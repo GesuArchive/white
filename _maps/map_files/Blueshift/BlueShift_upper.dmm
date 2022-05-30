@@ -38182,7 +38182,7 @@
 /obj/effect/turf_decal/stripes{
 	dir = 5
 	},
-/obj/machinery/rnd/production/protolathe/department/science,
+/obj/machinery/mecha_part_fabricator/sci,
 /turf/open/floor/plasteel,
 /area/science/lab)
 "nOf" = (

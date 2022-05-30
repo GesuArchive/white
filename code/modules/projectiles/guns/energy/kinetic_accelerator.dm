@@ -245,7 +245,9 @@
 
 //mecha_kineticgun version of the projectile
 /obj/projectile/kinetic/mech
-	range = 5
+	damage = 50
+	range = 6
+	pressure_decrease = 0.3
 
 //Modkits
 /obj/item/borg/upgrade/modkit

@@ -11,7 +11,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 3500, /datum/material/silver = 1500, /datum/material/titanium = 2500)
 	build_path = /obj/item/screwdriver/power
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ")
 	sub_category = list("Продвинутые инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -23,7 +23,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 4500, /datum/material/silver = 2500, /datum/material/titanium = 3500)
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ")
 	sub_category = list("Продвинутые инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -35,7 +35,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 500, /datum/material/plasma = 1500, /datum/material/uranium = 200)
 	build_path = /obj/item/weldingtool/experimental
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ")
 	sub_category = list("Продвинутые инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -47,7 +47,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/silver = 300, /datum/material/gold = 300)
 	build_path = /obj/item/multitool/tricorder
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ")
 	sub_category = list("Продвинутые инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -84,7 +84,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 2500, /datum/material/silver = 1500, /datum/material/titanium = 2000)
 	build_path = /obj/item/rcd_upgrade/frames
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ")
 	sub_category = list("Обслуживание монтажных комплексов")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -96,7 +96,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 2500, /datum/material/silver = 1500, /datum/material/titanium = 2000)
 	build_path = /obj/item/rcd_upgrade/simple_circuits
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ")
 	sub_category = list("Обслуживание монтажных комплексов")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -108,7 +108,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 2500, /datum/material/silver = 1500, /datum/material/titanium = 2000)
 	build_path = /obj/item/rcd_upgrade/furnishing
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ")
 	sub_category = list("Обслуживание монтажных комплексов")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -120,7 +120,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 2500, /datum/material/glass = 2500, /datum/material/silver = 2500, /datum/material/titanium = 2500, /datum/material/bluespace = 2500)
 	build_path = /obj/item/rcd_upgrade/silo_link
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ")
 	sub_category = list("Обслуживание монтажных комплексов")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -132,7 +132,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 2500)
 	build_path = /obj/item/rpd_upgrade/unwrench
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ")
 	sub_category = list("Обслуживание монтажных комплексов")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -144,7 +144,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 20000, /datum/material/glass = 10000, /datum/material/plastic = 8000, /datum/material/gold = 2000)
 	build_path = /obj/item/construction/rld
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ")
 	sub_category = list("Монтажные комплексы")
 	departmental_flags =  DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
 
@@ -167,7 +167,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 3000, /datum/material/glass = 4500, /datum/material/silver = 2500)
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ")
 	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -179,7 +179,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 75000, /datum/material/glass = 37500, /datum/material/plastic = 1000)
 	build_path = /obj/item/construction/plumbing/research
-	category = list("Рабочие инструменты")
+	category = list("Рабочие инструменты", "Научное оборудование")
+	sub_category = list("Хим-фабрика")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/biopsy_tool
@@ -190,7 +191,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 4000, /datum/material/glass = 3000)
 	build_path = /obj/item/biopsy_tool
-	category = list("Рабочие инструменты")
+	category = list("Рабочие инструменты", "Рабочие инструменты  ")
+	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /////////////////////////////////////////
@@ -205,7 +207,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/silver = 2500, /datum/material/plasma = 1000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ")
 	sub_category = list("Инопланетные инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -217,7 +219,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/silver = 2500, /datum/material/plasma = 1000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ")
 	sub_category = list("Инопланетные инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -229,7 +231,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/silver = 2500, /datum/material/plasma = 1000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ")
 	sub_category = list("Инопланетные инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -241,7 +243,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/silver = 2500, /datum/material/plasma = 1000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ")
 	sub_category = list("Инопланетные инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -253,7 +255,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/silver = 2500, /datum/material/plasma = 5000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ")
 	sub_category = list("Инопланетные инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -265,7 +267,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/silver = 2500, /datum/material/plasma = 5000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ")
 	sub_category = list("Инопланетные инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -353,7 +355,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 200, /datum/material/glass = 50)
 	build_path = /obj/item/discovery_scanner
-	category = list("Рабочие инструменты")
+	category = list("Рабочие инструменты", "Рабочие инструменты  ")
+	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/shuttlecreator

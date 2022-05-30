@@ -52,8 +52,8 @@
 	. = ..()
 
 /obj/item/organ/butt/bluebutt // bluespace butts, science
-	name = "жопа хранения"
-	desc = "Эта блюспейс жопа позвляет хранить немалое количество предметов в себе."
+	name = "блюспейс задница"
+	desc = "Высокотехнологичный протез задницы с подпространственным карманом для хранения предметов."
 	icon_state = "bluebutt"
 	worn_icon_state = "bluebutt"
 	status = ORGAN_ROBOTIC
@@ -359,15 +359,6 @@
 /obj/item/clothing/shoes/buttshoes/Initialize()
 	. = ..()
 	AddComponent(/datum/component/squeak, list('white/valtos/sounds/poo2.ogg'), 50)
-
-/datum/design/bluebutt
-	name = "Блюспейс жопа"
-	desc = "Эта высокотехнологическая жопа позволяет хранить в ней предметы чуть больше, чем сама жопа. Четыре крошечных предмета, два маленьких  или один средний."
-	id = "bluebutt"
-	build_type = PROTOLATHE
-	materials = list(/datum/material/gold = 400, /datum/material/diamond = 250, /datum/material/uranium = 250, /datum/material/bluespace = 250) //quite cheap, for more convenience. Уже не так cheap, лол
-	build_path = /obj/item/organ/butt/bluebutt
-	category = list("Блюспейс разработки")
 
 /mob/living/carbon/human/create_internal_organs()
 	internal_organs += new /obj/item/organ/butt

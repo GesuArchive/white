@@ -1,6 +1,6 @@
 /obj/machinery/hypnochair
-	name = "enhanced interrogation chamber"
-	desc = "A device used to perform \"enhanced interrogation\" through invasive mental conditioning."
+	name = "допросная камера"
+	desc = "Устройство, используемое для проведения \"допроса с пристрастием\" при помощи инвазивного ментального внедрения."
 	icon = 'icons/obj/machines/implantchair.dmi'
 	icon_state = "hypnochair"
 	circuit = /obj/item/circuitboard/machine/hypnochair

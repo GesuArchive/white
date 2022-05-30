@@ -469,7 +469,8 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/smartfridge
-	name = "Smartfridge (Оборудование)"
+	name = "умный холодильник"
+	desc = "Сохраняет холодные вещи холодными, а горячие... тоже холодными."
 	build_path = /obj/machinery/smartfridge
 	req_components = list(/obj/item/stock_parts/matter_bin = 1)
 	var/static/list/fridges_name_paths = list(/obj/machinery/smartfridge = "plant produce",
@@ -545,8 +546,8 @@
 	build_path = /obj/machinery/rnd/production/techfab/department
 
 /obj/item/circuitboard/machine/vendor
-	name = "Custom Vendor (Оборудование)"
-	desc = "You can turn the \"brand selection\" dial using a screwdriver."
+	name = "частный торговый автомат"
+	desc = "Комерция в действии! Вид торгового автомата можно изменить при помощи отвертки."
 	custom_premium_price = PAYCHECK_ASSISTANT * 1.5
 	build_path = /obj/machinery/vending/custom
 	req_components = list(/obj/item/vending_refill/custom = 1)
@@ -620,7 +621,8 @@
 	return ..()
 
 /obj/item/circuitboard/machine/vending/donksofttoyvendor
-	name = "Donksoft Toy Vendor (Оборудование)"
+	name = "торговый автомат игрушек DonkSoft"
+	desc = "Утвержденный поставщик игрушек в возрасте от 8 лет и старше."
 	build_path = /obj/machinery/vending/donksofttoyvendor
 	req_components = list(
 		/obj/item/stack/sheet/glass = 1,
@@ -869,7 +871,8 @@
 	def_components = list(/obj/item/stock_parts/cell = /obj/item/stock_parts/cell/high)
 
 /obj/item/circuitboard/machine/destructive_analyzer
-	name = "Destructive Analyzer (Оборудование)"
+	name = "деструктивный анализатор"
+	desc = "Если ты хочешь понять как работают вещи, тебе придется их сломать."
 	icon_state = "science"
 	build_path = /obj/machinery/rnd/destructive_analyzer
 	req_components = list(
@@ -878,7 +881,8 @@
 		/obj/item/stock_parts/micro_laser = 1)
 
 /obj/item/circuitboard/machine/experimentor
-	name = "E.X.P.E.R.I-MENTOR (Оборудование)"
+	name = "Э.К.С.П.Е.Р.И.Ментор"
+	desc = "\"Альтернативная\" версия деструктивного анализатора с небольшой тенденцией к катастрофическому выходу из строя."
 	icon_state = "science"
 	build_path = /obj/machinery/rnd/experimentor
 	req_components = list(
@@ -907,7 +911,8 @@
 		/obj/item/stack/sheet/glass = 1)
 
 /obj/item/circuitboard/machine/monkey_recycler
-	name = "Monkey Recycler (Оборудование)"
+	name = "переработчик обезьян"
+	desc = "Полезная машина, перерабатывающая мертвых обезьян в обезьяньи кубики."
 	icon_state = "science"
 	build_path = /obj/machinery/monkey_recycler
 	req_components = list(
@@ -1064,7 +1069,8 @@
 //Service
 
 /obj/item/circuitboard/machine/biogenerator
-	name = "Biogenerator (Оборудование)"
+	name = "биореактор"
+	desc = "Превращает растения в биомассу, которую можно использовать для изготовления полезных предметов."
 	icon_state = "service"
 	build_path = /obj/machinery/biogenerator
 	req_components = list(
@@ -1074,7 +1080,8 @@
 		/obj/item/stack/sheet/glass = 1)
 
 /obj/item/circuitboard/machine/chem_dispenser/drinks
-	name = "Soda Dispenser (Оборудование)"
+	name = "раздатчик газировки"
+	desc = "Содержит большой резервуар с безалкогольными напитками."
 	icon_state = "service"
 	build_path = /obj/machinery/chem_dispenser/drinks
 
@@ -1089,7 +1096,8 @@
 	)
 
 /obj/item/circuitboard/machine/chem_dispenser/drinks/beer
-	name = "Booze Dispenser (Оборудование)"
+	name = "раздатчик бухлишка"
+	desc = "Содержит большой резервуар ништяков."
 	icon_state = "service"
 	build_path = /obj/machinery/chem_dispenser/drinks/beer
 
@@ -1109,27 +1117,31 @@
 	build_path = /obj/machinery/chem_master/condimaster
 
 /obj/item/circuitboard/machine/deep_fryer
-	name = "circuit board (Deep Fryer)"
+	name = "фритюрница"
+	desc = "Жареное <i>всё</i>."
 	icon_state = "service"
 	build_path = /obj/machinery/deepfryer
 	req_components = list(/obj/item/stock_parts/micro_laser = 1)
 	needs_anchored = FALSE
 /obj/item/circuitboard/machine/griddle
-	name = "circuit board (Griddle)"
+	name = "гридль"
+	desc = "Потому что сковородки для жалких лузеров."
 	icon_state = "service"
 	build_path = /obj/machinery/griddle
 	req_components = list(/obj/item/stock_parts/micro_laser = 1)
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/oven
-	name = "circuit board (Oven)"
+	name = "духовка"
+	desc = "Не рекомендуется залезать внутрь."
 	greyscale_colors = CIRCUIT_COLOR_SERVICE
 	build_path = /obj/machinery/oven
 	req_components = list(/obj/item/stock_parts/micro_laser = 1)
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/dish_drive
-	name = "Dish Drive (Оборудование)"
+	name = "утилизатор тарелок"
+	desc = "Кулинарное чудо, которое использует преобразование вещества в энергию для хранения посуды и осколков. Удобно!"
 	icon_state = "service"
 	build_path = /obj/machinery/dish_drive
 	req_components = list(
@@ -1156,7 +1168,8 @@
 	to_chat(user, span_notice("You [transmit ? "enable" : "disable"] the board's automatic disposal transmission."))
 
 /obj/item/circuitboard/machine/gibber
-	name = "Gibber (Оборудование)"
+	name = "мясорубка"
+	desc = "Полагаю в более подробном описании не нуждается."
 	icon_state = "service"
 	build_path = /obj/machinery/gibber
 	req_components = list(
@@ -1165,7 +1178,8 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/hydroponics
-	name = "Hydroponics Tray (Оборудование)"
+	name = "лоток гидропоники"
+	desc = "Это самая высокотехнологичная, автоматизированная, автономная грядка которую вы когда-либо видели."
 	icon_state = "service"
 	build_path = /obj/machinery/hydroponics/constructable
 	req_components = list(
@@ -1197,7 +1211,8 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/processor
-	name = "Food Processor (Оборудование)"
+	name = "кухонный комбайн"
+	desc = "Промышленный измельчитель, используемый для обработки мяса и других продуктов. Во время работы держите руки подальше от приемника."
 	icon_state = "service"
 	build_path = /obj/machinery/processor
 	req_components = list(
@@ -1234,7 +1249,8 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/seed_extractor
-	name = "Seed Extractor (Оборудование)"
+	name = "экстрактор семян"
+	desc = "Извлекает и упаковывает семена из урожая."
 	icon_state = "service"
 	build_path = /obj/machinery/seed_extractor
 	req_components = list(
@@ -1248,7 +1264,8 @@
 	build_path = /obj/machinery/rnd/production/techfab/department/service
 
 /obj/item/circuitboard/machine/vendatray
-	name = "Vend-A-Tray (Оборудование)"
+	name = "торговая витрина"
+	desc = "Витрина со считывателем ID карты. Используйте свою ID карту для покупки содержимого."
 	icon_state = "service"
 	build_path = /obj/structure/displaycase/forsale
 	req_components = list(
@@ -1327,7 +1344,8 @@
 	build_path = /obj/machinery/rnd/production/techfab/department/cargo
 
 /obj/item/circuitboard/machine/bepis
-	name = "BEPIS Chamber (Оборудование)"
+	name = "Б.Е.П.И.С"
+	desc = "Высокоточное тестирующее устройство, которое открывает секреты известной вселенной, используя два самых мощных вещества, доступных человеку: чрезмерное количество электричества и деньги."
 	icon_state = "supply"
 	build_path = /obj/machinery/rnd/bepis
 	req_components = list(
@@ -1339,7 +1357,8 @@
 
 //Misc
 /obj/item/circuitboard/machine/sheetifier
-	name = "Sheet-meister 2000 (Оборудование)"
+	name = "листопрокатная машина"
+	desc = "Строительный материал из чего угодно."
 	icon_state = "supply"
 	build_path = /obj/machinery/sheetifier
 	req_components = list(
@@ -1348,7 +1367,8 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/restaurant_portal
-	name = "Restaurant Portal"
+	name = "портал ресторана"
+	desc = "Портал от Всемирной Организации Роботов-Гурманов!"
 	icon_state = "service"
 	build_path = /obj/machinery/restaurant_portal
 	needs_anchored = TRUE
@@ -1369,7 +1389,8 @@
 		/obj/item/stock_parts/micro_laser = /obj/item/stock_parts/micro_laser/quadultra)
 
 /obj/item/circuitboard/machine/hypnochair
-	name = "Enhanced Interrogation Chamber (Оборудование)"
+	name = "допросная камера"
+	desc = "Устройство, используемое для проведения \"допроса с пристрастием\" при помощи инвазивного ментального внедрения."
 	icon_state = "security"
 	build_path = /obj/machinery/hypnochair
 	req_components = list(
@@ -1436,7 +1457,8 @@
 	)
 
 /obj/item/circuitboard/machine/destructive_scanner
-	name = "Experimental Destructive Scanner (Machine Board)"
+	name = "экспериментально-деструктивный сканер"
+	desc = "Гораздо более крупная версия ручного сканера, обугленная этикетка предупреждает о его разрушительных возможностях."
 	icon_state = "science"
 	build_path = /obj/machinery/destructive_scanner
 	req_components = list(
@@ -1445,7 +1467,8 @@
 		/obj/item/stock_parts/manipulator = 2)
 
 /obj/item/circuitboard/machine/doppler_array
-	name = "Tachyon-Doppler Research Array (Machine Board)"
+	name = "ТДИМ"
+	desc = "Тахионно-доплеровский исследовательский массив. Специализированная система обнаружения тахионно-доплеровских бомб, в которой используется сложное бортовое программное обеспечение для записи данных для экспериментов."
 	icon_state = "science"
 	build_path = /obj/machinery/doppler_array/research
 	req_components = list(

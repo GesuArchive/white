@@ -59,6 +59,7 @@
 	name = "аптечка хирурга"
 	icon_state = "firstaid_surgery"
 	inhand_icon_state = "firstaid"
+	custom_premium_price = PAYCHECK_HARD * 2
 	desc = "Укладка с малым хирургическим набором и шовным материалом. Обладает гораздо большей вместительностью по сравнению с стандартной аптечкой."
 
 /obj/item/storage/firstaid/medical/ComponentInitialize()
@@ -360,6 +361,7 @@
 /obj/item/storage/pill_bottle/multiver
 	name = "баночка с таблетками мультивера"
 	desc = "Выводит из крови химические вещества и нейтрализует токсины. Эффективность растет по мере того, как увеличвается количество нейтрализуемых вещество. Вызывает средние повреждения легких. Разбавлена гранибиталури."
+	icon_state = "pill_bottle_multiver"
 
 /obj/item/storage/pill_bottle/multiver/PopulateContents()
 	for(var/i in 1 to 10)
@@ -382,6 +384,7 @@
 /obj/item/storage/pill_bottle/mutadone
 	name = "баночка с таблетками мутадона"
 	desc = "Устраняет генетические мутации и стабилизирует структуру ДНК."
+	icon_state = "pill_bottle_mutadone"
 
 /obj/item/storage/pill_bottle/mutadone/PopulateContents()
 	for(var/i in 1 to 10)
@@ -390,6 +393,7 @@
 /obj/item/storage/pill_bottle/potassiodide
 	name = "баночка с таблетками йодида калия"
 	desc = "Нейтрализует воздействие радиации на организм."
+	icon_state = "pill_bottle_potassiodide"
 
 /obj/item/storage/pill_bottle/potassiodide/PopulateContents()
 	for(var/i in 1 to 6)
@@ -397,7 +401,8 @@
 
 /obj/item/storage/pill_bottle/probital
 	name = "баночка с таблетками пробитала"
-	desc = "Используется для лечения физических повреждений средней степени тяжести. Рекомендуется принимать с едой. Может вызывать утомление. Разбавлена гранибиталури."
+	desc = "Используется для лечения физических повреждений средней степени тяжести. Рекомендуется принимать с едой. Может вызывать утомление. Разбавлен гранибиталури."
+	icon_state = "pill_bottle_probital"
 
 /obj/item/storage/pill_bottle/probital/PopulateContents()
 	for(var/i in 1 to 8)
@@ -406,6 +411,7 @@
 /obj/item/storage/pill_bottle/iron
 	name = "баночка с таблетками крововосстанавливающего"
 	desc = "Содержит железо для стимуляции восстановления уровня крови в организме."
+	icon_state = "pill_bottle_iron"
 
 /obj/item/storage/pill_bottle/iron/PopulateContents()
 	for(var/i in 1 to 8)
@@ -414,6 +420,7 @@
 /obj/item/storage/pill_bottle/mannitol
 	name = "баночка с таблетками маннитола"
 	desc = "Витаминный комплекс для правильной работы мозга. Помогает справится с головными болями и исправления легких повреждений мозга."
+	icon_state = "pill_bottle_mannitol"
 
 /obj/item/storage/pill_bottle/mannitol/PopulateContents()
 	for(var/i in 1 to 10)
@@ -480,6 +487,7 @@
 /obj/item/storage/pill_bottle/psicodine
 	name = "баночка с таблетками псикодина"
 	desc = "Содержит таблетки которые восстанавливают ясность сознания, подавляют фобии и панические атаки."
+	icon_state = "pill_bottle_psicodine"
 
 /obj/item/storage/pill_bottle/psicodine/PopulateContents()
 	for(var/i in 1 to 10)
@@ -488,6 +496,7 @@
 /obj/item/storage/pill_bottle/penacid
 	name = "баночка с таблетками пентетовой кислоты"
 	desc = "ДТПА, она же диэтилентриаминпентауксусная кислота. Вещество выводящее из тела токсины, радиацию и химикаты."
+	icon_state = "pill_bottle_penacid"
 
 /obj/item/storage/pill_bottle/penacid/PopulateContents()
 	for(var/i in 1 to 6)
@@ -497,6 +506,7 @@
 /obj/item/storage/pill_bottle/neurine
 	name = "баночка с таблетками нейрина"
 	desc = "Помогает при лечении легких церебральных травм."
+	icon_state = "pill_bottle_mannitol"
 
 /obj/item/storage/pill_bottle/neurine/PopulateContents()
 	for(var/i in 1 to 10)

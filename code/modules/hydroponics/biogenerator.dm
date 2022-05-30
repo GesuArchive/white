@@ -1,6 +1,6 @@
 /obj/machinery/biogenerator
-	name = "biogenerator"
-	desc = "Converts plants into biomass, which can be used to construct useful items."
+	name = "биореактор"
+	desc = "Превращает растения в биомассу, которую можно использовать для изготовления полезных предметов."
 	icon = 'icons/obj/machines/biogenerator.dmi'
 	icon_state = "biogen-empty"
 	density = TRUE

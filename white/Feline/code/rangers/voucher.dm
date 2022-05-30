@@ -293,7 +293,7 @@
 		..()
 		return
 // 	Космонавтики
-	if(iscarbon(M) && !isalien(M))
+	if(iscarbon(M) && !isalien(M) && !ismonkey(M))
 		if(amplification)
 			if(iszombie(M))
 				force = 60
@@ -312,9 +312,12 @@
 		..()
 		return
 // 	Чужие
-	if(isalienadult(M))
+	if(isalienadult(M) || ismonkey(M))
 		if(amplification)
 			force = 60
+
+			if(ismonkey(M))
+				M.Paralyze(5 SECONDS, ignore_canstun = TRUE)
 
 			if(isstunmob(M) && !isalienroyal(M))
 				var/mob/living/simple_animal/hostile/alien/Z = M

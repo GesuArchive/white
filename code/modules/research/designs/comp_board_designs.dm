@@ -33,7 +33,10 @@
 	desc = "Используется для доступа к различным камерам в РнД."
 	id = "rdcamera"
 	build_path = /obj/item/circuitboard/computer/research
-	category = list("Консоли")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	category = list("Консоли", "Научное оборудование")
+	sub_category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/xenobiocamera
@@ -41,7 +44,10 @@
 	desc = "Компьютер, используемый для наблюдения и перемещения слаймов."
 	id = "xenobioconsole"
 	build_path = /obj/item/circuitboard/computer/xenobiology
-	category = list("Консоли")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	category = list("Консоли", "Научное оборудование")
+	sub_category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/aiupload
@@ -50,7 +56,7 @@
 	id = "aiupload"
 	materials = list(/datum/material/glass = 1000, /datum/material/gold = 2000, /datum/material/diamond = 2000, /datum/material/bluespace = 2000)
 	build_path = /obj/item/circuitboard/computer/aiupload
-	category = list("Консоли")
+	category = list("Консоли")	//только в схемопринтере
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/borgupload
@@ -59,7 +65,7 @@
 	id = "borgupload"
 	materials = list(/datum/material/glass = 1000, /datum/material/gold = 2000, /datum/material/diamond = 2000, /datum/material/bluespace = 2000)
 	build_path = /obj/item/circuitboard/computer/borgupload
-	category = list("Консоли")
+	category = list("Консоли")	//только в схемопринтере
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/med_data
@@ -102,7 +108,7 @@
 	build_type = IMPRINTER | PROTOLATHE | MECHFAB
 	construction_time = 40
 	build_path = /obj/item/circuitboard/computer/scan_consolenew
-	category = list("Консоли", "Медицинское оборудование")
+	category = list("Консоли", "Медицинское оборудование", "Научное оборудование")
 	sub_category = list("Биоманипулирование")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL |DEPARTMENTAL_FLAG_SCIENCE
 
@@ -163,7 +169,10 @@
 	desc = "Используется для дистанционного блокирования или подрыва киборгов и ботов."
 	id = "robocontrol"
 	build_path = /obj/item/circuitboard/computer/robotics
-	category = list("Консоли")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	category = list("Консоли", "Научное оборудование")
+	sub_category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/slot_machine
@@ -209,7 +218,10 @@
 	desc = "Используется для удаленного отслеживания местоположения или блокировки экзокостюмов с подключенными маячками слежения."
 	id = "mechacontrol"
 	build_path = /obj/item/circuitboard/computer/mecha_control
-	category = list("Консоли")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	category = list("Консоли", "Научное оборудование")
+	sub_category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/mechapower
@@ -219,7 +231,7 @@
 	build_path = /obj/item/circuitboard/computer/mech_bay_power_console
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
-	category = list("Консоли", "Инженерное оборудование")
+	category = list("Консоли", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Производство")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -228,7 +240,10 @@
 	desc = "Консоль, используемая для взаимодействия с инструментами РнД."
 	id = "rdconsole"
 	build_path = /obj/item/circuitboard/computer/rdconsole
-	category = list("Консоли")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	category = list("Консоли", "Научное оборудование")
+	sub_category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/cargo
@@ -244,7 +259,10 @@
 	desc = "Консоль, которая загружает список свежих заданий от Центрального Командования."
 	id = "objective"
 	build_path = /obj/item/circuitboard/computer/objective
-	category = list("Консоли")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	category = list("Консоли", "Научное оборудование")
+	sub_category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/cargorequest
@@ -303,7 +321,7 @@
 	build_path = /obj/item/circuitboard/computer/aifixer
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
-	category = list("Консоли", "Инженерное оборудование")
+	category = list("Консоли", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -331,7 +349,10 @@
 	desc = "Управляет нанитной камерой. Может имплантировать наниты, задавать текущее программное облако и анализировать существующие нанитные программы."
 	id = "nanite_chamber_control"
 	build_path = /obj/item/circuitboard/computer/nanite_chamber_control
-	category = list("Консоли")
+	category = list("Консоли", "Научное оборудование")
+	sub_category = list("Наниты")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/nanite_cloud_control
@@ -339,7 +360,10 @@
 	desc = "Хранит в себе резервные копии облаков нанитных программ. Уничтожение может вызвать массовый отказ нанитов у активных пользователей."
 	id = "nanite_cloud_control"
 	build_path = /obj/item/circuitboard/computer/nanite_cloud_controller
-	category = list("Консоли")
+	category = list("Консоли", "Научное оборудование")
+	sub_category = list("Наниты")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/advanced_camera
@@ -376,7 +400,7 @@
 	desc = "Используется для сканирования и отправки разведывательных дронов."
 	id = "exoscanner_console"
 	build_path = /obj/item/circuitboard/computer/exoscanner_console
-	category = list("Консоли", "Инженерное оборудование")
+	category = list("Консоли", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Исследовательские дроны")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -386,7 +410,7 @@
 	desc = "Управляйте исследовательскими дронами с межзвездных расстояний. Задержка в комплект не входит."
 	id = "exodrone_console"
 	build_path = /obj/item/circuitboard/computer/exodrone_console
-	category = list("Консоли", "Инженерное оборудование")
+	category = list("Консоли", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Исследовательские дроны")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40

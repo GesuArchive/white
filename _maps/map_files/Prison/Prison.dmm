@@ -2349,7 +2349,7 @@
 /turf/open/floor/resin,
 /area/security/prison/safe)
 "Ce" = (
-/obj/machinery/rnd/production/protolathe/department/science,
+/obj/machinery/mecha_part_fabricator/sci,
 /turf/open/floor/plasteel/white,
 /area/science/lab)
 "Cg" = (

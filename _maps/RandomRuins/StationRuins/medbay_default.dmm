@@ -1484,6 +1484,10 @@
 "ji" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/plasticflaps/opaque,
+/obj/machinery/door/poddoor/preopen{
+	id = "chemistry_shutters2";
+	name = "Chemistry Shutter"
+	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay)
 "jz" = (
@@ -3927,6 +3931,10 @@
 /area/medical/virology)
 "Cj" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/preopen{
+	id = "chemistry_shutters2";
+	name = "Chemistry Shutter"
+	},
 /turf/open/floor/plating,
 /area/medical/medbay)
 "Co" = (

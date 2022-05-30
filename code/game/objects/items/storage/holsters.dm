@@ -33,8 +33,18 @@
 		))
 
 /obj/item/storage/belt/holster/thermal
-	name = "thermal shoulder holsters"
-	desc = "A rather plain pair of shoulder holsters with a bit of insulated padding inside. Meant to hold a twinned pair of thermal pistols, but can fit several kinds of energy handguns as well."
+	name = "кобура парных нанопистолетов"
+	desc = "Специальная двойная кобура для дуальных термальных нанопистолетов. Здесь есть специальные ремни для крепления на бронежилетах."
+	icon = 'white/Feline/icons/blaster_belt.dmi'
+	icon_state = "belt"
+
+/obj/item/storage/belt/holster/thermal/update_icon_state()
+	cut_overlays()
+	if(locate(/obj/item/gun/energy/laser/thermal/inferno) in contents)
+		add_overlay("red")
+	if(locate(/obj/item/gun/energy/laser/thermal/cryo) in contents)
+		add_overlay("blue")
+	return ..()
 
 /obj/item/storage/belt/holster/thermal/ComponentInitialize()
 	. = ..()

@@ -49,6 +49,20 @@
 	resistance_flags = FIRE_PROOF
 	item_flags = NO_MAT_REDEMPTION
 
+/obj/item/bag_of_holding_inert/attackby(obj/item/W, mob/user, params)
+	. = ..()
+	if(istype(W, /obj/item/assembly/signaler/anomaly/bluespace))
+		var/obj/item/assembly/signaler/anomaly/bluespace/S = W
+		to_chat(user, span_notice("Закрепляю ядро блюспейс аномалии в блюспейс сумке."))
+		playsound(user, 'sound/items/handling/component_pickup.ogg', 100, TRUE)
+		if(!do_after(user, 2 SECONDS, src))
+			return TRUE
+		playsound(user, 'sound/items/handling/cloth_pickup.ogg', 100, TRUE)
+		qdel(S)
+		var/obj/item/storage/backpack/holding/I = new()
+		user.put_in_hands(I)
+		qdel(src)
+
 /obj/item/storage/backpack/holding
 	name = "блюспейс сумка"
 	desc = "Рюкзак, который открывает портал в локализованный карман блюспейс пространства."

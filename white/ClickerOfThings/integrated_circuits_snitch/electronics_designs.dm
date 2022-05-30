@@ -1,29 +1,35 @@
 /datum/design/integrated_printer
-	name = "Integrated circuit printer"
-	desc = "This machine provides all necessary things for circuitry."
+	name = "Принтер интегральных схем"
+	desc = "Портативная машина, предназначенная для печати крошечных модульных интегральных схем."
 	id = "icprinter"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/glass = 5000, /datum/material/iron = 10000)
 	build_path = /obj/item/integrated_circuit_printer
-	category = list("Электроника")
+	category = list("Электроника", "Интегральные схемы")
+	sub_category = list("Интегральные схемы модели TGOld")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/IC_printer_upgrade_advanced
-	name = "Integrated circuit printer upgrade: Advanced Designs"
-	desc = "This disk allows for integrated circuit printers to print advanced circuitry designs."
+	name = "Модернизация принтера интегральных схем - расширенное ПО"
+	desc = "Содержит новые, усовершенствованные дизайны схем."
 	id = "icupgadv"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/glass = 10000, /datum/material/iron = 10000)
 	build_path = /obj/item/disk/integrated_circuit_old/upgrade/advanced
-	category = list("Электроника")
+	category = list("Электроника", "Интегральные схемы")
+	sub_category = list("Интегральные схемы модели TGOld")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/IC_printer_upgrade_clone
-	name = "Integrated circuit printer upgrade: Instant Cloning"
-	desc = "This disk allows for integrated circuit printers to clone designs instantaneously."
+	name = "Модернизация принтера интегральных схем - клонирование"
+	desc = "Позволяет принтеру мгновенно дублировать сборки интегральных схем."
 	id = "icupgclo"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/glass = 10000, /datum/material/iron = 10000)
 	build_path = /obj/item/disk/integrated_circuit_old/upgrade/clone
-	category = list("Электроника")
+	category = list("Электроника", "Интегральные схемы")
+	sub_category = list("Интегральные схемы модели TGOld")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE

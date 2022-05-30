@@ -22,7 +22,7 @@
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 500)
 	construction_time = 75
 	build_path = /obj/item/mmi
-	category = list("Медицинские разработки", "Медицинское снаряжение")
+	category = list("Медицинские разработки", "Медицинское снаряжение", "Научное снаряжение")
 	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -34,7 +34,7 @@
 	materials = list(/datum/material/iron = 1700, /datum/material/glass = 1350, /datum/material/gold = 500) //Gold, because SWAG.
 	construction_time = 75
 	build_path = /obj/item/mmi/posibrain
-	category = list("Медицинские разработки", "Медицинское снаряжение")
+	category = list("Медицинские разработки", "Медицинское снаряжение", "Научное снаряжение")
 	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -46,7 +46,7 @@
 	construction_time = 20
 	materials = list(/datum/material/glass = 5000, /datum/material/plastic = 3000, /datum/material/diamond = 1000, /datum/material/bluespace = 1000)
 	build_path = /obj/item/reagent_containers/glass/beaker/bluespace
-	category = list("Медицинские разработки", "Фармацевтика")
+	category = list("Медицинские разработки", "Фармацевтика", "Научное снаряжение")
 	sub_category = list("Химическая посуда")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -58,7 +58,7 @@
 	construction_time = 20
 	materials = list(/datum/material/iron = 3000)
 	build_path = /obj/item/reagent_containers/glass/beaker/noreact
-	category = list("Медицинские разработки", "Фармацевтика")
+	category = list("Медицинские разработки", "Фармацевтика", "Научное снаряжение")
 	sub_category = list("Химическая посуда")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -71,7 +71,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 	materials = list(/datum/material/glass = 2500, /datum/material/plastic = 3000)
 	build_path = /obj/item/reagent_containers/glass/beaker/plastic
-	category = list("Медицинские разработки", "Фармацевтика")
+	category = list("Медицинские разработки", "Фармацевтика", "Научное снаряжение")
 	sub_category = list("Химическая посуда")
 
 /datum/design/meta_beaker
@@ -83,7 +83,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 	materials = list(/datum/material/glass = 2500, /datum/material/plastic = 3000, /datum/material/gold = 1000, /datum/material/titanium = 1000)
 	build_path = /obj/item/reagent_containers/glass/beaker/meta
-	category = list("Медицинские разработки", "Фармацевтика")
+	category = list("Медицинские разработки", "Фармацевтика", "Научное снаряжение")
 	sub_category = list("Химическая посуда")
 
 /datum/design/ph_meter
@@ -106,7 +106,7 @@
 	construction_time = 20
 	materials = list(/datum/material/glass = 2000, /datum/material/plasma = 1000, /datum/material/diamond = 1000, /datum/material/bluespace = 500)
 	build_path = /obj/item/reagent_containers/syringe/bluespace
-	category = list("Медицинские разработки", "Фармацевтика")
+	category = list("Медицинские разработки", "Фармацевтика", "Научное снаряжение")
 	sub_category = list("Инъекции")
 
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
@@ -119,7 +119,7 @@
 	construction_time = 20
 	materials = list(/datum/material/iron = 300, /datum/material/glass = 100, /datum/material/silver = 50)
 	build_path = /obj/item/disk/data
-	category = list("Медицинские разработки", "Медицинское снаряжение")
+	category = list("Медицинские разработки", "Медицинское снаряжение", "Научное снаряжение")
 	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -143,7 +143,7 @@
 	construction_time = 30
 	materials = list(/datum/material/iron = 3000, /datum/material/plasma = 2000, /datum/material/diamond = 500, /datum/material/bluespace = 500)
 	build_path = /obj/item/bodybag/bluespace
-	category = list("Медицинские разработки", "Медицинское снаряжение")
+	category = list("Медицинские разработки", "Медицинское снаряжение", "Научное снаряжение")
 	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -239,7 +239,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 500)
-	category = list("Медицинские разработки", "Медицинское снаряжение")
+	category = list("Медицинские разработки", "Медицинское снаряжение", "Научное снаряжение")
 	sub_category = list("Диагностика и мониторинг")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
 

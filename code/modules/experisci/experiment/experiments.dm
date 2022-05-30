@@ -162,7 +162,9 @@
 		/obj/machinery/rnd/production/techfab/department/medical = 1,
 		/obj/machinery/rnd/production/techfab/department/security = 1,
 		/obj/machinery/rnd/production/techfab/department/service = 1,
-		/obj/machinery/mecha_part_fabricator/med = 2
+		/obj/machinery/mecha_part_fabricator/med = 2,
+		/obj/machinery/mecha_part_fabricator/engi = 2,
+		/obj/machinery/mecha_part_fabricator/sci = 2
 	)
 	required_tier = 2
 

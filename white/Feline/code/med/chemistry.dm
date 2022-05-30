@@ -212,7 +212,7 @@
 
 // Сенсорика
 /obj/item/reagent_containers/pill/sens
-	name = "Cенс-2"
+	name = "Сенс-2"
 	desc = "Витаминный комплекс помогающий при нарушении аудио-визуального восприятия."
 	icon_state = "pill23"
 	list_reagents = list(/datum/reagent/medicine/oculine = 10, /datum/reagent/medicine/inacusiate = 10)
@@ -221,6 +221,7 @@
 /obj/item/storage/pill_bottle/sens
 	name = "Сенс-2"
 	desc = "Витаминный комплекс помогающий при нарушении аудио-визуального восприятия."
+	icon_state = "pill_bottle_sens"
 
 /obj/item/storage/pill_bottle/sens/PopulateContents()
 	for(var/i in 1 to 6)

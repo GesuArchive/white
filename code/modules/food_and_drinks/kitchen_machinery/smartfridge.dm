@@ -2,8 +2,8 @@
 //  SmartFridge.  Much todo
 // -------------------------
 /obj/machinery/smartfridge
-	name = "smartfridge"
-	desc = "Keeps cold things cold and hot things cold."
+	name = "умный холодильник"
+	desc = "Сохраняет холодные вещи холодными, а горячие... тоже холодными."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "smartfridge"
 	layer = BELOW_OBJ_LAYER

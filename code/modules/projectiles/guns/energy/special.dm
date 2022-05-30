@@ -214,8 +214,8 @@
 		user.emote("agony")
 
 /obj/item/gun/energy/wormhole_projector
-	name = "блюспейс проектор червоточин"
-	desc = "Проектор, который излучает квантовые лучи высокой плотности с синей связью. Требуется ядро блюспейс аномалии для функционирования."
+	name = "портальная пушка"
+	desc = "Проектор, который излучает квантовые блюспейс порталы. Требуется ядро блюспейс аномалии для функционирования."
 	ammo_type = list(/obj/item/ammo_casing/energy/wormhole, /obj/item/ammo_casing/energy/wormhole/orange)
 	w_class = WEIGHT_CLASS_NORMAL
 	inhand_icon_state = null
@@ -376,7 +376,7 @@
 	return
 
 /obj/item/gun/energy/gravity_gun
-	name = "одноточечный гравитационный манипулятор"
+	name = "Гравитационная пушка"
 	desc = "Экспериментальное многорежимное устройство, которое запускает заряд энергии нулевой точки, вызывая локальные искажения в гравитации. Требуется ядро гравитационной аномалии для функционирования."
 	w_class = WEIGHT_CLASS_BULKY
 	ammo_type = list(/obj/item/ammo_casing/energy/gravity/repulse, /obj/item/ammo_casing/energy/gravity/attract, /obj/item/ammo_casing/energy/gravity/chaos)

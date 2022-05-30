@@ -51,7 +51,7 @@
 	cost = 950
 
 /datum/gear/auvtomat
-	display_name = "Нанопистолет"
+	display_name = "Нанопистолеты"
 	path = /obj/item/storage/belt/holster/thermal
 	allowed_roles = list("Security Officer", "Head of Security")
 	cost = 5000

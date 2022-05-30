@@ -31,7 +31,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 6000, /datum/material/glass = 6000)
 	category = list("Кибернетика", "Медицинские разработки")
-	sub_category = list("Протезирование")
+	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 // 	Плохие конечности
@@ -201,7 +201,7 @@
 	build_path = /obj/item/solnce
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
-	materials = list(/datum/material/iron = 5000, /datum/material/glass = 2000, /datum/material/gold = 2000, /datum/material/silver = 3000, /datum/material/titanium = 1000, /datum/material/uranium = 500, /datum/material/diamond = 500, /datum/material/plasma = 1000, /datum/material/bluespace = 1000, /datum/material/plastic = 2000)
+	materials = list(/datum/material/iron = 5000, /datum/material/glass = 2000, /datum/material/gold = 2000, /datum/material/silver = 3000, /datum/material/titanium = 1000, /datum/material/uranium = 500, /datum/material/plasma = 1000, /datum/material/bluespace = 1000, /datum/material/plastic = 2000)
 	category = list("Медицинское снаряжение")
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
@@ -218,15 +218,6 @@
 	sub_category = list("Кибер Импланты")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
-/*
-/datum/techweb_node/solnce
-	id = "solnce"
-	display_name = "МК-Солнце"
-	description = "Многофункциональный медицинский комплекс \"Солнце\". Передовая военная разработка в области экстренной полевой медицины. Для начала работы необходимо нажать кнопку инициации выбора модуля, после чего установить соответствующие расходные материалы."
-	prereq_ids = list("adv_biotech", "autodoc")
-	design_ids = list("solnce")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
-*/
 // Операции
 
 /*

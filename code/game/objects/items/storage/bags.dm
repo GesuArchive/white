@@ -179,7 +179,7 @@
 /obj/item/storage/bag/ore/cyborg
 	name = "сумка для руды киборга"
 
-/obj/item/storage/bag/ore/holding //miners, your messiah has arrived
+/obj/item/storage/bag/ore/holding
 	name = "бездонная сумка для руды"
 	desc = "Революция в удобстве: этот рюкзак позволяет хранить огромное количество руды. Он оборудован мерами безопасности от сбоев."
 	icon_state = "satchel_bspace"

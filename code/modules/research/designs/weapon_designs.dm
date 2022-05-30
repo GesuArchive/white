@@ -250,13 +250,15 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/wormhole_projector
-	name = "Bluespace Wormhole Projector"
-	desc = "A projector that emits high density quantum-coupled bluespace beams. Requires a bluespace anomaly core to function."
+	name = "Портальная пушка"
+	desc = "Проектор, который излучает квантовые блюспейс порталы. Требуется ядро блюспейс аномалии для функционирования."
 	id = "wormholeprojector"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/silver = 2000, /datum/material/iron = 5000, /datum/material/diamond = 2000, /datum/material/bluespace = 3000)
 	build_path = /obj/item/gun/energy/wormhole_projector
-	category = list("Вооружение")
+	category = list("Вооружение", "Научное снаряжение")
+	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/stunshell
@@ -273,10 +275,12 @@
 	name = "12 Калибр: Пустой высокотехнологичный патрон"
 	desc = "Высокотехнологичная пуля, в которую можно загружать материалы для создания уникальных эффектов."
 	id = "techshotshell"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 200)
 	build_path = /obj/item/ammo_casing/shotgun/techshell
-	category = list("Аммуниция")
+	category = list("Аммуниция", "Научное снаряжение")
+	sub_category = list("Ружейные патроны 12 калибра")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/suppressor
@@ -290,13 +294,15 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/gravitygun
-	name = "One-point Gravitational Manipulator"
-	desc = "A multi-mode device that blasts one-point bluespace-gravitational bolts that locally distort gravity. Requires a gravitational anomaly core to function."
+	name = "Гравитационная пушка"
+	desc = "Экспериментальное многорежимное устройство, которое запускает заряд энергии нулевой точки, вызывая локальные искажения в гравитации. Требуется ядро гравитационной аномалии для функционирования."
 	id = "gravitygun"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/silver = 8000, /datum/material/uranium = 8000, /datum/material/glass = 12000, /datum/material/iron = 12000, /datum/material/diamond = 3000, /datum/material/bluespace = 3000)
 	build_path = /obj/item/gun/energy/gravity_gun
-	category = list("Вооружение")
+	category = list("Вооружение", "Научное снаряжение")
+	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/largecrossbow

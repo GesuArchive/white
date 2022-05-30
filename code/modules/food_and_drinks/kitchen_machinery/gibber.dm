@@ -1,6 +1,6 @@
 /obj/machinery/gibber
-	name = "gibber"
-	desc = "The name isn't descriptive enough?"
+	name = "мясорубка"
+	desc = "Полагаю в более подробном описании не нуждается."
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "grinder"
 	density = TRUE

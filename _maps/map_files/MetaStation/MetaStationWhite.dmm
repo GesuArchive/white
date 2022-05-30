@@ -73967,7 +73967,7 @@
 /turf/open/floor/plasteel,
 /area/science/lab)
 "rXN" = (
-/obj/machinery/rnd/production/protolathe/department/science,
+/obj/machinery/mecha_part_fabricator/sci,
 /obj/machinery/light,
 /turf/open/floor/plasteel/dark,
 /area/science/lab)

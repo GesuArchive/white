@@ -9,8 +9,8 @@
 #define STANDARD_DEVIATION 2*CARGO_CRATE_VALUE
 
 /obj/machinery/rnd/bepis
-	name = "\improper B.E.P.I.S. Chamber"
-	desc = "A high fidelity testing device which unlocks the secrets of the known universe using the two most powerful substances available to man: excessive amounts of electricity and capital."
+	name = "Б.Е.П.И.С"
+	desc = "Высокоточное тестирующее устройство, которое открывает секреты известной вселенной, используя два самых мощных вещества, доступных человеку: чрезмерное количество электричества и деньги."
 	icon = 'icons/obj/machines/bepis.dmi'
 	icon_state = "chamber"
 	density = TRUE

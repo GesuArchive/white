@@ -10,7 +10,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000) //hardcore
 	build_path = /obj/item/storage/part_replacer
-	category = list("Запчасти оборудования","Рабочие инструменты ")
+	category = list("Запчасти оборудования","Рабочие инструменты ","Рабочие инструменты  ")
 	sub_category = list("Монтажные комплексы")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -22,7 +22,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 15000, /datum/material/glass = 5000, /datum/material/silver = 2500) //hardcore
 	build_path = /obj/item/storage/part_replacer/bluespace
-	category = list("Запчасти оборудования","Рабочие инструменты ")
+	category = list("Запчасти оборудования","Рабочие инструменты ","Рабочие инструменты  ")
 	sub_category = list("Монтажные комплексы")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 

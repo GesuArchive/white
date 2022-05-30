@@ -11,7 +11,8 @@
 	construction_time = 40
 	materials = list(/datum/material/glass = 1000, /datum/material/gold = 200)
 	build_path = /obj/item/aicard
-	category = list("Электроника")
+	category = list("Электроника", "Научное снаряжение")
+	sub_category = list("Электроника")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/paicard
@@ -22,7 +23,7 @@
 	construction_time = 40
 	materials = list(/datum/material/glass = 500, /datum/material/iron = 500)
 	build_path = /obj/item/paicard
-	category = list("Электроника", "Инженерное снаряжение")
+	category = list("Электроника", "Инженерное снаряжение", "Научное снаряжение")
 	sub_category = list("Экипировка")
 
 
@@ -30,10 +31,12 @@
 	name = "Модернизация ПО камер для ИИ"
 	desc = "Нелегальный программный пакет, который позволит ИИ \"слышать\" со своих камер с помощью чтения по губам и скрытым микрофонам."
 	id = "ai_cam_upgrade"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 5000, /datum/material/gold = 15000, /datum/material/silver = 15000, /datum/material/diamond = 20000, /datum/material/plasma = 10000)
 	build_path = /obj/item/surveillance_upgrade
-	category = list("Электроника")
+	category = list("Электроника", "Научное снаряжение")
+	sub_category = list("Электроника")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 ///////////////////////////////////
@@ -43,30 +46,36 @@
 	name = "Пульт дистанционного управления нанитами"
 	desc = "Устройство, которое может дистанционно управлять активными нанитами с помощью беспроводных сигналов."
 	id = "nanite_remote"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/glass = 500, /datum/material/iron = 500)
 	build_path = /obj/item/nanite_remote
-	category = list("Электроника")
+	category = list("Электроника", "Научное снаряжение")
+	sub_category = list("Электроника")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/nanite_comm_remote
 	name = "Консольный пульт управления нанитами"
 	desc = "Устройство, которое может отправлять текстовые сообщения определенным программам."
 	id = "nanite_comm_remote"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/glass = 500, /datum/material/iron = 500)
 	build_path = /obj/item/nanite_remote/comm
-	category = list("Электроника")
+	category = list("Электроника", "Научное снаряжение")
+	sub_category = list("Электроника")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/nanite_scanner
 	name = "Анализатор нанитов"
 	desc = "Устройство для определения нанитов и их особенностей."
 	id = "nanite_scanner"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/glass = 500, /datum/material/iron = 500)
 	build_path = /obj/item/nanite_scanner
-	category = list("Электроника")
+	category = list("Электроника", "Научное снаряжение")
+	sub_category = list("Электроника")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 
@@ -74,41 +83,49 @@
 //////////Disk Construction Disks///////
 ////////////////////////////////////////
 /datum/design/design_disk
-	name = "диск для записи чертежей"
+	name = "Диск для записи чертежей"
 	desc = "Диск для хранения конструктивных данных устройства для изготовления в автолатах."
 	id = "design_disk"
-	build_type = PROTOLATHE | AUTOLATHE
+	build_type = PROTOLATHE | AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 300, /datum/material/glass = 100)
 	build_path = /obj/item/disk/design_disk
-	category = list("Электроника")
+	category = list("Электроника", "Научное снаряжение")
+	sub_category = list("Электроника")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/design_disk_adv
 	name = "Продвинутый диск для записи чертежей"
 	desc = "Диск для хранения конструктивных данных устройства для изготовления в автолатах. Продвинутая версия обладает большей емкостью."
 	id = "design_disk_adv"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 300, /datum/material/glass = 100, /datum/material/silver=50)
 	build_path = /obj/item/disk/design_disk/adv
-	category = list("Электроника")
+	category = list("Электроника", "Научное снаряжение")
+	sub_category = list("Электроника")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/tech_disk
 	name = "Диск для записи исследований"
 	desc = "Диск для хранения технологических данных для дальнейших исследований."
 	id = "tech_disk"
-	build_type = PROTOLATHE | AUTOLATHE
+	build_type = PROTOLATHE | AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 300, /datum/material/glass = 100)
 	build_path = /obj/item/disk/tech_disk
-	category = list("Электроника")
+	category = list("Электроника", "Научное снаряжение")
+	sub_category = list("Электроника")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/nanite_disk
 	name = "Диск для записи нанитных программ"
 	desc = "Диск, способный хранить программы нанитов. Может быть настроен с помощью консоли программирования нанитов."
 	id = "nanite_disk"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 300, /datum/material/glass = 100)
 	build_path = /obj/item/disk/nanite_program
-	category = list("Электроника")
+	category = list("Электроника", "Научное снаряжение")
+	sub_category = list("Электроника")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE

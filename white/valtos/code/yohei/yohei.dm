@@ -398,8 +398,8 @@
 	if(!current_task)
 		var/static/list/choices = list(
 			"Классическая охота" = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "classic"),
-			"Помочь событиям" 	 = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "gamemode"),
-			"Кровавая месть" 	 = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "revenge")
+			"Помочь событиям" 	 = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "gamemode")
+//			"Кровавая месть" 	 = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "revenge")
 		)
 		var/choice = show_radial_menu(user, src, choices, tooltips = TRUE)
 		if(!choice)
@@ -411,7 +411,7 @@
 			var/datum/yohei_task/new_task = pick(possible_tasks)
 			current_task = new new_task()
 			return
-		else if (choice == "Кровавая месть")
+/*		else if (choice == "Кровавая месть")
 			internal_radio.talk_into(src, "Загружаю подпрограмму Феникс для пользователя [user.name]...", FREQ_YOHEI)
 			var/list/victims = list()
 			for(var/V in GLOB.data_core.locked)
@@ -430,6 +430,7 @@
 				A.greet()
 				to_chat(victim, span_userdanger("Кто-то ОЧЕНЬ СИЛЬНО хочет мне навредить..."))
 			return
+*/
 		else
 			internal_radio.talk_into(src, "Особых заданий больше НЕТ!", FREQ_YOHEI)
 			//current_task = new /datum/yohei_task/gamemode()

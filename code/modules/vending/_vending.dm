@@ -1091,7 +1091,8 @@ GLOBAL_LIST_EMPTY(vending_products)
 	return ..()
 
 /obj/machinery/vending/custom
-	name = "Custom Vendor"
+	name = "частный торговый автомат"
+	desc = "Комерция в действии!"
 	icon_state = "robotics"
 	icon_deny = "robotics-deny"
 	max_integrity = 400

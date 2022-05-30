@@ -59,7 +59,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
 	build_path = /obj/item/clothing/glasses/hud/diagnostic
-	category = list("Снаряжение", "Инженерное снаряжение")
+	category = list("Снаряжение", "Инженерное снаряжение", "Научное снаряжение")
 	sub_category = list("Диагностика и мониторинг")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -71,7 +71,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/uranium = 1000, /datum/material/plasma = 300)
 	build_path = /obj/item/clothing/glasses/hud/diagnostic/night
-	category = list("Снаряжение", "Инженерное снаряжение")
+	category = list("Снаряжение", "Инженерное снаряжение", "Научное снаряжение")
 	sub_category = list("Диагностика и мониторинг")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -83,19 +83,19 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
 	build_path = /obj/item/clothing/glasses/science
-	category = list("Снаряжение", "Медицинское снаряжение")
+	category = list("Снаряжение", "Медицинское снаряжение", "Научное снаряжение")
 	sub_category = list("Диагностика и мониторинг")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/sci_goggles_night
 	name = "Научные очки с ПНВ"
-	desc = "Диагностический интерфейс робототехника со встроенной подсветкой."
+	desc = "Аналитический интерфейс химиков и ученых со встроенной подсветкой."
 	id = "sci_goggles_night"
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/uranium = 1000, /datum/material/plasma = 300)
 	build_path = /obj/item/clothing/glasses/science/night
-	category = list("Снаряжение", "Инженерное снаряжение")
+	category = list("Снаряжение", "Медицинское снаряжение", "Научное снаряжение")
 	sub_category = list("Диагностика и мониторинг")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
 
@@ -111,7 +111,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
 	build_path = /obj/item/clothing/glasses/welding
-	category = list("Снаряжение", "Инженерное снаряжение")
+	category = list("Снаряжение", "Инженерное снаряжение", "Научное снаряжение")
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -123,7 +123,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 3000, /datum/material/glass = 1000)
 	build_path = /obj/item/clothing/mask/gas/welding
-	category = list("Снаряжение", "Инженерное снаряжение")
+	category = list("Снаряжение", "Инженерное снаряжение", "Научное снаряжение")
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -228,7 +228,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/plasma = 350, /datum/material/uranium = 1000)
 	build_path = /obj/item/clothing/glasses/night
-	category = list("Снаряжение", "Инженерное снаряжение")
+	category = list("Снаряжение", "Инженерное снаряжение", "Научное снаряжение")
 	sub_category = list("Диагностика и мониторинг")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_SECURITY
 
@@ -297,7 +297,7 @@
 	construction_time = 40
 	materials = list(/datum/material/glass = 500, /datum/material/iron = 500, /datum/material/silver = 500, /datum/material/bluespace = 1000)
 	build_path = /obj/item/quantum_keycard
-	category = list("Снаряжение", "Инженерное снаряжение")
+	category = list("Снаряжение", "Инженерное снаряжение", "Научное снаряжение")
 	sub_category = list("Связь и навигация")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -309,7 +309,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 2000, /datum/material/gold = 2000, /datum/material/plasma = 5000, /datum/material/uranium = 2000)
 	build_path = /obj/item/anomaly_neutralizer
-	category = list("Снаряжение", "Инженерное снаряжение")
+	category = list("Снаряжение", "Инженерное снаряжение", "Научное снаряжение")
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -331,7 +331,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 2000)
 	build_path = /obj/item/tank/internals/oxygen/empty
-	category = list("Снаряжение", "Инженерное снаряжение")
+	category = list("Снаряжение", "Инженерное снаряжение", "Научное снаряжение")
 	sub_category = list("Огнетушители и газовые баллоны")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -343,7 +343,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 2000)
 	build_path = /obj/item/tank/internals/plasma/empty
-	category = list("Снаряжение", "Инженерное снаряжение")
+	category = list("Снаряжение", "Инженерное снаряжение", "Научное снаряжение")
 	sub_category = list("Огнетушители и газовые баллоны")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -449,7 +449,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 1500, /datum/material/silver = 150, /datum/material/glass = 3000)
 	build_path = /obj/item/lightreplacer
-	category = list("Снаряжение", "Рабочие инструменты ")
+	category = list("Снаряжение", "Рабочие инструменты ", "Рабочие инструменты  ")
 	sub_category = list("Монтажные комплексы")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -568,7 +568,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 1000, /datum/material/gold = 1000, /datum/material/silver = 1000)
 	build_path = /obj/item/holosign_creator/atmos
-	category = list("Снаряжение", "Инженерное снаряжение")
+	category = list("Снаряжение", "Инженерное снаряжение", "Научное снаряжение")
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -596,7 +596,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 10000, /datum/material/diamond = 5000, /datum/material/uranium = 8000, /datum/material/silver = 4500, /datum/material/gold = 5000)
 	build_path = /obj/item/reactive_armour_shell
-	category = list("Снаряжение", "Инженерное снаряжение")
+	category = list("Снаряжение", "Инженерное снаряжение", "Научное снаряжение")
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -632,7 +632,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 2500)
 	build_path = /obj/item/flashlight/seclite
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Инженерное снаряжение")
+	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/detective_scanner
@@ -643,7 +644,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 1000, /datum/material/gold = 2500, /datum/material/silver = 2000)
 	build_path = /obj/item/detective_scanner
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Медицинское снаряжение")
+	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/pepperspray

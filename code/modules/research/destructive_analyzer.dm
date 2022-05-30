@@ -7,7 +7,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 */
 /obj/machinery/rnd/destructive_analyzer
 	name = "деструктивный анализатор"
-	desc = "Узнай науку, уничтожая вещи!"
+	desc = "Если ты хочешь понять как работают вещи, тебе придется их сломать."
 	icon_state = "d_analyzer"
 	circuit = /obj/item/circuitboard/machine/destructive_analyzer
 	var/decon_mod = 0

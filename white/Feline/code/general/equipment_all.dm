@@ -312,6 +312,7 @@
 	icon_state = "st3"
 
 /obj/item/armor_disassembly_riot/attackby(obj/item/W, mob/user, params)
+	. = ..()
 	if(istype(W, /obj/item/stack/sheet/armor_plate/plasteel))
 		var/obj/item/stack/sheet/armor_plate/plasteel/S = W
 		to_chat(user, span_notice("Прикрепляю дополнительную демпферную бронепластину, теперь бронежилет будет лучше защищать от ударов."))
@@ -355,7 +356,7 @@
 
 /obj/item/clothing/suit/armor/vest/fieldmedic
 	name = "бронекуртка полевого медика"
-	desc = "Бронированный лабораторный халат полевого врача фронтира. Тот кто по настоящему желает спасать жизни не сидит в госпитале, а работает на поле боя. Но иногда единственный способ спасти жизнь -  это забрать другую."
+	desc = "Бронекуртка полевого врача фронтира. Тот кто по настоящему желает спасать жизни не сидит в госпитале, а работает на поле боя. Но иногда единственный способ спасти жизнь -  это забрать другую."
 	icon = 'white/Feline/icons/lab_armor_front.dmi'
 	worn_icon = 'white/Feline/icons/lab_armor_body.dmi'
 	icon_state = "fieldmed"
@@ -375,7 +376,7 @@
 
 /obj/item/clothing/suit/armor/vest/fieldmedic/paramedic
 	name = "бронекуртка парамедика"
-	desc = "Бронированный лабораторный халат санитара фронтира. Настоящая смелость это не марш с оружием на врага. Настоящая смелость это вытаскивание раненного из под огня противника, когда у тебя даже нет оружия."
+	desc = "Бронекуртка санитара фронтира. Настоящая смелость это не марш с оружием на врага. Настоящая смелость это вытаскивание раненного из под огня противника, когда у тебя даже нет оружия."
 	icon = 'white/Feline/icons/lab_armor_front.dmi'
 	worn_icon = 'white/Feline/icons/lab_armor_body.dmi'
 	icon_state = "paramedic"

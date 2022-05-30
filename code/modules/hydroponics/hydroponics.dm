@@ -1,6 +1,7 @@
 
 /obj/machinery/hydroponics
-	name = "Лоток гидропоники"
+	name = "лоток гидропоники"
+	desc = "Это самая высокотехнологичная, автоматизированная, автономная грядка которую вы когда-либо видели."
 	icon = 'icons/obj/hydroponics/equipment.dmi'
 	icon_state = "hydrotray"
 	density = TRUE
@@ -64,7 +65,7 @@
 
 
 /obj/machinery/hydroponics/constructable
-	name = "Лоток гидропоники"
+	name = "лоток гидропоники"
 	icon = 'icons/obj/hydroponics/equipment.dmi'
 	icon_state = "hydrotray3"
 

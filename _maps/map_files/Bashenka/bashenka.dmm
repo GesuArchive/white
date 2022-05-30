@@ -23057,7 +23057,7 @@
 /turf/open/floor/plasteel/dark,
 /area/science/research)
 "spP" = (
-/obj/machinery/rnd/production/protolathe/department/science,
+/obj/machinery/mecha_part_fabricator/sci,
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},

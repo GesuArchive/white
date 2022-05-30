@@ -24245,7 +24245,7 @@
 "dcK" = (
 /obj/machinery/status_display/ai/directional/east,
 /obj/machinery/light/directional/east,
-/obj/machinery/rnd/production/protolathe/department/science,
+/obj/machinery/mecha_part_fabricator/sci,
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},

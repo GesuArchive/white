@@ -61,7 +61,7 @@
 	desc = "Компьютер для дистанционного управления газовой турбиной."
 	id = "power_turbine_console"
 	build_path = /obj/item/circuitboard/computer/turbine_computer
-	category = list ("Инженерное оборудование")
+	category = list ("Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Газовая турбина")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -72,7 +72,7 @@
 	desc = "Мощный промышленный лазер, часто используемый в области силовых полей и производства электроэнергии."
 	id = "emitter"
 	build_path = /obj/item/circuitboard/machine/emitter
-	category = list ("Инженерное оборудование")
+	category = list ("Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Сингулярность, тесла и суперматерия")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -83,7 +83,7 @@
 	desc = "Компрессорная ступень газотурбинного генератора."
 	id = "power_compressor"
 	build_path = /obj/item/circuitboard/machine/power_compressor
-	category = list ("Инженерное оборудование")
+	category = list ("Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Газовая турбина")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -94,7 +94,7 @@
 	desc = "Газовая турбина, используемая для резервного производства электроэнергии."
 	id = "power_turbine"
 	build_path = /obj/item/circuitboard/machine/power_turbine
-	category = list ("Инженерное оборудование")
+	category = list ("Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Газовая турбина")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -107,7 +107,7 @@
 	build_type = PROTOLATHE | IMPRINTER | MECHFAB
 	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/thermomachine
-	category = list ("Инженерное оборудование", "Медицинское оборудование")
+	category = list ("Инженерное оборудование", "Медицинское оборудование", "Научное оборудование")
 	sub_category = list("Терморегуляция")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_MEDICAL
 
@@ -118,7 +118,7 @@
 	build_path = /obj/item/circuitboard/machine/space_heater
 	build_type = PROTOLATHE | IMPRINTER | MECHFAB
 	construction_time = 40
-	category = list ("Инженерное оборудование")
+	category = list ("Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Терморегуляция")
 	departmental_flags = ALL
 
@@ -127,7 +127,7 @@
 	desc = "Станция управления питанием блюспейс телепорта. Распределяет силовые нагрузки и калибрует пространственный прокол для предотвращения искажений."
 	id = "tele_station"
 	build_path = /obj/item/circuitboard/machine/teleporter_station
-	category = list ("Телепортация", "Инженерное оборудование")
+	category = list ("Телепортация", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Телепортация")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -138,7 +138,7 @@
 	desc = "Открывает проход сквозь блюспейс пространство."
 	id = "tele_hub"
 	build_path = /obj/item/circuitboard/machine/teleporter_hub
-	category = list ("Телепортация", "Инженерное оборудование")
+	category = list ("Телепортация", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Телепортация")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -149,7 +149,7 @@
 	desc = "Квантовый блюспейс телепад, используемый для телепортации объектов на другие квантовые телепады."
 	id = "quantumpad"
 	build_path = /obj/item/circuitboard/machine/quantumpad
-	category = list ("Телепортация", "Инженерное оборудование")
+	category = list ("Телепортация", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Телепортация")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -160,7 +160,7 @@
 	desc = "Блюспейс телепад, способный перемещать материю сквозь блюспейс. Не требует фактических координат, работает на смещении координат относительно консоли. Дальность работы зависит от деталей."
 	id = "launchpad"
 	build_path = /obj/item/circuitboard/machine/launchpad
-	category = list ("Телепортация", "Инженерное оборудование")
+	category = list ("Телепортация", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Телепортация")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -171,7 +171,7 @@
 	desc = "Используется для калибровки и управления блюспейс телепадом. Не требует фактических координат, работает на смещении координат относительно консоли. Дальность работы зависит от деталей."
 	id = "launchpad_console"
 	build_path = /obj/item/circuitboard/computer/launchpad_console
-	category = list ("Телепортация", "Инженерное оборудование")
+	category = list ("Телепортация", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Телепортация")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -182,7 +182,7 @@
 	desc = "Используется для управления связанными телепортационной аркой и станцией."
 	id = "teleconsole"
 	build_path = /obj/item/circuitboard/computer/teleporter
-	category = list("Телепортация", "Инженерное оборудование")
+	category = list("Телепортация", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Телепортация")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -255,51 +255,60 @@
 	sub_category = list("Химпроизводство")
 
 /datum/design/board/hypnochair
-	name = "Оборудование (Enhanced Interrogation Chamber)"
-	desc = "Allows for the construction of circuit boards used to build an Enhanced Interrogation Chamber."
+	name = "Допросная камера"
+	desc = "Устройство, используемое для проведения \"допроса с пристрастием\" при помощи инвазивного ментального внедрения."
 	id = "hypnochair"
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 	build_path = /obj/item/circuitboard/machine/hypnochair
 	category = list("Различное оборудование")
 
 /datum/design/board/biogenerator
-	name = "Оборудование (Biogenerator Board)"
-	desc = "The circuit board for a biogenerator."
+	name = "Биореактор"
+	desc = "Превращает растения в биомассу, которую можно использовать для изготовления полезных предметов."
 	id = "biogenerator"
 	build_path = /obj/item/circuitboard/machine/biogenerator
 	category = list ("Оборудование гидропоники")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/board/hydroponics
-	name = "Оборудование (Hydroponics Tray Board)"
-	desc = "The circuit board for a hydroponics tray."
+	name = "Лоток гидропоники"
+	desc = "Это самая высокотехнологичная, автоматизированная, автономная грядка которую вы когда-либо видели."
 	id = "hydro_tray"
 	build_path = /obj/item/circuitboard/machine/hydroponics
 	category = list ("Оборудование гидропоники")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/board/destructive_analyzer
-	name = "Оборудование (Destructive Analyzer Board)"
-	desc = "The circuit board for a destructive analyzer."
+	name = "Деструктивный анализатор"
+	desc = "Если ты хочешь понять как работают вещи, тебе придется их сломать."
 	id = "destructive_analyzer"
 	build_path = /obj/item/circuitboard/machine/destructive_analyzer
-	category = list("Исследовательское оборудование")
+	category = list("Исследовательское оборудование", "Научное оборудование")
+	sub_category = list("Исследовательское оборудование")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/experimentor
-	name = "Оборудование (E.X.P.E.R.I-MENTOR Board)"
-	desc = "The circuit board for an E.X.P.E.R.I-MENTOR."
+	name = "Э.К.С.П.Е.Р.И.Ментор"
+	desc = "\"Альтернативная\" версия деструктивного анализатора с небольшой тенденцией к катастрофическому выходу из строя."
 	id = "experimentor"
 	build_path = /obj/item/circuitboard/machine/experimentor
-	category = list("Исследовательское оборудование")
+	category = list("Исследовательское оборудование", "Научное оборудование")
+	sub_category = list("Исследовательское оборудование")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/bepis
-	name = "Оборудование (B.E.P.I.S. Board)"
-	desc = "The circuit board for a B.E.P.I.S."
+	name = "Б.Е.П.И.С"
+	desc = "Высокоточное тестирующее устройство, которое открывает секреты известной вселенной, используя два самых мощных вещества, доступных человеку: чрезмерное количество электричества и деньги."
 	id = "bepis"
 	build_path = /obj/item/circuitboard/machine/bepis
-	category = list("Исследовательское оборудование")
+	category = list("Исследовательское оборудование", "Научное оборудование")
+	sub_category = list("Исследовательское оборудование")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/board/protolathe
@@ -309,7 +318,7 @@
 	build_path = /obj/item/circuitboard/machine/protolathe
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
-	category = list("Исследовательское оборудование", "Инженерное оборудование")
+	category = list("Исследовательское оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Производство")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -320,7 +329,7 @@
 	build_path = /obj/item/circuitboard/machine/circuit_imprinter
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
-	category = list("Исследовательское оборудование", "Инженерное оборудование")
+	category = list("Исследовательское оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Производство")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -329,7 +338,10 @@
 	desc = "Используется для доступа к серверам производственно-исследовательских баз данных."
 	id = "rdservercontrol"
 	build_path = /obj/item/circuitboard/computer/rdservercontrol
-	category = list("Исследовательское оборудование")
+	category = list("Исследовательское оборудование", "Научное оборудование")
+	sub_category = list("Исследовательское оборудование")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/rdserver
@@ -337,7 +349,10 @@
 	desc = "Компьютерная система, работающая на развитой нейронной сети, которая обрабатывает произвольную информацию для получения данных, пригодных для разработки новых технологий. С точки компьютерного ботана, оно производит очки исследований."
 	id = "rdserver"
 	build_path = /obj/item/circuitboard/machine/rdserver
-	category = list("Исследовательское оборудование")
+	category = list("Исследовательское оборудование", "Научное оборудование")
+	sub_category = list("Исследовательское оборудование")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/mechfab
@@ -347,7 +362,7 @@
 	build_path = /obj/item/circuitboard/machine/mechfab
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
-	category = list("Исследовательское оборудование", "Инженерное оборудование")
+	category = list("Исследовательское оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Производство")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -356,7 +371,7 @@
 	desc = "Устройство, заряжающее киборгов и переснаряжающая их материалами."
 	id = "cyborgrecharger"
 	build_path = /obj/item/circuitboard/machine/cyborgrecharger
-	category = list("Исследовательское оборудование", "Инженерное оборудование")
+	category = list("Исследовательское оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Производство")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -367,7 +382,7 @@
 	desc = "Порт, заряжающий внутреннюю силовую ячейку меха."
 	id = "mech_recharger"
 	build_path = /obj/item/circuitboard/machine/mech_recharger
-	category = list("Исследовательское оборудование", "Инженерное оборудование")
+	category = list("Исследовательское оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Производство")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -378,7 +393,10 @@
 	desc = "Устройство для инъекции, мониторинга и базовой настройки нанитных облаков."
 	id = "nanite_chamber"
 	build_path = /obj/item/circuitboard/machine/nanite_chamber
-	category = list("Исследовательское оборудование")
+	category = list("Исследовательское оборудование", "Научное оборудование")
+	sub_category = list("Наниты")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/public_nanite_chamber
@@ -386,7 +404,10 @@
 	desc = "Устройство для автоматической инъекции нанитного облака с заданым номером. Объем вводимых нанитов значительно ниже чем у стандартной камеры."
 	id = "public_nanite_chamber"
 	build_path = /obj/item/circuitboard/machine/public_nanite_chamber
-	category = list("Исследовательское оборудование")
+	category = list("Исследовательское оборудование", "Научное оборудование")
+	sub_category = list("Наниты")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/nanite_programmer
@@ -394,7 +415,10 @@
 	desc = "Устройство для изменения настроек нанитных программ хранимых на дисках."
 	id = "nanite_programmer"
 	build_path = /obj/item/circuitboard/machine/nanite_programmer
-	category = list("Исследовательское оборудование")
+	category = list("Исследовательское оборудование", "Научное оборудование")
+	sub_category = list("Наниты")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/nanite_program_hub
@@ -402,7 +426,10 @@
 	desc = "Компилирует нанитные программы с веб-серверов и записывает их на диски."
 	id = "nanite_program_hub"
 	build_path = /obj/item/circuitboard/machine/nanite_program_hub
-	category = list("Исследовательское оборудование")
+	category = list("Исследовательское оборудование", "Научное оборудование")
+	sub_category = list("Наниты")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/dnascanner
@@ -413,23 +440,29 @@
 	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 	build_path = /obj/item/circuitboard/machine/dnascanner
-	category = list("Исследовательское оборудование", "Медицинское оборудование")
+	category = list("Исследовательское оборудование", "Медицинское оборудование", "Научное оборудование")
 	sub_category = list("Биоманипулирование")
 
 /datum/design/board/destructive_scanner
-	name = "Machine Design (Destructive Scanner Board)"
-	desc = "The circuit board for an experimental destructive scanner."
+	name = "Экспериментально-деструктивный сканер"
+	desc = "Гораздо более крупная версия ручного сканера, обугленная этикетка предупреждает о его разрушительных возможностях."
 	id = "destructive_scanner"
 	build_path = /obj/item/circuitboard/machine/destructive_scanner
-	category = list("Исследовательское оборудование")
+	category = list("Исследовательское оборудование", "Научное оборудование")
+	sub_category = list("Исследовательское оборудование")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/doppler_array
-	name = "Machine Design (Tachyon-Doppler Research Array Board)"
-	desc = "The circuit board for a tachyon-doppler research array"
+	name = "ТДИМ"
+	desc = "Тахионно-доплеровский исследовательский массив. Специализированная система обнаружения тахионно-доплеровских бомб, в которой используется сложное бортовое программное обеспечение для записи данных для экспериментов."
 	id = "doppler_array"
 	build_path = /obj/item/circuitboard/machine/doppler_array
-	category = list("Исследовательское оборудование")
+	category = list("Исследовательское оборудование", "Научное оборудование")
+	sub_category = list("Исследовательское оборудование")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/microwave
@@ -441,56 +474,62 @@
 
 
 /datum/design/board/gibber
-	name = "Оборудование (Gibber Board)"
-	desc = "The circuit board for a gibber."
+	name = "Мясорубка"
+	desc = "Полагаю в более подробном описании не нуждается."
 	id = "gibber"
 	build_path = /obj/item/circuitboard/machine/gibber
 	category = list ("Различное оборудование")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/board/smartfridge
-	name = "Оборудование (Smartfridge Board)"
-	desc = "The circuit board for a smartfridge."
+	name = "Умный холодильник"
+	desc = "Сохраняет холодные вещи холодными, а горячие... тоже холодными."
 	id = "smartfridge"
 	build_path = /obj/item/circuitboard/machine/smartfridge
 	category = list ("Различное оборудование")
 
 
 /datum/design/board/monkey_recycler
-	name = "Оборудование (Monkey Recycler Board)"
-	desc = "The circuit board for a monkey recycler."
+	name = "Переработчик обезьян"
+	desc = "Полезная машина, перерабатывающая мертвых обезьян в обезьяньи кубики."
 	id = "monkey_recycler"
 	build_path = /obj/item/circuitboard/machine/monkey_recycler
-	category = list ("Различное оборудование")
+	category = list ("Различное оборудование", "Научное оборудование")
+	sub_category = list("Исследовательское оборудование")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/board/seed_extractor
-	name = "Оборудование (Seed Extractor Board)"
-	desc = "The circuit board for a seed extractor."
+	name = "Экстрактор семян"
+	desc = "Извлекает и упаковывает семена из урожая."
 	id = "seed_extractor"
 	build_path = /obj/item/circuitboard/machine/seed_extractor
 	category = list ("Оборудование гидропоники")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/board/processor
-	name = "Оборудование (Food/Slime Processor Board)"
-	desc = "The circuit board for a processing unit. Screwdriver the circuit to switch between food (default) or slime processing."
+	name = "Кухонный комбайн"
+	desc = "Промышленный измельчитель, используемый для обработки мяса и других продуктов. Во время работы держите руки подальше от приемника."
 	id = "processor"
 	build_path = /obj/item/circuitboard/machine/processor
-	category = list ("Различное оборудование")
+	category = list ("Различное оборудование", "Научное оборудование")
+	sub_category = list("Исследовательское оборудование")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/board/soda_dispenser
-	name = "Оборудование (Portable Soda Dispenser Board)"
-	desc = "The circuit board for a portable soda dispenser."
+	name = "Раздатчик газировки"
+	desc = "Содержит большой резервуар с безалкогольными напитками."
 	id = "soda_dispenser"
 	build_path = /obj/item/circuitboard/machine/chem_dispenser/drinks
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 	category = list ("Различное оборудование")
 
 /datum/design/board/beer_dispenser
-	name = "Оборудование (Portable Booze Dispenser Board)"
-	desc = "The circuit board for a portable booze dispenser."
+	name = "Раздатчик бухлишка"
+	desc = "Содержит большой резервуар ништяков."
 	id = "beer_dispenser"
 	build_path = /obj/item/circuitboard/machine/chem_dispenser/drinks/beer
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
@@ -533,7 +572,7 @@
 	desc = "Производит изделия из металла и стекла."
 	id = "autolathe"
 	build_path = /obj/item/circuitboard/machine/autolathe
-	category = list ("Различное оборудование", "Инженерное оборудование")
+	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Производство")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -545,15 +584,15 @@
 	id = "recharger"
 	materials = list(/datum/material/glass = 1000, /datum/material/gold = 2000)
 	build_path = /obj/item/circuitboard/machine/recharger
-	category = list("Различное оборудование", "Инженерное оборудование")
+	category = list("Различное оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Энергоснабжение")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
 
 
 /datum/design/board/vendor
-	name = "Оборудование (Vendor Board)"
-	desc = "The circuit board for a Vendor."
+	name = "частный торговый автомат"
+	desc = "Комерция в действии! Вид торгового автомата можно изменить при помощи отвертки."
 	id = "vendor"
 	build_path = /obj/item/circuitboard/machine/vendor
 	category = list ("Различное оборудование")
@@ -564,7 +603,7 @@
 	desc = "Машина, которая принимает руду и мгновенно переплавляет ее в листы пригодного для обработки материала. При этом  генерируются баллы за руду, их количество зависит от редкости руды. Полученные балы можно обменять на полезную экипировку в торговом автомате шахтеров."
 	id = "ore_redemption"
 	build_path = /obj/item/circuitboard/machine/ore_redemption
-	category = list ("Различное оборудование", "Инженерное оборудование")
+	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Производство")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -575,7 +614,7 @@
 	desc = "Различное оборудование для бригады шахтеров. Очки добываются за сдачу руды в шахтерскую печь и начисляются на персональный счет шахтера."
 	id = "mining_equipment_vendor"
 	build_path = /obj/item/circuitboard/machine/mining_equipment_vendor
-	category = list ("Различное оборудование", "Инженерное оборудование")
+	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Производство")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -586,7 +625,7 @@
 	desc = "Различное оборудование для команды исследователей глубин космоса. Очки добываются за выполнение миссий и разделяются между исследователями."
 	id = "exploration_equipment_vendor"
 	build_path = /obj/item/circuitboard/machine/exploration_equipment_vendor
-	category = list ("Различное оборудование", "Инженерное оборудование")
+	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Производство")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -597,7 +636,7 @@
 	desc = "Преобразует удары шаровой молнии в энергию. Используйте отвертку для переключения между режимами производства электроэнергии и очков исследования."
 	id = "tesla_coil"
 	build_path = /obj/item/circuitboard/machine/tesla_coil
-	category = list ("Различное оборудование", "Инженерное оборудование")
+	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Сингулярность, тесла и суперматерия")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -608,7 +647,7 @@
 	desc = "Устройство, которое использует излучение Хокинга и плазму для производства энергии."
 	id = "rad_collector"
 	build_path = /obj/item/circuitboard/machine/rad_collector
-	category = list ("Различное оборудование", "Инженерное оборудование")
+	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Сингулярность, тесла и суперматерия")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -619,7 +658,7 @@
 	desc = "Защищает окружающее оборудование и людей от поджаривания Проклятием Эдисона."
 	id = "grounding_rod"
 	build_path = /obj/item/circuitboard/machine/grounding_rod
-	category = list ("Различное оборудование", "Инженерное оборудование")
+	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Сингулярность, тесла и суперматерия")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -659,32 +698,32 @@
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/board/deepfryer
-	name = "Оборудование (Deep Fryer)"
-	desc = "The circuit board for a Deep Fryer."
+	name = "фритюрница"
+	desc = "Жареное <i>всё</i>."
 	id = "deepfryer"
 	build_path = /obj/item/circuitboard/machine/deep_fryer
 	category = list ("Различное оборудование")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/board/griddle
-	name = "Machine Design (Griddle)"
-	desc = "The circuit board for a Griddle."
+	name = "Гридль"
+	desc = "Потому что сковородки для жалких лузеров."
 	id = "griddle"
 	build_path = /obj/item/circuitboard/machine/griddle
 	category = list ("Различное оборудование")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/board/oven
-	name = "Machine Design (Oven)"
-	desc = "The circuit board for a Oven."
+	name = "Духовка"
+	desc = "Не рекомендуется залезать внутрь."
 	id = "oven"
 	build_path = /obj/item/circuitboard/machine/oven
 	category = list ("Различное оборудование")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/board/donksofttoyvendor
-	name = "Оборудование (Donksoft Toy Vendor Board)"
-	desc = "The circuit board for a Donksoft Toy Vendor."
+	name = "Торговый автомат игрушек DonkSoft"
+	desc = "Утвержденный поставщик игрушек в возрасте от 8 лет и старше."
 	id = "donksofttoyvendor"
 	build_path = /obj/item/circuitboard/machine/vending/donksofttoyvendor
 	category = list ("Различное оборудование")
@@ -695,15 +734,15 @@
 	desc = "Заряжает аккумуляторные батареи, не подходит для вооружения."
 	id = "cell_charger"
 	build_path = /obj/item/circuitboard/machine/cell_charger
-	category = list ("Различное оборудование", "Инженерное оборудование")
+	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Энергоснабжение")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
 
 
 /datum/design/board/dish_drive
-	name = "Оборудование (Dish Drive)"
-	desc = "The circuit board for a dish drive."
+	name = "утилизатор тарелок"
+	desc = "Кулинарное чудо, которое использует преобразование вещества в энергию для хранения посуды и осколков. Удобно!"
 	id = "dish_drive"
 	build_path = /obj/item/circuitboard/machine/dish_drive
 	category = list ("Различное оборудование")
@@ -714,7 +753,7 @@
 	desc = "Управляет штабелирующей машиной... в теории."
 	id = "stack_console"
 	build_path = /obj/item/circuitboard/machine/stacking_unit_console
-	category = list ("Различное оборудование", "Инженерное оборудование")
+	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Производство")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -725,7 +764,7 @@
 	desc = "Машина, которая автоматически упаковывает проезжающие мимо материалы. Управляется консолью."
 	id = "stack_machine"
 	build_path = /obj/item/circuitboard/machine/stacking_machine
-	category = list ("Различное оборудование", "Инженерное оборудование")
+	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Производство")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -736,7 +775,7 @@
 	desc = "Универсальная блюспейс система хранения и передачи ресурсов на нужды станции."
 	id = "ore_silo"
 	build_path = /obj/item/circuitboard/machine/ore_silo
-	category = list ("Исследовательское оборудование", "Инженерное оборудование")
+	category = list ("Исследовательское оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Производство")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -749,7 +788,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/paystand
-	category = list ("Различное оборудование", "Медицинское оборудование", "Инженерное оборудование")
+	category = list ("Различное оборудование", "Медицинское оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Прочее")
 
 
@@ -808,28 +847,32 @@
 	sub_category = list("Химпроизводство")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
-
 /datum/design/board/sheetifier
-	name = "Оборудование (Sheet-meister 2000)"
-	desc = "The circuit board for a Sheet-meister 2000."
+	name = "Листопрокатная машина"
+	desc = "Строительный материал из чего угодно."
 	id = "sheetifier"
 	build_path = /obj/item/circuitboard/machine/sheetifier
-	category = list ("Различное оборудование")
-
+	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование")
+	sub_category = list("Производство")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 
 /datum/design/board/restaurant_portal
-	name = "Machine Design (Restaurant Portal)"
-	desc = "The circuit board for a restaurant portal"
+	name = "Портал ресторана"
+	desc = "Портал от Всемирной Организации Роботов-Гурманов!"
 	id = "restaurant_portal"
 	build_path = /obj/item/circuitboard/machine/restaurant_portal
 	category = list ("Различное оборудование")
 
 /datum/design/board/vendatray
-	name = "Оборудование (Vend-a-Tray)"
-	desc = "The circuit board for a Vend-a-Tray."
+	name = "Торговая витрина"
+	desc = "Витрина со считывателем ID карты. Используйте свою ID карту для покупки содержимого."
 	id = "vendatray"
 	build_path = /obj/item/circuitboard/machine/vendatray
-	category = list ("Различное оборудование")
+	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование")
+	sub_category = list("Производство")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 
 /datum/design/board/bountypad
 	name = "Гражданская платформа отправки"
@@ -846,7 +889,7 @@
 	desc = "Осваивайте навыки с всего лишь мизерными шансами на повреждение головного мозга!"
 	id = "skill_station"
 	build_path = /obj/item/circuitboard/machine/skill_station
-	category = list ("Различное оборудование", "Инженерное оборудование")
+	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Прочее")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -943,7 +986,7 @@
 	desc = "Сложная сканирующая матрица. Уязвима к воздействию окружающей среды."
 	id = "exoscanner"
 	build_path = /obj/item/circuitboard/machine/exoscanner
-	category = list ("Инженерное оборудование")
+	category = list ("Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Исследовательские дроны")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -954,7 +997,7 @@
 	desc = "Запускает дрона на исследовательскую миссию."
 	id = "exodrone_launcher"
 	build_path = /obj/item/circuitboard/machine/exodrone_launcher
-	category = list ("Инженерное оборудование")
+	category = list ("Инженерное оборудование", "Научное оборудование")
 	sub_category = list("Исследовательские дроны")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40

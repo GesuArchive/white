@@ -14387,6 +14387,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/structure/railing{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/maintenance/port)
 "bkG" = (
@@ -14580,7 +14583,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/rnd/production/protolathe/department/science,
+/obj/machinery/mecha_part_fabricator/sci,
 /turf/open/floor/plasteel/dark,
 /area/science/lab)
 "blK" = (
@@ -16401,12 +16404,12 @@
 "bwN" = (
 /obj/machinery/light_switch{
 	pixel_x = 8;
-	pixel_y = 28
+	pixel_y = 39
 	},
 /obj/machinery/button/door{
 	id = "Biohazard";
 	name = "Biohazard Shutter Control";
-	pixel_x = -5;
+	pixel_x = -6;
 	pixel_y = 28;
 	req_access_txt = "47"
 	},
@@ -16418,6 +16421,13 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
+	},
+/obj/machinery/button/door{
+	id = "Biohazard_tech";
+	name = "Почтовый шлюз";
+	pixel_x = 7;
+	pixel_y = 28;
+	req_access_txt = "47"
 	},
 /turf/open/floor/plasteel,
 /area/security/checkpoint/science)
@@ -20562,6 +20572,9 @@
 "bNp" = (
 /obj/structure/sink{
 	pixel_y = 20
+	},
+/obj/machinery/firealarm{
+	pixel_y = 36
 	},
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
@@ -25799,6 +25812,7 @@
 /obj/machinery/button/door{
 	id = "ceprivacy";
 	name = "Privacy Shutters Control";
+	pixel_x = 6;
 	pixel_y = 26
 	},
 /obj/machinery/holopad,
@@ -25815,6 +25829,12 @@
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
+	},
+/obj/machinery/button/door{
+	id = "Engineering_tech";
+	name = "Почтовый шлюз";
+	pixel_x = -5;
+	pixel_y = 26
 	},
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/ce)
@@ -27685,6 +27705,10 @@
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/poddoor/preopen{
 	id = "Engineering";
+	name = "engineering security door"
+	},
+/obj/machinery/door/poddoor/preopen{
+	id = "Engineering_tech";
 	name = "engineering security door"
 	},
 /turf/open/floor/plasteel,
@@ -32657,12 +32681,20 @@
 /area/science/xenobiology)
 "esK" = (
 /obj/item/radio/intercom{
+	pixel_x = -3;
 	pixel_y = -29
 	},
 /obj/machinery/computer/robotics{
 	dir = 1
 	},
 /obj/machinery/light,
+/obj/machinery/button/door{
+	id = "Biohazard_tech";
+	name = "Почтовый шлюз";
+	pixel_x = 15;
+	pixel_y = -25;
+	req_access_txt = "47"
+	},
 /turf/open/floor/plasteel/cafeteria,
 /area/command/heads_quarters/rd)
 "etp" = (
@@ -32685,28 +32717,28 @@
 /obj/machinery/button/door{
 	id = "rnd2";
 	name = "бронеставни лаборатории взрывотехники";
-	pixel_x = 6;
+	pixel_x = 9;
 	pixel_y = -25;
 	req_access_txt = "47"
 	},
 /obj/machinery/button/door{
 	id = "Biohazard";
 	name = "Карантин";
-	pixel_x = -6;
+	pixel_x = -4;
 	pixel_y = -25;
 	req_access_txt = "47"
 	},
 /obj/machinery/button/door{
 	id = "misclab";
 	name = "Test Chamber Blast Doors";
-	pixel_x = 6;
+	pixel_x = 9;
 	pixel_y = -38;
 	req_access_txt = "55"
 	},
 /obj/machinery/button/door{
 	id = "xenobiomain";
 	name = "Xenobiology Containment Blast Doors";
-	pixel_x = -6;
+	pixel_x = -4;
 	pixel_y = -38;
 	req_access_txt = "55"
 	},
@@ -33470,6 +33502,9 @@
 /area/cargo/storage)
 "fqP" = (
 /obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/railing{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -34358,11 +34393,11 @@
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
 "gnd" = (
-/obj/machinery/firealarm{
-	pixel_y = 24
+/obj/structure/railing{
+	dir = 5
 	},
-/turf/open/openspace,
-/area/science/xenobiology)
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "gnK" = (
 /obj/structure/window/reinforced,
 /obj/structure/closet/crate/freezer/blood,
@@ -35310,6 +35345,12 @@
 "hfR" = (
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/secondary/entry/south_hall)
+"hhi" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "hhs" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
@@ -36449,6 +36490,9 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
+/obj/structure/railing{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/maintenance/port)
 "ilT" = (
@@ -37450,6 +37494,22 @@
 	},
 /turf/open/floor/plasteel,
 /area/maintenance/solars/port/aft)
+"jtq" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_access_txt = "12"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "jtT" = (
 /obj/structure/railing{
 	dir = 1
@@ -39287,6 +39347,9 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
+/obj/structure/railing{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "lxd" = (
@@ -41109,6 +41172,9 @@
 /obj/machinery/light/small{
 	dir = 1;
 	pixel_y = 0
+	},
+/obj/structure/railing/corner{
+	dir = 4
 	},
 /turf/open/openspace,
 /area/maintenance/port/aft)
@@ -43163,6 +43229,9 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/structure/railing{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/maintenance/port)
 "pDd" = (
@@ -45120,6 +45189,10 @@
 	id = "Biohazard";
 	name = "biohazard containment door"
 	},
+/obj/machinery/door/poddoor/preopen{
+	id = "Biohazard_tech";
+	name = "biohazard containment door"
+	},
 /turf/open/floor/plasteel,
 /area/science/lab)
 "rKn" = (
@@ -45479,6 +45552,9 @@
 /area/cargo/office)
 "seK" = (
 /obj/effect/decal/cleanable/vomit,
+/obj/structure/railing/corner{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "sfq" = (
@@ -45875,6 +45951,12 @@
 	dir = 4
 	},
 /area/engineering/atmos/upper)
+"sEG" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "sFh" = (
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plating,
@@ -46762,6 +46844,13 @@
 /obj/machinery/power/apc/auto_name/west,
 /turf/open/floor/carpet/blue,
 /area/commons/dorms/one)
+"ttN" = (
+/obj/effect/decal/cleanable/blood/old,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "tuQ" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
@@ -50021,6 +50110,9 @@
 "wXh" = (
 /obj/machinery/light/directional/south,
 /obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/railing{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -68656,13 +68748,13 @@ aSg
 aSg
 aSg
 cqn
-bHE
-bHE
-bHE
-bHE
-bHE
-bHE
-bHE
+gnd
+sEG
+sEG
+sEG
+sEG
+sEG
+sEG
 bCq
 vBY
 eTB
@@ -69180,7 +69272,7 @@ bHE
 bHE
 bHE
 cqn
-bHE
+hhi
 eqD
 hfR
 vhK
@@ -69437,7 +69529,7 @@ bHE
 bHE
 bHE
 cqn
-skX
+ttN
 bCq
 ieH
 ieH
@@ -69694,7 +69786,7 @@ bHE
 bHE
 bHE
 rvh
-bHE
+hhi
 bCq
 wIB
 nWq
@@ -69951,7 +70043,7 @@ bHE
 bHE
 bHE
 cqn
-bHE
+hhi
 bCq
 wIB
 wIB
@@ -70208,7 +70300,7 @@ bHE
 iTW
 lKv
 bCq
-uUp
+jtq
 bCq
 bLv
 bCq
@@ -96419,7 +96511,7 @@ ibj
 hGE
 esK
 bDc
-gnd
+xYx
 hDb
 sIs
 eja

@@ -42,12 +42,27 @@
 	if(announce_captaincy)
 		SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, .proc/minor_announce, "Учитывая нехватку экипажа, текущим капитаном станции теперь является [H.real_name]!"))
 
+/obj/item/storage/belt/medical/cmo
+	name = "пояс главного врача"
+	desc = "Медицинский пояс с продвинутыми хирургическими инструментами."
+	icon = 'white/Feline/icons/med_items.dmi'
+	icon_state = "belt_cmo"
+
+/obj/item/storage/belt/medical/cmo/PopulateContents()
+	new /obj/item/surgical_drapes(src)
+	new /obj/item/scalpel/advanced(src)
+	new /obj/item/retractor/advanced(src)
+	new /obj/item/cautery/advanced(src)
+	new /obj/item/bonesetter/advanced(src)
+	new /obj/item/reagent_containers/medigel/sal_acid_oxandrolone(src)
+	new /obj/item/reagent_containers/medigel/pen_acid(src)
+
 /datum/outfit/job/cmo
 	name = "Chief Medical Officer"
 	jobtype = /datum/job/chief_medical_officer
 
 	id = /obj/item/card/id/advanced/silver
-	belt = /obj/item/storage/belt/medical/ems/cmo
+	belt = /obj/item/storage/belt/medical/cmo
 	r_pocket = /obj/item/modular_computer/tablet/pda/heads/cmo
 	l_pocket = /obj/item/pinpointer/crew
 	ears = /obj/item/radio/headset/heads/cmo

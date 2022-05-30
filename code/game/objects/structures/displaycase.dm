@@ -389,10 +389,10 @@
 
 /obj/structure/displaycase/forsale
 	name = "торговая витрина"
+	desc = "Витрина со считывателем ID карты. Используйте свою ID карту для покупки содержимого."
 	gender = FEMALE
 	icon_state = "laserbox"
 	custom_glass_overlay = TRUE
-	desc = "Витрина со считывателем ID карты. Используйте свою ID карту для покупки содержимого."
 	density = FALSE
 	max_integrity = 100
 	req_access = null

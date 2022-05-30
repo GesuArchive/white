@@ -5,9 +5,10 @@
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "gps-c"
 	inhand_icon_state = "electronic"
-	worn_icon_state = "electronic"
+	worn_icon = 'white/Feline/icons/gps_back.dmi'
+	worn_icon_state = "gps-c"
 	w_class = WEIGHT_CLASS_SMALL
-	slot_flags = ITEM_SLOT_BELT
+	slot_flags = ITEM_SLOT_NECK
 	obj_flags = UNIQUE_RENAME
 	var/gpstag
 
@@ -24,20 +25,23 @@
 
 /obj/item/gps/science
 	icon_state = "gps-s"
+	worn_icon_state = "gps-s"
 	gpstag = "SCI0"
 
 /obj/item/gps/engineering
 	icon_state = "gps-e"
+	worn_icon_state = "gps-e"
 	gpstag = "ENG0"
 
 /obj/item/gps/mining
 	icon_state = "gps-m"
+	worn_icon_state = "gps-m"
 	gpstag = "MINE0"
 	desc = "A positioning system helpful for rescuing trapped or injured miners, keeping one on you at all times while mining might just save your life."
 
 /obj/item/gps/mining/exploration
 	gpstag = "EXP0"
-	desc = "A positioning system used for long-ranged tracking of important beacons."
+	desc = "GPS поисковая система для отслеживания целей задания и поиска соратников."
 
 /obj/item/gps/cyborg
 	icon_state = "gps-b"

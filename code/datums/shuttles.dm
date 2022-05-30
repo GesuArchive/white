@@ -265,19 +265,19 @@
 
 /datum/map_template/shuttle/emergency/birdboat
 	suffix = "birdboat"
-	name = "Эвакуационный Шатл Станции БёрдБоат"
+	name = "эвакуационный шатл станции \"birdboat\""
 	description = "Не смотря на то что этот шатл немного маловат - он полностью укомплектован, чего не скажешь о типе станции, на которой он был заказан."
 	credit_cost = CARGO_CRATE_VALUE * 2
 
 /datum/map_template/shuttle/emergency/box
 	suffix = "box"
-	name = "Эвакуационный Шатл Станции Ящик"
+	name = "эвакуационный шатл станции \"Box\""
 	credit_cost = CARGO_CRATE_VALUE * 4
 	description = "Проверенный временем золотой стандарт для экстренной эксфильтрации, оборудованный всем, что может пригодиться экипажу для безопасного полета домой."
 
 /datum/map_template/shuttle/emergency/donut
 	suffix = "donut"
-	name = "Аварйный Шатл Станции Пончиков"
+	name = "эвакуационный шатл станции \"donut\""
 	description = "Прекрасно налезет на любую грубую шутку с формой станции, шатл содержит несколько камер для заключенных и небольшое медицинское крыло."
 	admin_notes = "Has airlocks on both sides of the shuttle and will probably intersect near the front on some stations that build past departures."
 	credit_cost = CARGO_CRATE_VALUE * 5

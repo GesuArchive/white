@@ -310,10 +310,12 @@ SUBSYSTEM_DEF(spm)
 	name = "GT9600x8"
 	desc = "Самая слабая карточка из всей доступная линейки."
 	id = "nvidia"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/silver = 300, /datum/material/gold = 300)
 	build_path = /obj/item/mining_thing/nvidia
-	category = list("Электроника")
+	category = list("Электроника", "Научное оборудование")
+	sub_category = list("Майнеры")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/mining_thing/nvidia/ntx420

@@ -1,8 +1,8 @@
 #define MAX_CIRCUIT_CLONE_TIME 3 MINUTES //circuit slow-clones can only take up this amount of time to complete
 
 /obj/item/integrated_circuit_printer
-	name = "integrated circuit printer"
-	desc = "A portable(ish) machine made to print tiny modular circuitry out of metal."
+	name = "принтер интегральных схем"
+	desc = "Портативная машина, предназначенная для печати крошечных модульных интегральных схем."
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "circuit_printer"
 	w_class = WEIGHT_CLASS_BULKY
@@ -333,20 +333,20 @@
 
 // FUKKEN UPGRADE DISKS
 /obj/item/disk/integrated_circuit_old/upgrade
-	name = "integrated circuit printer upgrade disk"
-	desc = "Install this into your integrated circuit printer to enhance it."
+	name = "модернизация принтера интегральных схем"
+	desc = "Устанавливается в принтер интегральных схем, для его модернизации."
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "upgrade_disk"
 	inhand_icon_state = "card-id"
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/disk/integrated_circuit_old/upgrade/advanced
-	name = "integrated circuit printer upgrade disk - advanced designs"
-	desc = "Install this into your integrated circuit printer to enhance it.  This one adds new, advanced designs to the printer."
+	name = "модернизация принтера интегральных схем - расширенное ПО"
+	desc = "Содержит новые, усовершенствованные дизайны схем."
 
 /obj/item/disk/integrated_circuit_old/upgrade/clone
-	name = "integrated circuit printer upgrade disk - instant cloner"
-	desc = "Install this into your integrated circuit printer to enhance it.  This one allows the printer to duplicate assemblies instantaneously."
+	name = "модернизация принтера интегральных схем - клонирование"
+	desc = "Модернизация позволяющая принтеру мгновенно дублировать сборки интегральных схем."
 	icon_state = "upgrade_disk_clone"
 
 /obj/item/integrated_circuit_printer/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
