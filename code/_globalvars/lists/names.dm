@@ -35,6 +35,7 @@ GLOBAL_LIST_INIT(adverbs, world.file2list("strings/names/adverbs.txt"))
 GLOBAL_LIST_INIT(adjectives, world.file2list("strings/names/adjectives.txt"))
 GLOBAL_LIST_INIT(gross_adjectives,  world.file2list("strings/names/gross_adjectives.txt"))
 GLOBAL_LIST_INIT(dream_strings, world.file2list("strings/dreamstrings.txt"))
+GLOBAL_LIST_INIT(ru_ban_words, world.file2list("strings/mati.txt")) // actually not ban
 //loaded on startup because of "
 //would include in rsc if ' was used
 

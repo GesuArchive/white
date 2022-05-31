@@ -637,7 +637,6 @@
 		priority_announce("Прива, я тут немного собрал для вас имён интересных, надеюсь, они вам понадобятся! Список психов: [english_list(our_pussies)]", sender_override = "Апегио Крысус")
 	..()
 
-
 /datum/round_aspect/borderlands
 	name = "Borderlands"
 	desc = "Рабочий, помни! Крики «помогите, у меня внутреннее кровотечение, вызовите врача» мешают твоим товарищам работать."
@@ -649,4 +648,15 @@
 	for(var/mob/living/carbon/human/H in GLOB.mob_list)
 		if(H.hud_used)
 			H.hud_used.plane_masters_update()
+	..()
+
+/datum/round_aspect/cursed
+	name = "Cursed Words"
+	desc = "Ругаться матом - плохо!"
+	weight = 2
+	forbidden = TRUE
+
+/datum/round_aspect/cursed/run_aspect()
+	GLOB.apply_execution_protocol = TRUE
+	LAZYADD(GLOB.bad_words, GLOB.ru_ban_words)
 	..()
