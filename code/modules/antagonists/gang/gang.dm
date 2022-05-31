@@ -194,6 +194,7 @@
 	name = "Induct via Secret Handshake"
 	desc = "Teach new recruits the Secret Handshake to join."
 	check_flags = AB_CHECK_CONSCIOUS
+	click_to_activate = TRUE
 	button_icon_state = "recruit"
 	icon_icon = 'icons/obj/gang/actions.dmi'
 	cooldown_time = 300
