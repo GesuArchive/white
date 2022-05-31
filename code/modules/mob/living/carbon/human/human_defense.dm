@@ -123,6 +123,9 @@
 		if(!istype(I, /obj/item/clothing))
 			var/final_block_chance = I.block_chance - (clamp((armour_penetration-I.armour_penetration)/2,0,100)) + block_chance_modifier //So armour piercing blades can still be parried by other blades, for example
 			if(I.hit_reaction(src, AM, attack_text, final_block_chance, damage, attack_type))
+				if(attack_type == MELEE_ATTACK && a_intent == INTENT_HARM)
+					spawn(5)
+						try_counterattack(AM, I)
 				playsound(get_turf(src), pick(I.block_sounds), 100, TRUE)
 				return TRUE
 	if(wear_suit)
@@ -143,7 +146,14 @@
 			return TRUE
 	return FALSE
 
-
+/mob/living/carbon/human/proc/try_counterattack(atom/AM, obj/item/I)
+	if(next_move > world.time || !AM?.loc || !I || !isliving(AM.loc) || !(I in held_items))
+		return
+	var/mob/living/L = AM.loc
+	if(!L?.stat)
+		I.attack(L, src)
+		changeNext_move(mind?.get_skill_modifier(/datum/skill/parry, SKILL_SPEED_MODIFIER))
+		mind?.adjust_experience(/datum/skill/parry, 50)
 
 /mob/living/carbon/human/proc/check_block()
 	if(mind)

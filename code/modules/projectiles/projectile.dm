@@ -415,6 +415,14 @@
 	// 2.
 	impacted[target] = TRUE //hash lookup > in for performance in hit-checking
 	// 3.
+	if(ishuman(target) && target != original && ishuman(firer) && !GLOB.is_tournament_rules)
+		var/mob/living/carbon/human/H = firer
+		if(!nomiss)
+			if(!prob(((75 + H.mind.get_skill_modifier(/datum/skill/ranged, SKILL_PROBS_MODIFIER)) * aim_mod) - 7 * get_dist(T, starting)))
+				SEND_SOUND(target, sound(pick('sound/weapons/bulletflyby.ogg', 'sound/weapons/bulletflyby2.ogg', 'sound/weapons/bulletflyby3.ogg')))
+				return
+		if(H.mind)
+			H.mind.adjust_experience(/datum/skill/ranged, 1)
 	var/mode = prehit_pierce(target)
 	if(mode == PROJECTILE_DELETE_WITHOUT_HITTING)
 		qdel(src)
