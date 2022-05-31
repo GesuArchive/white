@@ -22,16 +22,16 @@
 		to_chat(user, span_warning("Это не так работает, глупый!"))
 		return -1
 	if(aug.body_zone != target_zone)
-		to_chat(user, span_warning("Кажется [tool] не подходит для [parse_zone(target_zone)]."))
+		to_chat(user, span_warning("Кажется [tool] не подходит для [ru_otkuda_zone(parse_zone(target_zone))]."))
 		return -1
 	L = surgery.operated_bodypart
 	if(L)
-		display_results(user, target, span_notice("Вы начинаете аугментировать [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]...") ,
-			span_notice("[user] начинает аугментировать [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)] при помощи [aug].") ,
-			span_notice("[user] начинает аугментировать [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]."))
-		display_pain(target, "Чувствую ужасную боль в [parse_zone(user.zone_selected)]!")
+		display_results(user, target, span_notice("Начинаю аугментировать [ru_parse_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает аугментировать [ru_parse_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)] при помощи [aug].") ,
+			span_notice("[user] начинает аугментировать [ru_parse_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]."))
+		display_pain(target, "Чувствую холод в [ru_gde_zone(parse_zone(user.zone_selected))]!")
 	else
-		user.visible_message(span_notice("[user] пытается найти [parse_zone(user.zone_selected)] [target].") , span_notice("Вы пытаетесь найти [parse_zone(user.zone_selected)] [target]..."))
+		user.visible_message(span_notice("[user] пытается найти [parse_zone(user.zone_selected)] [target].") , span_notice("Пытаюсь найти [parse_zone(user.zone_selected)] [target]..."))
 
 
 //ACTUAL SURGERIES
@@ -54,11 +54,11 @@
 			tool = tool.contents[1]
 		if(istype(tool) && user.temporarilyRemoveItemFromInventory(tool))
 			tool.replace_limb(target, TRUE)
-		display_results(user, target, span_notice("Вы успешно аугментировали [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] успешно аугментировал [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]!") ,
-			span_notice("[user] успешно аугментировал [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]!"))
+		display_results(user, target, span_notice("Успешно аугментирую [ru_parse_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] успешно аугментировал [ru_parse_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]!") ,
+			span_notice("[user] успешно аугментировал [ru_parse_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]!"))
 		log_combat(user, target, "аугментировал", addition="дав ему новую [parse_zone(target_zone)] INTENT: [uppertext(user.a_intent)]")
-		display_pain(target, "Моя [parse_zone(target_zone)] приходит в чувство с необычным ощущением!", mechanical_surgery = TRUE)
+		display_pain(target, "Я вновь чувствую свою [ru_parse_zone(parse_zone(target_zone))], однако она ощущается немного по другому...", mechanical_surgery = TRUE)
 	else
 		to_chat(user, span_warning("[target] не имеет органики на [parse_zone(target_zone)]!"))
 	return ..()

@@ -26,7 +26,7 @@
 		span_notice("[user] начинает делать надрез в [target.ru_who()] сердце.") ,
 		span_notice("[user] начинает делать надрез в [target.ru_who()] сердце.") ,
 		playsound(get_turf(target), 'sound/surgery/scalpel1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-	display_pain(target, "Чувствую ужасную боль в своём сердце, её почти достаточно, чтобы я откинулся!")
+	display_pain(target, "Мое сердце! Почему так больно? Эй! А можно наркоз?!")
 
 /datum/surgery_step/incise_heart/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(ishuman(target))
@@ -64,7 +64,7 @@
 		span_notice("[user] начинает делать обходное штунирование [target.ru_who()] сердца!") ,
 		span_notice("[user] начинает делать обходное штунирование [target.ru_who()] сердца!") ,
 		playsound(get_turf(target), 'sound/surgery/hemostat1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-	display_pain(target, "Боль в груди невыносима! Мне едва удается терпеть её!")
+	display_pain(target, "Дьявол! Боль в груди невыносима! Я едва могу терпеть её!")
 
 /datum/surgery_step/coronary_bypass/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	target.setOrganLoss(ORGAN_SLOT_HEART, 60)
@@ -75,7 +75,7 @@
 			span_notice("[user] успешно выполняет обходное штунирование на [target.ru_who()] сердце.") ,
 			span_notice("[user] успешно выполняет обходное штунирование на [target.ru_who()] сердце.") ,
 			playsound(get_turf(target), 'sound/surgery/hemostat1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-		display_pain(target, "Грудь болезненно пульсирует, но сердцу стало гораздо лучше!")
+		display_pain(target, "Господи! Наконец то это закончилось...")
 	return ..()
 
 /datum/surgery_step/coronary_bypass/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)

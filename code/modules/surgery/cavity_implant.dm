@@ -23,13 +23,13 @@
 	var/obj/item/bodypart/chest/CH = target.get_bodypart(BODY_ZONE_CHEST)
 	IC = CH.cavity_item
 	if(tool)
-		display_results(user, target, span_notice("Вы начинаете помещать [tool] в [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
+		display_results(user, target, span_notice("Начинаю помещать [tool] в [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает помещать [tool] в [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 			span_notice("[user] начинает помещать что-то в [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 			playsound(get_turf(target), 'sound/surgery/organ1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-		display_pain(target, "Чувствую, как что-то помещается в [ru_parse_zone(parse_zone(target_zone))], это адски болит!")
+		display_pain(target, "В мою [ru_parse_zone(parse_zone(target_zone))] что-то поместили! Больно!")
 	else
-		display_results(user, target, span_notice("Вы начинаете искать инородные объекты в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
+		display_results(user, target, span_notice("Начинаю искать инородные объекты в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает искать инородные объекты в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 			span_notice("[user] начинает искать инородные объекты в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."))
 
@@ -40,7 +40,7 @@
 			to_chat(user, span_warning("Кажется [tool] не поместиться в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)] из-за слишком крупных размеров!"))
 			return FALSE
 		else
-			display_results(user, target, span_notice("Вы успешно поместили [tool] в [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
+			display_results(user, target, span_notice("Я успешно поместил [tool] в [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 				span_notice("[user] поместил [tool] в [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
 				span_notice("[user] поместил что-то в [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 				playsound(get_turf(target), 'sound/surgery/organ2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
@@ -49,14 +49,14 @@
 			return ..()
 	else
 		if(IC)
-			display_results(user, target, span_notice("Вы извлекли [IC] из [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
+			display_results(user, target, span_notice("Извлекаю [IC] из [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 				span_notice("[user] извлек [IC] из [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
 				span_notice("[user] извлек что-то из [ru_otkuda_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
 				playsound(get_turf(target), 'sound/surgery/organ2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-			display_pain(target, "Что-то вытаскивается из моей [ru_otkuda_zone(parse_zone(target_zone))]! Это адски болит!")
+			display_pain(target, "Из моей [ru_otkuda_zone(parse_zone(target_zone))] что-то вытаскивают! Это весьма неприятно!")
 			user.put_in_hands(IC)
 			CH.cavity_item = null
 			return ..()
 		else
-			to_chat(user, span_warning("Вы ничего не нашли в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."))
+			to_chat(user, span_warning("Я ничего не нашел в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."))
 			return FALSE

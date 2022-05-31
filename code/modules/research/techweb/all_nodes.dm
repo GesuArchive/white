@@ -380,6 +380,14 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 	discount_experiments = list(/datum/experiment/scanning/points/machinery_pinpoint_scan/tier3_cells = 3000)
 
+/datum/techweb_node/bluemining
+	id = "bluemining"
+	display_name = "Блюспейс майнинг"
+	description = "С помощью технологии сжатия Bluespace-Assisted A.S.S можно добывать ресурсы."
+	prereq_ids = list("practical_bluespace")
+	design_ids = list("bluemine")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 10000)
+
 /datum/techweb_node/unregulated_bluespace
 	id = "unregulated_bluespace"
 	display_name = "Несертифицированные блюспейс исследования"

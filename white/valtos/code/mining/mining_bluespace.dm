@@ -1,6 +1,7 @@
 //big thanks to ninja and ma44 on coderbus for solving my autism
-/obj/item/circuitboard/machine/bluespace_miner //MODULARISE IT BECAUSE ITS AUTISM TO REMOVE IF SOMEBODY WANTS TO DISABLE IT EASILY
-	name = "Блюспейс майнер (Оборудование)"
+/obj/item/circuitboard/machine/bluespace_miner
+	name = "блюспейс майнер"
+	desc = "Машина, которая использует блюспейс магию для медленного создания ресурсов и перемещает их в связанный рудный бункер."
 	build_path = /obj/machinery/mineral/bluespace_miner
 	req_components = list(
 		/obj/item/stock_parts/matter_bin = 3,
@@ -12,27 +13,9 @@
 		/obj/item/stack/sheet/mineral/uranium = 1)
 	needs_anchored = FALSE
 
-/datum/techweb_node/bluemining
-	id = "bluemining"
-	display_name = "Блюспейс майнинг технология"
-	description = "С помощью технологии сжатия Bluespace-Assisted A.S.S можно добывать ресурсы."
-	prereq_ids = list("practical_bluespace")
-	design_ids = list("bluemine")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 10000)
-
-/datum/design/bluemine
-	name = "Блюспейс майнинг"
-	desc = "Благодаря совместным усилиям Bluespace-A.S.S Technologies теперь можно добывать тонкую струйку ресурсов с помощью Блюспейс магии..."
-	id = "bluemine"
-	build_type = PROTOLATHE
-	materials = list(/datum/material/gold = 500, /datum/material/silver = 500, /datum/material/bluespace = 500) //quite cheap, for more convenience
-	build_path = /obj/item/circuitboard/machine/bluespace_miner
-	category = list("Блюспейс разработки")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_CARGO
-
 /obj/machinery/mineral/bluespace_miner
 	name = "блюспейс майнер"
-	desc = "Машина, которая использует магию Bluespace для медленного создания материалов и добавления их в связанный бункер руды.."
+	desc = "Машина, которая использует блюспейс магию для медленного создания ресурсов и перемещает их в связанный рудный бункер."
 	icon = 'white/valtos/icons/power.dmi'
 	icon_state = "bsm_idle"
 	density = TRUE

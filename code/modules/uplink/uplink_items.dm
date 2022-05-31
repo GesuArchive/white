@@ -1405,9 +1405,8 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	cost = 4
 
 /datum/uplink_item/device_tools/syndie_jaws_of_life
-	name = "Челюсти жизни Синдиката"
-	desc = "Основанный на модели NanoTrasen, этот мощный инструмент может использоваться и как лом, и как кусачки. \
-			В режиме лома он может быть использован для принудительного открытия шлюзов. Очень полезно для проникновения на станцию или в ее отделы."
+	name = "Гидравлические ножницы Синдиката"
+	desc = "Переработанная версия гидравлических ножниц Нанотрейзен. Как и оригинал может использоваться для форсированного открытия воздушных шлюзов."
 	item = /obj/item/crowbar/power/syndicate
 	cost = 4
 	purchasable_from = UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS

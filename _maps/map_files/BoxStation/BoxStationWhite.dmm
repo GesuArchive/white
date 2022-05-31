@@ -5922,6 +5922,7 @@
 /area/service/hydroponics/garden)
 "aAz" = (
 /obj/structure/cable,
+/obj/machinery/shieldgen,
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
 "aAC" = (
@@ -15204,6 +15205,7 @@
 /area/cargo/storage)
 "boL" = (
 /obj/structure/table,
+/obj/item/bonesetter,
 /obj/item/retractor,
 /turf/open/floor/plasteel/dark,
 /area/science/robotics/lab)
@@ -18340,7 +18342,8 @@
 "bFe" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Tech Storage";
-	req_access_txt = "23"
+	req_access_txt = "23";
+	security_level = 1
 	},
 /obj/structure/cable,
 /obj/machinery/navbeacon/wayfinding,
@@ -22575,6 +22578,10 @@
 /obj/effect/turf_decal/stripes/box,
 /turf/open/floor/plating,
 /area/tcommsat/computer)
+"bUh" = (
+/obj/machinery/shieldgen,
+/turf/open/floor/plating,
+/area/maintenance/starboard/aft)
 "bUi" = (
 /obj/machinery/modular_computer/console/preset/research{
 	dir = 4
@@ -26237,7 +26244,7 @@
 /turf/open/floor/plasteel,
 /area/engineering/atmos/upper)
 "chk" = (
-/obj/structure/grille,
+/obj/machinery/shieldgen,
 /turf/open/floor/plating,
 /area/maintenance/starboard)
 "chm" = (
@@ -42564,6 +42571,11 @@
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plating,
 /area/maintenance/port)
+"oRa" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/shieldgen,
+/turf/open/floor/plasteel,
+/area/commons/locker)
 "oRZ" = (
 /turf/closed/wall,
 /area/commons/dorms/cabin/two)
@@ -43345,6 +43357,7 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/structure/cable,
+/obj/machinery/shieldgen,
 /turf/open/floor/plasteel/dark,
 /area/engineering/storage/tech)
 "pIc" = (
@@ -48299,6 +48312,11 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry/south)
+"vgc" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/shieldgen,
+/turf/open/floor/plasteel/monofloor,
+/area/maintenance/port)
 "vgF" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -50790,6 +50808,7 @@
 /obj/machinery/camera/autoname{
 	dir = 1
 	},
+/obj/machinery/shieldgen,
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
 "xJB" = (
@@ -65134,7 +65153,7 @@ bjk
 aPz
 fKc
 bkB
-bhJ
+vgc
 bhJ
 eRx
 bHg
@@ -70269,8 +70288,8 @@ qHv
 aXw
 aZB
 aZB
-aZB
-aZB
+oRa
+oRa
 aPA
 aSg
 bew
@@ -98843,7 +98862,7 @@ bQZ
 bQZ
 bQZ
 bQZ
-cOe
+bUh
 cvO
 cNW
 aaa

@@ -44,9 +44,9 @@
 
 /datum/surgery_step/repair_bone_hairline/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(surgery.operated_wound)
-		display_results(user, target, span_notice("Вы начинаете восстанавливать костную структуру в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]...") ,
-			span_notice("[user] начинает восстанавливать костную структуру в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool].") ,
-			span_notice("[user] начинает восстанавливать костную структуру в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]."))
+		display_results(user, target, span_notice("Начинаю восстанавливать костную структуру в [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает восстанавливать костную структуру в [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)] используя [tool].") ,
+			span_notice("[user] начинает восстанавливать костную структуру в [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]."))
 		display_pain(target, "Моя [parse_zone(user.zone_selected)] болезненно ноет!")
 	else
 		user.visible_message(span_notice("[user] looks for [target] [parse_zone(user.zone_selected)].") , span_notice("You look for [target] [parse_zone(user.zone_selected)]..."))
@@ -56,9 +56,9 @@
 		if(istype(tool, /obj/item/stack))
 			var/obj/item/stack/used_stack = tool
 			used_stack.use(1)
-		display_results(user, target, span_notice("Вы успешно восстановили костную структуру в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] успешно восстановил костную структуру в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]!") ,
-			span_notice("[user] успешно восстановил костную структуру в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]!"))
+		display_results(user, target, span_notice("Успешно восстановаю костную структуру в [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] успешно восстановил костную структуру в [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)] используя [tool]!") ,
+			span_notice("[user] успешно восстановил костную структуру в [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]!"))
 		log_combat(user, target, "лечит трещину", addition="INTENT: [uppertext(user.a_intent)]")
 		qdel(surgery.operated_wound)
 	else
@@ -81,10 +81,10 @@
 
 /datum/surgery_step/reset_compound_fracture/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(surgery.operated_wound)
-		display_results(user, target, span_notice("Вы начинаете вправлять кость в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]...") ,
-			span_notice("[user] начинает вправлять кость в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool].") ,
-			span_notice("[user] начинает вправлять кость в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]."))
-		display_pain(target, "Ноющая боль в моей [parse_zone(user.zone_selected)] невыносима!")
+		display_results(user, target, span_notice("Начинаю вправлять кость в [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает вправлять кость в [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool].") ,
+			span_notice("[user] начинает вправлять кость в [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]."))
+		display_pain(target, "Ноющая боль в моей [ru_gde_zone(parse_zone(user.zone_selected))] невыносима!")
 	else
 		user.visible_message(span_notice("[user] пытается найти [parse_zone(user.zone_selected)] у [target].") , span_notice("Вы пытаетесь найти [parse_zone(user.zone_selected)] у [target]..."))
 

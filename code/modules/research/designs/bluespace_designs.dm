@@ -97,3 +97,15 @@
 	category = list("Блюспейс разработки", "Научное снаряжение")
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/bluemine
+	name = "Блюспейс майнинг"
+	desc = "Благодаря совместным усилиям Bluespace-A.S.S Technologies теперь можно добывать тонкую струйку ресурсов с помощью Блюспейс магии..."
+	id = "bluemine"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/gold = 500, /datum/material/silver = 500, /datum/material/bluespace = 500) //quite cheap, for more convenience
+	build_path = /obj/item/circuitboard/machine/bluespace_miner
+	category = list("Блюспейс разработки", "Инженерное снаряжение", "Научное снаряжение")
+	sub_category = list("Производство")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_CARGO

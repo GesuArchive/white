@@ -49,16 +49,16 @@
 					organ_rejection_dam = 30
 
 		if(target_zone == BP.body_zone) //so we can't replace a leg with an arm, or a human arm with a monkey arm.
-			display_results(user, target, span_notice("Вы начинаете заменять [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)] на [tool]...") ,
-				span_notice("[user] начинает заменять [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)] на [tool].") ,
-				span_notice("[user] начинает заменять [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]."))
+			display_results(user, target, span_notice("Начинаю заменять [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)] на [tool]...") ,
+				span_notice("[user] начинает заменять [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)] на [tool].") ,
+				span_notice("[user] начинает заменять [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."))
 		else
-			to_chat(user, span_warning("[tool] не подходит к [parse_zone(target_zone)]."))
+			to_chat(user, span_warning("[tool] не подходит к [ru_gde_zone(parse_zone(target_zone))]."))
 			return -1
 	else if(target_zone == BODY_ZONE_L_ARM || target_zone == BODY_ZONE_R_ARM)
-		display_results(user, target, span_notice("Вы начинаете присоединять [tool] к [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]...") ,
-			span_notice("[user] начинает присоединять [tool] к [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] начинает присоединять [tool] к [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]."))
+		display_results(user, target, span_notice("Начинаю присоединять [tool] к телу [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает присоединять [tool] к телу [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] начинает присоединять [tool] к телу [skloname(target.name, RODITELNI, target.gender)]."))
 	else
 		to_chat(user, span_warning("[tool] должно быть установлено в руку."))
 		return -1
@@ -73,31 +73,31 @@
 	if(istype(tool, /obj/item/bodypart) && user.temporarilyRemoveItemFromInventory(tool))
 		var/obj/item/bodypart/L = tool
 		if(!L.attach_limb(target))
-			display_results(user, target, span_warning("Вам не удалось заменить [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]! Тело отвергает [L]!") ,
-				span_warning("[user] не удалось заменить [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!") ,
-				span_warning("[user] не удалось заменить [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!"))
+			display_results(user, target, span_warning("Не удалось заменить [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]! Тело отвергает [L]!") ,
+				span_warning("[user] не удалось заменить [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
+				span_warning("[user] не удалось заменить [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!"))
 			return
 		if(organ_rejection_dam)
 			target.adjustToxLoss(organ_rejection_dam)
-		display_results(user, target, span_notice("Вы успешно заменили [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)] на [tool].") ,
-			span_notice("[user] успешно заменил [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)] на [tool]!") ,
-			span_notice("[user] успешно заменил [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!"))
-		display_pain(target, "Снова чувствую свою [parse_zone(target_zone)]!", TRUE)
+		display_results(user, target, span_notice("Успешно заменяю [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)] на [tool].") ,
+			span_notice("[user] успешно заменил [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)] на [tool]!") ,
+			span_notice("[user] успешно заменил [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!"))
+		display_pain(target, "Вновь чувствую свою [parse_zone(target_zone)]! Болит...", TRUE)
 		return
 	else
 		var/obj/item/bodypart/L = target.newBodyPart(target_zone, FALSE, FALSE)
 		L.is_pseudopart = TRUE
 		if(!L.attach_limb(target))
-			display_results(user, target, span_warning("Вам не удалось присоединить [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]! Тело отвергает [L]!") ,
-				span_warning("[user] не удалось присоединить [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!") ,
-				span_warning("[user] не удалось присоединить [parse_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!"))
+			display_results(user, target, span_warning("Мне не удалось присоединить [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]! Тело отвергает [L]!") ,
+				span_warning("[user] не удалось присоединить [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
+				span_warning("[user] не удалось присоединить [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!"))
 			L.forceMove(target.loc)
 			return
-		user.visible_message(span_notice("[user] успешно присоединяет [tool]!") , span_notice("Вы присоединили [tool]."))
-		display_results(user, target, span_notice("Вы присоединили [tool].") ,
+		user.visible_message(span_notice("[user] успешно присоединяет [tool]!") , span_notice("Присоединяю [tool]."))
+		display_results(user, target, span_notice("Присоединяю [tool].") ,
 			span_notice("[user] успешно присоединяет [tool]!") ,
 			span_notice("[user] успешно присоединяет [tool]!"))
-		display_pain(target, "Моя [parse_zone(target_zone)] странно ощущается.", TRUE)
+		display_pain(target, "С моей [ru_chem_zone(parse_zone(target_zone))] что-то не так...", TRUE)
 		qdel(tool)
 		if(istype(tool, /obj/item/chainsaw))
 			var/obj/item/mounted_chainsaw/new_arm = new(target)

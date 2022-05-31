@@ -127,7 +127,7 @@
 					span_notice("[user] начинает извлекать [I] из [parse_zone(target_zone)] [target].") ,
 					span_notice("[user] начинает что-то извлекать из [parse_zone(target_zone)] [target].") ,
 					playsound(get_turf(target), 'sound/surgery/hemostat1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-				display_pain(target, "Я чувствую, как [I] вытаскивается из моей [parse_zone(target_zone)]!")
+				display_pain(target, "Я чувствую, боль в [ru_otkuda_zone(parse_zone(target_zone))]!")
 			else
 				return -1
 
@@ -148,7 +148,7 @@
 			span_notice("[user] поместил [tool] в [parse_zone(target_zone)] [target]!") ,
 			span_notice("[user] поместил что-то в [parse_zone(target_zone)] [target]!") ,
 			playsound(get_turf(target), 'sound/surgery/organ1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-		display_pain(target, "Моя [parse_zone(target_zone)] болезненно пульсирует, пока [tool] приходит в чувство!")
+		display_pain(target, "Моя [parse_zone(target_zone)] болезненно пульсирует! Кажется в меня что-то запихали!")
 
 	else if(current_type == "extract")
 		if(I && I.owner == target)
@@ -156,7 +156,7 @@
 				span_notice("[user] успешно извлек [I] из [parse_zone(target_zone)] [target]!") ,
 				span_notice("[user] успешно что-то извлек из [parse_zone(target_zone)] [target]!") ,
 				playsound(get_turf(target), 'sound/surgery/organ2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-			display_pain(target, "Моя [parse_zone(target_zone)] болезненно пульсирует, я больше не чувствую [I]!")
+			display_pain(target, "Моя [parse_zone(target_zone)] болит! Кажется из меня что-то извлекли!")
 			log_combat(user, target, "хирургически извлек [I.name] из", addition="INTENT: [uppertext(user.a_intent)]")
 			I.Remove(target)
 			I.forceMove(get_turf(target))

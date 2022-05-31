@@ -17,17 +17,17 @@
 
 /datum/surgery_step/cut_fat/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	user.visible_message(span_notice("[user] начинает отрезать лишний жир у [skloname(target.name, RODITELNI, target.gender)].") , span_notice("Вы начинаете отрезать лишний жир у [skloname(target.name, RODITELNI, target.gender)]..."))
-	display_results(user, target, span_notice("Вы начинаете отрезать лишний жир у [skloname(target.name, RODITELNI, target.gender)]...") ,
+	display_results(user, target, span_notice("Начинаю отрезать лишний жир у [skloname(target.name, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает отрезать лишний жир у [skloname(target.name, RODITELNI, target.gender)].") ,
 			span_notice("[user] начинает отрезать лишний жир в [target_zone] у [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]."))
-	display_pain(target, "You feel a stabbing in your [target_zone]!")
+	display_pain(target, "Ой-ой! Щекотно!")
 
 
 /datum/surgery_step/cut_fat/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
-	display_results(user, target, span_notice("Вы отрезали лишний жир у [skloname(target.name, RODITELNI, target.gender)].") ,
+	display_results(user, target, span_notice("Отрезаю лишний жир у [skloname(target.name, RODITELNI, target.gender)].") ,
 			span_notice("[user] отрезал лишний жир у [skloname(target.name, RODITELNI, target.gender)]!") ,
 			span_notice("[user] отрезал лишний жир у [skloname(target.name, RODITELNI, target.gender)]."))
-	display_pain(target, "The fat in your [target_zone] comes loose, dangling and hurting like hell!")
+	display_pain(target, "Такое ощущение что у меня живот потек!")
 	return 1
 
 //remove fat
@@ -37,7 +37,7 @@
 	time = 32
 
 /datum/surgery_step/remove_fat/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Вы начинаете извлекать лишний жир из [skloname(target.name, RODITELNI, target.gender)]...") ,
+	display_results(user, target, span_notice("Начинаю извлекать лишний жир из [skloname(target.name, RODITELNI, target.gender)]...") ,
 			span_notice("[user] начинает извлекать лишний жир из [skloname(target.name, RODITELNI, target.gender)]!") ,
 			span_notice("[user] начинает извлекать лишний жир из [skloname(target.name, RODITELNI, target.gender)]."))
 
@@ -45,7 +45,7 @@
 	display_results(user, target, span_notice("Вы извлекли лишний жир из [skloname(target.name, RODITELNI, target.gender)].") ,
 			span_notice("[user] извлек лишний жир из [skloname(target.name, RODITELNI, target.gender)]!") ,
 			span_notice("[user] извлек лишний жир из [skloname(target.name, RODITELNI, target.gender)]!"))
-	display_pain(target, "You feel an oddly painless tugging on your loose fat!")
+	display_pain(target, "Чувствую себя намного более спортивным!")
 	target.overeatduration = 0 //patient is unfatted
 	var/removednutriment = target.nutrition
 	target.set_nutrition(NUTRITION_LEVEL_WELL_FED)
