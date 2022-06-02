@@ -80,6 +80,9 @@
 /obj/item/clothing/mask/facehugger/equipped(mob/M)
 	. = ..()
 	Attach(M)
+/obj/item/clothing/mask/facehugger/dropped(mob/M)
+	. = ..()
+	REMOVE_TRAIT(M, TRAIT_NOBREATH, "facehugger") //На всякий случай
 
 /obj/item/clothing/mask/facehugger/proc/on_entered(datum/source, atom/target)
 	SIGNAL_HANDLER
@@ -179,7 +182,9 @@
 	if(!sterile)
 		M.take_bodypart_damage(strength,0) //done here so that humans in helmets take damage
 		M.Unconscious(MAX_IMPREGNATION_TIME/0.3) //something like 25 ticks = 20 seconds with the default settings
-
+		ADD_TRAIT(M, TRAIT_NOBREATH, "facehugger")
+		M.reagents.add_reagent(/datum/reagent/medicine/leporazine,5)
+		M.reagents.add_reagent(/datum/reagent/medicine/omnizine,5)
 	GoIdle() //so it doesn't jump the people that tear it off
 
 	addtimer(CALLBACK(src, .proc/Impregnate, M), rand(MIN_IMPREGNATION_TIME, MAX_IMPREGNATION_TIME))
@@ -200,6 +205,7 @@
 		target.visible_message(span_danger("[capitalize(src.name)] безвольно отваливается от лица [target]!") , \
 								span_userdanger("[capitalize(src.name)] безвольно отваливается от моего лица!"))
 
+		REMOVE_TRAIT(target, TRAIT_NOBREATH, "facehugger")
 		Die()
 		icon_state = "[initial(icon_state)]_impregnated"
 

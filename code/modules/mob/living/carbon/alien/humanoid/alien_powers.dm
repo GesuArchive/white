@@ -289,8 +289,26 @@ Doesn't work on other aliens/AI.*/
 	name = "Скрыться"
 	desc = "Blend into the shadows to stalk your prey."
 	active = 0
-
 	action_icon_state = "alien_sneak"
+
+
+/obj/effect/proc_holder/alien/sneak/on_gain(mob/living/carbon/user)
+	RegisterSignal(user, list(COMSIG_LIVING_UNARMED_ATTACK, COMSIG_MOB_THROW), .proc/UnarmedAttack)
+
+
+/obj/effect/proc_holder/alien/sneak/on_lose(mob/living/carbon/user)
+	RegisterSignal(user, list(COMSIG_LIVING_UNARMED_ATTACK, COMSIG_MOB_THROW), .proc/UnarmedAttack)
+
+
+/obj/effect/proc_holder/alien/sneak/proc/UnarmedAttack(mob/living/carbon/alien/humanoid/user, atom/target)
+	SIGNAL_HANDLER
+
+	if(active & isliving(target))
+		user.alpha = initial(user.alpha)
+		user.sneaking = 0
+		active = 0
+		to_chat(user, span_noticealien("Атакую из тени!"))
+
 
 /obj/effect/proc_holder/alien/sneak/fire(mob/living/carbon/alien/humanoid/user)
 	if(!active)

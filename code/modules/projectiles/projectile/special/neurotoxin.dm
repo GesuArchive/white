@@ -4,13 +4,15 @@
 	damage = 5
 	damage_type = TOX
 	nodamage = FALSE
-	paralyze = 100
+	knockdown = 100
+	stamina = 60
 	nomiss = TRUE
 	flag = BIO
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/neurotoxin
 
 /obj/projectile/neurotoxin/on_hit(atom/target, blocked = FALSE)
 	if(isalien(target))
-		paralyze = 0
+		knockdown = 0
+		stamina = 0
 		nodamage = TRUE
 	return ..()

@@ -312,16 +312,22 @@
 		var/obj/item/I = get_active_held_item()
 		if(I && dropItemToGround(I))
 			playsound(loc, 'sound/weapons/slash.ogg', 25, TRUE, -1)
-			visible_message(span_danger("[M] обезоруживает [src]!") , \
-							span_userdanger("[M] обезоруживает меня!") , span_hear("Слышу агрессивную потасовку!") , null, M)
-			to_chat(M, span_danger("Обезоруживаю [src]!"))
-		else
+			visible_message(span_danger("<b>[M]</b> обезоруживает <b>[skloname(src.name, VINITELNI, src.gender)]</b>!") , \
+							span_userdanger("<b>[M]</b> обезоруживает меня!") , span_hear("Слышу агрессивную потасовку!") , null, M)
+			to_chat(M, span_danger("Обезоруживаю <b>[skloname(src.name, VINITELNI, src.gender)]</b>!"))
+		else if (src.IsKnockdown() && !src.IsParalyzed())
 			playsound(loc, 'sound/weapons/pierce.ogg', 25, TRUE, -1)
-			Paralyze(100)
-			log_combat(M, src, "tackled")
-			visible_message(span_danger("[M] валит [src] на пол!") , \
-							span_userdanger("[M] валит меня на пол!") , span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!") , null, M)
-			to_chat(M, span_danger("Укладываю [src] на пол!"))
+			Paralyze(30)
+			log_combat(M, src, "stunned")
+			visible_message(span_danger("[M] тяжко прикладывает <b>[skloname(src.name, VINITELNI, src.gender)]</b>! в пол!") , \
+							span_userdanger("[M] обездвиживает меня сильным ударом!") , span_hear("Слышу потасовку сопровождаемую тихим хрипом!") , null, M)
+			to_chat(M, span_danger("Принуждаю <b>[skloname(src.name, VINITELNI, src.gender)]</b>! полежать!"))
+		else
+			Knockdown(90)
+			log_combat(M, src, "knocked")
+			visible_message(span_danger("<b>[M]</b> роняет <b>[skloname(src.name, VINITELNI, src.gender)]</b>!") , \
+							span_userdanger("<b>[M]</b> опрокидывает меня!") , span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!") , null, M)
+			to_chat(M, span_danger("Сбиваю с ног <b>[skloname(src.name, VINITELNI, src.gender)]</b>!"))
 
 
 /mob/living/carbon/human/attack_larva(mob/living/carbon/alien/larva/L)
