@@ -471,11 +471,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if (prefs.fullscreen)
 		ToggleFullscreen()
 
-	if(isnewplayer(src.mob))
-		view_size = new(src, getScreenSize(prefs.widescreenpref))
-		view = "[prefs.widescreenwidth]x15"
-	else
-		view_size = new(src, getScreenSize(prefs.widescreenpref))
+	view_size = new(src, getScreenSize())
 
 	view_size.resetFormat()
 	view_size.setZoomMode()
@@ -1024,9 +1020,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 /client/proc/change_view(new_size, forced = FALSE)
 	if (isnull(new_size))
 		CRASH("change_view called without argument.")
-
-	if(prefs && !prefs.widescreenpref && new_size == CONFIG_GET(string/default_view) && !forced)
-		new_size = CONFIG_GET(string/default_view_square)
 
 	view = new_size
 	SEND_SIGNAL(src, COMSIG_VIEW_SET, new_size)

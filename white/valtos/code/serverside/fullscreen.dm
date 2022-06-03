@@ -7,22 +7,6 @@
         winset(src, "mainwindow", "is-maximized=true")
     addtimer(CALLBACK(src,.verb/fit_viewport,10))
 
-/datum/keybinding/client/widecreen_toggle
-	hotkey_keys = list("CtrlF11")
-	name = "widecreen_toggle"
-	full_name = "Widescreen"
-	description = "Делает экран широким (19x15), либо узким (15x15)."
-	keybind_signal = COMSIG_KB_CLIENT_WIDESCREEN
-
-/datum/keybinding/client/widecreen_toggle/down(client/user)
-	. = ..()
-	if(.)
-		return
-	user.prefs.widescreenpref = !user.prefs.widescreenpref
-	user.view_size.setDefault(getScreenSize(user.prefs.widescreenpref))
-	user.view = "[user.prefs.widescreenwidth]x15"
-	return TRUE
-
 /datum/keybinding/client/fullscreen_toggle
 	hotkey_keys = list("F11")
 	name = "fullscreen_toggle"

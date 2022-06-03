@@ -651,7 +651,7 @@
 	if(!user || !user.client)
 		return
 	if(zoom || force_off)
-		user.client.change_view(CONFIG_GET(string/default_view))
+		user.client.change_view(user.client.getScreenSize())
 		to_chat(user, span_boldnotice("Отключено: увеличение детализации."))
 		zoom = FALSE
 		return FALSE

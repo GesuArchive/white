@@ -137,7 +137,5 @@
 	//Ready for this one?
 	setTo(radius)
 
-/proc/getScreenSize(widescreen)
-	if(widescreen)
-		return CONFIG_GET(string/default_view)
-	return CONFIG_GET(string/default_view_square)
+/client/proc/getScreenSize()
+	return "[prefs.widescreenwidth]x15"

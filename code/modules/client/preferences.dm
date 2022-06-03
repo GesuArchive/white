@@ -121,8 +121,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	///Should we automatically fit the viewport?
 	var/auto_fit_viewport = FALSE
-	///Should we be in the widescreen mode set by the config?
-	var/widescreenpref = TRUE
 	///What size should pixels be displayed as? 0 is strech to fit
 	var/pixel_size = 0
 	///What scaling method should we use? Distort means nearest neighbor
@@ -568,9 +566,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_NODE_SWITCH("Полный экран", "fullscreen", fullscreen ? "Вкл" : "Выкл")
 
 			if (CONFIG_GET(string/default_view) != CONFIG_GET(string/default_view_square))
-				dat += SETUP_NODE_SWITCH("Широкий экран", "widescreenpref", widescreenpref ? "Вкл ([CONFIG_GET(string/default_view)])" : "Выкл ([CONFIG_GET(string/default_view_square)])")
-				if(widescreenpref)
-					dat += SETUP_NODE_INPUT("Своя ширина экрана", "widescreenwidth", widescreenwidth)
+				dat += SETUP_NODE_INPUT("Ширина экрана", "widescreenwidth", widescreenwidth)
 
 			dat += SETUP_NODE_SWITCH("Названия предметов", "tooltip_user", (w_toggles & TOOLTIP_USER_UP) ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Позиция на экране", "tooltip_pos", (w_toggles & TOOLTIP_USER_POS) ? "Внизу" : "Вверху")
@@ -1938,11 +1934,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					else
 						winset(user, "info", "show-splitter=true")
 						winset(user, "split", "show-splitter=true")
-
-				if("widescreenpref")
-					widescreenpref = !widescreenpref
-					user.client.view_size.setDefault(getScreenSize(widescreenpref))
-					user.client.view = "[user.client.prefs.widescreenwidth]x15"
 
 				if("disabled_autocap")
 					disabled_autocap = !disabled_autocap
