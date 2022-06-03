@@ -75,7 +75,11 @@
 	tod = station_time_timestamp()
 	var/turf/T = get_turf(src)
 	if(mind && mind.name && mind.active && !istype(T.loc, /area/ctf))
-		deadchat_broadcast(" погибает в локации <b>[get_area_name(T)]</b>.", "<b>[mind.name]</b>", follow_target = src, turf_target = T, message_type=DEADCHAT_DEATHRATTLE)
+		var/suicided = FALSE
+		if(lastattackermob == src)
+			suicided = TRUE
+			INVOKE_ASYNC(src, .proc/inc_metabalance, METACOIN_SUICIDE_REWARD, TRUE, "Это было очень глупо.")
+		deadchat_broadcast(" [suicided ? "совершает суицид" : "погибает"] в локации <b>[get_area_name(T)]</b>.", "<b>[mind.name]</b>", follow_target = src, turf_target = T, message_type=DEADCHAT_DEATHRATTLE)
 		if(SSlag_switch.measures[DISABLE_DEAD_KEYLOOP] && !client?.holder)
 			to_chat(src, span_deadsay(span_big("Свободный обзор ограничен.\nОрбитируйте, Телепортируйтесь, и Прыгайте вместо этого.")))
 			ghostize(TRUE)
