@@ -62,22 +62,27 @@
 	worn_icon = 'white/valtos/icons/clothing/mob/suit.dmi'
 	icon = 'white/valtos/icons/clothing/suits.dmi'
 	icon_state = "opvest"
+	disassembly_flag = FALSE
 
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/suit/armor/vest/izan/arbiter
 	icon_state = "arbiter"
+	disassembly_flag = FALSE
 
 /obj/item/clothing/suit/armor/vest/izan/army_coat
 	icon_state = "army_coat"
+	disassembly_flag = FALSE
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/suit/armor/vest/izan/elite_army_coat
 	icon_state = "elite_army_coat"
+	disassembly_flag = FALSE
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/suit/armor/vest/izan/super_elite_army_coat
 	icon_state = "super_elite_army_coat"
+	disassembly_flag = FALSE
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/neck/cowl
