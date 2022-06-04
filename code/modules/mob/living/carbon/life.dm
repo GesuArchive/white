@@ -432,7 +432,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 81-90: Extremely high alcohol content - light brain damage, passing out
 91-100: Dangerously toxic - swift death
 */
-#define BALLMER_POINTS 5
+#define BALLMER_POINTS 500
 
 //this updates all special effects: stun, sleeping, knockdown, druggy, stuttering, etc..
 /mob/living/carbon/handle_status_effects(delta_time, times_fired)
@@ -528,9 +528,11 @@ All effects don't start immediately, but rather get worse over time; the rate is
 				if(drunkenness >= 12.9 && drunkenness <= 13.8)
 					drunkenness = round(drunkenness, 0.01)
 					if(DT_PROB(2.5, delta_time))
+						SSresearch.science_tech.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = BALLMER_POINTS))
 						say(pick_list_replacements(VISTA_FILE, "ballmer_good_msg"), forced = "ballmer")
 				if(drunkenness > 26) // by this point you're into windows ME territory
 					if(DT_PROB(2.5, delta_time))
+						SSresearch.science_tech.remove_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = BALLMER_POINTS))
 						say(pick_list_replacements(VISTA_FILE, "ballmer_windows_me_msg"), forced = "ballmer")
 
 		if(drunkenness >= 41)

@@ -329,16 +329,16 @@ Nothing else in the console has ID requirements.
 				var/autolathe_friendly = TRUE
 				if(design.reagents_list.len)
 					autolathe_friendly = FALSE
-					design.category -= "Imported"
+					design.category -= "Импорт"
 				else
 					for(var/material in design.materials)
 						if( !(material in list(/datum/material/iron, /datum/material/glass)))
 							autolathe_friendly = FALSE
-							design.category -= "Imported"
+							design.category -= "Импорт"
 
 				if(design.build_type & (AUTOLATHE|PROTOLATHE)) // Specifically excludes circuit imprinter and mechfab
 					design.build_type = autolathe_friendly ? (design.build_type | AUTOLATHE) : design.build_type
-					design.category |= "Imported"
+					design.category |= "Импорт"
 				d_disk.blueprints[slot] = design
 			return TRUE
 		if ("uploadDesignSlot")
