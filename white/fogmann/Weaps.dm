@@ -12,6 +12,7 @@
 	mag_type = /obj/item/ammo_box/magazine/HK416
 	pin = /obj/item/firing_pin
 	fire_delay = 1
+	auto_fire = FALSE
 	slot_flags = ITEM_SLOT_BACK
 	burst_size = 3
 	empty_indicator = FALSE

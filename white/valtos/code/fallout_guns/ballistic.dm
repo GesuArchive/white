@@ -38,6 +38,7 @@
 	lefthand_file = 'white/valtos/icons/fallout/guns_lefthand.dmi'
 	righthand_file = 'white/valtos/icons/fallout/guns_righthand.dmi'
 	force = 20
+	auto_fire = FALSE
 
 //Pistols
 /obj/item/gun/ballistic/automatic/pistol/fallout
@@ -46,6 +47,7 @@
 	icon = 'white/valtos/icons/fallout/ballistics.dmi'
 	lefthand_file = 'white/valtos/icons/fallout/guns_lefthand.dmi'
 	righthand_file = 'white/valtos/icons/fallout/guns_righthand.dmi'
+	auto_fire = FALSE
 
 //Bolt-actions
 /obj/item/gun/ballistic/rifle/fallout

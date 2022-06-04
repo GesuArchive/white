@@ -5,6 +5,7 @@
 	fire_delay = 2
 	actions_types = list(/datum/action/item_action/toggle_firemode)
 	semi_auto = TRUE
+	var/auto_fire = TRUE
 	fire_sound = 'sound/weapons/gun/smg/shot.ogg'
 	fire_sound_volume = 90
 	vary_fire_sound = FALSE
@@ -15,10 +16,12 @@
 
 /obj/item/gun/ballistic/automatic/Initialize()
 	. = ..()
-	make_auto()
+	if(auto_fire)
+		make_auto() //Один хер эту штуку оверрайдит прок выдачи другой задержки стрельбы
+
 
 /obj/item/gun/ballistic/automatic/proc/make_auto()
-	AddComponent(/datum/component/automatic_fire, fire_delay)
+	AddComponent(/datum/component/automatic_fire, (fire_delay * 0.15) SECONDS)
 
 /obj/item/gun/ballistic/automatic/update_overlays()
 	. = ..()
@@ -69,6 +72,7 @@
 /obj/item/gun/ballistic/automatic/proto/Initialize()
 	. = ..()
 	AddComponent(/datum/component/automatic_fire, 0.2 SECONDS)
+
 
 /obj/item/gun/ballistic/automatic/proto/unrestricted
 	pin = /obj/item/firing_pin
@@ -349,6 +353,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "sniper"
 	worn_icon_state = null
+	auto_fire = FALSE
 	fire_sound = 'sound/weapons/gun/sniper/shot.ogg'
 	fire_sound_volume = 90
 	vary_fire_sound = FALSE
@@ -388,6 +393,7 @@
 	worn_icon_state = null
 	weapon_weight = WEAPON_HEAVY
 	mag_type = /obj/item/ammo_box/magazine/m10mm/rifle
+	auto_fire = FALSE
 	fire_delay = 30
 	burst_size = 1
 	can_unsuppress = TRUE

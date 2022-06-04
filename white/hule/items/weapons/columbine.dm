@@ -4,6 +4,7 @@
 	icon = 'white/hule/icons/obj/weapons.dmi'
 	icon_state = "hipoint"
 	inhand_icon_state = "carbine"
+	auto_fire = FALSE
 	lefthand_file = 'white/hule/icons/onmob/ballistic_l.dmi'
 	righthand_file = 'white/hule/icons/onmob/ballistic_r.dmi'
 	pin = /obj/item/firing_pin

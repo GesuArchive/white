@@ -3,6 +3,7 @@
 	desc = "A special laser beam sniper rifle designed by a certain now defunct research facility."
 	icon_state = "ctfmarksman"
 	inhand_icon_state = "ctfmarksman"
+	auto_fire = FALSE
 	mag_type = /obj/item/ammo_box/magazine/recharge/marksman
 	force = 15
 	weapon_weight = WEAPON_HEAVY
