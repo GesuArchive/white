@@ -26,11 +26,11 @@
  * Maelstrom of Silver
  */
 /datum/heretic_knowledge/limited_amount/starting/base_blade
-	name = "The Cutting Edge"
-	desc = "Opens up the path of blades to you. \
-		Allows you to transmute a knife with a bar of silver to create a Darkened Blade. \
-		You can create up to five at a time."
-	gain_text = "Our great ancestors forged swords and practiced sparring on the even of great battles."
+	name = "Режущее острие"
+	desc = "Открывает вам путь лезвия. \
+		Позволяет преобразовать нож и два листа серебра для создания затемненного лезвия. \
+		Вы можете создать одновременно лишь 5 лезвий."
+	gain_text = "Наши могучие предки ковали мечи и тренировались в спаррингах даже в великих битвах."
 	next_knowledge = list(/datum/heretic_knowledge/blade_grasp)
 	required_atoms = list(
 		/obj/item/kitchen/knife = 1,
@@ -41,10 +41,10 @@
 	route = PATH_BLADE
 
 /datum/heretic_knowledge/blade_grasp
-	name = "Grasp of the Blade"
-	desc = "Your Mansus Grasp will cause a short stun when used on someone lying down or facing away from you."
-	gain_text = "The story of the footsoldier has been told since antiquity. It is one of blood and valor, \
-		and is championed by sword, steel and silver."
+	name = "Хватка лезвий"
+	desc = "Ваша хватка Мансуса вызовет короткое оглушение при использовании на том кто лежит или не смотрит на вас."
+	gain_text = "История пехотинца началась в глубокой древности. Это история крови и доблести, \
+		что отстаивается мечом, сталью и серебром."
 	next_knowledge = list(/datum/heretic_knowledge/blade_dance)
 	cost = 1
 	route = PATH_BLADE
@@ -88,7 +88,7 @@
 	// We're officially behind them, apply effects
 	target.AdjustParalyzed(1.5 SECONDS)
 	target.apply_damage(10, BRUTE, wound_bonus = CANT_WOUND)
-	target.balloon_alert(source, "backstab!")
+	target.balloon_alert(source, "удар в спину!")
 	playsound(get_turf(target), 'sound/weapons/guillotine.ogg', 100, TRUE)
 
 /// The cooldown duration between trigers of blade dance
