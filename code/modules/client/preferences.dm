@@ -608,6 +608,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += "</div><div class='csetup_content'><div class='csetup_header'>Спецроли</div>"
 
+			if(user?.client?.get_metabalance() < 50)
+				dat += "<font color='#ff3333'><b>Отрицательная карма. Получение роли маловероятно.</b></font>"
+
 			if(is_banned_from(user.ckey, ROLE_SYNDICATE))
 				dat += "<font color='#ff7777'><b>Тебе нельзя быть антагами.</b></font>"
 				src.be_special = list()
