@@ -180,10 +180,8 @@
 	. = ..()
 	switch(select)
 		if(0)
-			. += "[initial(icon_state)]_semi"
-		if(1)
 			. += "[initial(icon_state)]_burst"
-		if(2)
+		if(1)
 			. += "[initial(icon_state)]_gren"
 
 /obj/item/gun/ballistic/automatic/m90/burst_select()
