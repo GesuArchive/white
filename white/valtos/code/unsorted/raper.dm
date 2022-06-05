@@ -339,4 +339,4 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_STUNIMMUNE, "sosi")
 	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, "sosi")
-	fully_replace_character_name(null, pick("Partingglass", "Rodial", "Tatarin", "K0b0ld", "Xmaebx", "Ucnahez", "Mrpersival", "Bulatm12", "Moji04nik", "Novan13", "Panchoys", "Primudsuka", "Amiclerick", "Epicus", "Polukarpovitch", "Antigolic", "Davidkameron", "Tapko4eb", "Mellondeluna", "Sholom", "Michael Shepard", "Clockrigger"))
+	fully_replace_character_name(null, pick("Partingglass", "Rodial", "Tatarin", "K0b0ld", "Xmaebx", "Ucnahez", "Mrpersival", "Bulatm12", "Moji04nik", "Novan13", "Panchoys", "Primudsuka", "Amiclerick", "Epicus", "Polukarpovitch", "Antigolic", "Davidkameron", "Mellondeluna", "Sholom", "Michael Shepard", "Clockrigger"))
