@@ -260,7 +260,7 @@
 /datum/supply_pack/innovations/farmbox
 	name = "Пиздюлегенератор"
 	desc = "Эта штука служит для выращивания денег в прогрессии."
-	cost = 5500
+	cost = 25500
 	contains = list(/obj/structure/punching_bag/pizdul)
 	crate_name = "farmbox"
 	crate_type = /obj/structure/closet/crate/large
