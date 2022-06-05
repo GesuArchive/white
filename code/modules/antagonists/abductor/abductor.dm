@@ -128,7 +128,7 @@ GLOBAL_LIST_INIT(possible_abductor_names, list("Alpha","Beta","Gamma","Delta","E
 			H.equipOutfit(/datum/outfit/abductor/scientist)
 
 /datum/team/abductor_team
-	member_name = "abductor"
+	member_name = "Похитители"
 	var/team_number
 	var/list/datum/mind/abductees = list()
 	var/static/team_count = 1

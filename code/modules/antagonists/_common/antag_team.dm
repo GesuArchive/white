@@ -4,7 +4,7 @@ GLOBAL_LIST_EMPTY(antagonist_teams)
 /datum/team
 	var/list/datum/mind/members = list()
 	var/name = "team"
-	var/member_name = "member"
+	var/member_name = "Члены команды"
 	var/list/objectives = list() //common objectives, these won't be added or removed automatically, subtypes handle this, this is here for bookkeeping purposes.
 	var/show_roundend_report = TRUE
 
@@ -39,24 +39,24 @@ GLOBAL_LIST_EMPTY(antagonist_teams)
 	var/list/report = list()
 
 	report += span_header("[name]:")
-	report += "The [member_name]s were:"
+	report += "[member_name]:"
 	report += printplayerlist(members)
 
 	if(objectives.len)
-		report += span_header("Team had following objectives:")
+		report += span_header("Команда имела следующие цели:")
 		var/win = TRUE
 		var/objective_count = 1
 		for(var/datum/objective/objective in objectives)
 			if(objective.check_completion())
-				report += "<B>Objective #[objective_count]</B>: [objective.explanation_text] <span class='greentext'>Success!</span>"
+				report += "<B>Цель #[objective_count]</B>: [objective.explanation_text] <span class='greentext'>Успех!</span>"
 			else
-				report += "<B>Objective #[objective_count]</B>: [objective.explanation_text] <span class='redtext'>Fail.</span>"
+				report += "<B>Цель #[objective_count]</B>: [objective.explanation_text] <span class='redtext'>Провал.</span>"
 				win = FALSE
 			objective_count++
 		if(win)
-			report += span_greentext("The [name] was successful!")
+			report += span_greentext("[name] успешны!")
 		else
-			report += span_redtext("The [name] have failed!")
+			report += span_redtext("[name] провалились!")
 
 
 	return "<div class='panel redborder'>[report.Join("<br>")]</div>"

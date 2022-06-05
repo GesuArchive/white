@@ -330,7 +330,7 @@
 			parts += "<B>Экипаж станции сохранил диск и остановил оперативников!</B>"
 		if(NUKE_RESULT_DISK_LOST)
 			parts += "<span class='neutraltext big'>Нейтральная победа!</span>"
-			parts += "<B>Экипаж станции потеряли диск, но смогли уничтожить всех оперативников Синдиката!</B>"
+			parts += "<B>Экипаж станции потерял диск, но смог уничтожить всех оперативников Синдиката!</B>"
 		if(NUKE_RESULT_DISK_STOLEN)
 			parts += "<span class='greentext big'>Syndicate Minor Victory!</span>"
 			parts += "<B>Оперативники Синдиката смогли выжить в штурме, но не взорвали станцию [station_name()].</B> Не теряйте диск!"

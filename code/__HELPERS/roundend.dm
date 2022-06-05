@@ -793,8 +793,8 @@
 /proc/printplayer(datum/mind/ply, fleecheck)
 	var/jobtext = ""
 	if(ply.assigned_role)
-		jobtext = " <b>[ply.assigned_role]</b>"
-	var/text = "<b>[ply.key]</b> как <b>[ply.name]</b>[jobtext] "
+		jobtext = " (<b>[ply.assigned_role]</b>)"
+	var/text = "<b>[ply.key]</b> - <b>[ply.name]</b>[jobtext] "
 	if(ply.current)
 		if(ply.current.stat == DEAD)
 			text += " <span class='redtext'>погиб</span>"
@@ -803,11 +803,11 @@
 		if(fleecheck)
 			var/turf/T = get_turf(ply.current)
 			if(!T || !is_station_level(T.z))
-				text += " while <span class='redtext'>улетел со станции</span>"
+				text += " <span class='redtext'>улетев со станции!</span>"
 		if(ply.current.real_name != ply.name)
-			text += " как <b>[ply.current.real_name]</b>"
+			text += " также известный как <b>[ply.current.real_name]</b>"
 	else
-		text += " <span class='redtext'>был полностью уничтожен</span>"
+		text += "<span class='redtext'>был уничтожен!</span>"
 	return text
 
 /proc/printplayerlist(list/players,fleecheck)

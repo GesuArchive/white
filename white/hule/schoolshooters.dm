@@ -54,7 +54,7 @@
 
 /datum/team/schoolshooters
 	name = "Террористы"
-	member_name = "Террорист"
+	member_name = "Террористы"
 
 /datum/team/schoolshooters/New()
 	..()
