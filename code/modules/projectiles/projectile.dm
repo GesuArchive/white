@@ -280,10 +280,10 @@
 		else if(impact_effect_type && !hitscan)
 			new impact_effect_type(target_loca, hitx, hity)
 
-		var/organ_hit_text = ""
-		var/limb_hit = hit_limb
-		if(limb_hit)
-			organ_hit_text = "[ru_parse_zone(parse_zone(limb_hit))]"
+		//var/organ_hit_text = ""
+		//var/limb_hit = hit_limb
+		//if(limb_hit)
+		//	organ_hit_text = "[ru_parse_zone(parse_zone(limb_hit))]"
 		if(suppressed==SUPPRESSED_VERY)
 			playsound(loc, hitsound, 5, TRUE, -1)
 		else if(suppressed)
