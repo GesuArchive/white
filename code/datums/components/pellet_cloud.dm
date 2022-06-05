@@ -292,11 +292,11 @@
 ///All of our pellets are accounted for, time to go target by target and tell them how many things they got hit by.
 /datum/component/pellet_cloud/proc/finalize()
 	var/obj/projectile/P = projectile_type
-	var/proj_name = initial(P.name)
+	//var/proj_name = initial(P.name)
 
 	for(var/atom/target in targets_hit)
-		var/num_hits = targets_hit[target]["hits"]
-		var/did_damage = targets_hit[target]["no damage"]
+		//var/num_hits = targets_hit[target]["hits"]
+		//var/did_damage = targets_hit[target]["no damage"]
 		UnregisterSignal(target, COMSIG_PARENT_QDELETING)
 		var/obj/item/bodypart/hit_part
 		if(isbodypart(target))
@@ -309,14 +309,14 @@
 				var/wound_type = (initial(P.damage_type) == BRUTE) ? WOUND_BLUNT : WOUND_BURN // sharpness is handled in the wound rolling
 				wound_info_by_part -= hit_part
 				hit_part.painless_wound_roll(wound_type, damage_dealt, w_bonus, bw_bonus, initial(P.sharpness))
-
+/*
 		if(num_hits > 1)
 			target.visible_message(span_danger("В[hit_part ? " в [ru_parse_zone(hit_part.name)]" : ""] <b>[target]</b> попадают [num_hits] [proj_name][did_damage ? ", но не оставляет даже царапины" : ""]!"), null, null, COMBAT_MESSAGE_RANGE, target)
 			to_chat(target, span_userdanger("В[hit_part ? " в [ru_parse_zone(hit_part.name)]" : ""] попадают [num_hits] [proj_name]!"))
 		else
 			target.visible_message(span_danger("В[hit_part ? " в [ru_parse_zone(hit_part.name)]" : ""] <b>[target]</b> попадает [proj_name][did_damage ? ", но не оставляет даже царапины" : ""]!"), null, null, COMBAT_MESSAGE_RANGE, target)
 			to_chat(target, span_userdanger("В[hit_part ? " в [ru_parse_zone(hit_part.name)]" : ""] попадает [proj_name]!"))
-
+*/
 	for(var/M in purple_hearts)
 		var/mob/living/martyr = M
 		if(martyr.stat == DEAD && martyr.client)

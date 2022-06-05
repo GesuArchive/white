@@ -288,13 +288,13 @@
 			playsound(loc, hitsound, 5, TRUE, -1)
 		else if(suppressed)
 			playsound(loc, hitsound, 5, TRUE, -1)
-			to_chat(L, span_userdanger("В [organ_hit_text] попадает <b>[src.name]</b>!"))
+			//to_chat(L, span_userdanger("В [organ_hit_text] попадает <b>[src.name]</b>!"))
 		else
 			if(hitsound)
 				var/volume = vol_by_damage()
 				playsound(src, hitsound, volume, TRUE, -1)
-			L.visible_message(span_danger("В [organ_hit_text] <b>[L]</b> попадает <b>[src.name]</b>!"), \
-					span_userdanger("В [organ_hit_text] попадает <b>[src.name]</b>!"), null, COMBAT_MESSAGE_RANGE)
+			//L.visible_message(span_danger("В [organ_hit_text] <b>[L]</b> попадает <b>[src.name]</b>!"),
+			//		span_userdanger("В [organ_hit_text] попадает <b>[src.name]</b>!"), null, COMBAT_MESSAGE_RANGE)
 		L.on_hit(src)
 
 	var/reagent_note

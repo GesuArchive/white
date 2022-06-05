@@ -172,18 +172,18 @@
 		playsound(user, fire_sound, fire_sound_volume, vary_fire_sound)
 		if(message)
 			if(pointblank)
-				user.visible_message(span_danger("<b>[user]</b> стреляет из <b>[src.name]</b> <b>В УПОР</b> по <b>[pbtarget]</b>!"), \
-								span_danger("Стреляю из [src.name] <b>В УПОР</b> по <b>[pbtarget]</b>!"), \
-								span_hear("Слышу выстрел!"), COMBAT_MESSAGE_RANGE, pbtarget)
-				to_chat(pbtarget, span_userdanger("<b>[user]</b> стреляет из <b>[src.name]</b> в меня <b>В УПОР</b>!"))
+				//user.visible_message(span_danger("<b>[user]</b> стреляет из <b>[src.name]</b> <b>В УПОР</b> по <b>[pbtarget]</b>!"),
+				//				span_danger("Стреляю из [src.name] <b>В УПОР</b> по <b>[pbtarget]</b>!"),
+				//				span_hear("Слышу выстрел!"), COMBAT_MESSAGE_RANGE, pbtarget)
+				//to_chat(pbtarget, span_userdanger("<b>[user]</b> стреляет из <b>[src.name]</b> в меня <b>В УПОР</b>!"))
 				if(pb_knockback > 0 && ismob(pbtarget))
 					var/mob/PBT = pbtarget
 					var/atom/throw_target = get_edge_target_turf(PBT, user.dir)
 					PBT.throw_at(throw_target, pb_knockback, 2)
-			else
-				user.visible_message(span_danger("<b>[user]</b> стреляет из <b>[src.name]</b> в <b>[pbtarget]</b>!"), \
-								span_danger("Стреляю из [src.name] в <b>[pbtarget]</b>!"), \
-								span_hear("Слышу выстрел!"), COMBAT_MESSAGE_RANGE)
+			//else
+				//user.visible_message(span_danger("<b>[user]</b> стреляет из <b>[src.name]</b> в <b>[pbtarget]</b>!"),
+				//				span_danger("Стреляю из [src.name] в <b>[pbtarget]</b>!"),
+				//				span_hear("Слышу выстрел!"), COMBAT_MESSAGE_RANGE)
 
 /obj/item/gun/emp_act(severity)
 	. = ..()
