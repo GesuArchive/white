@@ -29,7 +29,7 @@
 /datum/bounty/item/security/plates
 	name = "Номерные знаки"
 	description = "В результате автокатастрофы с участием клоуна мы могли бы использовать аванс на некоторые из номерных знаков заключенного."
-	reward = CARGO_CRATE_VALUE * 2
+	reward = CARGO_CRATE_VALUE * 20
 	required_count = 10
 	wanted_types = list(/obj/item/stack/license_plates/filled)
 

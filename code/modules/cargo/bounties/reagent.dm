@@ -24,7 +24,7 @@
 
 /datum/bounty/reagent/simple_drink
 	name = "Простые напитки"
-	reward = CARGO_CRATE_VALUE * 3
+	reward = CARGO_CRATE_VALUE * 6
 
 /datum/bounty/reagent/simple_drink/New()
 	// Don't worry about making this comprehensive. It doesn't matter if some drinks are skipped.
@@ -76,7 +76,7 @@
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
 	description = "ЦК хочет пить! Отправьте партию [name] на ЦК, чтобы утолить жажду компании."
-	reward += rand(0, 2) * 500
+	reward += rand(0, 2) * CARGO_CRATE_VALUE * 10
 
 /datum/bounty/reagent/complex_drink
 	name = "Комплексный напиток"
@@ -109,7 +109,7 @@
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
 	description = "ЦК предлагает вознаграждение для талантливых миксологов. Отправьте контейнер с [name], чтобы получить приз."
-	reward += rand(0, 4) * 500
+	reward += rand(0, 4) * CARGO_CRATE_VALUE * 10
 
 /datum/bounty/reagent/chemical_simple
 	name = "Обычный химикат"
@@ -147,7 +147,7 @@
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
 	description = "ЦК остро нуждается в химическом веществе [name]. Отправьте контейнер с ним, чтобы получить вознаграждение."
-	reward += rand(0, 4) * 500 //4000 to 6000 credits
+	reward += rand(0, 4) * CARGO_CRATE_VALUE * 10 //4000 to 6000 credits
 
 /datum/bounty/reagent/chemical_complex
 	name = "Редкий химикат"
@@ -179,7 +179,7 @@
 	wanted_reagent = new reagent_type
 	name = wanted_reagent.name
 	description = "ЦК платит премию за химическое вещество [name]. Отправьте контейнер с ним, чтобы получить вознаграждение."
-	reward += rand(0, 5) * 750 //6000 to 9750 credits
+	reward += rand(0, 5) * CARGO_CRATE_VALUE * 10 //6000 to 9750 credits
 
 /datum/bounty/pill
 	/// quantity of the pills needed, this value acts as minimum, gets randomized on new()
@@ -236,5 +236,5 @@
 	name = "[wanted_reagent.name] таблеток"
 	required_ammount += rand(1,60)
 	wanted_vol += rand(1,20)
-	description = "Для ЦК требуется [required_ammount] из [name], содержащее не менее [wanted_vol] каждого. Отправьте контейнер с ним, чтобы получить вознаграждение."
-	reward += rand(1, 5) * (CARGO_CRATE_VALUE * 6)
+	description = "Для ЦК требуется [required_ammount] из [name], содержащие не менее [wanted_vol] единиц каждого. Отправьте контейнер с ним, чтобы получить вознаграждение."
+	reward += rand(1, 5) * (CARGO_CRATE_VALUE * 60)

@@ -4,7 +4,7 @@
 /datum/bounty/item/slime/New()
 	..()
 	description = "РД NanoTrasen охотится за редким и экзотическим [name]. За это было предложено вознаграждение."
-	reward += rand(0, 4) * 500
+	reward += rand(0, 4) * CARGO_CRATE_VALUE * 10
 
 /datum/bounty/item/slime/green
 	name = "Экстракт зелёного слайма"
