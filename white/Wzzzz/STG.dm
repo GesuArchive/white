@@ -13,7 +13,6 @@
 	w_class = WEIGHT_CLASS_HUGE
 	fire_delay = 2
 	can_suppress = FALSE
-	burst_size = 3
 	can_bayonet = FALSE
 
 /obj/item/ammo_box/magazine/stg
@@ -51,7 +50,6 @@
 	fire_sound = 'white/Wzzzz/sfrifle_fire.ogg'
 	can_suppress = FALSE
 	icon = 'white/Wzzzz/icons/Weea.dmi'
-	burst_size = 3
 	fire_delay = 1.75
 
 /obj/item/gun/ballistic/automatic/ar/fg42/Initialize(mapload)
@@ -90,7 +88,6 @@
 	mag_type = /obj/item/ammo_box/magazine/a556carbine
 	fire_delay = 2
 	can_suppress = FALSE
-	burst_size = 3
 	can_bayonet = FALSE
 	icon = 'white/Wzzzz/icons/Weea.dmi'
 	lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
@@ -126,7 +123,6 @@
 	mag_type = /obj/item/ammo_box/magazine/carbine
 	fire_delay = 2
 	can_suppress = FALSE
-	burst_size = 3
 	can_bayonet = FALSE
 	icon = 'white/Wzzzz/icons/Weea.dmi'
 	lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'

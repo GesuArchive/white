@@ -248,7 +248,6 @@
 	mag_type = /obj/item/ammo_box/magazine/ak47mag
 	fire_delay = 2
 	can_suppress = FALSE
-	burst_size = 3
 	can_bayonet = TRUE
 	knife_x_offset = 28
 	knife_y_offset = 12

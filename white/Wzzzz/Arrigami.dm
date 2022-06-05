@@ -8,7 +8,6 @@
 	fire_sound = 'white/Wzzzz/gunshot_smg.ogg'
 	can_suppress = FALSE
 	icon = 'white/Wzzzz/icons/Weea.dmi'
-	burst_size = 3
 	fire_delay = 2
 
 /obj/item/gun/ballistic/automatic/ar/Initialize(mapload)

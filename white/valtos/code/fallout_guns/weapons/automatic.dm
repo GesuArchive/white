@@ -11,7 +11,6 @@
 	fire_sound = 'white/valtos/sounds/fallout/gunsounds/45/45auto3.ogg'
 	can_suppress = FALSE
 	fire_delay = 3
-	burst_size = 3
 	extra_damage = 15
 	extra_penetration = 5
 	spread = 12
@@ -29,7 +28,6 @@
 	mag_type = /obj/item/ammo_box/magazine/fallout/smgm22
 	fire_sound = 'sound/weapons/gun/smg/shot_suppressed.ogg'
 	fire_delay = 3
-	burst_size = 3
 	extra_damage = 15
 	spread = 12
 
@@ -42,7 +40,6 @@
 	slot_flags = 0
 	mag_type = /obj/item/ammo_box/magazine/fallout/smgm10mm
 	fire_sound = 'white/valtos/sounds/fallout/gunsounds/10mmsmg/10mmsmg1.ogg'
-	burst_size = 3
 	fire_delay = 3
 	extra_damage = 15
 	extra_penetration = 5
@@ -56,7 +53,6 @@
 	mag_type = /obj/item/ammo_box/magazine/fallout/smgm9mm
 	fire_sound = 'white/valtos/sounds/fallout/greasegun.ogg'
 	can_suppress = FALSE
-	burst_size = 3
 	fire_delay = 3
 	extra_damage = 15
 	force = 15
@@ -79,7 +75,6 @@
 	mag_type = /obj/item/ammo_box/magazine/fallout/smg12mm
 	fire_sound = 'white/valtos/sounds/fallout/gunsounds/12mm/m12mm2.ogg'
 	can_suppress = FALSE
-	burst_size = 3
 	fire_delay = 3
 	extra_damage = 15
 	extra_penetration = 15
@@ -94,7 +89,6 @@
 	slot_flags = 0
 	mag_type = /obj/item/ammo_box/magazine/fallout/r20
 	fire_sound = 'white/valtos/sounds/fallout/arfire.ogg'
-	burst_size = 3
 	fire_delay = 3
 	extra_damage = 20
 	extra_penetration = 5

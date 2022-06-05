@@ -13,7 +13,6 @@
 	w_class = 4
 	fire_delay = 2
 	can_suppress = FALSE
-	burst_size = 3
 	can_bayonet = FALSE
 	fire_sound = 'white/Wzzzz/smg_fire.ogg'
 

@@ -14,7 +14,6 @@
 	fire_delay = 1
 	spread = 9
 	can_suppress = FALSE
-	burst_size = 5
 	can_bayonet = FALSE
 	force = 10
 

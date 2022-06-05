@@ -14,7 +14,6 @@
 	fire_delay = 1
 	auto_fire = FALSE
 	slot_flags = ITEM_SLOT_BACK
-	burst_size = 3
 	empty_indicator = FALSE
 	mag_display = TRUE
 	spread = 1

@@ -9,7 +9,6 @@
 	righthand_file = 'white/hule/icons/onmob/ballistic_r.dmi'
 	pin = /obj/item/firing_pin
 	mag_type = /obj/item/ammo_box/magazine/m9mm_aps
-	burst_size = 2
 	fire_delay = 0.8
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_sound = 'sound/weapons/gun/smg/shot_alt.ogg'
