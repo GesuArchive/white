@@ -216,6 +216,21 @@
 	sleep(30)
 	playsound(C, 'sound/machines/defib_zap.ogg', 50, FALSE)
 	if(check_revivable())
+		//copypaste from paddles code
+		var/total_brute = C.getBruteLoss()
+		var/total_burn = C.getFireLoss()
+
+		//always setup health to be at least 5%, so you will get up by yourself in some time
+		if (C.health > 5)
+			C.adjustOxyLoss(C.health - 5, 0)
+		else
+			var/overall_damage = total_brute + total_burn + C.getToxLoss() + C.getOxyLoss()
+			var/mobhealth = C.health
+			C.adjustOxyLoss((mobhealth - 5) * (C.getOxyLoss() / overall_damage), 0)
+			C.adjustToxLoss((mobhealth - 5) * (C.getToxLoss() / overall_damage), 0)
+			C.adjustFireLoss((mobhealth - 5) * (total_burn / overall_damage), 0)
+			C.adjustBruteLoss((mobhealth - 5) * (total_brute / overall_damage), 0)
+		C.updatehealth() // Previous "adjust" procs don't update health, so we do it manually.
 		playsound(C, 'sound/machines/defib_success.ogg', 50, FALSE)
 		C.set_heartattack(FALSE)
 		C.revive(full_heal = FALSE, admin_revive = FALSE)
