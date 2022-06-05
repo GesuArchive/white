@@ -24,7 +24,7 @@
 /datum/supply_pack/misc/driftcar
 	name = "Контейнер с дрифткаром"
 	desc = "Содержит целую машину."
-	cost = 5000
+	cost = BUY_CRATE_VALUE * 10
 	contains = list(/obj/vehicle/sealed/car/driftcar)
 	crate_name = "блюспейс ящик"
 	crate_type = /obj/structure/closet/crate
