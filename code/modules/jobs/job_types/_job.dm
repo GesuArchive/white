@@ -160,7 +160,7 @@
 		return
 	var/mob/living/carbon/human/human = H
 	var/list/gear_leftovers = list()
-	if(our_client && LAZYLEN(our_client.prefs.equipped_gear_by_character[our_client.prefs.default_slot]))
+	if(our_client && LAZYACCESS(our_client.prefs.equipped_gear_by_character, our_client.prefs.default_slot) && LAZYLEN(our_client.prefs.equipped_gear_by_character[our_client.prefs.default_slot]))
 		var/list/equiped_names = list()
 		for(var/gear in our_client.prefs.equipped_gear_by_character[our_client.prefs.default_slot])
 			var/datum/gear/G = GLOB.gear_datums[gear]
