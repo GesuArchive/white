@@ -667,7 +667,7 @@
 	. = ..()
 
 /datum/quirk/junkie/smoker/announce_drugs()
-	to_chat(quirk_holder, span_boldnotice("Пачка сигарет [initial(drug_container_type.name)] [where_drug], и зажигалочка [where_accessory]. Надо убедиться, что я найду свой любимый бренд, если тот закончится."))
+	to_chat(quirk_holder, span_notice("\nПачка сигарет [initial(drug_container_type.name)] [where_drug], и зажигалочка [where_accessory]. Надо убедиться, что я найду свой любимый бренд, если тот закончится."))
 
 
 /datum/quirk/junkie/smoker/on_process()

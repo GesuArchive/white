@@ -160,8 +160,9 @@
 		return
 	var/mob/living/carbon/human/human = H
 	var/list/gear_leftovers = list()
-	if(our_client && LAZYLEN(our_client.prefs.equipped_gear))
-		for(var/gear in our_client.prefs.equipped_gear)
+	if(our_client && LAZYLEN(our_client.prefs.equipped_gear_by_character["[our_client.prefs.default_slot]"]))
+		var/list/equiped_names = list()
+		for(var/gear in our_client.prefs.equipped_gear_by_character["[our_client.prefs.default_slot]"])
 			var/datum/gear/G = GLOB.gear_datums[gear]
 			if(G)
 				var/permitted = FALSE
@@ -188,7 +189,7 @@
 					if(H.dropItemToGround(item_in_slot, force = FALSE, silent = TRUE, invdrop = FALSE))
 						if(H.equip_to_slot_if_possible(G.spawn_item(H), G.slot, bypass_equip_delay_self = TRUE))
 							if(!only_view)
-								to_chat(our_client, span_notice("Экипируем [G.display_name]!"))
+								LAZYADD(equiped_names, G.display_name)
 						else
 							H.equip_to_slot_if_possible(item_in_slot, G.slot, bypass_equip_delay_self = TRUE)
 							gear_leftovers += G
@@ -197,11 +198,12 @@
 				else
 					gear_leftovers += G
 			else
-				our_client.prefs.equipped_gear -= gear
+				our_client.prefs.equipped_gear_by_character["[our_client.prefs.default_slot]"] -= gear
+		to_chat(our_client, span_notice("\nЭкипируем [english_list(equiped_names)]!"))
 
 	if(!only_view && gear_leftovers.len)
 		for(var/datum/gear/G in gear_leftovers)
-			var/metadata = our_client.prefs.equipped_gear[G.id]
+			var/metadata = our_client.prefs.equipped_gear_by_character["[our_client.prefs.default_slot]"][G.id]
 			var/obj/item = G.spawn_item(null, metadata)
 			var/atom/placed_in = human.equip_or_collect(item)
 

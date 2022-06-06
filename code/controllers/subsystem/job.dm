@@ -497,7 +497,7 @@ SUBSYSTEM_DEF(job)
 	if(living_mob.mind)
 		living_mob.mind.assigned_role = rank
 
-	to_chat(M, "\n<big><b>Мне досталась должность под названием [ru_job_parse(rank)]. [gvorno(TRUE)].</b></big>\n")
+	to_chat(M, "\n<big><b>Я - [ru_job_parse(rank)], [gvorno()].</b></big>\n")
 	if(job)
 		var/new_mob = job.equip(living_mob, null, null, joined_late , null, M.client, is_captain)//silicons override this proc to return a mob
 		if(ismob(new_mob))
@@ -514,7 +514,7 @@ SUBSYSTEM_DEF(job)
 				M.client.holder.auto_deadmin()
 			else
 				handle_auto_deadmin_roles(M.client, rank)
-		to_chat(M, span_notice("\nНа должности <b>[ru_job_parse(rank)]</b> я подчиняюсь [job.supervisors]. Некоторые обстоятельства могут изменить это."))
+		to_chat(M, span_notice("\nКак <b>[ru_job_parse(rank)]</b>, я подчиняюсь [job.supervisors]. Некоторые обстоятельства могут изменить это."))
 		job.radio_help_message(M)
 		if(job.req_admin_notify)
 			to_chat(M, "\n<span class='revenbignotice'>Это важная работа. Перед уходом стоит найти себе замену.</spawn>")

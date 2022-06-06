@@ -45,7 +45,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	if(current_version < 49)
 		var/list/legacy_purchases = purchased_gear.Copy()
 		purchased_gear.Cut()
-		equipped_gear.Cut() //Not gonna bother.
 		for(var/l_gear in legacy_purchases)
 			var/n_gear
 			for(var/rg_nam in GLOB.gear_datums) //this is ugly.
@@ -194,7 +193,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	READ_FILE(S["disabled_autocap"], disabled_autocap)
 
 	READ_FILE(S["purchased_gear"], purchased_gear)
-	READ_FILE(S["equipped_gear"], equipped_gear)
+	READ_FILE(S["equipped_gear_by_character"], equipped_gear_by_character)
 	READ_FILE(S["jobs_buyed"], jobs_buyed)
 	READ_FILE(S["w_toggles"], w_toggles)
 	READ_FILE(S["hearted_until"], hearted_until)
@@ -265,8 +264,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	if(!purchased_gear)
 		purchased_gear = list()
-	if(!equipped_gear)
-		equipped_gear = list()
+	if(!equipped_gear_by_character)
+		equipped_gear_by_character = list()
 	if(!jobs_buyed)
 		jobs_buyed = list()
 
@@ -345,7 +344,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["btprefsnew"], btprefsnew)
 	WRITE_FILE(S["btvolume_max"], btvolume_max)
 	WRITE_FILE(S["purchased_gear"], purchased_gear)
-	WRITE_FILE(S["equipped_gear"], equipped_gear)
+	WRITE_FILE(S["equipped_gear_by_character"], equipped_gear_by_character)
 	WRITE_FILE(S["jobs_buyed"], jobs_buyed)
 	WRITE_FILE(S["hearted_until"], (hearted_until > world.realtime ? hearted_until : null))
 	WRITE_FILE(S["disabled_autocap"], disabled_autocap)
