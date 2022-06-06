@@ -160,9 +160,9 @@
 		return
 	var/mob/living/carbon/human/human = H
 	var/list/gear_leftovers = list()
-	if(our_client && LAZYLEN(our_client.prefs.equipped_gear_by_character["[our_client.prefs.default_slot]"]))
+	if(our_client && LAZYLEN(our_client.prefs.equipped_gear_by_character[our_client.prefs.default_slot]))
 		var/list/equiped_names = list()
-		for(var/gear in our_client.prefs.equipped_gear_by_character["[our_client.prefs.default_slot]"])
+		for(var/gear in our_client.prefs.equipped_gear_by_character[our_client.prefs.default_slot])
 			var/datum/gear/G = GLOB.gear_datums[gear]
 			if(G)
 				var/permitted = FALSE
@@ -198,12 +198,13 @@
 				else
 					gear_leftovers += G
 			else
-				our_client.prefs.equipped_gear_by_character["[our_client.prefs.default_slot]"] -= gear
-		to_chat(our_client, span_notice("\nЭкипируем [english_list(equiped_names)]!"))
+				our_client.prefs.equipped_gear_by_character[our_client.prefs.default_slot] -= gear
+		if(!only_view)
+			to_chat(our_client, span_notice("\nЭкипируем [english_list(equiped_names)]!"))
 
 	if(!only_view && gear_leftovers.len)
 		for(var/datum/gear/G in gear_leftovers)
-			var/metadata = our_client.prefs.equipped_gear_by_character["[our_client.prefs.default_slot]"][G.id]
+			var/metadata = our_client.prefs.equipped_gear_by_character[our_client.prefs.default_slot][G.id]
 			var/obj/item = G.spawn_item(null, metadata)
 			var/atom/placed_in = human.equip_or_collect(item)
 

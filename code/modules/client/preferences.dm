@@ -415,15 +415,15 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 		if(1)
 			var/list/type_blacklist = list()
-			if(equipped_gear_by_character["[default_slot]"] && equipped_gear_by_character["[default_slot]"].len)
-				for(var/i = 1, i <= equipped_gear_by_character["[default_slot]"].len, i++)
-					var/datum/gear/G = GLOB.gear_datums[equipped_gear_by_character["[default_slot]"][i]]
+			if(equipped_gear_by_character[default_slot] && LAZYLEN(equipped_gear_by_character[default_slot]))
+				for(var/i = 1, i <= LAZYLEN(equipped_gear_by_character[default_slot]), i++)
+					var/datum/gear/G = GLOB.gear_datums[equipped_gear_by_character[default_slot][i]]
 					if(G)
 						if(G.subtype_path in type_blacklist)
 							continue
 						type_blacklist += G.subtype_path
 					else
-						equipped_gear_by_character["[default_slot]"].Cut(i,i+1)
+						equipped_gear_by_character[default_slot].Cut(i,i+1)
 
 			var/fcolor =  "#3366CC"
 			var/metabalance = user.client.get_metabalance()
@@ -459,7 +459,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				var/datum/loadout_category/LC = GLOB.loadout_categories[gear_tab]
 				for(var/gear_name in LC.gear)
 					var/datum/gear/G = LC.gear[gear_name]
-					var/ticked = (G.id in equipped_gear_by_character["[default_slot]"])
+					var/ticked = (G.id in equipped_gear_by_character[default_slot])
 
 					dat += "<tr style='vertical-align:middle;' class='metaitem"
 					if(G.id in purchased_gear)
@@ -492,7 +492,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						var/datum/gear/G = GLOB.gear_datums[gear_name]
 						if(!G || category != G.sort_category)
 							continue
-						var/ticked = (G.id in equipped_gear_by_character["[default_slot]"])
+						var/ticked = (G.id in equipped_gear_by_character[default_slot])
 						dat += "<a class='tooltip[ticked ? " linkOn" : ""]' style='padding: 10px 2px;' href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[G.get_base64_icon_html()]<span class='tooltiptext'>[G.display_name]</span></a>"
 					dat += "</td></tr>"
 			dat += "</table>"
@@ -1142,12 +1142,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				to_chat(user, span_warning("У меня не хватает метакэша для покупки [TG.display_name]!"))
 		if(href_list["toggle_gear"])
 			var/datum/gear/TG = GLOB.gear_datums[href_list["toggle_gear"]]
-			if(TG.id in equipped_gear_by_character["[default_slot]"])
-				equipped_gear_by_character["[default_slot]"] -= TG.id
+			if(TG.id in equipped_gear_by_character[default_slot])
+				LAZYREMOVEASSOC(equipped_gear_by_character, default_slot, TG.id)
 			else
 				var/list/type_blacklist = list()
 				var/list/slot_blacklist = list()
-				for(var/gear_id in equipped_gear_by_character["[default_slot]"])
+				for(var/gear_id in equipped_gear_by_character[default_slot])
 					var/datum/gear/G = GLOB.gear_datums[gear_id]
 					if(istype(G))
 						if(!(G.subtype_path in type_blacklist))
@@ -1156,7 +1156,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							slot_blacklist += G.slot
 				if((TG.id in purchased_gear))
 					if(!(TG.subtype_path in type_blacklist) || !(TG.slot in slot_blacklist))
-						equipped_gear_by_character["[default_slot]"] += TG.id
+						LAZYADDASSOCLIST(equipped_gear_by_character, default_slot, TG.id)
 					else
 						to_chat(user, span_warning("Нет места для [TG.display_name]. Что-то уже есть в этом слоте."))
 			save_preferences()
@@ -1164,7 +1164,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		else if(href_list["select_category"])
 			gear_tab = href_list["select_category"]
 		else if(href_list["clear_loadout"])
-			equipped_gear_by_character["[default_slot]"].Cut()
+			LAZYCLEARLIST(equipped_gear_by_character[default_slot])
 			save_preferences()
 
 		ShowChoices(user)
