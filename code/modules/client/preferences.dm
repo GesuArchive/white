@@ -415,7 +415,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 		if(1)
 			var/list/type_blacklist = list()
-			if(equipped_gear_by_character?[default_slot] && LAZYLEN(equipped_gear_by_character?[default_slot]))
+			if(LAZYACCESS(equipped_gear_by_character, default_slot))
 				for(var/i = 1, i <= LAZYLEN(equipped_gear_by_character[default_slot]), i++)
 					var/datum/gear/G = GLOB.gear_datums[equipped_gear_by_character[default_slot][i]]
 					if(G)
