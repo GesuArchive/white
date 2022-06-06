@@ -426,6 +426,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						else
 							equipped_gear_by_character[default_slot].Cut(i, i+1)
 			else
+				LAZYSETLEN(equipped_gear_by_character, 20)
 				LAZYADDASSOCLIST(equipped_gear_by_character, default_slot, null)
 			var/fcolor =  "#3366CC"
 			var/metabalance = user.client.get_metabalance()
