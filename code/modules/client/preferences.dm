@@ -415,7 +415,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 		if(1)
 			var/list/type_blacklist = list()
-			if(equipped_gear_by_character[default_slot] && LAZYLEN(equipped_gear_by_character[default_slot]))
+			if(equipped_gear_by_character?[default_slot] && LAZYLEN(equipped_gear_by_character?[default_slot]))
 				for(var/i = 1, i <= LAZYLEN(equipped_gear_by_character[default_slot]), i++)
 					var/datum/gear/G = GLOB.gear_datums[equipped_gear_by_character[default_slot][i]]
 					if(G)
@@ -423,8 +423,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							continue
 						type_blacklist += G.subtype_path
 					else
-						equipped_gear_by_character[default_slot].Cut(i,i+1)
-
+						equipped_gear_by_character[default_slot].Cut(i, i+1)
+			else
+				equipped_gear_by_character[default_slot] = list()
 			var/fcolor =  "#3366CC"
 			var/metabalance = user.client.get_metabalance()
 			dat += "<table align='center' width='100%' class='metamag'>"
