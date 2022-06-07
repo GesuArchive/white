@@ -1,7 +1,7 @@
 /obj/effect/proc_holder/spell/targeted/fiery_rebirth
-	name = "Nightwatcher's Rebirth"
-	desc = "A spell that extinguishes you drains nearby heathens engulfed in flames of their life force, \
-		healing you for each victim drained. Those in critical condition will have the last of their vitality drained, killing them."
+	name = "Возрождение Ночного Стража"
+	desc = "Навык, позволяющий вам высасывать жизненные силы из окружающих вас горящих жертв, \
+		лечение пропорционально количеству горящих. Те же, кто был в критическом состоянии, мгновенно умрут, отдавая вам остатки своей жизненной силы"
 	invocation = "GL'RY T' TH' N'GHT'W'TCH'ER"
 	invocation_type = INVOCATION_WHISPER
 	school = SCHOOL_FORBIDDEN

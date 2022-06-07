@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/targeted/ethereal_jaunt/shift/ash
-	name = "Ashen Passage"
-	desc = "A short range spell that allows you to pass unimpeded through walls."
+	name = "Пепельная тропа"
+	desc = "На короткий промежуток времени этот навык позволяет проходить вам сквозь стены и другие препятствия."
 	action_icon = 'icons/mob/actions/actions_ecult.dmi'
 	action_icon_state = "ash_shift"
 	action_background_icon_state = "bg_ecult"

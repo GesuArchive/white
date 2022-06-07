@@ -68,9 +68,9 @@
 
 // Path of Ash's blade
 /obj/item/melee/sickly_blade/ash
-	name = "\improper ashen blade"
-	desc = "Molten and unwrought, a hunk of metal warped to cinders and slag. \
-		Unmade, it aspires to be more than it is, and shears soot-filled wounds with a blunt edge."
+	name = "пепельный клинок"
+	desc = "Расплавленный и незавершённый кусок металла, на котором виднеются пепел и шлак. \
+		Незаконченный, он желает стать чем-то большим, срезая ломти мяса своим тупым лезвием и наполняя их пеплом."
 	icon_state = "ash_blade"
 	inhand_icon_state = "ash_blade"
 	after_use_message = "The Nightwater hears your call..."

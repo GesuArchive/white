@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/targeted/fire_sworn
-	name = "Oath of Flame"
-	desc = "For a minute, you will passively create a ring of fire around you."
+	name = "Клятва Пламени"
+	desc = "На одну минуту вас оружит кольцо из огня, наносящее урон окружающим."
 	action_icon = 'icons/mob/actions/actions_ecult.dmi'
 	action_icon_state = "fire_ring"
 	action_background_icon_state = "bg_ecult"
@@ -45,8 +45,8 @@
 			fried_living.adjustFireLoss(2.5 * delta_time)
 
 /obj/effect/proc_holder/spell/aoe_turf/fire_cascade
-	name = "Fire Cascade"
-	desc = "Heats the air around you."
+	name = "Каскад Огня"
+	desc = "Раскаляет воздух вокруг вас."
 	school = SCHOOL_FORBIDDEN
 	charge_max = 300 //twice as long as mansus grasp
 	clothes_req = FALSE

@@ -26,11 +26,11 @@
  * Ashlord's Rite
  */
 /datum/heretic_knowledge/limited_amount/starting/base_ash
-	name = "Nightwatcher's Secret"
-	desc = "Opens up the Path of Ash to you. \
-		Allows you to transmute a match and a knife into an Ashen Blade. \
-		You can only create two at a time."
-	gain_text = "The City Guard know their watch. If you ask them at night, they may tell you about the ashy lantern."
+	name = "Секрет Ночного Стража"
+	desc = "Открывает перед вами путь пепла. \
+		Позволяет трансмутировать спичку и кухонный нож в Пепельный клинок. \
+		Одновременно может быть лишь два клинка."
+	gain_text = "Ночная стража знает своё дело. Если вы загляните к ним ночью, то они расскажут вам историю о пепельном фонаре."
 	next_knowledge = list(/datum/heretic_knowledge/ashen_grasp)
 	required_atoms = list(
 		/obj/item/kitchen/knife = 1,
@@ -45,10 +45,10 @@
 	our_heretic.heretic_path = route
 
 /datum/heretic_knowledge/ashen_grasp
-	name = "Grasp of Ash"
-	desc = "Your Mansus Grasp will burn the eyes of the victim, causing damage and blindness."
-	gain_text = "The Nightwatcher was the first of them, his treason started it all. \
-		Their lantern, expired to ash - their watch, absent."
+	name = "Власть Пепла"
+	desc = "Ваша хватка Мансуса опаляет глаза ваших жертв, нанося им урон и ослепляя их."
+	gain_text = "Ночной Страж был первым среди достойных, и всё началось с его предательства. \
+		Его фонарь обратился в пепел, его дозор завершился."
 	next_knowledge = list(/datum/heretic_knowledge/spell/ash_passage)
 	cost = 1
 	route = PATH_ASH
@@ -68,14 +68,14 @@
 	if(!target.getorganslot(ORGAN_SLOT_EYES))
 		return
 
-	to_chat(target, span_danger("A bright green light burns your eyes horrifically!"))
+	to_chat(target, span_danger("Ослепительно яркий зеленый свет сжигает ваши глаза!"))
 	target.adjustOrganLoss(ORGAN_SLOT_EYES, 15)
 	target.blur_eyes(10)
 
 /datum/heretic_knowledge/spell/ash_passage
-	name = "Ashen Passage"
-	desc = "Grants you Ashen Passage, a silent but short range jaunt."
-	gain_text = "He knew how to walk between the planes."
+	name = "Пепельная Тропа"
+	desc = "Позволяет вам использовать Пепельные Тропы, которые позволяют игнорировать материальные преграды на короткий промежуток времени."
+	gain_text = "Ему были ведомы пути огибающие реальность."
 	next_knowledge = list(
 		/datum/heretic_knowledge/mark/ash_mark,
 		/datum/heretic_knowledge/codex_cicatrix,
@@ -87,13 +87,13 @@
 	route = PATH_ASH
 
 /datum/heretic_knowledge/mark/ash_mark
-	name = "Mark of Ash"
-	desc = "Your Mansus Grasp now applies the Mark of Ash. The mark is triggered from an attack with your Ashen Blade. \
-		When triggered, the victim takes additional stamina and burn damage, and the mark is transferred to any nearby heathens. \
-		Damage dealt is decreased with each transfer."
-	gain_text = "He was a very particular man, always watching in the dead of night. \
-		But in spite of his duty, he regularly tranced through the Manse with his blazing lantern held high. \
-		He shone brightly in the darkness, until the blaze begin to die."
+	name = "Метка Пепла"
+	desc = "Ваша хватка Мансуса теперь так же накладывает и Метку Пепла. Метка активируется с помощью удара Пепельным клинком.  \
+		Когда метка активируется, жертва страдает от урона по выносливости и жутких ожогов. После чего соседние цели так же помечаются. \
+		С каждым последующим распространением от активации предыдущей метки урон уменьшается."
+	gain_text = "Он был особенным человеком, смотрящим в самое сердце тьмы. \
+		Однако будучи верным своему долгу, он всегда блуждал сквозь Манс высоко подняв свой яркий фонарь. \
+		Он нёс свет во тьму, до тех пор пока фонарь не угас."
 	next_knowledge = list(/datum/heretic_knowledge/knowledge_ritual/ash)
 	route = PATH_ASH
 	mark_type = /datum/status_effect/eldritch/ash
@@ -112,11 +112,11 @@
 	route = PATH_ASH
 
 /datum/heretic_knowledge/mad_mask
-	name = "Mask of Madness"
-	desc = "Allows you to transmute any mask, four candles, a stun baton, and a liver to create a Mask of Madness. \
-		The mask instills fear into heathens who witness it, causing stamina damage, hallucinations, and insanity. \
-		It can also be forced onto a heathen, to make them unable to take it off..."
-	gain_text = "The Nightwater was lost. That's what the Watch believed. Yet he walked the world, unnoticed by the masses."
+	name = "Маска безумия"
+	desc = "Позволяет трансмутировать любую маску, четыре свечи, электрическую дубинку и печень в Маску безумия. \
+		Маска вселяет страх в окружающих вас неверных, нанося им урон по их выносливости, а также вызывая галлюцинации и безумие. \
+		Её также можно надеть на неверного, после чего тот уже не сможет её снять..."
+	gain_text = "Ночной Страж пропал. Так подумала Стража. Но он всё ещё блуждал по миру, незримый для всех."
 	next_knowledge = list(
 		/datum/heretic_knowledge/blade_upgrade/ash,
 		/datum/heretic_knowledge/reroll_targets,
@@ -134,10 +134,10 @@
 	route = PATH_ASH
 
 /datum/heretic_knowledge/blade_upgrade/ash
-	name = "Fiery Blade"
-	desc = "Your blade now lights enemies ablaze on attack."
-	gain_text = "He returned, blade in hand, he swung and swung as the ash fell from the skies. \
-		His city, the people he swore to watch... and watch he did, as they all burnt to cinders."
+	name = "Огненный клинок"
+	desc = "Теперь атаки вашим клинком поджигают жертв."
+	gain_text = "Он вернулся, с клинком в руке, покачивая им, покуда пепел падал с небес. \
+		Его город, люди, которых он поклялся защищать... и дозор, который он нёс. Всё это сгорело до тла."
 	next_knowledge = list(/datum/heretic_knowledge/spell/flame_birth)
 	route = PATH_ASH
 
@@ -149,12 +149,12 @@
 	target.ignite_mob()
 
 /datum/heretic_knowledge/spell/flame_birth
-	name = "Nightwater's Rebirth"
-	desc = "Grants you Nightwater's Rebirth, a spell that extinguishes you and \
-		burns all nearby heathens who are currently on fire, healing you for every victim afflicted. \
-		If any victims afflicted are in critical condition, they will also instantly die."
-	gain_text = "The fire was inescapable, and yet, life remained in his charred body. \
-		The Nightwater was a particular man, always watching."
+	name = "Возрождение Ночного Стража"
+	desc = "Обучает вас Возрождению Ночного Стража, этот навык гасит огонь на вас и поджигает находящихся рядом с вами неверных. \
+		Те, кто находятся в огне, лечат вас пропорционально количеству горящих. \
+		Если же жертва находилась в критическом состоянии - она мгновенно умрет."
+	gain_text = "Огонь уже было не остановить, но всё же, жизнь теплилась в его обугленном теле. \
+		Ночной Страж был особенным человеком, смотрящим..."
 	next_knowledge = list(
 		/datum/heretic_knowledge/final/ash_final,
 		/datum/heretic_knowledge/summon/ashy,
@@ -165,16 +165,16 @@
 	route = PATH_ASH
 
 /datum/heretic_knowledge/final/ash_final
-	name = "Ashlord's Rite"
-	desc = "The ascension ritual of the Path of Ash. \
-		Bring 3 burning or husked corpses to a transumation rune to complete the ritual. \
-		When completed, you become a harbinger of flames, gaining two abilites. \
-		Cascade, which causes a massive, growing ring of fire around you, \
-		and Oath of Flame, causing you to passively create a ring of flames as you walk. \
-		You will also become immune to flames, space, and similar environmental hazards."
-	gain_text = "The Watch is dead, the Nightwatcher burned with it. Yet his fire burns evermore, \
-		for the Nightwater brought forth the rite to mankind! His gaze continues, as now I am one with the flames, \
-		WITNESS MY ASCENSION, THE ASHY LANTERN BLAZES ONCE MORE!"
+	name = "Ритуал Пепельного Лорда"
+	desc = "Ритуал вознесения Пути Пепла. \
+		Принесите 3 горящих трупа или хаска к руне трансмутации для начала ритуала. \
+		Когда ритуал будет завершен, вы станете Предвестником Пламени, а также получите два навыка. \
+		Каскад Огня, который раскаляет воздух вокруг вас, \
+		и Клятву Пламени, создающую кольцо огня вокруг вас. \
+		Вы также становитесь иммунны к урону от огня, давления, холода и другим эффектам окружающей вас среды."
+	gain_text = "Его фонарь обратился в пепел, Ночной Страж сгорел вместе с ним. Но его пламя разгорится вновь, \
+		во имя Ночного стража я завершу этот ритуал! Он продолжает наблюдать, и теперь я един с пламенем, \
+		УЗРИТЕ ЖЕ МОЁ ВОЗНЕСЕНИЕ, ПЕПЕЛЬНЫЙ ФОНАРЬ ЗАЖЖЕТСЯ ВНОВЬ!"
 	route = PATH_ASH
 	/// A static list of all traits we apply on ascension.
 	var/static/list/traits_to_apply = list(
@@ -199,7 +199,7 @@
 
 /datum/heretic_knowledge/final/ash_final/on_finished_recipe(mob/living/user, list/selected_atoms, turf/loc)
 	. = ..()
-	priority_announce("[generate_heretic_text()] Fear the blaze, for the Ashlord, [user.real_name] has ascended! The flames shall consume all! [generate_heretic_text()]","[generate_heretic_text()]", ANNOUNCER_SPANOMALIES)
+	priority_announce("[generate_heretic_text()] Бойтесь пламени, ибо Лорд Пепла, [user.real_name] возвысился! Пламя пожрет всё сущее! [generate_heretic_text()]","[generate_heretic_text()]", ANNOUNCER_SPANOMALIES)
 	user.mind.AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/fire_cascade/big)
 	user.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/fire_sworn)
 	user.client?.give_award(/datum/award/achievement/misc/ash_ascension, user)
