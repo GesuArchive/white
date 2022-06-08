@@ -113,7 +113,7 @@
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
 		return
 
-	var/new_layer = input("Select a layer", "Layer") as null|anything in layers
+	var/new_layer = tgui_input_list(usr, "Select a layer", "Layer", layers)
 	if(new_layer)
 		target_layer = layers[new_layer]
 

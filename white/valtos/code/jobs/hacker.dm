@@ -299,7 +299,7 @@
 
 /obj/effect/proc_holder/spell/self/hacker_immater/cast(list/targets, mob/living/carbon/human/user)
 
-	var/obj/item/stack/sheet/sheetsel = input("Предмет:", "Создаём!", null, null) as null|anything in allowed_items
+	var/obj/item/stack/sheet/sheetsel = tgui_input_list(usr, "Предмет:", "Создаём!", allowed_items)
 
 	if(!sheetsel)
 		return FALSE

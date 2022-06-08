@@ -11,7 +11,7 @@
 	var/message = ""
 	if(new_pb)
 		time_rec = input(src, "How many living minutes should they need to play?", "Shit's fucked isn't it", CONFIG_GET(number/panic_bunker_living)) as num
-		message = input(src, "What should they see when they log in?", "MMM", CONFIG_GET(string/panic_bunker_message)) as text
+		message = tgui_input_text(src, "What should they see when they log in?", "MMM", CONFIG_GET(string/panic_bunker_message))
 		message = replacetext(message, "%minutes%", time_rec)
 		CONFIG_SET(number/panic_bunker_living, time_rec)
 		CONFIG_SET(string/panic_bunker_message, message)

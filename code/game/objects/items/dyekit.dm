@@ -23,12 +23,12 @@
 	if(!ishuman(target))
 		return
 	var/mob/living/carbon/human/human_target = target
-	var/beard_or_hair = input(user, "Что будем красить?", "Краска")  as null|anything in list("Волосы", "Бороду")
+	var/beard_or_hair = tgui_input_list(user, "Что будем красить?", "Краска", list("Волосы", "Бороду"))
 	if(!beard_or_hair || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE))
 		return
 
 	var/list/choices = beard_or_hair == "Волосы" ? GLOB.hair_gradients_list : GLOB.facial_hair_gradients_list
-	var/new_grad_style = input(user, "Выберем шаблон:", "Краска")  as null|anything in choices
+	var/new_grad_style = tgui_input_list(user, "Выберем шаблон:", "Краска", choices)
 	if(!new_grad_style || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE))
 		return
 

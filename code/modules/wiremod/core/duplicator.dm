@@ -217,7 +217,7 @@ GLOBAL_LIST_INIT(circuit_dupe_whitelisted_types, list(
 		if("File")
 			txt = file2text(input(usr, "Input File") as file|null)
 		if("Direct Input")
-			txt = input(usr, "Input JSON", "Input JSON") as text|null
+			txt = tgui_input_text(usr, "Input JSON", "Input JSON")
 
 	if(!txt)
 		return

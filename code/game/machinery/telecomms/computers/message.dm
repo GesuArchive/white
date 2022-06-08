@@ -262,7 +262,7 @@
 				message_servers += M
 
 			if(message_servers.len > 1)
-				linkedServer = input(usr, "Please select a server.", "Select a server.", null) as null|anything in message_servers
+				linkedServer = tgui_input_list(usr, "Please select a server.", "Select a server.", message_servers)
 				message = span_alert("NOTICE: Server selected.")
 			else if(message_servers.len > 0)
 				linkedServer = message_servers[1]

@@ -12,7 +12,7 @@
 	Northeast = [NORTHEAST],\n\
 	Northwest = [NORTHWEST],\n\
 	Southeast = [SOUTHEAST],\n\
-	Southwest = [SOUTHWEST]","[src] dir writing") as null|num
+	Southwest = [SOUTHWEST]","[src] dir writing")
 	if(isnum(new_data) && holder.check_interactivity(user) )
 		to_chat(user, span_notice("You input [new_data] into the pin."))
 		write_data_to_pin(new_data)

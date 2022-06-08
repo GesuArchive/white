@@ -34,7 +34,7 @@
 	var/list/choices = list("Add", "Remove")
 	switch(tgui_alert(usr, "What would you like to do?", "Manage [group]s", choices))
 		if("Add")
-			var/name = input(usr, "Please enter the CKEY (case-insensitive) of the person you would like to make a [group_title]:", "Add a [group_title]") as null|text
+			var/name = tgui_input_text(usr, "Please enter the CKEY (case-insensitive) of the person you would like to make a [group_title]:", "Add a [group_title]")
 			if(!name)
 				return
 
@@ -68,7 +68,7 @@
 
 
 		if("Remove")
-			var/name = input(usr, "Please enter the CKEY (case-insensitive) of the person you would like to no longer be a [group_title]:", "Remove a [group_title]") as null|text
+			var/name = tgui_input_text(usr, "Please enter the CKEY (case-insensitive) of the person you would like to no longer be a [group_title]:", "Remove a [group_title]")
 			if(!name)
 				return
 

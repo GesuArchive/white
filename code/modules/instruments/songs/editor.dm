@@ -135,7 +135,7 @@
 				return
 
 			if(length_char(t) >= MUSIC_MAXLINES * MUSIC_MAXLINECHARS)
-				var/cont = input(usr, "Your message is too long! Would you like to continue editing it?", "", "yes") in list("yes", "no")
+				var/cont = tgui_input_list(usr, "Your message is too long! Would you like to continue editing it?", "", list("yes", "no"), "yes")
 				if(cont == "no")
 					break
 		while(length_char(t) > MUSIC_MAXLINES * MUSIC_MAXLINECHARS)
@@ -215,11 +215,11 @@
 			var/datum/instrument/I = SSinstruments.get_instrument(i)
 			if(I)
 				LAZYSET(categories[I.category || "ERROR CATEGORY"], I.name, I.id)
-		var/cat = input(usr, "Select Category", "Instrument Category") as null|anything in categories
+		var/cat = tgui_input_list(usr, "Select Category", "Instrument Category", categories)
 		if(!cat)
 			return
 		var/list/instruments = categories[cat]
-		var/choice = input(usr, "Select Instrument", "Instrument Selection") as null|anything in instruments
+		var/choice = tgui_input_list(usr, "Select Instrument", "Instrument Selection", instruments)
 		if(!choice)
 			return
 		choice = instruments[choice]		//get id
@@ -232,7 +232,7 @@
 			note_shift = clamp(amount, note_shift_min, note_shift_max)
 
 	else if(href_list["setsustainmode"])
-		var/choice = input(usr, "Choose a sustain mode", "Sustain Mode") as null|anything in SSinstruments.note_sustain_modes
+		var/choice = tgui_input_list(usr, "Choose a sustain mode", "Sustain Mode", SSinstruments.note_sustain_modes)
 		if(choice)
 			sustain_mode = SSinstruments.note_sustain_modes[choice]
 

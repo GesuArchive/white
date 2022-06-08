@@ -58,7 +58,7 @@
 	var/new_option = input_options.value
 	switch(new_option)
 		if(COMP_INPUT_STRING)
-			var/player_input = input(player, "Input a value", "Input value") as null|text
+			var/player_input = tgui_input_text(player, "Input a value", "Input value")
 			if(!player_input)
 				return
 			input_response.set_output(player_input)
@@ -71,7 +71,7 @@
 			var/list/data = parameter.value
 			if(!islist(data))
 				return
-			var/player_input = input(player, "Input a value", "Input value") as null|anything in data
+			var/player_input = tgui_input_list(player, "Input a value", "Input value", data)
 			if(!player_input)
 				return
 			input_response.set_output(player_input)

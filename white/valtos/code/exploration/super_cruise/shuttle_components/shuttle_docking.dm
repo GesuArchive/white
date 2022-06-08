@@ -372,7 +372,7 @@
 			L["(L.len)[S.name]"] = S
 
 	playsound(console, 'sound/machines/terminal_prompt.ogg', 25, FALSE)
-	var/selected = input("Куда?", "Зоны", null) as null|anything in L
+	var/selected = tgui_input_list(usr, "Куда?", "Зоны", L)
 	if(QDELETED(src) || QDELETED(target) || !isliving(target))
 		return
 	playsound(src, "terminal_type", 25, 0)

@@ -44,7 +44,7 @@ GLOBAL_LIST_EMPTY(objectives)
 	if(target?.current)
 		def_value = target.current
 
-	var/mob/new_target = input(admin,"Select target:", "Objective target", def_value) as null|anything in possible_targets
+	var/mob/new_target = tgui_input_list(admin, "Select target:", "Objective target", possible_targets, def_value)
 	if (!new_target)
 		return
 
@@ -683,12 +683,12 @@ GLOBAL_LIST_EMPTY(possible_items)
 
 /datum/objective/steal/admin_edit(mob/admin)
 	var/list/possible_items_all = GLOB.possible_items
-	var/new_target = input(admin,"Select target:", "Objective target", steal_target) as null|anything in sortNames(possible_items_all)+"custom"
+	var/new_target = tgui_input_list(admin,"Select target:", "Objective target", sortNames(possible_items_all)+"custom", steal_target)
 	if (!new_target)
 		return
 
 	if (new_target == "custom") //Can set custom items.
-		var/custom_path = input(admin,"Search for target item type:","Type") as null|text
+		var/custom_path = tgui_input_text(admin, "Search for target item type:", "Type")
 		if (!custom_path)
 			return
 		var/obj/item/custom_target = pick_closest_path(custom_path, make_types_fancy(subtypesof(/obj/item)))
@@ -958,7 +958,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 /datum/objective/destroy/admin_edit(mob/admin)
 	var/list/possible_targets = active_ais(1)
 	if(possible_targets.len)
-		var/mob/new_target = input(admin,"Select target:", "Objective target") as null|anything in sortNames(possible_targets)
+		var/mob/new_target = tgui_input_list(admin,"Select target:", "Objective target", sortNames(possible_targets))
 		target = new_target.mind
 	else
 		to_chat(admin, span_boldwarning("No active AIs with minds."))

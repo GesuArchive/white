@@ -70,7 +70,7 @@ we use a hook instead
 	if(!.)
 		return
 	if(href_list[VV_HK_PARSE_GASSTRING])
-		var/gasstring = input(usr, "Input Gas String (WARNING: Advanced. Don't use this unless you know how these work.", "Gas String Parse") as text|null
+		var/gasstring = tgui_input_text(usr, "Input Gas String (WARNING: Advanced. Don't use this unless you know how these work.", "Gas String Parse")
 		if(!istext(gasstring))
 			return
 		log_admin("[key_name(usr)] modified gas mixture [REF(src)]: Set to gas string [gasstring].")
@@ -84,7 +84,7 @@ we use a hook instead
 		var/list/gases = get_gases()
 		for(var/gas in gases)
 			gases[gas] = get_moles(gas)
-		var/gasid = input(usr, "What kind of gas?", "Set Gas") as null|anything in GLOB.gas_data.ids
+		var/gasid = tgui_input_list(usr, "What kind of gas?", "Set Gas", GLOB.gas_data.ids)
 		if(!gasid)
 			return
 		var/amount = input(usr, "Input amount", "Set Gas", gases[gasid] || 0) as num|null

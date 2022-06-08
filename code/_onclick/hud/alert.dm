@@ -430,7 +430,7 @@
 		return
 
 	var/mob/living/living_owner = owner
-	var/last_whisper = input("Последние слова есть хоть?", "Последние слова") as null | text
+	var/last_whisper = tgui_input_text(living_owner, "Последние слова есть хоть?", "Последние слова")
 	if(!owner)
 		return
 	if (isnull(last_whisper) || !CAN_SUCCUMB(living_owner))

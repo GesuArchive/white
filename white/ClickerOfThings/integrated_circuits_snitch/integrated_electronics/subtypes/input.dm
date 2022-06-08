@@ -1452,7 +1452,7 @@
 		var/I = get_pin_data(IC_INPUT, k)
 		if(istext(I))
 			selection.Add(I)
-	var/selected = input(user,"Choose input.","Selection") in selection
+	var/selected = tgui_input_list(user, "Choose input.", "Selection", selection)
 	if(!selected)
 		return
 	set_pin_data(IC_OUTPUT, 1, selected)

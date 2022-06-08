@@ -51,7 +51,7 @@
 
 /datum/antagonist/sintouched/admin_add(datum/mind/new_owner,mob/admin)
 	var/choices = sins + "Случайно"
-	var/chosen_sin = input(admin,"Какой вид?","Вид греха") as null|anything in sort_list(choices)
+	var/chosen_sin = tgui_input_list(admin, "Какой вид?", "Вид греха", sort_list(choices))
 	if(!chosen_sin)
 		return
 	if(chosen_sin in sins)

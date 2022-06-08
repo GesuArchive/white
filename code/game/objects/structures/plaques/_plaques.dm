@@ -99,10 +99,10 @@
 		if(engraved)
 			to_chat(user, span_warning("This plaque has already been engraved."))
 			return
-		var/namechoice = input(user, "Title this plaque. (e.g. 'Best HoP Award', 'Great Ashwalker War Memorial')", "Plaque Customization")
+		var/namechoice = tgui_input_text(user, "Title this plaque. (e.g. 'Best HoP Award', 'Great Ashwalker War Memorial')", "Plaque Customization")
 		if(!namechoice)
 			return
-		var/descriptionchoice = input(user, "Engrave this plaque's text.", "Plaque Customization")
+		var/descriptionchoice = tgui_input_text(user, "Engrave this plaque's text.", "Plaque Customization")
 		if(!descriptionchoice)
 			return
 		if(!Adjacent(user)) //Make sure user is adjacent still
@@ -131,10 +131,10 @@
 		if(engraved)
 			to_chat(user, span_warning("This plaque has already been engraved."))
 			return
-		var/namechoice = input(user, "Title this plaque. (e.g. 'Best HoP Award', 'Great Ashwalker War Memorial')", "Plaque Customization")
+		var/namechoice = tgui_input_text(user, "Title this plaque. (e.g. 'Best HoP Award', 'Great Ashwalker War Memorial')", "Plaque Customization")
 		if(!namechoice)
 			return
-		var/descriptionchoice = input(user, "Engrave this plaque's text.", "Plaque Customization")
+		var/descriptionchoice = tgui_input_text(user, "Engrave this plaque's text.", "Plaque Customization")
 		if(!descriptionchoice)
 			return
 		if(!Adjacent(user)) //Make sure user is adjacent still

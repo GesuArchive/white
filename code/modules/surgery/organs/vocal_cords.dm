@@ -38,7 +38,7 @@
 /datum/action/item_action/organ_action/use/adamantine_vocal_cords/Trigger(trigger_flags)
 	if(!IsAvailable())
 		return
-	var/message = input(owner, "Что же мы скажем?", "Резонирование")
+	var/message = tgui_input_text(owner, "Что же мы скажем?", "Резонирование")
 	if(QDELETED(src) || QDELETED(owner) || !message)
 		return
 	owner.say(".x[message]")
@@ -93,7 +93,7 @@
 		if(world.time < cords.next_command)
 			to_chat(owner, span_notice("Нужно подождать [DisplayTimeText(cords.next_command - world.time)] перед тем как говорить ещё."))
 		return
-	var/command = input(owner, "Громогласим?", "Команда")
+	var/command = tgui_input_text(owner, "Громогласим?", "Команда")
 	if(QDELETED(src) || QDELETED(owner))
 		return
 	if(!command)

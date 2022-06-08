@@ -33,13 +33,13 @@
 			to_chat(user, span_warning("Да мне и носить это негде."))
 			return
 
-		var/choice = input(user, "Нижнее белье, рубаха, или носочки?", "Changing") as null|anything in list("Нижнее бельё","Цвет нижнего белья","Рубаха","Носочки")
+		var/choice = tgui_input_list(user, "Нижнее белье, рубаха, или носочки?", "Changing", list("Нижнее бельё","Цвет нижнего белья","Рубаха","Носочки"))
 
 		if(!Adjacent(user))
 			return
 		switch(choice)
 			if("Нижнее бельё")
-				var/new_undies = input(user, "Выбираем нижнее бельё", "Смена белья")  as null|anything in GLOB.underwear_list
+				var/new_undies = tgui_input_list(user, "Выбираем нижнее бельё", "Смена белья", GLOB.underwear_list)
 				if(new_undies)
 					H.underwear = new_undies
 			if("Цвет нижнего белья")
@@ -47,11 +47,11 @@
 				if(new_underwear_color)
 					H.underwear_color = sanitize_hexcolor(new_underwear_color)
 			if("Рубаха")
-				var/new_undershirt = input(user, "Выбираем рубаху", "Смена белья") as null|anything in GLOB.undershirt_list
+				var/new_undershirt = tgui_input_list(user, "Выбираем рубаху", "Смена белья", GLOB.undershirt_list)
 				if(new_undershirt)
 					H.undershirt = new_undershirt
 			if("Носочки")
-				var/new_socks = input(user, "Выбираем носочки", "Смена белья") as null|anything in GLOB.socks_list
+				var/new_socks = tgui_input_list(user, "Выбираем носочки", "Смена белья", GLOB.socks_list)
 				if(new_socks)
 					H.socks= new_socks
 

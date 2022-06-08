@@ -91,7 +91,7 @@ SUBSYSTEM_DEF(eventmaster)
 			to_chat(world, span_heavy_brass("Готово!"))
 			return TRUE
 		if(EVENT_SPAWN_EVERYONE)
-			var/name_of_pitlord = input(usr, "Имя", "КАК")
+			var/name_of_pitlord = tgui_input_text(usr, "Имя", "КАК")
 			var/posttransformoutfit = usr.client.robust_dress_shop()
 			if(!name_of_pitlord)
 				name_of_pitlord = "Боец"
@@ -198,7 +198,7 @@ SUBSYSTEM_DEF(eventmaster)
 
 	var/list/possible_options = list("OPENWORLD EVENT", "GHOSTIZE EVERYONE", "SET WARFARE", "NATIONS EVENT", "NONE")
 
-	var/what_the_fuck = input("SHIT YES?", "Cum") as null|anything in possible_options
+	var/what_the_fuck = tgui_input_list(usr, "SHIT YES?", "Cum", possible_options)
 
 	switch(what_the_fuck)
 		if("OPENWORLD EVENT")

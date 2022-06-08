@@ -15,7 +15,7 @@
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/input = input(usr, "Please input a new name for Central Command.", "What?", "") as text|null
+	var/input = tgui_input_text(usr, "Please input a new name for Central Command.", "What?", "")
 	if(!input)
 		return
 	change_command_name(input)

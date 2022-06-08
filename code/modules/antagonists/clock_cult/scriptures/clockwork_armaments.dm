@@ -14,7 +14,7 @@
 
 /datum/clockcult/scripture/clockwork_armaments/invoke_success()
 	var/mob/living/M = invoker
-	var/choice = input(M,"Какое оружие мы выберем?", "Механическое оружие") as anything in list("Копьё", "Молот", "Меч", "Лук", "Базовое")
+	var/choice = tgui_input_list(M, "Какое оружие мы выберем?", "Механическое оружие", list("Копьё", "Молот", "Меч", "Лук", "Базовое"))
 	var/datum/antagonist/servant_of_ratvar/servant = is_servant_of_ratvar(M)
 	if(!servant)
 		return FALSE

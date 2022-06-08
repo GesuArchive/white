@@ -71,7 +71,7 @@
 		for(var/i in 1 to GLOB.blob_nodes.len)
 			var/obj/structure/blob/special/node/B = GLOB.blob_nodes[i]
 			nodes["Родительская Масса #[i] ([get_area_name(B)])"] = B
-		var/node_name = input(src, "Куда прыгнем?", "Прыг-прыг") in nodes
+		var/node_name = tgui_input_list(src, "Куда прыгнем?", "Прыг-прыг", nodes)
 		var/obj/structure/blob/special/node/chosen_node = nodes[node_name]
 		if(chosen_node)
 			forceMove(chosen_node.loc)

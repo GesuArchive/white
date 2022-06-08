@@ -278,7 +278,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 
 	menu += "Громкость: [prefs.btvolume_max]%"
 
-	var/selected = input("BT Customization") as null|anything in menu
+	var/selected = tgui_input_list(usr, "BT Customization", , menu)
 	if(!selected)
 		return
 

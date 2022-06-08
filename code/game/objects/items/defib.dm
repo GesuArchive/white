@@ -705,5 +705,3 @@
 
 /obj/item/shockpaddles/syndicate/cyborg
 	req_defib = FALSE
-
-#undef HALFWAYCRITDEATH

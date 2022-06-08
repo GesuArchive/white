@@ -41,7 +41,7 @@
 		log_admin("[key_name(usr)] is changing the map to a custom map")
 		var/datum/map_config/VM = new
 
-		VM.map_name = input("Choose the name for the map", "Map Name") as null|text
+		VM.map_name = tgui_input_text(usr, "Choose the name for the map", "Map Name")
 		if(isnull(VM.map_name))
 			VM.map_name = "Custom"
 
@@ -72,7 +72,7 @@
 		var/shuttles = tgui_alert(usr,"Do you want to modify the shuttles?", "Map Shuttles", list("Yes", "No"))
 		if(shuttles == "Yes")
 			for(var/s in VM.shuttles)
-				var/shuttle = input(s, "Map Shuttles") as null|text
+				var/shuttle = tgui_input_text(s, "Map Shuttles")
 				if(!shuttle)
 					continue
 				if(!SSmapping.shuttle_templates[shuttle])

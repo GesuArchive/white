@@ -12,7 +12,7 @@
 /client/proc/fuck_pie()
 	set name = "Test Name Sklonenie"
 	set category = "Особенное"
-	var/pizdos = input("ВВЕДИТЕ ХУЙ")
+	var/pizdos = tgui_input_text(usr, "ВВЕДИТЕ ХУЙ")
 	if(pizdos)
 		to_chat(src, "Начальное слово: [pizdos]")
 

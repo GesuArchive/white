@@ -6,7 +6,7 @@
 	if(!SSdbcore.Connect())
 		to_chat(src, span_danger("Failed to establish database connection."))
 		return
-	var/polltype = input("Choose poll type.","Poll Type") as null|anything in list("Single Option","Text Reply","Rating","Multiple Choice", "Instant Runoff Voting")
+	var/polltype = tgui_input_list(src, "Choose poll type.", "Poll Type", list("Single Option","Text Reply","Rating","Multiple Choice", "Instant Runoff Voting"))
 	var/choice_amount = 0
 	switch(polltype)
 		if("Single Option")
@@ -31,7 +31,7 @@
 		else
 			return 0
 	var/starttime = SQLtime()
-	var/endtime = input("Set end time for poll as format YYYY-MM-DD HH:MM:SS. All times in server time. HH:MM:SS is optional and 24-hour. Must be later than starting time for obvious reasons.", "Set end time", SQLtime()) as text|null
+	var/endtime = tgui_input_text(usr, "Set end time for poll as format YYYY-MM-DD HH:MM:SS. All times in server time. HH:MM:SS is optional and 24-hour. Must be later than starting time for obvious reasons.", "Set end time", SQLtime())
 	if(!endtime)
 		return
 	endtime = sanitizeSQL(endtime)

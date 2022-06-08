@@ -29,7 +29,7 @@
 		return
 
 	message_admins("[key_name_admin(src)] has started answering [ADMIN_LOOKUPFLW(M)] prayer.")
-	var/msg = input("Message:", text("Subtle PM to [M.key]")) as text|null
+	var/msg = tgui_input_text(usr, "Message:", text("Subtle PM to [M.key]"))
 
 	if(!msg)
 		message_admins("[key_name_admin(src)] decided not to answer [ADMIN_LOOKUPFLW(M)] prayer")
@@ -65,12 +65,12 @@
 		return
 
 	if (!sender)
-		sender = input("Who is the message from?", "Sender") as null|anything in list(RADIO_CHANNEL_CENTCOM,RADIO_CHANNEL_SYNDICATE)
+		sender = tgui_input_list(usr, "Who is the message from?", "Sender", list(RADIO_CHANNEL_CENTCOM,RADIO_CHANNEL_SYNDICATE))
 		if(!sender)
 			return
 
 	message_admins("[key_name_admin(src)] has started answering [key_name_admin(H)] [sender] request.")
-	var/input = input("Please enter a message to reply to [key_name(H)] via their headset.","Outgoing message from [sender]", "") as text|null
+	var/input = tgui_input_text(usr, "Please enter a message to reply to [key_name(H)] via their headset.","Outgoing message from [sender]", "")
 	if(!input)
 		message_admins("[key_name_admin(src)] decided not to answer [key_name_admin(H)] [sender] request.")
 		return
@@ -134,7 +134,7 @@
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/msg = input("Message:", text("Enter the text you wish to appear to everyone:")) as text|null
+	var/msg = tgui_input_text(usr, "Message:", text("Enter the text you wish to appear to everyone:"))
 
 	if (!msg)
 		return
@@ -151,12 +151,12 @@
 		return
 
 	if(!M)
-		M = input("Direct narrate to whom?", "Active Players") as null|anything in GLOB.player_list
+		M = tgui_input_list(usr, "Direct narrate to whom?", "Active Players", GLOB.player_list)
 
 	if(!M)
 		return
 
-	var/msg = input("Message:", text("Enter the text you wish to appear to your target:")) as text|null
+	var/msg = tgui_input_text(usr, "Message:", text("Enter the text you wish to appear to your target:"))
 
 	if( !msg )
 		return
@@ -179,7 +179,7 @@
 	var/range = input("Range:", "Narrate to mobs within how many tiles:", 7) as num|null
 	if(!range)
 		return
-	var/msg = input("Message:", text("Enter the text you wish to appear to everyone within view:")) as text|null
+	var/msg = tgui_input_text(usr, "Message:", text("Enter the text you wish to appear to everyone within view:"))
 	if (!msg)
 		return
 	for(var/mob/M in view(range,A))
@@ -302,13 +302,13 @@
 				continue	//we have a live body we are tied to
 			candidates += M.ckey
 		if(candidates.len)
-			ckey = input("Pick the player you want to respawn as a xeno.", "Suitable Candidates") as null|anything in sortKey(candidates)
+			ckey = tgui_input_list(usr, "Pick the player you want to respawn as a xeno.", "Suitable Candidates", sortKey(candidates))
 		else
 			to_chat(usr, span_danger("Error: create_xeno(): no suitable candidates."))
 	if(!istext(ckey))
 		return FALSE
 
-	var/alien_caste = input(usr, "Please choose which caste to spawn.","Pick a caste",null) as null|anything in list("Queen","Praetorian","Hunter","Sentinel","Drone","Larva")
+	var/alien_caste = tgui_input_list(usr, "Please choose which caste to spawn.", "Pick a caste", list("Queen","Praetorian","Hunter","Sentinel","Drone","Larva"))
 	var/obj/effect/landmark/spawn_here = GLOB.xeno_spawn.len ? pick(GLOB.xeno_spawn) : null
 	var/mob/living/carbon/alien/new_xeno
 	switch(alien_caste)
@@ -515,7 +515,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/input = input(usr, "Please enter anything you want the AI to do. Anything. Serious.", "What?", "") as text|null
+	var/input = tgui_input_text(usr, "Please enter anything you want the AI to do. Anything. Serious.", "What?", "")
 	if(!input)
 		return
 
@@ -848,12 +848,12 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/level = input("Select security level to change to","Set Security Level") as null|anything in list("green","blue","red","delta")
+	var/level = tgui_input_list(usr, "Select security level to change to", "Set Security Level", list("green","blue","red","delta"))
 	if(level)
 		set_security_level(level)
 
 		log_admin("[key_name(usr)] changed the security level to [level]")
-		message_admins("[key_name_admin(usr)] changed the security level to [level]")
+		message_admins("[key_name_admin(usr)] changed the secu	rity level to [level]")
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Set Security Level [capitalize(level)]") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/toggle_nuke(obj/machinery/nuclearbomb/N in GLOB.nuke_list)
@@ -937,7 +937,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!holder)
 		return
 
-	var/weather_type = input("Choose a weather", "Weather")  as null|anything in sort_list(subtypesof(/datum/weather), /proc/cmp_typepaths_asc)
+	var/weather_type = tgui_input_list(usr, "Choose a weather", "Weather", sort_list(subtypesof(/datum/weather), /proc/cmp_typepaths_asc))
 	if(!weather_type)
 		return
 
@@ -1102,7 +1102,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 
-	var/punishment = input("Choose a punishment", "DIVINE SMITING") as null|anything in GLOB.smites
+	var/punishment = tgui_input_list(usr, "Choose a punishment", "DIVINE SMITING", GLOB.smites)
 
 	if(QDELETED(target) || !punishment)
 		return
@@ -1153,7 +1153,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!check_rights(R_ADMIN))
 		return
 	var/message = pick(GLOB.admiral_messages)
-	message = input("Enter message from the on-call admiral to be put in the recall report.", "Admiral Message", message) as text|null
+	message = tgui_input_text(usr, "Enter message from the on-call admiral to be put in the recall report.", "Admiral Message", message)
 
 	if(!message)
 		return
@@ -1220,7 +1220,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!D)
 		return
 
-	var/add_or_remove = input("Remove/Add?", "Trait Remove/Add") as null|anything in list("Add","Remove")
+	var/add_or_remove = tgui_input_list(usr, "Remove/Add?", "Trait Remove/Add", list("Add","Remove"))
 	if(!add_or_remove)
 		return
 	var/list/available_traits = list()
@@ -1238,7 +1238,6 @@ Traitors and the like can also be revived with the previous role mostly intact.
 				available_traits[name] = trait
 
 	var/chosen_trait = tgui_input_list(usr, "Select trait to modify", "Trait", sort_list(available_traits))
-	//var/chosen_trait = input("Select trait to modify", "Trait") as null|anything in sort_list(available_traits)
 	if(!chosen_trait)
 		return
 	chosen_trait = available_traits[chosen_trait]
@@ -1250,14 +1249,14 @@ Traitors and the like can also be revived with the previous role mostly intact.
 				D.AddElement(/datum/element/movetype_handler)
 			ADD_TRAIT(D,chosen_trait,source)
 		if("Remove")
-			var/specific = input("All or specific source ?", "Trait Remove/Add") as null|anything in list("All","Specific")
+			var/specific = tgui_input_list(usr, "All or specific source ?", "Trait Remove/Add", list("All","Specific"))
 			if(!specific)
 				return
 			switch(specific)
 				if("All")
 					source = null
 				if("Specific")
-					source = input("Source to be removed","Trait Remove/Add") as null|anything in sort_list(D.status_traits[chosen_trait])
+					source = tgui_input_list(usr, "Source to be removed", "Trait Remove/Add", sort_list(D.status_traits[chosen_trait]))
 					if(!source)
 						return
 			REMOVE_TRAIT(D,chosen_trait,source)

@@ -51,7 +51,7 @@
 	log_admin("[key_name(usr)] renamed [old_name] team to [name]")
 
 /datum/team/proc/admin_communicate(mob/user)
-	var/message = input(user,"Message for the team ?","Team Message") as text|null
+	var/message = tgui_input_text(user, "Message for the team ?", "Team Message")
 	if(!message)
 		return
 	for(var/datum/mind/M in members)
@@ -66,7 +66,7 @@
 	if(!GLOB.admin_objective_list)
 		generate_admin_objective_list()
 
-	var/selected_type = input("Select objective type:", "Objective type") as null|anything in GLOB.admin_objective_list
+	var/selected_type = tgui_input_list(usr, "Select objective type:", "Objective type", GLOB.admin_objective_list)
 	selected_type = GLOB.admin_objective_list[selected_type]
 	if (!selected_type)
 		return
@@ -111,7 +111,7 @@
 	for(var/mob/M in GLOB.mob_list)
 		if(M.mind)
 			minds |= M.mind
-	var/datum/mind/value = input("Select new member:", "New team member", null) as null|anything in sortNames(minds)
+	var/datum/mind/value = tgui_input_list(usr, "Select new member:", "New team member", sortNames(minds))
 	if (!value)
 		return
 

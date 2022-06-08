@@ -173,7 +173,7 @@ D [1]/  ||
 
 
 /datum/integrated_io/proc/ask_for_data_type(mob/user, var/default, var/list/allowed_data_types = list("string","number","null"))
-	var/type_to_use = input("Please choose a type to use.","[src] type setting") as null|anything in allowed_data_types
+	var/type_to_use = tgui_input_list(user, "Please choose a type to use.", "[src] type setting", allowed_data_types)
 	if(!holder.check_interactivity(user))
 		return
 

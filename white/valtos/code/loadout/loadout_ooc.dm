@@ -24,7 +24,7 @@
 	if (SSticker.current_state == GAME_STATE_SETTING_UP || SSticker.current_state == GAME_STATE_PLAYING || SSticker.current_state == GAME_STATE_FINISHED)
 		to_chat(C, "<span class='rose bold'>Невозможно! Доступно только перед началом раунда, когда сервер прогрузился, но ещё в лобби.</span>")
 		return FALSE
-	var/datum/round_aspect/sel_aspect = input("Аспекты:", "Выбирайте!", null, null) as null|anything in SSaspects.aspects
+	var/datum/round_aspect/sel_aspect = tgui_input_list(usr, "Аспекты:", "Выбирайте!", SSaspects.aspects)
 	if(!sel_aspect)
 		to_chat(C, span_notice("Не выбран аспект."))
 		return FALSE

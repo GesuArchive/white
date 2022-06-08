@@ -726,7 +726,7 @@
 	var/list/options = list()
 	for(var/mob/living/Ms in oview(H))
 		options += Ms
-	var/mob/living/M = input("Select who to send your message to:","Send thought to?",null) as null|mob in options
+	var/mob/living/M = tgui_input_list(usr, "Select who to send your message to:", "Send thought to?", options)
 	if(!M)
 		return
 	if(M.anti_magic_check(FALSE, FALSE, TRUE, 0))

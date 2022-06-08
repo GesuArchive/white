@@ -273,7 +273,7 @@
 	if(!port || !istype(port, /obj/docking_port/mobile))
 		return FALSE
 	var/static/list/choice = list("NORTH" = NORTH, "SOUTH" = SOUTH, "EAST" = EAST, "WEST" = WEST)
-	var/Pdir = input(user, "Shuttle Fly Direction:", "Blueprint Editing", "NORTH") as null|anything in list("NORTH", "SOUTH", "EAST", "WEST")
+	var/Pdir = tgui_input_list(user, "Shuttle Fly Direction:", "Blueprint Editing", list("NORTH", "SOUTH", "EAST", "WEST"), "NORTH")
 	if(Pdir)
 		port.preferred_direction = choice[Pdir]
 

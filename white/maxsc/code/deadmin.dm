@@ -13,7 +13,7 @@ GLOBAL_LIST_EMPTY(de_admined)
 		if(!check_rights_for(A, R_SECURED))
 			choices.Add(A)
 
-	var/selected = input("Please, select an admin!", "Admin", null) as null|anything in choices
+	var/selected = tgui_input_list(usr, "Please, select an admin!", "Admin", choices)
 
 	if(!selected || !(selected in choices))
 		return

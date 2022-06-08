@@ -182,7 +182,7 @@
 
 /obj/effect/proc_holder/spell/targeted/eminence/servant_warp/cast(list/targets, mob/user)
 	//Get a list of all servants
-	var/choice = input(user, "Выберем же его", "Перемещение к...", null) in GLOB.all_servants_of_ratvar
+	var/choice = tgui_input_list(user, "Выберем же его", "Перемещение к...", GLOB.all_servants_of_ratvar)
 	if(!choice)
 		return
 	for(var/mob/living/L in GLOB.all_servants_of_ratvar)
@@ -272,7 +272,7 @@
 	cog_cost = 5
 
 /obj/effect/proc_holder/spell/targeted/eminence/trigger_event/cast(list/targets, mob/user)
-	var/picked_event = input(user, "Что мы запустим?", "Манипуляция с реальностью", null) in list(
+	var/picked_event = tgui_input_list(user, "Что мы запустим?", "Манипуляция с реальностью", list(
 		"Anomaly",
 		"Brand Intelligence",
 		"Camera Failure",
@@ -284,7 +284,7 @@
 		"Mass Hallucination",
 		"Processor Overload",
 		"Radiation Storm"
-	)
+	))
 	if(!can_cast(user))
 		return
 	if(!picked_event)

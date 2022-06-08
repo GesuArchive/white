@@ -394,7 +394,7 @@ in their list
 	var/list/pa = params2list(params)
 	var/left_click = pa.Find("left")
 	if(left_click)
-		var/map_name = input(user, "Please select a name for your map", "Buildmode", "")
+		var/map_name = tgui_input_text(user, "Please select a name for your map", "Buildmode", "")
 		if(map_name == "")
 			return
 		var/map_flags = 0

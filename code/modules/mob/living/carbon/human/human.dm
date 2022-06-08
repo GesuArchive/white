@@ -190,7 +190,7 @@
 				to_chat(H, span_warning("ERROR: Нет доступа"))
 				return
 			if(href_list["p_stat"])
-				var/health_status = input(usr, "Укажите новый физический статус для этого человека.", "Medical HUD", R.fields["p_stat"]) in list("Active", "Physically Unfit", "*Unconscious*", "*Deceased*", "Cancel")
+				var/health_status = tgui_input_list(usr, "Укажите новый физический статус для этого человека.", "Medical HUD", list("Active", "Physically Unfit", "*Unconscious*", "*Deceased*", "Cancel"), R.fields["p_stat"])
 				if(!R)
 					return
 				if(!H.canUseHUD())
@@ -201,7 +201,7 @@
 					R.fields["p_stat"] = health_status
 				return
 			if(href_list["m_stat"])
-				var/health_status = input(usr, "Укажите новый психический статус для этого человека.", "Medical HUD", R.fields["m_stat"]) in list("Stable", "*Watch*", "*Unstable*", "*Insane*", "Cancel")
+				var/health_status = tgui_input_list(usr, "Укажите новый психический статус для этого человека.", "Medical HUD", list("Stable", "*Watch*", "*Unstable*", "*Insane*", "Cancel"), R.fields["m_stat"])
 				if(!R)
 					return
 				if(!H.canUseHUD())
@@ -247,7 +247,7 @@
 				to_chat(usr, span_warning("ERROR: Невозможно найти запись ядра данных для цели."))
 				return
 			if(href_list["status"])
-				var/setcriminal = input(usr, "Укажите новый преступный статус для этого человека.", "Security HUD", R.fields["criminal"]) in list("None", "*Arrest*", "Incarcerated", "Paroled", "Discharged", "Отмена")
+				var/setcriminal = tgui_input_list(usr, "Укажите новый преступный статус для этого человека.", "Security HUD", list("None", "*Arrest*", "Incarcerated", "Paroled", "Discharged", "Отмена"), R.fields["criminal"])
 				if(setcriminal != "Отмена")
 					if(!R)
 						return
@@ -795,7 +795,7 @@
 			var/name = initial(mut.name)
 			options[dna.check_mutation(mut) ? "[name] (Remove)" : "[name] (Add)"] = mut
 
-		var/result = input(usr, "Choose mutation to add/remove","Mutation Mod") as null|anything in sort_list(options)
+		var/result = tgui_input_list(usr, "Choose mutation to add/remove", "Mutation Mod", sort_list(options))
 		if(result)
 			if(result == "Clear")
 				dna.remove_all_mutations()
@@ -815,7 +815,7 @@
 			var/qname = initial(T.name)
 			options[has_quirk(T) ? "[qname] (Remove)" : "[qname] (Add)"] = T
 
-		var/result = input(usr, "Choose quirk to add/remove","Quirk Mod") as null|anything in sort_list(options)
+		var/result = tgui_input_list(usr, "Choose quirk to add/remove", "Quirk Mod", sort_list(options))
 		if(result)
 			if(result == "Clear")
 				for(var/datum/quirk/q in roundstart_quirks)
@@ -854,7 +854,7 @@
 		if(!check_rights(R_SPAWN))
 			return
 
-		var/result = input(usr, "Please choose a new species","Species") as null|anything in GLOB.species_list
+		var/result = tgui_input_list(usr, "Please choose a new species", "Species", GLOB.species_list)
 		if(result)
 			var/newtype = GLOB.species_list[result]
 			admin_ticket_log("[key_name_admin(usr)] has modified the bodyparts of [src] to [result]")

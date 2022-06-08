@@ -14,7 +14,7 @@
 	var/datum/weakref/idlock = null
 
 /obj/item/integrated_electronics/debugger/attack_self(mob/user)
-	var/type_to_use = input("Please choose a type to use.","[src] type setting") as null|anything in list("string","number","ref","copy","null","id lock")
+	var/type_to_use = tgui_input_list(user, "Please choose a type to use.", "[src] type setting", list("string","number","ref","copy","null","id lock"))
 	if(!ISADVANCEDTOOLUSER(user))
 		return
 

@@ -63,7 +63,7 @@
 	return 1
 
 /obj/item/mechcomp/math/proc/setMode(obj/item/W as obj, mob/user as mob)
-	mode = input("Set the math mode to what?", "Mode Selector", mode) in list("add","mul","div","sub","mod","pow","rng","eq","neq","gt","lt","gte","lte","sin","cos","tg","ctg","sec","cosec")
+	mode = tgui_input_list(usr, "Set the math mode to what?", "Mode Selector", list("add","mul","div","sub","mod","pow","rng","eq","neq","gt","lt","gte","lte","sin","cos","tg","ctg","sec","cosec"), mode)
 	//tooltip_rebuild = 1
 	return 1
 
@@ -203,7 +203,7 @@
 	active_icon_state = "comp_buttpanel1"
 
 /obj/item/mechcomp/textpad/interact_by_hand()
-	var/inp = input("What text would you like to input?", "Oh, the possibilities!", null) as text|null
+	var/inp = tgui_input_text(usr, "What text would you like to input?", "Oh, the possibilities!", null)
 	if(isnull(inp))
 		return
 
@@ -561,7 +561,7 @@
 	H = msg.signal
 
 /obj/item/mechcomp/list_packer/proc/prompt_update(var/varname, var/v)
-	var/input = input("Set [varname] to what? Careful, empty input will erase what's currently stored in [varname]!", "[varname]", v)
+	var/input = tgui_input_text(usr, "Set [varname] to what? Careful, empty input will erase what's currently stored in [varname]!", "[varname]", v)
 	return input
 
 //fucking kill me
@@ -606,7 +606,7 @@
 		H = p
 
 /obj/item/mechcomp/list_packer/proc/set_glue(obj/item/I, mob/user)
-	var/input = input("Set glue to what? Glue is used to \"glue\" lists together into a single string. Default glue for most cases is \"&\", but you can use another one if you want to use lists of lists. You can even use multiple symbols as glue!", "glue", glue) as null|text
+	var/input = tgui_input_text("Set glue to what? Glue is used to \"glue\" lists together into a single string. Default glue for most cases is \"&\", but you can use another one if you want to use lists of lists. You can even use multiple symbols as glue!", "glue", glue)
 	if(!isnull(input))
 		glue = input
 		to_chat(user, span_notice("You set [src.name]'s glue to \"[glue]\""))
@@ -665,7 +665,7 @@
 		SEND_SIGNAL(src, COMSIG_MECHCOMP_TRANSMIT_SIGNAL, memory[index])
 
 /obj/item/mechcomp/list_extractor/proc/set_glue(obj/item/I, mob/user)
-	var/input = input("Set glue to what? Glue is used to \"glue\" lists together into a single string. Default glue for most cases is \"&\", but you can use another one if you want to use lists of lists. You can even use multiple symbols as glue! Make sure the list you pass to [src.name] uses the same glue!", "Glue", glue) as null|text
+	var/input = tgui_input_text("Set glue to what? Glue is used to \"glue\" lists together into a single string. Default glue for most cases is \"&\", but you can use another one if you want to use lists of lists. You can even use multiple symbols as glue! Make sure the list you pass to [src.name] uses the same glue!", "Glue", glue)
 	if(!isnull(input))
 		glue = input
 		to_chat(user, span_notice("You set [src.name]'s glue to \"[glue]\""))
@@ -702,7 +702,7 @@
 
 
 /obj/item/mechcomp/find_regex/proc/setpattern(obj/item/I, mob/user)
-	var/input = input("Input your regex pattern.", "[pick(80;"Regex", 5;"Reg-ekhs?", 5;"what the fuck is a regex", 5;"if you have a problem you want to solve with regex, you have 2 problems.", 5;"the regex is outlawed in 48 US states")]", reg?.name) as null|text
+	var/input = tgui_input_text("Input your regex pattern.", "[pick(80;"Regex", 5;"Reg-ekhs?", 5;"what the fuck is a regex", 5;"if you have a problem you want to solve with regex, you have 2 problems.", 5;"the regex is outlawed in 48 US states")]", reg?.name)
 	if(!isnull(input))
 		reg = regex(input, "[g ? "g":""][i ? "i":""]")
 		to_chat(user, span_notice("You set [src.name]'s pattern to \"[reg?.name]\""))
@@ -735,13 +735,13 @@
 
 
 /obj/item/mechcomp/find_regex/proc/set_group_glue(obj/item/I, mob/user)
-	var/input = input("Set group glue to what? Group glue for regex is used to glue together all the capture groups from the single search. It is heavily recommended to keep different from result glue which is used to glue together all search results.", "Glue", glue) as null|text
+	var/input = tgui_input_text("Set group glue to what? Group glue for regex is used to glue together all the capture groups from the single search. It is heavily recommended to keep different from result glue which is used to glue together all search results.", "Glue", glue)
 	if(!isnull(input))
 		glue = input
 		to_chat(user, span_notice("You set [src.name]'s group glue to \"[glue]\""))
 
 /obj/item/mechcomp/find_regex/proc/set_glue(obj/item/I, mob/user)
-	var/input = input("Set result glue to what? Glue is used to \"glue\" lists together into a single string. Default glue for most cases is \"&\", but you can use another one if you want to use lists of lists. You can even use multiple symbols as glue! Make sure to use a unique symbol or group or symbols, or else extracting data will be stupidly complicated!", "Glue", glue) as null|text
+	var/input = tgui_input_text(usr, "Set result glue to what? Glue is used to \"glue\" lists together into a single string. Default glue for most cases is \"&\", but you can use another one if you want to use lists of lists. You can even use multiple symbols as glue! Make sure to use a unique symbol or group or symbols, or else extracting data will be stupidly complicated!", "Glue", glue)
 	if(!isnull(input))
 		glue = input
 		to_chat(user, span_notice("You set [src.name]'s result glue to \"[glue]\""))

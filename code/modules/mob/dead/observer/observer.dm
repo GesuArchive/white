@@ -446,7 +446,7 @@ GLOBAL_LIST_INIT(ghost_forms, sort_list(list("ghost","ghostking","ghostian2","sk
 							"ghost_mellow","ghost_rainbow","ghost_camo","ghost_fire", "catghost")))
 
 /mob/dead/observer/proc/pick_form()
-	var/new_form = input(src, "Choose your ghostly form:","Thanks for supporting BYOND",null) as null|anything in GLOB.ghost_forms
+	var/new_form = tgui_input_list(src, "Choose your ghostly form:", "Thanks for supporting BYOND", GLOB.ghost_forms)
 	if(new_form)
 		client.prefs.ghost_form = new_form
 		client.prefs.save_preferences()
@@ -455,7 +455,7 @@ GLOBAL_LIST_INIT(ghost_forms, sort_list(list("ghost","ghostking","ghostian2","sk
 GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOST_ORBIT_SQUARE,GHOST_ORBIT_HEXAGON,GHOST_ORBIT_PENTAGON))
 
 /mob/dead/observer/proc/pick_ghost_orbit()
-	var/new_orbit = input(src, "Choose your ghostly orbit:","Thanks for supporting BYOND",null) as null|anything in GLOB.ghost_orbits
+	var/new_orbit = tgui_input_list(src, "Choose your ghostly orbit:", "Thanks for supporting BYOND", GLOB.ghost_orbits)
 	if(new_orbit)
 		client.prefs.ghost_orbit = new_orbit
 		client.prefs.save_preferences()
@@ -606,7 +606,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	var/list/possible_destinations = SSpoints_of_interest.get_mob_pois()
 	var/target = null
 
-	target = input("Please, select a player!", "Jump to Mob", null, null) as null|anything in possible_destinations
+	target = tgui_input_list(usr, "Please, select a player!", "Jump to Mob", possible_destinations)
 
 	if (!target || !isobserver(usr))
 		return
@@ -640,7 +640,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 		var/list/views = list()
 		for(var/i in 7 to max_view)
 			views |= i
-		var/new_view = input("Choose your new view", "Modify view range", 0) as null|anything in views
+		var/new_view = tgui_input_list(usr, "Choose your new view", "Modify view range", views, 0)
 		if(new_view)
 			client.view_size.setTo(clamp(new_view, 7, max_view) - 7)
 	else
@@ -757,7 +757,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 		if(!(L in GLOB.player_list) && !L.mind)
 			possessible += L
 
-	var/mob/living/target = input("Your new life begins today!", "Possess Mob", null, null) as null|anything in sortNames(possessible)
+	var/mob/living/target = tgui_input_list(usr, "Your new life begins today!", "Possess Mob", sortNames(possessible))
 
 	if(!target)
 		return FALSE
@@ -976,7 +976,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	var/list/possible_destinations = SSpoints_of_interest.get_mob_pois()
 	var/target = null
 
-	target = input("Please, select a player!", "Jump to Mob", null, null) as null|anything in possible_destinations
+	target = tgui_input_list(usr, "Please, select a player!", "Jump to Mob", possible_destinations)
 
 	if (!target || !isobserver(usr))
 		return

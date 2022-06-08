@@ -80,7 +80,7 @@
 		return
 
 	if(!M)
-		M = input(usr, "Choose a mob to play the sound to. Only they will hear it.", "Play Mob Sound") as null|anything in sortNames(GLOB.player_list)
+		M = tgui_input_list(usr, "Choose a mob to play the sound to. Only they will hear it.", "Play Mob Sound", sortNames(GLOB.player_list))
 	if(!M || QDELETED(M))
 		return
 	log_admin("[key_name(src)] played a direct mob sound [S] to [M].")
@@ -99,7 +99,7 @@
 		to_chat(src, span_boldwarning("Youtube-dl was not configured, action unavailable")) //Check config.txt for the INVOKE_YOUTUBEDL value
 		return
 
-	var/web_sound_input = input("Enter content URL (supported sites only, leave blank to stop playing)", "Play Internet Sound via youtube-dl") as text|null
+	var/web_sound_input = tgui_input_text(usr, "Enter content URL (supported sites only, leave blank to stop playing)", "Play Internet Sound via youtube-dl")
 	if(istext(web_sound_input))
 		var/web_sound_url = ""
 		var/stop_web_sounds = FALSE

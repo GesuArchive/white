@@ -120,7 +120,7 @@ GLOBAL_PROTECT(AdminProcCallHandler)
 			target = null
 			targetselected = FALSE
 
-	var/procpath = input("Proc path, eg: /proc/fake_blood","Path:", null) as text|null
+	var/procpath = tgui_input_text(usr, "Proc path, eg: /proc/fake_blood", "Path:")
 	if(!procpath)
 		return
 
@@ -237,7 +237,7 @@ GLOBAL_PROTECT(LastAdminCalledProc)
 	if(!check_rights(R_DEBUG))
 		return
 
-	var/procname = input("Proc name, eg: fake_blood","Proc:", null) as text|null
+	var/procname = tgui_input_text(usr, "Proc name, eg: fake_blood", "Proc:")
 	if(!procname)
 		return
 	if(!hascall(A,procname))
@@ -269,7 +269,7 @@ GLOBAL_PROTECT(LastAdminCalledProc)
 	. = list()
 	var/list/named_args = list()
 	while(argnum--)
-		var/named_arg = input("Leave blank for positional argument. Positional arguments will be considered as if they were added first.", "Named argument") as text|null
+		var/named_arg = tgui_input_text(usr, "Leave blank for positional argument. Positional arguments will be considered as if they were added first.", "Named argument")
 		var/value = vv_get_value(restricted_classes = list(VV_RESTORE_DEFAULT))
 		if (!value["class"])
 			return

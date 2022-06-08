@@ -38,7 +38,7 @@
 		to_chat(user, span_notice("The RCBP now holds [matter]/[mattermax] fabrication-units."))
 	/*
 	else if (istype(I, /obj/item/multitool))
-		c_id = input(user, "Input a conveyor id", "Conveyor ID", c_id) as text
+		c_id = tgui_input_text(user, "Input a conveyor id", "Conveyor ID", c_id)
 	*/
 	else if(istype(I, /obj/item/conveyor_switch_construct))
 		to_chat(user, span_notice("You link the switch to the RCBP."))

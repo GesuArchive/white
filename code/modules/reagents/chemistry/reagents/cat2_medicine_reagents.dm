@@ -54,7 +54,7 @@
 			helbent = TRUE
 		to_chat(M, span_hierophant("Передо мной появляются зловещие духи, выторговывая вашу жизнь в «товарищеской» партии в камень-ножницы-бумагу. Что выбрать?"))
 		var/timeisticking = world.time
-		var/RPSchoice = input(M, "Janken Time! You have 60 Seconds to Choose!", "Rock Paper Scissors",null) as null|anything in RockPaperScissors
+		var/RPSchoice = tgui_input_list(M, "Janken Time! You have 60 Seconds to Choose!", "Rock Paper Scissors", RockPaperScissors)
 		if(QDELETED(M) || (timeisticking+(1.1 MINUTES) < world.time))
 			reaping = FALSE
 			return //good job, you ruined it

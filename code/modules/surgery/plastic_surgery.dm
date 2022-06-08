@@ -32,7 +32,7 @@
 			for(var/_i in 1 to 9)
 				names += "Субъект [target.gender == MALE ? "i" : "o"]-[pick("a", "b", "c", "d", "e")]-[rand(10000, 99999)]"
 			names += target.dna.species.random_name(target.gender, TRUE) //give one normal name in case they want to do regular plastic surgery
-		var/chosen_name = input(user, "Выберите новое имя.", "Plastic Surgery") as null|anything in names
+		var/chosen_name = tgui_input_list(user, "Выберите новое имя.", "Plastic Surgery", names)
 		if(!chosen_name)
 			return
 		var/oldname = target.real_name

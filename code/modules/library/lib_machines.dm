@@ -114,7 +114,7 @@
 		return
 
 	if(href_list["settitle"])
-		var/newtitle = input("Enter a title to search for:") as text|null
+		var/newtitle = tgui_input_text(usr, "Enter a title to search for:")
 		if(newtitle)
 			title = sanitize(newtitle)
 		else
@@ -126,7 +126,7 @@
 		else
 			category = "Any"
 	if(href_list["setauthor"])
-		var/newauthor = input("Enter an author to search for:") as text|null
+		var/newauthor = tgui_input_text(usr, "Enter an author to search for:")
 		if(newauthor)
 			author = sanitize(newauthor)
 		else

@@ -339,7 +339,7 @@
 		if(!check_rights(R_SERVER))
 			return
 		if(!SSticker.delay_end)
-			SSticker.admin_delay_notice = input(usr, "Enter a reason for delaying the round end", "Round Delay Reason") as null|text
+			SSticker.admin_delay_notice = tgui_input_text(usr, "Enter a reason for delaying the round end", "Round Delay Reason")
 			if(isnull(SSticker.admin_delay_notice))
 				return
 		else
@@ -641,7 +641,7 @@
 		for (var/rule in subtypesof(/datum/dynamic_ruleset/roundstart))
 			var/datum/dynamic_ruleset/roundstart/newrule = new rule()
 			roundstart_rules[newrule.name] = newrule
-		var/added_rule = input(usr,"What ruleset do you want to force? This will bypass threat level and population restrictions.", "Rigging Roundstart", null) as null|anything in sort_list(roundstart_rules)
+		var/added_rule = tgui_input_list(usr,"What ruleset do you want to force? This will bypass threat level and population restrictions.", "Rigging Roundstart", sort_list(roundstart_rules))
 		if (added_rule)
 			GLOB.dynamic_forced_roundstart_ruleset += roundstart_rules[added_rule]
 			log_admin("[key_name(usr)] set [added_rule] to be a forced roundstart ruleset.")
@@ -1886,7 +1886,7 @@
 			return
 		var/datum/station_goal/G = new picked()
 		if(picked == /datum/station_goal)
-			var/newname = input("Enter goal name:") as text|null
+			var/newname = tgui_input_text(usr, "Enter goal name:")
 			if(!newname)
 				return
 			G.name = newname
@@ -2079,7 +2079,7 @@
 		if(answer == "yes")
 			log_query_debug("[usr.key] | Reported a server hang")
 			if(tgui_alert(usr, "Had you just press any admin buttons?", "Query server hang report", list("Yes", "No")) == "Yes")
-				var/response = input(usr,"What were you just doing?","Query server hang report") as null|text
+				var/response = tgui_input_text(usr,"What were you just doing?","Query server hang report")
 				if(response)
 					log_query_debug("[usr.key] | [response]")
 		else if(answer == "no")

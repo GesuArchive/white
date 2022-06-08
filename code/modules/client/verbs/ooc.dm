@@ -300,7 +300,7 @@ GLOBAL_LIST_INIT(alko_list, list("zarri", "maxsc", "nfogmann", "unitazik", "sran
 	players = sort_list(players)
 
 	// Request the player to ignore
-	var/selection = input("Please, select a player!", "Ignore", null, null) as null|anything in players
+	var/selection = tgui_input_list(usr, "Please, select a player!", "Ignore", players)
 
 	// Stop running if we didn't receieve a valid selection
 	if(!selection || !(selection in players))
@@ -341,7 +341,7 @@ GLOBAL_LIST_INIT(alko_list, list("zarri", "maxsc", "nfogmann", "unitazik", "sran
 		return
 
 	// Request the player to unignore
-	var/selection = input("Please, select a player!", "Unignore", null, null) as null|anything in prefs.ignoring
+	var/selection = tgui_input_list(usr, "Please, select a player!", "Unignore", prefs.ignoring)
 
 	// Stop running if we didn't receive a selection
 	if(!selection)

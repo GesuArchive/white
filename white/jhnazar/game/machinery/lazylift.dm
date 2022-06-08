@@ -114,7 +114,7 @@ That's it, ok bye!
 	var/list/deckNums = list()
 	for(var/obj/machinery/lazylift/LL in master.decks)
 		deckNums += LL.deck
-	var/theDeck = input(user, "Куда отправимся?", name, null) as null|anything in deckNums
+	var/theDeck = tgui_input_list(user, "Куда отправимся?", name, deckNums)
 	if(!theDeck || !isnum(theDeck))
 		return FALSE
 	master.path_to(theDeck)

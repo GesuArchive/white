@@ -115,7 +115,7 @@
 		if(!E.storage)
 			continue
 		cargo_map[avoid_assoc_duplicate_keys("[E.name] ([E.storage.name])", used_key_list)] = E
-	var/selection = input(usr, "Unload which cargo?", null, null) as null|anything in cargo_map
+	var/selection = tgui_input_list(usr, "Unload which cargo?", null, cargo_map)
 	var/obj/item/spacepod_equipment/cargo/large/E = cargo_map[selection]
 	if(!selection || !verb_check() || !E || !(E in equipment) || !E.storage)
 		return

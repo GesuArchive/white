@@ -398,9 +398,9 @@
 			if ("color")
 				settings["mainsettings"][setting]["value"] = input(user, "Введите новое значение для [settings["mainsettings"][setting]["desc"]]", "Введите новое значение для [settings["mainsettings"][setting]["desc"]]", settings["mainsettings"][setting]["value"]) as color
 			if ("boolean")
-				settings["mainsettings"][setting]["value"] = input(user, "[settings["mainsettings"][setting]["desc"]]?") in list("Yes","No")
+				settings["mainsettings"][setting]["value"] = tgui_input_list(user, "[settings["mainsettings"][setting]["desc"]]?", , list("Yes","No"))
 			if ("ckey")
-				settings["mainsettings"][setting]["value"] = input(user, "[settings["mainsettings"][setting]["desc"]]?") in list("none") + GLOB.directory
+				settings["mainsettings"][setting]["value"] = tgui_input_list(user, "[settings["mainsettings"][setting]["desc"]]?", , list("none") + GLOB.directory)
 		if (settings["mainsettings"][setting]["callback"])
 			var/datum/callback/callback = settings["mainsettings"][setting]["callback"]
 			settings = callback.Invoke(settings)

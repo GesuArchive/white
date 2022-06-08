@@ -107,7 +107,7 @@
 
 /datum/action/innate/monitor_change/Activate()
 	var/mob/living/carbon/human/H = owner
-	var/new_ipc_screen = input(usr, "Выбираем:", "Смена экрана") as null|anything in GLOB.ipc_screens_list
+	var/new_ipc_screen = tgui_input_list(usr, "Выбираем:", "Смена экрана", GLOB.ipc_screens_list)
 	if(!new_ipc_screen)
 		return
 	H.dna.features["ipc_screen"] = new_ipc_screen

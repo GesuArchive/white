@@ -326,7 +326,7 @@
 
 	// Abort?
 	if (options.len > 1)
-		var/choice = input(owner.current, "You have the opportunity to grow more ancient. Select a power to advance your Rank.", "Your Blood Thickens...") in options
+		var/choice = tgui_input_list(owner.current, "You have the opportunity to grow more ancient. Select a power to advance your Rank.", "Your Blood Thickens...", options)
 		// Cheat-Safety: Can't keep opening/closing coffin to spam levels
 		if (vamplevel_unspent <= 0) // Already spent all your points, and tried opening/closing your coffin, pal.
 			return

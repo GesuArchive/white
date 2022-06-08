@@ -19,7 +19,7 @@
 	/obj/item, /obj/item/clothing, /obj/item/stack, /obj/item,
 	/obj/item/reagent_containers, /obj/item/gun)
 
-	var/path = input("Select the path of the object you wish to create.", "Path", /obj) in sort_list(create_object_forms, /proc/cmp_typepaths_asc)
+	var/path = tgui_input_list(usr, "Select the path of the object you wish to create.", "Path", sort_list(create_object_forms, /proc/cmp_typepaths_asc), /obj)
 	var/html_form = create_object_forms[path]
 
 	if (!html_form)

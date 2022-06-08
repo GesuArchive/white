@@ -35,14 +35,14 @@
 		"range \[[range]]",\
 		"spin \[[spin ? "✓" : "x"]]",\
 		"--close--"		)
-		var/selection = input("Please make extra sure you know what you're doing.", "Configure") as null|anything in options
+		var/selection = tgui_input_list(usr, "Please make extra sure you know what you're doing.", "Configure", options)
 		if(isnull(selection))
 			return
 		selection = copytext(selection, 1, 5)
 
 		switch(selection)
 			if("type")
-				var/target_path = input(c, "Enter typepath:", "Typepath", "[objholder]")
+				var/target_path = tgui_input_text(c, "Enter typepath:", "Typepath", "[objholder]")
 				objholder = text2path(target_path)
 				if(!ispath(objholder))
 					objholder = pick_closest_path(target_path)

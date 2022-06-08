@@ -180,7 +180,7 @@
 				tilestack.forceMove(drop_location())
 
 		if("linemode")
-			var/setdir = input("Выбери направление строительства:") as null|anything in list("north","east","south","west","disable")
+			var/setdir = tgui_input_list(usr, "Выбери направление строительства:", , list("north","east","south","west","disable"))
 			switch(setdir)
 				if("north")
 					targetdirection = 1

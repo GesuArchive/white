@@ -1021,7 +1021,7 @@
 	if(href_list[VV_HK_MODIFY_BODYPART])
 		if(!check_rights(R_SPAWN))
 			return
-		var/edit_action = input(usr, "What would you like to do?","Modify Body Part") as null|anything in list("add","remove", "augment")
+		var/edit_action = tgui_input_list(usr, "What would you like to do?", "Modify Body Part", list("add","remove", "augment"))
 		if(!edit_action)
 			return
 		var/list/limb_list = list()
@@ -1034,7 +1034,7 @@
 			limb_list = list(BODY_ZONE_HEAD, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 			for(var/obj/item/bodypart/B in bodyparts)
 				limb_list -= B.body_zone
-		var/result = input(usr, "Please choose which body part to [edit_action]","[capitalize(edit_action)] Body Part") as null|anything in sort_list(limb_list)
+		var/result = tgui_input_list(usr, "Please choose which body part to [edit_action]", "[capitalize(edit_action)] Body Part", sort_list(limb_list))
 		if(result)
 			var/obj/item/bodypart/BP = get_bodypart(result)
 			switch(edit_action)
@@ -1076,7 +1076,7 @@
 		for(var/i in artpaths)
 			var/datum/martial_art/M = i
 			artnames[initial(M.name)] = M
-		var/result = input(usr, "Choose the martial art to teach","JUDO CHOP") as null|anything in sort_list(artnames, /proc/cmp_typepaths_asc)
+		var/result = tgui_input_list(usr, "Choose the martial art to teach", "JUDO CHOP", sort_list(artnames, /proc/cmp_typepaths_asc))
 		if(!usr)
 			return
 		if(QDELETED(src))
@@ -1092,7 +1092,7 @@
 		if(!check_rights(NONE))
 			return
 		var/list/traumas = subtypesof(/datum/brain_trauma)
-		var/result = input(usr, "Choose the brain trauma to apply","Traumatize") as null|anything in sort_list(traumas, /proc/cmp_typepaths_asc)
+		var/result = tgui_input_list(usr, "Choose the brain trauma to apply", "Traumatize", sort_list(traumas, /proc/cmp_typepaths_asc))
 		if(!usr)
 			return
 		if(QDELETED(src))
@@ -1114,7 +1114,7 @@
 		if(!check_rights(NONE))
 			return
 		var/list/hallucinations = subtypesof(/datum/hallucination)
-		var/result = input(usr, "Choose the hallucination to apply","Send Hallucination") as null|anything in sort_list(hallucinations, /proc/cmp_typepaths_asc)
+		var/result = tgui_input_list(usr, "Choose the hallucination to apply", "Send Hallucination", sort_list(hallucinations, /proc/cmp_typepaths_asc))
 		if(!usr)
 			return
 		if(QDELETED(src))

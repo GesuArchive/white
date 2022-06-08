@@ -26,7 +26,7 @@
 /obj/item/storage/daki/attack_self(mob/living/user)
 	var/body_choice
 	if(icon_state == "daki_base")
-		body_choice = input("Выбери же образ.") in list(
+		body_choice = tgui_input_list(usr, "Выбери же образ.", , list(
 		"Callie",
 		"Casca",
 		"Chaika",
@@ -52,7 +52,7 @@
 		"Toriel",
 		"Umaru",
 		"Yaranaika",
-		"Yoko")
+		"Yoko"))
 
 		icon_state = "daki_[body_choice]"
 		custom_name = stripped_input(user, "Как её зовут?")

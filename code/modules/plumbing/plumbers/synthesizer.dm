@@ -164,7 +164,7 @@
 		say("Invalid [err == 1 ? "chemical name!" : "[err == 2 ? "dispense amount!" : "chemical name and dispense amount!" ]" ] Proper signal syntax is: \[CHEM_NAME]&\[DISPENSE_AMOUNT(from 0 to 5 inclusive!)].")
 
 /obj/machinery/plumbing/synthesizer/proc/set_glue(obj/item/I, mob/user)
-	var/input = input("Set glue to what? Glue is used to \"glue\" lists together into a single string. Default glue for most cases is \"&\", but you can use another one if you want to use lists of lists. You can even use multiple symbols as glue! Make sure the list you pass to [src.name] uses the same glue!", "Glue", glue) as null|text
+	var/input = tgui_input_text(usr, "Set glue to what? Glue is used to \"glue\" lists together into a single string. Default glue for most cases is \"&\", but you can use another one if you want to use lists of lists. You can even use multiple symbols as glue! Make sure the list you pass to [src.name] uses the same glue!", "Glue", glue)
 	if(!isnull(input))
 		glue = input
 		to_chat(user, span_notice("You set [src.name]'s glue to \"[glue]\""))

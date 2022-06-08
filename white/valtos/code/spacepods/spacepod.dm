@@ -208,7 +208,7 @@
 	var/list/used_key_list = list()
 	for(var/obj/I in items)
 		item_map[avoid_assoc_duplicate_keys(I.name, used_key_list)] = I
-	var/selection = input(user, "Remove which equipment?", null, null) as null|anything in item_map
+	var/selection = tgui_input_list(user, "Remove which equipment?", null, item_map)
 	var/obj/O = item_map[selection]
 	if(O && istype(O) && (O in contents))
 		// alrightey now to figure out what it is

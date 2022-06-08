@@ -451,7 +451,7 @@
 	symptoms += SSdisease.list_symptoms.Copy()
 	do
 		if(user)
-			var/symptom = input(user, "Какой симптом добавим ([i] осталось)", "Выбор симптома") in sort_list(symptoms, /proc/cmp_typepaths_asc)
+			var/symptom = tgui_input_list(user, "Какой симптом добавим ([i] осталось)", "Выбор симптома", sort_list(symptoms, /proc/cmp_typepaths_asc))
 			if(isnull(symptom))
 				return
 			else if(istext(symptom))
@@ -474,7 +474,7 @@
 
 		var/list/targets = list("Случайный")
 		targets += sortNames(GLOB.human_list)
-		var/target = input(user, "Выбираем человеков в качестве цели.", "Заразить цель") as null|anything in targets
+		var/target = tgui_input_list(user, "Выбираем человеков в качестве цели.", "Заразить цель", targets)
 
 		var/mob/living/carbon/human/H
 		if(!target)

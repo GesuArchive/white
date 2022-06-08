@@ -53,7 +53,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 
 	var/list/menu = list("Cancel", "Toggle TTS", "Change Lang")
 
-	var/selected = input("Main Menu", "ANIME VOICEOVER", "Cancel") as null|anything in menu
+	var/selected = tgui_input_list(usr, "Main Menu", "ANIME VOICEOVER", menu, "Cancel")
 
 	switch(selected)
 		if("Cancel")
@@ -70,7 +70,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 		if("Change Lang")
 			var/list/langlist = list("Cancel", "aidar", "baya", "kseniya", "natasha", "ruslan", "lj", "thorsten", "tux", "gilles", "dilyara")
 
-			var/selectedlang = input("Main Menu", "ANIME VOICEOVER", null) as null|anything in langlist
+			var/selectedlang = tgui_input_list(usr, "Main Menu", "ANIME VOICEOVER", langlist)
 			if(selectedlang == "Cancel")
 				return
 

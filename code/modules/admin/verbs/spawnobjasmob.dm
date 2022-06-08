@@ -4,7 +4,7 @@
 	set name = "Spawn object-mob"
 
 	if(!object)
-		object = input("", "Spawn object-mob") as null|text
+		object = tgui_input_text(usr, "", "Spawn object-mob")
 
 	if(!check_rights(R_SPAWN))
 		return

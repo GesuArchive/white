@@ -198,7 +198,7 @@ GLOBAL_VAR_INIT(dynamic_forced_threat_level, -1)
 	else if (href_list["stacking_limit"])
 		GLOB.dynamic_stacking_limit = input(usr,"Change the threat limit at which round-endings rulesets will start to stack.", "Change stacking limit", null) as num
 	else if(href_list["force_latejoin_rule"])
-		var/added_rule = input(usr,"What ruleset do you want to force upon the next latejoiner? This will bypass threat level and population restrictions.", "Rigging Latejoin", null) as null|anything in sort_list(latejoin_rules)
+		var/added_rule = tgui_input_list(usr,"What ruleset do you want to force upon the next latejoiner? This will bypass threat level and population restrictions.", "Rigging Latejoin", sort_list(latejoin_rules))
 		if (!added_rule)
 			return
 		forced_latejoin_rule = added_rule
@@ -209,7 +209,7 @@ GLOBAL_VAR_INIT(dynamic_forced_threat_level, -1)
 		log_admin("[key_name(usr)] cleared the forced latejoin ruleset.")
 		message_admins("[key_name(usr)] cleared the forced latejoin ruleset.")
 	else if(href_list["force_midround_rule"])
-		var/added_rule = input(usr,"What ruleset do you want to force right now? This will bypass threat level and population restrictions.", "Execute Ruleset", null) as null|anything in sort_list(midround_rules)
+		var/added_rule = tgui_input_list(usr,"What ruleset do you want to force right now? This will bypass threat level and population restrictions.", "Execute Ruleset", sort_list(midround_rules))
 		if (!added_rule)
 			return
 		log_admin("[key_name(usr)] executed the [added_rule] ruleset.")

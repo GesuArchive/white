@@ -206,7 +206,7 @@ GLOBAL_LIST_INIT(clockwork_slabs, list())
 					positions += "([i])"
 				else
 					positions += "([i]) - [QB.name]"
-			var/position = input("Куда поставим?", "Быстрый вызов", null) as null|anything in positions
+			var/position = tgui_input_list(usr, "Куда поставим?", "Быстрый вызов", positions)
 			if(!position)
 				return FALSE
 			//Create and assign the quickbind

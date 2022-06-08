@@ -87,14 +87,13 @@
 		if(extra_classes)
 			classes += extra_classes
 
-		//.["class"] = input(src, "What kind of data?", "Variable Type", default_class) as null|anything in classes
 		.["class"] = tgui_input_list(src, "What kind of data?", "Variable Type", classes)
 		if(holder && holder.marked_datum && .["class"] == markstring)
 			.["class"] = VV_MARKED_DATUM
 
 	switch(.["class"])
 		if(VV_TEXT)
-			.["value"] = input("Enter new text:", "Text", current_value) as null|text
+			.["value"] = tgui_input_text(usr, "Enter new text:", "Text", current_value)
 			if(.["value"] == null)
 				.["class"] = null
 				return
@@ -133,7 +132,7 @@
 			var/type = current_value
 			var/error = ""
 			do
-				type = input("Enter type:[error]", "Type", type) as null|text
+				type = tgui_input_text(usr, "Enter type:[error]", "Type", type)
 				if(!type)
 					break
 				type = text2path(type)
@@ -151,7 +150,7 @@
 				.["class"] = null
 				return
 			var/list/things = vv_reference_list(type, subtypes)
-			var/value = input("Select reference:", "Reference", current_value) as null|anything in things
+			var/value = tgui_input_list(usr, "Select reference:", "Reference", things, current_value)
 			if(!value)
 				.["class"] = null
 				return
@@ -164,7 +163,7 @@
 				.["class"] = null
 				return
 			var/list/things = vv_reference_list(type, subtypes)
-			var/value = input("Select reference:", "Reference", current_value) as null|anything in things
+			var/value = tgui_input_list(usr, "Select reference:", "Reference", things, current_value)
 			if(!value)
 				.["class"] = null
 				return
@@ -177,14 +176,14 @@
 				.["class"] = null
 				return
 			var/list/things = vv_reference_list(type, subtypes)
-			var/value = input("Select reference:", "Reference", current_value) as null|anything in things
+			var/value = tgui_input_list(usr, "Select reference:", "Reference", things, current_value)
 			if(!value)
 				.["class"] = null
 				return
 			.["value"] = things[value]
 
 		if(VV_CLIENT)
-			.["value"] = input("Select reference:", "Reference", current_value) as null|anything in GLOB.clients
+			.["value"] = tgui_input_list(usr, "Select reference:", "Reference", GLOB.clients, current_value)
 			if(.["value"] == null)
 				.["class"] = null
 				return
@@ -245,7 +244,7 @@
 			var/type = current_value
 			var/error = ""
 			do
-				type = input("Enter type:[error]", "Type", type) as null|text
+				type = tgui_input_text(usr, "Enter type:[error]", "Type", type)
 				if(!type)
 					break
 				type = text2path(type)
@@ -267,7 +266,7 @@
 		if(VV_TEXT_LOCATE)
 			var/datum/D
 			do
-				var/ref = input("Enter reference:", "Reference") as null|text
+				var/ref = tgui_input_text(usr, "Enter reference:", "Reference")
 				if(!ref)
 					break
 				D = locate(ref)

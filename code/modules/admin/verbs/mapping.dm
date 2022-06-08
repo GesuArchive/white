@@ -206,7 +206,7 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 /client/proc/count_objects_on_z_level()
 	set category = "Маппинг"
 	set name = "Count Objects On Level"
-	var/level = input("Which z-level?","Level?") as text|null
+	var/level = tgui_input_text(usr, "Which z-level?","Level?")
 	if(!level)
 		return
 	var/num_level = text2num(level)
@@ -215,7 +215,7 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 	if(!isnum(num_level))
 		return
 
-	var/type_text = input("Which type path?","Path?") as text|null
+	var/type_text = tgui_input_text(usr, "Which type path?", "Path?")
 	if(!type_text)
 		return
 	var/type_path = text2path(type_text)
@@ -246,7 +246,7 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 	set category = "Маппинг"
 	set name = "Count Objects All"
 
-	var/type_text = input("Which type path?","") as text|null
+	var/type_text = tgui_input_text(usr, "Which type path?","")
 	if(!type_text)
 		return
 	var/type_path = text2path(type_text)

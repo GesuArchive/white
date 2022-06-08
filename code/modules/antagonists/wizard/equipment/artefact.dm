@@ -338,7 +338,7 @@
 
 /obj/item/voodoo/attack_self(mob/user)
 	if(!target && possible.len)
-		target = input(user, "Select your victim!", "Voodoo") as null|anything in sortNames(possible)
+		target = tgui_input_list(user, "Select your victim!", "Voodoo", sortNames(possible))
 		return
 
 	if(user.zone_selected == BODY_ZONE_CHEST)

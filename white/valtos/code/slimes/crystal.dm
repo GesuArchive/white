@@ -326,7 +326,7 @@
 
 		assoc_list[name] = BSC
 
-	var/chosen_input = input(user,"What destination do you want to choose",null) as null|anything in assoc_list
+	var/chosen_input = tgui_input_list(user, "What destination do you want to choose", , assoc_list)
 	in_use = FALSE
 
 	if(!chosen_input || !assoc_list[chosen_input])

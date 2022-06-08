@@ -21,11 +21,11 @@ GLOBAL_DATUM_INIT(known_alts, /datum/known_alts, new)
 
 	switch (href_list["action"])
 		if ("add")
-			var/ckey1 = input(usr, "Введите основной CKEY") as null|text
+			var/ckey1 = tgui_input_text(usr, "Введите основной CKEY")
 			if (!ckey1)
 				return
 
-			var/ckey2 = input(usr, "Введите CKEY мультиаккаунта") as null|text
+			var/ckey2 = tgui_input_text(usr, "Введите CKEY мультиаккаунта")
 			if (!ckey2)
 				return
 

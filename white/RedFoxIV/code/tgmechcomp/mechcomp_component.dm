@@ -465,11 +465,10 @@
 			choices.Add("[i]")
 			choices["[i]"] = img
 		var/selected_config = show_radial_menu(user, parent, choices, tooltips = TRUE, require_near = TRUE, radius = 48)
-		//var/selected_config = input("Select a config to modify!", "Config", null) as null|anything in src.configs
 		if(selected_config && in_range(parent, user))
 			switch(selected_config)
 				if(SET_SEND)
-					var/inp = input(user,"Please enter Signal:","Signal setting", "[defaultSignal]") as text
+					var/inp = tgui_input_text(user,"Please enter Signal:","Signal setting", "[defaultSignal]")
 
 					if(!in_range(parent, user) || user.stat)
 						return

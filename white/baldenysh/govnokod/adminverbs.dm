@@ -12,8 +12,7 @@
 								"исключ. (целое)" = list(GLOB.exc_full, "cfg/autoeban/exc_full.fackuobema")
 								)
 
-	var/selected = input("Main Menu", "Manage autoeban") as null|anything in listoflists
-
+	var/selected = tgui_input_list("Main Menu", "Manage autoeban", listoflists)
 	if(!islist(listoflists[selected]))
 		return
 

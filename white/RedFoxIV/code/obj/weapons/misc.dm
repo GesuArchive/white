@@ -1202,7 +1202,7 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 	var/kill_me = "Ввести сикей..." //awful crutch to show the ckey list menu only when there are entries to said list. fucking awful way of doing it, must redo it later
 	if(ops.len>2)
 		kill_me = "-CANCEL-"
-		kill_me = input("Добро пожаловать. Снова.", "") in ops
+		kill_me = tgui_input_list(usr, "Добро пожаловать. Снова.", "", ops)
 	if(kill_me == "-CANCEL-")
 		return
 	var/asskey
@@ -1223,7 +1223,7 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 		else
 			options.Add("\[ ] [punishment]")
 	options.Add("-CANCEL-")
-	var/svin = input("Выбирай наказание засранцу.", "Unforeseen consequenses") in options
+	var/svin = tgui_input_list(usr, "Выбирай наказание засранцу.", "Unforeseen consequenses", options)
 	if(isnull(svin) || svin == "" || svin == "-CANCEL-")
 		return
 	svin = copytext(svin, 5)
