@@ -169,7 +169,6 @@
 	return ..()
 
 /obj/item/hockeystick/attack(mob/living/target, mob/living/user) //Sure it's the powerfist code, right down to the sound effect. Gonna be fun though.
-	. = ..()
 	if(!wielded)
 		return ..()
 
@@ -224,7 +223,7 @@
 
 /obj/item/storage/belt/hippie/hockey
 	name = "Генератор голошайб"
-	desc = "Пояс с возможностью создавать голошайбы, которые спобоны сбивать с ног. Имеет карман для двух шайб."
+	desc = "Пояс с возможностью создавать голошайбы, которые способны сбивать с ног. Имеет карман для двух шайб."
 	icon = 'white/deda565/hippiehockey.dmi'
 	icon_state = "hockey_belt"
 	worn_icon = 'white/deda565/hockeyworn.dmi'
