@@ -150,7 +150,7 @@
 		check_upgrade(target, user, proximity_flag)
 
 /obj/item/energylance/proc/check_upgrade(atom/target, mob/living/user, proximity_flag)
-	if(proximity_flag && isliving(target))
+	if(proximity_flag && isanimal(target))
 		var/mob/living/L = target
 		if(!L || (L && L.health <= 0 && L.maxHealth > 90))
 			collected_force++
