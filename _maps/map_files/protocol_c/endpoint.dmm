@@ -1157,7 +1157,7 @@
 /obj/machinery/door/poddoor/shuttledock{
 	name = "syndicate blast door";
 	turftype = /turf/open/floor/grass/snow/safe;
-	
+
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -13667,7 +13667,7 @@
 /area/tdome/tdomeobserve)
 "Wk" = (
 /obj/structure/safe/floor,
-/obj/item/uplink/nuclear,
+/obj/item/uplink/nuclear/locked,
 /turf/open/floor/resin,
 /area/ruin/powered/yohei_base)
 "Wl" = (
