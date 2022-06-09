@@ -2560,6 +2560,7 @@
 /obj/machinery/light/dim{
 	dir = 8
 	},
+/obj/item/ammo_box/magazine/fallout/smgm9mm,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/black_mesa/entrance_lobby)
 "aIp" = (
@@ -3982,6 +3983,10 @@
 	dir = 6
 	},
 /area/awaymission/black_mesa/xen/lost_camp_hallway)
+"bhY" = (
+/obj/item/gun/ballistic/automatic/fallout/smg9mm/handmade,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/black_mesa/entrance_lobby)
 "bik" = (
 /obj/structure/table,
 /obj/item/clothing/accessory/armband/deputy,
@@ -8115,6 +8120,10 @@
 /obj/item/bedsheet/patriot,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/black_mesa/hecu_zone_camp)
+"laI" = (
+/obj/item/ammo_box/magazine/fallout/smgm9mm,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/black_mesa/entrance_lobby)
 "lbg" = (
 /obj/machinery/light/cold,
 /turf/open/floor/plasteel,
@@ -9437,6 +9446,7 @@
 /area/awaymission/black_mesa/entrance_internal_hall)
 "orr" = (
 /obj/structure/rack,
+/obj/item/gun/ballistic/automatic/mp5,
 /turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/hecu_zone_external_sec)
 "osI" = (
@@ -10577,6 +10587,11 @@
 	dir = 1
 	},
 /area/awaymission/black_mesa/xen/lost_camp_hallway)
+"qWf" = (
+/obj/structure/rack,
+/obj/item/ammo_box/magazine/mp5,
+/turf/open/floor/plasteel,
+/area/awaymission/black_mesa/black_ops_armory)
 "qWY" = (
 /obj/structure/fence/door,
 /turf/open/floor/plasteel/monofloor,
@@ -11985,6 +12000,13 @@
 /obj/structure/marker_beacon/burgundy,
 /turf/open/floor/plating/xen,
 /area/awaymission/black_mesa/xen/entering_zone)
+"uhR" = (
+/obj/structure/rack,
+/obj/item/ammo_box/magazine/mp5,
+/obj/item/ammo_box/magazine/mp5,
+/obj/item/ammo_box/magazine/mp5,
+/turf/open/floor/plasteel/monofloor,
+/area/awaymission/black_mesa/hecu_zone_external_sec)
 "uhW" = (
 /obj/machinery/light/cold{
 	dir = 4
@@ -13071,7 +13093,7 @@
 /area/awaymission/black_mesa/entrance_large_office)
 "wIC" = (
 /obj/structure/rack,
-/obj/machinery/light/cold,
+/obj/item/gun/ballistic/automatic/mp5,
 /turf/open/floor/plasteel,
 /area/awaymission/black_mesa/black_ops_armory)
 "wJo" = (
@@ -65025,7 +65047,7 @@ afj
 afj
 afj
 wth
-orr
+uhR
 sJE
 sJE
 wLZ
@@ -70030,7 +70052,7 @@ aNa
 aFP
 aWm
 apD
-aIO
+bhY
 aIk
 aIO
 aIO
@@ -70544,7 +70566,7 @@ aNa
 aFP
 apD
 aIO
-aIO
+laI
 aIO
 aIO
 aIO
@@ -71690,7 +71712,7 @@ xbr
 nZI
 tJD
 nZI
-wIC
+gVv
 lbg
 fqj
 ylC
@@ -72975,7 +72997,7 @@ tJD
 evY
 tJD
 evY
-wIC
+qWf
 nZI
 fqj
 ylC
@@ -73232,7 +73254,7 @@ lNE
 nZI
 tJD
 nZI
-gVv
+qWf
 nZI
 fqj
 ylC

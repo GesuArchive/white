@@ -8829,7 +8829,7 @@
 /turf/open/floor/plasteel,
 /area/awaymission/prison)
 "XC" = (
-/obj/machinery/gravity_generator/main,
+/obj/machinery/gravity_generator/main/station,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/start)
 "XD" = (
@@ -21055,8 +21055,8 @@ gm
 gm
 eb
 gm
-XC
 gm
+XC
 av
 gm
 gm
