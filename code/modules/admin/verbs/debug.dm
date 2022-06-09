@@ -156,7 +156,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	set category = "Дбг"
 	set name = "Del-All"
 
-	var/msg = tgui_input_text(src, null, "Del-All")
+	var/msg = input(src, null, "Del-All") as text|null
 	if(msg)
 		cmd_debug_del_all(msg)
 
@@ -1046,49 +1046,3 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 				bugged_shit += "worn icon: [sprite.slot_flags] [sprite.type]: [sprite.worn_icon_state]\n"
 
 	usr << browse(bugged_shit, "window=fuckingshitfuck;size=700x700")
-
-/client/proc/change_server_theme()
-	set category = "Дбг"
-	set name = "Change Server Theme"
-	set desc = "Oh god why..."
-	if(!holder)
-		return
-
-	if(!check_rights(R_PERMISSIONS))
-		return
-
-	var/list/themes = list("onyx", "lfwb")
-
-	var/which_theme = tgui_input_list(usr, "Выберем тему", "Ммм? ОПЕРАЦИЯ НЕОБРАТИМА!", sort_list(themes))
-	if(!(which_theme in themes))
-		return
-
-	switch(which_theme)
-		if("onyx")
-			for(var/turf/open/T in world)
-				if(T.icon == DEFAULT_FLOORS_ICON)
-					T.icon = ONYX_FLOORS_ICON
-			for(var/turf/closed/T in world)
-				if(T.icon == DEFAULT_WALL_ICON)
-					T.icon = ONYX_WALL_ICON
-				else if (T.icon == DEFAULT_RWALL_ICON)
-					T.icon = ONYX_RWALL_ICON
-		if("lfwb")
-			for(var/turf/open/T in world)
-				if(T.icon == DEFAULT_FLOORS_ICON)
-					T.icon = LFWB_FLOORS_ICON
-			for(var/turf/closed/T in world)
-				if(T.icon == DEFAULT_WALL_ICON)
-					T.icon = LFWB_WALL_ICON
-				else if (T.icon == DEFAULT_RWALL_ICON)
-					T.icon = LFWB_RWALL_ICON
-				else if (T.icon == DEFAULT_PLASTITANUM_ICON)
-					T.icon = LFWB_PLASTITANUM_ICON
-				else if (T.icon == DEFAULT_RIVETED_ICON)
-					T.icon = LFWB_RIVETED_ICON
-			for(var/obj/structure/window/reinforced/fulltile/W in world)
-				if(W.icon == DEFAULT_RWINDOW_ICON)
-					W.icon = LFWB_RWINDOW_ICON
-
-	message_admins(span_adminnotice("[key_name_admin(src)] меняет тему игры на [which_theme]."))
-	log_admin("[key_name(src)] меняет тему игры на [which_theme].")
