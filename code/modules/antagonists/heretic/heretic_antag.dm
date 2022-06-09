@@ -607,6 +607,7 @@
 /// Heretic's minor sacrifice objective. "Minor sacrifices" includes anyone.
 /datum/objective/minor_sacrifice
 	name = "minor sacrifice"
+	reward = 25
 
 /datum/objective/minor_sacrifice/New(text)
 	. = ..()
@@ -628,6 +629,7 @@
 	name = "major sacrifice"
 	target_amount = 1
 	explanation_text = "Sacrifice 1 head of staff."
+	reward = 50
 
 /datum/objective/major_sacrifice/check_completion()
 	var/datum/antagonist/heretic/heretic_datum = owner?.has_antag_datum(/datum/antagonist/heretic)
@@ -640,6 +642,7 @@
 	name = "research"
 	/// The length of a main path. Calculated once in New().
 	var/static/main_path_length = 0
+	reward = 10
 
 /datum/objective/heretic_research/New(text)
 	. = ..()
@@ -678,6 +681,7 @@
 	explanation_text = "Summon 2 monsters from the Mansus into this realm."
 	/// The total number of summons the objective owner has done
 	var/num_summoned = 0
+	reward = 30
 
 /datum/objective/heretic_summon/check_completion()
 	return completed || (num_summoned >= target_amount)
