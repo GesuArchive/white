@@ -517,7 +517,7 @@ SUBSYSTEM_DEF(job)
 		to_chat(M, span_notice("\nКак <b>[ru_job_parse(rank)]</b>, я подчиняюсь [job.supervisors]. Некоторые обстоятельства могут изменить это."))
 		job.radio_help_message(M)
 		if(job.req_admin_notify)
-			to_chat(M, "\n<span class='revenbignotice'>Это важная работа. Перед уходом стоит найти себе замену.</spawn>")
+			to_chat(M, "\n<span class='revenbignotice'>Это ответственная должность. Перед уходом стоит найти себе замену.</spawn>")
 
 	var/related_policy = get_policy(rank)
 	if(related_policy)
@@ -775,8 +775,8 @@ SUBSYSTEM_DEF(job)
 		"Veteran", "Field Medic", "Mechanic", "Bomj", "Prisoner")
 
 	additional_jobs_with_icons = list("Emergency Response Team Commander", "Security Response Officer", "Engineering Response Officer", "Medical Response Officer", \
-		"Entertainment Response Officer", "Religious Response Officer", "Janitorial Response Officer", "Death Commando", "Security Officer (Engineering)", \
-		"Security Officer (Cargo)", "Security Officer (Medical)", "Security Officer (Science)","SOBR","SOBR Leader")
+		"Entertainment Response Officer", "Religious Response Officer", "Janitorial Response Officer", "Death Commando", \
+		"SOBR","SOBR Leader", "Security Officer (Cargo)", "Security Officer (Medical)", "Security Officer (Science)", "Security Officer (Engineering)")
 
 	centcom_jobs = list("Central Command","VIP Guest","Custodian","Thunderdome Overseer","CentCom Official","Medical Officer","Research Officer", \
 		"Special Ops Officer","Admiral","CentCom Commander","CentCom Bartender","Private Security Force")

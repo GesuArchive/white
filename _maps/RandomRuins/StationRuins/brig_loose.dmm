@@ -48,8 +48,8 @@
 /area/security/brig)
 "aC" = (
 /obj/structure/table,
-/obj/item/storage/toolbox/mechanical,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/storage/firstaid/medical,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "aD" = (
@@ -114,9 +114,20 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/surgicaldrill,
-/obj/item/surgical_drapes,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/reagent_containers/glass/bottle/multiver{
+	pixel_x = -7;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/glass/bottle/epinephrine{
+	pixel_x = -10
+	},
+/obj/item/reagent_containers/glass/bottle/formaldehyde{
+	pixel_x = -1
+	},
+/obj/item/reagent_containers/syringe{
+	name = "steel point"
+	},
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "aL" = (
@@ -170,6 +181,7 @@
 "aP" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/storage/box/bodybags,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "aQ" = (
@@ -1360,6 +1372,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/flasher/portable,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "dt" = (
@@ -1426,6 +1439,9 @@
 /obj/item/stack/package_wrap,
 /obj/item/pen,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/storage/toolbox/drone{
+	pixel_y = 9
+	},
 /turf/open/floor/plasteel,
 /area/security/main)
 "dE" = (
@@ -1444,35 +1460,32 @@
 /area/security/brig)
 "dG" = (
 /obj/structure/rack,
-/obj/item/storage/box/rubbershot{
-	pixel_x = -3;
-	pixel_y = 3
+/obj/item/storage/belt/shotgun/buckshot{
+	pixel_x = -7;
+	pixel_y = 2
 	},
-/obj/item/storage/box/rubbershot{
-	pixel_x = -3;
-	pixel_y = 3
+/obj/item/storage/belt/shotgun/buckshot{
+	pixel_x = -7;
+	pixel_y = -5
 	},
-/obj/item/storage/box/rubbershot,
-/obj/item/storage/box/rubbershot,
-/obj/item/storage/box/rubbershot{
-	pixel_x = 3;
-	pixel_y = -3
+/obj/item/storage/belt/shotgun/bullet{
+	pixel_x = 10;
+	pixel_y = 2
 	},
-/obj/item/storage/box/rubbershot{
-	pixel_x = 3;
-	pixel_y = -3
+/obj/item/storage/belt/shotgun/bullet{
+	pixel_x = 10;
+	pixel_y = -5
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "dH" = (
@@ -3323,6 +3336,20 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/brig)
+"kc" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/operating{
+	dir = 1
+	},
+/turf/open/floor/plasteel/white,
+/area/security/brig)
 "la" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -3356,8 +3383,25 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/security/brig)
+"nW" = (
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door_timer{
+	id = "Cell 2";
+	name = "Cell 2";
+	pixel_y = -32
+	},
+/turf/open/floor/plasteel,
+/area/security/brig)
 "pH" = (
 /obj/structure/holosign/barrier/atmos,
+/obj/machinery/door/window/brigdoor/security/cell{
+	id = "Cell 2";
+	name = "Cell 2"
+	},
 /turf/open/floor/plasteel,
 /area/security/brig)
 "xN" = (
@@ -3365,6 +3409,36 @@
 	icon_state = "damaged1"
 	},
 /area/security/brig)
+"yY" = (
+/obj/structure/rack,
+/obj/item/storage/belt/shotgun/rubbershot{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/storage/belt/shotgun/rubbershot{
+	pixel_x = -8;
+	pixel_y = -5
+	},
+/obj/item/storage/belt/shotgun/beanbag{
+	pixel_x = 9;
+	pixel_y = 2
+	},
+/obj/item/storage/belt/shotgun/beanbag{
+	pixel_x = 9;
+	pixel_y = -5
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/security/armory)
 "BQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/start/field_medic,
@@ -3387,6 +3461,17 @@
 /obj/tacmap/directional/north,
 /turf/open/floor/plasteel,
 /area/security/main)
+"Lp" = (
+/obj/effect/turf_decal/bot,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/security/field_med,
+/turf/open/floor/plasteel/showroomfloor,
+/area/security/main)
+"Nj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/optable,
+/turf/open/floor/plasteel/white,
+/area/security/brig)
 "TR" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -4604,7 +4689,7 @@ fw
 aH
 BQ
 aH
-aH
+Nj
 fw
 bw
 ca
@@ -4648,7 +4733,7 @@ fw
 aI
 aL
 aO
-aI
+kc
 fw
 bw
 cc
@@ -4783,7 +4868,7 @@ gc
 fz
 ba
 bw
-cf
+nW
 fw
 fw
 fw
@@ -4862,7 +4947,7 @@ ci
 cK
 dd
 dt
-ds
+yY
 aR
 eo
 er
@@ -5208,7 +5293,7 @@ ad
 ag
 ab
 be
-aD
+Lp
 by
 bN
 cq

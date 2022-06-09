@@ -1270,7 +1270,8 @@
 	name = "IV Drip Crate"
 	desc = "Contains a single IV drip for administering blood to patients."
 	cost = BUY_CRATE_VALUE * 2
-	contains = list(/obj/machinery/iv_drip)
+	contains = list(/obj/item/iv_drip_item,
+					/obj/item/iv_drip_item)
 	crate_name = "iv drip crate"
 
 /datum/supply_pack/medical/supplies

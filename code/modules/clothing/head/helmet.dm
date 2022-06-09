@@ -19,12 +19,40 @@
 	var/obj/item/flashlight/seclite/attached_light
 	var/datum/action/item_action/toggle_helmet_flashlight/alight
 
+/obj/item/clothing/head/helmet/AltClick(mob/user)
+	. = ..()
+	if(.)
+		return
+
+	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
+		return
+	rolldown()
+
+/obj/item/clothing/head/helmet/verb/helmet_adjust()
+	set name = "Поправить прическу"
+	set category = null
+	set src in usr
+	rolldown()
+
+/obj/item/clothing/head/helmet/proc/rolldown()
+	if(ishuman(usr))
+		if(flags_inv == HIDEHAIR)
+			to_chat(usr, span_notice("Распускаю волосы."))
+			flags_inv = null
+		else
+			to_chat(usr, span_notice("Заправляю волосы под шлем."))
+			flags_inv = initial(flags_inv)
+		var/mob/living/carbon/human/H = usr
+//		H.update_inv_w_uniform()
+		H.update_hair()
+		H.update_inv_head()
+
 /obj/item/clothing/head/helmet/Initialize()
 	. = ..()
-	AddComponent(/datum/component/armor_plate/plasteel)
+//	AddComponent(/datum/component/armor_plate/plasteel)
 	if(attached_light)
 		alight = new(src)
-
+/*
 /obj/item/clothing/head/helmet/worn_overlays(isinhands)
 	. = ..()
 	if(!isinhands)
@@ -32,6 +60,7 @@
 		if(ap?.amount)
 			var/mutable_appearance/armor_overlay = mutable_appearance('icons/mob/clothing/head.dmi', "armor_plasteel_[ap.amount]")
 			. += armor_overlay
+*/
 
 /obj/item/clothing/head/helmet/Destroy()
 	var/obj/item/flashlight/seclite/old_light = set_attached_light(null)
@@ -48,6 +77,7 @@
 			. += "<hr><span class='info'>Похоже, что [attached_light] может быть <b>откручен</b> от [src].</span>"
 	else if(can_flashlight)
 		. += "<hr>Имеет точку для монтирования <b>фонарика</b>."
+	. += "<hr><b>ПКМ или Alt + Клик</b> для изменения отображения прически."
 
 
 /obj/item/clothing/head/helmet/handle_atom_del(atom/A)

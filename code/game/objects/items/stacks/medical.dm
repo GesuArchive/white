@@ -227,10 +227,13 @@
 
 /obj/item/stack/medical/suture/emergency
 	name = "экстренный шов"
-	desc = "Набор дешевых швов, не очень хорош для исцеления урона, но хорош для остановки кровотечения."
+	desc = "Набор дешевых швов, не очень хорош для залатывания ран, однако эффективно останавливает кровотечения."
+	icon = 'white/Feline/icons/med_items.dmi'
+	icon_state = "suture_white"
 	heal_brute = 5
 	amount = 5
-	max_amount = 5
+	max_amount = 10
+	stop_bleeding = 0.75
 	merge_type = /obj/item/stack/medical/suture/emergency
 
 /obj/item/stack/medical/suture/medicated

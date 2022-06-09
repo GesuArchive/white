@@ -42,28 +42,28 @@
 	return ..() + round(contents_cost * ratio)
 
 /datum/export/large/reagent_dispenser/water
-	unit_name = "канистра с водой"
+	unit_name = "бак с водой"
 	export_types = list(/obj/structure/reagent_dispensers/watertank)
 	contents_cost = 2
 
 /datum/export/large/reagent_dispenser/fuel
-	unit_name = "канистра с топливом"
+	unit_name = "топливный бак"
 	export_types = list(/obj/structure/reagent_dispensers/fueltank)
 
 /datum/export/large/reagent_dispenser/beer
-	unit_name = "пивной бачок"
+	unit_name = "пивная кега"
 	contents_cost = CARGO_CRATE_VALUE * 3.5
 	export_types = list(/obj/structure/reagent_dispensers/beerkeg)
 
-
+/*
 /datum/export/large/pipedispenser
 	cost = CARGO_CRATE_VALUE * 2.5
 	unit_name = "Диспенсер труб"
 	export_types = list(/obj/machinery/pipedispenser)
-
+*/
 /datum/export/large/emitter
 	cost = CARGO_CRATE_VALUE * 2.75
-	unit_name = "эмиттер"
+	unit_name = "излучатель"
 	export_types = list(/obj/machinery/power/emitter)
 
 /datum/export/large/field_generator
@@ -73,12 +73,12 @@
 
 /datum/export/large/collector
 	cost = CARGO_CRATE_VALUE * 2
-	unit_name = "коллектор радиации"
+	unit_name = "радиационный коллекторный массив"
 	export_types = list(/obj/machinery/power/rad_collector)
 
 /datum/export/large/tesla_coil
 	cost = CARGO_CRATE_VALUE * 2.25
-	unit_name = "катушка тесла"
+	unit_name = "катушка Теслы"
 	export_types = list(/obj/machinery/power/tesla_coil)
 
 /datum/export/large/pa
@@ -115,7 +115,7 @@
 /datum/export/large/iv
 	cost = CARGO_CRATE_VALUE * 0.25
 	unit_name = "капельница"
-	export_types = list(/obj/machinery/iv_drip)
+	export_types = list(/obj/item/iv_drip_item, /obj/machinery/iv_drip)
 
 /datum/export/large/barrier
 	cost = CARGO_CRATE_VALUE * 0.25

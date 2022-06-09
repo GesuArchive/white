@@ -19,7 +19,7 @@
 
 /datum/mutation/human/cryokinesis
 	name = "Криокинез"
-	desc = "Псионическая способность заморозить цель на рассстоянии."
+	desc = "Псионическая способность заморозить цель на расстоянии."
 	quality = POSITIVE //upsides and downsides
 	text_gain_indication = span_notice("Мои руки холодные, как лед...")
 	instability = 20
@@ -29,7 +29,7 @@
 
 /obj/effect/proc_holder/spell/aimed/cryo
 	name = "Криокинез"
-	desc = "Псионическая способность заморозить цель на рассстоянии."
+	desc = "Псионическая способность заморозить цель на расстоянии."
 	charge_max = 150
 	cooldown_min = 150
 	clothes_req = FALSE

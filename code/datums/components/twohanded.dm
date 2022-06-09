@@ -130,22 +130,22 @@
 		return
 	if(ismonkey(user))
 		if(require_twohands)
-			to_chat(user, span_notice("[parent] is too heavy and cumbersome for you to carry!"))
+			to_chat(user, span_notice("[parent] слишком тяжелый и неудобный!"))
 			user.dropItemToGround(parent, force=TRUE)
 		else
-			to_chat(user, span_notice("It's too heavy for you to wield fully."))
+			to_chat(user, span_notice("Эта штука слишком тяжелая!"))
 		return
 	if(user.get_inactive_held_item())
 		if(require_twohands)
-			to_chat(user, span_notice("[parent] is too cumbersome to carry in one hand!"))
+			to_chat(user, span_notice("[parent] невозможно удержать одной рукой!"))
 			user.dropItemToGround(parent, force=TRUE)
 		else
-			to_chat(user, span_warning("You need your other hand to be empty!"))
+			to_chat(user, span_warning("Мне нужны свободные руки!"))
 		return
 	if(user.usable_hands < 2)
 		if(require_twohands)
 			user.dropItemToGround(parent, force=TRUE)
-		to_chat(user, span_warning("You don't have enough intact hands."))
+		to_chat(user, span_warning("Одной рукой это не удержать!"))
 		return
 
 	// wield update status
@@ -163,13 +163,13 @@
 		parent_item.force = force_wielded
 	if(sharpened_increase)
 		parent_item.force += sharpened_increase
-	parent_item.name = "[parent_item.name] (Wielded)"
+	parent_item.name = "[parent_item.name] (Двуручный хват)"
 	parent_item.update_icon()
 
 	if(iscyborg(user))
-		to_chat(user, span_notice("You dedicate your module to [parent]."))
+		to_chat(user, span_notice("Подключаю дополнительный манипулятор для удержания [parent]."))
 	else
-		to_chat(user, span_notice("You grab [parent] with both hands."))
+		to_chat(user, span_notice("Перехватываю [parent] обоими руками."))
 
 	// Play sound if one is set
 	if(wieldsound)
@@ -177,8 +177,8 @@
 
 	// Let's reserve the other hand
 	offhand_item = new(user)
-	offhand_item.name = "[parent_item.name] - offhand"
-	offhand_item.desc = "Your second grip on [parent_item]."
+	offhand_item.name = "[parent_item.name] - вторая рука"
+	offhand_item.desc = "Моя вторая рука которой я держу [parent_item]."
 	offhand_item.wielded = TRUE
 	RegisterSignal(offhand_item, COMSIG_ITEM_DROPPED, .proc/on_drop)
 	user.put_in_inactive_hand(offhand_item)
@@ -211,7 +211,7 @@
 		parent_item.force = force_unwielded
 
 	// update the items name to remove the wielded status
-	var/sf = findtext(parent_item.name, " (Wielded)", -10) // 10 == length(" (Wielded)")
+	var/sf = findtext(parent_item.name, " (Двуручный хват)", -17) // 10 == length(" (Wielded)")
 	if(sf)
 		parent_item.name = copytext(parent_item.name, 1, sf)
 	else
@@ -233,11 +233,11 @@
 		// Show message if requested
 		if(show_message)
 			if(iscyborg(user))
-				to_chat(user, span_notice("You free up your module."))
+				to_chat(user, span_notice("Освобождаю вспомогательный манипулятор."))
 			else if(require_twohands)
-				to_chat(user, span_notice("You drop [parent]."))
+				to_chat(user, span_notice("Роняю [parent]."))
 			else
-				to_chat(user, span_notice("You are now carrying [parent] with one hand."))
+				to_chat(user, span_notice("Беру [parent] в одну руку."))
 
 	// Play sound if set
 	if(unwieldsound)

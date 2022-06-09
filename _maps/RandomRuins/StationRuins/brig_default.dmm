@@ -516,11 +516,34 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/security/armory)
 "cH" = (
-/obj/item/storage/toolbox/drone,
-/obj/effect/turf_decal/stripes/line{
+/obj/structure/rack,
+/obj/item/storage/belt/shotgun/rubbershot{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/storage/belt/shotgun/rubbershot{
+	pixel_x = -8;
+	pixel_y = -5
+	},
+/obj/item/storage/belt/shotgun/beanbag{
+	pixel_x = 9;
+	pixel_y = 2
+	},
+/obj/item/storage/belt/shotgun/beanbag{
+	pixel_x = 9;
+	pixel_y = -5
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/turf/open/floor/plasteel/monofloor,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "cI" = (
 /obj/structure/rack,
@@ -663,6 +686,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/machinery/flasher/portable,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "di" = (
@@ -770,33 +794,31 @@
 /area/security/main)
 "dE" = (
 /obj/structure/rack,
-/obj/item/storage/box/rubbershot{
-	pixel_x = -3;
-	pixel_y = 3
+/obj/item/storage/belt/shotgun/buckshot{
+	pixel_x = -7;
+	pixel_y = 2
 	},
-/obj/item/storage/box/rubbershot{
-	pixel_x = -3;
-	pixel_y = 3
+/obj/item/storage/belt/shotgun/buckshot{
+	pixel_x = -7;
+	pixel_y = -5
 	},
-/obj/item/storage/box/rubbershot,
-/obj/item/storage/box/rubbershot,
-/obj/item/storage/box/rubbershot{
-	pixel_x = 3;
-	pixel_y = -3
+/obj/item/storage/belt/shotgun/bullet{
+	pixel_x = 10;
+	pixel_y = 2
 	},
-/obj/item/storage/box/rubbershot{
-	pixel_x = 3;
-	pixel_y = -3
+/obj/item/storage/belt/shotgun/bullet{
+	pixel_x = 10;
+	pixel_y = -5
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
@@ -1078,6 +1100,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/table,
+/obj/item/storage/toolbox/drone,
 /turf/open/floor/plasteel/monofloor,
 /area/security/main)
 "et" = (
@@ -1172,11 +1195,11 @@
 /obj/structure/table,
 /obj/item/clothing/glasses/sunglasses{
 	pixel_x = 3;
-	pixel_y = 3
+	pixel_y = -1
 	},
 /obj/item/clothing/glasses/sunglasses{
 	pixel_x = 3;
-	pixel_y = 3
+	pixel_y = -1
 	},
 /obj/item/clothing/ears/earmuffs{
 	pixel_x = -3;
@@ -1185,6 +1208,9 @@
 /obj/item/clothing/ears/earmuffs{
 	pixel_x = -3;
 	pixel_y = -2
+	},
+/obj/item/storage/toolbox/drone{
+	pixel_y = 10
 	},
 /turf/open/floor/plasteel/showroomfloor,
 /area/security/warden)
@@ -1351,11 +1377,6 @@
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "fa" = (
-/obj/item/storage/firstaid/regular{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/firstaid/regular,
 /obj/structure/table/glass,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -1363,27 +1384,31 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/regular,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "fb" = (
 /obj/item/radio/intercom{
 	pixel_y = 24
 	},
-/obj/structure/table/glass,
-/obj/machinery/computer/med_data/laptop,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
+/obj/structure/table/glass,
+/obj/machinery/computer/med_data/laptop,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "fc" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/iv_drip,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
@@ -1394,6 +1419,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
+/obj/machinery/iv_drip,
 /obj/item/reagent_containers/blood/o_minus,
 /obj/item/reagent_containers/blood/o_minus,
 /turf/open/floor/plasteel/white,
@@ -1464,12 +1490,17 @@
 /area/security/warden)
 "fm" = (
 /obj/structure/table,
-/obj/item/storage/fancy/donut_box,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/red{
 	dir = 8
+	},
+/obj/item/storage/fancy/donut_box{
+	pixel_y = 4
+	},
+/obj/item/storage/fancy/donut_box{
+	pixel_y = -4
 	},
 /turf/open/floor/plasteel,
 /area/security/main)
@@ -1587,11 +1618,6 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -27
 	},
-/obj/item/reagent_containers/syringe{
-	name = "steel point"
-	},
-/obj/item/reagent_containers/glass/bottle/multiver,
-/obj/item/reagent_containers/glass/bottle/epinephrine,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -1602,6 +1628,19 @@
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
+	},
+/obj/item/reagent_containers/glass/bottle/multiver{
+	pixel_x = -7;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/glass/bottle/epinephrine{
+	pixel_x = -10
+	},
+/obj/item/reagent_containers/glass/bottle/formaldehyde{
+	pixel_x = -1
+	},
+/obj/item/reagent_containers/syringe{
+	name = "steel point"
 	},
 /turf/open/floor/plasteel/white,
 /area/security/brig)
@@ -3474,13 +3513,13 @@
 /turf/open/floor/plasteel,
 /area/security/brig)
 "Hn" = (
-/obj/structure/table,
-/obj/item/stack/package_wrap,
-/obj/item/pen,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/open/floor/plating,
+/obj/structure/closet/secure_closet/security/sec,
+/turf/open/floor/plasteel/showroomfloor,
+/area/security/main)
+"HC" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/closet/secure_closet/security/field_med,
+/turf/open/floor/plasteel/showroomfloor,
 /area/security/main)
 "Lf" = (
 /obj/structure/disposalpipe/segment,
@@ -5035,9 +5074,9 @@ aS
 aR
 bV
 ct
-cH
+dG
 di
-dh
+cH
 aR
 eE
 eH
@@ -5383,7 +5422,7 @@ ag
 aZ
 aS
 bb
-bp
+HC
 bC
 cc
 cw
@@ -5563,7 +5602,7 @@ br
 bp
 bp
 bp
-ba
+Hn
 bb
 bb
 bb
@@ -5608,7 +5647,7 @@ du
 dv
 dv
 dv
-Hn
+ba
 dN
 ep
 eP

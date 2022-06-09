@@ -80,7 +80,7 @@
 					"beaker", "large_beaker", "xlarge_beaker", "syringe", "health_sensor", "portable_chem_mixer", "stethoscope", "surgical_drapes", "plumbing_rcd",
 					"dropper", "defibmountdefault", "surgical_tape", "glasses_prescription",
 					"robot_low_arm_left", "robot_low_arm_right", "robot_low_leg_left", "robot_low_leg_right", "teeth_box_32",
-					"body_bag", "fluid_ducts", "optable_folding", "pillbottle", "pill_bottle_big", "rollerbed", "slime_scanner")
+					"body_bag", "fluid_ducts", "optable_folding", "pillbottle", "pill_bottle_big", "rollerbed", "iv_drip_tele", "slime_scanner")
 
 /datum/techweb_node/mmi
 	id = "mmi"
@@ -758,7 +758,7 @@
 	id = "sec_basic"
 	display_name = "Базовое оборудование службы безопасности"
 	description = "Стандартная экипировка для СБ."
-	design_ids = list("seclite", "pepperspray", "bola_energy", "zipties", "evidencebag", "internals_tactical", "handbeltsmodif")
+	design_ids = list("seclite", "pepperspray", "bola_energy", "zipties", "evidencebag", "internals_tactical", "handbeltsmodif", "patron_belt")
 	prereq_ids = list("base")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000)
 

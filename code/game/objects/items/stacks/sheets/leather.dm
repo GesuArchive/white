@@ -178,7 +178,7 @@ GLOBAL_LIST_INIT(leather_recipes, list ( \
 	new/datum/stack_recipe("ботанические перчатки", /obj/item/clothing/gloves/botanic_leather, 3), \
 	new/datum/stack_recipe("пояс с инструментами", /obj/item/storage/belt/utility, 4), \
 	new/datum/stack_recipe("кожаная сумка", /obj/item/storage/backpack/satchel/leather, 5), \
-	new/datum/stack_recipe("патронташ", /obj/item/storage/belt/bandolier, 5), \
+	new/datum/stack_recipe("бандольер", /obj/item/storage/belt/bandolier, 5), \
 	new/datum/stack_recipe("кожаный пиджак", /obj/item/clothing/suit/jacket/leather, 7), \
 	new/datum/stack_recipe("кожаные ботинки", /obj/item/clothing/shoes/laceup, 2), \
 	new/datum/stack_recipe("кожаное пальто", /obj/item/clothing/suit/jacket/leather/overcoat, 10), \

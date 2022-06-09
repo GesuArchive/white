@@ -866,7 +866,9 @@
 	desc = "A special apparatus for carrying beakers without spilling the contents. Alt-Z or right-click to drop the beaker."
 	icon_state = "borg_beaker_apparatus"
 	storable = list(/obj/item/reagent_containers/glass/beaker,
-				/obj/item/reagent_containers/glass/bottle)
+				/obj/item/reagent_containers/glass/bottle,
+				/obj/item/reagent_containers/blood,
+				/obj/item/reagent_containers/chem_pack)
 
 /obj/item/borg/apparatus/beaker/Initialize()
 	. = ..()

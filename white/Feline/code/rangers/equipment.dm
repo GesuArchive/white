@@ -83,6 +83,7 @@
 				user.visible_message(span_notice("[user] достаёт [I] из [src]."), span_notice("Достаю [I] из [src]."))
 				user.put_in_hands(I)
 				update_appearance()
+				user.update_inv_s_store()
 			else
 				to_chat(user, span_warning("Крепления расстегнуты, [capitalize(src.name)] пуст."))
 				..()

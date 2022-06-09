@@ -56,6 +56,7 @@
 	new /obj/item/bonesetter/advanced(src)
 	new /obj/item/reagent_containers/medigel/sal_acid_oxandrolone(src)
 	new /obj/item/reagent_containers/medigel/pen_acid(src)
+	new /obj/item/sensor_device(src)
 
 /datum/outfit/job/cmo
 	name = "Chief Medical Officer"

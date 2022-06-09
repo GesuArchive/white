@@ -4,7 +4,7 @@
 /obj/machinery/iv_drip
 	name = "капельница"
 	desc = "Капельница для внутривенного вливания с усовершенствованным инфузионным насосом, который позволяет как сливать кровь, так и вводить жидкости из прикрепленных контейнеров. Пакеты с кровью вводятся в ускоренном темпе. ПКМ для изменения скорости потока."
-	icon = 'icons/obj/iv_drip.dmi'
+	icon = 'white/Feline/icons/iv_drip_tele.dmi'
 	icon_state = "iv_drip"
 	base_icon_state = "iv_drip"
 	anchored = FALSE
@@ -78,7 +78,7 @@
 
 /obj/machinery/iv_drip/MouseDrop(mob/living/target)
 	. = ..()
-	if(!ishuman(usr) || !usr.canUseTopic(src, BE_CLOSE) || !isliving(target))
+	if(!usr.canUseTopic(src, BE_CLOSE) || !isliving(target))
 		return
 
 	if(attached)
@@ -95,8 +95,12 @@
 		if(get_reagent_holder())
 			attach_iv(target, usr)
 		else
-			to_chat(usr, span_warning("К капельнице ничего не присоединено!"))
-
+			if(target == usr && Adjacent(usr))
+//			to_chat(usr, span_warning("К капельнице ничего не присоединено!"))
+				usr.visible_message(span_notice("[usr] складывает [src.name].") , span_notice("Складываю [src.name]."))
+				var/obj/machinery/iv_drip/B = new /obj/item/iv_drip_item(get_turf(src))
+				usr.put_in_hands(B)
+				qdel(src)
 
 /obj/machinery/iv_drip/attackby(obj/item/W, mob/user, params)
 	if(use_internal_storage)
@@ -168,7 +172,7 @@
 	. = ..()
 	if(.)
 		return
-	if(!ishuman(user))
+	if(!ishuman(user) && !iscyborg(user))
 		return
 	if(attached)
 		visible_message(span_notice("[attached] отделяется от [src]."))
@@ -178,6 +182,10 @@
 		eject_beaker(user)
 	else
 		toggle_mode()
+
+/obj/machinery/iv_drip/attack_robot(mob/user, list/modifiers)
+	. = ..()
+	attack_hand(user, modifiers)
 
 /obj/machinery/iv_drip/attack_hand_secondary(mob/user, modifiers)
 	. = ..()
@@ -191,6 +199,10 @@
 		dripfeed = TRUE
 		to_chat(usr, span_notice("Затягиваю клапан, чтобы медленно, покапельно подавать содержимое [src]."))
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+
+/obj/machinery/iv_drip/attack_robot_secondary(mob/user, modifiers)
+	. = ..()
+	attack_hand_secondary(user, modifiers)
 
 ///called when an IV is attached
 /obj/machinery/iv_drip/proc/attach_iv(mob/living/target, mob/user)

@@ -24,7 +24,7 @@
 /obj/item/ammo_casing/shotgun/beanbag
 	name = "12 Калибр: Резиновая пуля"
 	desc = "Мелкие резинки для контроля над беспорядками."
-	icon_state = "bshell"
+	icon_state = "brshell"
 	custom_materials = list(/datum/material/iron=250)
 	projectile_type = /obj/projectile/bullet/shotgun_beanbag
 

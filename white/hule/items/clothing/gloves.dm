@@ -1,6 +1,6 @@
 /obj/item/clothing/gloves/combat/maggloves
-	name = "mag-pulse gloves"
-	desc = "These tactical gloves are fireproof and shock resistant."
+	name = "магнитные перчатки"
+	desc = "Модернизированные боевые перчатки электроизолированные и с защитой от высоких температур. Оснащены специальными магнитными захватами предотвращающими выхватывание предметов из ваших рук или же их случайное выпадение при опрокидывании."
 	icon_state = "black"
 	inhand_icon_state = "blackgloves"
 	var/active = 0
@@ -16,7 +16,7 @@
 
 		var/list/L = usr.get_empty_held_indexes()
 		if(LAZYLEN(L) == usr.held_items.len)
-			to_chat(usr, span_notice("You are not holding any items, your hands relax..."))
+			to_chat(usr, span_notice("Мои руки пусты и расслаблены..."))
 			active = 0
 			stored_items = list()
 		else
@@ -26,7 +26,7 @@
 
 	else
 		release_items()
-		to_chat(usr, span_notice("Your hands relax..."))
+		to_chat(usr, span_notice("Деактивирую магниты..."))
 
 /obj/item/clothing/gloves/combat/maggloves/proc/release_items()
 	for(var/obj/item/I in stored_items)
@@ -39,10 +39,10 @@
 	..()
 
 /datum/crafting_recipe/maggloves
-	name = "Mag-pulse Gloves"
+	name = "Магнитные перчатки"
 	result = /obj/item/clothing/gloves/combat/maggloves
 	time = 300
-	reqs = list(/obj/item/clothing/gloves/combat = 1, /obj/item/stock_parts/cell/high/empty = 2,
+	reqs = list(/obj/item/clothing/gloves/combat = 1, /obj/item/stock_parts/cell/high = 2,
 				/obj/item/stack/rods = 5, /obj/item/stack/cable_coil = 30)
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH)
 	category = CAT_CLOTHING

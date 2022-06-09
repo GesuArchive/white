@@ -294,9 +294,6 @@
 /obj/machinery/firealarm{
 	pixel_y = 25
 	},
-/obj/item/storage/toolbox/ammo/wt550{
-	pixel_y = 11
-	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "cj" = (
@@ -311,7 +308,6 @@
 	name = "Armory Rack";
 	req_access_txt = "3"
 	},
-/obj/item/gun/ballistic/automatic/M41A,
 /obj/effect/turf_decal/tile/hex/neutral,
 /obj/effect/turf_decal/tile/hex/neutral{
 	dir = 1
@@ -322,7 +318,13 @@
 /obj/effect/turf_decal/tile/hex/neutral{
 	dir = 8
 	},
-/obj/item/ammo_box/magazine/m41a,
+/obj/item/shield/riot/military,
+/obj/item/shield/riot/military,
+/obj/item/stack/sheet/armor_plate/ablative,
+/obj/item/stack/sheet/armor_plate/ceramic/three,
+/obj/item/stack/sheet/armor_plate/plasteel/three,
+/obj/item/full_armor_upgrade,
+/obj/item/full_armor_upgrade,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "ck" = (
@@ -711,13 +713,16 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/shield/riot/military,
-/obj/item/shield/riot/military,
-/obj/item/stack/sheet/armor_plate/ablative,
-/obj/item/stack/sheet/armor_plate/ceramic/three,
-/obj/item/stack/sheet/armor_plate/plasteel/three,
-/obj/item/full_armor_upgrade,
-/obj/item/full_armor_upgrade,
+/obj/item/storage/toolbox/ammo/wt550{
+	pixel_y = 2
+	},
+/obj/item/storage/toolbox/ammo/wt550{
+	pixel_y = -4
+	},
+/obj/item/gun/ballistic/automatic/wt550{
+	pixel_y = 4
+	},
+/obj/item/gun/ballistic/automatic/wt550,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "de" = (
@@ -765,10 +770,8 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/ammo_box/magazine/fallout/r20,
-/obj/item/ammo_box/magazine/fallout/r20,
-/obj/item/ammo_box/magazine/fallout/r20,
-/obj/item/gun/ballistic/automatic/fallout/assaultrifle/infiltrator,
+/obj/item/storage/belt/holster/thermal,
+/obj/item/storage/belt/holster/thermal,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "dh" = (
@@ -864,6 +867,7 @@
 /obj/effect/turf_decal/tile/hex/neutral{
 	dir = 8
 	},
+/obj/machinery/flasher/portable,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "dJ" = (
@@ -950,6 +954,9 @@
 /obj/structure/table,
 /obj/item/stack/package_wrap,
 /obj/item/pen,
+/obj/item/storage/toolbox/drone{
+	pixel_y = 9
+	},
 /turf/open/floor/engine,
 /area/security/main)
 "dU" = (
@@ -1001,7 +1008,6 @@
 /turf/open/floor/engine,
 /area/security/brig)
 "el" = (
-/obj/vehicle/sealed/mecha/working/ripley/buran,
 /obj/effect/turf_decal/tile/hex/neutral,
 /obj/effect/turf_decal/tile/hex/neutral{
 	dir = 1
@@ -1011,6 +1017,23 @@
 	},
 /obj/effect/turf_decal/tile/hex/neutral{
 	dir = 8
+	},
+/obj/structure/rack,
+/obj/item/storage/belt/shotgun/rubbershot{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/storage/belt/shotgun/rubbershot{
+	pixel_x = -8;
+	pixel_y = -5
+	},
+/obj/item/storage/belt/shotgun/beanbag{
+	pixel_x = 9;
+	pixel_y = 2
+	},
+/obj/item/storage/belt/shotgun/beanbag{
+	pixel_x = 9;
+	pixel_y = -5
 	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
@@ -1026,14 +1049,21 @@
 /obj/effect/turf_decal/tile/hex/neutral{
 	dir = 8
 	},
-/obj/item/storage/box/rubbershot{
-	pixel_x = -3;
-	pixel_y = 3
+/obj/item/storage/belt/shotgun/buckshot{
+	pixel_x = -7;
+	pixel_y = 2
 	},
-/obj/item/storage/box/rubbershot,
-/obj/item/storage/box/rubbershot{
-	pixel_x = 3;
-	pixel_y = -3
+/obj/item/storage/belt/shotgun/buckshot{
+	pixel_x = -7;
+	pixel_y = -5
+	},
+/obj/item/storage/belt/shotgun/bullet{
+	pixel_x = 10;
+	pixel_y = 2
+	},
+/obj/item/storage/belt/shotgun/bullet{
+	pixel_x = 10;
+	pixel_y = -5
 	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
@@ -1646,14 +1676,6 @@
 /turf/open/floor/engine,
 /area/security/brig)
 "fX" = (
-/obj/item/storage/firstaid/regular{
-	pixel_x = -19;
-	pixel_y = 13
-	},
-/obj/item/storage/firstaid/regular{
-	pixel_x = -16;
-	pixel_y = 7
-	},
 /obj/structure/table/glass,
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 1
@@ -1661,9 +1683,16 @@
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 4
 	},
-/obj/machinery/computer/med_data/laptop{
-	pixel_x = 3;
-	pixel_y = 4
+/obj/item/storage/backpack/duffelbag/med/surgery{
+	pixel_y = 11;
+	pixel_x = -13
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = 10;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = 7
 	},
 /turf/open/floor/engine,
 /area/security/brig)
@@ -1677,13 +1706,8 @@
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 4
 	},
-/obj/machinery/iv_drip,
-/obj/item/reagent_containers/blood/o_minus,
-/obj/item/reagent_containers/blood/o_minus,
-/obj/item/reagent_containers/blood/universal,
-/obj/item/reagent_containers/blood/universal,
-/obj/item/reagent_containers/blood/ethereal,
-/obj/item/reagent_containers/blood/lizard,
+/obj/structure/table/glass,
+/obj/machinery/computer/med_data/laptop,
 /turf/open/floor/engine,
 /area/security/brig)
 "fZ" = (
@@ -1700,6 +1724,13 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
+/obj/machinery/iv_drip,
+/obj/item/reagent_containers/blood/lizard,
+/obj/item/reagent_containers/blood/ethereal,
+/obj/item/reagent_containers/blood/universal,
+/obj/item/reagent_containers/blood/universal,
+/obj/item/reagent_containers/blood/o_minus,
+/obj/item/reagent_containers/blood/o_minus,
 /turf/open/floor/engine,
 /area/security/brig)
 "ga" = (
@@ -1722,12 +1753,17 @@
 /area/security/warden)
 "gd" = (
 /obj/structure/table,
-/obj/item/storage/fancy/donut_box,
+/obj/item/storage/fancy/donut_box{
+	pixel_y = -4
+	},
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 8
+	},
+/obj/item/storage/fancy/donut_box{
+	pixel_y = 4
 	},
 /turf/open/floor/engine,
 /area/security/main)
@@ -2451,6 +2487,9 @@
 /obj/machinery/stasis{
 	handbeltsmod = 1
 	},
+/obj/machinery/defibrillator_mount{
+	pixel_y = -28
+	},
 /turf/open/floor/engine,
 /area/security/brig)
 "hz" = (
@@ -3085,10 +3124,6 @@
 /area/security/brig)
 "iK" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "briggate";
-	name = "security shutters"
-	},
 /obj/machinery/door/window/eastleft{
 	name = "Brig Desk";
 	req_access_txt = "1"
@@ -3098,6 +3133,9 @@
 	pixel_y = 7
 	},
 /obj/item/pen,
+/obj/machinery/door/poddoor/shutters/window/preopen{
+	id = "briggate"
+	},
 /turf/open/floor/engine,
 /area/security/brig)
 "iL" = (
@@ -3271,16 +3309,15 @@
 /area/security/brig)
 "jc" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "briggate";
-	name = "security shutters"
-	},
 /obj/machinery/door/window/eastright{
 	name = "Brig Desk";
 	req_access_txt = "2"
 	},
 /obj/item/restraints/handcuffs,
 /obj/item/radio/off,
+/obj/machinery/door/poddoor/shutters/window/preopen{
+	id = "briggate"
+	},
 /turf/open/floor/engine,
 /area/security/brig)
 "jd" = (
@@ -3365,27 +3402,25 @@
 /area/security/brig)
 "jk" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "briggate";
-	name = "security shutters"
-	},
 /obj/machinery/door/window/southleft{
 	name = "Brig Desk";
 	req_access_txt = "1"
+	},
+/obj/machinery/door/poddoor/shutters/window/preopen{
+	id = "briggate"
 	},
 /turf/open/floor/engine,
 /area/security/brig)
 "jl" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "briggate";
-	name = "security shutters"
-	},
 /obj/machinery/door/window/southleft{
 	base_state = "right";
 	icon_state = "right";
 	name = "Brig Desk";
 	req_access_txt = "1"
+	},
+/obj/machinery/door/poddoor/shutters/window/preopen{
+	id = "briggate"
 	},
 /turf/open/floor/engine,
 /area/security/brig)
@@ -3513,6 +3548,11 @@
 	},
 /turf/open/floor/engine,
 /area/security/brig)
+"Rq" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/closet/secure_closet/security/field_med,
+/turf/open/floor/engine,
+/area/security/main)
 "TC" = (
 /obj/machinery/suit_storage_unit/security,
 /obj/effect/turf_decal/tile/hex/red,
@@ -5305,7 +5345,7 @@ ag
 kL
 ab
 be
-bw
+Rq
 bM
 cp
 cN

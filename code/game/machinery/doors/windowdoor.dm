@@ -372,6 +372,7 @@
 	base_state = "leftsecure"
 	var/id = null
 	max_integrity = 300 //Stronger doors for prison (regular window door health is 200)
+	damage_deflection = 16
 	reinf = 1
 	explosion_block = 1
 

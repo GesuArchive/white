@@ -30,7 +30,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 6000, /datum/material/glass = 6000)
-	category = list("Кибернетика", "Медицинские разработки")
+	category = list("Кибернетика")
 	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -44,7 +44,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 60
 	materials = list(/datum/material/iron = 8000, /datum/material/glass = 1000)
-	category = list("Кибернетика", "Медицинские разработки")
+	category = list("Кибернетика")
 	sub_category = list("Протезирование")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -56,7 +56,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 60
 	materials = list(/datum/material/iron = 8000, /datum/material/glass = 1000)
-	category = list("Кибернетика", "Медицинские разработки")
+	category = list("Кибернетика")
 	sub_category = list("Протезирование")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -68,7 +68,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 60
 	materials = list(/datum/material/iron = 8000, /datum/material/glass = 1000)
-	category = list("Кибернетика", "Медицинские разработки")
+	category = list("Кибернетика")
 	sub_category = list("Протезирование")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -80,7 +80,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 60
 	materials = list(/datum/material/iron = 8000, /datum/material/glass = 1000)
-	category = list("Кибернетика", "Медицинские разработки")
+	category = list("Кибернетика")
 	sub_category = list("Протезирование")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -94,7 +94,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 100
 	materials = list(/datum/material/iron=10000)
-	category = list("Кибернетика", "Медицинские разработки")
+	category = list("Кибернетика")
 	sub_category = list("Протезирование")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -106,7 +106,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 100
 	materials = list(/datum/material/iron=10000)
-	category = list("Кибернетика", "Медицинские разработки")
+	category = list("Кибернетика")
 	sub_category = list("Протезирование")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -118,7 +118,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 100
 	materials = list(/datum/material/iron=10000)
-	category = list("Кибернетика", "Медицинские разработки")
+	category = list("Кибернетика")
 	sub_category = list("Протезирование")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -130,7 +130,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 100
 	materials = list(/datum/material/iron=10000)
-	category = list("Кибернетика", "Медицинские разработки")
+	category = list("Кибернетика")
 	sub_category = list("Протезирование")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -142,7 +142,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/plastic = 2000)
-	category = list("Медицинское снаряжение", "Медицинские разработки")
+	category = list("Медицинское снаряжение")
 	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -154,7 +154,19 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 4000)
-	category = list("Медицинское снаряжение", "Медицинские разработки")
+	category = list("Медицинское снаряжение")
+	sub_category = list("Прочее")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
+/datum/design/iv_drip_tele
+	name = "Капельница"
+	desc = "Складная капельница для переливания крови и лекарств. Весьма удобно лежит в двух руках."
+	id = "iv_drip_tele"
+	build_path = /obj/item/iv_drip_item
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/iron = 5000, /datum/material/glass = 2000, /datum/material/plastic = 2000)
+	category = list("Медицинское снаряжение")
 	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -166,7 +178,7 @@
 	construction_time = 30
 	materials = list(/datum/material/plastic = 40, /datum/material/glass = 200)
 	build_path = /obj/item/storage/pill_bottle/big
-	category = list("initial", "Медицина", "Медицинские разработки", "Фармацевтика")
+	category = list("initial", "Медицина", "Фармацевтика")
 	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -214,7 +226,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 60
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/silver = 400)
-	category = list("Импланты", "Медицинские разработки")
+	category = list("Импланты")
 	sub_category = list("Кибер Импланты")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 

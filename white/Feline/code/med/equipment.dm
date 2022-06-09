@@ -142,6 +142,14 @@
 	new /obj/item/reagent_containers/hypospray/medipen/oxandrolone(src)
 	new /obj/item/reagent_containers/hypospray/medipen/penacid(src)
 
+/obj/item/storage/belt/medipenal/paramed	//	Парамед
+
+/obj/item/storage/belt/medipenal/paramed/PopulateContents()
+	new /obj/item/reagent_containers/hypospray/medipen(src)
+	new /obj/item/reagent_containers/hypospray/medipen(src)
+	new /obj/item/reagent_containers/hypospray/medipen(src)
+	new /obj/item/reagent_containers/hypospray/medipen(src)
+	new /obj/item/reagent_containers/hypospray/medipen(src)
 
 // Изя взял у Мойши ПАМК на позвонить
 
@@ -176,6 +184,25 @@
 /obj/item/solnce/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'><b>Уровень заряда:</b></span> [charge].</span>"
+/*	if(model_type == TYPE_SUN)
+		. += "<hr><span class='notice'><b>Выберите модель устройства</b>.</span></span>"
+	if(blank == BLANK_STEP_1)
+		var/obj/item/helper1 = blank_item_1
+		. += "<hr><span class='notice'>Закрепите внутри <b>[helper1.name]</b>.</span></span>"
+	if(blank == BLANK_STEP_2)
+		var/obj/item/helper2 = blank_item_2
+		. += "<hr><span class='notice'>Закрепите внутри <b>[helper2.name]</b>.</span></span>"
+	if(blank == BLANK_STEP_3)
+		var/datum/reagent/helper3 = blank_chem_1
+		. += "<hr><span class='notice'>Добавте химикат №1 <b>[helper3.name]</b> - 10 единиц.</span></span>"
+	if(blank == BLANK_STEP_4)
+		var/datum/reagent/helper4 = blank_chem_2
+		. += "<hr><span class='notice'>Добавте химикат №2 <b>[helper4.name]</b> - 10 единиц.</span></span>"
+	if(blank == BLANK_STEP_6)
+		. += "<hr><span class='notice'><b>Уровень заряда:</b></span> [charge].</span>"
+		if(charge == 0)
+			. += "<hr><span class='notice'><b>Необходима перезарядка!</b> Сбросьте устройство к заводским настройкам при помощи отвертки, после чего переснарядите все инструменты и химикаты</span>.</span>"
+*/
 
 /obj/item/solnce/Initialize()
 	. = ..()
@@ -348,6 +375,8 @@
 
 	if(blank == BLANK_STEP_1)
 		if(istype(I, blank_item_1))
+//			var/obj/item/helper1 = blank_item_2
+//			to_chat(user, span_notice("Закрепляю [I] в первом слоте. Для следующего шага мне понадобится <b>[helper1.name]</b>."))
 			to_chat(user, span_notice("Закрепляю [I] в первом слоте."))
 			playsound(user, 'sound/machines/click.ogg', 100, TRUE)
 			qdel(I)
@@ -355,6 +384,8 @@
 
 	if(blank == BLANK_STEP_2)
 		if(istype(I, blank_item_2))
+//			var/datum/reagent/helper2 = blank_chem_1
+//			to_chat(user, span_notice("Закрепляю [I] во втором слоте. Для следующего шага мне понадобится <b>[helper2.name]</b> в объеме 10 единиц."))
 			to_chat(user, span_notice("Закрепляю [I] во втором слоте."))
 			playsound(user, 'sound/machines/click.ogg', 100, TRUE)
 			qdel(I)
@@ -365,6 +396,8 @@
 			if(!I.reagents.has_reagent(blank_chem_1, 10))
 				to_chat(user, span_warning("В [I.name] недостаточно реагентов, необходимо по крайней мере 10 единиц!"))
 				return
+//			var/datum/reagent/helper3 = blank_chem_2
+//			to_chat(user, span_notice("Заливаю первый химический реагент. Для следующего шага мне понадобится <b>[helper3.name]</b> в объеме 10 единиц."))
 			to_chat(user, span_notice("Заливаю первый химический реагент."))
 			playsound(user, 'sound/machines/click.ogg', 100, TRUE)
 			I.reagents.remove_reagent(blank_chem_1, 10)
@@ -480,4 +513,169 @@
 	desc = "Коробка стерильно-белого цвета. Изначально использовалась как контейнер для радиоактивных веществ, однако наши ученые выяснили, что радиация неплохо уничтожает микробов!"
 	icon = 'white/Feline/icons/med_items.dmi'
 	icon_state = "med_box"
+
+// 	Перчатки полевика и парамеда
+
+/obj/item/clothing/gloves/color/latex/nitrile/polymer
+	name = "полимерные перчатки"
+	desc = "Продвинутые медицинские перчатки изготовленные из винил-неопренового полимера. Содержит наночипы третьего порядка, корректирующие тонкую моторику носителя при переноске тел и хирургических операциях."
+	icon = 'white/Feline/icons/med_items.dmi'
+	icon_state = "polymer"
+	worn_icon = 'white/Feline/icons/gloves.dmi'
+	worn_icon_state = "polymer"
+	inhand_icon_state = "nitrilegloves"
+	clothing_traits = list(TRAIT_QUICKER_CARRY, TRAIT_FASTMED)
+	transfer_prints = FALSE
+
+/obj/item/clothing/gloves/color/latex/nitrile/polymer/equipped(mob/living/user, slot)
+	. = ..()
+	if(slot == ITEM_SLOT_GLOVES)
+		user.slowed_by_drag = FALSE
+
+/obj/item/clothing/gloves/color/latex/nitrile/polymer/dropped(mob/living/user)
+	. = ..()
+	if(user.get_item_by_slot(ITEM_SLOT_GLOVES) == src)
+		user.slowed_by_drag = TRUE
+
+// 	Головные уборы Полевика
+
+/obj/item/clothing/head/helmet/field_med
+	name = "шлем полевого медика"
+	desc = "Боевой шлем белого цвета с эмблемой медицинской службы. Помогает раненым бойцам быстро идентифицировать врача на поле боя. Но всегда стоит помнить, что для кого-то крест это спасение, а для кого-то - мишень."
+	icon = 'white/Feline/icons/field_med_head.dmi'
+	icon_state = "helmet_plus"
+	worn_icon = 'white/Feline/icons/field_med_head_body.dmi'
+	worn_icon_state = "helmet_plus"
+	inhand_icon_state = "helmetalt"
+	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 70, RAD = 30, FIRE = 50, ACID = 70, WOUND = 20)
+	can_flashlight = TRUE
+
+/obj/item/clothing/head/helmet/field_med/beret
+	name = "берет полевого медика"
+	desc = "Красный берет спецназа с белыми полосками. По ободу вышита надпись: \"Предотвращение, спасение, помощь.\""
+	icon_state = "beret"
+	worn_icon_state = "beret"
+	inhand_icon_state = "helmetalt"
+	can_flashlight = FALSE
+	flags_inv = null
+
+/obj/item/clothing/head/helmet/field_med/cap
+	name = "кепка полевого медика"
+	desc = "Красная кепка службы безопасности с эмблемой медицинской службы. Удачно выполненный козырек неплохо прикрывает лицо от шальных осколков"
+	icon_state = "cap"
+	worn_icon_state = "cap"
+	inhand_icon_state = "helmetalt"
+	can_flashlight = TRUE
+	var/alt_skin = FALSE
+	flags_inv = null
+
+/obj/item/clothing/head/helmet/field_med/cap/attack_self(mob/user)
+	if(alt_skin)
+		alt_skin = TRUE
+		worn_icon = 'white/Feline/icons/field_med_head_body_alt.dmi'
+		to_chat(user, span_notice("Разворачиваю кепку козырьком назад."))
+	else
+		alt_skin = FALSE
+		worn_icon = 'white/Feline/icons/field_med_head_body.dmi'
+		to_chat(user, span_notice("Разворачиваю кепку козырьком вперед."))
+
+// 	Шкаф Полевика
+
+/obj/structure/closet/secure_closet/security/field_med
+	name = "шкаф полевого медика"
+	req_access = list(ACCESS_BRIG_MED)
+	icon = 'white/Feline/icons/closet.dmi'
+	icon_state = "field_med"
+
+/obj/structure/closet/secure_closet/security/field_med/PopulateContents()
+	..()
+	new /obj/item/clothing/under/rank/medical/brigphys(src)
+	new /obj/item/clothing/under/rank/medical/brigphys/skirt(src)
+	new /obj/item/clothing/suit/armor/vest/fieldmedic(src)
+	new /obj/item/clothing/head/helmet/field_med(src)
+	new /obj/item/clothing/head/helmet/field_med/beret(src)
+	new /obj/item/clothing/head/helmet/field_med/cap(src)
+	new /obj/item/radio/headset/headset_medsec(src)
+	new /obj/item/radio/headset/headset_medsec/alt(src)
+	new /obj/item/detective_scanner(src)
+	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
+	new /obj/item/flashlight/seclite(src)
+	new /obj/item/storage/belt/security/full(src)
+	new /obj/item/storage/box/trackimp(src)
+	new /obj/item/storage/box/chemimp(src)
+	new /obj/item/storage/firstaid/medical/field_surgery(src)
+	new /obj/item/optable(src)
+	new /obj/item/modular_computer/laptop/preset/medical(src)
+
+
+/obj/item/iv_drip_item
+	name = "капельница"
+	desc = "Складная капельница для переливания крови и лекарств. Весьма удобно лежит в двух руках."
+	icon = 'white/Feline/icons/iv_drip_tele.dmi'
+	lefthand_file = 'white/Feline/icons/iv_drip_tele_left.dmi'
+	righthand_file = 'white/Feline/icons/iv_drip_tele_right.dmi'
+	icon_state = "iv_drip_1hands"
+	force = 5
+	w_class = WEIGHT_CLASS_NORMAL
+	max_integrity = 200
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 30)
+	resistance_flags = FIRE_PROOF
+	wound_bonus = 0
+	bare_wound_bonus = 0
+	var/wielded = FALSE // удержание
+
+/obj/item/iv_drip_item/Initialize()
+	. = ..()
+	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
+	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)
+
+/obj/item/iv_drip_item/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/two_handed, force_unwielded=5, force_wielded=10, icon_wielded="iv_drip_2hands")
+
+//	Двуручный режим
+/obj/item/iv_drip_item/proc/on_wield(obj/item/source, mob/user)
+	SIGNAL_HANDLER
+
+	wielded = TRUE
+	icon_state = "iv_drip_2hands"
+	playsound(user, 'sound/weapons/batonextend.ogg', 50, TRUE)
+
+
+//	Одноручный режим
+/obj/item/iv_drip_item/proc/on_unwield(obj/item/source, mob/user)
+	SIGNAL_HANDLER
+
+	wielded = FALSE
+	icon_state = "iv_drip_1hands"
+	playsound(user, 'sound/weapons/batonextend.ogg', 50, TRUE)
+
+// 	Отбрасывание
+/obj/item/iv_drip_item/attack(mob/living/target, mob/living/user)
+	. = ..()
+	if(HAS_TRAIT(user, TRAIT_PACIFISM))
+		return
+	if(wielded)
+		if(!target.anchored)
+			var/atom/throw_target = get_edge_target_turf(target, user.dir)
+			var/whack_speed = (prob(60) ? 1 : 4)
+			target.throw_at(throw_target, rand(1, 2), whack_speed, user, gentle = TRUE)
+
+// 	Поставить на место
+/obj/item/iv_drip_item/afterattack(obj/target, mob/user , proximity)
+	. = ..()
+	if(!proximity)
+		return
+	if(user.a_intent == INTENT_HELP)
+		if(isopenturf(target))
+			deploy_iv_drip(user, target)
+
+/obj/item/iv_drip_item/proc/deploy_iv_drip(mob/user, atom/location)
+	var/obj/machinery/iv_drip/R = new /obj/machinery/iv_drip(location)
+	R.add_fingerprint(user)
+	qdel(src)
+
+/obj/item/iv_drip_item/attack_robot(mob/user, list/modifiers)
+	new /obj/machinery/iv_drip (src.drop_location())
+	qdel(src)
 

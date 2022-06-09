@@ -1,5 +1,5 @@
 /obj/item/storage/belt
-	name = "универсальный пояс"
+	name = "пояс"
 	desc = "Может хранить любые предметы маленького размера."
 	icon = 'icons/obj/clothing/belts.dmi'
 	icon_state = "utility"
@@ -13,6 +13,16 @@
 	max_integrity = 300
 	equip_sound = 'sound/items/equip/toolbelt_equip.ogg'
 	var/content_overlays = FALSE //If this is true, the belt will gain overlays based on what it's holding
+
+/obj/item/storage/belt/univeral
+	name = "универсальный пояс"
+	desc = "Может хранить любые предметы маленького размера."
+
+/obj/item/storage/belt/univeral/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.screen_max_columns = 8
+	STR.max_items = 8
 
 /obj/item/storage/belt/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins belting [user.ru_na()]self with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -44,6 +54,8 @@
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
+	STR.screen_max_columns = 8
+	STR.max_items = 8
 	STR.max_combined_w_class = 21
 	STR.set_holdable(list(
 		/obj/item/multitool/tricorder,
@@ -90,7 +102,6 @@
 	new /obj/item/multitool/tricorder(src)
 	new /obj/item/stack/cable_coil(src)
 	new /obj/item/extinguisher/mini(src)
-	new /obj/item/analyzer(src)
 	//much roomier now that we've managed to remove two tools
 
 /obj/item/storage/belt/utility/full/PopulateContents()
@@ -100,6 +111,7 @@
 	new /obj/item/crowbar(src)
 	new /obj/item/wirecutters(src)
 	new /obj/item/multitool(src)
+	new /obj/item/analyzer(src)
 	new /obj/item/stack/cable_coil(src)
 
 /obj/item/storage/belt/utility/full/engi/PopulateContents()
@@ -109,6 +121,7 @@
 	new /obj/item/crowbar(src)
 	new /obj/item/wirecutters(src)
 	new /obj/item/multitool(src)
+	new /obj/item/analyzer(src)
 	new /obj/item/stack/cable_coil(src)
 
 /obj/item/storage/belt/utility/full/mechanic/PopulateContents()
@@ -118,6 +131,7 @@
 	new /obj/item/crowbar(src)
 	new /obj/item/wirecutters(src)
 	new /obj/item/multitool/mechcomp(src)
+	new /obj/item/analyzer(src)
 	new /obj/item/stack/cable_coil(src)
 
 /obj/item/storage/belt/utility/atmostech/PopulateContents()
@@ -126,7 +140,8 @@
 	new /obj/item/weldingtool(src)
 	new /obj/item/crowbar(src)
 	new /obj/item/wirecutters(src)
-	new /obj/item/t_scanner(src)
+	new /obj/item/multitool(src)
+	new /obj/item/stack/cable_coil(src)
 	new /obj/item/extinguisher/mini(src)
 
 /obj/item/storage/belt/utility/syndicate/PopulateContents()
@@ -137,6 +152,7 @@
 	new /obj/item/wirecutters(src)
 	new /obj/item/multitool(src)
 	new /obj/item/inducer/syndicate(src)
+	new /obj/item/stack/cable_coil(src)
 
 /obj/item/storage/belt/medical
 	name = "медицинский пояс"
@@ -150,6 +166,8 @@
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
+	STR.screen_max_columns = 8
+	STR.max_items = 8
 	STR.max_combined_w_class = 21
 	STR.set_holdable(list(
 		/obj/item/healthanalyzer,
@@ -204,16 +222,6 @@
 		/obj/item/shears,
 		/obj/item/stack/sticky_tape //surgical tape
 		))
-
-/obj/item/storage/belt/medical/paramedic/PopulateContents()
-	new /obj/item/sensor_device(src)
-	new /obj/item/pinpointer/crew/prox(src)
-	new /obj/item/stack/medical/gauze/twelve(src)
-	new /obj/item/reagent_containers/syringe(src)
-	new /obj/item/stack/medical/bone_gel(src)
-	new /obj/item/stack/sticky_tape/surgical(src)
-	new /obj/item/reagent_containers/glass/bottle/formaldehyde(src)
-	update_appearance()
 
 /obj/item/storage/belt/security
 	name = "пояс офицера"

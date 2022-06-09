@@ -17,8 +17,8 @@
 	update_icon()
 
 /obj/item/reagent_containers/glass/bottle/epinephrine
-	name = "флакон с эпинефрином"
-	desc = "Маленький флакон. Внутри эпинефрин, используемый для стабилизации пациентов."
+	name = "флакон с адреналином"
+	desc = "Маленький флакон. Внутри адреналин, используемый для стабилизации пациентов."
 	list_reagents = list(/datum/reagent/medicine/epinephrine = 30)
 
 /obj/item/reagent_containers/glass/bottle/toxin

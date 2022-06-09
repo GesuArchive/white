@@ -148,6 +148,16 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	icon_state = "med_headset"
 	keyslot = new /obj/item/encryptionkey/headset_medsec
 
+/obj/item/radio/headset/headset_medsec/alt
+	name = "гарнитура-бабочка полевого медика"
+	desc = "Гарнитура для обученного персонала медотсека. С доступом к каналу охраны. Защищает уши от светошумовых гранат."
+	icon_state = "med_headset_alt"
+	keyslot = new /obj/item/encryptionkey/headset_medsec
+
+/obj/item/radio/headset/headset_medsec/alt/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+
 /obj/item/radio/headset/headset_sci
 	name = "научная гарнитура"
 	desc = "Научная гарнитура. Как обычно."

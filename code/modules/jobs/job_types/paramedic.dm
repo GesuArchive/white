@@ -30,7 +30,18 @@
 		/obj/item/reagent_containers/hypospray/medipen/survival/luxury = 5
 	)
 
-	rpg_title = "Бегущий за трупом"
+	rpg_title = "Могильщик"
+
+/obj/item/storage/belt/medical/paramedic/PopulateContents()
+	new /obj/item/pinpointer/crew/prox(src)
+	new /obj/item/surgical_drapes(src)
+	new /obj/item/scalpel(src)
+	new /obj/item/hemostat(src)
+	new /obj/item/cautery(src)
+	new /obj/item/bonesetter(src)
+	new /obj/item/reagent_containers/medigel/libital(src)
+	new /obj/item/reagent_containers/medigel/aiuri(src)
+	update_appearance()
 
 /datum/outfit/job/paramedic
 	name = "Paramedic"
@@ -41,12 +52,13 @@
 	head = /obj/item/clothing/head/soft/paramedic
 	shoes = /obj/item/clothing/shoes/sneakers/blue
 	suit =  /obj/item/clothing/suit/toggle/labcoat/paramedic
-	gloves = /obj/item/clothing/gloves/color/latex/nitrile
+	gloves = /obj/item/clothing/gloves/color/latex/nitrile/polymer
 	belt = /obj/item/storage/belt/medical/paramedic
 	id = /obj/item/card/id/advanced
+	r_pocket = /obj/item/storage/belt/medipenal/paramed
 	l_pocket = /obj/item/modular_computer/tablet/pda/medical
 	suit_store = /obj/item/flashlight/pen/paramedic
-	backpack_contents = list(/obj/item/roller=1)
+	backpack_contents = list(/obj/item/roller=1, /obj/item/storage/firstaid/regular=1, /obj/item/sensor_device=1)
 	pda_slot = ITEM_SLOT_LPOCKET
 
 	backpack = /obj/item/storage/backpack/medic

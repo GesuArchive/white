@@ -970,7 +970,7 @@
 /obj/item/quikdeploy/cade
 	thing_to_deploy = /obj/structure/deployable_barricade/metal
 	icon_state = "metal"
-	delay = 3 SECONDS
+	delay = 0.5 SECONDS
 
 /obj/item/quikdeploy/cade/can_place(mob/user)
 	. = ..()

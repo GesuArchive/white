@@ -397,7 +397,7 @@
 
 /obj/item/clothing/suit/armor/vest/fieldmedic/cmo
 	name = "лабораторный бронежилет главврача"
-	desc = "Бронированный лабораторный халат госпительера фронтира. Иногда кто то должен принимать тяжелые решения, резать ли ногу, проводить ли лоботомию, или же вооружать врачей и защищать жизнь пациентов ценой своей собственной."
+	desc = "Бронированный лабораторный халат госпительера фронтира. Иногда кто-то должен принимать тяжелые решения, резать ли ногу, проводить ли лоботомию или же вооружать врачей и защищать жизнь пациентов ценой своей собственной."
 	icon = 'white/Feline/icons/lab_armor_front.dmi'
 	worn_icon = 'white/Feline/icons/lab_armor_body.dmi'
 	icon_state = "cmo"
@@ -569,4 +569,94 @@
 	desc = "Набор из поножей, наручей, налокотников и наколенников для дополнительной защиты конечностей. Прикрепляется к бронежилетам."
 	icon = 'white/Feline/icons/armor_upgrade.dmi'
 	icon_state = "full_armor_upgrade"
+
+
+// Мини-патронташ
+
+/obj/item/storage/belt/shotgun
+	name = "патронташ"
+	desc = "Компактный и очень удобный подсумок на 7 патронов 12 калибра, специальная клипса позволяет закрепить его на карманах или поясе."
+	icon = 'white/Feline/icons/patron.dmi'
+	icon_state = "patron"
+	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_POCKETS
+	w_class = WEIGHT_CLASS_NORMAL
+	max_integrity = 300
+	equip_sound = 'sound/items/equip/toolbelt_equip.ogg'
+
+/obj/item/storage/belt/shotgun/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_items = 7
+	STR.max_w_class = WEIGHT_CLASS_NORMAL
+	STR.pocket_belt = TRUE
+	STR.rustle_sound = FALSE
+	STR.max_combined_w_class = 14
+	STR.set_holdable(list(
+		/obj/item/ammo_casing/shotgun
+		))
+
+/obj/item/storage/belt/shotgun/update_icon_state()
+	icon_state = initial(icon_state)
+	worn_icon_state = initial(worn_icon_state)
+	if(length(contents))
+		icon_state = "patron[length(contents)]"
+
+/obj/item/storage/belt/shotgun/attack_hand(mob/user, list/modifiers)
+	if(loc == user)
+		if((user.get_item_by_slot(ITEM_SLOT_BELT) == src) || (user.get_item_by_slot(ITEM_SLOT_LPOCKET) == src) || (user.get_item_by_slot(ITEM_SLOT_RPOCKET) == src))
+			if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
+				return
+			if(length(contents))
+				var/obj/item/I = contents[1]
+				playsound(user, 'white/Feline/sounds/bag_1.ogg', 100, TRUE)
+				user.put_in_hands(I)
+				update_appearance()
+			else
+				to_chat(user, span_warning("[capitalize(src.name)] пустой!"))
+	else ..()
+	return
+
+/obj/item/storage/belt/shotgun/rubbershot	//	Резиновая дробь
+	name = "патронташ - резиновая дробь"
+
+/obj/item/storage/belt/shotgun/rubbershot/Initialize()
+	. = ..()
+	add_overlay("riot")
+
+/obj/item/storage/belt/shotgun/rubbershot/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_casing/shotgun/rubbershot(src)
+
+/obj/item/storage/belt/shotgun/beanbag	//	Резиновая пуля
+	name = "патронташ - резиновая пуля"
+
+/obj/item/storage/belt/shotgun/beanbag/Initialize()
+	. = ..()
+	add_overlay("riot")
+
+/obj/item/storage/belt/shotgun/beanbag/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_casing/shotgun/beanbag(src)
+
+/obj/item/storage/belt/shotgun/buckshot	//	Боевая картечь
+	name = "патронташ - картечь"
+
+/obj/item/storage/belt/shotgun/buckshot/Initialize()
+	. = ..()
+	add_overlay("battle")
+
+/obj/item/storage/belt/shotgun/buckshot/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_casing/shotgun/buckshot(src)
+
+/obj/item/storage/belt/shotgun/bullet	//	Боевая пуля
+	name = "патронташ - пулевой"
+
+/obj/item/storage/belt/shotgun/bullet/Initialize()
+	. = ..()
+	add_overlay("battle")
+
+/obj/item/storage/belt/shotgun/bullet/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_casing/shotgun(src)
 
