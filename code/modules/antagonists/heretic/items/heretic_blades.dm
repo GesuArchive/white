@@ -73,16 +73,16 @@
 		Незаконченный, он желает стать чем-то большим, срезая ломти мяса своим тупым лезвием и наполняя их пеплом."
 	icon_state = "ash_blade"
 	inhand_icon_state = "ash_blade"
-	after_use_message = "The Nightwater hears your call..."
+	after_use_message = "Ночной Страж услышал ваш зов..."
 
 // Path of Flesh's blade
 /obj/item/melee/sickly_blade/flesh
-	name = "\improper bloody blade"
-	desc = "A crescent blade born from a fleshwarped creature. \
-		Keenly aware, it seeks to spread to others the suffering it has endured from its dreadful origins."
+	name = "кровавый клинок"
+	desc = "Плотоядное существо в виде серповидного клинка. \
+		Будьте осторожны, ведь оно готово поделиться своими страданиями с каждой своей жертвой."
 	icon_state = "flesh_blade"
 	inhand_icon_state = "flesh_blade"
-	after_use_message = "The Marshal hears your call..."
+	after_use_message = "Маршал услышал ваш зов..."
 
 // Path of Void's blade
 /obj/item/melee/sickly_blade/void

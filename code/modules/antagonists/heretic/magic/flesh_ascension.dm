@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/targeted/shed_human_form
-	name = "Shed form"
-	desc = "Shed your fragile form, become one with the arms, become one with the emperor."
+	name = "Смена формы"
+	desc = "Смените свою хрупкую оболочку, став его десницей, становясь единым с императором."
 	action_icon = 'icons/mob/actions/actions_ecult.dmi'
 	action_icon_state = "worm_ascend"
 	invocation = "REALITY UNCOIL!"
@@ -44,8 +44,8 @@
 		return
 
 /obj/effect/proc_holder/spell/targeted/worm_contract
-	name = "Force Contract"
-	desc = "Forces your body to contract onto a single tile."
+	name = "Сжатие"
+	desc = "Позволяет сжать все сегменты вашего тела в одну единственную клетку."
 	invocation_type = INVOCATION_NONE
 	school = SCHOOL_FORBIDDEN
 	clothes_req = FALSE
@@ -59,7 +59,7 @@
 /obj/effect/proc_holder/spell/targeted/worm_contract/cast(list/targets, mob/user)
 	. = ..()
 	if(!istype(user, /mob/living/simple_animal/hostile/heretic_summon/armsy))
-		to_chat(user, span_userdanger("You try to contract your muscles, but nothing happens..."))
+		to_chat(user, span_userdanger("Вы напрягаете ваши мышцы, но ничего не происходит..."))
 		return
 
 	var/mob/living/simple_animal/hostile/heretic_summon/armsy/lord_of_night = user
