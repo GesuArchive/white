@@ -1080,15 +1080,21 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			for(var/turf/closed/T in world)
 				if(T.icon == DEFAULT_WALL_ICON)
 					T.icon = LFWB_WALL_ICON
+					T.canSmoothWith = list(SMOOTH_GROUP_WALLS)
 				else if (T.icon == DEFAULT_RWALL_ICON)
 					T.icon = LFWB_RWALL_ICON
 				else if (T.icon == DEFAULT_PLASTITANUM_ICON)
 					T.icon = LFWB_PLASTITANUM_ICON
 				else if (T.icon == DEFAULT_RIVETED_ICON)
 					T.icon = LFWB_RIVETED_ICON
+			for(var/obj/structure/window/fulltile/W in world)
+				W.canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE)
 			for(var/obj/structure/window/reinforced/fulltile/W in world)
 				if(W.icon == DEFAULT_RWINDOW_ICON)
 					W.icon = LFWB_RWINDOW_ICON
+					W.canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE)
+			for(var/i in 1 to 3)
+				smooth_zlevel(i)
 
 	message_admins(span_adminnotice("[key_name_admin(src)] меняет тему игры на [which_theme]."))
 	log_admin("[key_name(src)] меняет тему игры на [which_theme].")
