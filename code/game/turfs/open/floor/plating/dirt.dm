@@ -2,7 +2,7 @@
 	gender = PLURAL
 	name = "грязь"
 	desc = "При более тщательном рассмотрении, это все еще грязь."
-	icon = 'icons/turf/floors.dmi'
+	icon = DEFAULT_FLOORS_ICON
 	icon_state = "dirt"
 	baseturfs = /turf/open/chasm/jungle
 	initial_gas_mix = OPENTURF_LOW_PRESSURE

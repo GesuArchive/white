@@ -43,7 +43,7 @@
 	return ..()
 
 /obj/effect/clockwork/overlay/floor
-	icon = 'icons/turf/floors.dmi'
+	icon = DEFAULT_FLOORS_ICON
 	icon_state = "clockwork_floor"
 	layer = TURF_LAYER
 	plane = FLOOR_PLANE

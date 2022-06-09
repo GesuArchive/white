@@ -45,7 +45,7 @@
 		var/mutable_appearance/girder_underlay = mutable_appearance('icons/obj/structures.dmi', "girder", layer = TURF_LAYER-0.01)
 		girder_underlay.appearance_flags = RESET_ALPHA | RESET_COLOR
 		our_turf.underlays += girder_underlay
-		var/mutable_appearance/plating_underlay = mutable_appearance('icons/turf/floors.dmi', "plating", layer = TURF_LAYER-0.02)
+		var/mutable_appearance/plating_underlay = mutable_appearance(DEFAULT_FLOORS_ICON, "plating", layer = TURF_LAYER-0.02)
 		plating_underlay = RESET_ALPHA | RESET_COLOR
 		our_turf.underlays += plating_underlay
 	return TRUE

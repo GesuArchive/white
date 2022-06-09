@@ -191,7 +191,7 @@
 /turf/open/floor/grass/snow/basalt //By your powers combined, I am captain planet
 	gender = NEUTER
 	name = "вулканическая поверхность"
-	icon = 'icons/turf/floors.dmi'
+	icon = DEFAULT_FLOORS_ICON
 	icon_state = "basalt"
 	ore_type = /obj/item/stack/ore/glass/basalt
 	initial_gas_mix = OPENTURF_LOW_PRESSURE
@@ -216,7 +216,7 @@
 /turf/open/floor/grass/fakebasalt //Heart is not a real planeteer power
 	name = "эстетическая вулканическая поверхность"
 	desc = "Безопасно воссозданный газон для побега с адской планеты."
-	icon = 'icons/turf/floors.dmi'
+	icon = DEFAULT_FLOORS_ICON
 	icon_state = "basalt"
 	floor_tile = /obj/item/stack/tile/basalt
 	ore_type = /obj/item/stack/ore/glass/basalt
@@ -439,7 +439,7 @@
 	tiled_dirt = FALSE
 
 /turf/open/floor/fakepit/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
-	underlay_appearance.icon = 'icons/turf/floors.dmi'
+	underlay_appearance.icon = DEFAULT_FLOORS_ICON
 	underlay_appearance.icon_state = "basalt"
 	return TRUE
 

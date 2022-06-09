@@ -6,7 +6,7 @@
 	desc = "Здоровенный кусок металла, который служит для разделения помещений."
 	gender = FEMALE
 	anchored = TRUE
-	icon = 'icons/turf/walls/baywall.dmi'
+	icon = DEFAULT_WALL_ICON
 	icon_state = "wall-0"
 	base_icon_state = "wall"
 	layer = LOW_OBJ_LAYER
@@ -134,7 +134,7 @@
 /obj/structure/falsewall/reinforced
 	name = "армированная стена"
 	desc = "Здоровенный укреплённый кусок металла, который служит для разделения помещений."
-	icon = 'icons/turf/walls/rbaywall.dmi'
+	icon = DEFAULT_RWALL_ICON
 	icon_state = "reinforced_wall-0"
 	base_icon_state = "reinforced_wall"
 	walltype = /turf/closed/wall/r_wall
@@ -354,7 +354,7 @@
 /obj/structure/falsewall/plastitanium
 	name = "пластитановая стена"
 	desc = "Зловещая стена с пластитановым покрытием."
-	icon = 'icons/turf/walls/plastitanium_wall.dmi'
+	icon = DEFAULT_PLASTITANUM_ICON
 	icon_state = "plastitanium_wall-0"
 	base_icon_state = "plastitanium_wall"
 	mineral = /obj/item/stack/sheet/mineral/plastitanium

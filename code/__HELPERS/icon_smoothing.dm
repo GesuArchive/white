@@ -50,7 +50,30 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define ADJ_FOUND 1
 #define NULLTURF_BORDER 2
 
-#define DEFAULT_UNDERLAY_ICON 			'icons/turf/floors.dmi'
+/*
+	Возможно какой-то переключатель тут будет, но пока бьёнд накладно перегружать таким говном.
+	Путь до кастомных иконок: white/valtos/icons/special
+*/
+
+#define DEFAULT_FLOORS_ICON				'icons/turf/floors.dmi'
+#define DEFAULT_PLASTITANUM_ICON		'icons/turf/walls/plastitanium_wall.dmi'
+#define DEFAULT_WALL_ICON				'icons/turf/walls/baywall.dmi'
+#define DEFAULT_RWALL_ICON				'icons/turf/walls/rbaywall.dmi'
+#define DEFAULT_RIVETED_ICON			'icons/turf/walls/riveted.dmi'
+#define DEFAULT_RWINDOW_ICON			'white/valtos/icons/window_rglass.dmi'
+
+#define ONYX_FLOORS_ICON				'white/valtos/icons/special/onyx/floors.dmi'
+#define ONYX_WALL_ICON					'white/valtos/icons/special/onyx/wall.dmi'
+#define ONYX_RWALL_ICON					'white/valtos/icons/special/onyx/reinforced_wall.dmi'
+
+#define LFWB_FLOORS_ICON				'white/valtos/icons/special/lfwb/floors.dmi'
+#define LFWB_PLASTITANUM_ICON			'white/valtos/icons/special/lfwb/plastitanium_wall.dmi'
+#define LFWB_WALL_ICON					'white/valtos/icons/special/lfwb/wall.dmi'
+#define LFWB_RWALL_ICON					'white/valtos/icons/special/lfwb/reinforced_wall.dmi'
+#define LFWB_RIVETED_ICON				'white/valtos/icons/special/lfwb/riveted.dmi'
+#define LFWB_RWINDOW_ICON				'white/valtos/icons/special/lfwb/window_rglass.dmi'
+
+#define DEFAULT_UNDERLAY_ICON 			DEFAULT_FLOORS_ICON
 #define DEFAULT_UNDERLAY_ICON_STATE 	"plating"
 
 

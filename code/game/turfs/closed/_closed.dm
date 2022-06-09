@@ -128,7 +128,7 @@
 /turf/closed/indestructible/reinforced
 	name = "reinforced wall"
 	desc = "A huge chunk of reinforced metal used to separate rooms. Effectively impervious to conventional methods of destruction."
-	icon = 'icons/turf/walls/rbaywall.dmi'
+	icon = DEFAULT_RWALL_ICON
 	icon_state = "reinforced_wall-0"
 	base_icon_state = "reinforced_wall"
 	smoothing_flags = SMOOTH_BITMASK
@@ -136,7 +136,7 @@
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /turf/closed/indestructible/riveted
-	icon = 'icons/turf/walls/riveted.dmi'
+	icon = DEFAULT_RIVETED_ICON
 	icon_state = "riveted-0"
 	base_icon_state = "riveted"
 	smoothing_flags = SMOOTH_BITMASK
@@ -146,7 +146,7 @@
 /turf/closed/indestructible/syndicate
 	name = "пластитановая стена"
 	desc = "Зловещая стена со пластитановым покрытием."
-	icon = 'icons/turf/walls/plastitanium_wall.dmi'
+	icon = DEFAULT_PLASTITANUM_ICON
 	icon_state = "plastitanium_wall-0"
 	base_icon_state = "plastitanium_wall"
 	smoothing_flags = SMOOTH_BITMASK
@@ -218,7 +218,7 @@
 /turf/closed/indestructible/fakeglass/Initialize()
 	. = ..()
 	underlays += mutable_appearance('icons/obj/structures.dmi', "grille") //add a grille underlay
-	underlays += mutable_appearance('icons/turf/floors.dmi', "plating") //add the plating underlay, below the grille
+	underlays += mutable_appearance(DEFAULT_FLOORS_ICON, "plating") //add the plating underlay, below the grille
 
 /turf/closed/indestructible/opsglass
 	name = "окно"
@@ -234,7 +234,7 @@
 	. = ..()
 	icon_state = null
 	underlays += mutable_appearance('icons/obj/structures.dmi', "grille")
-	underlays += mutable_appearance('icons/turf/floors.dmi', "plating")
+	underlays += mutable_appearance(DEFAULT_FLOORS_ICON, "plating")
 
 /turf/closed/indestructible/fakedoor
 	name = "CentCom Access"
@@ -286,7 +286,7 @@
 	baseturfs = /turf/closed/indestructible/necropolis
 
 /turf/closed/indestructible/necropolis/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
-	underlay_appearance.icon = 'icons/turf/floors.dmi'
+	underlay_appearance.icon = DEFAULT_FLOORS_ICON
 	underlay_appearance.icon_state = "necro1"
 	return TRUE
 
@@ -317,7 +317,7 @@
 	opacity = FALSE
 
 /turf/closed/indestructible/riveted/boss/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
-	underlay_appearance.icon = 'icons/turf/floors.dmi'
+	underlay_appearance.icon = DEFAULT_FLOORS_ICON
 	underlay_appearance.icon_state = "basalt"
 	return TRUE
 

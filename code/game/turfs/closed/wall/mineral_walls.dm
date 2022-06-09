@@ -312,7 +312,7 @@
 /turf/closed/wall/mineral/plastitanium
 	name = "пластитановая стена"
 	desc = "Зловещая стена со пластитановым покрытием."
-	icon = 'icons/turf/walls/plastitanium_wall.dmi'
+	icon = DEFAULT_PLASTITANUM_ICON
 	icon_state = "plastitanium_wall-0"
 	base_icon_state = "plastitanium_wall"
 	explosion_block = 4
@@ -326,7 +326,7 @@
 	return // plastitanium does not rust
 
 /turf/closed/wall/mineral/plastitanium/nodiagonal
-	icon = 'icons/turf/walls/plastitanium_wall.dmi'
+	icon = DEFAULT_PLASTITANUM_ICON
 	icon_state = "map-shuttle_nd"
 	base_icon_state = "plastitanium_wall"
 	smoothing_flags = SMOOTH_BITMASK

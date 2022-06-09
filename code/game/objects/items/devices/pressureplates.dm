@@ -24,7 +24,7 @@
 
 /obj/item/pressure_plate/Initialize()
 	. = ..()
-	tile_overlay = image(icon = 'icons/turf/floors.dmi', icon_state = "pp_overlay")
+	tile_overlay = image(icon = DEFAULT_FLOORS_ICON, icon_state = "pp_overlay")
 	if(roundstart_signaller)
 		sigdev = new
 		sigdev.code = roundstart_signaller_code

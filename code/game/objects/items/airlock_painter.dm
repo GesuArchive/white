@@ -322,7 +322,7 @@
 	cross_round_cachable = TRUE
 
 	/// The floor icon used for blend_preview_floor()
-	var/preview_floor_icon = 'icons/turf/floors.dmi'
+	var/preview_floor_icon = DEFAULT_FLOORS_ICON
 	/// The floor icon state used for blend_preview_floor()
 	var/preview_floor_state = "floor"
 	/// The associated decal painter type to grab decals, colors, etc from.
@@ -496,7 +496,7 @@
 
 /obj/item/floor_painter/interact(mob/user as mob) //TODO: Make TGUI for this because ouch
 	if(!floor_icon)
-		floor_icon = icon('icons/turf/floors.dmi', floor_state, floor_dir)
+		floor_icon = icon(DEFAULT_FLOORS_ICON, floor_state, floor_dir)
 	user << browse_rsc(floor_icon, "floor.png")
 	var/dat = {"
 		<center>
@@ -560,16 +560,16 @@
 		floor_state = allowed_states[index]
 		check_directional_tile()
 
-	floor_icon = icon('icons/turf/floors.dmi', floor_state, floor_dir)
+	floor_icon = icon(DEFAULT_FLOORS_ICON, floor_state, floor_dir)
 	if(usr)
 		attack_self(usr)
 
 /obj/item/floor_painter/proc/check_directional_tile()
-	var/icon/current = icon('icons/turf/floors.dmi', floor_state, NORTHWEST)
+	var/icon/current = icon(DEFAULT_FLOORS_ICON, floor_state, NORTHWEST)
 	if(current.GetPixel(1,1) != null)
 		allowed_directions = star_directions
 	else
-		current = icon('icons/turf/floors.dmi', floor_state, WEST)
+		current = icon(DEFAULT_FLOORS_ICON, floor_state, WEST)
 		if(current.GetPixel(1,1) != null)
 			allowed_directions = cardinal_directions
 		else

@@ -5,7 +5,7 @@
 	gender = PLURAL
 	name = "астероидный песок"
 	baseturfs = /turf/open/floor/plating/asteroid
-	icon = 'icons/turf/floors.dmi'
+	icon = DEFAULT_FLOORS_ICON
 	icon_state = "asteroid"
 	base_icon_state = "asteroid"
 	footstep = FOOTSTEP_SAND
@@ -96,7 +96,7 @@
 /turf/open/floor/plating/asteroid/basalt
 	name = "вулканическая поверхность"
 	baseturfs = /turf/open/floor/plating/asteroid/basalt
-	icon = 'icons/turf/floors.dmi'
+	icon = DEFAULT_FLOORS_ICON
 	icon_state = "basalt"
 	base_icon_state = "basalt"
 	floor_variance = 15

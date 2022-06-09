@@ -20,7 +20,7 @@
 	. = ..()
 
 /obj/effect/cult_turf/overlay/floor
-	icon = 'icons/turf/floors.dmi'
+	icon = DEFAULT_FLOORS_ICON
 	icon_state = "clockwork_floor"
 	layer = CULT_OVERLAY_LAYER
 

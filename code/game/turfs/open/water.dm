@@ -2,7 +2,7 @@
 	gender = PLURAL
 	name = "вода"
 	desc = "Мелководье."
-	icon = 'icons/turf/floors.dmi'
+	icon = DEFAULT_FLOORS_ICON
 	icon_state = "riverwater_motion"
 	baseturfs = /turf/open/chasm/lavaland
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS

@@ -1,7 +1,7 @@
 /turf/closed/wall/r_wall
 	name = "армированная стена"
 	desc = "Здоровенный укреплённый кусок металла, который служит для разделения помещений."
-	icon = 'icons/turf/walls/rbaywall.dmi'
+	icon = DEFAULT_RWALL_ICON
 	icon_state = "reinforced_wall-0"
 	base_icon_state = "reinforced_wall"
 	opacity = TRUE
@@ -235,7 +235,7 @@
 /turf/closed/wall/r_wall/syndicate
 	name = "обшивка"
 	desc = "Бронированный корпус зловещего корабля."
-	icon = 'icons/turf/walls/plastitanium_wall.dmi'
+	icon = DEFAULT_PLASTITANUM_ICON
 	icon_state = "plastitanium_wall-0"
 	base_icon_state = "plastitanium_wall"
 	explosion_block = 20
@@ -248,7 +248,7 @@
 	return FALSE
 
 /turf/closed/wall/r_wall/syndicate/nodiagonal
-	icon = 'icons/turf/walls/plastitanium_wall.dmi'
+	icon = DEFAULT_PLASTITANUM_ICON
 	icon_state = "map-shuttle_nd"
 	base_icon_state = "plastitanium_wall"
 	smoothing_flags = SMOOTH_BITMASK

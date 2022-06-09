@@ -26,7 +26,7 @@ GLOBAL_LIST_EMPTY(string_lists)
 /turf/open/indestructible/baseturfs_ded
 	name = "обшивка"
 	desc = "НЕМНОГО ПОВРЕЖДЕНА ПИЗДЕЦ."
-	icon = 'icons/turf/floors.dmi'
+	icon = DEFAULT_FLOORS_ICON
 	icon_state = "plating"
 	//icon = 'icons/turf/debug.dmi'
 	//icon_state = "fucked_baseturfs"

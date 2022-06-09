@@ -90,7 +90,7 @@
 
 /obj/structure/receiving_pad
 	name = "bluespace receiving pad"
-	icon = 'icons/turf/floors.dmi'
+	icon = DEFAULT_FLOORS_ICON
 	desc = "A receiving zone for bluespace teleportations."
 	icon_state = "light_on-8"
 	light_range = MINIMUM_USEFUL_LIGHT_RANGE

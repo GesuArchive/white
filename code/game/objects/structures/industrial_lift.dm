@@ -429,7 +429,7 @@ GLOBAL_LIST_EMPTY(lifts)
 /obj/structure/industrial_lift/tram
 	name = "tram"
 	desc = "A tram for traversing the station."
-	icon = 'icons/turf/floors.dmi'
+	icon = DEFAULT_FLOORS_ICON
 	icon_state = "titanium_yellow"
 	base_icon_state = null
 	smoothing_flags = NONE

@@ -32,7 +32,7 @@
 //***Wasteland floor and rock turfs here.
 /turf/open/floor/plating/asteroid/basalt/wasteland //Like a more fun version of living in Arizona.
 	name = "cracked earth"
-	icon = 'icons/turf/floors.dmi'
+	icon = DEFAULT_FLOORS_ICON
 	icon_state = "wasteland"
 	base_icon_state = "wasteland"
 	baseturfs = /turf/open/floor/plating/asteroid/basalt/wasteland

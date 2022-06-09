@@ -130,7 +130,7 @@ GLOBAL_LIST_EMPTY(turbolifts)
 /turf/closed/indestructible/turbolift
 	name = "стена лифта"
 	desc = "Достаточно крепкая."
-	icon = 'icons/turf/walls/baywall.dmi'
+	icon = DEFAULT_WALL_ICON
 	icon_state = "wall"
 //	canSmoothWith = list(/turf/closed/indestructible/turbolift)
 //	smooth = SMOOTH_TRUE

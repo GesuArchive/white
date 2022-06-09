@@ -112,6 +112,6 @@
 
 /obj/structure/pitgrate/hidden
 	name = "Пол"
-	icon = 'icons/turf/floors.dmi'
+	icon = DEFAULT_FLOORS_ICON
 	icon_state = "floor"
 	hidden = TRUE

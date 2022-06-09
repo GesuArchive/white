@@ -88,7 +88,7 @@
 	return
 
 /turf/open/lava/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
-	underlay_appearance.icon = 'icons/turf/floors.dmi'
+	underlay_appearance.icon = DEFAULT_FLOORS_ICON
 	underlay_appearance.icon_state = "basalt"
 	return TRUE
 
