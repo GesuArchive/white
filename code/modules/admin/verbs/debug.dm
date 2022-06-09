@@ -1047,6 +1047,8 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 
 	usr << browse(bugged_shit, "window=fuckingshitfuck;size=700x700")
 
+GLOBAL_VAR_INIT(is_theme_applied, FALSE)
+
 /client/proc/change_server_theme()
 	set category = "Дбг"
 	set name = "Change Server Theme"
@@ -1055,6 +1057,10 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		return
 
 	if(!check_rights(R_PERMISSIONS))
+		return
+
+	if(GLOB.is_theme_applied)
+		qdel(src)
 		return
 
 	var/list/themes = list("onyx", "lfwb")
@@ -1095,6 +1101,8 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 					W.canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE)
 			for(var/i in 1 to 3)
 				smooth_zlevel(i)
+
+	GLOB.is_theme_applied = TRUE
 
 	message_admins(span_adminnotice("[key_name_admin(src)] меняет тему игры на [which_theme]."))
 	log_admin("[key_name(src)] меняет тему игры на [which_theme].")
