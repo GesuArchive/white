@@ -49,7 +49,8 @@
 	var/datum/component/uplink/hidden_uplink = GetComponent(/datum/component/uplink)
 	hidden_uplink.active = FALSE
 	// ну давай, налетай, у тебя всего лишь одна попытка
-	lock_code = ROUND_UP(CSC(SEC(COT(GLOB.round_id * rand(1, 3)))))
+	if(GLOB.round_id)
+		lock_code = ROUND_UP(CSC(SEC(COT(GLOB.round_id * rand(1, 3)))))
 
 /obj/item/uplink/nuclear/locked/attack_self(mob/user, modifiers)
 	. = ..()
