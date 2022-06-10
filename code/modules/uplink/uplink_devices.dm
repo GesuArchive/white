@@ -48,12 +48,18 @@
 	. = ..()
 	var/datum/component/uplink/hidden_uplink = GetComponent(/datum/component/uplink)
 	hidden_uplink.active = FALSE
+	hidden_uplink.locked = TRUE
 	// ну давай, налетай, у тебя всего лишь одна попытка
 	if(GLOB.round_id)
 		lock_code = ROUND_UP(CSC(SEC(COT(text2num(GLOB.round_id) * rand(1, 3)))))
 
 /obj/item/uplink/nuclear/locked/attack_self(mob/user, modifiers)
 	. = ..()
+
+	var/datum/component/uplink/hidden_uplink = GetComponent(/datum/component/uplink)
+
+	if(hidden_uplink?.active)
+		return
 
 	var/solution = input(user, null, "Ответ?") as num|null
 
@@ -69,8 +75,8 @@
 			qdel(user)
 		return
 
-	var/datum/component/uplink/hidden_uplink = GetComponent(/datum/component/uplink)
 	hidden_uplink.active = TRUE
+	hidden_uplink.locked = FALSE
 
 	to_chat(user, span_info("Ответ верный."))
 
