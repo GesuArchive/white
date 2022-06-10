@@ -176,7 +176,7 @@
 		if(prob(100 - (planted_things.len * 10)))
 			var/list/possible_turfs = list()
 			for(var/turf/T in RANGE_TURFS(7, src))
-				if(istype(T, /turf/open/floor/grass/gensgrass/dirty/stone/raw) || istype(T, /turf/open/floor/plating/asteroid/boxplanet/caves))
+				if(istype(T, /turf/open/floor/grass/gensgrass/dirty) || istype(T, /turf/open/floor/plating/asteroid/boxplanet/caves))
 					possible_turfs += T
 			planted_things += new generating_type(pick(possible_turfs))
 			if(prob(20))

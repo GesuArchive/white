@@ -150,7 +150,7 @@
 /turf/open/floor/grass/fairy //like grass but fae-er
 	name = "сказочный пласт"
 	desc = "Что-то в этой траве заставляет меня резвиться. Или быть под кайфом."
-	icon_state = "fairygrass"
+	icon_state = "fairygrass0"
 	floor_tile = /obj/item/stack/tile/fairygrass
 	light_range = 2
 	light_power = 0.80

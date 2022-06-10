@@ -74,8 +74,9 @@ DEFINE_BITFIELD(smoothing_flags, list(
 #define SMOOTH_GROUP_RESIN_FLOOR S_TURF(31)				///turf/open/floor/resin
 #define SMOOTH_GROUP_CRYPTO_FLOOR S_TURF(32)			///turf/open/floor/crypto
 #define SMOOTH_GROUP_BAMBOO_FLOOR S_TURF(33) 			///turf/open/floor/bamboo
+#define SMOOTH_GROUP_IRIDIUM_WALLS S_TURF(34) 			///turf/closed/indestructible/iridium
 
-#define MAX_S_TURF SMOOTH_GROUP_BAMBOO_FLOOR //Always match this value with the one above it.
+#define MAX_S_TURF SMOOTH_GROUP_IRIDIUM_WALLS //Always match this value with the one above it.
 
 
 #define S_OBJ(num) (MAX_S_TURF + 1 + num)
