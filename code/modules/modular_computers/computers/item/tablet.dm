@@ -278,6 +278,7 @@
 	greyscale_colors = "#999875#a92323"
 
 	bypass_state = TRUE
+	allow_chunky = TRUE
 
 	///All applications this tablet has pre-installed
 	var/list/default_applications = list()

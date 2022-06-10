@@ -198,6 +198,10 @@
 	GLOB.pai_list -= src
 	return ..()
 
+/mob/living/silicon/pai/LateInitialize()
+	. = ..()
+	modularInterface.saved_identification = name
+
 /mob/living/silicon/pai/make_laws()
 	laws = new /datum/ai_laws/pai()
 	return TRUE

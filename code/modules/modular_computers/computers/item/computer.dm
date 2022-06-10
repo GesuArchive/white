@@ -12,6 +12,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	integrity_failure = 0.5
 	max_integrity = 100
 	armor = list(MELEE = 0, BULLET = 20, LASER = 20, ENERGY = 100, BOMB = 0, BIO = 100, RAD = 100, FIRE = 0, ACID = 0)
+	light_system = MOVABLE_LIGHT_DIRECTIONAL
 
 	var/bypass_state = FALSE // bypassing the set icon state
 
@@ -55,13 +56,18 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	var/saved_identification = null // next two values are the currently imprinted id and job values
 	var/saved_job = null
 
+	/// Allow people with chunky fingers to use?
+	var/allow_chunky = FALSE
+
 	var/honkamnt = 0 /// honk honk honk honk honk honkh onk honkhnoohnk
 
 	var/list/idle_threads // Idle programs on background. They still receive process calls but can't be interacted with.
 	var/obj/physical = null // Object that represents our computer. It's used for Adjacent() and UI visibility checks.
 	var/has_light = FALSE //If the computer has a flashlight/LED light/what-have-you installed
-	var/comp_light_luminosity = 3 //The brightness of that light
-	var/comp_light_color //The color of that light
+	/// How far the computer's light can reach, is not editable by players.
+	var/comp_light_luminosity = 3
+	/// The built-in light's color, editable by players.
+	var/comp_light_color = "#FFFFFF"
 	var/invisible = FALSE // whether or not the tablet is invisible in messenger and other apps
 
 	var/datum/picture/saved_image // the saved image used for messaging purpose like come on dude
@@ -77,12 +83,15 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	START_PROCESSING(SSobj, src)
 	if(!physical)
 		physical = src
-	comp_light_color = "#FFFFFF"
+	set_light_color(comp_light_color)
+	set_light_range(comp_light_luminosity)
 	idle_threads = list()
 	if(looping_sound)
 		soundloop = new(src, enabled)
 	if(id)
 		id.UpdateDisplay()
+	if(has_light)
+		light_butt = new(src)
 	update_icon()
 	Add_Messenger()
 
@@ -537,13 +546,8 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	if(!has_light)
 		return FALSE
 	set_light_on(!light_on)
-	if(light_on)
-		set_light(comp_light_luminosity, 1, comp_light_color)
-	else
-		set_light(0)
 	update_appearance()
-	if(light_butt)
-		update_action_buttons(force = TRUE) // must force if just the overlays changed.
+	update_action_buttons(force = TRUE) //force it because we added an overlay, not changed its icon
 	return TRUE
 
 /**
@@ -559,7 +563,6 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		return FALSE
 	comp_light_color = color
 	set_light_color(color)
-	update_light()
 	return TRUE
 
 /obj/item/modular_computer/screwdriver_act(mob/user, obj/item/tool)
