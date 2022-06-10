@@ -399,13 +399,43 @@ GLOBAL_LIST_EMPTY(station_turfs)
 			return FALSE		//We were deleted.
 
 
-/turf/open/Entered(atom/movable/AM)
+/turf/open/Entered(atom/movable/arrived)
 	. = ..()
 	//melting
-	if(isobj(AM) && air && air.return_temperature() > T0C)
-		var/obj/O = AM
+	if(isobj(arrived) && air && air.return_temperature() > T0C)
+		var/obj/O = arrived
 		if(O.obj_flags & FROZEN)
 			O.make_unfrozen()
+
+	if(!arrived || src != arrived.loc)
+		return
+
+	if(destination_z && destination_x && destination_y && !arrived.pulledby && !arrived.currently_z_moving)
+		var/tx = destination_x
+		var/ty = destination_y
+		var/turf/DT = locate(tx, ty, destination_z)
+		var/itercount = 0
+		while(DT.density || istype(DT.loc,/area/shuttle)) // Extend towards the center of the map, trying to look for a better place to arrive
+			if (itercount++ >= 100)
+				log_game("SPACE Z-TRANSIT ERROR: Could not find a safe place to land [arrived] within 100 iterations.")
+				break
+			if (tx < 128)
+				tx++
+			else
+				tx--
+			if (ty < 128)
+				ty++
+			else
+				ty--
+			DT = locate(tx, ty, destination_z)
+
+		arrived.zMove(null, DT, ZMOVE_ALLOW_BUCKLED)
+
+		var/atom/movable/current_pull = arrived.pulling
+		while (current_pull)
+			var/turf/target_turf = get_step(current_pull.pulledby.loc, REVERSE_DIR(current_pull.pulledby.dir)) || current_pull.pulledby.loc
+			current_pull.zMove(null, target_turf, ZMOVE_ALLOW_BUCKLED)
+			current_pull = current_pull.pulling
 
 // A proc in case it needs to be recreated or badmins want to change the baseturfs
 /turf/proc/assemble_baseturfs(turf/fake_baseturf_type)
