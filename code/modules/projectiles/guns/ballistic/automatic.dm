@@ -134,7 +134,7 @@
 
 /obj/item/gun/ballistic/automatic/m90
 	name = "карабин M-90gl"
-	desc = "Автоматический карабин 5.56 калибра, известный как 'M-90gl'. Возможен режим стрельбы по три пули. Имеет встроенный гранатомёт."
+	desc = "Автоматический карабин 5.56 калибра, известный как 'M-90gl'. Имеет встроенный гранатомёт.\"Стрелять на ПКМ\"."
 	icon_state = "m90"
 	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "m90"
@@ -167,6 +167,9 @@
 		underbarrel.afterattack(target, user, flag, params)
 	else
 		return ..()
+/obj/item/gun/ballistic/automatic/m90/afterattack_secondary(atom/target, mob/living/user, flag, params)
+	underbarrel.afterattack(target, user, flag, params)
+	return SECONDARY_ATTACK_CONTINUE_CHAIN
 
 /obj/item/gun/ballistic/automatic/m90/attackby(obj/item/A, mob/user, params)
 	if(istype(A, /obj/item/ammo_casing))
