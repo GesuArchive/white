@@ -66,10 +66,22 @@
 	speech_args[SPEECH_MESSAGE] = trim(message)
 
 /obj/item/clothing/mask/joy
-	name = "маска радости"
+	name = "маска эмоций"
 	desc = "Выразите своё счастье или скройте печали с этой маской смеющегося лица с вырезанными на нём слезами радости."
 	icon_state = "joy"
+	clothing_flags = MASKINTERNALS
 	flags_inv = HIDESNOUT
+	unique_reskin = list(
+			"Joy" = "joy",
+			"Flushed" = "flushed",
+			"Pensive" = "pensive",
+			"Angry" = "angry",
+	)
+
+/obj/item/clothing/mask/joy/reskin_obj(mob/user)
+	. = ..()
+	user.update_inv_wear_mask()
+	current_skin = null//so we can infinitely reskin
 
 /obj/item/clothing/mask/bandana
 	name = "бандана ботаника"

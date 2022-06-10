@@ -528,10 +528,16 @@
 			cyborg_base_icon = "janitor"
 		if("Zoomba")
 			cyborg_base_icon = "zoomba_jani" // Ну это же просто уборщик, зачем ему штраф на ХП, у остальных зумба вырезан
+			special_light_key = "zoomba_jani_l"
+			hat_offset = -13
 		if("Zoomba_green")
 			cyborg_base_icon = "zoomba_green"
+			special_light_key = "zoomba_green_l"
+			hat_offset = -13
 		if("Zoomba_engi")
 			cyborg_base_icon = "zoomba_engi"
+			special_light_key = "zoomba_engi_l"
+			hat_offset = -13
 		if("Flynn")
 			cyborg_base_icon = "flynn"
 		if("Heavy")
