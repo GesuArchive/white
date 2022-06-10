@@ -298,13 +298,13 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 	to_chat(world, span_green("-- $<b>Мир</b>:> <b>[time]с</b> --"))
 
+	var/list/commit_info = file2text("data/gitsum.json")
+
+	if(commit_info)
+		to_chat(world, span_nzcrentr("-- #<b>Версия</b>:> <a href='https://github.com/frosty-dev/white/commit/[commit_info["commit"]]'>[uppertext(commit_info["message"])]</a> --"))
 	log_world("World init for [time] seconds!")
 
 	spawn(5)
-		//var/list/commit_info = file2text("data/gitsum.json")
-
-		//if(commit_info)
-		//	to_chat(world, span_nzcrentr("-- #<b>Версия</b>:> <a href='https://github.com/frosty-dev/white/commit/[commit_info["commit"]]'>[uppertext(commit_info["message"])]</a> --"))
 		var/list/templist = world.file2list("[global.config.directory]/assblasted_people.txt")
 		for(var/entry in templist)
 			var/list/entrylist =splittext(entry,"||")
