@@ -39,11 +39,6 @@
 "t" = (
 /turf/closed/indestructible/necropolis,
 /area/violence)
-"x" = (
-/obj/structure/table/wood,
-/obj/item/spear/bamboospear,
-/turf/open/floor/bamboo,
-/area/violence)
 "z" = (
 /obj/machinery/door/poddoor/multi_tile/three_tile_ver{
 	resistance_flags = 115
@@ -601,7 +596,7 @@ a
 A
 a
 Y
-x
+p
 Y
 a
 A
@@ -826,7 +821,7 @@ a
 A
 a
 Y
-x
+p
 Y
 a
 A

@@ -155,6 +155,7 @@
 
 /obj/effect/turf_decal/weather/side // запилите сами мне похуй
 	name = "side"
+	icon_state = "side"
 	mouse_opacity = 0
 
 /obj/effect/turf_decal/weather/side/corner

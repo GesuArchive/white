@@ -2,52 +2,39 @@
 "a" = (
 /turf/closed/indestructible/sandstone,
 /area/violence)
+"b" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/obj/item/pickaxe,
+/turf/open/floor/plating/is12/surface,
+/area/violence)
 "c" = (
 /obj/structure/deployable_barricade/sandbags{
 	dir = 1
 	},
 /turf/open/floor/plating/sandy_dirt,
 /area/violence)
-"d" = (
-/obj/structure/deployable_barricade/sandbags,
-/turf/open/floor/plating/sandy_dirt,
-/area/violence)
 "e" = (
 /turf/open/floor/plating/is12/trenchcenter,
+/area/violence)
+"f" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "m4"
+	},
+/turf/open/floor/plating/is12/surface,
+/area/violence)
+"g" = (
+/obj/effect/turf_decal/weather/side,
+/turf/open/floor/plating/is12/surface,
 /area/violence)
 "h" = (
 /obj/effect/turf_decal/is12,
 /turf/open/floor/plating/is12/surface,
 /area/violence)
-"i" = (
-/obj/structure/deployable_barricade/sandbags,
-/obj/effect/turf_decal/weather/side{
-	dir = 8
-	},
-/turf/open/floor/plating/sandy_dirt,
-/area/violence)
-"j" = (
-/obj/structure/deployable_barricade/sandbags,
-/obj/effect/turf_decal/weather/side{
-	dir = 4
-	},
-/turf/open/floor/plating/sandy_dirt,
-/area/violence)
-"k" = (
-/obj/effect/turf_decal/weather/side{
-	dir = 6
-	},
-/turf/open/floor/plating/sandy_dirt,
-/area/violence)
 "l" = (
 /obj/effect/landmark/start/combatant/blue,
 /turf/open/floor/plating/is12/trenchcenter,
-/area/violence)
-"n" = (
-/obj/effect/turf_decal/weather/side{
-	dir = 10
-	},
-/turf/open/floor/plating/sandy_dirt,
 /area/violence)
 "o" = (
 /obj/effect/turf_decal/weather/side{
@@ -58,13 +45,16 @@
 "p" = (
 /turf/closed/indestructible/riveted/dirtystone,
 /area/violence)
-"q" = (
-/obj/effect/turf_decal/weather/side,
-/turf/open/floor/plating/is12/surface,
-/area/violence)
 "r" = (
 /obj/effect/turf_decal/weather/side{
 	dir = 8
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"s" = (
+/obj/structure/deployable_barricade/sandbags,
+/obj/effect/turf_decal/weather/side{
+	dir = 4
 	},
 /turf/open/floor/plating/sandy_dirt,
 /area/violence)
@@ -77,6 +67,10 @@
 "u" = (
 /obj/effect/baseturf_helper/asteroid,
 /turf/closed/indestructible/riveted/dirtystone,
+/area/violence)
+"v" = (
+/obj/item/pickaxe,
+/turf/open/floor/plating/is12/surface,
 /area/violence)
 "w" = (
 /obj/effect/turf_decal/weather/side/corner,
@@ -109,11 +103,17 @@
 	},
 /turf/open/floor/plating/sandy_dirt,
 /area/violence)
-"D" = (
+"C" = (
 /obj/effect/turf_decal/is12{
-	icon_state = "m2"
+	icon_state = "m3"
 	},
 /turf/open/floor/plating/is12/surface,
+/area/violence)
+"D" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 6
+	},
+/turf/open/floor/plating/sandy_dirt,
 /area/violence)
 "E" = (
 /obj/effect/turf_decal/weather/side{
@@ -121,11 +121,17 @@
 	},
 /turf/open/floor/plating/sandy_dirt,
 /area/violence)
-"G" = (
+"F" = (
 /obj/effect/turf_decal/is12{
-	icon_state = "m3"
+	icon_state = "m2"
 	},
 /turf/open/floor/plating/is12/surface,
+/area/violence)
+"G" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 10
+	},
+/turf/open/floor/plating/sandy_dirt,
 /area/violence)
 "H" = (
 /obj/effect/turf_decal/box/red/corners,
@@ -144,10 +150,8 @@
 /turf/open/floor/plating/sandy_dirt,
 /area/violence)
 "K" = (
-/obj/effect/turf_decal/is12{
-	icon_state = "m4"
-	},
-/turf/open/floor/plating/is12/surface,
+/obj/effect/landmark/start/combatant/red,
+/turf/open/floor/plating/is12/trenchcenter,
 /area/violence)
 "L" = (
 /turf/open/floor/plating/sandy_dirt,
@@ -155,6 +159,13 @@
 "M" = (
 /obj/effect/turf_decal/box/red/corners{
 	dir = 1
+	},
+/turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"N" = (
+/obj/structure/deployable_barricade/sandbags,
+/obj/effect/turf_decal/weather/side{
+	dir = 8
 	},
 /turf/open/floor/plating/sandy_dirt,
 /area/violence)
@@ -180,8 +191,7 @@
 /turf/open/floor/plating/sandy_dirt,
 /area/violence)
 "R" = (
-/obj/effect/landmark/start/combatant/red,
-/turf/open/floor/plating/is12/trenchcenter,
+/turf/closed/mineral/ash_rock,
 /area/violence)
 "S" = (
 /obj/structure/deployable_barricade/sandbags{
@@ -193,14 +203,18 @@
 /turf/open/floor/plating/sandy_dirt,
 /area/violence)
 "T" = (
-/obj/effect/turf_decal/is12{
-	icon_state = "m1"
-	},
-/turf/open/floor/plating/is12/surface,
+/obj/structure/deployable_barricade/sandbags,
+/turf/open/floor/plating/sandy_dirt,
 /area/violence)
 "U" = (
 /obj/effect/turf_decal/weather/side,
 /turf/open/floor/plating/sandy_dirt,
+/area/violence)
+"V" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "m1"
+	},
+/turf/open/floor/plating/is12/surface,
 /area/violence)
 "W" = (
 /obj/effect/turf_decal/box/red,
@@ -259,11 +273,31 @@ p
 p
 p
 p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
 u
 "}
 (2,1,1) = {"
 p
-k
+D
 I
 I
 I
@@ -272,9 +306,29 @@ I
 I
 I
 I
-j
-q
+s
+g
 x
+x
+x
+x
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
 x
 x
 x
@@ -302,12 +356,32 @@ L
 L
 L
 L
-d
+T
 L
-d
-q
+T
+g
 x
 x
+x
+x
+R
+R
+x
+x
+x
+x
+x
+x
+x
+R
+x
+R
+x
+x
+x
+R
+R
+R
 x
 x
 x
@@ -334,13 +408,33 @@ L
 L
 L
 L
-d
+T
 L
-d
-q
+T
+g
 x
 x
 x
+x
+x
+R
+R
+R
+R
+R
+R
+R
+R
+R
+x
+R
+R
+R
+R
+R
+R
+R
+R
 x
 x
 h
@@ -366,17 +460,37 @@ L
 L
 L
 L
-d
+T
 L
-d
-q
+T
+g
+v
+x
+x
+x
+h
+R
 x
 x
 x
 x
 x
 x
-o
+x
+R
+x
+R
+x
+R
+x
+x
+x
+x
+R
+x
+x
+x
+b
 c
 L
 c
@@ -398,13 +512,33 @@ L
 L
 L
 L
-d
+T
 L
-d
-q
+T
+g
 x
 x
 x
+x
+x
+R
+R
+R
+R
+R
+R
+R
+x
+R
+x
+R
+x
+R
+R
+R
+R
+R
+R
 x
 x
 x
@@ -432,10 +566,30 @@ r
 r
 r
 O
-d
-q
+T
+g
 x
 x
+x
+x
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
 x
 x
 x
@@ -464,10 +618,30 @@ e
 Z
 a
 U
-d
-q
+T
+g
 x
 x
+x
+x
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
 x
 x
 x
@@ -490,18 +664,38 @@ p
 U
 E
 X
-R
-R
-R
-R
+K
+K
+K
+K
 a
 U
-d
-q
+T
+g
 x
 x
 x
 x
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+R
+R
+x
+v
 x
 x
 o
@@ -522,17 +716,37 @@ p
 U
 E
 e
-R
-R
-R
-R
+K
+K
+K
+K
 a
 U
-d
-q
-h
+T
+g
 x
 x
+x
+x
+R
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+R
+f
+C
 x
 x
 x
@@ -554,17 +768,37 @@ p
 U
 E
 e
-R
-R
-R
-R
+K
+K
+K
+K
 a
 U
-d
-q
+T
+g
 x
 x
+v
 x
+R
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+R
+F
+V
 x
 x
 x
@@ -586,15 +820,35 @@ p
 U
 E
 e
-R
-R
-R
-R
+K
+K
+K
+K
 a
 U
-d
-q
+T
+g
 x
+x
+x
+x
+R
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+R
+R
+R
 x
 x
 x
@@ -624,14 +878,34 @@ e
 Z
 a
 U
-d
-q
+T
+g
 x
 x
-K
-G
 x
 x
+R
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+x
+R
+x
+x
+x
+x
+v
 o
 c
 E
@@ -656,12 +930,32 @@ I
 I
 I
 w
-d
-q
-x
-x
-D
 T
+g
+x
+x
+x
+R
+R
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+R
+R
+R
+R
+R
+x
+x
+x
 x
 x
 o
@@ -686,15 +980,35 @@ L
 L
 L
 L
-d
+T
 L
-d
-q
+T
+g
+v
+x
+x
+R
+R
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
 x
 x
 x
 x
+R
+R
 x
+x
+h
 x
 o
 c
@@ -718,12 +1032,32 @@ L
 L
 L
 L
-d
+T
 L
-d
-q
+T
+g
 x
+h
 x
+R
+R
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+R
+R
+R
+R
+R
+R
 x
 x
 x
@@ -750,12 +1084,32 @@ L
 L
 L
 L
-d
+T
 L
-d
-q
+T
+g
 x
 x
+x
+R
+R
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+x
+x
+x
+x
+R
 x
 x
 x
@@ -782,12 +1136,32 @@ L
 L
 L
 L
-d
+T
 L
-d
-q
+T
+g
 x
 x
+x
+x
+R
+R
+x
+R
+x
+R
+x
+R
+x
+R
+x
+R
+R
+R
+R
+R
+R
+R
 x
 x
 x
@@ -807,7 +1181,7 @@ p
 "}
 (19,1,1) = {"
 p
-n
+G
 r
 r
 r
@@ -816,10 +1190,30 @@ r
 r
 r
 r
-i
-q
+N
+g
 x
 x
+x
+x
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
 x
 x
 x
@@ -838,6 +1232,26 @@ B
 p
 "}
 (20,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
 p
 p
 p

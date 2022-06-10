@@ -59,6 +59,8 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	// пикаем арену
 	var/obj/effect/landmark/violence/V = GLOB.violence_landmark
 	V.load_map()
+	// заполняем карту генераторными штуками
+	SSmapping.seedStation()
 	// генерируем штуки для закупа
 	generate_violence_gear()
 	// отключаем ивенты станции

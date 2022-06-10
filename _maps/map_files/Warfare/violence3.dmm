@@ -18,6 +18,9 @@
 /obj/effect/turf_decal/tile/hex/blue{
 	dir = 8
 	},
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
 /turf/open/floor/engine,
 /area/violence)
 "bF" = (
@@ -41,6 +44,9 @@
 /area/violence)
 "bX" = (
 /obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/violence)
 "cw" = (
@@ -117,6 +123,9 @@
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 8
 	},
+/obj/effect/turf_decal/weather/side{
+	dir = 5
+	},
 /turf/open/floor/engine,
 /area/violence)
 "jj" = (
@@ -168,11 +177,47 @@
 /obj/structure/grille,
 /turf/open/floor/plasteel/monofloor,
 /area/violence)
+"kJ" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 5
+	},
+/turf/open/floor/engine,
+/area/violence)
 "ld" = (
 /turf/open/space/basic,
 /area/violence)
 "lp" = (
 /turf/closed/indestructible/riveted,
+/area/violence)
+"lH" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 9
+	},
+/turf/open/floor/engine,
 /area/violence)
 "lU" = (
 /obj/effect/turf_decal/arrows{
@@ -207,6 +252,9 @@
 	},
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 6
 	},
 /turf/open/floor/engine,
 /area/violence)
@@ -243,7 +291,26 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
+/obj/effect/turf_decal/weather/side{
+	dir = 9
+	},
 /turf/open/floor/plating,
+/area/violence)
+"oT" = (
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 1
+	},
+/turf/open/floor/engine,
 /area/violence)
 "oZ" = (
 /obj/effect/turf_decal/arrows{
@@ -253,6 +320,23 @@
 /area/violence)
 "pb" = (
 /turf/open/space,
+/area/violence)
+"pI" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side,
+/turf/open/floor/engine,
 /area/violence)
 "qo" = (
 /obj/effect/turf_decal/stripes/full,
@@ -285,6 +369,7 @@
 /obj/effect/turf_decal/tile/hex/blue{
 	dir = 8
 	},
+/obj/effect/turf_decal/weather/side,
 /turf/open/floor/engine,
 /area/violence)
 "qT" = (
@@ -317,7 +402,43 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
+/obj/effect/turf_decal/weather/side{
+	dir = 6
+	},
 /turf/open/floor/plating,
+/area/violence)
+"to" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/violence)
+"tC" = (
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/turf/open/floor/engine,
 /area/violence)
 "uP" = (
 /turf/open/floor/plating,
@@ -326,7 +447,29 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
+/obj/effect/turf_decal/weather/side{
+	dir = 4
+	},
 /turf/open/floor/plasteel/dark,
+/area/violence)
+"vp" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 4
+	},
+/turf/open/floor/engine,
 /area/violence)
 "vr" = (
 /obj/effect/turf_decal/stripes/line{
@@ -342,6 +485,9 @@
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 8
 	},
+/obj/effect/turf_decal/weather/side{
+	dir = 6
+	},
 /turf/open/floor/engine,
 /area/violence)
 "vH" = (
@@ -351,11 +497,15 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/effect/turf_decal/weather/side,
 /turf/open/floor/plating,
 /area/violence)
 "wn" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/violence)
@@ -396,7 +546,24 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
+/obj/effect/turf_decal/weather/side{
+	dir = 5
+	},
 /turf/open/floor/plating,
+/area/violence)
+"BD" = (
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side/corner,
+/turf/open/floor/engine,
 /area/violence)
 "Cz" = (
 /obj/effect/turf_decal/stripes/line,
@@ -444,6 +611,15 @@
 	},
 /turf/open/floor/engine,
 /area/violence)
+"FO" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/violence)
 "Gc" = (
 /obj/structure/deployable_barricade/metal{
 	dir = 1
@@ -464,6 +640,9 @@
 /obj/effect/turf_decal/tile/hex/blue{
 	dir = 8
 	},
+/obj/effect/turf_decal/weather/side{
+	dir = 10
+	},
 /turf/open/floor/engine,
 /area/violence)
 "GL" = (
@@ -482,6 +661,55 @@
 "Hl" = (
 /obj/effect/landmark/start/combatant/red,
 /turf/open/floor/plasteel/monofloor/dark,
+/area/violence)
+"Hy" = (
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side,
+/turf/open/floor/engine,
+/area/violence)
+"IL" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 9
+	},
+/turf/open/floor/engine,
+/area/violence)
+"JB" = (
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 4
+	},
+/turf/open/floor/engine,
 /area/violence)
 "Ko" = (
 /obj/effect/turf_decal/arrows{
@@ -513,9 +741,28 @@
 /obj/effect/turf_decal/stripes/full,
 /turf/open/floor/plasteel/monofloor,
 /area/violence)
+"NX" = (
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/violence)
 "Oz" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
 /area/violence)
@@ -530,6 +777,15 @@
 /turf/open/floor/light{
 	currentcolor = "#FA8282"
 	},
+/area/violence)
+"PN" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
 /area/violence)
 "Qv" = (
 /obj/effect/turf_decal/box/red/corners{
@@ -553,11 +809,33 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
+/obj/effect/turf_decal/weather/side{
+	dir = 10
+	},
 /turf/open/floor/plating,
+/area/violence)
+"Rw" = (
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/turf/open/floor/engine,
 /area/violence)
 "RA" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
 /area/violence)
@@ -587,12 +865,29 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
 /turf/open/floor/plasteel/dark,
 /area/violence)
 "TZ" = (
 /turf/open/floor/light{
 	currentcolor = "#FA8282"
 	},
+/area/violence)
+"Uf" = (
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side,
+/turf/open/floor/engine,
 /area/violence)
 "Vq" = (
 /obj/machinery/door/poddoor/multi_tile/four_tile_ver{
@@ -609,6 +904,22 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
+/area/violence)
+"VQ" = (
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/turf/open/floor/engine,
 /area/violence)
 "Xp" = (
 /obj/structure/deployable_barricade/metal{
@@ -630,6 +941,60 @@
 /obj/effect/turf_decal/stripes/full,
 /turf/open/floor/plasteel/monofloor,
 /area/violence)
+"Zb" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 10
+	},
+/turf/open/floor/engine,
+/area/violence)
+"ZF" = (
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/violence)
+"ZO" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue,
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/violence)
 "ZQ" = (
 /obj/effect/turf_decal/arrows{
 	dir = 4
@@ -640,6 +1005,9 @@
 "ZR" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
+	},
+/obj/effect/turf_decal/weather/side{
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/violence)
@@ -1089,34 +1457,34 @@ lp
 (14,1,1) = {"
 lp
 RA
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
-iz
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
+PN
 vd
 lp
 "}
@@ -1302,17 +1670,17 @@ ld
 ld
 xi
 vr
-vr
-vr
-vr
-vr
-vr
-vr
-vr
-vr
-vr
-vr
-vr
+vp
+vp
+vp
+vp
+vp
+vp
+vp
+vp
+vp
+vp
+kJ
 xi
 ld
 ld
@@ -1335,6 +1703,7 @@ pb
 ld
 ld
 xi
+Uf
 FK
 FK
 FK
@@ -1345,8 +1714,7 @@ FK
 FK
 FK
 FK
-FK
-FK
+VQ
 Te
 ld
 ld
@@ -1369,6 +1737,7 @@ Te
 xi
 xi
 Te
+Uf
 FK
 FK
 FK
@@ -1379,8 +1748,7 @@ FK
 FK
 FK
 FK
-FK
-FK
+VQ
 Te
 xi
 xi
@@ -1401,9 +1769,9 @@ vH
 Cz
 Te
 mZ
-FK
-FK
-FK
+JB
+JB
+BD
 FK
 FK
 zQ
@@ -1414,9 +1782,9 @@ zQ
 zQ
 FK
 FK
-FK
-FK
-FK
+NX
+JB
+JB
 iB
 Te
 Ld
@@ -1434,7 +1802,7 @@ XS
 XS
 Cz
 xi
-mZ
+pI
 FK
 FK
 FK
@@ -1451,7 +1819,7 @@ FK
 FK
 FK
 FK
-iB
+to
 xi
 Ld
 XS
@@ -1468,7 +1836,7 @@ XS
 XS
 Cz
 xi
-mZ
+pI
 FK
 FK
 FK
@@ -1485,7 +1853,7 @@ FK
 FK
 FK
 FK
-iB
+to
 xi
 Ld
 XS
@@ -1502,7 +1870,7 @@ XS
 XS
 Cz
 xi
-mZ
+pI
 zQ
 zQ
 zQ
@@ -1519,7 +1887,7 @@ zQ
 zQ
 zQ
 zQ
-iB
+to
 xi
 Ld
 XS
@@ -1536,7 +1904,7 @@ XS
 XS
 Cz
 Te
-mZ
+pI
 FK
 FK
 oz
@@ -1553,7 +1921,7 @@ FK
 oz
 FK
 FK
-iB
+to
 Te
 Ld
 XS
@@ -1570,7 +1938,7 @@ XS
 XS
 Cz
 xi
-mZ
+pI
 FK
 FK
 FK
@@ -1587,7 +1955,7 @@ FK
 FK
 FK
 FK
-iB
+to
 xi
 Ld
 XS
@@ -1604,7 +1972,7 @@ XS
 XS
 Cz
 xi
-mZ
+pI
 FK
 FK
 FK
@@ -1621,7 +1989,7 @@ FK
 FK
 FK
 FK
-iB
+to
 xi
 Ld
 XS
@@ -1638,7 +2006,7 @@ XS
 XS
 Cz
 xi
-mZ
+pI
 FK
 FK
 FK
@@ -1655,7 +2023,7 @@ FK
 FK
 FK
 FK
-iB
+to
 xi
 Ld
 XS
@@ -1672,7 +2040,7 @@ TZ
 XS
 Cz
 Te
-mZ
+pI
 FK
 FK
 FK
@@ -1689,7 +2057,7 @@ FK
 FK
 FK
 FK
-iB
+to
 Te
 Ld
 XS
@@ -1706,7 +2074,7 @@ TZ
 XS
 Cz
 bT
-mZ
+pI
 FK
 FK
 FK
@@ -1723,7 +2091,7 @@ FK
 FK
 FK
 FK
-iB
+to
 bT
 Ld
 XS
@@ -2046,10 +2414,10 @@ XS
 vH
 Cz
 Te
-qM
-qF
-qF
-qF
+Zb
+Rw
+Rw
+oT
 qF
 qF
 RJ
@@ -2060,10 +2428,10 @@ RJ
 RJ
 qF
 qF
-qF
-qF
-qF
-aJ
+ZF
+Rw
+Rw
+lH
 Te
 Ld
 vH
@@ -2083,6 +2451,7 @@ Te
 xi
 xi
 Te
+Hy
 qF
 qF
 qF
@@ -2093,8 +2462,7 @@ qF
 qF
 qF
 qF
-qF
-qF
+tC
 Te
 xi
 xi
@@ -2117,6 +2485,7 @@ pb
 ld
 ld
 xi
+Hy
 qF
 qF
 qF
@@ -2127,8 +2496,7 @@ qF
 qF
 qF
 qF
-qF
-qF
+tC
 xi
 ld
 ld
@@ -2152,17 +2520,17 @@ ld
 ld
 xi
 Gf
-Gf
-Gf
-Gf
-Gf
-Gf
-Gf
-Gf
-Gf
-Gf
-Gf
-Gf
+ZO
+ZO
+ZO
+ZO
+ZO
+ZO
+ZO
+ZO
+ZO
+ZO
+IL
 xi
 ld
 ld
@@ -2347,34 +2715,34 @@ lp
 (51,1,1) = {"
 lp
 Th
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
-QR
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
+FO
 Oz
 lp
 "}

@@ -41,14 +41,6 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/plating/is12/rock,
 /area/ctf/warfare/indoors)
-"ex" = (
-/obj/machinery/torch_fixture{
-	dir = 8;
-	on = 1;
-	pixel_x = -32
-	},
-/turf/open/floor/plating/is12/rock,
-/area/ctf/warfare/indoors)
 "eP" = (
 /obj/structure/table/wood,
 /obj/item/seeds/tower,
@@ -66,18 +58,6 @@
 /obj/machinery/chem_dispenser/gunpowder,
 /turf/open/floor/plating/is12/rock,
 /area/ctf/warfare/indoors)
-"gl" = (
-/obj/structure/cannon{
-	dir = 8
-	},
-/obj/item/wrench,
-/obj/machinery/torch_fixture{
-	dir = 4;
-	on = 1;
-	pixel_x = 32
-	},
-/turf/open/floor/plating/is12/trenchcenter,
-/area/ctf/warfare/indoors)
 "gT" = (
 /obj/effect/mine/explosive,
 /turf/open/floor/plating/is12/surface,
@@ -90,14 +70,6 @@
 /obj/structure/flora/tree/boxplanet/svetosvin,
 /turf/open/floor/plating/is12/dirt,
 /area/ctf/warfare)
-"ic" = (
-/obj/machinery/torch_fixture{
-	dir = 4;
-	on = 1;
-	pixel_x = 32
-	},
-/turf/open/floor/plating/is12/trenchcenter,
-/area/ctf/warfare/indoors)
 "ij" = (
 /turf/open/floor/plating/is12/wood,
 /area/ctf/warfare/indoors)
@@ -267,14 +239,6 @@
 /obj/item/stack/cannonball/fourteen,
 /turf/open/floor/plating/is12/wood,
 /area/ctf/warfare/indoors)
-"yI" = (
-/obj/machinery/torch_fixture{
-	dir = 1;
-	on = 1;
-	pixel_y = 32
-	},
-/turf/open/floor/plating/is12/rock,
-/area/ctf/warfare/indoors)
 "yK" = (
 /obj/structure/table,
 /obj/item/stack/sheet/mineral/sandbags{
@@ -298,11 +262,6 @@
 /turf/closed/mineral/ash_rock,
 /area/ctf/warfare)
 "zK" = (
-/obj/machinery/torch_fixture{
-	dir = 1;
-	on = 1;
-	pixel_y = 32
-	},
 /obj/machinery/chem_dispenser,
 /turf/open/floor/plating/is12/rock,
 /area/ctf/warfare/indoors)
@@ -312,18 +271,6 @@
 	},
 /turf/open/floor/plating/is12/surface,
 /area/ctf/warfare)
-"Dw" = (
-/obj/structure/cannon{
-	dir = 4
-	},
-/obj/item/wrench,
-/obj/machinery/torch_fixture{
-	dir = 8;
-	on = 1;
-	pixel_x = -32
-	},
-/turf/open/floor/plating/is12/trenchcenter,
-/area/ctf/warfare/indoors)
 "DS" = (
 /obj/structure/deployable_barricade/sandbags,
 /obj/structure/deployable_barricade/sandbags{
@@ -342,14 +289,6 @@
 /obj/effect/mine/explosive,
 /turf/open/floor/plating/is12/dirt,
 /area/ctf/warfare)
-"Fh" = (
-/obj/machinery/torch_fixture{
-	dir = 8;
-	on = 1;
-	pixel_x = -32
-	},
-/turf/open/floor/plating/is12/trenchcenter,
-/area/ctf/warfare/indoors)
 "Fj" = (
 /obj/machinery/light/directional/south,
 /turf/open/floor/plating/is12/trenchcenter,
@@ -361,22 +300,6 @@
 "FI" = (
 /turf/open/floor/plating/is12/dirt,
 /area/ctf/warfare)
-"FL" = (
-/obj/machinery/torch_fixture{
-	dir = 4;
-	on = 1;
-	pixel_x = 32
-	},
-/turf/open/floor/plating/is12/rock,
-/area/ctf/warfare/indoors)
-"Gh" = (
-/obj/machinery/torch_fixture{
-	dir = 4;
-	on = 1;
-	pixel_x = 32
-	},
-/turf/open/floor/plating/is12/surface,
-/area/ctf/warfare/indoors)
 "HN" = (
 /turf/closed/indestructible/riveted/dirtystone,
 /area/ctf/warfare/indoors)
@@ -460,15 +383,6 @@
 /obj/structure/table/wood,
 /obj/item/cultivator,
 /turf/open/floor/plating/is12/wood,
-/area/ctf/warfare/indoors)
-"Mj" = (
-/obj/structure/closet/crate/hydroponics,
-/obj/machinery/torch_fixture{
-	dir = 1;
-	on = 1;
-	pixel_y = 32
-	},
-/turf/open/floor/plating/is12/rock,
 /area/ctf/warfare/indoors)
 "MD" = (
 /obj/structure/flora/tree/boxplanet/svetosvin,
@@ -86987,7 +86901,7 @@ HN
 la
 la
 HN
-Mj
+ou
 ij
 ij
 jl
@@ -87220,7 +87134,7 @@ HN
 la
 la
 HN
-Mj
+ou
 ij
 ij
 jl
@@ -94205,7 +94119,7 @@ Ui
 Ui
 La
 La
-Fh
+La
 La
 La
 HN
@@ -94403,11 +94317,11 @@ la
 HN
 La
 La
-Fh
+La
 La
 La
 Ui
-Dw
+Ui
 Ui
 La
 HN
@@ -94930,7 +94844,7 @@ HN
 HN
 HN
 HN
-yI
+ZS
 ZS
 ZS
 ZS
@@ -94952,7 +94866,6 @@ WL
 WL
 WL
 ks
-ex
 ZS
 ZS
 ZS
@@ -94963,7 +94876,8 @@ ZS
 ZS
 ZS
 ZS
-ex
+ZS
+ZS
 ZS
 ZS
 ZS
@@ -95723,9 +95637,9 @@ WL
 WL
 WL
 ks
-Gh
 ks
 ks
+ks
 ZS
 ZS
 ZS
@@ -95734,7 +95648,7 @@ ZS
 ZS
 ZS
 ZS
-FL
+ZS
 ZS
 ZS
 ZS
@@ -96518,7 +96432,7 @@ io
 io
 La
 La
-ic
+La
 La
 La
 HN
@@ -96716,11 +96630,11 @@ la
 HN
 La
 La
-ic
+La
 La
 La
 io
-gl
+io
 io
 La
 HN

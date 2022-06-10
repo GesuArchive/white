@@ -7,6 +7,10 @@
 /obj/structure/table/reinforced/ctf,
 /turf/open/floor/plasteel/white,
 /area/violence)
+"c" = (
+/obj/effect/landmark/stationroom/maintenance/rdm3x3,
+/turf/open/floor/plastic,
+/area/violence)
 "e" = (
 /obj/effect/landmark/bomb_plant_location,
 /obj/effect/turf_decal/box/red,
@@ -42,6 +46,10 @@
 "n" = (
 /obj/structure/table/reinforced/ctf,
 /turf/open/floor/resin,
+/area/violence)
+"o" = (
+/obj/effect/landmark/stationroom/maintenance/rdm3x3,
+/turf/open/floor/resin/crypto,
 /area/violence)
 "p" = (
 /turf/open/floor/plasteel/sepia,
@@ -108,6 +116,14 @@
 /area/violence)
 "H" = (
 /turf/open/floor/plasteel/grimy,
+/area/violence)
+"I" = (
+/obj/effect/landmark/stationroom/maintenance/rdm3x3,
+/turf/open/floor/plasteel/dark,
+/area/violence)
+"J" = (
+/obj/effect/landmark/stationroom/maintenance/rdm10x10,
+/turf/open/floor/plasteel/bluespace,
 /area/violence)
 "L" = (
 /turf/open/floor/stone,
@@ -285,7 +301,7 @@ u
 u
 u
 u
-u
+J
 t
 U
 U
@@ -457,7 +473,7 @@ L
 t
 y
 y
-y
+I
 t
 r
 r
@@ -665,7 +681,7 @@ O
 t
 y
 y
-y
+I
 t
 r
 r
@@ -873,7 +889,7 @@ t
 t
 A
 A
-A
+o
 t
 r
 r
@@ -1078,10 +1094,10 @@ B
 t
 m
 m
+c
 m
 m
-m
-m
+c
 t
 B
 B
@@ -1333,7 +1349,7 @@ p
 t
 m
 m
-m
+c
 t
 j
 j
@@ -1346,19 +1362,19 @@ j
 t
 m
 m
-m
+c
 t
 A
 A
-A
+o
 t
 y
 y
-y
+I
 t
 y
 y
-y
+I
 t
 y
 y
@@ -1477,19 +1493,19 @@ y
 t
 y
 y
-y
+I
 t
 y
 y
-y
+I
 t
 A
 A
-A
+o
 t
 m
 m
-m
+c
 P
 R
 R
@@ -1502,7 +1518,7 @@ R
 P
 m
 m
-m
+c
 t
 t
 P
@@ -1754,10 +1770,10 @@ B
 t
 m
 m
+c
 m
 m
-m
-m
+c
 t
 B
 B
@@ -1962,7 +1978,7 @@ t
 t
 A
 A
-A
+o
 t
 p
 p
@@ -2170,7 +2186,7 @@ r
 t
 y
 y
-y
+I
 t
 M
 g
@@ -2193,7 +2209,7 @@ u
 u
 u
 u
-u
+J
 t
 f
 "}
@@ -2378,7 +2394,7 @@ r
 t
 y
 y
-y
+I
 t
 t
 t
