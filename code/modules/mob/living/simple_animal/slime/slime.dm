@@ -106,6 +106,7 @@
 	set_nutrition(700)
 	AddElement(/datum/element/footstep, FOOTSTEP_MOB_SLIME, 0)
 	add_cell_sample()
+	AddElement(/datum/element/soft_landing)
 
 /mob/living/simple_animal/slime/Destroy()
 	for (var/A in actions)
