@@ -297,7 +297,11 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	current_ticklimit = TICK_LIMIT_RUNNING
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 	to_chat(world, span_green("-- $<b>Мир</b>:> <b>[time]с</b> --"))
-	to_chat(world, span_nzcrentr("-- #<b>Хэш энтропии</b>:> <b>[md5("[random_seed]")]</b> --"))
+
+	var/list/commit_info = file2text("data/gitsum.json")
+
+	if(commit_info)
+		to_chat(world, span_nzcrentr("-- #<b>Версия</b>:> <a href='https://github.com/frosty-dev/white/commit/[commit_info["commit"]]'>[uppertext(commit_info["message"])]</a> --"))
 	log_world("World init for [time] seconds!")
 
 	spawn(5)
