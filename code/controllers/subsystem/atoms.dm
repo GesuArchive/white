@@ -85,8 +85,6 @@ SUBSYSTEM_DEF(atoms)
 
 	var/start_tick = world.time
 
-	log_runtime(A.type)
-
 	var/result = A.Initialize(arglist(arguments))
 
 	if(start_tick != world.time)
