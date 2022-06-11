@@ -1684,8 +1684,8 @@
 	dir = 4
 	},
 /obj/item/storage/backpack/duffelbag/med/surgery{
-	pixel_x = -13;
-	pixel_y = 11
+	pixel_y = 11;
+	pixel_x = -13
 	},
 /obj/item/storage/firstaid/regular{
 	pixel_x = 10;

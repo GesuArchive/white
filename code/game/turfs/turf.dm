@@ -399,11 +399,11 @@ GLOBAL_LIST_EMPTY(station_turfs)
 			return FALSE		//We were deleted.
 
 
-/turf/open/Entered(atom/movable/arrived)
+/turf/open/Entered(atom/movable/AM)
 	. = ..()
 	//melting
-	if(isobj(arrived) && air && air.return_temperature() > T0C)
-		var/obj/O = arrived
+	if(isobj(AM) && air && air.return_temperature() > T0C)
+		var/obj/O = AM
 		if(O.obj_flags & FROZEN)
 			O.make_unfrozen()
 

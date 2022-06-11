@@ -59,7 +59,6 @@
 	name = "ЦК: Поверхность"
 	static_lighting = TRUE
 	has_gravity = TRUE
-	base_lighting_alpha = 255
 
 /area/centcom/office
 	name = "ЦК: Офис"
