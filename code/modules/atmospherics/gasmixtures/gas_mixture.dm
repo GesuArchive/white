@@ -175,6 +175,9 @@ we use a hook instead
 	//Creates new, identical gas mixture
 	//Returns: duplicate gas mixture
 
+//Returns the amount of gas that has the given flag, in moles
+/datum/gas_mixture/proc/get_by_flag(flag)
+
 /datum/gas_mixture/proc/copy_from(datum/gas_mixture/sample)
 	//Copies variables from sample
 	//Returns: 1 if we are mutable, 0 otherwise
