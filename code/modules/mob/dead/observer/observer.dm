@@ -796,11 +796,10 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 		return
 	client.crew_manifest_delay = world.time + (1 SECONDS)
 
-	var/dat
-	dat += "<h4>Персонал</h4>"
-	dat += GLOB.data_core.get_manifest_html()
+	if(!GLOB.crew_manifest_tgui)
+		GLOB.crew_manifest_tgui = new /datum/crew_manifest(src)
 
-	src << browse(dat, "window=manifest;size=387x420;can_close=1")
+	GLOB.crew_manifest_tgui.ui_interact(src)
 
 //this is called when a ghost is drag clicked to something.
 /mob/dead/observer/MouseDrop(atom/over)
