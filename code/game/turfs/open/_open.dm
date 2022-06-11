@@ -268,12 +268,3 @@
 		air.set_moles(GAS_O2, max(air.get_moles(GAS_O2)-(strength * 0.0005),0))
 		air.adjust_moles(GAS_PLUOXIUM, strength * 0.004)
 		air_update_turf()
-
-/turf/open/ReplaceWithLattice()
-	var/dest_x = destination_x
-	var/dest_y = destination_y
-	var/dest_z = destination_z
-	..()
-	destination_x = dest_x
-	destination_y = dest_y
-	destination_z = dest_z
