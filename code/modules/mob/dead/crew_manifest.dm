@@ -29,22 +29,22 @@
 		"Гости" = 0
 	)
 	var/list/departments = list(
-		list("flag" = DEPARTMENT_COMMAND, "name" = "Командование"),
-		list("flag" = DEPARTMENT_SECURITY, "name" = "Охрана"),
-		list("flag" = DEPARTMENT_ENGINEERING, "name" = "Инженерный"),
-		list("flag" = DEPARTMENT_MEDICAL, "name" = "Медицинский"),
-		list("flag" = DEPARTMENT_SCIENCE, "name" = "Научный"),
-		list("flag" = DEPARTMENT_CARGO, "name" = "Снабжение"),
-		list("flag" = DEPARTMENT_SERVICE, "name" = "Обслуга"),
-		list("flag" = DEPARTMENT_SILICON, "name" = "Синтетики"),
-		list("flag" = DEPARTMENT_UNASSIGNED, "name" = "Гости")
+		"Командование" = GLOB.command_positions,
+		"Охрана" = GLOB.security_positions,
+		"Инженерный" = GLOB.engineering_positions,
+		"Медицинский" = GLOB.medical_positions,
+		"Научный" = GLOB.science_positions,
+		"Снабжение" = GLOB.supply_positions,
+		"Обслуга" = GLOB.service_positions,
+		"Синтетики" = GLOB.nonhuman_positions,
+		"Гости" = GLOB.scum_positions
 	)
 
 	for(var/job in SSjob.occupations)
 		for(var/department in departments)
 			// Check if the job is part of a department using its flag
 			// Will return true for Research Director if the department is Science or Command, for example
-			if(job["departments"] & department["flag"])
+			if(job in departments[department])
 				// Add open positions to current department
 				positions[department["name"]] += (job["total_positions"] - job["current_positions"])
 
