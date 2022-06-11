@@ -32,6 +32,9 @@
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
+	if(check_for_assblast(src, ASSBLAST_PACIFIST))
+		ADD_TRAIT(src, TRAIT_PACIFISM, "cocu")
+
 /mob/living/carbon/human/proc/setup_human_dna()
 	//initialize dna. for spawned humans; overwritten by other code
 	create_dna(src)
