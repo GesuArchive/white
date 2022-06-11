@@ -1,8 +1,3 @@
-/turf/open
-	var/destination_z
-	var/destination_x
-	var/destination_y
-
 /turf/open/space
 	icon = 'icons/turf/space.dmi'
 	icon_state = "0"
@@ -20,6 +15,10 @@
 	always_lit = TRUE
 	bullet_bounce_sound = null
 	vis_flags = VIS_INHERIT_ID	//when this be added to vis_contents of something it be associated with something on clicking, important for visualisation of turf in openspace and interraction with openspace that show you turf.
+
+	var/destination_z
+	var/destination_x
+	var/destination_y
 
 /turf/open/space/basic/Initialize() // fast enough
 	SHOULD_CALL_PARENT(FALSE)
@@ -84,7 +83,12 @@
 	return INITIALIZE_HINT_NORMAL
 
 //ATTACK GHOST IGNORING PARENT RETURN VALUE
-/turf/open/attack_ghost(mob/dead/observer/user)
+/turf/open/space/attack_ghost(mob/dead/observer/user)
+	if(destination_z)
+		var/turf/T = locate(destination_x, destination_y, destination_z)
+		user.forceMove(T)
+
+/turf/open/openspace/attack_ghost(mob/dead/observer/user)
 	if(destination_z)
 		var/turf/T = locate(destination_x, destination_y, destination_z)
 		user.forceMove(T)
