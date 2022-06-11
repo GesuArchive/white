@@ -40,7 +40,7 @@
 		"Гости" = GLOB.scum_positions
 	)
 
-	for(var/job in SSjob.occupations)
+	for(var/job in SSjob.name_occupations)
 		for(var/department in departments)
 			// Check if the job is part of a department using its flag
 			// Will return true for Research Director if the department is Science or Command, for example

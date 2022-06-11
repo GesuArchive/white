@@ -4,18 +4,18 @@ import { Icon, Section, Table, Tooltip } from "../components";
 import { Window } from "../layouts";
 
 const commandJobs = [
-  "Head of Personnel",
-  "Head of Security",
-  "Chief Engineer",
-  "Research Director",
-  "Chief Medical Officer",
+  "Глава Персонала",
+  "Начальник Охраны",
+  "Старший Инженер",
+  "Научный Руководитель",
+  "Главный Врач",
 ];
 
 export const CrewManifest = (props, context) => {
   const { data: { manifest, positions } } = useBackend(context);
 
   return (
-    <Window title="Crew Manifest" width={350} height={500}>
+    <Window title="Список Персонала" width={400} height={600}>
       <Window.Content scrollable>
         {Object.entries(manifest).map(([dept, crew]) => (
           <Section
@@ -23,7 +23,7 @@ export const CrewManifest = (props, context) => {
             key={dept}
             title={
               dept + (dept !== "Misc"
-                ? ` (${positions[dept].open} positions open)` : "")
+                ? ` (${positions[dept]} доступно)` : "")
             }
           >
             <Table>
@@ -39,16 +39,7 @@ export const CrewManifest = (props, context) => {
                     ])}
                     collapsing
                   >
-                    {positions[dept].exceptions.includes(crewMember.rank) && (
-
-                      <Tooltip
-                        content="No position limit"
-                        position="bottom"
-                      >
-                        <Icon className="CrewManifest__Icon" name="infinity" />
-                      </Tooltip>
-                    )}
-                    {crewMember.rank === "Captain" && (
+                    {crewMember.rank === "Капитан" && (
                       <Tooltip
                         content="Captain"
                         position="bottom"
@@ -64,7 +55,7 @@ export const CrewManifest = (props, context) => {
                     )}
                     {commandJobs.includes(crewMember.rank) && (
                       <Tooltip
-                        content="Member of command"
+                        content="Член командования"
                         position="bottom"
                       >
                         <Icon

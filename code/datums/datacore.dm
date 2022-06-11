@@ -185,12 +185,12 @@
 				if (rank == "Captain" || (department != "Command" && (rank in heads)))
 					manifest_out[department] = list(list(
 						"name" = name,
-						"rank" = rank
+						"rank" = ru_job_parse(rank)
 					)) + manifest_out[department]
 				else
 					manifest_out[department] += list(list(
 						"name" = name,
-						"rank" = rank
+						"rank" = ru_job_parse(rank)
 					))
 				has_department = TRUE
 		if(!has_department)
@@ -198,7 +198,7 @@
 				manifest_out["Misc"] = list()
 			manifest_out["Misc"] += list(list(
 				"name" = name,
-				"rank" = rank
+				"rank" = ru_job_parse(rank)
 			))
 	for (var/department in departments)
 		if (!manifest_out[department])
