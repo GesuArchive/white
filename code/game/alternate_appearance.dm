@@ -17,7 +17,7 @@ GLOBAL_LIST_EMPTY(active_alternate_appearances)
 		CRASH("Invalid type passed in: [type]")
 
 	var/list/arguments = args.Copy(2)
-	new type(arglist(arguments))
+	return new type(arglist(arguments))
 
 /datum/atom_hud/alternate_appearance
 	var/appearance_key

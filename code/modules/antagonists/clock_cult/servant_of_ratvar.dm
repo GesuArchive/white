@@ -8,6 +8,7 @@
 	antagpanel_category = "Clockcult"
 	antag_moodlet = /datum/mood_event/cult
 	job_rank = ROLE_SERVANT_OF_RATVAR
+	antag_hud_name = "clockwork"
 	greentext_reward = 60
 
 	//The class of the servant
