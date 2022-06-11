@@ -58,4 +58,4 @@
 	client.update_metabalance_cache()
 	client.proverka_na_pindosov()
 
-	client?.show_lobby()
+	client?.show_lobby(src)
