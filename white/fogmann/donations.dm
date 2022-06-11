@@ -42,7 +42,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("Basil Boys Helmet",			/obj/item/clothing/head/basil_boys,				200),
 	),
 	"Маски" = list(
-		new /datum/donate_info("Emotions Mask"),			/obj/item/clothing/mask/joy,					200),
+		new /datum/donate_info("Emotions Mask",				/obj/item/clothing/mask/joy,					200),
 		new /datum/donate_info("Fake Moustache",			/obj/item/clothing/mask/fakemoustache,			100),
 		new /datum/donate_info("Pig Mask",					/obj/item/clothing/mask/animal/pig,				150),
 		new /datum/donate_info("Cow Mask",					/obj/item/clothing/mask/animal/cowmask,			150),

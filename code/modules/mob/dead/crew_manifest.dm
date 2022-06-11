@@ -45,8 +45,9 @@
 			// Check if the job is part of a department using its flag
 			// Will return true for Research Director if the department is Science or Command, for example
 			if(job in departments[department])
+				var/datum/job/job_datum = SSjob.name_occupations[job]
 				// Add open positions to current department
-				positions[department["name"]] += (job["total_positions"] - job["current_positions"])
+				positions[department] += (job_datum["total_positions"] - job_datum["current_positions"])
 
 	return list(
 		"manifest" = GLOB.data_core.get_manifest(),
