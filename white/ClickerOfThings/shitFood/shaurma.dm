@@ -7,7 +7,7 @@
 	lefthand_file = 'white/ClickerOfThings/shitFood/shaurma_left.dmi'
 	righthand_file = 'white/ClickerOfThings/shitFood/shaurma_right.dmi'
 
-/obj/item/food/shaurma
+/obj/item/food/shaurma/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/customizable_reagent_holder, null, CUSTOM_INGREDIENT_ICON_FILL, max_ingredients = 8)
 
