@@ -68,7 +68,7 @@ const PatientStateView = (props, context) => {
   return (
     <>
       <Section title="Статус пациента">
-        {!!patient && (
+        {!!patient?.statstate && (
           <LabeledList>
             <LabeledList.Item
               label="Состояние"
