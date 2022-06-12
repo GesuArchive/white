@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, Section, Stack, Box, Icon, LabeledList } from '../components';
+import { Button, Section, Stack, Box, Icon, LabeledList, NoticeBox } from '../components';
 import { Window } from '../layouts';
 
 export const Forge = (props, context) => {
@@ -13,65 +13,73 @@ export const Forge = (props, context) => {
     crafts,
   } = data;
   return (
-    <Window>
-      <Box textAlign="center">
-        Плавильня
-      </Box>
-      <Section>
-        <Box textAlign="center">
-          {selected_material}: {amount}/{max_amount}
-        </Box>
-      </Section>
-      <Section>
-        <LabeledList>
-          {reagent_list.map(reagent => (
+    <Window
+      width={300}
+      height={455}>
+      <Window.Content>
+        <Section title="Плавильня">
+          <Box mb={1} fontSize="20px" textAlign="center">
+            {selected_material}: {amount}/{max_amount}
+          </Box>
+        </Section>
+        <Section title="Реагенты">
+          <LabeledList>
+            {reagent_list.map(reagent => (
+              <Button
+                key={reagent.name}
+                content={reagent.name}
+                tooltip={reagent.volume}
+                m={1}
+                selected={reagent.name === selected_material}
+                textAlign="center"
+                onClick={() => act('select', {
+                  reagent: reagent.name,
+                })} />
+            ))}
+          </LabeledList>
+          {!!reagent_list.length && (
             <Button
-              key={reagent.name}
-              content={reagent.name}
-              tooltip={reagent.volume}
-              selected={reagent.name === selected_material}
-              textAlign="center"
+              fontColor="white"
               color="transparent"
-              onClick={() => act('select', {
-                reagent: reagent.name,
-              })} />
-          ))}
-        </LabeledList>
-        <Button
-          fontColor="white"
-          color="transparent"
-          icon="arrow-right"
-          onClick={() => act('dump')}>
-          Очистить
-        </Button>
-      </Section>
-      <Stack vertical>
-        {crafts.map(craft => (
-          <Stack.Item key={craft}>
-            <Section
-              title={craft.name}
-              buttons={(
-                <Button
-                  fontColor="white"
-                  disabled={amount < craft.cost}
-                  color="transparent"
-                  icon="arrow-right"
-                  onClick={() => act('create', {
-                    path: craft.path,
-                    cost: craft.cost,
-                  })} >
-                  Создать
-                </Button>
-              )} >
-              <Box
-                color={amount < craft.cost ? "red" : "green"}
-                mb={0.5}>
-                <Icon name="star" /> Цена {craft.cost}.
-              </Box>
-            </Section>
-          </Stack.Item>
-        ))}
-      </Stack>
+              icon="arrow-right"
+              onClick={() => act('dump')}>
+              Очистить
+            </Button>
+          ) || (
+            <NoticeBox>
+              Нет реагентов.
+            </NoticeBox>
+          )}
+        </Section>
+        <Section title="Рецепты">
+          <LabeledList>
+            {crafts.map(craft => (
+              <LabeledList.Item
+                label={craft.name}
+                key={craft}
+                buttons={(
+                  <Button
+                    fontColor="white"
+                    disabled={amount < craft.cost}
+                    color="white"
+                    icon="arrow-right"
+                    onClick={() => act('create', {
+                      path: craft.path,
+                      cost: craft.cost,
+                    })} >
+                    Создать
+                  </Button>
+                )} >
+                <Box
+                  color={amount < craft.cost ? "red" : "green"}
+                  mb={0.5}>
+                  <Icon name="star" /> {craft.cost} единиц
+                </Box>
+              </LabeledList.Item>
+            ))}
+          </LabeledList>
+        </Section>
+      </Window.Content>
     </Window>
   );
 };

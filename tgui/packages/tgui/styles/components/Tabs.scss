@@ -123,6 +123,7 @@ $fg-map: colors.$fg-map !default;
   .Tab--selected {
     border-right: math.div(1em, 6) solid $color-default;
     border-top:rgba(255, 255, 255, 0.1) 1px solid;
+    border-left:rgba(255, 255, 255, 0.1) 1px solid;
     border-bottom:rgba(255, 255, 255, 0.05) 1px solid;
   }
 }

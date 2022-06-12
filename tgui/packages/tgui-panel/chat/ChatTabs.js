@@ -49,7 +49,7 @@ export const ChatTabs = (props, context) => {
       </Flex.Item>
       <Flex.Item ml={1}>
         <Button
-          color="transparent"
+          color="white"
           icon="plus"
           onClick={() => {
             dispatch(addChatPage());
