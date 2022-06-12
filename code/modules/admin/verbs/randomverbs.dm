@@ -134,7 +134,7 @@
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/msg = tgui_input_text(usr, "Message:", text("Enter the text you wish to appear to everyone:"))
+	var/msg = tgui_input_text(usr, "Message:", text("Enter the text you wish to appear to everyone:"), encode = FALSE)
 
 	if (!msg)
 		return
@@ -156,7 +156,7 @@
 	if(!M)
 		return
 
-	var/msg = tgui_input_text(usr, "Message:", text("Enter the text you wish to appear to your target:"))
+	var/msg = tgui_input_text(usr, "Message:", text("Enter the text you wish to appear to your target:"), encode = FALSE)
 
 	if( !msg )
 		return
@@ -179,7 +179,7 @@
 	var/range = input("Range:", "Narrate to mobs within how many tiles:", 7) as num|null
 	if(!range)
 		return
-	var/msg = tgui_input_text(usr, "Message:", text("Enter the text you wish to appear to everyone within view:"))
+	var/msg = tgui_input_text(usr, "Message:", text("Enter the text you wish to appear to everyone within view:"), encode = FALSE)
 	if (!msg)
 		return
 	for(var/mob/M in view(range,A))
