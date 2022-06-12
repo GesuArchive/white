@@ -11,47 +11,45 @@ export const SpawnersMenu = (props, context) => {
       width={700}
       height={600}>
       <Window.Content scrollable>
-        <Section>
-          {spawners.map(spawner => (
-            <Section
-              key={spawner.name}
-              title={spawner.name + ' (' + spawner.amount_left + ' left)'}
-              level={2}
-              buttons={(
-                <>
-                  <Button
-                    content="Перейти"
-                    onClick={() => act('jump', {
-                      name: spawner.name,
-                    })} />
-                  <Button
-                    content="Вселиться"
-                    onClick={() => act('spawn', {
-                      name: spawner.name,
-                    })} />
-                </>
-              )}>
+        {spawners.map(spawner => (
+          <Section
+            key={spawner.name}
+            title={spawner.name + ' (' + spawner.amount_left + ' left)'}
+            level={2}
+            buttons={(
+              <>
+                <Button
+                  content="Перейти"
+                  onClick={() => act('jump', {
+                    name: spawner.name,
+                  })} />
+                <Button
+                  content="Вселиться"
+                  onClick={() => act('spawn', {
+                    name: spawner.name,
+                  })} />
+              </>
+            )}>
+            <Box
+              bold
+              mb={1}
+              fontSize="20px">
+              {spawner.short_desc}
+            </Box>
+            <Box>
+              {spawner.flavor_text}
+            </Box>
+            {!!spawner.important_info && (
               <Box
+                mt={1}
                 bold
-                mb={1}
-                fontSize="20px">
-                {spawner.short_desc}
+                color="bad"
+                fontSize="16px">
+                {spawner.important_info}
               </Box>
-              <Box>
-                {spawner.flavor_text}
-              </Box>
-              {!!spawner.important_info && (
-                <Box
-                  mt={1}
-                  bold
-                  color="bad"
-                  fontSize="26px">
-                  {spawner.important_info}
-                </Box>
-              )}
-            </Section>
-          ))}
-        </Section>
+            )}
+          </Section>
+        ))}
       </Window.Content>
     </Window>
   );

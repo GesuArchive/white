@@ -8,8 +8,8 @@
 @use '../functions.scss' as *;
 
 $color-default: colors.bg(colors.$primary) !default;
-$color-disabled: #999999 !default;
-$color-disabled-text: #000000 !default;
+$color-disabled: #555555 !default;
+$color-disabled-text: #111111 !default;
 $color-selected: colors.bg(colors.$green) !default;
 $color-caution: colors.bg(colors.$yellow) !default;
 $color-danger: colors.bg(colors.$red) !default;
@@ -53,7 +53,7 @@ $bg-map: colors.$bg-map !default;
 .Button {
   position: relative;
   display: inline-block;
-  line-height: 1.667em;
+  line-height: 1.4em;
   padding: 0 0.5em;
   margin-right: base.em(2px);
   white-space: nowrap;

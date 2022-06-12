@@ -27,7 +27,7 @@ export const AiAirlock = (props, context) => {
   return (
     <Window
       width={500}
-      height={425}>
+      height={382}>
       <Window.Content>
         <Section title="Состояние питания">
           <LabeledList>

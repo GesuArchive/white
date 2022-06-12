@@ -52,7 +52,7 @@ export const MechpadConsole = (props, context) => {
   return (
     <Window
       width={555}
-      height={130}>
+      height={125}>
       <Window.Content>
         {mechpads.length === 0 && (
           <NoticeBox>
@@ -69,7 +69,6 @@ export const MechpadConsole = (props, context) => {
                     key={mechpad.name}
                     content={mechpad.name}
                     selected={selected_id === mechpad.id}
-                    color="transparent"
                     onClick={() => act('select_pad', {
                       id: mechpad.id,
                     })} />

@@ -102,7 +102,6 @@ export const NtosMain = (props, context) => {
                   <Button
                     fluid
                     icon="eject"
-                    color="transparent"
                     content="Eject pAI"
                     onClick={() => act('PC_Pai_Interact', {
                       option: "eject",
@@ -115,7 +114,6 @@ export const NtosMain = (props, context) => {
                   <Button
                     fluid
                     icon="cat"
-                    color="transparent"
                     content="Configure pAI"
                     onClick={() => act('PC_Pai_Interact', {
                       option: "interact",
@@ -134,7 +132,7 @@ export const NtosMain = (props, context) => {
                   <Button
                     fluid
                     mb={1}
-                    color={program.alert ? 'yellow' : 'transparent'}
+                    color={program.alert ? 'yellow' : 'white'}
                     icon={program.icon}
                     content={program.desc}
                     onClick={() => act('PC_runprogram', {
@@ -145,7 +143,6 @@ export const NtosMain = (props, context) => {
                 <Table.Cell collapsing width="18px">
                   {!!program.running && (
                     <Button
-                      color="transparent"
                       icon="times"
                       tooltip="Закрыть"
                       tooltipPosition="left"
@@ -177,7 +174,7 @@ export const NtosMain = (props, context) => {
                   <Table.Cell>
                     <Button
                       fluid
-                      color={program.alert ? 'yellow' : 'transparent'}
+                      color={program.alert ? 'yellow' : 'white'}
                       icon={program.icon}
                       content={program.desc}
                       onClick={() => act('PC_runprogram', {
@@ -188,7 +185,6 @@ export const NtosMain = (props, context) => {
                   <Table.Cell collapsing width="18px">
                     {!!program.running && (
                       <Button
-                        color="transparent"
                         icon="times"
                         tooltip="Close program"
                         tooltipPosition="left"

@@ -10,8 +10,8 @@
 
 $title-text-color: base.$color-fg !default;
 $background-color: base.$color-bg-section !default;
-$separator-color: lighten(base.$color-bg-section, 30%) !default;
-$shadow-color: rgba(0, 0, 0, 0.5) !default;
+$separator-color: lighten(base.$color-bg-section, 20%) !default;
+$shadow-color: rgba(0, 0, 0, 0.7) !default;
 $shadow-type: inset !default;
 $shadow-size: 0.5em !default;
 $shadow-offset: 0 0 !default;
@@ -22,6 +22,7 @@ $shadow-offset: 0 0 !default;
   background-color: functions.fake-alpha($background-color, base.$color-bg);
   background-color: $background-color;
   box-sizing: border-box;
+  border: base.em(1px) solid $separator-color;
 
   &:last-child {
     margin-bottom: 0;
@@ -30,13 +31,14 @@ $shadow-offset: 0 0 !default;
 
 .Section__title {
   position: relative;
-  padding: 0.5em;
-  padding-bottom: 0.7em;
-  border-bottom: base.em(2px) solid $separator-color;
+  padding: 0.3em;
+  padding-bottom: 0.5em;
+  background-color: $background-color;
+  border-bottom: base.em(1px) solid $separator-color;
 }
 
 .Section__titleText {
-  font-size: base.em(14px);
+  font-size: base.em(13px);
   font-weight: bold;
   color: $title-text-color;
 }

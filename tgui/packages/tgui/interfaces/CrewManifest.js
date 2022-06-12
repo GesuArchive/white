@@ -23,7 +23,7 @@ export const CrewManifest = (props, context) => {
             key={dept}
             title={
               dept + (dept !== "Misc"
-                ? ` (${positions[dept]} доступно)` : "")
+                ? ` (${positions[dept]} позиций открыто)` : "")
             }
           >
             <Table>

@@ -183,7 +183,6 @@ const ListDisplay = (props, context) => {
       {filteredItems.map((item, index) => {
         return (
           <Button
-            color="transparent"
             fluid
             id={index}
             key={index}
@@ -204,7 +203,7 @@ const ListDisplay = (props, context) => {
               'animation': 'none',
               'transition': 'none',
             }}>
-            {item.replace(/^\w/, (c) => c.toUpperCase())}
+            {item.replace(/^\w/, (c) => c.toUpperCase()).substring(0, 41)}
           </Button>
         );
       })}

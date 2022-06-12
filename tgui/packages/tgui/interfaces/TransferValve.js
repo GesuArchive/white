@@ -13,7 +13,7 @@ export const TransferValve = (props, context) => {
   return (
     <Window
       width={310}
-      height={300}>
+      height={275}>
       <Window.Content>
         <Section>
           <LabeledList>

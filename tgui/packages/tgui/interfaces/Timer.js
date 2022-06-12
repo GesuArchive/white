@@ -13,7 +13,7 @@ export const Timer = (props, context) => {
   return (
     <Window
       width={275}
-      height={115}>
+      height={105}>
       <Window.Content>
         <Section
           title="Таймер"

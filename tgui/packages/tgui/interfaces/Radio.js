@@ -26,13 +26,13 @@ export const Radio = (props, context) => {
     status: !!value,
   }))(data.channels);
   // Calculate window height
-  let height = 111;
+  let height = 105;
   if (subspace) {
     if (channels.length > 0) {
-      height += channels.length * 23 + 6;
+      height += channels.length * 19 + 6;
     }
     else {
-      height += 24;
+      height += 22;
     }
   }
   return (

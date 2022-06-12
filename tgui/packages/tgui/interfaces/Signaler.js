@@ -8,7 +8,7 @@ export const Signaler = (props, context) => {
   return (
     <Window
       width={280}
-      height={132}>
+      height={126}>
       <Window.Content>
         <SignalerContent />
       </Window.Content>

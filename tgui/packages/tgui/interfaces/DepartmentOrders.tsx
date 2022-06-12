@@ -32,12 +32,12 @@ const CooldownEstimate = (props) => {
   const cooldownColor = cost > COST_UPPER_BOUND * 0.75 && "red"
     || cost > COST_UPPER_BOUND * 0.25 && "orange"
     || "green";
-  const cooldownText = cost > COST_UPPER_BOUND * 0.75 && "long"
-  || cost > COST_UPPER_BOUND * 0.25 && "moderate"
-  || "short";
+  const cooldownText = cost > COST_UPPER_BOUND * 0.75 && "большая"
+  || cost > COST_UPPER_BOUND * 0.25 && "средняя"
+  || "короткая";
   return (
     <Box as="span" textColor={cooldownColor}>
-      {cooldownText} задержка.
+      {cooldownText} задержка
     </Box>
   );
 };
@@ -51,7 +51,7 @@ export const DepartmentOrders = (props, context) => {
     <Window
       title="Заказы отдела"
       width={620}
-      height={580} >
+      height={620} >
       <Window.Content>
         {!!time_left
           && <CooldownDimmer />

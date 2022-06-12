@@ -55,7 +55,7 @@ export const PersonalCrafting = (props, context) => {
       <Window.Content>
         <Stack fill>
           <Stack.Item grow={1}>
-            <Section fill scrollable title="Категория">
+            <Section fill title="Категории">
               <Tabs vertical>
                 {categories.map((category) => (
                   <Tabs.Tab

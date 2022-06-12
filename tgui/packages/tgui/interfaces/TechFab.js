@@ -381,7 +381,7 @@ const TechFabContent = (props, context) => {
             {
               categories.map(category => {
                 return (
-                  <Flex.Item key={category} minWidth="50%" p={0.2}>
+                  <Flex.Item key={category} minWidth="50%" p={0.6}>
                     <Button
                       content={category}
                       fluid

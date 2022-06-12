@@ -126,7 +126,6 @@ export const ButtonCheckbox = props => {
   const { checked, ...rest } = props;
   return (
     <Button
-      color="transparent"
       icon={checked ? 'check-square-o' : 'square-o'}
       selected={checked}
       {...rest} />
