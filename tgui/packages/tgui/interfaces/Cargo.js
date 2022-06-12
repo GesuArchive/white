@@ -149,14 +149,14 @@ export const CargoCatalog = (props, context) => {
         <>
           <CargoCartButtons />
           <Button.Checkbox
-            ml={2}
+            ml={1}
             content="За мой счёт"
             checked={self_paid}
             onClick={() => act('toggleprivate')} />
         </>
       )}>
       <Flex>
-        <Flex.Item ml={-1} mr={2}>
+        <Flex.Item mr={2}>
           <Tabs vertical>
             {supplies.map(supply => (
               <Tabs.Tab

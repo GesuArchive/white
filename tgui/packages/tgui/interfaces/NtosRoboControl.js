@@ -159,7 +159,7 @@ const RobotInfo = (props, context) => {
                 })} />
               <Button.Checkbox
                 fluid
-                content="Сообщать о доставке"
+                content="Сообщать о дост."
                 checked={mule.reportDelivery}
                 onClick={() => act('report', {
                   robot: mule.mule_ref,

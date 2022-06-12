@@ -126,7 +126,7 @@ export const Mule = (props, context) => {
                 <br />
                 <Button.Checkbox
                   checked={reportDelivery}
-                  content="Сообщать о доставке"
+                  content="Сообщать о дост."
                   onClick={() => act('report')} />
               </LabeledList.Item>
             </LabeledList>

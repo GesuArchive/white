@@ -1,13 +1,25 @@
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
+import { map, sortBy } from 'common/collections';
+import { flow } from 'common/fp';
 import { AnimatedNumber, Box, Button, Section, Table } from '../components';
 import { formatMoney } from '../format';
 import { Window } from '../layouts';
 
 export const CargoBountyConsole = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    bountydata = [],
-  } = data;
+  const bountydata = flow([
+    map((bonty, i) => ({
+      ...bonty,
+      // Generate a unique id
+      id: bonty.name + i,
+    })),
+    sortByField === 'name' && sortBy(bonty => bonty.name),
+    sortByField === 'reward_string' && sortBy(bonty => bonty.reward_string),
+  ])(data.bountydata);
+  const [
+    sortByField,
+    setSortByField,
+  ] = useLocalState(context, 'sortByField', null);
   return (
     <Window
       width={750}
@@ -21,11 +33,26 @@ export const CargoBountyConsole = (props, context) => {
               content="Распечатать список заказов"
               onClick={() => act('Print')} />
           )}>
+          <Box mb={1}>
+            <Box inline mr={2} color="label">
+              Сортировка:
+            </Box>
+            <Button.Checkbox
+              checked={sortByField === 'name'}
+              content="Имя"
+              onClick={() => setSortByField(
+                sortByField !== 'name' && 'name'
+              )} />
+            <Button.Checkbox
+              checked={sortByField === 'reward_string'}
+              content="Награда"
+              onClick={() => setSortByField(
+                sortByField !== 'reward_string' && 'reward_string'
+              )} />
+          </Box>
           <Table border>
             <Table.Row
-              bold
-              italic
-              color="label"
+              header
               fontSize={1.25}>
               <Table.Cell p={1} textAlign="center">
                 Объект
@@ -44,37 +71,41 @@ export const CargoBountyConsole = (props, context) => {
               </Table.Cell>
             </Table.Row>
             {bountydata.map(bounty => (
-              <Table.Row
-                key={bounty.name}
+              <tr
+                key={bounty.id}
                 backgroundColor={bounty.priority === 1
                   ? 'rgba(252, 152, 3, 0.25)'
-                  : ''}>
-                <Table.Cell bold p={1}>
+                  : ''}
+                className="Table__row  candystripe">
+                <td
+                  className="Table__cell text-left"
+                  bold p={1}>
                   {bounty.name}
-                </Table.Cell>
-                <Table.Cell
+                </td>
+                <td
                   italic
-                  textAlign="center"
+                  className="Table__cell text-center"
                   p={1}>
                   {bounty.description}
-                </Table.Cell>
-                <Table.Cell
+                </td>
+                <td
                   bold
                   p={1}
-                  textAlign="center">
+                  className="Table__cell text-center text-nowrap">
                   {bounty.priority === 1
                     ? <Box>Высокий приоритет</Box>
                     : ""}
                   {bounty.completion_string}
-                </Table.Cell>
-                <Table.Cell
+                </td>
+                <td
                   bold
                   p={1}
-                  textAlign="center">
+                  className="Table__cell text-center text-nowrap">
                   {bounty.reward_string}
-                </Table.Cell>
-                <Table.Cell
+                </td>
+                <td
                   bold
+                  className="Table__cell text-center text-nowrap"
                   p={1}>
                   <Button
                     fluid
@@ -92,8 +123,8 @@ export const CargoBountyConsole = (props, context) => {
                     onClick={() => act('ClaimBounty', {
                       bounty: bounty.bounty_ref,
                     })} />
-                </Table.Cell>
-              </Table.Row>
+                </td>
+              </tr>
             ))}
           </Table>
         </Section>
