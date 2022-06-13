@@ -19,10 +19,10 @@
 	jamming_chance = chance
 	if(type_override)
 		jammed_component_type = type_override
-	RegisterSignal(target, COMSIG_GUN_FIRED, .proc/on_fire)
+	RegisterSignal(target, COMSIG_GUN_TRY_FIRE, .proc/on_fire)
 
 /datum/element/jamming/Detach(datum/target)
-	UnregisterSignal(target, COMSIG_GUN_FIRED)
+	UnregisterSignal(target, COMSIG_GUN_TRY_FIRE)
 	return ..()
 
 /datum/element/jamming/proc/on_fire(obj/item/gun/source, mob/living/user, atom/target)
@@ -33,7 +33,7 @@
 	if(prob(jamming_chance))
 		source.AddComponent(jammed_component_type)
 		INVOKE_ASYNC(src, .proc/on_jammed, source, user)
-		return COMSIG_GUN_FIRED_CANCEL
+		return COMPONENT_CANCEL_GUN_FIRE
 
 /datum/element/jamming/proc/on_jammed(obj/item/gun/source, mob/living/user)
 	to_chat(user, span_userdanger("ЗАКЛИНИЛО!"))
