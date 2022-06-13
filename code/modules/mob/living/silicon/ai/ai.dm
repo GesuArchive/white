@@ -1001,7 +1001,7 @@ G&@@@@@@@@@#5@@@@@&PBP555555555PGGBP&@&&@@@@@@&&&&&&&&@&#BGB&@@@@@@@@@@@#GPPPPPP
 
 		playsound(get_turf(src), 'sound/machines/ding.ogg', 50, TRUE, ignore_walls = FALSE)
 		to_chat(src, "Hack complete. [apc] is now under your exclusive control.")
-		apc.update_icon()
+		apc.update_appearance()
 
 /mob/living/silicon/ai/verb/deploy_to_shell(mob/living/silicon/robot/target)
 	set category = "AI Commands"
