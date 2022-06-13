@@ -9,7 +9,7 @@ export const ComputerFabricator = (props, context) => {
     <Window
       title="Раздатчик персональных устройств"
       width={500}
-      height={400}>
+      height={408}>
       <Window.Content>
         <Section italic fontSize="20px">
           Ваш идеальный девайс уже тут...

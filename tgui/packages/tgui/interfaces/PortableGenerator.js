@@ -15,7 +15,7 @@ export const PortableGenerator = (props, context) => {
   return (
     <Window
       width={450}
-      height={310}>
+      height={307}>
       <Window.Content>
         {!data.anchored && (
           <NoticeBox>Генератор не прикручен.</NoticeBox>

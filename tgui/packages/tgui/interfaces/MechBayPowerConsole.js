@@ -10,7 +10,7 @@ export const MechBayPowerConsole = (props, context) => {
   return (
     <Window
       width={400}
-      height={200}>
+      height={145}>
       <Window.Content>
         <Section
           title="Состояние меха"

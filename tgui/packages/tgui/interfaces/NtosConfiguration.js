@@ -64,6 +64,8 @@ export const NtosConfiguration = (props, context) => {
               key={component.name}
               title={component.name}
               level={2}
+              m={0.1}
+              mb={1}
               buttons={(
                 <>
                   {!component.critical && (

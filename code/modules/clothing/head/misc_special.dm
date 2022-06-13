@@ -124,7 +124,7 @@
 	desc = "Идеально подходит для зимы в Сибири, да?"
 	icon_state = "ushankadown"
 	inhand_icon_state = "ushankadown"
-	flags_inv = HIDEEARS|HIDEHAIR
+	flags_inv = HIDEEARS
 	var/earflaps = TRUE
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT

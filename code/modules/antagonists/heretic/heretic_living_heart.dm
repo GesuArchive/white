@@ -158,11 +158,11 @@
 
 		switch(dist)
 			if(0 to 15)
-				balloon_message = "очень близко, [dir2text(dir)]!"
+				balloon_message = "очень близко, [dir2ru_text(dir)]!"
 			if(16 to 31)
-				balloon_message = "рядом, [dir2text(dir)]!"
+				balloon_message = "рядом, [dir2ru_text(dir)]!"
 			if(32 to 127)
-				balloon_message = "далеко, [dir2text(dir)]!"
+				balloon_message = "далеко, [dir2ru_text(dir)]!"
 			else
 				balloon_message = "очень далеко!"
 

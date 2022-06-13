@@ -11,7 +11,7 @@ export const ApcControl = (props, context) => {
   return (
     <Window
       title="Контроллер энергии"
-      width={550}
+      width={600}
       height={500}>
       {data.authenticated === 1 && (
         <ApcLoggedIn />

@@ -14,7 +14,7 @@ export const ProximitySensor = (props, context) => {
   return (
     <Window
       width={250}
-      height={185}>
+      height={175}>
       <Window.Content>
         <Section>
           <LabeledList>
