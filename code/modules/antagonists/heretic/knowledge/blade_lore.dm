@@ -95,10 +95,9 @@
 #define BLADE_DANCE_COOLDOWN 20 SECONDS
 
 /datum/heretic_knowledge/blade_dance
-	name = "Dance of the Brand"
-	desc = "Being attacked while wielding a Darkened Blade in either hand will deliver a riposte \
-		towards your attacker. This effect can only trigger once every 20 seconds."
-	gain_text = "Having the prowess to wield such a thing requires great dedication and terror."
+	name = "Танец лезвий"
+	desc = "Держа по клинку в каждой руке, вы можете парировать каждую атаку. Этот эффект срабатывает не чаще, чем раз в 20 секунд."
+	gain_text = "Право держать в руках Клинок требует большой самоотдачи и авторитета."
 	next_knowledge = list(
 		/datum/heretic_knowledge/limited_amount/risen_corpse,
 		/datum/heretic_knowledge/mark/blade_mark,
@@ -121,7 +120,7 @@
 	mob/living/carbon/human/source,
 	atom/movable/hitby,
 	damage = 0,
-	attack_text = "the attack",
+	attack_text = "парирование",
 	attack_type = MELEE_ATTACK,
 	armour_penetration = 0,
 )
@@ -172,28 +171,28 @@
 
 /datum/heretic_knowledge/blade_dance/proc/counter_attack(mob/living/carbon/human/source, mob/living/target, obj/item/melee/sickly_blade/weapon, attack_text)
 	playsound(get_turf(source), 'sound/weapons/parry.ogg', 100, TRUE)
-	source.balloon_alert(source, "riposte used")
+	source.balloon_alert(source, "парирование")
 	source.visible_message(
-		span_warning("[source] leans into [attack_text] and delivers a sudden riposte back at [target]!"),
-		span_warning("You lean into [attack_text] and deliver a sudden riposte back at [target]!"),
-		span_hear("You hear a clink, followed by a stab."),
+		span_warning("[source] использует [attack_text] и наносит ответный удар [target]!"),
+		span_warning("Я делаю выпад навстречу атаке и наношу контрудар [target]!"),
+		span_hear("Слышу лязг, за которым следует удар."),
 	)
 	weapon.melee_attack_chain(source, target)
 
 /datum/heretic_knowledge/blade_dance/proc/reset_riposte(mob/living/carbon/human/source)
 	riposte_ready = TRUE
-	source.balloon_alert(source, "riposte ready")
+	source.balloon_alert(source, "парирование готово")
 
 #undef BLADE_DANCE_COOLDOWN
 
 /datum/heretic_knowledge/mark/blade_mark
-	name = "Mark of the Blade"
-	desc = "Your Mansus Grasp now applies the Mark of the Blade. While marked, \
-		the victim will be unable to leave their current room until it expires or is triggered. \
-		Triggering the mark will summon a knife that will orbit you for a short time. \
-		The knife will block any attack directed towards you, but is consumed on use."
-	gain_text = "There was no room for cowardace here. Those who ran were scolded. \
-		That is how I met them. Their name was The Colonel."
+	name = "Метка лезвия"
+	desc = "Ваша Хватка Мансуса теперь наносит Метку Лезвия. Пока жертв обнаружена, \
+		она не может исключить поражение места до попадания или активацию метки. \
+		Активация метки призовёт нож, который будет вращаться вокруг вас в течение короткого времени. \
+		Нож блокирует любую атаку, направленную на вас, но ломается при использовании."
+	gain_text = "Здесь не было места трусости! Тех, кто сбежал, били в спину. \
+		И именно так я с ним познакомился. Его звали Полковник."
 	next_knowledge = list(/datum/heretic_knowledge/knowledge_ritual/blade)
 	route = PATH_BLADE
 	mark_type = /datum/status_effect/eldritch/blade
@@ -205,7 +204,7 @@
 
 	var/area/to_lock_to = get_area(target)
 	blade_mark.locked_to = to_lock_to
-	to_chat(target, span_hypnophrase("An otherworldly force is compelling you to stay in [get_area_name(to_lock_to)]!"))
+	to_chat(target, span_hypnophrase("Что-то не даёт мне покинуть [get_area_name(to_lock_to)]!"))
 
 /datum/heretic_knowledge/mark/blade_mark/trigger_mark(mob/living/source, mob/living/target)
 	. = ..()
@@ -221,12 +220,12 @@
 #define BLOOD_FLOW_PER_SEVEIRTY 1
 
 /datum/heretic_knowledge/duel_stance
-	name = "Stance of the Scarred Duelist"
-	desc = "Grants resilience to blood loss from wounds and immunity to having your limbs dismembered. \
-		Additionally, when damaged below 50% of your maximum health, \
-		you gain increased resistance to gaining wounds and resistance to batons."
-	gain_text = "The Colonel was many things though out the age. But now, he is blind; he is deaf; \
-		he cannot be wounded; and he cannot be denied. His methods ensure that."
+	name = "Стойка дуэлянта"
+	desc = "Дает сопротивление кровотечению и иммунитет к отсеканию конечностей. \
+		Кроме того, если ваше здоровье ниже 50% от максимума, \
+		у вас увеличивается сопротивление ко всем видам урона и защита от дубинок."
+	gain_text = "Полковник был великим на протяжении всей эпохи. Но теперь он слеп, он глух. \
+		Его нельзя ранить, и ему нельзя отказать. Его методы гарантируют, это."
 	next_knowledge = list(
 		/datum/heretic_knowledge/blade_upgrade/blade,
 		/datum/heretic_knowledge/reroll_targets,
@@ -259,7 +258,7 @@
 
 	var/obj/item/held_item = source.get_active_held_item()
 	if(in_duelist_stance)
-		examine_list += span_warning("[source] looks unnaturally poised[held_item?.force >= 15 ? " and ready to strike out":""].")
+		examine_list += span_warning("[source] выглядит неестественно уравновешенным [held_item?.force >= 15 ? " и готовым к бою":""].")
 
 /datum/heretic_knowledge/duel_stance/proc/on_wound_gain(mob/living/source, datum/wound/gained_wound, obj/item/bodypart/limb)
 	SIGNAL_HANDLER
@@ -273,14 +272,14 @@
 	SIGNAL_HANDLER
 
 	if(in_duelist_stance && source.health > source.maxHealth * 0.5)
-		source.balloon_alert(source, "exited duelist stance")
+		source.balloon_alert(source, "выходит из стойки дуэлянта")
 		in_duelist_stance = FALSE
 		REMOVE_TRAIT(source, TRAIT_HARDLY_WOUNDED, type)
 		REMOVE_TRAIT(source, TRAIT_STUNRESISTANCE, type)
 		return
 
 	if(!in_duelist_stance && source.health <= source.maxHealth * 0.5)
-		source.balloon_alert(source, "entered duelist stance")
+		source.balloon_alert(source, "встаёт в стойку дуэлянта")
 		in_duelist_stance = TRUE
 		ADD_TRAIT(source, TRAIT_HARDLY_WOUNDED, type)
 		ADD_TRAIT(source, TRAIT_STUNRESISTANCE, type)
@@ -289,11 +288,11 @@
 #undef BLOOD_FLOW_PER_SEVEIRTY
 
 /datum/heretic_knowledge/blade_upgrade/blade
-	name = "Swift Blades"
-	desc = "Attacking someone with a Darkened Blade in both hands \
-		will now deliver a blow with both at once, dealing two attacks in rapid succession. \
-		The second blow will be slightly weaker."
-	gain_text = "From here, I began to learn the Colonel's arts. The prowess was finally mine to have."
+	name = "Быстрые лезвия"
+	desc = "Атака кого то с затемнёнными клинками в обеих руках \
+		будет наносить удар обоими сразу, нанося две атаки в быстрой последовательности. \
+		Второй удар будет чуть слабее."
+	gain_text = "Я смогу постичь мастерство Полковника. Наконец я познаю доблесть..."
 	next_knowledge = list(/datum/heretic_knowledge/spell/furious_steel)
 	route = PATH_BLADE
 
@@ -329,12 +328,12 @@
 	blade.force += 5
 
 /datum/heretic_knowledge/spell/furious_steel
-	name = "Furious Steel"
-	desc = "Grants you Furious Steel, a targeted spell. Using it will summon three \
-		orbiting blades around you. These blades will protect you from all attacks, \
-		but are consumed on use. Additionally, you can click to fire the blades \
-		at a target, dealing damage and causing bleeding."
-	gain_text = "His arts were those that ensured an ending."
+	name = "Яростная сталь"
+	desc = "Дает вам целевое заклинание - Яростную сталь. Использовав его вы вызовете три \
+		вращающиеся вокруг тебя лезвия. Они защитят своего хозяина от всех атак, \
+		но расходуются при использовании. Кроме того, вы можете нажать на свою цель, чтобы запустить в неё лезвием \
+		цель будет ранена и может начать истекать кровью."
+	gain_text = "Его искусство владения мечом стало моим вдохновением и закономерным исходом этой истории..."
 	next_knowledge = list(
 		/datum/heretic_knowledge/summon/maid_in_mirror,
 		/datum/heretic_knowledge/final/blade_final,
@@ -345,17 +344,17 @@
 	route = PATH_BLADE
 
 /datum/heretic_knowledge/final/blade_final
-	name = "Maelstrom of Silver"
-	desc = "The ascension ritual of the Path of Blades. \
-		Bring 3 headless corpses to a transmutation rune to complete the ritual. \
-		When completed, you will be surrounded in a constant, regenerating orbit of blades. \
-		These blades will protect you from all attacks, but are consumed on use. \
-		Your Furious Steel spell will also have a shorter cooldown. \
-		Additionally, you become a master of combat, gaining full wound and stun immunity. \
-		Your Darkened Blades deal bonus damage and healing you on attack for a portion of the damage dealt."
-	gain_text = "The Colonel, in all of his expertise, revealed to me the three roots of victory. \
-		Cunning. Strength. And agony! This was their secret doctrine! With this knowledge in my potential, \
-		I AM UNMATCHED! A STORM OF STEEL AND SILVER IS UPON US! WITNESS MY ASCENSION!"
+	name = "Водоворот серебра"
+	desc = "Ритуал вознесения на Пути Лезвий. \
+		Принесите 3 обезглавленных трупа к руне трансмутации, для начала ритуала. \
+		Когда вы закончите, вы будете окружены постоянной, восстанавливающейся орбитой из лезвий. \
+		Эти клинки защитят вас от всех атак, и будут ломаться при использовании. \
+		Ваше заклинание Яростной Стали получит уменьшение перезарядки. \
+		Кроме того, вы становитесь мастером боя, получая защиту от ранений и иммунитет к оглушению. \
+		Ваши затемненные клинки наносят дополнительный урон и получают вампиризм от нанесённого урона."
+	gain_text = "Полковник, имея большой опыт, раскрыл мне три корня победы. \
+		Хитрость. Сила. И агония! Это была его тайная доктрина! С этими знаниями и моим потенциалом, \
+		МНЕ НЕТ РАВНЫХ! ШТОРМ ИЗ СТАЛИ И СЕРЕБРА НАДВИГАЕТСЯ НА ВАС! СТАНЬТЕ СВИДЕТЕЛЯМИ МОЕГО ВОЗНЕСЕНИЯ!"
 	route = PATH_BLADE
 
 /datum/heretic_knowledge/final/blade_final/is_valid_sacrifice(mob/living/carbon/human/sacrifice)
@@ -367,7 +366,7 @@
 
 /datum/heretic_knowledge/final/blade_final/on_finished_recipe(mob/living/user, list/selected_atoms, turf/loc)
 	. = ..()
-	priority_announce("[generate_heretic_text()] Master of blades, the Colonel's disciple, [user.real_name] has ascended! Their steel is that which will cut reality in a maelstom of silver! [generate_heretic_text()]","[generate_heretic_text()]", ANNOUNCER_SPANOMALIES)
+	priority_announce("[generate_heretic_text()] Мастер лезвий, ученик Полковника, [user.real_name] вознесся! Его сталь - это то, что рассечет реальность в водовороте серебра! [generate_heretic_text()]","[generate_heretic_text()]", ANNOUNCER_SPANOMALIES)
 	user.client?.give_award(/datum/award/achievement/misc/blade_ascension, user)
 	ADD_TRAIT(user, TRAIT_STUNRESISTANCE, name)
 	ADD_TRAIT(user, TRAIT_NEVER_WOUNDED, name)

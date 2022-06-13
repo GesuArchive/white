@@ -1,8 +1,8 @@
 /obj/effect/proc_holder/spell/aimed/furious_steel
-	name = "Furious Steel"
-	desc = "Summon three silver blades which orbit you. \
-		While orbiting you, these blades will protect you from from attacks, but will be consumed on use. \
-		Additionally, you can click to fire the blades at a target, dealing damage and causing bleeding."
+	name = "Яростная сталь"
+	desc = "Призывает серебряные лезвия, которые вращаются вокруг вас. \
+		Эти лезвия защищают от атак и ломаются при блокировании. \
+		Кроме того, вы можете нажать на своего противника, чтобы выстрелить в нее лезвием, нанося урон и вызывая кровотечение."
 	action_icon = 'icons/mob/actions/actions_ecult.dmi'
 	action_icon_state = "furious_steel0"
 	action_background_icon_state = "bg_ecult"
@@ -17,8 +17,8 @@
 	projectiles_per_fire = 1
 	projectile_type = /obj/projectile/floating_blade
 	sound = 'sound/weapons/guillotine.ogg'
-	active_msg = "You summon forth three blades of furious silver."
-	deactive_msg = "You conceal the blades of furious silver."
+	active_msg = "Призываю три лезвия яростного серебра."
+	deactive_msg = "Прячу клинки яростного серебра."
 	/// A ref to the status effect surrounding our heretic on activation.
 	var/datum/status_effect/protective_blades/blade_effect
 
@@ -33,7 +33,7 @@
 	// Aimed spells snowflake and activate without checking cast_check, very cool
 	var/datum/antagonist/heretic/our_heretic = IS_HERETIC(living_user)
 	if(our_heretic && !our_heretic.ascended && !HAS_TRAIT(living_user, TRAIT_ALLOW_HERETIC_CASTING))
-		user.balloon_alert(living_user, "you need a focus!")
+		user.balloon_alert(living_user, "нужен магический фокус!")
 		return
 
 	. = ..()
@@ -69,7 +69,7 @@
 	on_deactivation()
 
 /obj/projectile/floating_blade
-	name = "blade"
+	name = "Лезвие"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "knife"
 	speed = 2

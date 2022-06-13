@@ -96,8 +96,8 @@
 // Path of the Blade's... blade
 // Opting for /dark (darkened blade) instead of /blade to avoid "sickly_blade/blade".
 /obj/item/melee/sickly_blade/dark
-	name = "\improper darkened blade"
-	desc = "A blade made of brilliant silver that shines gloriously. Unknown rage is bottled within."
+	name = "затемнённый клинок"
+	desc = "Величественно сияющий серповидный клинок, изготовленный из блестящего серебра. Слепая ярость сочится изнутри."
 	icon_state = "dark_blade"
 	inhand_icon_state = "dark_blade"
-	after_use_message = "The Colonel hears your call..."
+	after_use_message = "Полковник услышал ваш зов..."
