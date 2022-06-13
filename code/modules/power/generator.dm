@@ -277,6 +277,7 @@
 	kill_circs()
 
 /obj/machinery/power/generator/proc/kill_circs()
+	GLOB.is_engine_sabotaged = TRUE
 	if(hot_circ)
 		hot_circ.generator = null
 		hot_circ.update_icon()
