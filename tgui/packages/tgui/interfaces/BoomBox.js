@@ -1,11 +1,16 @@
 import { Fragment } from 'inferno';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Knob, Section, Tabs, Flex, Table } from '../components';
+import { Button, Knob, Section, Tabs, Flex, Table, Input } from '../components';
 import { Window } from '../layouts';
+import { createSearch } from 'common/string';
+
+const searchFor = searchText => createSearch(
+  searchText, thing => thing.short_name + thing.name);
 
 export const BoomBox = (props, context) => {
   const { act, data } = useBackend(context);
   const songs = Object.values(data.songs);
+  const [searchText, setSearchText] = useLocalState(context, "searchText", "");
   songs.sort();
   const [
     selectedCategory,
@@ -65,9 +70,18 @@ export const BoomBox = (props, context) => {
             </Flex.Item>
           </Flex>
         </Section>
-        <Section title="Плейлист">
+        <Section
+          title="Плейлист"
+          buttons={(
+            <Input
+              placeholder="Искать..."
+              autoFocus
+              height="21px"
+              value={searchText}
+              onInput={(_, value) => setSearchText(value)} />
+          )}>
           <Flex>
-            <Flex.Item ml={-1} mr={1}>
+            <Flex.Item mr={1}>
               <Tabs vertical>
                 {songs.map(genre => (
                   <Tabs.Tab
@@ -81,29 +95,31 @@ export const BoomBox = (props, context) => {
             </Flex.Item>
             <Flex.Item grow={1} ml={1} basis={0}>
               <Table>
-                {selectedCategorySel?.tracks.map(track => {
-                  return (
-                    <Table.Row
-                      key={track.short_name}
-                      className="candystripe">
-                      <Table.Cell>
-                        {track.length_t} - {track.short_name}
-                      </Table.Cell>
-                      <Table.Cell
-                        collapsing
-                        textAlign="right">
-                        <Button
-                          fluid
-                          icon={data.curtrack === track.short_name ? 'play' : 'eject'}
-                          disabled={(data.curtrack === track.short_name)
-                            || data.active}
-                          onClick={() => act('select_track', {
-                            track: track.name,
-                          })} />
-                      </Table.Cell>
-                    </Table.Row>
-                  );
-                })}
+                {selectedCategorySel?.tracks
+                  .filter(searchFor(searchText))
+                  .map(track => {
+                    return (
+                      <Table.Row
+                        key={track.short_name}
+                        className="candystripe">
+                        <Table.Cell>
+                          {track.length_t} - {track.short_name}
+                        </Table.Cell>
+                        <Table.Cell
+                          collapsing
+                          textAlign="right">
+                          <Button
+                            fluid
+                            icon={data.curtrack === track.short_name ? 'play' : 'eject'}
+                            disabled={(data.curtrack === track.short_name)
+                              || data.active}
+                            onClick={() => act('select_track', {
+                              track: track.name,
+                            })} />
+                        </Table.Cell>
+                      </Table.Row>
+                    );
+                  })}
               </Table>
             </Flex.Item>
           </Flex>
