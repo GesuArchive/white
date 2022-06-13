@@ -26,6 +26,11 @@
 		MECHA_POWER = list(),
 		MECHA_ARMOR = list(/obj/item/mecha_parts/mecha_equipment/armor/antiproj_armor_booster, /obj/item/mecha_parts/mecha_equipment/armor/anticcw_armor_booster),
 	)
+
+/obj/vehicle/sealed/mecha/combat/gygax/generate_actions()
+	. = ..()
+	initialize_passenger_action_type(/datum/action/vehicle/sealed/mecha/mech_overload_mode)
+
 /datum/action/vehicle/sealed/mecha/mech_overload_mode
 	name = "Переключить перегрузку ног"
 	button_icon_state = "mech_overload_off"
