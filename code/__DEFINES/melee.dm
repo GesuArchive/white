@@ -10,3 +10,6 @@
 #define MARTIALART_PLASMAFIST "plasma fist"
 #define MARTIALART_DAGESTAN "shaitanka"
 #define MARTIALART_DREAMER "dreamer willpower"
+#define MARTIALART_FLYINGFANG "flying fang"
+#define MARTIALART_HUNTERFU "hunterfu"
+#define MARTIALART_FRENZYGRAB "frenzy grabbing"

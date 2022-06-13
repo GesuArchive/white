@@ -225,3 +225,8 @@ GLOBAL_VAR_INIT(is_engine_sabotaged, FALSE)
 #define FACTION_HECU "hecu"
 #define FACTION_BLACKOPS "blackops"
 #define FACTION_BLACKMESA "blackmesa"
+
+//Bloodsuckers
+#define IS_BLOODSUCKER(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/bloodsucker))
+#define IS_VASSAL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/vassal))
+#define IS_MONSTERHUNTER(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/monsterhunter))

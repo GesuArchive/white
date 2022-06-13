@@ -198,6 +198,22 @@
 	priority = 100 //it's an indicator you're dying, so it's very high priority
 	colour = "red"
 
+/obj/item/organ/heart/vampheart
+	beating = 0
+	///If a heartbeat is being faked.
+	var/fakingit = FALSE
+
+/obj/item/organ/heart/vampheart/Restart()
+	beating = FALSE
+	return FALSE
+
+/obj/item/organ/heart/vampheart/Stop()
+	fakingit = FALSE
+	return ..()
+
+/obj/item/organ/heart/vampheart/proc/FakeStart()
+	fakingit = TRUE // We're pretending to beat, to fool people.
+
 /obj/item/organ/heart/cybernetic
 	name = "базовое кибернетическое сердце"
 	desc = "Базовое электронное устройство, имитирующее функции органического человеческого сердца."

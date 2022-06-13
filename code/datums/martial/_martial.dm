@@ -36,6 +36,16 @@
 	current_target = new_target
 	streak = ""
 
+/**
+  *martial arts handle_throw proc
+  *
+  *does stuff for hitting people while thrown
+  *returns TRUE if the default throw impact shouldn't do anything, FALSE if you still slam into something at mach 20 and eat a stun
+  */
+
+/datum/martial_art/proc/handle_throw(atom/hit_atom, mob/living/carbon/human/A)
+	return FALSE
+
 /datum/martial_art/proc/teach(mob/living/owner, make_temporary=FALSE)
 	if(!istype(owner) || !owner.mind)
 		return FALSE
