@@ -947,6 +947,7 @@ const GenomeSequencer = (props, context) => {
     const button = (
       <GeneCycler
         width="22px"
+        height="22px"
         textAlign="center"
         disabled={!!mutation.Scrambled || mutation.Class !== MUT_NORMAL}
         className={
