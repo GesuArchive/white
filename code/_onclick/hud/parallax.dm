@@ -52,6 +52,8 @@
 /datum/hud/proc/remove_parallax(mob/viewmob)
 	var/mob/screenmob = viewmob || mymob
 	var/client/C = screenmob.client
+	if(!C)
+		return
 	C.screen -= (C.parallax_layers_cached)
 	var/atom/movable/screen/plane_master/PM = screenmob.hud_used.plane_masters["[PLANE_SPACE]"]
 	if(screenmob != mymob)
@@ -68,6 +70,8 @@
 		return FALSE
 
 	var/client/C = screenmob.client
+	if(!C)
+		return FALSE
 	// Default to HIGH
 	var/parallax_selection = PARALLAX_HIGH
 	if(C?.prefs)
@@ -141,7 +145,8 @@
 	if(!skip_windups)
 		for(var/thing in C.parallax_layers)
 			var/atom/movable/screen/parallax_layer/L = thing
-
+			if(!L)
+				continue
 			var/T = PARALLAX_LOOP_TIME / L.speed
 			if (isnull(shortesttimer))
 				shortesttimer = T
@@ -188,6 +193,8 @@
 /datum/hud/proc/update_parallax(mob/viewmob)
 	var/mob/screenmob = viewmob || mymob
 	var/client/C = screenmob.client
+	if(!C)
+		return
 	var/turf/posobj = get_turf(C.eye)
 	if(!posobj)
 		return
