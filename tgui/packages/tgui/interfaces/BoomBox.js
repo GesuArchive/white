@@ -6,6 +6,7 @@ import { Window } from '../layouts';
 export const BoomBox = (props, context) => {
   const { act, data } = useBackend(context);
   const songs = Object.values(data.songs);
+  songs.sort();
   const [
     selectedCategory,
     setSelectedCategory,
