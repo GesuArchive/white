@@ -33,6 +33,8 @@
 		if(A.area_flags & AREA_USES_STARLIGHT)
 			for(var/turf/open/space/S in A)
 				S.set_light(S.light_range * 3, S.light_power * 0.5)
+			for(var/turf/open/openspace/S in A)
+				S.set_light(S.light_range * 3, S.light_power * 0.5)
 
 /datum/round_event/aurora_caelus/tick()
 	if(activeFor % 5 == 0)
@@ -43,12 +45,16 @@
 			if(A.area_flags & AREA_USES_STARLIGHT)
 				for(var/turf/open/space/S in A)
 					S.set_light(l_color = aurora_color)
+				for(var/turf/open/openspace/S in A)
+					S.set_light(l_color = aurora_color)
 
 /datum/round_event/aurora_caelus/end()
 	for(var/area in GLOB.sortedAreas)
 		var/area/A = area
 		if(A.area_flags & AREA_USES_STARLIGHT)
 			for(var/turf/open/space/S in A)
+				fade_to_black(S)
+			for(var/turf/open/openspace/S in A)
 				fade_to_black(S)
 	priority_announce("Событие, связанное с полярным сиянием, заканчивается. Звездный свет постепенно возвращается в нормальное состояние. Возвращайтесь на свое рабочее место и продолжайте работать в обычном режиме. Приятной смены [station_name()] и спасибо, что посмотрели с нами.",
 	sound = 'sound/misc/notice2.ogg',
