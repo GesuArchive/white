@@ -205,7 +205,7 @@
 	var/awoken = FALSE
 	Ghost_desc = "This is a Resting Place, where Lasombra bloodsucker can ascend their powers."
 	Vamp_desc = "This is a Resting Place, which allows you to ascend your powers by gaining points using your ranks or blood.\n\
-		Interact with the Altar by clicking on it after you have fed it a abyssal essence, acquirable through influences.\n\
+		Interact with the Altar by clicking on it.\n\
 		Remember most ascended powers have benefits if used in the dark.\n\
 		It only seems to speak to elders of 4 or higher ranks."
 	Vassal_desc = "This is the resting place, where your master does rituals to ascend their bloodsucking powers.\n\
@@ -213,33 +213,17 @@
 	Hunter_desc = "This is a blood altar, where monsters ascend their powers to shadowy levels.\n\
 		They normally need ranks or blood in exchange for power, forcing them to move out of their lair and weakening them."
 
-/obj/item/abyssal_essence
-	name = "abyssal essence"
-	desc = "As you glare at the abyssal essence, you feel it glaring back."
-	icon = 'icons/obj/vamp_obj.dmi'
-	icon_state = "abyssal_essence"
-	inhand_icon_state = "abyssal_essence"
-	throwforce = 0
-	w_class = WEIGHT_CLASS_TINY
-	throw_speed = 3
-	throw_range = 7
-	pressure_resistance = 10
-
 /obj/structure/bloodsucker/bloodaltar/restingplace/deconstruct(disassembled = TRUE)
 	. = ..()
-	new /obj/item/abyssal_essence(src.loc)
 	qdel(src)
 
 /obj/structure/bloodsucker/bloodaltar/restingplace/attackby(obj/item/H, mob/user, params)
 	if(!IS_BLOODSUCKER(user) && !IS_VASSAL(user))
 		return ..()
 	if(!awoken)
-		if(istype(H, /obj/item/abyssal_essence))
-			to_chat(usr, span_notice("As you touch [src] with the [H], you start sensing something different coming from [src]!"))
-			qdel(H)
-			awoken = TRUE
-		else
-			to_chat(user, span_cult("Seems like you need a direct link to the abyss to awaken [src]. Maybe searching a spacial influence would yield something."))
+		to_chat(usr, span_notice("As you touch [src], you start sensing something different coming from [src]!"))
+		qdel(H)
+		awoken = TRUE
 		return
 	. = ..()
 
