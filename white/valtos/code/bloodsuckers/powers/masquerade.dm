@@ -37,6 +37,9 @@
 	// Remove Clan-specific stuff
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = user.mind.has_antag_datum(/datum/antagonist/bloodsucker)
 	switch(bloodsuckerdatum.my_clan)
+		if(CLAN_TZIMISCE)
+			bloodsuckerdatum.antag_hud_name = "bloodsucker"
+			user.mind.antag_hud.update_icon()
 		if(CLAN_GANGREL)
 			if(bloodsuckerdatum.clanprogress >= 1) // change this if we get more stuff to include other clans
 				var/obj/item/clothing/neck/neckdrip = user.get_item_by_slot(ITEM_SLOT_NECK)
@@ -109,6 +112,9 @@
 	// Adds Clan-specific stuff
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = user.mind.has_antag_datum(/datum/antagonist/bloodsucker)
 	switch(bloodsuckerdatum.my_clan)
+		if(CLAN_TZIMISCE)
+			bloodsuckerdatum.antag_hud_name = "tzimisce"
+			user.mind.antag_hud.update_icon()
 		if(CLAN_GANGREL)
 			if(bloodsuckerdatum.clanprogress >= 1) // change this if we get more stuff to include other clans
 				var/obj/item/clothing/neck/previousdrip = user.get_item_by_slot(ITEM_SLOT_NECK)

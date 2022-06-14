@@ -5,6 +5,7 @@
 
 /datum/antagonist/monsterhunter
 	name = "\improper Monster Hunter"
+	antag_hud_name = "monsterhunter"
 	roundend_category = "Monster Hunters"
 	antagpanel_category = "Monster Hunter"
 	job_rank = ROLE_MONSTERHUNTER

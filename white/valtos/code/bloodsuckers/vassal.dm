@@ -5,6 +5,7 @@
 
 /datum/antagonist/vassal
 	name = "\improper Vassal"
+	antag_hud_name = "vassal"
 	roundend_category = "vassals"
 	antagpanel_category = "Bloodsucker"
 	job_rank = ROLE_BLOODSUCKER

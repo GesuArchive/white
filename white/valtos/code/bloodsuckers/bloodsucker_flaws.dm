@@ -70,7 +70,6 @@
 			nightmarish_heart.Stop()
 			for(var/obj/item/light_eater/blade in bloodsucker.held_items)
 				QDEL_NULL(blade)
-			GLOB.reality_smash_track.add_tracked_mind(owner)
 			var/datum/objective/bloodsucker/hierarchy/lasombra_objective = new
 			lasombra_objective.owner = owner
 			objectives += lasombra_objective

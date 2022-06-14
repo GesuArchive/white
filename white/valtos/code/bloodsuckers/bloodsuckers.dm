@@ -1,5 +1,6 @@
 /datum/antagonist/bloodsucker
 	name = "\improper Bloodsucker"
+	antag_hud_name = "bloodsucker"
 	show_in_antagpanel = TRUE
 	roundend_category = "bloodsuckers"
 	antagpanel_category = "Bloodsucker"
@@ -648,6 +649,7 @@
 	to_chat(owner.current, span_cultboldtalic("You have broken the Masquerade!"))
 	to_chat(owner.current, span_warning("Bloodsucker Tip: When you break the Masquerade, you become open for termination by fellow Bloodsuckers, and your Vassals are no longer completely loyal to you, as other Bloodsuckers can steal them for themselves!"))
 	broke_masquerade = TRUE
+	antag_hud_name = "masquerade_broken"
 	for(var/datum/mind/clan_minds as anything in get_antag_minds(/datum/antagonist/bloodsucker))
 		if(owner == clan_minds)
 			continue
@@ -667,6 +669,7 @@
 		return
 	to_chat(owner.current, span_cultboldtalic("You have re-entered the Masquerade."))
 	broke_masquerade = FALSE
+	antag_hud_name = "bloodsucker"
 
 /////////////////////////////////////
 //  BLOOD COUNTER & RANK MARKER !  //

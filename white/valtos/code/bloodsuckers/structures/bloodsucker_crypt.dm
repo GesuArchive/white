@@ -804,6 +804,8 @@
 			user.blood_volume -= 150
 			bloodsuckerdatum.has_favorite_vassal = TRUE
 			vassaldatum.make_favorite(user)
+			vassaldatum.antag_hud_name = "vassal6"
+			user.mind.antag_hud.update_icon()
 		else
 			to_chat(user, span_danger("You decide not to turn [target] into your Favorite Vassal."))
 			use_lock = FALSE
