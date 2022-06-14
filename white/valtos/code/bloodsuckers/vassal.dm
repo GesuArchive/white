@@ -27,6 +27,7 @@
 /datum/antagonist/vassal/apply_innate_effects(mob/living/mob_override)
 	var/mob/living/current_mob = mob_override || owner.current
 	current_mob.apply_status_effect(/datum/status_effect/agent_pinpointer/vassal_edition)
+	add_team_hud(mob_override || owner.current)
 
 /datum/antagonist/vassal/remove_innate_effects(mob/living/mob_override)
 	var/mob/living/current_mob = mob_override || owner.current

@@ -16,6 +16,7 @@
 	var/datum/action/bloodsucker/fortitude = new /datum/action/bloodsucker/fortitude/hunter()
 
 /datum/antagonist/monsterhunter/apply_innate_effects(mob/living/mob_override)
+	add_team_hud(mob_override || owner.current)
 	var/mob/living/current_mob = mob_override || owner.current
 	ADD_TRAIT(current_mob, TRAIT_NOSOFTCRIT, BLOODSUCKER_TRAIT)
 	ADD_TRAIT(current_mob, TRAIT_NOCRITDAMAGE, BLOODSUCKER_TRAIT)

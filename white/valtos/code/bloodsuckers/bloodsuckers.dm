@@ -111,6 +111,7 @@
 
 /// These handles the application of antag huds/special abilities
 /datum/antagonist/bloodsucker/apply_innate_effects(mob/living/mob_override)
+	add_team_hud(mob_override || owner.current)
 	RegisterSignal(owner.current, COMSIG_LIVING_BIOLOGICAL_LIFE, .proc/LifeTick)
 	if((owner.assigned_role == "Clown"))
 		var/mob/living/carbon/H = owner.current
