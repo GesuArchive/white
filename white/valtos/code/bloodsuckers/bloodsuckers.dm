@@ -96,6 +96,8 @@
 		TRAIT_VIRUSIMMUNE,
 		TRAIT_TOXIMMUNE,
 		TRAIT_HARDLY_WOUNDED,
+		TRAIT_NOHUNGER,
+		TRAIT_NOHYDRATION,
 	)
 
 /mob/living/proc/explain_powers()
