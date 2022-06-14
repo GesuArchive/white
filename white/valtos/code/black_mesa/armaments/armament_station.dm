@@ -43,11 +43,12 @@
 
 /obj/item/armament_points_card/Initialize(mapload)
 	. = ..()
-	maptext = span_maptext("<div align='center' valign='middle' style='position:relative'>[points]</div>")
+	spawn(1 SECONDS)
+		update_maptext()
 
 /obj/item/armament_points_card/examine(mob/user)
 	. = ..()
-	. += span_notice("Здесь [points] очков осталось.")
+	. += span_notice("<hr>Здесь [points] очков осталось.")
 
 /obj/item/armament_points_card/proc/use_points(points_to_use)
 	if(points_to_use > points)

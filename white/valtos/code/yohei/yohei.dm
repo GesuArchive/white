@@ -116,7 +116,7 @@
 		animate(user, alpha = clamp(255 - charge, 0, 255), time = 10)
 
 /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm
-	name = "пластмассовый пистолет"
+	name = "высокоточный пистолет"
 	desc = "Пистолет малой мощности и не сбывшихся надежд. Возможно последний экземпляр."
 	icon_state = "gosling"
 	inhand_icon_state = "devil"
@@ -124,8 +124,8 @@
 	fire_sound = 'white/valtos/sounds/fallout/gunsounds/9mm/9mm2.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = 4
-	extra_damage = 5
-
+	extra_damage = 10
+	extra_penetration = 10
 
 #define MODE_PAINKILLER "болеутоляющее"
 #define MODE_OXYLOSS "кислородное голодание"
@@ -329,6 +329,8 @@
 		to_chat(H, span_revenbignotice("Давно не виделись, а?"))
 		if(H?.hud_used)
 			H.hud_used.update_parallax_pref(H, 1)
+
+		to_chat(H, span_notice("Вспоминаю как создавать сверхкрепкую броню..."))
 
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/head)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/suit)
@@ -795,33 +797,3 @@
 		else
 			to_chat(user, span_danger("Не получится здесь. Нужен космос."))
 	return
-
-/obj/machinery/vending/yoheiking
-	name = "ЙохейКинг"
-	desc = "Здесь обязательно можно найти то, что нужно."
-	icon_state = "yohei"
-	product_slogans = "Убей или будь убитым!;Предай друга!;Качественные приблуды по низким ценам!;Лучше быть убийцей, чем трупом!"
-	product_ads = "МОЧИ-И-И!;Контракт должен быть выполнен любой ценой!;Пушки не убивают людей, но вы можете!;Кому нужны контракты, когда у вас есть оружие?"
-	vend_reply = "Ничего личного, только бизнес!"
-	products = list(/obj/item/ammo_box/magazine/fallout/m9mm = 10,
-					/obj/item/ammo_box/magazine/fallout/r308 = 5,
-					/obj/item/rcd_ammo/large = 5,
-					/obj/item/stack/sheet/iron/fifty = 3,
-					/obj/item/stack/sheet/glass/fifty = 3,
-					/obj/item/stack/sheet/plasteel/fifty = 1,
-					/obj/item/storage/mre = 3,
-					/obj/item/storage/mre/vegan = 3,
-					/obj/item/storage/mre/protein = 3,
-					/obj/item/stack/medical/aloe = 5,
-					/obj/item/stack/medical/suture/medicated = 5)
-	premium = list(/obj/item/shadowcloak/yohei = 1,
-		           /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm = 1,
-		           /obj/item/pamk = 5,
-		           /obj/item/storage/belt/military/abductor/full = 1,
-				   /obj/item/storage/firstaid/tactical = 3)
-	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 50)
-	resistance_flags = INDESTRUCTIBLE
-	default_price = CARGO_CRATE_VALUE * 9.5
-	extra_price = CARGO_CRATE_VALUE * 40
-	payment_department = ACCOUNT_TRA
-	light_mask = "yohei-light-mask"
