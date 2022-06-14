@@ -300,7 +300,6 @@
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	belt = /obj/item/shadowcloak/yohei
 	uniform = /obj/item/clothing/under/syndicate/yohei/red
-	r_pocket = /obj/item/ammo_box/magazine/fallout/m9mm
 
 	backpack_contents = list(/obj/item/restraints/handcuffs/energy = 2, /obj/item/armament_points_card/yohei = 1)
 
@@ -341,8 +340,6 @@
 	glasses = /obj/item/clothing/glasses/meson/night
 	belt = /obj/item/shadowcloak/yohei
 	uniform = /obj/item/clothing/under/syndicate/yohei/green
-	r_pocket = /obj/item/stack/rods/twentyfive
-	back = /obj/item/gun/ballistic/crossbow/energy
 
 	backpack_contents = list(/obj/item/armament_points_card/yohei = 1)
 
