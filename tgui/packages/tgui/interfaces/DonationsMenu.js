@@ -73,7 +73,7 @@ export const GenericUplink = (props, context) => {
             tooltip="Откроет страницу пополнения"
             mr={1}
             tooltipPosition="right"
-            onClick={() => Byond.command('❗-HUB-Auth')}>
+            onClick={() => Byond.command('Войти-в-ХАБ')}>
             Пополнить счёт
           </Button>
           Поиск
