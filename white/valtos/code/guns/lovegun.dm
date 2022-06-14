@@ -16,6 +16,7 @@
 							'white/valtos/sounds/love/shot9.ogg')
 	ammo_type = list(/obj/item/ammo_casing/energy/lovegun)
 	selfcharge = 1
+	burst_size = 1
 	clumsy_check = 0
 	item_flags = NONE
 

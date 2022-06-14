@@ -56,6 +56,7 @@
 	mag_type = /obj/item/ammo_box/magazine/r37
 	fire_delay = 4
 	can_suppress = FALSE
+	burst_size = 5
 	spread = 3
 	mag_display = TRUE
 	mag_display_ammo = TRUE
@@ -89,6 +90,7 @@
 	mag_type = /obj/item/ammo_box/magazine/r40
 	fire_delay = 1
 	can_suppress = FALSE
+	burst_size = 8
 	spread = 5
 	mag_display = TRUE
 	mag_display_ammo = FALSE

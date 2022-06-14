@@ -30,6 +30,8 @@
 	var/ascended = FALSE
 	var/mob/living/oldform
 	var/list/devil_overlays[DEVIL_TOTAL_LAYERS]
+	var/imp_on_cd
+	var/imp_cd = 40 SECONDS //Кд на призыв нового импа.
 
 /mob/living/carbon/true_devil/Initialize()
 	create_bodyparts() //initialize bodyparts
@@ -149,11 +151,20 @@
 
 //ATTACK GHOST IGNORING PARENT RETURN VALUE
 /mob/living/carbon/true_devil/attack_ghost(mob/dead/observer/user as mob)
+	if(imp_on_cd)
+		to_chat(usr, span_notice("Канцелярия Сатаны недавно отправила беса в ваш мир, подождите немного!"))
+		return
+	var/ghost_role = tgui_alert(usr, "Точно хочешь стать бесом? (внимание, текущее тело будет покинуто)",,list("Да","Нет"))
+	if(ghost_role != "Да" || !loc || QDELETED(user))
+		return
+	imp_on_cd = addtimer(VARSET_CALLBACK(src, imp_on_cd, null), imp_cd, TIMER_STOPPABLE)
 	var/mob/living/simple_animal/hostile/imp/S = new(get_turf(loc))
 	S.key = user.key
 	var/datum/antagonist/imp/A = new()
 	S.mind.add_antag_datum(A)
 	to_chat(S, S.playstyle_string)
+
+
 
 
 /mob/living/carbon/true_devil/can_be_revived()

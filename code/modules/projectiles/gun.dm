@@ -75,6 +75,7 @@
 	hud_possible = list(HACKER_HUD)
 	var/extra_damage = 0				//Number to add to individual bullets.
 	var/extra_penetration = 0			//Number to add to armor penetration of individual bullets.
+	var/extra_minhitchance = 0			//Number you add to minimal hit chance
 
 	var/custom_skin_name = null
 
@@ -206,6 +207,9 @@
 	. = ..()
 	return fire_gun(target, user, flag, params)
 
+/obj/item/gun/afterattack_secondary(atom/target, mob/user, proximity_flag, click_parameters)
+	return
+
 /obj/item/gun/proc/fire_gun(atom/target, mob/living/user, flag, params)
 	if(QDELETED(target))
 		return
@@ -322,8 +326,11 @@
 				shoot_live_shot(user, 1, target, message)
 			else
 				shoot_live_shot(user, 0, target, message)
+			SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 			if (iteration >= burst_size)
+				semicd = TRUE
 				firing_burst = FALSE
+				addtimer(CALLBACK(src, .proc/reset_semicd), fire_delay * burst_size)
 	else
 		shoot_with_empty_chamber(user)
 		firing_burst = FALSE

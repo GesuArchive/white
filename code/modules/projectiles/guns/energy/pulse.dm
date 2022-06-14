@@ -6,6 +6,7 @@
 	worn_icon_state = null
 	w_class = WEIGHT_CLASS_BULKY
 	force = 10
+	extra_minhitchance = 22 //Минимум 30% на попадание. Это же пульсач, ебана.
 	modifystate = TRUE
 	flags_1 =  CONDUCT_1
 	slot_flags = ITEM_SLOT_BACK

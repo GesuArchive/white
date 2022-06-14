@@ -3,7 +3,7 @@
 #define SIZE_BIG 4
 
 /datum/action/bloodsucker/targeted/dice
-	name = "Dice" 
+	name = "Dice"
 	desc = "Slice, cut, sever. The Flesh obeys as my fingers lay touch on it."
 	button_icon_state = "power_dice"
 	power_explanation = "<b>Dice</b>:\n\
@@ -76,7 +76,7 @@
 		quantity = 2
 		if(newsize < SIZE_SMALL)
 			to_chat(user, span_warning("You can't cut [src] anymore!"))
-			return 
+			return
 		to_chat(user, span_notice("You cut [src] into smaller pieces."))
 	switch(newsize)
 		if(0)

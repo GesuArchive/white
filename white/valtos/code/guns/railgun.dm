@@ -15,6 +15,7 @@
 	bolt_drop_sound = 'white/valtos/sounds/ebutt.ogg'
 	empty_alarm_sound = 'white/valtos/sounds/ebutt.ogg'
 	can_suppress = FALSE
+	burst_size = 1
 	fire_delay = 1
 	extra_damage = 0
 	extra_penetration = 0

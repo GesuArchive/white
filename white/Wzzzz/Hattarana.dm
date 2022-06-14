@@ -24,6 +24,7 @@
 	icon_state = "arifle"
 	lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
 	righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'
+	burst_size = 3
 	inhand_icon_state = "arifle"
 	w_class = 4
 	force = 10

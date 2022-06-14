@@ -89,6 +89,7 @@ Arrow&bow
 	pin = /obj/item/firing_pin
 	fire_delay = 2
 	can_suppress = FALSE
+	burst_size = 5
 	actions_types = list(/datum/action/item_action/toggle_firemode)
 	can_bayonet = FALSE
 	lefthand_file = 'white/qwaszx000/sprites/left_hand.dmi'

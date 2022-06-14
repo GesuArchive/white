@@ -9,6 +9,7 @@
 	auto_fire = TRUE
 	force = 0
 	throwforce = 0
+	burst_size = 3
 	can_suppress = TRUE
 	clumsy_check = FALSE
 	item_flags = NONE

@@ -1,6 +1,7 @@
 /obj/item/gun/ballistic/automatic
 	w_class = WEIGHT_CLASS_NORMAL
 	can_suppress = TRUE
+	burst_size = 3
 	fire_delay = 2
 	actions_types = list(/datum/action/item_action/toggle_firemode)
 	semi_auto = TRUE
@@ -38,12 +39,28 @@
 		..()
 
 /obj/item/gun/ballistic/automatic/proc/burst_select()
-	return
+	var/mob/living/carbon/human/user = usr
+	select = !select
+	if(!select)
+		burst_size = 1
+		fire_delay = 0
+		to_chat(user, span_notice("Переключаюсь на полу-автоматический режим."))
+	else
+		burst_size = initial(burst_size)
+		fire_delay = initial(fire_delay)
+		to_chat(user, span_notice("Переключаюсь на стрельбу очередями по [burst_size] пули за выстрел."))
+
+	playsound(user, 'sound/weapons/empty.ogg', 100, TRUE)
+	update_icon()
+	for(var/X in actions)
+		var/datum/action/A = X
+		A.UpdateButtonIcon()
 
 /obj/item/gun/ballistic/automatic/proto
 	name = "\improper Nanotrasen Saber SMG"
 	desc = "A prototype full-auto 9mm submachine gun, designated 'SABR'. Has a threaded barrel for suppressors."
 	icon_state = "saber"
+	burst_size = 1
 	actions_types = list()
 	mag_display = TRUE
 	empty_indicator = TRUE
@@ -68,6 +85,7 @@
 	selector_switch_icon = TRUE
 	mag_type = /obj/item/ammo_box/magazine/smgm45
 	fire_delay = 2
+	burst_size = 3
 	pin = /obj/item/firing_pin/implant/pindicate
 	can_bayonet = TRUE
 	knife_x_offset = 26
@@ -97,6 +115,7 @@
 	mag_type = /obj/item/ammo_box/magazine/wt550m9
 	fire_delay = 2
 	can_suppress = FALSE
+	burst_size = 1
 	actions_types = list()
 	can_bayonet = TRUE
 	knife_x_offset = 25
@@ -115,6 +134,7 @@
 	icon_state = "plastikov"
 	inhand_icon_state = "plastikov"
 	mag_type = /obj/item/ammo_box/magazine/plastikov9mm
+	burst_size = 5
 	spread = 25
 	can_suppress = FALSE
 	actions_types = list()
@@ -127,6 +147,7 @@
 	desc = "Легкий пистолет-пулемёт, обладающий режимом стрельбы очередями, когда вы действительно хотите кого-то убить. Использует патроны калибра 9мм."
 	icon_state = "miniuzi"
 	mag_type = /obj/item/ammo_box/magazine/uzim9mm
+	burst_size = 2
 	bolt_type = BOLT_TYPE_OPEN
 	show_bolt_icon = FALSE
 	mag_display = TRUE
@@ -141,7 +162,9 @@
 	selector_switch_icon = TRUE
 	mag_type = /obj/item/ammo_box/magazine/m556
 	can_suppress = FALSE
+	auto_fire =  TRUE
 	var/obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel
+	burst_size = 3
 	fire_delay = 2
 	spread = 5
 	pin = /obj/item/firing_pin/implant/pindicate
@@ -187,20 +210,7 @@
 		if(1)
 			. += "[initial(icon_state)]_gren"
 
-/obj/item/gun/ballistic/automatic/m90/burst_select()
-	var/mob/living/carbon/human/user = usr
-	switch(select)
-		if(0)
-			select = 1
-			to_chat(user, span_notice("Выбран гранатомёт."))
-		if(1)
-			select = 0
-			burst_size = 1
-			fire_delay = 0
-			to_chat(user, span_notice("Выбран полуавтоматический режим."))
-	playsound(user, 'sound/weapons/empty.ogg', 100, TRUE)
-	update_icon()
-	return
+
 
 /obj/item/gun/ballistic/automatic/tommygun
 	name = "\improper пистолет-пулемёт Томпсона"
@@ -231,6 +241,7 @@
 	slot_flags = 0
 	mag_type = /obj/item/ammo_box/magazine/m556
 	can_suppress = FALSE
+	burst_size = 3
 	fire_delay = 1
 
 

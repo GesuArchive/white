@@ -176,6 +176,7 @@
 	name = "9mm machine pistol"
 	desc = "The W-T 550 Saber is a cheap self-defense weapon, mass-produced by Ward-Takahashi for paramilitary and private use. Uses 9mm rounds."
 	icon_state = "wt550"
+	burst_size = 3
 	inhand_icon_state = "wt550"
 	lefthand_file = 'white/Wzzzz/clothing/inhand/lefthand_guns.dmi'
 	righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'

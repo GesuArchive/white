@@ -567,6 +567,7 @@
 	worn_icon_state = "ak47"
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	mag_type = /obj/item/ammo_box/magazine/ak762
+	burst_size = 3
 
 /obj/item/ammo_box/magazine/ak762
 	name = "AK-47 magazine (7.62)"

@@ -78,6 +78,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = /obj/item/ammo_box/magazine/m9mm_aps
 	can_suppress = TRUE
+	burst_size = 3
 	auto_fire = TRUE
 	fire_delay = 1
 	spread = 10

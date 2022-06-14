@@ -2,7 +2,7 @@
 	name = "12g пуля"
 	damage = 50
 	sharpness = SHARP_POINTY
-	wound_bonus = 0
+	wound_bonus = -20 //Выбивание органов с двух пуль это смешно, но не очень честно.
 
 /obj/projectile/bullet/shotgun_slug/executioner
 	name = "executioner slug" // admin only, can dismember limbs
@@ -74,6 +74,7 @@
 /obj/projectile/bullet/pellet
 	var/tile_dropoff = 0.45
 	var/tile_dropoff_s = 0.25
+	min_hitchance = 5 //Дробька маленькая
 
 /obj/projectile/bullet/pellet/Range()
 	..()

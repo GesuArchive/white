@@ -1,7 +1,7 @@
-/obj/item/ammo_casing/proc/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration)
+/obj/item/ammo_casing/proc/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from, extra_damage, extra_penetration, extra_minhitchance)
 	distro += variance
 	var/targloc = get_turf(target)
-	ready_proj(target, user, quiet, zone_override, fired_from, extra_damage, extra_penetration)
+	ready_proj(target, user, quiet, zone_override, fired_from, extra_damage, extra_penetration, extra_minhitchance)
 	if(pellets == 1)
 		if(distro) //We have to spread a pixel-precision bullet. throw_proj was called before so angles should exist by now...
 			if(randomspread)
@@ -25,7 +25,7 @@
 	update_appearance()
 	return TRUE
 
-/obj/item/ammo_casing/proc/ready_proj(atom/target, mob/living/user, quiet, zone_override = "", atom/fired_from, extra_damage = 0, extra_penetration = 0)
+/obj/item/ammo_casing/proc/ready_proj(atom/target, mob/living/user, quiet, zone_override = "", atom/fired_from, extra_damage = 0, extra_penetration = 0, extra_minhitchance = 0)
 	if (!loaded_projectile)
 		return
 	loaded_projectile.original = target
@@ -34,6 +34,7 @@
 	loaded_projectile.hit_prone_targets = user.a_intent != INTENT_HELP
 
 	loaded_projectile.damage = initial(loaded_projectile.damage) + extra_damage
+	loaded_projectile.min_hitchance = initial(loaded_projectile.min_hitchance) + extra_minhitchance
 	if(isnum(extra_penetration))
 		loaded_projectile.armour_penetration = initial(loaded_projectile.armour_penetration) + extra_penetration
 

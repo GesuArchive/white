@@ -54,7 +54,7 @@
 		targets += C
 	if(targets.len>0)
 		var/mob/living/carbon/t = pick(targets)
-		if(t.stat != DEAD && !t.handcuffed) //we don't shoot people who are dead, cuffed or lying down.
+		if(t.stat != DEAD && !t.handcuffed && on) //we don't shoot people who are dead, cuffed or lying down. AND WE DONT FOOKIN SHOOT WHILE OFF
 			shootAt(t)
 	..()
 

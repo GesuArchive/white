@@ -32,6 +32,7 @@
 	righthand_file = 'white/Wzzzz/clothing/inhand/righthand_guns.dmi'
 	worn_icon = 'white/Wzzzz/clothing/mob/back.dmi'
 	fire_delay = 10
+	burst_size = 1
 	actions_types = list()
 	mag_display = TRUE
 	can_suppress = FALSE

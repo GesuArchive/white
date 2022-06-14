@@ -7,6 +7,7 @@
 	damage = 60
 	embedding = null
 	shrapnel_type = null
+	min_hitchance = 20
 
 /obj/projectile/bullet/a40mm/on_hit(atom/target, blocked = FALSE)
 	..()

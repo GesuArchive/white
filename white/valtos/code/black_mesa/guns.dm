@@ -44,6 +44,7 @@
 	mag_type = /obj/item/ammo_box/magazine/mp5
 	bolt_type = BOLT_TYPE_LOCKING
 	can_suppress = TRUE
+	burst_size = 3
 	fire_delay = 1.25
 	spread = 2.5
 	mag_display = TRUE
