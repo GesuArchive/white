@@ -14698,9 +14698,7 @@
 /turf/open/floor/engine/cult,
 /area/wizard_station)
 "Yy" = (
-/obj/machinery/vending/yoheiking{
-	onstation_override = 1
-	},
+/obj/machinery/armament_station/yohei,
 /turf/open/floor/plasteel/durasteel,
 /area/ruin/powered/yohei_base)
 "Yz" = (

@@ -267,7 +267,7 @@
 	l_pocket = /obj/item/pamk
 
 	back = /obj/item/storage/backpack/satchel/leather
-	backpack_contents = list()
+	backpack_contents = list(/obj/item/armament_points_card/yohei = 1)
 
 /datum/outfit/yohei/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
@@ -292,7 +292,7 @@
 	belt = /obj/item/defibrillator/compact/combat/loaded
 	uniform = /obj/item/clothing/under/syndicate/yohei/blue
 
-	backpack_contents = list(/obj/item/pamk = 3, /obj/item/storage/firstaid/medical = 1, /obj/item/optable = 1, /obj/item/reagent_containers/glass/blastoff_ampoule = 1)
+	backpack_contents = list(/obj/item/pamk = 1, /obj/item/storage/firstaid/medical = 1, /obj/item/optable = 1, /obj/item/armament_points_card/yohei = 1)
 
 /datum/outfit/yohei/combatant
 	name = "Йохей: Боевик"
@@ -302,7 +302,7 @@
 	uniform = /obj/item/clothing/under/syndicate/yohei/red
 	r_pocket = /obj/item/ammo_box/magazine/fallout/m9mm
 
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic/contractor_baton = 1, /obj/item/restraints/handcuffs/energy = 2)
+	backpack_contents = list(/obj/item/restraints/handcuffs/energy = 2, /obj/item/armament_points_card/yohei = 1)
 
 /datum/outfit/yohei/breaker
 	name = "Йохей: Взломщик"
@@ -311,7 +311,7 @@
 	belt = /obj/item/storage/belt/military/abductor/full
 	uniform = /obj/item/clothing/under/syndicate/yohei/yellow
 
-	backpack_contents = list(/obj/item/construction/rcd/combat = 1, /obj/item/rcd_ammo/large = 1, /obj/item/quikdeploy/cade/plasteel = 5)
+	backpack_contents = list(/obj/item/quikdeploy/cade/plasteel = 5, /obj/item/armament_points_card/yohei = 1)
 
 /datum/outfit/yohei/breaker/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -344,7 +344,7 @@
 	r_pocket = /obj/item/stack/rods/twentyfive
 	back = /obj/item/gun/ballistic/crossbow/energy
 
-	backpack_contents = list()
+	backpack_contents = list(/obj/item/armament_points_card/yohei = 1)
 
 /obj/lab_monitor/yohei
 	name = "Монитор исполнения"
@@ -399,7 +399,6 @@
 		var/static/list/choices = list(
 			"Классическая охота" = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "classic"),
 			"Помочь событиям" 	 = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "gamemode")
-//			"Кровавая месть" 	 = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "revenge")
 		)
 		var/choice = show_radial_menu(user, src, choices, tooltips = TRUE)
 		if(!choice)
@@ -411,29 +410,8 @@
 			var/datum/yohei_task/new_task = pick(possible_tasks)
 			current_task = new new_task()
 			return
-/*		else if (choice == "Кровавая месть")
-			internal_radio.talk_into(src, "Загружаю подпрограмму Феникс для пользователя [user.name]...", FREQ_YOHEI)
-			var/list/victims = list()
-			for(var/V in GLOB.data_core.locked)
-				var/datum/data/record/R = V
-				var/datum/mind/M = R.fields["mindref"]
-				if(M)
-					victims += M
-			var/mob/victim = tgui_input_list(usr, "Кому же мы будем мстить?", "Чилипилки", victims)
-			if(victim)
-				var/datum/antagonist/A = user.mind.add_antag_datum(/datum/antagonist/custom)
-				var/datum/objective/O = new /datum/objective/assassinate()
-				O.owner = user.mind
-				O.target = victim
-				O.update_explanation_text()
-				A.objectives += O
-				A.greet()
-				to_chat(victim, span_userdanger("Кто-то ОЧЕНЬ СИЛЬНО хочет мне навредить..."))
-			return
-*/
 		else
 			internal_radio.talk_into(src, "Особых заданий больше НЕТ!", FREQ_YOHEI)
-			//current_task = new /datum/yohei_task/gamemode()
 			return
 
 	if(current_task && current_task.check_task(user))
@@ -442,6 +420,10 @@
 			inc_metabalance(H, current_task.prize, reason = "Задание выполнено.")
 			var/obj/item/card/id/cardid = H.get_idcard(FALSE)
 			cardid?.registered_account?.adjust_money(rand(5000, 10000))
+			var/obj/item/armament_points_card/APC = locate() in H
+			if(APC)
+				APC.points += 10
+				APC.update_maptext()
 		qdel(current_task)
 
 		var/datum/yohei_task/new_task = pick(possible_tasks)

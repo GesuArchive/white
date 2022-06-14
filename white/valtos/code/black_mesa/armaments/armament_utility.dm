@@ -1,6 +1,4 @@
 #define ARMAMENT_CATEGORY_UTILITY "Utility Supplies"
-#define ARMAMENT_CATEGORY_UTILITY_LIMIT 8
-#define ARMAMENT_SUBCATEGORY_UTILITY_ARMOR "Armor"
 
 /datum/armament_entry/hecu/utility
 	category = ARMAMENT_CATEGORY_UTILITY

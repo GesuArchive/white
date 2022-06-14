@@ -47,7 +47,7 @@
 
 /obj/item/armament_points_card/examine(mob/user)
 	. = ..()
-	. += span_notice("It has [points] points left.")
+	. += span_notice("Здесь [points] очков осталось.")
 
 /obj/item/armament_points_card/proc/use_points(points_to_use)
 	if(points_to_use > points)
