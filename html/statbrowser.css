@@ -1,6 +1,6 @@
 body {
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	font-size: 13px !important;
+	font-family: Tahoma, Verdana, Geneva, sans-serif;
+	font-size: 14px !important;
 	margin: 0 !important;
 	padding: 0 !important;
 	overflow-x: hidden;
@@ -170,22 +170,21 @@ li a:hover:not(.active) {
 }
 
 .grid-container {
-	margin: -2px;
-	margin-right: -15px;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .grid-item {
 	position: relative;
-	display: inline-block;
-	width: 140px;
-	font-size: 11px;
+	display: inline-flex;
+	width: 30%;
+	font-size: 12px;
 	white-space: pre-wrap;
 	padding: 3px 3px;
 	margin: 1px;
 	text-decoration: none;
 	overflow: visible;
 	border: 1px solid rgba(0, 0, 0, 0.7);
-	border-radius: 3px;
 }
 
 @media only screen and (min-width: 620px) {
@@ -195,19 +194,14 @@ li a:hover:not(.active) {
 }
 
 .grid-item:hover {
-	z-index: 1;
-}
-
-.grid-item:hover .grid-item-text {
 	background: #000;
-	width: auto;
 }
 
-.dark .grid-item:hover .grid-item-text {
+.dark .grid-item:hover {
 	background: #d6d6d6;
 }
 
-.cyber .grid-item:hover .grid-item-text {
+.cyber .grid-item:hover {
 	background: #abc6ec;
 }
 
