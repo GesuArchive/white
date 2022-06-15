@@ -5,7 +5,7 @@
 // You do not need to raise this if you are adding new values that have sane defaults.
 // Only raise this value when changing the meaning/format/name/layout of an existing value
 // where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX 55
+#define SAVEFILE_VERSION_MAX 56
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -71,7 +71,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		if("4d4919a746a01f2d0c17740fdbbd83ea" in purchased_gear)
 			purchased_gear += "6355ec980b834b9c956ad064bde6657a"
 
-	if (current_version < 55)
+	if (current_version < 56)
 		widescreen = TRUE
 		icon_size = 64
 
@@ -247,7 +247,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	toggles			= sanitize_integer(toggles, 0, (2**24)-1, initial(toggles))
 	w_toggles		= sanitize_integer(w_toggles, 0, 524288, initial(w_toggles))
 	clientfps		= sanitize_integer(clientfps, -1, 1000, 0)
-	widescreen		= sanitize_integer(widescreen, 15, 31, 0)
+	widescreen		= sanitize_integer(widescreen, FALSE, TRUE, 0)
 	icon_size		= sanitize_integer(icon_size, 16, 256, 0)
 	parallax		= sanitize_integer(parallax, PARALLAX_INSANE, PARALLAX_DISABLE, null)
 	ambientocclusion	= sanitize_integer(ambientocclusion, FALSE, TRUE, initial(ambientocclusion))

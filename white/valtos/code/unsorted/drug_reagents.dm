@@ -576,7 +576,7 @@
 /atom/movable/screen/fullscreen/labeb
 	icon = 'white/valtos/icons/ruzone_went_up.dmi'
 	plane = SPLASHSCREEN_PLANE
-	screen_loc = "CENTER-7,SOUTH"
+	screen_loc = "CENTER-7,BOTTOM"
 	icon_state = ""
 
 /obj/item/reagent_containers/pill/labebium

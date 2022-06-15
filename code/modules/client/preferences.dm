@@ -1594,7 +1594,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						preferred_map = maplist[pickedmap]
 
 				if ("icon_size")
-					var/icon_size_input = tgui_input_number(user, "Какой размер выберем?", "БУДЬ ОСТОРОЖЕН", icon_size, 256, 16)
+					var/icon_size_input = input(user, "Какой размер выберем?", "БУДЬ ОСТОРОЖЕН", icon_size)
 					if (!isnull(icon_size_input))
 						icon_size = sanitize_integer(icon_size_input, 16, 256, icon_size)
 						INVOKE_ASYNC(user?.client, /client.verb/SetWindowIconSize, icon_size)

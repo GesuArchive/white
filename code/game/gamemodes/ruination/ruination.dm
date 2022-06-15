@@ -253,7 +253,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 
 /atom/movable/screen/station_height
 	icon = 'white/valtos/icons/line.png'
-	screen_loc = "SOUTH:420, EAST-3:48"
+	screen_loc = "BOTTOM:420, RIGHT-3:48"
 	maptext_y = -4
 	maptext_width = 96
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -264,7 +264,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 	overlays += icon('white/valtos/icons/station.png')
 
 /atom/movable/screen/station_height/proc/update_height()
-	screen_loc = "SOUTH:[min(round((GLOB.station_orbit_height * 0.001), 1) + 120, 440)], EAST-3:48"
+	screen_loc = "BOTTOM:[min(round((GLOB.station_orbit_height * 0.001), 1) + 120, 440)], RIGHT-3:48"
 	maptext = "<span style='color: #A35D5B; font-size: 8px;'>[GLOB.station_orbit_height] M</br>[GLOB.station_orbit_speed] M/C</span>"
 
 /atom/movable/screen/station_height_bg
