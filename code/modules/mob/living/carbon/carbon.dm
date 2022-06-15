@@ -299,10 +299,10 @@
 			to_chat(src, span_warning("Не получилось снять [I]!"))
 
 	else if(cuff_break == FAST_CUFFBREAK)
-		breakoutchance = 100 - 100 * (100-breakoutchance/100)**2 //equivalent to the chance of breaking the cuff in 2 tries or less. because fancy maths	// see https://www.desmos.com/calculator/gdlyhnente
+		breakoutchance = I.breakoutchance * 2
 		visible_message(span_warning("[capitalize(src.name)] пытается разорвать [I]!"))
 		to_chat(src, span_notice("Пытаюсь разорвать [I]..."))
-		if(do_after(src, 1 SECONDS, target = src, timed_action_flags = IGNORE_HELD_ITEM))
+		if(do_after(src, I.breakouttime * 0.1, target = src, timed_action_flags = IGNORE_HELD_ITEM))
 			if(prob(breakoutchance))
 				. = clear_cuffs(I, cuff_break)
 			else

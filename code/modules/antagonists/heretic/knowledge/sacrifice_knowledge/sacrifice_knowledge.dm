@@ -310,8 +310,6 @@
 
 	sac_target.flash_act()
 	sac_target.blur_eyes(15)
-	sac_target.Jitter(20 SECONDS)
-	sac_target.Dizzy(20 SECONDS)
 	sac_target.hallucination += 12
 	sac_target.emote("scream")
 
@@ -363,7 +361,6 @@
 
 	// Wherever we end up, we sure as hell won't be able to explain
 	sac_target.slurring = 20 SECONDS
-	sac_target.stuttering = 40 SECONDS
 
 	// They're already back on the station for some reason, don't bother teleporting
 	if(is_station_level(sac_target.z))
@@ -430,12 +427,23 @@
 
 	// Oh god where are we?
 	sac_target.flash_act()
-	sac_target.add_confusion(60 SECONDS)
-	sac_target.Jitter(120 SECONDS)
-	sac_target.blur_eyes(50)
-	sac_target.Dizzy(60 SECONDS)
+	sac_target.set_confusion(10 SECONDS)
+	sac_target.Jitter(20 SECONDS)
+	sac_target.blur_eyes(10)
 	sac_target.AdjustKnockdown(80)
 	sac_target.adjustStaminaLoss(120)
+	if(prob(35))
+		to_chat(sac_target, span_hypnophrase("Надеюсь, моя страховка покроет оплату психотерапевта..."))
+		var/resistance = pick(
+			50;TRAUMA_RESILIENCE_BASIC,
+			20;TRAUMA_RESILIENCE_SURGERY,
+			5;TRAUMA_RESILIENCE_LOBOTOMY)
+
+		var/trauma_type = pickweight(list(
+			BRAIN_TRAUMA_MILD = 60,
+			BRAIN_TRAUMA_SEVERE = 30))
+
+		sac_target.gain_trauma_type(trauma_type, resistance)
 
 	// Glad i'm outta there, though!
 	SEND_SIGNAL(sac_target, COMSIG_ADD_MOOD_EVENT, "shadow_realm_survived", /datum/mood_event/shadow_realm_live)

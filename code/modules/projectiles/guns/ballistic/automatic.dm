@@ -44,7 +44,7 @@
 	if(!select)
 		burst_size = 1
 		fire_delay = 0
-		to_chat(user, span_notice("Переключаюсь на полу-автоматический режим."))
+		to_chat(user, span_notice("Переключаюсь на  [auto_fire ? "автоматический" : "полуавтоматический"] режим."))
 	else
 		burst_size = initial(burst_size)
 		fire_delay = initial(fire_delay)
