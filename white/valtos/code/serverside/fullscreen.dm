@@ -7,6 +7,7 @@
 		winset(src, "mainwindow", "is-maximized=true")
 	if((prefs?.widescreen))
 		OnResize()
+    addtimer(CALLBACK(src,.verb/fit_viewport, 10))
 
 /datum/keybinding/client/fullscreen_toggle
 	hotkey_keys = list("F11")

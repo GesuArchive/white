@@ -114,7 +114,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	var/widescreen = TRUE
 
-	var/icon_size = 64
+	var/icon_size = 0
 
 	var/parallax
 
@@ -1594,9 +1594,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						preferred_map = maplist[pickedmap]
 
 				if ("icon_size")
-					var/icon_size_input = input(user, "Какой размер выберем?", "БУДЬ ОСТОРОЖЕН", icon_size)
+					var/icon_size_input = input(user, "Какой размер выберем? Введи 0 для автоматического.", "БУДЬ ОСТОРОЖЕН", icon_size)
 					if (!isnull(icon_size_input))
-						icon_size = sanitize_integer(icon_size_input, 16, 256, icon_size)
+						icon_size = sanitize_integer(icon_size_input, 0, 256, icon_size)
 						INVOKE_ASYNC(user?.client, /client.verb/SetWindowIconSize, icon_size)
 
 				if ("clientfps")
