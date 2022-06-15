@@ -65,9 +65,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	if (current_version < 52)
 		uses_glasses_colour = TRUE
 
-	if(current_version < 53)
-		widescreenwidth = 19
-
 	if(current_version < 54)
 		if("0474cf4afd90f3bd6ed0fc294e3e71f4" in purchased_gear)
 			purchased_gear += "b77fc4971b9920d93a5c1cab1aa490ed"
@@ -178,7 +175,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	READ_FILE(S["inquisitive_ghost"], inquisitive_ghost)
 	READ_FILE(S["uses_glasses_colour"], uses_glasses_colour)
 	READ_FILE(S["clientfps"], clientfps)
-	READ_FILE(S["widescreenwidth"], widescreenwidth)
+	READ_FILE(S["widescreen"], widescreen)
+	READ_FILE(S["icon_size"], icon_size)
 	READ_FILE(S["parallax"], parallax)
 	READ_FILE(S["ambientocclusion"], ambientocclusion)
 	READ_FILE(S["auto_fit_viewport"], auto_fit_viewport)
@@ -245,7 +243,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	toggles			= sanitize_integer(toggles, 0, (2**24)-1, initial(toggles))
 	w_toggles		= sanitize_integer(w_toggles, 0, 524288, initial(w_toggles))
 	clientfps		= sanitize_integer(clientfps, -1, 1000, 0)
-	widescreenwidth		= sanitize_integer(widescreenwidth, 15, 31, 0)
+	widescreen		= sanitize_integer(widescreen, 15, 31, 0)
+	icon_size		= sanitize_integer(icon_size, 16, 256, 0)
 	parallax		= sanitize_integer(parallax, PARALLAX_INSANE, PARALLAX_DISABLE, null)
 	ambientocclusion	= sanitize_integer(ambientocclusion, FALSE, TRUE, initial(ambientocclusion))
 	auto_fit_viewport	= sanitize_integer(auto_fit_viewport, FALSE, TRUE, initial(auto_fit_viewport))
@@ -330,7 +329,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["inquisitive_ghost"], inquisitive_ghost)
 	WRITE_FILE(S["uses_glasses_colour"], uses_glasses_colour)
 	WRITE_FILE(S["clientfps"], clientfps)
-	WRITE_FILE(S["widescreenwidth"], widescreenwidth)
+	WRITE_FILE(S["widescreen"], widescreen)
+	WRITE_FILE(S["icon_size"], icon_size)
 	WRITE_FILE(S["parallax"], parallax)
 	WRITE_FILE(S["ambientocclusion"], ambientocclusion)
 	WRITE_FILE(S["auto_fit_viewport"], auto_fit_viewport)

@@ -3,7 +3,7 @@
 
 	using = new /atom/movable/screen/emote_button()
 	using.icon = ui_style
-	using.screen_loc = ui_emotes
+	using.screen_loc = UI_EMOTES
 	using.hud = src
 	infodisplay += using
 

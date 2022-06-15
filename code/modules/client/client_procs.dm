@@ -475,7 +475,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	view_size.resetFormat()
 	view_size.setZoomMode()
-	fit_viewport()
+	attempt_auto_fit_viewport()
 
 	SStitle.update_lobby()
 
@@ -1017,18 +1017,22 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 				if("Действия")
 					winset(src, "default-[REF(key)]", "parent=default;name=[key];command=Действия")
 
-/client/proc/change_view(new_size, forced = FALSE)
-	if (isnull(new_size))
-		CRASH("change_view called without argument.")
-
-	view = new_size
-	SEND_SIGNAL(src, COMSIG_VIEW_SET, new_size)
-	apply_clickcatcher()
-	mob.reload_fullscreen()
-	if (isliving(mob))
-		var/mob/living/M = mob
-		M.update_damage_hud()
-	attempt_auto_fit_viewport()
+/client/proc/change_view(new_size, forced)
+	if((!prefs?.widescreen))
+		if (isnull(new_size))
+			CRASH("change_view called without argument.")
+		view = new_size
+		apply_clickcatcher()
+		mob?.reload_fullscreen()
+		if (isliving(mob))
+			var/mob/living/M = mob
+			M.update_damage_hud()
+		attempt_auto_fit_viewport()
+	else
+		apply_clickcatcher()
+		mob?.reload_fullscreen()
+		if(forced)
+			view = new_size
 
 /client/proc/generate_clickcatcher()
 	if(!void)
@@ -1203,3 +1207,9 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	var/mob/dead/observer/observer = mob
 	observer.ManualFollow(target)
+
+/// Used in skin.dmf to scale on hotkeys.
+/client/verb/ScaleHotkey(number as num)
+	var/lastsize = text2num(winget(src, "mapwindow.map", "icon-size"))
+	var/newpref = lastsize + number
+	SetWindowIconSize(newpref)

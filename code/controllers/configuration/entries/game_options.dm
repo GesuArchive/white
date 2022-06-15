@@ -424,3 +424,13 @@
 	config_entry_value = TRUE  //похуй ебал конфиги
 
 /datum/config_entry/flag/native_fov
+
+/datum/config_entry/number/max_client_view_x
+	default = 31
+	min_val = 15
+	max_val = 50 // Byond (the) limits
+
+/datum/config_entry/number/max_client_view_y
+	default = 15
+	min_val = 15
+	max_val = 50 // Byond (the) limits

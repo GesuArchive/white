@@ -3,13 +3,13 @@
 
 	using = new /atom/movable/screen/multiz_up_button()
 	using.icon = ui_style
-	using.screen_loc = ui_multiz_up
+	using.screen_loc = UI_MULTIZ_UP
 	using.hud = src
 	infodisplay += using
 
 	using = new /atom/movable/screen/multiz_down_button()
 	using.icon = ui_style
-	using.screen_loc = ui_multiz_down
+	using.screen_loc = UI_MULTIZ_DOWN
 	using.hud = src
 	infodisplay += using
 

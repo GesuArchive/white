@@ -59,4 +59,5 @@
 	user.visible_message(span_notice("[user] опускает [src].") , span_notice("Опускаю [src]."))
 	inhand_icon_state = "binoculars"
 	user.regenerate_icons()
-	user.client.view_size.zoomIn()
+	spawn(-1)
+		user.client.view_size.zoomIn()

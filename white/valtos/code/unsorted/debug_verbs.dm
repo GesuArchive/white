@@ -7,7 +7,6 @@
 
 	for(var/client/C in GLOB.clients)
 		C.dir = pick(GLOB.cardinals)
-		C.change_view("15x15", TRUE)
 		C.mob.add_client_colour(/datum/client_colour/ohfuckrection)
 		C.mob.overlay_fullscreen("fuckoise", /atom/movable/screen/fullscreen/noisescreen)
 		to_chat(C, span_revenbignotice("Было совершено военное преступление."))
@@ -21,7 +20,6 @@
 
 	for(var/client/C in GLOB.clients)
 		C.dir = NORTH
-		C.change_view("19x15", TRUE)
 		C.mob.remove_client_colour(/datum/client_colour/ohfuckrection)
 		C.mob.clear_fullscreen("fuckoise")
 		to_chat(C, span_revenbignotice("Военных преступлений не было."))

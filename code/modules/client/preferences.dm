@@ -112,7 +112,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	var/clientfps = -1
 
-	var/widescreenwidth = 19
+	var/widescreen = TRUE
+
+	var/icon_size = 64
 
 	var/parallax
 
@@ -572,7 +574,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_NODE_SWITCH("Полный экран", "fullscreen", fullscreen ? "Вкл" : "Выкл")
 
 			if (CONFIG_GET(string/default_view) != CONFIG_GET(string/default_view_square))
-				dat += SETUP_NODE_INPUT("Ширина экрана", "widescreenwidth", widescreenwidth)
+				dat += SETUP_NODE_SWITCH("Широкий экран", "widescreen", widescreen ? "Вкл" : "Выкл")
+				dat += SETUP_NODE_INPUT("Размер иконки", "icon_size", icon_size)
 
 			dat += SETUP_NODE_SWITCH("Названия предметов", "tooltip_user", (w_toggles & TOOLTIP_USER_UP) ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Позиция на экране", "tooltip_pos", (w_toggles & TOOLTIP_USER_POS) ? "Внизу" : "Вверху")
@@ -1590,11 +1593,18 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if (pickedmap)
 						preferred_map = maplist[pickedmap]
 
-				if ("widescreenwidth")
-					var/desiredwidth = input(user, "Какую ширину выберем от до 15-31?", "ВЫБОР", widescreenwidth)  as null|num
-					if (!isnull(desiredwidth))
-						widescreenwidth = sanitize_integer(desiredwidth, 15, 31, widescreenwidth)
-						user.client.view_size.setDefault("[widescreenwidth]x15")
+				if ("widescreen")
+					widescreen = !widescreen
+					if(widescreen)
+						INVOKE_ASYNC(user?.client, /client.verb/SetWindowIconSize, icon_size)
+					else
+						user?.client?.view_size?.setDefault(user?.client?.getScreenSize(icon_size))
+
+				if ("icon_size")
+					var/icon_size_input = tgui_input_number(user, "Какой размер выберем?", "БУДЬ ОСТОРОЖЕН", icon_size, 256, 16)
+					if (!isnull(icon_size_input))
+						icon_size = sanitize_integer(icon_size_input, 16, 256, icon_size)
+						INVOKE_ASYNC(user?.client, /client.verb/SetWindowIconSize, icon_size)
 
 				if ("clientfps")
 					var/desiredfps = input(user, "Choose your desired fps.\n-1 means recommended value (currently:[RECOMMENDED_FPS])\n0 means world fps (currently:[world.fps])", "Character Preference", clientfps)  as null|num
