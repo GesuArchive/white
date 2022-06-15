@@ -438,7 +438,7 @@
 /atom/movable/screen/storage
 	name = "хранилище"
 	icon_state = "block"
-	screen_loc = "LEFT,BOTTOM to RIGHT,TOP"
+	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	plane = HUD_PLANE
 
 /atom/movable/screen/storage/Initialize(mapload, new_master)

@@ -292,7 +292,7 @@
 
 /obj/effect/anomaly/bluespace/proc/blue_effect(mob/M)
 	var/obj/blueeffect = new /obj(src)
-	blueeffect.screen_loc = "LEFT,BOTTOM to RIGHT,TOP"
+	blueeffect.screen_loc = "WEST,SOUTH to EAST,NORTH"
 	blueeffect.icon = 'icons/effects/effects.dmi'
 	blueeffect.icon_state = "shieldsparkles"
 	blueeffect.layer = FLASH_LAYER
