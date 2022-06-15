@@ -1593,13 +1593,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if (pickedmap)
 						preferred_map = maplist[pickedmap]
 
-				if ("widescreen")
-					widescreen = !widescreen
-					if(widescreen)
-						INVOKE_ASYNC(user?.client, /client.verb/SetWindowIconSize, icon_size)
-					else
-						user?.client?.view_size?.setDefault(user?.client?.getScreenSize(icon_size))
-
 				if ("icon_size")
 					var/icon_size_input = tgui_input_number(user, "Какой размер выберем?", "БУДЬ ОСТОРОЖЕН", icon_size, 256, 16)
 					if (!isnull(icon_size_input))
@@ -1861,6 +1854,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(parent?.screen && parent.screen.len)
 						var/atom/movable/screen/plane_master/game_world/plane_master = locate() in parent.screen
 						plane_master.backdrop(parent.mob)
+
+				if ("widescreen")
+					widescreen = !widescreen
+					if(widescreen)
+						INVOKE_ASYNC(user?.client, /client.verb/SetWindowIconSize, icon_size)
+					else
+						user?.client?.view_size?.setDefault(user?.client?.getScreenSize(icon_size))
 
 				if("auto_fit_viewport")
 					auto_fit_viewport = !auto_fit_viewport
