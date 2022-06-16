@@ -1067,10 +1067,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			ban_details = i
 			break //we only want to get the most recent ban's details
 		if(ban_details?.len)
-			var/expires = "This is a permanent ban."
+			var/expires = " Это перманентный бан."
 			if(ban_details["expiration_time"])
-				expires = " The ban is for [DisplayTimeText(text2num(ban_details["duration"]) MINUTES)] and expires on [ban_details["expiration_time"]] (server time)."
-			to_chat(user, span_danger("You, or another user of this computer or connection ([ban_details["key"]]) is banned from playing [href_list["bancheck"]].<br>The ban reason is: [ban_details["reason"]]<br>This ban (BanID #[ban_details["id"]]) was applied by [ban_details["admin_key"]] on [ban_details["bantime"]] during round ID [ban_details["round_id"]].<br>[expires]"))
+				expires = " Блокировка на [DisplayTimeText(text2num(ban_details["duration"]) MINUTES)] и заканчивается [ban_details["expiration_time"]] (по серверному времени)."
+			to_chat(user, span_danger("Доступ запрещён к [href_list["bancheck"]], [ban_details["key"]].<br>Метка: [ban_details["reason"]]<br>Блокировка (ID #[ban_details["id"]]) была создана [ban_details["admin_key"]] в [ban_details["bantime"]] во время раунда [ban_details["round_id"]].<br>[expires]"))
 			return
 	if(href_list["preference"] == "job")
 		switch(href_list["task"])
