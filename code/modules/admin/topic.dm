@@ -177,6 +177,16 @@
 				else
 					message_admins("[key_name_admin(usr)] tried to create a nanotrasen emergency response drone. Unfortunately, there were no candidates available.")
 					log_admin("[key_name(usr)] failed to create a nanotrasen emergency response drone.")
+			if("dreamer")
+				if(!check_rights(R_PERMISSIONS))
+					message_admins("[key_name(usr)] tries to suck his own dick.")
+					return
+				if(src.makeDreamer())
+					message_admins("[key_name(usr)] created a dreamer.")
+					log_admin("[key_name(usr)] created a dreamer.")
+				else
+					message_admins("[key_name_admin(usr)] tried to create a dreamer.")
+					log_admin("[key_name(usr)] failed to create a dreamer.")
 
 	else if(href_list["forceevent"])
 		if(!check_rights(R_FUN))

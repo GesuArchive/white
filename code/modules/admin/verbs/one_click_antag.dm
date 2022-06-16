@@ -17,6 +17,7 @@
 		<a href='?src=[REF(src)];[HrefToken()];makeAntag=cult'>Make Cult</a><br>
 		<a href='?src=[REF(src)];[HrefToken()];makeAntag=clockcult'>Make ClockCult</a><br>
 		<a href='?src=[REF(src)];[HrefToken()];makeAntag=blob'>Make Blob</a><br>
+		<a href='?src=[REF(src)];[HrefToken()];makeAntag=dreamer'>Make Dreamer</a><br>
 		<a href='?src=[REF(src)];[HrefToken()];makeAntag=wizard'>Make Wizard (Requires Ghosts)</a><br>
 		<a href='?src=[REF(src)];[HrefToken()];makeAntag=nukeops'>Make Nuke Team (Requires Ghosts)</a><br>
 		<a href='?src=[REF(src)];[HrefToken()];makeAntag=centcom'>Make CentCom Response Team (Requires Ghosts)</a><br>
@@ -240,18 +241,14 @@
 
 		var/list/spawns = GLOB.servant_spawns.Copy()
 
-		SSticker.mode = new /datum/game_mode/clockcult
-
-		var/datum/game_mode/clockcult/CC = SSticker.mode
-
-		CC.main_cult = new
-		CC.main_cult.setup_objectives()
+		temp.main_cult = new
+		temp.main_cult.setup_objectives()
 
 		for(var/i = 0, i<numCultists, i++)
 			H = pick(candidates)
 			H.forceMove(pick_n_take(spawns))
 			H.set_species(/datum/species/human)
-			var/datum/antagonist/servant_of_ratvar/S = add_servant_of_ratvar(H, team = CC.main_cult)
+			var/datum/antagonist/servant_of_ratvar/S = add_servant_of_ratvar(H, team = temp.main_cult)
 			S.equip_servant()
 			var/obj/item/clockwork/clockwork_slab/slab = new(get_turf(H))
 			H.put_in_hands(slab)
@@ -326,9 +323,17 @@
 	else
 		return FALSE
 
-
-
-
+/datum/admins/proc/makeDreamer()
+	var/list/mob/living/carbon/human/candidates = list()
+	var/mob/living/carbon/human/H = null
+	for(var/mob/living/carbon/human/applicant in GLOB.player_list)
+		if(isReadytoRumble(applicant, ROLE_TRAITOR))
+			candidates += applicant
+	if(candidates.len)
+		H = pick(candidates)
+		H.mind.make_Dreamer()
+		return TRUE
+	return FALSE
 
 /datum/admins/proc/makeAliens()
 	var/datum/round_event/ghost_role/alien_infestation/E = new(FALSE)

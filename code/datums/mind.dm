@@ -749,6 +749,10 @@
 	add_antag_datum(head)
 	special_role = ROLE_REV_HEAD
 
+/datum/mind/proc/make_Dreamer()
+	if(!(has_antag_datum(/datum/antagonist/dreamer)))
+		add_antag_datum(/datum/antagonist/dreamer)
+
 /datum/mind/proc/AddSpell(obj/effect/proc_holder/spell/S)
 	spell_list += S
 	S.action.Grant(current)
