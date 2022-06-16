@@ -12,8 +12,10 @@
 	var/dat = {"
 		<a href='?src=[REF(src)];[HrefToken()];makeAntag=traitors'>Make Traitors</a><br>
 		<a href='?src=[REF(src)];[HrefToken()];makeAntag=changelings'>Make Changelings</a><br>
+		<a href='?src=[REF(src)];[HrefToken()];makeAntag=bloodsuckers'>Make Bloodsuckers</a><br>
 		<a href='?src=[REF(src)];[HrefToken()];makeAntag=revs'>Make Revs</a><br>
 		<a href='?src=[REF(src)];[HrefToken()];makeAntag=cult'>Make Cult</a><br>
+		<a href='?src=[REF(src)];[HrefToken()];makeAntag=clockcult'>Make ClockCult</a><br>
 		<a href='?src=[REF(src)];[HrefToken()];makeAntag=blob'>Make Blob</a><br>
 		<a href='?src=[REF(src)];[HrefToken()];makeAntag=wizard'>Make Wizard (Requires Ghosts)</a><br>
 		<a href='?src=[REF(src)];[HrefToken()];makeAntag=nukeops'>Make Nuke Team (Requires Ghosts)</a><br>
@@ -105,6 +107,36 @@
 
 	return FALSE
 
+/datum/admins/proc/makeSuckers()
+	var/datum/game_mode/bloodsucker/temp = new
+
+	if(CONFIG_GET(flag/protect_roles_from_antagonist))
+		temp.restricted_jobs += temp.protected_jobs
+
+	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
+		temp.restricted_jobs += "Assistant"
+
+	var/list/mob/living/carbon/human/candidates = list()
+	var/mob/living/carbon/human/H = null
+
+	for(var/mob/living/carbon/human/applicant in GLOB.player_list)
+		if(isReadytoRumble(applicant, ROLE_BLOODSUCKER))
+			if(temp.age_check(applicant.client))
+				if(!(applicant.job in temp.restricted_jobs))
+					candidates += applicant
+
+	if(candidates.len)
+		var/numSuckers = min(candidates.len, 3)
+
+		for(var/i = 0, i<numSuckers, i++)
+			H = pick(candidates)
+			H.mind.make_bloodsucker()
+			candidates.Remove(H)
+
+		return TRUE
+
+	return FALSE
+
 /datum/admins/proc/makeRevs()
 
 	var/datum/game_mode/revolution/temp = new
@@ -174,6 +206,64 @@
 
 	return FALSE
 
+/datum/admins/proc/makeClockCult()
+	var/datum/game_mode/clockcult/temp = new
+	if(CONFIG_GET(flag/protect_roles_from_antagonist))
+		temp.restricted_jobs += temp.protected_jobs
+
+	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
+		temp.restricted_jobs += "Assistant"
+
+	var/list/mob/living/carbon/human/candidates = list()
+	var/mob/living/carbon/human/H = null
+
+	for(var/mob/living/carbon/human/applicant in GLOB.player_list)
+		if(isReadytoRumble(applicant, ROLE_SERVANT_OF_RATVAR))
+			if(temp.age_check(applicant.client))
+				if(!(applicant.job in temp.restricted_jobs))
+					candidates += applicant
+
+	if(candidates.len)
+		var/numCultists = min(candidates.len, 4)
+
+		if(!GLOB.reebe_loaded)
+			//Load Reebe
+			var/list/errorList = list()
+			var/list/reebe = SSmapping.LoadGroup(errorList, "Reebe", "map_files/generic", "CityOfCogs.dmm", default_traits=ZTRAITS_REEBE, silent=TRUE)
+			if(errorList.len)
+				message_admins("Reebe failed to load")
+				log_game("Reebe failed to load")
+				return FALSE
+			for(var/datum/parsed_map/map in reebe)
+				map.initTemplateBounds()
+			GLOB.reebe_loaded = TRUE
+
+		var/list/spawns = GLOB.servant_spawns.Copy()
+
+		SSticker.mode = new /datum/game_mode/clockcult
+
+		var/datum/game_mode/clockcult/CC = SSticker.mode
+
+		CC.main_cult = new
+		CC.main_cult.setup_objectives()
+
+		for(var/i = 0, i<numCultists, i++)
+			H = pick(candidates)
+			H.forceMove(pick_n_take(spawns))
+			H.set_species(/datum/species/human)
+			var/datum/antagonist/servant_of_ratvar/S = add_servant_of_ratvar(H, team = CC.main_cult)
+			S.equip_servant()
+			var/obj/item/clockwork/clockwork_slab/slab = new(get_turf(H))
+			H.put_in_hands(slab)
+			slab.pickup(H)
+			S.prefix = CLOCKCULT_PREFIX_MASTER
+			candidates.Remove(H)
+
+		generate_clockcult_scriptures()
+
+		return TRUE
+
+	return FALSE
 
 
 /datum/admins/proc/makeNukeTeam()

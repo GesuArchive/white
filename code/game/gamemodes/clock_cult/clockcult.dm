@@ -10,6 +10,7 @@ GLOBAL_VAR_INIT(installed_integration_cogs, 0)
 GLOBAL_VAR(celestial_gateway)	//The celestial gateway
 GLOBAL_VAR_INIT(ratvar_risen, FALSE)	//Has ratvar risen?
 GLOBAL_VAR_INIT(gateway_opening, FALSE)	//Is the gateway currently active?
+GLOBAL_VAR_INIT(reebe_loaded, FALSE)	//Is main area loaded?
 
 //A useful list containing all scriptures with the index of the name.
 //This should only be used for looking up scriptures
@@ -48,14 +49,16 @@ GLOBAL_VAR(clockcult_eminence)
 
 /datum/game_mode/clockcult/pre_setup()
 	//Load Reebe
-	var/list/errorList = list()
-	var/list/reebe = SSmapping.LoadGroup(errorList, "Reebe", "map_files/generic", "CityOfCogs.dmm", default_traits=ZTRAITS_REEBE, silent=TRUE)
-	if(errorList.len)
-		message_admins("Reebe failed to load")
-		log_game("Reebe failed to load")
-		return FALSE
-	for(var/datum/parsed_map/map in reebe)
-		map.initTemplateBounds()
+	if(!GLOB.reebe_loaded)
+		var/list/errorList = list()
+		var/list/reebe = SSmapping.LoadGroup(errorList, "Reebe", "map_files/generic", "CityOfCogs.dmm", default_traits=ZTRAITS_REEBE, silent=TRUE)
+		if(errorList.len)
+			message_admins("Reebe failed to load")
+			log_game("Reebe failed to load")
+			return FALSE
+		for(var/datum/parsed_map/map in reebe)
+			map.initTemplateBounds()
+		GLOB.reebe_loaded = TRUE
 	//Generate cultists
 	for(var/i in 1 to clock_cultists)
 		if(!antag_candidates.len)

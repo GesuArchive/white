@@ -78,6 +78,13 @@
 				else
 					message_admins("[key_name_admin(usr)] tried to create changelings. Unfortunately, there were no candidates available.")
 					log_admin("[key_name(usr)] failed to create changelings.")
+			if("bloodsuckers")
+				if(src.makeSuckers())
+					message_admins("[key_name(usr)] created bloodsuckers.")
+					log_admin("[key_name(usr)] created bloodsuckers.")
+				else
+					message_admins("[key_name_admin(usr)] tried to create bloodsuckers. Unfortunately, there were no candidates available.")
+					log_admin("[key_name(usr)] failed to create bloodsuckers.")
 			if("revs")
 				if(src.makeRevs())
 					message_admins("[key_name(usr)] started a revolution.")
@@ -92,6 +99,13 @@
 				else
 					message_admins("[key_name_admin(usr)] tried to start a cult. Unfortunately, there were no candidates available.")
 					log_admin("[key_name(usr)] failed to start a cult.")
+			if("clockcult")
+				if(src.makeClockCult())
+					message_admins("[key_name(usr)] started a clockcult.")
+					log_admin("[key_name(usr)] started a clockcult.")
+				else
+					message_admins("[key_name_admin(usr)] tried to start a clockcult. Unfortunately, there were no candidates available.")
+					log_admin("[key_name(usr)] failed to start a clockcult.")
 			if("wizard")
 				message_admins("[key_name(usr)] is creating a wizard...")
 				if(src.makeWizard())
