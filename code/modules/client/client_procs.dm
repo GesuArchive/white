@@ -1212,4 +1212,12 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 /client/verb/ScaleHotkey(number as num)
 	var/lastsize = text2num(winget(src, "mapwindow.map", "icon-size"))
 	var/newpref = lastsize + number
+	if(number == -2)
+		if(lastsize <= 32)
+			newpref = 0
+	else
+		if(lastsize == 0)
+			newpref = 32
+		else if (lastsize == 256)
+			newpref = 256
 	SetWindowIconSize(newpref)
