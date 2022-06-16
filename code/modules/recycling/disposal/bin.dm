@@ -352,6 +352,11 @@ GLOBAL_LIST_EMPTY(disposal_bins)
 
 /obj/machinery/disposal/bin/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(isitem(AM) && AM.CanEnterDisposals())
+		if(GLOB.disposals_are_hungry)
+			visible_message(span_danger("[capitalize(src)] поедает [AM]."))
+			playsound(get_turf(src), 'sound/items/eatfood.ogg', 100, TRUE)
+			qdel(AM)
+			return
 		if(prob(75))
 			AM.forceMove(src)
 			visible_message(span_notice("[AM] приземляется в [src]."))
@@ -426,6 +431,12 @@ GLOBAL_LIST_EMPTY(disposal_bins)
 	use_power(idle_power_usage) // base power usage
 
 	if(!pressure_charging) // if off or ready, no need to charge
+		if(GLOB.disposals_are_hungry && prob(10))
+			for(var/obj/item/I in view(1, src))
+				if(I == src || !isitem(I))
+					continue
+				hitby(I)
+				break
 		return
 
 	// otherwise charge

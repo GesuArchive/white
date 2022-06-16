@@ -187,24 +187,12 @@
 		H.drunkenness = 90
 	..()
 
-/datum/round_aspect/prikol
-	name = "Prikol"
-	desc = "Произошел Правий Сиктор."
-	weight = 1
-
-/datum/round_aspect/prikol/run_aspect()
-	for(var/turf/open/floor/plasteel/floor)
-		if(floor.y % 2 == 0)
-			floor.add_atom_colour(("#FFF200"), WASHABLE_COLOUR_PRIORITY)
-		else
-			floor.add_atom_colour(("#00B7EF"), WASHABLE_COLOUR_PRIORITY)
-	..()
-
 /datum/round_aspect/minecraft
 	name = "Minecraft"
 	desc = "Сегодня поиграю я в Майнкрафт</br>С рассвета до глубокой ночи.</br>Наружу выходить мне лень, пусть даже там - отличный день."
 	weight = 1
 	forbidden = TRUE
+	high_impact = TRUE
 
 /datum/round_aspect/minecraft/run_aspect()
 	var/icon/I = new('white/valtos/icons/minecraft.dmi')
@@ -345,6 +333,7 @@
 	desc = "ХОНК!"
 	weight = 4
 	forbidden = TRUE
+	high_impact = TRUE
 
 /datum/round_aspect/clowns/run_aspect()
 	SSjob.DisableJobsButThis(/datum/job/clown)
@@ -368,7 +357,7 @@
 	desc = "Люди очень насторожены и готовы дать отпор в любую секунду."
 	weight = 8
 	forbidden = TRUE
-
+	high_impact = TRUE
 
 /datum/round_aspect/battled/run_aspect()
 	SSbtension.forced_tension = TRUE
@@ -473,6 +462,7 @@
 	desc = "Ключевые события теперь подпитаны правдой."
 	weight = 4
 	forbidden = TRUE
+	high_impact = TRUE
 
 /datum/round_aspect/key/run_aspect()
 	SSjob.forced_name = "KEY"
