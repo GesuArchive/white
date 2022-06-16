@@ -14247,6 +14247,9 @@
 	dir = 8;
 	pixel_x = 23
 	},
+/obj/item/price_tagger{
+	pixel_y = -11
+	},
 /turf/open/floor/plasteel/monofloor,
 /area/science/lab)
 "bkj" = (
@@ -14315,6 +14318,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/tank_holder/oxygen,
 /turf/open/floor/plasteel/monofloor,
 /area/science/lab)
 "bkt" = (
@@ -33178,15 +33182,11 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/cargo/office)
 "eVV" = (
-/obj/effect/turf_decal/tile/purple{
-	dir = 1
+/obj/machinery/vending/custom{
+	layer = 3.4
 	},
-/obj/effect/turf_decal/tile/purple{
-	dir = 4
-	},
-/obj/structure/tank_holder/oxygen,
-/turf/open/floor/plasteel,
-/area/science/lab)
+/turf/closed/wall,
+/area/commons/vacant_room/commissary)
 "eWd" = (
 /obj/structure/tank_holder,
 /turf/open/floor/plating,
@@ -40039,6 +40039,17 @@
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
+"mgu" = (
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "rnd";
+	name = "research lab shutters"
+	},
+/obj/machinery/vending/custom{
+	layer = 3.4
+	},
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plasteel/dark,
+/area/science/lab)
 "mhM" = (
 /obj/effect/turf_decal/tile/red,
 /obj/structure/reagent_dispensers/water_cooler,
@@ -49149,6 +49160,10 @@
 	},
 /obj/structure/table,
 /obj/item/newspaper,
+/obj/item/price_tagger{
+	pixel_x = -10;
+	pixel_y = 6
+	},
 /turf/open/floor/plasteel,
 /area/commons/vacant_room/commissary)
 "wbY" = (
@@ -49545,14 +49560,10 @@
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/atmos/upper)
 "wsl" = (
-/obj/machinery/door/poddoor/shutters{
-	dir = 1;
-	id = "vroomshutter";
-	name = "Vacant Room Shutter"
+/obj/machinery/vending/custom{
+	layer = 3.4
 	},
-/obj/machinery/vending/custom,
-/obj/machinery/door/firedoor,
-/turf/open/floor/plating,
+/turf/closed/wall,
 /area/commons/vacant_room)
 "wsx" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible/layer1{
@@ -75424,7 +75435,7 @@ nTU
 aTL
 aTP
 tav
-tav
+eVV
 swH
 bvd
 baU
@@ -98305,8 +98316,8 @@ oCg
 iFj
 hvL
 bfX
-bhC
-eVV
+mgu
+biU
 bks
 blI
 bnn

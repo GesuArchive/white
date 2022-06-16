@@ -23643,7 +23643,6 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/circuitboard/machine/vendor,
 /turf/open/floor/plasteel,
 /area/commons/vacant_room/commissary/second)
 "wMe" = (
@@ -24878,12 +24877,15 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
 "xVn" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters{
 	dir = 4;
 	id = "vroomshutter2";
 	name = "Vacant Room Shutter"
 	},
+/obj/machinery/vending/custom{
+	layer = 3.4
+	},
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/commons/vacant_room/commissary/second)
 "xVo" = (
