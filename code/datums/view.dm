@@ -45,15 +45,11 @@
 	zoom = 0
 
 /datum/view_data/proc/resetFormat()
-	if(chief?.prefs?.widescreen)
-		return
 	zoom = chief?.prefs.pixel_size
 	winset(chief, "mapwindow.map", "zoom=[zoom]")
 	chief?.attempt_auto_fit_viewport() // If you change zoom mode, fit the viewport
 
 /datum/view_data/proc/setZoomMode()
-	if(chief?.prefs?.widescreen)
-		return
 	winset(chief, "mapwindow.map", "zoom-mode=[chief?.prefs.scaling_method]")
 
 /datum/view_data/proc/isZooming()
@@ -103,8 +99,6 @@
 	apply()
 
 /datum/view_data/proc/apply(forced)
-	if(chief?.prefs?.widescreen)
-		return
 	chief?.change_view(getView(), forced)
 	safeApplyFormat()
 

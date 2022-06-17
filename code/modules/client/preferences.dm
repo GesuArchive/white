@@ -577,25 +577,26 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += SETUP_NODE_SWITCH("Широкий экран", "widescreen", widescreen ? "Вкл" : "Выкл")
 				dat += SETUP_NODE_INPUT("Размер иконки", "icon_size", icon_size)
 
+			if(!widescreen)
+				button_name = pixel_size
+				dat += SETUP_NODE_SWITCH("Пиксельное скалирование", "pixel_size", button_name ? "Pixel Perfect [button_name]x" : "Stretch to fit")
+
+				switch(scaling_method)
+					if(SCALING_METHOD_DISTORT)
+						button_name = "Nearest Neighbor"
+					if(SCALING_METHOD_NORMAL)
+						button_name = "Point Sampling"
+					if(SCALING_METHOD_BLUR)
+						button_name = "Bilinear"
+
+				dat += SETUP_NODE_SWITCH("Метод скалирования", "scaling_method", button_name)
+
 			dat += SETUP_NODE_SWITCH("Названия предметов", "tooltip_user", (w_toggles & TOOLTIP_USER_UP) ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Позиция на экране", "tooltip_pos", (w_toggles & TOOLTIP_USER_POS) ? "Внизу" : "Вверху")
 			dat += SETUP_NODE_SWITCH("Ретро-статусбар", "tooltip_retro", (w_toggles & TOOLTIP_USER_RETRO) ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Горизонтальная инверсия", "horiz_inv", (w_toggles & SCREEN_HORIZ_INV) ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Вертикальная инверсия", "verti_inv", (w_toggles & SCREEN_VERTI_INV) ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Невидимые разделители", "hide_split", (w_toggles & SCREEN_HIDE_SPLIT) ? "Вкл" : "Выкл")
-
-			button_name = pixel_size
-			dat += SETUP_NODE_SWITCH("Пиксельное скалирование", "pixel_size", button_name ? "Pixel Perfect [button_name]x" : "Stretch to fit")
-
-			switch(scaling_method)
-				if(SCALING_METHOD_DISTORT)
-					button_name = "Nearest Neighbor"
-				if(SCALING_METHOD_NORMAL)
-					button_name = "Point Sampling"
-				if(SCALING_METHOD_BLUR)
-					button_name = "Bilinear"
-
-			dat += SETUP_NODE_SWITCH("Метод скалирования", "scaling_method", button_name)
 
 			if (CONFIG_GET(flag/maprotation))
 				var/p_map = preferred_map
@@ -715,6 +716,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += "<div class='csetup_main'>"
 
+			dat += "<div class='csetup_content'><div class='csetup_header'>Однокнопочное</div>"
+			dat += "<center><a href ='?_src_=prefs;preference=keybindings_reset'>Сбросить хоткеи</a></center></div></div>"
+
 			for (var/category in kb_categories)
 				dat += "<div class='csetup_content'><div class='csetup_header'>[category]</div>"
 				for (var/i in kb_categories[category])
@@ -734,7 +738,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							dat += SETUP_GET_LINK("keybindings_capture", "[kb.name]", "keybinding", "Alt")
 						dat += SETUP_CLOSE_NODE
 				dat += "</div>"
-			dat += "<center><a href ='?_src_=prefs;preference=keybindings_reset'>Сбросить хоткеи</a></center>"
 			dat += "</div>"
 	dat += "<hr><center>"
 
