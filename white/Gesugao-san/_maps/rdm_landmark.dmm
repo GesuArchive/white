@@ -1,4 +1,4 @@
-"a" = (/obj/effect/turf_decal/stripes/line{dir = 10},/obj/effect/landmark/stationroom/maintenance,/turf/open/openspace/airless,/area/space)
+"a" = (/obj/effect/turf_decal/stripes/line{dir = 10},/obj/effect/landmark/stationroom/maintenance,/turf/open/space/openspace,/area/space)
 
 (1,1,1) = {"
 a

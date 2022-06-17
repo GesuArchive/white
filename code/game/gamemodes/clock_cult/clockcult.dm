@@ -10,7 +10,6 @@ GLOBAL_VAR_INIT(installed_integration_cogs, 0)
 GLOBAL_VAR(celestial_gateway)	//The celestial gateway
 GLOBAL_VAR_INIT(ratvar_risen, FALSE)	//Has ratvar risen?
 GLOBAL_VAR_INIT(gateway_opening, FALSE)	//Is the gateway currently active?
-GLOBAL_VAR_INIT(reebe_loaded, FALSE)	//Is main area loaded?
 
 //A useful list containing all scriptures with the index of the name.
 //This should only be used for looking up scriptures
@@ -47,23 +46,21 @@ GLOBAL_VAR(clockcult_eminence)
 
 	var/datum/team/clock_cult/main_cult
 
+/datum/game_mode/clockcult/setup_maps()
+	//Since we are loading in pre_setup, disable map loading.
+	SSticker.gamemode_hotswap_disabled = TRUE
+	LoadReebe()
+	return TRUE
+
 /datum/game_mode/clockcult/pre_setup()
-	//Load Reebe
-	if(!GLOB.reebe_loaded)
-		var/list/errorList = list()
-		var/list/reebe = SSmapping.LoadGroup(errorList, "Reebe", "map_files/generic", "CityOfCogs.dmm", default_traits=ZTRAITS_REEBE, silent=TRUE)
-		if(errorList.len)
-			message_admins("Reebe failed to load")
-			log_game("Reebe failed to load")
-			return FALSE
-		for(var/datum/parsed_map/map in reebe)
-			map.initTemplateBounds()
-		GLOB.reebe_loaded = TRUE
 	//Generate cultists
 	for(var/i in 1 to clock_cultists)
 		if(!antag_candidates.len)
 			break
 		var/datum/mind/clockie = antag_pick(antag_candidates, ROLE_SERVANT_OF_RATVAR)
+		//In case antag_pick breaks
+		if(!clockie)
+			continue
 		antag_candidates -= clockie
 		selected_servants += clockie
 		clockie.assigned_role = ROLE_SERVANT_OF_RATVAR
@@ -77,6 +74,12 @@ GLOBAL_VAR(clockcult_eminence)
 	main_cult.setup_objectives()
 	//Create team
 	for(var/datum/mind/servant_mind in selected_servants)
+		//Somehow the mind has no mob, ignore them so it doesn't break everything
+		if(!(servant_mind?.current))
+			continue
+		//Somehow all spawns where used, reuse old spawns
+		if(!length(spawns))
+			spawns = GLOB.servant_spawns.Copy()
 		servant_mind.current.forceMove(pick_n_take(spawns))
 		servant_mind.current.set_species(/datum/species/human)
 		var/datum/antagonist/servant_of_ratvar/S = add_servant_of_ratvar(servant_mind.current, team=main_cult)

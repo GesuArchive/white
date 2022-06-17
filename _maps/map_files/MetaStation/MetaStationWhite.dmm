@@ -66265,7 +66265,7 @@
 /area/science/genetics)
 "mmY" = (
 /obj/effect/landmark/stationroom/meta/engine/random,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "mna" = (
 /obj/structure/chair/stool{
@@ -77500,7 +77500,7 @@
 	},
 /area/maintenance/aft/secondary)
 "uIw" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "uIL" = (
 /obj/effect/turf_decal/trimline/purple/corner{

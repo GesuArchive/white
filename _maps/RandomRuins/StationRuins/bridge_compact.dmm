@@ -607,7 +607,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/west)
 "bT" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/primary/central/west)
 "bU" = (
 /obj/machinery/camera{
@@ -2237,7 +2237,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/primary/central/south)
 "gw" = (
 /obj/structure/disposalpipe/segment,
@@ -2427,7 +2427,7 @@
 "hg" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable/multilayer/multiz,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/primary/central/north)
 "hi" = (
 /obj/structure/dresser,
@@ -3217,7 +3217,7 @@
 /area/command/meeting_room)
 "nE" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/primary/central/south)
 "nH" = (
 /obj/effect/turf_decal/tile/blue,
@@ -3430,7 +3430,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/west)
 "sd" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/primary/central/north)
 "se" = (
 /obj/structure/bed,
@@ -3982,10 +3982,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/primary/central/south)
 "Eu" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/primary/central/south)
 "Fb" = (
 /obj/structure/table/wood,
@@ -4021,7 +4021,7 @@
 	name = "Scrubbers multi deck pipe adapter"
 	},
 /obj/structure/cable,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/primary/central/north)
 "Fn" = (
 /obj/structure/chair/comfy/brown,
@@ -4035,7 +4035,7 @@
 /area/command/heads_quarters/captain)
 "Fv" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/primary/central/north)
 "FF" = (
 /obj/structure/disposalpipe/segment{
@@ -4086,7 +4086,7 @@
 "GR" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/primary/central/north)
 "Hb" = (
 /obj/machinery/light{
@@ -4238,7 +4238,7 @@
 	pixel_y = 0
 	},
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/primary/central/west)
 "KM" = (
 /obj/effect/turf_decal/stripes/line,
@@ -4299,7 +4299,7 @@
 	dir = 5
 	},
 /obj/structure/cable,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/primary/central/south)
 "Lk" = (
 /turf/open/floor/plasteel,
@@ -4515,11 +4515,11 @@
 /area/hallway/primary/central/west)
 "QF" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/primary/central/west)
 "QJ" = (
 /obj/structure/lattice,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/primary/central/west)
 "Rl" = (
 /obj/effect/turf_decal/tile/blue{
@@ -4806,7 +4806,7 @@
 	name = "Supply multi deck pipe adapter"
 	},
 /obj/structure/cable,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/primary/central/north)
 "WE" = (
 /obj/structure/disposalpipe/segment,
@@ -4820,11 +4820,11 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/primary/central/west)
 "WO" = (
 /obj/structure/lattice,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/primary/central/north)
 "WZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -4839,7 +4839,7 @@
 "Xe" = (
 /obj/machinery/light,
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/primary/central/north)
 "Xk" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,

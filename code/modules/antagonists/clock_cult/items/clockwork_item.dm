@@ -16,3 +16,5 @@
 	else if(desc)
 		. += "<hr>"
 		. += desc
+
+	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)

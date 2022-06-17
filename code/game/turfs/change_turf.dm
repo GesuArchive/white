@@ -153,9 +153,6 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		for(var/turf/open/space/space_tile in RANGE_TURFS(1, src))
 			space_tile.update_starlight()
 
-		for(var/turf/open/openspace/airless/O in RANGE_TURFS(1, src))
-			O.update_starlight()
-
 	var/area/thisarea = get_area(W)
 	if(thisarea.lighting_effect)
 		W.add_overlay(thisarea.lighting_effect)

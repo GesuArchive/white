@@ -29,27 +29,6 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	var/can_cover_up = TRUE
 	var/can_build_on = TRUE
 
-/turf/open/openspace/airless/proc/update_starlight()
-	if(CONFIG_GET(flag/starlight))
-		for(var/t in RANGE_TURFS(1,src))
-			if(isopenspace(t) || isspaceturf(t))
-				continue
-			set_light(2)
-			return
-		set_light(0)
-
-/turf/open/openspace/airless
-	initial_gas_mix = AIRLESS_ATMOS
-	initial_temperature = TCMB
-	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
-	heat_capacity = 700000
-
-/turf/open/openspace/airless/GetHeatCapacity()
-	. = 7000
-
-/turf/open/openspace/airless/GetTemperature()
-	. = 2.7
-
 /turf/open/openspace/fastload
 	plane = OPENSPACE_PLANE
 	layer = OPENSPACE_LAYER
@@ -77,9 +56,6 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 
 /turf/open/openspace/fastload/LateInitialize()
 	return
-
-/turf/open/openspace/airless/planetary
-	planetary_atmos = TRUE
 
 /turf/open/openspace/Initialize(mapload) // handle plane and layer here so that they don't cover other obs/turfs in Dream Maker
 	. = ..()
@@ -140,13 +116,13 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 
 /turf/open/openspace/zPassIn(atom/movable/A, direction, turf/source)
 	if(direction == DOWN)
-		for(var/obj/O in contents)
-			if(O.obj_flags & BLOCK_Z_IN_DOWN)
+		for(var/obj/contained_object in contents)
+			if(contained_object.obj_flags & BLOCK_Z_IN_DOWN)
 				return FALSE
 		return TRUE
 	if(direction == UP)
-		for(var/obj/O in contents)
-			if(O.obj_flags & BLOCK_Z_IN_UP)
+		for(var/obj/contained_object in contents)
+			if(contained_object.obj_flags & BLOCK_Z_IN_UP)
 				return FALSE
 		return TRUE
 	return FALSE
@@ -155,13 +131,13 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	if(A.anchored)
 		return FALSE
 	if(direction == DOWN)
-		for(var/obj/O in contents)
-			if(O.obj_flags & BLOCK_Z_OUT_DOWN)
+		for(var/obj/contained_object in contents)
+			if(contained_object.obj_flags & BLOCK_Z_OUT_DOWN)
 				return FALSE
 		return TRUE
 	if(direction == UP)
-		for(var/obj/O in contents)
-			if(O.obj_flags & BLOCK_Z_OUT_UP)
+		for(var/obj/contained_object in contents)
+			if(contained_object.obj_flags & BLOCK_Z_OUT_UP)
 				return FALSE
 		return TRUE
 	return FALSE

@@ -197,7 +197,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 					shake_camera(M, 7, 3)
 		if(cur_height == 2)
 			for(var/turf/T in world)
-				if(!is_station_level(T.z) || !(isspaceturf(T) || istype(T, /turf/open/openspace/airless)))
+				if(!is_station_level(T.z) || !(isspaceturf(T) || istype(T, /turf/open/space/openspace)))
 					continue
 				T.AddComponent(/datum/component/chasm, SSmapping.get_turf_above(T))
 

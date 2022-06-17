@@ -8460,7 +8460,7 @@
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/entry)
 "gLO" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/science/server)
 "gMc" = (
 /obj/structure/chair,
@@ -12392,7 +12392,7 @@
 	},
 /area/hallway/secondary/exit/departure_lounge)
 "jIP" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/engineering/atmos)
 "jJa" = (
 /obj/structure/table/wood,
@@ -20613,7 +20613,7 @@
 /turf/open/floor/plasteel,
 /area/science/lab)
 "qym" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/hallway/secondary/entry)
 "qyn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
@@ -22847,7 +22847,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
 "sgK" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/science/xenobiology)
 "sgO" = (
 /obj/structure/window/reinforced,
@@ -23004,7 +23004,7 @@
 /turf/open/openspace/fastload/planetmos,
 /area/boxplanet/surface)
 "snJ" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/cargo/storage)
 "snM" = (
 /obj/effect/turf_decal/trimline/yellow/line,
@@ -25893,7 +25893,7 @@
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
 "uyI" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/service/bar/atrium)
 "uyL" = (
 /obj/machinery/light{
@@ -30046,7 +30046,7 @@
 /turf/open/floor/plasteel/dark,
 /area/commons/dorms)
 "xqM" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/commons/dorms)
 "xqO" = (
 /turf/open/floor/plasteel/white,

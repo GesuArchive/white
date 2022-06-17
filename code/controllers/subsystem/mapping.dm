@@ -16,7 +16,6 @@ SUBSYSTEM_DEF(mapping)
 	var/list/ruins_templates = list()
 	var/list/space_ruins_templates = list()
 	var/list/lava_ruins_templates = list()
-	var/list/gens_ruins_templates = list()
 	var/list/ice_ruins_templates = list()
 	var/list/ice_ruins_underground_templates = list()
 
@@ -103,9 +102,6 @@ SUBSYSTEM_DEF(mapping)
 		for (var/lava_z in lava_ruins)
 			spawn_rivers(lava_z)
 
-	var/list/gens_ruins = levels_by_trait(ZTRAIT_GENSOKYO_RUINS)
-	if (gens_ruins.len)
-		seedRuins(gens_ruins, CONFIG_GET(number/lavaland_budget), /area/mine/unexplored/gensokyo, gens_ruins_templates)
 	var/list/ice_ruins = levels_by_trait(ZTRAIT_ICE_RUINS)
 	if (ice_ruins.len)
 		// needs to be whitelisted for underground too so place_below ruins work
@@ -447,8 +443,6 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 
 		if(istype(R, /datum/map_template/ruin/lavaland))
 			lava_ruins_templates[R.name] = R
-		else if(istype(R, /datum/map_template/ruin/gensokyo))
-			gens_ruins_templates[R.name] = R
 		else if(istype(R, /datum/map_template/ruin/icemoon/underground))
 			ice_ruins_underground_templates[R.name] = R
 		else if(istype(R, /datum/map_template/ruin/icemoon))

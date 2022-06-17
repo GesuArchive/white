@@ -79,6 +79,8 @@
 		message_admins(span_notice("DEBUG: GAME STARTING WITHOUT PLAYER NUMBER CHECKS, THIS WILL PROBABLY BREAK SHIT."))
 		return TRUE
 
+/datum/game_mode/proc/setup_maps()
+	return TRUE
 
 ///Attempts to select players for special roles the mode might have.
 /datum/game_mode/proc/pre_setup()
@@ -337,6 +339,10 @@
 
 	for(var/datum/mind/mind in candidates)
 		p_ckey = ckey(mind.key)
+		var/mob/dead/new_player/player = get_mob_by_ckey(p_ckey)
+		if(!player)
+			candidates -= mind
+			continue
 		total_tickets += min(SSpersistence.antag_rep[p_ckey] + DEFAULT_ANTAG_TICKETS, MAX_TICKETS_PER_ROLL)
 
 	var/antag_select = rand(1, total_tickets)

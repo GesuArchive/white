@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aaa" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "aab" = (
 /obj/effect/landmark/stationroom/brig/random,
@@ -26,7 +26,7 @@
 /area/security/checkpoint/supply)
 "aai" = (
 /obj/effect/landmark/stationroom/maintenance/rdm11x14_sw,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "aaj" = (
 /obj/machinery/airalarm{
@@ -96,7 +96,7 @@
 /area/hallway/primary/fore/brig_enter)
 "aaw" = (
 /obj/effect/landmark/carpspawn,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "aax" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -189,7 +189,7 @@
 "aaS" = (
 /obj/structure/grille,
 /obj/structure/lattice,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "aaU" = (
 /obj/machinery/door/airlock/public/glass{
@@ -249,7 +249,7 @@
 /area/commons/fitness)
 "aaY" = (
 /obj/effect/landmark/stationroom/engine/random,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "abs" = (
 /obj/machinery/power/tracker,
@@ -267,7 +267,7 @@
 /area/solars/starboard/fore)
 "abY" = (
 /obj/structure/grille,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "acj" = (
 /obj/effect/turf_decal/tile/blue,
@@ -280,7 +280,7 @@
 "acy" = (
 /obj/structure/lattice,
 /obj/item/stack/cable_coil,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "acV" = (
 /obj/machinery/power/solar{
@@ -315,7 +315,7 @@
 "adu" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/solars/port/fore)
 "adx" = (
 /obj/structure/extinguisher_cabinet{
@@ -326,7 +326,7 @@
 /area/engineering/break_room)
 "ady" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/solars/port/fore)
 "adz" = (
 /obj/effect/turf_decal/tile/yellow{
@@ -379,11 +379,11 @@
 "adT" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/solars/starboard/fore)
 "adU" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/solars/starboard/fore)
 "adV" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -497,7 +497,7 @@
 	name = "NT SS13: Emergency Shuttle Dock";
 	width = 32
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "afm" = (
 /obj/machinery/door/firedoor/border_only{
@@ -706,7 +706,7 @@
 /area/engineering/main)
 "aiS" = (
 /obj/item/stack/rods,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "aiT" = (
 /turf/closed/wall,
@@ -1099,7 +1099,7 @@
 	dir = 1;
 	start_active = 1
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "akd" = (
 /obj/structure/cable,
@@ -2025,7 +2025,7 @@
 	roundstart_template = /datum/map_template/shuttle/labour/box;
 	width = 9
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "anP" = (
 /obj/machinery/door/airlock/security{
@@ -3958,7 +3958,7 @@
 "atR" = (
 /obj/effect/landmark/carpspawn,
 /obj/structure/lattice,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "atS" = (
 /turf/closed/wall,
@@ -4203,7 +4203,7 @@
 /area/maintenance/starboard/fore)
 "auC" = (
 /obj/structure/lattice,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/maintenance/starboard/fore)
 "auD" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -4618,7 +4618,7 @@
 	name = "north-east of NT SS13";
 	width = 23
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "avV" = (
 /obj/structure/table,
@@ -13471,7 +13471,7 @@
 	roundstart_template = /datum/map_template/shuttle/mining_common/meta;
 	width = 7
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "bgk" = (
 /obj/structure/lattice,
@@ -15007,7 +15007,7 @@
 /obj/structure/sign/departments/custodian{
 	pixel_y = -32
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "bod" = (
 /obj/machinery/door/airlock/public/glass{
@@ -18977,7 +18977,7 @@
 "bHx" = (
 /obj/structure/lattice,
 /obj/machinery/camera/autoname,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "bHy" = (
 /obj/structure/closet/crate,
@@ -20567,7 +20567,7 @@
 "bNb" = (
 /obj/structure/showcase/mecha/marauder,
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/maintenance/port/fore)
 "bNc" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -20862,7 +20862,7 @@
 /turf/closed/wall/r_wall,
 /area/engineering/atmos/upper)
 "bOi" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/maintenance/port/fore)
 "bOl" = (
 /obj/machinery/light{
@@ -22935,7 +22935,7 @@
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/engineering/atmos/upper)
 "bVv" = (
 /obj/effect/decal/cleanable/cobweb,
@@ -26329,7 +26329,7 @@
 /area/solars/port/aft)
 "chL" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/solars/port/aft)
 "chN" = (
 /obj/structure/cable,
@@ -26838,7 +26838,7 @@
 "cjH" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/solars/port/aft)
 "cjI" = (
 /obj/structure/girder,
@@ -27287,7 +27287,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/engineering/atmos/upper)
 "cld" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -27296,7 +27296,7 @@
 "clf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/maintenance/disposal/incinerator)
 "clh" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/mix_output{
@@ -27894,7 +27894,7 @@
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "cpq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -27928,7 +27928,7 @@
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "cpQ" = (
 /obj/structure/sign/warning/fire,
@@ -28075,7 +28075,7 @@
 /area/engineering/main)
 "crk" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/solars/starboard/aft)
 "cro" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -28115,7 +28115,7 @@
 "crC" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/solars/starboard/aft)
 "crP" = (
 /obj/machinery/light{
@@ -28168,14 +28168,14 @@
 /area/maintenance/aft)
 "csn" = (
 /obj/structure/transit_tube/horizontal,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "cso" = (
 /obj/structure/transit_tube/curved{
 	dir = 4
 	},
 /obj/structure/lattice,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "csD" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -28565,7 +28565,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 1
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "cui" = (
 /obj/structure/cable,
@@ -29037,7 +29037,7 @@
 "cxn" = (
 /obj/structure/lattice,
 /obj/effect/landmark/carpspawn,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "cxE" = (
 /obj/docking_port/stationary{
@@ -29048,7 +29048,7 @@
 	name = "NT SS13: Port bay";
 	width = 5
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "cxG" = (
 /obj/effect/turf_decal/tile/blue{
@@ -29550,7 +29550,7 @@
 	network = list("minisat");
 	start_active = 1
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "cAW" = (
 /obj/structure/lattice/catwalk,
@@ -29566,7 +29566,7 @@
 	network = list("minisat");
 	start_active = 1
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "cAZ" = (
 /obj/structure/cable,
@@ -30198,7 +30198,7 @@
 	dir = 1
 	},
 /obj/structure/lattice,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "cGY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -31282,7 +31282,7 @@
 	set_cap = 1;
 	set_luminosity = 4
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "cZW" = (
 /obj/machinery/door/airlock/maintenance{
@@ -31831,7 +31831,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "dzA" = (
 /obj/structure/window/reinforced{
@@ -32865,7 +32865,7 @@
 "eBy" = (
 /obj/structure/lattice,
 /obj/structure/marker_beacon,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "eBN" = (
 /obj/machinery/camera/autoname{
@@ -33137,7 +33137,7 @@
 "eRz" = (
 /obj/structure/lattice,
 /obj/structure/grille,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "eSG" = (
 /obj/structure/sign/warning/fire,
@@ -33193,7 +33193,7 @@
 /area/maintenance/starboard/aft)
 "eXc" = (
 /obj/structure/lattice,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/maintenance/port/fore)
 "eXW" = (
 /obj/structure/sign/warning/nosmoking{
@@ -33553,7 +33553,7 @@
 "frg" = (
 /obj/structure/lattice,
 /obj/structure/transit_tube/crossing/horizontal,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "frR" = (
 /obj/machinery/door/airlock/external{
@@ -33984,7 +33984,7 @@
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/atmos/upper)
 "fTN" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/maintenance/starboard/fore)
 "fTO" = (
 /obj/structure/closet/bombcloset,
@@ -34086,7 +34086,7 @@
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "fYE" = (
 /obj/machinery/door/airlock/external{
@@ -34384,7 +34384,7 @@
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "gmp" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -35159,7 +35159,7 @@
 /area/commons/fitness)
 "gXs" = (
 /obj/structure/lattice,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "gXL" = (
 /obj/structure/cable,
@@ -35995,7 +35995,7 @@
 /turf/open/openspace,
 /area/ai_monitored/turret_protected/ai)
 "hLa" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "hLX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -37007,7 +37007,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/engineering/atmos/upper)
 "iSc" = (
 /obj/structure/lattice,
@@ -37125,7 +37125,7 @@
 "iYT" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/camera/autoname,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "iZT" = (
 /obj/machinery/light{
@@ -38257,7 +38257,7 @@
 /obj/item/pickaxe{
 	pixel_x = 5
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "kjF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible{
@@ -38707,7 +38707,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 1
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "kKM" = (
 /obj/structure/lattice/catwalk,
@@ -40110,7 +40110,7 @@
 	dir = 5;
 	start_active = 1
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "mlp" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -40392,7 +40392,7 @@
 /obj/machinery/camera/autoname{
 	dir = 1
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "mJd" = (
 /obj/structure/disposalpipe/segment{
@@ -40722,7 +40722,7 @@
 	name = "NT SS13: Trader Transport dock";
 	width = 5
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "ndZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -41288,7 +41288,7 @@
 	name = "NT SS13: Auxiliary Dock, Station-Port";
 	width = 35
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "nEJ" = (
 /obj/structure/disposalpipe/segment{
@@ -41740,7 +41740,7 @@
 /area/commons/vacant_room/commissary)
 "nXv" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "nXP" = (
 /obj/effect/turf_decal/tile/purple{
@@ -42151,7 +42151,7 @@
 	dir = 5;
 	start_active = 1
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "ovq" = (
 /obj/machinery/door/firedoor/heavy,
@@ -43550,7 +43550,7 @@
 "pNZ" = (
 /obj/structure/grille/broken,
 /obj/structure/lattice,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "pOJ" = (
 /obj/machinery/light_switch{
@@ -43854,7 +43854,7 @@
 /obj/structure/closet/crate{
 	icon_state = "crateopen"
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "qfD" = (
 /obj/machinery/monkey_recycler,
@@ -44046,7 +44046,7 @@
 /obj/machinery/camera/autoname{
 	dir = 5
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "qmB" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -44167,7 +44167,7 @@
 "quT" = (
 /obj/structure/lattice,
 /obj/structure/grille/broken,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "qvJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -44802,7 +44802,7 @@
 	dir = 1
 	},
 /obj/structure/lattice,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/ai_monitored/turret_protected/ai)
 "roj" = (
 /obj/effect/turf_decal/stripes/line{
@@ -44901,7 +44901,7 @@
 /turf/open/floor/grass,
 /area/science/genetics)
 "rvZ" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/maintenance/starboard/aft)
 "rwo" = (
 /obj/machinery/door/airlock/maintenance{
@@ -45904,7 +45904,7 @@
 /obj/machinery/camera/autoname{
 	dir = 5
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "sAl" = (
 /obj/effect/turf_decal/stripes/line{
@@ -48480,7 +48480,7 @@
 "vos" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "vpb" = (
 /obj/item/latexballon,
@@ -49035,7 +49035,7 @@
 /obj/machinery/camera/autoname{
 	dir = 1
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "vWg" = (
 /obj/effect/turf_decal/tile/blue,
@@ -49531,7 +49531,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "wri" = (
 /obj/machinery/camera/autoname{
@@ -50451,7 +50451,7 @@
 /obj/machinery/camera/preset/toxins/num2{
 	dir = 4
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "xoc" = (
 /obj/structure/cable,
@@ -51037,7 +51037,7 @@
 "xQP" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "xQY" = (
 /obj/structure/cable,
@@ -51300,7 +51300,7 @@
 "yhR" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "yik" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{

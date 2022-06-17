@@ -29,6 +29,8 @@ SUBSYSTEM_DEF(ticker)
 	var/admin_delay_notice = ""				//a message to display to anyone who tries to restart the world after a delay
 	var/ready_for_reboot = FALSE			//all roundend preparation done with, all that's left is reboot
 
+	var/gamemode_setup_completed = FALSE
+
 	///If not set to ANON_DISABLED then people spawn with a themed anon name (see anonymousnames.dm)
 	var/anonymousnames = ANON_DISABLED
 	///Boolean to see if the game needs to set up a triumvirate ai (see tripAI.dm)
@@ -49,6 +51,8 @@ SUBSYSTEM_DEF(ticker)
 	var/queue_delay = 0
 	var/list/queued_players = list()		//used for join queues when the server exceeds the hard population cap
 
+	var/list/datum/game_mode/runnable_modes //list of runnable gamemodes
+
 	var/news_report
 
 	var/roundend_check_paused = FALSE
@@ -58,6 +62,12 @@ SUBSYSTEM_DEF(ticker)
 	var/list/round_end_events
 	var/mode_result = "undefined"
 	var/end_state = "undefined"
+
+	//Gamemode setup
+	var/gamemode_hotswap_disabled = FALSE
+	var/pre_setup_completed = FALSE
+	var/fail_counter
+	var/emergency_start = FALSE
 
 	/// People who have been commended and will receive a heart
 	var/list/hearts
@@ -172,10 +182,10 @@ SUBSYSTEM_DEF(ticker)
 				//lobby stats for statpanels
 			if(isnull(timeLeft))
 				timeLeft = max(0,start_at - world.time)
-			totalPlayers = LAZYLEN(GLOB.new_player_list)
+			totalPlayers = 0
 			totalPlayersReady = 0
-			for(var/i in GLOB.new_player_list)
-				var/mob/dead/new_player/player = i
+			for(var/mob/dead/new_player/player in GLOB.player_list)
+				++totalPlayers
 				if(player.ready == PLAYER_READY_TO_PLAY)
 					++totalPlayersReady
 
@@ -191,22 +201,34 @@ SUBSYSTEM_DEF(ticker)
 				send_tip_of_the_round()
 				tipped = TRUE
 
+			if(timeLeft <= 300 && !pre_setup_completed)
+				//Setup gamemode maps 30 seconds before roundstart.
+				if(!pre_setup())
+					fail_setup()
+					return
+				pre_setup_completed = TRUE
+
 			if(timeLeft <= 0)
-				SEND_SIGNAL(src, COMSIG_TICKER_ENTER_SETTING_UP)
 				current_state = GAME_STATE_SETTING_UP
 				Master.SetRunLevel(RUNLEVEL_SETUP)
 				if(start_immediately)
 					fire()
 
 		if(GAME_STATE_SETTING_UP)
+			if(!pre_setup_completed)
+				if(!pre_setup())
+					fail_setup()
+					return
+				else
+					message_admins("Pre-setup completed successfully, however was run late. Likely due to start-now or a bug.")
+					log_game("Pre-setup completed successfully, however was run late. Likely due to start-now or a bug.")
+					pre_setup_completed = TRUE
+			//Attempt normal setup
 			if(!setup())
-				//setup failed
-				current_state = GAME_STATE_STARTUP
-				start_at = world.time + (60 SECONDS)
-				timeLeft = null
-				Master.SetRunLevel(RUNLEVEL_LOBBY)
+				fail_setup()
 				SEND_SIGNAL(src, COMSIG_TICKER_ERROR_SETTING_UP)
 			else
+				fail_counter = null
 				webhook_send_roundstatus("ingame")
 
 		if(GAME_STATE_PLAYING)
@@ -223,12 +245,35 @@ SUBSYSTEM_DEF(ticker)
 				check_maprotate()
 				Master.SetRunLevel(RUNLEVEL_POSTGAME)
 
+//Reverts the game to the lobby
+/datum/controller/subsystem/ticker/proc/fail_setup()
+	if(fail_counter >= 2)
+		log_game("Failed setting up [GLOB.master_mode] [fail_counter + 1] times, defaulting to extended.")
+		message_admins("Failed setting up [GLOB.master_mode] [fail_counter + 1] times, defaulting to extended.")
+		//This has failed enough, lets just get on with extended.
+		failsafe_pre_setup()
+		return
+	//Let's try this again.
+	fail_counter++
+	current_state = GAME_STATE_STARTUP
+	start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 5)
+	timeLeft = null
+	Master.SetRunLevel(RUNLEVEL_LOBBY)
+	pre_setup_completed = FALSE
+	//Return to default mode
+	load_mode()
+	message_admins("Failed to setup. Failures: ([fail_counter] / 3).")
+	log_game("Setup failed.")
 
-/datum/controller/subsystem/ticker/proc/setup()
-	to_chat(world, span_green(" -- [prob(5) ? "*#!&$^@$ Запускаем симуляцию в режиме полного реализма... $@!^(&*" : "Запускаем симуляцию..."] -- "))
-	var/init_start = world.timeofday
-		//Create and announce mode
-	var/list/datum/game_mode/runnable_modes
+//Fallback presetup that sets up extended.
+/datum/controller/subsystem/ticker/proc/failsafe_pre_setup()
+	//Emergerncy start extended.
+	emergency_start = TRUE
+	pre_setup_completed = TRUE
+	mode = config.pick_mode("extended")
+
+//Select gamemode and load any maps associated with it
+/datum/controller/subsystem/ticker/proc/pre_setup()
 	if(GLOB.master_mode == "random" || GLOB.master_mode == "secret")
 		runnable_modes = config.get_runnable_modes()
 
@@ -258,6 +303,12 @@ SUBSYSTEM_DEF(ticker)
 			SSjob.ResetOccupations()
 			return FALSE
 
+	return mode.setup_maps()
+
+/datum/controller/subsystem/ticker/proc/setup()
+	to_chat(world, span_green(" -- [prob(5) ? "*#!&$^@$ Запускаем симуляцию в режиме полного реализма... $@!^(&*" : "Запускаем симуляцию..."] -- "))
+	var/init_start = world.timeofday
+
 	CHECK_TICK
 	//Configure mode and assign player to special mode stuff
 	var/can_continue = 0
@@ -271,7 +322,7 @@ SUBSYSTEM_DEF(ticker)
 		mode = config.pick_mode("extended")
 		to_chat(world, "<span class='notice big'>Время отдыхать!</span>")
 	else
-		if(!GLOB.Debug2)
+		if(!GLOB.Debug2 && !emergency_start)
 			if(!can_continue)
 				log_game("[mode.name] failed pre_setup, cause: [mode.setup_error]")
 				QDEL_NULL(mode)

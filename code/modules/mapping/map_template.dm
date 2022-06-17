@@ -18,6 +18,11 @@
 	var/list/created_atoms = list()
 	//make sure this list is accounted for/cleared if you request it from ssatoms!
 
+	// vars for automatic ceiling generation
+	var/has_ceiling = FALSE
+	var/turf/ceiling_turf = /turf/open/floor/plating
+	var/list/ceiling_baseturfs = list()
+
 /datum/map_template/New(path = null, rename = null, cache = FALSE)
 	if(path)
 		mappath = path
@@ -25,6 +30,7 @@
 		preload_size(mappath, cache)
 	if(rename)
 		name = rename
+	ceiling_baseturfs.Insert(1, /turf/baseturf_bottom)
 
 /datum/map_template/proc/preload_size(path, cache = FALSE)
 	var/datum/parsed_map/parsed = new(file(path))
@@ -35,53 +41,6 @@
 		if(cache)
 			cached_map = parsed
 	return bounds
-
-/datum/parsed_map/proc/initTemplateBounds(datum/map_template/template)
-	var/list/obj/machinery/atmospherics/atmos_machines = list()
-	var/list/obj/structure/cable/cables = list()
-	var/list/atom/atoms = list()
-	var/list/area/areas = list()
-	var/list/turfs = block(
-		locate(
-			bounds[MAP_MINX],
-			bounds[MAP_MINY],
-			bounds[MAP_MINZ]
-			),
-		locate(
-			bounds[MAP_MAXX],
-			bounds[MAP_MAXY],
-			bounds[MAP_MAXZ]
-			)
-		)
-	for(var/L in turfs)
-		var/turf/B = L
-		var/area/G = B.loc
-		areas |= G
-		if(!SSatoms.initialized)
-			continue
-		for(var/A in B)
-			atoms += A
-			if(istype(A, /obj/structure/cable))
-				cables += A
-				continue
-			if(istype(A, /obj/machinery/atmospherics))
-				atmos_machines += A
-	// Not sure if there is some importance here to make sure the area is in z
-	// first or not.  Its defined In Initialize yet its run first in templates
-	// BEFORE so... hummm
-	SSmapping.reg_in_areas_in_z(areas)
-	// We have to do this hack here because its the ONLY place we can get the
-	// meta data from the template so we can properly set up the area
-	SSnetworks.assign_areas_root_ids(areas, template)
-	// If the world is starting up stop here and the world will do the rest
-	if(!SSatoms.initialized)
-		return
-	SSatoms.InitializeAtoms(areas + turfs + atoms)
-
-	// NOTE, now that Initialize and LateInitialize run correctly, do we really
-	// need these two below?
-	SSmachines.setup_template_powernets(cables)
-	SSair.setup_template_machinery(atmos_machines)
 
 /datum/map_template/proc/initTemplateBounds(list/bounds, init_atmos = TRUE)
 	if (!bounds) //something went wrong
@@ -178,6 +137,7 @@
 	//initialize things that are normally initialized after map load
 	initTemplateBounds(bounds)
 	smooth_zlevel(world.maxz)
+
 	log_game("Z-level [name] ([mappath]) loaded at [x],[y],[world.maxz]")
 
 	return level
@@ -219,8 +179,19 @@
 	//initialize things that are normally initialized after map load
 	initTemplateBounds(bounds, init_atmos)
 
+	if(has_ceiling)
+		var/affected_turfs = get_affected_turfs(T, FALSE)
+		generate_ceiling(affected_turfs)
+
 	log_game("[name] loaded at [T.x],[T.y],[T.z]")
 	return bounds
+
+/datum/map_template/proc/generate_ceiling(affected_turfs)
+	for (var/turf/turf in affected_turfs)
+		var/turf/ceiling = get_step_multiz(turf, UP)
+		if (ceiling)
+			if (istype(ceiling, /turf/open/openspace) || istype(ceiling, /turf/open/space/openspace))
+				ceiling.ChangeTurf(ceiling_turf, ceiling_baseturfs, CHANGETURF_INHERIT_AIR)
 
 /datum/map_template/proc/post_load()
 	return

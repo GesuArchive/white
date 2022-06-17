@@ -227,17 +227,7 @@
 	if(candidates.len)
 		var/numCultists = min(candidates.len, 4)
 
-		if(!GLOB.reebe_loaded)
-			//Load Reebe
-			var/list/errorList = list()
-			var/list/reebe = SSmapping.LoadGroup(errorList, "Reebe", "map_files/generic", "CityOfCogs.dmm", default_traits=ZTRAITS_REEBE, silent=TRUE)
-			if(errorList.len)
-				message_admins("Reebe failed to load")
-				log_game("Reebe failed to load")
-				return FALSE
-			for(var/datum/parsed_map/map in reebe)
-				map.initTemplateBounds()
-			GLOB.reebe_loaded = TRUE
+		LoadReebe()
 
 		var/list/spawns = GLOB.servant_spawns.Copy()
 

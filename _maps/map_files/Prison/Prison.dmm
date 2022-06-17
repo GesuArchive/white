@@ -39,7 +39,7 @@
 	name = "port bay 2";
 	width = 5
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "aG" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -1398,7 +1398,7 @@
 	name = "SS13: Auxiliary Dock, Station-Fore";
 	width = 35
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "rb" = (
 /obj/structure/cable,
@@ -1431,7 +1431,7 @@
 /area/service/kitchen)
 "rF" = (
 /obj/structure/lattice,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "rG" = (
 /obj/structure/cable/multilayer/multiz,
@@ -1625,7 +1625,7 @@
 "tD" = (
 /obj/machinery/meteor_catcher,
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "tF" = (
 /obj/machinery/telecomms/bus/preset_one,
@@ -1832,7 +1832,7 @@
 /turf/open/floor/plasteel/cult,
 /area/security/prison/garden)
 "vL" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "vQ" = (
 /obj/structure/chair/sofa/bench{
@@ -2568,7 +2568,7 @@
 /area/cargo/office)
 "Fy" = (
 /obj/effect/landmark/carpspawn,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "FM" = (
 /obj/structure/lattice/catwalk,
@@ -2964,7 +2964,7 @@
 "JU" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/solars/ancientstation)
 "JV" = (
 /turf/open/floor/plasteel/dark,
@@ -3003,7 +3003,7 @@
 /turf/open/floor/plasteel/white,
 /area/medical/morgue)
 "Ku" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/engineering/main)
 "Kz" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -3376,7 +3376,7 @@
 	name = "NT SS13: Cargo Bay";
 	width = 12
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "Os" = (
 /obj/machinery/light/directional/east,
@@ -3450,7 +3450,7 @@
 /area/security/brig/upper)
 "Pj" = (
 /obj/machinery/camera/autoname/directional/south,
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/engineering/main)
 "Pr" = (
 /obj/machinery/camera/autoname/directional/north,
@@ -3669,7 +3669,7 @@
 	name = "BoxStation emergency evac bay";
 	width = 32
 	},
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/space)
 "RN" = (
 /obj/effect/turf_decal/delivery,

@@ -286,7 +286,7 @@
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/escape)
 "aU" = (
-/turf/open/openspace/airless,
+/turf/open/space/openspace,
 /area/template_noop)
 "aV" = (
 /obj/machinery/light{

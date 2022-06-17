@@ -183,8 +183,8 @@
 			// generate ceiling
 			if(istype(new_ceiling, /turf/open/openspace)) // why is this needed? because we have 2 different typepaths for openspace
 				new_ceiling.ChangeTurf(/turf/open/floor/engine/hull/shipceiling, list(/turf/open/openspace))
-			else if (istype(new_ceiling, /turf/open/openspace/airless))
-				new_ceiling.ChangeTurf(/turf/open/floor/engine/hull/shipceiling, list(/turf/open/openspace/airless))
+			else if (istype(new_ceiling, /turf/open/space/openspace))
+				new_ceiling.ChangeTurf(/turf/open/floor/engine/hull/shipceiling, list(/turf/open/space/openspace))
 		var/turf/old_ceiling = get_step_multiz(old_turf, UP)
 		if(old_ceiling && istype(old_ceiling, /turf/open/floor/engine/hull/shipceiling)) // check if a ceiling was generated previously
 			// remove old ceiling
