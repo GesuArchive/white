@@ -95,6 +95,27 @@
 	to_chat(src, span_brass("Кликаем на разные штуки и они начинают работать!"))
 	to_chat(src, span_brass("Большая часть заклинаний требует цель. Клик для выбора цели!"))
 
+/mob/living/simple_animal/eminence/update_health_hud()
+	return //we use no hud
+
+/mob/living/simple_animal/eminence/med_hud_set_health()
+	return //we use no hud
+
+/mob/living/simple_animal/eminence/med_hud_set_status()
+	return //we use no hud
+
+/mob/living/simple_animal/eminence/ex_act(severity, target)
+	return 1 //Immune to the effects of explosions.
+
+/mob/living/simple_animal/eminence/blob_act(obj/structure/blob/B)
+	return //blah blah blobs aren't in tune with the spirit world, or something.
+
+/mob/living/simple_animal/eminence/singularity_act()
+	return //don't walk into the singularity expecting to find corpses, okay?
+
+/mob/living/simple_animal/eminence/narsie_act()
+	return //most humans will now be either bones or harvesters, but we're still un-alive.
+
 /mob/living/simple_animal/eminence/say_verb(message as text)
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, span_danger("Не могу говорить."))
