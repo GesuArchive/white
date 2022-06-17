@@ -118,7 +118,7 @@
 /turf/open/indestructible/reebe_void,
 /area/reebe/city_of_cogs)
 "E" = (
-/obj/machinery/sleeper{
+/obj/machinery/sleeper/clockwork{
 	dir = 4
 	},
 /turf/open/floor/clockwork/reebe,
