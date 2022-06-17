@@ -1351,6 +1351,10 @@
 		var/client/C = usr.client
 		C?.open_filter_editor(src)
 
+	if(href_list[VV_HK_EDIT_PARTICLES] && check_rights(R_VAREDIT))
+		var/client/C = usr.client
+		C?.open_particle_editor(src)
+
 /atom/vv_get_header()
 	. = ..()
 	var/refid = REF(src)
