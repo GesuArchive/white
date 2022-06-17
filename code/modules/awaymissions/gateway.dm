@@ -287,6 +287,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 /obj/machinery/computer/gateway_control
 	name = "Интерфейс врат"
 	desc = "Удобный человеческому глазу интерфейс для врат, стоящих рядом."
+	req_access = list(ACCESS_HEADS)
 	var/obj/machinery/gateway/G
 
 /obj/machinery/computer/gateway_control/Initialize(mapload, obj/item/circuitboard/C)
@@ -332,6 +333,11 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 			return TRUE
 		if("find_new")
 			if(!GLOB.isGatewayLoaded)
+				if(isliving(usr))
+					var/mob/living/L = usr
+					if(!check_access(L.get_idcard()))
+						say("Нет доступа. Обратитесь к одной из глав.")
+						return
 				message_admins("[ADMIN_LOOKUPFLW(usr)] активирует врата.")
 				log_game("[key_name(usr)] активирует врата.")
 				priority_announce("Началась операция по поиску новых врат в отдалённых секторах. Это займёт некоторое время.", "Звёздные врата", sound('white/valtos/sounds/trevoga4.ogg'))
