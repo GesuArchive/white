@@ -785,7 +785,7 @@ SUBSYSTEM_DEF(job)
 	name = "Запасные коды от сейфа"
 	desc = "Доказательство того, что вы точно заслужили должность Капитана этой станции."
 
-/obj/item/paper/fluff/spare_id_safe_code/Initialize()
+/obj/item/paper/fluff/spare_id_safe_code/Initialize(mapload)
 	. = ..()
 	var/safe_code = SSid_access.spare_id_safe_code
 

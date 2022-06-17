@@ -270,7 +270,7 @@
 	desc = "Как только он надет, он никогда не снимется."
 	dog_fashion = null
 
-/obj/item/clothing/head/sombrero/shamebrero/Initialize()
+/obj/item/clothing/head/sombrero/shamebrero/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, SHAMEBRERO_TRAIT)
 
@@ -515,7 +515,7 @@
 	icon_state = "devil_horns"
 	armor = list(MELEE = 10, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 100)
 
-/obj/item/clothing/head/devil_horns/Initialize()
+/obj/item/clothing/head/devil_horns/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT(type))
 
@@ -526,7 +526,7 @@
 	attack_verb_continuous = list("коронует")
 	attack_verb_simple = list("коронует")
 
-/obj/item/clothing/head/rainbowbunchcrown/Initialize()
+/obj/item/clothing/head/rainbowbunchcrown/Initialize(mapload)
 	. = ..()
 	var/crown_type = rand(1,4)
 	switch(crown_type)

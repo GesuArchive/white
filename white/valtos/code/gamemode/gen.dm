@@ -17,7 +17,7 @@
 /turf/open/floor/plating/partyhard/cave/has_data
 	has_data = TRUE
 
-/turf/open/floor/plating/partyhard/cave/Initialize()
+/turf/open/floor/plating/partyhard/cave/Initialize(mapload)
 	. = ..()
 	if(!has_data)
 		produce_tunnel_from_data()

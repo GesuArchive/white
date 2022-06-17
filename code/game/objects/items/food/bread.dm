@@ -6,7 +6,7 @@
 	foodtypes = GRAIN
 	eat_time = 3 SECONDS
 
-/obj/item/food/bread/Initialize()
+/obj/item/food/bread/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/dunkable, 10)
 	AddComponent(/datum/component/food_storage)
@@ -18,7 +18,7 @@
 	eat_time = 0.5 SECONDS
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/food/breadslice/Initialize()
+/obj/item/food/breadslice/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/dunkable, 10)
 
@@ -33,7 +33,7 @@
 	venue_value = FOOD_PRICE_CHEAP
 	burns_in_oven = TRUE
 
-/obj/item/food/bread/plain/Initialize()
+/obj/item/food/bread/plain/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/customizable_reagent_holder, /obj/item/food/bread/empty, CUSTOM_INGREDIENT_ICON_FILL, max_ingredients = 8)
 
@@ -48,7 +48,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	venue_value = FOOD_PRICE_TRASH
 
-/obj/item/food/breadslice/plain/Initialize()
+/obj/item/food/breadslice/plain/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/customizable_reagent_holder, null, CUSTOM_INGREDIENT_ICON_STACK)
 
@@ -62,7 +62,7 @@
 	tastes = list("гниющая плесень" = 1)
 	foodtypes = GROSS
 
-/obj/item/food/breadslice/moldy/Initialize()
+/obj/item/food/breadslice/moldy/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_MOLD, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 25)
 
@@ -210,7 +210,7 @@
 	foodtypes = GRAIN
 	desc = "It's a slice of bread, customized to your wildest dreams."
 
-/obj/item/food/breadslice/empty/Initialize()
+/obj/item/food/breadslice/empty/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/customizable_reagent_holder, null, CUSTOM_INGREDIENT_ICON_FILL, max_ingredients = 8)
 

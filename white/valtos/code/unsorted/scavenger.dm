@@ -50,12 +50,12 @@
 	var/static/list/sharedWanted = typecacheof(list(/turf/closed/mineral, /turf/closed/wall))
 	var/static/list/sharedIgnore = typecacheof(list(/obj/structure/lattice))
 
-/mob/living/simple_animal/hostile/scavenger/Initialize()
+/mob/living/simple_animal/hostile/scavenger/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
 	update_health_hud()
 
-/mob/living/simple_animal/hostile/scavenger/Initialize()
+/mob/living/simple_animal/hostile/scavenger/Initialize(mapload)
 	. = ..()
 	remove_verb(src, /mob/living/verb/pulled)
 	for(var/datum/atom_hud/data/diagnostic/diag_hud in GLOB.huds)
@@ -121,7 +121,7 @@
 	blend_mode = 2
 	duration = 1 SECONDS
 
-/obj/effect/temp_visual/scavenger/Initialize()
+/obj/effect/temp_visual/scavenger/Initialize(mapload)
 	. = ..()
 	playsound(loc, "white/valtos/sounds/laser[rand(1, 10)].ogg", 100, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 

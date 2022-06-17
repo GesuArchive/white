@@ -74,7 +74,7 @@
 	desc = "Пара оранжевых резиновых ботинок, предназначенных для предотвращения соскальзывания на влажных поверхностях, а также для их сушки."
 	icon_state = "galoshes_dry"
 
-/obj/item/clothing/shoes/galoshes/dry/Initialize()
+/obj/item/clothing/shoes/galoshes/dry/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_SHOES_STEP_ACTION, .proc/on_step)
 
@@ -95,7 +95,7 @@
 	lace_time = 20 SECONDS // how the hell do these laces even work??
 	species_exception = list(/datum/species/golem/bananium)
 
-/obj/item/clothing/shoes/clown_shoes/Initialize()
+/obj/item/clothing/shoes/clown_shoes/Initialize(mapload)
 	. = ..()
 	LoadComponent(/datum/component/squeak, list('sound/effects/clownstep1.ogg'=1,'sound/effects/clownstep2.ogg'=1), 50, 0, 0, 0, 0, 20, 0) //die off quick please
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_CLOWN, CELL_VIRUS_TABLE_GENERIC, rand(2,3), 0)
@@ -207,7 +207,7 @@
 /obj/item/clothing/shoes/cult/alt/ghost
 	item_flags = DROPDEL
 
-/obj/item/clothing/shoes/cult/alt/ghost/Initialize()
+/obj/item/clothing/shoes/cult/alt/ghost/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CULT_TRAIT)
 
@@ -300,7 +300,7 @@
 	icon_state = "clockwork_treads"
 	can_be_tied = FALSE
 
-/obj/item/clothing/shoes/bronze/Initialize()
+/obj/item/clothing/shoes/bronze/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/squeak, list('sound/machines/clockcult/integration_cog_install.ogg' = 1, 'sound/magic/clockwork/fellowship_armory.ogg' = 1), 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
@@ -322,7 +322,7 @@
 	///The vehicle associated with the shoes
 	var/obj/vehicle/ridden/scooter/skateboard/wheelys/wheels = /obj/vehicle/ridden/scooter/skateboard/wheelys
 
-/obj/item/clothing/shoes/wheelys/Initialize()
+/obj/item/clothing/shoes/wheelys/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
 	wheels = new wheels(null)
@@ -437,7 +437,7 @@
 	var/max_occupants = 4
 	can_be_tied = FALSE
 
-/obj/item/clothing/shoes/cowboy/Initialize()
+/obj/item/clothing/shoes/cowboy/Initialize(mapload)
 	. = ..()
 	if(prob(2))
 		var/mob/living/simple_animal/hostile/retaliate/poison/snake/bootsnake = new/mob/living/simple_animal/hostile/retaliate/poison/snake(src)

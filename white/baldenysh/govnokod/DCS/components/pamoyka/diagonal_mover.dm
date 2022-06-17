@@ -2,7 +2,7 @@
 	var/atom/old_old_loc
 	var/atom/old_loc
 
-/datum/component/diagonal_mover/Initialize()
+/datum/component/diagonal_mover/Initialize(mapload)
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
 

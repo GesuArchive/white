@@ -30,7 +30,7 @@
 	else
 		remove_atom_colour(FIXED_COLOUR_PRIORITY)
 
-/mob/living/simple_animal/hostile/blob/Initialize()
+/mob/living/simple_animal/hostile/blob/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/nerfed_pulling, GLOB.typecache_general_bad_things_to_easily_move)
 	AddElement(/datum/element/prevent_attacking_of_types, GLOB.typecache_general_bad_hostile_attack_targets, "Мерзость! Оно плохо пахнет! Нехочу это есть или трогать!")
@@ -285,7 +285,7 @@
 	mob_size = MOB_SIZE_LARGE
 	hud_type = /datum/hud/living/blobbernaut
 
-/mob/living/simple_animal/hostile/blob/blobbernaut/Initialize()
+/mob/living/simple_animal/hostile/blob/blobbernaut/Initialize(mapload)
 	. = ..()
 	add_cell_sample()
 

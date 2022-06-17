@@ -80,7 +80,7 @@
 	)
 	destruction_sleep_duration = 20
 
-/obj/vehicle/sealed/mecha/combat/gygax/dark/loaded/Initialize()
+/obj/vehicle/sealed/mecha/combat/gygax/dark/loaded/Initialize(mapload)
 	. = ..()
 	max_ammo()
 

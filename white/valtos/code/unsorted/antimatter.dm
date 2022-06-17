@@ -110,7 +110,7 @@
 	var/stored_power = 0//Power to deploy per tick
 
 
-/obj/machinery/power/am_control_unit/Initialize()
+/obj/machinery/power/am_control_unit/Initialize(mapload)
 	. = ..()
 	linked_shielding = list()
 	linked_cores = list()
@@ -434,7 +434,7 @@
 	var/dirs = 0
 
 
-/obj/machinery/am_shielding/Initialize()
+/obj/machinery/am_shielding/Initialize(mapload)
 	. = ..()
 	addtimer(CALLBACK(src, .proc/controllerscan), 10)
 

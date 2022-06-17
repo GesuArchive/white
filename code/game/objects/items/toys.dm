@@ -43,7 +43,7 @@
 	inhand_icon_state = "balloon-empty"
 
 
-/obj/item/toy/waterballoon/Initialize()
+/obj/item/toy/waterballoon/Initialize(mapload)
 	. = ..()
 	create_reagents(10)
 
@@ -329,7 +329,7 @@
 	/// The color of our fake energy sword
 	var/saber_color = "blue"
 
-/obj/item/toy/sword/Initialize()
+/obj/item/toy/sword/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/transforming, \
 		throw_speed_on = throw_speed, \
@@ -516,7 +516,7 @@
 	if(!..())
 		pop_burst()
 
-/obj/item/toy/snappop/Initialize()
+/obj/item/toy/snappop/Initialize(mapload)
 	. = ..()
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = .proc/on_entered,
@@ -539,7 +539,7 @@
 /obj/effect/decal/cleanable/ash/snappop_phoenix
 	var/respawn_time = 300
 
-/obj/effect/decal/cleanable/ash/snappop_phoenix/Initialize()
+/obj/effect/decal/cleanable/ash/snappop_phoenix/Initialize(mapload)
 	. = ..()
 	addtimer(CALLBACK(src, .proc/respawn), respawn_time)
 
@@ -673,7 +673,7 @@
 	var/list/card_attack_verb_simple = list("атакует")
 
 
-/obj/item/toy/cards/Initialize()
+/obj/item/toy/cards/Initialize(mapload)
 	. = ..()
 	if(card_attack_verb_continuous)
 		card_attack_verb_continuous = string_list(card_attack_verb_continuous)
@@ -701,7 +701,7 @@
 	var/obj/machinery/computer/holodeck/holo = null // Holodeck cards should not be infinite
 	var/list/cards = list()
 
-/obj/item/toy/cards/deck/Initialize()
+/obj/item/toy/cards/deck/Initialize(mapload)
 	. = ..()
 	populate_deck()
 
@@ -1243,7 +1243,7 @@
 	var/toysound = 'sound/machines/click.ogg'
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/toy/figure/Initialize()
+/obj/item/toy/figure/Initialize(mapload)
 	. = ..()
 	desc = "Бренд \"Космическая Жизнь\" [src]."
 
@@ -1482,7 +1482,7 @@
 	icon_state = "shell1"
 	var/static/list/possible_colors = list("" =  2, COLOR_PURPLE_GRAY = 1, COLOR_OLIVE = 1, COLOR_PALE_BLUE_GRAY = 1, COLOR_RED_GRAY = 1)
 
-/obj/item/toy/seashell/Initialize()
+/obj/item/toy/seashell/Initialize(mapload)
 	. = ..()
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)

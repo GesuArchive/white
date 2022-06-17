@@ -95,7 +95,7 @@
 	dismemberment = 50
 	var/crit = 0
 
-/obj/projectile/magic/tileacc/Initialize()
+/obj/projectile/magic/tileacc/Initialize(mapload)
 	if(prob(33))
 		name += " of death"
 		icon_state = "tile_crit"

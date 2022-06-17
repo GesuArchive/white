@@ -69,7 +69,7 @@
 	bare_wound_bonus = 15
 	damtype = BRUTE
 
-/obj/item/mutant_zombie_hand/Initialize()
+/obj/item/mutant_zombie_hand/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, HAND_REPLACEMENT_TRAIT)
 

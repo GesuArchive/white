@@ -50,7 +50,7 @@
 	/// ...And their loss count in combat
 	var/losses = 0
 
-/obj/item/toy/prize/Initialize()
+/obj/item/toy/prize/Initialize(mapload)
 	. = ..()
 	desc = "Mini-Mecha action figure! Collect them all! Attack your friends or another mech with one to initiate epic mech combat! [desc]."
 	combat_health = max_combat_health

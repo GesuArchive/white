@@ -37,7 +37,7 @@
 	var/pocket_storage_component_path = /datum/component/storage/concrete/pockets/butt
 	var/atom/movable/butt_storage/storage_handler
 /*
-/obj/item/organ/butt/Initialize()
+/obj/item/organ/butt/Initialize(mapload)
 	. = ..()
 
 */
@@ -214,7 +214,7 @@
 	var/list/speech_buffer = list()
 	var/list/speech_list = list("жопа.", "жопы.", "задница.", "пук.", "assblast usa", "НАЧИНАЮ ИНСПЕКЦИЮ ЗАДНИЦ", "вуп") //Hilarious.
 
-/mob/living/simple_animal/bot/buttbot/Initialize()
+/mob/living/simple_animal/bot/buttbot/Initialize(mapload)
 	. = ..()
 	become_hearing_sensitive()
 	if(xeno)
@@ -356,7 +356,7 @@
 	icon_state = "buttshoes"
 	worn_icon_state = "buttshoes"
 
-/obj/item/clothing/shoes/buttshoes/Initialize()
+/obj/item/clothing/shoes/buttshoes/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/squeak, list('white/valtos/sounds/poo2.ogg'), 50)
 

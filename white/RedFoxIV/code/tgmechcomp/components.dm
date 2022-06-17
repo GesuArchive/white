@@ -1,6 +1,6 @@
 /*
 /obj/item/mechcomp/debugspawn
-/obj/item/mechcomp/debugspawn/Initialize()
+/obj/item/mechcomp/debugspawn/Initialize(mapload)
 	. = ..()
 	for(var/i in typesof(/obj/item/mechcomp))
 		if(istype(i, /obj/item/mechcomp/debugspawn) || istype(i, /obj/item/mechcomp))
@@ -36,7 +36,7 @@
 		. = ..() // Please don't remove this again, thanks. //i have no fucking idea why gooncoders would do this lol
 		. += "<br><span class='notice'>Current Mode: [mode] | A = [A] | B = [B]</span>"
 
-/obj/item/mechcomp/math/Initialize()
+/obj/item/mechcomp/math/Initialize(mapload)
 		. = ..()
 
 		SEND_SIGNAL(src,COMSIG_MECHCOMP_ADD_INPUT,"Set A", "setA")
@@ -138,7 +138,7 @@
 	part_icon_state = "comp_led"
 	has_anchored_icon_state = TRUE
 
-/obj/item/mechcomp/test_led/Initialize()
+/obj/item/mechcomp/test_led/Initialize(mapload)
 		. = ..()
 
 		SEND_SIGNAL(src,COMSIG_MECHCOMP_ADD_INPUT,"Activate", "activateproc")
@@ -161,7 +161,7 @@
 	part_icon_state = "comp_button"
 	active_icon_state = "comp_button1"
 
-/obj/item/mechcomp/button/Initialize()
+/obj/item/mechcomp/button/Initialize(mapload)
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ALLOW_MANUAL_SIGNAL)
 
@@ -180,7 +180,7 @@
 	active_icon_state = "comp_synth1"
 	var/cd = 3 SECONDS
 
-/obj/item/mechcomp/speaker/Initialize()
+/obj/item/mechcomp/speaker/Initialize(mapload)
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "speak", "activateproc")
 
@@ -221,7 +221,7 @@
 	has_anchored_icon_state = TRUE
 	var/sensitive = FALSE
 
-/obj/item/mechcomp/pressurepad/Initialize()
+/obj/item/mechcomp/pressurepad/Initialize(mapload)
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ALLOW_MANUAL_SIGNAL)
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Fine tuning", "finetune")
@@ -263,7 +263,7 @@
 	. += "It is currently set to delay incoming messages by [delay/10] seconds."
 
 
-/obj/item/mechcomp/delay/Initialize()
+/obj/item/mechcomp/delay/Initialize(mapload)
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set Delay" , "setdelaymanually")
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Incoming", "incoming")
@@ -324,7 +324,7 @@
 	. = ..()
 	AddComponent(/datum/component/simple_rotation, ROTATION_ALTCLICK | ROTATION_CLOCKWISE, CALLBACK(src, .proc/can_user_rotate),CALLBACK(src, .proc/can_be_rotated),null)
 
-/obj/item/mechcomp/grav_accelerator/Initialize()
+/obj/item/mechcomp/grav_accelerator/Initialize(mapload)
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Activate", "activateproc")
 	//SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Power", "setpower") //maybe later
@@ -391,7 +391,7 @@
 	var/obj/machinery/recharger/recharger //lmfao
 
 
-/obj/item/mechcomp/egunholder/Initialize()
+/obj/item/mechcomp/egunholder/Initialize(mapload)
 	. = ..()
 	recharger = new(src)
 	recharger.recharge_coeff = 0.25 //4 times slower more inefficient than a regular weapon recharger
@@ -511,7 +511,7 @@
 		. += "<i>You will have to get closer to get a better look at it's data inputs.</i>"
 
 
-/obj/item/mechcomp/list_packer/Initialize()
+/obj/item/mechcomp/list_packer/Initialize(mapload)
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Build list", "build")
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Input A", "update_A")
@@ -644,7 +644,7 @@
 	part_icon_state = "comp_list_unpacker"
 	has_anchored_icon_state = TRUE
 
-/obj/item/mechcomp/list_extractor/Initialize()
+/obj/item/mechcomp/list_extractor/Initialize(mapload)
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "List in", "updatelist")
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Extract from list", "extract")
@@ -691,7 +691,7 @@
 	. = ..()
 	. += "<br><i>Currently the regex expression is [reg ? "\"<font color='orange'>[reg.name]</font>\"[i||g? " with flag[g&&i?"s":""] [g ? "g":""][i ? "i":""]." : "."]" : "<font color='orange'>not set!</font>"]</i>"
 
-/obj/item/mechcomp/find_regex/Initialize()
+/obj/item/mechcomp/find_regex/Initialize(mapload)
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "String to search", "find")
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Set the Regex pattern", "setpattern")
@@ -768,7 +768,7 @@
 	. = ..()
 	. += "<i>Currently set to <font color='orange'>[time/10]</font> seconds. [active ? "<font color='orange'>[timeleft(timer_id)]</font> seconds left until the next activation." : "It is deactivated."]</i>"
 
-/obj/item/mechcomp/timer/Initialize()
+/obj/item/mechcomp/timer/Initialize(mapload)
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Toggle state", "toggle")
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Set state", "setstate")
@@ -842,7 +842,7 @@
 	var/ignore_mechcomp = TRUE
 	var/ignore_radios = TRUE
 
-/obj/item/mechcomp/microphone/Initialize()
+/obj/item/mechcomp/microphone/Initialize(mapload)
 	. = ..()
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Toggle ignoring mechcomp devices", "togglemechcomp")
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Toggle ignoring radios", "toggleradio")

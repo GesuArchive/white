@@ -52,7 +52,7 @@ SUBSYSTEM_DEF(research)
 
 	var/mining_multiplier = 1
 
-/datum/controller/subsystem/research/Initialize()
+/datum/controller/subsystem/research/Initialize(mapload)
 	point_types = TECHWEB_POINT_TYPE_LIST_ASSOCIATIVE_NAMES
 	initialize_all_techweb_designs()
 	initialize_all_techweb_nodes()

@@ -70,7 +70,7 @@
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/make_jamming() //прикручиваеца в инишалайзе
 	return
 
-/obj/item/gun/ballistic/rifle/boltaction/kar98k/Initialize()
+/obj/item/gun/ballistic/rifle/boltaction/kar98k/Initialize(mapload)
 	. = ..()
 	switch(rand(1, 3))
 		if(1)

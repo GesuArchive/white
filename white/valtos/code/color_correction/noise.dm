@@ -8,7 +8,7 @@
 	blend_mode = 3
 	alpha = 255
 
-/mob/dead/new_player/Initialize()
+/mob/dead/new_player/Initialize(mapload)
 	. = ..()
 	overlay_fullscreen("noise", /atom/movable/screen/fullscreen/noisescreen)
 

@@ -680,7 +680,7 @@ GLOBAL_LIST_EMPTY(emergency_storages)
 	icon_state = "safe"
 	var/unlocked = FALSE
 
-/obj/item/storage/pod/Initialize()
+/obj/item/storage/pod/Initialize(mapload)
 	. = ..()
 	GLOB.emergency_storages += src
 
@@ -745,7 +745,7 @@ GLOBAL_LIST_EMPTY(emergency_storages)
 	height = 8
 	dir = EAST
 
-/obj/docking_port/mobile/emergency/backup/Initialize()
+/obj/docking_port/mobile/emergency/backup/Initialize(mapload)
 	// We want to be a valid emergency shuttle
 	// but not be the main one, keep whatever's set
 	// valid.

@@ -38,13 +38,13 @@
 /obj/item/defibrillator/get_cell()
 	return cell
 
-/obj/item/defibrillator/Initialize() //starts without a cell for rnd
+/obj/item/defibrillator/Initialize(mapload) //starts without a cell for rnd
 	. = ..()
 	paddles = new paddle_type(src)
 	update_power()
 	return
 
-/obj/item/defibrillator/loaded/Initialize() //starts with hicap
+/obj/item/defibrillator/loaded/Initialize(mapload) //starts with hicap
 	. = ..()
 	cell = new(src)
 	update_power()
@@ -263,7 +263,7 @@
 	if(slot == user.getBeltSlot())
 		return TRUE
 
-/obj/item/defibrillator/compact/loaded/Initialize()
+/obj/item/defibrillator/compact/loaded/Initialize(mapload)
 	. = ..()
 	cell = new(src)
 	update_power()
@@ -282,7 +282,7 @@
 	powered_state = null
 	emagged_state = null
 
-/obj/item/defibrillator/compact/combat/loaded/Initialize()
+/obj/item/defibrillator/compact/combat/loaded/Initialize(mapload)
 	. = ..()
 	cell = new /obj/item/stock_parts/cell/infinite(src)
 	update_power()
@@ -387,7 +387,7 @@
 	cooldown = FALSE
 	update_icon()
 
-/obj/item/shockpaddles/Initialize()
+/obj/item/shockpaddles/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NO_STORAGE_INSERT, GENERIC_ITEM_TRAIT) //stops shockpaddles from being inserted in BoH
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)

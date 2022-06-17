@@ -10,7 +10,7 @@
 	flags_1 = ON_BORDER_1
 	var/table_type = /obj/structure/table
 
-/obj/structure/flippedtable/Initialize()
+/obj/structure/flippedtable/Initialize(mapload)
 	. = ..()
 
 	var/static/list/loc_connections = list(

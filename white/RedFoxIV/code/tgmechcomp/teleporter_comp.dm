@@ -17,7 +17,7 @@
 
 
 
-/obj/item/mechcomp/teleport/Initialize()
+/obj/item/mechcomp/teleport/Initialize(mapload)
 	. = ..()
 	tele_id = (rand(0,65535))
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_INPUT, "Teleport!", "do_teleport")

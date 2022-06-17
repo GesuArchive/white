@@ -14,7 +14,7 @@
 	footstep = FOOTSTEP_CATWALK
 	var/covered = TRUE
 
-/turf/open/floor/plasteel/catwalk_floor/Initialize()
+/turf/open/floor/plasteel/catwalk_floor/Initialize(mapload)
 	. = ..()
 	update_turf_overlay()
 

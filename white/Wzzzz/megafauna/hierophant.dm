@@ -39,7 +39,7 @@
 	del_on_death = TRUE
 	attack_action_types = null
 /*
-/mob/living/simple_animal/hostile/megafauna/hierophantold/Initialize()
+/mob/living/simple_animal/hostile/megafauna/hierophantold/Initialize(mapload)
 	. = ..()
 	internal = new/obj/item/device/gps/internal/hierophant(src)
 	spawned_beacon = new(loc)

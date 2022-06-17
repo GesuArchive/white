@@ -189,7 +189,7 @@
 	var/pre_attached_grenade_type
 	demands_object_input = TRUE	// You can put stuff in once the circuit is in assembly,passed down from additem and handled by attackby()
 
-/obj/item/integrated_circuit_old/manipulation/grenade/Initialize()
+/obj/item/integrated_circuit_old/manipulation/grenade/Initialize(mapload)
 	. = ..()
 	if(pre_attached_grenade_type)
 		var/grenade = new pre_attached_grenade_type(src)
@@ -616,7 +616,7 @@
 	cooldown_per_use = 10
 	var/list/mtypes = list(/datum/material/iron, /datum/material/glass, /datum/material/silver, /datum/material/gold, /datum/material/diamond, /datum/material/plasma, /datum/material/uranium, /datum/material/bananium, /datum/material/titanium, /datum/material/bluespace)
 
-/obj/item/integrated_circuit_old/manipulation/matman/Initialize()
+/obj/item/integrated_circuit_old/manipulation/matman/Initialize(mapload)
 	var/datum/component/material_container/materials = AddComponent(/datum/component/material_container)
 	materials.max_amount = 100000
 	materials.precise_insertion = TRUE

@@ -90,7 +90,7 @@
 	tool_behaviour = null
 	toolspeed = null
 
-/obj/item/wrench/combat/Initialize()
+/obj/item/wrench/combat/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/transforming, \
 		force_on = 6, \

@@ -24,7 +24,7 @@
 	)
 	trigonometric_option = add_option_port("Trigonometric Option", component_options)
 
-/obj/item/circuit_component/trigonometry/Initialize()
+/obj/item/circuit_component/trigonometry/Initialize(mapload)
 	. = ..()
 	add_input_port("Вход", PORT_TYPE_NUMBER)
 	add_output_port("Выход", PORT_TYPE_NUMBER)

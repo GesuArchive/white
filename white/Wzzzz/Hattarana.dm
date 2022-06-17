@@ -113,7 +113,7 @@
 	inhand_icon_state = "tailcoat"
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets
 
-/datum/component/storage/concrete/pockets/tailcoat/Initialize()
+/datum/component/storage/concrete/pockets/tailcoat/Initialize(mapload)
 	. = ..()
 	max_items = 2
 	max_combined_w_class = 5
@@ -4523,19 +4523,19 @@
 	new /obj/item/ammo_box/magazine/wt550m9(src)
 	new /obj/item/ammo_box/magazine/wt550m9(src)
 /*
-/datum/component/storage/concrete/pockets/hunter/Initialize()
+/datum/component/storage/concrete/pockets/hunter/Initialize(mapload)
 	. = ..()
 	max_items = 3
 	max_combined_w_class = 5
 	max_w_class = WEIGHT_CLASS_NORMAL
 
-/datum/component/storage/concrete/pockets/webvest/Initialize()
+/datum/component/storage/concrete/pockets/webvest/Initialize(mapload)
 	. = ..()
 	max_items = 5
 	max_combined_w_class = 10
 	max_w_class = WEIGHT_CLASS_NORMAL
 
-/datum/component/storage/concrete/pockets/swatarmor/Initialize()
+/datum/component/storage/concrete/pockets/swatarmor/Initialize(mapload)
 	. = ..()
 	max_items = 3
 	max_combined_w_class = 6
@@ -4774,7 +4774,7 @@
 	armor = list("melee" = 10, "bullet" = 10, "laser" = 5, "energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 10, "magic" = 25)
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/watcher
 
-/datum/component/storage/concrete/pockets/watcher/Initialize()
+/datum/component/storage/concrete/pockets/watcher/Initialize(mapload)
 	. = ..()
 	max_items = 15
 	max_combined_w_class = 100
@@ -4794,7 +4794,7 @@
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 50, "energy" = 30, "bomb" = 45, "bio" = 100, "rad" = 0, "fire" = 75, "acid" = 60)
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/tac_hazmat
 
-/datum/component/storage/concrete/pockets/tac_hazmat/Initialize()
+/datum/component/storage/concrete/pockets/tac_hazmat/Initialize(mapload)
 	. = ..()
 	max_items = 6
 	max_combined_w_class = 10

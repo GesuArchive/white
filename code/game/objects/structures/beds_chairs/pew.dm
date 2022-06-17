@@ -12,7 +12,7 @@
 	flags_1 = ON_BORDER_1
 	density = TRUE
 
-/obj/structure/chair/pew/Initialize()
+/obj/structure/chair/pew/Initialize(mapload)
 	. = ..()
 	if(density && flags_1 & ON_BORDER_1) // blocks normal movement from and to the direction it's facing.
 		var/static/list/loc_connections = list(
@@ -25,7 +25,7 @@
 	icon_state = "pewend_left"
 	var/mutable_appearance/leftpewarmrest
 
-/obj/structure/chair/pew/left/Initialize()
+/obj/structure/chair/pew/left/Initialize(mapload)
 	leftpewarmrest = GetLeftPewArmrest()
 	leftpewarmrest.layer = ABOVE_MOB_LAYER
 	leftpewarmrest.plane = GAME_PLANE_UPPER
@@ -57,7 +57,7 @@
 	icon_state = "pewend_right"
 	var/mutable_appearance/rightpewarmrest
 
-/obj/structure/chair/pew/right/Initialize()
+/obj/structure/chair/pew/right/Initialize(mapload)
 	rightpewarmrest = GetRightPewArmrest()
 	rightpewarmrest.layer = ABOVE_MOB_LAYER
 	rightpewarmrest.plane = GAME_PLANE_UPPER

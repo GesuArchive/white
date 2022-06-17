@@ -41,7 +41,7 @@
 	if(stored_pda || stored_id_card)
 		. += "[initial(icon_state)]-closed"
 
-/obj/machinery/pdapainter/Initialize()
+/obj/machinery/pdapainter/Initialize(mapload)
 	. = ..()
 
 	if(!target_dept)

@@ -76,7 +76,7 @@
 	var/bounce_factor = 0.2 // how much of our velocity to keep on collision
 	var/lateral_bounce_factor = 0.95 // mostly there to slow you down when you drive (pilot?) down a 2x2 corridor
 
-/obj/spacepod/Initialize()
+/obj/spacepod/Initialize(mapload)
 	. = ..()
 	GLOB.spacepods_list += src
 	START_PROCESSING(SSfastprocess, src)

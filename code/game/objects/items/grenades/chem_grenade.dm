@@ -20,7 +20,7 @@
 	. = ..()
 	AddElement(/datum/element/empprotection, EMP_PROTECT_WIRES)
 
-/obj/item/grenade/chem_grenade/Initialize()
+/obj/item/grenade/chem_grenade/Initialize(mapload)
 	. = ..()
 	create_reagents(1000)
 	stage_change() // If no argument is set, it will change the stage to the current stage, useful for stock grenades that start READY.
@@ -328,7 +328,7 @@
 	desc = "Used for emergency sealing of hull breaches."
 	stage = GRENADE_READY
 
-/obj/item/grenade/chem_grenade/metalfoam/Initialize()
+/obj/item/grenade/chem_grenade/metalfoam/Initialize(mapload)
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
@@ -346,7 +346,7 @@
 	desc = "Used for emergency sealing of hull breaches, while keeping areas accessible."
 	stage = GRENADE_READY
 
-/obj/item/grenade/chem_grenade/smart_metal_foam/Initialize()
+/obj/item/grenade/chem_grenade/smart_metal_foam/Initialize(mapload)
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/large/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
@@ -361,7 +361,7 @@
 /obj/item/grenade/chem_grenade/smart_metal_foam/bigshot
 	name = "big shot smart metal foam grenade"
 
-/obj/item/grenade/chem_grenade/smart_metal_foam/bigshot/Initialize()
+/obj/item/grenade/chem_grenade/smart_metal_foam/bigshot/Initialize(mapload)
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/bluespace/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/bluespace/B2 = new(src)
@@ -379,7 +379,7 @@
 	desc = "Used for clearing rooms of living things."
 	stage = GRENADE_READY
 
-/obj/item/grenade/chem_grenade/incendiary/Initialize()
+/obj/item/grenade/chem_grenade/incendiary/Initialize(mapload)
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
@@ -397,7 +397,7 @@
 	desc = "Used for purging large areas of invasive plant species. Contents under pressure. Do not directly inhale contents."
 	stage = GRENADE_READY
 
-/obj/item/grenade/chem_grenade/antiweed/Initialize()
+/obj/item/grenade/chem_grenade/antiweed/Initialize(mapload)
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
@@ -416,7 +416,7 @@
 	desc = "BLAM!-brand foaming space cleaner. In a special applicator for rapid cleaning of wide areas."
 	stage = GRENADE_READY
 
-/obj/item/grenade/chem_grenade/cleaner/Initialize()
+/obj/item/grenade/chem_grenade/cleaner/Initialize(mapload)
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
@@ -434,7 +434,7 @@
 	desc = "Waffle Co.-brand foaming space cleaner. In a special applicator for rapid cleaning of wide areas."
 	stage = GRENADE_READY
 
-/obj/item/grenade/chem_grenade/ez_clean/Initialize()
+/obj/item/grenade/chem_grenade/ez_clean/Initialize(mapload)
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/large/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/large/B2 = new(src)
@@ -453,7 +453,7 @@
 	desc = "Used for nonlethal riot control. Contents under pressure. Do not directly inhale contents."
 	stage = GRENADE_READY
 
-/obj/item/grenade/chem_grenade/teargas/Initialize()
+/obj/item/grenade/chem_grenade/teargas/Initialize(mapload)
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/large/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/large/B2 = new(src)
@@ -472,7 +472,7 @@
 	desc = "Used for melting armoured opponents."
 	stage = GRENADE_READY
 
-/obj/item/grenade/chem_grenade/facid/Initialize()
+/obj/item/grenade/chem_grenade/facid/Initialize(mapload)
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/bluespace/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/bluespace/B2 = new(src)
@@ -492,7 +492,7 @@
 	desc = "Used for wide scale painting projects."
 	stage = GRENADE_READY
 
-/obj/item/grenade/chem_grenade/colorful/Initialize()
+/obj/item/grenade/chem_grenade/colorful/Initialize(mapload)
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
@@ -511,7 +511,7 @@
 	stage = GRENADE_READY
 	var/glitter_type = /datum/reagent/glitter
 
-/obj/item/grenade/chem_grenade/glitter/Initialize()
+/obj/item/grenade/chem_grenade/glitter/Initialize(mapload)
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
@@ -544,7 +544,7 @@
 	desc = "BURN!-brand foaming clf3. In a special applicator for rapid purging of wide areas."
 	stage = GRENADE_READY
 
-/obj/item/grenade/chem_grenade/clf3/Initialize()
+/obj/item/grenade/chem_grenade/clf3/Initialize(mapload)
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/bluespace/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/bluespace/B2 = new(src)
@@ -562,7 +562,7 @@
 	desc = "Tiger Cooperative chemical foam grenade. Causes temporary irration, blindness, confusion, mutism, and mutations to carbon based life forms. Contains additional spore toxin."
 	stage = GRENADE_READY
 
-/obj/item/grenade/chem_grenade/bioterrorfoam/Initialize()
+/obj/item/grenade/chem_grenade/bioterrorfoam/Initialize(mapload)
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/bluespace/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/bluespace/B2 = new(src)
@@ -582,7 +582,7 @@
 	desc = "WARNING: GRENADE WILL RELEASE DEADLY SPORES CONTAINING ACTIVE AGENTS. SEAL SUIT AND AIRFLOW BEFORE USE."
 	stage = GRENADE_READY
 
-/obj/item/grenade/chem_grenade/tuberculosis/Initialize()
+/obj/item/grenade/chem_grenade/tuberculosis/Initialize(mapload)
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/bluespace/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/bluespace/B2 = new(src)
@@ -602,7 +602,7 @@
 	icon_state = "holy_grenade"
 	stage = GRENADE_READY
 
-/obj/item/grenade/chem_grenade/holy/Initialize()
+/obj/item/grenade/chem_grenade/holy/Initialize(mapload)
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/large/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/large/B2 = new(src)

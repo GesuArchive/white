@@ -180,7 +180,7 @@ GLOBAL_LIST_INIT(scan_conditions,init_scan_conditions())
 	failed_popup = TRUE
 	SStgui.update_uis(src)
 
-/obj/machinery/computer/exoscanner_control/Initialize()
+/obj/machinery/computer/exoscanner_control/Initialize(mapload)
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
@@ -197,7 +197,7 @@ GLOBAL_LIST_INIT(scan_conditions,init_scan_conditions())
 	icon = 'icons/obj/exploration.dmi'
 	icon_state = "scanner_off"
 
-/obj/machinery/exoscanner/Initialize()
+/obj/machinery/exoscanner/Initialize(mapload)
 	. = ..()
 	RegisterSignal(GLOB.exoscanner_controller,list(COMSIG_EXOSCAN_STARTED,COMSIG_EXOSCAN_FINISHED),.proc/scan_change)
 	update_readiness()

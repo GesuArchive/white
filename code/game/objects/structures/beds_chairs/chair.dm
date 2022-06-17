@@ -23,7 +23,7 @@
 	if(!has_buckled_mobs() && can_buckle)
 		. += "</br><span class='notice'>Перетащите себя, чтобы сидеть на нём.</span>"
 
-/obj/structure/chair/Initialize()
+/obj/structure/chair/Initialize(mapload)
 	. = ..()
 	if(!anchored)	//why would you put these on the shuttle?
 		addtimer(CALLBACK(src, .proc/RemoveFromLatejoin), 0)
@@ -181,7 +181,7 @@
 	item_chair = null
 	var/mutable_appearance/armrest
 
-/obj/structure/chair/comfy/Initialize()
+/obj/structure/chair/comfy/Initialize(mapload)
 	armrest = GetArmrest()
 	armrest.layer = ABOVE_MOB_LAYER
 	armrest.plane = GAME_PLANE_UPPER

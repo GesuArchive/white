@@ -66,7 +66,7 @@
 	inhand_icon_state = ""
 	custom_materials = list(/datum/material/gold=8000)
 
-/obj/item/clothing/accessory/medal/veteran/Initialize()
+/obj/item/clothing/accessory/medal/veteran/Initialize(mapload)
 	. = ..()
 	var/krutite_baraban = pick("отвагу", "взятие жепы", "героизм", "исключительный онанизм", "особые заслуги", "500 кредитов", "красивые глаза", "доблесть", "приколы", "взятие за щёку", "ветеранство", "героин")
 	name = "[name] за [krutite_baraban]"

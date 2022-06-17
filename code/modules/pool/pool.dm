@@ -181,7 +181,7 @@ GLOBAL_LIST_EMPTY(pool_filters)
 	. = ..()
 	. += span_boldnotice("\nThe thermostat on it reads [current_temperature].")
 
-/obj/machinery/pool_filter/Initialize()
+/obj/machinery/pool_filter/Initialize(mapload)
 	. = ..()
 	create_reagents(100, OPENCONTAINER) //If you're a terrible terrible clown and want to dump reagents into the pool.
 	if(preset_reagent_type)

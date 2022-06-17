@@ -4,7 +4,7 @@
 	var/angular_velocity = 30
 	var/active = FALSE
 
-/datum/component/rotating_shield/Initialize()
+/datum/component/rotating_shield/Initialize(mapload)
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
 
@@ -189,7 +189,7 @@
 /datum/component/rotating_shield/test
 	angular_velocity = 30
 
-/datum/component/rotating_shield/test/Initialize()
+/datum/component/rotating_shield/test/Initialize(mapload)
 	. = ..()
 	var/datum/rs_plate_layer/rspl1 = new
 	rspl1.add_plate(new /obj/structure/rs_plate(src))

@@ -510,7 +510,7 @@
 	syndie = TRUE
 	keyslot = new /obj/item/encryptionkey/syndicate
 
-/obj/item/radio/borg/syndicate/Initialize()
+/obj/item/radio/borg/syndicate/Initialize(mapload)
 	. = ..()
 	set_frequency(FREQ_SYNDICATE)
 
@@ -551,6 +551,6 @@
 /obj/item/radio/off	// Station bounced radios, their only difference is spawning with the speakers off, this was made to help the lag.
 	dog_fashion = /datum/dog_fashion/back
 
-/obj/item/radio/off/Initialize()
+/obj/item/radio/off/Initialize(mapload)
 	. = ..()
 	set_listening(FALSE)

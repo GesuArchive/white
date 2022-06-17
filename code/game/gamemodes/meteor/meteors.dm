@@ -301,7 +301,7 @@ GLOBAL_LIST_INIT(meteorsC, list(/obj/effect/meteor/dust)) //for space dust event
 	var/meteorgibs = /obj/effect/gibspawner/generic
 	threat = 2
 
-/obj/effect/meteor/meaty/Initialize()
+/obj/effect/meteor/meaty/Initialize(mapload)
 	for(var/path in meteordrop)
 		if(path == /obj/item/food/meat/slab/human/mutant)
 			meteordrop -= path
@@ -332,7 +332,7 @@ GLOBAL_LIST_INIT(meteorsC, list(/obj/effect/meteor/dust)) //for space dust event
 	meteordrop = list(/obj/item/food/meat/slab/xeno, /obj/item/organ/tongue/alien)
 	meteorgibs = /obj/effect/gibspawner/xeno
 
-/obj/effect/meteor/meaty/xeno/Initialize()
+/obj/effect/meteor/meaty/xeno/Initialize(mapload)
 	meteordrop += subtypesof(/obj/item/organ/alien)
 	return ..()
 
@@ -383,7 +383,7 @@ GLOBAL_LIST_INIT(meteorsSPOOKY, list(/obj/effect/meteor/pumpkin))
 	meteordrop = list(/obj/item/clothing/head/hardhat/pumpkinhead, /obj/item/food/grown/pumpkin)
 	threat = 100
 
-/obj/effect/meteor/pumpkin/Initialize()
+/obj/effect/meteor/pumpkin/Initialize(mapload)
 	. = ..()
 	meteorsound = pick('sound/hallucinations/im_here1.ogg','sound/hallucinations/im_here2.ogg')
 //////////////////////////
@@ -445,7 +445,7 @@ GLOBAL_LIST_INIT(meteorsSPOOKY, list(/obj/effect/meteor/pumpkin))
 	desc = "Что это такое? Потолок существует???"
 	alpha = 0
 
-/obj/effect/meteor_shadow/Initialize()
+/obj/effect/meteor_shadow/Initialize(mapload)
 	. = ..()
 	color = list(0, 0, 0, 0, 0, 0, 0, 0, 0)
 	var/matrix/M = matrix()

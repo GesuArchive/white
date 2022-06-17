@@ -178,7 +178,7 @@
 /obj/structure/bookcase/manuals/engineering
 	name = "книжный шкаф с инженерными инструкциями"
 
-/obj/structure/bookcase/manuals/engineering/Initialize()
+/obj/structure/bookcase/manuals/engineering/Initialize(mapload)
 	. = ..()
 	new /obj/item/book/manual/wiki/engineering_construction(src)
 	new /obj/item/book/manual/wiki/engineering_hacking(src)
@@ -191,7 +191,7 @@
 /obj/structure/bookcase/manuals/research_and_development
 	name = "книжный шкаф для руководств по исследованиям и разработкам"
 
-/obj/structure/bookcase/manuals/research_and_development/Initialize()
+/obj/structure/bookcase/manuals/research_and_development/Initialize(mapload)
 	. = ..()
 	new /obj/item/book/manual/wiki/research_and_development(src)
 	update_icon()

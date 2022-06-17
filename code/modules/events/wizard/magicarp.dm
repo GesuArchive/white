@@ -46,7 +46,7 @@
 	/obj/projectile/magic/spellblade, /obj/projectile/magic/arcane_barrage)
 	discovery_points = 3000
 
-/mob/living/simple_animal/hostile/carp/ranged/Initialize()
+/mob/living/simple_animal/hostile/carp/ranged/Initialize(mapload)
 	projectiletype = pick(allowed_projectile_types)
 	. = ..()
 

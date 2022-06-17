@@ -405,6 +405,6 @@
 /obj/item/clothing/mask/boroda/curse
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 
-/obj/item/clothing/mask/boroda/curse/Initialize()
+/obj/item/clothing/mask/boroda/curse/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_MASK_TRAIT)

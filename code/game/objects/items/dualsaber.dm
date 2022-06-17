@@ -101,7 +101,7 @@
 		user.visible_message(span_suicide("[user] begins beating [user.ru_na()]self to death with <b>[src.name]</b>'s handle! It probably would've been cooler if [user.ru_who()] turned it on first!"))
 	return BRUTELOSS
 
-/obj/item/dualsaber/Initialize()
+/obj/item/dualsaber/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)

@@ -6,7 +6,7 @@
 	//circuit = /obj/item/circuitboard/computer/turbine_computer
 	var/obj/machinery/power/bs_emitter/BSE
 
-/obj/machinery/computer/bs_emitter/Initialize()
+/obj/machinery/computer/bs_emitter/Initialize(mapload)
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
 

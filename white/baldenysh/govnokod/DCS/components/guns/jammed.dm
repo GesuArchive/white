@@ -4,7 +4,7 @@
 	var/fix_on_move = TRUE
 	var/fixing_time = 1 SECONDS
 
-/datum/component/jammed/Initialize()
+/datum/component/jammed/Initialize(mapload)
 	if(!isgun(parent) || GLOB.is_tournament_rules)
 		return COMPONENT_INCOMPATIBLE
 

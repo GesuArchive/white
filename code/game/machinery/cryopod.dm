@@ -30,7 +30,7 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 	var/storage_name = "консоль криогенных камер"
 	var/allow_items = TRUE
 
-/obj/machinery/computer/cryopod/Initialize()
+/obj/machinery/computer/cryopod/Initialize(mapload)
 	. = ..()
 	GLOB.cryopod_computers += src
 
@@ -144,7 +144,7 @@ GLOBAL_VAR_INIT(cryopods_enabled, FALSE)
 	var/obj/machinery/computer/cryopod/control_computer
 	COOLDOWN_DECLARE(last_no_computer_message)
 
-/obj/machinery/cryopod/Initialize()
+/obj/machinery/cryopod/Initialize(mapload)
 	..()
 	GLOB.cryopods += src
 	return INITIALIZE_HINT_LATELOAD //Gotta populate the cryopod computer GLOB first

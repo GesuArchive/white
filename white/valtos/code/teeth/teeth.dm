@@ -21,7 +21,7 @@
 			icon_state = "[initial(icon_state)]_5"
 			return
 
-/obj/item/stack/teeth/Initialize()
+/obj/item/stack/teeth/Initialize(mapload)
 	. = ..()
 	var/matrix/M = matrix()
 	M.Turn(rand(0, 360))

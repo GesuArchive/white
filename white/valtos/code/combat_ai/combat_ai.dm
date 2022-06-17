@@ -368,27 +368,27 @@
 /mob/living/carbon/human/combat_ai
 	ai_controller = /datum/ai_controller/combat_ai
 
-/mob/living/carbon/human/combat_ai/Initialize()
+/mob/living/carbon/human/combat_ai/Initialize(mapload)
 	. = ..()
 	setMaxHealth(25)
 
-/mob/living/carbon/human/combat_ai/sniper/Initialize()
+/mob/living/carbon/human/combat_ai/sniper/Initialize(mapload)
 	. = ..()
 	equipOutfit(pick(typesof(/datum/outfit/combat_ai/sniper)))
 
-/mob/living/carbon/human/combat_ai/smg/Initialize()
+/mob/living/carbon/human/combat_ai/smg/Initialize(mapload)
 	. = ..()
 	equipOutfit(pick(typesof(/datum/outfit/combat_ai/smg)))
 
-/mob/living/carbon/human/combat_ai/pistol/Initialize()
+/mob/living/carbon/human/combat_ai/pistol/Initialize(mapload)
 	. = ..()
 	equipOutfit(pick(typesof(/datum/outfit/combat_ai/pistol)))
 
-/mob/living/carbon/human/combat_ai/magnum/Initialize()
+/mob/living/carbon/human/combat_ai/magnum/Initialize(mapload)
 	. = ..()
 	equipOutfit(pick(typesof(/datum/outfit/combat_ai/magnum)))
 
-/mob/living/carbon/human/combat_ai/shotgun/Initialize()
+/mob/living/carbon/human/combat_ai/shotgun/Initialize(mapload)
 	. = ..()
 	equipOutfit(pick(typesof(/datum/outfit/combat_ai/shotgun)))
 

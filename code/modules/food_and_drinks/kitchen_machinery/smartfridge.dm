@@ -16,7 +16,7 @@
 	var/list/initial_contents
 	var/visible_contents = TRUE
 
-/obj/machinery/smartfridge/Initialize()
+/obj/machinery/smartfridge/Initialize(mapload)
 	. = ..()
 	create_reagents(100, NO_REACT)
 
@@ -251,7 +251,7 @@
 	base_build_path = /obj/machinery/smartfridge/drying_rack //should really be seeing this without admin fuckery.
 	var/drying = FALSE
 
-/obj/machinery/smartfridge/drying_rack/Initialize()
+/obj/machinery/smartfridge/drying_rack/Initialize(mapload)
 	. = ..()
 
 	// Cache the old_parts first, we'll delete it after we've changed component_parts to a new list.

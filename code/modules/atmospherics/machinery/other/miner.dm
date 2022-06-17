@@ -29,7 +29,7 @@
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 1.5
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 2
 
-/obj/machinery/atmospherics/miner/Initialize()
+/obj/machinery/atmospherics/miner/Initialize(mapload)
 	. = ..()
 	set_active(active)				//Force overlay update.
 

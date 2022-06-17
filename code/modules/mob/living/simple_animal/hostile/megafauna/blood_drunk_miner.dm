@@ -59,7 +59,7 @@ Difficulty: Medium
 	/// Transform weapon ability
 	var/datum/action/cooldown/mob_cooldown/transform_weapon/transform_weapon
 
-/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/Initialize()
+/mob/living/simple_animal/hostile/megafauna/blood_drunk_miner/Initialize(mapload)
 	. = ..()
 	miner_saw = new(src)
 	dash = new /datum/action/cooldown/mob_cooldown/dash()

@@ -79,7 +79,7 @@ GLOBAL_LIST_EMPTY_TYPED(integrated_circuits, /obj/item/integrated_circuit)
 
 	RegisterSignal(src, COMSIG_ATOM_USB_CABLE_TRY_ATTACH, .proc/on_atom_usb_cable_try_attach)
 
-/obj/item/integrated_circuit/loaded/Initialize()
+/obj/item/integrated_circuit/loaded/Initialize(mapload)
 	. = ..()
 	set_cell(new /obj/item/stock_parts/cell/high(src))
 

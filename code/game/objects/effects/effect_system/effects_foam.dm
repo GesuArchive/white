@@ -95,7 +95,7 @@
 /obj/effect/particle_effect/foam/long_life
 	lifetime = 150
 
-/obj/effect/particle_effect/foam/Initialize()
+/obj/effect/particle_effect/foam/Initialize(mapload)
 	. = ..()
 	create_reagents(1000, REAGENT_HOLDER_INSTANT_REACT) //limited by the size of the reagent holder anyway. Works without instant possibly edit in future
 	START_PROCESSING(SSfastprocess, src)
@@ -301,7 +301,7 @@
 	canSmoothWith = list(SMOOTH_GROUP_METALFOAM)
 	var/smooth_icon = 'white/valtos/icons/foam_smooth.dmi'
 
-/obj/structure/foamedmetal/Initialize()
+/obj/structure/foamedmetal/Initialize(mapload)
 	. = ..()
 	air_update_turf(TRUE)
 	if(smoothing_flags & SMOOTH_BITMASK)
@@ -350,7 +350,7 @@
 	pass_flags_self = PASSGLASS
 	smoothing_flags = NONE
 
-/obj/structure/foamedmetal/resin/Initialize()
+/obj/structure/foamedmetal/resin/Initialize(mapload)
 	. = ..()
 	if(isopenturf(loc))
 		var/turf/open/O = loc

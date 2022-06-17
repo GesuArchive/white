@@ -42,7 +42,7 @@
 	user.visible_message(span_suicide("[user] is stabbing [src] into [user.ru_ego()] [pick("temple", "heart")]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return(BRUTELOSS)
 
-/obj/item/screwdriver/Initialize()
+/obj/item/screwdriver/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/eyestab)
 	if(random_color) //random colors!
@@ -117,7 +117,7 @@
 /obj/item/screwdriver/power/get_belt_overlay()
 	return mutable_appearance('white/valtos/icons/belt_overlays.dmi', icon_state)
 
-/obj/item/screwdriver/power/Initialize()
+/obj/item/screwdriver/power/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/transforming, \
 		force_on = force, \

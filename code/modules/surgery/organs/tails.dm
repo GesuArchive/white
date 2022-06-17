@@ -44,7 +44,7 @@
 	tail_type = "Smooth"
 	var/spines = "None"
 
-/obj/item/organ/tail/lizard/Initialize()
+/obj/item/organ/tail/lizard/Initialize(mapload)
 	. = ..()
 	color = "#"+ random_color()
 

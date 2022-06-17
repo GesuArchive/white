@@ -34,7 +34,7 @@
 	var/data = null
 
 /*
-/datum/mechcompMessage/Initialize()
+/datum/mechcompMessage/Initialize(mapload)
 	. = ..()
 	signal_data = new/datum/signal_data
 */

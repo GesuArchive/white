@@ -33,7 +33,7 @@
 /obj/item/clothing/head/welding/attack_self(mob/user)
 	weldingvisortoggle(user)
 
-/obj/item/clothing/head/welding/open/Initialize()
+/obj/item/clothing/head/welding/open/Initialize(mapload)
 	. = ..()
 	visor_toggling()
 

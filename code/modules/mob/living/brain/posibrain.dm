@@ -170,7 +170,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 			. += "<hr><span class='notice'>Текущее случайное число сознания: \"[ask_role]\"</span>"
 		. += span_boldnotice("\nПКМ для установки случайного числа. Оно укажет позитронику кему ему быть. Это поможет заинтересовать кого-нибудь.")
 
-/obj/item/mmi/posibrain/Initialize()
+/obj/item/mmi/posibrain/Initialize(mapload)
 	. = ..()
 	set_brainmob(new /mob/living/brain(src))
 	var/new_name

@@ -71,7 +71,7 @@
 /obj/item/crowbar/power/get_belt_overlay()
 	return mutable_appearance('white/valtos/icons/belt_overlays.dmi', icon_state)
 
-/obj/item/crowbar/power/Initialize()
+/obj/item/crowbar/power/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/transforming, \
 		force_on = force, \

@@ -141,7 +141,7 @@
 	word2 = "кирпича"
 	word5 = "кирпичей"
 
-/obj/item/item_generator/brick/Initialize()
+/obj/item/item_generator/brick/Initialize(mapload)
 	. = ..()
 	update_icon()
 
@@ -242,7 +242,7 @@
 
 
 						//<stolen from fireaxe code>
-/obj/item/melee/baseball_bat/hos/hammer/Initialize()
+/obj/item/melee/baseball_bat/hos/hammer/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)

@@ -17,7 +17,7 @@
 	/// The icon_state of the heart before we made it a living heart.
 	var/old_icon_state
 
-/datum/component/living_heart/Initialize()
+/datum/component/living_heart/Initialize(mapload)
 	if(!isorgan(parent))
 		return COMPONENT_INCOMPATIBLE
 

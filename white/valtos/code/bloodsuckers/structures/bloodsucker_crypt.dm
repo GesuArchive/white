@@ -101,7 +101,7 @@
 		They normally sacrifice hearts or blood in exchange for these ranks, forcing them to move out of their lair.\n\
 		It can only be used twice per night and it needs to be interacted it to be claimed, making bloodsuckers come back twice a night."
 
-/obj/structure/bloodsucker/bloodaltar/Initialize()
+/obj/structure/bloodsucker/bloodaltar/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/climbable)
 
@@ -1132,7 +1132,7 @@
 	var/mutable_appearance/armrest
 
 // Add rotating and armrest
-/obj/structure/bloodsucker/bloodthrone/Initialize()
+/obj/structure/bloodsucker/bloodthrone/Initialize(mapload)
 	AddComponent(/datum/component/simple_rotation, ROTATION_ALTCLICK | ROTATION_CLOCKWISE)
 	armrest = GetArmrest()
 	armrest.layer = ABOVE_MOB_LAYER

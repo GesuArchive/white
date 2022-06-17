@@ -9,7 +9,7 @@
 	anchored = TRUE
 	var/ripper = FALSE
 
-/obj/structure/statue/amogus/Initialize()
+/obj/structure/statue/amogus/Initialize(mapload)
 	. = ..()
 	transform *= 2
 	LoadComponent(/datum/component/storage/concrete/pockets/butt/bluebutt)

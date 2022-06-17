@@ -14,7 +14,7 @@ SUBSYSTEM_DEF(adjacent_air)
 	. = ..("P:[length(queue)]")
 #endif
 
-/datum/controller/subsystem/adjacent_air/Initialize()
+/datum/controller/subsystem/adjacent_air/Initialize(mapload)
 	while(length(queue))
 		fire(mc_check = FALSE)
 	return ..()

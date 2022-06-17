@@ -41,7 +41,7 @@
 	obj_damage = 0
 	environment_smash = ENVIRONMENT_SMASH_NONE
 
-/mob/living/simple_animal/hostile/retaliate/poison/snake/Initialize()
+/mob/living/simple_animal/hostile/retaliate/poison/snake/Initialize(mapload)
 	. = ..()
 	add_cell_sample()
 

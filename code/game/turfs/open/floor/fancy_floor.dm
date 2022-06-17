@@ -129,7 +129,7 @@
 /turf/open/floor/grass/setup_broken_states()
 	return list("sand")
 
-/turf/open/floor/grass/Initialize()
+/turf/open/floor/grass/Initialize(mapload)
 	. = ..()
 	if(nospawn)
 		return
@@ -257,7 +257,7 @@
 	. = ..()
 	. += "<hr><span class='notice'>Здесь есть <b>небольшая щель</b> с краю.</span>"
 
-/turf/open/floor/carpet/Initialize()
+/turf/open/floor/carpet/Initialize(mapload)
 	. = ..()
 	update_icon()
 
@@ -453,7 +453,7 @@
 /turf/open/floor/fakespace/setup_broken_states()
 	return list("damaged")
 
-/turf/open/floor/fakespace/Initialize()
+/turf/open/floor/fakespace/Initialize(mapload)
 	. = ..()
 	icon_state = SPACE_ICON_STATE
 

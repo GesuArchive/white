@@ -52,7 +52,7 @@ Difficulty: Extremely Hard
 	/// Ice Shotgun Ability
 	var/datum/action/cooldown/mob_cooldown/projectile_attack/shotgun_blast/pattern/ice_shotgun
 
-/mob/living/simple_animal/hostile/megafauna/demonic_frost_miner/Initialize()
+/mob/living/simple_animal/hostile/megafauna/demonic_frost_miner/Initialize(mapload)
 	. = ..()
 	frost_orbs = new /datum/action/cooldown/mob_cooldown/projectile_attack/rapid_fire/shrapnel()
 	snowball_machine_gun = new /datum/action/cooldown/mob_cooldown/projectile_attack/rapid_fire()
@@ -253,7 +253,7 @@ Difficulty: Extremely Hard
 	var/change_turf = /turf/open/floor/plating/ice/icemoon
 	var/duration = 6 SECONDS
 
-/obj/item/clothing/shoes/winterboots/ice_boots/ice_trail/Initialize()
+/obj/item/clothing/shoes/winterboots/ice_boots/ice_trail/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_SHOES_STEP_ACTION, .proc/on_step)
 
@@ -290,7 +290,7 @@ Difficulty: Extremely Hard
 	desc = "Cracks rocks at an inhuman speed, as well as being enhanced for combat purposes."
 	toolspeed = 0
 
-/obj/item/pickaxe/drill/jackhammer/demonic/Initialize()
+/obj/item/pickaxe/drill/jackhammer/demonic/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/knockback, 4, TRUE, FALSE)
 	AddElement(/datum/element/lifesteal, 5)

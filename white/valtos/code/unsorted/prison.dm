@@ -131,7 +131,7 @@
 	flags_1 = NONE
 	baseturfs = /turf/open/floor/plating/beach/sand
 
-/turf/open/floor/beton/Initialize()
+/turf/open/floor/beton/Initialize(mapload)
 	..()
 	update_icon()
 
@@ -203,7 +203,7 @@
 	sensor_mode = SENSOR_COORDS
 	random_sensor = 0
 
-/obj/item/clothing/under/prison/prison/Initialize()
+/obj/item/clothing/under/prison/prison/Initialize(mapload)
 	..()
 	name = "форма #[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
 
@@ -294,7 +294,7 @@
 	desc = "Табличка. Кусь."
 	icon_state = "t1"
 
-/obj/structure/sign/prison/tablo/Initialize()
+/obj/structure/sign/prison/tablo/Initialize(mapload)
 	..()
 	icon_state = "t[rand(1,18)]"
 
@@ -431,7 +431,7 @@
 	layer = 5
 	anchored = 1
 
-/obj/machinery/prisonplant/Initialize()
+/obj/machinery/prisonplant/Initialize(mapload)
 	..()
 	icon_state = "plant-[rand(0,2)][rand(0,5)]"
 
@@ -532,7 +532,7 @@
 	buildstacktype = /obj/item/stack/sheet/iron
 	icon_state = "bed"
 
-/obj/structure/bed/prison/bed/Initialize()
+/obj/structure/bed/prison/bed/Initialize(mapload)
 	GLOB.dwarf_shkonka_list += src
 	. = ..()
 

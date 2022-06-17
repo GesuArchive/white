@@ -4,7 +4,7 @@
 	)
 	var/infection_chance = 100
 
-/datum/component/zombie_weapon/Initialize()
+/datum/component/zombie_weapon/Initialize(mapload)
 	if(!isitem(parent))
 		return COMPONENT_INCOMPATIBLE
 	RegisterSignal(parent, COMSIG_ITEM_AFTERATTACK, .proc/on_afterattack)

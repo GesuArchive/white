@@ -2,7 +2,7 @@
 	var/ripping_time = 0
 	var/ripping = FALSE
 
-/datum/component/mecha_weapon_ripper/Initialize()
+/datum/component/mecha_weapon_ripper/Initialize(mapload)
 	if(!isliving(parent))
 		return COMPONENT_INCOMPATIBLE
 

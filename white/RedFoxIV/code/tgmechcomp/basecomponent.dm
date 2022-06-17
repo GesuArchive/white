@@ -64,7 +64,7 @@
 	icon_state = "[src.anchored && src.has_anchored_icon_state ? "u" : ""][part_icon_state]"
 
 
-/obj/item/mechcomp/Initialize()
+/obj/item/mechcomp/Initialize(mapload)
 	. = ..()
 	update_icon_state(part_icon_state)
 

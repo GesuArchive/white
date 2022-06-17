@@ -15,7 +15,7 @@
 	var/full_armor_flag = FALSE		//	Используется исключительно для проверки на возможность модернизации
 	var/disassembly_flag = FALSE	//	Проверка на возможность разборки при помощи инструментов
 
-/obj/item/clothing/suit/armor/Initialize()
+/obj/item/clothing/suit/armor/Initialize(mapload)
 	. = ..()
 //	AddComponent(/datum/component/armor_plate/plasteel)
 	if(!allowed)
@@ -297,7 +297,7 @@
 	armor = list(MELEE = 50, BULLET = 40, LASER = 50, ENERGY = 50, BOMB = 25, BIO = 0, RAD = 0, FIRE = 100, ACID = 90, WOUND = 10)
 	togglename = "buttons"
 
-/obj/item/clothing/suit/toggle/captains_parade/Initialize()
+/obj/item/clothing/suit/toggle/captains_parade/Initialize(mapload)
 	. = ..()
 	allowed = GLOB.security_wintercoat_allowed
 
@@ -366,7 +366,7 @@
 	resistance_flags = FLAMMABLE
 	dog_fashion = null
 
-/obj/item/clothing/suit/armor/vest/det_suit/Initialize()
+/obj/item/clothing/suit/armor/vest/det_suit/Initialize(mapload)
 	. = ..()
 	allowed = GLOB.detective_vest_allowed
 
@@ -515,7 +515,7 @@
 	armor = list(MELEE = 35, BULLET = 40, LASER = 40, ENERGY = 50, BOMB = 35, BIO = 10, RAD = 10, FIRE = 10, ACID = 60)
 	togglename = "buttons"
 
-/obj/item/clothing/suit/toggle/armor/vest/centcom_formal/Initialize()
+/obj/item/clothing/suit/toggle/armor/vest/centcom_formal/Initialize(mapload)
 	. = ..()
 	allowed = GLOB.security_wintercoat_allowed
 
@@ -528,6 +528,6 @@
 	armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, RAD = 0, FIRE = 70, ACID = 90, WOUND = 10)
 	togglename = "buttons"
 
-/obj/item/clothing/suit/toggle/armor/hos/hos_formal/Initialize()
+/obj/item/clothing/suit/toggle/armor/hos/hos_formal/Initialize(mapload)
 	. = ..()
 	allowed = GLOB.security_wintercoat_allowed

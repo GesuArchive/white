@@ -147,7 +147,7 @@
 	alerttooltipstyle = "cult"
 	var/angle = 0
 
-/atom/movable/screen/alert/zombiesense/Initialize()
+/atom/movable/screen/alert/zombiesense/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
 

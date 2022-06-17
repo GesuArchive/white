@@ -55,7 +55,7 @@
 	icon_state = "npgrenade"
 	stage = 3
 
-/obj/item/grenade/chem_grenade/npgrenade/Initialize()
+/obj/item/grenade/chem_grenade/npgrenade/Initialize(mapload)
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)

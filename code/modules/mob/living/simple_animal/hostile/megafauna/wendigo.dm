@@ -90,7 +90,7 @@ Difficulty: Hard
 	chosen_message = span_colossus("You are now screeching, disorienting targets around you.")
 	chosen_attack_num = 3
 
-/mob/living/simple_animal/hostile/megafauna/wendigo/Initialize()
+/mob/living/simple_animal/hostile/megafauna/wendigo/Initialize(mapload)
 	. = ..()
 	starting = get_turf(src)
 

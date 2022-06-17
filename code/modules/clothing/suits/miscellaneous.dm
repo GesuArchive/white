@@ -170,7 +170,7 @@
 	body_parts_covered = ARMS|CHEST
 	actions_types = list(/datum/action/item_action/toggle_wings)
 
-/obj/item/clothing/suit/toggle/owlwings/Initialize()
+/obj/item/clothing/suit/toggle/owlwings/Initialize(mapload)
 	. = ..()
 	allowed = GLOB.security_vest_allowed
 
@@ -242,7 +242,7 @@
 	icon_state = "ponchoshame"
 	inhand_icon_state = "ponchoshame"
 
-/obj/item/clothing/suit/poncho/ponchoshame/Initialize()
+/obj/item/clothing/suit/poncho/ponchoshame/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, SHAMEBRERO_TRAIT)
 
@@ -619,7 +619,7 @@
 	armor = list(MELEE = 25, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, RAD = 0, FIRE = 0, ACID = 50)
 	hoodtype = /obj/item/clothing/head/hooded/winterhood/captain
 
-/obj/item/clothing/suit/hooded/wintercoat/captain/Initialize()
+/obj/item/clothing/suit/hooded/wintercoat/captain/Initialize(mapload)
 	. = ..()
 	allowed = GLOB.security_wintercoat_allowed
 
@@ -634,7 +634,7 @@
 	armor = list(MELEE = 25, BULLET = 15, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, RAD = 0, FIRE = 0, ACID = 45)
 	hoodtype = /obj/item/clothing/head/hooded/winterhood/security
 
-/obj/item/clothing/suit/hooded/wintercoat/security/Initialize()
+/obj/item/clothing/suit/hooded/wintercoat/security/Initialize(mapload)
 	. = ..()
 	allowed = GLOB.security_wintercoat_allowed
 
@@ -766,7 +766,7 @@
 	equip_delay_other = 40
 	var/hit_reflect_chance = 50
 
-/obj/item/clothing/suit/hooded/ablative/Initialize()
+/obj/item/clothing/suit/hooded/ablative/Initialize(mapload)
 	. = ..()
 	allowed = GLOB.security_vest_allowed
 

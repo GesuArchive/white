@@ -13,7 +13,7 @@
 	var/processing = FALSE
 	var/surgerytime = 300
 
-/obj/machinery/organdoc/Initialize()
+/obj/machinery/organdoc/Initialize(mapload)
 	. = ..()
 	update_icon()
 

@@ -48,7 +48,7 @@
 
 	discovery_points = 1000
 
-/mob/living/simple_animal/hostile/tree/Initialize()
+/mob/living/simple_animal/hostile/tree/Initialize(mapload)
 	. = ..()
 	add_cell_sample()
 

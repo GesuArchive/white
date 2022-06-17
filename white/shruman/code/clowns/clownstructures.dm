@@ -30,7 +30,7 @@
 	var/spawn_id = GAS_NITROUS
 	var/spawn_mol = MOLES_CELLSTANDARD * 0.005
 
-/obj/structure/fleshbuilding/clownatmos/Initialize()
+/obj/structure/fleshbuilding/clownatmos/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSobj, src)
 
@@ -70,7 +70,7 @@
 	var/growth_cooldown_high = 200
 	var/static/list/blacklisted_turfs
 
-/obj/structure/fleshbuilding/clownweeds/Initialize()
+/obj/structure/fleshbuilding/clownweeds/Initialize(mapload)
 	pixel_x = -4
 	pixel_y = -4 //so the sprites line up right in the map editor
 
@@ -138,7 +138,7 @@
 	var/node_range = NODERANGE
 
 
-/obj/structure/fleshbuilding/clownweeds/node/Initialize()
+/obj/structure/fleshbuilding/clownweeds/node/Initialize(mapload)
 	. = ..()
 	var/obj/structure/fleshbuilding/clownweeds/W = locate(/obj/structure/fleshbuilding/clownweeds/) in loc
 	if(W && W != src)

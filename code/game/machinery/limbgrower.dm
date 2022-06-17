@@ -23,7 +23,7 @@
 	/// All the categories of organs we can print.
 	var/list/categories = list("human", "lizard", "moth", "plasmaman", "ethereal", "other")
 
-/obj/machinery/limbgrower/Initialize()
+/obj/machinery/limbgrower/Initialize(mapload)
 	create_reagents(100, OPENCONTAINER)
 	stored_research = new /datum/techweb/specialized/autounlocking/limbgrower
 	. = ..()

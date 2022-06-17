@@ -49,7 +49,7 @@
 		return FALSE
 	return ..()
 
-/obj/structure/reagent_dispensers/Initialize()
+/obj/structure/reagent_dispensers/Initialize(mapload)
 	create_reagents(tank_volume, DRAINABLE | AMOUNT_VISIBLE)
 	if(reagent_id)
 		reagents.add_reagent(reagent_id, tank_volume)
@@ -218,7 +218,7 @@
 	dir = EAST
 	pixel_x = -30
 
-/obj/structure/reagent_dispensers/peppertank/Initialize()
+/obj/structure/reagent_dispensers/peppertank/Initialize(mapload)
 	. = ..()
 	if(prob(1))
 		desc = "ВРЕМЯ ПЕРЦА, СУКА!"

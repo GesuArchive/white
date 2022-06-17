@@ -172,7 +172,7 @@
 	baseturfs = /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	mineralSpawnChanceList = list(/obj/item/stack/ore/diamond = 1, /obj/item/stack/ore/gold = 3, /obj/item/stack/ore/iron = 40)
 
-/turf/closed/mineral/random/vietnam/Initialize()
+/turf/closed/mineral/random/vietnam/Initialize(mapload)
 	. = ..()
 	transform = null // backdoor
 

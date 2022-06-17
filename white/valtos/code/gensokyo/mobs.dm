@@ -35,7 +35,7 @@
 	footstep_type = FOOTSTEP_MOB_HEAVY
 	del_on_death = TRUE
 
-/mob/living/simple_animal/hostile/asteroid/mineral_crab/Initialize()
+/mob/living/simple_animal/hostile/asteroid/mineral_crab/Initialize(mapload)
 	. = ..()
 	pick_ore()
 

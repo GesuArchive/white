@@ -26,7 +26,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 	var/atom/movable/screen/relative_temp/screen_obj
 	var/list/text_temp_sources = list()
 
-/datum/component/realtemp/Initialize()
+/datum/component/realtemp/Initialize(mapload)
 	if(ishuman(parent))
 		owner = parent
 

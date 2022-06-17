@@ -151,7 +151,7 @@
 	desc = "Сборная кровать для транспортировки людей. Держите при её при себе всегда."
 	var/obj/structure/bed/roller/loaded = null
 
-/obj/item/roller/robo/Initialize()
+/obj/item/roller/robo/Initialize(mapload)
 	. = ..()
 	loaded = new(src)
 
@@ -231,7 +231,7 @@
 	desc = "Старый потертый матрас. Вы стараетесь не думать о том, что может быть причиной этих пятен."
 	icon_state = "dirty_mattress"
 
-/obj/structure/bed/maint/Initialize()
+/obj/structure/bed/maint/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_MOLD, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 25)
 

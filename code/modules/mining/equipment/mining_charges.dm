@@ -6,7 +6,7 @@
 	boom_sizes = list(1,3,5)
 	alert_admins = FALSE
 
-/obj/item/grenade/c4/miningcharge/Initialize()
+/obj/item/grenade/c4/miningcharge/Initialize(mapload)
 	. = ..()
 	plastic_overlay = mutable_appearance(icon, "[icon_state]_active", ON_EDGED_TURF_LAYER)
 

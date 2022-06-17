@@ -163,7 +163,7 @@
 
 	var/regen_cooldown = 0
 
-/mob/living/simple_animal/hostile/carp/megacarp/Initialize()
+/mob/living/simple_animal/hostile/carp/megacarp/Initialize(mapload)
 	. = ..()
 	name = "[pick(GLOB.megacarp_first_names)] [pick(GLOB.megacarp_last_names)]"
 	melee_damage_lower += rand(2, 10)
@@ -236,7 +236,7 @@
 	/// Colored disk mouth appearance for adding it as a mouth overlay
 	var/mutable_appearance/colored_disk_mouth
 
-/mob/living/simple_animal/hostile/carp/cayenne/Initialize()
+/mob/living/simple_animal/hostile/carp/cayenne/Initialize(mapload)
 	. = ..()
 	colored_disk_mouth = mutable_appearance(SSgreyscale.GetColoredIconByType(/datum/greyscale_config/carp/disk_mouth, greyscale_colors))
 	ADD_TRAIT(src, TRAIT_DISK_VERIFIER, INNATE_TRAIT) //carp can verify disky
@@ -308,7 +308,7 @@
 	var/safe_cooldown = 20
 	var/safe
 
-/mob/living/simple_animal/hostile/carp/bluespacecarp/Initialize()
+/mob/living/simple_animal/hostile/carp/bluespacecarp/Initialize(mapload)
 	safe = world.time
 	. = ..()
 

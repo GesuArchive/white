@@ -124,7 +124,7 @@
 	"<span class='warning'>ЕРП с живыми существами запрещено\n"+\
 	span_warning("<u>Даже если ты умудрился заспавнится без правил для силиконов ты должен подчинятся правилам которые указаны выше.</u>")
 
-/mob/living/simple_animal/drone/Initialize()
+/mob/living/simple_animal/drone/Initialize(mapload)
 	. = ..()
 	GLOB.drones_list += src
 	access_card = new /obj/item/card/id/advanced/simple_bot(src)

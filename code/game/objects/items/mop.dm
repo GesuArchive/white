@@ -19,7 +19,7 @@
 	force_string = "крепкая... против микробов"
 	var/insertable = TRUE
 
-/obj/item/mop/Initialize()
+/obj/item/mop/Initialize(mapload)
 	. = ..()
 	create_reagents(mopcap)
 	GLOB.janitor_devices += src

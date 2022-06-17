@@ -31,7 +31,7 @@
 /obj/machinery/space_heater/get_cell()
 	return cell
 
-/obj/machinery/space_heater/Initialize()
+/obj/machinery/space_heater/Initialize(mapload)
 	. = ..()
 	if(ispath(cell))
 		cell = new cell(src)

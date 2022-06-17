@@ -15,7 +15,7 @@
 	var/moles_drawn = 10
 	var/debug = TRUE
 
-/obj/item/gun/gloogun/Initialize()
+/obj/item/gun/gloogun/Initialize(mapload)
 	. = ..()
 	chambered = new /obj/item/ammo_casing/gloo(src)
 

@@ -1,7 +1,7 @@
 /datum/component/aoe_melee
 	var/obj/item/master = null
 
-/datum/component/aoe_melee/Initialize()
+/datum/component/aoe_melee/Initialize(mapload)
 	if(istype(parent, /obj/item))
 		master = parent
 	else
@@ -130,7 +130,7 @@
 /obj/item/claymore/aoetest
 	name = "аниме меч"
 
-/obj/item/claymore/aoetest/Initialize()
+/obj/item/claymore/aoetest/Initialize(mapload)
 	. = ..()
 	var/datum/component/aoe_melee/swing/SW = AddComponent(/datum/component/aoe_melee/swing)
 	SW.init_img_turn = -45
@@ -139,7 +139,7 @@
 	name = "аниме топор"
 	var/datum/component/aoe_melee/swing/SW = null
 
-/obj/item/fireaxe/aoetest/Initialize()
+/obj/item/fireaxe/aoetest/Initialize(mapload)
 	. = ..()
 	var/datum/component/aoe_melee/swing/SW = AddComponent(/datum/component/aoe_melee/swing)
 	SW.init_img_turn = 90

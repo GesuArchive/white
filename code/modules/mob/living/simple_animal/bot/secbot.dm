@@ -56,7 +56,7 @@
 	desc = "Это Кроха, меньший по размеру и столь же агрессивный кузен Командира Бипски."
 	commissioned = FALSE
 
-/mob/living/simple_animal/bot/secbot/beepsky/jr/Initialize()
+/mob/living/simple_animal/bot/secbot/beepsky/jr/Initialize(mapload)
 	. = ..()
 	resize = 0.8
 	update_transform()
@@ -74,7 +74,7 @@
 	desc = "Это офицер Пингски! Ему поручено охранять спутник за укрывательство античеловеческих настроений." //"It's Officer Pingsky! Delegated to satellite guard duty for harbouring anti-human sentiment." - как это блять переводить?
 	radio_channel = RADIO_CHANNEL_AI_PRIVATE
 
-/mob/living/simple_animal/bot/secbot/Initialize()
+/mob/living/simple_animal/bot/secbot/Initialize(mapload)
 	. = ..()
 	weapon = new baton_type()
 	update_icon()

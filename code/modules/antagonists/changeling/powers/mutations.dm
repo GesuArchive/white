@@ -286,7 +286,7 @@
 	firing_effect_type = null
 	var/obj/item/gun/magic/tentacle/gun //the item that shot it
 
-/obj/item/ammo_casing/magic/tentacle/Initialize()
+/obj/item/ammo_casing/magic/tentacle/Initialize(mapload)
 	gun = loc
 	. = ..()
 
@@ -305,7 +305,7 @@
 	var/chain
 	var/obj/item/ammo_casing/magic/tentacle/source //the item that shot it
 
-/obj/projectile/tentacle/Initialize()
+/obj/projectile/tentacle/Initialize(mapload)
 	source = loc
 	. = ..()
 
@@ -435,7 +435,7 @@
 
 	var/remaining_uses //Set by the changeling ability.
 
-/obj/item/shield/changeling/Initialize()
+/obj/item/shield/changeling/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CHANGELING_TRAIT)
 	if(ismob(loc))
@@ -483,7 +483,7 @@
 	actions_types = list()
 	cell = null
 
-/obj/item/clothing/suit/space/changeling/Initialize()
+/obj/item/clothing/suit/space/changeling/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CHANGELING_TRAIT)
 	if(ismob(loc))
@@ -509,7 +509,7 @@
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 90, ACID = 90)
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 
-/obj/item/clothing/head/helmet/space/changeling/Initialize()
+/obj/item/clothing/head/helmet/space/changeling/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CHANGELING_TRAIT)
 
@@ -542,7 +542,7 @@
 	cold_protection = 0
 	heat_protection = 0
 
-/obj/item/clothing/suit/armor/changeling/Initialize()
+/obj/item/clothing/suit/armor/changeling/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CHANGELING_TRAIT)
 	if(ismob(loc))
@@ -556,6 +556,6 @@
 	armor = list(MELEE = 40, BULLET = 40, LASER = 40, ENERGY = 50, BOMB = 10, BIO = 4, RAD = 0, FIRE = 90, ACID = 90)
 	flags_inv = HIDEEARS|HIDEHAIR|HIDEEYES|HIDEFACIALHAIR|HIDEFACE|HIDESNOUT
 
-/obj/item/clothing/head/helmet/changeling/Initialize()
+/obj/item/clothing/head/helmet/changeling/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CHANGELING_TRAIT)

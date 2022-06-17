@@ -62,7 +62,7 @@
 	..()
 	GLOB.telecomms_list += src
 
-/obj/machinery/computer/message_monitor/Initialize()
+/obj/machinery/computer/message_monitor/Initialize(mapload)
 	..()
 	return INITIALIZE_HINT_LATELOAD
 

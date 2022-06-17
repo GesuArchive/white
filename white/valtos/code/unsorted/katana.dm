@@ -36,7 +36,7 @@
 /obj/item/melee/sabre/security/get_cell()
 	return cell
 
-/obj/item/melee/sabre/security/Initialize()
+/obj/item/melee/sabre/security/Initialize(mapload)
 	. = ..()
 	if(preload_cell_type)
 		if(!ispath(preload_cell_type,/obj/item/stock_parts/cell))

@@ -28,7 +28,7 @@
 	var/icon_state_underpowered = "teleporter_underpowered"
 	var/icon_state_expanding = "teleporter_active"
 
-/obj/machinery/power/bs_emitter/Initialize()
+/obj/machinery/power/bs_emitter/Initialize(mapload)
 	. = ..()
 	if(anchored)
 		connect_to_network()
@@ -208,6 +208,6 @@
 	target_y = 35
 	target_z = 5
 
-/obj/machinery/power/bs_emitter/lavaportal/Initialize()
+/obj/machinery/power/bs_emitter/lavaportal/Initialize(mapload)
 	. = ..()
 	target_z = SSmapping.levels_by_trait(ZTRAIT_MINING)[1]

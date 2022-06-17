@@ -18,7 +18,7 @@ GLOBAL_LIST_INIT(atmos_components, typecacheof(list(/obj/machinery/atmospherics)
 /* We use New() instead of Initialize() because these values are used in update_icon()
  * in the mapping subsystem init before Initialize() is called in the atoms subsystem init.
  */
-/obj/machinery/atmospherics/pipe/smart/Initialize()
+/obj/machinery/atmospherics/pipe/smart/Initialize(mapload)
 	icon_state = ""
 	. = ..()
 

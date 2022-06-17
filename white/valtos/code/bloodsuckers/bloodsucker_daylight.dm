@@ -18,7 +18,7 @@
 	///If Bloodsuckers have been given their level yet
 	var/issued_XP = FALSE
 
-/obj/effect/sunlight/Initialize()
+/obj/effect/sunlight/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
 

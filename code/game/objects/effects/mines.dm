@@ -12,7 +12,7 @@
 	/// If set, we default armed to FALSE and set it to TRUE after this long from initializing
 	var/arm_delay
 
-/obj/effect/mine/Initialize()
+/obj/effect/mine/Initialize(mapload)
 	. = ..()
 	if(arm_delay)
 		armed = FALSE
@@ -146,7 +146,7 @@
 	density = FALSE
 	var/duration = 0
 
-/obj/effect/mine/pickup/Initialize()
+/obj/effect/mine/pickup/Initialize(mapload)
 	. = ..()
 	animate(src, pixel_y = 4, time = 20, loop = -1)
 

@@ -29,7 +29,7 @@
 	var/crystals = 0
 	var/obj/item/gps/inserted_gps
 
-/obj/machinery/computer/telescience/Initialize()
+/obj/machinery/computer/telescience/Initialize(mapload)
 	recalibrate()
 	. = ..()
 	AddComponent(/datum/component/usb_port, list(
@@ -55,7 +55,7 @@
 
 	var/obj/machinery/computer/telescience/attached_console
 
-/obj/item/circuit_component/telepad_console/Initialize()
+/obj/item/circuit_component/telepad_console/Initialize(mapload)
 	. = ..()
 	elevation = add_input_port("Подъем", PORT_TYPE_NUMBER)
 	rotation = add_input_port("Поворот", PORT_TYPE_NUMBER)

@@ -38,7 +38,7 @@
 	var/list/sparkles = list()
 	var/list/color_variations = list(LIGHT_COLOR_CYAN, COLOR_SOFT_RED, LIGHT_COLOR_ORANGE, LIGHT_COLOR_GREEN, LIGHT_COLOR_YELLOW, LIGHT_COLOR_DARK_BLUE, LIGHT_COLOR_LAVENDER, COLOR_WHITE,  LIGHT_COLOR_SLIME_LAMP, LIGHT_COLOR_FIRE)
 
-/obj/effect/fireworkgun_main/Initialize()
+/obj/effect/fireworkgun_main/Initialize(mapload)
 	. = ..()
 	icon_state = pick("star", "tristar", "fourstar", "jew")
 	SpinAnimation(1, -1, prob(50))
@@ -61,7 +61,7 @@
 	icon_state = "ministar"
 	anchored = TRUE
 
-/obj/effect/overlay/sparkles/fireworkgun/Initialize()
+/obj/effect/overlay/sparkles/fireworkgun/Initialize(mapload)
 	icon_state = pick("ministar", "microstar")
 	animate(src, pixel_y = rand(-128, 128), pixel_x = rand(-128, 128), time = 5, alpha = 0, loop = 0)
 	. = ..()

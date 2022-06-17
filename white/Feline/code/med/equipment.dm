@@ -204,7 +204,7 @@
 			. += "<hr><span class='notice'><b>Необходима перезарядка!</b> Сбросьте устройство к заводским настройкам при помощи отвертки, после чего переснарядите все инструменты и химикаты</span>.</span>"
 */
 
-/obj/item/solnce/Initialize()
+/obj/item/solnce/Initialize(mapload)
 	. = ..()
 	update_icon()
 
@@ -624,7 +624,7 @@
 	bare_wound_bonus = 0
 	var/wielded = FALSE // удержание
 
-/obj/item/iv_drip_item/Initialize()
+/obj/item/iv_drip_item/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)

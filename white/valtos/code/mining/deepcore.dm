@@ -315,7 +315,7 @@
 	var/resource
 	var/material_rate = 0
 
-/obj/effect/landmark/ore_vein/Initialize()
+/obj/effect/landmark/ore_vein/Initialize(mapload)
 	. = ..()
 	for(var/obj/effect/landmark/ore_vein/vein in get_turf(src))
 		if(vein!=src)

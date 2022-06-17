@@ -40,7 +40,7 @@
 	. = ..()
 	. += "<hr><span class='notice'>Здесь есть <b>небольшая щель</b> с краю.</span>"
 
-/turf/open/floor/resin/Initialize()
+/turf/open/floor/resin/Initialize(mapload)
 	. = ..()
 	update_icon()
 
@@ -377,7 +377,7 @@
 	luminosity = 1
 	map_generator = /datum/map_generator/snowy_generator
 
-/area/partyhard/surface/Initialize()
+/area/partyhard/surface/Initialize(mapload)
 	. = ..()
 	RunGeneration()
 	spawn(2 MINUTES)
@@ -409,7 +409,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	tiled_dirt = FALSE
 
-/turf/open/floor/plating/partyhard/Initialize()
+/turf/open/floor/plating/partyhard/Initialize(mapload)
 	. = ..()
 	if(smoothing_flags & SMOOTH_BITMASK)
 		var/matrix/M = new

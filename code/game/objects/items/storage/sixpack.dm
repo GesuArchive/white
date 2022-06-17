@@ -16,7 +16,7 @@
 /obj/item/storage/cans/update_icon_state()
 	icon_state = "[initial(icon_state)][contents.len]"
 
-/obj/item/storage/cans/Initialize()
+/obj/item/storage/cans/Initialize(mapload)
 	. = ..()
 	update_icon()
 

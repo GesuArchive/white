@@ -302,7 +302,7 @@
 	breakout_time = 8 MINUTES
 	sinch_time = 20 SECONDS
 
-/obj/structure/closet/body_bag/environmental/prisoner/syndicate/Initialize()
+/obj/structure/closet/body_bag/environmental/prisoner/syndicate/Initialize(mapload)
 	. = ..()
 	refresh_air()
 

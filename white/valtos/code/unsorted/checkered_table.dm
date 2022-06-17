@@ -35,7 +35,7 @@
 	. += span_notice("\nCtrl-Shift-клик по доске, чтобы её свернуть.")
 	. += span_notice("\nСКМ по шашке, чтобы её перевернуть.")
 
-/obj/checkered_table/Initialize()
+/obj/checkered_table/Initialize(mapload)
 	..()
 	reset_table()
 	setup_checkers()
@@ -232,7 +232,7 @@ THAT STUPID GAME KIT
 	w_class = WEIGHT_CLASS_NORMAL
 	desc = "Шашки или шахматы? Да какая разница, всё равно в это никто не будет играть."
 
-/obj/item/game_kit/Initialize()
+/obj/item/game_kit/Initialize(mapload)
 	. = ..()
 	board_stat = "CRBBCRBBCRBBCRBBBBCRBBCRBBCRBBCRCRBBCRBBCRBBCRBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBCBBBCBBBCBBBCBCBBBCBBBCBBBCBBBBBCBBBCBBBCBBBCB"
 	selected = "CR"

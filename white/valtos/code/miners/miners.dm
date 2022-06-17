@@ -5,7 +5,7 @@ SUBSYSTEM_DEF(spm)
 	var/diff = 1.0001
 	var/crypto = "BTC"
 
-/datum/controller/subsystem/spm/Initialize()
+/datum/controller/subsystem/spm/Initialize(mapload)
 	. = ..()
 
 /datum/controller/subsystem/spm/stat_entry(msg)
@@ -47,7 +47,7 @@ SUBSYSTEM_DEF(spm)
 	var/mining = FALSE
 	var/bound_key = "HACKME"
 
-/obj/machinery/power/mining_rack/Initialize()
+/obj/machinery/power/mining_rack/Initialize(mapload)
 	. = ..()
 	name = "Криптополка #[rand(1, 99999)]"
 	if(anchored)
@@ -248,7 +248,7 @@ SUBSYSTEM_DEF(spm)
 	maintainer = "нано-пром-торг"
 	tech_name = "Точно Безопасно"
 
-/obj/item/mining_thing/burned/Initialize()
+/obj/item/mining_thing/burned/Initialize(mapload)
 	. = ..()
 	hashrate = rand(-10000, 1)
 

@@ -9,7 +9,7 @@
 	var/boltcolor
 	var/list/possible_colors = list("black", "green", "tan", "red", "grey")
 
-/obj/item/gun/ballistic/automatic/pistol/traumatic/Initialize()
+/obj/item/gun/ballistic/automatic/pistol/traumatic/Initialize(mapload)
 	icon_state = "enforcer_[pick(possible_colors)]"
 	if (!boltcolor)
 		boltcolor = pick(possible_colors)

@@ -95,7 +95,7 @@
 	. += span_info("Накоплено энергии: <b>[num2loadingbar((siphon_max-siphoned_power)/siphon_max, 10, reverse = TRUE)] [DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.")
 	. += "<hr><span class='notice'>Похоже, ему требуется подключение к энергосети через кабель.</span>"
 
-/obj/machinery/copytech/Initialize()
+/obj/machinery/copytech/Initialize(mapload)
 	. = ..()
 	check_platform()
 
@@ -248,7 +248,7 @@
 	var/siphon_max = 1e7
 
 
-/obj/machinery/copytech_platform/Initialize()
+/obj/machinery/copytech_platform/Initialize(mapload)
 	. = ..()
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = .proc/movable_crossed,
@@ -303,7 +303,7 @@
 	. += span_info("Накоплено энергии: <b>[num2loadingbar((siphon_max-siphoned_power)/siphon_max, 10, reverse = TRUE)] [DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.")
 	. += "<hr><span class='notice'>Похоже, ему требуется подключение к энергосети через кабель.</span>"
 
-/obj/machinery/copytech_platform/Initialize()
+/obj/machinery/copytech_platform/Initialize(mapload)
 	. = ..()
 	check_copytech()
 

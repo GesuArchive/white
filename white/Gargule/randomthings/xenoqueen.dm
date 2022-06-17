@@ -1,7 +1,7 @@
 /mob/living/carbon/alien/humanoid/royal/queen/tamed
 	has_fine_manipulation = 1
 
-/mob/living/carbon/alien/humanoid/royal/queen/tamed/Initialize()
+/mob/living/carbon/alien/humanoid/royal/queen/tamed/Initialize(mapload)
 	..()
 	for(var/X in src.internal_organs)
 		var/obj/item/organ/I = X
@@ -79,6 +79,6 @@
 /obj/structure/closet/crate/critter/xenoqueen/full
 	locked = 1
 
-/obj/structure/closet/crate/critter/xenoqueen/full/Initialize()
+/obj/structure/closet/crate/critter/xenoqueen/full/Initialize(mapload)
 	..()
 	contents += new /mob/living/carbon/alien/humanoid/royal/queen/tamed

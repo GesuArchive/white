@@ -84,7 +84,7 @@
 	illustration = "fruit"
 	var/theme_name
 
-/obj/item/storage/box/ingredients/Initialize()
+/obj/item/storage/box/ingredients/Initialize(mapload)
 	. = ..()
 	if(theme_name)
 		name = "[name] ([theme_name])"
@@ -223,7 +223,7 @@
 	theme_name = "random"
 	desc = "This box should not exist, contact the proper authorities."
 
-/obj/item/storage/box/ingredients/random/Initialize()
+/obj/item/storage/box/ingredients/random/Initialize(mapload)
 	. = ..()
 	var/chosen_box = pick(subtypesof(/obj/item/storage/box/ingredients) - /obj/item/storage/box/ingredients/random)
 	new chosen_box(loc)

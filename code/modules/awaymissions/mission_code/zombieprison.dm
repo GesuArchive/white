@@ -259,7 +259,7 @@
 	rapid_melee = 2
 	del_on_death = 1
 
-/mob/living/simple_animal/hostile/prison/coppistol/Initialize()
+/mob/living/simple_animal/hostile/prison/coppistol/Initialize(mapload)
 	. = ..()
 	set_light(2)
 
@@ -293,7 +293,7 @@
 	rapid_melee = 2
 	del_on_death = 1
 
-/mob/living/simple_animal/hostile/prison/copsmg/Initialize()
+/mob/living/simple_animal/hostile/prison/copsmg/Initialize(mapload)
 	. = ..()
 	set_light(2)
 

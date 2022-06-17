@@ -5,7 +5,7 @@
 	var/amDay = FALSE
 	var/time_til_cycle = 0
 
-/obj/effect/sunlight/Initialize()
+/obj/effect/sunlight/Initialize(mapload)
 	. = ..()
 	countdown()
 	hud_tick()

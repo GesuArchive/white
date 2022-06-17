@@ -101,7 +101,7 @@
 	. += "<hr>"
 	. += span_green("Накоплено урона: <b>[collected_force]</b>")
 
-/obj/item/energylance/Initialize()
+/obj/item/energylance/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
 

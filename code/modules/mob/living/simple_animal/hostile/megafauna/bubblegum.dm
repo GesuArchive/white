@@ -82,7 +82,7 @@ Difficulty: Hard
 	/// Blood warp ability
 	var/datum/action/cooldown/mob_cooldown/blood_warp/blood_warp
 
-/mob/living/simple_animal/hostile/megafauna/bubblegum/Initialize()
+/mob/living/simple_animal/hostile/megafauna/bubblegum/Initialize(mapload)
 	. = ..()
 	triple_charge = new /datum/action/cooldown/mob_cooldown/charge/triple_charge()
 	hallucination_charge = new /datum/action/cooldown/mob_cooldown/charge/hallucination_charge()
@@ -322,7 +322,7 @@ Difficulty: Hard
 	true_spawn = FALSE
 	var/move_through_mob
 
-/mob/living/simple_animal/hostile/megafauna/bubblegum/hallucination/Initialize()
+/mob/living/simple_animal/hostile/megafauna/bubblegum/hallucination/Initialize(mapload)
 	. = ..()
 	toggle_ai(AI_OFF)
 

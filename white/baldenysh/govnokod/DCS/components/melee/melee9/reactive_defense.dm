@@ -2,7 +2,7 @@
 	var/balance_main = 0
 	var/balance_sides = 0
 
-/datum/component/reactive_defense/Initialize()
+/datum/component/reactive_defense/Initialize(mapload)
 	if(!isliving(parent))
 		return COMPONENT_INCOMPATIBLE
 

@@ -27,7 +27,7 @@
 
 	var/obj/effect/proc_holder/tentacle_slap/tentacle_slap
 
-/mob/living/simple_animal/hostile/vatbeast/Initialize()
+/mob/living/simple_animal/hostile/vatbeast/Initialize(mapload)
 	. = ..()
 	tentacle_slap = new(src)
 	AddAbility(tentacle_slap)

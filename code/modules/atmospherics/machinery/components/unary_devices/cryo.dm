@@ -113,7 +113,7 @@
 	payment_department = ACCOUNT_MED
 
 
-/obj/machinery/atmospherics/components/unary/cryo_cell/Initialize()
+/obj/machinery/atmospherics/components/unary/cryo_cell/Initialize(mapload)
 	. = ..()
 	initialize_directions = dir
 	if(is_operational)

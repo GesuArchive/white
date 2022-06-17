@@ -19,7 +19,7 @@
 /obj/item/clothing/glasses/monocle/map/interact(mob/user)
 	return FALSE
 
-/obj/item/clothing/glasses/monocle/map/Initialize()
+/obj/item/clothing/glasses/monocle/map/Initialize(mapload)
 	. = ..()
 	tracker = new /datum/movement_detector(src, CALLBACK(src, .proc/update_view))
 

@@ -750,7 +750,7 @@
 	var/datum/radio_frequency/radio_connection
 	var/hearing_range = 1
 
-/obj/item/integrated_circuit_old/input/signaler/Initialize()
+/obj/item/integrated_circuit_old/input/signaler/Initialize(mapload)
 	. = ..()
 	spawn(40)
 		set_frequency(frequency)
@@ -837,7 +837,7 @@
 	network_id = NETWORK_CARDS
 	var/address
 
-/obj/item/integrated_circuit_old/input/ntnet_packet/Initialize()
+/obj/item/integrated_circuit_old/input/ntnet_packet/Initialize(mapload)
 	. = ..()
 	var/datum/component/ntnet_interface/net = LoadComponent(/datum/component/ntnet_interface)
 	address = net.hardware_id
@@ -883,7 +883,7 @@
 	power_draw_per_use = 50
 	var/address
 
-/obj/item/integrated_circuit_old/input/ntnet_advanced/Initialize()
+/obj/item/integrated_circuit_old/input/ntnet_advanced/Initialize(mapload)
 	. = ..()
 	var/datum/component/ntnet_interface/net = LoadComponent(/datum/component/ntnet_interface)
 	address = net.hardware_id
@@ -958,7 +958,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 5
 
-/obj/item/integrated_circuit_old/input/microphone/Initialize()
+/obj/item/integrated_circuit_old/input/microphone/Initialize(mapload)
 	. = ..()
 	become_hearing_sensitive()
 
@@ -1375,7 +1375,7 @@
 	spawn_flags = IC_SPAWN_RESEARCH
 	var/list/freq_blacklist = list(FREQ_CENTCOM,FREQ_SYNDICATE,FREQ_CTF_RED,FREQ_CTF_BLUE)
 
-/obj/item/integrated_circuit_old/input/tcomm_interceptor/Initialize()
+/obj/item/integrated_circuit_old/input/tcomm_interceptor/Initialize(mapload)
 	. = ..()
 	receiver = new(src)
 	receiver.holder = src

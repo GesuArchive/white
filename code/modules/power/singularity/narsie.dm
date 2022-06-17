@@ -37,7 +37,7 @@
 	var/clashing = FALSE
 	var/next_attack_tick
 
-/obj/narsie/Initialize()
+/obj/narsie/Initialize(mapload)
 	. = ..()
 
 	SSpoints_of_interest.make_point_of_interest(src)

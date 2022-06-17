@@ -20,7 +20,7 @@
 	var/mob/living/current_user
 	var/shield_effect
 
-/obj/item/emergency_shield/Initialize()
+/obj/item/emergency_shield/Initialize(mapload)
 	. = ..()
 	cell = new(src)
 	shield_effect = mutable_appearance('white/RedFoxIV/icons/obj/emergency_shield.dmi', "overlay", MOB_SHIELD_LAYER)

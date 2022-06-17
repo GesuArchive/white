@@ -82,7 +82,7 @@
 	var/directive = ""
 	discovery_points = 1000
 
-/mob/living/simple_animal/hostile/poison/giant_spider/Initialize()
+/mob/living/simple_animal/hostile/poison/giant_spider/Initialize(mapload)
 	. = ..()
 	lay_web = new
 	lay_web.Grant(src)
@@ -162,7 +162,7 @@
 	///The health HUD applied to the mob.
 	var/health_hud = DATA_HUD_MEDICAL_ADVANCED
 
-/mob/living/simple_animal/hostile/poison/giant_spider/nurse/Initialize()
+/mob/living/simple_animal/hostile/poison/giant_spider/nurse/Initialize(mapload)
 	. = ..()
 	var/datum/atom_hud/datahud = GLOB.huds[health_hud]
 	datahud.show_to(src)
@@ -306,7 +306,7 @@
 	///The ability for the spider to send a message to all currently living spiders.
 	var/datum/action/innate/spider/comm/letmetalkpls
 
-/mob/living/simple_animal/hostile/poison/giant_spider/midwife/Initialize()
+/mob/living/simple_animal/hostile/poison/giant_spider/midwife/Initialize(mapload)
 	. = ..()
 	wrap = new
 	AddAbility(wrap)

@@ -15,7 +15,7 @@
 
 	var/static/list/mutable_appearance/center_cache = list()
 
-/obj/machinery/atmospherics/pipe/bridge_pipe/Initialize()
+/obj/machinery/atmospherics/pipe/bridge_pipe/Initialize(mapload)
 	icon_state = ""
 	. = ..()
 

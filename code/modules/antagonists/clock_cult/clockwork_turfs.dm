@@ -54,7 +54,7 @@
 	var/d_state = INTACT
 	turf_flags = NOJAUNT
 
-/turf/closed/wall/clockwork/Initialize()
+/turf/closed/wall/clockwork/Initialize(mapload)
 	. = ..()
 	new /obj/effect/temp_visual/ratvar/wall(src)
 	new /obj/effect/temp_visual/ratvar/beam(src)
@@ -176,7 +176,7 @@
 /turf/open/floor/clockwork/Bless() //Who needs holy blessings when you have DADDY RATVAR? <- I did not write this, just saying
 	return
 
-/turf/open/floor/clockwork/Initialize()
+/turf/open/floor/clockwork/Initialize(mapload)
 	. = ..()
 	if(uses_overlay)
 		new /obj/effect/temp_visual/ratvar/floor(src)
@@ -347,7 +347,7 @@
 	CanAtmosPass = ATMOS_PASS_YES
 	var/construction_state = GEAR_SECURE //Pinion airlocks have custom deconstruction
 
-/obj/machinery/door/airlock/clockwork/Initialize()
+/obj/machinery/door/airlock/clockwork/Initialize(mapload)
 	. = ..()
 	new /obj/effect/temp_visual/ratvar/door(loc)
 	new /obj/effect/temp_visual/ratvar/beam/door(loc)
@@ -472,7 +472,7 @@
 	name = "механическая решётка"
 	desc = "Решетка причудливой формы."
 
-/obj/structure/grille/ratvar/Initialize()
+/obj/structure/grille/ratvar/Initialize(mapload)
 	. = ..()
 	if(broken)
 		new /obj/effect/temp_visual/ratvar/grille/broken(get_turf(src))

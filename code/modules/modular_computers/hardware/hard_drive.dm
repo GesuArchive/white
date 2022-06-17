@@ -121,7 +121,7 @@
 	QDEL_LIST(stored_files)
 	return ..()
 
-/obj/item/computer_hardware/hard_drive/Initialize()
+/obj/item/computer_hardware/hard_drive/Initialize(mapload)
 	. = ..()
 	if(default_installs)
 		install_default_programs()

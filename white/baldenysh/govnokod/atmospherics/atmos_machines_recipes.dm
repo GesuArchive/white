@@ -6,7 +6,7 @@
 	requirements = list(GAS_MIASMA = 10, GAS_BZ = 100, GAS_CO2 = 1000)
 	products = list(/mob/living/carbon/human/species/felinid/atmos = 1)
 
-/mob/living/carbon/human/species/felinid/atmos/Initialize()
+/mob/living/carbon/human/species/felinid/atmos/Initialize(mapload)
 	. = ..()
 	if(prob(10))
 		ai_controller = new /datum/ai_controller/raper/opyx(src)

@@ -56,7 +56,7 @@
 	else
 		. = ..()
 
-/obj/machinery/magnetic_concentrator/Initialize()
+/obj/machinery/magnetic_concentrator/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSobj, src)
 

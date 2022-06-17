@@ -19,7 +19,7 @@
 /mob/living/simple_animal/xaxi/emote(act, m_type, message, intentional)
 	return FALSE
 
-/mob/living/simple_animal/xaxi/Initialize()
+/mob/living/simple_animal/xaxi/Initialize(mapload)
 	. = ..()
 	name = "[capitalize(pick(namethings))]-[capitalize(pick(namethings))]"
 	overlay_fullscreen("noise", /atom/movable/screen/fullscreen/noisescreen)

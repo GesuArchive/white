@@ -17,7 +17,7 @@
 	food_reagents = list(/datum/reagent/water = 10)
 	tastes = list("мечты" = 1)
 
-/obj/item/food/soup/wish/Initialize()
+/obj/item/food/soup/wish/Initialize(mapload)
 	. = ..()
 	var/wish_true = prob(25)
 	if(wish_true)
@@ -93,7 +93,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 5)
 	tastes = list("хаос" = 1)
 
-/obj/item/food/soup/mystery/Initialize()
+/obj/item/food/soup/mystery/Initialize(mapload)
 	. = ..()
 	var/extra_reagent = null
 	extra_reagent = pick(/datum/reagent/consumable/capsaicin, /datum/reagent/consumable/frostoil, /datum/reagent/medicine/omnizine, /datum/reagent/consumable/banana, /datum/reagent/blood, /datum/reagent/toxin/slimejelly, /datum/reagent/toxin, /datum/reagent/consumable/banana, /datum/reagent/carbon, /datum/reagent/medicine/oculine)
@@ -173,7 +173,7 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 9, /datum/reagent/water = 5, /datum/reagent/consumable/nutriment/vitamin = 6)
 	foodtypes = VEGETABLES
 
-/obj/item/food/soup/beet/Initialize()
+/obj/item/food/soup/beet/Initialize(mapload)
 	. = ..()
 	name = pick("borsch","bortsch","borstch","borsh","borshch","borscht")
 	tastes = list(name = 1)

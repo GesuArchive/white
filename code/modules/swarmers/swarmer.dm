@@ -75,7 +75,7 @@
 	discovery_points = 1000
 
 
-/mob/living/simple_animal/hostile/swarmer/Initialize()
+/mob/living/simple_animal/hostile/swarmer/Initialize(mapload)
 	. = ..()
 	for(var/datum/atom_hud/data/diagnostic/diag_hud in GLOB.huds)
 		diag_hud.add_atom_to_hud(src)

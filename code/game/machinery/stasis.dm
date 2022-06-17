@@ -23,7 +23,7 @@
 	var/static/mutable_appearance/handbeltsmod_overlay = mutable_appearance('white/Feline/icons/stasis.dmi', "mark", LYING_MOB_LAYER)
 	var/static/mutable_appearance/handbeltsmod_active_overlay = mutable_appearance('white/Feline/icons/stasis.dmi', "belts", LYING_MOB_LAYER)
 
-/obj/machinery/stasis/Initialize()
+/obj/machinery/stasis/Initialize(mapload)
 	. = ..()
 	if(handbeltsmod)
 		add_overlay(handbeltsmod_overlay)

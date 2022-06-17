@@ -28,7 +28,7 @@
 	flags_1 = NODECONSTRUCT_1
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
-/obj/machinery/trading_beacon/Initialize()
+/obj/machinery/trading_beacon/Initialize(mapload)
 	. = ..()
 	for(var/pack in subtypesof(/datum/supply_pack))
 		var/datum/supply_pack/P = new pack()
@@ -276,7 +276,7 @@
 	var/exp = 0
 	var/datum/bank_account/linked_account
 
-/obj/structure/punching_bag/pizdul/Initialize()
+/obj/structure/punching_bag/pizdul/Initialize(mapload)
 	. = ..()
 	linked_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
 

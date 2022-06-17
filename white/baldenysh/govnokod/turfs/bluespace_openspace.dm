@@ -84,7 +84,7 @@
 /turf/open/openspace/bluespace/debug
 	name = "прикольное голубое пространство"
 
-/turf/open/openspace/bluespace/debug/Initialize()
+/turf/open/openspace/bluespace/debug/Initialize(mapload)
 	..()
 
 	var/turf/below = get_turf(get_step(get_step(src, NORTH), NORTH))
@@ -93,7 +93,7 @@
 /turf/open/openspace/bluespace/reverse
 	name = "реверсивное прикольное голубое пространство"
 
-/turf/open/openspace/bluespace/reverse/Initialize()
+/turf/open/openspace/bluespace/reverse/Initialize(mapload)
 	..()
 
 	var/turf/below = get_turf(get_step(get_step(src, SOUTH), SOUTH))

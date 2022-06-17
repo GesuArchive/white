@@ -33,7 +33,7 @@
 	held_state = "pig"
 	faction = list("neutral")
 
-/mob/living/simple_animal/pet/dog/corgi/pig/Initialize()
+/mob/living/simple_animal/pet/dog/corgi/pig/Initialize(mapload)
 	. = ..()
 	if(prob(1))
 		name = "Randy Sandy"
@@ -76,7 +76,7 @@
 	icon_state = "salo"
 	foodtypes = MEAT
 
-/obj/item/food/meat/slab/pig/Initialize()
+/obj/item/food/meat/slab/pig/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_PIG, CELL_VIRUS_TABLE_GENERIC_MOB)
 

@@ -49,7 +49,7 @@
 	var/min_temp = FALSE
 
 ///Create reagents datum
-/obj/machinery/chem_recipe_debug/Initialize()
+/obj/machinery/chem_recipe_debug/Initialize(mapload)
 	. = ..()
 	create_reagents(9000)//I want to make sure everything fits
 	end_processing()

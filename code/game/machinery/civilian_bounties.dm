@@ -20,7 +20,7 @@
 	circuit = /obj/item/circuitboard/computer/bountypad
 	interface_name = "CivCargoHoldTerminal"
 
-/obj/machinery/computer/piratepad_control/civilian/Initialize()
+/obj/machinery/computer/piratepad_control/civilian/Initialize(mapload)
 	. = ..()
 	pad = /obj/machinery/piratepad/civilian
 

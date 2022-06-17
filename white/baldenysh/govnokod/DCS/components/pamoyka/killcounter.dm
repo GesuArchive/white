@@ -8,7 +8,7 @@ GLOBAL_LIST_EMPTY(killcounter_counted_kills)
 	var/last_kill_time = 0
 	var/count_clientless = FALSE
 
-/datum/component/killcounter/Initialize()
+/datum/component/killcounter/Initialize(mapload)
 	if(!isliving(parent))
 		return COMPONENT_INCOMPATIBLE
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, .proc/on_mob_death)

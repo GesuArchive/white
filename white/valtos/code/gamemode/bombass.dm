@@ -106,7 +106,7 @@
 /obj/item/disk/design_disk/adv/kar98k_ammo
 	name = "Kar98k Ammo and Clips"
 
-/obj/item/disk/design_disk/adv/kar98k_ammo/Initialize()
+/obj/item/disk/design_disk/adv/kar98k_ammo/Initialize(mapload)
 	. = ..()
 	var/datum/design/kar98k_ammo/A = new
 	var/datum/design/kar98k_clip/C = new

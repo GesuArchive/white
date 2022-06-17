@@ -29,7 +29,7 @@
 	/// The countdown ghosts see to when the plant will hatch
 	var/obj/effect/countdown/flower_bud/countdown
 
-/obj/structure/alien/resin/flower_bud/Initialize()
+/obj/structure/alien/resin/flower_bud/Initialize(mapload)
 	. = ..()
 	countdown = new(src)
 	var/list/anchors = list()

@@ -103,7 +103,7 @@
 
 
 
-/obj/item/melee/marines/Initialize()
+/obj/item/melee/marines/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, 30, 95, 5) //fast and effective, but as a sword, it might damage the results.
 

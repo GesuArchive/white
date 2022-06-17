@@ -25,7 +25,7 @@
 	///is this barriade wired?
 	var/is_wired = FALSE
 
-/obj/structure/deployable_barricade/Initialize()
+/obj/structure/deployable_barricade/Initialize(mapload)
 	. = ..()
 	update_icon()
 	var/static/list/connections = list(

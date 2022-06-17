@@ -27,7 +27,7 @@
 	"Ненасыщенные жиры, то есть мононенасыщенные жиры, полиненасыщенные жиры и жирные кислоты омега-3, содержатся в растительной пище и рыбе." \
 	)
 
-/obj/machinery/fat_sucker/Initialize()
+/obj/machinery/fat_sucker/Initialize(mapload)
 	. = ..()
 	soundloop = new(src,  FALSE)
 	update_icon()

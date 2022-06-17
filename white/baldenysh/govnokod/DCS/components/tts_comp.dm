@@ -11,7 +11,7 @@
 	var/assigned_channel
 	var/frequency = 1
 
-/datum/component/tts/Initialize()
+/datum/component/tts/Initialize(mapload)
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
 

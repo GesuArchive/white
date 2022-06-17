@@ -25,7 +25,7 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 
 	var/mob/living/carbon/human/our_dreamer
 
-/datum/component/dreamer/Initialize()
+/datum/component/dreamer/Initialize(mapload)
 	if(!ishuman(parent))
 		return COMPONENT_INCOMPATIBLE
 

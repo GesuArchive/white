@@ -53,7 +53,7 @@
  * before global variables were all initialized.
  * Used for when composite datatypes are used in globally defined lists, before GLOB.circuit_datatypes is available.
  **/
-/datum/circuit_composite_template/proc/Initialize()
+/datum/circuit_composite_template/proc/Initialize(mapload)
 	if(types_to_generate)
 		for(var/list/data as anything in types_to_generate)
 			generate_composite_type(data)

@@ -298,7 +298,7 @@
 /mob/living/carbon/human/raper
 	ai_controller = /datum/ai_controller/raper
 
-/mob/living/carbon/human/raper/Initialize()
+/mob/living/carbon/human/raper/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_STUNIMMUNE, "sosi")
 	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, "sosi")
@@ -335,7 +335,7 @@
 /mob/living/carbon/human/raper/opyx
 	ai_controller = /datum/ai_controller/raper/opyx
 
-/mob/living/carbon/human/raper/opyx/Initialize()
+/mob/living/carbon/human/raper/opyx/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_STUNIMMUNE, "sosi")
 	ADD_TRAIT(src, TRAIT_STRONG_GRABBER, "sosi")

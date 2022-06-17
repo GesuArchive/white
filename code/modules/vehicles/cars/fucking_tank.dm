@@ -13,7 +13,7 @@
 	var/cannon_cd = 3 SECONDS
 	var/cannon_projectile_type = /obj/projectile/bullet/cannonball/explosive
 
-/obj/vehicle/sealed/car/fucking_tank/Initialize()
+/obj/vehicle/sealed/car/fucking_tank/Initialize(mapload)
 	. = ..()
 	//AddElement(/datum/element/ridable, /datum/component/riding/vehicle/tank)
 	vehicle_move_delay = 10

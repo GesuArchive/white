@@ -132,7 +132,7 @@
 	name = "\improper C&Ds packet"
 	icon_state = "cnds"
 
-/obj/item/trash/can/Initialize()
+/obj/item/trash/can/Initialize(mapload)
 	. = ..()
 	pixel_x = rand(-4, 4)
 	pixel_y = rand(-4, 4)

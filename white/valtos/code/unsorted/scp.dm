@@ -8,7 +8,7 @@
 	sensor_mode = SENSOR_COORDS
 	random_sensor = 0
 
-/obj/item/clothing/under/prison/d/Initialize()
+/obj/item/clothing/under/prison/d/Initialize(mapload)
 	..()
 	name = "комбинезон D-[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
 

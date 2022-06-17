@@ -239,7 +239,7 @@
 	var/radon = FALSE
 	var/cellon = FALSE
 
-/obj/item/clothing/suit/space/hardsuit/nano/Initialize()
+/obj/item/clothing/suit/space/hardsuit/nano/Initialize(mapload)
 	. = ..()
 	cell = new(src)
 	START_PROCESSING(SSfastprocess, src)

@@ -213,7 +213,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	/// Used in obj/item/examine to determines whether or not to detail an item's statistics even if it does not meet the force requirements
 	var/override_notes = FALSE
 
-/obj/item/Initialize()
+/obj/item/Initialize(mapload)
 
 	if(attack_verb_continuous)
 		attack_verb_continuous = string_list(attack_verb_continuous)

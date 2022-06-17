@@ -4,7 +4,7 @@
 
 /datum/component/walk
 
-/datum/component/walk/Initialize()
+/datum/component/walk/Initialize(mapload)
 	if(!istype(parent, /mob/living))
 		return COMPONENT_INCOMPATIBLE
 	RegisterSignal(parent, COMSIG_PROCESS_MOVE, .proc/handle_move)

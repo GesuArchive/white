@@ -39,7 +39,7 @@
 		return FALSE
 	return ..()
 
-/obj/machinery/autodoc/Initialize()
+/obj/machinery/autodoc/Initialize(mapload)
 	. = ..()
 	top_overlay = mutable_appearance(icon, "autodoc_top", ABOVE_MOB_LAYER)
 	occupant_typecache = GLOB.typecache_living

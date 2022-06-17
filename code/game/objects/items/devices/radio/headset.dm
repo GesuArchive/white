@@ -55,7 +55,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	else
 		. += "<hr><span class='notice'>На гарнитуре мигает маленький экран, он слишком мал для чтения без удержания или ношения гарнитуры.</span>"
 
-/obj/item/radio/headset/Initialize()
+/obj/item/radio/headset/Initialize(mapload)
 	. = ..()
 	set_listening(TRUE)
 	recalculateChannels()
@@ -96,12 +96,12 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	name = "гарнитура лидера команды"
 	command = TRUE
 
-/obj/item/radio/headset/syndicate/Initialize()
+/obj/item/radio/headset/syndicate/Initialize(mapload)
 	. = ..()
 	make_syndie()
 
 /obj/item/radio/headset/binary
-/obj/item/radio/headset/binary/Initialize()
+/obj/item/radio/headset/binary/Initialize(mapload)
 	. = ..()
 	qdel(keyslot)
 	keyslot = new /obj/item/encryptionkey/binary

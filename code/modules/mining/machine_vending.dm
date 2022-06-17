@@ -9,7 +9,7 @@
 	var/obj/item/card/id/inserted_id
 	var/list/prize_list = list()
 
-/obj/machinery/vendor/Initialize()
+/obj/machinery/vendor/Initialize(mapload)
 	. = ..()
 	build_inventory()
 
@@ -239,7 +239,7 @@
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/mining_equipment_vendor/golem
 
-/obj/machinery/vendor/golem/Initialize()
+/obj/machinery/vendor/golem/Initialize(mapload)
 	desc += "\nIt seems a few selections have been added."
 	prize_list += list(
 		new /datum/data/vendor_equipment("Extra Id",       				/obj/item/card/id/advanced/mining, 				           		250),

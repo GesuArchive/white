@@ -41,7 +41,7 @@
 	fire_sound = 'white/valtos/sounds/mechanized/kr1.wav'
 	ammo_type = /obj/item/ammo_casing/magic/glitch
 
-/obj/item/gun/magic/glitch/Initialize()
+/obj/item/gun/magic/glitch/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/glitch, count = -1)
 

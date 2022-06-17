@@ -14,7 +14,7 @@
 	var/force_replace_ai_name = FALSE
 	var/overrides_aicore_laws = FALSE // Whether the laws on the MMI, if any, override possible pre-existing laws loaded on the AI core.
 
-/obj/item/mmi/Initialize()
+/obj/item/mmi/Initialize(mapload)
 	. = ..()
 	radio = new(src) //Spawns a radio inside the MMI.
 	radio.set_broadcasting(FALSE) //researching radio mmis turned the robofabs into radios because this didnt start as 0.
@@ -281,7 +281,7 @@
 	desc = "Собственный бренд Синдикатовского MMI. Он обеспечивает соблюдение законов, призванных помочь агентам Синдиката достичь своих целей в отношении киборгов и ИИ, созданных с его помощью."
 	overrides_aicore_laws = TRUE
 
-/obj/item/mmi/syndie/Initialize()
+/obj/item/mmi/syndie/Initialize(mapload)
 	. = ..()
 	laws = new /datum/ai_laws/syndicate_override()
 	radio.set_on(FALSE)

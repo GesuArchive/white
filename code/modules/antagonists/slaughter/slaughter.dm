@@ -184,7 +184,7 @@
 	освобождены и полностью исцелены, ведь, в конце концов, это всего лишь шутка, \
 	братан!</B>"
 
-/mob/living/simple_animal/hostile/imp/slaughter/laughter/Initialize()
+/mob/living/simple_animal/hostile/imp/slaughter/laughter/Initialize(mapload)
 	. = ..()
 	if(SSevents.holidays && SSevents.holidays[APRIL_FOOLS])
 		icon_state = "honkmon"

@@ -22,7 +22,7 @@
 	var/trigger_delay = 10
 	var/protected = FALSE
 
-/obj/item/pressure_plate/Initialize()
+/obj/item/pressure_plate/Initialize(mapload)
 	. = ..()
 	tile_overlay = image(icon = DEFAULT_FLOORS_ICON, icon_state = "pp_overlay")
 	if(roundstart_signaller)

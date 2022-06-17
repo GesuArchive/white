@@ -264,7 +264,7 @@
 	icon_state = "tube-empty"
 	start_with_cell = FALSE
 
-/obj/machinery/light/built/Initialize()
+/obj/machinery/light/built/Initialize(mapload)
 	. = ..()
 	status = LIGHT_EMPTY
 	update(0)
@@ -324,7 +324,7 @@
 	icon_state = "bulb-empty"
 	start_with_cell = FALSE
 
-/obj/machinery/light/small/built/Initialize()
+/obj/machinery/light/small/built/Initialize(mapload)
 	. = ..()
 	status = LIGHT_EMPTY
 	update(0)
@@ -945,7 +945,7 @@
 			icon_state = "[base_state]-broken"
 			desc = "Разбитая [name]."
 
-/obj/item/light/Initialize()
+/obj/item/light/Initialize(mapload)
 	. = ..()
 	create_reagents(LIGHT_REAGENT_CAPACITY, INJECTABLE | DRAINABLE)
 	AddComponent(/datum/component/caltrop, min_damage = force)

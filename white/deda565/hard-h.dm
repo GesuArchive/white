@@ -46,7 +46,7 @@
 /obj/item/hockeypack/ui_action_click()
 	toggle_stick()
 
-/obj/item/hockeypack/Initialize()
+/obj/item/hockeypack/Initialize(mapload)
 	. = ..()
 	packstick = make_stick()
 
@@ -135,7 +135,7 @@
 	var/obj/item/hockeypack/pack
 	var/wielded = FALSE
 
-/obj/item/hockeystick/Initialize()
+/obj/item/hockeystick/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)

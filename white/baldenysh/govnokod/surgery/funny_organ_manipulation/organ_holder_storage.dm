@@ -5,7 +5,7 @@
 	rustle_sound = FALSE
 	silent = TRUE
 
-/datum/component/storage/concrete/multicompartment/organ_holder/Initialize()
+/datum/component/storage/concrete/multicompartment/organ_holder/Initialize(mapload)
 	. = ..()
 	init_compartment(BODY_ZONE_HEAD, 3, WEIGHT_CLASS_SMALL, 6)
 	init_compartment(BODY_ZONE_PRECISE_EYES, 1, WEIGHT_CLASS_SMALL, 2)

@@ -290,7 +290,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	var/next_announce
 	var/mob/living/silicon/ai/owner
 
-/obj/machinery/doomsday_device/Initialize()
+/obj/machinery/doomsday_device/Initialize(mapload)
 	. = ..()
 	owner = loc
 	if(!istype(owner))

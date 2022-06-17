@@ -198,7 +198,7 @@
 	listener.RegisterSignal(src, COMSIG_LIVING_DEATH, /datum/alarm_listener/proc/prevent_alarm_changes)
 	listener.RegisterSignal(src, COMSIG_LIVING_REVIVE, /datum/alarm_listener/proc/allow_alarm_changes)
 
-/mob/living/silicon/robot/model/syndicate/Initialize()
+/mob/living/silicon/robot/model/syndicate/Initialize(mapload)
 	. = ..()
 	laws = new /datum/ai_laws/syndicate_override()
 	//addtimer(CALLBACK(src, .proc/show_playstyle), 5)
@@ -646,7 +646,7 @@
 /mob/living/silicon/robot/modules
 	var/set_module = /obj/item/robot_module
 
-/mob/living/silicon/robot/modules/Initialize()
+/mob/living/silicon/robot/modules/Initialize(mapload)
 	. = ..()
 	module.transform_to(set_module)
 
@@ -694,7 +694,7 @@
 	cell = /obj/item/stock_parts/cell/hyper
 	radio = /obj/item/radio/borg/syndicate
 
-/mob/living/silicon/robot/modules/syndicate/Initialize()
+/mob/living/silicon/robot/modules/syndicate/Initialize(mapload)
 	. = ..()
 	laws = new /datum/ai_laws/syndicate_override()
 	addtimer(CALLBACK(src, .proc/show_playstyle), 5)

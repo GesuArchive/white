@@ -28,7 +28,7 @@
 	var/enter_message = span_notice("<b>You feel cool air surround you. You go numb as your senses turn inward.</b>")
 	payment_department = ACCOUNT_MED
 	fair_market_price = 5
-/obj/machinery/sleeper/Initialize()
+/obj/machinery/sleeper/Initialize(mapload)
 	. = ..()
 	occupant_typecache = GLOB.typecache_living
 	update_icon()

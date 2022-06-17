@@ -28,7 +28,7 @@
 	verb_exclaim = "трепещет интенсивно"
 	verb_yell = "трепещет интенсивно"
 
-/mob/living/simple_animal/butterfly/Initialize()
+/mob/living/simple_animal/butterfly/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/simple_flying)
 	var/newcolor = rgb(rand(0, 255), rand(0, 255), rand(0, 255))

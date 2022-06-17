@@ -354,7 +354,7 @@
 	var/list/possible_tasks = list()
 	var/list/action_guys = list()
 
-/obj/lab_monitor/yohei/Initialize()
+/obj/lab_monitor/yohei/Initialize(mapload)
 	. = ..()
 	for(var/path in subtypesof(/datum/yohei_task))
 		var/datum/yohei_task/T = path

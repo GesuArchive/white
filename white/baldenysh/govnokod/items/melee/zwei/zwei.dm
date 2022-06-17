@@ -34,7 +34,7 @@
 	reach = 2
 	custom_materials = list(/datum/material/iron = 10000)
 
-/obj/item/melee/zwei/Initialize()
+/obj/item/melee/zwei/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)

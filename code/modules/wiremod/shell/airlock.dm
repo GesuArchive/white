@@ -13,7 +13,7 @@
 	desc = "Оболочка шлюза с схемотехническим интерфейсом, которую нельзя перемещать в собранном виде."
 	autoclose = FALSE
 
-/obj/machinery/door/airlock/shell/Initialize()
+/obj/machinery/door/airlock/shell/Initialize(mapload)
 	. = ..()
 	AddComponent( \
 		/datum/component/shell, \

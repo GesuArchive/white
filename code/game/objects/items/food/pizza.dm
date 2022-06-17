@@ -71,7 +71,7 @@
 	tastes = list("корка" = 1, "томаты" = 1, "сыр" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
-/obj/item/food/pizzaslice/margherita/Initialize()
+/obj/item/food/pizzaslice/margherita/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/customizable_reagent_holder, null, CUSTOM_INGREDIENT_ICON_FILL, max_ingredients = 12)
 
@@ -280,7 +280,7 @@
 	tastes = list("stale crust" = 1, "rancid cheese" = 2, "mushroom" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY | GROSS
 
-/obj/item/food/pizzaslice/moldy/Initialize()
+/obj/item/food/pizzaslice/moldy/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_MOLD, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 25)
 

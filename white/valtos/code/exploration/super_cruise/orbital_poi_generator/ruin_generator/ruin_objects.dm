@@ -17,7 +17,7 @@
 		/obj/structure/destructible/clockwork/trap/flipper
 	)
 
-/obj/effect/spawner/ocular_warden_setup/Initialize()
+/obj/effect/spawner/ocular_warden_setup/Initialize(mapload)
 	. = ..()
 	var/turf/T = get_turf(src)
 	new /obj/structure/destructible/clockwork/ocular_warden(T)
@@ -25,7 +25,7 @@
 	new /obj/structure/destructible/clockwork/sigil/transmission(power_turf)
 	return INITIALIZE_HINT_QDEL
 
-/obj/effect/spawner/interdiction_lens_setup/Initialize()
+/obj/effect/spawner/interdiction_lens_setup/Initialize(mapload)
 	. = ..()
 	var/turf/T = get_turf(src)
 	new /obj/structure/destructible/clockwork/gear_base/interdiction_lens(T)

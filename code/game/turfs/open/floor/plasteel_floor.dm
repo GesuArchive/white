@@ -141,7 +141,7 @@
 /turf/open/floor/plasteel/kitchen_coldroom
 	name = "пол холодильной камеры"
 
-/turf/open/floor/plasteel/kitchen_coldroom/Initialize()
+/turf/open/floor/plasteel/kitchen_coldroom/Initialize(mapload)
 	initial_gas_mix = KITCHEN_COLDROOM_ATMOS
 	. = ..()
 

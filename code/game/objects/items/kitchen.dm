@@ -15,7 +15,7 @@
 	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
 
-/obj/item/kitchen/Initialize()
+/obj/item/kitchen/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_APC_SHOCKING, INNATE_TRAIT)
 
@@ -38,7 +38,7 @@
 	var/datum/reagent/forkload //used to eat omelette
 	custom_price = PAYCHECK_PRISONER
 
-/obj/item/kitchen/fork/Initialize()
+/obj/item/kitchen/fork/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/eyestab)
 
@@ -103,7 +103,7 @@
 	bare_wound_bonus = 10
 	tool_behaviour = TOOL_KNIFE
 
-/obj/item/kitchen/knife/Initialize()
+/obj/item/kitchen/knife/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/eyestab)
 	set_butchering()

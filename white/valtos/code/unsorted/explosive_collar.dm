@@ -15,7 +15,7 @@
 	var/scheduled_explosion_time = 0
 	var/mob/living/carbon/human/slave
 
-/obj/item/clothing/neck/explosive_collar/Initialize()
+/obj/item/clothing/neck/explosive_collar/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CLOTHING_TRAIT)
 

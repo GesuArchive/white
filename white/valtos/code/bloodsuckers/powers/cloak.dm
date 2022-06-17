@@ -91,7 +91,7 @@
 	inhand_icon_state = "cloak"
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 10, "energy" = 10, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 100) //good if you haven nothing
 
-/obj/item/clothing/neck/yogs/sith_cloak/cloak/Initialize()
+/obj/item/clothing/neck/yogs/sith_cloak/cloak/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, BLOODSUCKER_TRAIT)
 	START_PROCESSING(SSobj, src)

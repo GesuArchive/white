@@ -64,7 +64,7 @@
 	. = ..()
 	AddComponent(/datum/component/gps, "BOMB0", TRUE)
 
-/obj/machinery/nuclearbomb/decomission/Initialize()
+/obj/machinery/nuclearbomb/decomission/Initialize(mapload)
 	. = ..()
 	radio = new(src)
 	radio.keyslot = new radio_key

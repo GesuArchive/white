@@ -35,7 +35,7 @@
 	var/time_to_hunt = 5
 
 
-/mob/living/simple_animal/hostile/cockroach/Initialize()
+/mob/living/simple_animal/hostile/cockroach/Initialize(mapload)
 	. = ..()
 	add_cell_sample()
 	make_squashable()
@@ -107,7 +107,7 @@
 	sharpness = SHARP_POINTY
 	squish_chance = 0 // manual squish if relevant
 
-/mob/living/simple_animal/hostile/cockroach/hauberoach/Initialize()
+/mob/living/simple_animal/hostile/cockroach/hauberoach/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/caltrop, min_damage = 10, max_damage = 15, flags = (CALTROP_BYPASS_SHOES | CALTROP_SILENT))
 

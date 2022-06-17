@@ -11,7 +11,7 @@
 	var/ison = FALSE
 	var/obj/item/stock_parts/cell/our_powercell = null
 
-/obj/item/kinetic_shield/Initialize()
+/obj/item/kinetic_shield/Initialize(mapload)
 	. = ..()
 	our_powercell = new /obj/item/stock_parts/cell/high(src)
 

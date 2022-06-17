@@ -73,7 +73,7 @@
 		/obj/item/spacepod_equipment/cargo/chair,
 		/obj/item/spacepod_equipment/cargo/chair)
 
-/obj/spacepod/prebuilt/funnicopter/Initialize()
+/obj/spacepod/prebuilt/funnicopter/Initialize(mapload)
 	. = ..()
 	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
 	SP.prefs_toggle_flag = null

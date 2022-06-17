@@ -19,7 +19,7 @@
 	var/item_recycle_sound = 'sound/items/welder.ogg'
 	var/frabbs = 0
 
-/obj/machinery/recycler/Initialize()
+/obj/machinery/recycler/Initialize(mapload)
 	var/list/allowed_materials = list(
 		/datum/material/iron,
 		/datum/material/glass,

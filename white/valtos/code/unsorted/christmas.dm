@@ -34,7 +34,7 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
-/obj/structure/snowflakes/Initialize()
+/obj/structure/snowflakes/Initialize(mapload)
 	. = ..()
 	icon_state = "snowflakes_[rand(1, 4)]"
 
@@ -50,7 +50,7 @@
 	var/on = FALSE
 	var/brightness = 4
 
-/obj/structure/garland/Initialize()
+/obj/structure/garland/Initialize(mapload)
 	. = ..()
 	light_color = pick("#ff0000", "#6111ff", "#ffa500", "#44faff")
 	update_garland()

@@ -66,7 +66,7 @@
 /obj/item/storage/basket/easter
 	name = "Easter Basket"
 
-/obj/item/storage/basket/easter/Initialize()
+/obj/item/storage/basket/easter/Initialize(mapload)
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.set_holdable(list(/obj/item/food/egg, /obj/item/food/chocolateegg, /obj/item/food/boiledegg))
@@ -116,7 +116,7 @@
 /obj/item/food/egg/loaded
 	containsPrize = TRUE
 
-/obj/item/food/egg/loaded/Initialize()
+/obj/item/food/egg/loaded/Initialize(mapload)
 	. = ..()
 	var/eggcolor = pick("blue","green","mime","orange","purple","rainbow","red","yellow")
 	icon_state = "egg-[eggcolor]"

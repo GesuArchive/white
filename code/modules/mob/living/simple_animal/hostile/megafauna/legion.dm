@@ -279,7 +279,7 @@
 	///Compared with the targeted mobs. If they have the faction, turret won't shoot.
 	var/faction = list("mining")
 
-/obj/structure/legionturret/Initialize()
+/obj/structure/legionturret/Initialize(mapload)
 	. = ..()
 	addtimer(CALLBACK(src, .proc/set_up_shot), initial_firing_time)
 	ADD_TRAIT(src, TRAIT_NO_FLOATING_ANIM, INNATE_TRAIT)

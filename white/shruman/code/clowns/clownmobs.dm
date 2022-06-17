@@ -141,7 +141,7 @@
 	emote_see = list("булькает", "пузырится")
 	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam)
 
-/mob/living/simple_animal/hostile/clown/lube/Initialize()
+/mob/living/simple_animal/hostile/clown/lube/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/snailcrawl)
 
@@ -442,7 +442,7 @@
 	environment_smash = ENVIRONMENT_SMASH_NONE
 
 
-/mob/living/simple_animal/hostile/clown/mutant/glutton/Initialize()
+/mob/living/simple_animal/hostile/clown/mutant/glutton/Initialize(mapload)
 	. = ..()
 	AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/lighteater)
 	myBuild = new
@@ -450,7 +450,7 @@
 	plantSkin = new
 	plantSkin.Grant(src)
 
-/mob/living/simple_animal/hostile/clown/fleshclown/Initialize()
+/mob/living/simple_animal/hostile/clown/fleshclown/Initialize(mapload)
 	. = ..()
 	plantSkin = new
 	plantSkin.Grant(src)

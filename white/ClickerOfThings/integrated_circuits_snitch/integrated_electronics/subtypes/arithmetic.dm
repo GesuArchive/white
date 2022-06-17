@@ -241,7 +241,7 @@
 	inputs = list()
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit_old/arithmetic/pi/Initialize()
+/obj/item/integrated_circuit_old/arithmetic/pi/Initialize(mapload)
 	. = ..()
 	desc = "Not recommended for cooking. Outputs '[PI]' when it receives a pulse."
 

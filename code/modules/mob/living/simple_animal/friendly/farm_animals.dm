@@ -37,7 +37,7 @@
 
 	footstep_type = FOOTSTEP_MOB_SHOE
 
-/mob/living/simple_animal/hostile/retaliate/goat/Initialize()
+/mob/living/simple_animal/hostile/retaliate/goat/Initialize(mapload)
 	AddComponent(/datum/component/udder)
 	. = ..()
 
@@ -102,7 +102,7 @@
 	name = "Максим Козлов"
 	desc = "Жрал."
 
-/mob/living/simple_animal/hostile/retaliate/goat/wycc/Initialize()
+/mob/living/simple_animal/hostile/retaliate/goat/wycc/Initialize(mapload)
 	. = ..()
 	maxHealth = (100 - LAZYLEN(GLOB.clients))
 	health = maxHealth
@@ -211,7 +211,7 @@
 	gold_core_spawnable = FALSE
 	speak_chance = 15
 
-/mob/living/simple_animal/cow/wisdom/Initialize()
+/mob/living/simple_animal/cow/wisdom/Initialize(mapload)
 	. = ..()
 	speak = GLOB.wisdoms //Done here so it's setup properly
 
@@ -263,7 +263,7 @@
 
 	footstep_type = FOOTSTEP_MOB_CLAW
 
-/mob/living/simple_animal/chick/Initialize()
+/mob/living/simple_animal/chick/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/pet_bonus, "пищит!")
 	pixel_x = base_pixel_x + rand(-6, 6)
@@ -324,7 +324,7 @@
 	///boolean deciding whether eggs laid by this chicken can hatch into chicks
 	var/process_eggs = TRUE
 
-/mob/living/simple_animal/chicken/Initialize()
+/mob/living/simple_animal/chicken/Initialize(mapload)
 	. = ..()
 	chicken_count++
 	add_cell_sample()

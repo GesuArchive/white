@@ -14,7 +14,7 @@
 	shrapnel_type = null
 	nomiss = TRUE //Honk
 
-/obj/projectile/bullet/honker/Initialize()
+/obj/projectile/bullet/honker/Initialize(mapload)
 	. = ..()
 	SpinAnimation()
 

@@ -28,7 +28,7 @@
 	if(screen_on)
 		. += "<hr><span class='notice'>Нажмите на \"Alt\", чтобы закрыть это.</span>"
 
-/obj/item/modular_computer/laptop/Initialize()
+/obj/item/modular_computer/laptop/Initialize(mapload)
 	. = ..()
 
 	if(start_open && !screen_on)

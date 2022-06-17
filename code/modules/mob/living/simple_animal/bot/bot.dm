@@ -153,7 +153,7 @@
 	to_chat(src, span_userdanger("Выключаю!"))
 	update_icon()
 
-/mob/living/simple_animal/bot/Initialize()
+/mob/living/simple_animal/bot/Initialize(mapload)
 	. = ..()
 	GLOB.bots_list += src
 
@@ -904,7 +904,7 @@ Pass a positive integer as an argument to override a bot's default speed.
 	anchored = FALSE
 	var/mob/living/simple_animal/bot/owner = null
 
-/obj/machinery/bot_core/Initialize()
+/obj/machinery/bot_core/Initialize(mapload)
 	. = ..()
 	owner = loc
 	if(!istype(owner))

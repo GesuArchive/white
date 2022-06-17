@@ -4,7 +4,7 @@
 	base_icon_state = "concrete0"
 	icon_state = "concrete0"
 
-/turf/open/floor/plating/conc/Initialize()
+/turf/open/floor/plating/conc/Initialize(mapload)
 	. = ..()
 	if(prob(25))
 		var/r = rand(1,2)
@@ -37,7 +37,7 @@
 	max_integrity = 200
 	density = TRUE
 
-/obj/structure/tyre/pile/Initialize()
+/obj/structure/tyre/pile/Initialize(mapload)
 	. = ..()
 	if(prob(30))
 		icon_state = "shina[rand(1,3)]"
@@ -51,7 +51,7 @@
 	anchored = TRUE
 	density = TRUE
 
-/obj/structure/tbin/Initialize()
+/obj/structure/tbin/Initialize(mapload)
 	. = ..()
 	if(prob(50))
 		icon_state = "yashik_musor1"
@@ -79,7 +79,7 @@
 	var/time = 0
 	var/time2use = 300
 
-/obj/structure/tbin/full/Initialize()
+/obj/structure/tbin/full/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSobj, src)
 	if(prob(50))
@@ -170,7 +170,7 @@
 							/obj/structure/tbin/full
 						)
 
-/obj/structure/pomoyka/Initialize()
+/obj/structure/pomoyka/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSobj, src)
 	for(var/turf/open/floor/T in range(radius, src))

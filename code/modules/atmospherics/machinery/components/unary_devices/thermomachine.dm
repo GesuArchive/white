@@ -26,7 +26,7 @@
 	var/base_heating = 140
 	var/base_cooling = 170
 
-/obj/machinery/atmospherics/components/unary/thermomachine/Initialize()
+/obj/machinery/atmospherics/components/unary/thermomachine/Initialize(mapload)
 	. = ..()
 	initialize_directions = dir
 	RefreshParts()
@@ -240,7 +240,7 @@
 	on = TRUE
 	icon_state = "freezer_1"
 
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on/Initialize()
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on/Initialize(mapload)
 	. = ..()
 	if(target_temperature == initial(target_temperature))
 		target_temperature = min_temperature
@@ -248,7 +248,7 @@
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer/on/coldroom
 	name = "термомашина морозильной камеры"
 
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on/coldroom/Initialize()
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on/coldroom/Initialize(mapload)
 	. = ..()
 	target_temperature = COLD_ROOM_TEMP
 

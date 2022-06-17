@@ -104,7 +104,7 @@
 	name = "крепкий голофайрлок"
 	max_integrity = 150
 
-/obj/structure/holosign/barrier/atmos/Initialize()
+/obj/structure/holosign/barrier/atmos/Initialize(mapload)
 	. = ..()
 	air_update_turf(TRUE)
 

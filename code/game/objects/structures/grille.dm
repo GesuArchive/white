@@ -324,7 +324,7 @@
 	rods_broken = FALSE
 	grille_type = /obj/structure/grille
 
-/obj/structure/grille/broken/Initialize()
+/obj/structure/grille/broken/Initialize(mapload)
 	. = ..()
 	holes = (holes | 16)
 	update_icon()

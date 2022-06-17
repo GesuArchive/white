@@ -12,7 +12,7 @@
 	var/forge_charges = 0
 	var/list/placed_objects = list()
 
-/obj/structure/world_anvil/Initialize()
+/obj/structure/world_anvil/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/element/climbable)
 

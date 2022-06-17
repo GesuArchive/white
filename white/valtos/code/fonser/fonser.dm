@@ -42,7 +42,7 @@
 	var/thru = 5
 	var/mane = 10
 
-/obj/vehicle/sealed/fonser/Initialize()
+/obj/vehicle/sealed/fonser/Initialize(mapload)
 	. = ..()
 	add_overlay(image(icon, cover_iconstate, ABOVE_MOB_LAYER))
 

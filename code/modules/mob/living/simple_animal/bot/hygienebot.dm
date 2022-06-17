@@ -40,7 +40,7 @@
 	///Visual overlay of the bot commiting warcrimes.
 	var/mutable_appearance/fire_overlay
 
-/mob/living/simple_animal/bot/hygienebot/Initialize()
+/mob/living/simple_animal/bot/hygienebot/Initialize(mapload)
 	. = ..()
 	update_icon()
 

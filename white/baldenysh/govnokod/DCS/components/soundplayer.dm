@@ -15,7 +15,7 @@
 
 	var/prefs_toggle_flag = SOUND_JUKEBOX
 
-/datum/component/soundplayer/Initialize()
+/datum/component/soundplayer/Initialize(mapload)
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
 	playing_channel = SSsounds.random_available_channel()

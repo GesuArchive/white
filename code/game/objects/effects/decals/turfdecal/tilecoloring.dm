@@ -4,7 +4,7 @@
 	layer = TURF_PLATING_DECAL_LAYER
 	alpha = 110
 
-/obj/effect/turf_decal/tile/Initialize()
+/obj/effect/turf_decal/tile/Initialize(mapload)
 	if(SSevents.holidays)
 		if (SSevents.holidays[APRIL_FOOLS])
 			var/datum/holiday/april_fools/april_fools = SSevents.holidays[APRIL_FOOLS]
@@ -53,7 +53,7 @@
 	name = "colorful corner"
 	color = "#E300FF" //bright pink as default for mapping
 
-/obj/effect/turf_decal/tile/random/Initialize()
+/obj/effect/turf_decal/tile/random/Initialize(mapload)
 	color = "#[random_short_color()]"
 	. = ..()
 
@@ -62,7 +62,7 @@
 	alpha = 110
 	icon_state = "trimline_box"
 
-/obj/effect/turf_decal/trimline/Initialize()
+/obj/effect/turf_decal/trimline/Initialize(mapload)
 	if(SSevents.holidays && SSevents.holidays[APRIL_FOOLS])
 		color = "#[random_short_color()]"
 	. = ..()
@@ -501,6 +501,6 @@
 	name = "colorful hex corner"
 	color = "#E300FF" //bright pink as default for mapping
 
-/obj/effect/turf_decal/tile/hex/random/Initialize()
+/obj/effect/turf_decal/tile/hex/random/Initialize(mapload)
 	color = "#[random_short_color()]"
 	. = ..()

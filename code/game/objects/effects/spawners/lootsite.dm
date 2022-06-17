@@ -13,7 +13,7 @@
 							/obj/structure/destructible/cult/pants_altar = 10)
 
 
-/obj/effect/loot_site_spawner/Initialize()
+/obj/effect/loot_site_spawner/Initialize(mapload)
 	..()
 	if(!length(loot_table))
 		return INITIALIZE_HINT_QDEL

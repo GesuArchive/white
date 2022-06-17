@@ -3,7 +3,7 @@
 	icon_state = "data_1"
 	var/calling_num
 
-/obj/item/card/data/calling/Initialize()
+/obj/item/card/data/calling/Initialize(mapload)
 	. = ..()
 	var/station_code = "13"
 	var/iin = rand(0, 999)

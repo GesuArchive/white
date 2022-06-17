@@ -37,7 +37,7 @@
 
 	discovery_points = 1000
 
-/mob/living/simple_animal/shade/Initialize()
+/mob/living/simple_animal/shade/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/simple_flying)
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)

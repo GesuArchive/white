@@ -125,7 +125,7 @@
 		user.visible_message(span_warning("[src] is rocking around! You can't put the saddle on!"))
 	..()
 
-/mob/living/simple_animal/hostile/asteroid/goliath/beast/random/Initialize()
+/mob/living/simple_animal/hostile/asteroid/goliath/beast/random/Initialize(mapload)
 	. = ..()
 	if(prob(1))
 		new /mob/living/simple_animal/hostile/asteroid/goliath/beast/ancient(loc)

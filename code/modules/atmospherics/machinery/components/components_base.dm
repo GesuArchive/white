@@ -21,7 +21,7 @@
 		var/datum/gas_mixture/A = new(1000)
 		airs[i] = A
 
-/obj/machinery/atmospherics/components/Initialize()
+/obj/machinery/atmospherics/components/Initialize(mapload)
 	. = ..()
 
 	if(hide)

@@ -285,7 +285,7 @@
 	var/image/mob_overlay
 	var/datum/component/mobhook
 
-/obj/item/organ/eyes/robotic/glow/Initialize()
+/obj/item/organ/eyes/robotic/glow/Initialize(mapload)
 	. = ..()
 	mob_overlay = image('icons/mob/human_face.dmi', "eyes_glow_gs")
 
@@ -500,7 +500,7 @@
 	overlay_ignore_lighting = TRUE
 	var/obj/item/flashlight/eyelight/adapted/adapt_light
 
-/obj/item/organ/eyes/night_vision/maintenance_adapted/Initialize()
+/obj/item/organ/eyes/night_vision/maintenance_adapted/Initialize(mapload)
 	. = ..()
 
 /obj/item/organ/eyes/night_vision/maintenance_adapted/Insert(mob/living/carbon/adapted, special = FALSE)

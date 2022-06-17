@@ -7,7 +7,7 @@
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 	var/limiting_spam = FALSE
 
-/datum/component/honkspam/Initialize()
+/datum/component/honkspam/Initialize(mapload)
 	if(!isitem(parent))
 		return COMPONENT_INCOMPATIBLE
 	RegisterSignal(parent, COMSIG_ITEM_ATTACK_SELF, .proc/interact)

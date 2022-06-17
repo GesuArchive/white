@@ -19,7 +19,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 	var/tension = 0
 	var/sound/bm
 
-/datum/component/battletension/Initialize()
+/datum/component/battletension/Initialize(mapload)
 	if(ismob(parent))
 		START_PROCESSING(SSbtension, src)
 	else

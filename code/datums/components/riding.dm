@@ -28,7 +28,7 @@
 	/// If the "vehicle" is a mob, respect MOBILITY_MOVE on said mob.
 	var/respect_mob_mobility = TRUE
 
-/datum/component/riding/Initialize()
+/datum/component/riding/Initialize(mapload)
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
 	RegisterSignal(parent, COMSIG_ATOM_DIR_CHANGE, .proc/vehicle_turned)
@@ -266,7 +266,7 @@
 /datum/component/riding/human
 	del_on_unbuckle_all = TRUE
 
-/datum/component/riding/human/Initialize()
+/datum/component/riding/human/Initialize(mapload)
 	. = ..()
 	RegisterSignal(parent, COMSIG_HUMAN_MELEE_UNARMED_ATTACK, .proc/on_host_unarmed_melee)
 

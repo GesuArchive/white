@@ -86,7 +86,7 @@
 	ext_cooldown = 5
 	var/obj/item/card/id/idc
 
-/obj/item/integrated_circuit_old/smart/advanced_pathfinder/Initialize()
+/obj/item/integrated_circuit_old/smart/advanced_pathfinder/Initialize(mapload)
 	. = ..()
 	idc = new(src)
 

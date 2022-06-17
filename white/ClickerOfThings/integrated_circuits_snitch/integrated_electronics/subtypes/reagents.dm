@@ -6,7 +6,7 @@
 	cooldown_per_use = 10
 	var/volume = 0
 
-/obj/item/integrated_circuit_old/reagent/Initialize()
+/obj/item/integrated_circuit_old/reagent/Initialize(mapload)
 	. = ..()
 	if(volume)
 		create_reagents(volume, OPENCONTAINER)
@@ -277,7 +277,7 @@
 	complexity = 8
 	spawn_flags = IC_SPAWN_RESEARCH
 
-/obj/item/integrated_circuit_old/reagent/storage/cryo/Initialize()
+/obj/item/integrated_circuit_old/reagent/storage/cryo/Initialize(mapload)
 	. = ..()
 	reagents.flags |= NO_REACT
 
@@ -494,7 +494,7 @@
 	else
 		power_draw_idle = 0
 
-/obj/item/integrated_circuit_old/reagent/storage/heater/Initialize()
+/obj/item/integrated_circuit_old/reagent/storage/heater/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SScircuit, src)
 
@@ -596,7 +596,7 @@
 	power_draw_per_use = 15
 	var/busy = FALSE
 
-/obj/item/integrated_circuit_old/reagent/extinguisher/Initialize()
+/obj/item/integrated_circuit_old/reagent/extinguisher/Initialize(mapload)
 	. = ..()
 	set_pin_data(IC_OUTPUT,2, src)
 
@@ -695,7 +695,7 @@
 	power_draw_per_use = 15
 
 
-/obj/item/integrated_circuit_old/reagent/drain/Initialize()
+/obj/item/integrated_circuit_old/reagent/drain/Initialize(mapload)
 	. = ..()
 	set_pin_data(IC_OUTPUT,2, src)
 

@@ -66,7 +66,7 @@
 			return "vanilla"
 
 
-/obj/machinery/icecream_vat/Initialize()
+/obj/machinery/icecream_vat/Initialize(mapload)
 	. = ..()
 	while(product_types.len < 7)
 		product_types.Add(5)

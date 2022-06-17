@@ -119,7 +119,7 @@
 	connected_cable = null
 	return ..()
 
-/obj/item/integrated_circuit_old/power/transmitter/wire_connector/Initialize()
+/obj/item/integrated_circuit_old/power/transmitter/wire_connector/Initialize(mapload)
 	START_PROCESSING(SSobj, src)
 	. = ..()
 

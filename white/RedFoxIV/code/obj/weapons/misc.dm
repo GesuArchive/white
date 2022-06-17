@@ -657,7 +657,7 @@
 	resistance_flags = INDESTRUCTIBLE
 	item_flags = NEEDS_PERMIT | ABSTRACT | DROPDEL
 
-/obj/item/clothing/under/color/grey/artist/Initialize()
+/obj/item/clothing/under/color/grey/artist/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, "Initialize")
 
@@ -667,7 +667,7 @@
 	resistance_flags = INDESTRUCTIBLE
 	item_flags = NEEDS_PERMIT | ABSTRACT | DROPDEL
 
-/obj/item/clothing/shoes/combat/artist/Initialize()
+/obj/item/clothing/shoes/combat/artist/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, "Initialize")
 
@@ -675,7 +675,7 @@
 //artist's version of toolset implant
 /obj/item/organ/cyberimp/arm/toolset/artist
 
-/obj/item/organ/cyberimp/arm/toolset/artist/Initialize()
+/obj/item/organ/cyberimp/arm/toolset/artist/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSmachines, src)
 
@@ -707,7 +707,7 @@
 	var/global/list/round_banned_ckeys = list()
 	var/global/amount = 0
 
-/obj/effect/mob_spawn/human/donate/artist/Initialize()
+/obj/effect/mob_spawn/human/donate/artist/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
 

@@ -30,6 +30,6 @@
 			cam.lostTargetRef(WEAKREF(O))
 			return
 
-/area/ai_monitored/turret_protected/ai/Initialize()
+/area/ai_monitored/turret_protected/ai/Initialize(mapload)
 	. = ..()
 	src.area_flags |= ABDUCTOR_PROOF

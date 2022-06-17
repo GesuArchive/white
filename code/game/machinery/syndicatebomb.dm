@@ -82,7 +82,7 @@
 		update_icon()
 		try_detonate(TRUE)
 
-/obj/machinery/syndicatebomb/Initialize()
+/obj/machinery/syndicatebomb/Initialize(mapload)
 	. = ..()
 	wires = new /datum/wires/syndicatebomb(src)
 	if(payload)
@@ -252,7 +252,7 @@
 	open_panel = TRUE
 	timer_set = 120
 
-/obj/machinery/syndicatebomb/empty/Initialize()
+/obj/machinery/syndicatebomb/empty/Initialize(mapload)
 	. = ..()
 	wires.cut_all()
 

@@ -248,7 +248,7 @@
 	var/reskinned = FALSE
 	var/chaplain_spawnable = TRUE
 
-/obj/item/nullrod/Initialize()
+/obj/item/nullrod/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/anti_magic, TRUE, TRUE, FALSE, null, null, FALSE)
 
@@ -323,7 +323,7 @@
 	attack_verb_continuous = list("бьёт", "скрещивает пальцы", "вмазывает")
 	attack_verb_simple = list("бьёт", "скрещивает пальцы", "вмазывает")
 
-/obj/item/nullrod/godhand/Initialize()
+/obj/item/nullrod/godhand/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, HAND_REPLACEMENT_TRAIT)
 
@@ -485,7 +485,7 @@
 	attack_verb_continuous = list("рубит", "режет", "косит", "скашивает")
 	attack_verb_simple = list("рубит", "режет", "косит", "скашивает")
 
-/obj/item/nullrod/scythe/Initialize()
+/obj/item/nullrod/scythe/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, 70, 110) //the harvest gives a high bonus chance
 
@@ -609,7 +609,7 @@
 	tool_behaviour = TOOL_SAW
 	toolspeed = 2 //slower than a real saw
 
-/obj/item/nullrod/chainsaw/Initialize()
+/obj/item/nullrod/chainsaw/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, HAND_REPLACEMENT_TRAIT)
 	AddComponent(/datum/component/butchering, 30, 100, 0, hitsound)
@@ -645,7 +645,7 @@
 	hitsound = 'sound/weapons/blade1.ogg'
 
 
-/obj/item/nullrod/pride_hammer/Initialize()
+/obj/item/nullrod/pride_hammer/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/kneejerk)
 	AddElement(
@@ -700,7 +700,7 @@
 	wound_bonus = -20
 	bare_wound_bonus = 25
 
-/obj/item/nullrod/armblade/Initialize()
+/obj/item/nullrod/armblade/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, HAND_REPLACEMENT_TRAIT)
 	AddComponent(/datum/component/butchering, 80, 70)
@@ -724,7 +724,7 @@
 	attack_verb_simple = list("кусает", "грызёт", "шлёпает плавником")
 	hitsound = 'sound/weapons/bite.ogg'
 
-/obj/item/nullrod/carp/Initialize()
+/obj/item/nullrod/carp/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/faction_granter, "carp", holy_role_required = HOLY_ROLE_PRIEST, grant_message = span_boldnotice("You are blessed by Carp-Sie. Wild space carp will no longer attack you."))
 

@@ -32,7 +32,7 @@
 	fast_clone = TRUE
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/integrated_circuit_printer/Initialize()
+/obj/item/integrated_circuit_printer/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/material_container, list(/datum/material/iron), MINERAL_MATERIAL_AMOUNT * 50, MATCONTAINER_EXAMINE, list(/datum/material/iron), list(/obj/item/stack, /obj/item/integrated_circuit_old, /obj/item/electronic_assembly))
 

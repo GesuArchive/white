@@ -24,7 +24,7 @@
 /obj/item/boombox/single
 	desc = "Единственная и неповторимая."
 
-/obj/item/boombox/Initialize()
+/obj/item/boombox/Initialize(mapload)
 	. = ..()
 	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
 	SP.set_channel(open_sound_channel_for_boombox())
@@ -64,7 +64,7 @@
 	if(songs.len)
 		selection = pick(songs)
 
-/obj/item/boombox/single/Initialize()
+/obj/item/boombox/single/Initialize(mapload)
 	. = ..()
 	for(var/obj/item/boombox/single/BB) // NO WAY
 		if(BB != src)
@@ -246,7 +246,7 @@
 	var/obj/item/boombox/bbox
 	var/obj/effect/music/effect
 
-/obj/machinery/turntable/Initialize()
+/obj/machinery/turntable/Initialize(mapload)
 	. = ..()
 	icon_state = pick("default", "tall", "neon", "box")
 	if(icon_state == "tall")
@@ -279,7 +279,7 @@
 /obj/machinery/turntable/donate
 	desc = "Классический музыкальный проигрыватель. Пахнет помидорами."
 
-/obj/machinery/turntable/donate/Initialize()
+/obj/machinery/turntable/donate/Initialize(mapload)
 	. = ..()
 	for(var/obj/machinery/turntable/donate/TT)
 		if(TT != src)

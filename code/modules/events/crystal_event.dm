@@ -337,7 +337,7 @@ This section is for the destabilized SM
 
 	var/changed_icon = TRUE
 
-/obj/machinery/destabilized_crystal/Initialize()
+/obj/machinery/destabilized_crystal/Initialize(mapload)
 	. = ..()
 	soundloop = new(list(src), TRUE)
 
@@ -528,7 +528,7 @@ This section is for the crystal portals variations
 	///Link to the signaler object for signaling uses
 	var/obj/item/assembly/signaler/crystal_anomaly/a_signal = /obj/item/assembly/signaler/crystal_anomaly
 
-/obj/structure/crystal_portal/Initialize()
+/obj/structure/crystal_portal/Initialize(mapload)
 	. = ..()
 	AddComponent(spawner_type, mob_types, spawn_time, faction, spawn_text, max_mobs)
 	GLOB.crystal_portals += src
@@ -629,7 +629,7 @@ This section is for the crystal portals variations
 		/mob/living/simple_animal/hostile/crystal_monster/boss
 		)
 
-/obj/structure/crystal_portal/huge/Initialize()
+/obj/structure/crystal_portal/huge/Initialize(mapload)
 	. = ..()
 	GLOB.huge_crystal_portals += src
 
@@ -673,7 +673,7 @@ This section is for the crystal monsters variations
 	stop_automated_movement_when_pulled = FALSE
 	wander = TRUE
 
-/mob/living/simple_animal/hostile/crystal_monster/Initialize()
+/mob/living/simple_animal/hostile/crystal_monster/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_TESLA_SHOCKIMMUNE, INNATE_TRAIT)
 

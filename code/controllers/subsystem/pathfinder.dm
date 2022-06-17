@@ -7,7 +7,7 @@ SUBSYSTEM_DEF(pathfinder)
 	var/static/space_type_cache
 	var/static/openspace_type_cache
 
-/datum/controller/subsystem/pathfinder/Initialize()
+/datum/controller/subsystem/pathfinder/Initialize(mapload)
 	space_type_cache = typecacheof(/turf/open/space)
 	openspace_type_cache = typecacheof(/turf/open/openspace)
 	mobs = new(10)

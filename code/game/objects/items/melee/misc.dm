@@ -49,7 +49,7 @@
 	attack_verb_simple = list("атакует", "разрезает", "колет", "режет", "рвет", "разрывает", "нарезает")
 	sharpness = SHARP_EDGED
 
-/obj/item/melee/synthetic_arm_blade/Initialize()
+/obj/item/melee/synthetic_arm_blade/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, 60, 80) //very imprecise
 
@@ -76,7 +76,7 @@
 	wound_bonus = 30
 	bare_wound_bonus = 55
 
-/obj/item/melee/sabre/Initialize()
+/obj/item/melee/sabre/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, 30, 95, 5) //fast and effective, but as a sword, it might damage the results.
 
@@ -207,7 +207,7 @@
 	var/stun_animation = TRUE
 
 
-/obj/item/melee/classic_baton/Initialize()
+/obj/item/melee/classic_baton/Initialize(mapload)
 	. = ..()
 	// Adding an extra break for the sake of presentation
 	if(stamina_damage != 0)
@@ -366,7 +366,7 @@
 	/// The force on extension.
 	var/active_force = 10
 
-/obj/item/melee/classic_baton/telescopic/Initialize()
+/obj/item/melee/classic_baton/telescopic/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/transforming, \
 		force_on = active_force, \
@@ -454,7 +454,7 @@
 	var/balanced = 1
 	force_string = "INFINITE"
 
-/obj/item/melee/supermatter_sword/Initialize()
+/obj/item/melee/supermatter_sword/Initialize(mapload)
 	. = ..()
 	shard = new /obj/machinery/power/supermatter_crystal(src)
 	qdel(shard.countdown)
@@ -581,7 +581,7 @@
 	/// Whether or stick is extended and can recieve sausage
 	var/extended = FALSE
 
-/obj/item/melee/roastingstick/Initialize()
+/obj/item/melee/roastingstick/Initialize(mapload)
 	. = ..()
 	if (!ovens)
 		ovens = typecacheof(list(/obj/singularity, /obj/energy_ball, /obj/machinery/power/supermatter_crystal, /obj/structure/bonfire))

@@ -126,7 +126,7 @@
 	attack_verb_continuous = list("играет","джаззует","трампетирует","горнирует","дудит","спукает")
 	attack_verb_simple = list("играет","джаззует","трампетирует","горнирует","дудит","спукает")
 
-/obj/item/instrument/trumpet/spectral/Initialize()
+/obj/item/instrument/trumpet/spectral/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/spooky)
 
@@ -150,7 +150,7 @@
 	attack_verb_continuous = list("играет","саксирует","горнирует","дудит","спукает")
 	attack_verb_simple = list("играет","саксирует","горнирует","дудит","спукает")
 
-/obj/item/instrument/saxophone/spectral/Initialize()
+/obj/item/instrument/saxophone/spectral/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/spooky)
 
@@ -174,7 +174,7 @@
 	attack_verb_continuous = list("играет","тромбирует","дудит","спукает")
 	attack_verb_simple = list("играет","тромбирует","дудит","спукает")
 
-/obj/item/instrument/trombone/spectral/Initialize()
+/obj/item/instrument/trombone/spectral/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/spooky)
 

@@ -514,7 +514,7 @@
 	icon_state = "pissbox"
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/storage/bag/pissbox/Initialize()
+/obj/item/storage/bag/pissbox/Initialize(mapload)
 	. = ..()
 	update_icon()
 

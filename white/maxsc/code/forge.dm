@@ -9,7 +9,7 @@
 	var/list/parts = list()
 	var/datum/reagent/selected_material
 
-/obj/machinery/forge/main/Initialize()
+/obj/machinery/forge/main/Initialize(mapload)
 	. = ..()
 	setup_parts()
 	create_reagents(150, REFILLABLE)

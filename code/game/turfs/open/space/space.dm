@@ -21,7 +21,7 @@
 	bullet_bounce_sound = null
 	vis_flags = VIS_INHERIT_ID	//when this be added to vis_contents of something it be associated with something on clicking, important for visualisation of turf in openspace and interraction with openspace that show you turf.
 
-/turf/open/space/basic/Initialize() // fast enough
+/turf/open/space/basic/Initialize(mapload) // fast enough
 	SHOULD_CALL_PARENT(FALSE)
 	icon_state = SPACE_ICON_STATE
 	if(!space_gas)
@@ -39,7 +39,7 @@
  *
  * Doesn't call parent, see [/atom/proc/Initialize]
  */
-/turf/open/space/Initialize()
+/turf/open/space/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE)
 	icon_state = SPACE_ICON_STATE
 	if(!space_gas)

@@ -23,7 +23,7 @@
 	vis_flags = VIS_INHERIT_ID
 	blocks_air = FALSE
 
-/turf/open/floor/dz/normal/Initialize()
+/turf/open/floor/dz/normal/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE)
 	vis_contents.Cut()
 	visibilityChanged()
@@ -83,7 +83,7 @@
 	name = "си-блок"
 	icon_state = "c_wall1"
 
-/turf/closed/dz/normal/cyber/Initialize()
+/turf/closed/dz/normal/cyber/Initialize(mapload)
 	. = ..()
 	if(prob(0.1))
 		icon_state = "c_wall2"
@@ -165,7 +165,7 @@
 		icon_state = "monitor_cracked"
 	return ..()
 
-/obj/lab_monitor/Initialize()
+/obj/lab_monitor/Initialize(mapload)
 	. = ..()
 	add_overlay(what_pic)
 
@@ -174,7 +174,7 @@
 	icon = 'white/valtos/icons/dz-031.dmi'
 	icon_state = "attention"
 
-/obj/effect/attack_spike/Initialize()
+/obj/effect/attack_spike/Initialize(mapload)
 	. = ..()
 	spawn(10)
 		icon_state = "spike_hole"
@@ -362,7 +362,7 @@
 	light_color = LIGHT_COLOR_CYAN
 	//var/mob/living/carbon/human/virtual_reality/vr_human
 
-/obj/machinery/cyberdeck/Initialize()
+/obj/machinery/cyberdeck/Initialize(mapload)
 	. = ..()
 	set_light(1)
 
@@ -397,7 +397,7 @@
 	light_color = LIGHT_COLOR_ORANGE
 	var/cur_deck = 0
 
-/obj/structure/sign/decksign/Initialize()
+/obj/structure/sign/decksign/Initialize(mapload)
 	. = ..()
 	add_overlay("deck-[cur_deck]")
 

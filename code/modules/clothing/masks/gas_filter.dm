@@ -95,7 +95,7 @@
 	desc = "Кусок многослойной фильтрационной ткани для использования в противогазах. Кажется он поврежден."
 	filter_status = 50 //override on initialize
 
-/obj/item/gas_filter/damaged/Initialize()
+/obj/item/gas_filter/damaged/Initialize(mapload)
 	. = ..()
 	filter_status = rand(35, 65)
 

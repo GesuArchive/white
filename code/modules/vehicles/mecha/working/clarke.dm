@@ -27,7 +27,7 @@
 	mecha_flags = ADDING_ACCESS_POSSIBLE | IS_ENCLOSED | HAS_LIGHTS
 	internals_req_access = list(ACCESS_MECH_ENGINE, ACCESS_MECH_SCIENCE, ACCESS_MECH_MINING)
 
-/obj/vehicle/sealed/mecha/working/clarke/Initialize()
+/obj/vehicle/sealed/mecha/working/clarke/Initialize(mapload)
 	. = ..()
 	box = new(src)
 

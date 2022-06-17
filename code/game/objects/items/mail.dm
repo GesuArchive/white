@@ -51,7 +51,7 @@
 	stamp_max = 2
 	stamp_offset_y = 5
 
-/obj/item/mail/Initialize()
+/obj/item/mail/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_MOVABLE_DISPOSING, .proc/disposal_handling)
 	AddElement(/datum/element/item_scaling, 0.75, 1)
@@ -198,7 +198,7 @@
 		disposal_holder.destinationTag = sort_tag
 
 /// Subtype that's always junkmail
-/obj/item/mail/junkmail/Initialize()
+/obj/item/mail/junkmail/Initialize(mapload)
 	. = ..()
 	junk_mail()
 
@@ -222,7 +222,7 @@
 	else
 		icon_state = "[initial(icon_state)]sealed"
 
-/obj/structure/closet/crate/mail/full/Initialize()
+/obj/structure/closet/crate/mail/full/Initialize(mapload)
 	. = ..()
 	var/list/mail_recipients = list()
 	for(var/mob/living/carbon/human/alive in GLOB.player_list)
@@ -270,7 +270,7 @@
 	icon_state = "scrap"
 	var/nuclear_option_odds = 100//0.1
 
-/obj/item/paper/fluff/junkmail_redpill/Initialize()
+/obj/item/paper/fluff/junkmail_redpill/Initialize(mapload)
 	. = ..()
 	if(!prob(nuclear_option_odds)) // 1 in 1000 chance of getting 2 random nuke code characters.
 		info = "<i>Тебе пора выходить из симуляции. Не забудь числа, они помогут тебе вспомнить:</i> '[rand(0,9)][rand(0,9)][rand(0,9)]...'"

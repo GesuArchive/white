@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(persistence)
 	var/list/obj/structure/sign/painting/painting_frames = list()
 	var/list/paintings = list()
 
-/datum/controller/subsystem/persistence/Initialize()
+/datum/controller/subsystem/persistence/Initialize(mapload)
 	LoadPoly()
 	LoadChiselMessages()
 	LoadTrophies()

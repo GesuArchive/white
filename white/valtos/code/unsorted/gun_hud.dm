@@ -1,7 +1,7 @@
 /datum/component/ammo_hud
 	var/atom/movable/screen/ammo_counter/hud
 
-/datum/component/ammo_hud/Initialize()
+/datum/component/ammo_hud/Initialize(mapload)
 	. = ..()
 	if(!istype(parent, /obj/item/gun) && !istype(parent, /obj/item/weldingtool))
 		return COMPONENT_INCOMPATIBLE

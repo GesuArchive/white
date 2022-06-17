@@ -46,7 +46,7 @@ RSF
 	///The verb that describes what we're doing, for use in text
 	var/action_type = "Dispensing"
 
-/obj/item/rsf/Initialize()
+/obj/item/rsf/Initialize(mapload)
 	. = ..()
 	to_dispense = cost_by_item[1]
 	dispense_cost = cost_by_item[to_dispense]
@@ -163,7 +163,7 @@ RSF
 	///The period between recharges
 	var/cooldowndelay = 10
 
-/obj/item/rsf/cookiesynth/Initialize()
+/obj/item/rsf/cookiesynth/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
 

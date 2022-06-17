@@ -1,7 +1,7 @@
 /datum/component/human_rocket
 	var/datum/component/funny_movement/mymovement
 
-/datum/component/human_rocket/Initialize()
+/datum/component/human_rocket/Initialize(mapload)
 	if(!isliving(parent))
 		return COMPONENT_INCOMPATIBLE
 

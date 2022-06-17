@@ -43,7 +43,7 @@
 	*/
 	var/list/module_traits = null
 
-/obj/item/robot_module/Initialize()
+/obj/item/robot_module/Initialize(mapload)
 	. = ..()
 	for(var/i in basic_modules)
 		var/obj/item/I = new i(src)

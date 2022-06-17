@@ -57,7 +57,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/open/openspace/fastload/New()
 	return
 
-/turf/open/openspace/fastload/Initialize()
+/turf/open/openspace/fastload/Initialize(mapload)
 	air = new
 	air.copy_from_turf(src)
 	update_air_ref(0)
@@ -81,7 +81,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/open/openspace/airless/planetary
 	planetary_atmos = TRUE
 
-/turf/open/openspace/Initialize() // handle plane and layer here so that they don't cover other obs/turfs in Dream Maker
+/turf/open/openspace/Initialize(mapload) // handle plane and layer here so that they don't cover other obs/turfs in Dream Maker
 	. = ..()
 	vis_contents += GLOB.openspace_backdrop_one_for_all //Special grey square for projecting backdrop darkness filter on it.
 	RegisterSignal(src, COMSIG_ATOM_CREATED, .proc/on_atom_created)
@@ -267,7 +267,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	planetary_atmos = TRUE
 	var/replacement_turf = /turf/open/floor/plating/asteroid/snow/icemoon
 
-/turf/open/openspace/icemoon/Initialize()
+/turf/open/openspace/icemoon/Initialize(mapload)
 	. = ..()
 	var/turf/T = below()
 	if(T.turf_flags & NO_RUINS)

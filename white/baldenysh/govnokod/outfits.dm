@@ -12,7 +12,7 @@
 	flags_cover = MASKCOVERSEYES
 	item_flags = NEEDS_PERMIT | ABSTRACT | DROPDEL
 
-/obj/item/clothing/mask/gas/tarelka/Initialize()
+/obj/item/clothing/mask/gas/tarelka/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, "Initialize")
 
@@ -21,7 +21,7 @@
 	resistance_flags = INDESTRUCTIBLE
 	item_flags = NEEDS_PERMIT | ABSTRACT | DROPDEL
 
-/obj/item/clothing/under/color/green/dreamer/Initialize()
+/obj/item/clothing/under/color/green/dreamer/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, "Initialize")
 	START_PROCESSING(SSobj, src)
@@ -134,7 +134,7 @@
 /mob/living/carbon/human/tdroid
 	ai_controller = /datum/ai_controller/tdroid
 
-/mob/living/carbon/human/tdroid/Initialize()
+/mob/living/carbon/human/tdroid/Initialize(mapload)
 	. = ..()
 	var/datum/ai_controller/tdroid/CTRL = ai_controller
 	for(var/mob/living/L in range(1))

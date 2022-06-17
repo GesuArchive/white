@@ -33,7 +33,7 @@
 	// productive variations
 	var/pv = 0
 
-/obj/structure/flora/tree/cataclysmdda/Initialize()
+/obj/structure/flora/tree/cataclysmdda/Initialize(mapload)
 	if(dv && prob(5))
 		icon_state = "[base_icon_state]d[rand(1, dv)]"
 	else if (pv && prob(1))

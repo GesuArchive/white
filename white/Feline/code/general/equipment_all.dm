@@ -619,7 +619,7 @@
 /obj/item/storage/belt/shotgun/rubbershot	//	Резиновая дробь
 	name = "патронташ - резиновая дробь"
 
-/obj/item/storage/belt/shotgun/rubbershot/Initialize()
+/obj/item/storage/belt/shotgun/rubbershot/Initialize(mapload)
 	. = ..()
 	add_overlay("riot")
 
@@ -630,7 +630,7 @@
 /obj/item/storage/belt/shotgun/beanbag	//	Резиновая пуля
 	name = "патронташ - резиновая пуля"
 
-/obj/item/storage/belt/shotgun/beanbag/Initialize()
+/obj/item/storage/belt/shotgun/beanbag/Initialize(mapload)
 	. = ..()
 	add_overlay("riot")
 
@@ -641,7 +641,7 @@
 /obj/item/storage/belt/shotgun/buckshot	//	Боевая картечь
 	name = "патронташ - картечь"
 
-/obj/item/storage/belt/shotgun/buckshot/Initialize()
+/obj/item/storage/belt/shotgun/buckshot/Initialize(mapload)
 	. = ..()
 	add_overlay("battle")
 
@@ -652,7 +652,7 @@
 /obj/item/storage/belt/shotgun/bullet	//	Боевая пуля
 	name = "патронташ - пулевой"
 
-/obj/item/storage/belt/shotgun/bullet/Initialize()
+/obj/item/storage/belt/shotgun/bullet/Initialize(mapload)
 	. = ..()
 	add_overlay("battle")
 

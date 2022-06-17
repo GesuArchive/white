@@ -26,7 +26,7 @@
 	desc = "Витрина для ценных вещей. Имеет небольшой дактильный замок сбоку - made by qwaszx000."
 	var/winner_key = null
 
-/obj/structure/displaycase/winner/Initialize()
+/obj/structure/displaycase/winner/Initialize(mapload)
 	. = ..()
 	if(start_showpieces.len > 0)
 		if("trophy_message" in start_showpieces)

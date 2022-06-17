@@ -35,7 +35,7 @@
 	for(var/obj/item/I in contents)
 		. += I.get_belt_overlay()
 
-/obj/item/storage/belt/Initialize()
+/obj/item/storage/belt/Initialize(mapload)
 	. = ..()
 	update_appearance()
 
@@ -438,7 +438,7 @@
 /obj/item/storage/belt/military/snack
 	name = "тактическая закусочная"
 
-/obj/item/storage/belt/military/snack/Initialize()
+/obj/item/storage/belt/military/snack/Initialize(mapload)
 	. = ..()
 	var/sponsor = pick("DonkCo", "Waffle Co.", "Roffle Co.", "Gorlax Marauders", "Tiger Cooperative")
 	desc = "Набор закусок, которые носят спортсмены спортивного отдела ВР [sponsor]."

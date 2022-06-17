@@ -25,7 +25,7 @@
 	var/list/screens = list()
 	var/curscreen = "main"
 
-/obj/item/cellphone/Initialize()
+/obj/item/cellphone/Initialize(mapload)
 	. = ..()
 
 	cc = new

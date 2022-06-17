@@ -12,7 +12,7 @@
 	var/buildstacktype = /obj/item/stack/sheet/iron //they're iron now, shut up
 	var/buildstackamount = 1
 
-/obj/structure/toilet/Initialize()
+/obj/structure/toilet/Initialize(mapload)
 	. = ..()
 	open = round(rand(0, 1))
 	update_icon()
@@ -192,7 +192,7 @@
 	dir = EAST
 	pixel_x = -32
 
-/obj/structure/urinal/Initialize()
+/obj/structure/urinal/Initialize(mapload)
 	. = ..()
 	hiddenitem = new /obj/item/food/urinalcake
 
@@ -517,7 +517,7 @@
 	var/busy = FALSE 	//Something's being washed at the moment
 	var/dispensedreagent = /datum/reagent/water // for whenever plumbing happens
 
-/obj/structure/water_source/Initialize()
+/obj/structure/water_source/Initialize(mapload)
 	. = ..()
 	create_reagents(100, NO_REACT)
 	reagents.add_reagent(dispensedreagent, 100)
@@ -762,7 +762,7 @@
 	GLOB.curtains -= src
 	return ..()
 
-/obj/structure/curtain/cloth/fancy/mechanical/Initialize()
+/obj/structure/curtain/cloth/fancy/mechanical/Initialize(mapload)
 	. = ..()
 	GLOB.curtains += src
 

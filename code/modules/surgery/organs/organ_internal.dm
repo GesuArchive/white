@@ -34,7 +34,7 @@
 
 	var/failure_time = 0
 
-/obj/item/organ/Initialize()
+/obj/item/organ/Initialize(mapload)
 	. = ..()
 	if(organ_flags & ORGAN_EDIBLE)
 		AddComponent(/datum/component/edible,\
@@ -138,7 +138,7 @@
 	if(damage > high_threshold)
 		. += "<hr><span class='warning'>[capitalize(src.name)] начинает обесцвечиваться.</span>"
 
-/obj/item/organ/Initialize()
+/obj/item/organ/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSobj, src)
 

@@ -10,7 +10,7 @@
 	icon_state = "cargo_headset"
 	keyslot = new /obj/item/encryptionkey/headset_faction
 
-/obj/item/radio/headset/headset_faction/Initialize()
+/obj/item/radio/headset/headset_faction/Initialize(mapload)
 	. = ..()
 	set_frequency(FREQ_FACTION)
 

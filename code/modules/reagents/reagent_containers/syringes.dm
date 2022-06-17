@@ -18,7 +18,7 @@
 	custom_price = PAYCHECK_EASY * 0.5
 	sharpness = SHARP_POINTY
 
-/obj/item/reagent_containers/syringe/Initialize()
+/obj/item/reagent_containers/syringe/Initialize(mapload)
 	. = ..()
 	if(list_reagents) //syringe starts in inject mode if its already got something inside
 		mode = SYRINGE_INJECT

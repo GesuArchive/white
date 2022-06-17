@@ -72,7 +72,7 @@
 	var/spawn_rect_width = 22
 	var/spawn_rect_height = 8
 
-/obj/structure/spider/cocoon/mycelium/Initialize()
+/obj/structure/spider/cocoon/mycelium/Initialize(mapload)
 	. = ..()
 	icon_state = "cocoon_large1"
 

@@ -212,7 +212,7 @@
 	foodtypes = DAIRY | SUGAR
 	food_flags = FOOD_FINGER_FOOD
 
-/obj/item/food/popsicle/Initialize()
+/obj/item/food/popsicle/Initialize(mapload)
 	. = ..()
 	bite_consumption = reagents.total_volume / bite_states
 

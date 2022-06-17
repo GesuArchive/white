@@ -42,7 +42,7 @@
 	var/random = TRUE //if you want random names for ghosts or not
 	discovery_points = 1000
 
-/mob/living/simple_animal/hostile/retaliate/ghost/Initialize()
+/mob/living/simple_animal/hostile/retaliate/ghost/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/simple_flying)
 	give_hair()

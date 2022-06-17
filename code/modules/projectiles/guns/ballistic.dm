@@ -94,7 +94,7 @@
 	var/suppressor_x_offset ///pixel offset for the suppressor overlay on the x axis.
 	var/suppressor_y_offset ///pixel offset for the suppressor overlay on the y axis.
 
-/obj/item/gun/ballistic/Initialize()
+/obj/item/gun/ballistic/Initialize(mapload)
 	. = ..()
 	if (!spawnwithmagazine)
 		bolt_locked = TRUE

@@ -11,7 +11,7 @@
 	var/lleg_glooed = FALSE
 	var/rleg_glooed = FALSE
 
-/datum/component/glooed/Initialize()
+/datum/component/glooed/Initialize(mapload)
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
 

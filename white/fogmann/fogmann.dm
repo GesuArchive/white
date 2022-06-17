@@ -24,7 +24,7 @@
 	icon_state = "cshell"
 	projectile_type = /obj/projectile/bullet/dart
 
-/obj/item/ammo_casing/shotgun/dart/sleeping/Initialize()
+/obj/item/ammo_casing/shotgun/dart/sleeping/Initialize(mapload)
 	. = ..()
 	reagents.add_reagent(/datum/reagent/toxin/sodium_thiopental, 20)
 
@@ -216,7 +216,7 @@
 	buildstackamount = 2
 	item_chair = null
 
-/obj/structure/chair/comfy/arm/Initialize()
+/obj/structure/chair/comfy/arm/Initialize(mapload)
 	armresttp = mutable_appearance('white/pieceofcrap.dmi', "comfychair_armrest")
 	armresttp.layer = ABOVE_MOB_LAYER
 	return ..()

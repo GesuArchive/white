@@ -16,7 +16,7 @@
 
 INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
-/obj/effect/landmark/Initialize()
+/obj/effect/landmark/Initialize(mapload)
 	. = ..()
 	GLOB.landmarks_list += src
 
@@ -38,7 +38,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	if(delete_after_roundstart)
 		qdel(src)
 
-/obj/effect/landmark/start/Initialize()
+/obj/effect/landmark/start/Initialize(mapload)
 	. = ..()
 	GLOB.start_landmarks_list += src
 	if(jobspawn_override)
@@ -280,7 +280,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon = 'icons/effects/landmarks_static.dmi'
 	icon_state = "wiznerd_spawn"
 
-/obj/effect/landmark/start/wizard/Initialize()
+/obj/effect/landmark/start/wizard/Initialize(mapload)
 	..()
 	GLOB.wizardstart += loc
 	return INITIALIZE_HINT_QDEL
@@ -290,7 +290,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon = 'icons/effects/landmarks_static.dmi'
 	icon_state = "snukeop_spawn"
 
-/obj/effect/landmark/start/nukeop/Initialize()
+/obj/effect/landmark/start/nukeop/Initialize(mapload)
 	..()
 	GLOB.nukeop_start += loc
 	return INITIALIZE_HINT_QDEL
@@ -300,7 +300,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon = 'icons/effects/landmarks_static.dmi'
 	icon_state = "snukeop_leader_spawn"
 
-/obj/effect/landmark/start/nukeop_leader/Initialize()
+/obj/effect/landmark/start/nukeop_leader/Initialize(mapload)
 	..()
 	GLOB.nukeop_leader_start += loc
 	return INITIALIZE_HINT_QDEL
@@ -312,7 +312,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 /obj/effect/landmark/start/new_player
 	name = "New Player"
 
-/obj/effect/landmark/start/new_player/Initialize()
+/obj/effect/landmark/start/new_player/Initialize(mapload)
 	..()
 	GLOB.newplayer_start += loc
 	return INITIALIZE_HINT_QDEL

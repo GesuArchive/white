@@ -17,7 +17,7 @@
 	///Does the mask have an FOV?
 	var/has_fov = FALSE
 
-/obj/item/clothing/mask/gas/Initialize()
+/obj/item/clothing/mask/gas/Initialize(mapload)
 	. = ..()
 	init_fov()
 	if(!max_filters)
@@ -122,7 +122,7 @@
 
 /obj/item/clothing/mask/gas/welding/up
 
-/obj/item/clothing/mask/gas/welding/up/Initialize()
+/obj/item/clothing/mask/gas/welding/up/Initialize(mapload)
 	. = ..()
 	visor_toggling()
 

@@ -29,7 +29,7 @@
 	set_vehicle_dir_offsets(EAST, -13, 0)
 	set_vehicle_dir_offsets(WEST, -26, 0)
 
-/obj/vehicle/ridden/forklift/Initialize()
+/obj/vehicle/ridden/forklift/Initialize(mapload)
 	. = ..()
 	add_overlay(overlay)
 	AddElement(/datum/element/ridable, /datum/component/riding/vehicle/forklift)

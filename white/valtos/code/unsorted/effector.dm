@@ -74,7 +74,7 @@
 	icon_state = "smoke"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
-/obj/effect/vaper_smoke/Initialize()
+/obj/effect/vaper_smoke/Initialize(mapload)
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
 

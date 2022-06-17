@@ -279,7 +279,7 @@
 	var/cargo_hold_id
 	var/interface_name = "CargoHoldTerminal"
 
-/obj/machinery/computer/piratepad_control/Initialize()
+/obj/machinery/computer/piratepad_control/Initialize(mapload)
 	..()
 	return INITIALIZE_HINT_LATELOAD
 

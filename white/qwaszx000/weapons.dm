@@ -42,7 +42,7 @@ Arrow&bow
 	. = ..()
 	to_chat(user, "Can hold [max_syringes] arrow\s. Has [syringes.len] arrow\s remaining.")
 
-/obj/item/gun/syringe/bow/Initialize()
+/obj/item/gun/syringe/bow/Initialize(mapload)
 	. = ..()
 
 	chambered = new /obj/item/ammo_casing/syringegun/bow(src)
@@ -204,7 +204,7 @@ see 'white/RedFoxIV/code/obj/weapons/misc.dm'
 
 
 
-/obj/item/gun/ballistic/xviii_rifle/Initialize()
+/obj/item/gun/ballistic/xviii_rifle/Initialize(mapload)
 	..()
 	magazine = null
 	chambered = new cartrige_type

@@ -33,7 +33,7 @@
 	var/imp_on_cd
 	var/imp_cd = 40 SECONDS //Кд на призыв нового импа.
 
-/mob/living/carbon/true_devil/Initialize()
+/mob/living/carbon/true_devil/Initialize(mapload)
 	create_bodyparts() //initialize bodyparts
 	create_internal_organs()
 	grant_all_languages()

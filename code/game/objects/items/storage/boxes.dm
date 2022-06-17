@@ -1195,7 +1195,7 @@
 	custom_price = PAYCHECK_HARD * 3
 	custom_premium_price = PAYCHECK_HARD * 3
 
-/obj/item/storage/box/gum/happiness/Initialize()
+/obj/item/storage/box/gum/happiness/Initialize(mapload)
 	. = ..()
 	if (prob(25))
 		desc += "Можно смутно разобрать слово «Гемопагоприл», которое когда-то было нацарапано на нем."

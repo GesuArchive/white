@@ -23,7 +23,7 @@
 	. = ..()
 	AddComponent(/datum/component/gps, "[scramble_message_replace_chars("#########", 100)]", TRUE)
 
-/obj/item/alienartifact/Initialize()
+/obj/item/alienartifact/Initialize(mapload)
 	. = ..()
 	effects = list()
 	for(var/i in 1 to pick(1, 500; 2, 70; 3, 20; 1))
@@ -60,7 +60,7 @@
 	sound_environment = SOUND_ENVIRONMENT_DRUGGED
 	static_lighting = FALSE
 
-/area/tear_in_reality/Initialize()
+/area/tear_in_reality/Initialize(mapload)
 	. = ..()
 	mood_message = span_warning("[scramble_message_replace_chars("###### ### #### ###### #######", 100)]!")
 
@@ -233,7 +233,7 @@
 /obj/effect/landmark/destabilization_loc
 	name = "destabilization spawn"
 
-/obj/effect/landmark/destabilization_loc/Initialize()
+/obj/effect/landmark/destabilization_loc/Initialize(mapload)
 	..()
 	GLOB.destabilization_spawns += get_turf(src)
 	return INITIALIZE_HINT_QDEL

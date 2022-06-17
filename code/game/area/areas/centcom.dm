@@ -89,7 +89,7 @@
 	icon_state = "supplypod_loading"
 	var/loading_id = "fuck"
 
-/area/centcom/supplypod/loading/Initialize()
+/area/centcom/supplypod/loading/Initialize(mapload)
 	. = ..()
 	if(!loading_id)
 		CRASH("[type] created without a loading_id")

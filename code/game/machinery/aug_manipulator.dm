@@ -15,7 +15,7 @@
 	if(storedpart)
 		. += "<hr><span class='notice'>ПКМ to eject the limb.</span>"
 
-/obj/machinery/aug_manipulator/Initialize()
+/obj/machinery/aug_manipulator/Initialize(mapload)
 	initial_icon_state = initial(icon_state)
 	return ..()
 

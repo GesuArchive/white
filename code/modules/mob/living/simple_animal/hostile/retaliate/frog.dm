@@ -34,7 +34,7 @@
 	head_icon = 'icons/mob/animal_item_head.dmi'
 	var/stepped_sound = 'sound/effects/huuu.ogg'
 
-/mob/living/simple_animal/hostile/retaliate/frog/Initialize()
+/mob/living/simple_animal/hostile/retaliate/frog/Initialize(mapload)
 	. = ..()
 	if(prob(1))
 		name = "rare frog"

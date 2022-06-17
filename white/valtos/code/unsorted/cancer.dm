@@ -346,7 +346,7 @@
 /obj/effect/step_trigger/sans
 	var/mob/living/simple_animal/hostile/megafauna/sans/sansy
 
-/obj/effect/step_trigger/sans/Initialize()
+/obj/effect/step_trigger/sans/Initialize(mapload)
 	. = ..()
 	for(var/mob/living/simple_animal/hostile/megafauna/sans/G in view(7, src))
 		if(!sansy)
@@ -373,7 +373,7 @@
 	icon_state = "bone"
 	duration = 3
 
-/obj/effect/temp_visual/bone/Initialize()
+/obj/effect/temp_visual/bone/Initialize(mapload)
 	. = ..()
 	SpinAnimation(1, -1)
 
@@ -381,7 +381,7 @@
 	layer = FLY_LAYER
 	pixel_z = 270
 
-/obj/effect/temp_visual/bone/fromsky/Initialize()
+/obj/effect/temp_visual/bone/fromsky/Initialize(mapload)
 	. = ..()
 	animate(src, pixel_z = 0, time = duration)
 /* ха ха закомменчу и не буду переделывать валера андртейл саси

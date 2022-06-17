@@ -13,7 +13,7 @@
 	var/obj/item/stock_parts/cell/infinite/power_source
 
 
-/obj/structure/grille/indestructable/shocking/Initialize()
+/obj/structure/grille/indestructable/shocking/Initialize(mapload)
 	. = ..()
 	power_source = new
 
@@ -53,7 +53,7 @@
 	icon_state = "barrier0"
 	alpha = 100
 
-/obj/effect/murderdome/dead_barricade/Initialize()
+/obj/effect/murderdome/dead_barricade/Initialize(mapload)
 	. = ..()
 	addtimer(CALLBACK(src, .proc/respawn), 3 MINUTES)
 

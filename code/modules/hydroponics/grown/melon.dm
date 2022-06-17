@@ -94,7 +94,7 @@
 	SEND_SIGNAL(holy_person, COMSIG_ADD_MOOD_EVENT, "Divine_chew", /datum/mood_event/holy_consumption)
 	return FOOD_LIKED
 
-/obj/item/food/grown/holymelon/Initialize()
+/obj/item/food/grown/holymelon/Initialize(mapload)
 	. = ..()
 	var/uses = 1
 	if(seed)

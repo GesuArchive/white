@@ -3,7 +3,7 @@
 	var/energy_drain_mod = 1
 	var/aiming = FALSE
 
-/datum/component/mecha_weapon_shooter/Initialize()
+/datum/component/mecha_weapon_shooter/Initialize(mapload)
 	if(!iscarbon(parent))
 		return COMPONENT_INCOMPATIBLE
 

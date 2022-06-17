@@ -34,7 +34,7 @@
 	// randomizes hunting intervals, minimum 5 turns
 	var/time_to_hunt = 5
 
-/mob/living/simple_animal/ant/Initialize()
+/mob/living/simple_animal/ant/Initialize(mapload)
 	. = ..()
 	time_to_hunt = rand(5,10)
 

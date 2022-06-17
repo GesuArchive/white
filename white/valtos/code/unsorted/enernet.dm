@@ -113,7 +113,7 @@
 	var/suck_rate = 2000000
 	var/datum/looping_sound/enernet_coil/soundloop
 
-/obj/machinery/enernet_coil/Initialize()
+/obj/machinery/enernet_coil/Initialize(mapload)
 	. = ..()
 	soundloop = new(list(src), TRUE)
 	soundloop.stop()

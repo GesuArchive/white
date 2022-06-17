@@ -32,7 +32,7 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 	///Output reagents container
 	var/obj/item/reagent_containers/beaker2
 
-/obj/machinery/chem_mass_spec/Initialize()
+/obj/machinery/chem_mass_spec/Initialize(mapload)
 	. = ..()
 	beaker2 = new /obj/item/reagent_containers/glass/beaker/large(src)
 	ADD_TRAIT(src, DO_NOT_SPLASH, src.type)

@@ -12,7 +12,7 @@ SUBSYSTEM_DEF(killcounter)
 	var/list/datum/killstreak_counter/killstreak_tracker = list()
 
 
-/datum/controller/subsystem/killcounter/Initialize()
+/datum/controller/subsystem/killcounter/Initialize(mapload)
 	. = ..()
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, .proc/on_mob_death)
 	//RegisterSignal(SSdcs, COMSIG_GLOB_EXPLOSION, .proc/on_batrudinov)

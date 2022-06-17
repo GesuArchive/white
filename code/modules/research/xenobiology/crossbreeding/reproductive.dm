@@ -19,7 +19,7 @@ Reproductive extracts:
 	. = ..()
 	. += span_danger("Уже скушал [length(contents)] кубов.")
 
-/obj/item/slimecross/reproductive/Initialize()
+/obj/item/slimecross/reproductive/Initialize(mapload)
 	. = ..()
 	slimeStorage = AddComponent(/datum/component/storage/concrete/extract_inventory)
 

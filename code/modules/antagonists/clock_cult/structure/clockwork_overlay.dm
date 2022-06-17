@@ -34,7 +34,7 @@
 	canSmoothWith = list(SMOOTH_GROUP_SILVER_WALLS)
 	layer = CLOSED_TURF_LAYER
 
-/obj/effect/clockwork/overlay/wall/Initialize()
+/obj/effect/clockwork/overlay/wall/Initialize(mapload)
 	. = ..()
 	QUEUE_SMOOTH_NEIGHBORS(src)
 

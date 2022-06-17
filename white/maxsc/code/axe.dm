@@ -19,7 +19,7 @@
 	max_integrity = 200
 	var/wielded = TRUE
 
-/obj/item/paxe/Initialize()
+/obj/item/paxe/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
 
@@ -54,7 +54,7 @@
 	var/recharge_time = 600
 	var/wielded = TRUE
 
-/obj/item/paxee/Initialize()
+/obj/item/paxee/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
 

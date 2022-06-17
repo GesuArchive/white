@@ -24,7 +24,7 @@
 	var/last_request = 0
 	var/medipen_cd = 60 SECONDS
 
-/obj/machinery/medipen_refiller/Initialize()
+/obj/machinery/medipen_refiller/Initialize(mapload)
 	. = ..()
 	create_reagents(100, TRANSPARENT)
 	for(var/obj/item/stock_parts/matter_bin/B in component_parts)

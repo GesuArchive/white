@@ -59,7 +59,7 @@
 	var/static/beehometypecache = typecacheof(/obj/structure/beebox)
 	var/static/hydroponicstypecache = typecacheof(/obj/machinery/hydroponics)
 
-/mob/living/simple_animal/hostile/poison/bees/Initialize()
+/mob/living/simple_animal/hostile/poison/bees/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
 	generate_bee_visuals()
@@ -245,7 +245,7 @@
 /mob/living/simple_animal/hostile/poison/bees/will_escape_storage()
 	return TRUE
 
-/mob/living/simple_animal/hostile/poison/bees/toxin/Initialize()
+/mob/living/simple_animal/hostile/poison/bees/toxin/Initialize(mapload)
 	. = ..()
 	var/datum/reagent/R = pick(typesof(/datum/reagent/toxin))
 	assign_reagent(GLOB.chemical_reagents_list[R])
@@ -321,7 +321,7 @@
 	..()
 
 
-/obj/item/queen_bee/bought/Initialize()
+/obj/item/queen_bee/bought/Initialize(mapload)
 	. = ..()
 	queen = new(src)
 
@@ -353,7 +353,7 @@
 	icon_state = "bee_item"
 	var/datum/reagent/beegent
 
-/obj/item/trash/bee/Initialize()
+/obj/item/trash/bee/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/edible, list(/datum/reagent/consumable/nutriment/vitamin = 5), null, RAW | MEAT | GROSS, 10, 0, list("bee"), null, 10)
 

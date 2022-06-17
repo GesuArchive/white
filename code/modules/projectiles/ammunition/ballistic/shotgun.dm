@@ -135,7 +135,7 @@
 	projectile_type = /obj/projectile/bullet/dart
 	var/reagent_amount = 30
 
-/obj/item/ammo_casing/shotgun/dart/Initialize()
+/obj/item/ammo_casing/shotgun/dart/Initialize(mapload)
 	. = ..()
 	create_reagents(reagent_amount, OPENCONTAINER)
 
@@ -145,7 +145,7 @@
 /obj/item/ammo_casing/shotgun/dart/bioterror
 	desc = "Патрон наполненный смертельными токсинами."
 
-/obj/item/ammo_casing/shotgun/dart/bioterror/Initialize()
+/obj/item/ammo_casing/shotgun/dart/bioterror/Initialize(mapload)
 	. = ..()
 	reagents.add_reagent(/datum/reagent/consumable/ethanol/neurotoxin, 6)
 	reagents.add_reagent(/datum/reagent/toxin/spore, 6)

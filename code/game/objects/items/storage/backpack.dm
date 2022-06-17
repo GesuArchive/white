@@ -95,7 +95,7 @@
 	inhand_icon_state = "giftbag"
 	w_class = WEIGHT_CLASS_BULKY
 
-/obj/item/storage/backpack/santabag/Initialize()
+/obj/item/storage/backpack/santabag/Initialize(mapload)
 	. = ..()
 	regenerate_presents()
 
@@ -401,7 +401,7 @@
 	inhand_icon_state = "duffel-drone"
 	slowdown = 0
 
-/obj/item/storage/backpack/duffelbag/c4_no_slowdown/Initialize()
+/obj/item/storage/backpack/duffelbag/c4_no_slowdown/Initialize(mapload)
 	. = ..()
 	add_overlay(duffel_anti_slow_overlay)
 
@@ -422,7 +422,7 @@
 	///counts time passed since it ate food
 	var/hunger = 0
 
-/obj/item/storage/backpack/duffelbag/cursed/Initialize()
+/obj/item/storage/backpack/duffelbag/cursed/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSobj,src)
 	ADD_TRAIT(src, TRAIT_NODROP, "duffelbag")

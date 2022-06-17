@@ -11,7 +11,7 @@
 	max_integrity = 200
 	var/obj/item/noz
 
-/obj/item/morozko/Initialize()
+/obj/item/morozko/Initialize(mapload)
 	. = ..()
 	noz = make_noz()
 
@@ -104,7 +104,7 @@
 
 	var/obj/item/morozko/tank
 
-/obj/item/morozko_nuzzle/Initialize()
+/obj/item/morozko_nuzzle/Initialize(mapload)
 	. = ..()
 	tank = loc
 	if(!istype(tank))

@@ -28,7 +28,7 @@
 /obj/item/gun/ballistic/automatic/fallout/railgun/make_jamming()
 	return
 
-/obj/item/gun/ballistic/automatic/fallout/railgun/Initialize()
+/obj/item/gun/ballistic/automatic/fallout/railgun/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/automatic_fire_funny, 0.01)
 	RemoveElement(/datum/element/jamming) // not funny

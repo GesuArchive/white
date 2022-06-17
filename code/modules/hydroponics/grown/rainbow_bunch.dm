@@ -34,7 +34,7 @@
 	attack_verb_continuous = list("шлёпает")
 	attack_verb_simple = list("шлёпает")
 
-/obj/item/food/grown/rainbow_flower/Initialize()
+/obj/item/food/grown/rainbow_flower/Initialize(mapload)
 	. = ..()
 	var/flower_color = rand(1,8)
 	switch(flower_color)

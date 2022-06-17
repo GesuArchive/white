@@ -36,7 +36,7 @@
 	icon_state = "medical"
 	build_path = /obj/machinery/mecha_part_fabricator/med
 
-/obj/machinery/mecha_part_fabricator/med/Initialize()
+/obj/machinery/mecha_part_fabricator/med/Initialize(mapload)
 	. = ..()
 	add_overlay("med")
 
@@ -77,7 +77,7 @@
 	icon_state = "engineering"
 	build_path = /obj/machinery/mecha_part_fabricator/engi
 
-/obj/machinery/mecha_part_fabricator/engi/Initialize()
+/obj/machinery/mecha_part_fabricator/engi/Initialize(mapload)
 	. = ..()
 	add_overlay("engi")
 
@@ -118,7 +118,7 @@
 	icon_state = "science"
 	build_path = /obj/machinery/mecha_part_fabricator/sci
 
-/obj/machinery/mecha_part_fabricator/sci/Initialize()
+/obj/machinery/mecha_part_fabricator/sci/Initialize(mapload)
 	. = ..()
 	add_overlay("sci")
 
@@ -170,7 +170,7 @@
 /datum/component/storage/concrete/rped/x10
 	max_items = 10
 
-/obj/item/storage/part_replacer/stock_parts_box_x10/Initialize()
+/obj/item/storage/part_replacer/stock_parts_box_x10/Initialize(mapload)
 	. = ..()
 	if(contents.len)
 		var/obj/item/I = contents[1]

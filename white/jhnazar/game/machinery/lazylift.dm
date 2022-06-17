@@ -199,7 +199,7 @@ That's it, ok bye!
 	turbolift_end_sound = sound('white/jhnazar/sound/effects/lift/lift_end.ogg')
 	play_voice_lines = FALSE //Fancy, silent lift.
 
-/obj/machinery/lazylift/Initialize()
+/obj/machinery/lazylift/Initialize(mapload)
 	. = ..()
 	become_hearing_sensitive()
 	for(var/turf/T in get_area(src))
@@ -222,7 +222,7 @@ That's it, ok bye!
 			continue
 		addresses += AR
 
-/obj/machinery/lazylift/master/Initialize()
+/obj/machinery/lazylift/master/Initialize(mapload)
 	. = ..()
 	master = src
 	var/turf/T = get_turf(src)

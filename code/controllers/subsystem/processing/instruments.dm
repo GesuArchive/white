@@ -22,7 +22,7 @@ PROCESSING_SUBSYSTEM_DEF(instruments)
 	var/static/list/synthesizer_instrument_ids
 	var/static/list/note_sustain_modes = list("Linear" = SUSTAIN_LINEAR, "Exponential" = SUSTAIN_EXPONENTIAL)
 
-/datum/controller/subsystem/processing/instruments/Initialize()
+/datum/controller/subsystem/processing/instruments/Initialize(mapload)
 	initialize_instrument_data()
 	synthesizer_instrument_ids = get_allowed_instrument_ids()
 	return ..()

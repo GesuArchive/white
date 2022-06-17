@@ -84,7 +84,7 @@ GLOBAL_LIST_INIT(generated_tacmaps, list())
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/tacmap, 32)
 
-/obj/tacmap/Initialize()
+/obj/tacmap/Initialize(mapload)
 	. = ..()
 	update_icon()
 

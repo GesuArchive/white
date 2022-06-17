@@ -76,7 +76,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 	var/datum/action/item_action/toggle_computer_light/light_butt
 
-/obj/item/modular_computer/Initialize()
+/obj/item/modular_computer/Initialize(mapload)
 	. = ..()
 
 	var/obj/item/computer_hardware/identifier/id = all_components[MC_IDENTIFY]

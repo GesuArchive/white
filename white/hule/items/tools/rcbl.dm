@@ -19,7 +19,7 @@
 	var/c_id = ""
 	var/mode = 1
 
-/obj/item/conv_printer/Initialize()
+/obj/item/conv_printer/Initialize(mapload)
 	. = ..()
 
 /obj/item/conv_printer/examine(mob/user)

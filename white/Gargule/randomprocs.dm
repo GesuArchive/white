@@ -33,7 +33,7 @@
 	qdel(src)
 
 
-/mob/living/carbon/human/species/lizard/Initialize()
+/mob/living/carbon/human/species/lizard/Initialize(mapload)
 	..()
 	if(src.dna.features["tail_lizard"] == "Alien")
 		src.dna.features["tail_lizard"] = "Smooth"

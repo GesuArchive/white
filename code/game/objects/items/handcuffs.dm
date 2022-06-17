@@ -247,7 +247,7 @@
 	var/armed = 0
 	var/trap_damage = 20
 
-/obj/item/restraints/legcuffs/beartrap/Initialize()
+/obj/item/restraints/legcuffs/beartrap/Initialize(mapload)
 	. = ..()
 	update_icon()
 	var/static/list/loc_connections = list(
@@ -322,7 +322,7 @@
 	item_flags = DROPDEL
 	flags_1 = NONE
 
-/obj/item/restraints/legcuffs/beartrap/energy/Initialize()
+/obj/item/restraints/legcuffs/beartrap/energy/Initialize(mapload)
 	. = ..()
 	addtimer(CALLBACK(src, .proc/dissipate), 100)
 

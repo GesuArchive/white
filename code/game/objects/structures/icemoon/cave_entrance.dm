@@ -21,7 +21,7 @@ GLOBAL_LIST_INIT(ore_probability, list(
 	move_resist = INFINITY
 	anchored = TRUE
 
-/obj/structure/spawner/ice_moon/Initialize()
+/obj/structure/spawner/ice_moon/Initialize(mapload)
 	. = ..()
 	clear_rock()
 
@@ -109,7 +109,7 @@ GLOBAL_LIST_INIT(ore_probability, list(
 	anchored = TRUE
 	density = TRUE
 
-/obj/effect/collapsing_demonic_portal/Initialize()
+/obj/effect/collapsing_demonic_portal/Initialize(mapload)
 	. = ..()
 	playsound(loc,'sound/effects/tendril_destroyed.ogg', 200, FALSE, 50, TRUE, TRUE)
 	visible_message(span_boldannounce("[capitalize(src.name)] begins to collapse, cutting it off from this world!"))

@@ -58,7 +58,7 @@
 	name = "Произвести массанаута (ERROR)"
 	desc = "Производит сильного, умного массанаута из производящей массы за (ERROR) ресурсов.<br>Завод станет хрупким и не сможет производить споры."
 
-/atom/movable/screen/blob/blobbernaut/Initialize()
+/atom/movable/screen/blob/blobbernaut/Initialize(mapload)
 	. = ..()
 	name = "Произвести массанаута ([BLOBMOB_BLOBBERNAUT_RESOURCE_COST])"
 	desc = "Производит сильного, умного массанаута из производящей массы за [BLOBMOB_BLOBBERNAUT_RESOURCE_COST] ресурсов.<br>Завод станет хрупким и не сможет производить споры."
@@ -74,7 +74,7 @@
 	name = "Произвсти ресурсную массу (ERROR)"
 	desc = "Производит ресурсную массу за ERROR ресурсов.<br>Ресурсная масса будет предоставлять ресурсы каждые несколько секунд."
 
-/atom/movable/screen/blob/resource_blob/Initialize()
+/atom/movable/screen/blob/resource_blob/Initialize(mapload)
 	. = ..()
 	name = "Произвсти ресурсную массу ([BLOB_STRUCTURE_RESOURCE_COST])"
 	desc = "Производит ресурсную массу за [BLOB_STRUCTURE_RESOURCE_COST] ресурсов.<br>Ресурсная масса будет предоставлять ресурсы каждые несколько секунд."
@@ -90,7 +90,7 @@
 	name = "Произвести родительскую массу (ERROR)"
 	desc = "Производит родительскую массу за ERROR ресурсов.<br>Родительская масса будет расширяться и активировать близлежащие ресурсные и производящие массы."
 
-/atom/movable/screen/blob/node_blob/Initialize()
+/atom/movable/screen/blob/node_blob/Initialize(mapload)
 	. = ..()
 	name = "Произвести родительскую массу ([BLOB_STRUCTURE_NODE_COST])"
 	desc = "Производит родительскую массу за [BLOB_STRUCTURE_NODE_COST] ресурсов.<br>Родительская масса будет расширяться и активировать близлежащие ресурсные и производящие массы."
@@ -106,7 +106,7 @@
 	name = "Произвести производящую массу (ERROR)"
 	desc = "Производит производящую массу за ERROR ресурсов.<br>Производящая масса будет производить споры каждые несколько секунд."
 
-/atom/movable/screen/blob/factory_blob/Initialize()
+/atom/movable/screen/blob/factory_blob/Initialize(mapload)
 	. = ..()
 	name = "Произвести производящую массу ([BLOB_STRUCTURE_FACTORY_COST])"
 	desc = "Производит производящую массу за [BLOB_STRUCTURE_FACTORY_COST] ресурсов.<br>Производящая масса будет производить споры каждые несколько секунд."
@@ -144,7 +144,7 @@
 	name = "Переместить ядро (ERROR)"
 	desc = "Меняет местами ядро и родительскую массу за ERROR ресурсов."
 
-/atom/movable/screen/blob/relocate_core/Initialize()
+/atom/movable/screen/blob/relocate_core/Initialize(mapload)
 	. = ..()
 	name = "Переместить ядро ([BLOB_POWER_RELOCATE_COST])"
 	desc = "Меняет местами ядро и родительскую массу за [BLOB_POWER_RELOCATE_COST] ресурсов."

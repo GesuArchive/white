@@ -21,7 +21,7 @@
 
 
 //legendary ass wipes
-/obj/item/gun/ballistic/shotgun/makeshift/Initialize()
+/obj/item/gun/ballistic/shotgun/makeshift/Initialize(mapload)
 	. = ..()
 	jamchance = rand(5,25) //TODO: золотой ореол вокруг дробовиков с шансом клина 5 процентов
 	update_icon()

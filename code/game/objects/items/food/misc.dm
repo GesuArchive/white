@@ -10,7 +10,7 @@
 	tastes = list("сыр" = 1)
 	foodtypes = DAIRY
 
-/obj/item/food/cheesewheel/Initialize()
+/obj/item/food/cheesewheel/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/food_storage)
 
@@ -117,7 +117,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_CHEAP
 
-/obj/item/food/fries/Initialize()
+/obj/item/food/fries/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/dunkable, 10)
 
@@ -131,7 +131,7 @@
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/food/tatortot/Initialize()
+/obj/item/food/tatortot/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/dunkable, 10)
 
@@ -156,7 +156,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	venue_value = FOOD_PRICE_CHEAP
 
-/obj/item/food/cheesyfries/Initialize()
+/obj/item/food/cheesyfries/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/dunkable, 10)
 
@@ -169,7 +169,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	preserved_food = TRUE //Can't decompose any more than this
 
-/obj/item/food/badrecipe/Initialize()
+/obj/item/food/badrecipe/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_ITEM_GRILLED, .proc/OnGrill)
 
@@ -179,7 +179,7 @@
 	food_reagents = list(/datum/reagent/consumable/mold = 30)
 	color = "#781948"
 
-/obj/item/food/badrecipe/moldy/Initialize()
+/obj/item/food/badrecipe/moldy/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_MOLD, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 25)
 
@@ -197,7 +197,7 @@
 	foodtypes = VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/food/carrotfries/Initialize()
+/obj/item/food/carrotfries/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/dunkable, 10)
 
@@ -513,7 +513,7 @@
 	slot_flags = ITEM_SLOT_MASK
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/food/chewable/lollipop/Initialize()
+/obj/item/food/chewable/lollipop/Initialize(mapload)
 	. = ..()
 	head = mutable_appearance('icons/obj/lollipop.dmi', "lollipop_head")
 	change_head_color(rgb(rand(0, 255), rand(0, 255), rand(0, 255)))
@@ -532,7 +532,7 @@
 /obj/item/food/chewable/lollipop/cyborg
 	var/spamchecking = TRUE
 
-/obj/item/food/chewable/lollipop/cyborg/Initialize()
+/obj/item/food/chewable/lollipop/cyborg/Initialize(mapload)
 	. = ..()
 	addtimer(CALLBACK(src, .proc/spamcheck), 1200)
 
@@ -624,14 +624,14 @@
 	slot_flags = ITEM_SLOT_MASK
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/food/chewable/gumball/Initialize()
+/obj/item/food/chewable/gumball/Initialize(mapload)
 	. = ..()
 	color = rgb(rand(0, 255), rand(0, 255), rand(0, 255))
 
 /obj/item/food/chewable/gumball/cyborg
 	var/spamchecking = TRUE
 
-/obj/item/food/chewable/gumball/cyborg/Initialize()
+/obj/item/food/chewable/gumball/cyborg/Initialize(mapload)
 	. = ..()
 	addtimer(CALLBACK(src, .proc/spamcheck), 1200)
 

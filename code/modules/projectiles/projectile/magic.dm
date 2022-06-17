@@ -402,7 +402,7 @@
 	var/locker_suck = TRUE
 	var/datum/weakref/locker_ref
 
-/obj/projectile/magic/locker/Initialize()
+/obj/projectile/magic/locker/Initialize(mapload)
 	. = ..()
 	var/obj/structure/closet/decay/locker_temp_instance = new(src)
 	locker_ref = WEAKREF(locker_temp_instance)
@@ -448,7 +448,7 @@
 	var/weakened_icon = "decursed"
 	var/auto_destroy = TRUE
 
-/obj/structure/closet/decay/Initialize()
+/obj/structure/closet/decay/Initialize(mapload)
 	. = ..()
 	if(auto_destroy)
 		addtimer(CALLBACK(src, .proc/bust_open), 5 MINUTES)

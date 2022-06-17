@@ -16,7 +16,7 @@
 	var/self_delay = 0 //pills are instant, this is because patches inheret their aplication from pills
 	var/dissolvable = TRUE
 
-/obj/item/reagent_containers/pill/Initialize()
+/obj/item/reagent_containers/pill/Initialize(mapload)
 	. = ..()
 	if(!icon_state)
 		icon_state = "pill[rand(1,20)]"
@@ -268,7 +268,7 @@
 	var/static/list/descs = list("Ваш инстинкт самосохранения говорит вам \"нет\", но когда вы его слушали...","Наркотики стоят дорого, а вы не настолько богаты чтобы отвыкнуть от привычки тащить в рот все что найдете."\
 	, "Да ладно, ну что может пойти не так?", "О! Вкусняшка!", "Бесплатные таблетки? Как же мне сегодня везет!")
 
-/obj/item/reagent_containers/pill/maintenance/Initialize()
+/obj/item/reagent_containers/pill/maintenance/Initialize(mapload)
 	list_reagents = list(get_random_reagent_id() = rand(10,50)) //list_reagents is called before init, because init generates the reagents using list_reagents
 	. = ..()
 	name = pick(names)

@@ -19,7 +19,7 @@
 	var/crate_climb_time = 20
 	var/obj/item/paper/fluff/jobs/cargo/manifest/manifest
 
-/obj/structure/closet/crate/Initialize()
+/obj/structure/closet/crate/Initialize(mapload)
 	. = ..()
 	if(icon_state == "[initial(icon_state)]open")
 		opened = TRUE
@@ -104,7 +104,7 @@
 	for(var/i in 1 to rand(2,6))
 		new /obj/effect/spawner/lootdrop/maintenance(src)
 
-/obj/structure/closet/crate/trashcart/Initialize()
+/obj/structure/closet/crate/trashcart/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_SLUDGE, CELL_VIRUS_TABLE_GENERIC, rand(2,3), 15)
 
@@ -163,7 +163,7 @@
 	recursive_organ_check(src)
 	return ..()
 
-/obj/structure/closet/crate/freezer/Initialize()
+/obj/structure/closet/crate/freezer/Initialize(mapload)
 	. = ..()
 	recursive_organ_check(src)
 

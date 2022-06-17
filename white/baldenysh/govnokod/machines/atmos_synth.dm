@@ -26,7 +26,7 @@
 	if(wrong_mix)
 		. += "<hr><span class=notice>ОШИБКА: Отсутствуют необходимые газы или пропорции не соотвествуют нормам.</span>"
 
-/obj/machinery/power/atmos_synthesizer/Initialize()
+/obj/machinery/power/atmos_synthesizer/Initialize(mapload)
 	. = ..()
 	if(anchored)
 		connect_to_network()

@@ -48,7 +48,7 @@
 
 /obj/structure/spider/stickyweb/expand
 
-/obj/structure/spider/stickyweb/expand/Initialize()
+/obj/structure/spider/stickyweb/expand/Initialize(mapload)
 	. = ..()
 	for(var/T in circle_view_turfs(src, 1))
 		if(!isclosedturf(T))

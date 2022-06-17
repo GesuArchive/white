@@ -104,7 +104,7 @@
 	engine_coeff = 30
 
 /*
-/obj/docking_port/mobile/bearcat/Initialize()
+/obj/docking_port/mobile/bearcat/Initialize(mapload)
 	. = ..()
 	register()
 */

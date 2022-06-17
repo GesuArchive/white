@@ -25,7 +25,7 @@
 	var/show_charge_meter = TRUE									//показывать ли заряд вставленной батареи при экзамайне оружия
 	var/can_eject = TRUE											//:thinking:
 
-/obj/item/gun/energy/cellgun/Initialize()
+/obj/item/gun/energy/cellgun/Initialize(mapload)
 	. = ..()
 	if(spawn_with_cell)
 		cell = new cell_type(src)

@@ -258,7 +258,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 	maptext_width = 96
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
-/atom/movable/screen/station_height/Initialize()
+/atom/movable/screen/station_height/Initialize(mapload)
 	. = ..()
 	flicker_animation()
 	overlays += icon('white/valtos/icons/station.png')

@@ -79,7 +79,7 @@
 
 	var/custom_skin_name = null
 
-/obj/item/gun/Initialize()
+/obj/item/gun/Initialize(mapload)
 	. = ..()
 	if(pin)
 		pin = new pin(src)

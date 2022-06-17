@@ -8,7 +8,7 @@
 	title = "Сборник Приколов!"
 	dat = null
 
-/obj/item/book/killbook/Initialize()
+/obj/item/book/killbook/Initialize(mapload)
 	. = ..()
 	icon_state = "book[rand(1,7)]"
 	name = "Сборник [pick("приколов","анекдотов","юморесок")] [pick("от кодербаса", "от Нуждина", "про болоны", "про бимбы", "про ассистентов", "про вардена")]"

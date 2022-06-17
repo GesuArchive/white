@@ -9,7 +9,7 @@
 	var/independent = FALSE
 	var/list/channels = list()
 
-/obj/item/encryptionkey/Initialize()
+/obj/item/encryptionkey/Initialize(mapload)
 	. = ..()
 	if(!channels.len && !translate_binary)
 		desc += "Никаких специальных кодов в нем нет. Вы, наверное, должны сказать кодеру!"

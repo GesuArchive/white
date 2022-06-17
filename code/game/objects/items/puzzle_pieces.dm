@@ -120,7 +120,7 @@
 	var/reward = /obj/item/food/cookie
 	var/claimed = FALSE
 
-/obj/item/pressure_plate/hologrid/Initialize()
+/obj/item/pressure_plate/hologrid/Initialize(mapload)
 	. = ..()
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = .proc/on_entered,

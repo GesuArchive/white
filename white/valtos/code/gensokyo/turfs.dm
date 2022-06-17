@@ -27,7 +27,7 @@
 	baseturfs = /turf/open/floor/grass/gensgrass/dirty
 	var/stoned = FALSE
 
-/turf/open/floor/grass/gensgrass/Initialize()
+/turf/open/floor/grass/gensgrass/Initialize(mapload)
 	. = ..()
 	if(nospawn)
 		return

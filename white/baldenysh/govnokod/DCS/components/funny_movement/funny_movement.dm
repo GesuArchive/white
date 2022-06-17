@@ -27,7 +27,7 @@
 	var/original_animate_movement
 	var/list/client/affected_viewers = list()
 
-/datum/component/funny_movement/Initialize()
+/datum/component/funny_movement/Initialize(mapload)
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
 

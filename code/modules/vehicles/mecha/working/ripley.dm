@@ -122,7 +122,7 @@
 	name = "\improper APLU \"Miner\""
 	obj_integrity = 75 //Low starting health
 
-/obj/vehicle/sealed/mecha/working/ripley/mining/Initialize()
+/obj/vehicle/sealed/mecha/working/ripley/mining/Initialize(mapload)
 	. = ..()
 	if(cell)
 		cell.charge = FLOOR(cell.charge * 0.25, 1) //Starts at very low charge
@@ -151,7 +151,7 @@
 	base_icon_state = "hauler"
 	max_integrity = 100 //Has half the health of a normal RIPLEY mech, so it's harder to use as a weapon.
 
-/obj/vehicle/sealed/mecha/working/ripley/cargo/Initialize()
+/obj/vehicle/sealed/mecha/working/ripley/cargo/Initialize(mapload)
 	. = ..()
 	if(cell)
 		cell.charge = FLOOR(cell.charge * 0.25, 1) //Starts at very low charge

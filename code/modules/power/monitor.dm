@@ -29,7 +29,7 @@
 	. = ..()
 	. += "<hr><span class='notice'>Операционная система кажется устаревшей... Походу она не совместима с новейшими системами удалённого контроля NTOS.</span>"
 
-/obj/machinery/computer/monitor/Initialize()
+/obj/machinery/computer/monitor/Initialize(mapload)
 	. = ..()
 	search()
 	history["supply"] = list()

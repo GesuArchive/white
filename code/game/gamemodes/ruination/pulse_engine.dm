@@ -18,7 +18,7 @@
 	. += span_danger("\nМинимальная мощность: [minimum_power]%")
 	. += span_notice("<hr>Похоже, если его неплохо так поколотить, то он станет работать <b>намного [user?.mind?.has_antag_datum(/datum/antagonist/traitor/ruiner) ? "лучше" : "хуже"]</b>.")
 
-/obj/structure/pulse_engine/Initialize()
+/obj/structure/pulse_engine/Initialize(mapload)
 	. = ..()
 	soundloop = new(src, engine_active)
 

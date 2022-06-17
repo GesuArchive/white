@@ -33,7 +33,7 @@
 	held_state = "mouse_gray"
 	faction = list("rat")
 
-/mob/living/simple_animal/mouse/Initialize()
+/mob/living/simple_animal/mouse/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/squeak, list('sound/effects/mousesqueek.ogg'=1), 100, extrarange = SHORT_RANGE_SOUND_EXTRARANGE) //as quiet as a mouse or whatever
 	if(!body_color)
@@ -191,7 +191,7 @@
 	pet_bonus = TRUE
 	pet_bonus_emote = "squeaks happily!"
 
-/mob/living/simple_animal/mouse/brown/tom/Initialize()
+/mob/living/simple_animal/mouse/brown/tom/Initialize(mapload)
 	. = ..()
 	// Tom fears no cable.
 	ADD_TRAIT(src, TRAIT_SHOCKIMMUNE, SPECIES_TRAIT)
@@ -207,7 +207,7 @@
 	foodtypes = GROSS | MEAT | RAW
 	grind_results = list(/datum/reagent/blood = 20, /datum/reagent/liquidgibs = 5)
 
-/obj/item/food/deadmouse/Initialize()
+/obj/item/food/deadmouse/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_MOUSE, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 10)
 

@@ -21,7 +21,7 @@
 	light_color = "#ffeac1"
 
 
-/obj/item/flashlight/Initialize()
+/obj/item/flashlight/Initialize(mapload)
 	. = ..()
 	if(icon_state == "[initial(icon_state)]-on")
 		on = TRUE
@@ -287,7 +287,7 @@
 	light_system = MOVABLE_LIGHT
 	grind_results = list(/datum/reagent/sulfur = 15)
 
-/obj/item/flashlight/flare/Initialize()
+/obj/item/flashlight/flare/Initialize(mapload)
 	. = ..()
 	fuel = rand(1600, 2000)
 
@@ -355,7 +355,7 @@
 	on_damage = 10
 	slot_flags = null
 
-/obj/item/flashlight/flare/torch/Initialize()
+/obj/item/flashlight/flare/torch/Initialize(mapload)
 	. = ..()
 	fuel = rand(8000, 9000)
 
@@ -473,7 +473,7 @@
 	var/fuel = 0
 
 
-/obj/item/flashlight/glowstick/Initialize()
+/obj/item/flashlight/glowstick/Initialize(mapload)
 	fuel = rand(3200, 4000)
 	set_light_color(color)
 	return ..()
@@ -566,7 +566,7 @@
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "random_glowstick"
 
-/obj/effect/spawner/lootdrop/glowstick/Initialize()
+/obj/effect/spawner/lootdrop/glowstick/Initialize(mapload)
 	loot = typesof(/obj/item/flashlight/glowstick)
 	. = ..()
 

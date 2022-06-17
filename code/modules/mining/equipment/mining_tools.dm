@@ -79,7 +79,7 @@
 	desc = "Интегрированная электрическая буровая установка."
 	flags_1 = NONE
 
-/obj/item/pickaxe/drill/cyborg/Initialize()
+/obj/item/pickaxe/drill/cyborg/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CYBORG_ITEM_TRAIT)
 
@@ -139,7 +139,7 @@
 	attack_verb_simple = list("колотит", "ударяет", "колошматит", "вмазывает")
 	sharpness = SHARP_EDGED
 
-/obj/item/shovel/Initialize()
+/obj/item/shovel/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, 150, 40) //it's sharp, so it works, but barely.
 

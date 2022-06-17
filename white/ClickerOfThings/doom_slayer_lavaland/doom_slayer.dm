@@ -78,7 +78,7 @@ VAZHNOE (ili ne osobo) PRIMECHANIE/\/\/\
 	armor = list("melee" = 90, "bullet" = 80, "laser" = 60, "energy" = 60, "bomb" = 90, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	resistance_flags = FIRE_PROOF | LAVA_PROOF | ACID_PROOF | INDESTRUCTIBLE | FREEZE_PROOF
 
-/obj/item/clothing/head/helmet/space/hostile_environment/doom_slayer/Initialize()
+/obj/item/clothing/head/helmet/space/hostile_environment/doom_slayer/Initialize(mapload)
 	. = ..()
 	add_trait(TRAIT_NODROP)
 
@@ -94,7 +94,7 @@ VAZHNOE (ili ne osobo) PRIMECHANIE/\/\/\
 	armor = list("melee" = 90, "bullet" = 80, "laser" = 60, "energy" = 60, "bomb" = 90, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	allowed = list(/obj/item/tank/internals)
 
-/obj/item/clothing/suit/space/hostile_environment/doom_slayer/Initialize()
+/obj/item/clothing/suit/space/hostile_environment/doom_slayer/Initialize(mapload)
 	. = ..()
 	add_trait(TRAIT_NODROP)
 
@@ -102,7 +102,7 @@ VAZHNOE (ili ne osobo) PRIMECHANIE/\/\/\
 	name = "Doom Slayer mask"
 	desc = "Praetor mask that gives Doom Slayer access to oxygen in space."
 
-/obj/item/clothing/mask/gas/doom_slayer/Initialize()
+/obj/item/clothing/mask/gas/doom_slayer/Initialize(mapload)
 	. = ..()
 	add_trait(TRAIT_NODROP)
 
@@ -116,7 +116,7 @@ VAZHNOE (ili ne osobo) PRIMECHANIE/\/\/\
 	icon_state = "jackboots"
 	item_color = "jackboots"
 
-/obj/item/clothing/shoes/doom_slayer/Initialize()
+/obj/item/clothing/shoes/doom_slayer/Initialize(mapload)
 	. = ..()
 	add_trait(TRAIT_NODROP)
 

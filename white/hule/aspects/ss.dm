@@ -15,7 +15,7 @@ SUBSYSTEM_DEF(aspects)
 
 	var/datum/round_aspect/current_aspect
 
-/datum/controller/subsystem/aspects/Initialize()
+/datum/controller/subsystem/aspects/Initialize(mapload)
 	for(var/item in typesof(/datum/round_aspect))
 		var/datum/round_aspect/A = new item()
 		aspects[A] = A.weight

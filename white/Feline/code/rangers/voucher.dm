@@ -190,7 +190,7 @@
 
 	var/datum/effect_system/spark_spread/sparks
 
-/obj/item/melee/sabre/proton_cutter/Initialize()	// 	Искры
+/obj/item/melee/sabre/proton_cutter/Initialize(mapload)	// 	Искры
 	. = ..()
 	sparks = new
 	sparks.set_up(5, 0, src)

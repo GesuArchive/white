@@ -8,7 +8,7 @@
 	anchored = 1
 	opacity = 1
 
-/obj/structure/flora/rospilovo/bush/Initialize()
+/obj/structure/flora/rospilovo/bush/Initialize(mapload)
 	..()
 	icon_state = "very_tall_grass_[rand(5,8)]"
 
@@ -20,7 +20,7 @@
 	color = "#ffffaa"
 	broken_states = list("sand1", "sand2", "sand3", "sand4")
 
-/turf/open/floor/grass/rospilovo/Initialize()
+/turf/open/floor/grass/rospilovo/Initialize(mapload)
 	. = ..()
 	icon_state = "grass[rand(1, 5)]"
 	if (prob(70))
@@ -51,7 +51,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	icon_state = "wood1"
 
-/turf/open/floor/rospilovo/wood/Initialize()
+/turf/open/floor/rospilovo/wood/Initialize(mapload)
 	. = ..()
 	icon_state = "wood[rand(1, 6)]"
 
@@ -60,21 +60,21 @@
 	desc = "Очень грязная."
 	icon_state = "plitka1"
 
-/turf/open/floor/rospilovo/plitka/Initialize()
+/turf/open/floor/rospilovo/plitka/Initialize(mapload)
 	. = ..()
 	icon_state = "plitka[rand(1, 7)]"
 
 /turf/open/floor/rospilovo/plitka/full
 	icon_state = "plita1"
 
-/turf/open/floor/rospilovo/plitka/full/Initialize()
+/turf/open/floor/rospilovo/plitka/full/Initialize(mapload)
 	. = ..()
 	icon_state = "plita[rand(1, 4)]"
 
 /turf/open/floor/rospilovo/plitka/old
 	icon_state = "plitka_old1"
 
-/turf/open/floor/rospilovo/plitka/old/Initialize()
+/turf/open/floor/rospilovo/plitka/old/Initialize(mapload)
 	. = ..()
 	icon_state = "plitka_old[rand(1, 8)]"
 
@@ -157,7 +157,7 @@
 	alpha = 225
 	max_integrity = 5
 
-/obj/structure/flora/ausbushes/rospilovo/Initialize()
+/obj/structure/flora/ausbushes/rospilovo/Initialize(mapload)
 	if(icon_state == "firstbush_1")
 		icon_state = "firstbush_[rand(1, 4)]"
 	if(prob(50))
@@ -171,105 +171,105 @@
 /obj/structure/flora/ausbushes/rospilovo/reedbush
 	icon_state = "reedbush_1"
 
-/obj/structure/flora/ausbushes/rospilovo/reedbush/Initialize()
+/obj/structure/flora/ausbushes/rospilovo/reedbush/Initialize(mapload)
 	icon_state = "reedbush_[rand(1, 4)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/rospilovo/leafybush
 	icon_state = "leafybush_1"
 
-/obj/structure/flora/ausbushes/rospilovo/leafybush/Initialize()
+/obj/structure/flora/ausbushes/rospilovo/leafybush/Initialize(mapload)
 	icon_state = "leafybush_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/rospilovo/palebush
 	icon_state = "palebush_1"
 
-/obj/structure/flora/ausbushes/rospilovo/palebush/Initialize()
+/obj/structure/flora/ausbushes/rospilovo/palebush/Initialize(mapload)
 	icon_state = "palebush_[rand(1, 4)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/rospilovo/stalkybush
 	icon_state = "stalkybush_1"
 
-/obj/structure/flora/ausbushes/rospilovo/stalkybush/Initialize()
+/obj/structure/flora/ausbushes/rospilovo/stalkybush/Initialize(mapload)
 	icon_state = "stalkybush_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/rospilovo/grassybush
 	icon_state = "grassybush_1"
 
-/obj/structure/flora/ausbushes/rospilovo/grassybush/Initialize()
+/obj/structure/flora/ausbushes/rospilovo/grassybush/Initialize(mapload)
 	icon_state = "grassybush_[rand(1, 4)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/rospilovo/fernybush
 	icon_state = "fernybush_1"
 
-/obj/structure/flora/ausbushes/rospilovo/fernybush/Initialize()
+/obj/structure/flora/ausbushes/rospilovo/fernybush/Initialize(mapload)
 	icon_state = "fernybush_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/rospilovo/sunnybush
 	icon_state = "sunnybush_1"
 
-/obj/structure/flora/ausbushes/rospilovo/sunnybush/Initialize()
+/obj/structure/flora/ausbushes/rospilovo/sunnybush/Initialize(mapload)
 	icon_state = "sunnybush_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/rospilovo/genericbush
 	icon_state = "genericbush_1"
 
-/obj/structure/flora/ausbushes/rospilovo/genericbush/Initialize()
+/obj/structure/flora/ausbushes/rospilovo/genericbush/Initialize(mapload)
 	icon_state = "genericbush_[rand(1, 4)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/rospilovo/pointybush
 	icon_state = "pointybush_1"
 
-/obj/structure/flora/ausbushes/rospilovo/pointybush/Initialize()
+/obj/structure/flora/ausbushes/rospilovo/pointybush/Initialize(mapload)
 	icon_state = "pointybush_[rand(1, 4)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/rospilovo/lavendergrass
 	icon_state = "lavendergrass_1"
 
-/obj/structure/flora/ausbushes/rospilovo/lavendergrass/Initialize()
+/obj/structure/flora/ausbushes/rospilovo/lavendergrass/Initialize(mapload)
 	icon_state = "lavendergrass_[rand(1, 4)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/rospilovo/ywflowers
 	icon_state = "ywflowers_1"
 
-/obj/structure/flora/ausbushes/rospilovo/ywflowers/Initialize()
+/obj/structure/flora/ausbushes/rospilovo/ywflowers/Initialize(mapload)
 	icon_state = "ywflowers_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/rospilovo/brflowers
 	icon_state = "brflowers_1"
 
-/obj/structure/flora/ausbushes/rospilovo/brflowers/Initialize()
+/obj/structure/flora/ausbushes/rospilovo/brflowers/Initialize(mapload)
 	icon_state = "brflowers_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/rospilovo/ppflowers
 	icon_state = "ppflowers_1"
 
-/obj/structure/flora/ausbushes/rospilovo/ppflowers/Initialize()
+/obj/structure/flora/ausbushes/rospilovo/ppflowers/Initialize(mapload)
 	icon_state = "ppflowers_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/rospilovo/sparsegrass
 	icon_state = "sparsegrass_1"
 
-/obj/structure/flora/ausbushes/rospilovo/sparsegrass/Initialize()
+/obj/structure/flora/ausbushes/rospilovo/sparsegrass/Initialize(mapload)
 	icon_state = "sparsegrass_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/rospilovo/fullgrass
 	icon_state = "fullgrass_1"
 
-/obj/structure/flora/ausbushes/rospilovo/fullgrass/Initialize()
+/obj/structure/flora/ausbushes/rospilovo/fullgrass/Initialize(mapload)
 	icon_state = "fullgrass_[rand(1, 3)]"
 	. = ..()
 
@@ -288,7 +288,7 @@
 	density = 0
 	opacity = 0
 
-/obj/structure/rospilovo/okno/Initialize()
+/obj/structure/rospilovo/okno/Initialize(mapload)
 	. = ..()
 	var/turf/T = get_turf(src)
 	if(isclosedturf(T))

@@ -29,7 +29,7 @@
 	///research points stored
 	var/stored_research = 0
 
-/obj/machinery/power/rad_collector/anchored/Initialize()
+/obj/machinery/power/rad_collector/anchored/Initialize(mapload)
 	. = ..()
 	set_anchored(TRUE)
 
