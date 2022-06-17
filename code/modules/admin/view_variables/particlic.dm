@@ -38,7 +38,7 @@
 			drift	vector	Added acceleration every tick; e.g. a circle or sphere generator can be applied to produce snow or ember effects
 */
 
-var/list/master_particle_info = list()
+GLOBAL_LIST_EMPTY(master_particle_info)
 
 /client/proc/open_particle_editor(atom/in_atom)
 	if(holder)
@@ -81,7 +81,7 @@ var/list/master_particle_info = list()
 
 /datum/particle_editor/ui_static_data(mob/user)
 	var/list/data = list()
-	data["particle_info"] = master_particle_info
+	data["particle_info"] = GLOB.master_particle_info
 	return data
 
 /datum/particle_editor/ui_data()
