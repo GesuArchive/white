@@ -419,7 +419,7 @@
 			inc_metabalance(H, current_task.prize, reason = "Задание выполнено.")
 			var/obj/item/card/id/cardid = H.get_idcard(FALSE)
 			cardid?.registered_account?.adjust_money(rand(5000, 10000))
-			var/obj/item/armament_points_card/APC = locate() in H
+			var/obj/item/armament_points_card/APC = locate() in H.get_all_gear()
 			if(APC)
 				APC.points += 10
 				APC.update_maptext()
