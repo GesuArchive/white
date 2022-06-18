@@ -43,7 +43,7 @@
 	return ..()
 
 /obj/vehicle/sealed/car/vim/mob_try_enter(mob/entering)
-	if(!isanimal(entering))
+	if(!isliving(entering))
 		return FALSE
 	var/mob/living/animal_or_basic = entering
 	if(animal_or_basic.mob_size > maximum_mob_size)
