@@ -11,6 +11,7 @@
 	desc = "Парит. Гы."
 	icon = 'white/valtos/icons/effector.dmi'
 	icon_state = "effector"
+	layer = ABOVE_ALL_MOB_LAYER
 	var/workdir = "up"
 	var/datum/looping_sound/effector_vaper/soundloop
 	var/temp_cd = 30
