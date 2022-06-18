@@ -253,7 +253,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 
 /atom/movable/screen/station_height
 	icon = 'white/valtos/icons/line.png'
-	screen_loc = "BOTTOM:420, RIGHT-3:48"
+	screen_loc = "BOTTOM:420, RIGHT:48"
 	maptext_y = -4
 	maptext_width = 96
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT

@@ -188,4 +188,4 @@
 #define ui_ammocounter "RIGHT-1:12,CENTER-5:8"
 
 //Ruination
-#define ui_station_height "BOTTOM, RIGHT-3"
+#define ui_station_height "BOTTOM, RIGHT"
