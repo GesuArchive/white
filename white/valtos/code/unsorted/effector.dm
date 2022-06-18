@@ -11,10 +11,17 @@
 	desc = "Парит. Гы."
 	icon = 'white/valtos/icons/effector.dmi'
 	icon_state = "effector"
-	var/workout = TRUE
 	var/workdir = "up"
 	var/datum/looping_sound/effector_vaper/soundloop
 	var/temp_cd = 30
+	particles = new /particles/vaper_smoke
+
+/obj/machinery/effector/Initialize(mapload)
+	. = ..()
+	soundloop = new(src, TRUE)
+	soundloop.start()
+	if(workdir != "up")
+		particles.gravity = list(0, -1)
 
 /obj/machinery/effector/attack_hand(mob/living/user)
 	if(Adjacent(user) && user.pulling)
@@ -52,31 +59,16 @@
 	QDEL_NULL(soundloop)
 	return ..()
 
-/obj/machinery/effector/process()
-	if(temp_cd < 30)
-		temp_cd++
-	if(workout)
-		soundloop = new(src, TRUE)
-		soundloop.start()
-		workout = FALSE
-	//var/obj/effect/vaper_smoke/S = new(get_turf(src))
-	//switch(workdir)
-	//	if("up")
-	//		animate(S, pixel_y = 64, pixel_x = rand(-12, 12), transform = matrix()*2, alpha = 0, time = 40)
-	//	if("down")
-	//		animate(S, pixel_y = -64, pixel_x = rand(-12, 12), transform = matrix()*2, alpha = 0, time = 40)
-
-/obj/effect/vaper_smoke
-	name = "пар"
-	alpha = 60
-	layer = FLY_LAYER
+/particles/vaper_smoke
 	icon = 'white/valtos/icons/effector.dmi'
 	icon_state = "smoke"
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-
-/obj/effect/vaper_smoke/Initialize(mapload)
-	. = ..()
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/effect/vaper_smoke/LateInitialize()
-	QDEL_IN(src, 80)
+	width = 64
+	height = 128
+	count = 10
+	spawning = 1
+	lifespan = 10
+	fade = 7
+	fadein = 7
+	position = generator("box", list(2,2,0), list(-2,-2,50))
+	scale = generator("num", 0.5, 0.7)
+	gravity = list(0, 1)
