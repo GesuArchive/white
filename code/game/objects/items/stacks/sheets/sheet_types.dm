@@ -114,6 +114,8 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	new/datum/stack_recipe("рамка для кнопки", /obj/item/wallframe/button, 1), \
 	null, \
 	new/datum/stack_recipe("железная дверь", /obj/structure/mineral_door/iron, 20, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("картотека", /obj/structure/filingcabinet, 2, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("звонок", /obj/structure/desk_bell, 2, time = 3 SECONDS), \
 	new/datum/stack_recipe("каркас прожектора", /obj/structure/floodlight_frame, 5, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("ящик для голосования", /obj/structure/votebox, 15, time = 50), \
 	new/datum/stack_recipe("пестик", /obj/item/pestle, 1, time = 50), \

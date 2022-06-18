@@ -545,3 +545,55 @@
 				A.name = created_name
 				qdel(I)
 				qdel(src)
+
+//Vim Assembly
+/obj/item/bot_assembly/vim
+	name = "каркас вима"
+	desc = "Космошлем с ножками. Нужна вторая нога, похоже."
+	icon_state = "vim_0"
+	created_name = "Vim"
+
+/obj/item/bot_assembly/vim/attackby(obj/item/part, mob/user, params)
+	. = ..()
+	if(.)
+		return
+	switch(build_step)
+		if(ASSEMBLY_FIRST_STEP)
+			if(istype(part, /obj/item/bodypart/l_leg/robot) || istype(part, /obj/item/bodypart/r_leg/robot))
+				if(!user.temporarilyRemoveItemFromInventory(part))
+					return
+				balloon_alert(user, "нога установлена")
+				icon_state = "vim_1"
+				desc = "Незавершённый механизм. Нет фонарика."
+				qdel(part)
+				build_step++
+
+		if(ASSEMBLY_SECOND_STEP)
+			if(istype(part, /obj/item/flashlight))
+				if(!user.temporarilyRemoveItemFromInventory(part))
+					return
+				balloon_alert(user, "фонарик установлен")
+				icon_state = "vim_2"
+				desc = "Незавершённый механизм. Фонарик не прикручен."
+				qdel(part)
+				build_step++
+
+		if(ASSEMBLY_THIRD_STEP)
+			if(part.tool_behaviour == TOOL_SCREWDRIVER)
+				balloon_alert(user, "прикручиваем...")
+				if(!part.use_tool(src, user, 4 SECONDS, volume=100))
+					return
+				balloon_alert(user, "фонарик прикручен")
+				icon_state = "vim_3"
+				desc = "Незавершённый механизм. Почти всё готово, осталось добавить голосовой модуль."
+				build_step++
+
+		if(ASSEMBLY_FOURTH_STEP)
+			if(istype(part, /obj/item/assembly/voice))
+				if(!can_finish_build(part, user))
+					return
+				balloon_alert(user, "сборка завершена")
+				var/obj/vehicle/sealed/car/vim/new_vim = new(drop_location())
+				new_vim.name = created_name
+				qdel(part)
+				qdel(src)

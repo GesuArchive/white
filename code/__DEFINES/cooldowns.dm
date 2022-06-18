@@ -39,6 +39,9 @@
 //car cooldowns
 #define COOLDOWN_CAR_HONK "car_honk"
 
+//wheelchair bell cooldown
+#define COOLDOWN_BELL "bell_cooldown"
+
 //clown car cooldowns
 #define COOLDOWN_CLOWNCAR_RANDOMNESS "clown_car_randomness"
 
