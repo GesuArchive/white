@@ -108,6 +108,11 @@
 	if(banged_limb)
 		description = "<span class='warning'>My fucking [banged_limb.name], man that hurts...</span>\n"
 
+/datum/mood_event/fried
+	description = "<span class='warning'>МОЁ ЛИЦО ПРОЖАРИЛИ!</span>\n"
+	mood_change = -8
+	timeout = 10 MINUTES
+
 /datum/mood_event/brain_damage
 	mood_change = -6
 

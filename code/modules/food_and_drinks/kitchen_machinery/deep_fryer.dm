@@ -139,6 +139,7 @@ GLOBAL_LIST_INIT(oilfry_blacklisted_items, typecacheof(list(
 		if(reagents.reagent_list) //This can runtime if reagents has nothing in it.
 			reagents.remove_any((reagents.total_volume/2))
 		C.Paralyze(60)
+		SEND_SIGNAL(C, COMSIG_ADD_MOOD_EVENT, "fryer", /datum/mood_event/fried)
 		user.changeNext_move(CLICK_CD_MELEE)
 	return ..()
 
