@@ -69,6 +69,6 @@
 	lifespan = 10
 	fade = 7
 	fadein = 7
-	position = generator("box", list(2,2,0), list(-2,-2,50))
+	position = generator("box", list(2,2,0), list(-2,-2,0))
 	scale = generator("num", 0.5, 0.7)
 	gravity = list(0, 1)

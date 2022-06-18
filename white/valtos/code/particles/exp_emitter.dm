@@ -208,3 +208,43 @@
 		z_particles[z_level_str] = new/particles/snow/grey/tile
 	particles = z_particles[z_level_str]
 
+/particles/mist
+	icon = 'white/valtos/icons/particles.dmi'
+	icon_state = "mistcloud1"
+	width = 608
+	height = 480
+	count = 50
+	spawning = 25
+	lifespan = 125
+	fade = 125
+	fadein = 125
+	position = generator("box", list(-304,-240,0), list(304,240,0))
+	velocity = generator("num", 0.1, -0.1)
+	scale = generator("num", 2, 3)
+
+/particles/mist/tile
+	width = 96
+	height = 96
+	count = 5
+	spawning = 1.1
+	position = generator("box", list(-96,96,0), list(96,96,0))
+
+/obj/effect/particle_mist
+	particles = new/particles/mist
+	var/static/list/particles/z_particles
+	layer = FLY_LAYER
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/obj/effect/particle_mist/client_attach
+	screen_loc = "CENTER"
+
+/obj/effect/particle_mist/tile
+	particles = null
+
+/obj/effect/particle_mist/tile/New()
+	..()
+	LAZYINITLIST(z_particles)
+	var/z_level_str = "\"[src.loc.z]\""
+	if(!z_particles[z_level_str])
+		z_particles[z_level_str] = new/particles/mist/tile
+	particles = z_particles[z_level_str]
