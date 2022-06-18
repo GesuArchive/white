@@ -213,7 +213,7 @@
 	icon_state = "mistcloud1"
 	width = 608
 	height = 480
-	count = 50
+	count = 500
 	spawning = 25
 	lifespan = 125
 	fade = 125
