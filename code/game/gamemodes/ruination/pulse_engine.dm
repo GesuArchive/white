@@ -16,7 +16,7 @@
 	. = ..()
 	. += span_danger("<hr>Текущая мощность: [engine_power]%")
 	. += span_danger("\nМинимальная мощность: [minimum_power]%")
-	. += span_notice("<hr>Похоже, если его неплохо так поколотить, то он станет работать <b>намного [user?.mind?.has_antag_datum(/datum/antagonist/traitor/ruiner) ? "лучше" : "хуже"]</b>.")
+	. += span_notice("<hr>Похоже, если его неплохо так поколотить, то он станет работать <b>намного [(user?.mind?.has_antag_datum(/datum/antagonist/traitor/ruiner) || user?.mind?.has_antag_datum(/datum/antagonist/ert)) ? "лучше" : "хуже"]</b>.")
 
 /obj/structure/pulse_engine/Initialize(mapload)
 	. = ..()
@@ -29,7 +29,7 @@
 
 /obj/structure/pulse_engine/attack_hand(mob/user)
 	. = ..()
-	if(user?.mind?.has_antag_datum(/datum/antagonist/traitor/ruiner) && is_station_level(user.z))
+	if((user?.mind?.has_antag_datum(/datum/antagonist/traitor/ruiner) || user?.mind?.has_antag_datum(/datum/antagonist/ert)) && is_station_level(user.z))
 		var/turf/T = get_turf(src)
 		var/area/A = get_area(T)
 		if(istype(A, /area/space) || isinspace())

@@ -24,7 +24,7 @@
 * antag_datum_leader - инстанс датума антага для лидера (а-ля new /datum/antagonist/ert/janitor/heavy)
 * antag_datum - инстанс датума антага для остальных членов команды.
 */
-/proc/general_ert_request(mission, team_name, team_name_genitive_case, antag_datum_leader, antag_datum_member, mob/Sender, cost = 0)
+/proc/general_ert_request(mission, team_name, team_name_genitive_case, antag_datum_leader, antag_datum_member, mob/Sender, cost = 0, return_ert_list = FALSE)
 	var/msg = copytext_char(sanitize(mission), 1, MAX_MESSAGE_LEN)
 	var/teamname_gc = copytext_char(sanitize(team_name_genitive_case), 1, MAX_MESSAGE_LEN)
 	var/teamname = copytext_char(sanitize(team_name), 1, MAX_MESSAGE_LEN)
@@ -51,6 +51,7 @@
 		ert_team.mission = missionobj
 
 		var/list/spawnpoints = GLOB.emergencyresponseteamspawn
+		var/list/ert_list = list()
 		var/index = 0
 		while(numagents && candidates.len)
 			var/spawnloc = spawnpoints[index+1]
@@ -81,6 +82,7 @@
 			log_game("[key_name(ERTOperative)] has been selected as an [ert_antag.name]")
 			numagents--
 			teamSpawned++
+			LAZYADD(ert_list, ERTOperative)
 
 		if(Sender)
 			if (teamSpawned)
@@ -91,21 +93,24 @@
 				message_admins("[Sender] не смог вызвать [teamname] с миссией: [msg]")
 				to_chat(Sender, span_alert("Не удалось найти свободные позиции для запроса. Средства не были потрачены."))
 
-		return TRUE
+		if(return_ert_list)
+			return ert_list
+		else
+			return TRUE
 	else
 		return FALSE
 
-/proc/janitor_ert_request(input, usr, cost)
-	general_ert_request(input, "бригада уборщиков", "бригаду уборщиков", new /datum/antagonist/ert/janitor/heavy, new /datum/antagonist/ert/janitor, usr, cost)
+/proc/janitor_ert_request(input, usr, cost, return_ert_list)
+	return general_ert_request(input, "бригада уборщиков", "бригаду уборщиков", new /datum/antagonist/ert/janitor/heavy, new /datum/antagonist/ert/janitor, usr, cost = cost, return_ert_list = return_ert_list)
 
-/proc/omon_ert_request(input, usr, cost)
-	general_ert_request(input, "СОБР", "СОБР", new /datum/antagonist/ert/sobr/leader, new /datum/antagonist/ert/sobr, usr)
+/proc/omon_ert_request(input, usr, cost, return_ert_list)
+	return general_ert_request(input, "СОБР", "СОБР", new /datum/antagonist/ert/sobr/leader, new /datum/antagonist/ert/sobr, usr, cost = cost, return_ert_list = return_ert_list)
 
-/proc/engineer_ert_request(input, usr, cost)
-	general_ert_request(input, "Ремонтная бригада", "ремонтную бригаду", new /datum/antagonist/ert/engineer/red, new /datum/antagonist/ert/engineer, usr)
+/proc/engineer_ert_request(input, usr, cost, return_ert_list)
+	return general_ert_request(input, "Ремонтная бригада", "ремонтную бригаду", new /datum/antagonist/ert/engineer/red, new /datum/antagonist/ert/engineer, usr, cost = cost, return_ert_list = return_ert_list)
 
-/proc/deathsquad_request(input, cumshit)
-	general_ert_request(input, "Отряд смерти", "отряд смерти", new /datum/antagonist/ert/deathsquad/leader, new /datum/antagonist/ert/deathsquad, cumshit)
+/proc/deathsquad_request(input, cumshit, return_ert_list)
+	return general_ert_request(input, "Отряд смерти", "отряд смерти", new /datum/antagonist/ert/deathsquad/leader, new /datum/antagonist/ert/deathsquad, cumshit, return_ert_list = return_ert_list)
 
 /proc/getnoun(number, one, two, five)
 	var/n = abs(number)
