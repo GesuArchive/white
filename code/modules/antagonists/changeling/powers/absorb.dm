@@ -121,23 +121,22 @@
 		var/datum/antagonist/changeling/target_ling = target.mind.has_antag_datum(/datum/antagonist/changeling)
 		if(target_ling)//If the target was a changeling, suck out their extra juice and objective points!
 			to_chat(user, span_boldnotice("[target] один из нас. Мы поглотили его силы также."))
-			target_ling.remove_changeling_powers()
 			changeling.geneticpoints += round(target_ling.geneticpoints/2)
-			changeling.total_geneticspoints = changeling.geneticpoints //updates the total sum of genetic points when you absorb another ling
+			changeling.total_geneticspoints += round(target_ling.total_geneticspoints/2) //updates the total sum of genetic points when you absorb another ling
+			changeling.chem_storage += round(target_ling.chem_storage/2)
+			changeling.total_chem_storage += round(target_ling.total_chem_storage/2) //updates the total sum of chemicals stored for when you absorb another ling
+			changeling.chem_charges += min(target_ling.chem_charges, changeling.chem_storage)
+			changeling.absorbedcount += (target_ling.absorbedcount)
+			target_ling.remove_changeling_powers()
 			target_ling.geneticpoints = 0
 			target_ling.canrespec = 0
-			changeling.chem_storage += round(target_ling.chem_storage/2)
-			changeling.total_chem_storage = changeling.chem_storage //updates the total sum of chemicals stored for when you absorb another ling
-			changeling.chem_charges += min(target_ling.chem_charges, changeling.chem_storage)
 			target_ling.chem_charges = 0
 			target_ling.chem_storage = 0
-			changeling.absorbedcount += (target_ling.absorbedcount)
 			target_ling.stored_profiles.len = 1
 			target_ling.absorbedcount = 0
 			target_ling.was_absorbed = TRUE
 
-
-	changeling.chem_charges=min(changeling.chem_charges+10, changeling.chem_storage)
+	changeling.chem_charges=min(changeling.chem_charges + 10, changeling.chem_storage)
 
 	changeling.isabsorbing = 0
 	changeling.canrespec = 1
