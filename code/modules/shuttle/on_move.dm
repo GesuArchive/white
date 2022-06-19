@@ -170,7 +170,6 @@ All ShuttleMove procs go here
 	contents -= oldT
 	underlying_old_area.contents += oldT
 	oldT.transfer_area_lighting(src, underlying_old_area)
-	underlying_old_area.create_area_lighting_objects()
 	//The old turf has now been given back to the area that turf originaly belonged to
 
 	var/area/old_dest_area = newT.loc
@@ -179,7 +178,8 @@ All ShuttleMove procs go here
 	old_dest_area.contents -= newT
 	contents += newT
 	newT.transfer_area_lighting(old_dest_area, src)
-	old_dest_area.create_area_lighting_objects()
+
+	create_area_lighting_objects()
 	return TRUE
 
 // Called on areas after everything has been moved
