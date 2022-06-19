@@ -93,7 +93,7 @@
 
 	switch(.["class"])
 		if(VV_TEXT)
-			.["value"] = tgui_input_text(usr, "Enter new text:", "Text", current_value)
+			.["value"] = tgui_input_text(usr, "Enter new text:", "Text", current_value, encode = FALSE)
 			if(.["value"] == null)
 				.["class"] = null
 				return
@@ -132,7 +132,7 @@
 			var/type = current_value
 			var/error = ""
 			do
-				type = tgui_input_text(usr, "Enter type:[error]", "Type", type)
+				type = tgui_input_text(usr, "Enter type:[error]", "Type", type, encode = FALSE)
 				if(!type)
 					break
 				type = text2path(type)
@@ -244,7 +244,7 @@
 			var/type = current_value
 			var/error = ""
 			do
-				type = tgui_input_text(usr, "Enter type:[error]", "Type", type)
+				type = tgui_input_text(usr, "Enter type:[error]", "Type", type, encode = FALSE)
 				if(!type)
 					break
 				type = text2path(type)
@@ -266,7 +266,7 @@
 		if(VV_TEXT_LOCATE)
 			var/datum/D
 			do
-				var/ref = tgui_input_text(usr, "Enter reference:", "Reference")
+				var/ref = tgui_input_text(usr, "Enter reference:", "Reference", encode = FALSE)
 				if(!ref)
 					break
 				D = locate(ref)
