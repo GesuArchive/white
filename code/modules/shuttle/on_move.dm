@@ -179,7 +179,6 @@ All ShuttleMove procs go here
 	contents += newT
 	newT.transfer_area_lighting(old_dest_area, src)
 
-	create_area_lighting_objects()
 	return TRUE
 
 // Called on areas after everything has been moved
@@ -188,6 +187,10 @@ All ShuttleMove procs go here
 	return TRUE
 
 /area/proc/lateShuttleMove()
+	return
+
+/area/shuttle/lateShuttleMove()
+	create_area_lighting_objects()
 	return
 
 /************************************Turf move procs************************************/
