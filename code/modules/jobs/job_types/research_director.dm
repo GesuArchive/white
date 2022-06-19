@@ -32,7 +32,8 @@
 		/obj/item/borg/upgrade/ai = 2
 	)
 
-	rpg_title = "Архимагистр"
+	rpg_title = "Archmagister"
+	rpg_title_ru = "Архимагистр"
 
 /datum/job/research_director/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	..()

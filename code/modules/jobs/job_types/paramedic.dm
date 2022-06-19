@@ -30,7 +30,8 @@
 		/obj/item/reagent_containers/hypospray/medipen/survival/luxury = 5
 	)
 
-	rpg_title = "Могильщик"
+	rpg_title = "Corpse Runner"
+	rpg_title_ru = "Могильщик"
 
 /obj/item/storage/belt/medical/paramedic/PopulateContents()
 	new /obj/item/pinpointer/crew/prox(src)

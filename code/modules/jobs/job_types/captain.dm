@@ -32,7 +32,8 @@
 		/obj/item/reagent_containers/food/drinks/bottle/champagne = 10
 	)
 
-	rpg_title = "Звездный герцог"
+	rpg_title = "Star Duke"
+	rpg_title_ru = "Звездный герцог"
 
 /datum/job/captain/announce(mob/living/carbon/human/H, announce_captaincy = TRUE)
 	..()

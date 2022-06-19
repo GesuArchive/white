@@ -82,6 +82,7 @@
 
 	///RPG job names, for the memes
 	var/rpg_title
+	var/rpg_title_ru
 
 
 /datum/job/New()

@@ -23,7 +23,8 @@
 		/obj/item/storage/box/monkeycubes = 10
 	)
 
-	rpg_title = "Геномансер"
+	rpg_title = "Genemancer"
+	rpg_title_ru = "Геномансер"
 
 /datum/outfit/job/geneticist
 	name = "Geneticist"

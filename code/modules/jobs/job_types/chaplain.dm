@@ -27,7 +27,8 @@
 		/obj/item/toy/plush/ratplush = 1
 	)
 
-	rpg_title = "Паладин"
+	rpg_title = "Paladin"
+	rpg_title_ru = "Паладин"
 
 /datum/job/chaplain/after_spawn(mob/living/H, mob/M)
 	. = ..()

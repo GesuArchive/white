@@ -33,7 +33,8 @@
 		/obj/item/stack/sheet/bone = 5
 	)
 
-	rpg_title = "Квестодатель гильдии"
+	rpg_title = "Guild Questgiver"
+	rpg_title_ru = "Квестодатель гильдии"
 
 /datum/job/head_of_personnel/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	..()

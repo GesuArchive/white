@@ -24,7 +24,8 @@
 		/obj/item/food/monkeycube/bee = 2
 	)
 
-	rpg_title = "Садовник"
+	rpg_title = "Gardener"
+	rpg_title_ru = "Садовник"
 
 /datum/outfit/job/botanist
 	name = "Botanist"

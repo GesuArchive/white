@@ -26,7 +26,8 @@
 		/obj/item/holosign_creator/engineering = 8,
 	)
 
-	rpg_title = "Кристалломант"
+	rpg_title = "Crystallomancer"
+	rpg_title_ru = "Кристалломант"
 
 /datum/outfit/job/engineer
 	name = "Station Engineer"

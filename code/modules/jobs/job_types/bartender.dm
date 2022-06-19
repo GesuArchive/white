@@ -22,7 +22,8 @@
 		/obj/item/stack/sheet/mineral/uranium = 10,
 	)
 
-	rpg_title = "Тавернщик"
+	rpg_title = "Tavernkeeper"
+	rpg_title_ru = "Тавернщик"
 
 /datum/outfit/job/bartender
 	name = "Bartender"

@@ -19,7 +19,8 @@
 	display_order = JOB_DISPLAY_ORDER_SHAFT_MINER
 	bounty_types = CIV_JOB_MINE
 
-	rpg_title = "Боссхантер"
+	rpg_title = "Bosshunter"
+	rpg_title_ru = "Боссхантер"
 
 	metalocked = TRUE
 

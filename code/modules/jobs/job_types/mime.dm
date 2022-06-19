@@ -22,7 +22,8 @@
 		/obj/item/book/mimery = 1,
 	)
 
-	rpg_title = "Шут"
+	rpg_title = "Fool"
+	rpg_title_ru = "Шут"
 
 /datum/job/mime/after_spawn(mob/living/carbon/human/H, mob/M)
 	. = ..()

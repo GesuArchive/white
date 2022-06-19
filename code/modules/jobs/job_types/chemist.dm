@@ -26,8 +26,9 @@
 		/datum/reagent/toxin/leadacetate = 5,
 		/obj/item/paper/secretrecipe = 1
 	)
-	rpg_title = "Алхимик"
 
+	rpg_title = "Alchemist"
+	rpg_title_ru = "Алхимик"
 
 /datum/outfit/job/chemist
 	name = "Chemist"

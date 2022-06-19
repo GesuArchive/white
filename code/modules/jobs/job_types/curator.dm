@@ -19,7 +19,8 @@
 
 	display_order = JOB_DISPLAY_ORDER_CURATOR
 
-	rpg_title = "Опытный искатель приключений"
+	rpg_title = "Veteran Adventurer"
+	rpg_title_ru = "Опытный искатель приключений"
 
 /datum/outfit/job/curator
 	name = "Curator"

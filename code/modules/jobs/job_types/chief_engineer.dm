@@ -36,7 +36,9 @@
 		/obj/item/stack/sheet/mineral/gold = 15,
 		/obj/effect/spawner/lootdrop/space/fancytool/engineonly = 3
 	)
-	rpg_title = "Старший Кристалломант"
+
+	rpg_title = "Head Crystallomancer"
+	rpg_title_ru = "Старший Кристалломант"
 
 /datum/job/chief_engineer/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	..()

@@ -20,7 +20,8 @@
 		/obj/effect/spawner/lootdrop/prison_contraband = 1
 	)
 
-	rpg_title = "Побежденный минибосс"
+	rpg_title = "Defeated Miniboss"
+	rpg_title_ru = "Побежденный минибосс"
 
 /datum/job/prisoner/override_latejoin_spawn(mob/living/carbon/human/H)
 	for(var/_sloc in GLOB.start_landmarks_list)

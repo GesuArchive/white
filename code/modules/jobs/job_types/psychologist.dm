@@ -26,7 +26,8 @@
 		/obj/item/gun/syringe = 1
 	)
 
-	rpg_title = "Продавец змеиного яда"
+	rpg_title = "Snake Oil Salesman"
+	rpg_title_ru = "Продавец змеиного яда"
 
 /datum/outfit/job/psychologist
 	name = "Psychologist"

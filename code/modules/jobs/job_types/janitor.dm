@@ -21,7 +21,8 @@
 		/obj/item/lightreplacer = 10
 	)
 
-	rpg_title = "Хранитель земель"
+	rpg_title = "Groundskeeper"
+	rpg_title_ru = "Хранитель земель"
 
 /datum/outfit/job/janitor
 	name = "Janitor"

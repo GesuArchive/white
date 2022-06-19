@@ -25,7 +25,8 @@
 		/obj/item/reagent_containers/spray/waterflower/superlube = 1 // Superlube, good lord.
 	)
 
-	rpg_title = "Плут"
+	rpg_title = "Jester"
+	rpg_title_ru = "Плут"
 
 /datum/job/clown/after_spawn(mob/living/carbon/human/H, mob/M)
 	. = ..()

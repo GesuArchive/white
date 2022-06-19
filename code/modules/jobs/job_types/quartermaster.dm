@@ -26,7 +26,8 @@
 		/obj/item/circuitboard/machine/emitter = 3
 	)
 
-	rpg_title = "Завхоз"
+	rpg_title = "Steward"
+	rpg_title_ru = "Завхоз"
 
 /datum/job/quartermaster/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	..()

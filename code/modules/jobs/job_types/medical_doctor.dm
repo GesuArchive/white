@@ -34,7 +34,8 @@
 		/obj/effect/spawner/lootdrop/memeorgans = 1
 	)
 
-	rpg_title = "Клерик"
+	rpg_title = "Cleric"
+	rpg_title_ru = "Клерик"
 
 /datum/outfit/job/doctor
 	name = "Medical Doctor"

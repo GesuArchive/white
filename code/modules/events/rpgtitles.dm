@@ -63,7 +63,7 @@ GLOBAL_DATUM(rpgtitle_controller, /datum/rpgtitle_controller)
 	var/maptext_title = ""
 
 	if(!(isanimal(new_crewmember) || ismob(new_crewmember)))
-		maptext_title = job.rpg_title || job.title
+		maptext_title = job.rpg_title_ru || job.title
 	else
 		//this following code can only be described as bitflag black magic. ye be warned. i tried to comment excessively to explain what the fuck is happening
 		var/list/applicable_biotypes = list()
@@ -102,7 +102,7 @@ GLOBAL_DATUM(rpgtitle_controller, /datum/rpgtitle_controller)
 	if(istype(card, /obj/item/card/id/advanced))
 		var/obj/item/card/id/advanced/advanced_card = card
 		advanced_card.assigned_icon_state = "rpg_assigned"
-	card.update_label()
+	card.name = "приключенческая лицензия [card.registered_name][(!job.rpg_title_ru) ? "" : " ([job.rpg_title_ru])"]"
 	card.update_icon()
 
 /**

@@ -24,7 +24,8 @@
 		/obj/item/camera_bug = 1
 	)
 
-	rpg_title = "Тауматург"
+	rpg_title = "Thaumaturgist"
+	rpg_title_ru = "Тауматург"
 
 /datum/outfit/job/scientist
 	name = "Scientist"

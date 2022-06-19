@@ -35,7 +35,8 @@
 		/obj/effect/spawner/lootdrop/space/fancytool/raremedicalonly = 1
 	)
 
-	rpg_title = "Высший Клерик"
+	rpg_title = "High Cleric"
+	rpg_title_ru = "Высший Клерик"
 
 /datum/job/chief_medical_officer/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	..()

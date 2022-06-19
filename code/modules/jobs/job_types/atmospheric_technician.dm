@@ -20,7 +20,8 @@
 	display_order = JOB_DISPLAY_ORDER_ATMOSPHERIC_TECHNICIAN
 	bounty_types = CIV_JOB_ENG
 
-	rpg_title = "Аэромансер"
+	rpg_title = "Aeromancer"
+	rpg_title_ru = "Аэромансер"
 
 /datum/outfit/job/atmos
 	name = "Atmospheric Technician"
