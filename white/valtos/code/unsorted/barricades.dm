@@ -163,6 +163,9 @@
 
 /obj/structure/deployable_barricade/update_icon()
 	. = ..()
+	if(dir == NORTH)
+		plane = GAME_PLANE_FOV_HIDDEN
+		layer = MOB_LAYER
 	var/damage_state
 	var/percentage = (obj_integrity / max_integrity) * 100
 	switch(percentage)
@@ -278,6 +281,8 @@
 	. = ..()
 	if(dir == NORTH)
 		pixel_y = 12
+		plane = GAME_PLANE_FOV_HIDDEN
+		layer = MOB_LAYER
 
 /*----------------------*/
 // WOOD
