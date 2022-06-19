@@ -5,7 +5,7 @@
 /area/shuttle
 	name = "Шаттл"
 	requires_power = FALSE
-	static_lighting = FALSE
+	static_lighting = TRUE
 	has_gravity = STANDARD_GRAVITY
 	always_unpowered = FALSE
 	// Loading the same shuttle map at a different time will produce distinct area instances.
@@ -55,9 +55,6 @@
 /area/shuttle/pirate
 	name = "Пиратский шаттл"
 	requires_power = TRUE
-	static_lighting = TRUE
-	base_lighting_alpha = 255
-	base_lighting_color = COLOR_WHITE
 
 /area/shuttle/pirate/flying_dutchman
 	name = "Flying Dutchman"
