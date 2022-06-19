@@ -763,7 +763,7 @@
 					picked = get_turf(pick(GLOB.yohei_beacons))
 					to_chat(user, span_notice("Успешно нацеливаюсь на наш корабль..."))
 				else
-					picked = get_turf(pick(GLOB.generic_event_spawns))
+					picked = get_turf(pick(GLOB.xeno_spawn))
 					to_chat(user, span_notice("Успешно нацеливаюсь на станцию..."))
 				if(do_after(user, 1 SECONDS, target = T))
 					to_chat(user, span_notice("Произвожу выстрел..."))
