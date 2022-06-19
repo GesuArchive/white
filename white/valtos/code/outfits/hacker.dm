@@ -40,7 +40,7 @@
 
 	spawn(5 SECONDS)
 		if(H?.hud_used)
-			H.hud_used.update_parallax_pref(H, 1)
+			H.hud_used.update_parallax_pref(H)
 
 		add_verb(H, /mob/living/carbon/proc/hackers_immortality)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/head)

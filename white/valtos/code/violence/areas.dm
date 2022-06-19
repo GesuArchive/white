@@ -27,7 +27,7 @@
 
 	var/S
 
-	L?.hud_used?.update_parallax_pref(L, 1)
+	L?.hud_used?.update_parallax_pref(L)
 
 	switch(GLOB.violence_theme)
 		if("std")

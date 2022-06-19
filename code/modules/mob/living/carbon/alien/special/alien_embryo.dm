@@ -56,7 +56,7 @@
 
 /// Controls Xenomorph Embryo growth. If embryo is fully grown (or overgrown), stop the proc. If not, increase the stage by one and if it's not fully grown (stage 6), add a timer to do this proc again after however long the growth time variable is.
 /obj/item/organ/body_egg/alien_embryo/proc/advance_embryo_stage()
-	if(owner.stat == DEAD && stage <=2) //Если носитель умер слишком рано то, яйцо тоже умрет. А дальше зависит от удачи.
+	if(owner?.stat == DEAD && stage <=2) //Если носитель умер слишком рано то, яйцо тоже умрет. А дальше зависит от удачи.
 		owner.visible_message(span_danger("Эмбрион погибает из-за смерти носителя!"))
 		qdel(src) //Минус эмбрион.
 	if(stage >= 6)

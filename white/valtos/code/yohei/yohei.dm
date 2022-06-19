@@ -321,14 +321,9 @@
 	ADD_TRAIT(H, TRAIT_HACKER, JOB_TRAIT)
 
 	spawn(5 SECONDS)
-		var/datum/component/battletension/BT = H.GetComponent(/datum/component/battletension)
-		if(!BT)
-			AddComponent(/datum/component/battletension)
-		BT.pick_sound('white/valtos/sounds/snidleyWhiplash.ogg')
-		BT.tension = 80
 		to_chat(H, span_revenbignotice("Давно не виделись, а?"))
 		if(H?.hud_used)
-			H.hud_used.update_parallax_pref(H, 1)
+			H.hud_used.update_parallax_pref(H)
 
 		to_chat(H, span_notice("Вспоминаю как создавать сверхкрепкую броню..."))
 

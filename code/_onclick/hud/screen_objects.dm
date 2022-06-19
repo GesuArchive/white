@@ -672,7 +672,7 @@
 /atom/movable/screen/splash
 	icon = 'icons/blank_title.png'
 	icon_state = ""
-	screen_loc = "CENTER-7,CENTER-7" // Why here? The old is 1,1 - which makes it at the bottom left corner. Jank! This will avoid alignment issues altogether.
+	screen_loc = "BOTTOM, LEFT" // Why here? The old is 1,1 - which makes it at the bottom left corner. Jank! This will avoid alignment issues altogether.
 	plane = SPLASHSCREEN_PLANE
 	var/client/holder
 

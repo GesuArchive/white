@@ -207,9 +207,6 @@
 	. = ..()
 	return fire_gun(target, user, flag, params)
 
-/obj/item/gun/afterattack_secondary(atom/target, mob/user, proximity_flag, click_parameters)
-	return
-
 /obj/item/gun/proc/fire_gun(atom/target, mob/living/user, flag, params)
 	if(QDELETED(target))
 		return

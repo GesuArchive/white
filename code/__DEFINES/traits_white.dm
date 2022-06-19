@@ -1,6 +1,7 @@
 #define TRAIT_KARTAVII "kartavii"
 #define TRAIT_ASIAT	"asiatish"
 #define TRAIT_HACKER "hackereye"
+#define TRAIT_DREAMER "dreamer"
 #define TRAIT_YOHEI	"yohei"
 #define BATTLE_ROYALE_TRAIT "battleroyale_trait"
 #define TRAIT_HYPERSPACE_IMMUNE	"hyperspace_immune"
