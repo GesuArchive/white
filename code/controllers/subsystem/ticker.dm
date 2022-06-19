@@ -228,6 +228,7 @@ SUBSYSTEM_DEF(ticker)
 				fail_setup()
 				SEND_SIGNAL(src, COMSIG_TICKER_ERROR_SETTING_UP)
 			else
+				SEND_SIGNAL(src, COMSIG_TICKER_ENTER_SETTING_UP)
 				fail_counter = null
 				webhook_send_roundstatus("ingame")
 
