@@ -62,7 +62,7 @@ GLOBAL_DATUM(rpgtitle_controller, /datum/rpgtitle_controller)
 
 	var/maptext_title = ""
 
-	if(!(isanimal(new_crewmember) || ismob(new_crewmember)))
+	if(!isanimal(new_crewmember))
 		maptext_title = job.rpg_title_ru || job.title
 	else
 		//this following code can only be described as bitflag black magic. ye be warned. i tried to comment excessively to explain what the fuck is happening
