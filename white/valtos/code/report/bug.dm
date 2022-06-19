@@ -42,7 +42,7 @@
 		to_chat(src, span_warning("Минимум 140 символов!"))
 		return
 
-	var/message_header = tgui_input_text("Придумайте заголовок. (минимум 16 символов)", "Обнаружен баг!")
+	var/message_header = tgui_input_text(usr, "Придумайте заголовок. (минимум 16 символов)", "Обнаружен баг!")
 
 	if(!message_header || length_char(message_header) < 16)
 		to_chat(src, span_warning("Минимум 16 символов!"))
