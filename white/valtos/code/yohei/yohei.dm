@@ -625,14 +625,14 @@
 
 /obj/effect/mob_spawn/human/donate/attack_ghost(mob/user)
 	if(check_donations_avail(user?.ckey) >= req_sum)
-		var/datum/donator/D = get_donator(user.ckey)
-		D.money -= req_sum
-		var/client/C = user.client
-		if(C?.prefs)
-			hairstyle =  C.prefs.hairstyle
-			facial_hairstyle = C.prefs.facial_hairstyle
-			skin_tone = C.prefs.skin_tone
-		. = ..()
+		if(..())
+			var/datum/donator/D = get_donator(user.ckey)
+			D.money -= req_sum
+			var/client/C = user.client
+			if(C?.prefs)
+				hairstyle =  C.prefs.hairstyle
+				facial_hairstyle = C.prefs.facial_hairstyle
+				skin_tone = C.prefs.skin_tone
 	else
 		to_chat(user, span_warning("Эта роль требует <b>[req_sum]</b> донат-поинтов для доступа."))
 		return
