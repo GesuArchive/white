@@ -774,15 +774,7 @@
 							playsound(get_turf(user), 'white/valtos/sounds/cathit.ogg', 60)
 							if(do_after(user, 5 SECONDS, target = T))
 								var/mob/living/carbon/human/H = user
-								var/atom/movable/AM
-								if(H.pulling)
-									AM = H.pulling
-									AM.forceMove(picked)
-									to_chat(AM, span_danger("Ох..."))
-								for(var/mob/M in H.buckled_mobs)
-									M.forceMove(picked)
-									to_chat(M, span_danger("Ох..."))
-								H.forceMove(picked)
+								H.zMove(target = picked, z_move_flags = ZMOVE_CHECK_PULLEDBY|ZMOVE_ALLOW_BUCKLED|ZMOVE_INCLUDE_PULLED)
 								H.adjustStaminaLoss(100)
 								to_chat(user, span_notice("Вот я и на месте!"))
 								return
