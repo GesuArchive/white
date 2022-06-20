@@ -1792,19 +1792,22 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	SIGNAL_HANDLER
 	var/turf/ceiling = get_step_multiz(src, UP)
 	if(!ceiling) //We are at the highest z-level.
+		if (prob(0.1))
+			to_chat(src, span_warning("Вы вглядываетесь в бесконечную безбрежность глубокого космоса, на мгновение у вас возникает импульс продолжить путешествие, туда, вглубь, прежде чем ваше сознание снова заявит о себе, и вы решите остаться на расстоянии путешествия от станции."))
+			return
 		to_chat(src, span_warning("А как смотреть через потолок?"))
 		return
-	else if(!istransparentturf(ceiling)) //There is no turf we can look through above us
+	else if(!istransparentturf(ceiling) && !ceiling.canlookthroughladderup(src)) //There is no turf we can look through above us
 		var/turf/front_hole = get_step(ceiling, dir)
-		if(istransparentturf(front_hole))
+		if(istransparentturf(front_hole) || front_hole.canlookthroughladderup(src))
 			ceiling = front_hole
 		else
 			var/list/checkturfs = block(locate(x-1,y-1,ceiling.z),locate(x+1,y+1,ceiling.z))-ceiling-front_hole //Try find hole near of us
 			for(var/turf/checkhole in checkturfs)
-				if(istransparentturf(checkhole))
+				if(istransparentturf(checkhole) || checkhole.canlookthroughladderup(src))
 					ceiling = checkhole
 					break
-		if(!istransparentturf(ceiling))
+		if(!istransparentturf(ceiling) && !ceiling.canlookthroughladderup(src))
 			to_chat(src, span_warning("А как смотреть через пол?"))
 			return
 
@@ -1842,19 +1845,19 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	if(!lower_level) //We are at the lowest z-level.
 		to_chat(src, span_warning("А как смотреть через пол?"))
 		return
-	else if(!istransparentturf(floor)) //There is no turf we can look through below us
+	else if(!istransparentturf(floor) && !floor.canlookthroughladderdown(src)) //There is no turf we can look through below us
 		var/turf/front_hole = get_step(floor, dir)
-		if(istransparentturf(front_hole))
+		if(istransparentturf(front_hole) || front_hole.canlookthroughladderdown(src))
 			floor = front_hole
 			lower_level = get_step_multiz(front_hole, DOWN)
 		else
 			var/list/checkturfs = block(locate(x-1,y-1,z),locate(x+1,y+1,z))-floor //Try find hole near of us
 			for(var/turf/checkhole in checkturfs)
-				if(istransparentturf(checkhole))
+				if(istransparentturf(checkhole) || checkhole.canlookthroughladderdown(src))
 					floor = checkhole
 					lower_level = get_step_multiz(checkhole, DOWN)
 					break
-		if(!istransparentturf(floor))
+		if(!istransparentturf(floor) && !floor.canlookthroughladderdown(src))
 			to_chat(src, span_warning("А как смотреть через пол?"))
 			return
 
