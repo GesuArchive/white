@@ -163,7 +163,7 @@
 		S.environment = myplayer.env_id
 		S.y = 1
 		SEND_SOUND(M, S)
-	S.status = SOUND_UPDATE
+	S.status = SOUND_UPDATE | SOUND_STREAM
 	S.channel = myplayer.playing_channel
 
 	var/turf/listener_turf = get_turf(M)
