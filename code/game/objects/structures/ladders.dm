@@ -213,7 +213,7 @@
 	crafted = TRUE
 
 //should be called on turf above player
-/turf/proc/canlookthroughladderup(var/mob/M)
+/turf/proc/canlookthroughladderup(mob/M)
 	if(locate(/obj/structure/ladder) in src)
 		var/obj/structure/ladder/L = locate(/obj/structure/ladder) in src
 		if(M.z == L.down?.z)
@@ -221,7 +221,7 @@
 	return FALSE
 
 //should be called on turf where is player
-/turf/proc/canlookthroughladderdown(var/mob/M)
+/turf/proc/canlookthroughladderdown(mob/M)
 	if(locate(/obj/structure/ladder) in src)
 		var/obj/structure/ladder/L = locate(/obj/structure/ladder) in src
 		if(L.down)
