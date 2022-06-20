@@ -59,9 +59,9 @@
 
 /obj/projectile/curse_hand/hel //Used in helbital's impure reagent
 	name = "Hel's grasp"
-	damage = 8
+	damage = 5
 	paralyze = 0 //Lets not stun people!
-	speed = 1
+	speed = 1.3
 	range = 20
 	color = "#ff7e7e"//Tint it slightly
 
