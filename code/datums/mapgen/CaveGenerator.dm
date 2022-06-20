@@ -59,7 +59,10 @@
 		if(!(A.area_flags & CAVES_ALLOWED))
 			continue
 
-		var/height = text2num(rustg_noise_get_at_coordinates("[height_seed]", "[gen_turf.x]", "[gen_turf.y]"))
+		var/drift_x = (gen_turf.x + rand(-2, 2)) / 65
+		var/drift_y = (gen_turf.y + rand(-2, 2)) / 65
+
+		var/height = text2num(rustg_noise_get_at_coordinates("[height_seed]", "[drift_x]", "[drift_y]"))
 		var/closed = text2num(string_gen[world.maxx * (gen_turf.y - 1) + gen_turf.x])
 
 		var/stored_flags
