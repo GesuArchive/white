@@ -1002,6 +1002,18 @@
 	},
 /obj/structure/table,
 /obj/item/paper/fluff/stations/lavaland/orm_notice,
+/obj/item/pinpointer/deepcore{
+	pixel_x = -8;
+	pixel_y = 9
+	},
+/obj/item/deepcorecapsule{
+	pixel_x = 9;
+	pixel_y = 13
+	},
+/obj/item/deepcorecapsule{
+	pixel_x = 9;
+	pixel_y = 10
+	},
 /turf/open/floor/plasteel,
 /area/mine/production)
 "de" = (
@@ -1011,6 +1023,7 @@
 /area/mine/production)
 "df" = (
 /obj/effect/turf_decal/bot,
+/obj/machinery/deepcore/hopper/anchored,
 /turf/open/floor/plasteel,
 /area/mine/production)
 "dg" = (
@@ -3986,6 +3999,9 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/closed/wall,
 /area/mine/living_quarters)
+"xq" = (
+/turf/open/floor/plating/asteroid/basalt/lava_land_surface,
+/area/mine/eva)
 "xW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -4367,6 +4383,9 @@
 "Hd" = (
 /turf/closed/wall/r_wall,
 /area/mine/laborcamp/security)
+"Hh" = (
+/turf/open/floor/plating/asteroid/basalt/lava_land_surface,
+/area/mine/production)
 "Hi" = (
 /obj/machinery/washing_machine,
 /obj/effect/turf_decal/tile/blue{
@@ -20909,7 +20928,7 @@ bq
 bq
 bq
 po
-ab
+Hh
 ab
 ab
 aj
@@ -21937,7 +21956,7 @@ bq
 bq
 bq
 po
-ab
+Hh
 ab
 ab
 ab
@@ -23460,11 +23479,11 @@ ab
 ab
 ab
 ab
+xq
 ab
 ab
 ab
-ab
-ab
+xq
 ai
 ai
 ab

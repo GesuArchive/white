@@ -323,32 +323,6 @@
 			qdel(src)
 			return
 	GLOB.ore_vein_landmarks += src
-/*
-	if(resource)
-		return
-	qdel(src)
-	switch(rand(9))
-		if(0)
-			new /obj/effect/landmark/ore_vein/iron(get_turf(src))
-		if(1)
-			new /obj/effect/landmark/ore_vein/glass(get_turf(src))
-		if(2)
-			new /obj/effect/landmark/ore_vein/plasma(get_turf(src))
-		if(3)
-			new /obj/effect/landmark/ore_vein/silver(get_turf(src))
-		if(4)
-			new /obj/effect/landmark/ore_vein/gold(get_turf(src))
-		if(5)
-			new /obj/effect/landmark/ore_vein/diamond(get_turf(src))
-		if(6)
-			new /obj/effect/landmark/ore_vein/uranium(get_turf(src))
-		if(7)
-			new /obj/effect/landmark/ore_vein/titanium(get_turf(src))
-		if(8)
-			new /obj/effect/landmark/ore_vein/bluespace_crystal(get_turf(src))
-		if(0)
-			new /obj/effect/landmark/ore_vein/bananium(get_turf(src))
-*/
 
 /obj/effect/landmark/ore_vein/Destroy()
 	if(GLOB.ore_vein_landmarks.Find(src))
@@ -497,11 +471,6 @@
 	if(!anchored)
 		active = FALSE
 		update_icon_state()
-	/*
-	if(active)
-		if(DT_PROB(10, delta_time))
-			do_sparks(rand(3,4), FALSE, src)
-	*/
 
 /obj/machinery/deepcore/hopper/update_icon_state()
 	if(powered(power_channel) && anchored)

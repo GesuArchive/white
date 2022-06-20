@@ -8,9 +8,7 @@
 		/obj/item/stock_parts/micro_laser = 1,
 		/obj/item/stock_parts/manipulator = 3,
 		/obj/item/stock_parts/scanning_module = 1,
-		/obj/item/stack/ore/bluespace_crystal = 3,
-		/obj/item/stack/sheet/mineral/gold = 1,
-		/obj/item/stack/sheet/mineral/uranium = 1)
+		/obj/item/stack/ore/bluespace_crystal = 3)
 	needs_anchored = FALSE
 
 /obj/machinery/mineral/bluespace_miner
@@ -94,6 +92,7 @@
 	if(!materials?.silo || materials?.on_hold())
 		update_icon_state()
 		return
+
 	var/datum/component/material_container/mat_container = materials.mat_container
 	if(!mat_container || panel_open || !powered())
 		update_icon_state()
@@ -104,5 +103,5 @@
 		WARNING("Валера, твой блюспейс майнер опять обосрался!!! Причина: [ore]")
 		return
 
-	materials.mat_container.insert_amount_mat(rand(5, 9) * mine_rate, ore)
+	materials.mat_container.insert_amount_mat(mine_rate, ore)
 	update_icon_state()

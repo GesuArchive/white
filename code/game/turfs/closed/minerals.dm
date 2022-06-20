@@ -280,7 +280,7 @@
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
 	smoothing_flags = SMOOTH_CORNERS
 	mineralChance = 15
-	hardness = 2
+	hardness = 4
 
 	mineralSpawnChanceList = list(
 		/turf/closed/mineral/uranium/volcanic/hard = 5, /turf/closed/mineral/diamond/volcanic/hard = 1, /turf/closed/mineral/gold/volcanic/hard = 10, /turf/closed/mineral/titanium/volcanic/hard = 11, /turf/closed/mineral/magmite/volcanic/hard = 0.5,

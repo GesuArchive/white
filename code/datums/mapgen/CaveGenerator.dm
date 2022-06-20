@@ -5,6 +5,8 @@
 	///Weighted list of the types that spawns if the turf is closed
 	var/closed_turf_types =  list(/turf/closed/mineral/random/volcanic = 1)
 
+	var/high_turf_types = list(/turf/closed/mineral/random/volcanic/hard = 1)
+
 
 	///Weighted list of extra features that can spawn in the area, such as geysers.
 	var/list/feature_spawn_list = list(/obj/structure/geyser/random = 1)
@@ -44,6 +46,9 @@
 
 /datum/map_generator/cave_generator/generate_terrain(list/turfs)
 	. = ..()
+
+	var/height_seed = rand(0, 50000)
+
 	var/start_time = REALTIMEOFDAY
 	string_gen = rustg_cnoise_generate("[initial_closed_chance]", "[smoothing_iterations]", "[birth_limit]", "[death_limit]", "[world.maxx]", "[world.maxy]") //Generate the raw CA data
 
@@ -54,13 +59,14 @@
 		if(!(A.area_flags & CAVES_ALLOWED))
 			continue
 
+		var/height = text2num(rustg_noise_get_at_coordinates("[height_seed]", "[gen_turf.x]", "[gen_turf.y]"))
 		var/closed = text2num(string_gen[world.maxx * (gen_turf.y - 1) + gen_turf.x])
 
 		var/stored_flags
 		if(gen_turf.turf_flags & NO_RUINS)
 			stored_flags |= NO_RUINS
 
-		var/turf/new_turf = pickweight(closed ? closed_turf_types : open_turf_types)
+		var/turf/new_turf = pickweight(closed ? (height >= 0.85 ? high_turf_types : closed_turf_types) : open_turf_types)
 
 		new_turf = gen_turf.ChangeTurf(new_turf, initial(new_turf.baseturfs), CHANGETURF_DEFER_CHANGE)
 
