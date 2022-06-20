@@ -282,8 +282,6 @@
 		H.mind?.adjust_experience(/datum/skill/parry, SKILL_EXP_MASTER)
 		if(Y && H.mind)
 			Y.assigned_to = H.mind
-		var/obj/item/book/B = locate(/obj/item/book/yohei_codex) in H
-		B?.on_read(H)
 
 /datum/outfit/yohei/medic
 	name = "Йохей: Медик"
@@ -401,8 +399,7 @@
 
 		if(choice == "Классическая охота")
 			internal_radio.talk_into(src, "Загружаю стандартное задание...", FREQ_YOHEI)
-			var/datum/yohei_task/new_task = pick(possible_tasks)
-			current_task = new new_task()
+			give_new_task()
 			return
 		else
 			internal_radio.talk_into(src, "Особых заданий больше НЕТ!", FREQ_YOHEI)
@@ -420,8 +417,7 @@
 				APC.update_maptext()
 		qdel(current_task)
 
-		var/datum/yohei_task/new_task = pick(possible_tasks)
-		current_task = new new_task()
+		give_new_task()
 
 	if(current_task && !(user in action_guys))
 		action_guys += user
@@ -434,6 +430,11 @@
 		. += span_notice("<b>Задание:</b> [current_task.desc]")
 		. += span_notice("\n<b>Награда:</b> [current_task.prize]")
 		. += span_notice("\n<b>Исполнители:</b> [english_list(action_guys)]")
+
+/obj/lab_monitor/yohei/proc/give_new_task()
+	var/datum/yohei_task/new_task = pick(possible_tasks)
+	current_task = new new_task()
+	internal_radio.talk_into(src, "Получено новое задание: [current_task.desc]. Награда: [current_task.prize]. Исполнители: [english_list(action_guys)]", FREQ_YOHEI)
 
 /datum/yohei_task
 	var/desc = null
@@ -529,12 +530,26 @@
 		new /obj/effect/pod_landingzone(find_safe_turf(zlevels = SSmapping.levels_by_trait(ZTRAIT_STATION)), return_pod)
 		if(prob(99))
 			if(prob(10))
-				target.gib()
+				/* target.gib() */
+				/* gibbing is not gud, lets try something different */
+				var/resistance = pick(
+					50;TRAUMA_RESILIENCE_BASIC,
+					30;TRAUMA_RESILIENCE_SURGERY,
+					15;TRAUMA_RESILIENCE_LOBOTOMY,
+					5;TRAUMA_RESILIENCE_MAGIC)
+
+				var/trauma_type = pickweight(list(
+					BRAIN_TRAUMA_MILD = 60,
+					BRAIN_TRAUMA_SEVERE = 30,
+					BRAIN_TRAUMA_SPECIAL = 10))
+
+				var/mob/living/carbon/human/targetH = target
+				targetH?.gain_trauma_type(trauma_type, resistance)
 				return TRUE
 			target?.mind?.make_Traitor()
 			return TRUE
 		else
-			target?.mind?.make_Wizard()
+			target?.mind?.make_Wizard() // SEE MY ORB!
 			return TRUE
 	else
 		qdel(src)
@@ -672,6 +687,8 @@
 	if (!newname)
 		return
 	H.fully_replace_character_name(H.real_name, newname)
+	var/obj/item/book/B = locate(/obj/item/book/yohei_codex) in H
+	B?.on_read(H)
 
 /datum/antagonist/yohei
 	name = "yohei"
