@@ -1144,7 +1144,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	divine_wrath.fire()
 
 //shitty pun
-/proc/pieing_squad(mob/living/carbon/target, turf/source_turf, finalize)
+/proc/pieing_squad(mob/living/carbon/target, turf/source_turf)
 	playsound(target, 'sound/weapons/sonic_jackhammer.ogg', 100)
 	var/obj/item/food/pie/cream/divine_pie = new(source_turf)
 	divine_pie.throw_at(target, 5, 10)
