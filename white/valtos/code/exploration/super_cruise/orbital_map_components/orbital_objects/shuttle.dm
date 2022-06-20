@@ -59,6 +59,7 @@
 /datum/orbital_object/shuttle/process()
 	if(check_stuck())
 		return
+
 	if(!QDELETED(docking_target))
 		velocity.x = 0
 		velocity.y = 0
@@ -66,11 +67,11 @@
 		//Disable autopilot and thrust while docking to prevent fuel usage.
 		thrust = 0
 		angle = 0
-		autopilot = FALSE
 		return
 	else
 		//If our docking target was deleted, null it to prevent docking interface etc.
 		docking_target = null
+
 	//I hate that I have to do this, but people keep flying them away.
 	if(position.x > 20000 || position.x < -20000 || position.y > 20000 || position.y < -20000)
 		priority_announce("Разрыв блюспейс ткани обнаружен, источник: [name].")
