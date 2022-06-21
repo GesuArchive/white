@@ -1,12 +1,18 @@
+import { sortBy } from 'common/collections';
+import { flow } from 'common/fp';
 import { useBackend } from '../backend';
-import { Section } from '../components';
+import { Button, Section, Stack } from '../components';
 import { Window } from '../layouts';
 
-export const StationAlertConsole = () => {
+export const StationAlertConsole = (props, context) => {
+  const { data } = useBackend(context);
+  const {
+    cameraView,
+  } = data;
   return (
     <Window
-      width={325}
-      height={500}>
+      width={cameraView ? 390 : 345}
+      height={587}>
       <Window.Content scrollable>
         <StationAlertConsoleContent />
       </Window.Content>
@@ -15,55 +21,65 @@ export const StationAlertConsole = () => {
 };
 
 export const StationAlertConsoleContent = (props, context) => {
-  const { data } = useBackend(context);
-  const categories = data.alarms || [];
-  const fire = categories['Fire'] || [];
-  const atmos = categories['Atmosphere'] || [];
-  const power = categories['Power'] || [];
+  const { act, data } = useBackend(context);
+  const {
+    cameraView,
+  } = data;
+
+  const sortingKey = {
+    "Fire": 0,
+    "Atmosphere": 1,
+    "Power": 2,
+    "Burglar": 3,
+    "Motion": 4,
+    "Camera": 5,
+  };
+
+  const sortedAlarms = flow([
+    sortBy((alarm) => sortingKey[alarm.name]),
+  ])(data.alarms || []);
+
   return (
     <>
-      <Section title="Пожарные тревоги">
-        <ul>
-          {fire.length === 0 && (
-            <li className="color-good">
-              Системы в норме
-            </li>
-          )}
-          {fire.map(alert => (
-            <li key={alert} className="color-average">
-              {alert}
-            </li>
-          ))}
-        </ul>
-      </Section>
-      <Section title="Атмосферные тревоги">
-        <ul>
-          {atmos.length === 0 && (
-            <li className="color-good">
-              Системы в норме
-            </li>
-          )}
-          {atmos.map(alert => (
-            <li key={alert} className="color-average">
-              {alert}
-            </li>
-          ))}
-        </ul>
-      </Section>
-      <Section title="Энергетические тревоги">
-        <ul>
-          {power.length === 0 && (
-            <li className="color-good">
-              Системы в норме
-            </li>
-          )}
-          {power.map(alert => (
-            <li key={alert} className="color-average">
-              {alert}
-            </li>
-          ))}
-        </ul>
-      </Section>
+      {sortedAlarms.map(category => (
+        <Section key={category.name} title={category.name + " Тревоги"}>
+          <ul>
+            {category.alerts.length === 0 && (
+              <li className="color-good">
+                Системы в норме
+              </li>
+            )}
+            {category.alerts.map(alert => (
+              <Stack
+                key={alert.name}
+                height="30px"
+                align="baseline">
+                <Stack.Item grow>
+                  <li className="color-average">
+                    {alert.name} {!!cameraView && alert.sources > 1
+                      ? " (" + alert.sources + " источники)" : ""}
+                  </li>
+                </Stack.Item>
+                {!!cameraView && (
+                  <Stack.Item>
+                    <Button
+                      textAlign="center"
+                      width="100px"
+                      icon={alert.cameras ? "video" : ""}
+                      disabled={!alert.cameras}
+                      content={alert.cameras === 1
+                        ? alert.cameras + " Камера" : alert.cameras > 1
+                          ? alert.cameras + " Камеры" : "Нет камер"}
+                      onClick={() => act('select_camera', {
+                        alert: alert.ref,
+                      })} />
+                  </Stack.Item>
+                )}
+              </Stack>
+            ))}
+          </ul>
+        </Section>
+      ))}
     </>
   );
 };
