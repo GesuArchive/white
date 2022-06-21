@@ -1,3 +1,9 @@
+#define YOHEI_MISSION_UNFINISHED   0 // do nothing
+#define YOHEI_MISSION_COMPLETED    1 // do something
+#define YOHEI_MISSION_FAILED       2 // do something bad
+
+#define YOHEI_MISSION_HUNT "Классическая охота"
+
 /obj/item/clothing/under/syndicate/yohei
 	name = "униформа йохея"
 	desc = "Удобная и практичная одежда для самой грязной работы."
@@ -78,7 +84,7 @@
 	armor = list(MELEE = 45, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 40, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
 	hoodtype = /obj/item/clothing/head/hooded/yohei
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/big
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/toy, /obj/item/storage/fancy/cigarettes, /obj/item/lighter, /obj/item/gun, /obj/item/pickaxe, /obj/item/cat_hook)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/toy, /obj/item/storage/fancy/cigarettes, /obj/item/lighter, /obj/item/gun, /obj/item/pickaxe, /obj/item/cat_hook, /obj/item/storage/belt)
 
 /obj/item/clothing/head/hooded/yohei
 	name = "капюшон йохея"
@@ -346,6 +352,7 @@
 	var/datum/yohei_task/current_task = null
 	var/list/possible_tasks = list()
 	var/list/action_guys = list()
+	var/mission_mode = null
 
 /obj/lab_monitor/yohei/Initialize(mapload)
 	. = ..()
@@ -363,6 +370,28 @@
 	. = ..()
 	QDEL_NULL(internal_radio)
 	GLOB.yohei_main_controller = null
+	STOP_PROCESSING(SSobj, src)
+
+/obj/lab_monitor/yohei/process(delta_time)
+	if(mission_mode == YOHEI_MISSION_HUNT)
+		if(current_task)
+			check_task_completion(autocheck = TRUE)
+			return
+		if(!current_task)
+			give_new_task()
+
+/**
+ * placeholder until we figure out new gamemodes for yoheis
+ * which wont be just KILL KIDNAP.
+ * now it needs to be only for it to not shit new tasks
+ * until first contractor commits himself
+ */
+/obj/lab_monitor/yohei/proc/init_mission_mode(mode)
+	if(!mission_mode)
+		mission_mode = mode
+		START_PROCESSING(SSobj, src)
+		return TRUE
+	return FALSE
 
 /obj/lab_monitor/yohei/proc/is_this_target(mob/living/checkmob)
 	if(istype(current_task, /datum/yohei_task/kill))
@@ -370,6 +399,62 @@
 		if(KT.target == checkmob)
 			return TRUE
 	return FALSE
+
+/obj/lab_monitor/yohei/proc/give_new_task()
+	var/datum/yohei_task/new_task = pick(possible_tasks)
+	current_task = new new_task()
+	current_task.parent = src
+	internal_radio.talk_into(src, "Получено новое задание: [current_task.desc] Награда: [current_task.prize]. Исполнители: [english_list(action_guys)]", FREQ_YOHEI)
+
+/**
+ * return true in case if we get rid of task
+ * return false otherwise
+ */
+/obj/lab_monitor/yohei/proc/check_task_completion(autocheck)
+	if(autocheck && !current_task.can_autocomplete)
+		return FALSE
+	if(current_task)
+		switch(current_task.check_task(autocheck))
+			if(YOHEI_MISSION_COMPLETED)
+				internal_radio.talk_into(src, "Задание выполнено. Награда в размере [current_task.prize] выдана. Получение следующего задания...", FREQ_YOHEI)
+				for(var/mob/living/carbon/human/H in action_guys)
+					inc_metabalance(H, current_task.prize, reason = "Задание выполнено.")
+					var/obj/item/card/id/cardid = H.get_idcard(FALSE)
+					cardid?.registered_account?.adjust_money(rand(5000, 10000))
+					var/obj/item/armament_points_card/APC = locate() in H.get_all_gear()
+					if(APC)
+						APC.points += 10
+						APC.update_maptext()
+				QDEL_NULL(current_task)
+				return TRUE
+			if(YOHEI_MISSION_FAILED)
+				internal_radio.talk_into(src, "Задание провалено. Награда не выдана. Получение следующего задания...", FREQ_YOHEI)
+				QDEL_NULL(current_task)
+				return TRUE
+			if(YOHEI_MISSION_UNFINISHED)
+				return FALSE
+	return FALSE
+
+/obj/lab_monitor/yohei/proc/add_to_action_guys(mob/living/user)
+	if(!(user in action_guys)) // sanity check
+		action_guys += user
+		internal_radio.talk_into(src, "[user.name] был добавлен в список исполнителей задания.", FREQ_YOHEI)
+		return TRUE
+	return FALSE
+
+/obj/lab_monitor/yohei/AltClick(mob/user)
+	. = ..()
+	if(!current_task)
+		to_chat(user, span_notice("Нечего отменять!"))
+		return
+	switch(tgui_alert(user, "Ты правда хочешь сменить эту задачу? За это будет наложен штраф!", "Сменить задачу", list("Да", "Нет")))
+		if("Да")
+			internal_radio.talk_into(src, "Задание отменено [skloname(user.name, TVORITELNI, user.gender)]. На подтвердившего отмену наложен штраф. Получение следующего задания...", FREQ_YOHEI)
+			inc_metabalance(user, rand(-150, -50), reason = "Отмена задания.")
+			QDEL_NULL(current_task)
+			return
+		if("Нет")
+			return
 
 /obj/lab_monitor/yohei/attacked_by(obj/item/I, mob/living/user)
 	if(istype(I, /obj/item/pamk))
@@ -387,7 +472,7 @@
 /obj/lab_monitor/yohei/attack_hand(mob/living/user)
 	. = ..()
 
-	if(!current_task)
+	if(!current_task && !mission_mode)
 		var/static/list/choices = list(
 			"Классическая охота" = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "classic"),
 			"Помочь событиям" 	 = image(icon = 'white/valtos/icons/objects.dmi', icon_state = "gamemode")
@@ -399,29 +484,23 @@
 
 		if(choice == "Классическая охота")
 			internal_radio.talk_into(src, "Загружаю стандартное задание...", FREQ_YOHEI)
+			add_to_action_guys(user)
 			give_new_task()
+			init_mission_mode(YOHEI_MISSION_HUNT)
 			return
 		else
 			internal_radio.talk_into(src, "Особых заданий больше НЕТ!", FREQ_YOHEI)
 			return
 
-	if(current_task && current_task.check_task(user))
-		internal_radio.talk_into(src, "Задание выполнено. Награда в размере [current_task.prize] выдана. Получение следующего задания...", FREQ_YOHEI)
-		for(var/mob/living/carbon/human/H in action_guys)
-			inc_metabalance(H, current_task.prize, reason = "Задание выполнено.")
-			var/obj/item/card/id/cardid = H.get_idcard(FALSE)
-			cardid?.registered_account?.adjust_money(rand(5000, 10000))
-			var/obj/item/armament_points_card/APC = locate() in H.get_all_gear()
-			if(APC)
-				APC.points += 10
-				APC.update_maptext()
-		qdel(current_task)
-
+	if(!current_task)
 		give_new_task()
+		return
 
 	if(current_task && !(user in action_guys))
-		action_guys += user
-		internal_radio.talk_into(src, "[user.name] был добавлен в список исполнителей задания.", FREQ_YOHEI)
+		add_to_action_guys(user)
+		return
+
+	check_task_completion()
 
 /obj/lab_monitor/yohei/examine(mob/user)
 	. = ..()
@@ -431,19 +510,16 @@
 		. += span_notice("\n<b>Награда:</b> [current_task.prize]")
 		. += span_notice("\n<b>Исполнители:</b> [english_list(action_guys)]")
 
-/obj/lab_monitor/yohei/proc/give_new_task()
-	var/datum/yohei_task/new_task = pick(possible_tasks)
-	current_task = new new_task()
-	internal_radio.talk_into(src, "Получено новое задание: [current_task.desc]. Награда: [current_task.prize]. Исполнители: [english_list(action_guys)]", FREQ_YOHEI)
-
 /datum/yohei_task
 	var/desc = null
 	var/prize = 0
+	var/can_autocomplete = FALSE
+	var/obj/lab_monitor/yohei/parent
 
 /datum/yohei_task/proc/generate_task()
 	return
 
-/datum/yohei_task/proc/check_task(mob/user)
+/datum/yohei_task/proc/check_task(autocheck)
 	return FALSE
 
 /datum/yohei_task/New()
@@ -477,6 +553,7 @@
 	desc = "Убить цель."
 	prize = 50
 	var/mob/living/target
+	can_autocomplete = TRUE
 
 /datum/yohei_task/kill/generate_task()
 	target = find_target()
@@ -484,26 +561,27 @@
 	prize = max(rand(prize - 30, prize + 30), 1)
 	to_chat(target, span_userdanger("Кто-то хочет мне навредить..."))
 
-/datum/yohei_task/kill/check_task(mob/user)
+/datum/yohei_task/kill/check_task(autocheck)
 	if(target && target.stat != DEAD)
-		return FALSE
-	return TRUE
+		return YOHEI_MISSION_UNFINISHED
+	return YOHEI_MISSION_COMPLETED
 
 /datum/yohei_task/capture
 	desc = "Захватить цель."
 	prize = 200
 	var/mob/living/target
+	can_autocomplete = TRUE // not neccecary successfully complete
 
 /datum/yohei_task/capture/generate_task()
 	target = find_target()
 	desc = "Захватить [target.real_name] и доставить живьём в логово."
 	prize = max(rand(prize - 100, prize + 200), 1)
 
-/datum/yohei_task/capture/check_task(mob/user)
-	if(target && target.stat != DEAD)
+/datum/yohei_task/capture/check_task(autocheck)
+	if(target && target.stat != DEAD && !autocheck) // you WILL press the screen to confirm it
 		var/area/A = get_area(target)
 		if(A.type != /area/ruin/powered/yohei_base)
-			return FALSE
+			return YOHEI_MISSION_UNFINISHED
 		target.Unconscious(60 SECONDS)
 		var/obj/structure/closet/supplypod/return_pod = new()
 		return_pod.bluespace = TRUE
@@ -526,7 +604,7 @@
 
 		target.blur_eyes(30)
 		target.Dizzy(35)
-
+		target.lastattackermob = null // we just don't care what happens with him after teleportation. also avoids false mood debuffs
 		new /obj/effect/pod_landingzone(find_safe_turf(zlevels = SSmapping.levels_by_trait(ZTRAIT_STATION)), return_pod)
 		if(prob(99))
 			if(prob(10))
@@ -545,15 +623,17 @@
 
 				var/mob/living/carbon/human/targetH = target
 				targetH?.gain_trauma_type(trauma_type, resistance)
-				return TRUE
+				return YOHEI_MISSION_COMPLETED
 			target?.mind?.make_Traitor()
-			return TRUE
+			return YOHEI_MISSION_COMPLETED
 		else
 			target?.mind?.make_Wizard() // SEE MY ORB!
-			return TRUE
+			return YOHEI_MISSION_COMPLETED
+	var/mob/living/carbon/C = target
+	if(!target || !(C.can_defib() & DEFIB_REVIVABLE_STATES)) // wtf target got deleted or died entierly
+		return YOHEI_MISSION_FAILED
 	else
-		qdel(src)
-		return FALSE
+		return YOHEI_MISSION_UNFINISHED // you still can find him and heal!
 
 /area/ruin/powered/yohei_base
 	name = "Ресурс Йохеев"
