@@ -301,7 +301,6 @@
 
 /atom/movable/screen/internals
 	name = "подача воздуха"
-	icon = 'white/valtos/icons/hud.dmi'
 	icon_state = "internal0"
 	screen_loc = ui_internal
 
@@ -362,7 +361,6 @@
 
 /atom/movable/screen/spacesuit
 	name = "Состояние батареи костюма"
-	icon = 'white/valtos/icons/hud.dmi'
 	icon_state = "spacesuit_0"
 	screen_loc = ui_spacesuit
 
