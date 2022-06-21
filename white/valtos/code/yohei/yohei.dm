@@ -704,14 +704,7 @@
 
 /obj/effect/mob_spawn/human/donate/attack_ghost(mob/user)
 	if(check_donations_avail(user?.ckey) >= req_sum)
-		if(..())
-			var/datum/donator/D = get_donator(user.ckey)
-			D.money -= req_sum
-			var/client/C = user.client
-			if(C?.prefs)
-				hairstyle =  C.prefs.hairstyle
-				facial_hairstyle = C.prefs.facial_hairstyle
-				skin_tone = C.prefs.skin_tone
+		. = ..()
 	else
 		to_chat(user, span_warning("Эта роль требует <b>[req_sum]</b> донат-поинтов для доступа."))
 		return
@@ -759,13 +752,25 @@
 	. = ..()
 
 /obj/effect/mob_spawn/human/donate/yohei/special(mob/living/carbon/human/H)
+	var/datum/donator/D = get_donator(H.ckey)
+	if(D)
+		D.money -= req_sum
+
+	var/client/C = H.client
+	if(C?.prefs)
+		hairstyle =  C.prefs.hairstyle
+		facial_hairstyle = C.prefs.facial_hairstyle
+		skin_tone = C.prefs.skin_tone
+
 	if(SSticker.mode.config_tag == "extended" || SSticker.mode.config_tag == "teaparty")
 		to_chat(H, span_userdanger("Так как в этом мире насилия не существует, кодекс запрещает мне проявлять враждебность ко всем живым существам."))
 		ADD_TRAIT(H, TRAIT_PACIFISM, "yohei")
+
 	var/newname = sanitize_name(reject_bad_text(stripped_input(H, "Меня когда-то звали [H.name]. Пришло время снова сменить прозвище?", "Прозвище", H.name, MAX_NAME_LEN)))
 	if (!newname)
 		return
 	H.fully_replace_character_name(H.real_name, newname)
+
 	var/obj/item/book/B = locate(/obj/item/book/yohei_codex) in H
 	B?.on_read(H)
 
