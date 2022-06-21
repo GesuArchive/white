@@ -3,7 +3,7 @@
 /obj/item/weldingtool
 	name = "сварочный аппарат"
 	desc = "Сварка стандартного исполнения, предоставленная компанией NanoTrasen."
-	icon = 'white/valtos/icons/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "welder"

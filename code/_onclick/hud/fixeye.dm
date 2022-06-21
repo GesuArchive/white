@@ -1,6 +1,5 @@
 /atom/movable/screen/fixeye
 	name = "Смотреть в одну сторону"
-	icon = 'white/valtos/icons/hud.dmi'
 	icon_state = "fixeye"
 	base_icon_state = "fixeye"
 	screen_loc = ui_fixeye

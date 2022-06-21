@@ -1,7 +1,7 @@
 /obj/item/implanter
 	name = "имплантер"
 	desc = "Стерильный автоматический инъектор имплантов."
-	icon = 'white/valtos/icons/items.dmi'
+	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "implanter0"
 	inhand_icon_state = "syringe_0"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'

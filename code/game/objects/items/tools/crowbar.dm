@@ -1,7 +1,7 @@
 /obj/item/crowbar
 	name = "карманный лом"
 	desc = "Маленький ломик. Этот удобный инструмент полезен для многих вещей, например, для снятия напольной плитки или открывания дверей без электропитания."
-	icon = 'white/valtos/icons/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "crowbar"
@@ -59,7 +59,7 @@
 	icon_state = "jaws"
 	inhand_icon_state = "jawsoflife"
 	worn_icon_state = "jawsoflife"
-	icon = 'white/valtos/icons/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	custom_materials = list(/datum/material/iron=150,/datum/material/silver=50,/datum/material/titanium=25)

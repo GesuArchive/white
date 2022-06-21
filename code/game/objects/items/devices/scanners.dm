@@ -22,7 +22,7 @@ GENE SCANNER
 	name = "терагерцовый сканер"
 	desc = "Терагерцовый излучатель лучей и просто сканнер, который подсвечивает провода и трубы под полом."
 	custom_price = PAYCHECK_ASSISTANT * 0.7
-	icon = 'white/valtos/icons/items.dmi'
+	icon = 'icons/obj/device.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "t-ray0"
@@ -595,7 +595,7 @@ GENE SCANNER
 	desc = "Ручной анализатор, который сканирует состояние воздуха в помещении. ПКМ, чтобы использовать барометр."
 	name = "газоанализатор"
 	custom_price = PAYCHECK_ASSISTANT * 0.9
-	icon = 'white/valtos/icons/items.dmi'
+	icon = 'icons/obj/device.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "analyzer"

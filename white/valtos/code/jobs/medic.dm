@@ -21,7 +21,6 @@
 	minimal_access = list(ACCESS_BRIG_MED, ACCESS_FORENSICS_LOCKERS, ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_MECH_MEDICAL, ACCESS_MINERAL_STOREROOM, ACCESS_PHARMACY, ACCESS_WEAPONS)
 	config_job = "field_medic"
 	template_access = list(ACCESS_CAPTAIN, ACCESS_CMO, ACCESS_CHANGE_IDS)
-	trim_icon = 'white/valtos/icons/card.dmi'
 
 /datum/outfit/job/field_medic
 	name = "Полевой медик"

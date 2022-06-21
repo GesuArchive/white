@@ -1,7 +1,7 @@
 /obj/item/implantcase
 	name = "кейс микроимпланта"
 	desc = "Удобное хранилище для имплантов."
-	icon = 'white/valtos/icons/items.dmi'
+	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "implantcase-0"
 	inhand_icon_state = "implantcase"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'

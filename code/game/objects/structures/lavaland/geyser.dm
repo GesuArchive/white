@@ -57,7 +57,7 @@
 /obj/item/plunger
 	name = "вантуз"
 	desc = "Не для унитаза!"
-	icon = 'white/valtos/icons/items.dmi'
+	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "plunger"
 
 	slot_flags = ITEM_SLOT_MASK

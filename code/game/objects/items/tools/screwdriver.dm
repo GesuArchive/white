@@ -2,7 +2,7 @@
 	name = "отвёртка"
 	desc = "Ею можно откручивать и закручивать различные штуки."
 	gender = FEMALE
-	icon = 'white/valtos/icons/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "screwdriver_map"
@@ -98,7 +98,7 @@
 	belt_icon_state = null
 	inhand_icon_state = "drill"
 	worn_icon_state = "drill"
-	icon = 'white/valtos/icons/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	custom_materials = list(/datum/material/iron=150,/datum/material/silver=50,/datum/material/titanium=25) //done for balance reasons, making them high value for research, but harder to get

@@ -2,7 +2,6 @@
 	name = "портфель"
 	desc = "Он сделан из АУТЕНТИЧНОЙ искусственной кожи, и к нему все еще прикреплен ценник. Его владелец должен быть настоящим профессионалом."
 	icon_state = "briefcase"
-	icon = 'white/valtos/icons/items.dmi'
 	lefthand_file = 'icons/mob/inhands/equipment/briefcase_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/briefcase_righthand.dmi'
 	flags_1 = CONDUCT_1

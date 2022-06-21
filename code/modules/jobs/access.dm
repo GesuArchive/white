@@ -121,9 +121,6 @@
 	if(!card_assignment)
 		card_assignment = id_card.assignment
 
-	// Is this one of the jobs with dedicated HUD icons?
-	if(card_assignment in GLOB.white_job_list)
-		return "[card_assignment]"
 	if(card_assignment in SSjob.station_jobs)
 		return "hud[r_jobgen(card_assignment)]"
 	if(card_assignment in SSjob.additional_jobs_with_icons)

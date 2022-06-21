@@ -15,7 +15,7 @@ TRICORDER
 	desc = "Многофункциональное устройство, которое может выполнять огромный спектр задач."
 	icon_state = "tricorder"
 	inhand_icon_state = "tricorder"
-	icon = 'white/valtos/icons/items.dmi'
+	icon = 'icons/obj/device.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	flags_1 = CONDUCT_1

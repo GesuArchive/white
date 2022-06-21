@@ -72,7 +72,6 @@
 
 /obj/item/food/meat/slab/pig
 	name = "сало"
-	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "salo"
 	foodtypes = MEAT
 
@@ -85,5 +84,4 @@
 
 /obj/item/food/meat/rawcutlet/plain/salo
 	name = "сало"
-	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "salo_slice"
