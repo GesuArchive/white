@@ -4,7 +4,7 @@
 
 	//clean the input msg
 	if(!msg)
-		return
+		msg = tgui_input_text(usr, "", "Помощь знатока")
 
 	//remove out mentorhelp verb temporarily to prevent spamming of mentors.
 	remove_verb(src, /client/verb/mentorhelp)

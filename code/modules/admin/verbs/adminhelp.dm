@@ -649,6 +649,27 @@ GLOBAL_DATUM_INIT(admin_help_ui_handler, /datum/admin_help_ui_handler, new)
 	GLOB.admin_help_ui_handler.ui_interact(mob)
 	to_chat(src, span_boldnotice("Окно помощи не открылось? <a href='?src=[REF(src)];tguiless_adminhelp=1'>Нажми сюда</a>"))
 
+/client/proc/choosehelp()
+	var/list/type = list()
+	if(/client/verb/adminhelp in verbs)
+		type += "Помощь администратора"
+	else
+		type += "Помощь администратора \[Недоступно\]"
+
+	if(/client/verb/mentorhelp in verbs)
+		type += "Помощь знатока"
+	else
+		type += "Помощь знатока \[Недоступно\]"
+
+	var/selected_type = input("- Помощь администратора используется для жалоб о гриферах, нарушителях игровых правил и помощи с критическими игровыми багами.\
+	\n\n- Помощь знатока используется для вопросов об игровых механиках и советах по игре.\
+	\n\nВыберите опцию:", "Помощь", null, null) as null|anything in type
+
+	if(selected_type == "Помощь администратора")
+		adminhelp()
+
+	if(selected_type == "Помощь знатока")
+		mentorhelp()
 
 //
 // LOGGING
