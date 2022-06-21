@@ -566,7 +566,6 @@
 	name = "странная карточка"
 	desc = "Что это такое?"
 	icon_state = "yohei"
-	icon = 'white/valtos/icons/card.dmi'
 	assignment = "Yohei"
 	registered_age = 666
 	access = list(ACCESS_YOHEI, ACCESS_MAINT_TUNNELS)

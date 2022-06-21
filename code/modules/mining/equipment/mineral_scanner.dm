@@ -2,7 +2,7 @@
 /obj/item/mining_scanner
 	desc = "Сканер, проверяющий окружающую породу на наличие полезных минералов; его также можно использовать для остановки детонации гибтонита."
 	name = "ручной шахтёрский сканнер"
-	icon = 'white/valtos/icons/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "miningmanual"
 	inhand_icon_state = "analyzer"
 	worn_icon_state = "analyzer"

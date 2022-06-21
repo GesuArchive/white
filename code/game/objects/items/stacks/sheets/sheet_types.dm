@@ -128,7 +128,6 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	name = "железо"
 	desc = "Листы из железа."
 	singular_name = "лист железа"
-	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-metal"
 	inhand_icon_state = "sheet-metal"
 	mats_per_unit = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
@@ -186,7 +185,6 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
 	name = "пласталь"
 	singular_name = "лист пластали"
 	desc = "Пласталь является сплавом железа и плазмы. Благодаря отличной прочности и недороговизне этот новомодный сплав завоевал сердца многих инженеров."
-	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-plasteel"
 	inhand_icon_state = "sheet-plasteel"
 	mats_per_unit = list(/datum/material/alloy/plasteel=MINERAL_MATERIAL_AMOUNT)
@@ -263,7 +261,6 @@ GLOBAL_LIST_INIT(wood_recipes, list ( \
 	singular_name = "деревянная доска"
 	icon_state = "sheet-wood"
 	inhand_icon_state = "sheet-wood"
-	icon = 'white/valtos/icons/items.dmi'
 	mats_per_unit = list(/datum/material/wood=MINERAL_MATERIAL_AMOUNT)
 	sheettype = "wood"
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 0)
@@ -573,7 +570,6 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 	singular_name = "лист латуни"
 	icon_state = "sheet-brass"
 	inhand_icon_state = "sheet-brass"
-	icon = 'white/valtos/icons/items.dmi'
 	mats_per_unit = list(/datum/material/bronze = MINERAL_MATERIAL_AMOUNT)
 	lefthand_file = 'icons/mob/inhands/misc/sheets_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/sheets_righthand.dmi'
@@ -670,7 +666,6 @@ GLOBAL_LIST_INIT(plastic_recipes, list(
 	name = "пластик"
 	desc = "Сжимайте динозавров более миллиона лет, затем очистите, разделите и формируйте и Вуаля! Вот он пластик."
 	singular_name = "лист пластика"
-	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-plastic"
 	inhand_icon_state = "sheet-plastic"
 	mats_per_unit = list(/datum/material/plastic=MINERAL_MATERIAL_AMOUNT)
@@ -718,7 +713,6 @@ new /datum/stack_recipe("paper frame door", /obj/structure/mineral_door/paperfra
 	name = "листы мяса"
 	desc = "Чье-то окровавленное мясо, спресованное в неплохой твердый лист."
 	singular_name = "лист мяса"
-	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-meat"
 	material_flags = MATERIAL_COLOR
 	mats_per_unit = list(/datum/material/meat = MINERAL_MATERIAL_AMOUNT)

@@ -1,7 +1,6 @@
 /obj/item/dnainjector
 	name = "инъектор ДНК"
 	desc = "Позволяет быстро заменить ДНК у пациента."
-	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "dnainjector"
 	worn_icon_state = "pen"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'

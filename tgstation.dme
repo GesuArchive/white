@@ -4327,7 +4327,6 @@
 #include "white\valtos\code\_globalvars\donations.dm"
 #include "white\valtos\code\_globalvars\dwarfs.dm"
 #include "white\valtos\code\_globalvars\exploration.dm"
-#include "white\valtos\code\_globalvars\jobs.dm"
 #include "white\valtos\code\_globalvars\lists.dm"
 #include "white\valtos\code\_globalvars\loadout.dm"
 #include "white\valtos\code\_globalvars\mentor.dm"

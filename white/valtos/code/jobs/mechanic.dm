@@ -22,8 +22,6 @@
 		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_TCOMSAT, ACCESS_MINERAL_STOREROOM, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS)
 	config_job = "mechanic"
 	template_access = list(ACCESS_CAPTAIN, ACCESS_CE, ACCESS_CHANGE_IDS)
-	trim_icon = 'white/valtos/icons/card.dmi'
-
 
 /datum/outfit/job/mechanic
 	name = "Mechanic"

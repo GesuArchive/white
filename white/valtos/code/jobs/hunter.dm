@@ -70,7 +70,6 @@
 	minimal_access = list(ACCESS_MINING, ACCESS_MECH_MINING, ACCESS_MINING_STATION, ACCESS_MAILSORTING, ACCESS_MINERAL_STOREROOM, ACCESS_AUX_BASE)
 	config_job = "hunter"
 	template_access = list(ACCESS_CAPTAIN, ACCESS_HOP, ACCESS_CHANGE_IDS)
-	trim_icon = 'white/valtos/icons/card.dmi'
 
 /obj/item/energylance
 	name = "энергокопьё"

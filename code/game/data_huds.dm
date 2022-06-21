@@ -255,9 +255,6 @@ Security HUDs! Basic mode shows only the job.
 	holder.pixel_y = I.Height() - world.icon_size
 	var/sechud_icon_state = wear_id?.get_sechud_job_icon_state()
 
-	if(sechud_icon_state in GLOB.white_job_list)
-		holder.icon = 'white/valtos/icons/hud.dmi'
-		sechud_icon_state = "hud[r_jobgen(sechud_icon_state)]"
 	if(!sechud_icon_state)
 		sechud_icon_state = "hudno_id"
 	holder.icon_state = sechud_icon_state

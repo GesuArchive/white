@@ -96,7 +96,6 @@ GLOBAL_LIST_INIT(sandbag_recipes, list ( \
  */
 /obj/item/stack/sheet/mineral/diamond
 	name = "алмаз"
-	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-diamond"
 	inhand_icon_state = "sheet-diamond"
 	singular_name = "алмаз"
@@ -125,8 +124,7 @@ GLOBAL_LIST_INIT(diamond_recipes, list ( \
  * Uranium
  */
 /obj/item/stack/sheet/mineral/uranium
-	name = "Уран"
-	icon = 'white/valtos/icons/items.dmi'
+	name = "уран"
 	icon_state = "sheet-uranium"
 	inhand_icon_state = "sheet-uranium"
 	singular_name = "урановый лист"
@@ -157,7 +155,6 @@ GLOBAL_LIST_INIT(uranium_recipes, list ( \
  */
 /obj/item/stack/sheet/mineral/plasma
 	name = "твердая плазма"
-	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-plasma"
 	inhand_icon_state = "sheet-plasma"
 	singular_name = "лист плазмы"
@@ -209,7 +206,6 @@ GLOBAL_LIST_INIT(plasma_recipes, list ( \
  */
 /obj/item/stack/sheet/mineral/gold
 	name = "золото"
-	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-gold"
 	inhand_icon_state = "sheet-gold"
 	singular_name = "золотой слиток"
@@ -242,7 +238,6 @@ GLOBAL_LIST_INIT(gold_recipes, list ( \
  */
 /obj/item/stack/sheet/mineral/silver
 	name = "серебро"
-	icon = 'white/valtos/icons/items.dmi'
 	icon_state = "sheet-silver"
 	inhand_icon_state = "sheet-silver"
 	singular_name = "серебрянный слиток"

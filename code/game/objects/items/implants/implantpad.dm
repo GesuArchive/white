@@ -1,7 +1,7 @@
 /obj/item/implantpad
 	name = "имплантер"
 	desc = "Используется для модификации имплантов."
-	icon = 'white/valtos/icons/items.dmi'
+	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "implantpad-0"
 	inhand_icon_state = "electronic"
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
