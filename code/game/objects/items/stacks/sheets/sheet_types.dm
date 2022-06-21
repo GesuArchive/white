@@ -568,6 +568,7 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 	name = "латунь"
 	desc = "При внимательном рассмотрении становится понятно, что совершенно-непригодная-для-строительства латунь на самом деле куда более структурно устойчивая латунь."
 	singular_name = "лист латуни"
+	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "sheet-brass"
 	inhand_icon_state = "sheet-brass"
 	mats_per_unit = list(/datum/material/bronze = MINERAL_MATERIAL_AMOUNT)
