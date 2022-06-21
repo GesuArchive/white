@@ -595,6 +595,7 @@ GENE SCANNER
 	desc = "Ручной анализатор, который сканирует состояние воздуха в помещении. ПКМ, чтобы использовать барометр."
 	name = "газоанализатор"
 	custom_price = PAYCHECK_ASSISTANT * 0.9
+	icon = 'icons/obj/device.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "analyzer"

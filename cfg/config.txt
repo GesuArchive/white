@@ -452,4 +452,7 @@ DISABLE_HIGH_POP_MC_MODE_AMOUNT 60
 ##	Do note that changing this value will affect the title screen. The title screen will have to be updated manually if this is changed.
 DEFAULT_VIEW 19x15
 
+MAX_CLIENT_VIEW_X 19
+MAX_CLIENT_VIEW_Y 15
+
 #ENABLE_DEMO
