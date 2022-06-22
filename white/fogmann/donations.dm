@@ -10,7 +10,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 		new /datum/donate_info("Collectable Xeno hat",		/obj/item/clothing/head/collectable/xenom,		110),
 		new /datum/donate_info("Collectable Top hat",		/obj/item/clothing/head/collectable/tophat,		120),
 		new /datum/donate_info("Collectable rabbit ears",	/obj/item/clothing/head/collectable/rabbitears,	120),
-		new /datum/donate_info("Kitty Ears",				/obj/item/clothing/head/kitty,					100),
+		new /datum/donate_info("Kitty Ears",				/obj/item/clothing/head/kitty/genuine,			10000),
 		new /datum/donate_info("Ushanka",					/obj/item/clothing/head/ushanka,				200),
 		new /datum/donate_info("Beret",						/obj/item/clothing/head/beret,					150),
 		new /datum/donate_info("Witch Wig",					/obj/item/clothing/head/witchwig,				135),
