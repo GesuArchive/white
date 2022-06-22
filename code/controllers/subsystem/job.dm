@@ -772,11 +772,12 @@ SUBSYSTEM_DEF(job)
 		"Shaft Miner", "Hunter", "Clown", "Mime", "Janitor", "Curator", "Lawyer", "Chaplain", "Chief Engineer", "Station Engineer", \
 		"Atmospheric Technician", "Chief Medical Officer", "Medical Doctor", "Paramedic", "Chemist", "Geneticist", "Virologist", "Psychologist", \
 		"Research Director", "Scientist", "Roboticist", "Head of Security", "Warden", "Detective", "Security Officer", "Russian Officer", \
-		"Veteran", "Field Medic", "Mechanic", "Bomj", "Prisoner")
+		"Veteran", "Field Medic", "Mechanic", "Bomj", "Prisoner", "Exploration Crew")
 
 	additional_jobs_with_icons = list("Emergency Response Team Commander", "Security Response Officer", "Engineering Response Officer", "Medical Response Officer", \
 		"Entertainment Response Officer", "Religious Response Officer", "Janitorial Response Officer", "Death Commando", \
-		"SOBR","SOBR Leader", "Security Officer (Cargo)", "Security Officer (Medical)", "Security Officer (Science)", "Security Officer (Engineering)")
+		"SOBR","SOBR Leader", "Security Officer (Cargo)", "Security Officer (Medical)", "Security Officer (Science)", "Security Officer (Engineering)", "Yohei", \
+		"red", "blue", "yellow", "green", "white")
 
 	centcom_jobs = list("Central Command","VIP Guest","Custodian","Thunderdome Overseer","CentCom Official","Medical Officer","Research Officer", \
 		"Special Ops Officer","Admiral","CentCom Commander","CentCom Bartender","Private Security Force")
