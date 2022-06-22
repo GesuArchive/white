@@ -237,7 +237,7 @@
 			//Clamp it so that the icon never moves more than 16 pixels in either direction (thus leaving the table turf)
 			I.pixel_x = clamp(text2num(click_params["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)
 			I.pixel_y = clamp(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)
-			if((smoothing_junction & SOUTH) && I.pixel_y <= 0)
+			if(!(smoothing_junction & SOUTH) && I.pixel_y <= 0)
 				I.pixel_y = 0
 			AfterPutItemOnTable(I, user)
 			return TRUE
