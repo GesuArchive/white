@@ -175,8 +175,7 @@
 			if(pointblank)
 				user.visible_message(span_danger("<b>[user]</b> стреляет из <b>[src.name]</b> <b>В УПОР</b> по <b>[pbtarget]</b>!"),
 								span_danger("Стреляю из [src.name] <b>В УПОР</b> по <b>[pbtarget]</b>!"),
-								span_hear("Слышу выстрел!"), COMBAT_MESSAGE_RANGE, pbtarget)
-				to_chat(pbtarget, span_userdanger("<b>[user]</b> стреляет из <b>[src.name]</b> в меня <b>В УПОР</b>!"))
+								span_hear("Слышу выстрел!"), COMBAT_MESSAGE_RANGE, pbtarget, visible_message_flags = SPAM_MESSAGE)
 				if(pb_knockback > 0 && ismob(pbtarget))
 					var/mob/PBT = pbtarget
 					var/atom/throw_target = get_edge_target_turf(PBT, user.dir)
@@ -184,7 +183,7 @@
 			else
 				user.visible_message(span_danger("<b>[user]</b> стреляет из <b>[src.name]</b>!"),
 								span_danger("Стреляю из [src.name]!"),
-								span_hear("Слышу выстрел!"), COMBAT_MESSAGE_RANGE)
+								span_hear("Слышу выстрел!"), COMBAT_MESSAGE_RANGE, visible_message_flags = SPAM_MESSAGE)
 
 /obj/item/gun/emp_act(severity)
 	. = ..()

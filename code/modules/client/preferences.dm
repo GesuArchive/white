@@ -122,7 +122,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/fullscreen = TRUE
 
 	///Should we automatically fit the viewport?
-	var/auto_fit_viewport = FALSE
+	var/auto_fit_viewport = TRUE
 	///What size should pixels be displayed as? 0 is strech to fit
 	var/pixel_size = 0
 	///What scaling method should we use? Distort means nearest neighbor
@@ -525,6 +525,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_NODE_SWITCH("Эмоуты", "ghost_sight", (chat_toggles & CHAT_GHOSTSIGHT) ? "Все" : "Рядом")
 			dat += SETUP_NODE_SWITCH("Шёпот", "ghost_whispers", (chat_toggles & CHAT_GHOSTWHISPER) ? "Все" : "Рядом")
 			dat += SETUP_NODE_SWITCH("ПДА", "ghost_pda", (chat_toggles & CHAT_GHOSTPDA) ? "Все" : "Рядом")
+			dat += SETUP_NODE_SWITCH("Вход/Выход призраков", "hear_login_logout", (chat_toggles & CHAT_LOGIN_LOGOUT) ? "Слушать" : "Не слушать")
+			dat += SETUP_NODE_SWITCH("Мой выход", "broadcast_login_logout", broadcast_login_logout ? "Оповещать" : "Молчать")
 			dat += SETUP_NODE_INPUT("Форма", "ghostform", ghost_form)
 			dat += SETUP_NODE_INPUT("Орбита", "ghostorbit", ghost_orbit)
 			dat += SETUP_NODE_SWITCH("Передача тела", "ice_cream", ice_cream ? "Вкл" : "Выкл")
@@ -554,6 +556,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "</div><div class='csetup_content'><div class='csetup_header'>Графика</div>"
 			dat += SETUP_NODE_SWITCH("Автокоррекция текста", "disabled_autocap", disabled_autocap ? "Выкл" : "Вкл")
 			dat += SETUP_NODE_SWITCH("Сообщения ID-карты", "income_pings", (chat_toggles & CHAT_BANKCARD) ? "Вкл" : "Выкл")
+			dat += SETUP_NODE_SWITCH("Избыточные сообщения", "chat_spam", (chat_toggles & CHAT_SPAM) ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_INPUT("FPS", "clientfps", clientfps)
 
 			switch (parallax)
@@ -1835,6 +1838,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if("income_pings")
 					chat_toggles ^= CHAT_BANKCARD
+
+				if("chat_spam")
+					chat_toggles ^= CHAT_SPAM
 
 				if("pull_requests")
 					chat_toggles ^= CHAT_PULLR

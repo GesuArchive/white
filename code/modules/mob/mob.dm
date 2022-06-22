@@ -253,6 +253,9 @@
 		if(!M.client)
 			continue
 
+		if((visible_message_flags & SPAM_MESSAGE) && !(M.client.prefs.chat_toggles & CHAT_SPAM))
+			continue
+
 		//This entire if/else chain could be in two lines but isn't for readibilties sake.
 		var/msg = message
 		var/msg_type = MSG_VISUAL
