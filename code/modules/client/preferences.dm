@@ -211,7 +211,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!user || !user.client)
 		return
-	if(!Master.current_runlevel)
+	if(!MC_RUNNING())
 		to_chat(user, span_info("Сервер всё ещё инициализируется. Подождите..."))
 		return
 	if(slot_randomized)
