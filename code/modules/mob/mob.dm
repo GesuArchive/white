@@ -282,6 +282,8 @@
 /mob/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE)
 	. = ..()
 	if(self_message)
+		if((visible_message_flags & SPAM_MESSAGE) && !(client.prefs.chat_toggles & CHAT_SPAM))
+			return
 		show_message(self_message, MSG_VISUAL, blind_message, MSG_AUDIBLE)
 
 /**
