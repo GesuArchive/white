@@ -39,7 +39,7 @@
 	if(!name)
 		name = "переключатель света ([area.name])"
 
-	if(area.lightswitch)
+	if(area.lightswitch && !istype(area, /area/shuttle))
 		area.lightswitch = FALSE
 		area.power_change()
 
