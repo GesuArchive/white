@@ -46,8 +46,6 @@
 	/// broadcasted to as long as the other guys network is on the same branch or above.
 	var/network_id = null
 
-	var/traitor_desc = null
-
 /obj/vv_edit_var(vname, vval)
 	if(vname == NAMEOF(src, obj_flags))
 		if ((obj_flags & DANGEROUS_POSSESSION) && !(vval & DANGEROUS_POSSESSION))
@@ -332,9 +330,6 @@
 
 /obj/examine(mob/user)
 	. = ..()
-	if(traitor_desc && is_traitor(user))
-		. += "<hr>"
-		. += span_rose(traitor_desc)
 	if(obj_flags & UNIQUE_RENAME)
 		. += "<hr>"
 		. += span_smallnotice("Можно переименовать это используя ручку или что-то подобное.")

@@ -418,30 +418,10 @@
 
 /obj/machinery/power/smes/engineering
 	charge = 4e6 // Engineering starts with some charge for singulo
-	traitor_desc = "Если поменять полярность всех ячеек, то это сократит выхлоп энергии вдвое в виду особенностей защиты. Вполне сгодится за саботаж <b>двигателей</b> и за это мне дадут 3 телекристалла."
 
-/obj/machinery/power/smes/engineering/attack_hand_secondary(mob/user, list/modifiers)
+/obj/machinery/power/smes/engineering/Initialize(mapload)
 	. = ..()
-	if (. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
-		return .
-
-	if(!user.Adjacent(src))
-		return
-
-	if(!is_traitor(user))
-		return
-
-	if(GLOB.is_engine_sabotaged)
-		to_chat(user, span_rose("Кто-то уже саботировал двигатель до этого. Лишнее внимание нам не нужно."))
-		return
-
-	GLOB.is_engine_sabotaged = TRUE
-	user.visible_message(span_danger("[user.name] ковыряется в [src].") ,\
-		span_rose("Меняю полярность ячеек."))
-	RefreshParts()
-	var/datum/component/uplink/U = user.mind.find_syndicate_uplink()
-	if(U)
-		U.telecrystals += 3
+	AddElement(/datum/element/traitor_desc, "Если поменять полярность всех ячеек, то это сократит выхлоп энергии вдвое в виду особенностей защиты. Вполне сгодится за саботаж <b>двигателей</b> и за это мне дадут 3 телекристалла.", SABOTAGE_ENGINE)
 
 /obj/machinery/power/smes/magical
 	name = "Магический СНМЭ"

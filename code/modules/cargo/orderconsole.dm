@@ -26,30 +26,6 @@
 	var/is_express = FALSE
 	///Interface name for the ui_interact call for different subtypes.
 	var/interface_type = "Cargo"
-	traitor_desc = "<i>Да, я определённо хотел заказать 500 коробок из под пиццы, когда нашу станцию пожирает хрен пойми что!</i> Я могу закоротить один из контактов, что приведёт к проблемам с заказами у <b>снабжения</b>. За это мне дадут целый 1 телекристалл."
-
-/obj/machinery/computer/cargo/attack_hand_secondary(mob/user, list/modifiers)
-	. = ..()
-	if (. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
-		return .
-
-	if(!user.Adjacent(src))
-		return
-
-	if(!is_traitor(user))
-		return
-
-	if(GLOB.is_cargo_sabotaged)
-		to_chat(user, span_rose("Кто-то уже саботировал снабжение до этого."))
-		return
-
-	GLOB.is_cargo_sabotaged = TRUE
-	user.visible_message(span_danger("[user.name] ковыряется в [src].") ,\
-		span_rose("Закорачиваю контакты, которые бережно были оставлены криворукими инженерами у всех на виду. Некоторая часть товаров в заказах будет заменена на случайные."))
-
-	var/datum/component/uplink/U = user.mind.find_syndicate_uplink()
-	if(U)
-		U.telecrystals += 1
 
 /obj/machinery/computer/cargo/request
 	name = "консоль запросов снабжения"
@@ -63,6 +39,7 @@
 /obj/machinery/computer/cargo/Initialize(mapload)
 	. = ..()
 	radio = new /obj/item/radio/headset/headset_cargo(src)
+	AddElement(/datum/element/traitor_desc, "<i>Да, я определённо хотел заказать 500 коробок из под пиццы, когда нашу станцию пожирает хрен пойми что!</i> Я могу закоротить один из контактов, что приведёт к проблемам с заказами у <b>снабжения</b>. За это мне дадут целый 1 телекристалл.", SABOTAGE_CARGO)
 
 /obj/machinery/computer/cargo/Destroy()
 	QDEL_NULL(radio)
