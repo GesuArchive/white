@@ -409,6 +409,7 @@
 					QDEL_NULL(shuttleObject)
 					//Hold the shuttle in the docking position until ready.
 					mobile_port.setTimer(INFINITY)
+					mobile_port.hyperspace_sound(FALSE, mobile_port.shuttle_areas, 'sound/effects/shuttle_intercepted.ogg')
 					say("Активирован протокол стыковки, ожидайте...")
 					INVOKE_ASYNC(src, .proc/unfreeze_shuttle, mobile_port, SSmapping.get_level(target_port.z))
 				if(1)
@@ -517,6 +518,7 @@
 				//Hold the shuttle in the docking position until ready.
 				shuttle_dock.setTimer(INFINITY)
 				say("Ожидайте...")
+				shuttle_dock.hyperspace_sound(FALSE, shuttle_dock.shuttle_areas, 'sound/effects/shuttle_intercepted.ogg')
 				INVOKE_ASYNC(src, .proc/unfreeze_shuttle, shuttle_dock, target_spacelevel)
 				QDEL_NULL(_shuttleObject)
 				return TRUE

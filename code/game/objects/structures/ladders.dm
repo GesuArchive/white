@@ -92,7 +92,8 @@
 			var/mob/living/carbon/human/H = user
 			H.adjustStaminaLoss(5)
 
-	playsound(get_turf(user), 'white/valtos/sounds/ladder.ogg', 55, TRUE)
+	if(isliving(user))
+		playsound(get_turf(user), "ladder", 55, TRUE)
 
 	var/turf/target = get_turf(ladder)
 	user.zMove(target = target, z_move_flags = ZMOVE_CHECK_PULLEDBY|ZMOVE_ALLOW_BUCKLED|ZMOVE_INCLUDE_PULLED)

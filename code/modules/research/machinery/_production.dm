@@ -328,6 +328,7 @@
 	busy = TRUE
 	if(production_animation)
 		flick(production_animation, src)
+	playsound(get_turf(src), "production", 50, TRUE)
 	var/timecoeff = D.lathe_time_factor / efficiency_coeff
 	addtimer(CALLBACK(src, .proc/reset_busy), (30 * timecoeff * amount) ** 0.5)
 	addtimer(CALLBACK(src, .proc/do_print, D.build_path, amount, efficient_mats, D.dangerous_construction), (32 * timecoeff * amount) ** 0.8)

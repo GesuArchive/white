@@ -214,6 +214,7 @@
 
 			if(materials.has_materials(materials_used))
 				busy = TRUE
+				playsound(get_turf(src), "production", 75, TRUE)
 				to_chat(usr, "<span class=\"notice\">Удалось распечатать [multiplier] предметов в [src]</span>")
 				use_power(active_power_usage * 0.25)
 				icon_state = "autolathe_n"
@@ -307,7 +308,7 @@
 					if(!istype(M, /datum/material/glass) && !istype(M, /datum/material/iron))
 						user.client.give_award(/datum/award/achievement/misc/getting_an_upgrade, user)
 
-
+	playsound(get_turf(src), "production", 75, TRUE)
 	icon_state = "autolathe"
 	busy = FALSE
 

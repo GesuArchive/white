@@ -249,7 +249,7 @@
 		if(exit.density)
 			return TRUE
 
-		playsound(src, 'white/valtos/sounds/click2.ogg', 20, TRUE)
+		playsound(get_turf(src), "production", 50, TRUE)
 		say("Препятствие убрано. Деталь [stored_part] готова.")
 		stored_part.forceMove(exit)
 		stored_part = null

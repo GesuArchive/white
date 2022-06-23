@@ -2,6 +2,7 @@
 	//Must be idle to supercruise.
 	if(mode != SHUTTLE_IDLE)
 		return
+	hyperspace_sound(FALSE, shuttle_areas, 'sound/effects/shuttle_undock.ogg')
 	//Inherit orbital velocity of the place we are leaving
 	var/datum/space_level/z_level = SSmapping.get_level(z)
 	var/datum/orbital_object/orbital_body
