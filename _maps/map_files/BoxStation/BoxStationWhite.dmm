@@ -36253,6 +36253,10 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
+"hYn" = (
+/obj/structure/lattice,
+/turf/open/openspace,
+/area/commons/dorms)
 "hYG" = (
 /obj/structure/railing{
 	dir = 8
@@ -42118,6 +42122,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
+/obj/structure/lattice,
 /turf/open/openspace,
 /area/hallway/secondary/exit/departure_lounge)
 "ouv" = (
@@ -82661,7 +82666,7 @@ bFk
 bDs
 bCv
 wiz
-bID
+bBR
 bLK
 bMK
 bMK
@@ -83175,7 +83180,7 @@ bCv
 bAw
 fbo
 wiz
-bBR
+bAw
 bLK
 bMN
 bNV
@@ -83382,8 +83387,8 @@ aqo
 asp
 iUk
 auS
-xWD
-xWD
+hYn
+hYn
 tde
 aAh
 pcT
@@ -84153,8 +84158,8 @@ iUk
 iUk
 iUk
 oAU
-xWD
-xWD
+hYn
+hYn
 tde
 aAh
 rPu
@@ -90325,7 +90330,7 @@ akw
 auy
 arj
 vGf
-vGf
+rqa
 vGf
 avI
 anf
@@ -92897,8 +92902,8 @@ apE
 anf
 avD
 alO
-vGf
-vGf
+rqa
+rqa
 dab
 vLg
 aJO
@@ -93149,7 +93154,7 @@ alP
 pOY
 anf
 dvV
-vGf
+rqa
 apE
 anf
 atw
@@ -93406,7 +93411,7 @@ awH
 pOY
 aty
 jue
-vGf
+rqa
 apE
 tlA
 awC
