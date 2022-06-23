@@ -123,7 +123,7 @@
 
 /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm
 	name = "высокоточный пистолет"
-	desc = "Пистолет малой мощности и не сбывшихся надежд. Возможно последний экземпляр."
+	desc = "Пистолет малой мощности и несбывшихся надежд. Возможно последний экземпляр."
 	icon_state = "gosling"
 	inhand_icon_state = "devil"
 	mag_type = /obj/item/ammo_box/magazine/fallout/m9mm
