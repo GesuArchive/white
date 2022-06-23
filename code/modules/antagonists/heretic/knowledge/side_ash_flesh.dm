@@ -1,9 +1,9 @@
 // Sidepaths for knowledge between Ash and Flesh.
 /datum/heretic_knowledge/medallion
-	name = "Ashen Eyes"
-	desc = "Allows you to transmute a pair of eyes, a candle, and a glass shard into an Eldritch Medallion. \
-		The Eldritch Medallion grants you thermal vision while worn."
-	gain_text = "Piercing eyes guided them through the mundane. Neither darkness nor terror could stop them."
+	name = "Пепельный Глаз"
+	desc = "Позволяет вам трансмутировать глаза, свечу и осколок стекла в Древний Медальон. \
+		Будучи надетым на шею, дарует вам возможность видеть жертв через твердые объекты."
+	gain_text = "Пронзающий взгляд вел их сквозь обыденную реальность. Ни тьма, ни ужас не могли остановить их."
 	next_knowledge = list(
 		/datum/heretic_knowledge/spell/ash_passage,
 		/datum/heretic_knowledge/limited_amount/flesh_ghoul,
@@ -18,12 +18,12 @@
 	route = PATH_SIDE
 
 /datum/heretic_knowledge/curse/paralysis
-	name = "Curse of Paralysis"
-	desc = "Allows you to transmute a hatchet, a left and right leg, \
-		and an item containing fingerprints to cast a curse of immobility \
-		on one of the fingerprint's owners for five minutes. While cursed, \
-		the victim will be unable to walk."
-	gain_text = "The flesh of humanity is weak. Make them bleed. Show them their fragility."
+	name = "Проклятье Паралича"
+	desc = "Позволяет вам трансмутировать топорик, правую и левую ногу, \
+		а также предмет с отпечатком пальцев, для того, чтобы наложить проклятие \
+		на владельца отпечатков. Пока проклятие действует, \
+		жертва не сможет ходить."
+	gain_text = "Человеческая плоть слаба. Пусти кровь, сломай все кости. Покажи им всю их ничтожность."
 	next_knowledge = list(
 		/datum/heretic_knowledge/mad_mask,
 		/datum/heretic_knowledge/summon/raw_prophet,
@@ -39,9 +39,9 @@
 
 /datum/heretic_knowledge/curse/paralysis/curse(mob/living/carbon/human/chosen_mob)
 	if(chosen_mob.usable_legs <= 0) // What're you gonna do, curse someone who already can't walk?
-		to_chat(chosen_mob, span_notice("You feel a slight pain for a moment, but it passes shortly. Odd."))
+		to_chat(chosen_mob, span_notice("Чувствую легкую боль, но она быстро проходит. Странно."))
 	else
-		to_chat(chosen_mob, span_danger("You suddenly lose feeling in your leg[chosen_mob.usable_legs == 1 ? "":"s"]!"))
+		to_chat(chosen_mob, span_danger("Внезапно перестаю чувствовать свои ноги!"))
 
 	ADD_TRAIT(chosen_mob, TRAIT_PARALYSIS_L_LEG, type)
 	ADD_TRAIT(chosen_mob, TRAIT_PARALYSIS_R_LEG, type)
@@ -51,16 +51,17 @@
 	REMOVE_TRAIT(chosen_mob, TRAIT_PARALYSIS_R_LEG, type)
 
 	if(chosen_mob.usable_legs <= 0) // What're you gonna do, curse someone who already can't walk?
-		to_chat(chosen_mob, span_notice("The slight pain returns, but disperses shortly."))
+		to_chat(chosen_mob, span_notice("Слабая боль возвращается, но вскоре снова пропадает."))
 	else
-		to_chat(chosen_mob, span_notice("You regain feeling in your leg[chosen_mob.usable_legs == 1 ? "":"s"]!"))
+		to_chat(chosen_mob, span_notice("Вновь начинаю чувствовать свои ноги!"))
 
 /datum/heretic_knowledge/summon/ashy
-	name = "Ashen Ritual"
-	desc = "Allows you to transmute a head, a pile of ash, and a book to create an Ash Man. \
-		Ash Men have a short range jaunt and the ability to cause bleeding in foes at range. \
-		They also have the ability to create a ring of fire around themselves for a length of time."
-	gain_text = "I combined my principle of hunger with my desire for destruction. The Marshal knew my name, and the Nightwatcher gazed on."
+	name = "Ритуал Пепла"
+	desc = "Позволяет трансмутировать голову, горстку пепла и книгу, чтобы создать Пепельника. \
+		Пепельники обладают способностью к бестелесному перемещению, что позволяет им проходить сквозь стены, \
+		а так же они могут накладывать кровотечение на цель с дистанции. \
+		Также они способны создать кольцо огня вокруг себя на определенное время."
+	gain_text = "Я объединил принцип голода с моим желанием разрушения. Маршал знал мое имя, и Ночной Страж смотрел на меня."
 	next_knowledge = list(
 		/datum/heretic_knowledge/summon/stalker,
 		/datum/heretic_knowledge/spell/flame_birth,

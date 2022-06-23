@@ -1,11 +1,12 @@
 // Sidepaths for knowledge between Rust and Ash.
 
 /datum/heretic_knowledge/essence
-	name = "Priest's Ritual"
-	desc = "Allows you to transmute a tank of water and a glass shard into a Flask of Eldritch Essence. \
-		Eldritch water can be consumed for potent healing, or given to heathens for deadly poisoning."
-	gain_text = "This is an old recipe. The Owl whispered it to me. \
-		Created by the Priest - the Liquid that is both was and is not."
+	name = "Ритуал Жреца"
+	desc = "Позволяет трансмутировать бак с водой и осколок стекла во фляжку с Древней Эссенцией. \
+		Воду можно выпить для лечения, или дать неверным в качестве смертельного яда."
+	gain_text = "Это довольно старый рецепт. Сова нашептала его мне. \
+		Жидкость, созданная Жрецом - квинтэссенция древнего ужаса, настолько пугающая, \
+		что казалось сама ее суть отторгается миром. Но тебе удалось увидеть в ней скрытую силу."
 	next_knowledge = list(
 		/datum/heretic_knowledge/rust_regen,
 		/datum/heretic_knowledge/spell/ash_passage,
@@ -19,12 +20,12 @@
 	route = PATH_SIDE
 
 /datum/heretic_knowledge/curse/corrosion
-	name = "Curse of Corrosion"
-	desc = "Allows you to transmute wirecutters, a pool of vomit, a heart, \
-		and an item containing fingerprints to cast a curse of plague \
-		on one of the fingerprint's owners for two minutes. While cursed, \
-		the victim will repeatedly vomit while their organs will take constant damage."
-	gain_text = "The body of humanity is temporary. Their weaknesses cannot be stopped, like iron falling to rust. Show them all."
+	name = "Проклятие Разложения"
+	desc = "Позволяет трансмутировать кусачки, лужу рвоты, сердце \
+		и предмет с отпечатками пальцев на нем, для наложения Проклятия Разложения \
+		на владельца отпечатков. Проклятие длится две минуты. Под его воздействием, \
+		жертва подвержена постоянным приступам рвоты, в то время, как её органы постепенно отказывают."
+	gain_text = "Тело человека ограничено временем. Люди, словно металл, что покрывается ржавчиной, а затем обращается в прах. Покажи это им всем."
 	next_knowledge = list(
 		/datum/heretic_knowledge/mad_mask,
 		/datum/heretic_knowledge/spell/area_conversion,
@@ -39,18 +40,18 @@
 	route = PATH_SIDE
 
 /datum/heretic_knowledge/curse/corrosion/curse(mob/living/carbon/human/chosen_mob)
-	to_chat(chosen_mob, span_danger("You feel very ill."))
+	to_chat(chosen_mob, span_danger("Ужасно себя чувствую."))
 	chosen_mob.apply_status_effect(/datum/status_effect/corrosion_curse)
 
 /datum/heretic_knowledge/curse/corrosion/uncurse(mob/living/carbon/human/chosen_mob)
 	chosen_mob.remove_status_effect(/datum/status_effect/corrosion_curse)
-	to_chat(chosen_mob, span_notice("You start to feel better."))
+	to_chat(chosen_mob, span_notice("Мне становится лучше."))
 
 /datum/heretic_knowledge/summon/rusty
-	name = "Rusted Ritual"
-	desc = "Allows you to transmute a pool of vomit, a book, and a head into a Rust Walker. \
-		Rust Walkers excel at spreading rust and are moderately strong in combat."
-	gain_text = "I combined my principle of hunger with my desire for corruption. The Marshal knew my name, and the Rusted Hills echoed out."
+	name = "Ритуал Ржавчины"
+	desc = "Позволяет трансмутировать лужу рвоты, книгу и голову, для создания Ржавого Ходока. \
+		Ходоки отлично распростроняют ржавчину и неплохи в бою."
+	gain_text = "Я объединил мой Принцип Голода с Верностью Ржавчине. Маршал прошептал мое имыя, а Ржавые Холмы эхом повторили его."
 	next_knowledge = list(
 		/datum/heretic_knowledge/spell/entropic_plume,
 		/datum/heretic_knowledge/spell/flame_birth,

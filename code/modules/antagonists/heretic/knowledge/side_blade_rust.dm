@@ -1,10 +1,9 @@
 // Sidepaths for knowledge between Rust and Blade.
 /datum/heretic_knowledge/armor
-	name = "Armorer's Ritual"
-	desc = "Allows you to transmute a table and a gas mask to create Eldritch Armor. \
-		Eldritch Armor provides great protection while also acting as a focus when hooded."
-	gain_text = "The Rusted Hills welcomed the Blacksmith in their generosity. And the Blacksmith \
-		returned their generosity in kind."
+	name = "Ритуал Оружейника"
+	desc = "Позволяет трансмутировать стол и противогаз для создания Древней Брони. \
+		Она отлично защищает, так же помогая сфокусировать мысли для заклинаний, когда надет капюшон."
+	gain_text = "Ржавые Холмы добро приветствовали Кузнеца. И тот щедро отплатил им."
 	next_knowledge = list(
 		/datum/heretic_knowledge/rust_regen,
 		/datum/heretic_knowledge/blade_dance,
@@ -18,11 +17,12 @@
 	route = PATH_SIDE
 
 /datum/heretic_knowledge/crucible
-	name = "Mawed Crucible"
-	desc = "Allows you to transmute a portable water tank and a table to create a Mawed Crucible. \
-		The Mawed Crubile can brew powerful potions for combat and utility, but must be fed bodyparts and organs between uses."
-	gain_text = "This is pure agony. I wasn't able to summon the figure of the Aristocrat, \
-		but with the Priest's attention I stumbled upon a different recipe..."
+	name = "Оскаленный Котел"
+	desc = "Позволяет трансмутировать бак с водой и стол для создания Котла. \
+		Он предоставляет возможность варить мощные зелья для боя и лечения. \
+		Но перед использованием необходимо добыть некоторые части тел и органы"
+	gain_text = "Это настоящая агония. Я не смог воззвать к Аристократу, \
+		но благодаря помощи Жреца я наткнулся на другой рецепт..."
 	next_knowledge = list(
 		/datum/heretic_knowledge/duel_stance,
 		/datum/heretic_knowledge/spell/area_conversion,
@@ -36,15 +36,15 @@
 	route = PATH_SIDE
 
 /datum/heretic_knowledge/rifle
-	name = "Lionhunter's Rifle"
-	desc = "Allows you to transmute any ballistic weapon, such as a pipegun, with hide \
-		from any animal, a plank of wood, and a camera to create the Lionhunter's rifle. \
-		The Lionhunter's Rifle is a long ranged ballistic weapon with three shots. \
-		These shots function as normal, albiet weak high caliber mutitions when fired from \
-		close range or at inanimate objects. You can aim the rifle at distant foes, \
-		causing the shot to deal massively increased damage and hone in on them."
-	gain_text = "I met an old man in an anique shop who wielded a very unusual weapon. \
-		I could not purchase it at the time, but they showed me how they made it ages ago."
+	name = "Винтовка Зверобоя"
+	desc = "Позволяет трансмутировать огнестрельное оружие, шкуру \
+		любого животного, деревеянную доску и фотокамеру для создания Винтовки Зверобоя. \
+		Винтовка Зверобоя - это трехзарядное дальнобойное баллистическое оружие. \
+		Выстрелы крайне мощны, но если стрелять с близкой дистанции \
+		или по неодушевленным объектам, урон заметно снизится. Если же стрелять по врагам вдали, \
+		то выстрел станет гораздо смертоноснее, а пуля застрянет в теле жертвы."
+	gain_text = "Я встретил старика, что торговал в антикварном магазине. На одной из пыльных полок лежало очень необычное оружие. \
+		В тот раз я не смог его купить. Но продавец показал, как изготавливали это оружие многие годы назад."
 	next_knowledge = list(
 		/datum/heretic_knowledge/spell/furious_steel,
 		/datum/heretic_knowledge/spell/entropic_plume,
@@ -61,12 +61,12 @@
 	route = PATH_SIDE
 
 /datum/heretic_knowledge/rifle_ammo
-	name = "Lionhunter Rifle Ammunition"
-	desc = "Allows you to transmute 3 ballistic ammo casings (used or unused) of any caliber, \
-		including shotgun shot, with any animal hide to create an extra clip of ammunition for the Lionhunter Rifle."
-	gain_text = "The weapon came with three rough iron balls, intended to be used as ammunition. \
-		They were very effective, for simple iron, but used up quickly. I soon ran out. \
-		No replacement munitions worked in their stead. It was peculiar in what it wanted."
+	name = "Патроны Винтовки Зверобоя"
+	desc = "Позволяет трансмутировать 3 пулевые гильзы (использованные или нет) любого калибра, \
+	со шкурой животного, чтобы создать дополнительный магазин для Винтовки Зверобоя."
+	gain_text = "В комплекте с оружием было три железных шарика, используемые в качестве пуль. \
+		Они были довольно эффективны, особенно для простого железа, но их мало. Слишком мало \
+		Ни одна другая пуля не могла заменить их. Винтовка стреляла исключительно железными шариками."
 	required_atoms = list(
 		/obj/item/stack/sheet/animalhide = 1,
 		/obj/item/ammo_casing = 3,
