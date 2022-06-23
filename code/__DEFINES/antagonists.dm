@@ -219,8 +219,6 @@ GLOBAL_LIST_INIT(normal_employers, list(
 
 #define IS_DREAMER(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/dreamer))
 
-GLOBAL_VAR_INIT(is_engine_sabotaged, FALSE)
-
 #define FACTION_XEN "xen"
 #define FACTION_HECU "hecu"
 #define FACTION_BLACKOPS "blackops"

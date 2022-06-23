@@ -69,7 +69,7 @@
 	for(var/obj/item/stock_parts/capacitor/CP in component_parts)
 		IO += CP.rating
 	input_level_max = initial(input_level_max) * IO
-	output_level_max = initial(output_level_max) * IO
+	output_level_max = (GLOB.is_engine_sabotaged ? ROUND_UP(initial(output_level_max) * IO / 2) : initial(output_level_max) * IO)
 	for(var/obj/item/stock_parts/cell/PC in component_parts)
 		MC += PC.maxcharge
 		C += PC.charge
@@ -339,7 +339,7 @@
 		"outputting" = outputting,
 		"outputLevel" = output_level,
 		"outputLevel_text" = DisplayPower(output_level),
-		"outputLevelMax" = output_level_max,
+		"outputLevelMax" = (GLOB.is_engine_sabotaged ? ROUND_UP(output_level_max / 2) : output_level_max),
 		"outputUsed" = output_used,
 	)
 	return data
@@ -384,7 +384,7 @@
 				target = 0
 				. = TRUE
 			else if(target == "max")
-				target = output_level_max
+				target = (GLOB.is_engine_sabotaged ? ROUND_UP(output_level_max / 2) : output_level_max)
 				. = TRUE
 			else if(adjust)
 				target = output_level + adjust
@@ -393,7 +393,7 @@
 				target = text2num(target)
 				. = TRUE
 			if(.)
-				output_level = clamp(target, 0, output_level_max)
+				output_level = clamp(target, 0, (GLOB.is_engine_sabotaged ? ROUND_UP(output_level_max / 2) : output_level_max))
 				log_smes(usr)
 
 /obj/machinery/power/smes/proc/log_smes(mob/user)
@@ -408,7 +408,7 @@
 	inputting = input_attempt
 	output_attempt = rand(0,1)
 	outputting = output_attempt
-	output_level = rand(0, output_level_max)
+	output_level = rand(0, (GLOB.is_engine_sabotaged ? ROUND_UP(output_level_max / 2) : output_level_max))
 	input_level = rand(0, input_level_max)
 	charge -= 1e6/severity
 	if (charge < 0)
@@ -418,6 +418,30 @@
 
 /obj/machinery/power/smes/engineering
 	charge = 4e6 // Engineering starts with some charge for singulo
+	traitor_desc = "Если поменять полярность всех ячеек, то это сократит выхлоп энергии вдвое в виду особенностей защиты. Вполне сгодится за саботаж <b>двигателей</b> и за это мне дадут 3 телекристалла."
+
+/obj/machinery/power/smes/engineering/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
+	if (. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
+		return .
+
+	if(!user.Adjacent(src))
+		return
+
+	if(!is_traitor(user))
+		return
+
+	if(GLOB.is_engine_sabotaged)
+		to_chat(user, span_rose("Кто-то уже саботировал двигатель до этого. Лишнее внимание нам не нужно."))
+		return
+
+	GLOB.is_engine_sabotaged = TRUE
+	user.visible_message(span_danger("[user.name] ковыряется в [src].") ,\
+		span_rose("Меняю полярность ячеек."))
+	RefreshParts()
+	var/datum/component/uplink/U = user.mind.find_syndicate_uplink()
+	if(U)
+		U.telecrystals += 3
 
 /obj/machinery/power/smes/magical
 	name = "Магический СНМЭ"

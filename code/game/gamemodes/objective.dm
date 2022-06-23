@@ -1,6 +1,14 @@
 GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 GLOBAL_LIST_EMPTY(objectives)
 
+GLOBAL_VAR_INIT(is_engine_sabotaged, FALSE)
+GLOBAL_VAR_INIT(is_research_sabotaged, FALSE)
+GLOBAL_VAR_INIT(is_cargo_sabotaged, FALSE)
+//GLOBAL_VAR_INIT(is_medbay_sabotaged, FALSE)
+//GLOBAL_VAR_INIT(is_brig_sabotaged, FALSE)
+//GLOBAL_VAR_INIT(is_command_sabotaged, FALSE)
+//GLOBAL_VAR_INIT(is_service_sabotaged, FALSE)
+
 /datum/objective
 	var/datum/mind/owner				//The primary owner of the objective. !!SOMEWHAT DEPRECATED!! Prefer using 'team' for new code.
 	var/datum/team/team					//An alternative to 'owner': a team. Use this when writing new code.
@@ -1109,4 +1117,34 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 
 /datum/objective/sabotage/update_explanation_text()
 	..()
-	explanation_text = "Саботировать работу основного двигателя на станции."
+	explanation_text = "Саботировать подачу энергии или один из двигателей на станции."
+
+/datum/objective/sabotage/research
+	name = "sabotage research"
+
+/datum/objective/sabotage/research/find_target(dupe_search_range)
+	return TRUE
+
+/datum/objective/sabotage/research/check_completion()
+	if(GLOB.is_research_sabotaged)
+		return TRUE
+	return FALSE
+
+/datum/objective/sabotage/research/update_explanation_text()
+	..()
+	explanation_text = "Саботировать работу серверов научного отдела на станции."
+
+/datum/objective/sabotage/cargo
+	name = "sabotage cargo"
+
+/datum/objective/sabotage/cargo/find_target(dupe_search_range)
+	return TRUE
+
+/datum/objective/sabotage/cargo/check_completion()
+	if(GLOB.is_cargo_sabotaged)
+		return TRUE
+	return FALSE
+
+/datum/objective/sabotage/cargo/update_explanation_text()
+	..()
+	explanation_text = "Саботировать отдел снабжения на станции."

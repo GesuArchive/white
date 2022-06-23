@@ -74,7 +74,7 @@ SUBSYSTEM_DEF(research)
 		science_tech.last_bitcoins = bitcoins  // Doesn't take tick drift into account
 		for(var/i in bitcoins)
 			bitcoins[i] *= (income_time_difference / 10) * mining_multiplier
-		science_tech.add_point_list(bitcoins)
+		science_tech.add_point_list(GLOB.is_research_sabotaged ? ROUND_UP(bitcoins / 5) : bitcoins)
 	last_income = world.time
 
 /datum/controller/subsystem/research/proc/calculate_server_coefficient()	//Diminishing returns.

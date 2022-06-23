@@ -47,6 +47,9 @@
 			A.flags_1 |= ADMIN_SPAWNED_1
 	else
 		for(var/item in contains)
+			if(GLOB.is_cargo_sabotaged && prob(25))
+				var/datum/supply_pack/SP = pick(subtypesof(/datum/supply_pack/service))
+				item = pick(SP.contains)
 			new item(C)
 
 // If you add something to this list, please group it by type and sort it alphabetically instead of just jamming it in like an animal

@@ -17,6 +17,7 @@
 	var/temp_tolerance_high = T20C
 	var/temp_penalty_coefficient = 0.5	//1 = -1 points per degree above high tolerance. 0.5 = -0.5 points per degree above high tolerance.
 	req_access = list(ACCESS_RD) //ONLY THE R&D CAN CHANGE SERVER SETTINGS.
+	traitor_desc = "Эти серверы настолько отсталые, что сгодятся лишь для варки яиц в них. Никто даже не заметит, если я переведу их на систему пассивного охлаждения и саботирую <b>научный отдел</b>. Также, за это мне достанутся 5 телекристаллов."
 
 /obj/machinery/rnd/server/Initialize(mapload)
 	. = ..()
@@ -98,6 +99,31 @@
 
 				env.merge(removed)
 				air_update_turf()
+
+/obj/machinery/rnd/server/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
+	if (. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
+		return .
+
+	if(!user.Adjacent(src))
+		return
+
+	if(!is_traitor(user))
+		return
+
+	if(GLOB.is_research_sabotaged)
+		to_chat(user, span_rose("Кто-то уже саботировал научный отдел до этого."))
+		return
+
+	GLOB.is_research_sabotaged = TRUE
+	user.visible_message(span_danger("[user.name] ковыряется в [src].") ,\
+		span_rose("Ломаю лопасти вентиляторов. Посмотрим насколько системы с пассивной системой охлаждения эффективны."))
+
+	current_temp = pick(228, 666)
+
+	var/datum/component/uplink/U = user.mind.find_syndicate_uplink()
+	if(U)
+		U.telecrystals += 5
 
 /proc/fix_noid_research_servers()
 	var/list/no_id_servers = list()

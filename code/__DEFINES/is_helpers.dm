@@ -262,3 +262,5 @@ GLOBAL_LIST_INIT(book_types, typecacheof(list(
 
 // Xen mobs
 #define isxenmob(A) (istype(A, /mob/living/simple_animal/hostile/blackmesa/xen))
+
+#define is_traitor(M) (istype(M, /mob/living) && M.mind?.has_antag_datum(/datum/antagonist/traitor))
