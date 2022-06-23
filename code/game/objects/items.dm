@@ -511,7 +511,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	if(SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, owner, hitby, attack_text, final_block_chance, damage, attack_type) & COMPONENT_HIT_REACTION_BLOCK)
 		return TRUE
 
-	if(prob(final_block_chance))
+	if(!owner.stat && prob(final_block_chance))
 		owner.visible_message(span_danger("<b>[owner]</b> блокирует [attack_text] при помощи <b>[src.name]</b>!"))
 		return TRUE
 	return FALSE
