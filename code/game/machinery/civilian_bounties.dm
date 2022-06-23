@@ -18,7 +18,7 @@
 	warmup_time = 3 SECONDS
 	var/obj/item/card/id/inserted_scan_id
 	circuit = /obj/item/circuitboard/computer/bountypad
-	interface_name = "CivCargoHoldTerminal"
+	interface_type = "CivCargoHoldTerminal"
 
 /obj/machinery/computer/piratepad_control/civilian/Initialize(mapload)
 	. = ..()
