@@ -238,6 +238,8 @@
 	build_start = world.time
 	desc = "Создаёт [D.name]."
 
+	playsound(get_turf(src), "production", 75, TRUE)
+
 	rmat.silo_log(src, "built", -1, "[D.name]", build_materials)
 
 	return TRUE
@@ -249,7 +251,6 @@
 		if(exit.density)
 			return TRUE
 
-		playsound(get_turf(src), "production", 50, TRUE)
 		say("Препятствие убрано. Деталь [stored_part] готова.")
 		stored_part.forceMove(exit)
 		stored_part = null
