@@ -66,7 +66,7 @@ export const AlertModal = (_, context) => {
         <Section fill>
           <Stack fill vertical>
             <Stack.Item grow m={1}>
-              <Box color="label" overflow="hidden">
+              <Box color="label" textAlign="center" overflow="hidden">
                 {message}
               </Box>
             </Stack.Item>
@@ -123,15 +123,15 @@ const AlertButton = (props, context) => {
 
   return (
     <Button
+      height={2}
       onClick={() => act('choose', { choice: button })}
-      m={0.5}
-      pl={2}
-      pr={2}
-      pt={0}
+      m={0.2}
+      pl={1}
+      pr={1}
+      pt={0.44}
       selected={selected}
-      textAlign="center"
-      width={buttonWidth}>
-      {button}
+      textAlign="center">
+      {button.toUpperCase()}
     </Button>
   );
 };
