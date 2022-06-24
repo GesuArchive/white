@@ -1672,3 +1672,5 @@
 	#define COMPONENT_NO_CELL  (1<<1)
 	#define COMPONENT_NO_CHARGE (1<<2)
 
+//called when an igniter activates
+#define COMSIG_IGNITER_ACTIVATE "igniter_activate"
