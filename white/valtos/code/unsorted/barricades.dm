@@ -163,9 +163,6 @@
 
 /obj/structure/deployable_barricade/update_icon()
 	. = ..()
-	if(dir == NORTH)
-		plane = GAME_PLANE_FOV_HIDDEN
-		layer = MOB_LAYER
 	var/damage_state
 	var/percentage = (obj_integrity / max_integrity) * 100
 	switch(percentage)
@@ -186,7 +183,8 @@
 			if(SOUTH)
 				layer = ABOVE_MOB_LAYER
 			if(NORTH)
-				layer = initial(layer) - 0.01
+				plane = GAME_PLANE_FOV_HIDDEN
+				layer = MOB_LAYER
 			else
 				layer = initial(layer)
 		if(!anchored)
