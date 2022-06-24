@@ -1,3 +1,5 @@
+GLOBAL_DATUM(cargo_sloth, /mob/living/simple_animal/sloth)
+
 /mob/living/simple_animal/sloth
 	name = "sloth"
 	desc = "An adorable, sleepy creature."
@@ -35,6 +37,17 @@
 
 	footstep_type = FOOTSTEP_MOB_CLAW
 
+/mob/living/simple_animal/sloth/Initialize(mapload)
+	. = ..()
+	// If someone adds non-cargo sloths to maps we'll have a problem but we're fine for now
+	if(!GLOB.cargo_sloth && mapload)
+		GLOB.cargo_sloth = src
+
+/mob/living/simple_animal/sloth/Destroy()
+	if(GLOB.cargo_sloth == src)
+		GLOB.cargo_sloth = null
+
+	return ..()
 
 //Cargo Sloth
 /mob/living/simple_animal/sloth/paperwork
