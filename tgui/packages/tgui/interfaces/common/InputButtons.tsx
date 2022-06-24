@@ -20,7 +20,7 @@ export const InputButtons = (props: InputButtonsProps, context) => {
       fluid={1}
       height={2}
       disabled={inputIsValid && !inputIsValid.isValid}
-      onClick={() => act('choose', { choice: input })}
+      onClick={() => act('submit', { entry: input })}
       pt={0.33}
       textAlign="center"
       tooltip={inputIsValid?.error}>

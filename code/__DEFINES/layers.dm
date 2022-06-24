@@ -192,6 +192,9 @@
 /// Plane for balloon text (text that fades up)
 #define BALLOON_CHAT_PLANE 502
 
+/// Bubble for typing indicators
+#define TYPING_LAYER 500
+
 //-------------------- Rendering ---------------------
 #define RENDER_PLANE_GAME 990
 #define RENDER_PLANE_ABOVE_GAME 991

@@ -53,9 +53,6 @@ GLOBAL_LIST_EMPTY(dead_players_during_shift)
 	if(is_devil(src))
 		INVOKE_ASYNC(is_devil(src), /datum/antagonist/devil.proc/beginResurrectionCheck, src)
 
-/client/proc/show_tgui_notice(header, msg)
-	tgui_alert_async(src, header, msg, list("Понимаю"))
-
 /mob/living/carbon/human/proc/makeSkeleton()
 	ADD_TRAIT(src, TRAIT_DISFIGURED, TRAIT_GENERIC)
 	set_species(/datum/species/skeleton)

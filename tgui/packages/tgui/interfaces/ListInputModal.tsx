@@ -113,7 +113,7 @@ export const ListInputModal = (_, context) => {
           }
           if (keyCode === KEY_ENTER) {
             event.preventDefault();
-            act('choose', { choice: filteredItems[selected] });
+            act('submit', { entry: filteredItems[selected] });
           }
           if (!searchBarVisible && keyCode >= KEY_A && keyCode <= KEY_Z) {
             event.preventDefault();
@@ -189,7 +189,7 @@ const ListDisplay = (props, context) => {
             onClick={() => onClick(index)}
             onDblClick={(event) => {
               event.preventDefault();
-              act('choose', { choice: filteredItems[selected] });
+              act('submit', { entry: filteredItems[selected] });
             }}
             onKeyDown={(event) => {
               const keyCode = window.event ? event.which : event.keyCode;
@@ -226,7 +226,7 @@ const SearchBar = (props, context) => {
       fluid
       onEnter={(event) => {
         event.preventDefault();
-        act('choose', { choice: filteredItems[selected] });
+        act('submit', { entry: filteredItems[selected] });
       }}
       onInput={(_, value) => onSearch(value)}
       placeholder="Поиск..."

@@ -25,9 +25,6 @@ GLOBAL_LIST_INIT(valid_icon_sizes, list(32, 48, 64, 96, 128))
 			last_view_x_dim++
 		if(last_view_y_dim % 2 == 0)
 			last_view_y_dim++
-	for(var/check_icon_size in GLOB.valid_icon_sizes)
-		winset(src, "menu.icon[check_icon_size]", "is-checked=false")
-	winset(src, "menu.icon[divisor]", "is-checked=true")
 
 	view = "[last_view_x_dim]x[last_view_y_dim]"
 

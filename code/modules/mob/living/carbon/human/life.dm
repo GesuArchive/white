@@ -58,13 +58,6 @@
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
 
-	if(!stat && mind && client)
-		var/ourtext = get_input_text()
-		if(ourtext && ourtext[1] != "*")
-			create_typing_indicator()
-		else
-			remove_typing_indicator()
-
 	if(stat != DEAD)
 		return TRUE
 

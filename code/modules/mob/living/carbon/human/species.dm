@@ -1496,10 +1496,14 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		var/attack_direction = get_dir(user, target)
 		if(atk_effect == ATTACK_EFFECT_KICK)//kicks deal 1.5x raw damage
 			target.apply_damage(damage*1.5, user.dna.species.attack_type, affecting, armor_block, attack_direction = attack_direction)
+			if((damage * 1.5) >= 9)
+				target.force_say()
 			log_combat(user, target, "kicked")
 		else//other attacks deal full raw damage + 1.5x in stamina damage
 			target.apply_damage(damage, user.dna.species.attack_type, affecting, armor_block, attack_direction = attack_direction)
 			target.apply_damage(damage*1.5, STAMINA, affecting, armor_block)
+			if(damage >= 9)
+				target.force_say()
 			log_combat(user, target, "punched")
 
 		if((target.stat != DEAD) && damage >= user.dna.species.punchstunthreshold)
@@ -1533,40 +1537,40 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 /datum/species/proc/spec_hitby(atom/movable/AM, mob/living/carbon/human/H)
 	return
 
-/datum/species/proc/spec_attack_hand(mob/living/carbon/human/M, mob/living/carbon/human/H, datum/martial_art/attacker_style, list/modifiers)
-	if(!istype(M))
+/datum/species/proc/spec_attack_hand(mob/living/carbon/human/owner, mob/living/carbon/human/target, datum/martial_art/attacker_style, modifiers)
+	if(!istype(owner))
 		return
-	CHECK_DNA_AND_SPECIES(M)
-	CHECK_DNA_AND_SPECIES(H)
+	CHECK_DNA_AND_SPECIES(owner)
+	CHECK_DNA_AND_SPECIES(target)
 
-	if(!istype(M)) //sanity check for drones.
+	if(!istype(owner)) //sanity check for drones.
 		return
-	if(M.mind)
-		attacker_style = M.mind.martial_art
-	if((M != H) && M.a_intent != INTENT_HELP && H.check_shields(M, 0, M.name, attack_type = UNARMED_ATTACK))
-		log_combat(M, H, "attempted to touch")
-		H.visible_message(span_warning("[M] пытается дотронуться до [H]!") , \
-						span_userdanger("[M] пытается дотронуться до меня!") , span_hear("Слышу взмах!") , COMBAT_MESSAGE_RANGE, M)
-		to_chat(M, span_warning("Пытаюсь дотронуться до [H]!"))
+	if(owner.mind)
+		attacker_style = owner.mind.martial_art
+	if((owner != target) && owner.a_intent != INTENT_HELP && target.check_shields(owner, 0, owner.name, attack_type = UNARMED_ATTACK))
+		log_combat(owner, target, "attempted to touch")
+		target.visible_message(span_warning("[owner] пытается дотронуться до [target]!"), \
+						span_userdanger("[owner] пытается дотронуться до меня!"), span_hear("Слышу взмах!"), COMBAT_MESSAGE_RANGE, owner)
+		to_chat(owner, span_warning("Пытаюсь дотронуться до [target]!"))
 		return
 
-	SEND_SIGNAL(M, COMSIG_MOB_ATTACK_HAND, M, H, attacker_style)
+	SEND_SIGNAL(owner, COMSIG_MOB_ATTACK_HAND, owner, target, attacker_style)
 
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
-		disarm(M, H, attacker_style)
+		disarm(owner, target, attacker_style)
 		return // dont attack after
-	switch(M.a_intent)
+	switch(owner.a_intent)
 		if(INTENT_HELP)
-			help(M, H, attacker_style)
+			help(owner, target, attacker_style)
 
 		if(INTENT_GRAB)
-			grab(M, H, attacker_style)
+			grab(owner, target, attacker_style)
 
 		if(INTENT_HARM)
-			harm(M, H, attacker_style)
+			harm(owner, target, attacker_style)
 
 		if(INTENT_DISARM)
-			disarm(M, H, attacker_style)
+			disarm(owner, target, attacker_style)
 
 /datum/species/proc/spec_attacked_by(obj/item/I, mob/living/user, obj/item/bodypart/affecting, intent, mob/living/carbon/human/H)
 	// Allows you to put in item-specific reactions based on species
@@ -1665,6 +1669,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					if(H.w_uniform)
 						H.w_uniform.add_mob_blood(H)
 						H.update_inv_w_uniform()
+
+		/// Triggers force say events
+		if(I.force > 10 || I.force >= 5 && prob(33))
+			H.force_say(user)
 
 	return TRUE
 
