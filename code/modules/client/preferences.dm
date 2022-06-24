@@ -720,7 +720,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<div class='csetup_main'>"
 
 			dat += "<div class='csetup_content'><div class='csetup_header'>Однокнопочное</div>"
-			dat += "<center><a href ='?_src_=prefs;preference=keybindings_reset'>Сбросить хоткеи</a></center></div></div>"
+			dat += "<center><a href ='?_src_=prefs;preference=keybindings_reset'>Сбросить хоткеи</a></center></div>"
 
 			for (var/category in kb_categories)
 				dat += "<div class='csetup_content'><div class='csetup_header'>[category]</div>"
