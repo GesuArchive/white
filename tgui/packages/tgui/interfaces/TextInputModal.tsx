@@ -48,10 +48,14 @@ export const TextInputModal = (_, context) => {
     <Window title={title} width={325} height={windowHeight}>
       {timeout && <Loader value={timeout} />}
       <Window.Content
-        onEscape={() => act('cancel')}
-        onEnter={(event) => {
-          act('submit', { entry: input });
-          event.preventDefault();
+        onKeyDown={(event) => {
+          const keyCode = window.event ? event.which : event.keyCode;
+          if (keyCode === KEY_ENTER) {
+            act('submit', { entry: input });
+          }
+          if (keyCode === KEY_ESCAPE) {
+            act('cancel');
+          }
         }}>
         <Section fill>
           <Stack fill vertical>

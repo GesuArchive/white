@@ -522,7 +522,7 @@ GLOBAL_PROTECT(ohshitfuck)
 		return
 
 	if(fuckoboingo == "ADD SOMEONE")
-		var/motherlover = tgui_input_text(src, "Separator is - | Sample: ckey-id", "some big ass")
+		var/motherlover = tgui_input_text(src, "Separator is - \n Sample: ckey-id", "some big ass")
 
 		if(!motherlover)
 			return
