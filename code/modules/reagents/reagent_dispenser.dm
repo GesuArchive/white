@@ -214,7 +214,7 @@
 			return
 		user.balloon_alert_to_viewers("присоединяю сборку")
 		var/obj/item/assembly_holder/holder = I
-		if(locate(/obj/item/assembly/igniter) in holder.assemblies)
+		if(locate(/obj/item/assembly/igniter) in holder.contents)
 			rig = holder
 			if(!user.transferItemToLoc(holder, src))
 				return
