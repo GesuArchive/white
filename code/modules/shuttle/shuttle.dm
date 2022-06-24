@@ -876,7 +876,7 @@
 	return null
 
 /obj/docking_port/mobile/proc/hyperspace_sound(phase, list/areas, forced_sound)
-	var/selected_sound = forced_sound
+	var/sound/selected_sound = forced_sound
 	if(!selected_sound)
 		switch(phase)
 			if(HYPERSPACE_WARMUP)
