@@ -377,6 +377,7 @@
 	active_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 10
 	anchored = FALSE
 	circuit = /obj/item/circuitboard/machine/deepcore/hopper
+	processing_flags = START_PROCESSING_MANUALLY
 
 	var/active = FALSE
 	var/mult = 1
@@ -450,6 +451,7 @@
 		active = FALSE
 		update_use_power(IDLE_POWER_USE)
 		to_chat(user, span_notice("You deactiveate [src.name]"))
+		STOP_PROCESSING(SSmachines, src)
 	else
 		if(!powered(power_channel))
 			to_chat(user, span_warning("Unable to activate [src.name]! Insufficient power."))
@@ -457,6 +459,7 @@
 		active = TRUE
 		update_use_power(ACTIVE_POWER_USE)
 		to_chat(user, span_notice("You activeate [src.name]"))
+		START_PROCESSING(SSmachines, src)
 	update_icon_state()
 
 /obj/machinery/deepcore/hopper/multitool_act(mob/living/user, obj/item/multitool/I)
@@ -471,6 +474,9 @@
 	if(!anchored)
 		active = FALSE
 		update_icon_state()
+		return PROCESS_KILL
+	else if(active)
+		eject_materials(TRUE)
 
 /obj/machinery/deepcore/hopper/update_icon_state()
 	if(powered(power_channel) && anchored)
