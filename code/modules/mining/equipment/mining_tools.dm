@@ -65,6 +65,7 @@
 
 /obj/item/pickaxe/drill
 	name = "шахтёрский бур"
+	desc = "Тяжелая буровая установка для особо крепкой породы."
 	icon_state = "handdrill"
 	inhand_icon_state = "jackhammer"
 	worn_icon_state = "jackhammer"
@@ -72,7 +73,6 @@
 	toolspeed = 0.6 //available from roundstart, faster than a pickaxe.
 	usesound = 'sound/weapons/drill.ogg'
 	hitsound = 'sound/weapons/drill.ogg'
-	desc = "Электрическая буровая установка для особо худых."
 
 /obj/item/pickaxe/drill/cyborg
 	name = "шахтёрский бур киборга"
@@ -85,9 +85,9 @@
 
 /obj/item/pickaxe/drill/diamonddrill
 	name = "бур с алмазным напылением"
+	desc = "Мой бур создан, чтобы пронзить небеса!"
 	icon_state = "diamonddrill"
 	toolspeed = 0.2
-	desc = "Твой бур пронзит небеса!"
 
 /obj/item/pickaxe/drill/cyborg/diamond //This is the BORG version!
 	name = "бур с алмазным напылением киборга" //To inherit the NODROP_1 flag, and easier to change borg specific drill mechanics.
@@ -95,14 +95,14 @@
 	toolspeed = 0.2
 
 /obj/item/pickaxe/drill/jackhammer
-	name = "звуковой пневмоперфоратор"
+	name = "ультразвуковой пневмоперфоратор"
+	desc = "Крошит породу в пыль высокочастотными звуковыми импульсами."
 	icon_state = "jackhammer"
 	inhand_icon_state = "jackhammer"
 	worn_icon_state = "jackhammer"
 	toolspeed = 0.1 //the epitome of powertools. extremely fast mining
 	usesound = 'sound/weapons/sonic_jackhammer.ogg'
 	hitsound = 'sound/weapons/sonic_jackhammer.ogg'
-	desc = "Cracks rocks with sonic blasts."
 
 /obj/item/pickaxe/improvised
 	name = "импровизированная кирка"

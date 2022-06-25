@@ -80391,7 +80391,7 @@
 /area/engineering/atmos)
 "xtG" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/rnd/production/techfab/department/cargo,
+/obj/machinery/mecha_part_fabricator/cargo,
 /obj/effect/turf_decal/tile/brown{
 	dir = 4
 	},

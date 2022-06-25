@@ -5,7 +5,7 @@
 	icon = 'white/baldenysh/icons/obj/briefcase.dmi'
 	lefthand_file = 'white/baldenysh/icons/mob/inhands/equipment/briefcase_lefthand.dmi'
 	righthand_file = 'white/baldenysh/icons/mob/inhands/equipment/briefcase_righthand.dmi'
-	force = 15
+	force = 12
 	throwforce = 12
 
 /obj/item/storage/briefcase/surgery/ComponentInitialize()
@@ -23,6 +23,7 @@
 	new /obj/item/cautery(src)
 	new /obj/item/bonesetter(src)
 	new /obj/item/surgical_drapes(src)
+	new /obj/item/breathing_bag(src)
 	new /obj/item/reagent_containers/medigel/sterilizine(src)
 	new /obj/item/razor(src)
 	new /obj/item/blood_filter(src)

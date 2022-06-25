@@ -4,8 +4,9 @@
 	icon_state = "odysseus"
 	allow_diagonal_movement = TRUE
 	movedelay = 2
+	force = 10
 	max_temperature = 15000
-	max_integrity = 120
+	max_integrity = 200
 	wreckage = /obj/structure/mecha_wreckage/odysseus
 	step_energy_drain = 6
 	internals_req_access = list(ACCESS_MECH_SCIENCE, ACCESS_MECH_MEDICAL)

@@ -13,7 +13,7 @@
 	var/ignition_temp = 10 // The amount of heat added to the reagents when this grenade goes off.
 	var/threatscale = 1 // Used by advanced grenades to make them slightly more worthy.
 	var/no_splash = FALSE //If the grenade deletes even if it has no reagents to splash with. Used for slime core reactions.
-	var/casedesc = "Поддерживает стандартные емкости. При детонации нагревает состав на 25°K." // Appears when examining empty casings.
+	var/casedesc = "Поддерживает стандартные емкости. При детонации нагревает состав на 10°K." // Appears when examining empty casings.
 	var/obj/item/assembly/prox_sensor/landminemode = null
 
 /obj/item/grenade/chem_grenade/ComponentInitialize()

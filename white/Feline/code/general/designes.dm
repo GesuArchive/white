@@ -25,4 +25,5 @@
 						/obj/machinery/modular_computer/console/preset/id = 10,
 						/obj/machinery/ore_silo = 10,
 						/obj/machinery/rnd/server = 10,
-						/obj/structure/ai_core = 10)
+						/obj/structure/ai_core = 10,
+						/obj/machinery/computer/libraryconsole = 10)

@@ -59,7 +59,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 75000, /datum/material/glass = 37500)
 	build_path = /obj/item/pipe_dispenser
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты   ")
 	sub_category = list("Монтажные комплексы")
 	departmental_flags =  DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
 
@@ -71,7 +71,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 60000, /datum/material/glass = 5000)  // costs more than what it did in the autolathe, this one comes loaded.
 	build_path = /obj/item/construction/rcd/loaded
-	category = list("Рабочие инструменты", "Рабочие инструменты ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты   ")
 	sub_category = list("Монтажные комплексы")
 	departmental_flags =  DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
 
@@ -144,7 +144,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 20000, /datum/material/glass = 10000, /datum/material/plastic = 8000, /datum/material/gold = 2000)
 	build_path = /obj/item/construction/rld
-	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ", "Рабочие инструменты   ")
 	sub_category = list("Монтажные комплексы")
 	departmental_flags =  DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
 

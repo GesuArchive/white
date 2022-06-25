@@ -31,7 +31,7 @@
 /obj/machinery/deepcore
 	icon = 'white/valtos/icons/deepcore.dmi'
 /obj/machinery/deepcore/drill
-	name = "Deep Core Bluespace Drill"
+	name = "бур глубокого погружения"
 	desc = "Мощная машина, которая способна извлекать руду из недр планеты."
 	icon = 'white/valtos/icons/drill.dmi'
 	icon_state = "deep_core_drill"
@@ -197,7 +197,8 @@
 		return TRUE
 
 /obj/item/circuitboard/machine/deepcore/drill
-	name = "Deep Core Bluespace Drill (Machine Board)"
+	name = "бур глубокого погружения"
+	desc = "Мощная машина, которая способна извлекать руду из недр планеты."
 	icon_state = "supply"
 	build_path = /obj/machinery/deepcore/drill
 	req_components = list(
@@ -206,7 +207,8 @@
 		/obj/item/stock_parts/scanning_module = 1)
 
 /obj/item/circuitboard/machine/deepcore/hopper
-	name = "Bluespace Material Hopper (Machine Board)"
+	name = "блюспейс рудоприемник"
+	desc = "Машина, предназначенная для приема руды от любых подключенных к ней буров глубокого погружения посредством блюспейс телепортации."
 	icon_state = "supply"
 	build_path = /obj/machinery/deepcore/hopper
 	req_components = list(
@@ -369,8 +371,8 @@
 	material_rate = 50
 
 /obj/machinery/deepcore/hopper
-	name = "Bluespace Material Hopper"
-	desc = "A machine designed to recieve the output of any connected bluespace drills."
+	name = "блюспейс рудоприемник"
+	desc = "Машина, предназначенная для приема руды от любых подключенных к ней буров глубокого погружения посредством блюспейс телепортации."
 	icon_state = "hopper_off"
 	density = TRUE
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 2

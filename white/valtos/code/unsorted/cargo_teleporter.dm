@@ -71,21 +71,13 @@
 	name = "Телепортатор груза"
 	desc = "Замечательный предмет, который может устанавливать маркеры и телепортировать предметы на эти маркеры."
 	id = "cargotele"
-	build_type = PROTOLATHE | AWAY_LATHE
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/cargo_teleporter
 	materials = list(/datum/material/iron = 500, /datum/material/plastic = 500, /datum/material/uranium = 500)
-	category = list("Телепортация")
+	category = list("Телепортация", "Карго снаряжение")
+	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
-
-/datum/techweb_node/cargo_teleporter
-	id = "cargoteleporter"
-	display_name = "Телепортатор груза"
-	description = "Мы можем телепортировать предметы на большие расстояния, если они не заблокированы."
-	prereq_ids = list("bluespace_basic", "engineering")
-	design_ids = list(
-		"cargotele",
-	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
 
 /obj/effect/decal/cleanable/cargo_mark
 	name = "грузовая метка"

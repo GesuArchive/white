@@ -38519,7 +38519,7 @@
 /turf/open/floor/plasteel,
 /area/command/heads_quarters/captain/private)
 "ewg" = (
-/obj/machinery/rnd/production/techfab/department/cargo,
+/obj/machinery/mecha_part_fabricator/cargo,
 /obj/effect/turf_decal/stripes/box,
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/brown{

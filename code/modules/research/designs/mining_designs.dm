@@ -3,149 +3,179 @@
 /////////////////Mining//////////////////
 /////////////////////////////////////////
 /datum/design/cargo_express
-	name = "Дизайн консоли (Express Supply Console)"//shes beautiful
-	desc = "Allows for the construction of circuit boards used to build an Express Supply Console."//who?
-	id = "cargoexpress"//the coder reading this
-	build_type = IMPRINTER
+	name = "Экспресс консоль снабжения"
+	desc = "Благодаря новой орбитальной пушке Нано Трейзен все входящие посылки доставляются практически мгновенно. Стандартная зона сброса - отдел карго. Допустима смена зоны сброса посредством маяка производимого в консоли. Возможна модификация консоли посредством установки диска с ПО блюспейс телепортатора."
+	id = "cargoexpress"
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/glass = 1000)
 	build_path = /obj/item/circuitboard/computer/cargo/express
-	category = list("Шахтёрское оборудование")
+	category = list("Шахтёрское оборудование", "Карго оборудование")
+	sub_category = list("Доставка")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/bluespace_pod
-	name = "Supply Drop Pod Upgrade Disk"
-	desc = "Allows the Cargo Express Console to call down the Bluespace Drop Pod, greatly increasing user safety."//who?
-	id = "bluespace_pod"//the coder reading this
-	build_type = PROTOLATHE
+	name = "Модернизация экспресс консоли снабжения"
+	desc = "На этом диске содержится обновление встроенного ПО для экспресс консоли снабжения, позволяющее отказатся от опасных капсул доставки в пользу блюспейс телепортации."
+	id = "bluespace_pod"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/glass = 1000)
 	build_path = /obj/item/disk/cargo/bluespace_pod
-	category = list("Шахтёрское оборудование")
+	category = list("Шахтёрское оборудование", "Карго оборудование")
+	sub_category = list("Доставка")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/drill
-	name = "Mining Drill"
-	desc = "Yours is the drill that will pierce through the rock walls."
+	name = "Шахтёрский бур"
+	desc = "Тяжелая буровая установка для особо крепкой породы."
 	id = "drill"
-	build_type = PROTOLATHE
-	materials = list(/datum/material/iron = 6000, /datum/material/glass = 1000) //expensive, but no need for miners.
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/iron = 6000, /datum/material/glass = 1000)
 	build_path = /obj/item/pickaxe/drill
-	category = list("Шахтёрское оборудование")
+	category = list("Шахтёрское оборудование", "Карго снаряжение")
+	sub_category = list("Горнопромышленное снаряжение")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/drill_diamond
-	name = "Diamond-Tipped Mining Drill"
-	desc = "Yours is the drill that will pierce the heavens!"
+	name = "Бур с алмазным напылением"
+	desc = "Мой бур создан, чтобы пронзить небеса!"
 	id = "drill_diamond"
-	build_type = PROTOLATHE
-	materials = list(/datum/material/iron = 6000, /datum/material/glass = 1000, /datum/material/diamond = 2000) //Yes, a whole diamond is needed.
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/iron = 6000, /datum/material/glass = 1000, /datum/material/diamond = 2000)
 	build_path = /obj/item/pickaxe/drill/diamonddrill
-	category = list("Шахтёрское оборудование")
+	category = list("Шахтёрское оборудование", "Карго снаряжение")
+	sub_category = list("Горнопромышленное снаряжение")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/plasmacutter
-	name = "Plasma Cutter"
-	desc = "You could use it to cut limbs off of xenos! Or, you know, mine stuff."
+	name = "Плазменный резак"
+	desc = "Горный инструмент, способный выбрасывать концентрированные плазменные вспышки. Можно использовать его, чтобы отрезать конечности от ксеносов! Или, знаете, копать руду."
 	id = "plasmacutter"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 1500, /datum/material/glass = 500, /datum/material/plasma = 400)
 	build_path = /obj/item/gun/energy/plasmacutter
-	category = list("Шахтёрское оборудование")
+	category = list("Шахтёрское оборудование", "Карго снаряжение")
+	sub_category = list("Горнопромышленное снаряжение")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/plasmacutter_adv
-	name = "Advanced Plasma Cutter"
-	desc = "It's an advanced plasma cutter, oh my god."
+	name = "Продвинутый плазменный резак"
+	desc = "Горный инструмент, способный выбрасывать концентрированные плазменные вспышки. Продвинутая модель с более экономным расходом заряда и повышенной скорострельностью."
 	id = "plasmacutter_adv"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 3000, /datum/material/glass = 1000, /datum/material/plasma = 2000, /datum/material/gold = 500)
 	build_path = /obj/item/gun/energy/plasmacutter/adv
-	category = list("Шахтёрское оборудование")
+	category = list("Шахтёрское оборудование", "Карго снаряжение")
+	sub_category = list("Горнопромышленное снаряжение")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/jackhammer
-	name = "Sonic Jackhammer"
-	desc = "Essentially a handheld planet-cracker. Can drill through walls with ease as well."
+	name = "Ультразвуковой пневмоперфоратор"
+	desc = "Крошит породу в пыль высокочастотными звуковыми импульсами."
 	id = "jackhammer"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 6000, /datum/material/glass = 2000, /datum/material/silver = 2000, /datum/material/diamond = 6000)
 	build_path = /obj/item/pickaxe/drill/jackhammer
-	category = list("Шахтёрское оборудование")
+	category = list("Шахтёрское оборудование", "Карго снаряжение")
+	sub_category = list("Горнопромышленное снаряжение")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/superresonator
-	name = "Upgraded Resonator"
-	desc = "An upgraded version of the resonator that allows more fields to be active at once."
+	name = "Продвинутый резонатор"
+	desc = "Модернизированная версия резонатора, которая может создавать больше полей одновременно, а также не имеет штрафа к урону при раннем разрыве резонансного поля. Продвинутая модель так же может устанавливать \"резонансные мины\", которые взрываются после того, как кто-то (или что-то) наступает на них."
 	id = "superresonator"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 4000, /datum/material/glass = 1500, /datum/material/silver = 1000, /datum/material/uranium = 1000)
 	build_path = /obj/item/resonator/upgraded
-	category = list("Шахтёрское оборудование")
+	category = list("Шахтёрское оборудование", "Карго снаряжение")
+	sub_category = list("Горнопромышленное снаряжение")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/trigger_guard_mod
-	name = "Мод кинетического ускорителя - Рукоять"
-	desc = "A device which allows kinetic accelerators to be wielded by any organism."
+	name = "Модифицированный курок"
+	desc = "Позволяет существам, обычно неспособным стрелять из оружия, использовать оружие, при его установке."
 	id = "triggermod"
-	build_type = PROTOLATHE
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1500, /datum/material/gold = 1500, /datum/material/uranium = 1000)
 	build_path = /obj/item/borg/upgrade/modkit/trigger_guard
-	category = list("Шахтёрское оборудование")
+	category = list("Шахтёрское оборудование", "Карго снаряжение")
+	sub_category = list("Модификации кинетического ускорителя")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/damage_mod
-	name = "Мод кинетического ускорителя - Урон"
-	desc = "A device which allows kinetic accelerators to deal more damage."
+	name = "Увеличение урона"
+	desc = "При установке увеличивает урон кинетического ускорителя на 10 единиц."
 	id = "damagemod"
 	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1500, /datum/material/gold = 1500, /datum/material/uranium = 1000)
 	build_path = /obj/item/borg/upgrade/modkit/damage
-	category = list("Шахтёрское оборудование", "Модули киборгов")
+	category = list("Шахтёрское оборудование", "Модули киборгов", "Карго снаряжение")
+	sub_category = list("Модификации кинетического ускорителя")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/cooldown_mod
-	name = "Мод кинетического ускорителя - Скорость"
-	desc = "A device which decreases the cooldown of a Kinetic Accelerator."
+	name = "Ускорение перезарядки"
+	desc = "Уменьшает время восстановления кинетического ускорителя. Не рассчитано на использование в шахтёрском минироботе."
 	id = "cooldownmod"
 	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1500, /datum/material/gold = 1500, /datum/material/uranium = 1000)
 	build_path = /obj/item/borg/upgrade/modkit/cooldown
-	category = list("Шахтёрское оборудование", "Модули киборгов")
+	category = list("Шахтёрское оборудование", "Модули киборгов", "Карго снаряжение")
+	sub_category = list("Модификации кинетического ускорителя")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/range_mod
-	name = "Мод кинетического ускорителя - Дальность"
-	desc = "A device which allows kinetic accelerators to fire at a further range."
+	name = "Увеличение дальнобойности"
+	desc = "Увеличивает дальность поражения кинетического ускорителя при установке."
 	id = "rangemod"
 	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1500, /datum/material/gold = 1500, /datum/material/uranium = 1000)
 	build_path = /obj/item/borg/upgrade/modkit/range
-	category = list("Шахтёрское оборудование", "Модули киборгов")
+	category = list("Шахтёрское оборудование", "Модули киборгов", "Карго снаряжение")
+	sub_category = list("Модификации кинетического ускорителя")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/hyperaccelerator
-	name = "Мод кинетического ускорителя - Взрыв"
-	desc = "A modification kit for Kinetic Accelerators which causes it to fire AoE blasts that destroy rock."
+	name = "Горный взрыв"
+	desc = "Позволяет кинетическому ускорителю разрушать камни в небольшом радиусе."
 	id = "hypermod"
 	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 8000, /datum/material/glass = 1500, /datum/material/silver = 2000, /datum/material/gold = 2000, /datum/material/diamond = 2000)
 	build_path = /obj/item/borg/upgrade/modkit/aoe/turfs
-	category = list("Шахтёрское оборудование", "Модули киборгов")
+	category = list("Шахтёрское оборудование", "Модули киборгов", "Карго снаряжение")
+	sub_category = list("Модификации кинетического ускорителя")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/board/deepcore_drill
-	name = "Machine Design (Deep Core Bluespace Drill Board)"
-	desc = "The circuit board for a Deep Core Bluespace Drill."
+	name = "Бур глубокого погружения"
+	desc = "Мощная машина, которая способна извлекать руду из недр планеты."
 	id = "deepcore_drill"
-	build_type = IMPRINTER
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/deepcore/drill
-	category = list("Шахтёрское оборудование")
+	category = list("Шахтёрское оборудование", "Карго оборудование")
+	sub_category = list("Производство")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/board/deepcore_hopper
-	name = "Machine Design (Bluespace Material Hopper Board)"
-	desc = "The circuit board for a Bluespace Material Hopper."
+	name = "Блюспейс рудоприемник"
+	desc = "Машина, предназначенная для приема руды от любых подключенных к ней буров глубокого погружения посредством блюспейс телепортации."
 	id = "deepcore_hopper"
-	build_type = IMPRINTER
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/deepcore/hopper
-	category = list("Шахтёрское оборудование")
+	category = list("Шахтёрское оборудование", "Карго оборудование")
+	sub_category = list("Производство")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO

@@ -3857,7 +3857,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/light_switch/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},

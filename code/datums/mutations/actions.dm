@@ -194,10 +194,10 @@
 
 /datum/mutation/human/tongue_spike
 	name = "Языковой шип"
-	desc = "Позволяет произвести мгновенную коварную атаку, выстрелив в оппонента собственным языком."
+	desc = "Позволяет произвести мгновенную коварную атаку, выстрелив в оппонента скрывающимся в вашем рту острым шипом."
 	quality = POSITIVE
 	text_gain_indication = span_notice("Чувствую себя весьма острым на язык.")
-	instability = 15
+	instability = 20
 	power = /obj/effect/proc_holder/spell/self/tongue_spike
 
 	energy_coeff = 1
@@ -205,7 +205,7 @@
 
 /obj/effect/proc_holder/spell/self/tongue_spike
 	name = "Выстрел шипом"
-	desc = "Выстреливает языковым шипом в направлении вашего взгляда."
+	desc = "Выстреливает языковым шипом строго <b>в направлении вашего взгляда</b>. Спустя некоторое время шип можно вырастить заново."
 	clothes_req = FALSE
 	human_req = TRUE
 	charge_max = 100
@@ -218,8 +218,8 @@
 		return
 
 	var/mob/living/carbon/C = user
-	if(HAS_TRAIT(C, TRAIT_NODISMEMBER))
-		return
+//	if(HAS_TRAIT(C, TRAIT_NODISMEMBER))
+//		return
 	var/obj/item/organ/tongue/tongue
 	for(var/org in C.internal_organs)
 		if(istype(org, /obj/item/organ/tongue))
@@ -227,13 +227,22 @@
 			break
 
 	if(!tongue)
-		to_chat(C, span_notice("У меня нет языка!"))
+		if(!do_after(user, 30, user))
+			return
+		var/obj/item/organ/tongue/new_tongue = new()
+		to_chat(C, span_notice("Формирую во рту новый шип!"))
+		playsound(user,'sound/surgery/organ1.ogg', 50, TRUE)
+		new_tongue.Insert(C)
+		C.adjust_nutrition(-10)
+		C.hydration = C.hydration - 10
+		C.blood_volume = C.blood_volume - 10
 		return
 
 	tongue.Remove(C, special = TRUE)
 	var/obj/item/hardened_spike/spike = new spike_path(get_turf(C), C)
 	tongue.forceMove(spike)
 	spike.throw_at(get_edge_target_turf(C,C.dir), 14, 4, C)
+	playsound(user,'white/Feline/sounds/tongue_spike.ogg', 50, TRUE)
 
 /obj/item/hardened_spike
 	name = "языковой шип"

@@ -45,6 +45,8 @@
 
 /obj/machinery/telecomms/allinone/exploration
 	name = "мейнфрейм рейнджеров"
+	id = "Rangers Mainframe"
+	network = "tcommsat"
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.02
 	freq_listening = list(FREQ_EXPLORATION)
-	autolinkers = list("exp_relay")
+//	autolinkers = list("exp_relay")

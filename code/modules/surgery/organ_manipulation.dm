@@ -127,7 +127,7 @@
 					span_notice("[user] начинает извлекать [I] из [parse_zone(target_zone)] [target].") ,
 					span_notice("[user] начинает что-то извлекать из [parse_zone(target_zone)] [target].") ,
 					playsound(get_turf(target), 'sound/surgery/hemostat1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
-				display_pain(target, "Я чувствую, боль в [ru_otkuda_zone(parse_zone(target_zone))]!")
+				display_pain(target, "Я чувствую боль в [ru_gde_zone(parse_zone(target_zone))]!")
 			else
 				return -1
 

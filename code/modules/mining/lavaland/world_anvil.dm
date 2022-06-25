@@ -49,7 +49,7 @@
 
 /obj/structure/world_anvil/attack_hand(mob/user)
 	if(!LAZYLEN(placed_objects))
-		to_chat(user,"Нужно разместить кусок плазменного магмита и кинетический ускоритель или передовой плазменный резак на наковальне!")
+		to_chat(user,"Нужно разместить кусок плазменного магмита и кинетический ускоритель или продвинутый плазменный резак на наковальне!")
 		return ..()
 	if(forge_charges <= 0)
 		to_chat(user,"Наковальня недостаточно нагрета, чтобы можно было её использовать!")
@@ -82,8 +82,8 @@
 			to_chat(user,"Беспокойные усики обертывают кинетический ускоритель, потребляя плазменный магмит, образуя мега кинетический ускоритель.")
 		if(istype(I,/obj/item/gun/energy/plasmacutter/adv) && forge_charges && used_magmite < magmite_amount)
 			var/obj/item/gun/energy/plasmacutter/adv/gun = I
-			if(gun.name != "продвинутый плазморез")
-				to_chat(user,"Это не продвинутый плазморез!")
+			if(gun.name != "продвинутый плазменный резак")
+				to_chat(user,"Это не продвинутый плазменный резак!")
 				break
 			var/obj/item/gun/energy/plasmacutter/adv/mega/newgun = new(get_turf(src))
 			newgun.throw_at(user, 7, 7)

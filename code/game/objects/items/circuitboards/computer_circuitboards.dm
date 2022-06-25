@@ -543,21 +543,22 @@
 		machine.obj_flags &= ~EMAGGED
 
 /obj/item/circuitboard/computer/cargo/express
-	name = "Express Supply Console (Консоль)"
+	name = "экспресс консоль снабжения"
+	desc = "Благодаря новой орбитальной пушке Нано Трейзен все входящие посылки доставляются практически мгновенно. Стандартная зона сброса - отдел карго. Допустима смена зоны сброса посредством маяка производимого в консоли. Возможна модификация консоли посредством установки диска с ПО блюспейс телепортатора."
 	build_path = /obj/machinery/computer/cargo/express
 
 /obj/item/circuitboard/computer/cargo/express/emag_act(mob/living/user)
 	if(!(obj_flags & EMAGGED))
 		contraband = TRUE
 		obj_flags |= EMAGGED
-		to_chat(user, span_notice("You change the routing protocols, allowing the Drop Pod to land anywhere on the station."))
+		to_chat(user, span_notice("Изменяю протоколы маршрутизации, позволяя десантной капсуле приземляться в любом месте станции."))
 
 /obj/item/circuitboard/computer/cargo/express/multitool_act(mob/living/user)
 	if (!(obj_flags & EMAGGED))
 		contraband = !contraband
-		to_chat(user, span_notice("Receiver spectrum set to [contraband ? "Broad" : "Standard"]."))
+		to_chat(user, span_notice("Диапазон товаров установлен на [contraband ? "Расширенный" : "Стандартный"]."))
 	else
-		to_chat(user, span_notice("You reset the destination-routing protocols and receiver spectrum to factory defaults."))
+		to_chat(user, span_notice("Сбрасываю протоколы маршрутизации назначения и спектр приемника до заводских настроек по умолчанию."))
 		contraband = FALSE
 		obj_flags &= ~EMAGGED
 

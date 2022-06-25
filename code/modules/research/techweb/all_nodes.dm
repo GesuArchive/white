@@ -67,7 +67,12 @@
 		"tech_disk",
 		"gas_filter",
 		"plasmaman_gas_filter",
-		"oven_tray"
+		"oven_tray",
+		"small_grenade",
+		"sticky_tape",
+		"plastic_box",
+		"custom_vendor_refill",
+		"price_tagger"
 	)
 
 /datum/techweb_node/basic_medical
@@ -78,9 +83,9 @@
 	design_ids = list("cybernetic_liver", "cybernetic_heart", "cybernetic_lungs", "cybernetic_stomach", "scalpel", "circular_saw",
 					"hemostat", "retractor", "cautery", "bonesetter", "surgicaldrill", "blood_filter",
 					"beaker", "large_beaker", "xlarge_beaker", "syringe", "health_sensor", "portable_chem_mixer", "stethoscope", "surgical_drapes", "plumbing_rcd",
-					"dropper", "defibmountdefault", "surgical_tape", "glasses_prescription",
-					"robot_low_arm_left", "robot_low_arm_right", "robot_low_leg_left", "robot_low_leg_right", "teeth_box_32",
-					"body_bag", "fluid_ducts", "optable_folding", "pillbottle", "pill_bottle_big", "rollerbed", "iv_drip_tele", "slime_scanner")
+					"dropper", "defibmountdefault", "surgical_tape", "glasses_prescription", "slime_scanner",
+					"robot_low_arm_left", "robot_low_arm_right", "robot_low_leg_left", "robot_low_leg_right", "teeth_box_32", "gloves_latex",
+					"body_bag", "fluid_ducts", "optable_folding", "pillbottle", "pill_bottle_big", "rollerbed", "iv_drip_tele", "breathing_bag")
 
 /datum/techweb_node/mmi
 	id = "mmi"
@@ -190,7 +195,7 @@
 	display_name = "Биотехнологии"
 	description = "То, что заставляет сердце биться."	//the MC, silly!
 	prereq_ids = list("base")
-	design_ids = list("chem_heater", "chem_master", "chem_dispenser", "pandemic", "defibrillator", "defibmount", "operating", "soda_dispenser", "beer_dispenser", "healthanalyzer", "medigel","genescanner", "med_spray_bottle", "meta_beaker", "chem_pack", "blood_pack", "medical_kiosk", "crewpinpointerprox", "medipen_refiller", "biopsy_tool", "plumbing_rcd_sci", "medbot_carrier", "medipenal")
+	design_ids = list("chem_heater", "chem_master", "chem_dispenser", "pandemic", "defibrillator", "defibmount", "operating", "soda_dispenser", "beer_dispenser", "healthanalyzer", "medigel","genescanner", "med_spray_bottle", "meta_beaker", "chem_pack", "blood_pack", "medical_kiosk", "crewpinpointerprox", "medipen_refiller", "biopsy_tool", "plumbing_rcd_sci", "medbot_carrier", "medipenal", "gloves_nitrile")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 	required_experiments = list(/datum/experiment/scanning/points/slime/calibration)
 
@@ -199,7 +204,7 @@
 	display_name = "Продвинутые Биотехнологии"
 	description = "Расширят границы познания."
 	prereq_ids = list("biotech")
-	design_ids = list("piercesyringe", "crewpinpointer", "smoke_machine", "plasmarefiller", "limbgrower", "healthanalyzer_advanced", "harvester", "holobarrier_med", "detective_scanner", "defibrillator_compact", "ph_meter")
+	design_ids = list("piercesyringe", "crewpinpointer", "smoke_machine", "plasmarefiller", "limbgrower", "healthanalyzer_advanced", "harvester", "holobarrier_med", "detective_scanner", "defibrillator_compact", "ph_meter", "gloves_polymer")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
 	required_experiments = list(/datum/experiment/scanning/points/slime/easy)
 	discount_experiments = list(/datum/experiment/scanning/random/material/meat = 4000) //Big discount to reinforce doing it.
@@ -229,7 +234,7 @@
 	display_name = "Улучшенная Травматологическая Хирургия"
 	description = "Удивительно, но оказывается, что надежно зафиксированный пациент более не нуждается в анестезии!"
 	prereq_ids = list("biotech")
-	design_ids = list("surgery_heal_brute_upgrade","surgery_heal_burn_upgrade","surgery_toxin_heal_toxin_upgrade")
+	design_ids = list("surgery_nanite_extraction","surgery_heal_brute_upgrade","surgery_heal_burn_upgrade","surgery_toxin_heal_toxin_upgrade")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000)
 
 
@@ -293,7 +298,7 @@
 /datum/techweb_node/adv_engi
 	id = "adv_engi"
 	display_name = "Передовые инженерные разработки"
-	description = "Запустить процесс цепной ядерной реакции не так сложно, но всегда стоит помнить, что граница между атомным реактором и атомным взрывом определяется лишь разумом и сознательносью"
+	description = "Запустить процесс цепной ядерной реакции не так сложно, но всегда стоит помнить, что граница между атомным реактором и атомным взрывом определяется лишь квалификацией и сознательностью."
 	prereq_ids = list("engineering", "emp_basic")
 	design_ids = list("engine_goggles", "magboots", "forcefield_projector", "weldingmask", "rcd_loaded", "rpd_loaded", "sheetifier", "HFR_core", "HFR_fuel_input",
 	"HFR_waste_output", "HFR_moderator_input", "HFR_corner", "HFR_interface")
@@ -727,6 +732,16 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 7500)
 	discount_experiments = list(/datum/experiment/scanning/random/material/hard/one = 5000)
 
+/datum/techweb_node/cargo_teleporter
+	id = "cargoteleporter"
+	display_name = "Телепортатор груза"
+	description = "Мы можем телепортировать предметы на большие расстояния, если они не заблокированы."
+	prereq_ids = list("bluespace_basic", "engineering")
+	design_ids = list(
+		"cargotele",
+	)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
+
 /datum/techweb_node/janitor
 	id = "janitor"
 	display_name = "Передовые технологии санитарии"
@@ -785,7 +800,7 @@
 	display_name = "Оружейные технологии"
 	description = "Стандарные разработки для отделов безопасности Нано-Трейзен."
 	prereq_ids = list("engineering")
-	design_ids = list("pin_testing", "tele_shield")
+	design_ids = list("pin_testing", "pin_battle", "tele_shield")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 10000)
 	required_experiments = list(/datum/experiment/explosion/calibration)
 

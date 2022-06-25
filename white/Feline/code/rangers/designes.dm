@@ -6,7 +6,8 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/titanium = 1000)
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Карго снаряжение")
+	sub_category = list("Огнетушители и газовые баллоны")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/patron_belt
@@ -17,5 +18,6 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000)
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Карго снаряжение")
+	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_CARGO

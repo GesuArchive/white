@@ -345,7 +345,7 @@
 		disposal_holder.destinationTag = sort_tag
 
 /obj/item/dest_tagger
-	name = "этикеровщик назначения"
+	name = "этикетировщик назначения"
 	desc = "Used to set the destination of properly wrapped packages."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "cargotagger"
@@ -360,7 +360,7 @@
 	slot_flags = ITEM_SLOT_BELT
 
 /obj/item/dest_tagger/borg
-	name = "кибернетический этикеровщик назначения"
+	name = "кибернетический этикетировщик назначения"
 	desc = "Used to fool the disposal mail network into thinking that you're a harmless parcel. Does actually work as a regular destination tagger as well."
 
 /obj/item/dest_tagger/suicide_act(mob/living/user)
@@ -412,7 +412,7 @@
 	return TRUE
 
 /obj/item/sales_tagger
-	name = "Этикеровщик цен"
+	name = "Этикетировщик цен"
 	desc = "A scanner that lets you tag wrapped items for sale, splitting the profit between you and cargo. Ctrl-Click to clear the registered account."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "salestagger"

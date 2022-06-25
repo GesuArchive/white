@@ -79,7 +79,7 @@
 
 
 /obj/structure/closet/secure_closet/atmospherics
-	name = "\proper шкафчик атмосферника"
+	name = "шкафчик атмотеха"
 	req_access = list(ACCESS_ATMOSPHERICS)
 	icon_state = "atmos"
 

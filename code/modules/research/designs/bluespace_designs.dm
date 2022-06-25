@@ -11,7 +11,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 150, /datum/material/glass = 100)
 	build_path = /obj/item/beacon
-	category = list("Блюспейс разработки", "Инженерное снаряжение", "Научное снаряжение")
+	category = list("Блюспейс разработки", "Инженерное снаряжение", "Научное снаряжение", "Карго снаряжение")
 	sub_category = list("Связь и навигация")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SECURITY
 
@@ -59,7 +59,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 1000)
 	build_path = /obj/item/gps
-	category = list("Блюспейс разработки", "Инженерное снаряжение", "Научное снаряжение")
+	category = list("Блюспейс разработки", "Инженерное снаряжение", "Научное снаряжение", "Карго снаряжение")
 	sub_category = list("Связь и навигация")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
 
@@ -83,7 +83,8 @@
 	construction_time = 40
 	materials = list(/datum/material/gold = 250, /datum/material/uranium = 500) //quite cheap, for more convenience
 	build_path = /obj/item/storage/bag/ore/holding
-	category = list("Блюспейс разработки")
+	category = list("Блюспейс разработки", "Карго снаряжение")
+	sub_category = list("Горнопромышленное снаряжение")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/swapper
@@ -106,6 +107,6 @@
 	construction_time = 40
 	materials = list(/datum/material/gold = 500, /datum/material/silver = 500, /datum/material/bluespace = 500) //quite cheap, for more convenience
 	build_path = /obj/item/circuitboard/machine/bluespace_miner
-	category = list("Блюспейс разработки", "Инженерное снаряжение", "Научное снаряжение")
+	category = list("Блюспейс разработки", "Инженерное оборудование", "Научное оборудование", "Карго оборудование")
 	sub_category = list("Производство")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_CARGO

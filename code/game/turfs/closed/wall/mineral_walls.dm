@@ -183,7 +183,7 @@
 	return ..() //No recoil damage, wood is weak
 
 /turf/closed/wall/mineral/wood/nonmetal
-	desc = "Стена состоящая только из дерева. не такая крепкая, но зато без металла."
+	desc = "Стена состоящая только из дерева. Не особо крепкая, но зато экологически чистая."
 	girder_type = /obj/structure/barricade/wooden
 	hardness = 50
 

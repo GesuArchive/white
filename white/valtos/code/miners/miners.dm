@@ -314,7 +314,7 @@ SUBSYSTEM_DEF(spm)
 	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/silver = 300, /datum/material/gold = 300)
 	build_path = /obj/item/mining_thing/nvidia
-	category = list("Электроника", "Научное оборудование")
+	category = list("Электроника", "Научное оборудование", "Карго оборудование")
 	sub_category = list("Майнеры")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 

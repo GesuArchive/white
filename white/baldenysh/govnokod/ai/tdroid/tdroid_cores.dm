@@ -3,7 +3,7 @@
 
 /obj/item/organ/tactical_core
 	name = "тактическое ядро"
-	desc = "Тактическое ядро андроида неизвестной марки. Используйте встроенный ДНК-сканнер для установки коммандира."
+	desc = "Тактическое ядро андроида неизвестной марки. Используйте встроенный ДНК-сканер для установки коммандира."
 	icon = 'white/baldenysh/icons/obj/organs.dmi'
 	icon_state = "tactical_core"
 	zone = BODY_ZONE_HEAD

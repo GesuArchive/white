@@ -458,13 +458,13 @@
 			to_chat(H, span_userdanger("Я был ослеплен и дезориентирован чудовищным кровавым взрывом! Это было ужасно!"))
 		else
 			to_chat(H, span_userdanger("Я был сбит с ног волной чего-то жидкого, теплого и отдающего железом... погодите... это что? КРОВЬ?!"))
-		H.Stun(20)
-		H.blur_eyes(20)
-		eyes?.applyOrganDamage(5)
-		H.add_confusion(3)
+		H.Stun(100)
+		H.blur_eyes(200)
+		eyes?.applyOrganDamage(25)
+		H.add_confusion(30)
 	for(var/mob/living/silicon/S in view(2,owner))
 		to_chat(S, span_userdanger("Сенсоры были замкнуты волной крови! Критическая ошибка! Перезагрузка..."))
-		S.Paralyze(60)
+		S.Paralyze(600)
 	owner.gib()
 
 /datum/mutation/human/headless
@@ -474,10 +474,14 @@
 	quality = NEGATIVE //holy shit no eyes or tongue or ears
 	text_gain_indication = span_warning("Кажется я что-то потерял, только не могу понять что...")
 
-/datum/mutation/human/headless/on_acquiring()
+/datum/mutation/human/headless/on_acquiring(user)
 	. = ..()
 	if(.)//cant add
 		return TRUE
+
+	var/mob/living/carbon/C = user
+	C.dismember_bleed_block = TRUE
+
 	var/obj/item/organ/brain/brain = owner.getorganslot(ORGAN_SLOT_BRAIN)
 	if(brain)
 		brain.zone = BODY_ZONE_CHEST
@@ -492,10 +496,14 @@
 		owner.regenerate_icons()
 	RegisterSignal(owner, COMSIG_CARBON_ATTACH_LIMB, .proc/abortattachment)
 
-/datum/mutation/human/headless/on_losing()
+/datum/mutation/human/headless/on_losing(user)
 	. = ..()
 	if(.)
 		return TRUE
+
+	var/mob/living/carbon/C = user
+	C.dismember_bleed_block = FALSE
+
 	var/obj/item/organ/brain/brain = owner.getorganslot(ORGAN_SLOT_BRAIN)
 	if(brain) //so this doesn't instantly kill you. we could delete the brain, but it lets people cure brain issues they /really/ shouldn't be
 		brain.zone = BODY_ZONE_HEAD

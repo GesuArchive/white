@@ -336,10 +336,10 @@
 
 //Range
 /obj/item/borg/upgrade/modkit/range
-	name = "увеличение дальности"
-	desc = "Увеличивает дальность кинетического ускорителя при установке."
+	name = "увеличение дальнобойности"
+	desc = "Увеличивает дальность поражения кинетического ускорителя при установке."
 	modifier = 1
-	cost = 25
+	cost = 20
 
 /obj/item/borg/upgrade/modkit/range/modify_projectile(obj/projectile/kinetic/K)
 	K.range += modifier
@@ -348,7 +348,7 @@
 //Damage
 /obj/item/borg/upgrade/modkit/damage
 	name = "увеличение урона"
-	desc = "Увеличивает урон кинетического ускорителя при установке."
+	desc = "При установке увеличивает урон кинетического ускорителя на 10 единиц."
 	modifier = 10
 
 /obj/item/borg/upgrade/modkit/damage/modify_projectile(obj/projectile/kinetic/K)
@@ -357,8 +357,8 @@
 
 //Cooldown
 /obj/item/borg/upgrade/modkit/cooldown
-	name = "уменьшение времени перезарядки"
-	desc = "Уменьшает время восстановления кинетического ускорителя. Не рассчитано на использование шахтёрском роботе."
+	name = "ускорение перезарядки"
+	desc = "Уменьшает время восстановления кинетического ускорителя. Не рассчитано на использование в шахтёрском минироботе."
 	modifier = 0.745
 	minebot_upgrade = FALSE
 
@@ -373,7 +373,7 @@
 
 /obj/item/borg/upgrade/modkit/cooldown/minebot
 	name = "уменьшение времени перезарядки для шахтёрского робота"
-	desc = "Уменьшает время восстановления кинетического ускорителя. Только для использования в шахтёрском роботе."
+	desc = "Уменьшает время восстановления кинетического ускорителя. Только для использования в шахтёрском минироботе."
 	icon_state = "door_electronics"
 	icon = 'icons/obj/module.dmi'
 	denied_type = /obj/item/borg/upgrade/modkit/cooldown/minebot
@@ -438,25 +438,25 @@
 
 /obj/item/borg/upgrade/modkit/aoe/turfs
 	name = "горный взрыв"
-	desc = "Заставляет кинетический ускоритель разрушать камни в небольшом радиусе."
+	desc = "Позволяет кинетическому ускорителю разрушать камни в небольшом радиусе."
 	denied_type = /obj/item/borg/upgrade/modkit/aoe/turfs
 	turf_aoe = TRUE
 
 /obj/item/borg/upgrade/modkit/aoe/turfs/andmobs
 	name = "наступательный взрыв гор"
-	desc = "Заставляет кинетический ускоритель разрушать камни и наносить урон мобам в небольшом радиусе."
+	desc = "Позволяет кинетическому ускорителю разрушать камни и наносить урон мобам в небольшом радиусе."
 	maximum_of_type = 3
 	modifier = 0.25
 
 /obj/item/borg/upgrade/modkit/aoe/mobs
 	name = "наступательный взрыв"
-	desc = "Заставляет кинетический ускоритель повредить мобов в небольшом радиусе."
+	desc = "Позволяет кинетическому ускорителю повредить мобов в небольшом радиусе."
 	modifier = 0.2
 
 //Minebot passthrough
 /obj/item/borg/upgrade/modkit/minebot_passthrough
 	name = "игнорирование шахтёрского робота"
-	desc = "Заставляет кинетическую силу проходить минуя шахтёрских роботов."
+	desc = "Позволяет кинетическому ускорителю вести огонь без риска повреждения шахтёрских минироботов."
 	cost = 0
 
 //Tendril-unique modules
@@ -566,7 +566,7 @@
 //Trigger Guard
 /obj/item/borg/upgrade/modkit/trigger_guard
 	name = "модифицированный курок"
-	desc = "Позволяет существам, обычно неспособным стрелять из оружия, управлять оружием, когда оно установлено."
+	desc = "Позволяет существам, обычно неспособным стрелять из оружия, использовать оружие, при его установке."
 	cost = 20
 	denied_type = /obj/item/borg/upgrade/modkit/trigger_guard
 

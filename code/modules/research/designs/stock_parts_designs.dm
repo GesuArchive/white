@@ -35,7 +35,7 @@
 	construction_time = 10
 	materials = list(/datum/material/iron = 100, /datum/material/glass = 100)
 	build_path = /obj/item/stock_parts/capacitor
-	category = list("Запчасти оборудования","Оборудование","initial","Медицинское оборудование","Детали машин")
+	category = list("Запчасти оборудования","Оборудование","initial","Медицинское оборудование","Детали машин", "Карго оборудование")
 	sub_category = list("Базовые компоненты")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
@@ -88,7 +88,7 @@
 	construction_time = 10
 	materials = list(/datum/material/iron = 100, /datum/material/glass = 50)
 	build_path = /obj/item/stock_parts/scanning_module
-	category = list("Запчасти оборудования","Оборудование","initial","Медицинское оборудование","Детали машин")
+	category = list("Запчасти оборудования","Оборудование","initial","Медицинское оборудование","Детали машин", "Карго оборудование")
 	sub_category = list("Базовые компоненты")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
@@ -141,7 +141,7 @@
 	construction_time = 10
 	materials = list(/datum/material/iron = 100)
 	build_path = /obj/item/stock_parts/manipulator
-	category = list("Запчасти оборудования","Оборудование","initial","Медицинское оборудование","Детали машин")
+	category = list("Запчасти оборудования","Оборудование","initial","Медицинское оборудование","Детали машин", "Карго оборудование")
 	sub_category = list("Базовые компоненты")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
@@ -194,7 +194,7 @@
 	construction_time = 10
 	materials = list(/datum/material/iron = 100, /datum/material/glass = 50)
 	build_path = /obj/item/stock_parts/micro_laser
-	category = list("Запчасти оборудования","Оборудование","initial","Медицинское оборудование","Детали машин")
+	category = list("Запчасти оборудования","Оборудование","initial","Медицинское оборудование","Детали машин", "Карго оборудование")
 	sub_category = list("Базовые компоненты")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
@@ -246,7 +246,7 @@
 	construction_time = 10
 	materials = list(/datum/material/iron = 100)
 	build_path = /obj/item/stock_parts/matter_bin
-	category = list("Запчасти оборудования","Оборудование","initial","Медицинское оборудование","Детали машин")
+	category = list("Запчасти оборудования","Оборудование","initial","Медицинское оборудование","Детали машин", "Карго оборудование")
 	sub_category = list("Базовые компоненты")
 	lathe_time_factor = 0.2
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE

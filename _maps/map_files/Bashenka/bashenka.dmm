@@ -29970,7 +29970,7 @@
 /turf/open/floor/plating/beach/sand,
 /area/icemoon/surface/outdoors)
 "xpe" = (
-/obj/machinery/rnd/production/techfab/department/cargo,
+/obj/machinery/mecha_part_fabricator/cargo,
 /obj/machinery/light{
 	dir = 1
 	},

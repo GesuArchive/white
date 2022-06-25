@@ -373,7 +373,7 @@
 
 	if(loc == user)
 		if(user.get_item_by_slot(ITEM_SLOT_BELT) == src)
-			if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
+			if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE, FLOOR_OKAY))
 				return
 			for(var/i in contents)
 				if(istype(i, /obj/item/melee/sabre/proton_cutter))

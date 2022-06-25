@@ -1,5 +1,5 @@
 /obj/structure/closet/secure_closet/research_director
-	name = "\proper шкафчик директора по исследованиям"
+	name = "шкафчик директора по исследованиям"
 	req_access = list(ACCESS_RD)
 	icon_state = "rd"
 
@@ -28,6 +28,7 @@
 	new /obj/item/laser_pointer(src)
 	new /obj/item/door_remote/research_director(src)
 	new /obj/item/circuitboard/machine/techfab/department/science(src)
+	new /obj/item/circuitboard/machine/mechfab/sci(src)
 	new /obj/item/storage/photo_album/rd(src)
 	new /obj/item/storage/box/skillchips/science(src)
 

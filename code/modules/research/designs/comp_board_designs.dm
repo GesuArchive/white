@@ -251,7 +251,10 @@
 	desc = "Используется для заказа расходных материалов, утверждения заявок и управления шаттлом."
 	id = "cargo"
 	build_path = /obj/item/circuitboard/computer/cargo
-	category = list("Консоли")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	category = list("Консоли", "Научное оборудование", "Карго оборудование")
+	sub_category = list("Доставка")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/board/objective
@@ -261,7 +264,7 @@
 	build_path = /obj/item/circuitboard/computer/objective
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
-	category = list("Консоли", "Научное оборудование")
+	category = list("Консоли", "Научное оборудование", "Карго оборудование")
 	sub_category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -270,7 +273,10 @@
 	desc = "Используется для запроса припасов."
 	id = "cargorequest"
 	build_path = /obj/item/circuitboard/computer/cargo/request
-	category = list("Консоли")
+	category = list("Консоли", "Карго оборудование")
+	sub_category = list("Доставка")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/board/mining
@@ -278,7 +284,10 @@
 	desc = "Используется для доступа к различным камерам на шахтерском аванпосте."
 	id = "mining"
 	build_path = /obj/item/circuitboard/computer/mining
-	category = list("Консоли")
+	category = list("Консоли", "Карго оборудование")
+	sub_category = list("Освещение и наблюдение")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/board/comm_monitor
@@ -379,7 +388,7 @@
 	desc = "Используется для искусственных манипуляций внутренним рынком."
 	id = "price_controller"
 	build_path = /obj/item/circuitboard/computer/price_controller
-	category = list("Консоли", "Инженерное оборудование")
+	category = list("Консоли", "Инженерное оборудование", "Карго оборудование")
 	sub_category = list("Консоли")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -390,8 +399,8 @@
 	desc = "Консоль, которая предоставляет персоналу возможность выполнять небольшие поручения, достаточно лишь вставить свою ID-карту."
 	id = "bounty_pad_control"
 	build_path = /obj/item/circuitboard/computer/bountypad
-	category = list("Консоли", "Инженерное оборудование")
-	sub_category = list("Консоли")
+	category = list("Консоли", "Инженерное оборудование", "Карго оборудование")
+	sub_category = list("Доставка")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
 
@@ -400,7 +409,7 @@
 	desc = "Используется для сканирования и отправки разведывательных дронов."
 	id = "exoscanner_console"
 	build_path = /obj/item/circuitboard/computer/exoscanner_console
-	category = list("Консоли", "Инженерное оборудование", "Научное оборудование")
+	category = list("Консоли", "Инженерное оборудование", "Научное оборудование", "Карго оборудование")
 	sub_category = list("Исследовательские дроны")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -410,7 +419,7 @@
 	desc = "Управляйте исследовательскими дронами с межзвездных расстояний. Задержка в комплект не входит."
 	id = "exodrone_console"
 	build_path = /obj/item/circuitboard/computer/exodrone_console
-	category = list("Консоли", "Инженерное оборудование", "Научное оборудование")
+	category = list("Консоли", "Инженерное оборудование", "Научное оборудование", "Карго оборудование")
 	sub_category = list("Исследовательские дроны")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40

@@ -57,7 +57,7 @@
 /datum/ert/inquisition
 	roles = list(/datum/antagonist/ert/chaplain/inquisitor, /datum/antagonist/ert/security/inquisitor, /datum/antagonist/ert/medic/inquisitor)
 	leader_role = /datum/antagonist/ert/commander/inquisitor
-	rename_team = "Инкцизиция"
+	rename_team = "Инквизиция"
 	mission = "Уничтожьте все следы паранормальной активности на борту станции."
 	polldesc = "группе реагирования на паранормальные явления NanoTrasen"
 

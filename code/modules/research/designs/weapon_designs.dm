@@ -84,6 +84,16 @@
 	category = list("Бойки")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
+/datum/design/pin_battle
+	name = "Боевой боек"
+	desc = "Стандартный боек для боевого оружия без каких-либо особенностей."
+	id = "pin_battle"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 1000, /datum/material/glass = 600, /datum/material/silver = 300)
+	build_path = /obj/item/firing_pin
+	category = list("Бойки")
+	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+
 /datum/design/pin_mindshield
 	name = "Mindshield Firing Pin"
 	desc = "This is a security firing pin which only authorizes users who are mindshield-implanted."
@@ -162,7 +172,8 @@
 	construction_time = 100
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 1000)
 	build_path = /obj/item/gun/syringe/rapidsyringe
-	category = list("Вооружение")
+	category = list("Вооружение", "Медицинское снаряжение")
+	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL		//uwu
 
 /datum/design/temp_gun
@@ -185,15 +196,26 @@
 	category = list("Вооружение")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
+/datum/design/small_grenade
+	name = "Химическая граната"
+	desc = "Поддерживает стандартные емкости. При детонации нагревает состав на 10°K."
+	id = "small_grenade"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 30
+	materials = list(/datum/material/iron = 1500)
+	build_path = /obj/item/grenade/chem_grenade
+	category = list("Вооружение", "Гранаты")
+	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
+
 /datum/design/large_grenade
 	name = "Большая химическая граната"
-	desc = "Большой каркас химической гранаты. В отличие от обычных каркасов, этот имеет больший радиус взрыва и поддерживает блюспейс или различные экзотичные носители."
+	desc = "Большой каркас химической гранаты. В отличие от обычных каркасов, этот имеет больший радиус взрыва и поддерживает блюспейс или различные экзотичные носители. При детонации нагревает состав на 25°K."
 	id = "large_Grenade"
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 60
+	construction_time = 40
 	materials = list(/datum/material/iron = 3000)
 	build_path = /obj/item/grenade/chem_grenade/large
-	category = list("Вооружение")
+	category = list("Вооружение", "Гранаты")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/pyro_grenade
@@ -201,10 +223,10 @@
 	desc = "Экспериментальный каркас химической гранаты. После активации резко нагревает реагенты внутри себя."
 	id = "pyro_Grenade"
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 60
+	construction_time = 40
 	materials = list(/datum/material/iron = 2000, /datum/material/plasma = 500)
 	build_path = /obj/item/grenade/chem_grenade/pyro
-	category = list("Вооружение")
+	category = list("Вооружение", "Гранаты")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/cryo_grenade
@@ -212,10 +234,10 @@
 	desc = "Экспериментальный каркас химической гранаты. После активации резко охлаждает реагенты внутри себя."
 	id = "cryo_Grenade"
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 60
+	construction_time = 40
 	materials = list(/datum/material/iron = 2000, /datum/material/silver = 500)
 	build_path = /obj/item/grenade/chem_grenade/cryo
-	category = list("Вооружение")
+	category = list("Вооружение", "Гранаты")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/adv_grenade
@@ -223,10 +245,10 @@
 	desc = "Экспериментальный каркас химической гранаты. Может использоваться больше одного раза. При помощи мультитула можно настроить количество выбрасываемого вещества."
 	id = "adv_Grenade"
 	build_type = PROTOLATHE | MECHFAB
-	construction_time = 60
+	construction_time = 40
 	materials = list(/datum/material/iron = 3000, /datum/material/glass = 500)
 	build_path = /obj/item/grenade/chem_grenade/adv_release
-	category = list("Вооружение")
+	category = list("Вооружение", "Гранаты")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/xray

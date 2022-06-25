@@ -23,7 +23,7 @@
 	construction_time = 40
 	materials = list(/datum/material/glass = 500, /datum/material/iron = 500)
 	build_path = /obj/item/paicard
-	category = list("Электроника", "Инженерное снаряжение", "Научное снаряжение")
+	category = list("Электроника", "Инженерное снаряжение", "Научное снаряжение", "Карго снаряжение")
 	sub_category = list("Экипировка")
 
 

@@ -15481,7 +15481,7 @@
 /turf/open/floor/plating,
 /area/cargo/storage)
 "aPe" = (
-/obj/machinery/rnd/production/techfab/department/cargo,
+/obj/machinery/mecha_part_fabricator/cargo,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/camera{
 	c_tag = "Cargo Bay - Mid";

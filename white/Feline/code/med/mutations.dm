@@ -1,4 +1,4 @@
-// Мутация
+// Мутации
 
 /datum/mutation/human/self_amputation
 	name = "Аутотомия"
@@ -19,10 +19,28 @@
 	charge_max = 100
 	action_icon_state = "autotomy"
 
+// 	Получение и потеря сопровождаются трейтом иммунитета к кровотечению при потере конечности
 /datum/mutation/human/self_amputation/on_acquiring(user)
 	. = ..()
 	var/mob/living/carbon/C = user
 	C.dismember_bleed_block = TRUE
+
+/datum/mutation/human/self_amputation/on_losing(user)
+	. = ..()
+	var/mob/living/carbon/C = user
+	C.dismember_bleed_block = FALSE
+
+// 	Последствия выростания
+/obj/effect/proc_holder/spell/self/self_amputation/proc/grown(user)
+	var/mob/living/carbon/C = user
+	to_chat(C, span_notice("Конечность вырастает прямо на глазах, но это очень больно!"))
+	playsound(C, 'sound/surgery/organ2.ogg', 100, TRUE)
+	C.emote("agony")
+	C.Knockdown(5 SECONDS)
+	C.Paralyze(2 SECONDS)
+	C.adjust_nutrition(-50)
+	C.hydration = C.hydration - 50
+	C.blood_volume = C.blood_volume - 25
 
 /obj/effect/proc_holder/spell/self/self_amputation/cast(list/targets, mob/user = usr)
 	if(!iscarbon(user))
@@ -55,14 +73,7 @@
 			if(!part)
 				C.regenerate_limb(BODY_ZONE_R_ARM, 1)
 				C.apply_damage(damage = 20, damagetype = BRUTE, def_zone = BODY_ZONE_R_ARM)
-				to_chat(C, span_notice("Конечность вырастает прямо на глазах, но это очень больно!"))
-				playsound(C, 'sound/surgery/organ2.ogg', 100, TRUE)
-				C.emote("agony")
-				C.Knockdown(5 SECONDS)
-				C.Paralyze(2 SECONDS)
-				C.adjust_nutrition(-50)
-				C.hydration = C.hydration - 50
-				C.blood_volume = C.blood_volume - 50
+				grown(C)
 				return
 
 			part.dismember()
@@ -78,14 +89,7 @@
 			if(!part)
 				C.regenerate_limb(BODY_ZONE_R_LEG, 1)
 				C.apply_damage(damage = 20, damagetype = BRUTE, def_zone = BODY_ZONE_R_LEG)
-				to_chat(C, span_notice("Конечность вырастает прямо на глазах, но это очень больно!"))
-				playsound(C, 'sound/surgery/organ2.ogg', 100, TRUE)
-				C.emote("agony")
-				C.Knockdown(5 SECONDS)
-				C.Paralyze(2 SECONDS)
-				C.adjust_nutrition(-50)
-				C.hydration = C.hydration - 50
-				C.blood_volume = C.blood_volume - 50
+				grown(C)
 				return
 
 			part.dismember()
@@ -101,14 +105,7 @@
 			if(!part)
 				C.regenerate_limb(BODY_ZONE_L_LEG, 1)
 				C.apply_damage(damage = 20, damagetype = BRUTE, def_zone = BODY_ZONE_L_LEG)
-				to_chat(C, span_notice("Конечность вырастает прямо на глазах, но это очень больно!"))
-				playsound(C, 'sound/surgery/organ2.ogg', 100, TRUE)
-				C.emote("agony")
-				C.Knockdown(5 SECONDS)
-				C.Paralyze(2 SECONDS)
-				C.adjust_nutrition(-50)
-				C.hydration = C.hydration - 50
-				C.blood_volume = C.blood_volume - 50
+				grown(C)
 				return
 
 			part.dismember()
@@ -124,21 +121,9 @@
 			if(!part)
 				C.regenerate_limb(BODY_ZONE_L_ARM, 1)
 				C.apply_damage(damage = 20, damagetype = BRUTE, def_zone = BODY_ZONE_L_ARM)
-				to_chat(C, span_notice("Конечность вырастает прямо на глазах, но это очень больно!"))
-				playsound(C, 'sound/surgery/organ2.ogg', 100, TRUE)
-				C.emote("agony")
-				C.Knockdown(5 SECONDS)
-				C.Paralyze(2 SECONDS)
-				C.adjust_nutrition(-50)
-				C.hydration = C.hydration - 50
-				C.blood_volume = C.blood_volume - 50
+				grown(C)
 				return
 
 			part.dismember()
 
 	return TRUE
-
-/datum/mutation/human/self_amputation/on_losing(user)
-	. = ..()
-	var/mob/living/carbon/C = user
-	C.dismember_bleed_block = FALSE

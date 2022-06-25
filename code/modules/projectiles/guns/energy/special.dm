@@ -118,7 +118,7 @@
 
 
 /obj/item/gun/energy/plasmacutter
-	name = "плазморез"
+	name = "плазменный резак"
 	desc = "Горный инструмент, способный выбрасывать концентрированные плазменные вспышки. Можно использовать его, чтобы отрезать конечности от ксеносов! Или, знаете, копать руду."
 	icon_state = "plasmacutter"
 	inhand_icon_state = "plasmacutter"
@@ -190,14 +190,14 @@
 		. = ..(amount=1)
 
 /obj/item/gun/energy/plasmacutter/adv
-	name = "продвинутый плазморез"
+	name = "продвинутый плазменный резак"
 	icon_state = "adv_plasmacutter"
 	inhand_icon_state = "adv_plasmacutter"
 	force = 15
 	ammo_type = list(/obj/item/ammo_casing/energy/plasma/adv)
 
 /obj/item/gun/energy/plasmacutter/adv/mega
-	name = "мега продвинутый плазморез"
+	name = "экспериментальный плазменный резак"
 	icon_state = "adv_plasmacutter_m"
 	inhand_icon_state = "plasmacutter_mega"
 	desc = "Инструмент добычи, способный стрелять концентрированными всплесками плазмы. Можно использовать его, чтобы отрезать конечности ксеносов! Этот был улучшен с плазменным магмитом."

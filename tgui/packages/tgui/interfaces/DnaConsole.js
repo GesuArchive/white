@@ -112,7 +112,7 @@ export const DnaConsole = (props, context) => {
 const DnaScanner = (props, context) => {
   return (
     <Section
-      title="Сканнер ДНК"
+      title="Сканер ДНК"
       buttons={(
         <DnaScannerButtons />
       )}>
@@ -136,7 +136,7 @@ const DnaScannerButtons = (props, context) => {
   if (!isScannerConnected) {
     return (
       <Button
-        content="Подключить сканнер"
+        content="Подключить сканер"
         onClick={() => act('connect_scanner')} />
     );
   }
@@ -218,7 +218,7 @@ const DnaScannerContent = (props, context) => {
   if (!isScannerConnected) {
     return (
       <Box color="bad">
-        Сканнер не подключен.
+        Сканер не подключен.
       </Box>
     );
   }
@@ -1044,7 +1044,7 @@ const DnaConsoleEnzymes = (props, context) => {
   if (!isScannerConnected) {
     return (
       <Section color="bad">
-        Сканнер ДНК не подключен.
+        Сканер ДНК не подключен.
       </Section>
     );
   }

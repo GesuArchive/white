@@ -7,11 +7,8 @@
 #define SP_UNREADY 5
 
 /obj/machinery/computer/cargo/express
-	name = "экспресс консоль"
-	desc = "Эта консоль позволяет пользователю приобрести пакет \
-		с 1/40 от времени доставки: стало возможным благодаря новой \
-		орбитальной пушки NT \
-		Все продажи практически мгновенные - пожалуйста, выбирайте внимательно"
+	name = "экспресс консоль снабжения"
+	desc = "Благодаря новой орбитальной пушке Нано Трейзен все входящие посылки доставляются практически мгновенно. Стандартная зона сброса - отдел карго. Допустима смена зоны сброса посредством маяка производимого в консоли. Возможна модификация консоли посредством установки диска с ПО блюспейс телепортатора."
 	icon_screen = "supply_express"
 	circuit = /obj/item/circuitboard/computer/cargo/express
 	blockade_warning = "Замечена блюспейс нестабильность. Доставка невозможна."
@@ -65,7 +62,7 @@
 	if(obj_flags & EMAGGED)
 		return
 	if(user)
-		user.visible_message(span_warning("[user] проводит подохрительной картой по [src]!") ,
+		user.visible_message(span_warning("[user] проводит подозрительной картой по [src]!") ,
 		span_notice("Изменяю протоколы маршрутизации, позволяя консоли снабжения приземлиться в любом месте на станции."))
 	obj_flags |= EMAGGED
 	contraband = TRUE
@@ -157,7 +154,7 @@
 
 		if("add")//Generate Supply Order first
 			if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_EXPRESSPOD_CONSOLE))
-				say("Railgun recalibrating. Stand by.")
+				say("Орбитальная катапульта перезаряжается, ожидайте.")
 				return
 			var/id = text2path(params["id"])
 			var/datum/supply_pack/pack = SSshuttle.supply_packs[id]

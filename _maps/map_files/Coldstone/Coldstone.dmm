@@ -6575,7 +6575,7 @@
 /turf/open/floor/plating/snowed,
 /area/tcommsat/server)
 "td" = (
-/obj/machinery/rnd/production/techfab/department/cargo,
+/obj/machinery/mecha_part_fabricator/cargo,
 /turf/open/floor/plasteel/dark,
 /area/cargo/office)
 "te" = (
@@ -12485,6 +12485,8 @@
 /obj/item/circuitboard/machine/mechfab,
 /obj/item/circuitboard/machine/mechfab/med,
 /obj/item/circuitboard/machine/mechfab/engi,
+/obj/item/circuitboard/machine/mechfab/sci,
+/obj/item/circuitboard/machine/mechfab/cargo,
 /obj/item/circuitboard/machine/techfab,
 /obj/item/circuitboard/machine/techfab,
 /obj/structure/closet/supplypod,

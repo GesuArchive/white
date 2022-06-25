@@ -58,6 +58,7 @@
 
 /obj/item/storage/belt/medical/ert/PopulateContents()
 	new /obj/item/surgical_drapes(src)
+	new /obj/item/breathing_bag(src)
 	new /obj/item/scalpel/advanced(src)
 	new /obj/item/retractor/advanced(src)
 	new /obj/item/cautery/advanced(src)
@@ -148,8 +149,8 @@
 	new /obj/item/reagent_containers/hypospray/medipen(src)
 	new /obj/item/reagent_containers/hypospray/medipen(src)
 	new /obj/item/reagent_containers/hypospray/medipen(src)
-	new /obj/item/reagent_containers/hypospray/medipen(src)
-	new /obj/item/reagent_containers/hypospray/medipen(src)
+	new /obj/item/reagent_containers/hypospray/medipen/blood_boost(src)
+	new /obj/item/reagent_containers/hypospray/medipen/blood_boost(src)
 
 // Изя взял у Мойши ПАМК на позвонить
 
@@ -524,9 +525,9 @@
 	worn_icon = 'white/Feline/icons/gloves.dmi'
 	worn_icon_state = "polymer"
 	inhand_icon_state = "nitrilegloves"
-	clothing_traits = list(TRAIT_QUICKER_CARRY, TRAIT_FASTMED)
+	clothing_traits = list(TRAIT_QUICKER_CARRY, TRAIT_FASTMED, TRAIT_QUICKER_PULLING)
 	transfer_prints = FALSE
-
+/*
 /obj/item/clothing/gloves/color/latex/nitrile/polymer/equipped(mob/living/user, slot)
 	. = ..()
 	if(slot == ITEM_SLOT_GLOVES)
@@ -536,7 +537,7 @@
 	. = ..()
 	if(user.get_item_by_slot(ITEM_SLOT_GLOVES) == src)
 		user.slowed_by_drag = TRUE
-
+*/
 // 	Головные уборы Полевика
 
 /obj/item/clothing/head/helmet/field_med
@@ -545,7 +546,6 @@
 	icon = 'white/Feline/icons/field_med_head.dmi'
 	icon_state = "helmet_plus"
 	worn_icon = 'white/Feline/icons/field_med_head_body.dmi'
-	worn_icon_state = "helmet_plus"
 	inhand_icon_state = "helmetalt"
 	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 70, RAD = 30, FIRE = 50, ACID = 70, WOUND = 20)
 	can_flashlight = TRUE
@@ -554,7 +554,6 @@
 	name = "берет полевого медика"
 	desc = "Красный берет спецназа с белыми полосками. По ободу вышита надпись: \"Предотвращение, спасение, помощь.\""
 	icon_state = "beret"
-	worn_icon_state = "beret"
 	inhand_icon_state = "helmetalt"
 	can_flashlight = FALSE
 	flags_inv = null
@@ -563,7 +562,6 @@
 	name = "кепка полевого медика"
 	desc = "Красная кепка службы безопасности с эмблемой медицинской службы. Удачно выполненный козырек неплохо прикрывает лицо от шальных осколков"
 	icon_state = "cap"
-	worn_icon_state = "cap"
 	inhand_icon_state = "helmetalt"
 	can_flashlight = TRUE
 	var/alt_skin = FALSE

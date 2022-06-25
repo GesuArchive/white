@@ -74,7 +74,7 @@
 	to_chat(user, span_notice("Начинаю [anchored ? "откреплять перила":"прикреплять перила"]..."))
 	if(I.use_tool(src, user, volume = 75, extra_checks = CALLBACK(src, .proc/check_anchored, anchored)))
 		set_anchored(!anchored)
-		to_chat(user, span_notice("Заканчиваю[anchored ? "прикреплять перила к полу":"откреплять перила от пола"]."))
+		to_chat(user, span_notice("[anchored ? "Прикручиваю перила к полу":"Откручиваю перила от пола"]."))
 	return TRUE
 
 /obj/structure/railing/CanPass(atom/movable/mover, border_dir)

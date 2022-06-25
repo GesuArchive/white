@@ -1,6 +1,6 @@
 //A massive gear, effectively a girder for clocks.
 /obj/structure/destructible/clockwork/wall_gear
-	name = "здоровенная шестерня"
+	name = "огромная шестерня"
 	icon_state = "wall_gear"
 	unanchored_icon = "wall_gear"
 	max_integrity = 100
@@ -23,7 +23,17 @@
 	return
 
 /obj/structure/destructible/clockwork/wall_gear/attackby(obj/item/I, mob/user, params)
-	if(I.tool_behaviour == TOOL_WRENCH)
+	if(I.tool_behaviour == TOOL_WELDER)
+		if(!I.tool_start_check(user, amount = 0))
+			return
+		to_chat(user, span_notice("Начинаю разрезать огромную шестерню..."))
+		if(I.use_tool(src, user, 40, volume=50))
+			to_chat(user, span_notice("Разрезаю огромную шестерню на части."))
+			var/obj/item/stack/tile/bronze/B = new(drop_location(), 2)
+			transfer_fingerprints_to(B)
+			qdel(src)
+
+	else if(I.tool_behaviour == TOOL_WRENCH)
 		default_unfasten_wrench(user, I, 10)
 		return 1
 	else if(I.tool_behaviour == TOOL_SCREWDRIVER)

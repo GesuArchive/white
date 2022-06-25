@@ -9,7 +9,7 @@
 	possible_locs = list(BODY_ZONE_CHEST)
 	requires_bodypart_type = TRUE
 	replaced_by = /datum/surgery
-	ignore_clothes = FALSE
+	ignore_clothes = TRUE
 	var/toxin_healing_step_type
 
 /datum/surgery/toxin_healing/can_start(mob/user, mob/living/carbon/target)

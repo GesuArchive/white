@@ -20,7 +20,7 @@ GENE SCANNER
 
 /obj/item/t_scanner
 	name = "терагерцовый сканер"
-	desc = "Терагерцовый излучатель лучей и просто сканнер, который подсвечивает провода и трубы под полом."
+	desc = "Терагерцовый излучатель лучей и просто сканер, который подсвечивает провода и трубы под полом."
 	custom_price = PAYCHECK_ASSISTANT * 0.7
 	icon = 'icons/obj/device.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
@@ -85,7 +85,7 @@ GENE SCANNER
 	worn_icon_state = "healthanalyzer"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
-	desc = "Ручной медицинский сканнер для определения жизненных показателей пациента."
+	desc = "Ручной медицинский сканер для определения жизненных показателей пациента."
 	flags_1 = CONDUCT_1
 	item_flags = NOBLUDGEON
 	slot_flags = ITEM_SLOT_BELT
@@ -244,9 +244,18 @@ GENE SCANNER
 		render_list += "<span class='info ml-1'>Уровень активности мозга: [(200 - M.getOrganLoss(ORGAN_SLOT_BRAIN))/2]%.</span>\n"
 
 	if (M.radiation)
-		render_list += "<span class='alert ml-1'>Пациент облучён.</span>\n"
+		render_list += "<span class='alert ml-1'>Обнаружено радиоактивное заражение.</span>\n"
 		if(advanced)
 			render_list += "<span class='info ml-1'>Уровень облучения: [M.radiation]%.</span>\n"
+		else
+			if(M.radiation>=0 && M.radiation<=100)
+				render_list += "<span class='info ml-1'>Уровень облучения <b>низкий</b>.</span>\n"
+			if(M.radiation>100 && M.radiation<=400)
+				render_list += "<span class='info ml-1'>Уровень облучения <b>средний</b>.</span>\n"
+			if(M.radiation>400 && M.radiation<=1500)
+				render_list += "<span class='info ml-1'>Уровень облучения <b>высокий</b>.</span>\n"
+			if(M.radiation>1500)
+				render_list += "<span class='info ml-1'>Уровень облучения <b>критический</b>.</span>\n"
 
 	if(advanced && M.hallucinating())
 		render_list += "<span class='info ml-1'>Пациент под воздействием галлюциногенов.</span>\n"
@@ -523,7 +532,7 @@ GENE SCANNER
 /obj/item/healthanalyzer/advanced
 	name = "продвинутый анализатор здоровья"
 	icon_state = "health_adv"
-	desc = "Ручной медицинский сканнер для определения жизненных показателей пациента с более высокой точностью."
+	desc = "Ручной медицинский сканер для определения жизненных показателей пациента с более высокой точностью."
 	advanced = TRUE
 
 /// Displays wounds with extended information on their status vs medscanners
@@ -532,7 +541,7 @@ GENE SCANNER
 		return
 
 	if(user.is_blind())
-		to_chat(user, span_warning("Вспоминаю, что данный сканнер не умеет работать со слепыми!"))
+		to_chat(user, span_warning("Этот сканер не адаптирован для слепых! Я буду жаловаться в профсоюз!"))
 		return
 
 	var/render_list = ""
@@ -931,6 +940,9 @@ GENE SCANNER
 /obj/item/sequence_scanner/proc/gene_scan(mob/living/carbon/C, mob/living/user)
 	if(!iscarbon(C) || !C.has_dna())
 		return
+
+	to_chat(user, span_notice("Генетическая стабильность: [C.dna.stability]%."))
+
 	buffer = C.dna.mutation_index
 	to_chat(user, span_notice("ДНК пациента [C.name] сохранено в буффер."))
 	if(LAZYLEN(buffer))

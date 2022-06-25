@@ -194,6 +194,7 @@
 		/obj/item/clothing/mask/breath,
 		/obj/item/clothing/mask/breath/medical,
 		/obj/item/surgical_drapes, //for true paramedics
+		/obj/item/breathing_bag,
 		/obj/item/scalpel,
 		/obj/item/circular_saw,
 		/obj/item/bonesetter,
@@ -330,6 +331,7 @@
 		/obj/item/healthanalyzer,
 		/obj/item/stack/medical,
 		/obj/item/surgical_drapes,
+		/obj/item/breathing_bag,
 		/obj/item/scalpel,
 		/obj/item/circular_saw,
 		/obj/item/bonesetter,
@@ -755,6 +757,7 @@
 	if(length(contents))
 		. += span_notice("ПКМ, чтобы немедленно достать саблю.")
 
+
 /obj/item/storage/belt/sabre/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
@@ -766,6 +769,23 @@
 		update_appearance()
 	else
 		to_chat(user, span_warning("[capitalize(src.name)] пустой!"))
+
+
+/obj/item/storage/belt/sabre/attack_hand(mob/user, list/modifiers)
+
+	if(loc == user)
+		if(user.get_item_by_slot(ITEM_SLOT_BELT) == src)
+			if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE, FLOOR_OKAY))
+				return
+			for(var/i in contents)
+				if(istype(i, /obj/item/melee/sabre))
+					user.visible_message(span_notice("[user] достаёт из ножен [i]."), span_notice("Достаю [i] из ножен."))
+					user.put_in_hands(i)
+					update_appearance()
+					playsound(user, 'sound/items/unsheath.ogg', 40, TRUE)
+					return
+	else ..()
+	return
 
 /obj/item/storage/belt/sabre/update_icon_state()
 	icon_state = initial(inhand_icon_state)

@@ -125,8 +125,9 @@ GLOBAL_LIST_EMPTY(telecomms_list)
 /obj/machinery/telecomms/proc/add_automatic_link(obj/machinery/telecomms/T)
 	var/turf/position = get_turf(src)
 	var/turf/T_position = get_turf(T)
-	if((position.z != T_position.z) && !(long_range_link && T.long_range_link))
-		return
+	if(T_position)
+		if((position.z != T_position.z) && !(long_range_link && T.long_range_link))
+			return
 	if(src == T)
 		return
 	for(var/autolinker_id in autolinkers)

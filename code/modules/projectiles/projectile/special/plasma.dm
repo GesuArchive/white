@@ -1,5 +1,5 @@
 /obj/projectile/plasma
-	name = "плазменный взрыв"
+	name = "плазменная дуга"
 	icon_state = "plasmacutter"
 	damage_type = BRUTE
 	damage = 5

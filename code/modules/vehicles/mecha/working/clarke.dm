@@ -1,6 +1,6 @@
 ///Lavaproof, fireproof, fast mech with low armor and higher energy consumption, cannot strafe and has an internal ore box.
 /obj/vehicle/sealed/mecha/working/clarke
-	desc = "Экзокостюм разработанный в равной степени для горнодобывающей и инженерной отрасли. Имеет 7 универсальных слотов для крепежа инженерного оборудования, оснащен интегрированным танком для руды и лавастойкими траками."
+	desc = "Экзокостюм разработанный в равной степени для горнодобывающей и инженерной отрасли. Оснащен интегрированным танком для руды и лавастойкими траками."
 	name = "Кларк"
 	icon_state = "clarke"
 	max_temperature = 65000
@@ -8,8 +8,9 @@
 	movedelay = 1.25
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	lights_power = 7
+	force = 15
 	step_energy_drain = 15 //slightly higher energy drain since you movin those wheels FAST
-	armor = list(MELEE = 20, BULLET = 10, LASER = 20, ENERGY = 10, BOMB = 60, BIO = 0, FIRE = 100, ACID = 100) //low armor to compensate for fire protection and speed
+	armor = list(MELEE = 40, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 60, BIO = 0, FIRE = 100, ACID = 100)
 	equip_by_category = list(
 		MECHA_L_ARM = null,
 		MECHA_R_ARM = null,

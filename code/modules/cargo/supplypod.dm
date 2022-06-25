@@ -679,8 +679,8 @@
 
 //------------------------------------UPGRADES-------------------------------------//
 /obj/item/disk/cargo/bluespace_pod //Disk that can be inserted into the Express Console to allow for Advanced Bluespace Pods
-	name = "Bluespace Drop Pod Upgrade"
-	desc = "This disk provides a firmware update to the Express Supply Console, granting the use of Nanotrasen's Bluespace Drop Pods to the supply department."
+	name = "Модернизация экспресс консоли снабжения"
+	desc = "На этом диске содержится обновление встроенного ПО для экспресс консоли снабжения, позволяющее отказатся от опасных капсул доставки в пользу блюспейс телепортации."
 	icon = 'icons/obj/module.dmi'
 	icon_state = "cargodisk"
 	inhand_icon_state = "card-id"

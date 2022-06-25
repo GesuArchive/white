@@ -4,7 +4,7 @@
 
 /datum/design/healthanalyzer
 	name = "Анализатор здоровья"
-	desc = "Ручной медицинский сканнер для определения жизненных показателей пациента."
+	desc = "Ручной медицинский сканер для определения жизненных показателей пациента."
 	id = "healthanalyzer"
 	build_type =  PROTOLATHE | MECHFAB
 	construction_time = 40
@@ -245,7 +245,7 @@
 
 /datum/design/healthanalyzer_advanced
 	name = "Продвинутый анализатор здоровья"
-	desc = "Ручной медицинский сканнер для определения жизненных показателей пациента с более высокой точностью."
+	desc = "Ручной медицинский сканер для определения жизненных показателей пациента с более высокой точностью."
 	id = "healthanalyzer_advanced"
 	build_path = /obj/item/healthanalyzer/advanced
 	build_type = PROTOLATHE | MECHFAB

@@ -287,7 +287,6 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/heads_quarters/hop)
 "ex" = (
-/obj/machinery/light_switch/directional/west,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command)
 "eD" = (
@@ -339,20 +338,6 @@
 /obj/structure/sink{
 	dir = 4;
 	pixel_x = -12
-	},
-/turf/open/floor/plasteel/monofloor/dark,
-/area/command/meeting_room/council)
-"fY" = (
-/obj/structure/cable,
-/obj/machinery/light_switch/directional/south,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/meeting_room/council)
@@ -3762,7 +3747,7 @@ RG
 Yk
 UL
 KA
-fY
+Sq
 Ck
 VY
 VY

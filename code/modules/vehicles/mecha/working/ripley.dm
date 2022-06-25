@@ -8,6 +8,7 @@
 	max_integrity = 200
 	ui_x = 1200
 	lights_power = 7
+	force = 10
 	armor = list(MELEE = 40, BULLET = 20, LASER = 10, ENERGY = 20, BOMB = 40, BIO = 0, FIRE = 100, ACID = 100)
 	max_equip_by_category = list(
 		MECHA_UTILITY = 2,
@@ -64,8 +65,8 @@
 	return ..()
 
 /obj/vehicle/sealed/mecha/working/ripley/mk2
-	desc = "Autonomous Power Loader Unit MK-II. This prototype Ripley is refitted with a pressurized cabin, trading its prior speed for atmospheric protection and armor."
-	name = "\improper APLU MK-II \"Ripley\""
+	desc = "Автономный силовой погрузчик МК-2. Тяжелая модернизация с полной защитой пилота от окружающей среды."
+	name = "АПЛУ \"Рипли\" МК-2"
 	icon_state = "ripleymkii"
 	fast_pressure_step_in = 2 //step_in while in low pressure conditions
 	slow_pressure_step_in = 4 //step_in while in normal pressure conditions

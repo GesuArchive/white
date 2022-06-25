@@ -32368,7 +32368,7 @@
 /area/security/checkpoint/escape)
 "mOV" = (
 /obj/effect/turf_decal/stripes/box,
-/obj/machinery/rnd/production/techfab/department/cargo,
+/obj/machinery/mecha_part_fabricator/cargo,
 /turf/open/floor/plasteel/dark,
 /area/cargo/office)
 "mPn" = (

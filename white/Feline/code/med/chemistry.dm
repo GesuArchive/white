@@ -227,6 +227,8 @@
 	for(var/i in 1 to 6)
 		new /obj/item/reagent_containers/pill/sens(src)
 
+// 	Химия МК-Земля
+
 /datum/reagent/medicine/space_stab
 	name = "Пустотный стабилизатор"
 	enname = "space stab"
@@ -254,3 +256,40 @@
 	REMOVE_TRAIT(M, TRAIT_RESISTCOLD, name)
 	to_chat(M, span_warning("Холод ушел"))
 
+// 	Восстановление крови
+
+/datum/reagent/medicine/hematogen
+	name = "Гематоген"
+	enname = "Hematogen"
+	description = "Профилактическое средство, которое содержит железо и стимулирует регенерацию крови."
+	reagent_state = LIQUID
+	taste_description = "сахарный сироп"
+	metabolization_rate = 0.5 * REAGENTS_METABOLISM
+	material = /datum/material/iron
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	color = "#623f03"
+	ph = 6
+
+/datum/reagent/medicine/hematogen/on_mob_life(mob/living/carbon/C, delta_time, times_fired)
+	if(C.blood_volume < BLOOD_VOLUME_NORMAL)
+		C.blood_volume += 1 * delta_time
+	..()
+
+/datum/chemical_reaction/medicine/hematogen
+	results = list(/datum/reagent/medicine/hematogen = 3)
+	required_reagents = list(/datum/reagent/consumable/sugar = 1, /datum/reagent/water = 1, /datum/reagent/iron = 1)
+	required_temp = 375
+	optimal_temp = 400
+	overheat_temp = 500
+	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_HEALING | REACTION_TAG_OXY
+
+/obj/item/reagent_containers/hypospray/medipen/blood_boost
+	name = "гемолитический медипен"
+	desc = "Крупный медипен содержащий в себе средства для остановки кровотечений и серьезной стимуляции выработки крови."
+	icon = 'white/Feline/icons/syringe_blood_boost.dmi'
+	icon_state = "blood_boost"
+	volume = 60
+	custom_price = PAYCHECK_HARD * 3
+	custom_premium_price = PAYCHECK_HARD * 3
+	amount_per_transfer_from_this = 60
+	list_reagents = list(/datum/reagent/medicine/epinephrine = 5, /datum/reagent/medicine/coagulant = 5, /datum/reagent/medicine/hematogen = 25, /datum/reagent/medicine/salglu_solution = 25)

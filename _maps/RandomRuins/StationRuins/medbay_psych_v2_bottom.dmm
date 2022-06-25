@@ -127,7 +127,8 @@
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
 	name = "Medbay Maintenance";
-	req_access_txt = "5"
+	req_access_txt = "5";
+	security_level = 6
 	},
 /obj/machinery/door/poddoor/shutters{
 	id = "durka_bot_left";
@@ -456,6 +457,13 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
+"FC" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light_switch{
+	pixel_x = -23
+	},
+/turf/open/floor/carpet/blue,
+/area/medical/psychology)
 "FW" = (
 /obj/machinery/airalarm{
 	dir = 8;
@@ -667,7 +675,8 @@
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
 	name = "Medbay Maintenance";
-	req_access_txt = "5"
+	req_access_txt = "5";
+	security_level = 6
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -1479,7 +1488,7 @@ tG
 Pk
 fa
 gL
-gL
+FC
 VX
 Qg
 fc
