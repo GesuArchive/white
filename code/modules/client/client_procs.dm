@@ -1,8 +1,8 @@
 	////////////
 	//SECURITY//
 	////////////
-#define UPLOAD_LIMIT		8388608	//Restricts client uploads to the server to 0.5MB
-#define UPLOAD_LIMIT_ADMIN	16777216	//Restricts admin client uploads to the server to 2.5MB
+#define UPLOAD_LIMIT		4194304	//Restricts client uploads to the server to 4MB
+#define UPLOAD_LIMIT_ADMIN	8388608	//Restricts admin client uploads to the server to 8MB
 
 GLOBAL_LIST_INIT(blacklisted_builds, list(
 	"1407" = "bug preventing client display overrides from working leads to clients being able to see things/mobs they shouldn't be able to see",

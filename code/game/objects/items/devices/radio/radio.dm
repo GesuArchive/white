@@ -554,3 +554,15 @@
 /obj/item/radio/off/Initialize(mapload)
 	. = ..()
 	set_listening(FALSE)
+
+/obj/item/radio/ancient
+	name = "старое радио"
+
+/obj/item/radio/ancient/Initialize(mapload)
+	. = ..()
+	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
+	SP.prefs_toggle_flag = null
+	SP.set_sound(sound('white/valtos/sounds/radiop.ogg'))
+	SP.set_channel(open_sound_channel_for_boombox())
+	SP.playing_volume = 50
+	SP.active = TRUE

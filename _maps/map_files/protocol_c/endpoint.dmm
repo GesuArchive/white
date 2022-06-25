@@ -6033,11 +6033,10 @@
 	resistance_flags = 64;
 	tiltable = 0
 	},
-/obj/item/uplink{
+/obj/item/radio/ancient{
 	anchored = 1;
 	desc = "Какая-то дылда положила аплинк на самый верх вендомата. Теперь его не достать.";
 	layer = 4.01;
-	name = "аплинк синдиката";
 	pixel_y = 19
 	},
 /turf/open/floor/holofloor/carpet{
