@@ -216,6 +216,7 @@
 	var/profit_scaling = 1
 	/// toggles between sell (TRUE) and get price post-fees (FALSE)
 	var/selling = FALSE
+	var/sell_mom = FALSE
 
 /obj/item/clothing/neck/necklace/dope/merchant/attack_self(mob/user)
 	. = ..()
@@ -237,6 +238,8 @@
 		if(selling)
 			new /obj/item/holochip(get_turf(user),true_price)
 			for(var/i in ex.exported_atoms_ref)
+				if(ismob(i) && !sell_mom)
+					continue
 				var/atom/movable/AM = i
 				if(QDELETED(AM))
 					continue
