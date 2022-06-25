@@ -1521,7 +1521,9 @@
 				/obj/item/circuitboard/machine/circuit_imprinter,
 				/obj/item/circuitboard/machine/destructive_analyzer,
 				/obj/item/circuitboard/computer/rdconsole,
-				/obj/item/circuitboard/machine/protolathe
+				/obj/item/circuitboard/machine/protolathe,
+				/obj/item/reagent_containers/glass/beaker/large,
+				/obj/item/reagent_containers/glass/beaker/large
 				)
 	crate_name = "ящик с платами"
 
