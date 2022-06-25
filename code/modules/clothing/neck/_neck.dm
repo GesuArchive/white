@@ -213,7 +213,7 @@
 /obj/item/clothing/neck/necklace/dope/merchant
 	desc = "Не спрашивай меня как это работает, важно то, что эта штука делает голочипы!"
 	/// scales the amount received in case an admin wants to emulate taxes/fees.
-	var/profit_scaling = 1
+	var/profit_scaling = 0.5
 	/// toggles between sell (TRUE) and get price post-fees (FALSE)
 	var/selling = FALSE
 	var/sell_mom = FALSE
