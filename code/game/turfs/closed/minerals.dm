@@ -280,7 +280,7 @@
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
 	smoothing_flags = SMOOTH_CORNERS
 	mineralChance = 15
-	hardness = 8
+	hardness = 4
 
 	mineralSpawnChanceList = list(
 		/turf/closed/mineral/uranium/volcanic/hard = 5, /turf/closed/mineral/diamond/volcanic/hard = 1, /turf/closed/mineral/gold/volcanic/hard = 10, /turf/closed/mineral/titanium/volcanic/hard = 11, /turf/closed/mineral/magmite/volcanic/hard = 0.5,
@@ -369,7 +369,7 @@
 /turf/closed/mineral/iron/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
 	smoothing_flags = SMOOTH_CORNERS
-	hardness = 8
+	hardness = 4
 
 /turf/closed/mineral/iron/ice
 	environment_type = "snow_cavern"
@@ -385,7 +385,7 @@
 /turf/closed/mineral/uranium/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
 	smoothing_flags = SMOOTH_CORNERS
-	hardness = 8
+	hardness = 4
 
 /turf/closed/mineral/uranium
 	mineralType = /obj/item/stack/ore/uranium
@@ -394,7 +394,7 @@
 /turf/closed/mineral/diamond/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
 	smoothing_flags = SMOOTH_CORNERS
-	hardness = 8
+	hardness = 4
 
 /turf/closed/mineral/diamond
 	mineralType = /obj/item/stack/ore/diamond
@@ -414,7 +414,7 @@
 /turf/closed/mineral/gold/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
 	smoothing_flags = SMOOTH_CORNERS
-	hardness = 8
+	hardness = 4
 
 /turf/closed/mineral/gold
 	mineralType = /obj/item/stack/ore/gold
@@ -430,7 +430,7 @@
 /turf/closed/mineral/silver/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
 	smoothing_flags = SMOOTH_CORNERS
-	hardness = 8
+	hardness = 4
 
 /turf/closed/mineral/silver
 	mineralType = /obj/item/stack/ore/silver
@@ -444,7 +444,7 @@
 /turf/closed/mineral/titanium/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
 	smoothing_flags = SMOOTH_CORNERS
-	hardness = 8
+	hardness = 4
 
 /turf/closed/mineral/titanium
 	mineralType = /obj/item/stack/ore/titanium
@@ -453,7 +453,7 @@
 /turf/closed/mineral/plasma/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
 	smoothing_flags = SMOOTH_CORNERS
-	hardness = 8
+	hardness = 4
 
 /turf/closed/mineral/plasma
 	mineralType = /obj/item/stack/ore/plasma
@@ -478,7 +478,7 @@
 /turf/closed/mineral/bscrystal/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
 	smoothing_flags = SMOOTH_CORNERS
-	hardness = 8
+	hardness = 4
 
 /turf/closed/mineral/bscrystal
 	mineralType = /obj/item/stack/ore/bluespace_crystal
@@ -673,7 +673,7 @@
 /turf/closed/mineral/gibtonite/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
 	smoothing_flags = SMOOTH_CORNERS
-	hardness = 8
+	hardness = 4
 
 /turf/closed/mineral/gibtonite/ice
 	environment_type = "snow_cavern"
@@ -710,7 +710,7 @@
 /turf/closed/mineral/magmite/volcanic/hard
 	smooth_icon = 'icons/turf/smoothrocks_hard.dmi'
 	smoothing_flags = SMOOTH_CORNERS
-	hardness = 8
+	hardness = 4
 
 /turf/closed/mineral/strong
 	name = "очень крепкий камень"

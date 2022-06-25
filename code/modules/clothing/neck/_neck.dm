@@ -211,7 +211,7 @@
 	icon_state = "bling"
 
 /obj/item/clothing/neck/necklace/dope/merchant
-	desc = "Don't ask how it works, the proof is in the holochips!"
+	desc = "Не спрашивай меня как это работает, важно то, что эта штука делает голочипы!"
 	/// scales the amount received in case an admin wants to emulate taxes/fees.
 	var/profit_scaling = 1
 	/// toggles between sell (TRUE) and get price post-fees (FALSE)
@@ -220,7 +220,7 @@
 /obj/item/clothing/neck/necklace/dope/merchant/attack_self(mob/user)
 	. = ..()
 	selling = !selling
-	to_chat(user, span_notice("[capitalize(src.name)] has been set to [selling ? "'Sell'" : "'Get Price'"] mode."))
+	to_chat(user, span_notice("[capitalize(src.name)] теперь в режиме [selling ? "'ПРОДАВАТЬ'" : "'УЗНАТЬ ЦЕНУ'"]."))
 
 /obj/item/clothing/neck/necklace/dope/merchant/afterattack(obj/item/I, mob/user, proximity)
 	. = ..()
@@ -233,7 +233,7 @@
 
 	if(price)
 		var/true_price = round(price*profit_scaling)
-		to_chat(user, span_notice("[selling ? "Sold" : "Getting the price of"] [I], value: <b>[true_price]</b> credits[I.contents.len ? " (exportable contents included)" : ""].[profit_scaling < 1 && selling ? "<b>[round(price-true_price)]</b> credit\s taken as processing fee\s." : ""]"))
+		to_chat(user, span_notice("[selling ? "Продаём" : "Оцениваем"] [I], стоимость: <b>[true_price]</b> кредитов[I.contents.len ? " (содержимое включено)" : ""].[profit_scaling < 1 && selling ? "<b>[round(price-true_price)]</b> кредитов было взято как процент." : ""]"))
 		if(selling)
 			new /obj/item/holochip(get_turf(user),true_price)
 			for(var/i in ex.exported_atoms_ref)
@@ -242,7 +242,7 @@
 					continue
 				qdel(AM)
 	else
-		to_chat(user, span_warning("There is no export value for [I] or any items within it."))
+		to_chat(user, span_warning("[capitalize(I.name)] ничего не стоит."))
 
 
 /obj/item/clothing/neck/neckerchief

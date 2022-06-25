@@ -1509,6 +1509,22 @@
 					/obj/item/construction/plumbing/research)
 	crate_name = "cytology supplies crate"
 
+/datum/supply_pack/science/reserve
+	name = "Резервные платы Научного отдела"
+	desc = "Предназначены для тех случаев, когда нет возможности воспроизвести новые."
+	cost = BUY_CRATE_VALUE
+	access_view = FALSE
+	contains = list(
+				/obj/item/circuitboard/computer/aifixer,
+				/obj/item/circuitboard/machine/rdserver,
+				/obj/item/circuitboard/machine/mechfab,
+				/obj/item/circuitboard/machine/circuit_imprinter,
+				/obj/item/circuitboard/machine/destructive_analyzer,
+				/obj/item/circuitboard/computer/rdconsole,
+				/obj/item/circuitboard/computer/protolathe
+				)
+	crate_name = "ящик с платами"
+
 //////////////////////////////////////////////////////////////////////////////
 /////////////////////////////// Service //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////

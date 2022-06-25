@@ -334,6 +334,15 @@
 /obj/machinery/light/small,
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
 /area/mine/production)
+"zg" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/structure/chair{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/mine/living_quarters)
 "zh" = (
 /obj/effect/baseturf_helper/beach/raw_stone,
 /turf/closed/wall,
@@ -357,6 +366,9 @@
 "BN" = (
 /obj/structure/table,
 /obj/item/pickaxe,
+/obj/item/pickaxe{
+	pixel_x = 6
+	},
 /turf/open/floor/plasteel/dark,
 /area/mine/production)
 "BR" = (
@@ -420,6 +432,9 @@
 "FJ" = (
 /obj/machinery/power/apc/auto_name/south,
 /obj/structure/cable,
+/obj/structure/chair{
+	dir = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/mine/living_quarters)
 "Gw" = (
@@ -529,6 +544,16 @@
 "OB" = (
 /turf/closed/wall/r_wall,
 /area/awaymission/caves)
+"OT" = (
+/obj/item/card/id/advanced/gold/captains_spare,
+/obj/effect/mapping_helpers/component_injector/areabound,
+/turf/open/floor/plasteel/dark,
+/area/mine/production)
+"OW" = (
+/obj/structure/table,
+/obj/item/multitool,
+/turf/open/floor/plasteel/dark,
+/area/mine/production)
 "OY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 8
@@ -553,12 +578,19 @@
 /turf/open/floor/plasteel/dark,
 /area/mine/production)
 "PQ" = (
-/obj/item/circuitboard/computer/cargo/express{
-	pixel_x = 7;
-	pixel_y = 5
-	},
 /obj/structure/table,
-/obj/item/supplypod_beacon,
+/obj/item/card/id/departmental_budget/car,
+/obj/item/circuitboard/computer/cargo/express{
+	pixel_x = 9;
+	pixel_y = 9
+	},
+/obj/item/clothing/neck/necklace/dope/merchant{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/supplypod_beacon{
+	pixel_x = -16
+	},
 /turf/open/floor/plasteel/dark,
 /area/mine/production)
 "PW" = (
@@ -581,6 +613,9 @@
 /area/mine/living_quarters)
 "SU" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/obj/structure/chair{
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
@@ -1941,7 +1976,7 @@ PI
 dF
 dF
 dF
-BN
+OW
 iE
 kk
 Tb
@@ -2196,7 +2231,7 @@ NF
 NF
 IL
 NF
-dF
+OT
 dF
 eU
 iE
@@ -3229,7 +3264,7 @@ iE
 iE
 iE
 VA
-MO
+zg
 Wp
 kD
 tu

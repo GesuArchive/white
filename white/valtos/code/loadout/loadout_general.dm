@@ -113,3 +113,9 @@
 	path = /obj/item/kinetic_shield
 	allowed_roles = list("Captain", "Head of Security", "Chief Engineer", "Chief Medical Officer", "Head of Personnel", "Research Director")
 	cost = 1500
+
+/datum/gear/merchant_dope
+	display_name = "Золотая цепочка"
+	path = /obj/item/clothing/neck/necklace/dope/merchant
+	allowed_roles = list("Quartermaster")
+	cost = 5000
