@@ -61,6 +61,7 @@
 		COMSIG_ATOM_ENTERED = .proc/on_entered,
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
+	playsound(src, "ignite", 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 /obj/effect/hotspot/proc/perform_exposure()
 	var/turf/open/location = loc

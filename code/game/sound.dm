@@ -232,6 +232,8 @@ distance_multiplier - Can be used to multiply the distance at which the sound is
 			if ("zap")
 				soundin = pick('sound/effects/zap1.ogg','sound/effects/zap2.ogg','sound/effects/zap3.ogg','sound/effects/zap4.ogg', \
 								'sound/effects/zap5.ogg','sound/effects/zap6.ogg','sound/effects/zap7.ogg')
+			if ("ignite")
+				soundin = pick('sound/effects/ignite1.ogg','sound/effects/ignite2.ogg')
 			if("ladder")
 				soundin = pick('sound/effects/ladder1.ogg','sound/effects/ladder2.ogg','sound/effects/ladder3.ogg','sound/effects/ladder4.ogg')
 			if("production")
