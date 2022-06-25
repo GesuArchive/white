@@ -30,7 +30,6 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	dheight = 14
 
 /obj/docking_port/mobile/diy/Initialize(mapload)
-	//id += "[GLOB.diy_shuttle_count]"
 	. = ..()
 	register()
 
@@ -42,10 +41,6 @@ GLOBAL_VAR_INIT(diy_shuttle_count, 0)
 	height = 13
 	dwidth = 4
 	dheight = 14
-
-/obj/docking_port/stationary/diy/Initialize(mapload)
-	//id = "diy_autism[GLOB.diy_shuttle_count]_home"
-	. = ..()
 
 ///////////////////////////////////////////////////////////////////////
 

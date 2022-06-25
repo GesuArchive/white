@@ -3,9 +3,8 @@
 	shuttleId = "corvette"
 	icon_screen = "syndishuttle"
 	icon_keyboard = "syndie_key"
-	light_color = LIGHT_COLOR_RED
+	light_color = COLOR_MOSTLY_PURE_RED
 	possible_destinations = "corvette_home;corvette_custom"
-
 
 /obj/docking_port/mobile/corvette
 	name = "SBC corvette"

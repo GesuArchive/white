@@ -5,7 +5,6 @@
 	prefix = "white/hule/shuttles/bearcat/"
 	suffix = "bearcat_dock.dmm"
 	name = "CSV Bearcat Dock"
-	//unpickable = TRUE
 
 /datum/map_template/shuttle/bearcat
 	name = "CSV Bearcat"
@@ -102,12 +101,6 @@
 	port_direction = SOUTH
 	movement_force = list("KNOCKDOWN" = 10, "THROW" = 20)
 	engine_coeff = 30
-
-/*
-/obj/docking_port/mobile/bearcat/Initialize(mapload)
-	. = ..()
-	register()
-*/
 
 /obj/docking_port/stationary/bearcat
 	name = "CSV Bearcat Away"

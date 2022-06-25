@@ -2,54 +2,73 @@
 "a" = (
 /turf/open/space/basic,
 /area/space)
-"i" = (
+"b" = (
 /obj/effect/turf_decal/stripes/line{
-	dir = 8
+	dir = 4
 	},
 /obj/machinery/light{
-	dir = 8
+	dir = 4
 	},
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
+"e" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/light,
+/turf/open/floor/plating,
+/area/command/gateway)
+"f" = (
+/obj/machinery/computer/gateway_control{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plating,
+/area/command/gateway)
+"h" = (
+/obj/effect/turf_decal/arrows,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/command/gateway)
 "j" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable,
 /turf/open/floor/plasteel/airless/solarpanel,
 /area/solars/starboard/fore)
-"k" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/machinery/light,
-/turf/open/floor/plating,
-/area/hallway/secondary/construction)
 "l" = (
 /obj/machinery/door/airlock/external,
 /obj/structure/cable,
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
 "m" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
 "n" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
+"o" = (
+/obj/effect/turf_decal/arrows,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/command/gateway)
 "p" = (
 /obj/effect/landmark/latejoin,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/hallway/secondary/construction)
+/area/command/gateway)
 "q" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
 "t" = (
 /obj/machinery/power/apc/auto_name/north,
 /obj/structure/cable,
@@ -57,25 +76,41 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
+"u" = (
+/turf/open/floor/plasteel/monofloor/dark,
+/area/command/gateway)
 "v" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
 "x" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
 "y" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
+"z" = (
+/obj/machinery/gateway/centerstation,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/command/gateway)
+"A" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/command/gateway)
 "B" = (
 /obj/machinery/power/solar_control{
 	dir = 8
@@ -85,13 +120,13 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
 "C" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
 "D" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -100,18 +135,28 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
 "E" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
+"F" = (
+/obj/effect/turf_decal/arrows,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/command/gateway)
 "G" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
 "I" = (
 /obj/structure/lattice,
 /turf/open/space/basic,
@@ -121,7 +166,7 @@
 	dir = 6
 	},
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
 "L" = (
 /obj/machinery/power/solar,
 /obj/structure/cable,
@@ -132,15 +177,21 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
+"O" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/plating,
+/area/command/gateway)
 "P" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
 "Q" = (
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
 "S" = (
 /obj/machinery/airalarm{
 	pixel_y = 23
@@ -149,14 +200,14 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
 "U" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
 "V" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
@@ -166,10 +217,10 @@
 /obj/effect/landmark/observer_start,
 /obj/effect/landmark/start/assistant,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/hallway/secondary/construction)
+/area/command/gateway)
 "X" = (
-/turf/closed/wall,
-/area/hallway/secondary/construction)
+/turf/closed/wall/r_wall,
+/area/command/gateway)
 "Z" = (
 /obj/machinery/power/smes/engineering,
 /obj/structure/cable,
@@ -177,7 +228,7 @@
 	dir = 5
 	},
 /turf/open/floor/plating,
-/area/hallway/secondary/construction)
+/area/command/gateway)
 
 (1,1,1) = {"
 a
@@ -31410,15 +31461,15 @@ X
 P
 X
 P
+X
 P
-a
-a
-a
-a
-a
-a
-a
-a
+X
+P
+X
+P
+X
+P
+P
 a
 a
 a
@@ -31662,20 +31713,20 @@ a
 P
 m
 v
+A
 v
-i
+A
 v
+y
+o
+m
+v
+A
+v
+A
 v
 y
 P
-a
-a
-a
-a
-a
-a
-a
-a
 a
 a
 a
@@ -31924,15 +31975,15 @@ C
 C
 M
 E
+h
+G
+Q
+C
+C
+C
+M
+e
 X
-a
-a
-a
-a
-a
-a
-a
-a
 a
 a
 a
@@ -32181,15 +32232,15 @@ p
 p
 G
 E
+h
+G
+E
+u
+u
+u
+G
+E
 P
-a
-a
-a
-a
-a
-a
-a
-a
 a
 a
 a
@@ -32437,16 +32488,16 @@ p
 W
 p
 G
-k
+E
+h
+G
+f
+u
+z
+u
+G
+e
 X
-a
-a
-a
-a
-a
-a
-a
-a
 a
 a
 a
@@ -32695,15 +32746,15 @@ p
 p
 G
 E
+h
+G
+E
+u
+u
+u
+G
+E
 P
-a
-a
-a
-a
-a
-a
-a
-a
 a
 a
 a
@@ -32947,20 +32998,20 @@ a
 X
 n
 x
-v
-v
-v
+A
+A
+A
 q
 E
+h
+G
+x
+A
+A
+A
+q
+e
 X
-a
-a
-a
-a
-a
-a
-a
-a
 a
 a
 a
@@ -33207,17 +33258,17 @@ D
 B
 U
 C
+b
+K
+F
+O
+b
 C
+b
+C
+b
 K
 P
-a
-a
-a
-a
-a
-a
-a
-a
 a
 a
 a
@@ -33466,15 +33517,15 @@ l
 P
 X
 P
+X
 P
-a
-a
-a
-a
-a
-a
-a
-a
+X
+P
+X
+P
+X
+P
+P
 a
 a
 a
