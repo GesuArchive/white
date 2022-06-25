@@ -66,7 +66,7 @@
 			//we're below minimum, turn off
 			turned_on = FALSE
 			update_icon()
-			playsound(src, "sparks", 75, TRUE, -1)
+			playsound(src, "zap", 75, TRUE, -1)
 
 /obj/item/melee/sabre/security/update_icon_state()
 	if(turned_on)
@@ -121,7 +121,7 @@
 	if(cell && cell.charge > cell_hit_cost)
 		turned_on = !turned_on
 		to_chat(user, span_notice("<b>[capitalize(src.name)]</b> теперь [turned_on ? "включена" : "отключена"]."))
-		playsound(src, "sparks", 75, TRUE, -1)
+		playsound(src, "zap", 75, TRUE, -1)
 	else
 		turned_on = FALSE
 		if(!cell)

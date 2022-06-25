@@ -388,7 +388,7 @@ and clear when youre done! if you dont i will use :newspaper2: on you
 	if(!LAZYLEN(emag_programs))
 		to_chat(user, "[src] does not seem to have a card swipe port. It must be an inferior model.")
 		return
-	playsound(src, "sparks", 75, TRUE)
+	playsound(src, "zap", 75, TRUE)
 	obj_flags |= EMAGGED
 	to_chat(user, span_warning("You vastly increase projector power and override the safety and security protocols."))
 	say("Warning. Automatic shutoff and derezzing protocols have been corrupted. Please call Nanotrasen maintenance and do not use the simulator.")

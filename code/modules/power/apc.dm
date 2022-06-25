@@ -849,7 +849,7 @@
 			to_chat(user, span_warning("Nothing happens!"))
 		else
 			flick("apc-spark", src)
-			playsound(src, "sparks", 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+			playsound(src, "zap", 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 			obj_flags |= EMAGGED
 			locked = FALSE
 			to_chat(user, span_notice("You emag the APC interface."))

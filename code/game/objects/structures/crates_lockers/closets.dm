@@ -750,7 +750,7 @@
 			user.visible_message(span_warning("От [src.name] летят искры!") ,
 							span_warning("Взламываю защиту [src.name]!") ,
 							span_hear("Слышу слабое искрение."))
-		playsound(src, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+		playsound(src, "zap", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		broken = TRUE
 		locked = FALSE
 		update_icon()

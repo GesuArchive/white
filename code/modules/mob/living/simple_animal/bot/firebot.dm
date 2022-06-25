@@ -134,7 +134,7 @@
 		if(user)
 			to_chat(user, span_danger("[capitalize(src.name)] жужжит и шипит."))
 		audible_message(span_danger("[capitalize(src.name)] громко жужжит!"))
-		playsound(src, "sparks", 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+		playsound(src, "zap", 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		if(user)
 			old_target_fire = user
 		extinguish_fires = FALSE

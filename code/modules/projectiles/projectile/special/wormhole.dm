@@ -1,7 +1,7 @@
 /obj/projectile/beam/wormhole
 	name = "блюспейс-луч"
 	icon_state = "spark"
-	hitsound = "sparks"
+	hitsound = "zap"
 	damage = 0
 	nodamage = TRUE
 	pass_flags = PASSGLASS | PASSTABLE | PASSGRILLE | PASSMOB

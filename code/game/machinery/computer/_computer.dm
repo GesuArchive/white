@@ -143,7 +143,7 @@
 		H.visible_message(span_danger("[H] пялится в экран [src.name] с отвращением!"), span_danger("ЧТО ЭТО ТАКОЕ?!"))
 		H.pointed(src)
 		new /obj/effect/particle_effect/sparks(loc)
-		playsound(src, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+		playsound(src, "zap", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "dreamer", /datum/mood_event/seen_dream, clued)
 		return FALSE
 	if(..())
@@ -172,7 +172,7 @@
 			return
 		for(var/i in 1 to 10)
 			new /obj/effect/particle_effect/sparks(loc)
-			playsound(src, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+			playsound(src, "zap", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 			if(!do_after(user, (rand(9, 15)), target = src))
 				return
 		clued = tgui_input_list(user, "ВЫБЕРЕМ ЖЕ ШЕДЕВР", "ШЕДЕВР", GLOB.dreamer_clues)

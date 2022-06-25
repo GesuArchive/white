@@ -220,7 +220,7 @@
 			to_chat(user, span_notice("Взламываю синтезатор реагентов [src.name]."))
 		audible_message(span_danger("[capitalize(src.name)] странно гудит!"))
 		flick("medibot_spark", src)
-		playsound(src, "sparks", 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+		playsound(src, "zap", 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		if(user)
 			oldpatient = user
 

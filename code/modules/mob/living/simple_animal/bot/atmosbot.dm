@@ -103,7 +103,7 @@
 	. = ..()
 	if(emagged == 2)
 		audible_message(span_danger("[capitalize(src.name)] искрит..."))
-		playsound(src, "sparks", 75, TRUE)
+		playsound(src, "zap", 75, TRUE)
 
 /mob/living/simple_animal/bot/atmosbot/handle_automated_action()
 	if(!..())

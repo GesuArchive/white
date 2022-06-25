@@ -312,7 +312,7 @@
 		return ..()
 
 /obj/machinery/card_button/emag_act(mob/user)
-	playsound(src, "sparks", 100, TRUE)
+	playsound(src, "zap", 100, TRUE)
 	return
 
 /obj/machinery/card_button/attack_ai(mob/user)

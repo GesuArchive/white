@@ -778,7 +778,7 @@
 		return
 	obj_flags |= EMAGGED
 	visible_message(span_warning("Искры вылетают из [src]!") , span_notice("Взламываю [src], вырубая его протоколы безопасности."))
-	playsound(src, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+	playsound(src, "zap", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 /obj/machinery/airalarm/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))

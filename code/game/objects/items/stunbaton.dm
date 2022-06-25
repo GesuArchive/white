@@ -27,7 +27,7 @@
 	var/can_remove_cell = TRUE
 
 	var/turned_on = FALSE
-	var/activate_sound = "sparks"
+	var/activate_sound = "zap"
 
 	var/attack_cooldown_check = 0 SECONDS
 	var/attack_cooldown = 2.5 SECONDS
