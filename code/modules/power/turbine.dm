@@ -185,6 +185,9 @@
 		P += C.rating
 	productivity = P / 6
 
+/obj/machinery/power/turbine/BlockThermalConductivity()
+	return TRUE
+
 /obj/machinery/power/turbine/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))

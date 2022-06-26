@@ -445,6 +445,11 @@
 	if(!glass && GLOB.cameranet)
 		GLOB.cameranet.updateVisibility(src, 0)
 
+/obj/machinery/door/BlockThermalConductivity() // All non-glass airlocks block heat, this is intended.
+	if(opacity || heat_proof)
+		return TRUE
+	return FALSE
+
 /obj/machinery/door/morgue
 	icon = 'icons/obj/doors/doormorgue.dmi'
 

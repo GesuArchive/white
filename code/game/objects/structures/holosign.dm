@@ -108,6 +108,9 @@
 	. = ..()
 	air_update_turf(TRUE)
 
+/obj/structure/holosign/barrier/atmos/BlockThermalConductivity()
+	return TRUE
+
 /obj/structure/holosign/barrier/atmos/Destroy()
 	. = ..()
 	air_update_turf(TRUE)

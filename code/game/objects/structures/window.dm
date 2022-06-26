@@ -546,6 +546,9 @@
 	explosion_block = 2
 	glass_type = /obj/item/stack/sheet/plasmarglass
 
+/obj/structure/window/plasma/reinforced/BlockThermalConductivity()
+	return TRUE
+
 //entirely copypasted code
 //take this out when construction is made a component or otherwise modularized in some way
 /obj/structure/window/plasma/reinforced/attackby(obj/item/I, mob/living/user, params)

@@ -89,6 +89,9 @@
 	smoothing_groups = list(SMOOTH_GROUP_ALIEN_RESIN, SMOOTH_GROUP_ALIEN_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_ALIEN_WALLS)
 
+/obj/structure/alien/resin/wall/BlockThermalConductivity()
+	return TRUE
+
 /obj/structure/alien/resin/wall/creature
 	name = "студенистая стена"
 	desc = "Прочная субстанция, перегораживающая проход."
