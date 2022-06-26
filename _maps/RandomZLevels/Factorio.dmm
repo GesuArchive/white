@@ -74,7 +74,7 @@
 "eJ" = (
 /obj/structure/bed,
 /obj/item/bedsheet/brown,
-/obj/effect/landmark/awaystart,
+/obj/effect/landmark/awaystart/nodelay,
 /turf/open/floor/plating/rust,
 /area/mine/living_quarters)
 "eU" = (
@@ -741,7 +741,7 @@
 "Tb" = (
 /obj/structure/bed,
 /obj/item/bedsheet/brown,
-/obj/effect/landmark/awaystart,
+/obj/effect/landmark/awaystart/nodelay,
 /turf/open/floor/plasteel/dark,
 /area/mine/living_quarters)
 "Ua" = (

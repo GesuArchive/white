@@ -213,7 +213,7 @@
 /obj/item/clothing/neck/necklace/dope/merchant
 	desc = "Не спрашивай меня как это работает, важно то, что эта штука делает голочипы!"
 	/// scales the amount received in case an admin wants to emulate taxes/fees.
-	var/profit_scaling = 0.5
+	var/profit_scaling = 0.9
 	/// toggles between sell (TRUE) and get price post-fees (FALSE)
 	var/selling = FALSE
 	var/sell_mom = FALSE
@@ -227,7 +227,11 @@
 	. = ..()
 	if(!proximity)
 		return
-	var/datum/export_report/ex = export_item_and_contents(I, dry_run=TRUE)
+
+	if(ismob(I) && !sell_mom)
+		return
+
+	var/datum/export_report/ex = export_item_and_contents(I, dry_run=TRUE, delete_unsold = FALSE)
 	var/price = 0
 	for(var/x in ex.total_amount)
 		price += ex.total_value[x]
