@@ -557,6 +557,8 @@
 
 /obj/item/radio/ancient
 	name = "старое радио"
+	icon_state = "radio"
+	worn_icon_state = "radio"
 
 /obj/item/radio/ancient/Initialize(mapload)
 	. = ..()
@@ -564,5 +566,7 @@
 	SP.prefs_toggle_flag = null
 	SP.set_sound(sound('white/valtos/sounds/radiop.ogg'))
 	SP.set_channel(open_sound_channel_for_boombox())
-	SP.playing_volume = 50
+	SP.playing_volume = 10
+	SP.playing_range = 7
+	SP.playing_falloff = 1
 	SP.active = TRUE
