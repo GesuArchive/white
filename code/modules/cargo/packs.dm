@@ -1512,8 +1512,8 @@
 /datum/supply_pack/science/reserve
 	name = "Резервные платы Научного отдела"
 	desc = "Предназначены для тех случаев, когда нет возможности воспроизвести новые."
-	cost = BUY_CRATE_VALUE
-	access_view = FALSE
+	cost = BUY_CRATE_VALUE * 10
+	access_view = ACCESS_CAPTAIN
 	contains = list(
 				/obj/item/circuitboard/computer/aifixer,
 				/obj/item/circuitboard/machine/rdserver,
@@ -1526,6 +1526,7 @@
 				/obj/item/reagent_containers/glass/beaker/large
 				)
 	crate_name = "ящик с платами"
+	crate_type = /obj/structure/closet/crate/secure
 
 //////////////////////////////////////////////////////////////////////////////
 /////////////////////////////// Service //////////////////////////////////////
