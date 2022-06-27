@@ -39,6 +39,10 @@
 			//heart attack stuff
 			handle_heart(delta_time, times_fired)
 			handle_liver(delta_time, times_fired)
+			if(!client && !ai_controller)
+				PermaSleeping()
+			else if(IsSleeping())
+				SetSleeping(rand(10, 30))
 			if(dancing_period)
 				dancing_period--
 			if(prob(2))
