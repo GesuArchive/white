@@ -41,7 +41,7 @@
 			handle_liver(delta_time, times_fired)
 			if(!client && !ai_controller)
 				PermaSleeping()
-			else if(IsSleeping())
+			else if(IsPermaSleeping())
 				SetSleeping(rand(10, 30))
 			if(dancing_period)
 				dancing_period--
