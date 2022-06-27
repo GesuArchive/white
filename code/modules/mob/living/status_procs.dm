@@ -293,7 +293,7 @@
 
 /mob/living/proc/IsPermaSleeping()
 	var/datum/status_effect/incapacitating/sleeping/S = IsSleeping()
-	if(S?.duration == -1)
+	if(S && S.duration == -1)
 		return TRUE
 	return FALSE
 

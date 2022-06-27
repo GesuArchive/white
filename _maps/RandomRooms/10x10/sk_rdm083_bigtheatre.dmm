@@ -12,7 +12,6 @@
 /area/template_noop)
 "d" = (
 /obj/structure/chair/comfy/brown,
-/obj/structure/chair/comfy/brown,
 /obj/effect/turf_decal/weather/side,
 /turf/open/floor/wood,
 /area/template_noop)

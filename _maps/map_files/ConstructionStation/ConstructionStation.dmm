@@ -448,7 +448,6 @@
 /turf/open/floor/plating,
 /area/engineering/storage_shared)
 "gK" = (
-/obj/structure/lattice,
 /turf/closed/wall,
 /area/engineering/storage_shared)
 "gM" = (

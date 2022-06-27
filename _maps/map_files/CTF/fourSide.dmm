@@ -637,7 +637,6 @@
 /area/ctf)
 "Ah" = (
 /obj/structure/barricade/security/ctf,
-/obj/structure/barricade/security/ctf,
 /obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/tile/green{
 	dir = 1
@@ -1177,7 +1176,6 @@
 /turf/open/floor/plasteel/dark,
 /area/ctf)
 "YW" = (
-/obj/structure/barricade/security/ctf,
 /obj/structure/barricade/security/ctf,
 /obj/effect/turf_decal/tile/red{
 	dir = 1

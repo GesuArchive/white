@@ -2569,7 +2569,6 @@
 /turf/open/floor/plasteel/dark,
 /area/engineering/gravity_generator)
 "agS" = (
-/obj/structure/lattice,
 /turf/closed/wall/r_wall,
 /area/security/main)
 "agT" = (
@@ -4420,7 +4419,6 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/security/prison)
 "alP" = (
-/obj/structure/lattice,
 /turf/closed/wall/r_wall,
 /area/security/prison)
 "alQ" = (
@@ -26625,7 +26623,6 @@
 /turf/open/floor/plasteel,
 /area/security/checkpoint/customs)
 "bpu" = (
-/obj/structure/lattice,
 /turf/closed/wall/r_wall,
 /area/space/nearstation)
 "bpv" = (
@@ -30102,13 +30099,11 @@
 	},
 /area/engineering/atmos)
 "bzi" = (
-/obj/structure/lattice,
 /obj/structure/grille,
 /turf/closed/wall/r_wall,
 /area/space/nearstation)
 "bzj" = (
 /obj/structure/grille,
-/obj/structure/lattice,
 /turf/closed/wall/r_wall,
 /area/space/nearstation)
 "bzk" = (
@@ -56768,7 +56763,6 @@
 "eRV" = (
 /obj/effect/turf_decal/trimline/purple/corner,
 /obj/structure/cable,
-/obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/white,
 /area/science/research)
@@ -58141,7 +58135,6 @@
 /turf/open/floor/plasteel/white,
 /area/science/xenobiology)
 "fUj" = (
-/obj/structure/lattice,
 /turf/closed/wall,
 /area/maintenance/aft)
 "fUt" = (
@@ -64056,7 +64049,6 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 8
 	},
-/obj/structure/cable,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -67807,7 +67799,6 @@
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "nDw" = (
-/obj/structure/lattice,
 /turf/closed/wall/r_wall,
 /area/science/nanite)
 "nDT" = (
@@ -72917,7 +72908,6 @@
 /turf/open/floor/engine,
 /area/science/xenobiology)
 "rgD" = (
-/obj/structure/lattice,
 /turf/closed/wall/r_wall,
 /area/medical/virology)
 "rhN" = (
@@ -77373,7 +77363,6 @@
 /turf/open/floor/plasteel/white,
 /area/science/robotics/lab)
 "uDx" = (
-/obj/structure/lattice,
 /turf/closed/wall/r_wall,
 /area/command/heads_quarters/hos)
 "uDK" = (
@@ -81063,7 +81052,6 @@
 /turf/open/floor/plating,
 /area/maintenance/port)
 "xxT" = (
-/obj/structure/lattice,
 /turf/closed/wall,
 /area/security/prison)
 "xxU" = (

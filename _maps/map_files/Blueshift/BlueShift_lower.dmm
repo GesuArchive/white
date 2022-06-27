@@ -3467,7 +3467,7 @@
 /turf/open/floor/plasteel,
 /area/security/prison)
 "bGh" = (
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	id = "cargoload"
 	},
 /obj/structure/disposaloutlet{
@@ -3769,7 +3769,7 @@
 	},
 /area/security/prison/workout)
 "bPu" = (
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 1;
 	id = "cargoload"
 	},
@@ -12543,7 +12543,7 @@
 /turf/open/floor/plasteel,
 /area/maintenance/fore)
 "iDm" = (
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 9;
 	id = "cargoload"
 	},
@@ -15698,7 +15698,7 @@
 /turf/open/floor/plasteel/dark,
 /area/security/brig/upper)
 "laM" = (
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 5;
 	id = "garbage"
 	},
@@ -15754,7 +15754,7 @@
 /turf/open/floor/plating,
 /area/maintenance/aft)
 "lcU" = (
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 1;
 	id = "cargoload"
 	},
@@ -16240,7 +16240,7 @@
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
 "lxv" = (
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 1;
 	id = "cargoload"
 	},
@@ -20428,7 +20428,7 @@
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/exit)
 "oJz" = (
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 6;
 	id = "cargoload"
 	},
@@ -21935,7 +21935,7 @@
 /turf/open/floor/plasteel,
 /area/cargo/storage)
 "pQk" = (
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 9;
 	id = "garbage"
 	},
@@ -24386,7 +24386,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden{
 	dir = 10
 	},
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 6;
 	id = "Luggagebelt"
 	},
@@ -26505,7 +26505,7 @@
 /turf/open/floor/plasteel,
 /area/security/checkpoint)
 "tNQ" = (
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 9;
 	id = "mining_internal"
 	},
@@ -28791,7 +28791,7 @@
 /turf/open/floor/plasteel/dark,
 /area/security/prison/safe)
 "vJU" = (
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 5;
 	id = "mining_internal"
 	},
@@ -29551,7 +29551,7 @@
 /turf/open/floor/plasteel,
 /area/maintenance/fore)
 "wlR" = (
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 10;
 	id = "Luggagebelt"
 	},
@@ -30154,7 +30154,7 @@
 /turf/open/floor/plasteel,
 /area/cargo/storage)
 "wKS" = (
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 5;
 	id = "cargounload"
 	},

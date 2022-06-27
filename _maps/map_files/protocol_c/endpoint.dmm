@@ -9293,7 +9293,6 @@
 /area/centcom/control)
 "Ib" = (
 /obj/structure/grille/indestructable/shocking,
-/obj/structure/grille/indestructable/shocking,
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/duel/four)

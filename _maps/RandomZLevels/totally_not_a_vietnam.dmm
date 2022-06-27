@@ -1467,7 +1467,6 @@
 /area/awaymission/vietnam/dark)
 "Tn" = (
 /obj/structure/table/wood,
-/obj/structure/table/wood,
 /obj/item/clothing/glasses/sunglasses,
 /turf/open/floor/rospilovo/plitka/full,
 /area/awaymission/vietnam/dark)

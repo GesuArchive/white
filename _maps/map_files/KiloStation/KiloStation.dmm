@@ -22073,7 +22073,6 @@
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "cow" = (
-/obj/structure/lattice,
 /obj/structure/grille,
 /turf/closed/wall/r_wall,
 /area/space/nearstation)
@@ -46046,7 +46045,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/maintenance/port)
@@ -53431,7 +53429,6 @@
 /turf/open/floor/engine,
 /area/engineering/gravity_generator)
 "mZT" = (
-/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/closed/wall/rust,
 /area/space/nearstation)

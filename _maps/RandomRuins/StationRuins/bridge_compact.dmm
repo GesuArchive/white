@@ -1311,8 +1311,7 @@
 	areastring = "/area/engineering/gravity_generator";
 	dir = 8;
 	name = "Gravity Generator APC";
-	pixel_x = -25;
-	pixel_y = 1
+	pixel_x = -25
 	},
 /obj/structure/table,
 /obj/item/paper/guides/jobs/engi/gravity_gen,

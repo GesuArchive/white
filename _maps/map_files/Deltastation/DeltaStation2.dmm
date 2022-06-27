@@ -19351,7 +19351,6 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/aft)
 "cAy" = (
-/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible{
 	dir = 4
 	},
@@ -88414,7 +88413,6 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/aft)
 "rSK" = (
-/obj/structure/lattice,
 /obj/structure/grille,
 /turf/closed/wall/r_wall,
 /area/space/nearstation)
@@ -101549,7 +101547,6 @@
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
 "vsT" = (
-/obj/structure/lattice,
 /turf/closed/wall/r_wall,
 /area/engineering/atmos/upper)
 "vtq" = (
@@ -110553,7 +110550,6 @@
 /turf/open/floor/plasteel,
 /area/security/checkpoint)
 "xSu" = (
-/obj/structure/lattice,
 /turf/closed/wall/r_wall,
 /area/engineering/gravity_generator)
 "xSB" = (

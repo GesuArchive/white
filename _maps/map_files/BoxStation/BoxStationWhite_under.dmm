@@ -5749,7 +5749,6 @@
 /turf/open/floor/plating,
 /area/tcommsat/server/upper)
 "fDJ" = (
-/obj/structure/lattice,
 /turf/closed/wall/r_wall,
 /area/security/execution/transfer)
 "fEb" = (
@@ -22877,7 +22876,6 @@
 /turf/open/floor/plasteel,
 /area/security/prison)
 "vTL" = (
-/obj/structure/lattice,
 /turf/closed/wall/r_wall,
 /area/commons/fitness/kachalka)
 "vWx" = (

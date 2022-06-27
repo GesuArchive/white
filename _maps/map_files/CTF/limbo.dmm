@@ -168,7 +168,6 @@
 /area/ctf)
 "hh" = (
 /obj/structure/barricade/security/ctf,
-/obj/structure/barricade/security/ctf,
 /turf/open/floor/plasteel/cult,
 /area/ctf)
 "hl" = (
@@ -796,7 +795,6 @@
 /area/ctf)
 "GX" = (
 /obj/structure/barricade/security/ctf,
-/obj/structure/barricade/security/ctf,
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
@@ -1157,7 +1155,6 @@
 /turf/closed/indestructible/riveted/uranium,
 /area/ctf)
 "XC" = (
-/obj/structure/barricade/security/ctf,
 /obj/structure/barricade/security/ctf,
 /obj/effect/turf_decal/tile/blue{
 	dir = 1

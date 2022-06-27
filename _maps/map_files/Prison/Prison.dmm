@@ -2079,7 +2079,6 @@
 /turf/open/floor/plasteel/white,
 /area/medical/morgue)
 "yp" = (
-/obj/structure/lattice,
 /turf/closed/wall/r_wall,
 /area/medical/morgue)
 "yw" = (

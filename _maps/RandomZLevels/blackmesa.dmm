@@ -10135,7 +10135,6 @@
 /area/awaymission/black_mesa/high_security_hallway)
 "pYd" = (
 /obj/structure/closet/crate/large,
-/obj/structure/closet/crate/large,
 /obj/item/ammo_box/magazine/mp5,
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/science_tunnel)

@@ -1881,7 +1881,6 @@
 /area/awaymission/mothership_astrum/deck5)
 "Ez" = (
 /obj/structure/table/abductor,
-/obj/structure/table/abductor,
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "ED" = (
@@ -3526,7 +3525,6 @@
 /turf/open/floor/wood,
 /area/awaymission/mothership_astrum/deck1)
 "WT" = (
-/obj/structure/table/abductor,
 /obj/structure/table/abductor,
 /obj/item/autosurgeon/organ/syndicate/thermal_eyes,
 /turf/open/floor/mineral/abductor,

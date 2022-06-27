@@ -1887,7 +1887,6 @@
 /area/ctf)
 "JZ" = (
 /obj/structure/barricade/security/ctf,
-/obj/structure/barricade/security/ctf,
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 4

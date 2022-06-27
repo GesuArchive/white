@@ -1763,8 +1763,7 @@
 	areastring = "/area/maintenance/solars/port/fore";
 	dir = 8;
 	name = "Port Bow Solar APC";
-	pixel_x = -25;
-	pixel_y = 3
+	pixel_x = -25
 	},
 /obj/machinery/camera{
 	c_tag = "Fore Port Solar Control";
@@ -2674,8 +2673,7 @@
 	areastring = "/area/maintenance/solars/starboard/fore";
 	dir = 8;
 	name = "Starboard Bow Solar APC";
-	pixel_x = -25;
-	pixel_y = 3
+	pixel_x = -25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -8717,8 +8715,7 @@
 	areastring = "/area/command/gateway";
 	dir = 8;
 	name = "Gateway APC";
-	pixel_x = -25;
-	pixel_y = -1
+	pixel_x = -25
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -17849,7 +17846,6 @@
 /turf/open/floor/plating,
 /area/maintenance/port)
 "bCS" = (
-/obj/structure/lattice,
 /turf/closed/wall,
 /area/maintenance/port/fore)
 "bCX" = (
@@ -22459,8 +22455,7 @@
 	areastring = "/area/hallway/primary/aft";
 	dir = 8;
 	name = "Aft Hall APC";
-	pixel_x = -25;
-	pixel_y = 1
+	pixel_x = -25
 	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/tile/yellow{
@@ -25498,8 +25493,7 @@
 	areastring = "/area/maintenance/port/aft";
 	dir = 8;
 	name = "Port Quarter Maintenance APC";
-	pixel_x = -25;
-	pixel_y = 1
+	pixel_x = -25
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -27069,8 +27063,7 @@
 	areastring = "/area/maintenance/solars/starboard/aft";
 	dir = 8;
 	name = "Starboard Quarter Solar APC";
-	pixel_x = -25;
-	pixel_y = 3
+	pixel_x = -25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -32671,7 +32664,6 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -33102,8 +33094,7 @@
 	areastring = "/area/commons/locker";
 	dir = 4;
 	name = "Locker Room APC";
-	pixel_x = 24;
-	pixel_y = 0
+	pixel_x = 25
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -33936,8 +33927,7 @@
 	areastring = "/area/lawoffice";
 	dir = 4;
 	name = "Law Office APC";
-	pixel_x = 24;
-	pixel_y = 0
+	pixel_x = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -35031,7 +35021,6 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard)
 "gKT" = (
-/obj/structure/lattice,
 /turf/closed/wall,
 /area/commons/fitness/kachalka)
 "gKW" = (
@@ -38707,7 +38696,6 @@
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
 "kCV" = (
-/obj/structure/lattice,
 /turf/closed/wall,
 /area/maintenance/aft)
 "kEf" = (
@@ -40240,7 +40228,6 @@
 	},
 /area/hallway/secondary/exit)
 "miQ" = (
-/obj/structure/lattice,
 /turf/closed/wall,
 /area/maintenance/port)
 "mjk" = (
@@ -40706,8 +40693,7 @@
 	areastring = "/area/commons/storage/art";
 	dir = 4;
 	name = "Art Storage";
-	pixel_x = 24;
-	pixel_y = 0
+	pixel_x = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,

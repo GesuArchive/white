@@ -2037,7 +2037,6 @@
 	dir = 10
 	},
 /obj/structure/cable,
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 5
 	},
@@ -18081,7 +18080,6 @@
 /turf/closed/wall/r_wall/rust,
 /area/maintenance/department/medical)
 "fWk" = (
-/obj/structure/table/wood,
 /obj/structure/table/wood,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -47377,7 +47375,6 @@
 /obj/structure/window{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/personal/cabinet,
 /obj/item/clothing/under/rank/captain/skirt,
 /obj/item/clothing/under/rank/captain,
 /obj/item/clothing/under/rank/captain/suit,

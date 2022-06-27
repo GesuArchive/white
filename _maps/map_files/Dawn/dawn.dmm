@@ -4166,8 +4166,7 @@
 	cell_type = /obj/item/stock_parts/cell/high;
 	dir = 8;
 	name = "Arrivals Hallway APC";
-	pixel_x = -25;
-	pixel_y = 0
+	pixel_x = -25
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -6092,7 +6091,6 @@
 /turf/open/floor/plating,
 /area/service/bar)
 "qp" = (
-/obj/structure/cable,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/maintenance/aft)
@@ -8266,7 +8264,6 @@
 /turf/closed/wall/r_wall,
 /area/ai_monitored/turret_protected/aisat)
 "wF" = (
-/obj/structure/lattice,
 /turf/closed/wall/r_wall,
 /area/ai_monitored/turret_protected/aisat)
 "wG" = (
@@ -10973,7 +10970,6 @@
 /turf/open/floor/plasteel,
 /area/engineering/atmos)
 "Is" = (
-/obj/structure/lattice,
 /turf/closed/wall/r_wall,
 /area/medical/chemistry)
 "Iv" = (
@@ -12027,7 +12023,6 @@
 /turf/open/floor/plasteel,
 /area/maintenance/aft)
 "Rq" = (
-/obj/structure/lattice,
 /turf/closed/wall/r_wall,
 /area/maintenance/aft)
 "Rs" = (
