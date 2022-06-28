@@ -10917,7 +10917,7 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/officetwo)
 "Np" = (
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 8;
 	id = "XCCQMLoad2"
 	},
@@ -10928,7 +10928,7 @@
 	id = "XCCQMLoaddoor";
 	name = "Supply Dock Loading Door"
 	},
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 8;
 	id = "XCCQMLoad2"
 	},
@@ -10978,7 +10978,7 @@
 	name = "Supply Dock Loading Door"
 	},
 /obj/structure/plasticflaps,
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 8;
 	id = "XCCQMLoad2"
 	},
@@ -10989,7 +10989,7 @@
 	id = "XCCQMLoaddoor";
 	name = "Supply Dock Loading Door"
 	},
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 8;
 	id = "XCCQMLoad2"
 	},
@@ -12438,7 +12438,7 @@
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "Si" = (
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 4;
 	id = "XCCQMLoad2"
 	},
@@ -12468,7 +12468,7 @@
 	id = "XCCQMLoaddoor";
 	name = "Supply Dock Loading Door"
 	},
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 4;
 	id = "XCCQMLoad2"
 	},
@@ -12483,7 +12483,7 @@
 	name = "Supply Dock Loading Door"
 	},
 /obj/structure/plasticflaps,
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 4;
 	id = "XCCQMLoad2"
 	},
@@ -12523,7 +12523,7 @@
 	id = "XCCQMLoaddoor";
 	name = "Supply Dock Loading Door"
 	},
-/obj/machinery/conveyor/inverted{
+/obj/machinery/conveyor{
 	dir = 4;
 	id = "XCCQMLoad2"
 	},

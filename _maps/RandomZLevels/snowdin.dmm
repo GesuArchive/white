@@ -640,7 +640,7 @@
 /obj/machinery/power/apc{
 	dir = 4;
 	name = "Dorms APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -801,7 +801,7 @@
 	dir = 1;
 	name = "Kitchen APC";
 	pixel_x = 1;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -1827,7 +1827,7 @@
 	dir = 1;
 	name = "Research Center APC";
 	pixel_x = 1;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -1847,7 +1847,7 @@
 /obj/machinery/power/apc{
 	dir = 4;
 	name = "Mess Hall APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/structure/cable,
@@ -2419,7 +2419,7 @@
 /obj/machinery/power/apc{
 	dir = 4;
 	name = "Outpost Hallway APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -2915,7 +2915,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Garage APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -4613,7 +4613,7 @@
 	dir = 1;
 	name = "Custodials APC";
 	pixel_x = 1;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
@@ -5955,7 +5955,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Engineering APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -6233,7 +6233,7 @@
 	dir = 1;
 	name = "Security Outpost APC";
 	pixel_x = 1;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -6423,7 +6423,7 @@
 /obj/machinery/power/apc{
 	dir = 4;
 	name = "Hydroponics APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -7645,7 +7645,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Main Outpost APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -8493,7 +8493,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Main Outpost APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/cavern1)
@@ -11008,7 +11008,7 @@
 	dir = 1;
 	name = "Recon Post APC";
 	pixel_x = 1;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -13326,7 +13326,7 @@
 /obj/machinery/power/apc{
 	dir = 4;
 	name = "Robotics APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/white,
@@ -13754,7 +13754,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Main Outpost APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -13763,7 +13763,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Mechbay APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -14451,7 +14451,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Mining Post APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -14754,7 +14754,7 @@
 /obj/machinery/power/apc{
 	dir = 4;
 	name = "Main Outpost APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_dock)

@@ -90,7 +90,7 @@
 /obj/machinery/power/apc{
 	areastring = "/area/medical/psychology";
 	name = "Psychology APC";
-	pixel_y = -24
+	pixel_y = -25
 	},
 /obj/structure/cable,
 /turf/open/floor/carpet/blue,
@@ -1482,7 +1482,7 @@
 	areastring = "/area/medical/pharmacy";
 	dir = 1;
 	name = "Pharmacy APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/white,
@@ -3549,7 +3549,7 @@
 	areastring = "/area/command/heads_quarters/cmo";
 	dir = 1;
 	name = "CMO Office APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /obj/item/kirbyplants/random,

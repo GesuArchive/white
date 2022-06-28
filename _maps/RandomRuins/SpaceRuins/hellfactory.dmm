@@ -752,7 +752,7 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/highcap/ten_k{
 	dir = 1;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/hellfactory)
@@ -1019,7 +1019,7 @@
 "wv" = (
 /obj/machinery/power/apc/highcap/ten_k{
 	dir = 1;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/grimy,

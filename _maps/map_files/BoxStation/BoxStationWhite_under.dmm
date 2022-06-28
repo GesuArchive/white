@@ -1284,7 +1284,7 @@
 	areastring = "/area/hallway/secondary/service";
 	dir = 1;
 	name = "Service Hall APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/showroomfloor,
@@ -5099,7 +5099,7 @@
 	areastring = "/area/security/prison/safe";
 	dir = 4;
 	name = "Prison Wing Cells APC";
-	pixel_x = 24
+	pixel_x = 25s
 	},
 /turf/open/floor/plating,
 /area/security/prison)
@@ -7250,7 +7250,7 @@
 /obj/machinery/power/apc{
 	areastring = "/area/service/kitchen";
 	name = "Kitchen APC";
-	pixel_y = -23
+	pixel_y = -25
 	},
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -7767,7 +7767,7 @@
 	},
 /obj/machinery/power/apc{
 	name = "Lower Hydroponics APC";
-	pixel_y = -23
+	pixel_y = -25
 	},
 /obj/structure/cable,
 /obj/structure/table,
@@ -12500,7 +12500,7 @@
 	areastring = "/area/ai_monitored/turret_protected/aisat/service";
 	dir = 4;
 	name = "MiniSat Service Bay APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/machinery/power/port_gen/pacman,
 /obj/effect/turf_decal/stripes/line{
@@ -15875,7 +15875,7 @@
 /obj/machinery/power/apc{
 	areastring = "/area/service/bar";
 	name = "Bar APC";
-	pixel_y = -23
+	pixel_y = -25
 	},
 /obj/structure/cable,
 /obj/structure/disposalpipe/trunk{
@@ -17012,7 +17012,7 @@
 	areastring = "/area/ai_monitored/turret_protected/aisat/hallway";
 	dir = 4;
 	name = "MiniSat Chamber Hallway APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -19179,7 +19179,7 @@
 	areastring = "/area/security/execution/transfer";
 	dir = 4;
 	name = "Prisoner Transfer Centre";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/neutral{
@@ -19988,7 +19988,7 @@
 	areastring = /area/security/prison;
 	dir = 1;
 	name = "Prison Wing APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/red{
@@ -21738,7 +21738,7 @@
 	areastring = "/area/ai_monitored/storage/eva";
 	dir = 1;
 	name = "EVA Storage APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,

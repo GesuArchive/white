@@ -40889,7 +40889,7 @@
 /obj/machinery/power/apc/highcap/fifteen_k{
 	areastring = /area/hallway/primary/upper;
 	dir = 1;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/upper)

@@ -125,7 +125,7 @@
 /obj/machinery/power/apc/highcap/five_k{
 	dir = 1;
 	name = "Virology APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/machinery/camera{
 	c_tag = "Virology Module";
@@ -350,7 +350,7 @@
 	areastring = "/area/medical/pharmacy";
 	dir = 1;
 	name = "Pharmacy APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/pharmacy)
@@ -1632,7 +1632,7 @@
 	areastring = "/area/command/heads_quarters/cmo";
 	dir = 1;
 	name = "CM Office APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -1928,7 +1928,7 @@
 /obj/machinery/power/apc{
 	areastring = "/area/medical/psychology";
 	name = "Psychology APC";
-	pixel_y = -24
+	pixel_y = -25
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -3656,7 +3656,7 @@
 	areastring = "/area/medical/morgue";
 	dir = 1;
 	name = "Morgue APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/dark,

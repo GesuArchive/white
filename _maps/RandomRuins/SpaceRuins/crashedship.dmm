@@ -411,7 +411,7 @@
 /obj/machinery/power/apc/unlocked{
 	dir = 1;
 	environ = 0;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/carpet,
@@ -760,7 +760,7 @@
 /obj/machinery/power/apc/unlocked{
 	dir = 1;
 	environ = 0;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -945,7 +945,7 @@
 "dN" = (
 /obj/machinery/power/apc/unlocked{
 	dir = 1;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{

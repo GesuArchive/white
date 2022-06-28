@@ -273,7 +273,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Labor Camp Security APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -765,7 +765,7 @@
 /obj/machinery/power/apc{
 	name = "Mining EVA APC";
 	pixel_x = 1;
-	pixel_y = -23
+	pixel_y = -25
 	},
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
@@ -1049,7 +1049,7 @@
 	dir = 1;
 	name = "Mining Communications APC";
 	pixel_x = 1;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
@@ -1471,7 +1471,7 @@
 	dir = 1;
 	name = "Mining Station Port Wing APC";
 	pixel_x = 1;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -3547,7 +3547,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Mining Station Mech Bay APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /turf/open/floor/plasteel,
 /area/mine/mechbay)

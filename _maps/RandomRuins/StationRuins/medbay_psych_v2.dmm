@@ -1764,7 +1764,7 @@
 	areastring = "/area/command/heads_quarters/cmo";
 	dir = 1;
 	name = "CMO Office APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,

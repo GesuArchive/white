@@ -43,7 +43,7 @@
 "aj" = (
 /obj/machinery/power/apc/unlocked{
 	dir = 1;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/carpet,
@@ -1015,7 +1015,7 @@
 "ek" = (
 /obj/machinery/power/apc/unlocked{
 	dir = 1;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/grimy,
@@ -1883,7 +1883,7 @@
 "hl" = (
 /obj/machinery/power/apc/unlocked{
 	dir = 1;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -2636,7 +2636,7 @@
 "kh" = (
 /obj/machinery/power/apc/unlocked{
 	dir = 1;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/carpet,
@@ -2857,7 +2857,7 @@
 "lp" = (
 /obj/machinery/power/apc{
 	dir = 1;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/vault,

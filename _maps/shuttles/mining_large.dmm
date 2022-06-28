@@ -418,7 +418,7 @@
 	dir = 4;
 	locked = 0;
 	name = "Mining Shuttle APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 1

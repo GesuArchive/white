@@ -487,7 +487,7 @@
 	areastring = "/area/command/heads_quarters/captain";
 	dir = 1;
 	name = "Captain's Office APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -2492,7 +2492,7 @@
 /obj/machinery/power/apc{
 	areastring = "/area/command/heads_quarters/hop";
 	name = "Head of Personnel APC";
-	pixel_y = -23
+	pixel_y = -25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/dark,

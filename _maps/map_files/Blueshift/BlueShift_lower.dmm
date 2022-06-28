@@ -9293,7 +9293,7 @@
 	},
 /obj/machinery/power/apc/highcap/fifteen_k{
 	areastring = /area/hallway/secondary/entry;
-	pixel_y = -23
+	pixel_y = -25
 	},
 /turf/open/floor/plasteel/white/corner,
 /area/hallway/secondary/entry)
@@ -11755,7 +11755,7 @@
 /obj/machinery/power/apc/highcap/fifteen_k{
 	areastring = /area/engineering/atmos;
 	dir = 1;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /turf/open/floor/plasteel/dark/corner{
 	dir = 1
@@ -13675,7 +13675,7 @@
 /obj/machinery/power/apc/highcap/fifteen_k{
 	areastring = /area/engineering/engine_room;
 	dir = 1;
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark/corner{

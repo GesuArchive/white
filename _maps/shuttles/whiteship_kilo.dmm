@@ -911,7 +911,7 @@
 	},
 /obj/machinery/power/apc{
 	name = "Salvage Ship Engineering APC";
-	pixel_y = -24
+	pixel_y = -25
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -1063,7 +1063,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "NTMS-037 Bridge APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -1497,7 +1497,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "NTMS-037 Crew Quarters APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 1

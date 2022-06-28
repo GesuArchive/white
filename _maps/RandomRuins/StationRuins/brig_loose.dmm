@@ -374,7 +374,7 @@
 	areastring = "/area/security/brig";
 	dir = 1;
 	name = "Brig APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -1069,7 +1069,7 @@
 	areastring = "/area/ai_monitored/security/armory";
 	dir = 4;
 	name = "Armory APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -2410,7 +2410,7 @@
 	areastring = "/area/security/main";
 	dir = 4;
 	name = "Security Office APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{

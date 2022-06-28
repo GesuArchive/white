@@ -877,7 +877,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/power/apc{
 	name = "Salvage Ship Crew Quarters APC";
-	pixel_y = -23
+	pixel_y = -25
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -1139,7 +1139,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Salvage Ship Bar APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
@@ -1326,7 +1326,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Salvage Ship Bridge APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/item/camera{
 	pixel_x = 12;
@@ -2439,7 +2439,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/power/apc{
 	name = "Salvage Ship Engineering APC";
-	pixel_y = -23
+	pixel_y = -25
 	},
 /obj/structure/closet/crate,
 /obj/item/stack/sheet/iron/twenty,

@@ -791,7 +791,7 @@
 /obj/machinery/power/apc/highcap/fifteen_k{
 	dir = 4;
 	name = "Gateway APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
@@ -1103,7 +1103,7 @@
 /obj/machinery/power/apc/highcap/five_k{
 	dir = 4;
 	name = "Genetics APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -2210,7 +2210,7 @@
 /obj/machinery/power/apc/highcap/five_k{
 	dir = 4;
 	name = "Cryostatis APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
@@ -2402,7 +2402,7 @@
 /obj/machinery/power/apc/highcap/fifteen_k{
 	dir = 4;
 	name = "Vault APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
@@ -3993,7 +3993,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Security APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -4708,7 +4708,7 @@
 /obj/machinery/power/apc/highcap/five_k{
 	dir = 4;
 	name = "Dorms APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -5361,7 +5361,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Medbay APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -5381,7 +5381,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "Escape APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,

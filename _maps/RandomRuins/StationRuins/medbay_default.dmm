@@ -404,7 +404,7 @@
 /obj/machinery/power/apc{
 	areastring = "/area/medical/psychology";
 	name = "Psychology APC";
-	pixel_y = -24
+	pixel_y = -25
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -477,7 +477,7 @@
 	areastring = "/area/medical/storage";
 	dir = 4;
 	name = "Medbay Storage APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/structure/cable,
 /obj/item/clothing/glasses/hud/health,
@@ -1402,7 +1402,7 @@
 /obj/machinery/power/apc{
 	areastring = "/area/medical/chemistry";
 	name = "Chemistry APC";
-	pixel_y = -24
+	pixel_y = -25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/white,
@@ -1726,7 +1726,7 @@
 	areastring = "/area/medical/medbay/lobby";
 	dir = 4;
 	name = "Medbay Lobby APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/structure/table,
 /obj/item/paper_bin{
@@ -2312,7 +2312,7 @@
 /obj/machinery/power/apc{
 	areastring = "/area/medical/medbay";
 	name = "Medbay APC";
-	pixel_y = -23
+	pixel_y = -25
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -2475,7 +2475,7 @@
 	areastring = "/area/security/checkpoint/medical";
 	dir = 1;
 	name = "Medbay Security APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -3378,7 +3378,7 @@
 	areastring = "/area/medical/pharmacy";
 	dir = 1;
 	name = "Pharmacy APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/white,
@@ -3808,7 +3808,7 @@
 	areastring = "/area/command/heads_quarters/cmo";
 	dir = 1;
 	name = "CMO Office APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
@@ -4064,7 +4064,7 @@
 /obj/machinery/power/apc{
 	areastring = "/area/medical/cryo";
 	name = "Cryo APC";
-	pixel_y = -23
+	pixel_y = -25
 	},
 /obj/machinery/limbgrower,
 /turf/open/floor/plasteel/white,
@@ -5950,7 +5950,7 @@
 	areastring = "/area/medical/medbay/aft";
 	dir = 1;
 	name = "Medbay Aft APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -6832,7 +6832,7 @@
 	areastring = "/area/medical/morgue";
 	dir = 1;
 	name = "Morgue APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -6978,7 +6978,7 @@
 	areastring = "/area/medical/medbay/central";
 	dir = 1;
 	name = "Stasis Room APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /obj/item/reagent_containers/glass/bottle/epinephrine,
@@ -7049,7 +7049,7 @@
 /obj/machinery/power/apc/highcap/five_k{
 	dir = 1;
 	name = "Virology APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/machinery/camera{
 	c_tag = "Virology Module";

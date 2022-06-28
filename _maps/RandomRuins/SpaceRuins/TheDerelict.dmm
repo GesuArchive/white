@@ -581,7 +581,7 @@
 "cQ" = (
 /obj/machinery/power/apc{
 	name = "Worn-out APC";
-	pixel_y = -23
+	pixel_y = -25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -1158,7 +1158,7 @@
 /obj/structure/table,
 /obj/machinery/power/apc{
 	name = "Worn-out APC";
-	pixel_y = -23
+	pixel_y = -25
 	},
 /obj/effect/spawner/lootdrop/maintenance,
 /obj/structure/cable,
@@ -1540,7 +1540,7 @@
 "gB" = (
 /obj/machinery/power/apc{
 	name = "Worn-out APC";
-	pixel_y = -23
+	pixel_y = -25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/airless,
@@ -2319,7 +2319,7 @@
 /obj/machinery/power/apc{
 	dir = 4;
 	name = "Worn-out APC";
-	pixel_x = 24
+	pixel_x = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/airless,
@@ -2327,7 +2327,7 @@
 "jz" = (
 /obj/machinery/power/apc{
 	name = "Worn-out APC";
-	pixel_y = -23
+	pixel_y = -25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/airless/white,
@@ -2549,7 +2549,7 @@
 "kr" = (
 /obj/machinery/power/apc{
 	name = "Worn-out APC";
-	pixel_y = -23
+	pixel_y = -25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -2670,7 +2670,7 @@
 "la" = (
 /obj/machinery/power/apc{
 	name = "Worn-out APC";
-	pixel_y = -23
+	pixel_y = -25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/airless,
@@ -3216,7 +3216,7 @@
 	areastring = "/area/ruin/space/derelict/atmospherics";
 	dir = 1;
 	name = "Worn-out APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/airless,
