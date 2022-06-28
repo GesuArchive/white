@@ -3,7 +3,7 @@
 
 	var/sound/cursound
 	var/active = FALSE
-	var/playing_range = 24
+	var/playing_range = 21
 	var/list/listener_comps = list()
 
 	var/environmental = TRUE
@@ -184,6 +184,7 @@
 
 	if(dist <= myplayer.playing_range && (listener_turf.z in allowed_z_levels))
 		if(myplayer.environmental && player_turf && listener_turf)
+			S.volume = myplayer.playing_volume - max(dist * round(myplayer.playing_range/4), 0)
 			S.volume = myplayer.playing_volume - max(dist * round(myplayer.playing_range/8), 0)
 		else
 			S.volume = myplayer.playing_volume

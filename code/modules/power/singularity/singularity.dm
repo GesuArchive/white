@@ -196,7 +196,7 @@
 			SP.environmental = TRUE
 			SP.active = TRUE
 		SP.playing_volume = current_size*10
-		SP.playing_range = 16
+		SP.playing_range = 14
 
 		radiation_pulse(src, min(5000, (energy*4.5)+1000), RAD_DISTANCE_COEFFICIENT*0.5)
 

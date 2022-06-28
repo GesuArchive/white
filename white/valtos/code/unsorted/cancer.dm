@@ -48,7 +48,7 @@
 		SP.environmental = TRUE
 		SP.playing_channel = CHANNEL_CUSTOM_JUKEBOX
 	SP.playing_volume = 60
-	SP.playing_range = 16
+	SP.playing_range = 14
 	if(prob(3))
 		SP.set_sound(sound('white/valtos/sounds/undertale/SANESSS.ogg'))
 	else
