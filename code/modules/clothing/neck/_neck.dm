@@ -46,6 +46,11 @@
 	desc = "Свободно связанный галстук, идеальный аксессуар для переутомленного детектива."
 	icon_state = "detective"
 
+/obj/item/clothing/neck/maid
+	name = "maid neck cover"
+	desc = "A neckpiece for a maid costume, it smells faintly of disappointment."
+	icon_state = "maid_neck"
+
 /obj/item/clothing/neck/stethoscope
 	name = "стетоскоп"
 	desc = "Устаревший медицинский аппарат для прослушивания звуков человеческого тела. Это также заставляет вас выглядеть так, как будто вы знаете, что делаете."
