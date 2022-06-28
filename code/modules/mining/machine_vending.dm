@@ -207,6 +207,11 @@
 		return
 	var/drop_location = drop_location()
 	switch(selection)
+		if("Asteroid Miner Kit")
+			new /obj/item/clothing/suit/space/hardsuit/mining(drop_location)
+			new /obj/item/tank/internals/oxygen(drop_location)
+			new /obj/item/gps/mining(drop_location)
+			new /obj/item/wormhole_jaunter(drop_location)
 		if("Survival Capsule and Explorer's Webbing")
 			new /obj/item/storage/belt/mining/vendor(drop_location)
 		if("Resonator Kit")

@@ -96,17 +96,17 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 /datum/gateway_destination/gateway/home/incoming_pass_check(atom/movable/AM)
 	if(isliving(AM))
-		if(check_exile_implant(AM))
+		if(check_exile_implant(AM) || is_species(AM, /datum/species/lizard/ashwalker) || ismegafauna(AM) || iselite(AM))
 			return FALSE
 	else
 		for(var/mob/living/L in AM.contents)
-			if(check_exile_implant(L))
-				target_gateway.say("Rejecting [AM]: Exile implant detected in contained lifeform.")
+			if(check_exile_implant(L) || is_species(L, /datum/species/lizard/ashwalker))
+				target_gateway.say("Отвергаю [AM]: Обнаружен имплант изгнания или неавторизованная форма жизни.")
 				return FALSE
 	if(AM.has_buckled_mobs())
 		for(var/mob/living/L in AM.buckled_mobs)
-			if(check_exile_implant(L))
-				target_gateway.say("Rejecting [AM]: Exile implant detected in close proximity lifeform.")
+			if(check_exile_implant(L) || is_species(L, /datum/species/lizard/ashwalker))
+				target_gateway.say("Отвергаю [AM]: Обнаружен имплант изгнания или неавторизованная форма жизни.")
 				return FALSE
 	return TRUE
 
@@ -145,7 +145,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 
 /obj/machinery/gateway
 	name = "Врата"
-	desc = "Таинственные врата, построенные кем-то неизвестным. Позволяют путешествовать в отдаленные места на сверхсветовых скоростях."
+	desc = "Позволяют путешествовать в отдаленные места на сверхсветовых скоростях."
 	icon = 'icons/obj/machines/gateway.dmi'
 	icon_state = "portal_frame"
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
