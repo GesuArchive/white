@@ -1126,7 +1126,7 @@
 	if(AM)
 		var/obj/item/stock_parts/cell/C = AM.get_cell()
 		if(C)
-			С.use(1)
+			C.use(1)
 			var/turf/A = get_turf(src)
 			if(get_turf(AM) in view(A))
 				set_pin_data(IC_OUTPUT, 1, C.charge)
