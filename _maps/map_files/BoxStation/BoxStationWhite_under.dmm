@@ -5099,7 +5099,7 @@
 	areastring = "/area/security/prison/safe";
 	dir = 4;
 	name = "Prison Wing Cells APC";
-	pixel_x = 25s
+	pixel_x = 25
 	},
 /turf/open/floor/plating,
 /area/security/prison)
