@@ -46,6 +46,7 @@
 		return FALSE // Pointless to do everything else if there's no battery to draw from.
 	var/obj/item/stock_parts/cell/cell = AM.get_cell()
 	if(cell)
+		cell.use(1)
 		var/transfer_amount = amount_to_move
 		var/turf/A = get_turf(src)
 		var/turf/B = get_turf(AM)
