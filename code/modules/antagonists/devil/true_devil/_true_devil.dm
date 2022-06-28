@@ -31,7 +31,7 @@
 	var/mob/living/oldform
 	var/list/devil_overlays[DEVIL_TOTAL_LAYERS]
 	var/imp_on_cd
-	var/imp_cd = 40 SECONDS //Кд на призыв нового импа.
+	var/imp_cd = 60 SECONDS //Кд на призыв нового импа.
 
 /mob/living/carbon/true_devil/Initialize(mapload)
 	create_bodyparts() //initialize bodyparts

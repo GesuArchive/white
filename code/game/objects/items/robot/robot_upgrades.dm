@@ -668,7 +668,7 @@
 
 
 /obj/item/borg/upgrade/transform
-	name = "Модуль выбора модели (Стандартный)"
+	name = "модуль выбора модели (Базовая)"
 	desc = "Позволяет вернуть борга к стандартной модели."
 	icon_state = "cyborg_upgrade3"
 	var/obj/item/robot_module/new_module = null

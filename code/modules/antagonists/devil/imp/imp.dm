@@ -4,7 +4,7 @@
 	name = "Имп"
 	real_name = "imp"
 	unique_name = TRUE
-	desc = "Крупное страшное, мерзкое существо, покрытое угольно-чёрной крепкой чешуей."
+	desc = "Не очень крупное отталкивающее, мерзкое существо, покрытое угольно-чёрной крепкой чешуей."
 	speak_emote = list("кудахчет")
 	emote_hear = list("кудахчет","визжит")
 	response_help_continuous = "прикасается"
@@ -23,24 +23,24 @@
 	status_flags = CANPUSH
 	attack_sound = 'sound/magic/demon_attack1.ogg'
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
-	minbodytemp = 250 //Weak to cold
+	minbodytemp = 270 //Weak to cold
 	maxbodytemp = INFINITY
 	faction = list("hell")
 	attack_verb_continuous = "яростно разрывает"
 	attack_verb_simple = "яростно разрывает"
-	maxHealth = 200
-	health = 200
+	maxHealth = 70
+	health = 70
 	healable = 0
-	obj_damage = 40
+	obj_damage = 15
 	melee_damage_lower = 10
-	melee_damage_upper = 15
+	melee_damage_upper = 10
 	see_in_dark = 8
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	del_on_death = TRUE
-	deathmessage = "издаёт ужасный рёв, когда он распадается на серый дым."
+	deathmessage = "издаёт ужасный рёв, и распадается на серый дым."
 	deathsound = 'sound/magic/demon_dies.ogg'
-	var/playstyle_string = "<span class='big bold'>Ты Имп,</span><B> ужасное исчадие из ада. У тебя самый низкий ранг в аду. \
-							Хотя вы и не обязаны помогать, возможно, помогая дьяволу более высокого ранга, вы могли бы запросто получить повышение. Хотя вы не способны умышленно причинить вред другому дьяволу.</B>"
+	var/playstyle_string = "<span class='big bold'>Вы Имп,</span><B> ужасное исчадие из ада. У вас самый низкий ранг в Аду. Даже грешники в Аду ценятся выше вас - они хотя бы забавно визжат, а вы и на это не годны.\
+							Вы мерзкий, трусливый, глупый, пошлый, чревоугодливый паразит. Вы очень хотите повышения, а условием для этого является абсолютное, раболепное и угодливое служение старшему Дьяволу. А это значит что: <br>Вы исполняете все приказы Дьявола без исключений.<br>Вам запрещено нападать на Дьявола и других Бесов.<br>Людишки и прочие создания это законная добыча Дьявола и трогать ее без разрешения нельзя.<br>Не создавать лишних проблем Дьяволу или он отправит вас черпать гавно на нижние планы Ада где варятся чревоугодники.<br>Вам правда больше не хочется туда.</B>"
 	discovery_points = 10000
 
 /datum/antagonist/imp
@@ -55,6 +55,6 @@
 
 /datum/antagonist/imp/proc/give_objectives()
 	var/datum/objective/newobjective = new
-	newobjective.explanation_text = "Хочу повышение! Мне надо выслужиться! И я буду самым главным! Все-все будет моим!"
+	newobjective.explanation_text = "Хочу повышение! Мне надо выслужиться! И я буду самым главным! Все-все будет моим! Только нужно слушаться Пахана и не делать то что я обычно делаю, ато он опять упечёт меня чистить сартиры на планах чревоугодия..."
 	newobjective.owner = owner
 	objectives += newobjective

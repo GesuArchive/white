@@ -6,7 +6,7 @@
 
 
 /obj/item/borg/stun
-	name = "заряженная рука"
+	name = "электрифицированная рука"
 	icon_state = "elecarm"
 	var/charge_cost = 30
 
@@ -26,7 +26,7 @@
 	M.apply_effect(EFFECT_STUTTER, 5)
 
 	M.visible_message(span_danger("[user] ударил [M] с помощью [src]!") , \
-					span_userdanger("[user] ударил вас [src]!"))
+					span_userdanger("[user] ударил меня электрифицированной рукой!"))
 
 	playsound(loc, 'sound/weapons/egloves.ogg', 50, TRUE, -1)
 
@@ -56,11 +56,11 @@
 			mode = 0
 	switch(mode)
 		if(0)
-			to_chat(user, "Перезагрузка. Обнимашки!")
+			to_chat(user, "Обнимашки!")
 		if(1)
-			to_chat(user, "Усиляем обьятия!")
+			to_chat(user, "Усиливаю обьятия!")
 		if(2)
-			to_chat(user, "БЗЗЗ. Электризуем руки...")
+			to_chat(user, "БЗЗЗ. Электризую руки...")
 		if(3)
 			to_chat(user, "ОШИБКА: Сервомоторы рук перегружены.")
 
@@ -74,57 +74,57 @@
 					M.attack_hand(user) //This enables borgs to get the floating heart icon and mob emote from simple_animal's that have petbonus == true.
 					return
 				if(user.zone_selected == BODY_ZONE_HEAD)
-					user.visible_message(span_notice("[user] игриво погладил [M] по голове!") , \
-									span_notice("Я игриво погладил [M] по голове!"))
+					user.visible_message(span_notice("[user] игриво боднул [skloname(M.name, VINITELNI, M.gender)]!") , \
+									span_notice("Игриво бодаю [skloname(M.name, VINITELNI, M.gender)]!"))
 					user.do_attack_animation(M, ATTACK_EFFECT_BOOP)
 					playsound(loc, 'sound/weapons/tap.ogg', 50, TRUE, -1)
 				else if(ishuman(M))
 					if(user.body_position == LYING_DOWN)
-						user.visible_message(span_notice("[user] трясет [M] в попытке поднять на ноги [M.ru_na()]!") , \
-										span_notice("Я трясу [M] в попытке поднять его на ноги [M.ru_na()]!"))
+						user.visible_message(span_notice("[user] встряхивает [skloname(M.name, VINITELNI, M.gender)] в попытке поднять [M.ru_ego()] на ноги!") , \
+										span_notice("Встряхиваю [skloname(M.name, VINITELNI, M.gender)] в попытке поднять [M.ru_ego()] на ноги !"))
 					else
-						user.visible_message(span_notice("[user] обнял [M] чтобы [M.ru_na()] почувствовал себя лучше!") , \
-								span_notice("Я обнял [M] чтобы [M.ru_na()] почувствовал себя лучше!"))
+						user.visible_message(span_notice("[user] обнял [skloname(M.name, VINITELNI, M.gender)] чтобы [M.ru_who()] почувствовал[M.ru_a()] себя лучше!") , \
+								span_notice("Обнимаю [skloname(M.name, VINITELNI, M.gender)], чтобы [M.ru_who()] почувствовал[M.ru_a()] себя лучше!"))
 					if(M.resting)
 						M.set_resting(FALSE, TRUE)
 				else
-					user.visible_message(span_notice("[user] гладит [M]!") , \
-							span_notice("Я погладил [M]!"))
+					user.visible_message(span_notice("[user] гладит [skloname(M.name, VINITELNI, M.gender)]!") , \
+							span_notice("Глажу [skloname(M.name, VINITELNI, M.gender)]!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 		if(1)
 			if(M.health >= 0)
 				if(ishuman(M))
 					if(M.body_position == LYING_DOWN)
-						user.visible_message(span_notice("[user] трясет [M] в попытке поднять на ноги [M.ru_na()]!") , \
-										span_notice("Я трясу [M] в попытке поднять его на ноги [M.ru_na()]!"))
+						user.visible_message(span_notice("[user] встряхивает [skloname(M.name, VINITELNI, M.gender)] в попытке поднять [M.ru_ego()] на ноги!") , \
+										span_notice("Встряхиваю [skloname(M.name, VINITELNI, M.gender)] в попытке поднять [M.ru_ego()] на ноги!"))
 					else if(user.zone_selected == BODY_ZONE_HEAD)
-						user.visible_message(span_warning("[user] погладил [M] по голове!") , \
-										span_warning("Я погладил [M] по голове!"))
+						user.visible_message(span_warning("[user] погладил [skloname(M.name, VINITELNI, M.gender)] по голове!") , \
+										span_warning("Глажу [skloname(M.name, VINITELNI, M.gender)] по голове!"))
 						user.do_attack_animation(M, ATTACK_EFFECT_PUNCH)
 					else
-						user.visible_message(span_warning("[user] крепко обнял [M]! Кажется [M] некомфортно...") , \
-								span_warning("Я решительно обнял [M], чтобы [M.ru_na()] почувствовал себя лучше! Кажется [M]..."))
+						user.visible_message(span_warning("[user] крепко обнял [skloname(M.name, VINITELNI, M.gender)]! Кажется [M.ru_emu()] некомфортно...") , \
+								span_warning("Крепко обнимаю [skloname(M.name, VINITELNI, M.gender)], чтобы [M.ru_who()] почувствовал[M.ru_a()] себя лучше! Кажется [M.ru_emu()] некомфортно..."))
 					if(M.resting)
 						M.set_resting(FALSE, TRUE)
 				else
-					user.visible_message(span_warning("[user] погладил [M] по голове!") , \
-							span_warning("Я погладил [M] по голове!"))
+					user.visible_message(span_warning("[user] погладил [skloname(M.name, VINITELNI, M.gender)] по голове!") , \
+							span_warning("Глажу [skloname(M.name, VINITELNI, M.gender)] по голове!"))
 				playsound(loc, 'sound/weapons/tap.ogg', 50, TRUE, -1)
 		if(2)
 			if(scooldown < world.time)
 				if(M.health >= 0)
 					if(ishuman(M))
 						M.electrocute_act(5, "[user]", flags = SHOCK_NOGLOVES)
-						user.visible_message(span_userdanger("[user] ударил током [M] при [user.ru_ego()] касании!") , \
-							span_danger("Я ударил током [M] при касании!"))
+						user.visible_message(span_userdanger("[user] прикасается к [skloname(M.name, DATELNI, M.gender)] и ударяет [M.ru_ego()] током!") , \
+							span_danger("Прикасаюсь к [skloname(M.name, DATELNI, M.gender)] и бью [M.ru_ego()] током!"))
 					else
 						if(!iscyborg(M))
 							M.adjustFireLoss(10)
-							user.visible_message(span_userdanger("[user] ударили током [M]!") , \
-								span_danger("Я ударил током [M] при касании!"))
+							user.visible_message(span_userdanger("[user] прикасается к [skloname(M.name, DATELNI, M.gender)] и ударяет [M.ru_ego()] током!") , \
+								span_danger("Прикасаюсь к [skloname(M.name, DATELNI, M.gender)] и бью [M.ru_ego()] током!"))
 						else
-							user.visible_message(span_userdanger("[user] ударил током [M]. Кажется это не принесло эффекта.") , \
-								span_danger("Я ударил током [M], но это не возымело эффекта."))
+							user.visible_message(span_userdanger("[user]  прикасается к [skloname(M.name, DATELNI, M.gender)] и пытается ударить [M.ru_ego()] током, но это не возымело эффекта!") , \
+								span_danger("Прикасаюсь к [skloname(M.name, DATELNI, M.gender)] и бью [M.ru_ego()] током, но это не возымело эффекта!"))
 					playsound(loc, 'sound/effects/sparks2.ogg', 50, TRUE, -1)
 					user.cell.charge -= 500
 					scooldown = world.time + 20
@@ -132,11 +132,11 @@
 			if(ccooldown < world.time)
 				if(M.health >= 0)
 					if(ishuman(M))
-						user.visible_message(span_userdanger("[user] сминает [M] в [user.ru_ego()] обьятиях!") , \
-							span_danger("Я сминаю [M] в своих обьятиях!"))
+						user.visible_message(span_userdanger("[user] сминает [skloname(M.name, VINITELNI, M.gender)] в своих обьятиях!") , \
+							span_danger("Сминаю [skloname(M.name, VINITELNI, M.gender)] в своих обьятиях!"))
 					else
-						user.visible_message(span_userdanger("[user] сминает [M]!") , \
-								span_danger("Я сминаю [M]!"))
+						user.visible_message(span_userdanger("[user] сминает [skloname(M.name, VINITELNI, M.gender)]!") , \
+								span_danger("Я сминаю [skloname(M.name, VINITELNI, M.gender)]!"))
 					playsound(loc, 'sound/weapons/smash.ogg', 50, TRUE, -1)
 					M.adjustBruteLoss(15)
 					user.cell.charge -= 300
@@ -149,7 +149,7 @@
 	boop = TRUE
 
 /obj/item/borg/charger
-	name = "разьем питания"
+	name = "зарядник"
 	icon_state = "charger_draw"
 	item_flags = NOBLUDGEON
 	var/mode = "draw"
@@ -164,7 +164,8 @@
 		mode = "charge"
 	else
 		mode = "draw"
-	to_chat(user, span_notice("Я переключил [src] в режим \"[mode]\"."))
+	playsound(src, 'sound/weapons/batonextend.ogg', 50, TRUE)
+	to_chat(user, span_notice("Переключаю [src] в режим [mode == "draw" ? "вытягивания" : "передачи"] энергии."))
 	update_icon()
 
 /obj/item/borg/charger/afterattack(obj/item/target, mob/living/silicon/robot/user, proximity_flag)
@@ -175,10 +176,10 @@
 		if(is_type_in_list(target, charge_machines))
 			var/obj/machinery/M = target
 			if((M.machine_stat & (NOPOWER|BROKEN)) || !M.anchored)
-				to_chat(user, span_warning("[M] разряжен!"))
+				to_chat(user, span_warning("[M] обесточен!"))
 				return
 
-			to_chat(user, span_notice("Я подключил [M] к сети..."))
+			to_chat(user, span_notice("Начинаю вытягивать энергию из [M]..."))
 			while(do_after(user, 15, target = M, progress = 0))
 				if(!user || !user.cell || mode != "draw")
 					return
@@ -190,8 +191,9 @@
 					break
 
 				M.use_power(200)
+				do_sparks(1, FALSE, target)
 
-			to_chat(user, span_notice("Я прекратил заряжать себя."))
+			to_chat(user, span_notice("Извлекаю зарядник."))
 
 		else if(is_type_in_list(target, charge_items))
 			var/obj/item/stock_parts/cell/cell = target
@@ -204,14 +206,14 @@
 			if(istype(target, /obj/item/gun/energy))
 				var/obj/item/gun/energy/E = target
 				if(!E.can_charge)
-					to_chat(user, span_warning("[target] не имеет порта питания!"))
+					to_chat(user, span_warning("[target] не имеет разъема питания!"))
 					return
 
 			if(!cell.charge)
 				to_chat(user, span_warning("[target] разряжена!"))
 
 
-			to_chat(user, span_notice("Я подключил [target] к порту питания..."))
+			to_chat(user, span_notice("Начинаю вытягивать энергию из [target]..."))
 
 			while(do_after(user, 15, target = target, progress = 0))
 				if(!user || !user.cell || mode != "draw")
@@ -229,8 +231,9 @@
 				if(!user.cell.give(draw))
 					break
 				target.update_icon()
+				do_sparks(1, FALSE, target)
 
-			to_chat(user, span_notice("Я прекратил заряжать себя."))
+			to_chat(user, span_notice("Извлекаю зарядник."))
 
 	else if(is_type_in_list(target, charge_items))
 		var/obj/item/stock_parts/cell/cell = target
@@ -243,13 +246,13 @@
 		if(istype(target, /obj/item/gun/energy))
 			var/obj/item/gun/energy/E = target
 			if(!E.can_charge)
-				to_chat(user, span_warning("[target] не имеет порта для подключения!"))
+				to_chat(user, span_warning("[target] не имеет разъема питания!"))
 				return
 
 		if(cell.charge >= cell.maxcharge)
 			to_chat(user, span_warning("[target] полностью заряжен!"))
 
-		to_chat(user, span_notice("Я подключил [target] к порту питания..."))
+		to_chat(user, span_notice("Начинаю заряжать [target]..."))
 
 		while(do_after(user, 15, target = target, progress = 0))
 			if(!user || !user.cell || mode != "charge")
@@ -267,11 +270,12 @@
 			if(!cell.give(draw))
 				break
 			target.update_icon()
+			do_sparks(1, FALSE, target)
 
-		to_chat(user, span_notice("Я перестал заряжать [target]."))
+		to_chat(user, span_notice("Извлекаю зарядник [target]."))
 
 /obj/item/harmalarm
-	name = "устройство звукового подавления"
+	name = "звуковой подавитель насилия"
 	desc = "Позволяет дезориентировать большинство органических существ. Когда насилия СЛИШКОМ много."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "megaphone"
@@ -280,9 +284,9 @@
 /obj/item/harmalarm/emag_act(mob/user)
 	obj_flags ^= EMAGGED
 	if(obj_flags & EMAGGED)
-		to_chat(user, span_red("Я выключил предохранители на [src]!"))
+		to_chat(user, span_red("Деактивирую предохранители на [src]!"))
 	else
-		to_chat(user, span_red("Я включаю предохранители на [src]!"))
+		to_chat(user, span_red("Вновь активирую предохранители на [src]!"))
 
 /obj/item/harmalarm/attack_self(mob/user)
 	var/safety = !(obj_flags & EMAGGED)
@@ -301,8 +305,8 @@
 
 	if(safety == TRUE)
 		user.visible_message(span_boldwarning("[user] издает оглушительную сирену из своих динамиков!"), \
-			span_userdanger("Сирена оглушает вас и сбивает с толку!") , \
-			span_danger("Сирена оглушает вас!"))
+			span_userdanger("Оглушительный звук заставляет мысли путаться!") , \
+			span_danger("Оглушительный звук заставляет мысли путаться!"))
 		for(var/mob/living/carbon/M in get_hearers_in_view(9, user))
 			if(M.get_ear_protection() == FALSE)
 				M.add_confusion(6)
@@ -340,8 +344,8 @@
 #define DISPENSE_ICECREAM_MODE 4
 
 /obj/item/borg/lollipop
-	name = "фабрикатор сладостей"
-	desc = "Вознаграждайте людей сладостями. Модуль позволяет выбирать вид лакомства и скорость выдачи леденцов. "
+	name = "синтезатор сладостей"
+	desc = "Вознаграждайте людей сладостями. Модуль позволяет выбирать вид лакомства или даже стрелять ими. "
 	icon_state = "lollipop"
 	var/candy = 30
 	var/candymax = 30
@@ -394,7 +398,7 @@
 			food_item = new /obj/item/food/icecream(T)
 			var/obj/item/food/icecream/I = food_item
 			I.add_ice_cream("vanilla")
-			I.desc = "Eat the ice cream."
+			I.desc = "Съешь меня!"
 
 	var/into_hands = FALSE
 	if(ismob(A))
@@ -405,9 +409,9 @@
 	check_amount()
 
 	if(into_hands)
-		user.visible_message(span_notice("[user] дал леденец прямо в руку [A].") , span_notice("Я получил леденец от [A].") , span_hear("Я услышал щелчок."))
+		user.visible_message(span_notice("[user] дал леденец прямо в руку [A].") , span_notice("[A] дал мне леденец.") , span_hear("Слышу щелчок."))
 	else
-		user.visible_message(span_notice("[user] произвел леденец.") , span_notice("Я сделал леденец.") , span_hear("Я услышал щелчок."))
+		user.visible_message(span_notice("[user] произвел леденец.") , span_notice("Синтезирую леденец.") , span_hear("Слышу щелчок."))
 
 	playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 	return TRUE
@@ -473,13 +477,13 @@
 			to_chat(user, span_notice("Модуль переключен на стрельбу леденцами."))
 		if(THROW_LOLLIPOP_MODE)
 			mode = THROW_GUMBALL_MODE
-			to_chat(user, span_notice("Модуль переключен на жвачку."))
+			to_chat(user, span_notice("Модуль переключен на стрельбу жвачкой."))
 		if(THROW_GUMBALL_MODE)
 			mode = DISPENSE_ICECREAM_MODE
-			to_chat(user, span_notice("Модуль переключён на мороженное."))
+			to_chat(user, span_notice("Модуль переключён на выдачу мороженного."))
 		if(DISPENSE_ICECREAM_MODE)
 			mode = DISPENSE_LOLLIPOP_MODE
-			to_chat(user, span_notice("Модуль теперь выдает леденцы."))
+			to_chat(user, span_notice("Модуль переключён на выдачу леденцов."))
 	..()
 
 #undef DISPENSE_LOLLIPOP_MODE
@@ -559,8 +563,8 @@
 		dropped = TRUE
 
 /obj/item/cautery/prt //it's a subtype of cauteries so that it inherits the cautery sprites and behavior and stuff, because I'm too lazy to make sprites for this thing
-	name = "инструмент для ремонта корпуса"
-	desc = "Маленький инструмент, работающий от избыточного тепла киборга. Может быть использован как для ремонта, так и как зажигалка."
+	name = "инструмент для ремонта плитки"
+	desc = "Маленький инструмент, работающий от избыточного тепла киборга. Может быть использован как для ремонта напольной плитки, так и как зажигалка."
 	toolspeed = 1.5 //it's not designed to be used as a cautery (although it's close enough to one to be considered to be a proper cautery instead of just a hot object for the purposes of surgery)
 	heat = 3800 //this thing is intended for metal-shaping, so it's the same temperature as a lit welder
 	resistance_flags = FIRE_PROOF //if it's channeling a cyborg's excess heat, it's probably fireproof
@@ -574,8 +578,8 @@
 
 //Peacekeeper Cyborg Projectile Dampenening Field
 /obj/item/borg/projectile_dampen
-	name = "кинетический демпфер"
-	desc = "Устройство, излучающее поле для подавления различных предметов, движущихся с помощью кинетической энергии. <span class='boldnotice'> Расходует энергию, будучи включенным. </span> Является прототипом, поэтому имеет тенденцию наэлектризовывать незаземленные металлические поверхности."
+	name = "гиперкинетический демпфер"
+	desc = "Устройство, излучающее поле для замедления мелких быстродвижущихся предметов и ослабления их кинетической энергии. <span class='boldnotice'> Расходует энергию, будучи включенным. </span> Является прототипом, поэтому имеет тенденцию наэлектризовывать незаземленные металлические поверхности."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "shield"
 	var/maxenergy = 1500
@@ -586,15 +590,15 @@
 	var/cyborg_cell_critical_percentage = 0.05
 	var/mob/living/silicon/robot/host = null
 	var/datum/proximity_monitor/advanced/dampening_field
-	var/projectile_damage_coefficient = 0.5
+	var/projectile_damage_coefficient = 0.2
 	/// Energy cost per tracked projectile damage amount per second
 	var/projectile_damage_tick_ecost_coefficient = 10
-	var/projectile_speed_coefficient = 1.5		//Higher the coefficient slower the projectile.
+	var/projectile_speed_coefficient = 10		//Higher the coefficient slower the projectile.
 	/// Energy cost per tracked projectile per second
 	var/projectile_tick_speed_ecost = 75
 	var/list/obj/projectile/tracked
 	var/image/projectile_effect
-	var/field_radius = 3
+	var/field_radius = 4
 	var/active = FALSE
 	var/cycle_delay = 0
 
@@ -623,14 +627,14 @@
 
 /obj/item/borg/projectile_dampen/attack_self(mob/user)
 	if(cycle_delay > world.time)
-		to_chat(user, span_boldwarning("[capitalize(src.name)] всё ещё перезаряжает кинетический подавитель!"))
+		to_chat(user, span_boldwarning("[capitalize(src.name)] всё ещё перезаряжается!"))
 		return
 	cycle_delay = world.time + PKBORG_DAMPEN_CYCLE_DELAY
 	if(!active)
 		if(!user.has_buckled_mobs())
 			activate_field()
 		else
-			to_chat(user, span_warning("[capitalize(src.name)] защитные протоколы не позволяют мне включить кинетический подавитель из-за присутствия живых существ рядом!"))
+			to_chat(user, span_warning("[capitalize(src.name)] защитные протоколы блокируют активацию из-за присутствия живых существ рядом!"))
 	else
 		deactivate_field()
 	update_icon()
@@ -650,7 +654,7 @@
 
 /obj/item/borg/projectile_dampen/proc/deactivate_field()
 	QDEL_NULL(dampening_field)
-	visible_message(span_warning("<b>[src.name]</b> shuts off!"))
+	visible_message(span_warning("<b>[src.name]</b> отключается!"))
 	for(var/P in tracked)
 		restore_projectile(P)
 	active = FALSE
@@ -699,7 +703,7 @@
 	energy = clamp(energy - usage, 0, maxenergy)
 	if(energy <= 0)
 		deactivate_field()
-		visible_message(span_warning("[capitalize(src.name)] blinks \"ENERGY DEPLETED\"."))
+		visible_message(span_warning("[capitalize(src.name)] мигает: \"БАРЬЕР НА ПРЕДЕЛЕ\"."))
 
 /obj/item/borg/projectile_dampen/proc/process_recharge(delta_time)
 	if(!istype(host))
@@ -735,34 +739,34 @@
 
 
 /obj/item/borg/sight/xray
-	name = "режим рентгеновского зрения"
+	name = "рентген сканер"
 	icon = 'icons/obj/decals.dmi'
 	icon_state = "securearea"
 	sight_mode = BORGXRAY
 
 /obj/item/borg/sight/thermal
-	name = "режим термального зрения"
+	name = "термальный сканер"
 	sight_mode = BORGTHERM
 	icon_state = "thermal"
 
 
 /obj/item/borg/sight/meson
-	name = "режим мезонного зрения"
+	name = "мезонный сканер"
 	sight_mode = BORGMESON
 	icon_state = "meson"
 
 /obj/item/borg/sight/material
-	name = "режим для просмотра материалов"
+	name = "сканер материалов"
 	sight_mode = BORGMATERIAL
 	icon_state = "material"
 
 /obj/item/borg/sight/hud
-	name = "худ"
+	name = "hud"
 	var/obj/item/clothing/glasses/hud/hud = null
 
 
 /obj/item/borg/sight/hud/med
-	name = "медицинский худ"
+	name = "медицинский интерфейс"
 	icon_state = "healthhud"
 
 /obj/item/borg/sight/hud/med/Initialize(mapload)
@@ -771,7 +775,7 @@
 
 
 /obj/item/borg/sight/hud/sec
-	name = "худ безопастности"
+	name = "интерфейс СБ"
 	icon_state = "securityhud"
 
 /obj/item/borg/sight/hud/sec/Initialize(mapload)
@@ -887,12 +891,12 @@
 	. = ..()
 	if(stored)
 		var/obj/item/reagent_containers/C = stored
-		. += "<hr>The apparatus currently has [C] secured, which contains:"
+		. += "<hr>манипулятор удерживает [C], содержащий:"
 		if(length(C.reagents.reagent_list))
 			for(var/datum/reagent/R in C.reagents.reagent_list)
-				. += "\n[R.volume] units of [R.name]"
+				. += "[R.volume] единиц [R.name]"
 		else
-			. += "\nNothing."
+			. += "ничего."
 
 /obj/item/borg/apparatus/beaker/update_overlays()
 	. = ..()
@@ -974,4 +978,4 @@
 /obj/item/borg/apparatus/circuit/pre_attack(atom/A, mob/living/user, params)
 	. = ..()
 	if(istype(A, /obj/item/ai_module) && !stored) //If an admin wants a borg to upload laws, who am I to stop them? Otherwise, we can hint that it fails
-		to_chat(user, span_warning("This circuit board doesn't seem to have standard robot apparatus pin holes. You're unable to pick it up."))
+		to_chat(user, span_warning("Блокировка уровня аппаратного приоритета, отмена!"))

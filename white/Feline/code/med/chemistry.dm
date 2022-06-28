@@ -265,6 +265,7 @@
 	reagent_state = LIQUID
 	taste_description = "сахарный сироп"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
+	overdose_threshold = 60
 	material = /datum/material/iron
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	color = "#623f03"
@@ -274,6 +275,16 @@
 	if(C.blood_volume < BLOOD_VOLUME_NORMAL)
 		C.blood_volume += 1 * delta_time
 	..()
+
+/datum/reagent/medicine/hematogen/overdose_start(mob/living/M)
+	to_chat(M, span_userdanger("Впадаю в гипергликемическую кому! Нужно завязывать со сладким!"))
+	M.AdjustSleeping(600)
+	. = TRUE
+
+/datum/reagent/medicine/hematogen/overdose_process(mob/living/M, delta_time, times_fired)
+	M.AdjustSleeping(40 * REM * delta_time)
+	..()
+	. = TRUE
 
 /datum/chemical_reaction/medicine/hematogen
 	results = list(/datum/reagent/medicine/hematogen = 3)

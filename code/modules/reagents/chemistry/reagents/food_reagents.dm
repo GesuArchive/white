@@ -236,7 +236,7 @@
 		mytray.adjustPests(rand(1,2))
 
 /datum/reagent/consumable/sugar/overdose_start(mob/living/M)
-	to_chat(M, span_userdanger("Впадаю в гипергликемический шок! Нужно завязывать со сладостами!"))
+	to_chat(M, span_userdanger("Впадаю в гипергликемическую кому! Нужно завязывать со сладким!"))
 	M.AdjustSleeping(600)
 	. = TRUE
 

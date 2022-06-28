@@ -103,7 +103,7 @@
 				head.flash2.forceMove(T)
 				head.flash2 = null
 				head = null
-			to_chat(user, span_notice("Я разобрал киборга на части."))
+			to_chat(user, span_notice("Разбираю киборга на части."))
 	else
 		to_chat(user, span_warning("На этом экзоскелете нет запчастей, которые можно снять!"))
 	update_icon()
@@ -129,20 +129,20 @@
 		swap_failed = TRUE
 	else if(!user.transferItemToLoc(temp_cell, chest))
 		swap_failed = TRUE
-		to_chat(user, span_warning("[temp_cell] остается у вас в руке, вы не можете установить его в [src]!"))
+		to_chat(user, span_warning("Что-то не получается установить [temp_cell] в [src]!"))
 
 	if(chest.cell) //drop the chest's current cell no matter what.
 		put_in_hand_or_drop(user, chest.cell)
 
 	if(swap_failed) //we didn't transfer any new items.
 		if(chest.cell) //old cell ejected, nothing inserted.
-			to_chat(user, span_notice("Вы достали [chest.cell] из [src]."))
+			to_chat(user, span_notice("Извлекаю [chest.cell] из [src]."))
 			chest.cell = null
 		else
 			to_chat(user, span_warning("Батарея, установленная в торсе [src] разряжена!"))
 		return
 
-	to_chat(user, span_notice("Я [chest.cell ? "заменил [src] [chest.cell.name] на [temp_cell]" : "установил [temp_cell] в [src]"]."))
+	to_chat(user, span_notice("[chest.cell ? "Меняю [src] [chest.cell.name] на [temp_cell]" : "Устанавливаю [temp_cell] в [src]"]."))
 	chest.cell = temp_cell
 	return TRUE
 
@@ -154,13 +154,13 @@
 			if (M.use(1))
 				var/obj/item/bot_assembly/ed209/B = new
 				B.forceMove(drop_location())
-				to_chat(user, span_notice("Я создал киборга."))
+				to_chat(user, span_notice("Киборг готов."))
 				var/holding_this = user.get_inactive_held_item()==src
 				qdel(src)
 				if (holding_this)
 					user.put_in_inactive_hand(B)
 			else
-				to_chat(user, span_warning("Мне нужен один лист железа, чтобы начать строить ED-209!"))
+				to_chat(user, span_warning("Мне понадобится как минимум один лист железа, чтобы начать строить ED-209!"))
 				return
 	else if(istype(W, /obj/item/bodypart/l_leg/robot))
 		if(l_leg)
@@ -222,7 +222,7 @@
 		var/obj/item/bodypart/head/robot/HD = W
 		for(var/X in HD.contents)
 			if(istype(X, /obj/item/organ))
-				to_chat(user, span_warning("Каркас [HD] пуст!"))
+				to_chat(user, span_warning("Внутри [HD] что-то находится!"))
 				return
 		if(head)
 			return
@@ -234,22 +234,22 @@
 			head = HD
 			update_icon()
 		else
-			to_chat(user, span_warning("Сначала нужно установить вспышку!"))
+			to_chat(user, span_warning("Нужно установить вспышки!"))
 
 	else if (W.tool_behaviour == TOOL_MULTITOOL)
 		if(check_completion())
 			ui_interact(user)
 		else
-			to_chat(user, span_warning("Мне нужно собрать оболочку киборга, прежде чем проводить отладку!"))
+			to_chat(user, span_warning("Прежде чем проводить отладку, нужно закончить сборку киборга!"))
 
 	else if(istype(W, /obj/item/mmi))
 		var/obj/item/mmi/M = W
 		if(check_completion())
 			if(!chest.cell)
-				to_chat(user, span_warning("Оболочке нужна батарея!"))
+				to_chat(user, span_warning("Не хватает батареи!"))
 				return
 			if(!isturf(loc))
-				to_chat(user, span_warning("Поставьте киборга на землю и установите [M] внутрь!"))
+				to_chat(user, span_warning("Надо сначала поставить киборга на землю и уже потом устанавливать [M] внутрь!"))
 				return
 			if(!M.brain_check(user))
 				return
@@ -257,7 +257,7 @@
 			var/mob/living/brain/B = M.brainmob
 			if(is_banned_from(B.ckey, "Cyborg") || QDELETED(src) || QDELETED(B) || QDELETED(user) || QDELETED(M) || !Adjacent(user))
 				if(!QDELETED(M))
-					to_chat(user, span_warning("Кажется [M.name] не подходит для установки! Видимо само мироздание не даст вам это сделать..."))
+					to_chat(user, span_warning("Кажется [M.name] не подходит для установки! Видимо сами цифровые боги против этого..."))
 				return
 			if(!user.temporarilyRemoveItemFromInventory(W))
 				return
@@ -303,19 +303,19 @@
 			B.mind.transfer_to(O)
 
 			if(O.mind && O.mind.special_role)
-				O.mind.store_memory("В роли киборга я должен следовать своим законам и приказам ИИ. Моя личность подавлена, я не помню ничего о прошлом себе, для всех окружающих я буду считаться мертвым.")
+				O.mind.store_memory("В роли киборга я должен следовать своим законам и приказам ИИ. Моя старая личность подавлена, я не помню ничего о прошлом себе, для всех окружающих прошлый я буду считаться мертвым.")
 				to_chat(O, span_userdanger("Я стал киборгом!"))
-				to_chat(O, span_danger("Я должны следовать своим законам и приказам ИИ . Моя личность подавлена, я не помню ничего о прошлом себе, для всех окружающих я буду считаться мертвым."))
+				to_chat(O, span_danger("Я должны следовать своим законам и приказам ИИ. Моя старая личность подавлена, я не помню ничего о прошлом себе, для всех окружающих прошлый я буду считаться мертвым."))
 
 			SSblackbox.record_feedback("amount", "cyborg_birth", 1)
 			forceMove(O)
 			O.robot_suit = src
 
-			log_game("[key_name(user)] установил MMI/posibrain [key_name(M.brainmob)] в оболочку киборга в локации [AREACOORD(src)]")
+			log_game("[key_name(user)] установил MMI/posibrain [key_name(M.brainmob)] в киборга в локации [AREACOORD(src)]")
 
 			if(!locomotion)
 				O.set_lockcharge(TRUE)
-				to_chat(O, span_warning("Ошибка: сервоприводы не реагируют."))
+				to_chat(O, span_warning("Ошибка: сервоприводы не отвечают."))
 
 		else
 			to_chat(user, span_warning("MMI нужно устанавливать в самом конце!"))
@@ -354,7 +354,7 @@
 				O.set_lockcharge(TRUE)
 
 	else if(istype(W, /obj/item/pen))
-		to_chat(user, span_warning("Мне нужен мультитул, чтобы переименовать [src]!"))
+		to_chat(user, span_warning("Мне нужен мультитул, для того чтобы переименовать [src]!"))
 	else
 		return ..()
 
@@ -364,7 +364,7 @@
 	var/obj/item/held_item = user.get_active_held_item()
 	if(held_item?.tool_behaviour == TOOL_MULTITOOL)
 		return ..()
-	to_chat(user, span_warning("Мне нужен мультитул, чтобы совершить отладку!"))
+	to_chat(user, span_warning("Мне нужен мультитул, для того чтобы совершить отладку!"))
 	return UI_CLOSE
 
 /obj/item/robot_suit/ui_state(mob/user)

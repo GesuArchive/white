@@ -820,6 +820,7 @@
 	pixel_x = -4;
 	pixel_y = 12
 	},
+/obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "cj" = (
@@ -1784,6 +1785,7 @@
 	pixel_y = -3
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/plasteel/showroomfloor,
 /area/security/warden)
 "eo" = (
@@ -3404,10 +3406,26 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/brig)
+"tI" = (
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/extinguisher_cabinet/directional/north,
+/turf/open/floor/plasteel,
+/area/security/brig)
 "xN" = (
 /turf/open/floor/plasteel{
 	icon_state = "damaged1"
 	},
+/area/security/brig)
+"ys" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/extinguisher_cabinet/directional/north,
+/turf/open/floor/plasteel/white,
 /area/security/brig)
 "yY" = (
 /obj/structure/rack,
@@ -3439,6 +3457,15 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
+"zr" = (
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/extinguisher_cabinet/directional/south,
+/turf/open/floor/plasteel,
+/area/security/brig)
 "BQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/start/field_medic,
@@ -3472,6 +3499,11 @@
 /obj/structure/table/optable,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
+"Ta" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/extinguisher_cabinet/directional/north,
+/turf/open/floor/plasteel/showroomfloor,
+/area/security/main)
 "TR" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -4516,7 +4548,7 @@ gT
 hw
 mK
 bp
-cf
+zr
 fw
 fw
 fw
@@ -4686,7 +4718,7 @@ ab
 ab
 ab
 fw
-aH
+ys
 BQ
 aH
 Nj
@@ -5262,7 +5294,7 @@ gi
 gI
 hf
 fz
-ba
+tI
 bw
 cA
 iH
@@ -5381,7 +5413,7 @@ ab
 ag
 ab
 be
-aE
+Ta
 aE
 aE
 aE

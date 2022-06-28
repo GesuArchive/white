@@ -1035,6 +1035,7 @@
 	pixel_x = 9;
 	pixel_y = -5
 	},
+/obj/structure/extinguisher_cabinet/directional/south,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "em" = (
@@ -1455,6 +1456,7 @@
 	pixel_x = 3;
 	pixel_y = -3
 	},
+/obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/engine,
 /area/security/warden)
 "fv" = (
@@ -1694,6 +1696,7 @@
 /obj/item/storage/firstaid/regular{
 	pixel_x = 7
 	},
+/obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/engine,
 /area/security/brig)
 "fY" = (
@@ -2763,6 +2766,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/hex/red,
+/obj/structure/extinguisher_cabinet/directional/south,
 /turf/open/floor/engine,
 /area/security/brig)
 "id" = (
@@ -3522,6 +3526,10 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/security/main)
+"tZ" = (
+/obj/structure/extinguisher_cabinet/directional/north,
+/turf/open/floor/engine,
+/area/security/main)
 "EV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -3533,6 +3541,16 @@
 	id = "Cell 3";
 	pixel_x = -32
 	},
+/turf/open/floor/engine,
+/area/security/brig)
+"Gg" = (
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/engine,
 /area/security/brig)
 "If" = (
@@ -5314,7 +5332,7 @@ gc
 gw
 gX
 fz
-hC
+Gg
 hT
 iM
 ix
@@ -5433,7 +5451,7 @@ ab
 kL
 ab
 be
-bx
+tZ
 bN
 bN
 bN

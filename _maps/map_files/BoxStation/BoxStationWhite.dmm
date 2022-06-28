@@ -10804,11 +10804,11 @@
 /turf/open/floor/plasteel,
 /area/commons/vacant_room/commissary)
 "aTu" = (
-/obj/structure/table/optable,
 /obj/machinery/defibrillator_mount/directional/north,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
+/obj/machinery/stasis,
 /turf/open/floor/plasteel/white,
 /area/medical/abandoned)
 "aTv" = (

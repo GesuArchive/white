@@ -28,7 +28,7 @@
 /obj/machinery/mineral/ore_redemption/Initialize(mapload)
 	. = ..()
 	stored_research = new /datum/techweb/specialized/autounlocking/smelter
-	materials = AddComponent(/datum/component/remote_materials, "orm", mapload, mat_container_flags=BREAKDOWN_FLAGS_ORM)
+	materials = AddComponent(/datum/component/remote_materials, "orm", mapload, force_connect = TRUE, mat_container_flags=BREAKDOWN_FLAGS_ORM)
 
 /obj/machinery/mineral/ore_redemption/Destroy()
 	QDEL_NULL(stored_research)
@@ -365,3 +365,6 @@
 		icon_state = initial(icon_state)
 	else
 		icon_state = "[initial(icon_state)]-off"
+
+/obj/machinery/mineral/ore_redemption/lavaland
+	var/force_connect = TRUE

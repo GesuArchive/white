@@ -275,6 +275,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "bY" = (
@@ -1174,6 +1175,7 @@
 	pixel_x = 3;
 	pixel_y = -3
 	},
+/obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/plasteel/showroomfloor,
 /area/security/warden)
 "eE" = (
@@ -1389,6 +1391,7 @@
 	pixel_y = 3
 	},
 /obj/item/storage/firstaid/regular,
+/obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "fb" = (
@@ -3537,6 +3540,20 @@
 	},
 /turf/open/floor/carpet,
 /area/command/heads_quarters/hos)
+"Lw" = (
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 0
+	},
+/obj/structure/extinguisher_cabinet/directional/north,
+/turf/open/floor/plasteel,
+/area/security/brig)
 "Oi" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -3563,6 +3580,10 @@
 /obj/item/assembly/timer,
 /turf/open/floor/plasteel/monofloor,
 /area/security/main)
+"Pt" = (
+/obj/structure/extinguisher_cabinet/directional/north,
+/turf/open/floor/plasteel/showroomfloor,
+/area/security/main)
 "RG" = (
 /obj/machinery/computer/secure_data,
 /turf/open/floor/plasteel/dark,
@@ -3579,6 +3600,14 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/main)
+"Ug" = (
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/structure/extinguisher_cabinet/directional/south,
+/turf/open/floor/plasteel,
+/area/security/brig)
 "UX" = (
 /obj/structure/lattice,
 /obj/machinery/camera/autoname{
@@ -4645,7 +4674,7 @@ fX
 gC
 gO
 ho
-hN
+Ug
 ez
 ez
 ez
@@ -5391,7 +5420,7 @@ fl
 fL
 gj
 eC
-GE
+Lw
 hv
 iL
 ir
@@ -5510,7 +5539,7 @@ aS
 aZ
 aS
 ba
-bq
+Pt
 bD
 bD
 bD

@@ -16,6 +16,9 @@
 /datum/proc/ru_na(temp_gender)
 	. = "нём"
 
+/datum/proc/ru_emu(temp_gender)
+	. = "ему"
+
 /datum/proc/ru_a(temp_gender)
 	. = ""
 
@@ -64,6 +67,18 @@
 			. = "ней"
 		if(MALE)
 			. = "нём"
+	if(capitalized)
+		. = capitalize(.)
+
+/client/ru_emu(capitalized, temp_gender)
+	if(!temp_gender)
+		temp_gender = gender
+	. = "ему"
+	switch(temp_gender)
+		if(FEMALE)
+			. = "ей"
+		if(MALE)
+			. = "ему"
 	if(capitalized)
 		. = capitalize(.)
 
@@ -125,6 +140,18 @@
 			. = "ней"
 		if(MALE)
 			. = "нём"
+	if(capitalized)
+		. = capitalize(.)
+
+/atom/ru_emu(capitalized, temp_gender)
+	if(!temp_gender)
+		temp_gender = gender
+	. = "ему"
+	switch(temp_gender)
+		if(FEMALE)
+			. = "ей"
+		if(MALE)
+			. = "ему"
 	if(capitalized)
 		. = capitalize(.)
 

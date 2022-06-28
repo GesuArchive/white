@@ -320,6 +320,7 @@
 		/obj/item/weldingtool/largetank/cyborg,
 		/obj/item/multitool/cyborg,
 		/obj/item/construction/rcd/borg,
+		/obj/item/borg/charger,
 		/obj/item/pipe_dispenser,
 		/obj/item/stack/cable_coil,
 		/obj/item/lightreplacer/cyborg,

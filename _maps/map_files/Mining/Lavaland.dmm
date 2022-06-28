@@ -1645,11 +1645,8 @@
 /turf/open/floor/plasteel,
 /area/mine/production)
 "eH" = (
-/obj/machinery/mineral/ore_redemption{
-	input_dir = 8;
-	output_dir = 4
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/mineral/ore_redemption/lavaland,
 /turf/open/floor/plating,
 /area/mine/production)
 "eI" = (
