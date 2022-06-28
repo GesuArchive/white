@@ -51,7 +51,31 @@
 	hidden_uplink.locked = TRUE
 	// ну давай, налетай, у тебя всего лишь одна попытка
 	if(GLOB.round_id)
-		lock_code = ROUND_UP(CSC(SEC(COT(text2num(GLOB.round_id) * rand(1, 3)))))
+		lock_code = ROUND_UP(
+			INVERSE_SQUARE(
+				Lcm(
+						ROOT(
+				ROUND_UP(
+						ROOT(
+				text2num(
+					GLOB.round_id
+					)
+										*
+			rand(
+				1,
+				10
+			),
+								3
+								)
+						),
+					9
+					),
+				3
+				),
+			10,
+			4
+			)
+		)
 
 /obj/item/uplink/nuclear/locked/attack_self(mob/user, modifiers)
 	. = ..()
