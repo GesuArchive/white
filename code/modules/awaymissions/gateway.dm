@@ -165,7 +165,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 	/// Type of instanced gateway destination, needs to be subtype of /datum/gateway_destination/gateway
 	var/destination_type = /datum/gateway_destination/gateway
 	/// Name of the generated destination
-	var/destination_name = "Unknown Gateway"
+	var/destination_name = "Неизвестные врата"
 	/// This is our own destination, pointing at this gateway
 	var/datum/gateway_destination/gateway/destination
 	/// This is current active destination
@@ -247,7 +247,10 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 /* Station's primary gateway */
 /obj/machinery/gateway/centerstation
 	destination_type = /datum/gateway_destination/gateway/home
-	destination_name = "Home Gateway"
+	destination_name = "Станция"
+
+/obj/machinery/gateway/lavaland
+	destination_name = "Лаваленд"
 
 /obj/machinery/gateway/centerstation/Initialize(mapload)
 	. = ..()

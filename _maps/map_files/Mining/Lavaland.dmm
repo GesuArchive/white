@@ -1004,7 +1004,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/mine/production)
 "dd" = (
-/obj/machinery/gateway,
+/obj/machinery/gateway/lavaland,
 /turf/open/floor/plasteel/dark,
 /area/mine/production)
 "de" = (

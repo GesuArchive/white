@@ -4,7 +4,9 @@ import { Window } from '../layouts';
 
 export const Gateway = () => {
   return (
-    <Window>
+    <Window
+      width={250}
+      height={350}>
       <Window.Content scrollable>
         <GatewayContent />
       </Window.Content>
@@ -48,17 +50,6 @@ const GatewayContent = (props, context) => {
       </Section>
     );
   }
-  if (!gateway_found) {
-    return (
-      <Section>
-        <Button
-          fluid
-          onClick={() => act("find_new")}>
-          Найти новые врата
-        </Button>
-      </Section>
-    );
-  }
   if (!destinations.length) {
     return (
       <Section>
@@ -72,6 +63,15 @@ const GatewayContent = (props, context) => {
         <NoticeBox>
           Врата не запитаны
         </NoticeBox>
+      )}
+      {!gateway_found && (
+        <Section>
+          <Button
+            fluid
+            onClick={() => act("find_new")}>
+            Найти новые врата
+          </Button>
+        </Section>
       )}
       {destinations.map(dest => (
         <Section
