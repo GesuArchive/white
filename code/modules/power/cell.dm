@@ -127,11 +127,12 @@
 	var/turf/T = get_turf(src.loc)
 	if (charge==0)
 		return
-	var/devastation_range = -1 //round(charge/11000)
-	var/heavy_impact_range = round(sqrt(charge)/60)
-	var/light_impact_range = round(sqrt(charge)/30)
-	var/flash_range = light_impact_range
-	if (light_impact_range==0)
+	var/_devastation_range = -1
+	var/_heavy_impact_range = round(sqrt(charge)/90)
+	var/_light_impact_range = round(sqrt(charge)/80)
+	var/_flame_range = round(sqrt(charge)/60)
+	var/_flash_range = round(sqrt(charge)/30)
+	if (_light_impact_range == 0)
 		rigged = FALSE
 		corrupt()
 		return
@@ -140,7 +141,7 @@
 	log_game("[key_name(usr)] has triggered a rigged/corrupted power cell explosion at [AREACOORD(T)].")
 
 	//explosion(T, 0, 1, 2, 2)
-	explosion(T, devastation_range, heavy_impact_range, light_impact_range, flash_range)
+	explosion(T, devastation_range = _devastation_range, heavy_impact_range = _heavy_impact_range, light_impact_range = _light_impact_range, flame_range = _flame_range, flash_range = _flash_range)
 	qdel(src)
 
 /obj/item/stock_parts/cell/proc/corrupt()

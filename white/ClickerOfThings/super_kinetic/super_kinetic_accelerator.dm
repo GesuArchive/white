@@ -1,7 +1,7 @@
 /obj/item/gun/energy/kinetic_accelerator/super_kinetic_accelerator
 	name = "супер протокинетический ускоритель"
 	desc = "Самозарядный, дальнобойный инструмент. Обладает увеличенным местом для модификаций, но не наносит урона."
-	ammo_type = list(/obj/item/ammo_casing/energy/kinetic/no_damage)
+	ammo_type = list(/obj/item/ammo_casing/energy/kinetic/decent_damage)
 	max_mod_capacity = 250 //250 Ибо этим ТОЛЬКО копать. Сюда не поставить моды на урон и прочее (Я пофиксил, честна!)
 
 
@@ -31,7 +31,8 @@
 		..()
 
 
-/obj/projectile/kinetic/no_damage
-	damage = 0
-/obj/item/ammo_casing/energy/kinetic/no_damage
-	projectile_type = /obj/projectile/kinetic/no_damage
+/obj/projectile/kinetic/decent_damage
+	damage = 1
+
+/obj/item/ammo_casing/energy/kinetic/decent_damage
+	projectile_type = /obj/projectile/kinetic/decent_damage
