@@ -184,7 +184,7 @@
 
 	if(dist <= myplayer.playing_range && (listener_turf.z in allowed_z_levels))
 		if(myplayer.environmental && player_turf && listener_turf)
-			S.volume = round(myplayer.playing_volume - ((myplayer.playing_volume / myplayer.playing_range) * dist), 0)
+			S.volume = round(myplayer.playing_volume - ((myplayer.playing_volume * dist) / myplayer.playing_range), 0)
 		else
 			S.volume = myplayer.playing_volume
 		S.falloff = myplayer.playing_falloff
