@@ -62,12 +62,12 @@
 	allowed_roles = list("Warden")
 	cost = 7500
 
-/datum/gear/spare_id
-	display_name = "Золотая ID-карта капитана"
+/datum/gear/golden_id
+	display_name = "Золотая ID-карта"
 	description = "Мечта, которая никогда не сбудется. Наверное."
-	path = /obj/item/card/id/advanced/gold/captains_spare
+	path = /obj/item/card/id/advanced/gold
 	allowed_roles = list("Assistant")
-	cost = 99999
+	cost = 50000
 
 /datum/gear/guitar
 	display_name = "Гитара"
