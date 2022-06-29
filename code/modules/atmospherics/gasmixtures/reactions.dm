@@ -566,7 +566,7 @@
 		var/new_heat_capacity = air.heat_capacity()
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
 			air.set_temperature((temperature * old_heat_capacity + energy_released) / new_heat_capacity)
-
+/*
 /datum/gas_reaction/h2fire
 	priority = -3 //fire should ALWAYS be last, but tritium fires happen before plasma fires
 	name = "Hydrogen Combustion"
@@ -618,7 +618,7 @@
 			location.temperature_expose(air, temperature, CELL_VOLUME)
 
 	return cached_results["fire"] ? REACTING : NO_REACTION
-
+*/
 /datum/gas_reaction/nitrousformation //formationn of n2o, esothermic, requires bz as catalyst
 	priority = 3
 	name = "Nitrous Oxide formation"
@@ -991,7 +991,7 @@
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
 			air.set_temperature(max((temperature * old_heat_capacity - energy_released) / new_heat_capacity, TCMB))
 	return REACTING
-
+/*
 /datum/gas_reaction/pluox_formation
 	priority = 2
 	name = "Pluoxium formation"
@@ -1024,3 +1024,4 @@
 		if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
 			air.set_temperature(max((temperature * old_heat_capacity + energy_released) / new_heat_capacity, TCMB))
 	return REACTING
+*/
