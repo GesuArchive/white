@@ -1,7 +1,7 @@
 /obj/item/closet_hacker
 	name = "взломщик кодов"
 	desc = "Устройство для подбора паролей к электронным замкам."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'icons/obj/device.dmi'
 	lefthand_file = 'white/valtos/icons/lefthand.dmi'
 	righthand_file = 'white/valtos/icons/righthand.dmi'
 	icon_state = "multitool_yellow"
