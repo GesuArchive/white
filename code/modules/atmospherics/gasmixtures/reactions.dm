@@ -252,7 +252,7 @@
 		"TEMP" = FUSION_TEMPERATURE_THRESHOLD,
 		GAS_TRITIUM = FUSION_TRITIUM_MOLES_USED,
 		GAS_PLASMA = FUSION_MOLE_THRESHOLD,
-		GAS_CO2 = FUSION_MOLE_THRESHOLD)
+		GAS_HYDROGEN = FUSION_MOLE_THRESHOLD)
 
 /datum/gas_reaction/fusion/react(datum/gas_mixture/air, datum/holder)
 	var/turf/open/location
@@ -267,7 +267,7 @@
 	var/thermal_energy = air.thermal_energy()
 	var/reaction_energy = 0 //Reaction energy can be negative or positive, for both exothermic and endothermic reactions.
 	var/initial_plasma = air.get_moles(GAS_PLASMA)
-	var/initial_carbon = air.get_moles(GAS_CO2)
+	var/initial_hydrogen = air.get_moles(GAS_HYDROGEN)
 	var/scale_factor = max(air.return_volume() / FUSION_SCALE_DIVISOR, FUSION_MINIMAL_SCALE)
 	var/temperature_scale = log(10, air.return_temperature())
 	//The size of the phase space hypertorus
@@ -281,15 +281,15 @@
 	var/instability = MODULUS((gas_power*INSTABILITY_GAS_POWER_FACTOR),toroidal_size) //Instability effects how chaotic the behavior of the reaction is
 	cached_scan_results[id] = instability//used for analyzer feedback
 
-	var/plasma = (initial_plasma-FUSION_MOLE_THRESHOLD)/(scale_factor) //We have to scale the amounts of carbon and plasma down a significant amount in order to show the chaotic dynamics we want
-	var/carbon = (initial_carbon-FUSION_MOLE_THRESHOLD)/(scale_factor) //We also subtract out the threshold amount to make it harder for fusion to burn itself out.
+	var/plasma = (initial_plasma-FUSION_MOLE_THRESHOLD)/(scale_factor) //We have to scale the amounts of hydrogen and plasma down a significant amount in order to show the chaotic dynamics we want
+	var/hydrogen = (initial_hydrogen-FUSION_MOLE_THRESHOLD)/(scale_factor) //We also subtract out the threshold amount to make it harder for fusion to burn itself out.
 
 	//The reaction is a specific form of the Kicked Rotator system, which displays chaotic behavior and can be used to model particle interactions.
-	plasma = MODULUS(plasma - (instability*sin(TODEGREES(carbon))), toroidal_size)
-	carbon = MODULUS(carbon - plasma, toroidal_size)
+	plasma = MODULUS(plasma - (instability*sin(TODEGREES(hydrogen))), toroidal_size)
+	hydrogen = MODULUS(hydrogen - plasma, toroidal_size)
 
 	air.set_moles(GAS_PLASMA, plasma*scale_factor + FUSION_MOLE_THRESHOLD )//Scales the gases back up
-	air.set_moles(GAS_CO2, carbon*scale_factor + FUSION_MOLE_THRESHOLD)
+	air.set_moles(GAS_HYDROGEN, hydrogen*scale_factor + FUSION_MOLE_THRESHOLD)
 	var/delta_plasma = min(initial_plasma - air.get_moles(GAS_PLASMA), toroidal_size * scale_factor * 1.5)
 
 	//Energy is gained or lost corresponding to the creation or destruction of mass.

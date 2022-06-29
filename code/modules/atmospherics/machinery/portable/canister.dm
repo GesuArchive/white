@@ -272,7 +272,7 @@
 /obj/machinery/portable_atmospherics/canister/fusion_test/create_gas()
 	air_contents.set_moles(GAS_PLASMA, 3000)
 	air_contents.set_moles(GAS_TRITIUM, 3000)
-	air_contents.set_moles(GAS_CO2, 3000)
+	air_contents.set_moles(GAS_HYDROGEN, 3000)
 	air_contents.set_temperature(500000)
 
 /obj/machinery/portable_atmospherics/canister/proc/get_time_left()
