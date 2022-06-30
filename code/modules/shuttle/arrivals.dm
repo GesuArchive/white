@@ -9,7 +9,7 @@
 	port_direction = SOUTH
 	preferred_direction = WEST
 
-	callTime = INFINITY
+	callTime = 100
 	ignitionTime = 50
 
 	movement_force = list("KNOCKDOWN" = 3, "THROW" = 0)
@@ -35,7 +35,8 @@
 	SSshuttle.arrivals = src
 
 /obj/docking_port/mobile/arrivals/LateInitialize()
-	//destination = SSshuttle.getDock("arrivals_endpoint")
+	destination = SSshuttle.getDock("arrivals_centcom")
+/*
 	areas = list()
 	var/list/new_latejoin = list()
 	for(var/area/shuttle/arrival/A in GLOB.sortedAreas)
@@ -55,6 +56,7 @@
 		return
 
 	SSjob.latejoin_trackers = new_latejoin
+*/
 
 /obj/docking_port/mobile/arrivals/check()
 	. = ..()
