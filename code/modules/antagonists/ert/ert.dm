@@ -178,6 +178,10 @@
 	outfit = /datum/outfit/centcom/ert/commander/party
 	greentext_reward = 15
 
+/datum/antagonist/ert/chrono_legioner
+	role = "Хронолегионер"
+	outfit = /datum/outfit/chrono_agent
+
 /datum/antagonist/ert/create_team(datum/team/ert/new_team)
 	if(istype(new_team))
 		ert_team = new_team
@@ -348,3 +352,45 @@
 	name = "Marine Medic"
 	outfit = /datum/outfit/centcom/ert/marine/medic
 	role = "Медик"
+
+/datum/antagonist/ert/spacepol
+	name = "Офицер Спейспола"
+	outfit = /datum/outfit/spacepol
+	role = "Коп"
+
+/datum/antagonist/ert/pmc
+	name = "Боец"
+	outfit = /datum/outfit/pmc/armed
+	can_elimination_hijack = TRUE
+	role = "Боец"
+
+/datum/antagonist/ert/pmc/leader
+	name = "Капитан"
+	outfit = /datum/outfit/pmc/leader
+	leader = TRUE
+	role = "Капитан"
+/datum/antagonist/ert/pmc/leader/update_name()
+	owner.current.fully_replace_character_name(owner.current.real_name,"Джамбо")
+
+/datum/antagonist/ert/pmc/medic
+	name = "Санитар"
+	outfit = /datum/outfit/pmc/medic
+	role = "Санитар"
+/datum/antagonist/ert/pmc/gunner
+	name = "Стрелок"
+	outfit = /datum/outfit/pmc/gunner
+	role = "Стрелок"
+/datum/antagonist/ert/pmc/techie
+	name = "Техник"
+	outfit = /datum/outfit/pmc/techie
+	role = "Техник"
+/datum/antagonist/ert/pmc/enforcer
+	name = "Силовик"
+	outfit = /datum/outfit/pmc/enforcer
+	role = "Силовик"
+/datum/antagonist/ert/pmc/solo
+	name = "Специалист"
+	outfit = /datum/outfit/pmc/solo
+	role = "Специалист"
+
+
