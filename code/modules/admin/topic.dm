@@ -187,13 +187,6 @@
 				else
 					message_admins("[key_name_admin(usr)] tried to create a dreamer.")
 					log_admin("[key_name(usr)] failed to create a dreamer.")
-			if("cops")
-				if(src.makeCops())
-					message_admins("[key_name(usr)] called in a cop team.")
-					log_admin("[key_name(usr)] called in a cop team.")
-				else
-					message_admins("[key_name(usr)] tried to call in a cop team.")
-					log_admin("[key_name(usr)] failed to call in a cop team.")
 
 	else if(href_list["forceevent"])
 		if(!check_rights(R_FUN))

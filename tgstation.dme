@@ -4081,7 +4081,6 @@
 #include "white\webhook.dm"
 #include "white\adept\cerebullum_altering_pill.dm"
 #include "white\alexs410\medical_shit.dm"
-#include "white\alexs410\PMC\datums.dm"
 #include "white\baldenysh\govnokod\adminverbs.dm"
 #include "white\baldenysh\govnokod\amogus.dm"
 #include "white\baldenysh\govnokod\cytology.dm"
