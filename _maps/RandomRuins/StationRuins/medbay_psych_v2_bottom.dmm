@@ -307,6 +307,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/north,
+/obj/vehicle/ridden/forklift/medical,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "xM" = (

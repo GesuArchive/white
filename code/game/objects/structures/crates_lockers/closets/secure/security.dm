@@ -42,6 +42,7 @@
 
 /obj/structure/closet/secure_closet/hop/PopulateContents()
 	..()
+	new /obj/item/key/forklift/service(src)
 	new /obj/item/clothing/neck/cloak/hop(src)
 	new /obj/item/storage/lockbox/medal/service(src)
 	new /obj/item/clothing/under/rank/civilian/head_of_personnel(src)
@@ -72,6 +73,7 @@
 
 /obj/structure/closet/secure_closet/hos/PopulateContents()
 	..()
+	new /obj/item/key/forklift/security(src)
 	new /obj/item/clothing/neck/cloak/hos(src)
 	new /obj/item/clothing/suit/toggle/armor/hos/hos_formal(src)
 	new /obj/item/computer_hardware/hard_drive/portable/command/hos(src)

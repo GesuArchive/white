@@ -1759,6 +1759,9 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/vehicle/ridden/forklift/security{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/security/main)
 "en" = (

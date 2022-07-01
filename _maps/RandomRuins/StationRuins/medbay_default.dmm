@@ -6763,6 +6763,7 @@
 	c_tag = "Chemistry Lab North";
 	network = list("ss13","medbay")
 	},
+/obj/vehicle/ridden/forklift/medical,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "VL" = (

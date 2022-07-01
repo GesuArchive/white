@@ -2115,6 +2115,30 @@
 
 	return TRUE
 
+/atom/MouseEntered(location, control, params)
+	if(flags_1 & INITIALIZED_1)
+		usr.MouseEnteredOn(src, location, control, params)
+	SSmouse_entered.hovers[usr.client] = src
+
+/// Fired whenever this atom is the most recent to be hovered over in the tick.
+/// Preferred over MouseEntered if you do not need information such as the position of the mouse.
+/// Especially because this is deferred over a tick, do not trust that `client` is not null.
+/atom/proc/on_mouse_enter(client/client)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	var/mob/user = client?.mob
+
+	// Screentips
+	var/datum/hud/active_hud = usr.hud_used
+	var/datum/hud/active_hud = user?.hud_used
+
+	if(active_hud?.tooltip)
+		if(!isnewplayer(user) && (client?.prefs.w_toggles & TOOLTIP_USER_UP) && !(client?.prefs.w_toggles & TOOLTIP_USER_RETRO))
+			active_hud.tooltip.maptext = "<span class='maptext reallybig yell' style='text-align: center; color: [isliving(src) ? "lime" : "white"];'>[uppertext(name)]</span>"
+		else
+			active_hud.tooltip.maptext = ""
+
+
 /// Gets a merger datum representing the connected blob of objects in the allowed_types argument
 /atom/proc/GetMergeGroup(id, list/allowed_types)
 	RETURN_TYPE(/datum/merger)

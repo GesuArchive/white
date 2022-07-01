@@ -59935,9 +59935,6 @@
 "kzp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/vehicle/ridden/forklift{
-	dir = 4
-	},
 /turf/open/floor/plating,
 /area/cargo/warehouse)
 "kzH" = (

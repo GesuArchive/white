@@ -898,6 +898,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
+/obj/vehicle/ridden/forklift/security,
 /turf/open/floor/plasteel,
 /area/security/main)
 "dO" = (

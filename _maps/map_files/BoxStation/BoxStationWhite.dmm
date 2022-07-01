@@ -275,6 +275,9 @@
 	dir = 4
 	},
 /obj/machinery/camera/autoname,
+/obj/vehicle/ridden/forklift/engineering{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/engineering/manufactory)
 "acy" = (
@@ -19461,7 +19464,7 @@
 	roundstart_template = /datum/map_template/shuttle/mining/large;
 	width = 7
 	},
-/turf/open/floor/plating,
+/turf/open/floor/engine,
 /area/maintenance/port/aft)
 "bJd" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -19638,6 +19641,7 @@
 	network = list("xeno");
 	pixel_y = 26
 	},
+/obj/vehicle/ridden/forklift/science,
 /turf/open/floor/plasteel/cafeteria,
 /area/command/heads_quarters/rd)
 "bJK" = (
@@ -40568,8 +40572,8 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/fore/brig_enter)
 "mzZ" = (
-/turf/closed/wall,
-/area/cargo/warehouse)
+/turf/open/floor/engine,
+/area/maintenance/port)
 "mAb" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/machinery/camera/autoname{
@@ -40710,10 +40714,8 @@
 	},
 /obj/structure/table,
 /obj/effect/spawner/lootdrop/maintenance/two,
-/obj/machinery/power/apc/auto_name/north,
-/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
-/area/cargo/warehouse)
+/area/cargo/storage)
 "mNB" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plasteel/dark,
@@ -48580,6 +48582,9 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry/public)
+"vfd" = (
+/turf/open/floor/engine,
+/area/maintenance/port/aft)
 "vfn" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -67802,18 +67807,18 @@ aQy
 bfM
 bjh
 miQ
-sfq
-aSg
-aSg
-aSg
-aSg
-aSg
-aSg
-aSg
-aSg
-aSg
-aSg
-sfq
+mzZ
+mzZ
+mzZ
+mzZ
+mzZ
+mzZ
+mzZ
+mzZ
+mzZ
+mzZ
+mzZ
+mzZ
 bCq
 kli
 kli
@@ -68062,12 +68067,12 @@ miQ
 sfq
 sfq
 sfq
+mzZ
 sfq
 sfq
 sfq
 sfq
-sfq
-sfq
+mzZ
 sfq
 sfq
 sfq
@@ -68319,12 +68324,12 @@ miQ
 sfq
 sfq
 sfq
+mzZ
 sfq
 sfq
 sfq
 sfq
-sfq
-sfq
+mzZ
 sfq
 sfq
 sfq
@@ -68576,12 +68581,12 @@ miQ
 sfq
 sfq
 sfq
+mzZ
 sfq
 sfq
 sfq
 sfq
-sfq
-sfq
+mzZ
 sfq
 sfq
 sfq
@@ -68830,18 +68835,18 @@ bfa
 aXQ
 xqh
 miQ
-sfq
-aSg
-aSg
-aSg
-aSg
-aSg
-aSg
-aSg
-aSg
-aSg
-aSg
-sfq
+mzZ
+mzZ
+mzZ
+mzZ
+mzZ
+mzZ
+mzZ
+mzZ
+mzZ
+mzZ
+mzZ
+mzZ
 hhi
 lwA
 bwp
@@ -69873,11 +69878,11 @@ hNs
 blW
 aPz
 fqP
-kli
-kli
-kli
-kli
-kli
+vfd
+vfd
+vfd
+vfd
+vfd
 inW
 ilp
 iTW
@@ -70129,13 +70134,13 @@ pdC
 pdC
 blW
 bzs
+vfd
 kli
 kli
 kli
 kli
 kli
-kli
-bHE
+vfd
 klz
 bHE
 bHE
@@ -70386,13 +70391,13 @@ pdC
 pdC
 blW
 bzs
+vfd
 kli
 kli
 kli
 kli
 kli
-kli
-bHE
+vfd
 klz
 bHE
 bHE
@@ -70628,7 +70633,7 @@ aSg
 bew
 aYw
 bjl
-mzZ
+aZE
 mNk
 wlS
 pTT
@@ -70643,13 +70648,13 @@ dci
 dgB
 aZE
 sPD
+vfd
 kli
 kli
 kli
 kli
 kli
-kli
-bHE
+vfd
 lKv
 bCq
 uUp
@@ -70900,13 +70905,13 @@ pzD
 tdh
 blW
 bzs
+vfd
 kli
 kli
 kli
 kli
 kli
-kli
-bHE
+vfd
 klz
 bCq
 bPS
@@ -71157,13 +71162,13 @@ pzD
 bkG
 blW
 bzs
+vfd
 kli
 kli
 kli
 kli
 kli
-kli
-bHE
+vfd
 vXz
 bCq
 iIA
@@ -71414,13 +71419,13 @@ pzD
 bkJ
 blW
 bPZ
-bHE
+vfd
 kli
 kli
 kli
 kli
 kli
-bHE
+vfd
 klz
 bLv
 akZ
@@ -71671,13 +71676,13 @@ pzD
 krF
 blW
 bPZ
-vUk
+vfd
 kli
 kli
 kli
 kli
 kli
-bHE
+vfd
 klz
 bLv
 bPS
@@ -71928,13 +71933,13 @@ qHQ
 bAS
 aZE
 bPZ
-vUk
+vfd
 kli
 kli
 kli
 kli
 kli
-bHE
+vfd
 klz
 bLv
 bPT
@@ -72186,11 +72191,11 @@ fql
 blW
 eVm
 fCZ
-bHE
-bHE
+vfd
+vfd
 bJc
-bHE
-bHE
+vfd
+vfd
 doV
 leK
 bLv

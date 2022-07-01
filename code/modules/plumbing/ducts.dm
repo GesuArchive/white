@@ -168,8 +168,6 @@ All the important duct code:
 	lose_neighbours()
 	reset_connects(0)
 	update_icon()
-	if(ispath(drop_on_wrench))
-		new drop_on_wrench(drop_location())
 	if(!QDELETED(src))
 		qdel(src)
 
@@ -278,6 +276,8 @@ All the important duct code:
 		"[user] [anchored ? null : "un"]fastens \the [src].", \
 		span_notice("You [anchored ? null : "un"]fasten \the [src]."), \
 		span_hear("You hear ratcheting."))
+		if(ispath(drop_on_wrench))
+			new drop_on_wrench(drop_location())
 	return TRUE
 
 ///collection of all the sanity checks to prevent us from stacking ducts that shouldn't be stacked

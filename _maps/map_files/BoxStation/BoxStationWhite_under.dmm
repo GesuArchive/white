@@ -10420,6 +10420,7 @@
 	},
 /obj/effect/turf_decal/siding/thinplating,
 /obj/structure/cable,
+/obj/machinery/power/apc/auto_name/north,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/cargo/warehouse)
 "kaz" = (
@@ -10553,6 +10554,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
+"kgU" = (
+/obj/effect/turf_decal/bot,
+/obj/vehicle/ridden/forklift/cargo{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/cargo/warehouse)
 "khA" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
@@ -22700,6 +22708,9 @@
 /obj/effect/turf_decal/stripes/white/line,
 /obj/effect/turf_decal/trimline/brown/filled/corner{
 	dir = 1
+	},
+/obj/vehicle/ridden/forklift/service{
+	dir = 4
 	},
 /turf/open/floor/wood,
 /area/hallway/secondary/service)
@@ -43967,7 +43978,7 @@ uWf
 uWf
 wPG
 cQV
-cBM
+kgU
 cBM
 nBL
 cBM
