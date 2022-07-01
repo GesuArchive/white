@@ -351,9 +351,9 @@
 				if(job in GLOB.command_positions)
 					command_bold = " command"
 				if(job_datum in SSjob.prioritized_jobs)
-					dept_dat += "<a class='job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'><span class='priority'>[job_datum.ru_title] ([job_datum.current_positions])</span></a>"
+					dept_dat += "<a class='job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'><span class='priority'>[job_datum.ru_title] <span class='rightround'>[job_datum.current_positions]/[job_datum.total_positions]</span></span></a>"
 				else
-					dept_dat += "<a class='job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'>[job_datum.ru_title] ([job_datum.current_positions])</a>"
+					dept_dat += "<a class='job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'>[job_datum.ru_title] <span class='rightround'>[job_datum.current_positions]/[job_datum.total_positions]</span></a>"
 		if(!dept_dat.len)
 			dept_dat += span_nopositions("Нет свободных позиций.")
 		dat += jointext(dept_dat, "")
@@ -363,10 +363,10 @@
 			dat += "</td><td valign='top'>"
 	dat += "</td></tr></table></center>"
 	dat += "</div></div>"
-	var/ww = 750
+	var/ww = 774
 	var/hh = 750
 	if(GLOB.violence_mode_activated)
-		ww = 265
+		ww = 289
 		hh = 300
 	var/datum/browser/popup = new(src, "latechoices", "Выбери профессию", ww, hh)
 	popup.add_stylesheet("playeroptions", 'html/browser/playeroptions.css')

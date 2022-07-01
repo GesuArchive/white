@@ -1,7 +1,8 @@
 .job {
 	display: block;
-	width: 192px;
+	width: 200px;
 	margin-bottom: 5px !important;
+	line-height: 1.4 !important;
 }
 
 .command {
@@ -15,4 +16,8 @@
 
 .nopositions {
 	font-style: italic;
+}
+
+.rightround {
+	float: right;
 }
