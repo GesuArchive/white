@@ -121,7 +121,7 @@
 
 	for(var/obj/item/I in held_items)
 		if(!istype(I, /obj/item/clothing))
-			var/final_block_chance = I.block_chance - (clamp((armour_penetration-I.armour_penetration)/2,0,100)) + block_chance_modifier //So armour piercing blades can still be parried by other blades, for example
+			var/final_block_chance = I.block_chance - (clamp((armour_penetration - I.armour_penetration)/2,0,100)) + block_chance_modifier //So armour piercing blades can still be parried by other blades, for example
 			if(I.hit_reaction(src, AM, attack_text, final_block_chance, damage, attack_type))
 				if(attack_type == MELEE_ATTACK && a_intent == INTENT_HARM)
 					spawn(5)
@@ -150,10 +150,12 @@
 	if(next_move > world.time || !AM?.loc || !I || !isliving(AM.loc) || !(I in held_items))
 		return
 	var/mob/living/L = AM.loc
-	if(!L?.stat)
+	if(!L?.stat && mind)
 		I.attack(L, src)
-		changeNext_move(mind?.get_skill_modifier(/datum/skill/parry, SKILL_SPEED_MODIFIER))
-		mind?.adjust_experience(/datum/skill/parry, 50)
+		var/mutual_speed = mind.get_skill_modifier(/datum/skill/parry, SKILL_SPEED_MODIFIER)
+		mind.adjust_experience(/datum/skill/parry, 50)
+		changeNext_move(mutual_speed)
+		adjustStaminaLoss(mutual_speed)
 
 /mob/living/carbon/human/proc/check_block()
 	if(mind)

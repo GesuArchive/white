@@ -12,8 +12,6 @@
 		/obj/machinery/door/airlock/security/glass,
 		/obj/machinery/door/airlock/engineering,
 		/obj/machinery/door/airlock/engineering/glass,
-		// /obj/machinery/door/airlock/hydroponics,
-		// /obj/machinery/door/airlock/hydroponics/glass,
 		/obj/machinery/door/airlock/medical,
 		/obj/machinery/door/airlock/medical/glass,
 		/obj/machinery/door/airlock/command,
@@ -52,13 +50,6 @@
 			/datum/material/iron = MINERAL_MATERIAL_AMOUNT * 5,
 		),
 		/obj/machinery/door/airlock/engineering/glass = list(
-			/datum/material/iron = MINERAL_MATERIAL_AMOUNT * 5,
-			/datum/material/glass = MINERAL_MATERIAL_AMOUNT * 2,
-		),
-		/obj/machinery/door/airlock/hydroponics = list(
-			/datum/material/iron = MINERAL_MATERIAL_AMOUNT * 5,
-		),
-		/obj/machinery/door/airlock/hydroponics/glass = list(
 			/datum/material/iron = MINERAL_MATERIAL_AMOUNT * 5,
 			/datum/material/glass = MINERAL_MATERIAL_AMOUNT * 2,
 		),

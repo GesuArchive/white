@@ -48,7 +48,7 @@
 	if(.)
 		on_shield_block(owner, hitby, attack_text, damage, attack_type)
 
-/obj/item/shield/proc/defense_check(turf/aloc, turf/bloc, mobdir)
+/obj/item/proc/defense_check(turf/aloc, turf/bloc, mobdir)
 	. = FALSE
 	switch(mobdir)
 		if (1)

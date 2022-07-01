@@ -14,8 +14,8 @@
 
 	outfit = /datum/outfit/job/detective
 
-	skills = list(/datum/skill/ranged = SKILL_EXP_LEGENDARY, /datum/skill/parry = SKILL_EXP_EXPERT)
-	minimal_skills = list(/datum/skill/ranged = SKILL_EXP_LEGENDARY, /datum/skill/parry = SKILL_EXP_EXPERT)
+	skills = list(/datum/skill/ranged = SKILL_EXP_LEGENDARY, /datum/skill/parry = SKILL_EXP_NOVICE)
+	minimal_skills = list(/datum/skill/ranged = SKILL_EXP_LEGENDARY, /datum/skill/parry = SKILL_EXP_NOVICE)
 
 	paycheck = PAYCHECK_MEDIUM
 	paycheck_department = ACCOUNT_SEC
