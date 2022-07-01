@@ -2132,7 +2132,8 @@
 	var/datum/hud/active_hud = user?.hud_used
 
 	if(active_hud?.tooltip)
-		if(!isnewplayer(user) && (client?.prefs.w_toggles & TOOLTIP_USER_UP) && !(client?.prefs.w_toggles & TOOLTIP_USER_RETRO))
+		// (client?.prefs.w_toggles & TOOLTIP_USER_UP)
+		if(!isnewplayer(user) && !(client?.prefs.w_toggles & TOOLTIP_USER_RETRO))
 			active_hud.tooltip.maptext = "<span class='maptext reallybig yell' style='text-align: center; color: [isliving(src) ? "lime" : "white"];'>[uppertext(name)]</span>"
 		else
 			active_hud.tooltip.maptext = ""

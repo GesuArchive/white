@@ -594,7 +594,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				dat += SETUP_NODE_SWITCH("Метод скалирования", "scaling_method", button_name)
 
-			dat += SETUP_NODE_SWITCH("Названия предметов", "tooltip_user", (w_toggles & TOOLTIP_USER_UP) ? "Вкл" : "Выкл")
+			//dat += SETUP_NODE_SWITCH("Названия предметов", "tooltip_user", (w_toggles & TOOLTIP_USER_UP) ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Позиция на экране", "tooltip_pos", (w_toggles & TOOLTIP_USER_POS) ? "Внизу" : "Вверху")
 			dat += SETUP_NODE_SWITCH("Ретро-статусбар", "tooltip_retro", (w_toggles & TOOLTIP_USER_RETRO) ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Горизонтальная инверсия", "horiz_inv", (w_toggles & SCREEN_HORIZ_INV) ? "Вкл" : "Выкл")
@@ -1880,14 +1880,22 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					fullscreen = !fullscreen
 					parent.ToggleFullscreen()
 
-				if("tooltip_user")
-					w_toggles ^= TOOLTIP_USER_UP
+//				if("tooltip_user")
+//					w_toggles ^= TOOLTIP_USER_UP
 
 				if("tooltip_pos")
 					w_toggles ^= TOOLTIP_USER_POS
+					if(w_toggles & TOOLTIP_USER_POS)
+						user?.hud_used?.tooltip?.screen_loc = "SOUTH+1,CENTER-4:16"
+					else
+						user?.hud_used?.tooltip?.screen_loc = "TOP,CENTER-4:16"
 
 				if("tooltip_retro")
 					w_toggles ^= TOOLTIP_USER_RETRO
+					if(w_toggles & TOOLTIP_USER_RETRO)
+						winset(src, "mainwindow", "statusbar=true")
+					else
+						winset(src, "mainwindow", "statusbar=false")
 
 				if("horiz_inv")
 					w_toggles ^= SCREEN_HORIZ_INV
