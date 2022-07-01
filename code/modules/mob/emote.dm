@@ -52,24 +52,24 @@
 		return
 	if(!can_run_emote(user, intentional=intentional))
 		return
-	if(isliving(user))
+	if(isliving(user) && intentional)
 		var/mob/living/flippy_mcgee = user
 		if(prob(90) && !(HAS_TRAIT(user, TRAIT_FREERUNNING)))
 			flippy_mcgee.Knockdown(5 SECONDS)
 			flippy_mcgee.visible_message(
 				span_notice("[flippy_mcgee] пытается сделать кувырок и падает на голову, во чудила!") ,
-				span_notice("Пытаюсь сделать изящный кувырок, но спотыкаюсь и падаю!")
-			)
+				span_notice("Пытаюсь сделать изящный кувырок, но спотыкаюсь и падаю!"))
 			if(prob(75))
 				flippy_mcgee.adjustBruteLoss(5)
-				if(prob(50))
-					var/obj/item/bodypart/neckflip = flippy_mcgee.get_bodypart(BODY_ZONE_HEAD)
-					neckflip.force_wound_upwards(/datum/wound/blunt/critical)
 		else
 			flippy_mcgee.visible_message(
 				span_notice("[flippy_mcgee] пытается удержать баланс после прыжка.") ,
-				span_notice("Ух...")
-			)
+				span_notice("Ух..."))
+
+	var/atom/movable/plane_master_controller/pm_controller = user?.hud_used?.plane_master_controllers?[PLANE_MASTERS_GAME]
+	if(pm_controller)
+		for(var/key in pm_controller.controlled_planes)
+			animate(pm_controller.controlled_planes[key], transform = matrix(360, MATRIX_ROTATE), time = 7, easing = LINEAR_EASING)
 
 /datum/emote/spin
 	key = "spin"
