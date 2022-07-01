@@ -35,14 +35,14 @@
 		return
 	next_line_time = world.time
 	msg = trim(msg, maxchars)
-	next_line_time += length(msg)*charcd * 2
+	next_line_time += length(msg) * charcd * 2
 	if(lang)
 		owner.tts(msg, lang, freq = frequency)
 	else
-		var/lang_to_use = "baya" // plural go fuck
+		var/lang_to_use = "eugene" // plural go fuck
 		switch(owner.gender)
 			if(MALE)
-				lang_to_use = "eugene"
+				lang_to_use = "aidar"
 			if(FEMALE)
 				lang_to_use = "xenia"
 		owner.tts(msg, lang_to_use, freq = frequency)
