@@ -68,7 +68,7 @@
 /obj/vehicle/ridden/forklift/proc/fortnite_check(mob/source, list/speech_args)
 	SIGNAL_HANDLER
 	var/message = speech_args[SPEECH_MESSAGE]
-	if(findtext(message, "fortnite"))
+	if(findtext(message, "фортнайт"))
 		source.balloon_alert_to_viewers("smited by God for [source.p_their()] crimes!")
 		var/mob/living/living_mob = source
 		living_mob.gib(TRUE) // no coming back from fortnite
@@ -138,8 +138,9 @@
 	else
 		current_module.on_scrollwheel(source, A, scrolled_up)
 
-/obj/vehicle/ridden/forklift/proc/on_click(mob/source, atom/clickingon, list/modifiers)
+/obj/vehicle/ridden/forklift/proc/on_click(mob/source, atom/clickingon, params)
 	SIGNAL_HANDLER
+	var/list/modifiers = params2list(params)
 	if(modifiers[ALT_CLICK] || modifiers[SHIFT_CLICK])
 		return // Allow removing the keys from the forklift and examining things.
 	if(clickingon == src)
