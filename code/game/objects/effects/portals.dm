@@ -1,10 +1,10 @@
 
-/proc/create_portal_pair(turf/source, turf/destination, _lifespan = 300, accuracy = 0, newtype = /obj/effect/portal, atmos_link_override)
+/proc/create_portal_pair(turf/source, turf/destination, _lifespan = 300, accuracy = 0, newtype = /obj/effect/portal)
 	if(!istype(source) || !istype(destination))
 		return
 	var/turf/actual_destination = get_teleport_turf(destination, accuracy)
-	var/obj/effect/portal/P1 = new newtype(source, _lifespan, null, FALSE, null, atmos_link_override)
-	var/obj/effect/portal/P2 = new newtype(actual_destination, _lifespan, P1, TRUE, null, atmos_link_override)
+	var/obj/effect/portal/P1 = new newtype(source, _lifespan, null, FALSE, null)
+	var/obj/effect/portal/P2 = new newtype(actual_destination, _lifespan, P1, TRUE, null)
 	if(!istype(P1)||!istype(P2))
 		return
 	P1.link_portal(P2)
@@ -73,7 +73,7 @@
 	if(Adjacent(user))
 		user.forceMove(get_turf(src))
 
-/obj/effect/portal/Initialize(mapload, _lifespan = 0, obj/effect/portal/_linked, automatic_link = FALSE, turf/hard_target_override, atmos_link_override)
+/obj/effect/portal/Initialize(mapload, _lifespan = 0, obj/effect/portal/_linked, automatic_link = FALSE, turf/hard_target_override)
 	. = ..()
 	GLOB.portals += src
 	if(!istype(_linked) && automatic_link)
@@ -81,8 +81,6 @@
 		CRASH("Somebody fucked up.")
 	if(_lifespan > 0)
 		QDEL_IN(src, _lifespan)
-	if(!isnull(atmos_link_override))
-		atmos_link = atmos_link_override
 	link_portal(_linked)
 	hardlinked = automatic_link
 	if(isturf(hard_target_override))
