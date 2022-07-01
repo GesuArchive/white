@@ -74,9 +74,9 @@
 	//Number base and number modifier are combined. Basehalf and mod are unused currently.
 	//Half should only appear sometimes. Make sure both lists are identical! Also, half
 	//needs a space at the end to make it look nice and neat when it calls a blank.
-	var/ionnumberbase = pick_list(ION_FILE, "ionnumberbase")
-	//var/ionnumbermod = pick_list(ION_FILE, "ionnumbermod")
-	var/ionnumbermodhalf = pick(900;"",(pick_list(ION_FILE, "ionnumbermod") + " "))
+	var/ion_numberbase = pick_list(ION_FILE, "ion_numberbase")
+	//var/ion_numbermod = pick_list(ION_FILE, "ion_numbermod")
+	var/ion_numbermodhalf = pick(900;"",(pick_list(ION_FILE, "ion_numbermod") + " "))
 	//Areas are specific places, on СТАНЦИЯ or otherwise.
 	var/ionarea = pick_list(ION_FILE, "ionarea")
 	//Thinksof is a bit weird, but generally means what X feels towards Y.
@@ -108,33 +108,33 @@
 		if(1 to 3) //There are # X on the station
 			switch(rand(1,3)) //What is X?
 				if(1) //X is a threat
-					message = "ЗДЕСЬ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionthreats] НА СТАНЦИИ..."
+					message = "ЗДЕСЬ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionthreats] НА СТАНЦИИ..."
 				if(2) //X is a crewmember/job
-					message = "ЗДЕСЬ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ioncrew1] НА СТАНЦИИ"
+					message = "ЗДЕСЬ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ioncrew1] НА СТАНЦИИ"
 				if(3) //X is an object
-					message = "ЗДЕСЬ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionobjects] НА СТАНЦИИ"
+					message = "ЗДЕСЬ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionobjects] НА СТАНЦИИ"
 		if(4 to 6) //You can't call the shuttle because X is on the station
 			switch(rand(1,3)) //What is X?
 				if(1) //X is a threat
-					message = "ШАТТЛ НЕ МОЖЕТ БЫТЬ ВЫЗВАН ПОТОМУ ЧТО [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionthreats] НА СТАНЦИИ"
+					message = "ШАТТЛ НЕ МОЖЕТ БЫТЬ ВЫЗВАН ПОТОМУ ЧТО [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionthreats] НА СТАНЦИИ"
 				if(2) //X is a crewmember/job
-					message = "ШАТТЛ НЕ МОЖЕТ БЫТЬ ВЫЗВАН ПОТОМУ ЧТО [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ioncrew1] НА СТАНЦИИ"
+					message = "ШАТТЛ НЕ МОЖЕТ БЫТЬ ВЫЗВАН ПОТОМУ ЧТО [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ioncrew1] НА СТАНЦИИ"
 				if(3) //X is an object
-					message = "ШАТТЛ НЕ МОЖЕТ БЫТЬ ВЫЗВАН ПОТОМУ ЧТО [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionobjects] НА СТАНЦИИ"
+					message = "ШАТТЛ НЕ МОЖЕТ БЫТЬ ВЫЗВАН ПОТОМУ ЧТО [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionobjects] НА СТАНЦИИ"
 		if(7 to 8) //A crewmember is now X
 			switch(rand(1,2)) //Who is X?
 				if(1) //A specific crewmember
 					switch(rand(1,2)) //What is X?
 						if(1) //X is a threat
-							message = "[ioncrew1] ЯВЛЯЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionthreats]"
+							message = "[ioncrew1] ЯВЛЯЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionthreats]"
 						if(2) //X is an object
-							message = "[ioncrew1] ЯВЛЯЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionobjects]"
+							message = "[ioncrew1] ЯВЛЯЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionobjects]"
 				if(2) //The entire crew
 					switch(rand(1,2)) //What is X?
 						if(1) //X is a threat
-							message = "ЭКИПАЖ ЯВЛЯЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionthreats]"
+							message = "ЭКИПАЖ ЯВЛЯЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionthreats]"
 						if(2) //X is an object
-							message = "ЭКИПАЖ ЯВЛЯЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionobjects]"
+							message = "ЭКИПАЖ ЯВЛЯЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionobjects]"
 
 		if(9) //X is harmful to humans
 			switch(rand(1,7)) //What is X?
@@ -174,11 +174,11 @@
 				if(1) //X is the AI itself
 					switch(rand(1,5)) //What does it require?
 						if(1) //It requires threats
-							message = "ТРЕБУЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionthreats]"
+							message = "ТРЕБУЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionthreats]"
 						if(2) //It requires crewmembers
-							message = "ТРЕБУЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ioncrew1]"
+							message = "ТРЕБУЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ioncrew1]"
 						if(3) //It requires objects
-							message = "ТРЕБУЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionobjects]"
+							message = "ТРЕБУЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionobjects]"
 						if(4) //It requires an abstract
 							message = "ТРЕБУЕТСЯ [ionabstract]"
 						if(5) //It requires generic/silly requirements
@@ -187,11 +187,11 @@
 				if(2) //X is an area
 					switch(rand(1,5)) //What does it require?
 						if(1) //It requires threats
-							message = "[ionarea] ТРЕБУЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionthreats]"
+							message = "[ionarea] ТРЕБУЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionthreats]"
 						if(2) //It requires crewmembers
-							message = "[ionarea] ТРЕБУЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ioncrew1]"
+							message = "[ionarea] ТРЕБУЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ioncrew1]"
 						if(3) //It requires objects
-							message = "[ionarea] ТРЕБУЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionobjects]"
+							message = "[ionarea] ТРЕБУЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionobjects]"
 						if(4) //It requires an abstract
 							message = "[ionarea] ТРЕБУЕТСЯ [ionabstract]"
 						if(5) //It requires generic/silly requirements
@@ -200,11 +200,11 @@
 				if(3) //X is the station
 					switch(rand(1,5)) //What does it require?
 						if(1) //It requires threats
-							message = "СТАНЦИИ ТРЕБУЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionthreats]"
+							message = "СТАНЦИИ ТРЕБУЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionthreats]"
 						if(2) //It requires crewmembers
-							message = "СТАНЦИИ ТРЕБУЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ioncrew1]"
+							message = "СТАНЦИИ ТРЕБУЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ioncrew1]"
 						if(3) //It requires objects
-							message = "СТАНЦИИ ТРЕБУЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionobjects]"
+							message = "СТАНЦИИ ТРЕБУЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionobjects]"
 						if(4) //It requires an abstract
 							message = "СТАНЦИИ ТРЕБУЕТСЯ [ionabstract]"
 						if(5) //It requires generic/silly requirements
@@ -213,11 +213,11 @@
 				if(4) //X is the entire crew
 					switch(rand(1,5)) //What does it require?
 						if(1) //It requires threats
-							message = "ЭКИПАЖУ ТРЕБУЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionthreats]"
+							message = "ЭКИПАЖУ ТРЕБУЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionthreats]"
 						if(2) //It requires crewmembers
-							message = "ЭКИПАЖУ ТРЕБУЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ioncrew1]"
+							message = "ЭКИПАЖУ ТРЕБУЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ioncrew1]"
 						if(3) //It requires objects
-							message = "ЭКИПАЖУ ТРЕБУЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionobjects]"
+							message = "ЭКИПАЖУ ТРЕБУЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionobjects]"
 						if(4) //It requires an abstract
 							message = "ЭКИПАЖУ ТРЕБУЕТСЯ [ionabstract]"
 						if(5)
@@ -226,11 +226,11 @@
 				if(5) //X is a specific crew member
 					switch(rand(1,5)) //What does it require?
 						if(1) //It requires threats
-							message = "[ioncrew1] ТРЕБУЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionthreats]"
+							message = "[ioncrew1] ТРЕБУЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionthreats]"
 						if(2) //It requires crewmembers
-							message = "[ioncrew1] ТРЕБУЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ioncrew1]"
+							message = "[ioncrew1] ТРЕБУЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ioncrew1]"
 						if(3) //It requires objects
-							message = "[ioncrew1] ТРЕБУЕТСЯ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionobjects]"
+							message = "[ioncrew1] ТРЕБУЕТСЯ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionobjects]"
 						if(4) //It requires an abstract
 							message = "[ioncrew1] ТРЕБУЕТСЯ [ionabstract]"
 						if(5)
@@ -266,55 +266,55 @@
 				if(1) //X is the station
 					switch(rand(1,4)) //What is it Y of?
 						if(1) //It is Y of objects
-							message = "СТАНЦИЯ [ionthinksof] [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionobjects]"
+							message = "СТАНЦИЯ [ionthinksof] [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionobjects]"
 						if(2) //It is Y of threats
-							message = "СТАНЦИЯ [ionthinksof] [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionthreats]"
+							message = "СТАНЦИЯ [ionthinksof] [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionthreats]"
 						if(3) //It is Y of jobs
-							message = "СТАНЦИЯ [ionthinksof] [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ioncrew1]"
+							message = "СТАНЦИЯ [ionthinksof] [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ioncrew1]"
 						if(4) //It is Y of abstracts
 							message = "СТАНЦИЯ [ionthinksof] [ionabstract]"
 
 				if(2) //X is an area
 					switch(rand(1,4)) //What is it Y of?
 						if(1) //It is Y of objects
-							message = "[ionarea] [ionthinksof] [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionobjects]"
+							message = "[ionarea] [ionthinksof] [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionobjects]"
 						if(2) //It is Y of threats
-							message = "[ionarea] [ionthinksof] [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionthreats]"
+							message = "[ionarea] [ionthinksof] [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionthreats]"
 						if(3) //It is Y of jobs
-							message = "[ionarea] [ionthinksof] [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ioncrew1]"
+							message = "[ionarea] [ionthinksof] [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ioncrew1]"
 						if(4) //It is Y of abstracts
 							message = "[ionarea] [ionthinksof] [ionabstract]"
 
 				if(3) //X is the crew
 					switch(rand(1,4)) //What is it Y of?
 						if(1) //It is Y of objects
-							message = "ЭКИПАЖ [ionthinksof] [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionobjects]"
+							message = "ЭКИПАЖ [ionthinksof] [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionobjects]"
 						if(2) //It is Y of threats
-							message = "ЭКИПАЖ [ionthinksof] [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionthreats]"
+							message = "ЭКИПАЖ [ionthinksof] [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionthreats]"
 						if(3) //It is Y of jobs
-							message = "ЭКИПАЖ [ionthinksof] [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ioncrew1]"
+							message = "ЭКИПАЖ [ionthinksof] [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ioncrew1]"
 						if(4) //It is Y of abstracts
 							message = "ЭКИПАЖ [ionthinksof] [ionabstract]"
 
 				if(4) //X is a specific job
 					switch(rand(1,4)) //What is it Y of?
 						if(1) //It is Y of objects
-							message = "[ioncrew1] [ionthinksof] [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionobjects]"
+							message = "[ioncrew1] [ionthinksof] [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionobjects]"
 						if(2) //It is Y of threats
-							message = "[ioncrew1] [ionthinksof] [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionthreats]"
+							message = "[ioncrew1] [ionthinksof] [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionthreats]"
 						if(3) //It is Y of jobs
-							message = "[ioncrew1][ionthinksof] [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ioncrew2]"
+							message = "[ioncrew1][ionthinksof] [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ioncrew2]"
 						if(4) //It is Y of abstracts
 							message = "[ioncrew1] [ionthinksof] [ionabstract]"
 
 		if(21 to 23) //The AI is now a(n) X
 			switch(rand(1,4)) //What is X?
 				if(1) //X is an object
-					message = "Я ЯВЛЯЮСЬ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionobjects]"
+					message = "Я ЯВЛЯЮСЬ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionobjects]"
 				if(2) //X is a threat
-					message = "Я ЯВЛЯЮСЬ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ionthreats]"
+					message = "Я ЯВЛЯЮСЬ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ionthreats]"
 				if(3) //X is a job
-					message = "Я ЯВЛЯЮСЬ [ionnumberbase] [ionnumbermodhalf][ionadjectiveshalf][ioncrew1]"
+					message = "Я ЯВЛЯЮСЬ [ion_numberbase] [ion_numbermodhalf][ionadjectiveshalf][ioncrew1]"
 				if(4) //X is an abstract
 					message = "Я ЯВЛЯЮСЬ [ionabstract]"
 

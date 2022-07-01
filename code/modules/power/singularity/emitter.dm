@@ -108,7 +108,7 @@
 			. += span_notice("\nЕго индикатор состояния слабо светится.")
 		else
 			. += span_notice("\nЕго индикатор состояния показывает: излучение каждые <b>[DisplayTimeText(fire_delay)]</b>.")
-			. += span_notice("\nПотребление энергии: <b>[DisplayPower(active_power_usage)]</b>.")
+			. += span_notice("\nПотребление энергии: <b>[display_power(active_power_usage)]</b>.")
 
 /obj/machinery/power/emitter/ComponentInitialize()
 	. = ..()

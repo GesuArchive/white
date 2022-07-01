@@ -172,7 +172,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	UI_style = GLOB.available_ui_styles[1]
 	if(istype(C))
-		if(!IsGuestKey(C.key))
+		if(!is_guest_key(C.key))
 			load_path(C.ckey)
 	var/loaded_preferences_successfully = load_preferences()
 	if(loaded_preferences_successfully)
@@ -180,7 +180,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			return
 	//we couldn't load character data so just randomize the character appearance + name
 	random_character()		//let's create a random character then - rather than a fat, bald and naked man.
-	key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key) // give them default keybinds and update their movement keys
+	key_bindings = deep_copy_list(GLOB.hotkey_keybinding_list_by_key) // give them default keybinds and update their movement keys
 	C?.set_macros()
 	real_name = pref_species.random_name(gender, 1, en_lang = en_names)
 	if(!loaded_preferences_successfully)
@@ -744,7 +744,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "</div>"
 	dat += "<hr><center>"
 
-	if(!IsGuestKey(user.key))
+	if(!is_guest_key(user.key))
 		dat += "<a href='?_src_=prefs;preference=load'>Отмена</a> "
 		dat += "<a href='?_src_=prefs;preference=save'>Сохранить</a> "
 
@@ -1726,7 +1726,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						ShowChoices(user)
 						return
 					hotkeys = (choice == "Хоткеи")
-					key_bindings = (hotkeys) ? deepCopyList(GLOB.hotkey_keybinding_list_by_key) : deepCopyList(GLOB.classic_keybinding_list_by_key)
+					key_bindings = (hotkeys) ? deep_copy_list(GLOB.hotkey_keybinding_list_by_key) : deep_copy_list(GLOB.classic_keybinding_list_by_key)
 					user.client.set_macros()
 
 				if("chat_on_map")

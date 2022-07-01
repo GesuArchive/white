@@ -38,4 +38,4 @@
 
 /obj/item/ammo_casing/caseless/pissball/examine(mob/user)
 	. = ..()
-	. -= "<hr><span class='smallnoticeital'>Это [weightclass2text(w_class)] размера предмет.</span>"
+	. -= "<hr><span class='smallnoticeital'>Это [weight_class_to_text(w_class)] размера предмет.</span>"

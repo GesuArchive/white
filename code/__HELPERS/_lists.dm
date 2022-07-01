@@ -52,7 +52,7 @@
 #define LAZYCLEARLIST(L) if(L) L.Cut()
 ///Returns the list if it's actually a valid list, otherwise will initialize it
 #define SANITIZE_LIST(L) ( islist(L) ? L : list() )
-#define reverseList(L) reverseRange(L.Copy())
+#define reverseList(L) reverse_range(L.Copy())
 
 /// Performs an insertion on the given lazy list with the given key and value. If the value already exists, a new one will not be made.
 #define LAZYORASSOCLIST(lazy_list, key, value) \
@@ -433,13 +433,12 @@
 /proc/sort_list(list/L, cmp=/proc/cmp_text_asc)
 	return sortTim(L.Copy(), cmp)
 
-//uses sort_list() but uses the var's name specifically. This should probably be using mergeAtom() instead
-/proc/sortNames(list/L, order=1)
-	return sortTim(L.Copy(), order >= 0 ? /proc/cmp_name_asc : /proc/cmp_name_dsc)
-
+///uses sort_list() but uses the var's name specifically. This should probably be using mergeAtom() instead
+/proc/sort_names(list/list_to_sort, order=1)
+	return sortTim(list_to_sort.Copy(), order >= 0 ? /proc/cmp_name_asc : /proc/cmp_name_dsc)
 
 //Converts a bitfield to a list of numbers (or words if a wordlist is provided)
-/proc/bitfield2list(bitfield = 0, list/wordlist)
+/proc/bitfield_to_list(bitfield = 0, list/wordlist)
 	var/list/r = list()
 	if(islist(wordlist))
 		var/max = min(wordlist.len,16)
@@ -472,121 +471,123 @@
 			return R
 	return null
 
-
-//Move a single element from position fromIndex within a list, to position toIndex
-//All elements in the range [1,toIndex) before the move will be before the pivot afterwards
-//All elements in the range [toIndex, L.len+1) before the move will be after the pivot afterwards
-//In other words, it's as if the range [fromIndex,toIndex) have been rotated using a <<< operation common to other languages.
-//fromIndex and toIndex must be in the range [1,L.len+1]
-//This will preserve associations ~Carnie
-/proc/moveElement(list/L, fromIndex, toIndex)
-	if(fromIndex == toIndex || fromIndex+1 == toIndex)	//no need to move
+/**
+ * Move a single element from position from_index within a list, to position to_index
+ * All elements in the range [1,to_index) before the move will be before the pivot afterwards
+ * All elements in the range [to_index, L.len+1) before the move will be after the pivot afterwards
+ * In other words, it's as if the range [from_index,to_index) have been rotated using a <<< operation common to other languages.
+ * from_index and to_index must be in the range [1,L.len+1]
+ * This will preserve associations ~Carnie
+**/
+/proc/move_element(list/inserted_list, from_index, to_index)
+	if(from_index == to_index || from_index + 1 == to_index) //no need to move
 		return
-	if(fromIndex > toIndex)
-		++fromIndex	//since a null will be inserted before fromIndex, the index needs to be nudged right by one
+	if(from_index > to_index)
+		++from_index //since a null will be inserted before from_index, the index needs to be nudged right by one
 
-	L.Insert(toIndex, null)
-	L.Swap(fromIndex, toIndex)
-	L.Cut(fromIndex, fromIndex+1)
+	inserted_list.Insert(to_index, null)
+	inserted_list.Swap(from_index, to_index)
+	inserted_list.Cut(from_index, from_index + 1)
 
+/**
+ * Move elements [from_index,from_index+len) to [to_index-len, to_index)
+ * Same as moveElement but for ranges of elements
+ * This will preserve associations ~Carnie
+**/
+/proc/move_range(list/inserted_list, from_index, to_index, len = 1)
+	var/distance = abs(to_index - from_index)
+	if(len >= distance) //there are more elements to be moved than the distance to be moved. Therefore the same result can be achieved (with fewer operations) by moving elements between where we are and where we are going. The result being, our range we are moving is shifted left or right by dist elements
+		if(from_index <= to_index)
+			return //no need to move
+		from_index += len //we want to shift left instead of right
 
-//Move elements [fromIndex,fromIndex+len) to [toIndex-len, toIndex)
-//Same as moveElement but for ranges of elements
-//This will preserve associations ~Carnie
-/proc/moveRange(list/L, fromIndex, toIndex, len=1)
-	var/distance = abs(toIndex - fromIndex)
-	if(len >= distance)	//there are more elements to be moved than the distance to be moved. Therefore the same result can be achieved (with fewer operations) by moving elements between where we are and where we are going. The result being, our range we are moving is shifted left or right by dist elements
-		if(fromIndex <= toIndex)
-			return	//no need to move
-		fromIndex += len	//we want to shift left instead of right
-
-		for(var/i=0, i<distance, ++i)
-			L.Insert(fromIndex, null)
-			L.Swap(fromIndex, toIndex)
-			L.Cut(toIndex, toIndex+1)
+		for(var/i in 1 to distance)
+			inserted_list.Insert(from_index, null)
+			inserted_list.Swap(from_index, to_index)
+			inserted_list.Cut(to_index, to_index + 1)
 	else
-		if(fromIndex > toIndex)
-			fromIndex += len
+		if(from_index > to_index)
+			from_index += len
 
-		for(var/i=0, i<len, ++i)
-			L.Insert(toIndex, null)
-			L.Swap(fromIndex, toIndex)
-			L.Cut(fromIndex, fromIndex+1)
+		for(var/i in 1 to len)
+			inserted_list.Insert(to_index, null)
+			inserted_list.Swap(from_index, to_index)
+			inserted_list.Cut(from_index, from_index + 1)
 
-//Move elements from [fromIndex, fromIndex+len) to [toIndex, toIndex+len)
-//Move any elements being overwritten by the move to the now-empty elements, preserving order
-//Note: if the two ranges overlap, only the destination order will be preserved fully, since some elements will be within both ranges ~Carnie
-/proc/swapRange(list/L, fromIndex, toIndex, len=1)
-	var/distance = abs(toIndex - fromIndex)
-	if(len > distance)	//there is an overlap, therefore swapping each element will require more swaps than inserting new elements
-		if(fromIndex < toIndex)
-			toIndex += len
+///Move elements from [from_index, from_index+len) to [to_index, to_index+len)
+///Move any elements being overwritten by the move to the now-empty elements, preserving order
+///Note: if the two ranges overlap, only the destination order will be preserved fully, since some elements will be within both ranges ~Carnie
+/proc/swap_range(list/inserted_list, from_index, to_index, len=1)
+	var/distance = abs(to_index - from_index)
+	if(len > distance) //there is an overlap, therefore swapping each element will require more swaps than inserting new elements
+		if(from_index < to_index)
+			to_index += len
 		else
-			fromIndex += len
+			from_index += len
 
-		for(var/i=0, i<distance, ++i)
-			L.Insert(fromIndex, null)
-			L.Swap(fromIndex, toIndex)
-			L.Cut(toIndex, toIndex+1)
+		for(var/i in 1 to distance)
+			inserted_list.Insert(from_index, null)
+			inserted_list.Swap(from_index, to_index)
+			inserted_list.Cut(to_index, to_index + 1)
 	else
-		if(toIndex > fromIndex)
-			var/a = toIndex
-			toIndex = fromIndex
-			fromIndex = a
+		if(to_index > from_index)
+			var/a = to_index
+			to_index = from_index
+			from_index = a
 
-		for(var/i=0, i<len, ++i)
-			L.Swap(fromIndex++, toIndex++)
+		for(var/i in 1 to len)
+			inserted_list.Swap(from_index++, to_index++)
 
-//replaces reverseList ~Carnie
-/proc/reverseRange(list/L, start=1, end=0)
-	if(L.len)
-		start = start % L.len
-		end = end % (L.len+1)
+///replaces reverseList ~Carnie
+/proc/reverse_range(list/inserted_list, start = 1, end = 0)
+	if(inserted_list.len)
+		start = start % inserted_list.len
+		end = end % (inserted_list.len + 1)
 		if(start <= 0)
-			start += L.len
+			start += inserted_list.len
 		if(end <= 0)
-			end += L.len + 1
+			end += inserted_list.len + 1
 
 		--end
 		while(start < end)
-			L.Swap(start++,end--)
+			inserted_list.Swap(start++, end--)
 
-	return L
+	return inserted_list
 
-
-//return first thing in L which has var/varname == value
-//this is typecaste as list/L, but you could actually feed it an atom instead.
-//completely safe to use
-/proc/getElementByVar(list/L, varname, value)
+///return first thing in L which has var/varname == value
+///this is typecaste as list/L, but you could actually feed it an atom instead.
+///completely safe to use
+/proc/get_element_by_var(list/inserted_list, varname, value)
 	varname = "[varname]"
-	for(var/datum/D in L)
-		if(D.vars.Find(varname))
-			if(D.vars[varname] == value)
-				return D
+	for(var/datum/checked_datum in inserted_list)
+		if(!checked_datum.vars.Find(varname))
+			continue
+		if(checked_datum.vars[varname] == value)
+			return checked_datum
 
-//remove all nulls from a list
-/proc/removeNullsFromList(list/L)
-	while(L.Remove(null))
+///remove all nulls from a list
+/proc/remove_nulls_from_list(list/inserted_list)
+	while(inserted_list.Remove(null))
 		continue
-	return L
+	return inserted_list
 
-//Copies a list, and all lists inside it recusively
-//Does not copy any other reference type
-/proc/deepCopyList(list/l)
-	if(!islist(l))
-		return l
-	. = l.Copy()
-	for(var/i = 1 to l.len)
+///Copies a list, and all lists inside it recusively
+///Does not copy any other reference type
+/proc/deep_copy_list(list/inserted_list)
+	if(!islist(inserted_list))
+		return inserted_list
+	. = inserted_list.Copy()
+	for(var/i in 1 to inserted_list.len)
 		var/key = .[i]
 		if(isnum(key))
 			// numbers cannot ever be associative keys
 			continue
 		var/value = .[key]
 		if(islist(value))
-			value = deepCopyList(value)
+			value = deep_copy_list(value)
 			.[key] = value
 		if(islist(key))
-			key = deepCopyList(key)
+			key = deep_copy_list(key)
 			.[i] = key
 			.[key] = value
 
@@ -676,13 +677,13 @@
 	return TRUE
 
 //Mergesort: any value in a list, preserves key=value structure
-/proc/sortAssoc(list/L)
+/proc/sort_assoc(list/L)
 	if(L.len < 2)
 		return L
 	var/middle = L.len / 2 + 1 // Copy is first,second-1
-	return mergeAssoc(sortAssoc(L.Copy(0,middle)), sortAssoc(L.Copy(middle))) //second parameter null = to end of list
+	return merge_assoc(sort_assoc(L.Copy(0,middle)), sort_assoc(L.Copy(middle))) //second parameter null = to end of list
 
-/proc/mergeAssoc(list/L, list/R)
+/proc/merge_assoc(list/L, list/R)
 	var/Li=1
 	var/Ri=1
 	var/list/result = new()
@@ -705,3 +706,12 @@
 			? right_list.Copy()\
 			: null\
 	)
+
+///Returns a list with items filtered from a list that can call callback
+/proc/special_list_filter(list/list_to_filter, datum/callback/condition)
+	if(!islist(list_to_filter) || !length(list_to_filter) || !istype(condition))
+		return list()
+	. = list()
+	for(var/i in list_to_filter)
+		if(condition.Invoke(i))
+			. |= i

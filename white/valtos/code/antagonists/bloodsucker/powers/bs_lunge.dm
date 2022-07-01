@@ -60,7 +60,7 @@
 	owner.pulling = null
 
 	// Will we Knock them Down?
-	var/do_knockdown = !is_A_facing_B(target,owner) || owner.alpha <= 0 || istype(owner.loc, /obj/structure/closet)
+	var/do_knockdown = !is_source_facing_target(target,owner) || owner.alpha <= 0 || istype(owner.loc, /obj/structure/closet)
 	// CAUSES: Target has their back to me, I'm invisible, or I'm in a Closet
 
 	// Step One: Heatseek toward Target's Turf

@@ -983,7 +983,7 @@ G&@@@@@@@@@#5@@@@@&PBP555555555PGGBP&@&&@@@@@@&&&&&&&&@&#BGB&@@@@@@@@@@@#GPPPPPP
 		to_chat(src, "No usable AI shell beacons detected.")
 
 	if(!target || !(target in possible)) //If the AI is looking for a new shell, or its pre-selected shell is no longer valid
-		target = tgui_input_list(src, "Какую оболочку хотите контролировать?", "Прямое Управление", sortNames(possible))
+		target = tgui_input_list(src, "Какую оболочку хотите контролировать?", "Прямое Управление", sort_names(possible))
 
 	if (!target || target.stat == DEAD || target.deployed || !(!target.connected_ai ||(target.connected_ai == src)) || (target.ratvar && !is_servant_of_ratvar(src)))
 		return

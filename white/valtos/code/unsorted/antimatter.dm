@@ -370,7 +370,7 @@
 	data["linked_cores"] = linked_cores.len
 	data["reported_core_efficiency"] = reported_core_efficiency
 	data["stored_core_stability"] = stored_core_stability
-	data["stored_power"] = DisplayPower(stored_power)
+	data["stored_power"] = display_power(stored_power)
 	if(fueljar)
 		data["fueljar"] = uppertext(fueljar.name)
 		data["fuel"] = fueljar.fuel

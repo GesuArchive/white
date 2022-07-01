@@ -111,7 +111,7 @@
 	for(var/mob/M in GLOB.mob_list)
 		if(M.mind)
 			minds |= M.mind
-	var/datum/mind/value = tgui_input_list(usr, "Select new member:", "New team member", sortNames(minds))
+	var/datum/mind/value = tgui_input_list(usr, "Select new member:", "New team member", sort_names(minds))
 	if (!value)
 		return
 

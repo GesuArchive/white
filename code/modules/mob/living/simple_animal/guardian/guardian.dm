@@ -455,7 +455,7 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 		if(P.reset)
 			guardians -= P //clear out guardians that are already reset
 	if(guardians.len)
-		var/mob/living/simple_animal/hostile/guardian/G = tgui_input_list(src, "Pick the guardian you wish to reset", "Guardian Reset", sortNames(guardians))
+		var/mob/living/simple_animal/hostile/guardian/G = tgui_input_list(src, "Pick the guardian you wish to reset", "Guardian Reset", sort_names(guardians))
 		if(G)
 			to_chat(src, span_holoparasite("You attempt to reset <font color=\"[G.guardiancolor]\"><b>[G.real_name]</b></font>'s personality..."))
 			var/list/mob/dead/observer/candidates = poll_ghost_candidates("Do you want to play as [src.real_name] [G.real_name]?", ROLE_PAI, FALSE, 100)

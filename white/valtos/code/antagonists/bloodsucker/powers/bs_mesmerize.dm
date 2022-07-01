@@ -71,12 +71,12 @@
 			to_chat(owner, span_warning("You're too far outside your victim's view."))
 		return FALSE
 	// Check: Facing target?
-	if (!is_A_facing_B(owner,target))	// in unsorted.dm
+	if (!is_source_facing_target(owner,target))	// in unsorted.dm
 		if (display_error)
 			to_chat(owner, span_warning("You must be facing your victim."))
 		return FALSE
 	// Check: Target facing me?
-	if ((target.mobility_flags & MOBILITY_STAND) && !is_A_facing_B(target,owner))
+	if ((target.mobility_flags & MOBILITY_STAND) && !is_source_facing_target(target,owner))
 		if (display_error)
 			to_chat(owner, span_warning("Your victim must be facing you to see into your eyes."))
 		return FALSE

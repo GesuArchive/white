@@ -12,7 +12,7 @@
  */
 /obj/item/clothing/suit/space/space_ninja/proc/ninjanet()
 	var/mob/living/carbon/human/ninja = affecting
-	var/mob/living/net_target = tgui_input_list(usr, "Select who to capture:", "Capture who?", sortNames(oview(ninja)))
+	var/mob/living/net_target = tgui_input_list(usr, "Select who to capture:", "Capture who?", sort_names(oview(ninja)))
 
 	if(QDELETED(net_target)||!(net_target in oview(ninja)))
 		return

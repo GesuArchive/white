@@ -239,7 +239,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 		droppable_parts += assembly.proxy_module
 	if(!droppable_parts.len)
 		return
-	var/obj/item/choice = tgui_input_list(user, "Убираем мы:", src, sortNames(droppable_parts))
+	var/obj/item/choice = tgui_input_list(user, "Убираем мы:", src, sort_names(droppable_parts))
 	if(!choice || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return
 	to_chat(user, span_notice("Вытаскиваю [choice] из [src]."))

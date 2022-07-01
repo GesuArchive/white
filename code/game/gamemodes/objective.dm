@@ -46,7 +46,7 @@ GLOBAL_VAR_INIT(is_cargo_sabotaged, FALSE)
 		if ((possible_target != src) && ishuman(possible_target.current))
 			possible_targets += possible_target.current
 
-	possible_targets = list("Ничего", "Random") + sortNames(possible_targets)
+	possible_targets = list("Ничего", "Random") + sort_names(possible_targets)
 
 
 	if(target?.current)
@@ -692,7 +692,7 @@ GLOBAL_LIST_EMPTY(possible_items)
 
 /datum/objective/steal/admin_edit(mob/admin)
 	var/list/possible_items_all = GLOB.possible_items
-	var/new_target = tgui_input_list(admin,"Select target:", "Objective target", sortNames(possible_items_all)+"custom", steal_target)
+	var/new_target = tgui_input_list(admin,"Select target:", "Objective target", sort_names(possible_items_all)+"custom", steal_target)
 	if (!new_target)
 		return
 
@@ -967,7 +967,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 /datum/objective/destroy/admin_edit(mob/admin)
 	var/list/possible_targets = active_ais(1)
 	if(possible_targets.len)
-		var/mob/new_target = tgui_input_list(admin,"Select target:", "Objective target", sortNames(possible_targets))
+		var/mob/new_target = tgui_input_list(admin,"Select target:", "Objective target", sort_names(possible_targets))
 		target = new_target.mind
 	else
 		to_chat(admin, span_boldwarning("No active AIs with minds."))

@@ -160,7 +160,7 @@
 	. = ..()
 	. += "<hr>"
 	if(cell)
-		. += span_notice("Его дисплей показывает: [DisplayEnergy(cell.charge)].")
+		. += span_notice("Его дисплей показывает: [display_energy(cell.charge)].")
 	else
 		. += span_notice("Его дисплей темный.")
 	if(opened)

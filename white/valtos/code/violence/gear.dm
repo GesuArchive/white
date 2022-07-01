@@ -15,7 +15,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		GLOB.violence_gear_datums[VG.name] = VG
 		var/datum/violence_gear_category/VC = GLOB.violence_gear_categories[VG.cat]
 		VC.gear[VG.name] = GLOB.violence_gear_datums[VG.name]
-	GLOB.violence_gear_categories = sortAssoc(GLOB.violence_gear_categories)
+	GLOB.violence_gear_categories = sort_assoc(GLOB.violence_gear_categories)
 	return TRUE
 
 /datum/violence_gear_category

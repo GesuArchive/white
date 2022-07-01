@@ -473,7 +473,7 @@
 		D.name = new_name //Updates our copy
 
 		var/list/targets = list("Случайный")
-		targets += sortNames(GLOB.human_list)
+		targets += sort_names(GLOB.human_list)
 		var/target = tgui_input_list(user, "Выбираем человеков в качестве цели.", "Заразить цель", targets)
 
 		var/mob/living/carbon/human/H

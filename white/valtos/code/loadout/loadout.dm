@@ -41,10 +41,10 @@
 		GLOB.gear_datums[use_id] = new geartype
 		LC.gear[use_id] = GLOB.gear_datums[use_id]
 
-	GLOB.loadout_categories = sortAssoc(GLOB.loadout_categories)
+	GLOB.loadout_categories = sort_assoc(GLOB.loadout_categories)
 	for(var/loadout_category in GLOB.loadout_categories)
 		var/datum/loadout_category/LC = GLOB.loadout_categories[loadout_category]
-		LC.gear = sortAssoc(LC.gear)
+		LC.gear = sort_assoc(LC.gear)
 	return TRUE
 
 /datum/gear

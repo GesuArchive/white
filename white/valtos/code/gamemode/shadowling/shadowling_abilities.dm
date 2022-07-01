@@ -282,7 +282,7 @@
 							   span_warning("False faces all d<b>ark not real not real not--</b>"))
 		target.setOxyLoss(0) //In case the shadowling was choking them out
 		target.mind.special_role = "thrall"
-		var/obj/item/organ/internal/shadowtumor/ST = new
+		var/obj/item/organ/shadowtumor/ST = new
 		ST.Insert(target, FALSE, FALSE)
 		target.add_thrall()
 		if(target.reagents.has_reagent("frostoil")) //Stabilize body temp incase the sling froze them earlier

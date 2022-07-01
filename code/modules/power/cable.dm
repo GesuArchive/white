@@ -168,7 +168,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 
 /obj/structure/cable/proc/get_power_info()
 	if(powernet?.avail > 0)
-		return span_danger("Суммарная мощность: [DisplayPower(powernet.avail)]\nНагрузка: [DisplayPower(powernet.load)]\nИзлишки: [DisplayPower(surplus())]")
+		return span_danger("Суммарная мощность: [display_power(powernet.avail)]\nНагрузка: [display_power(powernet.load)]\nИзлишки: [display_power(surplus())]")
 	else
 		return span_danger("Кабель не подключен.")
 

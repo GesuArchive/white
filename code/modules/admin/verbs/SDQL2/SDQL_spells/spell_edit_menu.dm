@@ -425,7 +425,7 @@ GLOBAL_LIST_INIT_TYPED(sdql_spells, /obj/effect/proc_holder/spell, list())
 
 //Change all references in the list vars, either to null (for saving) or to their string representation (for display)
 /datum/give_sdql_spell/proc/json_sanitize_list_vars(list/list_vars, mode = SANITIZE_NULLIFY)
-	var/list/temp_list_vars = deepCopyList(list_vars)
+	var/list/temp_list_vars = deep_copy_list(list_vars)
 	for(var/V in temp_list_vars)
 		var/list/L = temp_list_vars[V]
 		for(var/W in L)

@@ -1021,7 +1021,7 @@
 	if(!isfloorturf(T))
 		to_chat(user, span_warning("You cannot place [src] on this spot!"))
 		return
-	if(gotwallitem(T, ndir))
+	if(check_wall_item(T, ndir))
 		to_chat(user, span_warning("There's already an item on this wall!"))
 		return
 	playsound(src.loc, 'sound/machines/click.ogg', 75, 1)

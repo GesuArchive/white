@@ -90,7 +90,7 @@
 	. += "<hr><span class='info'>Примерное время создания объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>\n"
 	. += "<span class='info'>Оставшееся время: [timeleft(timer)] секунд.</span>\n"
 	. += "<span class='info'>Внутри запасено: <b>[crystals]/[max_crystals] человеческой кожи</b>.</span>\n"
-	. += span_info("Накоплено энергии: <b>[num2loadingbar((siphon_max-siphoned_power)/siphon_max, 10, reverse = TRUE)] [DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.")
+	. += span_info("Накоплено энергии: <b>[num2loadingbar((siphon_max-siphoned_power)/siphon_max, 10, reverse = TRUE)] [display_power(siphoned_power)]/[display_power(siphon_max)]</b>.")
 	. += "<hr><span class='notice'>Похоже, ему требуется подключение к энергосети через кабель.</span>"
 
 /obj/machinery/copytech/Initialize(mapload)
@@ -298,7 +298,7 @@
 	. = ..()
 	. += "<hr><span class='info'>Примерное время для уничтожения объекта: [time2text(get_replication_speed(tier_rate), "mm:ss")].</span>\n"
 	. += "<span class='info'>Оставшееся время: [time2text(timeleft(timer), "mm:ss")]</span>\n"
-	. += span_info("Накоплено энергии: <b>[num2loadingbar((siphon_max-siphoned_power)/siphon_max, 10, reverse = TRUE)] [DisplayPower(siphoned_power)]/[DisplayPower(siphon_max)]</b>.")
+	. += span_info("Накоплено энергии: <b>[num2loadingbar((siphon_max-siphoned_power)/siphon_max, 10, reverse = TRUE)] [display_power(siphoned_power)]/[display_power(siphon_max)]</b>.")
 	. += "<hr><span class='notice'>Похоже, ему требуется подключение к энергосети через кабель.</span>"
 
 /obj/machinery/copytech_platform/Initialize(mapload)

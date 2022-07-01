@@ -127,11 +127,6 @@
 #define AI_TRANS_FROM_CARD	2 //Uploading AI from InteliCard
 #define AI_MECH_HACK		3 //Malfunctioning AI hijacking mecha
 
-//check_target_facings() return defines
-#define FACING_SAME_DIR											1
-#define FACING_EACHOTHER										2
-#define FACING_INIT_FACING_TARGET_TARGET_FACING_PERPENDICULAR	3 //Do I win the most informative but also most stupid define award?
-
 //stages of shoe tying-ness
 #define SHOES_UNTIED 0
 #define SHOES_TIED 1

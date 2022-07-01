@@ -31,7 +31,7 @@
 	var/internal_damage_to_deal = possible_int_damage
 	internal_damage_to_deal &= ~mecha_flags
 	if(internal_damage_to_deal)
-		set_internal_damage(pick(bitfield2list(internal_damage_to_deal)))
+		set_internal_damage(pick(bitfield_to_list(internal_damage_to_deal)))
 
 /// tries to damage mech equipment depending on damage and where is being targetted
 /obj/vehicle/sealed/mecha/proc/try_damage_component(damage, def_zone)

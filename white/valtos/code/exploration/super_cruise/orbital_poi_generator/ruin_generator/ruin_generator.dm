@@ -85,7 +85,7 @@
 		var/first_dir =  list_to_use[first_coord]
 		var/room_connection_x = text2num(splittext(first_coord, "_")[1])
 		var/room_connection_y = text2num(splittext(first_coord, "_")[2])
-		var/looking_for_dir = invertDir(first_dir)
+		var/looking_for_dir = REVERSE_DIR(first_dir)
 		//Find a list of valid rooms.
 		var/list/valid_ruins = list()
 		//Get all loaded ruins

@@ -173,7 +173,7 @@
 	stationary_port.area_type = overwritten_area
 
 	var/portDirection = getNonShuttleDirection(get_turf(port))
-	var/invertedDir = invertDir(portDirection)
+	var/invertedDir = REVERSE_DIR(portDirection)
 	if(!portDirection || !invertedDir)
 		to_chat(usr, span_warning("Shuttle creation aborted, docking airlock must be on an external wall. Please select a new airlock."))
 		port.Destroy()

@@ -128,7 +128,7 @@
 	if(IS_MONSTERHUNTER(target) || H.is_shove_knockdown_blocked())
 		to_chat(owner, span_danger("You get pushed away!"))
 		H.grabbedby(owner)
-		return	
+		return
 
 	to_chat(owner, span_danger("You lunge at [target]!"))
 	if(target.stat == DEAD)
@@ -148,7 +148,7 @@
 	target.grabbedby(owner)
 	target.grippedby(owner, instant = TRUE)
 	// Did we knock them down?
-	if(level_current >= 4 && (!is_A_facing_B(target, owner) || owner.alpha <= 40))
+	if(level_current >= 4 && (!is_source_facing_target(target, owner) || owner.alpha <= 40))
 		target.Knockdown(10 + level_current * 5)
 		target.Paralyze(0.1)
 

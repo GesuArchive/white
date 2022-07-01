@@ -597,7 +597,7 @@
 	var/datum/antagonist/servant_of_ratvar/servant_antagonist = is_servant_of_ratvar(owner)
 	if(!(servant_antagonist?.team))
 		return
-	desc = "Энергия - <b>[DisplayPower(GLOB.clockcult_power)]</b>.<br>"
+	desc = "Энергия - <b>[display_power(GLOB.clockcult_power)]</b>.<br>"
 	desc += "Жизнеспособность - <b>[GLOB.clockcult_vitality]</b>.<br>"
 	if(GLOB.ratvar_arrival_tick)
 		if(GLOB.ratvar_arrival_tick - world.time > 6000)

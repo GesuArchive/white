@@ -201,7 +201,7 @@
 		droppable_parts += proxy_module
 	if(!droppable_parts.len)
 		return
-	var/obj/item/choice = tgui_input_list(user, "Выберите деталь для демонтажа:", src, sortNames(droppable_parts))
+	var/obj/item/choice = tgui_input_list(user, "Выберите деталь для демонтажа:", src, sort_names(droppable_parts))
 	if(!choice || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return
 	to_chat(user, span_notice("Отключаю [choice] от [src]."))

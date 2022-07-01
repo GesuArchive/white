@@ -60,7 +60,7 @@
 		if(!length(possible))
 			to_chat(user,span_warning("Стараюсь учуять хоть что-то, но не могу уловить никаких запахов на [sniffed]..."))
 			return
-		tracking_target = tgui_input_list(user, "Выберите запах для отслеживания.", "Scent Tracking", sortNames(possible))
+		tracking_target = tgui_input_list(user, "Выберите запах для отслеживания.", "Scent Tracking", sort_names(possible))
 		if(!tracking_target)
 			if(!old_target)
 				to_chat(user,span_warning("Решаю не запоминать никаких запахов. Вместо этого замечаю свой собственный нос боковым зрением. Это напоминает мне день, когда я сконцентрировался на контроле своего дыхания и не мог остановиться потому что боялся задохнуться. Это был ужасный день."))

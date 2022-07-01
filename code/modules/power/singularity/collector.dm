@@ -194,7 +194,7 @@
 			// Therefore, its units are joules per SSmachines.wait * 0.1 seconds.
 			// So joules = stored_energy * SSmachines.wait * 0.1
 			var/joules = stored_energy * SSmachines.wait * 0.1
-			. += span_notice("Дисплей <b>[src]</b> сообщает о накопленных <b>[DisplayJoules(joules)]</b> и выработке <b>[DisplayPower(RAD_COLLECTOR_OUTPUT)]</b>.")
+			. += span_notice("Дисплей <b>[src]</b> сообщает о накопленных <b>[display_joules(joules)]</b> и выработке <b>[display_power(RAD_COLLECTOR_OUTPUT)]</b>.")
 		else
 			. += span_notice("Дисплей <b>[src]</b> сообщает о <b>[stored_research]</b> исследовательских очках за всё время и также производит [RAD_COLLECTOR_OUTPUT*RAD_COLLECTOR_MINING_CONVERSION_RATE] исследовательских очков в минуту.")
 	else

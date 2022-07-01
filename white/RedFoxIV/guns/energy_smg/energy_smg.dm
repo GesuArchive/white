@@ -25,7 +25,7 @@
 /obj/item/gun/ballistic/energy_smg/examine(mob/user)
 	. = list("[get_examine_string(user, TRUE)].<hr>")
 	. += desc
-	. += "Это [weightclass2text(w_class)] размера предмет."
+	. += "Это [weight_class_to_text(w_class)] размера предмет."
 	if(pin)
 		. += "Внутри установлен боёк типа [pin.name]."
 	else
