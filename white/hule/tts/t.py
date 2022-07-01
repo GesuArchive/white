@@ -1,10 +1,23 @@
 import sys
 import os
-from pathlib import Path
+import hashlib
+import shutil
+
+input_text = sys.argv[1]
+input_speaker = sys.argv[2]
+
+hash_name = hashlib.md5(input_text.encode()).hexdigest()
+
+combined_path = "./cache/" + input_speaker + "/" + hash_name + ".wav"
+
+if os.path.isfile(combined_path):
+    shutil.copy(combined_path, sys.argv[3])
+    sys.exit(0)
+
 import torch
 
 device = torch.device('cpu')
-torch.set_num_threads(32)
+torch.set_num_threads(16)
 # speakers = ['aidar', 'baya', 'kseniya', 'xenia', 'eugene']
 
 local_file = 'v3_1_ru.pt'
@@ -17,6 +30,7 @@ model.to(device)
 
 sample_rate = 24000
 
-audio_paths = model.save_wav(text = sys.argv[1], speaker = sys.argv[2], sample_rate = sample_rate)
+model.save_wav(text = input_text, speaker = input_speaker, sample_rate = sample_rate)
 
-Path(audio_paths).rename(sys.argv[3])
+shutil.move("test.wav", combined_path)
+shutil.copy(combined_path, sys.argv[3])
