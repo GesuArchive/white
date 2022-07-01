@@ -66,10 +66,11 @@
 				span_notice("[flippy_mcgee] пытается удержать баланс после прыжка.") ,
 				span_notice("Ух..."))
 
-	var/atom/movable/plane_master_controller/pm_controller = user?.hud_used?.plane_master_controllers?[PLANE_MASTERS_GAME]
-	if(pm_controller)
-		for(var/key in pm_controller.controlled_planes)
-			animate(pm_controller.controlled_planes[key], transform = matrix(360, MATRIX_ROTATE), time = 7, easing = LINEAR_EASING)
+		var/atom/movable/plane_master_controller/pm_controller = user?.hud_used?.plane_master_controllers?[PLANE_MASTERS_GAME]
+		if(pm_controller)
+			for(var/key in pm_controller.controlled_planes)
+				animate(pm_controller.controlled_planes[key], transform = matrix(180, MATRIX_ROTATE), time = 3.5)
+				animate(transform = null, time = 3.5)
 
 /datum/emote/spin
 	key = "spin"
