@@ -142,7 +142,7 @@
 	return //so we don't call the carbon's attack_hand().
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/mob/living/carbon/attack_hand(mob/living/carbon/human/user)
+/mob/living/carbon/attack_hand(mob/living/carbon/human/user, list/modifiers)
 
 	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_HAND, user) & COMPONENT_CANCEL_ATTACK_CHAIN)
 		. = TRUE
@@ -167,13 +167,10 @@
 		if(W.try_handling(user))
 			return TRUE
 
-	if (user.apply_martial_art(src))
-		return TRUE
-
 	return FALSE
 
 
-/mob/living/carbon/attack_paw(mob/living/carbon/human/M)
+/mob/living/carbon/attack_paw(mob/living/carbon/human/M, list/modifiers)
 
 	if(try_inject(M, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE))
 		for(var/thing in diseases)

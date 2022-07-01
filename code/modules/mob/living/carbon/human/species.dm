@@ -1419,7 +1419,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 							span_userdanger("Блокирую попытку захвата <b>[user]</b>!") , span_hear("Слышу взмах!") , COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, span_warning("Моя попытка захвата <b>[target]</b> была отражена!"))
 		return FALSE
-	if(attacker_style?.grab_act(user,target))
+	if(attacker_style?.grab_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
 	else
 		target.grabbedby(user)
@@ -1435,7 +1435,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 							span_userdanger("Блокирую удар [user]!") , span_hear("Слышу взмах!") , COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, span_warning("Моя атака по [target] была отражена!"))
 		return FALSE
-	if(attacker_style?.harm_act(user,target))
+	if(attacker_style?.harm_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
 	else
 
@@ -1523,7 +1523,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 							span_userdanger("Блокирую попытку толчка [user]!") , span_hear("Слышу взмах!") , COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, span_warning("Моя попытка толкнуть [target] провалилась!"))
 		return FALSE
-	if(attacker_style?.disarm_act(user,target))
+	if(attacker_style?.disarm_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
 	if(user.body_position != STANDING_UP)
 		return FALSE

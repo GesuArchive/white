@@ -11,16 +11,16 @@
 	var/smashes_tables = FALSE //If the martial art smashes tables when performing table slams and head smashes
 
 /datum/martial_art/proc/help_act(mob/living/A, mob/living/D)
-	return FALSE
+	return MARTIAL_ATTACK_INVALID
 
 /datum/martial_art/proc/disarm_act(mob/living/A, mob/living/D)
-	return FALSE
+	return MARTIAL_ATTACK_INVALID
 
 /datum/martial_art/proc/harm_act(mob/living/A, mob/living/D)
-	return FALSE
+	return MARTIAL_ATTACK_INVALID
 
 /datum/martial_art/proc/grab_act(mob/living/A, mob/living/D)
-	return FALSE
+	return MARTIAL_ATTACK_INVALID
 
 /datum/martial_art/proc/can_use(mob/living/L)
 	return TRUE

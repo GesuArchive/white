@@ -2123,19 +2123,17 @@ GLOBAL_LIST_EMPTY(fire_appearances)
  */
 /mob/living/proc/apply_martial_art(mob/living/target, modifiers, is_grab = FALSE)
 	if(HAS_TRAIT(target, TRAIT_MARTIAL_ARTS_IMMUNE))
-		return FALSE
+		return MARTIAL_ATTACK_INVALID
 	var/datum/martial_art/style = mind?.martial_art
-	var/attack_result = FALSE
-	if (style)
-		switch (a_intent)
-			if (INTENT_GRAB)
-				attack_result = style.grab_act(src, target)
-			if (INTENT_HARM)
-				if (HAS_TRAIT(src, TRAIT_PACIFISM))
-					return FALSE
-				attack_result = style.harm_act(src, target)
-			if (INTENT_DISARM)
-				attack_result = style.disarm_act(src, target)
-			if (INTENT_HELP)
-				attack_result = style.help_act(src, target)
-	return attack_result
+	if (!style)
+		return MARTIAL_ATTACK_INVALID
+	if(LAZYACCESS(modifiers, RIGHT_CLICK) || a_intent == INTENT_DISARM)
+		return style.disarm_act(src, target)
+	switch (a_intent)
+		if (INTENT_GRAB)
+			return style.grab_act(src, target)
+		if (INTENT_HARM)
+			if (HAS_TRAIT(src, TRAIT_PACIFISM))
+				return FALSE
+			return style.harm_act(src, target)
+	return style.help_act(src, target)

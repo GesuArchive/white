@@ -232,11 +232,16 @@
 		var/mob/living/carbon/human/H = user
 		dna.species.spec_attack_hand(H, src, null, modifiers)
 
-/mob/living/carbon/human/attack_paw(mob/living/carbon/human/M)
+/mob/living/carbon/human/attack_paw(mob/living/carbon/human/M, list/modifiers)
 	var/dam_zone = pick(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 	var/obj/item/bodypart/affecting = get_bodypart(ran_zone(dam_zone))
 	if(!affecting)
 		affecting = get_bodypart(BODY_ZONE_CHEST)
+
+	var/martial_result = M.apply_martial_art(src, modifiers)
+	if (martial_result != MARTIAL_ATTACK_INVALID)
+		return martial_result
+
 	if(M.a_intent == INTENT_HELP)
 		..() //shaking
 		return FALSE

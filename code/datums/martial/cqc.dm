@@ -21,23 +21,23 @@
 	if(!can_use(A))
 		return FALSE
 	if(findtext(streak,SLAM_COMBO))
-		streak = ""
+		reset_streak(A)
 		Slam(A,D)
 		return TRUE
 	if(findtext(streak,KICK_COMBO))
-		streak = ""
+		reset_streak(A)
 		Kick(A,D)
 		return TRUE
 	if(findtext(streak,RESTRAIN_COMBO))
-		streak = ""
+		reset_streak(A)
 		Restrain(A,D)
 		return TRUE
 	if(findtext(streak,PRESSURE_COMBO))
-		streak = ""
+		reset_streak(A)
 		Pressure(A,D)
 		return TRUE
 	if(findtext(streak,CONSECUTIVE_COMBO))
-		streak = ""
+		reset_streak(A)
 		Consecutive(A,D)
 	return FALSE
 

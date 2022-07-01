@@ -53,10 +53,14 @@ In all, this is a lot like the monkey code. /N
 	return attack_alien(L)
 
 
-/mob/living/carbon/alien/attack_hand(mob/living/carbon/human/M)
+/mob/living/carbon/alien/attack_hand(mob/living/carbon/human/M, list/modifiers)
 	. = ..()
 	if(.)	//to allow surgery to return properly.
 		return FALSE
+
+	var/martial_result = M.apply_martial_art(src, modifiers)
+	if (martial_result != MARTIAL_ATTACK_INVALID)
+		return martial_result
 
 	switch(M.a_intent)
 		if(INTENT_HELP)

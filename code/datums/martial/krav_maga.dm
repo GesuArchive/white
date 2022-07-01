@@ -72,15 +72,15 @@
 		return FALSE
 	switch(streak)
 		if("neck_chop")
-			streak = ""
+			reset_streak(A)
 			neck_chop(A,D)
 			return TRUE
 		if("leg_sweep")
-			streak = ""
+			reset_streak(A)
 			leg_sweep(A,D)
 			return TRUE
 		if("quick_choke")//is actually lung punch
-			streak = ""
+			reset_streak(A)
 			quick_choke(A,D)
 			return TRUE
 	return FALSE
