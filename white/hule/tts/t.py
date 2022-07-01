@@ -4,7 +4,7 @@ from pathlib import Path
 import torch
 
 device = torch.device('cpu')
-torch.set_num_threads(16)
+torch.set_num_threads(32)
 # speakers = ['aidar', 'baya', 'kseniya', 'xenia', 'eugene']
 
 local_file = 'v3_1_ru.pt'
@@ -15,8 +15,8 @@ if not os.path.isfile(local_file):
 model = torch.package.PackageImporter(local_file).load_pickle("tts_models", "model")
 model.to(device)
 
-sample_rate = 48000
+sample_rate = 24000
 
 audio_paths = model.save_wav(text = sys.argv[1], speaker = sys.argv[2], sample_rate = sample_rate)
 
-Path(audio_paths[0]).rename(sys.argv[3])
+Path(audio_paths).rename(sys.argv[3])
