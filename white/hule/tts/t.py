@@ -24,6 +24,6 @@ sample_rate = 48000
 def tensor_to_int16array(tensor):
 	return array.array("h", tensor.to(dtype=torch.int16))
 
-audio_paths = model.save_wav(text = "ТЕСТ", speaker = input_speaker, sample_rate = sample_rate)
+audio_paths = model.save_wav(text = input_text, speaker = input_speaker, sample_rate = sample_rate)
 
 Path(audio_paths[0]).rename(sys.argv[3])
