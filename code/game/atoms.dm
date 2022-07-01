@@ -2129,7 +2129,6 @@
 	var/mob/user = client?.mob
 
 	// Screentips
-	var/datum/hud/active_hud = usr.hud_used
 	var/datum/hud/active_hud = user?.hud_used
 
 	if(active_hud?.tooltip)

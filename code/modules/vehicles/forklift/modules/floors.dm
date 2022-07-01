@@ -1,9 +1,9 @@
 /datum/forklift_module/floors
 	name = "Floors"
-	current_selected_typepath = /turf/open/floor/iron
-	available_builds = list(/turf/open/floor/iron) // Populated on New
+	current_selected_typepath = /turf/open/floor/plasteel
+	available_builds = list(/turf/open/floor/plasteel) // Populated on New
 	resource_price = list(
-		/turf/open/floor/iron = list(
+		/turf/open/floor/plasteel = list(
 			/datum/material/iron = MINERAL_MATERIAL_AMOUNT * 1, // 1 rod for lattice = 0.5 iron, 1 floor tile for plating = 0.25 iron, 1 floor tile for covering = 0.25 iron
 		),
 	)

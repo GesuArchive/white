@@ -11,7 +11,7 @@
 		/turf/closed/wall/mineral/titanium,
 		/obj/structure/chair/comfy/shuttle,
 		/obj/structure/grille,
-		/obj/structure/window/reinforced/shuttle,
+		/obj/structure/window/shuttle,
 	)
 	resource_price = list(
 		/turf/open/floor/mineral/titanium = list(
@@ -49,7 +49,7 @@
 		/obj/structure/grille = list(
 			/datum/material/iron = MINERAL_MATERIAL_AMOUNT * 1, // 1 sheet = 2 rods = 1 grille
 		),
-		/obj/structure/window/reinforced/shuttle = list(
+		/obj/structure/window/shuttle = list(
 			/datum/material/titanium = MINERAL_MATERIAL_AMOUNT * 2,
 			/datum/material/plasma = MINERAL_MATERIAL_AMOUNT * 2,
 		),
