@@ -3,9 +3,6 @@ import os
 from pathlib import Path
 import torch
 
-input_text = sys.argv[1]
-input_speaker = sys.argv[2]
-
 device = torch.device('cpu')
 torch.set_num_threads(16)
 # speakers = ['aidar', 'baya', 'kseniya', 'xenia', 'eugene']
@@ -20,10 +17,6 @@ model.to(device)
 
 sample_rate = 48000
 
-# Removes dependency on numpy
-def tensor_to_int16array(tensor):
-	return array.array("h", tensor.to(dtype=torch.int16))
-
-audio_paths = model.save_wav(text = input_text, speaker = input_speaker, sample_rate = sample_rate)
+audio_paths = model.save_wav(text = sys.argv[1], speaker = sys.argv[2], sample_rate = sample_rate)
 
 Path(audio_paths[0]).rename(sys.argv[3])

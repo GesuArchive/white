@@ -14,7 +14,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 ////////////////////////////////////////////////
 
 /proc/tts_args(var/name, var/msg, var/lang)
-	world.shelleo("python3 [TTS_PATH]/t.py \"[msg]\" [lang] \"[TTS_PATH]/lines/[name].wav\"")
+	world.shelleo("cd [TTS_PATH] && python3 t.py \"[msg]\" [lang] \"[TTS_PATH]/lines/[name].wav\"")
 
 /////////////////////////////////////
 
