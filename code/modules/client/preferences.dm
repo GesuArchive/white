@@ -1893,9 +1893,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("tooltip_retro")
 					w_toggles ^= TOOLTIP_USER_RETRO
 					if(w_toggles & TOOLTIP_USER_RETRO)
-						winset(src, "mainwindow", "statusbar=true")
+						winset(user, "mainwindow", "statusbar=true")
 					else
-						winset(src, "mainwindow", "statusbar=false")
+						winset(user, "mainwindow", "statusbar=false")
 
 				if("horiz_inv")
 					w_toggles ^= SCREEN_HORIZ_INV
