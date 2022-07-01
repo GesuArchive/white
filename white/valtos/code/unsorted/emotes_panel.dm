@@ -16,6 +16,7 @@
 	ui_interact(usr)
 
 /atom/movable/screen/emote_button/MouseEntered()
+	. = ..()
 	flick(icon_state + "_anim", src)
 
 /atom/movable/screen/emote_button/ui_interact(mob/user, datum/tgui/ui)

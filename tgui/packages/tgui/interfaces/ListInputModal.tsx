@@ -203,7 +203,7 @@ const ListDisplay = (props, context) => {
               'animation': 'none',
               'transition': 'none',
             }}>
-            {item.replace(/^\w/, (c) => c.toUpperCase()).substring(0, 41)}
+            {item.replace(/^\w/, (c) => c.toUpperCase())}
           </Button>
         );
       })}
