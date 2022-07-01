@@ -111,8 +111,11 @@ GLOBAL_LIST_EMPTY(hivemind_bank)
 	if(!chosen_prof)
 		return
 	..()
-	var/datum/changelingprofile/downloaded_prof = new chosen_prof.type
-	chosen_prof.copy_profile(downloaded_prof)
-	changeling.add_profile(downloaded_prof)
-	to_chat(user, span_notice("Мы поглощаем днк <b>[S]</b> из воздуха."))
+	if(!(changeling.has_dna(chosen_prof.dna)))
+		chosen_prof.copy_profile(chosen_prof)
+		changeling.add_profile(chosen_prof)
+		to_chat(user, span_notice("Мы поглощаем днк <b>[S]</b> из воздуха."))
+	else
+		to_chat(user, span_notice("У нас уже есть это ДНК в хранилище."))
+		return
 	return TRUE

@@ -324,6 +324,27 @@
 
 	return prof
 
+
+/datum/changelingprofile/proc/copy_profile(datum/changelingprofile/newprofile)
+	newprofile.name = name
+	newprofile.protected = protected
+	newprofile.dna = new dna.type
+	dna.copy_dna(newprofile.dna)
+	newprofile.name_list = name_list.Copy()
+	newprofile.appearance_list = appearance_list.Copy()
+	newprofile.flags_cover_list = flags_cover_list.Copy()
+	newprofile.exists_list = exists_list.Copy()
+	newprofile.lefthand_file_list = lefthand_file_list.Copy()
+	newprofile.righthand_file_list = righthand_file_list.Copy()
+	newprofile.inhand_icon_state_list = inhand_icon_state_list.Copy()
+	newprofile.underwear = underwear
+	newprofile.undershirt = undershirt
+	newprofile.socks = socks
+	newprofile.worn_icon_list = worn_icon_list.Copy()
+	newprofile.worn_icon_state_list = worn_icon_state_list.Copy()
+	newprofile.profile_snapshot = profile_snapshot
+	newprofile.id_icon = id_icon
+
 /datum/antagonist/changeling/proc/add_profile(datum/changelingprofile/prof)
 	if(stored_profiles.len > dna_max)
 		if(!push_out_profile())
@@ -526,27 +547,7 @@
 	LAZYCLEARLIST(stored_scars)
 	. = ..()
 
-/datum/changelingprofile/proc/copy_profile(datum/changelingprofile/newprofile)
-	newprofile.name = name
-	newprofile.protected = protected
-	newprofile.dna = new dna.type
-	dna.copy_dna(newprofile.dna)
-	newprofile.name_list = name_list.Copy()
-	newprofile.appearance_list = appearance_list.Copy()
-	newprofile.flags_cover_list = flags_cover_list.Copy()
-	newprofile.exists_list = exists_list.Copy()
-	newprofile.lefthand_file_list = lefthand_file_list.Copy()
-	newprofile.righthand_file_list = righthand_file_list.Copy()
-	newprofile.inhand_icon_state_list = inhand_icon_state_list.Copy()
-	newprofile.underwear = underwear
-	newprofile.undershirt = undershirt
-	newprofile.socks = socks
-	newprofile.worn_icon_list = worn_icon_list.Copy()
-	newprofile.worn_icon_state_list = worn_icon_state_list.Copy()
-	newprofile.skillchips = skillchips.Copy()
-	newprofile.stored_scars = stored_scars.Copy()
-	newprofile.profile_snapshot = profile_snapshot
-	newprofile.id_icon = id_icon
+
 
 /datum/antagonist/changeling/xenobio
 	name = "Xenobio Changeling"
