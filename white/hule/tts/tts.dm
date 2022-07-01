@@ -3,7 +3,7 @@
 #define TTS_PATH "/home/ubuntu/tenebrae/prod/server_white/white/hule/tts"
 
 GLOBAL_VAR_INIT(tts, FALSE)
-GLOBAL_LIST_INIT(tts_settings, list("aidar"))//1-lang, 2-livingonly
+GLOBAL_LIST_INIT(tts_settings, list("xenia"))//1-lang, 2-livingonly
 
 PROCESSING_SUBSYSTEM_DEF(tts)
 	name = "Text To Speech"
@@ -68,7 +68,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 				message_admins("[key] toggled anime voiceover off.")
 
 		if("Change Lang")
-			var/list/langlist = list("Cancel", "aidar", "baya", "kseniya", "natasha", "ruslan", "lj", "thorsten", "tux", "gilles", "dilyara")
+			var/list/langlist = list("Cancel", "aidar", "baya", "kseniya", "xenia", "eugene")
 
 			var/selectedlang = tgui_input_list(usr, "Main Menu", "ANIME VOICEOVER", langlist)
 			if(selectedlang == "Cancel")

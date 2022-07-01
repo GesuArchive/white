@@ -39,10 +39,10 @@
 	if(lang)
 		owner.tts(msg, lang, freq = frequency)
 	else
-		var/lang_to_use = "ruslan" // plural go fuck
+		var/lang_to_use = "baya" // plural go fuck
 		switch(owner.gender)
 			if(MALE)
-				lang_to_use = "aidar"
+				lang_to_use = "eugene"
 			if(FEMALE)
-				lang_to_use = "baya" // блять ну и говно
+				lang_to_use = "xenia"
 		owner.tts(msg, lang_to_use, freq = frequency)

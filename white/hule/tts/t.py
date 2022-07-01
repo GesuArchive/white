@@ -2,21 +2,28 @@ import sys
 import os
 from pathlib import Path
 import torch
-import random
+
+input_text = sys.argv[1]
+input_speaker = sys.argv[2]
 
 device = torch.device('cpu')
 torch.set_num_threads(16)
-local_file = 'model_multi.pt'
-speakers = ['aidar', 'baya', 'kseniya', 'natasha']
+# speakers = ['aidar', 'baya', 'kseniya', 'xenia', 'eugene']
+
+local_file = 'v3_1_ru.pt'
 
 if not os.path.isfile(local_file):
-    torch.hub.download_url_to_file('https://models.silero.ai/models/tts/multi/v2_multi.pt', local_file)
+    torch.hub.download_url_to_file('https://models.silero.ai/models/tts/ru/v3_1_ru.pt', local_file)
 
 model = torch.package.PackageImporter(local_file).load_pickle("tts_models", "model")
 model.to(device)
 
-sample_rate = 16000
+sample_rate = 48000
 
-audio_paths = model.save_wav(texts=sys.argv[1], speakers=sys.argv[2], sample_rate=sample_rate)
+# Removes dependency on numpy
+def tensor_to_int16array(tensor):
+	return array.array("h", tensor.to(dtype=torch.int16))
+
+audio_paths = model.save_wav(text = "ТЕСТ", speaker = input_speaker, sample_rate = sample_rate)
 
 Path(audio_paths[0]).rename(sys.argv[3])
