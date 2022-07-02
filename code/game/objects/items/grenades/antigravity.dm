@@ -16,3 +16,8 @@
 		addtimer(CALLBACK(T, /datum/.proc/_RemoveElement, list(forced_value)), duration)
 
 	qdel(src)
+
+/obj/item/grenade/antigravity/heavy
+	name = "Магнитная граната"
+	desc = "Данный образец на короткое время увеличивает гравитацию в радиусе взрыва за счет активных частиц."
+	forced_value = 3

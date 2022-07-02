@@ -87,3 +87,39 @@
 	mission = "Создайте развлечение для экипажа."
 	polldesc = "группе партийного реагирования NanoTrasen. Код: Радужный"
 	code = "Радужный"
+
+
+/datum/ert/guarded_official
+	roles = list(/datum/antagonist/ert/sobr)
+	leader_role = /datum/antagonist/official
+	opendoors = FALSE
+	rename_team = "Представитель ЦК и охрана"
+	teamsize = 3
+	polldesc = "инспектором центкома и его охраной"
+	mission = "Решить проблемы станции."
+
+/datum/ert/chrono_legion
+	roles = list(/datum/antagonist/ert/chrono_legioner)
+	opendoors = FALSE
+	rename_team = "Хронолегионер"
+	teamsize = 1
+	polldesc = "хронолегионером"
+	mission = "Устранить простраственно-временные аномалии из вселенной С-137."
+
+
+/datum/ert/pmc
+	roles = list(/datum/outfit/pmc/armed)
+	leader_role = /datum/antagonist/ert/pmc/gunner
+	rename_team = "Штурмовая бригада"
+	teamsize = 4
+	polldesc = "в составе штурмовой группы"
+	mission = "Разобраться с угрозой любым доступным способом"
+
+/datum/ert/pmc_special
+	roles = list(/datum/antagonist/ert/pmc/medic, /datum/antagonist/ert/pmc/gunner, /datum/antagonist/ert/pmc/techie, /datum/antagonist/ert/pmc/enforcer, /datum/antagonist/ert/pmc/solo)
+	leader_role = /datum/antagonist/ert/pmc/leader
+	rename_team = "Спецотряд"
+	teamsize = 6
+	polldesc = "бойцом группы особого назначения"
+	mission = "Унитожить угрозы, избегать потери среди агентов"
+	code = "Феникс"

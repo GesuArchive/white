@@ -552,3 +552,38 @@
 		teamsize--
 
 	return TRUE
+
+/datum/admins/proc/makeCops()
+	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Устроим полицейский беспредел?", "deathsquad", null)
+	var/list/mob/dead/observer/chosen = list()
+	var/mob/dead/observer/theghost = null
+
+	if(candidates.len)
+		var/numcops = 6
+		var/copscount = 0
+
+		for(var/i = 0, i<numcops,i++)
+			shuffle_inplace(candidates) //roll
+			for(var/mob/j in candidates)
+				if(!j || !j.client)
+					candidates.Remove(j)
+					continue
+
+				theghost = j
+				candidates.Remove(theghost)
+				chosen += theghost
+				copscount++
+				break
+		//Копы работают минимум вдвоем
+		if(copscount < 2)
+			return FALSE
+		var/obj/structure/closet/supplypod/bluespacepod/banka = new()
+		var/parking = find_safe_turf()
+		for(var/mob/c in chosen)
+			var/mob/living/carbon/human/new_character=makeBody(c)
+			new_character.mind.add_antag_datum(/datum/antagonist/ert/spacepol)
+			new_character.equipOutfit(/datum/outfit/spacepol)
+			new_character.forceMove(banka)
+		new /obj/effect/pod_landingzone(parking, banka)
+		priority_announce("Внимание, в вашем районе проходит облава.", sound('white/alexs410/sound/manhunt.ogg'), sender_override = "Главное управление Спецотряда")
+
