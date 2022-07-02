@@ -52,7 +52,7 @@
 		return
 	if(!can_run_emote(user, intentional=intentional))
 		return
-	if(isliving(user) && intentional)
+	if(iscarbon(user) && intentional)
 		if(prob(90) && !(HAS_TRAIT(user, TRAIT_FREERUNNING)))
 			user.Knockdown(5 SECONDS)
 			user.visible_message(
