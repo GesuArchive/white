@@ -11,16 +11,13 @@ GLOBAL_VAR_INIT(apply_execution_protocol, FALSE)
 		return msg
 	var/corrected_message = msg
 
-	for(var/word in GLOB.ic_autocorrect)
-		corrected_message = replacetext_char(word, GLOB.ic_autocorrect[word])
-
 	msg = lowertext(msg)
 
 	var/list/words = splittext(msg, " ")
 
 	for(var/replacement in GLOB.ic_autocorrect)
 		if(replacement in words)
-			corrected_message = replacetext_char(replacement, GLOB.ic_autocorrect[replacement])
+			corrected_message = replacetext_char(corrected_message, replacement, GLOB.ic_autocorrect[replacement])
 
 	for(var/bad_word in GLOB.bad_words)
 		bad_word = lowertext(bad_word)
