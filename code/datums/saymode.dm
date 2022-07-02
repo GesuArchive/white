@@ -12,7 +12,7 @@
 
 /datum/saymode/changeling
 	key = MODE_KEY_CHANGELING
-	ru_key = "г"
+	ru_key = "ч"
 	mode = MODE_CHANGELING
 
 

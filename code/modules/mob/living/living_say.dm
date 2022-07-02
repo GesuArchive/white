@@ -67,6 +67,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	MODE_INTERCOM = HARD_CRIT,
 	MODE_ALIEN = HARD_CRIT,
+	MODE_CHANGELING = HARD_CRIT,
 	MODE_BINARY = HARD_CRIT, //extra stat check on human/binarycheck()
 	MODE_MONKEY = HARD_CRIT,
 	MODE_MAFIA = HARD_CRIT
@@ -140,13 +141,11 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 
 	switch(stat)
 		if(SOFT_CRIT)
-			if(message_mods[MODE_CHANGELING])
-				return
 			message_mods[WHISPER_MODE] = MODE_WHISPER
 		if(UNCONSCIOUS)
 			return
 		if(HARD_CRIT)
-			if(!message_mods[WHISPER_MODE] || message_mods[MODE_CHANGELING])
+			if(!message_mods[WHISPER_MODE])
 				return
 		if(DEAD)
 			say_dead(original_message)
@@ -166,7 +165,7 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	if(!language)
 		language = get_selected_language()
 	var/mob/living/carbon/human/H = src
-	if(!can_speak_vocal(message))
+	if(!can_speak_vocal(message) && !message_mods[MODE_CHANGELING])
 		if (HAS_TRAIT(src, TRAIT_SIGN_LANG) && H.mind.miming)
 			to_chat(src, span_warning("Не могу петь!"))
 			return
