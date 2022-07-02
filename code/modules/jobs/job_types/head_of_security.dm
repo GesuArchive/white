@@ -59,6 +59,7 @@
 	satchel = /obj/item/storage/backpack/satchel/sec
 	duffelbag = /obj/item/storage/backpack/duffelbag/sec
 	box = /obj/item/storage/box/survival/security
+	pda_slot = ITEM_SLOT_RPOCKET
 
 	implants = list(/obj/item/implant/mindshield, /obj/item/implant/krav_maga)
 

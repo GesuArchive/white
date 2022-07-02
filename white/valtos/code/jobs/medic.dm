@@ -40,6 +40,7 @@
 	satchel = /obj/item/storage/backpack/satchel/med
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 	box = /obj/item/storage/box/survival/medical
+	pda_slot = ITEM_SLOT_LPOCKET
 
 	r_pocket = /obj/item/storage/belt/medipenal/field_med
 	l_pocket = /obj/item/modular_computer/tablet/pda/medical

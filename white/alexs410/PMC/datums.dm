@@ -66,7 +66,7 @@
 
 	glasses = /obj/item/clothing/glasses/hud/health/sunglasses
 	gloves = /obj/item/clothing/gloves/color/latex/nitrile
-	belt =  /obj/item/defibrillator/compact/combat
+	belt =  /obj/item/defibrillator/compact/combat/loaded
 	back = /obj/item/storage/backpack/ert/medical
 
 /datum/outfit/pmc/medic/post_equip(mob/living/carbon/human/H, visualsOnly)
@@ -116,7 +116,7 @@
 /datum/outfit/pmc/enforcer
 	name = "Силовик ЧВК"
 	id = /obj/item/card/id/advanced/centcom/ert/security
-	suit = /obj/item/clothing/suit/armor/heavy
+	suit = /obj/item/clothing/suit/armor/vest/marine
 	head = /obj/item/clothing/head/helmet/marine
 	suit_store = /obj/item/gun/ballistic/shotgun/fallout/lever
 	belt = /obj/item/storage/belt/bandolier/double/mixed
@@ -134,8 +134,8 @@
 	id = /obj/item/card/id/advanced/centcom/ert/security
 	suit = /obj/item/clothing/suit/armor/vest
 	head = /obj/item/clothing/head/hos/dermal
-	suit_store = /obj/item/gun/ballistic/automatic/m90/unrestricted
-	belt = /obj/item/storage/belt/military/assault/m556
+	suit_store = /obj/item/gun/ballistic/automatic/proto/unrestricted/suppressed
+	belt = /obj/item/storage/belt/military/smg
 	l_pocket = /obj/item/ammo_box/magazine/m9mm/fire
 	r_pocket = /obj/item/extinguisher/mini //Oh no!
 	back = /obj/item/storage/backpack/ert

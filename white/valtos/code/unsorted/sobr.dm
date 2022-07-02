@@ -40,6 +40,7 @@
 	glasses = /obj/item/clothing/glasses/sunglasses
 	belt = /obj/item/storage/belt/security/sobr
 	id = /obj/item/card/id/advanced/centcom
+	l_pocket = /obj/item/gun/energy/e_gun/mini
 
 	implants = list(/obj/item/implant/sound_implant, /obj/item/implant/mindshield)
 
@@ -78,11 +79,15 @@
 	glasses = /obj/item/clothing/glasses/sunglasses
 	belt = /obj/item/storage/belt/military/army/sobr
 	id = /obj/item/card/id/advanced/centcom
-
+	back = /obj/item/storage/backpack/satchel/leather
+	box = /obj/item/storage/box/survival/engineer
+	backpack_contents = list(/obj/item/gun/ballistic/automatic/pistol/makarov =1,
+							)
+	l_pocket = /obj/item/restraints/handcuffs
 	implants = list(/obj/item/implant/sound_implant, /obj/item/implant/mindshield)
 
 /datum/outfit/sobr/leader/pre_equip(mob/living/carbon/human/H)
-	back = /obj/item/gun/ballistic/automatic/ak47
+
 
 /datum/outfit/sobr/leader/post_equip(mob/living/carbon/human/H, visualsOnly)
 	var/obj/item/radio/R = H.ears
@@ -96,12 +101,12 @@
 /obj/item/storage/belt/military/army/sobr
 
 /obj/item/storage/belt/military/army/sobr/PopulateContents()
-	if(prob(10))
-		new /obj/item/ammo_box/magazine/ak47mag(src)
-	if(prob(15))
-		new /obj/item/ammo_box/magazine/ak47mag(src)
-	if(prob(20))
-		new /obj/item/ammo_box/magazine/ak47mag(src)
+	if(prob(30))
+		new /obj/item/ammo_box/magazine/m9mm(src)
+	if(prob(45))
+		new /obj/item/ammo_box/magazine/m9mm(src)
+	if(prob(60))
+		new /obj/item/ammo_box/magazine/m9mm(src)
 	if(prob(40))
 		new /obj/item/reagent_containers/hypospray/medipen/salacid(src)
 	if(prob(80))

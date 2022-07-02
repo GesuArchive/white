@@ -106,7 +106,7 @@
 	polldesc = "хронолегионером"
 	mission = "Устранить простраственно-временные аномалии из вселенной С-137."
 
-
+/*
 /datum/ert/pmc
 	roles = list(/datum/outfit/pmc/armed)
 	leader_role = /datum/antagonist/ert/pmc/gunner
@@ -119,7 +119,8 @@
 	roles = list(/datum/antagonist/ert/pmc/medic, /datum/antagonist/ert/pmc/gunner, /datum/antagonist/ert/pmc/techie, /datum/antagonist/ert/pmc/enforcer, /datum/antagonist/ert/pmc/solo)
 	leader_role = /datum/antagonist/ert/pmc/leader
 	rename_team = "Спецотряд"
-	teamsize = 6
+	teamsize = 4
 	polldesc = "бойцом группы особого назначения"
 	mission = "Унитожить угрозы, избегать потери среди агентов"
 	code = "Феникс"
+*/

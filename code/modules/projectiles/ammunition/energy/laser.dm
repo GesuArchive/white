@@ -89,9 +89,9 @@
 	fire_sound = 'sound/weapons/thermalpistol.ogg'
 
 /obj/item/ammo_casing/energy/nanite/inferno
-	projectile_type = /obj/projectile/energy/inferno
+	projectile_type = /obj/projectile/temp/inferno
 	select_name = "inferno"
 
 /obj/item/ammo_casing/energy/nanite/cryo
-	projectile_type = /obj/projectile/energy/cryo
+	projectile_type = /obj/projectile/temp/cryo
 	select_name = "cryo"

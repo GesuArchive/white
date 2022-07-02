@@ -1,4 +1,4 @@
-/obj/projectile/energy/inferno
+/obj/projectile/temp/inferno
 	name = "расплавленный сгусток нанитов"
 	icon_state = "infernoshot"
 	damage = 20
@@ -6,11 +6,12 @@
 	flag = ENERGY
 	armour_penetration = 10
 	reflectable = NONE
-	wound_bonus = 0
-	bare_wound_bonus = 10
+	wound_bonus = -10
+	bare_wound_bonus = 0
+	temperature = 20
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/red_laser
 
-/obj/projectile/energy/inferno/on_hit(atom/target, blocked, pierce_hit)
+/obj/projectile/temp/inferno/on_hit(atom/target, blocked, pierce_hit)
 	..()
 	if(!ishuman(target))
 		return
@@ -23,7 +24,7 @@
 		cold_target.bodytemperature = cold_target.dna.species.bodytemp_normal //avoids repeat explosions, maybe could be used to heat up again?
 		playsound(cold_target, 'sound/weapons/sear.ogg', 30, TRUE, -1)
 
-/obj/projectile/energy/cryo
+/obj/projectile/temp/cryo
 	name = "замороженный осколок нанитов"
 	icon_state = "cryoshot"
 	damage = 20
@@ -32,10 +33,11 @@
 	flag = ENERGY
 	sharpness = SHARP_POINTY //it's a big ol' shard of ice
 	reflectable = NONE
-	wound_bonus = 0
-	bare_wound_bonus = 10
+	wound_bonus = -10
+	bare_wound_bonus = 0
+	temperature = -20
 
-/obj/projectile/energy/cryo/on_hit(atom/target, blocked, pierce_hit)
+/obj/projectile/temp/cryo/on_hit(atom/target, blocked, pierce_hit)
 	..()
 	if(!ishuman(target))
 		return
