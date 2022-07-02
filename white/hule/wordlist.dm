@@ -6,58 +6,86 @@ GLOBAL_LIST_INIT(exc_full, world.file2list("cfg/autoeban/exc_full.fackuobema"))
 
 GLOBAL_VAR_INIT(apply_execution_protocol, FALSE)
 
-/proc/check_for_brainrot(var/msg, var/mob/target)
-	if(!target.client)
-		return
+/mob/proc/check_for_brainrot(msg)
+	if(!client)
+		return msg
+	var/corrected_message = msg
+
+	for(var/word in GLOB.ic_autocorrect)
+		corrected_message = replacetext_char(word, GLOB.ic_autocorrect[word])
+
 	msg = lowertext(msg)
+
+	var/list/words = splittext(msg, " ")
+
+	for(var/replacement in GLOB.ic_autocorrect)
+		if(replacement in words)
+			corrected_message = replacetext_char(replacement, GLOB.ic_autocorrect[replacement])
 
 	for(var/bad_word in GLOB.bad_words)
 		bad_word = lowertext(bad_word)
-		if(findtext_char(msg, bad_word) && isliving(target) && bad_word != "")
-			var/list/words = splittext(msg, " ")
-
+		if(findtext_char(msg, bad_word) && isliving(src) && bad_word != "")
 			if(bad_word in GLOB.exc_start)
 				for(var/word in words)
 					if(findtext_char(word, "[bad_word]") < findtext_char(word, regex("^[bad_word]")))
-						return
+						return corrected_message
 
 			if(bad_word in GLOB.exc_end)
 				for(var/word in words)
 					if(findtext_char(word, "[bad_word]") > findtext_char(word, regex("^[bad_word]")))
-						return
+						return corrected_message
 
 			if(bad_word in GLOB.exc_full)
 				for(var/word in words)
 					if(findtext_char(word, bad_word) && (word != bad_word))
-						return
+						return corrected_message
 
-			if(GLOB.apply_execution_protocol)
-				var/mob/living/L = target
-				L.adjust_fire_stacks(50)
-				L.adjustFireLoss(20)
-				L.ignite_mob()
-				if(iscarbon(L))
-					var/mob/living/carbon/H = L
-					H.silent += 300
-				INVOKE_ASYNC(L, /mob.proc/emote, "agony")
-				to_chat(target, span_userdanger("... [uppertext(bad_word)] ..."))
-			else
-				target.client.bad_word_counter += 1
-				if(target.client.bad_word_counter == 1)
-					to_chat(target, span_boldnotice("...Возможно, мне не стоит говорить такие \"смешные\" слова, как \"[uppertext(bad_word)]\"..."))
-				else
-					to_chat(target, span_boldnotice("...Чувствую, что мне за \"[uppertext(bad_word)]\" скоро влетит..."))
-				message_admins("[ADMIN_LOOKUPFLW(target)], возможно, насрал на ИЦ словом \"[bad_word]\". Это его [target.client.bad_word_counter]-й раз в этом раунде.<br>(<u>[strip_html(msg)]</u>) [ADMIN_SMITE(target)] [target.client.bad_word_counter > 1 ? "Возможно, он заслужил смайт." : ""]")
-			return
-	return
+			apply_execution(bad_word, msg)
+
+			return corrected_message
+	return corrected_message
+
+/mob/proc/apply_execution(for_what, msg)
+	client.bad_word_counter += 1
+	message_admins("[ADMIN_LOOKUPFLW(src)], возможно, насрал на ИЦ словом \"[for_what]\". Это его [client.bad_word_counter]-й раз в этом раунде.<br>(<u>[strip_html(msg)]</u>) [ADMIN_SMITE(src)] [client.bad_word_counter > 1 ? "Возможно, он заслужил смайт." : ""]")
+	if(GLOB.apply_execution_protocol)
+		var/mob/living/L = src
+		L.adjust_fire_stacks(5)
+		L.adjustFireLoss(5)
+		L.ignite_mob()
+
+		if(ishuman(L))
+			var/mob/living/carbon/human/H = L
+			var/obj/item/organ/tongue/tongue = H.getorganslot(ORGAN_SLOT_TONGUE)
+			if(tongue)
+				tongue.Remove(H, special = TRUE)
+				playsound(get_turf(H), 'white/valtos/sounds/gibpart.ogg', 80, TRUE)
+
+		INVOKE_ASYNC(L, /mob.proc/emote, "agony")
+		to_chat(src, span_userdanger("... [uppertext(for_what)] ..."))
+	else if(client.bad_word_counter == 1)
+		to_chat(src, span_boldnotice("...Возможно, мне не стоит говорить такие \"смешные\" слова, как \"[uppertext(for_what)]\"..."))
+	else
+		to_chat(src, span_boldnotice("...Чувствую, что мне за \"[uppertext(for_what)]\" скоро влетит..."))
 
 /client
 	var/bad_word_counter = 0
 
-GLOBAL_LIST_INIT(ic_autocorrect, list(	")" = "smile", "(" = "frown", \
+GLOBAL_LIST_INIT(ic_autoemote, list(	")" = "smile", "(" = "frown", \
 										"))" = "laugh", "((" = "cry", \
 										"лол" = "laugh", "lol" = "laugh", \
 										"лмао" = "laugh", "lmao" = "laugh", \
 										"рофл" = "laugh", "rofl" = "laugh", \
 										"кек" = "giggle", "kek" = "giggle", \
 										"хз" = "shrug", "hz" = "shrug"))
+
+GLOBAL_LIST_INIT(ic_autocorrect, list(	"бог" = "НАУКА", "god" = "SCIENCE", \
+										"боги" = "НАУКА", "gods" = "SCIENCE", \
+										"рцд" = "автоматический строительный комплекс", "rcd" = "rapid construction device", \
+										"рпд" = "портативный раздатчик труб", "rpd" = "rapid pipe dispenser", \
+										"секс" = "танец", "sex" = "dance", \
+										"смо" = "главный врач", "cmo" = "chief medical officer", \
+										"хос" = "начальник охраны", "hos" = "head of security", \
+										"рд" = "научный руководитель", "rd" = "research director", \
+										"се" = "старший инженер", "ce" = "chief engineer", \
+										"км" = "квартирмейстер", "qm" = "quartermaster"))

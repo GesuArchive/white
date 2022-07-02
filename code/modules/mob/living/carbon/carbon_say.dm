@@ -7,10 +7,10 @@
 	var/static/regex/tongueless_lower_ru = new("\[гднтке]+", "g")
 	var/static/regex/tongueless_upper_ru = new("\[ГДНТКЕ]+", "g")
 	if(message?[1] != "*")
-		message = tongueless_lower.Replace_char(message, pick("aa","oo","'"))
-		message = tongueless_upper.Replace_char(message, pick("AA","OO","'"))
-		message = tongueless_upper_ru.Replace_char(message, pick("AA","OO","'"))
-		message = tongueless_upper_ru.Replace_char(message, pick("AA","OO","'"))
+		message = tongueless_lower.Replace_char(message, pick("aa","уу","мм","'"))
+		message = tongueless_upper.Replace_char(message, pick("AA","УУ","мм","'"))
+		message = tongueless_upper_ru.Replace_char(message, pick("AA","УУ","ММ","'"))
+		message = tongueless_upper_ru.Replace_char(message, pick("AA","УУ","ММ","'"))
 		speech_args[SPEECH_MESSAGE] = message
 
 /mob/living/carbon/can_speak_vocal(message)

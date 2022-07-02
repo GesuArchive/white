@@ -16,9 +16,9 @@
 
 	if(message)
 		if(stat != DEAD)
-			if(GLOB.ic_autocorrect[message])
-				message = "*[GLOB.ic_autocorrect[message]]"
-			check_for_brainrot(message, src)
+			if(GLOB.ic_autoemote[message])
+				message = "*[GLOB.ic_autoemote[message]]"
+			message = check_for_brainrot(message)
 		SSspeech_controller.queue_say_for_mob(src, message, SPEECH_CONTROLLER_QUEUE_SAY_VERB)
 
 ///Whisper verb
@@ -31,10 +31,8 @@
 		to_chat(usr, span_danger("Не могу шептать."))
 		return
 
-	//if(GLOB.ic_autocorrect[message])  // Не работает >> шепчет, "*laugh"
-	//	message = "*[GLOB.ic_autocorrect[message]]"
 	if(message)
-		check_for_brainrot(message, src)
+		message = check_for_brainrot(message)
 		SSspeech_controller.queue_say_for_mob(src, message, SPEECH_CONTROLLER_QUEUE_WHISPER_VERB)
 
 ///whisper a message
@@ -56,7 +54,7 @@
 
 
 	if(message)
-		check_for_brainrot(message, src)
+		message = check_for_brainrot(message)
 		SSspeech_controller.queue_say_for_mob(src, message, SPEECH_CONTROLLER_QUEUE_EMOTE_VERB)
 
 ///Speak as a dead person (ghost etc)
