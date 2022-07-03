@@ -1,4 +1,4 @@
-import { Box, Button, Section, Table, DraggableClickableControl, Dropdown, Divider, NoticeBox, ProgressBar, Fragment, ScrollableBox, OrbitalMapComponent, OrbitalMapSvg } from '../components';
+import { Box, Button, Section, Table, DraggableClickableControl, Dropdown, Divider, NoticeBox, ProgressBar, Fragment, OrbitalMapComponent, OrbitalMapSvg } from '../components';
 import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
@@ -17,7 +17,7 @@ export const OrbitalMap = (props, context) => {
   const [
     zoomScale,
     setZoomScale,
-  ] = useLocalState(context, 'zoomScale', 1);
+  ] = useLocalState(context, 'zoomScale', 0.125);
   const [
     xOffset,
     setXOffset,
@@ -62,9 +62,9 @@ export const OrbitalMap = (props, context) => {
 
   return (
     <Window
-      width={1089}
+      width={1102}
       height={720}
-      resizable
+      class="OrbitalMap__crutch"
       overflowY="hidden">
       <Window.Content overflowY="hidden">
         <div class="OrbitalMap__radar" id="radar">
@@ -88,7 +88,7 @@ export const OrbitalMap = (props, context) => {
           )}
         </div>
         <div class="OrbitalMap__panel">
-          <ScrollableBox overflowY="scroll" overflowX="hidden" height="100%">
+          <Box overflowY="hidden" overflowX="hidden" height="100%">
             <Section title="Отслеживание тел">
               <Box bold>
                 Отслеживание
@@ -168,7 +168,7 @@ export const OrbitalMap = (props, context) => {
                     </NoticeBox>
                   ))}
             </Section>
-          </ScrollableBox>
+          </Box>
         </div>
       </Window.Content>
     </Window>
@@ -192,7 +192,7 @@ export const InterdictionDisplay = (props, context) => {
     setYOffset,
   } = props;
 
-  let lockedZoomScale = Math.max(Math.min(zoomScale, 4), 0.125);
+  let lockedZoomScale = Math.max(Math.min(zoomScale, 1), 0.125);
 
   const { data } = useBackend(context);
 
