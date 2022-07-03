@@ -157,6 +157,11 @@
 	port_id = "partyhard"
 	can_be_bought = FALSE
 
+/datum/map_template/shuttle/yohei
+	port_id = "yohei"
+	suffix = "harvester"
+	can_be_bought = FALSE
+
 // Shuttles start here:
 
 /datum/map_template/shuttle/emergency/backup

@@ -79,6 +79,7 @@
 		velocity.x = 0
 		velocity.y = 0
 		thrust = 0
+		autopilot = FALSE
 	//AUTOPILOT
 	handle_autopilot()
 	//Do thrust

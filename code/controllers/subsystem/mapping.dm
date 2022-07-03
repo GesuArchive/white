@@ -129,7 +129,20 @@ SUBSYSTEM_DEF(mapping)
 	setup_map_transitions()
 	generate_station_area_list()
 	initialize_reserved_level(transit.z_value)
+
+	// spawn yohei shuttle
+	spawn_yohei_shuttle()
 	return ..()
+
+/datum/controller/subsystem/mapping/proc/spawn_yohei_shuttle()
+
+	var/datum/map_template/shuttle/yohei/ship = new /datum/map_template/shuttle/yohei
+	var/x = rand(TRANSITIONEDGE, world.maxx - TRANSITIONEDGE - ship.width)
+	var/y = rand(TRANSITIONEDGE, world.maxy - TRANSITIONEDGE - ship.height)
+	var/z = SSmapping.empty_space.z_value
+	var/turf/T = locate(x, y, z)
+
+	message_admins("Yohei ship loaded at [x], [y], [z].")
 
 /datum/controller/subsystem/mapping/proc/wipe_reservations(wipe_safety_delay = 100)
 	if(clearing_reserved_turfs || !initialized)			//in either case this is just not needed.

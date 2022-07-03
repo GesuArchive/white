@@ -642,6 +642,12 @@
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | BLOCK_SUICIDE | NOTELEPORT
 	ambientsounds = YOHEI
 
+/area/shuttle/yohei
+	name = "Сборщик Йохеев"
+	ambience_index = AMBIENCE_DANGER
+	ambientsounds = YOHEI
+	area_limited_icon_smoothing = /area/shuttle/yohei
+
 /obj/item/card/id/yohei
 	name = "странная карточка"
 	desc = "Что это такое?"
@@ -885,3 +891,17 @@
 		else
 			to_chat(user, span_danger("Не получится здесь. Нужен космос."))
 	return
+
+/obj/item/circuitboard/computer/yohei
+	build_path = /obj/machinery/computer/shuttle_flight/yohei
+
+/obj/machinery/computer/shuttle_flight/yohei
+	name = "Консоль Управления Сборщиком Йохеев"
+	desc = "Используется для управления данным кораблём."
+	icon_screen = "syndishuttle"
+	icon_keyboard = "syndie_key"
+	light_color = COLOR_SOFT_RED
+	req_access = list() // hijack moment
+	circuit = /obj/item/circuitboard/computer/yohei
+	shuttleId = "yohei_harverster"
+	possible_destinations = "yohei_harverster_custom;yohei_harverster_base"
