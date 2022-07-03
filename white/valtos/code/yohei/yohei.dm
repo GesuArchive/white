@@ -580,7 +580,7 @@
 /datum/yohei_task/capture/check_task(autocheck)
 	if(target && target.stat != DEAD && !autocheck) // you WILL press the screen to confirm it
 		var/area/A = get_area(target)
-		if(A.type != /area/ruin/powered/yohei_base)
+		if(A.type != /area/shuttle/yohei)
 			return YOHEI_MISSION_UNFINISHED
 		target.Unconscious(60 SECONDS)
 		var/obj/structure/closet/supplypod/return_pod = new()
