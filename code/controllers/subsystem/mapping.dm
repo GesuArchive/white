@@ -142,6 +142,9 @@ SUBSYSTEM_DEF(mapping)
 	var/z = SSmapping.empty_space.z_value
 	var/turf/T = locate(x, y, z)
 
+	if(!ship.load(T))
+		message_admins("Yohei load failed!")
+
 	message_admins("Yohei ship loaded at [x], [y], [z].")
 
 /datum/controller/subsystem/mapping/proc/wipe_reservations(wipe_safety_delay = 100)
