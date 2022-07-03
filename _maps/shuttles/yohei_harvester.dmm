@@ -105,15 +105,9 @@
 "iT" = (
 /obj/structure/railing,
 /obj/structure/fans/tiny/invisible,
-/obj/docking_port/mobile{
-	callTime = 50;
+/obj/docking_port/mobile/yohei{
 	dwidth = 4;
 	height = 5;
-	id = "yohei_harverster";
-	ignitionTime = 25;
-	name = "Yohei Harvester";
-	port_direction = 2;
-	preferred_direction = 4;
 	width = 9
 	},
 /obj/structure/cable,

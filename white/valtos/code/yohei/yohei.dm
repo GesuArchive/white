@@ -648,6 +648,14 @@
 	ambientsounds = YOHEI
 	area_limited_icon_smoothing = /area/shuttle/yohei
 
+/obj/docking_port/mobile/yohei
+	name = "Сборщик Йохеев"
+	id = "yohei_harverster"
+	ignitionTime = 25
+	callTime = 50
+	port_direction = 1
+	preferred_direction = 1
+
 /obj/item/card/id/yohei
 	name = "странная карточка"
 	desc = "Что это такое?"
@@ -904,4 +912,8 @@
 	req_access = list() // hijack moment
 	circuit = /obj/item/circuitboard/computer/yohei
 	shuttleId = "yohei_harverster"
-	possible_destinations = "yohei_harverster_custom;yohei_harverster_base"
+	possible_destinations = "yohei_harverster_custom"
+
+/obj/machinery/computer/shuttle_flight/yohei/LateInitialize()
+	. = ..()
+	launch_shuttle()
