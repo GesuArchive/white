@@ -64,10 +64,9 @@ export const OrbitalMap = (props, context) => {
     <Window
       width={1102}
       height={720}
-      class="OrbitalMap__crutch"
       overflowY="hidden">
       <Window.Content overflowY="hidden">
-        <div class="OrbitalMap__radar" id="radar">
+        <div class="OrbitalMap__radar OrbitalMap__crutch" id="radar">
           {interdictionTime ? (
             <InterdictionDisplay
               xOffset={dynamicXOffset}

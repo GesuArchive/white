@@ -1,10 +1,4 @@
 
-.OrbitalMap__crutch {
-  height: 700px;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
 .OrbitalMap__radar {
   position: absolute;
   top: 0;
@@ -16,7 +10,7 @@
   overflow-y: hidden;
 }
 
-.OrbitalMap__radar * {
+.OrbitalMap__crutch * {
   overflow: hidden;
 }
 
