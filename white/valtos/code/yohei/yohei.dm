@@ -654,7 +654,7 @@
 	ignitionTime = 25
 	callTime = 50
 	port_direction = 1
-	preferred_direction = 1
+	preferred_direction = 2
 
 /obj/item/card/id/yohei
 	name = "странная карточка"
@@ -919,4 +919,4 @@
 	var/datum/orbital_object/O = launch_shuttle()
 
 	var/datum/orbital_map/linked_map = SSorbits.orbital_maps[orbital_map_index]
-	O.set_orbitting_around_body(linked_map.center, 2300 + 25 * rand(40, 20))
+	O.set_orbitting_around_body(linked_map.center, 1300 + 25 * rand(40, 20))

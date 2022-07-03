@@ -19,7 +19,7 @@
 	icon_state = ""
 	. = ..()
 
-/obj/machinery/atmospherics/pipe/bridge_pipe/SetInitDirections()
+/obj/machinery/atmospherics/pipe/bridge_pipe/set_init_directions()
 	switch(dir)
 		if(NORTH, SOUTH)
 			initialize_directions = SOUTH|NORTH

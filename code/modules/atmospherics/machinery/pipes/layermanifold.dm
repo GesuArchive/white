@@ -60,7 +60,7 @@
 	I.layer = layer - 0.01
 	return I
 
-/obj/machinery/atmospherics/pipe/layer_manifold/SetInitDirections()
+/obj/machinery/atmospherics/pipe/layer_manifold/set_init_directions()
 	switch(dir)
 		if(NORTH, SOUTH)
 			initialize_directions = NORTH|SOUTH

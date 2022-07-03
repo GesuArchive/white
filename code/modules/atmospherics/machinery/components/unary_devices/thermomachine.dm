@@ -143,7 +143,7 @@
 /obj/machinery/atmospherics/components/unary/thermomachine/default_change_direction_wrench(mob/user, obj/item/I)
 	if(!..())
 		return FALSE
-	SetInitDirections()
+	set_init_directions()
 	var/obj/machinery/atmospherics/node = nodes[1]
 	if(node)
 		if(src in node.nodes) //Only if it's actually connected. On-pipe version would is one-sided.

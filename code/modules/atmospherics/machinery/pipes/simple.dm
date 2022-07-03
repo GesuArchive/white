@@ -17,7 +17,7 @@
 	construction_type = /obj/item/pipe/binary/bendable
 	pipe_state = "simple"
 
-/obj/machinery/atmospherics/pipe/simple/SetInitDirections()
+/obj/machinery/atmospherics/pipe/simple/set_init_directions()
 	if(ISDIAGONALDIR(dir))
 		initialize_directions = dir
 		return

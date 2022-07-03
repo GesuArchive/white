@@ -81,7 +81,7 @@
 	..()
 	if(process)
 		SSair.atmos_machinery += src
-	SetInitDirections()
+	set_init_directions()
 
 /obj/machinery/atmospherics/Destroy()
 	for(var/i in 1 to device_type)
@@ -124,7 +124,7 @@
  *
  * Return a list of the nodes that can connect to other machines, get called by atmosinit()
  */
-/obj/machinery/atmospherics/proc/getNodeConnects()
+/obj/machinery/atmospherics/proc/get_node_connects()
 	var/list/node_connects = list()
 	node_connects.len = device_type
 
@@ -158,7 +158,7 @@
  */
 /obj/machinery/atmospherics/proc/atmosinit(list/node_connects)
 	if(!node_connects) //for pipes where order of nodes doesn't matter
-		node_connects = getNodeConnects()
+		node_connects = get_node_connects()
 
 	for(var/i in 1 to device_type)
 		for(var/obj/machinery/atmospherics/target in get_step(src,node_connects[i]))
@@ -267,7 +267,7 @@
 /**
  * Set the initial directions of the device (NORTH || SOUTH || EAST || WEST), called on New()
  */
-/obj/machinery/atmospherics/proc/SetInitDirections()
+/obj/machinery/atmospherics/proc/set_init_directions()
 	return
 
 /**

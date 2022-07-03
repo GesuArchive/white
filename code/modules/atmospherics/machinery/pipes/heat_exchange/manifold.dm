@@ -22,7 +22,7 @@
 	center = mutable_appearance(icon, "manifold_center")
 	return ..()
 
-/obj/machinery/atmospherics/pipe/heat_exchanging/manifold/SetInitDirections()
+/obj/machinery/atmospherics/pipe/heat_exchanging/manifold/set_init_directions()
 	initialize_directions = ALL_CARDINALS
 	initialize_directions &= ~dir
 

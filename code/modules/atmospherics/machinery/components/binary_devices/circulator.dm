@@ -176,7 +176,7 @@
 		nullifyPipenet(parents[2])
 
 	if(anchored)
-		SetInitDirections()
+		set_init_directions()
 		atmosinit()
 		node1 = nodes[1]
 		if(node1)
@@ -192,14 +192,14 @@
 
 	return TRUE
 
-/obj/machinery/atmospherics/components/binary/circulator/SetInitDirections()
+/obj/machinery/atmospherics/components/binary/circulator/set_init_directions()
 	switch(dir)
 		if(NORTH, SOUTH)
 			initialize_directions = EAST|WEST
 		if(EAST, WEST)
 			initialize_directions = NORTH|SOUTH
 
-/obj/machinery/atmospherics/components/binary/circulator/getNodeConnects()
+/obj/machinery/atmospherics/components/binary/circulator/get_node_connects()
 	if(flipped)
 		return list(turn(dir, 270), turn(dir, 90))
 	return list(turn(dir, 90), turn(dir, 270))

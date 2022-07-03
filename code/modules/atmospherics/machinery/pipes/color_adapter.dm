@@ -22,7 +22,7 @@
 	icon_state = ""
 	. = ..()
 
-/obj/machinery/atmospherics/pipe/color_adapter/SetInitDirections()
+/obj/machinery/atmospherics/pipe/color_adapter/set_init_directions()
 	switch(dir)
 		if(NORTH, SOUTH)
 			initialize_directions = SOUTH|NORTH

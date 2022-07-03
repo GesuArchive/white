@@ -45,7 +45,7 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	SetInitDirections()
+	set_init_directions()
 	var/obj/machinery/atmospherics/node1 = nodes[1]
 	var/obj/machinery/atmospherics/node2 = nodes[2]
 	if(node1)
