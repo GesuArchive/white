@@ -127,6 +127,7 @@
 "jH" = (
 /obj/structure/railing,
 /obj/structure/fans/tiny/invisible,
+/obj/effect/landmark/yohei_beacon,
 /turf/open/floor/engine,
 /area/shuttle/yohei)
 "kp" = (
