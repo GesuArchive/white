@@ -916,4 +916,7 @@
 
 /obj/machinery/computer/shuttle_flight/yohei/LateInitialize()
 	. = ..()
-	launch_shuttle()
+	var/datum/orbital_object/O = launch_shuttle()
+
+	var/datum/orbital_map/linked_map = SSorbits.orbital_maps[orbital_map_index]
+	O.set_orbitting_around_body(linked_map.center, 2300 + 25 * rand(40, 20))
