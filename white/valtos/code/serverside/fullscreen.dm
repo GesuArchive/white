@@ -5,8 +5,6 @@
 	else
 		winset(src, "mainwindow", "is-maximized=false;can-resize=true;titlebar=true;menu=menu")
 		winset(src, "mainwindow", "is-maximized=true")
-	if((prefs?.widescreen))
-		OnResize()
 	addtimer(CALLBACK(src,.verb/fit_viewport, 10))
 
 /datum/keybinding/client/fullscreen_toggle

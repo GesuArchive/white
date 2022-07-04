@@ -112,9 +112,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	var/clientfps = -1
 
-	var/widescreen = TRUE
-
-	var/icon_size = 0
+	var/widescreenwidth = 19
 
 	var/parallax
 
@@ -577,22 +575,17 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_NODE_SWITCH("Полный экран", "fullscreen", fullscreen ? "Вкл" : "Выкл")
 
 			if (CONFIG_GET(string/default_view) != CONFIG_GET(string/default_view_square))
-				dat += SETUP_NODE_SWITCH("Широкий экран", "widescreen", widescreen ? "Вкл" : "Выкл")
-				dat += SETUP_NODE_INPUT("Размер иконки", "icon_size", icon_size)
+				dat += SETUP_NODE_INPUT("Ширина экрана", "widescreenwidth", widescreenwidth)
 
-			if(!widescreen)
-				button_name = pixel_size
-				dat += SETUP_NODE_SWITCH("Пиксельное скалирование", "pixel_size", button_name ? "Pixel Perfect [button_name]x" : "Stretch to fit")
+			switch(scaling_method)
+				if(SCALING_METHOD_DISTORT)
+					button_name = "Nearest Neighbor"
+				if(SCALING_METHOD_NORMAL)
+					button_name = "Point Sampling"
+				if(SCALING_METHOD_BLUR)
+					button_name = "Bilinear"
 
-				switch(scaling_method)
-					if(SCALING_METHOD_DISTORT)
-						button_name = "Nearest Neighbor"
-					if(SCALING_METHOD_NORMAL)
-						button_name = "Point Sampling"
-					if(SCALING_METHOD_BLUR)
-						button_name = "Bilinear"
-
-				dat += SETUP_NODE_SWITCH("Метод скалирования", "scaling_method", button_name)
+			dat += SETUP_NODE_SWITCH("Метод скалирования", "scaling_method", button_name)
 
 			//dat += SETUP_NODE_SWITCH("Названия предметов", "tooltip_user", (w_toggles & TOOLTIP_USER_UP) ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Позиция на экране", "tooltip_pos", (w_toggles & TOOLTIP_USER_POS) ? "Внизу" : "Вверху")
@@ -1599,12 +1592,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if (pickedmap)
 						preferred_map = maplist[pickedmap]
 
-				if ("icon_size")
-					var/icon_size_input = input(user, "Какой размер выберем? Введи 0 для автоматического.", "БУДЬ ОСТОРОЖЕН", icon_size)
-					if (!isnull(icon_size_input))
-						icon_size = sanitize_integer(icon_size_input, 0, 256, icon_size)
-						INVOKE_ASYNC(user?.client, /client.verb/SetWindowIconSize, icon_size)
-
 				if ("clientfps")
 					var/desiredfps = input(user, "Choose your desired fps.\n-1 means recommended value (currently:[RECOMMENDED_FPS])\n0 means world fps (currently:[world.fps])", "Character Preference", clientfps)  as null|num
 					if (!isnull(desiredfps))
@@ -1864,12 +1851,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						var/atom/movable/screen/plane_master/game_world/plane_master = locate() in parent.screen
 						plane_master.backdrop(parent.mob)
 
-				if ("widescreen")
-					widescreen = !widescreen
-					if(widescreen)
-						INVOKE_ASYNC(user?.client, /client.verb/SetWindowIconSize, icon_size)
-					else
-						user?.client?.view_size?.setDefault(user?.client?.getScreenSize(icon_size))
+				if ("widescreenwidth")
+					var/desiredwidth = input(user, "Какую ширину выберем от до 15-19?", "ВЫБОР", widescreenwidth)  as null|num
+					if (!isnull(desiredwidth))
+						widescreenwidth = sanitize_integer(desiredwidth, 15, 19, widescreenwidth)
+						user.client.view_size.setDefault("[widescreenwidth]x15")
 
 				if("auto_fit_viewport")
 					auto_fit_viewport = !auto_fit_viewport
@@ -1879,9 +1865,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("fullscreen")
 					fullscreen = !fullscreen
 					parent.ToggleFullscreen()
-
-//				if("tooltip_user")
-//					w_toggles ^= TOOLTIP_USER_UP
 
 				if("tooltip_pos")
 					w_toggles ^= TOOLTIP_USER_POS

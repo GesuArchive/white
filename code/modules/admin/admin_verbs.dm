@@ -209,7 +209,6 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/check_timer_sources,
 	/client/proc/toggle_cdn,
 	/client/proc/load_circuit,
-	/client/proc/show_winset_debug_values,
 	)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, /proc/possess, /proc/release))
 GLOBAL_PROTECT(admin_verbs_possess)
@@ -303,7 +302,6 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/toggle_combo_hud,
 	/client/proc/debug_huds_wrapper,
 	/client/proc/fuck_pie,
-	/client/proc/show_winset_debug_values,
 	))
 GLOBAL_PROTECT(admin_verbs_hideable)
 
@@ -945,15 +943,3 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	message_admins("[key_name_admin(usr)] added mob ability [ability_type] to mob [marked_mob].")
 	log_admin("[key_name(usr)] added mob ability [ability_type] to mob [marked_mob].")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Add Mob Ability") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/client/proc/show_winset_debug_values()
-	set name = "Show Client View Debug Values"
-	set category = "Дбг"
-	set desc = "Shows your viewport's values for debugging purposes."
-	var/divisor = text2num(winget(src, "mapwindow.map", "icon-size")) || world.icon_size
-	var/winsize_string = winget(src, "mapwindow.map", "size")
-
-	to_chat(usr, "Current client view: [view]")
-	to_chat(usr, "Icon size: [divisor]")
-	to_chat(usr, "xDim: [round(text2num(winsize_string) / divisor)]")
-	to_chat(usr, "yDim: [round(text2num(copytext(winsize_string,findtext(winsize_string,"x")+1,0)) / divisor)]")

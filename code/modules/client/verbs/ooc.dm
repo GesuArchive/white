@@ -457,7 +457,7 @@ GLOBAL_LIST_INIT(alko_list, list("zarri", "maxsc", "nfogmann", "unitazik", "sran
 
 /// Attempt to automatically fit the viewport, assuming the user wants it
 /client/proc/attempt_auto_fit_viewport()
-	if (!prefs.auto_fit_viewport || prefs?.widescreen)
+	if (!prefs.auto_fit_viewport)
 		return
 	if(fully_created)
 		INVOKE_ASYNC(src, .verb/fit_viewport)

@@ -79,9 +79,7 @@
 	update_client_colour()
 	update_mouse_pointer()
 	if(client)
-		if((client?.prefs?.widescreen))
-			var/val = client?.prefs.icon_size
-			INVOKE_ASYNC(client, /client.verb/SetWindowIconSize, val)
+		client.change_view(client.getScreenSize())
 
 		if(client.player_details.player_actions.len)
 			for(var/datum/action/A in client.player_details.player_actions)

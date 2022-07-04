@@ -50,19 +50,18 @@
 	button_icon_state = "mech_zoom_off"
 
 /datum/action/vehicle/sealed/mecha/mech_zoom/Trigger(trigger_flags)
-	if(!owner || !chassis || !(owner in chassis.occupants))
+	if(!owner?.client || !chassis || !(owner in chassis.occupants))
 		return
-	if(owner.client)
-		chassis.zoom_mode = !chassis.zoom_mode
-		button_icon_state = "mech_zoom_[chassis.zoom_mode ? "on" : "off"]"
-		chassis.log_message("Toggled zoom mode.", LOG_MECHA)
-		to_chat(owner, "[icon2html(chassis, owner)]<font color='[chassis.zoom_mode?"blue":"red"]'>Режим зума: [chassis.zoom_mode?"включен":"отключен"].</font>")
-		if(chassis.zoom_mode)
-			owner.client.view_size.setTo(4.5)
-			SEND_SOUND(owner, sound('sound/mecha/imag_enh.ogg',volume=50))
-		else
-			owner.client.view_size.resetToDefault() //Let's not let this stack shall we?
-		UpdateButtonIcon()
+	chassis.zoom_mode = !chassis.zoom_mode
+	button_icon_state = "mech_zoom_[chassis.zoom_mode ? "on" : "off"]"
+	chassis.log_message("Toggled zoom mode.", LOG_MECHA)
+	to_chat(owner, "[icon2html(chassis, owner)]<font color='[chassis.zoom_mode?"blue":"red"]'>Режим зума: [chassis.zoom_mode?"включен":"отключен"].</font>")
+	if(chassis.zoom_mode)
+		owner.client.view_size.setTo(4.5)
+		SEND_SOUND(owner, sound('sound/mecha/imag_enh.ogg', volume=50))
+	else
+		owner.client.view_size.resetToDefault()
+	UpdateButtonIcon()
 
 /obj/vehicle/sealed/mecha/combat/marauder/seraph
 	desc = "Heavy-duty, command-type exosuit. This is a custom model, utilized only by high-ranking military personnel."

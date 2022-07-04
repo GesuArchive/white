@@ -20,7 +20,6 @@
 	/// The client that owns this view packet
 	var/client/chief = null
 
-
 /datum/view_data/New(client/owner, view_string)
 	default = view_string
 	chief = owner
@@ -44,7 +43,7 @@
 	winset(chief, "mapwindow.map", "zoom=0")
 	zoom = 0
 
-/datum/view_data/proc/resetFormat()
+/datum/view_data/proc/resetFormat()//Cuck
 	zoom = chief?.prefs.pixel_size
 	winset(chief, "mapwindow.map", "zoom=[zoom]")
 	chief?.attempt_auto_fit_viewport() // If you change zoom mode, fit the viewport
@@ -75,7 +74,7 @@
 	var/list/shitcode = getviewsize(toAdd)  //Backward compatability to account
 	width = shitcode[1] //for a change in how sizes get calculated. we used to include world.view in
 	height = shitcode[2] //this, but it was jank, so I had to move it
-	apply(toAdd)
+	apply()
 
 /datum/view_data/proc/setBoth(wid, hei)
 	width = wid
@@ -98,8 +97,8 @@
 	height += toAdd
 	apply()
 
-/datum/view_data/proc/apply(forced)
-	chief?.change_view(getView(), forced)
+/datum/view_data/proc/apply()
+	chief?.change_view(getView())
 	safeApplyFormat()
 
 /datum/view_data/proc/supress()
@@ -117,7 +116,6 @@
 	return "[width + temp[1]]x[height + temp[2]]"
 
 /datum/view_data/proc/zoomIn()
-	chief.SetWindowIconSize(chief.prefs?.icon_size)
 	resetToDefault()
 	animate(chief, pixel_x = 0, pixel_y = 0, 0, FALSE, LINEAR_EASING, ANIMATION_END_NOW)
 
@@ -139,6 +137,4 @@
 	setTo(radius)
 
 /client/proc/getScreenSize()
-	if(prefs?.widescreen)
-		return "19x15"
-	return "15x15"
+	return "[prefs.widescreenwidth]x15"

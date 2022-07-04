@@ -1028,22 +1028,18 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 					var/ooc = tgui_say_create_open_command(OOC_CHANNEL)
 					winset(src, "default-[REF(key)]", "parent=default;name=[key];command=[ooc]")
 
-/client/proc/change_view(new_size, forced)
-	if((!prefs?.widescreen))
-		if (isnull(new_size))
-			CRASH("change_view called without argument.")
-		view = new_size
-		apply_clickcatcher()
-		mob?.reload_fullscreen()
-		if (isliving(mob))
-			var/mob/living/M = mob
-			M.update_damage_hud()
-		attempt_auto_fit_viewport()
-	else
-		apply_clickcatcher()
-		mob?.reload_fullscreen()
-		if(forced)
-			view = new_size
+/client/proc/change_view(new_size)
+	if (isnull(new_size))
+		CRASH("change_view called without argument.")
+
+	view = new_size
+	SEND_SIGNAL(src, COMSIG_VIEW_SET, new_size)
+	apply_clickcatcher()
+	mob.reload_fullscreen()
+	if (isliving(mob))
+		var/mob/living/M = mob
+		M.update_damage_hud()
+	attempt_auto_fit_viewport()
 
 /client/proc/generate_clickcatcher()
 	if(!void)
@@ -1218,17 +1214,3 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	var/mob/dead/observer/observer = mob
 	observer.ManualFollow(target)
-
-/// Used in skin.dmf to scale on hotkeys.
-/client/verb/ScaleHotkey(number as num)
-	var/lastsize = text2num(winget(src, "mapwindow.map", "icon-size"))
-	var/newpref = lastsize + number
-	if(number == -2)
-		if(lastsize <= 32)
-			newpref = 0
-	else
-		if(lastsize == 0)
-			newpref = 32
-		else if (lastsize == 256)
-			newpref = 256
-	SetWindowIconSize(newpref)

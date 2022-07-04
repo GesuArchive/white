@@ -54,7 +54,6 @@ window "mainwindow"
 		icon = 'icons\\tg_32.png'
 		macro = "default"
 		menu = "menu"
-		on-size = "OnResize"
 	elem "split"
 		type = CHILD
 		pos = 0,0
