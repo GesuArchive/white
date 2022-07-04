@@ -653,7 +653,7 @@
 	id = "yohei_harverster"
 	ignitionTime = 25
 	callTime = 50
-	port_direction = 1
+	port_direction = 2
 	preferred_direction = 2
 
 /obj/item/card/id/yohei
