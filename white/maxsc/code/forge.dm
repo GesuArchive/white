@@ -35,12 +35,13 @@
 									/obj/item/melee/forge/sword = 150, \
 									/obj/item/melee/forge/mace = 100, \
 									/obj/item/ammo_casing/forged = 50)
-	for(var/obj/item/I in craftlist)
+	for(var/item in craftlist)
 		var/list/craft = list()
-		craft["path"] = I
-		craft["name"] = initial(I.name)
-		craft["cost"] = craftlist[I]
-		crafts+=list(craft)
+		var/atom/A = item
+		craft["path"] = item
+		craft["name"] = initial(A.name)
+		craft["cost"] = craftlist[item]
+		crafts += list(craft)
 	return crafts
 
 /obj/machinery/forge/main/attack_hand(mob/living/user)
