@@ -1620,6 +1620,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(new_time)
 						ice_cream_time = min(new_time MINUTES, 60 MINUTES)
 
+				if ("widescreenwidth")
+					var/desiredwidth = input(user, "Какую ширину выберем от до 15-19?", "ВЫБОР", widescreenwidth)  as null|num
+					if (!isnull(desiredwidth))
+						widescreenwidth = sanitize_integer(desiredwidth, 15, 19, widescreenwidth)
+						user.client.view_size.setDefault("[widescreenwidth]x15")
+
 		else
 			switch(href_list["preference"])
 				if("publicity")
@@ -1850,12 +1856,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(parent?.screen && parent.screen.len)
 						var/atom/movable/screen/plane_master/game_world/plane_master = locate() in parent.screen
 						plane_master.backdrop(parent.mob)
-
-				if ("widescreenwidth")
-					var/desiredwidth = input(user, "Какую ширину выберем от до 15-19?", "ВЫБОР", widescreenwidth)  as null|num
-					if (!isnull(desiredwidth))
-						widescreenwidth = sanitize_integer(desiredwidth, 15, 19, widescreenwidth)
-						user.client.view_size.setDefault("[widescreenwidth]x15")
 
 				if("auto_fit_viewport")
 					auto_fit_viewport = !auto_fit_viewport
