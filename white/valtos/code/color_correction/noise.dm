@@ -5,7 +5,7 @@
 	show_when_dead = TRUE
 	layer = LOBBY_BACKGROUND_LAYER
 	plane = SPLASHSCREEN_PLANE
-	blend_mode = 3
+	blend_mode = 4
 	alpha = 255
 
 /mob/dead/new_player/Initialize(mapload)
