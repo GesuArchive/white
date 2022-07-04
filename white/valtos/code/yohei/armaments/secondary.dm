@@ -23,3 +23,8 @@
 	mags_to_spawn = 0
 	magazine = /obj/item/storage/box/ammo_box/revolver
 	magazine_cost = 4
+
+/datum/armament_entry/yohei/secondary/pistol/yohei9mm
+	item_type = /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm
+	max_purchase = 1
+	cost = 7

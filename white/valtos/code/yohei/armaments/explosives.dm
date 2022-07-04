@@ -5,7 +5,7 @@
 /datum/armament_entry/yohei/explosives/frag
 	item_type = /obj/item/grenade/frag
 	max_purchase = 8
-	cost = 3
+	cost = 6
 
 /datum/armament_entry/yohei/explosives/flashbang
 	item_type = /obj/item/grenade/flashbang
@@ -20,7 +20,7 @@
 /datum/armament_entry/yohei/explosives/mine
 	item_type = /obj/item/minespawner/explosive
 	max_purchase = 8
-	cost = 1
+	cost = 7
 
 /datum/armament_entry/yohei/explosives/c4
 	item_type = /obj/item/grenade/c4

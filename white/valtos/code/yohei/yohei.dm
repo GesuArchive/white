@@ -85,6 +85,17 @@
 	hoodtype = /obj/item/clothing/head/hooded/yohei
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/big
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/toy, /obj/item/storage/fancy/cigarettes, /obj/item/lighter, /obj/item/gun, /obj/item/pickaxe, /obj/item/cat_hook, /obj/item/storage/belt)
+	var/blessed = FALSE
+
+/obj/item/clothing/suit/hooded/yohei/ToggleHood()
+	. = ..()
+	if(!blessed)
+		return
+
+	if(suittoggled)
+		icon_state = "yohei_white_t"
+	else
+		icon_state = "yohei_white"
 
 /obj/item/clothing/head/hooded/yohei
 	name = "капюшон йохея"
@@ -270,7 +281,6 @@
 	r_hand = /obj/item/book/yohei_codex
 
 	r_pocket = /obj/item/flashlight/seclite
-	l_pocket = /obj/item/pamk
 
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(/obj/item/armament_points_card/yohei = 1)
@@ -689,6 +699,24 @@
 		return
 
 	if(assigned_to && user?.mind != assigned_to)
+		var/mob/living/carbon/human/H = assigned_to.current
+		if(!H || H?.stat)
+			to_chat(user, span_danger("Не обнаружен дееспособный Йохей..."))
+			return
+
+		var/obj/item/clothing/suit/hooded/yohei/YS = H.get_item_by_slot(ITEM_SLOT_OCLOTHING)
+		var/obj/item/clothing/head/hooded/yohei/YH = H.get_item_by_slot(ITEM_SLOT_HEAD)
+		if(!YS || !YH)
+			to_chat(user, span_danger("Йохей должен быть в своём плаще и с капюшоном на голове."))
+			return
+
+		YS.icon_state = "yohei_white"
+		YS.blessed = TRUE
+		YH.icon_state = "yohei_white"
+
+		H.update_inv_wear_suit()
+		H.update_inv_head()
+
 		var/obj/item/card/id/ID = W
 		if(ID.registered_name)
 			assigned_by = ID.registered_name

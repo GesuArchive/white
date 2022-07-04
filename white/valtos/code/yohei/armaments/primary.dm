@@ -20,7 +20,7 @@
 /datum/armament_entry/yohei/primary/assaultrifle/infiltrator
 	item_type = /obj/item/gun/ballistic/automatic/fallout/assaultrifle/infiltrator
 	max_purchase = 1
-	cost = 15
+	cost = 25
 	magazine = /obj/item/ammo_box/magazine/fallout/r20
 
 /datum/armament_entry/yohei/primary/shotgun
@@ -30,14 +30,14 @@
 /datum/armament_entry/yohei/primary/shotgun/shotgun_highcap
 	item_type = /obj/item/gun/ballistic/shotgun/lethal
 	max_purchase = 2
-	cost = 5
+	cost = 12
 	magazine = /obj/item/storage/box/ammo_box/shotgun_12g
 	magazine_cost = 4
 
 /datum/armament_entry/yohei/primary/shotgun/autoshotgun_pump
 	item_type = /obj/item/gun/ballistic/shotgun/automatic/combat
 	max_purchase = 1
-	cost = 7
+	cost = 17
 	magazine = /obj/item/storage/box/ammo_box/shotgun_12g
 	magazine_cost = 4
 
@@ -46,9 +46,9 @@
 	mags_to_spawn = 2
 
 /datum/armament_entry/yohei/primary/special/sniper_rifle
-	item_type = /obj/item/gun/ballistic/automatic/pistol/fallout/yohei9mm
+	item_type = /obj/item/gun/ballistic/automatic/sniper_rifle
 	max_purchase = 1
-	cost = 15
+	cost = 30
 
 /datum/armament_entry/yohei/primary/special/hmg
 	item_type = /obj/item/deployable_turret_folded
@@ -59,6 +59,6 @@
 
 /datum/armament_entry/yohei/primary/special/crossbow
 	item_type = /obj/item/gun/ballistic/crossbow/energy
-	cost = 7
+	cost = 14
 	magazine = /obj/item/stack/rods/twentyfive
 	mags_to_spawn = 1

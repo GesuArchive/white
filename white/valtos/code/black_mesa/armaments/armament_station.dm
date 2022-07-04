@@ -41,10 +41,9 @@
 	/// How many points does this card have to use at the vendor?
 	var/points = 10
 
-/obj/item/armament_points_card/Initialize(mapload)
+/obj/item/armament_points_card/LateInitialize()
 	. = ..()
-	spawn(1 SECONDS)
-		update_maptext()
+	update_maptext()
 
 /obj/item/armament_points_card/examine(mob/user)
 	. = ..()
