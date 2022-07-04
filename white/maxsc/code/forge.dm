@@ -215,7 +215,7 @@
 /obj/item/ammo_casing/forged/Initialize(mapload)
 	. = ..()
 	var/obj/projectile/bullet/forged/FP = loaded_projectile
-	FP.material = new material.type
+	FP.material = new material
 
 /obj/projectile/bullet/forged
 	name = "химическая пуля"
