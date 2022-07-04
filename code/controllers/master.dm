@@ -520,7 +520,8 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 			subsystems_to_check = tickersubsystems
 
 		if (CheckQueue(subsystems_to_check) <= 0) //error processing queue
-			stack_trace("MC: CheckQueue failed. Current error_level is [round(error_level, 0.25)]")
+			message_admins("MC: CheckQueue failed. Current error_level is [round(error_level, 0.25)]")
+			log_runtime("MC: CheckQueue failed. Current error_level is [round(error_level, 0.25)]")
 			if (!SoftReset(tickersubsystems, runlevel_sorted_subsystems))
 				error_level++
 				CRASH("MC: SoftReset() failed, exiting loop()")
@@ -536,7 +537,8 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 
 		if (queue_head)
 			if (RunQueue() <= 0) //error running queue
-				stack_trace("MC: RunQueue failed. Current error_level is [round(error_level, 0.25)]")
+				message_admins("MC: RunQueue failed. Current error_level is [round(error_level, 0.25)]")
+				log_runtime("MC: RunQueue failed. Current error_level is [round(error_level, 0.25)]")
 				if (error_level > 1) //skip the first error,
 					if (!SoftReset(tickersubsystems, runlevel_sorted_subsystems))
 						error_level++
