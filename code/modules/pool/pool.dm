@@ -70,7 +70,7 @@ Place a pool filter somewhere in the pool if you want people to be able to modif
 	. = ..()
 	if(!istype(get_turf(AM), /turf/open/indestructible/pool))
 		var/datum/component/swimming/S = AM.GetComponent(/datum/component/swimming) //Handling admin TPs here.
-		S?.RemoveComponent()
+		qdel(S)
 
 /turf/open/MouseDrop_T(atom/dropping, mob/user)
 	if(!isliving(user) || !isliving(dropping)) //No I don't want ghosts to be able to dunk people into the pool.
