@@ -78,12 +78,12 @@
 			if(!reagents.remove_reagent(selected_material.type, text2num(params["cost"])))
 				return
 			var/target_path = text2path(params["path"])
-			if(istype(target_path, /obj/item/melee/forge))
+			if(ispath(target_path, /obj/item/melee/forge))
 				var/obj/item/melee/forge/forged_item = target_path
 				forged_item = new forged_item(get_turf(src))
 				forged_item.material = selected_material.type
 				forged_item.setup()
-			else if(istype(target_path, /obj/item/ammo_casing/forged))
+			else if(ispath(target_path, /obj/item/ammo_casing/forged))
 				var/obj/item/ammo_casing/forged/forged_item = target_path
 				forged_item = new forged_item(get_turf(src))
 				forged_item.material = selected_material.type
