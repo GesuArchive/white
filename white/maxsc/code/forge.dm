@@ -31,12 +31,15 @@
 
 /obj/machinery/forge/main/proc/get_crafts()
 	var/list/crafts = list()
-	for(var/I in list(/obj/item/melee/forge/dagger, /obj/item/melee/forge/sword, /obj/item/melee/forge/mace))
-		var/obj/item/melee/forge/W = I
+	var/static/list/craftlist = list(/obj/item/melee/forge/dagger = 50, \
+									/obj/item/melee/forge/sword = 150, \
+									/obj/item/melee/forge/mace = 100, \
+									/obj/item/ammo_casing/forged = 50)
+	for(var/obj/item/I in craftlist)
 		var/list/craft = list()
-		craft["path"] = W
-		craft["name"] = initial(W.name)
-		craft["cost"] = initial(W.mat_cost)
+		craft["path"] = I
+		craft["name"] = initial(I.name)
+		craft["cost"] = craftlist[I]
 		crafts+=list(craft)
 	return crafts
 
@@ -73,14 +76,19 @@
 		if("create")
 			if(!reagents.remove_reagent(selected_material.type, text2num(params["cost"])))
 				return
-			// да похуй блядь
-			//if(!istype(text2path(params["path"]), /obj/item/melee/forge))
-			//	message_admins("[ADMIN_LOOKUPFLW(usr)] пытается создать [params["path"]] в реагентной печке в локации [AREACOORD(usr)]")
-			//	return
-			var/obj/item/melee/forge/forged_item = params["path"]
-			forged_item = new forged_item(get_turf(src))
-			forged_item.material = selected_material.type
-			forged_item.setup()
+			var/target_path = text2path(params["path"])
+			if(istype(target_path, /obj/item/melee/forge))
+				var/obj/item/melee/forge/forged_item = target_path
+				forged_item = new forged_item(get_turf(src))
+				forged_item.material = selected_material.type
+				forged_item.setup()
+			else if(istype(target_path, /obj/item/ammo_casing/forged))
+				var/obj/item/ammo_casing/forged/forged_item = target_path
+				forged_item = new forged_item(get_turf(src))
+				forged_item.material = selected_material.type
+			else
+				message_admins("[ADMIN_LOOKUPFLW(usr)] пытается создать [target_path] в реагентной печке в локации [AREACOORD(usr)]")
+				return
 		if("select")
 			selected_material = reagents.get_reagent(get_chem_id(params["reagent"]))
 		if("dump")
@@ -123,7 +131,6 @@
 	righthand_file = 'white/maxsc/icons/righthand.dmi'
 	lefthand_file = 'white/maxsc/icons/lefthand.dmi'
 	var/datum/reagent/material
-	var/mat_cost = 50
 
 /obj/item/melee/forge/proc/setup()
 	if(material)
@@ -164,7 +171,6 @@
 	attack_verb_continuous = list("slashes", "cuts")
 	attack_verb_simple = list("slash", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	mat_cost = 100
 
 /obj/item/melee/forge/mace
 	name = "булава"
@@ -173,8 +179,6 @@
 	w_class = WEIGHT_CLASS_BULKY
 	force = 12
 	throwforce = 12
-	mat_cost = 100
-
 
 /obj/item/melee/forge/dagger
 	name = "кинжал"
@@ -186,7 +190,6 @@
 	attack_verb_continuous = list("stabs", "cuts")
 	attack_verb_simple = list("stab", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	mat_cost = 50
 
 /obj/item/melee/forge/dagger/afterattack(atom/target, mob/user, proximity)
 	. = ..()
@@ -201,4 +204,29 @@
 	slot_flags = ITEM_SLOT_BACK
 	force = 15
 	throwforce = 15
-	mat_cost = 150
+
+/obj/item/ammo_casing/forged
+	name = "патрон"
+	desc = "Патрон или гильза от патрона? Узнаем! Этот имеет универсальную форму адаптирующуюся под необходимый калибр автоматически."
+	caliber = CALIBER_UNIVERSAL
+	projectile_type = /obj/projectile/bullet/forged
+	var/material
+
+/obj/item/ammo_casing/forged/Initialize(mapload)
+	. = ..()
+	var/obj/projectile/bullet/forged/FP = loaded_projectile
+	FP.material = new material.type
+
+/obj/projectile/bullet/forged
+	name = "химическая пуля"
+	damage = 5
+	impact_effect_type = /obj/effect/temp_visual/impact_effect/neurotoxin
+	var/datum/reagent/material
+
+/obj/projectile/bullet/forged/on_hit(atom/target, blocked, pierce_hit)
+	. = ..()
+	if(material)
+		if(ishuman(target))
+			var/mob/living/carbon/human/H = target
+			if(H.reagents)
+				H.reagents.add_reagent(material.type, damage)

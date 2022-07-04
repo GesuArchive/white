@@ -322,7 +322,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 				// получаем список предметов на персонаже, включая рюкзак
 				LAZYADD(saved_shit, H.get_all_gear())
 				// по идее должно исключить стакинг бесполезных предметов
-				var/list/static/blacklisted_types = list(
+				var/static/list/blacklisted_types = list(
 					/obj/item/clothing/shoes/jackboots,
 					/obj/item/terroristsc4,
 					/obj/item/clothing/under/color/red,

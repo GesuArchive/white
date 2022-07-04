@@ -55,3 +55,5 @@ GLOBAL_LIST_EMPTY_TYPED(proj_by_path_key, /obj/projectile) // A list of projecti
 #define CALIBER_HOOK "hook"
 /// The caliber used by the changeling tentacle mutation.
 #define CALIBER_TENTACLE "tentacle"
+/// The caliber used by universal forged bullets.
+#define CALIBER_UNIVERSAL "universal"
