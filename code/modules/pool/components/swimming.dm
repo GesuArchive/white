@@ -18,7 +18,7 @@
 		message_admins("Swimming component erroneously added to a non-living mob ([parent]).")
 		return INITIALIZE_HINT_QDEL //Only mobs can swim, like Ian...
 	var/mob/M = parent
-	//M.visible_message(span_notice("[parent] starts splashing around in the water!"))
+	M.visible_message(span_notice("[parent] starts splashing around in the water!"))
 	M.add_movespeed_modifier(/datum/movespeed_modifier/swimming, TRUE)
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/onMove)
 	RegisterSignal(parent, COMSIG_MOB_ATTACK_HAND_TURF, .proc/try_leave_pool)

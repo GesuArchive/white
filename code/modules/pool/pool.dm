@@ -45,28 +45,32 @@ Place a pool filter somewhere in the pool if you want people to be able to modif
 	. = ..()
 
 /turf/open/CanPass(atom/movable/mover, turf/target)
-	if(mover.GetComponent(/datum/component/swimming))
+	var/datum/component/swimming/S = mover.GetComponent(/datum/component/swimming) //If you're swimming around, you don't really want to stop swimming just like that do you?
+	if(S)
 		return FALSE //If you're swimming, you can't swim into a regular turf, y'dig?
 	. = ..()
 
 /turf/open/indestructible/pool/CanPass(atom/movable/mover, turf/target)
-	return (isliving(mover)) ? mover.GetComponent(/datum/component/swimming) : ..() //So you can do stuff like throw beach balls around the pool!
+	var/datum/component/swimming/S = mover.GetComponent(/datum/component/swimming) //You can't get in the pool unless you're swimming.
+	return (isliving(mover)) ? S : ..() //So you can do stuff like throw beach balls around the pool!
 
 /turf/open/indestructible/pool/Entered(atom/movable/AM)
 	. = ..()
 	AM.wash(CLEAN_WASH)
 	if(isliving(AM))
-		if(!AM.GetComponent(/datum/component/swimming))
+		var/datum/component/swimming/S = AM.GetComponent(/datum/component/swimming) //You can't get in the pool unless you're swimming.
+		if(!S)
 			var/mob/living/carbon/C = AM
 			var/component_type = /datum/component/swimming
 			if(istype(C) && C?.dna?.species)
 				component_type = C.dna.species.swimming_component
 			AM.AddComponent(component_type)
 
-/turf/open/indestructible/pool/Exited(atom/movable/AM, atom/newloc)
+/turf/open/indestructible/pool/Exited(atom/movable/AM, direction)
 	. = ..()
-	if(!istype(newloc, /turf/open/indestructible/pool))
-		qdel(AM.GetComponent(/datum/component/swimming))
+	if(!istype(get_turf(AM), /turf/open/indestructible/pool))
+		var/datum/component/swimming/S = AM.GetComponent(/datum/component/swimming) //Handling admin TPs here.
+		S?.RemoveComponent()
 
 /turf/open/MouseDrop_T(atom/dropping, mob/user)
 	if(!isliving(user) || !isliving(dropping)) //No I don't want ghosts to be able to dunk people into the pool.
@@ -84,7 +88,8 @@ Place a pool filter somewhere in the pool if you want people to be able to modif
 /turf/open/indestructible/pool/MouseDrop_T(atom/dropping, mob/user)
 	if(!isliving(user) || !isliving(dropping)) //No I don't want ghosts to be able to dunk people into the pool.
 		return
-	if(dropping.GetComponent(/datum/component/swimming))
+	var/datum/component/swimming/S = dropping.GetComponent(/datum/component/swimming) //If they're already swimming, don't let them start swimming again.
+	if(S)
 		return FALSE
 	. = ..()
 	if(user != dropping)
