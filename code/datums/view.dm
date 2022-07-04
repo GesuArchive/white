@@ -108,6 +108,7 @@
 /datum/view_data/proc/unsupress()
 	is_suppressed = FALSE
 	apply()
+	chief?.attempt_auto_fit_viewport()
 
 /datum/view_data/proc/getView()
 	var/list/temp = getviewsize(default)
