@@ -97,6 +97,22 @@
 	else
 		icon_state = "yohei_white"
 
+	var/mob/living/carbon/human/H = loc
+	H?.update_inv_wear_suit()
+
+/obj/item/clothing/suit/hooded/yohei/RemoveHood()
+	. = ..()
+	if(!blessed)
+		return
+
+	if(suittoggled)
+		icon_state = "yohei_white_t"
+	else
+		icon_state = "yohei_white"
+
+	var/mob/living/carbon/human/H = loc
+	H?.update_inv_wear_suit()
+
 /obj/item/clothing/head/hooded/yohei
 	name = "капюшон йохея"
 	desc = "Не даст башке замёрзнуть и защитит от большинства угроз."
@@ -704,18 +720,24 @@
 			to_chat(user, span_danger("Не обнаружен дееспособный Йохей..."))
 			return
 
+		var/obj/item/clothing/under/syndicate/yohei/YU = H.get_item_by_slot(ITEM_SLOT_ICLOTHING)
 		var/obj/item/clothing/suit/hooded/yohei/YS = H.get_item_by_slot(ITEM_SLOT_OCLOTHING)
 		var/obj/item/clothing/head/hooded/yohei/YH = H.get_item_by_slot(ITEM_SLOT_HEAD)
-		if(!YS || !YH)
-			to_chat(user, span_danger("Йохей должен быть в своём плаще и с капюшоном на голове."))
+		var/obj/item/clothing/shoes/jackboots/yohei/YF = H.get_item_by_slot(ITEM_SLOT_FEET)
+		if(!istype(YS) || !istype(YH) || !istype(YU) || !istype(YF))
+			to_chat(user, span_danger("Йохей должен быть в своих униформе, ботинках, плаще и с капюшоном на голове."))
 			return
 
 		YS.icon_state = "yohei_white"
 		YS.blessed = TRUE
 		YH.icon_state = "yohei_white"
+		YU.icon_state = "yohei_white"
+		YF.icon_state = "yohei_white"
 
+		H.update_inv_w_uniform()
 		H.update_inv_wear_suit()
 		H.update_inv_head()
+		H.update_inv_shoes()
 
 		var/obj/item/card/id/ID = W
 		if(ID.registered_name)
