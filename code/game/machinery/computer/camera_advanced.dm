@@ -89,6 +89,7 @@
 		if(eyeobj.visible_icon && user.client)
 			user.client.images -= eyeobj.user_image
 		user.client.view_size.unsupress()
+		user.client.attempt_auto_fit_viewport()
 
 	eyeobj.eye_user = null
 	user.remote_control = null
