@@ -49,10 +49,9 @@
 	name = "Oni Android"
 	id = "oni"
 	limbs_id = null
-	species_traits = list(NOBLOOD, NOEYESPRITES)
 	mutant_organs = list(/obj/item/organ/tail/cat/oni_android)
 	mutant_bodyparts = list("tail_human" = "Oni")
-	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,HAS_FLESH)
+	species_traits = list(NOBLOOD, NOEYESPRITES, EYECOLOR, HAIR, FACEHAIR, LIPS, HAS_FLESH)
 
 /datum/species/android/oni_android/on_species_gain(mob/living/carbon/C)
 	. = ..()
@@ -93,7 +92,7 @@
 	limbs_id = null
 	yogs_draw_robot_hair = TRUE
 	use_skintones = TRUE
-	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,HAS_FLESH,NOBLOOD)
+	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, HAS_FLESH, NOBLOOD)
 
 /datum/species/android/synthman/on_species_gain(mob/living/carbon/C)
 	. = ..()
