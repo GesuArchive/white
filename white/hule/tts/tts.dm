@@ -14,7 +14,8 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 ////////////////////////////////////////////////
 
 /proc/tts_args(var/name, var/msg, var/lang)
-	world.shelleo("cd [TTS_PATH] && python3 t.py \"[msg]\" [lang] \"[TTS_PATH]/lines/[name].wav\"")
+	world.Export("http://127.0.0.1:2386/?text=[url_encode(msg)]&speaker=[lang]&ckey=[name]")
+	//world.shelleo("cd [TTS_PATH] && python3 t.py \"[msg]\" [lang] \"[TTS_PATH]/lines/[name].wav\"")
 
 /////////////////////////////////////
 
