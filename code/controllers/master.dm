@@ -336,12 +336,11 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	log_world("World init for [time] seconds!")
 
 	spawn(5)
-		var/info_file = file2text("data/gitsum.json")
+		var/list/info_file = world.file2list("data/gitsum.txt")
 
-		if(info_file)
-			var/list/commit_info = safe_json_decode(info_file)
-			if(commit_info)
-				to_chat(world, span_nzcrentr("-- #<b>Версия</b>:> <a href='https://github.com/frosty-dev/white/commit/[commit_info["commit"]]'>[uppertext(commit_info["message"])]</a> --"))
+		if(info_file?.len)
+			var/version_text = "[info_file[3][1]].[info_file[3][2]][info_file[3][3]][info_file[3][4]].[info_file[3][5]]"
+			to_chat(world, span_nzcrentr("-- #<b>Версия</b>:> [version_text] (<a href='https://github.com/frosty-dev/white/commit/[info_file[1]]'>[uppertext(info_file[2])]</a>) --"))
 
 		var/list/templist = world.file2list("[global.config.directory]/assblasted_people.txt")
 		for(var/entry in templist)
