@@ -90,6 +90,11 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	// маркируем все текущие атомы, чтобы чистильщик их не удалил
 	for(var/atom/A in main_area)
 		A.flags_1 |= KEEP_ON_ARENA_1
+	// отменяем готовность и тут на всякий случай
+	for(var/i in GLOB.new_player_list)
+		var/mob/dead/new_player/player = i
+		if(player.ready == PLAYER_READY_TO_PLAY)
+			player.ready = PLAYER_NOT_READY
 	return TRUE
 
 /datum/game_mode/violence/can_start()

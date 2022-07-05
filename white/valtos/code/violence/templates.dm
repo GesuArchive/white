@@ -86,3 +86,12 @@
 	min_players = 12
 	max_players = 32
 	theme = "katana"
+
+/datum/map_template/violence/pool
+	name = "Бассейн"
+	description = "Плыли мы по морю, ветер мачту рвал..."
+	mappath = "_maps/map_files/Warfare/violence10.dmm"
+	weight = 6
+	min_players = 0
+	max_players = 16
+	theme = "std"
