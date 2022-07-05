@@ -210,7 +210,6 @@
 
 /datum/component/riding/vehicle/forklift/engineering/handle_specials()
 	. = ..()
-	set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(-16, -16), TEXT_SOUTH = list(-16, -16), TEXT_EAST = list(-16, -16), TEXT_WEST = list(-16, -16)))
 	set_vehicle_dir_offsets(NORTH, -16, -16)
 	set_vehicle_dir_offsets(SOUTH, -16, -16)
 	set_vehicle_dir_offsets(EAST, -16, -16)
@@ -304,6 +303,9 @@
 	set_vehicle_dir_offsets(SOUTH, -16, -16)
 	set_vehicle_dir_offsets(EAST, -18, 0)
 	set_vehicle_dir_offsets(WEST, -18, 0)
+	set_vehicle_dir_layer(SOUTH, VEHICLE_LAYER)
+	set_vehicle_dir_layer(EAST, VEHICLE_LAYER)
+	set_vehicle_dir_layer(WEST, VEHICLE_LAYER)
 
 /datum/component/riding/vehicle/speedwagon
 	vehicle_move_delay = 0
