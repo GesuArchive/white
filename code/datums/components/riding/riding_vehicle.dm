@@ -198,6 +198,13 @@
 /datum/component/riding/vehicle/forklift
 	keytype = /obj/item/key/forklift
 
+/datum/component/riding/vehicle/forklift/handle_specials()
+	. = ..()
+	set_vehicle_dir_layer(SOUTH, OBJ_LAYER)
+	set_vehicle_dir_layer(NORTH, MOB_LAYER)
+	set_vehicle_dir_layer(EAST, MOB_LAYER)
+	set_vehicle_dir_layer(WEST, MOB_LAYER)
+
 /datum/component/riding/vehicle/forklift/engineering
 	keytype = /obj/item/key/forklift/engineering
 
