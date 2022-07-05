@@ -78,6 +78,7 @@ GLOBAL_LIST_INIT(ic_autoemote, list(	")" = "smile", "(" = "frown", \
 
 GLOBAL_LIST_INIT(ic_autocorrect, list(	"бог" = "НАУКА", "god" = "SCIENCE", \
 										"боги" = "НАУКА", "gods" = "SCIENCE", \
+										"богов" = "НАУКИ", "богами" = "НАУКОЙ", \
 										"рцд" = "автоматический строительный комплекс", "rcd" = "rapid construction device", \
 										"рпд" = "портативный раздатчик труб", "rpd" = "rapid pipe dispenser", \
 										"секс" = "танец", "sex" = "dance", \
