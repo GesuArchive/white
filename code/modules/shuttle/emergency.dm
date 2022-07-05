@@ -432,7 +432,7 @@
 			destination = SSshuttle.getDock("emergency_home")
 		else if(mode == SHUTTLE_ESCAPE)
 			destination = SSshuttle.getDock("emergency_away")
-		create_ripples(destination, time_left)
+		create_ripples(destination)
 
 	switch(mode)
 		if(SHUTTLE_RECALL)
