@@ -1,7 +1,7 @@
 /datum/outfit/yohei
 	name = "Йохей: Дженерик"
 
-	ears = /obj/item/radio/headset
+	ears = /obj/item/radio/headset/headset_yohei
 	uniform = /obj/item/clothing/under/syndicate/yohei
 	mask = /obj/item/clothing/mask/breath/yohei
 	shoes = /obj/item/clothing/shoes/jackboots/yohei
@@ -23,8 +23,6 @@
 /datum/outfit/yohei/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	var/obj/item/radio/R = H.ears
-	R.set_frequency(FREQ_YOHEI)
-	R.freqlock = FALSE
 	R.independent = TRUE
 	ADD_TRAIT(H, TRAIT_YOHEI, JOB_TRAIT)
 	spawn(1 SECONDS) // fucking

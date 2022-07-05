@@ -17,7 +17,6 @@
 
 /datum/antagonist/yohei/on_gain()
 	forge_objectives()
-	ADD_TRAIT(owner.current, TRAIT_CLUMSY, "donation reward")
 	. = ..()
 
 /datum/antagonist/yohei/greet()

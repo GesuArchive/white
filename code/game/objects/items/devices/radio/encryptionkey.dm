@@ -148,6 +148,11 @@
 	icon_state = "srv_cypherkey"
 	channels = list(RADIO_CHANNEL_SERVICE = 1)
 
+/obj/item/encryptionkey/headset_yohei
+	name = "ключ шифрования Йохеев"
+	icon_state = "cap_cypherkey"
+	channels = list(RADIO_CHANNEL_YOHEI = 1)
+
 /obj/item/encryptionkey/headset_cent
 	name = "ключ шифрования ЦК"
 	icon_state = "cent_cypherkey"

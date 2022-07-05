@@ -56,6 +56,8 @@
 #define RADIO_TOKEN_EXPLORATION ":q"
 
 #define RADIO_CHANNEL_YOHEI "Yohei"
+#define RADIO_KEY_YOHEI "j"
+#define RADIO_TOKEN_YOHEI ":j"
 
 #define RADIO_CHANNEL_FACTION "Faction"
 #define RADIO_KEY_FACTION "f"
