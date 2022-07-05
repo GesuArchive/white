@@ -19,7 +19,7 @@
 	icon_living = "wolfform"
 	icon_dead = "wolf_dead"
 	icon_gib = "wolf_dead"
-	speed = -1.5
+	speed = 0.5
 	maxHealth = 450
 	health = 450
 	harm_intent_damage = 25
