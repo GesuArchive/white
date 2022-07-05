@@ -577,6 +577,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if (CONFIG_GET(string/default_view) != CONFIG_GET(string/default_view_square))
 				dat += SETUP_NODE_INPUT("Ширина экрана", "widescreenwidth", widescreenwidth)
 
+			button_name = pixel_size
+			dat += SETUP_NODE_SWITCH("Пиксельное скалирование", "pixel_size", (button_name) ? "Один к [button_name]" : "Растянуть")
+
 			switch(scaling_method)
 				if(SCALING_METHOD_DISTORT)
 					button_name = "Nearest Neighbor"
