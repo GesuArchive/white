@@ -3440,15 +3440,6 @@
 /obj/item/clothing/suit/hooded/wintercoat,
 /obj/item/clothing/suit/hooded/wintercoat,
 /obj/item/clothing/suit/hooded/wintercoat,
-/obj/item/clothing/shoes/winterboots,
-/obj/item/clothing/shoes/winterboots,
-/obj/item/clothing/shoes/winterboots,
-/obj/item/clothing/shoes/winterboots,
-/obj/item/clothing/shoes/winterboots,
-/obj/item/clothing/shoes/winterboots,
-/obj/item/clothing/shoes/winterboots,
-/obj/item/clothing/shoes/winterboots,
-/obj/item/clothing/shoes/winterboots,
 /obj/structure/closet/supplypod,
 /turf/open/floor/grass/snow/safe,
 /area/partyhard/surface)
@@ -8986,6 +8977,19 @@
 	},
 /turf/open/floor/mineral/titanium/white,
 /area/hallway/secondary/entry)
+"Ep" = (
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/shoes/winterboots,
+/turf/open/floor/grass/snow/safe,
+/area/partyhard/surface)
 "Er" = (
 /obj/structure/cable,
 /obj/structure/railing/corner{
@@ -9900,7 +9904,9 @@
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay)
 "Is" = (
-/obj/structure/bonfire/prelit,
+/obj/structure/bonfire/prelit{
+	density = 1
+	},
 /obj/effect/turf_decal/weather/snow/corner,
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 1
@@ -11057,6 +11063,19 @@
 /obj/structure/table/reinforced,
 /turf/open/floor/plasteel/dark,
 /area/medical/chemistry)
+"MY" = (
+/obj/item/clothing/gloves/color/black,
+/obj/item/clothing/gloves/color/black,
+/obj/item/clothing/gloves/color/black,
+/obj/item/clothing/gloves/color/black,
+/obj/item/clothing/gloves/color/black,
+/obj/item/clothing/gloves/color/black,
+/obj/item/clothing/gloves/color/black,
+/obj/item/clothing/gloves/color/black,
+/obj/item/clothing/gloves/color/black,
+/obj/item/clothing/gloves/color/black,
+/turf/open/floor/grass/snow/safe,
+/area/partyhard/surface)
 "MZ" = (
 /turf/closed/wall/rust,
 /area/science/server)
@@ -283234,7 +283253,7 @@ dp
 dp
 dp
 dp
-dp
+Ep
 dp
 dp
 RQ
@@ -283748,7 +283767,7 @@ dp
 dp
 dp
 dp
-dp
+MY
 dp
 dp
 dp
@@ -288103,7 +288122,7 @@ Vs
 Vs
 Vs
 Vs
-Vs
+dp
 Vs
 Vs
 Vs
@@ -288360,7 +288379,7 @@ Vs
 Vs
 Vs
 Vs
-Vs
+dp
 Vs
 Vs
 Vs
@@ -290929,7 +290948,7 @@ Vs
 Vs
 Vs
 Vs
-Vs
+dp
 Vs
 Vs
 Vs
@@ -291186,7 +291205,7 @@ Vs
 Vs
 dp
 Vs
-Vs
+dp
 Vs
 Vs
 Vs
@@ -292213,7 +292232,7 @@ Vs
 Vs
 Vs
 Vs
-Vs
+dp
 Vs
 Vs
 Vs
@@ -292470,7 +292489,7 @@ Vs
 Vs
 dp
 dp
-Vs
+dp
 Vs
 Vs
 Vs

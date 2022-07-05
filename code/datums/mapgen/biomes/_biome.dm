@@ -91,12 +91,12 @@
 	flora_density = 10
 
 /datum/biome/icelands
-	turf_type = /turf/open/floor/plating/ice/smooth
+	turf_type = /turf/open/floor/plating/ice/smooth/safe
 	flora_types = list(/obj/structure/flora/grass/both, /obj/structure/flora/grass/brown, /obj/structure/flora/grass/green, /obj/structure/flora/rock/icy, /obj/structure/flora/tree/pine, /obj/structure/flora/tree/dead, /obj/structure/flora/rock/pile/icy)
 	flora_density = 1
 
 /datum/biome/ice
-	turf_type = /turf/open/floor/plating/ice/smooth
+	turf_type = /turf/open/floor/plating/ice/smooth/safe
 
 /datum/biome/snowforest
 	turf_type = /turf/open/floor/grass/snow/safe

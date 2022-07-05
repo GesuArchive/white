@@ -252,6 +252,8 @@
 /turf/open/floor/plating/ice/burn_tile()
 	return
 
+/turf/open/floor/plating/ice/smooth/safe
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 /turf/open/floor/plating/ice/icemoon
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 	slowdown = 0
