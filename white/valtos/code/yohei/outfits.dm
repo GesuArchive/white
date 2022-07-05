@@ -18,6 +18,8 @@
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(/obj/item/armament_points_card/yohei = 1)
 
+	implants = list(/obj/item/implant/explosive/disintegrate)
+
 /datum/outfit/yohei/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	var/obj/item/radio/R = H.ears

@@ -341,6 +341,12 @@
 			assigned_to.add_antag_datum(V)
 			to_chat(user, span_notice("Успешно нанимаю [assigned_to.name]. Теперь меня точно защитят."))
 			update_label()
+			GLOB.data_core.manifest_inject(H)
+			var/obj/lab_monitor/yohei/LM = GLOB.yohei_main_controller
+			if(LM)
+				LM.internal_radio.set_frequency(FREQ_SECURITY)
+				LM.internal_radio.talk_into(LM, "ВНИМАНИЕ: Один из наших наёмников по имени [assigned_to.name] был нанят членом вашего экипажа. Досье на него было передано вам. Пожалуйста, обращайтесь с ним бережно, иначе мы применим штрафы согласно пунктам договора о взаимном сотрудничестве 3.1.5 и 4.12.1.", FREQ_SECURITY)
+				LM.internal_radio.set_frequency(FREQ_YOHEI)
 		else
 			to_chat(user, span_danger("Карта неисправна. Самоутилизация активирована."))
 			qdel(W)
