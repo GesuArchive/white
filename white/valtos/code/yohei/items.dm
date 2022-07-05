@@ -342,6 +342,8 @@
 			to_chat(user, span_notice("Успешно нанимаю [assigned_to.name]. Теперь меня точно защитят."))
 			update_label()
 			GLOB.data_core.manifest_inject(H)
+			var/obj/item/card/id/IA = W
+			LAZYADD(ID.access, IA.access)
 			var/obj/lab_monitor/yohei/LM = GLOB.yohei_main_controller
 			if(LM)
 				LM.internal_radio.set_frequency(FREQ_SECURITY)
