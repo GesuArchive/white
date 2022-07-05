@@ -63,7 +63,8 @@
 		blood_taken /= 3
 	if(!target.mind && !target.client)
 		blood_taken /= 5 // Penalty for Catatonics / Braindead
-	//if (!iscarbon(target)) // Penalty for Animals (they're junk food)
+	if(isanimal(target)) // Penalty for Animals (they're junk food)
+		blood_taken /= 5
 	// Apply to Volume
 	AddBloodVolume(blood_taken)
 	// Reagents (NOT Blood!)
