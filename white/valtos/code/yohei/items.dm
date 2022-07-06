@@ -385,43 +385,54 @@
 		return
 
 	if(!HAS_TRAIT(user, TRAIT_YOHEI))
-		if(do_after(user, 1 SECONDS, target = user))
-			user.visible_message(span_warning("[user] стреляет себе в ногу!"),
-				span_userdanger("Успешно стреляю себе в ногу..."))
-			var/mob/living/carbon/human/thinky = user
-			thinky.apply_damage(30, BRUTE, pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG), wound_bonus = CANT_WOUND)
-			playsound(get_turf(user), 'white/valtos/sounds/cathit.ogg', 60)
+		if(!do_after(user, 1 SECONDS, target = user))
+			return
+		user.visible_message(span_warning("[user] стреляет себе в ногу!"),
+			span_userdanger("Успешно стреляю себе в ногу..."))
+		var/mob/living/carbon/human/thinky = user
+		thinky.apply_damage(30, BRUTE, pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG), wound_bonus = CANT_WOUND)
+		playsound(get_turf(user), 'white/valtos/sounds/cathit.ogg', 60)
 		return
 
-	if(isturf(target))
-		var/turf/T = target
-		var/turf/picked
-		if(isopenspace(T))
-			T = SSmapping.get_turf_below(get_turf(T))
-		if(isspaceturf(T))
-			if(do_after(user, 5 SECONDS, target = T))
-				if(is_station_level(T.z))
-					picked = get_turf(pick(GLOB.yohei_beacons))
-					to_chat(user, span_notice("Успешно нацеливаюсь на наш корабль..."))
-				else
-					picked = get_turf(pick(GLOB.xeno_spawn))
-					to_chat(user, span_notice("Успешно нацеливаюсь на станцию..."))
-				if(do_after(user, 1 SECONDS, target = T))
-					to_chat(user, span_notice("Произвожу выстрел..."))
-					playsound(get_turf(user), 'white/valtos/sounds/catlaunch.ogg', 90)
-					if(do_after(user, 10 SECONDS, target = T))
-						if(prob(75))
-							to_chat(user, span_reallybig("ЕСТЬ!"))
-							playsound(get_turf(user), 'white/valtos/sounds/cathit.ogg', 60)
-							if(do_after(user, 5 SECONDS, target = T))
-								var/mob/living/carbon/human/H = user
-								H.zMove(target = picked, z_move_flags = ZMOVE_CHECK_PULLEDBY|ZMOVE_ALLOW_BUCKLED|ZMOVE_INCLUDE_PULLED)
-								H.adjustStaminaLoss(100)
-								to_chat(user, span_notice("Вот я и на месте!"))
-								return
-						else
-							to_chat(user, span_reallybig("МИМО!"))
-							return
-		else
-			to_chat(user, span_danger("Не получится здесь. Нужен космос."))
+	if(!isturf(target))
+		return
+
+	var/turf/T = target
+	var/turf/picked
+	if(isopenspace(T))
+		T = SSmapping.get_turf_below(get_turf(T))
+
+	if(!isspaceturf(T))
+		to_chat(user, span_danger("Не получится здесь. Нужен космос."))
+		return
+
+	if(!do_after(user, 5 SECONDS, target = T, interaction_key = DOAFTER_SOURCE_HOOK_TARGETTING))
+		return
+
+	if(is_station_level(T.z))
+		picked = get_turf(pick(GLOB.yohei_beacons))
+		to_chat(user, span_notice("Успешно нацеливаюсь на наш корабль..."))
+	else
+		picked = get_turf(pick(GLOB.xeno_spawn))
+		to_chat(user, span_notice("Успешно нацеливаюсь на станцию..."))
+
+	if(!do_after(user, 1 SECONDS, target = T, interaction_key = DOAFTER_SOURCE_HOOK_PRE_SHOOTING))
+		return
+
+	to_chat(user, span_notice("Произвожу выстрел..."))
+	playsound(get_turf(user), 'white/valtos/sounds/catlaunch.ogg', 90)
+	if(!do_after(user, 10 SECONDS, target = T, interaction_key = DOAFTER_SOURCE_HOOK_SHOOTING))
+		return
+
+	if(!prob(75))
+		to_chat(user, span_reallybig("МИМО!"))
+		return
+
+	to_chat(user, span_reallybig("ЕСТЬ!"))
+	playsound(get_turf(user), 'white/valtos/sounds/cathit.ogg', 60)
+	if(do_after(user, 5 SECONDS, target = T, interaction_key = DOAFTER_SOURCE_HOOK_PULLING))
+		var/mob/living/carbon/human/H = user
+		H.zMove(target = picked, z_move_flags = ZMOVE_CHECK_PULLEDBY|ZMOVE_ALLOW_BUCKLED|ZMOVE_INCLUDE_PULLED)
+		H.adjustStaminaLoss(100)
+		to_chat(user, span_notice("Вот я и на месте!"))
 	return
