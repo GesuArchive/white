@@ -10,6 +10,7 @@
 	icon_gib = "carp_gib"
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	movement_type = FLOATING
+	ai_controller = /datum/ai_controller/hostile_friend
 	speak_chance = 0
 	turns_per_move = 5
 	butcher_results = list(/obj/item/food/fishmeat/carp = 2)
@@ -68,8 +69,10 @@
 	var/static/list/carp_colors_rare = list(
 		"silver" = "#fdfbf3"
 	)
+	/// Is the carp tamed?
+	var/tamed = FALSE
 
-/mob/living/simple_animal/hostile/carp/Initialize(mapload)
+/mob/living/simple_animal/hostile/carp/Initialize(mapload, mob/tamer)
 	AddElement(/datum/element/simple_flying)
 	if(random_color)
 		set_greyscale(new_config=/datum/greyscale_config/carp)
@@ -77,8 +80,30 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
 	add_cell_sample()
+	if(ai_controller)
+		ai_controller.blackboard[BB_HOSTILE_ATTACK_WORD] = pick(speak_emote)
+		if(tamer)
+			tamed(tamer)
+		else
+			make_tameable()
 	var/datum/action/small_sprite/action = new
 	action.Grant(src)
+
+/mob/living/simple_animal/hostile/carp/revive(full_heal, admin_revive)
+	if (tamed)
+		var/datum/weakref/friendref = ai_controller.blackboard[BB_HOSTILE_FRIEND]
+		var/mob/living/friend = friendref?.resolve()
+		if(friend)
+			tamed(friend)
+	return ..()
+
+/mob/living/simple_animal/hostile/carp/death(gibbed)
+	if (tamed)
+		can_buckle = FALSE
+	return ..()
+
+/mob/living/simple_animal/hostile/carp/proc/make_tameable()
+	AddComponent(/datum/component/tameable, food_types = list(/obj/item/food/meat), tame_chance = 10, bonus_tame_chance = 5, after_tame = CALLBACK(src, .proc/tamed))
 
 /mob/living/simple_animal/hostile/carp/add_cell_sample()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_CARP, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)
@@ -118,16 +143,22 @@
 	if(stat == CONSCIOUS)
 		chomp_plastic()
 
-/mob/living/simple_animal/hostile/carp/tamed()
+/mob/living/simple_animal/hostile/carp/tamed(mob/living/tamer)
 	. = ..()
 	can_buckle = TRUE
 	buckle_lying = 0
 	AddElement(/datum/element/ridable, /datum/component/riding/creature/carp)
+	if(ai_controller)
+		var/datum/ai_controller/hostile_friend/ai_current_controller = ai_controller
+		ai_current_controller.befriend(tamer)
+		can_have_ai = FALSE
+		toggle_ai(AI_OFF)
 
 /mob/living/simple_animal/hostile/carp/holocarp
 	icon_state = "holocarp"
 	icon_living = "holocarp"
 	maxbodytemp = INFINITY
+	ai_controller = null
 	gold_core_spawnable = NO_SPAWN
 	del_on_death = 1
 	random_color = FALSE
@@ -147,6 +178,7 @@
 	icon_dead = "megacarp_dead"
 	icon_gib = "megacarp_gib"
 	health_doll_icon = "megacarp"
+	ai_controller = null
 	maxHealth = 100
 	health = 100
 	pixel_x = -16
@@ -200,6 +232,7 @@
 	desc = "A failed experiment of Nanotrasen to create weaponised carp technology. This less than intimidating carp now serves as the Head of Security's pet."
 	gender = FEMALE
 	speak_emote = list("пищит")
+	ai_controller = null
 	gold_core_spawnable = NO_SPAWN
 	faction = list("neutral")
 	health = 200
@@ -221,6 +254,7 @@
 	desc = "A failed Syndicate experiment in weaponized space carp technology, it now serves as a lovable mascot."
 	gender = FEMALE
 	speak_emote = list("пищит")
+	ai_controller = null
 	gold_core_spawnable = NO_SPAWN
 	faction = list(ROLE_SYNDICATE)
 	rarechance = 10

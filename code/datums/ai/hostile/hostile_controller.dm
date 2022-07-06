@@ -5,7 +5,7 @@
 		BB_FOLLOW_TARGET = null,
 		BB_ATTACK_TARGET = null,
 		BB_VISION_RANGE = BB_HOSTILE_VISION_RANGE,
-		BB_HOSTILE_ATTACK_WORD = "growls",
+		BB_HOSTILE_ATTACK_WORD = "рычит",
 	)
 	ai_movement = /datum/ai_movement/basic_avoidance
 
@@ -41,6 +41,7 @@
 	return ..() //Run parent at end
 
 /datum/ai_controller/hostile_friend/proc/on_prebuckle(mob/source, mob/living/buckler, force, buckle_mob_flags)
+	SIGNAL_HANDLER
 	if(force || ai_status == AI_STATUS_OFF)
 		return
 	if(WEAKREF(buckler) != blackboard[BB_HOSTILE_FRIEND])
@@ -84,7 +85,7 @@
 		blackboard[BB_HOSTILE_FRIEND] = null
 
 	if(in_range(pawn, new_friend))
-		new_friend.visible_message("<b>[pawn]</b> looks at [new_friend] in a friendly manner!", span_notice("[pawn] looks at you in a friendly manner!"))
+		new_friend.visible_message("<b>[pawn]</b> смотрит на [new_friend] с доверием!", span_notice("[pawn] смотрит на меня с доверием!"))
 	blackboard[BB_HOSTILE_FRIEND] = friend_ref
 	RegisterSignal(new_friend, COMSIG_MOB_POINTED, .proc/check_point)
 	RegisterSignal(new_friend, COMSIG_MOB_SAY, .proc/check_verbal_command)
@@ -104,7 +105,7 @@
 	if(blackboard[BB_HOSTILE_FRIEND] == WEAKREF(user))
 		var/mob/living/living_pawn = pawn
 		if(!IS_DEAD_OR_INCAP(living_pawn))
-			examine_text += span_notice("[pawn.p_they(TRUE)] seem[pawn.p_s()] happy to see you!")
+			examine_text += span_notice("Он[pawn.ru_a()] рад[pawn.ru_a()] видеть меня!")
 
 // next section is regarding commands
 
@@ -155,11 +156,11 @@
 
 	var/spoken_text = speech_args[SPEECH_MESSAGE] // probably should check for full words
 	var/command
-	if(findtext(spoken_text, "stop") || findtext(spoken_text, "stay"))
+	if(findtext(spoken_text, "стоп") || findtext(spoken_text, "стой"))
 		command = COMMAND_STOP
-	else if(findtext(spoken_text, "follow") || findtext(spoken_text, "come"))
+	else if(findtext(spoken_text, "за мной") || findtext(spoken_text, "ко мне"))
 		command = COMMAND_FOLLOW
-	else if(findtext(spoken_text, "attack") || findtext(spoken_text, "sic"))
+	else if(findtext(spoken_text, "атакуй") || findtext(spoken_text, "фас") || findtext(spoken_text, "рви"))
 		command = COMMAND_ATTACK
 	else
 		return
@@ -175,12 +176,12 @@
 	switch(command)
 		// heel: stop what you're doing, relax and try not to do anything for a little bit
 		if(COMMAND_STOP)
-			pawn.visible_message(span_notice("[pawn] [blackboard[BB_HOSTILE_ATTACK_WORD]] at [commander]'s command, and [pawn.p_they()] stop[pawn.p_s()] obediently, awaiting further orders."))
+			pawn.visible_message(span_notice("[pawn] [blackboard[BB_HOSTILE_ATTACK_WORD]] после команды [commander], но останавливается."))
 			blackboard[BB_HOSTILE_ORDER_MODE] = HOSTILE_COMMAND_NONE
 			CancelActions()
 		// fetch: whatever the commander points to, try and bring it back
 		if(COMMAND_FOLLOW)
-			pawn.visible_message(span_notice("[pawn] [blackboard[BB_HOSTILE_ATTACK_WORD]] at [commander]'s command, and [pawn.p_they()] follow[pawn.p_s()] slightly in anticipation."))
+			pawn.visible_message(span_notice("[pawn] [blackboard[BB_HOSTILE_ATTACK_WORD]] после команды [commander] и начинает двигаться за ним."))
 			CancelActions()
 			blackboard[BB_HOSTILE_ORDER_MODE] = HOSTILE_COMMAND_FOLLOW
 			blackboard[BB_FOLLOW_TARGET] = WEAKREF(commander)
@@ -191,7 +192,7 @@
 			queue_behavior(/datum/ai_behavior/follow)
 		// attack: harass whoever the commander points to
 		if(COMMAND_ATTACK)
-			pawn.visible_message(span_danger("[pawn] [blackboard[BB_HOSTILE_ATTACK_WORD]] at [commander]'s command, and [pawn.p_they()] growl[pawn.p_s()] intensely.")) // imagine getting intimidated by a corgi
+			pawn.visible_message(span_danger("[pawn] [blackboard[BB_HOSTILE_ATTACK_WORD]] после команды [commander] и начинает рычать сильнее.")) // imagine getting intimidated by a corgi
 			CancelActions()
 			blackboard[BB_HOSTILE_ORDER_MODE] = HOSTILE_COMMAND_ATTACK
 
@@ -214,7 +215,7 @@
 	COOLDOWN_START(src, command_cooldown, AI_HOSTILE_COMMAND_COOLDOWN)
 
 	if(blackboard[BB_HOSTILE_ORDER_MODE] == HOSTILE_COMMAND_ATTACK)
-		pawn.visible_message(span_notice("[pawn] follows [pointing_friend]'s gesture towards [pointed_movable] and [blackboard[BB_HOSTILE_ATTACK_WORD]] intensely!"))
+		pawn.visible_message(span_notice("[pawn] следует за жестом [pointing_friend], двигаясь к [pointed_movable] и [blackboard[BB_HOSTILE_ATTACK_WORD]] интенсивно!"))
 		current_movement_target = pointed_movable
 		blackboard[BB_ATTACK_TARGET] = WEAKREF(pointed_movable)
 		if(living_pawn.buckled)
