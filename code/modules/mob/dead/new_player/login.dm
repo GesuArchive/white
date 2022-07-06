@@ -20,6 +20,10 @@
 	if(motd && !GLOB.violence_mode_activated)
 		to_chat(src, "<div class=\"motd\">[motd]</div>")
 
+	var/version = global.config.current_version_string
+	if(version && !GLOB.violence_mode_activated)
+		to_chat(src, span_nzcrentr("[version]"))
+
 	if(GLOB.admin_notice)
 		to_chat(src, span_notice("<b>ВАЖНАЯ ЗАМЕТКА:</b>\n \t [GLOB.admin_notice]"))
 
