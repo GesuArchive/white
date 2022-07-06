@@ -20,6 +20,7 @@
 
 	var/motd
 	var/policy
+	var/current_version_string
 
 	/// If the configuration is loaded
 	var/loaded = FALSE
@@ -59,6 +60,8 @@
 	LoadMOTD()
 	LoadPolicy()
 	LoadChatFilter()
+	load_version_info()
+	load_assblast()
 
 	loaded = TRUE
 
@@ -76,6 +79,7 @@
 	QDEL_NULL(defaultmap)
 
 /datum/controller/configuration/Destroy()
+	save_assblast()
 	full_wipe()
 	config = null
 
@@ -430,3 +434,37 @@ Example config:
 //Message admins when you can.
 /datum/controller/configuration/proc/DelayedMessageAdmins(text)
 	addtimer(CALLBACK(GLOBAL_PROC, /proc/message_admins, text), 0)
+
+/datum/controller/configuration/proc/load_version_info()
+	var/list/info_file = world.file2list("data/gitsum.txt")
+
+	if(info_file?.len)
+		var/version_text = "[info_file[3][1]].[info_file[3][2]][info_file[3][3]][info_file[3][4]].[info_file[3][5]]"
+		current_version_string = "-- #<b>Версия</b>:> [version_text] (<a href='https://github.com/frosty-dev/white/commit/[info_file[1]]'>[uppertext(info_file[2])]</a>) --"
+
+/datum/controller/configuration/proc/load_assblast()
+	var/list/templist = world.file2list("[global.config.directory]/assblasted_people.txt")
+	for(var/entry in templist)
+		var/list/entrylist = splittext(entry,"||")
+		if(entrylist.len <2)
+			continue
+		var/ckey = entrylist[1]
+		var/punished_svin = entrylist[2]
+		GLOB.assblasted_people[ckey] = punished_svin
+
+/datum/controller/configuration/proc/save_assblast()
+	//snowflake handling for saving assblasteds
+	fdel("[global.config.directory]/assblasted_people.txt") // no way this could end badly
+	var/newblast = ""
+	for(var/asskey in GLOB.assblasted_people)
+		var/list/asskey_blasts = retrieve_assblasts(asskey)
+		for(var/blast in asskey_blasts) //cutting out invalid entries
+			if(!GLOB.assblasts.Find(blast))
+				asskey_blasts.Remove(blast)
+		if(asskey_blasts.len == 0)
+			continue
+		newblast += "\n"
+		var/ab = jointext(asskey_blasts,"|")
+		newblast += "[asskey]||[ab]"
+	newblast = copytext(newblast, 2)
+	text2file(newblast, "[global.config.directory]/assblasted_people.txt")
