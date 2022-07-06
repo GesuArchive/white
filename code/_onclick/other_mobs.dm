@@ -134,7 +134,7 @@
 	if(. || !has_active_hand())
 		return
 
-	if(!ismob(target) || next_move > world.time || !get_dist(src, target) >= 1 || !get_dist(src, target) <= 10)
+	if(!ismob(target) || get_dist(src, target) >= 8)
 		return
 
 	switch(a_intent)
