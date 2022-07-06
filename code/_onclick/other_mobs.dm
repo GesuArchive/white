@@ -129,6 +129,29 @@
 		Move_Pulled(A)
 		return TRUE
 
+/mob/living/carbon/human/ranged_secondary_attack(atom/target, modifiers)
+	. = ..()
+	if(. || !has_active_hand())
+		return
+
+	if(!ismob(target) || !get_dist(src, target) >= 1)
+		return
+
+	switch(a_intent)
+		if(INTENT_HELP)
+			visible_message(span_notice("<b>[src]</b> машет рукой <b>[target]</b>."), span_notice("Машу рукой <b>[target]</b>."), span_notice("Машу кому-то рукой."), ignored_mobs = target)
+			to_chat(target, span_notice("<b>[src]</b> машет мне рукой."))
+		if(INTENT_DISARM)
+			visible_message(span_notice("<b>[src]</b> просит жестом <b>[target]</b> отойти."), span_notice("Прошу жестом <b>[target]</b> отойти."), span_notice("Прошу жестом кого-то отойти."), ignored_mobs = target)
+			to_chat(target, span_notice("<b>[src]</b> просит меня отойти."))
+		if(INTENT_GRAB)
+			visible_message(span_notice("<b>[src]</b> подманивает пальчиком <b>[target]</b>."), span_notice("Подманивает пальчиком <b>[target]</b>."), span_notice("Подманиваю пальчиком кого-то."), ignored_mobs = target)
+			to_chat(target, span_notice("<b>[src]</b> подманивает меня пальчиком."))
+		if(INTENT_HELP)
+			visible_message(span_warning("<b>[src]</b> угрожает кулаком <b>[target]</b>!"), span_warning("Угрожаю кулаком <b>[target]</b>!"), span_warning("Угрожаю кому-то кулаком!"), ignored_mobs = target)
+			to_chat(target, span_warning("<b>[src]</b> угрожает мне кулаком!"))
+	return TRUE
+
 /*
 	Animals & All Unspecified
 */
