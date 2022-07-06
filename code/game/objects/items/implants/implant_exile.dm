@@ -57,8 +57,7 @@
 /obj/item/implant/exile/noteleport/process(delta_time)
 	. = ..()
 	if(is_station_level(imp_in.z))
-		if(imp_in.mind && (imp_in.mind.assigned_role == "Hotel Staff" || imp_in.mind.assigned_role == ROLE_SYNDICATE_CYBERSUN || imp_in.mind.assigned_role == ROLE_SYNDICATE_CYBERSUN_CAPTAIN))
-			inc_metabalance(imp_in, METACOIN_CHASM_REWARD, reason="Ого, а куда это мы собрались...")
+		if(imp_in.mind)
 			spawn(1 SECONDS)
 				imp_in.gib(TRUE, TRUE, TRUE)
 

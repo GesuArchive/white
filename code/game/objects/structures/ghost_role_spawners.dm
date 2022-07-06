@@ -400,7 +400,7 @@
 	shoes = /obj/item/clothing/shoes/laceup
 	r_pocket = /obj/item/radio/off
 	back = /obj/item/storage/backpack
-	implants = list(/obj/item/implant/mindshield, /obj/item/implant/exile/noteleport)
+	implants = list(/obj/item/implant/mindshield)
 
 /obj/effect/mob_spawn/human/hotel_staff/security
 	name = "hotel security sleeper"
@@ -420,6 +420,9 @@
 	head = /obj/item/clothing/head/helmet/blueshirt
 	back = /obj/item/storage/backpack/security
 	belt = /obj/item/storage/belt/security/full
+
+/obj/effect/mob_spawn/human/hotel_staff/special(mob/living/new_spawn)
+	new_spawn.AddComponent(/datum/component/stationstuck, PUNISHMENT_TELEPORT, "Мне туда не надо вот.")
 
 /obj/effect/mob_spawn/human/hotel_staff/Destroy()
 	new/obj/structure/fluff/empty_sleeper/syndicate(get_turf(src))
@@ -737,6 +740,7 @@
 	H.faction |= ROLE_SYNDICATE
 
 /obj/effect/mob_spawn/human/syndicatespace/special(mob/living/new_spawn)
+	new_spawn.AddComponent(/datum/component/stationstuck, PUNISHMENT_GIB, "Что это там в далеке светится? БЛЯТЬ, АРТИ~")
 	new_spawn.grant_language(/datum/language/codespeak, TRUE, TRUE, LANGUAGE_MIND)
 	var/policy = get_policy(assignedrole)
 	if(policy)
@@ -770,7 +774,7 @@
 	r_pocket = /obj/item/kitchen/knife/combat/survival
 	belt = /obj/item/storage/belt/military/assault
 	id = /obj/item/card/id/advanced/black/syndicate_command/crew_id
-	implants = list(/obj/item/implant/weapons_auth, /obj/item/implant/exile/noteleport)
+	implants = list(/obj/item/implant/weapons_auth)
 
 /datum/outfit/syndicatespace/syndicaptain
 	name = "Syndicate Ship Captain"
@@ -786,7 +790,7 @@
 	belt = /obj/item/storage/belt/military/assault
 	id = /obj/item/card/id/advanced/black/syndicate_command/captain_id
 	implants = list(/obj/item/implant/weapons_auth)
-	backpack_contents = list(/obj/item/documents/syndicate/red, /obj/item/paper/fluff/ruins/forgottenship/password, /obj/item/gun/ballistic/automatic/pistol/aps, /obj/item/implant/exile/noteleport)
+	backpack_contents = list(/obj/item/documents/syndicate/red, /obj/item/paper/fluff/ruins/forgottenship/password, /obj/item/gun/ballistic/automatic/pistol/aps)
 
 /obj/effect/mob_spawn/human/beach/alive
 	death = FALSE

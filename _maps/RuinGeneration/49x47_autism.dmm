@@ -768,7 +768,7 @@
 /area/ruin/space/has_grav/austation/med)
 "hQ" = (
 /obj/structure/lattice/catwalk,
-/turf/template_noop,
+/turf/open/space/basic,
 /area/space/nearstation)
 "hY" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -1100,17 +1100,17 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/station)
 "lm" = (
-/obj/structure/table/reinforced,
-/obj/item/crowbar,
-/obj/item/restraints/handcuffs,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
-/obj/item/clothing/suit/space/hardsuit/rig_sec,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/suit_storage_unit{
+	mask_type = /obj/item/clothing/mask/breath;
+	suit_type = /obj/item/clothing/suit/space/hardsuit/rig_sec
+	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/station)
 "ln" = (
@@ -1337,6 +1337,9 @@
 	req_access_txt = "5"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/camera/directional/east{
+	network = list("outpost")
+	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/med)
 "mQ" = (
@@ -1455,6 +1458,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/item/restraints/handcuffs,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/station)
 "nF" = (
@@ -1505,7 +1509,8 @@
 /area/ruin/space/has_grav/austation/rnd)
 "nW" = (
 /obj/machinery/computer/security{
-	dir = 8
+	dir = 8;
+	network = list("outpost")
 	},
 /obj/machinery/light{
 	dir = 4
@@ -1675,7 +1680,6 @@
 	pixel_x = 32
 	},
 /obj/effect/turf_decal/bot,
-/obj/item/clothing/suit/space/hardsuit/rig_engineeringalt,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/eng)
@@ -1699,6 +1703,11 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/station)
+"qe" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/turf/open/space/basic,
+/area/space/nearstation)
 "qf" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1707,10 +1716,6 @@
 "qi" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/item/card/id/advanced/gold/captains_spare/trap,
-/obj/item/card/id/advanced/gold/captains_spare/trap,
-/obj/item/card/id/advanced/gold/captains_spare/trap,
-/obj/item/card/id/advanced/gold/captains_spare/trap,
 /turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/space/has_grav/austation/vault)
 "ql" = (
@@ -1757,7 +1762,6 @@
 "qT" = (
 /obj/structure/table/reinforced,
 /obj/item/book/manual/wiki/security_space_law,
-/obj/item/radio,
 /obj/structure/reagent_dispensers/peppertank{
 	pixel_x = 32
 	},
@@ -1769,8 +1773,18 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/item/crowbar,
+/obj/item/radio,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/station)
+"qW" = (
+/obj/effect/turf_decal/bot,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/camera/directional/east{
+	network = list("outpost")
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/austation/vault)
 "rg" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4;
@@ -2058,7 +2072,8 @@
 /area/ruin/space/has_grav/austation/xeno)
 "ud" = (
 /obj/machinery/computer/camera_advanced/xenobio{
-	dir = 1
+	dir = 1;
+	networks = list("outpost")
 	},
 /obj/machinery/light,
 /obj/machinery/requests_console{
@@ -2318,13 +2333,22 @@
 /turf/closed/wall/rust,
 /area/ruin/space/has_grav/austation/med)
 "wS" = (
-/obj/item/multitool,
-/turf/open/space/basic,
-/area/ruin/space/has_grav/austation/rnd)
+/obj/effect/turf_decal/trimline/yellow/line,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/camera/directional/north{
+	network = list("outpost")
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/austation/station)
 "wU" = (
 /obj/machinery/status_display/evac,
 /turf/closed/wall/rust,
 /area/ruin/space/has_grav/austation/rnd)
+"wW" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space/nearstation)
 "wZ" = (
 /obj/effect/decal/cleanable/xenoblood/xgibs,
 /obj/effect/turf_decal/tile/neutral{
@@ -2400,6 +2424,9 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/camera/directional/north{
+	network = list("outpost")
+	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/eng)
 "xB" = (
@@ -2501,6 +2528,7 @@
 	pixel_x = 28
 	},
 /obj/structure/lattice,
+/obj/item/clothing/suit/space/hardsuit/rig_excavation,
 /turf/open/space/basic,
 /area/ruin/space/has_grav/austation/rnd)
 "yL" = (
@@ -2600,8 +2628,8 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/item/clothing/suit/space/hardsuit/rig_excavation,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/item/multitool,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/austation/rnd)
 "zU" = (
@@ -2794,6 +2822,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/xeno)
+"BQ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/card/id/advanced/gold/captains_spare,
+/obj/effect/mapping_helpers/component_injector/areabound,
+/turf/open/floor/plasteel/elevatorshaft,
+/area/ruin/space/has_grav/austation/vault)
 "BS" = (
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
@@ -2923,13 +2957,16 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/austation/rnd)
 "CF" = (
-/obj/machinery/holopad,
 /obj/item/radio/intercom{
 	name = "Station Intercom";
 	pixel_x = 26
 	},
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/suit_storage_unit{
+	mask_type = /obj/item/clothing/mask/breath;
+	suit_type = /obj/item/clothing/suit/space/hardsuit/rig_engineeringalt
+	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/eng)
 "CL" = (
@@ -2976,6 +3013,18 @@
 	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/med)
+"CX" = (
+/obj/docking_port/stationary{
+	dir = 4;
+	dwidth = 8;
+	height = 12;
+	id = "explorer_mini_station";
+	name = "Autism Station";
+	roundstart_template = /datum/map_template/shuttle/ruin/explorer_mini;
+	width = 12
+	},
+/turf/open/space/basic,
+/area/template_noop)
 "Dk" = (
 /obj/structure/bodycontainer/morgue,
 /obj/item/radio/intercom{
@@ -2987,6 +3036,9 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/camera/directional/east{
+	network = list("outpost")
+	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/austation/med)
 "Dl" = (
@@ -3033,13 +3085,22 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/austation/med)
 "DN" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/bot,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating/airless{
-	icon_state = "platingdmg3"
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
 	},
-/area/ruin/space/has_grav/austation/station)
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/camera/directional/east{
+	network = list("outpost")
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/austation/rnd)
+"Ea" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/camera/directional/north{
+	network = list("outpost")
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/austation/rnd)
 "Eg" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 4
@@ -3074,6 +3135,9 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/austation/maint)
+"EA" = (
+/turf/open/space/basic,
+/area/template_noop)
 "EB" = (
 /obj/effect/turf_decal/loading_area{
 	dir = 1
@@ -3158,6 +3222,9 @@
 /obj/machinery/power/apc/auto_name/west,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/camera/directional/east{
+	network = list("outpost")
+	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/eng)
 "Fz" = (
@@ -3232,6 +3299,9 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/camera/directional/north{
+	network = list("outpost")
+	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/austation/rnd)
 "Gf" = (
@@ -3437,6 +3507,14 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/austation/med)
+"Hk" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/camera/directional/north{
+	network = list("outpost")
+	},
+/turf/open/floor/plasteel/white,
+/area/ruin/space/has_grav/austation/med)
 "Hl" = (
 /obj/machinery/chem_dispenser,
 /obj/machinery/button/door{
@@ -3501,6 +3579,14 @@
 	icon_state = "damaged5"
 	},
 /area/ruin/space/has_grav/austation/rnd)
+"HR" = (
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/camera/directional/east{
+	network = list("outpost")
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/austation/station)
 "HS" = (
 /obj/item/radio/intercom{
 	name = "Station Intercom";
@@ -4064,7 +4150,8 @@
 	dir = 8
 	},
 /obj/machinery/camera/xray{
-	dir = 5
+	dir = 5;
+	network = list("outpost")
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
@@ -4267,6 +4354,16 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/eng)
+"Ox" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/camera/directional/east{
+	network = list("outpost")
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/austation/station)
 "OA" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/stripes/line{
@@ -4624,6 +4721,9 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/camera/directional/east{
+	network = list("outpost")
+	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/austation/med)
 "Rw" = (
@@ -5148,6 +5248,9 @@
 "XG" = (
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/camera/directional/north{
+	network = list("outpost")
+	},
 /turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/maint)
 "XV" = (
@@ -5326,7 +5429,15 @@
 "Ze" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/rack,
-/obj/item/food/cake/birthday,
+/obj/item/flashlight/flare{
+	pixel_y = 4
+	},
+/obj/item/flashlight/flare{
+	pixel_y = 1
+	},
+/obj/item/flashlight/flare{
+	pixel_y = 7
+	},
 /turf/open/floor/plating/rust,
 /area/ruin/space/has_grav/austation/eng)
 "Zf" = (
@@ -5635,11 +5746,11 @@ lb
 oj
 ul
 ul
-NH
-NH
-NH
-NH
-NH
+EA
+EA
+EA
+EA
+EA
 NH
 "}
 (5,1,1) = {"
@@ -5673,7 +5784,7 @@ jd
 aV
 Rw
 Rw
-qf
+qW
 we
 HB
 vG
@@ -5684,11 +5795,11 @@ lb
 lb
 oj
 ul
-NH
-NH
-NH
-NH
-NH
+EA
+EA
+CX
+EA
+EA
 NH
 "}
 (6,1,1) = {"
@@ -5733,11 +5844,11 @@ lb
 lb
 oj
 ul
-NH
-NH
-NH
-NH
-NH
+EA
+EA
+EA
+EA
+EA
 NH
 "}
 (7,1,1) = {"
@@ -5782,11 +5893,11 @@ lb
 lb
 oj
 oj
-NH
-NH
-NH
-NH
-NH
+EA
+EA
+EA
+EA
+EA
 NH
 "}
 (8,1,1) = {"
@@ -5831,11 +5942,11 @@ lb
 lb
 oj
 xV
-NH
-NH
-NH
-NH
-NH
+EA
+EA
+EA
+EA
+EA
 NH
 "}
 (9,1,1) = {"
@@ -5880,11 +5991,11 @@ Rw
 lb
 oj
 xV
-NH
-NH
-NH
-NH
-NH
+EA
+EA
+EA
+EA
+EA
 NH
 "}
 (10,1,1) = {"
@@ -5915,11 +6026,11 @@ ty
 Kj
 gY
 gY
-ah
+Hk
 Rw
 wm
 sx
-sx
+BQ
 sx
 sx
 sx
@@ -5929,11 +6040,11 @@ Rw
 lb
 lb
 xV
-NH
-NH
-NH
-NH
-NH
+EA
+EA
+EA
+EA
+EA
 NH
 "}
 (11,1,1) = {"
@@ -5978,11 +6089,11 @@ Rw
 lb
 lb
 xV
-NH
-NH
-NH
-NH
-NH
+EA
+EA
+EA
+EA
+EA
 NH
 "}
 (12,1,1) = {"
@@ -6027,11 +6138,11 @@ Rw
 lb
 lb
 xV
-xV
-NH
-NH
-NH
-NH
+qe
+EA
+EA
+EA
+EA
 NH
 "}
 (13,1,1) = {"
@@ -6076,11 +6187,11 @@ Rw
 lb
 lb
 lb
-xV
-NH
-NH
-NH
-NH
+qe
+EA
+EA
+EA
+EA
 NH
 "}
 (14,1,1) = {"
@@ -6125,11 +6236,11 @@ Rw
 Lb
 lb
 lb
-xV
-xV
-NH
-NH
-NH
+qe
+qe
+EA
+EA
+EA
 NH
 "}
 (15,1,1) = {"
@@ -6175,10 +6286,10 @@ Lb
 Lb
 Lb
 Lb
-xV
-NH
-NH
-NH
+qe
+EA
+EA
+EA
 NH
 "}
 (16,1,1) = {"
@@ -6216,7 +6327,7 @@ yL
 yL
 Bf
 yL
-yL
+HR
 yL
 mn
 yL
@@ -6224,10 +6335,10 @@ Fk
 xq
 cA
 tr
-xV
-NH
-NH
-NH
+qe
+EA
+EA
+EA
 NH
 "}
 (17,1,1) = {"
@@ -6274,9 +6385,9 @@ eP
 sP
 Ss
 hQ
-ul
-NH
-NH
+wW
+EA
+EA
 NH
 "}
 (18,1,1) = {"
@@ -6304,7 +6415,7 @@ gh
 gh
 Tl
 gh
-gh
+Ox
 gh
 gh
 gh
@@ -6323,9 +6434,9 @@ mq
 Lb
 Lb
 hQ
-ul
-NH
-NH
+wW
+EA
+EA
 NH
 "}
 (19,1,1) = {"
@@ -6372,9 +6483,9 @@ Lb
 Az
 Bs
 hQ
-ul
-NH
-NH
+wW
+EA
+EA
 NH
 "}
 (20,1,1) = {"
@@ -6419,11 +6530,11 @@ qb
 kS
 hY
 JN
-DN
+Bs
 hQ
-ul
-NH
-NH
+wW
+EA
+EA
 NH
 "}
 (21,1,1) = {"
@@ -6436,7 +6547,7 @@ Yg
 Yg
 Yg
 IA
-yu
+wS
 Lb
 hY
 Fz
@@ -6470,9 +6581,9 @@ Lb
 Rb
 SP
 hQ
-ul
-ul
-NH
+wW
+wW
+EA
 NH
 "}
 (22,1,1) = {"
@@ -6520,8 +6631,8 @@ Uh
 bs
 bs
 lb
-ul
-NH
+wW
+EA
 NH
 "}
 (23,1,1) = {"
@@ -6552,7 +6663,7 @@ nj
 nj
 nj
 nj
-nj
+Ea
 Fz
 Sm
 bs
@@ -6637,7 +6748,7 @@ Lb
 NH
 Fz
 WU
-wS
+Jh
 Jh
 wt
 bj
@@ -6787,7 +6898,7 @@ XF
 bN
 eT
 bN
-bN
+DN
 bN
 bN
 EL
@@ -7042,7 +7153,7 @@ nj
 nj
 nj
 nj
-nj
+Ea
 Fz
 Mj
 bs

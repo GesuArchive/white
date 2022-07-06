@@ -18,7 +18,7 @@
 /area/ruin/space/has_grav/powered)
 "n" = (
 /obj/structure/table/wood/fancy/purple,
-/obj/item/stack/spacecash/c100,
+/obj/item/stack/spacecash/c10000,
 /turf/open/floor/eighties,
 /area/ruin/space/has_grav/powered)
 "C" = (
@@ -38,19 +38,19 @@
 "U" = (
 /obj/machinery/light/directional/north,
 /obj/structure/table/wood/fancy/purple,
-/obj/item/stack/spacecash/c100,
+/obj/item/stack/spacecash/c10000,
 /turf/open/floor/eighties,
 /area/ruin/space/has_grav/powered)
 "W" = (
 /obj/machinery/light/directional/east,
 /obj/structure/table/wood/fancy/purple,
-/obj/item/stack/spacecash/c100,
+/obj/item/stack/spacecash/c10000,
 /turf/open/floor/eighties,
 /area/ruin/space/has_grav/powered)
 "Y" = (
 /obj/machinery/light/directional/west,
 /obj/structure/table/wood/fancy/purple,
-/obj/item/stack/spacecash/c100,
+/obj/item/stack/spacecash/c10000,
 /turf/open/floor/eighties,
 /area/ruin/space/has_grav/powered)
 "Z" = (

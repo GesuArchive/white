@@ -3,67 +3,56 @@
 /area/ruin/space/has_grav/powered/telepadovo
 	name = "Телепадово"
 
-/datum/map_template/ruin/space/telepadovo
-	id = "telepadovo"
-	suffix = "wruin1.dmm"
-	name = "Telepadovo"
-	allow_duplicates = FALSE
-	description = "Синдикат в последнее время плохо финансируется, в следствии чего начал заведовать переправкой космобеженцев через телепады."
-
 //austation
 
 /obj/effect/mob_spawn/human/austation
-	name = "интересная капсула"
-	desc = "Промёрзшая изнутри капсула. Если присмотреться, то внутри находится спящий человек."
-	mob_name = "ассистуха"
+	name = "древняя криокапсула"
+	desc = "Там кто-то точно есть."
+	mob_name = "мятежник"
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	roundstart = FALSE
 	death = FALSE
 	random = TRUE
 	mob_species = /datum/species/human
-	short_desc = "Я бывший сотрудник корпорации NanoTrasen"
-	flavour_text = "Все эти ублюдки с основной станции настолько нам надоели, что мы решили отпилить кусок станции, что сделали почти успешно, однако назад пути теперь НЕТ. Пусть хоть какой-то паразит попробует сюда сунуться - сразу разберём на биомассу и следов не останется!"
-	important_info = "За наши головы готовы неплохо так заплатить, так что эта станция - единственное безопасное место для нас, пока мы не попадёмся кому-то на глаза. Ах, да! Скоро закончится свет."
+	short_desc = "Бывший сотрудник корпорации NanoTrasen"
+	flavour_text = "Мы решили послать всех нахуй и теперь обитаем здесь."
+	important_info = "Скоро закончится свет, однако на складе мы точно оставили всё необходимое для автономной работы нашего посления."
 	uniform = /datum/outfit/job/assistant
 	shoes = null
-	assignedrole = "Autism Crew"
+	assignedrole = "Мятежник"
+
+/obj/effect/mob_spawn/human/austation/special(mob/living/new_spawn)
+	new_spawn.AddComponent(/datum/component/stationstuck, PUNISHMENT_TELEPORT, "Что-то происходит...")
 
 /obj/effect/mob_spawn/human/austation/Destroy()
 	new/obj/structure/showcase/machinery/oldpod/used(drop_location())
 	return ..()
 
 /area/ruin/space/has_grav/austation
-	name = "Аутизм"
+	name = "Аванпост"
 
 /area/ruin/space/has_grav/austation/med
-	name = "Аутизм: Медбей"
+	name = "Аванпост: Медбей"
 
 /area/ruin/space/has_grav/austation/vault
-	name = "Аутизм: Хранилище"
+	name = "Аванпост: Хранилище"
 
 /area/ruin/space/has_grav/austation/rnd
-	name = "Аутизм: Исследования"
+	name = "Аванпост: Исследования"
 
 /area/ruin/space/has_grav/austation/xeno
-	name = "Аутизм: Ксено"
+	name = "Аванпост: Ксено"
 
 /area/ruin/space/has_grav/austation/station
-	name = "Аутизм: Станция"
+	name = "Аванпост: Станция"
 
 /area/ruin/space/has_grav/austation/eng
-	name = "Аутизм: Инженерный"
+	name = "Аванпост: Инженерный"
 
 /area/ruin/space/has_grav/austation/maint
-	name = "Аутизм: Техи"
+	name = "Аванпост: Техи"
 	ambience_index = AMBIENCE_MAINT
-
-/datum/map_template/ruin/space/austation
-	id = "austation"
-	suffix = "wruin2.dmm"
-	name = "Autism Station"
-	allow_duplicates = FALSE
-	description = "Практически автономная министация посреди космоса. Уцелела благодаря идиотам среди экипажа и полным отсутствием тактической ценности для синдиката."
 
 /area/shuttle/explorer_mini
 	requires_power = TRUE
@@ -90,14 +79,6 @@
 
 /area/ruin/space/has_grav/powered/partywhite
 	name = "Пативайт"
-
-/*
-/area/ruin/space/has_grav/powered/partywhite/Initialize(mapload)
-	. = ..()
-	if(mapload)
-		for (var/obj/machinery/jukebox/disco/indestructible/D in src)
-			D.activate_music()
-*/
 
 /datum/map_template/ruin/space/partywhite
 	id = "partywhite"
