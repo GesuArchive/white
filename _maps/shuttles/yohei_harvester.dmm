@@ -58,9 +58,7 @@
 /turf/open/floor/plasteel/durasteel,
 /area/shuttle/yohei)
 "em" = (
-/obj/machinery/telecomms/relay/preset/ruskie{
-	use_power = 0
-	},
+/obj/machinery/telecomms/relay/preset/yohei,
 /turf/open/floor/plasteel/durasteel,
 /area/shuttle/yohei)
 "eA" = (

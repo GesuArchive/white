@@ -288,7 +288,9 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 /obj/item/radio/headset/headset_yohei
 	name = "гарнитура Йохея"
 	desc = "Через это общаются наёмники."
+	icon = 'icons/obj/abductor.dmi'
 	icon_state = "abductor_headset"
+	inhand_icon_state = "abductor_headset"
 	keyslot = new /obj/item/encryptionkey/headset_yohei
 
 /obj/item/radio/headset/headset_cent
