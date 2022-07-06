@@ -134,7 +134,7 @@
 	if(. || !has_active_hand())
 		return
 
-	if(!ismob(target) || !get_dist(src, target) >= 1)
+	if(!ismob(target) || next_move > world.time || !get_dist(src, target) >= 1 || !get_dist(src, target) <= 10)
 		return
 
 	switch(a_intent)
@@ -145,11 +145,12 @@
 			visible_message(span_notice("<b>[src]</b> просит жестом <b>[target]</b> отойти."), span_notice("Прошу жестом <b>[target]</b> отойти."), span_notice("Прошу жестом кого-то отойти."), ignored_mobs = target)
 			to_chat(target, span_notice("<b>[src]</b> просит меня отойти."))
 		if(INTENT_GRAB)
-			visible_message(span_notice("<b>[src]</b> подманивает пальчиком <b>[target]</b>."), span_notice("Подманивает пальчиком <b>[target]</b>."), span_notice("Подманиваю пальчиком кого-то."), ignored_mobs = target)
+			visible_message(span_notice("<b>[src]</b> подманивает пальчиком <b>[target]</b>."), span_notice("Подманиваю пальчиком <b>[target]</b>."), span_notice("Подманиваю пальчиком кого-то."), ignored_mobs = target)
 			to_chat(target, span_notice("<b>[src]</b> подманивает меня пальчиком."))
-		if(INTENT_HELP)
+		if(INTENT_HARM)
 			visible_message(span_warning("<b>[src]</b> угрожает кулаком <b>[target]</b>!"), span_warning("Угрожаю кулаком <b>[target]</b>!"), span_warning("Угрожаю кому-то кулаком!"), ignored_mobs = target)
 			to_chat(target, span_warning("<b>[src]</b> угрожает мне кулаком!"))
+	changeNext_move(1 SECONDS)
 	return TRUE
 
 /*
