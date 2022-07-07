@@ -65,7 +65,7 @@
 		T.__update_auxtools_turf_adjacency_info(isspaceturf(T.get_z_base_turf()), -1)
 	UNSETEMPTY(atmos_adjacent_turfs)
 	src.atmos_adjacent_turfs = atmos_adjacent_turfs
-	SEND_SIGNAL(src, COMSIG_TURF_CALCULATED_ADJACENT_ATMOS)
+	//SEND_SIGNAL(src, COMSIG_TURF_CALCULATED_ADJACENT_ATMOS)
 	set_sleeping(blocks_air)
 	__update_auxtools_turf_adjacency_info(isspaceturf(get_z_base_turf()))
 
