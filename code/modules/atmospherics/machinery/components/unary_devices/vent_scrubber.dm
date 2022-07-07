@@ -32,7 +32,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/New()
 	..()
 	if(!id_tag)
-		id_tag = assign_uid_vents()
+		id_tag = SSnetworks.assign_random_name()
 
 /obj/machinery/atmospherics/components/unary/vent_scrubber/Destroy()
 	var/area/scrub_area = get_area(src)
