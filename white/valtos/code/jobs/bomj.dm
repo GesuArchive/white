@@ -2,8 +2,8 @@
 	title = "Bomj"
 	ru_title = "Бомж"
 	faction = "Station"
-	total_positions = 5
-	spawn_positions = 5
+	total_positions = 3
+	spawn_positions = 3
 	supervisors = "никому"
 	selection_color = "#dddd00"
 	outfit = /datum/outfit/job/bomj

@@ -3,7 +3,7 @@
 	ru_title = "Повар"
 	department_head = list("Head of Personnel")
 	faction = "Station"
-	total_positions = 2
+	total_positions = 1
 	spawn_positions = 1
 	supervisors = "главе персонала"
 	selection_color = "#bbe291"

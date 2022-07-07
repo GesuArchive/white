@@ -375,7 +375,7 @@
 
 /mob/dead/new_player/proc/display_positions(datum/job/job_datum)
 	if(job_datum.total_positions == -1)
-		return "∞"
+		return "[job_datum.current_positions]/∞"
 	var/generated_text = ""
 	var/open_positions = job_datum.total_positions - job_datum.current_positions
 	if(open_positions)

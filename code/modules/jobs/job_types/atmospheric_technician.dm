@@ -3,8 +3,8 @@
 	ru_title = "Атмосферный Техник"
 	department_head = list("Chief Engineer" = "Старший Инженер")
 	faction = "Station"
-	total_positions = 3
-	spawn_positions = 2
+	total_positions = 1
+	spawn_positions = 1
 	supervisors = "старшему инженеру"
 	selection_color = "#fff5cc"
 	exp_requirements = 600
