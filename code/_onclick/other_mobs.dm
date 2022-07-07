@@ -131,7 +131,7 @@
 
 /mob/living/carbon/human/ranged_secondary_attack(atom/target, modifiers)
 	. = ..()
-	if(. || !has_active_hand())
+	if(. || !has_active_hand() || stat)
 		return
 
 	if(!ismob(target) || !iscameraobj(target) || get_dist(src, target) >= 8)
@@ -157,7 +157,7 @@
 
 	SEND_SIGNAL(target, COMSIG_ATOM_FRIENDLY_WAVED, a_intent)
 
-	if(!target_mob)
+	if(!istype(target_mob))
 		return TRUE
 
 	if(a_intent == INTENT_HARM)
