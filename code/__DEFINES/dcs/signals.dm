@@ -1676,3 +1676,5 @@
 
 //called when an igniter activates
 #define COMSIG_IGNITER_ACTIVATE "igniter_activate"
+
+#define COMSIG_ATOM_FRIENDLY_WAVED "friendly_waved"

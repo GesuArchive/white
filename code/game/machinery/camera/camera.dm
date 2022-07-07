@@ -104,6 +104,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 
 	alarm_manager = new(src)
 
+	RegisterSignal(src, COMSIG_ATOM_FRIENDLY_WAVED, .proc/handle_waving)
+
 /obj/machinery/camera/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	for(var/i in network)
 		network -= i
@@ -132,6 +134,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 		if(bug.current == src)
 			bug.current = null
 		bug = null
+
+	UnregisterSignal(src, COMSIG_ATOM_FRIENDLY_WAVED)
+
 	return ..()
 
 /obj/machinery/camera/examine(mob/user)
@@ -376,6 +381,35 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 
 	return ..()
 
+/obj/machinery/camera/proc/handle_waving(mob/source, mob_intent)
+	SIGNAL_HANDLER
+
+	if(!prob(1))
+		return
+
+	var/target_message
+
+	switch(mob_intent)
+		if(INTENT_HELP)
+			target_message = "машет рукой одной"
+		if(INTENT_DISARM)
+			target_message = "кривляется перед одной"
+		if(INTENT_GRAB)
+			target_message = "подманивает пальчиком одну"
+		if(INTENT_HARM)
+			target_message = "угрожает кулаком одной"
+
+	to_chat(source, span_notice("Камера фокусируется на мне."))
+
+	for(var/mob/O in GLOB.player_list)
+		if(isAI(O))
+			var/mob/living/silicon/ai/AI = O
+			if(AI.control_disabled || (AI.stat == DEAD))
+				continue
+			if(source.name == "Неизвестный")
+				to_chat(AI, "<span class='name'>[source]</span> [target_message] из моих камер...")
+			else
+				to_chat(AI, "<b><a href='?src=[REF(AI)];track=[html_encode(source.name)]'>[source]</a></b> [target_message] из моих камер...")
 
 /obj/machinery/camera/run_obj_armor(damage_amount, damage_type, damage_flag = 0, attack_dir)
 	if(machine_stat & BROKEN)
