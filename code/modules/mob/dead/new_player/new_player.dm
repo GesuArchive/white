@@ -363,7 +363,7 @@
 			dat += "</td><td valign='top'>"
 	dat += "</td></tr></table></center>"
 	dat += "</div></div>"
-	var/ww = 900
+	var/ww = 880
 	var/hh = 750
 	if(GLOB.violence_mode_activated)
 		ww = 289
@@ -375,13 +375,14 @@
 
 /mob/dead/new_player/proc/display_positions(datum/job/job_datum)
 	if(job_datum.total_positions == -1)
-		return "♾️"
+		return "∞"
 	var/generated_text = ""
 	var/closed_positions = job_datum.total_positions - job_datum.current_positions
-	for(var/CP in closed_positions)
-		generated_text += "🔴"
-	for(var/OP in job_datum.current_positions)
-		generated_text += "⭕"
+	if(closed_positions)
+		for(var/CP in 1 to closed_positions)
+			generated_text += " ⬛"
+	for(var/OP in 1 to job_datum.current_positions)
+		generated_text += " ⬜"
 	return generated_text
 
 /mob/dead/new_player/proc/create_character(transfer_after)
