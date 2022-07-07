@@ -134,7 +134,7 @@
 	if(. || !has_active_hand() || stat)
 		return
 
-	if(!ismob(target) || !iscameraobj(target) || get_dist(src, target) >= 8)
+	if((!ismob(target) && !iscameraobj(target)) || get_dist(src, target) >= 8)
 		return
 
 	var/mob/target_mob = target
