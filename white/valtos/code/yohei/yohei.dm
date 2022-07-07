@@ -76,10 +76,12 @@
 		to_chat(H, span_userdanger("Так как в этом мире насилия не существует, кодекс запрещает мне проявлять враждебность ко всем живым существам."))
 		ADD_TRAIT(H, TRAIT_PACIFISM, "yohei")
 
-	var/newname = sanitize_name(reject_bad_text(stripped_input(H, "Меня когда-то звали [H.name]. Пришло время снова сменить прозвище?", "Прозвище", H.name, MAX_NAME_LEN)))
-	if (!newname)
-		return
-	H.fully_replace_character_name(H.real_name, newname)
+	// async crutch
+	spawn(0)
+		var/newname = sanitize_name(reject_bad_text(stripped_input(H, "Меня когда-то звали [H.name]. Пришло время снова сменить прозвище?", "Прозвище", H.name, MAX_NAME_LEN)))
+		if (!newname)
+			return
+		H.fully_replace_character_name(H.real_name, newname)
 
-	var/obj/item/book/B = locate(/obj/item/book/yohei_codex) in H
-	B?.on_read(H)
+		var/obj/item/book/B = locate(/obj/item/book/yohei_codex) in H
+		B?.on_read(H)
