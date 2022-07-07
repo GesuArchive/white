@@ -411,14 +411,14 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	if(fucking_anime_girl_noises_oh_nya)
 		message = ddlc_text(message)
 
+	if(hydration <= HYDRATION_LEVEL_DEHYDRATED)
+		message = thirstymessage(message)
+
 	if(cultslurring && slurring)
 		message = cultslur(message)
 
 	else if(slurring)
 		message = slur(message)
-
-	if(hydration <= HYDRATION_LEVEL_DEHYDRATED)
-		message = thirstymessage(message)
 
 	if(client?.prefs?.disabled_autocap)
 		message = message
