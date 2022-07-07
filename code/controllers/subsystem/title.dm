@@ -1,6 +1,7 @@
 SUBSYSTEM_DEF(title)
 	name = "Заставки"
-	flags = SS_NO_FIRE
+	flags = SS_BACKGROUND
+	wait = 90 SECONDS
 	init_order = INIT_ORDER_TITLE
 	init_stage = INITSTAGE_EARLY
 
@@ -9,6 +10,8 @@ SUBSYSTEM_DEF(title)
 	var/icon/previous_icon
 	var/turf/closed/indestructible/splashscreen/splash_turf
 	var/cached_title
+
+	var/list/title_screens = list()
 
 /datum/controller/subsystem/title/Initialize(mapload)
 	if(file_path && icon)
@@ -21,7 +24,7 @@ SUBSYSTEM_DEF(title)
 	fdel("data/previous_title.dat")
 
 	var/list/provisional_title_screens = flist("[global.config.directory]/title_screens/images/")
-	var/list/title_screens = list()
+
 	var/use_rare_screens = prob(1)
 
 	for(var/S in provisional_title_screens)
@@ -29,6 +32,11 @@ SUBSYSTEM_DEF(title)
 		if((L.len == 1 && (L[1] != "exclude" && L[1] != "blank.png"))|| (L.len > 1 && ((use_rare_screens && lowertext(L[1]) == "rare"))))
 			title_screens += S
 
+	rotate_title_screen()
+
+	return ..()
+
+/datum/controller/subsystem/title/proc/rotate_title_screen()
 	if(length(title_screens))
 		file_path = "[global.config.directory]/title_screens/images/[pick(title_screens)]"
 
@@ -42,7 +50,13 @@ SUBSYSTEM_DEF(title)
 	if(splash_turf)
 		splash_turf.icon = icon
 
-	return ..()
+/datum/controller/subsystem/title/fire(resumed = FALSE)
+	if(datum_flags & DF_VAR_EDITED)
+		return
+
+	rotate_title_screen()
+
+	return
 
 /datum/controller/subsystem/title/vv_edit_var(var_name, var_value)
 	. = ..()
