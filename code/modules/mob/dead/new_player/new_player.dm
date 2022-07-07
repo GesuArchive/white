@@ -377,12 +377,12 @@
 	if(job_datum.total_positions == -1)
 		return "∞"
 	var/generated_text = ""
-	var/closed_positions = job_datum.total_positions - job_datum.current_positions
-	if(closed_positions)
-		for(var/CP in 1 to closed_positions)
-			generated_text += " ⬛"
+	var/open_positions = job_datum.total_positions - job_datum.current_positions
+	if(open_positions)
+		for(var/CP in 1 to open_positions)
+			generated_text += " ⬜"
 	for(var/OP in 1 to job_datum.current_positions)
-		generated_text += " ⬜"
+		generated_text += " ⬛"
 	return generated_text
 
 /mob/dead/new_player/proc/create_character(transfer_after)
