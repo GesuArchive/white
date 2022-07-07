@@ -341,7 +341,7 @@
 	for(var/category in GLOB.position_categories)
 		// position_categories contains category names mapped to available jobs and an appropriate color
 		var/cat_color = GLOB.position_categories[category]["color"]
-		dat += "<fieldset style='width: 216px; border: 2px solid [cat_color]; display: inline'>"
+		dat += "<fieldset style='width: 252px; border: 2px solid [cat_color]; display: inline'>"
 		dat += "<legend align='center' style='color: #ffffff;'>[GLOB.position_categories[category]["runame"]]</legend>"
 		var/list/dept_dat = list()
 		for(var/job in GLOB.position_categories[category]["jobs"])
@@ -351,9 +351,9 @@
 				if(job in GLOB.command_positions)
 					command_bold = " command"
 				if(job_datum in SSjob.prioritized_jobs)
-					dept_dat += "<a class='job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'><span class='priority'>[job_datum.ru_title] <span class='rightround'>[job_datum.current_positions]/[job_datum.total_positions]</span></span></a>"
+					dept_dat += "<a class='job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'><span class='priority'>[job_datum.ru_title] <span class='rightround'>[display_positions(job_datum)]</span></span></a>"
 				else
-					dept_dat += "<a class='job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'>[job_datum.ru_title] <span class='rightround'>[job_datum.current_positions]/[job_datum.total_positions]</span></a>"
+					dept_dat += "<a class='job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'>[job_datum.ru_title] <span class='rightround'>[display_positions(job_datum)]</span></a>"
 		if(!dept_dat.len)
 			dept_dat += span_nopositions("Нет свободных позиций.")
 		dat += jointext(dept_dat, "")
@@ -363,7 +363,7 @@
 			dat += "</td><td valign='top'>"
 	dat += "</td></tr></table></center>"
 	dat += "</div></div>"
-	var/ww = 774
+	var/ww = 900
 	var/hh = 750
 	if(GLOB.violence_mode_activated)
 		ww = 289
@@ -372,6 +372,17 @@
 	popup.add_stylesheet("playeroptions", 'html/browser/playeroptions.css')
 	popup.set_content(jointext(dat, ""))
 	popup.open(FALSE) // 0 is passed to open so that it doesn't use the onclose() proc
+
+/mob/dead/new_player/proc/display_positions(datum/job/job_datum)
+	if(job_datum.total_positions == -1)
+		return "♾️"
+	var/generated_text = ""
+	var/closed_positions = job_datum.total_positions - job_datum.current_positions
+	for(var/CP in closed_positions)
+		generated_text += "🔴"
+	for(var/OP in job_datum.current_positions)
+		generated_text += "⭕"
+	return generated_text
 
 /mob/dead/new_player/proc/create_character(transfer_after)
 	spawning = 1
