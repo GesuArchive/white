@@ -27534,7 +27534,6 @@
 /area/engineering/atmos/upper)
 "clY" = (
 /obj/machinery/air_sensor/atmos/air_tank,
-/obj/effect/landmark/xeno_spawn,
 /obj/effect/turf_decal/tile/hex/blue{
 	dir = 8
 	},
@@ -37305,6 +37304,10 @@
 	},
 /turf/open/floor/engine,
 /area/commons/spacepod_docks)
+"jeb" = (
+/obj/effect/landmark/xeno_spawn,
+/turf/open/floor/plasteel/monofloor,
+/area/engineering/atmos)
 "jeT" = (
 /obj/machinery/door/airlock/command/glass{
 	name = "Research Director";
@@ -85533,7 +85536,7 @@ jJk
 gqv
 bLK
 bMV
-bOd
+jeb
 bRB
 bVQ
 bRF
