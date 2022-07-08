@@ -4950,11 +4950,12 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/storage/toolbox/mechanical,
 /obj/item/crowbar/large,
 /obj/machinery/camera/autoname,
+/obj/item/stack/cable_coil{
+	pixel_y = 7
+	},
 /obj/item/multitool,
-/obj/item/stack/cable_coil,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay/zone2)
 "IM" = (
@@ -5554,7 +5555,9 @@
 	pixel_y = -23
 	},
 /obj/structure/table,
-/obj/machinery/cell_charger,
+/obj/structure/desk_bell{
+	pixel_y = 5
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/lobby)
 "NJ" = (
@@ -6862,6 +6865,8 @@
 	dir = 8
 	},
 /obj/machinery/power/apc/auto_name/north,
+/obj/structure/table,
+/obj/item/storage/toolbox/mechanical,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay/zone2)
 "Wq" = (
@@ -6958,6 +6963,8 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/machinery/cell_charger,
+/obj/structure/table,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay/zone2)
 "WW" = (

@@ -10,8 +10,7 @@
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "c" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/turf/open/openspace,
 /area/maintenance/port/aft)
 "f" = (
 /turf/open/floor/plating,
@@ -54,7 +53,12 @@
 /area/maintenance/port/aft)
 "r" = (
 /obj/item/clothing/head/hardhat,
-/turf/open/floor/plating/airless,
+/obj/structure/lattice,
+/turf/open/openspace,
+/area/maintenance/port/aft)
+"F" = (
+/obj/structure/lattice,
+/turf/open/openspace,
 /area/maintenance/port/aft)
 "O" = (
 /turf/open/floor/plating/airless,
@@ -69,7 +73,7 @@ a
 k
 a
 a
-c
+a
 a
 a
 a
@@ -88,9 +92,9 @@ O
 O
 O
 O
-O
-O
-c
+F
+F
+a
 "}
 (3,1,1) = {"
 a
@@ -103,10 +107,10 @@ f
 O
 O
 O
+F
+F
 O
-O
-O
-c
+a
 "}
 (4,1,1) = {"
 b
@@ -118,11 +122,11 @@ O
 O
 O
 O
-O
-O
-O
-O
 c
+F
+c
+F
+a
 "}
 (5,1,1) = {"
 a
@@ -135,10 +139,10 @@ l
 O
 O
 r
+F
+F
 O
-O
-O
-c
+a
 "}
 (6,1,1) = {"
 a
@@ -150,11 +154,11 @@ O
 O
 O
 p
-O
-O
-O
-O
 c
+F
+c
+O
+a
 "}
 (7,1,1) = {"
 a
@@ -166,14 +170,14 @@ O
 O
 o
 q
+F
+F
+F
 O
-O
-O
-O
-c
+a
 "}
 (8,1,1) = {"
-c
+a
 f
 f
 O
@@ -182,14 +186,14 @@ O
 O
 O
 O
-O
-O
-O
-O
 c
+F
+c
+F
+a
 "}
 (9,1,1) = {"
-c
+a
 f
 f
 O
@@ -198,23 +202,23 @@ O
 O
 O
 O
-O
-O
-O
+F
+F
+F
 O
 a
 "}
 (10,1,1) = {"
+a
+f
+f
+O
+O
+O
+O
+O
+O
 c
-f
-f
-O
-O
-O
-O
-O
-O
-O
 O
 O
 O
@@ -227,10 +231,10 @@ a
 a
 a
 a
-c
-c
-c
-c
+a
+a
+a
+a
 a
 a
 a

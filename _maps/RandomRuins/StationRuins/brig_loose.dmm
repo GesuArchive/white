@@ -3316,6 +3316,9 @@
 	name = "Brig Desk";
 	req_access_txt = "1"
 	},
+/obj/structure/desk_bell{
+	pixel_x = 7
+	},
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
 "jv" = (

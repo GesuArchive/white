@@ -386,13 +386,13 @@
 /turf/open/floor/plasteel,
 /area/mine/eva)
 "bt" = (
-/obj/machinery/suit_storage_unit/mining,
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
 	},
+/obj/machinery/suit_storage_unit,
 /turf/open/floor/plasteel,
 /area/mine/eva)
 "bu" = (
@@ -987,7 +987,6 @@
 /turf/open/floor/plasteel,
 /area/mine/production)
 "cZ" = (
-/obj/machinery/vendor/mining,
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
@@ -995,6 +994,8 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 4
 	},
+/obj/effect/turf_decal/bot,
+/obj/structure/ore_box,
 /turf/open/floor/plasteel,
 /area/mine/production)
 "db" = (

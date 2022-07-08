@@ -1227,6 +1227,10 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
+/obj/structure/desk_bell{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/lobby)
 "lQ" = (

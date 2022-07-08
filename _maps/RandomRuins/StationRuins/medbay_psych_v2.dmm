@@ -287,6 +287,10 @@
 	id = "durka_hub";
 	name = "Panic Bunker"
 	},
+/obj/structure/desk_bell{
+	pixel_x = 6;
+	pixel_y = 10
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay/lobby)
 "dU" = (
