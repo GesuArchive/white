@@ -53,9 +53,9 @@
 		log_combat(user, M, "fed", reagents.log_list())
 
 	for(var/datum/reagent/R in reagents.reagent_list)
-		if(R in M.known_reagent_sounds)
+		if(R.type in M.known_reagent_sounds)
 			continue
-		M.known_reagent_sounds += R
+		LAZYADD(M.known_reagent_sounds, R.type)
 		SEND_SOUND(M, R.special_sound)
 		break
 

@@ -57,9 +57,9 @@
 				to_chat(user, span_notice("Делаю глоток из [src]."))
 
 			for(var/datum/reagent/R in reagents.reagent_list)
-				if(R in M.known_reagent_sounds)
+				if(R.type in M.known_reagent_sounds)
 					continue
-				M.known_reagent_sounds += R
+				LAZYADD(M.known_reagent_sounds, R.type)
 				SEND_SOUND(M, R.special_sound)
 				break
 
