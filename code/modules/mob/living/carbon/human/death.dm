@@ -41,7 +41,7 @@ GLOBAL_LIST_EMPTY(dead_players_during_shift)
 		dna.species.spec_death(gibbed, src)
 
 	if(client && lastattackermob?.client)
-		if(!HAS_TRAIT(src, TRAIT_YOHEI) && HAS_TRAIT(lastattackermob, TRAIT_YOHEI))
+		if(HAS_TRAIT(lastattackermob, TRAIT_YOHEI) && !HAS_TRAIT(src, TRAIT_YOHEI))
 			if(GLOB.yohei_main_controller)
 				var/obj/lab_monitor/yohei/LM = GLOB.yohei_main_controller
 				if(!LM.is_this_target(src))

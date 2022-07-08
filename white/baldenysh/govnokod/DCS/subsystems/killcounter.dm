@@ -15,21 +15,7 @@ SUBSYSTEM_DEF(killcounter)
 /datum/controller/subsystem/killcounter/Initialize(mapload)
 	. = ..()
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, .proc/on_mob_death)
-	//RegisterSignal(SSdcs, COMSIG_GLOB_EXPLOSION, .proc/on_batrudinov)
-	//RegisterSignal(SSdcs, COMSIG_GLOB_MOB_CREATED, .proc/on_mob_created)
-/*
-/datum/controller/subsystem/killcounter/proc/on_mob_created(datum/source, mob/M)
-	if(isliving(M))
-		killstreak_tracker[ref(M)] = new /datum/killstreak_counter()
-*/
-/*
-/datum/controller/subsystem/killcounter/proc/on_batrudinov(datum/source, epicenter, devastation_range, heavy_impact_range, light_impact_range, took, orig_dev_range, orig_heavy_range, orig_light_range, mob/prikolist)
-	if(!prikolist)
-		return
-	for(var/turf/T in SSexplosions.GatherSpiralTurfs(light_impact_range, epicenter))
-		for(var/mob/living/L in T.contents)
-			L.lastattackermob = prikolist
-*/
+
 /datum/controller/subsystem/killcounter/proc/on_mob_death(datum/source, mob/living/dead, gibbed)
 	SIGNAL_HANDLER
 	if(!dead.lastattackermob)
@@ -80,9 +66,6 @@ SUBSYSTEM_DEF(killcounter)
 		if(9 to INFINITY) playsound(ksc.last_location,'white/hule/SFX/csSFX/holyshit.wav', 150, 5, pressure_affected = FALSE)
 
 ///////////////////
-
-/mob/living
-	var/mob/living/lastattackermob
 
 /proc/log_combat_extension(atom/user, atom/target)
 	if(!isliving(user) || !isliving(target))

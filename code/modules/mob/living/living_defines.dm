@@ -8,8 +8,8 @@
 	hud_type = /datum/hud/living
 
 	var/resize = 1 ///Badminnery resize
-	//var/lastattacker = null
-	//var/lastattackerckey = null
+
+	var/mob/living/lastattackermob = null
 
 	//Health and life related vars
 	/// Maximum health that should be possible.
