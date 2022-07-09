@@ -204,7 +204,8 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 
 /obj/machinery/conveyor/proc/update()
 	. = TRUE
-	if(machine_stat & NOPOWER)
+	var/area/A = get_area(src)
+	if((machine_stat & NOPOWER) && !A.outdoors)
 		set_operating(FALSE)
 		return FALSE
 	if(!operating) //If we're on, start conveying so moveloops on our tile can be refreshed if they stopped for some reason

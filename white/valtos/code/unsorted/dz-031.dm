@@ -89,6 +89,16 @@
 		icon_state = "c_wall2"
 		density = 0
 
+/turf/closed/dz/normal/cyber/ice
+	name = "лёд"
+	icon_state = "ice"
+
+/turf/closed/dz/normal/cyber/ice/attack_hand(mob/user)
+	. = ..()
+	playsound(src, 'white/valtos/sounds/rapidslice.ogg', 60, TRUE)
+	visible_message("<b>[user]</b> уничтожает <b>[src]</b>.", "Уничтожаю <b>[src]</b>.")
+	ChangeTurf(/turf/open/floor/dz/cyber)
+
 /turf/closed/dz/lab
 	name = "сверхкрепкая стена"
 	icon_state = "labwall-h"

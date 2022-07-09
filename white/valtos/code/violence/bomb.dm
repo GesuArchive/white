@@ -28,7 +28,7 @@ GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 	for(var/atom/A in GLOB.violence_bomb_locations)
 		var/turf/T1 = get_turf(A)
 		var/turf/T2 = get_turf(user)
-		if(get_dist(T1, T2) <= 5)
+		if(get_dist(T1, T2) <= 2)
 			found = TRUE
 
 	if(!found)
