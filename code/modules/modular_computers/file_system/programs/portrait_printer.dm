@@ -10,10 +10,10 @@
  */
 /datum/computer_file/program/portrait_printer
 	filename = "PortraitPrinter"
-	filedesc = "Marlowe Treeby's Art Galaxy"
+	filedesc = "Картины Марлоу Треби"
 	category = PROGRAM_CATEGORY_CREW
 	program_icon_state = "dummy"
-	extended_desc = "This program connects to a Spinward Sector community art site for viewing and printing art."
+	extended_desc = "Эта программа подключается к художественному сайту сообщества, находящегося в секторе Спинвард, для просмотра и печати произведений искусства."
 	transfer_access = ACCESS_LIBRARY
 	usage_flags = PROGRAM_CONSOLE
 	requires_ntnet = TRUE
@@ -41,10 +41,10 @@
 	if(computer)
 		printer = computer.all_components[MC_PRINT]
 	if(!printer)
-		to_chat(usr, span_notice("Hardware error: A printer is required to print a canvas."))
+		to_chat(usr, span_notice("Аппаратная ошибка: Для печати картины требуется принтер."))
 		return
 	if(printer.stored_paper < CANVAS_PAPER_COST)
-		to_chat(usr, span_notice("Printing error: Your printer needs at least [CANVAS_PAPER_COST] paper to print a canvas."))
+		to_chat(usr, span_notice("Ошибка печати: Вашему принтеру требуется не менее [CANVAS_PAPER_COST] листов бумаги для печати картины."))
 		return
 	printer.stored_paper -= CANVAS_PAPER_COST
 

@@ -1,8 +1,8 @@
 /datum/computer_file/program/robotact
 	filename = "robotact"
-	filedesc = "RoboTact"
+	filedesc = "Роботакт"
 	category = PROGRAM_CATEGORY_ROBO
-	extended_desc = "A built-in app for cyborg self-management and diagnostics."
+	extended_desc = "Программый пакет для слежения и диагностики киборгов станции."
 	ui_header = "robotact.gif" //DEBUG -- new icon before PR
 	program_icon_state = "command"
 	requires_ntnet = FALSE
@@ -98,9 +98,9 @@
 				borgo.locked = FALSE
 				borgo.update_icons()
 				if(borgo.emagged)
-					borgo.logevent("ChÃ¥vÃis cover lock has been [borgo.locked ? "engaged" : "released"]") //"The cover interface glitches out for a split second"
+					borgo.logevent("КрÃ¥vÃ люка [borgo.locked ? "закрыта" : "открыта"]") //"The cover interface glitches out for a split second"
 				else
-					borgo.logevent("Chassis cover lock has been [borgo.locked ? "engaged" : "released"]")
+					borgo.logevent("Крышка люка [borgo.locked ? "закрыта" : "открыта"]")
 
 		if("lawchannel")
 			borgo.set_autosay()

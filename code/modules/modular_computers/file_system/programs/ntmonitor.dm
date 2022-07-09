@@ -1,9 +1,9 @@
 /datum/computer_file/program/ntnetmonitor
 	filename = "wirecarp"
-	filedesc = "WireCarp"
+	filedesc = "ВайрКарп"
 	category = PROGRAM_CATEGORY_MISC
 	program_icon_state = "comm_monitor"
-	extended_desc = "This program monitors stationwide NTNet network, provides access to logging systems, and allows for configuration changes"
+	extended_desc = "Программа мониторинга сети НТ. Ведет запись совершенной авторизации и изменения настроек в системе."
 	size = 12
 	requires_ntnet = TRUE
 	required_access = ACCESS_NETWORK //NETWORK CONTROL IS A MORE SECURE PROGRAM.

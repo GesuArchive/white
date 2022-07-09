@@ -1,8 +1,8 @@
 /datum/computer_file/program/arcade
 	filename = "dsarcade"
-	filedesc = "Donksoft Micro Arcade"
+	filedesc = "Микроаркада Донксофт"
 	program_icon_state = "arcade"
-	extended_desc = "This port of the classic game 'Outbomb Cuban Pete', redesigned to run on tablets, with thrilling graphics and chilling storytelling."
+	extended_desc = "Это ремастер классической адвенчуры 'Кубинец Пит'. Она была адаптированна для пда и планшетов, а так же получила выдающуюся графику и леденящий душу сюжет."
 	requires_ntnet = FALSE
 	size = 6
 	tgui_id = "NtosArcade"
@@ -18,8 +18,8 @@
 	var/player_mp = 10
 	var/ticket_count = 0
 	///Shows what text is shown on the app, usually showing the log of combat actions taken by the player.
-	var/heads_up = "Nanotrasen says, winners make us money."
-	var/boss_name = "Cuban Pete's Minion"
+	var/heads_up = "Победители приносят деньги Нанотрезен."
+	var/boss_name = "Миньон Кубинца Пита"
 	///Determines which boss image to use on the UI.
 	var/boss_id = 1
 
@@ -27,7 +27,7 @@
 	sleep(5)
 	user?.mind?.adjust_experience(/datum/skill/gaming, 1)
 	if(boss_hp <= 0)
-		heads_up = "You have crushed [boss_name]! Rejoice!"
+		heads_up = "Ты победил [boss_name]! Поздравляем!"
 		playsound(computer.loc, 'sound/arcade/win.ogg', 50)
 		game_active = FALSE
 		program_icon_state = "arcade_off"
@@ -37,7 +37,7 @@
 		user?.mind?.adjust_experience(/datum/skill/gaming, 50)
 		sleep(10)
 	else if(player_hp <= 0 || player_mp <= 0)
-		heads_up = "You have been defeated... how will the station survive?"
+		heads_up = "Поражение... Станция обречена?"
 		playsound(computer.loc, 'sound/arcade/lose.ogg', 50)
 		game_active = FALSE
 		program_icon_state = "arcade_off"
@@ -57,17 +57,17 @@
 	if(game_active == FALSE)
 		return
 	if (boss_mp <= 5)
-		heads_up = "[boss_mpamt] magic power has been stolen from you!"
+		heads_up = "[boss_mpamt] похитил у тебя ману!"
 		playsound(computer.loc, 'sound/arcade/steal.ogg', 50, TRUE)
 		player_mp -= boss_mpamt
 		boss_mp += boss_mpamt
 	else if(boss_mp > 5 && boss_hp <12)
-		heads_up = "[boss_name] heals for [bossheal] health!"
+		heads_up = "[boss_name] восстанавливает себе [bossheal] здоровья!"
 		playsound(computer.loc, 'sound/arcade/heal.ogg', 50, TRUE)
 		boss_hp += bossheal
 		boss_mp -= boss_mpamt
 	else
-		heads_up = "[boss_name] attacks you for [boss_attackamt] damage!"
+		heads_up = "[boss_name] атакует тебя, нанося [boss_attackamt] урона!"
 		playsound(computer.loc, 'sound/arcade/hit.ogg', 50, TRUE)
 		player_hp -= boss_attackamt
 
@@ -111,7 +111,7 @@
 			if(pause_state == FALSE)
 				attackamt = rand(2,6) + rand(0, gamerSkill)
 			pause_state = TRUE
-			heads_up = "You attack for [attackamt] damage."
+			heads_up = "Атакую, нанося [attackamt] урона."
 			playsound(computer.loc, 'sound/arcade/hit.ogg', 50, TRUE)
 			boss_hp -= attackamt
 			sleep(10)
@@ -128,7 +128,7 @@
 					maxPointCost = 2
 				healcost = rand(1, maxPointCost)
 			pause_state = TRUE
-			heads_up = "You heal for [healamt] damage."
+			heads_up = "Лечусь, восстанавливая [healamt] здоровья."
 			playsound(computer.loc, 'sound/arcade/heal.ogg', 50, TRUE)
 			player_hp += healamt
 			player_mp -= healcost
@@ -141,7 +141,7 @@
 			if(pause_state == FALSE)
 				rechargeamt = rand(4,7) + rand(0, gamerSkill)
 			pause_state = TRUE
-			heads_up = "You regain [rechargeamt] magic power."
+			heads_up = "Перевожу дух, восстанавливая [rechargeamt] маны."
 			playsound(computer.loc, 'sound/arcade/mana.ogg', 50, TRUE)
 			player_mp += rechargeamt
 			sleep(10)
@@ -170,7 +170,7 @@
 			boss_hp = 45
 			player_hp = 30
 			player_mp = 10
-			heads_up = "You stand before [boss_name]! Prepare for battle!"
+			heads_up = "Ты предстал перед [boss_name]! Приготовься к битве!"
 			program_icon_state = "arcade"
 			boss_id = rand(1,6)
 			pause_state = FALSE

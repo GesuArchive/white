@@ -1,10 +1,10 @@
 /datum/computer_file/program/messenger
 	filename = "nt_messenger"
-	filedesc = "Direct Messenger"
+	filedesc = "Текстовый мессенджер"
 	category = PROGRAM_CATEGORY_MISC
 	program_icon_state = "command"
 	program_state = PROGRAM_STATE_BACKGROUND
-	extended_desc = "This program allows old-school communication with other modular devices."
+	extended_desc = "Программа для отправки сообщений между устройствами с помощью более привычных для персонала видов коммуникации."
 	size = 8
 	usage_flags = PROGRAM_TABLET
 	ui_header = "ntnrc_idle.gif"

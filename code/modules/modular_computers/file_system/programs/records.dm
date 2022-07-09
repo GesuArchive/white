@@ -1,7 +1,7 @@
 /datum/computer_file/program/records
 	filename = "ntrecords"
-	filedesc = "Records"
-	extended_desc = "Allows the user to view several basic records from the crew."
+	filedesc = "Записи"
+	extended_desc = "Позволяет пользователю просмотреть записи экипажа."
 	category = PROGRAM_CATEGORY_MISC
 	program_icon = "clipboard"
 	program_icon_state = "crew"
@@ -16,16 +16,16 @@
 /datum/computer_file/program/records/medical
 	filedesc = "Medical Records"
 	filename = "medrecords"
-	program_icon = "book-medical"
-	extended_desc = "Allows the user to view several basic medical records from the crew."
+	program_icon = "Медицинские записи"
+	extended_desc = "Позволяет пользователю просмотреть медицинские записи экипажа. Будем честны - вы не знали, что их нужно вести."
 	transfer_access = list(ACCESS_MEDICAL, ACCESS_FLAG_COMMAND)
 	available_on_ntnet = TRUE
 	mode = "medical"
 
 /datum/computer_file/program/records/security
-	filedesc = "Security Records"
+	filedesc = "Записи СБ"
 	filename = "secrecords"
-	extended_desc = "Allows the user to view several basic security records from the crew."
+	extended_desc = "Позволяет пользователю просмотреть записи СБ."
 	transfer_access = list(ACCESS_SECURITY, ACCESS_FLAG_COMMAND)
 	available_on_ntnet = TRUE
 	mode = "security"

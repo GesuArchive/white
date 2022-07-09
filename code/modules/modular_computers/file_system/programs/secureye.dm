@@ -2,11 +2,11 @@
 
 /datum/computer_file/program/secureye
 	filename = "secureye"
-	filedesc = "SecurEye"
+	filedesc = "Око"
 	category = PROGRAM_CATEGORY_MISC
 	ui_header = "borg_mon.gif"
 	program_icon_state = "generic"
-	extended_desc = "This program allows access to standard security camera networks."
+	extended_desc = "Эта программа позволяет доступ к камерам Сб по сети."
 	requires_ntnet = TRUE
 	transfer_access = ACCESS_SECURITY
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
@@ -187,10 +187,10 @@
 	var/list/camlist = list()
 	for(var/obj/machinery/camera/cam in L)
 		if(!cam.network)
-			stack_trace("Camera in a cameranet has no camera network")
+			stack_trace("Камера не имеет доступа к сети.")
 			continue
 		if(!(islist(cam.network)))
-			stack_trace("Camera in a cameranet has a non-list camera network")
+			stack_trace("Данная камера недоступна для просмотра.")
 			continue
 		var/list/tempnetwork = cam.network & network
 		if(tempnetwork.len)

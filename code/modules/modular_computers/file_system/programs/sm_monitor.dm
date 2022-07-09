@@ -1,10 +1,10 @@
 /datum/computer_file/program/supermatter_monitor
 	filename = "ntcims"
-	filedesc = "NT CIMS"
+	filedesc = "Блестяшка"
 	category = PROGRAM_CATEGORY_ENGI
 	ui_header = "smmon_0.gif"
 	program_icon_state = "smmon_0"
-	extended_desc = "Crystal Integrity Monitoring System, connects to specially calibrated supermatter sensors to provide information on the status of supermatter-based engines."
+	extended_desc = "Система Мониторинга Целостности Кристаллов, подключается к специальным сенсорам на кристаллах антиматерии и передает информацию о их состоянии."
 	requires_ntnet = TRUE
 	transfer_access = ACCESS_CONSTRUCTION
 	size = 5
@@ -97,7 +97,7 @@
 	if(!computer.get_ntnet_status())
 		return
 	if(computer.active_program != src)
-		computer.alert_call(src, "Crystal delamination in progress!")
+		computer.alert_call(src, "Происходит распад кристалла!")
 		alert_pending = TRUE
 
 /**
@@ -114,7 +114,7 @@
 	if(!computer.get_ntnet_status())
 		return
 	if(computer.active_program == src)
-		computer.alert_call(src, "Crystal delamination in progress!")
+		computer.alert_call(src, "Происходит распад кристалла!")
 
 /datum/computer_file/program/supermatter_monitor/ui_data(mob/user)
 	var/list/data = get_header_data()

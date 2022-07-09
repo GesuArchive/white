@@ -209,8 +209,8 @@
 ///A program that tracks crew members via suit sensors
 /datum/computer_file/program/radar/lifeline
 	filename = "lifeline"
-	filedesc = "Lifeline"
-	extended_desc = "This program allows for tracking of crew members via their suit sensors."
+	filedesc = "Лайфлайн"
+	extended_desc = "Эта программа позволяет отыскать членов экипажа, отслеживая их датчики жизни на одежде с помощью радара."
 	requires_ntnet = TRUE
 	transfer_access = ACCESS_MEDICAL
 	available_on_ntnet = TRUE
@@ -252,8 +252,8 @@
 ///Tracks all janitor equipment
 /datum/computer_file/program/radar/custodial_locator
 	filename = "custodiallocator"
-	filedesc = "Custodial Locator"
-	extended_desc = "This program allows for tracking of custodial equipment."
+	filedesc = "Навигатор уборщика"
+	extended_desc = "Эта программа позволяет вам находить вещи уборщика с помощью радара."
 	requires_ntnet = TRUE
 	transfer_access = list(ACCESS_JANITOR)
 	available_on_ntnet = TRUE
@@ -299,10 +299,10 @@
 ///A program that tracks nukes and nuclear accessories
 /datum/computer_file/program/radar/fission360
 	filename = "fission360"
-	filedesc = "Fission360"
+	filedesc = "Распад360"
 	category = PROGRAM_CATEGORY_MISC
 	program_icon_state = "radarsyndicate"
-	extended_desc = "This program allows for tracking of nuclear authorization disks and warheads."
+	extended_desc = "Эта программа позволяет вам отслеживать диск ядерной аутентификации и ядерные заряды."
 	requires_ntnet = FALSE
 	transfer_access = null
 	available_on_ntnet = FALSE

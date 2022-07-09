@@ -1,9 +1,9 @@
 /datum/computer_file/program/budgetorders
 	filename = "orderapp"
-	filedesc = "NT IRN"
+	filedesc = "Карговито"
 	category = PROGRAM_CATEGORY_SUPL
 	program_icon_state = "request"
-	extended_desc = "Nanotrasen Internal Requisition Network interface for supply purchasing using a department budget account."
+	extended_desc = "Программа для покупкок через сеть внутренних заявок Нанотрейзен. Для оплаты используется счет карго или личный аккаунт использумой ID карты."
 	requires_ntnet = TRUE
 	usage_flags = PROGRAM_LAPTOP | PROGRAM_TABLET
 	size = 10
@@ -117,7 +117,7 @@
 	data["can_send"] = FALSE //There is no situation where I want the app to be able to send the shuttle AWAY from the station, but conversely is fine.
 	data["can_approve_requests"] = can_approve_requests
 	data["app_cost"] = TRUE
-	var/message = "Remember to stamp and send back the supply manifests."
+	var/message = "Не забудьте поставить штамп и отправить манифест обратно."
 	if(SSshuttle.centcom_message)
 		message = SSshuttle.centcom_message
 	if(SSshuttle.supplyBlocked)
@@ -163,8 +163,8 @@
 				computer.say("The supply shuttle is departing.")
 				computer.investigate_log("[key_name(usr)] sent the supply shuttle away.", INVESTIGATE_CARGO)
 			else
-				computer.investigate_log("[key_name(usr)] called the supply shuttle.", INVESTIGATE_CARGO)
-				computer.say("The supply shuttle has been called and will arrive in [SSshuttle.supply.timeLeft(600)] minutes.")
+				computer.investigate_log("[key_name(usr)] вызвал карго шаттл.", INVESTIGATE_CARGO)
+				computer.say("Шаттл карго был вызван и прибудет через [SSshuttle.supply.timeLeft(600)] минут.")
 				SSshuttle.moveShuttle(cargo_shuttle, docking_home, TRUE)
 			. = TRUE
 		if("loan")
@@ -181,8 +181,8 @@
 				return
 			else
 				SSshuttle.shuttle_loan.loan_shuttle()
-				computer.say("The supply shuttle has been loaned to CentCom.")
-				computer.investigate_log("[key_name(usr)] accepted a shuttle loan event.", INVESTIGATE_CARGO)
+				computer.say("Шаттл карго был отправлен на ЦК.")
+				computer.investigate_log("[key_name(usr)] предоставил шаттл по запросу ЦК.", INVESTIGATE_CARGO)
 				log_game("[key_name(usr)] accepted a shuttle loan event.")
 				. = TRUE
 		if("add")
@@ -209,14 +209,14 @@
 				var/mob/living/carbon/human/H = usr
 				var/obj/item/card/id/id_card = H.get_idcard(TRUE)
 				if(!istype(id_card))
-					computer.say("No ID card detected.")
+					computer.say("ID карта не найдена.")
 					return
 				if(istype(id_card, /obj/item/card/id/departmental_budget))
-					computer.say("The [src] rejects [id_card].")
+					computer.say("[src] отказывается работать с [id_card].")
 					return
 				account = id_card.registered_account
 				if(!istype(account))
-					computer.say("Invalid bank account.")
+					computer.say("Невозможно подключиться к банковскому аккаунту.")
 					return
 
 			var/reason = ""
@@ -227,7 +227,7 @@
 
 			if(pack.goody && !self_paid)
 				playsound(src, 'white/valtos/sounds/error1.ogg', 50, FALSE)
-				computer.say("ERROR: Small crates may only be purchased by private accounts.")
+				computer.say("ОШИБКА: Данный товар можно приобрести только за личные средства.")
 				return
 
 			if(!self_paid && ishuman(usr) && !account)
@@ -242,7 +242,7 @@
 			else
 				SSshuttle.shoppinglist += SO
 				if(self_paid)
-					computer.say("Order processed. The price will be charged to [account.account_holder]'s bank account on delivery.")
+					computer.say("Заявка принята. Средства будут списаны с аккаунта [account.account_holder].")
 			. = TRUE
 		if("remove")
 			var/id = text2num(params["id"])

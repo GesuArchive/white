@@ -1,9 +1,9 @@
 /datum/computer_file/program/aidiag
 	filename = "aidiag"
-	filedesc = "NT FRK"
+	filedesc = "Отладчик целостности ИИ"
 	category = PROGRAM_CATEGORY_ROBO
 	program_icon_state = "generic"
-	extended_desc = "Firmware Restoration Kit, capable of reconstructing damaged AI systems. Requires direct AI connection via intellicard slot."
+	extended_desc = "Программный пакет для работы с интелкартами, содержащий в себе средства для восстановления структурной целостности файловой системы ИИ. Требуется наличие интеллкарты в слоте устройства."
 	size = 12
 	requires_ntnet = FALSE
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
@@ -45,7 +45,7 @@
 		if("PRG_beginReconstruction")
 			if(A && A.health < 100)
 				restoring = TRUE
-				A.notify_ghost_cloning("Your core files are being restored!", source = computer)
+				A.notify_ghost_cloning("Происходит восстановление файловой системы!", source = computer)
 			return TRUE
 		if("PRG_eject")
 			if(computer.all_components[MC_AI])
@@ -104,14 +104,14 @@
 	data["AI_present"] = FALSE
 	data["error"] = null
 	if(!aicard)
-		data["error"] = "Please insert an intelliCard."
+		data["error"] = "Пожалуйста вставьте интеллкарту."
 	else
 		if(!AI)
-			data["error"] = "No AI located"
+			data["error"] = "ИИ не найден"
 		else
 			var/obj/item/aicard/cardhold = AI.loc
 			if(cardhold.flush)
-				data["error"] = "Flush in progress"
+				data["error"] = "Выполняется форматирование." 
 			else
 				data["AI_present"] = TRUE
 				data["name"] = AI.name

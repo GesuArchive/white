@@ -3,9 +3,9 @@
 
 /datum/computer_file/program/phys_scanner
 	filename = "phys_scanner"
-	filedesc = "Physical Scanner"
+	filedesc = "Анализатор здоровья"
 	category = PROGRAM_CATEGORY_MISC
-	extended_desc = "This program allows the tablet to scan physical objects and display a data output."
+	extended_desc = "Эта программа позволяет сканировать физическое состояние обьекта и выводит его на экран."
 	size = 8
 	usage_flags = PROGRAM_TABLET
 	available_on_ntnet = FALSE
@@ -42,17 +42,17 @@
 			if(!isnull(A.reagents))
 				if(A.reagents.reagent_list.len > 0)
 					var/reagents_length = A.reagents.reagent_list.len
-					last_record = "[reagents_length] chemical agent[reagents_length > 1 ? "s" : ""] found."
+					last_record = "Химический анализ выявил [reagents_length] [reagents_length > 1 ? "реагента" : "реагент"]"
 					for (var/re in A.reagents.reagent_list)
 						last_record += "\t [re]"
 				else
-					last_record = "No active chemical agents found in [A]."
+					last_record = "В [A] не найдено химических веществ."
 			else
-				last_record = "No significant chemical agents found in [A]."
+				last_record = "В [A] не найдено никаких химических веществ."
 		if(TABLET_MEDICAL_MODE)
 			var/mob/living/carbon/carbon = A
 			if(istype(carbon))
-				carbon.visible_message(span_notice("[user] analyzes [A]'s vitals."))
+				carbon.visible_message(span_notice("[user] анализирует показатели [A]."))
 				last_record = healthscan(user, carbon, 1, tochat = FALSE)
 
 /datum/computer_file/program/phys_scanner/ui_act(action, list/params, datum/tgui/ui)

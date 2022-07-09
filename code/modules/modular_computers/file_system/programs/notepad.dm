@@ -1,9 +1,9 @@
 /datum/computer_file/program/notepad
 	filename = "notepad"
-	filedesc = "Notepad"
+	filedesc = "Заметки"
 	category = PROGRAM_CATEGORY_MISC
 	program_icon_state = "generic"
-	extended_desc = "Jot down your work-safe thoughts and what not."
+	extended_desc = "Программа ведения заметок. Можете здесь написать что нибудь."
 	size = 2
 	tgui_id = "NtosNotepad"
 	program_icon = "book"

@@ -1,12 +1,12 @@
 /datum/computer_file/program/status
 	filename = "statusdisplay"
-	filedesc = "Status Display"
+	filedesc = "Система оповещений"
 	program_icon = "signal"
 	program_icon_state = "generic"
 	requires_ntnet = TRUE
 	size = 1
 
-	extended_desc = "An app used to change the message on the station status displays."
+	extended_desc = "Это приложение позволяет отправить сообщение на мониторы станции для оповещения о её состоянии."
 	tgui_id = "NtosStatus"
 
 	usage_flags = PROGRAM_ALL

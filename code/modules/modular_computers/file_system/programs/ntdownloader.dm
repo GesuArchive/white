@@ -1,8 +1,8 @@
 /datum/computer_file/program/ntnetdownload
 	filename = "ntsoftwarehub"
-	filedesc = "NT Software Hub"
+	filedesc = "Программный центр НТ"
 	program_icon_state = "generic"
-	extended_desc = "This program allows downloads of software from official NT repositories"
+	extended_desc = "Эта программа позволяет загружать вам программное обеспечение с серверов НТ."
 	unsendable = TRUE
 	undeletable = TRUE
 	size = 4
@@ -63,13 +63,13 @@
 	ui_header = "downloader_running.gif"
 
 	if(PRG in main_repo)
-		generate_network_log("Began downloading file [PRG.filename].[PRG.filetype] from NTNet Software Repository.")
+		generate_network_log("Начинаю загрузку файлов [PRG.filename].[PRG.filetype] с серверов НТ.")
 		hacked_download = FALSE
 	else if(PRG in antag_repo)
-		generate_network_log("Began downloading file **ENCRYPTED**.[PRG.filetype] from unspecified server.")
+		generate_network_log("Начинаю загрузку **ДАННЫЕ УДАЛЕНЫ**.[PRG.filetype] с неустановленных серверов.")
 		hacked_download = TRUE
 	else
-		generate_network_log("Began downloading file [PRG.filename].[PRG.filetype] from unspecified server.")
+		generate_network_log("Начинаю загрузку файлов [PRG.filename].[PRG.filetype] с неустановленных серверов.")
 		hacked_download = FALSE
 
 	downloaded_file = PRG.clone()
@@ -77,7 +77,7 @@
 /datum/computer_file/program/ntnetdownload/proc/abort_file_download()
 	if(!downloaded_file)
 		return
-	generate_network_log("Aborted download of file [hacked_download ? "**ENCRYPTED**" : "[downloaded_file.filename].[downloaded_file.filetype]"].")
+	generate_network_log("Ошибка: загрузка файлов с [hacked_download ? "**ДАННЫЕ УДАЛЕНЫ**" : "[downloaded_file.filename].[downloaded_file.filetype]"] прекращена.")
 	downloaded_file = null
 	download_completion = FALSE
 	ui_header = "downloader_finished.gif"
@@ -85,7 +85,7 @@
 /datum/computer_file/program/ntnetdownload/proc/complete_file_download()
 	if(!downloaded_file)
 		return
-	generate_network_log("Completed download of file [hacked_download ? "**ENCRYPTED**" : "[downloaded_file.filename].[downloaded_file.filetype]"].")
+	generate_network_log("Загрузка файлов с [hacked_download ? "**ДАННЫЕ УДАЛЕНЫ**" : "[downloaded_file.filename].[downloaded_file.filetype]"] завершена.")
 	var/obj/item/computer_hardware/hard_drive/hard_drive = computer.all_components[MC_HDD]
 	if(!computer || !hard_drive || !hard_drive.store_file(downloaded_file))
 		// The download failed
@@ -198,9 +198,9 @@
 
 /datum/computer_file/program/ntnetdownload/syndicate
 	filename = "syndownloader"
-	filedesc = "Software Download Tool"
+	filedesc = "Программный центр"
 	program_icon_state = "generic"
-	extended_desc = "This program allows downloads of software from shared Syndicate repositories"
+	extended_desc = "Эта программа позволяет вам скачивать программы с серверов Синдиката."
 	requires_ntnet = FALSE
 	ui_header = "downloader_finished.gif"
 	tgui_id = "NtosNetDownloader"

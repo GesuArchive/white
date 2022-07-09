@@ -1,9 +1,9 @@
 /datum/computer_file/program/bounty_board
 	filename = "bountyboard"
-	filedesc = "Bounty Board Request Network"
+	filedesc = "Доска объявлений"
 	category = PROGRAM_CATEGORY_SUPL
 	program_icon_state = "bountyboard"
-	extended_desc = "A multi-platform network for placing requests across the station, with payment across the network being possible.."
+	extended_desc = "Мультиплатформенное приложение для размещения заявок и объявлений в корпоративной сети станции, с функций бесконтактной оплаты..."
 	requires_ntnet = TRUE
 	size = 10
 	tgui_id = "NtosBountyBoard"
@@ -82,7 +82,7 @@
 				return TRUE
 			for(var/datum/station_request/i in GLOB.request_list)
 				if("[i.req_number]" == "[current_user.account_id]")
-					computer.say("Account already has active bounty.")
+					computer.say("Аккаунт уже имеет активный заказ.")
 					return
 			var/datum/station_request/curr_request = new /datum/station_request(current_user.account_holder, bounty_value,bounty_text,current_user.account_id, current_user)
 			GLOB.request_list += list(curr_request)
@@ -92,7 +92,7 @@
 			return TRUE
 		if("apply")
 			if(!current_user)
-				computer.say("Please swipe a valid ID first.")
+				computer.say("Пожалуйста, предъявите ID карту!")
 				return TRUE
 			if(current_user.account_holder == active_request.owner)
 				playsound(computer, 'white/valtos/sounds/error1.ogg', 20, TRUE)
@@ -105,13 +105,13 @@
 				playsound(computer, 'white/valtos/sounds/error1.ogg', 30, TRUE)
 				return
 			request_target.transfer_money(current_user, active_request.value)
-			computer.say("Paid out [active_request.value] credits.")
+			computer.say("Выплачено [active_request.value] кредитов.")
 			GLOB.request_list.Remove(active_request)
 			return TRUE
 		if("clear")
 			if(current_user)
 				current_user = null
-				computer.say("Account Reset.")
+				computer.say("Сброс аккаунта.")
 				return TRUE
 		if("deleteRequest")
 			if(!current_user)

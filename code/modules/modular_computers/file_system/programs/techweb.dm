@@ -1,8 +1,8 @@
 /datum/computer_file/program/science
 	filename = "experi_track"
-	filedesc = "Nanotrasen Science Hub"
+	filedesc = "Центр Исследований Нанотрейзен"
 	program_icon_state = "research"
-	extended_desc = "Connect to the internal science server in order to assist in station research efforts."
+	extended_desc = "Позволяет подключиться к серверам научного отдела для помощи в исследованиях."
 	requires_ntnet = TRUE
 	size = 10
 	tgui_id = "NtosTechweb"
@@ -185,15 +185,15 @@
 		return FALSE
 	var/datum/techweb_node/tech_node = SSresearch.techweb_node_by_id(id)
 	if(!istype(tech_node))
-		computer.say("Node unlock failed: Unknown error.")
+		computer.say("Не удалось разблокировать: Неизвестная ошибка.")
 		return FALSE
 	var/list/price = tech_node.get_price(stored_research)
 	if(stored_research.can_afford(price))
-		computer.investigate_log("[key_name(user)] researched [id]([json_encode(price)]) on techweb id [stored_research.id] via [computer].", INVESTIGATE_RESEARCH)
+		computer.investigate_log("[key_name(user)] изучил [id]([json_encode(price)]) имея ID карту [stored_research.id] на [computer].", INVESTIGATE_RESEARCH)
 		if(stored_research == SSresearch.science_tech)
 			SSblackbox.record_feedback("associative", "science_techweb_unlock", 1, list("id" = "[id]", "name" = tech_node.display_name, "price" = "[json_encode(price)]", "time" = SQLtime()))
 		if(stored_research.research_node_id(id))
-			computer.say("Successfully researched [tech_node.display_name].")
+			computer.say("[tech_node.display_name] - исследование завершено!")
 			var/logname = "Неизвестный"
 			if(isAI(user))
 				logname = "AI: [user.name]"
@@ -211,7 +211,7 @@
 			stored_research.research_logs = list(list(tech_node.display_name, price["Основные Исследования"], logname, "[get_area(src)] ([computer.x],[computer.y],[computer.z])"))
 			return TRUE
 		else
-			computer.say("Failed to research node: Internal database error!")
+			computer.say("Сбой процесса исследования: Внутренняя ошибка базы данных!")
 			return FALSE
-	computer.say("Not enough research points...")
+	computer.say("Недостаточно очков исследования...")
 	return FALSE

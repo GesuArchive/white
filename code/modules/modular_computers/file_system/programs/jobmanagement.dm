@@ -3,10 +3,10 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 
 /datum/computer_file/program/job_management
 	filename = "plexagoncore"
-	filedesc = "Plexagon HR Core"
+	filedesc = "Отдел кадров"
 	category = PROGRAM_CATEGORY_CREW
 	program_icon_state = "id"
-	extended_desc = "Program for viewing and changing job slot avalibility."
+	extended_desc = "Программа менеджемнта рабочих мест с возможностью выбора приоритета среди доступных вакансий."
 	transfer_access = ACCESS_HEADS
 	requires_ntnet = TRUE
 	size = 4

@@ -1,9 +1,9 @@
 /datum/computer_file/program/contract_uplink
 	filename = "contractor uplink"
-	filedesc = "Syndicate Contractor Uplink"
+	filedesc = "Аплинк Контрактора Синдиката"
 	category = PROGRAM_CATEGORY_MISC
 	program_icon_state = "assign"
-	extended_desc = "A standard, Syndicate issued system for handling important contracts while on the field."
+	extended_desc = "Стандартная, написанная Синдикатом программа, для работы с частными контрактами в полевых условиях."
 	size = 10
 	requires_ntnet = 0
 	available_on_ntnet = 0
@@ -70,10 +70,10 @@
 					program_icon_state = "extracted"
 				else
 					user.playsound_local(user, 'sound/machines/uplinkerror.ogg', 50)
-					error = "Either both you or your target aren't at the dropoff location, or the pod hasn't got a valid place to land. Clear space, or make sure you're both inside."
+					error = "Либо вы или ваша цель не находитесь в месте высадки, либо у капсулы нет подходящего места для посадки. Освободите место или убедитесь, что вы оба находитесь внутри."
 			else
 				user.playsound_local(user, 'sound/machines/uplinkerror.ogg', 50)
-				error = "Already extracting... Place the target into the pod. If the pod was destroyed, this contract is no longer possible."
+				error = "Процесс эвакуации цели уже инициирован... Поместите цель в капсулу. Если капсула была уничтожена, то контракт считается терминированным."
 
 			return TRUE
 		if("PRG_contract_abort")
@@ -119,7 +119,7 @@
 					if (hub_item.name == item)
 						hub_item.handle_purchase(hard_drive.traitor_data.contractor_hub, user)
 			else
-				error = "Invalid user... You weren't recognised as the user of this system."
+				error = "Неверный пользователь... Вы не были распознаны как пользователь этой системы."
 
 /datum/computer_file/program/contract_uplink/ui_data(mob/user)
 	var/list/data = list()
@@ -166,7 +166,7 @@
 
 		for (var/datum/syndicate_contract/contract in traitor_data.contractor_hub.assigned_contracts)
 			if(!contract.contract)
-				stack_trace("Syndiate contract with null contract objective found in [traitor_data.owner]'s contractor hub!")
+				stack_trace("Syndiate contract with null contract objective found in [traitor_data.owner]'s contractor hub!") 
 				contract.status = CONTRACT_STATUS_ABORTED
 				continue
 

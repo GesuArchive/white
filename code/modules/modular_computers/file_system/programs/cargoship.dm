@@ -1,9 +1,9 @@
 /datum/computer_file/program/shipping
 	filename = "shipping"
-	filedesc = "GrandArk Exporter"
+	filedesc = "Этикеровщик"
 	category = PROGRAM_CATEGORY_SUPL
 	program_icon_state = "shipping"
-	extended_desc = "A combination printer/scanner app that enables modular computers to print barcodes for easy scanning and shipping."
+	extended_desc = "Программный пакет для сканера штрихкодов и минипринтера, позволяющий пда печатать штрих-коды для удобного сканирования и отправки."
 	size = 6
 	tgui_id = "NtosShipping"
 	program_icon = "tags"
@@ -59,7 +59,7 @@
 		if("resetid")
 			payments_acc = null
 		if("setsplit")
-			var/potential_cut = input("How much would you like to pay out to the registered card?","Percentage Profit ([round(cut_min*100)]% - [round(cut_max*100)]%)") as num|null
+			var/potential_cut = input("Какую сумму вы хотите выплатить на зарегистрированную карту?","Процентная прибыль ([round(cut_min*100)]% - [round(cut_max*100)]%)") as num|null
 			cut_multiplier = potential_cut ? clamp(round(potential_cut/100, cut_min), cut_min, cut_max) : initial(cut_multiplier)
 		if("print")
 			if(!printer)

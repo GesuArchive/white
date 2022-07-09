@@ -4,10 +4,10 @@
 
 /datum/computer_file/program/chatclient
 	filename = "ntnrc_client"
-	filedesc = "Chat Client"
+	filedesc = "Чат Клиент"
 	category = PROGRAM_CATEGORY_MISC
 	program_icon_state = "command"
-	extended_desc = "This program allows communication over NTNRC network"
+	extended_desc = "Программа коммуникации в сети НТ."
 	size = 8
 	requires_ntnet = TRUE
 	requires_ntnet_feature = NTNET_COMMUNICATION

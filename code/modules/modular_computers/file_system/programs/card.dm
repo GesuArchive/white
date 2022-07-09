@@ -1,9 +1,9 @@
 /datum/computer_file/program/card_mod
 	filename = "plexagonidwriter"
-	filedesc = "Plexagon Access Management"
+	filedesc = "Менеджер доступа" //Нормального значения слова Plexagon я так и не нашел.
 	category = PROGRAM_CATEGORY_CREW
 	program_icon_state = "id"
-	extended_desc = "Program for programming employee ID cards to access parts of the station."
+	extended_desc = "Программный пакет для установки прав и доступа для ID карт."
 	transfer_access = ACCESS_HEADS
 	requires_ntnet = 0
 	size = 8
@@ -157,7 +157,7 @@
 				return TRUE
 			if(minor)
 				if(!(target_id_card.trim?.type in job_templates))
-					to_chat(usr, span_notice("Software error: You do not have the necessary permissions to demote this card."))
+					to_chat(usr, span_notice("Ошибка доступа: У вас нет необходимых прав для изменения данных на ID карте."))
 					return TRUE
 
 			// Set the new assignment then remove the trim.
@@ -230,22 +230,22 @@
 			var/access_type = params["access_target"]
 			var/try_wildcard = params["access_wildcard"]
 			if(!(access_type in valid_access))
-				stack_trace("[key_name(usr)] ([usr]) attempted to add invalid access \[[access_type]\] to [target_id_card]")
+				stack_trace("[key_name(usr)] ([usr]) попытался предоставить неправильный доступ \[[access_type]\] для [target_id_card]")
 				return TRUE
 
 			if(access_type in target_id_card.access)
 				target_id_card.remove_access(list(access_type))
-				LOG_ID_ACCESS_CHANGE(user, target_id_card, "removed [SSid_access.get_access_desc(access_type)]")
+				LOG_ID_ACCESS_CHANGE(user, target_id_card, "Удаляем [SSid_access.get_access_desc(access_type)]")
 				return TRUE
 
 			if(!target_id_card.add_access(list(access_type), try_wildcard))
-				to_chat(usr, span_notice("ID error: ID card rejected your attempted access modification."))
+				to_chat(usr, span_notice("Ошибка ID: ID карта блокирует изменение доступа."))
 				LOG_ID_ACCESS_CHANGE(user, target_id_card, "failed to add [SSid_access.get_access_desc(access_type)][try_wildcard ? " with wildcard [try_wildcard]" : ""]")
 				return TRUE
 
 			if(access_type in ACCESS_ALERT_ADMINS)
-				message_admins("[ADMIN_LOOKUPFLW(user)] just added [SSid_access.get_access_desc(access_type)] to an ID card [ADMIN_VV(target_id_card)] [(target_id_card.registered_name) ? "belonging to [target_id_card.registered_name]." : "with no registered name."]")
-			LOG_ID_ACCESS_CHANGE(user, target_id_card, "added [SSid_access.get_access_desc(access_type)]")
+				message_admins("[ADMIN_LOOKUPFLW(user)] предоставил [SSid_access.get_access_desc(access_type)] для ID карты [ADMIN_VV(target_id_card)] [(target_id_card.registered_name) ? "принадлежащей [target_id_card.registered_name]." : "без имени."]")
+			LOG_ID_ACCESS_CHANGE(user, target_id_card, "добавлен [SSid_access.get_access_desc(access_type)]")
 			return TRUE
 		// Apply template to ID card.
 		if("PRG_template")
@@ -266,7 +266,7 @@
 				SSid_access.add_trim_access_to_card(target_id_card, trim_path)
 				return TRUE
 
-			stack_trace("[key_name(usr)] ([usr]) attempted to apply invalid template \[[template_name]\] to [target_id_card]")
+			stack_trace("[key_name(usr)] ([usr]) попытался применить недопустимый шаблон \[[template_name]\] для [target_id_card]")
 
 			return TRUE
 
@@ -329,7 +329,7 @@
 	data["has_id"] = !!id_card
 	data["id_name"] = id_card ? id_card.name : "-----"
 	if(id_card)
-		data["id_rank"] = id_card.assignment ? id_card.assignment : "Unassigned"
+		data["id_rank"] = id_card.assignment ? id_card.assignment : "Отсутствует"
 		data["id_owner"] = id_card.registered_name ? id_card.registered_name : "-----"
 		data["access_on_card"] = id_card.access
 		data["wildcardSlots"] = id_card.wildcard_slots
