@@ -256,36 +256,6 @@
 	else
 		to_chat(user, span_warning("[capitalize(I.name)] ничего не стоит."))
 
-
-/obj/item/clothing/neck/neckerchief
-	icon = 'icons/obj/clothing/masks.dmi' //In order to reuse the bandana sprite
-	w_class = WEIGHT_CLASS_TINY
-	var/sourceBandanaType
-
-/obj/item/clothing/neck/neckerchief/worn_overlays(isinhands)
-	. = ..()
-	if(!isinhands)
-		var/mutable_appearance/realOverlay = mutable_appearance('icons/mob/clothing/mask.dmi', icon_state)
-		realOverlay.pixel_y = -3
-		. += realOverlay
-
-/obj/item/clothing/neck/neckerchief/AltClick(mob/user)
-	. = ..()
-	if(iscarbon(user))
-		var/mob/living/carbon/C = user
-		if(C.get_item_by_slot(ITEM_SLOT_NECK) == src)
-			to_chat(user, span_warning("Не могу развязать [src] пока оно на мне!"))
-			return
-		if(user.is_holding(src))
-			var/obj/item/clothing/mask/bandana/newBand = new sourceBandanaType(user)
-			var/currentHandIndex = user.get_held_index_of_item(src)
-			var/oldName = src.name
-			qdel(src)
-			user.put_in_hand(newBand, currentHandIndex)
-			user.visible_message(span_notice("Развязываю [oldName] обратно к [newBand.name].") , span_notice("[user] развязывает [oldName] обратно к [newBand.name]."))
-		else
-			to_chat(user, span_warning("Надо бы держать в руках [src], чтобы развязать!"))
-
 /obj/item/clothing/neck/beads
 	name = "пластиковые бусы"
 	desc = "Дешевые бусы из пластика. Прояви командный дух! Собери их! Раскидай их! Возможности безграничны!"

@@ -329,6 +329,7 @@ GLOBAL_LIST_INIT(cloth_recipes, list ( \
 	new/datum/stack_recipe("белый комбинезон", /obj/item/clothing/under/color/white, 3), \
 	new/datum/stack_recipe("белые ботинки", /obj/item/clothing/shoes/sneakers/white, 2), \
 	new/datum/stack_recipe("белый шарф", /obj/item/clothing/neck/scarf, 1), \
+	new/datum/stack_recipe("белая бандана", /obj/item/clothing/mask/bandana/white, 2), \
 	null, \
 	new/datum/stack_recipe("рюкзак", /obj/item/storage/backpack, 4), \
 	new/datum/stack_recipe("вещмешок", /obj/item/storage/backpack/duffelbag, 6), \

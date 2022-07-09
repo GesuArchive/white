@@ -38,7 +38,7 @@
 								/obj/item/storage/firstaid/regular = 1)
 /datum/outfit/pmc/leader
 	name = "Лидер ЧВК"
-	mask = /obj/item/clothing/mask/bandana/skull
+	mask = /obj/item/clothing/mask/bandana/skull/black
 	belt = /obj/item/melee/baseball_bat/hos/hammer/pmc
 	backpack_contents = list(/obj/item/storage/mre/protein = 1,
 								/obj/item/storage/firstaid/regular = 1,

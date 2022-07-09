@@ -219,9 +219,9 @@
 		/obj/item/clothing/head/soft/black = 2)
 	generate_items_inside(items_inside,src)
 	if(prob(40))
-		new /obj/item/clothing/mask/bandana/skull(src)
+		new /obj/item/clothing/mask/bandana/skull/black(src)
 	if(prob(40))
-		new /obj/item/clothing/mask/bandana/skull(src)
+		new /obj/item/clothing/mask/bandana/skull/black(src)
 	return
 
 
