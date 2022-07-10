@@ -8,7 +8,7 @@
 	protected_jobs = list(
 		"Captain", "Head of Personnel", "Head of Security",
 		"Research Director", "Chief Engineer", "Chief Medical Officer", "Curator",
-		"Warden", "Security Officer", "Detective", "Field Medic", "Exploration Crew"
+		"Warden", "Security Officer", "Detective", "Field Medic", "Exploration Crew",
 	)
 	required_players = 25
 	required_enemies = 2
