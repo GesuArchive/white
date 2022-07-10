@@ -1242,8 +1242,24 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 		GLOB.assblasted_people[asskey] = jointext(asskey_blasts,"|")
 	else
 		GLOB.assblasted_people.Remove(asskey)
+	save_assblast()
 
-
+/proc/save_assblast()
+	//snowflake handling for saving assblasteds
+	fdel("[global.config.directory]/assblasted_people.txt") // no way this could end badly
+	var/newblast = ""
+	for(var/asskey in GLOB.assblasted_people)
+		var/list/asskey_blasts = retrieve_assblasts(asskey)
+		for(var/blast in asskey_blasts) //cutting out invalid entries
+			if(!GLOB.assblasts.Find(blast))
+				asskey_blasts.Remove(blast)
+		if(asskey_blasts.len == 0)
+			continue
+		newblast += "\n"
+		var/ab = jointext(asskey_blasts,"|")
+		newblast += "[asskey]||[ab]"
+	newblast = copytext(newblast, 2)
+	text2file(newblast, "[global.config.directory]/assblasted_people.txt")
 
 /datum/smite/cumjar
 	name = "Cumjar"
