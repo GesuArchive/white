@@ -16,6 +16,52 @@
 	var/terminator_mode = STAIR_TERMINATOR_AUTOMATIC
 	var/turf/listeningTo
 
+/obj/structure/stairs/welder_act(mob/living/user, obj/item/I)
+
+	var/obj/item/weldingtool/WT = I
+
+	if(!WT.isOn())
+		return FALSE
+
+	if(!anchored)
+		anchored = TRUE
+		to_chat(user, span_notice("Намертво привариваю лестницу."))
+		playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
+		return TRUE
+
+
+	if(obj_integrity == max_integrity)
+		to_chat(user, span_warning("[src] не нуждается в ремонте."))
+		return TRUE
+
+	user.visible_message(span_notice("[user] начинает заваривать пробоины в лестнице."),
+	span_notice("Начинаю заваривать пробоины в лестнице."))
+	playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
+
+	if(!do_after(user, 5 SECONDS, src))
+		return TRUE
+
+	if(obj_integrity <= max_integrity * 0.3 || obj_integrity == max_integrity)
+		return TRUE
+
+	if(!WT.use(2))
+		to_chat(user, span_warning("Вам не хватает сварочного топлива для ремонта."))
+		return TRUE
+
+	user.visible_message(span_notice("[user] заварил пробоины в лестнице."),
+	span_notice("Вы заварили пробоины в лестнице."))
+	repair_damage(max_integrity)
+	playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
+
+	return TRUE
+/obj/structure/stairs/examine(mob/user)
+	. = ..()
+	if(!anchored)
+		. += "<hr>"
+		. += span_smallnotice("Можно приварить к полу сваркой.")
+/obj/structure/stairs/unanchored
+	anchored =  FALSE
+
 /obj/structure/stairs/north
 	dir = NORTH
 
@@ -39,8 +85,11 @@
 	)
 
 	AddComponent(/datum/component/connect_loc_behalf, src, loc_connections)
+	AddComponent(/datum/component/simple_rotation, ROTATION_ALTCLICK | ROTATION_CLOCKWISE | ROTATION_COUNTERCLOCKWISE | ROTATION_VERBS, null, CALLBACK(src, .proc/can_be_rotated))
 
 	return ..()
+/obj/structure/stairs/proc/can_be_rotated(mob/user,rotation_type)
+	return !anchored
 
 /obj/structure/stairs/Destroy()
 	listeningTo = null
