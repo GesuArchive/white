@@ -548,8 +548,9 @@
 	name = "большой кактус"
 	icon_state = "cactus1"
 	icon = 'white/valtos/icons/dune/flora_big.dmi'
-	pixel_x = -12
-	pixel_y = -12
+	pixel_x = -8
+	density = TRUE
+	opacity = TRUE
 	layer = ABOVE_ALL_MOB_LAYER
 	plane = ABOVE_GAME_PLANE
 

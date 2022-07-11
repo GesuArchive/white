@@ -4,6 +4,12 @@
 	icon_state = "dune-255"
 	base_icon_state = "dune"
 
+/turf/open/floor/dune/setup_broken_states()
+	return list("dune-255")
+
+/turf/open/floor/dune/setup_burnt_states()
+	return list("dune-255")
+
 /turf/open/floor/dune/Initialize(mapload)
 	. = ..()
 	randomify()
