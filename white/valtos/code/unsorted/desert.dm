@@ -9,7 +9,7 @@
 	randomify()
 
 /turf/open/floor/dune/proc/randomify()
-	var/random_bit = 0
+	var/random_bit = (1 << 0)
 	for(var/i in 1 to 7)
 		if(prob(15))
 			random_bit |= (1 << i)
@@ -45,6 +45,7 @@
 	icon = 'white/valtos/icons/dune/desertrocks.dmi'
 	icon_state = "desertrocks-255"
 	base_icon_state = "desertrocks"
+	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_DESERT_FLOOR)
 	canSmoothWith = list(SMOOTH_GROUP_DESERT_FLOOR)
 
