@@ -557,6 +557,7 @@
 	origin_type = /obj/structure/chair/plastic
 
 
+
 /obj/machinery/painmachine
 	name = "машина боли"
 	desc = "Какая разница как она работает, если это необходимо для безопасности?"
@@ -570,6 +571,10 @@
 	layer = OBJ_LAYER
 	var/charge = 0
 	var/max_charge = 6
+	var/mode = "стансферы"
+/obj/machinery/painmachine/examine(mob/user)
+	. = ..()
+	.+= . += "<hr>Готова производить [mode], смена режима на <b>Alt-click</b>."
 
 /obj/machinery/painmachine/proc/handle_layer()
 	if(has_buckled_mobs() && dir == NORTH)
@@ -589,7 +594,16 @@
 	handle_layer()
 	set_occupant(null)
 
-
+/obj/machinery/painmachine/AltClick(mob/user)
+	if(occupant)
+		to_chat(user, span_danger("Не могу переключать режим, когда внутри кто-то есть!"))
+		return
+	if(mode == "стансферы")
+		mode = "пончики"
+	else
+		mode = "стансферы"
+	user.visible_message(span_notice("[user] нажимает на переключатель.") , span_notice("Переключаю режим машины боли."))
+	to_chat(user, span_notice("Теперь будет производить [mode]"))
 
 /obj/machinery/painmachine/process()
 	if((occupant && iscarbon(occupant)))
@@ -609,7 +623,11 @@
 			charge += 1
 			use_power(active_power_usage)
 			sleep(30)
-			if (charge == 6)
+			if (mode == "пончики" && (charge == 3))
+				new /obj/item/food/donut/plain(src.loc)
+				playsound(src.loc, 'sound/machines/ding.ogg', 50, TRUE)
+				charge = 0
+			if (mode == "стансферы" && (charge == 6))
 				new /obj/item/ammo_casing/caseless/pissball(src.loc)
 				playsound(src.loc, 'sound/machines/ding.ogg', 50, TRUE)
 				charge = 0
