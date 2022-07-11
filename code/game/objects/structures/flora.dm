@@ -523,3 +523,36 @@
 	. = ..()
 	icon_state = "[initial(icon_state)][rand(1,3)]"
 
+/obj/structure/flora/desert
+	name = "растение"
+	desc = "Выглядит вкусно, но пробовать не буду."
+	icon = 'white/valtos/icons/dune/flora.dmi'
+
+/obj/structure/flora/desert/cactus
+	name = "кактус"
+	icon_state = "cactus1"
+
+/obj/structure/flora/desert/cactus/Initialize(mapload)
+	. = ..()
+	icon_state = "cactus[rand(1,2)]"
+
+/obj/structure/flora/desert/plant
+	name = "растение"
+	icon_state = "plant1"
+
+/obj/structure/flora/desert/plant/Initialize(mapload)
+	. = ..()
+	icon_state = "plant[rand(1,3)]"
+
+/obj/structure/flora/desert/large_cactus
+	name = "большой кактус"
+	icon_state = "cactus1"
+	icon = 'white/valtos/icons/dune/flora_big.dmi'
+	pixel_x = -12
+	pixel_y = -12
+	layer = ABOVE_ALL_MOB_LAYER
+	plane = ABOVE_GAME_PLANE
+
+/obj/structure/flora/desert/large_cactus/Initialize(mapload)
+	. = ..()
+	icon_state = "cactus[rand(1,3)]"

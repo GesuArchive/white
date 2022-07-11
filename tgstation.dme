@@ -4671,6 +4671,7 @@
 #include "white\valtos\code\unsorted\dagestan.dm"
 #include "white\valtos\code\unsorted\dakis.dm"
 #include "white\valtos\code\unsorted\debug_verbs.dm"
+#include "white\valtos\code\unsorted\desert.dm"
 #include "white\valtos\code\unsorted\doubleband.dm"
 #include "white\valtos\code\unsorted\dreamer.dm"
 #include "white\valtos\code\unsorted\drug_reagents.dm"
