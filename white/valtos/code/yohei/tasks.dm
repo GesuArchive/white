@@ -31,7 +31,7 @@
 /datum/yohei_task/proc/find_target()
 	var/list/possible_targets = list()
 	for(var/datum/mind/possible_target in get_crewmember_minds())
-		if(ishuman(possible_target.current) && (possible_target.current.stat != DEAD))
+		if(ishuman(possible_target.current) && (possible_target.current.stat != DEAD) && (!HAS_TRAIT(possible_target, TRAIT_YOHEI)))
 			possible_targets += possible_target.current
 	if(possible_targets.len > 0)
 		return pick(possible_targets)
