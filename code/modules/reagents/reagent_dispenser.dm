@@ -78,12 +78,15 @@
 	log_game("[key_name(user)] [leaking ? "opened" : "closed"] [src]")
 	if(leaking && reagents)
 		reagents.expose(get_turf(src), TOUCH, 10 / max(10, reagents.total_volume))
+		reagents.remove_any(min(10, reagents.total_volume))
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
 /obj/structure/reagent_dispensers/Moved(atom/OldLoc, Dir)
 	. = ..()
 	if(leaking && reagents)
 		reagents.expose(get_turf(src), TOUCH, 10 / max(10, reagents.total_volume))
+		reagents.remove_any(min(10, reagents.total_volume))
+
 
 /obj/structure/reagent_dispensers/watertank
 	name = "бак с водой"
