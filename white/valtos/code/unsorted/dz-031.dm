@@ -92,15 +92,27 @@
 /turf/closed/dz/normal/cyber/ice
 	name = "лёд"
 	icon_state = "ice"
+	var/static/list/things = list()
+
+/turf/closed/dz/normal/cyber/ice/Initialize(mapload)
+	. = ..()
+	if(!length(things))
+		things = subtypesof(/obj/item/melee) + subtypesof(/obj/item/gun) + subtypesof(/obj/item/shield) + subtypesof(/obj/item/clothing)
 
 /turf/closed/dz/normal/cyber/ice/attack_hand(mob/user)
 	. = ..()
 	playsound(src, 'white/valtos/sounds/rapidslice.ogg', 60, TRUE)
-	visible_message("<b>[user]</b> уничтожает <b>[src]</b>.", "Уничтожаю <b>[src]</b>.")
+
+	var/obj/item/found_something = null
+
+	if(prob(10))
+		var/obj/item/thingy = pick(things)
+		found_something = new thingy(src)
+
+	visible_message("<b>[user]</b> уничтожает <b>[src]</b>[found_something ? " и находит внутри <b>[found_something]</b>" : ""].", \
+					"Уничтожаю <b>[src]</b>[found_something ? " и нахожу внутри <b>[found_something]</b>" : ""].")
 	var/turf/T = ChangeTurf(/turf/open/floor/dz/cyber)
-	if(prob(50))
-		var/obj/item/melee/melee_weapon = pick(subtypesof(/obj/item/melee))
-		new melee_weapon(get_turf(src))
+
 	spawn(60 SECONDS)
 		if(T)
 			T.ChangeTurf(/turf/closed/dz/normal/cyber/ice)
