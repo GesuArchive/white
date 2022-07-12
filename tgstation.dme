@@ -4656,6 +4656,7 @@
 #include "white\valtos\code\unsorted\4udo.dm"
 #include "white\valtos\code\unsorted\antimatter.dm"
 #include "white\valtos\code\unsorted\assv2.dm"
+#include "white\valtos\code\unsorted\backrooms.dm"
 #include "white\valtos\code\unsorted\barricades.dm"
 #include "white\valtos\code\unsorted\boxplanet.dm"
 #include "white\valtos\code\unsorted\bsrpd.dm"
