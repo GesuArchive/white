@@ -159,8 +159,8 @@ distance_multiplier - Can be used to multiply the distance at which the sound is
 			if(prob(5))
 				S = sound(pick(RANDOM_DREAMER_SOUNDS))
 
-		var/obj/SE = new /obj/effect/temp_visual/soundwave(turf_source)
-		SE.alpha =  FLOOR(S.volume, 1)
+			var/obj/SE = new /obj/effect/temp_visual/soundwave(turf_source)
+			SE.alpha =  FLOOR(S.volume, 1)
 
 		var/dx = turf_source.x - T.x // Hearing from the right/left
 		S.x = dx * distance_multiplier
