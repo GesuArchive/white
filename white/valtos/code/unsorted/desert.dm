@@ -4,6 +4,11 @@
 	icon_state = "dune-255"
 	base_icon_state = "dune"
 	var/static/list/random_bits = list(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 21, 23, 29, 31, 38, 39, 46, 47, 55, 63, 74, 75, 78, 95, 110, 111, 127, 137, 139, 141, 143, 157, 159, 175, 191, 203, 207, 223, 239, 255)
+	bullet_bounce_sound = null
+	footstep = FOOTSTEP_SAND
+	barefootstep = FOOTSTEP_SAND
+	clawfootstep = FOOTSTEP_SAND
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/dune/setup_broken_states()
 	return list("dune-255")
