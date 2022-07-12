@@ -73,6 +73,12 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
+/obj/item/radio/intercom{
+	desc = "A station intercom. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_y = 24;
+	prison_radio = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
 "bd" = (
@@ -929,6 +935,10 @@
 /obj/structure/cable,
 /turf/closed/wall/r_wall,
 /area/ai_monitored/security/armory)
+"lF" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/plasteel/white,
+/area/science/lab)
 "lG" = (
 /obj/structure/fans/tiny,
 /obj/machinery/button/door{
@@ -1159,8 +1169,21 @@
 /turf/open/floor/glass/reinforced,
 /area/security/brig/upper)
 "ol" = (
-/turf/closed/wall/r_wall,
-/area/medical/morgue)
+/obj/machinery/light/directional/east,
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/item/radio/intercom{
+	desc = "A station intercom. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_y = 24;
+	prison_radio = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central)
 "op" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -1229,6 +1252,12 @@
 "ph" = (
 /obj/machinery/light/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/item/radio/intercom{
+	desc = "A station intercom. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_y = 24;
+	prison_radio = 1
+	},
 /turf/open/floor/resin,
 /area/security/prison/safe)
 "pk" = (
@@ -1349,6 +1378,15 @@
 /obj/effect/mapping_helpers/airlock/access/any/science/general,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central)
+"qv" = (
+/obj/item/radio/intercom{
+	desc = "A station intercom. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_y = 24;
+	prison_radio = 1
+	},
+/turf/open/floor/plasteel/white,
+/area/science/lab)
 "qB" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -1426,7 +1464,8 @@
 "rE" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/west,
-/obj/machinery/camera/autoname/directional/north,
+/obj/machinery/light/directional/south,
+/obj/machinery/camera/autoname/directional/east,
 /turf/open/floor/plasteel/checker,
 /area/service/kitchen)
 "rF" = (
@@ -1443,7 +1482,7 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/open/floor/plasteel/catwalk_floor,
+/turf/open/floor/plasteel/durasteel,
 /area/hallway/primary/central)
 "rS" = (
 /obj/machinery/camera/autoname/directional/south,
@@ -1601,9 +1640,9 @@
 /turf/open/floor/resin,
 /area/security/prison/safe)
 "tr" = (
-/obj/machinery/airalarm/directional/east,
 /obj/structure/cable,
-/turf/open/floor/plasteel/cult,
+/obj/structure/table/reinforced,
+/turf/open/floor/plating,
 /area/security/prison/garden)
 "tt" = (
 /obj/machinery/light_switch/directional/north,
@@ -2385,6 +2424,15 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/resin,
 /area/security/prison/safe)
+"Cr" = (
+/obj/item/radio/intercom{
+	desc = "A station intercom. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_y = 24;
+	prison_radio = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/cargo/office)
 "Cw" = (
 /obj/machinery/power/apc/auto_name/east,
 /obj/structure/cable,
@@ -2465,7 +2513,7 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/open/floor/plasteel/catwalk_floor,
+/turf/open/floor/plasteel/durasteel,
 /area/hallway/primary/central)
 "DT" = (
 /turf/open/floor/plasteel/dark,
@@ -2569,6 +2617,19 @@
 /obj/effect/landmark/carpspawn,
 /turf/open/space/openspace,
 /area/space)
+"Fz" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/item/radio/intercom{
+	desc = "A station intercom. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_y = 24;
+	prison_radio = 1
+	},
+/turf/open/floor/resin,
+/area/security/prison/safe)
 "FM" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
@@ -2690,6 +2751,12 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/item/radio/intercom{
+	desc = "A station intercom. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_x = -30;
+	prison_radio = 1
+	},
 /turf/open/floor/resin,
 /area/security/prison/safe)
 "GQ" = (
@@ -2711,6 +2778,17 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
+"Hb" = (
+/obj/structure/railing/corner,
+/obj/effect/turf_decal/stripes/corner,
+/obj/item/radio/intercom{
+	desc = "A station intercom. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_y = 24;
+	prison_radio = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/hallway/primary/central)
 "Hg" = (
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
@@ -3081,13 +3159,9 @@
 /turf/closed/wall/r_wall,
 /area/security/prison/garden)
 "LI" = (
-/obj/machinery/light/directional/west,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plasteel/checker,
-/area/service/kitchen)
+/obj/machinery/airalarm/directional/south,
+/turf/open/floor/plasteel/cult,
+/area/security/prison/garden)
 "LJ" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "lockdown";
@@ -3145,6 +3219,12 @@
 	pixel_y = 10
 	},
 /obj/structure/table,
+/obj/item/radio/intercom{
+	desc = "A station intercom. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_x = -30;
+	prison_radio = 1
+	},
 /turf/open/floor/plasteel/checker,
 /area/service/kitchen)
 "Mh" = (
@@ -3173,7 +3253,9 @@
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
 "Ms" = (
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/east{
+	cell_type = /obj/item/stock_parts/cell/bluespace
+	},
 /obj/structure/cable,
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/tcommsat/server)
@@ -3224,6 +3306,12 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+/obj/item/radio/intercom{
+	desc = "A station intercom. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_x = -30;
+	prison_radio = 1
+	},
 /turf/open/floor/resin,
 /area/security/prison/safe)
 "ML" = (
@@ -3232,6 +3320,19 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
+"MR" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/item/radio/intercom{
+	desc = "A station intercom. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_x = -30;
+	prison_radio = 1
+	},
+/turf/open/floor/resin,
+/area/security/prison/safe)
 "MU" = (
 /obj/structure/cable,
 /obj/machinery/airalarm/directional/north,
@@ -3426,6 +3527,15 @@
 /obj/effect/landmark/xeno_spawn,
 /turf/open/floor/engine/air,
 /area/engineering/main)
+"OX" = (
+/obj/item/radio/intercom{
+	desc = "A station intercom. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_y = 24;
+	prison_radio = 1
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/security/prison/mess)
 "Pa" = (
 /obj/structure/cable,
 /obj/machinery/light/directional/west,
@@ -3506,7 +3616,7 @@
 /obj/structure/railing{
 	dir = 4
 	},
-/turf/open/floor/plasteel/catwalk_floor,
+/turf/open/floor/plasteel/durasteel,
 /area/hallway/primary/central)
 "Qb" = (
 /turf/open/floor/circuit/telecomms/mainframe,
@@ -3516,7 +3626,7 @@
 /obj/structure/railing{
 	dir = 4
 	},
-/turf/open/floor/plasteel/catwalk_floor,
+/turf/open/floor/plasteel/durasteel,
 /area/hallway/primary/central)
 "Qe" = (
 /obj/machinery/telecomms/processor/preset_three,
@@ -3619,6 +3729,12 @@
 /obj/machinery/light/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/structure/cable,
+/obj/item/radio/intercom{
+	desc = "A station intercom. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_y = 24;
+	prison_radio = 1
+	},
 /turf/open/floor/resin,
 /area/security/prison/safe)
 "Rq" = (
@@ -3896,6 +4012,12 @@
 /area/engineering/main)
 "Uy" = (
 /obj/machinery/seed_extractor,
+/obj/item/radio/intercom{
+	desc = "A station intercom. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_x = -30;
+	prison_radio = 1
+	},
 /turf/open/floor/plasteel/cult,
 /area/security/prison/garden)
 "Uz" = (
@@ -4344,6 +4466,12 @@
 "Yo" = (
 /obj/machinery/power/apc/auto_name/north,
 /obj/structure/cable,
+/obj/item/radio/intercom{
+	desc = "A station intercom. It looks like it has been modified to not broadcast.";
+	name = "Prison Intercom (General)";
+	pixel_x = -30;
+	prison_radio = 1
+	},
 /turf/open/floor/plasteel/durasteel,
 /area/security/prison/work)
 "Yp" = (
@@ -10186,7 +10314,7 @@ jT
 dI
 jm
 WZ
-RT
+ol
 NG
 NG
 Ve
@@ -13721,13 +13849,13 @@ Dp
 vG
 px
 WZ
-Xp
+Hb
 Xu
 Xu
 Qw
 WZ
 zL
-Vq
+lF
 Is
 cj
 Vq
@@ -13904,8 +14032,8 @@ JS
 mO
 pf
 Gm
-tr
-QU
+Fa
+LI
 WZ
 RT
 NG
@@ -13966,7 +14094,7 @@ eR
 eR
 JS
 vx
-qb
+tr
 eR
 WZ
 WZ
@@ -14027,7 +14155,7 @@ BF
 BF
 Mg
 bq
-LI
+Ti
 Id
 rE
 ow
@@ -14098,7 +14226,7 @@ UP
 bq
 XQ
 BF
-Vq
+qv
 kn
 Is
 FU
@@ -17133,7 +17261,7 @@ BL
 aQ
 wZ
 Dy
-Gl
+MR
 pr
 Gl
 AZ
@@ -17442,7 +17570,7 @@ sU
 vd
 ul
 WZ
-Xp
+Hb
 Xu
 Xu
 Qw
@@ -17514,7 +17642,7 @@ Ol
 ph
 SN
 Ol
-SN
+Fz
 WX
 Ol
 vL
@@ -17561,7 +17689,7 @@ Ol
 Ri
 SN
 Ol
-SN
+Fz
 JM
 Ol
 jw
@@ -18064,7 +18192,7 @@ fM
 BY
 Gl
 pr
-Gl
+MR
 wt
 sr
 oy
@@ -20660,24 +20788,24 @@ vL
 vL
 vL
 vL
-ol
-ol
-ol
-ol
-ol
-ol
+yp
+yp
+yp
+yp
+yp
+yp
 GB
 GB
 GB
 GB
 GB
 GB
-ol
-ol
-ol
-ol
-ol
-ol
+yp
+yp
+yp
+yp
+yp
+yp
 vL
 vL
 vL
@@ -20721,26 +20849,26 @@ vL
 vL
 vL
 vL
-ol
-ol
+yp
+yp
 uq
 Uz
 Uz
 uq
-ol
 yp
 yp
 yp
 yp
 yp
 yp
-ol
+yp
+yp
 uq
 Uz
 Uz
 uq
-ol
-ol
+yp
+yp
 vL
 vL
 vL
@@ -20783,7 +20911,7 @@ vL
 vL
 vL
 vL
-ol
+yp
 KQ
 JV
 UF
@@ -20802,7 +20930,7 @@ UF
 UF
 JV
 VG
-ol
+yp
 vL
 vL
 vL
@@ -20845,7 +20973,7 @@ vL
 vL
 vL
 vL
-ol
+yp
 jN
 UF
 Sx
@@ -20864,7 +20992,7 @@ gI
 Sx
 UF
 wp
-ol
+yp
 vL
 vL
 vL
@@ -20907,7 +21035,7 @@ vL
 vL
 vL
 vL
-ol
+yp
 jN
 UF
 YE
@@ -20926,7 +21054,7 @@ wR
 DB
 UF
 wp
-ol
+yp
 vL
 vL
 vL
@@ -20969,7 +21097,7 @@ vL
 vL
 vL
 vL
-ol
+yp
 KQ
 JV
 UF
@@ -20988,7 +21116,7 @@ wR
 UF
 JV
 VG
-ol
+yp
 vL
 vL
 vL
@@ -21031,8 +21159,8 @@ vL
 vL
 vL
 GB
-ol
-ol
+yp
+yp
 JV
 wp
 IR
@@ -21049,8 +21177,8 @@ JV
 Sj
 jN
 JV
-ol
-ol
+yp
+yp
 GB
 vL
 vL
@@ -21094,7 +21222,7 @@ vL
 vL
 GB
 GB
-ol
+yp
 JV
 wp
 IR
@@ -21111,7 +21239,7 @@ JV
 Sj
 jN
 JV
-ol
+yp
 GB
 GB
 vL
@@ -21156,14 +21284,14 @@ vL
 vL
 GB
 GB
-ol
+yp
 JV
 wp
 IR
 JV
 vV
 WZ
-Xp
+Hb
 Xu
 Xu
 Qw
@@ -21173,7 +21301,7 @@ JV
 Sj
 jN
 JV
-ol
+yp
 GB
 GB
 vL
@@ -21218,7 +21346,7 @@ vL
 vL
 GB
 GB
-ol
+yp
 CB
 ER
 IR
@@ -21235,7 +21363,7 @@ UF
 Sj
 jN
 pC
-ol
+yp
 GB
 GB
 vL
@@ -21280,7 +21408,7 @@ vL
 vL
 GB
 GB
-ol
+yp
 UF
 wp
 IR
@@ -21297,7 +21425,7 @@ UF
 Sj
 jN
 Qg
-ol
+yp
 GB
 GB
 vL
@@ -21342,7 +21470,7 @@ vL
 vL
 GB
 GB
-ol
+yp
 JV
 wp
 IR
@@ -21359,7 +21487,7 @@ JV
 Sj
 jN
 JV
-ol
+yp
 GB
 GB
 vL
@@ -21404,7 +21532,7 @@ vL
 vL
 GB
 GB
-ol
+yp
 JV
 wp
 IR
@@ -21421,7 +21549,7 @@ JV
 Sj
 jN
 JV
-ol
+yp
 GB
 GB
 vL
@@ -21465,8 +21593,8 @@ rF
 rF
 rF
 GB
-ol
-ol
+yp
+yp
 JV
 wp
 IR
@@ -21483,8 +21611,8 @@ JV
 Sj
 jN
 JV
-ol
-ol
+yp
+yp
 GB
 vL
 vL
@@ -21527,7 +21655,7 @@ vL
 vL
 vL
 vL
-ol
+yp
 KQ
 JV
 UF
@@ -21546,7 +21674,7 @@ wR
 UF
 JV
 VG
-ol
+yp
 vL
 vL
 vL
@@ -21589,7 +21717,7 @@ vL
 vL
 vL
 vL
-ol
+yp
 jN
 UF
 YE
@@ -21608,7 +21736,7 @@ wR
 DB
 UF
 wp
-ol
+yp
 vL
 vL
 vL
@@ -21651,7 +21779,7 @@ vL
 vL
 vL
 vL
-ol
+yp
 jN
 UF
 Sx
@@ -21670,7 +21798,7 @@ yf
 Sx
 UF
 wp
-ol
+yp
 vL
 vL
 vL
@@ -21713,7 +21841,7 @@ vL
 vL
 vL
 vL
-ol
+yp
 KQ
 JV
 UF
@@ -21732,7 +21860,7 @@ UF
 UF
 JV
 VG
-ol
+yp
 vL
 vL
 vL
@@ -21775,26 +21903,26 @@ vL
 vL
 vL
 vL
-ol
-ol
+yp
+yp
 xC
 TP
 TP
 xC
-ol
-ol
-ol
-ol
-ol
-ol
-ol
-ol
+yp
+yp
+yp
+yp
+yp
+yp
+yp
+yp
 xC
 TP
 TP
 xC
-ol
-ol
+yp
+yp
 vL
 vL
 vL
@@ -21838,24 +21966,24 @@ vL
 vL
 vL
 vL
-ol
-ol
-ol
-ol
-ol
-ol
+yp
+yp
+yp
+yp
+yp
+yp
 GB
 GB
 GB
 GB
 GB
 GB
-ol
-ol
-ol
-ol
-ol
-ol
+yp
+yp
+yp
+yp
+yp
+yp
 vL
 vL
 vL
@@ -24630,7 +24758,7 @@ vL
 vL
 GB
 vC
-WJ
+OX
 NW
 Oq
 Oq
@@ -25070,7 +25198,7 @@ WJ
 yC
 Ig
 WZ
-RT
+ol
 NG
 NG
 Ve
@@ -25312,7 +25440,7 @@ vL
 vL
 GB
 vC
-WJ
+OX
 Rq
 vQ
 vQ
@@ -28415,7 +28543,7 @@ vL
 GB
 nW
 TN
-DT
+Cr
 uo
 qB
 QM
@@ -28791,7 +28919,7 @@ SI
 uo
 Lb
 WZ
-RT
+ol
 NG
 NG
 Ve
