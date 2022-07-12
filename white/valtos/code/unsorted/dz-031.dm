@@ -97,7 +97,13 @@
 	. = ..()
 	playsound(src, 'white/valtos/sounds/rapidslice.ogg', 60, TRUE)
 	visible_message("<b>[user]</b> уничтожает <b>[src]</b>.", "Уничтожаю <b>[src]</b>.")
-	ChangeTurf(/turf/open/floor/dz/cyber)
+	var/turf/T = ChangeTurf(/turf/open/floor/dz/cyber)
+	if(prob(50))
+		var/obj/item/melee/melee_weapon = pick(subtypesof(/obj/item/melee))
+		new melee_weapon(get_turf(src))
+	spawn(60 SECONDS)
+		if(T)
+			T.ChangeTurf(/turf/closed/dz/normal/cyber/ice)
 
 /turf/closed/dz/lab
 	name = "сверхкрепкая стена"

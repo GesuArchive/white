@@ -77,6 +77,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	name = "Ignis"
 	cost = 700
 	items = list(/obj/item/melee/energy/sword/ignis)
+	allowed_themes = list("std")
 
 /datum/violence_gear/pistol
 	cat = "Пистолеты"
