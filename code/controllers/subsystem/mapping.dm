@@ -139,7 +139,10 @@ SUBSYSTEM_DEF(mapping)
 	var/datum/map_template/shuttle/yohei/ship = new /datum/map_template/shuttle/yohei
 	var/x = rand(TRANSITIONEDGE, world.maxx - TRANSITIONEDGE - ship.width)
 	var/y = rand(TRANSITIONEDGE, world.maxy - TRANSITIONEDGE - ship.height)
-	var/z = SSmapping.empty_space.z_value
+	var/z = SSmapping.empty_space?.z_value
+	if(!z)
+		message_admins("Yohei ship can't be loaded.")
+		return
 	var/turf/T = locate(x, y, z)
 
 	if(!ship.load(T))
