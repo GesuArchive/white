@@ -299,7 +299,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 /datum/game_mode/violence/proc/clean_arena()
 	var/count_deleted = 0
 	for(var/atom/A in main_area)
-		if(!(A.flags_1 & KEEP_ON_ARENA_1))
+		if(!(A.flags_1 & KEEP_ON_ARENA_1) && (isobj(A) || ismob(A)))
 			count_deleted++
 			qdel(A)
 	message_admins("УДАЛЕНО [count_deleted] РАЗЛИЧНЫХ ШТУК.")
