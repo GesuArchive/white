@@ -51,7 +51,7 @@ SUBSYSTEM_DEF(title)
 		splash_turf.icon = icon
 
 /datum/controller/subsystem/title/fire(resumed = FALSE)
-	if(datum_flags & DF_VAR_EDITED)
+	if((splash_turf?.datum_flags & DF_VAR_EDITED) || GLOB.violence_mode_activated)
 		return
 
 	rotate_title_screen()
