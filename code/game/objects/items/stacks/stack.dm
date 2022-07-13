@@ -546,7 +546,7 @@
  * - [check][/obj/item/stack]: The stack to check for mergeability.
  */
 /obj/item/stack/proc/can_merge(obj/item/stack/check)
-	if(!istype(check, merge_type))
+	if(!isstrictlytype(check, merge_type))
 		return FALSE
 	if(mats_per_unit != check.mats_per_unit)
 		return FALSE
