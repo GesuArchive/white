@@ -141,7 +141,7 @@ SUBSYSTEM_DEF(shuttle)
 		return
 
 	var/threshold = CONFIG_GET(number/emergency_shuttle_autocall_threshold)
-	if(!threshold)
+	if(!threshold || GLOB.disable_fucking_station_shit_please)
 		return
 
 	var/alive = 0

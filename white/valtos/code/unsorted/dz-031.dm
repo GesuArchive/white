@@ -92,30 +92,87 @@
 /turf/closed/dz/normal/cyber/ice
 	name = "лёд"
 	icon_state = "ice"
-	var/static/list/things = list()
-
-/turf/closed/dz/normal/cyber/ice/Initialize(mapload)
-	. = ..()
-	if(!length(things))
-		things = subtypesof(/obj/item/melee) + subtypesof(/obj/item/gun) + subtypesof(/obj/item/shield) + subtypesof(/obj/item/clothing)
 
 /turf/closed/dz/normal/cyber/ice/attack_hand(mob/user)
 	. = ..()
+	if(isliving(user))
+		melt_ice(user)
+
+/turf/closed/dz/normal/cyber/ice/bullet_act(obj/projectile/P, def_zone, piercing_hit)
+	. = ..()
+	if(P?.firer && isliving(P?.firer))
+		melt_ice(P.firer)
+
+/turf/closed/dz/normal/cyber/ice/proc/melt_ice(mob/living/user)
+	return
+
+/turf/closed/dz/normal/cyber/ice/red
+	name = "красный лёд"
+	color = "#B34646"
+
+/turf/closed/dz/normal/cyber/ice/red/melt_ice(mob/living/user)
+	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и покрывается ссадинами!"), \
+					span_userdanger("Уничтожаю <b>[src]</b> и... УХ БЛЯ!"))
+	user.adjustBruteLoss(25)
+
+/turf/closed/dz/normal/cyber/ice/yellow
+	name = "жёлтый лёд"
+	color = "#AEA341"
+
+/turf/closed/dz/normal/cyber/ice/yellow/melt_ice(mob/living/user)
+	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и загорается!"), \
+					span_userdanger("Уничтожаю <b>[src]</b> и... ЗАГОРАЮСЬ!"))
+	user.adjust_fire_stacks(10)
+	user.ignite_mob()
+
+/turf/closed/dz/normal/cyber/ice/green
+	name = "зелёный лёд"
+	color = "#55AC3F"
+
+/turf/closed/dz/normal/cyber/ice/green/melt_ice(mob/living/user)
+	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и покрывается кислотой!"), \
+					span_userdanger("Уничтожаю <b>[src]</b> и... КИСЛОТА-А-А!"))
+	user.acid_act(25, 10)
+
+/turf/closed/dz/normal/cyber/ice/black
+	name = "чёрный лёд"
+	color = "#222222"
+
+/turf/closed/dz/normal/cyber/ice/black/melt_ice(mob/living/user)
+	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и засыпает!"), \
+					span_userdanger("Уничтожаю <b>[src]</b> и засыпаю..."))
+	user.AdjustSleeping(5 SECONDS)
+
+/turf/closed/dz/normal/cyber/ice/blue
+	name = "синий лёд"
+	color = "#4684B3"
+	var/static/list/things = list()
+
+/turf/closed/dz/normal/cyber/ice/blue/Initialize(mapload)
+	. = ..()
+	if(!length(things))
+		things = subtypesof(/obj/item/clothing) + subtypesof(/obj/item/melee) + subtypesof(/obj/item/gun) + subtypesof(/obj/item/shield)
+
+/turf/closed/dz/normal/cyber/ice/blue/melt_ice(mob/living/user)
 	playsound(src, 'white/valtos/sounds/rapidslice.ogg', 60, TRUE)
 
 	var/obj/item/found_something = null
 
-	if(prob(10))
+	if(prob(10) && length(things))
 		var/obj/item/thingy = pick(things)
 		found_something = new thingy(src)
 
-	visible_message("<b>[user]</b> уничтожает <b>[src]</b>[found_something ? " и находит внутри <b>[found_something]</b>" : ""].", \
-					"Уничтожаю <b>[src]</b>[found_something ? " и нахожу внутри <b>[found_something]</b>" : ""].")
+	visible_message(span_notice("<b>[user]</b> уничтожает <b>[src]</b>[found_something ? " и находит внутри <b>[found_something]</b>" : ""]."), \
+					span_notice("Уничтожаю <b>[src]</b>[found_something ? " и нахожу внутри <b>[found_something]</b>" : ""]."))
 	var/turf/T = ChangeTurf(/turf/open/floor/dz/cyber)
 
 	spawn(60 SECONDS)
-		if(T)
-			T.ChangeTurf(/turf/closed/dz/normal/cyber/ice)
+		if(!T)
+			return
+		if(prob(25))
+			T.ChangeTurf(pick(subtypesof(/turf/closed/dz/normal/cyber/ice)))
+		else
+			T.ChangeTurf(/turf/closed/dz/normal/cyber/ice/blue)
 
 /turf/closed/dz/lab
 	name = "сверхкрепкая стена"
