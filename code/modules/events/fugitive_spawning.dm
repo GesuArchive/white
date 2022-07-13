@@ -1,5 +1,5 @@
 /datum/round_event_control/fugitives
-	name = "Spawn Fugitives"
+	name = "Сотворение Охотников"
 	typepath = /datum/round_event/ghost_role/fugitives
 	max_occurrences = 1
 	min_players = 10

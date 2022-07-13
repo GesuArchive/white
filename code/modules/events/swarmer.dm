@@ -1,5 +1,5 @@
 /datum/round_event_control/spawn_swarmer
-	name = "Spawn Swarmer Beacon"
+	name = "Сотворение Маяка роевиков"
 	typepath = /datum/round_event/spawn_swarmer
 	weight = 10
 	max_occurrences = 1 //Only once okay fam

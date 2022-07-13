@@ -95,7 +95,7 @@
 				break
 			landmark_loc += sloc.loc
 		if(!landmark_loc.len)
-			to_chat(src, "Ради бога, простите, мы не можем найти вам незанятую точку появления ИИ, поэтому мы заспавним тебя над кем-то.")
+			to_chat(src, "Ради бога, простите, мы не можем найти вам незанятую точку появления ИИ, поэтому мы сотворили тебя над кем-то.")
 			for(var/obj/effect/landmark/start/ai/sloc in GLOB.landmarks_list)
 				landmark_loc += sloc.loc
 

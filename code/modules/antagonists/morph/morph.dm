@@ -203,7 +203,7 @@
 //Spawn Event
 
 /datum/round_event_control/morph
-	name = "Spawn Morph"
+	name = "Сотворение Морфа"
 	typepath = /datum/round_event/ghost_role/morph
 	weight = 0 //Admin only
 	max_occurrences = 1

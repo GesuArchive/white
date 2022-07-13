@@ -113,7 +113,7 @@
 //////////////////////////////////////ROUND EVENT//////////////////////////////////////
 
 /datum/round_event_control/schoolshooters
-	name = "Spawn Terrorists"
+	name = "Сотворение Террористов"
 	typepath = /datum/round_event/ghost_role/schoolshooters
 	max_occurrences = 10
 	weight = 25
