@@ -10,6 +10,7 @@
 
 /turf/closed/indestructible/backrooms
 	name = "стена"
+	desc = null
 	icon = 'white/valtos/icons/backwall.dmi'
 	icon_state = "backwall-0"
 	base_icon_state = "backwall"
@@ -23,10 +24,13 @@
 	icon_state = "yellow"
 	requires_power = FALSE
 	static_lighting = FALSE
-	base_lighting_color = COLOR_LIGHT_GRAYISH_RED
+	base_lighting_color = COLOR_VERY_SOFT_YELLOW
 	base_lighting_alpha = 255
 	has_gravity = STANDARD_GRAVITY
+	sound_environment = SOUND_ENVIRONMENT_CARPETED_HALLWAY
 	flags_1 = NONE
+	mood_bonus = -1
+	mood_message = span_notice("Где я...\n")
 
 // ещё один костыльный оверрайт
 /area/backrooms/Entered(atom/movable/arrived, area/old_area)
@@ -50,8 +54,6 @@
 	if(!L.ckey)
 		return
 
-	L.hallucination = 500
-
 	L?.hud_used?.update_parallax_pref(L)
 
-	SEND_SOUND(L, sound('white/valtos/sounds/bbg.ogg', repeat = 1, wait = 0, volume = 50, channel = CHANNEL_BACKROOMS_HUM))
+	SEND_SOUND(L, sound('white/valtos/sounds/bbg.ogg', repeat = 1, wait = 0, volume = 100, channel = CHANNEL_BACKROOMS_HUM))
