@@ -104,7 +104,17 @@
 		melt_ice(P.firer)
 
 /turf/closed/dz/normal/cyber/ice/proc/melt_ice(mob/living/user)
-	return
+	playsound(src, 'white/valtos/sounds/rapidslice.ogg', 60, TRUE)
+
+	var/turf/T = ChangeTurf(/turf/open/floor/dz/cyber)
+
+	spawn(60 SECONDS)
+		if(!T)
+			return
+		if(prob(25))
+			T.ChangeTurf(pick(subtypesof(/turf/closed/dz/normal/cyber/ice)))
+		else
+			T.ChangeTurf(/turf/closed/dz/normal/cyber/ice/blue)
 
 /turf/closed/dz/normal/cyber/ice/red
 	name = "красный лёд"
@@ -114,6 +124,7 @@
 	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и покрывается ссадинами!"), \
 					span_userdanger("Уничтожаю <b>[src]</b> и... УХ БЛЯ!"))
 	user.adjustBruteLoss(25)
+	. = ..()
 
 /turf/closed/dz/normal/cyber/ice/yellow
 	name = "жёлтый лёд"
@@ -124,6 +135,7 @@
 					span_userdanger("Уничтожаю <b>[src]</b> и... ЗАГОРАЮСЬ!"))
 	user.adjust_fire_stacks(10)
 	user.ignite_mob()
+	. = ..()
 
 /turf/closed/dz/normal/cyber/ice/green
 	name = "зелёный лёд"
@@ -133,6 +145,7 @@
 	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и покрывается кислотой!"), \
 					span_userdanger("Уничтожаю <b>[src]</b> и... КИСЛОТА-А-А!"))
 	user.acid_act(25, 10)
+	. = ..()
 
 /turf/closed/dz/normal/cyber/ice/black
 	name = "чёрный лёд"
@@ -142,6 +155,7 @@
 	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и засыпает!"), \
 					span_userdanger("Уничтожаю <b>[src]</b> и засыпаю..."))
 	user.AdjustSleeping(5 SECONDS)
+	. = ..()
 
 /turf/closed/dz/normal/cyber/ice/blue
 	name = "синий лёд"
@@ -154,8 +168,6 @@
 		things = subtypesof(/obj/item/clothing) + subtypesof(/obj/item/melee) + subtypesof(/obj/item/gun) + subtypesof(/obj/item/shield)
 
 /turf/closed/dz/normal/cyber/ice/blue/melt_ice(mob/living/user)
-	playsound(src, 'white/valtos/sounds/rapidslice.ogg', 60, TRUE)
-
 	var/obj/item/found_something = null
 
 	if(prob(10) && length(things))
@@ -164,15 +176,8 @@
 
 	visible_message(span_notice("<b>[user]</b> уничтожает <b>[src]</b>[found_something ? " и находит внутри <b>[found_something]</b>" : ""]."), \
 					span_notice("Уничтожаю <b>[src]</b>[found_something ? " и нахожу внутри <b>[found_something]</b>" : ""]."))
-	var/turf/T = ChangeTurf(/turf/open/floor/dz/cyber)
 
-	spawn(60 SECONDS)
-		if(!T)
-			return
-		if(prob(25))
-			T.ChangeTurf(pick(subtypesof(/turf/closed/dz/normal/cyber/ice)))
-		else
-			T.ChangeTurf(/turf/closed/dz/normal/cyber/ice/blue)
+	. = ..()
 
 /turf/closed/dz/lab
 	name = "сверхкрепкая стена"
