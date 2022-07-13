@@ -1,11 +1,9 @@
 /datum/component/tts
 	var/mob/owner
 
-	var/next_line_time = 0
 	var/creation = 0 //create tts on hear
 	var/lang
 
-	var/charcd = 0.2 //ticks for one char
 	var/maxchars = 140 //sasai kudosai
 
 	var/assigned_channel
@@ -31,11 +29,7 @@
 		INVOKE_ASYNC(src, .proc/prikolize, speech_args[SPEECH_MESSAGE])
 
 /datum/component/tts/proc/prikolize(msg)
-	if(world.time < next_line_time)
-		return
-	next_line_time = world.time
 	msg = trim(msg, maxchars)
-	next_line_time += length(msg) * charcd * 2
 	if(lang)
 		owner.tts(msg, lang, freq = frequency)
 	else
