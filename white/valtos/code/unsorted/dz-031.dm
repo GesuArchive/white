@@ -111,7 +111,7 @@
 	spawn(60 SECONDS)
 		if(!T)
 			return
-		if(prob(25))
+		if(prob(15))
 			T.ChangeTurf(pick(subtypesof(/turf/closed/dz/normal/cyber/ice)))
 		else
 			T.ChangeTurf(/turf/closed/dz/normal/cyber/ice/blue)
@@ -123,7 +123,7 @@
 /turf/closed/dz/normal/cyber/ice/red/melt_ice(mob/living/user)
 	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и покрывается ссадинами!"), \
 					span_userdanger("Уничтожаю <b>[src]</b> и... УХ БЛЯ!"))
-	user.adjustBruteLoss(25)
+	user.adjustBruteLoss(5)
 	. = ..()
 
 /turf/closed/dz/normal/cyber/ice/yellow
@@ -133,7 +133,7 @@
 /turf/closed/dz/normal/cyber/ice/yellow/melt_ice(mob/living/user)
 	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и загорается!"), \
 					span_userdanger("Уничтожаю <b>[src]</b> и... ЗАГОРАЮСЬ!"))
-	user.adjust_fire_stacks(10)
+	user.adjust_fire_stacks(1)
 	user.ignite_mob()
 	. = ..()
 
@@ -154,7 +154,7 @@
 /turf/closed/dz/normal/cyber/ice/black/melt_ice(mob/living/user)
 	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и засыпает!"), \
 					span_userdanger("Уничтожаю <b>[src]</b> и засыпаю..."))
-	user.AdjustSleeping(5 SECONDS)
+	user.AdjustSleeping(1 SECONDS)
 	. = ..()
 
 /turf/closed/dz/normal/cyber/ice/blue
@@ -170,7 +170,7 @@
 /turf/closed/dz/normal/cyber/ice/blue/melt_ice(mob/living/user)
 	var/obj/item/found_something = null
 
-	if(prob(10) && length(things))
+	if(prob(16) && length(things))
 		var/obj/item/thingy = pick(things)
 		found_something = new thingy(src)
 
