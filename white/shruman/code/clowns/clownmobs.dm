@@ -687,7 +687,7 @@
 		return FALSE
 	else
 		new choice(glutton.loc)
-		to_chat(glutton, span_notice("Леплю из плоти [choice]."))
+		to_chat(glutton, span_notice("Леплю из плоти [spawner.name]."))
 		glutton.visible_message(span_notice("[glutton] формирует неестественное строение из накопленной плоти."))
 		glutton.biomass -= ccost
 		return TRUE
@@ -707,7 +707,7 @@
 			return FALSE
 		else
 			new choice(glutton.loc)
-			to_chat(glutton, span_notice("Леплю из плоти [choice]."))
+			to_chat(glutton, span_notice("Леплю из плоти [building.name]."))
 			glutton.visible_message(span_notice("[glutton] формирует неестественное строение из накопленной плоти."))
 			glutton.biomass -= ccost
 			return TRUE
@@ -719,7 +719,7 @@
 			return FALSE
 		else
 			new choice(glutton.loc)
-			to_chat(glutton, span_notice("Леплю из плоти [choice]."))
+			to_chat(glutton, span_notice("Леплю из плоти [building.name]."))
 			glutton.visible_message(span_notice("[glutton] создает стену из кожи и плоти."))
 			glutton.biomass -= ccost
 			return TRUE
