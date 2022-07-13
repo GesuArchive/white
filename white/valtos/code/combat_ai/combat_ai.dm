@@ -25,7 +25,7 @@
 	RegisterSignal(new_pawn, COMSIG_ATOM_HULK_ATTACK, .proc/on_attack_hulk)
 	RegisterSignal(new_pawn, COMSIG_CARBON_CUFF_ATTEMPTED, .proc/on_attempt_cuff)
 	AddComponent(/datum/component/connect_loc_behalf, pawn, loc_connections)
-	new_pawn.maptext_width = 128
+	new_pawn.maptext_width = 256
 	new_pawn.maptext_height = 256
 	return ..() //Run parent at end
 
@@ -56,9 +56,10 @@
 		return
 
 	if(debug_mode == 1)
-		living_pawn.maptext = MAPTEXT(english_list(current_behaviors))
-	else if(debug_mode == 2)
-		living_pawn.maptext = MAPTEXT(english_list(blackboard))
+		var/rt = ""
+		for(var/i in blackboard)
+			rt += "[i] = [blackboard]"
+		living_pawn.maptext = MAPTEXT(rt)
 
 	if(length(enemies) || blackboard[BB_COMBAT_AI_ANGRY_GAY])
 
