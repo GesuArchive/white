@@ -994,7 +994,7 @@
 	areastring = "/area/tcommsat/server";
 	dir = 1;
 	name = "Telecomms Server APC";
-	pixel_y = 23
+	pixel_y = 25
 	},
 /obj/structure/cable,
 /obj/machinery/light{
