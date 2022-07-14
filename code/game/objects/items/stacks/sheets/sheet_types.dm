@@ -123,7 +123,7 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	new/datum/stack_recipe("пестик", /obj/item/pestle, 1, time = 50), \
 	new/datum/stack_recipe("каркас гигиенобота", /obj/item/bot_assembly/hygienebot, 2, time = 5 SECONDS), \
 	new/datum/stack_recipe("каркас душа", /obj/structure/showerframe, 2, time= 2 SECONDS), \
-	new/datum/stack_recipe("баррикада", /obj/structure/deployable_barricade/metal, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("баррикада", /obj/structure/deployable_barricade/metal, 5, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 ))
 
 /obj/item/stack/sheet/iron
@@ -173,9 +173,9 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
  * Plasteel
  */
 GLOBAL_LIST_INIT(plasteel_recipes, list ( \
-	new/datum/stack_recipe("Ядро ИИ", /obj/structure/ai_core, 4, time = 50, one_per_turf = TRUE), \
-	new/datum/stack_recipe("Сборка бомб", /obj/machinery/syndicatebomb/empty, 10, time = 50), \
-	new/datum/stack_recipe("Баррикада", /obj/structure/deployable_barricade/plasteel, 2, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("ядро ИИ", /obj/structure/ai_core, 4, time = 50, one_per_turf = TRUE), \
+	new/datum/stack_recipe("сборка бомбы", /obj/machinery/syndicatebomb/empty, 10, time = 50), \
+	new/datum/stack_recipe("баррикада", /obj/structure/deployable_barricade/plasteel, 5, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
 	null, \
 	new /datum/stack_recipe_list("airlock assemblies", list( \
 		new/datum/stack_recipe("high security airlock assembly", /obj/structure/door_assembly/door_assembly_highsecurity, 4, time = 50, one_per_turf = 1, on_floor = 1), \
@@ -224,7 +224,7 @@ GLOBAL_LIST_INIT(wood_recipes, list ( \
 	new/datum/stack_recipe("деревянный стул", /obj/structure/chair/wood/, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("крылатый стул", /obj/structure/chair/wood/wings, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("деревянная застава", /obj/structure/barricade/wooden, 5, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("баррикада", /obj/structure/deployable_barricade/wooden, 2, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("баррикада", /obj/structure/deployable_barricade/wooden, 5, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("деревянная дверь", /obj/structure/mineral_door/wood, 10, time = 20, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("гроб", /obj/structure/closet/crate/coffin, 5, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("книжный шкаф", /obj/structure/bookcase, 4, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
