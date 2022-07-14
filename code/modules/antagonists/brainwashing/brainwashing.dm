@@ -36,8 +36,8 @@
 	greentext_reward = 5
 
 /datum/antagonist/brainwashed/greet()
-	to_chat(owner, span_warning("Ваш разум начинает фокусироваться на одной цели..."))
-	to_chat(owner, "<big><span class='warning'><b>Выполняйте директивы любой ценой!</b></span></big>")
+	to_chat(owner, span_warning("Разум начинает фокусироваться на одной цели..."))
+	to_chat(owner, "<big><span class='warning'><b>Выполнять Директивы любой ценой!</b></span></big>")
 	var/i = 1
 	for(var/X in objectives)
 		var/datum/objective/O = X
@@ -45,8 +45,8 @@
 		i++
 
 /datum/antagonist/brainwashed/farewell()
-	to_chat(owner, span_warning("Ваш разум внезапно проясняется..."))
-	to_chat(owner, "<big><span class='warning'><b>Вы чувствуете, как тяжесть Директив исчезает! Вы больше не обязаны им подчиняться.</b></span></big>")
+	to_chat(owner, span_warning("Разум внезапно проясняется..."))
+	to_chat(owner, "<big><span class='warning'><b>Тяжесть Директив исчезает! Больше не обязан им подчиняться.</b></span></big>")
 	owner.announce_objectives()
 
 /datum/antagonist/brainwashed/admin_add(datum/mind/new_owner,mob/admin)
@@ -74,6 +74,9 @@
 	var/obj_list = english_list(objectives)
 	message_admins("[key_name_admin(admin)] has brainwashed [key_name_admin(C)] with the following objectives: [obj_list].")
 	log_admin("[key_name(admin)] has brainwashed [key_name(C)] with the following objectives: [obj_list].")
+
+/datum/antagonist/brainwashed/set_antag_skills()
+	return
 
 /datum/objective/brainwashing
 	completed = TRUE
