@@ -139,7 +139,7 @@ GLOBAL_LIST_INIT(mystery_box_extended, list(
 
 /// The box has finished choosing, mark it as available for grabbing
 /obj/structure/mystery_box/proc/present_weapon()
-	visible_message(span_notice("[src] presents [presented_item]!"), vision_distance = COMBAT_MESSAGE_RANGE)
+	visible_message(span_notice("<b>[capitalize(src)]</b> представляет <b>[presented_item]</b>!"), vision_distance = COMBAT_MESSAGE_RANGE)
 	box_state = MYSTERY_BOX_PRESENTING
 	box_expire_timer = addtimer(CALLBACK(src, .proc/start_expire_offer), MBOX_DURATION_PRESENTING, TIMER_STOPPABLE)
 
