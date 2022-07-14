@@ -424,6 +424,6 @@
 	ui_x = 500
 	ui_y = 600
 
-/datum/computer_file/program/hacktool/run_program(var/mob/living/user)
+/datum/computer_file/program/hacktool/on_start(var/mob/living/user)
 	. = ..(user)
 */

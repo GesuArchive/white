@@ -5,10 +5,11 @@
 	program_icon_state = "command"
 	program_state = PROGRAM_STATE_BACKGROUND
 	extended_desc = "Программа для отправки сообщений между устройствами с помощью более привычных для персонала видов коммуникации."
-	size = 8
+	size = 0
+	undeletable = TRUE // It comes by default in tablets, can't be downloaded, takes no space and should obviously not be able to be deleted.
+	available_on_ntnet = FALSE
 	usage_flags = PROGRAM_TABLET
 	ui_header = "ntnrc_idle.gif"
-	available_on_ntnet = TRUE
 	tgui_id = "NtosMessenger"
 	program_icon = "comment-alt"
 	alert_able = TRUE
@@ -344,9 +345,18 @@
 	if (ringer_status)
 		computer?.ring(ringtone)
 
+/// topic call that answers to people pressing "(Reply)" in chat
 /datum/computer_file/program/messenger/Topic(href, href_list)
 	..()
-
+	if(QDELETED(src))
+		return
+	// send an activation message, open the messenger, kill whoever reads this nesting mess
+	if(!computer.enabled)
+		if(!computer.turn_on(usr, open_ui = FALSE))
+			return
+	if(computer.active_program != src)
+		if(!computer.open_program(usr, src))
+			return
 	if(!href_list["close"] && usr.canUseTopic(computer, BE_CLOSE, FALSE, NO_TK))
 		switch(href_list["choice"])
 			if("Message")

@@ -21,7 +21,7 @@
 	tablet = null
 	return ..()
 
-/datum/computer_file/program/robotact/run_program(mob/living/user)
+/datum/computer_file/program/robotact/on_start(mob/living/user)
 	if(!istype(computer, /obj/item/modular_computer/tablet/integrated))
 		to_chat(user, span_warning("Предупреждение мерцает на [computer]: Устройство несовместимо."))
 		return FALSE

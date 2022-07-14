@@ -30,7 +30,7 @@
 		PROGRAM_CATEGORY_MISC,
 	)
 
-/datum/computer_file/program/ntnetdownload/run_program()
+/datum/computer_file/program/ntnetdownload/on_start()
 	. = ..()
 	main_repo = SSnetworks.station_network.available_station_software
 	antag_repo = SSnetworks.station_network.available_antag_software
@@ -206,7 +206,7 @@
 	tgui_id = "NtosNetDownloader"
 	emagged = TRUE
 
-/datum/computer_file/program/ntnetdownload/syndicate/run_program()
+/datum/computer_file/program/ntnetdownload/syndicate/on_start()
 	. = ..()
 	main_repo = SSnetworks.station_network.available_antag_software
 	antag_repo = null

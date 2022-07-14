@@ -23,7 +23,7 @@
 	///Used by the tgui interface, themed for NT or Syndicate colors.
 	var/pointercolor = "green"
 
-/datum/computer_file/program/radar/run_program(mob/living/user)
+/datum/computer_file/program/radar/on_start(mob/living/user)
 	. = ..()
 	if(.)
 		START_PROCESSING(SSfastprocess, src)

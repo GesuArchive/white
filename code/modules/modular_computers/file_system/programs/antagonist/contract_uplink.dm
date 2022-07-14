@@ -16,7 +16,7 @@
 	var/assigned = FALSE
 	var/first_load = TRUE
 
-/datum/computer_file/program/contract_uplink/run_program(mob/living/user)
+/datum/computer_file/program/contract_uplink/on_start(mob/living/user)
 	. = ..(user)
 
 /datum/computer_file/program/contract_uplink/ui_act(action, params)
@@ -166,7 +166,7 @@
 
 		for (var/datum/syndicate_contract/contract in traitor_data.contractor_hub.assigned_contracts)
 			if(!contract.contract)
-				stack_trace("Syndiate contract with null contract objective found in [traitor_data.owner]'s contractor hub!") 
+				stack_trace("Syndiate contract with null contract objective found in [traitor_data.owner]'s contractor hub!")
 				contract.status = CONTRACT_STATUS_ABORTED
 				continue
 

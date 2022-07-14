@@ -333,7 +333,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		user.put_in_hands(ssd)
 		playsound(src, 'sound/machines/card_slide.ogg', 50)
 
-/obj/item/modular_computer/proc/turn_on(mob/user)
+/obj/item/modular_computer/proc/turn_on(mob/user, open_ui = TRUE)
 	var/issynth = issilicon(user) // Robots and AIs get different activation messages.
 	if(obj_integrity <= integrity_failure * max_integrity)
 		if(issynth)
@@ -356,7 +356,8 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 			soundloop.start()
 		enabled = 1
 		update_icon()
-		ui_interact(user)
+		if(open_ui)
+			ui_interact(user)
 		return TRUE
 	else // Unpowered
 		if(issynth)
@@ -508,6 +509,46 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		//Here to prevent programs sleeping in destroy
 		INVOKE_ASYNC(src, /datum/proc/ui_interact, user) // Re-open the UI on this computer. It should show the main screen now.
 	update_icon()
+
+/obj/item/modular_computer/proc/open_program(mob/user, datum/computer_file/program/program)
+	if(program.computer != src)
+		CRASH("tried to open program that does not belong to this computer")
+
+	if(!program || !istype(program)) // Program not found or it's not executable program.
+		to_chat(user, span_danger("<b>[src.name]</b>'s экран показывает предупреждение \"I/O ОШИБКА — невозможно запустить программу\"."))
+		return FALSE
+
+	if(!program.is_supported_by_hardware(hardware_flag, 1, user))
+		return FALSE
+
+	// The program is already running. Resume it.
+	if(program in idle_threads)
+		program.program_state = PROGRAM_STATE_ACTIVE
+		active_program = program
+		program.alert_pending = FALSE
+		idle_threads.Remove(program)
+		update_appearance()
+		updateUsrDialog()
+		return TRUE
+
+	var/obj/item/computer_hardware/processor_unit/PU = all_components[MC_CPU]
+
+	if(idle_threads.len > PU.max_idle_programs)
+		to_chat(user, span_danger("<b>[src.name]</b> отображает ошибку \"Достигнута максимальная загрузка процессора. Невозможно запустить другую программу.\"."))
+		return FALSE
+
+	if(program.requires_ntnet && !get_ntnet_status(program.requires_ntnet_feature)) // The program requires NTNet connection, but we are not connected to NTNet.
+		to_chat(user, span_danger("<b>[src.name]</b>'s экран отображает \"Невозможно подсоединиться к NTNet. Попробуйте заново. Если проблема не исчезнет, обратитесь к системному администратору.\" предупреждение."))
+		return FALSE
+
+	if(program.on_start(user))
+		active_program = program
+		program.alert_pending = FALSE
+		update_appearance()
+		updateUsrDialog()
+		return TRUE
+
+	return FALSE
 
 // Returns 0 for No Signal, 1 for Low Signal and 2 for Good Signal. 3 is for wired connection (always-on)
 /obj/item/modular_computer/proc/get_ntnet_status(specific_action = 0)

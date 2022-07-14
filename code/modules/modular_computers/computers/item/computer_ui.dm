@@ -151,45 +151,10 @@
 			to_chat(user, span_notice("Программа [P.filename].[P.filetype] с PID [rand(100,999)] была уничтожена."))
 
 		if("PC_runprogram")
-			var/prog = params["name"]
-			var/is_disk = params["is_disk"]
-			var/datum/computer_file/program/P = null
-			var/mob/user = usr
-			if(hard_drive && !is_disk)
-				P = hard_drive.find_file_by_name(prog)
-
-			if(!P || !istype(P)) // Program not found or it's not executable program.
-				to_chat(user, span_danger("<b>[src.name]</b>'s экран показывает предупреждение \"I/O ОШИБКА — невозможно запустить программу\"."))
+			// only function of the last implementation (?)
+			if(params["is_disk"])
 				return
-
-			P.computer = src
-
-			if(!P.is_supported_by_hardware(hardware_flag, 1, user))
-				return
-
-			// The program is already running. Resume it.
-			if(P in idle_threads)
-				P.program_state = PROGRAM_STATE_ACTIVE
-				active_program = P
-				P.alert_pending = FALSE
-				idle_threads.Remove(P)
-				update_icon()
-				return
-
-			var/obj/item/computer_hardware/processor_unit/PU = all_components[MC_CPU]
-
-			if(idle_threads.len > PU.max_idle_programs)
-				to_chat(user, span_danger("<b>[src.name]</b> отображает ошибку \"Достигнута максимальная загрузка процессора. Невозможно запустить другую программу.\"."))
-				return
-
-			if(P.requires_ntnet && !get_ntnet_status(P.requires_ntnet_feature)) // The program requires NTNet connection, but we are not connected to NTNet.
-				to_chat(user, span_danger("<b>[src.name]</b>'s экран отображает \"Невозможно подсоединиться к NTNet. Попробуйте заново. Если проблема не исчезнет, обратитесь к системному администратору.\" предупреждение."))
-				return
-			if(P.run_program(user))
-				active_program = P
-				P.alert_pending = FALSE
-				update_icon()
-			return 1
+			open_program(usr, hard_drive.find_file_by_name(params["name"]))
 
 		if("PC_toggle_light")
 			return toggle_flashlight()
