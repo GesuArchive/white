@@ -165,12 +165,12 @@
 /turf/closed/dz/normal/cyber/ice/blue/Initialize(mapload)
 	. = ..()
 	if(!length(things))
-		things = subtypesof(/obj/item/clothing) + subtypesof(/obj/item/melee) + subtypesof(/obj/item/gun) + subtypesof(/obj/item/shield)
+		things = subtypesof(/obj/item)
 
 /turf/closed/dz/normal/cyber/ice/blue/melt_ice(mob/living/user)
 	var/obj/item/found_something = null
 
-	if(prob(16) && length(things))
+	if(prob(30) && length(things))
 		var/obj/item/thingy = pick(things)
 		found_something = new thingy(src)
 
