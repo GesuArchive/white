@@ -195,6 +195,24 @@
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
 	dog_fashion = null
+	can_flashlight = TRUE
+
+/obj/item/clothing/head/helmet/riot/update_icon_state()
+	var/state = "[initial(icon_state)]"
+	if(up)
+		state += "up"
+		if(attached_light)
+			if(attached_light.on)
+				state += "-flight-on"
+			else
+				state += "-flight"
+	else
+		if(attached_light)
+			if(attached_light.on)
+				state += "-flight-on"
+			else
+				state += "-flight"
+	icon_state = state
 
 /obj/item/clothing/head/helmet/attack_self(mob/user)
 	if(can_toggle && !user.incapacitated())
@@ -204,7 +222,7 @@
 			flags_1 ^= visor_flags
 			flags_inv ^= visor_flags_inv
 			flags_cover ^= visor_flags_cover
-			icon_state = "[initial(icon_state)][up ? "up" : ""]"
+			update_icon_state()
 			to_chat(user, span_notice("[up ? alt_toggle_message : toggle_message] [src]."))
 
 			user.update_inv_head()

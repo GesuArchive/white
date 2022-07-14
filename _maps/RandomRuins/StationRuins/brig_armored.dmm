@@ -2155,9 +2155,6 @@
 /turf/open/floor/engine,
 /area/security/warden)
 "gT" = (
-/obj/machinery/light_switch{
-	pixel_y = -23
-	},
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
@@ -2239,9 +2236,6 @@
 /turf/open/floor/engine,
 /area/security/main)
 "hb" = (
-/obj/machinery/light_switch{
-	pixel_y = -23
-	},
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 8
 	},
@@ -2953,7 +2947,8 @@
 "iw" = (
 /obj/machinery/door/airlock/security/glass{
 	name = "Brig Desk";
-	req_access_txt = "1"
+	req_access_txt = "1";
+	security_level = 6
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 1

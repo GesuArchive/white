@@ -1,6 +1,6 @@
 /obj/item/assembly/control
 	name = "Контролер взрывостойкого шлюза"
-	desc = "A small electronic device able to control a blast door remotely."
+	desc = "Небольшое устройство для контроля бронированных ставень, настройка производится мультитулом."
 	icon_state = "control"
 	attachable = TRUE
 	var/id = null
@@ -11,7 +11,16 @@
 /obj/item/assembly/control/examine(mob/user)
 	. = ..()
 	if(id)
-		. += "<hr><span class='notice'>Its channel ID is '[id]'.</span>"
+		. += "<hr><span class='notice'>Текущий ID канал '[id]'.</span>"
+	else
+		. += "<hr><span class='notice'>Канал не задан.</span>"
+
+/obj/item/assembly/control/multitool_act(mob/living/user)
+	var/change_id = tgui_input_number(user, "Установите номер ID", "Канал", id, 100)
+	if(!change_id || QDELETED(user) || QDELETED(src) || !usr.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
+		return
+	id = change_id
+	to_chat(user, span_notice("Меняю ID на [id]."))
 
 /obj/item/assembly/control/activate()
 	var/openclose

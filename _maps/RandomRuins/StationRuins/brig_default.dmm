@@ -1224,6 +1224,9 @@
 	dir = 8;
 	pixel_x = 23
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/open/floor/plasteel/showroomfloor,
 /area/security/warden)
 "eL" = (
@@ -1943,9 +1946,6 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/security/warden)
 "gi" = (
-/obj/machinery/light_switch{
-	pixel_y = -23
-	},
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
@@ -1998,9 +1998,6 @@
 /turf/open/floor/plasteel,
 /area/security/main)
 "gn" = (
-/obj/machinery/light_switch{
-	pixel_y = -23
-	},
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -2724,7 +2721,8 @@
 "iq" = (
 /obj/machinery/door/airlock/security/glass{
 	name = "Brig Desk";
-	req_access_txt = "1"
+	req_access_txt = "1";
+	security_level = 6
 	},
 /obj/machinery/door/firedoor/border_only,
 /obj/machinery/door/firedoor/border_only{

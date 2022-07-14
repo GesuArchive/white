@@ -177,9 +177,14 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
 	new/datum/stack_recipe("сборка бомбы", /obj/machinery/syndicatebomb/empty, 10, time = 50), \
 	new/datum/stack_recipe("баррикада", /obj/structure/deployable_barricade/plasteel, 5, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
 	null, \
-	new /datum/stack_recipe_list("airlock assemblies", list( \
-		new/datum/stack_recipe("high security airlock assembly", /obj/structure/door_assembly/door_assembly_highsecurity, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new/datum/stack_recipe("vault door assembly", /obj/structure/door_assembly/door_assembly_vault, 6, time = 50, one_per_turf = 1, on_floor = 1), \
+	new /datum/stack_recipe_list("Бронешлюзы", list( \
+		new/datum/stack_recipe("Каркас укрепленного шлюза", /obj/structure/door_assembly/door_assembly_highsecurity, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("Каркас двери хранилища", /obj/structure/door_assembly/door_assembly_vault, 6, time = 50, one_per_turf = 1, on_floor = 1), \
+	)),
+	null, \
+	new /datum/stack_recipe_list("Бронешторы", list( \
+		new/datum/stack_recipe("Бронежалюзи", /obj/machinery/door/poddoor/shutters/assembly, 10, time = 50, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("Бронеставни", /obj/machinery/door/poddoor/assembly, 15, time = 50, one_per_turf = 1, on_floor = 1), \
 	)), \
 ))
 

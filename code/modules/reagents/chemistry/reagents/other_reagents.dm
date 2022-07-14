@@ -1453,6 +1453,16 @@
 	ph = 11.8
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
+/datum/reagent/resin_foaming_agent // Пожарная пена
+	name = "Реагент резиновой пены"
+	enname = "Resin agent"
+	description = "Противопожарный реагент."
+	reagent_state = SOLID
+	color = "#664B63" // rgb: 102, 75, 99
+	taste_description = "резина"
+	ph = 11.8
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
 /datum/reagent/ammonia
 	name = "Аммиак"
 	enname = "Ammonia"

@@ -242,6 +242,30 @@
 	sub_category = list("Реанимация и хирургия")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
+/datum/design/painkillermodif
+	name = "Комплект модернизации: Энергетические захваты"
+	desc = "Комплект для установки комплекса хардлайт-прожекторов на стазисную кровать. Прожекторы создают хардлайт-ремни, фиксирующие пациента на стазис-кровати и не дающие ему встать, пока лечащий врач не разрешит. Или пока энергия не закончится."
+	id = "painkillermodif"
+	build_type = MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/iron = 4000, /datum/material/plastic = 4000, /datum/material/glass = 2000)
+	build_path = /obj/item/painkillermodif
+	category = list("Медицинское оборудование")
+	sub_category = list("Реанимация и хирургия")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
+/datum/design/ivlmodif
+	name = "Комплект модернизации: Энергетические захваты"
+	desc = "Комплект для установки комплекса хардлайт-прожекторов на стазисную кровать. Прожекторы создают хардлайт-ремни, фиксирующие пациента на стазис-кровати и не дающие ему встать, пока лечащий врач не разрешит. Или пока энергия не закончится."
+	id = "ivlmodif"
+	build_type = MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/iron = 4000, /datum/material/plastic = 4000, /datum/material/glass = 2000)
+	build_path = /obj/item/ivlmodif
+	category = list("Медицинское оборудование")
+	sub_category = list("Реанимация и хирургия")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
 /datum/design/medipenal
 	name = "Пенал для медипенов"
 	desc = "Компактный и очень удобный пенал вмещающий до 5 медипенов, специальная клипса позволяет закрепить его на карманах или поясе, а с его маленькими габаритами он поместится в коробке или аптечке."

@@ -10,6 +10,14 @@
 	max_integrity = 100
 	recipe_type = /datum/crafting_recipe/shutters
 
+/obj/machinery/door/poddoor/shutters/assembly
+	icon_state = "bilding"
+	density = FALSE
+	opacity = FALSE
+	deconstruction = BLASTDOOR_NEEDS_WIRES
+	encrypted = FALSE
+	panel_open = TRUE
+
 /obj/machinery/door/poddoor/shutters/preopen
 	icon_state = "open"
 	density = FALSE

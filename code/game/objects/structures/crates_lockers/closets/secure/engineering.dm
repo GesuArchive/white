@@ -97,3 +97,4 @@
 	new /obj/item/clothing/head/hardhat/atmos(src)
 	new /obj/item/clothing/glasses/meson/engine/tray(src)
 	new /obj/item/extinguisher/advanced(src)
+	new /obj/item/grenade/chem_grenade/resin_foam(src)

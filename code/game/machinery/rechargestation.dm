@@ -25,7 +25,7 @@
 	recharge_speed = 0
 	repairs = 0
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
-		recharge_speed += C.rating * 100
+		recharge_speed += C.rating * 300
 	for(var/obj/item/stock_parts/manipulator/M in component_parts)
 		repairs += M.rating - 1
 	for(var/obj/item/stock_parts/cell/C in component_parts)
@@ -34,9 +34,9 @@
 /obj/machinery/recharge_station/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += "<hr><span class='notice'>Дисплей: Recharging <b>[recharge_speed]J</b> per cycle.</span>"
+		. += "<hr><span class='notice'>Дисплей: Скорость зарядки <b>[recharge_speed] Дж</b> за цикл.</span>"
 		if(repairs)
-			. += span_notice("\n[capitalize(src.name)] has been upgraded to support automatic repairs.")
+			. += span_notice("\n[capitalize(src.name)] поддерживает функцию автоматизированного ремонта.")
 
 
 /obj/machinery/recharge_station/on_set_is_operational(old_value)

@@ -377,7 +377,7 @@
 	icon_state = "hardsuit0-exploration"
 	inhand_icon_state = "death_commando_mask"
 	heat_protection = HEAD
-	armor = list("melee" = 35, "bullet" = 15, "laser" = 20, "energy" = 10, "bomb" = 50, "bio" = 100, "rad" = 50, "fire" = 50, "acid" = 75, "wound" = 20)
+	armor = list(MELEE = 40, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 50, BIO = 100, RAD = 50, FIRE = 95, ACID = 95, WOUND = 25)
 	light_range = 7
 	hardsuit_type = "exploration"
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/resonator, /obj/item/mining_scanner, /obj/item/t_scanner/adv_mining_scanner, /obj/item/gun/energy/kinetic_accelerator)
@@ -387,7 +387,7 @@
 	name = "костюм рейнджера"
 	desc = "Продвинутый костюм, который спасёт от космоса и других угроз."
 	inhand_icon_state = "mining_hardsuit"
-	armor = list("melee" = 35, "bullet" = 15, "laser" = 20, "energy" = 10, "bomb" = 50, "bio" = 100, "rad" = 50, "fire" = 50, "acid" = 75, "wound" = 20)
+	armor = list(MELEE = 40, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 50, BIO = 100, RAD = 50, FIRE = 95, ACID = 95, WOUND = 25)
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/storage/bag/ore, /obj/item/pickaxe)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/exploration
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -666,15 +666,14 @@
 	icon_state = "hardsuit0-sec"
 	inhand_icon_state = "sec_helm"
 	hardsuit_type = "sec"
-	armor = list(MELEE = 35, BULLET = 15, LASER = 30,ENERGY = 40, BOMB = 10, BIO = 100, RAD = 50, FIRE = 75, ACID = 75, WOUND = 20)
-
+	armor = list(MELEE = 40, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 50, BIO = 100, RAD = 50, FIRE = 75, ACID = 75, WOUND = 20)
 
 /obj/item/clothing/suit/space/hardsuit/security
 	icon_state = "hardsuit-sec"
 	name = "скафандр охраны"
 	desc = "Специальный костюм для работы в условиях низкого давления. Имеет дополнительный слой брони."
 	inhand_icon_state = "sec_hardsuit"
-	armor = list(MELEE = 35, BULLET = 15, LASER = 30, ENERGY = 40, BOMB = 10, BIO = 100, RAD = 50, FIRE = 75, ACID = 75, WOUND = 20)
+	armor = list(MELEE = 40, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 50, BIO = 100, RAD = 50, FIRE = 75, ACID = 75, WOUND = 20)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/security
 
 /obj/item/clothing/suit/space/hardsuit/security/Initialize(mapload)
@@ -687,21 +686,20 @@
 	desc = "Специальный шлем для работы в условиях низкого давления. Имеет дополнительный слой брони."
 	icon_state = "hardsuit0-hos"
 	hardsuit_type = "hos"
-	armor = list(MELEE = 45, BULLET = 25, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 100, RAD = 50, FIRE = 95, ACID = 95, WOUND = 25)
-
+	armor = list(MELEE = 45, BULLET = 40, LASER = 40, ENERGY = 50, BOMB = 50, BIO = 100, RAD = 50, FIRE = 95, ACID = 95, WOUND = 25)
 
 /obj/item/clothing/suit/space/hardsuit/security/hos
 	icon_state = "hardsuit-hos"
 	name = "скафандр начальника охраны"
 	desc = "Специальный скафандр для работы в условиях низкого давления. Имеет дополнительный слой брони."
-	armor = list(MELEE = 45, BULLET = 25, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 100, RAD = 50, FIRE = 95, ACID = 95, WOUND = 25)
+	armor = list(MELEE = 45, BULLET = 40, LASER = 40, ENERGY = 50, BOMB = 50, BIO = 100, RAD = 50, FIRE = 95, ACID = 95, WOUND = 25)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/security/hos
 	jetpack = /obj/item/tank/jetpack/suit
 	cell = /obj/item/stock_parts/cell/super
 
 	//SWAT MKII
 /obj/item/clothing/head/helmet/space/hardsuit/swat
-	name = "\improper MK.II шлем спецназа"
+	name = "шлем спецназа MK.II"
 	icon_state = "swat2helm"
 	inhand_icon_state = "swat2helm"
 	desc = "Тактический шлем спецназа MK.II."
@@ -715,7 +713,7 @@
 /obj/item/clothing/head/helmet/space/hardsuit/swat/attack_self()
 
 /obj/item/clothing/suit/space/hardsuit/swat
-	name = "\improper MK.II SWAT скафандр"
+	name = "скафандр спецназа MK.II"
 	desc = "A MK.II SWAT сделан из усовершенствованных материалов, лучший выбор для охраны и тех, кто хочет повоевать."
 	icon_state = "swat2"
 	inhand_icon_state = "swat2"

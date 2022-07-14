@@ -38,6 +38,24 @@
 	icon = 'white/Feline/icons/blaster_belt.dmi'
 	icon_state = "belt"
 
+/obj/item/storage/belt/holster/thermal/attack_hand(mob/user, list/modifiers)
+
+	if(loc == user)
+		if(user.get_item_by_slot(ITEM_SLOT_BELT) == src || user.get_item_by_slot(ITEM_SLOT_SUITSTORE) == src)
+			if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE, FLOOR_OKAY))
+				return
+			if(length(contents))
+				var/obj/item/I = contents[1]
+				user.visible_message(span_notice("[user] достаёт из кобуры [I]."), span_notice("Достаю из кобуры [I]."))
+				user.put_in_hands(I)
+				update_appearance()
+//				playsound(user, 'white/valtos/sounds/lasercock.wav', 80, TRUE)
+				return
+			else
+				to_chat(user, span_warning("Кобура пуста!"))
+	else ..()
+	return
+
 /obj/item/storage/belt/holster/thermal/update_icon_state()
 	cut_overlays()
 	if(locate(/obj/item/gun/energy/laser/thermal/inferno) in contents)

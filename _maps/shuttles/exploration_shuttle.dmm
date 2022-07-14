@@ -2,7 +2,9 @@
 "a" = (
 /obj/machinery/airalarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -22;
+	req_access = null;
+	locked = 0
 	},
 /obj/machinery/light{
 	dir = 8
@@ -72,7 +74,9 @@
 "i" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/airalarm{
-	pixel_y = 23
+	pixel_y = 23;
+	req_access = null;
+	locked = 0
 	},
 /obj/machinery/light{
 	dir = 8
@@ -262,7 +266,8 @@
 	dir = 8
 	},
 /obj/machinery/power/apc/auto_name/north{
-	cell_type = /obj/item/stock_parts/cell/high/plus
+	cell_type = /obj/item/stock_parts/cell/high/plus;
+	locked = 0
 	},
 /obj/machinery/button/door{
 	id = "ex_cab";

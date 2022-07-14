@@ -81,24 +81,27 @@
 /obj/machinery/suit_storage_unit/security
 	suit_type = /obj/item/clothing/suit/space/hardsuit/security
 	mask_type = /obj/item/clothing/mask/gas/sechailer
-	storage_type = /obj/item/tank/internals/tactical //тактик
+	storage_type = /obj/item/tank/internals/tactical
 
 /obj/machinery/suit_storage_unit/hos
 	suit_type = /obj/item/clothing/suit/space/hardsuit/security/hos
 	mask_type = /obj/item/clothing/mask/gas/sechailer
-	storage_type = /obj/item/tank/internals/tactical //тактик
+	storage_type = /obj/item/tank/internals/tactical
 
 /obj/machinery/suit_storage_unit/mining
 	suit_type = /obj/item/clothing/suit/hooded/explorer
 	mask_type = /obj/item/clothing/mask/gas/explorer
+	storage_type = /obj/item/tank/internals/tactical
 
 /obj/machinery/suit_storage_unit/mining/eva
 	suit_type = /obj/item/clothing/suit/space/hardsuit/mining
 	mask_type = /obj/item/clothing/mask/breath
+	storage_type = /obj/item/tank/internals/tactical
 
 /obj/machinery/suit_storage_unit/exploration
 	suit_type = /obj/item/clothing/suit/space/hardsuit/exploration
 	mask_type = /obj/item/clothing/mask/breath
+	storage_type = /obj/item/tank/internals/tactical
 
 /obj/machinery/suit_storage_unit/cmo
 	suit_type = /obj/item/clothing/suit/space/hardsuit/medical

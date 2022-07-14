@@ -63,5 +63,13 @@
 			A.bank_card_talk("Было получено [goyam] кредитов за содействие выполнению поручений NanoTrasen.")
 			A.adjust_money(goyam)
 	GLOB.exploration_points += payout / 2
+/*
+	for(var/I in SSjob.occupations)		Не пойму как отыскать все рейнджерские ID
+		var/datum/job/J = I
+		if(istype(J, /datum/job/exploration))
+			var/obj/item/card/id/ID = J.get_idcard()
+			if(ID)
+				ID.exploration_points += payout / 2
+*/
 	//Delete
 	QDEL_NULL(SSorbits.current_objective)

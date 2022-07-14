@@ -226,6 +226,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_NODEATH "nodeath"
 #define TRAIT_NOHARDCRIT "nohardcrit"
 #define TRAIT_NOSOFTCRIT "nosoftcrit"
+#define TRAIT_PAINKILLER "painkiller"	// Обезболивающее - для операций
 #define TRAIT_MINDSHIELD "mindshield"
 #define TRAIT_DISSECTED "dissected"
 /// Can hear observers

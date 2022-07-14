@@ -360,9 +360,9 @@
 	icon = 'white/Feline/icons/lab_armor_front.dmi'
 	worn_icon = 'white/Feline/icons/lab_armor_body.dmi'
 	icon_state = "fieldmed"
-	allowed = list(/obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/flashlight, /obj/item/gun/ballistic, /obj/item/gun/energy,
+	allowed = list(/obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/flashlight, /obj/item/gun/ballistic, /obj/item/gun/energy, /obj/item/gun/grenadelauncher,
 			/obj/item/kitchen/knife/combat, /obj/item/melee/baton, /obj/item/melee/classic_baton, /obj/item/reagent_containers/spray/pepper,
-			/obj/item/restraints/handcuffs, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman,
+			/obj/item/restraints/handcuffs, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/tank/internals/tactical,
 			/obj/item/storage/belt/holster/detective, /obj/item/storage/belt/holster/thermal, /obj/item/storage/belt/holster/nukie,
 			/obj/item/tank/internals/emergency_oxygen, /obj/item/healthanalyzer, /obj/item/medbot_carrier, /obj/item/gun/syringe, /obj/item/solnce)
 	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 70, RAD = 30, FIRE = 50, ACID = 70, WOUND = 20)

@@ -23,6 +23,15 @@
 	var/static/mutable_appearance/handbeltsmod_overlay = mutable_appearance('white/Feline/icons/stasis.dmi', "mark", LYING_MOB_LAYER)
 	var/static/mutable_appearance/handbeltsmod_active_overlay = mutable_appearance('white/Feline/icons/stasis.dmi', "belts", LYING_MOB_LAYER)
 
+	// 	Модификация обезболивающего
+	var/painkillermod = FALSE
+	var/static/mutable_appearance/painkillermod_overlay = mutable_appearance('white/Feline/icons/stasis.dmi', "painkiller", LYING_MOB_LAYER)
+
+	// 	Модификация ИВЛ
+	var/ivlmod = FALSE
+	var/static/mutable_appearance/ivlmod_overlay = mutable_appearance('white/Feline/icons/stasis.dmi', "ivl", LYING_MOB_LAYER)
+	var/oxy_heal = 10
+
 /obj/machinery/stasis/Initialize(mapload)
 	. = ..()
 	if(handbeltsmod)
@@ -119,12 +128,18 @@
 	playsound(src, 'sound/effects/spray.ogg', 5, TRUE, 2, frequency = freq)
 	target.apply_status_effect(STATUS_EFFECT_STASIS, STASIS_MACHINE_EFFECT)
 	ADD_TRAIT(target, TRAIT_TUMOR_SUPPRESSED, TRAIT_GENERIC)
+	if(painkillermod)
+		ADD_TRAIT(target, TRAIT_NOHARDCRIT, TRAIT_GENERIC)
+		ADD_TRAIT(target, TRAIT_PAINKILLER, TRAIT_GENERIC)
 	target.extinguish_mob()
 	update_use_power(ACTIVE_POWER_USE)
 
 /obj/machinery/stasis/proc/thaw_them(mob/living/target)
 	target.remove_status_effect(STATUS_EFFECT_STASIS, STASIS_MACHINE_EFFECT)
 	REMOVE_TRAIT(target, TRAIT_TUMOR_SUPPRESSED, TRAIT_GENERIC)
+	if(painkillermod)
+		REMOVE_TRAIT(target, TRAIT_NOHARDCRIT, TRAIT_GENERIC)
+		REMOVE_TRAIT(target, TRAIT_PAINKILLER, TRAIT_GENERIC)
 	if(target == occupant)
 		update_use_power(IDLE_POWER_USE)
 
@@ -134,6 +149,15 @@
 	set_occupant(L)
 	if(stasis_running() && check_nap_violations())
 		chill_out(L)
+/*
+	var/
+	if(stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
+		if((key || get_ghost(FALSE, TRUE)) && (can_defib() & DEFIB_REVIVABLE_STATES))
+			holder.icon_state = "huddefib"
+		else
+			holder.icon_state = "huddead"
+*/
+
 	update_icon()
 
 /obj/machinery/stasis/post_unbuckle_mob(mob/living/L)
@@ -142,11 +166,19 @@
 		set_occupant(null)
 	update_icon()
 
-/obj/machinery/stasis/process()
+/obj/machinery/stasis/process(delta_time)
 	if(!(occupant && isliving(occupant) && check_nap_violations()))
 		update_use_power(IDLE_POWER_USE)
 		return
 	var/mob/living/L_occupant = occupant
+	if(ivlmod)
+	//	obj_integrity = max(obj_integrity - delta_time * failing_speed, 20)
+	//	L_occupant.oxyloss = max(L_occupant.oxyloss - delta_time * oxy_heal, 0)
+		if(L_occupant.stat != DEAD)
+			if(L_occupant.oxyloss > 0)
+				var/oxy_heal_2 = max(L_occupant.oxyloss - delta_time * oxy_heal, 0)
+				L_occupant.setOxyLoss(oxy_heal_2)
+				playsound(src, 'white/Feline/sounds/pip.ogg', 5, FALSE, 2)
 	if(stasis_running())
 		if(!IS_IN_STASIS(L_occupant))
 			chill_out(L_occupant)

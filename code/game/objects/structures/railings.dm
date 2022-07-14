@@ -16,6 +16,12 @@
 	///Initial direction of the railing.
 	var/ini_dir
 
+/obj/structure/railing/right
+	icon_state = "railing_R"
+
+/obj/structure/railing/left
+	icon_state = "railing_L"
+
 /obj/structure/railing/corner //aesthetic corner sharp edges hurt oof ouch
 	icon_state = "railing_corner"
 	density = FALSE

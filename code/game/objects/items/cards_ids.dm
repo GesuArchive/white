@@ -81,6 +81,8 @@
 
 	/// How many magical mining Disney Dollars this card has for spending at the mining equipment vendors.
 	var/mining_points = 0
+	/// Очки Рейнджеров
+	var/exploration_points = 0
 	/// The name registered on the card (for example: Dr Bryan See)
 	var/registered_name = null
 	/// Linked bank account.
@@ -557,6 +559,8 @@
 		msg += "Владелец карты имеет возраст <b>[registered_age]</b> лет. [(registered_age < AGE_MINOR) ? "Тут есть голографическая полоса, которая гласит <b><span class='danger'>'СТАЖИРОВКА: НЕ ПРОДАВАТЬ АЛКОГОЛЬ ИЛИ ТАБАК'</span></b> в самом низу карты." : ""]"
 	if(mining_points)
 		msg += "\nВау, здесь же есть [mining_points] шахтёрских очков на разные штуки из шахтёрского инвентаря."
+	if(exploration_points)
+		msg += "\nВау, здесь же есть [exploration_points] исследовательских очков на разные штуки из рейнджерского инвентаря."
 	msg += "<hr>"
 	if(registered_account)
 		msg += "Привязанный аккаунт принадлежит '[registered_account.account_holder]' и сообщает о балансе в размере <b>[registered_account.account_balance] кредит[get_num_string(registered_account.account_balance)]</b>."

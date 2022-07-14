@@ -21,7 +21,7 @@ export const NaniteProgramHub = (props, context) => {
     || [];
   return (
     <Window
-      width={500}
+      width={600}
       height={700}>
       <Window.Content scrollable>
         <Section
@@ -75,7 +75,7 @@ export const NaniteProgramHub = (props, context) => {
           )}>
           {programs !== null ? (
             <Flex>
-              <Flex.Item minWidth="150px">
+              <Flex.Item minWidth="160px">
                 <Tabs vertical>
                   {map((cat_contents, category) => {
                     const progs = cat_contents || [];

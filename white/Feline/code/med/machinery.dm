@@ -7,11 +7,43 @@
 	icon = 'icons/obj/module.dmi'
 	icon_state = "holodisk"
 
+/obj/item/painkillermodif
+	name = "Комплект модернизации: Обезболивающее"
+	desc = "Комплект для подключения мягкой анестезии, пациент не будет ощущать боли и станет легче переносить тяжелое состояние."
+	icon = 'white/Feline/icons/med_items.dmi'
+	icon_state = "painkiller_item"
+
+/obj/item/ivlmodif
+	name = "Комплект модернизации: Аппарат ИВЛ"
+	desc = "Комплект для установки аппарата ИВЛ, стабильно поддерживающий нормальный уровень кислорода."
+	icon = 'white/Feline/icons/med_items.dmi'
+	icon_state = "ivl_item"
+
 /obj/machinery/stasis/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/handbeltsmodif))
 		if(!handbeltsmod)
 			handbeltsmod = TRUE
 			add_overlay(handbeltsmod_overlay)
+			to_chat(user, span_notice("Устанавливаю генератор силового поля на стазис-кровать, теперь на ней можно фиксировать пациентов."))
+			playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
+			qdel(W)
+		else
+			to_chat(user, span_warning("Здесь уже устанавлена эта модификация."))
+
+	if(istype(W, /obj/item/painkillermodif) || istype(W, /obj/item/tank/internals/anesthetic))
+		if(!painkillermod)
+			painkillermod = TRUE
+			add_overlay(painkillermod_overlay)
+			to_chat(user, span_notice("Подключаю к стазисной кровати баллон анестезии."))
+			playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
+			qdel(W)
+		else
+			to_chat(user, span_warning("Здесь уже устанавлена эта модификация."))
+
+	if(istype(W, /obj/item/ivlmodif))
+		if(!ivlmod)
+			ivlmod = TRUE
+			add_overlay(ivlmod_overlay)
 			to_chat(user, span_notice("Устанавливаю генератор силового поля на стазис-кровать, теперь на ней можно фиксировать пациентов."))
 			playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 			qdel(W)

@@ -83,7 +83,7 @@
 		requested_overlays = overlays_to_add
 		parent_as_movable.add_overlay(requested_overlays)
 
-	parent_as_movable.name = "electrified [initial(parent_as_movable.name)]"
+	parent_as_movable.name = "искрящийся [initial(parent_as_movable.name)]"
 
 	shock_damage = damage_on_shock
 

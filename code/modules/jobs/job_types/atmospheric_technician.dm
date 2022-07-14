@@ -34,6 +34,7 @@
 	r_pocket = /obj/item/analyzer
 
 	backpack = /obj/item/storage/backpack/industrial
+	backpack_contents = list(/obj/item/extinguisher/mini=1)
 	satchel = /obj/item/storage/backpack/satchel/eng
 	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
 	box = /obj/item/storage/box/survival/engineer

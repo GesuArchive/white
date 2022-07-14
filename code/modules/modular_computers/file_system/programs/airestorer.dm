@@ -104,14 +104,14 @@
 	data["AI_present"] = FALSE
 	data["error"] = null
 	if(!aicard)
-		data["error"] = "Пожалуйста вставьте интеллкарту."
+		data["error"] = "Пожалуйста, вставьте интеллкарту."
 	else
 		if(!AI)
 			data["error"] = "ИИ не найден"
 		else
 			var/obj/item/aicard/cardhold = AI.loc
 			if(cardhold.flush)
-				data["error"] = "Выполняется форматирование." 
+				data["error"] = "Выполняется форматирование."
 			else
 				data["AI_present"] = TRUE
 				data["name"] = AI.name

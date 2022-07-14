@@ -5,9 +5,8 @@
 	inhand_icon_state = "crusher0"
 	lefthand_file = 'icons/mob/inhands/weapons/hammers_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/hammers_righthand.dmi'
-	name = "proto-kinetic crusher"
-	desc = "An early design of the proto-kinetic accelerator, it is little more than a combination of various mining tools cobbled together, forming a high-tech club. \
-	While it is an effective mining tool, it did little to aid any but the most skilled and/or suicidal miners against local fauna."
+	name = "просто-кинетический крашер"
+	desc = "Ранний прототип протокинетического ускорителя, он представляет собой комбинацию различных горнодобывающих инструментов, причудливо собранных вместе в здоровенный топор. Весьма сложный в использованнии, крашер является выбором самых опытных и отчаянных шахтеров."
 	force = 0 //You can't hit stuff unless wielded
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
@@ -55,7 +54,7 @@
 
 /obj/item/kinetic_crusher/examine(mob/living/user)
 	. = ..()
-	. += "<hr><span class='notice'>Mark a large creature with the destabilizing force, then hit them in melee to do <b>[force + detonation_damage]</b> damage.</span>"
+	. += "<hr><span class='notice'>Вы можете выстрелить в большое существо дестабилизирующим зарядом, после чего ударить его в ближнем бою, чтобы нанести <b>[force + detonation_damage]</b> урона.</span>"
 	. += span_notice("\nDoes <b>[force + detonation_damage + backstab_bonus]</b> damage if the target is backstabbed, instead of <b>[force + detonation_damage]</b>.")
 	for(var/t in trophies)
 		var/obj/item/crusher_trophy/T = t

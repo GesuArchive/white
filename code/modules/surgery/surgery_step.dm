@@ -192,7 +192,16 @@
  * * mechanical_surgery - Boolean flag that represents if a surgery step is done on a mechanical limb (therefore does not force scream)
  */
 /datum/surgery_step/proc/display_pain(mob/living/target, pain_message, mechanical_surgery = FALSE)
-	if(target.stat < UNCONSCIOUS)
-		to_chat(target, span_warning(pain_message))
-		if(prob(30) && !mechanical_surgery)
-			target.emote("agony")
+	if(HAS_TRAIT(target, TRAIT_PAINKILLER))
+		if(target.stat < UNCONSCIOUS)
+			if(prob(10) && !mechanical_surgery)
+				if(prob(50))
+					target.emote("giggle")
+				else
+					target.emote("laugh")
+				to_chat(target, span_warning(pick("Щекотно!", "Ай-ай-ай!", "Ахахаха!", "Хихихи!", "Щекотится!")))
+	else
+		if(target.stat < UNCONSCIOUS)
+			to_chat(target, span_warning(pain_message))
+			if(prob(30) && !mechanical_surgery)
+				target.emote("agony")

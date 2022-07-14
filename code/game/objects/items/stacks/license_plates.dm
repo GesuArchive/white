@@ -8,7 +8,7 @@
 
 /obj/item/stack/license_plates/empty
 	name = "пустой номерной знак"
-	desc = "Вместо номера автомобильного номера это может содержать цитату типа «Жить, смеяться, любить»."
+	desc = "Вместо автомобильного номера здесь можно отштамповать что-то вроде «Жить, смеяться, любить»."
 	merge_type = /obj/item/stack/license_plates/empty
 
 /obj/item/stack/license_plates/empty/fifty

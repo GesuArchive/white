@@ -12,8 +12,8 @@
 
 /// PM9 HEDP rocket
 /obj/projectile/bullet/a84mm
-	name ="\improper HEDP ракета"
-	desc = "USE A WEEL GUN"
+	name ="кумулятивная ракета"
+	desc = "Жги!"
 	icon_state= "84mm-hedp"
 	damage = 80
 	var/anti_armour_damage = 200
@@ -37,7 +37,7 @@
 
 /// PM9 standard rocket
 /obj/projectile/bullet/a84mm_he
-	name ="\improper HE ракета"
+	name ="фугасная ракета"
 	desc = "Бабах."
 	icon_state = "missile"
 	damage = 50
@@ -56,7 +56,7 @@
 
 /// PM9 weak rocket
 /obj/projectile/bullet/a84mm_weak
-	name ="low-yield HE missile"
+	name ="фугасная ракета"
 	desc = "Бабах, но поменьше."
 	icon_state = "missile"
 	damage = 30
@@ -75,7 +75,7 @@
 
 /// Mech BRM-6 missile
 /obj/projectile/bullet/a84mm_br
-	name ="\improper HE ракета"
+	name ="фугасная ракета"
 	desc = "Бабах."
 	icon_state = "missile"
 	damage = 30
@@ -91,7 +91,7 @@
 	)
 
 /obj/item/broken_missile
-	name = "\improper сломанная ракета"
+	name = "сломанная ракета"
 	desc = "Не сдетонировавшая ракета. Хвост сломался и использовать её повторно не получится."
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "missile_broken"

@@ -1,6 +1,6 @@
-#define SINGLE "single"
-#define VERTICAL "vertical"
-#define HORIZONTAL "horizontal"
+#define SINGLE "одиночном"
+#define VERTICAL "вертикальном"
+#define HORIZONTAL "горизонтальном"
 
 #define METAL 1
 #define WOOD 2
@@ -9,8 +9,8 @@
 //Barricades/cover
 
 /obj/structure/barricade
-	name = "chest high wall"
-	desc = "Looks like this would make good cover."
+	name = "баррикада"
+	desc = "Похоже она может послужить неплохим укрытием."
 	anchored = TRUE
 	density = TRUE
 	max_integrity = 100
@@ -31,7 +31,7 @@
 			if(!I.tool_start_check(user, amount=0))
 				return
 
-			to_chat(user, span_notice("You begin repairing [src]..."))
+			to_chat(user, span_notice("Начинаю ремонтировать [src]..."))
 			if(I.use_tool(src, user, 40, volume=40))
 				obj_integrity = clamp(obj_integrity + 20, 0, max_integrity)
 	else
@@ -56,8 +56,8 @@
 /////BARRICADE TYPES///////
 
 /obj/structure/barricade/wooden
-	name = "wooden barricade"
-	desc = "This space is blocked off by a wooden barricade."
+	name = "деревянная баррикада"
+	desc = "Ты здесь не пройдешь! Наверное..."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "woodenbarricade"
 	bar_material = WOOD
@@ -67,10 +67,10 @@
 	if(istype(I,/obj/item/stack/sheet/mineral/wood))
 		var/obj/item/stack/sheet/mineral/wood/W = I
 		if(W.amount < 5)
-			to_chat(user, span_warning("You need at least five wooden planks to make a wall!"))
+			to_chat(user, span_warning("Для укрепления баррикады мне понадобится хотя бы 5 досок!"))
 			return
 		else
-			to_chat(user, span_notice("You start adding [I] to [src]..."))
+			to_chat(user, span_notice("Начинаю укреплять баррикаду [src]..."))
 			if(do_after(user, 50, target=src))
 				W.use(5)
 				var/turf/T = get_turf(src)
@@ -81,15 +81,15 @@
 
 
 /obj/structure/barricade/wooden/crude
-	name = "crude plank barricade"
-	desc = "This space is blocked off by a crude assortment of planks."
+	name = "грубая деревянная баррикада"
+	desc = "Проход перегорожен разномастными досками."
 	icon_state = "woodenbarricade-old"
 	drop_amount = 1
 	max_integrity = 50
 	proj_pass_rate = 65
 
 /obj/structure/barricade/wooden/crude/snow
-	desc = "This space is blocked off by a crude assortment of planks. It seems to be covered in a layer of snow."
+	desc = "Проход перегорожен разномастными, покрытыми снегом, досками."
 	icon_state = "woodenbarricade-snow-old"
 	max_integrity = 75
 
@@ -97,8 +97,8 @@
 	new /obj/item/stack/sheet/mineral/wood(get_turf(src), drop_amount)
 
 /obj/structure/barricade/sandbags
-	name = "sandbags"
-	desc = "Bags of sand. Self explanatory."
+	name = "мешки с песокм"
+	desc = "Стена из мешков с песком - дешево и сердито."
 	icon = 'icons/obj/smooth_structures/sandbags.dmi'
 	icon_state = "sandbags-0"
 	base_icon_state = "sandbags"
@@ -115,8 +115,8 @@
 	AddElement(/datum/element/climbable)
 
 /obj/structure/barricade/security
-	name = "security barrier"
-	desc = "A deployable barrier. Provides good cover in fire fights."
+	name = "защитный барьер"
+	desc = "Развертываемое укрепление, предоставляет неплохую защиту от выстрелов."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "barrier0"
 	density = FALSE
@@ -138,21 +138,23 @@
 	set_density(TRUE)
 	set_anchored(TRUE)
 	if(deploy_message)
-		visible_message(span_warning("[capitalize(src.name)] deploys!"))
+		visible_message(span_warning("[capitalize(src.name)] развертывается в укрытие!"))
 
 
 /obj/item/grenade/barrier
-	name = "barrier grenade"
-	desc = "Instant cover."
+	name = "барьерная граната"
+	desc = "Карманное укрытие."
 	icon = 'icons/obj/grenade.dmi'
-	icon_state = "flashbang"
+	icon_state = "barrier_1x1"
 	inhand_icon_state = "flashbang"
 	actions_types = list(/datum/action/item_action/toggle_barrier_spread)
 	var/mode = SINGLE
+	var/arm_state = "barrier_1x1"
 
 /obj/item/grenade/barrier/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>ПКМ to toggle modes.</span>"
+	. += "<hr><span class='notice'>В данный момент [capitalize(src.name)] находится в <b>[mode]</b> режиме развертывания.</span>"
+	. += "<hr><span class='notice'>ПКМ для смены направления развертывания.</span>"
 
 /obj/item/grenade/barrier/AltClick(mob/living/carbon/user)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
@@ -163,12 +165,31 @@
 	switch(mode)
 		if(SINGLE)
 			mode = VERTICAL
+			arm_state = "barrier_1x3"
 		if(VERTICAL)
 			mode = HORIZONTAL
+			arm_state = "barrier_3x1"
 		if(HORIZONTAL)
 			mode = SINGLE
+			arm_state = "barrier_1x1"
+	icon_state = arm_state
+	to_chat(user, span_notice("В данный момент [capitalize(src.name)] находится в <b>[mode]</b> режиме развертывания."))
 
-	to_chat(user, span_notice("[capitalize(src.name)] is now in [mode] mode."))
+/obj/item/grenade/barrier/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
+	var/turf/T = get_turf(src)
+	log_grenade(user, T) //Inbuilt admin procs already handle null users
+	if(user)
+		add_fingerprint(user)
+		if(msg)
+			to_chat(user, span_warning("Активирую [src]! [capitalize(DisplayTimeText(det_time))]!"))
+	if(shrapnel_type && shrapnel_radius)
+		shrapnel_initialized = TRUE
+		AddComponent(/datum/component/pellet_cloud, projectile_type=shrapnel_type, magnitude=shrapnel_radius)
+	playsound(src, 'sound/weapons/armbomb.ogg', volume, TRUE)
+	active = TRUE
+	icon_state = arm_state + "_active"
+	SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time, delayoverride)
+	addtimer(CALLBACK(src, .proc/detonate), isnull(delayoverride)? det_time : delayoverride)
 
 /obj/item/grenade/barrier/detonate(mob/living/lanced_by)
 	. = ..()
@@ -196,8 +217,8 @@
 	toggle_mode(user)
 
 /obj/item/deployable_turret_folded
-	name = "folded heavy machine gun"
-	desc = "A folded and unloaded heavy machine gun, ready to be deployed and used."
+	name = "развертываемая туррель"
+	desc = "Тяжелая переносная турель для огневой поддержки."
 	icon = 'icons/obj/turrets.dmi'
 	icon_state = "folded_hmg"
 	max_integrity = 250

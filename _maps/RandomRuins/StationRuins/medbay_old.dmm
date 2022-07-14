@@ -4129,6 +4129,10 @@
 "MS" = (
 /obj/structure/table/reinforced,
 /obj/item/wrench/medical,
+/obj/item/storage/pill_bottle/mannitol{
+	pixel_y = 10;
+	pixel_x = -7
+	},
 /turf/open/floor/plasteel,
 /area/medical/cryo)
 "MT" = (

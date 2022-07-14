@@ -55,3 +55,11 @@
 	if(!(ACCESS_EXPLORATION in I.access))
 		return 0
 	return GLOB.exploration_points
+
+/*
+/obj/machinery/vendor/exploration/subtract_points(obj/item/card/id/I, amount)
+	I.exploration_points -= amount
+
+/obj/machinery/vendor/exploration/get_points(obj/item/card/id/I)
+	return I.exploration_points
+*/

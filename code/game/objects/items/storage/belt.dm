@@ -71,6 +71,8 @@
 		/obj/item/analyzer,
 		/obj/item/geiger_counter,
 		/obj/item/extinguisher/mini,
+		/obj/item/grenade/chem_grenade/resin_foam,
+		/obj/item/grenade/chem_grenade/smart_metal_foam,
 		/obj/item/radio,
 		/obj/item/clothing/gloves,
 		/obj/item/holosign_creator/atmos,
@@ -142,7 +144,7 @@
 	new /obj/item/wirecutters(src)
 	new /obj/item/multitool(src)
 	new /obj/item/stack/cable_coil(src)
-	new /obj/item/extinguisher/mini(src)
+	new /obj/item/grenade/chem_grenade/resin_foam(src)
 
 /obj/item/storage/belt/utility/syndicate/PopulateContents()
 	new /obj/item/screwdriver/nuke(src)
@@ -755,7 +757,7 @@
 	. = ..()
 	. += "<hr>"
 	if(length(contents))
-		. += span_notice("ПКМ, чтобы немедленно достать саблю.")
+		. += span_notice("Кликните, чтобы немедленно достать саблю.")
 
 
 /obj/item/storage/belt/sabre/attack_hand_secondary(mob/user, list/modifiers)

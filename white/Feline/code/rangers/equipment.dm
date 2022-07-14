@@ -39,7 +39,8 @@
 /datum/component/storage/concrete/pockets/tactical/Initialize(mapload)
 	. = ..()
 	set_holdable(list(/obj/item/gun/ballistic,
-					  /obj/item/gun/energy)
+					  /obj/item/gun/energy,
+					  /obj/item/kinetic_crusher)
 					  )
 
 //Спавн оружия в чехле, так можно задать пресеты, по умолчанию /obj/item/tank/internals/tactical/ должен быть пуст, а пресеты устанавливаются через наследников
@@ -99,6 +100,8 @@
 		var/obj/item/I = contents[1]
 		worn_icon_state = "full"
 		playsound(I, 'sound/items/equip/toolbelt_equip.ogg', 25, TRUE)
+		if(istype(I,/obj/item/kinetic_crusher))
+			icon_state = "crusher"
 		if(istype(I,/obj/item/gun))
 			icon_state = "box"
 		if(istype(I,/obj/item/gun/ballistic/automatic/pistol))
@@ -149,6 +152,7 @@
 			icon_state = "pulse"
 		if(istype(I,/obj/item/gun/energy/pulse/pistol))
 			icon_state = "pistol"
+//		user.update_inv_s_store()
 	return ..()
 
 

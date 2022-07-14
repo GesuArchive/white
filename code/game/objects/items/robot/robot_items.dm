@@ -172,7 +172,7 @@
 	. = ..()
 	if(!proximity_flag || !iscyborg(user))
 		return
-	if(mode == "draw")
+	if(mode == "draw")	// Вытягивание из машины
 		if(is_type_in_list(target, charge_machines))
 			var/obj/machinery/M = target
 			if((M.machine_stat & (NOPOWER|BROKEN)) || !M.anchored)
@@ -187,15 +187,15 @@
 				if((M.machine_stat & (NOPOWER|BROKEN)) || !M.anchored)
 					break
 
-				if(!user.cell.give(150))
+				if(!user.cell.give(500))
 					break
 
-				M.use_power(200)
+				M.use_power(500)
 				do_sparks(1, FALSE, target)
 
 			to_chat(user, span_notice("Извлекаю зарядник."))
 
-		else if(is_type_in_list(target, charge_items))
+		else if(is_type_in_list(target, charge_items))	// Вытягивание из оружия или батареи
 			var/obj/item/stock_parts/cell/cell = target
 			if(!istype(cell))
 				cell = locate(/obj/item/stock_parts/cell) in target
@@ -225,7 +225,7 @@
 				if(cell != target && cell.loc != target)
 					return
 
-				var/draw = min(cell.charge, cell.chargerate*0.5, user.cell.maxcharge-user.cell.charge)
+				var/draw = min(cell.charge, cell.chargerate, user.cell.maxcharge-user.cell.charge)
 				if(!cell.use(draw))
 					break
 				if(!user.cell.give(draw))
@@ -235,7 +235,7 @@
 
 			to_chat(user, span_notice("Извлекаю зарядник."))
 
-	else if(is_type_in_list(target, charge_items))
+	else if(is_type_in_list(target, charge_items))	// 	Зарядка батареи или оружия
 		var/obj/item/stock_parts/cell/cell = target
 		if(!istype(cell))
 			cell = locate(/obj/item/stock_parts/cell) in target
@@ -264,7 +264,7 @@
 			if(cell != target && cell.loc != target)
 				return
 
-			var/draw = min(user.cell.charge, cell.chargerate*0.5, cell.maxcharge-cell.charge)
+			var/draw = min(user.cell.charge, cell.chargerate, cell.maxcharge-cell.charge)
 			if(!user.cell.use(draw))
 				break
 			if(!cell.give(draw))

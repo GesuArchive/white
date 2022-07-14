@@ -272,9 +272,16 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(!H.mind || !H.mind.miming)
-			if(user.gender == FEMALE)
-				return pick('white/valtos/sounds/emotes/giggle_female_1.ogg',\
-							'white/valtos/sounds/emotes/giggle_female_2.ogg')
+			if(isfelinid(H))
+				return pick('white/Feline/sounds/emotes/felinid_giggle_1.ogg',\
+							'white/Feline/sounds/emotes/felinid_giggle_2.ogg',\
+							'white/Feline/sounds/emotes/felinid_giggle_3.ogg',\
+							'white/Feline/sounds/emotes/felinid_giggle_4.ogg',\
+							'white/Feline/sounds/emotes/felinid_giggle_5.ogg')
+			else
+				if(user.gender == FEMALE)
+					return pick('white/valtos/sounds/emotes/giggle_female_1.ogg',\
+								'white/valtos/sounds/emotes/giggle_female_2.ogg')
 
 /datum/emote/living/glare
 	key = "glare"
@@ -339,7 +346,7 @@
 	message = "смеётся."
 	message_mime = "тихо смеётся!"
 	emote_type = EMOTE_AUDIBLE
-	vary = TRUE
+	vary = FALSE
 
 /datum/emote/living/laugh/can_run_emote(mob/living/user, status_check = TRUE , intentional)
 	. = ..()
@@ -354,10 +361,11 @@
 			if(ismoth(H) || isflyperson(H))
 				return 'white/tapko4eb/sounds/emotes/mothlaugh.ogg' // bed rustle
 			if(isfelinid(H))
-				return pick('white/tapko4eb/sounds/emotes/nyaha.ogg',\
-							'white/tapko4eb/sounds/emotes/nyahaha1.ogg',\
-							'white/tapko4eb/sounds/emotes/nyahaha2.ogg',\
-							'white/tapko4eb/sounds/emotes/nyahehe.ogg')
+				return pick('white/Feline/sounds/emotes/felinid_laugh_1.ogg',\
+							'white/Feline/sounds/emotes/felinid_laugh_2.ogg',\
+							'white/Feline/sounds/emotes/felinid_laugh_3.ogg',\
+							'white/Feline/sounds/emotes/felinid_laugh_4.ogg',\
+							'white/Feline/sounds/emotes/felinid_laugh_5.ogg')
 			else
 				if(user.gender == FEMALE)
 					return pick('white/valtos/sounds/emotes/laugh_female_1.ogg',\

@@ -367,6 +367,20 @@
 	mix_message = "Раствор превращается в металлическую пену и прилегает к стенкам контейнера."
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_UNIQUE
 
+/datum/chemical_reaction/resin_foaming_agent
+	results = list(/datum/reagent/resin_foaming_agent = 3)
+	required_reagents = list(/datum/reagent/foaming_agent = 3, /datum/reagent/acetone = 1, /datum/reagent/carbon = 1)
+	mix_message = "Раствор превращается в резиновую пену и прилегает к стенкам контейнера."
+	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_UNIQUE
+
+/datum/chemical_reaction/resin_foam
+	required_reagents = list(/datum/reagent/aluminium = 3, /datum/reagent/resin_foaming_agent = 1, /datum/reagent/toxin/acid/fluacid = 1)
+	mob_react = TRUE
+	reaction_flags = REACTION_INSTANT
+	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_UNIQUE
+
+/datum/chemical_reaction/resin_foam/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
+	holder.create_foam(/datum/effect_system/foam_spread/metal,5*created_volume,3,span_danger("Раствор выделяет противопожарную пену!"))
 
 /////////////////////////////// Cleaning and hydroponics /////////////////////////////////////////////////
 

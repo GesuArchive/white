@@ -662,7 +662,7 @@
 	display_name = "Криостазис"
 	description = "Технология остановки химических и биологических процессов."
 	prereq_ids = list("adv_engi", "biotech")
-	design_ids = list("splitbeaker", "cryotube", "cryo_Grenade", "stasis")
+	design_ids = list("splitbeaker", "cryotube", "cryo_Grenade", "stasis", "painkillermodif")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2000)
 
 /datum/techweb_node/subdermal_implants

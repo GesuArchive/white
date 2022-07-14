@@ -527,17 +527,7 @@
 	inhand_icon_state = "nitrilegloves"
 	clothing_traits = list(TRAIT_QUICKER_CARRY, TRAIT_FASTMED, TRAIT_QUICKER_PULLING)
 	transfer_prints = FALSE
-/*
-/obj/item/clothing/gloves/color/latex/nitrile/polymer/equipped(mob/living/user, slot)
-	. = ..()
-	if(slot == ITEM_SLOT_GLOVES)
-		user.slowed_by_drag = FALSE
 
-/obj/item/clothing/gloves/color/latex/nitrile/polymer/dropped(mob/living/user)
-	. = ..()
-	if(user.get_item_by_slot(ITEM_SLOT_GLOVES) == src)
-		user.slowed_by_drag = TRUE
-*/
 // 	Головные уборы Полевика
 
 /obj/item/clothing/head/helmet/field_med
@@ -602,6 +592,7 @@
 	new /obj/item/storage/box/trackimp(src)
 	new /obj/item/storage/box/chemimp(src)
 	new /obj/item/storage/firstaid/medical/field_surgery(src)
+	new /obj/item/defibrillator/compact/loaded(src)
 	new /obj/item/optable(src)
 	new /obj/item/modular_computer/laptop/preset/medical(src)
 
