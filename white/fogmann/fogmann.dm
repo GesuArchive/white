@@ -5,6 +5,8 @@
 	name = "Hunting rifle"
 	desc = "A traditional hunting rifle with 4x scope and a four-shell capacity underneath."
 	icon = 'white/pieceofcrap.dmi'
+	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
 	icon_state = "tranqshotgun"
 	inhand_icon_state = "sniper"
 	w_class = WEIGHT_CLASS_BULKY
