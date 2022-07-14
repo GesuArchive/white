@@ -18,12 +18,13 @@
 	var/datum/callback/post_untipped_callback
 
 /datum/component/tippable/Initialize(
-		tip_time = 3 SECONDS,
-		untip_time = 1 SECONDS,
-		self_right_time = 60 SECONDS,
-		datum/callback/pre_tipped_callback,
-		datum/callback/post_tipped_callback,
-		datum/callback/post_untipped_callback)
+	tip_time = 3 SECONDS,
+	untip_time = 1 SECONDS,
+	self_right_time = 60 SECONDS,
+	datum/callback/pre_tipped_callback,
+	datum/callback/post_tipped_callback,
+	datum/callback/post_untipped_callback,
+)
 
 	if(!isliving(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -36,10 +37,10 @@
 	src.post_untipped_callback = post_untipped_callback
 
 /datum/component/tippable/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND, .proc/interact_with_tippable)
+	RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND_SECONDARY, .proc/interact_with_tippable)
 
 /datum/component/tippable/UnregisterFromParent()
-	UnregisterSignal(parent, COMSIG_ATOM_ATTACK_HAND)
+	UnregisterSignal(parent, COMSIG_ATOM_ATTACK_HAND_SECONDARY)
 
 /datum/component/tippable/Destroy()
 	if(pre_tipped_callback)
@@ -55,9 +56,8 @@
  *
  * source - the mob being tipped over
  * user - the mob interacting with source
- * modifiers - list of on click modifiers (we only tip mobs over using right click!)
  */
-/datum/component/tippable/proc/interact_with_tippable(mob/living/source, mob/user, modifiers)
+/datum/component/tippable/proc/interact_with_tippable(mob/living/source, mob/user)
 	SIGNAL_HANDLER
 
 	var/mob/living/living_user = user
@@ -68,7 +68,7 @@
 
 	if(is_tipped)
 		INVOKE_ASYNC(src, .proc/try_untip, source, user)
-	else if(LAZYACCESS(modifiers, RIGHT_CLICK))
+	else
 		INVOKE_ASYNC(src, .proc/try_tip, source, user)
 
 	return COMPONENT_CANCEL_ATTACK_CHAIN
@@ -89,15 +89,15 @@
 		return
 
 	if(tip_time > 0)
-		to_chat(tipper, span_warning("You begin tipping over [tipped_mob]..."))
+		to_chat(tipper, span_warning("Начинаю переворачивать [tipped_mob]..."))
 		tipped_mob.visible_message(
-			span_warning("[tipper] begins tipping over [tipped_mob]."),
-			span_userdanger("[tipper] begins tipping you over!"),
+			span_warning("[tipper] начинает переворачивать [tipped_mob]."),
+			span_userdanger("[tipper] начинает меня переворачивать!"),
 			ignored_mobs = tipper
 		)
 
 		if(!do_after(tipper, tip_time, target = tipped_mob))
-			to_chat(tipper, span_danger("You fail to tip over [tipped_mob]."))
+			to_chat(tipper, span_danger("Не удалось перевернуть [tipped_mob]."))
 			return
 	do_tip(tipped_mob, tipper)
 
@@ -113,10 +113,10 @@
 	if(QDELETED(tipped_mob))
 		CRASH("Tippable component: do_tip() called with QDELETED tipped_mob!")
 
-	to_chat(tipper, span_warning("You tip over [tipped_mob]."))
+	to_chat(tipper, span_warning("Переворачиваю [tipped_mob]."))
 	tipped_mob.visible_message(
-		span_warning("[tipper] tips over [tipped_mob]."),
-		span_userdanger("You are tipped over by [tipper]!"),
+		span_warning("[tipper] переворачивает [tipped_mob]."),
+		span_userdanger("[tipper] переворачивает меня!"),
 		ignored_mobs = tipper
 		)
 
@@ -138,15 +138,15 @@
  */
 /datum/component/tippable/proc/try_untip(mob/living/tipped_mob, mob/untipper)
 	if(untip_time > 0)
-		to_chat(untipper, span_notice("You begin righting [tipped_mob]..."))
+		to_chat(untipper, span_notice("Начинаю ставить на место [tipped_mob]..."))
 		tipped_mob.visible_message(
-			span_notice("[untipper] begins righting [tipped_mob]."),
-			span_notice("[untipper] begins righting you."),
+			span_notice("[untipper] начинает ставить на место [tipped_mob]."),
+			span_notice("[untipper] начинает ставить меня на место."),
 			ignored_mobs = untipper
 		)
 
 		if(!do_after(untipper, untip_time, target = tipped_mob))
-			to_chat(untipper, span_warning("You fail to right [tipped_mob]."))
+			to_chat(untipper, span_warning("Не вышло поставить на место [tipped_mob]."))
 			return
 
 	do_untip(tipped_mob, untipper)
@@ -162,10 +162,10 @@
 	if(QDELETED(tipped_mob))
 		return
 
-	to_chat(untipper, span_notice("You right [tipped_mob]."))
+	to_chat(untipper, span_notice("Ставлю на место [tipped_mob]."))
 	tipped_mob.visible_message(
-		span_notice("[untipper] rights [tipped_mob]."),
-		span_notice("You are righted by [untipper]!"),
+		span_notice("[untipper] ставит на место [tipped_mob]."),
+		span_notice("[untipper] ставит меня на место!"),
 		ignored_mobs = untipper
 		)
 
@@ -186,8 +186,8 @@
 	post_untipped_callback?.Invoke()
 
 	tipped_mob.visible_message(
-		span_notice("[tipped_mob] rights itself."),
-		span_notice("You right yourself.")
+		span_notice("[tipped_mob] переворачивается сам по себе."),
+		span_notice("Переворачиваюсь.")
 		)
 
 /*
