@@ -1109,3 +1109,40 @@
 	glass_name = "стакан töchtaüse syrup"
 	glass_desc = "Not for drinking on its own."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/consumable/rootbeer
+	name = "root beer"
+	description = "A delightfully bubbly root beer, filled with so much sugar that it can actually speed up the user's trigger finger."
+	color = "#181008" // rgb: 24, 16, 8
+	quality = DRINK_VERYGOOD
+	nutriment_factor = 10 * REAGENTS_METABOLISM
+	metabolization_rate = 2 * REAGENTS_METABOLISM
+	taste_description = "a monstrous sugar rush"
+	glass_icon_state = "spacecola"
+	glass_name = "glass of root beer"
+	glass_desc = "A glass of highly potent, incredibly sugary root beer."
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	/// If we activated the effect
+	var/effect_enabled = FALSE
+
+/datum/reagent/consumable/rootbeer/on_mob_end_metabolize(mob/living/L)
+	REMOVE_TRAIT(L, TRAIT_DOUBLE_TAP, type)
+	if(current_cycle > 10)
+		to_chat(L, span_warning("You feel kinda tired as your sugar rush wears off..."))
+		L.adjustStaminaLoss(min(80, current_cycle * 3))
+		L.drowsyness += current_cycle
+	..()
+
+/datum/reagent/consumable/rootbeer/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+	if(current_cycle >= 3 && !effect_enabled) // takes a few seconds for the bonus to kick in to prevent microdosing
+		to_chat(M, span_notice("You feel your trigger finger getting itchy..."))
+		ADD_TRAIT(M, TRAIT_DOUBLE_TAP, type)
+		effect_enabled = TRUE
+
+	M.jitteriness += 2
+	if(prob(50))
+		M.dizziness += 2
+	if(current_cycle > 10)
+		M.dizziness += 3
+	..()
+	. = TRUE

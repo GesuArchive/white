@@ -361,6 +361,10 @@
 		randomized_gun_spread =	rand(0,spread)
 	var/randomized_bonus_spread = rand(base_bonus_spread, bonus_spread)
 
+	var/modified_delay = fire_delay
+	if(user && HAS_TRAIT(user, TRAIT_DOUBLE_TAP))
+		modified_delay = ROUND_UP(fire_delay * 0.5)
+
 	if(check_for_assblast(user, ASSBLAST_WIZARD)) //nice shootin' tex nice shootin' tex nice shootin' tex nice shootin' tex
 		user.emote("spin")
 		randomized_gun_spread = 360
@@ -369,7 +373,7 @@
 	if(burst_size > 1)
 		firing_burst = TRUE
 		for(var/i = 1 to burst_size)
-			addtimer(CALLBACK(src, .proc/process_burst, user, target, message, params, zone_override, sprd, randomized_gun_spread, randomized_bonus_spread, rand_spr, i), fire_delay * (i - 1))
+			addtimer(CALLBACK(src, .proc/process_burst, user, target, message, params, zone_override, sprd, randomized_gun_spread, randomized_bonus_spread, rand_spr, i), modified_delay * (i - 1))
 	else
 		if(chambered)
 			if(HAS_TRAIT(user, TRAIT_PACIFISM)) // If the user has the pacifist trait, then they won't be able to fire [src] if the round chambered inside of [src] is lethal.
@@ -392,7 +396,7 @@
 		process_chamber()
 		update_appearance()
 		semicd = TRUE
-		addtimer(CALLBACK(src, .proc/reset_semicd), fire_delay)
+		addtimer(CALLBACK(src, .proc/reset_semicd), modified_delay)
 
 	if(user)
 		user.update_inv_hands()

@@ -183,3 +183,10 @@
 	name = "герметичные перчатки интерна ЦентКома"
 	icon_state = "internplasma"
 	inhand_icon_state = "internplasma"
+
+/obj/item/clothing/gloves/race
+	name = "гоночные перчатки"
+	desc = "Высококачественные перчатки, используются гонщиками."
+	clothing_traits = list(TRAIT_DOUBLE_TAP)
+	icon_state = "black"
+	inhand_icon_state = "blackgloves"
