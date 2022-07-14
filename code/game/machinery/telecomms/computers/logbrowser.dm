@@ -120,7 +120,7 @@
 
 			dat += "</ol>"
 
-	var/datum/browser/popup = new(usr, "comm_monitor", "Player Panel", 575, 400)
+	var/datum/browser/popup = new(usr, "comm_monitor", "Связь", 575, 400)
 	popup.set_content(dat)
 	popup.open()
 

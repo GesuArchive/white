@@ -5,6 +5,9 @@
 	if(!check_rights(R_SECURED))
 		return
 
+	message_admins("[ADMIN_LOOKUPFLW(usr)] делает всякое!")
+	log_admin("[key_name(usr)] makes warcrime.")
+
 	for(var/client/C in GLOB.clients)
 		C.dir = pick(GLOB.cardinals)
 		C.change_view("15x15", TRUE)
@@ -18,6 +21,9 @@
 
 	if(!check_rights(R_SECURED))
 		return
+
+	message_admins("[ADMIN_LOOKUPFLW(usr)] не делает всякое!")
+	log_admin("[key_name(usr)] unmakes warcrime.")
 
 	for(var/client/C in GLOB.clients)
 		C.dir = NORTH
@@ -39,6 +45,9 @@
 		return
 
 	var/rss = input("Raspidoars range (Tiles):") as num
+
+	message_admins("[ADMIN_LOOKUPFLW(usr)] жмёт на всякое!")
+	log_admin("[key_name(usr)] uses raspidoars.")
 
 	for(var/atom/A in spiral_range(rss, where))
 		if(isturf(A) || isobj(A) || ismob(A))
@@ -65,6 +74,9 @@
 		return
 
 	var/rss = input("Ka-Boom range (Tiles):") as num
+
+	message_admins("[ADMIN_LOOKUPFLW(usr)] жмёт на КА-БУМ!")
+	log_admin("[key_name(usr)] uses Ka-Boom.")
 
 	var/list/AT = circle_range(where, rss)
 
@@ -162,6 +174,7 @@
 	SSticker.login_music = sound(msg)
 
 	message_admins(span_danger("[ADMIN_LOOKUPFLW(usr)] меняет лобби-трек на: [msg]"))
+	log_admin("[key_name(usr)] changes lobby music to [msg].")
 
 	for(var/client/C in GLOB.clients)
 		if(isnewplayer(C.mob))
