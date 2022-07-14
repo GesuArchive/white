@@ -299,7 +299,7 @@
 	armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
 	damage_deflection = 90
-	poddoor = TRUE
+	can_open_with_hands = FALSE
 	safe = FALSE
 	use_power = NO_POWER_USE
 	var/id = 1
