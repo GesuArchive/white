@@ -80,7 +80,7 @@
 	else if(materials?.on_hold())
 		. += span_warning("\nДоступ к рудным бункерам заблокирован, обратитесь к завхозу.")
 
-/obj/machinery/bluespace_miner/attackby(obj/item/O, mob/user, params)
+/obj/machinery/mineral/bluespace_miner/attackby(obj/item/O, mob/user, params)
 	if(user.a_intent == INTENT_HARM)
 		return ..()
 
