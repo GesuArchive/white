@@ -531,3 +531,10 @@
 /obj/item/clothing/suit/toggle/armor/hos/hos_formal/Initialize(mapload)
 	. = ..()
 	allowed = GLOB.security_wintercoat_allowed
+
+/obj/item/clothing/suit/armor/vest/hop
+	name = "пальто главы персонала"
+	desc = "Стильное."
+	icon_state = "hop_coat"
+	inhand_icon_state = "b_suit"
+	body_parts_covered = CHEST|GROIN|ARMS

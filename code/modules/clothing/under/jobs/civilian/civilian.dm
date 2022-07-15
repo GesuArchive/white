@@ -63,6 +63,7 @@
 	name = "комбинезон главы персонала"
 	icon_state = "hop"
 	inhand_icon_state = "b_suit"
+	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/civilian/head_of_personnel/skirt
 	name = "юбка главы персонала"
