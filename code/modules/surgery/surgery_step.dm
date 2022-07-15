@@ -202,6 +202,8 @@
 				to_chat(target, span_warning(pick("Щекотно!", "Ай-ай-ай!", "Ахахаха!", "Хихихи!", "Щекотится!")))
 	else
 		if(target.stat < UNCONSCIOUS)
+			target.overlay_fullscreen("pain", /atom/movable/screen/fullscreen/pain, 1)
+			addtimer(CALLBACK(target, /mob/.proc/clear_fullscreen, "pain", 1 SECONDS), 1 SECONDS)
 			to_chat(target, span_warning(pain_message))
 			if(prob(30) && !mechanical_surgery)
 				target.emote("agony")
