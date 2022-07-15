@@ -41,6 +41,7 @@
 #define ROLE_DEATHSQUAD			"Deathsquad"
 #define ROLE_LAVALAND			"Lavaland"
 #define ROLE_ICECREAM			"Ice Cream"
+#define ROLE_YOHEI				"Yohei"
 #define ROLE_INTERNAL_AFFAIRS	"Internal Affairs Agent"
 #define ROLE_FAMILIES			"Familes Antagonists"
 #define ROLE_SYNDICATE_CYBERSUN			"Cybersun Space Syndicate"		//Ghost role syndi from Forgottenship ruin

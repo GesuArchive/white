@@ -303,6 +303,7 @@
 				ROLE_POSIBRAIN,
 				ROLE_SENTIENCE,
 				ROLE_ICECREAM,
+				ROLE_YOHEI,
 			),
 			"Antagonist Positions" = list(
 				ROLE_ABDUCTOR,

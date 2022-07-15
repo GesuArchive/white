@@ -281,7 +281,7 @@
 /datum/bounty/item/assistant/donbas
 	name = "Русская поваренная книга"
 	description = "На станции 16 умер русский повар. Отправьте им несколько 'Русская поваренная книга', чтобы обучить новых специалистов."
-	required_count = 4
+	required_count = 2
 	include_subtypes = FALSE
 	wanted_types = list(/obj/item/book/granter/crafting_recipe/cookbook)
 

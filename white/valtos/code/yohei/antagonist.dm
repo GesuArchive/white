@@ -20,7 +20,7 @@
 	. = ..()
 
 /datum/antagonist/yohei/greet()
-	to_chat(owner, span_warning("<B>Неужели, хоть кто-то решился на это. Теперь надо подумать как уберечь задницу [protected_guy.name] от смерти.</B>"))
+	to_chat(owner, span_warning  ("<B>Базовый контракт заморожен. Согласно протоколу 'WhiteHat'[protected_guy.name] теперь мой начальник и желательно защитить его от смерти.</B>"))
 
 //Squashed up a bit
 /datum/antagonist/yohei/roundend_report()
@@ -34,5 +34,5 @@
 	if(objectives_complete)
 		return "<span class='greentext big'>[owner.name] успешно выполняет работу.</span>"
 	else
-		return "<span class='redtext big'>[owner.name] обосрался, позор!</span>"
+		return "<span class='redtext big'>[owner.name] не смог выполнить обязательства контракта, позор!</span>"
 
