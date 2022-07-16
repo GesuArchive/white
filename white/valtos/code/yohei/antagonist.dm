@@ -17,10 +17,15 @@
 
 /datum/antagonist/yohei/on_gain()
 	forge_objectives()
+	if(GLOB.yohei_main_controller)
+		var/obj/lab_monitor/yohei/LM = GLOB.yohei_main_controller
+		var/mob/living/yohei = owner.current
+		LM.remove_from_action_guys(yohei)
 	. = ..()
 
 /datum/antagonist/yohei/greet()
 	to_chat(owner, span_warning  ("<B>Базовый контракт заморожен. Согласно протоколу 'WhiteHat'[protected_guy.name] теперь мой начальник и желательно защитить его от смерти.</B>"))
+
 
 //Squashed up a bit
 /datum/antagonist/yohei/roundend_report()

@@ -90,11 +90,23 @@
 	return FALSE
 
 /obj/lab_monitor/yohei/proc/add_to_action_guys(mob/living/user)
+	if(is_hired_yohei(user))
+		log_admin("[user.ckey] пытался получить задание будучи нанятым.")
+		message_admins("[user.ckey] пытался получить задание будучи нанятым.")
+		say("Вы не можете работать по базовому контракту.")
+		return FALSE
 	if(!(user in action_guys)) // sanity check
 		action_guys += user
 		internal_radio.talk_into(src, "[user.name] был добавлен в список исполнителей задания.", FREQ_YOHEI)
 		return TRUE
 	return FALSE
+
+/obj/lab_monitor/yohei/proc/remove_from_action_guys(mob/living/user)
+	if((user in action_guys))
+		action_guys -= user
+		internal_radio.talk_into(src, "[user.name] был вычеркнут из исполнителей в связи с работой по протоколу 'WhiteHat'.", FREQ_YOHEI)
+	else
+		internal_radio.talk_into(src, "[user.name] начинает работу по протоколу 'WhiteHat'.", FREQ_YOHEI)
 
 /obj/lab_monitor/yohei/AltClick(mob/user)
 	. = ..()
