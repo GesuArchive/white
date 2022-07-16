@@ -216,45 +216,46 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		load_character(default_slot) // Reloads the character slot. Prevents random features from overwriting the slot if saved.
 		slot_randomized = FALSE
 	update_preview_icon()
-	var/list/dat = list("<center>")
+	var/list/dat = list("<div id='prefsel'><div id='prefsel_menu'><div class='prefsel_menu_header'>Меню</div><ul>")
 
-	dat += "<a href='?_src_=prefs;preference=tab;tab=0' [current_tab == 0 ? "class='linkOn'" : ""]>Персонаж</a>"
-	dat += "<a href='?_src_=prefs;preference=tab;tab=1' [current_tab == 1 ? "class='linkOn'" : ""]>Магазин</a>"
-	dat += "<a href='?_src_=prefs;preference=tab;tab=2' [current_tab == 2 ? "class='linkOn'" : ""]>Игра</a>"
-	dat += "<a href='?_src_=prefs;preference=tab;tab=3' [current_tab == 3 ? "class='linkOn'" : ""]>OOC</a>"
-	dat += "<a href='?_src_=prefs;preference=tab;tab=4' [current_tab == 4 ? "class='linkOn'" : ""]>Хоткеи</a>"
+	dat += "<li><a href='?_src_=prefs;preference=tab;tab=0' [current_tab == 0 ? "class='linkOn'" : ""]>Персонаж</a></li>"
+	dat += "<li><a href='?_src_=prefs;preference=tab;tab=1' [current_tab == 1 ? "class='linkOn'" : ""]>Магазин</a></li>"
+	dat += "<li><a href='?_src_=prefs;preference=tab;tab=2' [current_tab == 2 ? "class='linkOn'" : ""]>Игра</a></li>"
+	dat += "<li><a href='?_src_=prefs;preference=tab;tab=3' [current_tab == 3 ? "class='linkOn'" : ""]>OOC</a></li>"
+	dat += "<li><a href='?_src_=prefs;preference=tab;tab=4' [current_tab == 4 ? "class='linkOn'" : ""]>Хоткеи</a></li>"
+	dat += "</ul>"
 
-	if(!path)
-		dat += "<div class='notice'>Создайте своего первого персонажа.</div>"
+	dat += "<div class='prefsel_menu_header'>Настройки</div><ul>"
 
-	dat += "</center>"
+	if(!is_guest_key(user.key))
+		dat += "<li><a href='?_src_=prefs;preference=load'>Отмена</a></li>"
+		dat += "<li><a href='?_src_=prefs;preference=save'>Сохранить</a></li>"
 
-	dat += "<HR>"
+	dat += "<li><a href='?_src_=prefs;preference=reset_all'>Сбросить</a></li></ul>"
+
+	if(current_tab != 0)
+		dat += "</div><div id='prefsel_main'>"
 
 	switch(current_tab)
 		if (0) // Character Settings#
+			dat += "<div class='prefsel_menu_header'>Персонаж</div><ul>"
+			dat += "<li><a href='?_src_=prefs;preference=job;task=menu'>Должности</a></li>"
+			if(CONFIG_GET(flag/roundstart_traits))
+				dat += "<li><a href='?_src_=prefs;preference=trait;task=menu'>Особенности</a></li>"
+			dat += "</ul><div class='prefsel_menu_header'>Персонажи</div><ul>"
 			if(path)
 				var/savefile/S = new /savefile(path)
 				if(S)
-					dat += "<div class='csetup_characters'>"
+					dat += "<li>"
 					var/name
 					for(var/i=1, i<=max_slots, i++)
 						S.cd = "/character[i]"
 						S["real_name"] >> name
 						if(!name)
 							name = "Персонаж [i]"
-						dat += "<a class='csetup_characters_character' href='?_src_=prefs;preference=changeslot;num=[i];' [i == default_slot ? "class='linkOn'" : ""]>[name]</a> "
-					dat += "</div>"
-			dat += "<div class='csetup_occupations'>"
-			dat += "<h2>Предпочтительные должности</h2>"
-			dat += "<a class='csetup_occupations_choose' href='?_src_=prefs;preference=job;task=menu'>Выбрать</a>"
-			if(CONFIG_GET(flag/roundstart_traits))
-				dat += "<h2>Особенности</h2>"
-				dat += "<a class='csetup_occupations_choose' href='?_src_=prefs;preference=trait;task=menu'>Настроить особенности</a></center>"
-				dat += "<center><b>Текущие особенности:</b> [all_quirks.len ? all_quirks.Join(", ") : "Нет"]</center></div>"
-			else
-				dat += "</div>"
-			dat += "<div class='csetup_main'>"
+						dat += "<a href='?_src_=prefs;preference=changeslot;num=[i];' [i == default_slot ? "class='linkOn'" : ""]>[name]</a> "
+					dat += "</li>"
+			dat += "</ul></div><div id='prefsel_main'><div class='csetup_main'>"
 			if(is_banned_from(user.ckey, "Appearance"))
 				dat += "<div class='csetup_banned'>Тебе нельзя. Ты всё ещё можешь настраивать персонажей, но в любом случае получишь случайную внешность и имя.</div>"
 			dat += "<div class='csetup_content'><div class='csetup_header'>Имя</div>"
@@ -414,7 +415,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if(pref_species.mutant_bodyparts["ears"])
 				dat += SETUP_NODE_INPUT("Уши", "ears", features["ears"])
 
-			dat += "</div></div>"
+			dat += "</div></div></div>"
 
 		if(1)
 			var/list/type_blacklist = list()
@@ -738,14 +739,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						dat += SETUP_CLOSE_NODE
 				dat += "</div>"
 			dat += "</div>"
-	dat += "<hr><center>"
-
-	if(!is_guest_key(user.key))
-		dat += "<a href='?_src_=prefs;preference=load'>Отмена</a> "
-		dat += "<a href='?_src_=prefs;preference=save'>Сохранить</a> "
-
-	dat += "<a href='?_src_=prefs;preference=reset_all'>Сбросить</a>"
-	dat += "</center>"
+	dat += "</div>"
 
 	var/datum/asset/stuff = get_asset_datum(/datum/asset/simple/metacoins)
 	stuff.send(user)
