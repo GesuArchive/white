@@ -95,3 +95,12 @@
 	min_players = 0
 	max_players = 16
 	theme = "std"
+
+/datum/map_template/violence/desert
+	name = "Пустыня"
+	description = "Черви проголодались и... ушли из этой зоны боевых действий, ну дела!"
+	mappath = "_maps/map_files/Warfare/violence11.dmm"
+	weight = 9
+	min_players = 16
+	max_players = 64
+	theme = "std"
