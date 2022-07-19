@@ -70,3 +70,8 @@
 			if(A.alarm_manager.send_alarm(ALARM_ATMOS))
 				A.post_alert(2)
 			A.update_icon()
+
+/datum/wires/airalarm/can_reveal_wires(mob/user)
+	if(HAS_TRAIT(user, TRAIT_KNOW_ENGI_WIRES))
+		return TRUE
+	return ..()

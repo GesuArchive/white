@@ -21,6 +21,16 @@
 	report_message = "В экспериментальных целях ИИ этой станции может показывать отклонение от установленного по умолчанию закона. Не вмешивайтесь в этот эксперимент."
 	trait_to_give = STATION_TRAIT_UNIQUE_AI
 
+/datum/station_trait/antimerc
+	name = "Защита от наемников"
+	trait_type = STATION_TRAIT_NEUTRAL
+	weight = 10
+	show_in_report = TRUE
+	report_message = "Наши юристы проставили галочку на запрет работы наёмников Y corp в секторе пребывания станции. Безопасного вам дня."
+
+/datum/station_trait/antimerc/on_round_start()
+	GLOB.migger_alarm = TRUE
+
 /datum/station_trait/ian_adventure
 	name = "Приключение Яна"
 	trait_type = STATION_TRAIT_NEUTRAL
