@@ -360,14 +360,21 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 */
 
 GLOBAL_VAR_INIT(status_for_mentally_ill_amoeba_users, TRUE)
+GLOBAL_VAR_INIT(custom_status_text, "- Pyccкий язык\n - Уникaльныe peжимы\n - Интepecныe ивeнты\n - Выcoкий уpoвeнь poлeвoй игpы\n\[<b>Мы тeбя ЖДЁМ</b>")
 
 /world/proc/update_status()
 
+	var/s = ""
+
 	if(GLOB.status_for_mentally_ill_amoeba_users)
-		status = "SS13.SU\] <b>Бeлaя Мeчтa:</b> <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n - Pyccкий язык\n - Уникaльныe peжимы\n - Интepecныe ивeнты\n - Выcoкий уpoвeнь poлeвoй игpы\n\[<b>Мы тeбя ЖДЁМ</b>"
+		s = "SS13.SU\] <b>Бeлaя Мeчтa:</b> <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n" // length 87
+
+		s += GLOB.custom_status_text // 168 max
+
+		status = s
 		return
 
-	var/s = "SS13.SU\] <big><b>FDev: White Dream: RU</b></big> <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n"
+	s = "SS13.SU\] <big><b>FDev: White Dream: RU</b></big> <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n"
 
 	switch(rand(1, 6))
 		if(1)
