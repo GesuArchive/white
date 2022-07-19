@@ -5,6 +5,9 @@
 	collision_flags = NONE
 	render_mode = RENDER_MODE_SHUTTLE
 	priority = 10
+
+	ignore_gravity = TRUE
+
 	var/shuttle_port_id
 	//Shuttle data
 	var/max_thrust = 5
