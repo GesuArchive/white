@@ -360,7 +360,7 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 */
 
 GLOBAL_VAR_INIT(status_for_mentally_ill_amoeba_users, TRUE)
-GLOBAL_VAR_INIT(custom_status_text, "- Pyccкий язык\n - Уникaльныe peжимы\n - Интepecныe ивeнты\n - Выcoкий уpoвeнь poлeвoй игpы\n\[<b>Мы тeбя ЖДЁМ</b>")
+GLOBAL_VAR_INIT(custom_status_text, "- Pyccкий язык\n - Coбcтвeнныe yникaльныe peжимы\n - Без лагов\n - Выcoкий уpoвeнь oтыгpышa\n\[<b>Мы тeбя ЖДЁМ</b>")
 
 /world/proc/update_status()
 
