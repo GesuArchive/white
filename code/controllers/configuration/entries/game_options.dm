@@ -434,3 +434,4 @@
 	default = 15
 	min_val = 15
 	max_val = 50 // Byond (the) limits
+

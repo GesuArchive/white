@@ -146,6 +146,8 @@ GLOBAL_VAR(restart_counter)
 
 	GLOB.demo_log = "[GLOB.log_directory]/demo.log"
 
+	GLOB.lua_log = "[GLOB.log_directory]/lua.log"
+
 #ifdef UNIT_TESTS
 	GLOB.test_log = "[GLOB.log_directory]/tests.log"
 	start_log(GLOB.test_log)
@@ -250,10 +252,12 @@ GLOBAL_VAR(restart_counter)
 		shelleo("curl -X POST http://localhost:3636/hard-reboot-white")
 		shelleo("python3 /home/ubuntu/tenebrae/prod/server_white/data/parser.py [GLOB.round_id]")
 	AUXTOOLS_SHUTDOWN(AUXMOS)
+	AUXTOOLS_FULL_SHUTDOWN(AUXLUA)
 	..()
 
 /world/Del()
 	shutdown_logging() // makes sure the thread is closed before end, else we terminate
+	AUXTOOLS_FULL_SHUTDOWN(AUXLUA)
 	AUXTOOLS_SHUTDOWN(AUXMOS)
 	var/debug_server = world.GetConfig("env", "AUXTOOLS_DEBUG_DLL")
 	if (debug_server)
