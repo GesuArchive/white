@@ -364,7 +364,7 @@ GLOBAL_VAR_INIT(status_for_mentally_ill_amoeba_users, TRUE)
 /world/proc/update_status()
 
 	if(GLOB.status_for_mentally_ill_amoeba_users)
-		status = "SS13.SU\] <b>Белая Мечта:</b> <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n - Русский язык\n - Уникальные игровые режимы и механики\n - Интересные ивенты\n - Высокий уровень ролевой игры\n\[<b>Мы тебя ЖДЁМ</b>"
+		status = "SS13.SU\] <b>Бeлaя Мeчтa:</b> <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n - Pyccкий язык\n - Уникaльныe peжимы\n - Интepecныe ивeнты\n - Выcoкий уpoвeнь poлeвoй игpы\n\[<b>Мы тeбя ЖДЁМ</b>"
 		return
 
 	var/s = "SS13.SU\] <big><b>FDev: White Dream: RU</b></big> <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n"
