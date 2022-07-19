@@ -359,41 +359,35 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 ``:ooo+////////////+s.:/::::::::::::::::::::::::::::::::::::hhsshdyssyyyhdhyssssssyyys///sysdmmNmmmmshmNNNdhhmdNNdNNdsoh
 */
 
-GLOBAL_VAR_INIT(hub_mimic, FALSE)
-GLOBAL_VAR_INIT(hub_mimic_desc, "GO! GO! GO!")
+GLOBAL_VAR_INIT(status_for_mentally_ill_amoeba_users, TRUE)
 
 /world/proc/update_status()
 
-	var/s = ""
+	if(GLOB.status_for_mentally_ill_amoeba_users)
+		status = "SS13.SU\] <b>Белая Мечта:</b> <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n - Русский язык\n - Уникальные игровые режимы и механики\n - Интересные ивенты\n - Высокий уровень ролевой игры\n\[<b>Мы тебя ЖДЁМ</b>"
+		return
 
-	if(!GLOB.hub_mimic)
-		s += "SS13.SU\] <big><b>FDev: White Dream: RU</b></big> <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n\n"
-		switch(rand(1, 7))
-			if(1)
-				s += "<img src='https://assets.station13.ru/l/w7.png'>\n\n"
-				s += "\[<big>CLASSIC STATION</big>"
-			if(2)
-				s += "<img src='https://assets.station13.ru/l/w6.png'>\n\n"
-				s += "\[<big>ANIME HENTAI</big>"
-			if(3)
-				s += "<img src='https://assets.station13.ru/l/w5.png'>\n\n"
-				s += "\[<big>GRIMDARK EDITION</big>"
-			if(4)
-				s += "<img src='https://assets.station13.ru/l/w4.png'>\n\n"
-				s += "\[<big>CYBERPUNK EDITION</big>"
-			if(5)
-				s += "<img src='https://assets.station13.ru/l/w8.png'>\n\n"
-				s += "\[<big>REMOVE KEBAB</big>"
-			if(6)
-				s += "<img src='https://assets.station13.ru/l/w9.png'>\n\n"
-				s += "\[<big>PROBABLY NOT HARAM</big>"
-			if(7)
-				s += "<img src='https://assets.station13.ru/l/wz.png'>\n\n"
-				s += "\[<big>ZA POBEDU!</big>"
-	else
-		s += "<big><b>[GLOB.hub_mimic]: RU</b></big>\] <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n\n"
-		s += "<img src='https://assets.station13.ru/l/w[rand(4, 8)].gif'>\n\n"
-		s += "\[<big>[GLOB.hub_mimic_desc]</big>"
+	var/s = "SS13.SU\] <big><b>FDev: White Dream: RU</b></big> <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n"
+
+	switch(rand(1, 6))
+		if(1)
+			s += "<img src='https://assets.station13.ru/l/w7.png'>\n"
+			s += "\[<big>CLASSIC STATION</big>"
+		if(2)
+			s += "<img src='https://assets.station13.ru/l/w6.png'>\n"
+			s += "\[<big>ANIME HENTAI</big>"
+		if(3)
+			s += "<img src='https://assets.station13.ru/l/w5.png'>\n"
+			s += "\[<big>GRIMDARK EDITION</big>"
+		if(4)
+			s += "<img src='https://assets.station13.ru/l/w4.png'>\n"
+			s += "\[<big>CYBERPUNK EDITION</big>"
+		if(5)
+			s += "<img src='https://assets.station13.ru/l/w8.png'>\n"
+			s += "\[<big>REMOVE KEBAB</big>"
+		if(6)
+			s += "<img src='https://assets.station13.ru/l/w9.png'>\n"
+			s += "\[<big>PROBABLY NOT HARAM</big>"
 
 	status = s
 
