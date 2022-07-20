@@ -59,7 +59,7 @@
 	icon_state = "grilled_moonfish"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("fish" = 1)
-	foodtypes = SEAFOOD
+	foodtypes = MEAT
 	burns_on_grill = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 
