@@ -1,9 +1,20 @@
+import { BooleanLike } from 'common/react';
 import { useBackend } from '../backend';
-import { Button, Dropdown, Flex, Knob, LabeledControls, Section } from '../components';
+import { Button, Flex, Knob, LabeledControls, Section } from '../components';
 import { Window } from '../layouts';
 
+type Data = {
+  temperature: number;
+  fluid_type: string;
+  minTemperature: number;
+  maxTemperature: number;
+  fluidTypes: string[];
+  contents: { ref: string; name: string }[];
+  allow_breeding: BooleanLike;
+};
+
 export const Aquarium = (props, context) => {
-  const { act, data } = useBackend(context);
+  const { act, data } = useBackend<Data>(context);
   const {
     temperature,
     fluid_type,
@@ -13,14 +24,13 @@ export const Aquarium = (props, context) => {
     contents,
     allow_breeding,
   } = data;
+
   return (
-    <Window
-      width={500}
-      height={400}>
+    <Window width={500} height={400}>
       <Window.Content>
-        <Section title="Управление аквариумом">
+        <Section title="Aquarium Controls">
           <LabeledControls>
-            <LabeledControls.Item label="Температура">
+            <LabeledControls.Item label="Temperature">
               <Knob
                 size={1.25}
                 mb={1}
@@ -30,37 +40,42 @@ export const Aquarium = (props, context) => {
                 maxValue={maxTemperature}
                 step={1}
                 stepPixelSize={1}
-                onDrag={(e, value) => act('temperature', {
-                  temperature: value,
-                })} />
+                onDrag={(_, value) =>
+                  act('temperature', {
+                    temperature: value,
+                  })}
+              />
             </LabeledControls.Item>
-            <LabeledControls.Item label="Жидкость">
+            <LabeledControls.Item label="Fluid">
               <Flex direction="column" mb={1}>
-                {fluidTypes.map(f => (
+                {fluidTypes.map((f) => (
                   <Flex.Item key={f}>
                     <Button
                       fluid
                       content={f}
                       selected={fluid_type === f}
-                      onClick={() => act('fluid', { fluid: f })} />
+                      onClick={() => act('fluid', { fluid: f })}
+                    />
                   </Flex.Item>
                 ))}
               </Flex>
             </LabeledControls.Item>
-            <LabeledControls.Item label="Запрет на размножение">
+            <LabeledControls.Item label="Reproduction Prevention System">
               <Button
-                content={allow_breeding ? "Выкл" : "Вкл"}
+                content={allow_breeding ? 'Offline' : 'Online'}
                 selected={!allow_breeding}
-                onClick={() => act('allow_breeding')} />
+                onClick={() => act('allow_breeding')}
+              />
             </LabeledControls.Item>
           </LabeledControls>
         </Section>
-        <Section title="Содержимое">
-          {contents.map(movable => (
+        <Section title="Contents">
+          {contents.map((movable) => (
             <Button
               key={movable.ref}
               content={movable.name}
-              onClick={() => act('remove', { ref: movable.ref })} />
+              onClick={() => act('remove', { ref: movable.ref })}
+            />
           ))}
         </Section>
       </Window.Content>

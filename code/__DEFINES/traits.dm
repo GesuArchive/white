@@ -763,3 +763,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// When someone with this trait fires a ranged weapon, their fire delays and click cooldowns are halved
 #define TRAIT_DOUBLE_TAP "double_tap"
+
+/// Currently fishing
+#define TRAIT_GONE_FISHING "fishing"

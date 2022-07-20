@@ -250,3 +250,8 @@
 /datum/mood_event/honorbound
 	description = "<span class='nicegreen'>Following my honorbound code is fulfilling!</span>\n"
 	mood_change = 4
+
+/datum/mood_event/fishing
+	description = "<span class='nicegreen'>Fishing is relaxing.</span>\n"
+	mood_change = 5
+	timeout = 3 MINUTES

@@ -1491,3 +1491,11 @@
 	materials = list(/datum/material/iron = 12000, /datum/material/plasma = 6000)
 	build_path = /obj/item/stack/cannonball/the_big_one
 	category = list("hacked","Разное")
+
+/datum/design/fishing_rod_basic
+	name = "Fishing Rod"
+	id = "fishing_rod"
+	build_type = AUTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/iron = 200, /datum/material/glass = 200)
+	build_path = /obj/item/fishing_rod
+	category = list("initial", "Разное", "Инструменты")

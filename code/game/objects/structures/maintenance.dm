@@ -34,6 +34,14 @@ at the cost of risking a vicious bite.**/
 	if(prob(75))
 		var/picked_item = pickweight(loot)
 		hidden_item = new picked_item(src)
+
+	var/datum/fish_source/moisture_trap/fish_source = new
+	if(prob(50)) // 50% chance there's another item to fish out of there
+		var/picked_item = pickweight(loot)
+		fish_source.fish_table[picked_item] = 5
+		fish_source.fish_counts[picked_item] = 1;
+	AddComponent(/datum/component/fishing_spot, fish_source)
+
 	loot = null
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_MOIST, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 20)
 

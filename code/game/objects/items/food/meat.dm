@@ -42,6 +42,41 @@
 	desc = "Almost just like the real thing, kinda."
 	cell_line = null
 
+/obj/item/food/fishmeat/moonfish
+	name = "moonfish fillet"
+	desc = "A fillet of moonfish."
+	icon = 'icons/obj/food/lizard.dmi'
+	icon_state = "moonfish_fillet"
+
+/obj/item/food/fishmeat/moonfish/MakeGrillable()
+	AddComponent(/datum/component/grillable, /obj/item/food/grilled_moonfish, rand(40 SECONDS, 50 SECONDS), TRUE, TRUE)
+
+//Fish Dishes
+/obj/item/food/grilled_moonfish
+	name = "grilled moonfish"
+	desc = "A slab of grilled moonfish. Traditionally served over scalloped roots with a wine-based sauce."
+	icon = 'icons/obj/food/lizard.dmi'
+	icon_state = "grilled_moonfish"
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/nutriment/vitamin = 4)
+	tastes = list("fish" = 1)
+	foodtypes = SEAFOOD
+	burns_on_grill = TRUE
+	w_class = WEIGHT_CLASS_SMALL
+
+/obj/item/food/fishmeat/gunner_jellyfish
+	name = "filleted gunner jellyfish"
+	desc = "A gunner jellyfish with the stingers removed. Mildly hallucinogenic."
+	icon = 'icons/obj/food/lizard.dmi'
+	icon_state = "jellyfish_fillet"
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/toxin/mindbreaker = 2)
+
+/obj/item/food/fishmeat/armorfish
+	name = "cleaned armorfish"
+	desc = "An armorfish with its guts and shell removed, ready for use in cooking."
+	icon = 'icons/obj/food/lizard.dmi'
+	icon_state = "armorfish_fillet"
+	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3)
+
 /obj/item/food/fishmeat/donkfish
 	name = "donkfillet"
 	desc = "The dreaded donkfish fillet. No sane spaceman would eat this, and it does not get better when cooked."

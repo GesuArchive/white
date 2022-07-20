@@ -180,6 +180,7 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 		/obj/item/melee/baton/cattleprod = 1,
 		/obj/item/throwing_star = 1,
 		/obj/item/pen/fountain = 1,
+		/obj/item/fishing_rod/master = 1,
 		) = 8,
 
 	list(//equipment

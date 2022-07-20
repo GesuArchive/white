@@ -16,5 +16,9 @@
 	clawfootstep = FOOTSTEP_WATER
 	heavyfootstep = FOOTSTEP_WATER
 
+/turf/open/water/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/lazy_fishing_spot, FISHING_SPOT_PRESET_BEACH)
+
 /turf/open/water/jungle
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS

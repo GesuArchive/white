@@ -61,6 +61,7 @@ GLOBAL_LIST_INIT(all_food, list())
 	MakeGrillable()
 	MakeDecompose(mapload)
 	MakeBakeable()
+	ADD_TRAIT(src, FISHING_BAIT_TRAIT, INNATE_TRAIT)
 	GLOB.all_food += src
 
 /obj/item/food/Destroy()
