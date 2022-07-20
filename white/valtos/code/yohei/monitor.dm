@@ -73,6 +73,7 @@
 				internal_radio.talk_into(src, "Задание выполнено. Награда в размере [current_task.prize] выдана. Получение следующего задания...", FREQ_YOHEI)
 				for(var/mob/living/carbon/human/H in action_guys)
 					inc_metabalance(H, current_task.prize, reason = "Задание выполнено.")
+					SEND_SIGNAL(H, COMSIG_CLEAR_MOOD_EVENT, "killed_innocent") //И скольких жизней это стоило?
 					var/obj/item/card/id/cardid = H.get_idcard(FALSE)
 					cardid?.registered_account?.adjust_money(rand(5000, 10000))
 					var/obj/item/armament_points_card/APC = locate() in H.get_all_gear()
@@ -92,21 +93,21 @@
 /obj/lab_monitor/yohei/proc/add_to_action_guys(mob/living/user)
 	if(is_hired_yohei(user))
 		log_admin("[user.ckey] пытался получить задание будучи нанятым.")
-		message_admins("[user.ckey] пытался получить задание будучи нанятым.")
+		message_admins("[ADMIN_LOOKUPFLW(user)] пытался получить задание будучи нанятым.")
 		say("Вы не можете работать по базовому контракту.")
 		return FALSE
 	if(!(user in action_guys)) // sanity check
 		action_guys += user
-		internal_radio.talk_into(src, "[user.name] был добавлен в список исполнителей задания.", FREQ_YOHEI)
+		internal_radio.talk_into(src, "[user.real_name] был добавлен в список исполнителей задания.", FREQ_YOHEI)
 		return TRUE
 	return FALSE
 
 /obj/lab_monitor/yohei/proc/remove_from_action_guys(mob/living/user)
 	if((user in action_guys))
 		action_guys -= user
-		internal_radio.talk_into(src, "[user.name] был вычеркнут из исполнителей в связи с работой по протоколу 'WhiteHat'.", FREQ_YOHEI)
+		internal_radio.talk_into(src, "[user.real_name] был вычеркнут из исполнителей в связи с работой по протоколу 'WhiteHat'.", FREQ_YOHEI)
 	else
-		internal_radio.talk_into(src, "[user.name] начинает работу по протоколу 'WhiteHat'.", FREQ_YOHEI)
+		internal_radio.talk_into(src, "[user.real_name] начинает работу по протоколу 'WhiteHat'.", FREQ_YOHEI)
 
 /obj/lab_monitor/yohei/AltClick(mob/user)
 	. = ..()
@@ -115,7 +116,7 @@
 		return
 	switch(tgui_alert(user, "Ты правда хочешь сменить эту задачу? За это будет наложен штраф!", "Сменить задачу", list("Да", "Нет")))
 		if("Да")
-			internal_radio.talk_into(src, "Задание отменено [skloname(user.name, TVORITELNI, user.gender)]. На подтвердившего отмену наложен штраф. Получение следующего задания...", FREQ_YOHEI)
+			internal_radio.talk_into(src, "Задание отменено [skloname(user.real_name, TVORITELNI, user.gender)]. На подтвердившего отмену наложен штраф. Получение следующего задания...", FREQ_YOHEI)
 			inc_metabalance(user, rand(-150, -50), reason = "Отмена задания.")
 			QDEL_NULL(current_task)
 			return
