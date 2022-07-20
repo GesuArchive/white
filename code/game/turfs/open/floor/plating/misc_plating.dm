@@ -180,6 +180,10 @@
 	clawfootstep = FOOTSTEP_LAVA
 	heavyfootstep = FOOTSTEP_LAVA
 
+/turf/open/floor/plating/beach/water/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/lazy_fishing_spot, FISHING_SPOT_PRESET_BEACH)
+
 /turf/open/floor/plating/beach/water/setup_broken_states()
 	return list("water")
 

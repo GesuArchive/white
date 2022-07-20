@@ -103,6 +103,7 @@
 	belt = null
 	ears = /obj/item/radio/headset
 	box = null
+	implants = list(/obj/item/implant/explosive/disintegrate)
 	var/team = "white"
 
 /datum/outfit/job/combantant/red
