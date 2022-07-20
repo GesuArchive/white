@@ -128,3 +128,10 @@
 	icon_state = "paramedicsoft"
 	soft_type = "paramedic"
 	dog_fashion = null
+
+/obj/item/clothing/head/soft/vkusna_and_tochkahat
+	name = "кепка сотрудника общепита"
+	icon_state = "vkusnasoft"
+	soft_type = "vkusna"
+	desc = "С этого дня я повелитель сахарного диабета и холестерина!"
+	dog_fashion = null

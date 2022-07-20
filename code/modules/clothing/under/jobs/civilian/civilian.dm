@@ -49,6 +49,12 @@
 	icon_state = "chef"
 	alt_covers_chest = TRUE
 
+/obj/item/clothing/under/rank/civilian/vkysna_and_tochka
+	name = "комбинезон общепита"
+	desc = "Старый как само человечество комбинезон, видимо остался от какой-то древней забегаловки."
+	icon_state = "vkysna_and_tochka"
+	can_adjust = FALSE
+
 /obj/item/clothing/under/rank/civilian/chef/skirt
 	name = "юбка повара"
 	desc = "Юбка, которая дается только самым <b>хардкорным</b> поварам в пространстве."
