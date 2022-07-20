@@ -130,6 +130,16 @@
 	if(!(in_range(src, user) || issilicon(user)))
 		return
 
+	if(!isnum(user?.client?.player_age))
+		if(user.client.player_age < 14)
+			to_chat(user, span_boldannounce("СЛОЖНО!"))
+			var/list/turf/targets = list()
+			for(var/turf/T in oview(user, 3))
+				targets += T
+			user.throw_item(pick(targets))
+			message_admins("[ADMIN_LOOKUPFLW(user)] пытается воспользоваться интегралками при возрасте [user.client.player_age].")
+			return
+
 	if(isnull(current_category))
 		current_category = SScircuit.circuit_fabricator_recipe_list[1]
 
