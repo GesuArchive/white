@@ -1430,6 +1430,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, span_warning("Не хочу вредить <b>[target]</b>!"))
 		return FALSE
+
+	SSspd.check_action(user?.client, SPD_HUMAN_HARM)
+
 	if(target.check_block())
 		target.visible_message(span_warning("[target] блокирует удар [user]!") , \
 							span_userdanger("Блокирую удар [user]!") , span_hear("Слышу взмах!") , COMBAT_MESSAGE_RANGE, user)

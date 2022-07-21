@@ -126,6 +126,7 @@
 #define INIT_ORDER_EVENTS			70
 #define INIT_ORDER_IDACCESS 		66
 #define INIT_ORDER_JOBS				65
+#define INIT_ORDER_SPD				64
 #define INIT_ORDER_QUIRKS			60
 #define INIT_ORDER_AI_MOVEMENT 		56 //We need the movement setup
 #define INIT_ORDER_AI_CONTROLLERS 	55 //So the controller can get the ref
@@ -168,6 +169,7 @@
 // Subsystem fire priority, from lowest to highest priority
 // If the subsystem isn't listed here it's either DEFAULT or PROCESS (if it's a processing subsystem child)
 
+#define FIRE_PRIORITY_SPD 			10
 #define FIRE_PRIORITY_IDLE_NPC		10
 #define FIRE_PRIORITY_SERVER_MAINT	10
 #define FIRE_PRIORITY_RESEARCH		10

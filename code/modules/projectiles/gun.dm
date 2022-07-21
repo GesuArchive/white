@@ -167,6 +167,8 @@
 	if(recoil)
 		shake_camera(user, recoil + 1, recoil)
 
+	SSspd.check_action(user?.client, SPD_SHOTS_FIRED)
+
 	if(suppressed)
 		playsound(user, suppressed_sound, suppressed_volume, vary_fire_sound, ignore_walls = FALSE, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_distance = 0)
 	else

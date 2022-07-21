@@ -383,7 +383,7 @@
 
 	else
 		created = new recipe.result_type(builder.drop_location())
-		builder.balloon_alert(builder, "создаю предмет")
+		builder.balloon_alert(builder, "создано")
 
 	if(created)
 		created.setDir(builder.dir)
@@ -399,6 +399,8 @@
 			crafted_stack.set_mats_per_unit(mats_per_unit, recipe.req_amount / recipe.res_amount)
 		else
 			created.set_custom_materials(mats_per_unit, recipe.req_amount / recipe.res_amount)
+
+	SSspd.check_action(builder?.client, SPD_CRAFTED_SOMETHING)
 
 	// We could be qdeleted - like if it's a stack and has already been merged
 	if(QDELETED(created))

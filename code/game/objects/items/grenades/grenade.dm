@@ -99,6 +99,7 @@
 	log_grenade(user, T) //Inbuilt admin procs already handle null users
 	if(user)
 		add_fingerprint(user)
+		SSspd.check_action(user?.client, SPD_GRENADE_ACTIVATED)
 		if(msg)
 			to_chat(user, span_warning("Активирую [src]! [capitalize(DisplayTimeText(det_time))]!"))
 	if(shrapnel_type && shrapnel_radius)

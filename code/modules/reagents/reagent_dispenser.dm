@@ -206,6 +206,7 @@
 		else
 			user.visible_message(span_danger("[user] делает глупую ошибку пытаясь заправить [user.ru_ego()] [I.name]!") , span_userdanger("Это было глупо."))
 			log_bomber(user, "detonated a", src, "via welding tool")
+			SSspd.check_action(user?.client, SPD_FUEL_TANK_EXPLOSION)
 			boom()
 		return
 	if(istype(I, /obj/item/assembly_holder) && accepts_rig)
@@ -222,6 +223,7 @@
 			if(!user.transferItemToLoc(holder, src))
 				return
 			log_bomber(user, "rigged [name] with [holder.name] for explosion", src)
+			SSspd.check_action(user?.client, SPD_FUEL_TANK_EXPLOSION)
 			last_rigger = user
 			assembliesoverlay = holder
 			assembliesoverlay.pixel_x += 6
@@ -238,6 +240,7 @@
 		if(istype(W) && W.welding)
 			. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 			user.visible_message(span_danger("[user] начинает ТАКТИКУЛЬНО греть [src] с помощью [user.ru_ego()] [I.name]!"), span_userdanger("Прикол инбаунд."))
+			SSspd.check_action(user?.client, SPD_FUEL_TANK_EXPLOSION)
 			if(do_after(user, 10 SECONDS, src))
 				explosion(src, devastation_range = 1, heavy_impact_range = 3, light_impact_range = 7, flame_range = 7)
 				qdel(src)

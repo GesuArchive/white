@@ -69,6 +69,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/datum/admins/proc/known_alts_panel,
 	/client/proc/clicker_panel,
 	/datum/admins/proc/fishing_calculator,
+	/datum/admins/proc/get_spd_list,
 	)
 GLOBAL_LIST_INIT(admin_verbs_ban, list(/client/proc/unban_panel, /client/proc/ban_panel, /client/proc/stickybanpanel, /client/proc/assblast_panel, /client/proc/show_assblasts))
 GLOBAL_PROTECT(admin_verbs_ban)

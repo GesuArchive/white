@@ -984,6 +984,7 @@
 	if(SEND_SIGNAL(src, COMSIG_MOB_SWAP_HANDS, held_item) & COMPONENT_BLOCK_SWAP)
 		to_chat(src, span_warning("Другая рука слишком занята тем, чтобы держать [held_item]."))
 		return FALSE
+	SSspd.check_action(client, SPD_FAST_HANDS)
 	return TRUE
 
 /mob/proc/activate_hand(selhand)

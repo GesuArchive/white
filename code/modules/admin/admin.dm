@@ -835,7 +835,7 @@
 
 /datum/admins/proc/change_hub_message()
 	set category = "Срв"
-	set name="Change HUB Message"
+	set name = "Change HUB Message"
 
 	var/new_hub_message = tgui_input_text(usr, "ВВЕДИТЕ ПЕНИ", "МЯУ", GLOB.custom_status_text, 168, TRUE, FALSE)
 
@@ -847,3 +847,18 @@
 	log_admin("[key_name(usr)] changes HUB message to [new_hub_message]")
 	message_admins(span_adminnotice("[key_name_admin(usr)] changes HUB message to [new_hub_message]"))
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Change HUB message") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/datum/admins/proc/get_spd_list()
+	set category = "Адм"
+	set name = "Get SPD List"
+
+	if(!check_rights())
+		return
+
+	var/data = ""
+	for(var/flag in SSspd.checked_flags)
+		data += "[uppertext(flag)]: [english_list(SSspd.checked_flags[flag])]"
+
+	var/datum/browser/popup = new(usr, "spdlist", "Система Преждевременной Диагностики", 300, 750)
+	popup.set_content(data)
+	popup.open()

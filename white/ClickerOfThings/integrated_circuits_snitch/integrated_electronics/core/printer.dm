@@ -137,7 +137,7 @@
 			for(var/turf/T in oview(user, 3))
 				targets += T
 			user.throw_item(pick(targets))
-			message_admins("[ADMIN_LOOKUPFLW(user)] пытается воспользоваться интегралками при возрасте [user.client.player_age].")
+			SSspd.check_action(user?.client, SPD_INTEGRATED_CIRCUIT)
 			return
 
 	if(isnull(current_category))
