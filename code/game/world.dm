@@ -360,14 +360,14 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 */
 
 GLOBAL_VAR_INIT(status_for_mentally_ill_amoeba_users, TRUE)
-GLOBAL_VAR_INIT(custom_status_text, "- Пoлный пepeвoд нa рyccкий язык\n - Coбcтвeнныe yникaльныe peжимы\n - Без лагов\n - Выcoкий уpoвeнь oтыгpышa\n\[<b>Мы тeбя ЖДЁМ</b>")
+GLOBAL_VAR_INIT(custom_status_text, "- Пoлный пepeвoд нa рyccкий\n - Уникaльныe peжимы\n - Без лагов\n - Выcoкий уpoвeнь oтыгpышa\n\[<b>Мы тeбя ЖДЁМ</b>")
 
 /world/proc/update_status()
 
 	var/s = ""
 
 	if(GLOB.status_for_mentally_ill_amoeba_users)
-		s = "SS13.SU\] <b>Бeлaя Мeчтa:</b> <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n" // length 87
+		s = "SS13.SU\] <b>[prob(1) ? "Чёpнaя Peaльнocть" : "Бeлaя Мeчтa"]:</b> <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n" // length 87
 
 		s += GLOB.custom_status_text // 168 max
 

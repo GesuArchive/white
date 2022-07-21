@@ -837,7 +837,7 @@
 	set category = "Срв"
 	set name="Change HUB Message"
 
-	var/new_hub_message = tgui_input_text(usr, "ВВЕДИТЕ ПЕНИ", "МЯУ", GLOB.custom_status_text, 168)
+	var/new_hub_message = tgui_input_text(usr, "ВВЕДИТЕ ПЕНИ", "МЯУ", GLOB.custom_status_text, 168, TRUE, FALSE)
 
 	if(!new_hub_message || new_hub_message == GLOB.custom_status_text)
 		return

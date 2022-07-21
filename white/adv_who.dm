@@ -29,15 +29,12 @@
 
 				entry += "[C.key]"
 				if(C.holder && C.holder.fakekey)
-					entry += " <i>(as [C.holder.fakekey])</i>"
+					entry += " <i>(как [C.holder.fakekey])</i>"
 
 				if(!C.mob)
 					entry += " - <font color='red'><i>HAS NO MOB</i></font>"
 					Lines += entry
 					continue
-
-				if(C.holder && C.holder.fakekey)
-					entry += " <i>(as [C.holder.fakekey])</i>"
 
 				if (isnewplayer(C.mob))
 					entry += " - <font color='darkgray'><b>Лобби</b></font>"
