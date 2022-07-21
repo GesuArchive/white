@@ -41,5 +41,5 @@
 				lang_to_use = "xenia"
 		if(ishuman(owner))
 			var/mob/living/carbon/human/H = owner
-			frequency = 43000 + (H.age * 50)
+			frequency = 27000 - (H.age * 200)
 		owner.tts(msg, lang_to_use, freq = frequency)
