@@ -857,8 +857,8 @@
 
 	var/data = ""
 	for(var/flag in SSspd.checked_flags)
-		data += "[uppertext(flag)]: [english_list(SSspd.checked_flags[flag])]"
+		data += "[uppertext(flag)]: [english_list(SSspd.checked_flags[flag])]\n"
 
-	var/datum/browser/popup = new(usr, "spdlist", "Система Преждевременной Диагностики", 300, 750)
+	var/datum/browser/popup = new(usr, "spdlist", "Система Преждевременной Диагностики", 400, 650)
 	popup.set_content(data)
 	popup.open()
