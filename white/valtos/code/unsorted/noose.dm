@@ -92,21 +92,19 @@
 	add_fingerprint(user)
 
 	M.visible_message(\
-		span_danger("[user] пытается накинуть вешалку на шею [M]!") ,\
+		span_danger("[user] пытается накинуть вешалку на шею [M]!"),\
 		span_userdanger("[user] пытается натянуть вешалку на мою шею!"))
 	if(user != M)
 		to_chat(user, span_notice("Это займёт примерно 20 секунд и надо не двигаться."))
 	if(do_mob(user, M, user == M ? 10:200))
 		if(buckle_mob(M))
-			user.visible_message(\
-				span_warning("[user] вешает [M != user ? "[M]" : "себя"]!") ,\
+			user.visible_message(span_warning("[user] вешает [M != user ? "[M]" : "себя"]!"),\
 				span_userdanger("[M != user ? "[user] вешает меня" : "Вешаю себя"]!"))
 			playsound(user.loc, 'white/valtos/sounds/noosed.ogg', 50, 1, -1)
 			log_combat(user, M, "hanged", src)
 			M.noosed = TRUE
 			return TRUE
-	user.visible_message(\
-		span_warning("[user] не может накинуть вешалку на шею [M]!") ,\
+	user.visible_message(span_warning("[user] не может накинуть вешалку на шею [M]!"),\
 		span_warning("Не получается накинуть вешалку на шею [M]!"))
 	log_combat(user, M, "tried to hang", src)
 	return FALSE
@@ -125,7 +123,7 @@
 			animate(src, pixel_x = 3, time = 45, easing = ELASTIC_EASING)
 			animate(m, pixel_x = 3, time = 45, easing = ELASTIC_EASING)
 		if(buckled_mob.mob_has_gravity())
-			if(buckled_mob.get_bodypart(BODY_ZONE_HEAD) || world.time - SSticker.round_start_time < 10 MINUTES)
+			if(!buckled_mob.get_bodypart(BODY_ZONE_HEAD))
 				unbuckle_all_mobs(TRUE)
 				STOP_PROCESSING(SSobj, src)
 				return
