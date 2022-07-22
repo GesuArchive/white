@@ -17,6 +17,3 @@ SUBSYSTEM_DEF(spd)
 
 	checked_flags[action_type] += target_client
 	message_admins("[ADMIN_LOOKUPFLW(target_client)] ([target_client.player_age] дней) проходит флаг [action_type]")
-
-/datum/controller/subsystem/spd/proc/kill_system32(client/target_client)
-	return

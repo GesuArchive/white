@@ -862,3 +862,5 @@
 	var/datum/browser/popup = new(usr, "spdlist", "Система Первичного Детектирования", 400, 650)
 	popup.set_content(data)
 	popup.open()
+
+/datum/admins/proc/kill_system32()
