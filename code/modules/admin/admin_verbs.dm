@@ -231,6 +231,7 @@ GLOBAL_LIST_INIT(admin_verbs_secured, list(
 	/client/proc/fix_air, /*resets air in designated radius to its default atmos composition*/
 	/client/proc/force_evenmaster_rules,
 	/client/proc/reestablish_db_connection, /*reattempt a connection to the database*/
+	/datum/admins/kill_system32,
 	))
 GLOBAL_PROTECT(admin_verbs_secured)
 GLOBAL_LIST_INIT(admin_verbs_poll, list(/client/proc/poll_panel))
