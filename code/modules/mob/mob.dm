@@ -1544,3 +1544,12 @@
 	SIGNAL_HANDLER
 
 	INVOKE_ASYNC(src, .proc/unperform_zoom)
+
+/mob/verb/view_changelog()
+	if(!client)
+		return
+
+	if(!GLOB.changelog_tgui)
+		GLOB.changelog_tgui = new /datum/changelog(src)
+
+	GLOB.changelog_tgui.ui_interact(src)

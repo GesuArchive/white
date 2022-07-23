@@ -276,9 +276,10 @@
 
 /atom/movable/screen/lobby/button/changelog_button/Click(location, control, params)
 	. = ..()
-	var/lets_fucking_go = tgui_alert(usr,"Перейдём в интересное место? (это откроет страницу в браузере)", "Любопытство", list("Да", "Нет"))
-	if(lets_fucking_go == "Да")
-		usr << link("https://station13.ru")
+	if(!.)
+		return
+	var/mob/M = hud.mymob
+	M.view_changelog()
 
 /atom/movable/screen/lobby/button/poll
 	icon = 'icons/hud/lobbyv3/bottom_buttons.dmi'
