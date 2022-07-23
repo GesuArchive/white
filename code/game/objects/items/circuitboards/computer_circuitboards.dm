@@ -612,3 +612,33 @@
 	desc = "Терминал управления шатлом из комплекта Сделай сам - шатлостроение."
 	icon_state = "generic"
 	build_path = /obj/machinery/computer/shuttle_flight/custom_shuttle
+
+/obj/item/circuitboard/computer/service_orders
+	name = "Service Order"
+	greyscale_colors = CIRCUIT_COLOR_SUPPLY
+	build_path = /obj/machinery/computer/department_orders/service
+
+/obj/item/circuitboard/computer/engineering_orders
+	name = "Engineering Order"
+	greyscale_colors = CIRCUIT_COLOR_SUPPLY
+	build_path = /obj/machinery/computer/department_orders/engineering
+
+/obj/item/circuitboard/computer/science_orders
+	name = "Science Order"
+	greyscale_colors = CIRCUIT_COLOR_SUPPLY
+	build_path = /obj/machinery/computer/department_orders/science
+
+/obj/item/circuitboard/computer/security_orders
+	name = "Security Order"
+	greyscale_colors = CIRCUIT_COLOR_SUPPLY
+	build_path = /obj/machinery/computer/department_orders/security
+
+/obj/item/circuitboard/computer/medical_orders
+	name = "Medical Order"
+	greyscale_colors = CIRCUIT_COLOR_SUPPLY
+	build_path = /obj/machinery/computer/department_orders/medical
+
+/obj/item/circuitboard/computer/bounty
+	name = "Консоль заказов"
+	greyscale_colors = CIRCUIT_COLOR_SUPPLY
+	build_path = /obj/machinery/computer/bounty

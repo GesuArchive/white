@@ -146,12 +146,14 @@ GLOBAL_LIST_INIT(department_order_cooldowns, list(
 /obj/machinery/computer/department_orders/service
 	name = "service order console"
 	department_delivery_area = /area/hallway/secondary/service
+	circuit = /obj/item/circuitboard/computer/service_orders
 	override_access = ACCESS_HOP
 	req_one_access = list(ACCESS_KITCHEN, ACCESS_BAR, ACCESS_HYDROPONICS, ACCESS_JANITOR)
 	dep_groups = list("Сервис", "Еда и Гидропоника", "Живность", "Костюмы и игрушки")
 
 /obj/machinery/computer/department_orders/engineering
 	name = "engineering order console"
+	circuit = /obj/item/circuitboard/computer/engineering_orders
 	department_delivery_area = /area/engineering/main
 	override_access = ACCESS_CE
 	req_one_access = REGION_ACCESS_ENGINEERING
@@ -159,6 +161,7 @@ GLOBAL_LIST_INIT(department_order_cooldowns, list(
 
 /obj/machinery/computer/department_orders/science
 	name = "science order console"
+	circuit = /obj/item/circuitboard/computer/science_orders
 	department_delivery_area = /area/science/research
 	override_access = ACCESS_RD
 	req_one_access = REGION_ACCESS_RESEARCH
@@ -166,6 +169,7 @@ GLOBAL_LIST_INIT(department_order_cooldowns, list(
 
 /obj/machinery/computer/department_orders/security
 	name = "security order console"
+	circuit = /obj/item/circuitboard/computer/security_orders
 	department_delivery_area = /area/security/brig
 	override_access = ACCESS_HOS
 	req_one_access = REGION_ACCESS_SECURITY
@@ -173,6 +177,7 @@ GLOBAL_LIST_INIT(department_order_cooldowns, list(
 
 /obj/machinery/computer/department_orders/medical
 	name = "medical order console"
+	circuit = /obj/item/circuitboard/computer/medical_orders
 	department_delivery_area = /area/medical/medbay/central
 	override_access = ACCESS_CMO
 	req_one_access = REGION_ACCESS_MEDBAY
