@@ -19,5 +19,6 @@ GLOBAL_VAR_INIT(changelog_json, file2text("data/changelog.json"))
 		return
 
 /datum/changelog/ui_data(mob/user)
-	.["all_changelog"] = json_decode(GLOB.changelog_json)
-	return .
+	var/list/data = list()
+	data["all_changelog"] = json_decode(GLOB.changelog_json)
+	return data
