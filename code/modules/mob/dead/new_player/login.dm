@@ -25,7 +25,7 @@
 		to_chat(src, span_nzcrentr("[version]"))
 
 	if(GLOB.changelog_json)
-		to_chat(src, span_nzcrentr("-- <a href='byond://winset?command=.view_changelog'>Список изменений</a> --"))
+		to_chat(src, span_nzcrentr("-- <a href='byond://winset?command=view-changelog'>Список изменений</a> --"))
 
 	if(GLOB.admin_notice)
 		to_chat(src, span_notice("<b>ВАЖНАЯ ЗАМЕТКА:</b>\n \t [GLOB.admin_notice]"))
