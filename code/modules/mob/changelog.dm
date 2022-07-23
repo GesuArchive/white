@@ -1,4 +1,4 @@
-GLOBAL_VAR_INIT(changelog_json, file2text('data/changelog.json'))
+GLOBAL_VAR_INIT(changelog_json, file2text("data/changelog.json"))
 
 /datum/changelog
 
