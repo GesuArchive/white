@@ -18,5 +18,5 @@ GLOBAL_VAR_INIT(changelog_json, file2text("data/changelog.json"))
 	if (..())
 		return
 
-/datum/changelog/ui_static_data(mob/user)
+/datum/changelog/ui_data(mob/user)
 	return GLOB.changelog_json

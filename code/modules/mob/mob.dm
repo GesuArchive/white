@@ -1546,6 +1546,8 @@
 	INVOKE_ASYNC(src, .proc/unperform_zoom)
 
 /mob/verb/view_changelog()
+	set hidden = TRUE
+
 	if(!client)
 		return
 
