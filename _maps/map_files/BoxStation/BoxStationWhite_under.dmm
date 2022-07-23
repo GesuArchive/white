@@ -6524,8 +6524,11 @@
 /turf/open/floor/circuit,
 /area/tcommsat/server/upper)
 "ggB" = (
-/obj/effect/landmark/stationroom/maintenance/rdm3x3,
-/turf/open/floor/plasteel/monofloor,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/machinery/light,
+/turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
 "ggO" = (
 /obj/structure/chair/office{
@@ -38823,7 +38826,7 @@ yfu
 dCY
 yfu
 yfu
-ggB
+yfu
 agn
 aXU
 yfu
@@ -39592,7 +39595,7 @@ pTx
 ryh
 jAi
 ryh
-cVs
+rZH
 uoF
 fBd
 ryh
@@ -39849,7 +39852,7 @@ pTx
 pTx
 pTx
 ryh
-rZH
+cVs
 uoF
 fBd
 ryh
@@ -41648,7 +41651,7 @@ tdl
 tdl
 tdl
 ryh
-cVs
+rZH
 uoF
 rLo
 ryh
@@ -41907,7 +41910,7 @@ pTx
 ryh
 rZH
 uoF
-fBd
+ggB
 ryh
 pTx
 pTx
