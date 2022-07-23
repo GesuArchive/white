@@ -29,7 +29,7 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 	spawn(-1)
 		tts_args(namae, msg, lang)
 		var/datum/component/tts/TTS = GetComponent(/datum/component/tts)
-		spawn(5)
+		spawn(2)
 			if(fexists("[TTS_PATH]/lines/[namae].wav"))
 				playsound(src, "[TTS_PATH]/lines/[namae].wav", 100, channel = TTS.assigned_channel, vary = TRUE, frequency = freq)
 
