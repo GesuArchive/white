@@ -15,7 +15,6 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 
 /proc/tts_args(var/name, var/msg, var/lang)
 	world.Export("http://127.0.0.1:2386/?text=[url_encode(msg)]&speaker=[lang]&ckey=[name]")
-	//world.shelleo("cd [TTS_PATH] && python3 t.py \"[msg]\" [lang] \"[TTS_PATH]/lines/[name].wav\"")
 
 /////////////////////////////////////
 
@@ -27,21 +26,12 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 		var/mob/etot = src
 		namae = etot.ckey
 
-	tts_args(namae, msg, lang)
-	var/datum/component/tts/TTS = GetComponent(/datum/component/tts)
-	if(fexists("[TTS_PATH]/lines/[namae].wav"))
-		for(var/mob/M in range(13))
-			var/turf/T = get_turf(src)
-			M.playsound_local(T, "[TTS_PATH]/lines/[namae].wav", 100, channel = TTS.assigned_channel, vary = TRUE, frequency = freq)
-
-/proc/to_tts(target, message)
-	spawn(0)
-		tts_args("announcer", message,  "ru")
-		if(fexists("[TTS_PATH]/lines/announcer.wav"))
-			var/mob/M = target
-			var/turf/T = get_turf(target)
-			M.playsound_local(T, "[TTS_PATH]/lines/announcer.wav", 70, channel = CHANNEL_TTS_ANNOUNCER, frequency = 1)
-	return
+	spawn(-1)
+		tts_args(namae, msg, lang)
+		var/datum/component/tts/TTS = GetComponent(/datum/component/tts)
+		spawn(5)
+			if(fexists("[TTS_PATH]/lines/[namae].wav"))
+				playsound(src, "[TTS_PATH]/lines/[namae].wav", 100, channel = TTS.assigned_channel, vary = TRUE, frequency = freq)
 
 ////////////////////////////////////////
 
