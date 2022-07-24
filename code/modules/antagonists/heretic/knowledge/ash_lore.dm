@@ -125,7 +125,7 @@
 	)
 	required_atoms = list(
 		/obj/item/organ/liver = 1,
-		/obj/item/melee/baton/loaded = 1,  // Technically means a cattleprod is valid
+		/obj/item/melee/baton = 1,  // Technically means a cattleprod is valid
 		/obj/item/clothing/mask = 1,
 		/obj/item/candle = 4,
 	)
