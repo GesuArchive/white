@@ -508,3 +508,7 @@
 		H.adjustStaminaLoss(100)
 		to_chat(user, span_notice("Вот я и на месте!"))
 	return
+
+/obj/item/defibrillator/compact/loaded/yohei
+	combat = TRUE
+	safety = FALSE

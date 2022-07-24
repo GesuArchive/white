@@ -141,6 +141,7 @@
 	var/zap_power = 25000
 	var/zap_range = 20
 	var/zap_flags = ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE
+	reactivearmor_cooldown_duration = 15 SECONDS
 
 /obj/item/clothing/suit/armor/reactive/tesla/dropped(mob/user)
 	..()

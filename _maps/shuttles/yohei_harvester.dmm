@@ -44,13 +44,18 @@
 /obj/item/assembly/signaler{
 	pixel_x = 7
 	},
+/obj/item/melee/baseball_bat,
 /turf/open/floor/plasteel/durasteel,
 /area/shuttle/yohei)
 "dt" = (
-/obj/effect/turf_decal/siding/wideplating/dark{
-	dir = 10
+/obj/structure/table/abductor,
+/obj/item/storage/backpack/duffelbag/syndie/surgery,
+/obj/item/stack/medical/gauze/twelve{
+	pixel_x = -3;
+	pixel_y = 8
 	},
-/turf/open/floor/wood,
+/obj/item/robot_suit/prebuilt,
+/turf/open/floor/plasteel/durasteel,
 /area/shuttle/yohei)
 "dP" = (
 /obj/item/storage/photo_album/syndicate,
@@ -151,17 +156,19 @@
 /area/shuttle/yohei)
 "lS" = (
 /obj/structure/rack,
-/obj/item/tank/internals/emergency_oxygen/double/empty{
-	pixel_y = 12
+/obj/item/tank/internals/emergency_oxygen/double,
+/obj/item/tank/internals/emergency_oxygen/double{
+	pixel_y = 3
 	},
-/obj/item/tank/internals/emergency_oxygen/double/empty{
-	pixel_y = 6
+/obj/item/tank/internals/emergency_oxygen/double{
+	pixel_y = 3
 	},
-/obj/item/tank/internals/emergency_oxygen/double/empty,
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 9
 	},
-/obj/item/tank/internals/emergency_oxygen/double/empty,
+/obj/item/tank/internals/emergency_oxygen/double{
+	pixel_y = -8
+	},
 /turf/open/floor/plasteel/durasteel,
 /area/shuttle/yohei)
 "mQ" = (
@@ -212,11 +219,19 @@
 /area/shuttle/yohei)
 "sx" = (
 /obj/structure/table/abductor,
-/obj/item/storage/backpack/duffelbag/syndie/surgery,
 /obj/item/camera{
 	pixel_y = 16
 	},
+/obj/item/storage/box/stingbangs,
 /turf/open/floor/plasteel/durasteel,
+/area/shuttle/yohei)
+"sK" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/structure/table/optable,
+/obj/structure/table/optable,
+/turf/open/floor/wood,
 /area/shuttle/yohei)
 "tg" = (
 /obj/structure/table/abductor,
@@ -228,6 +243,11 @@
 	pixel_x = 11;
 	pixel_y = 6
 	},
+/turf/open/floor/plasteel/durasteel,
+/area/shuttle/yohei)
+"tr" = (
+/obj/item/kirbyplants/photosynthetic,
+/obj/structure/deployable_barricade/plasteel,
 /turf/open/floor/plasteel/durasteel,
 /area/shuttle/yohei)
 "tG" = (
@@ -271,22 +291,12 @@
 /obj/item/restraints/handcuffs/cable{
 	pixel_y = 6
 	},
-/obj/item/restraints/handcuffs/cable{
-	pixel_x = 8;
-	pixel_y = 3
+/obj/item/storage/box/zipties{
+	pixel_x = -5
 	},
-/obj/item/restraints/handcuffs/cable,
-/obj/item/restraints/handcuffs/cable{
-	pixel_x = 4;
-	pixel_y = 11
-	},
-/obj/item/restraints/handcuffs/cable{
-	pixel_x = -5;
-	pixel_y = 8
-	},
-/obj/item/restraints/handcuffs/cable{
-	pixel_x = -8;
-	pixel_y = 3
+/obj/item/storage/box/zipties{
+	pixel_y = -6;
+	pixel_x = +3
 	},
 /turf/open/floor/plasteel/durasteel,
 /area/shuttle/yohei)
@@ -300,11 +310,30 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/durasteel,
 /area/shuttle/yohei)
+"wW" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 10
+	},
+/obj/machinery/sleeper/syndie{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/shuttle/yohei)
+"wX" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/machinery/computer/operating{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/shuttle/yohei)
 "xk" = (
 /obj/structure/table/abductor,
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = 8
 	},
+/obj/machinery/cell_charger,
 /turf/open/floor/plasteel/durasteel,
 /area/shuttle/yohei)
 "xm" = (
@@ -417,6 +446,11 @@
 /area/shuttle/yohei)
 "IG" = (
 /obj/structure/table/abductor,
+/obj/item/stack/medical/gauze,
+/turf/open/floor/plasteel/durasteel,
+/area/shuttle/yohei)
+"II" = (
+/obj/structure/deployable_barricade/plasteel,
 /turf/open/floor/plasteel/durasteel,
 /area/shuttle/yohei)
 "IX" = (
@@ -424,6 +458,7 @@
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 9
 	},
+/obj/structure/chair/noose,
 /turf/open/floor/wood,
 /area/shuttle/yohei)
 "Jx" = (
@@ -451,6 +486,13 @@
 /obj/structure/table/abductor,
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/item/kitchen/knife/combat/survival,
+/obj/item/kitchen/knife/combat/survival{
+	pixel_x = -9
+	},
+/obj/item/kitchen/knife/combat/survival{
+	pixel_x = 8
+	},
 /turf/open/floor/plasteel/durasteel,
 /area/shuttle/yohei)
 "JG" = (
@@ -554,6 +596,11 @@
 /area/shuttle/yohei)
 "Wf" = (
 /turf/closed/indestructible/opsglass,
+/area/shuttle/yohei)
+"Wu" = (
+/obj/structure/cable,
+/obj/structure/deployable_barricade/plasteel,
+/turf/open/floor/resin,
 /area/shuttle/yohei)
 "Xc" = (
 /obj/machinery/forge/main,
@@ -730,7 +777,7 @@ Fb
 Tg
 Fb
 zL
-HK
+tr
 Wf
 LB
 jH
@@ -755,7 +802,7 @@ uW
 uW
 uW
 uW
-uW
+Wu
 nA
 lu
 iT
@@ -765,8 +812,8 @@ sg
 sg
 eA
 KE
-KE
-KE
+wX
+sK
 dt
 sg
 sg
@@ -780,7 +827,7 @@ Fb
 Fb
 Fb
 Fb
-Fb
+II
 Wf
 LB
 jH
@@ -795,7 +842,7 @@ Nr
 xm
 KE
 KE
-dt
+wW
 sg
 Fb
 zL
