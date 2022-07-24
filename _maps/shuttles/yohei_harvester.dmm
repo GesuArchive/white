@@ -230,7 +230,6 @@
 	dir = 8
 	},
 /obj/structure/table/optable,
-/obj/structure/table/optable,
 /turf/open/floor/wood,
 /area/shuttle/yohei)
 "tg" = (
@@ -296,7 +295,7 @@
 	},
 /obj/item/storage/box/zipties{
 	pixel_y = -6;
-	pixel_x = +3
+	pixel_x = 3
 	},
 /turf/open/floor/plasteel/durasteel,
 /area/shuttle/yohei)
