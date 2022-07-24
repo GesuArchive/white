@@ -1,14 +1,14 @@
 /datum/bounty/item/alien_organs
 	name = "Органы ксеноморфов"
 	description = "НТ заинтересованы в изучении биологии ксеноморфа. Отправьте их органы!"
-	reward = CARGO_CRATE_VALUE * 500
+	reward = CARGO_CRATE_VALUE * 200
 	required_count = 3
 	wanted_types = list(/obj/item/organ/brain/alien, /obj/item/organ/alien, /obj/item/organ/body_egg/alien_embryo, /obj/item/organ/liver/alien, /obj/item/organ/tongue/alien, /obj/item/organ/eyes/night_vision/alien)
 
 /datum/bounty/item/syndicate_documents
 	name = "Документы Синдиката"
 	description = "Данные в отношении синдиката высоко ценится в ЦК. Если вы найдете документы синдиката, отправьте их. Вы могли бы спасти жизни."
-	reward = CARGO_CRATE_VALUE * 300
+	reward = CARGO_CRATE_VALUE * 500
 	wanted_types = list(/obj/item/documents/syndicate, /obj/item/documents/photocopy)
 
 /datum/bounty/item/syndicate_documents/applies_to(obj/O)
@@ -36,7 +36,7 @@
 /datum/bounty/more_bounties
 	name = "Больше заказов"
 	description = "Выполните достаточно заказов, и ЦК отправит новые!"
-	reward = CARGO_CRATE_VALUE * 5 // number of bounties
+	reward = 10 // number of bounties
 	var/required_bounties = 5
 
 /datum/bounty/more_bounties/can_claim()

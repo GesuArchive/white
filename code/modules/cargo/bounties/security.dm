@@ -53,7 +53,7 @@
 	description = "Выполните рутинную проверку безопасности, используя in-spect сканер для проверки:"
 	required_count = 1
 	wanted_types = list(/obj/item/report)
-	reward = CARGO_CRATE_VALUE * 5
+	reward = CARGO_CRATE_VALUE * 10
 	var/area/demanded_area
 
 /datum/bounty/item/security/paperwork/New()

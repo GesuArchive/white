@@ -14,7 +14,7 @@
 /datum/bounty/item/chef/popcorn
 	name = "Попкорн"
 	description = "Высшее руководство хочет провести вечер в кино. Отправьте им попкорном по этому случаю."
-	reward = CARGO_CRATE_VALUE * 200
+	reward = CARGO_CRATE_VALUE * 50
 	required_count = 3
 	wanted_types = list(/obj/item/food/popcorn)
 
@@ -132,7 +132,7 @@
 /datum/bounty/item/chef/nuggies
 	name = "Куриные наггетсы"
 	description = "Один из руководителей организации, которая борется за права чернокожих, не перестаёт говорить про куриные наггетсы. Не могли бы вы отправить ему немного?"
-	reward = CARGO_CRATE_VALUE * 150
+	reward = CARGO_CRATE_VALUE * 100
 	required_count = 6
 	wanted_types = list(/obj/item/food/nugget)
 

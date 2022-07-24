@@ -14,7 +14,7 @@
 /datum/bounty/item/mining/bone_oar
 	name = "Костяные весла"
 	description = "Командующий Меньков требует весла для участия в ежегодной регате Лаваленда. Отправь пару."
-	reward = CARGO_CRATE_VALUE * 245
+	reward = CARGO_CRATE_VALUE * 100
 	required_count = 2
 	wanted_types = list(/obj/item/oar)
 
@@ -39,7 +39,7 @@
 /datum/bounty/item/mining/bone_talisman
 	name = "Костяной талисман"
 	description = "Директор исследования станции 14 утверждает, что талисманы язычников из костей защищают своего владельца. Отправьте несколько, чтобы они могли начать тестирование."
-	reward = CARGO_CRATE_VALUE * 200
+	reward = CARGO_CRATE_VALUE * 100
 	required_count = 3
 	wanted_types = list(/obj/item/clothing/accessory/talisman)
 
@@ -66,6 +66,6 @@
 /datum/bounty/item/mining/porcini_mushroom
 	name = "Грибы Porcini"
 	description = "По слухам, белые грибы обладают целебными свойствами. Наши исследователи хотят проверить это."
-	reward = CARGO_CRATE_VALUE * 900
+	reward = CARGO_CRATE_VALUE * 90
 	required_count = 3
 	wanted_types = list(/obj/item/food/grown/ash_flora/mushroom_leaf)

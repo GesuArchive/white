@@ -25,7 +25,7 @@
 /datum/bounty/item/engineering/energy_ball
 	name = "Удержанный шар теслы"
 	description = "Станция 24 наводнена ордами разгневанных молей. Она запрашивают шар Теслы."
-	reward = 75000 //requires 14k credits of purchases, not to mention cooperation with engineering/heads of staff to set up inside the cramped shuttle
+	reward = 114000 //requires 14k credits of purchases, not to mention cooperation with engineering/heads of staff to set up inside the cramped shuttle
 	wanted_types = list(/obj/energy_ball)
 
 /datum/bounty/item/engineering/energy_ball/applies_to(obj/O)

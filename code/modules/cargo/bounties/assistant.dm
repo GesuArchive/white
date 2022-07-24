@@ -86,14 +86,14 @@
 /datum/bounty/item/assistant/donkpocket
 	name = "Донк-Покеты"
 	description = "Отзыв безопасности потребителей: Внимание! Донк-Покеты, изготовленные в прошлом году, содержат опасную биоматерию ящерицы. Верните их на ЦК немедленно."
-	reward = CARGO_CRATE_VALUE * 75
+	reward = CARGO_CRATE_VALUE * 100
 	required_count = 10
 	wanted_types = list(/obj/item/food/donkpocket)
 
 /datum/bounty/item/assistant/briefcase
 	name = "Портфель"
 	description = "Центральное командование в этом году проведет деловую конвенцию. Отправьте несколько портфелей в их поддержку."
-	reward = CARGO_CRATE_VALUE * 120
+	reward = CARGO_CRATE_VALUE * 50
 	required_count = 5
 	wanted_types = list(/obj/item/storage/briefcase, /obj/item/storage/secure/briefcase)
 
@@ -227,14 +227,14 @@
 /datum/bounty/item/assistant/paper_bin
 	name = "Контейнеры для бумаги"
 	description = "В нашем бухгалтерском отделе совсем нет бумаги. Нам немедленно нужна новая партия."
-	reward = CARGO_CRATE_VALUE * 120
+	reward = CARGO_CRATE_VALUE * 50
 	required_count = 8
 	wanted_types = list(/obj/item/paper_bin)
 
 /datum/bounty/item/assistant/crayons
 	name = "Мелки"
 	description = "Ребенок доктора Джонса снова съел все наши мелки. Пожалуйста, пришлите нам свои."
-	reward = CARGO_CRATE_VALUE * 100
+	reward = CARGO_CRATE_VALUE * 50
 	required_count = 24
 	wanted_types = list(/obj/item/toy/crayon)
 
@@ -384,7 +384,7 @@
 /datum/bounty/item/assistant/nuclearbomb
 	name = "Ядерная бомба"
 	description = "Мы не знаем, как вы это получите, но если вы случайно её найдёте, то отправьте её нам."
-	reward = CARGO_CRATE_VALUE * 1540
+	reward = CARGO_CRATE_VALUE * 5000
 	required_count = 1
 	include_subtypes = FALSE
 	wanted_types = list(/obj/machinery/nuclearbomb)
