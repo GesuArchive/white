@@ -8,7 +8,7 @@
 	reflectable = NONE
 	wound_bonus = -10
 	bare_wound_bonus = 0
-	temperature = 20
+	temperature = 10
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/red_laser
 
 /obj/projectile/temp/inferno/on_hit(atom/target, blocked, pierce_hit)
@@ -35,7 +35,7 @@
 	reflectable = NONE
 	wound_bonus = -10
 	bare_wound_bonus = 0
-	temperature = -20
+	temperature = -5
 
 /obj/projectile/temp/cryo/on_hit(atom/target, blocked, pierce_hit)
 	..()
