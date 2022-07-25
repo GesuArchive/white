@@ -188,7 +188,7 @@
 		if(prob(10) && !broken && can_explode)
 			to_chat(user, span_userdanger("Щас ебанёт кажись..."))
 			playsound(get_turf(src), 'white/valtos/sounds/pshsh.ogg', 80, TRUE, 5)
-			new /obj/effect/particle_effect/smoke(get_turf(src))
+			new /obj/effect/particle_effect/fluid(get_turf(src))
 			spawn(rand(10, 50))
 				babah(user)
 			broken = TRUE

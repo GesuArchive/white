@@ -553,7 +553,7 @@
 			if(!reagents || (reagents.total_volume < IC_SMOKE_REAGENTS_MINIMUM_UNITS))
 				return
 			var/location = get_turf(src)
-			var/datum/effect_system/smoke_spread/chem/S = new
+			var/datum/effect_system/fluid_spread/smoke/chem/S = new
 			S.attach(location)
 			playsound(location, 'sound/effects/smoke.ogg', 50, 1, -3)
 			if(S)

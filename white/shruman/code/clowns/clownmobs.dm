@@ -31,7 +31,7 @@
 	del_on_death = 1
 	faction = list("clown")
 	damage_coeff = list(BRUTE = 1, BURN = 2, TOX = 1, CLONE = 1, STAMINA = 0, OXY = 0)
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/fluid/foam)
 	footstep_type = FOOTSTEP_MOB_SHOE
 	see_in_dark = 8
 	lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
@@ -139,7 +139,7 @@
 	response_disarm_continuous = "gently scoops and pours aside"
 	response_disarm_simple = "gently scoop and pour aside"
 	emote_see = list("булькает", "пузырится")
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/fluid/foam)
 
 /mob/living/simple_animal/hostile/clown/lube/Initialize(mapload)
 	. = ..()
@@ -159,7 +159,7 @@
 	maxHealth = 90
 	health = 90
 	speed = 1
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap, /obj/item/seeds/banana)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/fluid/foam, /obj/item/soap, /obj/item/seeds/banana)
 	banana_time = 20
 
 /mob/living/simple_animal/hostile/clown/honkling
@@ -174,7 +174,7 @@
 	melee_damage_upper = 1
 	attack_verb_continuous = "cheers"
 	attack_verb_simple = "cheers"
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap, /obj/item/seeds/banana/bluespace)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/fluid/foam, /obj/item/soap, /obj/item/seeds/banana/bluespace)
 	banana_type = /obj/item/grown/bananapeel
 	attack_reagent = /datum/reagent/consumable/laughter
 
@@ -202,7 +202,7 @@
 	var/biomass = 25
 	var/datum/action/innate/glutton/plantSkin/plantSkin
 	var/datum/action/innate/glutton/lesser/build/build
-	loot = list(/obj/item/clothing/suit/hooded/bloated_human, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
+	loot = list(/obj/item/clothing/suit/hooded/bloated_human, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/fluid/foam, /obj/item/soap)
 
 /mob/living/simple_animal/hostile/clown/fleshclown/get_status_tab_items()
 		. = ..()
@@ -231,7 +231,7 @@
 	melee_damage_lower = 10
 	attack_verb_continuous = "YA-HONKs"
 	attack_verb_simple = "YA-HONK"
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/fluid/foam, /obj/item/soap)
 
 /mob/living/simple_animal/hostile/clown/clownhulk
 	name = "Honk Hulk"
@@ -258,7 +258,7 @@
 	attack_verb_simple = "pummel"
 	obj_damage = 30
 	environment_smash = ENVIRONMENT_SMASH_WALLS
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/fluid/foam, /obj/item/soap)
 
 /mob/living/simple_animal/hostile/clown/clownhulk/chlown
 	name = "Chlown"
@@ -282,7 +282,7 @@
 	attack_verb_continuous = "steals the girlfriend of"
 	attack_verb_simple = "steal the girlfriend of"
 	attack_sound = 'sound/items/airhorn2.ogg'
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/effect/particle_effect/foam, /obj/item/soap)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/fluid/foam, /obj/effect/particle_effect/fluid/foam, /obj/item/soap)
 
 /mob/living/simple_animal/hostile/clown/clownhulk/honcmunculus
 	name = "Honkmunculus"
@@ -305,7 +305,7 @@
 	attack_verb_continuous = "ferociously mauls"
 	attack_verb_simple = "ferociously maul"
 	environment_smash = ENVIRONMENT_SMASH_NONE
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/fluid/foam, /obj/item/soap)
 	attack_reagent = /datum/reagent/peaceborg/confuse
 
 /mob/living/simple_animal/hostile/clown/clownhulk/destroyer
@@ -328,7 +328,7 @@
 	attack_verb_simple = "act out divine vengeance on"
 	obj_damage = 50
 	environment_smash = ENVIRONMENT_SMASH_RWALLS
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam, /obj/item/soap)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/fluid/foam, /obj/item/soap)
 
 /mob/living/simple_animal/hostile/clown/mutant
 	name = "Переполненный клоун"
@@ -355,7 +355,7 @@
 	melee_damage_upper = 8
 	attack_verb_continuous = "awkwardly flails at"
 	attack_verb_simple = "awkwardly flail at"
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /mob/living/simple_animal/hostile/clown/worm, /mob/living/simple_animal/hostile/clown/worm, /obj/effect/particle_effect/foam)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /mob/living/simple_animal/hostile/clown/worm, /mob/living/simple_animal/hostile/clown/worm, /obj/effect/particle_effect/fluid/foam)
 
 // Основной производящий юнит армии клоунов, матка
 /mob/living/simple_animal/hostile/clown/mutant/glutton
@@ -413,7 +413,7 @@
 	attack_verb_continuous = "кусает"
 	attack_verb_simple = "кусает"
 	footstep_type = FOOTSTEP_MOB_CLAW
-	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/foam)
+	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/fluid/foam)
 
 /mob/living/simple_animal/hostile/clown/worm
 	name = "Хонкочервь"
@@ -485,7 +485,7 @@
 	if(A && A.loc != src)
 		playsound(src, 'sound/effects/splat.ogg', 100, TRUE)
 		new /obj/structure/spawner/clown/clowncorpse(get_turf(A.loc))
-		new /obj/effect/particle_effect/foam(get_turf(A.loc))
+		new /obj/effect/particle_effect/fluid/foam(get_turf(A.loc))
 		visible_message(span_warning("[capitalize(src.name)] заражает тело [A] хонкочервями!"))
 		qdel(A)
 		return TRUE

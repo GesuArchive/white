@@ -37,7 +37,7 @@
 /obj/structure/destructible/clockwork/gear_base/prosperityprism/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	if(LAZYLEN(holder.reagent_list))
-		var/datum/effect_system/smoke_spread/chem/S = new
+		var/datum/effect_system/fluid_spread/smoke/chem/S = new
 		var/turf_location = get_turf(src)
 		S.attach(turf_location)
 		S.set_up(holder, 3, turf_location, 0)

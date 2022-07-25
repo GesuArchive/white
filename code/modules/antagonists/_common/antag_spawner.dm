@@ -67,7 +67,7 @@
 	spawn_antag(student.client, get_turf(src), apprentice_school, teacher.mind)
 
 /obj/item/antag_spawner/contract/spawn_antag(client/C, turf/T, kind, datum/mind/user)
-	new /obj/effect/particle_effect/smoke(T)
+	new /obj/effect/particle_effect/fluid(T)
 	var/mob/living/carbon/human/M = new/mob/living/carbon/human(T)
 	C.prefs.copy_to(M)
 	M.key = C.key

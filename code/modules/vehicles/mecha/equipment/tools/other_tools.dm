@@ -456,7 +456,7 @@
 /obj/item/mecha_parts/mecha_equipment/thrusters/gas
 	name = "реактивные двигатели экзокостюма"
 	desc = "Набор двигателей, которые позволяют передвигаться в экзокостюме в условиях невесомости, потребляя газ из внутреннего бака жизнеобеспечения."
-	effect_type = /obj/effect/particle_effect/smoke
+	effect_type = /obj/effect/particle_effect/fluid
 	var/move_cost = 20 //moles per step
 
 /obj/item/mecha_parts/mecha_equipment/thrusters/gas/try_attach_part(mob/user, obj/vehicle/sealed/mecha/M, attach_right = FALSE)

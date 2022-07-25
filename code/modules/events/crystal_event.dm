@@ -696,7 +696,7 @@ This section is for the crystal monsters variations
 
 /mob/living/simple_animal/hostile/crystal_monster/minion/Destroy()
 	if(isturf(loc))
-		var/datum/effect_system/smoke_spread/chem/S = new
+		var/datum/effect_system/fluid_spread/smoke/chem/S = new
 		create_reagents(3)
 		reagents.add_reagent(/datum/reagent/toxin/lexorin, 4)
 		S.attach(loc)

@@ -42,7 +42,7 @@
 		var/turf/T = deploy_location
 		message_admins("[ADMIN_LOOKUPFLW(usr)] activated a shuttle capsule! [ADMIN_VERBOSEJMP(T)]")
 		temp_template.load(deploy_location, centered = TRUE, register = FALSE)
-		new /obj/effect/particle_effect/smoke(get_turf(src))
+		new /obj/effect/particle_effect/fluid(get_turf(src))
 		qdel(src)
 
 /datum/map_template/shuttle/capsule

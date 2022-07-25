@@ -78,11 +78,13 @@
 	GLOB.chemical_reactions_list[primary_reagent] += R
 
 //Creates foam from the reagent. Metaltype is for metal foam, notification is what to show people in textbox
-/datum/reagents/proc/create_foam(foamtype,foam_volume,metaltype = 0,notification = null)
+/datum/reagents/proc/create_foam(foamtype, foam_volume, result_type = null, notification = null)
 	var/location = get_turf(my_atom)
-	var/datum/effect_system/foam_spread/foam = new foamtype()
-	foam.set_up(foam_volume, location, src, metaltype)
+
+	var/datum/effect_system/fluid_spread/foam/foam = new foamtype()
+	foam.set_up(amount = foam_volume, location = location, carry = src, result_type = result_type)
 	foam.start()
+
 	clear_reagents()
 	if(!notification)
 		return
@@ -191,7 +193,7 @@
 ///Returns reagent datum from reagent name string
 /proc/get_chem_id(chem_name)
 	chem_name = lowertext(chem_name)
-	
+
 	//fucks up plumbing filter's interface, so i'm putting this for later
 	//2:56 in the morning please end my fucking misery
 	/*

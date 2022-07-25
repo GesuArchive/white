@@ -96,7 +96,7 @@
 /obj/item/soap/suicide_act(mob/user)
 	user.say(";FFFFFFFFFFFFFFFFUUUUUUUDGE!!", forced="soap suicide")
 	user.visible_message(span_suicide("[user] lifts [src] to [user.ru_ego()] mouth and gnaws on it furiously, producing a thick froth! [user.ru_who(TRUE)]'ll never get that BB gun now!"))
-	new /obj/effect/particle_effect/foam(loc)
+	new /obj/effect/particle_effect/fluid/foam(loc)
 	return (TOXLOSS)
 
 /**

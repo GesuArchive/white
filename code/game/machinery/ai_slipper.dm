@@ -35,7 +35,7 @@
 	if(cooldown_time > world.time)
 		to_chat(user, span_warning("[capitalize(src.name)] на перезарядке, осталось <b>[DisplayTimeText(world.time - cooldown_time)]</b>!"))
 		return
-	new /obj/effect/particle_effect/foam(loc)
+	new /obj/effect/particle_effect/fluid/foam(loc)
 	uses--
 	to_chat(user, span_notice("Активирую [src.name]. Внутри осталось <b>[uses]</b> зарядов."))
 	cooldown = world.time + cooldown_time

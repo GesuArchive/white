@@ -123,7 +123,7 @@
 	DeactivatePower()
 
 /datum/effect_system/steam_spread/bloodsucker
-	effect_type = /obj/effect/particle_effect/smoke/vampsmoke
+	effect_type = /obj/effect/particle_effect/fluid/smoke/vampsmoke
 
 #undef GOHOME_START
 #undef GOHOME_FLICKER_ONE

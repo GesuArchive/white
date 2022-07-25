@@ -263,8 +263,8 @@ see 'white/RedFoxIV/code/obj/weapons/misc.dm'
 
 /obj/item/gun/ballistic/xviii_rifle/shoot_live_shot(mob/living/user, pointblank = 0, atom/pbtarget = null, message = 1)
 	..()
-	var/datum/effect_system/smoke_spread/smoke = new
-	smoke.set_up(0, loc)
+	var/datum/effect_system/fluid_spread/smoke/smoke = new
+	smoke.set_up(0, location = loc)
 	smoke.start()
 	is_cartrige_prepared = FALSE
 	is_ready_to_fire = FALSE
