@@ -473,7 +473,7 @@
 	var/datum/effect_system/fluid_spread/smoke/chem/S = new
 	S.attach(B)
 	if(S)
-		S.set_up(B.reagents, 4, 0, B.loc)
+		S.set_up(4, 0, carry = B.reagents, location = B.loc)
 		S.start()
 	qdel(B)
 

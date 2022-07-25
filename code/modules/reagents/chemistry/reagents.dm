@@ -194,7 +194,7 @@ Primarily used in reagents/reaction_agents
 	return
 
 /// Called when this reagent is removed while inside a mob
-/datum/reagent/proc/on_mob_delete(mob/living/L)
+/datum/reagent/proc/on_mob_delete(mob/living/L, delta_time)
 	SEND_SIGNAL(L, COMSIG_CLEAR_MOOD_EVENT, "[type]_overdose")
 	return
 
@@ -203,13 +203,13 @@ Primarily used in reagents/reaction_agents
 	return
 
 /// Called when a reagent is inside of a mob when they are dead
-/datum/reagent/proc/on_mob_dead(mob/living/carbon/C)
+/datum/reagent/proc/on_mob_dead(mob/living/carbon/C, delta_time)
 	if(!(chemical_flags & REAGENT_DEAD_PROCESS))
 		return
 	current_cycle++
 	if(length(reagent_removal_skip_list))
 		return
-	holder.remove_reagent(type, metabolization_rate * C.metabolism_efficiency)
+	holder.remove_reagent(type, metabolization_rate * C.metabolism_efficiency * delta_time)
 
 /// Called when this reagent stops being metabolized by a liver
 /datum/reagent/proc/on_mob_end_metabolize(mob/living/L)

@@ -179,7 +179,7 @@
 		if(4 * LIVER_FAILURE_STAGE_SECONDS to INFINITY)
 			examine_list += span_danger("\nГлаза [owner] полностью жёлтые и из них сочится гадкая слизь. [owner.ru_who(TRUE)] не проживёт долго с этим.")
 
-/obj/item/organ/liver/on_death()
+/obj/item/organ/liver/on_death(delta_time, times_fired)
 	. = ..()
 	var/mob/living/carbon/carbon_owner = owner
 	if(!owner)//If we're outside of a mob
@@ -192,7 +192,7 @@
 		return
 	for(var/reagent in carbon_owner.reagents.reagent_list)
 		var/datum/reagent/R = reagent
-		R.on_mob_dead(carbon_owner)
+		R.on_mob_dead(carbon_owner, delta_time)
 
 #undef HAS_SILENT_TOXIN
 #undef HAS_NO_TOXIN

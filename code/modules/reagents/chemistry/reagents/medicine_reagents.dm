@@ -7,9 +7,9 @@
 // where all the reagents related to medicine go.
 
 /datum/reagent/medicine
-
 	enname = "Medicine"
 	taste_description = "горечь"
+	failed_chem = /datum/reagent/impurity/healing/medicine_failure
 
 /datum/reagent/medicine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	current_cycle++
@@ -539,8 +539,11 @@
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
 	overdose_threshold = 30
 	ph = 12
+	purity = REAGENT_STANDARD_PURITY
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/stimulants = 4) //1.6 per 2 seconds
+	inverse_chem = /datum/reagent/inverse/corazargh
+	inverse_chem_val = 0.4
 
 /datum/reagent/medicine/ephedrine/on_mob_metabolize(mob/living/L)
 	..()
@@ -553,33 +556,32 @@
 	..()
 
 /datum/reagent/medicine/ephedrine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	if(DT_PROB(10, delta_time) && iscarbon(M))
+	if(DT_PROB(10 * (1-creation_purity), delta_time) && iscarbon(M))
 		var/obj/item/I = M.get_active_held_item()
 		if(I && M.dropItemToGround(I))
 			to_chat(M, span_notice("Мои руки дернулись и я выронил то, что держал в них!"))
 			M.Jitter(10)
 
-	M.AdjustAllImmobility(-20 * REM * delta_time)
-	M.adjustStaminaLoss(-1 * REM * delta_time, FALSE)
+	M.AdjustAllImmobility(-20 * REM * delta_time * normalise_creation_purity())
+	M.adjustStaminaLoss(-1 * REM * delta_time * normalise_creation_purity(), FALSE)
 	..()
 	return TRUE
 
 /datum/reagent/medicine/ephedrine/overdose_process(mob/living/M, delta_time, times_fired)
-	if(DT_PROB(1, delta_time) && iscarbon(M))
+	if(DT_PROB(1 * normalise_creation_purity(), delta_time) && iscarbon(M))
 		var/datum/disease/D = new /datum/disease/heart_failure
 		M.ForceContractDisease(D)
 		to_chat(M, span_userdanger("Уверен что ощутил как мое сердце пропустило удар.."))
 		M.playsound_local(M, 'sound/effects/singlebeat.ogg', 100, 0)
 
-	if(DT_PROB(3.5, delta_time))
+	if(DT_PROB(3.5 * normalise_creation_purity(), delta_time))
 		to_chat(M, span_notice("[pick("У меня очень сильно болит голова.", "Глазам больно.", "Мне сложно ровно стоять.", "По ощущениям мое сердце буквально вырывается из груди.")]"))
 
-	if(DT_PROB(18, delta_time))
+	if(DT_PROB(18 * normalise_creation_purity(), delta_time))
 		M.adjustToxLoss(1, 0)
 		M.losebreath++
 		. = TRUE
 	return TRUE
-
 
 /datum/reagent/medicine/diphenhydramine
 	name = "Дифенгидрамин"
@@ -647,26 +649,81 @@
 	color = "#404040" //oculine is dark grey, inacusiate is light grey
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
 	taste_description = "тусклый токсин"
+	purity = REAGENT_STANDARD_PURITY
 	ph = 10
+	impure_chem = null
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	inverse_chem = /datum/reagent/inverse/oculine
+	inverse_chem_val = 0.45
+	///The lighting alpha that the mob had on addition
+	var/delta_light
 
-/datum/reagent/medicine/oculine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	var/obj/item/organ/eyes/eyes = M.getorganslot(ORGAN_SLOT_EYES)
-	M.adjust_blindness(-2 * REM * delta_time)
-	M.adjust_blurriness(-2 * REM * delta_time)
+/datum/reagent/medicine/oculine/on_mob_add(mob/living/owner)
+	if(!iscarbon(owner))
+		return
+	RegisterSignal(owner, COMSIG_CARBON_GAIN_ORGAN, .proc/on_gained_organ)
+	RegisterSignal(owner, COMSIG_CARBON_LOSE_ORGAN, .proc/on_removed_organ)
+	var/obj/item/organ/eyes/eyes = owner.getorganslot(ORGAN_SLOT_EYES)
+	if(!eyes)
+		return
+	improve_eyesight(owner, eyes)
+
+/datum/reagent/medicine/oculine/proc/improve_eyesight(mob/living/carbon/owner, obj/item/organ/eyes/eyes)
+	delta_light = creation_purity*30
+	if(eyes.lighting_alpha)
+		eyes.lighting_alpha -= delta_light
+	else
+		eyes.lighting_alpha = 255 - delta_light
+	eyes.see_in_dark += 3
+	owner.update_sight()
+
+/datum/reagent/medicine/oculine/proc/restore_eyesight(mob/living/carbon/owner, obj/item/organ/eyes/eyes)
+	eyes.lighting_alpha += delta_light
+	eyes.see_in_dark -= 3
+	owner.update_sight()
+
+/datum/reagent/medicine/oculine/proc/on_gained_organ(mob/owner, obj/item/organ/organ)
+	SIGNAL_HANDLER
+	if(!istype(organ, /obj/item/organ/eyes))
+		return
+	var/obj/item/organ/eyes/eyes = organ
+	improve_eyesight(owner, eyes)
+
+/datum/reagent/medicine/oculine/proc/on_removed_organ(mob/prev_owner, obj/item/organ/organ)
+	SIGNAL_HANDLER
+	if(!istype(organ, /obj/item/organ/eyes))
+		return
+	var/obj/item/organ/eyes/eyes = organ
+	restore_eyesight(prev_owner, eyes)
+
+/datum/reagent/medicine/oculine/on_mob_life(mob/living/carbon/owner, delta_time, times_fired)
+	owner.adjust_blindness(-2 * REM * delta_time * normalise_creation_purity())
+	owner.adjust_blurriness(-2 * REM * delta_time * normalise_creation_purity())
+	var/obj/item/organ/eyes/eyes = owner.getorganslot(ORGAN_SLOT_EYES)
 	if (!eyes)
+		return ..()
+	var/fix_prob = 10
+	if(creation_purity >= 1)
+		fix_prob = 100
+	eyes.applyOrganDamage(-2 * REM * delta_time * normalise_creation_purity())
+	if(HAS_TRAIT_FROM(owner, TRAIT_BLIND, EYE_DAMAGE))
+		if(DT_PROB(fix_prob, delta_time))
+			to_chat(owner, "<span class='warning'>Ко мне постепенно возвращается зрение...</span>")
+			owner.cure_blind(EYE_DAMAGE)
+			owner.cure_nearsighted(EYE_DAMAGE)
+			owner.blur_eyes(35)
+	else if(HAS_TRAIT_FROM(owner, TRAIT_NEARSIGHT, EYE_DAMAGE))
+		to_chat(owner, "<span class='warning'>В моем периферийном зрении рассеивается темнота.</span>")
+		owner.cure_nearsighted(EYE_DAMAGE)
+		owner.blur_eyes(10)
+	..()
+
+/datum/reagent/medicine/oculine/on_mob_delete(mob/living/owner, delta_time)
+	var/obj/item/organ/eyes/eyes = owner.getorganslot(ORGAN_SLOT_EYES)
+	if(!eyes)
 		return
 	eyes.applyOrganDamage(-2 * REM * delta_time)
-	if(HAS_TRAIT_FROM(M, TRAIT_BLIND, EYE_DAMAGE))
-		if(DT_PROB(10, delta_time))
-			to_chat(M, span_warning("Ко мне постепенно возвращается зрение..."))
-			M.cure_blind(EYE_DAMAGE)
-			M.cure_nearsighted(EYE_DAMAGE)
-			M.blur_eyes(35)
-	else if(HAS_TRAIT_FROM(M, TRAIT_NEARSIGHT, EYE_DAMAGE))
-		to_chat(M, span_warning("В моем периферийном зрении рассеивается темнота."))
-		M.cure_nearsighted(EYE_DAMAGE)
-		M.blur_eyes(10)
+	restore_eyesight(owner, eyes)
 	..()
 
 /datum/reagent/medicine/inacusiate
@@ -675,12 +732,37 @@
 	description = "Быстро восстанавливает повреждения ушей, лечит глухоту, при условии, что она не является результатом генетических мутаций или хронической глухоты." //by "chronic" deafness, we mean people with the "deaf" quirk
 	color = "#606060" // ditto
 	ph = 2
+	purity = REAGENT_STANDARD_PURITY
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	impure_chem = /datum/reagent/impurity/inacusiate
+	inverse_chem_val = 0.3
+	inverse_chem = /datum/reagent/impurity/inacusiate
 
-/datum/reagent/medicine/inacusiate/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	var/obj/item/organ/ears/ears = M.getorganslot(ORGAN_SLOT_EARS)
-	ears.adjustEarDamage(-4 * REM * delta_time, -4 * REM * delta_time)
+/datum/reagent/medicine/inacusiate/on_mob_add(mob/living/owner, amount)
+	. = ..()
+	if(creation_purity >= 1)
+		RegisterSignal(owner, COMSIG_MOVABLE_HEAR, .proc/owner_hear)
+
+//Lets us hear whispers from far away!
+/datum/reagent/medicine/inacusiate/proc/owner_hear(datum/source, message, atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods = list())
+	SIGNAL_HANDLER
+	if(!isliving(holder.my_atom))
+		return
+	var/mob/living/owner = holder.my_atom
+	var/atom/movable/composer = holder.my_atom
+	if(message_mods[WHISPER_MODE])
+		message = composer.compose_message(owner, message_language, message, , spans, message_mods)
+
+/datum/reagent/medicine/inacusiate/on_mob_life(mob/living/carbon/owner, delta_time, times_fired)
+	var/obj/item/organ/ears/ears = owner.getorganslot(ORGAN_SLOT_EARS)
+	if(!ears)
+		return ..()
+	ears.adjustEarDamage(-4 * REM * delta_time * normalise_creation_purity(), -4 * REM * delta_time * normalise_creation_purity())
 	..()
+
+/datum/reagent/medicine/inacusiate/on_mob_delete(mob/living/owner)
+	. = ..()
+	UnregisterSignal(owner, COMSIG_MOVABLE_HEAR)
 
 /datum/reagent/medicine/atropine
 	name = "Атропин"
@@ -818,42 +900,83 @@
 	taste_description = "приятная сладость"
 	color = "#A0A0A0" //mannitol is light grey, neurine is lighter grey
 	ph = 10.4
+	overdose_threshold = 15
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	purity = REAGENT_STANDARD_PURITY
+	impure_chem = /datum/reagent/impurity/mannitol
+	inverse_chem_val = 0.45
+	impure_chem = /datum/reagent/impurity/mannitol
 
-/datum/reagent/medicine/mannitol/on_mob_life(mob/living/carbon/C, delta_time, times_fired)
-	C.adjustOrganLoss(ORGAN_SLOT_BRAIN, -2 * REM * delta_time)
+/datum/reagent/medicine/mannitol/on_mob_life(mob/living/carbon/owner, delta_time, times_fired)
+	owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, -2 * REM * delta_time * normalise_creation_purity())
 	..()
 
 //Having mannitol in you will pause the brain damage from brain tumor (so it heals an even 2 brain damage instead of 1.8)
-/datum/reagent/medicine/mannitol/on_mob_metabolize(mob/living/carbon/C)
+/datum/reagent/medicine/mannitol/on_mob_metabolize(mob/living/carbon/owner)
 	. = ..()
-	ADD_TRAIT(C, TRAIT_TUMOR_SUPPRESSED, TRAIT_GENERIC)
+	ADD_TRAIT(owner, TRAIT_TUMOR_SUPPRESSED, TRAIT_GENERIC)
 
-/datum/reagent/medicine/mannitol/on_mob_end_metabolize(mob/living/carbon/C)
-	REMOVE_TRAIT(C, TRAIT_TUMOR_SUPPRESSED, TRAIT_GENERIC)
+/datum/reagent/medicine/mannitol/on_mob_end_metabolize(mob/living/carbon/owner)
+	REMOVE_TRAIT(owner, TRAIT_TUMOR_SUPPRESSED, TRAIT_GENERIC)
 	. = ..()
+
+/datum/reagent/medicine/mannitol/overdose_start(mob/living/owner)
+	to_chat(owner, "<span class='notice'>Ощущаю </span><span class='purple'>П Р О С В Я Щ Е Н И Е!</span>")
+
+/datum/reagent/medicine/mannitol/overdose_process(mob/living/owner, delta_time, times_fired)
+	if(DT_PROB(65, delta_time))
+		return
+	var/list/tips
+	if(DT_PROB(50, delta_time))
+		tips = world.file2list("strings/tips.txt")
+	if(DT_PROB(50, delta_time))
+		tips = world.file2list("strings/sillytips.txt")
+	else
+		tips = world.file2list("strings/chemistrytips.txt")
+	var/message = pick(tips)
+	to_chat(owner, "<span class='purple'><b>Заметка: </b>[html_encode(message)]</span>")
+	..()
 
 /datum/reagent/medicine/neurine
 	name = "Нейрин"
 	enname = "Neurine"
 	description = "Помогает при лечении легких церебральных травм."
 	color = "#C0C0C0" //ditto
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED | REAGENT_DEAD_PROCESS
+	purity = REAGENT_STANDARD_PURITY
+	impure_chem = /datum/reagent/inverse/neurine //if people get grumpy, delete this line
+	inverse_chem_val = 0.5
+	inverse_chem = /datum/reagent/inverse/neurine
+	///brain damage level when we first started taking the chem
+	var/initial_bdamage = 200
 
-
-/datum/reagent/medicine/neurine/on_mob_add(mob/living/L, amount)
+/datum/reagent/medicine/neurine/on_mob_add(mob/living/owner, amount)
 	. = ..()
-	ADD_TRAIT(L, TRAIT_ANTICONVULSANT, name)
+	ADD_TRAIT(owner, TRAIT_ANTICONVULSANT, name)
+	if(!iscarbon(owner))
+		return
+	var/mob/living/carbon/carbon = owner
+	if(creation_purity >= 1)
+		initial_bdamage = carbon.getOrganLoss(ORGAN_SLOT_BRAIN)
 
-/datum/reagent/medicine/neurine/on_mob_delete(mob/living/L)
+/datum/reagent/medicine/neurine/on_mob_delete(mob/living/owner)
 	. = ..()
-	REMOVE_TRAIT(L, TRAIT_ANTICONVULSANT, name)
+	REMOVE_TRAIT(owner, TRAIT_ANTICONVULSANT, name)
+	if(!iscarbon(owner))
+		return
+	var/mob/living/carbon/carbon = owner
+	if(initial_bdamage < carbon.getOrganLoss(ORGAN_SLOT_BRAIN))
+		carbon.setOrganLoss(ORGAN_SLOT_BRAIN, initial_bdamage)
 
-/datum/reagent/medicine/neurine/on_mob_life(mob/living/carbon/C, delta_time, times_fired)
+/datum/reagent/medicine/neurine/on_mob_life(mob/living/carbon/owner, delta_time, times_fired)
 	if(holder.has_reagent(/datum/reagent/consumable/ethanol/neurotoxin))
-		holder.remove_reagent(/datum/reagent/consumable/ethanol/neurotoxin, 5 * REM * delta_time)
-	if(DT_PROB(8, delta_time))
-		C.cure_trauma_type(resilience = TRAUMA_RESILIENCE_BASIC)
+		holder.remove_reagent(/datum/reagent/consumable/ethanol/neurotoxin, 5 * REM * delta_time * normalise_creation_purity())
+	if(DT_PROB(8 * normalise_creation_purity(), delta_time))
+		owner.cure_trauma_type(resilience = TRAUMA_RESILIENCE_BASIC)
+	..()
+
+/datum/reagent/medicine/neurine/on_mob_dead(mob/living/carbon/owner, delta_time)
+	owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, -1 * REM * delta_time * normalise_creation_purity())
 	..()
 
 /datum/reagent/medicine/mutadone
@@ -879,18 +1002,21 @@
 	color = "#00B4C8"
 	taste_description = "сырые яйца"
 	ph = 4
+	purity = REAGENT_STANDARD_PURITY
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	inverse_chem_val 	= 0.35
+	inverse_chem		= /datum/reagent/inverse/antihol
 
 /datum/reagent/medicine/antihol/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.dizziness = 0
 	M.drowsyness = 0
 	M.slurring = 0
 	M.set_confusion(0)
-	M.reagents.remove_all_type(/datum/reagent/consumable/ethanol, 3 * REM * delta_time, FALSE, TRUE)
+	M.reagents.remove_all_type(/datum/reagent/consumable/ethanol, 3 * REM * delta_time * normalise_creation_purity(), FALSE, TRUE)
 	M.adjustToxLoss(-0.2 * REM * delta_time, 0)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		H.drunkenness = max(H.drunkenness - (10 * REM * delta_time), 0)
+		H.drunkenness = max(H.drunkenness - (10 * REM * delta_time * normalise_creation_purity()), 0)
 	..()
 	. = TRUE
 
