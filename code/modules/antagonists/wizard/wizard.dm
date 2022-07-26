@@ -1,5 +1,5 @@
 /datum/antagonist/wizard
-	name = "Space Wizard"
+	name = "Космический Волшебник"
 	roundend_category = "wizards/witches"
 	antagpanel_category = "Wizard"
 	job_rank = ROLE_WIZARD
@@ -17,7 +17,7 @@
 	greentext_reward = 20
 
 /datum/antagonist/wizard_minion
-	name = "Wizard Minion"
+	name = "Прислужник Волшебника"
 	antagpanel_category = "Wizard"
 	antag_hud_name = "apprentice"
 	show_in_roundend = FALSE
@@ -50,8 +50,8 @@
 		return
 	var/datum/objective/custom/custom_objective = new()
 	custom_objective.owner = owner
-	custom_objective.name = "Serve [wiz_team.master_wizard?.owner]"
-	custom_objective.explanation_text = "Serve [wiz_team.master_wizard?.owner]"
+	custom_objective.name = "Служить [wiz_team.master_wizard?.owner]"
+	custom_objective.explanation_text = "Служить [wiz_team.master_wizard?.owner]"
 	objectives += custom_objective
 
 /datum/antagonist/wizard_minion/get_team()
@@ -90,7 +90,7 @@
 
 /datum/antagonist/wizard/proc/create_wiz_team()
 	wiz_team = new(owner)
-	wiz_team.name = "[owner.current.real_name] team"
+	wiz_team.name = "Приспешники [owner.current.real_name]"
 	wiz_team.master_wizard = src
 
 /datum/antagonist/wizard/proc/send_to_lair()
@@ -169,16 +169,16 @@
 	H.equipOutfit(outfit_type)
 
 /datum/antagonist/wizard/greet()
-	to_chat(owner, span_boldannounce("You are the Space Wizard!"))
-	to_chat(owner, "<B>The Space Wizards Federation has given you the following tasks:</B>")
+	to_chat(owner, span_boldannounce("Да я же Космический Волшебник!"))
+	to_chat(owner, "<B>Федерация космических волшебников поставила мне следующие задачи:</B>")
 	owner.announce_objectives()
-	to_chat(owner, "You will find a list of available spells in your spell book. Choose your magic arsenal carefully.")
-	to_chat(owner, "The spellbook is bound to you, and others cannot use it.")
-	to_chat(owner, "In your pockets you will find a teleport scroll. Use it as needed.")
-	to_chat(owner,"<B>Remember:</B> Do not forget to prepare your spells.")
+	to_chat(owner, "В моей книге заклинаний записаны десятки заклинаний, однако одновременно запомнить я могу лишь часть из них. Нужно тщательно выбирать свой магический арсенал.")
+	to_chat(owner, "Моя книга заклинаний привязана ко мне и никто кроме меня не сможет воспользоваться ей.")
+	to_chat(owner, "Где то в моих карманах завалялся свиток телепортации. Его магический потенциал ограничен, но он может помочь передвигаться по станции.")
+	to_chat(owner,"<B>Не забыть:</B> Заранее подготовить свои заклинания.")
 
 /datum/antagonist/wizard/farewell()
-	to_chat(owner, span_userdanger("You have been brainwashed! You are no longer a wizard!"))
+	to_chat(owner, span_userdanger("Мой магический патенциал израсходовал себя! Я больше не способен творить волшебство!"))
 
 /datum/antagonist/wizard/proc/rename_wizard()
 	set waitfor = FALSE
@@ -187,7 +187,7 @@
 	var/wizard_name_second = pick(GLOB.wizard_second)
 	var/randomname = "[wizard_name_first] [wizard_name_second]"
 	var/mob/living/wiz_mob = owner.current
-	var/newname = sanitize_name(reject_bad_text(stripped_input(wiz_mob, "You are the [name]. Would you like to change your name to something else?", "Name change", randomname, MAX_NAME_LEN)))
+	var/newname = sanitize_name(reject_bad_text(stripped_input(wiz_mob, "Когда-то меня звали [name]. Какое прозвище будет более соответствовать моему гению?", "Смена имени", randomname, MAX_NAME_LEN)))
 
 	if (!newname)
 		newname = randomname
@@ -206,13 +206,13 @@
 
 /datum/antagonist/wizard/get_admin_commands()
 	. = ..()
-	.["Send to Lair"] = CALLBACK(src,.proc/admin_send_to_lair)
+	.["Отправить в Логово Волшебника"] = CALLBACK(src,.proc/admin_send_to_lair)
 
 /datum/antagonist/wizard/proc/admin_send_to_lair(mob/admin)
 	owner.current.forceMove(pick(GLOB.wizardstart))
 
 /datum/antagonist/wizard/apprentice
-	name = "Wizard Apprentice"
+	name = "Ученик Волшебника"
 	antag_hud_name = "apprentice"
 	var/datum/mind/master
 	var/school = APPRENTICE_DESTRUCTION
@@ -220,7 +220,7 @@
 	wiz_age = APPRENTICE_AGE_MIN
 
 /datum/antagonist/wizard/apprentice/greet()
-	to_chat(owner, "<B>You are [master.current.real_name] apprentice! You are bound by magic contract to follow [master.ru_ego()] orders and help [master.ru_na()] in accomplishing [master.ru_ego()] goals.")
+	to_chat(owner, "<B>Я ученик [master.current.real_name]! Из-за магического контракта я обязан следовать [master.ru_ego()] приказам и помогать [master.ru_emu()] в достижении целей.")
 	owner.announce_objectives()
 
 /datum/antagonist/wizard/apprentice/register()
@@ -259,17 +259,17 @@
 	var/datum/objective/protect/new_objective = new /datum/objective/protect
 	new_objective.owner = owner
 	new_objective.target = master
-	new_objective.explanation_text = "Protect [master.current.real_name], the wizard."
+	new_objective.explanation_text = "Защитить моего учителя [master.current.real_name]."
 	objectives += new_objective
 
 //Random event wizard
 /datum/antagonist/wizard/apprentice/imposter
-	name = "Wizard Imposter"
+	name = "Волшебник-самозванец"
 	allow_rename = FALSE
 	move_to_lair = FALSE
 
 /datum/antagonist/wizard/apprentice/imposter/greet()
-	to_chat(owner, "<B>You are an imposter! Trick and confuse the crew to misdirect malice from your handsome original!</B>")
+	to_chat(owner, "<B>Я самозванец! Нужно обмануть и сбить с толку команду, чтобы отвлечь злобу от вашего прекрасного оригинала!</B>")
 	owner.announce_objectives()
 
 /datum/antagonist/wizard/apprentice/imposter/equip_wizard()
@@ -296,7 +296,7 @@
 	owner.AddSpell(new /obj/effect/proc_holder/spell/targeted/ethereal_jaunt(null))
 
 /datum/antagonist/wizard/academy
-	name = "Academy Teacher"
+	name = "Преподаватель Академии"
 	outfit_type = /datum/outfit/wizard/academy
 	move_to_lair = FALSE
 
@@ -315,7 +315,7 @@
 	Implant.implant(M)
 
 /datum/antagonist/wizard/academy/create_objectives()
-	var/datum/objective/new_objective = new("Protect Wizard Academy from the intruders")
+	var/datum/objective/new_objective = new("Защитите Академию волшебников от посягательства злоумышленников")
 	new_objective.owner = owner
 	objectives += new_objective
 
@@ -329,19 +329,19 @@
 	var/wizardwin = 1
 	for(var/datum/objective/objective in objectives)
 		if(objective.check_completion())
-			parts += "<B>Objective #[count]</B>: [objective.explanation_text] <span class='greentext'>Success!</span>"
+			parts += "<B>Цель #[count]</B>: [objective.explanation_text] <span class='greentext'>Успех!</span>"
 		else
-			parts += "<B>Objective #[count]</B>: [objective.explanation_text] <span class='redtext'>Fail.</span>"
+			parts += "<B>Цель #[count]</B>: [objective.explanation_text] <span class='redtext'>Провалена.</span>"
 			wizardwin = 0
 		count++
 
 	if(wizardwin)
-		parts += span_greentext("The wizard was successful!")
+		parts += span_greentext("Волшебник успешен!!")
 	else
-		parts += span_redtext("The wizard has failed!")
+		parts += span_redtext("Волшебник провалился!")
 
 	if(owner.spell_list.len>0)
-		parts += "<B>[owner.name] used the following spells: </B>"
+		parts += "<B>[owner.name] использовал следующие заклинания: </B>"
 		var/list/spell_names = list()
 		for(var/obj/effect/proc_holder/spell/S in owner.spell_list)
 			spell_names += S.name
@@ -353,10 +353,10 @@
 /datum/team/wizard/roundend_report()
 	var/list/parts = list()
 
-	parts += span_header("Wizards/witches of [master_wizard.owner.name] team were:")
+	parts += span_header("Волшебники и Ведьмы из команды [master_wizard.owner.name] были:")
 	parts += master_wizard.roundend_report()
 	parts += " "
-	parts += span_header("[master_wizard.owner.name] apprentices and minions were:")
+	parts += span_header("Учениками и приспешниками [master_wizard.owner.name] были:")
 	parts += printplayerlist(members - master_wizard.owner)
 
 	return "<div class='panel redborder'>[parts.Join("<br>")]</div>"
