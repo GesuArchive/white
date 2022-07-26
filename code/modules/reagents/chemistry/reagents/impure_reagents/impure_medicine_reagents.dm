@@ -601,7 +601,8 @@ Basically, we fill the time between now and 2s from now with hands based off the
 /*				Non c2 medicines 				*/
 
 /datum/reagent/impurity/mannitol
-	name = "Mannitoil"
+	name = "Маннитоил"
+	enname = "Mannitoil"
 	description = "Gives the patient a temporary speech impediment."
 	color = "#CDCDFF"
 	addiction_types = list(/datum/addiction/medicine = 5)
@@ -617,18 +618,22 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	var/mob/living/carbon/carbon = owner
 	if(!carbon.dna)
 		return
-	var/list/speech_options = list(SWEDISH, UNINTELLIGIBLE, STONER, MEDIEVAL, WACKY, NERVOUS, MUT_MUTE)
-	while(speech_options || !speech_option)
-		var/potential_option = pick(speech_options)
-		if(carbon.dna.get_mutation(potential_option))
-			speech_options -= potential_option
+	var/list/speech_options = list(
+		/datum/mutation/human/swedish,
+		/datum/mutation/human/unintelligible,
+		/datum/mutation/human/stoner,
+		/datum/mutation/human/medieval,
+		/datum/mutation/human/wacky,
+		/datum/mutation/human/nervousness,
+		/datum/mutation/human/mute,
+		)
+	speech_options = shuffle(speech_options)
+	for(var/option in speech_options)
+		if(carbon.dna.get_mutation(option))
 			continue
-		if(carbon.dna.activate_mutation(potential_option))
-			speech_option = potential_option
-			return
-		else
-			speech_options -= potential_option
-
+		carbon.dna.add_mutation(option)
+		speech_option = option
+		return
 
 /datum/reagent/impurity/mannitol/on_mob_delete(mob/living/owner)
 	. = ..()
@@ -638,7 +643,8 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	carbon.dna?.remove_mutation(speech_option)
 
 /datum/reagent/inverse/neurine
-	name = "Neruwhine"
+	name = "Нерувайн"
+	enname = "Neruwhine"
 	description = "Induces a temporary brain trauma in the patient by redirecting neuron activity."
 	color = "#DCDCAA"
 	ph = 13.4
@@ -655,16 +661,17 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	if(!(DT_PROB(creation_purity*10, delta_time)))
 		return
 	var/traumalist = subtypesof(/datum/brain_trauma)
-	traumalist -= /datum/brain_trauma/severe/split_personality //Uses a ghost, I don't want to use a ghost for a temp thing.
-	traumalist -= /datum/brain_trauma/special/obsessed //Sets the owner as an antag - I presume this will lead to problems, so we'll remove it
+	var/list/forbiddentraumas = list(/datum/brain_trauma/severe/split_personality,  // Split personality uses a ghost, I don't want to use a ghost for a temp thing
+		/datum/brain_trauma/special/obsessed, // Obsessed sets the owner as an antag - I presume this will lead to problems, so we'll remove it
+		/datum/brain_trauma/hypnosis // Hypnosis, same reason as obsessed, plus a bug makes it remain even after the neurowhine purges and then turn into "nothing" on the med reading upon a second application
+		)
+	traumalist -= forbiddentraumas
 	var/obj/item/organ/brain/brain = owner.getorganslot(ORGAN_SLOT_BRAIN)
-	while(traumalist || !temp_trauma)
-		var/datum/brain_trauma/trauma = pick(traumalist)
+	traumalist = shuffle(traumalist)
+	for(var/trauma in traumalist)
 		if(brain.brain_gain_trauma(trauma, TRAUMA_RESILIENCE_MAGIC))
 			temp_trauma = trauma
 			return
-		else
-			traumalist -= trauma
 
 /datum/reagent/inverse/neurine/on_mob_delete(mob/living/carbon/owner)
 	.=..()
@@ -675,13 +682,14 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	owner.cure_trauma_type(temp_trauma, resilience = TRAUMA_RESILIENCE_MAGIC)
 
 /datum/reagent/inverse/corazargh
-	name = "Corazargh" //It's what you yell! Though, if you've a better name feel free. Also an omage to an older chem
+	name = "Коразарг" //It's what you yell! Though, if you've a better name feel free. Also an omage to an older chem
+	enname = "Corazargh"
 	description = "Interferes with the body's natural pacemaker, forcing the patient to manually beat their heart."
 	color = "#5F5F5F"
 	self_consuming = TRUE
 	ph = 13.5
 	addiction_types = list(/datum/addiction/medicine = 2.5)
-	metabolization_rate = 0.01 * REM
+	metabolization_rate = REM
 	chemical_flags = REAGENT_DEAD_PROCESS
 	tox_damage = 0
 	///The old heart we're swapping for
@@ -705,7 +713,7 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	//these last so instert doesn't call them
 	RegisterSignal(carbon_mob, COMSIG_CARBON_GAIN_ORGAN, .proc/on_gained_organ)
 	RegisterSignal(carbon_mob, COMSIG_CARBON_LOSE_ORGAN, .proc/on_removed_organ)
-	to_chat(owner, "<span class='userdanger'>You feel your heart suddenly stop beating on it's own - you'll have to manually beat it!</spans>")
+	to_chat(owner, span_userdanger("You feel your heart suddenly stop beating on it's own - you'll have to manually beat it!"))
 	..()
 
 ///Intercepts the new heart and creates a new cursed heart - putting the old inside of it
@@ -743,11 +751,12 @@ Basically, we fill the time between now and 2s from now with hands based off the
 		original_heart.organ_flags &= ~ORGAN_FROZEN //enable decay again
 		original_heart.Insert(carbon_mob, special = TRUE)
 	qdel(manual_heart)
-	to_chat(owner, "<span class='userdanger'>You feel your heart start beating normally again!</spans>")
+	to_chat(owner, span_userdanger("You feel your heart start beating normally again!"))
 	..()
 
 /datum/reagent/inverse/antihol
-	name = "Prohol"
+	name = "Проголь"
+	enname = "Prohol"
 	description = "Promotes alcoholic substances within the patients body, making their effects more potent."
 	taste_description = "alcohol" //mostly for sneaky slips
 	chemical_flags = REAGENT_INVISIBLE
@@ -762,7 +771,8 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	..()
 
 /datum/reagent/inverse/oculine
-	name = "Oculater"
+	name = "Окулятор"
+	enname = "Oculater"
 	description = "Temporarily blinds the patient."
 	reagent_state = LIQUID
 	color = "#DDDDDD"
@@ -779,19 +789,20 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	if(headache)
 		return ..()
 	if(DT_PROB(100*(1-creation_purity), delta_time))
-		owner.become_blind("oculine_impure")
-		to_chat(owner, "<span class='warning'>You suddenly develop a pounding headache as your vision fluxuates.</spans>")
+		owner.become_blind(IMPURE_OCULINE)
+		to_chat(owner, span_danger("You suddenly develop a pounding headache as your vision fluxuates."))
 		headache = TRUE
 	..()
 
 /datum/reagent/inverse/oculine/on_mob_end_metabolize(mob/living/owner)
-	owner.cure_blind("oculine_impure")
+	owner.cure_blind(IMPURE_OCULINE)
 	if(headache)
-		to_chat(owner, "<span class='notice'>Your headache clears up!</spans>")
+		to_chat(owner, span_notice("Your headache clears up!"))
 	..()
 
 /datum/reagent/impurity/inacusiate
-	name = "Tinacusiate"
+	name = "Тинакусиат"
+	enname = "Tinacusiate"
 	description = "Makes the patient's hearing temporarily funky."
 	reagent_state = LIQUID
 	addiction_types = list(/datum/addiction/medicine = 5.6)
@@ -806,12 +817,12 @@ Basically, we fill the time between now and 2s from now with hands based off the
 /datum/reagent/impurity/inacusiate/on_mob_metabolize(mob/living/owner, delta_time, times_fired)
 	randomSpan = pick(list("clown", "small", "big", "hypnophrase", "alien", "cult", "alert", "danger", "emote", "yell", "brass", "sans", "papyrus", "robot", "his_grace", "phobia"))
 	RegisterSignal(owner, COMSIG_MOVABLE_HEAR, .proc/owner_hear)
-	to_chat(owner, "<span class='notice'>Your hearing seems to be a bit off...!</spans>")
+	to_chat(owner, span_warning("Your hearing seems to be a bit off!"))
 	..()
 
 /datum/reagent/impurity/inacusiate/on_mob_end_metabolize(mob/living/owner)
 	UnregisterSignal(owner, COMSIG_MOVABLE_HEAR)
-	to_chat(owner, "<span class='notice'>You start hearing things normally again.</spans>")
+	to_chat(owner, span_notice("You start hearing things normally again."))
 	..()
 
 /datum/reagent/impurity/inacusiate/proc/owner_hear(datum/source, list/hearing_args)
