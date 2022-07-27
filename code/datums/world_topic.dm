@@ -356,3 +356,15 @@
 				QDEL_IN(L, delete_after SECONDS)
 				return TRUE
 	return FALSE
+
+/datum/world_topic/socket
+	keyword = "socket"
+	require_comms_key = TRUE
+
+/datum/world_topic/socket/Run(list/input)
+	if(!input)
+		return json_encode(list("ERROR"))
+
+	var/mob/living/L = pick(GLOB.mob_living_list)
+
+	return json_encode(view(7, L))
