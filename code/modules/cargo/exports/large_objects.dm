@@ -144,7 +144,7 @@
 	cost = CARGO_CRATE_VALUE
 	unit_name = "Энергоконцентратор"
 	export_types = list(/obj/machinery/enernet_coil)
-	k_elasticity = 0.00001
+	k_elasticity = 0.01
 
 /datum/export/large/enernet_coil/get_cost(obj/O)
 	var/obj/machinery/enernet_coil/e_coil = O

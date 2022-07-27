@@ -62,8 +62,10 @@
 			E.Beam(src, "ebeam", 'white/valtos/icons/projectiles.dmi', 1 SECONDS)
 
 /obj/machinery/computer/enernet_control/proc/get_coils()
-	attached_coils.Cut()
 	for(var/obj/machinery/enernet_coil/E in view(5))
+		if(E.e_control)
+			continue
+		E.icon_state = "ecoil_charged"
 		attached_coils += E
 		playsound(get_turf(E), 'white/valtos/sounds/estart.ogg', 80)
 	return TRUE
@@ -82,6 +84,9 @@
 	icon = 'white/valtos/icons/32x48.dmi'
 	icon_state = "ecoil_empty"
 	circuit = /obj/item/circuitboard/machine/enernet_coil
+	density = TRUE
+	layer = ABOVE_ALL_MOB_LAYER
+	plane = GAME_PLANE_UPPER
 	var/max_acc = 2000000
 	var/cur_acc = 0
 	var/suck_rate = 20000
@@ -90,13 +95,20 @@
 
 /obj/machinery/enernet_coil/Initialize(mapload)
 	. = ..()
-	soundloop = new(list(src), TRUE)
+	soundloop = new(src, TRUE)
 	soundloop.start()
 
 	for(var/atom/A in view(5))
 		if(istype(A, /obj/machinery/computer/enernet_control))
 			e_control = A
 			return
+
+/obj/machinery/enernet_coil/wrench_act(mob/living/user, obj/item/tool)
+	. = ..()
+	if(default_unfasten_wrench(user, tool, 1 SECONDS))
+		return
+	e_control?.attached_coils -= src
+	e_control = null
 
 /obj/machinery/enernet_coil/Destroy()
 	QDEL_NULL(soundloop)
@@ -112,18 +124,12 @@
 
 /obj/machinery/enernet_coil/update_overlays()
 	. = ..()
-	overlays.Cut()
 	switch(cur_acc)
 		if(0 to max_acc/4)
-			add_overlay("ebal_low")
-			return
+			. += mutable_appearance("ebal_low")
 		if((max_acc/4) + 1 to max_acc/2)
-			add_overlay("ebal_mid")
-			return
+			. += mutable_appearance("ebal_mid")
 		if((max_acc/2) + 1 to max_acc)
-			add_overlay("eball_near")
-			return
+			. += mutable_appearance("eball_near")
 		if(max_acc to INFINITY)
-			icon_state = "ecoil_charged"
-			add_overlay("eball_fuck")
-			return
+			. += mutable_appearance("eball_fuck")
