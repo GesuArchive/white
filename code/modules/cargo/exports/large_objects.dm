@@ -139,3 +139,13 @@
 	worth += C.air_contents.get_moles(GAS_TRITIUM)*5
 	worth += C.air_contents.get_moles(GAS_PLUOXIUM)*5
 	return worth
+
+/datum/export/large/enernet_coil
+	cost = CARGO_CRATE_VALUE
+	unit_name = "Энергоконцентратор"
+	export_types = list(/obj/machinery/enernet_coil)
+	k_elasticity = 0.00001
+
+/datum/export/large/enernet_coil/get_cost(obj/O)
+	var/obj/machinery/enernet_coil/e_coil = O
+	return e_coil.cur_acc
