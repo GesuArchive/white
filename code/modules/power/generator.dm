@@ -49,7 +49,7 @@
 	if(machine_stat & (NOPOWER))
 		return
 	else
-		var/L = min(round(lastgenlev/100000),11)
+		var/L = min(round(lastgenlev/500000),11)
 		if(L != 0)
 			SSvis_overlays.add_vis_overlay(src, icon, "teg-op[L]", plane = ABOVE_LIGHTING_PLANE, dir = src.dir)
 
@@ -110,10 +110,10 @@
 			if(prob(75))
 				tesla_zap(src, 7, lastgenlev * 1)
 		if(5000001 to INFINITY)
-			if(prob(5))
-				GLOB.is_engine_sabotaged = TRUE
-				explosion(src, devastation_range = 3, heavy_impact_range = 6, light_impact_range = 12)
-				return PROCESS_KILL
+			GLOB.is_engine_sabotaged = TRUE
+			playsound(get_turf(src), 'white/valtos/sounds/explo.ogg', 80)
+			spawn(1 SECONDS)
+				empulse(get_turf(src), rand(1, 4), rand(4, 8))
 	..()
 
 /obj/machinery/power/generator/proc/get_menu(include_link = TRUE)
