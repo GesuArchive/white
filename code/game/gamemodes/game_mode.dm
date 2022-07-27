@@ -109,9 +109,6 @@
 		if(SSticker.mode)
 			to_set += "game_mode = :game_mode"
 			arguments["game_mode"] = SSticker.mode
-		if(GLOB.revdata.originmastercommit)
-			to_set += "commit_hash = :commit_hash"
-			arguments["commit_hash"] = GLOB.revdata.originmastercommit
 		if(to_set.len)
 			arguments["round_id"] = GLOB.round_id
 			var/datum/db_query/query_round_game_mode = SSdbcore.NewQuery(

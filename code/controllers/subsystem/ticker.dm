@@ -172,7 +172,6 @@ SUBSYSTEM_DEF(ticker)
 			for(var/client/C in GLOB.clients)
 				window_flash(C, ignorepref = TRUE) //let them know lobby has opened up.
 			to_chat(world, span_boldnotice("Приветствуем вас на [station_name()]!"))
-			send2chat("New round starting on [SSmapping.config.map_name]!", CONFIG_GET(string/chat_announce_new_game))
 			current_state = GAME_STATE_PREGAME
 			webhook_send_roundstatus("lobby")
 			SEND_SIGNAL(src, COMSIG_TICKER_ENTER_PREGAME)

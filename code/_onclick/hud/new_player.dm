@@ -254,7 +254,7 @@
 
 	hud.mymob.client.prefs.ShowChoices(hud.mymob)
 
-/atom/movable/screen/lobby/button/changelog_button
+/atom/movable/screen/lobby/button/site_button
 	icon = 'icons/hud/lobbyv3/bottom_buttons.dmi'
 	icon_state = "changelog"
 	base_icon_state = "changelog"
@@ -274,7 +274,7 @@
 	var/mob/dead/new_player/new_player = hud.mymob
 	new_player.ViewManifest()
 
-/atom/movable/screen/lobby/button/changelog_button/Click(location, control, params)
+/atom/movable/screen/lobby/button/site_button/Click(location, control, params)
 	. = ..()
 	var/lets_fucking_go = tgui_alert(usr,"Перейдём в интересное место? (это откроет страницу в браузере)", "Любопытство", list("Да", "Нет"))
 	if(lets_fucking_go == "Да")

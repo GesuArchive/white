@@ -53,7 +53,7 @@
 		log_admin(message)
 		if(REALTIMEOFDAY >= chnotify + 9000)
 			chnotify = REALTIMEOFDAY
-			send2tgs_adminless_only("NOCHEAT", message)
+			send2discord_adminless_only("NOCHEAT", message)
 		return
 
 	if(LAZYACCESS(modifiers, SHIFT_CLICK))

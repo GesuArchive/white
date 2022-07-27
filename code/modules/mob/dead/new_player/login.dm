@@ -24,7 +24,7 @@
 	if(version && !GLOB.violence_mode_activated)
 		to_chat(src, span_nzcrentr("[version]"))
 
-	if(GLOB.changelog_json)
+	if(GLOB.changelog_json && !GLOB.violence_mode_activated)
 		to_chat(src, span_nzcrentr("-- <a href='byond://winset?command=view-changelog'>Список изменений</a> --"))
 
 	if(GLOB.admin_notice)

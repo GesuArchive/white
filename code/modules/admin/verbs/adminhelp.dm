@@ -210,10 +210,10 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		message_admins(span_blue("Ticket [TicketHref("#[id]")] created"))
 	else
 		MessageNoRecipient(msg, urgent)
-		send_message_to_tgs(msg, urgent)
+		send_message_to_discord(msg, urgent)
 	GLOB.ahelp_tickets.active_tickets += src
 
-/datum/admin_help/proc/send_message_to_tgs(message, urgent = FALSE)
+/datum/admin_help/proc/send_message_to_discord(message, urgent = FALSE)
 	var/message_to_send = message
 
 	if(urgent)
@@ -224,7 +224,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		to_chat(initiator, span_boldwarning("Notified admins to prioritize your ticket"))
 		send2adminchat_webhook("RELAY: [initiator_ckey] | Ticket #[id]: [extra_message_to_send]")
 	//send it to TGS if nobody is on and tell us how many were on
-	var/admin_number_present = send2tgs_adminless_only(initiator_ckey, "Ticket #[id]: [message_to_send]")
+	var/admin_number_present = send2discord_adminless_only(initiator_ckey, "Ticket #[id]: [message_to_send]")
 	log_admin_private("Ticket #[id]: [key_name(initiator)]: [name] - heard by [admin_number_present] non-AFK admins who have +BAN.")
 	if(admin_number_present <= 0)
 		to_chat(initiator, span_notice("No active admins are online, your adminhelp was sent to admins who are available through IRC or Discord."))
@@ -241,8 +241,6 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		webhook_info["username"] = CONFIG_GET(string/adminhelp_webhook_name)
 	if(CONFIG_GET(string/adminhelp_webhook_pfp))
 		webhook_info["avatar_url"] = CONFIG_GET(string/adminhelp_webhook_pfp)
-	// Uncomment when servers are moved to TGS4
-	// send2chat("[initiator_ckey] | [message_content]", "ahelp", TRUE)
 	var/list/headers = list()
 	headers["Content-Type"] = "application/json"
 	var/datum/http_request/request = new()
@@ -626,7 +624,7 @@ GLOBAL_DATUM_INIT(admin_help_ui_handler, /datum/admin_help_ui_handler, new)
 		user_client.current_ticket.TimeoutVerb()
 		if(urgent)
 			var/sanitized_message = sanitize(copytext_char(message, 1, MAX_MESSAGE_LEN))
-			user_client.current_ticket.send_message_to_tgs(sanitized_message, urgent = TRUE)
+			user_client.current_ticket.send_message_to_discord(sanitized_message, urgent = TRUE)
 		user_client.current_ticket.MessageNoRecipient(message, urgent)
 		return
 
@@ -710,7 +708,7 @@ GLOBAL_DATUM_INIT(admin_help_ui_handler, /datum/admin_help_ui_handler, new)
 		else
 			.["present"] += X
 
-/proc/send2tgs_adminless_only(source, msg, requiredflags = R_BAN)
+/proc/send2discord_adminless_only(source, msg, requiredflags = R_BAN)
 	var/list/adm = get_admin_counts(requiredflags)
 	var/list/activemins = adm["present"]
 	. = activemins.len
@@ -770,22 +768,6 @@ GLOBAL_DATUM_INIT(admin_help_ui_handler, /datum/admin_help_ui_handler, new)
 	if (!server_url)
 		CRASH("Invalid cross comms config: [server_name]")
 	world.Export("[server_url]?[list2params(message)]")
-
-
-/proc/tgsadminwho()
-	var/list/message = list("Admins: ")
-	var/list/admin_keys = list()
-	for(var/adm in GLOB.admins)
-		var/client/C = adm
-		admin_keys += "[C][C.holder.fakekey ? "(Stealth)" : ""][C.is_afk() ? "(AFK)" : ""]"
-
-	for(var/admin in admin_keys)
-		if(LAZYLEN(message) > 1)
-			message += ", [admin]"
-		else
-			message += "[admin]"
-
-	return jointext(message, "")
 
 /proc/keywords_lookup(msg,external)
 

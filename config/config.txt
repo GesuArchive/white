@@ -365,9 +365,6 @@ PANIC_SERVER_ADDRESS byond://s1.station13.ru:1986
 ##Name of the place to send people rejected by the bunker
 PANIC_SERVER_NAME Колонию Наварро
 
-## Uncomment to have the changelog file automatically open when a user connects and hasn't seen the latest changelog
-#AGGRESSIVE_CHANGELOG
-
 ## Comment this out if you've used the mass conversion sql proc for notes or want to stop converting notes
 AUTOCONVERT_NOTES
 

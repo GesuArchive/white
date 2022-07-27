@@ -85,10 +85,6 @@ SUBSYSTEM_DEF(server_maint)
 		C?.tgui_panel?.send_roundrestart()
 		if(server)	//if you set a server location in config.txt, it sends you there instead of trying to reconnect to the same world address. -- NeoFite
 			C << link("byond://[server]")
-	var/datum/tgs_version/tgsversion = world.TgsVersion()
-	if(tgsversion)
-		SSblackbox.record_feedback("text", "server_tools", 1, tgsversion.raw_parameter)
-
 
 /datum/controller/subsystem/server_maint/proc/UpdateHubStatus()
 	if(!CONFIG_GET(flag/hub) || !CONFIG_GET(number/max_hub_pop))

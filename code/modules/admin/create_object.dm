@@ -25,7 +25,7 @@
 	if (!html_form)
 		var/objectjs = jointext(typesof(path), ";")
 		html_form = file2text('html/create_object.html')
-		html_form = replacetext(html_form, "Create Object", "Create [path]")
+		html_form = replacetext(html_form, "Сотворить хуйню", "Сотворить [path]")
 		html_form = replacetext(html_form, "null /* object types */", "\"[objectjs]\"")
 		create_object_forms[path] = html_form
 

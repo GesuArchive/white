@@ -354,35 +354,7 @@
 /datum/config_entry/number/notify_new_player_account_age	// how long do we notify admins of a new byond account
 	min_val = 0
 
-/datum/config_entry/flag/irc_first_connection_alert	// do we notify the irc channel when somebody is connecting for the first time?
-
 /datum/config_entry/flag/check_randomizer
-
-/datum/config_entry/string/ipintel_email
-
-/datum/config_entry/string/ipintel_email/ValidateAndSet(str_val)
-	return str_val != "ch@nge.me" && ..()
-
-/datum/config_entry/number/ipintel_rating_bad
-	config_entry_value = 1
-	integer = FALSE
-	min_val = 0
-	max_val = 1
-
-/datum/config_entry/number/ipintel_save_good
-	config_entry_value = 12
-	integer = FALSE
-	min_val = 0
-
-/datum/config_entry/number/ipintel_save_bad
-	config_entry_value = 1
-	integer = FALSE
-	min_val = 0
-
-/datum/config_entry/string/ipintel_domain
-	config_entry_value = "check.getipintel.net"
-
-/datum/config_entry/flag/aggressive_changelog
 
 /datum/config_entry/flag/autoconvert_notes	//if all connecting player's notes should attempt to be converted to the database
 	protection = CONFIG_ENTRY_LOCKED
@@ -502,10 +474,6 @@
 	if(. && MC_RUNNING())
 		world.sleep_offline = !config_entry_value
 
-/datum/config_entry/number/rounds_until_hard_restart
-	config_entry_value = -1
-	min_val = 0
-
 /datum/config_entry/string/default_view
 	config_entry_value = "15x15"
 
@@ -515,7 +483,6 @@
 /datum/config_entry/flag/log_pictures
 
 /datum/config_entry/flag/picture_logging_camera
-
 
 /datum/config_entry/flag/reopen_roundstart_suicide_roles
 
@@ -528,16 +495,11 @@
 
 /datum/config_entry/flag/auto_profile
 
-/datum/config_entry/string/metacurrency_name
-	config_entry_value = "MetaCoin"
-
 /datum/config_entry/string/centcom_ban_db	// URL for the CentCom Galactic Ban DB API
 
 /datum/config_entry/string/centcom_source_whitelist
 
 /datum/config_entry/flag/this_shit_is_stable
-
-/datum/config_entry/flag/df_enabled
 
 /datum/config_entry/number/urgent_ahelp_cooldown
 	default = 300
