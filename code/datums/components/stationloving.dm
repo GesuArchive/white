@@ -87,7 +87,7 @@
 		if (is_type_in_typecache(destination_area, disallowed_centcom_areas))
 			return FALSE
 		return TRUE
-	if (is_reserved_level(destination.z))
+	if (is_reserved_level(destination_turf.z))
 		if (is_type_in_typecache(destination_area, allowed_shuttles))
 			return TRUE
 
