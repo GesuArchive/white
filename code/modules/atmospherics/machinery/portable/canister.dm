@@ -542,7 +542,7 @@
 		return
 	switch(action)
 		if("relabel")
-			var/label = tgui_input_list("New canister label:", name, sort_list(label2types))
+			var/label = tgui_input_list(usr, "New canister label:", name, sort_list(label2types))
 			if(label && !..())
 				var/newtype = label2types[label]
 				if(newtype)
