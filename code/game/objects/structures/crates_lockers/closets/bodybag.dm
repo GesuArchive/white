@@ -134,13 +134,18 @@
 
 /obj/structure/closet/body_bag/bluespace/perform_fold(mob/living/carbon/human/the_folder)
 	visible_message(span_notice("[usr] складывает [src]."))
-	var/obj/item/bodybag/B = foldedbag_instance || new foldedbag_path
-	var/max_weight_of_contents = initial(B.w_class)
+	var/obj/item/bodybag/folding_bodybag = foldedbag_instance || new foldedbag_path
+	var/max_weight_of_contents = initial(folding_bodybag.w_class)
 	for(var/am in contents)
 		var/atom/movable/content = am
-		content.forceMove(B)
+		content.forceMove(folding_bodybag)
 		if(isliving(content))
 			to_chat(content, span_userdanger("Внезапно оказались в крошечном, сжатом пространстве!"))
+		if(iscarbon(content))
+			var/mob/living/carbon/mob = content
+			if (mob.dna.get_mutation(/datum/mutation/human/dwarfism))
+				max_weight_of_contents = max(WEIGHT_CLASS_NORMAL, max_weight_of_contents)
+				continue
 		if(!isitem(content))
 			max_weight_of_contents = max(WEIGHT_CLASS_BULKY, max_weight_of_contents)
 			continue
@@ -148,8 +153,8 @@
 		if(A_is_item.w_class < max_weight_of_contents)
 			continue
 		max_weight_of_contents = A_is_item.w_class
-	B.w_class = max_weight_of_contents
-	usr.put_in_hands(B)
+	folding_bodybag.w_class = max_weight_of_contents
+	the_folder.put_in_hands(folding_bodybag)
 
 /// Environmental bags
 
