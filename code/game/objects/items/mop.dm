@@ -21,6 +21,7 @@
 
 /obj/item/mop/Initialize(mapload)
 	. = ..()
+	AddComponent(/datum/component/cleaner, mopspeed, on_cleaned_callback=CALLBACK(src, .proc/apply_reagents))
 	create_reagents(mopcap)
 	GLOB.janitor_devices += src
 
@@ -28,18 +29,16 @@
 	GLOB.janitor_devices -= src
 	return ..()
 
-/obj/item/mop/proc/clean(turf/A, mob/living/cleaner)
-	if(reagents.has_reagent(/datum/reagent/water, 1) || reagents.has_reagent(/datum/reagent/water/holywater, 1) || reagents.has_reagent(/datum/reagent/consumable/ethanol/vodka, 1) || reagents.has_reagent(/datum/reagent/space_cleaner, 1))
-		// If there's a cleaner with a mind, let's gain some experience!
-		if(cleaner?.mind)
-			var/total_experience_gain = 0
-			for(var/obj/effect/decal/cleanable/cleanable_decal in A)
-				//it is intentional that the mop rounds xp but soap does not, USE THE SACRED TOOL
-				total_experience_gain += max(round(cleanable_decal.beauty / CLEAN_SKILL_BEAUTY_ADJUSTMENT, 1), 0)
-			cleaner.mind.adjust_experience(/datum/skill/cleaning, total_experience_gain)
-		A.wash(CLEAN_SCRUB)
-
-	reagents.expose(A, TOUCH, 10)	//Needed for proper floor wetting.
+/**
+ * Applies reagents to the cleaned floor and removes them from the mop.
+ *
+ * Arguments
+ * * cleaning_source the source of the cleaning
+ * * cleaned_turf the turf that is being cleaned
+ * * cleaner the mob that is doing the cleaning
+ */
+/obj/item/mop/proc/apply_reagents(datum/cleaning_source, turf/cleaned_turf, mob/living/cleaner)
+	reagents.expose(cleaned_turf, TOUCH, 10) //Needed for proper floor wetting.
 	var/val2remove = 1
 	if(cleaner?.mind)
 		val2remove = round(cleaner.mind.get_skill_modifier(/datum/skill/cleaning, SKILL_SPEED_MODIFIER),0.1)
@@ -61,14 +60,8 @@
 		return
 
 	if(T)
-		user.visible_message(span_notice("[user] начинает мыть [T] используя [src.name].") , span_notice("Начинаю мыть [T] используя [src.name]..."))
-		var/clean_speedies = 1
-		if(user.mind)
-			clean_speedies = user.mind.get_skill_modifier(/datum/skill/cleaning, SKILL_SPEED_MODIFIER)
-		if(do_after(user, mopspeed*clean_speedies, target = T))
-			to_chat(user, span_notice("Заканчиваю мыть пол."))
-			clean(T, user)
-
+		var/should_clean = reagents.has_chemical_flag(REAGENT_CLEANS, 1)
+		start_cleaning(src, T, user, clean_target = should_clean)
 
 /obj/effect/attackby(obj/item/weapon, mob/user, params)
 	if(SEND_SIGNAL(weapon, COMSIG_ITEM_ATTACK_EFFECT, src, user, params) & COMPONENT_NO_AFTERATTACK)

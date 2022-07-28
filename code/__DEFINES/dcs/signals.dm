@@ -1157,6 +1157,8 @@
 	///Returned by cleanable components when they are cleaned.
 	#define COMPONENT_CLEANED (1<<0)
 
+///Called from a cleaning tool to start cleaning something.
+#define COMSIG_START_CLEANING "start_cleaning"
 
 //Creamed
 

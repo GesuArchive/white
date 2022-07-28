@@ -137,6 +137,10 @@
 	C.prefs.copy_to(M)
 	M.key = C.key
 	var/datum/mind/op_mind = M.mind
+	if(length(GLOB.newplayer_start)) // needed as hud code doesn't render huds if the atom (in this case the nukie) is in nullspace, so just move the nukie somewhere safe
+		M.forceMove(pick(GLOB.newplayer_start))
+	else
+		M.forceMove(locate(1,1,1))
 
 	antag_datum = new()
 	antag_datum.send_to_spawnpoint = FALSE

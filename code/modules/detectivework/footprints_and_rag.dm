@@ -11,6 +11,10 @@
 	volume = 5
 	spillable = FALSE
 
+/obj/item/reagent_containers/glass/rag/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/cleaner, 3 SECONDS)
+
 /obj/item/reagent_containers/glass/rag/suicide_act(mob/user)
 	user.visible_message(span_suicide("[user] is smothering [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return (OXYLOSS)
@@ -34,7 +38,4 @@
 			log_combat(user, C, "потроган", src, log_object)
 
 	else if(istype(A) && (src in user))
-		user.visible_message(span_notice("[user] начинает стирать [A] используя [src]!") , span_notice("Начал стирать [A] используя [src]..."))
-		if(do_after(user,30, target = A))
-			user.visible_message(span_notice("[user] заканчивает стирать [A]!") , span_notice("Закончил стирать [A]."))
-			A.wash(CLEAN_SCRUB)
+		start_cleaning(src, A, user)
