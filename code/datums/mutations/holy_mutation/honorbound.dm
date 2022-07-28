@@ -51,17 +51,18 @@
 /datum/mutation/human/honorbound/proc/attack_honor(mob/living/carbon/human/honorbound, atom/clickingon, params)
 	SIGNAL_HANDLER
 
+	var/list/modifiers = params2list(params)
 	var/obj/item/weapon = honorbound.get_active_held_item()
 
 	if(!isliving(clickingon))
 		return
-	if(!honorbound.DirectAccess(clickingon) && !isgun(weapon))
+	var/mob/living/clickedmob = clickingon
+	if(!honorbound.DirectAccess(clickedmob) && !isgun(weapon))
 		return
 	if(weapon?.item_flags & NOBLUDGEON)
 		return
-	if(honorbound.a_intent != INTENT_HARM && ((!weapon || !weapon.force)))
+	if(!honorbound.a_intent != INTENT_HARM && (HAS_TRAIT(clickedmob, TRAIT_ALLOWED_HONORBOUND_ATTACK) || ((!weapon || !weapon.force) && !LAZYACCESS(modifiers, RIGHT_CLICK))))
 		return
-	var/mob/living/clickedmob = clickingon
 	if(!is_honorable(honorbound, clickedmob))
 		return (COMSIG_MOB_CANCEL_CLICKON)
 
@@ -184,6 +185,8 @@
  */
 /datum/mutation/human/honorbound/proc/punishment(mob/living/carbon/human/user, school)
 	switch(school)
+		if(SCHOOL_HOLY, SCHOOL_MIME, SCHOOL_RESTORATION)
+			return
 		if(SCHOOL_NECROMANCY, SCHOOL_FORBIDDEN)
 			to_chat(user, span_userdanger("[GLOB.deity] is enraged by your use of forbidden magic!"))
 			lightningbolt(user)

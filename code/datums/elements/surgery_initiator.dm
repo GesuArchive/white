@@ -90,6 +90,7 @@
 
 			if(surgeryinstance_notonmob.ignore_clothes || get_location_accessible(livingtarget, selected_zone))
 				var/datum/surgery/procedure = new surgeryinstance_notonmob.type(livingtarget, selected_zone, affecting)
+				ADD_TRAIT(livingtarget, TRAIT_ALLOWED_HONORBOUND_ATTACK, TRAIT_GENERIC)
 				user.visible_message(span_notice("[user] накладывает [source] на [ru_parse_zone(parse_zone(selected_zone))] [skloname(livingtarget.name, RODITELNI, livingtarget.gender)] для подготовки к операции."), \
 					span_notice("Накладываю [source] на [ru_parse_zone(parse_zone(selected_zone))] [skloname(livingtarget.name, RODITELNI, livingtarget.gender)] для подготовки к операции - \an [procedure.name]."))
 
@@ -106,6 +107,7 @@
 
 	if(the_surgery.status == 1)
 		the_patient.surgeries -= the_surgery
+		REMOVE_TRAIT(the_patient, TRAIT_ALLOWED_HONORBOUND_ATTACK, TRAIT_GENERIC)
 		user.visible_message(span_notice("[user] убирает [the_item] с [ru_otkuda_zone(parse_zone(selected_zone))] [skloname(the_patient.name, RODITELNI, the_patient.gender)]."), \
 			span_notice("Убираю [the_item] с [ru_otkuda_zone(parse_zone(selected_zone))] [skloname(the_patient.name, RODITELNI, the_patient.gender)]."))
 		qdel(the_surgery)
@@ -134,6 +136,7 @@
 		the_surgery.operated_bodypart.generic_bleedstacks -= 5
 
 	the_patient.surgeries -= the_surgery
+	REMOVE_TRAIT(the_patient, TRAIT_ALLOWED_HONORBOUND_ATTACK, TRAIT_GENERIC)
 	user.visible_message(span_notice("[user] завершает операцию на [ru_gde_zone(parse_zone(selected_zone))] [skloname(the_patient.name, RODITELNI, the_patient.gender)] при помощи [close_tool] и убирает [the_item]."), \
 		span_notice("Завершаю операцию на [ru_gde_zone(parse_zone(selected_zone))] [skloname(the_patient.name, RODITELNI, the_patient.gender)] при помощи [close_tool] и убираю [the_item]."))
 	qdel(the_surgery)
