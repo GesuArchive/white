@@ -43,10 +43,10 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	items = list(/obj/item/extinguisher)
 	allowed_themes = list("std", "warfare", "hotline")
 
-/datum/violence_gear/melee/toolbox
-	name = "Ящик с инструментами"
-	cost = 10
-	items = list(/obj/item/storage/toolbox/mechanical/empty)
+/datum/violence_gear/melee/rocket
+	name = "Перчатки ракеты"
+	cost = 50
+	items = list(/obj/item/clothing/gloves/tackler/rocket)
 	allowed_themes = list("std", "warfare", "hotline")
 
 /datum/violence_gear/melee/combat
@@ -280,45 +280,45 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/armor/basic
 	name = "Бронежилет"
-	cost = 65
+	cost = 100
 	items = list(
-		/obj/item/clothing/suit/armor/vest,
-		/obj/item/clothing/mask/gas,
-		/obj/item/clothing/head/helmet,
-		/obj/item/clothing/gloves/fingerless
+		/obj/item/clothing/suit/armor/vest/hecu,
+		/obj/item/clothing/mask/gas/heavy/m40,
+		/obj/item/clothing/head/helmet/hecu,
+		/obj/item/clothing/gloves/combat
 	)
 	allowed_themes = list("std", "warfare")
 
 /datum/violence_gear/armor/bulletproof
 	name = "Пуленепробиваемый"
-	cost = 125
+	cost = 150
 	items = list(
-		/obj/item/clothing/suit/armor/bulletproof,
-		/obj/item/clothing/mask/gas/heavy/gp5,
-		/obj/item/clothing/head/helmet/alt,
+		/obj/item/clothing/suit/armor/bulletproof/hecu,
+		/obj/item/clothing/mask/gas/heavy/gp7vm,
+		/obj/item/clothing/head/helmet/alt/hecu,
 		/obj/item/clothing/gloves/combat
-	)
-	allowed_themes = list("std", "warfare")
-
-/datum/violence_gear/armor/specops
-	name = "Спецназ"
-	cost = 175
-	items = list(
-		/obj/item/clothing/head/helmet/swat/nanotrasen,
-		/obj/item/clothing/mask/gas/heavy/gp7,
-		/obj/item/clothing/suit/armor/opvest,
-		/obj/item/clothing/gloves/combat,
-		/obj/item/clothing/shoes/combat
 	)
 	allowed_themes = list("std", "warfare")
 
 /datum/violence_gear/armor/deathsquad
 	name = "Дедушка"
-	cost = 250
+	cost = 300
 	items = list(
 		/obj/item/clothing/suit/space/hardsuit/deathsquad,
-		/obj/item/clothing/gloves/tackler/combat/insulated,
+		/obj/item/clothing/gloves/combat,
 		/obj/item/clothing/mask/gas/sechailer/swat,
+		/obj/item/clothing/shoes/combat/swat
+	)
+	allowed_themes = list("std", "warfare")
+
+/datum/violence_gear/armor/pcv
+	name = "PCV MARK II"
+	cost = 500
+	items = list(
+		/obj/item/clothing/suit/space/hev_suit/pcv,
+		/obj/item/clothing/gloves/combat,
+		/obj/item/clothing/mask/gas/heavy/m40,
+		/obj/item/clothing/head/helmet/space/hev_suit/pcv,
 		/obj/item/clothing/shoes/combat/swat
 	)
 	allowed_themes = list("std", "warfare")
