@@ -379,6 +379,9 @@
 	zone_select.update_icon()
 	static_inventory += zone_select
 
+	combo_display = new /atom/movable/screen/combo()
+	infodisplay += combo_display
+
 	ammo_counter = new /atom/movable/screen/ammo_counter()
 	ammo_counter.hud = src
 	infodisplay += ammo_counter
