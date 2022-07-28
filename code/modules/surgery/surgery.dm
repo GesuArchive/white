@@ -92,9 +92,9 @@
 			opcomputer = the_stasis_bed.op_computer
 
 	if(!opcomputer)
-		return
+		return FALSE
 	if(opcomputer.machine_stat & (NOPOWER|BROKEN))
-		return .
+		return FALSE
 	if(replaced_by in opcomputer.advanced_surgeries)
 		return FALSE
 	if(type in opcomputer.advanced_surgeries)
@@ -134,6 +134,22 @@
 /datum/surgery/proc/complete()
 	SSblackbox.record_feedback("tally", "surgeries_completed", 1, type)
 	qdel(src)
+
+/// Returns a nearby operating computer linked to an operating table
+/datum/surgery/proc/locate_operating_computer(turf/patient_turf)
+	if (isnull(patient_turf))
+		return null
+
+	var/obj/structure/table/optable/operating_table = locate(/obj/structure/table/optable, patient_turf)
+	var/obj/machinery/computer/operating/operating_computer = operating_table?.computer
+
+	if (isnull(operating_computer))
+		return null
+
+	if(operating_computer.machine_stat & (NOPOWER|BROKEN))
+		return null
+
+	return operating_computer
 
 /datum/surgery/advanced
 	name = "Продвинутая хирургия"

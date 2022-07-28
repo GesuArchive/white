@@ -2,29 +2,6 @@
 	name = "Базовая слаймология"
 	required_points = 1
 
-/datum/experiment/scanning/points/slime/calibration
-	name = "Слаймологическое тестирование"
-	description = "Давайте посмотрим, смогут ли наши сканеры получить генетические данные из простого экстракта слайма."
-	required_atoms = list(/obj/item/slime_extract/grey = 1)
-
-/datum/experiment/scanning/points/slime/easy
-	name = "Элементарное слаймологическое исследование"
-	description = "Богатый клиент попросил нас предоставить образцы данных из нескольких наиболее доступных экстрактов слаймов."
-	required_points = 3
-	required_atoms =  list(/obj/item/slime_extract/orange = 1,
-		/obj/item/slime_extract/purple = 1,
-		/obj/item/slime_extract/blue = 1,
-		/obj/item/slime_extract/metal = 1)
-
-/datum/experiment/scanning/points/slime/moderate
-	name = "Продвинутое слаймологическое исследование"
-	description = "Центральное командование попросило вас собрать данные из нескольких распространенных экстрактов слаймов."
-	required_points = 5
-	required_atoms = list(/obj/item/slime_extract/yellow = 1,
-		/obj/item/slime_extract/darkpurple = 1,
-		/obj/item/slime_extract/darkblue = 1,
-		/obj/item/slime_extract/silver = 1)
-
 /datum/experiment/scanning/points/slime/hard
 	name = "Сложное слаймологическое исследование"
 	description = "Другая станция бросила вызов вашей исследовательской группе, чтобы собрать несколько сложных экстрактов слаймов, \
