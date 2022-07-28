@@ -3,7 +3,7 @@
 	desc = "Пост-бундесверовский автомат под калибр 5.56"
 	icon = 'white/fogmann/sprites/hk416.dmi'
 	icon_state = "hk416"
-	inhand_icon_state = "416"
+	inhand_icon_state = "hk416"
 	selector_switch_icon = FALSE
 	lefthand_file = 'white/fogmann/sprites/inhand_l.dmi'
 	righthand_file = 'white/fogmann/sprites/inhand_r.dmi'
