@@ -189,3 +189,6 @@
 
 //Ruination
 #define ui_station_height "BOTTOM, RIGHT"
+
+/// The filter name for the hover outline
+#define HOVER_OUTLINE_FILTER "hover_outline"

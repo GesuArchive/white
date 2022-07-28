@@ -3312,6 +3312,7 @@
 #include "code\modules\plumbing\plumbers\splitters.dm"
 #include "code\modules\plumbing\plumbers\synthesizer.dm"
 #include "code\modules\plumbing\plumbers\teleporter.dm"
+#include "code\modules\point\point.dm"
 #include "code\modules\pool\pool.dm"
 #include "code\modules\pool\pool_items.dm"
 #include "code\modules\pool\components\swimming.dm"

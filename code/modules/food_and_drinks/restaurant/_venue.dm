@@ -162,7 +162,7 @@
 
 	for(var/type_key in SSrestaurant.all_venues)
 		var/datum/venue/venue = SSrestaurant.all_venues[type_key]
-		radial_items[venue.name] = image('icons/obj/machines/restaurant_portal.dmi', venue.name)
+		radial_items[venue.name] = image('icons/effects/effects.dmi', venue.name)
 		radial_results[venue.name] = venue
 
 	var/choice = show_radial_menu(user, src, radial_items, null, require_near = TRUE)

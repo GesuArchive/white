@@ -34,10 +34,10 @@
 		SSrestaurant.food_appearance_cache[object_to_order] = appearance //and cache it for future orders
 		qdel(temp_object)
 
-	var/image/I = image(icon = 'icons/obj/machines/restaurant_portal.dmi' , icon_state = "thought_bubble", loc = customer_pawn)
+	var/image/I = image(icon = 'icons/effects/effects.dmi' , icon_state = "thought_bubble", loc = customer_pawn)
 
 	I.appearance = appearance
-	I.underlays += mutable_appearance(icon = 'icons/obj/machines/restaurant_portal.dmi' , icon_state = "thought_bubble")
+	I.underlays += mutable_appearance(icon = 'icons/effects/effects.dmi' , icon_state = "thought_bubble")
 	I.pixel_y = 32
 	I.pixel_x = 16
 	I.plane = HUD_PLANE
@@ -106,7 +106,7 @@
 
 	customer_pawn.say(order_food_line(reagent_to_order))
 
-	var/image/I = image(icon = 'icons/obj/machines/restaurant_portal.dmi' , icon_state = "thought_bubble", loc = customer_pawn)
+	var/image/I = image(icon = 'icons/effects/effects.dmi' , icon_state = "thought_bubble", loc = customer_pawn)
 	I.add_overlay(mutable_appearance('icons/obj/drinks.dmi', glass_visual))
 	I.pixel_y = 32
 	I.pixel_x = 16
