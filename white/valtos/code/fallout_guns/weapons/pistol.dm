@@ -60,8 +60,8 @@
 	extra_penetration = 10
 
 /obj/item/gun/ballistic/automatic/pistol/fallout/m9mm/handmade
-	name = "handmade pistol"
-	desc = "A crudely made pistol chambered for 9mm rounds. Fires more slowly than it's manufactured brother."
+	name = "самодельный пистолет"
+	desc = "Сделано в подвалах Абхазии. Стреляет очень медленно."
 	icon_state = "hpistol"
 	inhand_icon_state = "hpistol"
 	fire_delay = 5

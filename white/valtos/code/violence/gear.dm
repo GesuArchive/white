@@ -82,21 +82,21 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 /datum/violence_gear/pistol
 	cat = "Пистолеты"
 
-/datum/violence_gear/pistol/m1911
-	name = "M1911"
-	cost = 150
+/datum/violence_gear/pistol/handmade
+	name = "Самодельный"
+	cost = 100
 	items = list(
-		/obj/item/gun/ballistic/automatic/pistol/m1911,
-		/obj/item/ammo_box/magazine/m45
+		/obj/item/gun/ballistic/automatic/pistol/fallout/m9mm/handmade,
+		/obj/item/ammo_box/magazine/fallout/m9mm
 	)
 	allowed_themes = list("std", "warfare", "hotline")
 
-/datum/violence_gear/pistol/makarov
-	name = "Макаров"
+/datum/violence_gear/pistol/pistol45
+	name = "Пистолет"
 	cost = 175
 	items = list(
-		/obj/item/gun/ballistic/automatic/pistol/makarov,
-		/obj/item/ammo_box/magazine/m9mm
+		/obj/item/gun/ballistic/automatic/pistol/fallout/pistol45,
+		/obj/item/ammo_box/magazine/fallout/m45
 	)
 	allowed_themes = list("std", "warfare", "hotline")
 
@@ -120,7 +120,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/pistol/golden_eagle
 	name = "FTU PDH-6G"
-	cost = 1300
+	cost = 600
 	items = list(
 		/obj/item/gun/ballistic/automatic/pistol/golden_eagle,
 		/obj/item/ammo_box/magazine/mm12/saphe
@@ -130,12 +130,12 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 /datum/violence_gear/rifle
 	cat = "Винтовки"
 
-/datum/violence_gear/rifle/scope
-	name = "Болтовка с оптикой"
-	cost = 225
+/datum/violence_gear/rifle/HK416
+	name = "HK416"
+	cost = 300
 	items = list(
-		/obj/item/gun/ballistic/rifle/boltaction/kar98k/scope,
-		/obj/item/ammo_box/n792x57
+		/obj/item/gun/ballistic/automatic/HK416,
+		/obj/item/ammo_box/magazine/HK416
 	)
 	allowed_themes = list("std", "warfare", "hotline")
 
@@ -148,12 +148,39 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	)
 	allowed_themes = list("std", "warfare", "hotline")
 
+/datum/violence_gear/rifle/mp5
+	name = "MP5"
+	cost = 400
+	items = list(
+		/obj/item/gun/ballistic/automatic/mp5,
+		/obj/item/ammo_box/magazine/mp5
+	)
+	allowed_themes = list("std", "warfare", "hotline")
+
 /datum/violence_gear/rifle/assaultrifle
 	name = "Штурмовая винтовка"
 	cost = 450
 	items = list(
 		/obj/item/gun/ballistic/automatic/fallout/assaultrifle,
 		/obj/item/ammo_box/magazine/fallout/r20
+	)
+	allowed_themes = list("std", "warfare", "hotline")
+
+/datum/violence_gear/rifle/M41A
+	name = "M41A"
+	cost = 550
+	items = list(
+		/obj/item/gun/ballistic/automatic/M41A,
+		/obj/item/ammo_box/magazine/m41a
+	)
+	allowed_themes = list("std", "warfare", "hotline")
+
+/datum/violence_gear/rifle/z8
+	name = "Z8"
+	cost = 650
+	items = list(
+		/obj/item/gun/ballistic/automatic/m90/unrestricted/z8,
+		/obj/item/ammo_box/magazine/a556carbine
 	)
 	allowed_themes = list("std", "warfare", "hotline")
 
@@ -178,27 +205,27 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 /datum/violence_gear/shotgun
 	cat = "Дробовики"
 
-/datum/violence_gear/shotgun/doublebarrel
-	name = "Двухстволка"
-	cost = 115
+/datum/violence_gear/shotgun/lethal
+	name = "Помповый дробовик"
+	cost = 150
 	items = list(
-		/obj/item/gun/breakopen/doublebarrel,
+		/obj/item/gun/ballistic/shotgun/lethal,
 		/obj/item/storage/box/lethalshot
 	)
 	allowed_themes = list("std", "warfare", "hotline")
 
-/datum/violence_gear/shotgun/combat
-	name = "Боевой дробовик"
+/datum/violence_gear/shotgun/lever
+	name = "Дезинтегратор"
 	cost = 175
 	items = list(
-		/obj/item/gun/ballistic/shotgun/automatic/combat,
+		/obj/item/gun/ballistic/shotgun/fallout/lever,
 		/obj/item/storage/box/lethalshot
 	)
 	allowed_themes = list("std", "warfare", "hotline")
 
 /datum/violence_gear/shotgun/bulldog
 	name = "Bulldog"
-	cost = 200
+	cost = 250
 	items = list(
 		/obj/item/gun/ballistic/shotgun/bulldog/unrestricted,
 		/obj/item/ammo_box/magazine/m12g,
@@ -208,6 +235,12 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/heavygun
 	cat = "Тяжёлое оружие"
+
+/datum/violence_gear/heavygun/beam_rifle
+	name = "УЧВ"
+	cost = 400
+	items = list(/obj/item/gun/energy/beam_rifle/violence)
+	allowed_themes = list("katana")
 
 /datum/violence_gear/heavygun/hecate
 	name = "Hecate II"
@@ -227,15 +260,9 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	)
 	allowed_themes = list("std", "warfare")
 
-/datum/violence_gear/heavygun/beam_rifle
-	name = "УЧВ"
-	cost = 600
-	items = list(/obj/item/gun/energy/beam_rifle/violence)
-	allowed_themes = list("katana")
-
 /datum/violence_gear/heavygun/l6_saw
 	name = "L6 SAW"
-	cost = 625
+	cost = 825
 	items = list(
 		/obj/item/gun/ballistic/automatic/l6_saw/unrestricted,
 		/obj/item/ammo_box/magazine/mm712x82
@@ -350,22 +377,22 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/misc/thermal
 	name = "Термалы"
-	cost = 250
+	cost = 1000
 	items = list(/obj/item/clothing/glasses/hud/toggle/thermal)
 
 /datum/violence_gear/ammo
 	cat = "Аммуниция"
 
-/datum/violence_gear/ammo/m45
-	name = "П. Обойма .45"
-	cost = 50
-	items = list(/obj/item/ammo_box/magazine/m45)
-	allowed_themes = list("std", "warfare", "hotline")
-
 /datum/violence_gear/ammo/m9mm
 	name = "П. Обойма 9mm"
+	cost = 50
+	items = list(/obj/item/ammo_box/magazine/fallout/m9mm)
+	allowed_themes = list("std", "warfare", "hotline")
+
+/datum/violence_gear/ammo/m45
+	name = "П. Обойма .45"
 	cost = 60
-	items = list(/obj/item/ammo_box/magazine/m9mm)
+	items = list(/obj/item/ammo_box/magazine/fallout/m45)
 	allowed_themes = list("std", "warfare", "hotline")
 
 /datum/violence_gear/ammo/a357
@@ -380,10 +407,28 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	items = list(/obj/item/ammo_box/magazine/m50)
 	allowed_themes = list("std", "warfare", "hotline")
 
+/datum/violence_gear/ammo/saphe
+	name = "П. Обойма 12.7x35mm"
+	cost = 600
+	items = list(/obj/item/ammo_box/magazine/mm12/saphe)
+	allowed_themes = list("katana")
+
+/datum/violence_gear/ammo/HK416
+	name = "А. Магазин HK416"
+	cost = 150
+	items = list(/obj/item/ammo_box/magazine/HK416)
+	allowed_themes = list("std", "warfare", "hotline")
+
 /datum/violence_gear/ammo/smgm45
 	name = "А. Магазин .45"
-	cost = 125
+	cost = 175
 	items = list(/obj/item/ammo_box/magazine/smgm45)
+	allowed_themes = list("std", "warfare", "hotline")
+
+/datum/violence_gear/ammo/MP5
+	name = "А. Магазин MP5"
+	cost = 200
+	items = list(/obj/item/ammo_box/magazine/mp5)
 	allowed_themes = list("std", "warfare", "hotline")
 
 /datum/violence_gear/ammo/r20
@@ -392,11 +437,17 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	items = list(/obj/item/ammo_box/magazine/fallout/r20)
 	allowed_themes = list("std", "warfare", "hotline")
 
-/datum/violence_gear/ammo/saphe
-	name = "П. Обойма 12.7x35mm"
-	cost = 600
-	items = list(/obj/item/ammo_box/magazine/mm12/saphe)
-	allowed_themes = list("katana")
+/datum/violence_gear/ammo/m41a
+	name = "А. Магазин 4.6x30mm"
+	cost = 275
+	items = list(/obj/item/ammo_box/magazine/m41a)
+	allowed_themes = list("std", "warfare", "hotline")
+
+/datum/violence_gear/ammo/a556carbine
+	name = "А. Магазин 6.8mm"
+	cost = 325
+	items = list(/obj/item/ammo_box/magazine/a556carbine)
+	allowed_themes = list("std", "warfare", "hotline")
 
 /datum/violence_gear/ammo/r37
 	name = "А. Магазин 6.5mm"

@@ -46,7 +46,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 
 /datum/game_mode/violence/pre_setup()
 	// ставим тематическую заставку
-	var/icon/great_title_icon = icon('white/valtos/icons/violence.jpg')
+	var/icon/great_title_icon = icon(pick('white/valtos/icons/violence/violence1.jpg', 'white/valtos/icons/violence/violence2.jpg'))
 	SStitle.icon = great_title_icon
 	SStitle.splash_turf.icon = great_title_icon
 	// создаём команды
@@ -273,7 +273,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		var/list/stats_blues = list()
 		var/list/stats = list()
 		stats += "<table><tr><td>Игрок</td><td>Убийств</td><td>Смертей</td></tr>"
-		for(var/key in GLOB.violence_players)
+		for(var/key in sort_list(GLOB.violence_players))
 			var/datum/violence_player/VP = GLOB.violence_players[key]
 			// раздаём деньги бомжам
 			VP.money += payout * GLOB.violence_current_round

@@ -1,7 +1,7 @@
 // Guns
 /obj/item/gun/ballistic/shotgun/fallout/lever
-	name = "lever action shotgun"
-	desc = "A trusty lever action shotgun with a tube supporting a maximum of five shells and a reinforced grip for bashing in heads."
+	name = "дезинтегратор"
+	desc = "Не только мощный дробовик, но ещё и неплохое оружие ближнего боя."
 	icon_state = "levershot"
 	inhand_icon_state = "levershot"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/lever

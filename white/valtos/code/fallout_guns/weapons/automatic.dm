@@ -97,7 +97,7 @@
 	burst_size = 3
 	fire_delay = 3
 	extra_damage = 20
-	extra_penetration = 5
+	extra_penetration = 10
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
 	spread = 8
