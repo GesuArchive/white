@@ -130,25 +130,29 @@
 
 /obj/item/organ/eyes/on_life(delta_time, times_fired)
 	..()
-	var/mob/living/carbon/C = owner
-	//since we can repair fully damaged eyes, check if healing has occurred
-	if((organ_flags & ORGAN_FAILING) && (damage < maxHealth))
-		organ_flags &= ~ORGAN_FAILING
-		C.cure_blind(EYE_DAMAGE)
+	var/mob/living/carbon/eye_owner = owner
 	//various degrees of "oh fuck my eyes", from "point a laser at your eye" to "staring at the Sun" intensities
 	if(damage > 20)
 		damaged = TRUE
 		if((organ_flags & ORGAN_FAILING))
-			C.become_blind(EYE_DAMAGE)
-		else if(damage > 30)
-			C.overlay_fullscreen("eye_damage", /atom/movable/screen/fullscreen/impaired, 2)
-		else
-			C.overlay_fullscreen("eye_damage", /atom/movable/screen/fullscreen/impaired, 1)
+			eye_owner.become_blind(EYE_DAMAGE)
+			return
+
+		var/obj/item/clothing/glasses/eyewear = eye_owner.glasses
+		var/has_prescription_glasses = istype(eyewear) && eyewear.vision_correction
+
+		if(has_prescription_glasses)
+			return
+
+		var/severity = damage > 30 ? 2 : 1
+		eye_owner.overlay_fullscreen("eye_damage", /atom/movable/screen/fullscreen/impaired, severity)
+		return
+
 	//called once since we don't want to keep clearing the screen of eye damage for people who are below 20 damage
-	else if(damaged)
+	if(damaged)
 		damaged = FALSE
-		C.clear_fullscreen("eye_damage")
-	return
+		eye_owner.clear_fullscreen("eye_damage")
+		eye_owner.cure_blind(EYE_DAMAGE)
 
 /obj/item/organ/eyes/night_vision
 	name = "теневые глаза"
@@ -516,8 +520,8 @@
 	ADD_TRAIT(adapted, TRAIT_CULT_EYES, ORGAN_TRAIT)
 
 /obj/item/organ/eyes/night_vision/maintenance_adapted/on_life(delta_time, times_fired)
-	var/turf/T = get_turf(owner)
-	var/lums = T.get_lumcount()
+	var/turf/owner_turf = get_turf(owner)
+	var/lums = owner_turf.get_lumcount()
 	if(lums > 0.5) //we allow a little more than usual so we can produce light from the adapted eyes
 		to_chat(owner, span_danger("Your eyes! They burn in the light!"))
 		applyOrganDamage(10) //blind quickly
