@@ -39,14 +39,14 @@
 			if(1 to 6)
 				victim.bleed(blood_bled, TRUE)
 			if(7 to 13)
-				victim.visible_message(span_smalldanger("Капельки крови вылетают из [ru_otkuda_zone(limb.name)] [victim].") , span_danger("Капельки крови выходят из моей [ru_otkuda_zone(limb.name)].") , vision_distance=COMBAT_MESSAGE_RANGE)
+				victim.visible_message(span_smalldanger("Капельки крови вылетают из [ru_otkuda_zone(limb.name)] [victim]."), span_danger("Капельки крови выходят из моей [ru_otkuda_zone(limb.name)].") , vision_distance=COMBAT_MESSAGE_RANGE)
 				victim.bleed(blood_bled, TRUE)
 			if(14 to 19)
-				victim.visible_message(span_smalldanger("Небольшая струйка крови начинает течь из [ru_otkuda_zone(limb.name)] [victim]!") , span_danger("Небольшая струйка крови начинает течь из моей [ru_otkuda_zone(limb.name)]!") , vision_distance=COMBAT_MESSAGE_RANGE)
+				victim.visible_message(span_smalldanger("Небольшая струйка крови начинает течь из [ru_otkuda_zone(limb.name)] [victim]!"), span_danger("Небольшая струйка крови начинает течь из моей [ru_otkuda_zone(limb.name)]!") , vision_distance=COMBAT_MESSAGE_RANGE)
 				new /obj/effect/temp_visual/dir_setting/bloodsplatter(victim.loc, victim.dir)
 				victim.bleed(blood_bled)
 			if(20 to INFINITY)
-				victim.visible_message(span_danger("Неконтроллируемая струя крови начинает хлестать из [ru_otkuda_zone(limb.name)] [victim]!") , span_danger("<b>Из моей [ru_otkuda_zone(limb.name)] начинает выходить кровь ужасным темпом!</b>") , vision_distance=COMBAT_MESSAGE_RANGE)
+				victim.visible_message(span_smalldanger("Неконтроллируемая струя крови начинает хлестать из [ru_otkuda_zone(limb.name)] [victim]!"), span_danger("<b>Из моей [ru_otkuda_zone(limb.name)] начинает выходить кровь ужасным темпом!</b>") , vision_distance=COMBAT_MESSAGE_RANGE)
 				victim.bleed(blood_bled)
 				new /obj/effect/temp_visual/dir_setting/bloodsplatter(victim.loc, victim.dir)
 				victim.add_splatter_floor(get_step(victim.loc, victim.dir))
@@ -121,7 +121,7 @@
 	var/improv_penalty_mult = (I.tool_behaviour == TOOL_CAUTERY ? 1 : 1.25) // 25% longer and less effective if you don't use a real cautery
 	var/self_penalty_mult = (user == victim ? 1.5 : 1) // 50% longer and less effective if you do it to yourself
 
-	user.visible_message(span_danger("<b>[user]</b> начинает прижигать [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I.name]...") , span_danger("Начинаю прижигать [ru_parse_zone(limb.name)] [user == victim ? "" : "<b>[victim]</b> "]используя [I.name]..."))
+	user.visible_message(span_smalldanger("<b>[user]</b> начинает прижигать [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I.name]..."), span_danger("Начинаю прижигать [ru_parse_zone(limb.name)] [user == victim ? "" : "<b>[victim]</b> "]используя [I.name]..."))
 	if(!do_after(user, base_treat_time * self_penalty_mult * improv_penalty_mult, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
 		return
 

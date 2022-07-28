@@ -145,7 +145,7 @@
 		return
 
 	if(!(silent || demoted))
-		var/msg = span_danger("[capitalize(limb.name)] <b>[victim]</b> [occur_text]!")
+		var/msg = span_smalldanger("[capitalize(limb.name)] <b>[victim]</b> [occur_text]!")
 		var/vis_dist = COMBAT_MESSAGE_RANGE
 
 		if(severity != WOUND_SEVERITY_MODERATE)

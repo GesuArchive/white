@@ -36,7 +36,7 @@
 	if(strikes_to_lose_limb == 0) // we've already hit sepsis, nothing more to do
 		victim.adjustToxLoss(0.25 * delta_time)
 		if(DT_PROB(0.5, delta_time))
-			victim.visible_message(span_danger("Инфекция [ru_gde_zone(limb.name)] <b>[victim]</b> двигается и булькает тошнотворно!") , span_warning("Инфекция на моей [ru_gde_zone(limb.name)] течет по моим венам!"))
+			victim.visible_message(span_smalldanger("Инфекция [ru_gde_zone(limb.name)] <b>[victim]</b> двигается и булькает тошнотворно!") , span_warning("Инфекция на моей [ru_gde_zone(limb.name)] течет по моим венам!"))
 		return
 
 	if(victim.reagents)
