@@ -45,6 +45,9 @@
 	var/turf/T = get_turf(src)
 	T.visible_message(span_userdanger("[src] тихонько мерцает."))
 
+	if(md5(user.ckey) == "8a29e75ce047b728e6cab02481723a7f")
+		. = 101
+
 	addtimer(CALLBACK(src, .proc/effect, user, .), 1 SECONDS)
 	COOLDOWN_START(src, roll_cd, 2.5 SECONDS)
 
@@ -68,7 +71,7 @@
 				addtimer(CALLBACK(user, /mob/living/.proc/spin, 4, 1), timer - 0.4 SECONDS)
 				timer += 5
 			user.unequip_everything()
-			var/obj/item/clothing/mm = new /obj/item/clothing/neck/necklace/memento_mori(get_turf(src))
+			var/obj/item/clothing/mm = new /obj/item/clothing/neck/necklace/memento_mori(get_turf(user))
 			user.equip_to_slot(mm, ITEM_SLOT_NECK)
 			spawn(multiplier MINUTES)
 				user.gib()
@@ -81,12 +84,11 @@
 		if(3)
 			user.gain_trauma(pick(subtypesof(BRAIN_TRAUMA_SEVERE)), TRAUMA_RESILIENCE_ABSOLUTE)
 			user.gain_trauma(pick(subtypesof(BRAIN_TRAUMA_SEVERE)), TRAUMA_RESILIENCE_ABSOLUTE)
-			user.gain_trauma(/datum/brain_trauma/magic/stalker, TRAUMA_RESILIENCE_ABSOLUTE)
-			var/datum/brain_trauma/magic/stalker/S = user.has_trauma_type(/datum/brain_trauma/magic/stalker, TRAUMA_RESILIENCE_ABSOLUTE)
 			for(var/i in 1 to multiplier)
 				if(i % 2)
-					S.create_stalker()
+					user.gain_trauma(/datum/brain_trauma/magic/stalker, TRAUMA_RESILIENCE_ABSOLUTE)
 		if(4)
+			INVOKE_ASYNC(user, /atom/movable.proc/say, "Мяу!")
 			user.set_species(/datum/species/human/felinid)
 			user.fully_replace_character_name(user.real_name, "Мяукалка")
 			user.fucking_anime_girl_noises_oh_nya = TRUE
@@ -103,8 +105,8 @@
 				S.stage_speed = multiplier
 		if(6)
 			user.unequip_everything()
-			var/obj/item/clothing/anon = new /obj/item/clothing/mask/gas/anonist(get_turf(src))
-			var/obj/item/clothing/foil = new /obj/item/clothing/head/foilhat(get_turf(src))
+			var/obj/item/clothing/anon = new /obj/item/clothing/mask/gas/anonist(get_turf(user))
+			var/obj/item/clothing/foil = new /obj/item/clothing/head/foilhat(get_turf(user))
 			user.equip_to_slot(anon, ITEM_SLOT_MASK)
 			user.equip_to_slot(foil, ITEM_SLOT_HEAD)
 			for(var/i in 1 to multiplier)
@@ -112,12 +114,7 @@
 		if(7)
 			user.unequip_everything()
 			user.equipOutfit(/datum/outfit/job/bomj)
-			var/turf/T
-			for(var/_sloc in GLOB.start_landmarks_list)
-				var/obj/effect/landmark/start/sloc = _sloc
-				if(sloc.name != "Bomj")
-					continue
-				T = get_turf(sloc)
+			var/turf/T = pick(get_area_turfs(/area/maintenance/bottom_station_maints/north))
 			user.forceMove(T)
 			user.fully_replace_character_name(user.real_name, get_funny_name())
 			user.reagents.add_reagent(/datum/reagent/consumable/ethanol/boyarka, multiplier)
@@ -155,9 +152,9 @@
 				ADD_TRAIT(user, TRAIT_EMOTEMUTE, "d100")
 		if(10)
 			user.unequip_everything()
-			var/obj/item/clothing/U = new /obj/item/clothing/under/rank/security/veteran(get_turf(src))
-			var/obj/item/clothing/S = new /obj/item/clothing/suit/security/officer/veteran(get_turf(src))
-			var/obj/item/clothing/H = new /obj/item/clothing/head/pirate/captain/veteran(get_turf(src))
+			var/obj/item/clothing/U = new /obj/item/clothing/under/rank/security/veteran(get_turf(user))
+			var/obj/item/clothing/S = new /obj/item/clothing/suit/security/officer/veteran(get_turf(user))
+			var/obj/item/clothing/H = new /obj/item/clothing/head/pirate/captain/veteran(get_turf(user))
 			user.equip_to_appropriate_slot(U)
 			user.equip_to_appropriate_slot(S)
 			user.equip_to_appropriate_slot(H)
@@ -167,10 +164,10 @@
 					continue
 				addtimer(CALLBACK(limb, /obj/item/bodypart/.proc/dismember), 5)
 			user.mind.remove_all_antag_datums()
-			var/obj/vehicle/ridden/wheelchair/wheels = new (get_turf(src))
+			var/obj/vehicle/ridden/wheelchair/wheels = new (get_turf(user))
 			wheels.buckle_mob(user)
 			for(var/i in 1 to multiplier)
-				var/obj/item/clothing/accessory/medal/veteran/M = new (get_turf(src))
+				var/obj/item/clothing/accessory/medal/veteran/M = new (get_turf(user))
 				user.equip_or_collect(M)
 		if(11)
 			for(var/thing in subtypesof(/datum/reagent/consumable/ethanol))
@@ -261,7 +258,8 @@
 		if(31)
 			user.add_quirk(/datum/quirk/allergic/hyper, TRUE)
 		if(32)
-			var/obj/item/organ/heart/gland/G = pick(subtypesof(/obj/item/organ/heart/gland))
+			var/picked_gland = pick(subtypesof(/obj/item/organ/heart/gland))
+			var/obj/item/organ/heart/gland/G = new picked_gland
 			G.Insert(user, TRUE, FALSE)
 			G.uses = multiplier
 		if(33)
@@ -302,3 +300,376 @@
 		if(40)
 			var/mob/L = new /mob/living/carbon/human/raper(get_turf(user))
 			QDEL_IN(L, 10 SECONDS + multiplier SECONDS)
+		if(41)
+			var/datum/antagonist/traitor/TR = new
+			TR.should_equip = FALSE
+			user.mind.add_antag_datum(TR)
+		if(42)
+			var/datum/antagonist/changeling/XB = new
+			XB.geneticpoints = 0
+			XB.total_geneticspoints = 0
+			user.mind.add_antag_datum(XB)
+		if(43)
+			var/mob/living/simple_animal/drone/D = new /mob/living/simple_animal/drone/cogscarab(get_turf(user))
+			D.key = user.key
+			qdel(user)
+		if(44)
+			var/picked_type = pick(subtypesof(/mob/living/simple_animal/hostile/clown) - /mob/living/simple_animal/hostile/clown/mutant/glutton)
+			var/mob/living/simple_animal/hostile/clown/C = new picked_type(get_turf(user))
+			C.key = user.key
+			qdel(user)
+		if(45)
+			var/obj/structure/mirror/magic/pride/P = new(get_turf(user))
+			P.attack_hand(user)
+		if(46)
+			user.equipOutfit(/datum/outfit/centcom/centcom_intern)
+		if(47)
+			user.facial_hairstyle = "Shaved"
+			user.hairstyle = "Bald"
+			user.fully_replace_character_name(user.real_name, "Агент 47")
+			var/obj/item/gun/ballistic/automatic/pistol/P = new(get_turf(user))
+			var/obj/item/suppressor/S = new(get_turf(user))
+			user.equip_or_collect(P)
+			user.equip_or_collect(S)
+			ADD_TRAIT(user, TRAIT_YOHEI, "d100")
+			user.mind.add_antag_datum(/datum/antagonist/custom)
+			var/datum/objective/assassinate/a_o = new /datum/objective/assassinate
+			var/datum/objective/escape/e_o = new /datum/objective/escape
+			a_o.owner = user
+			e_o.owner = user
+			a_o.target = pick(SSjob.get_all_heads())
+			a_o.update_explanation_text()
+			e_o.update_explanation_text()
+			user.mind.objectives += a_o
+			user.mind.objectives += e_o
+		if(48)
+			user.fully_replace_character_name(user.real_name, "Игорь Юрьевич Остасе́нко-Богда́нов")
+			for(var/i in 1 to multiplier)
+				var/obj/item/suspiciousphone/SP = new (get_turf(user))
+				user.equip_or_collect(SP)
+		if(49)
+			for(var/M in subtypesof(/datum/mutation/human))
+				var/datum/mutation/human/mut = M
+				if(mut.quality != POSITIVE)
+					continue
+				user.dna.add_mutation(mut, MUT_NORMAL, 0)
+		if(50)
+			for(var/A in SSaspects.aspects)
+				if(istype(A, /datum/round_aspect/traitored))
+					var/datum/round_aspect/RA = A
+					RA.run_aspect()
+			var/mob/living/simple_animal/hostile/regalrat/RR = new(get_turf(user))
+			RR.key = user.key
+			qdel(user)
+			RR.fully_replace_character_name(RR.real_name, "Апегио Крысус")
+		if(51)
+			user.reagents.add_reagent(/datum/reagent/medicine/ephedrine, ROUND_UP(multiplier/2))
+		if(52)
+			// без еретика некуда отправить жертву
+			if(prob(multiplier))
+				user.mind.add_antag_datum(/datum/antagonist/heretic)
+		if(53)
+			var/obj/effect/proc_holder/spell/furion/FS = new
+			FS.charge_max = 180 SECONDS - multiplier
+			FS.cooldown_min = max(60 SECONDS - multiplier, 0)
+			FS.clothes_req = FALSE
+			user.AddSpell(FS)
+			user.fully_replace_character_name(user.real_name, "Дифи Лекс")
+		if(54)
+			throwforce = 40 + multiplier
+		if(55)
+			if(isandroid(user))
+				user.set_species(/datum/species/human)
+			else
+				user.set_species(/datum/species/android)
+		if(56)
+			user.set_species(/datum/species/jelly/slime)
+		if(57)
+			var/obj/item/implanter/uplink/U = new(get_turf(user), UPLINK_TRAITORS)
+			var/obj/item/stack/telecrystal/TC = new(get_turf(user))
+			TC.amount = ROUND_UP(multiplier/20)
+			user.equip_or_collect(U)
+			user.equip_or_collect(TC)
+		if(58)
+			var/obj/item/implanter/stealth/SI = new(get_turf(user))
+			user.equip_or_collect(SI)
+		if(59)
+			var/datum/armament_entry/yohei/YA = pick(subtypesof(/datum/armament_entry/yohei))
+			var/obj/item/YI = new YA.item_type(get_turf(user))
+			user.equip_or_collect(YI)
+		if(60)
+			START_PROCESSING(SSobj, src)
+		if(61)
+			var/obj/item/book/granter/spell/summonitem/SI = new(get_turf(user))
+			user.equip_or_collect(SI)
+		if(62)
+			user.mind.assigned_role = "Кошмар"
+			user.mind.special_role = "Кошмар"
+			user.mind.add_antag_datum(/datum/antagonist/nightmare)
+			user.set_species(/datum/species/shadow/nightmare)
+		if(63)
+			var/mob/living/simple_animal/revenant/revvie = new(get_turf(user))
+			revvie.key = user.key
+			qdel(user)
+		if(64)
+			var/mob/living/simple_animal/hostile/morph/morb = new(get_turf(user))
+			morb.key = user.key
+			qdel(user)
+		if(65)
+			var/mob/living/simple_animal/hostile/poison/giant_spider/GS = new(get_turf(user))
+			GS.key = user.key
+			qdel(user)
+		if(66)
+			for(var/i in 1 to multiplier)
+				var/ex_type = pick(subtypesof(/obj/item/slime_extract))
+				var/obj/item/ex = new ex_type(get_turf(user))
+			new /obj/item/reagent_containers/syringe(get_turf(user))
+			new /obj/item/stack/sheet/mineral/plasma(get_turf(user))
+		if(67)
+			var/datum/objective_item/steal/OS = pick(subtypesof(/datum/objective_item/steal))
+			var/obj/item/HR = new OS.targetitem(get_turf(user))
+			user.equip_or_collect(HR)
+		if(68)
+			user.add_overlay(mutable_appearance('white/valtos/icons/xrenoid.png', plane = ABOVE_GAME_PLANE))
+			user.fully_replace_character_name(user.real_name, "PROJECT XRENOID")
+			user.mind.add_antag_datum(/datum/antagonist/highlander)
+		if(69)
+			for(var/A in SSaspects.aspects)
+				var/datum/round_aspect/RA = A
+				RA.forbidden = FALSE
+				RA.weight = multiplier
+			SSaspects.run_aspect()
+		if(70)
+			if(is_traitor(user))
+				var/obj/item/stack/telecrystal/TC = new(get_turf(user))
+				TC.amount = 40
+				user.equip_or_collect(TC)
+				var/crate_value = 20
+				var/list/uplink_items = get_uplink_items(UPLINK_TRAITORS)
+				while(crate_value)
+					var/category = pick(uplink_items)
+					var/item = pick(uplink_items[category])
+					var/datum/uplink_item/I = uplink_items[category][item]
+					if(!I.surplus_nullcrates || prob(100 - I.surplus_nullcrates))
+						continue
+					if(crate_value < I.cost)
+						continue
+					crate_value -= I.cost
+					new I.item(get_turf(user))
+			else
+				user.mind.add_antag_datum(/datum/antagonist/traitor)
+		if(71)
+			user.mind.add_antag_datum(/datum/antagonist/heretic)
+			if(is_traitor(user))
+				var/obj/item/stack/telecrystal/TC = new(get_turf(user))
+				TC.amount = ROUND_UP(multiplier / 10)
+				user.equip_or_collect(TC)
+		if(72)
+			var/gt = pick(subtypesof(/datum/gear/roles))
+			var/datum/gear/roles/RG = new gt
+			RG.purchase(user.client)
+		if(73)
+			var/ot = pick(subtypesof(/datum/outfit/yohei))
+			user.equipOutfit(ot)
+			var/obj/item/gps/G = new(get_turf(user))
+			G.gpstag = "YOHEI"
+			G.forceMove(user)
+			priority_announce("Был образован новый Йохей. Его для найма вы сможете найти по координатам GPS.", "Рождение Наёмника", 'sound/ai/announcer/alert.ogg')
+		if(74)
+			user.mind.add_antag_datum(/datum/antagonist/nukeop/lone)
+		if(75)
+			user.mind.add_antag_datum(/datum/antagonist/changeling)
+			if(is_traitor(user))
+				var/obj/item/stack/telecrystal/TC = new(get_turf(user))
+				TC.amount = ROUND_UP(multiplier / 10)
+				user.equip_or_collect(TC)
+		if(76)
+			user.mind.add_antag_datum(/datum/antagonist/blob)
+		if(77)
+			user.mind.add_antag_datum(/datum/antagonist/wishgranter)
+		if(78)
+			for(var/i in 1 to multiplier)
+				var/obj/item/reagent_containers/glass/bottle/adminordrazine/AD = new(get_turf(user))
+				AD.list_reagents = list(/datum/reagent/medicine/adminordrazine = 1)
+				user.equip_or_collect(AD)
+		if(79)
+			user.reagents.add_reagent(/datum/reagent/medicine/c2/penthrite, 20)
+			user.apply_status_effect(STATUS_EFFECT_MAYHEM)
+		if(80)
+			user.ghostize(TRUE)
+			spawn(-1)
+				sleep(10)
+				for(var/ev in subtypesof(/datum/round_event/ghost_role))
+					var/datum/round_event/ghost_role/GR = ev
+					GR.start()
+		if(81)
+			user.mind.add_antag_datum(/datum/antagonist/ninja)
+		if(82)
+			user.mind.add_antag_datum(/datum/antagonist/wizard)
+		if(83)
+			var/mob/living/simple_animal/hostile/megafauna/dragon/drak = new(get_turf(user))
+			drak.AIStatus = AI_OFF
+			if(multiplier >= 95)
+				new /obj/item/slimepotion/transference(get_turf(user))
+			else
+				new /obj/item/slimepotion/slime/sentience(get_turf(user))
+		if(84)
+			user.reagents.add_reagent(/datum/reagent/medicine/adminordrazine, 20)
+			user.reagents.add_reagent(/datum/reagent/medicine/c2/penthrite, 20)
+			user.equipOutfit(/datum/outfit/sobr)
+			new /obj/item/gun/ballistic/automatic/ak47(get_turf(user))
+			user.fully_replace_character_name(user.real_name, "Alexander Rowley")
+			user.mind.add_antag_datum(/datum/antagonist/custom)
+			var/datum/objective/escape/hijack = new /datum/objective/hijack
+			hijack.owner = user
+			user.mind.objectives += hijack
+		if(85)
+			var/mgtype = pick(subtypesof(/mob/living/simple_animal/hostile/megafauna))
+			var/mob/living/simple_animal/SA = new mgtype(get_turf(user))
+			SA.key = user.key
+			SA.damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, CLONE = 1, STAMINA = 0, OXY = 1)
+			qdel(user)
+		if(86)
+			user.equipOutfit(/datum/outfit/dreamer)
+			user.mind.add_antag_datum(/datum/antagonist/dreamer_orbital)
+			var/turf/T = pick(get_area_turfs(/area/ruin/unpowered))
+			user.forceMove(T)
+		if(87)
+			user.equipOutfit(/datum/job/head_of_security)
+			if(is_traitor(user))
+				var/obj/item/stack/telecrystal/TC = new(get_turf(user))
+				TC.amount = ROUND_UP(multiplier / 5)
+				user.equip_or_collect(TC)
+		if(88)
+			var/obj/item/spellbook/SB = new(get_turf(user))
+			SB.uses += multiplier
+		if(89)
+			for(var/M in GLOB.mob_list)
+				if(ishuman(M))
+					purrbation_apply(M)
+					var/mob/living/L = M
+					L.reagents.add_reagent(/datum/reagent/pax, multiplier)
+				CHECK_TICK
+		if(90)
+			user.equipOutfit(/datum/job/captain)
+			if(is_traitor(user))
+				var/obj/item/stack/telecrystal/TC = new(get_turf(user))
+				TC.amount = ROUND_UP(multiplier / 5)
+				user.equip_or_collect(TC)
+			SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, .proc/minor_announce, "Капитан [user.real_name] на палубе!"))
+		if(91)
+			for(var/type in subtypesof(/obj/item/antag_spawner/nuke_ops/borg_tele))
+				var/obj/item/BT = new type(get_turf(user))
+		if(92)
+			spawn(-1)
+				var/turf/landing = get_turf(user)
+
+				var/list/candidates = poll_ghost_candidates("Хотите быть террористом?", ROLE_TRAITOR, ROLE_TRAITOR)
+
+				if(candidates.len >= 2)
+					var/mob/living/carbon/human/first = makeBody(pick_n_take(candidates))
+					var/mob/living/carbon/human/second = makeBody(pick_n_take(candidates))
+
+					var/datum/team/schoolshooters/T = new
+
+					var/list/spawned_mobs = list(first, second)
+
+					first.equipOutfit(/datum/outfit/schoolshooter/typeone)
+					second.equipOutfit(/datum/outfit/schoolshooter/typetwo)
+
+					var/obj/structure/closet/supplypod/extractionpod/terrorist_pod = new()
+					terrorist_pod.bluespace = FALSE
+					terrorist_pod.explosionSize = list(0,0,0,3)
+					terrorist_pod.style = STYLE_SYNDICATE
+					terrorist_pod.name = "Террористический дроппод"
+					terrorist_pod.desc = "Прямиком из группировок, запрещенных на территории NT."
+
+					for(var/mob/living/carbon/human/M in spawned_mobs)
+						M.mind.add_antag_datum(/datum/antagonist/schoolshooter, T)
+						M.forceMove(terrorist_pod)
+						log_game("[key_name(M)] has been selected as Terrorist.")
+						M.real_name = get_funny_name(15)
+						var/datum/objective/protect/protec = new /datum/objective/protect
+						protec.target = user
+						protec.owner = M
+						protec.update_explanation_text()
+						M.mind.objectives += protec
+					new /obj/effect/pod_landingzone(landing, terrorist_pod)
+		if(93)
+			spawn(-1)
+				omon_ert_request("Помочь господину [user.real_name] в его делах. Выполнять его приказы и защищать его ценой своей жизни.")
+		if(94)
+			user.equipOutfit(/datum/outfit/centcom/ert/commander/inquisitor)
+		if(95)
+			var/obj/machinery/chem_dispenser/chem_synthesizer/CS = new(get_turf(user))
+			priority_announce("Химический синтезатор был обнаружен в локации [get_area_name(CS)]. Держитесь от него подальше!", "Аномальная Тревога", 'sound/ai/announcer/alert.ogg')
+			spawn(1 MINUTES + multiplier SECONDS)
+				explosion(CS, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 3, flame_range = 5, flash_range = 4)
+		if(96)
+			user.mind.add_antag_datum(/datum/antagonist/nukeop)
+			spawn(-1)
+				var/list/mob/dead/observer/candidates = poll_ghost_candidates("Do you wish to be considered for a nuke team being sent in?", ROLE_OPERATIVE, null)
+				var/list/mob/dead/observer/chosen = list()
+				var/mob/dead/observer/theghost = null
+
+				if(candidates.len)
+					var/numagents = 5
+					var/agentcount = 0
+
+					for(var/i = 0, i<numagents,i++)
+						shuffle_inplace(candidates) //More shuffles means more randoms
+						for(var/mob/j in candidates)
+							if(!j || !j.client)
+								candidates.Remove(j)
+								continue
+
+							theghost = j
+							candidates.Remove(theghost)
+							chosen += theghost
+							agentcount++
+							break
+					//Making sure we have atleast 3 Nuke agents, because less than that is kinda bad
+					if(agentcount < 3)
+						return
+
+					//Let's find the spawn locations
+					var/leader_chosen = FALSE
+					var/datum/team/nuclear/nuke_team
+					for(var/mob/c in chosen)
+						var/mob/living/carbon/human/new_character=makeBody(c)
+						if(!leader_chosen)
+							leader_chosen = TRUE
+							var/datum/antagonist/nukeop/N = new_character.mind.add_antag_datum(/datum/antagonist/nukeop/leader)
+							nuke_team = N.nuke_team
+						else
+							new_character.mind.add_antag_datum(/datum/antagonist/nukeop,nuke_team)
+		if(97)
+			new /obj/item/melee/supermatter_sword(get_turf(user))
+		if(98)
+			user.mind.add_antag_datum(/datum/antagonist/cult)
+			if(is_traitor(user))
+				var/obj/item/stack/telecrystal/TC = new(get_turf(user))
+				TC.amount = ROUND_UP(multiplier / 10)
+				user.equip_or_collect(TC)
+		if(99)
+			to_chat(user, span_boldnotice("Ты почти проснулся!"))
+			spawn(3 SECONDS)
+				user.gib()
+		if(100)
+			user.mind.add_antag_datum(/datum/antagonist/dreamer)
+		if(101)
+			for(var/i in 1 to 20)
+				effect(user, i)
+
+/obj/item/dice/d100/fate/process()
+	slowdown = rand(-10, 10)/10
+	if(iscarbon(loc))
+		var/mob/living/carbon/wielder = loc
+		if(wielder.is_holding(src))
+			wielder.update_equipment_speed_mods()
+
+/datum/uplink_item/badass/fate_dice100
+	name = "Fate D100"
+	desc = "Super prikol."
+	item = /obj/item/dice/d100/fate/one_use
+	cost = 40

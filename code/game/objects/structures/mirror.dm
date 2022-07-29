@@ -285,8 +285,8 @@
 				H.dna.update_ui_block(DNA_EYE_COLOR_LEFT_BLOCK)
 				H.dna.update_ui_block(DNA_EYE_COLOR_RIGHT_BLOCK)
 				H.update_body()
-	if(choice)
-		curse(user)
+
+	curse(user)
 
 /obj/structure/mirror/magic/proc/curse(mob/living/user)
 	return
