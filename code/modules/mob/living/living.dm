@@ -1328,7 +1328,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 
 /mob/living/proc/ignite_mob()
 	if(fire_stacks <= 0)
-		return TRUE
+		return FALSE
 
 	var/datum/status_effect/fire_handler/fire_stacks/fire_status = has_status_effect(/datum/status_effect/fire_handler/fire_stacks)
 	if(!fire_status || fire_status.on_fire)
