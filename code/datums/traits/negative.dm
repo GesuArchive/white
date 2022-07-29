@@ -716,8 +716,8 @@
 		display += initial(chemical.name) + ", "
 	name = "Extreme " + display +"Allergies"
 	medical_record_text = "Иммунитет пациента сильно реагирует на [display]!"
-	quirk_holder?.mind.store_memory("You are allergic to [display]")
-	to_chat(quirk_holder, span_boldnotice("У вас аллергия к [display]!"))
+	quirk_holder?.mind.store_memory("У меня аллергия к [display]")
+	to_chat(quirk_holder, span_boldnotice("У меня аллергия к [display]!"))
 	if(!ishuman(quirk_holder))
 		return
 	var/mob/living/carbon/human/human_holder = quirk_holder
@@ -748,6 +748,13 @@
 		if(DT_PROB(10, delta_time))
 			carbon_quirk_holder.vomit()
 			carbon_quirk_holder.adjustOrganLoss(pick(ORGAN_SLOT_BRAIN,ORGAN_SLOT_APPENDIX,ORGAN_SLOT_LUNGS,ORGAN_SLOT_HEART,ORGAN_SLOT_LIVER,ORGAN_SLOT_STOMACH),10)
+
+/datum/quirk/allergic/hyper
+	name = "Гипераллергия"
+	desc = "Совершенно непредсказумые изменения в организме привели к непереносимости воды."
+	value = -8
+	allergies = list(/datum/reagent/water, /datum/reagent/water/holywater)
+	blacklist = list()
 
 /datum/quirk/bad_touch
 	name = "Плохое прикосновение"
