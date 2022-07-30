@@ -82,17 +82,15 @@ export const Panel = (props, context) => {
             </Pane.Content>
             <Notifications>
               {game.connectionLostAt && (
-                <Notifications.Item
-                  rightSlot={<ReconnectButton />}>
-                  Сервер перезагружается. Если сообщение висит
-                  более двух минут, то можете нажать на кнопку справа.
+                <Notifications.Item rightSlot={<ReconnectButton />}>
+                  Сервер не отвечает. Если надоело ждать,
+                  то можете нажать на одну из кнопок ниже.
                 </Notifications.Item>
               )}
               {game.roundRestartedAt && (
                 <Notifications.Item>
-                  Соединение было закрыто по причине  перезагрузки сервера.
+                  Перезагрузка сервера.
                   Пожалуйста, подождите. Игра сама переподключится к серверу.
-                  Это может занять 30 секунд и более, учтите!
                 </Notifications.Item>
               )}
             </Notifications>
