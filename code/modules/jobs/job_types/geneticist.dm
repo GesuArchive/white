@@ -8,8 +8,8 @@
 	supervisors = "научному руководителю"
 	selection_color = "#ffeef0"
 	exp_type = EXP_TYPE_CREW
-	minimal_player_age = 15
-	exp_requirements = 900
+	minimal_player_age = 14
+	exp_requirements = 300
 
 	outfit = /datum/outfit/job/geneticist
 

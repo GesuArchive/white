@@ -8,8 +8,8 @@
 	spawn_positions = 1
 	supervisors = "начальнику охраны"
 	selection_color = "#ffeeee"
-	minimal_player_age = 15
-	exp_requirements = 900
+	minimal_player_age = 14
+	exp_requirements = 300
 	exp_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/detective

@@ -8,7 +8,7 @@
 	spawn_positions = 0
 	supervisors = "научному руководителю"
 	selection_color = "#00eeff"
-	exp_requirements = 30000
+	exp_requirements = 3000
 	exp_type = EXP_TYPE_CREW
 	display_order = JOB_DISPLAY_ORDER_SCIENTIST
 

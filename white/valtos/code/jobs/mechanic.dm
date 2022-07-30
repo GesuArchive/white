@@ -3,7 +3,7 @@
 	ru_title = "Механик"
 	total_positions = 1
 	spawn_positions = 1
-	exp_requirements = 1200
+	exp_requirements = 600
 	exp_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/mechanic

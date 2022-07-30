@@ -8,7 +8,7 @@
 	supervisors = "главному врачу"
 	selection_color = "#ffeef0"
 	exp_type = EXP_TYPE_CREW
-	exp_requirements = 900
+	exp_requirements = 300
 
 	outfit = /datum/outfit/job/virologist
 

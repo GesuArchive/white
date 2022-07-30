@@ -9,7 +9,7 @@
 	selection_color = "#ff4040"
 
 	exp_type = EXP_TYPE_CREW
-	exp_requirements = 9000
+	exp_requirements = 900
 
 	outfit = /datum/outfit/job/hunter
 

@@ -9,8 +9,8 @@
 	supervisors = "представителям NanoTrasen и космозакону"
 	selection_color = "#ccccff"
 	req_admin_notify = 1
-	minimal_player_age = 60
-	exp_requirements = 9600
+	minimal_player_age = 14
+	exp_requirements = 1800
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_COMMAND
 

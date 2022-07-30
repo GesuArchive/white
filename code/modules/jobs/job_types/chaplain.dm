@@ -10,8 +10,8 @@
 
 	outfit = /datum/outfit/job/chaplain
 
-	minimal_player_age = 15
-	exp_requirements = 720
+	minimal_player_age = 14
+	exp_requirements = 300
 	exp_type = EXP_TYPE_CREW
 
 	paycheck = PAYCHECK_EASY

@@ -8,8 +8,8 @@
 	selection_color = "#ccffcc"
 	supervisors = "своим законам"
 	req_admin_notify = TRUE
-	minimal_player_age = 60
-	exp_requirements = 9600
+	minimal_player_age = 14
+	exp_requirements = 1200
 	exp_type = EXP_TYPE_CREW
 	exp_type_department = EXP_TYPE_SILICON
 	display_order = JOB_DISPLAY_ORDER_AI

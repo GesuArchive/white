@@ -8,8 +8,8 @@
 	spawn_positions = 5 //Handled in /datum/controller/occupations/proc/setup_officer_positions()
 	supervisors = "начальнику охраны и главе назначенного мне отдела (если есть)"
 	selection_color = "#ffeeee"
-	minimal_player_age = 15
-	exp_requirements = 900
+	minimal_player_age = 14
+	exp_requirements = 300
 	exp_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/security
