@@ -311,11 +311,13 @@ em {
 }
 
 .adminsay {
-  color: #6565a1;
-  background: #111111;
+  color: #a3a3ce;
+  background: #101017;
   width: 100%;
   display: block;
-  padding: 1px;
+  padding: 4px;
+  font-weight: bold;
+  border-radius: 4px;
 }
 
 .admin {
@@ -558,11 +560,13 @@ em {
 }
 
 .adminnotice {
-  color: #000000;
-}
-
-.adminnotice a {
-  color: #000000;
+  color: #a3a3ce;
+  background: #101017;
+  width: 100%;
+  display: block;
+  padding: 4px;
+  font-weight: bold;
+  border-radius: 4px;
 }
 
 .adminhelp {
@@ -583,6 +587,10 @@ em {
 .green {
   color: #3bbb3b;
   font-size: 110%;
+}
+
+.admin .red {
+  color: #b80101;
 }
 
 .red {
