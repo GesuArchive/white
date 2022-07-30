@@ -272,18 +272,19 @@ a.popt {
 h1, h2, h3, h4, h5, h6 {
   color: #d6d6d6;
   font-family: Verdana, sans-serif;
-  text-shadow: -1px -1px 0 #000,
+  text-shadow: 2px 2px 0 rgb(80, 80, 80),
+/*  text-shadow: -1px -1px 0 #000,
                1px -1px 0 #000,
                -1px 1px 0 #000,
                1px 1px 0 #000,
                -2px -2px 0 #222,
                2px -2px 0 #222,
                -2px 2px 0 #222,
-               2px 2px 0 #222;
+               2px 2px 0 #222;*/
 }
 
 h1.alert, h2.alert {
-  margin-top: 8px;
+  margin-top: 4px;
   color: #d6d6d6;
   font-size: 20px;
 }
@@ -329,7 +330,7 @@ em {
 }
 
 .deadsay {
-  color: #e89ed5;
+  color: #aa86a1;
   font-size: 90%;
 }
 
