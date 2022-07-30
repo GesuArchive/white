@@ -48,7 +48,7 @@
 		to_chat(usr, span_danger("Не могу изображать."))
 		return
 
-	message = trim(copytext_char(sanitize(message), 1, MAX_MESSAGE_LEN))
+	message = pointization(trim(copytext_char(sanitize(message), 1, MAX_MESSAGE_LEN)))
 	var/ckeyname = "[usr.ckey]/[usr.name]"
 	webhook_send_me(ckeyname, message)
 

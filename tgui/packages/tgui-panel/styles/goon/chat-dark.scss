@@ -252,7 +252,6 @@ a.popt {
 }
 
 
-
 /* ADD HERE FOR ITALIC */
 
 
@@ -305,21 +304,31 @@ em {
 
 .adminobserverooc {
   color: #0099cc;
-  font-weight: bold;
 }
 
 .adminooc {
   color: #3d5bc3;
-  font-weight: bold;
 }
 
 .adminsay {
   color: #6565a1;
-  font-weight: bold;
+  background: #111111;
+  width: 100%;
+  display: block;
+  padding: 1px;
 }
 
 .admin {
-  color: #666674;
+  color: #000000;
+  background: #666674;
+  width: 100%;
+  display: block;
+  padding: 1px;
+  font-weight: bold;
+}
+
+.admin a {
+  color: #ffffff;
 }
 
 .name {
@@ -329,8 +338,16 @@ em {
 .say, .emote, .infoplain, .mentor {
 }
 
+.emote {
+  color:rgb(90, 90, 90);
+}
+
+.emote b {
+  color:rgb(125, 125, 125);
+}
+
 .deadsay {
-  color: #aa86a1;
+  color: #dd92ca;
   font-size: 90%;
 }
 
@@ -430,8 +447,7 @@ em {
 .userdanger {
   color: #d82020;
   font-size: 135%;
-  margin-left: 16px;
-  animation: udfade 3s ease-out;
+  animation: udfade 5s ease-out;
 }
 
 @keyframes udfade {
@@ -442,27 +458,23 @@ em {
 .danger {
   color: #fd5b5b;
   font-size: 115%;
-  margin-left: 8px;
 }
 
 .smalldanger {
   color: #b87878;
   font-size: 90%;
-  margin-left: 4px;
 }
 
 .warning {
   color: #9d1b1b;
   font-style: italic;
   font-size: 115%;
-  margin-left: 8px;
 }
 
 .alertwarning {
   color: #FF0000;
   font-weight: bold;
   font-size: 115%;
-  margin-left: 8px;
 }
 
 .boldwarning {
@@ -470,21 +482,18 @@ em {
   font-style: italic;
   font-weight: bold;
   font-size: 115%;
-  margin-left: 8px;
 }
 
 .announce {
   color: #c51e1e;
   font-weight: bold;
   font-size: 115%;
-  margin-left: 8px;
 }
 
 .boldannounce {
   color: #c51e1e;
   font-weight: bold;
   font-size: 115%;
-  margin-left: 8px;
 }
 
 .minorannounce {
@@ -508,7 +517,6 @@ em {
 .notice {
   color: #635fcf;
   font-size: 90%;
-  margin-left: 6px;
 }
 
 .tinynotice {
@@ -544,7 +552,15 @@ em {
 }
 
 .adminnotice {
-  color: #f5f5f5;
+  color: #000000;
+  background: #f5f5f5;
+  width: 100%;
+  display: block;
+  padding: 1px;
+}
+
+.adminnotice a {
+  color: #000000;
 }
 
 .adminhelp {
@@ -638,7 +654,6 @@ em {
 .purple {
   color: #9956d3;
   font-size: 90%;
-  margin-left: 8px;
 }
 
 .holoparasite {
@@ -1093,7 +1108,18 @@ a, b {
 .neovgre				{color: #6E001A; font-weight: bold; font-style: italic;}
 .neovgre_small			{color: #6E001A;}
 
-.mentor         {color: #8a2be2;}
+.mentor {
+  color: #000000;
+  background: #e96ed0;
+  width: 100%;
+  display: block;
+  padding: 1px;
+}
+
+.mentor a {
+  background: #000000;
+  padding: 1px;
+}
 
 .Section {
   border: none;
