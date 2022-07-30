@@ -314,8 +314,13 @@ em {
 }
 
 .admin {
-  color: #2f64ae;
+  color: #000000;
   font-weight: bold;
+}
+
+.admin a {
+  color: #4400ff;
+  text-shadow: none;
 }
 
 .name {

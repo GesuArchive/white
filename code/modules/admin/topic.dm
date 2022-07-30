@@ -1192,12 +1192,12 @@
 			else
 				gender_description = span_red("<b>[M.gender]</b>")
 
-		to_chat(src.owner, "<b>Info about [M.name]:</b> ")
-		to_chat(src.owner, "Mob type = [M.type]; Gender = [gender_description] Damage = [health_description]")
-		to_chat(src.owner, "Name = <b>[M.name]</b>; Real_name = [M.real_name]; Mind_name = [M.mind?"[M.mind.name]":""]; Key = <b>[M.key]</b>;")
-		to_chat(src.owner, "Location = [location_description];")
-		to_chat(src.owner, "[special_role_description]")
-		to_chat(src.owner, ADMIN_FULLMONTY_NONAME(M))
+		to_chat(src.owner, span_admin("<b>Info about [M.name]:</b> "))
+		to_chat(src.owner, span_admin("Mob type = [M.type]; Gender = [gender_description] Damage = [health_description]"))
+		to_chat(src.owner, span_admin("Name = <b>[M.name]</b>; Real_name = [M.real_name]; Mind_name = [M.mind?"[M.mind.name]":""]; Key = <b>[M.key]</b>;"))
+		to_chat(src.owner, span_admin("Location = [location_description];"))
+		to_chat(src.owner, span_admin("[special_role_description]"))
+		to_chat(src.owner, span_admin(ADMIN_FULLMONTY_NONAME(M)))
 
 	else if(href_list["addjobslot"])
 		if(!check_rights(R_ADMIN))

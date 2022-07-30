@@ -320,15 +320,20 @@ em {
 
 .admin {
   color: #000000;
-  background: #666674;
+  background: #cccccc;
   width: 100%;
   display: block;
-  padding: 1px;
+  padding: 4px;
   font-weight: bold;
 }
 
 .admin a {
-  color: #ffffff;
+  color: #4400ff;
+  text-shadow: none;
+}
+
+.admin a:visited {
+  color: #ff0044;
 }
 
 .name {
@@ -553,10 +558,6 @@ em {
 
 .adminnotice {
   color: #000000;
-  background: #f5f5f5;
-  width: 100%;
-  display: block;
-  padding: 1px;
 }
 
 .adminnotice a {
