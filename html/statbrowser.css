@@ -23,9 +23,9 @@ body.dark {
 	color: #aaaaaa;
 }
 
-body.cyber {
-	background-color: #000306;
-	color: #aaaaaa;
+body.gruvbox {
+	background-color: #1d2021;
+	color: #a89984;
 }
 
 #menu {
@@ -39,8 +39,8 @@ body.cyber {
 	background-color: #050505;
 }
 
-.cyber #menu, .cyber #menu {
-	background-color: #000306;
+.gruvbox #menu, .gruvbox #menu {
+	background-color: #1d2021;
 }
 
 #statcontent {
@@ -56,11 +56,11 @@ a {
 	color: #d6d6d6;
 }
 
-.cyber a {
-	color: #abc6ec;
+.gruvbox a {
+	color: #fbf1c7;
 }
 
-a:hover, .dark a:hover, .cyber a:hover {
+a:hover, .dark a:hover, .gruvbox a:hover {
 	text-decoration: underline;
 }
 
@@ -120,10 +120,10 @@ li a:hover:not(.active) {
 	color: #d6d6d6;
 }
 
-.cyber button {
-	background-color: #000000;
+.gruvbox button {
+	background-color: #1d2021;
 	border-color: #343434;
-	color: #abc6ec;
+	color: #fbf1c7;
 }
 
 .button:hover {
@@ -136,8 +136,8 @@ li a:hover:not(.active) {
 	color: #080808;
 }
 
-.cyber button:hover {
-	background-color:  #abc6ec;
+.gruvbox button:hover {
+	background-color:  #fbf1c7;
 	color: #080808;
 }
 
@@ -160,9 +160,9 @@ li a:hover:not(.active) {
 	border-bottom: 1px solid #080808;
 }
 
-.cyber .button:active, .cyber .button.active {
-	background-color: #000306;
-	color: #abc6ec;
+.gruvbox .button:active, .gruvbox .button.active {
+	background-color: #1d2021;
+	color: #fbf1c7;
 	border-top: 1px solid #343434;
 	border-left: 1px solid #343434;
 	border-right: 1px solid #343434;
@@ -201,8 +201,8 @@ li a:hover:not(.active) {
 	background: #d6d6d6;
 }
 
-.cyber .grid-item:hover {
-	background: #abc6ec;
+.gruvbox .grid-item:hover {
+	background: #fbf1c7;
 }
 
 .grid-item-text {
@@ -233,13 +233,13 @@ li a:hover:not(.active) {
 	text-decoration: none;
 }
 
-.cyber .grid-item {
-	background: rgba(50, 160, 255, 0.05);
-	border: 1px solid rgba(50, 160, 255, 0.2);
+.gruvbox .grid-item {
+	background: #1d2021;
+	border: 1px solid rgba(235, 219, 178, 0.4);
 }
 
-.cyber .grid-item:hover {
-	background: #abc6ec;
+.gruvbox .grid-item:hover {
+	background: #fbf1c7;
 	color: #080808;
 	text-decoration: none;
 }
@@ -260,8 +260,8 @@ li a:hover:not(.active) {
 	color: #d6d6d6;
 }
 
-.cyber .link {
-	color: #abc6ec;
+.gruvbox .link {
+	color: #fbf1c7;
 }
 
 .link:hover {

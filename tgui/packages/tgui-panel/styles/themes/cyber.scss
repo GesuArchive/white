@@ -7,28 +7,28 @@
 @use 'sass:meta';
 
 @use '~tgui/styles/colors.scss' with (
-  $primary: #abc6ec,
-  $label: #a4a4a4,
-  $grey: #767676,
+  $primary: #fbf1c7,
+  $label: #ebdbb2,
+  $grey: #d5c4a1,
 );
 @use '~tgui/styles/base.scss' with (
-  $color-fg: #abc6ec,
-  $color-bg: #010912,
-  $color-bg-section: #010912,
+  $color-fg: #a89984,
+  $color-bg: #1d2021,
+  $color-bg-section: #1d2021,
   $color-bg-grad-spread: 0.5%,
 );
 
-.theme-cyber {
+.theme-gruvbox {
   // Atomic classes
   @include meta.load-css('~tgui/styles/atomic/color.scss');
 
   // Components
   @include meta.load-css('~tgui/styles/components/Tabs.scss', $with: (
-    'text-color': #abc6ec,
-    'color-default': #abc6ec,
+    'text-color': #fbf1c7,
+    'color-default': #ebdbb2,
   ));
   @include meta.load-css('~tgui/styles/components/Section.scss', $with: (
-    'background-color': rgba(0, 0, 0, 0.7),
+    'background-color': #1d2021,
     'shadow-color': rgba(0, 0, 0, 0.1),
     'shadow-size': 1em,
     'shadow-type': outset,
@@ -36,7 +36,7 @@
   ));
   @include meta.load-css('~tgui/styles/components/Button.scss');
   @include meta.load-css('~tgui/styles/components/Input.scss', $with: (
-    'border-color': #abc6ec
+    'border-color': #d5c4a1
   ));
   @include meta.load-css('~tgui/styles/components/NumberInput.scss');
   @include meta.load-css('~tgui/styles/components/TextArea.scss');
@@ -51,7 +51,4 @@
   @include meta.load-css('~tgui/styles/layouts/Layout.scss');
   @include meta.load-css('~tgui/styles/layouts/Window.scss');
   @include meta.load-css('~tgui/styles/layouts/TitleBar.scss');
-
-  // Goonchat styles
-  @include meta.load-css('../goon/chat-cyber.scss');
 }

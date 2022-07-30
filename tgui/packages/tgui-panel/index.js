@@ -7,7 +7,7 @@
 // Themes
 import './styles/main.scss';
 import './styles/themes/light.scss';
-import './styles/themes/cyber.scss';
+import './styles/themes/gruvbox.scss';
 
 import { perf } from 'common/perf';
 import { combineReducers } from 'common/redux';
