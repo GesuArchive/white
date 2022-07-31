@@ -201,6 +201,7 @@
 	pshoom_or_beepboopblorpzingshadashwoosh = 'sound/items/screwdriver.ogg'
 	component_type = /datum/component/storage/concrete/rped/x10
 	var/ripsound = 'white/valtos/sounds/rip1.ogg'
+	var/item_type = null
 
 /datum/component/storage/concrete/rped/x10
 	max_items = 10
@@ -208,45 +209,11 @@
 /obj/item/storage/part_replacer/stock_parts_box_x10/Initialize(mapload)
 	. = ..()
 	if(contents.len)
-		var/obj/item/I = contents[1]
-		if (istype(I, /obj/item/stock_parts/scanning_module/noneuclid) || istype(I, /obj/item/stock_parts/micro_laser/quadultra))
-			var/mutable_appearance/part_overlay = new(I)
-			part_overlay.plane = FLOAT_PLANE
-			part_overlay.layer = FLOAT_LAYER
-			part_overlay.pixel_x = base_pixel_x + rand(-2, 2)
-			part_overlay.pixel_y = base_pixel_y + rand(-2, 2)
-			add_overlay(part_overlay)
-			part_overlay.pixel_x = base_pixel_x + rand(-2, 2)
-			part_overlay.pixel_y = base_pixel_y + rand(-2, 2)
-			add_overlay(part_overlay)
-			part_overlay.pixel_x = base_pixel_x + rand(-2, 2)
-			part_overlay.pixel_y = base_pixel_y + rand(-2, 2)
-			add_overlay(part_overlay)
-			part_overlay.pixel_x = base_pixel_x + rand(-2, 2)
-			part_overlay.pixel_y = base_pixel_y + rand(-2, 2)
-			add_overlay(part_overlay)
-			part_overlay.pixel_x = base_pixel_x + rand(-2, 2)
-			part_overlay.pixel_y = base_pixel_y + rand(-2, 2)
-			add_overlay(part_overlay)
-			add_overlay("evidence")
-		else
-			var/mutable_appearance/part_overlay = new(I)
-			part_overlay.plane = FLOAT_PLANE
-			part_overlay.layer = FLOAT_LAYER
-			part_overlay.pixel_x = base_pixel_x + rand(-5, 5)
-			part_overlay.pixel_y = base_pixel_y + rand(-5, 5)
-			add_overlay(part_overlay)
-			part_overlay.pixel_x = base_pixel_x + rand(-5, 5)
-			part_overlay.pixel_y = base_pixel_y + rand(-5, 5)
-			add_overlay(part_overlay)
-			part_overlay.pixel_x = base_pixel_x + rand(-5, 5)
-			part_overlay.pixel_y = base_pixel_y + rand(-5, 5)
-			add_overlay(part_overlay)
-			part_overlay.pixel_x = base_pixel_x + rand(-5, 5)
-			part_overlay.pixel_y = base_pixel_y + rand(-5, 5)
-			add_overlay(part_overlay)
-			part_overlay.pixel_x = base_pixel_x + rand(-5, 5)
-			part_overlay.pixel_y = base_pixel_y + rand(-5, 5)
+		for(var/obj/item/I as() in contents)
+			var/rand_size = (istype(I, /obj/item/stock_parts/scanning_module/noneuclid) || istype(I, /obj/item/stock_parts/micro_laser/quadultra)) ? 2 : 5
+			var/mutable_appearance/part_overlay = mutable_appearance(I.icon, I.icon_state, layer = FLOAT_LAYER, plane = FLOAT_PLANE)
+			part_overlay.pixel_x = base_pixel_x + rand(-rand_size, rand_size)
+			part_overlay.pixel_y = base_pixel_y + rand(-rand_size, rand_size)
 			add_overlay(part_overlay)
 			add_overlay("evidence")
 
@@ -265,190 +232,94 @@
 		qdel(T)
 	return ..()
 
+/obj/item/storage/part_replacer/stock_parts_box_x10/PopulateContents()
+	for(var/i in 1 to 10)
+		new item_type(src)
+
 //	Детали Т1 х10
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/capacitor_t1
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/capacitor_t1/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/capacitor(src)
-
+	item_type = /obj/item/stock_parts/capacitor
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/scanning_module_t1
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/scanning_module_t1/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/scanning_module(src)
-
+	item_type = /obj/item/stock_parts/scanning_module
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/manipulator_t1
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/manipulator_t1/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/manipulator(src)
-
+	item_type = /obj/item/stock_parts/manipulator
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/micro_laser_t1
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/micro_laser_t1/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/micro_laser(src)
-
+	item_type = /obj/item/stock_parts/micro_laser
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/bin_t1
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/bin_t1/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/matter_bin(src)
-
+	item_type = /obj/item/stock_parts/matter_bin
 
 //	Детали Т2 х10
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/capacitor_t2
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/capacitor_t2/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/capacitor/adv(src)
-
+	item_type = /obj/item/stock_parts/capacitor/adv
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/scanning_module_t2
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/scanning_module_t2/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/scanning_module/adv(src)
-
+	item_type = /obj/item/stock_parts/scanning_module/adv
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/manipulator_t2
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/manipulator_t2/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/manipulator/nano(src)
-
+	item_type = /obj/item/stock_parts/manipulator/nano
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/micro_laser_t2
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/micro_laser_t2/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/micro_laser/high(src)
-
+	item_type = /obj/item/stock_parts/micro_laser/high
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/bin_t2
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/bin_t2/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/matter_bin/adv(src)
-
+	item_type = /obj/item/stock_parts/matter_bin/adv
 
 //	Детали Т3 х10
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/capacitor_t3
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/capacitor_t3/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/capacitor/super(src)
-
+	item_type = /obj/item/stock_parts/capacitor/super
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/scanning_module_t3
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/scanning_module_t3/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/scanning_module/phasic(src)
-
+	item_type = /obj/item/stock_parts/scanning_module/phasic
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/manipulator_t3
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/manipulator_t3/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/manipulator/pico(src)
-
+	item_type = /obj/item/stock_parts/manipulator/pico
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/micro_laser_t3
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/micro_laser_t3/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/micro_laser/ultra(src)
-
+	item_type = /obj/item/stock_parts/micro_laser/ultra
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/bin_t3
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/bin_t3/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/matter_bin/super(src)
-
+	item_type = /obj/item/stock_parts/matter_bin/super
 
 //	Детали Т4 х10
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/capacitor_t4
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/capacitor_t4/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/capacitor/quadratic(src)
-
+	item_type = /obj/item/stock_parts/capacitor/quadratic
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/scanning_module_t4
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/scanning_module_t4/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/scanning_module/triphasic(src)
-
+	item_type = /obj/item/stock_parts/scanning_module/triphasic
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/manipulator_t4
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/manipulator_t4/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/manipulator/femto(src)
-
+	item_type = /obj/item/stock_parts/manipulator/femto
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/micro_laser_t4
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/micro_laser_t4/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/micro_laser/quadultra(src)
-
+	item_type = /obj/item/stock_parts/micro_laser/quadultra
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/bin_t4
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/bin_t4/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/matter_bin/bluespace(src)
-
+	item_type = /obj/item/stock_parts/matter_bin/bluespace
 
 //	Детали Т5 х10
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/capacitor_t5
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/capacitor_t5/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/capacitor/noneuclid(src)
-
+	item_type = /obj/item/stock_parts/capacitor/noneuclid
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/scanning_module_t5
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/scanning_module_t5/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/scanning_module/noneuclid(src)
-
+	item_type = /obj/item/stock_parts/scanning_module/noneuclid
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/manipulator_t5
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/manipulator_t5/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/manipulator/noneuclid(src)
-
+	item_type = /obj/item/stock_parts/manipulator/noneuclid
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/micro_laser_t5
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/micro_laser_t5/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/micro_laser/noneuclid(src)
-
+	item_type = /obj/item/stock_parts/micro_laser/noneuclid
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/bin_t5
-
-/obj/item/storage/part_replacer/stock_parts_box_x10/bin_t5/PopulateContents()
-	for(var/i in 1 to 10)
-		new /obj/item/stock_parts/matter_bin/noneuclid(src)
-
+	item_type = /obj/item/stock_parts/matter_bin/noneuclid
 
 //Capacitors
 /datum/design/basic_capacitor_x10
@@ -785,27 +656,35 @@
 
 /obj/item/stack/sheet/plasteel/x10
 	amount = 10
+	merge_type = /obj/item/stack/sheet/plasteel
 
 /obj/item/stack/sheet/mineral/plastitanium/x10
 	amount = 10
+	merge_type = /obj/item/stack/sheet/mineral/plastitanium
 
 /obj/item/stack/sheet/plasmaglass/x10
 	amount = 10
+	merge_type = /obj/item/stack/sheet/plasmaglass
 
 /obj/item/stack/sheet/plasmarglass/x10
 	amount = 10
+	merge_type = /obj/item/stack/sheet/plasmarglass
 
 /obj/item/stack/sheet/titaniumglass/x10
 	amount = 10
+	merge_type = /obj/item/stack/sheet/titaniumglass
 
 /obj/item/stack/sheet/plastitaniumglass/x10
 	amount = 10
+	merge_type = /obj/item/stack/sheet/plastitaniumglass
 
 /obj/item/stack/sheet/mineral/abductor/x10
 	amount = 10
+	merge_type = /obj/item/stack/sheet/mineral/abductor
 
 /obj/item/stack/sheet/rglass/x10
 	amount = 10
+	merge_type = /obj/item/stack/sheet/rglass
 
 /datum/design/plasteel_alloy_x10
 	name = "Пласталь: Железо + Плазма"
