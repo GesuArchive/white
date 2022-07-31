@@ -103,7 +103,7 @@
 
 //Быстрое извлечение через ЛКМ, быстрое разоружение через "E" тут code\modules\mob\inventory.dm
 /obj/item/tank/internals/tactical/attack_hand(mob/user)
-	if(loc != user || !user.get_item_by_slot(ITEM_SLOT_SUITSTORE) != src || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
+	if(loc != user || user.get_item_by_slot(ITEM_SLOT_SUITSTORE) != src || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 		return ..()
 
 	if(length(contents))
@@ -134,6 +134,7 @@
 		var/mutable_appearance/gun_overlay = mutable_appearance(I.icon, I.icon_state)
 		var/matrix/M = matrix()
 		M.Turn(-90)
+		M.Translate(-4, 0)
 		gun_overlay.transform = M
 		add_overlay(gun_overlay)
 		icon_state = "box"
