@@ -24596,6 +24596,7 @@
 	name = "Atmospherics Laboratory";
 	req_access_txt = "24"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/engineering/atmos,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/engineering/atmospherics_engine)
 "xcJ" = (
