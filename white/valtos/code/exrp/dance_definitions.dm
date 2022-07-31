@@ -68,7 +68,7 @@
 	require_user_dancer = TRUE
 	max_distance = 0
 
-/datum/interaction/dance/dancor/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
+/datum/interaction/dancor/display_interaction(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	. = ..()
 	user.do_dance(target, "do_dancor")
 
