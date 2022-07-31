@@ -36,6 +36,12 @@
 	icon = 'white/valtos/icons/rospilovo/floor.dmi'
 	icon_state = "beton"
 
+/turf/open/floor/rospilovo/setup_broken_states()
+	return list("[icon_state]")
+
+/turf/open/floor/rospilovo/setup_burnt_states()
+	return list("[icon_state]")
+
 /turf/open/floor/rospilovo/cyber
 	name = "киберпол"
 	desc = "Чем больше вы всматриваетесь в это, тем страшнее вам становится."

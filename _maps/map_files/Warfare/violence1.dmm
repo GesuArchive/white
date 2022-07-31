@@ -449,7 +449,7 @@
 /turf/open/floor/plating/is12/surface,
 /area/violence)
 "QR" = (
-/obj/effect/baseturf_helper/asteroid,
+/obj/effect/baseturf_helper/dune,
 /turf/closed/indestructible/necropolis,
 /area/violence)
 "Rh" = (

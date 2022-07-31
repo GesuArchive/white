@@ -97,7 +97,7 @@
 /turf/open/floor/carpet/red,
 /area/violence)
 "V" = (
-/obj/effect/baseturf_helper/asteroid,
+/obj/effect/baseturf_helper/dune,
 /turf/closed/indestructible/black,
 /area/violence)
 "X" = (

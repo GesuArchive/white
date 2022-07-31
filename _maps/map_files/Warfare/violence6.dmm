@@ -41,7 +41,7 @@
 /turf/open/floor/dz/cyber,
 /area/violence)
 "mp" = (
-/obj/effect/baseturf_helper/asteroid,
+/obj/effect/baseturf_helper/dune,
 /turf/closed/dz/normal/cyber,
 /area/violence)
 "mT" = (

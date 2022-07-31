@@ -385,7 +385,7 @@
 /turf/open/floor/plating/sandy_dirt,
 /area/violence)
 "Gu" = (
-/obj/effect/baseturf_helper/beach/sand,
+/obj/effect/baseturf_helper/dune,
 /turf/closed/indestructible/sandstone,
 /area/violence)
 "GB" = (

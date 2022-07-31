@@ -65,7 +65,7 @@
 /turf/open/floor/plating/sandy_dirt,
 /area/violence)
 "u" = (
-/obj/effect/baseturf_helper/asteroid,
+/obj/effect/baseturf_helper/dune,
 /turf/closed/indestructible/riveted/dirtystone,
 /area/violence)
 "v" = (

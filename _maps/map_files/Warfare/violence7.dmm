@@ -491,7 +491,7 @@
 /turf/open/floor/grass/gensgrass/dirty,
 /area/violence)
 "xB" = (
-/obj/effect/baseturf_helper/asteroid,
+/obj/effect/baseturf_helper/dune,
 /turf/closed/indestructible/black,
 /area/violence)
 "xW" = (

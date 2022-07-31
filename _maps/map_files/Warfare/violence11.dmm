@@ -1,6 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aA" = (
 /obj/effect/gibspawner/xeno,
+/obj/effect/baseturf_helper/dune,
 /turf/open/floor/dune/sandstone,
 /area/violence)
 "bT" = (

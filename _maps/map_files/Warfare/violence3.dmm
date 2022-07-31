@@ -373,7 +373,6 @@
 /turf/open/floor/engine,
 /area/violence)
 "qT" = (
-/obj/effect/baseturf_helper/asteroid,
 /turf/closed/indestructible/riveted,
 /area/violence)
 "rT" = (

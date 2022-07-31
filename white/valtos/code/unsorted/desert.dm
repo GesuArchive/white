@@ -11,10 +11,10 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/dune/setup_broken_states()
-	return list("dune-255")
+	return list("[base_icon_state]-[pick(random_bits)]")
 
 /turf/open/floor/dune/setup_burnt_states()
-	return list("dune-255")
+	return list("[base_icon_state]-[pick(random_bits)]")
 
 /turf/open/floor/dune/Initialize(mapload)
 	. = ..()
