@@ -156,7 +156,7 @@
 		playsound(get_turf(D), 'sound/weapons/cqchit1.ogg', 50, TRUE, -1)
 	D.visible_message(span_danger("[A] [picked_hit_type]ed [D]!"), \
 					span_userdanger("[A] [picked_hit_type] меня!"), span_hear("Слышу звук разрывающейся плоти!") , COMBAT_MESSAGE_RANGE, A)
-	to_chat(A, span_danger("[picked_hit_type] [D]!"))
+	to_chat(A, span_danger("Моя атака [picked_hit_type] [D]!"))
 	log_combat(A, D, "[picked_hit_type]s (CQC)")
 	if(A.resting && !D.stat && !D.IsParalyzed())
 		D.visible_message(span_danger("[A] сбивает с ног [D]!"), \

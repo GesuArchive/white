@@ -255,7 +255,7 @@
 			qdel(src)
 		else
 			to_chat(user, span_warning("Для создания брони антибунт необходимо по крайней мере 6 отрезов дюраткани."))
-			/*
+		/*
 // 	Зеркальная броня - Пласталь
 	if(istype(W, /obj/item/stack/sheet/durathread))
 		var/obj/item/stack/sheet/durathread/S = W
@@ -282,6 +282,7 @@
 			return TRUE
 		playsound(user, 'sound/items/zip.ogg', 100, TRUE)
 
+		// тут приемлемо
 		if(istype(W, /obj/item/clothing/suit/toggle/labcoat/cmo))
 			new /obj/item/clothing/suit/armor/vest/fieldmedic/cmo(src.drop_location())
 		else if(istype(W, /obj/item/clothing/suit/toggle/labcoat/chemist))
@@ -334,7 +335,13 @@
 	name = "Стандартный бронежилет"
 	result = /obj/item/clothing/suit/armor/vest
 	time = 30 SECONDS
-	reqs = list(/obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	reqs = list(
+		/obj/item/stack/sheet/armor_plate/plasteel = 1,
+		/obj/item/stack/sheet/armor_plate/ceramic = 1,
+		/obj/item/stack/sheet/armor_plate/ablative = 1,
+		/obj/item/stack/sheet/durathread = 10,
+		/obj/item/stack/cable_coil = 15
+	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
@@ -342,7 +349,13 @@
 	name = "Пуленепробиваемый бронежилет"
 	result = /obj/item/clothing/suit/armor/bulletproof
 	time = 30 SECONDS
-	reqs = list(/obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 2, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	reqs = list(
+		/obj/item/stack/sheet/armor_plate/plasteel = 1,
+		/obj/item/stack/sheet/armor_plate/ceramic = 2,
+		/obj/item/stack/sheet/armor_plate/ablative = 1,
+		/obj/item/stack/sheet/durathread = 10,
+		/obj/item/stack/cable_coil = 15
+	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
@@ -350,7 +363,13 @@
 	name = "Броня антибунт"
 	result = /obj/item/clothing/suit/armor/riot
 	time = 30 SECONDS
-	reqs = list(/obj/item/stack/sheet/armor_plate/plasteel = 2, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 16, /obj/item/stack/cable_coil = 15)
+	reqs = list(
+		/obj/item/stack/sheet/armor_plate/plasteel = 2,
+		/obj/item/stack/sheet/armor_plate/ceramic = 1,
+		/obj/item/stack/sheet/armor_plate/ablative = 1,
+		/obj/item/stack/sheet/durathread = 16,
+		/obj/item/stack/cable_coil = 15
+	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
@@ -360,11 +379,30 @@
 	icon = 'white/Feline/icons/lab_armor_front.dmi'
 	worn_icon = 'white/Feline/icons/lab_armor_body.dmi'
 	icon_state = "fieldmed"
-	allowed = list(/obj/item/ammo_box, /obj/item/ammo_casing, /obj/item/flashlight, /obj/item/gun/ballistic, /obj/item/gun/energy, /obj/item/gun/grenadelauncher,
-			/obj/item/kitchen/knife/combat, /obj/item/melee/baton, /obj/item/melee/classic_baton, /obj/item/reagent_containers/spray/pepper,
-			/obj/item/restraints/handcuffs, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/tank/internals/tactical,
-			/obj/item/storage/belt/holster/detective, /obj/item/storage/belt/holster/thermal, /obj/item/storage/belt/holster/nukie,
-			/obj/item/tank/internals/emergency_oxygen, /obj/item/healthanalyzer, /obj/item/medbot_carrier, /obj/item/gun/syringe, /obj/item/solnce)
+	allowed = list(
+		/obj/item/ammo_box,
+		/obj/item/ammo_casing,
+		/obj/item/flashlight,
+		/obj/item/gun/ballistic,
+		/obj/item/gun/energy,
+		/obj/item/gun/grenadelauncher,
+		/obj/item/kitchen/knife/combat,
+		/obj/item/melee/baton,
+		/obj/item/melee/classic_baton,
+		/obj/item/reagent_containers/spray/pepper,
+		/obj/item/restraints/handcuffs,
+		/obj/item/tank/internals/emergency_oxygen,
+		/obj/item/tank/internals/plasmaman,
+		/obj/item/tank/internals/tactical,
+		/obj/item/storage/belt/holster/detective,
+		/obj/item/storage/belt/holster/thermal,
+		/obj/item/storage/belt/holster/nukie,
+		/obj/item/tank/internals/emergency_oxygen,
+		/obj/item/healthanalyzer,
+		/obj/item/medbot_carrier,
+		/obj/item/gun/syringe,
+		/obj/item/solnce
+	)
 	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 70, RAD = 30, FIRE = 50, ACID = 70, WOUND = 20)
 
 /obj/item/clothing/suit/armor/vest/fieldmedic/med
@@ -427,7 +465,14 @@
 	name = "Бронекуртка парамедика"
 	result = /obj/item/clothing/suit/armor/vest/fieldmedic/paramedic
 	time = 80
-	reqs = list(/obj/item/clothing/suit/toggle/labcoat/paramedic = 1, /obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	reqs = list(
+		/obj/item/clothing/suit/toggle/labcoat/paramedic = 1,
+		/obj/item/stack/sheet/armor_plate/plasteel = 1,
+		/obj/item/stack/sheet/armor_plate/ceramic = 1,
+		/obj/item/stack/sheet/armor_plate/ablative = 1,
+		/obj/item/stack/sheet/durathread = 10,
+		/obj/item/stack/cable_coil = 15
+	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
@@ -435,7 +480,14 @@
 	name = "Лабораторный бронежилет врача"
 	result = /obj/item/clothing/suit/armor/vest/fieldmedic/med
 	time = 30 SECONDS
-	reqs = list(/obj/item/clothing/suit/toggle/labcoat = 1, /obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	reqs = list(
+		/obj/item/clothing/suit/toggle/labcoat = 1,
+		/obj/item/stack/sheet/armor_plate/plasteel = 1,
+		/obj/item/stack/sheet/armor_plate/ceramic = 1,
+		/obj/item/stack/sheet/armor_plate/ablative = 1,
+		/obj/item/stack/sheet/durathread = 10,
+		/obj/item/stack/cable_coil = 15
+	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
@@ -443,7 +495,14 @@
 	name = "Лабораторный бронежилет химика"
 	result = /obj/item/clothing/suit/armor/vest/fieldmedic/chemist
 	time = 30 SECONDS
-	reqs = list(/obj/item/clothing/suit/toggle/labcoat/chemist = 1, /obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	reqs = list(
+		/obj/item/clothing/suit/toggle/labcoat/chemist = 1,
+		/obj/item/stack/sheet/armor_plate/plasteel = 1,
+		/obj/item/stack/sheet/armor_plate/ceramic = 1,
+		/obj/item/stack/sheet/armor_plate/ablative = 1,
+		/obj/item/stack/sheet/durathread = 10,
+		/obj/item/stack/cable_coil = 15
+	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
@@ -451,7 +510,14 @@
 	name = "Лабораторный бронежилет вирусолога"
 	result = /obj/item/clothing/suit/armor/vest/fieldmedic/virologist
 	time = 30 SECONDS
-	reqs = list(/obj/item/clothing/suit/toggle/labcoat/virologist = 1, /obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	reqs = list(
+		/obj/item/clothing/suit/toggle/labcoat/virologist = 1,
+		/obj/item/stack/sheet/armor_plate/plasteel = 1,
+		/obj/item/stack/sheet/armor_plate/ceramic = 1,
+		/obj/item/stack/sheet/armor_plate/ablative = 1,
+		/obj/item/stack/sheet/durathread = 10,
+		/obj/item/stack/cable_coil = 15
+	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
@@ -459,7 +525,14 @@
 	name = "Лабораторный бронежилет главврача"
 	result = /obj/item/clothing/suit/armor/vest/fieldmedic/cmo
 	time = 30 SECONDS
-	reqs = list(/obj/item/clothing/suit/toggle/labcoat/cmo = 1, /obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	reqs = list(
+		/obj/item/clothing/suit/toggle/labcoat/cmo = 1,
+		/obj/item/stack/sheet/armor_plate/plasteel = 1,
+		/obj/item/stack/sheet/armor_plate/ceramic = 1,
+		/obj/item/stack/sheet/armor_plate/ablative = 1,
+		/obj/item/stack/sheet/durathread = 10,
+		/obj/item/stack/cable_coil = 15
+	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
@@ -467,7 +540,14 @@
 	name = "Лабораторный бронежилет ученого"
 	result = /obj/item/clothing/suit/armor/vest/fieldmedic/science
 	time = 30 SECONDS
-	reqs = list(/obj/item/clothing/suit/toggle/labcoat/science = 1, /obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	reqs = list(
+		/obj/item/clothing/suit/toggle/labcoat/science = 1,
+		/obj/item/stack/sheet/armor_plate/plasteel = 1,
+		/obj/item/stack/sheet/armor_plate/ceramic = 1,
+		/obj/item/stack/sheet/armor_plate/ablative = 1,
+		/obj/item/stack/sheet/durathread = 10,
+		/obj/item/stack/cable_coil = 15
+	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
@@ -475,7 +555,14 @@
 	name = "Лабораторный бронежилет робототехника"
 	result = /obj/item/clothing/suit/armor/vest/fieldmedic/roboticist
 	time = 30 SECONDS
-	reqs = list(/obj/item/clothing/suit/toggle/labcoat/roboticist = 1, /obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	reqs = list(
+		/obj/item/clothing/suit/toggle/labcoat/roboticist = 1,
+		/obj/item/stack/sheet/armor_plate/plasteel = 1,
+		/obj/item/stack/sheet/armor_plate/ceramic = 1,
+		/obj/item/stack/sheet/armor_plate/ablative = 1,
+		/obj/item/stack/sheet/durathread = 10,
+		/obj/item/stack/cable_coil = 15
+	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
@@ -483,7 +570,14 @@
 	name = "Лабораторный бронежилет генетика"
 	result = /obj/item/clothing/suit/armor/vest/fieldmedic/genetics
 	time = 30 SECONDS
-	reqs = list(/obj/item/clothing/suit/toggle/labcoat/genetics = 1, /obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 1, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
+	reqs = list(
+		/obj/item/clothing/suit/toggle/labcoat/genetics = 1,
+		/obj/item/stack/sheet/armor_plate/plasteel = 1,
+		/obj/item/stack/sheet/armor_plate/ceramic = 1,
+		/obj/item/stack/sheet/armor_plate/ablative = 1,
+		/obj/item/stack/sheet/durathread = 10,
+		/obj/item/stack/cable_coil = 15
+	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
@@ -493,8 +587,10 @@
 	name = "Пласталевая бронепластина"
 	result =  /obj/item/stack/sheet/armor_plate/plasteel
 	time = 80
-	reqs = list(/obj/item/stack/sheet/plasteel = 10,
-				/obj/item/stack/sheet/mineral/titanium = 1)
+	reqs = list(
+		/obj/item/stack/sheet/plasteel = 10,
+		/obj/item/stack/sheet/mineral/titanium = 1
+	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
@@ -502,8 +598,10 @@
 	name = "Керамическая бронепластина"
 	result =  /obj/item/stack/sheet/armor_plate/ceramic
 	time = 80
-	reqs = list(/obj/item/stack/sheet/plasmarglass = 10,
-				/obj/item/stack/sheet/iron = 10)
+	reqs = list(
+		/obj/item/stack/sheet/plasmarglass = 10,
+		/obj/item/stack/sheet/iron = 10
+	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
@@ -511,7 +609,9 @@
 	name = "зеркальная бронепластина"
 	result =  /obj/item/stack/sheet/armor_plate/ablative
 	time = 80
-	reqs = list(/obj/item/stack/sheet/mineral/plastitanium = 10)
+	reqs = list(
+		/obj/item/stack/sheet/mineral/plastitanium = 10
+	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
@@ -560,7 +660,12 @@
 	name = "Комплект защиты рук и ног"
 	result =  /obj/item/full_armor_upgrade
 	time = 80
-	reqs = list(/obj/item/stack/sheet/armor_plate/plasteel = 4, /obj/item/stack/sheet/durathread = 12, /obj/item/stack/sheet/cloth = 4, /obj/item/stack/cable_coil = 20)
+	reqs = list(
+		/obj/item/stack/sheet/armor_plate/plasteel = 4,
+		/obj/item/stack/sheet/durathread = 12,
+		/obj/item/stack/sheet/cloth = 4,
+		/obj/item/stack/cable_coil = 20
+	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 

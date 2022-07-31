@@ -16,6 +16,33 @@
 	equip_sound = 'sound/items/equip/toolbelt_equip.ogg'
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/tactical
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen)
+	var/static/list/holdable_weapons_list = list(
+		/obj/item/kinetic_crusher = "crusher",
+		/obj/item/gun/ballistic/automatic/pistol = "pistol",
+		/obj/item/gun/ballistic/automatic/pistol/nail_gun = "nail_gun",
+		/obj/item/gun/ballistic/revolver = "pistol",
+		/obj/item/gun/ballistic/automatic/wt550 = "wt550",
+		/obj/item/gun/ballistic/automatic/M41A = "m41a",
+		/obj/item/gun/ballistic/automatic/ak = "ak",
+		/obj/item/gun/ballistic/automatic/ak47 = "ak",
+		/obj/item/gun/ballistic/automatic/assault_rifle = "ar",
+		/obj/item/gun/ballistic/automatic/c20r = "c20",
+		/obj/item/gun/ballistic/automatic/m90 = "m90",
+		/obj/item/gun/ballistic/rocketlauncher = "rocket",
+		/obj/item/gun/ballistic/shotgun/bulldog = "bulldog",
+		/obj/item/gun/energy/kinetic_accelerator = "kinetic",
+		/obj/item/gun/energy/laser = "laser",
+		/obj/item/gun/energy/laser/rangers = "rangerlaser",
+		/obj/item/gun/energy/laser/captain = "cap",
+		/obj/item/gun/energy/e_gun = "egun",
+		/obj/item/gun/energy/e_gun/nuclear = "nuke",
+		/obj/item/gun/energy/e_gun/hos = "hos",
+		/obj/item/gun/energy/e_gun/stun = "egun_taser",
+		/obj/item/gun/energy/xray = "xray",
+		/obj/item/gun/energy/e_gun/mini = "pistol",
+		/obj/item/gun/energy/pulse = "pulse",
+		/obj/item/gun/energy/pulse/pistol = "pistol",
+	)
 
 //Наполнение баллона воздухом (стандарт)
 /obj/item/tank/internals/tactical/populate_gas()
@@ -38,10 +65,11 @@
 //Тип хранимого
 /datum/component/storage/concrete/pockets/tactical/Initialize(mapload)
 	. = ..()
-	set_holdable(list(/obj/item/gun/ballistic,
-					  /obj/item/gun/energy,
-					  /obj/item/kinetic_crusher)
-					  )
+	set_holdable(list(
+		/obj/item/gun/ballistic,
+		/obj/item/gun/energy,
+		/obj/item/kinetic_crusher
+	))
 
 //Спавн оружия в чехле, так можно задать пресеты, по умолчанию /obj/item/tank/internals/tactical/ должен быть пуст, а пресеты устанавливаются через наследников
 /obj/item/tank/internals/tactical/Initialize(mapload)			//Эскадрон Смерти, Шатл Рейнджеров, Лазутчик Синдиката (корабль), Syndicate Operative - Full Kit (Лонер)
@@ -75,84 +103,41 @@
 
 //Быстрое извлечение через ЛКМ, быстрое разоружение через "E" тут code\modules\mob\inventory.dm
 /obj/item/tank/internals/tactical/attack_hand(mob/user)
-	if(loc == user)
-		if(user.get_item_by_slot(ITEM_SLOT_SUITSTORE) == src)
-			if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
-				return
-			if(length(contents))
-				var/obj/item/I = contents[1]
-				user.visible_message(span_notice("[user] достаёт [I] из [src]."), span_notice("Достаю [I] из [src]."))
-				user.put_in_hands(I)
-				update_appearance()
-				user.update_inv_s_store()
-			else
-				to_chat(user, span_warning("Крепления расстегнуты, [capitalize(src.name)] пуст."))
-				..()
-		else ..()
-	else ..()
-	return
+	if(loc != user || !user.get_item_by_slot(ITEM_SLOT_SUITSTORE) != src || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
+		return ..()
+
+	if(length(contents))
+		var/obj/item/I = contents[1]
+		user.visible_message(span_notice("[user] достаёт [I] из [src]."), span_notice("Достаю [I] из [src]."))
+		user.put_in_hands(I)
+		update_appearance()
+		user.update_inv_s_store()
+	else
+		to_chat(user, span_warning("Крепления расстегнуты, [capitalize(src.name)] пуст."))
+
+	return ..()
 
 //Изменение картинки в зависимости от содержания, прародители должны быть в списке до наследников, если моделька не прописана, то будет стоять коробка
 /obj/item/tank/internals/tactical/update_icon_state()
 	icon_state = initial(icon_state)
 	worn_icon_state = initial(worn_icon_state)
-	if(length(contents))
-		var/obj/item/I = contents[1]
-		worn_icon_state = "full"
-		playsound(I, 'sound/items/equip/toolbelt_equip.ogg', 25, TRUE)
-		if(istype(I,/obj/item/kinetic_crusher))
-			icon_state = "crusher"
-		if(istype(I,/obj/item/gun))
-			icon_state = "box"
-		if(istype(I,/obj/item/gun/ballistic/automatic/pistol))
-			icon_state = "pistol"
-		if(istype(I,/obj/item/gun/ballistic/automatic/pistol/nail_gun))
-			icon_state = "nail_gun"
-		if(istype(I,/obj/item/gun/ballistic/revolver))
-			icon_state = "pistol"
-		if(istype(I,/obj/item/gun/ballistic/automatic/wt550))
-			icon_state = "wt550"
-		if(istype(I,/obj/item/gun/ballistic/automatic/M41A))
-			icon_state = "m41a"
-		if(istype(I,/obj/item/gun/ballistic/automatic/ak))
-			icon_state = "ak"
-		if(istype(I,/obj/item/gun/ballistic/automatic/ak47))
-			icon_state = "ak"
-		if(istype(I,/obj/item/gun/ballistic/automatic/assault_rifle))
-			icon_state = "ar"
-		if(istype(I,/obj/item/gun/ballistic/automatic/c20r))
-			icon_state = "c20"
-		if(istype(I,/obj/item/gun/ballistic/automatic/m90))
-			icon_state = "m90"
-		if(istype(I,/obj/item/gun/ballistic/rocketlauncher))
-			icon_state = "rocket"
-		if(istype(I,/obj/item/gun/ballistic/shotgun/bulldog))
-			icon_state = "bulldog"
-		if(istype(I,/obj/item/gun/energy/kinetic_accelerator))
-			icon_state = "kinetic"
-		if(istype(I,/obj/item/gun/energy/laser))
-			icon_state = "laser"
-		if(istype(I,/obj/item/gun/energy/laser/rangers))
-			icon_state = "rangerlaser"
-		if(istype(I,/obj/item/gun/energy/laser/captain))
-			icon_state = "cap"
-		if(istype(I,/obj/item/gun/energy/e_gun))
-			icon_state = "egun"
-		if(istype(I,/obj/item/gun/energy/e_gun/nuclear))
-			icon_state = "nuke"
-		if(istype(I,/obj/item/gun/energy/e_gun/hos))
-			icon_state = "hos"
-		if(istype(I,/obj/item/gun/energy/e_gun/stun))
-			icon_state = "egun_taser"
-		if(istype(I,/obj/item/gun/energy/xray))
-			icon_state = "xray"
-		if(istype(I,/obj/item/gun/energy/e_gun/mini))
-			icon_state = "pistol"
-		if(istype(I,/obj/item/gun/energy/pulse))
-			icon_state = "pulse"
-		if(istype(I,/obj/item/gun/energy/pulse/pistol))
-			icon_state = "pistol"
-//		user.update_inv_s_store()
+	if(!length(contents))
+		cut_overlays()
+		return ..()
+	var/obj/item/I = contents[1]
+	worn_icon_state = "full"
+	playsound(I, 'sound/items/equip/toolbelt_equip.ogg', 25, TRUE)
+
+	if(I.type in holdable_weapons_list)
+		icon_state = holdable_weapons_list[I.type]
+	else
+		var/mutable_appearance/gun_overlay = mutable_appearance(I.icon, I.icon_state)
+		var/matrix/M = matrix()
+		M.Turn(-90)
+		gun_overlay.transform = M
+		add_overlay(gun_overlay)
+		icon_state = "box"
+
 	return ..()
 
 

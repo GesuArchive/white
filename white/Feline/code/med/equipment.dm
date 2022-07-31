@@ -22,16 +22,7 @@
 		return
 	to_chat(user, span_notice("Помещаю [M] в переноску, он довольно виляет лапками."))
 	store(M)
-	if(bot.damagetype_healer == "all")
-		icon_state = "medbot_carrier_all"
-	if(bot.damagetype_healer == "brute")
-		icon_state = "medbot_carrier_brute"
-	if(bot.damagetype_healer == "burn")
-		icon_state = "medbot_carrier_burn"
-	if(bot.damagetype_healer == "toxin")
-		icon_state = "medbot_carrier_toxin"
-	if(bot.damagetype_healer == "oxygen")
-		icon_state = "medbot_carrier_oxygen"
+	icon_state = "medbot_carrier_[bot.damagetype_healer]"
 	w_class = WEIGHT_CLASS_BULKY
 	worn_icon_state = "carrier_full"
 

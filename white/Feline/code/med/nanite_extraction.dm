@@ -1,11 +1,13 @@
 /datum/surgery/nanite_extraction
 	name = "Удаление нанитов"
 	desc = "Фильтрация крови пациента для механического извлечения нанитов из организма носителя."
-	steps = list(/datum/surgery_step/incise,
-				/datum/surgery_step/clamp_bleeders,
-				/datum/surgery_step/retract_skin,
-				/datum/surgery_step/nanite_extraction,
-				/datum/surgery_step/close)
+	steps = list(
+		/datum/surgery_step/incise,
+		/datum/surgery_step/clamp_bleeders,
+		/datum/surgery_step/retract_skin,
+		/datum/surgery_step/nanite_extraction,
+		/datum/surgery_step/close
+	)
 
 	target_mobtypes = list(/mob/living/carbon/human)
 	possible_locs = list(BODY_ZONE_CHEST)
