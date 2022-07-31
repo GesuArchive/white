@@ -57,8 +57,8 @@
 /datum/interaction/dancor
 	command = "danceass"
 	description = "Пробить шоколадницу"
-	write_log_user = "valerad"
-	write_log_target = "was valerad by"
+	write_log_user = "tested"
+	write_log_target = "was tested by"
 	write_log_user = "ass-danced"
 	write_log_target = "was ass-danced by"
 	require_user_naked = TRUE

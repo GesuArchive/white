@@ -52,15 +52,15 @@
 		return FALSE
 	if(require_user_naked && !user.is_literally_ready_to_dance())
 		if(!silent)
-			to_chat(user, span_warning("Вам мешает одежда.</span>"))
+			to_chat(user, span_warning("Мешает одежда.</span>"))
 		return FALSE
 	if(require_user_dancer && user.gender == FEMALE)
 		if(!silent)
-			to_chat(user, span_warning("У вас нет огурца.</span>"))
+			to_chat(user, span_warning("Нет огурца.</span>"))
 		return FALSE
 	if(require_user_danceress && user.gender == MALE)
 		if(!silent)
-			to_chat(user, span_warning("У вас нет пельмешка.</span>"))
+			to_chat(user, span_warning("Нет пельмешка.</span>"))
 		return FALSE
 	return TRUE
 
@@ -142,6 +142,6 @@
 	spawn(1)
 		cooldaun = 0
 	if(user_dancing_cost)
-		user.dancing_period += user_dancing_cost
+		user.dancing += user_dancing_cost
 	if(target_dancing_cost)
-		target.dancing_period += target_dancing_cost
+		target.dancing += target_dancing_cost
