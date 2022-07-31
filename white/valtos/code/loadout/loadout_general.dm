@@ -119,3 +119,9 @@
 	path = /obj/item/clothing/neck/necklace/dope/merchant
 	allowed_roles = list("Quartermaster")
 	cost = 5000
+
+/datum/gear/arab_book
+	display_name = "Азбука Арабского"
+	path = /obj/item/storage/book/arabic
+	allowed_roles = list("Scientist","Chemist")
+	cost = 50000

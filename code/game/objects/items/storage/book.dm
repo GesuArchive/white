@@ -301,3 +301,18 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 
 /obj/item/storage/book/bible/syndicate/add_blood_DNA(list/blood_dna)
 	return FALSE
+
+//Книга обучения арабскому
+/obj/item/storage/book/arabic
+	name = "шахид-букварь"
+	desc = "Наделяет знанием языка лучших пиротехников."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "koran"
+	worn_icon_state = "koran"
+
+/obj/item/storage/book/arabic/attack_self(mob/user)
+	if(!user.can_read(src))
+		return FALSE
+	to_chat(user, span_notice("Начинаю понимать язык взрывотехники."))
+	user.grant_language(/datum/language/arab/)
+	qdel(src)
