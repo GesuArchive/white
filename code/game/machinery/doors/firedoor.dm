@@ -161,7 +161,7 @@
 		return
 
 	var/turf/our_turf = get_turf(loc)
-	//RegisterSignal(our_turf, COMSIG_TURF_CALCULATED_ADJACENT_ATMOS, .proc/process_results)
+	RegisterSignal(our_turf, COMSIG_TURF_CALCULATED_ADJACENT_ATMOS, .proc/process_results)
 	for(var/dir in GLOB.cardinals)
 		var/turf/checked_turf = get_step(our_turf, dir)
 
@@ -177,7 +177,7 @@
 		return
 
 	var/turf/our_turf = get_turf(old_loc)
-	//UnregisterSignal(our_turf, COMSIG_TURF_CALCULATED_ADJACENT_ATMOS)
+	UnregisterSignal(our_turf, COMSIG_TURF_CALCULATED_ADJACENT_ATMOS)
 	for(var/dir in GLOB.cardinals)
 		var/turf/checked_turf = get_step(our_turf, dir)
 
