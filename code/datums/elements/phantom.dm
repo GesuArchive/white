@@ -1,6 +1,7 @@
 
 /datum/element/phantom
 	element_flags = ELEMENT_DETACH
+	var/ghost_timer = 1 SECONDS
 
 /datum/element/phantom/Attach(datum/target)
 	. = ..()
@@ -14,19 +15,45 @@
 
 /datum/element/phantom/proc/create_phantom(atom/movable/mover, atom/oldloc, direction)
 	SIGNAL_HANDLER
-	new /obj/effect/temp_visual/phantom(oldloc, mover)
+	new /obj/effect/temp_visual/phantom(oldloc, mover, ghost_timer)
 
 /obj/effect/temp_visual/phantom
 	name = "тень"
 	duration = 1 SECONDS
 	alpha = 200
 
-/obj/effect/temp_visual/phantom/Initialize(mapload, atom/movable/copywhat)
+/obj/effect/temp_visual/phantom/Initialize(mapload, atom/movable/copywhat, ghost_timer = 1 SECONDS)
+	duration = ghost_timer
 	. = ..()
 	appearance = copywhat.appearance
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	setDir(copywhat.dir)
-	animate(src, 1 SECONDS, alpha = 0, flags = ANIMATION_PARALLEL)
-	if(dir == NORTH || dir == SOUTH)
-		animate(src, 1 SECONDS, pixel_y = (dir == NORTH ? 16 : -16), flags = ANIMATION_PARALLEL)
-	else if (dir == EAST || dir == WEST)
-		animate(src, 1 SECONDS, pixel_x = (dir == EAST ? 16 : -16), flags = ANIMATION_PARALLEL)
+	animate(src, duration, alpha = 0, flags = ANIMATION_PARALLEL)
+	var/to_pixel_x = 0
+	var/to_pixel_y = 0
+	switch(dir)
+		if(NORTH)
+			to_pixel_x = 0
+			to_pixel_y = 16
+		if(NORTHEAST)
+			to_pixel_x = 16
+			to_pixel_y = 16
+		if(EAST)
+			to_pixel_x = 16
+			to_pixel_y = 0
+		if(SOUTHEAST)
+			to_pixel_x = 16
+			to_pixel_y = -16
+		if(SOUTH)
+			to_pixel_x = 0
+			to_pixel_y = -16
+		if(SOUTHWEST)
+			to_pixel_x = -16
+			to_pixel_y = -16
+		if(WEST)
+			to_pixel_x = -16
+			to_pixel_y = 0
+		if(NORTHWEST)
+			to_pixel_x = -16
+			to_pixel_y = 16
+	animate(src, duration, pixel_x = to_pixel_x, pixel_y = to_pixel_y, flags = ANIMATION_PARALLEL)
