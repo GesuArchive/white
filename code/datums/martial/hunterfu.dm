@@ -36,7 +36,7 @@
 		D.visible_message(
 			span_danger("[A] slams both them and [D] into the ground!"),
 			span_userdanger("You're slammed into the ground by [A]!"),
-			span_hear("You hear a sickening sound of flesh hitting flesh!"),
+			span_hear("Слышу звук разрывающейся плоти!"),
 		)
 		to_chat(A, span_danger("You slam [D] into the ground!"))
 		playsound(get_turf(A), 'sound/weapons/slam.ogg', 50, TRUE, -1)
@@ -62,7 +62,7 @@
 	D.visible_message(
 		span_danger("[A] stabs [D] in the heart!"),
 		span_userdanger("You're staked in the heart by [A]!"),
-		span_hear("You hear a sickening sound of flesh hitting flesh!"),
+		span_hear("Слышу звук разрывающейся плоти!"),
 	)
 	to_chat(A, span_danger("You stab [D] viciously!"))
 	playsound(get_turf(A), 'sound/weapons/bladeslice.ogg', 50, TRUE, -1)
@@ -118,7 +118,7 @@
 	D.visible_message(
 		span_warning("[A] kicks [D], splashing holy water in every direction!"),
 		span_userdanger("You're kicked by [A], with holy water dripping down on you!"),
-		span_hear("You hear a sickening sound of flesh hitting flesh!"),
+		span_hear("Слышу звук разрывающейся плоти!"),
 	)
 	to_chat(A, span_danger("You holy kick [D]!"))
 	playsound(get_turf(A), 'sound/weapons/slash.ogg', 50, TRUE, -1)
