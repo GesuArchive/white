@@ -560,9 +560,13 @@ GLOBAL_VAR_INIT(is_cargo_sabotaged, FALSE)
 	var/timerid
 	reward = 20
 
-/datum/objective/New(text)
+/datum/objective/limited/New(text)
 	..()
 	update_explanation_text()
+
+/datum/objective/limited/Destroy()
+	qdel(timerid)
+	return ..()
 
 /datum/objective/limited/update_explanation_text()
 	..()
