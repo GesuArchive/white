@@ -14,8 +14,8 @@
 	protected_roles = list("Prisoner", "Russian Officer", "Trader", "Hacker", "Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Field Medic", "Exploration Crew")
 	restricted_roles = list("Cyborg")
 	required_candidates = 1
-	weight = 5
-	cost = 8	// Avoid raising traitor threat above 10, as it is the default low cost ruleset.
+	weight = 6
+	cost = 4	// Avoid raising traitor threat above 10, as it is the default low cost ruleset.
 	scaling_cost = 9
 	requirements = list(10,10,10,10,10,10,10,10,10,10)
 	antag_cap = list("denominator" = 24)
@@ -104,7 +104,7 @@
 	restricted_roles = list("AI", "Cyborg")
 	required_candidates = 1
 	weight = 3
-	cost = 16
+	cost = 8
 	scaling_cost = 10
 	requirements = list(70,70,60,50,40,20,20,10,10,10)
 	antag_cap = list("denominator" = 29)
@@ -141,7 +141,7 @@
 	restricted_roles = list("AI", "Cyborg")
 	required_candidates = 1
 	weight = 3
-	cost = 15
+	cost = 7
 	scaling_cost = 9
 	requirements = list(50,45,45,40,35,20,20,15,10,10)
 	antag_cap = list("denominator" = 24)
@@ -186,7 +186,7 @@
 	restricted_roles = list("Head of Security", "Captain") // Just to be sure that a wizard getting picked won't ever imply a Captain or HoS not getting drafted
 	required_candidates = 1
 	weight = 2
-	cost = 20
+	cost = 12
 	requirements = list(90,90,70,40,30,20,10,10,10,10)
 	var/list/roundstart_wizards = list()
 
@@ -229,7 +229,7 @@
 	restricted_roles = list("AI", "Cyborg", "Prisoner", "Trader", "Russian Officer", "Hacker", "Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Chaplain", "Head of Personnel", "Field Medic")
 	required_candidates = 2
 	weight = 3
-	cost = 20
+	cost = 15
 	requirements = list(100,90,80,60,40,30,10,10,10,10)
 	flags = HIGH_IMPACT_RULESET
 	antag_cap = list("denominator" = 20, "offset" = 1)
@@ -287,7 +287,7 @@
 	restricted_roles = list("Head of Security", "Captain") // Just to be sure that a nukie getting picked won't ever imply a Captain or HoS not getting drafted
 	required_candidates = 5
 	weight = 3
-	cost = 20
+	cost = 15
 	requirements = list(90,90,90,80,60,40,30,20,10,10)
 	flags = HIGH_IMPACT_RULESET
 	antag_cap = list("denominator" = 18, "offset" = 1)
@@ -373,7 +373,7 @@
 	required_candidates = 3
 	weight = 3
 	delay = 7 MINUTES
-	cost = 20
+	cost = 15
 	requirements = list(101,101,70,40,30,20,10,10,10,10)
 	antag_cap = 3
 	flags = HIGH_IMPACT_RULESET

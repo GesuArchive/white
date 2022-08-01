@@ -168,7 +168,7 @@
 	restricted_roles = list("Cyborg", "AI", "Позитронный мозг")
 	required_candidates = 1
 	weight = 7
-	cost = 10
+	cost = 5
 	requirements = list(50,40,30,20,10,10,10,10,10,10)
 	repeatable = TRUE
 
@@ -290,7 +290,7 @@
 	required_enemies = list(4,4,4,4,4,4,2,2,2,0)
 	required_candidates = 1
 	weight = 3
-	cost = 35
+	cost = 20
 	requirements = list(101,101,80,70,60,60,50,50,40,40)
 	required_type = /mob/living/silicon/ai
 	var/ion_announce = 33
@@ -337,8 +337,8 @@
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
 	weight = 1
-	cost = 20
-	minimum_players = 35
+	cost = 10
+	minimum_players = 25
 	requirements = list(90,90,70,40,30,20,10,10,10,10)
 	repeatable = TRUE
 
@@ -539,7 +539,7 @@
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
 	weight = 3
-	cost = 10
+	cost = 5
 	requirements = list(101,101,101,70,50,40,20,15,10,10)
 	repeatable = TRUE
 	var/list/spawn_locs = list()
@@ -584,7 +584,7 @@
 	enemy_roles = list("Security Officer", "Russian Officer", "Hacker", "Veteran", "Detective", "Head of Security", "Captain", "Field Medic")
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
-	weight = 4
+	weight = 2
 	cost = 10
 	requirements = list(101,101,101,80,60,50,30,20,10,10)
 	repeatable = TRUE

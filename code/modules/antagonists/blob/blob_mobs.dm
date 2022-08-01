@@ -207,6 +207,7 @@
 
 /mob/living/simple_animal/hostile/blob/blobspore/death(gibbed)
 	// On death, create a small smoke of harmful gas (s-Acid)
+	/*
 	var/datum/effect_system/fluid_spread/smoke/chem/S = new
 	var/turf/location = get_turf(src)
 
@@ -224,6 +225,7 @@
 	S.attach(location)
 	S.set_up(death_cloud_size, carry = reagents, location = location, silent = TRUE)
 	S.start()
+	*/
 	if(factory)
 		factory.spore_delay = world.time + factory.spore_cooldown //put the factory on cooldown
 
