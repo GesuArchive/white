@@ -55,7 +55,7 @@ SUBSYSTEM_DEF(eventmaster)
 			second_area = GLOB.areas_by_type[/area/partyhard/indoors]
 			action_area?.luminosity = 1
 			second_area?.luminosity = 1
-			adjust_areas_light()
+			//adjust_areas_light()
 			to_chat(world, span_heavy_brass("Свет готов!"))
 			to_chat(world, span_heavy_brass("Готово!"))
 			return TRUE
@@ -78,7 +78,7 @@ SUBSYSTEM_DEF(eventmaster)
 			second_area = GLOB.areas_by_type[/area/ctf/warfare/indoors]
 			action_area?.luminosity = 1
 			second_area?.luminosity = 1
-			adjust_areas_light()
+			//adjust_areas_light()
 			to_chat(world, span_heavy_brass("Готово!"))
 			target_event = EVENT_TYPE_OPENWORLD
 			return TRUE
@@ -113,7 +113,7 @@ SUBSYSTEM_DEF(eventmaster)
 /datum/controller/subsystem/eventmaster/fire(resumed)
 	switch(target_event)
 		if(EVENT_TYPE_OPENWORLD)
-			adjust_areas_light()
+			//adjust_areas_light()
 			calc_alive_and_zombies()
 		else
 			return
@@ -187,7 +187,7 @@ SUBSYSTEM_DEF(eventmaster)
 			action_area.env_temp_relative = new_temp
 		if(second_area)
 			second_area.set_base_lighting(new_color, second_area.base_lighting_alpha)
-		to_chat(world, span_greenannounce("<b>[station_time_timestamp("hh:mm")]</b> - [new_time]."))
+		to_chat(world, span_greenannounce("<b>[SSday_night.get_twentyfourhour_timestamp()]</b> - [new_time]."))
 
 /client/proc/force_evenmaster_rules()
 	set name = "? Force Eventmaster Rules"

@@ -216,7 +216,7 @@ GLOBAL_VAR_INIT(display_font_color, pick("#09f", "#f90", "#5f5", "#fff", "#f55",
 			return display_shuttle_status(SSshuttle.emergency)
 
 		if(SD_TIME)
-			return update_display("ВРЕМЯ", station_time_timestamp("hh:mm"))
+			return update_display("ВРЕМЯ", SSday_night.get_twentyfourhour_timestamp())
 
 		if(SD_MESSAGE)
 			return PROCESS_KILL
@@ -239,7 +239,7 @@ GLOBAL_VAR_INIT(display_font_color, pick("#09f", "#f90", "#5f5", "#fff", "#f55",
 			remove_display()
 		if("time")
 			mode = SD_TIME
-			update_display("ВРЕМЯ", station_time_timestamp("hh:mm"))
+			update_display("ВРЕМЯ", SSday_night.get_twentyfourhour_timestamp())
 		if("shuttle")
 			mode = SD_EMERGENCY
 			remove_display()
