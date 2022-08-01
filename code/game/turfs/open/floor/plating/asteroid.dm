@@ -30,6 +30,7 @@
 /turf/open/floor/plating/asteroid/Initialize(mapload)
 	var/proper_name = name
 	. = ..()
+	AddElement(/datum/element/diggable, /obj/item/stack/ore/glass, 2)
 	name = proper_name
 	if(prob(floor_variance))
 		icon_state = "[base_icon_state][rand(0,12)]"
@@ -66,23 +67,7 @@
 /turf/open/floor/plating/asteroid/attackby(obj/item/W, mob/user, params)
 	. = ..()
 	if(!.)
-		if(W.tool_behaviour == TOOL_SHOVEL || W.tool_behaviour == TOOL_MINING)
-			if(!can_dig(user))
-				return TRUE
-
-			if(!isturf(user.loc))
-				return
-
-			to_chat(user, span_notice("Начинаю копать..."))
-
-			if(W.use_tool(src, user, 40, volume=50))
-				if(!can_dig(user))
-					return TRUE
-				to_chat(user, span_notice("Выкапываю ямку."))
-				getDug()
-				SSblackbox.record_feedback("tally", "pick_used_mining", 1, W.type)
-				return TRUE
-		else if(istype(W, /obj/item/storage/bag/ore))
+		if(istype(W, /obj/item/storage/bag/ore))
 			for(var/obj/item/stack/ore/O in src)
 				SEND_SIGNAL(W, COMSIG_PARENT_ATTACKBY, O)
 

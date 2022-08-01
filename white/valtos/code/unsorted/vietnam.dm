@@ -99,13 +99,6 @@
 	slowdown = 0
 	var/busy = FALSE
 
-/turf/open/floor/grass/gensgrass/dirty/stone/attackby(obj/item/I, mob/user, params)
-	if((I.tool_behaviour == TOOL_SHOVEL) && params)
-		user.visible_message(span_warning("[user] грустно долбит лопатой по [src].") , span_warning("Как я лопатой буду копать [src]?!"))
-		return FALSE
-	if(..())
-		return
-
 /turf/open/floor/grass/gensgrass/dirty/stone/raw
 	name = "уродливый камень"
 	desc = "Ужас."

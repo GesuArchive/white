@@ -371,7 +371,7 @@
 	requires_power = TRUE
 	ambientsounds = RUINS
 	outdoors = TRUE
-	base_lighting_alpha = 255
+	base_lighting_alpha = 0
 	static_lighting = TRUE
 	env_temp_relative = -25
 	luminosity = 1
