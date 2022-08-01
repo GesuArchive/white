@@ -329,13 +329,12 @@
 	send_message("ACTIVATING SYSTEMS")
 	activating = TRUE
 
-	if(first_use)
+	if(first_use && !GLOB.violence_mode_activated)
 		var/sound/song = sound(activation_song, volume = 50)
 		SEND_SOUND(current_user, song)
 		first_use = FALSE
 
-	if(!GLOB.violence_mode_activated)
-		playsound(src, logon_sound, 50)
+	playsound(src, logon_sound, 50)
 
 	send_message("ESTABLISHING HELMET LINK...")
 	send_message("...ESTABLISHED", HEV_COLOR_GREEN)
