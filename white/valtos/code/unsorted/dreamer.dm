@@ -6,11 +6,11 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 
 	var/prob_variability = 15
-	var/animation_intensity = 7
+	var/animation_intensity = 3
 	var/animation_speed = 20
 	var/turf_plane = FLOOR_PLANE
 	var/fuckscreen_probability = 1
-	var/speak_probability = 7
+	var/speak_probability = 5
 	var/hall_attack_probability = 1
 	var/turf_loop_duration = 3
 	var/weird_sound_prob = 1
@@ -41,6 +41,13 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 	dream_mart.teach(our_dreamer)
 
 	make_weirds()
+
+/datum/component/dreamer/Destroy()
+	. = ..()
+	our_dreamer.sound_environment_override = initial(our_dreamer.sound_environment_override)
+	STOP_PROCESSING(SSobj, src)
+	dream_mart.remove(our_dreamer)
+	QDEL_NULL(dream_mart)
 
 /datum/component/dreamer/proc/make_weirds()
 	SIGNAL_HANDLER
@@ -210,7 +217,7 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 			prob_variability = 25
 			animation_intensity = 10
 			animation_speed = 15
-			speak_probability = 10
+			speak_probability = 7
 			hall_attack_probability = 2
 			turf_loop_duration = 4
 			fuckscreen_probability = 1
@@ -232,10 +239,10 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 			prob_variability = 50
 			animation_intensity = 15
 			animation_speed = 10
-			speak_probability = 15
+			speak_probability = 10
 			hall_attack_probability = 3
 			turf_loop_duration = 5
-			fuckscreen_probability = 5
+			fuckscreen_probability = 3
 			dream_mart.block_chance = 50
 			weird_sound_prob = 3
 			if(our_dreamer?.dna?.species)
@@ -254,10 +261,10 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 			prob_variability = 75
 			animation_intensity = 20
 			animation_speed = 3.75
-			speak_probability = 20
+			speak_probability = 15
 			hall_attack_probability = 4
 			turf_loop_duration = 6
-			fuckscreen_probability = 10
+			fuckscreen_probability = 5
 			dream_mart.block_chance = 75
 			our_dreamer.next_move_modifier = 0.5
 			weird_sound_prob = 4
@@ -274,14 +281,15 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 		else
 			bg_sound = 'white/valtos/sounds/burgerking.ogg'
 			update_bg_sound()
+			AddComponent(/datum/element/phantom, our_dreamer)
 			prob_variability = 100
 			animation_intensity = 25
 			animation_speed = 3.75
-			speak_probability = 25
-			hall_attack_probability = 10
+			speak_probability = 20
+			hall_attack_probability = 7
 			turf_loop_duration = 10
 			dream_mart.block_chance = 100
-			fuckscreen_probability = 30
+			fuckscreen_probability = 7
 			our_dreamer.next_move_modifier = 0
 			weird_sound_prob = 5
 			if(our_dreamer?.dna?.species)
@@ -304,9 +312,11 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 			speak_from_above(tmp_msg)
 		spawn(rand(10, 50))
 			if(prob(25))
-				SEND_SOUND(our_dreamer, sound(pick('white/valtos/sounds/lifeweb/hall_appear1.ogg',\
-											'white/valtos/sounds/lifeweb/hall_appear2.ogg',\
-											'white/valtos/sounds/lifeweb/hall_appear3.ogg')))
+				SEND_SOUND(our_dreamer, sound(pick(
+					'white/valtos/sounds/lifeweb/hall_appear1.ogg',\
+					'white/valtos/sounds/lifeweb/hall_appear2.ogg',\
+					'white/valtos/sounds/lifeweb/hall_appear3.ogg'
+				)))
 
 /datum/component/dreamer/proc/attack_us_with_hallucination()
 
@@ -317,14 +327,30 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 /datum/component/dreamer/proc/speak_from_above(what_we_should_say)
 
 	if(!what_we_should_say)
-		what_we_should_say = pick("Это всё не настоящее", "Ты не настоящий", "Умри", "Убей меня", "Слабак", \
-								"Действуй", "Я тебя ненавижу", "Ебанутый", "Остановись", \
-								"У тебя мало времени", "Убей", "Убийца", "Ты настоящий", \
-								"Консоли хранят в себе много тайн", "Введи сумму всех чисел в терминал с циферблатом", "В сердце того, кто видел шедевр, есть ключ", "Покажи им свои шедевры", \
-								"Это всё настоящее", "[pick_list_replacements(HAL_LINES_FILE, "conversation")]", \
-								"[pick_list_replacements(HAL_LINES_FILE, "help")]", \
-								"[pick_list_replacements(HAL_LINES_FILE, "accusations")]", \
-								"[pick_list_replacements(HAL_LINES_FILE, "advice")]")
+		what_we_should_say = pick(
+			"Это всё не настоящее",
+			"Ты не настоящий",
+			"Умри",
+			"Убей меня",
+			"Слабак",
+			"Действуй",
+			"Я тебя ненавижу",
+			"Ебанутый",
+			"Остановись",
+			"У тебя мало времени",
+			"Убей",
+			"Убийца",
+			"Ты настоящий",
+			"Консоли хранят в себе много тайн",
+			"Введи сумму всех чисел в терминал с циферблатом",
+			"В сердце того, кто видел шедевр, есть ключ",
+			"Покажи им свои шедевры",
+			"Это всё настоящее",
+			"[pick_list_replacements(HAL_LINES_FILE, "conversation")]",
+			"[pick_list_replacements(HAL_LINES_FILE, "help")]",
+			"[pick_list_replacements(HAL_LINES_FILE, "accusations")]",
+			"[pick_list_replacements(HAL_LINES_FILE, "advice")]"
+		)
 	if(prob(25))
 		what_we_should_say = uppertext(what_we_should_say)
 	else if(prob(5))
@@ -471,6 +497,7 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 	roundend_category = "Dreamer"
 	antagpanel_category = "Dreamer"
 	greentext_reward = 100
+	var/datum/component/dreamer/dreamer_component
 	var/objective_text = "В последнее время меня часто посещают ВИДЕНИЯ, о другом МИРЕ, о ДРУГОЙ жизни. Я сделаю ВСЁ, чтобы узнать ПРАВДУ, чтобы вернуться в ПОДЛИННЫЙ мир."
 
 /datum/antagonist/dreamer/proc/forge_objectives()
@@ -488,8 +515,12 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 /datum/antagonist/dreamer/on_gain()
 	forge_objectives()
 	owner.special_role = "Dreamer"
-	owner.current.AddComponent(/datum/component/dreamer)
+	dreamer_component = owner.current.AddComponent(/datum/component/dreamer)
 	. = ..()
+
+/datum/antagonist/dreamer/on_removal()
+	. = ..()
+	QDEL_NULL(dreamer_component)
 
 /datum/antagonist/dreamer/greet()
 	to_chat(owner.current, objective_text)
@@ -497,7 +528,7 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 	. = ..()
 
 /datum/antagonist/dreamer/proc/awake()
-	var/turf/safeturf = safepick(get_area_turfs(/area/centcom/circus))
+	var/turf/safeturf = safepick(get_area_turfs(/area/backrooms))
 	var/mob/living/carbon/human/S = new(safeturf)
 	var/mob/living/carbon/human/old_mob = owner.current
 	S.equipOutfit(/datum/outfit/dreamer_awakened)

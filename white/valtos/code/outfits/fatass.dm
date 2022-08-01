@@ -31,4 +31,6 @@
 	ADD_TRAIT(H, TRAIT_STUNIMMUNE, "fuck_you")
 	H.status_flags |= GODMODE
 
+	AddComponent(/datum/element/phantom, H, 0.5 SECONDS)
+
 	..()
