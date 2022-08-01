@@ -1038,8 +1038,8 @@
 	new /obj/item/clothing/suit/space/hardsuit/nano(src)
 
 /obj/item/implant/explosive/disintegrate
-	name = "disintegration implant"
-	desc = "Ashes to ashes."
+	name = "дезинтеграционный имплант"
+	desc = "Прах к праху."
 	icon_state = "explosive"
 	actions_types = list(/datum/action/item_action/dusting_implant)
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | FREEZE_PROOF
@@ -1049,13 +1049,13 @@
 		return FALSE
 	if(cause == "action_button" && !popup)
 		popup = TRUE
-		var/response = tgui_alert(imp_in, "Are you sure you want to activate your [name]? This will cause you to disintergrate!", "[name] Confirmation", list("Yes", "No"))
+		var/response = tgui_alert(imp_in, "Активируем [name]? Это действие необратимо!", "[name]", list("Да", "Нет"))
 		popup = FALSE
-		if(response == "No")
+		if(response == "Нет")
 			return FALSE
 	active = TRUE //to avoid it triggering multiple times due to dying
-	to_chat(imp_in, span_notice("Your dusting implant activates!"))
-	imp_in.visible_message(span_warning("[imp_in] burns up in a flash!"))
+	to_chat(imp_in, span_notice("Кислотный имплант активируется!"))
+	imp_in.visible_message(span_warning("[imp_in] обращается в пепел!"))
 	var/turf/T = get_turf(imp_in)
 	message_admins("[ADMIN_LOOKUPFLW(imp_in)] has activated their [name] at [ADMIN_VERBOSEJMP(T)], with cause of [cause].")
 	playsound(loc, 'sound/effects/fuse.ogg', 30, FALSE)
