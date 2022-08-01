@@ -2,6 +2,8 @@
 #define OCCLUSION_DISTANCE 20
 #define PANEL_Y_OFFSET 13
 #define PANEL_EDGE_Y_OFFSET (PANEL_Y_OFFSET - 2)
+#define SOLAR_ALPHA_MINIMUM_TO_GENERATE_POWER 100
+#define SOLAR_ALPHA_MAXIMUM_TO_GENERATE_POWER 200
 
 /obj/machinery/power/solar
 	name = "солнечная панель"
@@ -29,6 +31,8 @@
 	var/needs_to_update_solar_exposure = TRUE
 	var/obj/effect/overlay/panel
 	var/obj/effect/overlay/panel_edge
+	/// Is the current light level too low to generate power?
+	var/light_level_too_low = FALSE
 
 /obj/machinery/power/solar/Initialize(mapload, obj/item/solar_assembly/S)
 	. = ..()
@@ -39,10 +43,21 @@
 	Make(S)
 	connect_to_network()
 	RegisterSignal(SSsun, COMSIG_SUN_MOVED, .proc/queue_update_solar_exposure)
+	var/level_controller = SSday_night.get_controller(z)
+	if(level_controller)
+		RegisterSignal(level_controller, COMSIG_DAY_NIGHT_CONTROLLER_LIGHT_UPDATE, .proc/update_day_night_exposure)
 
 /obj/machinery/power/solar/Destroy()
 	unset_control() //remove from control computer
 	return ..()
+
+/obj/machinery/power/solar/proc/update_day_night_exposure(datum/source, light_color, light_alpha)
+	SIGNAL_HANDLER
+
+	if(light_alpha < SOLAR_ALPHA_MINIMUM_TO_GENERATE_POWER)
+		light_level_too_low = TRUE
+	else
+		light_level_too_low = FALSE
 
 /obj/machinery/power/solar/proc/add_panel_overlay(icon_state, y_offset)
 	var/obj/effect/overlay/overlay = new()
@@ -232,6 +247,8 @@
 	if(needs_to_update_solar_exposure)
 		update_solar_exposure()
 	if(sunfrac <= 0)
+		return
+	if(light_level_too_low)
 		return
 
 	var/sgen = SOLAR_GEN_RATE * sunfrac
@@ -551,3 +568,4 @@
 #undef OCCLUSION_DISTANCE
 #undef PANEL_Y_OFFSET
 #undef PANEL_EDGE_Y_OFFSET
+#undef SOLAR_ALPHA_MINIMUM_TO_GENERATE_POWER

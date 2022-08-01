@@ -1174,7 +1174,7 @@
 
 /obj/item/toy/clockwork_watch/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='info'>Станционное время: [station_time_timestamp()]</span>"
+	. += "<hr><span class='info'>Станционное время: [SSday_night.get_twentyfourhour_timestamp()]</span>"
 
 /*
  * Toy Dagger

@@ -1,11 +1,11 @@
 SUBSYSTEM_DEF(nightshift)
 	name = "Night Shift"
-	wait = 600
+	wait = 1 MINUTES
 	flags = SS_NO_TICK_CHECK
 
 	var/nightshift_active = FALSE
-	var/nightshift_start_time = 702000		//7:30 PM, station time
-	var/nightshift_end_time = 270000		//7:30 AM, station time
+	var/nightshift_start_time = list(19, 30) //7 30 PM, station time
+	var/nightshift_end_time = list(7, 30) //7 30 AM, station time
 	var/nightshift_first_check = 30 SECONDS
 
 	var/high_security_mode = FALSE
@@ -27,8 +27,7 @@ SUBSYSTEM_DEF(nightshift)
 /datum/controller/subsystem/nightshift/proc/check_nightshift()
 	var/emergency = SSsecurity_level.current_level >= SEC_LEVEL_RED
 	var/announcing = TRUE
-	var/time = station_time()
-	var/night_time = (time < nightshift_end_time) || (time > nightshift_start_time)
+	var/night_time = SSday_night.check_specific_timeframe(nightshift_start_time, nightshift_end_time)
 	if(high_security_mode != emergency)
 		high_security_mode = emergency
 		if(night_time)

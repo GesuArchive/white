@@ -24,59 +24,6 @@
 	To see an example of a diagonal wall, see '/turf/closed/wall/mineral/titanium' and its subtypes.
 */
 
-//Redefinitions of the diagonal directions so they can be stored in one var without conflicts
-#define NORTH_JUNCTION		NORTH //(1<<0)
-#define SOUTH_JUNCTION		SOUTH //(1<<1)
-#define EAST_JUNCTION		EAST  //(1<<2)
-#define WEST_JUNCTION		WEST  //(1<<3)
-#define NORTHEAST_JUNCTION	(1<<4)
-#define SOUTHEAST_JUNCTION	(1<<5)
-#define SOUTHWEST_JUNCTION	(1<<6)
-#define NORTHWEST_JUNCTION	(1<<7)
-
-DEFINE_BITFIELD(smoothing_junction, list(
-	"NORTH_JUNCTION" = NORTH_JUNCTION,
-	"SOUTH_JUNCTION" = SOUTH_JUNCTION,
-	"EAST_JUNCTION" = EAST_JUNCTION,
-	"WEST_JUNCTION" = WEST_JUNCTION,
-	"NORTHEAST_JUNCTION" = NORTHEAST_JUNCTION,
-	"SOUTHEAST_JUNCTION" = SOUTHEAST_JUNCTION,
-	"SOUTHWEST_JUNCTION" = SOUTHWEST_JUNCTION,
-	"NORTHWEST_JUNCTION" = NORTHWEST_JUNCTION,
-))
-
-
-#define NO_ADJ_FOUND 0
-#define ADJ_FOUND 1
-#define NULLTURF_BORDER 2
-
-/*
-	Возможно какой-то переключатель тут будет, но пока бьёнд накладно перегружать таким говном.
-	Путь до кастомных иконок: white/valtos/icons/special
-*/
-
-#define DEFAULT_FLOORS_ICON				'icons/turf/floors.dmi'
-#define DEFAULT_PLASTITANUM_ICON		'icons/turf/walls/plastitanium_wall.dmi'
-#define DEFAULT_WALL_ICON				'icons/turf/walls/baywall.dmi'
-#define DEFAULT_RWALL_ICON				'icons/turf/walls/rbaywall.dmi'
-#define DEFAULT_RIVETED_ICON			'icons/turf/walls/riveted.dmi'
-#define DEFAULT_RWINDOW_ICON			'white/valtos/icons/window_rglass.dmi'
-
-#define ONYX_FLOORS_ICON				'white/valtos/icons/special/onyx/floors.dmi'
-#define ONYX_WALL_ICON					'white/valtos/icons/special/onyx/wall.dmi'
-#define ONYX_RWALL_ICON					'white/valtos/icons/special/onyx/reinforced_wall.dmi'
-
-#define LFWB_FLOORS_ICON				'white/valtos/icons/special/lfwb/floors.dmi'
-#define LFWB_PLASTITANUM_ICON			'white/valtos/icons/special/lfwb/plastitanium_wall.dmi'
-#define LFWB_WALL_ICON					'white/valtos/icons/special/lfwb/wall.dmi'
-#define LFWB_RWALL_ICON					'white/valtos/icons/special/lfwb/reinforced_wall.dmi'
-#define LFWB_RIVETED_ICON				'white/valtos/icons/special/lfwb/riveted.dmi'
-#define LFWB_RWINDOW_ICON				'white/valtos/icons/special/lfwb/window_rglass.dmi'
-
-#define DEFAULT_UNDERLAY_ICON 			DEFAULT_FLOORS_ICON
-#define DEFAULT_UNDERLAY_ICON_STATE 	"plating"
-
-
 #define SET_ADJ_IN_DIR(source, junction, direction, direction_flag) \
 	do { \
 		var/turf/neighbor = get_step(source, direction); \
@@ -498,15 +445,6 @@ DEFINE_BITFIELD(smoothing_junction, list(
 	smoothing_flags = SMOOTH_CORNERS|SMOOTH_DIAGONAL_CORNERS|SMOOTH_BORDER
 	smoothing_groups = null
 	canSmoothWith = null
-
-#undef NORTH_JUNCTION
-#undef SOUTH_JUNCTION
-#undef EAST_JUNCTION
-#undef WEST_JUNCTION
-#undef NORTHEAST_JUNCTION
-#undef NORTHWEST_JUNCTION
-#undef SOUTHEAST_JUNCTION
-#undef SOUTHWEST_JUNCTION
 
 #undef NO_ADJ_FOUND
 #undef ADJ_FOUND

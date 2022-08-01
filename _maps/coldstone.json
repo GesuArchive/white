@@ -51,5 +51,6 @@
 		"ferry": "ferry_fancy",
 		"whiteship": "whiteship_box",
 		"emergency": "emergency_box"
-	}
+	},
+	"day_night_controller":"/datum/day_night_controller/coldstone"
 }

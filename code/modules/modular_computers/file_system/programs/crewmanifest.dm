@@ -45,7 +45,7 @@
 								<br>
 								[GLOB.data_core ? GLOB.data_core.get_manifest_html(0) : ""]
 								"}
-				if(!printer.print_text(contents,text("crew manifest ([])", station_time_timestamp())))
+				if(!printer.print_text(contents,text("crew manifest ([])", SSday_night.get_twentyfourhour_timestamp())))
 					to_chat(usr, span_notice("Аппаратная ошибка: принтеру не удалось распечатать файл. Возможно, закончилась бумага."))
 					return
 				else

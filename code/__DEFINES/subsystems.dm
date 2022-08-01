@@ -134,6 +134,7 @@
 #define INIT_ORDER_TCG				55
 #define INIT_ORDER_REAGENTS 		55 //HAS to be before mapping - mapping creates objects, which creates reagents, which relies on lists made in this subsystem
 #define INIT_ORDER_MAPPING			50
+#define INIT_ORDER_DAY_NIGHT 		49 // Networking and atoms require this
 #define INIT_ORDER_TIMETRACK		47
 #define INIT_ORDER_NETWORKS			45
 #define INIT_ORDER_SPATIAL_GRID 	43

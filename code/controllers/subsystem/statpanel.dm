@@ -30,7 +30,7 @@ SUBSYSTEM_DEF(statpanels)
 			"ID раунда: [GLOB.round_id ? GLOB.round_id : "NULL"]",
 			"Серверное время: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
 			"Длительность раунда: [round_time > MIDNIGHT_ROLLOVER ? "[round(round_time/MIDNIGHT_ROLLOVER)]:[worldtime2text()]" : worldtime2text()]",
-			"Время на станции: [station_time_timestamp()]",
+			"Время на станции: [SSday_night.get_twentyfourhour_timestamp()]",
 			"Замедление времени: [round(SStime_track.time_dilation_current,1)]% СРД:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)"
 		)
 

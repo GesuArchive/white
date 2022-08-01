@@ -45,7 +45,7 @@
 
 	switch(format.value)
 		if(COMP_TIMEPIECE_TWENTYFOUR_HOUR)
-			time = station_time_timestamp()
+			time = SSday_night.get_twentyfourhour_timestamp()
 		if(COMP_TIMEPIECE_TWELVE_HOUR)
 			time = time_to_twelve_hour(station_time())
 
