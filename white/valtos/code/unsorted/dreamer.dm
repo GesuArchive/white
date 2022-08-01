@@ -313,9 +313,9 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 		spawn(rand(10, 50))
 			if(prob(25))
 				SEND_SOUND(our_dreamer, sound(pick(
-					'white/valtos/sounds/lifeweb/hall_appear1.ogg',\
-					'white/valtos/sounds/lifeweb/hall_appear2.ogg',\
-					'white/valtos/sounds/lifeweb/hall_appear3.ogg'
+					'white/valtos/sounds/lifeweb/hall_appear1.ogg',
+					'white/valtos/sounds/lifeweb/hall_appear2.ogg',
+					'white/valtos/sounds/lifeweb/hall_appear3.ogg',
 				)))
 
 /datum/component/dreamer/proc/attack_us_with_hallucination()
@@ -349,7 +349,7 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 			"[pick_list_replacements(HAL_LINES_FILE, "conversation")]",
 			"[pick_list_replacements(HAL_LINES_FILE, "help")]",
 			"[pick_list_replacements(HAL_LINES_FILE, "accusations")]",
-			"[pick_list_replacements(HAL_LINES_FILE, "advice")]"
+			"[pick_list_replacements(HAL_LINES_FILE, "advice")]",
 		)
 	if(prob(25))
 		what_we_should_say = uppertext(what_we_should_say)
