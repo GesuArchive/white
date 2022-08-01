@@ -1,7 +1,7 @@
 ///ritual weapons. they're really bad, but they become normal weapons when sparring.
 /obj/item/ceremonial_blade
-	name = "ceremonial blade"
-	desc = "A blade created to spar with. It seems weak, but if you spar with it...?"
+	name = "церемониальный клинок"
+	desc = "Клинок, созданный для спарринга. Кажется слабым, но что если с ним поспарринговать...?"
 	icon_state = "default"
 	inhand_icon_state = "default"
 	icon = 'icons/obj/items/ritual_weapon.dmi'
@@ -17,8 +17,8 @@
 	force = 2 //20
 	throwforce = 1 //10
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
-	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
+	attack_verb_continuous = list("атакует", "рубит", "кромсает", "разрывает", "протыкает", "колбасит", "делит", "режет")
+	attack_verb_simple = list("атакует", "рубит", "кромсает", "разрывает", "протыкает", "колбасит", "делит", "режет")
 	block_chance = 3 //30
 	sharpness = SHARP_EDGED
 	max_integrity = 200
@@ -42,7 +42,7 @@
 	force = old_force
 	throwforce = old_throwforce
 
-/obj/item/ceremonial_blade/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
+/obj/item/ceremonial_blade/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атака", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(attack_type != MELEE_ATTACK || !ishuman(hitby.loc))
 		return ..()
 	if(HAS_TRAIT(hitby.loc, TRAIT_SPARRING))

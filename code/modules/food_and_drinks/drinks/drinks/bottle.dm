@@ -218,8 +218,8 @@
 	list_reagents = list(/datum/reagent/consumable/ethanol/beer/maltliquor = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/holywater
-	name = "flask of holy water"
-	desc = "A flask of the chaplain's holy water."
+	name = "фляга святой воды"
+	desc = "Откуда такая уверенность, что там святая вода?"
 	icon_state = "holyflask"
 	list_reagents = list(/datum/reagent/water/holywater = 100)
 	foodtype = NONE

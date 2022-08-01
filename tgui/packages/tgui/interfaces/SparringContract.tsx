@@ -8,31 +8,31 @@ import { Window } from '../layouts';
 const STAKES_HOLY_MATCH = 1;
 
 const weaponlist = [
-  "Fist Fight",
-  "Ceremonial Weapons",
-  "Melee Only",
-  "Any Weapons",
+  "Кулачный Бой",
+  "Церемониальное Оружие",
+  "Только Ближний Бой",
+  "Любое Оружие",
 ];
 
 const stakelist = [
-  "No Stakes",
-  "Holy Match",
-  "Money Match",
-  "Your Soul",
+  "Нет Ставок",
+  "Святой Матч",
+  "Матч на Деньги",
+  "Насмерть",
 ];
 
 const weaponblurb = [
-  "You will fight with your fists only. Any weapons will be considered a violation.",
-  "You can only fight with ceremonial weapons. You will be at a severe disadvantage without one!",
-  "You can fight with weapons, or fists if you have none. Ranged weapons are a violation.",
-  "You can fight with any and all weapons as you please. Try not to kill them, okay?",
+  "Вы будете драться только кулаками. Любое оружие является нарушением.",
+  "Сражаться можно только церемониальными оружием. Без него вы окажетесь в невыгодном положении!",
+  "Вы можете сражаться оружием ближнего боя или кулаками, если у вас его нет. Оружие дальнего боя является нарушением.",
+  "Вы можете сражаться любым оружием, как вам заблагорассудится. Постарайся не убить его, ладно?",
 ];
 
 const stakesblurb = [
-  "No stakes, just for fun. Who doesn't love some recreational sparring?",
-  "A match for the chaplain's deity. The Chaplain suffers large consequences for failure, but advances their sect by winning.",
-  "A match with money on the line. Whomever wins takes all the money of whomever loses.",
-  "A lethal match with the loser's soul becoming under ownership of the winner.",
+  "Никаких ставок, только для удовольствия. Кто не любит развлекательные спарринги?",
+  "Под стать божеству капеллана. Капеллан терпит большие последствия за неудачу, но продвигает свою секту, побеждая.",
+  "Матч с деньгами на кону. Кто выиграет, тот заберет все деньги того, кто проиграет.",
+  "Смертельный поединок, в котором душа проигравшего становится собственностью победителя.",
 ];
 
 type Info = {
@@ -58,9 +58,9 @@ export const SparringContract = (props, context) => {
     in_area,
     no_chaplains,
   } = data;
-  const [weapon, setWeapon] = useLocalState(context, "weapon", set_weapon);
-  const [area, setArea] = useLocalState(context, "area", set_area);
-  const [stakes, setStakes] = useLocalState(context, "stakes", set_stakes);
+  const [weapon, setWeapon] = useLocalState(context, "оружие", set_weapon);
+  const [area, setArea] = useLocalState(context, "арена", set_area);
+  const [stakes, setStakes] = useLocalState(context, "ставка", set_stakes);
   return (
     <Window
       width={420}
@@ -73,21 +73,22 @@ export const SparringContract = (props, context) => {
                 <Stack.Item>
                   <Stack fill>
                     <Stack.Item grow fontSize="16px">
-                      Weapons:
+                      Оружие:
                     </Stack.Item>
                     <Stack.Item>
                       <Button
                         tooltip={multiline`
-                        The Chaplain's Deity wishes for honorable fighting.
-                        As such, it uses contracts. Signing your name will
-                        set the terms for the battle. Then, the person you
-                        intend to spar with must sign the other side. If terms
-                        are changed on an already signed contract, the
-                        signatures will erase and the new terms must be
-                        re-agreed upon.
+                        Божество капеллана желает доблестного боя.
+                        Для этого, он использует контракты. Подписание
+                        контракта вашем именем подтвердит условия битвы.
+                        Затем человек, с которым вы намерены провести 
+                        спарринг, должен подписать другую сторону.
+                        Если правила, уже подписанного договора, изменятся,     
+                        то подписи сотрутся и новые условия должны быть
+                        повторно подписаны.
                         `}
                         icon="info">
-                        Contract?
+                        Контракт?
                       </Button>
                     </Stack.Item>
                   </Stack>
@@ -112,7 +113,7 @@ export const SparringContract = (props, context) => {
             <Stack.Item>
               <Stack vertical>
                 <Stack.Item fontSize="16px">
-                  Arena:
+                  Арена:
                 </Stack.Item>
                 <Stack.Item>
                   <Dropdown
@@ -123,8 +124,8 @@ export const SparringContract = (props, context) => {
                 </Stack.Item>
                 <Stack.Item>
                   <BlockQuote>
-                    This fight will take place in the {area}.
-                    Leaving the arena mid-fight is a violation.
+                    Этот бой состоится в {area}.
+                    Покидание арены во время боя является нарушением.
                   </BlockQuote>
                 </Stack.Item>
               </Stack>
@@ -132,7 +133,7 @@ export const SparringContract = (props, context) => {
             <Stack.Item>
               <Stack vertical>
                 <Stack.Item fontSize="16px">
-                  Stakes:
+                  Ставки:
                 </Stack.Item>
                 <Stack.Item>
                   <Dropdown
@@ -165,7 +166,7 @@ export const SparringContract = (props, context) => {
                         "stakes": stakes,
                         "sign_position": "left",
                       })}>
-                      Sign Here
+                      Подпиши здесь
                     </Button>
                   ) || (
                     left_sign
@@ -185,7 +186,7 @@ export const SparringContract = (props, context) => {
                         "area": area,
                         "stakes": stakes,
                       })}>
-                      Sign Here
+                      Подпиши здесь
                     </Button>
                   ) || (
                     right_sign
@@ -203,45 +204,45 @@ export const SparringContract = (props, context) => {
                     }
                     icon="fist-raised"
                     onClick={() => act('fight')} >
-                    FIGHT!
+                    БОЙ!
                   </Button>
                   <Button
                     tooltip={multiline`
-                      If you've already signed but you want to renegotiate
-                      the terms, you can clear out the signatures with
-                      this button.
+                    Если вы уже подписали, но хотите пересмотреть
+                    условия, вы можете очистить подписи с помощью
+                    этой кнопки.
                     `}
                     icon="door-open"
                     onClick={() => act('clear')} >
-                    Clear
+                    Очистить
                   </Button>
                 </Stack.Item>
                 <Stack.Item>
                   <Button
                     tooltip={in_area
-                      && "Both participants are present in the "+ area + "."
-                      || "Both participants need to be in the arena!"}
+                      && "Оба участника присутствуют в "+ area + "."
+                      || "Оба участника должны быть на арене!"}
                     color={in_area && "green" || "red"}
                     icon="ring" >
-                    Arena
+                    Арена
                   </Button>
                   <Button
                     tooltip={(left_sign !== "none" && right_sign !== "none")
-                      && "Both signatures present, terms agreed upon."
-                      || "You need signatures from both fighters on the terms!"}
+                      && "Обе подписи присутствуют, условия согласованы."
+                      || "Нужны подписи обоих бойцов на условиях!"}
                     color={(left_sign !== "none" && right_sign !== "none")
                       && "green"
                       || "red"}
                     icon="file-signature" >
-                    Signatures
+                    Подписи
                   </Button>
                   <Button
                     tooltip={!no_chaplains
-                      && "At least one chaplain is present. Holy matches allowed."
-                      || "No chaplain present for this fight. No Holy Matches!"}
+                      && "Капеллан присутствует. Святые матчи разрешены."
+                      || "В этом бою нет капеллана. Святые матчи запрещены!"}
                     color={!no_chaplains && "green" || "yellow"}
                     icon="cross" >
-                    Chaplain
+                    Капеллан
                   </Button>
                 </Stack.Item>
               </Stack>

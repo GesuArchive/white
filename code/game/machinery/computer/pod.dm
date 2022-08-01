@@ -1,6 +1,6 @@
 /obj/machinery/computer/pod
-	name = "mass driver launch control"
-	desc = "A combined blastdoor and mass driver control unit."
+	name = "управление массовым выбросом"
+	desc = "Комбинированный блок управления бронедверью и массовым выбросом."
 	processing_flags = START_PROCESSING_MANUALLY
 	/// Connected mass driver
 	var/obj/machinery/mass_driver/connected = null

@@ -16,7 +16,7 @@
 	STR.max_items = 1
 
 /obj/item/storage/book/attack_self(mob/user)
-	to_chat(user, span_notice("The pages of [title] have been cut out!"))
+	to_chat(user, span_notice("Страницы [title] вырезаны!"))
 
 GLOBAL_LIST_INIT(biblenames, list("Bible", "Quran", "Scrapbook", "Burning Bible", "Clown Bible", "Banana Bible", "Creeper Bible", "White Bible", "Holy Light", "The God Delusion", "Tome", "The King in Yellow", "Ithaqua", "Scientology", "Melted Bible", "Necronomicon", "Insulationism", "Guru Granth Sahib"))
 //If you get these two lists not matching in size, there will be runtimes and I will hurt you in ways you couldn't even begin to imagine
@@ -31,8 +31,8 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 	return 0
 
 /obj/item/storage/book/bible
-	name = "bible"
-	desc = "Apply to head repeatedly."
+	name = "библия"
+	desc = "Приложите к голове или по голове."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "bible"
 	inhand_icon_state = "bible"
@@ -48,7 +48,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 	AddComponent(/datum/component/anti_magic, FALSE, TRUE)
 
 /obj/item/storage/book/bible/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is offering [user.ru_na()]self to [deity_name]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] is offering [user.ru_na()]self to [deity_name]! Похоже, что [user.p_theyre()] пытается совершить суицид!"))
 	return (BRUTELOSS)
 
 /obj/item/storage/book/bible/attack_self(mob/living/carbon/human/user)
@@ -118,7 +118,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 	for(var/X in H.bodyparts)
 		var/obj/item/bodypart/BP = X
 		if(BP.status == BODYPART_ROBOTIC)
-			to_chat(user, span_warning("[src.deity_name] refuses to heal this metallic taint!"))
+			to_chat(user, span_warning("[src.deity_name] отказывается исцелять эту консервную банку!"))
 			return 0
 
 	var/heal_amt = 10
@@ -129,8 +129,8 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 			var/obj/item/bodypart/affecting = X
 			if(affecting.heal_damage(heal_amt, heal_amt, null, BODYPART_ORGANIC))
 				H.update_damage_overlays()
-		H.visible_message(span_notice("[user] heals [H] with the power of [deity_name]!"))
-		to_chat(H, span_boldnotice("May the power of [deity_name] compel you to be healed!"))
+		H.visible_message(span_notice("[user] исцеляет [H] святой силой [deity_name]!"))
+		to_chat(H, span_boldnotice("Да исцелит тебя святая сила [deity_name]!"))
 		playsound(src.loc, "punch", 25, TRUE, -1)
 		SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "blessing", /datum/mood_event/blessing)
 	return 1
@@ -142,7 +142,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 		return
 
 	if (HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50))
-		to_chat(user, span_danger("[capitalize(src.name)] slips out of your hand and hits your head."))
+		to_chat(user, span_danger("[capitalize(src.name)] выскальзывает из рук и бьет меня по голове."))
 		user.take_bodypart_damage(10)
 		user.Unconscious(400)
 		return
@@ -152,7 +152,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 		chaplain = 1
 
 	if(!chaplain)
-		to_chat(user, span_danger("The book sizzles in your hands."))
+		to_chat(user, span_danger("Книга оглушительно шипит."))
 		user.take_bodypart_damage(0,10)
 		return
 
@@ -163,7 +163,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 
 	if (M.stat != DEAD)
 		if(chaplain && user == M)
-			to_chat(user, span_warning("You can't heal yourself!"))
+			to_chat(user, span_warning("Я не способен самостоятельно исцелить себя!"))
 			return
 
 		if(prob(60) && bless(M, user))
@@ -172,16 +172,16 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 			var/mob/living/carbon/C = M
 			if(!istype(C.head, /obj/item/clothing/head/helmet))
 				C.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5, 60)
-				to_chat(C, span_danger("You feel dumber."))
+				to_chat(C, span_danger("Чувствую себя глупее чем обычно."))
 
 		if(smack)
-			M.visible_message(span_danger("[user] beats [M] over the head with [src]!") , \
-					span_userdanger("[user] beats [M] over the head with [src]!"))
+			M.visible_message(span_danger("[user] бьет [M] по голове, используя [src]!") , \
+					span_userdanger("[user] бьет [M] по голове, используя [src]!"))
 			playsound(src.loc, "punch", 25, TRUE, -1)
 			log_combat(user, M, "атакует", src)
 
 	else
-		M.visible_message(span_danger("[user] smacks [M] lifeless corpse with [src]."))
+		M.visible_message(span_danger("[user] шлепает [M] бездыханный труп, используя [src]."))
 		playsound(src.loc, "punch", 25, TRUE, -1)
 
 /obj/item/storage/book/bible/afterattack(atom/A, mob/user, proximity)
@@ -189,30 +189,30 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 	if(!proximity)
 		return
 	if(isfloorturf(A))
-		to_chat(user, span_notice("You hit the floor with the bible."))
+		to_chat(user, span_notice("Ударил по полу библией."))
 		if(user.mind && (user.mind.holy_role))
 			for(var/obj/effect/rune/R in orange(2,user))
 				R.invisibility = 0
 	if(user?.mind?.holy_role)
 		if(A.reagents && A.reagents.has_reagent(/datum/reagent/water)) // blesses all the water in the holder
-			to_chat(user, span_notice("You bless [A]."))
+			to_chat(user, span_notice("Освещаю [A]."))
 			var/water2holy = A.reagents.get_reagent_amount(/datum/reagent/water)
 			A.reagents.del_reagent(/datum/reagent/water)
 			A.reagents.add_reagent(/datum/reagent/water/holywater,water2holy)
 		if(A.reagents && A.reagents.has_reagent(/datum/reagent/fuel/unholywater)) // yeah yeah, copy pasted code - sue me
-			to_chat(user, span_notice("You purify [A]."))
+			to_chat(user, span_notice("Очищаю [A]."))
 			var/unholy2clean = A.reagents.get_reagent_amount(/datum/reagent/fuel/unholywater)
 			A.reagents.del_reagent(/datum/reagent/fuel/unholywater)
 			A.reagents.add_reagent(/datum/reagent/water/holywater,unholy2clean)
 		if(istype(A, /obj/item/storage/book/bible) && !istype(A, /obj/item/storage/book/bible/syndicate))
-			to_chat(user, span_notice("You purify [A], conforming it to your belief."))
+			to_chat(user, span_notice("Очищаю [A], согласовывая это с верой."))
 			var/obj/item/storage/book/bible/B = A
 			B.name = name
 			B.icon_state = icon_state
 			B.inhand_icon_state = inhand_icon_state
 	if(istype(A, /obj/item/cult_bastard) && !iscultist(user))
 		var/obj/item/cult_bastard/sword = A
-		to_chat(user, span_notice("You begin to exorcise [sword]."))
+		to_chat(user, span_notice("Начинаю очищать [sword]."))
 		playsound(src,'sound/hallucinations/veryfar_noise.ogg',40,TRUE)
 		if(do_after(user, 40, target = sword))
 			playsound(src,'sound/effects/pray_chaplain.ogg',60,TRUE)
@@ -231,7 +231,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 		var/obj/item/soulstone/SS = A
 		if(SS.theme == THEME_HOLY)
 			return
-		to_chat(user, span_notice("You begin to exorcise [SS]."))
+		to_chat(user, span_notice("Начинаю очищать [SS]."))
 		playsound(src,'sound/hallucinations/veryfar_noise.ogg',40,TRUE)
 		if(do_after(user, 40, target = SS))
 			playsound(src,'sound/effects/pray_chaplain.ogg',60,TRUE)
@@ -249,21 +249,21 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 			user.visible_message(span_notice("[user] purifies [SS]!"))
 	else if(istype(A, /obj/item/nullrod/scythe/talking))
 		var/obj/item/nullrod/scythe/talking/sword = A
-		to_chat(user, span_notice("You begin to exorcise [sword]..."))
+		to_chat(user, span_notice("Начинаю очищать [sword]..."))
 		playsound(src,'sound/hallucinations/veryfar_noise.ogg',40,TRUE)
 		if(do_after(user, 40, target = sword))
 			playsound(src,'sound/effects/pray_chaplain.ogg',60,TRUE)
 			for(var/mob/living/simple_animal/shade/S in sword.contents)
-				to_chat(S, span_userdanger("You were destroyed by the exorcism!"))
+				to_chat(S, span_userdanger("Уничтожен экзорцизмом!"))
 				qdel(S)
 			sword.possessed = FALSE //allows the chaplain (or someone else) to reroll a new spirit for their sword
 			sword.name = initial(sword.name)
 			REMOVE_TRAIT(sword, TRAIT_NODROP, HAND_REPLACEMENT_TRAIT) //in case the "sword" is a possessed dummy
 			user.visible_message(span_notice("[user] exorcises [sword]!") , \
-								span_notice("You successfully exorcise [sword]!"))
+								span_notice("Успешно очищаю [sword]!"))
 
 /obj/item/storage/book/bible/booze
-	desc = "To be applied to the head repeatedly."
+	desc = "Приложите к голове или по голове."
 
 /obj/item/storage/book/bible/booze/PopulateContents()
 	new /obj/item/reagent_containers/food/drinks/bottle/whiskey(src)
@@ -277,7 +277,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 	force = 18
 	hitsound = 'sound/weapons/sear.ogg'
 	damtype = BURN
-	name = "Syndicate Tome"
+	name = "фолиант синдиката"
 	attack_verb_continuous = list("атакует", "прожигает", "освящает", "оскверняет", "пропагандирует")
 	attack_verb_simple = list("атакует", "прожигает", "освящает", "оскверняет", "пропагандирует")
 	var/uses = 1
@@ -286,12 +286,12 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 	if (uses)
 		H.mind.holy_role = HOLY_ROLE_PRIEST
 		uses -= 1
-		to_chat(H, span_userdanger("Пытаюсь open the book AND IT BITES YOU!"))
+		to_chat(H, span_userdanger("Пытаюсь открыть книгу, НО ОНА КУСАЕТСЯ!"))
 		playsound(src.loc, 'sound/effects/snap.ogg', 50, TRUE)
 		H.apply_damage(5, BRUTE, pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))
-		to_chat(H, span_notice("Your name appears on the inside cover, in blood."))
+		to_chat(H, span_notice("Мое имя написано на внутренней стороне обложки кровью."))
 		var/ownername = H.real_name
-		desc += span_warning("The name [ownername] is written in blood inside the cover.")
+		desc += span_warning("На внутренней стороне обложки заметно выведенное кровью имя [ownername].")
 
 /obj/item/storage/book/bible/syndicate/attack(mob/living/M, mob/living/carbon/human/user, heal_mode = TRUE)
 	if (user.a_intent == INTENT_HELP)

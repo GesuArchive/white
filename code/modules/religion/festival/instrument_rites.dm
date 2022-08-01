@@ -43,11 +43,11 @@
 	return
 
 /datum/religion_rites/song_tuner/evangelism
-	name = "Evangelical Hymn"
-	desc = "Spreads the word of your god, gaining favor for each non-holy listener. At the end of the song, you'll bless all listeners, improving mood."
+	name = "евангелический гимн"
+	desc = "Распространяет слово вашего Бога, вы получаете благосклонность за каждого слушателя. В конце песни вы благословляете всех слушателей, поднимая им настроение."
 	particles_path = /particles/musical_notes/holy
-	song_invocation_message = "You've prepared a holy song!"
-	song_start_message = span_notice("This music sounds blessed!")
+	song_invocation_message = "Подготавливаю священную песню!"
+	song_start_message = span_notice("Эта музыка звучит благословенно!")
 	glow_color = "#FEFFE0"
 	favor_cost = 0
 
@@ -68,11 +68,11 @@
 		SEND_SIGNAL(listener, COMSIG_ADD_MOOD_EVENT, "blessing", /datum/mood_event/blessing)
 
 /datum/religion_rites/song_tuner/nullwave
-	name = "Nullwave Vibrato"
-	desc = "Sing a dull song, protecting those who listen from magic."
+	name = "антимагическое вибрато"
+	desc = "Спойте тихую песню, защищая тех, кто слушает от волшебства."
 	particles_path = /particles/musical_notes/nullwave
-	song_invocation_message = "You've prepared an antimagic song!"
-	song_start_message = span_nicegreen("This music makes you feel protected!")
+	song_invocation_message = "Подготавливаю антимагическую песню!"
+	song_start_message = span_nicegreen("Слушая эту музыку, чувствую себя защищенным!")
 	glow_color = "#a9a9b8"
 	repeats_okay = FALSE
 
@@ -85,11 +85,11 @@
 		listener.apply_status_effect(/datum/status_effect/antimagic, 2 MINUTES)
 
 /datum/religion_rites/song_tuner/pain
-	name = "Murderous Chord"
-	desc = "Sing a sharp song, cutting those around you. Works less effectively on fellow priests. At the end of the song, you'll open the wounds of all listeners."
+	name = "убийственный аккорд"
+	desc = "Спойте резкую песню, разрезая окружающих. В конце песни ты вскроешь вены всех слушателей."
 	particles_path = /particles/musical_notes/harm
-	song_invocation_message = "You've prepared a painful song!"
-	song_start_message = span_danger("This music cuts like a knife!")
+	song_invocation_message = "Подготавливаю болезненную песню!"
+	song_start_message = span_danger("Эта музыка режет меня, как нож масло!")
 	glow_color = "#FF4460"
 	repeats_okay = FALSE
 
@@ -112,11 +112,11 @@
 		sliced_limb.force_wound_upwards(/datum/wound/slash/moderate/many_cuts)
 
 /datum/religion_rites/song_tuner/lullaby
-	name = "Spiritual Lullaby"
-	desc = "Sing a lullaby, tiring those around you, making them slower. At the end of the song, you'll put people who are tired enough to sleep."
+	name = "духовная колыбельная"
+	desc = "Спойте колыбельную, утомляя окружающих, замедляя их. В конце песни вы вынудите людей, которые достаточно устали, заснуть."
 	particles_path = /particles/musical_notes/sleepy
-	song_invocation_message = "You've prepared a sleepy song!"
-	song_start_message = span_warning("This music's making you feel drowsy...")
+	song_invocation_message = "Подготавливаю сонливую песню!"
+	song_start_message = span_warning("Эта музыка... такая спокойная... хочется спать...")
 	favor_cost = 40 //actually really strong
 	glow_color = "#83F6FF"
 	repeats_okay = FALSE
@@ -136,7 +136,7 @@
 		if(listener.mind?.holy_role)
 			continue
 		if(prob(20))
-			to_chat(listener, span_warning(pick("The music is putting you to sleep...", "The music makes you nod off for a moment.", "You try to focus on staying awake through the song.")))
+			to_chat(listener, span_warning(pick("Музыка усыпляет меня...", "Музыка вынуждает меня заснуть на мгновение.", "Вы пытаетесь сосредоточиться на бодрствовании и не слушать песню.")))
 			listener.emote("yawn")
 		listener.blur_eyes(2)
 
@@ -144,6 +144,6 @@
 	for(var/mob/living/carbon/human/listener in song_datum.hearing_mobs)
 		if(listener.anti_magic_check(TRUE, TRUE))
 			continue
-		to_chat(listener, span_danger("Wow, the ending of that song was... pretty..."))
+		to_chat(listener, span_danger("Вау, конец этой песни был... довольно...z-z-z"))//#ZА МИР!!!
 		listener.AdjustSleeping(5 SECONDS)
 

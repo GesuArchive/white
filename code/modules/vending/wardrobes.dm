@@ -367,7 +367,7 @@
 	machine_name = "LawDrobe"
 
 /obj/machinery/vending/wardrobe/chap_wardrobe
-	name = "ChapDrobe"
+	name = "КапДероб"
 	desc = "Эта самая благословенная и святая машина продает одежду, на которую можно смотреть только капелланам."
 	icon_state = "chapdrobe"
 	product_ads = "Вас беспокоят культисты или надоедливые призраки? Тогда приходи и одевайся как святой! Одежда для мужчин из ткани!"

@@ -304,8 +304,8 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 /obj/machinery/button/crematorium
-	name = "crematorium igniter"
-	desc = "Burn baby burn!"
+	name = "переключатель крематория"
+	desc = "Гори детка гори!"
 	icon_state = "launcher"
 	skin = "launcher"
 	device_type = /obj/item/assembly/control/crematorium

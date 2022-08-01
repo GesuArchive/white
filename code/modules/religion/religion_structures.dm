@@ -1,6 +1,6 @@
 /obj/structure/altar_of_gods
-	name = "\improper Altar of the Gods"
-	desc = "An altar which allows the head of the church to choose a sect of religious teachings as well as provide sacrifices to earn favor."
+	name = "алтарь богов"
+	desc = "Алтарь, который позволяет главе церкви выбирать секту религиозных учений, а также приносить жертвы, чтобы заслужить благосклонность."
 	icon = 'icons/obj/hand_of_god_structures.dmi'
 	icon_state = "convertaltar"
 	density = TRUE
@@ -35,7 +35,7 @@
 		return ..()
 	var/mob/living/pushed_mob = user.pulling
 	if(pushed_mob.buckled)
-		to_chat(user, span_warning("[pushed_mob] is buckled to [pushed_mob.buckled]!"))
+		to_chat(user, span_warning("[pushed_mob] пристегнут к [pushed_mob.buckled]!"))
 		return ..()
 	to_chat(user,"<span class='notice>Пытаюсь coax [pushed_mob] onto [src]...</span>")
 	if(!do_after(user,(5 SECONDS),target = pushed_mob))
@@ -53,8 +53,8 @@
 	add_overlay("convertaltarcandle")
 
 /obj/item/ritual_totem
-	name = "ritual totem"
-	desc = "A wooden totem with strange carvings on it."
+	name = "ритуальный тотем"
+	desc = "Деревянный тотем со странной резьбой на нем."
 	icon_state = "ritual_totem"
 	inhand_icon_state = "sheet-wood"
 	lefthand_file = 'icons/mob/inhands/misc/sheets_lefthand.dmi'
@@ -70,10 +70,10 @@
 
 /obj/item/ritual_totem/proc/block_magic(mob/user, major)
 	if(major)
-		to_chat(user, span_warning("[src] consumes the magic within itself!"))
+		to_chat(user, span_warning("[src] поглощает магию!"))
 
 /obj/item/ritual_totem/proc/expire(mob/user)
-	to_chat(user, span_warning("[src] quickly decays into rot!"))
+	to_chat(user, span_warning("[src] быстро сгнивает!"))
 	qdel(src)
 	new /obj/effect/decal/cleanable/ash(drop_location())
 
@@ -85,18 +85,18 @@
 	. = ..()
 	var/is_holy = user.mind?.holy_role
 	if(is_holy)
-		. += span_notice("[src] can only be moved by important followers of [GLOB.deity].")
+		. += span_notice("[src] может быть перемещен только последователем [GLOB.deity] с высоким саном.")
 
 /obj/item/ritual_totem/pickup(mob/taker)
 	var/initial_loc = loc
 	var/holiness = taker.mind?.holy_role
 	var/no_take = FALSE
 	if(holiness == NONE)
-		to_chat(taker, span_warning("Try as you may, you're seemingly unable to pick [src] up!"))
+		to_chat(taker, span_warning("Как бы я ни старался, у меня не получается поднять [src]!"))
 		no_take = TRUE
 	else if(holiness == HOLY_ROLE_DEACON) //deacons cannot pick them up either
 		no_take = TRUE
-		to_chat(taker, span_warning("You cannot pick [src] up. It seems you aren't important enough to [GLOB.deity] to do that."))
+		to_chat(taker, span_warning("Не могу поднять [src]. Мой сан [GLOB.deity] слишком низок чтобы сделать это."))
 	..()
 	if(no_take)
 		taker.dropItemToGround(src)

@@ -302,7 +302,7 @@
 	id = MASSDRIVER_TOXINS
 
 /obj/machinery/door/poddoor/massdriver_chapel
-	name = "Chapel Launcher Bay Door"
+	name = "бронедверь священного выброса"
 	id = MASSDRIVER_CHAPEL
 
 /obj/machinery/door/poddoor/massdriver_trash

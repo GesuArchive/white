@@ -59,8 +59,8 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/under/misc/burial
-	name = "burial garments"
-	desc = "Traditional burial garments from the early 22nd century."
+	name = "погребальные одежды"
+	desc = "Традиционные погребальные одежды начала 22 века."
 	icon_state = "burial"
 	inhand_icon_state = "burial"
 	can_adjust = FALSE
