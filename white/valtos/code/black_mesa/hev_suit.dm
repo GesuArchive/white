@@ -236,9 +236,6 @@
 /datum/action/item_action/hev_toggle/Trigger(trigger_flags)
 	var/obj/item/clothing/suit/space/hev_suit/my_suit = target
 
-	if(GLOB.violence_mode_activated)
-		my_suit.send_notifications = HEV_NOTIFICATION_TEXT
-
 	if(my_suit.activated)
 		my_suit.deactivate()
 	else
@@ -337,7 +334,8 @@
 		SEND_SOUND(current_user, song)
 		first_use = FALSE
 
-	playsound(src, logon_sound, 50)
+	if(!GLOB.violence_mode_activated)
+		playsound(src, logon_sound, 50)
 
 	send_message("ESTABLISHING HELMET LINK...")
 	send_message("...ESTABLISHED", HEV_COLOR_GREEN)
