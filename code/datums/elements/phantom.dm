@@ -2,11 +2,13 @@
 /datum/element/phantom
 	element_flags = ELEMENT_DETACH
 	var/ghost_timer = 1 SECONDS
+	var/dir_last = 0
 
-/datum/element/phantom/Attach(datum/target)
+/datum/element/phantom/Attach(datum/target, _ghost_timer)
 	. = ..()
 	if(!isatom(target))
 		return COMPONENT_INCOMPATIBLE
+	ghost_timer = _ghost_timer
 	RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/create_phantom)
 
 /datum/element/phantom/Detach(datum/source)
@@ -15,14 +17,15 @@
 
 /datum/element/phantom/proc/create_phantom(atom/movable/mover, atom/oldloc, direction)
 	SIGNAL_HANDLER
-	new /obj/effect/temp_visual/phantom(oldloc, mover, ghost_timer)
+	new /obj/effect/temp_visual/phantom(oldloc, mover, ghost_timer, dir_last)
+	dir_last = direction
 
 /obj/effect/temp_visual/phantom
 	name = "тень"
 	duration = 1 SECONDS
 	alpha = 200
 
-/obj/effect/temp_visual/phantom/Initialize(mapload, atom/movable/copywhat, ghost_timer = 1 SECONDS)
+/obj/effect/temp_visual/phantom/Initialize(mapload, atom/movable/copywhat, ghost_timer = 1 SECONDS, dir_last)
 	duration = ghost_timer
 	. = ..()
 	appearance = copywhat.appearance
@@ -31,7 +34,7 @@
 	animate(src, duration, alpha = 0, flags = ANIMATION_PARALLEL)
 	var/to_pixel_x = 0
 	var/to_pixel_y = 0
-	switch(dir)
+	switch(dir_last|dir)
 		if(NORTH)
 			to_pixel_x = 0
 			to_pixel_y = 16
