@@ -167,7 +167,7 @@
 		to_chat(target, span_notice("<b>[src]</b> [target_message]."))
 
 	if(target_mob?.client?.prefs.chat_on_map)
-		target_mob.create_chat_message(src, target_message, runechat_flags = EMOTE_MESSAGE)
+		target_mob.create_chat_message(src, raw_message = target_message, runechat_flags = EMOTE_MESSAGE)
 
 	return TRUE
 
