@@ -6,7 +6,6 @@
 	#ifdef ALL_MAPS
 		#include "map_files\Mining\Lavaland.dmm"
 		#include "map_files\BoxStation\BoxStationWhite.dmm"
-		#include "map_files\BoxStation\BoxStationWhite_under.dmm"
 		#include "map_files\Bashenka\Bashenka.dmm"
 		#include "map_files\Blueshift\BlueShift_lower.dmm"
 		#include "map_files\Blueshift\BlueShift_middle.dmm"
