@@ -40105,6 +40105,7 @@
 /obj/machinery/status_display/shuttle{
 	pixel_y = -32
 	},
+/obj/effect/spawner/lootdrop/techstorage/ai,
 /turf/open/floor/circuit/green{
 	luminosity = 2
 	},
@@ -40895,6 +40896,7 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/item/radio/intercom/directional/north,
+/obj/effect/spawner/lootdrop/techstorage/medical,
 /turf/open/floor/plasteel/dark,
 /area/engineering/storage/tech)
 "ixF" = (
@@ -52721,6 +52723,7 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/machinery/firealarm/directional/east,
+/obj/effect/spawner/lootdrop/techstorage/service,
 /turf/open/floor/plasteel/dark,
 /area/engineering/storage/tech)
 "mNL" = (
@@ -53155,6 +53158,7 @@
 /obj/structure/sign/warning/securearea{
 	pixel_x = 32
 	},
+/obj/effect/spawner/lootdrop/techstorage/rnd,
 /turf/open/floor/plasteel/dark,
 /area/engineering/storage/tech)
 "mUC" = (
@@ -56007,6 +56011,7 @@
 /obj/effect/turf_decal/bot,
 /obj/structure/extinguisher_cabinet/directional/north,
 /obj/machinery/light/directional/north,
+/obj/effect/spawner/lootdrop/techstorage/tcomms,
 /turf/open/floor/plasteel/dark,
 /area/engineering/storage/tech)
 "ohU" = (
@@ -60083,6 +60088,7 @@
 	network = list("ss13","engine")
 	},
 /obj/effect/turf_decal/stripes/corner,
+/obj/effect/spawner/lootdrop/techstorage/security,
 /turf/open/floor/plasteel/dark,
 /area/engineering/storage/tech)
 "pGW" = (
@@ -64451,6 +64457,7 @@
 /area/engineering/main)
 "rlW" = (
 /obj/structure/rack,
+/obj/effect/spawner/lootdrop/techstorage/rnd_secure,
 /turf/open/floor/circuit/green{
 	luminosity = 2
 	},
@@ -67558,6 +67565,7 @@
 "sqO" = (
 /obj/structure/rack,
 /obj/machinery/firealarm/directional/south,
+/obj/effect/spawner/lootdrop/techstorage/command,
 /turf/open/floor/circuit/green{
 	luminosity = 2
 	},
@@ -71471,6 +71479,7 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/machinery/status_display/ai/directional/north,
+/obj/effect/spawner/lootdrop/techstorage/engineering,
 /turf/open/floor/plasteel/dark,
 /area/engineering/storage/tech)
 "tUU" = (
