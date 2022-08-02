@@ -740,3 +740,43 @@
 	else
 		SSticker.news_report = CULT_FAILURE
 		SSticker.mode_result = "loss - servants failed their objective (summon ratvar)"
+
+//////////////////////////////////////////////
+//                                          //
+//              BLOODSUCKERS                //
+//                                          //
+//////////////////////////////////////////////
+/datum/dynamic_ruleset/roundstart/bloodsucker
+	name = "Bloodsuckers"
+	antag_flag = ROLE_BLOODSUCKER
+	antag_datum = /datum/antagonist/bloodsucker
+	restricted_roles = list("AI", "Cyborg")
+	protected_roles = list(
+		"Captain", "Head of Personnel", "Head of Security",
+		"Research Director", "Chief Engineer", "Chief Medical Officer", "Curator",
+		"Warden", "Security Officer", "Detective", "Field Medic", "Exploration Crew",
+	)
+	required_candidates = 1
+	weight = 5
+	cost = 12
+	scaling_cost = 10
+	requirements = list(40,30,20,10,10,10,10,10,10,10)
+	antag_cap = list("denominator" = 29)
+
+/datum/dynamic_ruleset/roundstart/bloodsucker/pre_execute(population)
+	. = ..()
+	var/num_bloodsuckers = get_antag_cap(population) * (scaled_times + 1)
+	for (var/i = 1 to num_bloodsuckers)
+		var/mob/M = pick_n_take(candidates)
+		assigned += M.mind
+		M.mind.restricted_roles = restricted_roles
+		M.mind.special_role = ROLE_BLOODSUCKER
+		GLOB.pre_setup_antags += M.mind
+	return TRUE
+
+/datum/dynamic_ruleset/roundstart/bloodsucker/execute()
+	for(var/datum/mind/bloodsucker in assigned)
+		var/datum/antagonist/bloodsucker/new_antag = new antag_datum()
+		bloodsucker.add_antag_datum(new_antag)
+		GLOB.pre_setup_antags -= bloodsucker
+	return TRUE
