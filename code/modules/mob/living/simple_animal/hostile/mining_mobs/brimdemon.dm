@@ -53,7 +53,7 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/asteroid/brimdemon/death()
-	firing = FALSE
+	end_laser()
 	cut_overlay("brimdemon_telegraph_dir")
 	move_resist = initial(move_resist)
 	return ..()
