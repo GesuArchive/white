@@ -4,6 +4,7 @@
 	icon_state = "tool"
 	icon_deny = "tool-deny"
 	light_mask = "tool-light-mask"
+	refill_canister = /obj/item/vending_refill/tool
 	products = list(/obj/item/stack/cable_coil = 10,
 					/obj/item/crowbar = 5,
 					/obj/item/weldingtool = 3,
@@ -28,9 +29,6 @@
 	extra_price = PAYCHECK_COMMAND * 1.5
 	payment_department = ACCOUNT_ENG
 
-/obj/machinery/vending/tool/canLoadItem(obj/item/I,mob/user)
-	return (I.type in products)
-
 /obj/item/vending_refill/tool
 	machine_name = "YouTool"
-	icon_state = "refill_costume"
+	icon_state = "refill_engineering"
