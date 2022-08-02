@@ -548,10 +548,7 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 6
 	},
-/obj/machinery/door/window/brigdoor/eastleft{
-	name = "Medbay Desk";
-	req_access_txt = "5"
-	},
+/obj/machinery/light,
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
 "gm" = (
@@ -775,10 +772,6 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/medical_kiosk{
-	density = 0;
-	pixel_x = 32
-	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
 "jw" = (
@@ -943,6 +936,12 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/machinery/smoke_machine,
+/obj/machinery/door/window/brigdoor/eastleft{
+	name = "Medbay Desk";
+	req_access_txt = "5";
+	dir = 8
+	},
 /turf/open/floor/engine,
 /area/medical/medbay/lobby)
 "kP" = (
@@ -964,9 +963,6 @@
 "kR" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
-	},
-/obj/machinery/light{
-	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
@@ -1182,10 +1178,10 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/virology)
 "oc" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 5
-	},
 /obj/structure/closet/l3closet,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
 "od" = (
@@ -1529,6 +1525,9 @@
 	pixel_x = -23
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 8
+	},
+/obj/machinery/light{
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
@@ -1997,7 +1996,6 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
 	},
-/obj/structure/closet/secure_closet/medical2,
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
 "AV" = (
@@ -2814,11 +2812,10 @@
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
 "KR" = (
-/obj/machinery/firealarm/directional/north,
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 1
-	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/effect/turf_decal/trimline/blue/filled/corner{
+	dir = 4
+	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
 "KV" = (
@@ -2928,10 +2925,12 @@
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
 "Mb" = (
-/obj/machinery/light{
-	dir = 4
+/obj/machinery/firealarm/directional/north,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 5
 	},
-/turf/open/floor/engine,
+/obj/structure/closet/secure_closet/medical2,
+/turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
 "Mm" = (
 /obj/structure/fans/tiny,
@@ -3182,8 +3181,13 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/aft)
 "Pw" = (
-/obj/machinery/smoke_machine,
-/turf/open/floor/engine,
+/obj/machinery/medical_kiosk{
+	pixel_x = -5
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay/lobby)
 "PE" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -3291,9 +3295,6 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
 "RJ" = (
@@ -3340,9 +3341,6 @@
 /turf/open/openspace,
 /area/medical/medbay/central)
 "SC" = (
-/obj/effect/turf_decal/trimline/blue/filled/corner{
-	dir = 4
-	},
 /obj/machinery/holopad,
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
@@ -4179,7 +4177,7 @@ ZD
 RA
 gh
 Kr
-Kr
+Mb
 KR
 Cr
 XG
@@ -4219,8 +4217,8 @@ Jb
 nY
 zT
 kK
-Mb
-Pw
+Kr
+Kr
 Kr
 AS
 od
@@ -4262,7 +4260,7 @@ xq
 dT
 XL
 Kr
-Kr
+Pw
 Kr
 Kx
 GS
