@@ -17,6 +17,14 @@
 		deadchat_name = "Слизнекот"
 		desc = "Кота слизь. Ты думал что-то здесь будет?"
 		return TRUE
+	
+	if(ckey == "xrenoid")
+		icon = 'white/kacherkin/icons/xrenoid.dmi'
+		icon_state = "project_xrenoid"
+		name = "PROJECT XRENOID"
+		deadchat_name = "PROJECT XRENOID"
+		desc = " "
+		return TRUE
 
 	if(ckey == "biomechanicmann")
 		icon = 'white/jhnazar/misc/prikols/bee.dmi'
