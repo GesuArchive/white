@@ -144,7 +144,7 @@
 		var/charge_amt = 50
 		if(target.mind?.holy_role == HOLY_ROLE_HIGHPRIEST)
 			charge_amt *= 2
-		R.cell?.charge += charge_amt
+		R.cell?.charge += charge_amt*chap.mind.get_skill_modifier(/datum/skill/holy, SKILL_HEAL_MODIFIER)
 		R.visible_message(span_notice("[chap] заряжает [R] святой силой [GLOB.deity]!"))
 		to_chat(R, span_boldnotice("Заряжаюсь святой силой [GLOB.deity]!"))
 		SEND_SIGNAL(R, COMSIG_ADD_MOOD_EVENT, "blessing", /datum/mood_event/blessing)

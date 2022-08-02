@@ -28,6 +28,7 @@
 #define SKILL_PROBS_MODIFIER "skill_probability_modifier"//ideally added/subtracted where beneficial in prob(x) calls
 #define SKILL_RANDS_MODIFIER "skill_randomness_modifier"//ideally added/subtracted where beneficial in rand(x,y) calls
 #define SKILL_SMITHING_MODIFIER "skill_smithing_modifier"//for minigame
+#define SKILL_HEAL_MODIFIER "skill_heal_modifier"//для отхила книгой капеллана
 
 // Gets the reference for the skill type that was given
 #define GetSkillRef(A) (SSskills.all_skills[A])

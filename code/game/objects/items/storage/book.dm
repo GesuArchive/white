@@ -127,10 +127,11 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 	if(hurt_limbs.len)
 		for(var/X in hurt_limbs)
 			var/obj/item/bodypart/affecting = X
-			if(affecting.heal_damage(heal_amt, heal_amt, null, BODYPART_ORGANIC))
+			if(affecting.heal_damage(heal_amt*user.mind.get_skill_modifier(/datum/skill/holy, SKILL_HEAL_MODIFIER), heal_amt*user.mind.get_skill_modifier(/datum/skill/holy, SKILL_HEAL_MODIFIER), null, BODYPART_ORGANIC))
 				H.update_damage_overlays()
 		H.visible_message(span_notice("[user] исцеляет [H] святой силой [deity_name]!"))
 		to_chat(H, span_boldnotice("Да исцелит тебя святая сила [deity_name]!"))
+		user.mind.adjust_experience(/datum/skill/holy, 50)
 		playsound(src.loc, "punch", 25, TRUE, -1)
 		SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "blessing", /datum/mood_event/blessing)
 	return 1
@@ -166,7 +167,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 			to_chat(user, span_warning("Я не способен самостоятельно исцелить себя!"))
 			return
 
-		if(prob(60) && bless(M, user))
+		if(prob(40*user.mind.get_skill_modifier(/datum/skill/holy, SKILL_HEAL_MODIFIER)) && bless(M, user))
 			smack = FALSE
 		else if(iscarbon(M))
 			var/mob/living/carbon/C = M
