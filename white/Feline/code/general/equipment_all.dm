@@ -255,25 +255,22 @@
 			qdel(src)
 		else
 			to_chat(user, span_warning("Для создания брони антибунт необходимо по крайней мере 6 отрезов дюраткани."))
-		/*
 // 	Зеркальная броня - Пласталь
-	if(istype(W, /obj/item/stack/sheet/durathread))
-		var/obj/item/stack/sheet/durathread/S = W
-		if(S.amount >= 6)
-			to_chat(user, span_notice("Добавляю еще несколько слоев дюраткани, а так же распределяю бронепластины таким образом, чтобы они закрывали все тело, теперь бронежилет будет лучше защищать от ударов."))
-			playsound(user, 'sound/items/handling/cloth_pickup.ogg', 100, TRUE)
-			if(!do_after(user, 2 SECONDS, src))
-				return TRUE
-			playsound(user, 'sound/items/zip.ogg', 100, TRUE)
-			if(S.amount == 6)
-				qdel(S)
-			else
-				S.amount = S.amount - 6
-			new /obj/item/clothing/suit/armor/riot(src.drop_location())
-			qdel(src)
+	if(istype(W, /obj/item/stack/sheet/armor_plate/ablative))
+		var/obj/item/stack/sheet/armor_plate/ablative/S = W
+		to_chat(user, span_notice("Прикрепляю дополнительные аблазивные раадиаторы к раскройке и перераспределяю уже установленные, теперь бронежилет будет лучше защищать от лазеров."))
+		playsound(user, 'sound/items/handling/toolbelt_pickup.ogg', 100, TRUE)
+		if(!do_after(user, 2 SECONDS, src))
+			return TRUE
+		playsound(user, 'sound/items/zip.ogg', 100, TRUE)
+		if(S.amount > 1)
+			S.amount = S.amount - 1
+			S.update_icon()
 		else
-			to_chat(user, span_warning("Для создания брони антибунт необходимо по крайней мере 6 отрезов дюраткани."))
-			*/
+			qdel(S)
+		new /obj/item/clothing/suit/armor/laserproof(src.drop_location())
+		qdel(src)
+
 // 	Лабораторная броня
 	if(istype(W, /obj/item/clothing/suit/toggle/labcoat))
 		to_chat(user, span_notice("Закрепляю раскройку на лабораторном халате. Теперь у бронежилета повышеная защита от кислот и биоугроз, а так же есть крепления как для боевого снаряжения, так и медицинского."))
@@ -356,6 +353,14 @@
 		/obj/item/stack/sheet/durathread = 10,
 		/obj/item/stack/cable_coil = 15
 	)
+	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
+	category = CAT_ARMOR
+
+/datum/crafting_recipe/armor_laserproof
+	name = "Зеркальный бронежилет"
+	result = /obj/item/clothing/suit/armor/bulletproof
+	time = 30 SECONDS
+	reqs = list(/obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 2, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_ARMOR
 
@@ -765,3 +770,160 @@
 	for(var/i in 1 to 7)
 		new /obj/item/ammo_casing/shotgun(src)
 
+// 	Куртка Механика
+
+/obj/item/clothing/suit/mechanicus
+	name = "куртка механика"
+	desc = "Куртка с огромным количеством всевозможных крепежей для инструментов и приборов. Здесь присутствуют специальная система ремешков для скручивания куртки и ношения ее на поясе вместо ремня."
+	icon = 'white/Feline/icons/engi_items.dmi'
+	icon_state = "mechanikus_body"
+	worn_icon = 'white/Feline/icons/engi_back.dmi'
+	worn_icon_state = "mechanikus"
+	inhand_icon_state = "hazard"
+	blood_overlay_type = "armor"
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/tank/internals/plasmaman, /obj/item/storage/bag/construction)
+	resistance_flags = FIRE_PROOF
+	slot_flags = ITEM_SLOT_OCLOTHING | ITEM_SLOT_BELT
+	custom_premium_price = PAYCHECK_MEDIUM * 2
+	pocket_storage_component_path = /datum/component/storage/concrete/pockets/mechanicus
+	var/datum/action/item_action/open_storage/op
+	var/slot_belt = FALSE
+	custom_premium_price = PAYCHECK_HARD * 5
+
+/datum/action/item_action/open_storage
+	name = "Достать инструменты"
+
+/obj/item/clothing/suit/mechanicus/ui_action_click(mob/user, action)
+	if(istype(action, op))
+		var/mob/living/carbon/human/H = user
+		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SHOW, H)
+	else
+		..()
+
+/obj/item/clothing/suit/mechanicus/equipped(mob/user, slot)
+	. = ..()
+	icon_state = initial(icon_state)
+	worn_icon_state = initial(worn_icon_state)
+	name = initial(name)
+	slot_belt = FALSE
+	if(slot == ITEM_SLOT_BELT)
+		name = "пояс механика"
+		icon_state = "mechanikus_belt"
+		worn_icon_state = "utility"
+		slot_belt = TRUE
+	user.update_inv_belt()
+	update_icon_state()
+
+/obj/item/clothing/suit/mechanicus/update_icon_state()
+	cut_overlays()
+	if(!slot_belt)
+	// Шурик > отвертка + кусачки
+		if(locate(/obj/item/screwdriver/power) in contents)
+			add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_shur"))
+		else
+			if(locate(/obj/item/screwdriver) in contents)
+				add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_skr"))
+			if(locate(/obj/item/wirecutters) in contents)
+				add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_cuter"))
+		// Ножницы > лом + гаечник
+		if(locate(/obj/item/crowbar/power) in contents)
+			add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_jaws"))
+		else
+			if(locate(/obj/item/crowbar) in contents)
+				add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_crow"))
+			if(locate(/obj/item/wrench) in contents)
+				add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_wrench"))
+		// Сварочники
+	//	if(locate(/obj/item/weldingtool) in contents)
+	//		add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "duffel_overlay"))
+		// Мультитулы
+		if((locate(/obj/item/multitool) in contents) || (locate(/obj/item/analyzer) in contents))
+			add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_multi"))
+		// РЦД
+		if(locate(/obj/item/construction/rcd) in contents)
+			add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_rcd"))
+		// РПД
+		if(locate(/obj/item/pipe_dispenser) in contents)
+			add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_rpd"))
+		// Индуктор
+		if(locate(/obj/item/inducer) in contents)
+			add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_ind"))
+		// Провода
+		if(locate(/obj/item/stack/cable_coil) in contents)
+			add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_wire"))
+	else
+		if(locate(/obj/item/screwdriver) in contents)
+			add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "screwdriver_brass"))
+		if(locate(/obj/item/wirecutters) in contents)
+			add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "cutters_red"))
+		if(locate(/obj/item/crowbar/power) in contents)
+			add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "jaws"))
+		else
+			if(locate(/obj/item/crowbar) in contents)
+				add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "crowbar_red"))
+		if(locate(/obj/item/wrench) in contents)
+			add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "wrench"))
+		if((locate(/obj/item/multitool) in contents) || (locate(/obj/item/analyzer) in contents))
+			add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "multitool"))
+
+	return ..()
+
+//Параметры кармана
+/datum/component/storage/concrete/pockets/mechanicus
+	max_items = 8
+	screen_max_columns = 8
+	max_w_class = WEIGHT_CLASS_NORMAL
+	rustle_sound = FALSE
+	attack_hand_interact = TRUE
+
+//Загрузка кармана
+/obj/item/clothing/suit/mechanicus/Initialize(mapload)
+	. = ..()
+	op = new(src)
+	if(ispath(pocket_storage_component_path))
+		LoadComponent(pocket_storage_component_path)
+
+	new /obj/item/screwdriver(src)
+	new /obj/item/wrench(src)
+	new /obj/item/weldingtool/largetank(src)
+	new /obj/item/crowbar(src)
+	new /obj/item/wirecutters(src)
+	new /obj/item/multitool/mechcomp(src)
+	new /obj/item/analyzer(src)
+	new /obj/item/stack/cable_coil(src)
+	update_appearance()
+
+//Тип хранимого
+/datum/component/storage/concrete/pockets/mechanicus/Initialize(mapload)
+	. = ..()
+	set_holdable(list(
+		/obj/item/crowbar,
+		/obj/item/screwdriver,
+		/obj/item/weldingtool,
+		/obj/item/wirecutters,
+		/obj/item/wrench,
+		/obj/item/multitool,
+		/obj/item/flashlight,
+		/obj/item/stack/cable_coil,
+		/obj/item/t_scanner,
+		/obj/item/analyzer,
+		/obj/item/geiger_counter,
+		/obj/item/extinguisher/mini,
+		/obj/item/grenade/chem_grenade/resin_foam,
+		/obj/item/grenade/chem_grenade/smart_metal_foam,
+		/obj/item/radio,
+		/obj/item/clothing/gloves,
+		/obj/item/holosign_creator/atmos,
+		/obj/item/holosign_creator/engineering,
+		/obj/item/forcefield_projector,
+		/obj/item/assembly/signaler,
+		/obj/item/lightreplacer,
+		/obj/item/construction/rcd,
+		/obj/item/construction/rld,
+		/obj/item/rcd_ammo,
+		/obj/item/pipe_dispenser,
+		/obj/item/inducer,
+		/obj/item/plunger,
+		/obj/item/airlock_painter,
+		/obj/item/pipe_painter
+		))

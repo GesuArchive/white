@@ -521,9 +521,6 @@
 /obj/machinery/power/apc/auto_name/north,
 /turf/open/floor/plasteel,
 /area/maintenance/disposal/incinerator)
-"abe" = (
-/turf/closed/wall,
-/area/security/prison)
 "abf" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -1501,9 +1498,6 @@
 "adY" = (
 /turf/closed/wall/r_wall,
 /area/security/warden)
-"adZ" = (
-/turf/closed/wall/r_wall,
-/area/command/heads_quarters/hos)
 "aeb" = (
 /obj/item/stack/package_wrap,
 /obj/item/stack/package_wrap,
@@ -1650,11 +1644,23 @@
 	pixel_x = 1;
 	pixel_y = -2
 	},
-/obj/item/gun/grenadelauncher,
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/item/storage/box/flashbangs{
+	pixel_x = 3;
+	pixel_y = -3
+	},
+/obj/item/storage/box/flashbangs{
+	pixel_x = 3;
+	pixel_y = -3
+	},
+/obj/item/storage/box/teargas{
+	pixel_x = 1;
+	pixel_y = -2
+	},
+/obj/item/gun/grenadelauncher,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "aes" = (
@@ -2270,10 +2276,6 @@
 	departmentType = 5;
 	pixel_y = 30
 	},
-/turf/open/floor/plasteel/dark,
-/area/ai_monitored/security/armory)
-"agb" = (
-/obj/structure/rack,
 /obj/item/shield/riot{
 	pixel_x = -3;
 	pixel_y = 3
@@ -2283,6 +2285,10 @@
 	pixel_x = 3;
 	pixel_y = -3
 	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/security/armory)
+"agb" = (
+/obj/structure/rack,
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -2290,6 +2296,15 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/item/full_armor_upgrade,
+/obj/item/full_armor_upgrade,
+/obj/item/full_armor_upgrade,
+/obj/item/stack/sheet/armor_plate/plasteel/three,
+/obj/item/stack/sheet/armor_plate/plasteel/three,
+/obj/item/stack/sheet/armor_plate/ceramic/three,
+/obj/item/stack/sheet/armor_plate/ceramic/three,
+/obj/item/stack/sheet/armor_plate/ablative/three,
+/obj/item/stack/sheet/armor_plate/ablative/three,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "agc" = (
@@ -2568,9 +2583,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engineering/gravity_generator)
-"agS" = (
-/turf/closed/wall/r_wall,
-/area/security/main)
 "agT" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 1
@@ -4418,9 +4430,6 @@
 	},
 /turf/open/floor/plasteel/cafeteria,
 /area/security/prison)
-"alP" = (
-/turf/closed/wall/r_wall,
-/area/security/prison)
 "alQ" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 8
@@ -4816,6 +4825,8 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
 	},
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "ane" = (
@@ -4837,6 +4848,10 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
+/obj/item/storage/backpack/duffelbag/med/surgery{
+	pixel_x = -13;
+	pixel_y = 11
+	},
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "anf" = (
@@ -4851,18 +4866,19 @@
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "ang" = (
-/obj/structure/table,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/paper_bin{
-	pixel_x = -3;
-	pixel_y = 7
-	},
-/obj/item/pen,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 5
 	},
+/obj/machinery/iv_drip,
+/obj/item/reagent_containers/blood/lizard,
+/obj/item/reagent_containers/blood/ethereal,
+/obj/item/reagent_containers/blood/universal,
+/obj/item/reagent_containers/blood/universal,
+/obj/item/reagent_containers/blood/o_minus,
+/obj/item/reagent_containers/blood/o_minus,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "ani" = (
@@ -5252,15 +5268,28 @@
 /area/security/prison)
 "aon" = (
 /obj/structure/table,
-/obj/item/storage/firstaid/regular,
-/obj/item/reagent_containers/glass/bottle/epinephrine,
-/obj/item/reagent_containers/glass/bottle/multiver,
-/obj/item/reagent_containers/syringe,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -27
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
+	},
+/obj/item/storage/box/bodybags{
+	pixel_x = -8;
+	pixel_y = 17
+	},
+/obj/item/reagent_containers/glass/bottle/multiver{
+	pixel_x = -7;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/glass/bottle/epinephrine{
+	pixel_x = -10
+	},
+/obj/item/reagent_containers/glass/bottle/formaldehyde{
+	pixel_x = -1
+	},
+/obj/item/reagent_containers/syringe{
+	name = "steel point"
 	},
 /turf/open/floor/plasteel/white,
 /area/security/brig)
@@ -6304,12 +6333,9 @@
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "aqY" = (
-/obj/structure/bed,
-/obj/item/bedsheet,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/iv_drip,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
@@ -6318,21 +6344,18 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 9
 	},
+/obj/machinery/stasis{
+	handbeltsmod = 1
+	},
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "aqZ" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/rack,
 /obj/machinery/camera{
 	c_tag = "Brig - Infirmary";
 	dir = 1
-	},
-/obj/item/clothing/under/rank/medical/doctor/purple,
-/obj/item/storage/firstaid/regular,
-/obj/item/healthanalyzer{
-	pixel_y = -2
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -6343,6 +6366,9 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
+	},
+/obj/machinery/computer/operating{
+	dir = 1
 	},
 /turf/open/floor/plasteel/white,
 /area/security/brig)
@@ -18851,14 +18877,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/service/chapel/main)
-"aXh" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plasteel,
-/area/cargo/storage)
 "aXi" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -30096,10 +30114,6 @@
 	},
 /area/engineering/atmos)
 "bzi" = (
-/obj/structure/grille,
-/turf/closed/wall/r_wall,
-/area/space/nearstation)
-"bzj" = (
 /obj/structure/grille,
 /turf/closed/wall/r_wall,
 /area/space/nearstation)
@@ -58131,9 +58145,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/xenobiology)
-"fUj" = (
-/turf/closed/wall,
-/area/maintenance/aft)
 "fUt" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
@@ -60908,7 +60919,6 @@
 /obj/structure/sink{
 	pixel_y = 29
 	},
-/mob/living/simple_animal/mouse/brown/tom,
 /turf/open/floor/plating,
 /area/security/prison/safe)
 "ibS" = (
@@ -67795,9 +67805,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
-"nDw" = (
-/turf/closed/wall/r_wall,
-/area/science/nanite)
 "nDT" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
@@ -72904,9 +72911,6 @@
 /obj/machinery/light/small,
 /turf/open/floor/engine,
 /area/science/xenobiology)
-"rgD" = (
-/turf/closed/wall/r_wall,
-/area/medical/virology)
 "rhN" = (
 /obj/machinery/light_switch{
 	pixel_x = -22;
@@ -74421,10 +74425,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/brig)
-"snH" = (
-/obj/structure/grille,
-/turf/closed/wall/r_wall,
-/area/space/nearstation)
 "snP" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -79117,6 +79117,14 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
+"vUr" = (
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/mob/living/simple_animal/mouse/brown/tom,
+/turf/open/floor/plasteel/white,
+/area/security/prison)
 "vUI" = (
 /obj/structure/table/glass,
 /obj/structure/disposalpipe/segment{
@@ -80734,8 +80742,8 @@
 /turf/open/floor/plasteel,
 /area/security/brig)
 "xke" = (
-/obj/structure/bed/roller,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/start/field_medic,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "xlK" = (
@@ -96042,7 +96050,7 @@ dBN
 dBN
 dBN
 cBR
-rgD
+cBR
 dBN
 dBN
 hRK
@@ -99897,14 +99905,14 @@ jtY
 sYH
 sYH
 lMJ
-fUj
-fUj
+bTs
+bTs
 hcY
 hcY
 hcY
 hcY
-fUj
-fUj
+bTs
+bTs
 lMJ
 aav
 lMJ
@@ -100090,7 +100098,7 @@ aMf
 aTh
 aQj
 bak
-aXh
+aMf
 aTh
 xAO
 aKS
@@ -100162,7 +100170,7 @@ dlP
 cEI
 jNL
 bTs
-fUj
+bTs
 bTs
 bTs
 bYC
@@ -101838,14 +101846,14 @@ lMJ
 aav
 aax
 aep
-alP
-alP
-alP
-aax
-alP
 aax
 aax
-abe
+aax
+aax
+aax
+aax
+aax
+xxT
 xxT
 xxT
 iyN
@@ -102095,7 +102103,7 @@ aep
 aep
 aax
 ajn
-abe
+xxT
 asn
 fmr
 lFH
@@ -102352,16 +102360,16 @@ aep
 adG
 agN
 aaw
-abe
+xxT
 aso
-aaZ
+vUr
 xeX
 aaZ
 aaZ
 abM
 xuw
 bkx
-abe
+xxT
 aep
 leJ
 agH
@@ -102609,7 +102617,7 @@ aax
 aeS
 adh
 aaw
-abe
+xxT
 atL
 gfP
 pAv
@@ -102866,16 +102874,16 @@ aaq
 aeT
 adh
 ajp
-abe
-abe
+xxT
+xxT
 aep
-abe
-abe
+xxT
+xxT
 gNS
 acg
 jik
 vVt
-abe
+xxT
 aby
 abX
 agH
@@ -103127,12 +103135,12 @@ aaq
 vrL
 yfg
 fgU
-abe
-abe
+xxT
+xxT
 sVR
-abe
-abe
-abe
+xxT
+xxT
+xxT
 abz
 abX
 agH
@@ -103895,14 +103903,14 @@ afd
 ahv
 aaw
 adr
-abe
-abe
+xxT
+xxT
 oMJ
-abe
-abe
+xxT
+xxT
 xKy
-abe
-abe
+xxT
+xxT
 agH
 agH
 agH
@@ -104152,11 +104160,11 @@ afM
 abf
 ahw
 anj
-abe
+xxT
 wTZ
 rQw
 wTZ
-abe
+xxT
 piK
 fBP
 oGS
@@ -104174,8 +104182,8 @@ agH
 agH
 agH
 aeJ
-lMJ
-lMJ
+fwb
+fwb
 dne
 dne
 dne
@@ -104409,11 +104417,11 @@ afU
 ahz
 alN
 aoj
-abe
+xxT
 fJX
 puI
 keM
-abe
+xxT
 jbB
 kyr
 hlB
@@ -104666,11 +104674,11 @@ aax
 aiv
 alO
 aom
-abe
+xxT
 wiy
 qbz
 jsA
-abe
+xxT
 tMX
 oFQ
 oGS
@@ -106467,7 +106475,7 @@ aav
 lMJ
 aav
 lMJ
-alP
+aax
 lbt
 qLm
 acv
@@ -106731,7 +106739,7 @@ qQr
 tNn
 knx
 adU
-abe
+xxT
 ace
 acx
 acM
@@ -106988,7 +106996,7 @@ urv
 urv
 aNJ
 qkg
-abe
+xxT
 aep
 aep
 aep
@@ -108016,9 +108024,9 @@ aax
 aax
 sfJ
 xdf
-abe
+xxT
 aci
-abe
+xxT
 acO
 adh
 naq
@@ -108275,7 +108283,7 @@ aep
 aep
 aax
 acj
-abe
+xxT
 acR
 adi
 adC
@@ -110079,10 +110087,10 @@ aav
 lMJ
 lMJ
 lMJ
-agS
+aqa
 aiD
 aiD
-agS
+aqa
 aqa
 aeq
 anl
@@ -110336,7 +110344,7 @@ aav
 lMJ
 aav
 aqa
-agS
+aqa
 aDG
 lrI
 oVO
@@ -110850,7 +110858,7 @@ aav
 lMJ
 aav
 aqa
-agS
+aqa
 aEW
 ixj
 qRr
@@ -111107,10 +111115,10 @@ aav
 lMJ
 aav
 lMJ
-agS
+aqa
 aiD
 aiD
-agS
+aqa
 aqa
 aqa
 fse
@@ -113934,11 +113942,11 @@ lMJ
 lMJ
 lMJ
 lMJ
-adZ
-adZ
+uDx
+uDx
 rxD
-adZ
-adZ
+uDx
+uDx
 fFB
 lpO
 vSo
@@ -114191,13 +114199,13 @@ aav
 aav
 lMJ
 aav
-adZ
+uDx
 qYs
 lWh
 yaR
-adZ
+uDx
 fWp
-adZ
+uDx
 fis
 oZH
 aqa
@@ -114454,7 +114462,7 @@ udc
 mPi
 oVx
 dID
-adZ
+uDx
 hiT
 aAy
 aqa
@@ -114968,7 +114976,7 @@ xBA
 fjo
 fbZ
 ghw
-adZ
+uDx
 tAN
 mJn
 aqa
@@ -115219,13 +115227,13 @@ aav
 aav
 lMJ
 aav
-adZ
+uDx
 jPr
 ahN
 upG
 kGm
 hbk
-adZ
+uDx
 aqa
 aqa
 aqa
@@ -115476,13 +115484,13 @@ aav
 aav
 lMJ
 aav
-adZ
+uDx
 wmj
 biz
 poP
 eeL
-adZ
-adZ
+uDx
+uDx
 ala
 amt
 agq
@@ -115735,10 +115743,10 @@ lMJ
 lMJ
 uDx
 vvJ
-adZ
-adZ
-adZ
-adZ
+uDx
+uDx
+uDx
+uDx
 ajO
 alb
 aje
@@ -120702,7 +120710,7 @@ cpK
 nbv
 csc
 dwL
-nDw
+ctL
 ctL
 ctL
 kHU
@@ -123784,7 +123792,7 @@ lMJ
 aav
 bzi
 aav
-bzj
+bzi
 lMJ
 aav
 aav
@@ -124041,7 +124049,7 @@ lMJ
 aav
 bzi
 aav
-bzj
+bzi
 aav
 aav
 aav
@@ -124298,7 +124306,7 @@ lMJ
 lMJ
 bzi
 aav
-bzj
+bzi
 lMJ
 aav
 lMJ
@@ -124812,7 +124820,7 @@ lMJ
 aav
 bzi
 aav
-bzj
+bzi
 aav
 lMJ
 vqh
@@ -125069,7 +125077,7 @@ lMJ
 aav
 eyv
 aav
-bzj
+bzi
 lMJ
 aav
 vqh
@@ -125326,7 +125334,7 @@ lMJ
 lMJ
 bzi
 aav
-bzj
+bzi
 aav
 aav
 vqh
@@ -125581,7 +125589,7 @@ ckI
 bAR
 lMJ
 aav
-bzj
+bzi
 lMJ
 eyv
 lMJ
@@ -125840,7 +125848,7 @@ lMJ
 aav
 bzi
 aav
-bzj
+bzi
 aav
 aav
 sQv
@@ -126095,9 +126103,9 @@ ckI
 bAR
 lMJ
 aav
-bzj
+bzi
 lMJ
-bzj
+bzi
 lMJ
 aav
 sQv
@@ -126354,7 +126362,7 @@ lMJ
 aav
 lMJ
 aav
-bzj
+bzi
 aav
 aav
 qeW
@@ -126610,8 +126618,8 @@ lMJ
 lMJ
 lMJ
 lMJ
-bzj
-bzj
+bzi
+bzi
 lMJ
 aav
 lMJ
@@ -127638,7 +127646,7 @@ oSx
 oSx
 bza
 aav
-bzj
+bzi
 aav
 aav
 aav
@@ -127895,7 +127903,7 @@ ubj
 oSx
 bza
 lMJ
-bzj
+bzi
 aav
 aav
 aav
@@ -128152,7 +128160,7 @@ oSx
 mOK
 bza
 aav
-bzj
+bzi
 lMJ
 aav
 aav
@@ -129150,23 +129158,23 @@ lMJ
 lMJ
 lMJ
 eyv
-bzj
-bzj
-bzj
-bzj
-bzj
 bzi
-bzj
-bzj
+bzi
+bzi
+bzi
+bzi
+bzi
+bzi
+bzi
 eyv
-bzj
-bzj
-bzj
-bzj
-bzj
-bzj
-bzj
-bzj
+bzi
+bzi
+bzi
+bzi
+bzi
+bzi
+bzi
+bzi
 lMJ
 aav
 aav
@@ -129425,16 +129433,16 @@ aav
 aav
 aav
 lMJ
-bzj
+bzi
 eyv
-bzj
+bzi
 fwb
 fwb
 eyv
-bzj
+bzi
 eyv
-bzj
-bzj
+bzi
+bzi
 lMJ
 lMJ
 lMJ
@@ -129669,14 +129677,14 @@ bzi
 bzi
 bzi
 bzi
-bzj
 bzi
 bzi
 bzi
 bzi
 bzi
 bzi
-bzj
+bzi
+bzi
 bzi
 bzi
 bzi
@@ -130177,28 +130185,28 @@ aav
 lMJ
 lMJ
 eyv
-bzj
-bzj
+bzi
+bzi
 eyv
-bzj
+bzi
 siF
-bzj
-bzj
-bzj
-bzj
-bzj
-bzj
-bzj
+bzi
+bzi
+bzi
+bzi
+bzi
+bzi
+bzi
 siF
 eyv
-bzj
-bzj
-bzj
-bzj
-bzj
-bzj
-bzj
-snH
+bzi
+bzi
+bzi
+bzi
+bzi
+bzi
+bzi
+bzi
 aav
 aav
 aav

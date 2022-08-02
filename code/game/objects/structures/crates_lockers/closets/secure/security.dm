@@ -4,6 +4,7 @@
 	icon_state = "cap"
 	anchored = 1
 	anchorable = 0
+	anchored = TRUE
 
 /obj/structure/closet/secure_closet/captains/PopulateContents()
 	..()
@@ -39,6 +40,7 @@
 	name = "шкаф главы персонала"
 	req_access = list(ACCESS_HOP)
 	icon_state = "hop"
+	anchored = TRUE
 
 /obj/structure/closet/secure_closet/hop/PopulateContents()
 	..()
@@ -70,6 +72,7 @@
 	name = "шкаф начальника охраны"
 	req_access = list(ACCESS_HOS)
 	icon_state = "hos"
+	anchored = TRUE
 
 /obj/structure/closet/secure_closet/hos/PopulateContents()
 	..()
@@ -109,6 +112,7 @@
 	name = "шкаф надзирателя"
 	req_access = list(ACCESS_ARMORY)
 	icon_state = "warden"
+	anchored = TRUE
 
 /obj/structure/closet/secure_closet/warden/PopulateContents()
 	..()

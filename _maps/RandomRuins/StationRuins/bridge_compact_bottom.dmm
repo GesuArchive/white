@@ -1082,9 +1082,6 @@
 	dir = 1;
 	pixel_y = 0
 	},
-/obj/machinery/light_switch{
-	pixel_y = 28
-	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/command)

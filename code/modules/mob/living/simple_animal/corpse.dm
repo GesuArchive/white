@@ -208,6 +208,13 @@
 	skin_tone = "caucasian1"
 	outfit = /datum/outfit/cat_butcher
 
+/obj/effect/mob_spawn/human/corpse/der_cmo
+	name = "Derelict mad doc"
+	hairstyle = "Cut Hair"
+	facial_hairstyle = "Watson Mustache"
+	skin_tone = "caucasian1"
+	outfit = /datum/outfit/cat_butcher/cmo
+
 /datum/outfit/cat_butcher
 	name = "Cat Butcher Uniform"
 	uniform = /obj/item/clothing/under/rank/medical/doctor/green
@@ -219,6 +226,12 @@
 	id = /obj/item/card/id/advanced
 	glasses = /obj/item/clothing/glasses/hud/health
 	id_trim = /datum/id_trim/away/cat_surgeon
+
+/datum/outfit/cat_butcher/cmo
+	name = "Derelict mad doc"
+	suit = /obj/item/clothing/suit/toggle/labcoat/mad
+	gloves = /obj/item/clothing/gloves/color/latex/nitrile/polymer
+	id_trim = /datum/id_trim/away/old
 
 /obj/effect/mob_spawn/human/corpse/bee_terrorist
 	name = "BLF Operative"

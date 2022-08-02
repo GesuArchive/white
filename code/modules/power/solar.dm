@@ -34,11 +34,35 @@
 	/// Is the current light level too low to generate power?
 	var/light_level_too_low = FALSE
 
+	var/power_multi = 1
+	var/solar_panel_state = "solar_panel_t1"
+
+/obj/machinery/power/solar/t2_armored
+	name = "укрепленная солнечная панель"
+	desc = "Генерирует энергию при контакте со светом. Данная модель вдвое производительнее обычной."
+	max_integrity = 300
+	power_multi = 2
+	solar_panel_state = "solar_panel_t2"
+
+/obj/machinery/power/solar/t3_plasma
+	name = "солнечная плазменная панель"
+	desc = "Генерирует энергию при контакте со светом. Данная модель в четыре раза производительнее обычной."
+	max_integrity = 450
+	power_multi = 4
+	solar_panel_state = "solar_panel_t3"
+
+/obj/machinery/power/solar/t4_plastitaniumglass
+	name = "солнечная пластитановая панель"
+	desc = "Генерирует энергию при контакте со светом. Данная модель в восемь раз производительнее обычной."
+	max_integrity = 600
+	power_multi = 8
+	solar_panel_state = "solar_panel_t4"
+
 /obj/machinery/power/solar/Initialize(mapload, obj/item/solar_assembly/S)
 	. = ..()
 
 	panel_edge = add_panel_overlay("solar_panel_edge", PANEL_EDGE_Y_OFFSET)
-	panel = add_panel_overlay("solar_panel", PANEL_Y_OFFSET)
+	panel = add_panel_overlay(solar_panel_state, PANEL_Y_OFFSET)
 
 	Make(S)
 	connect_to_network()
@@ -142,7 +166,7 @@
 
 /obj/machinery/power/solar/update_overlays()
 	. = ..()
-	panel.icon_state = "solar_panel[(machine_stat & BROKEN) ? "-b" : null]"
+	panel.icon_state = "[(machine_stat & BROKEN) ? "solar_panel-b" : solar_panel_state]"
 	panel_edge.icon_state = "solar_panel[(machine_stat & BROKEN) ? "-b" : "_edge"]"
 
 /obj/machinery/power/solar/proc/queue_turn(azimuth)
@@ -251,7 +275,7 @@
 	if(light_level_too_low)
 		return
 
-	var/sgen = SOLAR_GEN_RATE * sunfrac
+	var/sgen = SOLAR_GEN_RATE * sunfrac * power_multi
 	add_avail(sgen)
 	if(control)
 		control.gen += sgen
@@ -270,7 +294,7 @@
 
 /obj/item/solar_assembly
 	name = "основание солнечной панели"
-	desc = "Даёт возможность создания солнечной панели, или с помощью платы отслеживания a солнечный отслеживатель."
+	desc = "Рама для создания солнечной панели. При подключении к ней платы отслеживания так же выполняет функцию солнечного отслеживателя."
 	icon = 'icons/obj/solar.dmi'
 	icon_state = "sp_base"
 	inhand_icon_state = "electropack"
@@ -322,7 +346,7 @@
 		W.play_tool_sound(src, 75)
 		return TRUE
 
-	if(istype(W, /obj/item/stack/sheet/glass) || istype(W, /obj/item/stack/sheet/rglass))
+	if(istype(W, /obj/item/stack/sheet/glass) || istype(W, /obj/item/stack/sheet/rglass) || istype(W, /obj/item/stack/sheet/plasmaglass) || istype(W, /obj/item/stack/sheet/plasmarglass) || istype(W, /obj/item/stack/sheet/plastitaniumglass))
 		if(!anchored)
 			to_chat(user, span_warning("Мне нужно прикрутить основание прежде чем добавлять туда стекло."))
 			return
@@ -338,7 +362,14 @@
 			if(tracker)
 				new /obj/machinery/power/tracker(get_turf(src), src)
 			else
-				new /obj/machinery/power/solar(get_turf(src), src)
+				if (istype(W, /obj/item/stack/sheet/glass))
+					new /obj/machinery/power/solar(get_turf(src), src)
+				if (istype(W, /obj/item/stack/sheet/rglass))
+					new /obj/machinery/power/solar/t2_armored(get_turf(src), src)
+				if (istype(W, /obj/item/stack/sheet/plasmaglass) || istype(W, /obj/item/stack/sheet/plasmarglass))
+					new /obj/machinery/power/solar/t3_plasma(get_turf(src), src)
+				if (istype(W, /obj/item/stack/sheet/plastitaniumglass))
+					new /obj/machinery/power/solar/t4_plastitaniumglass(get_turf(src), src)
 		else
 			to_chat(user, span_warning("Мне нужно иметь два листа стекла прежде чем вставлять их в основание!"))
 			return

@@ -12,12 +12,15 @@
 	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, RAD = 0, FIRE = 50, ACID = 50, WOUND = 10)
 
 	var/armor_plate_amount = 0
+	var/armor_plate_plasteel = 0
+	var/armor_plate_ceramic = 0
+	var/armor_plate_ablative = 0
+
 	var/full_armor_flag = FALSE		//	Используется исключительно для проверки на возможность модернизации
 	var/disassembly_flag = FALSE	//	Проверка на возможность разборки при помощи инструментов
 
 /obj/item/clothing/suit/armor/Initialize(mapload)
 	. = ..()
-//	AddComponent(/datum/component/armor_plate/plasteel)
 	if(!allowed)
 		allowed = GLOB.security_vest_allowed
 
@@ -62,6 +65,12 @@
 						src.armor = src.armor.attachArmor(W.armor)
 					to_chat(user, span_notice("Закрепляю основную бронепластину на груди [src]."))
 			armor_plate_amount = armor_plate_amount + 1
+			if(istype(W, /obj/item/stack/sheet/armor_plate/plasteel))
+				armor_plate_plasteel = armor_plate_plasteel + 1
+			if(istype(W, /obj/item/stack/sheet/armor_plate/ceramic))
+				armor_plate_ceramic = armor_plate_ceramic + 1
+			if(istype(W, /obj/item/stack/sheet/armor_plate/ablative))
+				armor_plate_ablative = armor_plate_ablative + 1
 			playsound(get_turf(src), 'white/Feline/sounds/molnia.ogg', 80)
 
 			if(S.amount > 1)
@@ -87,18 +96,25 @@
 			to_chat(user, span_warning("Данная броня уже усилена дополнительными элементами защиты рук и ног."))
 
 	if(W.tool_behaviour == TOOL_SCREWDRIVER)
-/*
-		var/datum/component/armor_plate/plasteel/ap = GetComponent(/datum/component/armor_plate/plasteel)
-		if(ap?.amount)
+// 	Извлечение бронепластин
+		if(armor_plate_amount)
 			to_chat(user, span_notice("Извлекаю внешние бронепластины..."))
 			playsound(user, 'sound/items/screwdriver.ogg',70, TRUE)
 			if(!do_after(user, 5 SECONDS, src))
 				return TRUE
 			playsound(user, 'sound/items/handling/toolbelt_pickup.ogg', 70, TRUE)
-			for(var/i in 1 to ap.amount)
-				new /obj/item/stack/sheet/armor_plate/plasteel(src.drop_location())
-			ap.amount = 0
-*/
+			if(armor_plate_plasteel)
+				for(var/i in 1 to armor_plate_plasteel)
+					new /obj/item/stack/sheet/armor_plate/plasteel(src.drop_location())
+			if(armor_plate_ceramic)
+				for(var/i in 1 to armor_plate_ceramic)
+					new /obj/item/stack/sheet/armor_plate/ceramic(src.drop_location())
+			if(armor_plate_ablative)
+				for(var/i in 1 to armor_plate_ablative)
+					new /obj/item/stack/sheet/armor_plate/ablative(src.drop_location())
+			new src.type(src.drop_location())
+			qdel(src)
+			return
 // 	Разборка Пуленепробиваемой
 		if(disassembly_flag)
 			if(istype(src, /obj/item/clothing/suit/armor/bulletproof))
@@ -121,6 +137,18 @@
 				new /obj/item/clothing/suit/armor/vest(src.drop_location())
 				new /obj/item/stack/sheet/durathread/six(src.drop_location())
 				new /obj/item/stack/sheet/armor_plate/plasteel(src.drop_location())
+				qdel(src)
+				return
+// 	Разборка Зеркальной
+		if(disassembly_flag)
+			if(istype(src, /obj/item/clothing/suit/armor/laserproof))
+				to_chat(user, span_notice("Извлекаю дополнительную зеркальную бронепластину и перераспределяю оставшиеся по стандартной схеме..."))
+				playsound(user, 'sound/items/screwdriver.ogg', 70, TRUE)
+				if(!do_after(user, 5 SECONDS, src))
+					return TRUE
+				playsound(user, 'sound/items/handling/crowbar_drop.ogg', 70, TRUE)
+				new /obj/item/clothing/suit/armor/vest(src.drop_location())
+				new /obj/item/stack/sheet/armor_plate/ablative(src.drop_location())
 				qdel(src)
 				return
 // 	Разборка Старого бронежилета
@@ -328,7 +356,7 @@
 	disassembly_flag = FALSE
 
 /obj/item/clothing/suit/armor/bulletproof
-	name = "пуленепробиваемая броня"
+	name = "пуленепробиваемый бронежилет"
 	desc = "Тяжелый пуленепробиваемый жилет Тип III, который в меньшей степени защищает владельца от традиционного снарядного оружия и взрывчатых веществ."
 	icon_state = "bulletproof"
 	inhand_icon_state = "armor"
@@ -339,7 +367,7 @@
 	disassembly_flag = TRUE
 
 /obj/item/clothing/suit/armor/laserproof
-	name = "отражательный жилет"
+	name = "зеркальный бронежилет"
 	desc = "Жилет, который отлично защищает владельца от энергетических снарядов, а также иногда отражает их."
 	icon_state = "armor_reflec"
 	inhand_icon_state = "armor_reflec"
@@ -351,11 +379,12 @@
 	armor = list(MELEE = 10, BULLET = 10, LASER = 60, ENERGY = 60, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	var/hit_reflect_chance = 50
-	disassembly_flag = FALSE
+	disassembly_flag = TRUE
 
 /obj/item/clothing/suit/armor/laserproof/IsReflect(def_zone)
-	if(!(def_zone in list(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))) //If not shot where ablative is covering you, you don't get the reflection bonus!
-		return FALSE
+	if(!full_armor_flag)
+		if(!(def_zone in list(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))) //If not shot where ablative is covering you, you don't get the reflection bonus!
+			return FALSE
 	if (prob(hit_reflect_chance))
 		return TRUE
 

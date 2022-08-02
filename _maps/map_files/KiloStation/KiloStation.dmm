@@ -11580,11 +11580,11 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/gun/energy/e_gun/dragnet{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/gun/energy/e_gun/dragnet,
+/obj/item/full_armor_upgrade,
+/obj/item/stack/sheet/armor_plate/plasteel/three,
+/obj/item/stack/sheet/armor_plate/ceramic/three,
+/obj/item/stack/sheet/armor_plate/ablative/three,
+/obj/item/full_armor_upgrade,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "bdN" = (
@@ -24704,6 +24704,7 @@
 	req_access_txt = "3"
 	},
 /obj/machinery/power/apc/auto_name/south,
+/obj/effect/spawner/lootdrop/armory_contraband/metastation,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "cBD" = (
@@ -59253,6 +59254,8 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/machinery/airalarm/directional/west,
 /obj/structure/table,
+/obj/item/gun/energy/e_gun/dragnet,
+/obj/item/gun/energy/e_gun/dragnet,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "psB" = (

@@ -3,7 +3,7 @@
 	desc = "Пластиковый пакет под давлением, также известный как 'химпакет' используемый для внутривенного введения медикаментов. Он снабжен термостойкой полосой. Объем 100 единиц."
 	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "chempack"
-	volume = 100
+	volume = 200
 	reagent_flags = OPENCONTAINER
 	spillable = TRUE
 	obj_flags = UNIQUE_RENAME

@@ -415,7 +415,7 @@
 
 /obj/item/storage/pill_bottle/iron/PopulateContents()
 	for(var/i in 1 to 8)
-		new /obj/item/reagent_containers/pill/iron(src)
+		new /obj/item/reagent_containers/pill/hematogen(src)
 
 /obj/item/storage/pill_bottle/mannitol
 	name = "баночка с таблетками маннитола"

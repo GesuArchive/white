@@ -328,6 +328,7 @@
 	desc = "Используется для запечатывания пробоин."
 	stage = GRENADE_READY
 	icon_state = "metal_foam"
+	resistance_flags = FIRE_PROOF
 
 /obj/item/grenade/chem_grenade/metalfoam/Initialize(mapload)
 	. = ..()
@@ -346,6 +347,7 @@
 	desc = "Используется для оперативного тушения пожаров."
 	stage = GRENADE_READY
 	icon_state = "antifire"
+	resistance_flags = FIRE_PROOF
 
 /obj/item/grenade/chem_grenade/resin_foam/Initialize(mapload)
 	. = ..()
@@ -365,6 +367,7 @@
 	desc = "Используется для запечатывания пробоин, однако оставляет проход внутри пораженной области."
 	stage = GRENADE_READY
 	icon_state = "metal_foam"
+	resistance_flags = FIRE_PROOF
 
 /obj/item/grenade/chem_grenade/smart_metal_foam/Initialize(mapload)
 	. = ..()
@@ -398,6 +401,7 @@
 	name = "зажигательная граната"
 	desc = "Высокоэффективна против органики."
 	stage = GRENADE_READY
+	resistance_flags = FIRE_PROOF
 
 /obj/item/grenade/chem_grenade/incendiary/Initialize(mapload)
 	. = ..()
@@ -565,6 +569,7 @@
 	name = "термофосфорная граната"
 	desc = "Распространяет зажигательную пену, эффективна против органики."
 	stage = GRENADE_READY
+	resistance_flags = FIRE_PROOF
 
 /obj/item/grenade/chem_grenade/clf3/Initialize(mapload)
 	. = ..()

@@ -226,14 +226,10 @@
 	pixel_y = 3
 	},
 /obj/item/shield/riot/military,
-/obj/item/gun/energy/e_gun/dragnet{
-	pixel_x = -3;
-	pixel_y = -2
-	},
-/obj/item/gun/energy/e_gun/dragnet,
 /obj/item/stack/sheet/armor_plate/ablative/three,
 /obj/item/stack/sheet/armor_plate/ceramic/three,
 /obj/item/stack/sheet/armor_plate/plasteel/three,
+/obj/item/full_armor_upgrade,
 /obj/item/full_armor_upgrade,
 /obj/item/full_armor_upgrade,
 /turf/open/floor/plasteel/dark,
@@ -339,6 +335,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/item/gun/energy/temperature/security,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "ca" = (
@@ -432,6 +429,8 @@
 	pixel_x = 9
 	},
 /obj/item/key/security,
+/obj/item/gun/energy/e_gun/dragnet,
+/obj/item/gun/energy/e_gun/dragnet,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "ct" = (
@@ -843,6 +842,10 @@
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
+	},
+/obj/item/storage/box/flashbangs{
+	pixel_x = 3;
+	pixel_y = -3
 	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
@@ -1380,6 +1383,7 @@
 	dir = 8
 	},
 /obj/item/storage/backpack/duffelbag/med/surgery,
+/obj/item/healthanalyzer,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
 "fa" = (
@@ -2188,6 +2192,9 @@
 	},
 /obj/machinery/computer/operating{
 	dir = 1
+	},
+/obj/machinery/light{
+	pixel_y = 0
 	},
 /turf/open/floor/plasteel/white,
 /area/security/brig)

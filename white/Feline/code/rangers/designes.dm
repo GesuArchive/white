@@ -18,6 +18,18 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000)
-	category = list("Снаряжение", "Карго снаряжение")
+	category = list("Снаряжение", "Инженерное снаряжение", "Карго снаряжение")
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_CARGO
+
+/datum/design/riot_shield
+	name = "Щит антибунт"
+	desc = "Тактический щит из поликарбоната для подавления мятежей. Неплохо блокирует удары в ближнем бою."
+	id = "riot_shield"
+	build_path = /obj/item/shield/riot
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/iron = 2000, /datum/material/glass = 8000)
+	category = list("Снаряжение", "Снаряжение СБ")
+	sub_category = list("Экипировка")
+	departmental_flags = DEPARTMENTAL_FLAG_SECURITY

@@ -171,5 +171,5 @@
 	name = "электромультитул"
 	desc = "Оптимизированная версия обычного мультитула. Упрощает процессы, обрабатываемые его внутренним микрочипом."
 	icon = 'white/Feline/icons/cyber_arm_tools.dmi'
-	icon_state = "multitool_cyborg"
+	icon_state = "multitool"
 	toolspeed = 0.5

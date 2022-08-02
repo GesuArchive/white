@@ -152,6 +152,9 @@
 	playsound(loc, 'sound/items/drill_use.ogg', 50, TRUE, -1)
 	return(BRUTELOSS)
 
+/obj/item/screwdriver/power/orange
+	icon = 'white/Feline/icons/engi_items.dmi'
+
 /obj/item/screwdriver/cyborg
 	name = "автоматическая отвертка"
 	desc = "Мощная автоматическая отвертка, разработанная для быстрой и точной работы."

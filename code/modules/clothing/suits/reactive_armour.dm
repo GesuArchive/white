@@ -3,7 +3,7 @@
 	desc = "Экспериментальный образец, в ожидании установки аномального ядра."
 	icon_state = "reactiveoff"
 	icon = 'icons/obj/clothing/suits.dmi'
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/reactive_armour_shell/attackby(obj/item/I, mob/user, params)
 	..()

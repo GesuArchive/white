@@ -716,7 +716,7 @@
 /mob/living/carbon/human/check_self_for_injuries()
 	if(getorganslot(ORGAN_SLOT_BRAIN_BIOMONITOR))
 		to_chat(src, span_notice("Активирую имплант биомонитора..."))
-		healthscan(src, src)
+		healthscan(src, src, advanced = TRUE)
 		chemscan(src, src)
 	else
 		if(stat >= UNCONSCIOUS)

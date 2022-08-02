@@ -161,6 +161,13 @@
 "aO" = (
 /turf/closed/wall/ice,
 /area/science/research)
+"aR" = (
+/obj/machinery/door/airlock/research{
+	name = "Xenobiology Lab";
+	req_access_txt = "55"
+	},
+/turf/open/floor/plating/rust,
+/area/science/xenobiology)
 "aU" = (
 /obj/machinery/light/small{
 	dir = 1;
@@ -771,9 +778,6 @@
 /turf/open/floor/plasteel/dark,
 /area/science/robotics/mechbay)
 "cH" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 28
-	},
 /obj/machinery/camera/autoname{
 	dir = 4;
 	icon_state = "camera"
@@ -1873,49 +1877,39 @@
 /area/security/brig)
 "fr" = (
 /obj/structure/rack,
-/obj/item/clothing/suit/armor/bulletproof{
-	pixel_x = -3;
-	pixel_y = 3
+/obj/machinery/light{
+	dir = 8
 	},
-/obj/item/clothing/suit/armor/bulletproof,
-/obj/item/clothing/suit/armor/bulletproof{
+/obj/item/clothing/head/helmet/riot{
 	pixel_x = 3;
-	pixel_y = -3
+	pixel_y = 2
 	},
-/obj/item/clothing/head/helmet/alt{
-	layer = 3.00001;
+/obj/item/clothing/head/helmet/riot{
+	pixel_y = 2
+	},
+/obj/item/clothing/head/helmet/riot{
 	pixel_x = -3;
-	pixel_y = 3
+	pixel_y = 2
 	},
 /obj/item/clothing/head/helmet/alt{
-	layer = 3.00001
-	},
-/obj/item/clothing/head/helmet/alt{
-	layer = 3.00001;
 	pixel_x = 3;
-	pixel_y = -3
+	pixel_y = -2
 	},
+/obj/item/clothing/head/helmet/alt{
+	pixel_y = -2
+	},
+/obj/item/clothing/head/helmet/alt{
+	pixel_x = -3;
+	pixel_y = -2
+	},
+/obj/effect/turf_decal/stripes/line,
 /obj/machinery/camera/motion{
 	c_tag = "Armory Motion Sensor";
 	dir = 2
 	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/hex/red{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/engine,
 /area/security/brig)
 "fs" = (
@@ -1931,35 +1925,8 @@
 /area/security/brig)
 "ft" = (
 /obj/structure/rack,
-/obj/item/clothing/suit/armor/riot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/clothing/suit/armor/riot,
-/obj/item/clothing/suit/armor/riot{
-	pixel_x = 3;
-	pixel_y = -3
-	},
 /obj/machinery/light{
 	dir = 1
-	},
-/obj/item/clothing/head/helmet/riot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/clothing/head/helmet/riot,
-/obj/item/clothing/head/helmet/riot{
-	pixel_x = 3;
-	pixel_y = -3
-	},
-/obj/item/shield/riot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/shield/riot,
-/obj/item/shield/riot{
-	pixel_x = 3;
-	pixel_y = -3
 	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -1978,6 +1945,11 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/stripes/line,
+/obj/item/full_armor_upgrade,
+/obj/item/full_armor_upgrade,
+/obj/item/stack/sheet/armor_plate/plasteel/three,
+/obj/item/stack/sheet/armor_plate/ceramic/three,
+/obj/item/stack/sheet/armor_plate/ablative/three,
 /turf/open/floor/engine,
 /area/security/brig)
 "fu" = (
@@ -2064,12 +2036,6 @@
 "fz" = (
 /obj/structure/rack,
 /obj/structure/window/reinforced,
-/obj/item/storage/box/rubbershot,
-/obj/item/storage/box/rubbershot,
-/obj/item/storage/box/rubbershot,
-/obj/item/storage/box/rubbershot,
-/obj/item/storage/box/rubbershot,
-/obj/item/storage/box/rubbershot,
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 1
 	},
@@ -2078,6 +2044,22 @@
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
+	},
+/obj/item/storage/belt/shotgun/rubbershot{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/storage/belt/shotgun/buckshot{
+	pixel_x = -7;
+	pixel_y = -5
+	},
+/obj/item/storage/belt/shotgun/bullet{
+	pixel_x = 10;
+	pixel_y = 2
+	},
+/obj/item/storage/belt/shotgun/beanbag{
+	pixel_x = 9;
+	pixel_y = -5
 	},
 /turf/open/floor/engine,
 /area/security/brig)
@@ -2118,13 +2100,14 @@
 	icon_state = "warninglinecorner"
 	},
 /obj/item/disk/design_disk/adv/kar98k_ammo,
+/obj/item/gun/energy/e_gun/dragnet,
+/obj/item/gun/energy/e_gun/dragnet,
 /turf/open/floor/engine,
 /area/security/brig)
 "fD" = (
 /obj/structure/rack,
 /obj/item/gun/energy/ionrifle,
 /obj/item/gun/energy/temperature/security,
-/obj/item/clothing/suit/armor/laserproof,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -2142,6 +2125,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/item/clothing/suit/hooded/ablative,
 /turf/open/floor/engine,
 /area/security/brig)
 "fE" = (
@@ -4993,7 +4977,6 @@
 /obj/item/gun/ballistic/rifle/boltaction/kar98k,
 /obj/item/gun/ballistic/rifle/boltaction/kar98k,
 /obj/item/gun/ballistic/rifle/boltaction/kar98k,
-/obj/item/gun/ballistic/rifle/boltaction/kar98k,
 /obj/structure/rack,
 /turf/open/floor/engine,
 /area/security/brig)
@@ -6325,6 +6308,10 @@
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /turf/open/floor/plating/rust,
 /area/engineering/engine_room)
+"rw" = (
+/obj/structure/marker_beacon/burgundy,
+/turf/open/floor/grass/snow/safe,
+/area/partyhard/surface)
 "ry" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/trimline/blue/filled/corner{
@@ -6374,6 +6361,37 @@
 /obj/machinery/smartfridge,
 /turf/closed/wall,
 /area/service/hydroponics)
+"rT" = (
+/obj/effect/turf_decal/tile/hex/red,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/rack,
+/obj/item/storage/box/teargas{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/storage/box/handcuffs,
+/obj/item/storage/box/flashbangs{
+	pixel_x = 3;
+	pixel_y = -3
+	},
+/turf/open/floor/engine,
+/area/security/brig)
+"rW" = (
+/mob/living/simple_animal/bot/secbot{
+	arrest_type = 1;
+	health = 45;
+	icon_state = "secbot1";
+	idcheck = 1;
+	name = "Sergeant-at-Armsky";
+	weaponscheck = 1
+	},
+/turf/open/floor/engine,
+/area/security/brig)
 "rX" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/west,
@@ -7923,6 +7941,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel/dark,
 /area/medical/chemistry)
+"zo" = (
+/obj/effect/spawner/structure/window/survival_pod,
+/turf/open/floor/plating/rust,
+/area/science/research)
 "zq" = (
 /obj/structure/sign/departments/cargo{
 	pixel_x = -32
@@ -8786,6 +8808,45 @@
 /obj/machinery/door/airlock/public/glass,
 /turf/open/floor/plating/rust,
 /area/partyhard/chetyre)
+"Dl" = (
+/obj/structure/rack,
+/obj/item/clothing/suit/armor/riot{
+	pixel_x = 3;
+	pixel_y = 2
+	},
+/obj/item/clothing/suit/armor/riot{
+	pixel_y = 2
+	},
+/obj/item/clothing/suit/armor/riot{
+	pixel_x = -3;
+	pixel_y = 2
+	},
+/obj/item/clothing/suit/armor/bulletproof{
+	pixel_x = 3;
+	pixel_y = -2
+	},
+/obj/item/clothing/suit/armor/bulletproof{
+	pixel_y = -2
+	},
+/obj/item/clothing/suit/armor/bulletproof{
+	pixel_x = -3;
+	pixel_y = -2
+	},
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/tile/hex/red{
+	dir = 1
+	},
+/obj/item/shield/riot{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/shield/riot,
+/obj/item/shield/riot{
+	pixel_x = 3;
+	pixel_y = -3
+	},
+/turf/open/floor/engine,
+/area/security/brig)
 "Dm" = (
 /turf/closed/mineral/snowmountain/cavern,
 /area/command/gateway)
@@ -10288,6 +10349,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/partyhard/chetyre)
+"JI" = (
+/obj/structure/marker_beacon/green,
+/turf/open/floor/grass/snow/safe,
+/area/partyhard/surface)
 "JK" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/green{
@@ -13019,6 +13084,13 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay)
+"Vn" = (
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 10
+	},
+/obj/structure/closet/secure_closet/security/field_med,
+/turf/open/floor/plasteel/dark,
+/area/security/brig)
 "Vo" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 8
@@ -13843,6 +13915,20 @@
 /obj/effect/spawner/structure/window/survival_pod,
 /turf/open/floor/plating/rust,
 /area/engineering/main)
+"Zz" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/purple/filled/line{
+	dir = 1
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 28
+	},
+/turf/open/floor/plasteel/dark,
+/area/science/research)
 "ZB" = (
 /obj/structure/sign/painting/library_secure,
 /turf/closed/wall/r_wall/rust,
@@ -177517,10 +177603,10 @@ jn
 ap
 ja
 fp
-fs
+Dl
 lH
-lH
-mY
+rW
+rT
 fp
 fp
 fp
@@ -179832,7 +179918,7 @@ fp
 wT
 kO
 kO
-lI
+Vn
 jM
 fJ
 kt
@@ -245907,7 +245993,7 @@ SU
 TG
 cD
 je
-uD
+zo
 cH
 Es
 cS
@@ -246164,7 +246250,7 @@ Nl
 DJ
 TG
 jk
-uD
+zo
 dT
 uY
 bW
@@ -247450,7 +247536,7 @@ cy
 cO
 kl
 uD
-dV
+Zz
 Nf
 Lg
 Ht
@@ -247738,7 +247824,7 @@ jc
 cV
 eT
 fg
-fg
+uL
 ml
 RJ
 wD
@@ -249016,7 +249102,7 @@ RJ
 RJ
 RJ
 RJ
-lR
+aR
 RJ
 RJ
 RJ
@@ -283514,7 +283600,7 @@ dp
 dp
 dp
 Cl
-dp
+rw
 dp
 Bk
 dp
@@ -283759,16 +283845,16 @@ dp
 dp
 dp
 dp
+rw
 dp
 dp
+JI
 dp
 dp
-dp
-dp
-dp
+rw
 dp
 MY
-dp
+JI
 dp
 dp
 wz
@@ -284013,7 +284099,7 @@ Vs
 Vs
 dp
 dp
-dp
+JI
 dp
 nQ
 dp
@@ -284266,8 +284352,8 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
+dp
+dp
 dp
 dp
 dp
@@ -284523,8 +284609,8 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
+dp
+rw
 dp
 dp
 dp
@@ -284776,12 +284862,12 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
+dp
+dp
+JI
+dp
+dp
+dp
 dp
 dp
 dp
@@ -285028,16 +285114,16 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
+dp
+dp
+dp
+dp
+rw
+dp
+dp
+dp
+dp
+dp
 dp
 dp
 dp
@@ -285280,17 +285366,17 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
+dp
+dp
+dp
+dp
+dp
+dp
+JI
+dp
+dp
+dp
+dp
 Vs
 Vs
 Vs
@@ -285531,18 +285617,18 @@ Vs
 Vs
 Vs
 Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
+dp
+dp
+dp
+dp
+dp
+dp
+JI
+dp
+dp
+rw
+dp
+dp
 Vs
 Vs
 Vs
@@ -285783,18 +285869,18 @@ HV
 sm
 dp
 dp
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
+dp
+dp
+dp
+dp
+dp
+JI
+dp
+dp
+rw
+dp
+dp
+dp
 Vs
 Vs
 Vs
@@ -286039,13 +286125,13 @@ sm
 HV
 sm
 dp
+JI
 dp
-Vs
-Vs
-Vs
-Vs
-Vs
-Vs
+dp
+rw
+dp
+dp
+dp
 Vs
 Vs
 Vs

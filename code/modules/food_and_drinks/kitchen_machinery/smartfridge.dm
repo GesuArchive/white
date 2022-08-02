@@ -354,8 +354,8 @@
 //  Bar drink smartfridge
 // ----------------------------
 /obj/machinery/smartfridge/drinks
-	name = "drink showcase"
-	desc = "A refrigerated storage unit for tasty tasty alcohol."
+	name = "морозильник"
+	desc = "Пейте охлажденным!"
 	base_build_path = /obj/machinery/smartfridge/drinks
 
 /obj/machinery/smartfridge/drinks/accept_check(obj/item/O)
@@ -368,7 +368,6 @@
 //  Food smartfridge
 // ----------------------------
 /obj/machinery/smartfridge/food
-	desc = "A refrigerated storage unit for food."
 	base_build_path = /obj/machinery/smartfridge/food
 
 /obj/machinery/smartfridge/food/accept_check(obj/item/O)
@@ -380,8 +379,8 @@
 // Xenobiology Slime-Extract Smartfridge
 // -------------------------------------
 /obj/machinery/smartfridge/extract
-	name = "smart slime extract storage"
-	desc = "A refrigerated storage unit for slime extracts."
+	name = "слаймологический холодильник"
+	desc = "Для хранения экстрактов слаймов."
 	base_build_path = /obj/machinery/smartfridge/extract
 
 /obj/machinery/smartfridge/extract/accept_check(obj/item/O)
@@ -398,8 +397,8 @@
 // Cytology Petri Dish Smartfridge
 // -------------------------------------
 /obj/machinery/smartfridge/petri
-	name = "smart petri dish storage"
-	desc = "A refrigerated storage unit for petri dishes."
+	name = "лабораторный холодильник"
+	desc = "Нужен в каждой лаборатории."
 	base_build_path = /obj/machinery/smartfridge/petri
 
 /obj/machinery/smartfridge/petri/accept_check(obj/item/O)
@@ -414,8 +413,8 @@
 // Organ Surgery Smartfridge
 // -------------------------
 /obj/machinery/smartfridge/organ
-	name = "smart organ storage"
-	desc = "A refrigerated storage unit for organ storage."
+	name = "хранилище органов"
+	desc = "Предотвращает разложение помещенных внутрь органов."
 	max_n_of_items = 20	//vastly lower to prevent processing too long
 	base_build_path = /obj/machinery/smartfridge/organ
 	var/repair_rate = 0
@@ -452,12 +451,23 @@
 		var/obj/item/organ/O = AM
 		O.organ_flags &= ~ORGAN_FROZEN
 
+/obj/machinery/smartfridge/organ/alien
+	initial_contents = list(
+		/obj/item/organ/alien/plasmavessel/large = 2,
+		/obj/item/organ/alien/resinspinner = 2,
+		/obj/item/organ/alien/acid = 2,
+		/obj/item/organ/alien/neurotoxin = 2,
+		/obj/item/organ/alien/hivenode = 2,
+		/obj/item/organ/liver/alien = 2,
+		/obj/item/organ/eyes/night_vision/alien = 2,
+		/obj/item/organ/tongue/alien = 2)
+
 // -----------------------------
 // Chemistry Medical Smartfridge
 // -----------------------------
 /obj/machinery/smartfridge/chemistry
-	name = "smart chemical storage"
-	desc = "A refrigerated storage unit for medicine storage."
+	name = "химический холодильник"
+	desc = "Используется для складирования химикатов."
 	base_build_path = /obj/machinery/smartfridge/chemistry
 
 /obj/machinery/smartfridge/chemistry/accept_check(obj/item/O)
@@ -498,8 +508,8 @@
 // Virology Medical Smartfridge
 // ----------------------------
 /obj/machinery/smartfridge/chemistry/virology
-	name = "smart virus storage"
-	desc = "A refrigerated storage unit for volatile sample storage."
+	name = "вирусологический холодильник"
+	desc = "Хранит в себе штаммы вирусов и прочий рабочий материал."
 	base_build_path = /obj/machinery/smartfridge/chemistry/virology
 
 /obj/machinery/smartfridge/chemistry/virology/preloaded

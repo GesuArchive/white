@@ -290,7 +290,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 /obj/machinery/computer/gateway_control
 	name = "Интерфейс врат"
 	desc = "Удобный человеческому глазу интерфейс для врат, стоящих рядом."
-	req_access = list(ACCESS_HEADS)
+	req_access = list(ACCESS_HEADS, ACCESS_EXPLORATION)
 	var/obj/machinery/gateway/G
 
 /obj/machinery/computer/gateway_control/Initialize(mapload, obj/item/circuitboard/C)

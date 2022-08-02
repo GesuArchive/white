@@ -73,7 +73,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/strobeshield
-	name = "Strobe Shield"
+	name = "Ослепляющий щит"
 	result = /obj/item/shield/riot/flash
 	reqs = list(/obj/item/wallframe/flasher = 1,
 				/obj/item/assembly/flash/handheld = 1,

@@ -96,11 +96,6 @@
 	file_name = "9x9_checkpoint"
 	weight = 5
 
-/datum/map_template/ruin_part/corgarmoury
-	file_name = "13x13_corgarmoury"
-	weight = 5
-	loot_room = TRUE
-
 /datum/map_template/ruin_part/corgrobotics
 	file_name = "13x13_corgrobotics"
 	weight = 4
@@ -190,11 +185,6 @@
 	file_name = "13x9_josito"
 	weight = 3
 	max_occurances = 1
-
-/datum/map_template/ruin_part/pizzaguard
-	file_name = "13x17_pizzaroom"
-	weight = 3
-	loot_room = TRUE
 
 //Damaged halls
 
@@ -411,18 +401,6 @@
 	//Contains a research disk
 	max_occurances = 1
 
-/datum/map_template/ruin_part/hilberttest
-	file_name = "13x13_hilberttest"
-	weight = 5
-	loot_room = TRUE
-	max_occurances = 1
-
-/datum/map_template/ruin_part/medlab
-	file_name = "13x13_medlab"
-	weight = 5
-	loot_room = TRUE
-	max_occurances = 1
-
 /datum/map_template/ruin_part/cratestorage
 	file_name = "13x9_cratestorage"
 	weight = 3
@@ -430,11 +408,6 @@
 
 /datum/map_template/ruin_part/medstorage
 	file_name = "9x13_medstorage"
-
-/datum/map_template/ruin_part/room_arsenal
-	file_name = "5x6_arsenal"
-	weight = 1
-	loot_room = TRUE
 
 /datum/map_template/ruin_part/hallwaystrange
 	file_name = "7x7_hallwaystrange"
@@ -495,6 +468,41 @@
 /datum/map_template/ruin_part/shuttledock_inside
 	file_name = "21x17_shuttledock"
 	weight = 4
+	max_occurances = 1
+
+//	Сокровещницы
+
+/datum/map_template/ruin_part/corgarmoury	// Укрепленная оружейка
+	file_name = "13x13_corgarmoury"
+	weight = 5
+	loot_room = TRUE
+
+/datum/map_template/ruin_part/room_arsenal	// Малая Оружейка
+	file_name = "5x6_arsenal"
+	weight = 1
+	loot_room = TRUE
+
+/datum/map_template/ruin_part/pizzaguard	// Спец Пицца + Босс
+	file_name = "13x17_pizzaroom"
+	weight = 3
+	loot_room = TRUE
+
+/datum/map_template/ruin_part/hilberttest	// Блюспейс сумка + Хазбин
+	file_name = "13x13_hilberttest"
+	weight = 5
+	loot_room = TRUE
+	max_occurances = 1
+
+/datum/map_template/ruin_part/medlab		// МК-Солнце + медблок
+	file_name = "13x13_medlab"
+	weight = 5
+	loot_room = TRUE
+	max_occurances = 1
+
+/datum/map_template/ruin_part/medlab2		// Медлуч + имплантер
+	file_name = "13x13_medlab2"
+	weight = 5
+	loot_room = TRUE
 	max_occurances = 1
 
 //	Ресурсные комнаты

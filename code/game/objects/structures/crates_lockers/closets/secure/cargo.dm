@@ -2,6 +2,7 @@
 	name = "шкафчик квартирмейстера"
 	req_access = list(ACCESS_QM)
 	icon_state = "qm"
+	anchored = TRUE
 
 /obj/structure/closet/secure_closet/quartermaster/PopulateContents()
 	..()

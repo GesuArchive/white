@@ -87,9 +87,12 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/power/port_gen/pacman,
 /obj/effect/turf_decal/bot,
 /obj/structure/cable,
+/obj/machinery/power/port_gen/pacman{
+	anchored = 1;
+	sheets = 40
+	},
 /turf/open/floor/plating,
 /area/shuttle/exploration)
 "k" = (
@@ -388,7 +391,6 @@
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
-/obj/item/stack/sheet/mineral/plasma/thirty,
 /turf/open/floor/plating,
 /area/shuttle/exploration)
 "M" = (

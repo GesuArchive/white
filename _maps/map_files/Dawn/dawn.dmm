@@ -1295,31 +1295,12 @@
 /area/science/research)
 "dA" = (
 /obj/structure/rack,
-/obj/item/storage/box/rubbershot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/rubbershot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/rubbershot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/rubbershot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/rubbershot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/rubbershot{
-	pixel_x = -3;
-	pixel_y = 3
-	},
 /obj/effect/turf_decal/bot,
+/obj/item/full_armor_upgrade,
+/obj/item/full_armor_upgrade,
+/obj/item/stack/sheet/armor_plate/plasteel/three,
+/obj/item/stack/sheet/armor_plate/ablative/three,
+/obj/item/stack/sheet/armor_plate/ceramic/three,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/security/armory)
 "dB" = (
@@ -1571,6 +1552,29 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/structure/rack,
+/obj/item/clothing/suit/armor/bulletproof{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/bulletproof{
+	pixel_x = 3;
+	pixel_y = -3
+	},
+/obj/item/clothing/head/helmet/alt{
+	layer = 3.00001;
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/clothing/head/helmet/alt{
+	layer = 3.00001
+	},
+/obj/item/clothing/head/helmet/alt{
+	layer = 3.00001;
+	pixel_x = 3;
+	pixel_y = -3
+	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "ep" = (
@@ -1894,6 +1898,16 @@
 /area/cargo/storage)
 "fd" = (
 /obj/machinery/firealarm/directional/west,
+/obj/structure/rack,
+/obj/item/gun/ballistic/shotgun/riot{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/gun/ballistic/shotgun/riot,
+/obj/item/gun/ballistic/shotgun/riot{
+	pixel_x = 3;
+	pixel_y = -3
+	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "fe" = (
@@ -2062,6 +2076,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
+/obj/structure/filingcabinet/security,
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
 "fz" = (
@@ -3927,6 +3942,23 @@
 "kx" = (
 /obj/machinery/power/apc/auto_name/west,
 /obj/structure/cable,
+/obj/structure/rack,
+/obj/item/storage/belt/shotgun/buckshot{
+	pixel_x = -7;
+	pixel_y = 2
+	},
+/obj/item/storage/belt/shotgun/bullet{
+	pixel_x = 10;
+	pixel_y = 2
+	},
+/obj/item/storage/belt/shotgun/rubbershot{
+	pixel_x = -8;
+	pixel_y = -5
+	},
+/obj/item/storage/belt/shotgun/beanbag{
+	pixel_x = 9;
+	pixel_y = -5
+	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "kA" = (
@@ -5223,9 +5255,6 @@
 /obj/effect/landmark/start/chemist,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
-"of" = (
-/turf/closed/wall/r_wall,
-/area/ai_monitored/security/armory)
 "og" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/camera{
@@ -8263,9 +8292,6 @@
 "wE" = (
 /turf/closed/wall/r_wall,
 /area/ai_monitored/turret_protected/aisat)
-"wF" = (
-/turf/closed/wall/r_wall,
-/area/ai_monitored/turret_protected/aisat)
 "wG" = (
 /obj/structure/closet,
 /obj/effect/spawner/lootdrop/maintenance{
@@ -8757,8 +8783,8 @@
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
 "yb" = (
-/obj/structure/filingcabinet,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/closet/secure_closet/security/field_med,
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
 "yc" = (
@@ -10968,9 +10994,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /turf/open/floor/plasteel,
 /area/engineering/atmos)
-"Is" = (
-/turf/closed/wall/r_wall,
-/area/medical/chemistry)
 "Iv" = (
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -12017,10 +12040,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engineering/main)
-"Ro" = (
-/obj/structure/cable,
-/turf/open/floor/plasteel,
-/area/maintenance/aft)
 "Rq" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/aft)
@@ -12227,9 +12246,6 @@
 	},
 /turf/closed/wall/r_wall,
 /area/science/mixing)
-"Sz" = (
-/turf/closed/wall/r_wall,
-/area/maintenance/aft)
 "SA" = (
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
@@ -13289,7 +13305,6 @@
 	dir = 4;
 	pixel_y = -25;
 	pixel_x = 25
-
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -43327,7 +43342,7 @@ aV
 aV
 Rq
 Fx
-Sz
+Rq
 aa
 aa
 aa
@@ -43577,14 +43592,14 @@ nL
 zD
 zD
 zD
-Sz
-Sz
-Sz
-Sz
-Sz
+Rq
+Rq
+Rq
+Rq
+Rq
 qT
 nc
-Sz
+Rq
 aV
 aa
 aa
@@ -44091,9 +44106,9 @@ zQ
 Ad
 pA
 qf
-Ro
-Ro
-Ro
+qp
+qp
+qp
 qp
 qE
 mE
@@ -49967,13 +49982,13 @@ aa
 aa
 aa
 as
-of
-of
+Dv
+Dv
 dl
 en
-of
-of
-of
+Dv
+Dv
+Dv
 wI
 fX
 as
@@ -50224,13 +50239,13 @@ aa
 aa
 aa
 aa
-of
+Dv
 cM
 SV
 eo
 kx
 fd
-of
+Dv
 GZ
 TD
 as
@@ -50481,13 +50496,13 @@ aa
 aa
 aa
 aa
-of
+Dv
 cR
 dy
 ep
 Ig
 fe
-of
+Dv
 xV
 fY
 as
@@ -50738,13 +50753,13 @@ aa
 aa
 aa
 aa
-of
+Dv
 cW
 dA
 eq
 ZE
 Uc
-of
+Dv
 as
 as
 as
@@ -50995,12 +51010,12 @@ aa
 aa
 aa
 aa
-of
-of
-of
-of
-of
-of
+Dv
+Dv
+Dv
+Dv
+Dv
+Dv
 Dv
 aV
 GJ
@@ -51037,7 +51052,7 @@ ps
 ps
 ps
 ps
-Sz
+Rq
 aa
 aV
 zk
@@ -51291,10 +51306,10 @@ oQ
 pW
 HA
 PY
-Sz
+Rq
 wb
-Sz
-Sz
+Rq
+Rq
 aa
 aV
 zk
@@ -51548,7 +51563,7 @@ oQ
 pX
 HA
 Rq
-Sz
+Rq
 nc
 qT
 aV
@@ -51805,9 +51820,9 @@ oQ
 pY
 HA
 aV
-Sz
+Rq
 wM
-Sz
+Rq
 aV
 aa
 rU
@@ -56948,7 +56963,7 @@ UQ
 JD
 JD
 UQ
-Is
+UQ
 aV
 aa
 aa
@@ -62119,7 +62134,7 @@ KK
 KK
 uR
 KK
-wF
+wE
 wP
 wN
 AO

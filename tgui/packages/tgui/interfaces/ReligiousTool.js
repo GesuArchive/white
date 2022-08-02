@@ -20,8 +20,8 @@ export const ReligiousTool = (props, context) => {
   return (
     <Window
       title={toolname}
-      width={560}
-      height={500}>
+      width={750}
+      height={600}>
       <Window.Content scrollable>
         <Stack vertical fill>
           <Stack.Item>

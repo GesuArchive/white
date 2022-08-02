@@ -27,14 +27,14 @@
 	name = "Mechanic"
 	jobtype = /datum/job/station_engineer/mechanic
 
-	belt = /obj/item/storage/belt/utility/full/mechanic
+	belt = /obj/item/storage/part_replacer/tier2
 	l_pocket = /obj/item/modular_computer/tablet/pda/engineering
 	ears = /obj/item/radio/headset/headset_eng
 	uniform = /obj/item/clothing/under/rank/engineering/engineer
+	suit = /obj/item/clothing/suit/mechanicus
 	shoes = /obj/item/clothing/shoes/workboots
 	head = /obj/item/clothing/head/welding/open
 	r_pocket = /obj/item/t_scanner
-	l_hand = /obj/item/storage/part_replacer/tier2
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng

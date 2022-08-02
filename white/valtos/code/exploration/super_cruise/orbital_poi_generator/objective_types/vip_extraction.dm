@@ -264,7 +264,7 @@
 
 /obj/item/storage/belt/utility/full/vip_engi/PopulateContents()
 	new /obj/item/construction/rcd/loaded(src)
-	new /obj/item/screwdriver/power(src)
+	new /obj/item/screwdriver/power/orange(src)
 	new /obj/item/weldingtool/largetank(src)
 	new /obj/item/crowbar(src)
 	new /obj/item/wirecutters(src)

@@ -1,5 +1,6 @@
 /datum/surgery/dissection
-	name = "Dissection"
+	name = "Вскрытие"
+	requires_op = TRUE
 	target_mobtypes = list(
 		/mob/living/carbon/human,
 		/mob/living/carbon/alien,
@@ -30,7 +31,7 @@
 	return TRUE
 
 /datum/surgery_step/dissection
-	name = "dissect"
+	name = "Исследовать"
 	time = 16 SECONDS
 	implements = list(
 		TOOL_SCALPEL = 100,
@@ -43,14 +44,14 @@
 /datum/surgery_step/dissection/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	var/ending = "..."
 	if (isnull(surgery.locate_operating_computer(get_turf(target))))
-		ending = "<b>, but without a linked operating computer, you won't get any research!</b>"
+		ending = "<b>, однако без операционного компьютера у меня не выйдет интерпретировать данные полученные при вскрытии!</b>"
 
 	display_results(
 		user,
 		target,
-		span_notice("You start to dissect [target][ending]"),
-		span_notice("[user] starts to dissect [target]..."),
-		span_notice("[user] begins to start poking around inside your corpse...hey, wait a minute!"),
+		span_notice("Начинаю патологоанатомическое вскрытие [target][ending]"),
+		span_notice("[user] начинает патологоанатомическое вскрытие [target]..."),
+		span_notice("[user] начинает патологоанатомическое вскрытие!"),
 	)
 
 /datum/surgery_step/dissection/success(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
@@ -66,9 +67,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("You mess up, damaging some of the internal organs!"),
-		span_notice("[user] messes up, damaging some of the internal organs!"),
-		span_notice("[user] messes up, damaging some of your internal organs!")
+		span_notice("Кажется я это был не очень аккуратный разрез! Впрочем пациенту кажется уже все равно..."),
+		span_notice("[user] действует очень неаккуратно! Впрочем пациенту кажется уже все равно..."),
+		span_notice("[user] действует очень неаккуратно! Впрочем пациенту кажется уже все равно...!")
 	)
 
 	target.adjustOrganLoss(pick(

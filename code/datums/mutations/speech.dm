@@ -56,7 +56,7 @@
 	desc = "Частично подавляет речевой отдел мозга, сильно искажая речь."
 	quality = NEGATIVE
 	text_gain_indication = span_danger("Я внезапно потерял осознание того, как из звуков составлять слова!")
-	text_lose_indication = span_danger("Выражать свои мысли стало намного прощще.")
+	text_lose_indication = span_danger("Выражать свои мысли стало намного проще.")
 
 /datum/mutation/human/unintelligible/on_acquiring(mob/living/carbon/human/owner)
 	if(..())

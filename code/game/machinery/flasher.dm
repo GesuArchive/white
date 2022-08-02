@@ -1,8 +1,8 @@
 // It is a gizmo that flashes a small area
 
 /obj/machinery/flasher
-	name = "mounted flash"
-	desc = "A wall-mounted flashbulb device."
+	name = "настенная вспышка"
+	desc = "Вмонтированная в стену яркая лампочка."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "mflash1"
 	max_integrity = 250
@@ -33,8 +33,8 @@
 	dir = EAST
 	pixel_x = -26
 /obj/machinery/flasher/portable //Portable version of the flasher. Only flashes when anchored
-	name = "portable flasher"
-	desc = "A portable flashing device. Wrench to activate and deactivate. Cannot detect slow movements."
+	name = "стробоскоп"
+	desc = "Мобильная установка с яркой лампой внутри. Автоматически срабатывает при детекции движения. Плохо реагирует на медленно двигающиеся объекты. Для корректной работы необходимо прикрутить к полу."
 	icon_state = "pflash1-p"
 	strength = 80
 	anchored = FALSE
@@ -44,6 +44,39 @@
 	light_range = FLASH_LIGHT_RANGE
 	light_on = FALSE
 	layer = ABOVE_OBJ_LAYER // no hiding it under a pile of laundry
+
+/obj/machinery/flasher_assembly
+	name = "каркас стробоскопа"
+	desc = "Для завершения сборки необходимо подключить датчик движения и вспышку. Плохо реагирует на медленно двигающиеся объекты. Для корректной работы необходимо прикрутить к полу."
+	icon = 'icons/obj/stationobjs.dmi'
+	icon_state = "pflash1-assembly_1"
+	var/prox_sensor = FALSE
+	anchored = FALSE
+	density = TRUE
+
+/obj/machinery/flasher_assembly/attackby(obj/item/W, mob/user, params)
+	if(istype(W, /obj/item/assembly/prox_sensor))
+		if(!prox_sensor)
+			prox_sensor = TRUE
+			to_chat(user, span_notice("Подключаю датчик движения."))
+			playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
+			icon_state = "pflash1-assembly_2"
+			qdel(W)
+			return
+		else
+			to_chat(user, span_warning("Здесь уже устанавлен датчик движения."))
+
+	if(istype(W, /obj/item/assembly/flash))
+		if(prox_sensor)
+			to_chat(user, span_notice("Подключаю вспышку."))
+			playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
+			new /obj/machinery/flasher/portable(src.drop_location())
+			qdel(W)
+			qdel(src)
+			return
+		else
+			to_chat(user, span_warning("Сначала необходимо установить датчик движения."))
+	. = ..()
 
 /obj/machinery/flasher/Initialize(mapload, ndir = 0, built = 0)
 	. = ..() // ..() is EXTREMELY IMPORTANT, never forget to add it
@@ -199,13 +232,13 @@
 		W.play_tool_sound(src, 100)
 
 		if (!anchored && !isinspace())
-			to_chat(user, span_notice("[capitalize(src.name)] is now secured."))
+			to_chat(user, span_notice("[capitalize(src.name)] прикручен к полу."))
 			add_overlay("[base_state]-s")
 			set_anchored(TRUE)
 			power_change()
 			proximity_monitor.SetRange(range)
 		else
-			to_chat(user, span_notice("[capitalize(src.name)] can now be moved."))
+			to_chat(user, span_notice("[capitalize(src.name)] откручен."))
 			cut_overlays()
 			set_anchored(FALSE)
 			power_change()
@@ -215,8 +248,8 @@
 		return ..()
 
 /obj/item/wallframe/flasher
-	name = "mounted flash frame"
-	desc = "Used for building wall-mounted flashers."
+	name = "рама настенной вспышки"
+	desc = "Используется для монтажа настенной вспышки."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "mflash_frame"
 	result_path = /obj/machinery/flasher
@@ -224,7 +257,7 @@
 
 /obj/item/wallframe/flasher/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>Its channel ID is '[id]'.</span>"
+	. += "<hr><span class='notice'>Текущий канал '[id]'.</span>"
 
 /obj/item/wallframe/flasher/after_attach(obj/O)
 	..()

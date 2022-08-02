@@ -566,7 +566,7 @@
 
 
 /obj/docking_port/mobile/pod
-	name = "эвакуационный под"
+	name = "эвакуационный челнок"
 	id = "pod"
 	dwidth = 1
 	width = 3
@@ -582,14 +582,14 @@
 			launch_status = EARLY_LAUNCHED
 			return ..()
 	else
-		to_chat(usr, span_warning("Эвакуационный под запустится только при уровне \"Красной\" тревоги или выше."))
+		to_chat(usr, span_warning("Эвакуационный челнок запустится только при уровне \"Красной\" тревоги или выше."))
 		return TRUE
 
 /obj/docking_port/mobile/pod/cancel()
 	return
 
 /obj/machinery/computer/shuttle_flight/pod
-	name = "консоль управления подом"
+	name = "консоль управления челноком"
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "dorm_available"
 	light_color = LIGHT_COLOR_BLUE
@@ -601,7 +601,7 @@
 
 /obj/machinery/computer/shuttle_flight/pod/ui_interact(mob/user, datum/tgui/ui)
 	if(isliving(user) && SSsecurity_level.current_level < SEC_LEVEL_RED && !(obj_flags & EMAGGED))
-		say("Красный код не красный.")
+		say("Управление заблокировано: аварийный доступ к спасательному челноку возможен только во время Красного Кода.")
 		return
 	. = ..()
 
@@ -617,7 +617,7 @@
 		shuttlePortId = "[shuttleId]_custom"
 
 /obj/docking_port/stationary/random
-	name = "эвакуационный под"
+	name = "эвакуационный челнок"
 	id = "pod"
 	dwidth = 1
 	width = 3

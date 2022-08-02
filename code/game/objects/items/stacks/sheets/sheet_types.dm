@@ -106,19 +106,21 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	new/datum/stack_recipe("каркас отражателя", /obj/structure/reflector, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
 	null, \
 	new/datum/stack_recipe("корпус гранаты", /obj/item/grenade/chem_grenade), \
-	new/datum/stack_recipe("каркас светильника", /obj/item/wallframe/light_fixture, 2), \
-	new/datum/stack_recipe("каркас небольшого светильника", /obj/item/wallframe/light_fixture/small, 1), \
+	new/datum/stack_recipe("каркас для лампы дневного света", /obj/item/wallframe/light_fixture, 2), \
+	new/datum/stack_recipe("каркас для маленькой лампочки", /obj/item/wallframe/light_fixture/small, 1), \
+	new/datum/stack_recipe("каркас для прожектора", /obj/structure/floodlight_frame, 5, one_per_turf = TRUE, on_floor = TRUE), \
 	null, \
-	new/datum/stack_recipe("рамка APC", /obj/item/wallframe/apc, 2), \
-	new/datum/stack_recipe("каркас контроллера воздуха", /obj/item/wallframe/airalarm, 2), \
-	new/datum/stack_recipe("каркас пожарной тревоги", /obj/item/wallframe/firealarm, 2), \
-	new/datum/stack_recipe("шкаф для огнетушителя", /obj/item/wallframe/extinguisher_cabinet, 2), \
-	new/datum/stack_recipe("рамка для кнопки", /obj/item/wallframe/button, 1), \
+	new/datum/stack_recipe("рама АПЦ", /obj/item/wallframe/apc, 2), \
+	new/datum/stack_recipe("рама контроллера воздуха", /obj/item/wallframe/airalarm, 2), \
+	new/datum/stack_recipe("рама пожарной тревоги", /obj/item/wallframe/firealarm, 2), \
+	new/datum/stack_recipe("рама для кнопки", /obj/item/wallframe/button, 1), \
+	new/datum/stack_recipe("рама настенной вспышки", /obj/item/wallframe/flasher, 1), \
+	new/datum/stack_recipe("каркас стробоскопа", /obj/machinery/flasher_assembly, 2, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("шкафчик для огнетушителя", /obj/item/wallframe/extinguisher_cabinet, 2), \
 	null, \
 	new/datum/stack_recipe("железная дверь", /obj/structure/mineral_door/iron, 20, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("картотека", /obj/structure/filingcabinet, 2, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("звонок", /obj/structure/desk_bell, 2, time = 3 SECONDS), \
-	new/datum/stack_recipe("каркас прожектора", /obj/structure/floodlight_frame, 5, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("ящик для голосования", /obj/structure/votebox, 15, time = 50), \
 	new/datum/stack_recipe("пестик", /obj/item/pestle, 1, time = 50), \
 	new/datum/stack_recipe("каркас гигиенобота", /obj/item/bot_assembly/hygienebot, 2, time = 5 SECONDS), \

@@ -2,6 +2,7 @@
 	name = "шкафчик главного инженера"
 	req_access = list(ACCESS_CE)
 	icon_state = "ce"
+	anchored = TRUE
 
 /obj/structure/closet/secure_closet/engineering_chief/PopulateContents()
 	..()

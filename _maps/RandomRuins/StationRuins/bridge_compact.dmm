@@ -1327,7 +1327,6 @@
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/west)
 "dJ" = (
-/obj/machinery/light_switch/directional/south,
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/gravity_generator)
 "dM" = (

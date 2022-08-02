@@ -17,6 +17,8 @@
 /obj/item/storage/belt/univeral
 	name = "универсальный пояс"
 	desc = "Может хранить любые предметы маленького размера."
+	icon = 'white/Feline/icons/engi_items.dmi'
+	icon_state = "universal"
 
 /obj/item/storage/belt/univeral/ComponentInitialize()
 	. = ..()

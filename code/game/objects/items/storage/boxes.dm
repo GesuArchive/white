@@ -282,7 +282,7 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/box/flashbangs
-	name = "коробка светошумовых гранат (ВНИМАНИЕ)"
+	name = "коробка светошумовых гранат"
 	desc = "<B>ВНИМАНИЕ: Гранаты чрезвычайно опасны и могут вызвать слепоту или глухоту при многократном использовании.</B>"
 	icon_state = "secbox"
 	illustration = "flashbang"
@@ -292,7 +292,7 @@
 		new /obj/item/grenade/flashbang(src)
 
 /obj/item/storage/box/stingbangs
-	name = "коробка стингбэнгов (ВНИМАНИЕ)"
+	name = "коробка травматических гранат"
 	desc = "<B>ВНИМАНИЕ: Гранаты чрезвычайно опасны и могут привести к тяжелым травмам или смерти при повторном использовании.</B>"
 	icon_state = "secbox"
 	illustration = "flashbang"
@@ -332,7 +332,7 @@
 
 
 /obj/item/storage/box/teargas
-	name = "ящик со слезоточивым газом (ВНИМАНИЕ)"
+	name = "ящик со слезоточивым газом"
 	desc = "<B>ВНИМАНИЕ: Гранаты чрезвычайно опасны и могут вызвать слепоту и раздражение кожи.</B>"
 	icon_state = "secbox"
 	illustration = "grenade"

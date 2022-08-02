@@ -162,6 +162,11 @@
 	suffix = "medbay_old.dmm"
 	name = "Old Medbay"
 
+/datum/map_template/ruin/station/med/panopticon
+	id = "panopticon_med"
+	suffix = "medbay_panopticon.dmm"
+	name = "Panopticon Medbay"
+
 ////	////	МЕТА	////	////
 
 /datum/map_template/ruin/station/meta/engine/tesla

@@ -1562,6 +1562,7 @@
 		"internals_tactical",
 		"handbeltsmodif",
 		"patron_belt",
+		"riot_shield",
 	)
 	prereq_ids = list(
 		"base",

@@ -62,7 +62,6 @@
 	inhand_icon_state = "shotgun_combat"
 	fire_delay = 5
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/com
-	w_class = WEIGHT_CLASS_HUGE
 
 //Dual Feed Shotgun
 

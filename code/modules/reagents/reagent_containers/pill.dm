@@ -295,8 +295,15 @@
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/iron
-	name = "таблетка крововосстанавливающего"
-	desc = "Содержит железо для стимуляции восстановления уровня крови в организме."
+	name = "таблетка с железом"
+	desc = "Содержит гематоген для стимуляции восстановления уровня крови в организме."
 	icon_state = "pill8"
 	list_reagents = list(/datum/reagent/iron = 50)
+	rename_with_volume = TRUE
+
+/obj/item/reagent_containers/pill/hematogen
+	name = "таблетка крововосстанавливающего"
+	desc = "Содержит гематоген для стимуляции восстановления уровня крови в организме."
+	icon_state = "pill8"
+	list_reagents = list(/datum/reagent/medicine/hematogen = 15)
 	rename_with_volume = TRUE

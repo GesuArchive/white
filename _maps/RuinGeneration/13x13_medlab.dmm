@@ -178,12 +178,6 @@
 	},
 /turf/open/floor/light,
 /area/ruin/unpowered)
-"nA" = (
-/obj/effect/turf_decal/trimline/blue/filled/warning{
-	dir = 8
-	},
-/turf/open/floor/plasteel/airless,
-/area/ruin/unpowered)
 "oi" = (
 /obj/structure/sink{
 	dir = 8;
@@ -295,9 +289,6 @@
 /obj/machinery/iv_drip,
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered)
-"BP" = (
-/turf/open/floor/plasteel/airless,
 /area/ruin/unpowered)
 "Ck" = (
 /obj/structure/table/reinforced,
@@ -706,8 +697,8 @@ bz
 Pe
 OL
 Zr
-nA
-nA
+hf
+hf
 hf
 Zr
 Ia
@@ -721,8 +712,8 @@ dS
 Pe
 tW
 Zr
-BP
-BP
+VI
+VI
 VI
 Zr
 dS
@@ -737,7 +728,7 @@ OU
 qY
 ca
 yL
-BP
+VI
 oi
 ca
 HQ

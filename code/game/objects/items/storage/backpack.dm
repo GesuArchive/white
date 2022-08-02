@@ -359,7 +359,7 @@
 	icon_state = "duffel"
 	inhand_icon_state = "duffel"
 	slowdown = 1
-	var/static/mutable_appearance/duffel_anti_slow_overlay = mutable_appearance('white/Feline/icons/duffel_anti_slow.dmi', "duffel_overlay", LYING_MOB_LAYER)
+	var/static/mutable_appearance/duffel_anti_slow_overlay = mutable_appearance('white/Feline/icons/duffel_anti_slow.dmi', "duffel_overlay")
 
 /obj/item/storage/backpack/duffelbag/ComponentInitialize()
 	. = ..()

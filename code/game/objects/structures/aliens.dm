@@ -104,6 +104,7 @@
 	icon_state = "resin_membrane-0"
 	base_icon_state = "resin_membrane"
 	opacity = FALSE
+	pass_flags_self = PASSGLASS
 	max_integrity = 160
 	resintype = "membrane"
 	smoothing_groups = list(SMOOTH_GROUP_ALIEN_RESIN, SMOOTH_GROUP_ALIEN_WALLS)

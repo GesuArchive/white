@@ -36,7 +36,7 @@
 		. += "<hr>Крышка закрыта[locked ? "" : " и похоже не заперта"]."
 
 	if(cell && cell.charge <= 0)
-		. += "<hr><span class='warning'>Индикатор зарядает мигает красным!</span>"
+		. += "<hr><span class='warning'>Индикатор зарядки мигает красным!</span>"
 
 	switch(stat)
 		if(CONSCIOUS)

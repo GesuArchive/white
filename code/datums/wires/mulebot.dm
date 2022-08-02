@@ -33,3 +33,9 @@
 			holder.visible_message(span_notice("[icon2html(M, viewers(holder))] Двигатель коротко скулит."))
 		else
 			holder.visible_message(span_notice("[icon2html(M, viewers(holder))] Трещит на языке радио."))
+
+/datum/wires/mulebot/can_reveal_wires(mob/user)
+	if(HAS_TRAIT(user, TRAIT_KNOW_CYBORG_WIRES))
+		return TRUE
+
+	return ..()

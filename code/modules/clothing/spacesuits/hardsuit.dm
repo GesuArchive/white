@@ -119,6 +119,9 @@
 	var/obj/item/tank/jetpack/suit/jetpack = null
 	var/hardsuit_type
 	var/armor_plate_amount = 0
+	var/armor_plate_plasteel = 0
+	var/armor_plate_ceramic = 0
+	var/armor_plate_ablative = 0
 
 /obj/item/clothing/suit/space/hardsuit/Initialize(mapload)
 	if(jetpack && ispath(jetpack))
@@ -131,6 +134,7 @@
 
 /obj/item/clothing/suit/space/hardsuit/examine(mob/user)
 	. = ..()
+	. += "<hr><span class='notice'>Здесь есть крепления для дополнительных <b>броневых пластин</b>. На текущий момент закреплено <b>[armor_plate_amount]/3</b> бронепластин.</span>"
 	if(!helmet && helmettype)
 		. += span_notice("\nШлем [src] кажется неисправным. На нем нужно заменить лампочку.")
 
@@ -180,6 +184,27 @@
 			to_chat(user, span_notice("Успешно установил джетпак в [src]."))
 			return
 	else if(!cell_cover_open && I.tool_behaviour == TOOL_SCREWDRIVER)
+
+// 	Извлечение бронепластин
+		if(armor_plate_amount)
+			to_chat(user, span_notice("Извлекаю внешние бронепластины..."))
+			playsound(user, 'sound/items/screwdriver.ogg',70, TRUE)
+			if(!do_after(user, 5 SECONDS, src))
+				return TRUE
+			playsound(user, 'sound/items/handling/toolbelt_pickup.ogg', 70, TRUE)
+			if(armor_plate_plasteel)
+				for(var/i in 1 to armor_plate_plasteel)
+					new /obj/item/stack/sheet/armor_plate/plasteel(src.drop_location())
+			if(armor_plate_ceramic)
+				for(var/i in 1 to armor_plate_ceramic)
+					new /obj/item/stack/sheet/armor_plate/ceramic(src.drop_location())
+			if(armor_plate_ablative)
+				for(var/i in 1 to armor_plate_ablative)
+					new /obj/item/stack/sheet/armor_plate/ablative(src.drop_location())
+			new src.type(src.drop_location())
+			qdel(src)
+			return
+
 		if(!jetpack)
 			to_chat(user, span_warning("Джетпак [src] не установлен."))
 			return

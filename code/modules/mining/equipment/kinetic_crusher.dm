@@ -5,7 +5,7 @@
 	inhand_icon_state = "crusher0"
 	lefthand_file = 'icons/mob/inhands/weapons/hammers_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/hammers_righthand.dmi'
-	name = "просто-кинетический крашер"
+	name = "прото-кинетический крашер"
 	desc = "Ранний прототип протокинетического ускорителя, он представляет собой комбинацию различных горнодобывающих инструментов, причудливо собранных вместе в здоровенный топор. Весьма сложный в использованнии, крашер является выбором самых опытных и отчаянных шахтеров."
 	force = 0 //You can't hit stuff unless wielded
 	w_class = WEIGHT_CLASS_BULKY

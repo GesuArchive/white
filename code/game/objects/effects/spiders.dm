@@ -114,7 +114,7 @@
 	return ..()
 
 /obj/structure/spider/eggcluster/enriched
-	name = "обогощенная паучья кладка"
+	name = "обогащенная паучья кладка"
 	color = rgb(148, 0, 211)
 
 /obj/structure/spider/eggcluster/bloody
@@ -203,7 +203,7 @@
 	QDEL_NULL(egg)
 
 /obj/effect/mob_spawn/spider/enriched
-	name = "обогощенная паучья кладка"
+	name = "обогащенная паучья кладка"
 	color = rgb(148, 0, 211)
 	short_desc = "Вы элитный паук! Охраняйте гнездо и королеву, а так же следуйте ее приказам."
 	cluster_type = /obj/structure/spider/eggcluster/enriched

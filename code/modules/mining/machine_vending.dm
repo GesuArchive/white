@@ -159,6 +159,7 @@
 		new /datum/data/vendor_equipment("Mining Conscription Kit",		/obj/item/storage/backpack/duffelbag/mining_conscript,				1500),
 		new /datum/data/vendor_equipment("Jetpack Upgrade",				/obj/item/tank/jetpack/suit,										2000),
 		new /datum/data/vendor_equipment("Улучшенные ремни сумок",		/obj/item/duffel_anti_slow,											2000),
+		new /datum/data/vendor_equipment("Имплант биомонитора",			/obj/item/autosurgeon/organ/biomonitor,								2000),
 		new /datum/data/vendor_equipment("Space Cash",					/obj/item/stack/spacecash/c1000,									2000),
 		new /datum/data/vendor_equipment("Mining Hardsuit",				/obj/item/clothing/suit/space/hardsuit/mining,						2000),
 		new /datum/data/vendor_equipment("Diamond Pickaxe",				/obj/item/pickaxe/diamond,											2000),

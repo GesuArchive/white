@@ -135,6 +135,7 @@
 	template_names = list(
 		"Default Medbay" = 10,
 		"Durka Fortress" = 10,
+		"Panopticon Medbay" = 10,
 		"Old Medbay" = 7,
 	)
 	icon_state = "medbay_template"

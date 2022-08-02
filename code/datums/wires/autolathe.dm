@@ -46,3 +46,9 @@
 			A.disabled = !mend
 		if(WIRE_ZAP)
 			A.shock(usr, 50)
+
+/datum/wires/autolathe/can_reveal_wires(mob/user)
+	if(HAS_TRAIT(user, TRAIT_KNOW_ENGI_WIRES))
+		return TRUE
+
+	return ..()

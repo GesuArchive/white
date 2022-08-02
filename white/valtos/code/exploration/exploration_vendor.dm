@@ -32,6 +32,7 @@
 		new /datum/data/vendor_equipment("Расширенный баллон",			/obj/item/tank/internals/emergency_oxygen/engi,						1000),
 		new /datum/data/vendor_equipment("Реактивные двигатели РИГа",	/obj/item/tank/jetpack/suit,										2000),
 		new /datum/data/vendor_equipment("Военные магнитки",			/obj/item/clothing/shoes/magboots/ranger,							2000),
+		new /datum/data/vendor_equipment("Имплант биомонитора",			/obj/item/autosurgeon/organ/biomonitor,								2000),
 		new /datum/data/vendor_equipment("Нож выживальщика",			/obj/item/kitchen/knife/combat/survival,							1000),
 		new /datum/data/vendor_equipment("Пицца Маргарита",				/obj/item/pizzabox/margherita,										200),
 		new /datum/data/vendor_equipment("ИРП-4",						/obj/item/storage/mre,												215),

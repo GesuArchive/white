@@ -730,7 +730,7 @@
 	desc = "Штука, которая защитит от лазеров, но не от пуль."
 	icon_state = "ablativehood"
 	flags_inv = HIDEHAIR|HIDEEARS
-	armor = list(MELEE = 10, BULLET = 10, LASER = 60, ENERGY = 60, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
+	armor = list(MELEE = 20, BULLET = 20, LASER = 80, ENERGY = 80, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
 	strip_delay = 30
 	var/hit_reflect_chance = 50
 
@@ -755,12 +755,12 @@
 		return TRUE
 
 /obj/item/clothing/suit/hooded/ablative
-	name = "аблативный плащ"
+	name = "экспериментальный аблативный плащ"
 	desc = "Экспериментальный плащ, специально созданный для отражения и поглощения лазерных и дезактивирующих ударов. Однако не ожидайте, что он так много сделает против топора или дробовика."
 	icon_state = "ablativecoat"
 	inhand_icon_state = "ablativecoat"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
-	armor = list(MELEE = 10, BULLET = 10, LASER = 60, ENERGY = 60, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
+	armor = list(MELEE = 20, BULLET = 20, LASER = 80, ENERGY = 80, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
 	hoodtype = /obj/item/clothing/head/hooded/ablative
 	strip_delay = 30
 	equip_delay_other = 40

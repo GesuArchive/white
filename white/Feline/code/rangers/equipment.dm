@@ -68,7 +68,8 @@
 	set_holdable(list(
 		/obj/item/gun/ballistic,
 		/obj/item/gun/energy,
-		/obj/item/kinetic_crusher
+		/obj/item/kinetic_crusher,
+		/obj/item/gun/grenadelauncher
 	))
 
 //Спавн оружия в чехле, так можно задать пресеты, по умолчанию /obj/item/tank/internals/tactical/ должен быть пуст, а пресеты устанавливаются через наследников

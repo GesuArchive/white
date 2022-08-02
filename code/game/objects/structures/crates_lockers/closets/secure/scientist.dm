@@ -2,6 +2,7 @@
 	name = "шкафчик директора по исследованиям"
 	req_access = list(ACCESS_RD)
 	icon_state = "rd"
+	anchored = TRUE
 
 /obj/structure/closet/secure_closet/research_director/PopulateContents()
 	..()

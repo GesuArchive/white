@@ -403,10 +403,13 @@
 /obj/item/clothing/gloves/color/yellow,
 /obj/item/clothing/gloves/color/yellow,
 /obj/item/clothing/gloves/color/yellow,
-/obj/item/pickaxe/drill,
 /obj/item/clothing/glasses/welding,
 /obj/item/clothing/glasses/welding,
 /obj/item/clothing/glasses/welding,
+/obj/item/pickaxe/drill/jackhammer,
+/obj/item/pickaxe/drill/jackhammer,
+/obj/item/pickaxe/drill/jackhammer,
+/obj/item/pickaxe/drill/jackhammer,
 /turf/open/floor/plating,
 /area/construction/storage_wing)
 "gQ" = (

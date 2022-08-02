@@ -469,7 +469,7 @@
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
 "dy" = (
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/medical/medbay/lobby)
 "dA" = (
 /obj/structure/table,
@@ -3837,7 +3837,7 @@
 /area/medical/pharmacy)
 "JA" = (
 /obj/machinery/smartfridge/chemistry/preloaded,
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/medical/pharmacy)
 "JI" = (
 /obj/machinery/door/airlock/medical/glass{
@@ -4589,7 +4589,7 @@
 /area/security/checkpoint/medical)
 "Qr" = (
 /obj/machinery/status_display/evac,
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/medical/medbay/lobby)
 "QL" = (
 /obj/structure/disposalpipe/segment{
@@ -5916,7 +5916,7 @@ Ok
 JA
 OF
 Zz
-Ci
+Zz
 Ci
 Ci
 Fs
@@ -6250,8 +6250,8 @@ Gl
 Ib
 Ib
 Ib
-vh
-vh
+Gl
+Gl
 dy
 dy
 ao

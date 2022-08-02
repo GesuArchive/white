@@ -13,8 +13,6 @@
 	dir = 8
 	},
 /obj/structure/rack,
-/obj/item/clothing/suit/armor/ussr,
-/obj/item/clothing/head/helmet/ussr,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -25,6 +23,10 @@
 	icon_state = "left";
 	name = "����������� �����"
 	},
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/head/helmet/riot,
+/obj/item/clothing/head/helmet/alt,
 /turf/open/floor/engine,
 /area/ruin/unpowered)
 "l" = (

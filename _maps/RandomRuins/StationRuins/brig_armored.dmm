@@ -325,6 +325,7 @@
 /obj/item/stack/sheet/armor_plate/plasteel/three,
 /obj/item/full_armor_upgrade,
 /obj/item/full_armor_upgrade,
+/obj/item/full_armor_upgrade,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "ck" = (
@@ -466,6 +467,7 @@
 /obj/effect/turf_decal/tile/hex/neutral{
 	dir = 8
 	},
+/obj/item/gun/energy/temperature/security,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "cn" = (
@@ -609,6 +611,20 @@
 	pixel_x = 9
 	},
 /obj/item/key/security,
+/obj/item/grenade/barrier{
+	pixel_x = 16;
+	pixel_y = 9
+	},
+/obj/item/grenade/barrier{
+	pixel_x = 11;
+	pixel_y = 9
+	},
+/obj/item/grenade/barrier{
+	pixel_x = 5;
+	pixel_y = 9
+	},
+/obj/item/gun/energy/e_gun/dragnet,
+/obj/item/gun/energy/e_gun/dragnet,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "cK" = (
@@ -684,6 +700,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/item/gun/ballistic/shotgun/sniper,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "dc" = (
@@ -727,13 +744,30 @@
 /area/ai_monitored/security/armory)
 "de" = (
 /obj/effect/turf_decal/bot,
-/obj/item/gun/ballistic/shotgun/sniper,
-/obj/structure/guncase/shotgun{
-	anchored = 1;
-	can_be_unanchored = 1
+/obj/structure/rack,
+/obj/structure/window/reinforced{
+	dir = 1;
+	layer = 2.9
 	},
-/obj/item/gun/ballistic/shotgun/sniper,
-/obj/item/gun/ballistic/shotgun/sniper,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/southleft{
+	name = "Armory Rack";
+	req_access_txt = "3"
+	},
+/obj/item/gun/energy/laser{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/gun/energy/laser,
+/obj/item/gun/energy/laser{
+	pixel_x = 3;
+	pixel_y = -3
+	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "df" = (
@@ -747,9 +781,20 @@
 	pixel_x = 3;
 	pixel_y = -3
 	},
-/obj/structure/guncase/ecase{
-	anchored = 1;
-	can_be_unanchored = 1
+/obj/structure/rack,
+/obj/structure/window/reinforced{
+	dir = 1;
+	layer = 2.9
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/southleft{
+	name = "Armory Rack";
+	req_access_txt = "3"
 	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
@@ -770,20 +815,35 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/storage/belt/holster/thermal,
-/obj/item/storage/belt/holster/thermal,
+/obj/item/gun/energy/e_gun{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/gun/energy/e_gun,
+/obj/item/gun/energy/e_gun{
+	pixel_x = 3;
+	pixel_y = -3
+	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "dh" = (
-/obj/effect/landmark/event_spawn,
-/mob/living/simple_animal/bot/secbot{
-	arrest_type = 1;
-	health = 45;
-	icon_state = "secbot1";
-	idcheck = 1;
-	name = "Sergeant-at-Armsky";
-	weaponscheck = 1
+/obj/structure/rack,
+/obj/structure/window/reinforced{
+	dir = 4
 	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	layer = 2.9
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/southleft{
+	name = "Armory Rack";
+	req_access_txt = "3"
+	},
+/obj/item/storage/belt/holster/thermal,
+/obj/item/storage/belt/holster/thermal,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "di" = (
@@ -909,6 +969,15 @@
 /area/ai_monitored/security/armory)
 "dO" = (
 /obj/structure/cable,
+/mob/living/simple_animal/bot/secbot{
+	arrest_type = 1;
+	health = 45;
+	icon_state = "secbot1";
+	idcheck = 1;
+	name = "Sergeant-at-Armsky";
+	weaponscheck = 1
+	},
+/obj/effect/landmark/event_spawn,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "dP" = (
@@ -1675,6 +1744,7 @@
 /obj/item/clothing/gloves/color/latex,
 /obj/item/clothing/mask/surgical,
 /obj/item/reagent_containers/spray/cleaner,
+/obj/item/healthanalyzer,
 /turf/open/floor/engine,
 /area/security/brig)
 "fX" = (
@@ -2508,6 +2578,9 @@
 	},
 /obj/machinery/computer/operating{
 	dir = 1
+	},
+/obj/machinery/light{
+	pixel_y = 0
 	},
 /turf/open/floor/engine,
 /area/security/brig)
