@@ -1304,6 +1304,7 @@
 					/obj/item/stack/medical/bone_gel/four,
 					/obj/item/stack/medical/bone_gel/four,
 					/obj/item/vending_refill/medical,
+					/obj/item/vending_refill/chetverochka/pharma,
 					/obj/item/vending_refill/drugs)
 	crate_name = "medical supplies crate"
 
@@ -2738,6 +2739,7 @@
 	cost = BUY_CRATE_VALUE * 5
 	contains = list(/obj/item/vending_refill/medical,
 					/obj/item/vending_refill/drugs,
+					/obj/machinery/vending/chetverochka/pharma,
 					/obj/item/vending_refill/wallmed)
 	crate_name = "medical vending crate"
 
@@ -2761,7 +2763,8 @@
 	name = "Snack Supply Crate"
 	desc = "One vending machine refill of cavity-bringin' goodness! The number one dentist recommended order!"
 	cost = BUY_CRATE_VALUE * 3
-	contains = list(/obj/item/vending_refill/snack)
+	contains = list(/obj/item/vending_refill/snack,
+					/obj/item/vending_refill/chetverochka)
 	crate_name = "snacks supply crate"
 
 /datum/supply_pack/vending/cola

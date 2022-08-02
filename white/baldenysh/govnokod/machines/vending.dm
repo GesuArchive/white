@@ -17,11 +17,19 @@
 					/obj/item/storage/mre/vegan = 5,
 					/obj/item/storage/mre/protein = 5
 					)
-	//refill_canister = /obj/item/vending_refill/cola
+	refill_canister = /obj/item/vending_refill/cola
 	default_price = CARGO_CRATE_VALUE * 1
 	extra_price = CARGO_CRATE_VALUE * 2
 	payment_department = ACCOUNT_SRV
 	light_mask = "chetverochka-light-mask"
+
+/obj/machinery/vending/chetverochka/canLoadItem(obj/item/I,mob/user)
+	return (I.type in products)
+
+/obj/item/vending_refill/chetverochka
+	machine_name = "Продуктовый вендомат (ОАО Четверочка-вендиг)"
+	icon_state = "refill_сola"
+
 
 /obj/machinery/vending/chetverochka/pharma
 	name = "Аптечный вендомат (ОАО Четверочка-вендиг)"
@@ -42,7 +50,14 @@
 					)
 	armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 50)
 	resistance_flags = FIRE_PROOF
-	//refill_canister = /obj/item/vending_refill/medical
+	refill_canister = /obj/item/vending_refill/medical
 	default_price = CARGO_CRATE_VALUE * 1
 	extra_price = CARGO_CRATE_VALUE * 2
 	payment_department = ACCOUNT_MED
+
+/obj/machinery/vending/chetverochka/canLoadItem(obj/item/I,mob/user)
+	return (I.type in products)
+
+/obj/item/vending_refill/chetverochka/pharma
+	machine_name = "Аптечный вендомат (ОАО Четверочка-вендиг)"
+	icon_state = "refill_medical"
