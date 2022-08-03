@@ -620,7 +620,7 @@
 	return cached_results["fire"] ? REACTING : NO_REACTION
 */
 /datum/gas_reaction/nitrousformation //formationn of n2o, esothermic, requires bz as catalyst
-	priority = 3
+	priority = 14
 	name = "Nitrous Oxide formation"
 	id = "nitrousformation"
 

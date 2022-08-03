@@ -451,30 +451,11 @@
 					"set_external_pressure" = ONE_ATMOSPHERE
 				), signal_source)
 		if(AALARM_MODE_CONTAMINATED)
+			var/list/all_gases = GLOB.gas_data.get_by_flag(GAS_FLAG_DANGEROUS)
 			for(var/device_id in my_area.air_scrub_info)
 				send_signal(device_id, list(
 					"power" = 1,
-					"set_filters" = list(
-						GAS_CO2,
-						GAS_MIASMA,
-						GAS_PLASMA,
-						GAS_H2O,
-						GAS_HYPERNOB,
-						GAS_NITROUS,
-						GAS_NITRYL,
-						GAS_TRITIUM,
-						GAS_BZ,
-						GAS_STIMULUM,
-						GAS_PLUOXIUM,
-						GAS_FREON,
-						GAS_HYDROGEN,
-						GAS_HEALIUM,
-						GAS_PROTO_NITRATE,
-						GAS_ZAUKER,
-						GAS_HELIUM,
-						GAS_ANTINOBLIUM,
-						GAS_HALON
-					),
+					"set_filters" = all_gases,
 					"scrubbing" = 1,
 					"widenet" = 1
 				), signal_source)
