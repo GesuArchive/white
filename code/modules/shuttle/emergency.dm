@@ -601,7 +601,7 @@
 
 /obj/machinery/computer/shuttle_flight/pod/ui_interact(mob/user, datum/tgui/ui)
 	if(isliving(user) && SSsecurity_level.current_level < SEC_LEVEL_RED && !(obj_flags & EMAGGED))
-		say("Управление заблокировано: аварийный доступ к спасательному челноку возможен только во время Красного Кода.")
+		say("Управление заблокировано: аварийный доступ к спасательному челноку возможен только при уровне \"Красной\" тревоги или выше")
 		return
 	. = ..()
 

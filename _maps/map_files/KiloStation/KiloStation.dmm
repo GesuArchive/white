@@ -61066,6 +61066,7 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 8
 	},
+/obj/item/binoculars,
 /turf/open/floor/plasteel/dark,
 /area/cargo/exploration_dock)
 "pZk" = (

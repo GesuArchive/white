@@ -296,7 +296,7 @@
 
 /obj/item/reagent_containers/pill/iron
 	name = "таблетка с железом"
-	desc = "Содержит гематоген для стимуляции восстановления уровня крови в организме."
+	desc = "Содержит железо для стимуляции восстановления уровня крови в организме."
 	icon_state = "pill8"
 	list_reagents = list(/datum/reagent/iron = 50)
 	rename_with_volume = TRUE

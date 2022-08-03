@@ -1125,6 +1125,13 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
+/obj/machinery/door_buttons/access_button{
+	idDoor = "virology_airlock_exterior";
+	idSelf = "virology_airlock_control";
+	name = "Virology Access Button";
+	req_access_txt = "39";
+	pixel_y = -24
+	},
 /turf/open/floor/plasteel/dark/side,
 /area/medical/medbay/aft)
 "ii" = (
@@ -1349,13 +1356,6 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay)
 "jL" = (
-/obj/machinery/door_buttons/access_button{
-	idDoor = "virology_airlock_exterior";
-	idSelf = "virology_airlock_control";
-	name = "Virology Access Button";
-	pixel_x = -24;
-	req_access_txt = "39"
-	},
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door/airlock/virology{
 	autoclose = 0;
@@ -3215,6 +3215,13 @@
 	},
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 9
+	},
+/obj/machinery/door_buttons/access_button{
+	idDoor = "virology_airlock_exterior";
+	idSelf = "virology_airlock_control";
+	name = "Virology Access Button";
+	req_access_txt = "39";
+	pixel_y = 25
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
