@@ -196,12 +196,12 @@
 
 /turf/open/floor/grass/snow/safe
 	slowdown = 1.5
-	initial_temperature = OPENTURF_DEFAULT_ATMOS
+	initial_temperature = T20C
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 
 /turf/open/floor/grass/snow/actually_safe
 	slowdown = 0
-	initial_temperature = OPENTURF_DEFAULT_ATMOS
+	initial_temperature = T20C
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 
 

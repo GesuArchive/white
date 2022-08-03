@@ -285,7 +285,7 @@
 	icon_state = "snow_dug"
 	baseturfs = /turf/open/openspace
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	initial_temperature = OPENTURF_DEFAULT_ATMOS
+	initial_temperature = T20C
 
 /turf/open/floor/plating/snowed/dug/Initialize(mapload)
 	. = ..()
@@ -314,11 +314,11 @@
 
 /turf/open/floor/plating/snowed/safe
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	initial_temperature = OPENTURF_DEFAULT_ATMOS
+	initial_temperature = T20C
 
 /turf/open/floor/plating/snowed/smoothed/safe
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	initial_temperature = OPENTURF_DEFAULT_ATMOS
+	initial_temperature = T20C
 
 /turf/open/floor/plating/grass
 	name = "трава"
