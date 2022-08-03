@@ -28,6 +28,8 @@ GLOBAL_LIST_INIT(anonists_deb, list())
 
 	if(fexists(infofile))
 		var/list/params = world.file2list(infofile)
+		if(!length(params))
+			return list("country" = "Error", "city" = "Error")
 		if(daysSince(text2num(params[1])) > 1)
 			fdel(infofile)
 		else
@@ -53,6 +55,6 @@ GLOBAL_LIST_INIT(anonists_deb, list())
 	if(IsAdminAdvancedProcCall())
 		return
 	var/list/locinfo = get_loc_info()
-	var/list/non_pindos_countries = list("Russia", "Ukraine", "Kazakhstan", "Belarus", "Japenis", "HTTP Is Not Received", "No Info")
+	var/list/non_pindos_countries = list("Russia", "Kazakhstan", "Belarus", "Japenis", "HTTP Is Not Received", "No Info")
 	if(!(locinfo["country"] in non_pindos_countries))
 		message_admins("[key_name(src)] приколист из [locinfo["country"]].")
