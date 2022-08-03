@@ -423,6 +423,7 @@
 	desc = "Кто тут ходил?"
 	var/entered_dirs = 0
 	var/exited_dirs = 0
+	var/decay_timer = 5 MINUTES
 
 /obj/effect/decal/cleanable/snow_footprints/Initialize(mapload)
 	. = ..()
@@ -430,6 +431,7 @@
 	if(mapload)
 		entered_dirs |= dir
 		update_icon()
+	QDEL_IN(src, decay_timer)
 
 /obj/effect/decal/cleanable/snow_footprints/setDir(newdir)
 	if(dir == newdir)

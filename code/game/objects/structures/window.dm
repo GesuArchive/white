@@ -719,6 +719,8 @@
 	icon_state = "rice_window-0"
 	base_icon_state = "rice_window"
 	max_integrity = 150
+	smoothing_groups = list(SMOOTH_GROUP_WINDOW_FULLTILE)
+	canSmoothWith = list(SMOOTH_GROUP_WINDOW_FULLTILE)
 	glass_amount = 2
 
 /obj/structure/window/shuttle

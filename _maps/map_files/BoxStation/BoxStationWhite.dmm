@@ -18809,7 +18809,7 @@
 /obj/machinery/camera/autoname{
 	start_active = 1
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/plating,
 /area/hallway/secondary/entry)
 "fpL" = (
 /obj/effect/spawner/structure/window/reinforced,

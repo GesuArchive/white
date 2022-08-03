@@ -247,7 +247,7 @@
 	icon_state = "ice_turf-255"
 	base_icon_state = "ice_turf"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
-	smoothing_groups = list(SMOOTH_GROUP_FLOOR_ICE)
+	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_FLOOR_ICE)
 	canSmoothWith = list(SMOOTH_GROUP_TURF_OPEN)
 
 /turf/open/floor/plating/ice/break_tile()
@@ -258,6 +258,7 @@
 
 /turf/open/floor/plating/ice/smooth/safe
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+
 /turf/open/floor/plating/ice/icemoon
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 	slowdown = 0
@@ -276,6 +277,19 @@
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+
+/turf/open/floor/plating/snowed/dug
+	name = "промёрзшая земля"
+	desc = "Выглядит прохладно."
+	icon = 'icons/turf/snow.dmi'
+	icon_state = "snow_dug"
+	baseturfs = /turf/open/openspace
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	initial_temperature = OPENTURF_DEFAULT_ATMOS
+
+/turf/open/floor/plating/snowed/dug/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/diggable, /obj/item/stack/ore/glass, 2, "вскапываю", "вскапывает")
 
 /turf/open/floor/plating/snowed/cavern
 	initial_gas_mix = "o2=0;n2=82;plasma=24;TEMP=120"
@@ -297,6 +311,14 @@
 
 /turf/open/floor/plating/snowed/smoothed/icemoon
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
+
+/turf/open/floor/plating/snowed/safe
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	initial_temperature = OPENTURF_DEFAULT_ATMOS
+
+/turf/open/floor/plating/snowed/smoothed/safe
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	initial_temperature = OPENTURF_DEFAULT_ATMOS
 
 /turf/open/floor/plating/grass
 	name = "трава"

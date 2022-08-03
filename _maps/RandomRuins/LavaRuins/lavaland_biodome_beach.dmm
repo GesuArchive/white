@@ -381,10 +381,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
-/turf/open/floor/plasteel{
-	icon = 'icons/misc/beach.dmi';
-	icon_state = "sand"
-	},
+/turf/open/floor/plating/beach/sand,
 /area/ruin/powered/beach)
 "hq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -570,10 +567,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/sand,
-/turf/open/floor/plasteel{
-	icon = 'icons/misc/beach.dmi';
-	icon_state = "sand"
-	},
+/turf/open/floor/plating/beach/sand,
 /area/ruin/powered/beach)
 "qc" = (
 /obj/structure/mirror{
@@ -1285,8 +1279,8 @@
 /area/ruin/powered/beach)
 "PN" = (
 /obj/effect/turf_decal/sand,
-/obj/machinery/jukebox,
 /obj/item/coin/gold,
+/obj/machinery/turntable,
 /turf/open/floor/sepia,
 /area/ruin/powered/beach)
 "PY" = (

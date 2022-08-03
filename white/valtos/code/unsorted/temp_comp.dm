@@ -7,18 +7,12 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 /area
 	var/env_temp_relative = 20
 
-/area/awaymission/chilly/Entered(atom/movable/M, oldloc)
+/area/awaymission/chilly/Entered(atom/movable/AM, oldloc)
 	. = ..()
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(ishuman(AM))
+		var/mob/living/carbon/human/H = AM
 		if(!H.GetComponent(/datum/component/realtemp))
 			H.AddComponent(/datum/component/realtemp)
-
-/area/awaymission/chilly/Exited(atom/movable/M)
-	. = ..()
-	//if(ishuman(M))
-	//	var/mob/living/carbon/human/H = M
-	//	qdel(H.GetComponent(/datum/component/realtemp))
 
 /datum/component/realtemp
 	var/mob/living/carbon/human/owner
@@ -107,8 +101,8 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 			owner.adjustStaminaLoss(rand(1, 5))
 			owner.adjust_bodytemperature(-rand(25, 50), use_insulation=TRUE, use_steps=TRUE)
 			if(prob(10))
-				owner.adjust_bodytemperature(-rand(25, 50), use_insulation=TRUE, use_steps=TRUE)
-				to_chat(owner, pick(span_warning("Замерзаю...") , span_warning("Холодно...") , span_warning("Нужно срочно согреться...")))
+				owner.adjust_bodytemperature(-rand(100, 200))
+				to_chat(owner, pick(span_warning("Замерзаю..."), span_warning("Холодно..."), span_warning("Нужно срочно согреться...")))
 		if(1 to 20)
 			if(prob(20))
 				owner.emote("shiver")

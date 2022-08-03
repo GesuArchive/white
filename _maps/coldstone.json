@@ -17,7 +17,7 @@
 		{
 			"Up": 1,
 			"Down": -1,
-			"Baseturf": "/turf/open/openspace",
+			"Baseturf": "/turf/open/floor/plating/snowed/dug",
 			"Linkage": null,
 			"Gravity": true,
 			"No Parallax": true
@@ -25,7 +25,7 @@
 		{
 			"Up": 1,
 			"Down": -1,
-			"Baseturf": "/turf/open/openspace",
+			"Baseturf": "/turf/open/floor/plating/snowed/dug",
 			"Linkage": null,
 			"Gravity": true,
 			"No Parallax": true
@@ -33,14 +33,14 @@
 		{
 			"Up": 1,
 			"Down": -1,
-			"Baseturf": "/turf/open/openspace",
+			"Baseturf": "/turf/open/floor/plating/snowed/dug",
 			"Linkage": null,
 			"Gravity": true,
 			"No Parallax": true
 		},
 		{
 			"Down": -1,
-			"Baseturf": "/turf/open/openspace",
+			"Baseturf": "/turf/open/floor/plating/snowed/dug",
 			"Linkage": null,
 			"Gravity": true,
 			"No Parallax": true

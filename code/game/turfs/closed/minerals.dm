@@ -557,6 +557,10 @@
 	turf_type = /turf/open/floor/plating/asteroid/snow/ice/icemoon
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 
+/turf/closed/mineral/snowmountain/cavern/safe
+	baseturfs = /turf/open/floor/plating/snowed/dug
+	turf_type = /turf/open/floor/plating/snowed/dug
+
 //yoo RED ROCK RED ROCK
 
 /turf/closed/mineral/asteroid
