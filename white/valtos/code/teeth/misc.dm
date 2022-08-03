@@ -62,18 +62,18 @@
 			target.visible_message(span_danger("Зуб [target] вылетает и падает на пол!") , span_userdanger("Мой зубик!"))
 
 /proc/lisp(message, intensity=100) //Intensity = how hard will the dude be lisped
-	message = prob(intensity) ? replacetext_char(message, "т", "ф") : message
-	message = prob(intensity) ? replacetext_char(message, "с", "ш") : message
-	message = prob(intensity) ? replacetext_char(message, "п", "пх") : message
-	message = prob(intensity) ? replacetext_char(message, "р", "гх") : message
-	message = prob(intensity) ? replacetext_char(message, "с", "сх") : message
-	message = prob(intensity) ? replacetext_char(message, "к", "фх") : message
-	message = prob(intensity) ? replacetext_char(message, "з", "ш") : message
-	message = prob(intensity) ? replacetext_char(message, "ж", "ф") : message
-	message = prob(intensity) ? replacetext_char(message, "л", "х") : message
-	message = prob(intensity) ? replacetext_char(message, "д", "т") : message
-	message = prob(intensity) ? replacetext_char(message, "б", "пф") : message
-	message = prob(intensity) ? replacetext_char(message, "ч", "фф") : message
+	message = prob(intensity) ? replacetext_char(message, "Т", "ф") : message
+	message = prob(intensity) ? replacetext_char(message, "С", "ш") : message
+	message = prob(intensity) ? replacetext_char(message, "П", "пх") : message
+	message = prob(intensity) ? replacetext_char(message, "Р", "гх") : message
+	message = prob(intensity) ? replacetext_char(message, "С", "сх") : message
+	message = prob(intensity) ? replacetext_char(message, "К", "фх") : message
+	message = prob(intensity) ? replacetext_char(message, "З", "ш") : message
+	message = prob(intensity) ? replacetext_char(message, "Ж", "ф") : message
+	message = prob(intensity) ? replacetext_char(message, "Л", "х") : message
+	message = prob(intensity) ? replacetext_char(message, "Д", "т") : message
+	message = prob(intensity) ? replacetext_char(message, "Б", "пф") : message
+	message = prob(intensity) ? replacetext_char(message, "Ч", "фф") : message
 	return message
 
 /obj/item/proc/tearoutteeth(var/mob/living/carbon/C, var/mob/living/user)

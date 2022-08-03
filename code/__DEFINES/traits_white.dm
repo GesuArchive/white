@@ -1,5 +1,6 @@
 #define TRAIT_KARTAVII "kartavii"
 #define TRAIT_ASIAT	"asiatish"
+#define TRAIT_NEGRO	"negro"
 #define TRAIT_HACKER "hackereye"
 #define TRAIT_DREAMER "dreamer"
 #define TRAIT_YOHEI	"yohei"

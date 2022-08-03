@@ -17,7 +17,7 @@ GLOBAL_VAR_INIT(apply_execution_protocol, FALSE)
 
 	for(var/replacement in GLOB.ic_autocorrect)
 		if(replacement in words)
-			corrected_message = replacetext_char(corrected_message, replacement, GLOB.ic_autocorrect[replacement])
+			corrected_message = replacetext_char(corrected_message, uppertext(replacement), GLOB.ic_autocorrect[replacement])
 
 	for(var/bad_word in GLOB.bad_words)
 		bad_word = lowertext(bad_word)
@@ -68,22 +68,27 @@ GLOBAL_VAR_INIT(apply_execution_protocol, FALSE)
 /client
 	var/bad_word_counter = 0
 
-GLOBAL_LIST_INIT(ic_autoemote, list(	")" = "smile", "(" = "frown", \
-										"))" = "laugh", "((" = "cry", \
-										"лол" = "laugh", "lol" = "laugh", \
-										"лмао" = "laugh", "lmao" = "laugh", \
-										"рофл" = "laugh", "rofl" = "laugh", \
-										"кек" = "giggle", "kek" = "giggle", \
-										"хз" = "shrug", "hz" = "shrug"))
+GLOBAL_LIST_INIT(ic_autoemote, list(
+	")" = "smile", "(" = "frown",
+	"))" = "laugh", "((" = "cry",
+	"лол" = "laugh", "lol" = "laugh",
+	"лмао" = "laugh", "lmao" = "laugh",
+	"рофл" = "laugh", "rofl" = "laugh",
+	"кек" = "giggle", "kek" = "giggle",
+	"хз" = "shrug", "hz" = "shrug",
+))
 
-GLOBAL_LIST_INIT(ic_autocorrect, list(	"бог" = "НАУКА", "god" = "SCIENCE", \
-										"боги" = "НАУКА", "gods" = "SCIENCE", \
-										"богов" = "НАУКИ", "богами" = "НАУКОЙ", \
-										"рцд" = "автоматический строительный комплекс", "rcd" = "rapid construction device", \
-										"рпд" = "портативный раздатчик труб", "rpd" = "rapid pipe dispenser", \
-										"секс" = "танец", "sex" = "dance", \
-										"смо" = "главный врач", "cmo" = "chief medical officer", \
-										"хос" = "начальник охраны", "hos" = "head of security", \
-										"рд" = "научный руководитель", "rd" = "research director", \
-										"се" = "старший инженер", "ce" = "chief engineer", \
-										"км" = "квартирмейстер", "qm" = "quartermaster"))
+GLOBAL_LIST_INIT(ic_autocorrect, list(
+	"бог" = "НАУКА", "god" = "SCIENCE",
+	"боги" = "НАУКА", "gods" = "SCIENCE",
+	"богов" = "НАУКИ", "богами" = "НАУКОЙ",
+	"рцд" = "автоматический строительный комплекс", "rcd" = "rapid construction device",
+	"рпд" = "портативный раздатчик труб", "rpd" = "rapid pipe dispenser",
+	"секс" = "танец", "sex" = "dance",
+	"смо" = "главный врач", "cmo" = "chief medical officer",
+	"хос" = "начальник охраны", "hos" = "head of security",
+	"рд" = "научный руководитель", "rd" = "research director",
+	"се" = "старший инженер", "ce" = "chief engineer",
+	"км" = "квартирмейстер", "qm" = "quartermaster",
+	"хоп" = "глава персонала", "hop" = "head of personnel",
+))

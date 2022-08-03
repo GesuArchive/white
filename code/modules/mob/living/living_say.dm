@@ -399,6 +399,9 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	if(HAS_TRAIT(src, TRAIT_UNINTELLIGIBLE_SPEECH))
 		message = unintelligize(message)
 
+	if(HAS_TRAIT(src, TRAIT_NEGRO))
+		message = negrish(message)
+
 	if(HAS_TRAIT(src, TRAIT_ASIAT))
 		message = asiatish(message)
 

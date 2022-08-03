@@ -21,7 +21,11 @@
 	if(true_info)
 		. += "<span class='info'>Это же <EM>отвратительная свинья</EM>.<hr>"
 	else
-		var/racetext = get_race_text()
+		var/racetext
+		if (ishuman(user))
+			var/mob/living/carbon/human/human_user = user
+			if(human_user.skin_tone != skin_tone)
+				racetext = get_race_text()
 		. += "<span class='info'>Это же <EM>[!obscure_name ? name : "Неизвестный"]</EM>, [racetext ? "<big class='interface'>[racetext]</big>" : "[get_age_text()]"]!<hr>"
 
 	if(user?.stat == CONSCIOUS && ishuman(user))
