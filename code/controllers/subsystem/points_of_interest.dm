@@ -179,7 +179,7 @@ SUBSYSTEM_DEF(points_of_interest)
 /// Validates the POI. Returns TRUE if the POI has valid state, returns FALSE if the POI has invalid state.
 /datum/point_of_interest/proc/validate()
 	// In nullspace, invalid as a POI.
-	if(!target.loc)
+	if(!target?.loc)
 		return FALSE
 
 	return TRUE
