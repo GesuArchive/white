@@ -3223,6 +3223,9 @@
 	req_access_txt = "39";
 	pixel_y = 25
 	},
+/obj/machinery/light_switch{
+	pixel_x = -27
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
 "ye" = (
@@ -6123,6 +6126,19 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/obj/machinery/door_buttons/airlock_controller{
+	idExterior = "virology_airlock_exterior";
+	idInterior = "virology_airlock_interior";
+	idSelf = "virology_airlock_control";
+	name = "Virology Access Console";
+	pixel_x = 8;
+	pixel_y = 22;
+	req_access_txt = "39"
+	},
+/obj/machinery/light_switch{
+	pixel_y = 30;
+	pixel_x = -4
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
 "RJ" = (
