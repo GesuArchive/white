@@ -1,6 +1,5 @@
-import { Fragment } from 'inferno';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, Section, Tabs, Box } from '../components';
+import { Button, NoticeBox, Section, Box } from '../components';
 import { Window } from '../layouts';
 
 // мне лень писать нормально на этом языке древних шизов, так что так

@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, Section, Stack, Box, Icon, LabeledList, NoticeBox } from '../components';
+import { Button, Section, Box, Icon, LabeledList, NoticeBox } from '../components';
 import { Window } from '../layouts';
 
 export const Forge = (props, context) => {

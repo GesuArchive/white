@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, Section, LabeledList } from '../components';
+import { Button, Section } from '../components';
 import { Window } from '../layouts';
 
 export const SoundPanelSettings = (props, context) => {

@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Box, Table, Button, Section } from '../components';
+import { Table } from '../components';
 import { Window } from '../layouts';
 
 export const ClickerPanel = (props, context) => {

@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Slider, NoticeBox, Button, LabeledList, ProgressBar, Section, Table, Box } from '../components';
+import { Slider, Button, LabeledList, ProgressBar, Box } from '../components';
 import { Window } from '../layouts';
 
 export const Antimatter = (props, context) => {

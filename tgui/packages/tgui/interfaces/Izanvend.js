@@ -1,8 +1,7 @@
 import { map } from 'common/collections';
 import { Fragment } from 'inferno';
 import { useBackend } from '../backend';
-import { AnimatedNumber, Box, Button, LabeledList, Section, Tabs } from '../components';
-import { InterfaceLockNoticeBox } from './common/InterfaceLockNoticeBox';
+import { Button, Section, Tabs } from '../components';
 
 export const Izanvend = (props, context) => {
   const { state } = props;

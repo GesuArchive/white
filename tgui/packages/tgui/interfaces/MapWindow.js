@@ -1,5 +1,5 @@
-import { useBackend, useLocalState } from '../backend';
-import { Button, ByondUi, Input, Section } from '../components';
+import { useBackend } from '../backend';
+import { ByondUi } from '../components';
 import { Window } from '../layouts';
 
 export const MapWindow = (props, context) => {

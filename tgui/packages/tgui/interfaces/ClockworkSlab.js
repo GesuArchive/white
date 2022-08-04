@@ -1,11 +1,8 @@
-import { createSearch, decodeHtmlEntities } from 'common/string';
 import { Fragment } from 'inferno';
 import { useBackend, useLocalState } from '../backend';
-import { Icon, Box, Button, Flex, Input, Section, Table, Tabs, NoticeBox, Divider, Grid, ProgressBar, Collapsible } from '../components';
-import { formatMoney } from '../format';
+import { Icon, Box, Button, Section, Table, Divider, Grid, ProgressBar, Collapsible } from '../components';
 import { Window } from '../layouts';
 import { TableRow } from '../components/Table';
-import { GridColumn } from '../components/Grid';
 
 export const convertPower = (power_in) => {
   const units = ['W', 'kW', 'MW', 'GW'];

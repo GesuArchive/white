@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Slider, NoticeBox, Table, Button, LabeledList, ProgressBar, Section } from '../components';
+import { Slider, NoticeBox, Table, Button } from '../components';
 import { Window } from '../layouts';
 
 export const EnerNet = (props, context) => {

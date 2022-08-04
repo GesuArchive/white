@@ -1,6 +1,6 @@
 import { useBackend, useSharedState } from '../backend';
 import { NtosWindow } from '../layouts';
-import { AnimatedNumber, Button, LabeledList, NoticeBox, ProgressBar, Section, Tabs } from '../components';
+import { AnimatedNumber, LabeledList, ProgressBar, Section, Tabs } from '../components';
 
 const damageTypes = [
   {

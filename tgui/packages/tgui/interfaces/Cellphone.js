@@ -1,6 +1,6 @@
 import { classes } from 'common/react';
 import { useBackend } from '../backend';
-import { Box, Button, Flex, Grid, Icon, Section } from '../components';
+import { Box, Button, Flex, Grid, Section } from '../components';
 import { Window } from '../layouts';
 
 export const Cellphone = (props, context) => {

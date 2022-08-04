@@ -1,5 +1,5 @@
 import { useBackend, useLocalState } from '../backend';
-import { Button, LabeledList, Tabs, Input } from '../components';
+import { Button, Tabs, Input } from '../components';
 import { Window } from '../layouts';
 
 export const VerbMenu = (props, context) => {

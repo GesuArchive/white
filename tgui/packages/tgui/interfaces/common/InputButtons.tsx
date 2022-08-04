@@ -1,5 +1,5 @@
 import { useBackend } from '../../backend';
-import { Box, Button, Stack } from '../../components';
+import { Button, Stack } from '../../components';
 
 type InputButtonsProps = {
   input: string | number | null;

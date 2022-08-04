@@ -1,6 +1,5 @@
-import { classes } from 'common/react';
 import { useBackend } from '../backend';
-import { Box, Button, Flex, Grid, Icon, Label } from '../components';
+import { Box, Button, Flex, Grid } from '../components';
 import { Window } from '../layouts';
 
 export const LockerPad = (props, context) => {

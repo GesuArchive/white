@@ -1,8 +1,6 @@
 import { useBackend } from '../backend';
 import { Icon, Section } from '../components';
 import { Window } from '../layouts';
-import { map, uniqBy } from 'common/collections';
-import { flow } from 'common/fp';
 
 const changelogIcons = {
   '+': {

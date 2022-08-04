@@ -1,7 +1,7 @@
 import { useBackend } from '../../backend';
-import { Input, InfinitePlane, Stack, Box, Button, Section } from '../../components';
+import { Input, InfinitePlane, Stack, Box, Button } from '../../components';
 import { Component } from 'inferno';
-import { Layout, Window } from '../../layouts';
+import { Window } from '../../layouts';
 import { resolveAsset } from '../../assets';
 import { CircuitInfo } from './CircuitInfo';
 import { ABSOLUTE_Y_OFFSET, MOUSE_BUTTON_LEFT, TIME_UNTIL_PORT_RELEASE_WORKS } from './constants';
