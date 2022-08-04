@@ -356,8 +356,8 @@
 	AddElement(/datum/element/update_icon_blocker)
 
 /obj/item/stock_parts/cell/potato
-	name = "potato battery"
-	desc = "A rechargeable starch based power cell."
+	name = "Батарейка из картошки"
+	desc = "Перезаряжаемый энергетический элемент на основе крахмала."
 	icon = 'icons/obj/hydroponics/harvest.dmi'
 	icon_state = "potato"
 	charge = 100
