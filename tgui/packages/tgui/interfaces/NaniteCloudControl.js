@@ -4,28 +4,14 @@ import { Window } from '../layouts';
 
 export const NaniteDiskBox = (props, context) => {
   const { data } = useBackend(context);
-  const {
-    has_disk,
-    has_program,
-    disk,
-  } = data;
+  const { has_disk, has_program, disk } = data;
   if (!has_disk) {
-    return (
-      <NoticeBox>
-        Нет диска
-      </NoticeBox>
-    );
+    return <NoticeBox>Нет диска</NoticeBox>;
   }
   if (!has_program) {
-    return (
-      <NoticeBox>
-        На диске не обнаружено программ
-      </NoticeBox>
-    );
+    return <NoticeBox>На диске не обнаружено программ</NoticeBox>;
   }
-  return (
-    <NaniteInfoBox program={disk} />
-  );
+  return <NaniteInfoBox program={disk} />;
 };
 
 export const NaniteInfoBox = (props, context) => {
@@ -52,23 +38,16 @@ export const NaniteInfoBox = (props, context) => {
     <Section
       title={name}
       level={2}
-      buttons={(
-        <Box
-          inline
-          bold
-          color={activated ? 'good' : 'bad'}>
+      buttons={
+        <Box inline bold color={activated ? 'good' : 'bad'}>
           {activated ? 'Активировано' : 'Деактивировано'}
         </Box>
-      )}>
+      }>
       <Grid>
-        <Grid.Column mr={1}>
-          {desc}
-        </Grid.Column>
+        <Grid.Column mr={1}>{desc}</Grid.Column>
         <Grid.Column size={0.5}>
           <LabeledList>
-            <LabeledList.Item label="Потребление">
-              {use_rate}
-            </LabeledList.Item>
+            <LabeledList.Item label="Потребление">{use_rate}</LabeledList.Item>
             {!!can_trigger && (
               <>
                 <LabeledList.Item label="Цена триггера">
@@ -84,10 +63,7 @@ export const NaniteInfoBox = (props, context) => {
       </Grid>
       <Grid>
         <Grid.Column>
-          <Section
-            title="Коды"
-            level={3}
-            mr={1}>
+          <Section title="Коды" level={3} mr={1}>
             <LabeledList>
               <LabeledList.Item label="Активация">
                 {activation_code}
@@ -95,9 +71,7 @@ export const NaniteInfoBox = (props, context) => {
               <LabeledList.Item label="Деактивация">
                 {deactivation_code}
               </LabeledList.Item>
-              <LabeledList.Item label="Убийство">
-                {kill_code}
-              </LabeledList.Item>
+              <LabeledList.Item label="Убийство">{kill_code}</LabeledList.Item>
               {!!can_trigger && (
                 <LabeledList.Item label="Триггер">
                   {trigger_code}
@@ -107,10 +81,7 @@ export const NaniteInfoBox = (props, context) => {
           </Section>
         </Grid.Column>
         <Grid.Column>
-          <Section
-            title="Задержки"
-            level={3}
-            mr={1}>
+          <Section title="Задержки" level={3} mr={1}>
             <LabeledList>
               <LabeledList.Item label="Перезагрузка">
                 {timer_restart} с
@@ -132,18 +103,19 @@ export const NaniteInfoBox = (props, context) => {
           </Section>
         </Grid.Column>
       </Grid>
-      <Section
-        title="Дополнительно"
-        level={3}>
+      <Section title="Дополнительно" level={3}>
         <LabeledList>
-          {extra_settings.map(setting => {
+          {extra_settings.map((setting) => {
             const naniteTypesDisplayMap = {
-              number: <>{setting.value}{setting.unit}</>,
+              number: (
+                <>
+                  {setting.value}
+                  {setting.unit}
+                </>
+              ),
               text: setting.value,
               type: setting.value,
-              boolean: (setting.value
-                ? setting.true_text
-                : setting.false_text),
+              boolean: setting.value ? setting.true_text : setting.false_text,
             };
             return (
               <LabeledList.Item key={setting.name} label={setting.name}>
@@ -160,62 +132,60 @@ export const NaniteInfoBox = (props, context) => {
 export const NaniteCloudBackupList = (props, context) => {
   const { act, data } = useBackend(context);
   const cloud_backups = data.cloud_backups || [];
-  return cloud_backups.map(backup => (
+  return cloud_backups.map((backup) => (
     <Button
       fluid
       key={backup.cloud_id}
-      content={"Сохранение #" + backup.cloud_id}
+      content={'Сохранение #' + backup.cloud_id}
       textAlign="center"
-      onClick={() => act('set_view', {
-        view: backup.cloud_id,
-      })} />
+      onClick={() =>
+        act('set_view', {
+          view: backup.cloud_id,
+        })
+      }
+    />
   ));
 };
 
 export const NaniteCloudBackupDetails = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    current_view,
-    disk,
-    has_program,
-    cloud_backup,
-  } = data;
+  const { current_view, disk, has_program, cloud_backup } = data;
   const can_rule = (disk && disk.can_rule) || false;
   if (!cloud_backup) {
-    return (
-      <NoticeBox>
-        ERROR: Не обнаружено сохранений
-      </NoticeBox>
-    );
+    return <NoticeBox>ERROR: Не обнаружено сохранений</NoticeBox>;
   }
   const cloud_programs = data.cloud_programs || [];
   return (
     <Section
-      title={"Сохранение #" + current_view}
+      title={'Сохранение #' + current_view}
       level={2}
-      buttons={(
+      buttons={
         !!has_program && (
           <Button
             icon="upload"
             content="Загрузить с диска"
             color="good"
-            onClick={() => act('upload_program')} />
+            onClick={() => act('upload_program')}
+          />
         )
-      )}>
-      {cloud_programs.map(program => {
+      }>
+      {cloud_programs.map((program) => {
         const rules = program.rules || [];
         return (
           <Collapsible
             key={program.name}
             title={program.name}
-            buttons={(
+            buttons={
               <Button
                 icon="minus-circle"
                 color="bad"
-                onClick={() => act('remove_program', {
-                  program_id: program.id,
-                })} />
-            )}>
+                onClick={() =>
+                  act('remove_program', {
+                    program_id: program.id,
+                  })
+                }
+              />
+            }>
             <Section>
               <NaniteInfoBox program={program} />
               {(!!can_rule || !!program.has_rules) && (
@@ -223,32 +193,38 @@ export const NaniteCloudBackupDetails = (props, context) => {
                   mt={-2}
                   title="Правила"
                   level={2}
-                  buttons={(!!can_rule
-                    && <Button
-                      icon="plus"
-                      content="Добавить правило с диска"
-                      color="good"
-                      onClick={() => act('add_rule', {
-                        program_id: program.id,
-                      })} />
-                  )}>
+                  buttons={
+                    !!can_rule && (
+                      <Button
+                        icon="plus"
+                        content="Добавить правило с диска"
+                        color="good"
+                        onClick={() =>
+                          act('add_rule', {
+                            program_id: program.id,
+                          })
+                        }
+                      />
+                    )
+                  }>
                   {program.has_rules ? (
-                    rules.map(rule => (
+                    rules.map((rule) => (
                       <Box key={rule.display}>
                         <Button
                           icon="minus-circle"
                           color="bad"
-                          onClick={() => act('remove_rule', {
-                            program_id: program.id,
-                            rule_id: rule.id,
-                          })} />
+                          onClick={() =>
+                            act('remove_rule', {
+                              program_id: program.id,
+                              rule_id: rule.id,
+                            })
+                          }
+                        />
                         {` ${rule.display}`}
                       </Box>
                     ))
                   ) : (
-                    <Box color="bad">
-                      Нет активных правил
-                    </Box>
+                    <Box color="bad">Нет активных правил</Box>
                   )}
                 </Section>
               )}
@@ -262,55 +238,54 @@ export const NaniteCloudBackupDetails = (props, context) => {
 
 export const NaniteCloudControl = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    has_disk,
-    current_view,
-    new_backup_id,
-  } = data;
+  const { has_disk, current_view, new_backup_id } = data;
   return (
-    <Window
-      width={375}
-      height={700}>
+    <Window width={375} height={700}>
       <Window.Content scrollable>
         <Section
           title="Диск программы"
-          buttons={(
+          buttons={
             <Button
               icon="eject"
               content="Изъять"
               disabled={!has_disk}
-              onClick={() => act('eject')} />
-          )}>
+              onClick={() => act('eject')}
+            />
+          }>
           <NaniteDiskBox />
         </Section>
         <Section
           title="Облако"
-          buttons={(
+          buttons={
             current_view ? (
               <Button
                 icon="arrow-left"
                 content="Возврат"
-                onClick={() => act('set_view', {
-                  view: 0,
-                })} />
+                onClick={() =>
+                  act('set_view', {
+                    view: 0,
+                  })
+                }
+              />
             ) : (
               <>
-                {"Новое сохранение: "}
+                {'Новое сохранение: '}
                 <NumberInput
                   value={new_backup_id}
                   minValue={1}
                   maxValue={100}
                   stepPixelSize={4}
                   width="39px"
-                  onChange={(e, value) => act('update_new_backup_value', {
-                    value: value,
-                  })} />
-                <Button
-                  icon="plus"
-                  onClick={() => act('create_backup')} />
+                  onChange={(e, value) =>
+                    act('update_new_backup_value', {
+                      value: value,
+                    })
+                  }
+                />
+                <Button icon="plus" onClick={() => act('create_backup')} />
               </>
             )
-          )}>
+          }>
           {!data.current_view ? (
             <NaniteCloudBackupList />
           ) : (

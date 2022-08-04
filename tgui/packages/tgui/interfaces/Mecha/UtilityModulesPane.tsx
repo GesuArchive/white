@@ -29,7 +29,8 @@ const Equipment = (props: EquipmentProps, context) => {
           act('equip_act', {
             ref: module.ref,
             gear_action: 'toggle',
-          })}
+          })
+        }
         selected={module.activated}
       />
       <Button
@@ -39,7 +40,8 @@ const Equipment = (props: EquipmentProps, context) => {
           act('equip_act', {
             ref: module.ref,
             gear_action: 'detach',
-          })}
+          })
+        }
       />
     </div>
   );
@@ -99,7 +101,8 @@ const SnowflakeEjector = (props: { module: MechaUtility }, context) => {
                   ref: props.module.ref,
                   cargoref: item.ref,
                   gear_action: 'eject',
-                })}>
+                })
+              }>
               {'Eject'}
             </Button>
           </div>
@@ -132,7 +135,8 @@ const SnowflakeExtinguisher = (props: { module: MechaUtility }, context) => {
           act('equip_act', {
             ref: props.module.ref,
             gear_action: 'activate',
-          })}
+          })
+        }
       />
       <Button
         tooltip={'REFILL'}
@@ -141,7 +145,8 @@ const SnowflakeExtinguisher = (props: { module: MechaUtility }, context) => {
           act('equip_act', {
             ref: props.module.ref,
             gear_action: 'refill',
-          })}
+          })
+        }
       />
       <Button
         tooltip={'REPAIR'}
@@ -150,7 +155,8 @@ const SnowflakeExtinguisher = (props: { module: MechaUtility }, context) => {
           act('equip_act', {
             ref: props.module.ref,
             gear_action: 'repair',
-          })}
+          })
+        }
       />
       <Button
         tooltip={'DETACH'}
@@ -159,7 +165,8 @@ const SnowflakeExtinguisher = (props: { module: MechaUtility }, context) => {
           act('equip_act', {
             ref: props.module.ref,
             gear_action: 'detach',
-          })}
+          })
+        }
       />
     </>
   );

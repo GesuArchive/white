@@ -8,7 +8,10 @@
 @use '../base.scss';
 @use '../colors.scss';
 
-$color-default: color.scale(colors.fg(colors.$primary), $lightness: 75%) !default;
+$color-default: color.scale(
+  colors.fg(colors.$primary),
+  $lightness: 75%
+) !default;
 $text-color: rgba(255, 255, 255, 0.5) !default;
 $text-color-selected: color.scale($color-default, $lightness: 25%) !default;
 $tab-color: transparent !default;
@@ -107,9 +110,9 @@ $fg-map: colors.$fg-map !default;
 
   .Tab--selected {
     border-bottom: math.div(1em, 6) solid $color-default;
-    border-top:rgba(255, 255, 255, 0.1) 1px solid;
-    border-left:rgba(255, 255, 255, 0.1) 1px solid;
-    border-right:rgba(255, 255, 255, 0.05) 1px solid;
+    border-top: rgba(255, 255, 255, 0.1) 1px solid;
+    border-left: rgba(255, 255, 255, 0.1) 1px solid;
+    border-right: rgba(255, 255, 255, 0.05) 1px solid;
   }
 }
 
@@ -122,9 +125,9 @@ $fg-map: colors.$fg-map !default;
 
   .Tab--selected {
     border-right: math.div(1em, 6) solid $color-default;
-    border-top:rgba(255, 255, 255, 0.1) 1px solid;
-    border-left:rgba(255, 255, 255, 0.1) 1px solid;
-    border-bottom:rgba(255, 255, 255, 0.05) 1px solid;
+    border-top: rgba(255, 255, 255, 0.1) 1px solid;
+    border-left: rgba(255, 255, 255, 0.1) 1px solid;
+    border-bottom: rgba(255, 255, 255, 0.05) 1px solid;
   }
 }
 

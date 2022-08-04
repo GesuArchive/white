@@ -26,10 +26,7 @@ export const Telecomms = (props, context) => {
   const linked = data.linked || [];
   const frequencies = data.frequencies || [];
   return (
-    <Window
-      title={id}
-      width={400}
-      height={600}>
+    <Window title={id} width={400} height={600}>
       <Window.Content scrollable>
         {!multitool && (
           <NoticeBox>Используйте мультитул для внесения изменений.</NoticeBox>
@@ -40,60 +37,73 @@ export const Telecomms = (props, context) => {
               label="Энергия"
               buttons={
                 <Button
-                  icon={toggled ? "power-off" : "times"}
-                  content={toggled ? "Вкл" : "Выкл"}
-                  color={toggled ? "good" : "bad"}
+                  icon={toggled ? 'power-off' : 'times'}
+                  content={toggled ? 'Вкл' : 'Выкл'}
+                  color={toggled ? 'good' : 'bad'}
                   disabled={!multitool}
-                  onClick={() => act('toggle')} />
-              } />
+                  onClick={() => act('toggle')}
+                />
+              }
+            />
             <LabeledList.Item
               label="Идентификационное имя"
               buttons={
                 <Input
                   width={13}
                   value={id}
-                  onChange={(e, value) => act('id', { value })} />
-              } />
+                  onChange={(e, value) => act('id', { value })}
+                />
+              }
+            />
             <LabeledList.Item
               label="Сеть"
               buttons={
                 <Input
                   width={10}
                   value={network}
-                  defaultValue={"tcommsat"}
-                  onChange={(e, value) => act('network', { value })} />
-              } />
+                  defaultValue={'tcommsat'}
+                  onChange={(e, value) => act('network', { value })}
+                />
+              }
+            />
             <LabeledList.Item
               label="Преднастройка"
               buttons={
                 <Button
-                  icon={prefab ? "check" : "times"}
-                  content={prefab ? "Да" : "Нет"}
-                  disabled={"Да"} />
-              } />
+                  icon={prefab ? 'check' : 'times'}
+                  content={prefab ? 'Да' : 'Нет'}
+                  disabled={'Да'}
+                />
+              }
+            />
           </LabeledList>
         </Section>
         {!!(toggled && multitool) && (
           <Box>
-            {(type === 'bus') && (
+            {type === 'bus' && (
               <Section title="Шина">
                 <Table>
                   <Table.Row>
+                    <Table.Cell>Изменить частоту:</Table.Cell>
                     <Table.Cell>
-                      Изменить частоту:
-                    </Table.Cell>
-                    <Table.Cell>
-                      {RADIO_CHANNELS
-                        .find(channel => channel.freq === changefrequency) && (
+                      {RADIO_CHANNELS.find(
+                        (channel) => channel.freq === changefrequency
+                      ) && (
                         <Box
                           inline
-                          color={RADIO_CHANNELS
-                            .find(channel => channel.freq === changefrequency)
-                            .color}
+                          color={
+                            RADIO_CHANNELS.find(
+                              (channel) => channel.freq === changefrequency
+                            ).color
+                          }
                           ml={2}>
-                          [{RADIO_CHANNELS
-                            .find(channel => channel
-                              .freq === changefrequency).name}]
+                          [
+                          {
+                            RADIO_CHANNELS.find(
+                              (channel) => channel.freq === changefrequency
+                            ).name
+                          }
+                          ]
                         </Box>
                       )}
                     </Table.Cell>
@@ -105,11 +115,10 @@ export const Telecomms = (props, context) => {
                       minValue={minfreq / 10}
                       maxValue={maxfreq / 10}
                       value={changefrequency / 10}
-                      onChange={(e, value) => act(
-                        'change_freq', { value })}
+                      onChange={(e, value) => act('change_freq', { value })}
                     />
                     <Button
-                      icon={"times"}
+                      icon={'times'}
                       disabled={changefrequency === 0}
                       onClick={() => act('change_freq', { value: 10001 })}
                     />
@@ -117,32 +126,35 @@ export const Telecomms = (props, context) => {
                 </Table>
               </Section>
             )}
-            {(type === 'relay') && (
+            {type === 'relay' && (
               <Section title="Реле">
                 <Button
-                  content={"Принимающий"}
+                  content={'Принимающий'}
                   icon={receiving ? 'volume-up' : 'volume-mute'}
                   color={receiving ? '' : 'bad'}
-                  onClick={() => act('receive')} />
+                  onClick={() => act('receive')}
+                />
                 <Button
-                  content={"Отправляющий"}
+                  content={'Отправляющий'}
                   icon={broadcasting ? 'microphone' : 'microphone-slash'}
                   color={broadcasting ? '' : 'bad'}
-                  onClick={() => act('broadcast')} />
+                  onClick={() => act('broadcast')}
+                />
               </Section>
             )}
             <Section title="Подключённые сетевые элементы">
               <Table>
-                {linked.map(entry => (
+                {linked.map((entry) => (
                   <Table.Row key={entry.id} className="candystripe">
                     <Table.Cell bold>
                       {entry.index}. {entry.id} ({entry.name})
                     </Table.Cell>
                     {!!multitool && (
                       <Button
-                        icon={"times"}
+                        icon={'times'}
                         disabled={!multitool}
-                        onClick={() => act('unlink', { value: entry.index })} />
+                        onClick={() => act('unlink', { value: entry.index })}
+                      />
                     )}
                   </Table.Row>
                 ))}
@@ -150,52 +162,63 @@ export const Telecomms = (props, context) => {
             </Section>
             <Section title="Фильтрованные частоты">
               <Table>
-                {frequencies.map(entry => (
+                {frequencies.map((entry) => (
                   <Table.Row key={frequencies.i} className="candystripe">
-                    <Table.Cell bold>
-                      {entry/10} GHz
-                    </Table.Cell>
+                    <Table.Cell bold>{entry / 10} GHz</Table.Cell>
                     <Table.Cell>
-                      {RADIO_CHANNELS
-                        .find(channel => channel.freq === entry) && (
+                      {RADIO_CHANNELS.find(
+                        (channel) => channel.freq === entry
+                      ) && (
                         <Box
                           inline
-                          color={RADIO_CHANNELS
-                            .find(channel => channel.freq === entry)
-                            .color}
+                          color={
+                            RADIO_CHANNELS.find(
+                              (channel) => channel.freq === entry
+                            ).color
+                          }
                           ml={2}>
-                          [{RADIO_CHANNELS
-                            .find(channel => channel
-                              .freq === entry).name } ]
+                          [
+                          {
+                            RADIO_CHANNELS.find(
+                              (channel) => channel.freq === entry
+                            ).name
+                          }{' '}
+                          ]
                         </Box>
                       )}
                     </Table.Cell>
                     <Table.Cell />
                     {!!multitool && (
                       <Button
-                        icon={"times"}
+                        icon={'times'}
                         disabled={!multitool}
-                        onClick={() => act('delete', { value: entry })} />
+                        onClick={() => act('delete', { value: entry })}
+                      />
                     )}
                   </Table.Row>
                 ))}
                 {!!multitool && (
                   <Table.Row className="candystripe" collapsing>
+                    <Table.Cell>Добавить частоту</Table.Cell>
                     <Table.Cell>
-                      Добавить частоту
-                    </Table.Cell>
-                    <Table.Cell>
-                      {RADIO_CHANNELS
-                        .find(channel => channel.freq === frequency) && (
+                      {RADIO_CHANNELS.find(
+                        (channel) => channel.freq === frequency
+                      ) && (
                         <Box
                           inline
-                          color={RADIO_CHANNELS
-                            .find(channel => channel.freq === frequency)
-                            .color}
+                          color={
+                            RADIO_CHANNELS.find(
+                              (channel) => channel.freq === frequency
+                            ).color
+                          }
                           ml={2}>
-                          [{RADIO_CHANNELS
-                            .find(channel => channel
-                              .freq === frequency).name}]
+                          [
+                          {
+                            RADIO_CHANNELS.find(
+                              (channel) => channel.freq === frequency
+                            ).name
+                          }
+                          ]
                         </Box>
                       )}
                     </Table.Cell>
@@ -208,14 +231,14 @@ export const Telecomms = (props, context) => {
                         minValue={minfreq / 10}
                         maxValue={maxfreq / 10}
                         value={frequency / 10}
-                        onChange={(e, value) => act(
-                          "tempfreq", { value })}
+                        onChange={(e, value) => act('tempfreq', { value })}
                       />
                     </Table.Cell>
                     <Button
-                      icon={"plus"}
+                      icon={'plus'}
                       disabled={!multitool}
-                      onClick={() => act('freq')} />
+                      onClick={() => act('freq')}
+                    />
                   </Table.Row>
                 )}
               </Table>
@@ -229,22 +252,26 @@ export const Telecomms = (props, context) => {
                 )}
                 <LabeledControls m={1}>
                   <Button
-                    icon={"plus"}
-                    content={"Добавить машину"}
+                    icon={'plus'}
+                    content={'Добавить машину'}
                     disabled={!multitool}
-                    onClick={() => act('buffer')} />
+                    onClick={() => act('buffer')}
+                  />
                   <Button
-                    icon={"link"}
-                    content={"Привязать"}
+                    icon={'link'}
+                    content={'Привязать'}
                     disabled={!multibuff}
-                    onClick={() => act('link')} />
+                    onClick={() => act('link')}
+                  />
                   <Button
-                    icon={"times"}
-                    content={"Очистить"}
+                    icon={'times'}
+                    content={'Очистить'}
                     disabled={!multibuff}
-                    onClick={() => act('flush')} />
+                    onClick={() => act('flush')}
+                  />
                 </LabeledControls>
-              </Section>)}
+              </Section>
+            )}
           </Box>
         )}
       </Window.Content>

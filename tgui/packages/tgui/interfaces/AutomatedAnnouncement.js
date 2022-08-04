@@ -10,12 +10,7 @@ const TOOLTIP_TEXT = multiline`
 
 export const AutomatedAnnouncement = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    arrivalToggle,
-    arrival,
-    newheadToggle,
-    newhead,
-  } = data;
+  const { arrivalToggle, arrival, newheadToggle, newhead } = data;
   return (
     <Window
       title="Автоматизированная Система Оповещений"
@@ -24,55 +19,65 @@ export const AutomatedAnnouncement = (props, context) => {
       <Window.Content>
         <Section
           title="Аннонсирование прибытия"
-          buttons={(
+          buttons={
             <Button
               icon={arrivalToggle ? 'power-off' : 'times'}
               selected={arrivalToggle}
               content={arrivalToggle ? 'Вкл' : 'Выкл'}
-              onClick={() => act('ArrivalToggle')} />
-          )}>
+              onClick={() => act('ArrivalToggle')}
+            />
+          }>
           <LabeledList>
             <LabeledList.Item
               label="Сообщение"
-              buttons={(
+              buttons={
                 <Button
                   icon="info"
                   tooltip={TOOLTIP_TEXT}
-                  tooltipPosition="left" />
-              )}>
+                  tooltipPosition="left"
+                />
+              }>
               <Input
                 fluid
                 value={arrival}
-                onChange={(e, value) => act('ArrivalText', {
-                  newText: value,
-                })} />
+                onChange={(e, value) =>
+                  act('ArrivalText', {
+                    newText: value,
+                  })
+                }
+              />
             </LabeledList.Item>
           </LabeledList>
         </Section>
         <Section
           title="Аннонсирование прибытия главы"
-          buttons={(
+          buttons={
             <Button
               icon={newheadToggle ? 'power-off' : 'times'}
               selected={newheadToggle}
               content={newheadToggle ? 'Вкл' : 'Выкл'}
-              onClick={() => act('NewheadToggle')} />
-          )}>
+              onClick={() => act('NewheadToggle')}
+            />
+          }>
           <LabeledList>
             <LabeledList.Item
               label="Сообщение"
-              buttons={(
+              buttons={
                 <Button
                   icon="info"
                   tooltip={TOOLTIP_TEXT}
-                  tooltipPosition="left" />
-              )}>
+                  tooltipPosition="left"
+                />
+              }>
               <Input
                 fluid
                 value={newhead}
-                onChange={(e, value) => act('NewheadText', {
-                  newText: value,
-                })} />
+                onChange={(e, value) =>
+                  act('NewheadText', {
+                    newText: value,
+                  })
+                }
+              />
             </LabeledList.Item>
           </LabeledList>
         </Section>

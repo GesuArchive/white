@@ -5,28 +5,26 @@ import { Window } from '../layouts';
 
 const damageTypes = [
   {
-    label: "Физический",
-    type: "bruteLoss",
+    label: 'Физический',
+    type: 'bruteLoss',
   },
   {
-    label: "Кислородный",
-    type: "oxyLoss",
+    label: 'Кислородный',
+    type: 'oxyLoss',
   },
   {
-    label: "Токсины",
-    type: "toxLoss",
+    label: 'Токсины',
+    type: 'toxLoss',
   },
   {
-    label: "Ожоги",
-    type: "fireLoss",
+    label: 'Ожоги',
+    type: 'fireLoss',
   },
 ];
 
 export const Cryo = () => {
   return (
-    <Window
-      width={400}
-      height={550}>
+    <Window width={400} height={550}>
       <Window.Content scrollable>
         <CryoContent />
       </Window.Content>
@@ -45,37 +43,29 @@ const CryoContent = (props, context) => {
           </LabeledList.Item>
           {!!data.hasOccupant && (
             <>
-              <LabeledList.Item
-                label="Статус"
-                color={data.occupant.statstate}>
+              <LabeledList.Item label="Статус" color={data.occupant.statstate}>
                 {data.occupant.stat}
               </LabeledList.Item>
               <LabeledList.Item
                 label="Температура"
                 color={data.occupant.temperaturestatus}>
-                <AnimatedNumber
-                  value={data.occupant.bodyTemperature} />
+                <AnimatedNumber value={data.occupant.bodyTemperature} />
                 {' K'}
               </LabeledList.Item>
               <LabeledList.Item label="Здоровье">
                 <ProgressBar
                   value={data.occupant.health / data.occupant.maxHealth}
                   color={data.occupant.health > 0 ? 'good' : 'average'}>
-                  <AnimatedNumber
-                    value={data.occupant.health} />
+                  <AnimatedNumber value={data.occupant.health} />
                 </ProgressBar>
               </LabeledList.Item>
-              {(damageTypes.map(damageType => (
-                <LabeledList.Item
-                  key={damageType.id}
-                  label={damageType.label}>
-                  <ProgressBar
-                    value={data.occupant[damageType.type]/100}>
-                    <AnimatedNumber
-                      value={data.occupant[damageType.type]} />
+              {damageTypes.map((damageType) => (
+                <LabeledList.Item key={damageType.id} label={damageType.label}>
+                  <ProgressBar value={data.occupant[damageType.type] / 100}>
+                    <AnimatedNumber value={data.occupant[damageType.type]} />
                   </ProgressBar>
                 </LabeledList.Item>
-              )))}
+              ))}
             </>
           )}
         </LabeledList>
@@ -84,11 +74,11 @@ const CryoContent = (props, context) => {
         <LabeledList>
           <LabeledList.Item label="Питание">
             <Button
-              icon={data.isOperating ? "power-off" : "times"}
+              icon={data.isOperating ? 'power-off' : 'times'}
               disabled={data.isOpen}
               onClick={() => act('power')}
               color={data.isOperating && 'green'}>
-              {data.isOperating ? "Вкл" : "Выкл"}
+              {data.isOperating ? 'Вкл' : 'Выкл'}
             </Button>
           </LabeledList.Item>
           <LabeledList.Item label="Температура">
@@ -96,28 +86,32 @@ const CryoContent = (props, context) => {
           </LabeledList.Item>
           <LabeledList.Item label="Камера">
             <Button
-              icon={data.isOpen ? "unlock" : "lock"}
+              icon={data.isOpen ? 'unlock' : 'lock'}
               onClick={() => act('door')}
-              content={data.isOpen ? "Открыта" : "Закрыта"} />
+              content={data.isOpen ? 'Открыта' : 'Закрыта'}
+            />
             <Button
-              icon={data.autoEject ? "sign-out-alt" : "sign-in-alt"}
+              icon={data.autoEject ? 'sign-out-alt' : 'sign-in-alt'}
               onClick={() => act('autoeject')}
-              content={data.autoEject ? "Авто" : "Вручную"} />
+              content={data.autoEject ? 'Авто' : 'Вручную'}
+            />
           </LabeledList.Item>
         </LabeledList>
       </Section>
       <Section
         title="Пробирка"
-        buttons={(
+        buttons={
           <Button
             icon="eject"
             disabled={!data.isBeakerLoaded}
             onClick={() => act('ejectbeaker')}
-            content="Изъять" />
-        )}>
+            content="Изъять"
+          />
+        }>
         <BeakerContents
           beakerLoaded={data.isBeakerLoaded}
-          beakerContents={data.beakerContents} />
+          beakerContents={data.beakerContents}
+        />
       </Section>
     </>
   );

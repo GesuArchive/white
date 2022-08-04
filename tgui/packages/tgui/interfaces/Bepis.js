@@ -4,40 +4,37 @@ import { Window } from '../layouts';
 
 export const Bepis = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    amount,
-  } = data;
+  const { amount } = data;
   return (
-    <Window
-      width={550}
-      height={460}>
+    <Window width={550} height={460}>
       <Window.Content>
         <Section title="Business Exploration Protocol Incubation Sink">
           <Section
             title="Информация"
             backgroundColor="#450F44"
-            buttons={(
+            buttons={
               <Button
                 icon="power-off"
                 content={data.manual_power ? 'Выкл' : 'Вкл'}
                 selected={!data.manual_power}
-                onClick={() => act('toggle_power')} />
-            )}>
-            Все, что тебе нужно знать о B.E.P.I.S. и тебе!
-            B.E.P.I.S. выполняет сотни тестов в секунду
-            используя электрические и финансовые ресурсы для изобретения
-            новых продуктов или открыватия новых технологий иным образом
-            упускающихся из виду из-за того, что они слишком
-            рискованные или слишком нишевые для производства!
+                onClick={() => act('toggle_power')}
+              />
+            }>
+            Все, что тебе нужно знать о B.E.P.I.S. и тебе! B.E.P.I.S. выполняет
+            сотни тестов в секунду используя электрические и финансовые ресурсы
+            для изобретения новых продуктов или открыватия новых технологий иным
+            образом упускающихся из виду из-за того, что они слишком рискованные
+            или слишком нишевые для производства!
           </Section>
           <Section
             title="Платёжный аккаунт"
-            buttons={(
+            buttons={
               <Button
                 icon="redo-alt"
                 content="Сбросить аккаунт"
-                onClick={() => act('account_reset')} />
-            )}>
+                onClick={() => act('account_reset')}
+              />
+            }>
             Консоль на данный момент оперируется
             {data.account_owner ? data.account_owner : 'N/A'}.
           </Section>
@@ -54,8 +51,7 @@ export const Bepis = (props, context) => {
                   <LabeledList.Item label="Бонус за инновации">
                     {data.positive_cash_offset}
                   </LabeledList.Item>
-                  <LabeledList.Item label="Компенсация риска"
-                    color="bad">
+                  <LabeledList.Item label="Компенсация риска" color="bad">
                     {data.negative_cash_offset}
                   </LabeledList.Item>
                   <LabeledList.Item label="Сумма вклада">
@@ -66,9 +62,12 @@ export const Bepis = (props, context) => {
                       maxValue={30000}
                       step={100}
                       stepPixelSize={2}
-                      onChange={(e, value) => act('amount', {
-                        amount: value,
-                      })} />
+                      onChange={(e, value) =>
+                        act('amount', {
+                          amount: value,
+                        })
+                      }
+                    />
                   </LabeledList.Item>
                 </LabeledList>
               </Section>
@@ -76,25 +75,21 @@ export const Bepis = (props, context) => {
                 <Button
                   icon="donate"
                   content="Вложить кредиты"
-                  disabled={data.manual_power === 1
-                    || data.silicon_check === 1}
+                  disabled={data.manual_power === 1 || data.silicon_check === 1}
                   onClick={() => act('deposit_cash')}
                 />
                 <Button
                   icon="eject"
                   content="Снять кредиты"
                   disabled={data.manual_power === 1}
-                  onClick={() => act('withdraw_cash')} />
+                  onClick={() => act('withdraw_cash')}
+                />
               </Box>
             </Grid.Column>
             <Grid.Column>
               <Section title="Рыночные данные и анализ">
-                <Box>
-                  Средняя стоимость технологии: {data.mean_value}
-                </Box>
-                <Box>
-                  Текущий шанс на успех: {data.success_estimate}%
-                </Box>
+                <Box>Средняя стоимость технологии: {data.mean_value}</Box>
+                <Box>Текущий шанс на успех: {data.success_estimate}%</Box>
                 {data.error_name && (
                   <Box color="bad">
                     Причина предыдущей неудачи: Слишком маленькая сумма.
@@ -106,7 +101,8 @@ export const Bepis = (props, context) => {
                   icon="microscope"
                   disabled={data.manual_power === 1}
                   onClick={() => act('begin_experiment')}
-                  content="Начать тестирование" />
+                  content="Начать тестирование"
+                />
               </Section>
             </Grid.Column>
           </Grid>

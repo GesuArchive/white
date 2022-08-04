@@ -10,15 +10,11 @@ export const AirAlarm = (props, context) => {
   const { act, data } = useBackend(context);
   const locked = data.locked && !data.siliconUser;
   return (
-    <Window
-      width={450}
-      height={!locked ? 515 : 255}>
+    <Window width={450} height={!locked ? 515 : 255}>
       <Window.Content scrollable>
         <InterfaceLockNoticeBox />
         <AirAlarmStatus />
-        {!locked && (
-          <AirAlarmControl />
-        )}
+        {!locked && <AirAlarmControl />}
       </Window.Content>
     </Window>
   );
@@ -26,8 +22,9 @@ export const AirAlarm = (props, context) => {
 
 const AirAlarmStatus = (props, context) => {
   const { data } = useBackend(context);
-  const entries = (data.environment_data || [])
-    .filter(entry => entry.value >= 0.01);
+  const entries = (data.environment_data || []).filter(
+    (entry) => entry.value >= 0.01
+  );
   const dangerMap = {
     0: {
       color: 'good',
@@ -46,45 +43,40 @@ const AirAlarmStatus = (props, context) => {
   return (
     <Section title="Состояние атмосферы">
       <LabeledList>
-        {entries.length > 0 && (
+        {(entries.length > 0 && (
           <>
-            {entries.map(entry => {
+            {entries.map((entry) => {
               const status = dangerMap[entry.danger_level] || dangerMap[0];
               return (
                 <LabeledList.Item
                   key={entry.name}
                   label={entry.name}
                   color={status.color}>
-                  {toFixed(entry.value, 2)}{entry.unit}
+                  {toFixed(entry.value, 2)}
+                  {entry.unit}
                 </LabeledList.Item>
               );
             })}
-            <LabeledList.Item
-              label="Местный статус"
-              color={localStatus.color}>
+            <LabeledList.Item label="Местный статус" color={localStatus.color}>
               {localStatus.localStatusText}
             </LabeledList.Item>
             <LabeledList.Item
               label="Состояние зоны"
               color={data.atmos_alarm || data.fire_alarm ? 'bad' : 'good'}>
-              {data.atmos_alarm && 'Атмосферная тревога'
-                || data.fire_alarm && 'Пожарная тревога'
-                || 'Номинально'}
+              {(data.atmos_alarm && 'Атмосферная тревога') ||
+                (data.fire_alarm && 'Пожарная тревога') ||
+                'Номинально'}
             </LabeledList.Item>
           </>
-        ) || (
-          <LabeledList.Item
-            label="Внимание"
-            color="bad">
+        )) || (
+          <LabeledList.Item label="Внимание" color="bad">
             Невозможно получить воздух для анализа.
           </LabeledList.Item>
         )}
         {!!data.emagged && (
-          <LabeledList.Item
-            label="Внимание"
-            color="bad">
-            Протоколы безопасности нарушены. Устройство может
-            работать неправильно.
+          <LabeledList.Item label="Внимание" color="bad">
+            Протоколы безопасности нарушены. Устройство может работать
+            неправильно.
           </LabeledList.Item>
         )}
       </LabeledList>
@@ -122,17 +114,19 @@ const AirAlarmControl = (props, context) => {
   return (
     <Section
       title={route.title}
-      buttons={screen && (
-        <Button
-          icon="arrow-left"
-          content="Назад"
-          onClick={() => setScreen()} />
-      )}>
+      buttons={
+        screen && (
+          <Button
+            icon="arrow-left"
+            content="Назад"
+            onClick={() => setScreen()}
+          />
+        )
+      }>
       <Component />
     </Section>
   );
 };
-
 
 //  Home screen
 // --------------------------------------------------------
@@ -140,53 +134,53 @@ const AirAlarmControl = (props, context) => {
 const AirAlarmControlHome = (props, context) => {
   const { act, data } = useBackend(context);
   const [screen, setScreen] = useLocalState(context, 'screen');
-  const {
-    mode,
-    atmos_alarm,
-  } = data;
+  const { mode, atmos_alarm } = data;
   return (
     <>
       <Button
-        icon={atmos_alarm
-          ? 'exclamation-triangle'
-          : 'exclamation'}
+        icon={atmos_alarm ? 'exclamation-triangle' : 'exclamation'}
         color={atmos_alarm && 'caution'}
         content="Атмосферная тревога"
-        onClick={() => act(atmos_alarm ? 'reset' : 'alarm')} />
+        onClick={() => act(atmos_alarm ? 'reset' : 'alarm')}
+      />
       <Box mt={1} />
       <Button
-        icon={mode === 3
-          ? 'exclamation-triangle'
-          : 'exclamation'}
+        icon={mode === 3 ? 'exclamation-triangle' : 'exclamation'}
         color={mode === 3 && 'danger'}
         content="Паническая откачка"
-        onClick={() => act('mode', {
-          mode: mode === 3 ? 1 : 3,
-        })} />
+        onClick={() =>
+          act('mode', {
+            mode: mode === 3 ? 1 : 3,
+          })
+        }
+      />
       <Box mt={2} />
       <Button
         icon="sign-out-alt"
         content="Управление вентиляцией"
-        onClick={() => setScreen('vents')} />
+        onClick={() => setScreen('vents')}
+      />
       <Box mt={1} />
       <Button
         icon="filter"
         content="Управление фильтрами"
-        onClick={() => setScreen('scrubbers')} />
+        onClick={() => setScreen('scrubbers')}
+      />
       <Box mt={1} />
       <Button
         icon="cog"
         content="Режим работы"
-        onClick={() => setScreen('modes')} />
+        onClick={() => setScreen('modes')}
+      />
       <Box mt={1} />
       <Button
         icon="chart-bar"
         content="Пороги тревог"
-        onClick={() => setScreen('thresholds')} />
+        onClick={() => setScreen('thresholds')}
+      />
     </>
   );
 };
-
 
 //  Vents
 // --------------------------------------------------------
@@ -197,11 +191,7 @@ const AirAlarmControlVents = (props, context) => {
   if (!vents || vents.length === 0) {
     return 'Нечего показывать';
   }
-  return vents.map(vent => (
-    <Vent
-      key={vent.id_tag}
-      vent={vent} />
-  ));
+  return vents.map((vent) => <Vent key={vent.id_tag} vent={vent} />);
 };
 
 //  Scrubbers
@@ -213,10 +203,8 @@ const AirAlarmControlScrubbers = (props, context) => {
   if (!scrubbers || scrubbers.length === 0) {
     return 'Нечего показывать';
   }
-  return scrubbers.map(scrubber => (
-    <Scrubber
-      key={scrubber.id_tag}
-      scrubber={scrubber} />
+  return scrubbers.map((scrubber) => (
+    <Scrubber key={scrubber.id_tag} scrubber={scrubber} />
   ));
 };
 
@@ -229,19 +217,19 @@ const AirAlarmControlModes = (props, context) => {
   if (!modes || modes.length === 0) {
     return 'Нечего показывать';
   }
-  return modes.map(mode => (
+  return modes.map((mode) => (
     <Fragment key={mode.mode}>
       <Button
         icon={mode.selected ? 'check-square-o' : 'square-o'}
         selected={mode.selected}
         color={mode.selected && mode.danger && 'danger'}
         content={mode.name}
-        onClick={() => act('mode', { mode: mode.mode })} />
+        onClick={() => act('mode', { mode: mode.mode })}
+      />
       <Box mt={1} />
     </Fragment>
   ));
 };
-
 
 //  Thresholds
 // --------------------------------------------------------
@@ -250,9 +238,7 @@ const AirAlarmControlThresholds = (props, context) => {
   const { act, data } = useBackend(context);
   const { thresholds } = data;
   return (
-    <table
-      className="LabeledList"
-      style={{ width: '100%' }}>
+    <table className="LabeledList" style={{ width: '100%' }}>
       <thead>
         <tr>
           <td />
@@ -263,17 +249,20 @@ const AirAlarmControlThresholds = (props, context) => {
         </tr>
       </thead>
       <tbody>
-        {thresholds.map(threshold => (
+        {thresholds.map((threshold) => (
           <tr key={threshold.name}>
             <td className="LabeledList__label">{threshold.name}</td>
-            {threshold.settings.map(setting => (
+            {threshold.settings.map((setting) => (
               <td key={setting.val}>
                 <Button
                   content={toFixed(setting.selected, 2)}
-                  onClick={() => act('threshold', {
-                    env: setting.env,
-                    var: setting.val,
-                  })} />
+                  onClick={() =>
+                    act('threshold', {
+                      env: setting.env,
+                      var: setting.val,
+                    })
+                  }
+                />
               </td>
             ))}
           </tr>

@@ -193,7 +193,6 @@ const SystemWallpaper = (_, context) => {
     '',
   ].join('\n');
 
-
   return (
     <Section fill nowrap overflow="hidden">
       <pre>
@@ -348,7 +347,8 @@ const InstalledInfo = (props) => {
           !software
             ? 'Select a Program'
             : software.replace(/(^\w{1})|(\s+\w{1})/g, (letter) =>
-              letter.toUpperCase())
+              letter.toUpperCase()
+            )
         }>
         {software && (
           <Stack fill vertical>

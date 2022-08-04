@@ -5,10 +5,7 @@ import { Window } from '../layouts';
 export const MinigamesMenu = (props, context) => {
   const { act } = useBackend(context);
   return (
-    <Window
-      title="Мини-игры"
-      width={550}
-      height={200}>
+    <Window title="Мини-игры" width={550} height={200}>
       <Window.Content>
         <Section title="Выбирай с умом" textAlign="center">
           <Stack>

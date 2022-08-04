@@ -9,7 +9,7 @@ export const CHANNELS_THEMES = {
     theme: 'radio',
   },
   'Действия': {
-    theme: "me",
+    theme: 'me',
   },
   'OOC': {
     theme: 'ooc',

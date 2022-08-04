@@ -10,27 +10,21 @@ export const LockerPad = (props, context) => {
     ['2', '5', '8', '0'],
     ['3', '6', '9', 'E'],
   ];
-  const {
-    keypad,
-  } = data;
+  const { keypad } = data;
   return (
-    <Window
-      width={180}
-      height={310}>
+    <Window width={180} height={310}>
       <Flex.Item grow={1}>
-        <Box
-          width="165px"
-          textAlign="center"
-          fontSize="20px">
-          {"Enter password\n"}
-          {"Here: "}{keypad}
+        <Box width="165px" textAlign="center" fontSize="20px">
+          {'Enter password\n'}
+          {'Here: '}
+          {keypad}
         </Box>
       </Flex.Item>
       <Box width="165px">
         <Grid width="1px">
-          {keypadKeys.map(keyColumn => (
+          {keypadKeys.map((keyColumn) => (
             <Grid.Column key={keyColumn[0]}>
-              {keyColumn.map(key => (
+              {keyColumn.map((key) => (
                 <Button
                   fluid
                   bold
@@ -41,7 +35,8 @@ export const LockerPad = (props, context) => {
                   fontSize="40px"
                   lineHeight={1.25}
                   width="55px"
-                  onClick={() => act('keypad', { digit: key })} />
+                  onClick={() => act('keypad', { digit: key })}
+                />
               ))}
             </Grid.Column>
           ))}

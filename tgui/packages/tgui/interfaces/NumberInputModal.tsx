@@ -25,8 +25,7 @@ export const NumberInputModal = (_, context) => {
     setInput(value);
   };
   // Dynamically changes the window height based on the message.
-  const windowHeight
-    = 125 + Math.ceil(message?.length / 3);
+  const windowHeight = 125 + Math.ceil(message?.length / 3);
 
   return (
     <Window title={title} width={270} height={windowHeight}>

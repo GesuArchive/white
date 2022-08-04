@@ -15,18 +15,18 @@ export const SmokeMachine = (props, context) => {
     maxSetting = [],
   } = data;
   return (
-    <Window
-      width={350}
-      height={350}>
+    <Window width={350} height={350}>
       <Window.Content>
-        <Section title="Рассеивание"
-          buttons={(
+        <Section
+          title="Рассеивание"
+          buttons={
             <Button
               icon={active ? 'power-off' : 'times'}
               selected={active}
               content={active ? 'Вкл' : 'Выкл'}
-              onClick={() => act('power')} />
-          )}>
+              onClick={() => act('power')}
+            />
+          }>
           <ProgressBar
             value={TankCurrentVolume / TankMaxVolume}
             ranges={{
@@ -38,35 +38,33 @@ export const SmokeMachine = (props, context) => {
           <Box mt={1}>
             <LabeledList>
               <LabeledList.Item label="Радиус">
-                {[1, 2, 3, 4, 5].map(amount => (
+                {[1, 2, 3, 4, 5].map((amount) => (
                   <Button
                     key={amount}
                     selected={setting === amount}
                     icon="plus"
                     content={amount * 3}
                     disabled={maxSetting < amount}
-                    onClick={() => act('setting', { amount })} />
+                    onClick={() => act('setting', { amount })}
+                  />
                 ))}
               </LabeledList.Item>
             </LabeledList>
           </Box>
         </Section>
-        <Section title="Содержимое"
-          buttons={(
+        <Section
+          title="Содержимое"
+          buttons={
             <Button
               icon="trash"
               content="Очистить"
-              onClick={() => act('purge')} />
-          )}>
-          {TankContents.map(chemical => (
-            <Box
-              key={chemical.name}
-              color="label">
-              <AnimatedNumber
-                initial={0}
-                value={chemical.volume} />
-              {' '}
-              единиц {chemical.name}
+              onClick={() => act('purge')}
+            />
+          }>
+          {TankContents.map((chemical) => (
+            <Box key={chemical.name} color="label">
+              <AnimatedNumber initial={0} value={chemical.volume} /> единиц{' '}
+              {chemical.name}
             </Box>
           ))}
         </Section>

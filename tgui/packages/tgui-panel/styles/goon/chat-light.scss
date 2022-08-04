@@ -3,7 +3,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-html, body {
+html,
+body {
   padding: 0;
   margin: 0;
   height: 100%;
@@ -103,13 +104,13 @@ a.popt {
   color: #333;
 }
 
-.popup input[type=text]:hover,
-.popup input[type=text]:active,
-.popup input[type=text]:focus {
+.popup input[type='text']:hover,
+.popup input[type='text']:active,
+.popup input[type='text']:focus {
   border-color: green;
 }
 
-.popup input[type=submit] {
+.popup input[type='submit'] {
   padding: 5px 10px;
   background: #999;
   color: #ddd;
@@ -118,9 +119,9 @@ a.popt {
   font-weight: bold;
 }
 
-.popup input[type=submit]:hover,
-.popup input[type=submit]:focus,
-.popup input[type=submit]:active {
+.popup input[type='submit']:hover,
+.popup input[type='submit']:focus,
+.popup input[type='submit']:active {
   background: #aaa;
   cursor: pointer;
 }
@@ -145,7 +146,7 @@ a.popt {
   text-align: center;
 }
 
-.highlightPopup input[type=text] {
+.highlightPopup input[type='text'] {
   display: block;
   width: 215px;
   text-align: left;
@@ -153,17 +154,14 @@ a.popt {
 }
 
 .highlightPopup input.highlightColor {
-  background-color: #FFFF00;
+  background-color: #ffff00;
 }
 
 .highlightPopup input.highlightTermSubmit {
   margin-top: 5px;
 }
 
-
-
 /* ADMIN CONTEXT MENU */
-
 
 .contextMenu {
   background-color: #ddd;
@@ -183,10 +181,7 @@ a.popt {
   background-color: #ccc;
 }
 
-
-
 /* ADMIN FILTER MESSAGES MENU */
-
 
 .filterMessages {
   padding: 5px;
@@ -210,21 +205,13 @@ a.popt {
   margin-top: -2px;
 }
 
-
-
-
 /*****************************************
 *
 * OUTPUT ACTUALLY RELATED TO MESSAGES
 *
 ******************************************/
 
-
-
-
-
 /* MOTD */
-
 
 .motd {
   color: #638500;
@@ -250,10 +237,7 @@ a.popt {
   color: #638500;
 }
 
-
-
 /* ADD HERE FOR BOLD */
-
 
 .bold,
 .name,
@@ -267,31 +251,31 @@ a.popt {
   font-weight: bold;
 }
 
-
-
 /* ADD HERE FOR ITALIC */
-
 
 .italic,
 .italics {
   font-style: italic;
 }
 
-
-
 /* OUTPUT COLORS */
-
 
 .highlight {
   background: yellow;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #0000ff;
   font-family: Georgia, Verdana, sans-serif;
 }
 
-h1.alert, h2.alert {
+h1.alert,
+h2.alert {
   color: #000000;
 }
 
@@ -329,7 +313,10 @@ em {
   font-weight: bold;
 }
 
-.say, .emote, .infoplain, .mentor {
+.say,
+.emote,
+.infoplain,
+.mentor {
 }
 
 .deadsay {
@@ -432,7 +419,8 @@ em {
   color: #ff0000;
 }
 
-h1.alert, h2.alert {
+h1.alert,
+h2.alert {
   color: #000000;
 }
 
@@ -467,7 +455,7 @@ h1.alert, h2.alert {
 }
 
 .alertwarning {
-  color: #FF0000;
+  color: #ff0000;
   font-weight: bold;
 }
 
@@ -502,7 +490,7 @@ h1.alert, h2.alert {
 }
 
 .info {
-  color: #0000CC;
+  color: #0000cc;
 }
 
 .notice {
@@ -565,11 +553,11 @@ h1.alert, h2.alert {
 }
 
 .red {
-  color: #FF0000;
+  color: #ff0000;
 }
 
 .blue {
-  color: #0000FF;
+  color: #0000ff;
 }
 
 .nicegreen {
@@ -616,7 +604,7 @@ h1.alert, h2.alert {
 }
 
 .colossus {
-  color: #7F282A;
+  color: #7f282a;
   font-size: 195%;
 }
 
@@ -670,7 +658,7 @@ h1.alert, h2.alert {
 }
 
 .deconversion_message {
-  color: #5000A0;
+  color: #5000a0;
   font-size: 135%;
   font-style: italic;
 }
@@ -700,7 +688,7 @@ h1.alert, h2.alert {
 }
 
 .alertsyndie {
-  color: #FF0000;
+  color: #ff0000;
   font-size: 135%;
   font-weight: bold;
 }
@@ -716,15 +704,15 @@ h1.alert, h2.alert {
 }
 
 .sans {
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 .papyrus {
-  font-family: "Papyrus", cursive, sans-serif;
+  font-family: 'Papyrus', cursive, sans-serif;
 }
 
 .robot {
-  font-family: "Courier New", cursive, sans-serif;
+  font-family: 'Courier New', cursive, sans-serif;
 }
 
 .command_headset {
@@ -753,30 +741,30 @@ h1.alert, h2.alert {
 }
 
 .greentext {
-  color: #00FF00;
+  color: #00ff00;
   font-size: 135%;
 }
 
 .redtext {
-  color: #FF0000;
+  color: #ff0000;
   font-size: 135%;
 }
 
 .clown {
-  color: #FF69Bf;
+  color: #ff69bf;
   font-size: 135%;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
   font-weight: bold;
 }
 
 .singing {
-  font-family: "Trebuchet MS", cursive, sans-serif;
+  font-family: 'Trebuchet MS', cursive, sans-serif;
   font-style: italic;
 }
 
 .his_grace {
-  color: #15D512;
-  font-family: "Courier New", cursive, sans-serif;
+  color: #15d512;
+  font-family: 'Courier New', cursive, sans-serif;
   font-style: italic;
 }
 
@@ -855,14 +843,14 @@ h1.alert, h2.alert {
 }
 
 .mind_control {
-  color: #A00D6F;
+  color: #a00d6f;
   font-size: 100%;
   font-weight: bold;
   font-style: italic;
 }
 
 .slime {
-  color: #00CED1;
+  color: #00ced1;
 }
 
 .drone {
@@ -874,11 +862,11 @@ h1.alert, h2.alert {
 }
 
 .swarmer {
-  color: #2C75FF;
+  color: #2c75ff;
 }
 
 .resonate {
-  color: #298F85;
+  color: #298f85;
 }
 
 .monkeyhive {
@@ -906,10 +894,7 @@ h1.alert, h2.alert {
   font-weight: bold;
 }
 
-
-
 /* HELPER CLASSES */
-
 
 .text-normal {
   font-weight: normal;
@@ -936,7 +921,13 @@ h1.alert, h2.alert {
 /* WHITE SHIT */
 
 .veryalert {
-  background: repeating-linear-gradient(-45deg,#daaa18,#daaa18 8px,#000000 8px,#000000 16px);
+  background: repeating-linear-gradient(
+    -45deg,
+    #daaa18,
+    #daaa18 8px,
+    #000000 8px,
+    #000000 16px
+  );
   border: none;
   height: 8px;
 }
@@ -944,7 +935,13 @@ h1.alert, h2.alert {
 /* MOTD SHIT */
 #motd-main {
   padding: 5px 0 1px 0;
-  background: repeating-linear-gradient(45deg,#232323,#232323 8px,#222222 8px,#222222 16px);
+  background: repeating-linear-gradient(
+    45deg,
+    #232323,
+    #232323 8px,
+    #222222 8px,
+    #222222 16px
+  );
   text-shadow: 0 0 3px black;
   box-shadow: 0 0 24px rgba(0, 0, 0, 1);
   border: 1px solid #111;
@@ -1003,8 +1000,12 @@ h1.alert, h2.alert {
 }
 
 @keyframes spin {
-  from {transform:rotate(0deg);}
-  to {transform:rotate(-360deg);}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
 }
 
 .examine_block {
@@ -1021,12 +1022,19 @@ h1.alert, h2.alert {
   margin: 8px 16px 8px 16px;
 }
 
-a, b, h1, h2, h3, h4, h5, h6 {
+a,
+b,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-shadow: none;
 }
 
 .katanafont {
-  font-family: "RetroVilleNC";
+  font-family: 'RetroVilleNC';
 }
 
 .chat_step_0 {
@@ -1061,32 +1069,124 @@ a, b, h1, h2, h3, h4, h5, h6 {
   font-size: 90%;
 }
 
-.brass					{color: #BE8700;}
-.heavy_brass			{color: #BE8700; font-weight: bold; font-style: italic;}
-.large_brass			{color: #BE8700; font-size: 24px;}
-.leader_brass			{color: #BE8700; font-size: 16px;}
-.big_brass				{color: #BE8700; font-size: 24px; font-weight: bold; font-style: italic;}
-.ratvar					{color: #BE8700; font-size: 48px; font-weight: bold; font-style: italic; animation: ratvarcolor 5000ms infinite;}
-.ratvarsmall			{color: #BE8700; font-size: 24px; font-weight: bold; font-style: italic; animation: ratvarcolor 5000ms infinite;}
-.alloy					{color: #42474D;}
-.heavy_alloy			{color: #42474D; font-weight: bold; font-style: italic;}
-.nezbere_large			{color: #42474D; font-size: 24px; font-weight: bold; font-style: italic;}
-.nezbere				{color: #42474D; font-weight: bold; font-style: italic;}
-.nezbere_small			{color: #42474D;}
-.sevtug_large			{color: #AF0AAF; font-size: 24px; font-weight: bold; font-style: italic;}
-.sevtug					{color: #AF0AAF; font-weight: bold; font-style: italic;}
-.sevtug_small			{color: #AF0AAF;}
-.inathneq_large			{color: #1E8CE1; font-size: 24px; font-weight: bold; font-style: italic;}
-.inathneq				{color: #1E8CE1; font-weight: bold; font-style: italic;}
-.inathneq_small			{color: #1E8CE1;}
-.nzcrentr_large			{color: #DAAA18; font-size: 24px; font-weight: bold; font-style: italic;}
-.nzcrentr				{color: #DAAA18; font-weight: bold; font-style: italic;}
-.nzcrentr_small			{color: #DAAA18;}
-.neovgre_large			{color: #6E001A; font-size: 24px; font-weight: bold; font-style: italic;}
-.neovgre				{color: #6E001A; font-weight: bold; font-style: italic;}
-.neovgre_small			{color: #6E001A;}
+.brass {
+  color: #be8700;
+}
+.heavy_brass {
+  color: #be8700;
+  font-weight: bold;
+  font-style: italic;
+}
+.large_brass {
+  color: #be8700;
+  font-size: 24px;
+}
+.leader_brass {
+  color: #be8700;
+  font-size: 16px;
+}
+.big_brass {
+  color: #be8700;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+}
+.ratvar {
+  color: #be8700;
+  font-size: 48px;
+  font-weight: bold;
+  font-style: italic;
+  animation: ratvarcolor 5000ms infinite;
+}
+.ratvarsmall {
+  color: #be8700;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+  animation: ratvarcolor 5000ms infinite;
+}
+.alloy {
+  color: #42474d;
+}
+.heavy_alloy {
+  color: #42474d;
+  font-weight: bold;
+  font-style: italic;
+}
+.nezbere_large {
+  color: #42474d;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+}
+.nezbere {
+  color: #42474d;
+  font-weight: bold;
+  font-style: italic;
+}
+.nezbere_small {
+  color: #42474d;
+}
+.sevtug_large {
+  color: #af0aaf;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+}
+.sevtug {
+  color: #af0aaf;
+  font-weight: bold;
+  font-style: italic;
+}
+.sevtug_small {
+  color: #af0aaf;
+}
+.inathneq_large {
+  color: #1e8ce1;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+}
+.inathneq {
+  color: #1e8ce1;
+  font-weight: bold;
+  font-style: italic;
+}
+.inathneq_small {
+  color: #1e8ce1;
+}
+.nzcrentr_large {
+  color: #daaa18;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+}
+.nzcrentr {
+  color: #daaa18;
+  font-weight: bold;
+  font-style: italic;
+}
+.nzcrentr_small {
+  color: #daaa18;
+}
+.neovgre_large {
+  color: #6e001a;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+}
+.neovgre {
+  color: #6e001a;
+  font-weight: bold;
+  font-style: italic;
+}
+.neovgre_small {
+  color: #6e001a;
+}
 
-.mentor         {color: #8a2be2;}
+.mentor {
+  color: #8a2be2;
+}
 
 .Section {
   border: none;

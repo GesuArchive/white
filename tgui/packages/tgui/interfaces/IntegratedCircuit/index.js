@@ -1,12 +1,5 @@
 import { useBackend } from '../../backend';
-import {
-  Input,
-  InfinitePlane,
-  Stack,
-  Box,
-  Button,
-  Section,
-} from '../../components';
+import { Input, InfinitePlane, Stack, Box, Button, Section } from '../../components';
 import { Component } from 'inferno';
 import { Layout, Window } from '../../layouts';
 import { resolveAsset } from '../../assets';
@@ -74,11 +67,11 @@ export class IntegratedCircuit extends Component {
     position.color = port.color;
 
     if (
-      isNaN(position.x)
-      || isNaN(position.y)
-      || (lastPosition
-        && lastPosition.x === position.x
-        && lastPosition.y === position.y)
+      isNaN(position.x) ||
+      isNaN(position.y) ||
+      (lastPosition &&
+        lastPosition.x === position.x &&
+        lastPosition.y === position.y)
     ) {
       return;
     }
@@ -108,8 +101,8 @@ export class IntegratedCircuit extends Component {
 
     this.handlePortDrag(event);
 
-    this.timeUntilPortReleaseTimesOut
-      = Date.now() + TIME_UNTIL_PORT_RELEASE_WORKS;
+    this.timeUntilPortReleaseTimesOut =
+      Date.now() + TIME_UNTIL_PORT_RELEASE_WORKS;
 
     window.addEventListener('mousemove', this.handlePortDrag);
     window.addEventListener('mouseup', this.handlePortRelease);
@@ -119,9 +112,7 @@ export class IntegratedCircuit extends Component {
   // exists and do perform some actions if it does.
   handlePortUp(portIndex, componentId, port, isOutput, event) {
     const { act, data: uiData } = useBackend(this.context);
-    const {
-      selectedPort,
-    } = this.state;
+    const { selectedPort } = this.state;
     if (!selectedPort) {
       return;
     }
@@ -147,7 +138,7 @@ export class IntegratedCircuit extends Component {
         output_component_id: selectedPort.component_id,
       };
     }
-    act("add_connection", data);
+    act('add_connection', data);
 
     const { components } = uiData;
     const {
@@ -157,17 +148,17 @@ export class IntegratedCircuit extends Component {
       output_port_id,
     } = data;
 
-    const input_comp = components[input_component_id-1];
-    const input_port = input_comp.input_ports[input_port_id-1];
-    const output_comp = components[output_component_id-1];
-    const output_port = output_comp.output_ports[output_port_id-1];
+    const input_comp = components[input_component_id - 1];
+    const input_port = input_comp.input_ports[input_port_id - 1];
+    const output_comp = components[output_component_id - 1];
+    const output_port = output_comp.output_ports[output_port_id - 1];
     // Do not predict ports that do not match because there is no guarantee
     // that they will properly match.
     // TODO: Implement proper prediction for this
     if (!input_port || input_port.type !== output_port.type) {
       return;
     }
-    input_port.connected_to.push(isOutput? port.ref : selectedPort.ref);
+    input_port.connected_to.push(isOutput ? port.ref : selectedPort.ref);
   }
 
   handlePortDrag(event) {
@@ -246,7 +237,7 @@ export class IntegratedCircuit extends Component {
     const { act } = useBackend(this.context);
     const { backgroundX, backgroundY } = this.state;
     if (backgroundX && backgroundY) {
-      act("move_screen", {
+      act('move_screen', {
         screen_x: backgroundX,
         screen_y: backgroundY,
       });
@@ -279,19 +270,16 @@ export class IntegratedCircuit extends Component {
       backgroundY,
       zoom,
     } = this.state;
-    const {
-      screen_x,
-      screen_y,
-    } = data;
+    const { screen_x, screen_y } = data;
 
-    const xPos = (event.clientX - (backgroundX || screen_x));
-    const yPos = (event.clientY - (backgroundY || screen_y));
+    const xPos = event.clientX - (backgroundX || screen_x);
+    const yPos = event.clientY - (backgroundY || screen_y);
 
-    act("add_setter_or_getter", {
+    act('add_setter_or_getter', {
       variable: draggingVariable,
       is_setter: variableIsSetter,
-      rel_x: xPos*Math.pow(zoom, -1),
-      rel_y: (yPos + ABSOLUTE_Y_OFFSET)*Math.pow(zoom, -1),
+      rel_x: xPos * Math.pow(zoom, -1),
+      rel_y: (yPos + ABSOLUTE_Y_OFFSET) * Math.pow(zoom, -1),
     });
 
     this.setState({
@@ -343,13 +331,13 @@ export class IntegratedCircuit extends Component {
       const isOutput = selectedPort.is_output;
       const portLocation = locations[selectedPort.ref];
       const mouseCoords = {
-        x: (mouseX)*Math.pow(zoom, -1),
-        y: (mouseY + ABSOLUTE_Y_OFFSET)*Math.pow(zoom, -1),
+        x: mouseX * Math.pow(zoom, -1),
+        y: (mouseY + ABSOLUTE_Y_OFFSET) * Math.pow(zoom, -1),
       };
       connections.push({
         color: (portLocation && portLocation.color) || 'blue',
-        from: isOutput? portLocation : mouseCoords,
-        to: isOutput? mouseCoords : portLocation,
+        from: isOutput ? portLocation : mouseCoords,
+        to: isOutput ? mouseCoords : portLocation,
       });
     }
 
@@ -357,20 +345,17 @@ export class IntegratedCircuit extends Component {
       <Window
         width={1200}
         height={800}
-        buttons={(
-          <Box
-            width="160px"
-            position="absolute"
-            top="5px"
-            height="22px"
-          >
+        buttons={
+          <Box width="160px" position="absolute" top="5px" height="22px">
             <Stack>
               <Stack.Item grow>
                 <Input
                   fluid
                   placeholder="Circuit Name"
                   value={display_name}
-                  onChange={(e, value) => act("set_display_name", { display_name: value })}
+                  onChange={(e, value) =>
+                    act('set_display_name', { display_name: value })
+                  }
                 />
               </Stack.Item>
               <Stack.Item basis="24px">
@@ -380,9 +365,11 @@ export class IntegratedCircuit extends Component {
                   color="transparent"
                   icon="cog"
                   selected={menuOpen}
-                  onClick={() => this.setState((state) => ({
-                    menuOpen: !state.menuOpen,
-                  }))}
+                  onClick={() =>
+                    this.setState((state) => ({
+                      menuOpen: !state.menuOpen,
+                    }))
+                  }
                 />
               </Stack.Item>
               {!!is_admin && (
@@ -391,15 +378,14 @@ export class IntegratedCircuit extends Component {
                     position="absolute"
                     top={0}
                     color="transparent"
-                    onClick={() => act("save_circuit")}
+                    onClick={() => act('save_circuit')}
                     icon="save"
                   />
                 </Stack.Item>
               )}
             </Stack>
           </Box>
-        )}
-      >
+        }>
         <Window.Content
           style={{
             'background-image': 'none',
@@ -412,8 +398,7 @@ export class IntegratedCircuit extends Component {
             onZoomChange={this.handleZoomChange}
             onBackgroundMoved={this.handleBackgroundMoved}
             initialLeft={screen_x}
-            initialTop={screen_y}
-          >
+            initialTop={screen_y}>
             {components.map(
               (comp, index) =>
                 comp && (
@@ -452,28 +437,31 @@ export class IntegratedCircuit extends Component {
               minWidth="600px"
               width="50%"
               style={{
-                "border-radius": "0px 32px 0px 0px",
-                "background-color": "rgba(0, 0, 0, 0.3)",
-                "-ms-user-select": "none",
+                'border-radius': '0px 32px 0px 0px',
+                'background-color': 'rgba(0, 0, 0, 0.3)',
+                '-ms-user-select': 'none',
               }}
-              unselectable="on"
-            >
+              unselectable="on">
               <VariableMenu
                 variables={variables}
                 types={global_basic_types}
                 onClose={(event) => this.setState({ menuOpen: false })}
-                onAddVariable={(name, type, asList, event) => act("add_variable", {
-                  variable_name: name,
-                  variable_datatype: type,
-                  is_list: asList,
-                })}
-                onRemoveVariable={(name, event) => act("remove_variable", {
-                  variable_name: name,
-                })}
+                onAddVariable={(name, type, asList, event) =>
+                  act('add_variable', {
+                    variable_name: name,
+                    variable_datatype: type,
+                    is_list: asList,
+                  })
+                }
+                onRemoveVariable={(name, event) =>
+                  act('remove_variable', {
+                    variable_name: name,
+                  })
+                }
                 handleMouseDownSetter={this.onVarClickedSetter}
                 handleMouseDownGetter={this.onVarClickedGetter}
                 style={{
-                  "border-radius": "0px 32px 0px 0px",
+                  'border-radius': '0px 32px 0px 0px',
                 }}
               />
             </Box>
@@ -483,4 +471,3 @@ export class IntegratedCircuit extends Component {
     );
   }
 }
-

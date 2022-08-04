@@ -138,7 +138,8 @@ const CraftingList = (props, context) => {
               onClick={() =>
                 act('make', {
                   recipe: craftable.ref,
-                })}
+                })
+              }
             />
           }>
           {craftable.req_text}
@@ -159,7 +160,8 @@ const CraftingList = (props, context) => {
             onClick={() =>
               act('make', {
                 recipe: craftable.ref,
-              })}
+              })
+            }
           />
         }>
         <LabeledList>

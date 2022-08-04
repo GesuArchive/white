@@ -43,7 +43,8 @@ export const Aquarium = (props, context) => {
                 onDrag={(_, value) =>
                   act('temperature', {
                     temperature: value,
-                  })}
+                  })
+                }
               />
             </LabeledControls.Item>
             <LabeledControls.Item label="Fluid">

@@ -5,18 +5,16 @@ import { Window } from '../layouts';
 export const Antimatter = (props, context) => {
   const { act, data } = useBackend(context);
   return (
-    <Window
-      theme="scarlet"
-      width={300}
-      height={300}>
+    <Window theme="scarlet" width={300} height={300}>
       <Window.Content>
         <Button
-          content={data.active ? "АКТИВНОЕ СОСТОЯНИЕ" : "ПРОЦЕСС ОСТАНОВЛЕН"}
+          content={data.active ? 'АКТИВНОЕ СОСТОЯНИЕ' : 'ПРОЦЕСС ОСТАНОВЛЕН'}
           textAlign="center"
           fontSize="18px"
           fluid
           mb={1}
-          onClick={() => act('togglestatus')} />
+          onClick={() => act('togglestatus')}
+        />
         {data.fueljar && (
           <Box>
             <Slider
@@ -27,16 +25,20 @@ export const Antimatter = (props, context) => {
               step={1}
               stepPixelSize={3}
               mb={1}
-              onDrag={(e, value) => act('strengthinput', {
-                target: value,
-              })} />
+              onDrag={(e, value) =>
+                act('strengthinput', {
+                  target: value,
+                })
+              }
+            />
             <Button
               content={data.fueljar}
               textAlign="center"
               fontSize="18px"
               fluid
               mb={1}
-              onClick={() => act('ejectjar')} />
+              onClick={() => act('ejectjar')}
+            />
           </Box>
         )}
         <LabeledList>

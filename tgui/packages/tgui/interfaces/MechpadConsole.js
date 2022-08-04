@@ -5,39 +5,41 @@ import { Window } from '../layouts';
 export const MechpadControl = (props, context) => {
   const { topLevel } = props;
   const { act, data } = useBackend(context);
-  const {
-    pad_name,
-    connected_mechpad,
-  } = data;
+  const { pad_name, connected_mechpad } = data;
   return (
     <Section
-      title={(
+      title={
         <Input
           value={pad_name}
           width="240px"
-          onChange={(e, value) => act('rename', {
-            name: value,
-          })} />
-      )}
+          onChange={(e, value) =>
+            act('rename', {
+              name: value,
+            })
+          }
+        />
+      }
       level={topLevel ? 1 : 2}
-      buttons={(
+      buttons={
         <Button
           icon="times"
           content="Удалить"
           color="bad"
-          onClick={() => act('remove')} />
-      )}>
-      {!connected_mechpad && (
+          onClick={() => act('remove')}
+        />
+      }>
+      {(!connected_mechpad && (
         <Box color="bad" textAlign="center">
           Не обнаружена платформа.
         </Box>
-      ) || (
+      )) || (
         <Button
           fluid
           icon="upload"
           content="Запустить"
           textAlign="center"
-          onClick={() => act('launch')} />
+          onClick={() => act('launch')}
+        />
       )}
     </Section>
   );
@@ -45,45 +47,37 @@ export const MechpadControl = (props, context) => {
 
 export const MechpadConsole = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    mechpads = [],
-    selected_id,
-  } = data;
+  const { mechpads = [], selected_id } = data;
   return (
-    <Window
-      width={555}
-      height={125}>
+    <Window width={555} height={125}>
       <Window.Content>
-        {mechpads.length === 0 && (
-          <NoticeBox>
-            Не подключена платформа.
-          </NoticeBox>
-        ) || (
+        {(mechpads.length === 0 && (
+          <NoticeBox>Не подключена платформа.</NoticeBox>
+        )) || (
           <Section>
             <Flex minHeight="70px">
               <Flex.Item width="190px" minHeight="70px">
-                {mechpads.map(mechpad => (
+                {mechpads.map((mechpad) => (
                   <Button
                     fluid
                     ellipsis
                     key={mechpad.name}
                     content={mechpad.name}
                     selected={selected_id === mechpad.id}
-                    onClick={() => act('select_pad', {
-                      id: mechpad.id,
-                    })} />
+                    onClick={() =>
+                      act('select_pad', {
+                        id: mechpad.id,
+                      })
+                    }
+                  />
                 ))}
               </Flex.Item>
               <Flex.Item minHeight="100%">
                 <Divider vertical />
               </Flex.Item>
               <Flex.Item grow={1} basis={0} minHeight="100%">
-                {selected_id && (
-                  <MechpadControl />
-                ) || (
-                  <Box>
-                    Выбрать платформу.
-                  </Box>
+                {(selected_id && <MechpadControl />) || (
+                  <Box>Выбрать платформу.</Box>
                 )}
               </Flex.Item>
             </Flex>

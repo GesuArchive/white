@@ -4,28 +4,20 @@ import { Window } from '../layouts';
 
 export const NtnetRelay = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    enabled,
-    dos_capacity,
-    dos_overload,
-    dos_crashed,
-  } = data;
+  const { enabled, dos_capacity, dos_overload, dos_crashed } = data;
   return (
-    <Window
-      title="Квантовое реле NtNet"
-      width={400}
-      height={300}>
+    <Window title="Квантовое реле NtNet" width={400} height={300}>
       <Window.Content>
         <Section
           title="Сетевой буффер"
-          buttons={(
+          buttons={
             <Button
               icon="power-off"
               selected={enabled}
               content={enabled ? 'ВКЛЮЧЕНО' : 'ОТКЛЮЧЕНО'}
               onClick={() => act('toggle')}
             />
-          )}>
+          }>
           {!dos_crashed ? (
             <ProgressBar
               value={dos_overload}
@@ -37,19 +29,15 @@ export const NtnetRelay = (props, context) => {
             </ProgressBar>
           ) : (
             <Box fontFamily="monospace">
-              <Box fontSize="20px">
-                ПЕРЕПОЛНЕНИЕ СЕТЕВОГО БУФЕРА
-              </Box>
-              <Box fontSize="16px">
-                РЕЖИМ ВОССТАНОВЛЕНИЯ ПЕРЕГРУЗКИ
-              </Box>
+              <Box fontSize="20px">ПЕРЕПОЛНЕНИЕ СЕТЕВОГО БУФЕРА</Box>
+              <Box fontSize="16px">РЕЖИМ ВОССТАНОВЛЕНИЯ ПЕРЕГРУЗКИ</Box>
               <Box>
-                Эта система временно отключена из-за переполнения
-                буферов трафика. Пока буферизованный трафик не будет обработан,
-                все дальнейшие запросы будут отброшены. Частые случаи этой
-                ошибки может указывать на недостаточную мощность оборудования
-                вашей сети. Пожалуйста, свяжитесь с вашим сетевым планировщиком
-                для получения инструкций о том, как решить эту проблему.
+                Эта система временно отключена из-за переполнения буферов
+                трафика. Пока буферизованный трафик не будет обработан, все
+                дальнейшие запросы будут отброшены. Частые случаи этой ошибки
+                может указывать на недостаточную мощность оборудования вашей
+                сети. Пожалуйста, свяжитесь с вашим сетевым планировщиком для
+                получения инструкций о том, как решить эту проблему.
               </Box>
               <Box fontSize="20px" color="bad">
                 ПРЕРЫВАНИЕ АДМИНИСТРАТОРА
@@ -62,7 +50,8 @@ export const NtnetRelay = (props, context) => {
                 content="ОЧИСТИТЬ БУФФЕР"
                 mt={1}
                 color="bad"
-                onClick={() => act('restart')} />
+                onClick={() => act('restart')}
+              />
             </Box>
           )}
         </Section>

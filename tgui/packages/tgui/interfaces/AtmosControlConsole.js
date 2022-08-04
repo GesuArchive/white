@@ -8,13 +8,10 @@ export const AtmosControlConsole = (props, context) => {
   const { act, data } = useBackend(context);
   const sensors = data.sensors || [];
   return (
-    <Window
-      width={500}
-      height={325}>
+    <Window width={500} height={325}>
       <Window.Content scrollable>
-        <Section
-          title={!!data.tank && sensors[0]?.long_name}>
-          {sensors.map(sensor => {
+        <Section title={!!data.tank && sensors[0]?.long_name}>
+          {sensors.map((sensor) => {
             const gases = sensor.gases || {};
             return (
               <Section
@@ -43,19 +40,21 @@ export const AtmosControlConsole = (props, context) => {
         {data.tank && (
           <Section
             title="Управление"
-            buttons={(
+            buttons={
               <Button
                 icon="undo"
                 content="Переподключить"
-                onClick={() => act('reconnect')} />
-            )}>
+                onClick={() => act('reconnect')}
+              />
+            }>
             <LabeledList>
               <LabeledList.Item label="Инжектор">
                 <Button
                   icon={data.inputting ? 'power-off' : 'times'}
                   content={data.inputting ? 'Включен' : 'Отключен'}
                   selected={data.inputting}
-                  onClick={() => act('input')} />
+                  onClick={() => act('input')}
+                />
               </LabeledList.Item>
               <LabeledList.Item label="Скорость ввода">
                 <NumberInput
@@ -67,16 +66,20 @@ export const AtmosControlConsole = (props, context) => {
                   // This takes an exceptionally long time to update
                   // due to being an async signal
                   suppressFlicker={2000}
-                  onChange={(e, value) => act('rate', {
-                    rate: value,
-                  })} />
+                  onChange={(e, value) =>
+                    act('rate', {
+                      rate: value,
+                    })
+                  }
+                />
               </LabeledList.Item>
               <LabeledList.Item label="Выход">
                 <Button
                   icon={data.outputting ? 'power-off' : 'times'}
                   content={data.outputting ? 'Открыт' : 'Закрыт'}
                   selected={data.outputting}
-                  onClick={() => act('output')} />
+                  onClick={() => act('output')}
+                />
               </LabeledList.Item>
               <LabeledList.Item label="Выходное давление">
                 <NumberInput
@@ -89,9 +92,12 @@ export const AtmosControlConsole = (props, context) => {
                   // This takes an exceptionally long time to update
                   // due to being an async signal
                   suppressFlicker={2000}
-                  onChange={(e, value) => act('pressure', {
-                    pressure: value,
-                  })} />
+                  onChange={(e, value) =>
+                    act('pressure', {
+                      pressure: value,
+                    })
+                  }
+                />
               </LabeledList.Item>
             </LabeledList>
           </Section>

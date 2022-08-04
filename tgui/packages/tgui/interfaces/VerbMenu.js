@@ -8,12 +8,13 @@ export const VerbMenu = (props, context) => {
   const [searchText, setSearchText] = useLocalState(context, 'searchText', '');
   const keys = Object.keys(data.verbs);
   const verbsByTab = data.verbs[keys[tab]];
-  const matchingVerbs = verbsByTab.filter((val, key) =>
-    val[0].toLowerCase().search(searchText.toLowerCase()) !== -1).sort();
+  const matchingVerbs = verbsByTab
+    .filter(
+      (val, key) => val[0].toLowerCase().search(searchText.toLowerCase()) !== -1
+    )
+    .sort();
   return (
-    <Window
-      width={450}
-      height={400}>
+    <Window width={450} height={400}>
       <Window.Content scrollable>
         {!(keys.length > 1) || (
           <Tabs>
@@ -26,7 +27,8 @@ export const VerbMenu = (props, context) => {
                   selected={tab === key}
                   onClick={() => setTab(key)}>
                   {val}
-                </Tabs.Tab>);
+                </Tabs.Tab>
+              );
             })}
           </Tabs>
         )}
@@ -34,11 +36,15 @@ export const VerbMenu = (props, context) => {
           fluid
           mb={1}
           placeholder="Поиск..."
-          onInput={(e, value) => setSearchText(value)} />
+          onInput={(e, value) => setSearchText(value)}
+        />
         {matchingVerbs.map((val, key) => {
           return (
-            <Button key={key} content={<font color={val[2]}>{val[0]}</font>}
-              onClick={() => act(val[1])} />
+            <Button
+              key={key}
+              content={<font color={val[2]}>{val[0]}</font>}
+              onClick={() => act(val[1])}
+            />
           );
         })}
       </Window.Content>

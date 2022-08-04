@@ -12,57 +12,57 @@ export const LanguageMenu = (props, context) => {
     unknown_languages = [],
   } = data;
   return (
-    <Window
-      title="Language Menu"
-      width={700}
-      height={600}>
+    <Window title="Language Menu" width={700} height={600}>
       <Window.Content scrollable>
         <Section title="Известные языки">
           <LabeledList>
-            {languages.map(language => (
+            {languages.map((language) => (
               <LabeledList.Item
                 key={language.name}
                 label={language.name}
-                buttons={(
+                buttons={
                   <>
                     {!!is_living && (
                       <Button
-                        content={language.is_default
-                          ? 'Стандартный язык'
-                          : 'Выбрать как стандартный'}
+                        content={
+                          language.is_default
+                            ? 'Стандартный язык'
+                            : 'Выбрать как стандартный'
+                        }
                         disabled={!language.can_speak}
                         selected={language.is_default}
-                        onClick={() => act('select_default', {
-                          language_name: language.name,
-                        })} />
+                        onClick={() =>
+                          act('select_default', {
+                            language_name: language.name,
+                          })
+                        }
+                      />
                     )}
                     {!!admin_mode && (
                       <>
                         <Button
                           content="Получить"
-                          onClick={() => act('grant_language', {
-                            language_name: language.name,
-                          })} />
+                          onClick={() =>
+                            act('grant_language', {
+                              language_name: language.name,
+                            })
+                          }
+                        />
                         <Button
                           content="Убрать"
-                          onClick={() => act('remove_language', {
-                            language_name: language.name,
-                          })} />
+                          onClick={() =>
+                            act('remove_language', {
+                              language_name: language.name,
+                            })
+                          }
+                        />
                       </>
                     )}
                   </>
-                )}>
-                {language.desc}
-                {' '}
-                Key: ,{language.key}
-                {' '}
-                {language.can_understand
-                  ? 'Понимаю.'
-                  : 'Не понимаю.'}
-                {' '}
-                {language.can_speak
-                  ? 'Могу говорить.'
-                  : 'Не могу говорить.'}
+                }>
+                {language.desc} Key: ,{language.key}{' '}
+                {language.can_understand ? 'Понимаю.' : 'Не понимаю.'}{' '}
+                {language.can_speak ? 'Могу говорить.' : 'Не могу говорить.'}
               </LabeledList.Item>
             ))}
           </LabeledList>
@@ -70,34 +70,31 @@ export const LanguageMenu = (props, context) => {
         {!!admin_mode && (
           <Section
             title="Неизвестные языки"
-            buttons={(
+            buttons={
               <Button
-                content={'Омниязык '
-                  + (omnitongue ? 'Включен' : 'Выключен')}
+                content={'Омниязык ' + (omnitongue ? 'Включен' : 'Выключен')}
                 selected={omnitongue}
-                onClick={() => act('toggle_omnitongue')} />
-            )}>
+                onClick={() => act('toggle_omnitongue')}
+              />
+            }>
             <LabeledList>
-              {unknown_languages.map(language => (
+              {unknown_languages.map((language) => (
                 <LabeledList.Item
                   key={language.name}
                   label={language.name}
-                  buttons={(
+                  buttons={
                     <Button
                       content="Выдать"
-                      onClick={() => act('grant_language', {
-                        language_name: language.name,
-                      })} />
-                  )}>
-                  {language.desc}
-                  {' '}
-                  Key: ,{language.key}
-                  {' '}
-                  {!!language.shadow && '(получено от существа)'}
-                  {' '}
-                  {language.can_speak
-                    ? 'Могу говорить.'
-                    : 'Не могу говорить.' }
+                      onClick={() =>
+                        act('grant_language', {
+                          language_name: language.name,
+                        })
+                      }
+                    />
+                  }>
+                  {language.desc} Key: ,{language.key}{' '}
+                  {!!language.shadow && '(получено от существа)'}{' '}
+                  {language.can_speak ? 'Могу говорить.' : 'Не могу говорить.'}
                 </LabeledList.Item>
               ))}
             </LabeledList>

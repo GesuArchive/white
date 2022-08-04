@@ -6,31 +6,33 @@ import { Window } from '../layouts';
 export const BSEmitter = (props, context) => {
   const { act, data } = useBackend(context);
   return (
-    <Window
-      width={500}
-      height={500}>
+    <Window width={500} height={500}>
       <Window.Content>
         <Section
           title="Эмиттер"
-          buttons={(
+          buttons={
             <Fragment>
               <Button
                 icon={data.active ? 'times' : 'power-off'}
                 content={data.active ? 'Отключить' : 'Включить'}
                 disabled={data.expanding}
-                onClick={() => act('toggle')} />
+                onClick={() => act('toggle')}
+              />
               <Button
                 icon="sync"
                 content="Переподключить"
-                onClick={() => act('reconnect')} />
+                onClick={() => act('reconnect')}
+              />
             </Fragment>
-          )}>
+          }>
           {data.connected ? (
             <LabeledList>
               <LabeledList.Item label="Портал">
                 {data.active
-                  ?(!data.expanding ? "Открыт":"Открывается")
-                  :"Закрыт"}
+                  ? !data.expanding
+                    ? 'Открыт'
+                    : 'Открывается'
+                  : 'Закрыт'}
               </LabeledList.Item>
               <LabeledList.Item label="Радиус портала">
                 <NumberInput
@@ -40,9 +42,12 @@ export const BSEmitter = (props, context) => {
                   maxValue={16}
                   step={1}
                   stepPixelSize={10}
-                  onChange={(e, value) => act('setRadius', {
-                    radius: value,
-                  })} />
+                  onChange={(e, value) =>
+                    act('setRadius', {
+                      radius: value,
+                    })
+                  }
+                />
               </LabeledList.Item>
               <LabeledList.Item label="X">
                 <NumberInput
@@ -52,11 +57,14 @@ export const BSEmitter = (props, context) => {
                   maxValue={255}
                   step={1}
                   stepPixelSize={4}
-                  onChange={(e, value) => act('setCoords', {
-                    newx: value,
-                    newy: data.t_y,
-                    newz: data.t_z,
-                  })} />
+                  onChange={(e, value) =>
+                    act('setCoords', {
+                      newx: value,
+                      newy: data.t_y,
+                      newz: data.t_z,
+                    })
+                  }
+                />
               </LabeledList.Item>
               <LabeledList.Item label="Y">
                 <NumberInput
@@ -66,25 +74,25 @@ export const BSEmitter = (props, context) => {
                   maxValue={255}
                   step={1}
                   stepPixelSize={4}
-                  onChange={(e, value) => act('setCoords', {
-                    newx: data.t_x,
-                    newy: value,
-                    newz: data.t_z,
-                  })} />
+                  onChange={(e, value) =>
+                    act('setCoords', {
+                      newx: data.t_x,
+                      newy: value,
+                      newz: data.t_z,
+                    })
+                  }
+                />
               </LabeledList.Item>
-
             </LabeledList>
           ) : (
-            <NoticeBox textAlign="center">
-              Эмиттер не обнаружен
-            </NoticeBox>
+            <NoticeBox textAlign="center">Эмиттер не обнаружен</NoticeBox>
           )}
         </Section>
         {!data.connected || (
           <Section title="Энергосеть">
             <LabeledList>
               <LabeledList.Item label="Подключение к сети">
-                {data.powernet ? "Зарегистрировано" : "Отсутствует"}
+                {data.powernet ? 'Зарегистрировано' : 'Отсутствует'}
               </LabeledList.Item>
             </LabeledList>
 

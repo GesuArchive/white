@@ -4,53 +4,57 @@ import { Window } from '../layouts';
 
 export const TurbineComputer = (props, context) => {
   const { act, data } = useBackend(context);
-  const operational = Boolean(data.compressor
-    && !data.compressor_broke
-    && data.turbine
-    && !data.turbine_broke);
+  const operational = Boolean(
+    data.compressor &&
+      !data.compressor_broke &&
+      data.turbine &&
+      !data.turbine_broke
+  );
   return (
-    <Window
-      width={370}
-      height={150}>
+    <Window width={370} height={150}>
       <Window.Content>
         <Section
           title="Состояние"
-          buttons={(
+          buttons={
             <>
               <Button
                 icon={data.online ? 'power-off' : 'times'}
                 content={data.online ? 'Включена' : 'Отключена'}
                 selected={data.online}
                 disabled={!operational}
-                onClick={() => act('toggle_power')} />
+                onClick={() => act('toggle_power')}
+              />
               <Button
                 icon="sync"
                 content="Переподключить"
-                onClick={() => act('reconnect')} />
+                onClick={() => act('reconnect')}
+              />
             </>
-          )}>
-          {!operational && (
+          }>
+          {(!operational && (
             <LabeledList>
               <LabeledList.Item
                 label="Состояние компрессора"
-                color={(!data.compressor || data.compressor_broke)
-                  ? 'bad'
-                  : 'good'}>
+                color={
+                  !data.compressor || data.compressor_broke ? 'bad' : 'good'
+                }>
                 {data.compressor_broke
-                  ? data.compressor ? 'Выключен' : 'Отсутствует'
+                  ? data.compressor
+                    ? 'Выключен'
+                    : 'Отсутствует'
                   : 'Включен'}
               </LabeledList.Item>
               <LabeledList.Item
                 label="Состояние турбины"
-                color={(!data.turbine || data.turbine_broke)
-                  ? 'bad'
-                  : 'good'}>
+                color={!data.turbine || data.turbine_broke ? 'bad' : 'good'}>
                 {data.turbine_broke
-                  ? data.turbine ? 'Выключена' : 'Отсутствует'
+                  ? data.turbine
+                    ? 'Выключена'
+                    : 'Отсутствует'
                   : 'Включена'}
               </LabeledList.Item>
             </LabeledList>
-          ) || (
+          )) || (
             <LabeledList>
               <LabeledList.Item label="Скорость турбины">
                 {data.rpm} ОВМ

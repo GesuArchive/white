@@ -8,9 +8,7 @@ import { capitalize, createSearch } from 'common/string';
 
 export const TechFab = (props, context) => {
   return (
-    <Window
-      width={650}
-      height={700}>
+    <Window width={650} height={700}>
       <Window.Content>
         <Stack vertical fill>
           <TechFabTopBar />
@@ -24,18 +22,14 @@ export const TechFab = (props, context) => {
 
 const TechFabTopBar = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    busy,
-    efficiency,
-    search,
-  } = data;
+  const { busy, efficiency, search } = data;
 
   return (
     <Stack.Item>
       <Section>
         <Flex align="baseline" wrap="wrap">
           <Flex.Item mx={0.5}>
-            {"Поиск: "}
+            {'Поиск: '}
             <Input
               align="right"
               value={search}
@@ -44,20 +38,21 @@ const TechFabTopBar = (props, context) => {
               // onInput={(e, value) => {
               //   value.trim().length>2 && act("search", { "value": value });
               // }}
-              onChange={(e, value) => act("search", { "value": value })} />
+              onChange={(e, value) => act('search', { 'value': value })}
+            />
           </Flex.Item>
           <Flex.Item mx={0.5}>
             <Button
               content="Синхронизировать исследования"
-              onClick={() => act("sync_research")}
+              onClick={() => act('sync_research')}
             />
           </Flex.Item>
           <Flex.Item mx={0.5} grow>
-            Эффективность: {Math.floor(efficiency*100)}%
+            Эффективность: {Math.floor(efficiency * 100)}%
           </Flex.Item>
-          <Flex.Item px={1.5} color={busy ? "red" : "green"}>
-            {busy ? "Занят " : "Готов "}
-            <Icon name={busy ? "spinner" : "check-circle-o"} spin={busy} />
+          <Flex.Item px={1.5} color={busy ? 'red' : 'green'}>
+            {busy ? 'Занят ' : 'Готов '}
+            <Icon name={busy ? 'spinner' : 'check-circle-o'} spin={busy} />
           </Flex.Item>
         </Flex>
       </Section>
@@ -68,57 +63,51 @@ const TechFabTopBar = (props, context) => {
 const formatBigNumber = (number, digits) => {
   const unsafeDigitCount = Math.floor(Math.log10(number));
   const digitCount = isFinite(unsafeDigitCount) ? unsafeDigitCount : 0;
-  const exponent = digitCount > digits
-    ? Math.pow(10, digitCount-digits)
-    : Math.pow(10, Math.max(0, digits-digitCount));
+  const exponent =
+    digitCount > digits
+      ? Math.pow(10, digitCount - digits)
+      : Math.pow(10, Math.max(0, digits - digitCount));
 
-  if (digitCount > digits)
-  {
-    number = Math.floor(number/exponent);
-    return number + "e+" + (digitCount-digits);
-  }
-  else
-  {
-    return Math.round(number*exponent)/exponent;
+  if (digitCount > digits) {
+    number = Math.floor(number / exponent);
+    return number + 'e+' + (digitCount - digits);
+  } else {
+    return Math.round(number * exponent) / exponent;
   }
 };
 
 const Material = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    material,
-  } = props;
+  const { material } = props;
 
   const material_dispense_amounts = [1, 10, 50];
 
   return (
     <Flex.Item width="50%" my="1px">
       <Flex justify="space-between" px={1} align="baseline">
-        <Flex.Item width="100%">
-          {capitalize(material.name)}
-        </Flex.Item>
+        <Flex.Item width="100%">{capitalize(material.name)}</Flex.Item>
         <Flex.Item grow basis="content">
           <Flex align="baseline">
             <Flex.Item shrink px={1}>
               {formatBigNumber(material.amount, 4)}
             </Flex.Item>
-            <Flex.Item >
+            <Flex.Item>
               <Flex className="TechFab__ButtonsContainer">
-                {material_dispense_amounts.map(amount =>
-                  (
-                    <Flex.Item key={material.id+amount}>
-                      <Button
-                        className="TechFab__NumberButton"
-                        content={amount}
-                        disabled={material.amount < amount}
-                        onClick={() => act("ejectsheet", {
+                {material_dispense_amounts.map((amount) => (
+                  <Flex.Item key={material.id + amount}>
+                    <Button
+                      className="TechFab__NumberButton"
+                      content={amount}
+                      disabled={material.amount < amount}
+                      onClick={() =>
+                        act('ejectsheet', {
                           material_id: material.id,
                           amount: amount,
-                        })}
-                      />
-                    </Flex.Item>
-                  )
-                )}
+                        })
+                      }
+                    />
+                  </Flex.Item>
+                ))}
               </Flex>
             </Flex.Item>
           </Flex>
@@ -130,9 +119,7 @@ const Material = (props, context) => {
 
 const Reagent = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    reagent,
-  } = props;
+  const { reagent } = props;
 
   return (
     <Flex.Item width="50%" className="TechFab__Reagent">
@@ -144,9 +131,14 @@ const Reagent = (props, context) => {
           {formatBigNumber(reagent.volume, 4)}
         </Flex.Item>
         <Flex.Item>
-          <Button content="Очистить" onClick={() => act("dispose", {
-            reagent_id: reagent.id,
-          })} />
+          <Button
+            content="Очистить"
+            onClick={() =>
+              act('dispose', {
+                reagent_id: reagent.id,
+              })
+            }
+          />
         </Flex.Item>
       </Flex>
     </Flex.Item>
@@ -157,54 +149,44 @@ const TechFabHeader = (props, context) => {
   const { act, data } = useBackend(context);
   const {
     materials = {},
-    materials_label = "0/безлимитно", // Placeholder
+    materials_label = '0/безлимитно', // Placeholder
     reagents = {},
-    reagents_label = "",
+    reagents_label = '',
   } = data;
 
   return (
     <Stack.Item>
       <Section>
         <Collapsible
-          title={"Материалы ("+materials_label+")"}
+          title={'Материалы (' + materials_label + ')'}
           disabled={materials === null}>
           <Flex wrap="wrap" align="baseline">
-            {
-              materials && Object.keys(materials).map(id => {
+            {materials &&
+              Object.keys(materials).map((id) => {
                 const material = materials[id];
 
-                return (
-                  <Material key={id} material={material} />
-                );
-              })
-            }
+                return <Material key={id} material={material} />;
+              })}
           </Flex>
         </Collapsible>
         <Collapsible
-          title={"Реагенты ("+reagents_label+")"}
+          title={'Реагенты (' + reagents_label + ')'}
           disabled={materials === null}
-          buttons={<Button
-            content="Очистка"
-            onClick={() => act("disposeall")}
-          />}>
+          buttons={
+            <Button content="Очистка" onClick={() => act('disposeall')} />
+          }>
           <Flex wrap="wrap" align="baseline">
-            {
-              (reagents && Object.keys(reagents).length>0)
-                ? Object.keys(reagents).map(id => {
-                  const reagent = reagents[id];
+            {reagents && Object.keys(reagents).length > 0 ? (
+              Object.keys(reagents).map((id) => {
+                const reagent = reagents[id];
 
-                  return (
-                    <Reagent key={id} reagent={reagent} />
-                  );
-                })
-                : (
-                  <Flex.Item width="100%">
-                    <NoticeBox info>
-                      Реагентов нет
-                    </NoticeBox>
-                  </Flex.Item>
-                )
-            }
+                return <Reagent key={id} reagent={reagent} />;
+              })
+            ) : (
+              <Flex.Item width="100%">
+                <NoticeBox info>Реагентов нет</NoticeBox>
+              </Flex.Item>
+            )}
           </Flex>
         </Collapsible>
       </Section>
@@ -213,73 +195,59 @@ const TechFabHeader = (props, context) => {
 };
 
 const ConditionalTooltip = (props, context) => {
-  const {
-    condition,
-    children,
-    ...rest
-  } = props;
+  const { condition, children, ...rest } = props;
 
-  if (!condition)
-  {
+  if (!condition) {
     return children;
   }
 
-  return (
-    <Tooltip {...rest}>
-      {children}
-    </Tooltip>
-  );
+  return <Tooltip {...rest}>{children}</Tooltip>;
 };
 
 const Recipe = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    materials,
-    reagents,
-    efficiency,
-    stack_to_mineral,
-  } = data;
-  const {
-    recipe,
-  } = props;
+  const { materials, reagents, efficiency, stack_to_mineral } = data;
+  const { recipe } = props;
 
   const craft_amounts = [1, 5, 10];
 
   let max = 50;
 
-  const material_objects = Object.keys(recipe.materials).map(id => {
+  const material_objects = Object.keys(recipe.materials).map((id) => {
     const material = materials[id];
     const total = material.amount;
-    const amountNeeded = Math.floor(recipe.materials[id]
-      / (recipe.efficiency_affects ? efficiency : 1))
-      /stack_to_mineral;
+    const amountNeeded =
+      Math.floor(
+        recipe.materials[id] / (recipe.efficiency_affects ? efficiency : 1)
+      ) / stack_to_mineral;
 
-    const mat_max = Math.floor(total/amountNeeded);
+    const mat_max = Math.floor(total / amountNeeded);
     max = Math.min(max, mat_max);
     return (
-      <Box inline key={recipe.id+id} color={mat_max < 1 ? "#cb4848" : null}>
+      <Box inline key={recipe.id + id} color={mat_max < 1 ? '#cb4848' : null}>
         {amountNeeded} {material.name}
       </Box>
     );
   });
 
-  const reagent_objects = Object.keys(recipe.reagents).map(id => {
+  const reagent_objects = Object.keys(recipe.reagents).map((id) => {
     const reagent = reagents[id];
     const total = reagent?.volume || 0;
     const recipeReagent = recipe.reagents[id];
-    const amountNeeded = Math.floor(recipeReagent.volume
-      / (recipe.efficiency_affects ? efficiency : 1));
-    const mat_max = Math.floor(total/amountNeeded);
+    const amountNeeded = Math.floor(
+      recipeReagent.volume / (recipe.efficiency_affects ? efficiency : 1)
+    );
+    const mat_max = Math.floor(total / amountNeeded);
     max = Math.min(max, mat_max);
     return (
-      <Box inline key={recipe.id+id} color={mat_max < 1 ? "#cb4848" : null}>
+      <Box inline key={recipe.id + id} color={mat_max < 1 ? '#cb4848' : null}>
         {amountNeeded} {recipeReagent.name}
       </Box>
     );
   });
 
   const reducefn = (list, cur) => {
-    list.push(" | ");
+    list.push(' | ');
     list.push(cur);
     return list;
   };
@@ -288,41 +256,34 @@ const Recipe = (props, context) => {
     <Flex.Item className="candystripe">
       <Flex align="center" py={0.6} className="TechFab__Recipe">
         <ConditionalTooltip
-          condition={recipe.description && recipe.description !== "Desc"}
+          condition={recipe.description && recipe.description !== 'Desc'}
           content={recipe.description}
           position="bottom-end">
           <Flex.Item position="relative" width="100%">
-            <Box className="TechFab__RecipeName">
-              {recipe.name}
-            </Box>
+            <Box className="TechFab__RecipeName">{recipe.name}</Box>
             <Box color="lightgray" pl={1}>
-              {
-                reagent_objects
-                  .reduce(reducefn, material_objects
-                    .reduce(reducefn, []))
-                  .slice(1)
-              }
+              {reagent_objects
+                .reduce(reducefn, material_objects.reduce(reducefn, []))
+                .slice(1)}
             </Box>
           </Flex.Item>
         </ConditionalTooltip>
         <Flex.Item grow basis="content">
           <Flex className="TechFab__ButtonsContainer">
-            {
-              craft_amounts.map(amount => {
-                return (
-                  <Flex.Item key={recipe.id+amount}>
-                    <Button
-                      className="TechFab__NumberButton"
-                      content={"x"+amount}
-                      disabled={amount>max}
-                      onClick={() => act("build",
-                        { "design_id": recipe.id, "amount": amount }
-                      )}
-                    />
-                  </Flex.Item>
-                );
-              })
-            }
+            {craft_amounts.map((amount) => {
+              return (
+                <Flex.Item key={recipe.id + amount}>
+                  <Button
+                    className="TechFab__NumberButton"
+                    content={'x' + amount}
+                    disabled={amount > max}
+                    onClick={() =>
+                      act('build', { 'design_id': recipe.id, 'amount': amount })
+                    }
+                  />
+                </Flex.Item>
+              );
+            })}
           </Flex>
         </Flex.Item>
       </Flex>
@@ -332,65 +293,58 @@ const Recipe = (props, context) => {
 
 const TechFabContent = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    categories = [],
-    recipes = [],
-    search,
-    category,
-  } = data;
+  const { categories = [], recipes = [], search, category } = data;
 
-  const testSearch = createSearch(search || "", recipe => {
+  const testSearch = createSearch(search || '', (recipe) => {
     return recipe.name;
   });
 
-  const recipesDisplayed = search !== null
-    ? recipes.filter(testSearch)
-    : category
-      ? recipes.filter(recipe => recipe.category.includes(category))
-      : null;
+  const recipesDisplayed =
+    search !== null
+      ? recipes.filter(testSearch)
+      : category
+        ? recipes.filter((recipe) => recipe.category.includes(category))
+        : null;
 
-  if (recipesDisplayed)
-  {
+  if (recipesDisplayed) {
     return (
       <Stack.Item grow basis="content">
-        <Section grow fill scrollable
-          title={search !== null ? "Поиск" : category}
-          buttons={(
-            <Button icon="backspace" content="Назад"
-              onClick={() => act("mainmenu")} />
-          )}>
+        <Section
+          grow
+          fill
+          scrollable
+          title={search !== null ? 'Поиск' : category}
+          buttons={
+            <Button
+              icon="backspace"
+              content="Назад"
+              onClick={() => act('mainmenu')}
+            />
+          }>
           <Flex direction="column">
-            {
-              recipesDisplayed.map(recipe => {
-                return (
-                  <Recipe key={recipe.id} recipe={recipe} />
-                );
-              })
-            }
+            {recipesDisplayed.map((recipe) => {
+              return <Recipe key={recipe.id} recipe={recipe} />;
+            })}
           </Flex>
         </Section>
       </Stack.Item>
     );
-  }
-  else
-  {
+  } else {
     return (
       <Stack.Item grow basis="content">
         <Section title="Категории" grow fill scrollable>
           <Flex wrap="wrap" justify="space-between" align="center">
-            {
-              categories.map(category => {
-                return (
-                  <Flex.Item key={category} minWidth="50%" p={0.6}>
-                    <Button
-                      content={category}
-                      fluid
-                      onClick={() => act("category", { "category": category })}
-                    />
-                  </Flex.Item>
-                );
-              })
-            }
+            {categories.map((category) => {
+              return (
+                <Flex.Item key={category} minWidth="50%" p={0.6}>
+                  <Button
+                    content={category}
+                    fluid
+                    onClick={() => act('category', { 'category': category })}
+                  />
+                </Flex.Item>
+              );
+            })}
           </Flex>
         </Section>
       </Stack.Item>

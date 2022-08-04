@@ -6,12 +6,11 @@ import { Window } from '../layouts';
 export const Cellphone = (props, context) => {
   const { act, data } = useBackend(context);
   return (
-    <Window
-      width={264}
-      height={600}
-      theme="retro">
+    <Window width={264} height={600} theme="retro">
       <Window.Content>
-        <Box width="252px" height="270px"
+        <Box
+          width="252px"
+          height="270px"
           className={classes(['Cellphone__bg'])}>
           <CellphoneStat />
           <CellphoneScreenSelector />
@@ -38,10 +37,12 @@ const CellphoneScreenSelector = (props, context) => {
   const { data } = useBackend(context);
   const screen = data.screen;
   return (
-    <Box width="240px" height="212px"
+    <Box
+      width="240px"
+      height="212px"
       className={classes(['Cellphone__padding'])}>
-      {screen === "main" && (<CScreenMain />)}
-      {screen === "menu" && (<CScreenMenu />)}
+      {screen === 'main' && <CScreenMain />}
+      {screen === 'menu' && <CScreenMenu />}
     </Box>
   );
 };
@@ -50,8 +51,7 @@ const CScreenMain = (props, context) => {
   const { data } = useBackend(context);
   return (
     <Section height="210px" title="ShwainokarasOS v0.9.3">
-      <Box height="200px"
-        className="Cellphone__OSIcon" />
+      <Box height="200px" className="Cellphone__OSIcon" />
     </Section>
   );
 };
@@ -65,7 +65,7 @@ const CScreenMenu = (props, context) => {
           <Grid.Column key={keyC}>
             {valC.map((val, key) => (
               <Box key={key} width="60px" height="60px">
-                {(data.ptr_i-1) === keyC && (data.ptr_j-1) === key && (">")}
+                {data.ptr_i - 1 === keyC && data.ptr_j - 1 === key && '>'}
                 {val[0]}
               </Box>
             ))}
@@ -84,14 +84,19 @@ const CellphoneFuncMenu = (props, context) => {
         {data.lf_menu && (
           <Section width="70px" height="30px" align="center">
             {data.lf_menu}
-          </Section>)}
+          </Section>
+        )}
       </Flex.Item>
       <Flex.Item align="right">
         {data.rf_menu && (
-          <Section width="70px" height="30px" align="center"
+          <Section
+            width="70px"
+            height="30px"
+            align="center"
             className={classes(['Cellphone__fixrm'])}>
             {data.rf_menu}
-          </Section>)}
+          </Section>
+        )}
       </Flex.Item>
     </Flex>
   );
@@ -107,9 +112,9 @@ const CellphoneNumpad = (props, context) => {
   return (
     <Box width="240px">
       <Grid width="1px">
-        {keypadKeys.map(keyColumn => (
+        {keypadKeys.map((keyColumn) => (
           <Grid.Column key={keyColumn[0]}>
-            {keyColumn.map(key => (
+            {keyColumn.map((key) => (
               <Button
                 fluid
                 bold
@@ -124,7 +129,8 @@ const CellphoneNumpad = (props, context) => {
                   'Cellphone__Button',
                   'Cellphone__Button--keypad',
                 ])}
-                onClick={() => act('numpad', { digit: key })} />
+                onClick={() => act('numpad', { digit: key })}
+              />
             ))}
           </Grid.Column>
         ))}
@@ -139,96 +145,149 @@ const CellphoneFunc = (props, context) => {
     <Box width="252px">
       <Flex justify="space-between">
         <Flex.Item>
-          <Button fluid bold content="📞"
-            textAlign="center" fontSize="30px"
-            lineHeight="35px" width="55px"
+          <Button
+            fluid
+            bold
+            content="📞"
+            textAlign="center"
+            fontSize="30px"
+            lineHeight="35px"
+            width="55px"
             className={classes([
               'Cellphone__Button',
               'Cellphone__Button--keypad',
             ])}
-            onClick={() => act('call')} />
+            onClick={() => act('call')}
+          />
 
-          <Button fluid bold content="➥"
-            textAlign="center" fontSize="30px"
-            lineHeight="35px" width="55px"
+          <Button
+            fluid
+            bold
+            content="➥"
+            textAlign="center"
+            fontSize="30px"
+            lineHeight="35px"
+            width="55px"
             className={classes([
               'Cellphone__Button',
               'Cellphone__Button--keypad',
             ])}
-            onClick={() => act('leftfunc')} />
+            onClick={() => act('leftfunc')}
+          />
         </Flex.Item>
 
         <Flex.Item align="center">
-          <Button fluid bold content="◀"
-            textAlign="center" fontSize="20px"
-            lineHeight="60px" width="20px"
+          <Button
+            fluid
+            bold
+            content="◀"
+            textAlign="center"
+            fontSize="20px"
+            lineHeight="60px"
+            width="20px"
             className={classes([
               'Cellphone__Button',
               'Cellphone__Button--keypad',
             ])}
-            onClick={() => act('dpad', { button: "larrow" })} />
-        </Flex.Item>
-
-        <Flex.Item >
-          <Button fluid bold content="▲"
-            textAlign="center" fontSize="20px"
-            lineHeight="20px" width="50px"
-            className={classes([
-              'Cellphone__Button',
-              'Cellphone__Button--keypad',
-            ])}
-            onClick={() => act('dpad', { button: "uarrow" })} />
-
-          <Button fluid bold content="⎆"
-            textAlign="center" fontSize="20px"
-            lineHeight="20px" width="50px"
-            className={classes([
-              'Cellphone__Button',
-              'Cellphone__Button--keypad',
-            ])}
-            onClick={() => act('dpad', { button: "enter" })} />
-
-          <Button fluid bold content="▼"
-            textAlign="center" fontSize="20px"
-            lineHeight="20px" width="50px"
-            className={classes([
-              'Cellphone__Button',
-              'Cellphone__Button--keypad',
-            ])}
-            onClick={() => act('dpad', { button: "darrow" })} />
-        </Flex.Item>
-
-        <Flex.Item align="center">
-          <Button fluid bold content="▶"
-            textAlign="center" fontSize="20px"
-            lineHeight="60px" width="20px"
-            className={classes([
-              'Cellphone__Button',
-              'Cellphone__Button--keypad',
-            ])}
-            onClick={() => act('dpad', { button: "rarrow" })} />
+            onClick={() => act('dpad', { button: 'larrow' })}
+          />
         </Flex.Item>
 
         <Flex.Item>
-          <Button fluid bold content="📴"
-            textAlign="center" fontSize="20px"
-            lineHeight="35px" width="55px"
+          <Button
+            fluid
+            bold
+            content="▲"
+            textAlign="center"
+            fontSize="20px"
+            lineHeight="20px"
+            width="50px"
             className={classes([
               'Cellphone__Button',
               'Cellphone__Button--keypad',
             ])}
-            onClick={() => act('hang')} />
+            onClick={() => act('dpad', { button: 'uarrow' })}
+          />
 
-          <Button fluid bold content="➈"
-            textAlign="center" fontSize="20px"
-            lineHeight="35px" width="55px"
+          <Button
+            fluid
+            bold
+            content="⎆"
+            textAlign="center"
+            fontSize="20px"
+            lineHeight="20px"
+            width="50px"
             className={classes([
               'Cellphone__Button',
               'Cellphone__Button--keypad',
             ])}
-            onClick={() => act('rightfunc')} />
+            onClick={() => act('dpad', { button: 'enter' })}
+          />
+
+          <Button
+            fluid
+            bold
+            content="▼"
+            textAlign="center"
+            fontSize="20px"
+            lineHeight="20px"
+            width="50px"
+            className={classes([
+              'Cellphone__Button',
+              'Cellphone__Button--keypad',
+            ])}
+            onClick={() => act('dpad', { button: 'darrow' })}
+          />
         </Flex.Item>
 
+        <Flex.Item align="center">
+          <Button
+            fluid
+            bold
+            content="▶"
+            textAlign="center"
+            fontSize="20px"
+            lineHeight="60px"
+            width="20px"
+            className={classes([
+              'Cellphone__Button',
+              'Cellphone__Button--keypad',
+            ])}
+            onClick={() => act('dpad', { button: 'rarrow' })}
+          />
+        </Flex.Item>
+
+        <Flex.Item>
+          <Button
+            fluid
+            bold
+            content="📴"
+            textAlign="center"
+            fontSize="20px"
+            lineHeight="35px"
+            width="55px"
+            className={classes([
+              'Cellphone__Button',
+              'Cellphone__Button--keypad',
+            ])}
+            onClick={() => act('hang')}
+          />
+
+          <Button
+            fluid
+            bold
+            content="➈"
+            textAlign="center"
+            fontSize="20px"
+            lineHeight="35px"
+            width="55px"
+            className={classes([
+              'Cellphone__Button',
+              'Cellphone__Button--keypad',
+            ])}
+            onClick={() => act('rightfunc')}
+          />
+        </Flex.Item>
       </Flex>
     </Box>
   );

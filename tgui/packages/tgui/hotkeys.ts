@@ -35,8 +35,8 @@ const keyState: Record<string, boolean> = {};
 const keyListeners: ((key: KeyEvent) => void)[] = [];
 
 /**
-  * Converts a browser keycode to BYOND keycode.
-  */
+ * Converts a browser keycode to BYOND keycode.
+ */
 const keyCodeToByond = (keyCode: number) => {
   if (keyCode === 16) return 'Shift';
   if (keyCode === 17) return 'Ctrl';
@@ -51,7 +51,7 @@ const keyCodeToByond = (keyCode: number) => {
   if (keyCode === 40) return 'South';
   if (keyCode === 45) return 'Insert';
   if (keyCode === 46) return 'Delete';
-  if (keyCode >= 48 && keyCode <= 57 || keyCode >= 65 && keyCode <= 90) {
+  if ((keyCode >= 48 && keyCode <= 57) || (keyCode >= 65 && keyCode <= 90)) {
     return String.fromCharCode(keyCode);
   }
   if (keyCode >= 96 && keyCode <= 105) {
@@ -66,9 +66,9 @@ const keyCodeToByond = (keyCode: number) => {
 };
 
 /**
-  * Keyboard passthrough logic. This allows you to keep doing things
-  * in game while the browser window is focused.
-  */
+ * Keyboard passthrough logic. This allows you to keep doing things
+ * in game while the browser window is focused.
+ */
 const handlePassthrough = (key: KeyEvent) => {
   const keyString = String(key);
   // In addition to F5, support reloading with Ctrl+R and Ctrl+F5
@@ -81,9 +81,11 @@ const handlePassthrough = (key: KeyEvent) => {
     return;
   }
   // NOTE: Alt modifier is pretty bad and sticky in IE11.
-  if (key.event.defaultPrevented
-       || key.isModifierKey()
-       || hotKeysAcquired.includes(key.code)) {
+  if (
+    key.event.defaultPrevented ||
+    key.isModifierKey() ||
+    hotKeysAcquired.includes(key.code)
+  ) {
     return;
   }
   const byondKeyCode = keyCodeToByond(key.code);
@@ -121,8 +123,8 @@ export const acquireHotKey = (keyCode: number) => {
 };
 
 /**
-  * Makes the hotkey available to BYOND again.
-  */
+ * Makes the hotkey available to BYOND again.
+ */
 export const releaseHotKey = (keyCode: number) => {
   const index = hotKeysAcquired.indexOf(keyCode);
   if (index >= 0) {
@@ -166,9 +168,8 @@ export const setupHotKeys = () => {
     }
     // Insert macros
     const escapedQuotRegex = /\\"/g;
-    const unescape = (str: string) => str
-      .substring(1, str.length - 1)
-      .replace(escapedQuotRegex, '"');
+    const unescape = (str: string) =>
+      str.substring(1, str.length - 1).replace(escapedQuotRegex, '"');
     for (let ref of Object.keys(groupedByRef)) {
       const macro = groupedByRef[ref];
       const byondKeyName = unescape(macro.name);
@@ -201,8 +202,8 @@ export const setupHotKeys = () => {
  * @returns A callback to stop listening
  */
 export const listenForKeyEvents = (
-  callback: (key: KeyEvent) => void,
-): () => void => {
+  callback: (key: KeyEvent) => void
+): (() => void) => {
   keyListeners.push(callback);
 
   let removed = false;

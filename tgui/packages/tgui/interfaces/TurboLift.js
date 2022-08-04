@@ -17,27 +17,27 @@ export const TurboLift = (props, context) => {
     <Window>
       <Window.Content scrollable>
         <NoticeBox>
-          {data.online && (
-            currentdeck
-              && `Текущая палуба ${currentdeck}`
-              || `Да хуй знает.`
-          ) || (
+          {(data.online &&
+            ((currentdeck && `Текущая палуба ${currentdeck}`) ||
+              `Да хуй знает.`)) || (
             <Fragment>
-              This lift is currently offline. Please contact a Nanotrasen
-              lift repair technician.
+              This lift is currently offline. Please contact a Nanotrasen lift
+              repair technician.
             </Fragment>
           )}
         </NoticeBox>
         <Section title="Управление лифтом">
-          {Object.keys(data.decks).map(key => {
+          {Object.keys(data.decks).map((key) => {
             let value = data.decks[key];
             return (
               <Button
                 key={key}
                 fluid
-                color={data.current === value.z && 'blue'
-                  || value.queued && 'good'
-                  || 'normal'}
+                color={
+                  (data.current === value.z && 'blue') ||
+                  (value.queued && 'good') ||
+                  'normal'
+                }
                 content={`Deck ${value.deck}: ${value.name}`}
                 bold={data.current === value.z}
                 disabled={!data.online}
@@ -49,7 +49,8 @@ export const TurboLift = (props, context) => {
                     return;
                   }
                   act('goto', { deck: key });
-                }} />
+                }}
+              />
             );
           })}
         </Section>

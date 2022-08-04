@@ -108,8 +108,8 @@ const CandidateDisplay = (props, context) => {
           Name: {name || 'Randomized Name'}
         </Box>
         {tab === 'description'
-          ? (`Description: ${description.length && description || "None"}`)
-          : (`OOC Comments: ${comments.length && comments || "None"}`)}
+          ? `Description: ${(description.length && description) || 'None'}`
+          : `OOC Comments: ${(comments.length && comments) || 'None'}`}
       </Section>
     </Box>
   );

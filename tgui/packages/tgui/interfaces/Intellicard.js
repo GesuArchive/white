@@ -16,19 +16,20 @@ export const Intellicard = (props, context) => {
   } = data;
   const offline = isDead || isBraindead;
   return (
-    <Window
-      width={500}
-      height={500}>
+    <Window width={500} height={500}>
       <Window.Content scrollable>
         <Section
-          title={name || "Пустая карта"}
-          buttons={!!name && (
-            <Button
-              icon="trash"
-              content={wiping ? 'СТОП' : 'Стереть'}
-              disabled={isDead}
-              onClick={() => act('wipe')} />
-          )}>
+          title={name || 'Пустая карта'}
+          buttons={
+            !!name && (
+              <Button
+                icon="trash"
+                content={wiping ? 'СТОП' : 'Стереть'}
+                disabled={isDead}
+                onClick={() => act('wipe')}
+              />
+            )
+          }>
           {!!name && (
             <LabeledList>
               <LabeledList.Item
@@ -53,18 +54,18 @@ export const Intellicard = (props, context) => {
                   icon="signal"
                   content="Беспроводная активность"
                   selected={wireless}
-                  onClick={() => act('wireless')} />
+                  onClick={() => act('wireless')}
+                />
                 <Button
                   icon="microphone"
                   content="Подпростраственное радио"
                   selected={radio}
-                  onClick={() => act('radio')} />
+                  onClick={() => act('radio')}
+                />
               </LabeledList.Item>
               <LabeledList.Item label="Законы">
-                {laws.map(law => (
-                  <BlockQuote key={law}>
-                    {law}
-                  </BlockQuote>
+                {laws.map((law) => (
+                  <BlockQuote key={law}>{law}</BlockQuote>
                 ))}
               </LabeledList.Item>
             </LabeledList>

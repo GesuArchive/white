@@ -4,33 +4,18 @@ import { Window } from '../layouts';
 
 export const GravityGenerator = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    charging_state,
-    operational,
-  } = data;
+  const { charging_state, operational } = data;
   return (
-    <Window
-      width={400}
-      height={148}>
+    <Window width={400} height={148}>
       <Window.Content>
-        {!operational && (
-          <NoticeBox>
-            Нет данных
-          </NoticeBox>
-        )}
+        {!operational && <NoticeBox>Нет данных</NoticeBox>}
         {!!operational && charging_state !== 0 && (
-          <NoticeBox danger>
-            ВНИМАНИЕ - Обнаружена радиация
-          </NoticeBox>
+          <NoticeBox danger>ВНИМАНИЕ - Обнаружена радиация</NoticeBox>
         )}
         {!!operational && charging_state === 0 && (
-          <NoticeBox success>
-            Радиации не обнаружено
-          </NoticeBox>
+          <NoticeBox success>Радиации не обнаружено</NoticeBox>
         )}
-        {!!operational && (
-          <GravityGeneratorContent />
-        )}
+        {!!operational && <GravityGeneratorContent />}
       </Window.Content>
     </Window>
   );
@@ -38,13 +23,7 @@ export const GravityGenerator = (props, context) => {
 
 const GravityGeneratorContent = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    breaker,
-    charge_count,
-    charging_state,
-    on,
-    operational,
-  } = data;
+  const { breaker, charge_count, charging_state, on, operational } = data;
   return (
     <Section>
       <LabeledList>
@@ -54,7 +33,8 @@ const GravityGeneratorContent = (props, context) => {
             content={breaker ? 'Вкл' : 'Выкл'}
             selected={breaker}
             disabled={!operational}
-            onClick={() => act('gentoggle')} />
+            onClick={() => act('gentoggle')}
+          />
         </LabeledList.Item>
         <LabeledList.Item label="Гравитация">
           <ProgressBar
@@ -63,29 +43,16 @@ const GravityGeneratorContent = (props, context) => {
               good: [0.7, Infinity],
               average: [0.3, 0.7],
               bad: [-Infinity, 0.3],
-            }} />
+            }}
+          />
         </LabeledList.Item>
         <LabeledList.Item label="Заряд">
-          {charging_state === 0 && (
-            on && (
-              <Box color="good">
-                Полностью заряжено
-              </Box>
-            ) || (
-              <Box color="bad">
-                Не заряжается
-              </Box>
+          {charging_state === 0 &&
+            ((on && <Box color="good">Полностью заряжено</Box>) || (
+              <Box color="bad">Не заряжается</Box>
             ))}
-          {charging_state === 1 && (
-            <Box color="average">
-              Заряжается
-            </Box>
-          )}
-          {charging_state === 2 && (
-            <Box color="average">
-              Разряжается
-            </Box>
-          )}
+          {charging_state === 1 && <Box color="average">Заряжается</Box>}
+          {charging_state === 2 && <Box color="average">Разряжается</Box>}
         </LabeledList.Item>
       </LabeledList>
     </Section>

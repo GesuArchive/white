@@ -5,27 +5,26 @@ import { NtosWindow } from '../layouts';
 export const NtosShipping = (props, context) => {
   const { act, data } = useBackend(context);
   return (
-    <NtosWindow
-      width={450}
-      height={390}>
+    <NtosWindow width={450} height={390}>
       <NtosWindow.Content scrollable>
         <Section
           title="Центр доставки NTOS."
-          buttons={(
+          buttons={
             <Button
               icon="eject"
               content="Изъять ID"
-              onClick={() => act('ejectid')} />
-          )}>
+              onClick={() => act('ejectid')}
+            />
+          }>
           <LabeledList>
             <LabeledList.Item label="Пользователь">
-              {data.current_user || "N/A"}
+              {data.current_user || 'N/A'}
             </LabeledList.Item>
             <LabeledList.Item label="Вставленная карта">
-              {data.card_owner || "N/A"}
+              {data.card_owner || 'N/A'}
             </LabeledList.Item>
             <LabeledList.Item label="Доступно бумаги">
-              {data.has_printer ? data.paperamt : "N/A"}
+              {data.has_printer ? data.paperamt : 'N/A'}
             </LabeledList.Item>
             <LabeledList.Item label="Прибыль при продаже">
               {data.barcode_split}%
@@ -40,7 +39,8 @@ export const NtosShipping = (props, context) => {
               tooltipPosition="right"
               disabled={!data.has_id_slot}
               onClick={() => act('selectid')}
-              content="Выставить текущий ID" />
+              content="Выставить текущий ID"
+            />
           </Box>
           <Box>
             <Button
@@ -49,7 +49,8 @@ export const NtosShipping = (props, context) => {
               tooltipPosition="right"
               disabled={!data.has_printer || !data.current_user}
               onClick={() => act('print')}
-              content="Распечатать штрих-код" />
+              content="Распечатать штрих-код"
+            />
           </Box>
           <Box>
             <Button
@@ -57,13 +58,15 @@ export const NtosShipping = (props, context) => {
               tooltip="Установите, какую прибыль вы хотите получить от своего пакета."
               tooltipPosition="right"
               onClick={() => act('setsplit')}
-              content="Установить маржу" />
+              content="Установить маржу"
+            />
           </Box>
           <Box>
             <Button
               icon="sync-alt"
               content="Сбросить ID"
-              onClick={() => act('resetid')} />
+              onClick={() => act('resetid')}
+            />
           </Box>
         </Section>
       </NtosWindow.Content>

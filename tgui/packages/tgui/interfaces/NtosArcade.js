@@ -6,20 +6,15 @@ import { NtosWindow } from '../layouts';
 export const NtosArcade = (props, context) => {
   const { act, data } = useBackend(context);
   return (
-    <NtosWindow
-      width={450}
-      height={350}>
+    <NtosWindow width={450} height={350}>
       <NtosWindow.Content>
-        <Section
-          title="Outbomb Cuban Pete Ultra"
-          textAlign="center">
+        <Section title="Outbomb Cuban Pete Ultra" textAlign="center">
           <Box>
             <Grid>
               <Grid.Column size={2}>
                 <Box m={1} />
                 <LabeledList>
-                  <LabeledList.Item
-                    label="Здоровье игрока">
+                  <LabeledList.Item label="Здоровье игрока">
                     <ProgressBar
                       value={data.PlayerHitpoints}
                       minValue={0}
@@ -33,8 +28,7 @@ export const NtosArcade = (props, context) => {
                       {data.PlayerHitpoints}HP
                     </ProgressBar>
                   </LabeledList.Item>
-                  <LabeledList.Item
-                    label="Магия игрока">
+                  <LabeledList.Item label="Магия игрока">
                     <ProgressBar
                       value={data.PlayerMP}
                       minValue={0}
@@ -51,7 +45,7 @@ export const NtosArcade = (props, context) => {
                 <Box my={1} mx={4} />
                 <Section
                   backgroundColor={
-                    data.PauseState === 1 ? "#1b3622" : "#471915"
+                    data.PauseState === 1 ? '#1b3622' : '#471915'
                   }>
                   {data.Status}
                 </Section>
@@ -70,10 +64,7 @@ export const NtosArcade = (props, context) => {
                   HP
                 </ProgressBar>
                 <Box m={1} />
-                <Section
-                  inline
-                  width="156px"
-                  textAlign="center">
+                <Section inline width="156px" textAlign="center">
                   <img src={resolveAsset(data.BossID)} />
                 </Section>
               </Grid.Column>
@@ -85,21 +76,24 @@ export const NtosArcade = (props, context) => {
               tooltipPosition="top"
               disabled={data.GameActive === 0 || data.PauseState === 1}
               onClick={() => act('Attack')}
-              content="АТАКА!" />
+              content="АТАКА!"
+            />
             <Button
               icon="band-aid"
               tooltip="Полечим же себя!"
               tooltipPosition="top"
               disabled={data.GameActive === 0 || data.PauseState === 1}
               onClick={() => act('Heal')}
-              content="ЛЕЧЕНИЕ!" />
+              content="ЛЕЧЕНИЕ!"
+            />
             <Button
               icon="magic"
               tooltip="Зарядимся магической силушкой!"
               tooltipPosition="top"
               disabled={data.GameActive === 0 || data.PauseState === 1}
               onClick={() => act('Recharge_Power')}
-              content="ПЕРЕЗАРЯДКА!" />
+              content="ПЕРЕЗАРЯДКА!"
+            />
           </Box>
           <Box>
             <Button
@@ -108,14 +102,16 @@ export const NtosArcade = (props, context) => {
               tooltipPosition="top"
               disabled={data.GameActive === 1}
               onClick={() => act('Start_Game')}
-              content="Начать игру" />
+              content="Начать игру"
+            />
             <Button
               icon="ticket-alt"
               tooltip="Получите призы на своем местном аркадном компьютере!"
               tooltipPosition="top"
               disabled={data.GameActive === 1}
               onClick={() => act('Dispense_Tickets')}
-              content="Забрать билетики" />
+              content="Забрать билетики"
+            />
           </Box>
           <Box color={data.TicketCount >= 1 ? 'good' : 'normal'}>
             Заработано билетиков: {data.TicketCount}

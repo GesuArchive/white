@@ -5,9 +5,7 @@ import { Window } from '../layouts';
 export const ChemAcclimator = (props, context) => {
   const { act, data } = useBackend(context);
   return (
-    <Window
-      width={320}
-      height={271}>
+    <Window width={320} height={271}>
       <Window.Content>
         <Section title="Аклиматор">
           <LabeledList>
@@ -23,9 +21,12 @@ export const ChemAcclimator = (props, context) => {
                 maxValue={1000}
                 step={5}
                 stepPixelSize={2}
-                onChange={(e, value) => act('set_target_temperature', {
-                  temperature: value,
-                })} />
+                onChange={(e, value) =>
+                  act('set_target_temperature', {
+                    temperature: value,
+                  })
+                }
+              />
             </LabeledList.Item>
             <LabeledList.Item label="Приемлемая темп. разница">
               <NumberInput
@@ -39,19 +40,21 @@ export const ChemAcclimator = (props, context) => {
                   act('set_allowed_temperature_difference', {
                     temperature: value,
                   });
-                }} />
+                }}
+              />
             </LabeledList.Item>
           </LabeledList>
         </Section>
         <Section
           title="Статус"
-          buttons={(
+          buttons={
             <Button
               icon="power-off"
-              content={data.enabled ? "Вкл" : "Выкл"}
+              content={data.enabled ? 'Вкл' : 'Выкл'}
               selected={data.enabled}
-              onClick={() => act('toggle_power')} />
-          )}>
+              onClick={() => act('toggle_power')}
+            />
+          }>
           <LabeledList>
             <LabeledList.Item label="Объём">
               <NumberInput
@@ -62,9 +65,12 @@ export const ChemAcclimator = (props, context) => {
                 maxValue={200}
                 step={2}
                 stepPixelSize={2}
-                onChange={(e, value) => act('change_volume', {
-                  volume: value,
-                })} />
+                onChange={(e, value) =>
+                  act('change_volume', {
+                    volume: value,
+                  })
+                }
+              />
             </LabeledList.Item>
             <LabeledList.Item label="Текущая операция">
               {data.acclimate_state}

@@ -51,7 +51,8 @@ const DebuggingTab = (props, context) => {
           icon="question"
           fluid
           content="Сменить доступ всех технических шлюзов на бриг/инженерный"
-          onClick={() => act("maint_access_engiebrig")} />
+          onClick={() => act('maint_access_engiebrig')}
+        />
       </Flex.Item>
       <Flex.Item my={0.5}>
         <Button
@@ -59,7 +60,8 @@ const DebuggingTab = (props, context) => {
           icon="question"
           fluid
           content="Сменить доступ всех технических шлюзов на бриг"
-          onClick={() => act("maint_access_brig")} />
+          onClick={() => act('maint_access_brig')}
+        />
       </Flex.Item>
       <Flex.Item mt={0.5} mb={-0.5}>
         <Button
@@ -67,7 +69,8 @@ const DebuggingTab = (props, context) => {
           icon="question"
           fluid
           content="Убрать кап на офицеров"
-          onClick={() => act("infinite_sec")} />
+          onClick={() => act('infinite_sec')}
+        />
       </Flex.Item>
     </Flex>
   );
@@ -90,7 +93,8 @@ const HelpfulTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Вылечить все болезни"
-            onClick={() => act("clear_virus")} />
+            onClick={() => act('clear_virus')}
+          />
         </Flex.Item>
         <Flex.Item grow={1} ml={0.5}>
           <Button
@@ -98,7 +102,8 @@ const HelpfulTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Показать Режим Игры"
-            onClick={() => act("showgm")} />
+            onClick={() => act('showgm')}
+          />
         </Flex.Item>
       </Flex>
       <Flex
@@ -114,7 +119,8 @@ const HelpfulTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Список Джихадов"
-            onClick={() => act("list_bombers")} />
+            onClick={() => act('list_bombers')}
+          />
         </Flex.Item>
         <Flex.Item grow={1} mx={0.5}>
           <Button
@@ -122,7 +128,8 @@ const HelpfulTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Список Сигналлеров"
-            onClick={() => act("list_signalers")} />
+            onClick={() => act('list_signalers')}
+          />
         </Flex.Item>
         <Flex.Item grow={1}>
           <Button
@@ -130,7 +137,8 @@ const HelpfulTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Список Законов"
-            onClick={() => act("list_lawchanges")} />
+            onClick={() => act('list_lawchanges')}
+          />
         </Flex.Item>
       </Flex>
       <Flex
@@ -146,7 +154,8 @@ const HelpfulTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Показать Манифест"
-            onClick={() => act("manifest")} />
+            onClick={() => act('manifest')}
+          />
         </Flex.Item>
         <Flex.Item grow={1} mx={0.5}>
           <Button
@@ -154,7 +163,8 @@ const HelpfulTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Показать ДНК"
-            onClick={() => act("dna")} />
+            onClick={() => act('dna')}
+          />
         </Flex.Item>
         <Flex.Item grow={1}>
           <Button
@@ -162,7 +172,8 @@ const HelpfulTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Показать Отпечатки"
-            onClick={() => act("fingerprints")} />
+            onClick={() => act('fingerprints')}
+          />
         </Flex.Item>
       </Flex>
       <Flex
@@ -178,7 +189,8 @@ const HelpfulTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Врубить CTF"
-            onClick={() => act("ctfbutton")} />
+            onClick={() => act('ctfbutton')}
+          />
         </Flex.Item>
         <Flex.Item grow={1} mx={0.5}>
           <Button
@@ -186,7 +198,8 @@ const HelpfulTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Сбросить Арену"
-            onClick={() => act("tdomereset")} />
+            onClick={() => act('tdomereset')}
+          />
         </Flex.Item>
         <Flex.Item>
           <Button
@@ -194,7 +207,8 @@ const HelpfulTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Врубить Ночную Смену"
-            onClick={() => act("night_shift_set")} />
+            onClick={() => act('night_shift_set')}
+          />
         </Flex.Item>
       </Flex>
       <Flex
@@ -210,7 +224,8 @@ const HelpfulTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Переименовать Станцию"
-            onClick={() => act("set_name")} />
+            onClick={() => act('set_name')}
+          />
         </Flex.Item>
         <Flex.Item grow={1} ml={0.5}>
           <Button
@@ -218,7 +233,8 @@ const HelpfulTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Сбросить Имя Станции"
-            onClick={() => act("reset_name")} />
+            onClick={() => act('reset_name')}
+          />
         </Flex.Item>
       </Flex>
       <Flex
@@ -233,7 +249,8 @@ const HelpfulTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Отправить Шаттл"
-            onClick={() => act("moveferry")} />
+            onClick={() => act('moveferry')}
+          />
         </Flex.Item>
         <Flex.Item grow={1} mx={0.5}>
           <Button
@@ -241,7 +258,8 @@ const HelpfulTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Переключить Шаттл"
-            onClick={() => act("togglearrivals")} />
+            onClick={() => act('togglearrivals')}
+          />
         </Flex.Item>
         <Flex.Item>
           <Button
@@ -249,7 +267,8 @@ const HelpfulTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Отправить Труд. Шаттл"
-            onClick={() => act("movelaborshuttle")} />
+            onClick={() => act('movelaborshuttle')}
+          />
         </Flex.Item>
       </Flex>
     </Flex>
@@ -273,7 +292,8 @@ const FunTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Сломать Все Лампы"
-            onClick={() => act("blackout")} />
+            onClick={() => act('blackout')}
+          />
         </Flex.Item>
         <Flex.Item grow={1} mx={0.5}>
           <Button
@@ -281,7 +301,8 @@ const FunTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Починить Все Лампы"
-            onClick={() => act("whiteout")} />
+            onClick={() => act('whiteout')}
+          />
         </Flex.Item>
         <Flex.Item grow={1}>
           <Button
@@ -289,7 +310,8 @@ const FunTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Вызвать Вспышку"
-            onClick={() => act("virus")} />
+            onClick={() => act('virus')}
+          />
         </Flex.Item>
       </Flex>
       <Flex
@@ -305,7 +327,8 @@ const FunTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Зарядить все зоны"
-            onClick={() => act("power")} />
+            onClick={() => act('power')}
+          />
         </Flex.Item>
         <Flex.Item grow={1} mx={0.5}>
           <Button
@@ -313,7 +336,8 @@ const FunTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Разрядить все зоны"
-            onClick={() => act("unpower")} />
+            onClick={() => act('unpower')}
+          />
         </Flex.Item>
         <Flex.Item grow={1}>
           <Button
@@ -321,7 +345,8 @@ const FunTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Зарядить СМЕСы"
-            onClick={() => act("quickpower")} />
+            onClick={() => act('quickpower')}
+          />
         </Flex.Item>
       </Flex>
       <Flex
@@ -337,7 +362,8 @@ const FunTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Анонимные Имена"
-            onClick={() => act("anon_name")} />
+            onClick={() => act('anon_name')}
+          />
         </Flex.Item>
         <Flex.Item grow={1} mx={0.5}>
           <Button
@@ -345,7 +371,8 @@ const FunTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Режим Тройного ИИ"
-            onClick={() => act("tripleAI")} />
+            onClick={() => act('tripleAI')}
+          />
         </Flex.Item>
         <Flex.Item>
           <Button
@@ -353,7 +380,8 @@ const FunTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="ОСТАНЕТСЯ ЛИШЬ ОДИН!"
-            onClick={() => act("onlyone")} />
+            onClick={() => act('onlyone')}
+          />
         </Flex.Item>
       </Flex>
       <Flex
@@ -369,7 +397,8 @@ const FunTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Раздать Пушки"
-            onClick={() => act("guns")} />
+            onClick={() => act('guns')}
+          />
         </Flex.Item>
         <Flex.Item grow={1} mx={0.5}>
           <Button
@@ -377,7 +406,8 @@ const FunTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Вызвать Магию"
-            onClick={() => act("magic")} />
+            onClick={() => act('magic')}
+          />
         </Flex.Item>
         <Flex.Item grow={1}>
           <Button
@@ -385,7 +415,8 @@ const FunTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Вызвать Ивенты"
-            onClick={() => act("events")} />
+            onClick={() => act('events')}
+          />
         </Flex.Item>
       </Flex>
       <Flex
@@ -401,7 +432,8 @@ const FunTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Эгалитарная Станция"
-            onClick={() => act("eagles")} />
+            onClick={() => act('eagles')}
+          />
         </Flex.Item>
         <Flex.Item grow={1} ml={0.5}>
           <Button
@@ -409,7 +441,8 @@ const FunTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Анархо-Капиталистическая Станция"
-            onClick={() => act("ancap")} />
+            onClick={() => act('ancap')}
+          />
         </Flex.Item>
       </Flex>
       <Flex
@@ -424,7 +457,8 @@ const FunTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Портальный Шторм"
-            onClick={() => act("customportal")} />
+            onClick={() => act('customportal')}
+          />
         </Flex.Item>
         <Flex.Item grow={1} mx={0.5}>
           <Button
@@ -432,7 +466,8 @@ const FunTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Поменять Бомбкап"
-            onClick={() => act("changebombcap")} />
+            onClick={() => act('changebombcap')}
+          />
         </Flex.Item>
         <Flex.Item grow={1}>
           <Button
@@ -440,7 +475,8 @@ const FunTab = (props, context) => {
             lineHeight={lineHeightNormal}
             fluid
             content="Сменить Всем Расу"
-            onClick={() => act("allspecies")} />
+            onClick={() => act('allspecies')}
+          />
         </Flex.Item>
       </Flex>
     </Flex>
@@ -465,7 +501,8 @@ const FunForYouTab = (props, context) => {
             icon="paw"
             fluid
             content="Превратить всех в мартых"
-            onClick={() => act("monkey")} />
+            onClick={() => act('monkey')}
+          />
         </NoticeBox>
       </Flex.Item>
       <Flex.Item>
@@ -475,7 +512,8 @@ const FunForYouTab = (props, context) => {
             icon="user-secret"
             fluid
             content="Выдать трейторку каждому"
-            onClick={() => act("traitor_all")} />
+            onClick={() => act('traitor_all')}
+          />
         </NoticeBox>
       </Flex.Item>
       <Flex.Item>
@@ -485,7 +523,8 @@ const FunForYouTab = (props, context) => {
             icon="brain"
             fluid
             content="Брейндамаг всем игрокам"
-            onClick={() => act("massbraindamage")} />
+            onClick={() => act('massbraindamage')}
+          />
         </NoticeBox>
       </Flex.Item>
       <Flex.Item>
@@ -495,7 +534,8 @@ const FunForYouTab = (props, context) => {
             icon="fire"
             fluid
             content="Пол это лава! (ВНИМАНИЕ: пиздец уныло)"
-            onClick={() => act("floorlava")} />
+            onClick={() => act('floorlava')}
+          />
         </NoticeBox>
       </Flex.Item>
       <Flex.Item>
@@ -505,7 +545,8 @@ const FunForYouTab = (props, context) => {
             icon="tired"
             fluid
             content="Китайские Мультики! (ВНИМАНИЕ: возврата нет, и ещё, иди нахуй)"
-            onClick={() => act("anime")} />
+            onClick={() => act('anime')}
+          />
         </NoticeBox>
       </Flex.Item>
       <Flex.Item>
@@ -517,7 +558,8 @@ const FunForYouTab = (props, context) => {
                 icon="cat"
                 fluid
                 content="Массовая Пуррбация"
-                onClick={() => act("masspurrbation")} />
+                onClick={() => act('masspurrbation')}
+              />
             </NoticeBox>
           </Flex.Item>
           <Flex.Item grow={1} ml={0.25}>
@@ -527,7 +569,8 @@ const FunForYouTab = (props, context) => {
                 icon="user"
                 fluid
                 content="Анмассовая Пуррбация"
-                onClick={() => act("massremovepurrbation")} />
+                onClick={() => act('massremovepurrbation')}
+              />
             </NoticeBox>
           </Flex.Item>
         </Flex>
@@ -541,7 +584,8 @@ const FunForYouTab = (props, context) => {
                 icon="flushed"
                 fluid
                 content="Полное Погружение"
-                onClick={() => act("massimmerse")} />
+                onClick={() => act('massimmerse')}
+              />
             </NoticeBox>
           </Flex.Item>
           <Flex.Item grow={1} ml={0.25}>
@@ -551,7 +595,8 @@ const FunForYouTab = (props, context) => {
                 icon="sync-alt"
                 fluid
                 content="Разбить Погружение"
-                onClick={() => act("unmassimmerse")} />
+                onClick={() => act('unmassimmerse')}
+              />
             </NoticeBox>
           </Flex.Item>
         </Flex>
@@ -562,52 +607,43 @@ const FunForYouTab = (props, context) => {
 
 export const Secrets = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    is_debugger,
-    is_funmin,
-  } = data;
-  const [
-    tabIndex,
-    setTabIndex,
-  ] = useLocalState(context, 'tab-index', 2);
-  const TabComponent = TAB2NAME[tabIndex-1].component();
+  const { is_debugger, is_funmin } = data;
+  const [tabIndex, setTabIndex] = useLocalState(context, 'tab-index', 2);
+  const TabComponent = TAB2NAME[tabIndex - 1].component();
   return (
-    <Window
-      title="Секретов Панель"
-      width={530}
-      height={500}>
+    <Window title="Секретов Панель" width={530} height={500}>
       <Window.Content>
         <Flex direction="column" height="100%">
           <Flex.Item mb={1}>
             <Section
               title="Секреты"
-              buttons={(
+              buttons={
                 <>
                   <Button
                     color="blue"
                     icon="arrow-circle-right"
                     content="Ментор Лог"
-                    onClick={() => act("mentor_log")} />
+                    onClick={() => act('mentor_log')}
+                  />
                   <Button
                     color="blue"
                     icon="address-card"
                     content="Админ Лог"
-                    onClick={() => act("admin_log")} />
+                    onClick={() => act('admin_log')}
+                  />
                   <Button
                     color="blue"
                     icon="eye"
                     content="Показать Админов"
-                    onClick={() => act("show_admins")} />
+                    onClick={() => act('show_admins')}
+                  />
                 </>
-              )}>
-              <Flex
-                mx={-0.5}
-                align="stretch"
-                justify="center">
+              }>
+              <Flex mx={-0.5} align="stretch" justify="center">
                 <Flex.Item bold>
                   <NoticeBox color="black">
-                    &quot;Первое правило админабуза:
-                    никому не рассказывать о админабузе.&quot;
+                    &quot;Первое правило админабуза: никому не рассказывать о
+                    админабузе.&quot;
                   </NoticeBox>
                 </Flex.Item>
               </Flex>
@@ -621,7 +657,8 @@ export const Secrets = (props, context) => {
                     selected={tabIndex === 2}
                     icon="check-circle"
                     content="Полезное"
-                    onClick={() => setTabIndex(2)} />
+                    onClick={() => setTabIndex(2)}
+                  />
                 </Flex.Item>
                 <Flex.Item ml={1}>
                   <Button
@@ -629,20 +666,19 @@ export const Secrets = (props, context) => {
                     selected={tabIndex === 3}
                     icon="smile"
                     content="Смешное"
-                    onClick={() => setTabIndex(3)} />
+                    onClick={() => setTabIndex(3)}
+                  />
                 </Flex.Item>
               </Flex>
-              <Flex
-                mx={-0.5}
-                align="stretch"
-                justify="center">
+              <Flex mx={-0.5} align="stretch" justify="center">
                 <Flex.Item mt={1} ml={12}>
                   <Button
                     disabled={is_debugger === 0}
                     selected={tabIndex === 1}
                     icon="glasses"
                     content="Дебаг"
-                    onClick={() => setTabIndex(1)} />
+                    onClick={() => setTabIndex(1)}
+                  />
                 </Flex.Item>
                 <Flex.Item>
                   <LabeledControls>
@@ -651,16 +687,17 @@ export const Secrets = (props, context) => {
                       label="Шанс анпендала">
                       <RoundGauge
                         size={2}
-                        value={TAB2NAME[tabIndex-1].gauge}
+                        value={TAB2NAME[tabIndex - 1].gauge}
                         minValue={0}
                         maxValue={100}
-                        alertAfter={100 * 0.70}
+                        alertAfter={100 * 0.7}
                         ranges={{
-                          "good": [-2, 100 * 0.25],
-                          "average": [100 * 0.25, 100 * 0.75],
-                          "bad": [100 * 0.75, 100],
+                          'good': [-2, 100 * 0.25],
+                          'average': [100 * 0.25, 100 * 0.75],
+                          'bad': [100 * 0.75, 100],
                         }}
-                        format={value => toFixed(value) + '%'} />
+                        format={(value) => toFixed(value) + '%'}
+                      />
                     </LabeledControls.Item>
                   </LabeledControls>
                 </Flex.Item>
@@ -670,7 +707,8 @@ export const Secrets = (props, context) => {
                     selected={tabIndex === 4}
                     icon="smile-wink"
                     content="Смешно Только Тебе"
-                    onClick={() => setTabIndex(4)} />
+                    onClick={() => setTabIndex(4)}
+                  />
                 </Flex.Item>
               </Flex>
             </Section>
@@ -678,8 +716,11 @@ export const Secrets = (props, context) => {
           <Flex.Item grow={1}>
             <Section
               fill={false}
-              title={TAB2NAME[tabIndex-1].title
-                + " Или: " + TAB2NAME[tabIndex-1].blurb}>
+              title={
+                TAB2NAME[tabIndex - 1].title +
+                ' Или: ' +
+                TAB2NAME[tabIndex - 1].blurb
+              }>
               <TabComponent />
             </Section>
           </Flex.Item>

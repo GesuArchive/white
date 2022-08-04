@@ -1,9 +1,6 @@
-import {
-  Stack,
-  Box,
-} from '../../components';
+import { Stack, Box } from '../../components';
 import { Component, createRef } from 'inferno';
-import { DisplayName } from "./DisplayName";
+import { DisplayName } from './DisplayName';
 import { classes } from 'common/react';
 
 export class Port extends Component {
@@ -18,35 +15,20 @@ export class Port extends Component {
   }
 
   handlePortMouseDown(e) {
-    const {
-      port,
-      portIndex,
-      componentId,
-      isOutput,
-      onPortMouseDown,
-    } = this.props;
+    const { port, portIndex, componentId, isOutput, onPortMouseDown } =
+      this.props;
     onPortMouseDown(portIndex, componentId, port, isOutput, e);
   }
 
   handlePortMouseUp(e) {
-    const {
-      port,
-      portIndex,
-      componentId,
-      isOutput,
-      onPortMouseUp,
-    } = this.props;
+    const { port, portIndex, componentId, isOutput, onPortMouseUp } =
+      this.props;
     onPortMouseUp(portIndex, componentId, port, isOutput, e);
   }
 
   handlePortRightClick(e) {
-    const {
-      port,
-      portIndex,
-      componentId,
-      isOutput,
-      onPortRightClick,
-    } = this.props;
+    const { port, portIndex, componentId, isOutput, onPortRightClick } =
+      this.props;
     onPortRightClick(portIndex, componentId, port, isOutput, e);
   }
 
@@ -65,12 +47,7 @@ export class Port extends Component {
   }
 
   renderDisplayName() {
-    const {
-      port,
-      portIndex,
-      componentId,
-      isOutput,
-    } = this.props;
+    const { port, portIndex, componentId, isOutput } = this.props;
 
     return (
       <Stack.Item>
@@ -78,18 +55,14 @@ export class Port extends Component {
           port={port}
           isOutput={isOutput}
           componentId={componentId}
-          portIndex={portIndex} />
+          portIndex={portIndex}
+        />
       </Stack.Item>
     );
   }
 
   render() {
-    const {
-      port,
-      isOutput,
-      ...rest
-    } = this.props;
-
+    const { port, isOutput, ...rest } = this.props;
 
     let composite_types = [];
     if (port.datatype_data?.composite_types) {
@@ -97,39 +70,32 @@ export class Port extends Component {
     }
 
     return (
-      <Stack
-        {...rest}
-        justify={isOutput ? 'flex-end' : 'flex-start'}
-      >
+      <Stack {...rest} justify={isOutput ? 'flex-end' : 'flex-start'}>
         {!!isOutput && this.renderDisplayName()}
         <Stack.Item>
           <Box
-            className={classes([
-              "ObjectComponent__Port",
-            ])}
+            className={classes(['ObjectComponent__Port'])}
             onMouseDown={this.handlePortMouseDown}
             onContextMenu={this.handlePortRightClick}
             onMouseUp={this.handlePortMouseUp}
-            textAlign="center"
-          >
+            textAlign="center">
             <svg
               style={{
-                width: "100%",
-                height: "100%",
-                position: "absolute",
+                width: '100%',
+                height: '100%',
+                position: 'absolute',
               }}
-              viewBox="0, 0, 100, 100"
-            >
+              viewBox="0, 0, 100, 100">
               {composite_types.map((compositeColor, index) => {
-                const radians = (2*Math.PI)/composite_types.length;
-                const arcLength = radians*50;
+                const radians = (2 * Math.PI) / composite_types.length;
+                const arcLength = radians * 50;
                 return (
                   <circle
                     key={index}
                     stroke={compositeColor}
-                    strokeDasharray={`${arcLength}, ${100*Math.PI}`}
+                    strokeDasharray={`${arcLength}, ${100 * Math.PI}`}
                     strokeDashoffset={
-                      -index*(100*(Math.PI/composite_types.length))
+                      -index * (100 * (Math.PI / composite_types.length))
                     }
                     className={`color-stroke-${compositeColor}`}
                     strokeWidth="50px"
@@ -141,7 +107,13 @@ export class Port extends Component {
                   />
                 );
               })}
-              <circle ref={this.iconRef} cx="50" cy="50" r="50" className={`color-fill-${port.color}`} />
+              <circle
+                ref={this.iconRef}
+                cx="50"
+                cy="50"
+                r="50"
+                className={`color-fill-${port.color}`}
+              />
             </svg>
             <span ref={this.iconRef} className="ObjectComponent__PortPos" />
           </Box>

@@ -1,14 +1,14 @@
-import { BooleanLike } from "common/react";
-import { useBackend, useLocalState } from "../backend";
-import { TextArea, Stack, Button, NoticeBox, Input, Box } from "../components";
-import { Window } from "../layouts";
+import { BooleanLike } from 'common/react';
+import { useBackend, useLocalState } from '../backend';
+import { TextArea, Stack, Button, NoticeBox, Input, Box } from '../components';
+import { Window } from '../layouts';
 
 type AdminhelpData = {
-  adminCount: number,
-  urgentAhelpEnabled: BooleanLike,
-  bannedFromUrgentAhelp: BooleanLike,
-  urgentAhelpPromptMessage: string,
-}
+  adminCount: number;
+  urgentAhelpEnabled: BooleanLike;
+  bannedFromUrgentAhelp: BooleanLike;
+  urgentAhelpPromptMessage: string;
+};
 
 export const Adminhelp = (props, context) => {
   const { act, data } = useBackend<AdminhelpData>(context);
@@ -18,20 +18,29 @@ export const Adminhelp = (props, context) => {
     bannedFromUrgentAhelp,
     urgentAhelpPromptMessage,
   } = data;
-  const [requestForAdmin, setRequestForAdmin] = useLocalState(context, "request_for_admin", false);
-  const [currentlyInputting, setCurrentlyInputting] = useLocalState(context, "confirm_request", false);
-  const [ahelpMessage, setAhelpMessage] = useLocalState(context, "ahelp_message", "");
+  const [requestForAdmin, setRequestForAdmin] = useLocalState(
+    context,
+    'request_for_admin',
+    false
+  );
+  const [currentlyInputting, setCurrentlyInputting] = useLocalState(
+    context,
+    'confirm_request',
+    false
+  );
+  const [ahelpMessage, setAhelpMessage] = useLocalState(
+    context,
+    'ahelp_message',
+    ''
+  );
 
-  const confirmationText = "предупредить";
+  const confirmationText = 'предупредить';
   return (
-    <Window
-      title="Запросить помощь"
-      theme="admin"
-      height={300}
-      width={500}>
-      <Window.Content style={{
-        "background-image": "none",
-      }}>
+    <Window title="Запросить помощь" theme="admin" height={300} width={500}>
+      <Window.Content
+        style={{
+          'background-image': 'none',
+        }}>
         <Stack vertical fill>
           <Stack.Item grow>
             <TextArea
@@ -42,20 +51,19 @@ export const Adminhelp = (props, context) => {
               onChange={(e, value) => setAhelpMessage(value)}
             />
           </Stack.Item>
-          {(urgentAhelpEnabled && adminCount <= 0) && (
+          {urgentAhelpEnabled && adminCount <= 0 && (
             <Stack.Item>
               <NoticeBox info>
                 {urgentAhelpPromptMessage}
-                {currentlyInputting && (
+                {(currentlyInputting && (
                   <Box
                     mt={1}
                     width="100%"
                     fontFamily="arial"
                     backgroundColor="grey"
                     style={{
-                      "font-style": "normal",
-                    }}
-                  >
+                      'font-style': 'normal',
+                    }}>
                     Введи &apos;{confirmationText}&apos; для продолжения.
                     <Input
                       placeholder="Confirmation Prompt"
@@ -69,7 +77,7 @@ export const Adminhelp = (props, context) => {
                       }}
                     />
                   </Box>
-                ) || (
+                )) || (
                   <Button
                     mt={1}
                     content="Предупредить?"
@@ -80,10 +88,10 @@ export const Adminhelp = (props, context) => {
                         setCurrentlyInputting(true);
                       }
                     }}
-                    color={requestForAdmin ? "orange" : "blue"}
-                    icon={requestForAdmin ? "check-square-o" : "square-o"}
+                    color={requestForAdmin ? 'orange' : 'blue'}
+                    icon={requestForAdmin ? 'check-square-o' : 'square-o'}
                     disabled={bannedFromUrgentAhelp}
-                    tooltip={bannedFromUrgentAhelp ? "Нельзя тебе." : null}
+                    tooltip={bannedFromUrgentAhelp ? 'Нельзя тебе.' : null}
                     fluid
                     textAlign="center"
                   />
@@ -97,15 +105,16 @@ export const Adminhelp = (props, context) => {
               fluid
               content="Отправить"
               textAlign="center"
-              onClick={() => act("ahelp", {
-                urgent: requestForAdmin,
-                message: ahelpMessage,
-              })}
+              onClick={() =>
+                act('ahelp', {
+                  urgent: requestForAdmin,
+                  message: ahelpMessage,
+                })
+              }
             />
           </Stack.Item>
         </Stack>
       </Window.Content>
     </Window>
-
   );
 };

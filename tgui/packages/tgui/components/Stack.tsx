@@ -19,9 +19,7 @@ export const Stack = (props: StackProps) => {
       className={classes([
         'Stack',
         fill && 'Stack--fill',
-        vertical
-          ? 'Stack--vertical'
-          : 'Stack--horizontal',
+        vertical ? 'Stack--vertical' : 'Stack--horizontal',
         className,
         computeFlexClassName(props),
       ])}

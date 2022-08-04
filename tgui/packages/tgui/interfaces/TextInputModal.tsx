@@ -16,14 +16,7 @@ type TextInputData = {
 
 export const TextInputModal = (_, context) => {
   const { act, data } = useBackend<TextInputData>(context);
-  const {
-    max_length,
-    message,
-    multiline,
-    placeholder,
-    timeout,
-    title,
-  } = data;
+  const { max_length, message, multiline, placeholder, timeout, title } = data;
   const [input, setInput] = useLocalState<string>(
     context,
     'input',
@@ -39,10 +32,8 @@ export const TextInputModal = (_, context) => {
     setInput(value);
   };
   // Dynamically changes the window height based on the message.
-  const windowHeight
-    = 125
-    + Math.ceil(message.length / 3)
-    + (multiline ? 75 : 0);
+  const windowHeight =
+    125 + Math.ceil(message.length / 3) + (multiline ? 75 : 0);
 
   return (
     <Window title={title} width={325} height={windowHeight}>

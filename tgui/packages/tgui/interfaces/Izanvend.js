@@ -12,15 +12,9 @@ export const Izanvend = (props, context) => {
 
   return (
     <Fragment>
-      <Section title="ИзанВендор">
-        Лучшие товары со всех помоек!
-      </Section>
+      <Section title="ИзанВендор">Лучшие товары со всех помоек!</Section>
       <Tabs mt={2}>
-        <Tabs.Tab
-          key="catalog"
-          label="Каталог"
-          icon="list"
-          lineHeight="23px">
+        <Tabs.Tab key="catalog" label="Каталог" icon="list" lineHeight="23px">
           {() => (
             <Section title="Каталог">
               <Catalog state={state} products={products} />
@@ -37,24 +31,26 @@ const Catalog = (props, context) => {
   const { state, products } = props;
   const { config } = state;
   const { ref } = config;
-  const renderTab = key => {
+  const renderTab = (key) => {
     const supply = products[key];
     const packs = supply.packs;
     return (
       <table className="LabeledList">
-        {packs.map(pack => (
-          <tr
-            key={pack.name}
-            className="LabeledList__row candystripe">
+        {packs.map((pack) => (
+          <tr key={pack.name} className="LabeledList__row candystripe">
             <td className="LabeledList__cell LabeledList__label">
               {pack.name}
             </td>
             <td className="LabeledList__cell LabeledList__buttons">
-              <Button fluid
+              <Button
+                fluid
                 content="Получить"
-                onClick={() => act('vend', {
-                  product_path: pack.product_path,
-                })} />
+                onClick={() =>
+                  act('vend', {
+                    product_path: pack.product_path,
+                  })
+                }
+              />
             </td>
           </tr>
         ))}
@@ -63,7 +59,7 @@ const Catalog = (props, context) => {
   };
   return (
     <Tabs vertical>
-      {map(supply => {
+      {map((supply) => {
         const name = supply.name;
         return (
           <Tabs.Tab key={name} label={name}>

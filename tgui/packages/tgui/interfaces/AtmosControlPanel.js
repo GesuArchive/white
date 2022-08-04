@@ -12,38 +12,23 @@ export const AtmosControlPanel = (props, context) => {
       // Generate a unique id
       id: group.area + i,
     })),
-    sortBy(group => group.id),
+    sortBy((group) => group.id),
   ])(data.excited_groups);
   return (
-    <Window
-      title="SSAir Control Panel"
-      width={900}
-      height={500}>
+    <Window title="SSAir Control Panel" width={900} height={500}>
       <Section m={1}>
-        <Flex
-          justify="space-between"
-          align="baseline">
+        <Flex justify="space-between" align="baseline">
           <Flex.Item>
             <Button
               onClick={() => act('toggle-freeze')}
               color={data.frozen === 1 ? 'good' : 'bad'}>
-              {data.frozen === 1
-                ? 'Freeze Subsystem'
-                : 'Unfreeze Subsystem'}
+              {data.frozen === 1 ? 'Freeze Subsystem' : 'Unfreeze Subsystem'}
             </Button>
           </Flex.Item>
-          <Flex.Item>
-            Fire Cnt: {data.fire_count}
-          </Flex.Item>
-          <Flex.Item>
-            Active Turfs: {data.active_size}
-          </Flex.Item>
-          <Flex.Item>
-            Hotspots: {data.hotspots_size}
-          </Flex.Item>
-          <Flex.Item>
-            Superconductors: {data.conducting_size}
-          </Flex.Item>
+          <Flex.Item>Fire Cnt: {data.fire_count}</Flex.Item>
+          <Flex.Item>Active Turfs: {data.active_size}</Flex.Item>
+          <Flex.Item>Hotspots: {data.hotspots_size}</Flex.Item>
+          <Flex.Item>Superconductors: {data.conducting_size}</Flex.Item>
           <Flex.Item>
             <Button.Checkbox
               checked={data.showing_user}

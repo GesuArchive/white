@@ -41,42 +41,42 @@ export const ChatSettingsPanel = (props, context) => {
     return 0;
   });
   return (
-    <Window
-      title="Настройка чата"
-      width={250}
-      height={460}>
+    <Window title="Настройка чата" width={250} height={460}>
       <Window.Content scrollable>
         <Section title="Основное">
-          {chat.map(a => (
+          {chat.map((a) => (
             <Button
               fluid
               key={a.key}
               icon={a.enabled ? 'times' : 'check'}
               content={a.desc}
               color={a.enabled ? 'bad' : 'good'}
-              onClick={() => act(a.type, { key: a.key })} />
+              onClick={() => act(a.type, { key: a.key })}
+            />
           ))}
         </Section>
         <Section title="IC">
-          {ic.map(a => (
+          {ic.map((a) => (
             <Button
               fluid
               key={a.key}
               icon={a.enabled ? 'times' : 'check'}
               content={a.desc}
               color={a.enabled ? 'bad' : 'good'}
-              onClick={() => act(a.type, { key: a.key })} />
+              onClick={() => act(a.type, { key: a.key })}
+            />
           ))}
         </Section>
         <Section title="Призрак">
-          {ghost.map(a => (
+          {ghost.map((a) => (
             <Button
               fluid
               key={a.key}
               icon={a.enabled ? 'times' : 'check'}
               content={a.desc}
               color={a.enabled ? 'bad' : 'good'}
-              onClick={() => act(a.type, { key: a.key })} />
+              onClick={() => act(a.type, { key: a.key })}
+            />
           ))}
         </Section>
       </Window.Content>

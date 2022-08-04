@@ -9,7 +9,7 @@ import { Window } from '../layouts';
  * This method takes a seed string and splits the values
  * into an object
  */
-const splitSeedString = text => {
+const splitSeedString = (text) => {
   const re = /([^;=]+)=([^;]+)/g;
   const ret = {};
   let m;
@@ -29,26 +29,22 @@ const splitSeedString = text => {
  *
  * @returns {any[]}
  */
-const createSeeds = seedStrings => {
-  const objs = Object.keys(seedStrings).map(key => {
+const createSeeds = (seedStrings) => {
+  const objs = Object.keys(seedStrings).map((key) => {
     const obj = splitSeedString(key);
     obj.amount = seedStrings[key];
     obj.key = key;
     obj.name = toTitleCase(obj.name.replace('pack of ', ''));
     return obj;
   });
-  return flow([
-    sortBy(item => item.name),
-  ])(objs);
+  return flow([sortBy((item) => item.name)])(objs);
 };
 
 export const SeedExtractor = (props, context) => {
   const { act, data } = useBackend(context);
   const seeds = createSeeds(data.seeds);
   return (
-    <Window
-      width={1000}
-      height={400}>
+    <Window width={1000} height={400}>
       <Window.Content scrollable>
         <Section title="Семена:">
           <Table cellpadding="3" textAlign="center">
@@ -63,7 +59,7 @@ export const SeedExtractor = (props, context) => {
               <Table.Cell>Нестабильность</Table.Cell>
               <Table.Cell>Запасы</Table.Cell>
             </Table.Row>
-            {seeds.map(item => (
+            {seeds.map((item) => (
               <Table.Row key={item.key}>
                 <Table.Cell bold>{item.name}</Table.Cell>
                 <Table.Cell>{item.lifespan}</Table.Cell>
@@ -76,9 +72,12 @@ export const SeedExtractor = (props, context) => {
                 <Table.Cell>
                   <Button
                     content="Выдать"
-                    onClick={() => act('select', {
-                      item: item.key,
-                    })} />
+                    onClick={() =>
+                      act('select', {
+                        item: item.key,
+                      })
+                    }
+                  />
                   ({item.amount} осталось)
                 </Table.Cell>
               </Table.Row>

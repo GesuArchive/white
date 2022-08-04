@@ -5,60 +5,61 @@ import { sortBy } from 'common/collections';
 
 export const AirlockElectronics = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    oneAccess,
-    unres_direction,
-  } = data;
+  const { oneAccess, unres_direction } = data;
   const regions = data.regions || [];
   const accesses = data.accesses || [];
   return (
-    <Window
-      width={420}
-      height={485}>
+    <Window width={420} height={485}>
       <Window.Content>
         <Section title="Основное">
           <LabeledList>
-            <LabeledList.Item
-              label="Требуемый доступ">
+            <LabeledList.Item label="Требуемый доступ">
               <Button
                 icon={data.oneAccess ? 'unlock' : 'lock'}
                 content={data.oneAccess ? 'Один' : 'Весь'}
                 onClick={() => act('one_access')}
               />
             </LabeledList.Item>
-            <LabeledList.Item
-              label="Без доступа">
+            <LabeledList.Item label="Без доступа">
               <Button
                 icon={data.unres_direction & 1 ? 'check-square-o' : 'square-o'}
                 content="Север"
                 selected={data.unres_direction & 1}
-                onClick={() => act('direc_set', {
-                  unres_direction: '1',
-                })}
+                onClick={() =>
+                  act('direc_set', {
+                    unres_direction: '1',
+                  })
+                }
               />
               <Button
                 icon={unres_direction & 2 ? 'check-square-o' : 'square-o'}
                 content="Юг"
                 selected={unres_direction & 2}
-                onClick={() => act('direc_set', {
-                  unres_direction: '2',
-                })}
+                onClick={() =>
+                  act('direc_set', {
+                    unres_direction: '2',
+                  })
+                }
               />
               <Button
                 icon={unres_direction & 4 ? 'check-square-o' : 'square-o'}
                 content="Восток"
                 selected={unres_direction & 4}
-                onClick={() => act('direc_set', {
-                  unres_direction: '4',
-                })}
+                onClick={() =>
+                  act('direc_set', {
+                    unres_direction: '4',
+                  })
+                }
               />
               <Button
                 icon={data.unres_direction & 8 ? 'check-square-o' : 'square-o'}
                 content="Запад"
                 selected={data.unres_direction & 8}
-                onClick={() => act('direc_set', {
-                  unres_direction: '8',
-                })}
+                onClick={() =>
+                  act('direc_set', {
+                    unres_direction: '8',
+                  })
+                }
               />
             </LabeledList.Item>
           </LabeledList>
@@ -66,22 +67,28 @@ export const AirlockElectronics = (props, context) => {
         <AirlockAccessList
           accesses={regions}
           selectedList={accesses}
-          accessMod={ref => act('set', {
-            access: ref,
-          })}
+          accessMod={(ref) =>
+            act('set', {
+              access: ref,
+            })
+          }
           grantAll={() => act('grant_all')}
           denyAll={() => act('clear_all')}
-          grantDep={ref => act('grant_region', {
-            region: ref,
-          })}
-          denyDep={ref => act('deny_region', {
-            region: ref,
-          })} />
+          grantDep={(ref) =>
+            act('grant_region', {
+              region: ref,
+            })
+          }
+          denyDep={(ref) =>
+            act('deny_region', {
+              region: ref,
+            })
+          }
+        />
       </Window.Content>
     </Window>
   );
 };
-
 
 const diffMap = {
   0: {
@@ -108,34 +115,33 @@ export const AirlockAccessList = (props, context) => {
     grantDep,
     denyDep,
   } = props;
-  const [
-    selectedAccessName,
-    setSelectedAccessName,
-  ] = useLocalState(context, 'accessName', accesses[0]?.name);
-  const selectedAccess = accesses
-    .find(access => access.name === selectedAccessName);
-  const selectedAccessEntries = sortBy(
-    entry => entry.desc,
-  )(selectedAccess?.accesses || []);
+  const [selectedAccessName, setSelectedAccessName] = useLocalState(
+    context,
+    'accessName',
+    accesses[0]?.name
+  );
+  const selectedAccess = accesses.find(
+    (access) => access.name === selectedAccessName
+  );
+  const selectedAccessEntries = sortBy((entry) => entry.desc)(
+    selectedAccess?.accesses || []
+  );
 
-  const checkAccessIcon = accesses => {
+  const checkAccessIcon = (accesses) => {
     let oneAccess = false;
     let oneInaccess = false;
     for (let element of accesses) {
       if (selectedList.includes(element.ref)) {
         oneAccess = true;
-      }
-      else {
+      } else {
         oneInaccess = true;
       }
     }
     if (!oneAccess && oneInaccess) {
       return 0;
-    }
-    else if (oneAccess && oneInaccess) {
+    } else if (oneAccess && oneInaccess) {
       return 1;
-    }
-    else {
+    } else {
       return 2;
     }
   };
@@ -143,24 +149,26 @@ export const AirlockAccessList = (props, context) => {
   return (
     <Section
       title="Access"
-      buttons={(
+      buttons={
         <>
           <Button
             icon="check-double"
             content="Grant All"
             color="good"
-            onClick={() => grantAll()} />
+            onClick={() => grantAll()}
+          />
           <Button
             icon="undo"
             content="Deny All"
             color="bad"
-            onClick={() => denyAll()} />
+            onClick={() => denyAll()}
+          />
         </>
-      )}>
+      }>
       <Flex>
         <Flex.Item>
           <Tabs vertical>
-            {accesses.map(access => {
+            {accesses.map((access) => {
               const entries = access.accesses || [];
               const icon = diffMap[checkAccessIcon(entries)].icon;
               const color = diffMap[checkAccessIcon(entries)].color;
@@ -186,7 +194,8 @@ export const AirlockAccessList = (props, context) => {
                 icon="check"
                 content="Grant Region"
                 color="good"
-                onClick={() => grantDep(selectedAccess.name)} />
+                onClick={() => grantDep(selectedAccess.name)}
+              />
             </Grid.Column>
             <Grid.Column ml={0}>
               <Button
@@ -194,16 +203,18 @@ export const AirlockAccessList = (props, context) => {
                 icon="times"
                 content="Deny Region"
                 color="bad"
-                onClick={() => denyDep(selectedAccess.name)} />
+                onClick={() => denyDep(selectedAccess.name)}
+              />
             </Grid.Column>
           </Grid>
-          {selectedAccessEntries.map(entry => (
+          {selectedAccessEntries.map((entry) => (
             <Button.Checkbox
               fluid
               key={entry.desc}
               content={entry.desc}
               checked={selectedList.includes(entry.ref)}
-              onClick={() => accessMod(entry.ref)} />
+              onClick={() => accessMod(entry.ref)}
+            />
           ))}
         </Flex.Item>
       </Flex>

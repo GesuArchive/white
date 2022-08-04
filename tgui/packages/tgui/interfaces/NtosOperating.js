@@ -24,48 +24,32 @@ const damageTypes = [
 export const NtosOperating = (props, context) => {
   const [tab, setTab] = useSharedState(context, 'tab', 1);
   return (
-    <NtosWindow
-      width={350}
-      height={470}>
+    <NtosWindow width={350} height={470}>
       <NtosWindow.Content scrollable>
         <Tabs>
-          <Tabs.Tab
-            selected={tab === 1}
-            onClick={() => setTab(1)}>
+          <Tabs.Tab selected={tab === 1} onClick={() => setTab(1)}>
             Пациент
           </Tabs.Tab>
-          <Tabs.Tab
-            selected={tab === 2}
-            onClick={() => setTab(2)}>
+          <Tabs.Tab selected={tab === 2} onClick={() => setTab(2)}>
             Процедуры
           </Tabs.Tab>
         </Tabs>
-        {tab === 1 && (
-          <PatientStateView />
-        )}
-        {tab === 2 && (
-          <SurgeryProceduresView />
-        )}
+        {tab === 1 && <PatientStateView />}
+        {tab === 2 && <SurgeryProceduresView />}
       </NtosWindow.Content>
     </NtosWindow>
   );
 };
 
-
 const PatientStateView = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    procedures = [],
-    patient = {},
-  } = data;
+  const { procedures = [], patient = {} } = data;
   return (
     <>
       <Section title="Статус пациента">
-        {patient && (
+        {(patient && (
           <LabeledList>
-            <LabeledList.Item
-              label="Состояние"
-              color={patient.statstate}>
+            <LabeledList.Item label="Состояние" color={patient.statstate}>
               {patient.stat}
             </LabeledList.Item>
             <LabeledList.Item label="Тип крови">
@@ -80,7 +64,7 @@ const PatientStateView = (props, context) => {
                 <AnimatedNumber value={patient.health} />
               </ProgressBar>
             </LabeledList.Item>
-            {damageTypes.map(type => (
+            {damageTypes.map((type) => (
               <LabeledList.Item key={type.type} label={type.label}>
                 <ProgressBar
                   value={patient[type.type] / patient.maxHealth}
@@ -90,19 +74,12 @@ const PatientStateView = (props, context) => {
               </LabeledList.Item>
             ))}
           </LabeledList>
-        ) || (
-          'Пациент не обнаружен, выполните ручное сканирование или начните операцию.'
-        )}
+        )) ||
+          'Пациент не обнаружен, выполните ручное сканирование или начните операцию.'}
       </Section>
-      {procedures.length === 0 && (
-        <Section>
-          Нет активных операций
-        </Section>
-      )}
-      {procedures.map(procedure => (
-        <Section
-          key={procedure.name}
-          title={procedure.name}>
+      {procedures.length === 0 && <Section>Нет активных операций</Section>}
+      {procedures.map((procedure) => (
+        <Section key={procedure.name} title={procedure.name}>
           <LabeledList>
             <LabeledList.Item label="Следующий шаг">
               {procedure.next_step}
@@ -135,16 +112,11 @@ const PatientStateView = (props, context) => {
 
 const SurgeryProceduresView = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    surgeries = [],
-  } = data;
+  const { surgeries = [] } = data;
   return (
     <Section title="Продвинутые хирургические процедуры">
-      {surgeries.map(surgery => (
-        <Section
-          title={surgery.name}
-          key={surgery.name}
-          level={2}>
+      {surgeries.map((surgery) => (
+        <Section title={surgery.name} key={surgery.name} level={2}>
           {surgery.desc}
         </Section>
       ))}

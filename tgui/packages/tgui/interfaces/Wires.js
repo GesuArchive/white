@@ -10,58 +10,59 @@ export const Wires = (props, context) => {
   return (
     <Window
       width={500}
-      height={150
-        + (wires.length * 30)
-        + (!!proper_name && 30)}>
+      height={150 + wires.length * 30 + (!!proper_name && 30)}>
       <Window.Content>
-        {(!!proper_name && (
+        {!!proper_name && (
           <NoticeBox textAlign="center">
             {proper_name} Настройка проводов
           </NoticeBox>
-        ))}
+        )}
         <Section>
           <LabeledList>
-            {wires.map(wire => (
+            {wires.map((wire) => (
               <LabeledList.Item
                 key={wire.color}
                 className="candystripe"
                 label={wire.wname}
                 labelColor={wire.color}
                 color={wire.color}
-                buttons={(
+                buttons={
                   <>
                     <Button
                       content={wire.cut ? 'Паять' : 'Кусать'}
-                      onClick={() => act('cut', {
-                        wire: wire.color,
-                      })} />
+                      onClick={() =>
+                        act('cut', {
+                          wire: wire.color,
+                        })
+                      }
+                    />
                     <Button
                       content="Пульс"
-                      onClick={() => act('pulse', {
-                        wire: wire.color,
-                      })} />
+                      onClick={() =>
+                        act('pulse', {
+                          wire: wire.color,
+                        })
+                      }
+                    />
                     <Button
                       content={wire.attached ? 'Отсо.' : 'Прис.'}
-                      onClick={() => act('attach', {
-                        wire: wire.color,
-                      })} />
+                      onClick={() =>
+                        act('attach', {
+                          wire: wire.color,
+                        })
+                      }
+                    />
                   </>
-                )}>
-                {!!wire.wire && (
-                  <i>
-                    ({wire.wire})
-                  </i>
-                )}
+                }>
+                {!!wire.wire && <i>({wire.wire})</i>}
               </LabeledList.Item>
             ))}
           </LabeledList>
         </Section>
         {!!statuses.length && (
           <Section>
-            {statuses.map(status => (
-              <Box key={status}>
-                {status}
-              </Box>
+            {statuses.map((status) => (
+              <Box key={status}>{status}</Box>
             ))}
           </Section>
         )}

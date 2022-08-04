@@ -4,53 +4,49 @@ import { Window } from '../layouts';
 
 export const Timer = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    minutes,
-    seconds,
-    timing,
-    loop,
-  } = data;
+  const { minutes, seconds, timing, loop } = data;
   return (
-    <Window
-      width={275}
-      height={105}>
+    <Window width={275} height={105}>
       <Window.Content>
         <Section
           title="Таймер"
-          buttons={(
+          buttons={
             <>
               <Button
                 icon={'sync'}
                 content={loop ? 'Повторяет' : 'Повторять'}
                 selected={loop}
-                onClick={() => act('repeat')} />
+                onClick={() => act('repeat')}
+              />
               <Button
-                icon={"clock-o"}
+                icon={'clock-o'}
                 content={timing ? 'Стоп' : 'Старт'}
                 selected={timing}
-                onClick={() => act('time')} />
+                onClick={() => act('time')}
+              />
             </>
-          )}>
+          }>
           <Button
             icon="fast-backward"
             disabled={timing}
-            onClick={() => act('input', { adjust: -30 })} />
+            onClick={() => act('input', { adjust: -30 })}
+          />
           <Button
             icon="backward"
             disabled={timing}
-            onClick={() => act('input', { adjust: -1 })} />
-          {' '}
-          {String(minutes).padStart(2, '0')}:
-          {String(seconds).padStart(2, '0')}
-          {' '}
+            onClick={() => act('input', { adjust: -1 })}
+          />{' '}
+          {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}{' '}
           <Button
             icon="forward"
             disabled={timing}
-            onClick={() => act('input', { adjust: 1 })} />
+            onClick={() => act('input', { adjust: 1 })}
+          />
           <Button
             icon="fast-forward"
             disabled={timing}
-            onClick={() => act('input', { adjust: 30 })} />
+            onClick={() => act('input', { adjust: 30 })}
+          />
         </Section>
       </Window.Content>
     </Window>

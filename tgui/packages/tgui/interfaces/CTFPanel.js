@@ -7,10 +7,7 @@ export const CTFPanel = (props, context) => {
   const teams = data.teams || [];
   const enabled = data.enabled || [];
   return (
-    <Window
-      title="Захват флага"
-      width={700}
-      height={600}>
+    <Window title="Захват флага" width={700} height={600}>
       <Window.Content scrollable>
         <Box textAlign="center" fontSize="18px">
           {enabled}
@@ -19,24 +16,21 @@ export const CTFPanel = (props, context) => {
         <Divider />
 
         <Flex align="center" wrap="wrap" textAlign="center" m={-0.5}>
-          {teams.map(team => (
+          {teams.map((team) => (
             <Flex.Item key={team.name} width="49%" m={0.5} mb={8}>
-              <Section
-                key={team.name}
-                title={`Команда ${team.color}`}
-              >
+              <Section key={team.name} title={`Команда ${team.color}`}>
                 <Stack fill mb={1}>
                   <Stack.Item grow>
                     <Box>
                       <b>{team.team_size}</b> член
-                      {team.team_size === 1 ? "" : "ов"}
+                      {team.team_size === 1 ? '' : 'ов'}
                     </Box>
                   </Stack.Item>
 
                   <Stack.Item grow>
                     <Box>
                       <b>{team.score}</b> очко
-                      {team.score === 1 ? "" : "в"}
+                      {team.score === 1 ? '' : 'в'}
                     </Box>
                   </Stack.Item>
                 </Stack>
@@ -46,18 +40,24 @@ export const CTFPanel = (props, context) => {
                   fontSize="18px"
                   fluid={1}
                   color={team.color.toLowerCase()}
-                  onClick={() => act('jump', {
-                    refs: team.refs,
-                  })} />
+                  onClick={() =>
+                    act('jump', {
+                      refs: team.refs,
+                    })
+                  }
+                />
 
                 <Button
                   content="Ворваться"
                   fontSize="18px"
                   fluid={1}
                   color={team.color.toLowerCase()}
-                  onClick={() => act('join', {
-                    refs: team.refs,
-                  })} />
+                  onClick={() =>
+                    act('join', {
+                      refs: team.refs,
+                    })
+                  }
+                />
               </Section>
             </Flex.Item>
           ))}

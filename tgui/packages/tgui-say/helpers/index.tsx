@@ -131,9 +131,9 @@ export const getTheme = (
   channel: number
 ): string => {
   return (
-    (lightMode && 'lightMode')
-    || RADIO_PREFIXES[radioPrefix]?.id
-    || CHANNELS_THEMES[CHANNELS[channel]]?.theme
+    (lightMode && 'lightMode') ||
+    RADIO_PREFIXES[radioPrefix]?.id ||
+    CHANNELS_THEMES[CHANNELS[channel]]?.theme
   );
 };
 

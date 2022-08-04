@@ -11,62 +11,46 @@ export const DonationsMenu = (props, context) => {
   const { data } = useBackend(context);
   const { money } = data;
   return (
-    <Window
-      width={620}
-      height={580}
-      theme="hackerman">
+    <Window width={620} height={580} theme="hackerman">
       <Window.Content scrollable>
-        <GenericUplink
-          currencyAmount={money}
-          currencySymbol="Р" />
+        <GenericUplink currencyAmount={money} currencySymbol="Р" />
       </Window.Content>
     </Window>
   );
 };
 
 export const GenericUplink = (props, context) => {
-  const {
-    currencyAmount = 0,
-    currencySymbol = 'р',
-  } = props;
+  const { currencyAmount = 0, currencySymbol = 'р' } = props;
   const { act, data } = useBackend(context);
-  const {
-    compactMode,
-    categories = [],
-  } = data;
-  const [
-    searchText,
-    setSearchText,
-  ] = useLocalState(context, 'searchText', '');
-  const [
-    selectedCategory,
-    setSelectedCategory,
-  ] = useLocalState(context, 'category', "INFO");
-  const testSearch = createSearch(searchText, item => {
+  const { compactMode, categories = [] } = data;
+  const [searchText, setSearchText] = useLocalState(context, 'searchText', '');
+  const [selectedCategory, setSelectedCategory] = useLocalState(
+    context,
+    'category',
+    'INFO'
+  );
+  const testSearch = createSearch(searchText, (item) => {
     return item.name;
   });
-  const items = searchText.length > 0
-    // Flatten all categories and apply search to it
-    && categories
-      .flatMap(category => category.items || [])
-      .filter(testSearch)
-      .filter((item, i) => i < MAX_SEARCH_RESULTS)
+  const items =
+    (searchText.length > 0 &&
+      // Flatten all categories and apply search to it
+      categories
+        .flatMap((category) => category.items || [])
+        .filter(testSearch)
+        .filter((item, i) => i < MAX_SEARCH_RESULTS)) ||
     // Select a category and show all items in it
-    || categories
-      .find(category => category.name === selectedCategory)
-      ?.items
+    categories.find((category) => category.name === selectedCategory)?.items ||
     // If none of that results in a list, return an empty list
-    || [];
+    [];
   return (
     <Section
-      title={(
-        <Box
-          inline
-          color={currencyAmount > 0 ? 'good' : 'bad'}>
+      title={
+        <Box inline color={currencyAmount > 0 ? 'good' : 'bad'}>
           Баланс: {formatMoney(currencyAmount)} {currencySymbol}
         </Box>
-      )}
-      buttons={(
+      }
+      buttons={
         <Fragment>
           <Button
             icon="plus"
@@ -81,26 +65,26 @@ export const GenericUplink = (props, context) => {
             autoFocus
             value={searchText}
             onInput={(e, value) => setSearchText(value)}
-            mx={1} />
+            mx={1}
+          />
           <Button
             icon={compactMode ? 'list' : 'info'}
             content={compactMode ? 'Компактно' : 'Детально'}
-            onClick={() => act('compact_toggle')} />
+            onClick={() => act('compact_toggle')}
+          />
         </Fragment>
-      )}>
+      }>
       <Flex>
         {searchText.length === 0 && (
           <Flex.Item>
-            <Tabs
-              vertical
-              mr={1}>
+            <Tabs vertical mr={1}>
               <Tabs.Tab
                 key="test"
-                selected={"INFO" === selectedCategory}
-                onClick={() => setSelectedCategory("INFO")}>
+                selected={'INFO' === selectedCategory}
+                onClick={() => setSelectedCategory('INFO')}>
                 Информация
               </Tabs.Tab>
-              {categories.map(category => (
+              {categories.map((category) => (
                 <Tabs.Tab
                   key={category.name}
                   selected={category.name === selectedCategory}
@@ -112,7 +96,7 @@ export const GenericUplink = (props, context) => {
           </Flex.Item>
         )}
         <Flex.Item grow={1} basis={0}>
-          {"INFO" === selectedCategory && (
+          {'INFO' === selectedCategory && (
             <Box>
               <NoticeBox danger>
                 Очень важная информация для тех, кто собирается донатить
@@ -146,45 +130,43 @@ export const GenericUplink = (props, context) => {
                   <LabeledList.Item label="sobe.ru">
                     <a
                       href="https://sobe.ru/na/novye_koleni_dlya_vaita"
-                      style={{ "color": "#ffffff" }}>
+                      style={{ 'color': '#ffffff' }}>
                       https://sobe.ru/na/novye_koleni_dlya_vaita
                     </a>
                   </LabeledList.Item>
                 </LabeledList>
               </Section>
               <NoticeBox>
-                У нас есть всего ТРИ способа сбора средств, ОБЯЗАТЕЛЬНО
-                сверяйте с теми, что были описаны выше!
+                У нас есть всего ТРИ способа сбора средств, ОБЯЗАТЕЛЬНО сверяйте
+                с теми, что были описаны выше!
               </NoticeBox>
               <Section title="Дополнительные награды">
                 Полный список можно найти здесь:&nbsp;
                 <a
                   href="https://station13.ru/ru/donate"
-                  style={{ "color": "#ffffff" }}>
+                  style={{ 'color': '#ffffff' }}>
                   https://station13.ru/ru/donate
                 </a>
               </Section>
               <NoticeBox info>
-                При платеже указывайте свой CKEY, чтобы не было потом проблем
-                с обновлением баланса. Прикольный цвет, кстати.
+                При платеже указывайте свой CKEY, чтобы не было потом проблем с
+                обновлением баланса. Прикольный цвет, кстати.
               </NoticeBox>
               <Section title="Как работает эта панель?">
                 <big>
                   Всё просто! Любой предмет из списка вы можете вызывать по
-                  желанию в первые 10 минут в любом месте на карте, после
-                  начала игры, после чего далее только на территории бара.
+                  желанию в первые 10 минут в любом месте на карте, после начала
+                  игры, после чего далее только на территории бара.
                   <b>
                     Баланс каждый новый раунд сбрасывается к изначальной сумме,
                   </b>
                   поэтому не стесняйтесь экспериментировать.
                 </big>
               </Section>
-              <NoticeBox success>
-                Успехов!
-              </NoticeBox>
+              <NoticeBox success>Успехов!</NoticeBox>
             </Box>
           )}
-          {items.length === 0 && "INFO" !== selectedCategory && (
+          {items.length === 0 && 'INFO' !== selectedCategory && (
             <NoticeBox>
               {searchText.length === 0
                 ? 'Нет предметов в этой категории.'
@@ -195,7 +177,8 @@ export const GenericUplink = (props, context) => {
             compactMode={searchText.length > 0 || compactMode}
             currencyAmount={currencyAmount}
             currencySymbol={currencySymbol}
-            items={items} />
+            items={items}
+          />
         </Flex.Item>
       </Flex>
     </Section>
@@ -203,19 +186,16 @@ export const GenericUplink = (props, context) => {
 };
 
 const ItemList = (props, context) => {
-  const {
-    compactMode,
-    currencyAmount,
-    currencySymbol,
-  } = props;
+  const { compactMode, currencyAmount, currencySymbol } = props;
   const { act } = useBackend(context);
-  const [
-    hoveredItem,
-    setHoveredItem,
-  ] = useLocalState(context, 'hoveredItem', {});
-  const hoveredCost = hoveredItem && hoveredItem.cost || 0;
+  const [hoveredItem, setHoveredItem] = useLocalState(
+    context,
+    'hoveredItem',
+    {}
+  );
+  const hoveredCost = (hoveredItem && hoveredItem.cost) || 0;
   // Append extra hover data to items
-  const items = props.items.map(item => {
+  const items = props.items.map((item) => {
     const notSameItem = hoveredItem && hoveredItem.name !== item.name;
     const notEnoughHovered = currencyAmount - hoveredCost < item.cost;
     const disabledDueToHovered = notSameItem && notEnoughHovered;
@@ -228,13 +208,9 @@ const ItemList = (props, context) => {
   if (compactMode) {
     return (
       <Table>
-        {items.map(item => (
-          <Table.Row
-            key={item.name}
-            className="candystripe">
-            <Table.Cell bold>
-              {decodeHtmlEntities(item.name)}
-            </Table.Cell>
+        {items.map((item) => (
+          <Table.Row key={item.name} className="candystripe">
+            <Table.Cell bold>{decodeHtmlEntities(item.name)}</Table.Cell>
             <Table.Cell collapsing textAlign="right">
               <Button
                 fluid
@@ -243,9 +219,12 @@ const ItemList = (props, context) => {
                 tooltipPosition="left"
                 onmouseover={() => setHoveredItem(item)}
                 onmouseout={() => setHoveredItem({})}
-                onClick={() => act('buy', {
-                  name: item.name,
-                })} />
+                onClick={() =>
+                  act('buy', {
+                    name: item.name,
+                  })
+                }
+              />
             </Table.Cell>
           </Table.Row>
         ))}
@@ -254,17 +233,16 @@ const ItemList = (props, context) => {
   }
   return (
     <Table>
-      {items.map(item => (
-        <Table.Row
-          key={item.name}
-          className="candystripe">
+      {items.map((item) => (
+        <Table.Row key={item.name} className="candystripe">
           <Table.Cell bold>
             <img
               src={`data:image/jpeg;base64,${item.icon}`}
               style={{
                 'vertical-align': 'middle',
                 'horizontal-align': 'middle',
-              }} />
+              }}
+            />
             {decodeHtmlEntities(item.name)}
           </Table.Cell>
           <Table.Cell collapsing textAlign="right">
@@ -275,9 +253,12 @@ const ItemList = (props, context) => {
               tooltipPosition="left"
               onmouseover={() => setHoveredItem(item)}
               onmouseout={() => setHoveredItem({})}
-              onClick={() => act('buy', {
-                'ref': item.ref,
-              })} />
+              onClick={() =>
+                act('buy', {
+                  'ref': item.ref,
+                })
+              }
+            />
           </Table.Cell>
         </Table.Row>
       ))}

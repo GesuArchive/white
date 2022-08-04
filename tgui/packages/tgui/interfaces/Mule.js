@@ -23,24 +23,26 @@ export const Mule = (props, context) => {
   } = data;
   const locked = data.locked && !data.siliconUser;
   return (
-    <Window
-      width={350}
-      height={455}>
+    <Window width={350} height={455}>
       <Window.Content>
         <InterfaceLockNoticeBox />
         <Section
           title="Состояние"
           minHeight="110px"
-          buttons={!locked && (
-            <Button
-              icon={on ? 'power-off' : 'times'}
-              content={on ? 'Включен' : 'Выключен'}
-              selected={on}
-              onClick={() => act('power')} />
-          )}>
+          buttons={
+            !locked && (
+              <Button
+                icon={on ? 'power-off' : 'times'}
+                content={on ? 'Включен' : 'Выключен'}
+                selected={on}
+                onClick={() => act('power')}
+              />
+            )
+          }>
           <ProgressBar
-            value={cell ? (cellPercent / 100) : 0}
-            color={cell ? 'good' : 'bad'} />
+            value={cell ? cellPercent / 100 : 0}
+            color={cell ? 'good' : 'bad'}
+          />
           <Flex mt={1}>
             <Flex.Item grow={1} basis={0}>
               <LabeledList>
@@ -63,27 +65,30 @@ export const Mule = (props, context) => {
         {!locked && (
           <Section
             title="Управление"
-            buttons={(
+            buttons={
               <>
                 {!!load && (
                   <Button
                     icon="eject"
                     content="Разгрузить"
-                    onClick={() => act('unload')} />
+                    onClick={() => act('unload')}
+                  />
                 )}
                 {!!haspai && (
                   <Button
                     icon="eject"
                     content="Изъять пИИ"
-                    onClick={() => act('ejectpai')} />
+                    onClick={() => act('ejectpai')}
+                  />
                 )}
               </>
-            )}>
+            }>
             <LabeledList>
               <LabeledList.Item label="ID">
                 <Input
                   value={id}
-                  onChange={(e, value) => act('setid', { value })} />
+                  onChange={(e, value) => act('setid', { value })}
+                />
               </LabeledList.Item>
               <LabeledList.Item label="Цель">
                 <Dropdown
@@ -91,15 +96,14 @@ export const Mule = (props, context) => {
                   selected={destination || 'Нет'}
                   options={destinations}
                   width="150px"
-                  onSelected={value => act('destination', { value })} />
+                  onSelected={(value) => act('destination', { value })}
+                />
                 <Button
                   icon="stop"
                   content="Стоп"
-                  onClick={() => act('stop')} />
-                <Button
-                  icon="play"
-                  content="Старт"
-                  onClick={() => act('go')} />
+                  onClick={() => act('stop')}
+                />
+                <Button icon="play" content="Старт" onClick={() => act('go')} />
               </LabeledList.Item>
               <LabeledList.Item label="Дом">
                 <Dropdown
@@ -107,27 +111,32 @@ export const Mule = (props, context) => {
                   selected={home}
                   options={destinations}
                   width="150px"
-                  onSelected={value => act('destination', { value })} />
+                  onSelected={(value) => act('destination', { value })}
+                />
                 <Button
                   icon="home"
                   content="Вернуть домой"
-                  onClick={() => act('home')} />
+                  onClick={() => act('home')}
+                />
               </LabeledList.Item>
               <LabeledList.Item label="Settings">
                 <Button.Checkbox
                   checked={autoReturn}
                   content="Авто-возвращение"
-                  onClick={() => act('autored')} />
+                  onClick={() => act('autored')}
+                />
                 <br />
                 <Button.Checkbox
                   checked={autoPickup}
                   content="Авто-подбор"
-                  onClick={() => act('autopick')} />
+                  onClick={() => act('autopick')}
+                />
                 <br />
                 <Button.Checkbox
                   checked={reportDelivery}
                   content="Сообщать о дост."
-                  onClick={() => act('report')} />
+                  onClick={() => act('report')}
+                />
               </LabeledList.Item>
             </LabeledList>
           </Section>

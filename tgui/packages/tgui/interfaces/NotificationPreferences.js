@@ -17,20 +17,18 @@ export const NotificationPreferences = (props, context) => {
     return 0;
   });
   return (
-    <Window
-      title="Настройка уведомлений"
-      width={270}
-      height={660}>
+    <Window title="Настройка уведомлений" width={270} height={660}>
       <Window.Content scrollable>
         <Section title="Настройка уведомлений призрака">
-          {ignores.map(ignore => (
+          {ignores.map((ignore) => (
             <Button
               fluid
               key={ignore.key}
               icon={ignore.enabled ? 'times' : 'check'}
               content={ignore.desc}
               color={ignore.enabled ? 'bad' : 'good'}
-              onClick={() => act('toggle_ignore', { key: ignore.key })} />
+              onClick={() => act('toggle_ignore', { key: ignore.key })}
+            />
           ))}
         </Section>
       </Window.Content>

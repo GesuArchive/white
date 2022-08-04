@@ -17,19 +17,13 @@ const KEY_INCREMENT = 1;
 
 export const AlertModal = (_, context) => {
   const { act, data } = useBackend<AlertModalData>(context);
-  const {
-    autofocus,
-    buttons = [],
-    message = '',
-    timeout,
-    title,
-  } = data;
+  const { autofocus, buttons = [], message = '', timeout, title } = data;
   const [selected, setSelected] = useLocalState<number>(context, 'selected', 0);
   // Dynamically sets window dimensions
-  const windowHeight
-    = 115
-    + (message.length > 30 ? Math.ceil(message.length / 4) : 0)
-    + (message.length && 0);
+  const windowHeight =
+    115 +
+    (message.length > 30 ? Math.ceil(message.length / 4) : 0) +
+    (message.length && 0);
   const windowWidth = 325 + (buttons.length > 2 ? 55 : 0);
   const onKey = (direction: number) => {
     if (selected === 0 && direction === KEY_DECREMENT) {
@@ -92,23 +86,16 @@ const ButtonDisplay = (props, context) => {
   const { selected } = props;
 
   return (
-    <Flex
-      align="center"
-      direction={'row'}
-      fill
-      justify="space-around"
-      wrap>
-      {buttons?.map((button, index) =>
-        (
-          <Flex.Item key={index}>
-            <AlertButton
-              button={button}
-              id={index.toString()}
-              selected={selected === index}
-            />
-          </Flex.Item>
-        )
-      )}
+    <Flex align="center" direction={'row'} fill justify="space-around" wrap>
+      {buttons?.map((button, index) => (
+        <Flex.Item key={index}>
+          <AlertButton
+            button={button}
+            id={index.toString()}
+            selected={selected === index}
+          />
+        </Flex.Item>
+      ))}
     </Flex>
   );
 };

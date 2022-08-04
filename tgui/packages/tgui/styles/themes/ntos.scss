@@ -18,20 +18,27 @@ $nanotrasen: #191919;
 
 .theme-ntos {
   // Components
-  @include meta.load-css('../components/Button.scss', $with: (
-    'color-default': lighten($nanotrasen, 70%),
-    'color-transparent-text': rgba(240, 240, 240, 0.75),
-  ));
-  @include meta.load-css('../components/ProgressBar.scss', $with: (
-    'color-default-fill': $nanotrasen,
-    'background-color': rgba(0, 0, 0, 0.5),
-  ));
+  @include meta.load-css(
+    '../components/Button.scss',
+    $with: (
+      'color-default': lighten($nanotrasen, 70%),
+      'color-transparent-text': rgba(240, 240, 240, 0.75)
+    )
+  );
+  @include meta.load-css(
+    '../components/ProgressBar.scss',
+    $with: (
+      'color-default-fill': $nanotrasen,
+      'background-color': rgba(0, 0, 0, 0.5)
+    )
+  );
   @include meta.load-css('../components/Section.scss');
 
   // Layouts
   @include meta.load-css('../layouts/Layout.scss');
   @include meta.load-css('../layouts/Window.scss');
-  @include meta.load-css('../layouts/TitleBar.scss', $with: (
-    'background-color': color.scale($nanotrasen, $lightness: -25%),
-  ));
+  @include meta.load-css(
+    '../layouts/TitleBar.scss',
+    $with: ('background-color': color.scale($nanotrasen, $lightness: -25%))
+  );
 }

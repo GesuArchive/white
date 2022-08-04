@@ -5,9 +5,7 @@ import { Window } from '../layouts';
 
 export const Cargo = (props, context) => {
   return (
-    <Window
-      width={780}
-      height={750}>
+    <Window width={780} height={750}>
       <Window.Content scrollable>
         <CargoContent />
       </Window.Content>
@@ -18,9 +16,7 @@ export const Cargo = (props, context) => {
 export const CargoContent = (props, context) => {
   const { act, data } = useBackend(context);
   const [tab, setTab] = useSharedState(context, 'tab', 'catalog');
-  const {
-    requestonly,
-  } = data;
+  const { requestonly } = data;
   const cart = data.cart || [];
   const requests = data.requests || [];
   return (
@@ -36,9 +32,7 @@ export const CargoContent = (props, context) => {
           </Tabs.Tab>
           <Tabs.Tab
             icon="envelope"
-            textColor={tab !== 'requests'
-              && requests.length > 0
-              && 'yellow'}
+            textColor={tab !== 'requests' && requests.length > 0 && 'yellow'}
             selected={tab === 'requests'}
             onClick={() => setTab('requests')}>
             Запросы ({requests.length})
@@ -46,9 +40,7 @@ export const CargoContent = (props, context) => {
           {!requestonly && (
             <Tabs.Tab
               icon="shopping-cart"
-              textColor={tab !== 'cart'
-                && cart.length > 0
-                && 'yellow'}
+              textColor={tab !== 'cart' && cart.length > 0 && 'yellow'}
               selected={tab === 'cart'}
               onClick={() => setTab('cart')}>
               Покупка ({cart.length})
@@ -56,15 +48,9 @@ export const CargoContent = (props, context) => {
           )}
         </Tabs>
       </Section>
-      {tab === 'catalog' && (
-        <CargoCatalog />
-      )}
-      {tab === 'requests' && (
-        <CargoRequests />
-      )}
-      {tab === 'cart' && (
-        <CargoCart />
-      )}
+      {tab === 'catalog' && <CargoCatalog />}
+      {tab === 'requests' && <CargoRequests />}
+      {tab === 'cart' && <CargoCart />}
     </Box>
   );
 };
@@ -86,40 +72,38 @@ const CargoStatus = (props, context) => {
   return (
     <Section
       title="Снабжение"
-      buttons={(
+      buttons={
         <Box inline bold>
           <AnimatedNumber
             value={points}
-            format={value => formatMoney(value)} />
+            format={(value) => formatMoney(value)}
+          />
           {' кредитов'}
         </Box>
-      )}>
+      }>
       <LabeledList>
         <LabeledList.Item label="Шаттл">
-          {docked && !requestonly && can_send &&(
+          {(docked && !requestonly && can_send && (
             <Button
-              color={grocery && "orange" || "green"}
+              color={(grocery && 'orange') || 'green'}
               content={location}
-              tooltip={grocery && "Повар сделал заказ и ожидает товар." || ""}
+              tooltip={(grocery && 'Повар сделал заказ и ожидает товар.') || ''}
               tooltipPosition="right"
-              onClick={() => act('send')} />
-          ) || location}
+              onClick={() => act('send')}
+            />
+          )) ||
+            location}
         </LabeledList.Item>
-        <LabeledList.Item label="Сообщение ЦК">
-          {message}
-        </LabeledList.Item>
+        <LabeledList.Item label="Сообщение ЦК">{message}</LabeledList.Item>
         {!!loan && !requestonly && (
           <LabeledList.Item label="Ссуда">
-            {!loan_dispatched && (
+            {(!loan_dispatched && (
               <Button
                 content="Передать шаттл"
                 disabled={!(away && docked)}
-                onClick={() => act('loan')} />
-            ) || (
-              <Box color="bad">
-                Передано на ЦК
-              </Box>
-            )}
+                onClick={() => act('loan')}
+              />
+            )) || <Box color="bad">Передано на ЦК</Box>}
           </LabeledList.Item>
         )}
       </LabeledList>
@@ -130,35 +114,36 @@ const CargoStatus = (props, context) => {
 export const CargoCatalog = (props, context) => {
   const { express } = props;
   const { act, data } = useBackend(context);
-  const {
-    self_paid,
-    app_cost,
-  } = data;
+  const { self_paid, app_cost } = data;
   const supplies = Object.values(data.supplies);
-  const [
-    activeSupplyName,
-    setActiveSupplyName,
-  ] = useSharedState(context, 'supply', supplies[0]?.name);
-  const activeSupply = supplies.find(supply => {
+  const [activeSupplyName, setActiveSupplyName] = useSharedState(
+    context,
+    'supply',
+    supplies[0]?.name
+  );
+  const activeSupply = supplies.find((supply) => {
     return supply.name === activeSupplyName;
   });
   return (
     <Section
       title="Каталог"
-      buttons={!express && (
-        <>
-          <CargoCartButtons />
-          <Button.Checkbox
-            ml={1}
-            content="За мой счёт"
-            checked={self_paid}
-            onClick={() => act('toggleprivate')} />
-        </>
-      )}>
+      buttons={
+        !express && (
+          <>
+            <CargoCartButtons />
+            <Button.Checkbox
+              ml={1}
+              content="За мой счёт"
+              checked={self_paid}
+              onClick={() => act('toggleprivate')}
+            />
+          </>
+        )
+      }>
       <Flex>
         <Flex.Item mr={2}>
           <Tabs vertical>
-            {supplies.map(supply => (
+            {supplies.map((supply) => (
               <Tabs.Tab
                 key={supply.name}
                 selected={supply.name === activeSupplyName}
@@ -170,7 +155,7 @@ export const CargoCatalog = (props, context) => {
         </Flex.Item>
         <Flex.Item grow={1} basis={0}>
           <Table>
-            {activeSupply?.packs.map(pack => {
+            {activeSupply?.packs.map((pack) => {
               const tags = [];
               if (pack.small_item) {
                 tags.push('Небольшой');
@@ -183,28 +168,25 @@ export const CargoCatalog = (props, context) => {
                   key={pack.name}
                   minHeight="24px"
                   className="candystripe">
-                  <Table.Cell>
-                    {pack.name}
-                  </Table.Cell>
-                  <Table.Cell
-                    collapsing
-                    color="label"
-                    textAlign="right">
+                  <Table.Cell>{pack.name}</Table.Cell>
+                  <Table.Cell collapsing color="label" textAlign="right">
                     {tags.join(', ')}
                   </Table.Cell>
-                  <Table.Cell
-                    collapsing
-                    textAlign="right">
+                  <Table.Cell collapsing textAlign="right">
                     <Button
                       fluid
                       tooltip={pack.desc}
                       tooltipPosition="left"
-                      onClick={() => act('add', {
-                        id: pack.id,
-                      })}>
-                      {formatMoney((self_paid && !pack.goody) || app_cost
-                        ? Math.round(pack.cost * 1.1)
-                        : pack.cost)}
+                      onClick={() =>
+                        act('add', {
+                          id: pack.id,
+                        })
+                      }>
+                      {formatMoney(
+                        (self_paid && !pack.goody) || app_cost
+                          ? Math.round(pack.cost * 1.1)
+                          : pack.cost
+                      )}
                       {' кр'}
                     </Button>
                   </Table.Cell>
@@ -220,40 +202,31 @@ export const CargoCatalog = (props, context) => {
 
 const CargoRequests = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    requestonly,
-    can_send,
-    can_approve_requests,
-  } = data;
+  const { requestonly, can_send, can_approve_requests } = data;
   const requests = data.requests || [];
   // Labeled list reimplementation to squeeze extra columns out of it
   return (
     <Section
       title="Активные запросы"
-      buttons={!requestonly && (
-        <Button
-          icon="times"
-          content="Очистить"
-          color="transparent"
-          onClick={() => act('denyall')} />
-      )}>
-      {requests.length === 0 && (
-        <Box color="good">
-          Нет запросов
-        </Box>
-      )}
+      buttons={
+        !requestonly && (
+          <Button
+            icon="times"
+            content="Очистить"
+            color="transparent"
+            onClick={() => act('denyall')}
+          />
+        )
+      }>
+      {requests.length === 0 && <Box color="good">Нет запросов</Box>}
       {requests.length > 0 && (
         <Table>
-          {requests.map(request => (
-            <Table.Row
-              key={request.id}
-              className="candystripe">
+          {requests.map((request) => (
+            <Table.Row key={request.id} className="candystripe">
               <Table.Cell collapsing color="label">
                 #{request.id}
               </Table.Cell>
-              <Table.Cell>
-                {request.object}
-              </Table.Cell>
+              <Table.Cell>{request.object}</Table.Cell>
               <Table.Cell>
                 <b>{request.orderer}</b>
               </Table.Cell>
@@ -263,20 +236,26 @@ const CargoRequests = (props, context) => {
               <Table.Cell collapsing textAlign="right">
                 {formatMoney(request.cost)} кредитов
               </Table.Cell>
-              {(!requestonly || can_send)&& can_approve_requests &&(
+              {(!requestonly || can_send) && can_approve_requests && (
                 <Table.Cell collapsing>
                   <Button
                     icon="check"
                     color="good"
-                    onClick={() => act('approve', {
-                      id: request.id,
-                    })} />
+                    onClick={() =>
+                      act('approve', {
+                        id: request.id,
+                      })
+                    }
+                  />
                   <Button
                     icon="times"
                     color="bad"
-                    onClick={() => act('deny', {
-                      id: request.id,
-                    })} />
+                    onClick={() =>
+                      act('deny', {
+                        id: request.id,
+                      })
+                    }
+                  />
                 </Table.Cell>
               )}
             </Table.Row>
@@ -289,11 +268,7 @@ const CargoRequests = (props, context) => {
 
 const CargoCartButtons = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    requestonly,
-    can_send,
-    can_approve_requests,
-  } = data;
+  const { requestonly, can_send, can_approve_requests } = data;
   const cart = data.cart || [];
   const total = cart.reduce((total, entry) => total + entry.cost, 0);
   if (requestonly || !can_send || !can_approve_requests) {
@@ -304,73 +279,56 @@ const CargoCartButtons = (props, context) => {
       <Box inline mx={1}>
         {cart.length === 0 && 'Корзина пуста'}
         {cart.length === 1 && '1 заказ'}
-        {cart.length >= 2 && cart.length + ' заказов'}
-        {' '}
+        {cart.length >= 2 && cart.length + ' заказов'}{' '}
         {total > 0 && `(${formatMoney(total)} кредитов)`}
       </Box>
       <Button
         icon="times"
         color="transparent"
         content="Очистить"
-        onClick={() => act('clear')} />
+        onClick={() => act('clear')}
+      />
     </>
   );
 };
 
 const CargoCart = (props, context) => {
   const { act, data } = useBackend(context);
-  const {
-    requestonly,
-    away,
-    docked,
-    location,
-    can_send,
-  } = data;
+  const { requestonly, away, docked, location, can_send } = data;
   const cart = data.cart || [];
   return (
-    <Section
-      title="Текущая корзина"
-      buttons={(
-        <CargoCartButtons />
-      )}>
-      {cart.length === 0 && (
-        <Box color="label">
-          Корзина пуста
-        </Box>
-      )}
+    <Section title="Текущая корзина" buttons={<CargoCartButtons />}>
+      {cart.length === 0 && <Box color="label">Корзина пуста</Box>}
       {cart.length > 0 && (
         <Table>
-          {cart.map(entry => (
-            <Table.Row
-              key={entry.id}
-              className="candystripe">
+          {cart.map((entry) => (
+            <Table.Row key={entry.id} className="candystripe">
               <Table.Cell collapsing color="label">
                 #{entry.id}
               </Table.Cell>
-              <Table.Cell>
-                {entry.object}
-              </Table.Cell>
+              <Table.Cell>{entry.object}</Table.Cell>
               <Table.Cell collapsing>
-                {!!entry.paid && (
-                  <b>[Оплачено с карты]</b>
-                )}
+                {!!entry.paid && <b>[Оплачено с карты]</b>}
               </Table.Cell>
-              {entry.dep_order && (
+              {(entry.dep_order && (
                 <Table.Cell collapsing textAlign="right">
                   {formatMoney(entry.cost)} кредитов заработано на доставке
                 </Table.Cell>
-              ) || (
+              )) || (
                 <>
                   <Table.Cell collapsing textAlign="right">
                     {formatMoney(entry.cost)} кредитов
                   </Table.Cell>
                   <Table.Cell collapsing>
-                    {can_send &&(
+                    {can_send && (
                       <Button
                         icon="minus"
-                        onClick={() => act('remove', {
-                          id: entry.id,
-                        })} />
+                        onClick={() =>
+                          act('remove', {
+                            id: entry.id,
+                          })
+                        }
+                      />
                     )}
                   </Table.Cell>
                 </>
@@ -381,7 +339,7 @@ const CargoCart = (props, context) => {
       )}
       {cart.length > 0 && !requestonly && (
         <Box mt={2}>
-          {away === 1 && docked === 1 && (
+          {(away === 1 && docked === 1 && (
             <Button
               color="green"
               style={{
@@ -389,12 +347,9 @@ const CargoCart = (props, context) => {
                 'padding': '0 12px',
               }}
               content="Подтвердить заказ"
-              onClick={() => act('send')} />
-          ) || (
-            <Box opacity={0.5}>
-              Шаттл в {location}.
-            </Box>
-          )}
+              onClick={() => act('send')}
+            />
+          )) || <Box opacity={0.5}>Шаттл в {location}.</Box>}
         </Box>
       )}
     </Section>

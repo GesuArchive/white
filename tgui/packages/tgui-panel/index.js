@@ -88,24 +88,27 @@ const setupApp = () => {
   });
 
   Byond.winset('browseroutput', {
-    'size': '0x'+(window.innerHeight-28),
+    'size': '0x' + (window.innerHeight - 28),
   });
 
   // Enable hot module reloading
   if (module.hot) {
     setupHotReloading();
-    module.hot.accept([
-      './audio',
-      './chat',
-      './game',
-      './Notifications',
-      './Panel',
-      './ping',
-      './settings',
-      './telemetry',
-    ], () => {
-      renderApp();
-    });
+    module.hot.accept(
+      [
+        './audio',
+        './chat',
+        './game',
+        './Notifications',
+        './Panel',
+        './ping',
+        './settings',
+        './telemetry',
+      ],
+      () => {
+        renderApp();
+      }
+    );
   }
 };
 

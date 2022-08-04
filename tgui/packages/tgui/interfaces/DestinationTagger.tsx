@@ -58,7 +58,9 @@ export const DestinationTagger = (props, context) => {
                     mr={1}
                     ml={1}
                     key={location.sorting_id}
-                    onClick={() => act('change', { index: location.sorting_id })}
+                    onClick={() =>
+                      act('change', { index: location.sorting_id })
+                    }
                     width={23}>
                     {location.name}
                   </Button.Checkbox>

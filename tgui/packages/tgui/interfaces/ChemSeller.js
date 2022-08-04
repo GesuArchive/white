@@ -16,10 +16,9 @@ export const ChemSeller = (props, context) => {
       <Window.Content scrollable>
         <Section title="Выбор химиката">
           <Box ml={2} mr={5}>
-            {chemicals.map(chemical => (
-
+            {chemicals.map((chemical) => (
               <Button
-                content={chemical.title+" ("+chemical.price+")"}
+                content={chemical.title + ' (' + chemical.price + ')'}
                 key={chemical.title}
                 icon="tint"
                 color="transparent"
@@ -27,34 +26,30 @@ export const ChemSeller = (props, context) => {
                 selected={chemical.typepath === selected[0].typepath}
                 lineHeight={1.25}
                 tooltip={chemical.desc}
-                onClick={() => act("select",
-                  { reagent: chemical.typepath }
-                )}
+                onClick={() => act('select', { reagent: chemical.typepath })}
               />
-
             ))}
           </Box>
         </Section>
         <Section title={selected[0].title}>
-          <ProgressBar
-            value={beakerReagentAmount}
-            maxValue={beakerVolume}
-          >
-            {isBeakerLoaded ? beakerReagentAmount+"u/"+beakerVolume+"u." : "No beaker found."}
+          <ProgressBar value={beakerReagentAmount} maxValue={beakerVolume}>
+            {isBeakerLoaded
+              ? beakerReagentAmount + 'u/' + beakerVolume + 'u.'
+              : 'No beaker found.'}
           </ProgressBar>
           <Flex>
             <Flex.Item grow={1}>
               <Button
-                content={"Синтезировать! ("+selected[0].price+")"}
+                content={'Синтезировать! (' + selected[0].price + ')'}
                 disabled={isBeakerLoaded === 0}
-                onClick={() => act("dispense", {})}
+                onClick={() => act('dispense', {})}
               />
             </Flex.Item>
             <Flex.Item>
               <Button
                 content="Изъять"
                 disabled={isBeakerLoaded === 0}
-                onClick={() => act("eject", {})}
+                onClick={() => act('eject', {})}
               />
             </Flex.Item>
           </Flex>

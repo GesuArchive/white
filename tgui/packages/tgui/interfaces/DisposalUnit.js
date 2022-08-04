@@ -9,65 +9,51 @@ export const DisposalUnit = (props, context) => {
   if (data.full_pressure) {
     stateColor = 'good';
     stateText = 'Готов';
-  }
-  else if (data.panel_open) {
+  } else if (data.panel_open) {
     stateColor = 'bad';
     stateText = 'Питание отключено';
-  }
-  else if (data.pressure_charging) {
+  } else if (data.pressure_charging) {
     stateColor = 'average';
     stateText = 'Герметизация';
-  }
-  else {
+  } else {
     stateColor = 'bad';
     stateText = 'Выключено';
   }
   return (
-    <Window
-      width={300}
-      height={172}>
+    <Window width={300} height={172}>
       <Window.Content>
         <Section>
           <LabeledList>
-            <LabeledList.Item
-              label="Состояние"
-              color={stateColor}>
+            <LabeledList.Item label="Состояние" color={stateColor}>
               {stateText}
             </LabeledList.Item>
-            <LabeledList.Item
-              label="Давление">
-              <ProgressBar
-                value={data.per}
-                color="good" />
+            <LabeledList.Item label="Давление">
+              <ProgressBar value={data.per} color="good" />
             </LabeledList.Item>
-            <LabeledList.Item
-              label="Ручка">
+            <LabeledList.Item label="Ручка">
               <Button
                 icon={data.flush ? 'toggle-on' : 'toggle-off'}
                 disabled={data.isai || data.panel_open}
                 content={data.flush ? 'Отжать' : 'Нажать'}
-                onClick={() => act(data.flush
-                  ? 'handle-0'
-                  : 'handle-1')}
+                onClick={() => act(data.flush ? 'handle-0' : 'handle-1')}
               />
             </LabeledList.Item>
-            <LabeledList.Item
-              label="Содержимое">
+            <LabeledList.Item label="Содержимое">
               <Button
                 icon="sign-out-alt"
                 disabled={data.isai}
                 content="Изъять"
-                onClick={() => act('eject')} />
+                onClick={() => act('eject')}
+              />
             </LabeledList.Item>
-            <LabeledList.Item
-              label="Питание">
+            <LabeledList.Item label="Питание">
               <Button
                 icon="power-off"
                 disabled={data.panel_open}
                 selected={data.pressure_charging}
-                onClick={() => act(data.pressure_charging
-                  ? 'pump-0'
-                  : 'pump-1')}
+                onClick={() =>
+                  act(data.pressure_charging ? 'pump-0' : 'pump-1')
+                }
               />
             </LabeledList.Item>
           </LabeledList>

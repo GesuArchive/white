@@ -10,7 +10,11 @@ const logScale = (value) => Math.log2(16 + Math.max(0, value)) - 4;
 
 export const SupermatterMonitor = () => {
   return (
-    <Window width={600} height={350} theme="ntos" title="Мониторинг суперматерии">
+    <Window
+      width={600}
+      height={350}
+      theme="ntos"
+      title="Мониторинг суперматерии">
       <Window.Content scrollable>
         <SupermatterMonitorContent />
       </Window.Content>
@@ -43,13 +47,15 @@ export const SupermatterMonitorContent = (props, context) => {
   return (
     <Section
       title={SM_uid + '. ' + SM_area_name}
-      buttons={!singlecrystal && (
-        <Button
-          icon="arrow-left"
-          content="Назад"
-          onClick={() => act('PRG_clear')}
-        />
-      )}>
+      buttons={
+        !singlecrystal && (
+          <Button
+            icon="arrow-left"
+            content="Назад"
+            onClick={() => act('PRG_clear')}
+          />
+        )
+      }>
       <Stack>
         <Stack.Item width="270px">
           <Section title="Метрика">
@@ -181,7 +187,8 @@ const SupermatterList = (props, context) => {
                 onClick={() =>
                   act('PRG_set', {
                     target: sm.uid,
-                  })}
+                  })
+                }
               />
             </Table.Cell>
           </Table.Row>

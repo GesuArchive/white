@@ -94,8 +94,7 @@ export const ListInputModal = (_, context) => {
     item?.toLowerCase().includes(searchQuery.toLowerCase())
   );
   // Dynamically changes the window height based on the message.
-  const windowHeight
-    = 525 + Math.ceil(message?.length / 3);
+  const windowHeight = 525 + Math.ceil(message?.length / 3);
   // Grabs the cursor when no search bar is visible.
   if (!searchBarVisible) {
     setTimeout(() => document!.getElementById(selected.toString())?.focus(), 1);
@@ -128,15 +127,16 @@ export const ListInputModal = (_, context) => {
           buttons={
             <Button
               compact
-              icon={searchBarVisible ? "search" : "font"}
+              icon={searchBarVisible ? 'search' : 'font'}
               selected
-              tooltip={searchBarVisible
-                ? "Режима поиска. Пиши и управляй стрелками для выбора."
-                : "Режим хоткеев. Пиши букву и прыгай к нужному. Enter для выбора."}
+              tooltip={
+                searchBarVisible
+                  ? 'Режима поиска. Пиши и управляй стрелками для выбора.'
+                  : 'Режим хоткеев. Пиши букву и прыгай к нужному. Enter для выбора.'
+              }
               tooltipPosition="left"
               onClick={() => onSearchBarToggle()}
             />
-
           }
           className="ListInput__Section"
           fill
@@ -175,8 +175,8 @@ export const ListInputModal = (_, context) => {
  */
 const ListDisplay = (props, context) => {
   const { act } = useBackend<ListInputData>(context);
-  const { filteredItems, onClick, onFocusSearch, searchBarVisible, selected }
-    = props;
+  const { filteredItems, onClick, onFocusSearch, searchBarVisible, selected } =
+    props;
 
   return (
     <Section fill scrollable tabIndex={0}>

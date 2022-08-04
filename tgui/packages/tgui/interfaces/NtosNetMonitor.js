@@ -22,72 +22,81 @@ export const NtosNetMonitor = (props, context) => {
     <NtosWindow>
       <NtosWindow.Content scrollable>
         <NoticeBox>
-          ВНИМАНИЕ: Отключение беспроводной передачи данных через
-          беспроводное устройство может затруднить её обратное включение!
+          ВНИМАНИЕ: Отключение беспроводной передачи данных через беспроводное
+          устройство может затруднить её обратное включение!
         </NoticeBox>
         <Section
           title="Беспроводная сеть"
-          buttons={(
+          buttons={
             <Button.Confirm
               icon={ntnetstatus ? 'power-off' : 'times'}
               content={ntnetstatus ? 'ВКЛЮЧЕНА' : 'ОТКЛЮЧЕНА'}
               selected={ntnetstatus}
-              onClick={() => act('toggleWireless')} />
-          )}>
+              onClick={() => act('toggleWireless')}
+            />
+          }>
           {ntnetrelays ? (
             <LabeledList>
               <LabeledList.Item label="Активные реле NTNet">
                 {ntnetrelays}
               </LabeledList.Item>
             </LabeledList>
-          ) : "Не обнаружено"}
+          ) : (
+            'Не обнаружено'
+          )}
         </Section>
         <Section title="Настройка файрвола">
           <LabeledList>
             <LabeledList.Item
               label="Репозитории"
-              buttons={(
+              buttons={
                 <Button
                   icon={config_softwaredownload ? 'power-off' : 'times'}
                   content={config_softwaredownload ? 'ВКЛЮЧЕНО' : 'ОТКЛЮЧЕНО'}
                   selected={config_softwaredownload}
-                  onClick={() => act('toggle_function', { id: "1" })} />
-              )} />
+                  onClick={() => act('toggle_function', { id: '1' })}
+                />
+              }
+            />
             <LabeledList.Item
               label="P2P трафик"
-              buttons={(
+              buttons={
                 <Button
                   icon={config_peertopeer ? 'power-off' : 'times'}
                   content={config_peertopeer ? 'ВКЛЮЧЕНО' : 'ОТКЛЮЧЕНО'}
                   selected={config_peertopeer}
-                  onClick={() => act('toggle_function', { id: "2" })} />
-              )} />
+                  onClick={() => act('toggle_function', { id: '2' })}
+                />
+              }
+            />
             <LabeledList.Item
               label="Системы связи"
-              buttons={(
+              buttons={
                 <Button
                   icon={config_communication ? 'power-off' : 'times'}
                   content={config_communication ? 'ВКЛЮЧЕНО' : 'ОТКЛЮЧЕНО'}
                   selected={config_communication}
-                  onClick={() => act('toggle_function', { id: "3" })} />
-              )} />
+                  onClick={() => act('toggle_function', { id: '3' })}
+                />
+              }
+            />
             <LabeledList.Item
               label="Удалённый контроль систем"
-              buttons={(
+              buttons={
                 <Button
                   icon={config_systemcontrol ? 'power-off' : 'times'}
                   content={config_systemcontrol ? 'ВКЛЮЧЕНО' : 'ОТКЛЮЧЕНО'}
                   selected={config_systemcontrol}
-                  onClick={() => act('toggle_function', { id: "4" })} />
-              )} />
+                  onClick={() => act('toggle_function', { id: '4' })}
+                />
+              }
+            />
           </LabeledList>
         </Section>
         <Section title="Безопасность">
           {!!idsalarm && (
             <>
-              <NoticeBox>
-                ОБНАРУЖЕНО ВТОРЖЕНИЕ В СЕТЬ
-              </NoticeBox>
+              <NoticeBox>ОБНАРУЖЕНО ВТОРЖЕНИЕ В СЕТЬ</NoticeBox>
               <Box italics>
                 В сети обнаружена аномальная активность. Проверьте системные
                 журналы для получения дополнительной информации
@@ -97,44 +106,51 @@ export const NtosNetMonitor = (props, context) => {
           <LabeledList>
             <LabeledList.Item
               label="Слежение"
-              buttons={(
+              buttons={
                 <>
                   <Button
                     icon={idsstatus ? 'power-off' : 'times'}
                     content={idsstatus ? 'ВКЛЮЧЕНО' : 'ОТКЛЮЧЕНО'}
                     selected={idsstatus}
-                    onClick={() => act('toggleIDS')} />
+                    onClick={() => act('toggleIDS')}
+                  />
                   <Button
                     icon="sync"
                     content="Сбросить состояние"
                     color="bad"
-                    onClick={() => act('resetIDS')} />
+                    onClick={() => act('resetIDS')}
+                  />
                 </>
-              )} />
+              }
+            />
             <LabeledList.Item
               label="Максимальное число строк"
-              buttons={(
+              buttons={
                 <NumberInput
                   value={ntnetmaxlogs}
                   minValue={minlogs}
                   maxValue={maxlogs}
                   width="39px"
-                  onChange={(e, value) => act('updatemaxlogs', {
-                    new_number: value,
-                  })}
+                  onChange={(e, value) =>
+                    act('updatemaxlogs', {
+                      new_number: value,
+                    })
+                  }
                 />
-              )} />
+              }
+            />
           </LabeledList>
           <Section
             title="Системный журнал"
             level={2}
-            buttons={(
+            buttons={
               <Button.Confirm
                 icon="trash"
                 content="Очистить"
-                onClick={() => act('purgelogs')} />
-            )}>
-            {ntnetlogs.map(log => (
+                onClick={() => act('purgelogs')}
+              />
+            }>
+            {ntnetlogs.map((log) => (
               <Box key={log.entry} className="candystripe">
                 {log.entry}
               </Box>

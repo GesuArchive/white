@@ -11,7 +11,8 @@ export const Vote = (props, context) => {
    */
   let windowTitle = 'Голосование';
   if (mode) {
-    windowTitle += ': ' + (question || mode).replace(/^\w/, (c) => c.toUpperCase());
+    windowTitle +=
+      ': ' + (question || mode).replace(/^\w/, (c) => c.toUpperCase());
   }
 
   return (
@@ -124,7 +125,8 @@ const VotersList = (props, context) => {
 
   return (
     <Stack.Item>
-      <Collapsible title={`Голосующие: ${voting.length ? `: ${voting.length}` : ""}`}>
+      <Collapsible
+        title={`Голосующие: ${voting.length ? `: ${voting.length}` : ''}`}>
         <Section height={8} fill scrollable>
           {voting.map((voter) => {
             return <Box key={voter}>{voter}</Box>;
