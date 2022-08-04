@@ -201,7 +201,7 @@
 
 /client/proc/open_lua_editor()
 	set name = "Open Lua Editor"
-	set category = "Debug"
+	set category = "Дбг"
 	if(!check_rights_for(src, R_DEBUG))
 		return
 	if(SSlua.initialized != TRUE)
