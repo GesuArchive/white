@@ -229,6 +229,8 @@
 				burn_stuff(burn_content)
 		return
 	var/mob/living/burn_living = burn_target
+	if((WEATHER_LAVA in burn_living.weather_immunities) || (WEATHER_ALL in burn_living.weather_immunities))
+		return
 	ADD_TRAIT(burn_living, TRAIT_PERMANENTLY_ONFIRE, TURF_TRAIT)
 	burn_living.update_fire()
 	burn_living.adjustFireLoss(lava_damage * delta_time)
