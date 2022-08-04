@@ -269,3 +269,5 @@ GLOBAL_LIST_INIT(book_types, typecacheof(list(
 
 #define is_traitor(M) (istype(M, /mob/living) && M.mind?.has_antag_datum(/datum/antagonist/traitor))
 #define is_hired_yohei(M) (istype(M, /mob/living) && M.mind?.has_antag_datum(/datum/antagonist/yohei))
+
+#define isdatum(thing) (istype(thing, /datum))

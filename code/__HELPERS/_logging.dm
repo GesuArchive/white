@@ -261,6 +261,10 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 	. = "[perf_info.Join(",")]\n"
 	WRITE_LOG_NO_FORMAT(GLOB.perf_log, .)
 
+/// Logging for lua scripting
+/proc/log_lua(text)
+	WRITE_LOG(GLOB.lua_log, text)
+
 /**
  * Appends a tgui-related log entry. All arguments are optional.
  */
