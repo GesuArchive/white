@@ -5,18 +5,16 @@
  */
 
 import { createUuid } from 'common/uuid';
-import { MESSAGE_TYPES, MESSAGE_TYPE_INTERNAL } from './constants';
+import { MESSAGE_TYPES } from './constants';
 
-export const canPageAcceptType = (page, type) =>
-  type.startsWith(MESSAGE_TYPE_INTERNAL) || page.acceptedTypes[type];
+/* type.startsWith(MESSAGE_TYPE_INTERNAL)  || */
+export const canPageAcceptType = (page, type) => page.acceptedTypes[type];
 
 export const createPage = (obj) => {
   let acceptedTypes = {};
 
   for (let typeDef of MESSAGE_TYPES) {
-    if (typeDef.important) {
-      acceptedTypes[typeDef.type] = true;
-    }
+    acceptedTypes[typeDef.type] = !!typeDef.important;
   }
 
   return {

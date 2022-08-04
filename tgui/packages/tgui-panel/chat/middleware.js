@@ -36,7 +36,7 @@ const loadChatFromStorage = async (store) => {
     storage.get('chat-messages'),
   ]);
   // Discard incompatible versions
-  if (state && state.version <= 5) {
+  if (state && state.version <= 4) {
     store.dispatch(loadChat());
     return;
   }
@@ -75,7 +75,9 @@ export const chatMiddleware = (store) => {
   chatRenderer.events.on('scrollTrackingChanged', (scrollTracking) => {
     store.dispatch(changeScrollTracking(scrollTracking));
   });
-  setInterval(() => saveChatToStorage(store), MESSAGE_SAVE_INTERVAL);
+  setInterval(() => {
+    saveChatToStorage(store);
+  }, MESSAGE_SAVE_INTERVAL);
   return (next) => (action) => {
     const { type, payload } = action;
     if (!initialized) {
@@ -116,7 +118,9 @@ export const chatMiddleware = (store) => {
       const settings = selectSettings(store.getState());
       chatRenderer.setHighlight(
         settings.highlightText,
-        settings.highlightColor
+        settings.highlightColor,
+        settings.matchWord,
+        settings.matchCase
       );
       return;
     }
