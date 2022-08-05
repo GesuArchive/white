@@ -375,6 +375,9 @@
 								'white/valtos/sounds/emotes/laugh_female_5.ogg',\
 								'white/valtos/sounds/emotes/laugh_female_6.ogg',\
 								'white/valtos/sounds/emotes/laugh_female_7.ogg')
+				if(H.skin_tone == "african1" || H.skin_tone == "african2")
+					return pick('white/valtos/sounds/emotes/laugh_africanamericanmemberoflgbtq_1.ogg',\
+								'white/valtos/sounds/emotes/laugh_africanamericanmemberoflgbtq_2.ogg')
 				else
 					return pick('white/valtos/sounds/emotes/laugh_male_1.ogg',\
 								'white/valtos/sounds/emotes/laugh_male_2.ogg',\
