@@ -743,8 +743,10 @@
 	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi'
 
 /obj/item/nullrod/tribal_knife
-	icon_state = "аритмический нож"
+	name = "аритмический нож"
 	desc = "Они говорят, что страх — настоящий убийца разума, но удар ножом в голову тоже работает. Честь обязывает не вкладывать в ножны однажды обнажив."
+	icon = 'icons/obj/items_and_weapons.dmi'
+	icon_state = "crysknife"
 	inhand_icon_state = "crysknife"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
