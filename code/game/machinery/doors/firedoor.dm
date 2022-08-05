@@ -234,7 +234,7 @@
 	if(active)
 		return //We're already active
 	var/datum/merger/merge_group = GetMergeGroup(merger_id, merger_typecache)
-	for(var/obj/machinery/door/firedoor/buddylock as anything in merge_group.members)
+	for(var/obj/machinery/door/firedoor/buddylock as anything in merge_group?.members)
 		buddylock.activate(code)
 /**
  * Begins deactivation process of us and our neighbors.
@@ -244,7 +244,7 @@
  */
 /obj/machinery/door/firedoor/proc/start_deactivation_process()
 	var/datum/merger/merge_group = GetMergeGroup(merger_id, merger_typecache)
-	for(var/obj/machinery/door/firedoor/buddylock as anything in merge_group.members)
+	for(var/obj/machinery/door/firedoor/buddylock as anything in merge_group?.members)
 		buddylock.reset()
 
 /**
