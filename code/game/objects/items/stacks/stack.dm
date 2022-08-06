@@ -348,7 +348,8 @@
 		return
 	if(!is_valid_recipe(recipe, recipes)) //href exploit protection
 		return
-	if(!multiplier || (multiplier <= 0)) //href exploit protection
+	if(!multiplier || multiplier < 1 || !isnum(multiplier) || ISNAN(multiplier)) //href exploit protection
+		stack_trace("Invalid multiplier value in stack creation [multiplier], [usr] is likely attempting an exploit")
 		return
 	if(!building_checks(builder, recipe, multiplier))
 		return

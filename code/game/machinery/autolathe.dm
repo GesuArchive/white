@@ -175,7 +175,7 @@
 				return
 
 			var/multiplier = text2num(params["multiplier"])
-			if(!multiplier)
+			if(!multiplier || !isnum(multiplier) || ISNAN(multiplier))
 				to_chat(usr, "<span class=\"alert\">[capitalize(src.name)] принимает только циферки!</span>")
 				return
 			var/is_stack = ispath(being_built.build_path, /obj/item/stack)
