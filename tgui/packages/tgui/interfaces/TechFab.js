@@ -7,7 +7,7 @@ import { capitalize, createSearch } from 'common/string';
 
 export const TechFab = (props, context) => {
   return (
-    <Window width={650} height={700}>
+    <Window width={700} height={700}>
       <Window.Content>
         <Stack vertical fill>
           <TechFabTopBar />
@@ -335,10 +335,12 @@ const TechFabContent = (props, context) => {
           <Flex wrap="wrap" justify="space-between" align="center">
             {categories.map((category) => {
               return (
-                <Flex.Item key={category} minWidth="50%" p={0.6}>
+                <Flex.Item key={category} minWidth="50%" p={0.3}>
                   <Button
                     content={category}
                     fluid
+                    height="32px"
+                    fontSize="14pt"
                     onClick={() => act('category', { 'category': category })}
                   />
                 </Flex.Item>
