@@ -76,6 +76,7 @@ GLOBAL_LIST_INIT(ic_autoemote, list(
 	"рофл" = "laugh", "rofl" = "laugh",
 	"кек" = "giggle", "kek" = "giggle",
 	"хз" = "shrug", "hz" = "shrug",
+	"мяу" = "moan", "meow" = "moan",
 ))
 
 GLOBAL_LIST_INIT(ic_autocorrect, list(
@@ -91,4 +92,6 @@ GLOBAL_LIST_INIT(ic_autocorrect, list(
 	"се" = "старший инженер", "ce" = "chief engineer",
 	"км" = "квартирмейстер", "qm" = "quartermaster",
 	"хоп" = "глава персонала", "hop" = "head of personnel",
+	"гп" = "глава персонала", "врио" = "заместитель",
+	"гсб" = "хос хуесос",
 ))
