@@ -6,6 +6,7 @@
 /obj/item/circuit_component/soundemitter
 	display_name = "Пищалка"	// С любовью для Шрум-Шрума
 	desc = "Компонент, издающий звук, при получении входящий сигнал. Частота - это множитель, определяющий скорость воспроизведения звука."
+	category = "Action"
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 
 	/// Sound to play

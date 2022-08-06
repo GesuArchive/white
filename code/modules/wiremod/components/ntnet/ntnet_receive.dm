@@ -6,6 +6,7 @@
 /obj/item/circuit_component/ntnet_receive
 	display_name = "Приемник NTNet"
 	desc = "Получает пакеты данных через NTNet. Если установлен ключ шифрования, то будут приниматься только сигналы с одним и тем же ключом шифрования."
+	category = "NTNet"
 
 	circuit_flags = CIRCUIT_FLAG_OUTPUT_SIGNAL //trigger_output
 

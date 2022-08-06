@@ -6,7 +6,7 @@
 /obj/item/circuit_component/mmi
 	display_name = "MMI"
 	desc = "Компонент, который позволяет поместить MMI внутрь оболочки для отправки исходящих сигналов."
-
+	category = "Action"
 	/// The message to send to the MMI in the shell.
 	var/datum/port/input/message
 	/// Sends the current MMI a message

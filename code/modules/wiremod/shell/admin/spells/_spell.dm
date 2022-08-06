@@ -250,7 +250,7 @@
 	for(var/port_to_disable in ports_to_disable)
 		if(spell_var_ports[port_to_disable])
 			var/datum/port/input/port_datum = spell_var_ports[port_to_disable]
-			port_datum.disconnect_all(clear_value = FALSE)
+			port_datum.disconnect_all()
 			input_ports -= port_datum
 	for(var/port_to_enable in ports_to_enable)
 		if(spell_var_ports[port_to_enable])

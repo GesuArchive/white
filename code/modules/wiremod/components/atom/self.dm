@@ -6,6 +6,7 @@
 /obj/item/circuit_component/self
 	display_name = "Оболочка (возврат)"
 	desc = "Компонент, который возвращает значение текущей оболочки."
+	category = "Entity"
 
 	/// The shell this component is attached to.
 	var/datum/port/output/output

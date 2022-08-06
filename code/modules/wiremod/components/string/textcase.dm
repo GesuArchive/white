@@ -9,6 +9,7 @@
 /obj/item/circuit_component/textcase
 	display_name = "Текстовый регистр"
 	desc = "Компонент, который преобразует регистр входных данных в прописные или строчные буквы."
+	category = "String"
 
 	var/datum/port/input/option/textcase_options
 

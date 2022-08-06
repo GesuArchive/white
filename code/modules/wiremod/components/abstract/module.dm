@@ -6,6 +6,7 @@
 /obj/item/circuit_component/module
 	display_name = "Модуль"
 	desc = "Компонент, содержащий внутри другие компоненты и действующий как функция. Используйте его в руке, чтобы назначить количество входных и выходных портов, а также получить доступ к интегральной схеме, находящейся внутри."
+	category = "Abstract"
 
 	var/obj/item/integrated_circuit/module/internal_circuit
 

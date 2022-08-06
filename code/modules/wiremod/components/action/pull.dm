@@ -6,7 +6,7 @@
 /obj/item/circuit_component/pull
 	display_name = "Захват"
 	desc = "Компонент, добавляющий оболочке модуль захвата с возможностью транспортировки. Работает исключительно в оболочках дронов."
-
+	category = "Action"
 	/// Frequency input
 	var/datum/port/input/target
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL

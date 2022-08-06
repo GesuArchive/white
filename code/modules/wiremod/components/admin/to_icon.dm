@@ -6,6 +6,7 @@
 /obj/item/circuit_component/to_icon
 	display_name = "String To Icon"
 	desc = "Converts a string into a typepath. Useful for setting vars."
+	category = "Admin"
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL|CIRCUIT_FLAG_ADMIN
 
 	/// The input filepath to convert into an icon

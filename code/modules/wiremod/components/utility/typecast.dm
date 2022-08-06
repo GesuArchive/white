@@ -6,6 +6,7 @@
 /obj/item/circuit_component/typecast
 	display_name = "Классификация"
 	desc = "Компонент, присваиваивающий значение типу, при соответствии или же выводит значение null."
+	category = "Utility"
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 
 	var/datum/port/input/option/typecast_options
@@ -18,8 +19,8 @@
 
 /obj/item/circuit_component/typecast/populate_ports()
 	current_type = typecast_options.value
-	input_value = add_input_port("Input", PORT_TYPE_ANY)
-	output_value = add_output_port("Output", current_type)
+	input_value = add_input_port("Вход", PORT_TYPE_ANY)
+	output_value = add_input_port("Выход", current_type)
 
 /obj/item/circuit_component/typecast/populate_options()
 	var/static/list/component_options = list(

@@ -11,6 +11,7 @@
 /obj/item/circuit_component/object_overlay/bar
 	display_name = "Оверлей полосы состояния"
 	desc = "Для работы требуется оболочка ИЧМ. Компонент, накладывающий оверлей полосы состояния поверх объекта в диапазоне от 0 до 100."
+	category = "BCI"
 
 	var/datum/port/input/option/bar_overlay_options
 	var/datum/port/input/bar_number

@@ -8,6 +8,7 @@
 /obj/item/circuit_component/target_intercept
 	display_name = "ИЧМ целеуказатель"
 	desc = "Для работы требуется оболочка ИЧМ. При активации этот компонент позволит пользователю настроить целеуказание на объект с помощью своего мозга и выдаст ссылку на указанный объект."
+	category = "BCI"
 
 	required_shells = list(/obj/item/organ/cyberimp/bci)
 

@@ -6,6 +6,7 @@
 /obj/item/circuit_component/laserpointer
 	display_name = "Лазерная указка"
 	desc = "Создаёт направленный лазерный луч в указанное место."
+	category = "Action"
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 
 /// The Laser Pointer Variables

@@ -39,7 +39,7 @@
 
 	switch (action)
 		if ("duplicate_circuit")
-			if (alert(usr, "This will spawn the new circuit at where you are, are you sure?", "Confirm", list("Yes", "No")) != "Yes")
+			if (alert(usr, "This will spawn the new circuit at where you are, are you sure?", "Confirm", "Yes", "No") != "Yes")
 				return FALSE
 
 			var/list/errors = list()
@@ -52,8 +52,7 @@
 				for (var/error in errors)
 					to_chat(usr, span_warning(error))
 		if ("follow_circuit")
-			to_chat(usr, span_warning("НЕ ЗАПИЛЕНО ЗВОНИТЕ ФИКСИКАМ"))
-			//usr.client?.admin_follow(circuit)
+			usr.client?.admin_follow(circuit)
 		if ("save_circuit")
 			circuit.attempt_save_to(usr.client)
 		if ("vv_circuit")

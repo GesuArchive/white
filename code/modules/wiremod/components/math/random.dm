@@ -6,6 +6,7 @@
 /obj/item/circuit_component/random
 	display_name = "Генератор случайных чисел"
 	desc = "Компонент, возвращающий случайно сгенерированные значения."
+	category = "Math"
 
 	/// The minimum value that the random number can be
 	var/datum/port/input/minimum
@@ -18,10 +19,10 @@
 	var/datum/port/output/output
 
 /obj/item/circuit_component/random/populate_ports()
-	minimum = add_input_port("Минимум", PORT_TYPE_NUMBER, trigger = null)
-	maximum = add_input_port("Максимум", PORT_TYPE_NUMBER, trigger = null)
+	minimum = add_input_port("Minimum", PORT_TYPE_NUMBER, trigger = null)
+	maximum = add_input_port("Maximum", PORT_TYPE_NUMBER, trigger = null)
 
-	output = add_output_port("Выход", PORT_TYPE_NUMBER)
+	output = add_input_port("Выход", PORT_TYPE_NUMBER)
 
 /obj/item/circuit_component/random/input_received(datum/port/input/port)
 
@@ -33,4 +34,3 @@
 		return
 
 	output.set_output(rand(min_val, max_val))
-

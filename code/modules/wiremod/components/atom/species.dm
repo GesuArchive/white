@@ -6,6 +6,7 @@
 /obj/item/circuit_component/species
 	display_name = "Генетический сканер"
 	desc = "Компонент, который возвращает генетический вид входных данных."
+	category = "Entity"
 
 	/// The input port
 	var/datum/port/input/input_port

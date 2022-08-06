@@ -9,6 +9,7 @@
 /obj/item/circuit_component/signal_handler
 	display_name = "Signal Handler"
 	desc = "A component that listens for signals on an object."
+	category = "Admin"
 	circuit_flags = CIRCUIT_FLAG_ADMIN|CIRCUIT_FLAG_INSTANT
 
 	/// Whether it is a global or object signal
@@ -217,7 +218,8 @@
 	if(!return_values["bitflag"])
 		return_values["bitflag"] = NONE
 
-	return_values["bitflag"] |= input_signal_ports[port]
+	var/bitflag = input_signal_ports[port]
+	return_values["bitflag"] |= bitflag
 
 #undef COMP_SIGNAL_HANDLER_GLOBAL
 #undef COMP_SIGNAL_HANDLER_OBJECT

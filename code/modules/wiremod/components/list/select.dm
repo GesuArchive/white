@@ -6,6 +6,7 @@
 /obj/item/circuit_component/select
 	display_name = "Селектор"
 	desc = "Компонент, используемый с USB-кабелями, который может выполнять запросы выбора в списке на основе выбранного имени столбца. Затем значения сравниваются с входными данными сравнения."
+	category = "List"
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 
 	var/datum/port/input/option/comparison_options
@@ -36,11 +37,11 @@
 	comparison_options = add_option_port("Comparison Options", component_options)
 
 /obj/item/circuit_component/select/populate_ports()
-	received_table = add_input_port("Input", PORT_TYPE_TABLE)
+	received_table = add_input_port("Вход", PORT_TYPE_TABLE)
 	column_name = add_input_port("Column Name", PORT_TYPE_STRING)
 	comparison_input = add_input_port("Comparison Input", PORT_TYPE_ANY)
 
-	filtered_table = add_output_port("Output", PORT_TYPE_TABLE)
+	filtered_table = add_input_port("Выход", PORT_TYPE_TABLE)
 
 /obj/item/circuit_component/select/pre_input_received(datum/port/input/port)
 	var/current_option = comparison_options.value

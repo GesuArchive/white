@@ -6,6 +6,7 @@
 /obj/item/circuit_component/router
 	display_name = "Маршрутизатор"
 	desc = "Копирует входные данные, выбранные \"Селектором входных данных\", в исходящие данные, выбранные \"Селектором выходных данных\"."
+	category = "Utility"
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 
 	var/datum/port/input/option/router_options

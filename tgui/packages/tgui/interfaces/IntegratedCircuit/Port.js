@@ -2,6 +2,7 @@ import { Stack, Box } from '../../components';
 import { Component, createRef } from 'inferno';
 import { DisplayName } from './DisplayName';
 import { classes } from 'common/react';
+import { noop } from './constants';
 
 export class Port extends Component {
   constructor() {
@@ -15,20 +16,35 @@ export class Port extends Component {
   }
 
   handlePortMouseDown(e) {
-    const { port, portIndex, componentId, isOutput, onPortMouseDown } =
-      this.props;
+    const {
+      port,
+      portIndex,
+      componentId,
+      isOutput,
+      onPortMouseDown = noop,
+    } = this.props;
     onPortMouseDown(portIndex, componentId, port, isOutput, e);
   }
 
   handlePortMouseUp(e) {
-    const { port, portIndex, componentId, isOutput, onPortMouseUp } =
-      this.props;
+    const {
+      port,
+      portIndex,
+      componentId,
+      isOutput,
+      onPortMouseUp = noop,
+    } = this.props;
     onPortMouseUp(portIndex, componentId, port, isOutput, e);
   }
 
   handlePortRightClick(e) {
-    const { port, portIndex, componentId, isOutput, onPortRightClick } =
-      this.props;
+    const {
+      port,
+      portIndex,
+      componentId,
+      isOutput,
+      onPortRightClick = noop,
+    } = this.props;
     onPortRightClick(portIndex, componentId, port, isOutput, e);
   }
 
@@ -47,11 +63,12 @@ export class Port extends Component {
   }
 
   renderDisplayName() {
-    const { port, portIndex, componentId, isOutput } = this.props;
+    const { port, portIndex, componentId, isOutput, act } = this.props;
 
     return (
       <Stack.Item>
         <DisplayName
+          act={act}
           port={port}
           isOutput={isOutput}
           componentId={componentId}

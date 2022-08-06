@@ -6,6 +6,7 @@
 /obj/item/circuit_component/not
 	display_name = "Не"
 	desc = "Компонент, который инвертирует входящие данные."
+	category = "Math"
 
 	/// The input port
 	var/datum/port/input/input_port

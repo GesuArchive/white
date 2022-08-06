@@ -9,7 +9,7 @@
 /obj/item/circuit_component/radio
 	display_name = "Радио"
 	desc = "Компонент, который может прослушивать и передавать радиочастоты. Если установлено значение \"приватность\", компонент будет получать сигналы только от других компонентов, подключенных к интегральным платам с тем же идентификатором."
-
+	category = "Action"
 	/// The publicity options. Controls whether it's public or private.
 	var/datum/port/input/option/public_options
 

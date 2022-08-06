@@ -10,6 +10,7 @@
 /obj/item/circuit_component/object_overlay
 	display_name = "Оверлей"
 	desc = "Для работы требуется оболочка ИЧМ. Компонент, создающий оверлей поверх объекта."
+	category = "BCI"
 
 	required_shells = list(/obj/item/organ/cyberimp/bci)
 

@@ -69,8 +69,9 @@ export const FUNDAMENTAL_DATA_TYPES = {
     );
   },
   'option': (props, context) => {
-    const { value, setValue, extraData } = props;
+    const { value, setValue } = props;
     let large = false;
+    const extraData = props.extraData || [];
     const data = Array.isArray(extraData) ? extraData : Object.keys(extraData);
 
     data.forEach((element) => {
@@ -81,7 +82,7 @@ export const FUNDAMENTAL_DATA_TYPES = {
 
     return (
       <Dropdown
-        className="Datatype__Option"
+        className="IntegratedCircuit__BlueBorder"
         color={'transparent'}
         options={data}
         onSelected={setValue}

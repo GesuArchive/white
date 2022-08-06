@@ -12,6 +12,7 @@
 /obj/item/circuit_component/timepiece
 	display_name = "Timepiece"
 	desc = "A component that outputs the current station time. The text output port is used for time formats while the numerical output port is used for units of time."
+	category = "Utility"
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 
 	/// The time format of the text output
@@ -45,7 +46,7 @@
 
 	switch(format.value)
 		if(COMP_TIMEPIECE_TWENTYFOUR_HOUR)
-			time = SSday_night.get_twentyfourhour_timestamp()
+			time = station_time_timestamp()
 		if(COMP_TIMEPIECE_TWELVE_HOUR)
 			time = time_to_twelve_hour(station_time())
 

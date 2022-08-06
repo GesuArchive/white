@@ -1,8 +1,7 @@
-import { useBackend } from '../../backend';
 import { Box, Stack, Button } from '../../components';
 import { Component } from 'inferno';
 import { shallowDiffers } from '../../../common/react';
-import { ABSOLUTE_Y_OFFSET } from './constants';
+import { ABSOLUTE_Y_OFFSET, noop } from './constants';
 import { Port } from './Port';
 
 export class ObjectComponent extends Component {
@@ -34,9 +33,8 @@ export class ObjectComponent extends Component {
   }
 
   handleStopDrag(e) {
-    const { act } = useBackend(this.context);
     const { dragPos } = this.state;
-    const { index } = this.props;
+    const { index, act = () => _ } = this.props;
     if (dragPos) {
       act('set_component_coordinates', {
         component_id: index,
@@ -94,14 +92,14 @@ export class ObjectComponent extends Component {
       removable,
       ui_buttons,
       locations,
-      onPortUpdated,
-      onPortLoaded,
-      onPortMouseDown,
-      onPortRightClick,
-      onPortMouseUp,
+      onPortUpdated = noop,
+      onPortLoaded = noop,
+      onPortMouseDown = noop,
+      onPortRightClick = noop,
+      onPortMouseUp = noop,
+      act = noop,
       ...rest
     } = this.props;
-    const { act } = useBackend(this.context);
     const { startPos, dragPos } = this.state;
 
     let [x_pos, y_pos] = [x, y];
@@ -121,13 +119,13 @@ export class ObjectComponent extends Component {
 
     return (
       <Box
-        {...rest}
         position="absolute"
         left={`${x_pos}px`}
         top={`${y_pos}px`}
         onMouseDown={this.handleStartDrag}
         onMouseUp={this.handleStopDrag}
-        onComponentWillUnmount={this.handleDrag}>
+        onComponentWillUnmount={this.handleDrag}
+        {...rest}>
         <Box
           backgroundColor={color}
           py={1}
@@ -195,6 +193,7 @@ export class ObjectComponent extends Component {
                       port={port}
                       portIndex={portIndex + 1}
                       componentId={index}
+                      act={act}
                       {...PortOptions}
                     />
                   </Stack.Item>
@@ -206,6 +205,7 @@ export class ObjectComponent extends Component {
                 {output_ports.map((port, portIndex) => (
                   <Stack.Item key={portIndex}>
                     <Port
+                      act={act}
                       port={port}
                       portIndex={portIndex + 1}
                       componentId={index}

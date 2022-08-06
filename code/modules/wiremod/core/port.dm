@@ -46,11 +46,18 @@
  * Casts to the port's datatype (e.g. number -> string), and assumes this can be done.
  */
 /datum/port/proc/set_value(value, force = FALSE)
+	if(isweakref(value))
+		var/datum/weakref/reference_to_obj = value
+		value = reference_to_obj.resolve()
+
 	if(src.value != value || force)
-		if(isatom(value))
-			UnregisterSignal(value, COMSIG_PARENT_QDELETING)
-		src.value = datatype_handler.convert_value(src, value, force)
-		if(isatom(value))
+		if(isdatum(src.value))
+			UnregisterSignal(src.value, COMSIG_PARENT_QDELETING)
+		if(datatype_handler.is_extensive)
+			src.value = datatype_handler.convert_value_extensive(src, value, force)
+		else
+			src.value = datatype_handler.convert_value(src, value, force)
+		if(isdatum(value))
 			RegisterSignal(value, COMSIG_PARENT_QDELETING, .proc/null_value)
 	SEND_SIGNAL(src, COMSIG_PORT_SET_VALUE, value)
 
@@ -105,7 +112,7 @@
 /**
  * Returns the data from the datatype
  */
-/datum/port/proc/datatype_ui_data()
+/datum/port/proc/datatype_ui_data(mob/user)
 	return datatype_handler.datatype_ui_data(src)
 
 /**
@@ -123,13 +130,12 @@
  * Called by [/obj/item/circuit_component] whenever it is disconnected from
  * an integrated circuit
  */
-/datum/port/proc/disconnect_all(clear_value = TRUE)
-	if(clear_value)
-		value = null
+/datum/port/proc/disconnect_all()
+	value = null
 	SEND_SIGNAL(src, COMSIG_PORT_DISCONNECT)
 
-/datum/port/input/disconnect_all(clear_value = TRUE)
-	..(clear_value)
+/datum/port/input/disconnect_all()
+	..()
 	for(var/datum/port/output/output as anything in connected_ports)
 		disconnect(output)
 

@@ -6,6 +6,7 @@
 /obj/item/circuit_component/clock
 	display_name = "Тактовый генератор"
 	desc = "Компонент, который периодически срабатывает."
+	category = "Utility"
 
 	/// Whether the clock is on or not
 	var/datum/port/input/on

@@ -1494,6 +1494,10 @@
 /// Called when the integrated circuit is locked.
 #define COMSIG_CIRCUIT_SET_LOCKED "circuit_set_locked"
 
+/// Called before power is used in an integrated circuit (power_to_use)
+#define COMSIG_CIRCUIT_PRE_POWER_USAGE "circuit_pre_power_usage"
+	#define COMPONENT_OVERRIDE_POWER_USAGE (1<<0)
+
 /// Called right before the integrated circuit data is converted to json. Allows modification to the data right before it is returned.
 #define COMSIG_CIRCUIT_PRE_SAVE_TO_JSON "circuit_pre_save_to_json"
 
@@ -1515,8 +1519,16 @@
 /// Called when the circuit component is saved.
 #define COMSIG_CIRCUIT_COMPONENT_SAVE "circuit_component_save"
 
+/// Called when circuit component data should be saved
+#define COMSIG_CIRCUIT_COMPONENT_SAVE_DATA "circuit_component_save_data"
+/// Called when circuit component data should be loaded
+#define COMSIG_CIRCUIT_COMPONENT_LOAD_DATA "circuit_component_load_data"
+
 /// Called when an external object is loaded.
 #define COMSIG_MOVABLE_CIRCUIT_LOADED "movable_circuit_loaded"
+
+/// Called when a ui action is sent for the circuit component
+#define COMSIG_CIRCUIT_COMPONENT_PERFORM_ACTION "circuit_component_perform_action"
 
 /// Sent from /obj/structure/industrial_lift/tram when its travelling status updates. (travelling)
 #define COMSIG_TRAM_SET_TRAVELLING "tram_set_travelling"
@@ -1701,3 +1713,9 @@
 
 /// generally called before temporary non-parallel animate()s on the atom (animation_duration)
 #define COMSIG_ATOM_TEMPORARY_ANIMATION_START "atom_temp_animate_start"
+
+/// Called when a techweb design is researched (datum/design/researched_design, custom)
+#define COMSIG_TECHWEB_ADD_DESIGN "techweb_add_design"
+
+/// Called when a techweb design is removed (datum/design/removed_design, custom)
+#define COMSIG_TECHWEB_REMOVE_DESIGN "techweb_remove_design"

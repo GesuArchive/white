@@ -28,7 +28,7 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 
 #define isspaceturf(A) (istype(A, /turf/open/space))
 
-#define isopenspace(A) (istype(A, /turf/open/openspace))
+#define isopenspace(A) (istype(A, /turf/open/openspace) || istype(A, /turf/open/space/openspace))
 
 #define isfloorturf(A) (istype(A, /turf/open/floor))
 

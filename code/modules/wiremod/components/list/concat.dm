@@ -6,6 +6,7 @@
 /obj/item/circuit_component/concat_list
 	display_name = "Объединить список"
 	desc = "Компонент, который преобразует список с разделителем в одну строку."
+	category = "List"
 
 	/// The input port
 	var/datum/port/input/list_port
@@ -21,7 +22,7 @@
 	list_port = add_input_port("List", PORT_TYPE_LIST(PORT_TYPE_ANY))
 	separator = add_input_port("Seperator", PORT_TYPE_STRING)
 
-	output = add_output_port("Output", PORT_TYPE_STRING)
+	output = add_input_port("Выход", PORT_TYPE_STRING)
 
 /obj/item/circuit_component/concat_list/input_received(datum/port/input/port)
 
@@ -35,10 +36,9 @@
 
 	var/list/text_list = list()
 	for(var/entry in list_input)
-		if(isatom(entry))
+		if(isdatum(entry))
 			text_list += PORT_TYPE_ATOM
 		else
 			text_list += "[entry]"
 
 	output.set_output(text_list.Join(seperator))
-

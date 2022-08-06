@@ -6,7 +6,7 @@
 /obj/item/circuit_component/light
 	display_name = "Светодиод"
 	desc = "Компонент, который излучает свет определенной яркости и цвета. Для использования требуется оболочка."
-
+	category = "Action"
 	/// The colours of the light
 	var/datum/port/input/red
 	var/datum/port/input/green

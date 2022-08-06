@@ -27,6 +27,7 @@
 		"plasmareinforcedglass",
 		"titaniumglass",
 		"plastitaniumglass",
+		"trapdoor_electronics",
 		"plasteel_x10",
 		"plastitanium_x10",
 		"rglass_x10",

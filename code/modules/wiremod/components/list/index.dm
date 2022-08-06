@@ -6,6 +6,7 @@
 /obj/item/circuit_component/index
 	display_name = "Индексатор"
 	desc = "Компонент, который возвращает значение списка с заданным индексом."
+	category = "List"
 
 	/// The list type
 	var/datum/port/input/option/list_options
@@ -27,10 +28,10 @@
 	list_port = add_input_port("List", PORT_TYPE_LIST(PORT_TYPE_ANY))
 
 /obj/item/circuit_component/index/populate_ports()
-	index_port = add_input_port("Указатель", index_type)
+	index_port = add_input_port("Index", index_type)
 	make_list_port()
 
-	output = add_output_port("Значение", PORT_TYPE_ANY)
+	output = add_output_port("Value", PORT_TYPE_ANY)
 
 /obj/item/circuit_component/index/pre_input_received(datum/port/input/port)
 	if(port == list_options)

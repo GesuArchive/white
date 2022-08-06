@@ -6,6 +6,7 @@
 /obj/item/circuit_component/get_column
 	display_name = "Получить столбец"
 	desc = "Получает столбец таблицы и возвращает его в виде обычного списка."
+	category = "List"
 	circuit_flags = CIRCUIT_FLAG_INPUT_SIGNAL|CIRCUIT_FLAG_OUTPUT_SIGNAL
 
 	/// The list to perform the filter on
@@ -18,9 +19,9 @@
 	var/datum/port/output/output_list
 
 /obj/item/circuit_component/get_column/populate_ports()
-	received_table = add_input_port("Input", PORT_TYPE_TABLE)
+	received_table = add_input_port("Вход", PORT_TYPE_TABLE)
 	column_name = add_input_port("Column Name", PORT_TYPE_STRING)
-	output_list = add_output_port("Output", PORT_TYPE_LIST(PORT_TYPE_ANY))
+	output_list = add_input_port("Выход", PORT_TYPE_LIST(PORT_TYPE_ANY))
 
 /obj/item/circuit_component/get_column/input_received(datum/port/input/port)
 
