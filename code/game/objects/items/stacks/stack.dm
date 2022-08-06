@@ -361,9 +361,10 @@
 			span_notice("Начинаю создавать [recipe.title]..."),
 		)
 		if(HAS_TRAIT(builder, recipe.trait_booster))
-			adjusted_time = (recipe.time * recipe.trait_modifier)
+			adjusted_time = (recipe.time * recipe.trait_modifier*builder.mind.get_skill_modifier(/datum/skill/engineering, SKILL_SPEED_MODIFIER))
 		else
-			adjusted_time = recipe.time
+			adjusted_time = recipe.time*builder.mind.get_skill_modifier(/datum/skill/engineering, SKILL_SPEED_MODIFIER)
+		builder.mind.adjust_experience(/datum/skill/engineering, recipe.time)
 		if(!do_after(builder, adjusted_time, target = builder))
 			builder.balloon_alert(builder, "помешали!")
 			return

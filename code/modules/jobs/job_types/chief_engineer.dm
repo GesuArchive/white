@@ -17,8 +17,8 @@
 
 	outfit = /datum/outfit/job/ce
 
-	skills = list(/datum/skill/ranged = SKILL_EXP_APPRENTICE)
-	minimal_skills = list(/datum/skill/ranged = SKILL_EXP_APPRENTICE)
+	skills = list(/datum/skill/ranged = SKILL_EXP_APPRENTICE, /datum/skill/engineering = SKILL_EXP_EXPERT)
+	minimal_skills = list(/datum/skill/ranged = SKILL_EXP_APPRENTICE, /datum/skill/engineering = SKILL_EXP_EXPERT)
 
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_ENG

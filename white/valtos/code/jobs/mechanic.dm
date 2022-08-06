@@ -8,6 +8,9 @@
 
 	outfit = /datum/outfit/job/mechanic
 
+	skills = list(/datum/skill/engineering = SKILL_EXP_EXPERT)
+	minimal_skills = list(/datum/skill/engineering = SKILL_EXP_EXPERT)
+
 	paycheck = PAYCHECK_HARD
 	paycheck_department = ACCOUNT_ENG
 

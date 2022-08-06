@@ -613,7 +613,7 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 	var/list/rcd_results = A.rcd_vals(user, src)
 	if(!rcd_results)
 		return FALSE
-	var/delay = rcd_results["delay"] * delay_mod
+	var/delay = rcd_results["delay"] * delay_mod * user.mind.get_skill_modifier(/datum/skill/engineering, SKILL_SPEED_MODIFIER)
 	var/obj/effect/constructing_effect/rcd_effect = new(get_turf(A), delay, src.mode)
 	if(!checkResource(rcd_results["cost"], user))
 		qdel(rcd_effect)
@@ -636,6 +636,7 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 	rcd_effect.end_animation()
 	useResource(rcd_results["cost"], user)
 	activate()
+	user.mind.adjust_experience(/datum/skill/engineering, rcd_results["delay"])
 	playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 	return TRUE
 

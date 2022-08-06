@@ -12,6 +12,9 @@
 
 	outfit = /datum/outfit/job/atmos
 
+	skills = list(/datum/skill/engineering = SKILL_EXP_APPRENTICE)
+	minimal_skills = list(/datum/skill/engineering = SKILL_EXP_APPRENTICE)
+
 	paycheck = PAYCHECK_MEDIUM
 	paycheck_department = ACCOUNT_ENG
 

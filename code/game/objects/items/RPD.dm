@@ -447,9 +447,10 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 	if((mode & DESTROY_MODE) && istype(attack_target, /obj/item/pipe) || istype(attack_target, /obj/structure/disposalconstruct) || istype(attack_target, /obj/structure/c_transit_tube) || istype(attack_target, /obj/structure/c_transit_tube_pod) || istype(attack_target, /obj/item/pipe_meter) || istype(attack_target, /obj/structure/disposalpipe/broken))
 		to_chat(user, span_notice("You start destroying a pipe..."))
 		playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
-		if(do_after(user, destroy_speed, target = attack_target))
+		if(do_after(user, destroy_speed*user.mind.get_skill_modifier(/datum/skill/engineering, SKILL_SPEED_MODIFIER), target = attack_target))
 			activate()
 			qdel(attack_target)
+			user.mind.adjust_experience(/datum/skill/engineering, destroy_speed)
 		return
 
 	if(mode & BUILD_MODE)
@@ -460,8 +461,9 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 				playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
 				if (recipe.type == /datum/pipe_info/meter)
 					to_chat(user, span_notice("You start building a meter..."))
-					if(do_after(user, atmos_build_speed, target = attack_target))
+					if(do_after(user, atmos_build_speed*user.mind.get_skill_modifier(/datum/skill/engineering, SKILL_SPEED_MODIFIER), target = attack_target))
 						activate()
+						user.mind.adjust_experience(/datum/skill/engineering, atmos_build_speed)
 						var/obj/item/pipe_meter/PM = new /obj/item/pipe_meter(get_turf(attack_target))
 						PM.setAttachLayer(piping_layer)
 						if(mode & WRENCH_MODE)
@@ -471,11 +473,12 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 						to_chat(user, span_notice("You can't build this object on the layer..."))
 						return ..()
 					to_chat(user, span_notice("You start building a pipe..."))
-					if(do_after(user, atmos_build_speed, target = attack_target))
+					if(do_after(user, atmos_build_speed*user.mind.get_skill_modifier(/datum/skill/engineering, SKILL_SPEED_MODIFIER), target = attack_target))
 						if(recipe.all_layers == FALSE && (piping_layer == 1 || piping_layer == 5))//double check to stop cheaters (and to not waste time waiting for something that can't be placed)
 							to_chat(user, span_notice("You can't build this object on the layer..."))
 							return ..()
 						activate()
+						user.mind.adjust_experience(/datum/skill/engineering, atmos_build_speed)
 						var/obj/machinery/atmospherics/path = queued_p_type
 						var/pipe_item_type = initial(path.construction_type) || /obj/item/pipe
 						var/obj/item/pipe/pipe_type = new pipe_item_type(
@@ -507,7 +510,7 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 					return
 				to_chat(user, span_notice("You start building a disposals pipe..."))
 				playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
-				if(do_after(user, disposal_build_speed, target = attack_target))
+				if(do_after(user, disposal_build_speed*user.mind.get_skill_modifier(/datum/skill/engineering, SKILL_SPEED_MODIFIER), target = attack_target))
 					var/obj/structure/disposalconstruct/C = new (attack_target, queued_p_type, queued_p_dir, queued_p_flipped)
 
 					if(!C.can_place())
@@ -516,7 +519,7 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 						return
 
 					activate()
-
+					user.mind.adjust_experience(/datum/skill/engineering, disposal_build_speed)
 					C.add_fingerprint(usr)
 					C.update_icon()
 					if(mode & WRENCH_MODE)
@@ -532,8 +535,9 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 					return
 				to_chat(user, span_notice("You start building a transit tube..."))
 				playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
-				if(do_after(user, transit_build_speed, target = attack_target))
+				if(do_after(user, transit_build_speed*user.mind.get_skill_modifier(/datum/skill/engineering, SKILL_SPEED_MODIFIER), target = attack_target))
 					activate()
+					user.mind.adjust_experience(/datum/skill/engineering, transit_build_speed)
 					if(queued_p_type == /obj/structure/c_transit_tube_pod)
 						var/obj/structure/c_transit_tube_pod/pod = new /obj/structure/c_transit_tube_pod(attack_target)
 						pod.add_fingerprint(usr)
