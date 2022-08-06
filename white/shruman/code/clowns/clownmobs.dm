@@ -449,6 +449,8 @@
 	myBuild.Grant(src)
 	plantSkin = new
 	plantSkin.Grant(src)
+	priority_announce("На станции [station_name()] обнаружен Апостол Хонкоматери. Заблокируйте любой внешний доступ, включая воздуховоды и вентиляцию.", "Боевая Тревога", ANNOUNCER_COMMANDREPORT)
+
 
 /mob/living/simple_animal/hostile/clown/fleshclown/Initialize(mapload)
 	. = ..()
