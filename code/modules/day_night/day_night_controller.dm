@@ -43,8 +43,8 @@
  */
 /datum/day_night_controller/proc/get_affected_areas()
 	for(var/area/iterating_area as anything in get_areas(/area, TRUE))
-		//if(iterating_area.z != affected_z_level)
-		//	continue
+		if(iterating_area.z != affected_z_level)
+			continue
 		if(iterating_area.underground)
 			continue
 		if(!iterating_area.outdoors)

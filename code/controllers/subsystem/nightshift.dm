@@ -3,6 +3,7 @@ SUBSYSTEM_DEF(nightshift)
 	wait = 1 MINUTES
 	flags = SS_NO_TICK_CHECK
 
+	/// These times are in 24 hour format, return as a list with two numbers, first number is the hour, second is the minute.
 	var/nightshift_active = FALSE
 	var/nightshift_start_time = list(19, 30) //7 30 PM, station time
 	var/nightshift_end_time = list(7, 30) //7 30 AM, station time
