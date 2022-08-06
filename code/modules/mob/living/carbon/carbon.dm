@@ -286,11 +286,24 @@
 		return
 	I.item_flags |= BEING_REMOVED
 	breakoutchance = I.breakoutchance
+	var/breakoutchanceifsecurity = 1
+	var/breakouttimeisfsecurity = 1
 	if(!cuff_break)
 		visible_message(span_warning("[capitalize(src.name)] пытается снять [I]!"))
 		to_chat(src, span_notice("Пытаюсь снять [I]..."))
-		if(do_after(src, I.breakouttime, target = src, timed_action_flags = IGNORE_HELD_ITEM))
-			if(prob(breakoutchance))
+		if(istype(I,/obj/item/restraints/handcuffs/cable) && (src.job in (GLOB.security_positions)))
+			if(prob(80))
+				var/obj/item/bodypart/arm = src.hand_bodyparts[src.active_hand_index]
+				to_chat(src, span_notice("Вспоминаю курс \"Как не быть закованным в стяжки\" и пытаюсь повторить действия инструктора."))
+				breakoutchanceifsecurity = 3
+				breakouttimeisfsecurity = 15
+				to_chat(src, span_notice("Резким движением лопаю стяжки."))
+				arm.receive_damage(rand(5,8))
+
+
+
+		if(do_after(src, I.breakouttime/breakouttimeisfsecurity, target = src, timed_action_flags = IGNORE_HELD_ITEM))
+			if(prob(breakoutchance*breakoutchanceifsecurity))
 				. = clear_cuffs(I, cuff_break)
 			else
 				//I.breakoutchance++
