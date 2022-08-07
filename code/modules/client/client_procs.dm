@@ -433,11 +433,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	generate_clickcatcher()
 	apply_clickcatcher()
 
-	spawn(5 SECONDS)
-		if(prefs?.lastchangelog != GLOB.changelog_hash)
-			to_chat(src, span_info("Тут всякие обновления были, прочитай список изменений обязательно."))
-			mob?.view_changelog()
-
 	if(ckey in GLOB.clientmessages)
 		for(var/message in GLOB.clientmessages[ckey])
 			to_chat(src, message)
@@ -475,6 +470,10 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	if (prefs.fullscreen)
 		ToggleFullscreen()
+
+	if(prefs?.lastchangelog != GLOB.changelog_hash)
+		to_chat(src, span_info("Тут всякие обновления были, прочитай список изменений обязательно."))
+		mob.view_changelog()
 
 	view_size = new(src, getScreenSize())
 
