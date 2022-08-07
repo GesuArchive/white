@@ -13,7 +13,7 @@ GLOBAL_VAR_INIT(is_cargo_sabotaged, FALSE)
 	var/datum/mind/owner				//The primary owner of the objective. !!SOMEWHAT DEPRECATED!! Prefer using 'team' for new code.
 	var/datum/team/team					//An alternative to 'owner': a team. Use this when writing new code.
 	var/name = "generic objective" 		//Name for admin prompts
-	var/explanation_text = "Nothing"	//What that person is supposed to do.
+	var/explanation_text = "Ничего."		//What that person is supposed to do.
 	var/team_explanation_text			//For when there are multiple owners.
 	var/datum/mind/target = null		//If they are focused on a particular person.
 	var/target_amount = 0				//If they are focused on a particular number. Steal objectives have their own counter.
@@ -1066,6 +1066,9 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 		/datum/objective/nuclear,
 		/datum/objective/capture,
 		/datum/objective/absorb,
+		/datum/objective/sabotage,
+		/datum/objective/sabotage/research,
+		/datum/objective/sabotage/cargo,
 		/datum/objective/custom
 	),/proc/cmp_typepaths_asc)
 
@@ -1108,6 +1111,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 
 /datum/objective/sabotage
 	name = "sabotage engine"
+	explanation_text = "Саботировать подачу энергии или один из двигателей на станции."
 	martyr_compatible = TRUE
 	reward = 30
 
@@ -1119,36 +1123,20 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 		return TRUE
 	return FALSE
 
-/datum/objective/sabotage/update_explanation_text()
-	..()
-	explanation_text = "Саботировать подачу энергии или один из двигателей на станции."
-
 /datum/objective/sabotage/research
 	name = "sabotage research"
-
-/datum/objective/sabotage/research/find_target(dupe_search_range)
-	return TRUE
+	explanation_text = "Саботировать работу серверов научного отдела на станции."
 
 /datum/objective/sabotage/research/check_completion()
 	if(GLOB.is_research_sabotaged)
 		return TRUE
 	return FALSE
 
-/datum/objective/sabotage/research/update_explanation_text()
-	..()
-	explanation_text = "Саботировать работу серверов научного отдела на станции."
-
 /datum/objective/sabotage/cargo
 	name = "sabotage cargo"
-
-/datum/objective/sabotage/cargo/find_target(dupe_search_range)
-	return TRUE
+	explanation_text = "Саботировать отдел снабжения на станции."
 
 /datum/objective/sabotage/cargo/check_completion()
 	if(GLOB.is_cargo_sabotaged)
 		return TRUE
 	return FALSE
-
-/datum/objective/sabotage/cargo/update_explanation_text()
-	..()
-	explanation_text = "Саботировать отдел снабжения на станции."

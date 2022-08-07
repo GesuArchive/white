@@ -29,13 +29,7 @@
 /datum/element/traitor_desc/proc/on_secondary(obj/target, mob/user, list/modifiers)
 	SIGNAL_HANDLER
 
-	if(!sabotage_target)
-		return COMPONENT_CANCEL_ATTACK_CHAIN
-
-	if(!is_traitor(user))
-		return COMPONENT_CANCEL_ATTACK_CHAIN
-
-	if(!user.Adjacent(target))
+	if(!sabotage_target || !is_traitor(user) || !user.Adjacent(target))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 
 	var/action_message = null
