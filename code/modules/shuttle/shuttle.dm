@@ -245,7 +245,7 @@
 		unregister()
 	. = ..()
 
-/obj/docking_port/stationary/Moved(atom/oldloc, dir, forced)
+/obj/docking_port/stationary/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
 	if(area_type) // We already have one
 		return

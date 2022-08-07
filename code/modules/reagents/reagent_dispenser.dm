@@ -81,7 +81,7 @@
 		reagents.remove_any(min(10, reagents.total_volume))
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
-/obj/structure/reagent_dispensers/Moved(atom/OldLoc, Dir)
+/obj/structure/reagent_dispensers/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
 	if(leaking && reagents)
 		reagents.expose(get_turf(src), TOUCH, 10 / max(10, reagents.total_volume))

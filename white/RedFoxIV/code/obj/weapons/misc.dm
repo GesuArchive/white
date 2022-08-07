@@ -1306,14 +1306,14 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 	var/list/atom/movable/pushedstuff = list() // can't use the contents var for whatever reason
 	var/pushing = PUSHING
 
-/obj/projectile/broom/Moved(atom/OldLoc, Dir)
+/obj/projectile/broom/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
 	if(pushing != PUSHING)
 		if(pushing == STOP_PUSHING_FOR_ONE_TILE)
 			pushing = PUSHING
 		return
 
-	for(var/atom/movable/AM in get_turf(OldLoc))
+	for(var/atom/movable/AM in get_turf(old_loc))
 		var/C = can_push(AM)
 		if(C)
 			AM.forceMove(src)

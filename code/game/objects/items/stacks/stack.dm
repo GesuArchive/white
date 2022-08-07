@@ -596,7 +596,7 @@
 	. = merge_without_del(target_stack, limit)
 	is_zero_amount(delete_if_zero = TRUE)
 
-/obj/item/stack/Moved()
+/obj/item/stack/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
 	if(!throwing && isturf(loc))
 		for(var/obj/item/stack/item_stack in loc)

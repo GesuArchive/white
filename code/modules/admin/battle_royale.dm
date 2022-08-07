@@ -431,7 +431,7 @@ GLOBAL_DATUM(battle_royale, /datum/battle_royale_controller)
 		M.gib()
 		to_chat(M, span_warning("Ой!"))
 
-/obj/effect/death_wall/Moved(atom/OldLoc, Dir)
+/obj/effect/death_wall/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
 	for(var/mob/living/M in get_turf(src))
 		M.gib()

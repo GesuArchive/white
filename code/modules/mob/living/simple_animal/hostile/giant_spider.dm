@@ -232,7 +232,7 @@
 		return
 	charge.Trigger(target = target)
 
-/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/Moved(atom/oldloc, dir)
+/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
 	var/obj/structure/spider/stickyweb/web = locate() in loc
 	if(web && !silk_walking)
@@ -624,7 +624,7 @@
 	icon_dead = "flesh_spider_dead"
 	web_speed = 0.7
 
-/mob/living/simple_animal/hostile/poison/giant_spider/hunter/flesh/Moved(atom/oldloc, dir)
+/mob/living/simple_animal/hostile/poison/giant_spider/hunter/flesh/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
 	if(prob(5))
 		new /obj/effect/decal/cleanable/blood/bubblegum(loc)

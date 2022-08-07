@@ -75,7 +75,7 @@
 	mymovement = parent.AddComponent(/datum/component/funny_movement)
 	mymovement.maxthrust_forward = 4
 	RegisterSignal(mymovement, COMSIG_FUNNY_MOVEMENT_PROCESSING_START, .proc/premove)
-	RegisterSignal(mymovement, COMSIG_FUNNY_MOVEMENT_PROCESSING_FINISH, .proc/moved)
+	RegisterSignal(mymovement, COMSIG_FUNNY_MOVEMENT_PROCESSING_FINISH, .proc/Moved)
 
 /datum/component/human_rocket/tank_controls/UnregisterFromParent()
 	UnregisterSignal(mymovement, COMSIG_FUNNY_MOVEMENT_PROCESSING_START)
@@ -110,6 +110,6 @@
 	if(movement_dir & EAST)
 		mymovement.desired_angle = mymovement.angle + rotation
 
-/datum/component/human_rocket/tank_controls/proc/moved()
+/datum/component/human_rocket/tank_controls/proc/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	SIGNAL_HANDLER
 	mymovement.desired_thrust_dir = 0

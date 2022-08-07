@@ -89,8 +89,8 @@
 	maxbodytemp = 800
 	gold_core_spawnable = HOSTILE_SPAWN
 
-/mob/living/simple_animal/hostile/vanya/killermeat/Moved(atom/OldLoc, Dir, Forced = FALSE)
-	if(Dir)
+/mob/living/simple_animal/hostile/vanya/killermeat/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
+	if(movement_dir)
 		new /obj/effect/decal/cleanable/blood/splatter(src.loc)
 	return ..()
 

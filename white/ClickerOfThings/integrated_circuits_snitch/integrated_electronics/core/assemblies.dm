@@ -761,11 +761,11 @@
 		return TRUE
 	return FALSE
 
-/obj/item/electronic_assembly/Moved(oldLoc, dir)
+/obj/item/electronic_assembly/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
 	for(var/I in assembly_components)
 		var/obj/item/integrated_circuit_old/IC = I
-		IC.ext_moved(oldLoc, dir)
+		IC.ext_moved(old_loc, dir)
 	if(light) //Update lighting objects (From light circuits).
 		update_light()
 

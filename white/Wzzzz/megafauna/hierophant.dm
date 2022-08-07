@@ -134,7 +134,7 @@
 	if(!blinking)
 		. = ..()
 
-/mob/living/simple_animal/hostile/megafauna/hierophantold/Moved(oldLoc, movement_dir)
+/mob/living/simple_animal/hostile/megafauna/hierophantold/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
 	if(!stat && .)
 		var/obj/effect/temp_visual/hierophant/squares/HS = new(oldLoc)
