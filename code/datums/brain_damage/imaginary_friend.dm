@@ -65,7 +65,7 @@
 	sight = NONE
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	see_invisible = SEE_INVISIBLE_LIVING
-	invisibility = INVISIBILITY_MAXIMUM
+	invisibility = INVISIBILITY_OBSERVER
 	var/icon/human_image
 	var/image/current_image
 	var/hidden = FALSE
@@ -177,7 +177,7 @@
 		var/mutable_appearance/MA = mutable_appearance('icons/mob/talk.dmi', src, "default[say_test(message)]", FLY_LAYER)
 		MA.plane = ABOVE_GAME_PLANE
 		MA.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
-		INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, MA, list(owner.client), 30)
+		INVOKE_ASYNC(GLOBAL_PROC, /.proc/flick_overlay, MA, list(owner.client), 30)
 
 	for(var/mob/M in GLOB.dead_mob_list)
 		var/link = FOLLOW_LINK(M, owner)
