@@ -23,7 +23,7 @@
 		to_chat(src, "<span class='notice'>Тульпа уже в пути!</span>")
 		return
 
-	var/alertresult = tgui_alert(M, "Это призовёт маленького помощника, которого никто не видит кроме ТЕБЯ. Продолжить?", "ЗНАТОК", "Да", "Нет")
+	var/alertresult = tgui_alert(M, "Это призовёт маленького помощника, которого никто не видит кроме ТЕБЯ. Продолжить?", "ЗНАТОК", list("Да", "Нет"))
 	if(alertresult == "Нет" || QDELETED(M) || !istype(M) || !M.key)
 		return
 
