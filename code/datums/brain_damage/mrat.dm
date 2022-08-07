@@ -92,7 +92,7 @@
 				return
 
 /mob/camera/imaginary_friend/mrat/proc/pick_name()
-	var/picked_name = sanitize_name(stripped_input(src, "Как назовёмся?", "Имя крысы", "Знатокрыс", MAX_NAME_LEN - 3 - length(key)))
+	var/picked_name = sanitize_name(tgui_input_text(src, "Как назовёмся?", "Имя крысы", "Знатокрыс", MAX_NAME_LEN - 3 - length(key)))
 	if(!picked_name || picked_name == "")
 		picked_name = "Знатокрыс"
 	log_game("[key_name(src)] has set \"[picked_name]\" as their mentor rat's name for [key_name(owner)]")
@@ -142,7 +142,7 @@
 
 /datum/action/innate/mrat_leave/Activate()
 	var/mob/camera/imaginary_friend/I = owner
-	if(tgui_alert(I, "Уже уходим?", "Обещаем вернуться", "Да", "Нет") != "Да")
+	if(tgui_alert(I, "Уже уходим?", "Обещаем вернуться", list("Да", "Нет")) != "Да")
 		return
 	to_chat(I, "<span class='warning'>Выхожу из тела [I.owner].</span>")
 	to_chat(I.owner, "<span class='warning'>Знаток ушёл.</span>")

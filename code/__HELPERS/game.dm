@@ -377,18 +377,18 @@
 			C.energy_fail(rand(duration_min,duration_max))
 
 /**
-  * Poll all mentor ghosts for looking for a candidate
-  *
-  * Poll all mentor ghosts a question
-  * returns people who voted yes in a list
-  * Arguments:
-  * * question: String, what do you want to ask them
-  * * jobbanType: List, Which roles/jobs to exclude from being asked
-  * * be_special_flag: Bool, Only notify ghosts with special antag on
-  * * poll_time: Integer, How long to poll for in deciseconds(0.1s)
-  * * ignore_category: Define, ignore_category: People with this category(defined in poll_ignore.dm) turned off dont get the message
-  * * flashwindow: Bool, Flash their window to grab their attention
-  */
+ * Poll all mentor ghosts for looking for a candidate
+ *
+ * Poll all mentor ghosts a question
+ * returns people who voted yes in a list
+ * Arguments:
+ * * question: String, what do you want to ask them
+ * * jobbanType: List, Which roles/jobs to exclude from being asked
+ * * be_special_flag: Bool, Only notify ghosts with special antag on
+ * * poll_time: Integer, How long to poll for in deciseconds(0.1s)
+ * * ignore_category: Define, ignore_category: People with this category(defined in poll_ignore.dm) turned off dont get the message
+ * * flashwindow: Bool, Flash their window to grab their attention
+ */
 /proc/poll_mentor_ghost_candidates(question, jobbanType, be_special_flag = 0, poll_time = 300, ignore_category = null, flashwindow = TRUE)
 	var/list/candidates = list()
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_STATION_SENTIENCE))
@@ -401,18 +401,18 @@
 	return poll_candidates(question, jobbanType, be_special_flag, poll_time, ignore_category, flashwindow, candidates)
 
 /**
-  * Poll mentor ghosts to take control of a mob
-  *
-  * Poll mentor ghosts for mob control
-  * returns people who voted yes in a list
-  * Arguments:
-  * * question: String, what do you want to ask them
-  * * jobbanType: List, Which roles/jobs to exclude from being asked
-  * * be_special_flag: Bool, Only notify ghosts with special antag on
-  * * poll_time: Integer, How long to poll for in deciseconds(0.1s)
-  * * M: Mob, /mob to offer
-  * * ignore_category: Unknown
-  */
+ * Poll mentor ghosts to take control of a mob
+ *
+ * Poll mentor ghosts for mob control
+ * returns people who voted yes in a list
+ * Arguments:
+ * * question: String, what do you want to ask them
+ * * jobbanType: List, Which roles/jobs to exclude from being asked
+ * * be_special_flag: Bool, Only notify ghosts with special antag on
+ * * poll_time: Integer, How long to poll for in deciseconds(0.1s)
+ * * M: Mob, /mob to offer
+ * * ignore_category: Unknown
+ */
 /proc/poll_mentor_candidates_for_mob(question, jobbanType, be_special_flag = 0, poll_time = 300, mob/M, ignore_category = null)
 	var/list/L = poll_mentor_ghost_candidates(question, jobbanType, be_special_flag, poll_time, ignore_category)
 	if(!M || QDELETED(M) || !M.loc)
