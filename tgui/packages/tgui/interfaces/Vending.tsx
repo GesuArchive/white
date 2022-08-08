@@ -312,7 +312,7 @@ const ProductStock = (props) => {
         (!custom && remaining <= product.max_amount / 2 && 'average') ||
         'good'
       }>
-      {remaining} left
+      {remaining} осталось
     </Box>
   );
 };

@@ -82,7 +82,7 @@
 			"name" = "Костюмы & Платья",
 			"icon" = "vest",
 			"products" = list(
-				/obj/item/clothing/suit/toggle/jacket/sweater = 4,
+				/obj/item/clothing/suit/jacket/sweater = 4,
 				/obj/item/clothing/suit/jacket/oversized = 4,
 				/obj/item/clothing/suit/jacket/fancy = 4,
 				/obj/item/clothing/suit/hooded/wintercoat/custom = 2,

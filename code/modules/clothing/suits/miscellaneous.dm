@@ -441,7 +441,7 @@
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	species_exception = list(/datum/species/golem)
 
-/obj/item/clothing/suit/toggle/jacket/sweater
+/obj/item/clothing/suit/jacket/sweater
 	name = "sweater jacket"
 	desc = "A sweater jacket."
 	icon_state = "sweater"
@@ -455,6 +455,7 @@
 	name = "oversized jacket"
 	desc = "An oversized jacket."
 	icon_state = "jacket_oversized"
+	worn_icon = 'icons/mob/clothing/suits/jacket.dmi'
 	greyscale_config = /datum/greyscale_config/jacket_oversized
 	greyscale_config_worn = /datum/greyscale_config/jacket_oversized_worn
 	greyscale_colors = "#414344"
@@ -464,6 +465,7 @@
 	name = "fancy fur coat"
 	desc = "Rated 10 out of 10 in Cosmo for best coat brand."
 	icon_state = "fancy_coat"
+	worn_icon = 'icons/mob/clothing/suits/jacket.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	cold_protection = CHEST|GROIN|LEGS|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
