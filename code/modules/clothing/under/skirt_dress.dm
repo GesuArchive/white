@@ -86,6 +86,21 @@
 	greyscale_config_worn = /datum/greyscale_config/plaidskirt_worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+/obj/item/clothing/under/dress/skirt/plaid/blue
+	name = "юбка"
+	desc = "Синяя юбка с белой блузкой"
+	greyscale_colors = "#2f44cb"
+
+/obj/item/clothing/under/dress/skirt/plaid/purple
+	name = "юбка"
+	desc = "Фиолетовая юбка с белой блузкой."
+	greyscale_colors = "#b41cc2"
+
+/obj/item/clothing/under/dress/skirt/plaid/green
+	name = "юбка"
+	desc = "Зеленая юбка с белой блузкой."
+	greyscale_colors = "#44e81b"
+
 /obj/item/clothing/under/dress/skirt/turtleskirt
 	name = "turtleneck skirt"
 	desc = "A casual turtleneck skirt."
@@ -105,21 +120,3 @@
 	greyscale_config = /datum/greyscale_config/tango
 	greyscale_config_worn = /datum/greyscale_config/tango_worn
 	flags_1 = IS_PLAYER_COLORABLE_1
-
-/obj/item/clothing/under/dress/skirt/plaid/blue
-	name = "юбка"
-	desc = "Синяя юбка с белой блузкой"
-	icon_state = "plaid_blue"
-	inhand_icon_state = "plaid_blue"
-
-/obj/item/clothing/under/dress/skirt/plaid/purple
-	name = "юбка"
-	desc = "Фиолетовая юбка с белой блузкой."
-	icon_state = "plaid_purple"
-	inhand_icon_state = "plaid_purple"
-
-/obj/item/clothing/under/dress/skirt/plaid/green
-	name = "юбка"
-	desc = "Зеленая юбка с белой блузкой."
-	icon_state = "plaid_green"
-	inhand_icon_state = "plaid_green"
