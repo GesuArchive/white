@@ -580,11 +580,13 @@
 			return FALSE
 		var/obj/structure/closet/supplypod/bluespacepod/banka = new()
 		var/parking = find_safe_turf()
-		for(var/mob/c in chosen)
-			var/mob/living/carbon/human/new_character=makeBody(c)
-			new_character.mind.add_antag_datum(/datum/antagonist/ert/spacepol)
-			new_character.equipOutfit(/datum/outfit/spacepol)
-			new_character.forceMove(banka)
+		for(var/mob/dead/observer/c in chosen)
+			var/mob/living/carbon/human/cop = new(GLOB.newplayer_start)
+			c.client.prefs.copy_to(cop)
+			cop.key = c.key
+			cop.mind.add_antag_datum(/datum/antagonist/ert/spacepol)
+			cop.equipOutfit(/datum/outfit/spacepol)
+			cop.forceMove(banka)
 		new /obj/effect/pod_landingzone(parking, banka)
 		priority_announce("Внимание, в вашем районе проходит облава.", sound('white/alexs410/sound/manhunt.ogg'), sender_override = "Главное управление Спецотряда")
-
+		return TRUE
