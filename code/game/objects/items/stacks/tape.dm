@@ -18,6 +18,11 @@
 	merge_type = /obj/item/stack/sticky_tape
 	var/list/conferred_embed = EMBED_HARMLESS
 	var/overwrite_existing = FALSE
+	///The tape type you get when ripping off a piece of tape.
+	var/obj/tape_gag = /obj/item/clothing/mask/muzzle/tape
+	greyscale_config = /datum/greyscale_config/tape
+	greyscale_colors = "#B2B2B2#BD6A62"
+
 
 /obj/item/stack/sticky_tape/afterattack(obj/item/I, mob/living/user)
 	if(!istype(I))
@@ -99,29 +104,34 @@
 	name = "супер клейкая лента"
 	singular_name = "супер клейкая лента"
 	desc = "Вполне возможно, самое вредное вещество в галактике. Используйте с крайней осторожностью."
-	icon_state = "tape_y"
 	prefix = "очень липкий"
 	conferred_embed = EMBED_HARMLESS_SUPERIOR
 	splint_factor = 0.6
 	merge_type = /obj/item/stack/sticky_tape/super
+	greyscale_colors = "#4D4D4D#75433F"
+	tape_gag = /obj/item/clothing/mask/muzzle/tape/super
 
 /obj/item/stack/sticky_tape/pointy
 	name = "заостренная лента"
 	singular_name = "заостренная лента"
 	desc = "Используется для приклеивания к вещам, для того, чтобы приклеивать эти вещи к людям."
-	icon_state = "tape_evil"
+	icon_state = "tape_spikes"
 	prefix = "заострённый"
 	conferred_embed = EMBED_POINTY
 	merge_type = /obj/item/stack/sticky_tape/pointy
+	greyscale_config = /datum/greyscale_config/tape/spikes
+	greyscale_colors = "#E64539#808080#AD2F45"
+	tape_gag = /obj/item/clothing/mask/muzzle/tape/pointy
 
 /obj/item/stack/sticky_tape/pointy/super
 	name = "супер заостренная лента"
 	singular_name = "супер заостренная лента"
 	desc = "Вы не знали, что лента может выглядеть так зловеще. Добро пожаловать на Космическую Станцию 13."
-	icon_state = "tape_spikes"
 	prefix = "невероятно острый"
 	conferred_embed = EMBED_POINTY_SUPERIOR
 	merge_type = /obj/item/stack/sticky_tape/pointy/super
+	greyscale_colors = "#8C0A00#4F4F4F#300008"
+	tape_gag = /obj/item/clothing/mask/muzzle/tape/pointy/super
 
 /obj/item/stack/sticky_tape/surgical
 	name = "хирургическая лента"
@@ -133,3 +143,5 @@
 	splint_factor = 0.4
 	custom_price = PAYCHECK_MEDIUM
 	merge_type = /obj/item/stack/sticky_tape/surgical
+	greyscale_colors = "#70BAE7#BD6A62"
+	tape_gag = /obj/item/clothing/mask/muzzle/tape/surgical

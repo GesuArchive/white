@@ -45,11 +45,21 @@
 
 /datum/wires/airlock/New(atom/holder)
 	wires = list(
-		WIRE_POWER1, WIRE_POWER2,
-		WIRE_BACKUP1, WIRE_BACKUP2,
-		WIRE_OPEN, WIRE_BOLTS, WIRE_IDSCAN, WIRE_AI,
-		WIRE_SHOCK, WIRE_SAFETY, WIRE_TIMING, WIRE_LIGHT,
-		WIRE_ZAP1, WIRE_ZAP2
+		WIRE_AI,
+		WIRE_BACKUP1,
+		WIRE_BACKUP2,
+		WIRE_BOLTS,
+		WIRE_IDSCAN,
+		WIRE_LIGHT,
+		WIRE_OPEN,
+		WIRE_POWER1,
+		WIRE_POWER2,
+		WIRE_SAFETY,
+		WIRE_SHOCK,
+		WIRE_TIMING,
+		WIRE_UNRESTRICTED_EXIT,
+		WIRE_ZAP1,
+		WIRE_ZAP2,
 	)
 	add_duds(2)
 	..()
@@ -81,6 +91,12 @@
 	status += "Индикатор автозакрытия [A.autoclose ? "горит" : "не горит"]."
 	status += "Индикатор задержки автозакрытия [A.normalspeed ? "горит" : "не горит"]."
 	status += "Индикатор аварийного доступа [A.emergency ? "горит" : "не горит"]."
+
+	if(A.unres_sensor)
+		status += "The unrestricted exit display is [A.unres_sides ? "indicating that it is letting people pass from the [dir2text(REVERSE_DIR(A.unres_sides))]" : "faintly flickering"]."
+	else
+		status += "The unrestricted exit display is completely inactive."
+
 	return status
 
 /datum/wires/airlock/on_pulse(wire)
@@ -130,6 +146,11 @@
 			A.normalspeed = !A.normalspeed
 		if(WIRE_LIGHT)
 			A.lights = !A.lights
+			A.update_icon()
+		if(WIRE_UNRESTRICTED_EXIT) // Pulse to switch the direction around by 180 degrees (North goes to South, East goes to West, vice-versa)
+			if(!A.unres_sensor) //only works if the "sensor" is installed (a variable that we assign to the door either upon creation of a door with unrestricted directions or if an unrestricted helper is added to a door in mapping)
+				return
+			A.unres_sides = DIRFLIP(A.unres_sides)
 			A.update_icon()
 
 /obj/machinery/door/airlock/proc/reset_ai_wire()
@@ -189,6 +210,15 @@
 		if(WIRE_ZAP1, WIRE_ZAP2) // Ouch.
 			if(isliving(usr))
 				A.shock(usr, 50)
+		if(WIRE_UNRESTRICTED_EXIT) // If you cut this wire, the unrestricted helper goes way. If you mend it, it'll go "haywire" and pick a new direction at random. Might have to cut/mend a time or two to get the direction you want.
+			if(!A.unres_sensor) //only works if the "sensor" is installed (a variable that we assign to the door either upon creation of a door with unrestricted directions or if an unrestricted helper is added to a door in mapping)
+				return
+			if(mend)
+				A.unres_sides = pick(NORTH, SOUTH, EAST, WEST)
+				A.update_icon()
+			else
+				A.unres_sides = NONE
+				A.update_icon()
 
 /datum/wires/airlock/can_reveal_wires(mob/user)
 	if(HAS_TRAIT(user, TRAIT_KNOW_ENGI_WIRES))

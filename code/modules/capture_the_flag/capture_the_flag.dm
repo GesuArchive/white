@@ -952,6 +952,40 @@
 						to_chat(M, span_userdanger("[user.real_name] захватил [src] для [CTF.team]! Иди и забери обратно!"))
 				break
 
+// SHIELDED VEST
+
+/obj/item/clothing/suit/armor/vest/ctf
+	name = "white shielded vest"
+	desc = "Standard issue vest for playing capture the flag."
+	icon = 'icons/mob/clothing/suits/ctf.dmi'
+	worn_icon = 'icons/mob/clothing/suits/ctf.dmi'
+	icon_state = "standard"
+	// Adding TRAIT_NODROP is done when the CTF spawner equips people
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0) // CTF gear gives no protection outside of the shield
+	allowed = null
+	greyscale_config = /datum/greyscale_config/ctf_standard
+	greyscale_config_worn = /datum/greyscale_config/ctf_standard_worn
+	greyscale_colors = "#ffffff"
+
+	///Icon state to be fed into the shielded component
+	var/team_shield_icon = "shield-old"
+
+/obj/item/clothing/suit/armor/vest/ctf/setup_shielding()
+	AddComponent(/datum/component/shielded, max_charges = 150, recharge_start_delay = 20 SECONDS, charge_increment_delay = 1 SECONDS, charge_recovery = 30, lose_multiple_charges = TRUE, shield_icon = team_shield_icon)
+
+// LIGHT SHIELDED VEST
+
+/obj/item/clothing/suit/armor/vest/ctf/light
+	name = "light white shielded vest"
+	desc = "Lightweight vest for playing capture the flag."
+	icon_state = "light"
+	greyscale_config = /datum/greyscale_config/ctf_light
+	greyscale_config_worn = /datum/greyscale_config/ctf_light_worn
+	slowdown = -0.25
+
+/obj/item/clothing/suit/armor/vest/ctf/light/setup_shielding()
+	AddComponent(/datum/component/shielded, max_charges = 30, recharge_start_delay = 20 SECONDS, charge_increment_delay = 1 SECONDS, charge_recovery = 30, lose_multiple_charges = TRUE, shield_icon = team_shield_icon)
+
 #undef WHITE_TEAM
 #undef RED_TEAM
 #undef BLUE_TEAM

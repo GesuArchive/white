@@ -231,6 +231,33 @@
 	sensor_mode = SENSOR_COORDS
 	random_sensor = FALSE
 
+/obj/item/clothing/under/costume/buttondown
+	gender = PLURAL
+	body_parts_covered = GROIN|LEGS
+	custom_price = PAYCHECK_EASY
+	icon = 'icons/obj/clothing/under/shorts_pants_shirts.dmi'
+	worn_icon = 'icons/mob/clothing/under/shorts_pants_shirts.dmi'
+	species_exception = list(/datum/species/golem)
+	can_adjust = FALSE
+
+/obj/item/clothing/under/costume/buttondown/slacks
+	name = "buttondown shirt with slacks"
+	desc = "A fancy buttondown shirt with slacks."
+	icon_state = "buttondown_slacks"
+	greyscale_config = /datum/greyscale_config/buttondown_slacks
+	greyscale_config_worn = /datum/greyscale_config/buttondown_slacks_worn
+	greyscale_colors = "#EEEEEE#EE8E2E#222227#D8D39C"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/costume/buttondown/shorts
+	name = "buttondown shirt with shorts"
+	desc = "A fancy buttondown shirt with shorts."
+	icon_state = "buttondown_shorts"
+	greyscale_config = /datum/greyscale_config/buttondown_shorts
+	greyscale_config_worn = /datum/greyscale_config/buttondown_shorts_worn
+	greyscale_colors = "#EEEEEE#EE8E2E#222227#D8D39C"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 /obj/item/clothing/under/costume/jackbros
 	name = "jack bros outfit"
 	desc = "For when it's time to hee some hos."
@@ -287,6 +314,15 @@
 	icon_state = "decker_jumpsuit"
 	inhand_icon_state = "decker_jumpsuit"
 	can_adjust = FALSE
+
+/obj/item/clothing/under/costume/football_suit
+	name = "football uniform"
+	icon_state = "football_suit"
+	can_adjust = FALSE
+	greyscale_config = /datum/greyscale_config/football_suit
+	greyscale_config_worn = /datum/greyscale_config/football_suit_worn
+	greyscale_colors = "#D74722"
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/costume/morningstar
 	name = "Morningstar suit"

@@ -50,5 +50,6 @@
 #define WIRE_ZAP2 "Цепь высокого напряжения 2"
 #define WIRE_PRIZEVEND "Цепь платы призов"
 #define WIRE_RESETOWNER "Сброс владельца"
+#define WIRE_UNRESTRICTED_EXIT "Unrestricted Exit"
 #define WIRE_AGELIMIT "Возрастное ограничение"
 

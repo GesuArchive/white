@@ -292,6 +292,36 @@
 	armor = list(MELEE = 5, BULLET = 5, LASER = 5, ENERGY = 15, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
+/obj/item/clothing/head/cowboy_hat_black
+	name = "desperado hat"
+	desc = "People with ropes around their necks don't always hang."
+	icon_state = "cowboy_hat_black"
+	inhand_icon_state = "cowboy_hat_black"
+
+/obj/item/clothing/head/cowboy_hat_white
+	name = "ten-gallon hat"
+	desc = "There are two kinds of people in the world: those with guns and those that dig. You dig?"
+	icon_state = "cowboy_hat_white"
+	inhand_icon_state = "cowboy_hat_white"
+
+/obj/item/clothing/head/cowboy_hat_grey
+	name = "drifter hat"
+	desc = "The hat for an assistant with no name."
+	icon_state = "cowboy_hat_grey"
+	inhand_icon_state = "cowboy_hat_grey"
+
+/obj/item/clothing/head/cowboy_hat_red
+	name = "deputy hat"
+	desc = "Don't let the garish coloration fool you. This hat has seen some terrible things."
+	icon_state = "cowboy_hat_red"
+	inhand_icon_state = "cowboy_hat_red"
+
+/obj/item/clothing/head/cowboy_hat_brown
+	name = "sheriff hat"
+	desc = "Reach for the skies, pardner."
+	icon_state = "cowboy_hat_brown"
+	inhand_icon_state = "cowboy_hat_brown"
+
 /obj/item/clothing/head/cone
 	desc = "Этот конус пытается вас о чем-то предупредить!"
 	name = "предупреждающий конус"

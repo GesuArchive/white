@@ -846,78 +846,83 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "электронная сигарета"
 	desc = "Стильная и крайне изысканная электронная сигарета, для таких же стильных и изысканных джентельменов. На предупреждающей этикетке написано: \"ВНИМАНИЕ: Не заполняйте горючими веществами.\""//<<< i'd vape to that.
 	icon = 'icons/obj/clothing/masks.dmi'
-	icon_state = "redVape"
+	icon_state = "vape"
+	worn_icon_state = "vape_worn"
+	greyscale_config = /datum/greyscale_config/vape
+	greyscale_config_worn = /datum/greyscale_config/vape/worn
+	greyscale_colors = "#2e2e2e"
 	inhand_icon_state = null
 	w_class = WEIGHT_CLASS_TINY
+
+	/// The capacity of the vape.
 	var/chem_volume = 100
-	var/vapetime = 0 //this so it won't puff out clouds every tick
-	/// How often we take a drag in seconds
-	var/vapedelay = 8
-	var/screw = FALSE // kinky
-	var/super = FALSE //for the fattest vapes dude.
+	/// The amount of time between drags.
+	var/dragtime = 8 SECONDS
+	/// A cooldown to prevent huffing the vape all at once.
+	COOLDOWN_DECLARE(drag_cooldown)
+	/// Whether the resevoir is open and we can add reagents.
+	var/screw = FALSE
+	/// Whether the vape has been overloaded to spread smoke.
+	var/super = FALSE
 
 /obj/item/clothing/mask/vape/suicide_act(mob/user)
 	user.visible_message(span_suicide("[user] is puffin hard on dat vape, [user.ru_who()] trying to join the vape life on a whole notha plane!"))//it doesn't give you cancer, it is cancer
 	return (TOXLOSS|OXYLOSS)
 
-
-/obj/item/clothing/mask/vape/Initialize(mapload, param_color)
+/obj/item/clothing/mask/vape/Initialize(mapload)
 	. = ..()
 	create_reagents(chem_volume, NO_REACT)
 	reagents.add_reagent(/datum/reagent/drug/nicotine, 50)
-	if(!param_color)
-		param_color = pick("red","blue","black","white","green","purple","yellow","orange")
-	icon_state = "[param_color]Vape"
-	inhand_icon_state = "[param_color]_vape"
 
-/obj/item/clothing/mask/vape/attackby(obj/item/O, mob/user, params)
-	if(O.tool_behaviour == TOOL_SCREWDRIVER)
-		if(!screw)
-			screw = TRUE
-			to_chat(user, span_notice("Вскрываю крышку [src]."))
-			reagents.flags |= OPENCONTAINER
-			if(obj_flags & EMAGGED)
-				add_overlay("vapeopen_high")
-			else if(super)
-				add_overlay("vapeopen_med")
-			else
-				add_overlay("vapeopen_low")
+/obj/item/clothing/mask/vape/screwdriver_act(mob/living/user, obj/item/tool)
+	if(!screw)
+		screw = TRUE
+		to_chat(user, span_notice("Вскрываю крышку [src]."))
+		reagents.flags |= OPENCONTAINER
+		if(obj_flags & EMAGGED)
+			icon_state = "vape_open_high"
+			set_greyscale(new_config = /datum/greyscale_config/vape/open_high)
+		else if(super)
+			icon_state = "vape_open_med"
+			set_greyscale(new_config = /datum/greyscale_config/vape/open_med)
 		else
-			screw = FALSE
-			to_chat(user, span_notice("Закрываю крышку [src]."))
-			reagents.flags &= ~(OPENCONTAINER)
-			cut_overlays()
+			icon_state = "vape_open_low"
+			set_greyscale(new_config = /datum/greyscale_config/vape/open_low)
+	else
+		screw = FALSE
+		to_chat(user, span_notice("Закрываю крышку [src]."))
+		reagents.flags &= ~(OPENCONTAINER)
+		icon_state = initial(icon_state)
+		set_greyscale(new_config = initial(greyscale_config))
 
-	if(O.tool_behaviour == TOOL_MULTITOOL)
-		if(screw && !(obj_flags & EMAGGED))//also kinky
-			if(!super)
-				cut_overlays()
-				super = TRUE
-				to_chat(user, span_notice("Увеличиваю напряжение [src]."))
-				add_overlay("vapeopen_med")
-			else
-				cut_overlays()
-				super = FALSE
-				to_chat(user, span_notice("Уменьшаю напряжение [src]."))
-				add_overlay("vapeopen_low")
-
-		if(screw && (obj_flags & EMAGGED))
-			to_chat(user, span_warning("[capitalize(src.name)] нельзя модифицировать!"))
+/obj/item/clothing/mask/vape/multitool_act(mob/living/user, obj/item/tool)
+	. = TRUE
+	if(screw && !(obj_flags & EMAGGED))//also kinky
+		if(!super)
+			super = TRUE
+			to_chat(user, span_notice("Увеличиваю напряжение [src]."))
+			icon_state = "vape_open_med"
+			set_greyscale(new_config = /datum/greyscale_config/vape/open_med)
 		else
-			..()
+			super = FALSE
+			to_chat(user, span_notice("Уменьшаю напряжение [src]."))
+			icon_state = "vape_open_low"
+			set_greyscale(new_config = /datum/greyscale_config/vape/open_low)
 
+	if(screw && (obj_flags & EMAGGED))
+		to_chat(user, span_warning("[capitalize(src.name)] нельзя модифицировать!"))
 
 /obj/item/clothing/mask/vape/emag_act(mob/user)// I WON'T REGRET WRITTING THIS, SURLY.
 	if(screw)
 		if(!(obj_flags & EMAGGED))
-			cut_overlays()
 			obj_flags |= EMAGGED
 			super = FALSE
 			to_chat(user, span_warning("Увеличиваю напряжение [src] до максимума!"))
-			add_overlay("vapeopen_high")
+			icon_state = "vape_open_high"
+			set_greyscale(new_config = /datum/greyscale_config/vape/open_high)
 			var/datum/effect_system/spark_spread/sp = new /datum/effect_system/spark_spread //for effect
 			sp.set_up(5, 1, src)
-			sp.start(src)
+			sp.start()
 		else
 			to_chat(user, span_warning("[capitalize(src.name)] уже взломан!"))
 	else
@@ -930,13 +935,16 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/vape/equipped(mob/user, slot)
 	. = ..()
-	if(slot == ITEM_SLOT_MASK)
-		if(!screw)
-			to_chat(user, span_notice("Начинаю парить."))
-			reagents.flags &= ~(NO_REACT)
-			START_PROCESSING(SSobj, src)
-		else //it will not start if the vape is opened.
-			to_chat(user, span_warning("Сначала надо закрыть крышку!"))
+	if(slot != ITEM_SLOT_MASK)
+		return
+
+	if(screw)
+		to_chat(user, span_notice("Начинаю парить."))
+		return
+
+	to_chat(user, span_warning("Сначала надо закрыть крышку!"))
+	reagents.flags &= ~(NO_REACT)
+	START_PROCESSING(SSobj, src)
 
 /obj/item/clothing/mask/vape/dropped(mob/user)
 	. = ..()
@@ -944,26 +952,27 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		reagents.flags |= NO_REACT
 		STOP_PROCESSING(SSobj, src)
 
-/obj/item/clothing/mask/vape/proc/hand_reagents()//had to rename to avoid duplicate error
-	if(reagents.total_volume)
-		if(iscarbon(loc))
-			var/mob/living/carbon/C = loc
-			if (src == C.wear_mask) // if it's in the human/monkey mouth, transfer reagents to the mob
-				var/fraction = min(REAGENTS_METABOLISM/reagents.total_volume, 1) //this will react instantly, making them a little more dangerous than cigarettes
-				reagents.expose(C, INGEST, fraction)
-				if(!reagents.trans_to(C, REAGENTS_METABOLISM))
-					reagents.remove_any(REAGENTS_METABOLISM)
-				if(reagents.get_reagent_amount(/datum/reagent/fuel))
-					//HOT STUFF
-					C.adjust_fire_stacks(2)
-					C.ignite_mob()
+/obj/item/clothing/mask/vape/proc/handle_reagents()
+	if(!reagents.total_volume)
+		return
 
-				if(reagents.get_reagent_amount(/datum/reagent/toxin/plasma)) // the plasma explodes when exposed to fire
-					var/datum/effect_system/reagents_explosion/e = new()
-					e.set_up(round(reagents.get_reagent_amount(/datum/reagent/toxin/plasma) / 2.5, 1), get_turf(src), 0, 0)
-					e.start(src)
-					qdel(src)
-				return
+	var/mob/living/carbon/vaper = loc
+	if(!iscarbon(vaper) || src != vaper.wear_mask)
+		reagents.remove_any(REAGENTS_METABOLISM)
+		return
+
+	if(reagents.get_reagent_amount(/datum/reagent/fuel))
+		//HOT STUFF
+		vaper.adjust_fire_stacks(2)
+		vaper.ignite_mob()
+
+	if(reagents.get_reagent_amount(/datum/reagent/toxin/plasma)) // the plasma explodes when exposed to fire
+		var/datum/effect_system/reagents_explosion/e = new()
+		e.set_up(round(reagents.get_reagent_amount(/datum/reagent/toxin/plasma) / 2.5, 1), get_turf(src), 0, 0)
+		e.start(src)
+		qdel(src)
+
+	if(!reagents.trans_to(vaper, REAGENTS_METABOLISM, methods = INGEST, ignore_stomach = TRUE))
 		reagents.remove_any(REAGENTS_METABOLISM)
 
 /obj/item/clothing/mask/vape/process(delta_time)
@@ -972,37 +981,67 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(isliving(loc))
 		M.ignite_mob()
 
-	vapetime += delta_time
-
 	if(!reagents.total_volume)
 		if(ismob(loc))
 			to_chat(M, span_warning("[capitalize(src.name)] пуст!"))
 			STOP_PROCESSING(SSobj, src)
 			//it's reusable so it won't unequip when empty
 		return
-	//open flame removed because vapes are a closed system, they won't light anything on fire
 
-	if(super && vapetime >= vapedelay)//Time to start puffing those fat vapes, yo.
+	if(!COOLDOWN_FINISHED(src, drag_cooldown))
+		return
+
+	//Time to start puffing those fat vapes, yo.
+	COOLDOWN_START(src, drag_cooldown, dragtime)
+	if(obj_flags & EMAGGED)
 		var/datum/effect_system/fluid_spread/smoke/chem/smoke_machine/puff = new
 		puff.set_up(4, location = loc, carry = reagents, efficiency = 24)
 		puff.start()
-		vapetime -= vapedelay
-
-	if((obj_flags & EMAGGED) && vapetime >= vapedelay)
-		var/datum/effect_system/fluid_spread/smoke/chem/smoke_machine/puff = new
-		puff.set_up(1, location = loc, carry = reagents, efficiency = 24)
-		puff.start()
-		vapetime -= vapedelay
-		if(prob(5))//small chance for the vape to break and deal damage if it's emagged
+		if(prob(5)) //small chance for the vape to break and deal damage if it's emagged
 			playsound(get_turf(src), 'sound/effects/pop_expl.ogg', 50, FALSE)
 			M.apply_damage(20, BURN, BODY_ZONE_HEAD)
 			M.Paralyze(300)
 			var/datum/effect_system/spark_spread/sp = new /datum/effect_system/spark_spread
 			sp.set_up(5, 1, src)
-			sp.start(src)
+			sp.start()
 			to_chat(M, span_userdanger("[capitalize(src.name)] внезапно взрывается в моем рту!"))
 			qdel(src)
 			return
+	else if(super)
+		var/datum/effect_system/fluid_spread/smoke/chem/smoke_machine/puff = new
+		puff.set_up(1, location = loc, carry = reagents, efficiency = 24)
+		puff.start()
 
-	if(reagents?.total_volume)
-		hand_reagents()
+	handle_reagents()
+
+/obj/item/clothing/mask/vape/red
+	greyscale_colors = "#A02525"
+	flags_1 = NONE
+
+/obj/item/clothing/mask/vape/blue
+	greyscale_colors = "#294A98"
+	flags_1 = NONE
+
+/obj/item/clothing/mask/vape/purple
+	greyscale_colors = "#9900CC"
+	flags_1 = NONE
+
+/obj/item/clothing/mask/vape/green
+	greyscale_colors = "#3D9829"
+	flags_1 = NONE
+
+/obj/item/clothing/mask/vape/yellow
+	greyscale_colors = "#DAC20E"
+	flags_1 = NONE
+
+/obj/item/clothing/mask/vape/orange
+	greyscale_colors = "#da930e"
+	flags_1 = NONE
+
+/obj/item/clothing/mask/vape/black
+	greyscale_colors = "#2e2e2e"
+	flags_1 = NONE
+
+/obj/item/clothing/mask/vape/white
+	greyscale_colors = "#DCDCDC"
+	flags_1 = NONE

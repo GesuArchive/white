@@ -313,6 +313,44 @@
 	flags_inv = HIDEEARS|HIDEHAIR
 	armor = list(MELEE = 5, BULLET = 0, LASER = -5, ENERGY = -15, BOMB = 10, BIO = 0, RAD = 0, FIRE = 20, ACID = 20)
 
+/obj/item/clothing/head/fancy
+	name = "fancy hat"
+	icon_state = "fancy_hat"
+	greyscale_colors = "#E3C937#782A81"
+	greyscale_config = /datum/greyscale_config/fancy_hat
+	greyscale_config_worn = /datum/greyscale_config/fancy_hat_worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/head/football_helmet
+	name = "football helmet"
+	icon_state = "football_helmet"
+	greyscale_colors = "#D74722"
+	greyscale_config = /datum/greyscale_config/football_helmet
+	greyscale_config_worn = /datum/greyscale_config/football_helmet_worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/head/tv_head
+	name = "television helmet"
+	desc = "A mysterious headgear made from the hollowed out remains of a status display. How very retro-retro-futuristic of you."
+	icon_state = "IPC_helmet"
+	inhand_icon_state = "syringe_kit"
+	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi' //Grandfathered in from the wallframe for status displays.
+	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+	clothing_flags = SNUG_FIT
+	flash_protect = FLASH_PROTECTION_SENSITIVE
+	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+	var/has_fov = TRUE
+
+/obj/item/clothing/head/tv_head/Initialize(mapload)
+	. = ..()
+	if(has_fov)
+		AddComponent(/datum/component/clothing_fov_visor, FOV_90_DEGREES)
+
+/obj/item/clothing/head/tv_head/fov_less
+	desc = "A mysterious headgear made from the hollowed out remains of a status display. How very retro-retro-futuristic of you. It's very easy to see out of this one."
+	has_fov = FALSE
+
 /obj/item/clothing/head/foilhat
 	name = "шапочка из фольги"
 	desc = "Думаю, контрольные лучи, психотроническое сканирование. Не обращай внимания, я защищена, потому что я сделала эту шляпу."

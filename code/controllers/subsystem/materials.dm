@@ -26,6 +26,7 @@ SUBSYSTEM_DEF(materials)
 		new /datum/stack_recipe("Туалет", /obj/structure/toilet/greyscale, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE),
 		new /datum/stack_recipe("Каркас умывальника", /obj/structure/sinkframe, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE),
 		new /datum/stack_recipe("Декоративная плитка", /obj/item/stack/tile/material, 1, 4, 20, applies_mats = TRUE),
+		new /datum/stack_recipe("Декоративный шлюз", /obj/structure/door_assembly/door_assembly_material, 4, time = 50, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE),
 	)
 	///List of stackcrafting recipes for materials using rigid recipes
 	var/list/rigid_stack_recipes = list(

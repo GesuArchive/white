@@ -19,32 +19,131 @@
 	name = "галстук"
 	desc = "Привязной галстук из неоткани."
 	icon = 'icons/obj/clothing/neck.dmi'
-	icon_state = "bluetie"
-	inhand_icon_state = ""	//no inhands
+	icon_state = "tie_greyscale_tied"
+	inhand_icon_state = "" //no inhands
 	w_class = WEIGHT_CLASS_SMALL
 	custom_price = PAYCHECK_EASY
+	greyscale_config = /datum/greyscale_config/ties
+	greyscale_config_worn = /datum/greyscale_config/ties_worn
+	greyscale_colors = "#4d4e4e"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	/// All ties start untied unless otherwise specified
+	var/is_tied = FALSE
+	/// How long it takes to tie the tie
+	var/tie_timer = 4 SECONDS
+	/// Is this tie a clip-on, meaning it does not have an untied state?
+	var/clip_on = FALSE
+
+/obj/item/clothing/neck/tie/Initialize(mapload)
+	. = ..()
+	if(clip_on)
+		return
+	update_appearance(UPDATE_ICON)
+
+/obj/item/clothing/neck/tie/examine(mob/user)
+	. = ..()
+	if(clip_on)
+		. += span_notice("Looking closely, you can see that it's actually a cleverly disguised clip-on.")
+	else if(!is_tied)
+		. += span_notice("The tie can be tied with Alt-Click.")
+	else
+		. += span_notice("The tie can be untied with Alt-Click.")
+
+/obj/item/clothing/neck/tie/AltClick(mob/user)
+	. = ..()
+	if(clip_on)
+		return
+	to_chat(user, span_notice("You concentrate as you begin [is_tied ? "untying" : "tying"] [src]..."))
+	var/tie_timer_actual = tie_timer
+	// Mirrors give you a boost to your tying speed. I realize this stacks and I think that's hilarious.
+	for(var/obj/structure/mirror/reflection in view(2, user))
+		tie_timer_actual /= 1.25
+	// Tie/Untie our tie
+	if(!do_after(user, tie_timer_actual))
+		to_chat(user, span_notice("Your fingers fumble away from [src] as your concentration breaks."))
+		return
+	// Clumsy & Dumb people have trouble tying their ties.
+	if((HAS_TRAIT(user, TRAIT_CLUMSY) || HAS_TRAIT(user, TRAIT_DUMB)) && prob(50))
+		to_chat(user, span_notice("You just can't seem to get a proper grip on [src]!"))
+		return
+	// Success!
+	is_tied = !is_tied
+	user.visible_message(
+		span_notice("[user] adjusts [user.p_their()] tie[HAS_TRAIT(user, TRAIT_BALD) ? "" : " and runs a hand across [user.p_their()] head"]."),
+		span_notice("You successfully [is_tied ? "tied" : "untied"] [src]!"),
+	)
+	update_appearance(UPDATE_ICON)
+	user.update_clothing(ITEM_SLOT_NECK)
+
+/obj/item/clothing/neck/tie/update_icon()
+	. = ..()
+	// Normal strip & equip delay, along with 2 second self equip since you need to squeeze your head through the hole.
+	if(is_tied)
+		icon_state = "tie_greyscale_tied"
+		strip_delay = 4 SECONDS
+		equip_delay_other = 4 SECONDS
+		equip_delay_self = 2 SECONDS
+	else // Extremely quick strip delay, it's practically a ribbon draped around your neck
+		icon_state = "tie_greyscale_untied"
+		strip_delay = 1 SECONDS
+		equip_delay_other = 1 SECONDS
+		equip_delay_self = 0
 
 /obj/item/clothing/neck/tie/blue
 	name = "синий галстук"
-	icon_state = "bluetie"
+	icon_state = "tie_greyscale_untied"
+	greyscale_colors = "#5275b6ff"
 
 /obj/item/clothing/neck/tie/red
 	name = "красный галстук"
-	icon_state = "redtie"
+	icon_state = "tie_greyscale_untied"
+	greyscale_colors = "#c23838ff"
+
+/obj/item/clothing/neck/tie/red/tied
+	is_tied = TRUE
+
+/obj/item/clothing/neck/tie/red/hitman
+	desc = "This is a $47,000 custom-tailored Référence Du Tueur À Gages tie. The clot is from neosilkworms raised at a tie microfarm in Cookwell, from a secret pattern passed down by monk tailors since the twenty-first century!"
+	icon_state = "tie_greyscale_untied"
+	tie_timer = 1 SECONDS // You're a professional.
+
+/obj/item/clothing/neck/tie/red/hitman/tied
+	is_tied = TRUE
 
 /obj/item/clothing/neck/tie/black
 	name = "чёрный галстук"
-	icon_state = "blacktie"
+	icon_state = "tie_greyscale_untied"
+	greyscale_colors = "#151516ff"
+
+/obj/item/clothing/neck/tie/black/tied
+	is_tied = TRUE
 
 /obj/item/clothing/neck/tie/horrible
 	name = "ужасный галстук"
 	desc = "Привязной галстук из неоткани. Выглядит отвратительно."
 	icon_state = "horribletie"
+	clip_on = TRUE
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_colors = null
+
+/obj/item/clothing/neck/tie/disco
+	name = "horrific necktie"
+	icon_state = "eldritch_tie"
+	desc = "The necktie is adorned with a garish pattern. It's disturbingly vivid. Somehow you feel as if it would be wrong to ever take it off. It's your friend now. You will betray it if you change it for some boring scarf."
+	clip_on = TRUE
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_colors = null
 
 /obj/item/clothing/neck/tie/detective
 	name = "провисший галстук"
 	desc = "Свободно связанный галстук, идеальный аксессуар для переутомленного детектива."
 	icon_state = "detective"
+	clip_on = TRUE
+	greyscale_config = null
+	greyscale_config_worn = null
+	greyscale_colors = null
 
 /obj/item/clothing/neck/maid
 	name = "maid neck cover"
@@ -97,62 +196,57 @@
 	w_class = WEIGHT_CLASS_TINY
 	dog_fashion = /datum/dog_fashion/head
 	custom_price = PAYCHECK_EASY
+	greyscale_colors = "#EEEEEE#EEEEEE"
+	greyscale_config = /datum/greyscale_config/scarf
+	greyscale_config_worn = /datum/greyscale_config/scarf_worn
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/neck/scarf/black
 	name = "чёрный шарф"
-	icon_state = "scarf"
-	color = "#4A4A4B" //Grey but it looks black
+	greyscale_colors = "#4A4A4B#4A4A4B"
 
 /obj/item/clothing/neck/scarf/pink
 	name = "розовый шарф"
-	icon_state = "scarf"
-	color = "#F699CD" //Pink
+	greyscale_colors = "#F699CD#F699CD"
 
 /obj/item/clothing/neck/scarf/red
 	name = "красный шарф"
-	icon_state = "scarf"
-	color = "#D91414" //Red
+	greyscale_colors = "#D91414#D91414"
 
 /obj/item/clothing/neck/scarf/green
 	name = "зелёный шарф"
-	icon_state = "scarf"
-	color = "#5C9E54" //Green
+	greyscale_colors = "#5C9E54#5C9E54"
 
 /obj/item/clothing/neck/scarf/darkblue
 	name = "тёмно-синий шарф"
-	icon_state = "scarf"
-	color = "#1E85BC" //Blue
+	greyscale_colors = "#1E85BC#1E85BC"
 
 /obj/item/clothing/neck/scarf/purple
 	name = "фиолетовый шарф"
-	icon_state = "scarf"
-	color = "#9557C5" //Purple
+	greyscale_colors = "#9557C5#9557C5"
 
 /obj/item/clothing/neck/scarf/yellow
 	name = "жёлтый шарф"
-	icon_state = "scarf"
-	color = "#E0C14F" //Yellow
+	greyscale_colors = "#E0C14F#E0C14F"
 
 /obj/item/clothing/neck/scarf/orange
 	name = "оранжевый шарф"
-	icon_state = "scarf"
-	color = "#C67A4B" //Orange
+	greyscale_colors = "#C67A4B#C67A4B"
 
 /obj/item/clothing/neck/scarf/cyan
 	name = "голубой шарф"
-	icon_state = "scarf"
-	color = "#54A3CE" //Cyan
+	greyscale_colors = "#54A3CE#54A3CE"
 
 
 //Striped scarves get their own icons
 
 /obj/item/clothing/neck/scarf/zebra
 	name = "зебровый шарф"
-	icon_state = "zebrascarf"
+	greyscale_colors = "#333333#EEEEEE"
 
 /obj/item/clothing/neck/scarf/christmas
 	name = "рождественский шарф"
-	icon_state = "christmasscarf"
+	greyscale_colors = "#038000#960000"
 
 //The three following scarves don't have the scarf subtype
 //This is because Ian can equip anything from that subtype
@@ -195,12 +289,45 @@
 	desc = "Для домашних животных."
 	icon_state = "petcollar"
 	var/tagname = null
-/*
-/obj/item/clothing/neck/petcollar/mob_can_equip(mob/M, mob/equipper, slot, disable_warning = 0)
-	if(ishuman(M))
-		return FALSE
-	return ..()
-*/
+
+/obj/item/clothing/neck/large_scarf
+	name = "огромный шарф"
+	icon_state = "large_scarf"
+	w_class = WEIGHT_CLASS_TINY
+	custom_price = PAYCHECK_EASY
+	greyscale_colors = "#C6C6C6#EEEEEE"
+	greyscale_config = /datum/greyscale_config/large_scarf
+	greyscale_config_worn = /datum/greyscale_config/large_scarf_worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/neck/large_scarf/red
+	name = "огромный красный шарф"
+	greyscale_colors = "#8A2908#A06D66"
+
+/obj/item/clothing/neck/large_scarf/green
+	name = "огромный зелёный шарф"
+	greyscale_colors = "#525629#888674"
+
+/obj/item/clothing/neck/large_scarf/blue
+	name = "огромный синий шарф"
+	greyscale_colors = "#20396C#6F7F91"
+
+/obj/item/clothing/neck/large_scarf/syndie
+	name = "подозрительный огромный шарф"
+	desc = "Готов к операции."
+	greyscale_colors = "#B40000#545350"
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 40)
+
+/obj/item/clothing/neck/infinity_scarf
+	name = "бесконечный шарф"
+	icon_state = "infinity_scarf"
+	w_class = WEIGHT_CLASS_TINY
+	custom_price = PAYCHECK_EASY
+	greyscale_colors = "#EEEEEE"
+	greyscale_config = /datum/greyscale_config/infinity_scarf
+	greyscale_config_worn = /datum/greyscale_config/infinity_scarf_worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 /obj/item/clothing/neck/petcollar/attack_self(mob/user)
 	tagname = stripped_input(user, "Хотите изменить имя на теге?", "Назовите своего нового питомца", "Шепард", MAX_NAME_LEN)
 	name = "[initial(name)] - [tagname]"
@@ -268,8 +395,3 @@
 /obj/item/clothing/neck/beads/Initialize(mapload)
 	. = ..()
 	color = color = pick("#ff0077","#d400ff","#2600ff","#00ccff","#00ff2a","#e5ff00","#ffae00","#ff0000", "#ffffff")
-
-/obj/item/clothing/neck/tie/disco
-	name = "horrific necktie"
-	icon_state = "eldritch_tie"
-	desc = "The necktie is adorned with a garish pattern. It's disturbingly vivid. Somehow you feel as if it would be wrong to ever take it off. It's your friend now. You will betray it if you change it for some boring scarf."

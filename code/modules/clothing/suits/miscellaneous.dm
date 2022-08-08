@@ -441,6 +441,37 @@
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	species_exception = list(/datum/species/golem)
 
+/obj/item/clothing/suit/toggle/jacket/sweater
+	name = "sweater jacket"
+	desc = "A sweater jacket."
+	icon_state = "sweater"
+	worn_icon = 'icons/mob/clothing/suits/jacket.dmi'
+	greyscale_config = /datum/greyscale_config/sweater
+	greyscale_config_worn = /datum/greyscale_config/sweater_worn
+	greyscale_colors = "#414344"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/jacket/oversized
+	name = "oversized jacket"
+	desc = "An oversized jacket."
+	icon_state = "jacket_oversized"
+	greyscale_config = /datum/greyscale_config/jacket_oversized
+	greyscale_config_worn = /datum/greyscale_config/jacket_oversized_worn
+	greyscale_colors = "#414344"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/jacket/fancy
+	name = "fancy fur coat"
+	desc = "Rated 10 out of 10 in Cosmo for best coat brand."
+	icon_state = "fancy_coat"
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+	cold_protection = CHEST|GROIN|LEGS|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	greyscale_config = /datum/greyscale_config/fancy_coat
+	greyscale_config_worn = /datum/greyscale_config/fancy_coat_worn
+	greyscale_colors = "#EDE3DC#414344"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 /obj/item/clothing/suit/jacket/leather
 	name = "кожаный пиджак"
 	desc = "Помпадур не включен."
@@ -725,6 +756,36 @@
 	icon_state = "winterhood_miner"
 	armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0)
 
+/obj/item/clothing/suit/hooded/wintercoat/custom
+	name = "tailored winter coat"
+	desc = "A heavy jacket made from 'synthetic' animal furs, with custom colors."
+	greyscale_colors = "#ffffff#ffffff#808080#808080#808080#808080"
+	greyscale_config = /datum/greyscale_config/winter_coats
+	greyscale_config_worn = /datum/greyscale_config/winter_coats/worn
+	hoodtype = /obj/item/clothing/head/hooded/winterhood/custom
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+//In case colors are changed after initialization
+/obj/item/clothing/suit/hooded/wintercoat/custom/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
+	. = ..()
+	if(hood)
+		var/list/coat_colors = SSgreyscale.ParseColorString(greyscale_colors)
+		var/list/new_coat_colors = coat_colors.Copy(1,4)
+		hood.set_greyscale(new_coat_colors) //Adopt the suit's grayscale coloring for visual clarity.
+
+//But also keep old method in case the hood is (re-)created later
+/obj/item/clothing/suit/hooded/wintercoat/custom/MakeHood()
+	. = ..()
+	var/list/coat_colors = (SSgreyscale.ParseColorString(greyscale_colors))
+	var/list/new_coat_colors = coat_colors.Copy(1,4)
+	hood.set_greyscale(new_coat_colors) //Adopt the suit's grayscale coloring for visual clarity.
+
+/obj/item/clothing/head/hooded/winterhood/custom
+	name = "tailored winter coat hood"
+	desc = "A heavy jacket hood made from 'synthetic' animal furs, with custom colors."
+	greyscale_config = /datum/greyscale_config/winter_hoods
+	greyscale_config_worn = /datum/greyscale_config/winter_hoods/worn
+
 /obj/item/clothing/head/hooded/ablative
 	name = "аблативный капюшон"
 	desc = "Штука, которая защитит от лазеров, но не от пуль."
@@ -846,6 +907,16 @@
 	inhand_icon_state = "hawaiian_blue"
 	species_exception = list(/datum/species/golem)
 
+/obj/item/clothing/suit/costume/football_armor
+	name = "football protective gear"
+	desc = "Given to members of the football team!"
+	icon_state = "football_armor"
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+	greyscale_config = /datum/greyscale_config/football_armor
+	greyscale_config_worn = /datum/greyscale_config/football_armor_worn
+	greyscale_colors = "#D74722"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 /obj/item/clothing/suit/yakuza
 	name = "куртка клана донченг"
 	desc = "Куртка бешеного пса."
@@ -861,98 +932,98 @@
 	body_parts_covered = ARMS
 
 
-/obj/item/clothing/suit/driscoll
+/obj/item/clothing/suit/costume/driscoll
 	name = "driscoll poncho"
 	desc = "Keeping you warm in the harsh cold of space."
 	icon_state = "driscoll_suit"
 	inhand_icon_state = "driscoll_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 
-/obj/item/clothing/suit/irs
+/obj/item/clothing/suit/costume/irs
 	name = "internal revenue service jacket"
 	desc = "I'm crazy enough to take on The Owl, but the IRS? Nooo thank you!"
 	icon_state = "irs_suit"
 	inhand_icon_state = "irs_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 
-/obj/item/clothing/suit/osi
+/obj/item/clothing/suit/costume/osi
 	name = "\improper O.S.I. body armor"
 	desc = "You're beyond good and evil, super man. You work for the government. And you're a tool, boy, a tool! Built for a single purpose by the United States of shut your third fucking damn eye for a fucking reason! You can't teach a hammer to love nails, son. That dog don't hunt!"
 	icon_state = "osi_suit"
 	inhand_icon_state = "osi_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 
-/obj/item/clothing/suit/tmc
+/obj/item/clothing/suit/costume/tmc
 	name = "\improper Lost M.C. cut"
 	desc = "Making sure everyone knows you're in the best biker gang this side of Alderney."
 	icon_state = "tmc_suit"
 	inhand_icon_state = "tmc_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 
-/obj/item/clothing/suit/pg
+/obj/item/clothing/suit/costume/pg
 	name = "powder ganger jacket"
 	desc = "Remind Security of their mistakes in giving prisoners blasting charges."
 	icon_state = "pg_suit"
 	inhand_icon_state = "pg_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 
-/obj/item/clothing/suit/deckers
+/obj/item/clothing/suit/costume/deckers
 	name = "decker hoodie"
 	desc = "Based? Based on what?"
 	icon_state = "decker_suit"
 	inhand_icon_state = "decker_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 
-/obj/item/clothing/suit/morningstar
+/obj/item/clothing/suit/costume/morningstar
 	name = "morningstar coat"
 	desc = "This coat costs more than you've ever made in your entire life."
 	icon_state = "morningstar_suit"
 	inhand_icon_state = "morningstar_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 
-/obj/item/clothing/suit/saints
+/obj/item/clothing/suit/costume/saints
 	name = "Third Street Saints fur coat"
 	desc = "Rated 10 out of 10 in Cosmo for best coat brand."
 	icon_state = "saints_suit"
 	inhand_icon_state = "saints_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 
-/obj/item/clothing/suit/phantom
+/obj/item/clothing/suit/costume/phantom
 	name = "phantom thief coat"
 	desc = "Your foes will never see you coming in this stealthy yet stylish getup."
 	icon_state = "phantom_suit"
 	inhand_icon_state = "phantom_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 
-/obj/item/clothing/suit/allies
+/obj/item/clothing/suit/costume/allies
 	name = "allies body armor"
 	desc = "How 'bout some action!? Sponsored by DonkSoft Co. for historical reenactment of the Third World War!"
 	icon_state = "allies_armor"
 	inhand_icon_state = "allies_armor"
 	body_parts_covered = CHEST|GROIN
 
-/obj/item/clothing/suit/soviet
+/obj/item/clothing/suit/costume/soviet
 	name = "soviet armored coat"
 	desc = "Conscript reporting! Sponsored by DonkSoft Co. for historical reenactment of the Third World War!"
 	icon_state = "soviet_suit"
 	inhand_icon_state = "soviet_suit"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 
-/obj/item/clothing/suit/yuri
+/obj/item/clothing/suit/costume/yuri
 	name = "yuri initiate coat"
 	desc = "Yuri is master! Sponsored by DonkSoft Co. for historical reenactment of the Third World War!"
 	icon_state = "yuri_coat"
 	inhand_icon_state = "yuri_coat"
 	body_parts_covered = CHEST|GROIN|ARMS
 
-/obj/item/clothing/suit/sybil_slickers
+/obj/item/clothing/suit/costume/sybil_slickers
 	name = "sybil slickers protective gear"
 	desc = "Given to members of the Sybil Slickers football team!"
 	icon_state = "football_armor_blue"
 	inhand_icon_state = "football_armor_blue"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 
-/obj/item/clothing/suit/basil_boys
+/obj/item/clothing/suit/costume/basil_boys
 	name = "basil boys protective gear"
 	desc = "Given to members of the Basil Boys football team!"
 	icon_state = "football_armor_red"

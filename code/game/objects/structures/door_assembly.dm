@@ -17,6 +17,7 @@
 	var/heat_proof_finished = 0 //whether to heat-proof the finished airlock
 	var/previous_assembly = /obj/structure/door_assembly
 	var/noglass = FALSE //airlocks with no glass version, also cannot be modified with sheets
+	var/nomineral = FALSE //airlock with glass version, but cannot be modified with sheets
 	var/material_type = /obj/item/stack/sheet/iron
 	var/material_amt = 4
 
@@ -42,9 +43,9 @@
 		if(AIRLOCK_ASSEMBLY_NEEDS_SCREWDRIVER)
 			. += span_notice("Схема <b>не плотно подключена</b>в слот, панель технического обслуживания <i>откручена и открыта</i>.")
 	. += "<hr>"
-	if(!mineral && !glass && !noglass)
+	if(!mineral && !nomineral && !glass && !noglass)
 		. += span_notice("Маленькая <i>бумажная</i> табличка на каркасе [doorname]. Есть <i>свободные</i> места для установки стеклянных окон и место для покрытия конструкции материалами.")
-	else if(!mineral && glass && !noglass)
+	else if(!mineral && !nomineral && glass && !noglass)
 		. += span_notice("Маленькая <i>бумажная</i> табличка на каркасе [doorname]. Есть <i>свободное</i>место для обшивки материалами.")
 	else if(mineral && !glass && !noglass)
 		. += span_notice("Маленькая <i>бумажная</i> табличка на каркасе [doorname]. Есть <i>свободные</i> места для установки стеклянных окон.")
@@ -204,7 +205,7 @@
 									name = "почти готовое окно каркаса шлюза"
 								G.use(1)
 								glass = TRUE
-					if(!mineral)
+					if(!nomineral && !mineral)
 						if(istype(G, /obj/item/stack/sheet/mineral) && G.sheettype)
 							var/M = G.sheettype
 							if(G.get_amount() >= 2)
@@ -237,40 +238,58 @@
 				else
 					to_chat(user, span_warning("Не могу добавить [G] к [src]!"))
 
-	else if((W.tool_behaviour == TOOL_SCREWDRIVER) && state == AIRLOCK_ASSEMBLY_NEEDS_SCREWDRIVER )
+	else if((W.tool_behaviour == TOOL_SCREWDRIVER) && state == AIRLOCK_ASSEMBLY_NEEDS_SCREWDRIVER)
 		user.visible_message(span_notice("[user] заканчивает делать шлюз.") , \
 			span_notice("Почти закончил делать шлюз..."))
 
 		if(W.use_tool(src, user, 40, volume=100))
 			if(loc && state == AIRLOCK_ASSEMBLY_NEEDS_SCREWDRIVER)
 				to_chat(user, span_notice("Доделал шлюз."))
-				var/obj/machinery/door/airlock/door
-				if(glass)
-					door = new glass_type( loc )
-				else
-					door = new airlock_type( loc )
-				door.setDir(dir)
-				door.unres_sides = electronics.unres_sides
-				//door.req_access = req_access
-				door.electronics = electronics
-				door.heat_proof = heat_proof_finished
-				door.security_level = 0
-				if(electronics.one_access)
-					door.req_one_access = electronics.accesses
-				else
-					door.req_access = electronics.accesses
-				if(created_name)
-					door.name = created_name
-				else
-					door.name = base_name
-				door.previous_airlock = previous_assembly
-				electronics.forceMove(door)
-				door.update_icon()
-				qdel(src)
+				finish_door()
 	else
 		return ..()
 	update_name()
-	update_icon()
+	update_appearance()
+
+/obj/structure/door_assembly/proc/finish_door()
+	var/obj/machinery/door/airlock/door
+	if(glass)
+		door = new glass_type( loc )
+	else
+		door = new airlock_type( loc )
+	door.setDir(dir)
+	door.unres_sides = electronics.unres_sides
+	//door.req_access = req_access
+	door.electronics = electronics
+	door.heat_proof = heat_proof_finished
+	door.security_level = 0
+	if(electronics.shell)
+		door.AddComponent( \
+			/datum/component/shell, \
+			unremovable_circuit_components = list(new /obj/item/circuit_component/airlock, new /obj/item/circuit_component/airlock_access_event), \
+			capacity = SHELL_CAPACITY_LARGE, \
+			shell_flags = SHELL_FLAG_ALLOW_FAILURE_ACTION|SHELL_FLAG_REQUIRE_ANCHOR \
+		)
+	if(electronics.one_access)
+		door.req_one_access = electronics.accesses
+	else
+		door.req_access = electronics.accesses
+	if(created_name)
+		door.name = created_name
+	else if(electronics.passed_name)
+		door.name = sanitize(electronics.passed_name)
+	else
+		door.name = base_name
+	if(electronics.passed_cycle_id)
+		door.closeOtherId = electronics.passed_cycle_id
+		door.update_other_id()
+	if(door.unres_sides)
+		door.unres_sensor = TRUE
+	door.previous_airlock = previous_assembly
+	electronics.forceMove(door)
+	door.update_appearance()
+	qdel(src)
+	return door
 
 /obj/structure/door_assembly/update_overlays()
 	. = ..()

@@ -271,6 +271,10 @@
 	slowdown = 0
 	armor = list(MELEE = 70, BULLET = 40, LASER = 10, ENERGY = 20, BOMB = 50, BIO = 100, RAD = 100, FIRE = 100, ACID = 100)
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/resonator, /obj/item/mining_scanner, /obj/item/t_scanner/adv_mining_scanner, /obj/item/gun/energy/kinetic_accelerator, /obj/item/pickaxe)
+	greyscale_colors = "#4d4d4d#808080"
+	greyscale_config = /datum/greyscale_config/heck_suit
+	greyscale_config_worn = /datum/greyscale_config/heck_suit/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/space/hardsuit/hostile_environment/process(delta_time)
 	. = ..()
@@ -293,6 +297,10 @@
 	armor = list(MELEE = 70, BULLET = 40, LASER = 10, ENERGY = 20, BOMB = 50, BIO = 100, RAD = 100, FIRE = 100, ACID = 100)
 	resistance_flags = FIRE_PROOF | LAVA_PROOF | ACID_PROOF
 	actions_types = list()
+	greyscale_colors = "#4d4d4d#808080#ff3300"
+	greyscale_config = /datum/greyscale_config/heck_helmet
+	greyscale_config_worn = /datum/greyscale_config/heck_helmet/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/head/helmet/space/hardsuit/hostile_environment/Initialize(mapload)
 	. = ..()

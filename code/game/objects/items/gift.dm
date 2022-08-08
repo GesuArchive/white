@@ -22,7 +22,7 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 
 /obj/item/a_gift/Initialize(mapload)
 	. = ..()
-	pixel_x = rand(-10, 19)
+	pixel_x = rand(-10, 10)
 	pixel_y = rand(-10, 10)
 	icon_state = "giftdeliverypackage[rand(1,5)]"
 

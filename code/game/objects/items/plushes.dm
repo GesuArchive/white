@@ -502,10 +502,25 @@
 /obj/item/toy/plush/lizardplushie
 	name = "плюшевый ящер"
 	desc = "Очаровательная мягкая игрушка, похожая на ящерицу."
-	icon_state = "plushie_lizard"
-	inhand_icon_state = "plushie_lizard"
+	icon_state = "map_plushie_lizard"
+	greyscale_config = /datum/greyscale_config/plush_lizard
 	attack_verb_continuous = list("рвёт когтишками", "шипит", "шлёпает хвостиком")
 	attack_verb_simple = list("рвёт когтишками", "шипит", "шлёпает хвостиком")
+	squeak_override = list('sound/weapons/slash.ogg' = 1)
+
+// Preset lizard plushie that uses the original lizard plush green. (Or close to it)
+/obj/item/toy/plush/lizard_plushie/green
+	desc = "An adorable stuffed toy that resembles a green lizardperson. This one fills you with nostalgia and soul."
+	greyscale_colors = "#66ff33#000000"
+
+/obj/item/toy/plush/space_lizard_plushie
+	name = "space lizard plushie"
+	desc = "An adorable stuffed toy that resembles a very determined spacefaring lizardperson. To infinity and beyond, little guy."
+	icon_state = "plushie_spacelizard"
+	inhand_icon_state = "plushie_spacelizard"
+	// space lizards can't hit people with their tail, it's stuck in their suit
+	attack_verb_continuous = list("claws", "hisses", "bops")
+	attack_verb_simple = list("claw", "hiss", "bops")
 	squeak_override = list('sound/weapons/slash.ogg' = 1)
 
 /obj/item/toy/plush/lizardplushie/space

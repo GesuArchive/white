@@ -54,10 +54,23 @@
 	desc = "Спортивные штаны для местных атлетов."
 	icon_state = "trackpants"
 
+/obj/item/clothing/under/pants/slacks
+	name = "slacks"
+	desc = "A pair of comfy slacks."
+	icon_state = "slacks"
+	greyscale_config = /datum/greyscale_config/slacks
+	greyscale_config_worn = /datum/greyscale_config/slacks_worn
+	greyscale_colors = "#575757#3E3E3E#75634F"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 /obj/item/clothing/under/pants/jeans
 	name = "джинсы"
 	desc = "Слегка потертые временем джинсы."
 	icon_state = "jeans"
+	greyscale_config = /datum/greyscale_config/jeans
+	greyscale_config_worn = /datum/greyscale_config/jeans_worn
+	greyscale_colors = "#787878#723E0E#4D7EAC"
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/pants/khaki
 	name = "камуфляжные штаны"
