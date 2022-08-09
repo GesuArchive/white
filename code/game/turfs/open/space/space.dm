@@ -23,15 +23,13 @@
 
 /turf/open/space/basic/Initialize(mapload) // fast enough
 	SHOULD_CALL_PARENT(FALSE)
-	icon_state = SPACE_ICON_STATE
+	icon_state = SPACE_ICON_STATE(x, y, z)
 	if(!space_gas)
 		space_gas = new
 	air = space_gas
 	update_air_ref(0)
-	vis_contents.Cut()
-	visibilityChanged()
 	flags_1 |= INITIALIZED_1
-	add_overlay(GLOB.fullbright_overlay)
+	overlays += GLOB.fullbright_overlay
 	return INITIALIZE_HINT_NORMAL
 
 /**
@@ -41,45 +39,28 @@
  */
 /turf/open/space/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE)
-	icon_state = SPACE_ICON_STATE
+	icon_state = SPACE_ICON_STATE(x, y, z)
 	if(!space_gas)
 		space_gas = new
 	air = space_gas
 	update_air_ref(0)
-	vis_contents.Cut() //removes inherited overlays
-	visibilityChanged()
-
 	if(flags_1 & INITIALIZED_1)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
 
-	if (length(smoothing_groups))
-		sortTim(smoothing_groups) //In case it's not properly ordered, let's avoid duplicate entries with the same values.
-		SET_BITFLAG_LIST(smoothing_groups)
-	if (length(canSmoothWith))
-		sortTim(canSmoothWith)
-		if(canSmoothWith[length(canSmoothWith)] > MAX_S_TURF) //If the last element is higher than the maximum turf-only value, then it must scan turf contents for smoothing targets.
-			smoothing_flags |= SMOOTH_OBJ
-		SET_BITFLAG_LIST(canSmoothWith)
-
 	var/area/our_area = loc
 	if(our_area.static_lighting && always_lit) //Only provide your own lighting if the area doesn't for you
-		add_overlay(GLOB.fullbright_overlay)
+		// Intentionally not add_overlay for performance reasons.
+		// add_overlay does a bunch of generic stuff, like creating a new list for overlays,
+		// queueing compile, cloning appearance, etc etc etc that is not necessary here.
+		overlays += GLOB.fullbright_overlay
 
-	if (light_system == STATIC_LIGHT && light_power && light_range)
-		update_light()
-
-	if (opacity)
-		directional_opacity = ALL_CARDINALS
-
-	var/turf/T = SSmapping.get_turf_above(src)
-	if(T)
-		T.multiz_turf_new(src, DOWN)
-	T = SSmapping.get_turf_below(src)
-	if(T)
-		T.multiz_turf_new(src, UP)
-
-	ComponentInitialize()
+		var/turf/T = SSmapping.get_turf_above(src)
+		if(T)
+			T.multiz_turf_new(src, DOWN)
+		T = SSmapping.get_turf_below(src)
+		if(T)
+			T.multiz_turf_new(src, UP)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -221,7 +202,7 @@
 
 /turf/open/space/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	underlay_appearance.icon = 'icons/turf/space.dmi'
-	underlay_appearance.icon_state = SPACE_ICON_STATE
+	underlay_appearance.icon_state = SPACE_ICON_STATE(x, y, z)
 	underlay_appearance.plane = PLANE_SPACE
 	return TRUE
 
