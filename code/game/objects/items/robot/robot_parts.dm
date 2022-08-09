@@ -373,7 +373,7 @@
 /obj/item/robot_suit/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Отладка", "Производится отладка киборга")
+		ui = new(user, src, "CyborgBootDebug", "Производится отладка киборга")
 		ui.open()
 
 /obj/item/robot_suit/ui_data(mob/user)
