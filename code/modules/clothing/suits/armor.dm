@@ -272,6 +272,7 @@
 	name = "куртка надзирателя"
 	desc = "Темно-синяя бронированная куртка с синими плечевыми надписями и надписью «Warden» на одном из нагрудных карманов."
 	icon_state = "warden_alt"
+	worn_icon = 'icons/mob/clothing/suits/armor.dmi'
 	inhand_icon_state = "armor"
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS|HANDS
@@ -285,6 +286,7 @@
 	name = "бронежилет надзирателя"
 	desc = "Красный пиджак с серебряными бортиками и бронепластинами сверху."
 	icon_state = "warden_jacket"
+	worn_icon = 'icons/mob/clothing/suits/armor.dmi'
 
 /obj/item/clothing/suit/armor/vest/leather
 	name = "защитное пальто"
@@ -300,10 +302,12 @@
 
 /obj/item/clothing/suit/armor/vest/leather/noname
 	desc = "Кожаное пальто в легкой броне. Элегантно и практично." //временный костыль-подпорка для сноса говна зерги.
+
 /obj/item/clothing/suit/armor/vest/capcarapace
 	name = "капитанский панцирь"
 	desc = "Огнеупорный бронированный нагрудник, усиленный керамическими пластинами и пластиковыми полтронами, для обеспечения дополнительной защиты, при этом обеспечивая максимальную мобильность и гибкость. Выпускается только для лучших станций, хотя это действительно раздражает соски."
 	icon_state = "capcarapace"
+	worn_icon = 'icons/mob/clothing/suits/armor.dmi'
 	inhand_icon_state = "armor"
 	body_parts_covered = CHEST|GROIN
 	armor = list(MELEE = 50, BULLET = 40, LASER = 50, ENERGY = 50, BOMB = 25, BIO = 0, RAD = 0, FIRE = 100, ACID = 90, WOUND = 10)

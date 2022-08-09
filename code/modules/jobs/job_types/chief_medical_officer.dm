@@ -68,7 +68,8 @@
 	r_pocket = /obj/item/modular_computer/tablet/pda/heads/cmo
 	l_pocket = /obj/item/pinpointer/crew
 	ears = /obj/item/radio/headset/heads/cmo
-	uniform = /obj/item/clothing/under/rank/medical/chief_medical_officer
+	head = /obj/item/clothing/head/surgerycap/cmo
+	uniform = /obj/item/clothing/under/rank/medical/chief_medical_officer/scrubs
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	suit = /obj/item/clothing/suit/toggle/labcoat/cmo
 	l_hand = /obj/item/storage/firstaid/medical

@@ -2,6 +2,7 @@
 	name = "лабораторный халат"
 	desc = "Костюм, который защищает от небольших разливов химикатов."
 	icon_state = "labcoat"
+	worn_icon = 'icons/mob/clothing/suits/labcoat.dmi'
 	inhand_icon_state = "labcoat"
 	blood_overlay_type = "coat"
 	body_parts_covered = CHEST|ARMS

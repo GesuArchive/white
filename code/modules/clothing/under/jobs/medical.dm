@@ -20,6 +20,12 @@
 	fitted = NO_FEMALE_UNIFORM
 	can_adjust = FALSE
 
+/obj/item/clothing/under/rank/medical/chief_medical_officer/scrubs
+	name = "chief medical officer's scrubs"
+	desc = "A distinctive set of white and turquoise scrubs given to chief medical officers who desire a clinical look."
+	icon_state = "scrubscmo"
+	inhand_icon_state = "w_suit"
+
 /obj/item/clothing/under/rank/medical/geneticist
 	desc = "Изготовлен из специального волокна, которое обеспечивает особую защиту от биологических опасностей. На нем есть полоска генетического ранга."
 	name = "комбинезон генетика"
@@ -89,7 +95,7 @@
 /obj/item/clothing/under/rank/medical/doctor/purple
 	name = "фиолетовый медицинский халат"
 	desc = "Он изготовлен из специального волокна, которое обеспечивает незначительную защиту от биологических опасностей. Этот фиолетовый."
-	icon_state = "scrubspurple"
+	icon_state = "scrubswine"
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/medical/doctor/skirt

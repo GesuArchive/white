@@ -14,6 +14,7 @@
 	name = "био-костюм"
 	desc = "Костюм, который защищает от биологического загрязнения."
 	icon_state = "bio"
+	worn_icon = 'icons/mob/clothing/suits/bio.dmi'
 	inhand_icon_state = "bio_suit"
 	w_class = WEIGHT_CLASS_BULKY
 	gas_transfer_coefficient = 0.01
@@ -30,10 +31,10 @@
 
 //Standard biosuit, orange stripe
 /obj/item/clothing/head/bio_hood/general
-	icon_state = "bio_general"
+	icon_state = "bio"
 
 /obj/item/clothing/suit/bio_suit/general
-	icon_state = "bio_general"
+	icon_state = "bio"
 
 
 //Virology biosuit, green stripe
