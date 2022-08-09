@@ -148,9 +148,29 @@
 	to_chat(I.owner, "<span class='warning'>Знаток ушёл.</span>")
 	qdel(I.trauma)
 
-/mob/camera/imaginary_friend/mrat/pointed(atom/A as mob|obj|turf in view())
+/mob/camera/imaginary_friend/mrat/pointed(atom/pointed_atom as mob|obj|turf in view())
 	if(!..())
 		return FALSE
-	to_chat(owner, "<b>[src]</b> показывает на [A].")
-	to_chat(src, "<span class='notice'>Показываю на [A].</span>")
+
+	var/turf/tile = get_turf(pointed_atom)
+	if (!tile)
+		return
+
+	var/turf/our_tile = get_turf(src)
+	var/image/visual = image('icons/hud/screen_gen.dmi', our_tile, "arrow")
+
+	if(owner?.client)
+		owner.client.images |= visual
+		client.images |= visual
+		animate(visual, pixel_x = (tile.x - our_tile.x) * world.icon_size + pointed_atom.pixel_x, pixel_y = (tile.y - our_tile.y) * world.icon_size + pointed_atom.pixel_y, time = 1.7, easing = EASE_OUT)
+
+		spawn(2.5 SECONDS)
+			if(owner?.client)
+				owner.client.images.Remove(visual)
+			if(client)
+				client.images.Remove(visual)
+			QDEL_NULL(visual)
+
+	to_chat(owner, "<b>[src]</b> показывает на [pointed_atom].")
+	to_chat(src, "<span class='notice'>Показываю на [pointed_atom].</span>")
 	return TRUE

@@ -179,6 +179,12 @@
 		MA.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 		INVOKE_ASYNC(GLOBAL_PROC, /.proc/flick_overlay, MA, list(owner.client), 30)
 
+		if(owner?.client?.prefs.chat_on_map)
+			owner.create_chat_message(owner, raw_message = message)
+
+		if(client?.prefs.chat_on_map)
+			create_chat_message(src, raw_message = message)
+
 	for(var/mob/M in GLOB.dead_mob_list)
 		var/link = FOLLOW_LINK(M, owner)
 		to_chat(M, "[link] [dead_rendered]")
