@@ -99,9 +99,6 @@
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_LOGGED_IN, src)
 
-	if(hud_used?.tooltip)
-		hud_used.tooltip.update_view()
-
 	return TRUE
 
 

@@ -79,7 +79,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/atom/movable/screen/stamina
 	var/atom/movable/screen/healthdoll
 	var/atom/movable/screen/internals
-	var/atom/movable/screen/tooltip
+	var/atom/movable/screen/tooltip/tooltip
 	var/atom/movable/screen/timelimit/timelimit
 	var/atom/movable/screen/wanted/wanted_lvl
 	var/atom/movable/screen/spacesuit

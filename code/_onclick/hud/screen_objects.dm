@@ -47,9 +47,6 @@
 /atom/movable/screen/proc/component_click(atom/movable/screen/component_button/component, params)
 	return
 
-/atom/movable/screen/proc/update_view(datum/source)
-	return
-
 /atom/movable/screen/text
 	icon = null
 	icon_state = null
