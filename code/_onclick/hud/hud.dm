@@ -50,8 +50,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 	var/atom/movable/screen/combo/combo_display
 
-	var/atom/movable/screen/devil/soul_counter/devilsouldisplay
-
 	var/atom/movable/screen/fixeye/fixeye
 
 	var/atom/movable/screen/action_intent
@@ -154,7 +152,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	internals = null
 	spacesuit = null
 	lingchemdisplay = null
-	devilsouldisplay = null
 	lingstingdisplay = null
 	blobpwrdisplay = null
 	keeper_magic_display = null

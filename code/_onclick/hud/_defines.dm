@@ -37,7 +37,6 @@
 //Middle left indicators
 #define ui_lingchemdisplay "LEFT,CENTER-1:15"
 #define ui_lingstingdisplay "LEFT:6,CENTER-3:11"
-#define ui_devilsouldisplay "LEFT:6,CENTER-1:15"
 
 //Lower center, persistent menu
 #define ui_sstore1 "CENTER-5:10,BOTTOM:5"

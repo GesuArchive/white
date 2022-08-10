@@ -42,23 +42,12 @@
 	max_damage = 500
 	animal_origin = ALIEN_BODYPART
 
-/obj/item/bodypart/chest/devil
-	dismemberable = 0
-	max_damage = 5000
-	animal_origin = DEVIL_BODYPART
-
 /obj/item/bodypart/chest/larva
 	icon = 'icons/mob/animal_parts.dmi'
 	icon_state = "larva_chest"
 	dismemberable = 0
 	max_damage = 50
 	animal_origin = LARVA_BODYPART
-
-/obj/item/bodypart/l_arm/devil
-	dismemberable = FALSE
-	can_be_disabled = FALSE
-	max_damage = 5000
-	animal_origin = DEVIL_BODYPART
 
 /obj/item/bodypart/l_arm
 	name = "левая рука"
@@ -248,12 +237,6 @@
 	max_damage = 100
 	animal_origin = ALIEN_BODYPART
 
-/obj/item/bodypart/r_arm/devil
-	dismemberable = FALSE
-	can_be_disabled = FALSE
-	max_damage = 5000
-	animal_origin = DEVIL_BODYPART
-
 /obj/item/bodypart/l_leg
 	name = "левая нога"
 	desc = "Вставать с этой ноги не круто."
@@ -341,12 +324,6 @@
 	can_be_disabled = FALSE
 	max_damage = 100
 	animal_origin = ALIEN_BODYPART
-
-/obj/item/bodypart/l_leg/devil
-	dismemberable = FALSE
-	can_be_disabled = FALSE
-	max_damage = 5000
-	animal_origin = DEVIL_BODYPART
 
 /obj/item/bodypart/r_leg
 	name = "правая нога"
@@ -436,8 +413,3 @@
 	max_damage = 100
 	animal_origin = ALIEN_BODYPART
 
-/obj/item/bodypart/r_leg/devil
-	dismemberable = FALSE
-	can_be_disabled = FALSE
-	max_damage = 5000
-	animal_origin = DEVIL_BODYPART

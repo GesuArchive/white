@@ -1100,8 +1100,6 @@
 
 /datum/reagent/iron/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
 	. = ..()
-	if(!exposed_mob.has_bane(BANE_IRON)) //If the target is weak to cold iron, then poison them.
-		return
 	if(!holder || (holder.chem_temp >= 100)) // COLD iron.
 		return
 
@@ -1128,12 +1126,6 @@
 	taste_description = "дорогой, но разумный металл"
 	material = /datum/material/silver
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-
-/datum/reagent/silver/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
-	. = ..()
-	if(exposed_mob.has_bane(BANE_SILVER))
-		exposed_mob.reagents.add_reagent(/datum/reagent/toxin, reac_volume)
-
 
 /datum/reagent/uranium
 	name ="Uranium"

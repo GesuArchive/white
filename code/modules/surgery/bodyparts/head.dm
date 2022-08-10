@@ -276,8 +276,3 @@
 	dismemberable = 0
 	max_damage = 50
 	animal_origin = LARVA_BODYPART
-
-/obj/item/bodypart/head/devil
-	dismemberable = 0
-	max_damage = 5000
-	animal_origin = DEVIL_BODYPART

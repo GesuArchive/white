@@ -439,10 +439,6 @@
 	zeroth = null
 	zeroth_borg = null
 
-/datum/ai_laws/proc/clear_law_sixsixsix(force)
-	if(force || !is_devil(owner))
-		devillaws = null
-
 /datum/ai_laws/proc/associate(mob/living/silicon/M)
 	if(!owner)
 		owner = M

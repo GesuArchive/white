@@ -422,8 +422,6 @@
 /datum/reagent/consumable/salt/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message=TRUE, touch_protection=0)
 	. = ..()
 	exposed_mob.hydration -= 0.04
-	if(exposed_mob.has_bane(BANE_SALT))
-		exposed_mob.mind.disrupt_spells(-200)
 
 /datum/reagent/consumable/salt/expose_turf(turf/exposed_turf, reac_volume) //Creates an umbra-blocking salt pile
 	. = ..()

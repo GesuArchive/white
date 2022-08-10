@@ -1602,12 +1602,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if((I.item_flags & SURGICAL_TOOL) && user.a_intent == INTENT_HELP && H.body_position == LYING_DOWN && (LAZYLEN(H.surgeries) > 0))
 		Iwound_bonus = CANT_WOUND
 
-	var/weakness = H.check_weakness(I, user)
-
 	H.send_item_attack_message(I, user, hit_area, affecting)
 
 	var/attack_direction = get_dir(user, H)
-	apply_damage(I.force * weakness, I.damtype, def_zone, armor_block, H, wound_bonus = Iwound_bonus, bare_wound_bonus = I.bare_wound_bonus, sharpness = I.get_sharpness(), attack_direction = attack_direction)
+	apply_damage(I.force, I.damtype, def_zone, armor_block, H, wound_bonus = Iwound_bonus, bare_wound_bonus = I.bare_wound_bonus, sharpness = I.get_sharpness(), attack_direction = attack_direction)
 
 	if(!I.force || GLOB.is_tournament_rules)
 		return FALSE //item force is zero

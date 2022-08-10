@@ -625,16 +625,6 @@
 		span_notice("Нажимаю кнопочку на <b>[src.name]</b>.") ,
 		span_notice("Слышу мягкий щелчок."))
 
-/obj/item/toy/talking/codex_gigas/generate_messages()
-	var/datum/fake_devil/devil = new
-	var/list/messages = list()
-	messages += "Забавные факты о: [devil.truename]"
-	messages += "[GLOB.lawlorify[LORE][devil.bane]]"
-	messages += "[GLOB.lawlorify[LORE][devil.obligation]]"
-	messages += "[GLOB.lawlorify[LORE][devil.ban]]"
-	messages += "[GLOB.lawlorify[LORE][devil.banish]]"
-	return messages
-
 /obj/item/toy/talking/owl
 	name = "фигурка совы"
 	desc = "Фигурка в виде совы, защитницы правосудия."

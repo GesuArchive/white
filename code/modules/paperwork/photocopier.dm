@@ -349,15 +349,10 @@
 
 	else if(istype(O, /obj/item/paper))
 		if(copier_empty())
-			if(istype(O, /obj/item/paper/contract/infernal))
-				to_chat(user, span_warning("[src] smokes, smelling of brimstone!"))
-				resistance_flags |= FLAMMABLE
-				fire_act()
-			else
-				if(!user.temporarilyRemoveItemFromInventory(O))
-					return
-				paper_copy = O
-				do_insertion(O, user)
+			if(!user.temporarilyRemoveItemFromInventory(O))
+				return
+			paper_copy = O
+			do_insertion(O, user)
 		else
 			to_chat(user, span_warning("There is already something in [src]!"))
 
