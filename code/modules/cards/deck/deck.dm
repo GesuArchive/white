@@ -128,9 +128,6 @@
 
 	if(length(card_players) >= 2) // need at least 2 people to play a cardgame, duh!
 		for(var/mob/living/carbon/player in card_players)
-			var/other_players = english_list(card_players - player)
-			var/obj/item/toy/held_card_item = card_players[player]
-
 			SEND_SIGNAL(player, COMSIG_ADD_MOOD_EVENT, "playing_cards", /datum/mood_event/playing_cards)
 
 /obj/item/toy/cards/deck/attack_hand(mob/living/user, list/modifiers, flip_card = FALSE)
