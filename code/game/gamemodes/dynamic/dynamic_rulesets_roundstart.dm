@@ -16,7 +16,7 @@
 	required_candidates = 1
 	weight = 6
 	cost = 4	// Avoid raising traitor threat above 10, as it is the default low cost ruleset.
-	scaling_cost = 9
+	scaling_cost = 6
 	requirements = list(10,10,10,10,10,10,10,10,10,10)
 	antag_cap = list("denominator" = 24)
 	var/autotraitor_cooldown = (15 MINUTES)
@@ -105,7 +105,7 @@
 	required_candidates = 1
 	weight = 3
 	cost = 8
-	scaling_cost = 10
+	scaling_cost = 8
 	requirements = list(70,70,60,50,40,20,20,10,10,10)
 	antag_cap = list("denominator" = 29)
 
@@ -142,7 +142,7 @@
 	required_candidates = 1
 	weight = 3
 	cost = 7
-	scaling_cost = 9
+	scaling_cost = 5
 	requirements = list(50,45,45,40,35,20,20,15,10,10)
 	antag_cap = list("denominator" = 24)
 
@@ -379,9 +379,9 @@
 	flags = HIGH_IMPACT_RULESET
 	blocking_rules = list(/datum/dynamic_ruleset/latejoin/provocateur)
 	// I give up, just there should be enough heads with 35 players...
-	minimum_players = 35
+	minimum_players = 25
 	/// How much threat should be injected when the revolution wins?
-	var/revs_win_threat_injection = 20
+	var/revs_win_threat_injection = 30
 	var/datum/team/revolution/revolution
 	var/finished = FALSE
 
@@ -647,7 +647,7 @@
 	restricted_roles = list("AI", "Cyborg")
 	required_candidates = 1
 	weight = 3
-	cost = 20
+	cost = 15
 	scaling_cost = 9
 	requirements = list(50,45,45,40,35,20,20,15,10,10)
 	antag_cap = list("denominator" = 24)
@@ -759,7 +759,7 @@
 	required_candidates = 1
 	weight = 5
 	cost = 12
-	scaling_cost = 10
+	scaling_cost = 8
 	requirements = list(40,30,20,10,10,10,10,10,10,10)
 	antag_cap = list("denominator" = 29)
 
