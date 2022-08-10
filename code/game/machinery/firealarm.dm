@@ -57,6 +57,12 @@
 		/obj/item/circuit_component/firealarm,
 	))
 
+	AddElement( \
+		/datum/element/contextual_screentip_bare_hands, \
+		lmb_text = "Включить", \
+		rmb_text = "Выключить", \
+	)
+
 /obj/machinery/firealarm/Destroy()
 	if(my_area)
 		LAZYREMOVE(my_area.firealarms, src)

@@ -22,6 +22,20 @@
 	var/obj/item/bodybag/foldedbag_instance = null
 	var/tagged = FALSE // so closet code knows to put the tag overlay back
 
+/obj/structure/closet/body_bag/Initialize(mapload)
+	. = ..()
+	var/static/list/tool_behaviors = list(
+		TOOL_WIRECUTTER = list(
+			SCREENTIP_CONTEXT_RMB = "Убрать бирку",
+		),
+	)
+	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+	AddElement( \
+		/datum/element/contextual_screentip_bare_hands, \
+		rmb_text = "сложить", \
+	)
+	AddElement(/datum/element/contextual_screentip_sharpness, lmb_text = "Убрать бирку")
+
 /obj/structure/closet/body_bag/Destroy()
 	// If we have a stored bag, and it's in nullspace (not in someone's hand), delete it.
 	if (foldedbag_instance && !foldedbag_instance.loc)
@@ -66,6 +80,16 @@
 	if(.)
 		set_density(FALSE)
 		mouse_drag_pointer = MOUSE_ACTIVE_POINTER
+
+/obj/structure/closet/body_bag/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
+	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	if(!attempt_fold(user))
+		return SECONDARY_ATTACK_CONTINUE_CHAIN
+	perform_fold(user)
+	qdel(src)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/structure/closet/body_bag/MouseDrop(over_object, src_location, over_location)
 	. = ..()

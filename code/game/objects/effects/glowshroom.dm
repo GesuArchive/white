@@ -103,6 +103,15 @@ GLOBAL_VAR_INIT(glowshrooms, 0)
 
 	START_PROCESSING(SSobj, src)
 
+	var/static/list/hovering_item_typechecks = list(
+		/obj/item/plant_analyzer = list(
+			SCREENTIP_CONTEXT_LMB = "Состояние",
+			SCREENTIP_CONTEXT_RMB = "Химикаты"
+		),
+	)
+
+	AddElement(/datum/element/contextual_screentip_item_typechecks, hovering_item_typechecks)
+
 /obj/structure/glowshroom/Destroy()
 	. = ..()
 	GLOB.glowshrooms--

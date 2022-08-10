@@ -126,6 +126,21 @@
 	breakouttime = 20 SECONDS
 	cuffsound = 'sound/weapons/cablecuff.ogg'
 
+/obj/item/restraints/handcuffs/cable/Initialize(mapload)
+	. = ..()
+
+	var/static/list/hovering_item_typechecks = list(
+		/obj/item/stack/rods = list(
+			SCREENTIP_CONTEXT_LMB = "Сделать заготовку",
+		),
+
+		/obj/item/stack/sheet/iron = list(
+			SCREENTIP_CONTEXT_LMB = "Сделать болу",
+		),
+	)
+
+	AddElement(/datum/element/contextual_screentip_item_typechecks, hovering_item_typechecks)
+
 /obj/item/restraints/handcuffs/cable/red
 	color = "#ff0000"
 

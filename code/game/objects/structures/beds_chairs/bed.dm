@@ -59,6 +59,13 @@
 
 	var/foldabletype = /obj/item/roller
 
+/obj/structure/bed/roller/Initialize(mapload)
+	. = ..()
+	AddElement( \
+		/datum/element/contextual_screentip_bare_hands, \
+		rmb_text = "Сложить", \
+	)
+
 /obj/structure/bed/roller/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/roller/robo))
 		var/obj/item/roller/robo/R = W
@@ -79,6 +86,20 @@
 		return 1
 	else
 		return ..()
+
+/obj/structure/bed/roller/attack_hand_secondary(mob/user, list/modifiers)
+	. = ..()
+	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	if(!ishuman(user) || !user.canUseTopic(src, BE_CLOSE))
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	if(has_buckled_mobs())
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	user.visible_message(span_notice("[user] складывает [src]."), span_notice("Складываю [src]."))
+	var/obj/structure/bed/roller/folding_bed = new foldabletype(get_turf(src))
+	user.put_in_hands(folding_bed)
+	qdel(src)
+	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/structure/bed/roller/MouseDrop(over_object, src_location, over_location)
 	. = ..()

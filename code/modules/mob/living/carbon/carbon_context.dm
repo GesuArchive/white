@@ -18,7 +18,7 @@
 	if (human_user != src)
 		context[SCREENTIP_CONTEXT_RMB] = "Толкнуть"
 
-		if (!human_user.a_intent == INTENT_HELP)
+		if (human_user.a_intent == INTENT_HELP)
 			if (body_position == STANDING_UP)
 				if(check_zone(user.zone_selected) == BODY_ZONE_HEAD && get_bodypart(BODY_ZONE_HEAD))
 					context[SCREENTIP_CONTEXT_LMB] = "Погладить"

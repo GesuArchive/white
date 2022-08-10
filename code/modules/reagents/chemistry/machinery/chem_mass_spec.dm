@@ -37,6 +37,13 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 	beaker2 = new /obj/item/reagent_containers/glass/beaker/large(src)
 	ADD_TRAIT(src, DO_NOT_SPLASH, src.type)
 
+	AddElement( \
+		/datum/element/contextual_screentip_bare_hands, \
+		lmb_text = "Входной сосуд", \
+		rmb_text = "Выходной сосуд", \
+	)
+
+
 /obj/machinery/chem_mass_spec/Destroy()
 	QDEL_NULL(beaker1)
 	QDEL_NULL(beaker2)

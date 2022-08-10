@@ -158,19 +158,33 @@
  *
  * This handles creating an alert and adding an overlay to it
  */
-/mob/living/carbon/proc/give()
-	var/obj/item/offered_item = get_active_held_item()
-	if(!offered_item)
-		to_chat(src, span_warning("А у меня в руке ничего и нет!"))
+/mob/living/carbon/proc/give(mob/living/carbon/offered)
+	if(has_status_effect(STATUS_EFFECT_OFFERING))
+		to_chat(src, span_warning("Уже что-то даю!"))
 		return
 
 	if(IS_DEAD_OR_INCAP(src))
 		to_chat(src, span_warning("Что-то не выходит!"))
 		return
 
-	if(has_status_effect(STATUS_EFFECT_OFFERING))
-		to_chat(src, span_warning("Уже что-то даю!"))
+	var/obj/item/offered_item = get_active_held_item()
+	if(!offered_item)
+		to_chat(src, span_warning("А у меня в руке ничего и нет!"))
 		return
+
+	if(offered)
+
+		if(IS_DEAD_OR_INCAP(offered))
+			to_chat(src, span_warning("Он[offered.ru_a(TRUE)] особо и не может что-то взять в таком состоянии!"))
+			return
+
+		if(!CanReach(offered))
+			to_chat(src, span_warning("Слишком далеко!"))
+			return
+	else
+		if(!(locate(/mob/living/carbon) in orange(1, src)))
+			to_chat(src, span_warning("Никто не хочет брать!"))
+			return
 
 	if(offered_item.on_offered(src)) // see if the item interrupts with its own behavior
 		return
@@ -178,7 +192,7 @@
 	visible_message(span_notice("<b>[src.name]</b> хочет дать <b>[offered_item.name].</b>") , \
 					span_notice("Хочу дать <b>[offered_item.name]</b>.") , null, 2)
 
-	apply_status_effect(STATUS_EFFECT_OFFERING, offered_item)
+	apply_status_effect(STATUS_EFFECT_OFFERING, offered_item, null, offered)
 
 /**
  * Proc called when the player clicks the give alert
@@ -191,6 +205,9 @@
  */
 /mob/living/carbon/proc/take(mob/living/carbon/offerer, obj/item/I)
 	clear_alert("[offerer]")
+	if(IS_DEAD_OR_INCAP(src))
+		to_chat(src, span_warning("Как-то не выходит в моём состоянии!"))
+		return
 	if(get_dist(src, offerer) > 1)
 		to_chat(src, span_warning("<b>[offerer.name]</b> слишком далеко!"))
 		return

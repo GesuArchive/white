@@ -97,6 +97,15 @@
 			genes += new /datum/plant_gene/reagent(reag_id, reagents_add[reag_id])
 		reagents_from_genes() //quality coding
 
+	var/static/list/hovering_item_typechecks = list(
+		/obj/item/plant_analyzer = list(
+			SCREENTIP_CONTEXT_LMB = "Состояние",
+			SCREENTIP_CONTEXT_RMB = "Химикаты"
+		),
+	)
+
+	AddElement(/datum/element/contextual_screentip_item_typechecks, hovering_item_typechecks)
+
 /obj/item/seeds/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'>Use a pen on it to rename it or change its description.</span>"
