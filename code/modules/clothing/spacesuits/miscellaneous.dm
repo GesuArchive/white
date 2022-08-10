@@ -396,9 +396,6 @@ Contains:
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/pickaxe, /obj/item/spear, /obj/item/organ/regenerative_core/legion, /obj/item/kitchen/knife, /obj/item/kinetic_crusher, /obj/item/resonator, /obj/item/melee/cleaving_saw)
 
 
-/obj/item/clothing/suit/space/hardsuit/berserker/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/anti_magic, TRUE, TRUE, TRUE, ITEM_SLOT_OCLOTHING)
 
 /obj/item/clothing/suit/space/hardsuit/berserker/RemoveHelmet()
 	var/obj/item/clothing/head/helmet/space/hardsuit/berserker/helm = helmet
