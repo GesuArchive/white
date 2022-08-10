@@ -1,5 +1,4 @@
 /obj/item/restraints
-	breakoutchance = 100
 	breakouttime = 60 SECONDS
 	dye_color = DYE_PRISONER
 
@@ -9,17 +8,10 @@
 
 /obj/item/restraints/examine(mob/user)
 	. = ..()
-	switch(breakoutchance)
-		if(100)
-			if(breakouttime % 600 == 0)
-				. += span_notice("<hr>От таких оков можно избавиться примерно за <b>[breakouttime/600]</b> [getnoun(breakouttime/600, "минуту","минуты","минут")].")
-			else
-				. += span_notice("<hr>От таких оков можно избавиться примерно за <b>[breakouttime/10]</b> [getnoun(breakouttime/10, "секунду","секунды","секунд")].")
-		if(90 to 100)
-			. += span_notice("<hr>Из таких оков можно вырваться с первой попытки за <b>[breakouttime/10]</b> [getnoun(breakouttime/10, "секунду","секунды","секунд")].")
-		if(0 to 90)
-			. += span_notice("<hr>Из таких оков можно вырваться с шансом приблизительно <b>[round(breakoutchance,10)]%</b> за <b>[breakouttime/10]</b> [getnoun(breakouttime/10, "секунду","секунды","секунд")].")
-
+	if(breakouttime % 600 == 0)
+		. += span_notice("<hr>От таких оков можно избавиться примерно за <b>[breakouttime/600]</b> [getnoun(breakouttime/600, "минуту","минуты","минут")].")
+	else
+		. += span_notice("<hr>От таких оков можно избавиться примерно за <b>[breakouttime/10]</b> [getnoun(breakouttime/10, "секунду","секунды","секунд")].")
 
 /obj/item/restraints/Destroy()
 	if(iscarbon(loc))
@@ -53,7 +45,6 @@
 	throw_range = 5
 	custom_materials = list(/datum/material/iron=500)
 	breakouttime = 30 SECONDS
-	breakoutchance = 50
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 50)
 	custom_price = PAYCHECK_HARD * 0.35
 	var/cuffsound = 'sound/weapons/handcuffs.ogg'
@@ -133,7 +124,6 @@
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	custom_materials = list(/datum/material/iron=150, /datum/material/glass=75)
 	breakouttime = 20 SECONDS
-	breakoutchance = 50
 	cuffsound = 'sound/weapons/cablecuff.ogg'
 
 /obj/item/restraints/handcuffs/cable/red
@@ -166,7 +156,6 @@
 /obj/item/restraints/handcuffs/fake
 	name = "наручники"
 	desc = "Поддельные наручники, предназначенные для ролевых игр."
-	breakoutchance = 100
 	breakouttime = 1 SECONDS
 
 /obj/item/restraints/handcuffs/cable/attackby(obj/item/I, mob/user, params)
@@ -207,7 +196,6 @@
 	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 	custom_materials = null
 	breakouttime = 10 SECONDS
-	breakoutchance = 35
 	trashtype = /obj/item/restraints/handcuffs/cable/zipties/used
 	color = null
 
@@ -234,7 +222,6 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	slowdown = 7
 	breakouttime = 10 SECONDS
-	breakoutchance = 53.7 // 78.563% and 90.075% to break out on second and third try respectively
 
 /obj/item/restraints/legcuffs/beartrap
 	name = "медвежий капкан"
@@ -243,7 +230,6 @@
 	throw_range = 1
 	icon_state = "beartrap"
 	breakouttime = 10 SECONDS
-	breakoutchance = 100
 	var/armed = 0
 	var/trap_damage = 20
 
@@ -318,7 +304,6 @@
 	icon_state = "e_snare"
 	trap_damage = 0
 	breakouttime = 7 SECONDS
-	breakoutchance = 100
 	item_flags = DROPDEL
 	flags_1 = NONE
 
@@ -336,7 +321,7 @@
 	return ..()
 
 /obj/item/restraints/legcuffs/beartrap/energy/cyborg
-	breakoutchance = 70 // Cyborgs shouldn't have a strong restraint
+	breakouttime = 7 SECONDS // Cyborgs shouldn't have a strong restraint
 
 /obj/item/restraints/legcuffs/bola
 	name = "бола"
@@ -346,7 +331,6 @@
 	lefthand_file = 'icons/mob/inhands/weapons/thrown_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/thrown_righthand.dmi'
 	breakouttime = 4 SECONDS
-	breakoutchance = 100
 	gender = NEUTER
 	var/knockdown = 0
 
@@ -384,7 +368,6 @@
 	icon_state = "bola_r"
 	inhand_icon_state = "bola_r"
 	breakouttime = 8 SECONDS
-	breakoutchance = 100
 	knockdown = 35
 
 /obj/item/restraints/legcuffs/bola/energy //For Security
@@ -395,7 +378,6 @@
 	hitsound = 'sound/weapons/taserhit.ogg'
 	w_class = WEIGHT_CLASS_SMALL
 	breakouttime = 4 SECONDS
-	breakoutchance = 100
 	custom_price = PAYCHECK_HARD * 0.35
 
 /obj/item/restraints/legcuffs/bola/energy/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
@@ -411,7 +393,6 @@
 	desc = "Эй, если тебя что-то обнимает за ноги, то с таким же успехом это может быть этот маленький парень."
 	icon_state = "gonbola"
 	inhand_icon_state = "bola_r"
-	breakoutchance = 5
 	slowdown = 0
 	var/datum/status_effect/gonbola_pacify/effectReference
 

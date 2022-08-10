@@ -227,23 +227,18 @@
 	if(HAS_TRAIT(src, TRAIT_RESTRAINED))
 		changeNext_move(CLICK_CD_BREAKOUT)
 		last_special = world.time + CLICK_CD_BREAKOUT
-		var/buckle_break_chance = 100
 		var/buckle_time = 1 SECONDS
 
 		var/obj/item/restraints/O
 		if(handcuffed)
 			O = src.get_item_by_slot(ITEM_SLOT_HANDCUFFED)
-			buckle_break_chance = O.breakoutchance
 			buckle_time = O.breakouttime
 		visible_message(span_warning("[capitalize(src.name)] пытается выбраться из наручников!") , \
 					span_notice("Пытаюсь выбраться из наручников..."))
 		if(do_after(src, buckle_time, target = src, timed_action_flags = IGNORE_HELD_ITEM))
 			if(!buckled)
 				return
-			if(prob(buckle_break_chance))
-				buckled.user_unbuckle_mob(src,src)
-			else
-				to_chat(src, span_notice(pick("Ещё раз...", "Почти получилось...", "А ну-ка...", "А если так...", "Чёрт...", "Ну давай же...")))
+			buckled.user_unbuckle_mob(src,src)
 		else
 			if(src && buckled)
 				to_chat(src, span_warning("Не получилось выбраться из наручников!"))
@@ -281,13 +276,11 @@
 		cuff_resist(I)
 
 
-/mob/living/carbon/proc/cuff_resist(obj/item/I, breakoutchance = 5, cuff_break = 0)
+/mob/living/carbon/proc/cuff_resist(obj/item/I, cuff_break = 0)
 	if(I.item_flags & BEING_REMOVED)
 		to_chat(src, span_warning("Уже пытаюсь снять [I]!"))
 		return
 	I.item_flags |= BEING_REMOVED
-	breakoutchance = I.breakoutchance
-	var/breakoutchanceifsecurity = 1
 	var/breakouttimeisfsecurity = 1
 	if(!cuff_break)
 		visible_message(span_warning("[capitalize(src.name)] пытается снять [I]!"))
@@ -296,7 +289,6 @@
 			if(prob(80))
 				var/obj/item/bodypart/arm = src.hand_bodyparts[src.active_hand_index]
 				to_chat(src, span_notice("Вспоминаю курс \"Как не быть закованным в стяжки\" и пытаюсь повторить действия инструктора."))
-				breakoutchanceifsecurity = 3
 				breakouttimeisfsecurity = 15
 				to_chat(src, span_notice("Резким движением лопаю стяжки."))
 				arm.receive_damage(rand(5,8))
@@ -304,23 +296,15 @@
 
 
 		if(do_after(src, I.breakouttime/breakouttimeisfsecurity, target = src, timed_action_flags = IGNORE_HELD_ITEM))
-			if(prob(breakoutchance*breakoutchanceifsecurity))
-				. = clear_cuffs(I, cuff_break)
-			else
-				//I.breakoutchance++
-				to_chat(src, span_notice(pick("Ещё раз...", "Почти получилось...", "А ну-ка...", "А если так...", "Чёрт...", "Ну давай же...")))
+			. = clear_cuffs(I, cuff_break)
 		else
 			to_chat(src, span_warning("Не получилось снять [I]!"))
 
 	else if(cuff_break == FAST_CUFFBREAK)
-		breakoutchance = I.breakoutchance * 2
 		visible_message(span_warning("[capitalize(src.name)] пытается разорвать [I]!"))
 		to_chat(src, span_notice("Пытаюсь разорвать [I]..."))
 		if(do_after(src, I.breakouttime * 0.1, target = src, timed_action_flags = IGNORE_HELD_ITEM))
-			if(prob(breakoutchance))
-				. = clear_cuffs(I, cuff_break)
-			else
-				to_chat(src, span_alert(pick("СУКА!", "ДА БЛЯТЬ!", "ЧЁРТ!", "УКУСИ МЕНЯ ПЧЕЛА!", "ДО ЧЕГО ЖЕ КРЕПКИЕ, СУКА!", "УХ МЛЯ!")))
+			. = clear_cuffs(I, cuff_break)
 		else
 			to_chat(src, span_warning("У меня не вышло разорвать [I]!"))
 
@@ -374,8 +358,6 @@
 		return TRUE
 
 	else
-
-		I.breakoutchance = initial(I.breakoutchance)
 
 		if(I == handcuffed)
 			handcuffed.forceMove(drop_location())

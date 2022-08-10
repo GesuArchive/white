@@ -373,7 +373,6 @@
 	equip_delay_self = 50
 	strip_delay = 60
 	breakouttime = 3 MINUTES
-	breakoutchance = 100
 	slowdown = 4
 	var/mob/straight_user
 
