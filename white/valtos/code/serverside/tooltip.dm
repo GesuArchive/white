@@ -13,7 +13,7 @@
 	hud = _hud
 	update_view()
 
-/atom/movable/screen/tooltip/proc/update_view(datum/source)
+/atom/movable/screen/tooltip/update_view(datum/source)
 	SIGNAL_HANDLER
 	if(!hud || !hud.mymob.client.view_size) //Might not have been initialized by now
 		return
