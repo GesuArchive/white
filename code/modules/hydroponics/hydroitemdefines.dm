@@ -14,6 +14,28 @@
 	custom_materials = list(/datum/material/iron=30, /datum/material/glass=20)
 	var/scan_mode = PLANT_SCANMODE_STATS
 
+/obj/item/plant_analyzer/Initialize(mapload)
+	. = ..()
+	register_item_context()
+
+/obj/item/plant_analyzer/add_item_context(
+	obj/item/source,
+	list/context,
+	atom/target,
+)
+
+	if(isitem(target))
+		// Easier to handle this here, as grown items are split across two type-paths
+		var/obj/item/item_target = target
+		if(!item_target.get_plant_seed())
+			return NONE
+
+		context[SCREENTIP_CONTEXT_LMB] = "Сканировать состояние"
+		context[SCREENTIP_CONTEXT_RMB] = "Сканировать химикаты"
+		return CONTEXTUAL_SCREENTIP_SET
+
+	return NONE
+
 /obj/item/plant_analyzer/examine()
 	. = ..()
 	. += "<hr><span class='notice'>Активируй [src] в руке, чтобы сменить режим между анализом роста и анализом реагентов.</span>"
