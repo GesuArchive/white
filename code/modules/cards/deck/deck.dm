@@ -197,7 +197,7 @@
 
 	var/mob/living/thrower = throwingdatum.thrower
 
-	target.visible_message(span_warning("[target] принуждает поиграть в собери 52 карты!"), span_warning("Меня принуждают поиграть в собери 52 карты."))
+	target.visible_message(span_warning("[target] играет в собери 52 карты!"), span_warning("Меня принуждают поиграть в собери 52 карты."))
 	SEND_SIGNAL(target, COMSIG_ADD_MOOD_EVENT, "lost_52_card_pickup", /datum/mood_event/lost_52_card_pickup)
 	SEND_SIGNAL(thrower, COMSIG_ADD_MOOD_EVENT, "won_52_card_pickup", /datum/mood_event/won_52_card_pickup)
 
