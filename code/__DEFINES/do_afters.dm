@@ -2,6 +2,7 @@
 #define DOAFTER_SOURCE_MECHADRILL "doafter_mechadrill"
 #define DOAFTER_SOURCE_SURVIVALPEN "doafter_survivalpen"
 #define DOAFTER_SOURCE_GETTING_UP "doafter_gettingup"
+#define DOAFTER_SOURCE_CLIMBING_LADDER "doafter_climbingladder"
 #define DOAFTER_SOURCE_HOOK_TARGETTING "doafter_hook_targetting"
 #define DOAFTER_SOURCE_HOOK_PRE_SHOOTING "doafter_hook_pre_shooting"
 #define DOAFTER_SOURCE_HOOK_SHOOTING "doafter_hook_shooting"

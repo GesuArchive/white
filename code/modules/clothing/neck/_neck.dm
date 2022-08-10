@@ -39,6 +39,7 @@
 	if(clip_on)
 		return
 	update_appearance(UPDATE_ICON)
+	register_context()
 
 /obj/item/clothing/neck/tie/examine(mob/user)
 	. = ..()
@@ -88,6 +89,16 @@
 		strip_delay = 1 SECONDS
 		equip_delay_other = 1 SECONDS
 		equip_delay_self = 0
+
+/obj/item/clothing/neck/tie/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	if(clip_on)
+		return
+	if(is_tied)
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "Развязать"
+	else
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "Завязать"
+	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/clothing/neck/tie/blue
 	name = "синий галстук"

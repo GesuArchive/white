@@ -389,3 +389,37 @@
 	if(prob(0.001))
 		description = "<span class='revenbignotice'>КАКОЕ ЧУДО!</span>\n"
 		mood_change = 999
+
+/datum/mood_event/heresy
+	description = "<span class='warning'>I can hardly breathe with all this HERESY going on!</span>\n"
+	mood_change = -5
+	timeout = 5 MINUTES
+
+/datum/mood_event/soda_spill
+	description = "<span class='warning'>Cool! That's fine, I wanted to wear that soda, not drink it...</span>\n"
+	mood_change = -2
+	timeout = 1 MINUTES
+
+/datum/mood_event/watersprayed
+	description = "<span class='warning'>I hate being sprayed with water!</span>\n"
+	mood_change = -1
+	timeout = 30 SECONDS
+
+/datum/mood_event/gamer_withdrawal
+	description = "<span class='warning'>I wish I was gaming right now...</span>\n"
+	mood_change = -5
+
+/datum/mood_event/gamer_lost
+	description = "<span class='warning'>If I'm not good at video games, can I truly call myself a gamer?</span>\n"
+	mood_change = -10
+	timeout = 10 MINUTES
+
+/datum/mood_event/lost_52_card_pickup
+	description = "<span class='warning'>This is really embarrassing! I'm ashamed to pick up all these cards off the floor...</span>\n"
+	mood_change = -3
+	timeout = 3 MINUTES
+
+/datum/mood_event/russian_roulette_lose
+	description = "<span class='warning'>I gambled my life and lost! I guess this is the end...</span>\n"
+	mood_change = -20
+	timeout = 10 MINUTES

@@ -114,7 +114,19 @@
 		update_label()
 		update_icon()
 
+	register_context()
+
 	RegisterSignal(src, COMSIG_ATOM_UPDATED_ICON, .proc/update_in_wallet)
+
+/obj/item/card/id/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+
+	if(held_item != src)
+		return
+
+	context[SCREENTIP_CONTEXT_LMB] = "Показать ID"
+	context[SCREENTIP_CONTEXT_RMB] = "Снять кредиты"
+	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/card/id/Destroy()
 	if (registered_account)

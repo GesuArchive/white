@@ -93,6 +93,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	if(has_light)
 		light_butt = new(src)
 	update_icon()
+	register_context()
 	Add_Messenger()
 
 /obj/item/modular_computer/Destroy()
@@ -292,6 +293,14 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		. += "<hr><span class='warning'>Оно повреждено.</span>"
 
 	. += get_modular_computer_parts_examine(user)
+
+/obj/item/modular_computer/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+
+	context[SCREENTIP_CONTEXT_ALT_LMB] = "Изъять ID"
+	context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Изъять диск"
+
+	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/modular_computer/update_icon_state()
 	if(!bypass_state)

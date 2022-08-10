@@ -9,80 +9,37 @@
 /obj/item/toy/cards/deck/shitspawn_deck
 	name = "shitspawn deck of cards"
 	desc = "A deck of space-grade playing cards with some shitspawn in it."
-	icon = 'icons/obj/toy.dmi'
-	deckstyle = "nanotrasen"
-	icon_state = "deck_nanotrasen_full"
-	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 1
 	hitsound = 'white/ClickerOfThings/shitspawn_deck/cardinsult.ogg'
 
-
-
-
-/obj/item/toy/cards/deck/shitspawn_deck/attack_hand(mob/user)
-	var/choice = null
-	if(cards.len == 0)
-		to_chat(user, span_warning("There are no more cards to draw!"))
-		return
-	var/obj/item/toy/cards/singlecard/H = new/obj/item/toy/cards/singlecard(user.loc)
-	if(holo)
-		holo.spawned += H // track them leaving the holodeck
-	choice = cards[1]
-	H.cardname = choice
-	H.parentdeck = src
-	var/O = src
-	H.apply_card_vars(H,O)
-	src.cards -= choice
-	H.pickup(user)
-	user.put_in_hands(H)
+/obj/item/toy/cards/deck/shitspawn_deck/attack_hand(mob/living/user, list/modifiers, flip_card = FALSE)
+	. = ..()
 	playsound(src, 'white/ClickerOfThings/shitspawn_deck/pullcard.ogg', 50, 1)
-	user.visible_message("[user] draws a card from the deck. Karta razlozhena v drugom poryadke, blyat!", span_notice("You draw a card from the deck. Karta razlozhena v drugom poryadke, blyat!"))
+	user.visible_message("Karta razlozhena v drugom poryadke, blyat!", span_notice("Karta razlozhena v drugom poryadke, blyat!"))
 	update_icon()
 
-
-/obj/item/toy/cards/deck/shitspawn_deck/attack_self(mob/user)
-	if(cooldown < world.time - 50)
-		cards = shuffle(cards)
-		playsound(src, 'sound/items/cardshuffle.ogg', 50, 1)
-		playsound(src, 'white/ClickerOfThings/shitspawn_deck/cardshuffle2.ogg', 50, 1)
-		user.visible_message("[user] shuffles the deck. Karti razlozheni v drugom poryadke, blyat!", span_notice("You shuffle the deck. Karti razlozheni v drugom poryadke, blyat!"))
-		cooldown = world.time
+/obj/item/toy/cards/deck/shitspawn_deck/shuffle_cards(mob/living/user)
+	if(!COOLDOWN_FINISHED(src, shuffle_cooldown))
+		return
+	. = ..()
+	playsound(src, 'white/ClickerOfThings/shitspawn_deck/cardshuffle2.ogg', 50, 1)
+	user.visible_message("Karti razlozheni v drugom poryadke, blyat!", span_notice("Karti razlozheni v drugom poryadke, blyat!"))
 
 
-/obj/item/toy/cards/deck/shitspawn_deck/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/toy/cards/singlecard))
-		var/obj/item/toy/cards/singlecard/SC = I
-		if(SC.parentdeck == src)
-			if(!user.temporarilyRemoveItemFromInventory(SC))
-				to_chat(user, span_warning("The card is stuck to your hand, you can't add it to the deck!"))
-				return
-			cards += SC.cardname
-			playsound(src, 'white/ClickerOfThings/shitspawn_deck/diler_est.ogg', 50, 1)
-			user.visible_message("[user] adds a card to the bottom of the deck. Karta razlozhena v nuzhnom poryadke.",span_notice("You add the card to the bottom of the deck. Karta razlozhena v nuzhnom poryadke."))
-			cooldown = world.time
-			qdel(SC)
-		else
-			playsound(src, 'white/ClickerOfThings/shitspawn_deck/durak.ogg', 50, 1)
-			to_chat(user, span_warning("You can't mix cards from other decks! Ti che durak blyat?!"))
-		update_icon()
-	else if(istype(I, /obj/item/toy/cards/cardhand))
-		var/obj/item/toy/cards/cardhand/CH = I
-		if(CH.parentdeck == src)
-			if(!user.temporarilyRemoveItemFromInventory(CH))
-				to_chat(user, span_warning("The hand of cards is stuck to your hand, you can't add it to the deck!"))
-				return
-			cards += CH.currenthand
-			playsound(src, 'white/ClickerOfThings/shitspawn_deck/diler_est.ogg', 50, 1)
-			user.visible_message("[user] puts [user.ru_ego()] hand of cards in the deck. Ti to che delaesh?!", span_notice("You put the hand of cards in the deck. Ti to che delaesh?!"))
-			qdel(CH)
-		else
-			playsound(src, 'white/ClickerOfThings/shitspawn_deck/durak.ogg', 50, 1)
-			to_chat(user, span_warning("You can't mix cards from other decks! Ti che durak blyat?!"))
-		update_icon()
-	else if(istype(I, /obj/item/jobanyj_rot))
-		var/obj/item/jobanyj_rot = I
+/obj/item/toy/cards/deck/shitspawn_deck/attackby(obj/item/item, mob/living/user, params)
+	if(istype(item, /obj/item/toy/singlecard) || istype(item, /obj/item/toy/cards/cardhand))
+		user.visible_message("Karta razlozhena v nuzhnom poryadke.", span_notice("Karta razlozhena v nuzhnom poryadke."))
+		playsound(src, 'white/ClickerOfThings/shitspawn_deck/diler_est.ogg', 50, 1)
+	else if(istype(item, /obj/item/jobanyj_rot))
+		var/obj/item/jobanyj_rot = item
 		playsound(src, 'white/ClickerOfThings/shitspawn_deck/sluchai_v_kazino_full.ogg', 50, 1)
 		user.visible_message("[user] zamechaet, chto koloda raspolozhena v drugom poryadke. Yobaniy rot etogo kazino blyat!")
 		qdel(jobanyj_rot)
-	else
-		return ..()
+	return ..()
+
+/obj/item/toy/cards/deck/shitspawn_deck/AltClick(mob/living/user)
+	if(user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, NO_TK, !iscyborg(user)))
+		if(!wielded)
+			user.visible_message("Ti to che delaesh?!", span_notice("Ti to che delaesh?!"))
+			playsound(src, 'white/ClickerOfThings/shitspawn_deck/durak.ogg', 50, 1)
+	return ..()

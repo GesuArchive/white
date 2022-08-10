@@ -39,6 +39,8 @@ GLOBAL_VAR_INIT(blob_current_icon, pick('icons/mob/blob_64.dmi', 'icons/mob/blob
 
 	icon = GLOB.blob_current_icon
 
+	register_context()
+
 	if(owner_overmind)
 		overmind = owner_overmind
 		overmind.all_blobs += src
@@ -59,6 +61,22 @@ GLOBAL_VAR_INIT(blob_current_icon, pick('icons/mob/blob_64.dmi', 'icons/mob/blob
 
 	for(var/obj/structure/blob/B in orange(src,1))
 		anim(target = loc, a_icon = icon, flick_anim = "connect_spawn", sleeptime = 15, direction = get_dir(src, B), lay = layer, offX = -16, offY = -16, plane = plane)
+
+/obj/structure/blob/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+
+	if (!isovermind(user))
+		return .
+
+	if(istype(src, /obj/structure/blob/normal))
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Создать крепкую массу"
+	if(istype(src, /obj/structure/blob/shield) && !istype(src, /obj/structure/blob/shield/reflective))
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Создать отражающую массу"
+
+	if(point_return >= 0)
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "Удалить массу"
+
+	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/blob/proc/creation_action() //When it's created by the overmind, do this.
 	return

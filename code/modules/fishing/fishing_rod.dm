@@ -40,6 +40,26 @@
 
 	var/default_line_color = "gray"
 
+/obj/item/fishing_rod/Initialize(mapload)
+	. = ..()
+	register_context()
+	register_item_context()
+
+/obj/item/fishing_rod/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	if(src == held_item)
+		if(currently_hooked_item)
+			context[SCREENTIP_CONTEXT_LMB] = "Намотать"
+		context[SCREENTIP_CONTEXT_RMB] = "Модифицировать"
+		return CONTEXTUAL_SCREENTIP_SET
+	return NONE
+
+/obj/item/fishing_rod/add_item_context(obj/item/source, list/context, atom/target, mob/living/user)
+	. = ..()
+	if(currently_hooked_item)
+		context[SCREENTIP_CONTEXT_LMB] = "Намотать"
+		return CONTEXTUAL_SCREENTIP_SET
+	return NONE
+
 /obj/item/fishing_rod/Destroy(force)
 	. = ..()
 	//Remove any leftover fishing lines

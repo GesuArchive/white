@@ -43,6 +43,20 @@
 		buildstack = _buildstack
 	AddElement(/datum/element/climbable)
 
+	if (!(flags_1 & NODECONSTRUCT_1))
+		var/static/list/tool_behaviors = list(
+			TOOL_SCREWDRIVER = list(
+				SCREENTIP_CONTEXT_RMB = "Снять покрытие",
+			),
+
+			TOOL_WRENCH = list(
+				SCREENTIP_CONTEXT_RMB = "Разобрать",
+			),
+		)
+
+		AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+		register_context()
+
 /obj/structure/table/examine(mob/user)
 	. = ..()
 	. += deconstruction_hints(user)
@@ -243,6 +257,18 @@
 			return TRUE
 	else
 		return ..()
+
+/obj/structure/table/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	if(istype(held_item, /obj/item/toy/cards/deck))
+		var/obj/item/toy/cards/deck/dealer_deck = held_item
+		if(dealer_deck.wielded)
+			context[SCREENTIP_CONTEXT_LMB] = "Разыграть колоду"
+			context[SCREENTIP_CONTEXT_RMB] = "Разыграть колоду перевернув"
+			return CONTEXTUAL_SCREENTIP_SET
+
+	context[SCREENTIP_CONTEXT_RMB] = "Перевернуть"
+
+	return NONE
 
 /obj/structure/table/proc/AfterPutItemOnTable(obj/item/I, mob/living/user)
 	return

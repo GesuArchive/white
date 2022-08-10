@@ -223,14 +223,25 @@
 	desc = "Для предприимчивого ботаника в движении. Менее эффективен, чем стационарная модель, он дает одно семя на растение."
 	icon_state = "portaseeder"
 
-/obj/item/storage/bag/plants/portaseeder/verb/dissolve_contents()
-	set name = "Активировать экстракцию семян"
-	set category = "Объект"
-	set desc = "Активируйте, чтобы превратить растения в семена для посадки."
-	if(usr.incapacitated())
+/obj/item/storage/bag/plants/portaseeder/Initialize(mapload)
+	. = ..()
+	register_context()
+
+/obj/item/storage/bag/plants/portaseeder/add_context(
+	atom/source,
+	list/context,
+	obj/item/held_item,
+	mob/living/user
+)
+
+	context[SCREENTIP_CONTEXT_CTRL_LMB] = "Сделать семена"
+	return CONTEXTUAL_SCREENTIP_SET
+
+/obj/item/storage/bag/plants/portaseeder/CtrlClick(mob/user)
+	if(user.incapacitated())
 		return
-	for(var/obj/item/O in contents)
-		seedify(O, 1)
+	for(var/obj/item/plant in contents)
+		seedify(plant, 1)
 
 // -----------------------------
 //        Sheet Snatcher

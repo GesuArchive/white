@@ -47,12 +47,37 @@
 	attack_verb_continuous = list("колотит", "бьёт", "ударяет", "вмазывает")
 	attack_verb_simple = list("колотит", "бьёт", "ударяет", "вмазывает")
 	var/plank_type = /obj/item/stack/sheet/mineral/wood
-	var/plank_name = "wooden planks"
+	var/plank_name = "доски"
 	var/static/list/accepted = typecacheof(list(/obj/item/food/grown/tobacco,
 	/obj/item/food/grown/tea,
 	/obj/item/food/grown/ambrosia/vulgaris,
 	/obj/item/food/grown/ambrosia/deus,
 	/obj/item/food/grown/wheat))
+
+/obj/item/grown/log/Initialize(mapload, obj/item/seeds/new_seed)
+	. = ..()
+	register_context()
+
+/obj/item/grown/log/add_context(
+	atom/source,
+	list/context,
+	obj/item/held_item,
+	mob/living/user,
+)
+
+	if(isnull(held_item))
+		return NONE
+
+	if(held_item.get_sharpness())
+		// May be a little long, but I think "cut into planks" for steel caps may be confusing.
+		context[SCREENTIP_CONTEXT_LMB] = "Порубить на [plank_name]"
+		return CONTEXTUAL_SCREENTIP_SET
+
+	if(CheckAccepted(held_item))
+		context[SCREENTIP_CONTEXT_LMB] = "Сделать факел"
+		return CONTEXTUAL_SCREENTIP_SET
+
+	return NONE
 
 /obj/item/grown/log/attackby(obj/item/W, mob/user, params)
 	if(W.get_sharpness())
@@ -98,7 +123,7 @@
 	desc = "Сделано из металла."
 	icon_state = "steellogs"
 	plank_type = /obj/item/stack/rods
-	plank_name = "rods"
+	plank_name = "стержни"
 
 /obj/item/grown/log/steel/CheckAccepted(obj/item/I)
 	return FALSE
@@ -127,7 +152,7 @@
 	desc = "Длинное и прочное бамбуковое бревно."
 	icon_state = "bamboo"
 	plank_type = /obj/item/stack/sheet/mineral/bamboo
-	plank_name = "bamboo sticks"
+	plank_name = "бамбуковые палочки"
 
 /obj/item/grown/log/bamboo/CheckAccepted(obj/item/I)
 	return FALSE

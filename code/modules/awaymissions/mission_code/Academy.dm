@@ -405,6 +405,6 @@
 /obj/structure/ladder/unbreakable/rune/show_fluff_message(up,mob/user)
 	user.visible_message(span_notice("[user] activates <b>[src.name]</b>.") , span_notice("You activate <b>[src.name]</b>."))
 
-/obj/structure/ladder/unbreakable/rune/use(mob/user, is_ghost=FALSE)
-	if(is_ghost || !(user.mind in SSticker.mode.wizards))
+/obj/structure/ladder/unbreakable/rune/use(mob/user, going_up = TRUE)
+	if(!IS_WIZARD(user))
 		..()

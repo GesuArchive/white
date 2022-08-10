@@ -255,3 +255,68 @@
 	description = "<span class='nicegreen'>Fishing is relaxing.</span>\n"
 	mood_change = 5
 	timeout = 3 MINUTES
+
+/datum/mood_event/et_pieces
+	description = "<span class='nicegreen'>Mmm... I love peanut butter...</span>\n"
+	mood_change = 50
+	timeout = 10 MINUTES
+
+/datum/mood_event/memories_of_home
+	description = "<span class='nicegreen'>This taste seems oddly nostalgic...</span>\n"
+	mood_change = 3
+	timeout = 5 MINUTES
+
+/datum/mood_event/observed_soda_spill
+	description = "<span class='nicegreen'>Ahaha! It's always funny to see someone get sprayed by a can of soda.</span>\n"
+	mood_change = 2
+	timeout = 30 SECONDS
+
+/datum/mood_event/observed_soda_spill/add_effects(mob/spilled_mob, atom/soda_can)
+	if(!spilled_mob)
+		return
+
+	description = "<span class='nicegreen'>Ahaha! [spilled_mob] spilled [spilled_mob.p_their()] [soda_can ? soda_can.name : "soda"] all over [spilled_mob.p_them()]self! Classic.</span>\n"
+
+/datum/mood_event/gaming
+	description = "<span class='nicegreen'>I'm enjoying a nice gaming session!</span>\n"
+	mood_change = 2
+	timeout = 30 SECONDS
+
+/datum/mood_event/gamer_won
+	description = "<span class='nicegreen'>I love winning videogames!</span>\n"
+	mood_change = 10
+	timeout = 5 MINUTES
+
+/datum/mood_event/won_52_card_pickup
+	description = "<span class='nicegreen'>HA! That loser will be picking cards up for a long time!</span>\n"
+	mood_change = 3
+	timeout = 3 MINUTES
+
+/datum/mood_event/playing_cards
+	description = "<span class='nicegreen'>I'm enjoying playing cards with other people!</span>\n"
+	mood_change = 2
+	timeout = 3 MINUTES
+
+/datum/mood_event/garland
+	description = "<span class='nicegreen'>These flowers are rather soothing.</span>\n"
+	mood_change = 1
+
+/datum/mood_event/playing_cards/add_effects(param)
+	var/card_players = 1
+	for(var/mob/living/carbon/player in viewers(COMBAT_MESSAGE_RANGE, owner))
+		var/player_has_cards = player.is_holding(/obj/item/toy/singlecard) || player.is_holding_item_of_type(/obj/item/toy/cards)
+		if(player_has_cards)
+			card_players++
+			if(card_players > 5)
+				break
+
+	mood_change *= card_players
+	return ..()
+
+/datum/mood_event/russian_roulette_win
+	description = "<span class='nicegreen'>I gambled my life and won! I'm lucky to be alive...</span>\n"
+	mood_change = 2
+	timeout = 5 MINUTES
+
+/datum/mood_event/russian_roulette_win/add_effects(loaded_rounds)
+	mood_change = 2 ** loaded_rounds
