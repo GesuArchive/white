@@ -19,8 +19,6 @@ SUBSYSTEM_DEF(job)
 	/// Lazylist of mob:occupation_string pairs.
 	var/list/dynamic_forced_occupations
 
-	var/list/datum/job_department/joinable_departments = list()
-
 	/// List of all joinable departments indexed by their typepath, sorted by their own display order.
 	var/list/datum/job_department/joinable_departments_by_type = list()
 
@@ -88,6 +86,9 @@ SUBSYSTEM_DEF(job)
 		to_chat(world, span_boldannounce("Error setting up jobs, no job datums found"))
 		return FALSE
 
+	var/list/new_joinable_departments = list()
+	var/list/new_joinable_departments_by_type = list()
+
 	for(var/J in all_jobs)
 		var/datum/job/job = new J()
 		if(!job)
@@ -102,8 +103,25 @@ SUBSYSTEM_DEF(job)
 		occupations += job
 		name_occupations[job.title] = job
 		type_occupations[J] = job
-		joinable_departments[job.title] = job.departments_list
 		joinable_departments_by_type[J] = job.departments_list
+
+		if(!LAZYLEN(job.departments_list))
+			var/datum/job_department/department = joinable_departments_by_type[/datum/job_department/undefined]
+			if(!department)
+				department = new department_type()
+				new_joinable_departments_by_type[/datum/job_department/undefined] = department
+			department.add_job(job)
+			continue
+		for(var/department_type in job.departments_list)
+			var/datum/job_department/department = new_joinable_departments_by_type[department_type]
+			if(!department)
+				department = new department_type()
+				new_joinable_departments_by_type[department_type] = department
+			department.add_job(job)
+
+	sortTim(new_joinable_departments_by_type, /proc/cmp_department_display_asc, associative = TRUE)
+
+	joinable_departments_by_type = new_joinable_departments_by_type
 
 	return TRUE
 
@@ -117,11 +135,6 @@ SUBSYSTEM_DEF(job)
 	if(!occupations.len)
 		SetupOccupations()
 	return type_occupations[jobtype]
-
-/datum/controller/subsystem/job/proc/get_departments_by_name(rank)
-	if(!occupations.len)
-		SetupOccupations()
-	return joinable_departments[rank]
 
 /datum/controller/subsystem/job/proc/get_department_type(department_type)
 	if(!occupations.len)

@@ -21,8 +21,8 @@
 	//reference to all independent nation teams
 	var/list/team_datums = list()
 	for(var/datum/antagonist/separatist/separatist_datum in GLOB.antagonists)
-		var/list/deps = SSjob.get_departments_by_name(separatist_datum.owner?.assigned_role)
-		var/independent_department_type = deps[1]
+		var/datum/job/tjob = SSjob.GetJob(separatist_datum.owner?.assigned_role)
+		var/independent_department_type = tjob.departments_list[1]
 		independent_departments |= independent_department_type
 		team_datums |= separatist_datum.nation
 

@@ -72,7 +72,7 @@
 	var/msg
 	var/list/haters = list()
 	for(var/hater_department_type as anything in list(/datum/job_department/security, /datum/job_department/command))
-		var/datum/job_department/hater_department = pick(SSjob.get_department_type(hater_department_type))
+		var/datum/job_department/hater_department = SSjob.get_department_type(hater_department_type)
 		for(var/datum/job/hater_job as anything in hater_department.department_jobs)
 			haters += hater_job
 	var/datum/job/quartermaster/fucking_quartermaster = SSjob.GetJobType(/datum/job/quartermaster)
