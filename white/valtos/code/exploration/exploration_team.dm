@@ -14,11 +14,19 @@
 	skills = list(/datum/skill/ranged = SKILL_EXP_EXPERT, /datum/skill/surgery = SKILL_EXP_JOURNEYMAN, /datum/skill/parry = SKILL_EXP_APPRENTICE)
 	minimal_skills = list(/datum/skill/ranged = SKILL_EXP_JOURNEYMAN, /datum/skill/surgery = SKILL_EXP_APPRENTICE, /datum/skill/parry = SKILL_EXP_APPRENTICE)
 
+	departments_list = list(
+		/datum/job_department/cargo,
+		/datum/job_department/science,
+	)
+
 	paycheck = PAYCHECK_HARD
 	paycheck_department = ACCOUNT_CAR
 
 	display_order = JOB_DISPLAY_ORDER_SHAFT_MINER
 	bounty_types = CIV_JOB_MINE
+
+	rpg_title = "Explorer"
+	rpg_title_ru = "Лазутчик"
 
 	metalocked = TRUE
 

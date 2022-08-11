@@ -19,6 +19,10 @@
 	display_order = JOB_DISPLAY_ORDER_SHAFT_MINER
 	bounty_types = CIV_JOB_MINE
 
+	departments_list = list(
+		/datum/job_department/cargo,
+	)
+
 	rpg_title = "Bosshunter"
 	rpg_title_ru = "Боссхантер"
 
