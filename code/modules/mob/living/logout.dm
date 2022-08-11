@@ -11,7 +11,7 @@
 		addtimer(CALLBACK(src, .proc/ice_cream_check), ice_cream_mob_time)
 
 /mob/living/carbon/proc/ice_cream_check()
-	if(!src || client || stat == DEAD)
+	if(!src || client || stat == DEAD || isjellyperson(src))
 		return
 	ADD_TRAIT(src, TRAIT_CLIENT_LEAVED, "ice_cream")
 	var/area/A = get_area(src)

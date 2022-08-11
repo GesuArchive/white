@@ -375,7 +375,7 @@
 	if(dupe.stat == DEAD) //Is it alive?
 		return FALSE
 
-	if(dupe.stat != CONSCIOUS) //Is it awake?
+	if(dupe.stat == DEAD) //Is it awake?
 		return FALSE
 
 	if(dupe.mind && dupe.mind.active) //Is it unoccupied?
