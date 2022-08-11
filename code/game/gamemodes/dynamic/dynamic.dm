@@ -340,9 +340,9 @@ GLOBAL_VAR_INIT(dynamic_forced_threat_level, -1)
 
 	print_command_report(., "Отчёт центрального командования", announce=FALSE)
 	if(greenshift)
-		priority_announce("Thanks to the tireless efforts of our security and intelligence divisions, there are currently no credible threats to [station_name()]. All station construction projects have been authorized. Have a secure shift!", "Security Report", SSstation.announcer.get_rand_report_sound())
+		priority_announce("Благодаря неустанным усилиям наших подразделений безопасности и разведки, в настоящее время нет никаких реальных угроз для [station_name()]. Все проекты строительства на станции были утверждены. Удачной смены!", "Отчёт отдела безопасности", SSstation.announcer.get_rand_report_sound())
 	else
-		priority_announce("A summary has been copied and printed to all communications consoles.", "Security level elevated.", ANNOUNCER_INTERCEPT)
+		priority_announce("Сводная информация была скопирована и распечатана на всех коммуникационных консолях.", "Вражеская связь перехвачена. Уровень безопасности повышен.", ANNOUNCER_INTERCEPT)
 		if(SSsecurity_level.current_level < SEC_LEVEL_BLUE)
 			SSsecurity_level.set_level(SEC_LEVEL_BLUE)
 
@@ -482,9 +482,6 @@ GLOBAL_VAR_INIT(dynamic_forced_threat_level, -1)
 	for(var/datum/dynamic_ruleset/roundstart/rule in executed_rules)
 		rule.candidates.Cut() // The rule should not use candidates at this point as they all are null.
 		addtimer(CALLBACK(src, /datum/game_mode/dynamic/.proc/execute_roundstart_rule, rule), rule.delay)
-
-	if (!CONFIG_GET(flag/no_intercept_report))
-		addtimer(CALLBACK(src, .proc/send_intercept), rand(waittime_l, waittime_h))
 
 	..()
 
