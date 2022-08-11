@@ -1866,9 +1866,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("tooltip_pos")
 					w_toggles ^= TOOLTIP_USER_POS
 					if(w_toggles & TOOLTIP_USER_POS)
-						user?.hud_used?.tooltip?.screen_loc = "SOUTH+1,CENTER-4:16"
+						user?.hud_used?.tooltip?.screen_loc = "BOTTOM+2,LEFT"
 					else
-						user?.hud_used?.tooltip?.screen_loc = "TOP,CENTER-4:16"
+						user?.hud_used?.tooltip?.screen_loc = "TOP,LEFT"
 
 				if("tooltip_retro")
 					w_toggles ^= TOOLTIP_USER_RETRO

@@ -108,7 +108,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	tooltip = new /atom/movable/screen/tooltip()
 	tooltip?.hud = src
 	if (owner?.client?.prefs?.w_toggles & TOOLTIP_USER_POS)
-		tooltip?.screen_loc = "SOUTH+1,CENTER-4:16"
+		tooltip?.screen_loc = "BOTTOM+2,LEFT"
 	infodisplay += tooltip
 
 	if(GLOB.violence_mode_activated)
