@@ -59,6 +59,12 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	// пикаем арену
 	var/obj/effect/landmark/violence/V = GLOB.violence_landmark
 	V.load_map()
+	// включаем ТТС
+	GLOB.tts = TRUE
+	// включаем киллкаунтер
+	GLOB.prikol_mode = TRUE
+	// включаем турнирный режим
+	GLOB.is_tournament_rules = TRUE
 	// заполняем карту генераторными штуками
 	SSmapping.seedStation()
 	// генерируем штуки для закупа
@@ -87,6 +93,9 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	)
 	// удаляем все спаунеры из мира
 	QDEL_LIST(GLOB.mob_spawners)
+	// удаляем все CTF из мира
+	for(var/obj/machinery/capture_the_flag/CTF in GLOB.machines)
+		qdel(CTF)
 	// маркируем все текущие атомы, чтобы чистильщик их не удалил
 	for(var/atom/A in main_area)
 		A.flags_1 |= KEEP_ON_ARENA_1
@@ -273,7 +282,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		var/list/stats_blues = list()
 		var/list/stats = list()
 		stats += "<table><tr><td>Игрок</td><td>Убийств</td><td>Смертей</td></tr>"
-		for(var/key in sort_list(GLOB.violence_players))
+		for(var/key in sortTim(GLOB.violence_players, /proc/cmp_violence_players))
 			var/datum/violence_player/VP = GLOB.violence_players[key]
 			// раздаём деньги бомжам
 			VP.money += payout * GLOB.violence_current_round
@@ -286,12 +295,15 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		LAZYADD(stats, stats_blues)
 		stats += "</table>"
 		to_chat(world, span_info(stats.Join()))
-		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round] ЗАВЕРШЁН!"))
+		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round]/[VIOLENCE_FINAL_ROUND] ЗАВЕРШЁН!"))
 		to_chat(world, leader_brass("ПОБЕДА [winner]! <b class='red'>[wins_reds]</b>/<b class='blue'>[wins_blues]</b>"))
-		to_chat(world, leader_brass("Выдано [payout * GLOB.violence_current_round]₽ всем!"))
+		to_chat(world, leader_brass("Выдано [payout * GLOB.violence_current_round]₽ победителям и [winner != "КРАСНЫХ" ? losestreak_reds * payout : losestreak_blues * payout] проигравшим!"))
 	play_sound_to_everyone('white/valtos/sounds/crowd_win.ogg')
 	spawn(10 SECONDS)
 		new_round()
+
+/proc/cmp_violence_players(datum/violence_player/a, datum/violence_player/b)
+	return a.kills - b.kills
 
 // удаляет все атомы без флага KEEP_ON_ARENA_1 в основной зоне, также закрывает шаттерсы
 /datum/game_mode/violence/proc/clean_arena()

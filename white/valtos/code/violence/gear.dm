@@ -280,7 +280,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/armor/basic
 	name = "Бронежилет"
-	cost = 100
+	cost = 200
 	items = list(
 		/obj/item/clothing/suit/armor/vest/hecu,
 		/obj/item/clothing/mask/gas/heavy/m40,
@@ -291,7 +291,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/armor/bulletproof
 	name = "Пуленепробиваемый"
-	cost = 150
+	cost = 350
 	items = list(
 		/obj/item/clothing/suit/armor/bulletproof/hecu,
 		/obj/item/clothing/mask/gas/heavy/gp7vm,
@@ -300,20 +300,9 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	)
 	allowed_themes = list("std", "warfare")
 
-/datum/violence_gear/armor/deathsquad
-	name = "Дедушка"
-	cost = 300
-	items = list(
-		/obj/item/clothing/suit/space/hardsuit/deathsquad,
-		/obj/item/clothing/gloves/combat,
-		/obj/item/clothing/mask/gas/sechailer/swat,
-		/obj/item/clothing/shoes/combat/swat
-	)
-	allowed_themes = list("std", "warfare")
-
 /datum/violence_gear/armor/pcv
 	name = "PCV MARK II"
-	cost = 500
+	cost = 450
 	items = list(
 		/obj/item/clothing/suit/space/hev_suit/pcv,
 		/obj/item/clothing/gloves/combat,
@@ -323,24 +312,35 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	)
 	allowed_themes = list("std", "warfare")
 
+/datum/violence_gear/armor/deathsquad
+	name = "Дедушка"
+	cost = 600
+	items = list(
+		/obj/item/clothing/suit/space/hardsuit/deathsquad,
+		/obj/item/clothing/gloves/combat,
+		/obj/item/clothing/mask/gas/sechailer/swat,
+		/obj/item/clothing/shoes/combat/swat
+	)
+	allowed_themes = list("std", "warfare")
+
 /datum/violence_gear/shield
 	cat = "Щиты"
 
 /datum/violence_gear/shield/buckler
 	name = "Деревянный щит"
-	cost = 50
+	cost = 100
 	items = list(/obj/item/shield/riot/buckler)
 	allowed_themes = list("std", "warfare")
 
 /datum/violence_gear/shield/riot
 	name = "Крепкий щит"
-	cost = 100
+	cost = 150
 	items = list(/obj/item/shield/riot)
 	allowed_themes = list("std", "warfare")
 
 /datum/violence_gear/shield/kevlar
 	name = "Кевларовый щит"
-	cost = 200
+	cost = 300
 	items = list(/obj/item/shield/riot/kevlar)
 	allowed_themes = list("std", "warfare")
 
