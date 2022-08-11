@@ -86,7 +86,6 @@ SUBSYSTEM_DEF(job)
 		to_chat(world, span_boldannounce("Error setting up jobs, no job datums found"))
 		return FALSE
 
-	var/list/new_joinable_departments = list()
 	var/list/new_joinable_departments_by_type = list()
 
 	for(var/J in all_jobs)
@@ -108,7 +107,7 @@ SUBSYSTEM_DEF(job)
 		if(!LAZYLEN(job.departments_list))
 			var/datum/job_department/department = joinable_departments_by_type[/datum/job_department/undefined]
 			if(!department)
-				department = new department_type()
+				department = new
 				new_joinable_departments_by_type[/datum/job_department/undefined] = department
 			department.add_job(job)
 			continue
