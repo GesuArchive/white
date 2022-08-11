@@ -374,7 +374,7 @@
 	popup.open(FALSE) // 0 is passed to open so that it doesn't use the onclose() proc
 
 /mob/dead/new_player/proc/display_positions(datum/job/job_datum)
-	if(job_datum.total_positions == -1)
+	if(job_datum.total_positions == -1 || job_datum.total_positions > 8)
 		return "[job_datum.current_positions]/∞"
 	var/generated_text = ""
 	var/open_positions = job_datum.total_positions - job_datum.current_positions
