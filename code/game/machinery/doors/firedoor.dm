@@ -195,14 +195,14 @@
 		return FIRELOCK_ALARM_TYPE_COLD
 	return
 
-/obj/machinery/door/firedoor/proc/process_results(datum/source)
+/obj/machinery/door/firedoor/proc/process_results(turf/location, datum/gas_mixture/environment, exposed_temperature)
 	SIGNAL_HANDLER
 
 	for(var/area/place in affecting_areas)
 		if(!place.fire_detect) //if any area is set to disable detection
 			return
 
-	var/turf/checked_turf = source
+	var/turf/checked_turf = location
 	var/result = check_atmos(checked_turf)
 
 	if(result && TURF_SHARES(checked_turf))
