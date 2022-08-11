@@ -169,8 +169,8 @@
 	if(candidates.len < 2)
 		return NOT_ENOUGH_PLAYERS
 
-	var/mob/living/carbon/human/first = makeBody(pick_n_take(candidates))
-	var/mob/living/carbon/human/second = makeBody(pick_n_take(candidates))
+	var/mob/living/carbon/human/first = make_body(pick_n_take(candidates))
+	var/mob/living/carbon/human/second = make_body(pick_n_take(candidates))
 
 	var/datum/team/schoolshooters/T = new
 

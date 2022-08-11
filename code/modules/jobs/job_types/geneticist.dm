@@ -23,6 +23,10 @@
 		/obj/item/storage/box/monkeycubes = 10
 	)
 
+	departments_list = list(
+		/datum/job_department/science,
+	)
+
 	rpg_title = "Genemancer"
 	rpg_title_ru = "Геномансер"
 

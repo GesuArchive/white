@@ -48,7 +48,7 @@
 				var/datum/generator_settings/instance = new generator_type()
 				if(instance.probability != 0)
 					generator_settings_cache[instance] = instance.probability
-		generator_settings = pickweight(generator_settings_cache)
+		generator_settings = pick_weight(generator_settings_cache)
 
 	//We need doors
 	var/list/placed_room_entrances = list()
@@ -324,19 +324,19 @@
 		if(prob(floor_break_prob) && istype(T, /turf/open/floor/plasteel))
 			T = T.ScrapeAway()
 		//Spawn floortrash.
-		var/new_floortrash = pickweight(floortrash)
+		var/new_floortrash = pick_weight(floortrash)
 		if(ispath(new_floortrash))
 			new new_floortrash(T)
 		//Check for walls and spawn walltrash
 		for(var/direction in GLOB.cardinals)
 			var/turf/T1 = get_step(T, direction)
 			if(isclosedturf(T1))
-				var/new_directional_walltrash = pickweight(directional_walltrash)
+				var/new_directional_walltrash = pick_weight(directional_walltrash)
 				if(ispath(new_directional_walltrash))
 					var/atom/A = new new_directional_walltrash(T)
 					A.setDir(direction)
 				else
-					var/new_nondirectional_walltrash = pickweight(nondirectional_walltrash)
+					var/new_nondirectional_walltrash = pick_weight(nondirectional_walltrash)
 					if(ispath(new_nondirectional_walltrash))
 						var/atom/A = new new_nondirectional_walltrash(T)
 						switch(direction)

@@ -27,6 +27,10 @@
 		/obj/item/toy/plush/ratplush = 1
 	)
 
+	departments_list = list(
+		/datum/job_department/service,
+	)
+
 	rpg_title = "Paladin"
 	rpg_title_ru = "Паладин"
 

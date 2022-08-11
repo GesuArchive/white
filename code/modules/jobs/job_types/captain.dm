@@ -32,6 +32,10 @@
 		/obj/item/reagent_containers/food/drinks/bottle/champagne = 10
 	)
 
+	departments_list = list(
+		/datum/job_department/command,
+	)
+
 	rpg_title = "Star Duke"
 	rpg_title_ru = "Звездный герцог"
 

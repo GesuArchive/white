@@ -34,6 +34,10 @@
 		/obj/effect/spawner/lootdrop/memeorgans = 1
 	)
 
+	departments_list = list(
+		/datum/job_department/medical,
+	)
+
 	rpg_title = "Cleric"
 	rpg_title_ru = "Клерик"
 

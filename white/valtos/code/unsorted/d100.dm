@@ -567,8 +567,8 @@
 				var/list/candidates = poll_ghost_candidates("Хотите быть террористом?", ROLE_TRAITOR, ROLE_TRAITOR)
 
 				if(candidates.len >= 2)
-					var/mob/living/carbon/human/first = makeBody(pick_n_take(candidates))
-					var/mob/living/carbon/human/second = makeBody(pick_n_take(candidates))
+					var/mob/living/carbon/human/first = make_body(pick_n_take(candidates))
+					var/mob/living/carbon/human/second = make_body(pick_n_take(candidates))
 
 					var/datum/team/schoolshooters/T = new
 
@@ -636,7 +636,7 @@
 					var/leader_chosen = FALSE
 					var/datum/team/nuclear/nuke_team
 					for(var/mob/c in chosen)
-						var/mob/living/carbon/human/new_character=makeBody(c)
+						var/mob/living/carbon/human/new_character=make_body(c)
 						if(!leader_chosen)
 							leader_chosen = TRUE
 							var/datum/antagonist/nukeop/N = new_character.mind.add_antag_datum(/datum/antagonist/nukeop/leader)

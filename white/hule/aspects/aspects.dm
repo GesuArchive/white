@@ -573,7 +573,7 @@
 		if(!is_station_level(P.z))
 			continue
 		if(prob(5))
-			var/pickedtrash = pickweight(pickweight(GLOB.trash_loot))
+			var/pickedtrash = pick_weight(pick_weight(GLOB.trash_loot))
 			new pickedtrash(P)
 		CHECK_TICK
 	..()

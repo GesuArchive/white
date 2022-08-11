@@ -27,6 +27,10 @@
 		/obj/item/paper/secretrecipe = 1
 	)
 
+	departments_list = list(
+		/datum/job_department/medical,
+	)
+
 	rpg_title = "Alchemist"
 	rpg_title_ru = "Алхимик"
 

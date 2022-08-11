@@ -74,6 +74,12 @@
 	/// If this job's mail goodies compete with generic goodies.
 	var/exclusive_mail_goodies = FALSE
 
+	/// Lazy list with the departments this job belongs to.
+	/// Required to be set for playable jobs.
+	/// The first department will be used in the preferences menu,
+	/// unless department_for_prefs is set.
+	var/list/departments_list = null
+
 	///Bitfield of departments this job belongs wit
 	var/departments = NONE
 

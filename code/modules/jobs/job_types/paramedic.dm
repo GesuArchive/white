@@ -30,6 +30,10 @@
 		/obj/item/reagent_containers/hypospray/medipen/survival/luxury = 5
 	)
 
+	departments_list = list(
+		/datum/job_department/medical,
+	)
+
 	rpg_title = "Corpse Runner"
 	rpg_title_ru = "Могильщик"
 

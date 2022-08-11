@@ -24,6 +24,10 @@
 		/obj/item/food/monkeycube/bee = 2
 	)
 
+	departments_list = list(
+		/datum/job_department/service,
+	)
+
 	rpg_title = "Gardener"
 	rpg_title_ru = "Садовник"
 

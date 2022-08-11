@@ -405,7 +405,7 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 		if(pmv)
 			mapvotes[map] = mapvotes[map]*VM.voteweight
 
-	var/pickedmap = pickweight(mapvotes)
+	var/pickedmap = pick_weight(mapvotes)
 	if (!pickedmap)
 		return
 	var/datum/map_config/VM = global.config.maplist[pickedmap]

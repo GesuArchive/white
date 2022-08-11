@@ -25,6 +25,10 @@
 		/obj/item/reagent_containers/spray/waterflower/superlube = 1 // Superlube, good lord.
 	)
 
+	departments_list = list(
+		/datum/job_department/service,
+	)
+
 	rpg_title = "Jester"
 	rpg_title_ru = "Плут"
 

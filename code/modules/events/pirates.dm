@@ -4,6 +4,7 @@
 	weight = 8
 	max_occurrences = 1
 	min_players = 10
+	dynamic_should_hijack = TRUE
 	earliest_start = 30 MINUTES
 	gamemode_blacklist = list("nuclear")
 
@@ -17,80 +18,64 @@
 
 	return ..()
 
-/datum/round_event/pirates
-	startWhen = 60 //2 minutes to answer
-	var/datum/comm_message/threat
-	var/payoff = 0
-	var/payoff_min = 500000
-	var/paid_off = FALSE
-	var/pirate_type
-	var/ship_template
+/datum/round_event/pirates/start()
+	send_pirate_threat()
+
+/proc/send_pirate_threat()
+	var/pirate_type = pick(PIRATES_ROGUES, PIRATES_SILVERSCALES, PIRATES_DUTCHMAN)
+	var/ship_template = null
 	var/ship_name = "Space Privateers Association"
-	var/shuttle_spawned = FALSE
-
-/datum/round_event/pirates/setup()
-	pirate_type = pick(PIRATES_ROGUES, PIRATES_SILVERSCALES, PIRATES_DUTCHMAN)
-	switch(pirate_type)
-		if(PIRATES_ROGUES)
-			ship_name = pick(strings(PIRATE_NAMES_FILE, "rogue_names"))
-		if(PIRATES_SILVERSCALES)
-			ship_name = pick(strings(PIRATE_NAMES_FILE, "silverscale_names"))
-		if(PIRATES_DUTCHMAN)
-			ship_name = "Flying Dutchman"
-
-/datum/round_event/pirates/announce(fake)
+	var/payoff_min = 20000
+	var/payoff = 0
+	var/initial_send_time = world.time
+	var/response_max_time = 2 MINUTES
 	priority_announce("Входящая подпространственная передача данных. Открыт защищенный канал связи на всех коммуникационных консолях.", "Входящее сообщение", SSstation.announcer.get_rand_report_sound())
-	if(fake)
-		return
-	threat = new
+	var/datum/comm_message/threat = new
 	var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
 	if(D)
 		payoff = max(payoff_min, FLOOR(D.account_balance * 0.80, 1000))
 	switch(pirate_type)
 		if(PIRATES_ROGUES)
+			ship_name = pick(strings(PIRATE_NAMES_FILE, "rogue_names"))
 			ship_template = /datum/map_template/shuttle/pirate/default
 			threat.title = "Предложение защиты сектора"
 			threat.content = "Приветствуем вас с корабля [ship_name]. Ваш сектор нуждается в защите, заплатите нам [payoff] кредитов или на вас наверняка кто-то нападёт."
 			threat.possible_answers = list("Мы заплатим.","Пахнет наёбом...")
 		if(PIRATES_SILVERSCALES)
+			ship_name = pick(strings(PIRATE_NAMES_FILE, "silverscale_names"))
 			ship_template = /datum/map_template/shuttle/pirate/silverscale
 			threat.title = "Пожертвование высшему обществу"
 			threat.content = "Это [ship_name]. Серебрянные чешуйки хотят собрать с вас дань. [payoff] кредитов решат проблему."
 			threat.possible_answers = list("Мы заплатим.","Че, серьёзно? Пошли на хуй!")
 		if(PIRATES_DUTCHMAN)
+			ship_name = "Flying Dutchman"
 			ship_template = /datum/map_template/shuttle/pirate/dutchman
 			threat.title = "Бизнес-предложение"
 			threat.content = "Это [ship_name]. Выплатите [payoff] кредит[get_num_string(payoff)] или вы пройдётесь по доске."
 			threat.possible_answers = list("Мы заплатим.","Нет.")
-	threat.answer_callback = CALLBACK(src,.proc/answered)
+	threat.answer_callback = CALLBACK(GLOBAL_PROC, .proc/pirates_answered, threat, payoff, ship_name, initial_send_time, response_max_time, ship_template)
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/spawn_pirates, threat, ship_template, FALSE), response_max_time)
 	SScommunications.send_message(threat,unique = TRUE)
 
-/datum/round_event/pirates/proc/answered()
+/proc/pirates_answered(datum/comm_message/threat, payoff, ship_name, initial_send_time, response_max_time, ship_template)
+	if(world.time > initial_send_time + response_max_time)
+		priority_announce("Слишком поздно умолять о пощаде!",sender_override = ship_name)
+		return
 	if(threat && threat.answered == 1)
 		var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
 		if(D)
 			if(D.adjust_money(-payoff))
 				priority_announce("Спасибо за кредиты, сухопутные крысы.",sender_override = ship_name)
-				paid_off = TRUE
 				return
 			else
 				priority_announce("Пытаешься нас обмануть? Ты пожалеешь об этом!",sender_override = ship_name)
-	if(!shuttle_spawned)
-		spawn_shuttle()
-	else
-		priority_announce("Слишком поздно умолять о пощаде!",sender_override = ship_name)
+				spawn_pirates(threat, ship_template, TRUE)
 
-/datum/round_event/pirates/start()
-	if(threat && !threat.answered)
-		threat.possible_answers = list("Слишком поздно")
-		threat.answered = 1
-	if(!paid_off && !shuttle_spawned)
-		spawn_shuttle()
+/proc/spawn_pirates(datum/comm_message/threat, ship_template, skip_answer_check)
+	if(!skip_answer_check && threat?.answered == 1)
+		return
 
-/datum/round_event/pirates/proc/spawn_shuttle()
-	shuttle_spawned = TRUE
-
-	var/list/candidates = poll_ghost_candidates("Вы хотите попасть в команду пиратов?", ROLE_TRAITOR)
+	var/list/candidates = poll_ghost_candidates("Хотите попасть в команду пиратов?", ROLE_TRAITOR)
 	shuffle_inplace(candidates)
 
 	var/datum/map_template/shuttle/pirate/ship = new ship_template
@@ -110,9 +95,9 @@
 				var/mob/our_candidate = candidates[1]
 				spawner.create(our_candidate)
 				candidates -= our_candidate
-				announce_to_ghosts(our_candidate)
+				notify_ghosts("Здесь есть что-то интересное: [our_candidate]!", source=our_candidate, action=NOTIFY_ORBIT, header="Пираты!")
 			else
-				announce_to_ghosts(spawner)
+				notify_ghosts("Здесь есть что-то интересное: [spawner]!", source=spawner, action=NOTIFY_ORBIT, header="Пираты!")
 
 	priority_announce("Вблизи станции обнаружен неопознанный вооруженный корабль.")
 

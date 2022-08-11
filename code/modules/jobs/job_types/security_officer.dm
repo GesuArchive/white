@@ -36,6 +36,10 @@
 		/obj/item/melee/baton/boomerang/loaded = 1
 	)
 
+	departments_list = list(
+		/datum/job_department/security,
+	)
+
 	rpg_title = "Guard"
 	rpg_title_ru = "Страж"
 

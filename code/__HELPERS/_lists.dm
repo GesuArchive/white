@@ -308,7 +308,7 @@
 //2. Gets a number between 1 and that total
 //3. For each element in the list, subtracts its weighting from that number
 //4. If that makes the number 0 or less, return that element.
-/proc/pickweight(list/L)
+/proc/pick_weight(list/L)
 	var/total = 0
 	var/item
 	for (item in L)

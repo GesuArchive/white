@@ -157,7 +157,7 @@
 		message_admins("Convert_roundtype failed due to no valid modes to convert to. Please report this error to the Coders.")
 		return null
 
-	replacementmode = pickweight(usable_modes)
+	replacementmode = pick_weight(usable_modes)
 
 	switch(SSshuttle.emergency.mode) //Rounds on the verge of ending don't get new antags, they just run out
 		if(SHUTTLE_STRANDED, SHUTTLE_ESCAPE, SHUTTLE_DISABLED)
@@ -272,6 +272,22 @@
 
 	return FALSE
 
+/*
+ * Generate a list of station goals available to purchase to report to the crew.
+ *
+ * Returns a formatted string all station goals that are available to the station.
+ */
+/datum/game_mode/proc/generate_station_goal_report()
+	if(!SSticker.mode.station_goals.len)
+		return
+	. = "<hr><b>Специальные поручения для [station_name()]:</b><BR>"
+	var/list/goal_reports = list()
+	for(var/datum/station_goal/station_goal as anything in SSticker.mode.station_goals)
+		station_goal.on_report()
+		goal_reports += station_goal.get_report()
+
+	. += goal_reports.Join("<hr>")
+	return
 
 /datum/game_mode/proc/send_intercept()
 	var/intercepttext = "<b><i>Отчёт Безопасности Центрального Командования</i></b><hr>"

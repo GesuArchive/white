@@ -22,6 +22,11 @@
 		/obj/item/stack/sheet/mineral/diamond = 3,
 		/obj/item/gun/ballistic/rifle/boltaction = 1
 	)
+
+	departments_list = list(
+		/datum/job_department/cargo,
+	)
+
 	rpg_title = "Merchantman"
 	rpg_title_ru = "Купец"
 

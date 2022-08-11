@@ -355,7 +355,7 @@
 
 		possible_targets = possible_targets - pawn - friends
 
-		return pickweight(possible_targets)
+		return pick_weight(possible_targets)
 
 /////////////////////////////////хз
 

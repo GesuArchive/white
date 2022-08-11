@@ -26,6 +26,11 @@
 		/obj/item/circuitboard/machine/emitter = 3
 	)
 
+	departments_list = list(
+		/datum/job_department/cargo,
+		/datum/job_department/command,
+	)
+
 	rpg_title = "Steward"
 	rpg_title_ru = "Завхоз"
 

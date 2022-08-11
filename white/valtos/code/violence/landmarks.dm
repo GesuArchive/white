@@ -24,7 +24,7 @@ GLOBAL_VAR(violence_landmark)
 	if(GLOB.violence_forced_map)
 		current_map = new GLOB.violence_forced_map
 	else
-		current_map = pickweight(maplist)
+		current_map = pick_weight(maplist)
 
 	GLOB.violence_theme = current_map.theme
 

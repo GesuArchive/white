@@ -46,7 +46,7 @@
 		new /obj/item/tank/internals/oxygen(T)
 		new /obj/item/clothing/mask/gas(T)
 		new /obj/item/storage/belt/utility/full(T)
-	switch(pickweight(list("centcom_official" = 2, "hos" = 1, "greytide" = 3, "engi" = 3, "sci" = 1)))
+	switch(pick_weight(list("centcom_official" = 2, "hos" = 1, "greytide" = 3, "engi" = 3, "sci" = 1)))
 		if("centcom_official")
 			created_human.equipOutfit(/datum/outfit/derelict_vip/inspector)
 			created_human.mind.add_antag_datum(/datum/antagonist/derelict_vip/inspector)

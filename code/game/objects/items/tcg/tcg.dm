@@ -425,7 +425,7 @@ GLOBAL_LIST_EMPTY(tcgcard_radial_choices)
 			weight += rarity_table[chance]
 		var/random = rand(weight)
 		for(var/bracket in rarity_table)
-			//Steals blatently from pickweight(), sorry buddy I need the index
+			//Steals blatently from pick_weight(), sorry buddy I need the index
 			random -= rarity_table[bracket]
 			if(random <= 0)
 				rarity = bracket

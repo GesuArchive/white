@@ -102,8 +102,16 @@ GLOBAL_LIST_INIT(ventcrawl_machinery, typecacheof(list(
 	pipes_shown.len = 0
 	REMOVE_TRAIT(src, TRAIT_MOVE_VENTCRAWLING, VENTCRAWLING_TRAIT)
 
-
-
+/**
+ * Moves living mob directly into the vent as a ventcrawler
+ *
+ * Arguments:
+ * * ventcrawl_target - The vent into which we are moving the mob
+ */
+/mob/living/proc/move_into_vent(obj/machinery/atmospherics/components/ventcrawl_target)
+	forceMove(ventcrawl_target)
+	ADD_TRAIT(src, TRAIT_MOVE_VENTCRAWLING, VENTCRAWLING_TRAIT)
+	update_pipe_vision()
 
 //OOP
 /atom/proc/update_pipe_vision(atom/new_loc = null)

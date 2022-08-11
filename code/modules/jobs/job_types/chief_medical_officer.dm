@@ -35,6 +35,11 @@
 		/obj/effect/spawner/lootdrop/space/fancytool/raremedicalonly = 1
 	)
 
+	departments_list = list(
+		/datum/job_department/medical,
+		/datum/job_department/command,
+	)
+
 	rpg_title = "High Cleric"
 	rpg_title_ru = "Высший Клерик"
 

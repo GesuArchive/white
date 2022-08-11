@@ -26,6 +26,9 @@
 
 	var/triggering	//admin cancellation
 
+	/// Whether or not dynamic should hijack this event
+	var/dynamic_should_hijack = FALSE
+
 /datum/round_event_control/New()
 	if(config && !wizardevent) // Magic is unaffected by configs
 		earliest_start = CEILING(earliest_start * CONFIG_GET(number/events_min_time_mul), 1)

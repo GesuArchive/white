@@ -29,6 +29,11 @@
 	display_order = JOB_DISPLAY_ORDER_HEAD_OF_SECURITY
 	bounty_types = CIV_JOB_SEC
 
+	departments_list = list(
+		/datum/job_department/security,
+		/datum/job_department/command,
+	)
+
 	rpg_title = "Guard Leader"
 	rpg_title_ru = "Начальник стражи"
 

@@ -59,6 +59,29 @@
 	if(user.mind?.has_antag_datum(/datum/antagonist/rev))
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "artgreat", /datum/mood_event/artgreat)
 		msg = "Какое [pick("шедевральное", "гениальное")] произведение искусства. Какой [pick("разрушительный", "революционный", "объединяющий", "эгалитарный")] стиль!"
+	else
+		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "artbad", /datum/mood_event/artbad)
+		msg = "Вау, [source.ru_who()] выглядит ущербно."
+
+	user.visible_message(span_notice("[user] прекращает изучать [source].") , \
+		span_notice("Оцениваю [source], осмотрев искусное мастерство пролетариата... [msg]"))
+
+/datum/element/art/commoner
+
+/datum/element/art/commoner/apply_moodlet(atom/source, mob/user, impress)
+	var/msg
+	var/list/haters = list()
+	for(var/hater_department_type as anything in list(/datum/job_department/security, /datum/job_department/command))
+		var/datum/job_department/hater_department = pick(SSjob.get_department_type(hater_department_type))
+		for(var/datum/job/hater_job as anything in hater_department.department_jobs)
+			haters += hater_job
+	var/datum/job/quartermaster/fucking_quartermaster = SSjob.GetJobType(/datum/job/quartermaster)
+	haters += fucking_quartermaster
+
+	if(!(user.mind.assigned_role in haters))
+		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "artgreat", /datum/mood_event/artgreat)
+		msg = "Какое [pick("шедевральное", "гениальное")] произведение искусства. Какой [pick("разрушительный", "революционный", "объединяющий", "эгалитарный")] стиль!"
+	else
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "artbad", /datum/mood_event/artbad)
 		msg = "Вау, [source.ru_who()] выглядит ущербно."
 

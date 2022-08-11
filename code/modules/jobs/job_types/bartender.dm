@@ -22,6 +22,10 @@
 		/obj/item/stack/sheet/mineral/uranium = 10,
 	)
 
+	departments_list = list(
+		/datum/job_department/service,
+	)
+
 	rpg_title = "Tavernkeeper"
 	rpg_title_ru = "Тавернщик"
 

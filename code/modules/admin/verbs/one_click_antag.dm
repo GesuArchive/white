@@ -174,7 +174,7 @@
 
 	var/mob/dead/observer/selected = pick_n_take(candidates)
 
-	var/mob/living/carbon/human/new_character = makeBody(selected)
+	var/mob/living/carbon/human/new_character = make_body(selected)
 	new_character.mind.make_Wizard()
 	return TRUE
 
@@ -288,7 +288,7 @@
 		var/datum/team/nuclear/nuke_team
 		if(choice == "Обычная")
 			for(var/mob/c in chosen)
-				var/mob/living/carbon/human/new_character=makeBody(c)
+				var/mob/living/carbon/human/new_character=make_body(c)
 				if(!leader_chosen)
 					leader_chosen = TRUE
 					var/datum/antagonist/nukeop/N = new_character.mind.add_antag_datum(/datum/antagonist/nukeop/leader)
@@ -302,7 +302,7 @@
 					qdel(S)
 					new /obj/machinery/nuclearbomb/syndicate/bananium(T)
 			for(var/mob/c in chosen)
-				var/mob/living/carbon/human/new_character=makeBody(c)
+				var/mob/living/carbon/human/new_character=make_body(c)
 				if(!leader_chosen)
 					leader_chosen = TRUE
 					var/datum/antagonist/nukeop/N = new_character.mind.add_antag_datum(/datum/antagonist/nukeop/leader/clownop)

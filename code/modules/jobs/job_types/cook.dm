@@ -19,6 +19,10 @@
 	display_order = JOB_DISPLAY_ORDER_COOK
 	bounty_types = CIV_JOB_CHEF
 
+	departments_list = list(
+		/datum/job_department/service,
+	)
+
 	rpg_title = "Tavern Chef"
 	rpg_title_ru = "Повар Трактира"
 

@@ -89,12 +89,12 @@
 
 		var/garbage_turf = text2num(string_gen[world.maxx * (gen_turf.y - 1) + gen_turf.x])
 
-		var/turf/new_turf = pickweight(turf_types)
+		var/turf/new_turf = pick_weight(turf_types)
 
 		new_turf = gen_turf.ChangeTurf(new_turf, initial(new_turf.baseturfs), CHANGETURF_DEFER_CHANGE)
 
 		if(garbage_turf)
-			var/atom/picked_garbage = pickweight(garbage_types)
+			var/atom/picked_garbage = pick_weight(garbage_types)
 			new picked_garbage(new_turf)
 
 		CHECK_TICK

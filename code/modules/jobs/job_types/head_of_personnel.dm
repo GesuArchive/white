@@ -33,6 +33,11 @@
 		/obj/item/stack/sheet/bone = 5
 	)
 
+	departments_list = list(
+		/datum/job_department/service,
+		/datum/job_department/command,
+	)
+
 	rpg_title = "Guild Questgiver"
 	rpg_title_ru = "Квестодатель гильдии"
 

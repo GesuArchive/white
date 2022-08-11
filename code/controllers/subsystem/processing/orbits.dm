@@ -62,7 +62,7 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 /datum/controller/subsystem/processing/orbits/proc/get_event()
 	if(!event_probability)
 		return null
-	return pickweight(runnable_events)
+	return pick_weight(runnable_events)
 
 /datum/controller/subsystem/processing/orbits/proc/post_load_init()
 	for(var/map_key in orbital_maps)
@@ -126,7 +126,7 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 	if(observer_count > 2)
 		valid_objectives |= list(/datum/orbital_objective/headhunt = 1)
 
-	var/chosen = pickweight(valid_objectives)
+	var/chosen = pick_weight(valid_objectives)
 	if(!chosen)
 		return
 	var/datum/orbital_objective/objective = new chosen()

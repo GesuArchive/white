@@ -26,6 +26,10 @@
 		/obj/item/gun/syringe = 1
 	)
 
+	departments_list = list(
+		/datum/job_department/service,
+	)
+
 	rpg_title = "Snake Oil Salesman"
 	rpg_title_ru = "Продавец змеиного яда"
 

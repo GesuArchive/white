@@ -37,6 +37,11 @@
 		/obj/effect/spawner/lootdrop/space/fancytool/engineonly = 3
 	)
 
+	departments_list = list(
+		/datum/job_department/engineering,
+		/datum/job_department/command,
+	)
+
 	rpg_title = "Head Crystallomancer"
 	rpg_title_ru = "Старший Кристалломант"
 

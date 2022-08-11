@@ -439,7 +439,7 @@
 			20;TRAUMA_RESILIENCE_SURGERY,
 			5;TRAUMA_RESILIENCE_LOBOTOMY)
 
-		var/trauma_type = pickweight(list(
+		var/trauma_type = pick_weight(list(
 			BRAIN_TRAUMA_MILD = 60,
 			BRAIN_TRAUMA_SEVERE = 30))
 

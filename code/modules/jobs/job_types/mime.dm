@@ -22,6 +22,10 @@
 		/obj/item/book/mimery = 1,
 	)
 
+	departments_list = list(
+		/datum/job_department/service,
+	)
+
 	rpg_title = "Fool"
 	rpg_title_ru = "Шут"
 

@@ -29,6 +29,10 @@
 		/obj/item/holosign_creator/engineering = 8,
 	)
 
+	departments_list = list(
+		/datum/job_department/engineering,
+	)
+
 	rpg_title = "Crystallomancer"
 	rpg_title_ru = "Кристалломант"
 

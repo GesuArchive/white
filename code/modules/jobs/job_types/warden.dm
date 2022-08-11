@@ -35,6 +35,10 @@
 		/obj/item/storage/box/lethalshot = 5
 	)
 
+	departments_list = list(
+		/datum/job_department/security,
+	)
+
 	rpg_title = "Jailor"
 	rpg_title_ru = "Тюремщик"
 

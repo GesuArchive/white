@@ -77,7 +77,7 @@
 		new /obj/item/clothing/mask/gas(T)
 		new /obj/item/storage/belt/utility/full(T)
 
-	switch(pickweight(list("dreamer" = 1, "heretic" = 5)))
+	switch(pick_weight(list("dreamer" = 1, "heretic" = 5)))
 		if("dreamer")
 			created_human.equipOutfit(/datum/outfit/dreamer)
 			created_human.mind.add_antag_datum(/datum/antagonist/dreamer_orbital)

@@ -19,6 +19,10 @@
 
 	display_order = JOB_DISPLAY_ORDER_CURATOR
 
+	departments_list = list(
+		/datum/job_department/service,
+	)
+
 	rpg_title = "Veteran Adventurer"
 	rpg_title_ru = "Опытный искатель приключений"
 

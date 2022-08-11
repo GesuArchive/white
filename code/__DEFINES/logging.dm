@@ -44,6 +44,7 @@
 #define LOG_ECON			(1 << 20)
 #define LOG_LOBBY			(1 << 21)
 #define LOG_SPEECH_INDICATORS (1 << 22)
+#define LOG_VICTIM 			(1 << 23)
 
 //Individual logging panel pages
 #define INDIVIDUAL_ATTACK_LOG		(LOG_ATTACK)

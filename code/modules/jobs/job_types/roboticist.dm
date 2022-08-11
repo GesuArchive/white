@@ -24,6 +24,10 @@
 		/obj/item/modular_computer/tablet/preset/advanced = 5
 	)
 
+	departments_list = list(
+		/datum/job_department/science,
+	)
+
 	rpg_title = "Necromancer"
 	rpg_title_ru = "Некромант"
 

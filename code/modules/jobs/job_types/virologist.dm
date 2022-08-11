@@ -28,6 +28,10 @@
 		/obj/item/stack/sheet/mineral/uranium = 5
 	)
 
+	departments_list = list(
+		/datum/job_department/medical,
+	)
+
 	rpg_title = "Plague Doctor"
 	rpg_title_ru = "Чумной доктор"
 

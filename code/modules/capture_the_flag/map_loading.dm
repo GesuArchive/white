@@ -15,7 +15,7 @@
 		var/datum/map_template/ctf/C = new item()
 		maplist[C] = C.weight
 
-	current_map = pickweight(maplist)
+	current_map = pick_weight(maplist)
 
 	if(!spawn_area)
 		CRASH("No spawn area detected for CTF!")

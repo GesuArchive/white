@@ -32,6 +32,11 @@
 		/obj/item/borg/upgrade/ai = 2
 	)
 
+	departments_list = list(
+		/datum/job_department/science,
+		/datum/job_department/command,
+	)
+
 	rpg_title = "Archmagister"
 	rpg_title_ru = "Архимагистр"
 

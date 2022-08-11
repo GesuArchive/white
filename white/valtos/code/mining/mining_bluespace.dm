@@ -98,7 +98,7 @@
 		update_icon_state()
 		return
 
-	var/datum/material/ore = pickweight(ores)
+	var/datum/material/ore = pick_weight(ores)
 	if(!mat_container.can_hold_material(ore))
 		WARNING("Валера, твой блюспейс майнер опять обосрался!!! Причина: [ore]")
 		return

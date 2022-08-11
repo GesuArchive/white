@@ -24,6 +24,10 @@
 		/obj/item/camera_bug = 1
 	)
 
+	departments_list = list(
+		/datum/job_department/science,
+	)
+
 	rpg_title = "Thaumaturgist"
 	rpg_title_ru = "Тауматург"
 

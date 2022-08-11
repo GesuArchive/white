@@ -118,7 +118,7 @@
 			return
 
 	if(alone && partner && children < 3 && LAZYLEN(SSmobs.crabstotal) < CRAB_POP_MAX)
-		var/childspawn = pickweight(childtype)
+		var/childspawn = pick_weight(childtype)
 		var/turf/target = get_turf(loc)
 		if(target)
 			return new childspawn(target)

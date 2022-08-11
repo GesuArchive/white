@@ -104,9 +104,9 @@
 	if(prob(30))
 		if(!istype(loc, /area/partyhard/outdoors/unexplored))
 			return
-		var/randumb = pickweight(mob_spawn_list)
+		var/randumb = pick_weight(mob_spawn_list)
 		while(randumb == 6)
-			randumb = pickweight(mob_spawn_list)
+			randumb = pick_weight(mob_spawn_list)
 
 		for(var/mob/living/simple_animal/hostile/H in urange(12,T)) //prevents mob clumps
 			if(ispath(randumb, /mob/living/simple_animal/hostile/asteroid) || istype(H, /mob/living/simple_animal/hostile/asteroid))
@@ -119,7 +119,7 @@
 	if(prob(12))
 		if(!istype(loc, /area/partyhard/outdoors/unexplored))
 			return
-		var/randumb = pickweight(flora_spawn_list)
+		var/randumb = pick_weight(flora_spawn_list)
 		for(var/obj/structure/flora/ash/F in range(4, T)) //Allows for growing patches, but not ridiculous stacks of flora
 			if(!istype(F, randumb))
 				return
@@ -129,7 +129,7 @@
 	if(prob(2))
 		if(!istype(loc, /area/partyhard/outdoors/unexplored))
 			return
-		var/randumb = pickweight(terrain_spawn_list)
+		var/randumb = pick_weight(terrain_spawn_list)
 		for(var/obj/structure/geyser/F in range(7, T))
 			if(istype(F, randumb))
 				return

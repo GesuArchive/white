@@ -16,6 +16,14 @@ SUBSYSTEM_DEF(job)
 
 	var/list/level_order = list(JP_HIGH,JP_MEDIUM,JP_LOW)
 
+	/// Lazylist of mob:occupation_string pairs.
+	var/list/dynamic_forced_occupations
+
+	var/list/datum/job_department/joinable_departments = list()
+
+	/// List of all joinable departments indexed by their typepath, sorted by their own display order.
+	var/list/datum/job_department/joinable_departments_by_type = list()
+
 	/// A list of all jobs associated with the station. These jobs also have various icons associated with them including sechud and card trims.
 	var/list/station_jobs
 	/// A list of additional jobs that have various icons associated with them including sechud and card trims.
@@ -94,6 +102,8 @@ SUBSYSTEM_DEF(job)
 		occupations += job
 		name_occupations[job.title] = job
 		type_occupations[J] = job
+		joinable_departments[job.title] = job.departments_list
+		joinable_departments_by_type[J] = job.departments_list
 
 	return TRUE
 
@@ -107,6 +117,16 @@ SUBSYSTEM_DEF(job)
 	if(!occupations.len)
 		SetupOccupations()
 	return type_occupations[jobtype]
+
+/datum/controller/subsystem/job/proc/get_departments_by_name(rank)
+	if(!occupations.len)
+		SetupOccupations()
+	return joinable_departments[rank]
+
+/datum/controller/subsystem/job/proc/get_department_type(department_type)
+	if(!occupations.len)
+		SetupOccupations()
+	return joinable_departments_by_type[department_type]
 
 /datum/controller/subsystem/job/proc/AssignRole(mob/dead/new_player/player, rank, latejoin = FALSE)
 	JobDebug("Running AR, Player: [player], Rank: [rank], LJ: [latejoin]")

@@ -46,9 +46,9 @@
 ///Returns an item path to spawn. Override this proc if you don't want to choose randomly from a list.
 /obj/item/item_generator/proc/pick_item()
 	//pulled directly from /obj/effect/loot_site_spawner code
-	var/itemspawn = pickweight(items)
+	var/itemspawn = pick_weight(items)
 	while(islist(itemspawn))
-		itemspawn = pickweight(itemspawn)
+		itemspawn = pick_weight(itemspawn)
 	if(ispath(itemspawn))
 		return itemspawn
 

@@ -289,7 +289,7 @@ SUBSYSTEM_DEF(ticker)
 			if(!runnable_modes.len)
 				to_chat(world, span_green("<B>Ничего не вышло!</B> Откатываем таймер назад."))
 				return FALSE
-			mode = pickweight(runnable_modes)
+			mode = pick_weight(runnable_modes)
 			if(!mode)	//too few roundtypes all run too recently
 				mode = pick(runnable_modes)
 

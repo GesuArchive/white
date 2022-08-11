@@ -36,6 +36,10 @@
 		/obj/item/storage/belt/holster/detective/full = 1
 	)
 
+	departments_list = list(
+		/datum/job_department/security,
+	)
+
 	rpg_title = "Thiefcatcher"
 	rpg_title_ru = "Ловец воров"
 

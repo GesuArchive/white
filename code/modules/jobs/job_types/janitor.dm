@@ -21,6 +21,10 @@
 		/obj/item/lightreplacer = 10
 	)
 
+	departments_list = list(
+		/datum/job_department/service,
+	)
+
 	rpg_title = "Groundskeeper"
 	rpg_title_ru = "Хранитель земель"
 
