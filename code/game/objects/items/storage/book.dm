@@ -196,7 +196,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 				R.invisibility = 0
 	if(user?.mind?.holy_role)
 		if(A.reagents && A.reagents.has_reagent(/datum/reagent/water)) // blesses all the water in the holder
-			to_chat(user, span_notice("Освещаю [A]."))
+			to_chat(user, span_notice("Освящаю [A]."))
 			var/water2holy = A.reagents.get_reagent_amount(/datum/reagent/water)
 			A.reagents.del_reagent(/datum/reagent/water)
 			A.reagents.add_reagent(/datum/reagent/water/holywater,water2holy)
@@ -222,11 +222,11 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 				for(var/mob/living/simple_animal/shade/EX in SS)
 					SSticker.mode.remove_cultist(EX.mind, 1, 0)
 					EX.icon_state = "shade_holy"
-					EX.name = "Purified [EX.name]"
+					EX.name = "Очищенный [EX.name]"
 				SS.release_shades(user)
 				qdel(SS)
 			new /obj/item/nullrod/claymore(get_turf(sword))
-			user.visible_message(span_notice("[user] purifies [sword]!"))
+			user.visible_message(span_notice("[user] очищает [sword]!"))
 			qdel(sword)
 	else if(istype(A, /obj/item/soulstone) && !iscultist(user))
 		var/obj/item/soulstone/SS = A
@@ -246,8 +246,8 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 						SSticker.mode.remove_cultist(M.mind, FALSE, FALSE)
 			for(var/mob/living/simple_animal/shade/EX in SS)
 				EX.icon_state = "ghost1"
-				EX.name = "Purified [initial(EX.name)]"
-			user.visible_message(span_notice("[user] purifies [SS]!"))
+				EX.name = "Очищенный [initial(EX.name)]"
+			user.visible_message(span_notice("[user] очищает [SS]!"))
 	else if(istype(A, /obj/item/nullrod/scythe/talking))
 		var/obj/item/nullrod/scythe/talking/sword = A
 		to_chat(user, span_notice("Начинаю очищать [sword]..."))
@@ -260,7 +260,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 			sword.possessed = FALSE //allows the chaplain (or someone else) to reroll a new spirit for their sword
 			sword.name = initial(sword.name)
 			REMOVE_TRAIT(sword, TRAIT_NODROP, HAND_REPLACEMENT_TRAIT) //in case the "sword" is a possessed dummy
-			user.visible_message(span_notice("[user] exorcises [sword]!") , \
+			user.visible_message(span_notice("[user] экзорцирует [sword]!") , \
 								span_notice("Успешно очищаю [sword]!"))
 
 /obj/item/storage/book/bible/booze
