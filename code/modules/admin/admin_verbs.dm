@@ -204,7 +204,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/check_missing_sprites,
 	/client/proc/check_missing_states,
 	#ifdef TESTING
-	/client/proc/export_dynamic_json,
+	/client/proc/export_dynamic_json_of,
 	/client/proc/run_dynamic_simulations,
 	#endif
 	/client/proc/display_sendmaps,
