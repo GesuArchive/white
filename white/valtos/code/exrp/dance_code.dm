@@ -380,7 +380,8 @@
 			if(prob(15))
 				partner.adjustOxyLoss(1)
 
-	visible_message("<span class='notice purple small'><b>[capitalize(src.name)]</b> [message].</span>")
+	balloon_alert_to_viewers("[message]", vision_distance = COMBAT_MESSAGE_RANGE)
+	//visible_message("<span class='notice purple small'><b>[capitalize(src.name)]</b> [message].</span>")
 	playsound(get_turf(src), sound_to_play, 50, 1, -1)
 	if(dancing_which & ACTOR_DANCER)
 		handle_post_dance(dancing_increase, dancing_target, partner)
