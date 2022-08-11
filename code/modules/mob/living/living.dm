@@ -1091,8 +1091,8 @@
 	who.visible_message(span_warning("<b>[src]</b> пытается снять <b>[what.name]</b> с <b>[who]</b>.") , \
 					span_userdanger("<b>[src]</b> пытается снять с меня <b>[what.name]</b>.") , null, null, src)
 	to_chat(src, span_danger("Пытаюсь снять <b>[what.name]</b> с <b>[who]</b>..."))
-	who.log_message("[key_name(who)] is being stripped of [what] by [key_name(src)]", LOG_ATTACK, color="red")
-	log_message("[key_name(who)] is being stripped of [what] by [key_name(src)]", LOG_ATTACK, color="red", log_globally=FALSE)
+	log_message("[key_name(who)] is being stripped of [what] by [key_name(src)]", LOG_ATTACK, color="red")
+	who.log_message("[key_name(who)] is being stripped of [what] by [key_name(src)]", LOG_VICTIM, color="red", log_globally = FALSE)
 	what.add_fingerprint(src)
 	if(do_mob(src, who, what.strip_delay, interaction_key = what))
 		if(what && Adjacent(who))
@@ -1100,12 +1100,12 @@
 				var/list/L = where
 				if(what == who.get_item_for_held_index(L[2]))
 					if(what.doStrip(src, who))
-						who.log_message("[key_name(who)] has been stripped of [what] by [key_name(src)]", LOG_ATTACK, color="red")
-						log_message("[key_name(who)] has been stripped of [what] by [key_name(src)]", LOG_ATTACK, color="red", log_globally=FALSE)
+						log_message("[key_name(who)] has been stripped of [what] by [key_name(src)]", LOG_ATTACK, color="red")
+						who.log_message("[key_name(who)] has been stripped of [what] by [key_name(src)]", LOG_VICTIM, color="red", log_globally = FALSE)
 			if(what == who.get_item_by_slot(where))
 				if(what.doStrip(src, who))
-					who.log_message("[key_name(who)] has been stripped of [what] by [key_name(src)]", LOG_ATTACK, color="red")
-					log_message("[key_name(who)] has been stripped of [what] by [key_name(src)]", LOG_ATTACK, color="red", log_globally=FALSE)
+					log_message("[key_name(who)] has been stripped of [what] by [key_name(src)]", LOG_ATTACK, color="red")
+					who.log_message("[key_name(who)] has been stripped of [what] by [key_name(src)]", LOG_VICTIM, color="red", log_globally = FALSE)
 
 // The src mob is trying to place an item on someone
 // Override if a certain mob should be behave differently when placing items (can't, for example)
@@ -1136,8 +1136,8 @@
 				who.visible_message(span_notice("<b>[src]</b> пытается надеть <b>[what]</b> на <b>[who]</b>.") , \
 							span_notice("<b>[src]</b> пытается надеть <b>[what]</b> на меня.") , null, null, src)
 		to_chat(src, span_notice("Пытаюсь надеть <b>[what]</b> на <b>[who]</b>..."))
-		who.log_message("[key_name(who)] is having [what] put on them by [key_name(src)]", LOG_ATTACK, color="red")
-		log_message("[key_name(who)] is having [what] put on them by [key_name(src)]", LOG_ATTACK, color="red", log_globally=FALSE)
+		log_message("[key_name(who)] is having [what] put on them by [key_name(src)]", LOG_ATTACK, color="red")
+		who.log_message("[key_name(who)] is having [what] put on them by [key_name(src)]", LOG_VICTIM, color="red", log_globally=FALSE)
 		if(do_mob(src, who, what.equip_delay_other))
 			if(what && Adjacent(who) && what.mob_can_equip(who, src, final_where, TRUE, TRUE))
 				if(temporarilyRemoveItemFromInventory(what))
@@ -1146,8 +1146,8 @@
 							what.forceMove(get_turf(who))
 					else
 						who.equip_to_slot(what, where, TRUE)
-					who.log_message("[key_name(who)] had [what] put on them by [key_name(src)]", LOG_ATTACK, color="red")
-					log_message("[key_name(who)] had [what] put on them by [key_name(src)]", LOG_ATTACK, color="red", log_globally=FALSE)
+					log_message("[key_name(who)] had [what] put on them by [key_name(src)]", LOG_ATTACK, color="red")
+					who.log_message("[key_name(who)] had [what] put on them by [key_name(src)]", LOG_VICTIM, color="red", log_globally = FALSE)
 
 /mob/living/singularity_pull(S, current_size)
 	..()
