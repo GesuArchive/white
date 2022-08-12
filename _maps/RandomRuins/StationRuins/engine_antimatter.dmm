@@ -485,10 +485,7 @@
 	name = "Engine Room";
 	req_access_txt = "10"
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/engine,
 /area/engineering/main)
 "HQ" = (
@@ -520,10 +517,7 @@
 	name = "Engine Room";
 	req_access_txt = "10"
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/engineering/main)
 "Js" = (
@@ -787,10 +781,7 @@
 	name = "Engine Room";
 	req_access_txt = "10"
 	},
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/engine,
 /area/engineering/main)
 "Yt" = (

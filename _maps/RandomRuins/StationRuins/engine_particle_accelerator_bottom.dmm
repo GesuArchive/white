@@ -7,7 +7,6 @@
 /turf/closed/wall/r_wall,
 /area/engineering/main)
 "aq" = (
-/obj/machinery/door/firedoor,
 /obj/structure/fans/tiny,
 /obj/structure/cable,
 /obj/machinery/door/poddoor/shutters/preopen{

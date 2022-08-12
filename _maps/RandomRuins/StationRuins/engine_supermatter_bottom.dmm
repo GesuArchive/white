@@ -13,10 +13,7 @@
 /obj/structure/sign/warning/radiation/rad_area{
 	pixel_x = -32
 	},
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
+/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /obj/machinery/door/airlock/highsecurity{
 	req_access = null;
@@ -1215,12 +1212,7 @@
 	name = "Engineering Maintenance";
 	req_access_txt = "10"
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/engineering/main)
 "lR" = (
@@ -1325,10 +1317,7 @@
 	req_access_txt = "10"
 	},
 /obj/structure/cable,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/engine,
 /area/engineering/main)
 "rI" = (

@@ -24,12 +24,7 @@
 	dir = 4;
 	req_access_txt = "12"
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
 "ao" = (
@@ -313,10 +308,7 @@
 	dir = 4;
 	req_access_txt = "19"
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -334,12 +326,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/low_level_centre)
 "hA" = (
@@ -600,12 +587,7 @@
 	name = "Captain's Office Maintenance";
 	req_access_txt = "20"
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/command/heads_quarters/captain)
 "mI" = (
@@ -972,17 +954,6 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/turret_protected/ai_upload)
-"ug" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 4;
-	req_access_txt = "12"
-	},
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/maintenance/bottom_station_maints/north)
 "un" = (
 /turf/closed/wall,
 /area/maintenance/bottom_station_maints/north)
@@ -1035,12 +1006,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/low_level_centre)
 "vu" = (
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
 	name = "Conference Room";
 	req_access_txt = "19"
@@ -1635,10 +1601,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
 "HV" = (
@@ -1656,12 +1619,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
 "HW" = (
@@ -1688,12 +1646,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
 "ID" = (
@@ -1725,12 +1678,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command)
 "Ji" = (
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/low_level_centre)
 "Jl" = (
@@ -1790,10 +1738,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
 "Lw" = (
@@ -1812,12 +1757,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/meeting_room)
 "LU" = (
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "Mi" = (
@@ -2054,6 +1994,7 @@
 /obj/machinery/door/airlock/external{
 	req_one_access_txt = "19"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/meeting_room)
 "Ro" = (
@@ -2148,10 +2089,7 @@
 	dir = 4;
 	req_access_txt = "12"
 	},
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
+/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -2188,12 +2126,7 @@
 /turf/open/floor/plasteel/white,
 /area/command/heads_quarters/captain)
 "SV" = (
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -2401,12 +2334,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/grimy,
 /area/command/heads_quarters/captain)
 "Zf" = (
@@ -3760,13 +3688,13 @@ ab
 ab
 ab
 ng
-ug
+an
 ng
 ng
 ng
 ng
 ng
-ug
+an
 ng
 Ws
 YS

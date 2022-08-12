@@ -69,10 +69,7 @@
 /area/hallway/secondary/construction)
 "aR" = (
 /obj/machinery/door/airlock/engineering,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
 	dir = 4
@@ -87,10 +84,7 @@
 /area/tcommsat/oldaisat)
 "bg" = (
 /obj/machinery/door/airlock/engineering,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
 	dir = 4
 	},
@@ -327,10 +321,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/mineral/titanium/tiled,
 /area/hallway/secondary/entry)
 "eW" = (
@@ -437,18 +428,12 @@
 "gD" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/engineering,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/plating,
-/area/engineering/storage_shared)
-"gK" = (
-/turf/closed/wall,
 /area/engineering/storage_shared)
 "gM" = (
 /obj/structure/closet/crate/medical,
@@ -569,14 +554,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door/airlock/command/glass,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/science/research)
 "hU" = (
@@ -604,10 +584,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
 "is" = (
@@ -699,12 +676,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
+/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/engineering/storage_shared)
@@ -713,6 +685,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/engineering/gravity_generator)
 "je" = (
@@ -748,12 +721,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/door/airlock/engineering,
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
+/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/engineering/storage_shared)
@@ -1016,6 +984,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/engineering/gravity_generator)
 "nv" = (
@@ -1461,12 +1430,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/neutral,
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/mine/lobby)
 "rL" = (
@@ -1553,12 +1517,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/construction/storage_wing)
@@ -1809,10 +1768,7 @@
 /area/cargo/exploration_prep)
 "wO" = (
 /obj/machinery/door/airlock/mining,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/plasteel,
@@ -1960,12 +1916,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
 	dir = 8
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/science/research)
 "zc" = (
@@ -2220,7 +2171,7 @@
 	id = "xeno";
 	name = "Creature Cell"
 	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
 "BX" = (
@@ -2341,10 +2292,7 @@
 /obj/machinery/door/airlock,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -2378,10 +2326,7 @@
 /area/mine/lobby)
 "DI" = (
 /obj/machinery/door/airlock/public/glass,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/plasteel,
@@ -2549,12 +2494,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
 	dir = 8
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
+/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/lobby)
@@ -2605,12 +2545,7 @@
 /area/tcommsat/computer)
 "Gc" = (
 /obj/machinery/door/airlock/public/glass,
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
 	dir = 4
 	},
@@ -2692,10 +2627,7 @@
 /area/mine/lobby)
 "Ha" = (
 /obj/machinery/door/airlock/medical/glass,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/plasteel/white,
@@ -2958,10 +2890,7 @@
 /obj/machinery/door/airlock/science/glass,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/science/research)
@@ -3061,12 +2990,7 @@
 /turf/open/floor/plasteel,
 /area/mine/lobby)
 "JH" = (
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/mining/glass,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -3100,12 +3024,7 @@
 /turf/open/floor/plasteel,
 /area/mine/lobby)
 "JO" = (
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/mining/glass,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -3144,12 +3063,7 @@
 /turf/open/floor/mineral/titanium/tiled,
 /area/hallway/secondary/entry)
 "Kg" = (
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/mining/glass,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -3183,12 +3097,7 @@
 /turf/open/floor/plasteel,
 /area/mine/eva)
 "Ko" = (
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/mining/glass,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -3845,9 +3754,7 @@
 	id = "xeno";
 	name = "Creature Cell"
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
 "Tn" = (
@@ -4075,7 +3982,7 @@
 	id = "xeno";
 	name = "Creature Cell"
 	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
@@ -4140,12 +4047,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance_hatch,
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
+/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
@@ -4172,12 +4074,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
+/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
@@ -18122,7 +18019,7 @@ Cw
 Cw
 zc
 Cw
-gK
+oV
 BH
 je
 XL

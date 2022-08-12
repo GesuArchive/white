@@ -56,10 +56,7 @@
 	req_access_txt = "10"
 	},
 /obj/structure/cable,
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/engine,
 /area/engineering/main)
 "aw" = (
@@ -68,10 +65,7 @@
 	req_access_txt = "10"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/engine,
 /area/engineering/main)
 "ax" = (
@@ -106,12 +100,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/engine,
 /area/engineering/main)
 "aI" = (
@@ -412,10 +401,7 @@
 	req_access_txt = "10"
 	},
 /obj/structure/cable,
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/aft/upper)
 "cw" = (
@@ -480,10 +466,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 1
 	},
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/engineering/main)
 "cQ" = (
@@ -637,12 +620,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 1
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/engine,
 /area/engineering/main)
 "ec" = (
@@ -940,12 +918,7 @@
 	name = "Engineering Maintenance";
 	req_access_txt = "10"
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/aft/upper)
 "jd" = (
@@ -1032,19 +1005,6 @@
 	},
 /turf/template_noop,
 /area/space/nearstation)
-"qP" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Engineering Maintenance";
-	req_access_txt = "10"
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/maintenance/aft/upper)
 "re" = (
 /obj/structure/ladder,
 /obj/effect/turf_decal/stripes/box,
@@ -1263,12 +1223,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 1
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/engineering/main)
 "GN" = (
@@ -2246,7 +2201,7 @@ ad
 ad
 ad
 ad
-qP
+iq
 zX
 fm
 AD

@@ -29,6 +29,15 @@
 /obj/effect/mapping_helpers/airlock/abandoned,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
+"i" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "k" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
@@ -55,6 +64,29 @@
 	dir = 8
 	},
 /turf/open/floor/resin,
+/area/maintenance/port/aft)
+"q" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/structure/railing,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"s" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"t" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/railing,
+/turf/open/floor/plating,
 /area/maintenance/port/aft)
 "w" = (
 /obj/structure/barricade/wooden{
@@ -242,11 +274,11 @@ W
 W
 W
 W
-W
-W
-W
-W
-W
+i
+i
+i
+i
+s
 x
 c
 "}
@@ -262,7 +294,7 @@ z
 z
 z
 P
-W
+t
 x
 c
 "}
@@ -278,7 +310,7 @@ F
 H
 z
 T
-W
+t
 x
 c
 "}
@@ -294,7 +326,7 @@ M
 I
 z
 T
-W
+t
 x
 c
 "}
@@ -310,7 +342,7 @@ M
 I
 z
 T
-W
+t
 x
 c
 "}
@@ -326,7 +358,7 @@ G
 J
 z
 T
-W
+t
 x
 c
 "}
@@ -342,7 +374,7 @@ z
 z
 z
 U
-W
+t
 x
 W
 "}
@@ -358,7 +390,7 @@ A
 A
 A
 L
-W
+q
 x
 W
 "}

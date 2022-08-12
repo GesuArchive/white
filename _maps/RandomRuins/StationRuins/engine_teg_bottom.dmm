@@ -10,10 +10,7 @@
 /turf/closed/wall/r_wall,
 /area/engineering/main)
 "ao" = (
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
+/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "engi_reactor_shutters"

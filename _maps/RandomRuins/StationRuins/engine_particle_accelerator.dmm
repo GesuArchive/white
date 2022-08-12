@@ -947,15 +947,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/engineering/main)
-"Dp" = (
-/obj/machinery/door/airlock/external{
-	name = "Engineering External Access";
-	req_access_txt = "10;13"
-	},
-/obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/turf/open/floor/plating,
-/area/engineering/main)
 "GV" = (
 /obj/effect/turf_decal/box,
 /obj/machinery/the_singularitygen/tesla,
@@ -1401,7 +1392,7 @@ bR
 Ia
 zz
 BT
-Dp
+Bp
 YT
 xH
 by

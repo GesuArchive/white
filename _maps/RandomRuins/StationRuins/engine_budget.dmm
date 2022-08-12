@@ -7,17 +7,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/engineering/main)
-"as" = (
-/obj/machinery/door/airlock/engineering/glass{
-	name = "Supermatter Engine Room";
-	req_access_txt = "10"
-	},
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/turf/open/floor/plasteel,
-/area/engineering/main)
 "at" = (
 /obj/structure/sign/poster/official/safety_eye_protection,
 /turf/closed/wall/r_wall,
@@ -28,10 +17,7 @@
 	req_access_txt = "10"
 	},
 /obj/structure/cable,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/engineering/main)
 "cn" = (
@@ -141,12 +127,7 @@
 	dir = 8
 	},
 /obj/structure/cable/layer1,
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/engineering/main)
 "kH" = (
@@ -163,12 +144,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/engineering/main)
 "oz" = (
@@ -283,10 +259,7 @@
 	name = "Supermatter Engine Room";
 	req_access_txt = "10"
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/engineering/main)
 "Be" = (
@@ -1421,7 +1394,7 @@ sA
 CA
 sA
 sA
-as
+zS
 UM
 Ss
 Ch

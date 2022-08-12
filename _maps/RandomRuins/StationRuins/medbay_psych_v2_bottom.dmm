@@ -134,6 +134,7 @@
 	id = "durka_bot_left";
 	name = "Бронежалюзи нижние левые"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/medical/chemistry)
 "lX" = (
@@ -592,15 +593,12 @@
 	name = "Chemistry Storage";
 	req_access_txt = "33"
 	},
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "RU" = (
@@ -656,12 +654,7 @@
 	name = "Psychology";
 	req_access_txt = "70"
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/psychology)
 "VX" = (
@@ -684,16 +677,11 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /obj/machinery/door/poddoor/shutters{
 	id = "durka_bot_right";
 	name = "Бронежалюзи нижние правые"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/medical/psychology)
 "Xd" = (

@@ -95,12 +95,7 @@
 	name = "Engine Room";
 	req_access_txt = "10"
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
@@ -602,12 +597,7 @@
 /turf/closed/wall/r_wall,
 /area/engineering/main)
 "uT" = (
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/public/glass/incinerator/atmos_interior{
 	id_tag = "teg_incinerator_airlock_exterior";
 	name = "TEG Turbine Interior Airlock"
@@ -759,12 +749,7 @@
 	name = "Engine Room";
 	req_access_txt = "10"
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 5
 	},
@@ -882,10 +867,7 @@
 	name = "Engine Room";
 	req_access_txt = "10"
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
 "AK" = (
@@ -1650,10 +1632,7 @@
 	name = "Engine Room";
 	req_access_txt = "10"
 	},
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
+/obj/machinery/door/firedoor,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)

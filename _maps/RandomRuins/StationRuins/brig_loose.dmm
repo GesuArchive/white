@@ -40,10 +40,7 @@
 	name = "Prison Wing";
 	req_access_txt = "2"
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "aC" = (
@@ -151,10 +148,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/security/main)
 "aN" = (
@@ -195,10 +189,7 @@
 	name = "Prison Wing";
 	req_access_txt = "2"
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "aR" = (
@@ -608,12 +599,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "bL" = (
@@ -1149,10 +1135,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "cW" = (
@@ -1168,10 +1151,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "cX" = (
@@ -1294,6 +1274,7 @@
 	req_access_txt = "3"
 	},
 /obj/structure/table/reinforced,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/ai_monitored/security/armory)
 "dm" = (
@@ -1598,6 +1579,7 @@
 	name = "Armoury Shutter"
 	},
 /obj/effect/turf_decal/delivery,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/ai_monitored/security/armory)
 "dT" = (
@@ -1634,10 +1616,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/carpet,
 /area/command/heads_quarters/hos)
 "dX" = (
@@ -2063,10 +2042,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security/glass{
 	id_tag = "outerbrig";
 	name = "Brig";
@@ -2092,10 +2068,7 @@
 	dir = 10
 	},
 /obj/structure/cable,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/ai_monitored/security/armory)
 "fc" = (
@@ -2112,10 +2085,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/ai_monitored/security/armory)
 "fd" = (
@@ -2142,10 +2112,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/showroomfloor,
 /area/security/main)
 "fh" = (
@@ -2736,10 +2703,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security/glass{
 	id_tag = "outerbrig";
 	name = "Brig";
@@ -2761,10 +2725,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "go" = (
@@ -2866,9 +2827,6 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/delivery,
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /obj/machinery/door/poddoor/preopen{
 	id = "briggateteh";
 	name = "security blast door"
@@ -2913,12 +2871,7 @@
 	security_level = 6
 	},
 /obj/structure/cable,
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/showroomfloor,
 /area/security/warden)
 "gS" = (
@@ -3000,10 +2953,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/showroomfloor,
 /area/security/warden)
 "hF" = (
@@ -3016,19 +2966,6 @@
 	dir = 5
 	},
 /turf/open/floor/plasteel,
-/area/security/brig)
-"hG" = (
-/obj/machinery/door/airlock/security{
-	name = "Interrogation";
-	req_access_txt = "63"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
-/turf/open/floor/plasteel/monofloor/dark,
 /area/security/brig)
 "iz" = (
 /turf/closed/wall/r_wall,
@@ -3045,10 +2982,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "iG" = (
@@ -3057,10 +2991,7 @@
 	req_access_txt = "1";
 	security_level = 6
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
 "iH" = (
@@ -3151,6 +3082,7 @@
 	pixel_y = 7
 	},
 /obj/item/pen,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
 "iX" = (
@@ -3258,6 +3190,7 @@
 	},
 /obj/item/restraints/handcuffs,
 /obj/item/radio/off,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
 "jn" = (
@@ -3301,6 +3234,7 @@
 	name = "Brig Desk";
 	req_access_txt = "1"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
 "ju" = (
@@ -3318,6 +3252,7 @@
 /obj/structure/desk_bell{
 	pixel_x = 7
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
 "jv" = (
@@ -3384,10 +3319,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/firedoor/border_only,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/security/brig)
 "nW" = (
@@ -4546,7 +4478,7 @@ ab
 ab
 ab
 ab
-hG
+mK
 dV
 fa
 gT
