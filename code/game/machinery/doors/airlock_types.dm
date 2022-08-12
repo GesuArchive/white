@@ -339,6 +339,28 @@
 	note_overlay_file = 'icons/obj/doors/airlocks/external/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_ext
 
+	/// Whether or not the airlock can be opened without access from a certain direction while powered, or with bare hands from any direction while unpowered OR pressurized.
+	var/space_dir = null
+
+/obj/machinery/door/airlock/external/Initialize(mapload, ...)
+	// default setting is for mapping only, let overrides work
+	if(!mapload || req_access_txt || req_one_access_txt)
+		req_access = null
+
+	return ..()
+
+/obj/machinery/door/airlock/external/LateInitialize()
+	. = ..()
+	if(space_dir)
+		unres_sides |= space_dir
+
+/obj/machinery/door/airlock/external/cyclelinkairlock()
+	. = ..()
+	var/obj/machinery/door/airlock/external/cycle_linked_external_airlock = cyclelinkedairlock
+	if(istype(cycle_linked_external_airlock))
+		cycle_linked_external_airlock.space_dir |= space_dir
+		space_dir |= cycle_linked_external_airlock.space_dir
+
 /obj/machinery/door/airlock/external/glass
 	opacity = FALSE
 	glass = TRUE

@@ -1016,6 +1016,8 @@
 /obj/machinery/light/floor
 	name = "напольная лампа"
 	icon = 'icons/obj/lighting.dmi'
+	layer = LOW_OBJ_LAYER
+	plane = GAME_PLANE
 	base_state = "floor"		// base description and icon_state
 	icon_state = "floor"
 	brightness = 2

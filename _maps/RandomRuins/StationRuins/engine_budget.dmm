@@ -353,17 +353,12 @@
 /obj/structure/closet/emcloset/anchored,
 /turf/open/floor/engine,
 /area/engineering/main)
-"GS" = (
-/obj/machinery/atmospherics/components/unary/portables_connector/visible{
-	icon_state = "connector_map-1";
-	piping_layer = 1
-	},
-/turf/open/floor/plasteel,
-/area/engineering/main)
 "Hu" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/engineering/main)
@@ -419,7 +414,6 @@
 /turf/template_noop,
 /area/space/nearstation)
 "LC" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
@@ -514,10 +508,6 @@
 /area/engineering/main)
 "Tz" = (
 /turf/closed/wall,
-/area/engineering/main)
-"TL" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
-/turf/open/floor/plasteel,
 /area/engineering/main)
 "Un" = (
 /obj/machinery/airalarm{
@@ -1401,7 +1391,7 @@ ZT
 ZT
 xD
 tY
-GS
+sA
 LC
 Sn
 sA
@@ -1430,7 +1420,7 @@ ZT
 sA
 CA
 sA
-TL
+sA
 as
 UM
 Ss

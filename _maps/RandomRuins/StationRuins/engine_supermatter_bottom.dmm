@@ -453,10 +453,8 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 1
-	},
 /obj/machinery/camera/autoname,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /turf/open/floor/engine,
 /area/engineering/main)
 "cV" = (
@@ -601,7 +599,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/layer_manifold/general/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /turf/open/floor/engine,
 /area/engineering/main)
 "dx" = (
@@ -772,7 +770,7 @@
 	pixel_x = 24
 	},
 /obj/effect/turf_decal/stripes/box,
-/obj/machinery/atmospherics/pipe/multiz/orange/visible/layer1{
+/obj/machinery/atmospherics/pipe/multiz/orange/visible{
 	dir = 1
 	},
 /turf/open/floor/plating,

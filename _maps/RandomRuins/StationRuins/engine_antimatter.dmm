@@ -49,6 +49,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 1
+	},
 /turf/open/floor/plasteel,
 /area/engineering/main)
 "dN" = (
@@ -73,12 +76,6 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/cable,
 /turf/open/floor/engine,
-/area/engineering/main)
-"dV" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
-/obj/structure/cable,
-/turf/open/floor/plasteel,
 /area/engineering/main)
 "eA" = (
 /obj/structure/closet/radiation,
@@ -299,8 +296,8 @@
 /turf/open/floor/plating,
 /area/engineering/main)
 "rW" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
 /obj/effect/turf_decal/stripes/corner,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /turf/open/floor/plasteel,
 /area/engineering/main)
 "sH" = (
@@ -380,10 +377,6 @@
 	name = "Radiation Chamber Shutters"
 	},
 /turf/open/floor/plating,
-/area/engineering/main)
-"zu" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
-/turf/open/floor/plasteel,
 /area/engineering/main)
 "AF" = (
 /obj/effect/turf_decal/stripes/line{
@@ -689,7 +682,7 @@
 /area/engineering/main)
 "Qt" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer1,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /turf/open/floor/plasteel,
 /area/engineering/main)
 "QB" = (
@@ -728,13 +721,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/engine,
-/area/engineering/main)
-"Si" = (
-/obj/machinery/atmospherics/components/unary/portables_connector/visible{
-	icon_state = "connector_map-1";
-	piping_layer = 1
-	},
-/turf/open/floor/plasteel,
 /area/engineering/main)
 "Sy" = (
 /obj/structure/cable,
@@ -1646,8 +1632,8 @@ Um
 ZY
 ZY
 ZY
-Si
-zu
+ZY
+ZY
 kK
 ZF
 HQ
@@ -1675,7 +1661,7 @@ Um
 Eu
 Lr
 DB
-dV
+DB
 KZ
 Hi
 QB
