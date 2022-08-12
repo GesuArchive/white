@@ -19,6 +19,8 @@
 	var/openable = FALSE
 	///Is this dispenser slowly leaking its reagent?
 	var/leaking = FALSE
+	///How much reagent to leak
+	var/amount_to_leak = 10
 
 /obj/structure/reagent_dispensers/examine(mob/user)
 	. = ..()
@@ -69,6 +71,13 @@
 	else
 		qdel(src)
 
+/obj/structure/reagent_dispensers/proc/tank_leak()
+	if(leaking && reagents && reagents.total_volume >= amount_to_leak)
+		reagents.expose(get_turf(src), TOUCH, amount_to_leak / max(amount_to_leak, reagents.total_volume))
+		reagents.remove_reagent(reagent_id, amount_to_leak)
+		return TRUE
+	return FALSE
+
 /obj/structure/reagent_dispensers/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if(!openable)
@@ -76,16 +85,12 @@
 	leaking = !leaking
 	balloon_alert(user, "[leaking ? "открываю" : "закрываю"] заглушку [src]")
 	log_game("[key_name(user)] [leaking ? "opened" : "closed"] [src]")
-	if(leaking && reagents)
-		reagents.expose(get_turf(src), TOUCH, 10 / max(10, reagents.total_volume))
-		reagents.remove_any(min(10, reagents.total_volume))
+	tank_leak()
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
 /obj/structure/reagent_dispensers/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
-	if(leaking && reagents)
-		reagents.expose(get_turf(src), TOUCH, 10 / max(10, reagents.total_volume))
-		reagents.remove_any(min(10, reagents.total_volume))
+	tank_leak()
 
 
 /obj/structure/reagent_dispensers/watertank
