@@ -63,6 +63,7 @@
 		JOB_HEAD_OF_SECURITY,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_RANGER,
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -100,6 +101,7 @@
 		JOB_RESEARCH_DIRECTOR,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_FIELD_MEDIC,
 	)
 	enemy_roles = list(
 		JOB_AI,
@@ -109,6 +111,7 @@
 		JOB_HEAD_OF_SECURITY,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_FIELD_MEDIC,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -191,6 +194,7 @@
 		JOB_PRISONER,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_RANGER,
 	)
 	restricted_roles = list(
 		JOB_AI,

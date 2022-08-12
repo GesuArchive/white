@@ -108,6 +108,7 @@
 		JOB_PRISONER,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_RANGER,
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -158,6 +159,7 @@
 		JOB_PRISONER,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_RANGER,
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -602,6 +604,7 @@
 		JOB_PRISONER,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_RANGER,
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -658,3 +661,52 @@
 
 	for(var/department_type in department_types)
 		create_separatist_nation(department_type, announcement = FALSE, dangerous = FALSE, message_admins = FALSE)
+
+
+//////////////////////////////////////////////
+//                                          //
+//              Bloodsuckers                //
+//                                          //
+//////////////////////////////////////////////
+
+/datum/dynamic_ruleset/roundstart/bloodsucker
+	name = "Bloodsuckers"
+	antag_flag = ROLE_BLOODSUCKER
+	antag_datum = /datum/antagonist/bloodsucker
+	minimum_required_age = 0
+	protected_roles = list(
+		JOB_CAPTAIN,
+		JOB_DETECTIVE,
+		JOB_FIELD_MEDIC,
+		JOB_HEAD_OF_SECURITY,
+		JOB_PRISONER,
+		JOB_SECURITY_OFFICER,
+		JOB_WARDEN,
+		JOB_RANGER,
+	)
+	restricted_roles = list(
+		JOB_AI,
+		JOB_CYBORG,
+	)
+	required_candidates = 1
+	weight = 6
+	cost = 5 //
+	scaling_cost = 10
+	requirements = list(8,8,8,8,8,8,8,8,8,8)
+	antag_cap = list("denominator" = 38)
+
+
+/datum/dynamic_ruleset/roundstart/bloodsucker/pre_execute(population)
+	. = ..()
+	var/num_bloodsuckers = get_antag_cap(population) * (scaled_times + 1)
+	for (var/i = 1 to num_bloodsuckers)
+		if(candidates.len <= 0)
+			break
+		var/mob/M = pick_n_take(candidates)
+		assigned += M.mind
+		M.mind.special_role = ROLE_BLOODSUCKER
+		M.mind.restricted_roles = restricted_roles
+		GLOB.pre_setup_antags += M.mind
+	return TRUE
+
+
