@@ -610,8 +610,6 @@
 	},
 /turf/open/floor/wood,
 /area/shuttle/escape)
-"qG" = (
-/area/shuttle/escape)
 "qI" = (
 /obj/structure/table/wood,
 /obj/machinery/chem_dispenser/drinks/beer{
@@ -2656,7 +2654,7 @@ ut
 PN
 pE
 YA
-qG
+AI
 AI
 YJ
 IX
@@ -2702,7 +2700,7 @@ VQ
 PN
 pE
 YA
-qG
+AI
 AI
 Ee
 rt
