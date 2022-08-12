@@ -205,6 +205,9 @@
 	var/turf/checked_turf = location
 	var/result = check_atmos(checked_turf)
 
+	if(checked_turf == get_turf(src))
+		return
+
 	if(result && TURF_SHARES(checked_turf))
 		issue_turfs |= checked_turf
 		if(alarm_type) // If you've already got an alarm, go away
