@@ -7,7 +7,7 @@
 
 /obj/item/circuitboard/computer/unit_shuttle
 	name = "Unit Shuttle (Консоль)"
-	icon_state = "generic"
+	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	build_path = /obj/machinery/computer/shuttle_flight/unit_shuttle
 
 /datum/map_template/shuttle/escape_pod/unit

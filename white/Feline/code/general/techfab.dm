@@ -33,7 +33,7 @@
 /obj/item/circuitboard/machine/mechfab/med
 	name = "плата медицинского фабрикатора"
 	desc = "Продвинутая версия протолата с удобным визуальным интерфейсом."
-	icon_state = "medical"
+	greyscale_colors = CIRCUIT_COLOR_MEDICAL
 	build_path = /obj/machinery/mecha_part_fabricator/med
 
 /obj/machinery/mecha_part_fabricator/med/Initialize(mapload)
@@ -74,7 +74,7 @@
 /obj/item/circuitboard/machine/mechfab/engi
 	name = "плата инженерного фабрикатора"
 	desc = "Продвинутая версия протолата с удобным визуальным интерфейсом."
-	icon_state = "engineering"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/mecha_part_fabricator/engi
 
 /obj/machinery/mecha_part_fabricator/engi/Initialize(mapload)
@@ -115,7 +115,7 @@
 /obj/item/circuitboard/machine/mechfab/sci
 	name = "плата научного фабрикатора"
 	desc = "Продвинутая версия протолата с удобным визуальным интерфейсом."
-	icon_state = "science"
+	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/mecha_part_fabricator/sci
 
 /obj/machinery/mecha_part_fabricator/sci/Initialize(mapload)
@@ -150,7 +150,7 @@
 /obj/item/circuitboard/machine/mechfab/cargo
 	name = "плата карго фабрикатора"
 	desc = "Продвинутая версия протолата с удобным визуальным интерфейсом."
-	icon_state = "supply"
+	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/mecha_part_fabricator/cargo
 
 /obj/machinery/mecha_part_fabricator/cargo/Initialize()

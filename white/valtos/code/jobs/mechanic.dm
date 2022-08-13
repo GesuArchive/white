@@ -416,12 +416,12 @@
 
 /obj/item/circuitboard/machine/copytech
 	name = "Копирующий станок (Оборудование)"
-	icon_state = "engineering"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/copytech
 	req_components = list(/obj/item/stock_parts/micro_laser = 1)
 
 /obj/item/circuitboard/machine/copytech_platform
 	name = "Дезинтегрирующая платформа (Оборудование)"
-	icon_state = "engineering"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/copytech_platform
 	req_components = list(/obj/item/stock_parts/micro_laser = 1)

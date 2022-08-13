@@ -9,7 +9,7 @@
 
 /obj/item/circuitboard/machine/pacman/ecrys
 	name = "WEEB-type Generator (Оборудование)"
-	icon_state = "engineering"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/power/port_gen/pacman/ecrys
 
 /obj/machinery/power/port_gen/pacman/biogen
@@ -28,5 +28,5 @@
 
 /obj/item/circuitboard/machine/pacman/biogen
 	name = "Portable Biogenerator (Оборудование)"
-	icon_state = "engineering"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/power/port_gen/pacman/biogen

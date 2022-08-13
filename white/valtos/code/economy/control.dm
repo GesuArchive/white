@@ -61,7 +61,7 @@
 /obj/item/circuitboard/computer/price_controller
 	name = "контроллер цен"
 	desc = "Используется для искусственных манипуляций внутренним рынком."
-	icon_state = "supply"
+	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/price_controller
 
 /obj/machinery/computer/price_controller/ui_interact(mob/user, datum/tgui/ui)

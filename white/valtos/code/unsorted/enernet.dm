@@ -1,6 +1,6 @@
 /obj/item/circuitboard/computer/enernet_control
 	name = "Управление энернетом (Консоль)"
-	icon_state = "engineering"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/enernet_control
 
 /obj/machinery/computer/enernet_control
@@ -72,7 +72,7 @@
 
 /obj/item/circuitboard/machine/enernet_coil
 	name = "Энергоконцентратор (Оборудование)"
-	icon_state = "engineering"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/enernet_coil
 	req_components = list(
 		/obj/item/stock_parts/capacitor = 4,

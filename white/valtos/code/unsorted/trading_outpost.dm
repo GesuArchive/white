@@ -240,12 +240,12 @@
 
 /obj/item/circuitboard/computer/ferry/trader
 	name = "Trader Transport Ferry (Консоль)"
-	icon_state = "supply"
+	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/shuttle_flight/ferry/trader
 
 /obj/item/circuitboard/computer/ferry/request/trader
 	name = "Trader Transport Console (Консоль)"
-	icon_state = "supply"
+	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/shuttle_flight/ferry/request/trader
 
 /datum/map_template/shuttle/trader_transport

@@ -1,6 +1,6 @@
 /obj/item/circuitboard/machine/chem_dispenser/botany
 	name = "Botany Chem Dispenser (Оборудование)"
-	icon_state = "service"
+	greyscale_colors = CIRCUIT_COLOR_SERVICE
 	build_path = /obj/machinery/chem_dispenser/botany
 	req_components = list(
 		/obj/item/stock_parts/matter_bin = 2,
@@ -13,7 +13,7 @@
 
 /obj/item/circuitboard/machine/chem_dispenser/gunpowder
 	name = "Gunpowder Chem Dispenser (Оборудование)"
-	icon_state = "service"
+	greyscale_colors = CIRCUIT_COLOR_SERVICE
 	build_path = /obj/machinery/chem_dispenser/gunpowder
 	req_components = list(
 		/obj/item/stock_parts/matter_bin = 2,

@@ -172,7 +172,7 @@
 	name = "Плата Орган-Дока МК IIX"
 	desc = "Автоматический хирургически комплекс специализированный на имплантационных и трансплантационных операциях."
 	build_path = /obj/machinery/organdoc
-	icon_state = "medical"
+	greyscale_colors = CIRCUIT_COLOR_MEDICAL
 	req_components = list(/obj/item/scalpel/advanced = 1,
 		/obj/item/retractor/advanced = 1,
 		/obj/item/cautery/advanced = 1,
