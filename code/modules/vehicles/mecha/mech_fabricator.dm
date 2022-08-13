@@ -62,6 +62,8 @@
 								"Управление",
 								"Кибернетика",
 								"Импланты",
+								"Создание MOD",
+								"Модули MOD",
 								"Батареи и прочее"
 								)
 
@@ -125,6 +127,10 @@
 		cost[M.name] = get_resource_cost_w_coeff(D, M)
 
 	var/list/category_override = null
+
+	if(istype(D, /datum/design/module))
+		var/datum/design/module/module_design = D
+		D.sub_category = list(module_design.department_type)
 
 	var/list/part = list(
 		"name" = D.name,

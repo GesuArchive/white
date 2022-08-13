@@ -181,6 +181,29 @@
 		"mech_hydraulic_clamp",
 	)
 
+/datum/techweb_node/mod_basic
+	id = "mod"
+	starting_node = TRUE
+	display_name = "Basic Modular Suits"
+	description = "Specialized back mounted power suits with various different modules."
+	design_ids = list(
+		"mod_boots",
+		"mod_chestplate",
+		"mod_gauntlets",
+		"mod_helmet",
+		"mod_paint_kit",
+		"mod_shell",
+		"mod_plating_standard",
+		"mod_storage",
+		"mod_welding",
+		"mod_mouthhole",
+		"mod_flashlight",
+		"mod_longfall",
+		"mod_thermal_regulator",
+		"mod_plasma",
+		"mod_sign_radio",
+	)
+
 /datum/techweb_node/mech_tools
 	id = "mech_tools"
 	starting_node = TRUE

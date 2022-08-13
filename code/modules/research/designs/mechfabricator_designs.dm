@@ -1023,7 +1023,7 @@
 	materials = list(/datum/material/iron = 10000, /datum/material/plasma = 5000)
 	construction_time = 25 SECONDS
 	build_path = /obj/item/mod/construction/shell
-	category = list("MOD Construction")
+	category = list("Создание MOD")
 
 /datum/design/mod_helmet
 	name = "MOD helmet"
@@ -1033,7 +1033,7 @@
 	materials = list(/datum/material/iron = 5000)
 	construction_time = 10 SECONDS
 	build_path = /obj/item/mod/construction/helmet
-	category = list("MOD Construction")
+	category = list("Создание MOD")
 
 /datum/design/mod_chestplate
 	name = "MOD chestplate"
@@ -1043,7 +1043,7 @@
 	materials = list(/datum/material/iron = 5000)
 	construction_time = 10 SECONDS
 	build_path = /obj/item/mod/construction/chestplate
-	category = list("MOD Construction")
+	category = list("Создание MOD")
 
 /datum/design/mod_gauntlets
 	name = "MOD gauntlets"
@@ -1053,7 +1053,7 @@
 	materials = list(/datum/material/iron = 5000)
 	construction_time = 10 SECONDS
 	build_path = /obj/item/mod/construction/gauntlets
-	category = list("MOD Construction")
+	category = list("Создание MOD")
 
 /datum/design/mod_boots
 	name = "MOD boots"
@@ -1063,7 +1063,7 @@
 	materials = list(/datum/material/iron = 5000)
 	construction_time = 10 SECONDS
 	build_path = /obj/item/mod/construction/boots
-	category = list("MOD Construction")
+	category = list("Создание MOD")
 
 /datum/design/mod_plating
 	name = "MOD external plating"
@@ -1073,7 +1073,7 @@
 	materials = list(/datum/material/iron = 6000, /datum/material/glass = 3000, /datum/material/plasma = 1000)
 	construction_time = 15 SECONDS
 	build_path = /obj/item/mod/construction/plating
-	category = list("MOD Construction", "Equipment")
+	category = list("Создание MOD", "Модули MOD")
 	research_icon = 'icons/obj/clothing/modsuit/mod_construction.dmi'
 	research_icon_state = "standard-plating"
 
@@ -1128,7 +1128,7 @@
 	materials = list(/datum/material/iron = 1000, /datum/material/plastic = 500)
 	construction_time = 5 SECONDS
 	build_path = /obj/item/mod/paint
-	category = list("Misc")
+	category = list("Батареи и прочее")
 
 //MODsuit modules
 
@@ -1138,7 +1138,7 @@
 	construction_time = 1 SECONDS
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 1000)
 	build_path = /obj/item/mod/module
-	category = list("MOD Modules")
+	category = list("Создание MOD")
 	var/department_type = MODULE_GENERAL
 
 /datum/design/module/New()
