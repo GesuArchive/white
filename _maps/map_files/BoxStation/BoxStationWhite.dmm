@@ -21352,8 +21352,7 @@
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
 "gnf" = (
-/obj/machinery/disposal/bin,
-/obj/structure/disposalpipe/trunk,
+/obj/machinery/suit_storage_unit/industrial/loader,
 /turf/open/floor/plating,
 /area/engineering/manufactory)
 "gng" = (
@@ -21946,6 +21945,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/engineering/manufactory)
@@ -23834,6 +23836,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 6
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/manufactory)
@@ -34801,6 +34806,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit/departure_lounge/shop)
+"kEW" = (
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
+/area/engineering/manufactory)
 "kFg" = (
 /obj/structure/disposalpipe/segment,
 /turf/closed/wall/r_wall,
@@ -54393,17 +54402,8 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/engineering/storage_shared)
 "qQJ" = (
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 5
-	},
-/turf/open/floor/plating,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plasteel/monofloor,
 /area/engineering/manufactory)
 "qRe" = (
 /obj/machinery/conveyor{
@@ -57660,7 +57660,10 @@
 	},
 /area/maintenance/starboard/aft)
 "rUS" = (
-/obj/structure/table,
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/manufactory)
 "rUW" = (
@@ -176557,10 +176560,10 @@ pGW
 fph
 iRl
 hdy
-hpE
-hpE
-qqJ
-qqJ
+kEW
+kEW
+qQJ
+qQJ
 rUS
 jki
 okl
@@ -177070,7 +177073,7 @@ vOK
 vOK
 vOK
 gnf
-qQJ
+gxy
 hpE
 hpE
 hpE

@@ -286,6 +286,15 @@
 							/obj/item/stamp/centcom=1,\
 							/obj/item/clipboard=1)
 
+/datum/outfit/centcom/commander/mod
+	name = "Командующий ЦК (MODsuit)"
+
+	suit_store = /obj/item/tank/internals/oxygen
+	suit = null
+	head = null
+	mask = /obj/item/clothing/mask/gas/sechailer
+	back = /obj/item/mod/control/pre_equipped/corporate
+	internals_slot = ITEM_SLOT_SUITSTORE
 
 /datum/outfit/centcom/commander/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -491,38 +500,44 @@
 */
 /datum/outfit/chrono_agent
 	name = "Timeline Eradication Agent"
-	uniform = /obj/item/clothing/under/color/white
-	suit = /obj/item/clothing/suit/space/chronos
-	back = /obj/item/chrono_eraser
-	head = /obj/item/clothing/head/helmet/space/chronos
-	mask = /obj/item/clothing/mask/breath
-	suit_store = /obj/item/tank/internals/oxygen
 
-/datum/outfit/debug //Debug objs plus hardsuit
+	uniform = /obj/item/clothing/under/color/white
+	suit_store = /obj/item/tank/internals/oxygen
+	mask = /obj/item/clothing/mask/breath
+	back = /obj/item/mod/control/pre_equipped/chrono
+
+/datum/outfit/chrono_agent/post_equip(mob/living/carbon/human/agent, visualsOnly)
+	. = ..()
+	var/obj/item/mod/control/mod = agent.back
+	if(!istype(mod))
+		return
+	var/obj/item/mod/module/eradication_lock/lock = locate(/obj/item/mod/module/eradication_lock) in mod.modules
+	lock.true_owner_ckey = agent.ckey
+
+/datum/outfit/debug //Debug objs plus MODsuit
 	name = "Debug outfit"
+
+	id = /obj/item/card/id/advanced/debug
 	uniform = /obj/item/clothing/under/misc/patriotsuit
-	suit = /obj/item/clothing/suit/space/hardsuit/syndi/elite/debug
+	suit_store = /obj/item/tank/internals/oxygen
+	back = /obj/item/mod/control/pre_equipped/debug
+	backpack_contents = list(
+		/obj/item/melee/energy/axe = 1,
+		/obj/item/storage/part_replacer/bluespace/tier4 = 1,
+		/obj/item/gun/magic/wand/resurrection/debug = 1,
+		/obj/item/gun/magic/wand/death/debug = 1,
+		/obj/item/debug/human_spawner = 1,
+		/obj/item/debug/omnitool = 1,
+)
 	belt = /obj/item/storage/belt/utility/chief/full
 	ears = /obj/item/radio/headset/headset_cent/commander
 	glasses = /obj/item/clothing/glasses/debug
-	ears = /obj/item/radio/headset/headset_cent/commander
-	mask = /obj/item/clothing/mask/gas/welding/up
 	gloves = /obj/item/clothing/gloves/combat
-	belt = /obj/item/storage/belt/utility/chief/full
+	mask = /obj/item/clothing/mask/gas/welding/up
 	shoes = /obj/item/clothing/shoes/magboots/advance
-	id = /obj/item/card/id/advanced/debug
-	suit_store = /obj/item/tank/internals/oxygen
-	back = /obj/item/storage/backpack/holding
+
 	box = /obj/item/storage/box/debugtools
 	internals_slot = ITEM_SLOT_SUITSTORE
-	backpack_contents = list(
-		/obj/item/melee/energy/axe=1,\
-		/obj/item/storage/part_replacer/bluespace/tier5=1,\
-		/obj/item/gun/magic/wand/resurrection/debug=1,\
-		/obj/item/gun/magic/wand/death/debug=1,\
-		/obj/item/debug/human_spawner=1,\
-		/obj/item/debug/omnitool=1
-		)
 
 /datum/outfit/debug/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/obj/item/card/id/W = H.wear_id
@@ -532,38 +547,32 @@
 
 /datum/outfit/admin //for admeem shenanigans and testing things that arent related to equipment, not a subtype of debug just in case debug changes things
 	name = "Admin outfit"
+
+	id = /obj/item/card/id/advanced/debug
 	uniform = /obj/item/clothing/under/misc/patriotsuit
-	suit = /obj/item/clothing/suit/space/hardsuit/syndi/elite/admin
+	suit_store = /obj/item/tank/internals/oxygen
+	back = /obj/item/mod/control/pre_equipped/administrative
+	backpack_contents = list(
+		/obj/item/melee/energy/axe = 1,
+		/obj/item/storage/part_replacer/bluespace/tier4 = 1,
+		/obj/item/gun/magic/wand/resurrection/debug = 1,
+		/obj/item/gun/magic/wand/death/debug = 1,
+		/obj/item/debug/human_spawner = 1,
+		/obj/item/debug/omnitool = 1,
+		/obj/item/storage/box/stabilized = 1,
+)
 	belt = /obj/item/storage/belt/utility/chief/full
 	ears = /obj/item/radio/headset/headset_cent/commander
 	glasses = /obj/item/clothing/glasses/debug
-	ears = /obj/item/radio/headset/headset_cent/commander
-	mask = /obj/item/clothing/mask/gas/welding/up
 	gloves = /obj/item/clothing/gloves/combat
-	belt = /obj/item/storage/belt/utility/chief/full
+	mask = /obj/item/clothing/mask/gas/welding/up
 	shoes = /obj/item/clothing/shoes/magboots/advance
-	id = /obj/item/card/id/advanced/debug
-	suit_store = /obj/item/tank/internals/oxygen
-	back = /obj/item/storage/backpack/holding
+
 	box = /obj/item/storage/box/debugtools
 	internals_slot = ITEM_SLOT_SUITSTORE
-	backpack_contents = list(
-		/obj/item/melee/energy/axe=1,\
-		/obj/item/storage/part_replacer/bluespace/tier4=1,\
-		/obj/item/gun/magic/wand/resurrection/debug=1,\
-		/obj/item/gun/magic/wand/death/debug=1,\
-		/obj/item/debug/human_spawner=1,\
-		/obj/item/debug/omnitool=1,\
-		/obj/item/storage/box/stabilized=1
-		)
 
 /datum/outfit/admin/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/obj/item/card/id/W = H.wear_id
 	W.registered_name = H.real_name
 	W.update_label()
 	W.update_icon()
-
-	if(!visualsOnly)	//	Пишу на Дриммейкере за Еду
-		var/obj/item/organ/cyberimp/chest/nutriment/plus/L = new/obj/item/organ/cyberimp/chest/nutriment/plus(H)
-		L.Insert(H, null, 1)
-

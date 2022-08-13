@@ -12,6 +12,7 @@
 	var/obj/item/clothing/suit/space/suit = null
 	var/obj/item/clothing/head/helmet/space/helmet = null
 	var/obj/item/clothing/mask/mask = null
+	var/obj/item/mod/control/mod = null
 	var/obj/item/storage = null
 								// if you add more storage slots, update cook() to clear their radiation too.
 
@@ -21,6 +22,10 @@
 	var/helmet_type = null
 	/// What type of breathmask the unit starts with when spawned.
 	var/mask_type = null
+	/// What type of MOD the unit starts with when spawned.
+	var/mod_type = null
+	/// What type of MOD the unit starts with when spawned.
+	var/mod_type = null
 	/// What type of additional item the unit starts with when spawned.
 	var/storage_type = null
 
@@ -54,68 +59,129 @@
 	icon_state = "industrial"
 	base_icon_state = "industrial"
 
+/obj/machinery/suit_storage_unit/industrial/loader
+	mod_type = /obj/item/mod/control/pre_equipped/loader
+
 /obj/machinery/suit_storage_unit/standard_unit
 	suit_type = /obj/item/clothing/suit/space/eva
 	helmet_type = /obj/item/clothing/head/helmet/space/eva
 	mask_type = /obj/item/clothing/mask/breath/cheap
 
-/obj/machinery/suit_storage_unit/captain
+/obj/machinery/suit_storage_unit/captain/old
 	suit_type = /obj/item/clothing/suit/space/hardsuit/swat/captain
 	mask_type = /obj/item/clothing/mask/gas/atmos/captain
 	storage_type = /obj/item/tank/jetpack/oxygen/captain
 
-/obj/machinery/suit_storage_unit/engine
+/obj/machinery/suit_storage_unit/captain
+	mask_type = /obj/item/clothing/mask/gas/atmos/captain
+	storage_type = /obj/item/tank/jetpack/oxygen/captain
+	mod_type = /obj/item/mod/control/pre_equipped/magnate
+
+/obj/machinery/suit_storage_unit/centcom
+	mask_type = /obj/item/clothing/mask/gas/atmos/centcom
+	storage_type = /obj/item/tank/jetpack/oxygen/captain
+	mod_type = /obj/item/mod/control/pre_equipped/corporate
+
+/obj/machinery/suit_storage_unit/engine/old
 	suit_type = /obj/item/clothing/suit/space/hardsuit/engine
 	mask_type = /obj/item/clothing/mask/breath
 
-/obj/machinery/suit_storage_unit/atmos
+/obj/machinery/suit_storage_unit/engine
+	mask_type = /obj/item/clothing/mask/breath
+	mod_type = /obj/item/mod/control/pre_equipped/engineering
+
+/obj/machinery/suit_storage_unit/atmos/old
 	suit_type = /obj/item/clothing/suit/space/hardsuit/engine/atmos
 	mask_type = /obj/item/clothing/mask/gas/atmos
 	storage_type = /obj/item/watertank/atmos
 
-/obj/machinery/suit_storage_unit/ce
+/obj/machinery/suit_storage_unit/atmos
+	mask_type = /obj/item/clothing/mask/gas/atmos
+	storage_type = /obj/item/watertank/atmos
+	mod_type = /obj/item/mod/control/pre_equipped/atmospheric
+
+/obj/machinery/suit_storage_unit/ce/old
 	suit_type = /obj/item/clothing/suit/space/hardsuit/engine/elite
 	mask_type = /obj/item/clothing/mask/breath
 	storage_type= /obj/item/clothing/shoes/magboots/advance
 
-/obj/machinery/suit_storage_unit/security
+/obj/machinery/suit_storage_unit/ce
+	mask_type = /obj/item/clothing/mask/breath
+	storage_type = /obj/item/clothing/shoes/magboots/advance
+	mod_type = /obj/item/mod/control/pre_equipped/advanced
+
+/obj/machinery/suit_storage_unit/security/old
 	suit_type = /obj/item/clothing/suit/space/hardsuit/security
 	mask_type = /obj/item/clothing/mask/gas/sechailer
 	storage_type = /obj/item/tank/internals/tactical
 
-/obj/machinery/suit_storage_unit/hos
+/obj/machinery/suit_storage_unit/security
+	mask_type = /obj/item/clothing/mask/gas/sechailer
+	mod_type = /obj/item/mod/control/pre_equipped/security
+	storage_type = /obj/item/tank/internals/tactical
+
+/obj/machinery/suit_storage_unit/hos/old
 	suit_type = /obj/item/clothing/suit/space/hardsuit/security/hos
 	mask_type = /obj/item/clothing/mask/gas/sechailer
 	storage_type = /obj/item/tank/internals/tactical
+
+/obj/machinery/suit_storage_unit/hos
+	mask_type = /obj/item/clothing/suit/space/hardsuit/security/hos
+	storage_type = /obj/item/tank/internals/tactical
+	mod_type = /obj/item/mod/control/pre_equipped/safeguard
 
 /obj/machinery/suit_storage_unit/mining
 	suit_type = /obj/item/clothing/suit/hooded/explorer
 	mask_type = /obj/item/clothing/mask/gas/explorer
 	storage_type = /obj/item/tank/internals/tactical
 
-/obj/machinery/suit_storage_unit/mining/eva
+/obj/machinery/suit_storage_unit/mining/eva/old
 	suit_type = /obj/item/clothing/suit/space/hardsuit/mining
 	mask_type = /obj/item/clothing/mask/breath
 	storage_type = /obj/item/tank/internals/tactical
+
+/obj/machinery/suit_storage_unit/mining/eva
+	suit_type = null
+	mask_type = /obj/item/clothing/mask/breath
+	mod_type = /obj/item/mod/control/pre_equipped/mining
 
 /obj/machinery/suit_storage_unit/exploration
 	suit_type = /obj/item/clothing/suit/space/hardsuit/exploration
 	mask_type = /obj/item/clothing/mask/breath
 	storage_type = /obj/item/tank/internals/tactical
 
-/obj/machinery/suit_storage_unit/cmo
+/obj/machinery/suit_storage_unit/medical
+	mask_type = /obj/item/clothing/mask/breath/medical
+	storage_type = /obj/item/tank/internals/oxygen
+	mod_type = /obj/item/mod/control/pre_equipped/medical
+
+/obj/machinery/suit_storage_unit/cmo/old
 	suit_type = /obj/item/clothing/suit/space/hardsuit/medical
 	mask_type = /obj/item/clothing/mask/breath/medical
 	storage_type = /obj/item/tank/internals/oxygen
 
-/obj/machinery/suit_storage_unit/rd
+/obj/machinery/suit_storage_unit/cmo
+	mask_type = /obj/item/clothing/mask/breath/medical
+	storage_type = /obj/item/tank/internals/oxygen
+	mod_type = /obj/item/mod/control/pre_equipped/rescue
+
+/obj/machinery/suit_storage_unit/rd/old
 	suit_type = /obj/item/clothing/suit/space/hardsuit/rd
 	mask_type = /obj/item/clothing/mask/breath
 
-/obj/machinery/suit_storage_unit/syndicate
+/obj/machinery/suit_storage_unit/rd
+	mask_type = /obj/item/clothing/mask/breath
+	mod_type = /obj/item/mod/control/pre_equipped/research
+
+/obj/machinery/suit_storage_unit/syndicate/old
 	suit_type = /obj/item/clothing/suit/space/hardsuit/syndi
 	mask_type = /obj/item/clothing/mask/gas/syndicate
 	storage_type = /obj/item/tank/jetpack/oxygen/harness
+
+/obj/machinery/suit_storage_unit/syndicate
+	mask_type = /obj/item/clothing/mask/gas/syndicate
+	storage_type = /obj/item/tank/jetpack/oxygen/harness
+	mod_type = /obj/item/mod/control/pre_equipped/nuclear
 
 /obj/machinery/suit_storage_unit/ert/command
 	suit_type = /obj/item/clothing/suit/space/hardsuit/ert
@@ -156,6 +222,8 @@
 		helmet = new helmet_type(src)
 	if(mask_type)
 		mask = new mask_type(src)
+	if(mod_type)
+		mod = new mod_type(src)
 	if(storage_type)
 		storage = new storage_type(src)
 	update_icon()
@@ -164,6 +232,7 @@
 	QDEL_NULL(suit)
 	QDEL_NULL(helmet)
 	QDEL_NULL(mask)
+	QDEL_NULL(mod)
 	QDEL_NULL(storage)
 	return ..()
 
@@ -174,7 +243,7 @@
 		. += "[base_icon_state]_panel"
 	if(state_open)
 		. += "[base_icon_state]_open"
-		if(suit)
+		if(suit || mod)
 			. += "[base_icon_state]_suit"
 		if(helmet)
 			. += "[base_icon_state]_helm"
@@ -211,6 +280,7 @@
 	helmet = null
 	suit = null
 	mask = null
+	mod = null
 	storage = null
 	set_occupant(null)
 
@@ -229,6 +299,7 @@
 			"suit" = create_silhouette_of(/obj/item/clothing/suit/space/eva),
 			"helmet" = create_silhouette_of(/obj/item/clothing/head/helmet/space/eva),
 			"mask" = create_silhouette_of(/obj/item/clothing/mask/breath),
+			"mod" = create_silhouette_of(/obj/item/mod/control),
 			"storage" = create_silhouette_of(/obj/item/tank/internals/oxygen),
 		)
 
@@ -385,16 +456,16 @@
 		uv = FALSE
 		locked = FALSE
 		if(uv_super)
-			visible_message(span_warning("[capitalize(src.name)] door creaks open with a loud whining noise. A cloud of foul black smoke escapes from its chamber."))
+			visible_message(span_warning("[src]'s door creaks open with a loud whining noise. A cloud of foul black smoke escapes from its chamber."))
 			playsound(src, 'sound/machines/airlock_alien_prying.ogg', 50, TRUE)
-			helmet = null
-			qdel(helmet)
-			suit = null
-			qdel(suit) // Delete everything but the occupant.
-			mask = null
-			qdel(mask)
-			storage = null
-			qdel(storage)
+			var/datum/effect_system/fluid_spread/smoke/bad/black/smoke = new
+			smoke.set_up(0, location = src)
+			smoke.start()
+			QDEL_NULL(helmet)
+			QDEL_NULL(suit)
+			QDEL_NULL(mask)
+			QDEL_NULL(mod)
+			QDEL_NULL(storage)
 			// The wires get damaged too.
 			wires.cut_all()
 		else
@@ -414,6 +485,9 @@
 			if(mask)
 				things_to_clear += mask
 				things_to_clear += mask.get_all_contents()
+			if(mod)
+				things_to_clear += mod
+				things_to_clear += mod.get_all_contents()
 			if(storage)
 				things_to_clear += storage
 				things_to_clear += storage.get_all_contents()
@@ -428,16 +502,17 @@
 			dump_inventory_contents()
 
 /obj/machinery/suit_storage_unit/process(delta_time)
-	if(!suit)
-		return
-	if(!istype(suit, /obj/item/clothing/suit/space))
-		return
-	if(!suit.cell || suit.cell.charge == suit.cell.maxcharge)
+	var/obj/item/stock_parts/cell/cell
+	if(suit && istype(suit))
+		cell = suit.cell
+	if(mod)
+		cell = mod.get_cell()
+	if(!cell || cell.charge == cell.maxcharge)
 		return
 
-	var/obj/item/stock_parts/cell/C = suit.cell
-	use_power((active_power_usage + charge_rate) * delta_time)
-	C.give(charge_rate * delta_time)
+	var/cell_charged = cell.give(charge_rate * delta_time)
+	if(cell_charged)
+		use_power((active_power_usage + charge_rate) * delta_time)
 
 /obj/machinery/suit_storage_unit/proc/shock(mob/user, prb)
 	if(!prob(prb))
@@ -512,6 +587,13 @@
 			if(!user.transferItemToLoc(I, src))
 				return
 			mask = I
+		else if(istype(I, /obj/item/mod/control))
+			if(mod)
+				to_chat(user, span_warning("The unit already contains a MOD!"))
+				return
+			if(!user.transferItemToLoc(I, src))
+				return
+			mod = I
 		else
 			if(storage)
 				to_chat(user, span_warning("The auxiliary storage compartment is full!"))

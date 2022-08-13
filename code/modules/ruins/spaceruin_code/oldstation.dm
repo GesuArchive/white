@@ -63,3 +63,189 @@
 	I have no fucking idea what they are, all I know is that they don't like me. On occasion I hear them hissing and clawing on the airlock... good idea I barricaded the way in. Bad news: the transit tube is still broken, the damn engineers never fixed it. \
 	So basically, I'm stuck here until someone comes to rescue us. And I have no food or water. <br>If you're reading this, I'm probably dead. These things have taken over part of Delta station, and I think they somehow came from the AI core... \
 	Whatever you do, DON'T OPEN THE FIRELOCKS unless you have something to kill them. Look in security, maybe there might be some gear left in there. <br><br>So hungry... I don't want to go out like this..."
+
+/obj/item/paper/fluff/ruins/oldstation/biolab_note_molly
+	name = "Diary note - Molly"
+	info = "It has been several months since our Molly passed away. She was our most valuable crew member, especially compared to that prick that happily threw a party to make sure `that beef won't go to waste`...<br><br> \
+	Oh, how I miss her warm milk...<br><br>I've put Molly's biopsy in the fridge and almost completed the solution.<br><br> \
+	Next steps:<ul><li>Pour the broth to the growing vat (beaker nearby)</li><li>Add one dropper of the solution</li><li>Add Molly's biopsy to the vat</li></ul> \
+	Just need to make sure to use the correct bottle this time... I'll even mark it as `<b>Solution for Molly</b>`, or I tend to mix things up... <br>I can already feel the endorphin release from hugging her again.<br><br> \
+	If everything goes well, I will try out those slimes the papers praising as the future of science. They say that the cell lines may be found on anything moldy and rotting, and these small blobs have crazy mutation potential when properly fed."
+
+/obj/item/paper/fluff/ruins/oldstation/biolab_note_emergency
+	name = "Diary note - Emergency"
+	info = "OH GOD, the station is still creaking from a heavy impact in the port direction. The power is down, coms not responding, the air supply pipe depressurized and I can feel the artificial gravity weakening. \
+	The whole department is running around in panic. I'll just pray that engineers won't let the engine delaminate.<br><br> ...And the alien spawn have broken out of the containment area due to the impact and slipped into the vent.<br><br> \
+	I have a bad feeling about this, but I doubt that now is the right time to make guys hunt for what they call my `pet cockroach`... And RD is scary..."
+
+/obj/item/paper/fluff/ruins/oldstation/apc_note
+	name = "DO NOT TOUCH!"
+	info = "This is a spare pre-charged APC battery for emergencies ONLY. DO NOT use it for stun prods, Bob."
+
+/obj/machinery/mod_installer
+	name = "modular outerwear device installator"
+	desc = "An ancient machine that mounts a MOD unit onto the occupant."
+	icon = 'icons/obj/machines/mod_installer.dmi'
+	icon_state = "mod_installer"
+	base_icon_state = "mod_installer"
+	layer = ABOVE_WINDOW_LAYER
+	use_power = IDLE_POWER_USE
+	anchored = TRUE
+	density = TRUE
+	obj_flags = NO_BUILD // Becomes undense when the door is open
+	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.5
+	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.3
+
+	var/busy = FALSE
+	var/busy_icon_state
+
+	var/obj/item/mod/control/mod_unit = /obj/item/mod/control/pre_equipped/prototype
+
+	COOLDOWN_DECLARE(message_cooldown)
+
+/obj/machinery/mod_installer/Initialize(mapload)
+	. = ..()
+	occupant_typecache = typecacheof(/mob/living/carbon/human)
+	if(ispath(mod_unit))
+		mod_unit = new mod_unit()
+
+/obj/machinery/mod_installer/Destroy()
+	QDEL_NULL(mod_unit)
+	return ..()
+
+/obj/machinery/mod_installer/proc/set_busy(status, working_icon)
+	busy = status
+	busy_icon_state = working_icon
+	update_appearance()
+
+/obj/machinery/mod_installer/proc/play_install_sound()
+	playsound(src, 'sound/items/rped.ogg', 30, FALSE)
+
+/obj/machinery/mod_installer/update_icon_state()
+	icon_state = busy ? busy_icon_state : "[base_icon_state][state_open ? "_open" : null]"
+	return ..()
+
+/obj/machinery/mod_installer/update_overlays()
+	var/list/overlays = ..()
+	if(machine_stat & (NOPOWER|BROKEN))
+		return overlays
+	overlays += (busy || !mod_unit) ? "red" : "green"
+	return overlays
+
+/obj/machinery/mod_installer/proc/start_process()
+	if(machine_stat & (NOPOWER|BROKEN))
+		return
+	if(!occupant || !mod_unit || busy)
+		return
+	set_busy(TRUE, "[initial(icon_state)]_raising")
+	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "[initial(icon_state)]_active"), 2.5 SECONDS)
+	addtimer(CALLBACK(src, .proc/play_install_sound), 2.5 SECONDS)
+	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "[initial(icon_state)]_falling"), 5 SECONDS)
+	addtimer(CALLBACK(src, .proc/complete_process), 7.5 SECONDS)
+
+/obj/machinery/mod_installer/proc/complete_process()
+	set_busy(FALSE)
+	var/mob/living/carbon/human/human_occupant = occupant
+	if(!istype(human_occupant))
+		return
+	if(!human_occupant.dropItemToGround(human_occupant.back))
+		return
+	if(!human_occupant.equip_to_slot_if_possible(mod_unit, mod_unit.slot_flags, qdel_on_fail = FALSE, disable_warning = TRUE))
+		return
+	human_occupant.update_action_buttons(TRUE)
+	playsound(src, 'sound/machines/ping.ogg', 30, FALSE)
+	if(!human_occupant.dropItemToGround(human_occupant.wear_suit) || !human_occupant.dropItemToGround(human_occupant.head))
+		finish_completion()
+		return
+	mod_unit.quick_activation()
+	finish_completion()
+
+/obj/machinery/mod_installer/proc/finish_completion()
+	mod_unit = null
+	open_machine()
+
+/obj/machinery/mod_installer/open_machine()
+	if(state_open)
+		return FALSE
+	..()
+	return TRUE
+
+/obj/machinery/mod_installer/close_machine(mob/living/carbon/user)
+	if(!state_open)
+		return FALSE
+	..()
+	addtimer(CALLBACK(src, .proc/start_process), 1 SECONDS)
+	return TRUE
+
+/obj/machinery/mod_installer/relaymove(mob/living/user, direction)
+	var/message
+	if(busy)
+		message = "it won't budge!"
+	else if(user.stat != CONSCIOUS)
+		message = "you don't have the energy!"
+	if(!isnull(message))
+		if (COOLDOWN_FINISHED(src, message_cooldown))
+			COOLDOWN_START(src, message_cooldown, 5 SECONDS)
+			balloon_alert(user, message)
+		return
+	open_machine()
+
+/obj/machinery/mod_installer/interact(mob/user)
+	if(state_open)
+		close_machine(null, user)
+		return
+	else if(busy)
+		balloon_alert(user, "it's locked!")
+		return
+	open_machine()
+
+/obj/effect/spawner/structure/window/reinforced/damaged
+	name = "damaged reinforced window spawner"
+	spawn_list = list(/obj/structure/grille, /obj/structure/window/reinforced/fulltile/damaged)
+
+/obj/structure/window/reinforced/fulltile/damaged
+	var/integrity_min_factor = 0.2
+	var/integrity_max_factor = 0.8
+
+/obj/structure/window/reinforced/fulltile/damaged/Initialize(mapload)
+	. = ..()
+	obj_integrity = rand(max_integrity * integrity_min_factor, max_integrity * integrity_max_factor)
+
+/obj/item/petri_dish/oldstation
+	name = "molly's biopsy"
+	desc = "You can see a moldy piece of sandwich inside the dish. Maybe it helped to preserve the bacteria for that long."
+
+/obj/item/petri_dish/oldstation/Initialize(mapload)
+	. = ..()
+	sample = new
+	sample.GenerateSample(CELL_LINE_TABLE_COW, null, 1, 0)
+	var/datum/biological_sample/contamination = new
+	contamination.GenerateSample(CELL_LINE_TABLE_GRAPE, null, 1, 0)
+	sample.Merge(contamination)
+	sample.sample_color = COLOR_SAMPLE_BROWN
+	update_appearance()
+
+/obj/item/reagent_containers/cup/beaker/oldstation
+	name = "cultivation broth"
+	amount_per_transfer_from_this = 50
+	list_reagents = list(
+		// Required for CELL_LINE_TABLE_COW
+		/datum/reagent/consumable/nutriment/protein = 10,
+		/datum/reagent/consumable/nutriment = 5,
+		/datum/reagent/cellulose = 5,
+		// Required for CELL_LINE_TABLE_GRAPE
+		/datum/reagent/toxin/slimejelly = 5,
+		/datum/reagent/yuck = 5,
+		/datum/reagent/consumable/vitfro = 5,
+		// Supplementary for CELL_LINE_TABLE_GRAPE
+		/datum/reagent/liquidgibs = 5
+	)
+
+/obj/machinery/computer/old
+	name = "old computer"
+	circuit = /obj/item/circuitboard/computer
+
+/obj/machinery/computer/old/Initialize(mapload)
+	icon_keyboard = pick("generic_key", "med_key")
+	icon_screen = pick("generic", "comm_monitor", "comm_logs")
+	. = ..()
