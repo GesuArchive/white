@@ -56,6 +56,15 @@
 	START_PROCESSING(SSmachines, src)
 	materials = AddComponent(/datum/component/remote_materials, "bsm", mapload)
 
+	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
+	SP.prefs_toggle_flag = null
+	SP.set_sound(sound('white/valtos/sounds/blueminer_loop.ogg'))
+	SP.set_channel(open_sound_channel_for_boombox())
+	SP.playing_volume = 100
+	SP.playing_range = 14
+	SP.playing_falloff = 1
+	SP.active = TRUE
+
 /obj/machinery/mineral/bluespace_miner/Destroy()
 	materials = null
 	STOP_PROCESSING(SSmachines, src)
