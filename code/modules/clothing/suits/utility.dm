@@ -14,6 +14,7 @@
 	desc = "Костюм, который помогает защитить от огня и тепла."
 	icon_state = "fire"
 	inhand_icon_state = "ro_suit"
+	worn_icon = 'icons/mob/clothing/suits/utility.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	gas_transfer_coefficient = 0.9
 	permeability_coefficient = 0.5
@@ -30,6 +31,11 @@
 	strip_delay = 60
 	equip_delay_other = 60
 	resistance_flags = FIRE_PROOF
+
+/obj/item/clothing/suit/fire/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+	. = ..()
+	if(!isinhands)
+		. += emissive_appearance(icon_file, "[icon_state]-emissive", alpha = src.alpha)
 
 /obj/item/clothing/suit/fire/firefighter
 	icon_state = "firesuit"
@@ -133,6 +139,7 @@
 	desc = "Костюм с радиационно-защитными свойствами. На этикетке написано: «Сделано из свинца. Пожалуйста, не потребляйте изоляцию.»"
 	icon_state = "rad"
 	inhand_icon_state = "rad_suit"
+	worn_icon = 'icons/mob/clothing/suits/utility.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	gas_transfer_coefficient = 0.9
 	permeability_coefficient = 0.5
@@ -146,3 +153,8 @@
 	flags_inv = HIDEJUMPSUIT
 	resistance_flags = NONE
 	flags_1 = RAD_PROTECT_CONTENTS_1
+
+/obj/item/clothing/suit/radiation/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+	. = ..()
+	if(!isinhands)
+		. += emissive_appearance(icon_file, "[icon_state]-emissive", alpha = src.alpha)
