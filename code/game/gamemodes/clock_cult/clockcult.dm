@@ -48,11 +48,11 @@ GLOBAL_VAR(clockcult_eminence)
 
 /datum/game_mode/clockcult/setup_maps()
 	//Since we are loading in pre_setup, disable map loading.
-	SSticker.gamemode_hotswap_disabled = TRUE
 	LoadReebe()
 	return TRUE
 
 /datum/game_mode/clockcult/pre_setup()
+	setup_maps()
 	//Generate cultists
 	for(var/i in 1 to clock_cultists)
 		if(!antag_candidates.len)
