@@ -993,7 +993,7 @@
 	icon = 'white/Wzzzz/clothing/head.dmi'
 	worn_icon = 'white/Wzzzz/clothing/mob/head.dmi'
 	armor = list("melee" = 35, "bullet" = 15, "laser" = 15, "energy" = 10, "bomb" = 20, "bio" = 100, "rad" = 60, "fire" = 60, "acid" = 75)
-	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SCAN_REAGENTS | SNUG_FIT
+	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT
 
 /obj/item/clothing/suit/space/hardsuit/medical
 	name = "paramedical hardsuit"

@@ -899,6 +899,8 @@
 		// applying this to vehicles is handled in the ridable element, see [/datum/element/ridable/proc/check_potion]
 		to_chat(user, span_warning("The potion can only be used on items or vehicles!"))
 		return
+	if(SEND_SIGNAL(C, COMSIG_SPEED_POTION_APPLIED, src, user) & SPEED_POTION_STOP)
+		return
 	if(isitem(C))
 		var/obj/item/I = C
 		if(I.slowdown <= 0 || I.obj_flags & IMMUTABLE_SLOW)

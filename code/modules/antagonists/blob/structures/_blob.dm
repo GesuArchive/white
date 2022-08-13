@@ -349,7 +349,7 @@ GLOBAL_VAR_INIT(blob_current_icon, pick('icons/mob/blob_64.dmi', 'icons/mob/blob
 /obj/structure/blob/examine(mob/user)
 	. = ..()
 	var/datum/atom_hud/hud_to_check = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
-	if(user.research_scanner || hud_to_check.hud_users[user])
+	if(HAS_TRAIT(user, TRAIT_RESEARCH_SCANNER) || hud_to_check.hud_users[user])
 		. += "<hr><b>HUD показывает расширенный отчёт...</b><br>"
 		if(overmind)
 			. += overmind.blobstrain.examine(user)

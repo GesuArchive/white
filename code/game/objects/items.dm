@@ -353,7 +353,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 
 	. += span_smallnotice("<b>Размер:</b> [weight_class_to_icon(w_class, user, TRUE)]")
 
-	if(!user.research_scanner)
+	if(!HAS_TRAIT(user, TRAIT_RESEARCH_SCANNER))
 		return
 
 	/// Research prospects, including boostable nodes and point values. Deliver to a console to know whether the boosts have already been used.
@@ -1199,6 +1199,10 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 /obj/item/proc/on_offer_taken(mob/living/carbon/offerer, mob/living/carbon/taker)
 	if(SEND_SIGNAL(src, COMSIG_ITEM_OFFER_TAKEN, offerer, taker) & COMPONENT_OFFER_INTERRUPT)
 		return TRUE
+
+/// Special stuff you want to do when an outfit equips this item.
+/obj/item/proc/on_outfit_equip(mob/living/carbon/human/outfit_wearer, visuals_only, item_slot)
+	return
 
 /obj/item/proc/do_pickup_animation(atom/target)
 	if(!istype(loc, /turf))

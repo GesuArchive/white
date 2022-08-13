@@ -199,6 +199,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	///List of visual overlays created by handle_body()
 	var/list/body_vis_overlays = list()
 
+	/// Should we preload this species's organs?
+	var/preload = TRUE
+
 ///////////
 // PROCS //
 ///////////
@@ -2277,3 +2280,18 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			continue
 
 		current_part.change_bodypart(species_part)
+
+/datum/species/proc/get_types_to_preload()
+	var/list/to_store = list()
+	to_store += mutant_organs
+	//Don't preload brains, cause reuse becomes a horrible headache
+	to_store += mutantheart
+	to_store += mutantlungs
+	to_store += mutanteyes
+	to_store += mutantears
+	to_store += mutanttongue
+	to_store += mutantliver
+	to_store += mutantstomach
+	to_store += mutantappendix
+	//We don't cache mutant hands because it's not constrained enough, too high a potential for failure
+	return to_store

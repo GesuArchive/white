@@ -6,6 +6,7 @@
 	icon = 'icons/effects/160x160.dmi'
 	icon_state = "time"
 	layer = FLY_LAYER
+	plane = ABOVE_GAME_PLANE
 	pixel_x = -64
 	pixel_y = -64
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -16,9 +17,10 @@
 	var/datum/proximity_monitor/advanced/timestop/chronofield
 	alpha = 125
 	var/check_anti_magic = FALSE
-	var/check_holy = FALSE
+	///if true, immune atoms moving ends the timestop instead of duration.
+	var/channelled = FALSE
 
-/obj/effect/timestop/Initialize(mapload, radius, time, list/immune_atoms, start = TRUE)	//Immune atoms assoc list atom = TRUE
+/obj/effect/timestop/Initialize(mapload, radius, time, list/immune_atoms, start = TRUE) //Immune atoms assoc list atom = TRUE
 	. = ..()
 	if(!isnull(time))
 		duration = time
@@ -43,40 +45,59 @@
 /obj/effect/timestop/proc/timestop()
 	target = get_turf(src)
 	playsound(src, 'sound/magic/timeparadox2.ogg', 75, TRUE, -1)
-	chronofield = make_field(/datum/proximity_monitor/advanced/timestop, list("current_range" = freezerange, "host" = src, "immune" = immune, "check_anti_magic" = check_anti_magic, "check_holy" = check_holy))
-	QDEL_IN(src, duration)
+	chronofield = new (src, freezerange, TRUE, immune, check_anti_magic, channelled)
+	if(!channelled)
+		QDEL_IN(src, duration)
+
 
 /obj/effect/timestop/magic
 	check_anti_magic = TRUE
 
+///indefinite version, but only if no immune atoms move.
+/obj/effect/timestop/channelled
+	channelled = TRUE
+
 /datum/proximity_monitor/advanced/timestop
-	name = "chronofield"
-	setup_field_turfs = TRUE
-	field_shape = FIELD_SHAPE_RADIUS_SQUARE
-	requires_processing = TRUE
 	var/list/immune = list()
 	var/list/frozen_things = list()
 	var/list/frozen_mobs = list() //cached separately for processing
 	var/list/frozen_structures = list() //Also machinery, and only frozen aestethically
 	var/list/frozen_turfs = list() //Only aesthetically
 	var/check_anti_magic = FALSE
-	var/check_holy = FALSE
+	///if true, this doesn't time out after a duration but rather when an immune atom inside moves.
+	var/channelled = FALSE
 
 	var/static/list/global_frozen_atoms = list()
 
+/datum/proximity_monitor/advanced/timestop/New(atom/_host, range, _ignore_if_not_on_turf = TRUE, list/immune, check_anti_magic, channelled)
+	..()
+	src.immune = immune
+	src.check_anti_magic = check_anti_magic
+	src.channelled = channelled
+	recalculate_field()
+	START_PROCESSING(SSfastprocess, src)
+
 /datum/proximity_monitor/advanced/timestop/Destroy()
 	unfreeze_all()
+	if(channelled)
+		for(var/atom in immune)
+			UnregisterSignal(atom, COMSIG_MOVABLE_MOVED)
+	STOP_PROCESSING(SSfastprocess, src)
 	return ..()
 
-/datum/proximity_monitor/advanced/timestop/field_turf_crossed(atom/movable/AM)
-	freeze_atom(AM)
+/datum/proximity_monitor/advanced/timestop/field_turf_crossed(atom/movable/movable, turf/location)
+	freeze_atom(movable)
 
 /datum/proximity_monitor/advanced/timestop/proc/freeze_atom(atom/movable/A)
-	if(immune[A] || global_frozen_atoms[A] || !istype(A))
+	if(global_frozen_atoms[A] || !istype(A))
+		return FALSE
+	if(immune[A]) //a little special logic but yes immune things don't freeze
+		if(channelled)
+			RegisterSignal(A, COMSIG_MOVABLE_MOVED, .proc/atom_broke_channel, override = TRUE)
 		return FALSE
 	if(ismob(A))
 		var/mob/M = A
-		if(M.anti_magic_check(check_anti_magic, check_holy))
+		if(M.can_block_magic(check_anti_magic))
 			immune[A] = TRUE
 			return
 	var/frozen = TRUE
@@ -167,10 +188,10 @@
 		m.Stun(20, ignore_canstun = TRUE)
 
 /datum/proximity_monitor/advanced/timestop/setup_field_turf(turf/T)
+	. = ..()
 	for(var/i in T.contents)
 		freeze_atom(i)
 	freeze_turf(T)
-	return ..()
 
 
 /datum/proximity_monitor/advanced/timestop/proc/freeze_projectile(obj/projectile/P)
@@ -206,3 +227,8 @@
 //let's put some colour back into your cheeks
 /datum/proximity_monitor/advanced/timestop/proc/escape_the_negative_zone(atom/A)
 	A.remove_atom_colour(TEMPORARY_COLOUR_PRIORITY)
+
+//signal fired when an immune atom moves in the time freeze zone
+/datum/proximity_monitor/advanced/timestop/proc/atom_broke_channel(datum/source)
+	SIGNAL_HANDLER
+	qdel(host)

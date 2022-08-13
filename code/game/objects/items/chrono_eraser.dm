@@ -53,7 +53,7 @@
 	can_charge = FALSE
 	fire_delay = 50
 	var/obj/item/chrono_eraser/TED = null
-	var/obj/structure/chrono_field/field = null
+	var/obj/structure/chrono_field_legacy/field = null
 	var/turf/startpos = null
 
 /obj/item/gun/energy/chrono_gun/Initialize(mapload)
@@ -82,7 +82,7 @@
 		field_disconnect(field)
 	return ..()
 
-/obj/item/gun/energy/chrono_gun/proc/field_connect(obj/structure/chrono_field/F)
+/obj/item/gun/energy/chrono_gun/proc/field_connect(obj/structure/chrono_field_legacy/F)
 	var/mob/living/user = loc
 	if(F.gun)
 		if(isliving(user) && F.captured)
@@ -96,7 +96,7 @@
 			to_chat(user, span_notice("Connection established with target: <b>[F.captured]</b>"))
 
 
-/obj/item/gun/energy/chrono_gun/proc/field_disconnect(obj/structure/chrono_field/F)
+/obj/item/gun/energy/chrono_gun/proc/field_disconnect(obj/structure/chrono_field_legacy/F)
 	if(F && field == F)
 		var/mob/living/user = loc
 		if(F.gun == src)
@@ -106,7 +106,7 @@
 	field = null
 	startpos = null
 
-/obj/item/gun/energy/chrono_gun/proc/field_check(obj/structure/chrono_field/F)
+/obj/item/gun/energy/chrono_gun/proc/field_check(obj/structure/chrono_field_legacy/F)
 	if(F)
 		if(field == F)
 			var/turf/currentpos = get_turf(src)
@@ -140,7 +140,7 @@
 
 /obj/projectile/energy/chrono_beam/on_hit(atom/target)
 	if(target && gun && isliving(target))
-		var/obj/structure/chrono_field/F = new(target.loc, target, gun)
+		var/obj/structure/chrono_field_legacy/F = new(target.loc, target, gun)
 		gun.field_connect(F)
 
 
@@ -162,7 +162,7 @@
 
 
 
-/obj/structure/chrono_field
+/obj/structure/chrono_field_legacy
 	name = "eradication field"
 	desc = "An aura of time-bluespace energy."
 	icon = 'icons/effects/effects.dmi'
@@ -179,7 +179,7 @@
 	var/RPpos = null
 	var/attached = TRUE //if the gun arg isn't included initially, then the chronofield will work without one
 
-/obj/structure/chrono_field/Initialize(mapload, mob/living/target, obj/item/gun/energy/chrono_gun/G)
+/obj/structure/chrono_field_legacy/Initialize(mapload, mob/living/target, obj/item/gun/energy/chrono_gun/G)
 	if(target && isliving(target))
 		if(!G)
 			attached = FALSE
@@ -201,12 +201,12 @@
 	START_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/structure/chrono_field/Destroy()
+/obj/structure/chrono_field_legacy/Destroy()
 	if(gun?.field_check(src))
 		gun.field_disconnect(src)
 	return ..()
 
-/obj/structure/chrono_field/update_icon()
+/obj/structure/chrono_field_legacy/update_icon()
 	var/ttk_frame = 1 - (timetokill / initial(timetokill))
 	ttk_frame = clamp(CEILING(ttk_frame * CHRONO_FRAME_COUNT, 1), 1, CHRONO_FRAME_COUNT)
 	if(ttk_frame != RPpos)
@@ -215,7 +215,7 @@
 		underlays = list() //hack: BYOND refuses to update the underlay to match the icon_state otherwise
 		underlays += mob_underlay
 
-/obj/structure/chrono_field/process(delta_time)
+/obj/structure/chrono_field_legacy/process(delta_time)
 	if(captured)
 		if(timetokill > initial(timetokill))
 			for(var/atom/movable/AM in contents)
@@ -249,7 +249,7 @@
 	else
 		qdel(src)
 
-/obj/structure/chrono_field/bullet_act(obj/projectile/P)
+/obj/structure/chrono_field_legacy/bullet_act(obj/projectile/P)
 	if(istype(P, /obj/projectile/energy/chrono_beam))
 		var/obj/projectile/energy/chrono_beam/beam = P
 		var/obj/item/gun/energy/chrono_gun/Pgun = beam.gun
@@ -258,26 +258,26 @@
 	else
 		return BULLET_ACT_HIT
 
-/obj/structure/chrono_field/assume_air()
+/obj/structure/chrono_field_legacy/assume_air()
 	return 0
 
-/obj/structure/chrono_field/return_air() //we always have nominal air and temperature
+/obj/structure/chrono_field_legacy/return_air() //we always have nominal air and temperature
 	var/datum/gas_mixture/GM = new
 	GM.set_moles(GAS_O2, MOLES_O2STANDARD)
 	GM.set_moles(GAS_N2, MOLES_N2STANDARD)
 	GM.set_temperature(T20C)
 	return GM
 
-/obj/structure/chrono_field/singularity_act()
+/obj/structure/chrono_field_legacy/singularity_act()
 	return
 
-/obj/structure/chrono_field/singularity_pull()
+/obj/structure/chrono_field_legacy/singularity_pull()
 	return
 
-/obj/structure/chrono_field/ex_act()
+/obj/structure/chrono_field_legacy/ex_act()
 	return
 
-/obj/structure/chrono_field/blob_act(obj/structure/blob/B)
+/obj/structure/chrono_field_legacy/blob_act(obj/structure/blob/B)
 	return
 
 

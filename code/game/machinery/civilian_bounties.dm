@@ -254,6 +254,10 @@
 	///What the bounty was for.
 	var/bounty_name
 
+/obj/item/bounty_cube/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NO_BARCODES, INNATE_TRAIT) // Don't allow anyone to override our pricetag component with a barcode
+
 ///Beacon to launch a new bounty setup when activated.
 /obj/item/civ_bounty_beacon
 	name = "гражданский маяк заказов"

@@ -216,7 +216,7 @@ GLOBAL_VAR_INIT(disposals_are_hungry, FALSE)
 	flush = FALSE
 
 /obj/machinery/disposal/proc/newHolderDestination(obj/structure/disposalholder/H)
-	for(var/obj/item/small_delivery/O in src)
+	for(var/obj/item/delivery/small/O in src)
 		H.tomail = TRUE
 		return
 

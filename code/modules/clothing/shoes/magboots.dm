@@ -11,6 +11,17 @@
 	equip_delay_other = 70
 	resistance_flags = FIRE_PROOF
 
+/obj/item/clothing/shoes/magboots/equipped(mob/user, slot)
+	. = ..()
+	if(slot == ITEM_SLOT_FEET)
+		update_gravity_trait(user)
+	else
+		REMOVE_TRAIT(user, TRAIT_NEGATES_GRAVITY, type)
+
+/obj/item/clothing/shoes/magboots/dropped(mob/user)
+	. = ..()
+	REMOVE_TRAIT(user, TRAIT_NEGATES_GRAVITY, type)
+
 /obj/item/clothing/shoes/magboots/verb/toggle()
 	set name = "Toggle Magboots"
 	set category = "Объект"
@@ -30,6 +41,7 @@
 	magpulse = !magpulse
 	icon_state = "[magboot_state][magpulse]"
 	to_chat(user, span_notice("Переключаю магниты в состояние [magpulse ? "вкл" : "выкл"]."))
+	update_gravity_trait(user)
 	user.update_inv_shoes()	//so our mob-overlays update
 	user.update_gravity(user.has_gravity())
 	user.update_equipment_speed_mods() //we want to update our speed so we arent running at max speed in regular magboots
@@ -37,13 +49,16 @@
 		var/datum/action/A = X
 		A.UpdateButtonIcon()
 
-/obj/item/clothing/shoes/magboots/negates_gravity()
-	return clothing_flags & NOSLIP
-
 /obj/item/clothing/shoes/magboots/examine(mob/user)
 	. = ..()
 	. += "<hr>Они [magpulse ? "включены" : "выключены"]."
 
+///Adds/removes the gravity negation trait from the wearer depending on if the magpulse system is turned on.
+/obj/item/clothing/shoes/magboots/proc/update_gravity_trait(mob/user)
+	if(magpulse)
+		ADD_TRAIT(user, TRAIT_NEGATES_GRAVITY, type)
+	else
+		REMOVE_TRAIT(user, TRAIT_NEGATES_GRAVITY, type)
 
 /obj/item/clothing/shoes/magboots/advance
 	desc = "Усовершенствованные магнитные ботинки, которые имеют более легкое магнитное притяжение, уменьшая нагрузку на пользователя."

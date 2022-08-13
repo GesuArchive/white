@@ -140,11 +140,10 @@
 	desc = "Пара шикарных очков, используемых для защиты от химических разливов. Оснащен анализатором для сканирования предметов и реагентов."
 	icon_state = "purple"
 	inhand_icon_state = "glasses"
-	clothing_flags = SCAN_REAGENTS //You can see reagents while wearing science goggles
-	actions_types = list(/datum/action/item_action/toggle_research_scanner)
 	glass_colour_type = /datum/client_colour/glass_colour/purple
 	resistance_flags = ACID_PROOF
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 80, ACID = 100)
+	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER)
 
 /obj/item/clothing/glasses/science/item_action_slot_check(slot)
 	if(slot == ITEM_SLOT_EYES)
@@ -164,7 +163,7 @@
 	name = "тактические научные очки"
 	desc = "Тактические очки с научным интерфейсом и встроенным светофильтром, защищающим глаза от ярких вспышек."
 	icon_state = "sunhudsci"
-	clothing_flags = SCAN_REAGENTS
+	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER)
 
 /obj/item/clothing/glasses/science/prescription
 	name = "научные очки по рецепту"
@@ -271,8 +270,7 @@
 	name = "пивные очки"
 	icon_state = "sunhudbeer"
 	desc = "Пара солнцезащитных очков оснащена аппаратом для сканирования реагентов, а также обеспечивает врожденное понимание вязкости жидкости во время движения."
-	clothing_flags = SCAN_REAGENTS
-	clothing_traits = list(TRAIT_BOOZE_SLIDER)
+	clothing_traits = list(TRAIT_BOOZE_SLIDER, TRAIT_REAGENT_SCANNER)
 
 /obj/item/clothing/glasses/sunglasses/garb
 	name = "чёрные гар очки"
@@ -501,7 +499,7 @@
 	flash_protect = FLASH_PROTECTION_WELDER
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	glass_colour_type = FALSE
-	clothing_flags = SCAN_REAGENTS
+	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER)
 	vision_flags = SEE_TURFS
 	var/list/hudlist = list(DATA_HUD_MEDICAL_ADVANCED, DATA_HUD_DIAGNOSTIC_ADVANCED, DATA_HUD_SECURITY_ADVANCED)
 	var/xray = FALSE

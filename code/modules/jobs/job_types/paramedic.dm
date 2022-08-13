@@ -37,6 +37,9 @@
 	rpg_title = "Corpse Runner"
 	rpg_title_ru = "Могильщик"
 
+/obj/item/storage/belt/medical/paramedic
+	preload = TRUE
+
 /obj/item/storage/belt/medical/paramedic/PopulateContents()
 	new /obj/item/pinpointer/crew/prox(src)
 	new /obj/item/surgical_drapes(src)
@@ -47,6 +50,18 @@
 	new /obj/item/reagent_containers/medigel/libital(src)
 	new /obj/item/reagent_containers/medigel/aiuri(src)
 	update_appearance()
+
+/obj/item/storage/belt/medical/paramedic/get_types_to_preload()
+	var/list/to_preload = list() //Yes this is a pain. Yes this is the point
+	to_preload += /obj/item/pinpointer/crew/prox
+	to_preload += /obj/item/surgical_drapes
+	to_preload += /obj/item/scalpel
+	to_preload += /obj/item/hemostat
+	to_preload += /obj/item/cautery
+	to_preload += /obj/item/bonesetter
+	to_preload += /obj/item/reagent_containers/medigel/libital
+	to_preload += /obj/item/reagent_containers/medigel/aiuri
+	return to_preload
 
 /datum/outfit/job/paramedic
 	name = "Paramedic"

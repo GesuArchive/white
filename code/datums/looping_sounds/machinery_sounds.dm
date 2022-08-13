@@ -164,3 +164,10 @@
 	falloff_distance = 2
 	falloff_exponent = 5
 	volume = 20
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/looping_sound/gravgen/kinesis
+	volume = 20
+	falloff_distance = 2
+	falloff_exponent = 5

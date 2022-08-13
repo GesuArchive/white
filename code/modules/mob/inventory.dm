@@ -328,6 +328,7 @@
 			else
 				I.forceMove(newloc)
 		I.dropped(src, silent)
+	SEND_SIGNAL(src, COMSIG_MOB_UNEQUIPPED_ITEM, I, force, newloc, no_move, invdrop, silent)
 	return TRUE
 
 /**

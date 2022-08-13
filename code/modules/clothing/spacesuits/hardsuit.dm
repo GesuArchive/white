@@ -587,6 +587,7 @@
 	icon_state = "hardsuit0-wiz"
 	inhand_icon_state = "wiz_helm"
 	hardsuit_type = "wiz"
+	clothing_flags = SNUG_FIT | CASTING_CLOTHES
 	resistance_flags = FIRE_PROOF | ACID_PROOF //No longer shall our kind be foiled by lone chemists with spray bottles!
 	armor = list(MELEE = 40, BULLET = 40, LASER = 40, ENERGY = 50, BOMB = 35, BIO = 100, RAD = 50, FIRE = 100, ACID = 100, WOUND = 30)
 	heat_protection = HEAD												//Uncomment to enable firesuit protection
@@ -621,7 +622,8 @@
 	hardsuit_type = "medical"
 	flash_protect = FLASH_PROTECTION_NONE
 	armor = list(MELEE = 30, BULLET = 5, LASER = 10, ENERGY = 20, BOMB = 10, BIO = 100, RAD = 60, FIRE = 60, ACID = 75, WOUND = 10)
-	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SCAN_REAGENTS | SNUG_FIT
+	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT
+	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER)
 
 /obj/item/clothing/suit/space/hardsuit/medical
 	name = "медицинский скафандр"
@@ -643,8 +645,8 @@
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	armor = list(MELEE = 30, BULLET = 5, LASER = 10, ENERGY = 20, BOMB = 100, BIO = 100, RAD = 60, FIRE = 60, ACID = 80, WOUND = 15)
 	var/explosion_detection_dist = 21
-	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SCAN_REAGENTS | SNUG_FIT
-	actions_types = list(/datum/action/item_action/toggle_helmet_light, /datum/action/item_action/toggle_research_scanner)
+	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT
+	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER)
 
 /obj/item/clothing/head/helmet/space/hardsuit/rd/Initialize(mapload)
 	. = ..()

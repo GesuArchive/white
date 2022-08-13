@@ -1273,6 +1273,42 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	cost = 4
 	purchasable_from = UPLINK_NUKE_OPS
 
+/datum/uplink_item/suits/modsuit/elite
+	name = "Elite Syndicate MODsuit"
+	desc = "An upgraded, elite version of the Syndicate MODsuit. It features fireproofing, and also \
+			provides the user with superior armor and mobility compared to the standard Syndicate MODsuit."
+	item = /obj/item/mod/control/pre_equipped/elite
+	purchasable_from = UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS
+
+/datum/uplink_item/suits/energy_shield
+	name = "MODsuit Energy Shield Module"
+	desc = "An energy shield module for a MODsuit. The shields can handle up to three impacts \
+			within a short duration and will rapidly recharge while not under fire."
+	item = /obj/item/mod/module/energy_shield
+	cost = 15
+	purchasable_from = UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS
+
+/datum/uplink_item/suits/emp_shield
+	name = "MODsuit Advanced EMP Shield Module"
+	desc = "An advanced EMP shield module for a MODsuit. It protects your entire body from electromagnetic pulses."
+	item = /obj/item/mod/module/emp_shield/advanced
+	cost = 5
+	purchasable_from = UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS
+
+/datum/uplink_item/suits/injector
+	name = "MODsuit Injector Module"
+	desc = "An injector module for a MODsuit. It is an extendable piercing injector with 30u capacity."
+	item = /obj/item/mod/module/injector
+	cost = 2
+	purchasable_from = UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS
+
+/datum/uplink_item/suits/holster
+	name = "MODsuit Holster Module"
+	desc = "A holster module for a MODsuit. It can stealthily store any not too heavy gun inside it."
+	item = /obj/item/mod/module/holster
+	cost = 2
+	purchasable_from = UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS
+
 /datum/uplink_item/stealthy_tools/jammer
 	name = "Радиоглушилка"
 	desc = "Устройство, при активации которого создает помехи для любой исходящей радиосвязи поблизости. Не влияет на бинарный канал."
@@ -1309,6 +1345,58 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			помещается в сумки и имеет слот для оружия. Тем не менее, члены экипажа NanoTrasen обучены сообщать о замеченных красных скафандрах."
 	item = /obj/item/storage/box/syndie_kit/space
 	cost = 4
+
+// Low progression cost
+
+/datum/uplink_item/suits/modsuit
+	name = "Syndicate MODsuit"
+	desc = "The feared MODsuit of a Syndicate agent. Features armoring and a set of inbuilt modules."
+	item = /obj/item/mod/control/pre_equipped/traitor
+	cost = 8
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS) //you can't buy it in nuke, because the elite modsuit costs the same while being better
+
+/datum/uplink_item/suits/thermal
+	name = "MODsuit Thermal Visor Module"
+	desc = "A visor for a MODsuit. Lets you see living beings through walls."
+	item = /obj/item/mod/module/visor/thermal
+	cost = 3
+
+/datum/uplink_item/suits/night
+	name = "MODsuit Night Visor Module"
+	desc = "A visor for a MODsuit. Lets you see clearer in the dark."
+	item = /obj/item/mod/module/visor/night
+	cost = 2
+
+/datum/uplink_item/suits/chameleon
+	name = "MODsuit Chameleon Module"
+	desc = "A MODsuit module that lets the suit disguise itself as other objects."
+	item = /obj/item/mod/module/chameleon
+	cost = 2
+
+/datum/uplink_item/suits/plate_compression
+	name = "MODsuit Plate Compression Module"
+	desc = "A MODsuit module that lets the suit compress into a smaller size. Not compatible with storage modules."
+	item = /obj/item/mod/module/plate_compression
+	cost = 2
+
+// Medium progression cost
+
+/datum/uplink_item/suits/noslip
+	name = "MODsuit Anti-Slip Module"
+	desc = "A MODsuit module preventing the user from slipping on water."
+	item = /obj/item/mod/module/noslip
+	cost = 2
+
+// Very high progression cost
+
+/datum/uplink_item/suits/modsuit/elite_traitor
+	name = "Elite Syndicate MODsuit"
+	desc = "An upgraded, elite version of the Syndicate MODsuit. It features fireproofing, and also \
+			provides the user with superior armor and mobility compared to the standard Syndicate MODsuit."
+	item = /obj/item/mod/control/pre_equipped/traitor_elite
+	// This one costs more than the nuke op counterpart
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
+	cost = 16
 
 /datum/uplink_item/suits/hardsuit
 	name = "Хардсьют Синдиката"
@@ -1804,6 +1892,18 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	item = /obj/item/disk/surgery/brainwashing
 	restricted_roles = list("Medical Doctor", "Chief Medical Officer", "Roboticist")
 	cost = 5
+
+/datum/uplink_item/role_restricted/springlock_module
+	name = "Heavily Modified Springlock MODsuit Module"
+	desc = "A module that spans the entire size of the MOD unit, sitting under the outer shell. \
+		This mechanical exoskeleton pushes out of the way when the user enters and it helps in booting \
+		up, but was taken out of modern suits because of the springlock's tendency to \"snap\" back \
+		into place when exposed to humidity. You know what it's like to have an entire exoskeleton enter you? \
+		This version of the module has been modified to allow for near instant activation of the MODsuit. \
+		Useful for quickly getting your MODsuit on/off, or for taking care of a target via a tragic accident."
+	item = /obj/item/mod/module/springlock/bite_of_87
+	restricted_roles = list(JOB_ROBOTICIST, JOB_RESEARCH_DIRECTOR)
+	cost = 2
 
 /datum/uplink_item/role_restricted/clown_bomb
 	name = "Клоунбомба"

@@ -37,24 +37,24 @@
 			to_chat(user, span_warning("It isn't dark enough here!"))
 
 /obj/effect/dummy/phased_mob/shadow
-	var/mob/living/jaunter
+	var/mob/living/sosaunter
 
 /obj/effect/dummy/phased_mob/shadow/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSobj, src)
 
 /obj/effect/dummy/phased_mob/shadow/Destroy()
-	jaunter = null
+	sosaunter = null
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
 /obj/effect/dummy/phased_mob/shadow/process(delta_time)
 	var/turf/T = get_turf(src)
 	var/light_amount = T.get_lumcount()
-	if(!jaunter || jaunter.loc != src)
+	if(!sosaunter || sosaunter.loc != src)
 		qdel(src)
-	if (light_amount < 0.2 && (!QDELETED(jaunter))) //heal in the dark
-		jaunter.heal_overall_damage((SHADOW_REGEN_RATE * delta_time), (SHADOW_REGEN_RATE * delta_time), 0, BODYPART_ORGANIC)
+	if (light_amount < 0.2 && (!QDELETED(sosaunter))) //heal in the dark
+		sosaunter.heal_overall_damage((SHADOW_REGEN_RATE * delta_time), (SHADOW_REGEN_RATE * delta_time), 0, BODYPART_ORGANIC)
 	check_light_level()
 
 
@@ -77,11 +77,11 @@
 		end_jaunt(TRUE)
 
 /obj/effect/dummy/phased_mob/shadow/proc/end_jaunt(forced = FALSE)
-	if(jaunter)
+	if(sosaunter)
 		if(forced)
-			visible_message(span_boldwarning("[jaunter] is revealed by the light!"))
+			visible_message(span_boldwarning("[sosaunter] is revealed by the light!"))
 		else
-			visible_message(span_boldwarning("[jaunter] emerges from the darkness!"))
+			visible_message(span_boldwarning("[sosaunter] emerges from the darkness!"))
 		playsound(loc, 'sound/magic/ethereal_exit.ogg', 50, TRUE, -1)
 	qdel(src)
 

@@ -341,8 +341,9 @@
 		return ..()
 	if(phase_state)
 		flick(phase_state, src)
-	var/area/destination_area = get_step(loc, movement_dir).loc
-	if(destination_area.area_flags & NOTELEPORT)
+	var/turf/destination_turf = get_step(loc, movement_dir)
+	var/area/destination_area = destination_turf.loc
+	if(destination_area.area_flags & NOTELEPORT || SSmapping.level_trait(destination_turf.z, ZTRAIT_NOPHASE))
 		return FALSE
 	return TRUE
 
@@ -956,7 +957,7 @@
 			mecha_flags  &= ~SILICON_PILOT
 			AI.forceMove(card)
 			card.AI = AI
-			AI.controlled_mech = null
+			AI.controlled_equipment = null
 			AI.remote_control = null
 			to_chat(AI, span_notice("Меня загружают на карту. Беспроводное соединение отключено."))
 			to_chat(user, "<span class='boldnotice'>Передача успешна</span>: [AI.name] ([rand(1000,9999)].exe) удалён из [name] и теперь хранится во внутренней памяти устройства.")
@@ -996,7 +997,7 @@
 	mecha_flags |= SILICON_PILOT
 	moved_inside(AI)
 	AI.cancel_camera()
-	AI.controlled_mech = src
+	AI.controlled_equipment = src
 	AI.remote_control = src
 	to_chat(AI, AI.can_dominate_mechs ? span_announce("Захват [name] успешен! Теперь я нахожусь в набортном компьютере. Что-то запрещает мне покидать станцию!")  :\
 		span_notice("Меня загружают в набортный компьютер меха."))
@@ -1177,7 +1178,7 @@
 				return
 			if(!silent)
 				to_chat(AI, span_notice("Возвращаемся в ядро..."))
-			AI.controlled_mech = null
+			AI.controlled_equipment = null
 			AI.remote_control = null
 			mob_container = AI
 			newloc = get_turf(AI.linked_core)

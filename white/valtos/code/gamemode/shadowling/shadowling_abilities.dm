@@ -757,7 +757,7 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "nothing"
 	var/canmove = TRUE
-	var/mob/living/jaunter
+	var/mob/living/sosaunter
 	density = FALSE
 	anchored = TRUE
 	invisibility = 60
@@ -779,22 +779,22 @@
 	var/turf/T = get_turf(src)
 	var/light_amount = T.get_lumcount()
 	if(light_amount > LIGHT_DAM_THRESHOLD)	//Increased penalty
-		jaunter.apply_damage(VOIDJAUNT_STAM_PENALTY_LIGHT, STAMINA)
+		sosaunter.apply_damage(VOIDJAUNT_STAM_PENALTY_LIGHT, STAMINA)
 	else
-		jaunter.apply_damage(VOIDJAUNT_STAM_PENALTY_DARK, STAMINA)
+		sosaunter.apply_damage(VOIDJAUNT_STAM_PENALTY_DARK, STAMINA)
 
 /obj/effect/dummy/phased_mob/shadowling/proc/end_jaunt(forced = FALSE)
-	if(jaunter)
-		jaunter.forceMove(get_turf(src))
+	if(sosaunter)
+		sosaunter.forceMove(get_turf(src))
 		if(forced)
-			jaunter.visible_message(span_boldwarning("A dark shape stumbles from a hole in the air and collapses!") ,
+			sosaunter.visible_message(span_boldwarning("A dark shape stumbles from a hole in the air and collapses!") ,
 															span_shadowling("<b>Straining, you use the last of your energy to force yourself from the void.</b>"))
 		else
-			jaunter.visible_message(span_boldwarning("A dark shape tears itself from nothingness!") ,
+			sosaunter.visible_message(span_boldwarning("A dark shape tears itself from nothingness!") ,
 															span_shadowling("You exit the void."))
 
-		playsound(get_turf(jaunter), 'sound/magic/ethereal_exit.ogg', 50, 1, -1)
-		jaunter = null
+		playsound(get_turf(sosaunter), 'sound/magic/ethereal_exit.ogg', 50, 1, -1)
+		sosaunter = null
 	qdel(src)
 
 /obj/effect/dummy/phased_mob/shadowling/Initialize(mapload)
@@ -806,16 +806,16 @@
 	. = ..()
 
 /obj/effect/dummy/phased_mob/shadowling/process()
-	if(!jaunter)
+	if(!sosaunter)
 		qdel(src)
-	if(jaunter.loc != src)
+	if(sosaunter.loc != src)
 		qdel(src)
 
 	if(apply_damage)
 		check_light_level()
 
 		//True if jaunter entered stamcrit
-		if(jaunter.IsParalyzed())
+		if(sosaunter.IsParalyzed())
 			end_jaunt(TRUE)
 			return
 

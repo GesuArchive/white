@@ -8,9 +8,6 @@
 #define DRAIN_MOB_SHOCK			"MOBSHOCK"
 #define DRAIN_MOB_SHOCK_FAILED	"MOBSHOCKFAIL"
 
-//Tells whether or not someone is a space ninja
-#define IS_SPACE_NINJA(ninja) (ninja.mind && ninja.mind.has_antag_datum(/datum/antagonist/ninja))
-
 //Defines for the suit's unique abilities
 #define IS_NINJA_SUIT_INITIALIZATION(action) (istype(action, /datum/action/item_action/initialize_ninja_suit))
 #define IS_NINJA_SUIT_STATUS(action) (istype(action, /datum/action/item_action/ninjastatus))

@@ -29,10 +29,10 @@
 
 	RegisterSignal(target, COMSIG_MOVABLE_PREBUCKLE, .proc/check_mounting)
 	if(isvehicle(target))
-		RegisterSignal(target, COMSIG_PARENT_ATTACKBY, .proc/check_potion)
+		RegisterSignal(target, COMSIG_SPEED_POTION_APPLIED, .proc/check_potion)
 
 /datum/element/ridable/Detach(datum/target)
-	UnregisterSignal(target, list(COMSIG_MOVABLE_PREBUCKLE, COMSIG_PARENT_ATTACKBY))
+	UnregisterSignal(target, list(COMSIG_MOVABLE_PREBUCKLE, COMSIG_SPEED_POTION_APPLIED))
 	return ..()
 
 /// Someone is buckling to this movable, which is literally the only thing we care about (other than speed potions)

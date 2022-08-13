@@ -613,7 +613,6 @@
 	var/list/datahuds = list(DATA_HUD_SECURITY_ADVANCED, DATA_HUD_MEDICAL_ADVANCED, DATA_HUD_DIAGNOSTIC_BASIC)
 	var/zoom_range = 12
 	var/zoom = FALSE
-	//scan_reagents = TRUE
 	actions_types = list(/datum/action/item_action/nanosuit/zoom)
 	rad_insulation = RAD_NO_INSULATION
 	var/explosion_detection_dist = 21

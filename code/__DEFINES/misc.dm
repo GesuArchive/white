@@ -434,6 +434,8 @@ GLOBAL_LIST_INIT(pda_styles, sort_list(list(MONO, VT, ORBITRON, SHARE)))
 #define BONE_SCAR_FILE "wounds/bone_scar_desc.json"
 #define SCAR_LOC_FILE "wounds/scar_loc.json"
 #define EXODRONE_FILE "exodrone.json"
+/// File location for ninja lines
+#define NINJA_FILE "ninja.json"
 
 //Fullscreen overlay resolution in tiles.
 #define FULLSCREEN_OVERLAY_RESOLUTION_X 15
@@ -461,6 +463,14 @@ GLOBAL_LIST_INIT(pda_styles, sort_list(list(MONO, VT, ORBITRON, SHARE)))
 //Filters
 #define AMBIENT_OCCLUSION filter(type="drop_shadow", x=0, y=-2, size=4, color="#04080FAA")
 #define GAUSSIAN_BLUR(filter_size) filter(type="blur", size=filter_size)
+
+/**
+ * The point where gravity is negative enough to pull you upwards.
+ * That means walking checks for a ceiling instead of a floor, and you can fall "upwards"
+ *
+ * This should only be possible on multi-z maps because it works like shit on maps that aren't.
+ */
+#define NEGATIVE_GRAVITY -1
 
 #define STANDARD_GRAVITY 1 //Anything above this is high gravity, anything below no grav
 /// The gravity strength threshold for high gravity damage.

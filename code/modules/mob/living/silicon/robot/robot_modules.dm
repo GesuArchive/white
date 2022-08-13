@@ -24,7 +24,6 @@
 
 	var/moduleselect_icon = "nomod"
 
-	var/magpulsing = FALSE
 	var/clean_on_move = FALSE
 	var/breakable_modules = TRUE //Whether the borg loses tool slots with damage.
 	var/locked_transform = TRUE //Whether swapping to this module should lockcharge the borg
@@ -352,7 +351,7 @@
 		/obj/item/stack/tile/bronze/cyborg)
 	cyborg_base_icon = "engineer"
 	moduleselect_icon = "engineer"
-	magpulsing = TRUE
+	module_traits = list(TRAIT_NEGATES_GRAVITY)
 	hat_offset = -4
 
 /obj/item/robot_module/engineering/be_transformed_to(obj/item/robot_module/old_module)
@@ -853,8 +852,7 @@
 
 	cyborg_base_icon = "synd_engi"
 	moduleselect_icon = "malf"
-	module_traits = list(TRAIT_PUSHIMMUNE)
-	magpulsing = TRUE
+	module_traits = list(TRAIT_PUSHIMMUNE, TRAIT_NEGATES_GRAVITY)
 	hat_offset = -4
 	canDispose = TRUE
 

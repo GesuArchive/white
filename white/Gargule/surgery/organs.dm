@@ -70,8 +70,7 @@
 /obj/item/organ/cyberimp/eyes/hud/science
 	name = "Имплант научного интерфейса"
 	desc = "Выводит научный интерфейс поверх всего что вы видите. Сканирует реагенты и предметы."
-	actions_types = list(/datum/action/item_action/toggle_research_scanner)
-	var/scan_reagents = 1//something like that, i think
+	HUD_trait = TRAIT_RESEARCH_SCANNER
 
 /////Simple organs/////
 

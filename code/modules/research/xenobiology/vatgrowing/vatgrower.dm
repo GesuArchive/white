@@ -69,7 +69,7 @@
 	. += "<hr><span class='notice'>It seems to have a sample in it!</span>"
 	for(var/i in biological_sample.micro_organisms)
 		var/datum/micro_organism/MO = i
-		. += MO.get_details(user.research_scanner)
+		. += MO.get_details(HAS_TRAIT(user, TRAIT_RESEARCH_SCANNER))
 
 /obj/machinery/plumbing/growing_vat/plunger_act(obj/item/plunger/P, mob/living/user, reinforced)
 	. = ..()

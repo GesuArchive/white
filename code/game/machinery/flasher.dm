@@ -236,13 +236,13 @@
 			add_overlay("[base_state]-s")
 			set_anchored(TRUE)
 			power_change()
-			proximity_monitor.SetRange(range)
+			proximity_monitor.set_range(range)
 		else
 			to_chat(user, span_notice("[capitalize(src.name)] откручен."))
 			cut_overlays()
 			set_anchored(FALSE)
 			power_change()
-			proximity_monitor.SetRange(0)
+			proximity_monitor.set_range(0)
 
 	else
 		return ..()

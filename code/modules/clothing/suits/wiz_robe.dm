@@ -7,7 +7,7 @@
 	armor = list(MELEE = 30, BULLET = 20, LASER = 20, ENERGY = 30, BOMB = 20, BIO = 20, RAD = 20, FIRE = 100, ACID = 100,  WOUND = 20)
 	strip_delay = 50
 	equip_delay_other = 50
-	clothing_flags = SNUG_FIT
+	clothing_flags = SNUG_FIT | CASTING_CLOTHES
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	dog_fashion = /datum/dog_fashion/head/blue_wizard
 
@@ -187,6 +187,7 @@
 	desc = "Не все волшебники боятся сокращения дистанции."
 	icon_state = "battlemage"
 	inhand_icon_state = "battlemage"
+	clothing_flags = CASTING_CLOTHES
 	recharge_delay = 0 // no auto-recharge
 	max_charges = 15
 	shield_icon = "shield-red"
@@ -200,6 +201,7 @@
 /obj/item/clothing/head/helmet/space/hardsuit/shielded/wizard
 	name = "шлем боевого мага"
 	desc = "В надлежащей степени впечатляющий шлем."
+	clothing_flags = SNUG_FIT | CASTING_CLOTHES
 	icon_state = "battlemage"
 	inhand_icon_state = "battlemage"
 	min_cold_protection_temperature = ARMOR_MIN_TEMP_PROTECT

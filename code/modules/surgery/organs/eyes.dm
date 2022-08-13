@@ -128,6 +128,12 @@
 #undef OFFSET_X
 #undef OFFSET_Y
 
+//Gotta reset the eye color, because that persists
+/obj/item/organ/eyes/enter_wardrobe()
+	. = ..()
+	eye_color_left = initial(eye_color_left)
+	eye_color_right = initial(eye_color_right)
+
 /obj/item/organ/eyes/on_life(delta_time, times_fired)
 	..()
 	var/mob/living/carbon/eye_owner = owner

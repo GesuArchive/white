@@ -138,6 +138,14 @@
 	if(damage > high_threshold)
 		. += "<hr><span class='warning'>[capitalize(src.name)] начинает обесцвечиваться.</span>"
 
+///Used as callbacks by object pooling
+/obj/item/organ/proc/exit_wardrobe()
+	START_PROCESSING(SSobj, src)
+
+//See above
+/obj/item/organ/proc/enter_wardrobe()
+	STOP_PROCESSING(SSobj, src)
+
 /obj/item/organ/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSobj, src)

@@ -9,11 +9,48 @@
 	desc = "Оберните пакеты этой праздничной бумагой, чтобы сделать подарки."
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "wrap_paper"
+	greyscale_config = /datum/greyscale_config/wrap_paper
 	item_flags = NOBLUDGEON
 	amount = 25
 	max_amount = 25
 	resistance_flags = FLAMMABLE
 	merge_type = /obj/item/stack/wrapping_paper
+	singular_name = "wrapping paper"
+
+/obj/item/stack/wrapping_paper/Initialize(mapload)
+	. = ..()
+	if(!greyscale_colors)
+		//Generate random valid colors for paper and ribbon
+		var/generated_base_color = "#" + random_color()
+		var/generated_ribbon_color = "#" + random_color()
+		var/temp_base_hsv = RGBtoHSV(generated_base_color)
+		var/temp_ribbon_hsv = RGBtoHSV(generated_ribbon_color)
+
+		//If colors are too dark, set to original colors
+		if(ReadHSV(temp_base_hsv)[3] < ReadHSV("7F7F7F")[3])
+			generated_base_color = "#00FF00"
+		if(ReadHSV(temp_ribbon_hsv)[3] < ReadHSV("7F7F7F")[3])
+			generated_ribbon_color = "#FF0000"
+
+		//Set layers to these colors, base then ribbon
+		set_greyscale(colors = list(generated_base_color, generated_ribbon_color))
+
+/obj/item/stack/wrapping_paper/small
+	desc = "Оберните пакеты этой праздничной бумагой, чтобы сделать подарки. Этот рулон выглядит немного скудно."
+	amount = 10
+	merge_type = /obj/item/stack/wrapping_paper/small
+
+/obj/item/stack/wrapping_paper/attack_hand_secondary(mob/user, modifiers)
+	var/new_base = input(user, "", "Select a base color", color) as color
+	var/new_ribbon = input(user, "", "Select a ribbon color", color) as color
+	if(!user.canUseTopic(src, BE_CLOSE))
+		return
+	set_greyscale(colors = list(new_base, new_ribbon))
+	return TRUE
+
+//preset wrapping paper meant to fill the original color configuration
+/obj/item/stack/wrapping_paper/xmas
+	greyscale_colors = "#00FF00#FF0000"
 
 /obj/item/stack/wrapping_paper/use(used, transfer, check = TRUE)
 	var/turf/T = get_turf(src)
@@ -44,12 +81,13 @@
 	merge_type = /obj/item/stack/package_wrap
 
 /obj/item/stack/package_wrap/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] begins wrapping [user.ru_na()]self in <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] begins wrapping [user.p_them()]self in \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	if(use(3))
-		var/obj/structure/big_delivery/P = new /obj/structure/big_delivery(get_turf(user.loc))
-		P.icon_state = "deliverypackage5"
-		user.forceMove(P)
-		P.add_fingerprint(user)
+		var/obj/item/delivery/big/parcel = new(get_turf(user.loc))
+		parcel.base_icon_state = "deliverypackage5"
+		parcel.update_icon()
+		user.forceMove(parcel)
+		parcel.add_fingerprint(user)
 		return OXYLOSS
 	else
 		to_chat(user, span_warning("Не хватает обёрточной бумаги для суицида! Лох!"))
@@ -64,7 +102,7 @@
 /obj/item/storage/box/can_be_package_wrapped()
 	return TRUE
 
-/obj/item/small_delivery/can_be_package_wrapped()
+/obj/item/delivery/can_be_package_wrapped()
 	return FALSE
 
 /obj/item/stack/package_wrap/afterattack(obj/target, mob/user, proximity)
@@ -77,48 +115,71 @@
 		return
 
 	if(isitem(target))
-		var/obj/item/I = target
-		if(!I.can_be_package_wrapped())
+		var/obj/item/item = target
+		if(!item.can_be_package_wrapped())
+			balloon_alert(user, "[capitalize(target)] не хочет оборачиваться!")
 			return
-		if(user.is_holding(I))
-			if(!user.dropItemToGround(I))
+		if(user.is_holding(item))
+			if(!user.dropItemToGround(item))
 				return
-		else if(!isturf(I.loc))
+		else if(!isturf(item.loc))
 			return
 		if(use(1))
-			var/obj/item/small_delivery/P = new /obj/item/small_delivery(get_turf(I.loc))
-			if(user.Adjacent(I))
-				P.add_fingerprint(user)
-				I.add_fingerprint(user)
-				user.put_in_hands(P)
-			I.forceMove(P)
-			var/size = round(I.w_class)
-			P.name = "[weight_class_to_text(size)] размера упаковка"
-			P.w_class = size
+			var/obj/item/delivery/small/parcel = new(get_turf(item.loc))
+			if(user.Adjacent(item))
+				parcel.add_fingerprint(user)
+				item.add_fingerprint(user)
+				user.put_in_hands(parcel)
+			item.forceMove(parcel)
+			var/size = round(item.w_class)
+			parcel.name = "[weight_class_to_text(size)] размера упаковка"
+			parcel.w_class = size
 			size = min(size, 5)
-			P.icon_state = "deliverypackage[size]"
+			parcel.base_icon_state = "deliverypackage[size]"
+			parcel.update_icon()
 
-	else if(istype (target, /obj/structure/closet))
-		var/obj/structure/closet/O = target
-		if(O.opened)
+	else if(istype(target, /obj/structure/closet))
+		var/obj/structure/closet/closet = target
+		if(closet.opened)
+			balloon_alert(user, span_warning("Не могу обернуть [target] в открытом состоянии!"))
 			return
-		if(!O.delivery_icon) //no delivery icon means unwrappable closet (e.g. body bags)
-			to_chat(user, span_warning("Не могу обернуть это!"))
+		if(!closet.delivery_icon) //no delivery icon means unwrappable closet (e.g. body bags)
+			balloon_alert(user, span_warning("Невозможно!"))
 			return
 		if(use(3))
-			var/obj/structure/big_delivery/P = new /obj/structure/big_delivery(get_turf(O.loc))
-			P.icon_state = O.delivery_icon
-			O.forceMove(P)
-			P.add_fingerprint(user)
-			O.add_fingerprint(user)
+			var/obj/item/delivery/big/parcel = new(get_turf(closet.loc))
+			parcel.base_icon_state = closet.delivery_icon
+			parcel.update_icon()
+			parcel.drag_slowdown = closet.drag_slowdown
+			closet.forceMove(parcel)
+			parcel.add_fingerprint(user)
+			closet.add_fingerprint(user)
 		else
-			to_chat(user, span_warning("Надо бы больше обёрточной бумаги!"))
+			balloon_alert(user, span_warning("Нужно больше бумаги!"))
 			return
+
+	else if(istype(target,  /obj/machinery/portable_atmospherics))
+		var/obj/machinery/portable_atmospherics/portable_atmospherics = target
+		if(portable_atmospherics.anchored)
+			balloon_alert(user, span_warning("Не могу обернуть [target], пока он прикручен!"))
+			return
+		if(use(3))
+			var/obj/item/delivery/big/parcel = new(get_turf(portable_atmospherics.loc))
+			parcel.base_icon_state = "deliverybox"
+			parcel.update_icon()
+			parcel.drag_slowdown = portable_atmospherics.drag_slowdown
+			portable_atmospherics.forceMove(parcel)
+			parcel.add_fingerprint(user)
+			portable_atmospherics.add_fingerprint(user)
+		else
+			balloon_alert(user, span_warning("Нужно больше бумаги!"))
+			return
+
 	else
-		to_chat(user, span_warning("Эта штука не подойдёт для сортировочной машины, куда это будет отправлено!"))
+		balloon_alert(user, span_warning("Объект не подходит для сортировки!"))
 		return
 
-	user.visible_message(span_notice("<b>[user]</b> оборачивает <b>[target]</b> в красивую и модную упаковку."))
+	user.visible_message(span_notice("[user] оборачивает [target]."))
 	user.log_message("has used [name] on [key_name(target)]", LOG_ATTACK, color="blue")
 
 /obj/item/stack/package_wrap/use(used, transfer = FALSE, check = TRUE)

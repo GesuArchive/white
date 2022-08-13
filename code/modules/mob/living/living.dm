@@ -64,6 +64,8 @@
 	return ..()
 
 /mob/living/proc/ZImpactDamage(turf/T, levels)
+	if(SEND_SIGNAL(src, COMSIG_LIVING_Z_IMPACT, levels, T) & NO_Z_IMPACT_DAMAGE)
+		return
 	var/total_damage = (levels * 5) ** 1.5
 	for(var/mob/living/L in T)
 		if(L == src)
@@ -106,6 +108,9 @@
 
 //Called when we bump onto a mob
 /mob/living/proc/MobBump(mob/M)
+
+	SEND_SIGNAL(src, COMSIG_LIVING_MOB_BUMP, M)
+
 	//Even if we don't push/swap places, we "touched" them, so spread fire
 	spreadFire(M)
 
@@ -1066,21 +1071,40 @@
 	. = ..()
 	if(!SSticker.HasRoundStarted())
 		return
-	var/was_weightless = alerts["gravity"] && istype(alerts["gravity"], /atom/movable/screen/alert/weightless)
-	if(has_gravity)
-		if(has_gravity == 1)
-			clear_alert("gravity")
-		else
-			if(has_gravity >= GRAVITY_DAMAGE_THRESHOLD)
-				throw_alert("gravity", /atom/movable/screen/alert/veryhighgravity)
-			else
-				throw_alert("gravity", /atom/movable/screen/alert/highgravity)
-		if(was_weightless)
-			REMOVE_TRAIT(src, TRAIT_MOVE_FLOATING, NO_GRAVITY_TRAIT)
-	else
-		throw_alert("gravity", /atom/movable/screen/alert/weightless)
-		if(!was_weightless)
-			ADD_TRAIT(src, TRAIT_MOVE_FLOATING, NO_GRAVITY_TRAIT)
+	var/atom/movable/screen/alert/gravity_alert = alerts["gravity"]
+	switch(has_gravity)
+		if(-INFINITY to NEGATIVE_GRAVITY)
+			if(!istype(gravity_alert, /atom/movable/screen/alert/negative))
+				throw_alert("gravity", /atom/movable/screen/alert/negative)
+				var/matrix/flipped_matrix = transform
+				flipped_matrix.b = -flipped_matrix.b
+				flipped_matrix.e = -flipped_matrix.e
+				animate(src, transform = flipped_matrix, pixel_y = pixel_y+4, time = 0.5 SECONDS, easing = EASE_OUT)
+				base_pixel_y += 4
+		if(NEGATIVE_GRAVITY + 0.01 to 0)
+			if(!istype(gravity_alert, /atom/movable/screen/alert/weightless))
+				throw_alert("gravity", /atom/movable/screen/alert/weightless)
+				ADD_TRAIT(src, TRAIT_MOVE_FLOATING, NO_GRAVITY_TRAIT)
+		if(0.01 to STANDARD_GRAVITY)
+			if(gravity_alert)
+				clear_alert("gravity")
+		if(STANDARD_GRAVITY + 0.01 to GRAVITY_DAMAGE_THRESHOLD - 0.01)
+			throw_alert("gravity", /atom/movable/screen/alert/highgravity)
+		if(GRAVITY_DAMAGE_THRESHOLD to INFINITY)
+			throw_alert("gravity", /atom/movable/screen/alert/veryhighgravity)
+
+	// If we had no gravity alert, or the same alert as before, go home
+	if(!gravity_alert || alerts["gravity"] == gravity_alert)
+		return
+	// By this point we know that we do not have the same alert as we used to
+	if(istype(gravity_alert, /atom/movable/screen/alert/weightless))
+		REMOVE_TRAIT(src, TRAIT_MOVE_FLOATING, NO_GRAVITY_TRAIT)
+	if(istype(gravity_alert, /atom/movable/screen/alert/negative))
+		var/matrix/flipped_matrix = transform
+		flipped_matrix.b = -flipped_matrix.b
+		flipped_matrix.e = -flipped_matrix.e
+		animate(src, transform = flipped_matrix, pixel_y = pixel_y-4, time = 0.5 SECONDS, easing = EASE_OUT)
+		base_pixel_y -= 4
 
 // The src mob пытается strip an item from someone
 // Override if a certain type of mob should be behave differently when stripping items (can't, for example)

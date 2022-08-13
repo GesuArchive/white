@@ -48,7 +48,7 @@
 	if(istype(loc, /obj/effect/dummy/phased_mob))
 		bloodspell.phased = TRUE
 	if(bloodpool)
-		bloodpool.RegisterSignal(src, list(COMSIG_LIVING_AFTERPHASEIN,COMSIG_PARENT_QDELETING), /obj/effect/dummy/phased_mob/.proc/deleteself)
+		bloodpool.RegisterSignal(src, list(COMSIG_LIVING_AFTERPHASEIN,COMSIG_PARENT_QDELETING), /obj/effect/dummy/phased_mob/.proc/eject_jaunter)
 
 /mob/living/simple_animal/hostile/imp/slaughter/Move(atom/newloc, dir, step_x, step_y)
 	. = ..()

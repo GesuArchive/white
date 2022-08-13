@@ -1,9 +1,9 @@
 /datum/computer_file/program/shipping
 	filename = "shipping"
-	filedesc = "Этикеровщик"
+	filedesc = "GrandArk Exporter"
 	category = PROGRAM_CATEGORY_SUPL
 	program_icon_state = "shipping"
-	extended_desc = "Программный пакет для сканера штрихкодов и минипринтера, позволяющий пда печатать штрих-коды для удобного сканирования и отправки."
+	extended_desc = "A combination printer/scanner app that enables modular computers to print barcodes for easy scanning and shipping."
 	size = 6
 	tgui_id = "NtosShipping"
 	program_icon = "tags"
@@ -52,27 +52,27 @@
 			if(!id_card)
 				return
 			if(!id_card.registered_account)
-				playsound(get_turf(ui_host()), 'white/valtos/sounds/error1.ogg', 50, TRUE, -1)
+				playsound(get_turf(ui_host()), 'sound/machines/buzz-sigh.ogg', 50, TRUE, -1)
 				return
 			payments_acc = id_card.registered_account
 			playsound(get_turf(ui_host()), 'sound/machines/ping.ogg', 50, TRUE, -1)
 		if("resetid")
 			payments_acc = null
 		if("setsplit")
-			var/potential_cut = input("Какую сумму вы хотите выплатить на зарегистрированную карту?","Процентная прибыль ([round(cut_min*100)]% - [round(cut_max*100)]%)") as num|null
+			var/potential_cut = input("How much would you like to pay out to the registered card?","Percentage Profit ([round(cut_min*100)]% - [round(cut_max*100)]%)") as num|null
 			cut_multiplier = potential_cut ? clamp(round(potential_cut/100, cut_min), cut_min, cut_max) : initial(cut_multiplier)
 		if("print")
 			if(!printer)
-				to_chat(usr, span_notice("Аппаратная ошибка: для печати штрих-кодов требуется принтер."))
+				to_chat(usr, span_notice("Hardware error: A printer is required to print barcodes."))
 				return
 			if(printer.stored_paper <= 0)
-				to_chat(usr, span_notice("Аппаратная ошибка: в принтере закончилась бумага."))
+				to_chat(usr, span_notice("Hardware error: Printer is out of paper."))
 				return
 			if(!payments_acc)
-				to_chat(usr, span_notice("Ошибка программного обеспечения: сначала установите текущего пользователя."))
+				to_chat(usr, span_notice("Software error: Please set a current user first."))
 				return
 			var/obj/item/barcode/barcode = new /obj/item/barcode(get_turf(ui_host()))
 			barcode.payments_acc = payments_acc
-			barcode.percent_cut = cut_multiplier
+			barcode.cut_multiplier = cut_multiplier
 			printer.stored_paper--
 			to_chat(usr, span_notice("The computer prints out a barcode."))

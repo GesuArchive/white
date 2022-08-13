@@ -340,6 +340,8 @@
 	#define COMSIG_ATOM_CANT_PULL (1 << 0)
 ///signal sent out by an atom when it is no longer being pulled by something else
 #define COMSIG_ATOM_NO_LONGER_PULLED "movable_no_longer_pulled"
+///signal sent out by an atom when it is no longer pulling something : (atom/pulling)
+#define COMSIG_ATOM_NO_LONGER_PULLING "movable_no_longer_pulling"
 ///called for each movable in a turf contents on /turf/zImpact(): (atom/movable/A, levels)
 #define COMSIG_ATOM_INTERCEPT_Z_FALL "movable_intercept_z_impact"
 ///called on a movable (NOT living) when it starts pulling (atom/movable/pulled, state, force)
@@ -454,6 +456,12 @@
 ///from base of atom/movable/newtonian_move(): (inertia_direction)
 #define COMSIG_MOVABLE_NEWTONIAN_MOVE "movable_newtonian_move"
 	#define COMPONENT_MOVABLE_NEWTONIAN_BLOCK (1<<0)
+///from datum/component/drift/apply_initial_visuals(): ()
+#define COMSIG_MOVABLE_DRIFT_VISUAL_ATTEMPT "movable_drift_visual_attempt"
+	#define DRIFT_VISUAL_FAILED (1<<0)
+///from datum/component/drift/allow_final_movement(): ()
+#define COMSIG_MOVABLE_DRIFT_BLOCK_INPUT "movable_drift_block_input"
+	#define DRIFT_ALLOW_INPUT (1<<0)
 ///from base of atom/movable/throw_impact(): (/atom/hit_atom, /datum/thrownthing/throwingdatum)
 #define COMSIG_MOVABLE_IMPACT "movable_impact"
 	#define COMPONENT_MOVABLE_IMPACT_FLIP_HITPUSH (1<<0) //if true, flip if the impact will push what it hits
@@ -779,6 +787,8 @@
 #define COMSIG_OBJ_PAINTED "obj_painted"
 /// from /obj/proc/obj_break: ()
 #define COMSIG_OBJ_BREAK "obj_break"
+/// from base of [/atom/proc/obj_destruction]: (damage_flag)
+#define COMSIG_OBJ_DESTRUCTION "obj_destruction"
 /// from base of [/obj/proc/obj_fix]: ()
 #define COMSIG_OBJ_FIX "obj_fix"
 
@@ -857,6 +867,8 @@
 #define COMSIG_ITEM_EQUIPPED "item_equip"
 /// A mob has just equipped an item. Called on [/mob] from base of [/obj/item/equipped()]: (/obj/item/equipped_item, slot)
 #define COMSIG_MOB_EQUIPPED_ITEM "mob_equipped_item"
+/// A mob has just unequipped an item.
+#define COMSIG_MOB_UNEQUIPPED_ITEM "mob_unequipped_item"
 ///called on [/obj/item] before unequip from base of [mob/proc/doUnEquip]: (force, atom/newloc, no_move, invdrop, silent)
 #define COMSIG_ITEM_PRE_UNEQUIP "item_pre_unequip"
 	///only the pre unequip can be cancelled
@@ -1407,6 +1419,8 @@
 #define COMSIG_MOB_MOVESPEED_UPDATED "mob_update_movespeed"
 ///(NOT on humans) from mob/living/*/UnarmedAttack(): (atom/target, proximity, modifiers)
 #define COMSIG_LIVING_UNARMED_ATTACK "living_unarmed_attack"
+///From base of mob/living/MobBump() (mob/living)
+#define COMSIG_LIVING_MOB_BUMP "living_mob_bump"
 ///from mob/living/carbon/human/UnarmedAttack(): (atom/target, proximity, modifiers)
 #define COMSIG_HUMAN_EARLY_UNARMED_ATTACK "human_early_unarmed_attack"
 ///from mob/living/carbon/human/UnarmedAttack(): (atom/target, proximity, modifiers)
@@ -1414,6 +1428,9 @@
 //from /mob/living/carbon/human/proc/check_shields(): (atom/hit_by, damage, attack_text, attack_type, armour_penetration)
 #define COMSIG_HUMAN_CHECK_SHIELDS "human_check_shields"
 	#define SHIELD_BLOCK (1<<0)
+///From base of mob/living/ZImpactDamage() (mob/living, levels, turf/t)
+#define COMSIG_LIVING_Z_IMPACT "living_z_impact"
+	#define NO_Z_IMPACT_DAMAGE (1<<0)
 
 // Aquarium related signals
 #define COMSIG_AQUARIUM_BEFORE_INSERT_CHECK "aquarium_about_to_be_inserted"
@@ -1441,6 +1458,10 @@
 
 ///from base of /obj/item/mmi/set_brainmob(): (mob/living/brain/new_brainmob)
 #define COMSIG_MMI_SET_BRAINMOB "mmi_set_brainmob"
+
+/// from base of /obj/item/slimepotion/speed/afterattack(): (obj/target, /obj/src, mob/user)
+#define COMSIG_SPEED_POTION_APPLIED "speed_potion"
+	#define SPEED_POTION_STOP (1<<0)
 
 /// Exoprobe adventure finished: (result) result is ADVENTURE_RESULT_??? values
 #define COMSIG_ADVENTURE_FINISHED "adventure_done"

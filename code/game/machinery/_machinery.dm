@@ -904,7 +904,7 @@
 				. += "<hr>Выглядит серьёзно повреждённым."
 			if(0 to 25)
 				. += "<hr><span class='warning'>Вот-вот развалится!</span>"
-	if(user.research_scanner && component_parts)
+	if(HAS_TRAIT(user, TRAIT_RESEARCH_SCANNER) && component_parts)
 		. += display_parts(user, TRUE)
 
 //called on machinery construction (i.e from frame to machinery) but not on initialization

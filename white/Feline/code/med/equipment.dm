@@ -46,6 +46,7 @@
 //Мед пояс для ЕРТ
 
 /obj/item/storage/belt/medical/ert
+	preload = TRUE
 
 /obj/item/storage/belt/medical/ert/PopulateContents()
 	new /obj/item/surgical_drapes(src)
@@ -55,6 +56,17 @@
 	new /obj/item/cautery/advanced(src)
 	new /obj/item/bonesetter/advanced(src)
 	new /obj/item/healthanalyzer/advanced(src)
+
+/obj/item/storage/belt/medical/ert/get_types_to_preload()
+	var/list/to_preload = list()
+	to_preload += /obj/item/surgical_drapes
+	to_preload += /obj/item/breathing_bag
+	to_preload += /obj/item/scalpel/advanced
+	to_preload += /obj/item/retractor/advanced
+	to_preload += /obj/item/bonesetter/advanced
+	to_preload += /obj/item/cautery/advanced
+	to_preload += /obj/item/healthanalyzer/advanced
+	return to_preload
 
 /obj/item/reagent_containers/medigel/sal_acid_oxandrolone
 	name = "Оксандролон и Салицил"

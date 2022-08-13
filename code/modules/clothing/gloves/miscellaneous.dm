@@ -152,6 +152,7 @@
 	desc = "Пара электронных перчаток которая удаленно подключается к ближайшим радиостанциям. Позволяет знающим язык жестов 'говорить' через интеркомы"
 	icon_state = "radio_g"
 	inhand_icon_state = "radio_g"
+	clothing_traits = list(TRAIT_CAN_SIGN_ON_COMMS)
 
 /obj/item/clothing/gloves/color/plasmaman/head_of_personnel
 	name = "герметичные перчатки Главы Персонала"

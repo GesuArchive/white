@@ -319,23 +319,15 @@
 	log_game("[key_name(user)] [sinched ? "sinched":"unsinched"] secure environmental bag [src] at [AREACOORD(src)]")
 	update_icon()
 
-/obj/structure/closet/body_bag/environmental/prisoner/syndicate
-	name = "syndicate prisoner transport bag"
-	desc = "An alteration of Nanotrasen's environmental protection bag which has been used in several high-profile kidnappings. Designed to keep a victim unconscious, alive, and secured during transport."
-	icon = 'icons/obj/bodybag.dmi'
-	icon_state = "syndieenvirobag"
-	contents_pressure_protection = 1
-	contents_thermal_insulation = 1
-	foldedbag_path = /obj/item/bodybag/environmental/prisoner/syndicate
-	weather_protection = list(WEATHER_ALL)
-	breakout_time = 8 MINUTES
-	sinch_time = 20 SECONDS
+/obj/structure/closet/body_bag/environmental/prisoner/pressurized
+	name = "pressurized prisoner transport bag"
+	foldedbag_path = /obj/item/bodybag/environmental/prisoner/pressurized
 
-/obj/structure/closet/body_bag/environmental/prisoner/syndicate/Initialize(mapload)
+/obj/structure/closet/body_bag/environmental/prisoner/pressurized/Initialize(mapload)
 	. = ..()
 	refresh_air()
 
-/obj/structure/closet/body_bag/environmental/prisoner/syndicate/proc/refresh_air()
+/obj/structure/closet/body_bag/environmental/prisoner/pressurized/proc/refresh_air()
 	air_contents = null
 	air_contents = new(50) //liters
 	air_contents.set_temperature(T20C)
@@ -343,32 +335,51 @@
 	air_contents.set_moles(GAS_O2, (ONE_ATMOSPHERE*50)/(R_IDEAL_GAS_EQUATION*T20C) * O2STANDARD)
 	air_contents.set_moles(GAS_NITROUS, (ONE_ATMOSPHERE*50)/(R_IDEAL_GAS_EQUATION*T20C) * N2STANDARD)
 
-/obj/structure/closet/body_bag/environmental/prisoner/syndicate/Destroy()
+/obj/structure/closet/body_bag/environmental/prisoner/pressurized/Destroy()
 	if(air_contents)
 		QDEL_NULL(air_contents)
-
 	return ..()
 
-/obj/structure/closet/body_bag/environmental/prisoner/syndicate/return_air()
+/obj/structure/closet/body_bag/environmental/prisoner/pressurized/return_air()
 	if(sinched)
 		refresh_air()
 		return air_contents
 	return ..()
 
-/obj/structure/closet/body_bag/environmental/prisoner/syndicate/remove_air(amount)
+/obj/structure/closet/body_bag/environmental/prisoner/pressurized/remove_air(amount)
 	if(sinched)
 		refresh_air()
-		return air_contents // The internals for this bag are bottomless. Syndicate bluespace trickery.
+		return air_contents.remove(amount) // The internals for this bag are bottomless.
 	return ..(amount)
 
-/obj/structure/closet/body_bag/environmental/prisoner/syndicate/return_analyzable_air()
+/obj/structure/closet/body_bag/environmental/prisoner/pressurized/return_analyzable_air()
 	if(sinched)
 		refresh_air()
 		return air_contents
 	return ..()
 
-/obj/structure/closet/body_bag/environmental/prisoner/syndicate/togglelock(mob/living/user, silent)
+/obj/structure/closet/body_bag/environmental/prisoner/pressurized/togglelock(mob/living/user, silent)
 	. = ..()
 	if(sinched)
 		for(var/mob/living/target in contents)
 			to_chat(target, span_warning("You hear a faint hiss, and a white mist fills your vision..."))
+
+/obj/structure/closet/body_bag/environmental/prisoner/pressurized/syndicate
+	name = "syndicate prisoner transport bag"
+	desc = "An alteration of Nanotrasen's environmental protection bag which has been used in several high-profile kidnappings. Designed to keep a victim unconscious, alive, and secured during transport."
+	icon = 'icons/obj/bodybag.dmi'
+	icon_state = "syndieenvirobag"
+	contents_pressure_protection = 1
+	contents_thermal_insulation = 1
+	foldedbag_path = /obj/item/bodybag/environmental/prisoner/syndicate
+	weather_protection = list(TRAIT_WEATHER_IMMUNE)
+	breakout_time = 8 MINUTES
+	sinch_time = 20 SECONDS
+
+/obj/structure/closet/body_bag/environmental/prisoner/pressurized/syndicate/refresh_air()
+	air_contents = null
+	air_contents = new(50) //liters
+	air_contents.set_temperature(T20C)
+
+	air_contents.set_moles(GAS_O2, (ONE_ATMOSPHERE*50)/(R_IDEAL_GAS_EQUATION*T20C) * O2STANDARD)
+	air_contents.set_moles(GAS_NITROUS, (ONE_ATMOSPHERE*50)/(R_IDEAL_GAS_EQUATION*T20C) * N2STANDARD)

@@ -1,14 +1,17 @@
 /datum/proximity_monitor/advanced/gravity
-	name = "modified gravity zone"
-	setup_field_turfs = TRUE
 	var/gravity_value = 0
 	var/list/modified_turfs = list()
-	field_shape = FIELD_SHAPE_RADIUS_SQUARE
+
+/datum/proximity_monitor/advanced/gravity/New(atom/_host, range, _ignore_if_not_on_turf = TRUE, gravity)
+	. = ..()
+	gravity_value = gravity
+	recalculate_field()
 
 /datum/proximity_monitor/advanced/gravity/setup_field_turf(turf/T)
 	. = ..()
-	T.AddElement(/datum/element/forced_gravity, gravity_value)
-	modified_turfs[T] = gravity_value
+
+	if (!isnull(modified_turfs[T]))
+		T.AddElement(/datum/element/forced_gravity, gravity_value)
 
 /datum/proximity_monitor/advanced/gravity/cleanup_field_turf(turf/T)
 	. = ..()

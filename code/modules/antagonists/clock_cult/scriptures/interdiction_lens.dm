@@ -24,7 +24,6 @@
 	minimum_power = 5
 	var/enabled = FALSE			//Misnomer - Whether we want to be enabled or not, processing would be if we are enabled
 	var/processing = FALSE
-	var/datum/proximity_monitor/advanced/dampening_field
 	var/obj/item/borg/projectile_dampen/clockcult/internal_dampener
 
 /obj/structure/destructible/clockwork/gear_base/interdiction_lens/Initialize(mapload)
@@ -34,7 +33,6 @@
 /obj/structure/destructible/clockwork/gear_base/interdiction_lens/Destroy()
 	if(enabled)
 		STOP_PROCESSING(SSobj, src)
-	QDEL_NULL(dampening_field)
 	QDEL_NULL(internal_dampener)
 	. = ..()
 
@@ -80,9 +78,6 @@
 			processing = TRUE
 		icon_state = "interdiction_lens_active"
 		flick("interdiction_lens_recharged", src)
-		if(istype(dampening_field))
-			QDEL_NULL(dampening_field)
-		dampening_field = make_field(/datum/proximity_monitor/advanced/peaceborg_dampener/clockwork, list("current_range" = INTERDICTION_LENS_RANGE, "host" = src, "projector" = internal_dampener))
 
 /obj/structure/destructible/clockwork/gear_base/interdiction_lens/depowered()
 	if(processing)
@@ -90,27 +85,6 @@
 		processing = FALSE
 	icon_state = "interdiction_lens"
 	flick("interdiction_lens_discharged", src)
-	QDEL_NULL(dampening_field)
-
-//Dampening field
-/datum/proximity_monitor/advanced/peaceborg_dampener/clockwork
-	name = "Поле искажения реальности"
-
-/datum/proximity_monitor/advanced/peaceborg_dampener/clockwork/setup_edge_turf(turf/T)
-	edge_turfs[T] = new /obj/effect/abstract/proximity_checker/advanced/field_edge(T, src)
-
-/datum/proximity_monitor/advanced/peaceborg_dampener/clockwork/capture_projectile(obj/projectile/P, track_projectile = TRUE)
-	if(P in tracked)
-		return
-	if(isliving(P.firer))
-		if(is_servant_of_ratvar(P.firer))
-			return
-	projector.dampen_projectile(P, track_projectile)
-	if(track_projectile)
-		tracked += P
 
 /obj/item/borg/projectile_dampen/clockcult
 	name = "культистский глушитель снарядов"
-
-/obj/item/borg/projectile_dampen/clockcult/process_recharge()
-	energy = maxenergy

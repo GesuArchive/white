@@ -99,6 +99,9 @@
 	inhand_icon_state = "utility_ce"
 	worn_icon_state = "utility_ce"
 
+/obj/item/storage/belt/utility/chief/full
+	preload = TRUE
+
 /obj/item/storage/belt/utility/chief/full/PopulateContents()
 	new /obj/item/screwdriver/power(src)
 	new /obj/item/crowbar/power(src)
@@ -107,6 +110,16 @@
 	new /obj/item/stack/cable_coil(src)
 	new /obj/item/extinguisher/mini(src)
 	//much roomier now that we've managed to remove two tools
+
+/obj/item/storage/belt/utility/chief/full/get_types_to_preload()
+	var/list/to_preload = list() //Yes this is a pain. Yes this is the point
+	to_preload += /obj/item/screwdriver/power
+	to_preload += /obj/item/crowbar/power
+	to_preload += /obj/item/weldingtool/experimental
+	to_preload += /obj/item/multitool/tricorder
+	to_preload += /obj/item/stack/cable_coil
+	to_preload += /obj/item/extinguisher/mini
+	return to_preload
 
 /obj/item/storage/belt/utility/full/PopulateContents()
 	new /obj/item/screwdriver(src)
@@ -118,6 +131,18 @@
 	new /obj/item/analyzer(src)
 	new /obj/item/stack/cable_coil(src)
 
+/obj/item/storage/belt/utility/full/get_types_to_preload()
+	var/list/to_preload = list() //Yes this is a pain. Yes this is the point
+	to_preload += /obj/item/screwdriver
+	to_preload += /obj/item/wrench
+	to_preload += /obj/item/weldingtool
+	to_preload += /obj/item/crowbar
+	to_preload += /obj/item/wirecutters
+	to_preload += /obj/item/multitool
+	to_preload += /obj/item/analyzer
+	to_preload += /obj/item/stack/cable_coil
+	return to_preload
+
 /obj/item/storage/belt/utility/full/engi/PopulateContents()
 	new /obj/item/screwdriver(src)
 	new /obj/item/wrench(src)
@@ -127,6 +152,18 @@
 	new /obj/item/multitool(src)
 	new /obj/item/analyzer(src)
 	new /obj/item/stack/cable_coil(src)
+
+/obj/item/storage/belt/utility/full/engi/get_types_to_preload()
+	var/list/to_preload = list() //Yes this is a pain. Yes this is the point
+	to_preload += /obj/item/screwdriver
+	to_preload += /obj/item/wrench
+	to_preload += /obj/item/weldingtool/largetank
+	to_preload += /obj/item/crowbar
+	to_preload += /obj/item/wirecutters
+	to_preload += /obj/item/multitool
+	to_preload += /obj/item/analyzer
+	to_preload += /obj/item/stack/cable_coil
+	return to_preload
 
 /obj/item/storage/belt/utility/full/mechanic/PopulateContents()
 	new /obj/item/screwdriver(src)
@@ -138,6 +175,18 @@
 	new /obj/item/analyzer(src)
 	new /obj/item/stack/cable_coil(src)
 
+/obj/item/storage/belt/utility/full/mechanic/get_types_to_preload()
+	var/list/to_preload = list() //Yes this is a pain. Yes this is the point
+	to_preload += /obj/item/screwdriver
+	to_preload += /obj/item/wrench
+	to_preload += /obj/item/weldingtool/largetank
+	to_preload += /obj/item/crowbar
+	to_preload += /obj/item/wirecutters
+	to_preload += /obj/item/multitool/mechcomp
+	to_preload += /obj/item/analyzer
+	to_preload += /obj/item/stack/cable_coil
+	return to_preload
+
 /obj/item/storage/belt/utility/atmostech/PopulateContents()
 	new /obj/item/screwdriver(src)
 	new /obj/item/wrench(src)
@@ -147,6 +196,20 @@
 	new /obj/item/multitool(src)
 	new /obj/item/stack/cable_coil(src)
 	new /obj/item/grenade/chem_grenade/resin_foam(src)
+
+/obj/item/storage/belt/utility/atmostech/get_types_to_preload()
+	var/list/to_preload = list() //Yes this is a pain. Yes this is the point
+	to_preload += /obj/item/screwdriver
+	to_preload += /obj/item/wrench
+	to_preload += /obj/item/weldingtool
+	to_preload += /obj/item/crowbar
+	to_preload += /obj/item/wirecutters
+	to_preload += /obj/item/stack/cable_coil
+	to_preload += /obj/item/grenade/chem_grenade/resin_foam
+	return to_preload
+
+/obj/item/storage/belt/utility/syndicate
+	preload = FALSE
 
 /obj/item/storage/belt/utility/syndicate/PopulateContents()
 	new /obj/item/screwdriver/nuke(src)
