@@ -1,8 +1,8 @@
 /datum/job/chief_engineer
-	title = "Chief Engineer"
+	title = JOB_CHIEF_ENGINEER
 	ru_title = "Старший Инженер"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
-	department_head = list("Captain")
+	department_head = list(JOB_CAPTAIN)
 	head_announce = list("Engineering")
 	faction = "Station"
 	total_positions = 1
@@ -51,7 +51,7 @@
 		SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, .proc/minor_announce, "Учитывая нехватку экипажа, текущим капитаном станции теперь является [H.real_name]!"))
 
 /datum/outfit/job/ce
-	name = "Chief Engineer"
+	name = JOB_CHIEF_ENGINEER
 	jobtype = /datum/job/chief_engineer
 
 	id = /obj/item/card/id/advanced/silver

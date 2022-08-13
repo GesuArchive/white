@@ -1,7 +1,7 @@
 /datum/job/psychologist
-	title = "Psychologist"
+	title = JOB_PSYCHOLOGIST
 	ru_title = "Психолог"
-	department_head = list("Head of Personnel", "Chief Medical Officer")
+	department_head = list(JOB_HEAD_OF_PERSONNEL, JOB_CHIEF_MEDICAL_OFFICER)
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -34,7 +34,7 @@
 	rpg_title_ru = "Продавец змеиного яда"
 
 /datum/outfit/job/psychologist
-	name = "Psychologist"
+	name = JOB_PSYCHOLOGIST
 	jobtype = /datum/job/psychologist
 
 	ears = /obj/item/radio/headset/headset_srvmed

@@ -77,7 +77,7 @@
 		"school" = list(
 			"Unset" = SCHOOL_UNSET,
 			"Holy" = SCHOOL_HOLY,
-			"Mime" = SCHOOL_MIME,
+			JOB_MIME = SCHOOL_MIME,
 			"Restoration" = SCHOOL_RESTORATION,
 			"Evocation" = SCHOOL_EVOCATION,
 			"Transmutation" = SCHOOL_TRANSMUTATION,

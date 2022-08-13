@@ -499,7 +499,7 @@ AI MODULES
 	name = "toy AI"
 	desc = "A little toy model AI core with real law uploading action!" //Note: subtle tell
 	icon = 'icons/obj/toy.dmi'
-	icon_state = "AI"
+	icon_state = JOB_AI
 	laws = list("")
 
 /obj/item/ai_module/toy_ai/transmitInstructions(datum/ai_laws/law_datum, mob/sender, overflow)

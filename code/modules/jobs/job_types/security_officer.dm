@@ -1,8 +1,8 @@
 /datum/job/security_officer
-	title = "Security Officer"
+	title = JOB_SECURITY_OFFICER
 	ru_title = "Офицер Безопасности"
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
-	department_head = list("Head of Security")
+	department_head = list(JOB_HEAD_OF_SECURITY)
 	faction = "Station"
 	total_positions = 5 //Handled in /datum/controller/occupations/proc/setup_officer_positions()
 	spawn_positions = 5 //Handled in /datum/controller/occupations/proc/setup_officer_positions()
@@ -128,7 +128,7 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 
 
 /datum/outfit/job/security
-	name = "Security Officer"
+	name = JOB_SECURITY_OFFICER
 	jobtype = /datum/job/security_officer
 
 	belt = /obj/item/modular_computer/tablet/pda/security

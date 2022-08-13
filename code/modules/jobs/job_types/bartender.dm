@@ -1,7 +1,7 @@
 /datum/job/bartender
-	title = "Bartender"
+	title = JOB_BARTENDER
 	ru_title = "Бармен"
-	department_head = list("Head of Personnel")
+	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -30,7 +30,7 @@
 	rpg_title_ru = "Тавернщик"
 
 /datum/outfit/job/bartender
-	name = "Bartender"
+	name = JOB_BARTENDER
 	jobtype = /datum/job/bartender
 
 	glasses = /obj/item/clothing/glasses/sunglasses/reagent

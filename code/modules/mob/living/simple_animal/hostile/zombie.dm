@@ -21,7 +21,7 @@
 	minbodytemp = 0
 	status_flags = CANPUSH
 	del_on_death = 1
-	var/zombiejob = "Medical Doctor"
+	var/zombiejob = JOB_MEDICAL_DOCTOR
 	var/infection_chance = 5
 	var/obj/effect/mob_spawn/human/corpse/delayed/corpse
 
@@ -29,7 +29,7 @@
 
 /mob/living/simple_animal/hostile/zombie/Initialize(mapload)
 	. = ..()
-	zombiejob = pick(list("Assistant", "Cook", "Botanist", "Medical Doctor", "Bomj", "Lawyer", "Janitor", "Cargo Technician"))
+	zombiejob = pick(list(JOB_ASSISTANT, JOB_COOK, JOB_BOTANIST, JOB_MEDICAL_DOCTOR, JOB_BOMJ, JOB_LAWYER, JOB_JANITOR, JOB_CARGO_TECHNICIAN))
 	INVOKE_ASYNC(src, .proc/setup_visuals)
 
 

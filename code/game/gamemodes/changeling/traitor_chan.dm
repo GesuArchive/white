@@ -4,7 +4,7 @@
 	report_type = "traitorchan"
 	false_report_weight = 10
 	traitors_possible = 3 //hard limit on traitors if scaling is turned off
-	restricted_jobs = list("Prisoner","AI", "Cyborg")
+	restricted_jobs = list(JOB_PRISONER,JOB_AI, JOB_CYBORG)
 	required_players = 25
 	required_enemies = 1	// how many of each type are required
 	recommended_enemies = 3
@@ -30,7 +30,7 @@
 		restricted_jobs += protected_jobs
 
 	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
-		restricted_jobs += "Assistant"
+		restricted_jobs += JOB_ASSISTANT
 
 	var/list/datum/mind/possible_changelings = get_players_for_role(ROLE_CHANGELING)
 

@@ -32,5 +32,5 @@
 	display_name = "Изоляшки"
 	description = "Зачем тратить время на заживление ожогов, когда можно взять с собой пару резиновых перчаток, а?"
 	path = /obj/item/clothing/gloves/color/yellow
-	allowed_roles = list("Assistant")
+	allowed_roles = list(JOB_ASSISTANT)
 	cost = 1500

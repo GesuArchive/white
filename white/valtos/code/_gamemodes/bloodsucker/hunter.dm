@@ -11,14 +11,14 @@
 		else
 			monster_count /= 2
 
-	var/list/no_hunter_jobs = list("AI","Cyborg")
+	var/list/no_hunter_jobs = list(JOB_AI,JOB_CYBORG)
 
 	// Set Restricted Jobs
 	if(CONFIG_GET(flag/protect_roles_from_antagonist))
-		no_hunter_jobs += list("Security Officer", "Russian Officer", "Trader", "Hacker", "Warden", "Detective", "Head of Security", "Captain", "Head of Personnel", "Deputy")
+		no_hunter_jobs += list(JOB_SECURITY_OFFICER, JOB_RUSSIAN_OFFICER, JOB_TRADER, JOB_HACKER, JOB_WARDEN, JOB_DETECTIVE, JOB_HEAD_OF_SECURITY, JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, "Deputy")
 
 	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
-		no_hunter_jobs += "Assistant"
+		no_hunter_jobs += JOB_ASSISTANT
 
 	// Find Valid Hunters
 	var/list/datum/mind/hunter_candidates = get_players_for_role(ROLE_MONSTERHUNTER)

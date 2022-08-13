@@ -17,42 +17,42 @@
 /datum/gear/suit/wintercoat/captain
 	display_name = "зимнее пальто капитана"
 	path = /obj/item/clothing/suit/hooded/wintercoat/captain
-	allowed_roles = list("Captain")
+	allowed_roles = list(JOB_CAPTAIN)
 
 /datum/gear/suit/wintercoat/security
 	display_name = "защитное зимнее пальто"
 	path = /obj/item/clothing/suit/hooded/wintercoat/security
-	allowed_roles = list("Security Officer", "Brig Physician", "Head of Security")
+	allowed_roles = list(JOB_SECURITY_OFFICER, "Brig Physician", JOB_HEAD_OF_SECURITY)
 
 /datum/gear/suit/wintercoat/medical
 	display_name = "медицинское зимнее пальто"
 	path = /obj/item/clothing/suit/hooded/wintercoat/medical
-	allowed_roles = list("Paramedic", "Medical Doctor", "Chief Medical Officer", "Chemist", "Geneticist")
+	allowed_roles = list(JOB_PARAMEDIC, JOB_MEDICAL_DOCTOR, JOB_CHIEF_MEDICAL_OFFICER, JOB_CHEMIST, JOB_GENETICIST)
 
 /datum/gear/suit/wintercoat/science
 	display_name = "научное зимнее пальто"
 	path = /obj/item/clothing/suit/hooded/wintercoat/science
-	allowed_roles = list("Scientist", "Roboticist", "Research Director")
+	allowed_roles = list(JOB_SCIENTIST, JOB_ROBOTICIST, JOB_RESEARCH_DIRECTOR)
 
 /datum/gear/suit/wintercoat/engineering
 	display_name = "инженерное зимнее пальто"
 	path = /obj/item/clothing/suit/hooded/wintercoat/engineering
-	allowed_roles = list("Chief Engineer", "Station Engineer", "Atmospheric Technician", "Mechanic")
+	allowed_roles = list(JOB_CHIEF_ENGINEER, JOB_STATION_ENGINEER, JOB_ATMOSPHERIC_TECHNICIAN, JOB_MECHANIC)
 
 /datum/gear/suit/wintercoat/hydro
 	display_name = "гидропоническое зимнее пальто"
 	path = /obj/item/clothing/suit/hooded/wintercoat/hydro
-	allowed_roles = list("Botanist")
+	allowed_roles = list(JOB_BOTANIST)
 
 /datum/gear/suit/wintercoat/cargo
 	display_name = "грузовое зимнее пальто"
 	path = /obj/item/clothing/suit/hooded/wintercoat/cargo
-	allowed_roles = list("Cargo Technician", "Quartermaster")
+	allowed_roles = list(JOB_CARGO_TECHNICIAN, JOB_QUARTERMASTER)
 
 /datum/gear/suit/wintercoat/miner
 	display_name = "шахтёрское зимнее пальто"
 	path = /obj/item/clothing/suit/hooded/wintercoat/miner
-	allowed_roles = list("Shaft Miner", "Hunter")
+	allowed_roles = list(JOB_SHAFT_MINER, JOB_HUNTER)
 
 /datum/gear/suit/karabakh
 	display_name = "куртка рейнджера Карабаха"
@@ -104,17 +104,17 @@
 /datum/gear/suit/jacket/lawyer
 	display_name = "синий пиджак"
 	path = /obj/item/clothing/suit/toggle/lawyer
-	allowed_roles = list("Lawyer")
+	allowed_roles = list(JOB_LAWYER)
 
 /datum/gear/suit/jacket/lawyer/purple
 	display_name = "фиолетовый пиджак"
 	path = /obj/item/clothing/suit/toggle/lawyer/purple
-	allowed_roles = list("Lawyer")
+	allowed_roles = list(JOB_LAWYER)
 
 /datum/gear/suit/jacket/lawyer/black
 	display_name = "чёрный пиджак"
 	path = /obj/item/clothing/suit/toggle/lawyer/black
-	allowed_roles = list("Lawyer")
+	allowed_roles = list(JOB_LAWYER)
 
 /datum/gear/suit/jacket/vyshivanka
 	display_name = "вышиванка"

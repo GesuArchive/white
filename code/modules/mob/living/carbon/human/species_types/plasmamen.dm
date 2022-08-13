@@ -73,103 +73,103 @@
 	var/current_job = J.title
 	var/datum/outfit/plasmaman/O = new /datum/outfit/plasmaman
 	switch(current_job)
-		if("Chaplain")
+		if(JOB_CHAPLAIN)
 			O = new /datum/outfit/plasmaman/chaplain
 
-		if("Curator")
+		if(JOB_CURATOR)
 			O = new /datum/outfit/plasmaman/curator
 
-		if("Janitor")
+		if(JOB_JANITOR)
 			O = new /datum/outfit/plasmaman/janitor
 
-		if("Botanist")
+		if(JOB_BOTANIST)
 			O = new /datum/outfit/plasmaman/botany
 
-		if("Bartender", "Lawyer")
+		if(JOB_BARTENDER, JOB_LAWYER)
 			O = new /datum/outfit/plasmaman/bar
 
-		if("Psychologist")
+		if(JOB_PSYCHOLOGIST)
 			O = new /datum/outfit/plasmaman/psychologist
 
-		if("Cook")
+		if(JOB_COOK)
 			O = new /datum/outfit/plasmaman/chef
 
-		if("Prisoner")
+		if(JOB_PRISONER)
 			O = new /datum/outfit/plasmaman/prisoner
 
-		if("Russian Officer")
+		if(JOB_RUSSIAN_OFFICER)
 			O = new /datum/outfit/plasmaman/security
 
-		if("Veteran")
+		if(JOB_VETERAN)
 			O = new /datum/outfit/plasmaman/security
 
-		if("Security Officer")
+		if(JOB_SECURITY_OFFICER)
 			O = new /datum/outfit/plasmaman/security
 
-		if("Detective")
+		if(JOB_DETECTIVE)
 			O = new /datum/outfit/plasmaman/detective
 
-		if("Warden")
+		if(JOB_WARDEN)
 			O = new /datum/outfit/plasmaman/warden
 
-		if("Cargo Technician", "Quartermaster")
+		if(JOB_CARGO_TECHNICIAN, JOB_QUARTERMASTER)
 			O = new /datum/outfit/plasmaman/cargo
 
-		if("Shaft Miner", "Hunter")
+		if(JOB_SHAFT_MINER, JOB_HUNTER)
 			O = new /datum/outfit/plasmaman/mining
 
-		if("Medical Doctor", "Field Medic")
+		if(JOB_MEDICAL_DOCTOR, JOB_FIELD_MEDIC)
 			O = new /datum/outfit/plasmaman/medical
 
-		if("Paramedic")
+		if(JOB_PARAMEDIC)
 			O = new /datum/outfit/plasmaman/paramedic
 
-		if("Chemist")
+		if(JOB_CHEMIST)
 			O = new /datum/outfit/plasmaman/chemist
 
-		if("Geneticist")
+		if(JOB_GENETICIST)
 			O = new /datum/outfit/plasmaman/genetics
 
-		if("Roboticist")
+		if(JOB_ROBOTICIST)
 			O = new /datum/outfit/plasmaman/robotics
 
-		if("Virologist")
+		if(JOB_VIROLOGIST)
 			O = new /datum/outfit/plasmaman/viro
 
-		if("Scientist")
+		if(JOB_SCIENTIST)
 			O = new /datum/outfit/plasmaman/science
 
-		if("Station Engineer")
+		if(JOB_STATION_ENGINEER)
 			O = new /datum/outfit/plasmaman/engineering
 
-		if("Mechanic")
+		if(JOB_MECHANIC)
 			O = new /datum/outfit/plasmaman/engineering
 
-		if("Atmospheric Technician")
+		if(JOB_ATMOSPHERIC_TECHNICIAN)
 			O = new /datum/outfit/plasmaman/atmospherics
 
-		if("Mime")
+		if(JOB_MIME)
 			O = new /datum/outfit/plasmaman/mime
 
-		if("Clown")
+		if(JOB_CLOWN)
 			O = new /datum/outfit/plasmaman/clown
 
-		if("Captain")
+		if(JOB_CAPTAIN)
 			O = new /datum/outfit/plasmaman/captain
 
-		if("Head of Personnel")
+		if(JOB_HEAD_OF_PERSONNEL)
 			O = new /datum/outfit/plasmaman/head_of_personnel
 
-		if("Head of Security")
+		if(JOB_HEAD_OF_SECURITY)
 			O = new /datum/outfit/plasmaman/head_of_security
 
-		if("Chief Engineer")
+		if(JOB_CHIEF_ENGINEER)
 			O = new /datum/outfit/plasmaman/chief_engineer
 
-		if("Chief Medical Officer")
+		if(JOB_CHIEF_MEDICAL_OFFICER)
 			O = new /datum/outfit/plasmaman/chief_medical_officer
 
-		if("Research Director")
+		if(JOB_RESEARCH_DIRECTOR)
 			O = new /datum/outfit/plasmaman/research_director
 
 	H.equipOutfit(O, visualsOnly)

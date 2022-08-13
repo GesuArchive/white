@@ -136,7 +136,7 @@
 
 
 /obj/effect/mob_spawn/human/corpse/russian/ranged/officer
-	name = "Russian Officer"
+	name = JOB_RUSSIAN_OFFICER
 	outfit = /datum/outfit/russiancorpse/officer
 
 /datum/outfit/russiancorpse/officer

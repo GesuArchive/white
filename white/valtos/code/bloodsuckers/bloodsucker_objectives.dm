@@ -71,13 +71,13 @@
 	name = "vassalization"
 
 	var/list/heads = list(
-		"Captain",
-		"Head of Personnel",
-		"Head of Security",
-		"Research Director",
-		"Chief Engineer",
-		"Chief Medical Officer",
-		"Quartermaster",
+		JOB_CAPTAIN,
+		JOB_HEAD_OF_PERSONNEL,
+		JOB_HEAD_OF_SECURITY,
+		JOB_RESEARCH_DIRECTOR,
+		JOB_CHIEF_ENGINEER,
+		JOB_CHIEF_MEDICAL_OFFICER,
+		JOB_QUARTERMASTER,
 	)
 
 	var/list/departments = list(

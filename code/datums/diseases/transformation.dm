@@ -179,7 +179,7 @@
 	stage5	= list(span_danger("Кожа слетает с меня!"))
 	new_form = /mob/living/silicon/robot
 	infectable_biotypes = MOB_ORGANIC|MOB_UNDEAD|MOB_ROBOTIC
-	bantype = "Cyborg"
+	bantype = JOB_CYBORG
 
 
 /datum/disease/transformation/robot/stage_act(delta_time, times_fired)

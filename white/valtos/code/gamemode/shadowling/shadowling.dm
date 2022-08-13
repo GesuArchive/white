@@ -51,8 +51,8 @@ Made by Xhuis
 	required_enemies = 1
 	recommended_enemies = 3
 	enemy_minimum_age = 14
-	restricted_jobs = list("AI", "Cyborg")
-	protected_jobs = list("Security Officer", "Russian Officer", "Veteran", "Warden", "Detective", "Head of Security", "Captain", "Head of Personnel", "Research Director", "Chief Engineer", "Chief Medical Officer")
+	restricted_jobs = list(JOB_AI, JOB_CYBORG)
+	protected_jobs = list(JOB_SECURITY_OFFICER, JOB_RUSSIAN_OFFICER, JOB_VETERAN, JOB_WARDEN, JOB_DETECTIVE, JOB_HEAD_OF_SECURITY, JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_RESEARCH_DIRECTOR, JOB_CHIEF_ENGINEER, JOB_CHIEF_MEDICAL_OFFICER)
 
 /datum/game_mode/shadowling/announce()
 	to_chat(world, "<b>The current game mode is - Shadowling!</b>")
@@ -62,7 +62,7 @@ Made by Xhuis
 	if(CONFIG_GET(flag/protect_roles_from_antagonist))
 		restricted_jobs += protected_jobs
 	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
-		restricted_jobs += "Assistant"
+		restricted_jobs += JOB_ASSISTANT
 	var/shadowlings = max(3, round(num_players()/14))
 	while(shadowlings)
 		var/datum/mind/shadow = pick(antag_candidates)

@@ -1,7 +1,7 @@
 /datum/job/shaft_miner
-	title = "Shaft Miner"
+	title = JOB_SHAFT_MINER
 	ru_title = "Шахтёр"
-	department_head = list("Head of Personnel")
+	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
@@ -23,7 +23,7 @@
 	rpg_title_ru = "Искатель приключений"
 
 /datum/outfit/job/miner
-	name = "Shaft Miner"
+	name = JOB_SHAFT_MINER
 	jobtype = /datum/job/shaft_miner
 
 	belt = /obj/item/modular_computer/tablet/pda/shaftminer

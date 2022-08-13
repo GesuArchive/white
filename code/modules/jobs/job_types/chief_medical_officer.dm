@@ -1,7 +1,7 @@
 /datum/job/chief_medical_officer
-	title = "Chief Medical Officer"
+	title = JOB_CHIEF_MEDICAL_OFFICER
 	ru_title = "Главный Врач"
-	department_head = list("Captain")
+	department_head = list(JOB_CAPTAIN)
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	head_announce = list(RADIO_CHANNEL_MEDICAL)
 	faction = "Station"
@@ -65,7 +65,7 @@
 	new /obj/item/sensor_device(src)
 
 /datum/outfit/job/cmo
-	name = "Chief Medical Officer"
+	name = JOB_CHIEF_MEDICAL_OFFICER
 	jobtype = /datum/job/chief_medical_officer
 
 	id = /obj/item/card/id/advanced/silver

@@ -182,7 +182,7 @@
 				if(!manifest_out[department])
 					manifest_out[department] = list()
 				// Append to beginning of list if captain or department head
-				if (rank == "Captain" || (department != "Command" && (rank in heads)))
+				if (rank == JOB_CAPTAIN || (department != "Command" && (rank in heads)))
 					manifest_out[department] = list(list(
 						"name" = name,
 						"rank" = ru_job_parse(rank)

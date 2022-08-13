@@ -1,6 +1,6 @@
 /*
 /datum/job/security_officer/omon
-	title = "Russian Officer"
+	title = JOB_RUSSIAN_OFFICER
 	ru_title = "Русский Офицер"
 	total_positions = 1
 	spawn_positions = 1
@@ -14,7 +14,7 @@
 	minimal_skills = list(/datum/skill/ranged = SKILL_EXP_EXPERT)
 
 /datum/job/security_officer/veteran
-	title = "Veteran"
+	title = JOB_VETERAN
 	ru_title = "Ветеран"
 	total_positions = 1
 	spawn_positions = 1
@@ -30,7 +30,7 @@
 
 */
 /datum/id_trim/job/omon
-	assignment = "Russian Officer"
+	assignment = JOB_RUSSIAN_OFFICER
 	trim_state = "trim_russianofficer"
 	full_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_MAINT_TUNNELS, ACCESS_MECH_SECURITY, ACCESS_MORGUE, ACCESS_WEAPONS, ACCESS_FORENSICS_LOCKERS, ACCESS_MINERAL_STOREROOM)
 	minimal_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_COURT, ACCESS_WEAPONS, ACCESS_MECH_SECURITY, ACCESS_MINERAL_STOREROOM)
@@ -38,7 +38,7 @@
 	template_access = list(ACCESS_CAPTAIN, ACCESS_HOS, ACCESS_CHANGE_IDS)
 
 /datum/id_trim/job/veteran
-	assignment = "Veteran"
+	assignment = JOB_VETERAN
 	trim_state = "trim_veteran"
 	full_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_ARMORY, ACCESS_COURT, ACCESS_WEAPONS, ACCESS_MECH_SECURITY,
 			            ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, ACCESS_ALL_PERSONAL_LOCKERS,

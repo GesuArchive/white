@@ -4,11 +4,11 @@
 	report_type = "Bloodsucker"
 	antag_flag = ROLE_BLOODSUCKER
 	false_report_weight = 10
-	restricted_jobs = list("AI", "Cyborg")
+	restricted_jobs = list(JOB_AI, JOB_CYBORG)
 	protected_jobs = list(
-		"Captain", "Head of Personnel", "Head of Security",
-		"Research Director", "Chief Engineer", "Chief Medical Officer", "Curator",
-		"Warden", "Security Officer", "Detective", "Field Medic", "Exploration Crew",
+		JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_HEAD_OF_SECURITY,
+		JOB_RESEARCH_DIRECTOR, JOB_CHIEF_ENGINEER, JOB_CHIEF_MEDICAL_OFFICER, JOB_CURATOR,
+		JOB_WARDEN, JOB_SECURITY_OFFICER, JOB_DETECTIVE, JOB_FIELD_MEDIC, JOB_RANGER,
 	)
 	required_players = 25
 	required_enemies = 2
@@ -29,7 +29,7 @@
 	if(CONFIG_GET(flag/protect_roles_from_antagonist))
 		restricted_jobs += protected_jobs
 	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
-		restricted_jobs += "Assistant"
+		restricted_jobs += JOB_ASSISTANT
 
 	recommended_enemies = clamp(round(num_players()/10), 1, 6);
 

@@ -602,7 +602,7 @@
 /obj/item/toy/talking/ai
 	name = "игрушечный ИИ"
 	desc = "Маленькая игрушечная модель ядра ИИ с законами!"
-	icon_state = "AI"
+	icon_state = JOB_AI
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/toy/talking/ai/generate_messages()

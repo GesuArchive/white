@@ -1,7 +1,7 @@
 /datum/job/paramedic
-	title = "Paramedic"
+	title = JOB_PARAMEDIC
 	ru_title = "Парамедик"
-	department_head = list("Chief Medical Officer")
+	department_head = list(JOB_CHIEF_MEDICAL_OFFICER)
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
@@ -64,7 +64,7 @@
 	return to_preload
 
 /datum/outfit/job/paramedic
-	name = "Paramedic"
+	name = JOB_PARAMEDIC
 	jobtype = /datum/job/paramedic
 
 	ears = /obj/item/radio/headset/headset_med

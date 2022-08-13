@@ -308,7 +308,7 @@
 	if(!istext(ckey))
 		return FALSE
 
-	var/alien_caste = tgui_input_list(usr, "Please choose which caste to spawn.", "Pick a caste", list("Queen","Praetorian","Hunter","Sentinel","Drone","Larva"))
+	var/alien_caste = tgui_input_list(usr, "Please choose which caste to spawn.", "Pick a caste", list("Queen","Praetorian",JOB_HUNTER,"Sentinel","Drone","Larva"))
 	var/obj/effect/landmark/spawn_here = GLOB.xeno_spawn.len ? pick(GLOB.xeno_spawn) : null
 	var/mob/living/carbon/alien/new_xeno
 	switch(alien_caste)
@@ -316,7 +316,7 @@
 			new_xeno = new /mob/living/carbon/alien/humanoid/royal/queen(spawn_here)
 		if("Praetorian")
 			new_xeno = new /mob/living/carbon/alien/humanoid/royal/praetorian(spawn_here)
-		if("Hunter")
+		if(JOB_HUNTER)
 			new_xeno = new /mob/living/carbon/alien/humanoid/hunter(spawn_here)
 		if("Sentinel")
 			new_xeno = new /mob/living/carbon/alien/humanoid/sentinel(spawn_here)
@@ -371,7 +371,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 				var/mob/living/carbon/alien/new_xeno
 				switch(G_found.mind.special_role)//If they have a mind, we can determine which caste they were.
-					if("Hunter")
+					if(JOB_HUNTER)
 						new_xeno = new /mob/living/carbon/alien/humanoid/hunter(T)
 					if("Sentinel")
 						new_xeno = new /mob/living/carbon/alien/humanoid/sentinel(T)
@@ -441,7 +441,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	else
 		new_character.mind_initialize()
 	if(!new_character.mind.assigned_role)
-		new_character.mind.assigned_role = "Assistant"//If they somehow got a null assigned role.
+		new_character.mind.assigned_role = JOB_ASSISTANT//If they somehow got a null assigned role.
 
 	new_character.key = G_found.key
 
@@ -482,9 +482,9 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 		else//They may also be a cyborg or AI.
 			switch(new_character.mind.assigned_role)
-				if("Cyborg")//More rigging to make em' work and check if they're traitor.
+				if(JOB_CYBORG)//More rigging to make em' work and check if they're traitor.
 					new_character = new_character.Robotize(TRUE)
-				if("AI")
+				if(JOB_AI)
 					new_character = new_character.AIize()
 				else
 					SSjob.EquipRank(new_character, new_character.mind.assigned_role, 1)//Or we simply equip them.

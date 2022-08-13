@@ -1,7 +1,7 @@
 /datum/job/cargo_technician
-	title = "Cargo Technician"
+	title = JOB_CARGO_TECHNICIAN
 	ru_title = "Грузчик"
-	department_head = list("Head of Personnel")
+	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 2
@@ -31,7 +31,7 @@
 	rpg_title_ru = "Купец"
 
 /datum/outfit/job/cargo_tech
-	name = "Cargo Technician"
+	name = JOB_CARGO_TECHNICIAN
 	jobtype = /datum/job/cargo_technician
 
 	belt = /obj/item/modular_computer/tablet/pda/cargo

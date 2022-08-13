@@ -1,7 +1,7 @@
 /datum/job/roboticist
-	title = "Roboticist"
+	title = JOB_ROBOTICIST
 	ru_title = "Робототехник"
-	department_head = list("Research Director")
+	department_head = list(JOB_RESEARCH_DIRECTOR)
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
@@ -32,7 +32,7 @@
 	rpg_title_ru = "Некромант"
 
 /datum/outfit/job/roboticist
-	name = "Roboticist"
+	name = JOB_ROBOTICIST
 	jobtype = /datum/job/roboticist
 
 	belt = /obj/item/storage/belt/utility/full

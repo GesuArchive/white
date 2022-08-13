@@ -8,19 +8,19 @@
 /datum/gear/hat/hhat_yellow
 	display_name = "Каска, жёлтая"
 	path = /obj/item/clothing/head/hardhat
-	allowed_roles = list("Chief Engineer", "Station Engineer")
+	allowed_roles = list(JOB_CHIEF_ENGINEER, JOB_STATION_ENGINEER)
 	cost = 25
 
 /datum/gear/hat/hhat_orange
 	display_name = "Каска, оранжевая"
 	path = /obj/item/clothing/head/hardhat/orange
-	allowed_roles = list("Chief Engineer", "Station Engineer")
+	allowed_roles = list(JOB_CHIEF_ENGINEER, JOB_STATION_ENGINEER)
 	cost = 25
 
 /datum/gear/hat/hhat_blue
 	display_name = "Каска, синяя"
 	path = /obj/item/clothing/head/hardhat/dblue
-	allowed_roles = list("Chief Engineer", "Station Engineer")
+	allowed_roles = list(JOB_CHIEF_ENGINEER, JOB_STATION_ENGINEER)
 	cost = 25
 
 /datum/gear/hat/that

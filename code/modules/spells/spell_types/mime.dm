@@ -2,7 +2,7 @@
 	name = "Invisible Wall"
 	desc = "The mime's performance transmutates a wall into physical reality."
 	school = SCHOOL_MIME
-	panel = "Mime"
+	panel = JOB_MIME
 	summon_type = list(/obj/effect/forcefield/mime)
 	invocation_type = INVOCATION_EMOTE
 	invocation_emote_self = span_notice("You form a wall in front of yourself.")
@@ -32,7 +32,7 @@
 	name = "Invisible Chair"
 	desc = "The mime's performance transmutates a chair into physical reality."
 	school = SCHOOL_MIME
-	panel = "Mime"
+	panel = JOB_MIME
 	summon_type = list(/obj/structure/chair/mime)
 	invocation_type = INVOCATION_EMOTE
 	invocation_emote_self = span_notice("You conjure an invisible chair and sit down.")
@@ -70,7 +70,7 @@
 	name = "Invisible Box"
 	desc = "The mime's performance transmutates a box into physical reality."
 	school = SCHOOL_MIME
-	panel = "Mime"
+	panel = JOB_MIME
 	summon_type = list(/obj/item/storage/box/mime)
 	invocation_type = INVOCATION_EMOTE
 	invocation_emote_self = span_notice("You conjure up an invisible box, large enough to store a few things.")
@@ -109,7 +109,7 @@
 	name = "Speech"
 	desc = "Make or break a vow of silence."
 	school = SCHOOL_MIME
-	panel = "Mime"
+	panel = JOB_MIME
 	clothes_req = FALSE
 	human_req = TRUE
 	antimagic_allowed = TRUE
@@ -149,7 +149,7 @@
 	name = "Invisible Blockade"
 	desc = "Form an invisible three tile wide blockade."
 	school = SCHOOL_MIME
-	panel = "Mime"
+	panel = JOB_MIME
 	wall_type = /obj/effect/forcefield/mime/advanced
 	invocation_type = INVOCATION_EMOTE
 	invocation_emote_self = span_notice("You form a blockade in front of yourself.")
@@ -178,7 +178,7 @@
 	name = "Finger Guns"
 	desc = "Shoot a mimed bullet from your fingers that stuns and does some damage."
 	school = SCHOOL_MIME
-	panel = "Mime"
+	panel = JOB_MIME
 	charge_max = 300
 	clothes_req = FALSE
 	antimagic_allowed = TRUE

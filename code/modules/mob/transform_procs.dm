@@ -157,7 +157,7 @@
 			R.mmi.brainmob.real_name = real_name //the name of the brain inside the cyborg is the robotized human's name.
 			R.mmi.brainmob.name = real_name
 
-	R.job = "Cyborg"
+	R.job = JOB_CYBORG
 	R.notify_ai(NEW_BORG)
 
 	. = R
@@ -178,10 +178,10 @@
 	for(var/t in bodyparts)
 		qdel(t)
 
-	var/alien_caste = pick("Hunter","Sentinel","Drone")
+	var/alien_caste = pick(JOB_HUNTER,"Sentinel","Drone")
 	var/mob/living/carbon/alien/humanoid/new_xeno
 	switch(alien_caste)
-		if("Hunter")
+		if(JOB_HUNTER)
 			new_xeno = new /mob/living/carbon/alien/humanoid/hunter(loc)
 		if("Sentinel")
 			new_xeno = new /mob/living/carbon/alien/humanoid/sentinel(loc)

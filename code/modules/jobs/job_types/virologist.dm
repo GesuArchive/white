@@ -1,7 +1,7 @@
 /datum/job/virologist
-	title = "Virologist"
+	title = JOB_VIROLOGIST
 	ru_title = "Вирусолог"
-	department_head = list("Chief Medical Officer")
+	department_head = list(JOB_CHIEF_MEDICAL_OFFICER)
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -36,7 +36,7 @@
 	rpg_title_ru = "Чумной доктор"
 
 /datum/outfit/job/virologist
-	name = "Virologist"
+	name = JOB_VIROLOGIST
 	jobtype = /datum/job/virologist
 
 	belt = /obj/item/modular_computer/tablet/pda/viro

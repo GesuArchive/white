@@ -1,8 +1,8 @@
 /datum/job/warden
-	title = "Warden"
+	title = JOB_WARDEN
 	ru_title = "Надзиратель"
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
-	department_head = list("Head of Security")
+	department_head = list(JOB_HEAD_OF_SECURITY)
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -43,7 +43,7 @@
 	rpg_title_ru = "Тюремщик"
 
 /datum/outfit/job/warden
-	name = "Warden"
+	name = JOB_WARDEN
 	jobtype = /datum/job/warden
 
 	belt = /obj/item/modular_computer/tablet/pda/warden

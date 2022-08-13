@@ -1,5 +1,5 @@
 /datum/job/trader
-	title = "Trader"
+	title = JOB_TRADER
 	ru_title = "Торговец"
 	supervisors = "торговой ассоциации и ордену Алого Рассвета"
 	faction = "Scarlet"

@@ -1843,7 +1843,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	desc = "Рваный старый комбинезон, который не принесет вам абсолютно никакой пользы."
 	item = /obj/item/clothing/under/color/grey/ancient
 	cost = 20
-	restricted_roles = list("Assistant")
+	restricted_roles = list(JOB_ASSISTANT)
 	surplus = 0
 
 /datum/uplink_item/role_restricted/oldtoolboxclean
@@ -1852,7 +1852,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			специально разработанная для того, чтобы становиться сильнее с каждым телекристаллом внутри! Инструменты и изоляционные перчатки в комплекте."
 	item = /obj/item/storage/toolbox/mechanical/old/clean
 	cost = 2
-	restricted_roles = list("Assistant")
+	restricted_roles = list(JOB_ASSISTANT)
 	surplus = 0
 
 /datum/uplink_item/role_restricted/pie_cannon
@@ -1860,7 +1860,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	desc = "Специальная пушка для пирога для специального клоуна, этот гаджет вмещает до 20 пирогов и автоматически изготавливает один пирог каждые две секунды!"
 	cost = 10
 	item = /obj/item/pneumatic_cannon/pie/selfcharge
-	restricted_roles = list("Clown")
+	restricted_roles = list(JOB_CLOWN)
 	surplus = 0 //No fun unless you're the clown!
 
 /datum/uplink_item/role_restricted/blastcannon
@@ -1875,7 +1875,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			Мы не продаем бомбастеры лицам старше 12 лет."
 	item = /obj/item/gun/blastcannon
 	cost = 14 //High cost because of the potential for extreme damage in the hands of a skilled scientist.
-	restricted_roles = list("Research Director", "Scientist")
+	restricted_roles = list(JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST)
 
 /datum/uplink_item/role_restricted/gorillacubes
 	name = "Коробка с кубиками Гориллы"
@@ -1883,14 +1883,14 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			Осторожно: При контакте с водой продукт может регидратироваться."
 	item = /obj/item/storage/box/gorillacubes
 	cost = 6
-	restricted_roles = list("Geneticist", "Research Director")
+	restricted_roles = list(JOB_GENETICIST, JOB_RESEARCH_DIRECTOR)
 
 /datum/uplink_item/role_restricted/brainwash_disk
 	name = "Программа хирургии промывания мозгов"
 	desc = "Диск, содержащий процедуру проведения операции по промыванию мозгов, \
 			позволяющую внедрить задание в оперируемого. Вставьте в операционную консоль, чтобы включить процедуру."
 	item = /obj/item/disk/surgery/brainwashing
-	restricted_roles = list("Medical Doctor", "Chief Medical Officer", "Roboticist")
+	restricted_roles = list(JOB_MEDICAL_DOCTOR, JOB_CHIEF_MEDICAL_OFFICER, JOB_ROBOTICIST)
 	cost = 5
 
 /datum/uplink_item/role_restricted/springlock_module
@@ -1914,7 +1914,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			обезвредить, и некоторые члены экипажа могут попытаться сделать это."
 	item = /obj/item/sbeacondrop/clownbomb
 	cost = 15
-	restricted_roles = list("Clown")
+	restricted_roles = list(JOB_CLOWN)
 
 /datum/uplink_item/role_restricted/clumsinessinjector //clown ops can buy this too, but it's in the pointless badassery section for them
 	name = "Инъектор неуклюжести"
@@ -1924,7 +1924,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			которые хотят помучить и поиграть со своей жертвой, прежде чем убить ее."
 	item = /obj/item/dnainjector/clumsymut
 	cost = 1
-	restricted_roles = list("Clown")
+	restricted_roles = list(JOB_CLOWN)
 	illegal_tech = FALSE
 
 /datum/uplink_item/role_restricted/spider_injector
@@ -1935,7 +1935,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			которых мы нашли на планетах. Они немного приручаются, пока вы не наделите их разумом."
 	item = /obj/item/reagent_containers/syringe/spider_extract
 	cost = 10
-	restricted_roles = list("Research Director", "Scientist", "Roboticist")
+	restricted_roles = list(JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST, JOB_ROBOTICIST)
 
 /datum/uplink_item/role_restricted/clowncar
 	name = "Клоунмобиль"
@@ -1947,7 +1947,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			Премиум функции могут быть разблокированы с помощью криптографического секвенсора!"
 	item = /obj/vehicle/sealed/car/clowncar
 	cost = 20
-	restricted_roles = list("Clown")
+	restricted_roles = list(JOB_CLOWN)
 
 /datum/uplink_item/role_restricted/haunted_magic_eightball
 	name = "Призрачный магический шар"
@@ -1957,7 +1957,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			просто произнесите свой вопрос вслух, а затем начните трясти."
 	item = /obj/item/toy/eightball/haunted
 	cost = 2
-	restricted_roles = list("Curator")
+	restricted_roles = list(JOB_CURATOR)
 	limited_stock = 1 //please don't spam deadchat
 
 /datum/uplink_item/role_restricted/his_grace
@@ -1969,7 +1969,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 		Однако, если оставить его в покое надолго, он снова погрузится в дремоту. Чтобы активировать Его Милость, просто откройте Его."
 	item = /obj/item/his_grace
 	cost = 20
-	restricted_roles = list("Chaplain")
+	restricted_roles = list(JOB_CHAPLAIN)
 	surplus = 5 //Very low chance to get it in a surplus crate even without being the chaplain
 
 /datum/uplink_item/role_restricted/explosive_hot_potato
@@ -1979,7 +1979,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	item = /obj/item/hot_potato/syndicate
 	cost = 4
 	surplus = 0
-	restricted_roles = list("Cook", "Botanist", "Clown", "Mime")
+	restricted_roles = list(JOB_COOK, JOB_BOTANIST, JOB_CLOWN, JOB_MIME)
 
 /datum/uplink_item/role_restricted/ez_clean_bundle
 	name = "Набор очистительных гранат EZ"
@@ -1988,7 +1988,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	item = /obj/item/storage/box/syndie_kit/ez_clean
 	cost = 6
 	surplus = 20
-	restricted_roles = list("Janitor")
+	restricted_roles = list(JOB_JANITOR)
 
 /datum/uplink_item/role_restricted/mimery
 	name = "Руководство по продвинутой пантомиме"
@@ -1996,7 +1996,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			После изучения этой серии пользователь будет уметь создавать невидимые стены 3x1 и стрелять пулями из пальцев. Очевидно, работает только для мимов."
 	cost = 12
 	item = /obj/item/storage/box/syndie_kit/mimery
-	restricted_roles = list("Mime")
+	restricted_roles = list(JOB_MIME)
 	surplus = 0
 
 /datum/uplink_item/role_restricted/pressure_mod
@@ -2006,7 +2006,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	item = /obj/item/borg/upgrade/modkit/indoors
 	cost = 5 //you need two for full damage, so total of 10 for maximum damage
 	limited_stock = 2 //you can't use more than two!
-	restricted_roles = list("Shaft Miner", "Hunter")
+	restricted_roles = list(JOB_SHAFT_MINER, JOB_HUNTER)
 
 /datum/uplink_item/role_restricted/magillitis_serum
 	name = "Автоинъектор сыворотки Магиллит"
@@ -2014,21 +2014,21 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			Побочные эффекты могут включать гипертрихоз, вспышки ярости и бесконечное пристрастие к бананам."
 	item = /obj/item/reagent_containers/hypospray/medipen/magillitis
 	cost = 15
-	restricted_roles = list("Geneticist", "Research Director")
+	restricted_roles = list(JOB_GENETICIST, JOB_RESEARCH_DIRECTOR)
 
 /datum/uplink_item/role_restricted/modified_syringe_gun
 	name = "Модифицированный шприцемёт"
 	desc = "Шприц-пистолет, стреляющий ДНК-инъекторами вместо обычных шприцев."
 	item = /obj/item/gun/syringe/dna
 	cost = 14
-	restricted_roles = list("Geneticist", "Research Director")
+	restricted_roles = list(JOB_GENETICIST, JOB_RESEARCH_DIRECTOR)
 
 /datum/uplink_item/role_restricted/chemical_gun
 	name = "Реагентный дротикомёт"
 	desc = "Тяжело-модифицированный шприцемёт, способный синтезировать собственные химические дротики, используя исходные реагенты. Вмещает 100 юнитов реагентов."
 	item = /obj/item/gun/chem
 	cost = 12
-	restricted_roles = list("Chemist", "Chief Medical Officer", "Botanist")
+	restricted_roles = list(JOB_CHEMIST, JOB_CHIEF_MEDICAL_OFFICER, JOB_BOTANIST)
 
 /datum/uplink_item/role_restricted/reverse_bear_trap
 	name = "Обратный медвежий капкан"
@@ -2038,7 +2038,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			Для применения атакуйте цель без головного убора, и вы наденете его на голову жертвы через три секунды без чужого вмешательства."
 	cost = 5
 	item = /obj/item/reverse_bear_trap
-	restricted_roles = list("Clown")
+	restricted_roles = list(JOB_CLOWN)
 
 /datum/uplink_item/role_restricted/reverse_revolver
 	name = "Реверс-револьвер"
@@ -2048,14 +2048,14 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			Только неуклюжие люди и клоуны могут из него нормально стрелять. Поставляется в коробке с объятиями. Хонк."
 	cost = 14
 	item = /obj/item/storage/box/hug/reverse_revolver
-	restricted_roles = list("Clown")
+	restricted_roles = list(JOB_CLOWN)
 
 /datum/uplink_item/role_restricted/apostle_syringe
 	name = "Токсин клоуна-апостола"
 	desc = "Этот шприц превратит пользователя в нечто очень красивое, но смертельно опасное."
 	cost = 20
 	item = /obj/item/reagent_containers/syringe/apostletoxin
-	restricted_roles = list("Clown")
+	restricted_roles = list(JOB_CLOWN)
 
 /datum/uplink_item/role_restricted/clownpin
 	name = "Ультравеселый крючок для стрельбы"
@@ -2064,7 +2064,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			когда кто-то пытается выстрелить из него."
 	cost = 4
 	item = /obj/item/firing_pin/clown/ultra
-	restricted_roles = list("Clown")
+	restricted_roles = list(JOB_CLOWN)
 	illegal_tech = FALSE
 
 /datum/uplink_item/role_restricted/clownsuperpin
@@ -2073,7 +2073,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			взрывается, когда кто-то, кто не является неуклюжим или клоуном, пытается выстрелить."
 	cost = 7
 	item = /obj/item/firing_pin/clown/ultra/selfdestruct
-	restricted_roles = list("Clown")
+	restricted_roles = list(JOB_CLOWN)
 	illegal_tech = FALSE
 
 /datum/uplink_item/role_restricted/laser_arm
@@ -2082,7 +2082,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			Поставляется с автохирургом синдиката для немедленного применения."
 	cost = 10
 	item = /obj/item/autosurgeon/organ/syndicate/laser_arm
-	restricted_roles = list("Roboticist", "Research Director")
+	restricted_roles = list(JOB_ROBOTICIST, JOB_RESEARCH_DIRECTOR)
 
 /datum/uplink_item/role_restricted/bureaucratic_error_remote
 	name = "Индуктор вызова бюрократической ошибки"
@@ -2090,7 +2090,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	cost = 2
 	limited_stock = 1
 	item = /obj/item/devices/ocd_device
-	restricted_roles = list("Head of Personnel", "Quartermaster")
+	restricted_roles = list(JOB_HEAD_OF_PERSONNEL, JOB_QUARTERMASTER)
 
 
 /datum/uplink_item/role_restricted/meathook
@@ -2098,14 +2098,14 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	desc = "Брутальное лезвие на длинной цепи, позволяющее притягивать людей к себе. Свежий кабанчик!"
 	item = /obj/item/gun/magic/hook
 	cost = 11
-	restricted_roles = list("Cook")
+	restricted_roles = list(JOB_COOK)
 
 /datum/uplink_item/role_restricted/turretbox
 	name = "Расходная турель"
 	desc = "Одноразовая система развертывания турели, ловко замаскированная под ящик с инструментами, с применением гаечного ключа для функциональности. Встречайте - инженер!"
 	item = /obj/item/storage/toolbox/emergency/turret
 	cost = 11
-	restricted_roles = list("Station Engineer")
+	restricted_roles = list(JOB_STATION_ENGINEER)
 
 // Pointless
 /datum/uplink_item/badass

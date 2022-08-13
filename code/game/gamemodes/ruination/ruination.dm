@@ -22,8 +22,8 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 	reroll_friendly = 1
 	enemy_minimum_age = 0
 
-	restricted_jobs = list("Cyborg", "AI")
-	protected_jobs = list("Prisoner", "Russian Officer", "Trader", "Hacker","Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Field Medic", "Exploration Crew")
+	restricted_jobs = list(JOB_CYBORG, JOB_AI)
+	protected_jobs = list(JOB_PRISONER, JOB_RUSSIAN_OFFICER, JOB_TRADER, JOB_HACKER,JOB_VETERAN, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_HEAD_OF_SECURITY, JOB_CAPTAIN, JOB_FIELD_MEDIC, JOB_RANGER)
 
 	announce_span = "danger"
 	announce_text = "Кто-то решил уронить станцию прямиком на ПЛАНЕТУ!"

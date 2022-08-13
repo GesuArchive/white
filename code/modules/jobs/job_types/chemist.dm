@@ -1,7 +1,7 @@
 /datum/job/chemist
-	title = "Chemist"
+	title = JOB_CHEMIST
 	ru_title = "Химик"
-	department_head = list("Chief Medical Officer")
+	department_head = list(JOB_CHIEF_MEDICAL_OFFICER)
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
@@ -35,7 +35,7 @@
 	rpg_title_ru = "Алхимик"
 
 /datum/outfit/job/chemist
-	name = "Chemist"
+	name = JOB_CHEMIST
 	jobtype = /datum/job/chemist
 
 	glasses = /obj/item/clothing/glasses/science

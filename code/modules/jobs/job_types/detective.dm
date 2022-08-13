@@ -1,8 +1,8 @@
 /datum/job/detective
-	title = "Detective"
+	title = JOB_DETECTIVE
 	ru_title = "Детектив"
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
-	department_head = list("Head of Security")
+	department_head = list(JOB_HEAD_OF_SECURITY)
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -44,7 +44,7 @@
 	rpg_title_ru = "Ловец воров"
 
 /datum/outfit/job/detective
-	name = "Detective"
+	name = JOB_DETECTIVE
 	jobtype = /datum/job/detective
 
 	belt = /obj/item/modular_computer/tablet/pda/detective

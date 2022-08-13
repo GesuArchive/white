@@ -38,7 +38,7 @@
 	tidecolor = pick("grey", "white", "yellow", "purple", "brown", "whatevercolorrepresentstheservicepeople")
 	switch(tidecolor)
 		if("grey") //God help you
-			jobs_to_revolt = list("Assistant")
+			jobs_to_revolt = list(JOB_ASSISTANT)
 			nation_name = pick("Assa", "Mainte", "Tunnel", "Gris", "Grey", "Liath", "Grigio", "Ass", "Assi")
 		if("white")
 			jobs_to_revolt = GLOB.medical_positions
@@ -53,7 +53,7 @@
 			jobs_to_revolt = GLOB.supply_positions
 			nation_name = pick("Cargo", "Guna", "Suppli", "Mule", "Crate", "Ore", "Mini", "Shaf")
 		if("whatevercolorrepresentstheservicepeople") //the few, the proud, the technically aligned
-			jobs_to_revolt = GLOB.service_positions.Copy() - list("Assistant")
+			jobs_to_revolt = GLOB.service_positions.Copy() - list(JOB_ASSISTANT)
 			nation_name = pick("Honka", "Boozo", "Fatu", "Danka", "Mimi", "Libra", "Jani", "Religi")
 
 	nation_name += pick("stan", "topia", "land", "nia", "ca", "tova", "dor", "ador", "tia", "sia", "ano", "tica", "tide", "cis", "marea", "co", "taoide", "slavia", "stotzka")

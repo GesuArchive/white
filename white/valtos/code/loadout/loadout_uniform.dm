@@ -186,7 +186,7 @@
 
 /datum/gear/uniform/rank/assistant
 	subtype_path = /datum/gear/uniform/rank/assistant
-	allowed_roles = list("Assistant")
+	allowed_roles = list(JOB_ASSISTANT)
 
 /datum/gear/uniform/rank/assistant/formal
 	display_name = "настоящая форма ассистента"
@@ -202,19 +202,19 @@
 
 /datum/gear/uniform/rank/cargo
 	subtype_path = /datum/gear/uniform/rank/cargo
-	allowed_roles = list("Quartermaster", "Cargo Technician", "Shaft Miner", "Hunter")
+	allowed_roles = list(JOB_QUARTERMASTER, JOB_CARGO_TECHNICIAN, JOB_SHAFT_MINER, JOB_HUNTER)
 
 /datum/gear/uniform/rank/cargo/overalls
 	display_name = "рабочий комбинезон"
 	path = /obj/item/clothing/under/misc/overalls
 	cost = 50
-	allowed_roles = list("Chief Engineer", "Station Engineer", "Atmospheric Technician")
+	allowed_roles = list(JOB_CHIEF_ENGINEER, JOB_STATION_ENGINEER, JOB_ATMOSPHERIC_TECHNICIAN)
 
 /datum/gear/uniform/rank/cargo/mining_classic
 	display_name = "старый комбинезон шахтера"
 	description = "Пурпурный, грязный комбинезон. Стандартная одежда шахтера шахт NanoTrasen, когда Лаваленд еще не был открыт и использован для плазмы."
 	path = /obj/item/clothing/under/rank/cargo/miner
-	allowed_roles = list ("Shaft Miner", "Hunter")
+	allowed_roles = list (JOB_SHAFT_MINER, JOB_HUNTER)
 	cost = 100
 
 
@@ -222,7 +222,7 @@
 
 /datum/gear/uniform/rank/medical
 	subtype_path = /datum/gear/uniform/rank/medical
-	allowed_roles = list("Paramedic", "Medical Doctor", "Chief Medical Officer")
+	allowed_roles = list(JOB_PARAMEDIC, JOB_MEDICAL_DOCTOR, JOB_CHIEF_MEDICAL_OFFICER)
 	cost = 50
 
 /datum/gear/uniform/rank/medical/scrubs_blue
@@ -242,7 +242,7 @@
 
 /datum/gear/uniform/rank/engineering
 	subtype_path = /datum/gear/uniform/rank/engineering
-	allowed_roles = list("Chief Engineer", "Station Engineer", "Atmospheric Technician", "Mechanic")
+	allowed_roles = list(JOB_CHIEF_ENGINEER, JOB_STATION_ENGINEER, JOB_ATMOSPHERIC_TECHNICIAN, JOB_MECHANIC)
 
 /datum/gear/uniform/rank/engineering/hazard
 	display_name = "комбинезон инженера"
@@ -252,7 +252,7 @@
 //RND
 
 /datum/gear/uniform/rank/science
-	allowed_roles = list("Scientist", "Roboticist", "Research Director")
+	allowed_roles = list(JOB_SCIENTIST, JOB_ROBOTICIST, JOB_RESEARCH_DIRECTOR)
 
 
 

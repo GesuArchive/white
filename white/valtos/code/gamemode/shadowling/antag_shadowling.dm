@@ -16,7 +16,7 @@
 	owner.AddSpell(new /obj/effect/proc_holder/spell/self/shadowling_hatch(null))
 	owner.AddSpell(new /obj/effect/proc_holder/spell/self/shadowling_hivemind(null))
 	owner.AddSpell(new /obj/effect/proc_holder/spell/targeted/enthrall(null))
-	if(owner.assigned_role == "Clown")
+	if(owner.assigned_role == JOB_CLOWN)
 		to_chat(S, span_notice("Your alien nature has allowed you to overcome your clownishness."))
 		S.dna.remove_mutation(CLOWNMUT)
 	var/datum/objective/ascend/O = new

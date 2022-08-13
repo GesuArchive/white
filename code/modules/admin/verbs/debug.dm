@@ -106,7 +106,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	var/obj/item/paicard/card = new(T)
 	var/mob/living/silicon/pai/pai = new(card)
 
-	var/chosen_name = tgui_input_text(choice, "Enter your pAI name:", "pAI Name", "Personal AI")
+	var/chosen_name = tgui_input_text(choice, "Enter your pAI name:", "pAI Name", JOB_PERSONAL_AI)
 
 	if (isnull(chosen_name))
 		return

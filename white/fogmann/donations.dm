@@ -235,7 +235,7 @@ GLOBAL_LIST_INIT(donations_list, list(
 	),
 	"Игрушки" = list(
 		new /datum/donate_info("Snappops",					/obj/item/storage/box/snappops,					90),
-		new /datum/donate_info("AI",						/obj/item/toy/talking/ai,						90),
+		new /datum/donate_info(JOB_AI,						/obj/item/toy/talking/ai,						90),
 		new /datum/donate_info("Codex Gigas",				/obj/item/toy/talking/codex_gigas,				90),
 		new /datum/donate_info("Sword",						/obj/item/toy/sword,							90),
 		new /datum/donate_info("Crossbow",					/obj/item/gun/ballistic/shotgun/toy/crossbow,	90),

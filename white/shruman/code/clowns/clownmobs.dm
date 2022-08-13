@@ -545,7 +545,7 @@
 		rally_clowns(T)
 
 /mob/living/simple_animal/hostile/clown/mutant/glutton/verb/rally_clowns_power()
-	set category = "Clown"
+	set category = JOB_CLOWN
 	set name = "Rally Clowns"
 	set desc = "Rally your clowns to move to a target location."
 	var/turf/T = get_turf(src)

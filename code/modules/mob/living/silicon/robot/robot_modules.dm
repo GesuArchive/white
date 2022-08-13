@@ -483,7 +483,7 @@
 	склонен к насилию. <BR>	Вы не являетесь модулем СБ и прежде всего вы предотвращаете насилие. Космический закон ничего не значит для вас.</span>")
 
 /obj/item/robot_module/janitor
-	name = "Janitor"
+	name = JOB_JANITOR
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
 		/obj/item/screwdriver/cyborg,
@@ -572,7 +572,7 @@
 		CL.reagents.add_reagent(/datum/reagent/lube, 2 * coeff)
 
 /obj/item/robot_module/clown
-	name = "Clown"
+	name = JOB_CLOWN
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
 		/obj/item/toy/crayon/rainbow,

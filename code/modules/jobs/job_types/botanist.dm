@@ -1,7 +1,7 @@
 /datum/job/botanist
-	title = "Botanist"
+	title = JOB_BOTANIST
 	ru_title = "Ботаник"
-	department_head = list("Head of Personnel")
+	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 2
@@ -32,7 +32,7 @@
 	rpg_title_ru = "Садовник"
 
 /datum/outfit/job/botanist
-	name = "Botanist"
+	name = JOB_BOTANIST
 	jobtype = /datum/job/botanist
 
 	belt = /obj/item/modular_computer/tablet/pda/botanist

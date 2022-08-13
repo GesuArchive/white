@@ -685,7 +685,7 @@
 	rank = "Mate"
 
 /obj/effect/mob_spawn/human/pirate/skeleton/captain
-	rank = "Captain"
+	rank = JOB_CAPTAIN
 	outfit = /datum/outfit/pirate/captain
 
 /obj/effect/mob_spawn/human/pirate/skeleton/gunner

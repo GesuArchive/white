@@ -12,7 +12,7 @@
 		announcement += "<h1 class='alert'>Срочное Объявление</h1>"
 		if (title && length(title) > 0)
 			announcement += "<h2 class='alert'>[html_encode(title)]</h2>"
-	else if(type == "Captain")
+	else if(type == JOB_CAPTAIN)
 		announcement += "<h1 class='alert'>Капитан Объявляет</h1>"
 		GLOB.news_network.submit_article(text, "Капитан Объявляет", "Станционные Объявления", null)
 

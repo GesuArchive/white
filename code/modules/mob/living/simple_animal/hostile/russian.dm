@@ -54,7 +54,7 @@
 				/obj/item/gun/ballistic/shotgun/lethal)
 
 /mob/living/simple_animal/hostile/russian/ranged/officer
-	name = "Russian Officer"
+	name = JOB_RUSSIAN_OFFICER
 	icon_state = "russianofficer"
 	icon_living = "russianofficer"
 	maxHealth = 65

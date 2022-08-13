@@ -1,7 +1,7 @@
 /datum/job/janitor
-	title = "Janitor"
+	title = JOB_JANITOR
 	ru_title = "Уборщик"
-	department_head = list("Head of Personnel")
+	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 1
@@ -29,7 +29,7 @@
 	rpg_title_ru = "Хранитель земель"
 
 /datum/outfit/job/janitor
-	name = "Janitor"
+	name = JOB_JANITOR
 	jobtype = /datum/job/janitor
 
 	belt = /obj/item/modular_computer/tablet/pda/janitor

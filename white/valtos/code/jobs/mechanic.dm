@@ -1,5 +1,5 @@
 /datum/job/station_engineer/mechanic
-	title = "Mechanic"
+	title = JOB_MECHANIC
 	ru_title = "Механик"
 	total_positions = 1
 	spawn_positions = 1
@@ -17,7 +17,7 @@
 	metalocked = TRUE
 
 /datum/id_trim/job/mechanic
-	assignment = "Mechanic"
+	assignment = JOB_MECHANIC
 	trim_state = "trim_mechanic"
 	full_access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE, ACCESS_AUX_BASE,
 		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_TCOMSAT, ACCESS_MINERAL_STOREROOM, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS)
@@ -27,7 +27,7 @@
 	template_access = list(ACCESS_CAPTAIN, ACCESS_CE, ACCESS_CHANGE_IDS)
 
 /datum/outfit/job/mechanic
-	name = "Mechanic"
+	name = JOB_MECHANIC
 	jobtype = /datum/job/station_engineer/mechanic
 
 	belt = /obj/item/storage/part_replacer/tier2

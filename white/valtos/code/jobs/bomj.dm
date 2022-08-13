@@ -1,5 +1,5 @@
 /datum/job/bomj
-	title = "Bomj"
+	title = JOB_BOMJ
 	ru_title = "Бомж"
 	faction = "Station"
 	total_positions = 3

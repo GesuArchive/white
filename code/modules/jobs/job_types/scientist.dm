@@ -1,7 +1,7 @@
 /datum/job/scientist
-	title = "Scientist"
+	title = JOB_SCIENTIST
 	ru_title = "Учёный"
-	department_head = list("Research Director")
+	department_head = list(JOB_RESEARCH_DIRECTOR)
 	faction = "Station"
 	total_positions = 5
 	spawn_positions = 3
@@ -32,7 +32,7 @@
 	rpg_title_ru = "Тауматург"
 
 /datum/outfit/job/scientist
-	name = "Scientist"
+	name = JOB_SCIENTIST
 	jobtype = /datum/job/scientist
 
 	belt = /obj/item/modular_computer/tablet/pda/science

@@ -41,20 +41,20 @@
 #define MEDAL_LEGENDARY_MINER		"Legendary Miner"
 
 //Mafia medal hub IDs (wins)
-#define MAFIA_MEDAL_ASSISTANT		"Assistant"
-#define MAFIA_MEDAL_DETECTIVE		"Detective"
-#define MAFIA_MEDAL_PSYCHOLOGIST	"Psychologist"
-#define MAFIA_MEDAL_CHAPLAIN		"Chaplain"
-#define MAFIA_MEDAL_MD				"Medical Doctor"
-#define MAFIA_MEDAL_LAWYER			"Lawyer"
-#define MAFIA_MEDAL_HOP				"Head of Personnel"
+#define MAFIA_MEDAL_ASSISTANT		JOB_ASSISTANT
+#define MAFIA_MEDAL_DETECTIVE		JOB_DETECTIVE
+#define MAFIA_MEDAL_PSYCHOLOGIST	JOB_PSYCHOLOGIST
+#define MAFIA_MEDAL_CHAPLAIN		JOB_CHAPLAIN
+#define MAFIA_MEDAL_MD				JOB_MEDICAL_DOCTOR
+#define MAFIA_MEDAL_LAWYER			JOB_LAWYER
+#define MAFIA_MEDAL_HOP				JOB_HEAD_OF_PERSONNEL
 #define MAFIA_MEDAL_CHANGELING		"CHANGELING"
 #define MAFIA_MEDAL_THOUGHTFEEDER	"Thoughtfeeder"
 #define MAFIA_MEDAL_TRAITOR			"Traitor"
 #define MAFIA_MEDAL_NIGHTMARE		"Nightmare"
 #define MAFIA_MEDAL_FUGITIVE		"Fugitive"
 #define MAFIA_MEDAL_OBSESSED		"Obsessed"
-#define MAFIA_MEDAL_CLOWN			"Clown"
+#define MAFIA_MEDAL_CLOWN			JOB_CLOWN
 
 //Mafia medal hub IDs (misc stuff)
 #define MAFIA_MEDAL_HATED		"Universally Hated"

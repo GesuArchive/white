@@ -15,7 +15,7 @@
 	spawned_human.remove_language(/datum/language/common)
 
 /datum/outfit/science_team
-	name = "Scientist"
+	name = JOB_SCIENTIST
 	uniform = /obj/item/clothing/under/rank/rnd/scientist
 	suit = /obj/item/clothing/suit/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/laceup

@@ -10,8 +10,8 @@ GLOBAL_LIST_INIT(slot2type, list("head" = /obj/item/clothing/head/changeling, "w
 	report_type = "changeling"
 	antag_flag = ROLE_CHANGELING
 	false_report_weight = 10
-	restricted_jobs = list("AI", "Cyborg")
-	protected_jobs = list("Prisoner", "Russian Officer", "Hacker", "Trader", "Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Field Medic", "Exploration Crew")
+	restricted_jobs = list(JOB_AI, JOB_CYBORG)
+	protected_jobs = list(JOB_PRISONER, JOB_RUSSIAN_OFFICER, JOB_HACKER, JOB_TRADER, JOB_VETERAN, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_HEAD_OF_SECURITY, JOB_CAPTAIN, JOB_FIELD_MEDIC, JOB_RANGER)
 	required_players = 15
 	required_enemies = 1
 	recommended_enemies = 3
@@ -31,7 +31,7 @@ GLOBAL_LIST_INIT(slot2type, list("head" = /obj/item/clothing/head/changeling, "w
 		restricted_jobs += protected_jobs
 
 	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
-		restricted_jobs += "Assistant"
+		restricted_jobs += JOB_ASSISTANT
 
 	var/num_changelings = 1
 

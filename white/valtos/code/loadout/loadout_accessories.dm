@@ -95,7 +95,7 @@
 	display_name = "Солнцезащитные очки"
 	slot = ITEM_SLOT_EYES
 	path = /obj/item/clothing/glasses/sunglasses
-	allowed_roles = list("Cargo Technician")
+	allowed_roles = list(JOB_CARGO_TECHNICIAN)
 	cost = 1000
 
 /datum/gear/accessory/cosmetics

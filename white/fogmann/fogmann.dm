@@ -67,7 +67,7 @@
 	desc = "Русско-китайский словарь, особо эффективен против моли и мух."
 	item = /obj/item/book/ruchinese
 	cost = 18
-	restricted_roles = list("Chaplain", "Curator", "Assistant")
+	restricted_roles = list(JOB_CHAPLAIN, JOB_CURATOR, JOB_ASSISTANT)
 
 /area/commons/fitness/kachalka
 	name = "Техтоннели: Качалка"
@@ -144,7 +144,7 @@
 	desc = "Сшит из плазмы с вкраплениями слез девственниц."
 	icon = 'white/pieceofcrap.dmi'
 	icon_state = "banner_atmos"
-	job_loyalties = list("Scientist", "Atmospheric Technician")
+	job_loyalties = list(JOB_SCIENTIST, JOB_ATMOSPHERIC_TECHNICIAN)
 	warcry = "<b>КАЗАХСТАН УГРОЖАЕТ ВАМ БОМБАРДИРОВКОЙ!!</b>"
 
 

@@ -61,7 +61,7 @@
 				else if(issilicon(L))
 					category = "silicons"
 					if(isAI(L))
-						mob_data["module"] = "AI"
+						mob_data["module"] = JOB_AI
 					else if(ispAI(L))
 						mob_data["module"] = "pAI"
 					else if(iscyborg(L))
@@ -668,14 +668,14 @@
 				continue
 			//general awards
 			service_member.client?.give_award(award, service_member)
-			if(service_mind.assigned_role == "Cook")
+			if(service_mind.assigned_role == JOB_COOK)
 				var/datum/venue/restaurant = SSrestaurant.all_venues[/datum/venue/restaurant]
 				var/award_score = restaurant.total_income
 				var/award_status = service_member.client.get_award_status(/datum/award/score/chef_tourist_score)
 				if(award_score > award_status)
 					award_score -= award_status
 				service_member.client?.give_award(/datum/award/score/chef_tourist_score, service_member, award_score)
-			if(service_mind.assigned_role == "Bartender")
+			if(service_mind.assigned_role == JOB_BARTENDER)
 				var/datum/venue/bar = SSrestaurant.all_venues[/datum/venue/bar]
 				var/award_score = bar.total_income
 				var/award_status = service_member.client.get_award_status(/datum/award/score/bartender_tourist_score)

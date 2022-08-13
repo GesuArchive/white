@@ -1,5 +1,5 @@
 /datum/job/prisoner
-	title = "Prisoner"
+	title = JOB_PRISONER
 	ru_title = "Заключённый"
 	department_head = list("The Security Team")
 	faction = "Station"
@@ -35,7 +35,7 @@
 	return FALSE
 
 /datum/outfit/job/prisoner
-	name = "Prisoner"
+	name = JOB_PRISONER
 	jobtype = /datum/job/prisoner
 
 	uniform = /obj/item/clothing/under/rank/prisoner

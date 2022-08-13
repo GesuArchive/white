@@ -1,7 +1,7 @@
 /datum/job/cook
-	title = "Cook"
+	title = JOB_COOK
 	ru_title = "Повар"
-	department_head = list("Head of Personnel")
+	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -38,7 +38,7 @@
 	)
 
 /datum/outfit/job/cook
-	name = "Cook"
+	name = JOB_COOK
 	jobtype = /datum/job/cook
 
 	belt = /obj/item/modular_computer/tablet/pda/cook

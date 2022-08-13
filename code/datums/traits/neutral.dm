@@ -132,7 +132,7 @@
 	quirk_holder.add_client_colour(/datum/client_colour/monochrome)
 
 /datum/quirk/monochromatic/post_add()
-	if(quirk_holder.mind.assigned_role == "Detective")
+	if(quirk_holder.mind.assigned_role == JOB_DETECTIVE)
 		to_chat(quirk_holder, span_boldannounce("Ммм. На этой станции нет ничего чистого. Это всё оттенки серого..."))
 		quirk_holder.playsound_local(quirk_holder, 'sound/ambience/ambidet1.ogg', 50, FALSE)
 

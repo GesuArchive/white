@@ -444,7 +444,7 @@
 /*
 
 /datum/outfit/centcom/death_commando
-	name = "Death Commando"
+	name = JOB_ERT_DEATHSQUAD
 
 	uniform = /obj/item/clothing/under/rank/centcom/commander
 	suit = /obj/item/clothing/suit/space/hardsuit/deathsquad

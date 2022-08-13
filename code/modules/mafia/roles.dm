@@ -1,5 +1,5 @@
 /datum/mafia_role
-	var/name = "Assistant"
+	var/name = JOB_ASSISTANT
 	var/desc = "You are a crewmember without any special abilities."
 	var/win_condition = "kill all mafia and solo killing roles."
 	var/team = MAFIA_TEAM_TOWN
@@ -120,7 +120,7 @@
 	to_chat(clueless, result.Join("</br>"))
 
 /datum/mafia_role/detective
-	name = "Detective"
+	name = JOB_DETECTIVE
 	desc = "You can investigate a single person each night to learn their team."
 	revealed_outfit = /datum/outfit/mafia/detective
 	role_type = TOWN_INVEST
@@ -176,7 +176,7 @@
 	current_investigation = null
 
 /datum/mafia_role/psychologist
-	name = "Psychologist"
+	name = JOB_PSYCHOLOGIST
 	desc = "You can visit someone ONCE PER GAME to reveal their true role in the morning!"
 	revealed_outfit = /datum/outfit/mafia/psychologist
 	role_type = TOWN_INVEST
@@ -216,7 +216,7 @@
 		can_use = FALSE
 
 /datum/mafia_role/chaplain
-	name = "Chaplain"
+	name = JOB_CHAPLAIN
 	desc = "You can communicate with spirits of the dead each night to discover dead crewmember roles."
 	revealed_outfit = /datum/outfit/mafia/chaplain
 	role_type = TOWN_INVEST
@@ -251,7 +251,7 @@
 		current_target = null
 
 /datum/mafia_role/md
-	name = "Medical Doctor"
+	name = JOB_MEDICAL_DOCTOR
 	desc = "You can protect a single person each night from killing."
 	revealed_outfit = /datum/outfit/mafia/md // /mafia <- outfit must be readded (just make a new mafia outfits file for all of these)
 	role_type = TOWN_PROTECT
@@ -271,7 +271,7 @@
 	. = ..()
 	if(!.)
 		return
-	if(target.name == "Head of Personnel" && target.revealed)
+	if(target.name == JOB_HEAD_OF_PERSONNEL && target.revealed)
 		return FALSE
 	return game.phase == MAFIA_PHASE_NIGHT && target.game_status == MAFIA_ALIVE && target != src
 
@@ -304,7 +304,7 @@
 		current_protected = null
 
 /datum/mafia_role/lawyer
-	name = "Lawyer"
+	name = JOB_LAWYER
 	desc = "You can choose a person during the day to provide extensive legal advice to during the night, preventing night actions."
 	revealed_outfit = /datum/outfit/mafia/lawyer
 	role_type = TOWN_PROTECT
@@ -369,7 +369,7 @@
 		return MAFIA_PREVENT_ACTION
 
 /datum/mafia_role/hop
-	name = "Head of Personnel"
+	name = JOB_HEAD_OF_PERSONNEL
 	desc = "You can reveal yourself once per game, tripling your vote power but becoming unable to be protected!"
 	revealed_outfit = /datum/outfit/mafia/hop
 	role_type = TOWN_MISC
@@ -719,7 +719,7 @@
 		to_chat(body, span_userdanger("You have failed your objective to lynch [obsession.body]!"))
 
 /datum/mafia_role/clown
-	name = "Clown"
+	name = JOB_CLOWN
 	desc = "If you are lynched you take down one of your voters (guilty or abstain) with you and win. HONK!"
 	win_condition = "get themselves lynched!"
 	revealed_outfit = /datum/outfit/mafia/clown

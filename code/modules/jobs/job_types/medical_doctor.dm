@@ -1,7 +1,7 @@
 /datum/job/doctor
-	title = "Medical Doctor"
+	title = JOB_MEDICAL_DOCTOR
 	ru_title = "Врач"
-	department_head = list("Chief Medical Officer")
+	department_head = list(JOB_CHIEF_MEDICAL_OFFICER)
 	faction = "Station"
 	total_positions = 5
 	spawn_positions = 3
@@ -42,7 +42,7 @@
 	rpg_title_ru = "Клерик"
 
 /datum/outfit/job/doctor
-	name = "Medical Doctor"
+	name = JOB_MEDICAL_DOCTOR
 	jobtype = /datum/job/doctor
 
 	belt = /obj/item/modular_computer/tablet/pda/medical

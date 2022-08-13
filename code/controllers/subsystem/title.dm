@@ -94,7 +94,7 @@ SUBSYSTEM_DEF(title)
 			if(GLOB.disable_fucking_station_shit_please)
 				caa["Выживший"] += list(player.key)
 				continue
-			if(player.client.prefs.job_preferences["Assistant"])
+			if(player.client.prefs.job_preferences[JOB_ASSISTANT])
 				role_thing = "Ассистент"
 			else
 				for(var/j in player.client.prefs.job_preferences)

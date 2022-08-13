@@ -52,7 +52,7 @@
  * first letter is always a letter
  * Example name = "Employee Assistant Assuming Delta"
  * Arguments:
- * * is_ai - boolean to decide whether the name has "Core" (AI) or "Assistant" (Cyborg)
+ * * is_ai - boolean to decide whether the name has "Core" (AI) or JOB_ASSISTANT (Cyborg)
  */
 /proc/anonymous_ai_name(is_ai = FALSE)
 	switch(SSticker.anonymousnames)
@@ -62,4 +62,4 @@
 			var/verbs = capitalize(pick(GLOB.ing_verbs))
 			var/phonetic = pick(GLOB.phonetic_alphabet)
 
-			return "Employee [is_ai ? "Core" : "Assistant"] [verbs] [phonetic]"
+			return "Employee [is_ai ? "Core" : JOB_ASSISTANT] [verbs] [phonetic]"

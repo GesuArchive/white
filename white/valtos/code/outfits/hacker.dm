@@ -1,5 +1,5 @@
 /datum/outfit/job/hacker
-	name = "Hacker"
+	name = JOB_HACKER
 	jobtype = /datum/job/hacker
 
 	belt = /obj/item/storage/belt/utility/full

@@ -787,7 +787,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	popup.open(FALSE)
 	onclose(user, "capturekeypress", src)
 
-/datum/preferences/proc/SetChoices(mob/user, limit = 11, list/splitJobs = list("Chief Engineer"), widthPerColumn = 295, height = 620)
+/datum/preferences/proc/SetChoices(mob/user, limit = 11, list/splitJobs = list(JOB_CHIEF_ENGINEER), widthPerColumn = 295, height = 620)
 	if(!SSjob)
 		return
 
@@ -849,7 +849,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if((job_preferences[SSjob.overflow_role] == JP_LOW) && (rank != SSjob.overflow_role) && !is_banned_from(user.ckey, SSjob.overflow_role))
 				HTML += "<font color='#ff9955'>[ru_rank]</font></td><td></td></tr>"
 				continue
-			if((rank in GLOB.command_positions) || (rank == "AI"))//Bold head jobs
+			if((rank in GLOB.command_positions) || (rank == JOB_AI))//Bold head jobs
 				HTML += "<b><span>[ru_rank]</span></b>"
 			else
 				HTML += "<span>[ru_rank]</span>"

@@ -74,7 +74,7 @@
 /obj/item/storage/photo_album/captain
 	name = "фотоальбом капитана"
 	icon_state = "album_blue"
-	persistence_id = "Captain"
+	persistence_id = JOB_CAPTAIN
 
 /obj/item/storage/photo_album/cmo
 	name = "фотоальбом главного врача"

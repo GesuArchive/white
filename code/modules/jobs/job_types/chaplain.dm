@@ -1,7 +1,7 @@
 /datum/job/chaplain
-	title = "Chaplain"
+	title = JOB_CHAPLAIN
 	ru_title = "Капеллан"
-	department_head = list("Head of Personnel")
+	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -143,7 +143,7 @@
 	SSblackbox.record_feedback("text", "religion_bible", 1, "[new_bible]", 1)
 
 /datum/outfit/job/chaplain
-	name = "Chaplain"
+	name = JOB_CHAPLAIN
 	jobtype = /datum/job/chaplain
 
 	belt = /obj/item/modular_computer/tablet/pda/chaplain

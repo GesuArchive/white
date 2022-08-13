@@ -4,8 +4,8 @@
 	report_type = "heresy"
 	antag_flag = ROLE_HERETIC
 	false_report_weight = 5
-	protected_jobs = list("Prisoner","Security Officer", "Russian Officer", "Hacker", "Veteran", "Warden", "Detective", "Head of Security", "Captain", "Field Medic", "Exploration Crew")
-	restricted_jobs = list("AI", "Cyborg")
+	protected_jobs = list(JOB_PRISONER,JOB_SECURITY_OFFICER, JOB_RUSSIAN_OFFICER, JOB_HACKER, JOB_VETERAN, JOB_WARDEN, JOB_DETECTIVE, JOB_HEAD_OF_SECURITY, JOB_CAPTAIN, JOB_FIELD_MEDIC, JOB_RANGER)
+	restricted_jobs = list(JOB_AI, JOB_CYBORG)
 	required_players = 0
 	required_enemies = 1
 	recommended_enemies = 4
@@ -27,7 +27,7 @@
 		restricted_jobs += protected_jobs
 
 	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
-		restricted_jobs += "Assistant"
+		restricted_jobs += JOB_ASSISTANT
 
 
 	var/esc = CONFIG_GET(number/ecult_scaling_coeff)

@@ -1,5 +1,5 @@
 /datum/job/hunter
-	title = "Hunter"
+	title = JOB_HUNTER
 	ru_title = "Охотник"
 	department_head = list()
 	faction = "Station"
@@ -29,7 +29,7 @@
 	metalocked = TRUE
 
 /datum/outfit/job/hunter
-	name = "Hunter"
+	name = JOB_HUNTER
 	jobtype = /datum/job/hunter
 
 	belt = /obj/item/energylance
@@ -69,7 +69,7 @@
 			ID.mining_points = 2000
 
 /datum/id_trim/job/hunter
-	assignment = "Hunter"
+	assignment = JOB_HUNTER
 	trim_state = "trim_hunter"
 	full_access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_QM, ACCESS_MINING, ACCESS_MECH_MINING, ACCESS_MINING_STATION, ACCESS_MINERAL_STOREROOM, ACCESS_AUX_BASE, ACCESS_GATEWAY)
 	minimal_access = list(ACCESS_MINING, ACCESS_MECH_MINING, ACCESS_MINING_STATION, ACCESS_MAILSORTING, ACCESS_MINERAL_STOREROOM, ACCESS_AUX_BASE, ACCESS_GATEWAY)

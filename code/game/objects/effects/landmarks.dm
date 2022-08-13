@@ -55,21 +55,21 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 // START LANDMARKS FOLLOW. Don't change the names unless
 // you are refactoring shitty landmark code.
 /obj/effect/landmark/start/assistant
-	name = "Assistant"
-	icon_state = "Assistant" //icon_state is case sensitive. why are all of these capitalized? because fuck you that's why
+	name = JOB_ASSISTANT
+	icon_state = JOB_ASSISTANT //icon_state is case sensitive. why are all of these capitalized? because fuck you that's why
 
 /obj/effect/landmark/start/combatant
 	name = "Combantant"
-	icon_state = "Assistant"
+	icon_state = JOB_ASSISTANT
 	jobspawn_override = TRUE
 	delete_after_roundstart = FALSE
 
 /obj/effect/landmark/start/combatant/red
-	name = "Combantant: Red"
+	name = JOB_COMBATANT_RED
 	color = "#ff0000"
 
 /obj/effect/landmark/start/combatant/blue
-	name = "Combantant: Blue"
+	name = JOB_COMBATANT_BLUE
 	color = "#0000ff"
 
 /obj/effect/landmark/start/assistant/override
@@ -77,161 +77,161 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	delete_after_roundstart = FALSE
 
 /obj/effect/landmark/start/prisoner
-	name = "Prisoner"
-	icon_state = "Prisoner"
+	name = JOB_PRISONER
+	icon_state = JOB_PRISONER
 	delete_after_roundstart = FALSE
 
 /obj/effect/landmark/start/bomj
-	name = "Bomj"
-	icon_state = "Prisoner"
+	name = JOB_BOMJ
+	icon_state = JOB_PRISONER
 
 /obj/effect/landmark/start/janitor
-	name = "Janitor"
-	icon_state = "Janitor"
+	name = JOB_JANITOR
+	icon_state = JOB_JANITOR
 
 /obj/effect/landmark/start/cargo_technician
-	name = "Cargo Technician"
-	icon_state = "Cargo Technician"
+	name = JOB_CARGO_TECHNICIAN
+	icon_state = JOB_CARGO_TECHNICIAN
 
 /obj/effect/landmark/start/bartender
-	name = "Bartender"
-	icon_state = "Bartender"
+	name = JOB_BARTENDER
+	icon_state = JOB_BARTENDER
 
 /obj/effect/landmark/start/clown
-	name = "Clown"
-	icon_state = "Clown"
+	name = JOB_CLOWN
+	icon_state = JOB_CLOWN
 
 /obj/effect/landmark/start/mime
-	name = "Mime"
-	icon_state = "Mime"
+	name = JOB_MIME
+	icon_state = JOB_MIME
 
 /obj/effect/landmark/start/quartermaster
-	name = "Quartermaster"
-	icon_state = "Quartermaster"
+	name = JOB_QUARTERMASTER
+	icon_state = JOB_QUARTERMASTER
 
 /obj/effect/landmark/start/atmospheric_technician
-	name = "Atmospheric Technician"
-	icon_state = "Atmospheric Technician"
+	name = JOB_ATMOSPHERIC_TECHNICIAN
+	icon_state = JOB_ATMOSPHERIC_TECHNICIAN
 
 /obj/effect/landmark/start/cook
-	name = "Cook"
-	icon_state = "Cook"
+	name = JOB_COOK
+	icon_state = JOB_COOK
 
 /obj/effect/landmark/start/shaft_miner
-	name = "Shaft Miner"
-	icon_state = "Shaft Miner"
+	name = JOB_SHAFT_MINER
+	icon_state = JOB_SHAFT_MINER
 
 /obj/effect/landmark/start/hunter
-	name = "Hunter"
-	icon_state = "Shaft Miner"
+	name = JOB_HUNTER
+	icon_state = JOB_SHAFT_MINER
 
 /obj/effect/landmark/start/exploration
-	name = "Exploration Crew"
-	icon_state = "Exploration Crew"
+	name = JOB_RANGER
+	icon_state = JOB_RANGER
 
 /obj/effect/landmark/start/security_officer
-	name = "Security Officer"
-	icon_state = "Security Officer"
+	name = JOB_SECURITY_OFFICER
+	icon_state = JOB_SECURITY_OFFICER
 
 /obj/effect/landmark/start/botanist
-	name = "Botanist"
-	icon_state = "Botanist"
+	name = JOB_BOTANIST
+	icon_state = JOB_BOTANIST
 
 /obj/effect/landmark/start/head_of_security
-	name = "Head of Security"
-	icon_state = "Head of Security"
+	name = JOB_HEAD_OF_SECURITY
+	icon_state = JOB_HEAD_OF_SECURITY
 
 /obj/effect/landmark/start/captain
-	name = "Captain"
-	icon_state = "Captain"
+	name = JOB_CAPTAIN
+	icon_state = JOB_CAPTAIN
 
 /obj/effect/landmark/start/detective
-	name = "Detective"
-	icon_state = "Detective"
+	name = JOB_DETECTIVE
+	icon_state = JOB_DETECTIVE
 
 /obj/effect/landmark/start/warden
-	name = "Warden"
-	icon_state = "Warden"
+	name = JOB_WARDEN
+	icon_state = JOB_WARDEN
 
 /obj/effect/landmark/start/chief_engineer
-	name = "Chief Engineer"
-	icon_state = "Chief Engineer"
+	name = JOB_CHIEF_ENGINEER
+	icon_state = JOB_CHIEF_ENGINEER
 
 /obj/effect/landmark/start/head_of_personnel
-	name = "Head of Personnel"
-	icon_state = "Head of Personnel"
+	name = JOB_HEAD_OF_PERSONNEL
+	icon_state = JOB_HEAD_OF_PERSONNEL
 
 /obj/effect/landmark/start/librarian
-	name = "Curator"
-	icon_state = "Curator"
+	name = JOB_CURATOR
+	icon_state = JOB_CURATOR
 
 /obj/effect/landmark/start/lawyer
-	name = "Lawyer"
-	icon_state = "Lawyer"
+	name = JOB_LAWYER
+	icon_state = JOB_LAWYER
 
 /obj/effect/landmark/start/station_engineer
-	name = "Station Engineer"
-	icon_state = "Station Engineer"
+	name = JOB_STATION_ENGINEER
+	icon_state = JOB_STATION_ENGINEER
 
 /obj/effect/landmark/start/mechanic
-	name = "Mechanic"
-	icon_state = "Station Engineer"
+	name = JOB_MECHANIC
+	icon_state = JOB_STATION_ENGINEER
 
 /obj/effect/landmark/start/medical_doctor
-	name = "Medical Doctor"
-	icon_state = "Medical Doctor"
+	name = JOB_MEDICAL_DOCTOR
+	icon_state = JOB_MEDICAL_DOCTOR
 
 /obj/effect/landmark/start/field_medic
-	name = "Field Medic"
-	icon_state = "Paramedic"
+	name = JOB_FIELD_MEDIC
+	icon_state = JOB_PARAMEDIC
 
 /obj/effect/landmark/start/paramedic
-	name = "Paramedic"
-	icon_state = "Paramedic"
+	name = JOB_PARAMEDIC
+	icon_state = JOB_PARAMEDIC
 
 /obj/effect/landmark/start/scientist
-	name = "Scientist"
-	icon_state = "Scientist"
+	name = JOB_SCIENTIST
+	icon_state = JOB_SCIENTIST
 
 /obj/effect/landmark/start/chemist
-	name = "Chemist"
-	icon_state = "Chemist"
+	name = JOB_CHEMIST
+	icon_state = JOB_CHEMIST
 
 /obj/effect/landmark/start/roboticist
-	name = "Roboticist"
-	icon_state = "Roboticist"
+	name = JOB_ROBOTICIST
+	icon_state = JOB_ROBOTICIST
 
 /obj/effect/landmark/start/research_director
-	name = "Research Director"
-	icon_state = "Research Director"
+	name = JOB_RESEARCH_DIRECTOR
+	icon_state = JOB_RESEARCH_DIRECTOR
 
 /obj/effect/landmark/start/geneticist
-	name = "Geneticist"
-	icon_state = "Geneticist"
+	name = JOB_GENETICIST
+	icon_state = JOB_GENETICIST
 
 /obj/effect/landmark/start/chief_medical_officer
-	name = "Chief Medical Officer"
-	icon_state = "Chief Medical Officer"
+	name = JOB_CHIEF_MEDICAL_OFFICER
+	icon_state = JOB_CHIEF_MEDICAL_OFFICER
 
 /obj/effect/landmark/start/virologist
-	name = "Virologist"
-	icon_state = "Virologist"
+	name = JOB_VIROLOGIST
+	icon_state = JOB_VIROLOGIST
 
 /obj/effect/landmark/start/psychologist
-	name = "Psychologist"
-	icon_state = "Psychologist"
+	name = JOB_PSYCHOLOGIST
+	icon_state = JOB_PSYCHOLOGIST
 
 /obj/effect/landmark/start/chaplain
-	name = "Chaplain"
-	icon_state = "Chaplain"
+	name = JOB_CHAPLAIN
+	icon_state = JOB_CHAPLAIN
 
 /obj/effect/landmark/start/cyborg
-	name = "Cyborg"
-	icon_state = "Cyborg"
+	name = JOB_CYBORG
+	icon_state = JOB_CYBORG
 
 /obj/effect/landmark/start/ai
-	name = "AI"
-	icon_state = "AI"
+	name = JOB_AI
+	icon_state = JOB_AI
 	delete_after_roundstart = FALSE
 	var/primary_ai = TRUE
 	var/latejoin_active = TRUE
@@ -251,7 +251,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/start/depsec
 	name = "department_sec"
-	icon_state = "Security Officer"
+	icon_state = JOB_SECURITY_OFFICER
 
 /obj/effect/landmark/start/depsec/New()
 	..()

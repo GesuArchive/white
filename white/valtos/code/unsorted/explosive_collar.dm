@@ -118,7 +118,7 @@
 /obj/item/clothing/neck/explosive_collar/assistant/condition_is_fullfilled()
 	if(slave.wear_id)
 		var/obj/item/card/id/our_id = slave.wear_id.GetID()
-		if(our_id.assignment != "Assistant" && our_id.registered_name == slave.real_name)
+		if(our_id.assignment != JOB_ASSISTANT && our_id.registered_name == slave.real_name)
 			return TRUE
 	return FALSE
 

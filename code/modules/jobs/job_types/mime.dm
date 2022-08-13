@@ -1,7 +1,7 @@
 /datum/job/mime
-	title = "Mime"
+	title = JOB_MIME
 	ru_title = "Мим"
-	department_head = list("Head of Personnel")
+	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -34,7 +34,7 @@
 	H.apply_pref_name("mime", M.client)
 
 /datum/outfit/job/mime
-	name = "Mime"
+	name = JOB_MIME
 	jobtype = /datum/job/mime
 
 	belt = /obj/item/modular_computer/tablet/pda/mime

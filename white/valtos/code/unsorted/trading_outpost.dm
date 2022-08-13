@@ -42,7 +42,7 @@
 /obj/machinery/trading_beacon/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Trader", name)
+		ui = new(user, src, JOB_TRADER, name)
 		ui.open()
 
 /obj/machinery/trading_beacon/ui_data()

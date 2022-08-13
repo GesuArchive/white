@@ -1,8 +1,8 @@
 /datum/job/head_of_security
-	title = "Head of Security"
+	title = JOB_HEAD_OF_SECURITY
 	ru_title = "Начальник Охраны"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD|DEADMIN_POSITION_SECURITY
-	department_head = list("Captain")
+	department_head = list(JOB_CAPTAIN)
 	head_announce = list(RADIO_CHANNEL_SECURITY)
 	faction = "Station"
 	total_positions = 1
@@ -43,7 +43,7 @@
 		SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, .proc/minor_announce, "Учитывая нехватку экипажа, текущим капитаном станции теперь является [H.real_name]!"))
 
 /datum/outfit/job/hos
-	name = "Head of Security"
+	name = JOB_HEAD_OF_SECURITY
 	jobtype = /datum/job/head_of_security
 
 	id = /obj/item/card/id/advanced/silver

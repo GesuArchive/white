@@ -14,12 +14,12 @@
 /datum/game_mode/prison/pre_setup()
 	// отключаем все лишние джобки и ставим свои
 	GLOB.position_categories = list(
-		EXP_TYPE_SECURITY = list("jobs" = list("Captain", "Security Officer"), "color" = "#ff4444", "runame" = "Охрана"),
-		EXP_TYPE_SCUM = list("jobs" = list("Prisoner"), "color" = "#fa8729", "runame" = "Заключённые")
+		EXP_TYPE_SECURITY = list("jobs" = list(JOB_CAPTAIN, JOB_SECURITY_OFFICER), "color" = "#ff4444", "runame" = "Охрана"),
+		EXP_TYPE_SCUM = list("jobs" = list(JOB_PRISONER), "color" = "#fa8729", "runame" = "Заключённые")
 	)
 	GLOB.exp_jobsmap = list(
-		EXP_TYPE_SECURITY = list("titles" = list("Captain", "Security Officer")),
-		EXP_TYPE_SCUM = list("titles" = list("Prisoner"))
+		EXP_TYPE_SECURITY = list("titles" = list(JOB_CAPTAIN, JOB_SECURITY_OFFICER)),
+		EXP_TYPE_SCUM = list("titles" = list(JOB_PRISONER))
 	)
 	RegisterSignal(SSdcs, COMSIG_GLOB_JOB_AFTER_SPAWN, .proc/make_prisoner_suffer)
 	return TRUE
@@ -27,7 +27,7 @@
 /datum/game_mode/prison/proc/make_prisoner_suffer(datum/source, datum/job/job, mob/living/living_mob, client/player_client)
 	SIGNAL_HANDLER
 
-	if(job.title == "Prisoner")
+	if(job.title == JOB_PRISONER)
 		living_mob.set_nutrition(NUTRITION_LEVEL_HUNGRY)
 		living_mob.hydration = HYDRATION_LEVEL_THIRSTY
 		ADD_TRAIT(living_mob, TRAIT_PACIFISM, "grace_period")
@@ -37,13 +37,13 @@
 
 		to_chat(living_mob, span_userdanger("За недавно совершённый бунт нас оставили здесь на сутки без еды и воды."))
 
-	if(job.title == "Security Officer")
+	if(job.title == JOB_SECURITY_OFFICER)
 		var/datum/martial_art/cqc/glinomes = new
 		glinomes.teach(living_mob)
 
 		to_chat(living_mob, span_info("После недавнего бунта нас научили более понятному языку жестов. Так как данный проект полностью засекречен, <i>случайные</i> трупы заключённых необходимо хранить в морге."))
 
-	if(job.title == "Captain")
+	if(job.title == JOB_CAPTAIN)
 		spawned_captain = living_mob
 		to_chat(living_mob, span_info("Необходимо обеспечить автономную работу аванпоста. Используйте труд выделенных вам заключённых для достижения этой цели."))
 		to_chat(living_mob, span_userdanger("Если я погибну, то со мной погибнет и весь аванпост."))

@@ -6,7 +6,7 @@
 /datum/game_mode/traitor/bros
 	name = "traitor+brothers"
 	config_tag = "traitorbro"
-	restricted_jobs = list("Prisoner","AI", "Cyborg")
+	restricted_jobs = list(JOB_PRISONER,JOB_AI, JOB_CYBORG)
 	required_players = 35
 
 	announce_span = "danger"
@@ -24,7 +24,7 @@
 	if(CONFIG_GET(flag/protect_roles_from_antagonist))
 		restricted_jobs += protected_jobs
 	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
-		restricted_jobs += "Assistant"
+		restricted_jobs += JOB_ASSISTANT
 
 	var/list/datum/mind/possible_brothers = get_players_for_role(ROLE_BROTHER)
 

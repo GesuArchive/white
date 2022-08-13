@@ -141,80 +141,80 @@
 	else
 		switch(quirk_holder?.mind?.assigned_role)
 			//Service jobs
-			if("Clown")
+			if(JOB_CLOWN)
 				heirloom_type = /obj/item/bikehorn/golden
-			if("Mime")
+			if(JOB_MIME)
 				heirloom_type = /obj/item/food/baguette
-			if("Janitor")
+			if(JOB_JANITOR)
 				heirloom_type = pick(/obj/item/mop, /obj/item/clothing/suit/caution, /obj/item/reagent_containers/glass/bucket, /obj/item/paper/fluff/stations/soap)
-			if("Cook")
+			if(JOB_COOK)
 				heirloom_type = pick(/obj/item/reagent_containers/food/condiment/saltshaker, /obj/item/kitchen/rollingpin, /obj/item/clothing/head/chefhat)
-			if("Botanist")
+			if(JOB_BOTANIST)
 				heirloom_type = pick(/obj/item/cultivator, /obj/item/reagent_containers/glass/bucket, /obj/item/toy/plush/beeplushie)
-			if("Bartender")
+			if(JOB_BARTENDER)
 				heirloom_type = pick(/obj/item/reagent_containers/glass/rag, /obj/item/clothing/head/that, /obj/item/reagent_containers/food/drinks/shaker)
-			if("Curator")
+			if(JOB_CURATOR)
 				heirloom_type = pick(/obj/item/pen/fountain, /obj/item/storage/pill_bottle/dice)
-			if("Chaplain")
+			if(JOB_CHAPLAIN)
 				heirloom_type = pick(/obj/item/toy/windup_toolbox, /obj/item/reagent_containers/food/drinks/bottle/holywater)
-			if("Assistant")
+			if(JOB_ASSISTANT)
 				heirloom_type = pick(/obj/item/storage/toolbox/mechanical/old/heirloom, /obj/item/clothing/gloves/cut/heirloom)
 			//Security/Command
-			if("Captain")
+			if(JOB_CAPTAIN)
 				heirloom_type = /obj/item/reagent_containers/food/drinks/flask/gold
-			if("Head of Security")
+			if(JOB_HEAD_OF_SECURITY)
 				heirloom_type = /obj/item/book/manual/wiki/security_space_law
-			if("Head of Personnel")
+			if(JOB_HEAD_OF_PERSONNEL)
 				heirloom_type = /obj/item/reagent_containers/food/drinks/trophy/silver_cup
-			if("Warden")
+			if(JOB_WARDEN)
 				heirloom_type = /obj/item/book/manual/wiki/security_space_law
-			if("Security Officer")
+			if(JOB_SECURITY_OFFICER)
 				heirloom_type = pick(/obj/item/book/manual/wiki/security_space_law, /obj/item/clothing/head/beret/sec)
-			if("Russian Officer")
+			if(JOB_RUSSIAN_OFFICER)
 				heirloom_type = pick(/obj/item/book/manual/wiki/security_space_law, /obj/item/reagent_containers/food/drinks/bottle/vodka)
-			if("Veteran")
+			if(JOB_VETERAN)
 				heirloom_type = pick(/obj/item/book/manual/wiki/security_space_law, /obj/item/reagent_containers/food/drinks/boyarka)
-			if("Detective")
+			if(JOB_DETECTIVE)
 				heirloom_type = /obj/item/reagent_containers/food/drinks/bottle/whiskey
-			if("Lawyer")
+			if(JOB_LAWYER)
 				heirloom_type = pick(/obj/item/gavelhammer, /obj/item/book/manual/wiki/security_space_law)
-			if("Prisoner")
+			if(JOB_PRISONER)
 				heirloom_type = /obj/item/pen/blue
 			//RnD
-			if("Research Director")
+			if(JOB_RESEARCH_DIRECTOR)
 				heirloom_type = /obj/item/toy/plush/slimeplushie
-			if("Scientist")
+			if(JOB_SCIENTIST)
 				heirloom_type = /obj/item/toy/plush/slimeplushie
-			if("Roboticist")
+			if(JOB_ROBOTICIST)
 				heirloom_type = pick(subtypesof(/obj/item/toy/prize) + /obj/item/toy/plush/pkplush) //look at this nerd
-			if("Geneticist")
+			if(JOB_GENETICIST)
 				heirloom_type = /obj/item/clothing/under/shorts/purple
 			//Medical
-			if("Chief Medical Officer")
+			if(JOB_CHIEF_MEDICAL_OFFICER)
 				heirloom_type = /obj/item/storage/firstaid/ancient/heirloom
-			if("Medical Doctor")
+			if(JOB_MEDICAL_DOCTOR)
 				heirloom_type = /obj/item/storage/firstaid/ancient/heirloom
-			if("Paramedic", "Field Medic")
+			if(JOB_PARAMEDIC, JOB_FIELD_MEDIC)
 				heirloom_type = /obj/item/storage/firstaid/ancient/heirloom
-			if("Psychologist")
+			if(JOB_PSYCHOLOGIST)
 				heirloom_type = /obj/item/storage/pill_bottle
-			if("Chemist")
+			if(JOB_CHEMIST)
 				heirloom_type = pick(/obj/item/book/manual/wiki/chemistry, /obj/item/ph_booklet)
-			if("Virologist")
+			if(JOB_VIROLOGIST)
 				heirloom_type = /obj/item/reagent_containers/syringe
 			//Engineering
-			if("Chief Engineer")
+			if(JOB_CHIEF_ENGINEER)
 				heirloom_type = pick(/obj/item/clothing/head/hardhat/white, /obj/item/screwdriver, /obj/item/wrench, /obj/item/weldingtool, /obj/item/crowbar, /obj/item/wirecutters)
-			if("Station Engineer", "Mechanic")
+			if(JOB_STATION_ENGINEER, JOB_MECHANIC)
 				heirloom_type = pick(/obj/item/clothing/head/hardhat, /obj/item/screwdriver, /obj/item/wrench, /obj/item/weldingtool, /obj/item/crowbar, /obj/item/wirecutters)
-			if("Atmospheric Technician")
+			if(JOB_ATMOSPHERIC_TECHNICIAN)
 				heirloom_type = pick(/obj/item/lighter, /obj/item/lighter/greyscale, /obj/item/storage/box/matches)
 			//Supply
-			if("Quartermaster")
+			if(JOB_QUARTERMASTER)
 				heirloom_type = pick(/obj/item/stamp, /obj/item/stamp/denied)
-			if("Cargo Technician")
+			if(JOB_CARGO_TECHNICIAN)
 				heirloom_type = /obj/item/clipboard
-			if("Shaft Miner", "Hunter")
+			if(JOB_SHAFT_MINER, JOB_HUNTER)
 				heirloom_type = pick(/obj/item/pickaxe/mini, /obj/item/shovel)
 
 	if(!heirloom_type)

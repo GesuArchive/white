@@ -2,7 +2,7 @@
 Assistant
 */
 /datum/job/assistant
-	title = "Assistant"
+	title = JOB_ASSISTANT
 	ru_title = "Ассистент"
 	faction = "Station"
 	total_positions = 5
@@ -31,7 +31,7 @@ Assistant
 	rpg_title_ru = "Деревенщина"
 
 /datum/outfit/job/assistant
-	name = "Assistant"
+	name = JOB_ASSISTANT
 	jobtype = /datum/job/assistant
 	id_trim = /datum/id_trim/job/assistant
 

@@ -1,7 +1,7 @@
 /datum/job/lawyer
-	title = "Lawyer"
+	title = JOB_LAWYER
 	ru_title = "Адвокат"
-	department_head = list("Head of Personnel")
+	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
@@ -27,7 +27,7 @@
 	rpg_title_ru = "Магистрат"
 
 /datum/outfit/job/lawyer
-	name = "Lawyer"
+	name = JOB_LAWYER
 	jobtype = /datum/job/lawyer
 
 	belt = /obj/item/modular_computer/tablet/pda/lawyer

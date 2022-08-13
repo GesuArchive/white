@@ -1377,7 +1377,7 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 		return TRUE
 	if(ismob(AM))
 		var/mob/M = AM
-		if(M.mind?.assigned_role == "Clown")
+		if(M.mind?.assigned_role == JOB_CLOWN)
 			return TRUE*2
 	if(islizard(AM) || isclown(AM)  || isdrone(AM) || isswarmer(AM) || isdead(AM) || ismouse(AM) || isfelinid(AM) )
 		return TRUE*2 // reserved for mob/living //refactor later, this is ugly

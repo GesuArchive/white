@@ -131,7 +131,7 @@ GLOBAL_VAR_INIT(is_cargo_sabotaged, FALSE)
 	for(var/datum/mind/possible_target in get_crewmember_minds())
 		if(is_valid_target(possible_target) && !(possible_target in owners) && ishuman(possible_target.current) && (possible_target.current.stat != DEAD) && is_unique_objective(possible_target,dupe_search_range))
 			if (!(possible_target in blacklist))
-				if (!(possible_target?.assigned_role in list("Exploration Crew")))
+				if (!(possible_target?.assigned_role in list(JOB_RANGER)))
 					possible_targets += possible_target
 	if(try_target_late_joiners)
 		var/list/all_possible_targets = possible_targets.Copy()
@@ -143,7 +143,7 @@ GLOBAL_VAR_INIT(is_cargo_sabotaged, FALSE)
 			possible_targets = all_possible_targets
 	if(possible_targets.len > 0)
 		target = pick(possible_targets)
-	if(target?.assigned_role in list("Russian Officer", "Trader", "Hacker","Veteran", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Field Medic", "AI", "Cyborg"))
+	if(target?.assigned_role in list(JOB_RUSSIAN_OFFICER, JOB_TRADER, JOB_HACKER,JOB_VETERAN, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_HEAD_OF_SECURITY, JOB_CAPTAIN, JOB_CHIEF_ENGINEER, JOB_RESEARCH_DIRECTOR, JOB_CHIEF_MEDICAL_OFFICER, JOB_FIELD_MEDIC, JOB_AI, JOB_CYBORG))
 		reward+=reward
 	update_explanation_text()
 	return target

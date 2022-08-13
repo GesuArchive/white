@@ -142,7 +142,7 @@ GLOBAL_LIST_EMPTY(active_alternate_appearances)
 /datum/atom_hud/alternate_appearance/basic/blessed_aware
 
 /datum/atom_hud/alternate_appearance/basic/blessed_aware/mobShouldSee(mob/M)
-	if(M.mind && (M.mind.assigned_role == "Chaplain"))
+	if(M.mind && (M.mind.assigned_role == JOB_CHAPLAIN))
 		return TRUE
 	if (istype(M, /mob/living/simple_animal/hostile/construct/wraith))
 		return TRUE

@@ -16,9 +16,9 @@
 /obj/item/cardboard_cutout/Initialize(mapload)
 	. = ..()
 	possible_appearances = sort_list(list(
-		"Assistant" = image(icon = src.icon, icon_state = "cutout_greytide"),
-		"Clown" = image(icon = src.icon, icon_state = "cutout_clown"),
-		"Mime" = image(icon = src.icon, icon_state = "cutout_mime"),
+		JOB_ASSISTANT = image(icon = src.icon, icon_state = "cutout_greytide"),
+		JOB_CLOWN = image(icon = src.icon, icon_state = "cutout_clown"),
+		JOB_MIME = image(icon = src.icon, icon_state = "cutout_mime"),
 		"Traitor" = image(icon = src.icon, icon_state = "cutout_traitor"),
 		"Nuke Op" = image(icon = src.icon, icon_state = "cutout_fluke"),
 		"Cultist" = image(icon = src.icon, icon_state = "cutout_cultist"),
@@ -116,24 +116,24 @@
 	if(!deceptive)
 		add_atom_colour("#FFD7A7", FIXED_COLOUR_PRIORITY)
 	switch(new_appearance)
-		if("Assistant")
+		if(JOB_ASSISTANT)
 			name = "[pick(GLOB.first_names_male)] [pick(GLOB.last_names)]"
 			desc = "A cardboat cutout of an assistant."
 			icon_state = "cutout_greytide"
-		if("Clown")
+		if(JOB_CLOWN)
 			name = pick(GLOB.clown_names)
 			desc = "A cardboard cutout of a clown. You get the feeling that it should be in a corner."
 			icon_state = "cutout_clown"
-		if("Mime")
+		if(JOB_MIME)
 			name = pick(GLOB.mime_names)
 			desc = "...(A cardboard cutout of a mime.)"
 			icon_state = "cutout_mime"
 		if("Traitor")
-			name = "[pick("Неизвестный", "Captain")]"
+			name = "[pick("Неизвестный", JOB_CAPTAIN)]"
 			desc = "A cardboard cutout of a traitor."
 			icon_state = "cutout_traitor"
 		if("Nuke Op")
-			name = "[pick("Неизвестный", "COMMS", "Telecomms", "AI", "stealthy op", "STEALTH", "sneakybeaky", "MEDIC", "Medic")]"
+			name = "[pick("Неизвестный", "COMMS", "Telecomms", JOB_AI, "stealthy op", "STEALTH", "sneakybeaky", "MEDIC", "Medic")]"
 			desc = "A cardboard cutout of a nuclear operative."
 			icon_state = "cutout_fluke"
 		if("Cultist")

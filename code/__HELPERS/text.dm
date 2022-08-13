@@ -1221,101 +1221,101 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 
 // FUCK?
 /proc/ru_job_parse(job)
-	if (job == "Assistant")
+	if (job == JOB_ASSISTANT)
 		return "Ассистент"
-	else if (job == "Captain")
+	else if (job == JOB_CAPTAIN)
 		return "Капитан"
-	else if (job == "Chief Engineer")
+	else if (job == JOB_CHIEF_ENGINEER)
 		return "Старший Инженер"
-	else if (job == "Station Engineer")
+	else if (job == JOB_STATION_ENGINEER)
 		return "Инженер"
-	else if (job == "Mechanic")
+	else if (job == JOB_MECHANIC)
 		return "Механик"
-	else if (job == "Atmospheric Technician")
+	else if (job == JOB_ATMOSPHERIC_TECHNICIAN)
 		return "Атмосферный Техник"
-	else if (job == "Chief Medical Officer")
+	else if (job == JOB_CHIEF_MEDICAL_OFFICER)
 		return "Главный Врач"
-	else if (job == "Medical Doctor")
+	else if (job == JOB_MEDICAL_DOCTOR)
 		return "Врач"
-	else if (job == "Paramedic")
+	else if (job == JOB_PARAMEDIC)
 		return "Парамедик"
-	else if (job == "Virologist")
+	else if (job == JOB_VIROLOGIST)
 		return "Вирусолог"
-	else if (job == "Chemist")
+	else if (job == JOB_CHEMIST)
 		return "Химик"
-	else if (job == "Field Medic")
+	else if (job == JOB_FIELD_MEDIC)
 		return "Полевой Медик"
-	else if (job == "Research Director")
+	else if (job == JOB_RESEARCH_DIRECTOR)
 		return "Научный Руководитель"
-	else if (job == "Scientist")
+	else if (job == JOB_SCIENTIST)
 		return "Учёный"
-	else if (job == "Geneticist")
+	else if (job == JOB_GENETICIST)
 		return "Генетик"
-	else if (job == "Roboticist")
+	else if (job == JOB_ROBOTICIST)
 		return "Робототехник"
-	else if (job == "Hacker")
+	else if (job == JOB_HACKER)
 		return "Анальный хакир"
-	else if (job == "Head of Security")
+	else if (job == JOB_HEAD_OF_SECURITY)
 		return "Начальник Охраны"
-	else if (job == "Warden")
+	else if (job == JOB_WARDEN)
 		return "Надзиратель"
-	else if (job == "Detective")
+	else if (job == JOB_DETECTIVE)
 		return "Детектив"
-	else if (job == "Security Officer")
+	else if (job == JOB_SECURITY_OFFICER)
 		return "Офицер"
-	else if (job == "Security Officer (Cargo)")
+	else if (job == JOB_SECURITY_OFFICER_SUPPLY)
 		return "Офицер (Снабжение)"
-	else if (job == "Security Officer (Engineering)")
+	else if (job == JOB_SECURITY_OFFICER_ENGINEERING)
 		return "Офицер (Инженерный)"
-	else if (job == "Security Officer (Medical)")
+	else if (job == JOB_SECURITY_OFFICER_MEDICAL)
 		return "Офицер (Медбей)"
-	else if (job == "Security Officer (Science)")
+	else if (job == JOB_SECURITY_OFFICER_SCIENCE)
 		return "Офицер (Научный)"
-	else if (job == "Russian Officer")
+	else if (job == JOB_RUSSIAN_OFFICER)
 		return "Русский Офицер"
-	else if (job == "Veteran")
+	else if (job == JOB_VETERAN)
 		return "Ветеран"
-	else if (job == "Quartermaster")
+	else if (job == JOB_QUARTERMASTER)
 		return "Квартирмейстер"
-	else if (job == "Cargo Technician")
+	else if (job == JOB_CARGO_TECHNICIAN)
 		return "Грузчик"
-	else if (job == "Shaft Miner")
+	else if (job == JOB_SHAFT_MINER)
 		return "Шахтёр"
-	else if (job == "Hunter")
+	else if (job == JOB_HUNTER)
 		return "Охотник"
-	else if (job == "Exploration Crew")
+	else if (job == JOB_RANGER)
 		return "Рейнджер"
-	else if (job == "Trader")
+	else if (job == JOB_TRADER)
 		return "Торговец"
-	else if (job == "Head of Personnel")
+	else if (job == JOB_HEAD_OF_PERSONNEL)
 		return "Глава Персонала"
-	else if (job == "Bartender")
+	else if (job == JOB_BARTENDER)
 		return "Бармен"
-	else if (job == "Botanist")
+	else if (job == JOB_BOTANIST)
 		return "Ботаник"
-	else if (job == "Cook")
+	else if (job == JOB_COOK)
 		return "Повар"
-	else if (job == "Janitor")
+	else if (job == JOB_JANITOR)
 		return "Уборщик"
-	else if (job == "Curator")
+	else if (job == JOB_CURATOR)
 		return "Куратор"
-	else if (job == "Psychologist")
+	else if (job == JOB_PSYCHOLOGIST)
 		return "Психолог"
-	else if (job == "Lawyer")
+	else if (job == JOB_LAWYER)
 		return "Адвокат"
-	else if (job == "Chaplain")
+	else if (job == JOB_CHAPLAIN)
 		return "Капеллан"
-	else if (job == "Clown")
+	else if (job == JOB_CLOWN)
 		return "Клоун"
-	else if (job == "Mime")
+	else if (job == JOB_MIME)
 		return "Мим"
-	else if (job == "Prisoner")
+	else if (job == JOB_PRISONER)
 		return "Заключённый"
-	else if (job == "Bomj")
+	else if (job == JOB_BOMJ)
 		return "Бомж"
-	else if (job == "Combantant: Red")
+	else if (job == JOB_COMBATANT_RED)
 		return "комбатанта красных"
-	else if (job == "Combantant: Blue")
+	else if (job == JOB_COMBATANT_BLUE)
 		return "комбатанта синих"
 	else if (job == "red")
 		return "Красный"

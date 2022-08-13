@@ -1,7 +1,7 @@
 /datum/job/exploration
-	title = "Exploration Crew"
+	title = JOB_RANGER
 	ru_title = "Рейнджер"
-	department_head = list("Head of Personnel", "Research Director")
+	department_head = list(JOB_HEAD_OF_PERSONNEL, JOB_RESEARCH_DIRECTOR)
 	exp_type = EXP_TYPE_CREW
 	faction = "Station"
 	total_positions = 3
@@ -31,7 +31,7 @@
 	metalocked = TRUE
 
 /datum/outfit/job/exploration
-	name = "Exploration Crew"
+	name = JOB_RANGER
 	jobtype = /datum/job/exploration
 
 	belt = /obj/item/modular_computer/tablet/pda/exploration

@@ -1,5 +1,5 @@
 /datum/outfit/job/trader
-	name = "Trader"
+	name = JOB_TRADER
 	jobtype = /datum/job/trader
 
 	ears = /obj/item/radio/headset

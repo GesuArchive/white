@@ -115,7 +115,7 @@
 /datum/antagonist/bloodsucker/apply_innate_effects(mob/living/mob_override)
 	add_team_hud(mob_override || owner.current)
 	RegisterSignal(owner.current, COMSIG_LIVING_BIOLOGICAL_LIFE, .proc/LifeTick)
-	if((owner.assigned_role == "Clown"))
+	if((owner.assigned_role == JOB_CLOWN))
 		var/mob/living/carbon/H = owner.current
 		if(H && istype(H))
 			if(!silent)
@@ -124,7 +124,7 @@
 
 /datum/antagonist/bloodsucker/remove_innate_effects(mob/living/mob_override)
 	UnregisterSignal(owner.current, COMSIG_LIVING_BIOLOGICAL_LIFE)
-	if(owner.assigned_role == "Clown")
+	if(owner.assigned_role == JOB_CLOWN)
 		var/mob/living/carbon/human/H = owner.current
 		if(H && istype(H))
 			H.dna.add_mutation(CLOWNMUT)
@@ -387,7 +387,7 @@
 		var/datum/species/user_species = user.dna.species
 		user_species.species_traits -= DRINKSBLOOD
 		// Clown
-		if(istype(user) && owner.assigned_role == "Clown")
+		if(istype(user) && owner.assigned_role == JOB_CLOWN)
 			user.dna.add_mutation(CLOWNMUT)
 	/// Remove ALL Traits, as long as its from BLOODSUCKER_TRAIT's source. - This is because of unique cases like Nosferatu getting Ventcrawling.
 	for(var/all_status_traits in owner.current.status_traits)

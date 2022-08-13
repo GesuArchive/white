@@ -39,13 +39,13 @@
 
 	var/list/stolen_valor
 
-	var/static/list/officers = list("Captain", "Head of Personnel", "Head of Security")
-	var/static/list/command = list("Captain" = "Cpt.","Head of Personnel" = "Lt.")
-	var/static/list/security = list("Head of Security" = "Maj.", "Warden" = "Sgt.", "Detective" =  "Det.", "Security Officer" = "Officer")
-	var/static/list/engineering = list("Chief Engineer" = "Chief Engineer", "Station Engineer" = "Engineer", "Atmospherics Technician" = "Technician")
-	var/static/list/medical = list("Chief Medical Officer" = "C.M.O.", "Medical Doctor" = "M.D.", "Chemist" = "Pharm.D.")
-	var/static/list/research = list("Research Director" = "Ph.D.", "Roboticist" = "M.S.", "Scientist" = "B.S.")
-	var/static/list/legal = list("Lawyer" = "Esq.")
+	var/static/list/officers = list(JOB_CAPTAIN, JOB_HEAD_OF_PERSONNEL, JOB_HEAD_OF_SECURITY)
+	var/static/list/command = list(JOB_CAPTAIN = "Cpt.",JOB_HEAD_OF_PERSONNEL = "Lt.")
+	var/static/list/security = list(JOB_HEAD_OF_SECURITY = "Maj.", JOB_WARDEN = "Sgt.", JOB_DETECTIVE =  "Det.", JOB_SECURITY_OFFICER = "Officer")
+	var/static/list/engineering = list(JOB_CHIEF_ENGINEER = JOB_CHIEF_ENGINEER, JOB_STATION_ENGINEER = "Engineer", "Atmospherics Technician" = "Technician")
+	var/static/list/medical = list(JOB_CHIEF_MEDICAL_OFFICER = "C.M.O.", JOB_MEDICAL_DOCTOR = "M.D.", JOB_CHEMIST = "Pharm.D.")
+	var/static/list/research = list(JOB_RESEARCH_DIRECTOR = "Ph.D.", JOB_ROBOTICIST = "M.S.", JOB_SCIENTIST = "B.S.")
+	var/static/list/legal = list(JOB_LAWYER = "Esq.")
 
 	var/list/prefixes
 	var/list/suffixes

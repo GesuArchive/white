@@ -36,5 +36,5 @@
 	desc = "Сборник ну просто ОЧЕНЬ смешных приколов в количестве 1 шт."
 	item = /obj/item/book/killbook
 	cost = 1
-	restricted_roles = list("Curator", "Assistant")
+	restricted_roles = list(JOB_CURATOR, JOB_ASSISTANT)
 	surplus = 10

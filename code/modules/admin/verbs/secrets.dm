@@ -94,7 +94,7 @@
 		if("infinite_sec")
 			if(!is_debugger)
 				return
-			var/datum/job/J = SSjob.GetJob("Security Officer")
+			var/datum/job/J = SSjob.GetJob(JOB_SECURITY_OFFICER)
 			if(!J)
 				return
 			J.total_positions = -1

@@ -78,10 +78,10 @@
 	modularInterface.plane = ABOVE_HUD_PLANE
 	modularInterface.saved_identification = real_name || name
 	if(istype(src, /mob/living/silicon/robot))
-		modularInterface.saved_job = "Cyborg"
+		modularInterface.saved_job = JOB_CYBORG
 		modularInterface.install_component(new /obj/item/computer_hardware/hard_drive/small/integrated/borg)
 	if(istype(src, /mob/living/silicon/ai))
-		modularInterface.saved_job = "AI"
+		modularInterface.saved_job = JOB_AI
 		modularInterface.install_component(new /obj/item/computer_hardware/hard_drive/small/integrated)
 	if(istype(src, /mob/living/silicon/pai))
 		modularInterface.saved_job = "pAI Messenger"
@@ -91,7 +91,7 @@
 	if(!modularInterface)
 		modularInterface = new /obj/item/modular_computer/tablet/integrated/syndicate(src)
 		modularInterface.saved_identification = real_name
-		modularInterface.saved_job = "Cyborg"
+		modularInterface.saved_job = JOB_CYBORG
 	return ..()
 
 /mob/living/silicon/med_hud_set_health()

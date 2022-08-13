@@ -1,7 +1,7 @@
 /datum/job/geneticist
-	title = "Geneticist"
+	title = JOB_GENETICIST
 	ru_title = "Генетик"
-	department_head = list("Research Director")
+	department_head = list(JOB_RESEARCH_DIRECTOR)
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
@@ -31,7 +31,7 @@
 	rpg_title_ru = "Геномансер"
 
 /datum/outfit/job/geneticist
-	name = "Geneticist"
+	name = JOB_GENETICIST
 	jobtype = /datum/job/geneticist
 
 	belt = /obj/item/modular_computer/tablet/pda/geneticist

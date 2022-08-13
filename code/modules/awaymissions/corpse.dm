@@ -325,7 +325,7 @@
 	icon_state = "corpsedoctor"
 
 /obj/effect/mob_spawn/human/geneticist
-	name = "Geneticist"
+	name = JOB_GENETICIST
 	outfit = /datum/outfit/job/geneticist
 	icon_state = "corpsescientist"
 

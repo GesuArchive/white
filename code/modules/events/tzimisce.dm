@@ -66,7 +66,7 @@
 	spawned_mobs += tzimisce
 	message_admins("[ADMIN_LOOKUPFLW(tzimisce)] has been made into a tzimisce bloodsucker an event.")
 	log_game("[key_name(tzimisce)] was spawned as a tzimisce bloodsucker by an event.")
-	var/datum/job/jobdatum = SSjob.GetJob(pick("Assistant", "Botanist", "Station Engineer", "Medical Doctor", "Scientist", "Cargo Technician", "Cook"))
+	var/datum/job/jobdatum = SSjob.GetJob(pick(JOB_ASSISTANT, JOB_BOTANIST, JOB_STATION_ENGINEER, JOB_MEDICAL_DOCTOR, JOB_SCIENTIST, JOB_CARGO_TECHNICIAN, JOB_COOK))
 	if(SSshuttle.arrivals)
 		SSshuttle.arrivals.QueueAnnounce(tzimisce, jobdatum.title)
 	Mind.assigned_role = jobdatum.title //sets up the manifest properly

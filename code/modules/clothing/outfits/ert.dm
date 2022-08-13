@@ -188,7 +188,7 @@
 
 	var/obj/item/modular_computer/tablet/pda/heads/pda = H.r_store
 	pda.saved_identification = H.real_name
-	pda.saved_job = "CentCom Official"
+	pda.saved_job = JOB_CENTCOM_OFFICIAL
 
 	var/obj/item/card/id/W = H.wear_id
 	W.registered_name = H.real_name
@@ -431,7 +431,7 @@
 	l_hand = /obj/item/toy/balloon
 
 /datum/outfit/centcom/death_commando
-	name = "Death Commando"
+	name = JOB_ERT_DEATHSQUAD
 
 	id = /obj/item/card/id/advanced/black/deathsquad
 	id_trim = /datum/id_trim/centcom/deathsquad
