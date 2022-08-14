@@ -3769,7 +3769,6 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/xeno)
 "hp" = (
-/obj/effect/turf_decal/st,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
