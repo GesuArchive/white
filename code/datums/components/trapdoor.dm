@@ -320,7 +320,7 @@
 /obj/item/trapdoor_remote/preloaded/Initialize(mapload)
 	. = ..()
 	for(var/i in 1 to maximum_internals)
-		internals += new(src)
+		internals += new /obj/item/assembly/trapdoor(src)
 
 /// trapdoor parts kit, allows trapdoors to be made by players
 /obj/item/trapdoor_kit

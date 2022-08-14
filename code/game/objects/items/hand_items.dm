@@ -200,15 +200,15 @@
 
 
 /obj/item/slapper
-	name = "slapper"
-	desc = "This is how real men fight."
+	name = "шлёпатель"
+	desc = "Это вот так вот настоящие мужики дерутся."
 	icon_state = "latexballon"
 	inhand_icon_state = "nothing"
 	force = 0
 	throwforce = 0
 	item_flags = DROPDEL | ABSTRACT | HAND_ITEM
-	attack_verb_continuous = list("slaps")
-	attack_verb_simple = list("slap")
+	attack_verb_continuous = list("шлёпает")
+	attack_verb_simple = list("шлёпает")
 	hitsound = 'sound/effects/snap.ogg'
 	/// How many smaller table smacks we can do before we're out
 	var/table_smacks_left = 3
@@ -223,10 +223,10 @@
 	var/slap_volume = 50
 	var/datum/status_effect/offering/kiss_check = M.has_status_effect(STATUS_EFFECT_OFFERING)
 	if(kiss_check && istype(kiss_check.offered_item, /obj/item/kisser) && (user in kiss_check.possible_takers))
-		user.visible_message(span_danger("[user] scoffs at [M]'s advance, winds up, and smacks [M.p_them()] hard to the ground!"),
-			span_notice("The nerve! You wind back your hand and smack [M] hard enough to knock [M.p_them()] over!"),
-			span_hear("You hear someone get the everloving shit smacked out of them!"), ignored_mobs = M)
-		to_chat(M, span_userdanger("You see [user] scoff and pull back [user.p_their()] arm, then suddenly you're on the ground with an ungodly ringing in your ears!"))
+		user.visible_message(span_danger("[user] смеётся над предложением [M], размахивается и сильно шлепает [M.ru_ego()] по лицу!"),
+			span_notice("Брр! Вмазываю [M] от души, что он[M.ru_a()] аж валится с ног!"),
+			span_hear("Слышу звуки выбивания дерьма!"), ignored_mobs = M)
+		to_chat(M, span_userdanger("Вижу как [user] замахивается своей рукой и... Теперь я лежу и в ушах звенит!"))
 		slap_volume = 120
 		SEND_SOUND(M, sound('sound/weapons/flash_ring.ogg'))
 		shake_camera(M, 2, 2)
@@ -234,22 +234,22 @@
 		M.add_confusion(7)
 		M.adjustStaminaLoss(40)
 	else if(user.zone_selected == BODY_ZONE_HEAD || user.zone_selected == BODY_ZONE_PRECISE_MOUTH)
-		user.visible_message(span_danger("[user] slaps [M] in the face!"),
-			span_notice("You slap [M] in the face!"),
-			span_hear("You hear a slap."))
+		user.visible_message(span_danger("[user] шлёпает [M] по лицу!"),
+			span_notice("Шлёпаю [M] по лицу!"),
+			span_hear("Слышу шлепок."))
 	else if(user.zone_selected == BODY_ZONE_PRECISE_GROIN && ishuman(M))
 		var/mob/living/carbon/human/L = M
 		if(istype(L.w_uniform, /obj/item/clothing/under/costume/jabroni))
 			user.do_attack_animation(M)
 			playsound(M, 'white/Gargule/sounds/pidr_oret.ogg', 75, 1, -1)//bringigng gachislaps
 			playsound(M, 'sound/weapons/slap.ogg', 50, 1, -1)
-			user.visible_message(span_danger("[user] slaps the ass of [M]!") ,
-			span_notice("You slap the ass of [M]!") ,\
-			"You hear a slap.")
+			user.visible_message(span_danger("[user] шлёпает [M] по заднице!") ,
+			span_notice("Шлёпаю [M] по заднице!") ,\
+			"Слышу шлепок.")
 	else
-		user.visible_message(span_danger("[user] slaps [M]!"),
-			span_notice("You slap [M]!"),
-			span_hear("You hear a slap."))
+		user.visible_message(span_danger("[user] шлёпает [M]!"),
+			span_notice("Шлёпаю [M]!"),
+			span_hear("Слышу шлепок."))
 	playsound(M, 'sound/weapons/slap.ogg', slap_volume, TRUE, -1)
 	return
 
@@ -269,12 +269,12 @@
 		SEND_SIGNAL(user, COMSIG_LIVING_SLAM_TABLE, the_table)
 		SEND_SIGNAL(the_table, COMSIG_TABLE_SLAMMED, user)
 		playsound(get_turf(the_table), 'sound/effects/tableslam.ogg', 110, TRUE)
-		user.visible_message("<b>[span_danger("[user] slams [user.p_their()] fist down on [the_table]!")]</b>", "<b>[span_danger("You slam your fist down on [the_table]!")]</b>")
+		user.visible_message("<b>[span_danger("[user] шлёпает рукой по [the_table]!")]</b>", "<b>[span_danger("Шлёпаю рукой по [the_table]!")]</b>")
 		qdel(src)
 	else
 		user.do_attack_animation(the_table)
 		playsound(get_turf(the_table), 'sound/effects/tableslam.ogg', 40, TRUE)
-		user.visible_message(span_notice("[user] slaps [user.p_their()] hand on [the_table]."), span_notice("You slap your hand on [the_table]."), vision_distance=COMBAT_MESSAGE_RANGE)
+		user.visible_message(span_notice("[user] шлёпает рукой по [the_table]."), span_notice("Шлёпаю рукой по [the_table]."), vision_distance=COMBAT_MESSAGE_RANGE)
 		table_smacks_left--
 		if(table_smacks_left <= 0)
 			qdel(src)
@@ -283,12 +283,12 @@
 	. = TRUE
 
 	if(!(locate(/mob/living/carbon) in orange(1, offerer)))
-		visible_message(span_danger("[offerer] raises [offerer.p_their()] arm, looking around for a high-five, but there's no one around!"), \
-			span_warning("You post up, looking for a high-five, but finding no one within range!"), null, 2)
+		visible_message(span_danger("[offerer] пытается дать кому-нибудь пять, но проваливает свою попытку!"), \
+			span_warning("Пытаюсь дать кому-нибудь пять, но рядом никого нет!"), null, 2)
 		return
 
-	offerer.visible_message(span_notice("[offerer] raises [offerer.p_their()] arm, looking for a high-five!"), \
-		span_notice("You post up, looking for a high-five!"), null, 2)
+	offerer.visible_message(span_notice("[offerer] хочет дать пять!"), \
+		span_notice("Хочу дать пять!"), null, 2)
 	offerer.apply_status_effect(STATUS_EFFECT_OFFERING, src, /atom/movable/screen/alert/give/highfive)
 
 /// Yeah broh! This is where we do the high-fiving (or high-tenning :o)
@@ -302,7 +302,7 @@
 			open_hands_taker++
 
 	if(!open_hands_taker)
-		to_chat(taker, span_warning("You can't high-five [offerer] with no open hands!"))
+		to_chat(taker, span_warning("Не могу дать пять [offerer] с занятыми руками!"))
 		SEND_SIGNAL(taker, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_five_full_hand) // not so successful now!
 		return
 
@@ -312,19 +312,15 @@
 			slappers_giver++
 
 	if(slappers_giver >= 2) // we only check this if it's already established the taker has 2+ hands free
-		offerer.visible_message(span_notice("[taker] enthusiastically high-tens [offerer]!"), span_nicegreen("Wow! You're high-tenned [taker]!"), span_hear("Слышу звук разрывающейся плоти!"), ignored_mobs=taker)
-		to_chat(taker, span_nicegreen("You give high-tenning [offerer] your all!"))
+		offerer.visible_message(span_notice("[taker] с энтузиазмом даёт десять [offerer]!"), span_nicegreen("Вау! Даю десять [taker]!"), span_hear("Слышу звук разрывающейся плоти!"), ignored_mobs=taker)
+		to_chat(taker, span_nicegreen("Даю все десять [offerer]!"))
 		playsound(offerer, 'sound/weapons/slap.ogg', 100, TRUE, 1)
-		//offerer.mind.add_memory(MEMORY_HIGH_FIVE, list(DETAIL_PROTAGONIST = taker, DETAIL_HIGHFIVE_TYPE = "high ten"), story_value = STORY_VALUE_OKAY)
-		//taker.mind.add_memory(MEMORY_HIGH_FIVE, list(DETAIL_PROTAGONIST = offerer, DETAIL_HIGHFIVE_TYPE = "high ten"), story_value = STORY_VALUE_OKAY)
 		SEND_SIGNAL(offerer, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_ten)
 		SEND_SIGNAL(taker, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_ten)
 	else
-		offerer.visible_message(span_notice("[taker] high-fives [offerer]!"), span_nicegreen("All right! You're high-fived by [taker]!"), span_hear("Слышу звук разрывающейся плоти!"), ignored_mobs=taker)
-		to_chat(taker, span_nicegreen("You high-five [offerer]!"))
+		offerer.visible_message(span_notice("[taker] даёт пять [offerer]!"), span_nicegreen("Класс! Даю пять [taker]!"), span_hear("Слышу звук разрывающейся плоти!"), ignored_mobs=taker)
+		to_chat(taker, span_nicegreen("Даю пять [offerer]!"))
 		playsound(offerer, 'sound/weapons/slap.ogg', 50, TRUE, -1)
-		//offerer.mind.add_memory(MEMORY_HIGH_FIVE, list(DETAIL_PROTAGONIST = taker, DETAIL_HIGHFIVE_TYPE = "high five"), story_value = STORY_VALUE_OKAY)
-		//taker.mind.add_memory(MEMORY_HIGH_FIVE, list(DETAIL_PROTAGONIST = offerer, DETAIL_HIGHFIVE_TYPE = "high five"), story_value = STORY_VALUE_OKAY)
 		SEND_SIGNAL(offerer, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_five)
 		SEND_SIGNAL(taker, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_five)
 	qdel(src)
