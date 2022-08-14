@@ -1898,7 +1898,7 @@
 /obj/effect/turf_decal/tile/blue,
 /obj/structure/table,
 /obj/item/storage/box/ids,
-/obj/item/trapdoor_remote,
+/obj/item/trapdoor_remote/preloaded,
 /turf/open/floor/plasteel,
 /area/command/heads_quarters/hop)
 "fC" = (

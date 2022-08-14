@@ -3586,7 +3586,7 @@
 	},
 /obj/item/pen,
 /obj/item/stamp/hop,
-/obj/item/trapdoor_remote{
+/obj/item/trapdoor_remote/preloaded{
 	pixel_x = 9;
 	pixel_y = 4
 	},
