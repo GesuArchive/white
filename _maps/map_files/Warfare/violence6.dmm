@@ -42,7 +42,7 @@
 /area/violence)
 "mp" = (
 /obj/effect/baseturf_helper/dune,
-/turf/closed/dz/normal/cyber,
+/turf/closed/dz/normal,
 /area/violence)
 "mT" = (
 /obj/structure/sign/dz,
@@ -126,7 +126,7 @@ Kt
 Kt
 Kt
 Kt
-Hy
+mp
 Hy
 Hy
 Hy
@@ -650,7 +650,7 @@ CQ
 CQ
 CQ
 CQ
-mp
+CQ
 "}
 (14,1,1) = {"
 Hy

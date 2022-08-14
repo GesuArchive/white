@@ -312,7 +312,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/airlock_painter/decal
-	name = "Маркировщик пола"
+	name = "Красильщик пола"
 	id = "decal_painter"
 	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
 	construction_time = 40

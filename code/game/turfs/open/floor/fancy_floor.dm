@@ -108,7 +108,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/bamboo/setup_broken_states()
-	return list("damaged")
+	return list("bamboodamaged")
 
 /turf/open/floor/grass
 	name = "травяной покров"
@@ -241,9 +241,6 @@
 	clawfootstep = FOOTSTEP_CARPET_BAREFOOT
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	tiled_dirt = FALSE
-
-/turf/open/floor/carpet/setup_broken_states()
-	return list("damaged")
 
 /turf/open/floor/carpet/examine(mob/user)
 	. = ..()

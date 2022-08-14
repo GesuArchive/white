@@ -1,7 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aA" = (
 /obj/effect/gibspawner/xeno,
-/obj/effect/baseturf_helper/dune,
 /turf/open/floor/dune/sandstone,
 /area/violence)
 "bT" = (
@@ -69,6 +68,10 @@
 	dir = 1
 	},
 /turf/open/floor/dune,
+/area/violence)
+"ls" = (
+/obj/effect/baseturf_helper/dune,
+/turf/closed/indestructible/sandstone,
 /area/violence)
 "lU" = (
 /obj/effect/decal/cleanable/generic,
@@ -458,7 +461,7 @@
 /area/violence)
 
 (1,1,1) = {"
-rX
+ls
 rX
 rX
 rX

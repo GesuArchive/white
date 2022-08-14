@@ -149,7 +149,7 @@
 		ink = null
 
 /obj/item/airlock_painter/decal
-	name = "маркировщик пола"
+	name = "красильщик пола"
 	desc = "Создает разметку на полу. Alt-клик для изъятия картриджа."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "decal_sprayer"
@@ -458,17 +458,54 @@
 
 	worn_icon_state = "electronic"
 
-	var/static/list/star_directions = list("north", "northeast", "east", "southeast", "south", "southwest", "west", "northwest")
-	var/static/list/cardinal_directions = list("north", "east", "south", "west")
+	var/static/list/star_directions = list(
+		"north",
+		"northeast",
+		"east",
+		"southeast",
+		"south",
+		"southwest",
+		"west",
+		"northwest",
+	)
+
+	var/static/list/cardinal_directions = list(
+		"north",
+		"east",
+		"south",
+		"west",
+	)
 	var/list/allowed_directions = list("south")
 
 	var/static/list/allowed_states = list(
-		"floor", "white", "cafeteria", "whitehall", "whitecorner", "stairs-old",
-		"stairs", "stairs-l", "stairs-m", "stairs-r", "grimy", "yellowsiding",
-		"yellowcornersiding", "chapel", "pinkblack", "darkfull", "checker",
-		"dark", "darkcorner", "solarpanel", "freezerfloor", "showroomfloor","elevatorshaft",
-		"recharge_floor", "sepia"
-		)
+		"floor",
+		"monofloor",
+		"monowhite",
+		"monodarkfull",
+		"white",
+		"cafeteria",
+		"whitehall",
+		"whitecorner",
+		"stairs-old",
+		"stairs",
+		"stairs-l",
+		"stairs-m",
+		"stairs-r",
+		"grimy",
+		"yellowsiding",
+		"yellowcornersiding",
+		"chapel",
+		"pinkblack",
+		"darkfull",
+		"checker",
+		"dark",
+		"darkcorner",
+		"solarpanel",
+		"freezerfloor",
+		"showroomfloor","elevatorshaft",
+		"recharge_floor",
+		"sepia",
+	)
 
 /obj/item/floor_painter/afterattack(atom/A, mob/user, proximity, params)
 	if(!proximity)
@@ -476,7 +513,7 @@
 
 	var/turf/open/floor/plasteel/F = A
 	if(!istype(F))
-		to_chat(user, span_warning("\The [src] can only be used on station flooring."))
+		to_chat(user, span_warning("[src] может быть использован только на станционной плитке."))
 		return
 
 	if(F.dir == floor_dir && F.icon_state == floor_state && F.base_icon_state == floor_state)
@@ -504,16 +541,16 @@
 		</center>
 		<center>
 			<a href="?src=[REF(src)];cycleleft=1">&lt;-</a>
-			<a href="?src=[REF(src)];choose_state=1">Choose Style</a>
+			<a href="?src=[REF(src)];choose_state=1">Выбрать</a>
 			<a href="?src=[REF(src)];cycleright=1">-&gt;</a>
 		</center>
-		<div class='statusDisplay'>Style: [floor_state]</div>
+		<div class='statusDisplay'>Стиль: [floor_state]</div>
 		<center>
 			<a href="?src=[REF(src)];cycledirleft=1">&lt;-</a>
-			<a href="?src=[REF(src)];choose_dir=1">Choose Direction</a>
+			<a href="?src=[REF(src)];choose_dir=1">Выбрать</a>
 			<a href="?src=[REF(src)];cycledirright=1">-&gt;</a>
 		</center>
-		<div class='statusDisplay'>Direction: [dir2ru_text(floor_dir)]</div>
+		<div class='statusDisplay'>Направление: [dir2ru_text(floor_dir)]</div>
 	"}
 
 	var/datum/browser/popup = new(user, "floor_painter", name, 225, 300)
@@ -525,12 +562,12 @@
 		return
 
 	if(href_list["choose_state"])
-		var/state = tgui_input_list(usr, "Please select a style", "[src]", allowed_states)
+		var/state = tgui_input_list(usr, "Выберем стиль", "[src]", allowed_states)
 		if(state)
 			floor_state = state
 			check_directional_tile()
 	if(href_list["choose_dir"])
-		var/seldir = tgui_input_list(usr, "Please select a direction", "[src]", allowed_directions)
+		var/seldir = tgui_input_list(usr, "Выберем направление", "[src]", allowed_directions)
 		if(seldir)
 			floor_dir = text2dir(seldir)
 	if(href_list["cycledirleft"])

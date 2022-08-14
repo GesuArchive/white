@@ -1,7 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/closed/indestructible/black,
-/obj/effect/baseturf_helper/dune,
 /area/violence)
 "b" = (
 /obj/effect/turf_decal/pool{
@@ -212,6 +211,10 @@
 	},
 /turf/open/floor/plasteel/showroomfloor,
 /area/violence)
+"P" = (
+/obj/effect/baseturf_helper/dune,
+/turf/closed/indestructible/black,
+/area/violence)
 "Q" = (
 /obj/item/pool/rubber_ring,
 /turf/open/indestructible/pool,
@@ -246,7 +249,7 @@
 /area/violence)
 
 (1,1,1) = {"
-a
+P
 a
 a
 a

@@ -9,6 +9,7 @@
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	baseturfs = /turf/open/floor/dune
 
 /turf/open/floor/dune/setup_broken_states()
 	return list("[base_icon_state]-[pick(random_bits)]")
