@@ -4022,7 +4022,7 @@
 /obj/item/stack/sheet/cardboard/fifty,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
-/obj/effect/mapping_helpers/broken_floor," = (
+/obj/effect/mapping_helpers/broken_floor,
 /obj/structure/table,
 /obj/item/crowbar/large{
 	desc = "Пахнет белыми мечтами.";
