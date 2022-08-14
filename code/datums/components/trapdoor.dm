@@ -260,7 +260,7 @@
 	icon_state = "trapdoor_remote"
 	COOLDOWN_DECLARE(trapdoor_cooldown)
 	var/trapdoor_cooldown_time = 2 SECONDS
-	var/list/obj/item/assembly/trapdoor/internals
+	var/list/obj/item/assembly/trapdoor/internals = list()
 	var/maximum_internals = 10
 
 /obj/item/trapdoor_remote/examine(mob/user)
