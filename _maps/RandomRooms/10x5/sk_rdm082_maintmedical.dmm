@@ -103,9 +103,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "k" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "l" = (
 /obj/machinery/chem_master,
@@ -139,9 +138,8 @@
 /area/template_noop)
 "o" = (
 /obj/machinery/door/window/westleft,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "p" = (
 /obj/effect/decal/cleanable/greenglow,

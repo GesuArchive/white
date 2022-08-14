@@ -6597,9 +6597,8 @@
 /area/hallway/primary/central)
 "bVD" = (
 /obj/machinery/computer/slot_machine,
-/turf/open/floor/wood{
-	icon_state = "wood-broken3"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/maintenance/port/aft)
 "bVF" = (
 /obj/item/stock_parts/cell/high,
@@ -7200,9 +7199,8 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood{
-	icon_state = "wood-broken7"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/maintenance/port/aft)
 "ckh" = (
 /obj/structure/table/wood,
@@ -12558,9 +12556,8 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood{
-	icon_state = "wood-broken2"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/maintenance/port/aft)
 "eyt" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -12910,9 +12907,8 @@
 "eGp" = (
 /obj/structure/table/wood/poker,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood{
-	icon_state = "wood-broken7"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/maintenance/port/aft)
 "eGT" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
@@ -21333,9 +21329,8 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood{
-	icon_state = "wood-broken3"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/maintenance/port/aft)
 "ikr" = (
 /obj/structure/window/reinforced,
@@ -29032,9 +29027,8 @@
 /obj/machinery/door/window/eastright{
 	dir = 2
 	},
-/turf/open/floor/wood{
-	icon_state = "wood-broken2"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/maintenance/port/aft)
 "luu" = (
 /obj/structure/chair/comfy/black,
@@ -32011,9 +32005,8 @@
 /obj/machinery/chem_dispenser/drinks/beer{
 	dir = 4
 	},
-/turf/open/floor/wood{
-	icon_state = "wood-broken2"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/maintenance/port/aft)
 "mGv" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -36056,9 +36049,8 @@
 /obj/machinery/light/broken/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/machinery/newscaster/directional/north,
-/turf/open/floor/wood{
-	icon_state = "wood-broken7"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/maintenance/port/aft)
 "osC" = (
 /obj/machinery/door/firedoor,
@@ -52823,9 +52815,8 @@
 /area/security)
 "vvP" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/maintenance/port/aft)
 "vwe" = (
 /obj/machinery/door/airlock/external{
@@ -57026,9 +57017,8 @@
 "wZa" = (
 /obj/machinery/roulette,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood{
-	icon_state = "wood-broken2"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/maintenance/port/aft)
 "wZc" = (
 /obj/machinery/door/airlock/silver{
@@ -57944,9 +57934,8 @@
 "xtH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/wood{
-	icon_state = "wood-broken3"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/maintenance/port/aft)
 "xtL" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,

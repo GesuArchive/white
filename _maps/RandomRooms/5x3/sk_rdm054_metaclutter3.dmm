@@ -39,9 +39,8 @@
 /area/template_noop)
 "d" = (
 /obj/structure/easel,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "e" = (
 /obj/structure/closet,
@@ -67,9 +66,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "h" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "i" = (
 /obj/structure/rack,

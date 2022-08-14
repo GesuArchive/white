@@ -169,9 +169,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "T" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "U" = (
 /obj/structure/table/wood,

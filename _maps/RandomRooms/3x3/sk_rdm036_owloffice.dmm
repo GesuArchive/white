@@ -24,9 +24,8 @@
 "d" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood{
-	icon_state = "wood-broken2"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "e" = (
 /obj/effect/decal/cleanable/dirt,

@@ -3,6 +3,8 @@
 	var/list/turf_types = list(/turf/open/floor/plating = 90, /turf/open/floor/plasteel = 1, /turf/open/floor/plasteel/dark = 1, /turf/closed/wall = 1)
 	var/list/garbage_types = list(
 		/obj/effect/spawner/lootdrop/grille_or_trash = 50,
+		/obj/effect/mapping_helpers/broken_floor = 90,
+		/obj/effect/mapping_helpers/burnt_floor = 60,
 		/obj/structure/grille = 80,
 		/obj/structure/girder = 5,
 		/obj/structure/grille/broken = 10,

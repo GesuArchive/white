@@ -34,9 +34,8 @@
 /obj/structure/table/wood,
 /obj/item/storage/briefcase,
 /obj/item/taperecorder,
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "h" = (
 /obj/structure/table/wood,
@@ -77,9 +76,8 @@
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "m" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken7"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "n" = (
 /turf/open/floor/wood,
@@ -88,9 +86,8 @@
 /obj/structure/chair/comfy/brown{
 	dir = 4
 	},
-/turf/open/floor/wood{
-	icon_state = "wood-broken3"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "p" = (
 /obj/structure/table/wood,
@@ -109,14 +106,12 @@
 /obj/structure/chair/comfy/brown{
 	dir = 8
 	},
-/turf/open/floor/wood{
-	icon_state = "wood-broken5"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "r" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "t" = (
 /obj/structure/chair/comfy/black{
@@ -197,9 +192,8 @@
 /turf/open/floor/wood,
 /area/template_noop)
 "D" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "F" = (
 /obj/structure/table/wood,

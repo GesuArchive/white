@@ -24,9 +24,8 @@
 	},
 /area/template_noop)
 "c" = (
-/turf/open/floor/plating{
-	icon_state = "wood-broken3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "d" = (
 /obj/structure/table/wood,

@@ -46,9 +46,8 @@
 /area/template_noop)
 "i" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "j" = (
 /obj/effect/turf_decal/tile/red{
@@ -73,9 +72,8 @@
 "m" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/remains/xeno,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "n" = (
 /obj/effect/turf_decal/tile/red,
@@ -175,9 +173,8 @@
 /area/template_noop)
 "x" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "y" = (
 /obj/effect/turf_decal/tile/red,
@@ -196,16 +193,14 @@
 /area/template_noop)
 "z" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "A" = (
 /obj/structure/table_frame,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "B" = (
 /obj/effect/decal/cleanable/blood/old,

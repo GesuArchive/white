@@ -18,9 +18,8 @@
 "i" = (
 /obj/item/shard,
 /obj/item/electronics/apc,
-/turf/open/floor/plasteel{
-	icon_state = "damaged2"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin)
 "k" = (
 /obj/machinery/portable_atmospherics/canister/air,
@@ -73,17 +72,15 @@
 /area/ruin)
 "D" = (
 /obj/item/stock_parts/cell,
-/turf/open/floor/plasteel{
-	icon_state = "damaged2"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin)
 "E" = (
 /turf/open/floor/mineral/plastitanium,
 /area/ruin)
 "G" = (
-/turf/open/floor/plasteel{
-	icon_state = "damaged2"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin)
 "H" = (
 /turf/open/floor/plasteel,
@@ -96,9 +93,8 @@
 "J" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/beacon,
-/turf/open/floor/plasteel{
-	icon_state = "damaged2"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin)
 "K" = (
 /obj/effect/decal/cleanable/blood/old,

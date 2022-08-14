@@ -4171,9 +4171,8 @@
 	pixel_x = -6;
 	pixel_y = 6
 	},
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/unpowered/syndicate_lava_base/bar)
 "lj" = (
 /obj/machinery/door/window/southleft{

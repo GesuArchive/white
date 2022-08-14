@@ -3,9 +3,8 @@
 /obj/structure/closet,
 /obj/item/storage/box/lights/mixed,
 /obj/effect/spawner/lootdrop/maintenance/two,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "c" = (
 /obj/structure/rack,
@@ -21,9 +20,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "f" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "g" = (
 /obj/structure/closet/crate/hydroponics,
@@ -31,9 +29,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "h" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "i" = (
 /obj/structure/closet,

@@ -2,10 +2,25 @@
 "ab" = (
 /turf/template_noop,
 /area/template_noop)
+"ap" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/command{
+	name = "Bad Doggies Room";
+	req_access_txt = "19"
+	},
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/north)
 "gf" = (
 /obj/structure/closet/crate/solarpanel_small,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
+"gj" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/cargo/meeting_room)
+"gu" = (
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/north)
 "jH" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -47,6 +62,14 @@
 "DF" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/bottom_station_maints)
+"LP" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/command{
+	name = "Bad Doggies Room";
+	req_access_txt = "19"
+	},
+/turf/open/floor/plating,
+/area/cargo/meeting_room)
 "Pc" = (
 /turf/closed/wall/r_wall,
 /area/cargo/meeting_room)
@@ -131,7 +154,7 @@ YS
 YS
 YS
 Pc
-lH
+UY
 Pc
 Zl
 YS
@@ -168,9 +191,9 @@ Zl
 Zl
 Zl
 Zl
-Zl
-Zl
-Zl
+lH
+UY
+lH
 Zl
 Zl
 Zl
@@ -204,13 +227,13 @@ YS
 Zl
 YS
 YS
-YS
-YS
-YS
-Zl
-YS
-Zl
-YS
+Pc
+gj
+Pc
+LP
+Pc
+gj
+Pc
 YS
 ab
 ab
@@ -241,14 +264,14 @@ YS
 YS
 Zl
 YS
-YS
-YS
-YS
-YS
-Zl
-YS
-Zl
-YS
+Pc
+Pc
+UY
+UY
+UY
+UY
+UY
+Pc
 YS
 ab
 ab
@@ -279,14 +302,14 @@ YS
 YS
 Zl
 YS
-YS
-YS
-YS
-YS
-Zl
-YS
-Zl
-YS
+Pc
+UY
+UY
+UY
+UY
+UY
+UY
+Pc
 YS
 ab
 ab
@@ -317,14 +340,14 @@ YS
 YS
 Zl
 YS
-YS
-YS
-YS
-YS
-Zl
-YS
-Zl
-YS
+Pc
+gj
+gj
+gj
+Pc
+gj
+gj
+Pc
 YS
 ab
 ab
@@ -984,10 +1007,10 @@ ab
 ab
 ab
 Ws
-Zl
-Zl
-Zl
-Zl
+Ws
+Ws
+Ws
+Ws
 Zl
 Zl
 Zl
@@ -1022,10 +1045,10 @@ ab
 ab
 ab
 Ws
-Zl
-YS
-YS
-Zl
+gu
+gu
+gu
+Ws
 YS
 YS
 YS
@@ -1059,11 +1082,11 @@ ab
 ab
 ab
 ab
+ap
+gu
+gu
+gu
 Ws
-Zl
-YS
-YS
-Zl
 YS
 YS
 YS
@@ -1098,10 +1121,10 @@ ab
 ab
 ab
 Ws
-Zl
-YS
-YS
-Zl
+Ws
+Ws
+Ws
+Ws
 YS
 YS
 YS

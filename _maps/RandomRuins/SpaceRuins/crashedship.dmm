@@ -67,9 +67,8 @@
 "ar" = (
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door/airlock/titanium,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/awaymission/bmpship/aft)
 "as" = (
 /obj/structure/bed/roller,
@@ -303,9 +302,8 @@
 /turf/open/floor/plating/airless,
 /area/awaymission/bmpship/fore)
 "bu" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bmpship/fore)
 "bv" = (
 /obj/effect/turf_decal/stripes/line,
@@ -1336,9 +1334,8 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/open/floor/plasteel{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/awaymission/bmpship/midship)
 "fg" = (
 /obj/structure/kitchenspike,
@@ -1422,18 +1419,16 @@
 /turf/open/floor/engine,
 /area/awaymission/bmpship/aft)
 "ft" = (
-/turf/open/floor/plating/airless{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bmpship/fore)
 "fu" = (
 /obj/structure/lattice,
 /turf/template_noop,
 /area/awaymission/bmpship/fore)
 "fv" = (
-/turf/open/floor/plating/airless{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bmpship/fore)
 "fw" = (
 /obj/structure/cable,
@@ -1448,9 +1443,8 @@
 /area/awaymission/bmpship/fore)
 "fy" = (
 /obj/structure/cable,
-/turf/open/floor/plating/airless{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/awaymission/bmpship/fore)
 "fA" = (
 /obj/item/kitchen/knife,
@@ -1487,21 +1481,18 @@
 /turf/open/floor/plasteel,
 /area/awaymission/bmpship/aft)
 "fI" = (
-/turf/open/floor/plating/airless{
-	icon_state = "platingdmg2"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bmpship/fore)
 "fJ" = (
 /obj/item/shard,
-/turf/open/floor/plating/airless{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bmpship/fore)
 "fK" = (
 /obj/structure/chair/stool,
-/turf/open/floor/plating/airless{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bmpship/fore)
 "fL" = (
 /obj/item/stack/cable_coil{
@@ -1530,18 +1521,16 @@
 	anchored = 1;
 	dir = 1
 	},
-/turf/open/floor/plating/airless{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/awaymission/bmpship/fore)
 "fU" = (
 /obj/structure/frame/computer{
 	anchored = 1;
 	dir = 1
 	},
-/turf/open/floor/plating/airless{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bmpship/fore)
 "fV" = (
 /obj/machinery/light/small,
@@ -1552,14 +1541,12 @@
 /turf/open/floor/plasteel,
 /area/awaymission/bmpship/midship)
 "fW" = (
-/turf/open/floor/plasteel{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bmpship/midship)
 "fX" = (
-/turf/open/floor/plasteel{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bmpship/midship)
 "fY" = (
 /obj/effect/mapping_helpers/airlock/locked,
@@ -1582,9 +1569,8 @@
 /area/awaymission/bmpship)
 "gc" = (
 /obj/item/multitool,
-/turf/open/floor/plating/airless{
-	icon_state = "platingdmg2"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bmpship)
 "gd" = (
 /obj/machinery/door/airlock/titanium,
@@ -1643,9 +1629,8 @@
 /area/awaymission/bmpship/fore)
 "gn" = (
 /obj/structure/cable,
-/turf/open/floor/plating/airless{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bmpship/fore)
 "go" = (
 /obj/machinery/light/small{
@@ -1670,9 +1655,8 @@
 /turf/open/floor/plating/asteroid/airless,
 /area/awaymission/bmpship/midship)
 "gt" = (
-/turf/open/floor/plating/airless{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bmpship/midship)
 "gv" = (
 /obj/item/wallframe/apc,
@@ -1737,9 +1721,8 @@
 /turf/closed/mineral/random,
 /area/awaymission/bmpship/fore)
 "gL" = (
-/turf/open/floor/plating/airless{
-	icon_state = "platingdmg2"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bmpship/midship)
 "gM" = (
 /obj/structure/mecha_wreckage/ripley,
@@ -1795,9 +1778,8 @@
 /turf/template_noop,
 /area/template_noop)
 "ha" = (
-/turf/open/floor/plating/airless{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/awaymission/bmpship/midship)
 "hb" = (
 /obj/effect/decal/remains/human,
@@ -1828,9 +1810,8 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/awaymission/bmpship/aft)
 "hg" = (
-/turf/open/floor/plating/airless{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bmpship/midship)
 "hh" = (
 /obj/item/clothing/suit/caution,
@@ -1962,9 +1943,8 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/open/floor/plating/airless{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bmpship/midship)
 "Xc" = (
 /obj/structure/frame/computer{

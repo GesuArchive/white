@@ -240,9 +240,8 @@
 /obj/structure/sign/poster/random{
 	pixel_x = -32
 	},
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ctf)
 "fw" = (
 /obj/effect/turf_decal/trimline/red/line{
@@ -412,9 +411,8 @@
 /obj/structure/table/wood{
 	resistance_flags = 64
 	},
-/turf/open/floor/wood{
-	icon_state = "wood-broken7"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ctf)
 "iy" = (
 /obj/effect/turf_decal/trimline/red/line{
@@ -444,9 +442,8 @@
 /turf/open/floor/plasteel/dark,
 /area/ctf)
 "iQ" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ctf)
 "iW" = (
 /obj/effect/turf_decal/stripes/line{
@@ -1763,9 +1760,8 @@
 /turf/open/floor/plating,
 /area/ctf)
 "Ie" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken5"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ctf)
 "Ig" = (
 /obj/effect/turf_decal/trimline/blue/line{
@@ -1952,9 +1948,8 @@
 /turf/open/floor/plasteel,
 /area/ctf)
 "KN" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken6"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ctf)
 "KV" = (
 /obj/effect/turf_decal/siding/white,

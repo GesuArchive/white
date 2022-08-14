@@ -12,9 +12,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "f" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "i" = (
 /turf/closed/wall,
@@ -43,9 +42,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "B" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "M" = (
 /obj/item/trash/boritos,

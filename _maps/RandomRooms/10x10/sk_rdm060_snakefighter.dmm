@@ -16,9 +16,8 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/turf/open/floor/wood{
-	icon_state = "wood-broken5"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "d" = (
 /obj/item/storage/fancy/cigarettes/cigpack_shadyjims,
@@ -35,9 +34,8 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "h" = (
 /obj/structure/closet/secure_closet/freezer/meat/open,

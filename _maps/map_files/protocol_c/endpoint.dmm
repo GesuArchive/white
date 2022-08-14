@@ -144,9 +144,8 @@
 /turf/open/floor/plasteel/white,
 /area/centcom/holding)
 "aM" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/syndicate_mothership/control)
 "aN" = (
 /turf/open/floor/plasteel,
@@ -239,9 +238,8 @@
 /turf/open/floor/grass/snow/safe,
 /area/syndicate_mothership)
 "bk" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/syndicate_mothership/control)
 "bl" = (
 /obj/structure/closet/secure_closet/ert_engi,
@@ -533,9 +531,8 @@
 "cm" = (
 /obj/structure/closet/cardboard,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/syndicate_mothership/control)
 "cn" = (
 /turf/open/floor/plating/ashplanet/wateryrock{
@@ -1002,9 +999,8 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/syndicate_mothership/control)
 "ec" = (
 /turf/open/floor/plating,
@@ -1918,9 +1914,8 @@
 /area/syndicate_mothership/control)
 "hl" = (
 /obj/machinery/washing_machine,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/syndicate_mothership/control)
 "hn" = (
 /turf/closed/indestructible/abductor{
@@ -2017,9 +2012,8 @@
 /area/tdome/tdomeobserve)
 "hE" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/syndicate_mothership/control)
 "hF" = (
 /obj/structure/closet/secure_closet/personal,
@@ -2187,9 +2181,8 @@
 	pixel_y = -6
 	},
 /obj/item/crowbar/red,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/syndicate_mothership/control)
 "ir" = (
 /obj/structure/mirror{
@@ -2638,15 +2631,13 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/syndicate_mothership/control)
 "jQ" = (
 /obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/syndicate_mothership/control)
 "jS" = (
 /turf/open/floor/plasteel/stairs/old{
@@ -2815,9 +2806,8 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/syndicate_mothership/control)
 "ky" = (
 /turf/open/floor/holofloor/carpet{
@@ -3478,9 +3468,8 @@
 	},
 /area/centcom/outdoors/circus)
 "mT" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/syndicate_mothership/control)
 "mU" = (
 /obj/structure/window/plasma/reinforced/spawner,
@@ -3583,16 +3572,14 @@
 /area/tdome/tdomeobserve)
 "nq" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/syndicate_mothership/control)
 "nr" = (
 /obj/effect/turf_decal/stripes/corner,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/syndicate_mothership/control)
 "nv" = (
 /obj/structure/chair/office,
@@ -3628,9 +3615,8 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/syndicate_mothership/control)
 "nB" = (
 /obj/structure/closet/crate/freezer/blood,
@@ -3799,9 +3785,8 @@
 /area/centcom/holding)
 "oe" = (
 /obj/effect/turf_decal/stripes/corner,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/syndicate_mothership/control)
 "of" = (
 /obj/effect/turf_decal/stripes/corner{
@@ -5041,9 +5026,8 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/syndicate_mothership/control)
 "sl" = (
 /obj/effect/turf_decal/tile/red,
@@ -6337,9 +6321,8 @@
 /turf/open/floor/grass,
 /area/centcom/control)
 "yf" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/syndicate_mothership/control)
 "yi" = (
 /obj/structure/table/wood,
@@ -6620,9 +6603,8 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/syndicate_mothership/control)
 "zf" = (
 /obj/effect/turf_decal/tile/red,
@@ -8437,9 +8419,8 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/syndicate_mothership/control)
 "Gw" = (
 /turf/closed/indestructible/abductor{
@@ -8683,9 +8664,8 @@
 /area/centcom/control)
 "HA" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/syndicate_mothership/control)
 "HB" = (
 /obj/item/kirbyplants/random,
@@ -8859,9 +8839,8 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/syndicate_mothership/control)
 "Iq" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -8972,9 +8951,8 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/syndicate_mothership/control)
 "IP" = (
 /obj/machinery/computer/operating{
@@ -11466,9 +11444,8 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/syndicate_mothership/control)
 "Rn" = (
 /turf/closed/indestructible/riveted,
@@ -11834,9 +11811,8 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/syndicate_mothership/control)
 "Sx" = (
 /obj/vehicle/sealed/car/fucking_tank{

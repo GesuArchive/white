@@ -806,9 +806,8 @@
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "nX" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/mothership_astrum/deck3)
 "oa" = (
 /obj/effect/mob_spawn/human/abductor,
@@ -861,9 +860,8 @@
 	name = "Reproduction Bench"
 	},
 /obj/item/bedsheet/random,
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/mothership_astrum/deck3)
 "oy" = (
 /obj/structure/bed{
@@ -3380,9 +3378,8 @@
 "US" = (
 /obj/item/storage/firstaid/brute,
 /obj/structure/table/wood,
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/mothership_astrum/deck3)
 "UV" = (
 /obj/structure/table/abductor,

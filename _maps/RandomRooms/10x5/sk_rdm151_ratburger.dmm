@@ -58,9 +58,8 @@
 /turf/open/floor/grass,
 /area/template_noop)
 "v" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "w" = (
 /obj/structure/rack,
@@ -68,9 +67,8 @@
 /obj/item/stack/cable_coil,
 /obj/item/kitchen/knife/butcher,
 /obj/item/clothing/suit/apron/chef,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "z" = (
 /mob/living/simple_animal/mouse/brown,
@@ -132,9 +130,8 @@
 "I" = (
 /obj/structure/chair/stool/bar,
 /obj/effect/landmark/blobstart,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "J" = (
 /obj/machinery/light/small{
@@ -162,9 +159,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "O" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "Q" = (
 /turf/open/floor/plasteel/cafeteria,
@@ -180,9 +176,8 @@
 /obj/structure/sign/barsign{
 	pixel_y = 32
 	},
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "T" = (
 /obj/effect/decal/cleanable/oil,
@@ -194,9 +189,8 @@
 /turf/open/floor/grass,
 /area/template_noop)
 "Y" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 
 (1,1,1) = {"

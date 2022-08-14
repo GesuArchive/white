@@ -82,14 +82,12 @@
 /turf/open/floor/plasteel/airless,
 /area/tcommsat/oldaisat)
 "ar" = (
-/turf/open/floor/plasteel/airless{
-	icon_state = "damaged2"
-	},
+/turf/open/floor/plasteel/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/tcommsat/oldaisat)
 "as" = (
-/turf/open/floor/plasteel/airless{
-	icon_state = "damaged3"
-	},
+/turf/open/floor/plasteel/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/tcommsat/oldaisat)
 "at" = (
 /obj/structure/lattice,

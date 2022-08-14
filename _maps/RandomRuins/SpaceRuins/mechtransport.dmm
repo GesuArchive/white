@@ -154,14 +154,12 @@
 /turf/open/floor/mineral/titanium/yellow/airless,
 /area/ruin/space/has_grav/powered/mechtransport)
 "M" = (
-/turf/open/floor/plating/airless{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/space/has_grav/powered/mechtransport)
 "N" = (
-/turf/open/floor/plating/airless{
-	icon_state = "platingdmg2"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/space/has_grav/powered/mechtransport)
 "O" = (
 /obj/structure/mecha_wreckage/odysseus,
@@ -176,9 +174,8 @@
 /turf/open/floor/mineral/titanium/airless,
 /area/ruin/space/has_grav/powered/mechtransport)
 "R" = (
-/turf/open/floor/plating/airless{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/space/has_grav/powered/mechtransport)
 "S" = (
 /obj/item/stack/rods,

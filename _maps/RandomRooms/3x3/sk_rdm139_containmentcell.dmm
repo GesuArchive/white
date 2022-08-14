@@ -7,9 +7,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "k" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "I" = (
 /obj/structure/toilet/secret{

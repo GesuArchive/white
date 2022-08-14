@@ -1437,9 +1437,8 @@
 /turf/open/floor/plasteel,
 /area/security/main)
 "dF" = (
-/turf/open/floor/plasteel{
-	icon_state = "damaged5"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/security/brig)
 "dG" = (
 /obj/structure/rack,
@@ -3355,9 +3354,8 @@
 /turf/open/floor/plasteel,
 /area/security/brig)
 "xN" = (
-/turf/open/floor/plasteel{
-	icon_state = "damaged1"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/security/brig)
 "ys" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3464,9 +3462,8 @@
 /turf/template_noop,
 /area/space/nearstation)
 "Xp" = (
-/turf/open/floor/plasteel{
-	icon_state = "damaged4"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/security/brig)
 "Zw" = (
 /obj/machinery/light/small{
@@ -3475,9 +3472,8 @@
 /turf/open/openspace,
 /area/security/brig)
 "ZQ" = (
-/turf/open/floor/plasteel{
-	icon_state = "damaged3"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/security/brig)
 
 (1,1,1) = {"

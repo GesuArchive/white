@@ -429,9 +429,8 @@
 /turf/open/floor/plasteel,
 /area/awaymission/spacebattle/cruiser)
 "ca" = (
-/turf/open/floor/plasteel{
-	icon_state = "damaged5"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/spacebattle/cruiser)
 "cb" = (
 /obj/machinery/computer/pod{
@@ -470,19 +469,16 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/spacebattle/syndicate1)
 "cm" = (
-/turf/open/floor/plasteel{
-	icon_state = "damaged4"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/spacebattle/cruiser)
 "cn" = (
-/turf/open/floor/plasteel{
-	icon_state = "damaged3"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/spacebattle/cruiser)
 "cp" = (
-/turf/open/floor/plasteel{
-	icon_state = "damaged1"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/spacebattle/cruiser)
 "cq" = (
 /obj/effect/mob_spawn/human/engineer{
@@ -509,9 +505,8 @@
 "cw" = (
 /obj/item/ammo_casing/c10mm,
 /obj/item/ammo_casing/c10mm,
-/turf/open/floor/plasteel{
-	icon_state = "damaged2"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/spacebattle/cruiser)
 "cx" = (
 /obj/item/stack/sheet/iron,
@@ -588,9 +583,8 @@
 /turf/open/floor/plasteel,
 /area/awaymission/spacebattle/cruiser)
 "cN" = (
-/turf/open/floor/plasteel{
-	icon_state = "damaged2"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/spacebattle/cruiser)
 "cO" = (
 /obj/effect/landmark/awaystart,
@@ -935,9 +929,8 @@
 	mob_name = "Clay Dawson";
 	name = "Clay Dawson"
 	},
-/turf/open/floor/plasteel{
-	icon_state = "damaged5"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/spacebattle/cruiser)
 "eb" = (
 /obj/effect/spawner/structure/window/hollow/reinforced/middle{
@@ -1447,9 +1440,8 @@
 /area/awaymission/spacebattle/cruiser)
 "fL" = (
 /obj/item/stack/sheet/iron,
-/turf/open/floor/plasteel{
-	icon_state = "damaged1"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/spacebattle/cruiser)
 "fM" = (
 /obj/item/ammo_casing/shotgun,
@@ -2008,9 +2000,8 @@
 /area/awaymission/spacebattle/cruiser)
 "hF" = (
 /obj/item/stack/sheet/iron,
-/turf/open/floor/plasteel{
-	icon_state = "damaged3"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/spacebattle/cruiser)
 "hI" = (
 /obj/structure/table/reinforced,
@@ -2058,9 +2049,8 @@
 /area/awaymission/spacebattle/cruiser)
 "hQ" = (
 /obj/item/stack/sheet/iron,
-/turf/open/floor/plasteel{
-	icon_state = "damaged4"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/spacebattle/cruiser)
 "hS" = (
 /obj/machinery/computer/shuttle_flight{
@@ -2211,9 +2201,8 @@
 "iu" = (
 /obj/effect/mob_spawn/human/syndicatesoldier,
 /obj/item/gun/ballistic/automatic/c20r,
-/turf/open/floor/plasteel{
-	icon_state = "damaged2"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/spacebattle/cruiser)
 "iv" = (
 /obj/structure/shuttle/engine/propulsion/burst/right{
@@ -2531,9 +2520,8 @@
 /obj/item/ammo_casing/c10mm,
 /obj/item/ammo_casing/c10mm,
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/plasteel{
-	icon_state = "damaged3"
-	},
+/turf/open/floor/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/spacebattle/cruiser)
 "jN" = (
 /obj/structure/closet/crate,

@@ -1,8 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken7"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "b" = (
 /obj/structure/chair/office,
@@ -97,9 +96,8 @@
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "n" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken3"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "o" = (
 /obj/structure/rack,

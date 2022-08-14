@@ -38,9 +38,8 @@
 /area/template_noop)
 "e" = (
 /obj/structure/chair/stool/bar,
-/turf/open/floor/wood{
-	icon_state = "wood-broken5"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "f" = (
 /obj/effect/decal/cleanable/blood/gibs/old,

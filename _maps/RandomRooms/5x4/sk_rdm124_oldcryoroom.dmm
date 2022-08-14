@@ -39,9 +39,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/oil,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "i" = (
 /obj/item/wrench/medical,

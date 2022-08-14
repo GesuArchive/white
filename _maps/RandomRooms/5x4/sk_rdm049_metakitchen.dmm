@@ -34,14 +34,12 @@
 /obj/structure/table,
 /obj/item/kitchen/rollingpin,
 /obj/item/reagent_containers/glass/beaker,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "g" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "h" = (
 /obj/effect/decal/cleanable/food/flour,
@@ -78,9 +76,8 @@
 /obj/item/stack/rods{
 	amount = 4
 	},
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "p" = (
 /obj/structure/table,

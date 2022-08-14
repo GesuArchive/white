@@ -998,6 +998,14 @@
 /obj/item/ai_module/supplied/freeform,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
+"vp" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/command{
+	name = "Bad Doggies Room";
+	req_access_txt = "19"
+	},
+/turf/open/floor/plating,
+/area/maintenance/central)
 "vr" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -2974,14 +2982,14 @@ jH
 tw
 aV
 hA
+NH
 tw
-YS
-YS
-Zl
-YS
-YS
-YS
-Zl
+NH
+tw
+tw
+NH
+tw
+NH
 YS
 YS
 ab
@@ -3012,14 +3020,14 @@ YS
 tw
 aV
 hA
-tw
-YS
-YS
-Zl
-YS
-YS
-YS
-Zl
+vp
+hA
+hA
+hA
+hA
+hA
+hA
+NH
 YS
 YS
 ab
@@ -3051,13 +3059,13 @@ NH
 aV
 hA
 NH
-YS
-YS
-Zl
-YS
-YS
-YS
-Zl
+tw
+NH
+tw
+tw
+NH
+tw
+NH
 YS
 YS
 YS

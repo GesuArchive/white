@@ -17,9 +17,8 @@
 "e" = (
 /obj/structure/table/wood,
 /obj/item/soap/nanotrasen,
-/turf/open/floor/wood{
-	icon_state = "wood-broken7"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "g" = (
 /obj/structure/table/wood,
@@ -35,9 +34,8 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "i" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken5"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "j" = (
 /obj/effect/decal/cleanable/blood/old,

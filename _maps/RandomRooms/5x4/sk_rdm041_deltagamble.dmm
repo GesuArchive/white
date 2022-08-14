@@ -44,26 +44,22 @@
 /obj/structure/sign/poster/contraband/random{
 	pixel_x = 32
 	},
-/turf/open/floor/wood{
-	icon_state = "wood-broken2"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "l" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "m" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken2"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "n" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood{
-	icon_state = "wood-broken5"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "o" = (
 /obj/machinery/computer/slot_machine,
@@ -71,9 +67,8 @@
 /obj/structure/sign/poster/contraband/random{
 	pixel_x = 32
 	},
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "Z" = (
 /obj/structure/table/wood,

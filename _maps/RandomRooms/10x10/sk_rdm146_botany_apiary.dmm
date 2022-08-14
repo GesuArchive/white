@@ -64,14 +64,12 @@
 /area/template_noop)
 "n" = (
 /obj/effect/spawner/structure/window,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "o" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "q" = (
 /obj/structure/water_source/puddle,
@@ -90,9 +88,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "v" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "x" = (
 /obj/effect/landmark/event_spawn,

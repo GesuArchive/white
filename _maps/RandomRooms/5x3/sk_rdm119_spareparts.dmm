@@ -29,9 +29,8 @@
 	icon_state = "tube-broken"
 	},
 /obj/item/stock_parts/cell/hyper,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "e" = (
 /obj/structure/table,
@@ -44,9 +43,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "g" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "h" = (
 /obj/structure/rack,

@@ -3105,6 +3105,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/delivery,
+/obj/effect/mapping_helpers/trapdoor_placer,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/west)
 "ih" = (
@@ -3260,6 +3261,7 @@
 /area/hallway/primary/central/west)
 "ix" = (
 /obj/effect/turf_decal/bot,
+/obj/effect/mapping_helpers/trapdoor_placer,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/west)
 "iy" = (
@@ -3377,6 +3379,7 @@
 "iO" = (
 /obj/effect/landmark/event_spawn,
 /obj/effect/turf_decal/bot,
+/obj/effect/mapping_helpers/trapdoor_placer,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/west)
 "iP" = (
@@ -3583,6 +3586,10 @@
 	},
 /obj/item/pen,
 /obj/item/stamp/hop,
+/obj/item/trapdoor_remote{
+	pixel_x = 9;
+	pixel_y = 4
+	},
 /turf/open/floor/plasteel/monofloor,
 /area/command/heads_quarters/hop)
 "jq" = (
@@ -3699,6 +3706,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/bot,
+/obj/effect/mapping_helpers/trapdoor_placer,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/west)
 "jE" = (

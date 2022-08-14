@@ -28,9 +28,8 @@
 /turf/open/floor/plasteel,
 /area/engineering/gravity_generator)
 "bl" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/engineering/gravity_generator)
 "bo" = (
 /obj/machinery/light/small{
@@ -46,9 +45,8 @@
 /turf/open/floor/plasteel,
 /area/engineering/gravity_generator)
 "bx" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/engineering/gravity_generator)
 "bA" = (
 /obj/effect/turf_decal/bot_white/left,
@@ -71,9 +69,8 @@
 /area/hallway/secondary/entry)
 "bW" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/engineering/gravity_generator)
 "bY" = (
 /turf/open/floor/plasteel,
@@ -679,9 +676,8 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/science/research)
 "jC" = (
 /obj/structure/closet/emcloset/anchored,
@@ -1546,9 +1542,8 @@
 /area/science/research)
 "ta" = (
 /obj/structure/closet/supplypod,
-/turf/open/floor/plasteel/airless{
-	icon_state = "damaged5"
-	},
+/turf/open/floor/plasteel/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/mine/unexplored)
 "ti" = (
 /obj/structure/table,
@@ -1818,9 +1813,8 @@
 	pixel_y = -10;
 	stored_files = list(/datum/computer_file/program/contract_uplink)
 	},
-/turf/open/floor/plasteel/airless{
-	icon_state = "damaged5"
-	},
+/turf/open/floor/plasteel/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/mine/unexplored)
 "xP" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -1986,9 +1980,8 @@
 /turf/open/floor/plating,
 /area/mine/lobby)
 "AN" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/science/research)
 "AS" = (
 /obj/structure/table/reinforced,
@@ -2121,9 +2114,8 @@
 /turf/open/floor/plating/airless,
 /area/mine/unexplored)
 "Cc" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/science/research)
 "Cj" = (
 /obj/structure/cable,
@@ -2314,9 +2306,8 @@
 /obj/effect/turf_decal/sand/plating,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/science/research)
 "EA" = (
 /obj/machinery/chem_master,
@@ -2627,9 +2618,8 @@
 /turf/open/floor/plating/asteroid/airless,
 /area/mine/lobby)
 "Ic" = (
-/turf/open/floor/plasteel/airless{
-	icon_state = "damaged3"
-	},
+/turf/open/floor/plasteel/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/mine/unexplored)
 "Ih" = (
 /obj/structure/window/reinforced/spawner,
@@ -2802,9 +2792,8 @@
 /turf/open/floor/plasteel,
 /area/cargo/storage)
 "Js" = (
-/turf/open/floor/plasteel/airless{
-	icon_state = "damaged5"
-	},
+/turf/open/floor/plasteel/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/mine/unexplored)
 "Jy" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
@@ -3294,9 +3283,8 @@
 	},
 /area/engineering/gravity_generator)
 "Ql" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/mine/unexplored)
 "Qr" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector{

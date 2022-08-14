@@ -16943,9 +16943,8 @@
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "mdr" = (
-/turf/open/floor/plating/airless{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/maintenance/fore)
 "mdw" = (
 /obj/structure/cable,
@@ -20072,9 +20071,8 @@
 /obj/structure/shuttle/engine/huge{
 	dir = 1
 	},
-/turf/open/floor/plating/airless{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating/airless,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/maintenance/fore)
 "osW" = (
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible{

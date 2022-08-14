@@ -76,9 +76,8 @@
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "j" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "k" = (
 /obj/structure/chair/office/light,
@@ -87,9 +86,8 @@
 "l" = (
 /obj/structure/table,
 /obj/item/pen,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "m" = (
 /obj/structure/chair/office/light{
@@ -115,9 +113,8 @@
 "q" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "r" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -221,9 +218,8 @@
 /obj/structure/chair/office/light{
 	dir = 8
 	},
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "F" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -234,9 +230,8 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "H" = (
 /obj/machinery/light/built,

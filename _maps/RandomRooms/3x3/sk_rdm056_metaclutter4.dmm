@@ -13,9 +13,8 @@
 /area/template_noop)
 "e" = (
 /obj/item/storage/toolbox/emergency,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "f" = (
 /obj/item/clothing/mask/breath,

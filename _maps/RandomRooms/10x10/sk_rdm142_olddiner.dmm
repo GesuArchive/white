@@ -18,17 +18,15 @@
 /area/template_noop)
 "hL" = (
 /obj/structure/table_frame/wood,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "ig" = (
 /obj/structure/chair/wood{
 	dir = 4
 	},
-/turf/open/floor/wood{
-	icon_state = "wood-broken5"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "iU" = (
 /obj/structure/closet/firecloset/full,
@@ -43,9 +41,8 @@
 /turf/open/floor/wood,
 /area/template_noop)
 "nt" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken5"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "oV" = (
 /obj/machinery/light/small{
@@ -79,9 +76,8 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/template_noop)
 "uB" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "uE" = (
 /obj/structure/closet,
@@ -129,9 +125,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "yH" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "ze" = (
 /turf/open/floor/plating,
@@ -155,9 +150,8 @@
 /obj/structure/sign/poster/contraband/random{
 	pixel_x = 32
 	},
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "Bw" = (
 /obj/machinery/light/small{
@@ -171,14 +165,12 @@
 "Dz" = (
 /obj/structure/table_frame/wood,
 /obj/item/stack/sheet/mineral/wood,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "Eg" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "FF" = (
 /obj/structure/sign/warning/nosmoking/circle,
@@ -214,9 +206,8 @@
 /turf/open/floor/carpet,
 /area/template_noop)
 "Ok" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "Os" = (
 /obj/item/chair/wood,
@@ -267,9 +258,8 @@
 /turf/open/floor/carpet/royalblack,
 /area/template_noop)
 "XA" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken7"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "XO" = (
 /obj/structure/closet/crate,

@@ -7,9 +7,8 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/box,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "b" = (
 /obj/effect/decal/cleanable/blood/old,
@@ -19,15 +18,13 @@
 	pixel_y = 28
 	},
 /obj/item/shard,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "c" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "d" = (
 /obj/effect/decal/cleanable/dirt,
@@ -39,9 +36,8 @@
 /obj/item/radio/intercom{
 	pixel_x = 28
 	},
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "f" = (
 /obj/effect/decal/cleanable/dirt,
@@ -49,9 +45,8 @@
 	dir = 4
 	},
 /mob/living/simple_animal/hostile/cat_butcherer,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "h" = (
 /obj/effect/decal/cleanable/dirt,
@@ -59,9 +54,8 @@
 	dir = 8
 	},
 /obj/item/shard,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "i" = (
 /obj/structure/table/optable,
@@ -135,9 +129,8 @@
 	dir = 8
 	},
 /obj/item/circuitboard/computer/operating,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "n" = (
 /obj/effect/decal/cleanable/dirt,
@@ -193,9 +186,8 @@
 "p" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "q" = (
 /obj/effect/decal/cleanable/dirt,
@@ -204,9 +196,8 @@
 	dir = 8
 	},
 /obj/item/shard,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "r" = (
 /obj/effect/decal/cleanable/dirt,
@@ -224,9 +215,8 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 
 (1,1,1) = {"

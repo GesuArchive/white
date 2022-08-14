@@ -29,9 +29,8 @@
 /area/template_noop)
 "c" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "d" = (
 /obj/effect/turf_decal/bot,
@@ -58,9 +57,8 @@
 /area/template_noop)
 "f" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "g" = (
 /obj/effect/decal/cleanable/blood/old,

@@ -209,9 +209,8 @@
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/effect/baseturf_helper/asteroid/snow,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/awaymission/cabin)
 "aF" = (
 /obj/machinery/power/apc{
@@ -269,9 +268,8 @@
 	},
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/awaymission/cabin)
 "aN" = (
 /obj/structure/chair/wood{
@@ -304,9 +302,8 @@
 	name = "geothermal generator"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/awaymission/cabin)
 "aR" = (
 /obj/machinery/door/window/westright{
@@ -930,9 +927,8 @@
 /area/awaymission/cabin)
 "cT" = (
 /obj/vehicle/ridden/atv,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/cabin)
 "cU" = (
 /obj/machinery/light{
@@ -946,15 +942,13 @@
 /area/awaymission/cabin)
 "cW" = (
 /obj/item/shovel,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/cabin)
 "cX" = (
 /obj/structure/reagent_dispensers/fueltank,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/cabin)
 "cY" = (
 /obj/vehicle/ridden/atv{
@@ -1087,9 +1081,8 @@
 "du" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/awaymission/cabin)
 "dv" = (
 /obj/structure{
@@ -1102,9 +1095,8 @@
 	},
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/awaymission/cabin)
 "dw" = (
 /mob/living/simple_animal/hostile/bear/snow{
@@ -1298,9 +1290,8 @@
 /area/awaymission/cabin)
 "ec" = (
 /obj/machinery/light,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/awaymission/cabin)
 "ed" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2812,9 +2803,8 @@
 /obj/item/lightreplacer,
 /obj/item/storage/toolbox/mechanical,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/awaymission/cabin)
 "hx" = (
 /obj/structure/cable,
@@ -3890,29 +3880,24 @@
 	},
 /area/awaymission/cabin/caves)
 "ko" = (
-/turf/open/floor/wood/cold{
-	icon_state = "wood-broken"
-	},
+/turf/open/floor/wood/cold,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/cabin/caves)
 "kp" = (
-/turf/open/floor/wood/cold{
-	icon_state = "wood-broken4"
-	},
+/turf/open/floor/wood/cold,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/cabin/caves)
 "kq" = (
-/turf/open/floor/wood/cold{
-	icon_state = "wood-broken5"
-	},
+/turf/open/floor/wood/cold,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/cabin/caves)
 "kr" = (
-/turf/open/floor/wood/cold{
-	icon_state = "wood-broken3"
-	},
+/turf/open/floor/wood/cold,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/cabin/caves)
 "ks" = (
-/turf/open/floor/wood/cold{
-	icon_state = "wood-broken2"
-	},
+/turf/open/floor/wood/cold,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/cabin/caves)
 "kt" = (
 /obj/structure/barricade/wooden/snowed,
@@ -3923,9 +3908,8 @@
 	},
 /area/awaymission/cabin/caves)
 "ku" = (
-/turf/open/floor/wood/cold{
-	icon_state = "wood-broken7"
-	},
+/turf/open/floor/wood/cold,
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/cabin/caves)
 "kv" = (
 /obj/structure/barricade/wooden/snowed,

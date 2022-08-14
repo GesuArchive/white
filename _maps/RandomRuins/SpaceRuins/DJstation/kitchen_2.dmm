@@ -9,21 +9,18 @@
 /area/space/nearstation)
 "h" = (
 /obj/structure/girder,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/space/djstation)
 "k" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/space/djstation)
 "o" = (
 /obj/structure/table_frame,
 /obj/machinery/light/broken/directional/east,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/ruin/space/djstation)
 "B" = (
 /obj/structure/lattice,
@@ -64,24 +61,21 @@
 /turf/template_noop,
 /area/template_noop)
 "S" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/space/djstation)
 "V" = (
 /obj/structure/lattice,
 /turf/template_noop,
 /area/space/nearstation)
 "W" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/space/djstation)
 "X" = (
 /obj/structure/girder,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/ruin/space/djstation)
 
 (1,1,1) = {"

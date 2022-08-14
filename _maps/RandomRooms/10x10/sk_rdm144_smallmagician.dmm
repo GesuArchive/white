@@ -147,9 +147,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "yn" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "CR" = (
 /obj/structure/chair/sofa/right,
@@ -175,9 +174,8 @@
 "FD" = (
 /obj/structure/table_frame/wood,
 /obj/item/stack/sheet/mineral/wood,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "Gx" = (
 /obj/structure/grille,
@@ -212,15 +210,13 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "Me" = (
 /obj/structure/grille/broken,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "Mw" = (
 /obj/effect/landmark/event_spawn,
@@ -237,9 +233,8 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "PX" = (
 /obj/effect/decal/cleanable/blood/old,

@@ -51,9 +51,8 @@
 "g" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/vomit/old,
-/turf/open/floor/wood{
-	icon_state = "wood-broken3"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "h" = (
 /turf/open/floor/plating,
@@ -66,9 +65,8 @@
 "j" = (
 /obj/structure/table/wood/poker,
 /obj/effect/spawner/lootdrop/maintenance,
-/turf/open/floor/wood{
-	icon_state = "wood-broken5"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "k" = (
 /obj/structure/table/wood/poker,
@@ -90,9 +88,8 @@
 /area/template_noop)
 "n" = (
 /obj/structure/chair/stool/bar,
-/turf/open/floor/wood{
-	icon_state = "wood-broken"
-	},
+/turf/open/floor/wood,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "o" = (
 /obj/structure/chair/stool/bar,

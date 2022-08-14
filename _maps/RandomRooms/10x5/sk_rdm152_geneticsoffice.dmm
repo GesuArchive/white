@@ -39,9 +39,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "q" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "r" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -183,9 +182,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "T" = (
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "V" = (
 /obj/effect/landmark/event_spawn,
@@ -198,9 +196,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "X" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 
 (1,1,1) = {"

@@ -1,8 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "b" = (
-/turf/open/floor/plasteel/airless{
-	icon_state = "damaged3"
-	},
+/turf/open/floor/plasteel/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/unpowered)
 "c" = (
 /obj/structure/table,
@@ -51,9 +50,8 @@
 /turf/template_noop,
 /area/template_noop)
 "T" = (
-/turf/open/floor/plasteel/airless{
-	icon_state = "damaged2"
-	},
+/turf/open/floor/plasteel/airless,
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/unpowered)
 "X" = (
 /turf/open/floor/plating/airless,

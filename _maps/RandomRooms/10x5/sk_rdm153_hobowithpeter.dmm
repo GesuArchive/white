@@ -3,9 +3,8 @@
 /obj/structure/rack,
 /obj/item/storage/toolbox/mechanical,
 /obj/effect/spawner/lootdrop/maintenance/two,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "c" = (
 /obj/structure/window/reinforced/spawner,
@@ -21,9 +20,8 @@
 /area/template_noop)
 "h" = (
 /obj/effect/spawner/lootdrop/grille_or_trash,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "j" = (
 /obj/item/trash/plate,
@@ -38,9 +36,8 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "n" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "q" = (
 /obj/structure/chair/office{
@@ -99,14 +96,12 @@
 /area/template_noop)
 "C" = (
 /obj/effect/spawner/lootdrop/maintenance/two,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "D" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg2"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "E" = (
 /obj/item/trash/can{
@@ -143,9 +138,8 @@
 /area/template_noop)
 "K" = (
 /obj/structure/grille/broken,
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "L" = (
 /obj/structure/bed,
@@ -197,9 +191,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "Y" = (
-/turf/open/floor/plating{
-	icon_state = "platingdmg3"
-	},
+/turf/open/floor/plating,
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "Z" = (
 /turf/open/floor/plasteel,
