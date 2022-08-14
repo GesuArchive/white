@@ -1,6 +1,7 @@
 /datum/component/soundplayer
 	var/atom/movable/sound_source_override
 
+	var/sound_version = 1
 	var/sound/current_player_sound
 	var/active = FALSE
 	var/playing_range = 21
@@ -78,6 +79,7 @@
 		current_player_sound = sound(newsound)
 	else
 		current_player_sound = newsound
+	sound_version++
 	current_player_sound.wait = 0
 	current_player_sound.volume = 0
 	update_sounds()
@@ -93,6 +95,7 @@
 /datum/component/soundplayer_listener
 	dupe_mode = COMPONENT_DUPE_ALLOWED
 	var/mob/mob_listener
+	var/sound_version = 0
 	var/sound/current_listener_sound
 	var/datum/component/soundplayer/myplayer
 
@@ -140,7 +143,8 @@
 		qdel(src)
 		return
 
-	if(!current_listener_sound != myplayer.current_player_sound)
+	if(!current_listener_sound || sound_version != myplayer.sound_version)
+		sound_version = myplayer.sound_version
 		current_listener_sound = myplayer.current_player_sound
 		current_listener_sound.status = 0
 		current_listener_sound.volume = 0
