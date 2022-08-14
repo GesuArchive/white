@@ -267,7 +267,7 @@
 /// Generates an icon to be used for the suit's worn overlays
 /obj/item/mod/module/proc/generate_worn_overlay(mutable_appearance/standing)
 	. = list()
-	if(!mod.active)
+	if(!mod.active || !standing)
 		return
 	var/used_overlay
 	if(overlay_state_use && !COOLDOWN_FINISHED(src, cooldown_timer))

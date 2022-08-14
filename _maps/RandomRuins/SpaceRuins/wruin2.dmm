@@ -3779,6 +3779,11 @@
 /obj/structure/flora/ausbushes/leafybush,
 /turf/open/floor/grass,
 /area/ruin/space/has_grav/austation/vault)
+"hQ" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/austation/vault)
 "hr" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "rdxeno";
