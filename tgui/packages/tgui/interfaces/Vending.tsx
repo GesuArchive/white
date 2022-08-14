@@ -188,7 +188,7 @@ const ProductDisplay = (
         !!onstation &&
         user && (
           <Box fontSize="16px" color="green">
-            {(user && user.cash) || 0} cr <Icon name="coins" color="gold" />
+            {(user && user.cash) || 0} кр <Icon name="coins" color="gold" />
           </Box>
         )
       }>
