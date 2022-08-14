@@ -1,7 +1,7 @@
 /obj/machinery/cell_charger
 	name = "зарядник батарей"
 	desc = "Заряжает аккумуляторные батареи, не подходит для вооружения."
-	icon = 'white/valtos/icons/power.dmi'
+	icon = 'icons/obj/cell.dmi'
 	icon_state = "ccharger"
 	power_channel = AREA_USAGE_EQUIP
 	circuit = /obj/item/circuitboard/machine/cell_charger

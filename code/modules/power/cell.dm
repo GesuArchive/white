@@ -5,7 +5,7 @@
 /obj/item/stock_parts/cell
 	name = "базовая батарея"
 	desc = "Перезаряжаемый электрохимический элемент питания, вмещающий 1 МДж энергии."
-	icon = 'white/valtos/icons/power.dmi'
+	icon = 'icons/obj/cell.dmi'
 	icon_state = "cell"
 	inhand_icon_state = "cell"
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
@@ -28,6 +28,7 @@
 	var/ratingdesc = TRUE
 	/// If it's a grown that acts as a battery, add a wire overlay to it.
 	var/grown_battery = FALSE
+	var/charging_icon = "cell_in"
 
 /obj/item/stock_parts/cell/get_cell()
 	return src
@@ -66,18 +67,18 @@
 		return
 
 	if(!icon_file)
-		icon_file = 'white/valtos/icons/power.dmi'
+		icon_file = 'icons/obj/cell.dmi'
 
 	if(grown_battery)
-		. += mutable_appearance(icon_file, "grown_wires")
-
-	if(charge/maxcharge < lower_charge_percent)
+		. += mutable_appearance('icons/obj/power.dmi', "grown_wires")
+	if((charge < 0.01))
 		return
-
-	if(charge/maxcharge >= upper_charge_percent)
-		. += mutable_appearance(icon_file, "cell-o2")
+	var/icon_link
+	if(!grown_battery)
+		icon_link = 'icons/obj/cell.dmi'
 	else
-		. += mutable_appearance(icon_file, "cell-o1")
+		icon_link = 'icons/obj/power.dmi'
+	. += mutable_appearance(icon_link, "cell-o[(percent() >= 99.5) ? 2 : 1]")
 
 /obj/item/stock_parts/cell/proc/percent()		// return % charge of cell
 	return 100*charge/maxcharge
@@ -273,6 +274,7 @@
 	name = "батарея увеличенной емкости"
 	desc = "Перезаряжаемый электрохимический элемент питания, вмещающий 10 МДж энергии."
 	icon_state = "hcell"
+	charging_icon = "hcell_in"
 	maxcharge = 10000
 	custom_materials = list(/datum/material/glass=60)
 	chargerate = 1500
@@ -294,6 +296,7 @@
 	name = "батарея сверхувеличенной емкости"
 	desc = "Усовершенстованный перезаряжаемый электрохимический элемент питания, вмещающий 20 МДж энергии."
 	icon_state = "scell"
+	charging_icon = "scell_in"
 	maxcharge = 20000
 	custom_materials = list(/datum/material/glass=300)
 	chargerate = 2000
@@ -308,6 +311,7 @@
 	name = "батарея гиперувеличенной емкости"
 	desc = "Усовершенстованный перезаряжаемый электрохимический элемент питания, вмещающий 30 МДж энергии."
 	icon_state = "hpcell"
+	charging_icon = "hpcell_in"
 	maxcharge = 30000
 	custom_materials = list(/datum/material/glass=400)
 	chargerate = 3000
@@ -322,6 +326,7 @@
 	name = "блюспейс батарея"
 	desc = "Экспериментальный перезаряжаемый межпространственный элемент питания, вмещающий 40 МДж энергии."
 	icon_state = "bscell"
+	charging_icon = "bscell_in"
 	maxcharge = 40000
 	custom_materials = list(/datum/material/glass=600)
 	chargerate = 4000
@@ -335,6 +340,7 @@
 /obj/item/stock_parts/cell/infinite
 	name = "infinite-capacity power cell!"
 	icon_state = "icell"
+	charging_icon = "icell_in"
 	maxcharge = 30000
 	custom_materials = list(/datum/material/glass=1000)
 	rating = 100
@@ -360,6 +366,7 @@
 	desc = "Перезаряжаемый энергетический элемент на основе крахмала."
 	icon = 'icons/obj/hydroponics/harvest.dmi'
 	icon_state = "potato"
+	charging_icon = "potato_in"
 	charge = 100
 	maxcharge = 300
 	custom_materials = null
