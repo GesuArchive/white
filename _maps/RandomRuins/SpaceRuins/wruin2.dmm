@@ -4030,7 +4030,6 @@
 	name = "большой брат ванечки"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plasteel/elevatorshaft,
 /area/ruin/space/has_grav/austation/vault)
 "hR" = (
 /obj/structure/window/reinforced/spawner,
