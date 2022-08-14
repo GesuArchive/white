@@ -24,8 +24,6 @@
 	var/mask_type = null
 	/// What type of MOD the unit starts with when spawned.
 	var/mod_type = null
-	/// What type of MOD the unit starts with when spawned.
-	var/mod_type = null
 	/// What type of additional item the unit starts with when spawned.
 	var/storage_type = null
 
@@ -78,7 +76,7 @@
 	mod_type = /obj/item/mod/control/pre_equipped/magnate
 
 /obj/machinery/suit_storage_unit/centcom
-	mask_type = /obj/item/clothing/mask/gas/atmos/centcom
+	mask_type = /obj/item/clothing/mask/gas/atmos/captain
 	storage_type = /obj/item/tank/jetpack/oxygen/captain
 	mod_type = /obj/item/mod/control/pre_equipped/corporate
 

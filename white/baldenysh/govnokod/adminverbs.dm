@@ -6,11 +6,11 @@
 		return
 
 	var/list/listoflists = list(
-								"плохие слова" = list(GLOB.bad_words, "cfg/autoeban/bad_words.fackuobema"),
-								"исключ. (начало)" =  list(GLOB.exc_start, "cfg/autoeban/exc_start.fackuobema"),
-								"исключ. (конец)" =  list(GLOB.exc_end, "cfg/autoeban/exc_end.fackuobema"),
-								"исключ. (целое)" = list(GLOB.exc_full, "cfg/autoeban/exc_full.fackuobema")
-								)
+		"плохие слова" = list(GLOB.bad_words, "cfg/autoeban/bad_words.fackuobema"),
+		"исключ. (начало)" =  list(GLOB.exc_start, "cfg/autoeban/exc_start.fackuobema"),
+		"исключ. (конец)" =  list(GLOB.exc_end, "cfg/autoeban/exc_end.fackuobema"),
+		"исключ. (целое)" = list(GLOB.exc_full, "cfg/autoeban/exc_full.fackuobema")
+	)
 
 	var/selected = tgui_input_list(usr, "Main Menu", "Manage autoeban", listoflists)
 	if(!islist(listoflists[selected]))

@@ -253,13 +253,15 @@
 			break_counter++
 		output += "</div></div>"
 		//standard departments all have identical handling
-		var/list/job_lists = list("Security" = GLOB.security_positions,
-							"Engineering" = GLOB.engineering_positions,
-							"Medical" = GLOB.medical_positions,
-							"Science" = GLOB.science_positions,
-							"Supply" = GLOB.supply_positions,
-							"Service" = GLOB.service_positions,
-							"Scum" = GLOB.scum_positions)
+		var/list/job_lists = list(
+			"Security" = GLOB.security_positions,
+			"Engineering" = GLOB.engineering_positions,
+			"Medical" = GLOB.medical_positions,
+			"Science" = GLOB.science_positions,
+			"Supply" = GLOB.supply_positions,
+			"Service" = GLOB.service_positions,
+			"Scum" = GLOB.scum_positions
+		)
 		for(var/department in job_lists)
 			//the first element is the department head so they need the same javascript call as above
 			output += "<div class='column'><label class='rolegroup [ckey(department)]'><input type='checkbox' name='[department]' class='hidden' [usr.client.prefs.tgui_fancy ? " onClick='toggle_checkboxes(this, \"_com\")'" : ""]>[department]</label><div class='content'>"
@@ -278,8 +280,10 @@
 				break_counter++
 			output += "</div></div>"
 		//departments/groups that don't have command staff would throw a javascript error since there's no corresponding reference for toggle_head()
-		var/list/headless_job_lists = list("Silicon" = GLOB.nonhuman_positions,
-										"Abstract" = list("Appearance", "Emote", "Deadchat", "OOC", "Urgent Adminhelp"))
+		var/list/headless_job_lists = list(
+			"Silicon" = GLOB.nonhuman_positions,
+			"Abstract" = list("Appearance", "Emote", "Deadchat", "OOC", "Urgent Adminhelp")
+		)
 		for(var/department in headless_job_lists)
 			output += "<div class='column'><label class='rolegroup [ckey(department)]'><input type='checkbox' name='[department]' class='hidden' [usr.client.prefs.tgui_fancy ? " onClick='toggle_checkboxes(this, \"_com\")'" : ""]>[department]</label><div class='content'>"
 			break_counter = 0

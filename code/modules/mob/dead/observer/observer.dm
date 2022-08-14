@@ -439,11 +439,35 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(src, span_notice("Больше не будешь изучать то, на что нажимаю."))
 	SSblackbox.record_feedback("nested tally", "preferences_verb", 1, list("Toggle Ghost Inquisitiveness", "[client.prefs.inquisitive_ghost ? "Enabled" : "Disabled"]"))
 
-GLOBAL_LIST_INIT(ghost_forms, sort_list(list("ghost","ghostking","ghostian2","skeleghost","ghost_red","ghost_black", \
-							"ghost_blue","ghost_yellow","ghost_green","ghost_pink", \
-							"ghost_cyan","ghost_dblue","ghost_dred","ghost_dgreen", \
-							"ghost_dcyan","ghost_grey","ghost_dyellow","ghost_dpink", "ghost_purpleswirl","ghost_funkypurp","ghost_pinksherbert","ghost_blazeit",\
-							"ghost_mellow","ghost_rainbow","ghost_camo","ghost_fire", "catghost")))
+GLOBAL_LIST_INIT(ghost_forms, sort_list(list(
+	"ghost",
+	"ghostking",
+	"ghostian2",
+	"skeleghost",
+	"ghost_red",
+	"ghost_black",
+	"ghost_blue",
+	"ghost_yellow",
+	"ghost_green",
+	"ghost_pink",
+	"ghost_cyan",
+	"ghost_dblue",
+	"ghost_dred",
+	"ghost_dgreen",
+	"ghost_dcyan",
+	"ghost_grey",
+	"ghost_dyellow",
+	"ghost_dpink",
+	"ghost_purpleswirl",
+	"ghost_funkypurp",
+	"ghost_pinksherbert",
+	"ghost_blazeit",
+	"ghost_mellow",
+	"ghost_rainbow",
+	"ghost_camo",
+	"ghost_fire",
+	"catghost"
+)))
 
 /mob/dead/observer/proc/pick_form()
 	var/new_form = tgui_input_list(src, "Choose your ghostly form:", "Thanks for supporting BYOND", GLOB.ghost_forms)

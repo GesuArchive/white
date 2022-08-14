@@ -95,7 +95,7 @@
 	var/mob/living/carbon/human/H = quirk_holder
 	var/obj/item/storage/daki/P = new(get_turf(H))
 	var/list/slots = list(
-						"backpack" = ITEM_SLOT_BACKPACK,
-						"hands" = ITEM_SLOT_HANDS,
-						)
+		"backpack" = ITEM_SLOT_BACKPACK,
+		"hands" = ITEM_SLOT_HANDS,
+	)
 	H.equip_in_one_of_slots(P, slots, qdel_on_fail = FALSE)

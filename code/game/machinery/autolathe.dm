@@ -32,17 +32,17 @@
 	var/hacked_price = 50
 
 	var/list/categories = list(
-							"Инструменты",
-							"Электроника",
-							"Конструкции",
-							"Телекомы",
-							"Безопасность",
-							"Оборудование",
-							"Медицина",
-							"Разное",
-							"Кухня",
-							"Импорт"
-							)
+		"Инструменты",
+		"Электроника",
+		"Конструкции",
+		"Телекомы",
+		"Безопасность",
+		"Оборудование",
+		"Медицина",
+		"Разное",
+		"Кухня",
+		"Импорт"
+	)
 
 /obj/machinery/autolathe/Initialize(mapload)
 	AddComponent(/datum/component/material_container, SSmaterials.materials_by_category[MAT_CATEGORY_ITEM_MATERIAL], 0, MATCONTAINER_EXAMINE, _after_insert = CALLBACK(src, .proc/AfterMaterialInsert))

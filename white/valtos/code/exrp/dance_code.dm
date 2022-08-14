@@ -27,10 +27,12 @@
 		switch(target_dancise)
 			if(DANCE_TARGET_MOUTH)
 				if(!partner.wear_mask)
-					message = pick("сметанит прямо в рот [partner]","спустил на язычок [partner]",\
-									"брызгает сметанкой в рот [partner]","заполняет рот [partner] сметанкой",\
-									"обильно сметанит в рот [partner], так, что стекает изо рта",\
-									"выпускает в ротик [partner] порцию густого молочка")
+					message = pick(
+						"сметанит прямо в рот [partner]","спустил на язычок [partner]",
+						"брызгает сметанкой в рот [partner]","заполняет рот [partner] сметанкой",
+						"обильно сметанит в рот [partner], так, что стекает изо рта",
+						"выпускает в ротик [partner] порцию густого молочка",
+					)
 					partner.reagents.add_reagent(/datum/reagent/consumable/nutriment/protein/semen, 100)
 				else
 					message = "сметанит на лицо [partner]"
@@ -72,11 +74,13 @@
 		dancing_tolerance += 50
 
 	else
-		message = pick("прикрывает глаза и мелко дрожит",\
-						"дёргается в удовлетворении",\
-						"замирает, закатив глаза",\
-						"содрогается, а затем резко расслабляется",\
-						"извивается в приступе сытости")
+		message = pick(
+			"прикрывает глаза и мелко дрожит",
+			"дёргается в удовлетворении",
+			"замирает, закатив глаза",
+			"содрогается, а затем резко расслабляется",
+			"извивается в приступе сытости",
+		)
 		dancing -= pick(50, 55, 80, 125)
 
 	if(gender == MALE)
@@ -176,8 +180,10 @@
 				if(gender == FEMALE)
 					message = "елозит своим пельмешком по лицу [partner]"
 				else if(gender == MALE)
-					message = pick("грубо исследует [partner] в рот",\
-									"сильно прижимает голову [partner] к себе")
+					message = pick(
+						"грубо исследует [partner] в рот",
+						"сильно прижимает голову [partner] к себе",
+					)
 			else
 				if(gender == FEMALE)
 					message = "пихает [partner] лицом в свой пельмешек"
@@ -196,7 +202,10 @@
 			dancing_which = ACTOR_DANCER
 			sound_to_play = "white/valtos/sounds/exrp/interactions/oral[rand(1, 2)].ogg"
 			if(is_dancing(partner, DANCE_TARGET_THROAT))
-				message = pick(list("невероятно сильно ловит клёв в проруби [partner]", "топит карпика в проруби [partner]"))
+				message = pick(
+					"невероятно сильно ловит клёв в проруби [partner]",
+					"топит карпика в проруби [partner]",
+				)
 				if(rand(3) == 1) // 33%
 					partner.manual_emote("задыхается в захвате [src]")
 					if(iscarbon(partner))
@@ -213,10 +222,12 @@
 			dancing_target = DANCE_TARGET_DANCOR
 			sound_to_play = "white/valtos/sounds/exrp/interactions/dance[rand(1, 3)].ogg"
 			if(is_dancing(partner, DANCE_TARGET_DANCOR))
-				message = pick("исследует [partner] в шоколадницу",\
-								"нежно исследует пещеру [partner]",\
-								"всаживает стан-батон в шоколадницу [partner] по самые гренки",\
-								"заходит в шоколадную фабрику [partner]")
+				message = pick(
+					"исследует [partner] в шоколадницу",
+					"нежно исследует пещеру [partner]",
+					"всаживает стан-батон в шоколадницу [partner] по самые гренки",
+					"заходит в шоколадную фабрику [partner]",
+				)
 			else
 				message = "безжалостно прорывает шоколадницу [partner]"
 				set_is_dancing(partner, DANCE_TARGET_DANCOR)
@@ -256,18 +267,22 @@
 			dancing_target = null
 			dancing_which = VICTIM_DANCER
 			sound_to_play = "white/valtos/sounds/exrp/interactions/champ_fingering.ogg"
-			message = pick(list("анализирует пельмешек [partner]", \
-								"измеряет глубину пельмешка [partner]", \
-								"проверяет на прочность пельмешек [partner]"))
+			message = pick(
+				"анализирует пельмешек [partner]",
+				"измеряет глубину пельмешка [partner]",
+				"проверяет на прочность пельмешек [partner]",
+			)
 
 		if ("do_fingerdance")
 			dancing_increase = 10
 			dancing_target = null
 			dancing_which = VICTIM_DANCER
 			sound_to_play = "white/valtos/sounds/exrp/interactions/champ_fingering.ogg"
-			message = pick(list("анализирует шоколадницу [partner]", \
-								"измеряет глубину скважины [partner]", \
-								"проверяет на прочность задний привод [partner]"))
+			message = pick(
+				"анализирует шоколадницу [partner]",
+				"измеряет глубину скважины [partner]",
+				"проверяет на прочность задний привод [partner]",
+			)
 
 		if ("do_rimdance")
 			dancing_increase = 10
@@ -282,9 +297,11 @@
 			dancing_which = VICTIM_DANCER
 			sound_to_play = "white/valtos/sounds/exrp/interactions/bang[rand(1, 3)].ogg"
 			if(partner.is_dancing(src, DANCE_TARGET_HAND))
-				message = pick(list("шакалит [partner]", \
-									"работает рукой с головкой стан-батона [partner]", \
-									"включает и выключает стан-батон [partner] быстрее"))
+				message = pick(
+					"шакалит [partner]",
+					"работает рукой с головкой стан-батона [partner]",
+					"включает и выключает стан-батон [partner] быстрее",
+				)
 			else
 				message = "нежно обхватывает стан-батон [partner] рукой"
 				partner.set_is_dancing(src, DANCE_TARGET_HAND)
@@ -295,8 +312,10 @@
 			dancing_which = ACTOR_DANCER
 			sound_to_play = "white/valtos/sounds/exrp/interactions/dance[rand(1, 3)].ogg"
 			if(is_dancing(partner, DANCE_TARGET_CHEST))
-				message = pick(list("исследует [partner] между горок", \
-									"прокатывается у [partner] между горок"))
+				message = pick(
+					"исследует [partner] между горок",
+					"прокатывается у [partner] между горок",
+				)
 			else
 				message = "взял горки [partner] рукой и включает/выключает ими свой стан-батон"
 				set_is_dancing(partner , DANCE_TARGET_CHEST)
@@ -307,11 +326,15 @@
 			dancing_which = ACTOR_DANCER
 			sound_to_play = "white/valtos/sounds/exrp/interactions/squelch[rand(1, 3)].ogg"
 			if(is_dancing(partner, DANCING_FACE_WITH_DANCOR))
-				message = pick(list("кормит булочками [partner]", \
-									"даёт покушать булочек [partner]"))
+				message = pick(
+					"кормит булочками [partner]",
+					"даёт покушать булочек [partner]",
+				)
 			else
-				message = pick(list("видит, что [partner] голоден и срочно принимается кормить булочками его", \
-									"хочет накормить [partner] булочками"))
+				message = pick(
+					"видит, что [partner] голоден и срочно принимается кормить булочками его",
+					"хочет накормить [partner] булочками",
+				)
 				set_is_dancing(partner , DANCING_FACE_WITH_DANCOR)
 
 		if ("do_danceface")
@@ -320,13 +343,17 @@
 			dancing_which = ACTOR_DANCER
 			sound_to_play = "white/valtos/sounds/exrp/interactions/foot_dry[rand(1, 4)].ogg"
 			if(src.get_item_by_slot(ITEM_SLOT_FEET) != null)
-				message = pick(list("поставил [get_shoes()] подошвой на лицо [partner]", \
-									"опускает свои [get_shoes()] на лицо [partner] и надавливает ими", \
-									"грубо давит [get_shoes()] на лицо [partner]"))
+				message = pick(
+					"поставил [get_shoes()] подошвой на лицо [partner]",
+					"опускает свои [get_shoes()] на лицо [partner] и надавливает ими",
+					"грубо давит [get_shoes()] на лицо [partner]",
+				)
 			else
-				message = pick(list("ставит свои оголённые ноги на лицо [partner]", \
-									"опускает свои массивные ступни на лицо [partner], и мнёт ими его", \
-									"выставляет ноги на лицо [partner]"))
+				message = pick(
+					"ставит свои оголённые ноги на лицо [partner]",
+					"опускает свои массивные ступни на лицо [partner], и мнёт ими его",
+					"выставляет ноги на лицо [partner]",
+				)
 			set_is_dancing(partner , DANCING_FACE_WITH_FEET)
 
 		if ("do_dancemouth")
@@ -335,12 +362,16 @@
 			dancing_which = ACTOR_DANCER
 			sound_to_play = "white/valtos/sounds/exrp/interactions/foot_wet[rand(1, 3)].ogg"
 			if(src.get_item_by_slot(ITEM_SLOT_FEET) != null)
-				message = pick(list("заставляет [partner] попробовать [get_shoes()]", \
-									"даёт слизать грязь с [get_shoes()] [partner]"))
+				message = pick(
+					"заставляет [partner] попробовать [get_shoes()]",
+					"даёт слизать грязь с [get_shoes()] [partner]",
+				)
 			else
-				message = pick(list("принуждает [partner] попробовать свой грязный палец на ноге", \
-									"предлагает [partner] вкусить ступню", \
-									"прикрывает рот и нос [partner] ступнёй, затем ждёт пока [partner] отключится и резко отпускает ступню"))
+				message = pick(
+					"принуждает [partner] попробовать свой грязный палец на ноге",
+					"предлагает [partner] вкусить ступню",
+					"прикрывает рот и нос [partner] ступнёй, затем ждёт пока [partner] отключится и резко отпускает ступню",
+				)
 			set_is_dancing(partner , DANCING_MOUTH_WITH_FEET)
 
 		if ("do_eggs")
@@ -349,33 +380,43 @@
 			dancing_which = ACTOR_DANCER
 			sound_to_play = "white/valtos/sounds/exrp/interactions/nuts[rand(1, 4)].ogg"
 			if(is_dancing(partner, DANCE_TO_FACE))
-				message = pick(list("хватает [partner] за голову и принуждает вкусить яишницы", \
-									"умоляет [partner] попробовать ещё больше божественной яишенки", \
-									"нещадно принимается кормить [partner] яишницей", \
-									"вытаскивает всё то, что [partner] не скушал и ждёт пока тот проглотит остатки"))
+				message = pick(
+					"хватает [partner] за голову и принуждает вкусить яишницы",
+					"умоляет [partner] попробовать ещё больше божественной яишенки",
+					"нещадно принимается кормить [partner] яишницей",
+					"вытаскивает всё то, что [partner] не скушал и ждёт пока тот проглотит остатки",
+				)
 			else
-				message = pick(list("видит, что [partner] очень голоден и спешит накормить его яишницей", \
-									"стоит в сантиметре от лица [partner] держа в руках омлетик, затем резко впихивает в рот [partner] благословлённый омлетик"))
+				message = pick(
+					"видит, что [partner] очень голоден и спешит накормить его яишницей",
+					"стоит в сантиметре от лица [partner] держа в руках омлетик, затем резко впихивает в рот [partner] благословлённый омлетик",
+				)
 				set_is_dancing(partner , DANCE_TO_FACE)
 
 		if ("do_thighs")
 			dancing_increase = 10
 			dancing_target = THIGH_DANCE
-			var file = pick(list("bj10", "bj3", "foot_wet1", "foot_dry3"))
+			var file = pick("bj10", "bj3", "foot_wet1", "foot_dry3")
 			sound_to_play = "white/valtos/sounds/exrp/interactions/[file].ogg"
 			if(is_dancing(partner, THIGH_DANCE))
 				if(gender == FEMALE)
-					message = pick(list("берёт в ещё более крепкий захват ногами голову [partner] блокируя его обзор целиком", \
-										"обхватывает голову [partner] ногами принуждая вкусить пельменей"))
+					message = pick(
+						"берёт в ещё более крепкий захват ногами голову [partner] блокируя его обзор целиком",
+						"обхватывает голову [partner] ногами принуждая вкусить пельменей",
+					)
 				else if(gender == MALE)
-					message = pick(list("берёт в ещё более крепкий захват ногами голову [partner] блокируя его обзор целиком", \
-										"обхватывает голову [partner] ногами ещё сильнее и начинает усиленно кормить яишницей", \
-										"вставляет кусок омлетика в беспомощный рот [partner], удерживая его лицо ловким захватом ногой"))
+					message = pick(
+						"берёт в ещё более крепкий захват ногами голову [partner] блокируя его обзор целиком",
+						"обхватывает голову [partner] ногами ещё сильнее и начинает усиленно кормить яишницей",
+						"вставляет кусок омлетика в беспомощный рот [partner], удерживая его лицо ловким захватом ногой",
+					)
 				else
 					message = "захватывает голову [partner] ногами"
 			else
-				message = pick(list("залезает на плечи [partner] и берёт в умелый захват своими ногами", \
-									"хватает голову [partner] ногами"))
+				message = pick(
+					"залезает на плечи [partner] и берёт в умелый захват своими ногами",
+					"хватает голову [partner] ногами",
+				)
 				set_is_dancing(partner , THIGH_DANCE)
 			if(prob(15))
 				partner.adjustOxyLoss(1)

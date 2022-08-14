@@ -104,12 +104,13 @@
 	custom_materials = list(/datum/material/gold = 750)
 	sharpness = SHARP_EDGED
 	resistance_flags = FIRE_PROOF
-	unique_reskin = list("Oak" = "pen-fountain-o",
-						"Gold" = "pen-fountain-g",
-						"Rosewood" = "pen-fountain-r",
-						"Black and Silver" = "pen-fountain-b",
-						"Command Blue" = "pen-fountain-cb"
-						)
+	unique_reskin = list(
+		"Oak" = "pen-fountain-o",
+		"Gold" = "pen-fountain-g",
+		"Rosewood" = "pen-fountain-r",
+		"Black and Silver" = "pen-fountain-b",
+		"Command Blue" = "pen-fountain-cb"
+	)
 	embedding = list("embed_chance" = 75)
 
 /obj/item/pen/fountain/captain/Initialize(mapload)

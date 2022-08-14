@@ -574,11 +574,13 @@
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM //metabolizes to prevent micro-dosage
 	taste_description = "слайм"
 	var/race = /datum/species/human
-	var/list/mutationtexts = list( "You don't feel very well." = MUT_MSG_IMMEDIATE,
-									"Your skin feels a bit abnormal." = MUT_MSG_IMMEDIATE,
-									"Your limbs begin to take on a different shape." = MUT_MSG_EXTENDED,
-									"Your appendages begin morphing." = MUT_MSG_EXTENDED,
-									"You feel as though you're about to change at any moment!" = MUT_MSG_ABOUT2TURN)
+	var/list/mutationtexts = list(
+		"You don't feel very well." = MUT_MSG_IMMEDIATE,
+		"Your skin feels a bit abnormal." = MUT_MSG_IMMEDIATE,
+		"Your limbs begin to take on a different shape." = MUT_MSG_EXTENDED,
+		"Your appendages begin morphing." = MUT_MSG_EXTENDED,
+		"You feel as though you're about to change at any moment!" = MUT_MSG_ABOUT2TURN
+	)
 	var/cycles_to_turn = 20 //the current_cycle threshold / iterations needed before one can transform
 	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 

@@ -165,7 +165,7 @@
 		new /datum/data/vendor_equipment("Diamond Pickaxe",				/obj/item/pickaxe/diamond,											2000),
 		new /datum/data/vendor_equipment("Super Resonator",				/obj/item/resonator/upgraded,										2500),
 		new /datum/data/vendor_equipment("Jump Boots",					/obj/item/clothing/shoes/bhop,										2500),
-		new /datum/data/mining_equipment("Mining MODsuit", 				/obj/item/mod/control/pre_equipped/mining, 							3000),
+		new /datum/data/vendor_equipment("Mining MODsuit", 				/obj/item/mod/control/pre_equipped/mining, 							3000),
 		new /datum/data/vendor_equipment("Luxury Shelter Capsule",		/obj/item/survivalcapsule/luxury,									3000),
 		new /datum/data/vendor_equipment("Super Kinetic Accelerator",	/obj/item/gun/energy/kinetic_accelerator/super_kinetic_accelerator,	4000),
 		new /datum/data/vendor_equipment("Luxury Bar Capsule",			/obj/item/survivalcapsule/luxuryelite,								10000),

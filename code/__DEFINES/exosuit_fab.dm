@@ -32,16 +32,16 @@
 #define EXOSUIT_MODULE_MEDICAL		EXOSUIT_MODULE_ODYSSEUS
 
 /// Module is standard in use
-#define MODULE_GENERAL "General"
+#define MODULE_GENERAL "Основной"
 /// Module is preferred for engineering uses
-#define MODULE_ENGINEERING "Engineering"
+#define MODULE_ENGINEERING "Инженерный"
 /// Module is preferred for medical uses
-#define MODULE_MEDICAL "Medical"
+#define MODULE_MEDICAL "Медицинский"
 /// Module is preferred for science uses
-#define MODULE_SCIENCE "Science"
+#define MODULE_SCIENCE "Научный"
 /// Module is preferred for security uses
-#define MODULE_SECURITY "Security"
+#define MODULE_SECURITY "Охранный"
 /// Module is preferred for supply uses
-#define MODULE_SUPPLY "Supply"
+#define MODULE_SUPPLY "Снабженский"
 /// Module is preferred for service uses
-#define MODULE_SERVICE "Service"
+#define MODULE_SERVICE "Сервисный"

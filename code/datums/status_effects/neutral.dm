@@ -414,7 +414,8 @@
 						"Ik stond op het punt om mehki op tafel te zetten, en nu, waar ben ik?",
 						"Wake the fuck up spaceman we have a gas giant to burn",
 						"This is one hell of a beepsky smash.",
-						"Now neither of us will be virgins!")
+						"Now neither of us will be virgins!"
+					)
 					alt_clone.say(pick(say_phrases))
 				if(2)
 					phase_3_cycle = 0 //counter

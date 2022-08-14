@@ -17,9 +17,9 @@
 	if(H.socks == "Stockings (Programmer)" && H.jumpsuit_style == "Jumpskirt")
 		var/obj/item/integrated_circuit_printer/upgraded/prog/P = new(get_turf(H))
 		var/list/slots = list(
-							"backpack" = ITEM_SLOT_BACKPACK,
-							"hands" = ITEM_SLOT_HANDS,
-							)
+			"backpack" = ITEM_SLOT_BACKPACK,
+			"hands" = ITEM_SLOT_HANDS,
+		)
 		H.equip_in_one_of_slots(P, slots, qdel_on_fail = FALSE)
 	else
 		var/obj/item/integrated_circuit_printer/IC = new(get_turf(H))

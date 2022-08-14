@@ -105,25 +105,55 @@ GLOBAL_LIST_INIT(transit_tube_recipes, list(
 	var/list/dirs
 	switch(dirtype)
 		if(PIPE_STRAIGHT, PIPE_BENDABLE)
-			dirs = list("[NORTH]" = "Vertical", "[EAST]" = "Horizontal")
+			dirs = list(
+				"[NORTH]" = "Vertical",
+				"[EAST]" = "Horizontal"
+			)
 			if(dirtype == PIPE_BENDABLE)
-				dirs += list("[NORTHWEST]" = "West to North", "[NORTHEAST]" = "North to East",
-							"[SOUTHWEST]" = "South to West", "[SOUTHEAST]" = "East to South")
+				dirs += list(
+					"[NORTHWEST]" = "West to North",
+					"[NORTHEAST]" = "North to East",
+					"[SOUTHWEST]" = "South to West",
+					"[SOUTHEAST]" = "East to South"
+				)
 		if(PIPE_TRINARY)
-			dirs = list("[NORTH]" = "West South East", "[SOUTH]" = "East North West",
-						"[EAST]" = "North West South", "[WEST]" = "South East North")
+			dirs = list(
+				"[NORTH]" = "West South East",
+				"[SOUTH]" = "East North West",
+				"[EAST]" = "North West South",
+				"[WEST]" = "South East North"
+			)
 		if(PIPE_TRIN_M)
-			dirs = list("[NORTH]" = "North East South", "[SOUTHWEST]" = "North West South",
-						"[NORTHEAST]" = "South East North", "[SOUTH]" = "South West North",
-						"[WEST]" = "West North East", "[SOUTHEAST]" = "West South East",
-						"[NORTHWEST]" = "East North West", "[EAST]" = "East South West",)
+			dirs = list(
+				"[NORTH]" = "North East South",
+				"[SOUTHWEST]" = "North West South",
+				"[NORTHEAST]" = "South East North",
+				"[SOUTH]" = "South West North",
+				"[WEST]" = "West North East",
+				"[SOUTHEAST]" = "West South East",
+				"[NORTHWEST]" = "East North West",
+				"[EAST]" = "East South West",
+			)
 		if(PIPE_UNARY)
-			dirs = list("[NORTH]" = "North", "[SOUTH]" = "South", "[WEST]" = "West", "[EAST]" = "East")
+			dirs = list(
+				"[NORTH]" = "North",
+				"[SOUTH]" = "South",
+				"[WEST]" = "West",
+				"[EAST]" = "East"
+			)
 		if(PIPE_ONEDIR)
 			dirs = list("[SOUTH]" = name)
 		if(PIPE_UNARY_FLIPPABLE)
-			dirs = list("[NORTH]" = "North", "[EAST]" = "East", "[SOUTH]" = "South", "[WEST]" = "West",
-						"[NORTHEAST]" = "North Flipped", "[SOUTHEAST]" = "East Flipped", "[SOUTHWEST]" = "South Flipped", "[NORTHWEST]" = "West Flipped")
+			dirs = list(
+				"[NORTH]" = "North",
+				"[EAST]" = "East",
+				"[SOUTH]" = "South",
+				"[WEST]" = "West",
+				"[NORTHEAST]" = "North Flipped",
+				"[SOUTHEAST]" = "East Flipped",
+				"[SOUTHWEST]" = "South Flipped",
+				"[NORTHWEST]" = "West Flipped"
+			)
 
 
 	var/list/rows = list()

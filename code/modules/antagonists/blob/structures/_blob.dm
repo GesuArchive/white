@@ -289,9 +289,11 @@ GLOBAL_VAR_INIT(blob_current_icon, pick('icons/mob/blob_64.dmi', 'icons/mob/blob
 
 /obj/structure/blob/proc/typereport(mob/user)
 	RETURN_TYPE(/list)
-	return list("\n<b>Тип массы:</b> <span class='notice'>[uppertext(initial(name))]</span>",
-							"\n<b>Здоровье:</b> <span class='notice'>[obj_integrity]/[max_integrity]</span>",
-							"\n<b>Эффекты:</b> <span class='notice'>[scannerreport()]</span>")
+	return list(
+		"\n<b>Тип массы:</b> <span class='notice'>[uppertext(initial(name))]</span>",
+		"\n<b>Здоровье:</b> <span class='notice'>[obj_integrity]/[max_integrity]</span>",
+		"\n<b>Эффекты:</b> <span class='notice'>[scannerreport()]</span>"
+	)
 
 
 /obj/structure/blob/attack_animal(mob/living/simple_animal/M)
