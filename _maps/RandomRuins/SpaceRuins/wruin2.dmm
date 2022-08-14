@@ -4668,7 +4668,7 @@
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/austation/station)
 "jv" = (
-/obj/effect/turf_decal/ti,
+/obj/effect/turf_decal/tile/purple,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
