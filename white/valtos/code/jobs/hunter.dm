@@ -44,10 +44,11 @@
 	l_pocket = /obj/item/reagent_containers/hypospray/medipen/survival/luxury
 	r_pocket = /obj/item/modular_computer/tablet/pda/hunter
 	backpack_contents = list(
-		/obj/item/flashlight/seclite=1,\
-		/obj/item/mining_voucher=1,\
-		/obj/item/t_scanner/adv_mining_scanner=1,\
-		/obj/item/gun/energy/kinetic_accelerator/super_kinetic_accelerator=1)
+		/obj/item/flashlight/seclite = 1,
+		/obj/item/mining_voucher = 1,
+		/obj/item/t_scanner/adv_mining_scanner = 1,
+		/obj/item/gun/energy/kinetic_accelerator/super_kinetic_accelerator = 1,
+	)
 
 	backpack = /obj/item/storage/backpack/explorer
 	satchel = /obj/item/storage/backpack/satchel/explorer

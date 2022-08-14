@@ -61,7 +61,10 @@
 	if(stat != CONSCIOUS || !client?.tgui_say?.window_open)
 		return FALSE
 	client.tgui_say.force_say()
-	log_speech_indicators("[key_name(client)] FORCED to stop typing.")
+	if(client.typing_indicators)
+		log_speech_indicators("[key_name(client)] FORCED to stop typing, indicators enabled.")
+	else
+		log_speech_indicators("[key_name(client)] FORCED to stop typing, indicators DISABLED.")
 
 /**
  * Handles text entry and forced speech.

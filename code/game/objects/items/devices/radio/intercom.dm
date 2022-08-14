@@ -146,14 +146,6 @@
 	set_frequency(1481)
 	set_broadcasting(TRUE)
 
-/obj/item/radio/intercom/directional/north
-	pixel_y = 22
-
-/obj/item/radio/intercom/directional/south
-	pixel_y = -22
-
-/obj/item/radio/intercom/directional/east
-	pixel_x = 28
-
-/obj/item/radio/intercom/directional/west
-	pixel_x = -28
+MAPPING_DIRECTIONAL_HELPERS(/obj/item/radio/intercom, 26)
+MAPPING_DIRECTIONAL_HELPERS(/obj/item/radio/intercom/prison, 26)
+MAPPING_DIRECTIONAL_HELPERS(/obj/item/radio/intercom/chapel, 26)
