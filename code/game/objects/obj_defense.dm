@@ -244,16 +244,22 @@ GLOBAL_DATUM_INIT(acid_overlay, /mutable_appearance, mutable_appearance('icons/e
 			buckled_mob.electrocute_act((clamp(round(strength/400), 10, 90) + rand(-5, 5)), src, flags = SHOCK_TESLA)
 
 /**
- * Sets the [SHOCKED_1] flag on this atom.
+ * Sets the [SHOCKED_1] flag on this mob.
  */
-/atom/proc/set_shocked()
+/mob/living/proc/set_shocked()
 	flags_1 |= SHOCKED_1
 
 /**
- * Unsets the [SHOCKED_1] flag on this atom.
+ * Unsets the [SHOCKED_1] flag on this mob.
  */
-/atom/proc/reset_shocked()
-	flags_1 &= ~ SHOCKED_1
+/mob/living/proc/reset_shocked()
+	flags_1 &= ~SHOCKED_1
+
+/**
+ * Unsets the [BEING_SHOCKED] flag on this obj.
+ */
+/obj/proc/reset_shocked()
+	obj_flags &= ~BEING_SHOCKED
 
 ///the obj is deconstructed into pieces, whether through careful disassembly or when destroyed.
 /obj/proc/deconstruct(disassembled = TRUE)
