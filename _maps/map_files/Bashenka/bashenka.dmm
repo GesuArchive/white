@@ -396,7 +396,7 @@
 /obj/item/radio{
 	pixel_y = 5
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/grimy,
@@ -570,7 +570,7 @@
 /obj/item/computer_hardware/hard_drive/portable/chemistry,
 /obj/item/computer_hardware/hard_drive/portable/medical,
 /obj/item/computer_hardware/hard_drive/portable/medical,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/command/heads_quarters/cmo)
@@ -578,7 +578,7 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/security/prison)
 "apb" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/science/lab)
@@ -618,7 +618,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/red,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/security/warden)
@@ -1034,7 +1034,7 @@
 /turf/open/floor/carpet/orange,
 /area/hallway/secondary/exit/departure_lounge)
 "aGK" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/grimy,
 /area/service/chapel/main)
@@ -1129,7 +1129,7 @@
 /turf/open/floor/engine,
 /area/science/xenobiology)
 "aKL" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/maintenance/solars)
 "aLl" = (
@@ -1138,7 +1138,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/delivery,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/science/robotics/mechbay)
@@ -2229,7 +2229,7 @@
 /area/hallway/primary/aft)
 "bIY" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 5
 	},
@@ -2565,7 +2565,7 @@
 /turf/open/floor/plasteel,
 /area/medical/virology)
 "bSH" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 5
@@ -2791,7 +2791,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/security/main)
@@ -3752,7 +3752,7 @@
 "cSb" = (
 /obj/machinery/processor/slime,
 /obj/effect/turf_decal/delivery,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
@@ -3850,7 +3850,7 @@
 /area/medical/medbay/central)
 "cUr" = (
 /obj/structure/displaycase/trophy,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/carpet/black,
 /area/command)
@@ -5016,7 +5016,7 @@
 /turf/open/floor/plasteel/dark,
 /area/security/prison)
 "dWX" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/freezer,
@@ -5541,7 +5541,7 @@
 /area/science/lab)
 "exq" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 5
 	},
@@ -5584,7 +5584,7 @@
 /area/security/brig)
 "ezy" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 5
 	},
@@ -6796,7 +6796,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/hos)
@@ -6948,7 +6948,7 @@
 "fHr" = (
 /obj/machinery/rnd/production/techfab/department/service,
 /obj/effect/turf_decal/stripes/box,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/service/theater)
@@ -7016,7 +7016,7 @@
 /area/engineering/main)
 "fKJ" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 5
 	},
@@ -8185,7 +8185,7 @@
 /turf/open/floor/plasteel/dark,
 /area/security/prison)
 "gAZ" = (
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
 /obj/machinery/airalarm/directional/south,
 /obj/effect/turf_decal/trimline/purple/filled/corner{
@@ -8706,7 +8706,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai_upload)
@@ -9008,7 +9008,7 @@
 /area/service/library)
 "hec" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 5
 	},
@@ -9933,7 +9933,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai)
@@ -11015,7 +11015,7 @@
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/aft)
 "iGG" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/machinery/camera/autoname,
 /turf/open/floor/plasteel,
@@ -11640,7 +11640,7 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 5
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/security/prison)
@@ -12024,7 +12024,7 @@
 /area/hallway/secondary/exit/departure_lounge)
 "jub" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 5
 	},
@@ -12516,7 +12516,7 @@
 "jOb" = (
 /obj/structure/closet/secure_closet/bar,
 /obj/effect/turf_decal/delivery/red,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/carpet/black,
 /area/service/bar)
@@ -12942,7 +12942,7 @@
 /area/command)
 "kkp" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 5
 	},
@@ -13569,7 +13569,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/white,
@@ -13699,7 +13699,7 @@
 /mob/living/simple_animal/parrot/poly,
 /obj/item/crowbar,
 /obj/item/storage/toolbox/mechanical,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/command/heads_quarters/ce)
@@ -13858,7 +13858,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/service/hydroponics)
@@ -14042,7 +14042,7 @@
 /obj/item/bedsheet/rd,
 /obj/effect/turf_decal/delivery,
 /obj/effect/landmark/start/research_director,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/purple/filled/corner,
 /turf/open/floor/plasteel/dark/side,
@@ -14147,7 +14147,7 @@
 /turf/open/floor/plasteel,
 /area/security/brig)
 "lmB" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/engineering/manufactory)
@@ -14766,7 +14766,7 @@
 	},
 /obj/item/taperecorder,
 /obj/effect/turf_decal/delivery/red,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/lawoffice)
@@ -15046,7 +15046,7 @@
 /obj/item/tank/internals/emergency_oxygen/engi{
 	pixel_x = 5
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/engineering/atmos)
@@ -17127,7 +17127,7 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 1
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
@@ -18670,7 +18670,7 @@
 /turf/open/floor/plasteel/dark,
 /area/commons/dorms)
 "oRa" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/service/library)
@@ -18920,7 +18920,7 @@
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
 "paD" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark/side{
 	dir = 1
@@ -21139,7 +21139,7 @@
 /area/engineering/atmos)
 "qPR" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/science/mixing)
@@ -21326,7 +21326,7 @@
 	pixel_x = 1;
 	pixel_y = 5
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/security/detectives_office)
@@ -22634,7 +22634,7 @@
 "rWa" = (
 /obj/machinery/chem_heater,
 /obj/effect/turf_decal/delivery,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/white/side,
 /area/medical/chemistry)
@@ -23976,7 +23976,7 @@
 "tdN" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/power/port_gen/pacman,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/item/stock_parts/cell/bluespace,
 /turf/open/floor/plasteel/dark,
@@ -24463,7 +24463,7 @@
 /area/engineering/break_room)
 "tvW" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 5
 	},
@@ -24741,7 +24741,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/power/apc/auto_name/west,
+/obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/science/genetics)
@@ -24791,7 +24791,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
@@ -26474,7 +26474,7 @@
 	pixel_x = 8
 	},
 /obj/machinery/light,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/white/corner{
 	dir = 8
@@ -26919,7 +26919,7 @@
 /area/command/gateway)
 "vkz" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 5
 	},
@@ -28220,7 +28220,7 @@
 "wfR" = (
 /obj/structure/table/optable,
 /obj/effect/turf_decal/delivery,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/white/side{
 	dir = 10
@@ -28413,7 +28413,7 @@
 /area/service/bar)
 "wmW" = (
 /obj/structure/table/optable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/science/robotics/lab)
@@ -28876,7 +28876,7 @@
 "wAn" = (
 /obj/structure/table/wood,
 /obj/machinery/computer/security/wooden_tv,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain/private)
@@ -29205,7 +29205,7 @@
 "wMA" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/vending/wardrobe/viro_wardrobe,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/medical/virology)
@@ -29505,7 +29505,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/storage/eva)
@@ -29978,7 +29978,7 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/cargo/storage)
@@ -30640,7 +30640,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/science/nanite)
@@ -30699,7 +30699,7 @@
 /area/service/bar/atrium)
 "xPC" = (
 /obj/structure/dresser,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/carpet/royalblue,
 /area/command/heads_quarters/hop)
@@ -31079,7 +31079,7 @@
 /obj/structure/bodycontainer/morgue{
 	dir = 2
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/medical/morgue)

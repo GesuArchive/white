@@ -442,9 +442,11 @@
 	suit = /obj/item/clothing/suit/chameleon
 	suit_store = null
 	glasses = /obj/item/clothing/glasses/chameleon
-	backpack_contents = list(/obj/item/storage/box/hug/survival=1,\
-		/obj/item/shield/energy/bananium=1,\
-		/obj/item/instrument/piano_synth=1)
+	backpack_contents = list(
+		/obj/item/storage/box/hug/survival=1,
+		/obj/item/shield/energy/bananium=1,
+		/obj/item/instrument/piano_synth=1
+	)
 
 /datum/outfit/centcom/ert/commander/party
 	name = "Распорядитель Вечеринок ERP"

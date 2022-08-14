@@ -1332,7 +1332,7 @@
 /area/hallway/primary/central/low_level_centre)
 "we" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/meeting_room/council)
 "wr" = (
@@ -1635,7 +1635,7 @@
 /area/command/heads_quarters/hop)
 "BX" = (
 /obj/machinery/holopad,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/low_level_centre)

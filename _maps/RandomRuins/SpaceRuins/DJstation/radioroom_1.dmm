@@ -88,7 +88,7 @@
 /area/ruin/space/djstation)
 "J" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/plasteel,
 /area/ruin/space/djstation)
 "K" = (

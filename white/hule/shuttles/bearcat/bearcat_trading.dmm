@@ -64,7 +64,7 @@
 	req_access_txt = "0"
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8;
 	icon_state = "vent_map_on-4"
@@ -254,7 +254,7 @@
 "aL" = (
 /obj/structure/table/wood,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/wood,
 /area/shuttle/bearcat/captain)
 "aM" = (
@@ -262,7 +262,7 @@
 /area/shuttle/bearcat/dockingbay)
 "aN" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/dockingbay)
 "aO" = (
@@ -763,7 +763,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/machinery/airalarm/directional/east,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/bathroom)
@@ -789,7 +789,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/saloon)
 "cu" = (
@@ -865,7 +865,7 @@
 /obj/structure/table,
 /obj/structure/bedsheetbin,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/dorms)
 "cH" = (
@@ -1116,7 +1116,7 @@
 	},
 /obj/machinery/disposal/bin,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/kitchen)
 "dz" = (
@@ -1127,7 +1127,7 @@
 /area/shuttle/bearcat/cargo)
 "dA" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/cargo)
 "dB" = (
@@ -1207,7 +1207,7 @@
 /area/shuttle/bearcat/hallway)
 "dP" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
@@ -1279,7 +1279,7 @@
 /obj/item/defibrillator/loaded,
 /obj/item/storage/backpack/duffelbag/med/surgery,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1;
 	icon_state = "scrub_map_on-2"
@@ -1357,7 +1357,7 @@
 "ej" = (
 /obj/structure/table,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/washroom)
 "el" = (
@@ -1679,7 +1679,7 @@
 /area/shuttle/bearcat/engineering)
 "fv" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1;
 	icon_state = "scrub_map_on-2"
@@ -1787,7 +1787,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/engineering)
 "fM" = (
@@ -1869,7 +1869,7 @@
 /area/shuttle/bearcat/engines)
 "ga" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/plating,
 /area/shuttle/bearcat/engines)
 "gb" = (
@@ -1913,7 +1913,7 @@
 /turf/template_noop,
 /area/shuttle/bearcat/engineering)
 "gm" = (
-/obj/machinery/power/apc/auto_name/west,
+/obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,

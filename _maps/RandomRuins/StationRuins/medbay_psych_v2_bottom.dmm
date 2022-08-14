@@ -307,7 +307,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+directional/north,
 /obj/vehicle/ridden/forklift/medical,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
@@ -424,7 +424,7 @@
 /area/medical/medbay/zone2)
 "EH" = (
 /obj/machinery/light,
-/obj/machinery/power/apc/auto_name/south,
+directional/south,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -482,7 +482,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/power/apc/auto_name/south,
+directional/south,
 /obj/structure/cable,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)

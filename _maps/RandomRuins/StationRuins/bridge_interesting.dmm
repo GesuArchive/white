@@ -1656,7 +1656,7 @@
 "dJ" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/west)
 "dK" = (
@@ -1680,7 +1680,7 @@
 	dir = 8
 	},
 /obj/structure/closet/firecloset,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/east)
@@ -1854,7 +1854,7 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/south)
@@ -1887,7 +1887,7 @@
 /area/hallway/primary/central/east)
 "gc" = (
 /obj/effect/turf_decal/tile/blue,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/north)

@@ -2173,7 +2173,7 @@
 	name = "Telecomms RC";
 	pixel_x = 30
 	},
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)

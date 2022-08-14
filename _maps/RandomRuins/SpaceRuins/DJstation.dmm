@@ -71,7 +71,7 @@
 /area/ruin/space/djstation/service)
 "I" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/machinery/duct,
 /turf/open/floor/plating,
 /area/ruin/space/djstation/service)

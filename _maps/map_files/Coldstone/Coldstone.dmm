@@ -792,7 +792,7 @@
 "cx" = (
 /obj/structure/closet/wardrobe/science_white,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 4
 	},
@@ -4598,7 +4598,7 @@
 /area/security/brig/upper)
 "kX" = (
 /obj/structure/closet/crate/trashcart,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/secondary/service)
@@ -4694,7 +4694,7 @@
 	},
 /obj/effect/turf_decal/tile/neutral,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/closet/secure_closet/freezer/fridge,
 /turf/open/floor/plasteel/dark,
 /area/service/kitchen)
@@ -5031,7 +5031,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/security/prison)
@@ -5162,7 +5162,7 @@
 	},
 /obj/effect/turf_decal/tile/bar,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
 "mp" = (
@@ -5726,7 +5726,7 @@
 /area/security/brig)
 "nF" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 1
 	},
@@ -6019,7 +6019,7 @@
 "oB" = (
 /obj/structure/table,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/west,
+/obj/machinery/power/apc/auto_name/directional/west,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 9
@@ -6219,7 +6219,7 @@
 /area/partyhard/pyat)
 "py" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/tcommsat/server)
 "pz" = (
@@ -6322,7 +6322,7 @@
 /turf/open/floor/plasteel/dark,
 /area/service/janitor)
 "pV" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
@@ -6629,7 +6629,7 @@
 /area/engineering/atmos)
 "qS" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/rd)
 "qT" = (
@@ -6643,7 +6643,7 @@
 /turf/open/floor/plating/snowed,
 /area/tcommsat/server)
 "qW" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plating/rust,
 /area/cargo/storage)
@@ -6894,7 +6894,7 @@
 /area/security/brig)
 "rX" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/west,
+/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/plasteel/dark,
 /area/maintenance/solars/port/aft)
 "rY" = (
@@ -7180,7 +7180,7 @@
 /area/security/brig/upper)
 "tg" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/plasteel/dark,
 /area/tcommsat/computer)
 "th" = (
@@ -7587,7 +7587,7 @@
 /area/command/heads_quarters/rd)
 "uw" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
 	},
@@ -8718,7 +8718,7 @@
 /turf/closed/indestructible/rock/snow/ice,
 /area/partyhard/outdoors/unexplored)
 "yu" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
@@ -8730,7 +8730,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
@@ -9062,7 +9062,7 @@
 /area/security/brig)
 "zG" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
 	},
@@ -9100,7 +9100,7 @@
 /turf/open/floor/plasteel/dark,
 /area/security/brig/upper)
 "zM" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plating/rust,
 /area/command/gateway)
@@ -9816,7 +9816,7 @@
 /turf/open/floor/plasteel/dark,
 /area/service/chapel/office)
 "Cf" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
@@ -10438,7 +10438,7 @@
 /area/maintenance/solars/port/aft)
 "Em" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 5
 	},
@@ -10814,7 +10814,7 @@
 	icon_state = "s-6"
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/science/xenobiology)
 "Fs" = (
@@ -11263,7 +11263,7 @@
 /area/partyhard/surface)
 "GY" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/machinery/suit_storage_unit/mining,
 /turf/open/floor/plasteel/dark,
 /area/cargo/office)
@@ -11701,7 +11701,7 @@
 /area/service/hydroponics)
 "Iz" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 8
 	},
@@ -11722,7 +11722,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/medical/chemistry)
 "IC" = (
@@ -12537,7 +12537,7 @@
 /area/command/heads_quarters/ce)
 "Lb" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 6
 	},
@@ -12739,7 +12739,7 @@
 /turf/open/floor/partyhard/steel/vertical,
 /area/cargo/office)
 "LB" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -12968,7 +12968,7 @@
 /turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "Mp" = (
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/green{
@@ -13598,7 +13598,7 @@
 	dir = 6
 	},
 /obj/structure/closet/l3closet/virology,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay)
 "On" = (
@@ -13921,7 +13921,7 @@
 /turf/open/floor/plating/rust,
 /area/engineering/main)
 "Px" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 5
@@ -14018,7 +14018,7 @@
 /obj/item/grown/log,
 /obj/item/grown/log,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plasteel/grimy,
 /area/service/chapel/office)
 "PR" = (
@@ -14224,7 +14224,7 @@
 /area/partyhard/chetyre)
 "QB" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/west,
+/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/plasteel{
 	dir = 1;
 	icon_state = "chapel"
@@ -14374,7 +14374,7 @@
 /turf/open/floor/plating/snowed/dug,
 /area/cargo/office)
 "Rc" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 8
 	},
@@ -14748,7 +14748,7 @@
 /turf/open/floor/plasteel/dark,
 /area/cargo/office)
 "Sm" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1

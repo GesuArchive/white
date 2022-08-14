@@ -23,7 +23,7 @@
 	dir = 1;
 	pixel_y = 0
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/medical)
@@ -691,7 +691,7 @@
 	dir = 1;
 	pixel_y = 0
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/cargo)
@@ -776,7 +776,7 @@
 	dir = 1;
 	pixel_y = 0
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/science)
@@ -839,7 +839,7 @@
 	dir = 1;
 	pixel_y = 0
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/security)
@@ -1728,7 +1728,7 @@
 	dir = 1;
 	pixel_y = 0
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/service/cafeteria)
@@ -2197,7 +2197,7 @@
 	dir = 1;
 	pixel_y = 0
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/engineering/main)
@@ -2298,7 +2298,7 @@
 	dir = 1;
 	pixel_y = 0
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/command)

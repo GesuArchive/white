@@ -161,7 +161,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/machinery/airalarm/directional/north,
-/obj/machinery/power/apc/auto_name/west,
+/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/plasteel,
 /area/security/execution/transfer)
 "adC" = (
@@ -934,7 +934,7 @@
 "aoh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/carpet,
 /area/service/abandoned_gambling_den)
 "aoi" = (
@@ -1040,7 +1040,7 @@
 /turf/open/floor/plasteel/dark,
 /area/security/prison/mess)
 "apl" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/disposal)
@@ -2097,7 +2097,7 @@
 /area/engineering/atmos/upper)
 "aVa" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
@@ -2405,7 +2405,7 @@
 /area/maintenance/starboard)
 "bfH" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plating,
 /area/science/research/abandoned)
 "bfK" = (
@@ -3146,7 +3146,7 @@
 	},
 /obj/effect/turf_decal/tile/bar,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/chair/stool/bar{
 	dir = 1
 	},
@@ -3235,7 +3235,7 @@
 	dir = 9
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/tcommsat/server/upper)
 "bzV" = (
@@ -6204,7 +6204,7 @@
 "dtd" = (
 /obj/structure/ladder,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/west,
+/obj/machinery/power/apc/auto_name/directional/west,
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/plating,
 /area/maintenance/starboard)
@@ -6274,7 +6274,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plasteel,
 /area/maintenance/disposal/incinerator)
 "dvt" = (
@@ -7762,7 +7762,7 @@
 /obj/item/seeds/tomato,
 /obj/machinery/light/directional/north,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/security/prison/garden)
 "eEB" = (
@@ -8112,7 +8112,7 @@
 	network = list("ss13","prison")
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/wood,
 /area/security/prison/rec)
 "eVj" = (
@@ -13716,7 +13716,7 @@
 /area/security/prison/workout)
 "jAo" = (
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/aft)
@@ -15451,7 +15451,7 @@
 "kSa" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/machinery/camera{
 	c_tag = "Engineering - Port Engineering Hub Deck 1";
 	dir = 6;
@@ -16399,7 +16399,7 @@
 /obj/item/paper_bin,
 /obj/item/pen/blue,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/west,
+/obj/machinery/power/apc/auto_name/directional/west,
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/security/checkpoint/customs)
@@ -16838,7 +16838,7 @@
 /obj/item/stock_parts/cell/high,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/plating,
 /area/maintenance/department/electrical)
 "lYt" = (
@@ -18411,7 +18411,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/plasteel/dark/side,
 /area/service/chapel/office)
 "ngG" = (
@@ -19774,7 +19774,7 @@
 /turf/open/floor/plasteel,
 /area/cargo/storage)
 "ofE" = (
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark/side{
 	dir = 4
@@ -20140,7 +20140,7 @@
 /area/engineering/atmos/upper)
 "owb" = (
 /obj/structure/table,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plating,
 /area/maintenance/space_hut/observatory)
 "owl" = (
@@ -20645,7 +20645,7 @@
 /area/service/chapel/office)
 "oTM" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/machinery/camera{
 	c_tag = " Prison - Central";
 	dir = 10;
@@ -21315,7 +21315,7 @@
 /turf/open/floor/plasteel/dark/corner,
 /area/engineering/atmos/upper)
 "pva" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -21440,7 +21440,7 @@
 	dir = 4
 	},
 /obj/machinery/light/directional/north,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/security/processing)
@@ -21699,7 +21699,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 6
 	},
@@ -22513,7 +22513,7 @@
 /obj/item/stack/license_plates/empty/fifty,
 /obj/structure/cable,
 /obj/machinery/firealarm/directional/east,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plasteel/dark/side{
 	dir = 1
 	},
@@ -23083,7 +23083,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/west,
+/obj/machinery/power/apc/auto_name/directional/west,
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/plasteel/dark,
 /area/security/checkpoint)
@@ -24016,7 +24016,7 @@
 /area/hallway/secondary/entry)
 "rFq" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
@@ -26092,7 +26092,7 @@
 /area/cargo/miningdock)
 "twt" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/exit)
 "twM" = (
@@ -30878,7 +30878,7 @@
 "xkV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/machinery/camera{
 	c_tag = "Engineering - Starboard Engineering Hub Deck 1";
 	name = "engineering camera"
@@ -31282,7 +31282,7 @@
 /area/maintenance/starboard)
 "xzd" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plasteel,
 /area/security/brig/upper)
 "xzf" = (

@@ -40,7 +40,7 @@
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
 "ao" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay)
@@ -1866,7 +1866,7 @@
 	network = list("ss13","medbay")
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/storage)
 "tn" = (
@@ -2109,7 +2109,7 @@
 /area/medical/cryo)
 "vK" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
@@ -3309,7 +3309,7 @@
 /obj/effect/turf_decal/tile/yellow,
 /obj/item/plunger,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "FA" = (
@@ -5322,7 +5322,7 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay/aft)
 "XN" = (
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/structure/closet/crate/freezer/blood,
 /obj/item/reagent_containers/blood/o_plus,
