@@ -490,7 +490,7 @@
 		throwforce_on = 5, \
 		throw_speed_on = 2, \
 		hitsound_on = hitsound, \
-		w_class_on = WEIGHT_CLASS_NORMAL, \
+		w_class_on = WEIGHT_CLASS_BULKY, \
 		attack_verb_continuous_on = list("вмазывает", "ударяет", "проламывает", "бьет"), \
 		attack_verb_simple_on = list("вмазывает", "ударяет", "проламывает", "бьет"))
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
