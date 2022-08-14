@@ -20,7 +20,7 @@
 	icon_state = "yellow"
 	inhand_icon_state = "ygloves"
 	siemens_coefficient = 0
-	permeability_coefficient = 0.05
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 90, FIRE = 0, ACID = 0)
 	resistance_flags = NONE
 	custom_price = PAYCHECK_MEDIUM * 10
 	custom_premium_price = PAYCHECK_COMMAND * 6
@@ -52,7 +52,7 @@
 	icon_state = "sprayon"
 	inhand_icon_state = "sprayon"
 	item_flags = DROPDEL
-	permeability_coefficient = 0
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 0, ACID = 0)
 	resistance_flags = ACID_PROOF
 	var/charges_remaining = 10
 
@@ -80,7 +80,7 @@
 	icon_state = "yellow"
 	inhand_icon_state = "ygloves"
 	siemens_coefficient = 1			//Set to a default of 1, gets overridden in Initialize()
-	permeability_coefficient = 0.05
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 90, FIRE = 0, ACID = 0)
 	resistance_flags = NONE
 	cut_type = /obj/item/clothing/gloves/cut
 
@@ -133,7 +133,7 @@
 	name = "резиновые перчатки"
 	desc = "Эти перчатки защитят пользователя от поражения электрическим током."
 	siemens_coefficient = 0
-	permeability_coefficient = 0.05
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 90, FIRE = 0, ACID = 0)
 	resistance_flags = NONE
 
 /obj/item/clothing/gloves/color/rainbow
@@ -177,13 +177,12 @@
 	icon_state = "captain"
 	inhand_icon_state = "egloves"
 	siemens_coefficient = 0
-	permeability_coefficient = 0.05
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	strip_delay = 60
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 70, ACID = 50)
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 90, RAD = 0, FIRE = 70, ACID = 50)
 
 /obj/item/clothing/gloves/color/latex
 	name = "латексные перчатки"
@@ -191,7 +190,7 @@
 	icon_state = "latex"
 	inhand_icon_state = "latex"
 	siemens_coefficient = 0.3
-	permeability_coefficient = 0.01
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 0, ACID = 0)
 	clothing_traits = list(TRAIT_QUICK_CARRY)
 	transfer_prints = TRUE
 	resistance_flags = NONE
@@ -210,7 +209,7 @@
 	icon_state = "infiltrator"
 	inhand_icon_state = "infiltrator"
 	siemens_coefficient = 0
-	permeability_coefficient = 0.3
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 70, FIRE = 0, ACID = 0)
 	clothing_traits = list(TRAIT_QUICKER_CARRY)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	transfer_prints = FALSE
@@ -222,7 +221,7 @@
 	icon_state = "clockwork_gauntlets"
 	inhand_icon_state = "clockwork_gauntlets"
 	siemens_coefficient = 0
-	permeability_coefficient = 0.05
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 90, FIRE = 0, ACID = 0)
 	clothing_traits = list(TRAIT_QUICK_BUILD)
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT

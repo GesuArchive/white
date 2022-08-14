@@ -28,7 +28,7 @@
 	var/cure_chance = 4
 	var/carrier = FALSE //If our host is only a carrier
 	var/bypasses_immunity = FALSE //Does it skip species virus immunity check? Some things may diseases and not viruses
-	var/permeability_mod = 1
+	var/spreading_modifier = 1
 	var/severity = DISEASE_SEVERITY_NONTHREAT
 	var/list/required_organs = list()
 	var/needs_all_cures = TRUE
@@ -157,7 +157,7 @@
 		"infectivity",
 		"cure_chance",
 		"bypasses_immunity",
-		"permeability_mod",
+		"spreading_modifier",
 		"severity",
 		"required_organs",
 		"needs_all_cures",
@@ -186,6 +186,26 @@
 	LAZYREMOVE(affected_mob.diseases, src)	//remove the datum from the list
 	affected_mob.med_hud_set_status()
 	affected_mob = null
+
+/**
+ * Checks the given typepath against the list of viable mobtypes.
+ *
+ * Returns TRUE if the mob_type path is derived from of any entry in the viable_mobtypes list.
+ * Returns FALSE otherwise.
+ *
+ * Arguments:
+ * * mob_type - Type path to check against the viable_mobtypes list.
+ */
+/datum/disease/proc/is_viable_mobtype(mob_type)
+	for(var/viable_type in viable_mobtypes)
+		if(ispath(mob_type, viable_type))
+			return TRUE
+
+	// Let's only do this check if it fails. Did some genius coder pass in a non-type argument?
+	if(!ispath(mob_type))
+		stack_trace("Non-path argument passed to mob_type variable: [mob_type]")
+
+	return FALSE
 
 //Use this to compare severities
 /proc/get_disease_severity_value(severity)

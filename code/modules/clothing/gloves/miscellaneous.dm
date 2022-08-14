@@ -17,14 +17,13 @@
 	desc = "Эти кожаные перчатки защищают от терний, колючек, колючек, шипов и других вредных объектов растительного происхождения. Они также довольно теплые."
 	icon_state = "leather"
 	inhand_icon_state = "ggloves"
-	permeability_coefficient = 0.9
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = NONE
 	clothing_traits = list(TRAIT_PLANT_SAFE)
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 70, ACID = 30)
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 10, RAD = 0, FIRE = 70, ACID = 30)
 
 /obj/item/clothing/gloves/combat
 	name = "боевые перчатки"
@@ -32,14 +31,13 @@
 	icon_state = "cgloves"
 	inhand_icon_state = "blackgloves"
 	siemens_coefficient = 0
-	permeability_coefficient = 0.05
 	strip_delay = 80
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = NONE
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 80, ACID = 50)
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 90, RAD = 0, FIRE = 80, ACID = 50)
 
 /obj/item/clothing/gloves/bracer
 	name = "костяные перчатки"
@@ -78,8 +76,7 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = NONE
-	permeability_coefficient = 0.05
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 0, FIRE = 95, ACID = 95)
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 90, RAD = 0, FIRE = 95, ACID = 95)
 
 /obj/item/clothing/gloves/color/plasmaman/black
 	name = "черные герметичные перчатки"
@@ -128,8 +125,7 @@
 	desc = "Прикрывает эти возмутительные костлявые руки."
 	icon_state = "botanyplasma"
 	inhand_icon_state = "botanyplasma"
-	permeability_coefficient = 0.05
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, RAD = 0, FIRE = 95, ACID = 95)
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 90, RAD = 0, FIRE = 95, ACID = 95)
 
 /obj/item/clothing/gloves/color/plasmaman/prototype
 	name = "прототип герметичных перчаток"

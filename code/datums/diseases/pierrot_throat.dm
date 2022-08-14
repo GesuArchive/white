@@ -7,7 +7,7 @@
 	cure_chance = 50
 	agent = "H0NI<42 вирус"
 	viable_mobtypes = list(/mob/living/carbon/human)
-	permeability_mod = 0.75
+	spreading_modifier = 0.75
 	desc = "Если его не лечить, он, вероятно, доведет других до безумия."
 	severity = DISEASE_SEVERITY_MEDIUM
 

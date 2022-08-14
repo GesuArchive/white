@@ -9,7 +9,7 @@
 	viable_mobtypes = list(/mob/living/carbon/human)
 	desc = "Ретровирус, изменяющий ДНК, который постоянно перемешивает структурные и уникальные ферменты хозяина."
 	severity = DISEASE_SEVERITY_HARMFUL
-	permeability_mod = 0.4
+	spreading_modifier = 0.4
 	stage_prob = 1
 	var/restcure = 0
 

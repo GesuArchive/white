@@ -104,8 +104,7 @@
 	icon_state = "longblack"
 	inhand_icon_state = "longblack"
 	siemens_coefficient = 0
-	permeability_coefficient = 0.05
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 10)
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 90, FIRE = 20, ACID = 10)
 
 /obj/item/clothing/gloves/combat/evening_gloves/grey
 	icon = 'white/Wzzzz/pirha.dmi'

@@ -65,7 +65,6 @@
 	if(!mask_adjusted)
 		src.icon_state = initial(icon_state)
 		gas_transfer_coefficient = initial(gas_transfer_coefficient)
-		permeability_coefficient = initial(permeability_coefficient)
 		clothing_flags |= visor_flags
 		flags_inv |= visor_flags_inv
 		flags_cover |= visor_flags_cover
@@ -75,7 +74,6 @@
 		icon_state += "_up"
 		to_chat(user, span_notice("Поднимаю [src.name] открывая лицо."))
 		gas_transfer_coefficient = null
-		permeability_coefficient = null
 		clothing_flags &= ~visor_flags
 		flags_inv &= ~visor_flags_inv
 		flags_cover &= ~visor_flags_cover

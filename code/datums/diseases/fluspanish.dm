@@ -7,7 +7,7 @@
 	cure_chance = 5
 	agent = "1nqu1s1t10n вирион гриппа"
 	viable_mobtypes = list(/mob/living/carbon/human)
-	permeability_mod = 0.75
+	spreading_modifier = 0.75
 	desc = "Если не лечить, субъект сгорит за то, что был еретиком."
 	severity = DISEASE_SEVERITY_DANGEROUS
 

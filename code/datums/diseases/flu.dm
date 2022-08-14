@@ -7,7 +7,7 @@
 	cure_chance = 5
 	agent = "H13N1 вирион гриппа"
 	viable_mobtypes = list(/mob/living/carbon/human)
-	permeability_mod = 0.75
+	spreading_modifier = 0.75
 	desc = "Если не лечить, субъект будет плохо себя чувствовать."
 	severity = DISEASE_SEVERITY_MINOR
 

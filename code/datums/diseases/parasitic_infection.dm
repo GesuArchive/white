@@ -6,7 +6,7 @@
 	agent = "Поедание живых паразитов"
 	spread_text = "Небиологическое"
 	viable_mobtypes = list(/mob/living/carbon/human)
-	permeability_mod = 1
+	spreading_modifier = 1
 	desc = "Если не лечить, субъект пассивно теряет питательные вещества и, в конечном итоге, теряет печень."
 	severity = DISEASE_SEVERITY_HARMFUL
 	disease_flags = CAN_CARRY|CAN_RESIST

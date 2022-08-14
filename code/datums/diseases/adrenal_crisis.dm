@@ -7,7 +7,7 @@
 	cure_chance = 10
 	agent = "Дерьмовые надпочечники"
 	viable_mobtypes = list(/mob/living/carbon/human)
-	permeability_mod = 1
+	spreading_modifier = 1
 	desc = "Если не лечить, субъект будет страдать от летаргии, головокружения и периодической потери сознания."
 	severity = DISEASE_SEVERITY_MEDIUM
 	disease_flags = CAN_CARRY|CAN_RESIST

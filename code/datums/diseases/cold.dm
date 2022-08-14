@@ -5,7 +5,7 @@
 	cures = list(/datum/reagent/medicine/spaceacillin)
 	agent = "XY-риновирус"
 	viable_mobtypes = list(/mob/living/carbon/human)
-	permeability_mod = 0.5
+	spreading_modifier = 0.5
 	desc = "Если не лечить, субъект заразится гриппом."
 	severity = DISEASE_SEVERITY_NONTHREAT
 

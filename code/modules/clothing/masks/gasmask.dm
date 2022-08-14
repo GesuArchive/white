@@ -7,7 +7,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	inhand_icon_state = "gas_alt"
 	gas_transfer_coefficient = 0.01
-	permeability_coefficient = 0.01
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 0, ACID = 0)
 	flags_cover = MASKCOVERSEYES | MASKCOVERSMOUTH | PEPPERPROOF
 	resistance_flags = NONE
 	///Max numbers of installable filters
@@ -83,10 +83,9 @@
 	desc = "Улучшенный противогаз, используемый специалистами по атмосферным условиям. Все еще не блокирует потоки газа, но он взрывобезопасен!"
 	icon_state = "gas_atmos"
 	inhand_icon_state = "gas_atmos"
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, RAD = 10, FIRE = 20, ACID = 10)
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 100, RAD = 10, FIRE = 20, ACID = 10)
 	w_class = WEIGHT_CLASS_SMALL
 	gas_transfer_coefficient = 0.001 //cargo cult time, this var does nothing but just in case someone actually makes it do something
-	permeability_coefficient = 0.001
 	resistance_flags = FIRE_PROOF
 	max_filters = 3
 

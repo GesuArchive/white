@@ -49,7 +49,7 @@
 	name = "шляпа чумного доктора"
 	desc = "Когда-то их использовали чумные врачи. Они практически бесполезны."
 	icon_state = "plaguedoctor"
-	permeability_coefficient = 0.01
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 0, ACID = 0)
 
 /obj/item/clothing/head/hasturhood
 	name = "капюшон Хастура"

@@ -46,7 +46,7 @@
 			methods = TOUCH
 			reac_volume = initial_volume
 			show_message = FALSE
-			touch_protection = nearby_mob.get_permeability_protection()
+			touch_protection = nearby_mob.getarmor(null, BIO) * 0.01
 			var/aoe_volume = ..()
 			nearby_mob.apply_damage(0.4*aoe_volume, BRUTE, wound_bonus=CANT_WOUND)
 		if(exposed_mob)

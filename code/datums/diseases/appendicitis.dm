@@ -5,7 +5,7 @@
 	cure_text = "Хирургия"
 	agent = "Дерьмовый аппендицит"
 	viable_mobtypes = list(/mob/living/carbon/human)
-	permeability_mod = 1
+	spreading_modifier = 1
 	desc = "Если не лечить, субъект станет очень слабым и его может часто рвать."
 	severity = DISEASE_SEVERITY_MEDIUM
 	disease_flags = CAN_CARRY|CAN_RESIST

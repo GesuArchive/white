@@ -163,7 +163,7 @@
 	icon_state = "guards"
 	inhand_icon_state = "guards"
 	siemens_coefficient = 0
-	permeability_coefficient = 0.01
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 0, ACID = 0)
 	strip_delay = 500
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT

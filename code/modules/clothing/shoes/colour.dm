@@ -24,7 +24,7 @@
 /obj/item/clothing/shoes/sneakers/blue
 	name = "синие ботинки"
 	greyscale_colors = "#16a9eb#ffffff"
-	permeability_coefficient = 0.01
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 0, ACID = 0)
 
 /obj/item/clothing/shoes/sneakers/green
 	name = "зелёные ботинки"
@@ -46,7 +46,7 @@
 /obj/item/clothing/shoes/sneakers/white
 	name = "белые ботинки"
 	greyscale_colors = "#ffffff#ffffff"
-	permeability_coefficient = 0.01
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 0, ACID = 0)
 
 /obj/item/clothing/shoes/sneakers/rainbow
 	name = "радужные ботинки"

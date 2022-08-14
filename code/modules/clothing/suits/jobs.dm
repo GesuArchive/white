@@ -19,7 +19,7 @@
 	icon_state = "hort_waders"
 	inhand_icon_state = "hort_waders"
 	body_parts_covered = CHEST|GROIN|LEGS
-	permeability_coefficient = 0.5
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 50, FIRE = 0, ACID = 0)
 
 //Captain
 /obj/item/clothing/suit/captunic
@@ -38,7 +38,7 @@
 	icon_state = "chef"
 	inhand_icon_state = "chef"
 	gas_transfer_coefficient = 0.9
-	permeability_coefficient = 0.5
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 50, FIRE = 0, ACID = 0)
 	body_parts_covered = CHEST|GROIN|ARMS
 	allowed = list(/obj/item/kitchen, /obj/item/storage/bag/tray)
 	togglename = "sleeves"
