@@ -129,7 +129,8 @@ GLOBAL_VAR_INIT(disposals_are_hungry, FALSE)
 		stuff_mob_in(target, user)
 
 /obj/machinery/disposal/proc/stuff_mob_in(mob/living/target, mob/living/user)
-	if(!iscarbon(user) && !user.ventcrawler) //only carbon and ventcrawlers can climb into disposal by themselves.
+	var/ventcrawler = HAS_TRAIT(user, TRAIT_VENTCRAWLER_ALWAYS) || HAS_TRAIT(user, TRAIT_VENTCRAWLER_NUDE)
+	if(!iscarbon(user) && !ventcrawler) //only carbon and ventcrawlers can climb into disposal by themselves.
 		if (iscyborg(user))
 			var/mob/living/silicon/robot/borg = user
 			if (!borg.module || !borg.module.canDispose)

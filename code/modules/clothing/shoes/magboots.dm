@@ -47,7 +47,7 @@
 	user.update_equipment_speed_mods() //we want to update our speed so we arent running at max speed in regular magboots
 	for(var/X in actions)
 		var/datum/action/A = X
-		A.UpdateButtonIcon()
+		A.UpdateButtons()
 
 /obj/item/clothing/shoes/magboots/examine(mob/user)
 	. = ..()

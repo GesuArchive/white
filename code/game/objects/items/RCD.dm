@@ -1221,6 +1221,9 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 	name = "Реконструктор"
 	desc = "Сканирует окружающую обстановку на предмет разрушений. Отсканированные элементы будут восстанавливаться гораздо быстрее."
 
+/datum/action/item_action/pick_color
+	name = "Choose A Color"
+
 #undef GLOW_MODE
 #undef LIGHT_MODE
 #undef REMOVE_MODE

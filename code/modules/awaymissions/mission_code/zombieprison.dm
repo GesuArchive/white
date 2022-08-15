@@ -644,7 +644,7 @@
 	attack_verb_simple = "attacks"
 	attack_sound = 'sound/weapons/sonic_jackhammer.ogg'
 	mouse_opacity = MOUSE_OPACITY_ICON
-	deathmessage = "begins to explode into chunks before he collapses into a pile of gore.."
+	death_message = "begins to explode into chunks before he collapses into a pile of gore.."
 	gps_name = "Warden's Signal"
 	resize = 2.5
 

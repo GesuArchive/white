@@ -56,6 +56,9 @@
 	///Whether it can be painted
 	var/paintable = TRUE
 
+	///The bitflag that's being checked on ventcrawling. Default is to allow ventcrawling and seeing pipes.
+	var/vent_movement = VENTCRAWL_ALLOWED | VENTCRAWL_CAN_SEE
+
 	///Store the smart pipes connections, used for pipe construction
 	var/connection_num = 0
 
@@ -65,10 +68,10 @@
 
 /obj/machinery/atmospherics/examine(mob/user)
 	. = ..()
-	if(is_type_in_list(src, GLOB.ventcrawl_machinery) && isliving(user))
+	if((vent_movement & VENTCRAWL_ENTRANCE_ALLOWED) && isliving(user))
 		var/mob/living/L = user
-		if(L.ventcrawler)
-			. += "<hr><span class='notice'>ПКМ, чтобы заползти в вентиляцию.</span>"
+		if(HAS_TRAIT(L, TRAIT_VENTCRAWLER_NUDE) || HAS_TRAIT(L, TRAIT_VENTCRAWLER_ALWAYS))
+			. += span_notice("ПКМ, чтобы заползти в вентиляцию.")
 
 /obj/machinery/atmospherics/New(loc, process = TRUE, setdir)
 	if(!isnull(setdir))
@@ -199,7 +202,7 @@
  * * direction - the direction we are checking against
  * * prompted_layer - the piping_layer we are inside
  */
-/obj/machinery/atmospherics/proc/findConnecting(direction, prompted_layer)
+/obj/machinery/atmospherics/proc/find_connecting(direction, prompted_layer)
 	for(var/obj/machinery/atmospherics/target in get_step(src, direction))
 		if(!(target.initialize_directions & get_dir(target,src)))
 			continue
@@ -210,7 +213,7 @@
  * Check the connection between two nodes
  *
  * Check if our machine and the target machine are connectable by both calling isConnectable and by checking that the directions and piping_layer are compatible
- * called by can_be_node() (for building a network) and findConnecting() (for ventcrawling)
+ * called by can_be_node() (for building a network) and find_connecting() (for ventcrawling)
  * Arguments:
  * * obj/machinery/atmospherics/target - the machinery we want to connect to
  * * given_layer - the piping_layer we are checking
@@ -473,39 +476,61 @@
 
 // Handles mob movement inside a pipenet
 /obj/machinery/atmospherics/relaymove(mob/living/user, direction)
-	direction &= initialize_directions
-	if(!direction || !(direction in GLOB.cardinals)) //cant go this way.
+	if(!direction) //cant go this way.
 		return
-
 	if(user in buckled_mobs)// fixes buckle ventcrawl edgecase fuck bug
 		return
 
-	var/obj/machinery/atmospherics/target_move = findConnecting(direction, user.ventcrawl_layer)
-	if(target_move)
-		if(target_move.can_crawl_through())
-			if(is_type_in_typecache(target_move, GLOB.ventcrawl_machinery))
-				user.forceMove(target_move.loc) //handle entering and so on.
-				user.visible_message(span_notice("Что-то ползает по трубам...") , span_notice("Забираюсь в вентиляцию."))
-			else
-				var/list/pipenetdiff = returnPipenets() ^ target_move.returnPipenets()
-				if(pipenetdiff.len)
-					user.update_pipe_vision(target_move)
-				user.forceMove(target_move)
-				user.client.eye = target_move  //Byond only updates the eye every tick, This smooths out the movement
-				if(world.time - user.last_played_vent > VENT_SOUND_DELAY)
-					user.last_played_vent = world.time
-					playsound(src, 'sound/machines/ventcrawl.ogg', 50, TRUE, -3)
-	else if(is_type_in_typecache(src, GLOB.ventcrawl_machinery) && can_crawl_through()) //if we move in a way the pipe can connect, but doesn't - or we're in a vent
-		user.forceMove(loc)
-		user.visible_message(span_notice("Что-то ползает по трубам...") , span_notice("Выползаю из вентиляции."))
+	// We want to support holding two directions at once, so we do this
+	var/obj/machinery/atmospherics/target_move
+	for(var/canon_direction in GLOB.cardinals_multiz)
+		if(!(direction & canon_direction))
+			continue
+		var/obj/machinery/atmospherics/temp_target = find_connecting(canon_direction, user.ventcrawl_layer)
+		if(!temp_target)
+			continue
+		target_move = temp_target
+		// If you're at a fork with two directions held, we will always prefer the direction you didn't last use
+		// This way if you find a direction you've not used before, you take it, and if you don't, you take the other
+		if(user.last_vent_dir == canon_direction)
+			continue
+		user.last_vent_dir = canon_direction
+		break
 
-	//PLACEHOLDER COMMENT FOR ME TO READD THE 1 (?) DS DELAY THAT WAS IMPLEMENTED WITH A... TIMER?
+	if(!target_move)
+		return
+
+	if(!(target_move.vent_movement & VENTCRAWL_ALLOWED))
+		return
+	user.forceMove(target_move)
+	var/list/pipenetdiff = return_pipenets() ^ target_move.return_pipenets()
+	if(pipenetdiff.len)
+		user.update_pipe_vision(full_refresh = TRUE)
+	if(world.time - user.last_played_vent > VENT_SOUND_DELAY)
+		user.last_played_vent = world.time
+		playsound(src, 'sound/machines/ventcrawl.ogg', 50, TRUE, -3)
+
+	//Would be great if this could be implemented when someone alt-clicks the image.
+	if (target_move.vent_movement & VENTCRAWL_ENTRANCE_ALLOWED)
+		user.handle_ventcrawl(target_move)
+		return
+
+	var/client/our_client = user.client
+	if(!our_client)
+		return
+	our_client.eye = target_move
+	// Let's smooth out that movement with an animate yeah?
+	// If the new x is greater (move is left to right) we get a negative offset. vis versa
+	our_client.pixel_x = (x - target_move.x) * world.icon_size
+	our_client.pixel_y = (y - target_move.y) * world.icon_size
+	animate(our_client, pixel_x = 0, pixel_y = 0, time = 0.05 SECONDS)
+	our_client.move_delay = world.time + 0.05 SECONDS
 
 /obj/machinery/atmospherics/AltClick(mob/living/L)
-	if(istype(L) && is_type_in_list(src, GLOB.ventcrawl_machinery))
+	if(vent_movement & VENTCRAWL_ALLOWED && istype(L))
 		L.handle_ventcrawl(src)
 		return
-	..()
+	return ..()
 
 /**
  * Getter for vent crawling
@@ -521,7 +546,7 @@
  *
  * called in relaymove() to create the image for vent crawling
  */
-/obj/machinery/atmospherics/proc/returnPipenets()
+/obj/machinery/atmospherics/proc/return_pipenets()
 	return list()
 
 /obj/machinery/atmospherics/update_remote_sight(mob/user)

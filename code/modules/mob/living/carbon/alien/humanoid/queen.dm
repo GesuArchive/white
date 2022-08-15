@@ -2,7 +2,6 @@
 	//Common stuffs for Praetorian and Queen
 	icon = 'icons/mob/alienqueen.dmi'
 	status_flags = 0
-	ventcrawler = VENTCRAWLER_NONE //pull over that ass too fat
 	pixel_x = -16
 	base_pixel_x = -16
 	bubble_icon = "alienroyal"
@@ -46,9 +45,14 @@
 
 	real_name = src.name
 
-	AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/repulse/xeno(src))
-	AddAbility(new/obj/effect/proc_holder/alien/royal/queen/promote())
+	var/datum/action/cooldown/spell/aoe/repulse/xeno/tail_whip = new(src)
+	tail_whip.Grant(src)
+
+	var/datum/action/small_sprite/queen/smallsprite = new(src)
 	smallsprite.Grant(src)
+
+	var/datum/action/cooldown/alien/promote/promotion = new(src)
+	promotion.Grant(src)
 
 	priority_announce("На станции [station_name()] обнаружена королева ксеноморфов. Заблокируйте любой внешний доступ, включая воздуховоды и вентиляцию.", "Боевая Тревога", ANNOUNCER_ALIENS)
 
@@ -63,89 +67,117 @@
 	..()
 
 //Queen verbs
-/obj/effect/proc_holder/alien/lay_egg
+/datum/action/cooldown/alien/make_structure/lay_egg
 	name = "Отложить яйца"
 	desc = "Королева способна отложить кожистые яйца из которых в дальнейшем вырастут лицехваты, ужасающие паразиты, погубившие уже не одну колонию."
+	button_icon_state = "alien_egg"
 	plasma_cost = 75
-	check_turf = TRUE
-	action_icon_state = "alien_egg"
+	made_structure_type = /obj/structure/alien/egg
 
-/obj/effect/proc_holder/alien/lay_egg/fire(mob/living/carbon/user)
-	if(!check_vent_block(user))
-		return FALSE
-
-	if(locate(/obj/structure/alien/egg) in get_turf(user))
-		to_chat(user, span_alertalien("Здесь уже есть яйцо."))
-		return FALSE
-
-	user.visible_message(span_alertalien("[user] откладывает яйцо!"))
-	new /obj/structure/alien/egg(user.loc)
-	return TRUE
+/datum/action/cooldown/alien/make_structure/lay_egg/Activate(atom/target)
+	. = ..()
+	owner.visible_message(span_alertalien("[owner] откладывает яйцо!"))
 
 //Button to let queen choose her praetorian.
-/obj/effect/proc_holder/alien/royal/queen/promote
+/datum/action/cooldown/alien/promote
 	name = "Возвысить"
 	desc = "Возведите одного из своих детей в статус гвардейца, увеличившись в размерах и силе он станет надежным помощником и охранником."
-	plasma_cost = 500 //Plasma cost used on promotion, not spawning the parasite.
+	button_icon_state = "alien_queen_promote"
+	/// The promotion only takes plasma when completed, not on activation.
+	var/promotion_plasma_cost = 500
 
-	action_icon_state = "alien_queen_promote"
-
-
-
-/obj/effect/proc_holder/alien/royal/queen/promote/fire(mob/living/carbon/alien/user)
-	var/obj/item/queenpromote/prom
-	if(get_alien_type(/mob/living/carbon/alien/humanoid/royal/praetorian/))
-		to_chat(user, span_noticealien("У меня уже есть преторианец!"))
+/datum/action/cooldown/alien/promote/set_statpanel_format()
+	. = ..()
+	if(!islist(.))
 		return
-	else
-		for(prom in user)
-			to_chat(user, span_noticealien("Мне пока не понадобится [prom]."))
-			qdel(prom)
-			return
 
-		prom = new (user.loc)
-		if(!user.put_in_active_hand(prom, 1))
-			to_chat(user, span_warning("Мне нужны свободные руки для этого."))
-			return
-		else //Just in case telling the player only once is not enough!
-			to_chat(user, span_noticealien("Введите королевского паразита одной из взрослых особей для того чтобы возвысить ее до преторианского гвардейца!"))
-	return
+	.[PANEL_DISPLAY_STATUS] = "ПЛАЗМА - [promotion_plasma_cost]"
 
-/obj/item/queenpromote
+/datum/action/cooldown/alien/promote/IsAvailable()
+	. = ..()
+	if(!.)
+		return FALSE
+
+	var/mob/living/carbon/carbon_owner = owner
+	if(carbon_owner.getPlasma() < promotion_plasma_cost)
+		return FALSE
+
+	if(get_alien_type(/mob/living/carbon/alien/humanoid/royal/praetorian))
+		return FALSE
+
+	return TRUE
+
+/datum/action/cooldown/alien/promote/Activate(atom/target)
+	var/obj/item/queen_promotion/existing_promotion = locate() in owner.held_items
+	if(existing_promotion)
+		to_chat(owner, span_noticealien("Мне пока не понадобится [existing_promotion]."))
+		owner.temporarilyRemoveItemFromInventory(existing_promotion)
+		qdel(existing_promotion)
+		return TRUE
+
+	if(!owner.get_empty_held_indexes())
+		to_chat(owner, span_warning("Мне нужны свободные руки для этого."))
+		return FALSE
+
+	var/obj/item/queen_promotion/new_promotion = new(owner.loc)
+	if(!owner.put_in_hands(new_promotion, del_on_fail = TRUE))
+		to_chat(owner, span_noticealien("Не вышло подготовить паразита."))
+		return FALSE
+
+	to_chat(owner, span_noticealien("Введите королевского паразита одной из взрослых особей для того чтобы возвысить ее до преторианского гвардейца!"))
+	return TRUE
+
+/obj/item/queen_promotion
 	name = "королевский паразит"
 	desc = "Содержит в себе генетический мутатор, позволяющий возвысить одну из взрослых особей до преторианского гвардейца!"
 	icon_state = "alien_medal"
 	item_flags = ABSTRACT | DROPDEL
 	icon = 'icons/mob/alien.dmi'
 
-/obj/item/queenpromote/Initialize(mapload)
+/obj/item/queen_promotion/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, ABSTRACT_ITEM_TRAIT)
 
-/obj/item/queenpromote/attack(mob/living/M, mob/living/carbon/alien/humanoid/user)
-	if(!isalienadult(M) || isalienroyal(M))
-		to_chat(user, span_noticealien("Возвысить можно только взрослые, не королевские особи!"))
-		return
-	if(get_alien_type(/mob/living/carbon/alien/humanoid/royal/praetorian/))
-		to_chat(user, span_noticealien("У меня уже есть преторианец!"))
+/obj/item/queen_promotion/attack(mob/living/to_promote, mob/living/carbon/alien/humanoid/queen)
+	. = ..()
+	if(.)
 		return
 
-	var/mob/living/carbon/alien/humanoid/A = M
-	if(A.stat == CONSCIOUS && A.mind && A.key)
-		if(!user.usePlasma(500))
-			to_chat(user, span_noticealien("Мне нужно по крайней мере 500 единиц плазмы для возвышения!"))
-			return
+	var/datum/action/cooldown/alien/promote/promotion = locate() in queen.actions
+	if(!promotion)
+		CRASH("[type] was created and handled by a mob ([queen]) that didn't have a promotion action associated.")
 
-		to_chat(A, span_noticealien("Королева возвысила меня до преторианца!"))
-		user.visible_message(span_alertalien("Тело [A] начинает искажаться и увеличиваться!"))
-		var/mob/living/carbon/alien/humanoid/royal/praetorian/new_prae = new (A.loc)
-		A.mind.transfer_to(new_prae)
-		qdel(A)
-		qdel(src)
+	if(!isalienhumanoid(to_promote) || isalienroyal(to_promote))
+		to_chat(queen, span_noticealien("Возвысить можно только взрослые, не королевские особи!"))
 		return
-	else
-		to_chat(user, span_warning("Этот детеныш слишком вялый и не достоин статуса преторианца!"))
 
-/obj/item/queenpromote/attack_self(mob/user)
+	if(!promotion.IsAvailable())
+		to_chat(queen, span_noticealien("Не могу возвысить на данный момент!"))
+		return
+
+	if(to_promote.stat != CONSCIOUS || !to_promote.mind || !to_promote.key)
+		return
+
+	queen.adjustPlasma(-promotion.promotion_plasma_cost)
+
+	to_chat(queen, span_noticealien("Возвышаю [to_promote] до преторианца!"))
+	to_promote.visible_message(
+		span_alertalien("Тело [to_promote] начинает искажаться и увеличиваться!"),
+		span_noticealien("Королева возвысила меня до преторианца!"),
+	)
+
+	var/mob/living/carbon/alien/humanoid/royal/praetorian/new_prae = new(to_promote.loc)
+	to_promote.mind.transfer_to(new_prae)
+
+	qdel(to_promote)
+	qdel(src)
+	return TRUE
+
+/obj/item/queen_promotion/attack_self(mob/user)
 	to_chat(user, span_noticealien("Мне пока не понадобится [src]."))
 	qdel(src)
+
+/obj/item/queen_promotion/dropped(mob/user, silent)
+	if(!silent)
+		to_chat(user, span_noticealien("Мне пока не понадобится [src]."))
+	return ..()

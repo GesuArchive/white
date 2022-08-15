@@ -33,18 +33,19 @@
 	loot = list(/obj/item/ectoplasm)
 	del_on_death = TRUE
 	initial_language_holder = /datum/language_holder/construct
-	ventcrawler = VENTCRAWLER_ALWAYS
 
 	discovery_points = 1000
 
 /mob/living/simple_animal/shade/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/simple_flying)
+	ADD_TRAIT(src, TRAIT_HEALS_FROM_CULT_PYLONS, INNATE_TRAIT)
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /mob/living/simple_animal/shade/death()
-	if(deathmessage == initial(deathmessage))
-		deathmessage = "lets out a contented sigh as [p_their()] form unwinds."
+	if(death_message == initial(death_message))
+		death_message = "lets out a contented sigh as [p_their()] form unwinds."
 	..()
 
 /mob/living/simple_animal/shade/canSuicide()
@@ -52,19 +53,19 @@
 		return FALSE
 	return ..()
 
-/mob/living/simple_animal/shade/attack_animal(mob/living/simple_animal/M)
-	if(isconstruct(M))
-		var/mob/living/simple_animal/hostile/construct/C = M
-		if(!C.can_repair_constructs)
+/mob/living/simple_animal/shade/attack_animal(mob/living/simple_animal/user, list/modifiers)
+	if(isconstruct(user))
+		var/mob/living/simple_animal/hostile/construct/doll = user
+		if(!doll.can_repair)
 			return
 		if(health < maxHealth)
 			adjustHealth(-25)
-			Beam(M,icon_state="sendbeam", time = 4)
-			M.visible_message(span_danger("[M] heals \the <b>[src]</b>.") , \
+			Beam(user,icon_state="sendbeam", time = 4)
+			user.visible_message(span_danger("[user] heals \the <b>[src]</b>."), \
 					   span_cult("You heal <b>[src]</b>, leaving <b>[src]</b> at <b>[health]/[maxHealth]</b> health."))
 		else
-			to_chat(M, span_cult("You cannot heal <b>[src]</b>, as [p_theyre()] unharmed!"))
-	else if(src != M)
+			to_chat(user, span_cult("You cannot heal <b>[src]</b>, as [p_theyre()] unharmed!"))
+	else if(src != user)
 		return ..()
 
 /mob/living/simple_animal/shade/attackby(obj/item/item, mob/user, params)  //Marker -Agouri

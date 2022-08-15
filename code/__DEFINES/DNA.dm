@@ -63,6 +63,7 @@
 
 #define UI_CHANGED "ui changed"
 #define UE_CHANGED "ue changed"
+#define UF_CHANGED "uf changed"
 
 #define CHAMELEON_MUTATION_DEFAULT_TRANSPARENCY 204
 
@@ -75,26 +76,49 @@
 
 
 //Mutation classes. Normal being on them, extra being additional mutations with instability and other being stuff you dont want people to fuck with like wizard mutate
+/// A mutation that can be activated and deactived by completing a sequence
 #define MUT_NORMAL 1
+/// A mutation that is in the mutations tab, and can be given and taken away through though the DNA console. Has a 0 before it's name in the mutation section of the dna console
 #define MUT_EXTRA 2
+/// Cannot be interacted with by players through normal means. I.E. wizards mutate
 #define MUT_OTHER 3
 
 //DNA - Because fuck you and your magic numbers being all over the codebase.
-#define DNA_BLOCK_SIZE				3
+#define DNA_BLOCK_SIZE 3
 
-#define DNA_UNI_IDENTITY_BLOCKS		7
-#define DNA_HAIR_COLOR_BLOCK		1
-#define DNA_FACIAL_HAIR_COLOR_BLOCK	2
-#define DNA_SKIN_TONE_BLOCK			3
-#define DNA_EYE_COLOR_LEFT_BLOCK 	4
-#define DNA_EYE_COLOR_RIGHT_BLOCK 	4
-#define DNA_GENDER_BLOCK			5
-#define DNA_FACIAL_HAIRSTYLE_BLOCK	6
-#define DNA_HAIRSTYLE_BLOCK		7
+#define DNA_BLOCK_SIZE_COLOR DEFAULT_HEX_COLOR_LEN
 
-#define DNA_SEQUENCE_LENGTH			4
-#define DNA_MUTATION_BLOCKS			8
-#define DNA_UNIQUE_ENZYMES_LEN		32
+#define DNA_EYE_COLOR_LEFT_BLOCK 4
+#define DNA_EYE_COLOR_RIGHT_BLOCK 4
+#define DNA_FACIAL_HAIR_COLOR_BLOCK 2
+#define DNA_FACIAL_HAIRSTYLE_BLOCK 6
+#define DNA_GENDER_BLOCK 5
+#define DNA_HAIR_COLOR_BLOCK 1
+#define DNA_HAIRSTYLE_BLOCK 7
+#define DNA_SKIN_TONE_BLOCK 3
+#define DNA_UNI_IDENTITY_BLOCKS 7
+
+/// This number needs to equal the total number of DNA blocks
+#define DNA_FEATURE_BLOCKS 15
+
+#define DNA_MUTANT_COLOR_BLOCK 1
+#define DNA_ETHEREAL_COLOR_BLOCK 2
+#define DNA_LIZARD_MARKINGS_BLOCK 3
+#define DNA_TAIL_BLOCK 4
+#define DNA_LIZARD_TAIL_BLOCK 5
+#define DNA_SNOUT_BLOCK 6
+#define DNA_HORNS_BLOCK 7
+#define DNA_FRILLS_BLOCK 8
+#define DNA_SPINES_BLOCK 9
+#define DNA_EARS_BLOCK 10
+#define DNA_MOTH_WINGS_BLOCK 11
+#define DNA_MOTH_ANTENNAE_BLOCK 12
+#define DNA_MOTH_MARKINGS_BLOCK 13
+#define DNA_MUSHROOM_CAPS_BLOCK 14
+
+#define DNA_SEQUENCE_LENGTH 4
+#define DNA_MUTATION_BLOCKS 8
+#define DNA_UNIQUE_ENZYMES_LEN 32
 
 //species traits for mutantraces
 #define MUTCOLORS		1

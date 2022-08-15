@@ -30,31 +30,21 @@
 	med_hud_set_status()
 
 /mob/living/Destroy()
-	if(LAZYLEN(status_effects))
-		for(var/s in status_effects)
-			var/datum/status_effect/S = s
-			if(S.on_remove_on_mob_delete) //the status effect calls on_remove when its mob is deleted
-				qdel(S)
-			else
-				S.be_replaced()
-	if(ranged_ability)
-		ranged_ability.remove_ranged_ability(src)
+	for(var/datum/status_effect/effect as anything in status_effects)
+		// The status effect calls on_remove when its mob is deleted
+		if(effect.on_remove_on_mob_delete)
+			qdel(effect)
+
+		else
+			effect.be_replaced()
+
 	if(buckled)
-		buckled.unbuckle_mob(src,force=1)
+		buckled.unbuckle_mob(src, force=1)
 
 	remove_from_all_data_huds()
 	GLOB.mob_living_list -= src
-	QDEL_LIST(diseases)
-	for(var/s in ownedSoullinks)
-		var/datum/soullink/S = s
-		S.ownerDies(FALSE)
-		qdel(s) //If the owner is destroy()'d, the soullink is destroy()'d
-	ownedSoullinks = null
-	for(var/s in sharedSoullinks)
-		var/datum/soullink/S = s
-		S.sharerDies(FALSE)
-		S.removeSoulsharer(src) //If a sharer is destroy()'d, they are simply removed
-	sharedSoullinks = null
+	QDEL_LAZYLIST(diseases)
+	QDEL_LIST(surgeries)
 	return ..()
 
 /mob/living/onZImpact(turf/T, levels, message = TRUE)
@@ -759,10 +749,6 @@
 		clear_alert("not_enough_oxy")
 		reload_fullscreen()
 		. = TRUE
-		if(mind)
-			for(var/S in mind.spell_list)
-				var/obj/effect/proc_holder/spell/spell = S
-				spell.updateButtonIcon()
 		if(excess_healing)
 			INVOKE_ASYNC(src, .proc/emote, "gasp")
 			log_combat(src, src, "revived")
@@ -1482,24 +1468,6 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 /mob/living/proc/on_fall()
 	return
 
-/mob/living/proc/AddAbility(obj/effect/proc_holder/A)
-	abilities.Add(A)
-	A.on_gain(src)
-	if(A.has_action)
-		A.action.Grant(src)
-
-/mob/living/proc/RemoveAbility(obj/effect/proc_holder/A)
-	abilities.Remove(A)
-	A.on_lose(src)
-	if(A.action)
-		A.action.Remove(src)
-
-/mob/living/proc/add_abilities_to_panel()
-	var/list/L = list()
-	for(var/obj/effect/proc_holder/A in abilities)
-		L[++L.len] = list("[A.panel]",A.get_panel_text(),A.name,"[REF(A)]")
-	return L
-
 /mob/living/lingcheck()
 	if(mind)
 		var/datum/antagonist/changeling/changeling = mind.has_antag_datum(/datum/antagonist/changeling)
@@ -1609,12 +1577,6 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 		else
 			clear_fullscreen("remote_view", 0)
 		update_pipe_vision()
-
-/mob/living/update_mouse_pointer()
-	..()
-	if (client && ranged_ability?.ranged_mousepointer)
-		client.mouse_pointer_icon = ranged_ability.ranged_mousepointer
-
 
 /mob/living/vv_edit_var(var_name, var_value)
 	switch(var_name)
@@ -2130,3 +2092,8 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 				return FALSE
 			return style.harm_act(src, target)
 	return style.help_act(src, target)
+
+/mob/living/carbon/proc/draw_custom_races(do_it)
+	for(var/O in bodyparts)
+		var/obj/item/bodypart/B = O
+		B.should_draw_custom_races = do_it

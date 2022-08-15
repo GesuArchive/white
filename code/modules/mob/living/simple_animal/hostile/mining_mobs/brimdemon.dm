@@ -33,7 +33,7 @@
 	loot = list()
 	robust_searching = TRUE
 	footstep_type = FOOTSTEP_MOB_CLAW
-	deathmessage = "wails as infernal energy escapes from its wounds, leaving it an empty husk."
+	death_message = "wails as infernal energy escapes from its wounds, leaving it an empty husk."
 	deathsound = 'sound/magic/demon_dies.ogg'
 	light_color = LIGHT_COLOR_BLOOD_MAGIC
 	light_power = 5

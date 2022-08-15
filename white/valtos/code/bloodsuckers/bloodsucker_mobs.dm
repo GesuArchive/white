@@ -102,11 +102,14 @@
 	maxHealth = 110
 	health = 110
 	mob_size = MOB_SIZE_SMALL
-	ventcrawler = VENTCRAWLER_ALWAYS
 	harm_intent_damage = 7
 	melee_damage_lower = 7
 	melee_damage_upper = 7
 	obj_damage = 20
+
+/mob/living/simple_animal/hostile/bloodsucker/tzimisce/calcium/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /mob/living/simple_animal/hostile/bloodsucker/tzimisce/armmy
 	name = "tiny monstrosity"
@@ -118,13 +121,16 @@
 	maxHealth = 75
 	health = 75
 	mob_size = MOB_SIZE_TINY
-	ventcrawler = VENTCRAWLER_ALWAYS
 	pass_flags = PASSTABLE
 	harm_intent_damage = 5
 	melee_damage_lower = 5
 	melee_damage_upper = 5
 	attack_sound = 'sound/weapons/bite.ogg'
 	obj_damage = 10
+
+/mob/living/simple_animal/hostile/bloodsucker/tzimisce/armmy/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 ///////////////////////////////
 ///      Inheritances       ///

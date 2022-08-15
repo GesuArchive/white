@@ -4,7 +4,6 @@
 	icon = 'icons/mob/slimes.dmi'
 	icon_state = "grey baby slime"
 	pass_flags = PASSTABLE | PASSGRILLE
-	ventcrawler = VENTCRAWLER_ALWAYS
 	gender = NEUTER
 	var/is_adult = 0
 	var/docile = 0
@@ -107,6 +106,7 @@
 	AddElement(/datum/element/footstep, FOOTSTEP_MOB_SLIME, 0)
 	add_cell_sample()
 	AddElement(/datum/element/soft_landing)
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /mob/living/simple_animal/slime/Destroy()
 	for (var/A in actions)

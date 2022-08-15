@@ -18,7 +18,7 @@
 		name = "Восстанавливающий стазис"
 		desc = "Мы падаем в стазис, позволяя нам возродиться и обмануть наших врагов."
 		button_icon_state = "fake_death"
-		UpdateButtonIcon()
+		UpdateButtons()
 		chemical_cost = 15
 		to_chat(user, span_notice("Мы оживили себя."))
 	else
@@ -49,7 +49,7 @@
 			name = "Возрождение"
 			desc = "Мы восстанем ещё раз."
 			button_icon_state = "revive"
-			UpdateButtonIcon()
+			UpdateButtons()
 			chemical_cost = 0
 			revive_ready = TRUE
 

@@ -73,6 +73,15 @@
 	var/hit_threshhold = PROJECTILE_HIT_THRESHHOLD_LAYER
 
 	var/speed = 0.8 //Amount of deciseconds it takes for projectile to travel
+
+	/// This var is multiplied by SSprojectiles.global_pixel_speed to get how many pixels
+	/// the projectile moves during each iteration of the movement loop
+	///
+	/// If you want to make a fast-moving projectile, you should keep this equal to 1 and
+	/// reduce the value of `speed`. If you want to make a slow-moving projectile, make
+	/// `speed` a modest value like 1 and set this to a low value like 0.2.
+	var/pixel_speed_multiplier = 1
+
 	var/Angle = 0
 	var/original_angle = 0 //Angle at firing
 	var/nondirectional_sprite = FALSE //Set TRUE to prevent projectiles from having their sprites rotated based on firing angle
@@ -165,6 +174,8 @@
 	var/dismemberment = 0 //The higher the number, the greater the bonus to dismembering. 0 will not dismember at all.
 	var/impact_effect_type //what type of impact effect to show when hitting something
 	var/log_override = FALSE //is this type spammed enough to not log? (KAs)
+	/// We ignore mobs with these factions.
+	var/list/ignored_factions
 
 	///If defined, on hit we create an item of this type then call hitby() on the hit target with this, mainly used for embedding items (bullets) in targets
 	var/shrapnel_type
@@ -513,6 +524,10 @@
 		var/mob/M = firer
 		if((target == firer) || ((target == firer.loc) && ismecha(firer.loc)) || (target in firer.buckled_mobs) || (istype(M) && (M.buckled == target)))
 			return FALSE
+	if(ignored_factions?.len && ismob(target) && !direct_target)
+		var/mob/target_mob = target
+		if(faction_check(target_mob.faction, ignored_factions))
+			return FALSE
 	if(target.density || cross_failed) //This thing blocks projectiles, hit it regardless of layer/mob stuns/etc.
 		return TRUE
 	if(!isliving(target))
@@ -676,7 +691,7 @@
 		time_offset += MODULUS(elapsed_time_deciseconds, speed)
 
 	for(var/i in 1 to required_moves)
-		pixel_move(1, FALSE)
+		pixel_move(pixel_speed_multiplier, FALSE)
 
 /obj/projectile/proc/fire(angle, atom/direct_target)
 	LAZYINITLIST(impacted)
@@ -720,7 +735,7 @@
 		process_hitscan()
 	if(!(datum_flags & DF_ISPROCESSING))
 		START_PROCESSING(SSprojectiles, src)
-	pixel_move(1, FALSE) //move it now!
+	pixel_move(pixel_speed_multiplier, FALSE) //move it now!
 
 /obj/projectile/proc/set_angle(new_angle) //wrapper for overrides.
 	Angle = new_angle

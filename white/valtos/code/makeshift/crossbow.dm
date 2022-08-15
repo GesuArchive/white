@@ -181,7 +181,7 @@
 		var/obj/item/bent_rod/R = new(H.loc, 1, FALSE)
 
 		if (istype(BP))
-			R.add_blood_DNA(H.return_blood_DNA())
+			R.add_blood_DNA(GET_ATOM_BLOOD_DNA(H))
 			R.embedding = list("pain_mult" = 4, "embed_chance" = 90, "fall_chance" = 10)
 			R.updateEmbedding()
 			R.tryEmbed(BP, TRUE, TRUE)

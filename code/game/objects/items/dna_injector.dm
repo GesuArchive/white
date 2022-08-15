@@ -40,7 +40,7 @@
 				M.name = M.real_name
 				M.dna.blood_type = fields["blood_type"]
 			if(fields["UI"])	//UI+UE
-				M.dna.uni_identity = merge_text(M.dna.uni_identity, fields["UI"])
+				M.dna.unique_identity = merge_text(M.dna.unique_identity, fields["UI"])
 				M.updateappearance(mutations_overlay_update=1)
 		log_attack("[log_msg] [loc_name(user)]")
 		return TRUE
@@ -435,51 +435,46 @@
 /obj/item/dnainjector/timed
 	var/duration = 600
 
-/obj/item/dnainjector/timed/inject(mob/living/carbon/M, mob/user)
-	if(M.stat == DEAD)	//prevents dead people from having their DNA changed
-		to_chat(user, span_notice("You can't modify [M] DNA while [M.p_theyre()] dead."))
+/obj/item/dnainjector/timed/inject(mob/living/carbon/target, mob/user)
+	if(target.stat == DEAD) //prevents dead people from having their DNA changed
+		to_chat(user, span_notice("You can't modify [target]'s DNA while [target.p_theyre()] dead."))
 		return FALSE
 
-	if(M.has_dna() && !(HAS_TRAIT(M, TRAIT_BADDNA)))
-		M.radiation += rand(20/(damage_coeff  ** 2),50/(damage_coeff  ** 2))
-		var/log_msg = "[key_name(user)] injected [key_name(M)] with the [name]"
-		var/endtime = world.time+duration
+	if(target.has_dna() && !(HAS_TRAIT(target, TRAIT_BADDNA)))
+		var/endtime = world.time + duration
 		for(var/mutation in remove_mutations)
-			if(mutation == RACEMUT)
-				if(!ismonkey(M))
+			if(mutation == /datum/mutation/human/race)
+				if(!ismonkey(target))
 					continue
-				M = M.dna.remove_mutation(mutation)
+				target = target.dna.remove_mutation(mutation)
 			else
-				M.dna.remove_mutation(mutation)
+				target.dna.remove_mutation(mutation)
 		for(var/mutation in add_mutations)
-			if(M.dna.get_mutation(mutation))
+			if(target.dna.get_mutation(mutation))
 				continue //Skip permanent mutations we already have.
-			if(mutation == RACEMUT && !ismonkey(M))
-				message_admins("[ADMIN_LOOKUPFLW(user)] injected [key_name_admin(M)] with the [name] <span class='danger'>(MONKEY)</span>")
-				log_msg += " (MONKEY)"
-				M = M.dna.add_mutation(mutation, MUT_OTHER, endtime)
+			if(mutation == /datum/mutation/human/race && !ismonkey(target))
+				message_admins("[ADMIN_LOOKUPFLW(user)] injected [key_name_admin(target)] with the [name] [span_danger("(MONKEY)")]")
+				target = target.dna.add_mutation(mutation, MUT_OTHER, endtime)
 			else
-				M.dna.add_mutation(mutation, MUT_OTHER, endtime)
+				target.dna.add_mutation(mutation, MUT_OTHER, endtime)
 		if(fields)
 			if(fields["name"] && fields["UE"] && fields["blood_type"])
-				if(!M.dna.previous["name"])
-					M.dna.previous["name"] = M.real_name
-				if(!M.dna.previous["UE"])
-					M.dna.previous["UE"] = M.dna.unique_enzymes
-				if(!M.dna.previous["blood_type"])
-					M.dna.previous["blood_type"] = M.dna.blood_type
-				M.real_name = fields["name"]
-				M.dna.unique_enzymes = fields["UE"]
-				M.name = M.real_name
-				M.dna.blood_type = fields["blood_type"]
-				M.dna.temporary_mutations[UE_CHANGED] = endtime
-			if(fields["UI"])	//UI+UE
-				if(!M.dna.previous["UI"])
-					M.dna.previous["UI"] = M.dna.uni_identity
-				M.dna.uni_identity = merge_text(M.dna.uni_identity, fields["UI"])
-				M.updateappearance(mutations_overlay_update=1)
-				M.dna.temporary_mutations[UI_CHANGED] = endtime
-		log_attack("[log_msg] [loc_name(user)]")
+				if(!target.dna.previous["name"])
+					target.dna.previous["name"] = target.real_name
+				if(!target.dna.previous["UE"])
+					target.dna.previous["UE"] = target.dna.unique_enzymes
+				if(!target.dna.previous["blood_type"])
+					target.dna.previous["blood_type"] = target.dna.blood_type
+				target.real_name = fields["name"]
+				target.dna.unique_enzymes = fields["UE"]
+				target.name = target.real_name
+				target.dna.blood_type = fields["blood_type"]
+				target.dna.temporary_mutations[UE_CHANGED] = endtime
+			if(fields["UI"]) //UI+UE
+				if(!target.dna.previous["UI"])
+					target.dna.previous["UI"] = target.dna.unique_identity
+				target.dna.unique_identity = merge_text(target.dna.unique_identity, fields["UI"])
+				target.dna.temporary_mutations[UI_CHANGED] = endtime
 		return TRUE
 	else
 		return FALSE

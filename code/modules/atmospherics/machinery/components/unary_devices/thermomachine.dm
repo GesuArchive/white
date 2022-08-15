@@ -26,6 +26,8 @@
 	var/base_heating = 140
 	var/base_cooling = 170
 
+	vent_movement = NONE
+
 /obj/machinery/atmospherics/components/unary/thermomachine/Initialize(mapload)
 	. = ..()
 	initialize_directions = dir

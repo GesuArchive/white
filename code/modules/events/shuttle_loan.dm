@@ -146,11 +146,11 @@
 				var/datum/supply_pack/pack = SSshuttle.supply_packs[/datum/supply_pack/emergency/specialops]
 				pack.generate(pick_n_take(empty_shuttle_turfs))
 
-				shuttle_spawns.Add(/mob/living/simple_animal/hostile/poison/giant_spider)
-				shuttle_spawns.Add(/mob/living/simple_animal/hostile/poison/giant_spider)
-				shuttle_spawns.Add(/mob/living/simple_animal/hostile/poison/giant_spider/nurse)
+				shuttle_spawns.Add(/mob/living/simple_animal/hostile/giant_spider)
+				shuttle_spawns.Add(/mob/living/simple_animal/hostile/giant_spider)
+				shuttle_spawns.Add(/mob/living/simple_animal/hostile/giant_spider/nurse)
 				if(prob(50))
-					shuttle_spawns.Add(/mob/living/simple_animal/hostile/poison/giant_spider/hunter)
+					shuttle_spawns.Add(/mob/living/simple_animal/hostile/giant_spider/hunter)
 
 				var/turf/T = pick_n_take(empty_shuttle_turfs)
 

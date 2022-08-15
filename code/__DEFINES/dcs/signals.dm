@@ -383,30 +383,6 @@
 #define COMSIG_EXIT_AREA "exit_area"
 /// Sent when a shuttle leaves this area
 #define COMSIG_AREA_AFTER_SHUTTLE_MOVE "area_after_shuttle_move"
-///from base of atom/Click(): (location, control, params, mob/user)
-#define COMSIG_CLICK "atom_click"
-///from base of atom/ShiftClick(): (/mob)
-#define COMSIG_CLICK_SHIFT "shift_click"
-	#define COMPONENT_ALLOW_EXAMINATE (1<<0) //Allows the user to examinate regardless of client.eye.
-///from base of atom/CtrlClickOn(): (/mob)
-#define COMSIG_CLICK_CTRL "ctrl_click"
-///from base of atom/AltClick(): (/mob)
-#define COMSIG_CLICK_ALT "alt_click"
-	#define COMPONENT_CANCEL_CLICK_ALT (1<<0)
-///from base of atom/alt_click_secondary(): (/mob)
-#define COMSIG_CLICK_ALT_SECONDARY "alt_click_secondary"
-	#define COMPONENT_CANCEL_CLICK_ALT_SECONDARY (1<<0)
-///from base of atom/CtrlShiftClick(/mob)
-#define COMSIG_CLICK_CTRL_SHIFT "ctrl_shift_click"
-///from base of atom/MouseDrop(): (/atom/over, /mob/user)
-#define COMSIG_MOUSEDROP_ONTO "mousedrop_onto"
-	#define COMPONENT_NO_MOUSEDROP (1<<0)
-///from base of atom/MouseDrop_T: (/atom/from, /mob/user)
-#define COMSIG_MOUSEDROPPED_ONTO "mousedropped_onto"
-///from base of mob/MouseWheelOn(): (/atom, delta_x, delta_y, params)
-#define COMSIG_MOUSE_SCROLL_ON "mousescroll_on"
-///from base of mob/MouseEnteredOn(): (/atom, location, control, params)
-#define COMSIG_MOUSE_ENTERED_ON "mouseentered_on"
 
 // /area signals
 
@@ -570,6 +546,9 @@
 
 ///from base of obj/allowed(mob/M): (/obj) returns bool, if TRUE the mob has id access to the obj
 #define COMSIG_MOB_ALLOWED "mob_allowed"
+
+///from base of mob/can_cast_magic(): (mob/user, magic_flags, charge_cost)
+#define COMSIG_MOB_RESTRICT_MAGIC "mob_cast_magic"
 ///from base of mob/anti_magic_check(): (mob/user, magic, holy, tinfoil, chargecost, self, protection_sources)
 #define COMSIG_MOB_RECEIVE_MAGIC "mob_receive_magic"
 	#define COMPONENT_BLOCK_MAGIC (1<<0)
@@ -640,11 +619,18 @@
 ///From living/Life(). (deltatime, times_fired)
 #define COMSIG_LIVING_LIFE "living_life"
 
+///from base of element/bane/activate(): (item/weapon, mob/user)
+#define COMSIG_LIVING_BANED "living_baned"
+
 ///Sent when bloodcrawl ends in mob/living/phasein(): (phasein_decal)
 #define COMSIG_LIVING_AFTERPHASEIN "living_phasein"
 
 ///from base of mob/living/death(): (gibbed)
 #define COMSIG_LIVING_DEATH "living_death"
+
+/// from /proc/healthscan(): (list/scan_results, advanced, mob/user, mode)
+/// Consumers are allowed to mutate the scan_results list to add extra information
+#define COMSIG_LIVING_HEALTHSCAN "living_healthscan"
 
 ///sent from borg recharge stations: (amount, repairs)
 #define COMSIG_PROCESS_BORGCHARGER_OCCUPANT "living_charge"
@@ -702,54 +688,6 @@
 #define COMSIG_CARBON_HUGGED "carbon_hugged"
 ///When a carbon mob is headpatted, this is called on the carbon that is headpatted. (mob/living/headpatter)
 #define COMSIG_CARBON_HEADPAT "carbon_headpatted"
-
-///When a carbon slips. Called on /turf/open/handle_slip()
-#define COMSIG_ON_CARBON_SLIP "carbon_slip"
-///When a carbon gets a vending machine tilted on them
-#define COMSIG_ON_VENDOR_CRUSH "carbon_vendor_crush"
-// /mob/living/carbon physiology signals
-#define COMSIG_CARBON_GAIN_WOUND "carbon_gain_wound" //from /datum/wound/proc/apply_wound() (/mob/living/carbon/C, /datum/wound/W, /obj/item/bodypart/L)
-#define COMSIG_CARBON_LOSE_WOUND "carbon_lose_wound" //from /datum/wound/proc/remove_wound() (/mob/living/carbon/C, /datum/wound/W, /obj/item/bodypart/L)
-///from base of /obj/item/bodypart/proc/attach_limb(): (new_limb, special) allows you to fail limb attachment
-#define COMSIG_CARBON_ATTACH_LIMB "carbon_attach_limb"
-	#define COMPONENT_NO_ATTACH (1<<0)
-#define COMSIG_CARBON_REMOVE_LIMB "carbon_remove_limb" //from base of /obj/item/bodypart/proc/drop_limb(special, dismembered)
-#define COMSIG_BODYPART_GAUZED "bodypart_gauzed" // from /obj/item/bodypart/proc/apply_gauze(/obj/item/stack/gauze)
-#define COMSIG_BODYPART_GAUZE_DESTROYED "bodypart_degauzed" // from [/obj/item/bodypart/proc/seep_gauze] when it runs out of absorption
-
-///from base of mob/living/carbon/soundbang_act(): (list(intensity))
-#define COMSIG_CARBON_SOUNDBANG "carbon_soundbang"
-///from /item/organ/proc/Insert() (/obj/item/organ/)
-#define COMSIG_CARBON_GAIN_ORGAN "carbon_gain_organ"
-///from /item/organ/proc/Remove() (/obj/item/organ/)
-#define COMSIG_CARBON_LOSE_ORGAN "carbon_lose_organ"
-///from /mob/living/carbon/doUnEquip(obj/item/I, force, newloc, no_move, invdrop, silent)
-#define COMSIG_CARBON_EQUIP_HAT "carbon_equip_hat"
-///from /mob/living/carbon/doUnEquip(obj/item/I, force, newloc, no_move, invdrop, silent)
-#define COMSIG_CARBON_UNEQUIP_HAT "carbon_unequip_hat"
-///from /mob/living/carbon/doUnEquip(obj/item/I, force, newloc, no_move, invdrop, silent)
-#define COMSIG_CARBON_UNEQUIP_SHOECOVER "carbon_unequip_shoecover"
-#define COMSIG_CARBON_EQUIP_SHOECOVER "carbon_equip_shoecover"
-///defined twice, in carbon and human's topics, fired when interacting with a valid embedded_object to pull it out (mob/living/carbon/target, /obj/item, /obj/item/bodypart/L)
-#define COMSIG_CARBON_EMBED_RIP "item_embed_start_rip"
-///called when removing a given item from a mob, from mob/living/carbon/remove_embedded_object(mob/living/carbon/target, /obj/item)
-#define COMSIG_CARBON_EMBED_REMOVAL "item_embed_remove_safe"
-///Called when someone attempts to cuff a carbon
-#define COMSIG_CARBON_CUFF_ATTEMPTED "carbon_attempt_cuff"
-///Called when a carbon mutates (source = dna, mutation = mutation added)
-#define COMSIG_CARBON_GAIN_MUTATION "carbon_gain_mutation"
-///Called when a carbon loses a mutation (source = dna, mutation = mutation lose)
-#define COMSIG_CARBON_LOSE_MUTATION "carbon_lose_mutation"
-///Called when a carbon becomes addicted (source = what addiction datum, addicted_mind = mind of the addicted carbon)
-#define COMSIG_CARBON_GAIN_ADDICTION "carbon_gain_addiction"
-///Called when a carbon is no longer addicted (source = what addiction datum was lost, addicted_mind = mind of the freed carbon)
-#define COMSIG_CARBON_LOSE_ADDICTION "carbon_lose_addiction"
-///Called when a carbon gets a brain trauma (source = carbon, trauma = what trauma was added) - this is before on_gain()
-#define COMSIG_CARBON_GAIN_TRAUMA "carbon_gain_trauma"
-///Called when a carbon loses a brain trauma (source = carbon, trauma = what trauma was removed)
-#define COMSIG_CARBON_LOSE_TRAUMA "carbon_lose_trauma"
-///Called when a carbon updates their health (source = carbon)
-#define COMSIG_CARBON_HEALTH_UPDATE "carbon_health_update"
 
 // simple_animal signals
 /// called when a simplemob is given sentience from a potion (target = person who sentienced)
@@ -889,11 +827,6 @@
 #define COMSIG_ITEM_PICKUP "item_pickup"
 ///from base of mob/living/carbon/attacked_by(): (mob/living/carbon/target, mob/living/user, hit_zone)
 #define COMSIG_ITEM_ATTACK_ZONE "item_attack_zone"
-///return a truthy value to prevent ensouling, checked in /obj/effect/proc_holder/spell/targeted/lichdom/cast(): (mob/user)
-#define COMSIG_ITEM_IMBUE_SOUL "item_imbue_soul"
-///called before marking an object for retrieval, checked in /obj/effect/proc_holder/spell/targeted/summonitem/cast() : (mob/user)
-#define COMSIG_ITEM_MARK_RETRIEVAL "item_mark_retrieval"
-	#define COMPONENT_BLOCK_MARK_RETRIEVAL (1<<0)
 ///from base of obj/item/hit_reaction(): (list/args)
 #define COMSIG_ITEM_HIT_REACT "item_hit_react"
 	#define COMPONENT_HIT_REACTION_BLOCK (1<<0)
@@ -1064,15 +997,6 @@
 ///called in /obj/item/gun/ballistic/process_chamber (casing)
 #define COMSIG_CASING_EJECTED "casing_ejected"
 
-// /obj/effect/proc_holder/spell signals
-
-///called from /obj/effect/proc_holder/spell/cast_check (src)
-#define COMSIG_MOB_PRE_CAST_SPELL "mob_cast_spell"
-	/// Return to cancel the cast from beginning.
-	#define COMPONENT_CANCEL_SPELL (1<<0)
-///called from /obj/effect/proc_holder/spell/perform (src)
-#define COMSIG_MOB_CAST_SPELL "mob_cast_spell"
-
 // /obj/item/camera signals
 
 ///from /obj/item/camera/captureimage(): (atom/target, mob/user)
@@ -1130,17 +1054,6 @@
 #define COMSIG_MECHA_EQUIPMENT_CLICK "mecha_action_equipment_click"
 	/// Prevents click from happening.
 	#define COMPONENT_CANCEL_EQUIPMENT_CLICK (1<<0)
-
-// /mob/living/carbon/human signals
-
-///Hit by successful disarm attack (mob/living/carbon/human/attacker,zone_targeted)
-#define COMSIG_HUMAN_DISARM_HIT "human_disarm_hit"
-///Whenever EquipRanked is called, called after job is set
-#define COMSIG_JOB_RECEIVED "job_received"
-///from /mob/living/carbon/human/proc/set_coretemperature(): (oldvalue, newvalue)
-#define COMSIG_HUMAN_CORETEMP_CHANGE "human_coretemp_change"
-///from /datum/species/handle_fire. Called when the human is set on fire and burning clothes and stuff
-#define COMSIG_HUMAN_BURNING "human_burning"
 
 // /datum/species signals
 
@@ -1326,12 +1239,6 @@
 /// From base of datum/element/movetype_handler/on_movement_type_trait_loss: (flag)
 #define COMSIG_MOVETYPE_FLAG_DISABLED "movetype_flag_disabled"
 
-// /datum/action signals
-
-///from base of datum/action/proc/Trigger(): (datum/action)
-#define COMSIG_ACTION_TRIGGER "action_trigger"
-	#define COMPONENT_ACTION_BLOCK_TRIGGER (1<<0)
-
 //Xenobio hotkeys
 
 ///from slime CtrlClickOn(): (/mob)
@@ -1421,13 +1328,6 @@
 #define COMSIG_LIVING_UNARMED_ATTACK "living_unarmed_attack"
 ///From base of mob/living/MobBump() (mob/living)
 #define COMSIG_LIVING_MOB_BUMP "living_mob_bump"
-///from mob/living/carbon/human/UnarmedAttack(): (atom/target, proximity, modifiers)
-#define COMSIG_HUMAN_EARLY_UNARMED_ATTACK "human_early_unarmed_attack"
-///from mob/living/carbon/human/UnarmedAttack(): (atom/target, proximity, modifiers)
-#define COMSIG_HUMAN_MELEE_UNARMED_ATTACK "human_melee_unarmed_attack"
-//from /mob/living/carbon/human/proc/check_shields(): (atom/hit_by, damage, attack_text, attack_type, armour_penetration)
-#define COMSIG_HUMAN_CHECK_SHIELDS "human_check_shields"
-	#define SHIELD_BLOCK (1<<0)
 ///From base of mob/living/ZImpactDamage() (mob/living, levels, turf/t)
 #define COMSIG_LIVING_Z_IMPACT "living_z_impact"
 	#define NO_Z_IMPACT_DAMAGE (1<<0)
@@ -1654,32 +1554,6 @@
 #define COMSIG_MOVELOOP_POSTPROCESS "moveloop_postprocess"
 //from [/datum/move_loop/has_target/jps/recalculate_path] ():
 #define COMSIG_MOVELOOP_JPS_REPATH "moveloop_jps_repath"
-
-// Antagonist signals
-/// Called on the mind when an antagonist is being gained, after the antagonist list has updated (datum/antagonist/antagonist)
-#define COMSIG_ANTAGONIST_GAINED "antagonist_gained"
-
-/// Called on the mind when an antagonist is being removed, after the antagonist list has updated (datum/antagonist/antagonist)
-#define COMSIG_ANTAGONIST_REMOVED "antagonist_removed"
-
-/// Heretic signals
-
-/// From /obj/item/clothing/mask/madness_mask/process : (amount)
-#define COMSIG_HERETIC_MASK_ACT "void_mask_act"
-
-/// From /obj/item/melee/touch_attack/mansus_fist/on_mob_hit : (mob/living/source, mob/living/target)
-#define COMSIG_HERETIC_MANSUS_GRASP_ATTACK "mansus_grasp_attack"
-	/// Default behavior is to use a charge, so return this to blocks the mansus fist from being consumed after use.
-	#define COMPONENT_BLOCK_CHARGE_USE (1<<0)
-/// From /obj/item/melee/touch_attack/mansus_fist/afterattack_secondary : (mob/living/source, atom/target)
-#define COMSIG_HERETIC_MANSUS_GRASP_ATTACK_SECONDARY "mansus_grasp_attack_secondary"
-	/// Default behavior is to continue attack chain and do nothing else, so return this to use up a charge after use.
-	#define COMPONENT_USE_CHARGE (1<<0)
-
-/// From /obj/item/melee/sickly_blade/afterattack (with proximity) : (mob/living/source, mob/living/target)
-#define COMSIG_HERETIC_BLADE_ATTACK "blade_attack"
-/// From /obj/item/melee/sickly_blade/afterattack (without proximity) : (mob/living/source, mob/living/target)
-#define COMSIG_HERETIC_RANGED_BLADE_ATTACK "ranged_blade_attack"
 
 // Yes, they do support this
 

@@ -35,8 +35,8 @@
 	H.hud_list[HACKER_HUD].icon = null
 	H.alpha = 200
 
-	H.AddSpell(new /obj/effect/proc_holder/spell/self/hacker_heal(null))
-	H.AddSpell(new /obj/effect/proc_holder/spell/self/hacker_immater(null))
+	var/datum/action/cooldown/spell/basic_heal/hacker/HH = new(src)
+	HH.Grant(H)
 
 	spawn(5 SECONDS)
 		if(H?.hud_used)

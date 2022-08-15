@@ -168,23 +168,26 @@
  */
 /datum/heretic_knowledge/spell
 	abstract_parent_type = /datum/heretic_knowledge/spell
-	/// The proc holder spell we add to the heretic. Type-path, becomes an instance via on_research().
-	var/obj/effect/proc_holder/spell/spell_to_add
+	/// Spell path we add to the heretic. Type-path.
+	var/datum/action/cooldown/spell/spell_to_add
+	/// The spell we actually created.
+	var/datum/weakref/created_spell_ref
 
-/datum/heretic_knowledge/spell/Destroy(force, ...)
-	if(istype(spell_to_add))
-		QDEL_NULL(spell_to_add)
-	return ..()
-
-/datum/heretic_knowledge/spell/on_research(mob/user)
-	spell_to_add = new spell_to_add()
+/datum/heretic_knowledge/spell/Destroy()
+	QDEL_NULL(created_spell_ref)
 	return ..()
 
 /datum/heretic_knowledge/spell/on_gain(mob/user)
-	user?.mind?.AddSpell(spell_to_add)
+	// Added spells are tracked on the body, and not the mind,
+	// because we handle heretic mind transfers
+	// via the antag datum (on_gain and on_lose).
+	var/datum/action/cooldown/spell/created_spell = created_spell_ref?.resolve() || new spell_to_add(user)
+	created_spell.Grant(user)
+	created_spell_ref = WEAKREF(created_spell)
 
 /datum/heretic_knowledge/spell/on_lose(mob/user)
-	user?.mind?.RemoveSpell(spell_to_add)
+	var/datum/action/cooldown/spell/created_spell = created_spell_ref?.resolve()
+	created_spell?.Remove(user)
 
 /*
  * A knowledge subtype for knowledge that can only
@@ -373,7 +376,7 @@
 /datum/heretic_knowledge/curse/recipe_snowflake_check(mob/living/user, list/atoms, list/selected_atoms, turf/loc)
 	fingerprints = list()
 	for(var/atom/requirements as anything in atoms)
-		fingerprints[requirements.return_fingerprints()] = 1
+		fingerprints[GET_ATOM_FINGERPRINTS(requirements)] = 1
 	list_clear_nulls(fingerprints)
 
 	// No fingerprints? No ritual
@@ -388,7 +391,7 @@
 	var/list/compiled_list = list()
 
 	for(var/mob/living/carbon/human/human_to_check as anything in GLOB.human_list)
-		if(fingerprints[md5(human_to_check.dna.uni_identity)])
+		if(fingerprints[md5(human_to_check.dna.unique_identity)])
 			compiled_list |= human_to_check.real_name
 			compiled_list[human_to_check.real_name] = human_to_check
 

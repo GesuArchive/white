@@ -62,8 +62,9 @@
 		if(isbot(caller))
 			return TRUE
 
-		var/mob/living/M = caller
-		if(!M.ventcrawler && M.mob_size != MOB_SIZE_TINY)
+		var/mob/living/living_caller = caller
+		var/ventcrawler = HAS_TRAIT(living_caller, TRAIT_VENTCRAWLER_ALWAYS) || HAS_TRAIT(living_caller, TRAIT_VENTCRAWLER_NUDE)
+		if(!ventcrawler && living_caller.mob_size != MOB_SIZE_TINY)
 			return FALSE
 
 	if(caller?.pulling)

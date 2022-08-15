@@ -126,7 +126,6 @@
 #define VV_HK_DIRECT_CONTROL "direct_control"
 #define VV_HK_GIVE_DIRECT_CONTROL "give_direct_control"
 #define VV_HK_OFFER_GHOSTS "offer_ghosts"
-#define VV_HK_SDQL_SPELL "sdql_spell"
 
 // /mob/living/carbon
 #define VV_HK_MAKE_AI "aiify"
@@ -157,7 +156,6 @@
 //outfits
 #define VV_HK_TO_OUTFIT_EDITOR "outfit_editor"
 
-// /obj/effect/proc_holder/spell
 /// Require casting_clothes to cast spell.
 #define VV_HK_SPELL_SET_ROBELESS "spell_set_robeless"
 /// Require cult armor to cast spell.

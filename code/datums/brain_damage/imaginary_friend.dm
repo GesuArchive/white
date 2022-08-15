@@ -236,7 +236,7 @@
 		name = "Спрятаться"
 		desc = "Спрятать себя от глаз своего хозяина."
 		button_icon_state = "hide"
-	UpdateButtonIcon()
+	UpdateButtons()
 
 /datum/action/innate/imaginary_hide/Activate()
 	var/mob/camera/imaginary_friend/I = owner

@@ -191,7 +191,6 @@
 	response_harm_simple = "cleanse the world of"
 	emote_see = list("honks", "sweats", "jiggles", "contemplates its existence")
 	speak_chance = 5
-	ventcrawler = VENTCRAWLER_ALWAYS
 	maxHealth = 90
 	health = 90
 	speed = 2
@@ -200,13 +199,15 @@
 	attack_verb_simple = "limply slap"
 	obj_damage = 5
 	var/biomass = 25
-	var/datum/action/innate/glutton/plantSkin/plantSkin
-	var/datum/action/innate/glutton/lesser/build/build
 	loot = list(/obj/item/clothing/suit/hooded/bloated_human, /obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/fluid/foam, /obj/item/soap)
 
+/mob/living/simple_animal/hostile/clown/fleshclown/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
+
 /mob/living/simple_animal/hostile/clown/fleshclown/get_status_tab_items()
-		. = ..()
-		. += "Плоть: [biomass]"
+	. = ..()
+	. += "Плоть: [biomass]"
 
 /mob/living/simple_animal/hostile/clown/longface
 	name = "Longface"
@@ -377,10 +378,8 @@
 	attack_verb_simple = "slam"
 	loot = list(/obj/effect/gibspawner/xeno/bodypartless, /obj/effect/gibspawner/generic, /obj/effect/gibspawner/generic/animal, /obj/effect/gibspawner/human/bodypartless)
 	deathsound = 'sound/misc/sadtrombone.ogg'
-	var/obj/effect/proc_holder/spell/aoe_turf/Lighteater/my_regurgitate
 	var/biomass = 70
-	var/datum/action/innate/glutton/plantSkin/plantSkin
-	var/datum/action/innate/glutton/build/myBuild
+
 /mob/living/simple_animal/hostile/clown/mutant/glutton/get_status_tab_items()
 	. = ..()
 	. += "Плоть: [biomass]"
@@ -398,7 +397,6 @@
 	speed = 0
 	turns_per_move = 5
 	see_in_dark = 4
-	ventcrawler = VENTCRAWLER_ALWAYS
 	response_help_continuous = "гладит"
 	response_help_simple = "гладит"
 	response_disarm_continuous = "аккуратно отталкивает"
@@ -414,6 +412,10 @@
 	attack_verb_simple = "кусает"
 	footstep_type = FOOTSTEP_MOB_CLAW
 	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/effect/particle_effect/fluid/foam)
+
+/mob/living/simple_animal/hostile/clown/infestor/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /mob/living/simple_animal/hostile/clown/worm
 	name = "Хонкочервь"
@@ -435,7 +437,6 @@
 	response_harm_continuous = "steps on"
 	response_harm_simple = "step on"
 	loot = list(/obj/item/clothing/mask/gas/clown_hat)
-	ventcrawler = VENTCRAWLER_ALWAYS
 	density = FALSE
 	pass_flags = PASSTABLE | PASSMOB
 	mob_size = MOB_SIZE_SMALL
@@ -444,20 +445,28 @@
 
 /mob/living/simple_animal/hostile/clown/mutant/glutton/Initialize(mapload)
 	. = ..()
-	AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/lighteater)
-	myBuild = new
-	myBuild.Grant(src)
-	plantSkin = new
-	plantSkin.Grant(src)
+
+	var/datum/action/cooldown/spell/aoe/lighteater/LE = new(src)
+	LE.Grant(src)
+
+	var/datum/action/innate/glutton/plantSkin/PS = new(src)
+	PS.Grant(src)
+
+	var/datum/action/innate/glutton/build/MB = new(src)
+	MB.Grant(src)
+
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
+
 	priority_announce("На станции [station_name()] обнаружен Апостол Хонкоматери. Заблокируйте любой внешний доступ, включая воздуховоды и вентиляцию.", "Боевая Тревога", ANNOUNCER_COMMANDREPORT)
 
 
 /mob/living/simple_animal/hostile/clown/fleshclown/Initialize(mapload)
 	. = ..()
-	plantSkin = new
-	plantSkin.Grant(src)
-	build = new
-	build.Grant(src)
+	var/datum/action/innate/glutton/plantSkin/PS = new(src)
+	PS.Grant(src)
+
+	var/datum/action/innate/glutton/build/MB = new(src)
+	MB.Grant(src)
 
 //Пожирание трупов матерью
 /mob/living/simple_animal/hostile/clown/mutant/glutton/proc/eat(atom/movable/A)
@@ -509,30 +518,31 @@
 
 
 //Жрет свет и лечит себя
-/obj/effect/proc_holder/spell/aoe_turf/lighteater
+/datum/action/cooldown/spell/aoe/lighteater
 	name = "Поглотить свет"
 	desc = "Поглощает свет из ближайших лампочек."
-	action_background_icon_state = "bg_changeling"
-	action_icon = 'icons/mob/actions/actions_animal.dmi'
-	action_icon_state = "regurgitate"
-	charge_max = 300
-	clothes_req = 0
-	range = 14
+	background_icon_state = "bg_changeling"
+	icon_icon = 'icons/mob/actions/actions_animal.dmi'
+	button_icon_state = "regurgitate"
 
+	cooldown_time = 15 SECONDS
+	spell_requirements = NONE
 
-/obj/effect/proc_holder/spell/aoe_turf/lighteater/cast(list/targets, mob/living/simple_animal/hostile/clown/mutant/glutton/user = usr)
+	invocation_type = INVOCATION_NONE
+	antimagic_flags = NONE
+	aoe_radius = 14
+
+/datum/action/cooldown/spell/aoe/lighteater/cast(atom/cast_on)
 	flick("glutton_tongue",usr)
-	for(var/obj/machinery/light/L in view(6, user))
-		if (L.icon_state != "tube-broken")
-			user.adjustHealth(-100)
+	for(var/obj/machinery/light/L in view(6, cast_on))
 		L.on = 1
 		L.break_light_tube()
-	for(var/mob/living/carbon/human/M in get_hearers_in_view(10, user))
+	for(var/mob/living/carbon/human/M in get_hearers_in_view(10, cast_on))
 		SEND_SOUND(M, sound('sound/effects/screech.ogg'))
 		M.add_confusion(25)
 		M.Jitter(50)
-	to_chat(user, span_notice("Издаю ужасающий визг, высасывая энергию из лампочек вокруг!"))
-	return
+	to_chat(cast_on, span_notice("Издаю ужасающий визг, высасывая энергию из лампочек вокруг!"))
+	return ..()
 
 
 

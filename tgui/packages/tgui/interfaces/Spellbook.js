@@ -232,7 +232,11 @@ const SingleLoadout = (props, context) => {
           fluid
           icon={icon}
           content="Purchase Loadout"
-          onClick={() => act(loadoutId)}
+          onClick={() =>
+            act('purchase_loadout', {
+              id: loadoutId,
+            })
+          }
         />
         <Divider />
         <Box color={loadoutColor}>Added by {author}.</Box>
@@ -272,8 +276,8 @@ const Loadouts = (props, context) => {
             author="Jegudiel Worldshaker"
             blurb={multiline`
                 The power of the mighty Mjolnir! Best not to lose it.
-                This loadout has Summon Item, Mutate, Blink, and
-                Force Wall. Mutate is your utility in this case:
+                This loadout has Summon Item, Mutate, Blink, Force Wall,
+                Tesla Blast, and Mjolnir. Mutate is your utility in this case:
                 Use it for limited ranged fire and getting out of bad blinks.
               `}
           />
@@ -316,12 +320,13 @@ const lineHeightRandomize = 6;
 
 const Randomize = (props, context) => {
   const { act, data } = useBackend(context);
-  const { points } = data;
+  const { points, semi_random_bonus, full_random_bonus } = data;
   return (
     <Stack fill vertical>
       {points < 10 && <PointLocked />}
       <Stack.Item grow mt={10}>
         Semi-Randomize will ensure you at least get some mobility and lethality.
+        Guaranteed to have {semi_random_bonus} points worth of spells.
       </Stack.Item>
       <Stack.Item>
         <Button.Confirm
@@ -337,6 +342,7 @@ const Randomize = (props, context) => {
       </Stack.Item>
       <Stack.Item>
         Full Random will give you anything. There&apos;s no going back, either!
+        Guaranteed to have {full_random_bonus} points worth of spells.
       </Stack.Item>
       <Stack.Item>
         <NoticeBox danger>
@@ -357,7 +363,7 @@ const Randomize = (props, context) => {
 };
 
 const widthSection = '466px';
-const heightSection = '480px';
+const heightSection = '456px';
 
 export const Spellbook = (props, context) => {
   const { act, data } = useBackend(context);
@@ -378,7 +384,7 @@ export const Spellbook = (props, context) => {
     ? entries.filter((entry) => entry.cat === TAB2NAME[tabIndex].title)
     : null;
   return (
-    <Window title="Книга заклинаний" theme="wizard" width={950} height={568}>
+    <Window title="Spellbook" theme="wizard" width={950} height={540}>
       <Window.Content>
         <Stack vertical fill>
           <Stack.Item>
@@ -456,11 +462,13 @@ export const Spellbook = (props, context) => {
                                         <Button
                                           icon="tshirt"
                                           color={
-                                            entry.clothes_req ? 'bad' : 'green'
+                                            entry.requires_wizard_garb
+                                              ? 'bad'
+                                              : 'green'
                                           }
                                           tooltipPosition="bottom-start"
                                           tooltip={
-                                            entry.clothes_req
+                                            entry.requires_wizard_garb
                                               ? 'Requires wizard garb.'
                                               : 'Can be cast without wizard garb.'
                                           }
@@ -591,11 +599,13 @@ export const Spellbook = (props, context) => {
                                         <Button
                                           icon="tshirt"
                                           color={
-                                            entry.clothes_req ? 'bad' : 'green'
+                                            entry.requires_wizard_garb
+                                              ? 'bad'
+                                              : 'green'
                                           }
                                           tooltipPosition="bottom-start"
                                           tooltip={
-                                            entry.clothes_req
+                                            entry.requires_wizard_garb
                                               ? 'Requires wizard garb.'
                                               : 'Can be cast without wizard garb.'
                                           }

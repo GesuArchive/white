@@ -131,11 +131,13 @@
 
 /// If the ridden creature has abilities, and some var yet to be made is set to TRUE, the rider will be able to control those abilities
 /datum/component/riding/creature/proc/setup_abilities(mob/living/M)
+	if(!istype(parent, /mob/living))
+		return
+
 	var/mob/living/ridden_creature = parent
 
-	for(var/i in ridden_creature.abilities)
-		var/obj/effect/proc_holder/proc_holder = i
-		M.AddAbility(proc_holder)
+	for(var/datum/action/action as anything in ridden_creature.actions)
+		action.GiveAction(M)
 
 /// Takes away the riding parent's abilities from the rider
 /datum/component/riding/creature/proc/remove_abilities(mob/living/M)
@@ -144,9 +146,11 @@
 
 	var/mob/living/ridden_creature = parent
 
-	for(var/i in ridden_creature.abilities)
-		var/obj/effect/proc_holder/proc_holder = i
-		M.RemoveAbility(proc_holder)
+	for(var/datum/action/action as anything in ridden_creature.actions)
+		if(istype(action, /datum/action/cooldown) && M.click_intercept == action)
+			var/datum/action/cooldown/cooldown_action = action
+			cooldown_action.unset_click_ability(M, refund_cooldown = TRUE)
+		action.HideFrom(M)
 
 /datum/component/riding/creature/riding_can_z_move(atom/movable/movable_parent, direction, turf/start, turf/destination, z_move_flags, mob/living/rider)
 	if(!(z_move_flags & ZMOVE_CAN_FLY_CHECKS))

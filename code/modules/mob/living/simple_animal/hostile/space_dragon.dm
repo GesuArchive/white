@@ -55,7 +55,7 @@
 	ranged = TRUE
 	mouse_opacity = MOUSE_OPACITY_ICON
 	butcher_results = list(/obj/item/stack/ore/diamond = 5, /obj/item/stack/sheet/sinew = 5, /obj/item/stack/sheet/bone = 30)
-	deathmessage = "screeches as its wings turn to dust and it collapses on the floor, its life extinguished."
+	death_message = "screeches as its wings turn to dust and it collapses on the floor, its life extinguished."
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	maxbodytemp = 1500
@@ -530,6 +530,15 @@
 
 /obj/structure/carp_rift/Initialize(mapload)
 	. = ..()
+
+	AddComponent( \
+		/datum/component/aura_healing, \
+		range = 0, \
+		simple_heal = 5, \
+		limit_to_trait = TRAIT_HEALS_FROM_CARP_RIFTS, \
+		healing_color = COLOR_BLUE, \
+	)
+
 	START_PROCESSING(SSobj, src)
 
 /obj/structure/carp_rift/examine(mob/user)
@@ -556,13 +565,6 @@
 	return ..()
 
 /obj/structure/carp_rift/process(delta_time)
-	// Heal carp on our loc.
-	for(var/mob/living/simple_animal/hostile/hostilehere in loc)
-		if("carp" in hostilehere.faction)
-			hostilehere.adjustHealth(-5 * delta_time)
-			var/obj/effect/temp_visual/heal/H = new /obj/effect/temp_visual/heal(get_turf(hostilehere))
-			H.color = "#0000FF"
-
 	// If we're fully charged, just start mass spawning carp and move around.
 	if(charge_state == CHARGE_COMPLETED)
 		if(DT_PROB(1.25, delta_time))

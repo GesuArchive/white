@@ -312,29 +312,14 @@
 			//Random One-use spellbook
 			T.visible_message(span_userdanger("A magical looking book drops to the floor!"))
 			do_smoke(0, drop_location())
-			new /obj/item/book/granter/spell/random(drop_location())
+			new /obj/item/book/granter/action/spell/random(drop_location())
 		if(16)
 			//Servant & Servant Summon
 			T.visible_message(span_userdanger("A Dice Servant appears in a cloud of smoke!"))
-			var/mob/living/carbon/human/H = new(drop_location())
 			do_smoke(0, drop_location())
 
-			H.equipOutfit(/datum/outfit/butler)
-			var/datum/mind/servant_mind = new /datum/mind()
-			var/datum/antagonist/magic_servant/A = new
-			servant_mind.add_antag_datum(A)
-			A.setup_master(user)
-			servant_mind.transfer_to(H)
-
-			var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Do you want to play as [user.real_name] Servant?", ROLE_WIZARD, null, 50, H)
-			if(LAZYLEN(candidates))
-				var/mob/dead/observer/C = pick(candidates)
-				message_admins("[ADMIN_LOOKUPFLW(C)] was spawned as Dice Servant")
-				H.key = C.key
-
-			var/obj/effect/proc_holder/spell/targeted/summonmob/S = new
-			S.target_mob = H
-			user.mind.AddSpell(S)
+			var/datum/action/cooldown/spell/conjure/bee/bee_spell = new(user.mind)
+			bee_spell.Grant(user)
 
 		if(17)
 			//Tator Kit
@@ -364,32 +349,6 @@
 	head = /obj/item/clothing/head/bowler
 	glasses = /obj/item/clothing/glasses/monocle
 	gloves = /obj/item/clothing/gloves/color/white
-
-/obj/effect/proc_holder/spell/targeted/summonmob
-	name = "Summon Servant"
-	desc = "This spell can be used to call your servant, whenever you need it."
-	charge_max = 100
-	clothes_req = 0
-	invocation = "JE VES"
-	school = SCHOOL_CONJURATION
-	invocation_type = INVOCATION_WHISPER
-	range = -1
-	level_max = 0 //cannot be improved
-	cooldown_min = 100
-	include_user = 1
-
-	var/mob/living/target_mob
-
-	action_icon_state = "summons"
-
-/obj/effect/proc_holder/spell/targeted/summonmob/cast(list/targets,mob/user = usr)
-	if(!target_mob)
-		return
-	var/turf/Start = get_turf(user)
-	for(var/direction in GLOB.alldirs)
-		var/turf/T = get_step(Start,direction)
-		if(!T.density)
-			target_mob.Move(T)
 
 /obj/structure/ladder/unbreakable/rune
 	name = "\improper Teleportation Rune"

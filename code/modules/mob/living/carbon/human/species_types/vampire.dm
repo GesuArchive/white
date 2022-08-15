@@ -14,7 +14,6 @@
 	limbs_id = "human"
 	skinned_type = /obj/item/stack/sheet/animalhide/human
 	var/info_text = "You are a <span class='danger'>Vampire</span>. You will slowly but constantly lose blood if outside of a coffin. If inside a coffin, you will slowly heal. You may gain more blood by grabbing a live victim and using your drain ability."
-	var/obj/effect/proc_holder/spell/targeted/shapeshift/bat/batform //attached to the datum itself to avoid cloning memes, and other duplicates
 
 /datum/species/vampire/check_roundstart_eligible()
 	if(SSevents.holidays && SSevents.holidays[HALLOWEEN])
@@ -26,16 +25,7 @@
 	to_chat(C, "[info_text]")
 	C.skin_tone = "albino"
 	C.update_body(0)
-	if(isnull(batform))
-		batform = new
-		C.AddSpell(batform)
 	C.set_safe_hunger_level()
-
-/datum/species/vampire/on_species_loss(mob/living/carbon/C)
-	. = ..()
-	if(!isnull(batform))
-		C.RemoveSpell(batform)
-		QDEL_NULL(batform)
 
 /datum/species/vampire/spec_life(mob/living/carbon/human/C, delta_time, times_fired)
 	. = ..()
@@ -129,12 +119,3 @@
 /obj/item/organ/heart/vampire
 	name = "vampire heart"
 	color = "#1C1C1C"
-
-
-/obj/effect/proc_holder/spell/targeted/shapeshift/bat
-	name = "Bat Form"
-	desc = "Take on the shape a space bat."
-	invocation = "Squeak!"
-	charge_max = 50
-	cooldown_min = 50
-	shapeshift_type = /mob/living/simple_animal/hostile/retaliate/bat

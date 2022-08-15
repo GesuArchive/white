@@ -412,13 +412,9 @@
 	. = ..()
 	var/obj/item/organ/alien/plasmavessel/vessel = getorgan(/obj/item/organ/alien/plasmavessel)
 	if(vessel)
-		. += "Плазма: [vessel.storedPlasma]/[vessel.max_plasma]"
+		. += "Плазма: [vessel.stored_plasma]/[vessel.max_plasma]"
 	if(locate(/obj/item/assembly/health) in src)
 		. += "Здоровье: [health]"
-
-/mob/living/carbon/get_proc_holders()
-	. = ..()
-	. += add_abilities_to_panel()
 
 /mob/living/carbon/attack_ui(slot)
 	if(!has_hand_for_held_index(active_hand_index))
@@ -1337,7 +1333,7 @@
 	if(!isturf(loc))
 		return
 	var/obj/effect/decal/cleanable/blood/hitsplatter/our_splatter = new(loc)
-	our_splatter.add_blood_DNA(return_blood_DNA())
+	our_splatter.add_blood_DNA(GET_ATOM_BLOOD_DNA(src))
 	our_splatter.blood_dna_info = get_blood_dna_list()
 	var/turf/targ = get_ranged_target_turf(src, splatter_direction, splatter_strength)
 	our_splatter.fly_towards(targ, splatter_strength)

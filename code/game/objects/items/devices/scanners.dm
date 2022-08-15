@@ -199,6 +199,8 @@ GENE SCANNER
 		if(H.has_reagent(/datum/reagent/inverse/technetium))
 			advanced = TRUE
 
+	SEND_SIGNAL(M, COMSIG_LIVING_HEALTHSCAN, render_list, advanced, user, mode)
+
 	render_list += "<span class='info'>Результаты анализа [M]:</span>\n<span class='info ml-1'>Общий статус: [mob_status]</span>\n"
 
 	// Husk detection

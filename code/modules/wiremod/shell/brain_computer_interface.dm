@@ -282,9 +282,7 @@
 
 	src.circuit_component = circuit_component
 
-	button.maptext_x = 2
-	button.maptext_y = 0
-	update_maptext()
+	UpdateButtons()
 
 	START_PROCESSING(SSobj, src)
 
@@ -306,9 +304,14 @@
 		to_chat(owner, span_info("You can recharge it by using a cyborg recharging station."))
 
 /datum/action/innate/bci_charge_action/process(delta_time)
-	update_maptext()
+	UpdateButtons()
 
-/datum/action/innate/bci_charge_action/proc/update_maptext()
+/datum/action/innate/bci_charge_action/UpdateButton(atom/movable/screen/movable/action_button/button, status_only = FALSE, force = FALSE)
+	. = ..()
+	if(!.)
+		return
+	if(status_only)
+		return
 	var/obj/item/stock_parts/cell/cell = circuit_component.parent.cell
 	button.maptext = cell ? MAPTEXT("[cell.percent()]%") : ""
 

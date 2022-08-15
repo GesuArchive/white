@@ -14,16 +14,16 @@
 
 /datum/action/cooldown/mob_cooldown/lava_swoop/Grant(mob/M)
 	. = ..()
-	ADD_TRAIT(M, TRAIT_LAVA_IMMUNE, src)
-	ADD_TRAIT(M, TRAIT_NOFIRE, src)
+	ADD_TRAIT(M, TRAIT_LAVA_IMMUNE, REF(src))
+	ADD_TRAIT(M, TRAIT_NOFIRE, REF(src))
 
 /datum/action/cooldown/mob_cooldown/lava_swoop/Remove(mob/M)
 	. = ..()
-	REMOVE_TRAIT(M, TRAIT_LAVA_IMMUNE, src)
-	REMOVE_TRAIT(M, TRAIT_NOFIRE, src)
+	REMOVE_TRAIT(M, TRAIT_LAVA_IMMUNE, REF(src))
+	REMOVE_TRAIT(M, TRAIT_NOFIRE, REF(src))
 
 /datum/action/cooldown/mob_cooldown/lava_swoop/Activate(atom/target_atom)
-	StartCooldown(30 SECONDS)
+	StartCooldown(360 SECONDS, 360 SECONDS)
 	attack_sequence(target_atom)
 	StartCooldown()
 
@@ -38,7 +38,6 @@
 	if(swooping || !target)
 		return
 	// stop swooped target movement
-	//RegisterSignal(charger, COMSIG_MOVABLE_PRE_MOVE, .proc/on_move)
 	swooping = TRUE
 	owner.set_density(FALSE)
 	owner.visible_message(span_boldwarning("[owner] swoops up high!"))
@@ -195,6 +194,7 @@
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "landing"
 	layer = BELOW_MOB_LAYER
+	plane = GAME_PLANE
 	pixel_x = -32
 	pixel_y = -32
 	color = "#FF0000"
@@ -204,6 +204,7 @@
 	icon = 'icons/mob/lavaland/64x64megafauna.dmi'
 	icon_state = "dragon"
 	layer = ABOVE_ALL_MOB_LAYER
+	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	pixel_x = -16
 	duration = 10
 	randomdir = FALSE

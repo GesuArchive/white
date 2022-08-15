@@ -1,20 +1,19 @@
-/obj/effect/proc_holder/spell/targeted/summon_spear
+/datum/action/cooldown/spell/summonspear
 	name = "Призвать Оружие"
 	desc = "Призывает оружие через время и пространство."
+	icon_icon = 'icons/mob/actions/actions_clockcult.dmi'
+	button_icon_state = "ratvarian_spear"
+	background_icon_state = "bg_clock"
+	school = SCHOOL_TRANSMUTATION
+	cooldown_time = 2 SECONDS
+	invocation = INVOCATION_NONE
+	invocation_type = INVOCATION_NONE
+	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
+	///The obj marked for recall
+	var/obj/marked_item
 
-	charge_max = 20
-	invocation = "none"
-	invocation_type = "none"
-	action_icon = 'icons/mob/actions/actions_clockcult.dmi'
-	action_icon_state = "ratvarian_spear"
-	action_background_icon_state = "bg_clock"
-	clothes_req = FALSE
-	range = -1
-	include_user = TRUE
-
-	var/obj/item/marked_item
-
-/obj/effect/proc_holder/spell/targeted/summon_spear/cast(list/targets, mob/user)
+/datum/action/cooldown/spell/summonspear/cast(list/targets, mob/user)
+	. = ..()
 	if(QDELETED(marked_item))
 		qdel(src)
 

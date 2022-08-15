@@ -90,7 +90,7 @@
 	name = "Синтетик"
 	id = "synthman"
 	limbs_id = null
-	yogs_draw_robot_hair = TRUE
+	draw_robot_hair = TRUE
 	use_skintones = TRUE
 	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, HAS_FLESH, NOBLOOD)
 
@@ -119,7 +119,7 @@
 	miss_sound = 'sound/weapons/slashmiss.ogg'
 	meat = /obj/item/food/meat/slab/human/mutant/moth
 	limbs_id = null
-	yogs_draw_robot_hair = TRUE
+	draw_robot_hair = TRUE
 	use_skintones = TRUE
 	species_traits = list(LIPS, NOEYESPRITES, HAS_FLESH, HAS_BONE, HAS_MARKINGS)
 	species_language_holder = /datum/language_holder/moth

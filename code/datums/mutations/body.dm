@@ -176,21 +176,23 @@
 	text_gain_indication = "Я чувствую себя более примитивным."
 	text_lose_indication = "Я чувствую себя преждним."
 	quality = NEGATIVE
-	time_coeff = 2
 	locked = TRUE //Species specific, keep out of actual gene pool
 	var/datum/species/original_species = /datum/species/human
+	var/original_name
 
 /datum/mutation/human/race/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
 		return
 	if(!ismonkey(owner))
 		original_species = owner.dna.species.type
+		original_name = owner.real_name
+		owner.fully_replace_character_name(null, "мартышка ([rand(1,999)])")
 	. = owner.monkeyize()
 
 /datum/mutation/human/race/on_losing(mob/living/carbon/human/owner)
 	if(owner && owner.stat != DEAD && (owner.dna.mutations.Remove(src)) && ismonkey(owner))
+		owner.fully_replace_character_name(null, original_name)
 		. = owner.humanize(original_species)
-
 /datum/mutation/human/glow
 	name = "Свечение"
 	desc = "Трансмутирует кожный покров носителя, тем самым вынуждая его постоянно излучать свет случайного цвета и интенсивностью."

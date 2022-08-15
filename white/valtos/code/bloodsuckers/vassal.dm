@@ -114,16 +114,15 @@
 	var/mob/living/carbon/human/vassal = owner.current
 	switch(bloodsuckerdatum.my_clan)
 		if(CLAN_GANGREL)
-			var/obj/effect/proc_holder/spell/targeted/shapeshift/bat/batform = new
-			owner.AddSpell(batform)
+			var/datum/action/cooldown/spell/shapeshift/bat/batform = new(master)
+			batform.Grant(master)
 		if(CLAN_LASOMBRA)
 			if(ishuman(owner.current))
 				vassal.see_in_dark = 8
 				vassal.eye_color_left = "f00"
 				vassal.eye_color_right = "f00"
-			var/list/powers = list(new /obj/effect/proc_holder/spell/targeted/lesser_glare, new /obj/effect/proc_holder/spell/targeted/shadowwalk)
-			for(var/obj/effect/proc_holder/spell/targeted/power in powers)
-				owner.AddSpell(power)
+			var/datum/action/cooldown/spell/jaunt/shadow_walk/SW = new(master)
+			SW.Grant(master)
 		if(CLAN_TZIMISCE)
 			if(!do_mob(master, owner.current, 1 SECONDS, TRUE))
 				return

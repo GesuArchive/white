@@ -43,8 +43,6 @@
 	var/list/restricted_roles = list()
 	var/list/datum/objective/objectives = list()
 
-	var/list/spell_list = list() // Wizard mode & "Give Spell" badmin button.
-
 	var/linglink
 	var/datum/martial_art/martial_art
 	var/static/default_martial_art = new/datum/martial_art
@@ -157,7 +155,6 @@
 	if(iscarbon(new_character))
 		var/mob/living/carbon/C = new_character
 		C.last_mind = src
-	transfer_actions(new_character)
 	transfer_martial_arts(new_character)
 	RegisterSignal(new_character, COMSIG_LIVING_DEATH, .proc/set_death_time)
 	if(active || force_key_move)
@@ -753,29 +750,6 @@
 	if(!(has_antag_datum(/datum/antagonist/dreamer)))
 		add_antag_datum(/datum/antagonist/dreamer)
 
-/datum/mind/proc/AddSpell(obj/effect/proc_holder/spell/S)
-	spell_list += S
-	S.action.Grant(current)
-
-/datum/mind/proc/owns_soul()
-	return soulOwner == src
-
-
-//To remove a specific spell from a mind
-/datum/mind/proc/RemoveSpell(obj/effect/proc_holder/spell/spell)
-	if(!spell)
-		return
-	for(var/X in spell_list)
-		var/obj/effect/proc_holder/spell/S = X
-		if(istype(S, spell))
-			spell_list -= S
-			qdel(S)
-	current?.client.stat_panel.send_message("check_spells")
-
-/datum/mind/proc/RemoveAllSpells()
-	for(var/obj/effect/proc_holder/S in spell_list)
-		RemoveSpell(S)
-
 /datum/mind/proc/transfer_martial_arts(mob/living/new_character)
 	if(!ishuman(new_character))
 		return
@@ -784,27 +758,6 @@
 			martial_art.remove(new_character)
 		else
 			martial_art.teach(new_character)
-
-/datum/mind/proc/transfer_actions(mob/living/new_character)
-	if(current?.actions)
-		for(var/datum/action/A in current.actions)
-			A.Grant(new_character)
-	transfer_mindbound_actions(new_character)
-
-/datum/mind/proc/transfer_mindbound_actions(mob/living/new_character)
-	for(var/X in spell_list)
-		var/obj/effect/proc_holder/spell/S = X
-		S.action.Grant(new_character)
-
-/datum/mind/proc/disrupt_spells(delay, list/exceptions = New())
-	for(var/X in spell_list)
-		var/obj/effect/proc_holder/spell/S = X
-		for(var/type in exceptions)
-			if(istype(S, type))
-				continue
-		S.charge_counter = delay
-		S.updateButtonIcon()
-		INVOKE_ASYNC(S, /obj/effect/proc_holder/spell.proc/start_recharge)
 
 /datum/mind/proc/get_ghost(even_if_they_cant_reenter, ghosts_with_clients)
 	for(var/mob/dead/observer/G in (ghosts_with_clients ? GLOB.player_list : GLOB.dead_mob_list))

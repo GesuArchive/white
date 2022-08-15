@@ -81,23 +81,23 @@
 		return
 
 	if(LAZYLEN(created_items) >= limit)
-		target.balloon_alert(source, "слишком много гулей!")
-		return COMPONENT_BLOCK_CHARGE_USE
+		target.balloon_alert(source, "at ghoul limit!")
+		return COMPONENT_BLOCK_HAND_USE
 
 	if(HAS_TRAIT(target, TRAIT_HUSK))
-		target.balloon_alert(source, "это хаск!")
-		return COMPONENT_BLOCK_CHARGE_USE
+		target.balloon_alert(source, "husked!")
+		return COMPONENT_BLOCK_HAND_USE
 
 	if(!IS_VALID_GHOUL_MOB(target))
-		target.balloon_alert(source, "тело не подходит!")
-		return COMPONENT_BLOCK_CHARGE_USE
+		target.balloon_alert(source, "invalid body!")
+		return COMPONENT_BLOCK_HAND_USE
 
 	target.grab_ghost()
 
 	// The grab failed, so they're mindless or playerless. We can't continue
 	if(!target.mind || !target.client)
-		target.balloon_alert(source, "нет души!")
-		return COMPONENT_BLOCK_CHARGE_USE
+		target.balloon_alert(source, "no soul!")
+		return COMPONENT_BLOCK_HAND_USE
 
 	make_ghoul(source, target)
 
@@ -302,7 +302,10 @@
 /datum/heretic_knowledge/final/flesh_final/on_finished_recipe(mob/living/user, list/selected_atoms, turf/loc)
 	. = ..()
 	priority_announce("[generate_heretic_text()] Вихрь усиливается. Реальность распадается. ТРЕПЕЩИТЕ, ИБО ПОВЕЛИТЕЛЬ НОЧИ, [user.real_name] возвысился! Страшитесь его карающей длани! [generate_heretic_text()]", "[generate_heretic_text()]", ANNOUNCER_SPANOMALIES)
-	user.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/shed_human_form)
+
+	var/datum/action/cooldown/spell/shed_human_form/worm_spell = new(user.mind)
+	worm_spell.Grant(user)
+
 	user.client?.give_award(/datum/award/achievement/misc/flesh_ascension, user)
 
 	var/datum/antagonist/heretic/heretic_datum = IS_HERETIC(user)

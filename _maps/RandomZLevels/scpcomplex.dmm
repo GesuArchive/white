@@ -572,7 +572,7 @@
 /area/centcom/scp)
 "xW" = (
 /obj/machinery/light/floor,
-/mob/living/simple_animal/hostile/statue{
+/mob/living/simple_animal/hostile/netherworld/statue{
 	move_force = 900
 	},
 /turf/open/floor/engine,

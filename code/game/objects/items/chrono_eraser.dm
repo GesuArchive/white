@@ -283,3 +283,6 @@
 
 #undef CHRONO_BEAM_RANGE
 #undef CHRONO_FRAME_COUNT
+
+/datum/action/item_action/equip_unequip_ted_gun
+	name = "Взять ствол"

@@ -23,7 +23,6 @@
 		return TRUE
 	return FALSE
 
-//	Arguments: event_type as text, proc_holder as datum, proc_name as text
 //	Returns: New event, null on error.
 /datum/events/proc/addEvent(event_type as text, datum/callback/cb)
 	if(!event_type || !cb)
@@ -36,7 +35,7 @@
 //  Arguments: event_type as text, any number of additional arguments to pass to event handler
 //  Returns: null
 /datum/events/proc/fireEvent(eventName, ...)
-	
+
 	var/list/event = LAZYACCESS(events,eventName)
 	if(istype(event))
 		for(var/E in event)

@@ -46,59 +46,80 @@
 	quality = POSITIVE
 	text_gain_indication = span_notice("Я слышу отзвуки чужих мыслей...")
 	text_lose_indication = span_notice("Эхо чужих мыслей ушло...")
-	power = /obj/effect/proc_holder/spell/targeted/mindread
+	power_path = /datum/action/cooldown/spell/pointed/mindread
 	instability = 40
 	difficulty = 8
 	locked = TRUE
 
-/obj/effect/proc_holder/spell/targeted/mindread
+/datum/action/cooldown/spell/pointed/mindread
 	name = "Чтение мыслей"
 	desc = "Прочитать последние мысли цели."
-	charge_max = 50
-	range = 7
-	clothes_req = FALSE
-	action_icon_state = "mindread"
+	button_icon_state = "mindread"
+	cooldown_time = 5 SECONDS
+	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
+	antimagic_flags = MAGIC_RESISTANCE_MIND
 
-/obj/effect/proc_holder/spell/targeted/mindread/cast(list/targets, mob/living/carbon/human/user = usr)
-	for(var/mob/living/M in targets)
-		if(usr.anti_magic_check(FALSE, FALSE, TRUE, 0) || M.anti_magic_check(FALSE, FALSE, TRUE, 0))
-			to_chat(usr, span_warning("Пытаюсь настроиться на волну чужих мыслей, однако передо моим ментальным взором встает непреодолимая стена из фольги. Я не смогу ее преодолеть..."))
-			return
-		if(M.stat == DEAD)
-			to_chat(user, span_boldnotice("[M] мертв! Это довольно неприятно ковыряться в голове покойника..."))
-			return
-		if(M.mind)
-			to_chat(user, span_boldnotice("Вторгаюсь в разум [M]..."))
-			if(prob(20))
-				to_chat(M, span_danger("Чувствую кого то постороннего в своей голове."))//chance to alert the read-ee
-				to_chat(user, span_danger("Меня обнаружили!"))
-			var/list/recent_speech = list()
-			var/list/say_log = list()
-			var/log_source = M.logging
-			for(var/log_type in log_source)//this whole loop puts the read-ee's say logs into say_log in an easy to access way
-				var/nlog_type = text2num(log_type)
-				if(nlog_type & LOG_SAY)
-					var/list/reversed = log_source[log_type]
-					if(islist(reversed))
-						say_log = reverse_range(reversed.Copy())
-						break
-			if(LAZYLEN(say_log))
-				for(var/spoken_memory in say_log)
-					if(recent_speech.len >= 3)//up to 3 random lines of speech, favoring more recent speech
-						break
-					if(prob(50))
-						recent_speech[spoken_memory] = say_log[spoken_memory]
-			if(recent_speech.len)
-				to_chat(user, span_boldnotice("Мне удалось уловить несколько последних мыслей..."))
-				for(var/spoken_memory in recent_speech)
-					to_chat(user, span_notice("[recent_speech[spoken_memory]]"))
-			if(iscarbon(M))
-				var/mob/living/carbon/human/H = M
-				to_chat(user, span_boldnotice("Его намерения [H.a_intent]..."))
-				if(H.mind)
-					to_chat(user, span_boldnotice("Под личностью [H.ru_ego()] скрывается разум [H.mind.name]."))
-		else
-			to_chat(user, span_warning("Я не чувствую искры сознания в разуме [M]!"))
+	ranged_mousepointer = 'icons/effects/mouse_pointers/mindswap_target.dmi'
+
+/datum/action/cooldown/spell/pointed/mindread/is_valid_target(atom/cast_on)
+	if(!isliving(cast_on))
+		return FALSE
+	var/mob/living/living_cast_on = cast_on
+	if(!living_cast_on.mind)
+		to_chat(owner, span_warning("[cast_on] не имеет разума!"))
+		return FALSE
+	if(living_cast_on.stat == DEAD)
+		to_chat(owner, span_warning("[cast_on] мёртв!"))
+		return FALSE
+
+	return TRUE
+
+/datum/action/cooldown/spell/pointed/mindread/cast(mob/living/cast_on)
+	. = ..()
+	if(cast_on.can_block_magic(MAGIC_RESISTANCE_MIND, charge_cost = 0))
+		to_chat(owner, span_warning("Пытаюсь настроиться на волну чужих мыслей, однако передо моим ментальным взором встает непреодолимая стена из фольги. Я не смогу ее преодолеть..."))
+		return
+
+	if(cast_on == owner)
+		to_chat(owner, span_warning("Вторгаюсь в свой разум... Да, это мой разум."))
+		return
+
+	to_chat(owner, span_boldnotice("Вторгаюсь в разум [cast_on]..."))
+	if(prob(20))
+		// chance to alert the read-ee
+		to_chat(cast_on, span_danger("Чувствую кого то постороннего в своей голове."))
+
+	var/list/recent_speech = list()
+	var/list/say_log = list()
+	var/log_source = cast_on.logging
+	//this whole loop puts the read-ee's say logs into say_log in an easy to access way
+	for(var/log_type in log_source)
+		var/nlog_type = text2num(log_type)
+		if(nlog_type & LOG_SAY)
+			var/list/reversed = log_source[log_type]
+			if(islist(reversed))
+				say_log = reverse_range(reversed.Copy())
+				break
+
+	for(var/spoken_memory in say_log)
+		//up to 3 random lines of speech, favoring more recent speech
+		if(length(recent_speech) >= 3)
+			break
+		if(prob(50))
+			continue
+		// log messages with tags like telepathy are displayed like "(Telepathy to Ckey/(target)) "greetings"""
+		// by splitting the text by using a " delimiter, we can grab JUST the greetings part
+		recent_speech[spoken_memory] = splittext(say_log[spoken_memory], "\"", 1, 0, TRUE)[3]
+
+	if(length(recent_speech))
+		to_chat(owner, span_boldnotice("Мне удалось уловить несколько последних мыслей..."))
+		for(var/spoken_memory in recent_speech)
+			to_chat(owner, span_notice("[recent_speech[spoken_memory]]"))
+
+	if(iscarbon(cast_on))
+		var/mob/living/carbon/carbon_cast_on = cast_on
+		to_chat(owner, span_boldnotice("Его намерения [carbon_cast_on.a_intent]..."))
+		to_chat(owner, span_boldnotice("Под личностью [carbon_cast_on.ru_ego()] скрывается разум [carbon_cast_on.mind.name]."))
 
 /datum/mutation/human/mindreader/New(class_ = MUT_OTHER, timer, datum/mutation/human/copymut)
 	..()

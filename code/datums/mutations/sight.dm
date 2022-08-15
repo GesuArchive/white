@@ -41,7 +41,6 @@
 	difficulty = 18
 	text_gain_indication = span_notice("Мир окрасился всеми оттенками оранжевого и кажется даже стены не могут удержать эти теплые краски...")
 	text_lose_indication = span_notice("Мир снова сузился до размеров этой комнаты, он снова стал холодным и пустым...")
-	time_coeff = 2
 	instability = 25
 	var/visionflag = TRAIT_THERMAL_VISION
 

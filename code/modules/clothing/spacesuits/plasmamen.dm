@@ -53,7 +53,7 @@
 	var/smile_color = "#FF0000"
 	var/visor_icon = "envisor"
 	var/smile_state = "envirohelm_smile"
-	actions_types = list(/datum/action/item_action/toggle_helmet_light, /datum/action/item_action/toggle_welding_screen/plasmaman)
+	actions_types = list(/datum/action/item_action/toggle_helmet_light)
 	visor_vars_to_toggle = VISOR_FLASHPROTECT | VISOR_TINT
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	flags_cover = HEADCOVERSMOUTH|HEADCOVERSEYES|PEPPERPROOF
@@ -132,7 +132,7 @@
 
 	for(var/X in actions)
 		var/datum/action/A=X
-		A.UpdateButtonIcon()
+		A.UpdateButtons()
 
 /obj/item/clothing/head/helmet/space/plasmaman/security
 	name = "плазмаменский шлем охраны"
@@ -265,7 +265,7 @@
 	desc = "Сделано под старину специально для кураторов."
 	icon_state = "prototype_envirohelm"
 	inhand_icon_state = "prototype_envirohelm"
-	actions_types = list(/datum/action/item_action/toggle_welding_screen/plasmaman)
+	actions_types = list()
 	smile_state = "prototype_smile"
 	visor_icon = "prototype_envisor"
 

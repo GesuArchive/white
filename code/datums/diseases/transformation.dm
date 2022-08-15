@@ -127,7 +127,6 @@
 	if(affected_mob.mind && !is_monkey(affected_mob.mind))
 		add_monkey(affected_mob.mind)
 		affected_mob.monkeyize()
-		affected_mob.ventcrawler = VENTCRAWLER_ALWAYS
 
 
 /datum/disease/transformation/jungle_fever/stage_act(delta_time, times_fired)

@@ -27,7 +27,6 @@
 	attack_vis_effect = ATTACK_EFFECT_BITE
 	obj_damage = 0
 	environment_smash = ENVIRONMENT_SMASH_NONE
-	ventcrawler = VENTCRAWLER_NONE
 	mob_size = MOB_SIZE_TINY
 	speak_emote = list("пищит")
 	var/max_co2 = 0 //to be removed once metastation map no longer use those for Sgt Araneus
@@ -41,6 +40,7 @@
 	. = ..()
 	AddElement(/datum/element/simple_flying)
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /mob/living/simple_animal/hostile/retaliate/bat/sgt_araneus //Despite being a bat for... reasons, this is now a spider, and is one of the HoS' pets.
 	name = "Sergeant Araneus"

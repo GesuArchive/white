@@ -369,11 +369,10 @@
 			if(prob(multiplier))
 				user.mind.add_antag_datum(/datum/antagonist/heretic)
 		if(53)
-			var/obj/effect/proc_holder/spell/furion/FS = new
-			FS.charge_max = 180 SECONDS - multiplier
-			FS.cooldown_min = max(60 SECONDS - multiplier, 0)
-			FS.clothes_req = FALSE
-			user.AddSpell(FS)
+			var/datum/action/cooldown/spell/furion/FS = new(user)
+			FS.cooldown_time = 180 SECONDS - multiplier
+			FS.spell_requirements = NONE
+			FS.Grant(user)
 			user.fully_replace_character_name(user.real_name, "Дифи Лекс")
 		if(54)
 			throwforce = 40 + multiplier
@@ -400,7 +399,7 @@
 		if(60)
 			START_PROCESSING(SSobj, src)
 		if(61)
-			var/obj/item/book/granter/spell/summonitem/SI = new(get_turf(user))
+			var/obj/item/book/granter/action/spell/summonitem/SI = new(get_turf(user))
 			user.equip_or_collect(SI)
 		if(62)
 			user.mind.assigned_role = "Кошмар"
@@ -416,7 +415,7 @@
 			morb.key = user.key
 			qdel(user)
 		if(65)
-			var/mob/living/simple_animal/hostile/poison/giant_spider/GS = new(get_turf(user))
+			var/mob/living/simple_animal/hostile/giant_spider/GS = new(get_turf(user))
 			GS.key = user.key
 			qdel(user)
 		if(66)

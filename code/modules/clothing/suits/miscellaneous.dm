@@ -168,7 +168,6 @@
 	inhand_icon_state = "owl_wings"
 	togglename = "wings"
 	body_parts_covered = ARMS|CHEST
-	actions_types = list(/datum/action/item_action/toggle_wings)
 
 /obj/item/clothing/suit/toggle/owlwings/Initialize(mapload)
 	. = ..()

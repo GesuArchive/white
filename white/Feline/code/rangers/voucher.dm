@@ -240,7 +240,7 @@
 		to_chat(user, span_notice("Приглушаю генератор гамма излучения!"))
 
 // 	Список разрешенных мобов
-//#define isstunmob(A) (istype(A, /mob/living/simple_animal/hostile/zombie) || istype(A, /mob/living/simple_animal/hostile/alien) || istype(A, /mob/living/simple_animal/hostile/poison/giant_spider) || istype(A, /mob/living/simple_animal/hostile/netherworld) || istype(A, /mob/living/simple_animal/hostile/blob) || istype(A, /mob/living/simple_animal/hostile/ratvar))
+//#define isstunmob(A) (istype(A, /mob/living/simple_animal/hostile/zombie) || istype(A, /mob/living/simple_animal/hostile/alien) || istype(A, /mob/living/simple_animal/hostile/giant_spider) || istype(A, /mob/living/simple_animal/hostile/netherworld) || istype(A, /mob/living/simple_animal/hostile/blob) || istype(A, /mob/living/simple_animal/hostile/ratvar))
 
 /mob/living/simple_animal/proc/re_ai()
 	AIStatus = AI_ON

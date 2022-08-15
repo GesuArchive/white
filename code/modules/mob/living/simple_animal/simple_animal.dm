@@ -125,7 +125,7 @@
 	var/list/loot = list()
 	///Causes mob to be deleted on death, useful for mobs that spawn lootable corpses.
 	var/del_on_death = 0
-	var/deathmessage = ""
+	var/death_message = ""
 
 	var/allow_movement_on_non_turfs = FALSE
 
@@ -483,7 +483,7 @@
 	if(dextrous)
 		drop_all_held_items()
 	if(!gibbed)
-		if(deathsound || deathmessage || !del_on_death)
+		if(deathsound || death_message || !del_on_death)
 			emote("deathgasp")
 	if(del_on_death)
 		..()

@@ -11,6 +11,9 @@
 	max_integrity = 200
 	var/obj/item/noz
 
+/datum/action/item_action/toggle_morozko
+	name = "Переключить"
+
 /obj/item/morozko/Initialize(mapload)
 	. = ..()
 	noz = make_noz()

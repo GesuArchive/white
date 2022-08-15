@@ -63,7 +63,7 @@
 			user.see_override_nva = 4
 	for(var/X in actions)
 		var/datum/action/A = X
-		A.UpdateButtonIcon()
+		A.UpdateButtons()
 
 /obj/item/clothing/dropped(mob/user)
 	..()

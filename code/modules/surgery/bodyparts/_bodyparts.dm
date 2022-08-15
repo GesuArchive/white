@@ -15,6 +15,9 @@
 	var/status = BODYPART_ORGANIC
 	var/needs_processing = FALSE
 
+	var/draw_robot_hair = FALSE
+	var/should_draw_custom_races = FALSE
+
 	var/body_zone //BODY_ZONE_CHEST, BODY_ZONE_L_ARM, etc , used for def_zone
 	var/aux_zone // used for hands
 	var/aux_layer

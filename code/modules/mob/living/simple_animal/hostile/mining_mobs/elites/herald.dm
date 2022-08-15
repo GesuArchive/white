@@ -37,7 +37,7 @@
 	move_to_delay = 10
 	mouse_opacity = MOUSE_OPACITY_ICON
 	deathsound = 'sound/magic/demon_dies.ogg'
-	deathmessage = "begins to shudder as it becomes transparent..."
+	death_message = "begins to shudder as it becomes transparent..."
 	loot_drop = /obj/item/clothing/neck/cloak/herald_cloak
 
 	can_talk = 1
@@ -199,7 +199,7 @@
 	maxHealth = 60
 	icon_state = "herald_mirror"
 	icon_aggro = "herald_mirror"
-	deathmessage = "shatters violently!"
+	death_message = "shatters violently!"
 	deathsound = 'sound/effects/glassbr1.ogg'
 	del_on_death = TRUE
 	is_mirror = TRUE

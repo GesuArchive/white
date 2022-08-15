@@ -111,7 +111,7 @@
 	melee_damage_upper = 25
 	a_intent = INTENT_HARM
 	del_on_death = TRUE
-	deathmessage = "collapses into bits of plant matter."
+	death_message = "collapses into bits of plant matter."
 	attacked_sound = 'sound/creatures/venus_trap_hurt.ogg'
 	deathsound = 'sound/creatures/venus_trap_death.ogg'
 	attack_sound = 'sound/creatures/venus_trap_hit.ogg'

@@ -16,15 +16,13 @@
 	sharpness = SHARP_EDGED
 	max_integrity = 200
 	var/clockwork_hint = ""
-	var/obj/effect/proc_holder/spell/targeted/summon_spear/SS
+	var/datum/action/cooldown/spell/summonspear/SS
 
 /obj/item/clockwork/weapon/pickup(mob/user)
 	. = ..()
-	user.mind.RemoveSpell(SS)
 	if(is_servant_of_ratvar(user))
 		SS = new
 		SS.marked_item = src
-		user.mind.AddSpell(SS)
 
 
 /obj/item/clockwork/weapon/examine(mob/user)

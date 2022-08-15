@@ -38,11 +38,6 @@
 #define MOB_SIZE_LARGE 3
 #define MOB_SIZE_HUGE 4 // Use this for things you don't want bluespace body-bagged
 
-//Ventcrawling defines
-#define VENTCRAWLER_NONE   0
-#define VENTCRAWLER_NUDE   1
-#define VENTCRAWLER_ALWAYS 2
-
 //Mob bio-types flags
 #define MOB_ORGANIC 	(1 << 0)
 #define MOB_MINERAL		(1 << 1)

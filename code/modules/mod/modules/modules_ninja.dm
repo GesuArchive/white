@@ -308,7 +308,7 @@
 	.["statusoxy"] = mod.wearer?.getOxyLoss() || 0
 	.["statustemp"] = mod.wearer?.bodytemperature || 0
 	.["statusnutrition"] = mod.wearer?.nutrition || 0
-	.["statusfingerprints"] = mod.wearer ? md5(mod.wearer.dna.uni_identity) : null
+	.["statusfingerprints"] = mod.wearer ? md5(mod.wearer.dna.unique_identity) : null
 	.["statusdna"] = mod.wearer?.dna.unique_enzymes
 	.["statusviruses"] = null
 	if(!length(mod.wearer?.diseases))

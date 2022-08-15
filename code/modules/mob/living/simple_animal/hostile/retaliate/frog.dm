@@ -22,7 +22,6 @@
 	response_harm_continuous = "splats"
 	response_harm_simple = "splat"
 	density = FALSE
-	ventcrawler = VENTCRAWLER_ALWAYS
 	faction = list("hostile")
 	attack_sound = 'sound/effects/reee.ogg'
 	butcher_results = list(/obj/item/food/nugget = 1)
@@ -48,6 +47,7 @@
 		COMSIG_ATOM_ENTERED = .proc/on_entered,
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /mob/living/simple_animal/hostile/retaliate/frog/proc/on_entered(datum/source, AM as mob|obj)
 	SIGNAL_HANDLER

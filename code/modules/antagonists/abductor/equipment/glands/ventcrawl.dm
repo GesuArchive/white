@@ -9,4 +9,4 @@
 
 /obj/item/organ/heart/gland/ventcrawling/activate()
 	to_chat(owner, span_notice("You feel very stretchy."))
-	owner.ventcrawler = VENTCRAWLER_ALWAYS
+	ADD_TRAIT(owner, TRAIT_VENTCRAWLER_ALWAYS, type)

@@ -197,6 +197,9 @@
 		var/datum/atom_hud/H = GLOB.huds[hud_type]
 		H.show_to(user)
 
+/datum/action/item_action/switch_hud
+	name = "Switch HUD"
+
 /obj/item/clothing/glasses/hud/toggle/thermal
 	name = "тепловой HUD"
 	desc = "Тепловизор в форме очков."

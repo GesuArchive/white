@@ -351,7 +351,8 @@
 /datum/outfit/terrorist_m/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	H.client << 'white/valtos/sounds/arab_choir.ogg'
-	H.AddSpell(new /obj/effect/proc_holder/spell/self/his_wish(null))
+	var/datum/action/cooldown/spell/basic_heal/his_wish/HW = new(H)
+	HW.Grant(H)
 	H.hair_color = "000"
 	H.facial_hair_color = "000"
 	H.facial_hairstyle = "Beard (Very Long)"
@@ -363,36 +364,14 @@
 /datum/outfit/terrorist_f/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	H.client << 'white/valtos/sounds/arab_choir.ogg'
-	H.AddSpell(new /obj/effect/proc_holder/spell/self/his_wish(null))
+	var/datum/action/cooldown/spell/basic_heal/his_wish/HW = new(H)
+	HW.Grant(H)
 	H.hair_color = "000"
 	H.facial_hair_color = "000"
 	H.update_hair()
 	H.fully_replace_character_name(H.real_name, "[pick("Адиля", "Гульшат", "Динара", "Ляйсан", "Нарима", "Рахима", "Ширин")] Бомбаева")
 	H.grant_language(/datum/language/arab)
 	H.remove_language(/datum/language/common)
-
-/obj/effect/proc_holder/spell/self/his_wish
-	name = "Воззвать к Всевышнему"
-	desc = "Позволяет забыть о боли на момент."
-	human_req = TRUE
-	clothes_req = FALSE
-	charge_max = 100
-	cooldown_min = 100
-	invocation = "﷽!"
-	invocation_type = INVOCATION_SHOUT
-	school = "restoration"
-	sound = 'white/valtos/sounds/Alah.ogg'
-	action_icon_state = "spacetime"
-	stat_allowed = TRUE
-
-/obj/effect/proc_holder/spell/self/his_wish/cast(list/targets, mob/living/carbon/human/user)
-	user.adjustBruteLoss(-50)
-	user.adjustFireLoss(-50)
-	user.adjustOxyLoss(-50)
-	user.adjustStaminaLoss(-50)
-	user.adjustToxLoss(-50)
-	user.set_handcuffed(null)
-	user.update_handcuffed()
 
 /obj/item/melee/ersh
 	name = "ершов"

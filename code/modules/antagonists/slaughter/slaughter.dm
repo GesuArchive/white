@@ -42,21 +42,67 @@
 
 /mob/living/simple_animal/hostile/imp/slaughter/Initialize(mapload, obj/effect/dummy/phased_mob/bloodpool)//Bloodpool is the blood pool we spawn in
 	. = ..()
-	ADD_TRAIT(src, TRAIT_BLOODCRAWL_EAT, "innate")
-	var/obj/effect/proc_holder/spell/bloodcrawl/bloodspell = new
-	AddSpell(bloodspell)
-	if(istype(loc, /obj/effect/dummy/phased_mob))
-		bloodspell.phased = TRUE
-	if(bloodpool)
-		bloodpool.RegisterSignal(src, list(COMSIG_LIVING_AFTERPHASEIN,COMSIG_PARENT_QDELETING), /obj/effect/dummy/phased_mob/.proc/eject_jaunter)
+	var/datum/action/cooldown/spell/jaunt/bloodcrawl/slaughter_demon/crawl = new(src)
+	crawl.Grant(src)
+	RegisterSignal(src, list(COMSIG_MOB_ENTER_JAUNT, COMSIG_MOB_AFTER_EXIT_JAUNT), .proc/on_crawl)
 
-/mob/living/simple_animal/hostile/imp/slaughter/Move(atom/newloc, dir, step_x, step_y)
-	. = ..()
-	if(istype(loc, /obj/effect/dummy/phased_mob))
-		return
+/// Whenever we enter or exit blood crawl, reset our bonus and hitstreaks.
+/mob/living/simple_animal/hostile/imp/slaughter/proc/on_crawl(datum/source)
+	SIGNAL_HANDLER
+
+	// Grant us a speed boost if we're on the mortal plane
+	if(isturf(loc))
+		add_movespeed_modifier(/datum/movespeed_modifier/slaughter)
+		addtimer(CALLBACK(src, .proc/remove_movespeed_modifier, /datum/movespeed_modifier/slaughter), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+	// Reset our streaks
+	current_hitstreak = 0
+	wound_bonus = initial(wound_bonus)
+	bare_wound_bonus = initial(bare_wound_bonus)
+
 	var/list/blood_in_area = range(2, src)
 	if(!locate(/obj/effect/decal/cleanable/blood) in blood_in_area)
 		adjustHealth(5)
+
+/// Performs the classic slaughter demon bodyslam on the attack_target. Yeets them a screen away.
+/mob/living/simple_animal/hostile/imp/slaughter/proc/bodyslam(atom/attack_target)
+	if(!isliving(attack_target))
+		return
+
+	if(!Adjacent(attack_target))
+		to_chat(src, span_warning("You are too far away to use your slam attack on [attack_target]!"))
+		return
+
+	if(slam_cooldown + slam_cooldown_time > world.time)
+		to_chat(src, span_warning("Your slam ability is still on cooldown!"))
+		return
+
+	face_atom(attack_target)
+	var/mob/living/victim = attack_target
+	victim.take_bodypart_damage(brute=20, wound_bonus=wound_bonus) // don't worry, there's more punishment when they hit something
+	visible_message(span_danger("[src] slams into [victim] with monstrous strength!"), span_danger("You slam into [victim] with monstrous strength!"), ignored_mobs=victim)
+	to_chat(victim, span_userdanger("[src] slams into you with monstrous strength, sending you flying like a ragdoll!"))
+	var/turf/yeet_target = get_edge_target_turf(victim, dir)
+	victim.throw_at(yeet_target, 10, 5, src)
+	slam_cooldown = world.time
+	log_combat(src, victim, "slaughter slammed")
+
+/mob/living/simple_animal/hostile/imp/slaughter/UnarmedAttack(atom/attack_target, proximity_flag, list/modifiers)
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
+		bodyslam(attack_target)
+		return
+
+	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
+		return
+
+	if(iscarbon(attack_target))
+		var/mob/living/carbon/target = attack_target
+		if(target.stat != DEAD && target.mind && current_hitstreak < wound_bonus_hitstreak_max)
+			current_hitstreak++
+			wound_bonus += wound_bonus_per_hit
+			bare_wound_bonus += wound_bonus_per_hit
+
+	return ..()
 
 /mob/living/simple_animal/hostile/imp/slaughter/CtrlShiftClickOn(atom/A)
 	if(!isliving(A))
@@ -121,25 +167,27 @@
 	user.visible_message(span_warning("[user] поднимает [src] к [user.ru_ego()] рту и вгрызается в него при помощи [user.ru_ego()] зубов!") , \
 		span_danger("Неестественный голод поглощает меня. Я поднимаю [src] к своему рту и пожираю!"))
 	playsound(user, 'sound/magic/demon_consume.ogg', 50, TRUE)
-	for(var/obj/effect/proc_holder/spell/knownspell in user.mind.spell_list)
-		if(knownspell.type == /obj/effect/proc_holder/spell/bloodcrawl)
-			to_chat(user, span_warning("...и не ощущаю никакой разницы."))
-			qdel(src)
-			return
+
+	if(locate(/datum/action/cooldown/spell/jaunt/bloodcrawl) in user.actions)
+		to_chat(user, span_warning("...и не ощущаю никакой разницы."))
+		qdel(src)
+		return
+
 	user.visible_message(span_warning("Глаза [user] вспыхивают темно-красным!") , \
 		span_userdanger("Чувствую как странная сила растекается по моему телу... я поглотил способность демона путешествовать по крови!"))
 	user.temporarilyRemoveItemFromInventory(src, TRUE)
 	src.Insert(user) //Consuming the heart literally replaces your heart with a demon heart. H A R D C O R E
 
-/obj/item/organ/heart/demon/Insert(mob/living/carbon/M, special = 0)
+/obj/item/organ/internal/heart/demon/Insert(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)
 	..()
-	if(M.mind)
-		M.mind.AddSpell(new /obj/effect/proc_holder/spell/bloodcrawl(null))
+	// Gives a non-eat-people crawl to the new owner
+	var/datum/action/cooldown/spell/jaunt/bloodcrawl/crawl = new(M)
+	crawl.Grant(M)
 
-/obj/item/organ/heart/demon/Remove(mob/living/carbon/M, special = 0)
+/obj/item/organ/internal/heart/demon/Remove(mob/living/carbon/M, special = FALSE)
 	..()
-	if(M.mind)
-		M.mind.RemoveSpell(/obj/effect/proc_holder/spell/bloodcrawl)
+	var/datum/action/cooldown/spell/jaunt/bloodcrawl/crawl = locate() in M.actions
+	qdel(crawl)
 
 /obj/item/organ/heart/demon/Stop()
 	return 0 // Always beating.
@@ -163,7 +211,7 @@
 
 	icon_state = "bowmon"
 	icon_living = "bowmon"
-	deathmessage = "исчезает, так как все его друзья освободились из его \
+	death_message = "исчезает, так как все его друзья освободились из его \
 		тюрьмы объятий."
 	loot = list(/mob/living/simple_animal/pet/cat/kitten{name = "Laughter"})
 

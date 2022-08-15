@@ -89,55 +89,17 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 /datum/action/innate/ai/ranged
 	name = "Ranged AI Action"
 	auto_use_uses = FALSE //This is so we can do the thing and disable/enable freely without having to constantly add uses
-	/// The linked proc holder that contains the actual ability code
-	var/obj/effect/proc_holder/ranged_ai/linked_ability
-	/// The path of our linked ability
-	var/linked_ability_type
-
-/datum/action/innate/ai/ranged/New()
-	if(!linked_ability_type)
-		WARNING("Ranged AI action [name] attempted to spawn without a linked ability!")
-		qdel(src) //uh oh!
-		return
-	linked_ability = new linked_ability_type()
-	linked_ability.attached_action = src
-	..()
+	click_action = TRUE
 
 /datum/action/innate/ai/ranged/adjust_uses(amt, silent)
 	uses += amt
 	if(!silent && uses)
-		to_chat(owner, span_notice("В [name] осталось <b>[uses]</b> заряд[uses > 1 ? "ов" : ""]."))
+		to_chat(owner, span_notice("[name] осталось <b>[uses]</b> заряд[uses > 1 ? "ов" : ""]."))
 	if(!uses)
 		if(initial(uses) > 1) //no need to tell 'em if it was one-use anyway!
 			to_chat(owner, span_warning("В [name] закончились заряды!"))
 		Remove(owner)
 		QDEL_IN(src, 100) //let any active timers on us finish up
-
-/datum/action/innate/ai/ranged/Destroy()
-	QDEL_NULL(linked_ability)
-	return ..()
-
-/datum/action/innate/ai/ranged/Activate()
-	linked_ability.toggle(owner)
-	return TRUE
-
-/// The actual ranged proc holder.
-/obj/effect/proc_holder/ranged_ai
-	/// Appears when the user activates the ability
-	var/enable_text = span_notice("Привет Мир!")
-	/// Appears when the user deactivates the ability
-	var/disable_text = span_danger("Прощай, Жестокий Мир!!")
-	var/datum/action/innate/ai/ranged/attached_action
-
-/obj/effect/proc_holder/ranged_ai/Destroy()
-	attached_action = null
-	return ..()
-
-/obj/effect/proc_holder/ranged_ai/proc/toggle(mob/user)
-	if(active)
-		remove_ranged_ability(disable_text)
-	else
-		add_ranged_ability(user, enable_text)
 
 /// The base module type, which holds info about each ability.
 /datum/ai_module
@@ -407,49 +369,48 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	unlock_text = span_notice("Добыл вирус из Space Dark Web и распространяю его на механизмы станции.")
 	unlock_sound = 'sound/machines/airlock_alien_prying.ogg'
 
+/datum/action/innate/ai/ranged/override_machine/New()
+	. = ..()
+	desc = "[desc] осталось [uses] зарядов."
+
 /datum/action/innate/ai/ranged/override_machine
 	name = "Перенастроить Аппарат"
 	desc = "Активирует выбранный аппарат, заставляя его атаковать окружающих."
 	button_icon_state = "override_machine"
 	uses = 4
-	linked_ability_type = /obj/effect/proc_holder/ranged_ai/override_machine
-
-/datum/action/innate/ai/ranged/override_machine/New()
-	..()
-	desc = "[desc] осталось [uses] зарядов."
-	button.desc = desc
-
-/datum/action/innate/ai/ranged/override_machine/proc/animate_machine(obj/machinery/M)
-	if(M && !QDELETED(M))
-		new/mob/living/simple_animal/hostile/mimic/copy/machine(get_turf(M), M, owner, 1)
-
-/obj/effect/proc_holder/ranged_ai/override_machine
-	active = FALSE
 	ranged_mousepointer = 'icons/effects/mouse_pointers/override_machine_target.dmi'
 	enable_text = span_notice("Вы подключились к энергосети станции. Нажмите на аппарат для его активации. Вы также можете повторно нажать на него, чтобы вернуть в изначальное состояние.")
 	disable_text = span_notice("You release your hold on the powernet.")
 
-/obj/effect/proc_holder/ranged_ai/override_machine/InterceptClickOn(mob/living/caller, params, obj/machinery/target)
-	if(..())
-		return
-	if(ranged_ability_user.incapacitated())
-		remove_ranged_ability()
-		return
-	if(!istype(target))
-		to_chat(ranged_ability_user, span_warning("Не могу активировать что-то кроме аппаратов!"))
-		return
-	if(!target.can_be_overridden() || is_type_in_typecache(target, GLOB.blacklisted_malf_machines))
-		to_chat(ranged_ability_user, span_warning("Этот аппарат нельзя перенастроить!"))
-		return
-	ranged_ability_user.playsound_local(ranged_ability_user, 'sound/misc/interference.ogg', 50, 0, use_reverb = FALSE)
-	attached_action.adjust_uses(-1)
-	if(attached_action?.uses)
-		attached_action.desc = "[initial(attached_action.desc)] It has [attached_action.uses] use\s remaining."
-		attached_action.UpdateButtonIcon()
-	target.audible_message(span_userdanger("Слышу громкий электрический треск, исходящий от [target]!"))
-	addtimer(CALLBACK(attached_action, /datum/action/innate/ai/ranged/override_machine.proc/animate_machine, target), 50) //kabeep!
-	remove_ranged_ability(span_danger("Посылаю перенастраивающий сигнал..."))
+/datum/action/innate/ai/ranged/override_machine/do_ability(mob/living/caller, atom/clicked_on)
+	if(caller.incapacitated())
+		unset_ranged_ability(caller)
+		return FALSE
+	if(!istype(clicked_on, /obj/machinery))
+		to_chat(caller, span_warning("Не могу активировать что-то кроме аппаратов!"))
+		return FALSE
+	var/obj/machinery/clicked_machine = clicked_on
+	if(!clicked_machine.can_be_overridden() || is_type_in_typecache(clicked_machine, GLOB.blacklisted_malf_machines))
+		to_chat(caller, span_warning("Этот аппарат нельзя перенастроить!"))
+		return FALSE
+
+	caller.playsound_local(caller, 'sound/misc/interference.ogg', 50, FALSE, use_reverb = FALSE)
+	adjust_uses(-1)
+
+	if(uses)
+		desc = "[initial(desc)] It has [uses] use\s remaining."
+		UpdateButtons()
+
+	clicked_machine.audible_message(span_userdanger("Слышу громкий электрический треск, исходящий от [target]!"))
+	addtimer(CALLBACK(src, .proc/animate_machine, caller, clicked_machine), 5 SECONDS) //kabeep!
+	unset_ranged_ability(caller, span_danger("Посылаю перенастраивающий сигнал..."))
 	return TRUE
+
+/datum/action/innate/ai/ranged/override_machine/proc/animate_machine(mob/living/caller, obj/machinery/to_animate)
+	if(QDELETED(to_animate))
+		return
+
+	new /mob/living/simple_animal/hostile/mimic/copy/machine(get_turf(to_animate), to_animate, caller, TRUE)
 
 /// Destroy RCDs: Detonates all non-cyborg RCDs on the station.
 /datum/ai_module/destructive/destroy_rcd
@@ -482,7 +443,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	description = "Перегревает электроприбор, вызывая небольшой взрыв и уничтожая её. Два заряда за покупку."
 	cost = 20
 	power_type = /datum/action/innate/ai/ranged/overload_machine
-	unlock_text = span_notice("Активировал способность направлять интенсивную энергию в механизмы через станционные АКП.")
+	unlock_text = "<span class='notice'>Активировал способность направлять интенсивную энергию в механизмы через станционные АКП.</span>"
 	unlock_sound = 'sound/effects/comfyfire.ogg' //definitely not comfy, but it's the closest sound to "roaring fire" we have
 
 /datum/action/innate/ai/ranged/overload_machine
@@ -490,48 +451,46 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	desc = "Перегревает аппарат, вызывая небольшой взрыв после небольшой задержки."
 	button_icon_state = "overload_machine"
 	uses = 2
-	linked_ability_type = /obj/effect/proc_holder/ranged_ai/overload_machine
+	ranged_mousepointer = 'icons/effects/mouse_pointers/overload_machine_target.dmi'
+	enable_text = "<span class='notice'>Вы подключились к энергосети станции. Нажмите на аппарат для того чтобы подорвать его, или же используйте способность снова для отмены.</span>"
+	disable_text = "<span class='notice'>You release your hold on the powernet.</span>"
 
 /datum/action/innate/ai/ranged/overload_machine/New()
 	..()
 	desc = "[desc] Осталось [uses] зарядов."
-	button.desc = desc
 
-/datum/action/innate/ai/ranged/overload_machine/proc/detonate_machine(obj/machinery/M)
-	if(M && !QDELETED(M))
-		var/turf/T = get_turf(M)
-		message_admins("[ADMIN_LOOKUPFLW(usr)] overloaded [M.name] ([M.type]) at [ADMIN_VERBOSEJMP(T)].")
-		log_game("[key_name(usr)] overloaded [M.name] ([M.type]) at [AREACOORD(T)].")
-		explosion(M, heavy_impact_range = 2, light_impact_range = 3)
-		if(M) //to check if the explosion killed it before we try to delete it
-			qdel(M)
+/datum/action/innate/ai/ranged/overload_machine/proc/detonate_machine(mob/living/caller, obj/machinery/to_explode)
+	if(QDELETED(to_explode))
+		return
 
-/obj/effect/proc_holder/ranged_ai/overload_machine
-	active = FALSE
-	ranged_mousepointer = 'icons/effects/mouse_pointers/overload_machine_target.dmi'
-	enable_text = span_notice("Вы подключились к энергосети станции. Нажмите на аппарат для того чтобы подорвать его, или же используйте способность снова для отмены.")
-	disable_text = span_notice("You release your hold on the powernet.")
+	var/turf/machine_turf = get_turf(to_explode)
+	message_admins("[ADMIN_LOOKUPFLW(caller)] overloaded [to_explode.name] ([to_explode.type]) at [ADMIN_VERBOSEJMP(machine_turf)].")
+	caller.log_message("overloaded [to_explode.name] ([to_explode.type])", LOG_ATTACK)
+	explosion(to_explode, heavy_impact_range = 2, light_impact_range = 3)
+	if(!QDELETED(to_explode)) //to check if the explosion killed it before we try to delete it
+		qdel(to_explode)
 
-/obj/effect/proc_holder/ranged_ai/overload_machine/InterceptClickOn(mob/living/caller, params, obj/machinery/target)
-	if(..())
-		return
-	if(ranged_ability_user.incapacitated())
-		remove_ranged_ability()
-		return
-	if(!istype(target))
-		to_chat(ranged_ability_user, span_warning("Не могу перегрузить что-то не являющееся аппаратом!"))
-		return
-	if(is_type_in_typecache(target, GLOB.blacklisted_malf_machines))
-		to_chat(ranged_ability_user, span_warning("Не могу перегрузить это устройство!"))
-		return
-	ranged_ability_user.playsound_local(ranged_ability_user, "sparks", 50, 0)
-	attached_action.adjust_uses(-1)
-	if(attached_action?.uses)
-		attached_action.desc = "[initial(attached_action.desc)] It has [attached_action.uses] use\s remaining."
-		attached_action.UpdateButtonIcon()
-	target.audible_message(span_userdanger("Слышу громкий электрический треск, исходящий от [target]!"))
-	addtimer(CALLBACK(attached_action, /datum/action/innate/ai/ranged/overload_machine.proc/detonate_machine, target), 50) //kaboom!
-	remove_ranged_ability(span_danger("Перегрузка аппарата..."))
+/datum/action/innate/ai/ranged/overload_machine/do_ability(mob/living/caller, atom/clicked_on)
+	if(caller.incapacitated())
+		unset_ranged_ability(caller)
+		return FALSE
+	if(!istype(clicked_on, /obj/machinery))
+		to_chat(caller, span_warning("Не могу перегрузить что-то не являющееся аппаратом!"))
+		return FALSE
+	var/obj/machinery/clicked_machine = clicked_on
+	if(is_type_in_typecache(clicked_machine, GLOB.blacklisted_malf_machines))
+		to_chat(caller, span_warning("Не могу перегрузить это устройство!"))
+		return FALSE
+
+	caller.playsound_local(caller, SFX_SPARKS, 50, 0)
+	adjust_uses(-1)
+	if(uses)
+		desc = "[initial(desc)] It has [uses] use\s remaining."
+		UpdateButtons()
+
+	clicked_machine.audible_message(span_userdanger("Слышу громкий электрический треск, исходящий от [clicked_machine]!"))
+	addtimer(CALLBACK(src, .proc/detonate_machine, caller, clicked_machine), 5 SECONDS) //kaboom!
+	unset_ranged_ability(caller, span_danger("Перегрузка аппарата..."))
 	return TRUE
 
 /// Blackout: Overloads a random number of lights across the station. Three uses.
@@ -553,7 +512,6 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 /datum/action/innate/ai/blackout/New()
 	..()
 	desc = "[desc] Осталось [uses] зарядов."
-	button.desc = desc
 
 /datum/action/innate/ai/blackout/Activate()
 	for(var/obj/machinery/power/apc/apc in GLOB.apcs_list)
@@ -566,7 +524,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	adjust_uses(-1)
 	if(src && uses) //Not sure if not having src here would cause a runtime, so it's here to be safe
 		desc = "[initial(desc)] доступно [uses] зарядов."
-		UpdateButtonIcon()
+		UpdateButtons()
 
 /// Robotic Factory: Places a large machine that converts humans that go through it into cyborgs. Unlocking this ability removes shunting.
 /datum/ai_module/utility/place_cyborg_transformer
@@ -742,7 +700,6 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 /datum/action/innate/ai/reactivate_cameras/New()
 	..()
 	desc = "[desc] It has [uses] use\s remaining."
-	button.desc = desc
 
 /datum/action/innate/ai/reactivate_cameras/Activate()
 	var/fixed_cameras = 0
@@ -760,7 +717,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	adjust_uses(0, TRUE) //Checks the uses remaining
 	if(src && uses) //Not sure if not having src here would cause a runtime, so it's here to be safe
 		desc = "[initial(desc)] It has [uses] use\s remaining."
-		UpdateButtonIcon()
+		UpdateButtons()
 
 /// Upgrade Camera Network: EMP-proofs all cameras, in addition to giving them X-ray vision.
 /datum/ai_module/upgrade/upgrade_cameras

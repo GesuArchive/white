@@ -362,7 +362,7 @@
 /datum/round_aspect/battled/run_aspect()
 	SSbtension.forced_tension = TRUE
 	spawn(5 SECONDS)
-		rightandwrong(SUMMON_GUNS, survivor_probability = 10)
+		summon_guns(survivor_probability = 10)
 	..()
 
 /datum/round_aspect/tts

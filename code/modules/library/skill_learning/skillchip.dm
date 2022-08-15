@@ -402,7 +402,7 @@
 	skill_icon = "plug"
 	activate_message = span_notice("You can now activate another chip through this adapter, but you're not sure why you did this...")
 	deactivate_message = span_notice("You no longer have the useless skillchip adapter.")
-	skillchip_flags = SKILLCHIP_ALLOWS_MULTIPLE | SKILLCHIP_CHAMELEON_INCOMPATIBLE
+	skillchip_flags = SKILLCHIP_ALLOWS_MULTIPLE
 	// Literally does nothing.
 	complexity = 0
 	slot_use = 0

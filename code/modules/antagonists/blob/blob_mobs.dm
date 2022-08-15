@@ -124,7 +124,7 @@
 	attack_verb_simple = "бьёт"
 	attack_sound = 'sound/weapons/genhit1.ogg'
 	del_on_death = TRUE
-	deathmessage = "взрывается!"
+	death_message = "взрывается!"
 	gold_core_spawnable = NO_SPAWN //gold slime cores should only spawn the independent subtype
 	var/death_cloud_size = 1 //size of cloud produced from a dying spore
 	var/mob/living/carbon/human/oldguy

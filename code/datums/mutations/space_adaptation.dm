@@ -5,7 +5,6 @@
 	quality = POSITIVE
 	difficulty = 16
 	text_gain_indication = span_notice("Ощущаю некое родство с окружающей нас пустотой космоса! Так и хочется выйти из шлюза, протянуть к нему руку, снять шлем и ...")
-	time_coeff = 5
 	instability = 30
 
 /datum/mutation/human/space_adaptation/New(class_ = MUT_OTHER, timer, datum/mutation/human/copymut)

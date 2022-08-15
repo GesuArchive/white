@@ -78,7 +78,6 @@
 
 	var/tod = null /// Time of death
 
-	var/ventcrawler = 0 //0 No vent crawling, 1 vent crawling in the nude, 2 vent crawling always
 	var/limb_destroyer = 0 //1 Sets AI behavior that allows mobs to target and dismember limbs with their basic attack.
 
 	var/mob_size = MOB_SIZE_HUMAN
@@ -102,6 +101,11 @@
 
 	var/list/pipes_shown = list()
 	var/last_played_vent
+	/// The last direction we moved in a vent. Used to make holding two directions feel nice
+	var/last_vent_dir = 0
+	/// Cell tracker datum we use to manage the pipes around us, for faster ventcrawling
+	/// Should only exist if you're in a pipe
+	var/datum/cell_tracker/pipetracker
 
 	var/smoke_delay = 0 ///used to prevent spam with smoke reagent reaction on mob.
 
@@ -123,7 +127,6 @@
 	var/stun_absorption = null ///converted to a list of stun absorption sources this mob has when one is added
 
 	var/blood_volume = 0 ///how much blood the mob has
-	var/obj/effect/proc_holder/ranged_ability ///Any ranged ability the mob has, as a click override
 
 	var/see_override = 0 ///0 for no override, sets see_invisible = see_override in silicon & carbon life process via update_sight()
 
@@ -142,8 +145,6 @@
 
 	var/last_words	///used for database logging
 
-	var/list/obj/effect/proc_holder/abilities = list()
-
 	var/can_be_held = FALSE	//whether this can be picked up and held.
 	var/worn_slot_flags = NONE //if it can be held, can it be equipped to any slots? (think pAI's on head)
 
@@ -156,9 +157,6 @@
 	var/list/disease_resistances
 
 	var/slowed_by_drag = TRUE ///Whether the mob is slowed down when dragging another prone mob
-
-	var/list/ownedSoullinks //soullinks we are the owner of
-	var/list/sharedSoullinks //soullinks we are a/the sharer of
 
 	/// List of changes to body temperature, used by desease symtoms like fever
 	var/list/body_temp_changes = list()

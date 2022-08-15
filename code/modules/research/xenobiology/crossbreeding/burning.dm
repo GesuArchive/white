@@ -279,10 +279,10 @@ Burning extracts:
 	if(!istype(L))
 		return
 	user.visible_message(span_danger("[capitalize(src.name)] absorbs [user], transforming [user.ru_na()] into a slime!"))
-	var/obj/effect/proc_holder/spell/targeted/shapeshift/slimeform/S = new()
-	S.remove_on_restore = TRUE
-	user.mind.AddSpell(S)
-	S.cast(list(user),user)
+	var/datum/action/cooldown/spell/shapeshift/slime_form/transform = new(user.mind || user)
+	transform.remove_on_restore = TRUE
+	transform.Grant(user)
+	transform.cast(user)
 	..()
 
 /obj/item/slimecross/burning/lightpink

@@ -101,3 +101,33 @@ EXPLOSIVE SHELLBALL: The most elegant in breaching (er killin', if you're good a
 MALFUNCTION SHOT: A very gentle "cannonball" dart at first glance, but make no mistake: This is their worst nightmare! Enjoy an easy boarding process while all their machines are broken and all their weapons unloaded from an EMP!<br>
 THE BIGGEST ONE: A shellball, but much bigger. Ye won't be seein' much of these as they were discontinued for sinkin' the firer's ship as often as it sunk the scallywag's ship. Very big boom! If ye have one, ye have been warned!
 	"}
+
+/obj/structure/cannon/trash
+	name = "trash cannon"
+	desc = "Okay, sure, you could call it a toolbox welded to an opened oxygen tank cabled to a skateboard, but it's a TRASH CANNON to us."
+	icon_state = "garbagegun"
+	anchored = FALSE
+	can_be_unanchored = FALSE
+	var/fires_before_deconstruction = 5
+
+/obj/structure/cannon/trash/fire()
+	var/explode_chance = 10
+	var/used_alt_fuel = reagents.has_reagent(/datum/reagent/fuel, charge_size)
+	if(used_alt_fuel)
+		explode_chance += 25
+	. = ..()
+	fires_before_deconstruction--
+	if(used_alt_fuel)
+		fires_before_deconstruction--
+	if(prob(explode_chance))
+		visible_message(span_userdanger("[src] explodes!"))
+		explosion(src, heavy_impact_range = 1, light_impact_range = 5, flame_range = 5)
+		return
+	if(fires_before_deconstruction <= 0)
+		visible_message(span_warning("[src] falls apart from operation!"))
+		qdel(src)
+
+/obj/structure/cannon/trash/Destroy()
+	new /obj/item/stack/sheet/iron/five(src.loc)
+	new /obj/item/stack/rods(src.loc)
+	. = ..()

@@ -82,7 +82,6 @@
 	attack_verb_continuous = "забивает"
 	attack_verb_simple = "забивает"
 	attack_sound = 'sound/effects/blobattack.ogg'
-	ventcrawler = VENTCRAWLER_ALWAYS
 	faction = list("plants","mining")
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 150
@@ -97,6 +96,7 @@
 /mob/living/simple_animal/hostile/vanya/killermeat/Initialize(mapload)
 	. = ..()
 	apply_status_effect(STATUS_EFFECT_CRUSHERDAMAGETRACKING)
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /mob/living/simple_animal/hostile/vanya/leech
 	name = "Leechs"
@@ -124,7 +124,6 @@
 	attack_verb_continuous = "поедает"
 	attack_verb_simple = "поедает"
 	attack_sound = null
-	ventcrawler = VENTCRAWLER_ALWAYS
 	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 10, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 150
 	maxbodytemp = 800
@@ -133,6 +132,7 @@
 /mob/living/simple_animal/hostile/vanya/leech/Initialize(mapload)
 	. = ..()
 	apply_status_effect(STATUS_EFFECT_CRUSHERDAMAGETRACKING)
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /mob/living/simple_animal/hostile/faithless/vanya/chort
 	name = "Imp"
@@ -161,7 +161,6 @@
 	attack_verb_continuous = "пинает"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	attack_verb_simple = "пинает"
-	ventcrawler = VENTCRAWLER_ALWAYS
 	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 60, "min_co2" = 0, "max_co2" = 100, "min_n2" = 0, "max_n2" = 80)
 	minbodytemp = 150
 	maxbodytemp = 800
@@ -170,6 +169,7 @@
 /mob/living/simple_animal/hostile/faithless/vanya/chort/Initialize(mapload)
 	. = ..()
 	apply_status_effect(STATUS_EFFECT_CRUSHERDAMAGETRACKING)
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /mob/living/simple_animal/hostile/faithless/vanya/drown
 	name = "Drowned"
@@ -198,7 +198,6 @@
 	attack_verb_continuous = "задыхает"
 	attack_sound = 'white/Wzzzz/drown.ogg'
 	attack_verb_simple = "задыхает"
-	ventcrawler = VENTCRAWLER_ALWAYS
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 00, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	maxbodytemp = 50
@@ -207,4 +206,5 @@
 /mob/living/simple_animal/hostile/faithless/vanya/drown/Initialize(mapload)
 	. = ..()
 	apply_status_effect(STATUS_EFFECT_CRUSHERDAMAGETRACKING)
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 

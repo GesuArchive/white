@@ -155,7 +155,7 @@
 			for(var/i in GLOB.human_list)
 				var/mob/living/carbon/human/H = i
 				if(H.ckey)
-					dat += "<tr><td>[H]</td><td>[md5(H.dna.uni_identity)]</td></tr>"
+					dat += "<tr><td>[H]</td><td>[md5(H.dna.unique_identity)]</td></tr>"
 			dat += "</table>"
 			holder << browse(dat, "window=fingerprints;size=440x410")
 		if("ctfbutton")
@@ -307,7 +307,7 @@
 				if("All Antags!")
 					survivor_probability = 100
 
-			rightandwrong(SUMMON_GUNS, holder, survivor_probability)
+			summon_guns(holder, survivor_probability)
 		if("magic")
 			if(!is_funmin)
 				return
@@ -319,19 +319,19 @@
 				if("All Antags!")
 					survivor_probability = 100
 
-			rightandwrong(SUMMON_MAGIC, holder, survivor_probability)
+			summon_magic(holder, survivor_probability)
 		if("events")
 			if(!is_funmin)
 				return
 			if(!SSevents.wizardmode)
 				if(tgui_alert(usr,"Do you want to toggle summon events on?",,list("Yes","No")) == "Yes")
-					summonevents()
+					summon_events()
 					SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Summon Events", "Activate"))
 
 			else
 				switch(tgui_alert(usr,"What would you like to do?",,list("Intensify Summon Events","Turn Off Summon Events","Nothing")))
 					if("Intensify Summon Events")
-						summonevents()
+						summon_events()
 						SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Summon Events", "Intensify"))
 					if("Turn Off Summon Events")
 						SSevents.toggleWizardmode()

@@ -168,7 +168,7 @@
 	return ..()
 
 /datum/action/innate/lizard_leap/process()
-	UpdateButtonIcon() //keep the button updated
+	UpdateButtons() //keep the button updated
 
 /datum/action/innate/lizard_leap/IsAvailable()
 	. = ..()
@@ -189,7 +189,7 @@
 	active = FALSE
 	background_icon_state = "bg_default"
 
-/datum/action/innate/lizard_leap/proc/InterceptClickOn(mob/living/carbon/human/A, params, atom/target)
+/datum/action/innate/lizard_leap/InterceptClickOn(mob/living/carbon/human/A, params, atom/target)
 	if(linked_martial.leaping)
 		return
 	linked_martial.leaping = TRUE
@@ -197,12 +197,12 @@
 	A.Immobilize(30 SECONDS) //prevents you from breaking out of your pounce
 	A.throw_at(target, get_dist(A,target)+1, 1, A, FALSE, TRUE, callback = CALLBACK(src, .proc/leap_end, A))
 	Deactivate()
-	UpdateButtonIcon()
+	UpdateButtons()
 
 /datum/action/innate/lizard_leap/proc/leap_end(mob/living/carbon/human/A)
 	A.SetImmobilized(1 SECONDS)
 	linked_martial.leaping = FALSE
-	UpdateButtonIcon()
+	UpdateButtons()
 
 /datum/martial_art/flyingfang/handle_throw(atom/hit_atom, mob/living/carbon/human/A)
 	if(!leaping)
@@ -228,7 +228,7 @@
 			A.Paralyze(6 SECONDS, 1)
 		if(leaping)
 			leaping = FALSE
-		linked_leap.UpdateButtonIcon()
+		linked_leap.UpdateButtons()
 		linked_leap.Deactivate(TRUE)
 		return TRUE
 

@@ -51,7 +51,6 @@
 	unsuitable_atmos_damage = 0
 	wander = 0
 	speed = 0
-	ventcrawler = VENTCRAWLER_ALWAYS
 	healable = 0
 	density = FALSE
 	pass_flags = PASSTABLE | PASSMOB

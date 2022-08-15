@@ -319,8 +319,12 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_MARTIAL_ARTS_IMMUNE "martial_arts_immune"
 /// You've been cursed with a living duffelbag, and can't have more added
 #define TRAIT_DUFFEL_CURSE_PROOF "duffel_cursed"
+/// Immune to being afflicted by time stop (spell)
+#define TRAIT_TIME_STOP_IMMUNE "time_stop_immune"
 /// Revenants draining you only get a very small benefit.
 #define TRAIT_WEAK_SOUL "weak_soul"
+/// This mob has no soul
+#define TRAIT_NO_SOUL "no_soul"
 /// Prevents mob from riding mobs when buckled onto something
 #define TRAIT_CANT_RIDE "cant_ride"
 /// Prevents a mob from being unbuckled, currently only used to prevent people from falling over on the tram
@@ -389,6 +393,12 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Trait applied to [/datum/mind] to stop someone from using the cursed hot springs to polymorph more than once.
 #define TRAIT_HOT_SPRING_CURSED "hot_spring_cursed"
 
+/// Whether a spider's consumed this mob
+#define TRAIT_SPIDER_CONSUMED "spider_consumed"
+/// Whether we're sneaking, from the alien sneak ability.
+/// Maybe worth generalizing into a general "is sneaky" / "is stealth" trait in the future.
+#define TRAIT_ALIEN_SNEAK "sneaking_alien"
+
 // METABOLISMS
 // Various jobs on the station have historically had better reactions
 // to various drinks and foodstuffs. Security liking donuts is a classic
@@ -413,6 +423,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 // achievement. Can also be used on rod-form wizards.
 // Normally only present in the mind of a Research Director.
 #define TRAIT_ROD_SUPLEX "rod_suplex"
+
+/// This mob is phased out of reality from magic, either a jaunt or rod form
+#define TRAIT_MAGICALLY_PHASED "magically_phased"
 
 //SKILLS
 #define TRAIT_UNDERWATER_BASKETWEAVING_KNOWLEDGE "underwater_basketweaving"
@@ -608,6 +621,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define ADMIN_TRAIT "admin"
 #define CHANGELING_TRAIT "changeling"
 #define CULT_TRAIT "cult"
+#define LICH_TRAIT "lich"
 /// The item is magically cursed
 #define CURSED_ITEM_TRAIT(item_type) "cursed_item_[item_type]"
 #define ABSTRACT_ITEM_TRAIT "abstract-item"
@@ -797,3 +811,11 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// Currently fishing
 #define TRAIT_GONE_FISHING "fishing"
+
+// Traits to heal for
+
+/// This mob heals from carp rifts.
+#define TRAIT_HEALS_FROM_CARP_RIFTS "heals_from_carp_rifts"
+
+/// This mob heals from cult pylons.
+#define TRAIT_HEALS_FROM_CULT_PYLONS "heals_from_cult_pylons"

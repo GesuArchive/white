@@ -219,7 +219,6 @@
 	health = 15
 	butcher_results = list(/obj/item/food/meat/slab/mouse = 1)
 	density = FALSE
-	ventcrawler = VENTCRAWLER_ALWAYS
 	pass_flags = PASSTABLE | PASSGRILLE | PASSMOB
 	mob_size = MOB_SIZE_TINY
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
@@ -228,6 +227,7 @@
 /mob/living/simple_animal/hostile/rat/Initialize(mapload)
 	. = ..()
 	SSmobs.cheeserats += src
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /mob/living/simple_animal/hostile/rat/Destroy()
 	SSmobs.cheeserats -= src

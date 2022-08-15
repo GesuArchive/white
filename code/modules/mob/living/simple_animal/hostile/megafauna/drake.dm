@@ -68,7 +68,7 @@
 	achievement_type = /datum/award/achievement/boss/drake_kill
 	crusher_achievement_type = /datum/award/achievement/boss/drake_crusher
 	score_achievement_type = /datum/award/score/drake_score
-	deathmessage = "рушится в груду костей, его плоть расслаивается."
+	death_message = "рушится в груду костей, его плоть расслаивается."
 	deathsound = 'sound/magic/demon_dies.ogg'
 	footstep_type = FOOTSTEP_MOB_HEAVY
 	small_sprite_type = /datum/action/small_sprite/megafauna/drake
@@ -91,8 +91,8 @@
 	meteors.Grant(src)
 	mass_fire.Grant(src)
 	lava_swoop.Grant(src)
-	RegisterSignal(src, COMSIG_ABILITY_STARTED, .proc/start_attack)
-	RegisterSignal(src, COMSIG_ABILITY_FINISHED, .proc/finished_attack)
+	RegisterSignal(src, COMSIG_MOB_ABILITY_STARTED, .proc/start_attack)
+	RegisterSignal(src, COMSIG_MOB_ABILITY_FINISHED, .proc/finished_attack)
 	RegisterSignal(src, COMSIG_SWOOP_INVULNERABILITY_STARTED, .proc/swoop_invulnerability_started)
 	RegisterSignal(src, COMSIG_LAVA_ARENA_FAILED, .proc/on_arena_fail)
 

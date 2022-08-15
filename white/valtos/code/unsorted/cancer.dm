@@ -7,7 +7,7 @@
 	attack_verb_simple = "костылит"
 	attack_verb_continuous = "костылит"
 	attack_sound = 'white/valtos/sounds/undertale/snd_hurt1.wav'
-	deathmessage = "уходит в закат."
+	death_message = "уходит в закат."
 	rapid_melee = 1
 	melee_queue_distance = 2
 	melee_damage_lower = 35

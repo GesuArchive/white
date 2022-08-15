@@ -111,7 +111,7 @@
 	var/treating_wounds = FALSE
 	fair_market_price = 10
 	payment_department = ACCOUNT_MED
-
+	vent_movement = NONE
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/Initialize(mapload)
 	. = ..()

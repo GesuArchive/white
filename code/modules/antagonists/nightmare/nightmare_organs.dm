@@ -8,22 +8,20 @@
 	name = "черная масса"
 	desc = "Сочащийся черным дегтем комок плоти, извлеченный из головы Кошмара."
 	icon_state = "brain-x-d"
-	var/obj/effect/proc_holder/spell/targeted/shadowwalk/shadowwalk
+	var/datum/action/cooldown/spell/jaunt/shadow_walk/our_jaunt
 
 /obj/item/organ/brain/nightmare/Insert(mob/living/carbon/M, special = FALSE)
 	. = ..()
 	if(M.dna.species.id != "nightmare")
 		M.set_species(/datum/species/shadow/nightmare)
-		visible_message(span_warning("[M] бьется, когда [src] укореняется в теле [M.p_their()]!"))
-	var/obj/effect/proc_holder/spell/targeted/shadowwalk/SW = new
-	M.AddSpell(SW)
-	shadowwalk = SW
+		visible_message(span_warning("[M] thrashes as [src] takes root in [M.p_their()] body!"))
+
+	our_jaunt = new(M)
+	our_jaunt.Grant(M)
 
 /obj/item/organ/brain/nightmare/Remove(mob/living/carbon/M, special = FALSE)
-	if(shadowwalk)
-		M.RemoveSpell(shadowwalk)
+	QDEL_NULL(our_jaunt)
 	return ..()
-
 
 /obj/item/organ/heart/nightmare
 	name = "Сердце тьмы"

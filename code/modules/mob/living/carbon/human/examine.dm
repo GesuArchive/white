@@ -97,11 +97,10 @@
 		if(!(I.item_flags & ABSTRACT) && !(I.item_flags & EXAMINE_SKIP))
 			. += "В [get_held_index_name(get_held_index_of_item(I))] он[t_a] держит [I.get_examine_string(user)].\n"
 
-	var/datum/component/forensics/FR = GetComponent(/datum/component/forensics)
 	//gloves
 	if(gloves && !(obscured & ITEM_SLOT_GLOVES) && !(gloves.item_flags & EXAMINE_SKIP))
 		. += "А на руках у н[t_ego] [gloves.get_examine_string(user)].\n"
-	else if(FR && length(FR.blood_DNA))
+	else if(GET_ATOM_BLOOD_DNA_LENGTH(src))
 		if(num_hands)
 			. += "<span class='warning'>[ru_ego(TRUE)] рук[num_hands > 1 ? "и" : "а"] также в крови!</span>\n"
 

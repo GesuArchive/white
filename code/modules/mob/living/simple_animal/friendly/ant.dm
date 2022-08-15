@@ -30,13 +30,13 @@
 	footstep_type = FOOTSTEP_MOB_CLAW
 	health = 75
 	maxHealth = 75
-	ventcrawler = VENTCRAWLER_ALWAYS
 	// randomizes hunting intervals, minimum 5 turns
 	var/time_to_hunt = 5
 
 /mob/living/simple_animal/ant/Initialize(mapload)
 	. = ..()
 	time_to_hunt = rand(5,10)
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /mob/living/simple_animal/ant/Life(delta_time = SSMOBS_DT, times_fired) // In this larger state, the ants have become the predators.
 	. = ..()

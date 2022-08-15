@@ -224,8 +224,3 @@
 		desc = "[initial(desc)] Кажется им уже пользовались."
 
 	return TRUE
-
-/obj/item/autosurgeon/skillchip/syndicate/chameleon_chip
-	desc = "Одноразовый авто хирург с Синдикатовским чипом навыков. Используй отвертку чтобы вытащить чип, но назад вставить его уже нельзя будет."
-	uses = 1
-	starting_skillchip = /obj/item/skillchip/chameleon

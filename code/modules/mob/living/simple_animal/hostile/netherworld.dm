@@ -102,7 +102,7 @@
 	attack_verb_simple = "разрывает"
 	speed = -0.5
 	var/static/list/migo_sounds
-	deathmessage = "вопит, пока его форма растекается в мясистую кашицу."
+	death_message = "вопит, пока его форма растекается в мясистую кашицу."
 	deathsound = 'sound/voice/hiss6.ogg'
 	phaser = FALSE
 
@@ -138,7 +138,7 @@
 	melee_damage_upper = 10
 	attack_verb_continuous = "бьёт"
 	attack_verb_simple = "бьёт"
-	deathmessage = "рассыпается горсткой пепла."
+	death_message = "рассыпается горсткой пепла."
 	phaser = FALSE
 
 /obj/structure/spawner/nether

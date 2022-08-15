@@ -31,6 +31,8 @@
 	///Stores the total amount of moles needed for the current recipe
 	var/total_recipe_moles = 0
 
+	vent_movement = NONE
+
 /obj/machinery/atmospherics/components/binary/crystallizer/attackby(obj/item/I, mob/user, params)
 	if(!on)
 		if(default_deconstruction_screwdriver(user, "[base_icon]-open", "[base_icon]-off", I))

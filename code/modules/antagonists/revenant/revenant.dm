@@ -72,15 +72,30 @@
 /mob/living/simple_animal/revenant/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/simple_flying)
-	flags_1 |= RAD_NO_CONTAMINATE_1
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
 	ADD_TRAIT(src, TRAIT_SIXTHSENSE, INNATE_TRAIT)
-	AddSpell(new /obj/effect/proc_holder/spell/targeted/night_vision/revenant(null))
-	AddSpell(new /obj/effect/proc_holder/spell/targeted/telepathy/revenant(null))
-	AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/revenant/defile(null))
-	AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/revenant/overload(null))
-	AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/revenant/blight(null))
-	AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/revenant/malfunction(null))
+
+	// Starting spells
+	var/datum/action/cooldown/spell/night_vision/revenant/vision = new(src)
+	vision.Grant(src)
+
+	var/datum/action/cooldown/spell/list_target/telepathy/revenant/telepathy = new(src)
+	telepathy.Grant(src)
+
+	// Starting spells that start locked
+	var/datum/action/cooldown/spell/aoe/revenant/overload/lights_go_zap = new(src)
+	lights_go_zap.Grant(src)
+
+	var/datum/action/cooldown/spell/aoe/revenant/defile/windows_go_smash = new(src)
+	windows_go_smash.Grant(src)
+
+	var/datum/action/cooldown/spell/aoe/revenant/blight/botany_go_mad = new(src)
+	botany_go_mad.Grant(src)
+
+	var/datum/action/cooldown/spell/aoe/revenant/malfunction/shuttle_go_emag = new(src)
+	shuttle_go_emag.Grant(src)
+
+	RegisterSignal(src, COMSIG_LIVING_BANED, .proc/on_baned)
 	random_revenant_name()
 
 /mob/living/simple_animal/revenant/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE, no_hands = FALSE, floor_okay=FALSE)
@@ -191,15 +206,13 @@
 	return ..()
 
 //damage, gibbing, and dying
-/mob/living/simple_animal/revenant/attackby(obj/item/W, mob/living/user, params)
-	. = ..()
-	if(istype(W, /obj/item/nullrod))
-		visible_message(span_warning("[capitalize(src.name)] violently flinches!") , \
-						span_revendanger("As [W] passes through you, you feel your essence draining away!"))
-		adjustBruteLoss(25) //hella effective
-		inhibited = TRUE
-		update_action_buttons_icon()
-		addtimer(CALLBACK(src, .proc/reset_inhibit), 30)
+/mob/living/simple_animal/revenant/proc/on_baned(obj/item/weapon, mob/living/user)
+	SIGNAL_HANDLER
+	visible_message(span_warning("[src] violently flinches!"), \
+		span_revendanger("As [weapon] passes through you, you feel your essence draining away!"))
+	inhibited = TRUE
+	update_action_buttons_icon()
+	addtimer(CALLBACK(src, .proc/reset_inhibit), 3 SECONDS)
 
 /mob/living/simple_animal/revenant/proc/reset_inhibit()
 	inhibited = FALSE

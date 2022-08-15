@@ -147,9 +147,6 @@
 
 /// NOTE: With this formula, you'll hit half cooldown at level 8 for that power.
 /datum/action/bloodsucker/proc/StartCooldown()
-	// Alpha Out
-	button.color = rgb(128,0,0,128)
-	button.alpha = 100
 	// Calculate Cooldown (by power's level)
 	var/this_cooldown
 	if(power_flags & BP_AM_STATIC_COOLDOWN)
@@ -159,16 +156,11 @@
 
 	// Wait for cooldown
 	COOLDOWN_START(src, bloodsucker_power_cooldown, this_cooldown)
-	addtimer(CALLBACK(src, .proc/alpha_in), this_cooldown)
-
-/datum/action/bloodsucker/proc/alpha_in()
-	button.color = rgb(255,255,255,255)
-	button.alpha = 255
 
 /datum/action/bloodsucker/proc/CheckCanDeactivate()
 	return TRUE
 
-/datum/action/bloodsucker/UpdateButtonIcon(force = FALSE)
+/datum/action/bloodsucker/UpdateButtons(force = FALSE)
 	background_icon_state = active ? background_icon_state_on : background_icon_state_off
 	. = ..()
 
@@ -185,7 +177,7 @@
 	if(power_flags & BP_AM_TOGGLE)
 		RegisterSignal(owner, COMSIG_LIVING_BIOLOGICAL_LIFE, .proc/UsePower)
 	owner.log_message("used [src][bloodcost != 0 ? " at the cost of [bloodcost]" : ""].", LOG_ATTACK, color="red")
-	UpdateButtonIcon()
+	UpdateButtons()
 
 /datum/action/bloodsucker/proc/DeactivatePower()
 	if(power_flags & BP_AM_TOGGLE)
@@ -194,7 +186,7 @@
 		RemoveAfterUse()
 		return
 	active = FALSE
-	UpdateButtonIcon()
+	UpdateButtons()
 	StartCooldown()
 
 ///Used by powers that are continuously active (That have BP_AM_TOGGLE flag)

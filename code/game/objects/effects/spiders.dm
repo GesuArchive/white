@@ -52,10 +52,10 @@
 		return
 	if(sealed)
 		return FALSE
-	if(istype(mover, /mob/living/simple_animal/hostile/poison/giant_spider))
+	if(istype(mover, /mob/living/simple_animal/hostile/giant_spider))
 		return TRUE
 	else if(isliving(mover))
-		if(istype(mover.pulledby, /mob/living/simple_animal/hostile/poison/giant_spider))
+		if(istype(mover.pulledby, /mob/living/simple_animal/hostile/giant_spider))
 			return TRUE
 		if(prob(50))
 			to_chat(mover, span_danger("На мгновение запутываюсь в паутине."))
@@ -152,9 +152,9 @@
 	var/obj/structure/spider/eggcluster/egg
 	/// The types of spiders that the spawner can produce
 	var/list/potentialspawns = list(
-		/mob/living/simple_animal/hostile/poison/giant_spider,
-		/mob/living/simple_animal/hostile/poison/giant_spider/hunter,
-		/mob/living/simple_animal/hostile/poison/giant_spider/nurse,
+		/mob/living/simple_animal/hostile/giant_spider,
+		/mob/living/simple_animal/hostile/giant_spider/hunter,
+		/mob/living/simple_animal/hostile/giant_spider/nurse,
 	)
 
 /obj/effect/mob_spawn/spider/Initialize(mapload)
@@ -194,7 +194,7 @@
 		to_chat(user, span_warning("[src] еще недостаточно созрела!"))
 		return FALSE
 
-/obj/effect/mob_spawn/spider/equip(mob/living/simple_animal/hostile/poison/giant_spider/spawned_spider)
+/obj/effect/mob_spawn/spider/equip(mob/living/simple_animal/hostile/giant_spider/spawned_spider)
 	if(spawned_spider)
 		spawned_spider.directive = directive
 
@@ -208,9 +208,9 @@
 	short_desc = "Вы элитный паук! Охраняйте гнездо и королеву, а так же следуйте ее приказам."
 	cluster_type = /obj/structure/spider/eggcluster/enriched
 	potentialspawns = list(
-		/mob/living/simple_animal/hostile/poison/giant_spider/tarantula,
-		/mob/living/simple_animal/hostile/poison/giant_spider/viper,
-		/mob/living/simple_animal/hostile/poison/giant_spider/midwife,
+		/mob/living/simple_animal/hostile/giant_spider/tarantula,
+		/mob/living/simple_animal/hostile/giant_spider/viper,
+		/mob/living/simple_animal/hostile/giant_spider/midwife,
 	)
 
 /obj/effect/mob_spawn/spider/bloody
@@ -220,7 +220,7 @@
 	directive = "Ты - порождение генокрада. Ваша единственная цель это сеять хаос и обеспечивать свое собственное выживание. Вы агрессивны аболютно ко всем живым существам, кроме кровавых пауков, генокрад породивший вас является для вас врагом."
 	cluster_type = /obj/structure/spider/eggcluster/bloody
 	potentialspawns = list(
-		/mob/living/simple_animal/hostile/poison/giant_spider/hunter/flesh,
+		/mob/living/simple_animal/hostile/giant_spider/hunter/flesh,
 	)
 
 /obj/effect/mob_spawn/spider/midwife
@@ -229,7 +229,7 @@
 	directive = "Приведите свой Рой к победе и распространите свое гнездо на всю станцию."
 	cluster_type = /obj/structure/spider/eggcluster/midwife
 	potentialspawns = list(
-		/mob/living/simple_animal/hostile/poison/giant_spider/midwife,
+		/mob/living/simple_animal/hostile/giant_spider/midwife,
 	)
 
 /**
@@ -245,7 +245,7 @@
 	var/list/spider_list = list()
 	var/list/display_spiders = list()
 	for(var/choice in potentialspawns)
-		var/mob/living/simple_animal/hostile/poison/giant_spider/spider = choice
+		var/mob/living/simple_animal/hostile/giant_spider/spider = choice
 		spider_list[initial(spider.name)] = choice
 		var/datum/radial_menu_choice/option = new
 		option.image = image(icon = initial(spider.icon), icon_state = initial(spider.icon_state))
@@ -285,19 +285,19 @@
 	AddComponent(/datum/component/swarming)
 
 /obj/structure/spider/spiderling/hunter
-	grow_as = /mob/living/simple_animal/hostile/poison/giant_spider/hunter
+	grow_as = /mob/living/simple_animal/hostile/giant_spider/hunter
 
 /obj/structure/spider/spiderling/nurse
-	grow_as = /mob/living/simple_animal/hostile/poison/giant_spider/nurse
+	grow_as = /mob/living/simple_animal/hostile/giant_spider/nurse
 
 /obj/structure/spider/spiderling/midwife
-	grow_as = /mob/living/simple_animal/hostile/poison/giant_spider/midwife
+	grow_as = /mob/living/simple_animal/hostile/giant_spider/midwife
 
 /obj/structure/spider/spiderling/viper
-	grow_as = /mob/living/simple_animal/hostile/poison/giant_spider/viper
+	grow_as = /mob/living/simple_animal/hostile/giant_spider/viper
 
 /obj/structure/spider/spiderling/tarantula
-	grow_as = /mob/living/simple_animal/hostile/poison/giant_spider/tarantula
+	grow_as = /mob/living/simple_animal/hostile/giant_spider/tarantula
 
 /obj/structure/spider/spiderling/Bump(atom/user)
 	if(istype(user, /obj/structure/table))
@@ -377,10 +377,10 @@
 		if(amount_grown >= 100)
 			if(!grow_as)
 				if(prob(3))
-					grow_as = pick(/mob/living/simple_animal/hostile/poison/giant_spider/tarantula, /mob/living/simple_animal/hostile/poison/giant_spider/viper, /mob/living/simple_animal/hostile/poison/giant_spider/midwife)
+					grow_as = pick(/mob/living/simple_animal/hostile/giant_spider/tarantula, /mob/living/simple_animal/hostile/giant_spider/viper, /mob/living/simple_animal/hostile/giant_spider/midwife)
 				else
-					grow_as = pick(/mob/living/simple_animal/hostile/poison/giant_spider, /mob/living/simple_animal/hostile/poison/giant_spider/hunter, /mob/living/simple_animal/hostile/poison/giant_spider/nurse)
-			var/mob/living/simple_animal/hostile/poison/giant_spider/S = new grow_as(src.loc)
+					grow_as = pick(/mob/living/simple_animal/hostile/giant_spider, /mob/living/simple_animal/hostile/giant_spider/hunter, /mob/living/simple_animal/hostile/giant_spider/nurse)
+			var/mob/living/simple_animal/hostile/giant_spider/S = new grow_as(src.loc)
 			S.faction = faction.Copy()
 			S.directive = directive
 			qdel(src)

@@ -182,7 +182,7 @@
 	H.update_sight()
 	for(var/X in actions)
 		var/datum/action/A = X
-		A.UpdateButtonIcon()
+		A.UpdateButtons()
 
 /obj/item/clothing/glasses/nano_goggles/emp_act(severity)
 	..()
@@ -489,7 +489,7 @@
 
 	for(var/X in actions)
 		var/datum/action/A = X
-		A.UpdateButtonIcon()
+		A.UpdateButtons()
 	Wearer.update_inv_wear_suit()
 	Wearer.update_action_buttons_icon()
 	update_icon()

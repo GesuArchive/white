@@ -51,7 +51,7 @@
 	score_achievement_type = /datum/award/score/colussus_score
 	crusher_loot = list(/obj/structure/closet/crate/necropolis/colossus/crusher)
 	loot = list(/obj/structure/closet/crate/necropolis/colossus)
-	deathmessage = "disintegrates, leaving a glowing core in its wake."
+	death_message = "disintegrates, leaving a glowing core in its wake."
 	deathsound = 'sound/magic/demon_dies.ogg'
 	small_sprite_type = /datum/action/small_sprite/megafauna/colossus
 	/// Spiral shots ability
@@ -74,8 +74,8 @@
 	random_shots.Grant(src)
 	shotgun_blast.Grant(src)
 	dir_shots.Grant(src)
-	RegisterSignal(src, COMSIG_ABILITY_STARTED, .proc/start_attack)
-	RegisterSignal(src, COMSIG_ABILITY_FINISHED, .proc/finished_attack)
+	RegisterSignal(src, COMSIG_MOB_ABILITY_STARTED, .proc/start_attack)
+	RegisterSignal(src, COMSIG_MOB_ABILITY_FINISHED, .proc/finished_attack)
 
 /mob/living/simple_animal/hostile/megafauna/colossus/Destroy()
 	QDEL_NULL(spiral_shots)
@@ -475,7 +475,6 @@
 	friendly_verb_simple = "tap"
 	density = FALSE
 	pass_flags = PASSTABLE | PASSGRILLE | PASSMOB
-	ventcrawler = VENTCRAWLER_ALWAYS
 	mob_size = MOB_SIZE_TINY
 	gold_core_spawnable = HOSTILE_SPAWN
 	verb_say = "сжимает"
@@ -502,6 +501,7 @@
 	remove_verb(src, /mob/verb/me_verb)
 	var/datum/atom_hud/medsensor = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
 	medsensor.show_to(src)
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /mob/living/simple_animal/hostile/lightgeist/AttackingTarget()
 	if(isliving(target) && target != src)
@@ -581,15 +581,15 @@
 		holder_animal = loc
 	START_PROCESSING(SSobj, src)
 
-/obj/structure/closet/stasis/Entered(atom/A)
-	if(isliving(A) && holder_animal)
-		var/mob/living/L = A
+/obj/structure/closet/stasis/Entered(atom/arrived)
+	if(isliving(arrived) && holder_animal)
+		var/mob/living/L = arrived
 		L.notransform = 1
 		ADD_TRAIT(L, TRAIT_MUTE, STASIS_MUTE)
 		L.status_flags |= GODMODE
 		L.mind.transfer_to(holder_animal)
-		var/obj/effect/proc_holder/spell/targeted/exit_possession/P = new /obj/effect/proc_holder/spell/targeted/exit_possession
-		holder_animal.mind.AddSpell(P)
+		var/datum/action/exit_possession/escape = new(holder_animal)
+		escape.Grant(holder_animal)
 		remove_verb(holder_animal, /mob/living/verb/pulled)
 
 /obj/structure/closet/stasis/dump_contents(kill = 1)
@@ -600,7 +600,7 @@
 		L.notransform = 0
 		if(holder_animal)
 			holder_animal.mind.transfer_to(L)
-			L.mind.RemoveSpell(/obj/effect/proc_holder/spell/targeted/exit_possession)
+			holder_animal.gib()
 		if(kill || !isanimal(loc))
 			L.death(0)
 	..()
@@ -611,33 +611,27 @@
 /obj/structure/closet/stasis/ex_act()
 	return
 
-/obj/effect/proc_holder/spell/targeted/exit_possession
+/datum/action/exit_possession
 	name = "Exit Possession"
-	desc = "Exits the body you are possessing."
-	charge_max = 60
-	clothes_req = 0
-	invocation_type = "none"
-	max_targets = 1
-	range = -1
-	include_user = TRUE
-	selection_type = "view"
-	action_icon = 'icons/mob/actions/actions_spells.dmi'
-	action_icon_state = "exit_possession"
-	sound = null
+	desc = "Exits the body you are possessing. They will explode violently when this occurs."
+	icon_icon = 'icons/mob/actions/actions_spells.dmi'
+	button_icon_state = "exit_possession"
 
-/obj/effect/proc_holder/spell/targeted/exit_possession/cast(list/targets, mob/living/user = usr)
-	if(!isfloorturf(user.loc))
-		return
-	var/datum/mind/target_mind = user.mind
-	for(var/i in user)
-		if(istype(i, /obj/structure/closet/stasis))
-			var/obj/structure/closet/stasis/S = i
-			S.dump_contents(0)
-			qdel(S)
-			break
-	user.gib()
-	target_mind.RemoveSpell(/obj/effect/proc_holder/spell/targeted/exit_possession)
+/datum/action/exit_possession/IsAvailable()
+	return ..() && isfloorturf(owner.loc)
 
+/datum/action/exit_possession/Trigger(trigger_flags)
+	. = ..()
+	if(!.)
+		return FALSE
+
+	var/obj/structure/closet/stasis/stasis = locate() in owner
+	if(!stasis)
+		CRASH("[type] did not find a stasis closet thing in the owner.")
+
+	stasis.dump_contents(FALSE)
+	qdel(stasis)
+	qdel(src)
 
 #undef ACTIVATE_TOUCH
 #undef ACTIVATE_SPEECH

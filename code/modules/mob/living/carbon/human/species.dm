@@ -159,6 +159,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	///What anim to use for gibbing
 	var/gib_anim = "gibbed-h"
 
+	var/draw_robot_hair = FALSE //DAMN ROBOTS STEALING OUR HAIR AND AIR
 
 	//Do NOT remove by setting to null. use OR make a RESPECTIVE TRAIT (removing stomach? add the NOSTOMACH trait to your species)
 	//why does it work this way? because traits also disable the downsides of not having an organ, removing organs but not having the trait will make your species die
@@ -433,6 +434,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	C.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/species, multiplicative_slowdown=speedmod)
 
+	if(draw_robot_hair)
+		for(var/obj/item/bodypart/BP in C.bodyparts)
+			BP.draw_robot_hair = TRUE
+
 	SEND_SIGNAL(C, COMSIG_SPECIES_GAIN, src, old_species)
 
 /**
@@ -485,6 +490,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	C.remove_movespeed_modifier(/datum/movespeed_modifier/species)
 
+	for(var/obj/item/bodypart/BP in C.bodyparts)
+		BP.draw_robot_hair = initial(BP.draw_robot_hair)
+
 	SEND_SIGNAL(C, COMSIG_SPECIES_LOSS, src)
 
 /**
@@ -513,7 +521,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/dynamic_fhair_suffix = ""
 
 	//for augmented heads
-	if(HD.status == BODYPART_ROBOTIC && !yogs_draw_robot_hair)
+	if(HD.status == BODYPART_ROBOTIC && !draw_robot_hair)
 		return
 
 	//we check if our hat or helmet hides our facial hair.

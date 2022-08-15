@@ -856,30 +856,33 @@
 /mob/proc/get_status_tab_items()
 	. = list()
 
-/// Gets all relevant proc holders for the browser statpenl
-/mob/proc/get_proc_holders()
-	. = list()
-	if(mind)
-		. += get_spells_for_statpanel(mind.spell_list)
-	. += get_spells_for_statpanel(mob_spell_list)
-
 /**
  * Convert a list of spells into a displyable list for the statpanel
  *
  * Shows charge and other important info
  */
-/mob/proc/get_spells_for_statpanel(list/spells)
-	var/list/L = list()
-	for(var/obj/effect/proc_holder/spell/S in spells)
-		if(S.can_be_cast_by(src))
-			switch(S.charge_type)
-				if("recharge")
-					L[++L.len] = list("[S.panel]", "[S.charge_counter/10.0]/[S.charge_max/10]", S.name, REF(S))
-				if("charges")
-					L[++L.len] = list("[S.panel]", "[S.charge_counter]/[S.charge_max]", S.name, REF(S))
-				if("holdervar")
-					L[++L.len] = list("[S.panel]", "[S.holder_var_type] [S.holder_var_amount]", S.name, REF(S))
-	return L
+/mob/proc/get_actions_for_statpanel()
+	var/list/data = list()
+	for(var/datum/action/cooldown/action in actions)
+		var/list/action_data = action.set_statpanel_format()
+		if(!length(action_data))
+			return
+
+		data += list(list(
+			// the panel the action gets displayed to
+			// in the future, this could probably be replaced with subtabs (a la admin tabs)
+			action_data[PANEL_DISPLAY_PANEL],
+			// the status of the action, - cooldown, charges, whatever
+			action_data[PANEL_DISPLAY_STATUS],
+			// the name of the action
+			action_data[PANEL_DISPLAY_NAME],
+			// a ref to the action button of this action for this mob
+			// it's a ref to the button specifically, instead of the action itself,
+			// because statpanel href calls click(), which the action button (not the action itself) handles
+			REF(action.viewers[hud_used]),
+		))
+
+	return data
 
 #define MOB_FACE_DIRECTION_DELAY 1
 
@@ -983,23 +986,18 @@
 		ghost.notify_cloning(message, sound, source, flashwindow)
 		return ghost
 
-///Add a spell to the mobs spell list
-/mob/proc/AddSpell(obj/effect/proc_holder/spell/S)
-	LAZYADD(mob_spell_list, S)
-	if(S?.action)
-		S.action.Grant(src)
+/**
+ * Checks to see if the mob can cast normal magic spells.
+ *
+ * args:
+ * * magic_flags (optional) A bitfield with the type of magic being cast (see flags at: /datum/component/anti_magic)
+**/
+/mob/proc/can_cast_magic(magic_flags = MAGIC_RESISTANCE)
+	if(magic_flags == NONE) // magic with the NONE flag can always be cast
+		return TRUE
 
-///Remove a spell from the mobs spell list
-/mob/proc/RemoveSpell(obj/effect/proc_holder/spell/spell)
-	if(!spell)
-		return
-	for(var/X in mob_spell_list)
-		var/obj/effect/proc_holder/spell/S = X
-		if(istype(S, spell))
-			LAZYREMOVE(mob_spell_list, S)
-			qdel(S)
-	if(client)
-		client.stat_panel.send_message("check_spells")
+	var/restrict_magic_flags = SEND_SIGNAL(src, COMSIG_MOB_RESTRICT_MAGIC, magic_flags)
+	return restrict_magic_flags == NONE
 
 /**
  * Checks to see if the mob can block magic
@@ -1329,7 +1327,6 @@
 	VV_DROPDOWN_OPTION(VV_HK_DIRECT_CONTROL, "Assume Direct Control")
 	VV_DROPDOWN_OPTION(VV_HK_GIVE_DIRECT_CONTROL, "Give Direct Control")
 	VV_DROPDOWN_OPTION(VV_HK_OFFER_GHOSTS, "Offer Control to Ghosts")
-	VV_DROPDOWN_OPTION(VV_HK_SDQL_SPELL, "Give SDQL Spell")
 
 /mob/vv_do_topic(list/href_list)
 	. = ..()
@@ -1381,10 +1378,6 @@
 		if(!check_rights(NONE))
 			return
 		offer_control(src)
-	if(href_list[VV_HK_SDQL_SPELL])
-		if(!check_rights(R_DEBUG))
-			return
-		usr.client.cmd_sdql_spell_menu(src)
 
 /**
  * extra var handling for the logging var

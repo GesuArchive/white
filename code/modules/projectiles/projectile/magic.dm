@@ -5,7 +5,10 @@
 	damage_type = OXY
 	nodamage = TRUE
 	armour_penetration = 100
-	flag = MAGIC
+	/// determines what type of antimagic can block the spell projectile
+	var/antimagic_flags = MAGIC_RESISTANCE
+	/// determines the drain cost on the antimagic item
+	var/antimagic_charge_cost = 1
 
 /obj/projectile/magic/death
 	name = "заряд смерти"
@@ -16,9 +19,11 @@
 	if(!istype(target))
 		return
 
-	if(target.anti_magic_check())
-		target.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!"))
-		return BULLET_ACT_BLOCK
+	if(isliving(target))
+		var/mob/living/victim = target
+		if(victim.can_block_magic(antimagic_flags, antimagic_charge_cost))
+			visible_message(span_warning("[src] fizzles on contact with [victim]!"))
+			return PROJECTILE_DELETE_WITHOUT_HITTING
 
 	if(target.mob_biotypes & MOB_UNDEAD) //negative energy heals the undead
 		if(target.hellbound && target.stat == DEAD)
@@ -231,12 +236,12 @@
 			var/path = pick(/mob/living/simple_animal/hostile/carp,
 							/mob/living/simple_animal/hostile/bear,
 							/mob/living/simple_animal/hostile/mushroom,
-							/mob/living/simple_animal/hostile/statue,
+							/mob/living/simple_animal/hostile/netherworld/statue,
 							/mob/living/simple_animal/hostile/retaliate/bat,
 							/mob/living/simple_animal/hostile/retaliate/goat,
 							/mob/living/simple_animal/hostile/killertomato,
-							/mob/living/simple_animal/hostile/poison/giant_spider,
-							/mob/living/simple_animal/hostile/poison/giant_spider/hunter,
+							/mob/living/simple_animal/hostile/giant_spider,
+							/mob/living/simple_animal/hostile/giant_spider/hunter,
 							/mob/living/simple_animal/hostile/blob/blobbernaut/independent,
 							/mob/living/simple_animal/hostile/carp/ranged,
 							/mob/living/simple_animal/hostile/carp/ranged/chaos,
@@ -317,8 +322,8 @@
 	nodamage = TRUE
 
 /obj/projectile/magic/animate/on_hit(atom/target, blocked = FALSE)
+	. = ..()
 	target.animate_atom_living(firer)
-	..()
 
 /atom/proc/animate_atom_living(mob/living/owner = null)
 	if((isitem(src) || isstructure(src)) && !is_type_in_list(src, GLOB.protected_objects))
@@ -326,7 +331,7 @@
 			var/obj/structure/statue/petrified/P = src
 			if(P.petrified_mob)
 				var/mob/living/L = P.petrified_mob
-				var/mob/living/simple_animal/hostile/statue/S = new(P.loc, owner)
+				var/mob/living/simple_animal/hostile/netherworld/statue/S = new(P.loc, owner)
 				S.name = "статуя [L.name]"
 				if(owner)
 					S.faction = list("[REF(owner)]")
@@ -545,24 +550,18 @@
 	name = "заряд некротической силы"
 	icon_state = "necropotence"
 
-/obj/projectile/magic/necropotence/on_hit(target)
+/obj/projectile/magic/necropotence/on_hit(mob/living/target)
 	. = ..()
-	if(isliving(target))
-		var/mob/living/L = target
-		if(L.anti_magic_check() || !L.mind || !L.mind.hasSoul)
-			L.visible_message(span_warning("[capitalize(src.name)] распадается при контакте с [target]!"))
-			return BULLET_ACT_BLOCK
-		to_chat(L, span_danger("Моё тело чувствует себя истощенным, и в груди ощущается жгучая боль."))
-		L.maxHealth -= 20
-		L.health = min(L.health, L.maxHealth)
-		if(L.maxHealth <= 0)
-			to_chat(L, span_userdanger("Моя ослабленная душа полностью поглощена [src]!"))
-			L.mind.hasSoul = FALSE
-			return
-		for(var/obj/effect/proc_holder/spell/spell in L.mind.spell_list)
-			spell.charge_counter = spell.charge_max
-			spell.recharging = FALSE
-			spell.update_icon()
+	if(!isliving(target))
+		return
+
+	// Performs a soul tap on living targets hit.
+	// Takes away max health, but refreshes their spell cooldowns (if any)
+	var/datum/action/cooldown/spell/tap/tap = new(src)
+	if(tap.is_valid_target(target))
+		tap.cast(target)
+
+	qdel(tap)
 
 /obj/projectile/magic/wipe
 	name = "заряд одержимости"
@@ -612,18 +611,33 @@
 		qdel(trauma)
 
 /obj/projectile/magic/aoe
-	name = "Заряд Области"
-	desc = "Ну и что он, блять, делает?!"
 	damage = 0
-	var/proxdet = TRUE
+
+	/// The AOE radius that the projectile will trigger on people.
+	var/trigger_range = 1
+	/// Whether our projectile will only be able to hit the original target / clicked on atom
+	var/can_only_hit_target = FALSE
+
+	/// Whether our projectile leaves a trail behind it  as it moves.
+	var/trail = FALSE
+	/// The duration of the trail before deleting.
+	var/trail_lifespan = 0 SECONDS
+	/// The icon the trail uses.
+	var/trail_icon = 'icons/obj/wizard.dmi'
+	/// The icon state the trail uses.
+	var/trail_icon_state = "trail"
 
 /obj/projectile/magic/aoe/Range()
-	if(proxdet)
-		for(var/mob/living/L in range(1, get_turf(src)))
-			if(L.stat != DEAD && L != firer && !L.anti_magic_check())
-				return Bump(L)
-	..()
+	if(trigger_range >= 1)
+		for(var/mob/living/nearby_guy in range(trigger_range, get_turf(src)))
+			if(nearby_guy.stat == DEAD)
+				continue
+			if(nearby_guy == firer)
+				continue
+			// Bump handles anti-magic checks for us, conveniently.
+			return Bump(nearby_guy)
 
+	return ..()
 
 /obj/projectile/magic/aoe/lightning
 	name = "заряд молнии"
@@ -665,7 +679,7 @@
 	qdel(chain)
 	. = ..()
 
-/obj/projectile/magic/aoe/fireball
+/obj/projectile/magic/fireball
 	name = "огненный шар"
 	icon_state = "fireball"
 	damage = 10
@@ -678,14 +692,14 @@
 	var/exp_flash = 3
 	var/exp_fire = 2
 
-/obj/projectile/magic/aoe/fireball/infernal
+/obj/projectile/magic/fireball/infernal
 	name = "infernal fireball"
 	exp_heavy = -1
 	exp_light = -1
 	exp_flash = 4
 	exp_fire= 5
 
-/obj/projectile/magic/aoe/fireball/infernal/on_hit(target)
+/obj/projectile/magic/fireball/infernal/on_hit(target)
 	. = ..()
 	if(ismob(target))
 		var/mob/living/M = target
@@ -695,7 +709,7 @@
 	for(var/i=0, i<50, i+=10)
 		addtimer(CALLBACK(GLOBAL_PROC, .proc/explosion, T, -1, exp_heavy, exp_light, exp_flash, FALSE, FALSE, exp_fire), i)
 
-/obj/projectile/magic/aoe/fireball/on_hit(target)
+/obj/projectile/magic/fireball/on_hit(target)
 	. = ..()
 	if(ismob(target))
 		var/mob/living/M = target
@@ -706,6 +720,54 @@
 	var/turf/T = get_turf(target)
 	explosion(T, devastation_range = -1, heavy_impact_range = exp_heavy, light_impact_range = exp_light, flame_range = exp_fire, flash_range = exp_flash, adminlog = FALSE, explosion_cause = src)
 
+/obj/projectile/magic/aoe/magic_missile
+	name = "magic missile"
+	icon_state = "magicm"
+	range = 100
+	speed = 1
+	pixel_speed_multiplier = 0.2
+	trigger_range = 0
+	can_only_hit_target = TRUE
+	nodamage = FALSE
+	paralyze = 6 SECONDS
+	hitsound = 'sound/magic/mm_hit.ogg'
+
+	trail = TRUE
+	trail_lifespan = 0.5 SECONDS
+	trail_icon_state = "magicmd"
+
+/obj/projectile/magic/aoe/magic_missile/lesser
+	color = "red" //Looks more culty this way
+	range = 10
+
+/obj/projectile/magic/aoe/juggernaut
+	name = "Gauntlet Echo"
+	icon_state = "cultfist"
+	alpha = 180
+	damage = 30
+	damage_type = BRUTE
+	knockdown = 50
+	hitsound = 'sound/weapons/punch3.ogg'
+	trigger_range = 0
+	antimagic_flags = MAGIC_RESISTANCE_HOLY
+	ignored_factions = list("cult")
+	range = 105
+	speed = 1
+	pixel_speed_multiplier = 1/7
+
+/obj/projectile/magic/spell/juggernaut/on_hit(atom/target, blocked)
+	. = ..()
+	var/turf/target_turf = get_turf(src)
+	playsound(target_turf, 'sound/weapons/resonator_blast.ogg', 100, FALSE)
+	new /obj/effect/temp_visual/cult/sac(target_turf)
+	for(var/obj/adjacent_object in range(1, src))
+		if(!adjacent_object.density)
+			continue
+		if(istype(adjacent_object, /obj/structure/destructible/cult))
+			continue
+
+		adjacent_object.take_damage(90, BRUTE, MELEE, 0)
+		new /obj/effect/temp_visual/cult/turf/floor(get_turf(adjacent_object))
 
 //still magic related, but a different path
 
@@ -721,3 +783,12 @@
 
 /obj/projectile/magic/nothing
 	name = "заряд пустоты"
+
+/obj/projectile/magic/spellcard
+	name = "enchanted card"
+	desc = "A piece of paper enchanted to give it extreme durability and stiffness, along with a very hot burn to anyone unfortunate enough to get hit by a charged one."
+	icon_state = "spellcard"
+	damage_type = BURN
+	damage = 2
+	nodamage = FALSE
+	antimagic_charge_cost = 0 // since the cards gets spammed like a shotgun

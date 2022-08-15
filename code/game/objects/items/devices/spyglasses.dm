@@ -117,3 +117,7 @@ A shrill beep coming from your SpySpeks means that they can't connect to the inc
 	newbug.linked_glasses = newglasses
 	newglasses.linked_bug = newbug
 	new /obj/item/paper/fluff/nerddocs(src)
+
+/datum/action/item_action/activate_remote_view
+	name = "Activate Remote View"
+	desc = "Activates the Remote View of your spy sunglasses."

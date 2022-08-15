@@ -5,13 +5,13 @@
 	desc = ""
 	gender = NEUTER
 	mob_biotypes = NONE
-	speak_emote = list("шипит")
+	speak_emote = list("hisses")
 	response_help_continuous = "thinks better of touching"
 	response_help_simple = "think better of touching"
 	response_disarm_continuous = "flails at"
 	response_disarm_simple = "flail at"
-	response_harm_continuous = "бьёт"
-	response_harm_simple = "бьёт"
+	response_harm_continuous = "punches"
+	response_harm_simple = "punch"
 	speak_chance = 1
 	icon = 'icons/mob/cult.dmi'
 	speed = 0
@@ -22,7 +22,7 @@
 	see_in_dark = 7
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 0, CLONE = 0, STAMINA = 0, OXY = 0)
-	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	maxbodytemp = INFINITY
 	healable = 0
@@ -33,47 +33,41 @@
 	loot = list(/obj/item/ectoplasm)
 	del_on_death = TRUE
 	initial_language_holder = /datum/language_holder/construct
-	deathmessage = "collapses in a shattered heap."
-	hud_type = /datum/hud/constructs
+	death_message = "collapses in a shattered heap."
 	var/list/construct_spells = list()
 	var/playstyle_string = "<span class='big bold'>You are a generic construct!</span><b> Your job is to not exist, and you should probably adminhelp this.</b>"
 	var/master = null
 	var/seeking = FALSE
-	var/can_repair_constructs = FALSE
+	/// Whether this construct can repair other constructs or cult buildings.
+	var/can_repair = FALSE
+	/// Whether this construct can repair itself. Works independently of can_repair.
 	var/can_repair_self = FALSE
-	var/runetype
-	var/datum/action/innate/cult/create_rune/our_rune
 	/// Theme controls color. THEME_CULT is red THEME_WIZARD is purple and THEME_HOLY is blue
 	var/theme = THEME_CULT
-	discovery_points = 1000
 
 /mob/living/simple_animal/hostile/construct/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/simple_flying)
+	ADD_TRAIT(src, TRAIT_HEALS_FROM_CULT_PYLONS, INNATE_TRAIT)
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
-	update_health_hud()
-	var/spellnum = 1
 	for(var/spell in construct_spells)
-		var/the_spell = new spell(null)
-		AddSpell(the_spell)
-		var/obj/effect/proc_holder/spell/S = mob_spell_list[spellnum]
-		var/pos = 2+spellnum*31
-		if(construct_spells.len >= 4)
-			pos -= 31*(construct_spells.len - 4)
-		S.action.button.screen_loc = "6:[pos],4:-2"
-		S.action.button.moved = "6:[pos],4:-2"
-		spellnum++
-	if(runetype)
-		our_rune = new runetype(src)
-		our_rune.Grant(src)
-		var/pos = 2+spellnum*31
-		our_rune.button.screen_loc = "6:[pos],4:-2"
-		our_rune.button.moved = "6:[pos],4:-2"
-	add_overlay("glow_[icon_state]_[theme]")
+		var/datum/action/new_spell = new spell(src)
+		new_spell.Grant(src)
 
-/mob/living/simple_animal/hostile/construct/Destroy()
-	QDEL_NULL(our_rune)
-	return ..()
+	var/spellnum = 1
+	for(var/datum/action/spell as anything in actions)
+		if(!(type in construct_spells))
+			continue
+
+		var/pos = 2 + spellnum * 31
+		if(construct_spells.len >= 4)
+			pos -= 31 * (construct_spells.len - 4)
+		spell.default_button_position = "6:[pos],4:-2" // Set the default position to this random position
+		spellnum++
+		update_action_buttons()
+
+	if(icon_state)
+		add_overlay("glow_[icon_state]_[theme]")
 
 /mob/living/simple_animal/hostile/construct/Login()
 	. = ..()
@@ -82,37 +76,46 @@
 	to_chat(src, playstyle_string)
 
 /mob/living/simple_animal/hostile/construct/examine(mob/user)
-	var/t_on = ru_who(TRUE)
-	. = list("<hr><span class='cult'>Это же [icon2html(src, user)] <b>[src]</b>!\n[desc]")
+	var/t_He = p_they(TRUE)
+	var/t_s = p_s()
+	var/text_span
+	switch(theme)
+		if(THEME_CULT)
+			text_span = "cult"
+		if(THEME_WIZARD)
+			text_span = "purple"
+		if(THEME_HOLY)
+			text_span = "blue"
+	. = list("<span class='[text_span]'>This is [icon2html(src, user)] \a <b>[src]</b>!\n[desc]")
 	if(health < maxHealth)
 		if(health >= maxHealth/2)
-			. += span_warning("\n[t_on] немного повреждён.")
+			. += span_warning("[t_He] look[t_s] slightly dented.")
 		else
-			. += span_warning("\n<b>[t_on] сильно повреждён!</b>")
+			. += span_warning("<b>[t_He] look[t_s] severely dented!</b>")
 	. += "</span>"
 
-/mob/living/simple_animal/hostile/construct/attack_animal(mob/living/simple_animal/M)
-	if(isconstruct(M)) //is it a construct?
-		var/mob/living/simple_animal/hostile/construct/C = M
-		if(!C.can_repair_constructs || (C == src && !C.can_repair_self))
+/mob/living/simple_animal/hostile/construct/attack_animal(mob/living/simple_animal/user, list/modifiers)
+	if(isconstruct(user)) //is it a construct?
+		var/mob/living/simple_animal/hostile/construct/doll = user
+		if(!doll.can_repair || (doll == src && !doll.can_repair_self))
 			return ..()
-		if(theme != C.theme)
+		if(theme != doll.theme)
 			return ..()
 		if(health < maxHealth)
 			adjustHealth(-5)
-			if(src != M)
-				Beam(M, icon_state="sendbeam", time = 4)
-				M.visible_message(span_danger("[M] repairs some of \the <b>[src]</b> dents.") , \
-						   span_cult("You repair some of <b>[src]</b> dents, leaving <b>[src]</b> at <b>[health]/[maxHealth]</b> health."))
+			if(src != user)
+				Beam(user, icon_state="sendbeam", time = 4)
+				user.visible_message(span_danger("[user] repairs some of \the <b>[src]'s</b> dents."), \
+						   span_cult("You repair some of <b>[src]'s</b> dents, leaving <b>[src]</b> at <b>[health]/[maxHealth]</b> health."))
 			else
-				M.visible_message(span_danger("[M] repairs some of [ru_ego()] own dents.") , \
-						   span_cult("You repair some of your own dents, leaving you at <b>[M.health]/[M.maxHealth]</b> health."))
+				user.visible_message(span_danger("[user] repairs some of [p_their()] own dents."), \
+						   span_cult("You repair some of your own dents, leaving you at <b>[user.health]/[user.maxHealth]</b> health."))
 		else
-			if(src != M)
-				to_chat(M, span_cult("You cannot repair <b>[src]</b> dents, as [ru_who()] [p_have()] none!"))
+			if(src != user)
+				to_chat(user, span_cult("You cannot repair <b>[src]'s</b> dents, as [p_they()] [p_have()] none!"))
 			else
-				to_chat(M, span_cult("You cannot repair your own dents, as you have none!"))
-	else if(src != M)
+				to_chat(user, span_cult("You cannot repair your own dents, as you have none!"))
+	else if(src != user)
 		return ..()
 
 /mob/living/simple_animal/hostile/construct/narsie_act()
@@ -120,11 +123,6 @@
 
 /mob/living/simple_animal/hostile/construct/electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE)
 	return 0
-
-/mob/living/simple_animal/hostile/construct/adjustHealth(amount, updating_health = TRUE, forced = FALSE)
-	. = ..()
-	if(updating_health)
-		update_health_hud()
 
 /////////////////Juggernaut///////////////
 /mob/living/simple_animal/hostile/construct/juggernaut
@@ -141,8 +139,8 @@
 	obj_damage = 90
 	melee_damage_lower = 25
 	melee_damage_upper = 25
-	attack_verb_continuous = "бьёт своей здоровенной рукой"
-	attack_verb_simple = "бьёт своей здоровенной рукой"
+	attack_verb_continuous = "smashes their armored gauntlet into"
+	attack_verb_simple = "smash your armored gauntlet into"
 	speed = 2.5
 	environment_smash = ENVIRONMENT_SMASH_WALLS
 	attack_sound = 'sound/weapons/punch3.ogg'
@@ -150,10 +148,10 @@
 	mob_size = MOB_SIZE_LARGE
 	force_threshold = 10
 	construct_spells = list(
-						/obj/effect/proc_holder/spell/targeted/forcewall/cult,
-						/obj/effect/proc_holder/spell/targeted/projectile/dumbfire/juggernaut
-						)
-	runetype = /datum/action/innate/cult/create_rune/wall
+		/datum/action/cooldown/spell/forcewall/cult,
+		/datum/action/cooldown/spell/basic_projectile/juggernaut,
+		/datum/action/innate/cult/create_rune/wall,
+	)
 	playstyle_string = "<b>You are a Juggernaut. Though slow, your shell can withstand heavy punishment, \
 						create shield walls, rip apart enemies and walls alike, and even deflect energy weapons.</b>"
 
@@ -166,7 +164,7 @@
 		var/reflectchance = 40 - round(P.damage/3)
 		if(prob(reflectchance))
 			apply_damage(P.damage * 0.5, P.damage_type)
-			visible_message(span_danger("The [P.name] is reflected by [src] armored shell!") , \
+			visible_message(span_danger("The [P.name] is reflected by [src]'s armored shell!"), \
 							span_userdanger("The [P.name] is reflected by your armored shell!"))
 
 			// Find a turf near or on the original location to bounce to
@@ -182,7 +180,7 @@
 				P.yo = new_y - curloc.y
 				P.xo = new_x - curloc.x
 				var/new_angle_s = P.Angle + rand(120,240)
-				while(new_angle_s > 180)	// Translate to regular projectile degrees
+				while(new_angle_s > 180) // Translate to regular projectile degrees
 					new_angle_s -= 360
 				P.set_angle(new_angle_s)
 
@@ -213,37 +211,50 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 20
 	retreat_distance = 2 //AI wraiths will move in and out of combat
-	attack_verb_continuous = "режет"
-	attack_verb_simple = "режет"
+	attack_verb_continuous = "slashes"
+	attack_verb_simple = "slash"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
-	construct_spells = list(/obj/effect/proc_holder/spell/targeted/ethereal_jaunt/shift)
-	runetype = /datum/action/innate/cult/create_rune/tele
-	playstyle_string = "<b>You are a Wraith. Though relatively fragile, you are fast, deadly, can phase through walls, and your attacks will lower the cooldown on phasing.</b>"
+	construct_spells = list(
+		/datum/action/cooldown/spell/jaunt/ethereal_jaunt/shift,
+		/datum/action/innate/cult/create_rune/tele,
+	)
+	playstyle_string = "<b>You are a Wraith. Though relatively fragile, you are fast, deadly, \
+		can phase through walls, and your attacks will lower the cooldown on phasing.</b>"
 
-	var/attack_refund = 10 //1 second per attack
-	var/crit_refund = 50 //5 seconds when putting a target into critical
-	var/kill_refund = 250 //full refund on kills
+	// Accomplishing various things gives you a refund on jaunt, to jump in and out.
+	/// The seconds refunded per attack
+	var/attack_refund = 1 SECONDS
+	/// The seconds refunded when putting a target into critical
+	var/crit_refund = 5 SECONDS
 
 /mob/living/simple_animal/hostile/construct/wraith/AttackingTarget() //refund jaunt cooldown when attacking living targets
 	var/prev_stat
-	if(isliving(target) && !iscultist(target))
-		var/mob/living/L = target
-		prev_stat = L.stat
+	var/mob/living/living_target = target
+
+	if(isliving(living_target) && !IS_CULTIST(living_target))
+		prev_stat = living_target.stat
 
 	. = ..()
 
 	if(. && isnum(prev_stat))
-		var/mob/living/L = target
-		var/refund = 0
-		if(QDELETED(L) || (L.stat == DEAD && prev_stat != DEAD)) //they're dead, you killed them
-			refund += kill_refund
-		else if(HAS_TRAIT(L, TRAIT_CRITICAL_CONDITION) && prev_stat == CONSCIOUS) //you knocked them into critical
-			refund += crit_refund
-		if(L.stat != DEAD && prev_stat != DEAD)
-			refund += attack_refund
-		for(var/obj/effect/proc_holder/spell/targeted/ethereal_jaunt/shift/S in mob_spell_list)
-			S.charge_counter = min(S.charge_counter + refund, S.charge_max)
+		var/datum/action/cooldown/spell/jaunt/ethereal_jaunt/shift/jaunt = locate() in actions
+		if(!jaunt)
+			return
+
+		var/total_refund = 0 SECONDS
+		// they're dead, and you killed them - full refund
+		if(QDELETED(living_target) || (living_target.stat == DEAD && prev_stat != DEAD))
+			total_refund += jaunt.cooldown_time
+		// you knocked them into critical
+		else if(HAS_TRAIT(living_target, TRAIT_CRITICAL_CONDITION) && prev_stat == CONSCIOUS)
+			total_refund += crit_refund
+
+		if(living_target.stat != DEAD && prev_stat != DEAD)
+			total_refund += attack_refund
+
+		jaunt.next_use_time -= total_refund
+		jaunt.UpdateButtons()
 
 /mob/living/simple_animal/hostile/construct/wraith/hostile //actually hostile, will move around, hit things
 	AIStatus = AI_ON
@@ -251,12 +262,18 @@
 //////////////////////////Wraith-alts////////////////////////////
 /mob/living/simple_animal/hostile/construct/wraith/angelic
 	theme = THEME_HOLY
-	construct_spells = list(/obj/effect/proc_holder/spell/targeted/ethereal_jaunt/shift/angelic)
+	construct_spells = list(
+		/datum/action/cooldown/spell/jaunt/ethereal_jaunt/shift/angelic,
+		/datum/action/innate/cult/create_rune/tele,
+	)
 	loot = list(/obj/item/ectoplasm/angelic)
 
 /mob/living/simple_animal/hostile/construct/wraith/mystic
 	theme = THEME_WIZARD
-	construct_spells = list(/obj/effect/proc_holder/spell/targeted/ethereal_jaunt/shift/mystic)
+	construct_spells = list(
+		/datum/action/cooldown/spell/jaunt/ethereal_jaunt/shift/mystic,
+		/datum/action/innate/cult/create_rune/tele,
+	)
 	loot = list(/obj/item/ectoplasm/mystic)
 
 /mob/living/simple_animal/hostile/construct/wraith/noncult
@@ -278,24 +295,24 @@
 	melee_damage_upper = 5
 	retreat_distance = 10
 	minimum_distance = 10 //AI artificers will flee like fuck
-	attack_verb_continuous = "стукает"
-	attack_verb_simple = "стукает"
+	attack_verb_continuous = "rams"
+	attack_verb_simple = "ram"
 	environment_smash = ENVIRONMENT_SMASH_WALLS
 	attack_sound = 'sound/weapons/punch2.ogg'
 	construct_spells = list(
-						/obj/effect/proc_holder/spell/aoe_turf/conjure/wall,
-						/obj/effect/proc_holder/spell/aoe_turf/conjure/floor,
-						/obj/effect/proc_holder/spell/aoe_turf/conjure/soulstone,
-						/obj/effect/proc_holder/spell/aoe_turf/conjure/construct/lesser,
-						/obj/effect/proc_holder/spell/targeted/projectile/magic_missile/lesser
-						)
-	runetype = /datum/action/innate/cult/create_rune/revive
-	playstyle_string = "<b>You are an Artificer. You are incredibly weak and fragile, but you are able to construct fortifications, \
+		/datum/action/cooldown/spell/conjure/cult_floor,
+		/datum/action/cooldown/spell/conjure/cult_wall,
+		/datum/action/cooldown/spell/conjure/soulstone,
+		/datum/action/cooldown/spell/conjure/construct/lesser,
+		/datum/action/cooldown/spell/aoe/magic_missile/lesser,
+		/datum/action/innate/cult/create_rune/revive,
+	)
+	playstyle_string = "<b>You are an Artificer. You are incredibly weak and fragile, \
+		but you are able to construct fortifications, use magic missile, and repair allied constructs, shades, \
+		and yourself (by clicking on them). Additionally, <i>and most important of all,</i> you can create new constructs \
+		by producing soulstones to capture souls, and shells to place those soulstones into.</b>"
 
-						use magic missile, repair allied constructs, shades, and yourself (by clicking on them), \
-						<i>and, most important of all,</i> create new constructs by producing soulstones to capture souls, \
-						and shells to place those soulstones into.</b>"
-	can_repair_constructs = TRUE
+	can_repair = TRUE
 	can_repair_self = TRUE
 	///The health HUD applied to this mob.
 	var/health_hud = DATA_HUD_MEDICAL_ADVANCED
@@ -351,30 +368,32 @@
 	theme = THEME_HOLY
 	loot = list(/obj/item/ectoplasm/angelic)
 	construct_spells = list(
-						/obj/effect/proc_holder/spell/aoe_turf/conjure/soulstone/purified,
-						/obj/effect/proc_holder/spell/aoe_turf/conjure/construct/lesser,
-						/obj/effect/proc_holder/spell/targeted/projectile/magic_missile/lesser
-						)
-
+		/datum/action/cooldown/spell/conjure/soulstone/purified,
+		/datum/action/cooldown/spell/conjure/construct/lesser,
+		/datum/action/cooldown/spell/aoe/magic_missile/lesser,
+		/datum/action/innate/cult/create_rune/revive,
+	)
 /mob/living/simple_animal/hostile/construct/artificer/mystic
 	theme = THEME_WIZARD
 	loot = list(/obj/item/ectoplasm/mystic)
 	construct_spells = list(
-						/obj/effect/proc_holder/spell/aoe_turf/conjure/wall,
-						/obj/effect/proc_holder/spell/aoe_turf/conjure/floor,
-						/obj/effect/proc_holder/spell/aoe_turf/conjure/soulstone/mystic,
-						/obj/effect/proc_holder/spell/aoe_turf/conjure/construct/lesser,
-						/obj/effect/proc_holder/spell/targeted/projectile/magic_missile/lesser
-						)
+		/datum/action/cooldown/spell/conjure/cult_floor,
+		/datum/action/cooldown/spell/conjure/cult_wall,
+		/datum/action/cooldown/spell/conjure/soulstone/mystic,
+		/datum/action/cooldown/spell/conjure/construct/lesser,
+		/datum/action/cooldown/spell/aoe/magic_missile/lesser,
+		/datum/action/innate/cult/create_rune/revive,
+	)
 
 /mob/living/simple_animal/hostile/construct/artificer/noncult
 	construct_spells = list(
-						/obj/effect/proc_holder/spell/aoe_turf/conjure/wall,
-						/obj/effect/proc_holder/spell/aoe_turf/conjure/floor,
-						/obj/effect/proc_holder/spell/aoe_turf/conjure/soulstone/noncult,
-						/obj/effect/proc_holder/spell/aoe_turf/conjure/construct/lesser,
-						/obj/effect/proc_holder/spell/targeted/projectile/magic_missile/lesser
-						)
+		/datum/action/cooldown/spell/conjure/cult_floor,
+		/datum/action/cooldown/spell/conjure/cult_wall,
+		/datum/action/cooldown/spell/conjure/soulstone/noncult,
+		/datum/action/cooldown/spell/conjure/construct/lesser,
+		/datum/action/cooldown/spell/aoe/magic_missile/lesser,
+		/datum/action/innate/cult/create_rune/revive,
+	)
 
 /////////////////////////////Harvester/////////////////////////
 /mob/living/simple_animal/hostile/construct/harvester
@@ -388,15 +407,17 @@
 	sight = SEE_MOBS
 	melee_damage_lower = 15
 	melee_damage_upper = 20
-	attack_verb_continuous = "разделывает"
-	attack_verb_simple = "разделывает"
+	attack_verb_continuous = "butchers"
+	attack_verb_simple = "butcher"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
-	construct_spells = list(/obj/effect/proc_holder/spell/aoe_turf/area_conversion,
-							/obj/effect/proc_holder/spell/targeted/forcewall/cult)
+	construct_spells = list(
+		/datum/action/cooldown/spell/aoe/area_conversion,
+		/datum/action/cooldown/spell/forcewall/cult,
+	)
 	playstyle_string = "<B>You are a Harvester. You are incapable of directly killing humans, but your attacks will remove their limbs: \
 						Bring those who still cling to this world of illusion back to the Geometer so they may know Truth. Your form and any you are pulling can pass through runed walls effortlessly.</B>"
-	can_repair_constructs = TRUE
+	can_repair = TRUE
 
 
 /mob/living/simple_animal/hostile/construct/harvester/Bump(atom/AM)
@@ -414,7 +435,7 @@
 	if(iscarbon(target))
 		var/mob/living/carbon/C = target
 		if(HAS_TRAIT(C, TRAIT_NODISMEMBER))
-			return ..()		//ATTACK!
+			return ..() //ATTACK!
 		var/list/parts = list()
 		var/undismembermerable_limbs = 0
 		for(var/X in C.bodyparts)
@@ -428,8 +449,8 @@
 			if(undismembermerable_limbs) //they have limbs we can't remove, and no parts we can, attack!
 				return ..()
 			C.Paralyze(60)
-			visible_message(span_danger("[capitalize(src.name)] knocks [C] down!"))
-			to_chat(src, span_cultlarge("\"Bring [C.ru_na()] to me.\""))
+			visible_message(span_danger("[src] knocks [C] down!"))
+			to_chat(src, span_cultlarge("\"Bring [C.p_them()] to me.\""))
 			return FALSE
 		do_attack_animation(C)
 		var/obj/item/bodypart/BP = pick(parts)
@@ -505,28 +526,10 @@
 		if(LAZYLEN(GLOB.cult_narsie.souls_needed))
 			the_construct.master = pick(GLOB.cult_narsie.souls_needed)
 			var/mob/living/real_target = the_construct.master //We can typecast this way because Narsie only allows /mob/living into the souls list
-			to_chat(the_construct, "<span class='cult italic'>You are now tracking your prey, [real_target.real_name] - harvest [real_target.ru_na()]!</span>")
+			to_chat(the_construct, "<span class='cult italic'>You are now tracking your prey, [real_target.real_name] - harvest [real_target.p_them()]!</span>")
 		else
 			to_chat(the_construct, "<span class='cult italic'>Nar'Sie has completed her harvest!</span>")
 			return
 		desc = "Activate to track Nar'Sie!"
 		button_icon_state = "sintouch"
 		the_construct.seeking = TRUE
-
-
-/////////////////////////////ui stuff/////////////////////////////
-
-/mob/living/simple_animal/hostile/construct/update_health_hud()
-	if(hud_used)
-		if(health >= maxHealth)
-			hud_used.healths.icon_state = "[icon_state]_health0"
-		else if(health > maxHealth*0.8)
-			hud_used.healths.icon_state = "[icon_state]_health2"
-		else if(health > maxHealth*0.6)
-			hud_used.healths.icon_state = "[icon_state]_health3"
-		else if(health > maxHealth*0.4)
-			hud_used.healths.icon_state = "[icon_state]_health4"
-		else if(health > maxHealth*0.2)
-			hud_used.healths.icon_state = "[icon_state]_health5"
-		else
-			hud_used.healths.icon_state = "[icon_state]_health6"

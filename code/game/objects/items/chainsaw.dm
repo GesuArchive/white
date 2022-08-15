@@ -76,7 +76,7 @@
 		user.update_inv_hands()
 	for(var/X in actions)
 		var/datum/action/A = X
-		A.UpdateButtonIcon()
+		A.UpdateButtons()
 
 /obj/item/chainsaw/doomslayer
 	name = "THE GREAT COMMUNICATOR"
@@ -90,3 +90,6 @@
 		playsound(src, pick('sound/weapons/bulletflyby.ogg', 'sound/weapons/bulletflyby2.ogg', 'sound/weapons/bulletflyby3.ogg'), 75, TRUE)
 		return TRUE
 	return FALSE
+
+/datum/action/item_action/startchainsaw
+	name = "Pull The Starting Cord"

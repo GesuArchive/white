@@ -29,11 +29,10 @@
 	stat_attack = DEAD
 	mouse_opacity = MOUSE_OPACITY_ICON
 	speed = 1
-	ventcrawler = VENTCRAWLER_ALWAYS
 	robust_searching = 1
 	unique_name = 1
 	speak_emote = list("пищит")
-	deathmessage = "fainted."
+	death_message = "fainted."
 	var/cap_color = "#ffffff"
 	var/powerlevel = 0 //Tracks our general strength level gained from eating other shrooms
 	var/bruised = 0 //If someone tries to cheat the system by attacking a shroom to lower its health, punish them so that it won't award levels to shrooms that eat it
@@ -66,6 +65,7 @@
 	UpdateMushroomCap()
 	health = maxHealth
 	. = ..()
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /mob/living/simple_animal/hostile/mushroom/CanAttack(atom/the_target) // Mushroom-specific version of CanAttack to handle stupid attack_same = 2 crap so we don't have to do it for literally every single simple_animal/hostile because this shit never gets spawned
 	if(!the_target || isturf(the_target))

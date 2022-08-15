@@ -139,7 +139,7 @@ Bonus
 		if(!M.has_dna())
 			return
 		archived_dna = M.dna.unique_enzymes
-		archived_id = M.dna.uni_identity
+		archived_id = M.dna.unique_identity
 
 /datum/symptom/heal/dna/Heal(mob/living/carbon/M, datum/disease/advance/A)
 	var/amt_healed = 2 * power
@@ -152,9 +152,9 @@ Bonus
 	if(M && archived_dna)
 		if(!M.has_dna())
 			return
-		if(M.dna.unique_enzymes != archived_dna|M.dna.uni_identity != archived_id)
+		if(M.dna.unique_enzymes != archived_dna|M.dna.unique_identity != archived_id)
 			M.dna.unique_enzymes = archived_dna
-			M.dna.uni_identity = archived_id
+			M.dna.unique_identity = archived_id
 			M.updateappearance()
 			M.domutcheck()
 

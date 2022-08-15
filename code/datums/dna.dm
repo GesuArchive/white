@@ -2,7 +2,7 @@
 /////////////////////////// DNA DATUM
 /datum/dna
 	var/unique_enzymes
-	var/uni_identity
+	var/unique_identity
 	var/blood_type
 	var/datum/species/species = new /datum/species/human //The type of mutant race the player is if applicable (i.e. potato-man)
 	var/list/features = list("FFF") //first value is mutant color
@@ -39,7 +39,7 @@
 	if(!istype(destination))
 		return
 	destination.dna.unique_enzymes = unique_enzymes
-	destination.dna.uni_identity = uni_identity
+	destination.dna.unique_identity = unique_identity
 	destination.dna.blood_type = blood_type
 	destination.set_species(species.type, icon_update=0)
 	destination.dna.features = features.Copy()
@@ -53,7 +53,7 @@
 	new_dna.unique_enzymes = unique_enzymes
 	new_dna.mutation_index = mutation_index
 	new_dna.default_mutation_genes = default_mutation_genes
-	new_dna.uni_identity = uni_identity
+	new_dna.unique_identity = unique_identity
 	new_dna.blood_type = blood_type
 	new_dna.features = features.Copy()
 	new_dna.species = new species.type
@@ -88,7 +88,7 @@
 		if((HM.class in classes) && !(HM.mutadone_proof && mutadone))
 			force_lose(HM)
 
-/datum/dna/proc/generate_uni_identity()
+/datum/dna/proc/generate_unique_identity()
 	. = ""
 	var/list/L = new /list(DNA_UNI_IDENTITY_BLOCKS)
 
@@ -178,27 +178,27 @@
 	var/mob/living/carbon/human/H = holder
 	switch(blocknumber)
 		if(DNA_HAIR_COLOR_BLOCK)
-			setblock(uni_identity, blocknumber, sanitize_hexcolor(H.hair_color))
+			setblock(unique_identity, blocknumber, sanitize_hexcolor(H.hair_color))
 		if(DNA_FACIAL_HAIR_COLOR_BLOCK)
-			setblock(uni_identity, blocknumber, sanitize_hexcolor(H.facial_hair_color))
+			setblock(unique_identity, blocknumber, sanitize_hexcolor(H.facial_hair_color))
 		if(DNA_SKIN_TONE_BLOCK)
-			setblock(uni_identity, blocknumber, construct_block(GLOB.skin_tones.Find(H.skin_tone), GLOB.skin_tones.len))
+			setblock(unique_identity, blocknumber, construct_block(GLOB.skin_tones.Find(H.skin_tone), GLOB.skin_tones.len))
 		if(DNA_EYE_COLOR_LEFT_BLOCK)
-			setblock(uni_identity, blocknumber, sanitize_hexcolor(H.eye_color_left))
+			setblock(unique_identity, blocknumber, sanitize_hexcolor(H.eye_color_left))
 		if(DNA_EYE_COLOR_RIGHT_BLOCK)
-			setblock(uni_identity, blocknumber, sanitize_hexcolor(H.eye_color_right))
+			setblock(unique_identity, blocknumber, sanitize_hexcolor(H.eye_color_right))
 		if(DNA_GENDER_BLOCK)
 			switch(H.gender)
 				if(MALE)
-					setblock(uni_identity, blocknumber, construct_block(G_MALE, 3))
+					setblock(unique_identity, blocknumber, construct_block(G_MALE, 3))
 				if(FEMALE)
-					setblock(uni_identity, blocknumber, construct_block(G_FEMALE, 3))
+					setblock(unique_identity, blocknumber, construct_block(G_FEMALE, 3))
 				else
-					setblock(uni_identity, blocknumber, construct_block(G_PLURAL, 3))
+					setblock(unique_identity, blocknumber, construct_block(G_PLURAL, 3))
 		if(DNA_FACIAL_HAIRSTYLE_BLOCK)
-			setblock(uni_identity, blocknumber, construct_block(GLOB.facial_hairstyles_list.Find(H.facial_hairstyle), GLOB.facial_hairstyles_list.len))
+			setblock(unique_identity, blocknumber, construct_block(GLOB.facial_hairstyles_list.Find(H.facial_hairstyle), GLOB.facial_hairstyles_list.len))
 		if(DNA_HAIRSTYLE_BLOCK)
-			setblock(uni_identity, blocknumber, construct_block(GLOB.hairstyles_list.Find(H.hairstyle), GLOB.hairstyles_list.len))
+			setblock(unique_identity, blocknumber, construct_block(GLOB.hairstyles_list.Find(H.hairstyle), GLOB.hairstyles_list.len))
 
 //Please use add_mutation or activate_mutation instead
 /datum/dna/proc/force_give(datum/mutation/human/HM)
@@ -225,7 +225,7 @@
  * * target_dna The DNA that we are comparing to
  */
 /datum/dna/proc/is_same_as(datum/dna/target_dna)
-	if(uni_identity == target_dna.uni_identity && mutation_index == target_dna.mutation_index && real_name == target_dna.real_name)
+	if(unique_identity == target_dna.unique_identity && mutation_index == target_dna.mutation_index && real_name == target_dna.real_name)
 		if(species.type == target_dna.species.type && compare_list(features, target_dna.features) && blood_type == target_dna.blood_type)
 			return TRUE
 	return FALSE
@@ -258,14 +258,14 @@
 
 //used to update dna UI, UE, and dna.real_name.
 /datum/dna/proc/update_dna_identity()
-	uni_identity = generate_uni_identity()
+	unique_identity = generate_unique_identity()
 	unique_enzymes = generate_unique_enzymes()
 
 /datum/dna/proc/initialize_dna(newblood_type, skip_index = FALSE)
 	if(newblood_type)
 		blood_type = newblood_type
 	unique_enzymes = generate_unique_enzymes()
-	uni_identity = generate_uni_identity()
+	unique_identity = generate_unique_identity()
 	if(!skip_index) //I hate this
 		generate_dna_blocks()
 	features = random_features()
@@ -356,7 +356,7 @@
 		dna.blood_type = newblood_type
 
 	if(ui)
-		dna.uni_identity = ui
+		dna.unique_identity = ui
 		updateappearance(icon_update=0)
 
 	if(LAZYLEN(mutation_index))
@@ -373,11 +373,9 @@
 		update_body_parts()
 		update_mutations_overlay()
 
-	if(LAZYLEN(mutations))
-		for(var/M in mutations)
-			var/datum/mutation/human/HM = M
-			if(HM.allow_transfer || force_transfer_mutations)
-				dna.force_give(new HM.type(HM.class, copymut=HM)) //using force_give since it may include exotic mutations that otherwise won't be handled properly
+	if(LAZYLEN(mutations) && force_transfer_mutations)
+		for(var/datum/mutation/human/mutation as anything in mutations)
+			dna.force_give(new mutation.type(mutation.class, copymut = mutation)) //using force_give since it may include exotic mutations that otherwise won't be handled properly
 
 /mob/living/carbon/proc/create_dna()
 	dna = new /datum/dna(src)
@@ -390,7 +388,7 @@
 	if(!has_dna())
 		return
 
-	switch(deconstruct_block(getblock(dna.uni_identity, DNA_GENDER_BLOCK), 3))
+	switch(deconstruct_block(getblock(dna.unique_identity, DNA_GENDER_BLOCK), 3))
 		if(G_MALE)
 			gender = MALE
 		if(G_FEMALE)
@@ -400,7 +398,7 @@
 
 /mob/living/carbon/human/updateappearance(icon_update=1, mutcolor_update=0, mutations_overlay_update=0)
 	..()
-	var/structure = dna.uni_identity
+	var/structure = dna.unique_identity
 	hair_color = sanitize_hexcolor(getblock(structure, DNA_HAIR_COLOR_BLOCK))
 	facial_hair_color = sanitize_hexcolor(getblock(structure, DNA_FACIAL_HAIR_COLOR_BLOCK))
 	skin_tone = GLOB.skin_tones[deconstruct_block(getblock(structure, DNA_SKIN_TONE_BLOCK), GLOB.skin_tones.len)]
@@ -541,8 +539,8 @@
 	if(!has_dna())
 		return
 	var/num = rand(1, DNA_UNI_IDENTITY_BLOCKS)
-	var/newdna = setblock(dna.uni_identity, num, random_string(DNA_BLOCK_SIZE, GLOB.hex_characters))
-	dna.uni_identity = newdna
+	var/newdna = setblock(dna.unique_identity, num, random_string(DNA_BLOCK_SIZE, GLOB.hex_characters))
+	dna.unique_identity = newdna
 	updateappearance(mutations_overlay_update=1)
 
 /mob/living/carbon/proc/clean_dna()
@@ -565,7 +563,7 @@
 	if(ui)
 		for(var/i=1, i<=DNA_UNI_IDENTITY_BLOCKS, i++)
 			if(prob(probability))
-				M.dna.uni_identity = setblock(M.dna.uni_identity, i, random_string(DNA_BLOCK_SIZE, GLOB.hex_characters))
+				M.dna.unique_identity = setblock(M.dna.unique_identity, i, random_string(DNA_BLOCK_SIZE, GLOB.hex_characters))
 		M.updateappearance(mutations_overlay_update=1)
 	return TRUE
 

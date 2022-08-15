@@ -280,10 +280,6 @@ GLOBAL_LIST_INIT(pda_styles, sort_list(list(MONO, VT, ORBITRON, SHARE)))
 
 */
 
-// Consider these images/atoms as part of the UI/HUD
-#define APPEARANCE_UI_IGNORE_ALPHA			(RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE)
-#define APPEARANCE_UI						(RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|PIXEL_SCALE)
-
 ///The icon_state for space.  There is 25 total icon states that vary based on the x/y/z position of the turf
 #define SPACE_ICON_STATE(x, y, z) "[((x + y) ^ ~(x * y) + z) % 25]"
 
@@ -436,10 +432,6 @@ GLOBAL_LIST_INIT(pda_styles, sort_list(list(MONO, VT, ORBITRON, SHARE)))
 #define EXODRONE_FILE "exodrone.json"
 /// File location for ninja lines
 #define NINJA_FILE "ninja.json"
-
-//Fullscreen overlay resolution in tiles.
-#define FULLSCREEN_OVERLAY_RESOLUTION_X 15
-#define FULLSCREEN_OVERLAY_RESOLUTION_Y 15
 
 #define SUMMON_GUNS "guns"
 #define SUMMON_MAGIC "magic"

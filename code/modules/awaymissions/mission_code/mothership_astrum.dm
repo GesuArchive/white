@@ -205,7 +205,7 @@
 	loot = list(/obj/item/storage/firstaid = 20,
 				/obj/item/shield/riot/tele = 12,
 				/obj/item/dnainjector/shock = 10,
-				/obj/item/book/granter/spell/summonitem = 20,
+				/obj/item/book/granter/action/spell/summonitem = 20,
 				/obj/item/storage/backpack/holding = 12,
 				/obj/item/dnainjector/thermal = 5,
 				/obj/item/melee/classic_baton/telescopic = 12)
@@ -304,7 +304,7 @@
 	attack_sound = 'sound/weapons/sonic_jackhammer.ogg'
 	mouse_opacity = MOUSE_OPACITY_ICON
 	deathsound = 'sound/magic/repulse.ogg'
-	deathmessage = "falls to their knees, before exploding into a ball of gore."
+	death_message = "falls to their knees, before exploding into a ball of gore."
 	gps_name = "Captain's Signal"
 
 /mob/living/simple_animal/hostile/megafauna/hierophant/astrum/bullet_act(obj/projectile/P)

@@ -48,7 +48,7 @@ Difficulty: Medium
 	score_achievement_type = /datum/award/score/blood_miner_score
 	var/obj/item/melee/cleaving_saw/miner/miner_saw
 	var/guidance = FALSE
-	deathmessage = "falls to the ground, decaying into glowing particles."
+	death_message = "falls to the ground, decaying into glowing particles."
 	deathsound = "bodyfall"
 	footstep_type = FOOTSTEP_MOB_HEAVY
 	move_force = MOVE_FORCE_NORMAL //Miner beeing able to just move structures like bolted doors and glass looks kinda strange

@@ -35,7 +35,6 @@
 	faction = list("hostile")
 	move_to_delay = 0
 	obj_damage = 0
-	ventcrawler = VENTCRAWLER_ALWAYS
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	pass_flags = PASSTABLE | PASSGRILLE | PASSMOB
@@ -65,6 +64,7 @@
 	generate_bee_visuals()
 	AddElement(/datum/element/simple_flying)
 	AddComponent(/datum/component/swarming)
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /mob/living/simple_animal/hostile/poison/bees/mob_pickup(mob/living/L)
 	var/obj/item/clothing/head/mob_holder/destructible/holder = new(get_turf(src), src, held_state, head_icon, held_lh, held_rh, worn_slot_flags)

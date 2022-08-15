@@ -105,3 +105,23 @@
 		return bloodiness
 	else
 		return 0
+
+/**
+ * Gets the color associated with the any blood present on this decal. If there is no blood, returns null.
+ */
+/obj/effect/decal/cleanable/proc/get_blood_color()
+	switch(blood_state)
+		if(BLOOD_STATE_HUMAN)
+			return rgb(149, 10, 10)
+		if(BLOOD_STATE_XENO)
+			return rgb(43, 186, 0)
+		if(BLOOD_STATE_OIL)
+			return rgb(22, 22, 22)
+
+	return null
+
+/obj/effect/decal/cleanable/proc/handle_merge_decal(obj/effect/decal/cleanable/merger)
+	if(!merger)
+		return
+	if(merger.reagents && reagents)
+		reagents.trans_to(merger, reagents.total_volume)

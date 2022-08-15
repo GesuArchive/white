@@ -480,3 +480,6 @@
 
 /obj/item/watertank/op/make_noz()
 	return new /obj/item/reagent_containers/spray/mister/op(src)
+
+/datum/action/item_action/activate_injector
+	name = "Activate Injector"

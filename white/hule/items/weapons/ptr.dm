@@ -113,7 +113,7 @@
 	backpack_contents = list(	/obj/item/ammo_box/a15mm = 3,
 								/obj/item/grenade/syndieminibomb/concussion = 2,
 								/obj/item/grenade/c4 = 1,
-								/obj/item/book/granter/spell/knock = 1,
-								/obj/item/book/granter/spell/summonitem = 1,
+								/obj/item/book/granter/action/spell/knock = 1,
+								/obj/item/book/granter/action/spell/summonitem = 1,
 								/obj/item/book/granter/martial/cqc = 1
 								)

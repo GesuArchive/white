@@ -160,8 +160,8 @@
 
 /datum/emote/living/deathgasp/run_emote(mob/user, params, type_override, intentional)
 	var/mob/living/simple_animal/S = user
-	if(istype(S) && S.deathmessage)
-		message_simple = S.deathmessage
+	if(istype(S) && S.death_message)
+		message_simple = S.death_message
 	. = ..()
 	message_simple = initial(message_simple)
 	if(. && user.deathsound)

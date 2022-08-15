@@ -179,7 +179,6 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_SENTIENCE,
 	ROLE_FAMILIES = /datum/game_mode/gang,
 	ROLE_HERETIC = /datum/game_mode/heretics,
-	ROLE_SHADOWLING = /datum/game_mode/shadowling, //yogs
 	ROLE_BLOODSUCKER = /datum/game_mode/bloodsucker,
 	ROLE_MONSTERHUNTER
 ))

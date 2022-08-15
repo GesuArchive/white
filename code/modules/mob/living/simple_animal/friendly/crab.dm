@@ -20,7 +20,6 @@
 	stop_automated_movement = 1
 	friendly_verb_continuous = "pinches"
 	friendly_verb_simple = "pinch"
-	ventcrawler = VENTCRAWLER_ALWAYS
 	var/obj/item/inventory_head
 	var/obj/item/inventory_mask
 	gold_core_spawnable = FRIENDLY_SPAWN
@@ -42,6 +41,7 @@
 					Move(get_step(src,east_vs_west), east_vs_west)
 					turns_since_move = 0
 	regenerate_icons()
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 //COFFEE! SQUEEEEEEEEE!
 /mob/living/simple_animal/crab/coffee

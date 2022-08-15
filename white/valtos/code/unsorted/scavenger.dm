@@ -39,7 +39,7 @@
 	ranged = FALSE
 	loot = list(/obj/effect/decal/cleanable/robot_debris, /obj/item/stack/sheet/iron, /obj/item/gun/energy/laser)
 	del_on_death = TRUE
-	deathmessage = "разваливается!"
+	death_message = "разваливается!"
 	light_system = MOVABLE_LIGHT
 	light_range = 3
 	light_color = LIGHT_COLOR_BLOOD_MAGIC

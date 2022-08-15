@@ -157,23 +157,22 @@
 	var/after_use_text = ""
 	end_on_invokation = FALSE
 
-	var/obj/effect/proc_holder/slab/PH
+	var/datum/action/innate/clockwork_slab/slab_action
 
 	var/uses_left
 	var/time_left = 0
 	var/loop_timer_id
 
 /datum/clockcult/scripture/slab/New()
-	PH = new
-	PH.parent_scripture = src
+	slab_action = new(src)
+	slab_action.parent_scripture = src
 	..()
 
 /datum/clockcult/scripture/slab/Destroy()
 	if(progress)
 		qdel(progress)
-	if(PH && !QDELETED(PH))
-		PH.remove_ranged_ability()
-		QDEL_NULL(PH)
+	if(slab_action && !QDELETED(slab_action))
+		QDEL_NULL(slab_action)
 	. = ..()
 
 /datum/clockcult/scripture/slab/invoke()
@@ -183,7 +182,6 @@
 	invoking_slab.charge_overlay = slab_overlay
 	invoking_slab.update_icon()
 	invoking_slab.active_scripture = src
-	PH.add_ranged_ability(invoker, span_brass("Готовлю [name]. <b>Клик на цели для использования.</b>"))
 	count_down()
 	invoke_success()
 
@@ -215,7 +213,6 @@
 		loop_timer_id = null
 	to_chat(invoker, span_brass("Больше не вызываю <b>[name]</b>"))
 	qdel(progress)
-	PH.remove_ranged_ability()
 	invoking_slab.charge_overlay = null
 	invoking_slab.update_icon()
 	invoking_slab.active_scripture = null
@@ -224,11 +221,15 @@
 /datum/clockcult/scripture/slab/proc/apply_effects(atom/A)
 	return TRUE
 
-/obj/effect/proc_holder/slab
+/datum/action/innate/clockwork_slab
 	var/datum/clockcult/scripture/slab/parent_scripture
 
-/obj/effect/proc_holder/slab/InterceptClickOn(mob/living/caller, params, atom/A)
-	parent_scripture?.click_on(A)
+/datum/action/innate/clockwork_slab/Destroy()
+	parent_scripture = null
+	return ..()
+
+/datum/action/innate/clockwork_slab/Activate()
+	parent_scripture?.click_on(usr)
 
 //==================================//
 // !       Quick bind spell       ! //
@@ -258,8 +259,6 @@
 	if(scripture.power_cost)
 		desc += "<br>Забирает <b>[scripture.power_cost]W</b> за каждое использование."
 	..(M)
-	button.locked = TRUE
-	button.ordered = TRUE
 
 /datum/action/innate/clockcult/quick_bind/Remove(mob/M)
 	if(activation_slab.invoking_scripture == scripture)
@@ -297,8 +296,3 @@
 
 /datum/action/innate/clockcult/transmit/Activate()
 	hierophant_message(stripped_input(owner, "Что же мы скажем нашим союзничкам?", "Иерофантовый канал", ""), owner, "<span class='brass'>")
-
-/datum/action/innate/clockcult/transmit/Grant(mob/M)
-	..(M)
-	button.locked = TRUE
-	button.ordered = TRUE

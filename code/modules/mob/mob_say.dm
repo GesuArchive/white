@@ -36,7 +36,7 @@
 		SSspeech_controller.queue_say_for_mob(src, message, SPEECH_CONTROLLER_QUEUE_WHISPER_VERB)
 
 ///whisper a message
-/mob/proc/whisper(message, datum/language/language=null)
+/mob/proc/whisper(message, datum/language/language=null, forced)
 	say(message, language = language)
 
 ///The me emote verb
