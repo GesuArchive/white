@@ -231,7 +231,7 @@
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/stripes/full,
 /obj/machinery/light/floor/directional/north,
-/obj/item/book/granter/spell/random,
+/obj/item/book/granter/action/spell/random,
 /turf/open/floor/engine,
 /area/centcom/scp)
 "gy" = (

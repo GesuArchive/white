@@ -1,8 +1,5 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aac" = (
-/obj/item/book/granter/spell/summonitem{
-	name = "\proper an extremely flamboyant book"
-	},
 /turf/open/floor/plating/xen,
 /area/awaymission/black_mesa/xen/antag_token_nook)
 "aai" = (

@@ -520,7 +520,6 @@
 	dir = 5;
 	icon_state = "warningline"
 	},
-/obj/structure/tbin,
 /turf/open/floor/partyhard/steel{
 	icon_state = "b-2"
 	},
@@ -1128,7 +1127,6 @@
 	},
 /area/awaymission/bombass/indoors)
 "ev" = (
-/obj/structure/tbin,
 /turf/open/floor/plating/partyhard,
 /area/awaymission/bombass)
 "ew" = (
@@ -1165,7 +1163,6 @@
 /turf/open/floor/partyhard/stone/tiled,
 /area/awaymission/bombass/indoors)
 "eC" = (
-/obj/structure/tbin,
 /obj/item/disk/design_disk/adv/knight_gear,
 /turf/open/floor/plating,
 /area/awaymission/bombass)
