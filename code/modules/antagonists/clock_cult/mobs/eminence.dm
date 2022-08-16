@@ -154,7 +154,7 @@
 	return ..()
 
 /datum/action/cooldown/spell/eminence/proc/consume_cogs(mob/living/simple_animal/eminence/eminence)
-	eminence.cogs -= cog_cost
+	eminence?.cogs -= cog_cost
 
 //=====Warp to Reebe=====
 /datum/action/cooldown/spell/eminence/reebe
@@ -193,7 +193,7 @@
 	desc = "Телепортировать себя к нему."
 	button_icon_state = "Spatial Warp"
 
-/datum/action/cooldown/spell/eminence/servant_warp/cast(list/targets, mob/user)
+/datum/action/cooldown/spell/eminence/servant_warp/cast(mob/user)
 	. = ..()
 	//Get a list of all servants
 	var/choice = tgui_input_list(user, "Выберем же его", "Перемещение к...", GLOB.all_servants_of_ratvar)
@@ -221,7 +221,7 @@
 	desc = "Инициирует массовый призыв, возвращая всех к ковчегу. ОДНОРАЗОВОЕ!"
 	button_icon_state = "Spatial Gateway"
 
-/datum/action/cooldown/spell/eminence/mass_recall/cast(list/targets, mob/living/user)
+/datum/action/cooldown/spell/eminence/mass_recall/cast(mob/living/user)
 	. = ..()
 	var/obj/structure/destructible/clockwork/massive/celestial_gateway/C = GLOB.celestial_gateway
 	if(!C)
@@ -248,7 +248,7 @@
 		return TRUE
 	return ..()
 
-/datum/action/cooldown/spell/eminence/linked_abscond/cast(list/targets, mob/living/user)
+/datum/action/cooldown/spell/eminence/linked_abscond/cast(mob/living/user)
 	. = ..()
 	var/mob/living/simple_animal/eminence/E = user
 	if(!istype(E))
@@ -284,7 +284,7 @@
 	cooldown_time = 300 SECONDS
 	cog_cost = 5
 
-/datum/action/cooldown/spell/eminence/trigger_event/cast(list/targets, mob/user)
+/datum/action/cooldown/spell/eminence/trigger_event/cast(mob/user)
 	. = ..()
 	var/picked_event = tgui_input_list(user, "Что мы запустим?", "Манипуляция с реальностью", list(
 		"Anomaly",

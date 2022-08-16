@@ -182,6 +182,8 @@
 	invoking_slab.charge_overlay = slab_overlay
 	invoking_slab.update_icon()
 	invoking_slab.active_scripture = src
+	invoker.click_intercept = src
+	to_chat(invoker, span_brass("Готовлю [name]. <b>Клик на цели для использования.</b>"))
 	count_down()
 	invoke_success()
 
@@ -216,6 +218,7 @@
 	invoking_slab.charge_overlay = null
 	invoking_slab.update_icon()
 	invoking_slab.active_scripture = null
+	invoker.click_intercept = null
 	end_invoke()
 
 /datum/clockcult/scripture/slab/proc/apply_effects(atom/A)
