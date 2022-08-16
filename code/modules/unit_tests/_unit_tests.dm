@@ -92,7 +92,6 @@
 #include "metabolizing.dm"
 #include "mindbound_actions.dm"
 #include "mob_faction.dm"
-#include "mob_spawn.dm"
 #include "ntnetwork_tests.dm"
 #include "outfit_sanity.dm"
 #include "paintings.dm"

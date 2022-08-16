@@ -70,7 +70,6 @@
 	suit_store = /obj/item/tank/internals/tactical/e_gun_taser //тактик
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
-	back = /obj/item/storage/backpack/ert/security
 	belt = /obj/item/storage/belt/security/full
 	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
 		/obj/item/storage/box/handcuffs=1)
@@ -108,7 +107,6 @@
 	)
 	suit_store = /obj/item/tank/internals/tactical/e_gun //тактик
 	glasses = /obj/item/clothing/glasses/hud/health
-	back = /obj/item/storage/backpack/ert/medical
 	belt = /obj/item/storage/belt/medical/ert
 	l_hand = /obj/item/storage/firstaid/regular
 	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
@@ -149,7 +147,6 @@
 	)
 	suit_store = /obj/item/tank/internals/tactical/e_gun //тактик
 	glasses =  /obj/item/clothing/glasses/meson/engine
-	back = /obj/item/storage/backpack/ert/engineer
 	belt = /obj/item/storage/belt/utility/full
 	l_pocket = /obj/item/rcd_ammo/large
 	l_hand = /obj/item/storage/firstaid/regular

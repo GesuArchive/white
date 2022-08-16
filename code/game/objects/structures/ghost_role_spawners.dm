@@ -685,10 +685,10 @@
 	short_desc = "You are a syndicate operative on old ship, stuck in hostile space."
 	flavour_text = "Your ship docks after a long time somewhere in hostile space, reporting a malfunction. You are stuck here, with Nanotrasen station nearby. Fix the ship, find a way to power it and follow your captain's orders."
 	important_info = "Obey orders given by your captain. DO NOT let the ship fall into enemy hands."
-	outfit = /datum/outfit/syndicatespace/syndicrew
+	outfit = /datum/outfit/syndicatespace
 	assignedrole = ROLE_SYNDICATE_CYBERSUN
 
-/datum/outfit/syndicatespace/syndicrew/post_equip(mob/living/carbon/human/H)
+/datum/outfit/syndicatespace/post_equip(mob/living/carbon/human/H)
 	H.faction |= ROLE_SYNDICATE
 
 /obj/effect/mob_spawn/human/syndicatespace/special(mob/living/new_spawn)
@@ -706,14 +706,11 @@
 	outfit = /datum/outfit/syndicatespace/syndicaptain
 	assignedrole = ROLE_SYNDICATE_CYBERSUN_CAPTAIN
 
-/datum/outfit/syndicatespace/syndicaptain/post_equip(mob/living/carbon/human/H)
-	H.faction |= ROLE_SYNDICATE
-
 /obj/effect/mob_spawn/human/syndicatespace/captain/Destroy()
 	new/obj/structure/fluff/empty_sleeper/syndicate/captain(get_turf(src))
 	return ..()
 
-/datum/outfit/syndicatespace/syndicrew
+/datum/outfit/syndicatespace
 	name = "Syndicate Ship Crew Member"
 	uniform = /obj/item/clothing/under/syndicate/combat
 	glasses = /obj/item/clothing/glasses/night
@@ -731,17 +728,10 @@
 /datum/outfit/syndicatespace/syndicaptain
 	name = "Syndicate Ship Captain"
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/syndicate
-	uniform = /obj/item/clothing/under/syndicate/combat
-	glasses = /obj/item/clothing/glasses/night
+	mask = null
 	head = /obj/item/clothing/head/hos/beret/syndicate
 	ears = /obj/item/radio/headset/syndicate/alt/leader
-	shoes = /obj/item/clothing/shoes/combat
-	gloves = /obj/item/clothing/gloves/combat
-	back = /obj/item/storage/backpack
-	r_pocket = /obj/item/kitchen/knife/combat/survival
-	belt = /obj/item/storage/belt/military/assault
 	id = /obj/item/card/id/advanced/black/syndicate_command/captain_id
-	implants = list(/obj/item/implant/weapons_auth)
 	backpack_contents = list(/obj/item/documents/syndicate/red, /obj/item/paper/fluff/ruins/forgottenship/password, /obj/item/gun/ballistic/automatic/pistol/aps)
 
 /obj/effect/mob_spawn/human/beach/alive

@@ -4,6 +4,12 @@
 /datum/unit_test/mob_faction/Run()
 	/// Right now taken from create_and_destroy
 	var/list/ignored = list(
+		/mob/living/carbon/human/combat_ai,
+		/mob/living/carbon/human/combat_ai/magnum,
+		/mob/living/carbon/human/combat_ai/pistol,
+		/mob/living/carbon/human/combat_ai/shotgun,
+		/mob/living/carbon/human/combat_ai/smg,
+		/mob/living/carbon/human/combat_ai/sniper,
 		/mob/living/carbon,
 		/mob/dview,
 		/mob/oranges_ear
