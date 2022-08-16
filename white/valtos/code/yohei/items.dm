@@ -153,6 +153,7 @@
 	fire_delay = 4
 	extra_damage = 10
 	extra_penetration = 10
+	legacy_icon_handler = FALSE
 
 #define MODE_PAINKILLER "болеутоляющее"
 #define MODE_OXYLOSS "кислородное голодание"

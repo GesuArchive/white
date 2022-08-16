@@ -17,6 +17,9 @@
 	inhand_y_dimension = 32
 	legacy_icon_handler = TRUE
 
+/obj/item/gun/ballistic/shotgun/fallout/update_legacy_icon()
+	icon_state = "[initial(icon_state)][magazine.ammo_count() ? "" : "_e"]"
+
 //Automatic shotguns
 /obj/item/gun/ballistic/shotgun/automatic/fallout
 	name = "generic fallout gun"
@@ -34,6 +37,9 @@
 	lefthand_file = 'white/valtos/icons/fallout/guns_lefthand.dmi'
 	righthand_file = 'white/valtos/icons/fallout/guns_righthand.dmi'
 	legacy_icon_handler = TRUE
+
+/obj/item/gun/ballistic/revolver/fallout/update_legacy_icon()
+	icon_state = "[initial(icon_state)][magazine.ammo_count() ? "" : "_e"]"
 
 //Automatics
 /obj/item/gun/ballistic/automatic/fallout
@@ -64,6 +70,9 @@
 	internal_magazine = FALSE
 	tac_reloads = TRUE
 	legacy_icon_handler = TRUE
+
+/obj/item/gun/ballistic/rifle/fallout/update_legacy_icon()
+	icon_state = "[initial(icon_state)][magazine.ammo_count() ? "" : "_e"]"
 
 //Loaders/Ammo boxes
 /obj/item/ammo_box/fallout
