@@ -57005,7 +57005,7 @@
 /area/medical/storage)
 "oJY" = (
 /obj/structure/table/wood/fancy,
-/obj/item/book/granter/spell/smoke/lesser{
+/obj/item/book/granter/action/spell/smoke/lesser{
 	pixel_y = 4
 	},
 /obj/item/nullrod{
