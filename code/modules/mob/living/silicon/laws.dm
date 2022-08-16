@@ -8,7 +8,7 @@
 /mob/living/silicon/proc/deadchat_lawchange()
 	var/list/the_laws = laws.get_law_list(include_zeroth = TRUE)
 	var/lawtext = the_laws.Join("<br/>")
-	deadchat_broadcast(" <b>теперь следует новым законам.</b> <a href='?src=[REF(src)]&dead=1&printlawtext=[json_encode(lawtext)]'>Показать</a>", span_name("[capitalize(src.name)]"), follow_target=src, message_type=DEADCHAT_LAWCHANGE)
+	deadchat_broadcast(" <b>теперь следует новым законам.</b> <a href='?src=[REF(src)]&dead=1&printlawtext='[url_encode(lawtext)]'>Показать</a>", span_name("[capitalize(src.name)]"), follow_target=src, message_type=DEADCHAT_LAWCHANGE)
 
 /mob/living/silicon/proc/post_lawchange(announce = TRUE)
 	throw_alert("newlaw", /atom/movable/screen/alert/newlaw)
