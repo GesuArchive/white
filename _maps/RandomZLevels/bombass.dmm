@@ -999,15 +999,15 @@
 /obj/structure/closet/crate,
 /obj/effect/spawner/lootdrop/maintenance/eight,
 /turf/open/floor/plating{
-	heat_capacity = 1e+006;
-	icon_state = "panelscorched"
+	heat_capacity = 1e+006
 	},
+/obj/effect/mapping_helpers/burnt_floor,
 /area/awaymission/bombass/indoors)
 "dR" = (
 /turf/open/floor/plating{
-	heat_capacity = 1e+006;
-	icon_state = "panelscorched"
+	heat_capacity = 1e+006
 	},
+/obj/effect/mapping_helpers/burnt_floor,
 /area/awaymission/bombass/indoors)
 "dS" = (
 /obj/effect/spawner/lootdrop/snowdin/dungeonheavy,
