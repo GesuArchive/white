@@ -4,7 +4,7 @@
 #define HEIGHT_DEADEND 	100000
 #define HEIGHT_CRASH 	0
 
-#define METEORS_TO_DEPLOY 20
+#define METEORS_TO_DEPLOY 50
 
 GLOBAL_LIST_EMPTY(pulse_engines)
 GLOBAL_VAR_INIT(station_orbit_height, HEIGHT_OPTIMAL)
@@ -108,12 +108,15 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 	WRITE_FILE(json_file, json_encode(file_data))
 
 /datum/game_mode/ruination/process()
-	if(meteors_deployed <= METEORS_TO_DEPLOY && current_stage == 1 && prob(1.001))
+	if(meteors_deployed <= METEORS_TO_DEPLOY && current_stage >= 1 && prob(5))
 		var/turf/T = locate(rand(25, 225), rand(25, 225), 6)
 		if(T)
 			new /obj/effect/falling_meteor(T, GLOB.meteors_normal)
 			meteors_deployed++
-	if(!started_at && GLOB.pulse_engines.len)
+
+	if(!started_at)
+		if(!GLOB.pulse_engines.len)
+			return
 		for(var/obj/structure/pulse_engine/PE in GLOB.pulse_engines)
 			if(PE.engine_active)
 				started_at = world.time
@@ -134,65 +137,68 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 						priority_announce("Вы в курсе, что большая часть сотрудников NanoTrasen имеют встроенный в их черепную коробку, при клонировании, HUD? Показываем как он работает.", null, sound('white/valtos/sounds/trevoga2.ogg'), sender_override = "Синдикат")
 						display_hud = TRUE
 				break
-	if(started_at)
-		if((started_at + (win_time - 16 MINUTES)) < world.time && announce_stage == 0)
-			announce_stage = 1
-			sound_to_playing_players('white/valtos/sounds/rp6.ogg', 15, FALSE, channel = CHANNEL_RUINATION_OST)
-			priority_announce("Осталось 15 минут до активации блюспейс-транслокатора.", null, sound('white/valtos/sounds/trevoga2.ogg'), sender_override = "Синдикат")
-			var/list/opslist = omon_ert_request("Помешать террористам, мешающим работе невероятно важного оборудования на станции в виде импульсных двигателей.", return_ert_list = TRUE)
-			if(opslist)
-				var/list/turf/valid_turfs = get_area_turfs(pick(GLOB.the_station_areas))
-				for(var/mob/living/carbon/human/H in opslist)
-					var/obj/structure/closet/supplypod/drip_pod = new()
-					drip_pod.bluespace = TRUE
-					drip_pod.explosionSize = list(0,0,1,3)
-					drip_pod.style = STYLE_CENTCOM
-					H.forceMove(drip_pod)
-					var/turf/T = pick(valid_turfs)
-					new /obj/effect/pod_landingzone(T, drip_pod)
-		if((started_at + (win_time - 10 MINUTES)) < world.time && announce_stage == 1)
-			announce_stage = 2
-			sound_to_playing_players('white/valtos/sounds/rp7.ogg', 15, FALSE, channel = CHANNEL_RUINATION_OST)
-			priority_announce("Осталось 10 минут до активации блюспейс-транслокатора.", null, sound('white/valtos/sounds/trevoga2.ogg'), sender_override = "Синдикат")
-		if((started_at + (win_time - 5 MINUTES)) < world.time && announce_stage == 2)
-			announce_stage = 3
-			sound_to_playing_players('white/valtos/sounds/rp5.ogg', 15, FALSE, channel = CHANNEL_RUINATION_OST)
-			priority_announce("Осталось 5 минут до активации блюспейс-транслокатора. Держитесь.", null, sound('white/valtos/sounds/trevoga2.ogg'), sender_override = "Синдикат")
-			var/list/opslist = deathsquad_request("Уничтожить свидетелей и постараться ускорить работу двигателей.", return_ert_list = TRUE)
-			if(opslist)
-				var/list/turf/valid_turfs = get_area_turfs(pick(GLOB.the_station_areas))
-				for(var/mob/living/carbon/human/H in opslist)
-					var/obj/structure/closet/supplypod/drip_pod = new()
-					drip_pod.bluespace = TRUE
-					drip_pod.explosionSize = list(0,0,1,3)
-					drip_pod.style = STYLE_CENTCOM
-					H.forceMove(drip_pod)
-					var/turf/T = pick(valid_turfs)
-					new /obj/effect/pod_landingzone(T, drip_pod)
-		var/total_speed = 0
-		for(var/obj/structure/pulse_engine/PE in GLOB.pulse_engines)
-			total_speed += PE.engine_power * 5
-		GLOB.station_orbit_height -= total_speed
-		GLOB.station_orbit_speed = total_speed
-		if(display_hud)
-			for(var/i in GLOB.player_list)
-				var/mob/M = i
-				if(isnewplayer(M))
-					continue
-				if(!M.hud_used?.station_height && !isnewplayer(M) && !issilicon(M))
-					var/datum/hud/H = M.hud_used
-					var/atom/movable/screen/station_height/sh = new /atom/movable/screen/station_height()
-					var/atom/movable/screen/station_height_bg/shbg = new /atom/movable/screen/station_height_bg()
-					H.station_height = sh
-					H.station_height_bg = shbg
-					sh.hud = H
-					shbg.hud = H
-					H.infodisplay += sh
-					H.infodisplay += shbg
-					H.mymob.client.screen += sh
-					H.mymob.client.screen += shbg
-				var/datum/hud/H = M?.hud_used
-				H?.station_height?.update_height()
+		return
+
+	if((started_at + (win_time - 16 MINUTES)) < world.time && announce_stage == 0)
+		announce_stage = 1
+		sound_to_playing_players('white/valtos/sounds/rp6.ogg', 15, FALSE, channel = CHANNEL_RUINATION_OST)
+		priority_announce("Осталось 15 минут до активации блюспейс-транслокатора.", null, sound('white/valtos/sounds/trevoga2.ogg'), sender_override = "Синдикат")
+		var/list/opslist = omon_ert_request("Помешать террористам, мешающим работе невероятно важного оборудования на станции в виде импульсных двигателей.", return_ert_list = TRUE)
+		if(opslist)
+			var/list/turf/valid_turfs = get_area_turfs(pick(GLOB.the_station_areas))
+			for(var/mob/living/carbon/human/H in opslist)
+				var/obj/structure/closet/supplypod/drip_pod = new()
+				drip_pod.bluespace = TRUE
+				drip_pod.explosionSize = list(0,0,1,3)
+				drip_pod.style = STYLE_CENTCOM
+				H.forceMove(drip_pod)
+				var/turf/T = pick(valid_turfs)
+				new /obj/effect/pod_landingzone(T, drip_pod)
+				H.mind.add_antag_datum(/datum/antagonist/traitor/ruiner)
+	if((started_at + (win_time - 10 MINUTES)) < world.time && announce_stage == 1)
+		announce_stage = 2
+		sound_to_playing_players('white/valtos/sounds/rp7.ogg', 15, FALSE, channel = CHANNEL_RUINATION_OST)
+		priority_announce("Осталось 10 минут до активации блюспейс-транслокатора.", null, sound('white/valtos/sounds/trevoga2.ogg'), sender_override = "Синдикат")
+	if((started_at + (win_time - 5 MINUTES)) < world.time && announce_stage == 2)
+		announce_stage = 3
+		sound_to_playing_players('white/valtos/sounds/rp5.ogg', 15, FALSE, channel = CHANNEL_RUINATION_OST)
+		priority_announce("Осталось 5 минут до активации блюспейс-транслокатора. Держитесь.", null, sound('white/valtos/sounds/trevoga2.ogg'), sender_override = "Синдикат")
+		var/list/opslist = deathsquad_request("Уничтожить свидетелей и постараться ускорить работу двигателей.", return_ert_list = TRUE)
+		if(opslist)
+			var/list/turf/valid_turfs = get_area_turfs(pick(GLOB.the_station_areas))
+			for(var/mob/living/carbon/human/H in opslist)
+				var/obj/structure/closet/supplypod/drip_pod = new()
+				drip_pod.bluespace = TRUE
+				drip_pod.explosionSize = list(0,0,1,3)
+				drip_pod.style = STYLE_CENTCOM
+				H.forceMove(drip_pod)
+				var/turf/T = pick(valid_turfs)
+				new /obj/effect/pod_landingzone(T, drip_pod)
+				H.mind.add_antag_datum(/datum/antagonist/traitor/ruiner)
+	var/total_speed = 0
+	for(var/obj/structure/pulse_engine/PE in GLOB.pulse_engines)
+		total_speed += PE.engine_power * 5
+	GLOB.station_orbit_height -= total_speed
+	GLOB.station_orbit_speed = total_speed
+	if(display_hud)
+		for(var/i in GLOB.player_list)
+			var/mob/M = i
+			if(isnewplayer(M))
+				continue
+			if(!M.hud_used?.station_height && !isnewplayer(M) && !issilicon(M))
+				var/datum/hud/H = M.hud_used
+				var/atom/movable/screen/station_height/sh = new /atom/movable/screen/station_height()
+				var/atom/movable/screen/station_height_bg/shbg = new /atom/movable/screen/station_height_bg()
+				H.station_height = sh
+				H.station_height_bg = shbg
+				sh.hud = H
+				shbg.hud = H
+				H.infodisplay += sh
+				H.infodisplay += shbg
+				H.mymob.client.screen += sh
+				H.mymob.client.screen += shbg
+			var/datum/hud/H = M?.hud_used
+			H?.station_height?.update_height()
 
 	var/cur_height = GLOB.station_orbit_parallax_type
 
@@ -273,7 +279,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 
 /atom/movable/screen/station_height
 	icon = 'white/valtos/icons/line.png'
-	screen_loc = "BOTTOM:420, RIGHT:48"
+	screen_loc = "BOTTOM:420, RIGHT"
 	maptext_y = -4
 	maptext_width = 96
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -284,7 +290,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 	overlays += icon('white/valtos/icons/station.png')
 
 /atom/movable/screen/station_height/proc/update_height()
-	screen_loc = "BOTTOM:[min(round((GLOB.station_orbit_height * 0.001), 1) + 120, 440)], RIGHT-3:48"
+	screen_loc = "BOTTOM:[min(round((GLOB.station_orbit_height * 0.001), 1) + 120, 440)], RIGHT"
 	maptext = "<span style='color: #A35D5B; font-size: 8px;'>[GLOB.station_orbit_height] M</br>[GLOB.station_orbit_speed] M/C</span>"
 
 /atom/movable/screen/station_height_bg
@@ -363,8 +369,6 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 		"правый карман" = ITEM_SLOT_RPOCKET
 	)
 
-	add_team_hud(owner)
-
 	var/T = new /obj/item/sbeacondrop/pulse_engine(H)
 	var/where = H.equip_in_one_of_slots(T, slots)
 	if(!where)
@@ -373,6 +377,9 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 		to_chat(H, span_userdanger("Мне подкинули маяк в [where]. При активации двигателей они выдадут своё местоположение."))
 		if(where == "сумку")
 			SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
+
+/datum/antagonist/traitor/ruiner/apply_innate_effects(mob/living/mob_override)
+	add_team_hud(mob_override || owner.current)
 
 #undef METEORS_TO_DEPLOY
 
