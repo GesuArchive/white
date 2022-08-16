@@ -8,7 +8,7 @@
 					  BB_COMBAT_AI_STUPIDITY = 0,\
 					  BB_COMBAT_AI_SUICIDE_BOMBER = FALSE)
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_Crossed,
+		COMSIG_ATOM_ENTERED = .proc/on_entered,
 	)
 	var/debug_mode = 1
 
@@ -167,11 +167,11 @@
 			var/mob/living/carbon/human/H = I.thrownby
 			retaliate(H)
 
-/datum/ai_controller/combat_ai/proc/on_Crossed(datum/source, atom/movable/AM)
+/datum/ai_controller/combat_ai/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
 	var/mob/living/living_pawn = pawn
-	if(!IS_DEAD_OR_INCAP(living_pawn) && ismob(AM))
-		var/mob/living/in_the_way_mob = AM
+	if(!IS_DEAD_OR_INCAP(living_pawn) && ismob(arrived))
+		var/mob/living/in_the_way_mob = arrived
 		in_the_way_mob.knockOver(living_pawn)
 		return
 

@@ -93,6 +93,7 @@
 	var/flip_cooldown = 0
 	var/suppressor_x_offset ///pixel offset for the suppressor overlay on the x axis.
 	var/suppressor_y_offset ///pixel offset for the suppressor overlay on the y axis.
+	var/legacy_icon_handler = FALSE
 
 /obj/item/gun/ballistic/Initialize(mapload)
 	. = ..()
@@ -138,8 +139,14 @@
 	else
 		icon_state = "[initial(icon_state)][sawn_off ? "_sawn" : ""]"
 
+/obj/item/gun/ballistic/proc/update_legacy_icon()
+	icon_state = "[initial(icon_state)][magazine ? "" : "_e"]"
+
 /obj/item/gun/ballistic/update_overlays()
 	. = ..()
+	if(legacy_icon_handler)
+		update_legacy_icon()
+		return
 	if(show_bolt_icon)
 		if (bolt_type == BOLT_TYPE_LOCKING)
 			. += "[icon_state]_bolt[bolt_locked ? "_locked" : ""]"

@@ -19,6 +19,8 @@
 
 /obj/item/gun/ballistic/rifle/update_overlays()
 	. = ..()
+	if(legacy_icon_handler)
+		return
 	. += "[icon_state]_bolt[bolt_locked ? "_locked" : ""]"
 
 /obj/item/gun/ballistic/rifle/rack(mob/user = null)

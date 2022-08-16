@@ -24,6 +24,7 @@
 	recoil = 0
 	actions_types = null
 	var/fatality_mode = FALSE
+	legacy_icon_handler = FALSE
 
 /obj/item/gun/ballistic/automatic/fallout/railgun/make_jamming()
 	return
