@@ -540,7 +540,7 @@ function remove_listedturf() {
 }
 
 function remove_mc() {
-	removeStatusTab("MC");
+	removePermanentTab("MC");
 	if (current_tab == "MC") {
 		tab_change("Состояние");
 	}
@@ -852,8 +852,8 @@ Byond.subscribeTo('update_spells', function (payload) {
 		do_update = true;
 	}
 	init_spells();
-	if (payload.verblist) {
-		spells = payload.verblist;
+	if (payload.actions) {
+		spells = payload.actions;
 		if (do_update) {
 			draw_spells(current_tab);
 		}

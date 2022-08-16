@@ -14,12 +14,27 @@
 	desc += "<br>\[<i>Targeted Power</i>\]"
 	. = ..()
 
-/datum/action/bloodsucker/targeted/Trigger(trigger_flags)
-	if(active && CheckCanDeactivate())
-		DeactivatePower()
-		return FALSE
+/datum/action/bloodsucker/targeted/proc/InterceptClickOn(mob/living/caller, params, atom/click_target)
+	return ClickWithPower(click_target)
+
+/datum/action/bloodsucker/targeted/Trigger(trigger_flags, atom/target)
+	if(active)
+		if(target)
+			// For automatic / mob handling
+			return InterceptClickOn(owner, null, target)
+
+		var/datum/action/bloodsucker/targeted/already_set = owner.click_intercept
+		if(already_set == src)
+			DeactivatePower()
+			return FALSE
+
+		else if(istype(already_set))
+			DeactivatePower()
+
 	if(!CheckCanPayCost(owner) || !CheckCanUse(owner))
 		return FALSE
+
+	owner.click_intercept = src
 
 	ActivatePower()
 	UpdateButtons()
@@ -32,6 +47,7 @@
 	if(power_flags & BP_AM_TOGGLE)
 		UnregisterSignal(owner, COMSIG_LIVING_BIOLOGICAL_LIFE)
 	active = FALSE
+	owner.click_intercept = null
 	UpdateButtons()
 //	..() // we don't want to pay cost here
 

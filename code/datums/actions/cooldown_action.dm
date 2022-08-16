@@ -273,15 +273,15 @@
 
 	// It's a toggle-active ability, show if it's active
 	else if(click_to_activate && owner.click_intercept == src)
-		stat_panel_data[PANEL_DISPLAY_STATUS] = "ACTIVE"
+		stat_panel_data[PANEL_DISPLAY_STATUS] = "АКТИВНО"
 
 	// It's on cooldown, show the cooldown
 	else if(time_remaining_in_seconds > 0)
-		stat_panel_data[PANEL_DISPLAY_STATUS] = "CD - [time_remaining_in_seconds]s / [cooldown_time_in_seconds]s"
+		stat_panel_data[PANEL_DISPLAY_STATUS] = "ПЕРЕЗАРЯДКА - [time_remaining_in_seconds]с / [cooldown_time_in_seconds]с"
 
 	// It's not on cooldown, show that it is ready
 	else
-		stat_panel_data[PANEL_DISPLAY_STATUS] = "READY"
+		stat_panel_data[PANEL_DISPLAY_STATUS] = "ГОТОВО"
 
 	SEND_SIGNAL(src, COMSIG_ACTION_SET_STATPANEL, stat_panel_data)
 

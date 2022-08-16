@@ -45,8 +45,6 @@
 	var/quickdraw = FALSE //altclick interact
 	var/pocket_belt = FALSE	//Разрешает открывать емкость в кармане
 
-	var/datum/action/item_action/storage_gather_mode/modeswitch_action
-
 	//Screen variables: Do not mess with these vars unless you know what you're doing. They're not defines so storage that isn't in the same location can be supported in the future.
 	var/screen_max_columns = 7 //These two determine maximum screen sizes.
 	var/screen_max_rows = INFINITY
@@ -55,6 +53,7 @@
 	var/screen_start_x = 3 //These two are where the storage starts being rendered, screen_loc wise.
 	var/screen_start_y = 1
 	//End
+	var/datum/weakref/modeswitch_action_ref
 
 /datum/component/storage/Initialize(datum/component/storage/concrete/master)
 	if(!isatom(parent))
@@ -137,17 +136,21 @@
 /datum/component/storage/proc/update_actions()
 	SIGNAL_HANDLER
 
-	QDEL_NULL(modeswitch_action)
-	if(!isitem(parent) || !allow_quick_gather)
+	var/obj/item/resolve_parent = parent
+	if(!resolve_parent)
 		return
-	var/obj/item/I = parent
-	modeswitch_action = new(I)
+
+	if(!istype(resolve_parent) || !allow_quick_gather)
+		QDEL_NULL(modeswitch_action_ref)
+		return
+
+	var/datum/action/existing = modeswitch_action_ref?.resolve()
+	if(!QDELETED(existing))
+		return
+
+	var/datum/action/modeswitch_action = resolve_parent.add_item_action(/datum/action/item_action/storage_gather_mode)
 	RegisterSignal(modeswitch_action, COMSIG_ACTION_TRIGGER, .proc/action_trigger)
-	if(I.obj_flags & IN_INVENTORY)
-		var/mob/M = I.loc
-		if(!istype(M))
-			return
-		modeswitch_action.Grant(M)
+	modeswitch_action_ref = WEAKREF(modeswitch_action)
 
 /datum/component/storage/proc/change_master(datum/component/storage/concrete/new_master)
 	if(new_master == src || (!isnull(new_master) && !istype(new_master)))
