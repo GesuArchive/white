@@ -40,7 +40,7 @@
 
 /obj/item/circuit_component/trigonometry/populate_ports()
 	input_port = add_input_port("Вход", PORT_TYPE_NUMBER)
-	output = add_input_port("Выход", PORT_TYPE_NUMBER)
+	output = add_output_port("Выход", PORT_TYPE_NUMBER)
 
 /obj/item/circuit_component/trigonometry/input_received(datum/port/input/port)
 

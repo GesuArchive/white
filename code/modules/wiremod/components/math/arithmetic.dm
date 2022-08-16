@@ -52,7 +52,7 @@
 		prefix = "Port", \
 		minimum_amount = 2 \
 	)
-	output = add_input_port("Выход", PORT_TYPE_NUMBER, order = 1.1)
+	output = add_output_port("Выход", PORT_TYPE_NUMBER, order = 1.1)
 
 /obj/item/circuit_component/arithmetic/input_received(datum/port/input/port)
 

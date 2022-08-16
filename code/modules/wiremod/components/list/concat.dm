@@ -22,7 +22,7 @@
 	list_port = add_input_port("List", PORT_TYPE_LIST(PORT_TYPE_ANY))
 	separator = add_input_port("Seperator", PORT_TYPE_STRING)
 
-	output = add_input_port("Выход", PORT_TYPE_STRING)
+	output = add_output_port("Выход", PORT_TYPE_STRING)
 
 /obj/item/circuit_component/concat_list/input_received(datum/port/input/port)
 

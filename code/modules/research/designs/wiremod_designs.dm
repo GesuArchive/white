@@ -40,7 +40,7 @@
 	name = "Component ( NULL ENTRY )"
 	desc = "Компонент, входящий в интегральную схему."
 	build_type = IMPRINTER | COMPONENT_PRINTER | MECHFAB
-	construction_time = 40
+	construction_time = 20
 	materials = list(/datum/material/glass = 1000)
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 	category = list("Схемотехника", "Компоненты", "Интегральные схемы")
@@ -384,7 +384,7 @@
 /datum/design/component/filter_list
 	name = "Filter List Component"
 	id = "comp_filter_list"
-	build_path = /obj/item/circuit_component/foreach
+	build_path = /obj/item/circuit_component/filter_list
 
 /datum/design/component/mod_action
 	name = "MOD Action Component"
@@ -540,7 +540,7 @@
 		/datum/material/iron = 15000,
 	)
 	build_path = /obj/item/shell/dispenser
-	build_type = PROTOLATHE | COMPONENT_PRINTER
+	build_type = PROTOLATHE | COMPONENT_PRINTER | MECHFAB
 	category = list("Схемотехника", "Оболочки")
 
 /datum/design/bci_shell
@@ -587,5 +587,5 @@
 	id = "assembly_shell"
 	materials = list(/datum/material/glass = 2000, /datum/material/iron = 5000)
 	build_path = /obj/item/assembly/wiremod
-	build_type = PROTOLATHE | COMPONENT_PRINTER
+	build_type = PROTOLATHE | COMPONENT_PRINTER | MECHFAB
 	category = list("Схемотехника", "Оболочки")

@@ -41,7 +41,7 @@
 	column_name = add_input_port("Column Name", PORT_TYPE_STRING)
 	comparison_input = add_input_port("Comparison Input", PORT_TYPE_ANY)
 
-	filtered_table = add_input_port("Выход", PORT_TYPE_TABLE)
+	filtered_table = add_output_port("Выход", PORT_TYPE_TABLE)
 
 /obj/item/circuit_component/select/pre_input_received(datum/port/input/port)
 	var/current_option = comparison_options.value

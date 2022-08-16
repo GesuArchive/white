@@ -22,7 +22,7 @@
 	minimum = add_input_port("Minimum", PORT_TYPE_NUMBER, trigger = null)
 	maximum = add_input_port("Maximum", PORT_TYPE_NUMBER, trigger = null)
 
-	output = add_input_port("Выход", PORT_TYPE_NUMBER)
+	output = add_output_port("Выход", PORT_TYPE_NUMBER)
 
 /obj/item/circuit_component/random/input_received(datum/port/input/port)
 

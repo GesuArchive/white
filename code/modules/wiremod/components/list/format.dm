@@ -35,7 +35,7 @@
 	format_port = add_input_port("Format", PORT_TYPE_STRING)
 	make_params_port()
 
-	output = add_input_port("Выход", PORT_TYPE_STRING)
+	output = add_output_port("Выход", PORT_TYPE_STRING)
 
 /**
  * Get an item from the list.

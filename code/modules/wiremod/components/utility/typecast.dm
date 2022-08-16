@@ -20,7 +20,7 @@
 /obj/item/circuit_component/typecast/populate_ports()
 	current_type = typecast_options.value
 	input_value = add_input_port("Вход", PORT_TYPE_ANY)
-	output_value = add_input_port("Выход", current_type)
+	output_value = add_output_port("Выход", current_type)
 
 /obj/item/circuit_component/typecast/populate_options()
 	var/static/list/component_options = list(
