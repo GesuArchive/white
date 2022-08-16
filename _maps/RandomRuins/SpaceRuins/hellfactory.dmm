@@ -801,8 +801,8 @@
 	},
 /turf/open/floor/plating{
 	broken = 1;
-	icon_state = "platingdmg1"
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/space/has_grav/hellfactory)
 "cv" = (
 /obj/effect/turf_decal{
@@ -825,8 +825,8 @@
 /obj/effect/turf_decal/caution/stand_clear/white,
 /turf/open/floor/plating{
 	broken = 1;
-	icon_state = "platingdmg1"
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/space/has_grav/hellfactory)
 "cy" = (
 /obj/effect/turf_decal{
@@ -869,8 +869,8 @@
 /obj/machinery/door/poddoor,
 /turf/open/floor/plating{
 	broken = 1;
-	icon_state = "platingdmg1"
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/space/has_grav/hellfactory)
 "cG" = (
 /obj/effect/turf_decal/delivery/white,
@@ -879,8 +879,8 @@
 /obj/machinery/door/poddoor,
 /turf/open/floor/plating{
 	broken = 1;
-	icon_state = "platingdmg1"
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/space/has_grav/hellfactory)
 "cH" = (
 /obj/effect/turf_decal/delivery/white,
@@ -888,8 +888,8 @@
 /obj/machinery/door/poddoor,
 /turf/open/floor/plating{
 	broken = 1;
-	icon_state = "platingdmg1"
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/space/has_grav/hellfactory)
 "cI" = (
 /obj/effect/turf_decal/delivery/white,
@@ -897,8 +897,8 @@
 /obj/machinery/door/poddoor,
 /turf/open/floor/plating{
 	broken = 1;
-	icon_state = "platingdmg1"
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/space/has_grav/hellfactory)
 "cJ" = (
 /obj/effect/turf_decal/delivery/white,
@@ -906,8 +906,8 @@
 /obj/machinery/door/poddoor,
 /turf/open/floor/plating{
 	broken = 1;
-	icon_state = "platingdmg1"
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/space/has_grav/hellfactory)
 "cK" = (
 /obj/machinery/power/port_gen/pacman,

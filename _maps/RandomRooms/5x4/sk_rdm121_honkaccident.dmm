@@ -21,8 +21,8 @@
 /obj/structure/mecha_wreckage/honker,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
-	icon_state = "platingdmg1"
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "e" = (
 /obj/effect/decal/cleanable/ash,

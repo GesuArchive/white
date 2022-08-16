@@ -507,8 +507,8 @@
 /obj/effect/spawner/structure/window/hollow/reinforced,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
-	icon_state = "platingdmg1"
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/space/has_grav/ancientstation/betastorage)
 "bs" = (
 /obj/effect/decal/cleanable/dirt,

@@ -963,14 +963,14 @@
 "dI" = (
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
-	icon_state = "platingdmg1"
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bombass)
 "dJ" = (
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
-	icon_state = "platingdmg3"
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bombass)
 "dK" = (
 /turf/open/floor/plating,
@@ -981,14 +981,14 @@
 "dN" = (
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
-	icon_state = "platingdmg1"
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bombass/indoors)
 "dO" = (
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
-	icon_state = "platingdmg3"
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bombass/indoors)
 "dP" = (
 /obj/structure/closet/crate,
@@ -1123,8 +1123,8 @@
 /obj/item/disk/design_disk/adv/cleric_mace,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
-	icon_state = "platingdmg1"
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bombass/indoors)
 "ev" = (
 /turf/open/floor/plating/partyhard,
