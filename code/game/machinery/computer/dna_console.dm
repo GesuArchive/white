@@ -509,39 +509,29 @@
 			// Resolve BYOND path to genome sequence of scanner occupant
 			var/sequence = GET_GENE_STRING(path, scanner_occupant.dna)
 
-			var/newgene
-			var/pulse_action = params["pulseAction"]
+			var/newgene = params["gene"]
+			if(length(newgene) > 1) // Oh come on
+				return // fuck off
 			var/genepos = text2num(params["pos"])
 
-			if(genepos > length(sequence))
-				CRASH("Unexpected input for \[\"pos\"\] param sent to [type] tgui interface. Consult tgui logs for error.")
+			// If the new gene is J, this means we're dealing with a JOKER
+			// GUARD CHECK - Is JOKER actually ready?
+			if((newgene == "J") && (joker_ready < world.time))
+				var/truegenes = GET_SEQUENCE(path)
+				newgene = truegenes[genepos]
+				joker_ready = world.time + JOKER_TIMEOUT - (JOKER_UPGRADE * (connected_scanner.precision_coeff-1))
 
-			switch(pulse_action)
-				// X out the gene.
-				if(CLEAR_GENE)
-					newgene = "X"
-					var/defaultseq = scanner_occupant.dna.default_mutation_genes[path]
-					scanner_occupant.dna.default_mutation_genes[path] = copytext(defaultseq, 1, genepos) + "X" + copytext(defaultseq, genepos + 1)
-				// Either try to apply a joker if selected in the interface, or iterate the next gene.
-				if(NEXT_GENE)
-					if((tgui_view_state["jokerActive"]) && (joker_ready < world.time))
-						var/truegenes = GET_SEQUENCE(path)
-						newgene = truegenes[genepos]
-						joker_ready = world.time + JOKER_TIMEOUT - (JOKER_UPGRADE * (connected_scanner.precision_coeff-1))
-					else
-						var/current_letter = gene_letters.Find(sequence[genepos])
-						newgene = (current_letter == gene_letter_count) ? gene_letters[1] : gene_letters[current_letter + 1]
-				// Iterate previous gene.
-				if(PREV_GENE)
-					var/current_letter = gene_letters.Find(sequence[genepos]) || 1
-					newgene = (current_letter == 1) ? gene_letters[gene_letter_count] : gene_letters[current_letter - 1]
-				// Unknown input.
-				else
-					CRASH("Unexpected input for \[\"pulseAction\"\] param sent to [type] tgui interface. Consult tgui logs for error.")
+			// If the gene is an X, we want to update the default genes with the new
+			//  X to allow highlighting logic to work on the tgui interface.
+			if(newgene == "X")
+				var/defaultseq = scanner_occupant.dna.default_mutation_genes[path]
+				defaultseq = copytext_char(defaultseq, 1, genepos) + newgene + copytext_char(defaultseq, genepos + 1)
+				scanner_occupant.dna.default_mutation_genes[path] = defaultseq
 
 			// Copy genome to scanner occupant and do some basic mutation checks as
-			//  we've increased the occupant genetic damage
-			scanner_occupant.dna.mutation_index[path] = copytext(sequence, 1, genepos) + newgene + copytext(sequence, genepos + 1)
+			//  we've increased the occupant rads
+			sequence = copytext_char(sequence, 1, genepos) + newgene + copytext_char(sequence, genepos + 1)
+			scanner_occupant.dna.mutation_index[path] = sequence
 			scanner_occupant.radiation += RADIATION_STRENGTH_MULTIPLIER/connected_scanner.damage_coeff
 			scanner_occupant.domutcheck()
 
@@ -838,14 +828,11 @@
 			if(!HM)
 				return
 
-			// Saving temporary or unobtainable mutations leads to gratuitous abuse
-			if(HM.class == MUT_OTHER)
-				say("ERROR: This mutation is anomalous, and cannot be saved.")
-				return
-
-			var/datum/mutation/human/A = new HM.type(MUT_EXTRA, null, HM)
+			var/datum/mutation/human/A = new HM.type()
+			A.copy_mutation(HM)
 			stored_mutations += A
 			to_chat(usr,span_notice("Mutation successfully stored."))
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Save a mutation to the diskette's storage buffer.
@@ -892,9 +879,11 @@
 			if(!HM)
 				return
 
-			var/datum/mutation/human/A = new HM.type(MUT_EXTRA, null, HM)
+			var/datum/mutation/human/A = new HM.type()
+			A.copy_mutation(HM)
 			diskette.mutations += A
 			to_chat(usr,span_notice("Mutation successfully stored to disk."))
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Completely removes a MUT_EXTRA mutation or mutation with corrupt gene
@@ -920,6 +909,7 @@
 				return
 
 			scanner_occupant.dna.remove_mutation(HM.type)
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Deletes saved mutation from console buffer.
@@ -933,6 +923,7 @@
 				stored_mutations.Remove(HM)
 				qdel(HM)
 
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Deletes saved mutation from disk buffer.
@@ -957,6 +948,7 @@
 				diskette.mutations.Remove(HM)
 				qdel(HM)
 
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Ejects a stored chromosome from the DNA Console
@@ -972,6 +964,7 @@
 					stored_chromosomes -= CM
 					return
 
+			connected_scanner.use_power(connected_scanner.active_power_usage)
 			return
 
 		// Combines two mutations from the console to try and create a new mutation
