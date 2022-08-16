@@ -25,11 +25,11 @@
 
 		var/datum/action/bloodsucker/targeted/already_set = owner.click_intercept
 		if(already_set == src)
-			DeactivatePower()
+			already_set.DeactivatePower()
 			return FALSE
 
 		else if(istype(already_set))
-			DeactivatePower()
+			already_set.DeactivatePower()
 
 	if(!CheckCanPayCost(owner) || !CheckCanUse(owner))
 		return FALSE
