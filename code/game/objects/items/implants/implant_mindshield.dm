@@ -2,6 +2,7 @@
 	name = "mindshield implant"
 	desc = "Protects against brainwashing."
 	activated = 0
+	actions_types = null
 
 /obj/item/implant/mindshield/get_data()
 	var/dat = {"<b>Implant Specifications:</b><BR>
