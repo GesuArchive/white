@@ -365,8 +365,6 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 
 	add_team_hud(owner)
 
-	winset(owner, "info", "left=outputwindow;right=statwindow")
-
 	var/T = new /obj/item/sbeacondrop/pulse_engine(H)
 	var/where = H.equip_in_one_of_slots(T, slots)
 	if(!where)
