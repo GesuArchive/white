@@ -87,7 +87,7 @@
 		modularInterface.saved_job = "pAI Messenger"
 		modularInterface.install_component(new /obj/item/computer_hardware/hard_drive/small/integrated)
 
-/mob/living/silicon/robot/model/syndicate/create_modularInterface()
+/mob/living/silicon/robot/modules/syndicate/create_modularInterface()
 	if(!modularInterface)
 		modularInterface = new /obj/item/modular_computer/tablet/integrated/syndicate(src)
 		modularInterface.saved_identification = real_name

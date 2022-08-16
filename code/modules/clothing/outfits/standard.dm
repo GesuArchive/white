@@ -149,7 +149,7 @@
 	suit = /obj/item/clothing/suit/space/pirate
 	head = /obj/item/clothing/head/helmet/space/pirate/bandana
 	mask = /obj/item/clothing/mask/breath
-	l_hand = /obj/item/tank/internals/oxygen
+	suit_store = /obj/item/tank/internals/oxygen
 	id = /obj/item/card/id/advanced
 
 /datum/outfit/pirate/space/captain
@@ -289,7 +289,7 @@
 /datum/outfit/centcom/commander/mod
 	name = "Командующий ЦК (MODsuit)"
 
-	l_hand = /obj/item/tank/internals/oxygen
+	suit_store = /obj/item/tank/internals/oxygen
 	suit = null
 	head = null
 	mask = /obj/item/clothing/mask/gas/sechailer
@@ -502,7 +502,7 @@
 	name = "Timeline Eradication Agent"
 
 	uniform = /obj/item/clothing/under/color/white
-	l_hand = /obj/item/tank/internals/oxygen
+	suit_store = /obj/item/tank/internals/oxygen
 	mask = /obj/item/clothing/mask/breath
 	back = /obj/item/mod/control/pre_equipped/chrono
 
@@ -519,7 +519,7 @@
 
 	id = /obj/item/card/id/advanced/debug
 	uniform = /obj/item/clothing/under/misc/patriotsuit
-	l_hand = /obj/item/tank/internals/oxygen
+	suit_store = /obj/item/tank/internals/oxygen
 	back = /obj/item/mod/control/pre_equipped/debug
 	backpack_contents = list(
 		/obj/item/melee/energy/axe = 1,
@@ -550,7 +550,7 @@
 
 	id = /obj/item/card/id/advanced/debug
 	uniform = /obj/item/clothing/under/misc/patriotsuit
-	l_hand = /obj/item/tank/internals/oxygen
+	suit_store = /obj/item/tank/internals/oxygen
 	back = /obj/item/mod/control/pre_equipped/administrative
 	backpack_contents = list(
 		/obj/item/melee/energy/axe = 1,

@@ -77,5 +77,5 @@
 
 	mask = /obj/item/clothing/mask/gas/sechailer
 	suit = /obj/item/clothing/suit/space/hardsuit/security/hos
-	l_hand = /obj/item/tank/internals/oxygen
+	suit_store = /obj/item/tank/internals/oxygen
 

@@ -29,7 +29,7 @@
 	name = "ERT Commander"
 
 	id = /obj/item/card/id/advanced/centcom/ert
-	l_hand = /obj/item/tank/internals/tactical/e_gun //тактик
+	suit_store = /obj/item/tank/internals/tactical/e_gun //тактик
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	back = /obj/item/mod/control/pre_equipped/responsory/commander
 	backpack_contents = list(
@@ -67,7 +67,7 @@
 		/obj/item/storage/box/handcuffs = 1,
 		/obj/item/storage/box/survival/engineer = 1,
 	)
-	l_hand = /obj/item/tank/internals/tactical/e_gun_taser //тактик
+	suit_store = /obj/item/tank/internals/tactical/e_gun_taser //тактик
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	back = /obj/item/storage/backpack/ert/security
@@ -106,7 +106,7 @@
 		/obj/item/storage/box/hug = 1,
 		/obj/item/storage/box/survival/engineer = 1,
 	)
-	r_hand = /obj/item/tank/internals/tactical/e_gun //тактик
+	suit_store = /obj/item/tank/internals/tactical/e_gun //тактик
 	glasses = /obj/item/clothing/glasses/hud/health
 	back = /obj/item/storage/backpack/ert/medical
 	belt = /obj/item/storage/belt/medical/ert
@@ -147,7 +147,7 @@
 		/obj/item/pipe_dispenser = 1,
 		/obj/item/storage/box/survival/engineer = 1,
 	)
-	r_hand = /obj/item/tank/internals/tactical/e_gun //тактик
+	suit_store = /obj/item/tank/internals/tactical/e_gun //тактик
 	glasses =  /obj/item/clothing/glasses/meson/engine
 	back = /obj/item/storage/backpack/ert/engineer
 	belt = /obj/item/storage/belt/utility/full
@@ -217,7 +217,7 @@
 
 /datum/outfit/centcom/ert/commander/inquisitor
 	name = "Капитан Инквизиторов"
-	l_hand = /obj/item/tank/internals/oxygen
+	suit_store = /obj/item/tank/internals/oxygen
 	back = /obj/item/mod/control/pre_equipped/responsory/inquisitory/commander
 	r_hand = /obj/item/nullrod/scythe/talking/chainsword
 	backpack_contents = list(
@@ -227,7 +227,7 @@
 /datum/outfit/centcom/ert/security/inquisitor
 	name = "Охранник Инвизиторов"
 
-	l_hand = /obj/item/tank/internals/tactical/e_gun_taser
+	suit_store = /obj/item/tank/internals/tactical/e_gun_taser
 	r_hand = /obj/item/melee/baton/loaded
 	back = /obj/item/mod/control/pre_equipped/responsory/inquisitory/security
 	backpack_contents = list(
@@ -238,7 +238,7 @@
 /datum/outfit/centcom/ert/medic/inquisitor
 	name = "Медик Инвизиторов"
 
-	l_hand = /obj/item/tank/internals/oxygen
+	suit_store = /obj/item/tank/internals/oxygen
 	r_hand = /obj/item/melee/baton/loaded
 	back = /obj/item/mod/control/pre_equipped/responsory/inquisitory/medic
 	backpack_contents = list(
@@ -251,7 +251,7 @@
 /datum/outfit/centcom/ert/chaplain
 	name = "Капеллан ERT"
 
-	l_hand = /obj/item/tank/internals/tactical/e_gun //тактик
+	suit_store = /obj/item/tank/internals/tactical/e_gun //тактик
 	id = /obj/item/card/id/advanced/centcom/ert/chaplain
 	back = /obj/item/mod/control/pre_equipped/responsory/chaplain
 	belt = /obj/item/storage/belt/soulstone
@@ -323,7 +323,7 @@
 	name = "Клоун ERT"
 
 	id = /obj/item/card/id/advanced/centcom/ert/clown
-	l_hand = /obj/item/tank/internals/oxygen
+	suit_store = /obj/item/tank/internals/oxygen
 	back = /obj/item/mod/control/pre_equipped/responsory/clown
 	backpack_contents = list(
 		/obj/item/gun/ballistic/revolver/reverse = 1,
@@ -463,7 +463,7 @@
 	id = /obj/item/card/id/advanced/black/deathsquad
 	id_trim = /datum/id_trim/centcom/deathsquad
 	uniform = /obj/item/clothing/under/rank/centcom/commander
-	r_hand = /obj/item/tank/internals/tactical //тактик
+	suit_store = /obj/item/tank/internals/tactical //тактик
 	back = /obj/item/mod/control/pre_equipped/apocryphal
 	backpack_contents = list(
 		/obj/item/ammo_box/a357 = 1,

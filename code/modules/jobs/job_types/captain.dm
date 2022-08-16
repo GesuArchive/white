@@ -77,4 +77,4 @@
 
 	mask = /obj/item/clothing/mask/gas/atmos/captain
 	suit = /obj/item/clothing/suit/space/hardsuit/swat/captain
-	l_hand = /obj/item/tank/internals/oxygen
+	suit_store = /obj/item/tank/internals/oxygen

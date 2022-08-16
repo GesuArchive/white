@@ -59,5 +59,5 @@
 /datum/outfit/job/exploration/hardsuit
 	name = "Exploration Crew (Hardsuit)"
 	suit = /obj/item/clothing/suit/space/hardsuit/exploration
-	r_hand = /obj/item/tank/internals/tactical
+	suit_store = /obj/item/tank/internals/tactical
 	mask = /obj/item/clothing/mask/breath

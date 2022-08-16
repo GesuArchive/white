@@ -53,7 +53,7 @@
 	suit = /obj/item/clothing/suit/hooded/explorer
 	mask = /obj/item/clothing/mask/gas/explorer
 	glasses = /obj/item/clothing/glasses/meson
-	r_hand = /obj/item/tank/internals/tactical
+	suit_store = /obj/item/tank/internals/tactical
 	internals_slot = ITEM_SLOT_SUITSTORE
 	backpack_contents = list(
 		/obj/item/flashlight/seclite=1,\

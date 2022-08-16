@@ -163,8 +163,8 @@
 	glasses = /obj/item/clothing/glasses/night
 	mask = /obj/item/clothing/mask/gas/syndicate
 	back = /obj/item/mod/control/pre_equipped/nuclear
-	l_hand = /obj/item/tank/internals/tactical
-	internals_slot = ITEM_SLOT_RPOCKET
+	suit_store = /obj/item/tank/internals/tactical
+	internals_slot = ITEM_SLOT_SUITSTORE
 	belt = /obj/item/storage/belt/military
 	r_hand = /obj/item/gun/ballistic/shotgun/bulldog
 	backpack_contents = list(
@@ -174,4 +174,3 @@
 
 	glasses = /obj/item/clothing/glasses/night
 	mask = /obj/item/clothing/mask/gas/syndicate
-	suit = /obj/item/clothing/suit/space/hardsuit/syndi

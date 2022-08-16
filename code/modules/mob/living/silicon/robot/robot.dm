@@ -203,7 +203,7 @@
 	alert_control.listener.RegisterSignal(src, COMSIG_LIVING_DEATH, /datum/alarm_listener/proc/prevent_alarm_changes)
 	alert_control.listener.RegisterSignal(src, COMSIG_LIVING_REVIVE, /datum/alarm_listener/proc/allow_alarm_changes)
 
-/mob/living/silicon/robot/model/syndicate/Initialize(mapload)
+/mob/living/silicon/robot/modules/syndicate/Initialize(mapload)
 	. = ..()
 	laws = new /datum/ai_laws/syndicate_override()
 	//addtimer(CALLBACK(src, .proc/show_playstyle), 5)

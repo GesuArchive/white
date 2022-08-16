@@ -54,5 +54,5 @@
 
 	mask = /obj/item/clothing/mask/gas/atmos
 	suit = /obj/item/clothing/suit/space/hardsuit/engine/atmos
-	l_hand = /obj/item/tank/internals/oxygen
+	suit_store = /obj/item/tank/internals/oxygen
 	internals_slot = ITEM_SLOT_SUITSTORE

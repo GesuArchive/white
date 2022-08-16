@@ -127,7 +127,7 @@
 /datum/outfit/whiterobust/ass/ballon
 	name = "Ассистуха + Баллон"
 
-	r_hand = /obj/item/tank/internals/oxygen/red/tournament
+	suit_store = /obj/item/tank/internals/oxygen/red/tournament
 
 /datum/outfit/whiterobust/ass/exting
 	name = "Ассистуха + Огнетушитель"

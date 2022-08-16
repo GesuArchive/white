@@ -67,7 +67,7 @@
 	name = "Station Engineer (Hardsuit)"
 	mask = /obj/item/clothing/mask/breath
 	suit = /obj/item/clothing/suit/space/hardsuit/engine
-	l_hand = /obj/item/tank/internals/oxygen
+	suit_store = /obj/item/tank/internals/oxygen
 	head = null
 	internals_slot = ITEM_SLOT_SUITSTORE
 

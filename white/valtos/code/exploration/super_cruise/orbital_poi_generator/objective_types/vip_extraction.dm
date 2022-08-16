@@ -250,7 +250,7 @@
 	uniform = /obj/item/clothing/under/rank/engineering/engineer
 	mask = /obj/item/clothing/mask/breath
 	suit = /obj/item/clothing/suit/space/hardsuit/engine
-	r_hand = /obj/item/tank/internals/tactical/nail_gun
+	suit_store = /obj/item/tank/internals/tactical/nail_gun
 	shoes = /obj/item/clothing/shoes/workboots
 	ears = /obj/item/radio/headset/headset_eng
 	glasses = /obj/item/clothing/glasses/meson
