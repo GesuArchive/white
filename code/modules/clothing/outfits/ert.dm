@@ -1,4 +1,5 @@
 /datum/outfit/centcom
+	name = "ЦК"
 	implants = list(/obj/item/implant/sound_implant)
 
 /datum/outfit/centcom/ert
