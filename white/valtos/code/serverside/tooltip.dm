@@ -7,6 +7,7 @@
 	maptext_width = 480
 	maptext_y = 18
 	maptext = ""
+	layer = TOOLTIP_LAYER
 
 /atom/movable/screen/tooltip/Initialize(mapload, _hud)
 	. = ..()

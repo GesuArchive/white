@@ -197,6 +197,8 @@
 		if(holder && recipient.holder && !current_ticket) //Both are admins, and this is not a reply to our own ticket.
 			badmin = TRUE
 		if(recipient.holder && !badmin)
+			SEND_SIGNAL(current_ticket, COMSIG_ADMIN_HELP_REPLIED)
+
 			if(holder)
 				to_chat(recipient,
 					type = MESSAGE_TYPE_ADMINPM,
@@ -253,9 +255,6 @@
 
 				//always play non-admin recipients the adminhelp sound
 				SEND_SOUND(recipient, sound('sound/effects/adminhelp.ogg'))
-				//AdminPM popup for ApocStation and anybody else who wants to use it. Set it with POPUP_ADMIN_PM in config.txt ~Carn
-				if(CONFIG_GET(flag/popup_admin_pm))
-					INVOKE_ASYNC(src, .proc/popup_admin_pm, recipient, msg)
 
 			else		//neither are admins
 				if(!current_ticket)
@@ -285,12 +284,3 @@
 					html = span_notice("<B>PM: [key_name(src, X, 0)]-&gt;[key_name(recipient, X, 0)]:</B> [keywordparsedmsg]") )
 	webhook_send_ahelp("PM: [key_name(src)]->[key_name(recipient)]", msg)
 
-/client/proc/popup_admin_pm(client/recipient, msg)
-	var/sender = src
-	var/sendername = key
-	var/reply = input(recipient, msg,"Сообщение от [sendername]", "") as message|null	//show message and await a reply
-	if(recipient && reply)
-		if(sender)
-			recipient.cmd_admin_pm(sender,reply)										//sender is still about, let's reply to them
-		else
-			adminhelp(reply)													//sender has left, adminhelp instead

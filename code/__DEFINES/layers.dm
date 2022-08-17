@@ -198,12 +198,6 @@
 /// Bubble for typing indicators
 #define TYPING_LAYER 500
 
-//-------------------- Rendering ---------------------
-#define RENDER_PLANE_GAME 990
-#define RENDER_PLANE_ABOVE_GAME 991
-#define RENDER_PLANE_NON_GAME 995
-#define RENDER_PLANE_MASTER 999
-
 //-------------------- HUD ---------------------
 //HUD layer defines
 #define HUD_PLANE 1000
@@ -215,9 +209,18 @@
 
 #define ADMIN_POPUP_LAYER 1
 
+///Layer for tooltips
+#define TOOLTIP_LAYER 4
 
-///Plane of the "splash" icon used that shows on the lobby screen. Nothing should ever be above this.
-#define SPLASHSCREEN_PLANE 9999
+///Plane of the "splash" icon used that shows on the lobby screen. only render plate planes should be above this
+#define SPLASHSCREEN_PLANE 9900
+
+//-------------------- Rendering ---------------------
+#define RENDER_PLANE_GAME 9990
+#define RENDER_PLANE_ABOVE_GAME 9991
+#define RENDER_PLANE_NON_GAME 9995
+#define RENDER_PLANE_MASTER 9999
+//----------------------------------------------------
 
 #define LOBBY_BACKGROUND_LAYER 3
 #define LOBBY_BUTTON_LAYER 4
