@@ -41,8 +41,9 @@
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT_OFF
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT
-	strip_delay = 80
-	equip_delay_other = 80
+	strip_delay = 8 SECONDS
+	equip_delay_other = 8 SECONDS
+	equip_delay_self = 5 SECONDS
 	resistance_flags = NONE
 	actions_types = list(/datum/action/item_action/toggle_spacesuit)
 	var/temperature_setting = BODYTEMP_NORMAL /// The default temperature setting
