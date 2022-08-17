@@ -20,7 +20,6 @@
 	var/holes = 0 //bitflag
 
 	var/rods_type = /obj/item/stack/rods
-	var/rods_amount = 2
 	var/rods_broken = TRUE
 	var/grille_type = null
 
@@ -241,7 +240,7 @@
 	if(!loc) //if already qdel'd somehow, we do nothing
 		return
 	if(!(flags_1&NODECONSTRUCT_1))
-		var/obj/R = new rods_type(null, rods_amount)
+		var/obj/R = new rods_type(null, 1)
 		transfer_fingerprints_to(R)
 		R.forceMove(drop_location())
 		qdel(src)
@@ -251,10 +250,9 @@
 	if(!broken && !(flags_1 & NODECONSTRUCT_1))
 		set_density(FALSE)
 		broken = TRUE
-		var/obj/R = new rods_type(null, rods_amount)
+		var/obj/R = new rods_type(null, 1)
 		transfer_fingerprints_to(R)
 		R.forceMove(drop_location())
-		rods_amount = 1
 		rods_broken = FALSE
 		grille_type = /obj/structure/grille
 
@@ -264,7 +262,6 @@
 		set_density(TRUE)
 		obj_integrity = max_integrity
 		broken = FALSE
-		rods_amount = 2
 		rods_broken = TRUE
 		return TRUE
 	return FALSE
@@ -320,7 +317,6 @@
 	density = FALSE
 	obj_integrity = 20
 	broken = TRUE
-	rods_amount = 1
 	rods_broken = FALSE
 	grille_type = /obj/structure/grille
 
