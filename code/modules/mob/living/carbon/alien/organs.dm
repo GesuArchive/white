@@ -1,18 +1,6 @@
 /obj/item/organ/alien
 	icon_state = "xgibmid2"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/toxin/acid = 10)
-	var/list/alien_powers = list()
-
-/obj/item/organ/alien/Initialize(mapload)
-	. = ..()
-	for(var/A in alien_powers)
-		if(ispath(A))
-			alien_powers -= A
-			alien_powers += new A(src)
-
-/obj/item/organ/alien/Destroy()
-	QDEL_LIST(alien_powers)
-	return ..()
 
 /obj/item/organ/alien/plasmavessel
 	name = "плазматический сосуд"

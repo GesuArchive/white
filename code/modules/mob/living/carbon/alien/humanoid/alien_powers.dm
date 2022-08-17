@@ -9,13 +9,10 @@ Doesn't work on other aliens/AI.*/
 /datum/action/cooldown/alien
 	name = "Способности Чужих"
 	panel = "Alien"
-	var/check_turf = FALSE
 	background_icon_state = "bg_alien"
 	icon_icon = 'icons/mob/actions/actions_xeno.dmi'
 	button_icon_state = "spell_default"
 	check_flags = AB_CHECK_CONSCIOUS
-	melee_cooldown_time = 0 SECONDS
-
 	/// How much plasma this action uses.
 	var/plasma_cost = 0
 
