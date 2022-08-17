@@ -26,7 +26,7 @@
 	/// Callback invoked when this component is Destroy()ed to allow the parent to return to a non-deadchat controlled state.
 	var/datum/callback/on_removal
 
-/datum/component/deadchat_control/Initialize(_deadchat_mode, _inputs, _input_cooldown = 12 SECONDS, _on_removal)
+/datum/component/deadchat_control/Initialize(_deadchat_mode, _inputs, _input_cooldown = 6 SECONDS, _on_removal)
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
 	RegisterSignal(parent, COMSIG_ATOM_ORBIT_BEGIN, .proc/orbit_begin)
@@ -193,6 +193,10 @@
 	inputs["left"] = CALLBACK(GLOBAL_PROC, .proc/_step, parent, WEST)
 	inputs["right"] = CALLBACK(GLOBAL_PROC, .proc/_step, parent, EAST)
 
+	inputs["вверх"] = CALLBACK(GLOBAL_PROC, .proc/_step, parent, NORTH)
+	inputs["вниз"] = CALLBACK(GLOBAL_PROC, .proc/_step, parent, SOUTH)
+	inputs["влево"] = CALLBACK(GLOBAL_PROC, .proc/_step, parent, WEST)
+	inputs["вправо"] = CALLBACK(GLOBAL_PROC, .proc/_step, parent, EAST)
 
 /**
  * Deadchat Moves Things
