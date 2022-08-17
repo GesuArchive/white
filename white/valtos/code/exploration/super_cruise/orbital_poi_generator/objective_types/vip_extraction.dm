@@ -101,6 +101,9 @@
 	forge_objectives()
 	. = ..()
 
+/datum/outfit/derelict_vip
+	name = "ВИП"
+
 /datum/outfit/derelict_vip/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)
 		return

@@ -666,6 +666,9 @@
 
 /**********************Outfits**************************/
 
+/datum/outfit/prison
+	name = "USSR"
+
 /datum/outfit/prison/doctor
 	name = "Doctor USSR"
 	head = /obj/item/clothing/head/ushanka

@@ -70,6 +70,9 @@
 
 // Аутфиты
 
+/datum/outfit/whiterobust
+	name = "Робаст"
+
 /datum/outfit/whiterobust/ass
 	name = "Ассистуха"
 
