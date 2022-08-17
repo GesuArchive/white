@@ -1989,6 +1989,11 @@
 		return
 
 	active_hud.tooltip.maptext_y = 18
+
+	if(client?.prefs.w_toggles & TOOLTIP_NO_CONTEXT)
+		active_hud.tooltip.maptext = "<span class='maptext reallybig yell' style='text-align: center; color: [isliving(src) ? "lime" : "white"]'>[uppertext(name)]</span>"
+		return
+
 	var/lmb_rmb_line = ""
 	var/ctrl_lmb_alt_lmb_line = ""
 	var/shift_lmb_ctrl_shift_lmb_line = ""

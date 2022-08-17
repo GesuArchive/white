@@ -129,13 +129,13 @@
 
 //white toggles
 
-//#define TOOLTIP_USER_UP			(1<<1)
-#define TOOLTIP_USER_POS		(1<<2)
-#define TOOLTIP_USER_RETRO		(1<<3)
-#define SOUND_JUKEBOX			(1<<4)
-#define SCREEN_HORIZ_INV		(1<<5)
-#define SCREEN_VERTI_INV		(1<<6)
-#define SCREEN_HIDE_SPLIT		(1<<7)
+#define TOOLTIP_NO_CONTEXT		(1 << 0)
+#define TOOLTIP_USER_POS		(1 << 2)
+#define TOOLTIP_USER_RETRO		(1 << 3)
+#define SOUND_JUKEBOX			(1 << 4)
+#define SCREEN_HORIZ_INV		(1 << 5)
+#define SCREEN_VERTI_INV		(1 << 6)
+#define SCREEN_HIDE_SPLIT		(1 << 7)
 
 #define W_TOGGLES_DEFAULT (SOUND_JUKEBOX)
 //recommened client FPS

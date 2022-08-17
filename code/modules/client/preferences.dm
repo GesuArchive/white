@@ -591,7 +591,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += SETUP_NODE_SWITCH("Метод скалирования", "scaling_method", button_name)
 
-			//dat += SETUP_NODE_SWITCH("Названия предметов", "tooltip_user", (w_toggles & TOOLTIP_USER_UP) ? "Вкл" : "Выкл")
+			dat += SETUP_NODE_SWITCH("Контекст", "tooltip_no_context", (w_toggles & TOOLTIP_NO_CONTEXT) ? "Выкл" : "Вкл")
 			dat += SETUP_NODE_SWITCH("Позиция на экране", "tooltip_pos", (w_toggles & TOOLTIP_USER_POS) ? "Внизу" : "Вверху")
 			dat += SETUP_NODE_SWITCH("Ретро-статусбар", "tooltip_retro", (w_toggles & TOOLTIP_USER_RETRO) ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Горизонтальная инверсия", "horiz_inv", (w_toggles & SCREEN_HORIZ_INV) ? "Вкл" : "Выкл")
@@ -1862,6 +1862,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("fullscreen")
 					fullscreen = !fullscreen
 					parent.ToggleFullscreen()
+
+				if("tooltip_no_context")
+					w_toggles ^= TOOLTIP_NO_CONTEXT
 
 				if("tooltip_pos")
 					w_toggles ^= TOOLTIP_USER_POS
