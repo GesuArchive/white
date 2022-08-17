@@ -62,6 +62,14 @@
 	///Store the smart pipes connections, used for pipe construction
 	var/connection_num = 0
 
+/obj/machinery/atmospherics/Initialize(mapload)
+	var/turf/turf_loc = null
+	if(isturf(loc))
+		turf_loc = loc
+	SSspatial_grid.add_grid_awareness(src, SPATIAL_GRID_CONTENTS_TYPE_ATMOS)
+	SSspatial_grid.add_grid_membership(src, turf_loc, SPATIAL_GRID_CONTENTS_TYPE_ATMOS)
+	return ..()
+
 /obj/machinery/atmospherics/LateInitialize()
 	. = ..()
 	update_name()
