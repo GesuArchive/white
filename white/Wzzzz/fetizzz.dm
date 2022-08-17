@@ -38,12 +38,6 @@
 	real_name = "???"
 	type_of_meat = /obj/item/food/meat/slab/human/mutant/shadow
 	faction = list("faithless")
-	internal_organs = list(
-		/obj/item/organ/eyes/night_vision,
-		/obj/item/organ/brain/nightmare,
-		/obj/item/organ/heart/nightmare,
-		/obj/item/organ/liver/fly,
-		/obj/item/organ/lungs)
 	status_traits = list(
 		baddna = list("adminabuse"),
 		deaf = list("adminabuse"),
@@ -82,6 +76,14 @@
 			4 = 1.67772e+007,
 			5 = 0,
 			6 = 0))
+
+/mob/living/carbon/human/husk/create_internal_organs()
+	internal_organs += new /obj/item/organ/eyes/night_vision
+	internal_organs += new /obj/item/organ/brain/nightmare
+	internal_organs += new /obj/item/organ/heart/nightmare
+	internal_organs += new /obj/item/organ/liver/fly
+	internal_organs += new /obj/item/organ/lungs
+	..()
 
 /obj/item/bodypart/r_arm/h
 	max_stamina_damage = 30
