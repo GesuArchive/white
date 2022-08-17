@@ -72,6 +72,7 @@
 	strip_delay = 50
 	equip_delay_other = 50
 	resistance_flags = FIRE_PROOF | ACID_PROOF
+	clothing_flags = CASTING_CLOTHES
 
 /obj/item/clothing/suit/wizrobe/red
 	name = "красная роба волшебника"

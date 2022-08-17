@@ -36,7 +36,7 @@
 		return
 
 	if(attached_hand)
-		.[PANEL_DISPLAY_STATUS] = "ACTIVE"
+		.[PANEL_DISPLAY_STATUS] = "АКТИВНО"
 
 /datum/action/cooldown/spell/touch/can_cast_spell(feedback = TRUE)
 	. = ..()
