@@ -177,7 +177,7 @@
 	hud_used.palette_actions.refresh_actions()
 
 /atom/movable/screen/button_palette
-	desc = "<b>Drag</b> buttons to move them<br><b>Shift-click</b> any button to reset it<br><b>Alt-click</b> this to reset all buttons"
+	desc = "<b>Перетягивай</b> кнопки для перемещения<br><b>Shift-клик</b> на любой кнопке для сброса<br><b>Alt-клик</b> по этой кнопке для сброса всех"
 	icon = 'icons/hud/64x16_actions.dmi'
 	icon_state = "screen_gen_palette"
 	screen_loc = ui_action_palette
@@ -204,9 +204,9 @@
 /atom/movable/screen/button_palette/update_name(updates)
 	. = ..()
 	if(expanded)
-		name = "Hide Buttons"
+		name = "Спрятать"
 	else
-		name = "Show Buttons"
+		name = "Показать"
 
 /atom/movable/screen/button_palette/proc/refresh_owner()
 	var/mob/viewer = our_hud.mymob
@@ -270,7 +270,7 @@ GLOBAL_LIST_INIT(palette_removed_matrix, list(1.4,0,0,0, 0.7,0.4,0,0, 0.4,0,0.6,
 			for(var/datum/hud/hud as anything in action.viewers)
 				var/atom/movable/screen/movable/action_button/button = action.viewers[hud]
 				hud.position_action(button, SCRN_OBJ_DEFAULT)
-		to_chat(usr, span_notice("Action button positions have been reset."))
+		to_chat(usr, span_notice("Позиция кнопок сброшена."))
 		return TRUE
 
 	set_expanded(!expanded)
@@ -326,8 +326,8 @@ GLOBAL_LIST_INIT(palette_removed_matrix, list(1.4,0,0,0, 0.7,0.4,0,0, 0.4,0,0.6,
 	if(viewer.client)
 		viewer.client.screen |= src
 
-	var/list/settings = our_hud.get_action_buttons_icons()
-	icon = settings["bg_icon"]
+	//var/list/settings = our_hud.get_action_buttons_icons()
+	//icon = settings["bg_icon"]
 
 /atom/movable/screen/palette_scroll/Click(location, control, params)
 	if(!can_use(usr))
@@ -345,8 +345,7 @@ GLOBAL_LIST_INIT(palette_removed_matrix, list(1.4,0,0,0, 0.7,0.4,0,0, 0.4,0,0.6,
 	return ..()
 
 /atom/movable/screen/palette_scroll/down
-	name = "Scroll Down"
-	desc = "<b>Click</b> on this to scroll the actions above down"
+	name = "Вниз"
 	icon_state = "scroll_down"
 	scroll_direction = 1
 
@@ -358,8 +357,7 @@ GLOBAL_LIST_INIT(palette_removed_matrix, list(1.4,0,0,0, 0.7,0.4,0,0, 0.4,0,0.6,
 	return ..()
 
 /atom/movable/screen/palette_scroll/up
-	name = "Scroll Up"
-	desc = "<b>Click</b> on this to scroll the actions above up"
+	name = "Вверх"
 	icon_state = "scroll_up"
 	scroll_direction = -1
 
@@ -372,8 +370,8 @@ GLOBAL_LIST_INIT(palette_removed_matrix, list(1.4,0,0,0, 0.7,0.4,0,0, 0.4,0,0.6,
 
 /// Exists so you have a place to put your buttons when you move them around
 /atom/movable/screen/action_landing
-	name = "Button Space"
-	desc = "<b>Drag and drop</b> a button into this spot<br>to add it to the group"
+	name = "ПРОСТРАНСТВО КНОПОК"
+	desc = "<b>Перемещай</b> кнопки сюда, <br>чтобы добавить их в группу"
 	icon = 'icons/hud/screen_gen.dmi'
 	icon_state = "reserved"
 	// We want our whole 32x32 space to be clickable, so dropping's forgiving
@@ -398,8 +396,8 @@ GLOBAL_LIST_INIT(palette_removed_matrix, list(1.4,0,0,0, 0.7,0.4,0,0, 0.4,0,0.6,
 	if(viewer.client)
 		viewer.client.screen |= src
 
-	var/list/settings = our_hud.get_action_buttons_icons()
-	icon = settings["bg_icon"]
+	//var/list/settings = our_hud.get_action_buttons_icons()
+	//icon = settings["bg_icon"]
 
 /// Reacts to having a button dropped on it
 /atom/movable/screen/action_landing/proc/hit_by(atom/movable/screen/movable/action_button/button)

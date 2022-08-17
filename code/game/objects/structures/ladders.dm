@@ -103,7 +103,7 @@
 
 /// The message shown when the player starts climbing the ladder
 /obj/structure/ladder/proc/show_initial_fluff_message(mob/user, going_up)
-	var/up_down = going_up ? "поднимаюсь" : "опускаюсь"
+	var/up_down = going_up ? "поднимается" : "опускается"
 	user.balloon_alert_to_viewers("[up_down]...")
 
 /obj/structure/ladder/proc/travel(mob/user, going_up = TRUE, is_ghost = FALSE)
