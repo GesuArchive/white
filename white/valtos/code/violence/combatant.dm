@@ -68,6 +68,7 @@
 	. = ..()
 	var/datum/antagonist/combatant/red/comb = new
 	H.mind.add_antag_datum(comb)
+	H.faction = "combatant_red"
 
 /datum/job/combantant/blue
 	title = JOB_COMBATANT_BLUE
@@ -81,6 +82,7 @@
 	. = ..()
 	var/datum/antagonist/combatant/blue/comb = new
 	H.mind.add_antag_datum(comb)
+	H.faction = "combatant_blue"
 
 /datum/id_trim/combatant
 	assignment = "white"

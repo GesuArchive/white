@@ -123,7 +123,8 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/cmd_admin_toggle_fov,
 	/client/proc/force_say,
 	/client/proc/force_violence_map,
-	/client/proc/force_violence_mode
+	/client/proc/force_violence_mode,
+	/client/proc/violence_friendlyfire,
 	))
 GLOBAL_PROTECT(admin_verbs_fun)
 GLOBAL_LIST_INIT(admin_verbs_spawn, list(/datum/admins/proc/spawn_atom, /datum/admins/proc/podspawn_atom,

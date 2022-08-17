@@ -3,6 +3,7 @@
 GLOBAL_VAR_INIT(violence_mode_activated, FALSE)
 GLOBAL_VAR_INIT(violence_current_round, 0)
 GLOBAL_VAR_INIT(violence_time_limit, 3 MINUTES)
+GLOBAL_VAR_INIT(violence_friendlyfire, FALSE)
 GLOBAL_DATUM(violence_red_datum, /datum/team/violence/red)
 GLOBAL_DATUM(violence_blue_datum, /datum/team/violence/blue)
 GLOBAL_VAR(violence_theme)
@@ -479,3 +480,12 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 
 	log_admin("[key_name(src)] выбирает режим [chosen_mode] для насилия.")
 	message_admins("[key_name_admin(src)] выбирает режим [chosen_mode] для насилия.")
+
+/client/proc/violence_friendlyfire()
+	set category = "Дбг"
+	set name = "Violence Friendlyfire"
+
+	GLOB.violence_friendlyfire != GLOB.violence_friendlyfire
+
+	log_admin("[key_name(src)] [GLOB.violence_friendlyfire ? "включает" : "выключает"] огонь по своим для насилия.")
+	message_admins("[key_name_admin(src)] [GLOB.violence_friendlyfire ? "включает" : "выключает"] огонь по своим для насилия.")
