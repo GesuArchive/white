@@ -485,7 +485,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	set category = "Дбг"
 	set name = "Violence Friendlyfire"
 
-	GLOB.violence_friendlyfire != GLOB.violence_friendlyfire
+	GLOB.violence_friendlyfire = !GLOB.violence_friendlyfire
 
 	log_admin("[key_name(src)] [GLOB.violence_friendlyfire ? "включает" : "выключает"] огонь по своим для насилия.")
 	message_admins("[key_name_admin(src)] [GLOB.violence_friendlyfire ? "включает" : "выключает"] огонь по своим для насилия.")
