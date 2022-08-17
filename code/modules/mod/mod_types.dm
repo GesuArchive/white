@@ -216,7 +216,7 @@
 
 /obj/item/mod/control/pre_equipped/ninja
 	theme = /datum/mod_theme/ninja
-	applied_cell = /obj/item/stock_parts/cell
+	applied_cell = /obj/item/stock_parts/cell/super
 	initial_modules = list(
 		/obj/item/mod/module/storage,
 		/obj/item/mod/module/noslip,
