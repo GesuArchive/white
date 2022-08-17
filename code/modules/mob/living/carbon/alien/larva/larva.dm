@@ -42,9 +42,10 @@
 	..()
 
 //This needs to be fixed
+// This comment is 12 years old I hope it's fixed by now
 /mob/living/carbon/alien/larva/get_status_tab_items()
 	. = ..()
-	. += "Progress: [amount_grown]/[max_grown]"
+	. += "Прогресс: [amount_grown]/[max_grown]"
 
 /mob/living/carbon/alien/larva/Login()
 	. = ..()
@@ -58,9 +59,8 @@
 	..(amount)
 
 //can't equip anything
-/mob/living/carbon/alien/larva/attack_ui(slot_id)
+/mob/living/carbon/alien/larva/attack_ui(slot_id, params)
 	return
-
 
 // new damage icon system
 // now constructs damage icon for each organ from mask * damage field
@@ -70,15 +70,6 @@
 
 /mob/living/carbon/alien/larva/start_pulling(atom/movable/AM, state, force = move_force, supress_message = FALSE)
 	return
-
-/mob/living/carbon/alien/larva/stripPanelUnequip(obj/item/what, mob/who)
-	to_chat(src, span_warning("У меня не хватает ловкости для этого!"))
-	return
-
-/mob/living/carbon/alien/larva/stripPanelEquip(obj/item/what, mob/who)
-	to_chat(src, span_warning("У меня не хватает ловкости для этого!"))
-	return
-
 
 /mob/living/carbon/alien/larva/canBeHandcuffed()
 	return TRUE

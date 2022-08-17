@@ -43,54 +43,68 @@
 			volume = reagent_vol,\
 			after_eat = CALLBACK(src, .proc/OnEatFrom))
 
-/obj/item/organ/proc/Insert(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)
-	if(!iscarbon(M) || owner == M)
-		return
+/*
+ * Insert the organ into the select mob.
+ *
+ * reciever - the mob who will get our organ
+ * special - "quick swapping" an organ out - when TRUE, the mob will be unaffected by not having that organ for the moment
+ * drop_if_replaced - if there's an organ in the slot already, whether we drop it afterwards
+ */
+/obj/item/organ/proc/Insert(mob/living/carbon/reciever, special = FALSE, drop_if_replaced = TRUE)
+	if(!iscarbon(reciever) || owner == reciever)
+		return FALSE
 
-	var/obj/item/organ/replaced = M.getorganslot(slot)
+	var/obj/item/organ/replaced = reciever.getorganslot(slot)
 	if(replaced)
-		replaced.Remove(M, special = TRUE)
+		replaced.Remove(reciever, special = TRUE)
 		if(drop_if_replaced)
-			replaced.forceMove(get_turf(M))
+			replaced.forceMove(get_turf(reciever))
 		else
 			qdel(replaced)
 
-	SEND_SIGNAL(src, COMSIG_ORGAN_IMPLANTED, M)
-	SEND_SIGNAL(M, COMSIG_CARBON_GAIN_ORGAN, src, special)
+	SEND_SIGNAL(src, COMSIG_ORGAN_IMPLANTED, reciever)
+	SEND_SIGNAL(reciever, COMSIG_CARBON_GAIN_ORGAN, src, special)
 
-	owner = M
-	M.internal_organs |= src
-	M.internal_organs_slot[slot] = src
+	owner = reciever
+	reciever.internal_organs |= src
+	reciever.internal_organs_slot[slot] = src
+	/// internal_organs_slot must ALWAYS be ordered in the same way as organ_process_order
+	/// Otherwise life processing breaks down
+	sortTim(owner.internal_organs_slot, /proc/cmp_organ_slot_asc)
 	//вайтокостыль
 	if(!istype(loc, /atom/movable/organ_holder))
 		moveToNullspace()
 	RegisterSignal(owner, COMSIG_PARENT_EXAMINE, .proc/on_owner_examine)
-	for(var/X in actions)
-		var/datum/action/A = X
-		A.Grant(M)
+	for(var/datum/action/action as anything in actions)
+		action.Grant(reciever)
 	STOP_PROCESSING(SSobj, src)
+	return TRUE
 
-//Special is for instant replacement like autosurgeons
-/obj/item/organ/proc/Remove(mob/living/carbon/M, special = FALSE)
+/*
+ * Remove the organ from the select mob.
+ *
+ * organ_owner - the mob who owns our organ, that we're removing the organ from.
+ * special - "quick swapping" an organ out - when TRUE, the mob will be unaffected by not having that organ for the moment
+ */
+/obj/item/organ/proc/Remove(mob/living/carbon/organ_owner, special = FALSE)
 
 	UnregisterSignal(owner, COMSIG_PARENT_EXAMINE)
 
 	owner = null
-	if(M)
-		M.internal_organs -= src
-		if(M.internal_organs_slot[slot] == src)
-			M.internal_organs_slot.Remove(slot)
-		if((organ_flags & ORGAN_VITAL) && !special && !(M.status_flags & GODMODE))
-			M.death()
-	for(var/X in actions)
-		var/datum/action/A = X
-		A.Remove(M)
+	for(var/datum/action/action as anything in actions)
+		action.Remove(organ_owner)
 
-	SEND_SIGNAL(M, COMSIG_CARBON_LOSE_ORGAN, src, special)
-	SEND_SIGNAL(src, COMSIG_ORGAN_REMOVED, M)
+	if(organ_owner)
+		organ_owner.internal_organs -= src
+		if(organ_owner.internal_organs_slot[slot] == src)
+			organ_owner.internal_organs_slot.Remove(slot)
+		if((organ_flags & ORGAN_VITAL) && !special && !(organ_owner.status_flags & GODMODE))
+			organ_owner.death()
+
+	SEND_SIGNAL(src, COMSIG_ORGAN_REMOVED, organ_owner)
+	SEND_SIGNAL(organ_owner, COMSIG_CARBON_LOSE_ORGAN, src, special)
 
 	START_PROCESSING(SSobj, src)
-
 
 /obj/item/organ/proc/on_owner_examine(datum/source, mob/user, list/examine_list)
 	return

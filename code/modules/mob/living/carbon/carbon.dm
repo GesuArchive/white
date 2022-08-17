@@ -993,6 +993,9 @@
 	for(var/obj/item/organ/internal/internal_organ in internal_organs)
 		internal_organ.Insert(src)
 
+/proc/cmp_organ_slot_asc(slot_a, slot_b)
+	return GLOB.organ_process_order.Find(slot_a) - GLOB.organ_process_order.Find(slot_b)
+
 
 /mob/living/carbon/vv_get_dropdown()
 	. = ..()
