@@ -313,3 +313,11 @@ GLOBAL_VAR_INIT(borderlands_outline_mode, FALSE)
 	name = "singularity plane"
 	plane = SINGULARITY_PLANE
 	render_relay_plane = RENDER_PLANE_ABOVE_GAME
+
+/atom/movable/screen/plane_master/hud
+	name = "HUD plane"
+	plane = HUD_PLANE
+
+/atom/movable/screen/plane_master/above_hud
+	name = "above HUD plane"
+	plane = ABOVE_HUD_PLANE

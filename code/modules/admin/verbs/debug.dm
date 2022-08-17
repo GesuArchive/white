@@ -697,6 +697,15 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	if(msg)
 		debug_huds(msg)
 
+/client/proc/open_colorblind_test()
+	set category = "Дбг"
+	set name = "Colorblind Testing"
+	set desc = "Change your view to a budget version of colorblindness to test for usability"
+
+	if(!holder)
+		return
+	holder.color_test.ui_interact(mob)
+
 /client/proc/debug_huds(i as num)
 	set name = "Debug HUDs"
 
