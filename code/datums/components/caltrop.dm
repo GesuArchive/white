@@ -83,14 +83,27 @@
 	if(HAS_TRAIT(H, TRAIT_LIGHT_STEP))
 		damage *= 0.75
 
-
 	if(!(flags & CALTROP_SILENT) && !H.has_status_effect(/datum/status_effect/caltropped))
 		H.apply_status_effect(/datum/status_effect/caltropped)
 		H.visible_message(
 			span_danger("[H] наступает на [parent]."),
 			span_userdanger("Наступаю на [parent]!")
 		)
+		var/atom/A = parent
+		if(isatom(parent))
+			if(A.reagents)
+				var/datum/reagents/R = A.reagents
+				if(!R.total_volume)
+					H.transfer_blood_to(A, 2)
+				else if(H.is_injectable(H) && H && (H.reagents.total_volume <= H.reagents.maximum_volume)) 
+					R.trans_to(H, 2, transfered_by = H, methods = INJECT)
+				var/obj/item/bent_rod/syringe = A
+				syringe.embedding = list("pain_mult" = 1, "embed_chance" = 30, "fall_chance" = 70)
+				syringe.updateEmbedding()
+				syringe.tryEmbed(O, TRUE, TRUE)
+				H.update_damage_overlays()
 
+				
 	H.apply_damage(damage, BRUTE, picked_def_zone, wound_bonus = CANT_WOUND)
 
 	if(!(flags & CALTROP_NOSTUN)) // Won't set off the paralysis.

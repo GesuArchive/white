@@ -14,12 +14,14 @@
 	var/busy = FALSE		// needed for delayed drawing of blood
 	var/proj_piercing = 0 //does it pierce through thick clothes when shot with syringe gun
 	custom_materials = list(/datum/material/iron=10, /datum/material/glass=20)
+	embedding = list()
 	reagent_flags = TRANSPARENT
 	custom_price = PAYCHECK_EASY * 0.5
 	sharpness = SHARP_POINTY
 
 /obj/item/reagent_containers/syringe/Initialize(mapload)
 	. = ..()
+	AddComponent(/datum/component/caltrop, min_damage = 5)
 	if(list_reagents) //syringe starts in inject mode if its already got something inside
 		mode = SYRINGE_INJECT
 		update_icon()
