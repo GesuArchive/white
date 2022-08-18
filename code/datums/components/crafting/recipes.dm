@@ -61,7 +61,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/lance
-	name = "Explosive Lance (Grenade)"
+	name = "Взрывное копье (Граната)"
 	result = /obj/item/spear/explosive
 	reqs = list(/obj/item/spear = 1,
 				/obj/item/grenade = 1)
@@ -87,7 +87,7 @@
 	blacklist |= subtypesof(/obj/item/shield/riot/)
 
 /datum/crafting_recipe/molotov
-	name = "Molotov"
+	name = "Коктейль Молотова"
 	result = /obj/item/reagent_containers/food/drinks/bottle/molotov
 	reqs = list(/obj/item/reagent_containers/glass/rag = 1,
 				/obj/item/reagent_containers/food/drinks/bottle = 1)
@@ -97,7 +97,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/stunprod
-	name = "Stunprod"
+	name = "Самодельный электрошокер"
 	result = /obj/item/melee/baton/cattleprod
 	reqs = list(/obj/item/restraints/handcuffs/cable = 1,
 				/obj/item/stack/rods = 1,
@@ -107,7 +107,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/teleprod
-	name = "Teleprod"
+	name = "Телепортационное копьё"
 	result = /obj/item/melee/baton/cattleprod/teleprod
 	reqs = list(/obj/item/restraints/handcuffs/cable = 1,
 				/obj/item/stack/rods = 1,
@@ -118,7 +118,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/bola
-	name = "Bola"
+	name = "Бола"
 	result = /obj/item/restraints/legcuffs/bola
 	reqs = list(/obj/item/restraints/handcuffs/cable = 1,
 				/obj/item/stack/sheet/iron = 6)
@@ -127,7 +127,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/gonbola
-	name = "Gonbola"
+	name = "Гонбола"
 	result = /obj/item/restraints/legcuffs/bola/gonbola
 	reqs = list(/obj/item/restraints/handcuffs/cable = 1,
 				/obj/item/stack/sheet/iron = 6,
@@ -145,7 +145,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/tailclub
-	name = "Tail Club"
+	name = "Бита из хвоста"
 	result = /obj/item/tailclub
 	reqs = list(/obj/item/organ/tail/lizard = 1,
 				/obj/item/stack/sheet/iron = 1)
@@ -186,7 +186,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/riflestock
-	name = "Wooden Rifle Stock"
+	name = "Винтовочный приклад"
 	tool_paths = list(/obj/item/hatchet)
 	result = /obj/item/weaponcrafting/stock
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 8,
@@ -196,7 +196,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/advancedegun
-	name = "Advanced Energy Gun"
+	name = "Продвинутая энергетическая винтовка"
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	result = /obj/item/gun/energy/e_gun/nuclear
 	reqs = list(/obj/item/gun/energy/e_gun = 1,
@@ -211,7 +211,7 @@
 	blacklist += subtypesof(/obj/item/gun/energy/e_gun)
 
 /datum/crafting_recipe/tempgun
-	name = "Temperature Gun"
+	name = "Температурная винтовка"
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	result = /obj/item/gun/energy/temperature
 	reqs = list(/obj/item/gun/energy/e_gun = 1,
@@ -226,7 +226,7 @@
 	blacklist += subtypesof(/obj/item/gun/energy/e_gun)
 
 /datum/crafting_recipe/beam_rifle
-	name = "Particle Acceleration Rifle"
+	name = "Винтовка ускорения частиц"
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	result = /obj/item/gun/energy/beam_rifle
 	reqs = list(/obj/item/gun/energy/e_gun = 1,
@@ -243,7 +243,7 @@
 	blacklist += subtypesof(/obj/item/gun/energy/e_gun)
 
 /datum/crafting_recipe/ebow
-	name = "Energy Crossbow"
+	name = "Энергетический арбалет"
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	result = /obj/item/gun/energy/kinetic_accelerator/crossbow/large
 	reqs = list(/obj/item/gun/energy/kinetic_accelerator = 1,
@@ -259,7 +259,7 @@
 	blacklist += subtypesof(/obj/item/gun/energy/kinetic_accelerator)
 
 /datum/crafting_recipe/xraylaser
-	name = "X-ray Laser Gun"
+	name = "Рентгеновская лазерная пушка"
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	result = /obj/item/gun/energy/xray
 	reqs = list(/obj/item/gun/energy/laser = 1,
@@ -274,7 +274,7 @@
 	blacklist += subtypesof(/obj/item/gun/energy/laser)
 
 /datum/crafting_recipe/hellgun
-	name = "Hellfire Laser Gun"
+	name = "Лазерная пушка \"Адское пламя\""
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	result = /obj/item/gun/energy/laser/hellgun
 	reqs = list(/obj/item/gun/energy/laser = 1,
@@ -289,7 +289,7 @@
 	blacklist += subtypesof(/obj/item/gun/energy/laser)
 
 /datum/crafting_recipe/ioncarbine
-	name = "Ion Carbine"
+	name = "Ионный карабин"
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	result = /obj/item/gun/energy/ionrifle/carbine
 	reqs = list(/obj/item/gun/energy/laser = 1,
@@ -304,7 +304,7 @@
 	blacklist += subtypesof(/obj/item/gun/energy/laser)
 
 /datum/crafting_recipe/decloner
-	name = "Biological Demolecularisor"
+	name = "Клеточный Демолекуляризатор"
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	result = /obj/item/gun/energy/decloner
 	reqs = list(/obj/item/gun/energy/laser = 1,
@@ -321,7 +321,7 @@
 	blacklist += subtypesof(/obj/item/gun/energy/laser)
 
 /datum/crafting_recipe/teslacannon
-	name = "Tesla Cannon"
+	name = "Пушка Теслы"
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	result = /obj/item/gun/energy/tesla_cannon
 	reqs = list(/obj/item/assembly/signaler/anomaly/flux = 1,
@@ -462,7 +462,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/flamethrower
-	name = "Flamethrower"
+	name = "Огнемет"
 	result = /obj/item/flamethrower
 	reqs = list(/obj/item/weldingtool = 1,
 				/obj/item/assembly/igniter = 1,
@@ -475,7 +475,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/meteorslug
-	name = "Meteorslug Shell"
+	name = "Метеоритная пуля"
 	result = /obj/item/ammo_casing/shotgun/meteorslug
 	reqs = list(/obj/item/ammo_casing/shotgun/techshell = 1,
 				/obj/item/rcd_ammo = 1,
@@ -486,7 +486,7 @@
 	subcategory = CAT_AMMO
 
 /datum/crafting_recipe/pulseslug
-	name = "Pulse Slug Shell"
+	name = "Импульсная пуля"
 	result = /obj/item/ammo_casing/shotgun/pulseslug
 	reqs = list(/obj/item/ammo_casing/shotgun/techshell = 1,
 				/obj/item/stock_parts/capacitor/adv = 2,
@@ -551,7 +551,7 @@
 	subcategory = CAT_AMMO
 
 /datum/crafting_recipe/trash_cannon
-	name = "Trash Cannon"
+	name = "Мусорная пушка"
 	always_available = FALSE
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER)
 	result = /obj/structure/cannon/trash
@@ -566,7 +566,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/trashball
-	name = "Trashball"
+	name = "Мусорный шар"
 	always_available = FALSE
 	result = /obj/item/stack/cannonball/trashball
 	reqs = list(
@@ -577,7 +577,7 @@
 	subcategory = CAT_AMMO
 
 /datum/crafting_recipe/ishotgun
-	name = "Improvised Shotgun"
+	name = "Самодельный дробовик"
 	result = /obj/item/gun/ballistic/shotgun/doublebarrel/improvised
 	reqs = list(/obj/item/weaponcrafting/receiver = 1,
 				/obj/item/pipe = 1,
@@ -589,7 +589,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/chainsaw
-	name = "Chainsaw"
+	name = "Бензопила"
 	result = /obj/item/chainsaw
 	reqs = list(/obj/item/circular_saw = 1,
 				/obj/item/stack/cable_coil = 3,
@@ -600,7 +600,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/spear
-	name = "Spear"
+	name = "Копьё"
 	result = /obj/item/spear
 	reqs = list(/obj/item/restraints/handcuffs/cable = 1,
 				/obj/item/shard = 1,
@@ -625,7 +625,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/kittyears
-	name = "Kitty Ears"
+	name = "Кошачьи ушки"
 	result = /obj/item/clothing/head/kitty/genuine
 	time = 10
 	reqs = list(/obj/item/organ/tail/cat = 1,
@@ -634,7 +634,7 @@
 
 
 /datum/crafting_recipe/radiogloves
-	name = "Radio Gloves"
+	name = "Радиоперчатки"
 	result = /obj/item/clothing/gloves/radio
 	time = 15
 	reqs = list(/obj/item/clothing/gloves/color/black = 1,
@@ -644,7 +644,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/mixedbouquet
-	name = "Mixed bouquet"
+	name = "Смешанный букет"
 	result = /obj/item/bouquet
 	reqs = list(/obj/item/food/grown/poppy/lily =2,
 				/obj/item/grown/sunflower = 2,
@@ -652,25 +652,25 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/sunbouquet
-	name = "Sunflower bouquet"
+	name = "Букет из подсолнухов"
 	result = /obj/item/bouquet/sunflower
 	reqs = list(/obj/item/grown/sunflower = 6)
 	category = CAT_MISC
 
 /datum/crafting_recipe/poppybouquet
-	name = "Poppy bouquet"
+	name = "Маковый букет"
 	result = /obj/item/bouquet/poppy
 	reqs = list (/obj/item/food/grown/poppy = 6)
 	category = CAT_MISC
 
 /datum/crafting_recipe/rosebouquet
-	name = "Rose bouquet"
+	name = "Букет роз"
 	result = /obj/item/bouquet/rose
 	reqs = list(/obj/item/food/grown/rose = 6)
 	category = CAT_MISC
 
 /datum/crafting_recipe/spooky_camera
-	name = "Camera Obscura"
+	name = "Камера обскура"
 	result = /obj/item/camera/spooky
 	time = 15
 	reqs = list(/obj/item/camera = 1,
@@ -680,7 +680,7 @@
 
 
 /datum/crafting_recipe/skateboard
-	name = "Skateboard"
+	name = "Скейтборд"
 	result = /obj/vehicle/ridden/scooter/skateboard/improvised
 	time = 60
 	reqs = list(/obj/item/stack/sheet/iron = 5,
@@ -688,7 +688,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/scooter
-	name = "Scooter"
+	name = "Скутер"
 	result = /obj/vehicle/ridden/scooter
 	time = 65
 	reqs = list(/obj/item/stack/sheet/iron = 5,
@@ -696,7 +696,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/wheelchair
-	name = "Wheelchair"
+	name = "Инвалидное кресло"
 	result = /obj/vehicle/ridden/wheelchair
 	reqs = list(/obj/item/stack/sheet/iron = 4,
 				/obj/item/stack/rods = 6)
@@ -704,7 +704,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/motorized_wheelchair
-	name = "Motorized Wheelchair"
+	name = "Моторизованное инвалидное кресло"
 	result = /obj/vehicle/ridden/wheelchair/motorized
 	reqs = list(/obj/item/stack/sheet/iron = 10,
 		/obj/item/stack/rods = 8,
@@ -717,7 +717,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/trapdoor_kit
-	name = "Trapdoor Construction Kit"
+	name = "Строительный комплект для Люка"
 	result = /obj/item/trapdoor_kit
 	reqs = list(/obj/item/stack/sheet/iron = 4,
 		/obj/item/stack/rods = 4,
@@ -729,7 +729,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/trapdoor_remote
-	name = "Trapdoor Remote"
+	name = "Пульт дистанционного управления люком"
 	result = /obj/item/trapdoor_remote/preloaded // since its useless without its assembly just require an assembly to craft it
 	reqs = list(
 		/obj/item/compact_remote = 1,
@@ -740,7 +740,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/mousetrap
-	name = "Mouse Trap"
+	name = "Мышеловка"
 	result = /obj/item/assembly/mousetrap
 	time = 10
 	reqs = list(/obj/item/stack/sheet/cardboard = 1,

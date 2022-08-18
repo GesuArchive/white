@@ -1,6 +1,6 @@
 /obj/item/stamp
-	name = "\improper GRANTED rubber stamp"
-	desc = "A rubber stamp for stamping important documents."
+	name = "печать \"ОДОБРЕНО\""
+	desc = "Печать для штамповки важных документов."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "stamp-ok"
 	inhand_icon_state = "stamp"
@@ -14,76 +14,76 @@
 	attack_verb_simple = list("штампует")
 
 /obj/item/stamp/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] stamps 'VOID' on [user.ru_ego()] forehead, then promptly falls over, dead."))
+	user.visible_message(span_suicide("[user] ставит печать 'МЁРТВ' на своём лбу, а затем быстро падает замертво."))
 	return (OXYLOSS)
 
 /obj/item/stamp/qm
-	name = "quartermaster's rubber stamp"
+	name = "печать квартирмейстера"
 	icon_state = "stamp-qm"
 	dye_color = DYE_QM
 
 /obj/item/stamp/law
-	name = "law office's rubber stamp"
+	name = "печать адвоката"
 	icon_state = "stamp-law"
 	dye_color = DYE_LAW
 
 /obj/item/stamp/captain
-	name = "captain's rubber stamp"
+	name = "печать капитана"
 	icon_state = "stamp-cap"
 	dye_color = DYE_CAPTAIN
 
 /obj/item/stamp/hop
-	name = "head of personnel's rubber stamp"
+	name = "печать главы персонала"
 	icon_state = "stamp-hop"
 	dye_color = DYE_HOP
 
 /obj/item/stamp/hos
-	name = "head of security's rubber stamp"
+	name = "печать начальника охраны"
 	icon_state = "stamp-hos"
 	dye_color = DYE_HOS
 
 /obj/item/stamp/ce
-	name = "chief engineer's rubber stamp"
+	name = "печать главного инженера"
 	icon_state = "stamp-ce"
 	dye_color = DYE_CE
 
 /obj/item/stamp/rd
-	name = "research director's rubber stamp"
+	name = "печать директора по исследованиям"
 	icon_state = "stamp-rd"
 	dye_color = DYE_RD
 
 /obj/item/stamp/cmo
-	name = "chief medical officer's rubber stamp"
+	name = "печать главного врача"
 	icon_state = "stamp-cmo"
 	dye_color = DYE_CMO
 
 /obj/item/stamp/denied
-	name = "\improper DENIED rubber stamp"
+	name = "печать \"ОТКАЗАНО\""
 	icon_state = "stamp-deny"
 	dye_color = DYE_REDCOAT
 
 /obj/item/stamp/clown
-	name = "clown's rubber stamp"
+	name = "печать клоуна"
 	icon_state = "stamp-clown"
 	dye_color = DYE_CLOWN
 
 /obj/item/stamp/mime
-	name = "mime's rubber stamp"
+	name = "печать мима"
 	icon_state = "stamp-mime"
 	dye_color = DYE_MIME
 
 /obj/item/stamp/chap
-	name = "chaplain's rubber stamp"
+	name = "печать священника"
 	icon_state = "stamp-chap"
 	dye_color = DYE_CHAP
 
 /obj/item/stamp/centcom
-	name = "CentCom rubber stamp"
+	name = "печать центрального командования"
 	icon_state = "stamp-centcom"
 	dye_color = DYE_CENTCOM
 
 /obj/item/stamp/syndicate
-	name = "Syndicate rubber stamp"
+	name = "печать синдиката"
 	icon_state = "stamp-syndicate"
 	dye_color = DYE_SYNDICATE
 

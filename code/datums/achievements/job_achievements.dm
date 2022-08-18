@@ -6,28 +6,28 @@
 //chemistry
 
 /datum/award/achievement/jobs/chemistry_tut
-	name = "Perfect chemistry blossom"
-	desc = "Passed the chemistry tutorial with perfect purity!"
+	name = "Невероятный химик"
+	desc = "Прошёл обучение химика с высоким показателем чистоты!"
 	database_id = MEDAL_CHEM_TUT
 	icon = "chem_tut"
 
 //all of service! hip hip!
 
 /datum/award/achievement/jobs/service_bad
-	name = "Centcom Grade: Shitty Service"
-	desc = "Well, you at least tried. How about trying harder?"
+	name = "Оценка от ЦК: Дерьмовый сервис"
+	desc = "Что ж, ты хотя бы попытался. Как насчет того, чтобы стараться усерднее?"
 	database_id = MEDAL_BAD_SERVICE
 	icon = "chem_tut"
 
 /datum/award/achievement/jobs/service_okay
-	name = "Centcom Grade: Acceptable Service"
-	desc = "Well, it'll do! You and your department did just fine."
+	name = "Оценка от ЦК: Приемлимый сервис"
+	desc = "Что ж, сойдет! Вы и ваш отдел справились просто отлично."
 	database_id = MEDAL_OKAY_SERVICE
 	icon = "chem_tut"
 
 /datum/award/achievement/jobs/service_good
-	name = "Centcom Grade: Exemplary Service"
-	desc = "Centcom is very impressed with your department!"
+	name = "Оценка от ЦК: Обзразцовый сервис"
+	desc = "ЦК очень впечатлен вашим отделом!"
 	database_id = MEDAL_GOOD_SERVICE
 	icon = "chem_tut"
 

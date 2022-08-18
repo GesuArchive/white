@@ -11,8 +11,8 @@
  * Pens
  */
 /obj/item/pen
-	desc = "It's a normal black ink pen."
-	name = "pen"
+	desc = "Обычная ручка с черными чернилами."
+	name = "ручка"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "pen"
 	inhand_icon_state = "pen"
@@ -36,50 +36,50 @@
 	return(BRUTELOSS)
 
 /obj/item/pen/blue
-	desc = "It's a normal blue ink pen."
+	desc = "Обычная ручка с синими чернилами."
 	icon_state = "pen_blue"
 	colour = "blue"
 
 /obj/item/pen/red
-	desc = "It's a normal red ink pen."
+	desc = "Обычная ручка с красными чернилами."
 	icon_state = "pen_red"
 	colour = "red"
 	throw_speed = 4 // red ones go faster (in this case, fast enough to embed!)
 
 /obj/item/pen/invisible
-	desc = "It's an invisible pen marker."
+	desc = "Ручка с невидимыми чернилами."
 	icon_state = "pen"
 	colour = "white"
 
 /obj/item/pen/fourcolor
-	desc = "It's a fancy four-color ink pen, set to black."
-	name = "four-color pen"
-	colour = "black"
+	desc = "Модная ручка с четырехцветными чернилами, выбран черный цвет."
+	name = "четырехцветная ручка"
+	colour = "черный"
 
 /obj/item/pen/fourcolor/attack_self(mob/living/carbon/user)
 	switch(colour)
-		if("black")
-			colour = "red"
+		if("черный")
+			colour = "красный"
 			throw_speed++
-		if("red")
-			colour = "green"
+		if("красный")
+			colour = "зеленый"
 			throw_speed = initial(throw_speed)
-		if("green")
-			colour = "blue"
+		if("зеленый")
+			colour = "синий"
 		else
-			colour = "black"
-	to_chat(user, span_notice("<b>[src.name]</b> will now write in [colour]."))
-	desc = "It's a fancy four-color ink pen, set to [colour]."
+			colour = "черный"
+	to_chat(user, span_notice("Для <b>четырёхцветной ручки</b> выбран <b>[colour]</b> цвет."))
+	desc = "Модная ручка с четырехцветными чернилами, выбран [colour] цвет."
 
 /obj/item/pen/fountain
-	name = "fountain pen"
-	desc = "It's a common fountain pen, with a faux wood body."
+	name = "перьевая ручка"
+	desc = "Обычная перьевая ручка с корпусом под дерево."
 	icon_state = "pen-fountain"
 	font = FOUNTAIN_PEN_FONT
 
 /obj/item/pen/charcoal
-	name = "charcoal stylus"
-	desc = "It's just a wooden stick with some compressed ash on the end. At least it can write."
+	name = "пишущий уголек"
+	desc = "Деревянная палочка с небольшим количеством пепла на конце. Пишет и ладно."
 	icon_state = "pen-charcoal"
 	colour = "dimgray"
 	font = CHARCOAL_FONT
@@ -87,15 +87,15 @@
 	grind_results = list(/datum/reagent/ash = 5, /datum/reagent/cellulose = 10)
 
 /datum/crafting_recipe/charcoal_stylus
-	name = "Charcoal Stylus"
+	name = "Пишущий уголек"
 	result = /obj/item/pen/charcoal
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 1, /datum/reagent/ash = 30)
 	time = 30
 	category = CAT_PRIMAL
 
 /obj/item/pen/fountain/captain
-	name = "captain's fountain pen"
-	desc = "It's an expensive Oak fountain pen. The nib is quite sharp."
+	name = "капитанская авторучка"
+	desc = "Дорогая перьевая ручка с дубовыми вставкам. Перо заточено довольно остро."
 	icon_state = "pen-fountain-o"
 	force = 5
 	throwforce = 5
@@ -105,11 +105,11 @@
 	sharpness = SHARP_EDGED
 	resistance_flags = FIRE_PROOF
 	unique_reskin = list(
-		"Oak" = "pen-fountain-o",
-		"Gold" = "pen-fountain-g",
-		"Rosewood" = "pen-fountain-r",
-		"Black and Silver" = "pen-fountain-b",
-		"Command Blue" = "pen-fountain-cb"
+		"с дубовыми вставками" = "pen-fountain-o",
+		"с золотыми вставками" = "pen-fountain-g",
+		"с палисандровыми вставками" = "pen-fountain-r",
+		"с чёрными и серебряными вставками" = "pen-fountain-b",
+		", выполнена в цветах руководящего состава" = "pen-fountain-cb"
 	)
 	embedding = list("embed_chance" = 75)
 
@@ -120,17 +120,29 @@
 /obj/item/pen/fountain/captain/reskin_obj(mob/M)
 	..()
 	if(current_skin)
-		desc = "It's an expensive [current_skin] fountain pen. The nib is quite sharp."
+		desc = "Дорогая перьевая ручка [current_skin]. Перо заточено довольно остро."
 
 /obj/item/pen/attack_self(mob/living/carbon/user)
 	. = ..()
 	if(.)
 		return
 
-	var/deg = input(user, "What angle would you like to rotate the pen head to? (1-360)", "Rotate Pen Head") as null|num
+	var/deg = input(user, "На какой угол вы хотели бы повернуть ручку? (1-360)", "Повернуть ручку") as null|num
 	if(deg && (deg > 0 && deg <= 360))
 		degrees = deg
-		to_chat(user, span_notice("You rotate the top of the pen to [degrees] degrees."))
+		//Добавлено склонение
+		var/degreeStr = ""
+		if(degrees % 100 >= 10 && degrees % 100 <= 20)
+			degreeStr = "градусов"
+		else
+			switch(degrees % 10)
+				if(1)
+					degreeStr = "градус"
+				if(2 || 3 || 4 )
+					degreeStr = "градуса"
+				else degreeStr = "градусов"
+
+		to_chat(user, span_notice("Я повернул ручку на [degrees] [degreeStr]."))
 		SEND_SIGNAL(src, COMSIG_PEN_ROTATED, deg, user)
 
 /obj/item/pen/attack(mob/living/M, mob/user,stealth)
@@ -141,7 +153,7 @@
 		if(user.zone_selected == BODY_ZONE_HEAD)
 			var/input = tgui_input_text(usr, "Что бы ты хотел написать у [M] на лбу?", "Засранец...", M.headstamp)
 			if(!input || length(input) >= 30)
-				to_chat(user, span_warning("Тебе перехотелось писать..."))
+				to_chat(user, span_warning("Не хочу писать..."))
 				return
 			M.visible_message(user, span_danger("[user] начинает писать что-то на лбу <b>[M]</b>."))
 			var/speedofwriting = 40
@@ -151,7 +163,7 @@
 				M.visible_message(user, span_danger("[user] написал <b>[input]</b на лбу <b>[M]</b>."))
 				M.headstamp = input
 				return
-			to_chat(user, span_warning("Тебе перехотелось писать..."))
+			to_chat(user, span_warning("Не хочу писать..."))
 			return
 		if(M.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE))
 			to_chat(user, span_warning("You stab [M] with the pen."))
@@ -168,38 +180,38 @@
 	. = ..()
 	//Changing name/description of items. Only works if they have the UNIQUE_RENAME object flag set
 	if(isobj(O) && proximity && (O.obj_flags & UNIQUE_RENAME))
-		var/penchoice = tgui_input_list(user, "What would you like to edit?", "Rename, change description or reset both?", list("Rename","Change description","Reset"))
+		var/penchoice = tgui_input_list(user, "Что вы хотите изменить?", "Переименовать, изменить описание или сбросить?", list("Переименовать","Изменить описание","Сбросить"))
 		if(QDELETED(O) || !user.canUseTopic(O, BE_CLOSE))
 			return
-		if(penchoice == "Rename")
-			var/input = stripped_input(user,"What do you want to name [O]?", ,"[O.name]", MAX_NAME_LEN)
+		if(penchoice == "Переименовать")
+			var/input = stripped_input(user,"Как хотите назвать? [O]?", ,"[O.name]", MAX_NAME_LEN)
 			var/oldname = O.name
 			if(QDELETED(O) || !user.canUseTopic(O, BE_CLOSE))
 				return
 			if(oldname == input || input == "")
-				to_chat(user, span_notice("You changed [O] to... well... [O]."))
+				to_chat(user, span_notice("Я изменил [O] на... ну... [O]."))
 			else
 				O.name = input
 				var/datum/component/label/label = O.GetComponent(/datum/component/label)
 				if(label)
 					label.remove_label()
 					label.apply_label()
-				to_chat(user, span_notice("You have successfully renamed [oldname] to [O]."))
+				to_chat(user, span_notice("Я переименовал [oldname] в [O]."))
 				O.renamedByPlayer = TRUE
 
-		if(penchoice == "Change description")
-			var/input = stripped_input(user,"Describe [O] here:", ,"[O.desc]", 140)
+		if(penchoice == "Изменить описание")
+			var/input = stripped_input(user,"Опишите [O] здесь:", ,"[O.desc]", 140)
 			var/olddesc = O.desc
 			if(QDELETED(O) || !user.canUseTopic(O, BE_CLOSE))
 				return
 			if(olddesc == input || input == "")
-				to_chat(user, span_notice("You decide against changing [O] description."))
+				to_chat(user, span_notice("Я передумал менять описание [O]."))
 			else
 				O.desc = input
-				to_chat(user, span_notice("You have successfully changed [O] description."))
+				to_chat(user, span_notice("Я изменил описание [O]."))
 				O.renamedByPlayer = TRUE
 
-		if(penchoice == "Reset")
+		if(penchoice == "Сбросить")
 			if(QDELETED(O) || !user.canUseTopic(O, BE_CLOSE))
 				return
 			O.desc = initial(O.desc)
@@ -208,7 +220,7 @@
 			if(label)
 				label.remove_label()
 				label.apply_label()
-			to_chat(user, span_notice("You have successfully reset [O] name and description."))
+			to_chat(user, span_notice("Возвращаю [O] прежнее название и описание."))
 			O.renamedByPlayer = FALSE
 
 /*
@@ -259,9 +271,9 @@
 /obj/item/pen/edagger/suicide_act(mob/user)
 	. = BRUTELOSS
 	if(extended)
-		user.visible_message(span_suicide("[user] forcefully rams the pen into their mouth!"))
+		user.visible_message(span_suicide("[user] засовывает ручку в свой рот!"))
 	else
-		user.visible_message(span_suicide("[user] is holding a pen up to their mouth! It looks like [user.p_theyre()] trying to commit suicide!"))
+		user.visible_message(span_suicide("[user] держит ручку у рта! Похоже, [user.p_theyre()] пытается совершить суицид!"))
 		attack_self(user)
 
 /*
@@ -295,8 +307,8 @@
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
 /obj/item/pen/survival
-	name = "survival pen"
-	desc = "The latest in portable survival technology, this pen was designed as a miniature diamond pickaxe. Watchers find them very desirable for their diamond exterior."
+	name = "ручка выживальщика"
+	desc = "Новейшая разработка в сфере выживания! Ручка разработана в виде миниатюрной алмазной кирки."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "digging_pen"
 	inhand_icon_state = "pen"

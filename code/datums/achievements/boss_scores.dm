@@ -9,7 +9,7 @@
 	database_id = BOSS_SCORE
 
 /datum/award/score/blood_miner_score
-	name = "Кроваво-пьяных шахтёров убито"
+	name = "Демонически-пьяных шахтёров убито"
 	desc = "СКОЛЬКИХ ТЫ УБИЛ?"
 	database_id = MINER_SCORE
 
@@ -19,7 +19,7 @@
 	database_id = FROST_MINER_SCORE
 
 /datum/award/score/bubblegum_score
-	name = "Бубликов убито"
+	name = "Бубльгумов убито"
 	desc = "СКОЛЬКИХ ТЫ УБИЛ?"
 	database_id = BUBBLEGUM_SCORE
 

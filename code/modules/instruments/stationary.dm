@@ -1,6 +1,6 @@
 /obj/structure/musician
-	name = "Not A Piano"
-	desc = "Something broke, contact coderbus."
+	name = "Не пианино"
+	desc = "Что-то сломалось, свяжитесь с coderbus."
 	interaction_flags_atom = INTERACT_ATOM_ATTACK_HAND | INTERACT_ATOM_UI_INTERACT | INTERACT_ATOM_REQUIRES_DEXTERITY
 	var/can_play_unanchored = FALSE
 	var/list/allowed_instrument_ids = list("r3grand","r3harpsi","crharpsi","crgrand1","crbright1", "crichugan", "crihamgan","piano")
@@ -31,7 +31,7 @@
 	return TRUE
 
 /obj/structure/musician/piano
-	name = "space minimoog"
+	name = "космический минимуг"
 	icon = 'icons/obj/musician.dmi'
 	icon_state = "minimoog"
 	anchored = TRUE
@@ -43,10 +43,10 @@
 /obj/structure/musician/piano/Initialize(mapload)
 	. = ..()
 	if(prob(50) && icon_state == initial(icon_state))
-		name = "space minimoog"
-		desc = "This is a minimoog, like a space piano, but more spacey!"
+		name = "космический минимуг"
+		desc = "Это минимуг, как космическое пианино, но более космический! Иногда его называют космическим синтезатором."
 		icon_state = "minimoog"
 	else
-		name = "space piano"
-		desc = "This is a space piano, like a regular piano, but always in tune! Even if the musician isn't."
+		name = "космическое пианино"
+		desc = "Это космическое пианино, как обычное пианино, но всегда настроено! Даже, когда нет музыканта."
 		icon_state = "piano"

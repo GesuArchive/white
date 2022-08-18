@@ -20,43 +20,43 @@
 // GUN PART KIT //
 
 /obj/item/weaponcrafting/gunkit/
-	name = "стандартный комплект оружейных деталей для пистолета"
-	desc = "It's an empty gun parts container! Why do you have this?"
+	name = "стандартный комплект оружейных деталей для винтовки"
+	desc = "Это пустой контейнер для деталей оружия! Зачем тебе это?"
 	icon = 'icons/obj/improvised.dmi'
 	icon_state = "kitsuitcase"
 
 /obj/item/weaponcrafting/gunkit/nuclear
-	name = "advanced energy gun parts kit"
-	desc = "A suitcase containing the necessary gun parts to tranform a standard energy gun into an advaned energy gun."
+	name = "компоненты продвинутой энергетической винтовки"
+	desc = "Кейс, содержащий необходимые детали винтовки для преобразования стандартной энергетической винтовки в продвиную энергетическую винтовку."
 
 /obj/item/weaponcrafting/gunkit/tesla
-	name = "tesla cannon parts kit"
-	desc = "A suitcase containing the necessary gun parts to construct a tesla cannon around a stabilized flux anomaly. Handle with care."
+	name = "комплект деталей пушки тесла"
+	desc = "Кейс, содержащий необходимые детали для создания пушки тесла вокруг энергетической аномалии. Применять с соблюдением техники безопасности."
 
 /obj/item/weaponcrafting/gunkit/xray
-	name = "x-ray laser gun parts kit"
-	desc = "A suitcase containing the necessary gun parts to turn a laser gun into a x-ray laser gun. Do not point most parts directly towards face."
+	name = "комплект деталей рентгеновского лазерного винтовки"
+	desc = "Кейс с необходимыми деталями для преобразования лазерной винтовки в рентгеновскую лазерную винтовку. ВНИМАНИЕ! РАДИОАКТИВНО! Избегать близкого контакта кейса с паховой областью во время работы!"
 
 /obj/item/weaponcrafting/gunkit/ion
-	name = "стандартный комплект оружейных деталей для пистолета"
-	desc = "A suitcase containing the necessary gun parts to transform a standard laser gun into a ion carbine."
+	name = "стандартный комплект оружейных деталей для винтовки"
+	desc = "Кейс с необходимыми деталями для превращения стандартной лазерной винтовки в ионный карабин."
 
 /obj/item/weaponcrafting/gunkit/temperature
-	name = "temperature gun parts kit"
-	desc = "A suitcase containing the necessary gun parts to tranform a standard energy gun into a temperature gun. Fantastic at birthday parties and killing indigenious populations of lizardpeople."
+	name = "комплект деталей для температурного винтовки"
+	desc = "Кейс, содержащий необходимые детали винтовки для преобразования стандартной энергетической винтовки в температурный винтовку. Незаменим при противодействии быстро двигающимся противникам и существам чувствительным к перепадам температур."
 
 /obj/item/weaponcrafting/gunkit/beam_rifle
-	name = "particle acceleration rifle part kit"
-	desc = "The coup de grace of guncrafting. This suitcase contains the highly experimental rig for a particle acceleration rifle. Requires an energy gun, a stabilized flux anomaly and a stabilized gravity anomaly."
+	name = "комплект деталей винтовки для ускорения частиц"
+	desc = "Переворот в изготовлении оружия. В этом кейсе находится высокоэкспериментальная установка для винтовки ускорения частиц. Требуется энергетическая пушка, стабилизированная энергетическая аномалия и стабилизированная гравитационная аномалия."
 
 /obj/item/weaponcrafting/gunkit/decloner
-	name = "decloner part kit"
-	desc = "An uttery baffling array of gun parts and technology that somehow turns a laser gun into a decloner. Haircut not included."
+	name = "комплект деталей деклонера"
+	desc = "Комплект деталей для преобразования лазерной пушки в деклонер."
 
 /obj/item/weaponcrafting/gunkit/ebow
-	name = "energy crossbow part kit"
-	desc = "Highly illegal weapons refurbishment kit that allows you to turn the standard proto-kinetic accelerator into a near-duplicate energy crossbow. Almost like the real thing!"
+	name = "комплект деталей энергетического арбалета"
+	desc = "Нелегальный набор для модификации оружия. Позволяет модифицировать стандартный протокинетический ускоритель для создания подобия энергетического арбалета. Почти как настоящий!"
 
 /obj/item/weaponcrafting/gunkit/hellgun
 	name = "hellfire laser gun degradation kit"
-	desc = "Take a perfectly functioning laser gun. Butcher the inside of the gun so it runs hot and mean. You now have a hellfire laser. You monster."
+	desc = "Возьмите идеально работающую лазерную винтовку . Разделайте внутреннюю часть винтовки, чтобы он был горячим и подлым. Теперь у вас есть лазер \"адский огонь\". Ты чудовище."

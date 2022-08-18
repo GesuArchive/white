@@ -1,20 +1,20 @@
 {
     "ballmer_good_msg": [
-        "Hey guys, what if we rolled out a bluespace wiring system so mice can't destroy the powergrid anymore?",
-        "Hear me out here. What if, and this is just a theory, we made R&D controllable from our PDAs?",
-        "I'm thinking we should roll out a git repository for our research under the AGPLv3 license so that we can share it among the other stations freely.",
-        "I dunno about you guys, but IDs and PDAs being separate is clunky as fuck. Maybe we should merge them into a chip in our arms? That way they can't be stolen easily.",
-        "Why the fuck aren't we just making every pair of shoes into galoshes? We have the technology."
+        "Эй, ребят, что если мы внедрим блюспейс систему проводки? Тогда мыши не смогут есть наши провода!",
+        "Послушайте меня. Что, если, и это всего лишь теория, сможем контролировать РНД с наших ПДА?",
+        "Я думаю, нам следует развернуть репозиторий git для наших исследований под лицензией AGPLv3, чтобы мы могли свободно делиться им с другими станциями.",
+        "Не знаю как вы, но я считаю, что то, что ID и ПДА две разных вещи, пиздец как тупо. Может нам стоих их объединить в чип и имплантировать его в руки? Тогда их не так просто будет украсть.",
+        "Почему блять мы просто не превращаем каждую пару обуви в голоши? У нас же есть технологии для этого!"
     ],
 
     "ballmer_windows_me_msg": [
-        "Yo man, what if, we like, uh, put a webserver that's automatically turned on with default admin passwords into every PDA?",
-        "So like, you know how we separate our codebase from the master copy that runs on our consumer boxes? What if we merged the two and undid the separation between codebase and server?",
-        "Dude, radical idea: H.O.N.K mechs but with no bananium required.",
-        "Best idea ever: Disposal pipes instead of hallways.",
-        "We should store bank records in a webscale datastore, like /dev/null.",
-        "You ever wonder if /dev/null supports sharding?",
-        "Do you know who ate all the donuts?",
-        "What if we use a language that was written on a napkin and created over 1 weekend for all of our servers?"
+        "Эй, чувак, что, если мы, например, установим веб-сервер, который будет включен с доступом администратора, в каждый КПК?",
+        "Так, например, вы знаете, как мы отделяем нашу кодовую базу от основной копии, которая работает на наших потребительских коробках? Что, если мы объединим их и отменим разделение между кодовой базой и сервером?",
+        "Чувак, радикальная идея: Х.О.Н.К мех, но без бананиума!",
+        "Лучшая идея: мусоропровод вместо коридоров.",
+        "Мы должны хранить наши банковские данные на сервере, например /dev/null",
+        "Вы когда-нибудь задумывались, поддерживает ли /dev/null разделение и распределение данных?",
+        "Кто сожрал все пончики?",
+        "Что, если мы используем язык, который был написан на коленке и создан за 1 неделю для всех наших серверов?"
     ]
 }

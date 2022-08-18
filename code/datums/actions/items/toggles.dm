@@ -3,43 +3,43 @@
 /datum/action/item_action/toggle/New(Target)
 	..()
 	var/obj/item/item_target = target
-	name = "Toggle [item_target.name]"
+	name = "Переключить [item_target.name]"
 
 /datum/action/item_action/toggle_light
-	name = "Toggle Light"
+	name = "Переключить Свет"
 
 /datum/action/item_action/toggle_computer_light
-	name = "Toggle Flashlight"
+	name = "Переключить Фонарик"
 
 /datum/action/item_action/toggle_hood
-	name = "Toggle Hood"
+	name = "Переключить Капюшон"
 
 /datum/action/item_action/toggle_firemode
-	name = "Toggle Firemode"
+	name = "Переключить Режим огня"
 
 /datum/action/item_action/toggle_gunlight
-	name = "Toggle Gunlight"
+	name = "Переключить Фонарик"
 
 /datum/action/item_action/toggle_mode
-	name = "Toggle Mode"
+	name = "Переключить Режим"
 
 /datum/action/item_action/toggle_barrier_spread
-	name = "Toggle Barrier Spread"
+	name = "Переключить Распространение Барьера"
 
 /datum/action/item_action/toggle_paddles
-	name = "Toggle Paddles"
+	name = "Переключить Лопасти"
 
 /datum/action/item_action/toggle_mister
 	name = "Toggle Mister"
 
 /datum/action/item_action/toggle_helmet_light
-	name = "Toggle Helmet Light"
+	name = "Переключить Фонарик"
 
 /datum/action/item_action/toggle_welding_screen
-	name = "Toggle Welding Screen"
+	name = "Переключить Сварочную Маску"
 
 /datum/action/item_action/toggle_spacesuit
-	name = "Toggle Suit Thermal Regulator"
+	name = "Переключить Терморегулятор костюма"
 	icon_icon = 'icons/mob/actions/actions_spacesuit.dmi'
 	button_icon_state = "thermal_off"
 
@@ -51,10 +51,10 @@
 	return ..()
 
 /datum/action/item_action/toggle_helmet_flashlight
-	name = "Toggle Helmet Flashlight"
+	name = "Переключить Фонарик Шлема"
 
 /datum/action/item_action/toggle_helmet_mode
-	name = "Toggle Helmet Mode"
+	name = "Переключить Режим Шлема"
 
 /datum/action/item_action/toggle_voice_box
 	name = "Toggle Voice Box"
@@ -63,16 +63,16 @@
 	name = "Toggle Human Head"
 
 /datum/action/item_action/toggle_helmet
-	name = "Toggle Helmet"
+	name = "Переключить Шлем"
 
 /datum/action/item_action/toggle_seclight
-	name = "Toggle Seclight"
+	name = "Переключить Фонарик"
 
 /datum/action/item_action/toggle_jetpack
-	name = "Toggle Jetpack"
+	name = "Переключить Реактивный Ранец"
 
 /datum/action/item_action/jetpack_stabilization
-	name = "Toggle Jetpack Stabilization"
+	name = "Переключить Стабилизаторы Реактивного Ранца"
 
 /datum/action/item_action/jetpack_stabilization/IsAvailable()
 	var/obj/item/tank/jetpack/linked_jetpack = target
@@ -93,8 +93,8 @@
 	button_icon_state = "kindleKicks"
 
 /datum/action/item_action/storage_gather_mode
-	name = "Switch gathering mode"
-	desc = "Switches the gathering mode of a storage object."
+	name = "Сменить режим подбора"
+	desc = "Переключает режим подбора сумки."
 	icon_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "storage_gather_switch"
 

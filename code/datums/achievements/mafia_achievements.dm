@@ -5,93 +5,93 @@
 ///ALL THE ACHIEVEMENTS FOR WINNING A ROUND AS A ROLE///
 
 /datum/award/achievement/mafia/assistant
-	name = "Assistant Victory"
-	desc = "If you got killed instead of someone more important, you just flexed the true strength of your \"\"\"\"role\"\"\"\"."
+	name = "Победа за Ассистента"
+	desc = "Если вас убили вместо кого-то более важного, вы просто проявили истинную силу своей \"\"\"\"роли\"\"\"\"."
 	database_id = MAFIA_MEDAL_ASSISTANT
 	icon = "assistant"
 
 /datum/award/achievement/mafia/detective
-	name = "Detective Victory"
-	desc = "If you did this with a Medical Doctor in the game, i'm not really that impressed."
+	name = "Победа за Детектива"
+	desc = "Если вы сделали это с врачом в игре, я не очень впечатлен."
 	database_id = MAFIA_MEDAL_DETECTIVE
 	icon = "detective"
 
 /datum/award/achievement/mafia/psychologist
-	name = "Psychologist Victory"
-	desc = "You learned how to not reveal someone random night one! Or... maybe you're just a lucky bastard."
+	name = "Победа за психолога"
+	desc = "Вы узнали, как не раскрывать кого-то случайного в первую ночь! Или... может быть, ты просто удачливый ублюдок."
 	database_id = MAFIA_MEDAL_PSYCHOLOGIST
 	icon = "psychologist"
 
 /datum/award/achievement/mafia/chaplain
-	name = "Chaplain Victory"
-	desc = "Useless... until the one night the thoughtfeeder confidently claims themselves as detective. Mafia's true bullshit detector."
+	name = "Победа за Священника"
+	desc = "Бесполезный... до той самой ночи, когда Thoughtfeeder уверенно заявил о себе как о детективе. Настоящий детектор лжи мафии."
 	database_id = MAFIA_MEDAL_CHAPLAIN
 	icon = "chaplain"
 
 /datum/award/achievement/mafia/md
-	name = "Medical Doctor Victory"
-	desc = "Congratulations on learning how to not talk!"
+	name = "Победа за Врача"
+	desc = "Поздравляю с тем, что вы научились не разговаривать!"
 	database_id = MAFIA_MEDAL_MD
 	icon = "md"
 
 /datum/award/achievement/mafia/lawyer
-	name = "Lawyer Victory"
-	desc = "Oh don't mind me, i'm just the worst rol- Oops, I just instantly ended the game."
+	name = "Победа за Адвоката"
+	desc = "О, не обращайте на меня внимания, я просто худшая рол-Упс, я просто мгновенно закончил игру."
 	database_id = MAFIA_MEDAL_LAWYER
 	icon = "lawyer"
 
 /datum/award/achievement/mafia/hop
-	name = "Head of Personnel Victory"
-	desc = "King of Assistants, waster of a single mafia's night, thrower of games."
+	name = "Победа за Главу Персонала"
+	desc = "Король Ассистентов, расточитель ночи одной мафии, организатор игр."
 	database_id = MAFIA_MEDAL_HOP
 	icon = "hop"
 
 /datum/award/achievement/mafia/changeling
-	name = "Changeling Victory"
-	desc = "I think the changelings are metacomming."
+	name = "Победа за Генокрада"
+	desc = "Я думаю, что Генокрады метакоммутируются."
 	database_id = MAFIA_MEDAL_CHANGELING
 	icon = "changeling"
 
 /datum/award/achievement/mafia/thoughtfeeder
-	name = "Thoughtfeeder Victory"
-	desc = "Clown's best friend. And Obsessed. And fugitive? Whose side are you on?!"
+	name = "Победа за Thoughtfeeder"
+	desc = "Лучший друг Клоуна. И Одержимого. И беглеца? На чьей ты стороне?!"
 	database_id = MAFIA_MEDAL_THOUGHTFEEDER
 	icon = "thoughtfeeder"
 
 /datum/award/achievement/mafia/traitor
-	name = "Traitor Victory"
-	desc = "Guys, we still have two more changelings to ki-!! TRAITOR VICTORY !!"
+	name = "Победа за Предателя"
+	desc = "Ребята, у нас осталось еще два генокрада, которых нужно уби-!! ПОБЕДА ПРЕДАТЕЛЯ!!"
 	database_id = MAFIA_MEDAL_TRAITOR
 	icon = "traitor"
 
 /datum/award/achievement/mafia/nightmare
-	name = "Nightmare Victory"
-	desc = "DID YOUR LIGHT FLICKER?!"
+	name = "Победа за Кошмар"
+	desc = "СВЕТ МЕРЦАЛ?!"
 	database_id = MAFIA_MEDAL_NIGHTMARE
 	icon = "nightmare"
 
 /datum/award/achievement/mafia/fugitive
-	name = "Fugitive Victory"
-	desc = "I'm just the description on an achievement, but if you end up having to choose between town and changelings, go changelings."
+	name = "Победа за Беглеца"
+	desc = "Я просто описание достижения, но если вам в конечном итоге придется выбирать между городом и генокрадами, выбирайте генокрадов."
 	database_id = MAFIA_MEDAL_FUGITIVE
 	icon = "fugitive"
 
 /datum/award/achievement/mafia/obsessed
-	name = "Obsessed Victory"
-	desc = "You got your target lynched, so instead of being spiteful and annoying, you're just smug and annoying."
+	name = "Победа за Одержимого"
+	desc = "Ты линчевал свою цель, так что вместо того, чтобы быть злобным и раздражающим, ты просто самодовольный и раздражающий."
 	database_id = MAFIA_MEDAL_OBSESSED
 	icon = "obsessed"
 
 /datum/award/achievement/mafia/clown
-	name = "Clown Victory"
-	desc = "Did you know this works on traitors, despite their immunity? If you hit the jackpot and manage to kill one, they'll salt into the next dimension. Clown tips!"
+	name = "Победа за Клоуна"
+	desc = "Знаете ли вы, что это действует на предателей, несмотря на их иммунитет? Если вы сорвете джекпот и сумеете убить одного из них, они перейдут в следующее измерение. Советы клоуна!"
 	database_id = MAFIA_MEDAL_CLOWN
 	icon = "clown"
 
 ///ALL THE ACHIEVEMENTS FOR MISC MAFIA ODDITIES///
 
 /datum/award/achievement/mafia/universally_hated
-	name = "Universally Hated"
-	desc = "Managed to get more than 12 votes when put up on trial, jesus christ."
+	name = "Всеобщая ненависть"
+	desc = "Сумел набрать более 12 голосов, когда предстал перед судом, лох это судьба..."
 	database_id = MAFIA_MEDAL_HATED
 	icon = "hated"

@@ -1,7 +1,7 @@
 ///MGS BOX!
 /datum/action/item_action/agent_box
-	name = "Deploy Box"
-	desc = "Find inner peace, here, in the box."
+	name = "Коробка развертывания"
+	desc = "Обрети внутренний покой здесь, в коробке."
 	check_flags = AB_CHECK_HANDS_BLOCKED|AB_CHECK_IMMOBILE|AB_CHECK_CONSCIOUS
 	background_icon_state = "bg_agent"
 	icon_icon = 'icons/mob/actions/actions_items.dmi'
@@ -22,7 +22,7 @@
 		return
 	//Box closing from here on out.
 	if(!isturf(owner.loc)) //Don't let the player use this to escape mechs/welded closets.
-		to_chat(owner, span_warning("You need more space to activate this implant!"))
+		to_chat(owner, span_warning("Мне нужно больше места, чтобы активировать этот имплантат!"))
 		return
 	if(!COOLDOWN_FINISHED(src, box_cooldown))
 		return
@@ -50,6 +50,6 @@
 	var/obj/structure/closet/cardboard/agent/box = owner.loc
 	owner.playsound_local(box, 'sound/misc/box_deploy.ogg', 50, TRUE)
 	box.open()
-	owner.visible_message(span_suicide("[owner] falls out of [box]! It looks like [owner.p_they()] committed suicide!"))
+	owner.visible_message(span_suicide("[owner] выпадает из [box]! Похоже, [owner.p_they()] совершил суицид!"))
 	owner.throw_at(get_turf(owner))
 	return OXYLOSS
