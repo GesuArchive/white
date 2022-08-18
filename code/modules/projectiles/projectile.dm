@@ -202,7 +202,7 @@
 		updateEmbedding()
 	AddElement(/datum/element/connect_loc, projectile_connections)
 
-	if(GLOB.violence_friendlyfire)
+	if(!GLOB.violence_mode_activated || GLOB.violence_friendlyfire)
 		return
 
 	var/mob/factioneer = firer
