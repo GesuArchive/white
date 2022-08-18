@@ -28,7 +28,7 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list( \
 		time = 4 SECONDS, \
 		one_per_turf = TRUE, \
 		on_floor = TRUE, \
-		desc = span_cultbold("Можно создать глазные повязки фанатиков, сферы проклятия шатлов, и оборудование идущего по завесе."), \
+		desc = span_cultbold("Можно создать глазные повязки фанатиков, сферы проклятия шаттлов, и оборудование идущего по завесе."), \
 		required_noun = "листов рунического металла", \
 	), \
 	new /datum/stack_recipe/radial( \

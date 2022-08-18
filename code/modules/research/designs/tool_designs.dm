@@ -360,13 +360,13 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/shuttlecreator
-	name = "Набор сделай сам - \"Шатлостроение\""
+	name = "Набор сделай сам - \"шаттлостроение\""
 	desc = "Устройство, используемое для определения области, необходимой для нестандартных судов. Использует блюспейс кристаллы для создания космических кораблей."
 	id = "shuttle_creator"
 	build_path = /obj/item/shuttle_creator
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 8000, /datum/material/titanium = 5000, /datum/material/bluespace = 5000)
-	category = list("Спейсподы и шатлостроение")
-	sub_category = list("Шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
+	sub_category = list("шаттлостроение")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING

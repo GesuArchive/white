@@ -425,12 +425,12 @@
 	construction_time = 40
 
 /datum/design/board/shuttle/flight_control
-	name = "Консоль управления шатлом"
-	desc = "Терминал управления шатлом из комплекта Сделай сам - шатлостроение."
+	name = "Консоль управления шаттлом"
+	desc = "Терминал управления шаттлом из комплекта Сделай сам - шаттлостроение."
 	id = "shuttle_control"
 	build_path = /obj/item/circuitboard/computer/shuttle/flight_control
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
-	category = list("Консоли", "Спейсподы и шатлостроение")
-	sub_category = list("Шатлостроение")
+	category = list("Консоли", "Спейсподы и шаттлостроение")
+	sub_category = list("шаттлостроение")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING

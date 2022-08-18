@@ -73,7 +73,7 @@
 	))
 
 //Спавн оружия в чехле, так можно задать пресеты, по умолчанию /obj/item/tank/internals/tactical/ должен быть пуст, а пресеты устанавливаются через наследников
-/obj/item/tank/internals/tactical/Initialize(mapload)			//Эскадрон Смерти, Шатл Рейнджеров, Лазутчик Синдиката (корабль), Syndicate Operative - Full Kit (Лонер)
+/obj/item/tank/internals/tactical/Initialize(mapload)			//Эскадрон Смерти, шаттл Рейнджеров, Лазутчик Синдиката (корабль), Syndicate Operative - Full Kit (Лонер)
 	. = ..()
 	update_appearance()
 

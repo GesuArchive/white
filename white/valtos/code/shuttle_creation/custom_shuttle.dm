@@ -1,6 +1,6 @@
 /obj/machinery/computer/shuttle_flight/custom_shuttle
-	name = "консоль управления шатлом"
-	desc = "Терминал управления шатлом из комплекта Сделай сам - шатлостроение."
+	name = "консоль управления шаттлом"
+	desc = "Терминал управления шаттлом из комплекта Сделай сам - шаттлостроение."
 	circuit = /obj/item/circuitboard/computer/shuttle/flight_control
 	icon_screen = "shuttle"
 	icon_keyboard = "tech_key"

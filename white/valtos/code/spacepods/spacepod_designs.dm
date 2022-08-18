@@ -5,7 +5,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	build_path = /obj/item/circuitboard/mecha/pod
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Производство")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -17,7 +17,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron=5000, /datum/material/uranium=1000, /datum/material/plasma=5000)
 	build_path = /obj/item/pod_parts/core
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Производство")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -29,7 +29,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron=15000,/datum/material/glass=5000,/datum/material/plasma=10000)
 	build_path = /obj/item/pod_parts/armor
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Броня")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -40,7 +40,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	build_path = /obj/item/pod_parts/armor/black
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Броня")
 	materials = list(/datum/material/iron=15000,/datum/material/glass=5000,/datum/material/plasma=10000)
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
@@ -52,7 +52,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	build_path = /obj/item/pod_parts/armor/industrial
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Броня")
 	materials = list(/datum/material/iron=15000,/datum/material/glass=5000,/datum/material/plasma=10000,/datum/material/diamond=5000,/datum/material/silver=7500)
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_ENGINEERING
@@ -64,7 +64,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	build_path = /obj/item/pod_parts/armor/security
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Броня")
 	materials = list(/datum/material/iron=15000,/datum/material/glass=5000,/datum/material/plasma=10000,/datum/material/diamond=5000,/datum/material/silver=7500)
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
@@ -76,7 +76,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	build_path = /obj/item/pod_parts/armor/gold
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Броня")
 	materials = list(/datum/material/iron=5000,/datum/material/glass=2500,/datum/material/plasma=7500,/datum/material/gold=10000)
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
@@ -92,7 +92,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	build_path = /obj/item/spacepod_equipment/weaponry/disabler
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Системы вооружения")
 	materials = list(/datum/material/iron = 15000)
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
@@ -104,7 +104,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	build_path = /obj/item/spacepod_equipment/weaponry/burst_disabler
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Системы вооружения")
 	materials = list(/datum/material/iron = 15000,/datum/material/plasma=2000)
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
@@ -116,7 +116,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	build_path = /obj/item/spacepod_equipment/weaponry/laser
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Системы вооружения")
 	materials = list(/datum/material/iron=10000,/datum/material/glass=5000,/datum/material/gold=1000,/datum/material/silver=2000)
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
@@ -128,7 +128,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	build_path = /obj/item/spacepod_equipment/weaponry/laser_heavylaser
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Системы вооружения")
 	materials = list(/datum/material/iron=10000,/datum/material/glass=5000,/datum/material/gold=4000,/datum/material/silver=4000, /datum/material/diamond = 4000)
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
@@ -140,7 +140,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000, /datum/material/silver = 2000, /datum/material/uranium = 2000)
 	build_path = /obj/item/spacepod_equipment/weaponry/basic_pod_ka
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Добыча полезных ископаемых")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
@@ -152,7 +152,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000, /datum/material/silver = 2000, /datum/material/gold = 2000, /datum/material/diamond = 2000)
 	build_path = /obj/item/spacepod_equipment/weaponry/pod_ka
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Добыча полезных ископаемых")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
@@ -165,7 +165,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000, /datum/material/silver = 2000, /datum/material/gold = 2000, /datum/material/diamond = 2000)
 	build_path = /obj/item/spacepod_equipment/weaponry/plasma_cutter
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Добыча полезных ископаемых")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
@@ -177,7 +177,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000, /datum/material/silver = 4000, /datum/material/gold = 4000, /datum/material/diamond = 4000)
 	build_path = /obj/item/spacepod_equipment/weaponry/plasma_cutter/adv
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Добыча полезных ископаемых")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
@@ -193,7 +193,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron=5000)
 	build_path = /obj/item/spacepod_equipment/tracker
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Вспомогательные системы")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -209,7 +209,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron=20000, /datum/material/glass=2000)
 	build_path = /obj/item/spacepod_equipment/cargo/large/ore
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Добыча полезных ископаемых")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
@@ -221,7 +221,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron=25000)
 	build_path = /obj/item/spacepod_equipment/cargo/large
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Вспомогательные системы")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -237,7 +237,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron=7500, /datum/material/glass=2500)
 	build_path = /obj/item/spacepod_equipment/cargo/chair
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Вспомогательные системы")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -252,7 +252,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron=4500)
 	build_path = /obj/item/spacepod_equipment/lock/keyed
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Вспомогательные системы")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -264,7 +264,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron=500)
 	build_path = /obj/item/spacepod_key
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Вспомогательные системы")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -275,7 +275,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	build_path = /obj/item/device/lock_buster
-	category = list("Спейсподы и шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("Вспомогательные системы")
 	materials = list(/datum/material/iron = 15000, /datum/material/diamond=2500) //it IS a drill!
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY

@@ -79,7 +79,7 @@
 /obj/item/stack/tile/mineral/titanium
 	name = "титановая плитка"
 	singular_name = "титановая напольная плитка"
-	desc = "Плитка из титана, используется в шатлах."
+	desc = "Плитка из титана, используется в шаттлах."
 	icon_state = "tile_shuttle"
 	inhand_icon_state = "tile-shuttle"
 	turf_type = /turf/open/floor/mineral/titanium

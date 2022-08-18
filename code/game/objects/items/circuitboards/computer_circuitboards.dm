@@ -603,8 +603,8 @@
 	build_path = /obj/machinery/computer/shuttle_flight/exploration
 
 /obj/item/circuitboard/computer/shuttle/flight_control
-	name = "консоль управления шатлом"
-	desc = "Терминал управления шатлом из комплекта Сделай сам - шатлостроение."
+	name = "консоль управления шаттлом"
+	desc = "Терминал управления шаттлом из комплекта Сделай сам - шаттлостроение."
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	build_path = /obj/machinery/computer/shuttle_flight/custom_shuttle
 

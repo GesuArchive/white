@@ -1035,8 +1035,8 @@
 	build_path = /obj/item/circuitboard/machine/shuttle/engine/plasma
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
-	category = list("Спейсподы и шатлостроение")
-	sub_category = list("Шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
+	sub_category = list("шаттлостроение")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/shuttle/engine/void
@@ -1046,8 +1046,8 @@
 	build_path = /obj/item/circuitboard/machine/shuttle/engine/void
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
-	category = list("Спейсподы и шатлостроение")
-	sub_category = list("Шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
+	sub_category = list("шаттлостроение")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/shuttle/engine/heater
@@ -1057,6 +1057,6 @@
 	build_path = /obj/item/circuitboard/machine/shuttle/heater
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
-	category = list("Спейсподы и шатлостроение")
-	sub_category = list("Шатлостроение")
+	category = list("Спейсподы и шаттлостроение")
+	sub_category = list("шаттлостроение")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE

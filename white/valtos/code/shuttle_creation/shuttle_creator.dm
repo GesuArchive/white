@@ -2,7 +2,7 @@
 #define CARDINAL_DIRECTIONS_Y list(0, 1, 0, -1)
 //============ Shuttle Creator Object ============
 /obj/item/shuttle_creator
-	name = "Набор сделай сам - \"Шатлостроение\""
+	name = "Набор сделай сам - \"шаттлостроение\""
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rsd"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'

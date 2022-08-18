@@ -2775,7 +2775,7 @@
 /////////////////////////shuttle tech/////////////////////////
 /datum/techweb_node/basic_shuttle_tech
 	id = "basic_shuttle"
-	display_name = "Базовое шатлостроение"
+	display_name = "Базовое шаттлостроение"
 	description = "Руководство для самых маленьких или как собрать свой шаттл для чайников."
 	prereq_ids = list(
 		"bluespace_travel",
