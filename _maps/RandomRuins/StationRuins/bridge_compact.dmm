@@ -3181,10 +3181,6 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/command/teleporter)
-"qb" = (
-/obj/machinery/door/firedoor,
-/turf/closed/wall/r_wall,
-/area/hallway/primary/central/east)
 "qn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -5907,7 +5903,7 @@ kT
 kT
 kT
 ap
-qb
+kT
 dC
 Bs
 dy
