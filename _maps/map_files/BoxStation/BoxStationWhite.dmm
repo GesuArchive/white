@@ -12356,6 +12356,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/south)
+"dtz" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "dtB" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -24951,6 +24957,7 @@
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry/public)
 "hsX" = (
+/obj/machinery/light,
 /turf/open/floor/carpet{
 	icon_state = "carpetsymbol"
 	},
@@ -38953,6 +38960,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engineering/storage/tech)
+"lWv" = (
+/obj/structure/railing/corner,
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "lWy" = (
 /obj/machinery/vending/custom,
 /turf/closed/wall,
@@ -44964,6 +44975,11 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
+"nQx" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing,
+/turf/open/openspace,
+/area/maintenance/starboard/fore)
 "nQy" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -58605,6 +58621,7 @@
 /area/science/xenobiology)
 "sim" = (
 /obj/structure/cable,
+/obj/machinery/light,
 /turf/open/floor/carpet{
 	icon_state = "carpetsymbol"
 	},
@@ -64448,6 +64465,12 @@
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
+"ujd" = (
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "ujh" = (
 /obj/effect/turf_decal/stripes/white/line,
 /obj/effect/decal/cleanable/dirt,
@@ -65010,6 +65033,7 @@
 /area/commons/storage/emergency/port)
 "usr" = (
 /obj/machinery/portable_atmospherics/scrubber,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "usu" = (
@@ -68205,6 +68229,7 @@
 /area/commons/fitness/recreation)
 "vqk" = (
 /obj/machinery/space_heater,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "vqm" = (
@@ -68284,6 +68309,11 @@
 "vsO" = (
 /turf/closed/wall,
 /area/commons/vacant_room)
+"vsZ" = (
+/obj/structure/lattice,
+/obj/machinery/light,
+/turf/open/openspace,
+/area/service/chapel/main)
 "vtr" = (
 /obj/structure/table/wood,
 /obj/machinery/chem_dispenser/drinks{
@@ -76477,6 +76507,12 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/science/misc_lab)
+"xXL" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard/fore)
 "xXY" = (
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -187613,7 +187649,7 @@ ngT
 wsg
 sgL
 phK
-wsg
+owT
 qVU
 odJ
 wsg
@@ -188131,8 +188167,8 @@ wsg
 wsg
 odJ
 wsg
-wsg
-wsg
+lWv
+dtz
 hRm
 daF
 dUZ
@@ -188388,8 +188424,8 @@ wsg
 xnp
 odJ
 usr
-nEl
-wsg
+nQx
+uua
 hRm
 esn
 dUZ
@@ -188645,8 +188681,8 @@ xrJ
 tQv
 tQv
 tQv
-rRS
-wsg
+nQx
+uua
 hRm
 sAg
 dUZ
@@ -188902,8 +188938,8 @@ kWt
 wyP
 oNa
 tQv
-uGf
-wsg
+nQx
+uua
 hRm
 rJH
 dUZ
@@ -189159,8 +189195,8 @@ kWt
 mRQ
 oNa
 tQv
-eBg
-wsg
+nQx
+uua
 hRm
 hYa
 dUZ
@@ -189176,7 +189212,7 @@ pXp
 pXp
 pXp
 pXp
-pXp
+vsZ
 eyI
 tbN
 dJI
@@ -189416,8 +189452,8 @@ kWt
 doS
 qiH
 tQv
-wsg
-wsg
+ujd
+xXL
 hRm
 rXv
 dUZ
@@ -189930,7 +189966,7 @@ pWv
 yfR
 wsM
 tQv
-wsg
+nEl
 wsg
 sgL
 gCz
@@ -190187,7 +190223,7 @@ lnk
 ana
 eGw
 tQv
-wsg
+rRS
 wsg
 qEz
 pXp
@@ -190204,7 +190240,7 @@ pXp
 pXp
 pXp
 pXp
-pXp
+vsZ
 eyI
 tbN
 flB
@@ -190444,7 +190480,7 @@ kAJ
 itH
 viO
 tQv
-tKw
+uGf
 wsg
 qEz
 gCz
@@ -190701,7 +190737,7 @@ uht
 itH
 mmP
 tQv
-tKw
+eBg
 wsg
 qEz
 gCz

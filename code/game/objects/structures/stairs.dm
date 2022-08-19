@@ -59,6 +59,7 @@
 	if(!anchored)
 		. += "<hr>"
 		. += span_smallnotice("Можно приварить к полу сваркой.")
+
 /obj/structure/stairs/unanchored
 	anchored =  FALSE
 

@@ -14,6 +14,12 @@
 			if(O.obj_flags & BLOCK_Z_IN_DOWN)
 				return FALSE
 		return TRUE
+	if(direction == UP)
+		for(var/obj/O in contents)
+			O.Bumped(A)
+			if(O.density)
+				return FALSE
+		return TRUE
 	return FALSE
 
 //direction is direction of travel of A
