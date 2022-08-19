@@ -102,5 +102,6 @@
 
 	if (client)
 		client.move_delay = initial(client.move_delay)
+		COOLDOWN_START(client, respawn_delay, 20 MINUTES)
 
 	return TRUE

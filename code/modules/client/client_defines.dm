@@ -36,7 +36,8 @@
 	COOLDOWN_DECLARE(say_slowmode)
 	/// The last urgent ahelp that this player sent
 	COOLDOWN_DECLARE(urgent_ahelp_cooldown)
-
+	/// Phoenix respawn delay
+	COOLDOWN_DECLARE(respawn_delay)
 		/////////
 		//OTHER//
 		/////////

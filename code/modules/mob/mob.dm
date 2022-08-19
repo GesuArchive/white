@@ -750,6 +750,10 @@
 	if(pd <= 0 && (CONFIG_GET(flag/norespawn) && (!check_rights_for(usr.client, R_ADMIN) || tgui_alert(usr, "Хуй сосал?", "Respawn", list("Да", "Нет")) != "Да")))
 		return
 
+	if(!COOLDOWN_FINISHED(client, respawn_delay))
+		to_chat(usr, span_boldnotice("Перерождение будет доступно через [DisplayTimeText(COOLDOWN_TIMELEFT(client, respawn_delay))]."))
+		return
+
 	if((stat != DEAD || !( SSticker )))
 		to_chat(usr, span_boldnotice("Живу!"))
 		return
