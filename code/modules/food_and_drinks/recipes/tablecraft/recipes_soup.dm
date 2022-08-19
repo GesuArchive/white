@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////SOUP////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/meatballsoup
-	name = "Meatball soup"
+	name = "Суп с фрикадельками"
 	reqs = list(
 		/datum/reagent/water = 10,
 		/obj/item/reagent_containers/glass/bowl = 1,
@@ -16,7 +16,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/vegetablesoup
-	name = "Vegetable soup"
+	name = "Овощной суп"
 	reqs = list(
 		/datum/reagent/water = 10,
 		/obj/item/reagent_containers/glass/bowl = 1,
@@ -29,7 +29,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/nettlesoup
-	name = "Nettle soup"
+	name = "Суп из крапивы"
 	reqs = list(
 		/datum/reagent/water = 10,
 		/obj/item/reagent_containers/glass/bowl = 1,
@@ -41,7 +41,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/wingfangchu
-	name = "Wingfangchu"
+	name = "Суньвыньчу"
 	reqs = list(
 		/obj/item/reagent_containers/glass/bowl = 1,
 		/datum/reagent/consumable/soysauce = 5,
@@ -51,7 +51,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/wishsoup
-	name = "Wish soup"
+	name = "Суп желания"
 	reqs = list(
 		/datum/reagent/water = 20,
 		/obj/item/reagent_containers/glass/bowl = 1
@@ -60,7 +60,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/hotchili
-	name = "Hot chili"
+	name = "Рагу из острого перца"
 	reqs = list(
 		/obj/item/reagent_containers/glass/bowl = 1,
 		/obj/item/food/meat/cutlet = 2,
@@ -71,7 +71,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/coldchili
-	name = "Cold chili"
+	name = "Рагу из ледяного чили"
 	reqs = list(
 		/obj/item/reagent_containers/glass/bowl = 1,
 		/obj/item/food/meat/cutlet = 2,
@@ -82,7 +82,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/clownchili
-	name = "Chili con carnival"
+	name = "Чили кон карнивал"
 	reqs = list(
 		/obj/item/reagent_containers/glass/bowl = 1,
 		/obj/item/food/meat/cutlet = 2,
@@ -94,7 +94,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/tomatosoup
-	name = "Tomato soup"
+	name = "Томатный суп"
 	reqs = list(
 		/datum/reagent/water = 10,
 		/obj/item/reagent_containers/glass/bowl = 1,
@@ -104,7 +104,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/eyeballsoup
-	name = "Eyeball soup"
+	name = "Суп с глазными яблоками"
 	reqs = list(
 		/datum/reagent/water = 10,
 		/obj/item/reagent_containers/glass/bowl = 1,
@@ -116,7 +116,7 @@
 
 
 /datum/crafting_recipe/food/milosoup
-	name = "Milo soup"
+	name = "Мисосиру"
 	reqs = list(
 		/datum/reagent/water = 10,
 		/obj/item/reagent_containers/glass/bowl = 1,
@@ -127,7 +127,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/bloodsoup
-	name = "Blood soup"
+	name = "Кровавый суп"
 	reqs = list(
 		/datum/reagent/blood = 10,
 		/obj/item/reagent_containers/glass/bowl = 1,
@@ -137,7 +137,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/slimesoup
-	name = "Slime soup"
+	name = "Слаймовый суп"
 	reqs = list(
 			/datum/reagent/water = 10,
 			/datum/reagent/toxin/slimejelly = 5,
@@ -147,7 +147,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/clownstears
-	name = "Clowns tears"
+	name = "Слезы клоуна"
 	reqs = list(
 		/datum/reagent/water = 10,
 		/obj/item/reagent_containers/glass/bowl = 1,
@@ -158,7 +158,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/mysterysoup
-	name = "Mystery soup"
+	name = "Мистический суп"
 	reqs = list(
 		/datum/reagent/water = 10,
 		/obj/item/reagent_containers/glass/bowl = 1,
@@ -171,7 +171,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/mushroomsoup
-	name = "Mushroom soup"
+	name = "Грибной суп"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/datum/reagent/water = 5,
@@ -182,7 +182,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/beetsoup
-	name = "Beet soup"
+	name = "Борщ"
 	reqs = list(
 		/datum/reagent/water = 10,
 		/obj/item/reagent_containers/glass/bowl = 1,
@@ -193,7 +193,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/stew
-	name = "Stew"
+	name = "Стью"
 	reqs = list(
 		/datum/reagent/water = 10,
 		/obj/item/reagent_containers/glass/bowl = 1,
@@ -208,7 +208,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/spacylibertyduff
-	name = "Spacy liberty duff"
+	name = "Наркотическая фригийская шняга"
 	reqs = list(
 		/datum/reagent/consumable/ethanol/vodka = 5,
 		/obj/item/reagent_containers/glass/bowl = 1,
@@ -218,7 +218,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/amanitajelly
-	name = "Amanita jelly"
+	name = "Мухоморное желе"
 	reqs = list(
 		/datum/reagent/consumable/ethanol/vodka = 5,
 		/obj/item/reagent_containers/glass/bowl = 1,
@@ -228,7 +228,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/sweetpotatosoup
-	name = "Sweet potato soup"
+	name = "Суп из сладкого картофеля"
 	reqs = list(
 		/datum/reagent/water = 10,
 		/datum/reagent/consumable/sugar = 5,
@@ -239,7 +239,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/redbeetsoup
-	name = "Red beet soup"
+	name = "Свекольник"
 	reqs = list(
 		/datum/reagent/water = 10,
 		/obj/item/reagent_containers/glass/bowl = 1,
@@ -250,7 +250,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/onionsoup
-	name = "French onion soup"
+	name = "Французский луковый суп"
 	reqs = list(
 		/datum/reagent/water = 10,
 		/obj/item/reagent_containers/glass/bowl = 1,
@@ -261,7 +261,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/bisque
-	name = "Bisque"
+	name = "Суп-пюре"
 	reqs = list(
 		/datum/reagent/water = 10,
 		/obj/item/reagent_containers/glass/bowl = 1,
@@ -272,7 +272,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/bungocurry
-	name = "Bungo Curry"
+	name = "Бунго карри"
 	reqs = list(
 		/datum/reagent/water = 5,
 		/datum/reagent/consumable/cream = 5,
@@ -284,7 +284,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/electron
-	name = "Electron Soup"
+	name = "Электризованный суп"
 	reqs = list(
 		/datum/reagent/water = 10,
 		/datum/reagent/consumable/salt = 5,
@@ -295,7 +295,7 @@
 	subcategory = CAT_SOUP
 
 /datum/crafting_recipe/food/peasoup
-	name = "Pea soup"
+	name = "Гороховый суп"
 	reqs = list(
 		/datum/reagent/water = 10,
 		/obj/item/food/grown/peas = 2,
@@ -304,4 +304,14 @@
 		/obj/item/reagent_containers/glass/bowl = 1
 	)
 	result = /obj/item/food/soup/peasoup
+	subcategory = CAT_SOUP
+
+/datum/crafting_recipe/food/oatmeal
+	name = "Овсянка"
+	reqs = list(
+		/datum/reagent/consumable/milk = 10,
+		/obj/item/reagent_containers/glass/bowl = 1,
+		/obj/item/food/grown/oat = 1
+	)
+	result = /obj/item/food/soup/oatmeal
 	subcategory = CAT_SOUP

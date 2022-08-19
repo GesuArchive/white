@@ -49,7 +49,7 @@
 	return
 
 /datum/crafting_recipe/improv_explosive
-	name = "IED"
+	name = "СВУ"
 	result = /obj/item/grenade/iedcasing
 	reqs = list(/datum/reagent/fuel = 50,
 				/obj/item/stack/cable_coil = 1,
@@ -155,7 +155,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/tailwhip
-	name = "Liz O' Nine Tails"
+	name = "Плеть из хвостов ящериц"
 	result = /obj/item/melee/chainofcommand/tailwhip
 	reqs = list(/obj/item/organ/tail/lizard = 1,
 				/obj/item/stack/cable_coil = 1)
@@ -165,7 +165,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/catwhip
-	name = "Cat O' Nine Tails"
+	name = "Плеть из кошачьих хвостов"
 	result = /obj/item/melee/chainofcommand/tailwhip/kitty
 	reqs = list(/obj/item/organ/tail/cat = 1,
 				/obj/item/stack/cable_coil = 1)
@@ -174,7 +174,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/reciever
-	name = "Modular Rifle Reciever"
+	name = "Модульная затворная коробка"
 	tool_behaviors = list(TOOL_WRENCH, TOOL_WELDER, TOOL_SAW)
 	result = /obj/item/weaponcrafting/receiver
 	reqs = list(/obj/item/stack/sheet/iron = 5,
@@ -348,7 +348,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/secbot
-	name = "Secbot"
+	name = "Офицер Бибски"
 	result = /mob/living/simple_animal/bot/secbot
 	reqs = list(/obj/item/assembly/signaler = 1,
 				/obj/item/clothing/head/helmet/sec = 1,
@@ -360,7 +360,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/cleanbot
-	name = "Cleanbot"
+	name = "Бот уборщик"
 	result = /mob/living/simple_animal/bot/cleanbot
 	reqs = list(/obj/item/reagent_containers/glass/bucket = 1,
 				/obj/item/assembly/prox_sensor = 1,
@@ -369,7 +369,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/floorbot
-	name = "Floorbot"
+	name = "Ремонтник полов"
 	result = /mob/living/simple_animal/bot/floorbot
 	reqs = list(/obj/item/storage/toolbox = 1,
 				/obj/item/stack/tile/plasteel = 10,
@@ -379,7 +379,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/medbot
-	name = "Medbot"
+	name = "Медицинский бот"
 	result = /mob/living/simple_animal/bot/medbot
 	reqs = list(/obj/item/healthanalyzer = 1,
 				/obj/item/storage/firstaid = 1,
@@ -389,7 +389,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/honkbot
-	name = "Honkbot"
+	name = "Хонкобот"
 	result = /mob/living/simple_animal/bot/honkbot
 	reqs = list(/obj/item/storage/box/clown = 1,
 				/obj/item/bodypart/r_arm/robot = 1,
@@ -399,7 +399,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/firebot
-	name = "Firebot"
+	name = "Пожарный бот"
 	result = /mob/living/simple_animal/bot/firebot
 	reqs = list(/obj/item/extinguisher = 1,
 				/obj/item/bodypart/r_arm/robot = 1,
@@ -409,7 +409,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/vibebot
-	name = "Vibebot"
+	name = "Вайб бот"
 	result = /mob/living/simple_animal/bot/vibebot
 	reqs = list(/obj/item/light/bulb = 2,
 				/obj/item/bodypart/head/robot = 1,
@@ -419,7 +419,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/hygienebot
-	name = "Hygienebot"
+	name = "Гигиенический бот"
 	result = /mob/living/simple_animal/bot/hygienebot
 	reqs = list(/obj/item/bot_assembly/hygienebot = 1,
 				/obj/item/stack/ducts = 1,
@@ -429,7 +429,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/vim
-	name = "Vim"
+	name = "Вим"
 	result = /obj/vehicle/sealed/car/vim
 	reqs = list(/obj/item/clothing/head/helmet/space/eva = 1,
 				/obj/item/bodypart/l_leg/robot = 1,
@@ -441,7 +441,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/atmosbot
-	name = "Atmosbot"
+	name = "Атмос бот"
 	result = /mob/living/simple_animal/bot/atmosbot
 	reqs = list(/obj/item/analyzer = 1,
 				/obj/item/bodypart/r_arm/robot = 1,
@@ -451,7 +451,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/improvised_pneumatic_cannon //Pretty easy to obtain but
-	name = "Pneumatic Cannon"
+	name = "Самодельная пневмопушка"
 	result = /obj/item/pneumatic_cannon/ghetto
 	tool_behaviors = list(TOOL_WELDER, TOOL_WRENCH)
 	reqs = list(/obj/item/stack/sheet/iron = 4,
@@ -475,7 +475,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/meteorslug
-	name = "Метеоритная пуля"
+	name = "Метеоритный патрон"
 	result = /obj/item/ammo_casing/shotgun/meteorslug
 	reqs = list(/obj/item/ammo_casing/shotgun/techshell = 1,
 				/obj/item/rcd_ammo = 1,
@@ -486,7 +486,7 @@
 	subcategory = CAT_AMMO
 
 /datum/crafting_recipe/pulseslug
-	name = "Импульсная пуля"
+	name = "Имульсный патрон"
 	result = /obj/item/ammo_casing/shotgun/pulseslug
 	reqs = list(/obj/item/ammo_casing/shotgun/techshell = 1,
 				/obj/item/stock_parts/capacitor/adv = 2,
@@ -497,7 +497,7 @@
 	subcategory = CAT_AMMO
 
 /datum/crafting_recipe/dragonsbreath
-	name = "Dragonsbreath Shell"
+	name = "Патрон \"Дыхание дракона\""
 	result = /obj/item/ammo_casing/shotgun/dragonsbreath
 	reqs = list(/obj/item/ammo_casing/shotgun/techshell = 1, /datum/reagent/phosphorus = 5)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
@@ -506,7 +506,7 @@
 	subcategory = CAT_AMMO
 
 /datum/crafting_recipe/frag12
-	name = "FRAG-12 Shell"
+	name = "Разрывной патрон"
 	result = /obj/item/ammo_casing/shotgun/frag12
 	reqs = list(/obj/item/ammo_casing/shotgun/techshell = 1,
 				/datum/reagent/glycerol = 5,
@@ -518,7 +518,7 @@
 	subcategory = CAT_AMMO
 
 /datum/crafting_recipe/ionslug
-	name = "Ion Scatter Shell"
+	name = "Ионная картечь"
 	result = /obj/item/ammo_casing/shotgun/ion
 	reqs = list(/obj/item/ammo_casing/shotgun/techshell = 1,
 				/obj/item/stock_parts/micro_laser/ultra = 1,
@@ -529,7 +529,7 @@
 	subcategory = CAT_AMMO
 
 /datum/crafting_recipe/improvisedslug
-	name = "Improvised Shotgun Shell"
+	name = "Самодельный картечный патрон"
 	result = /obj/item/ammo_casing/shotgun/improvised
 	reqs = list(/obj/item/stack/sheet/iron = 2,
 				/obj/item/stack/cable_coil = 1,
@@ -540,7 +540,7 @@
 	subcategory = CAT_AMMO
 
 /datum/crafting_recipe/laserslug
-	name = "Scatter Laser Shell"
+	name = "Лазерная картечь"
 	result = /obj/item/ammo_casing/shotgun/laserslug
 	reqs = list(/obj/item/ammo_casing/shotgun/techshell = 1,
 				/obj/item/stock_parts/capacitor/adv = 1,
@@ -748,7 +748,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/papersack
-	name = "Paper Sack"
+	name = "Бумажный мешок"
 	result = /obj/item/storage/box/papersack
 	time = 10
 	reqs = list(/obj/item/paper = 5)
@@ -756,7 +756,7 @@
 
 
 /datum/crafting_recipe/flashlight_eyes
-	name = "Flashlight Eyes"
+	name = "Глаза фонарики"
 	result = /obj/item/organ/eyes/robotic/flashlight
 	time = 10
 	reqs = list(
@@ -766,14 +766,14 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/paperframes
-	name = "Paper Frames"
+	name = "Бумажный фрейм"
 	result = /obj/item/stack/sheet/paperframes/five
 	time = 10
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 5, /obj/item/paper = 20)
 	category = CAT_MISC
 
 /datum/crafting_recipe/naturalpaper
-	name = "Hand-Pressed Paper"
+	name = "Спрессованная руками бумага"
 	time = 30
 	reqs = list(/datum/reagent/water = 50, /obj/item/stack/sheet/mineral/wood = 1)
 	tool_paths = list(/obj/item/hatchet)
@@ -781,43 +781,43 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/toysword
-	name = "Toy Sword"
+	name = "Игрушечный меч"
 	reqs = list(/obj/item/light/bulb = 1, /obj/item/stack/cable_coil = 1, /obj/item/stack/sheet/plastic = 4)
 	result = /obj/item/toy/sword
 	category = CAT_MISC
 
 /datum/crafting_recipe/blackcarpet
-	name = "Black Carpet"
+	name = "Черный ковер"
 	reqs = list(/obj/item/stack/tile/carpet = 50, /obj/item/toy/crayon/black = 1)
 	result = /obj/item/stack/tile/carpet/black/fifty
 	category = CAT_MISC
 
 /datum/crafting_recipe/curtain
-	name = "Curtains"
+	name = "Занавески"
 	reqs = 	list(/obj/item/stack/sheet/cloth = 4, /obj/item/stack/rods = 1)
 	result = /obj/structure/curtain/cloth
 	category = CAT_MISC
 
 /datum/crafting_recipe/showercurtain
-	name = "Shower Curtains"
+	name = "Занавески для душа"
 	reqs = 	list(/obj/item/stack/sheet/cloth = 2, /obj/item/stack/sheet/plastic = 2, /obj/item/stack/rods = 1)
 	result = /obj/structure/curtain
 	category = CAT_MISC
 
 /datum/crafting_recipe/extendohand_r
-	name = "Extendo-Hand (Right Arm)"
+	name = "Длинн-о-рука (Правая)"
 	reqs = list(/obj/item/bodypart/r_arm/robot = 1, /obj/item/clothing/gloves/boxing = 1)
 	result = /obj/item/extendohand
 	category = CAT_MISC
 
 /datum/crafting_recipe/extendohand_l
-	name = "Extendo-Hand (Left Arm)"
+	name = "Длинн-о-рука (Левая)"
 	reqs = list(/obj/item/bodypart/l_arm/robot = 1, /obj/item/clothing/gloves/boxing = 1)
 	result = /obj/item/extendohand
 	category = CAT_MISC
 
 /datum/crafting_recipe/chemical_payload
-	name = "Chemical Payload (C4)"
+	name = "Химический боезаряд"
 	result = /obj/item/bombcore/chemical
 	reqs = list(
 		/obj/item/stock_parts/matter_bin = 1,
@@ -830,7 +830,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/chemical_payload2
-	name = "Chemical Payload (Gibtonite)"
+	name = "Химический боезаряд (Гибтонит)"
 	result = /obj/item/bombcore/chemical
 	reqs = list(
 		/obj/item/stock_parts/matter_bin = 1,
@@ -843,14 +843,14 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/bonearmor
-	name = "Bone Armor"
+	name = "Костяная броня"
 	result = /obj/item/clothing/suit/armor/bone
 	time = 30
 	reqs = list(/obj/item/stack/sheet/bone = 6)
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/bonetalisman
-	name = "Bone Talisman"
+	name = "Костяной талисман"
 	result = /obj/item/clothing/accessory/talisman
 	time = 20
 	reqs = list(/obj/item/stack/sheet/bone = 2,
@@ -858,7 +858,7 @@
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/bonecodpiece
-	name = "Skull Codpiece"
+	name = "Костяной гульфик"
 	result = /obj/item/clothing/accessory/skullcodpiece
 	time = 20
 	reqs = list(/obj/item/stack/sheet/bone = 2,
@@ -866,7 +866,7 @@
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/skilt
-	name = "Sinew Kilt"
+	name = "Килт из сухожилий"
 	result = /obj/item/clothing/accessory/skilt
 	time = 20
 	reqs = list(/obj/item/stack/sheet/bone = 1,
@@ -874,7 +874,7 @@
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/bracers
-	name = "Bone Bracers"
+	name = "Костяные наручи"
 	result = /obj/item/clothing/gloves/bracer
 	time = 20
 	reqs = list(/obj/item/stack/sheet/bone = 2,
@@ -882,14 +882,14 @@
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/skullhelm
-	name = "Skull Helmet"
+	name = "Костяной шлем"
 	result = /obj/item/clothing/head/helmet/skull
 	time = 30
 	reqs = list(/obj/item/stack/sheet/bone = 4)
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/goliathcloak
-	name = "Goliath Cloak"
+	name = "Накидка из голиафа"
 	result = /obj/item/clothing/suit/hooded/cloak/goliath
 	time = 50
 	reqs = list(/obj/item/stack/sheet/leather = 2,
@@ -898,7 +898,7 @@
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/drakecloak
-	name = "Ash Drake Armour"
+	name = "Броня пепельного дракона"
 	result = /obj/item/clothing/suit/hooded/cloak/drake
 	time = 60
 	reqs = list(/obj/item/stack/sheet/bone = 10,
@@ -915,15 +915,15 @@
 	category = CAT_PRIMAL
 */
 
-/datum/crafting_recipe/firebrand
-	name = "Firebrand"
+//datum/crafting_recipe/firebrand
+	name = "Факел"
 	result = /obj/item/match/firebrand
 	time = 100 //Long construction time. Making fire is hard work.
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 2)
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/gold_horn
-	name = "Golden Bike Horn"
+	name = "Золотой гудок"
 	result = /obj/item/bikehorn/golden
 	time = 20
 	reqs = list(/obj/item/stack/sheet/mineral/bananium = 5,
@@ -931,14 +931,14 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/bonedagger
-	name = "Bone Dagger"
+	name = "Костяной Кинжал"
 	result = /obj/item/kitchen/knife/combat/bone
 	time = 20
 	reqs = list(/obj/item/stack/sheet/bone = 2)
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/bonespear
-	name = "Bone Spear"
+	name = "Костяное Копье"
 	result = /obj/item/spear/bonespear
 	time = 30
 	reqs = list(/obj/item/stack/sheet/bone = 4,
@@ -946,7 +946,7 @@
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/boneaxe
-	name = "Bone Axe"
+	name = "Костяной Топор"
 	result = /obj/item/fireaxe/boneaxe
 	time = 50
 	reqs = list(/obj/item/stack/sheet/bone = 6,
@@ -954,7 +954,7 @@
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/bonfire
-	name = "Bonfire"
+	name = "Костёр"
 	time = 60
 	reqs = list(/obj/item/grown/log = 5)
 	parts = list(/obj/item/grown/log = 5)
@@ -973,21 +973,21 @@
 */
 
 /datum/crafting_recipe/rake //Category resorting incoming
-	name = "Rake"
+	name = "Грабли"
 	time = 30
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 5)
 	result = /obj/item/cultivator/rake
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/woodbucket
-	name = "Wooden Bucket"
+	name = "Деревянное ведро"
 	time = 30
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 3)
 	result = /obj/item/reagent_containers/glass/bucket/wooden
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/ore_sensor
-	name = "Ore Sensor"
+	name = "Датчик Руды"
 	time = 3 SECONDS
 	reqs = list(
 		/datum/reagent/brimdust = 15,
@@ -998,7 +998,7 @@
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/headpike
-	name = "Spike Head (Glass Spear)"
+	name = "Голова на копье (Стеклянное копье)"
 	time = 65
 	reqs = list(/obj/item/spear = 1,
 				/obj/item/bodypart/head = 1)
@@ -1009,7 +1009,7 @@
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/headpikebone
-	name = "Spike Head (Bone Spear)"
+	name = "Голова на копье (Костяное копье)"
 	time = 65
 	reqs = list(/obj/item/spear/bonespear = 1,
 				/obj/item/bodypart/head = 1)
@@ -1019,7 +1019,7 @@
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/headpikebamboo
-	name = "Spike Head (Bamboo Spear)"
+	name = "Голова на копье (Бамбуковое копье)"
 	time = 65
 	reqs = list(/obj/item/spear/bamboospear = 1,
 				/obj/item/bodypart/head = 1)
@@ -1029,7 +1029,7 @@
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/pressureplate
-	name = "Pressure Plate"
+	name = "Нажимная плита"
 	result = /obj/item/pressure_plate
 	time = 5
 	reqs = list(/obj/item/stack/sheet/iron = 1,
@@ -1040,7 +1040,7 @@
 
 
 /datum/crafting_recipe/rcl
-	name = "Makeshift Rapid Pipe Cleaner Layer"
+	name = "Самодельный фильтр для труб"
 	result = /obj/item/rcl/ghetto
 	time = 40
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH)
@@ -1048,7 +1048,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/mummy
-	name = "Mummification Bandages (Mask)"
+	name = "Повязки для мумификации (Голова)"
 	result = /obj/item/clothing/mask/mummy
 	time = 10
 	tool_paths = list(/obj/item/nullrod/egyptian)
@@ -1056,12 +1056,12 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/mummy/body
-	name = "Mummification Bandages (Body)"
+	name = "Повязки для мумификации (Тело)"
 	result = /obj/item/clothing/under/costume/mummy
 	reqs = list(/obj/item/stack/sheet/cloth = 5)
 
 /datum/crafting_recipe/chaplain_hood
-	name = "Follower Hoodie"
+	name = "Роба последователей священника"
 	result = /obj/item/clothing/suit/hooded/chaplain_hoodie
 	time = 10
 	tool_paths = list(/obj/item/clothing/suit/hooded/chaplain_hoodie, /obj/item/storage/book/bible)
@@ -1069,7 +1069,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/guillotine
-	name = "Guillotine"
+	name = "Гильотина"
 	result = /obj/structure/guillotine
 	time = 150 // Building a functioning guillotine takes time
 	reqs = list(/obj/item/stack/sheet/plasteel = 3,
@@ -1079,7 +1079,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/aitater
-	name = "intelliTater"
+	name = "Картофельная интелкарта"
 	result = /obj/item/aicard/aitater
 	time = 30
 	tool_behaviors = list(TOOL_WIRECUTTER)
@@ -1093,11 +1093,11 @@
 	if(!aicard.AI)
 		return TRUE
 
-	to_chat(user, span_boldwarning("You can't craft an intelliTater with an AI in the card!"))
+	to_chat(user, span_boldwarning("Я не могу это сделать, пока в интелкарту загружен ИИ!"))
 	return FALSE
 
 /datum/crafting_recipe/aispook
-	name = "intelliLantern"
+	name = "Тыквенная интелкарта"
 	result = /obj/item/aicard/aispook
 	time = 30
 	tool_behaviors = list(TOOL_WIRECUTTER)
@@ -1105,9 +1105,17 @@
 					/obj/item/food/grown/pumpkin = 1,
 					/obj/item/stack/cable_coil = 5)
 	category = CAT_MISC
+//Добавлена проверка на наличие ИИ в интелкарте
+/datum/crafting_recipe/aispook/check_requirements(mob/user, list/collected_requirements)
+	var/obj/item/aicard/aicard = collected_requirements[/obj/item/aicard][1]
+	if(!aicard.AI)
+		return TRUE
+
+	to_chat(user, span_boldwarning("Я не могу это сделать, пока в интелкарту загружен ИИ!"))
+	return FALSE
 
 /datum/crafting_recipe/ghettojetpack
-	name = "Improvised Jetpack"
+	name = "Самодельный реактивный ранец"
 	result = /obj/item/tank/jetpack/improvised
 	time = 30
 	reqs = list(/obj/item/tank/internals/oxygen = 2, /obj/item/extinguisher = 1, /obj/item/pipe = 3, /obj/item/stack/cable_coil = MAXCOIL)
@@ -1115,7 +1123,7 @@
 	tool_behaviors = list(TOOL_WRENCH, TOOL_WELDER, TOOL_WIRECUTTER)
 
 /datum/crafting_recipe/rib
-	name = "Collosal Rib"
+	name = "Ребро Колосса"
 	always_available = FALSE
 	reqs = list(
 		/obj/item/stack/sheet/bone = 10,
@@ -1125,7 +1133,7 @@
 	subcategory = CAT_PRIMAL
 
 /datum/crafting_recipe/skull
-	name = "Skull Carving"
+	name = "Вырезать череп"
 	always_available = FALSE
 	reqs = list(
 		/obj/item/stack/sheet/bone = 6,
@@ -1135,7 +1143,7 @@
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/halfskull
-	name = "Cracked Skull Carving"
+	name = "Вырезать половину черепа"
 	always_available = FALSE
 	reqs = list(
 		/obj/item/stack/sheet/bone = 3,
@@ -1145,7 +1153,7 @@
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/boneshovel
-	name = "Serrated Bone Shovel"
+	name = "Зазубренная костяная лопата"
 	always_available = FALSE
 	reqs = list(
 		/obj/item/stack/sheet/bone = 4,
@@ -1156,7 +1164,7 @@
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/lasso
-	name = "Bone Lasso"
+	name = "Костяное лассо"
 	reqs = list(
 		/obj/item/stack/sheet/bone = 1,
 		/obj/item/stack/sheet/sinew = 5,
@@ -1165,7 +1173,7 @@
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/gripperoffbrand
-	name = "Improvised Gripper Gloves"
+	name = "Самодельные хватательные перчатки"
 	reqs = list(
 		/obj/item/clothing/gloves/fingerless = 1,
 		/obj/item/stack/sticky_tape = 1,
@@ -1174,7 +1182,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/boh
-	name = "Bag of Holding"
+	name = "Блюспейс рюкзак"
 	reqs = list(
 		/obj/item/bag_of_holding_inert = 1,
 		/obj/item/assembly/signaler/anomaly/bluespace = 1,
@@ -1183,7 +1191,7 @@
 	category = CAT_CLOTHING
 
 /datum/crafting_recipe/ipickaxe
-	name = "Improvised Pickaxe"
+	name = "Самодельная кирка"
 	reqs = list(
 		/obj/item/crowbar = 1,
 		/obj/item/kitchen/knife = 1,
@@ -1193,7 +1201,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/underwater_basket
-	name = "Underwater Basket (Bamboo)"
+	name = "Подводная корзина из бамбука"
 	reqs = list(
 		/obj/item/stack/sheet/mineral/bamboo = 20
 	)
@@ -1214,14 +1222,14 @@
 
 //Same but with wheat
 /datum/crafting_recipe/underwater_basket/wheat
-	name = "Underwater Basket (Wheat)"
+	name = "Подводная корзина из пшеницы"
 	reqs = list(
 		/obj/item/food/grown/wheat = 50
 	)
 
 
 /datum/crafting_recipe/elder_atmosian_statue
-	name = "Elder Atmosian Statue"
+	name = "Статуя древнего атмосферного техника"
 	result = /obj/structure/statue/elder_atmosian
 	time = 6 SECONDS
 	reqs = list(/obj/item/stack/sheet/mineral/metal_hydrogen = 20,
@@ -1231,7 +1239,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/elder_atmosian_fireaxe
-	name = "Elder Axe"
+	name = "Топор древнего атмосферного техника"
 	result = /obj/item/fireaxe/elder_atmosian_fireaxe
 	time = 6 SECONDS
 	reqs = list(/obj/item/fireaxe/metal_h2_axe = 1,
@@ -1240,7 +1248,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/shutters
-	name = "Shutters"
+	name = "Бронежалюзи"
 	reqs = list(/obj/item/stack/sheet/plasteel = 10,
 				/obj/item/stack/cable_coil = 10,
 				/obj/item/electronics/airlock = 1
@@ -1252,7 +1260,7 @@
 	one_per_turf = TRUE
 
 /datum/crafting_recipe/blast_doors
-	name = "Blast Door"
+	name = "Бронеставни"
 	reqs = list(/obj/item/stack/sheet/plasteel = 15,
 				/obj/item/stack/cable_coil = 15,
 				/obj/item/electronics/airlock = 1
@@ -1264,7 +1272,7 @@
 	one_per_turf = TRUE
 
 /datum/crafting_recipe/aquarium
-	name = "Aquarium"
+	name = "Аквариум"
 	result = /obj/structure/aquarium
 	time = 10 SECONDS
 	reqs = list(/obj/item/stack/sheet/iron = 15,
@@ -1274,7 +1282,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/mod_core_standard
-	name = "MOD core (Standard)"
+	name = "МУВ ядро (Стандартное)"
 	result = /obj/item/mod/core/standard
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 10 SECONDS
@@ -1286,7 +1294,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/mod_core_ethereal
-	name = "MOD core (Ethereal)"
+	name = "МУВ ядро (Этериал)"
 	result = /obj/item/mod/core/ethereal
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 10 SECONDS
@@ -1299,7 +1307,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/alcohol_burner
-	name = "Alcohol burner"
+	name = "Спиртовая горелка"
 	result = /obj/item/burner
 	time = 5 SECONDS
 	reqs = list(/obj/item/reagent_containers/glass/beaker  = 1,
@@ -1309,7 +1317,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/oil_burner
-	name = "Oil burner"
+	name = "Масляная горелка"
 	result = /obj/item/burner/oil
 	time = 5 SECONDS
 	reqs = list(/obj/item/reagent_containers/glass/beaker  = 1,
@@ -1319,7 +1327,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/fuel_burner
-	name = "Fuel burner"
+	name = "Топливная горелка"
 	result = /obj/item/burner/fuel
 	time = 5 SECONDS
 	reqs = list(/obj/item/reagent_containers/glass/beaker  = 1,
@@ -1329,7 +1337,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/thermometer
-	name = "Thermometer"
+	name = "Термометр"
 	tool_behaviors = list(TOOL_WELDER)
 	result = /obj/item/thermometer
 	time = 5 SECONDS
@@ -1340,7 +1348,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/thermometer_alt
-	name = "Thermometer"
+	name = "Термометр"
 	result = /obj/item/thermometer/pen
 	time = 5 SECONDS
 	reqs = list(
@@ -1350,7 +1358,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/ph_booklet
-	name = "pH booklet"
+	name = "pH тест"
 	result = /obj/item/ph_booklet
 	time = 5 SECONDS
 	reqs = list(
@@ -1360,7 +1368,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/dropper //Maybe make a glass pipette icon?
-	name = "Dropper"
+	name = "Пипетка"
 	result = /obj/item/reagent_containers/dropper
 	tool_behaviors = list(TOOL_WELDER)
 	time = 5 SECONDS
@@ -1370,7 +1378,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/improvised_chem_heater
-	name = "Improvised chem heater"
+	name = "Самодельный нагреватель химикатов"
 	result = /obj/machinery/space_heater/improvised_chem_heater
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_MULTITOOL, TOOL_WIRECUTTER)
 	time = 15 SECONDS
@@ -1394,7 +1402,7 @@
 	heater.attackby(cell, user) //puts it into the heater
 
 /datum/crafting_recipe/improvised_coolant
-	name = "Improvised cooling spray"
+	name = "Самодельный охлаждающий спрей"
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	result = /obj/item/extinguisher/crafted
 	time = 10 SECONDS

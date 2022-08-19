@@ -22,7 +22,7 @@
 	stamina = 2
 
 /datum/crafting_recipe/plasmaslug
-	name = "makeshift plasmaglass slug"
+	name = "Самодельный ружейный патрон с плазма стеклом"
 	result = /obj/item/ammo_casing/shotgun/diyslug/plasma
 	time = 25
 	reqs = list(/obj/effect/decal/cleanable/glass/plasma = 1,
@@ -36,7 +36,7 @@
 	subcategory = CAT_AMMO
 
 /datum/crafting_recipe/glassslug
-	name = "makeshift glass slug"
+	name = "Самодельный ружейный патрон с битым стеклом"
 	result = /obj/item/ammo_casing/shotgun/diyslug
 	time = 25
 	reqs = list(/obj/effect/decal/cleanable/glass = 1,

@@ -66,7 +66,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/cookbook/mshotgun
-	name = "Makeshift Shotgun"
+	name = "Самодельный дробовик"
 	result = /obj/item/gun/ballistic/shotgun/makeshift
 	reqs = list(/obj/item/weaponcrafting/receiver = 1,
 				/obj/item/pipe = 1,
@@ -76,7 +76,7 @@
 	time = 150
 
 /datum/crafting_recipe/cookbook/mshotgunmag
-	name = "Makeshift Shotgun magazine"
+	name = "Самодельный магазин для дробовика"
 	result = /obj/item/ammo_box/magazine/makeshift
 	reqs = list(/obj/item/stack/sheet/iron = 5,
 				/obj/item/stack/rods = 4)
@@ -85,7 +85,7 @@
 	subcategory = CAT_AMMO
 
 /datum/crafting_recipe/cookbook/npgrenade
-	name = "Neuroparalitic gas grenade"
+	name = "Нервно-паралитическая газовая граната"
 	result = /obj/item/grenade/chem_grenade/npgrenade
 	reqs = list(/datum/reagent/toxin/mindbreaker = 10,
 				/datum/reagent/drug/krokodil = 10,
@@ -95,7 +95,7 @@
 	time = 100
 
 /datum/crafting_recipe/cookbook/grenadeprimer
-	name = "Grenade primer"
+	name = "Капсюль для гранаты"
 	result = /obj/item/assembly/primer
 	reqs = list(/obj/item/assembly/igniter = 1,
 				/obj/item/stock_parts/manipulator = 2,
@@ -104,7 +104,7 @@
 	time = 100
 
 /datum/crafting_recipe/cookbook/poleaxe
-	name = "Ebonumba Topor"
+	name = "Топор Ебанумба"
 	result = /obj/item/paxe
 	reqs = list(/obj/item/stack/sheet/plasteel = 1,
 				/obj/item/stack/sheet/iron = 5,

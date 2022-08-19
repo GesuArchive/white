@@ -79,7 +79,7 @@
 //recipes
 
 /datum/crafting_recipe/lockermech
-	name = "Locker Mech"
+	name = "Шкафомех" //Мех из шкафа
 	result = /obj/vehicle/sealed/mecha/makeshift
 	reqs = list(/obj/item/stack/cable_coil = 20,
 				/obj/item/stack/sheet/iron = 10,
@@ -96,7 +96,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/lockermechdrill
-	name = "Makeshift exosuit drill"
+	name = "Самодельный бур для шкафомеха"
 	result = /obj/item/mecha_parts/mecha_equipment/drill/makeshift
 	reqs = list(/obj/item/stack/cable_coil = 5,
 				/obj/item/stack/sheet/iron = 2,
@@ -106,7 +106,7 @@
 	category = CAT_ROBOT
 
 /datum/crafting_recipe/lockermechclamp
-	name = "Makeshift exosuit clamp"
+	name = "Самодельные тиски для шкафомеха"
 	result = /obj/item/mecha_parts/mecha_equipment/hydraulic_clamp/makeshift
 	reqs = list(/obj/item/stack/cable_coil = 5,
 				/obj/item/stack/sheet/iron = 2,

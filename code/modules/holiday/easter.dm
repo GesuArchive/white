@@ -166,8 +166,8 @@
 
 //Easter Recipes + food
 /obj/item/food/hotcrossbun
-	name = "hot cross bun"
-	desc = "The cross represents the Assistants that died for your sins."
+	name = "крестовая булочка"
+	desc = "Крест символизирует ассистентов, погибших за ваши грехи."
 	icon_state = "hotcrossbun"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/sugar = 1)
 	foodtypes = SUGAR | GRAIN | BREAKFAST
@@ -175,7 +175,7 @@
 	bite_consumption = 2
 
 /datum/crafting_recipe/food/hotcrossbun
-	name = "Hot Cross Bun"
+	name = "Крестовая булочка"
 	reqs = list(
 		/obj/item/food/breadslice/plain = 1,
 		/datum/reagent/consumable/sugar = 1
@@ -185,7 +185,7 @@
 	subcategory = CAT_BREAD
 
 /datum/crafting_recipe/food/briochecake
-	name = "Brioche cake"
+	name = "Торт бриошь"
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
 		/datum/reagent/consumable/sugar = 2
@@ -194,14 +194,14 @@
 	subcategory = CAT_MISCFOOD
 
 /obj/item/food/scotchegg
-	name = "scotch egg"
-	desc = "A boiled egg wrapped in a delicious, seasoned meatball."
+	name = "яйцо по-шотландски"
+	desc = "Вареное яйцо, внутри восхитительной фрикадельки."
 	icon_state = "scotchegg"
 	bite_consumption = 3
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
 
 /datum/crafting_recipe/food/scotchegg
-	name = "Scotch egg"
+	name = "Яйцо по-шотландски"
 	reqs = list(
 		/datum/reagent/consumable/salt = 1,
 		/datum/reagent/consumable/blackpepper = 1,
@@ -213,7 +213,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/mammi
-	name = "Mammi"
+	name = "Мямми"
 	reqs = list(
 		/obj/item/food/bread/plain = 1,
 		/obj/item/food/chocolatebar = 1,
@@ -223,13 +223,13 @@
 	subcategory = CAT_MISCFOOD
 
 /obj/item/food/chocolatebunny
-	name = "chocolate bunny"
-	desc = "Contains less than 10% real rabbit!"
+	name = "шоколадный кролик"
+	desc = "Ни один кролик не пострадал."
 	icon_state = "chocolatebunny"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/sugar = 2, /datum/reagent/consumable/coco = 2, /datum/reagent/consumable/nutriment/vitamin = 1)
 
 /datum/crafting_recipe/food/chocolatebunny
-	name = "Chocolate bunny"
+	name = "Шоколадный кролик"
 	reqs = list(
 		/datum/reagent/consumable/sugar = 2,
 		/obj/item/food/chocolatebar = 1

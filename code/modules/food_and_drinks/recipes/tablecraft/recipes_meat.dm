@@ -1,9 +1,9 @@
 // see code/module/crafting/table.dm
 
-////////////////////////////////////////////////KEBABS////////////////////////////////////////////////
+////////////////////////////////////////////////КЕБАБЫ////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/humankebab
-	name = "Human kebab"
+	name = "Кебаб из человечины"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/meat/steak/plain/human = 2
@@ -12,7 +12,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/kebab
-	name = "Kebab"
+	name = "Кебаб"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/meat/steak = 2
@@ -21,7 +21,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/tofukebab
-	name = "Tofu kebab"
+	name = "Кебаб с тофу"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/tofu = 2
@@ -30,7 +30,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/tailkebab
-	name = "Lizard tail kebab"
+	name = "Кебаб из хвоста ящерицы"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/organ/tail/lizard = 1
@@ -39,7 +39,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/fiestaskewer
-	name = "Fiesta Skewer"
+	name = "Шпажка \"Фиеста\""
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/grown/chili = 1,
@@ -50,10 +50,10 @@
 	result = /obj/item/food/kebab/fiesta
 	subcategory = CAT_MEAT
 
-////////////////////////////////////////////////FISH////////////////////////////////////////////////
+////////////////////////////////////////////////МОРЕПРОДУКТЫ////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/cubancarp
-	name = "Cuban carp"
+	name = "Кубинский карп"
 	reqs = list(
 		/datum/reagent/consumable/flour = 5,
 		/obj/item/food/grown/chili = 1,
@@ -63,7 +63,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/fishandchips
-	name = "Fish and chips"
+	name = "Рыба и картофель фри"
 	reqs = list(
 		/obj/item/food/fries = 1,
 		/obj/item/food/fishmeat = 1
@@ -72,7 +72,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/fishfingers
-	name = "Fish fingers"
+	name = "Рыбные палочки"
 	reqs = list(
 		/datum/reagent/consumable/flour = 5,
 		/obj/item/food/bun = 1,
@@ -82,7 +82,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/fishfry
-	name = "Fish fry"
+	name = "Жаркое из рыбы"
 	reqs = list(
 		/obj/item/food/grown/corn = 1,
 		/obj/item/food/grown/peas = 1,
@@ -92,7 +92,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/sashimi
-	name = "Sashimi"
+	name = "Сашими"
 	reqs = list(
 		/datum/reagent/consumable/soysauce = 5,
 		/obj/item/food/spidereggs = 1,
@@ -104,7 +104,7 @@
 ////////////////////////////////////////////////MR SPIDER////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/spidereggsham
-	name = "Spider eggs ham"
+	name = "Ветчина из паучих яиц"
 	reqs = list(
 		/datum/reagent/consumable/salt = 1,
 		/obj/item/food/spidereggs = 1,
@@ -116,7 +116,7 @@
 ////////////////////////////////////////////////MISC RECIPE's////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/cornedbeef
-	name = "Corned beef"
+	name = "Солонина с капустой"
 	reqs = list(
 		/datum/reagent/consumable/salt = 5,
 		/obj/item/food/meat/steak = 1,
@@ -126,7 +126,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/bearsteak
-	name = "Filet migrawr"
+	name = "Филе Мигравр"
 	reqs = list(
 		/datum/reagent/consumable/ethanol/manly_dorf = 5,
 		/obj/item/food/meat/steak/bear = 1,
@@ -136,7 +136,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/enchiladas
-	name = "Enchiladas"
+	name = "Энчилада"
 	reqs = list(
 		/obj/item/food/meat/cutlet = 2,
 		/obj/item/food/grown/chili = 2,
@@ -146,7 +146,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/stewedsoymeat
-	name = "Stewed soymeat"
+	name = "Тушеное соевое мясо"
 	reqs = list(
 		/obj/item/food/soydope = 2,
 		/obj/item/food/grown/carrot = 1,
@@ -156,7 +156,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/sausage
-	name = "Raw sausage"
+	name = "Сырая сосиска"
 	reqs = list(
 		/obj/item/food/raw_meatball = 1,
 		/obj/item/food/meat/rawcutlet = 2
@@ -165,7 +165,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/nugget
-	name = "Chicken nugget"
+	name = "Куриные наггетсы"
 	reqs = list(
 		/obj/item/food/meat/cutlet = 1
 	)
@@ -173,7 +173,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/rawkhinkali
-	name = "Raw Khinkali"
+	name = "Сырое хинкали"
 	reqs = list(
 		/obj/item/food/doughslice = 1,
 		/obj/item/food/grown/garlic = 1,
@@ -183,7 +183,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/pigblanket
-	name = "Pig in a Blanket"
+	name = "Сосиска в тесте"
 	reqs = list(
 		/obj/item/food/bun = 1,
 		/obj/item/food/butter = 1,
@@ -193,7 +193,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/ratkebab
-	name = "Rat Kebab"
+	name = "Мышиный кебаб"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/deadmouse = 1
@@ -202,7 +202,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/doubleratkebab
-	name = "Double Rat Kebab"
+	name = "Двойной мышиный кебаб"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/food/deadmouse = 2
@@ -211,7 +211,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/ricepork
-	name = "Rice and Pork"
+	name = "Рис и свинина"
 	reqs = list(
 		/obj/item/food/salad/boiledrice = 1,
 		/obj/item/food/meat/cutlet = 2
@@ -220,7 +220,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/ribs
-	name = "BBQ Ribs"
+	name = "Ребрышки барбекю"
 	reqs = list(
 		/datum/reagent/consumable/bbqsauce = 5,
 		/obj/item/food/meat/steak/plain = 2,
@@ -230,7 +230,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/meatclown
-	name = "Meat Clown"
+	name = "Мясной клоун"
 	reqs = list(
 		/obj/item/food/meat/steak/plain = 1,
 		/obj/item/food/grown/banana = 1
@@ -238,31 +238,8 @@
 	result = /obj/item/food/meatclown
 	subcategory = CAT_MEAT
 
-/datum/crafting_recipe/food/lasagna
-	name = "Lasagna"
-	reqs = list(
-		/obj/item/food/meat/cutlet = 2,
-		/obj/item/food/grown/tomato = 1,
-		/obj/item/food/cheesewedge = 2,
-		/obj/item/food/spaghetti = 1
-	)
-	result = /obj/item/food/lasagna
-	subcategory = CAT_MEAT
-
-/datum/crafting_recipe/food/gumbo
-	name = "Black eyed gumbo"
-	reqs = list(
-		/obj/item/food/salad/boiledrice = 1,
-		/obj/item/food/grown/peas = 1,
-		/obj/item/food/grown/chili = 1,
-		/obj/item/food/meat/cutlet = 1
-	)
-	result = /obj/item/food/salad/gumbo
-	subcategory = CAT_MEAT
-
-
 /datum/crafting_recipe/food/fried_chicken
-	name = "Fried Chicken"
+	name = "Жаренная курица"
 	reqs = list(
 		/obj/item/food/meat/slab/chicken = 1,
 		/datum/reagent/consumable/flour = 5,
@@ -272,7 +249,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/beef_stroganoff
-	name = "Beef Stroganoff"
+	name = "Бефстроганов"
 	reqs = list(
 		/datum/reagent/consumable/flour = 5,
 		/datum/reagent/consumable/milk = 5,

@@ -1,6 +1,6 @@
 
 /datum/crafting_recipe/am_jar
-	name = "Antimatter Containment Jar"
+	name = "Контейнер для хранения антиматерии"
 	result = /obj/item/am_containment
 	reqs = list(/obj/item/stock_parts/matter_bin/bluespace = 2,
 				/obj/item/stack/ore/bluespace_crystal = 1)

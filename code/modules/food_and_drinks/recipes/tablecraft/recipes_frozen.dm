@@ -4,7 +4,7 @@
 /////////////////
 
 /datum/crafting_recipe/food/icecreamsandwich
-	name = "Icecream sandwich"
+	name = "Мороженое-сэндвич"
 	reqs = list(
 		/datum/reagent/consumable/cream = 5,
 		/datum/reagent/consumable/ice = 5,
@@ -14,7 +14,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/strawberryicecreamsandwich
-	name = "Strawberry ice cream sandwich"
+	name = "Клубничное мороженое-сэндвич"
 	reqs = list(
 		/datum/reagent/consumable/cream = 5,
 		/datum/reagent/consumable/ice = 5,
@@ -24,7 +24,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/spacefreezy
-	name ="Space freezy"
+	name ="Космическая Замерзайка"
 	reqs = list(
 		/datum/reagent/consumable/bluecherryjelly = 5,
 		/datum/reagent/consumable/spacemountainwind = 15,
@@ -34,7 +34,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/sundae
-	name ="Sundae"
+	name ="Сандей"
 	reqs = list(
 		/datum/reagent/consumable/cream = 5,
 		/obj/item/food/grown/cherries = 1,
@@ -45,7 +45,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/honkdae
-	name ="Honkdae"
+	name ="Хонкдей"
 	reqs = list(
 		/datum/reagent/consumable/cream = 5,
 		/obj/item/clothing/mask/gas/clown_hat = 1,
@@ -57,7 +57,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/cornuto
-	name = "Cornuto"
+	name = "Рожок"
 	reqs = list(
 		/obj/item/food/pastrybase = 1,
 		/obj/item/food/chocolatebar = 1,
@@ -71,7 +71,7 @@
 //////////////////////////SNOW CONES///////////////////////
 
 /datum/crafting_recipe/food/flavorless_sc
-	name = "Flavorless snowcone"
+	name = "Безвкусное гранисадо"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/consumable/ice = 15
@@ -80,7 +80,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/pineapple_sc
-	name = "Pineapple snowcone"
+	name = "Ананасовое гранисадо"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -90,7 +90,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/lime_sc
-	name = "Lime snowcone"
+	name = "Лаймовое гранисадо"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -100,7 +100,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/lemon_sc
-	name = "Lemon snowcone"
+	name = "Лимонное гранисадо"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -110,7 +110,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/apple_sc
-	name = "Apple snowcone"
+	name = "Яблочное гранисадо"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -120,7 +120,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/grape_sc
-	name = "Grape snowcone"
+	name = "Виноградное гранисадо"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -130,7 +130,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/orange_sc
-	name = "Orange snowcone"
+	name = "Апельсиновое гранисадо"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -140,7 +140,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/blue_sc
-	name = "Bluecherry snowcone"
+	name = "Синевишневое гранисадо"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -150,7 +150,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/red_sc
-	name = "Cherry snowcone"
+	name = "Вишневое гранисадо"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -160,7 +160,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/berry_sc
-	name = "Berry snowcone"
+	name = "Ягодное гранисадо"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -170,7 +170,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/fruitsalad_sc
-	name = "Fruit Salad snowcone"
+	name = "Мультифруктовое гранисадо"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/water  = 5,
@@ -183,7 +183,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/mime_sc
-	name = "Mime snowcone"
+	name = "Гранисадо мима"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -193,7 +193,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/clown_sc
-	name = "Clown snowcone"
+	name = "Гранисадо клоуна"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -203,7 +203,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/soda_sc
-	name = "Space Cola snowcone"
+	name = "Космокольное гранисадо"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -213,7 +213,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/spacemountainwind_sc
-	name = "Space Mountain Wind snowcone"
+	name = "Солнечно-ветрянное гранисадо"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -223,7 +223,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/pwrgame_sc
-	name = "Pwrgame snowcone"
+	name = "PWR Game гранисадо"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -233,7 +233,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/honey_sc
-	name = "Honey snowcone"
+	name = "Медовое гранисадо"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -243,7 +243,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/rainbow_sc
-	name = "Rainbow snowcone"
+	name = "Радужное гранисадо"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,
@@ -252,13 +252,13 @@
 	result = /obj/item/food/snowcones/rainbow
 	subcategory = CAT_ICE
 
-//////////////////////////POPSICLES///////////////////////
+//////////////////////////ФРУКТОВЫЙ ЛЁД И МОРОЖЕНОЕ///////////////////////
 
 // This section includes any frozen treat served on a stick.
 ////////////////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/orange_popsicle
-	name = "Orange popsicle"
+	name = "Апельсиновцы фруктовый лед"
 	reqs = list(
 		/obj/item/popsicle_stick = 1,
 		/datum/reagent/consumable/orangejuice = 4,
@@ -271,7 +271,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/berry_popsicle
-	name = "Berry popsicle"
+	name = "Ягодный фруктовый лед"
 	reqs = list(
 		/obj/item/popsicle_stick = 1,
 		/datum/reagent/consumable/berryjuice = 4,
@@ -284,7 +284,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/jumbo
-	name = "Jumbo icecream"
+	name = "Мороженое Джамбо"
 	reqs = list(
 		/obj/item/popsicle_stick = 1,
 		/obj/item/food/chocolatebar = 1,
@@ -297,7 +297,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/nogga_black
-	name = "Nogga black"
+	name = "Ноггер Черный"
 	reqs = list(
 		/obj/item/popsicle_stick = 1,
 		/datum/reagent/consumable/blumpkinjuice = 4, //natural source of ammonium chloride

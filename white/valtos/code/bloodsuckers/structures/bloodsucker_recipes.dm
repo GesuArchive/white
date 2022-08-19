@@ -4,7 +4,7 @@
 ///      Coffins      ///
 /////////////////////////
 /datum/crafting_recipe/blackcoffin
-	name = "Black Coffin"
+	name = "Черный гроб"
 	result = /obj/structure/closet/crate/coffin/blackcoffin
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER)
 	reqs = list(
@@ -16,7 +16,7 @@
 	category = CAT_STRUCTURE
 
 /datum/crafting_recipe/securecoffin
-	name = "Secure Coffin"
+	name = "Защищенный гроб"
 	result = /obj/structure/closet/crate/coffin/securecoffin
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER)
 	reqs = list(
@@ -28,7 +28,7 @@
 	category = CAT_STRUCTURE
 
 /datum/crafting_recipe/meatcoffin
-	name = "Meat Coffin"
+	name = "Гроб из мяса"
 	result = /obj/structure/closet/crate/coffin/meatcoffin
 	tool_behaviors = list(TOOL_WELDER, TOOL_WRENCH)
 	reqs = list(
@@ -40,7 +40,7 @@
 	always_available = FALSE //The sacred coffin!
 
 /datum/crafting_recipe/metalcoffin
-	name = "Metal Coffin"
+	name = "Железный гроб"
 	result = /obj/structure/closet/crate/coffin/metalcoffin
 	reqs = list(
 		/obj/item/stack/sheet/iron = 6,
@@ -53,7 +53,7 @@
 ///      Structures      ///
 ////////////////////////////
 /datum/crafting_recipe/bloodaltar
-	name = "Blood Altar"
+	name = "Кровавый алтарь"
 	result = /obj/structure/bloodsucker/bloodaltar
 	tool_behaviors = list(TOOL_WELDER, TOOL_WRENCH)
 	reqs = list(
@@ -66,7 +66,7 @@
 	always_available = FALSE
 
 /datum/crafting_recipe/restingplace
-	name = "Resting Place"
+	name = "Место для отдыха"
 	result = /obj/structure/bloodsucker/bloodaltar/restingplace
 	tool_behaviors = list(TOOL_WRENCH, TOOL_SCREWDRIVER)
 	reqs = list(
@@ -79,7 +79,7 @@
 	always_available = FALSE
 
 /datum/crafting_recipe/vassalrack
-	name = "Persuasion Rack"
+	name = "Стойка фамильяров"
 	result = /obj/structure/bloodsucker/vassalrack
 	tool_behaviors = list(TOOL_WELDER, TOOL_WRENCH)
 	reqs = list(
@@ -92,7 +92,7 @@
 	always_available = FALSE
 
 /datum/crafting_recipe/staketrap
-	name = "Stake Trap"
+	name = "Ловушка с кольями"
 	result = /obj/item/restraints/legcuffs/beartrap/bloodsucker
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_KNIFE)
 	reqs = list(
@@ -105,7 +105,7 @@
 	always_available = FALSE
 
 /datum/crafting_recipe/candelabrum
-	name = "Candelabrum"
+	name = "Канделябр"
 	result = /obj/structure/bloodsucker/candelabrum
 	tool_behaviors = list(TOOL_WELDER, TOOL_WRENCH)
 	reqs = list(
@@ -133,7 +133,7 @@
 */
 
 /datum/crafting_recipe/possessedarmor
-	name = "Subservent Armor"
+	name = "Доспехи фамильяра"
 	result = /obj/structure/bloodsucker/possessedarmor
 	tool_behaviors = list(TOOL_WRENCH, TOOL_WELDER, TOOL_SCREWDRIVER)
 	reqs = list(
@@ -148,7 +148,7 @@
 ///      Stakes      ///
 ////////////////////////
 /datum/crafting_recipe/stake
-	name = "Stake"
+	name = "Кол"
 	result = /obj/item/stake
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 3)
 	time = 8 SECONDS
@@ -156,7 +156,7 @@
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/woodenducky
-	name = "Wooden Ducky"
+	name = "Деревянная уточка"
 	result = /obj/item/stake/ducky
 	tool_behaviors = list(TOOL_KNIFE)
 	reqs = list(
@@ -169,7 +169,7 @@
 	always_available = FALSE
 
 /datum/crafting_recipe/hardened_stake
-	name = "Hardened Stake"
+	name = "Закалённый кол"
 	result = /obj/item/stake/hardened
 	tool_behaviors = list(TOOL_WELDER)
 	reqs = list(/obj/item/stack/rods = 1)
@@ -179,7 +179,7 @@
 	always_available = FALSE
 
 /datum/crafting_recipe/silver_stake
-	name = "Silver Stake"
+	name = "Серебряный кол"
 	result = /obj/item/stake/hardened/silver
 	tool_behaviors = list(TOOL_WELDER)
 	reqs = list(

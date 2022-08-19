@@ -66,6 +66,49 @@
 	. = ..()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_MOLD, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 25)
 
+/obj/item/food/bread/jelliedtoast
+	name = "jellied toast"
+	desc = "A slice of toast covered with delicious jam."
+	icon = 'icons/obj/food/burgerbread.dmi'
+	icon_state = "jellytoast"
+	trash_type = /obj/item/trash/plate
+	bite_consumption = 3
+	tastes = list("тост" = 1, "желе" =1)
+	foodtypes = GRAIN | BREAKFAST
+	food_flags = FOOD_FINGER_FOOD
+	w_class = WEIGHT_CLASS_SMALL
+
+/obj/item/food/bread/jelliedtoast/cherry
+	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/cherryjelly = 8, /datum/reagent/consumable/nutriment/vitamin = 4)
+	foodtypes = GRAIN | FRUIT | SUGAR | BREAKFAST
+
+/obj/item/food/bread/jelliedtoast/slime
+	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/toxin/slimejelly = 8, /datum/reagent/consumable/nutriment/vitamin = 4)
+	foodtypes = GRAIN | TOXIC | SUGAR | BREAKFAST
+
+/obj/item/food/bread/butteredtoast
+	name = "buttered toast"
+	desc = "Butter lightly spread over a piece of toast."
+	icon = 'icons/obj/food/burgerbread.dmi'
+	icon_state = "butteredtoast"
+	bite_consumption = 3
+	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 1)
+	tastes = list("масло" = 1, "тост" = 1)
+	foodtypes = GRAIN | BREAKFAST
+	food_flags = FOOD_FINGER_FOOD
+	w_class = WEIGHT_CLASS_SMALL
+
+
+/obj/item/food/bread/twobread
+	name = "two bread"
+	desc = "This seems awfully bitter."
+	icon = 'icons/obj/food/burgerbread.dmi'
+	icon_state = "twobread"
+	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 4)
+	tastes = list("хлеб" = 2)
+	foodtypes = GRAIN
+	food_flags = FOOD_FINGER_FOOD
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/bread/meat
 	name = "meatbread loaf"

@@ -50914,7 +50914,7 @@
 /turf/open/floor/plating,
 /area/maintenance/central)
 "uFI" = (
-/obj/item/food/lasagna,
+/obj/item/food/spaghetti/lasagna,
 /obj/item/paper/fluff/stations/centcom/disk_memo{
 	info = "hey hun, i brought you lasagna <3 keep working hard, i love you!"
 	},

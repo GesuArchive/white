@@ -1,6 +1,6 @@
 /obj/item/book/granter/crafting_recipe/boneyard_notes
-	name = "The Complete Works of Lavaland Bone Architecture"
-	desc = "Pried from the lead Archaeologist's cold, dead hands, this seems to explain how ancient bone architecture was erected long ago."
+	name = "Полное собрание сочинений по костяной архитектуре Лаваленда"
+	desc = "Объясняет, как давным-давно возводилась древняя костяная архитектура."
 	crafting_recipe_types = list(
 		/datum/crafting_recipe/rib,
 		/datum/crafting_recipe/boneshovel,
@@ -11,10 +11,10 @@
 	icon_state = "boneworking_learing"
 	uses = INFINITY
 	remarks = list(
-		"Who knew you could bend bones that far back?",
-		"I guess that was much easier before the planet heated up...",
-		"So that's how they made those ruins survive the ashstorms. Neat!",
-		"The page is just filled with insane ramblings about some 'legion' thing.",
-		"But why would they need vinegar to polish the bones? And rags too?",
-		"You spend a few moments cleaning dirt and blood off of the page, yeesh.",
+		"Кто знал, что кости можно сгибать так сильно?",
+		"Я думаю, это было намного проще до того, как планета нагрелась...",
+		"Так вот как они заставили эти руины пережить пепельные бури. Умно!",
+		"Страница заполнена безумным бредом о каком-то \"легионе\".",
+		"Но зачем им был нужен уксус? Чтобы сделать кости более эластичными?",
+		"Последние страницы практически нечитабельны - часть текста смазана, а оставшаяся покрыта толстым слоем из грязи и крови...",
 	)

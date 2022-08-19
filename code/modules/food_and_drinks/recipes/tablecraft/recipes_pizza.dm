@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////PIZZA!!!////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/margheritapizza
-	name = "Margherita pizza"
+	name = "Пицца Маргарита"
 	reqs = list(
 		/obj/item/food/flatdough = 1,
 		/obj/item/food/cheesewedge = 4,
@@ -14,7 +14,7 @@
 	subcategory = CAT_PIZZA
 
 /datum/crafting_recipe/food/meatpizza
-	name = "Meat pizza"
+	name = "Мясная пицца"
 	reqs = list(
 		/obj/item/food/flatdough = 1,
 		/obj/item/food/meat/rawcutlet = 4,
@@ -25,7 +25,7 @@
 	subcategory = CAT_PIZZA
 
 /datum/crafting_recipe/food/arnold
-	name = "Arnold pizza"
+	name = "Пицца Арнольд"
 	reqs = list(
 		/obj/item/food/flatdough = 1,
 		/obj/item/food/meat/rawcutlet = 3,
@@ -37,7 +37,7 @@
 	subcategory = CAT_PIZZA
 
 /datum/crafting_recipe/food/mushroompizza
-	name = "Mushroom pizza"
+	name = "Грибная пицца"
 	reqs = list(
 		/obj/item/food/flatdough = 1,
 		/obj/item/food/grown/mushroom = 5
@@ -46,7 +46,7 @@
 	subcategory = CAT_PIZZA
 
 /datum/crafting_recipe/food/vegetablepizza
-	name = "Vegetable pizza"
+	name = "Овощная пицца"
 	reqs = list(
 		/obj/item/food/flatdough = 1,
 		/obj/item/food/grown/eggplant = 1,
@@ -58,7 +58,7 @@
 	subcategory = CAT_PIZZA
 
 /datum/crafting_recipe/food/donkpocketpizza
-	name = "Donkpocket pizza"
+	name = "Пицца \"Донк-покет\""
 	reqs = list(
 		/obj/item/food/flatdough = 1,
 		/obj/item/food/donkpocket = 3,
@@ -69,7 +69,7 @@
 	subcategory = CAT_PIZZA
 
 /datum/crafting_recipe/food/dankpizza
-	name = "Dank pizza"
+	name = "Шняжная пицца"
 	reqs = list(
 		/obj/item/food/flatdough = 1,
 		/obj/item/food/grown/ambrosia/vulgaris = 3,
@@ -80,7 +80,7 @@
 	subcategory = CAT_PIZZA
 
 /datum/crafting_recipe/food/sassysagepizza
-	name = "Sassysage pizza"
+	name = "Колбасная пицца"
 	reqs = list(
 		/obj/item/food/flatdough = 1,
 		/obj/item/food/raw_meatball = 3,
@@ -91,7 +91,7 @@
 	subcategory = CAT_PIZZA
 
 /datum/crafting_recipe/food/pineapplepizza
-	name = "Hawaiian pizza"
+	name = "Гавайская пицца"
 	reqs = list(
 		/obj/item/food/flatdough = 1,
 		/obj/item/food/meat/rawcutlet = 2,
@@ -103,7 +103,7 @@
 	subcategory = CAT_PIZZA
 
 /datum/crafting_recipe/food/antspizza
-	name = "Ant Party pizza"
+	name = "Пицца для муравьиной вечеринки"
 	reqs = list(
 		/obj/item/food/pizzabread = 1,
 		/obj/item/food/cheesewedge = 2,

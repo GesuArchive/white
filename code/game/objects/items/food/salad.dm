@@ -11,6 +11,16 @@
 	eatverbs = list("devour","nibble","gnaw","gobble","chomp") //who the fuck gnaws and devours on a salad
 	venue_value = FOOD_PRICE_NORMAL
 
+/obj/item/food/salad/melonfruitbowl
+	name = "melon fruit bowl"
+	desc = "For people who wants edible fruit bowls."
+	icon_state = "melonfruitbowl"
+	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 4)
+	w_class = WEIGHT_CLASS_NORMAL
+	tastes = list("арбуз" = 1)
+	foodtypes = FRUIT
+	w_class = WEIGHT_CLASS_SMALL
+
 /obj/item/food/salad/aesirsalad
 	name = "\improper Aesir salad"
 	desc = "Probably too incredible for mortal men to fully enjoy."
@@ -34,14 +44,6 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/doctor_delight = 8, /datum/reagent/consumable/nutriment/vitamin = 6)
 	tastes = list("листья" = 1, "картоха" = 1, "мясо" = 1, "валиды" = 1)
 	foodtypes = VEGETABLES | MEAT | FRIED | JUNKFOOD | FRUIT
-
-/obj/item/food/salad/oatmeal
-	name = "oatmeal"
-	desc = "A nice bowl of oatmeal."
-	icon_state = "oatmeal"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 11, /datum/reagent/consumable/milk = 10, /datum/reagent/consumable/nutriment/vitamin = 6)
-	tastes = list("овёс" = 1, "молоко" = 1)
-	foodtypes = DAIRY | GRAIN | BREAKFAST
 
 /obj/item/food/salad/fruit
 	name = "fruit salad"

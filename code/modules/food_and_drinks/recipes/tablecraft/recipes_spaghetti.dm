@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////SPAGHETTI////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/tomatopasta
-	name = "Tomato pasta"
+	name = "Паста с томатным соусом"
 	reqs = list(
 		/obj/item/food/spaghetti/boiledspaghetti = 1,
 		/obj/item/food/grown/tomato = 2
@@ -13,7 +13,7 @@
 	subcategory = CAT_SPAGHETTI
 
 /datum/crafting_recipe/food/copypasta
-	name = "Copypasta"
+	name = "Копипаста"
 	reqs = list(
 		/obj/item/food/spaghetti/pastatomato = 2
 	)
@@ -21,7 +21,7 @@
 	subcategory = CAT_SPAGHETTI
 
 /datum/crafting_recipe/food/spaghettimeatball
-	name = "Spaghetti meatball"
+	name = "Спагетти с фрикадельками"
 	reqs = list(
 		/obj/item/food/spaghetti/boiledspaghetti = 1,
 		/obj/item/food/meatball = 2
@@ -30,7 +30,7 @@
 	subcategory = CAT_SPAGHETTI
 
 /datum/crafting_recipe/food/spesslaw
-	name = "Spesslaw"
+	name = "Фрикадельки со спагетти"
 	reqs = list(
 		/obj/item/food/spaghetti/boiledspaghetti = 1,
 		/obj/item/food/meatball = 4
@@ -39,7 +39,7 @@
 	subcategory = CAT_SPAGHETTI
 
 /datum/crafting_recipe/food/beefnoodle
-	name = "Beef noodle"
+	name = "Лапша с говядиной"
 	reqs = list(
 		/obj/item/reagent_containers/glass/bowl = 1,
 		/obj/item/food/spaghetti/boiledspaghetti = 1,
@@ -50,7 +50,7 @@
 	subcategory = CAT_SPAGHETTI
 
 /datum/crafting_recipe/food/chowmein
-	name = "Chowmein"
+	name = "Чау-мейн"
 	reqs = list(
 		/obj/item/food/spaghetti/boiledspaghetti = 1,
 		/obj/item/food/meat/cutlet = 1,
@@ -61,7 +61,7 @@
 	subcategory = CAT_SPAGHETTI
 
 /datum/crafting_recipe/food/butternoodles
-	name = "Butter Noodles"
+	name = "Лапша с маслом"
 	reqs = list(
 		/obj/item/food/spaghetti/boiledspaghetti = 1,
 		/obj/item/food/butter = 1
@@ -70,7 +70,7 @@
 	subcategory = CAT_SPAGHETTI
 
 /datum/crafting_recipe/food/mac_n_cheese
-	name = "Mac n' cheese"
+	name = "Макароны с сыром"
 	reqs = list(
 		/obj/item/food/spaghetti/boiledspaghetti = 1,
 		/obj/item/food/bechamel_sauce = 1,
@@ -79,4 +79,15 @@
 		/datum/reagent/consumable/blackpepper = 2
 	)
 	result = /obj/item/food/spaghetti/mac_n_cheese
+	subcategory = CAT_SPAGHETTI
+
+/datum/crafting_recipe/food/lasagna
+	name = "Лазанья"
+	reqs = list(
+		/obj/item/food/meat/cutlet = 2,
+		/obj/item/food/grown/tomato = 1,
+		/obj/item/food/cheesewedge = 2,
+		/obj/item/food/spaghetti = 1
+	)
+	result = /obj/item/food/spaghetti/lasagna
 	subcategory = CAT_SPAGHETTI

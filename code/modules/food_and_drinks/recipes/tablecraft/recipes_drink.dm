@@ -4,7 +4,7 @@
 ///////////////// Booze & Bottles ///////////////////
 
 /datum/crafting_recipe/lizardwine
-	name = "Lizard Wine"
+	name = "Вино из ящериц"
 	time = 40
 	reqs = list(
 		/obj/item/organ/tail/lizard = 1,
@@ -15,7 +15,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/moonshinejug
-	name = "Moonshine Jug"
+	name = "Бутылка лунного света"
 	time = 30
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/bottle = 1,
@@ -25,7 +25,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/hoochbottle
-	name = "Hooch Bottle"
+	name = "Бутылка самогона"
 	time = 30
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/bottle = 1,
@@ -36,7 +36,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/blazaambottle
-	name = "Blazaam Bottle"
+	name = "Бутылка блазаама"
 	time = 20
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/bottle = 1,
@@ -46,7 +46,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/champagnebottle
-	name = "Champagne Bottle"
+	name = "Бутылка шампанского"
 	time = 30
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/bottle = 1,
@@ -56,7 +56,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/trappistbottle
-	name = "Trappist Bottle"
+	name = "Бутылка траппистского пива"
 	time = 15
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/bottle/small = 1,
@@ -66,7 +66,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/goldschlagerbottle
-	name = "Goldschlager Bottle"
+	name = "Бутылка гольдшлагера"
 	time = 30
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/bottle = 1,
@@ -76,7 +76,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/patronbottle
-	name = "Patron Bottle"
+	name = "Бутылка покровителя"
 	time = 30
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/bottle = 1,
@@ -88,7 +88,7 @@
 ////////////////////// Non-alcoholic recipes ///////////////////
 
 /datum/crafting_recipe/holybottle
-	name = "Holy Water Flask"
+	name = "Фляжка со святой водой"
 	time = 30
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/bottle = 1,
@@ -100,7 +100,7 @@
 //flask of unholy water is a beaker for some reason, I will try making it a bottle and add it here once the antag freeze is over. t. kryson
 
 /datum/crafting_recipe/nothingbottle
-	name = "Nothing Bottle"
+	name = "Бутылка Ничего"
 	time = 30
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/bottle = 1,
@@ -110,14 +110,14 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/smallcarton
-	name = "Small Carton"
+	name = "Пустая коробочка сока"
 	result = /obj/item/reagent_containers/food/drinks/sillycup/smallcarton
 	time = 10
 	reqs = list(/obj/item/stack/sheet/cardboard = 1)
 	category = CAT_DRINK
 
 /datum/crafting_recipe/candycornliquor
-	name = "candy corn liquor"
+	name = "Бутылка сладкого кукурузного ликёра"
 	result = /obj/item/reagent_containers/food/drinks/bottle/candycornliquor
 	time = 30
 	reqs = list(/datum/reagent/consumable/ethanol/whiskey = 100,
@@ -126,7 +126,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/kong
-	name = "Kong"
+	name = "Бутылка конга"
 	result = /obj/item/reagent_containers/food/drinks/bottle/kong
 	time = 30
 	reqs = list(/datum/reagent/consumable/ethanol/whiskey = 100,
@@ -135,7 +135,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/pruno
-	name = "pruno mix"
+	name = "Бутылка пруно"
 	result = /obj/item/reagent_containers/food/drinks/bottle/pruno
 	time = 30
 	reqs = list(/obj/item/storage/bag/trash = 1,
@@ -146,7 +146,7 @@
 	category = CAT_DRINK
 
 /datum/crafting_recipe/lean
-	name = "lean"
+	name = "Лин"
 	result = /obj/item/reagent_containers/food/drinks/colocup/lean
 	time = 30
 	reqs = list(/obj/item/reagent_containers/food/drinks/colocup = 1,

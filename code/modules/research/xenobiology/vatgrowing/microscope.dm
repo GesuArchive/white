@@ -81,7 +81,7 @@
 	update_icon()
 
 /datum/crafting_recipe/microscope
-	name = "Microscope"
+	name = "Микроскоп"
 	result = /obj/structure/microscope
 	time = 30
 	tool_behaviors = list(TOOL_SCREWDRIVER)

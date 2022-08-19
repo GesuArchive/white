@@ -108,3 +108,11 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 9, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("cheese" = 1, "breadcrumbs" = 1, "pasta" = 1)
 	foodtypes = GRAIN | DAIRY
+
+/obj/item/food/spaghetti/lasagna
+	name = "Lasagna"
+	desc = "A slice of lasagna. Perfect for a Monday afternoon."
+	icon_state = "lasagna"
+	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/consumable/tomatojuice = 10)
+	tastes = list("мясо" = 3, "pasta" = 3, "tomato" = 2, "cheese" = 2)
+	foodtypes = MEAT | DAIRY | GRAIN

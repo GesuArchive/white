@@ -4815,7 +4815,7 @@
 /area/awaymission/prison/solitary)
 "At" = (
 /obj/structure/table,
-/obj/item/food/butteredtoast,
+/obj/item/food/bread/butteredtoast,
 /turf/open/floor/plasteel/cafeteria,
 /area/awaymission/prison/guard)
 "Au" = (

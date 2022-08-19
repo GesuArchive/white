@@ -269,3 +269,11 @@
 	food_reagents = list (/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/medicine/oculine = 2)
 	tastes = list("creamy peas"= 2, "parsnip" = 1)
 	foodtypes = VEGETABLES
+
+/obj/item/food/soup/oatmeal
+	name = "oatmeal"
+	desc = "A nice bowl of oatmeal."
+	icon_state = "oatmeal"
+	food_reagents = list(/datum/reagent/consumable/nutriment = 11, /datum/reagent/consumable/milk = 10, /datum/reagent/consumable/nutriment/vitamin = 6)
+	tastes = list("овёс" = 1, "молоко" = 1)
+	foodtypes = DAIRY | GRAIN | BREAKFAST

@@ -1,6 +1,6 @@
 /obj/item/banner
-	name = "banner"
-	desc = "A banner with Nanotrasen's logo on it."
+	name = "знамя"
+	desc = "знамя с логотипом Нанотрейзен."
 	icon = 'icons/obj/banner.dmi'
 	icon_state = "banner"
 	inhand_icon_state = "banner"
@@ -19,16 +19,17 @@
 /obj/item/banner/examine(mob/user)
 	. = ..()
 	if(inspiration_available)
-		. += "<hr><span class='notice'>Activate it in your hand to inspire nearby allies of this banner's allegiance!</span>"
+		. += "<hr><span class='notice'>Используйте в активной руке, чтобы вдохновить ближайших союзников!</span>"
 
 /obj/item/banner/attack_self(mob/living/carbon/human/user)
 	if(!inspiration_available)
 		return
 	if(morale_time > world.time)
+		to_chat(user, span_warning("Я недостаточно вдохновлён, чтобы снова размахивать [src]."))
 		to_chat(user, span_warning("You aren't feeling inspired enough to flourish [src] again yet."))
 		return
-	user.visible_message("<span class='big notice'>[user] flourishes [src]!</span>", \
-	span_notice("You raise [src] skywards, inspiring your allies!"))
+	user.visible_message("<span class='big notice'>[user] размахивает [src]!</span>", \
+	span_notice("Я поднимаю [src] ввысь, вдохновляя союзников!"))
 	playsound(src, "rustle", 100, FALSE)
 	if(warcry)
 		user.say("[warcry]", forced="banner")
@@ -55,7 +56,7 @@
 	for(var/V in inspired)
 		var/mob/living/carbon/human/H = V
 		if(H != user)
-			to_chat(H, span_notice("Your confidence surges as [user] flourishes [user.ru_ego()] [name]!"))
+			to_chat(H, span_notice("Я становлюсь более уверенным по мере того, как [user] размахивает [user.ru_ego()] [name]!"))
 		inspiration(H)
 		special_inspiration(H)
 
@@ -76,8 +77,8 @@
 	return
 
 /obj/item/banner/security
-	name = "securistan banner"
-	desc = "The banner of Securistan, ruling the station with an iron fist."
+	name = "знамя СБстана"
+	desc = "Знамя Сбстана, правящего станцией своим железным кулаком."
 	icon_state = "banner_security"
 	inhand_icon_state = "banner_security"
 	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
@@ -92,7 +93,7 @@
 	inspiration_available = FALSE
 
 /datum/crafting_recipe/security_banner
-	name = "Securistan Banner"
+	name = "знамя СБстана"
 	result = /obj/item/banner/security/mundane
 	time = 40
 	reqs = list(/obj/item/stack/rods = 2,
@@ -100,13 +101,13 @@
 	category = CAT_MISC
 
 /obj/item/banner/medical
-	name = "meditopia banner"
-	desc = "The banner of Meditopia, generous benefactors that cure wounds and shelter the weak."
+	name = "знамя Медистана"
+	desc = "Знамя Медистана, щедрых благотворителей, которые лечат раны и дают кров нуждающимся."
 	icon_state = "banner_medical"
 	inhand_icon_state = "banner_medical"
 	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
-	warcry = "No wounds cannot be healed!"
+	warcry = "Нет таких ран, которые бы мы не смогли залечить!"
 
 /obj/item/banner/medical/Initialize(mapload)
 	. = ..()
@@ -119,7 +120,7 @@
 	return H.stat //Meditopia is moved to help those in need
 
 /datum/crafting_recipe/medical_banner
-	name = "Meditopia Banner"
+	name = "знамя Медистана"
 	result = /obj/item/banner/medical/mundane
 	time = 40
 	reqs = list(/obj/item/stack/rods = 2,
@@ -132,13 +133,13 @@
 	H.reagents.add_reagent(/datum/reagent/medicine/inaprovaline, 5)
 
 /obj/item/banner/science
-	name = "sciencia banner"
-	desc = "The banner of Sciencia, bold and daring thaumaturges and researchers that take the path less traveled."
+	name = "знамя Научстана"
+	desc = "Знамя Научстана, смелых тауматургов и исследователей."
 	icon_state = "banner_science"
 	inhand_icon_state = "banner_science"
 	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
-	warcry = "For Cuban Pete!"
+	warcry = "Во имя кубинца Пита!"
 
 /obj/item/banner/science/Initialize(mapload)
 	. = ..()
@@ -151,7 +152,7 @@
 	return H.on_fire //Sciencia is pleased by dedication to the art of Toxins
 
 /datum/crafting_recipe/science_banner
-	name = "Sciencia Banner"
+	name = "знамя Научстана"
 	result = /obj/item/banner/science/mundane
 	time = 40
 	reqs = list(/obj/item/stack/rods = 2,
@@ -159,13 +160,13 @@
 	category = CAT_MISC
 
 /obj/item/banner/cargo
-	name = "cargonia banner"
-	desc = "The banner of the eternal Cargonia, with the mystical power of conjuring any object into existence."
+	name = "знамя Каргонии"
+	desc = "Знамя вечной Каргонии, обладающее мистической силой возвращать к жизни."
 	icon_state = "banner_cargo"
 	inhand_icon_state = "banner_cargo"
 	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
-	warcry = "Hail Cargonia!"
+	warcry = "Да здравствует Каргония!"
 
 /obj/item/banner/cargo/Initialize(mapload)
 	. = ..()
@@ -175,7 +176,7 @@
 	inspiration_available = FALSE
 
 /datum/crafting_recipe/cargo_banner
-	name = "Cargonia Banner"
+	name = "Знамя Каргонии"
 	result = /obj/item/banner/cargo/mundane
 	time = 40
 	reqs = list(/obj/item/stack/rods = 2,
@@ -183,13 +184,13 @@
 	category = CAT_MISC
 
 /obj/item/banner/engineering
-	name = "engitopia banner"
-	desc = "The banner of Engitopia, wielders of limitless power."
+	name = "знамя Инжестана"
+	desc = "Знамя Инжестана, обладателей безграничной власти."
 	icon_state = "banner_engineering"
 	inhand_icon_state = "banner_engineering"
 	lefthand_file = 'icons/mob/inhands/equipment/banners_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/banners_righthand.dmi'
-	warcry = "All hail lord Singuloth!!"
+	warcry = "Славьте лорда Сингулота!!"
 
 /obj/item/banner/engineering/Initialize(mapload)
 	. = ..()
@@ -202,7 +203,7 @@
 	H.radiation = 0
 
 /datum/crafting_recipe/engineering_banner
-	name = "Engitopia Banner"
+	name = "Знамя Инжестана"
 	result = /obj/item/banner/engineering/mundane
 	time = 40
 	reqs = list(/obj/item/stack/rods = 2,
@@ -210,10 +211,10 @@
 	category = CAT_MISC
 
 /obj/item/banner/command
-	name = "command banner"
-	desc = "The banner of Command, a staunch and ancient line of bueraucratic kings and queens."
+	name = "знамя командования"
+	desc = "Знамя командования, верного и древнего рода бюрократических королей и королев"
 	//No icon state here since the default one is the NT banner
-	warcry = "Hail Nanotrasen!"
+	warcry = "Слава Нанотрейзен!"
 
 /obj/item/banner/command/Initialize(mapload)
 	. = ..()
@@ -226,7 +227,7 @@
 	return HAS_TRAIT(H, TRAIT_MINDSHIELD) //Command is stalwart but rewards their allies.
 
 /datum/crafting_recipe/command_banner
-	name = "Command Banner"
+	name = "Знамя командования"
 	result = /obj/item/banner/command/mundane
 	time = 40
 	reqs = list(/obj/item/stack/rods = 2,
@@ -234,16 +235,16 @@
 	category = CAT_MISC
 
 /obj/item/banner/red
-	name = "красный banner"
+	name = "красное знамя"
 	icon_state = "banner-red"
 	inhand_icon_state = "banner-red"
-	desc = "A banner with the logo of the red deity."
+	desc = "Знамя с логотипом красного божества."
 
 /obj/item/banner/blue
-	name = "синий banner"
+	name = "синее знамя"
 	icon_state = "banner-blue"
 	inhand_icon_state = "banner-blue"
-	desc = "A banner with the logo of the blue deity."
+	desc = "Знамя с логотипом синего божества."
 
 /obj/item/storage/backpack/bannerpack
 	name = "\improper Nanotrasen banner backpack"
@@ -267,8 +268,8 @@
 
 //this is all part of one item set
 /obj/item/clothing/suit/armor/plate/crusader
-	name = "Crusader's Armour"
-	desc = "Armour that's comprised of metal and cloth."
+	name = "Доспехи крестоносца"
+	desc = "Броня из металла и ткани."
 	icon_state = "crusader"
 	w_class = WEIGHT_CLASS_BULKY
 	slowdown = 2.0 //gotta pretend we're balanced.
@@ -282,8 +283,8 @@
 	icon_state = "crusader-blue"
 
 /obj/item/clothing/head/helmet/plate/crusader
-	name = "Crusader's Hood"
-	desc = "A brownish hood."
+	name = "Капюшон крестоносца"
+	desc = "Коричневатый капюшон."
 	icon_state = "crusader"
 	w_class = WEIGHT_CLASS_NORMAL
 	flags_inv = HIDEHAIR|HIDEEARS|HIDEFACE
@@ -297,8 +298,8 @@
 
 //Prophet helmet
 /obj/item/clothing/head/helmet/plate/crusader/prophet
-	name = "Prophet's Hat"
-	desc = "A religious-looking hat."
+	name = "Шляпа пророка"
+	desc = "Выглядит религиозно."
 	icon_state = null
 	flags_1 = 0
 	armor = list(MELEE = 60, BULLET = 60, LASER = 60, ENERGY = 60, BOMB = 70, BIO = 50, RAD = 50, FIRE = 60, ACID = 60) //religion protects you from disease and radiation, honk.
@@ -312,8 +313,8 @@
 
 //Structure conversion staff
 /obj/item/godstaff
-	name = "godstaff"
-	desc = "It's a stick..?"
+	name = "божественный посох"
+	desc = "Это палка..?"
 	icon_state = "godstaff-red"
 	lefthand_file = 'icons/mob/inhands/weapons/staves_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi'
@@ -326,7 +327,8 @@
 	. = ..()
 	if(staffcooldown + staffwait > world.time)
 		return
-	user.visible_message(span_notice("[user] chants deeply and waves [user.ru_ego()] staff!"))
+
+	user.visible_message(span_notice("[user] напевает и размахивает [user.ru_ego()] посохом!"))
 	if(do_after(user, 2 SECONDS, src))
 		target.add_atom_colour(conversion_color, WASHABLE_COLOUR_PRIORITY) //wololo
 	staffcooldown = world.time
@@ -340,9 +342,9 @@
 	conversion_color = "#0000ff"
 
 /obj/item/clothing/gloves/plate
-	name = "Plate Gauntlets"
+	name = "Латные рукавицы"
 	icon_state = "crusader"
-	desc = "They're like gloves, but made of metal."
+	desc = "Как перчатки, но сделаны из железа."
 	siemens_coefficient = 0
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
@@ -356,8 +358,8 @@
 	icon_state = "crusader-blue"
 
 /obj/item/clothing/shoes/plate
-	name = "Plate Boots"
-	desc = "Metal boots, they look heavy."
+	name = "Латные сапоги"
+	desc = "Выглядят тяжелыми."
 	icon_state = "crusader"
 	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 60, BIO = 0, RAD = 0, FIRE = 60, ACID = 60) //does this even do anything on boots?
@@ -376,8 +378,8 @@
 
 
 /obj/item/storage/box/itemset/crusader
-	name = "Crusader's Armour Set" //i can't into ck2 references
-	desc = "This armour is said to be based on the armor of kings on another world thousands of years ago, who tended to assassinate, conspire, and plot against everyone who tried to do the same to them. Some things never change."
+	name = "Доспехи крестоносца" //i can't into ck2 references
+	desc = "Говорят, эта броня была скопирована с доспехов королей из другого мира, которые жили тысячи лет назад. Они убивали, устраивали заговоры и казнили всех, кто пытался сделать то же самое с ними. Некоторые вещи никогда не меняются."
 
 
 /obj/item/storage/box/itemset/crusader/blue/PopulateContents()

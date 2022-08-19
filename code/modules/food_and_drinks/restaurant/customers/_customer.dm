@@ -118,7 +118,7 @@
 			/obj/item/food/pizza/mushroom = 2,
 			/obj/item/food/pizza/meat = 2,
 			/obj/item/food/pizza/margherita = 2,
-			/obj/item/food/lasagna = 4,
+			/obj/item/food/spaghetti/lasagna = 4,
 			/obj/item/food/cannoli = 3,
 			/obj/item/food/salad/risotto =5,
 			/obj/item/food/eggplantparm = 3,

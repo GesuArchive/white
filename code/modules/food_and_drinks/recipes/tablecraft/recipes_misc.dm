@@ -4,7 +4,7 @@
 // MISC
 
 /datum/crafting_recipe/food/candiedapple
-	name = "Candied apple"
+	name = "Карамелезированное яблоко"
 	reqs = list(
 		/datum/reagent/consumable/caramel = 5,
 		/obj/item/food/grown/apple = 1
@@ -13,7 +13,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/spiderlollipop
-	name = "Spider Lollipop"
+	name = "Паучий леденец"
 	reqs = list(/obj/item/stack/rods = 1,
 		/datum/reagent/consumable/sugar = 5,
 		/datum/reagent/water = 5,
@@ -23,7 +23,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/chococoin
-	name = "Choco coin"
+	name = "Шоколадная монетка"
 	reqs = list(
 		/obj/item/coin = 1,
 		/obj/item/food/chocolatebar = 1,
@@ -32,7 +32,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/fudgedice
-	name = "Fudge dice"
+	name = "Помадные кубики"
 	reqs = list(
 		/obj/item/dice = 1,
 		/obj/item/food/chocolatebar = 1,
@@ -41,7 +41,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/chocoorange
-	name = "Choco orange"
+	name = "Шоколадный апельсин"
 	reqs = list(
 		/obj/item/food/grown/citrus/orange = 1,
 		/obj/item/food/chocolatebar = 1,
@@ -50,7 +50,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/loadedbakedpotato
-	name = "Loaded baked potato"
+	name = "Печеный картофель с начинкой"
 	time = 40
 	reqs = list(
 		/obj/item/food/grown/potato = 1,
@@ -60,7 +60,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/cheesyfries
-	name = "Cheesy fries"
+	name = "Сырное фри"
 	reqs = list(
 		/obj/item/food/fries = 1,
 		/obj/item/food/cheesewedge = 1
@@ -69,7 +69,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/wrap
-	name = "Wrap"
+	name = "Яичная обертка"
 	reqs = list(/datum/reagent/consumable/soysauce = 10,
 		/obj/item/food/friedegg = 1,
 		/obj/item/food/grown/cabbage = 1,
@@ -78,7 +78,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/beans
-	name = "Beans"
+	name = "Баночка фасоли"
 	time = 40
 	reqs = list(/datum/reagent/consumable/ketchup = 5,
 		/obj/item/food/grown/soybeans = 2
@@ -87,7 +87,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/eggplantparm
-	name ="Eggplant parmigiana"
+	name ="Баклажанная пармиджана"
 	reqs = list(
 		/obj/item/food/cheesewedge = 2,
 		/obj/item/food/grown/eggplant = 1
@@ -95,56 +95,11 @@
 	result = /obj/item/food/eggplantparm
 	subcategory = CAT_MISCFOOD
 
-/datum/crafting_recipe/food/baguette
-	name = "Baguette"
-	time = 40
-	reqs = list(/datum/reagent/consumable/salt = 1,
-				/datum/reagent/consumable/blackpepper = 1,
-				/obj/item/food/pastrybase = 2
-	)
-	result = /obj/item/food/baguette
-	subcategory = CAT_MISCFOOD
 
-////////////////////////////////////////////////TOAST////////////////////////////////////////////////
-
-/datum/crafting_recipe/food/slimetoast
-	name = "Slime toast"
-	reqs = list(
-		/datum/reagent/toxin/slimejelly = 5,
-		/obj/item/food/breadslice/plain = 1
-	)
-	result = /obj/item/food/jelliedtoast/slime
-	subcategory = CAT_MISCFOOD
-
-/datum/crafting_recipe/food/jelliedyoast
-	name = "Jellied toast"
-	reqs = list(
-		/datum/reagent/consumable/cherryjelly = 5,
-		/obj/item/food/breadslice/plain = 1
-	)
-	result = /obj/item/food/jelliedtoast/cherry
-	subcategory = CAT_MISCFOOD
-
-/datum/crafting_recipe/food/butteredtoast
-	name = "Buttered Toast"
-	reqs = list(
-		/obj/item/food/breadslice/plain = 1,
-		/obj/item/food/butter = 1
-	)
-	result = /obj/item/food/butteredtoast
-	subcategory = CAT_MISCFOOD
-
-/datum/crafting_recipe/food/twobread
-	name = "Two bread"
-	reqs = list(
-		/datum/reagent/consumable/ethanol/wine = 5,
-		/obj/item/food/breadslice/plain = 2
-	)
-	result = /obj/item/food/twobread
-	subcategory = CAT_MISCFOOD
+////////////////////////////////////////////////БУРРИТО////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/burrito
-	name ="Burrito"
+	name ="Буррито"
 	reqs = list(
 		/obj/item/food/tortilla = 1,
 		/obj/item/food/grown/soybeans = 2
@@ -153,7 +108,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/cheesyburrito
-	name ="Cheesy burrito"
+	name ="Сырное буррито"
 	reqs = list(
 		/obj/item/food/cheesewedge = 2,
 		/obj/item/food/tortilla = 1,
@@ -163,7 +118,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/carneburrito
-	name ="Carne de asada burrito"
+	name ="Буррито Карне Асада"
 	reqs = list(
 		/obj/item/food/tortilla = 1,
 		/obj/item/food/meat/cutlet = 2,
@@ -173,7 +128,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/fuegoburrito
-	name ="Fuego plasma burrito"
+	name ="Огненно-плазменный буррито"
 	reqs = list(
 		/obj/item/food/tortilla = 1,
 		/obj/item/food/grown/ghost_chili = 2,
@@ -182,21 +137,8 @@
 	result = /obj/item/food/fuegoburrito
 	subcategory = CAT_MISCFOOD
 
-/datum/crafting_recipe/food/melonfruitbowl
-	name ="Melon fruit bowl"
-	reqs = list(
-		/obj/item/food/grown/watermelon = 1,
-		/obj/item/food/grown/apple = 1,
-		/obj/item/food/grown/citrus/orange = 1,
-		/obj/item/food/grown/citrus/lemon = 1,
-		/obj/item/food/grown/banana = 1,
-		/obj/item/food/grown/ambrosia = 1
-	)
-	result = /obj/item/food/melonfruitbowl
-	subcategory = CAT_MISCFOOD
-
 /datum/crafting_recipe/food/nachos
-	name ="Nachos"
+	name ="Начос"
 	reqs = list(
 		/datum/reagent/consumable/salt = 1,
 		/obj/item/food/tortilla = 1
@@ -205,7 +147,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/cheesynachos
-	name ="Cheesy nachos"
+	name ="Сырные начос"
 	reqs = list(
 		/datum/reagent/consumable/salt = 1,
 		/obj/item/food/cheesewedge = 1,
@@ -215,7 +157,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/cubannachos
-	name ="Cuban nachos"
+	name ="Кубинские начос"
 	reqs = list(
 		/datum/reagent/consumable/ketchup = 5,
 		/obj/item/food/grown/chili = 2,
@@ -225,7 +167,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/melonkeg
-	name ="Melon keg"
+	name ="Бочонок из дыни"
 	reqs = list(
 		/datum/reagent/consumable/ethanol/vodka = 25,
 		/obj/item/food/grown/holymelon = 1,
@@ -236,7 +178,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/honeybar
-	name = "Honey nut bar"
+	name = "Медово-ореховый батончик"
 	reqs = list(
 		/obj/item/food/grown/oat = 1,
 		/datum/reagent/consumable/honey = 5
@@ -246,7 +188,7 @@
 
 
 /datum/crafting_recipe/food/stuffedlegion
-	name = "Stuffed legion"
+	name = "Фаршированный Легион"
 	time = 40
 	reqs = list(
 		/obj/item/food/meat/steak/goliath = 1,
@@ -258,7 +200,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/powercrepe
-	name = "Powercrepe"
+	name = "Боевой блин"
 	time = 40
 	reqs = list(
 		/obj/item/food/flatdough = 1,
@@ -271,7 +213,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/taco
-	name ="Classic Taco"
+	name ="Классическое тако"
 	reqs = list(
 		/obj/item/food/tortilla = 1,
 		/obj/item/food/cheesewedge = 1,
@@ -282,7 +224,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/tacoplain
-	name ="Plain Taco"
+	name ="Тако"
 	reqs = list(
 		/obj/item/food/tortilla = 1,
 		/obj/item/food/cheesewedge = 1,
@@ -292,7 +234,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/branrequests
-	name = "Bran Requests Cereal"
+	name = "Сухой завтрак с отрубями"
 	reqs = list(
 		/obj/item/food/grown/wheat = 1,
 		/obj/item/food/no_raisin = 1,
@@ -301,7 +243,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/ricepudding
-	name = "Rice pudding"
+	name = "Рисовый пудинг"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/datum/reagent/consumable/sugar = 5,
@@ -311,7 +253,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/risotto
-	name = "Risotto"
+	name = "Ризотто"
 	reqs = list(
 		/datum/reagent/consumable/ethanol/wine = 5,
 		/obj/item/food/cheesewedge = 1,
@@ -322,7 +264,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/butterbear //ITS ALIVEEEEEE!
-	name = "Living bear/butter hybrid"
+	name = "Живое масло"
 	reqs = list(
 		/obj/item/organ/brain = 1,
 		/obj/item/organ/heart = 1,
@@ -335,7 +277,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/crab_rangoon
-	name = "Crab Rangoon"
+	name = "Крабовый рангун"
 	reqs = list(
 		/obj/item/food/doughslice = 1,
 		/datum/reagent/consumable/cream = 5,
@@ -346,7 +288,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/royalcheese
-	name = "Royal Cheese"
+	name = "Королевский сыр"
 	reqs = list(
 		/obj/item/food/cheesewheel = 1,
 		/obj/item/clothing/head/crown = 1,
@@ -357,7 +299,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/ant_candy
-	name = "Ant Candy"
+	name = "Муравьиная конфета"
 	reqs = list(/obj/item/stack/rods = 1,
 		/datum/reagent/consumable/sugar = 5,
 		/datum/reagent/water = 5,
@@ -367,7 +309,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/pesto
-	name = "Pesto"
+	name = "Песто"
 	reqs = list(
 		/obj/item/food/firm_cheese_slice = 1,
 		/datum/reagent/consumable/salt = 5,
@@ -380,7 +322,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/tomato_sauce
-	name = "Tomato sauce"
+	name = "Томатный соус"
 	reqs = list(
 		/obj/item/food/canned/tomatoes = 1,
 		/datum/reagent/consumable/salt = 2,
@@ -391,7 +333,7 @@
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/bechamel_sauce
-	name = "Bechamel sauce"
+	name = "Соус Бешамель"
 	reqs = list(
 		/datum/reagent/consumable/milk = 10,
 		/datum/reagent/consumable/flour = 5,

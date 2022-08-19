@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////EGG RECIPE's////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/friedegg
-	name = "Fried egg"
+	name = "Яичница"
 	reqs = list(
 		/datum/reagent/consumable/salt = 1,
 		/datum/reagent/consumable/blackpepper = 1,
@@ -14,7 +14,7 @@
 	subcategory = CAT_EGG
 
 /datum/crafting_recipe/food/omelette
-	name = "Omelette"
+	name = "Омлет с сыром"
 	reqs = list(
 		/obj/item/food/egg = 2,
 		/obj/item/food/cheesewedge = 2
@@ -23,7 +23,7 @@
 	subcategory = CAT_EGG
 
 /datum/crafting_recipe/food/chocolateegg
-	name = "Chocolate egg"
+	name = "Шоколадное яйцо"
 	reqs = list(
 		/obj/item/food/boiledegg = 1,
 		/obj/item/food/chocolatebar = 1
@@ -32,7 +32,7 @@
 	subcategory = CAT_EGG
 
 /datum/crafting_recipe/food/eggsbenedict
-	name = "Eggs benedict"
+	name = "Яйца Бенедикт"
 	reqs = list(
 		/obj/item/food/friedegg = 1,
 		/obj/item/food/meat/steak = 1,
@@ -42,7 +42,7 @@
 	subcategory = CAT_EGG
 
 /datum/crafting_recipe/food/eggbowl
-	name = "Egg bowl"
+	name = "Яичная миска"
 	reqs = list(
 		/obj/item/food/salad/boiledrice = 1,
 		/obj/item/food/boiledegg = 1,

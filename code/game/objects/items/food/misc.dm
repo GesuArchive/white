@@ -371,16 +371,6 @@
 	foodtypes = VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/food/melonfruitbowl
-	name = "melon fruit bowl"
-	desc = "For people who wants edible fruit bowls."
-	icon_state = "melonfruitbowl"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 4)
-	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("арбуз" = 1)
-	foodtypes = FRUIT
-	w_class = WEIGHT_CLASS_SMALL
-
 /obj/item/food/nachos
 	name = "nachos"
 	desc = "Chips from Space Mexico."

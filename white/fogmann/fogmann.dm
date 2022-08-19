@@ -140,7 +140,7 @@
 
 
 /obj/item/banner/engineering/atmos
-	name = "Kazakhstan banner"
+	name = "знамя Казахстана"
 	desc = "Сшит из плазмы с вкраплениями слез девственниц."
 	icon = 'white/pieceofcrap.dmi'
 	icon_state = "banner_atmos"
@@ -152,7 +152,7 @@
 	inspiration_available = FALSE
 
 /datum/crafting_recipe/atmos_banner
-	name = "Kazakhstan Banner"
+	name = "знамя Казахстана"
 	result = /obj/item/banner/engineering/atmos/mundane
 	time = 40
 	reqs = list(/obj/item/stack/rods = 2,
@@ -243,8 +243,8 @@
  	name = "Red Room"
 
 /obj/item/food/fishmeat/carp/dry/donbas
-	name = "Debaltsevo fish"
-	desc = "Dryed fish with tomatoes. S vodoi v samiy raz."
+	name = "рыба из Дебальцево"
+	desc = "Сушеная рыба с томатами. Самое то под водочку."
 	icon = 'white/pieceofcrap.dmi'
 	icon_state = "roasted"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/toxin/carpotoxin = 3)
@@ -252,8 +252,8 @@
 	foodtypes = MEAT
 
 /obj/item/food/fishmeat/carp/dry
-	name = "Dryed fish"
-	desc = "Just dryed fish. S pivkom v samiy raz."
+	name = "Сушеная рыба"
+	desc = "Просто сушеная рыба. С пивком самое то."
 	icon = 'white/pieceofcrap.dmi'
 	icon_state = "dry"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/toxin/carpotoxin = 1)
@@ -261,7 +261,7 @@
 	foodtypes = MEAT
 
 /datum/crafting_recipe/dryfish
-	name = "Dryed Fish"
+	name = "Сушеная рыба"
 	result =  /obj/item/food/fishmeat/carp/dry
 	time = 80
 	reqs = list(/obj/item/food/fishmeat/carp = 3,
@@ -269,7 +269,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/dryfish/donbass
-	name = "Debaltsevo Fish"
+	name = "рыба из Дебальцево"
 	result =  /obj/item/food/fishmeat/carp/dry/donbas
 	time = 40
 	reqs = list(/obj/item/food/fishmeat/carp/dry = 1,

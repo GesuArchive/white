@@ -61,7 +61,7 @@ Arrow&bow
 	return FALSE
 
 /datum/crafting_recipe/bow_h
-	name = "Bow"
+	name = "Лук"
 	result = /obj/item/gun/syringe/bow
 	reqs = list(/obj/item/stack/cable_coil = 5,/obj/item/stack/sheet/mineral/wood = 10)
 	time = 100
@@ -69,7 +69,7 @@ Arrow&bow
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/arrow_h
-	name = "Arrow"
+	name = "Стрела"
 	result = /obj/item/reagent_containers/syringe/arrow
 	reqs = list(/obj/item/stack/rods = 1)
 	tool_behaviors = list(TOOL_WIRECUTTER)

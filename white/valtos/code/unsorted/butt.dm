@@ -282,7 +282,7 @@
 	return
 
 /datum/crafting_recipe/food/buttkebab
-	name = "Butt Kebab"
+	name = "Кебаб из задницы"
 	reqs = list(
 		/obj/item/stack/rods = 1,
 		/obj/item/organ/butt = 1
@@ -301,7 +301,7 @@
 	foodtypes = MEAT | GROSS
 
 /datum/crafting_recipe/food/assburger
-	name = "Assburger"
+	name = "Жопобургер"
 	reqs = list(
 			/obj/item/food/meat/steak/plain = 1,
 			/obj/item/food/bun = 1,
@@ -321,7 +321,7 @@
 	icon_state = "assburger"
 
 /datum/crafting_recipe/food/asspie
-	name = "Asspie"
+	name = "Пирог из жопы"
 	reqs = list(
 		/datum/reagent/consumable/blackpepper = 1,
 		/datum/reagent/consumable/salt = 1,
@@ -340,7 +340,7 @@
 	foodtypes = GRAIN | DAIRY | SUGAR | GROSS
 
 /datum/crafting_recipe/buttshoes
-	name = "butt shoes"
+	name = "Жопобуты"
 	result = /obj/item/clothing/shoes/buttshoes
 	reqs = list(/obj/item/organ/butt = 2,
 				/obj/item/clothing/shoes/sneakers = 1)

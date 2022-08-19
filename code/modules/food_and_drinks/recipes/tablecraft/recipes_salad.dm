@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////SALADS////////////////////////////////////////////////
 
 /datum/crafting_recipe/food/herbsalad
-	name = "Herb salad"
+	name = "Травяной салат"
 	reqs = list(
 		/obj/item/reagent_containers/glass/bowl = 1,
 		/obj/item/food/grown/ambrosia/vulgaris = 3,
@@ -14,7 +14,7 @@
 	subcategory = CAT_SALAD
 
 /datum/crafting_recipe/food/aesirsalad
-	name = "Aesir salad"
+	name = "Салат Асов"
 	reqs = list(
 		/obj/item/reagent_containers/glass/bowl = 1,
 		/obj/item/food/grown/ambrosia/deus = 3,
@@ -24,7 +24,7 @@
 	subcategory = CAT_SALAD
 
 /datum/crafting_recipe/food/validsalad
-	name = "Valid salad"
+	name = "Валидный салат"
 	reqs = list(
 		/obj/item/reagent_containers/glass/bowl = 1,
 		/obj/item/food/grown/ambrosia/vulgaris = 3,
@@ -35,7 +35,7 @@
 	subcategory = CAT_SALAD
 
 /datum/crafting_recipe/food/monkeysdelight
-	name = "Monkeys delight"
+	name = "Обезьяний восторг"
 	reqs = list(
 		/datum/reagent/consumable/flour = 5,
 		/datum/reagent/consumable/salt = 1,
@@ -47,18 +47,9 @@
 	result = /obj/item/food/soup/monkeysdelight
 	subcategory = CAT_SALAD
 
-/datum/crafting_recipe/food/oatmeal
-	name = "Oatmeal"
-	reqs = list(
-		/datum/reagent/consumable/milk = 10,
-		/obj/item/reagent_containers/glass/bowl = 1,
-		/obj/item/food/grown/oat = 1
-	)
-	result = /obj/item/food/salad/oatmeal
-	subcategory = CAT_SALAD
 
 /datum/crafting_recipe/food/fruitsalad
-	name = "Fruit salad"
+	name = "Фруктовый салат"
 	reqs = list(
 		/obj/item/reagent_containers/glass/bowl = 1,
 		/obj/item/food/grown/apple = 1,
@@ -71,7 +62,7 @@
 	subcategory = CAT_SALAD
 
 /datum/crafting_recipe/food/junglesalad
-	name = "Jungle salad"
+	name = "Салат \"Джунгли\""
 	reqs = list(
 		/obj/item/reagent_containers/glass/bowl = 1,
 		/obj/item/food/grown/apple = 1,
@@ -84,7 +75,7 @@
 	subcategory = CAT_SALAD
 
 /datum/crafting_recipe/food/citrusdelight
-	name = "Citrus delight"
+	name = "Цитрусовый восторг"
 	reqs = list(
 		/obj/item/reagent_containers/glass/bowl = 1,
 		/obj/item/food/grown/citrus/lime = 1,
@@ -96,7 +87,7 @@
 	subcategory = CAT_SALAD
 
 /datum/crafting_recipe/food/edensalad
-	name = "Salad of Eden"
+	name = "Салат Эдема"
 	reqs = list(
 		/obj/item/reagent_containers/glass/bowl = 1,
 		/obj/item/food/grown/ambrosia/vulgaris = 1,
@@ -106,3 +97,28 @@
 	)
 	result = /obj/item/food/salad/edensalad
 	subcategory = CAT_SALAD
+
+/datum/crafting_recipe/food/melonfruitbowl
+	name ="Фруктовая арбузная миска"
+	reqs = list(
+		/obj/item/food/grown/watermelon = 1,
+		/obj/item/food/grown/apple = 1,
+		/obj/item/food/grown/citrus/orange = 1,
+		/obj/item/food/grown/citrus/lemon = 1,
+		/obj/item/food/grown/banana = 1,
+		/obj/item/food/grown/ambrosia = 1
+	)
+	result = /obj/item/food/salad/melonfruitbowl
+	subcategory = CAT_SALAD
+
+/datum/crafting_recipe/food/gumbo
+	name = "Черноглазое гамбо"
+	reqs = list(
+		/obj/item/food/salad/boiledrice = 1,
+		/obj/item/food/grown/peas = 1,
+		/obj/item/food/grown/chili = 1,
+		/obj/item/food/meat/cutlet = 1
+	)
+	result = /obj/item/food/salad/gumbo
+	subcategory = CAT_SALAD
+

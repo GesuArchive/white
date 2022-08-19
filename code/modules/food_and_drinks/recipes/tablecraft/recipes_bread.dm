@@ -3,8 +3,54 @@
 
 ////////////////////////////////////////////////BREAD////////////////////////////////////////////////
 
+/datum/crafting_recipe/food/baguette
+	name = "Багет"
+	time = 40
+	reqs = list(/datum/reagent/consumable/salt = 1,
+				/datum/reagent/consumable/blackpepper = 1,
+				/obj/item/food/pastrybase = 2
+	)
+	result = /obj/item/food/baguette
+	subcategory = CAT_BREAD
+
+/datum/crafting_recipe/food/slimetoast
+	name = "Слаймовый тост"
+	reqs = list(
+		/datum/reagent/toxin/slimejelly = 5,
+		/obj/item/food/breadslice/plain = 1
+	)
+	result = /obj/item/food/bread/jelliedtoast/slime
+	subcategory = CAT_BREAD
+
+/datum/crafting_recipe/food/jelliedyoast
+	name = "Желейный тост"
+	reqs = list(
+		/datum/reagent/consumable/cherryjelly = 5,
+		/obj/item/food/breadslice/plain = 1
+	)
+	result = /obj/item/food/bread/jelliedtoast/cherry
+	subcategory = CAT_BREAD
+
+/datum/crafting_recipe/food/butteredtoast
+	name = "Тост с маслом"
+	reqs = list(
+		/obj/item/food/breadslice/plain = 1,
+		/obj/item/food/butter = 1
+	)
+	result = /obj/item/food/bread/butteredtoast
+	subcategory = CAT_BREAD
+
+/datum/crafting_recipe/food/twobread
+	name = "Два хлеба"
+	reqs = list(
+		/datum/reagent/consumable/ethanol/wine = 5,
+		/obj/item/food/breadslice/plain = 2
+	)
+	result = /obj/item/food/bread/twobread
+	subcategory = CAT_BREAD
+
 /datum/crafting_recipe/food/meatbread
-	name = "Meat bread"
+	name = "Мясной рулет"
 	reqs = list(
 		/obj/item/food/bread/plain = 1,
 		/obj/item/food/meat/cutlet/plain = 3,
@@ -14,7 +60,7 @@
 	subcategory = CAT_BREAD
 
 /datum/crafting_recipe/food/xenomeatbread
-	name = "Xenomeat bread"
+	name = "Хлеб с мясом чужого"
 	reqs = list(
 		/obj/item/food/bread/plain = 1,
 		/obj/item/food/meat/cutlet/xeno = 3,
@@ -24,7 +70,7 @@
 	subcategory = CAT_BREAD
 
 /datum/crafting_recipe/food/spidermeatbread
-	name = "Spidermeat bread"
+	name = "Хлеб с паучьим мясом"
 	reqs = list(
 		/obj/item/food/bread/plain = 1,
 		/obj/item/food/meat/cutlet/spider = 3,
@@ -34,7 +80,7 @@
 	subcategory = CAT_BREAD
 
 /datum/crafting_recipe/food/banananutbread
-	name = "Banana nut bread"
+	name = "Банановый хлеб"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/obj/item/food/bread/plain = 1,
@@ -45,7 +91,7 @@
 	subcategory = CAT_BREAD
 
 /datum/crafting_recipe/food/tofubread
-	name = "Tofu bread"
+	name = "Хлеб тофу"
 	reqs = list(
 		/obj/item/food/bread/plain = 1,
 		/obj/item/food/tofu = 3,
@@ -55,7 +101,7 @@
 	subcategory = CAT_BREAD
 
 /datum/crafting_recipe/food/creamcheesebread
-	name = "Cream cheese bread"
+	name = "Хлеб со сливочным сыром"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/obj/item/food/bread/plain = 1,
@@ -65,7 +111,7 @@
 	subcategory = CAT_BREAD
 
 /datum/crafting_recipe/food/mimanabread
-	name = "Mimana bread"
+	name = "Мимановский хлеб"
 	reqs = list(
 		/datum/reagent/consumable/soymilk = 5,
 		/obj/item/food/bread/plain = 1,
@@ -76,7 +122,7 @@
 	subcategory = CAT_BREAD
 
 /datum/crafting_recipe/food/garlicbread
-	name = "Garlic Bread"
+	name = "Чесночный хлеб"
 	time = 40
 	reqs = list(/obj/item/food/grown/garlic = 1,
 				/obj/item/food/breadslice/plain = 1,
@@ -86,7 +132,7 @@
 	subcategory = CAT_BREAD
 
 /datum/crafting_recipe/food/butterbiscuit
-	name = "Butter Biscuit"
+	name = "Бисквит с маслом"
 	reqs = list(
 		/obj/item/food/bun = 1,
 		/obj/item/food/butter = 1
@@ -95,7 +141,7 @@
 	subcategory = CAT_BREAD
 
 /datum/crafting_recipe/food/butterdog
-	name = "Butterdog"
+	name = "Масло-дог"
 	reqs = list(
 		/obj/item/food/bun = 1,
 		/obj/item/food/butter = 3,
@@ -104,7 +150,7 @@
 	subcategory = CAT_BREAD
 
 /datum/crafting_recipe/food/moldybread // why would you make this?
-	name = "Moldy Bread"
+	name = "Заплесневелый хлеб"
 	reqs = list(
 		/obj/item/food/breadslice/plain = 1,
 		/obj/item/food/grown/mushroom/amanita = 1
@@ -113,7 +159,7 @@
 	subcategory = CAT_BREAD
 
 /datum/crafting_recipe/food/breadcat
-	name = "Bread cat/bread hybrid"
+	name = "Хлебокот"
 	reqs = list(
 		/obj/item/food/bread/plain = 1,
 		/obj/item/organ/ears/cat = 1,
