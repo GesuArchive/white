@@ -281,7 +281,7 @@
 	for(var/obj/item/I in internals)
 		to_chat(user, span_notice("Вытаскиваю [I] из [src]."))
 		I.forceMove(get_turf(src))
-		I = null
+	internals = list()
 
 /obj/item/trapdoor_remote/attackby(obj/item/assembly/trapdoor/assembly, mob/living/user, params)
 	. = ..()
@@ -321,6 +321,12 @@
 	. = ..()
 	for(var/i in 1 to maximum_internals)
 		internals += new /obj/item/assembly/trapdoor(src)
+
+/obj/item/trapdoor_remote/crafted
+
+/obj/item/trapdoor_remote/crafted/Initialize(mapload)
+	. = ..()
+	internals += new /obj/item/assembly/trapdoor(src)
 
 /// trapdoor parts kit, allows trapdoors to be made by players
 /obj/item/trapdoor_kit

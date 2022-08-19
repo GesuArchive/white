@@ -730,7 +730,7 @@
 
 /datum/crafting_recipe/trapdoor_remote
 	name = "Пульт дистанционного управления люком"
-	result = /obj/item/trapdoor_remote/preloaded // since its useless without its assembly just require an assembly to craft it
+	result = /obj/item/trapdoor_remote/crafted // since its useless without its assembly just require an assembly to craft it
 	reqs = list(
 		/obj/item/compact_remote = 1,
 		/obj/item/stack/cable_coil = 5,
