@@ -1535,18 +1535,19 @@
 	SEND_SIGNAL(src, COMSIG_FIXEYE_ENABLE, TRUE, TRUE)
 	SEND_SIGNAL(src, COMSIG_FIXEYE_LOCK)
 	RegisterSignal(src, COMSIG_MOB_LOGOUT, .proc/kill_zoom, override = TRUE)
-	var/distance = min(get_dist(src, A), 7)
+	//var/distance = min(get_dist(src, A), 7)
+	var/distance = 7
 	var/direction = get_dir(src, A)
 	var/x_offset = 0
 	var/y_offset = 0
 	if(direction & NORTH)
-		y_offset = distance*world.icon_size
+		y_offset = distance * world.icon_size
 	if(direction & SOUTH)
-		y_offset = -distance*world.icon_size
+		y_offset = -distance * world.icon_size
 	if(direction & EAST)
-		x_offset = distance*world.icon_size
+		x_offset = distance * world.icon_size
 	if(direction & WEST)
-		x_offset = -distance*world.icon_size
+		x_offset = -distance * world.icon_size
 	animate(client, pixel_x = pixel_x + x_offset, pixel_y = pixel_y + y_offset, time = 7, easing = SINE_EASING)
 
 /mob/proc/unperform_zoom(atom/A, params, silent = FALSE)
