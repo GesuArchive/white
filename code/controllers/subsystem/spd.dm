@@ -16,4 +16,4 @@ SUBSYSTEM_DEF(spd)
 		return
 
 	checked_flags[action_type] += target_client
-	message_admins("[ADMIN_LOOKUPFLW(target_client)] ([target_client.player_age] дней) [action_type]")
+	message_admins("[ADMIN_LOOKUPFLW(target_client.mob)] ([target_client.player_age] дней) [action_type]")
