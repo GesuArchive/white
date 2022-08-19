@@ -740,7 +740,7 @@
 		return
 
 	var/mob/factioneer = firer
-	ignored_factions = list("[factioneer.faction]")
+	ignored_factions = factioneer?.faction
 
 /obj/projectile/proc/set_angle(new_angle) //wrapper for overrides.
 	Angle = new_angle
