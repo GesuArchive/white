@@ -141,7 +141,7 @@
 	if(!istype(target))
 		return
 	for(var/obj/O in target.contents)
-		O.Bumped(climber)
+		climber.Bump(O)
 		if(O.density)
 			return
 	if(!climber.can_z_move(DOWN, target, z_move_flags = ZMOVE_FALL_FLAGS)) //Don't throw them into a tile that will just dump them back down.
