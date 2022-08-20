@@ -26,7 +26,7 @@
 	. += using_instrument?.ready()? "Статус: <span class='good'>Готов</span><br>" : "Статус: <span class='bad'>!Ошибка определения инструмента!</span><br>"
 	. += "Тип инструмента: [legacy? "Традиционный" : "Синтезированный"]<br>"
 	. += "<a href='?src=[REF(src)];setvolume=1'>Громкость</a>: [volume]<br>"
-	. += "<a href='?src=[REF(src)];setdropoffvolume=1'>Порог Снижения Нромкости</a>: [sustain_dropoff_volume]<br>"
+	. += "<a href='?src=[REF(src)];setdropoffvolume=1'>Порог Снижения Громкости</a>: [sustain_dropoff_volume]<br>"
 	. += "<a href='?src=[REF(src)];togglesustainhold=1'>Бесконечно воспроизводить последнюю удерживаемую ноту</a>: [full_sustain_held_note? "Да" : "Нет"].<br>"
 	. += "</div>"
 
