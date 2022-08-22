@@ -1,6 +1,6 @@
-#define BSRPD_CAPAC_MAX 500
-#define BSRPD_CAPAC_USE 10
-#define BSRPD_CAPAC_NEW 250
+#define BSRPD_CAPAC_MAX 250
+#define BSRPD_CAPAC_USE 1
+#define BSRPD_CAPAC_NEW 125
 
 /obj/item/pipe_dispenser/bluespace
 	name = "Блюспейс-RPD"
@@ -38,7 +38,7 @@
 /obj/item/pipe_dispenser/bluespace/examine(mob/user)
 	. = ..()
 	if(user.Adjacent(src))
-		. += "<hr>На данный момент имеет [bs_use == 0 ? "infinite" : bs_capac / bs_use] зарядов в остатке."
+		. += "<hr>На данный момент имеет [bs_use == 0 ? "бесконечное количество" : bs_capac / bs_use] зарядов в остатке."
 		if(bs_use != 0)
 			. += "\nБлюспейс-ядро не установлено."
 	else
