@@ -13,7 +13,7 @@
 
 /obj/machinery/mineral/bluespace_miner
 	name = "блюспейс майнер"
-	desc = "Машина, которая использует блюспейс магию для медленного создания ресурсов и перемещает их в связанный рудный бункер."
+	desc = "Невероятно опасный агрегат, который использует блюспейс магию для медленного создания ресурсов и переноса их в связанный рудный бункер."
 	icon = 'white/valtos/icons/power.dmi'
 	icon_state = "bsm_idle"
 	density = TRUE
@@ -33,6 +33,8 @@
 		)
 	var/datum/component/remote_materials/materials
 	var/mine_rate = 1
+	var/datum/component/soundplayer/wzhzhzhzh
+	var/atom/movable/warp_effect/warp
 
 /obj/machinery/mineral/bluespace_miner/update_icon_state()
 	if(panel_open)
@@ -56,18 +58,25 @@
 	START_PROCESSING(SSmachines, src)
 	materials = AddComponent(/datum/component/remote_materials, "bsm", mapload)
 
-	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
-	SP.prefs_toggle_flag = null
-	SP.set_sound(sound('white/valtos/sounds/blueminer_loop.ogg'))
-	SP.set_channel(open_sound_channel_for_boombox())
-	SP.playing_volume = 100
-	SP.playing_range = 14
-	SP.playing_falloff = 1
-	SP.active = TRUE
+	warp = new(src)
+	vis_contents += warp
+
+	wzhzhzhzh = AddComponent(/datum/component/soundplayer)
+	wzhzhzhzh.prefs_toggle_flag = null
+	wzhzhzhzh.set_sound(sound('white/valtos/sounds/blueminer_loop.ogg'))
+	wzhzhzhzh.set_channel(open_sound_channel_for_boombox())
+	wzhzhzhzh.playing_volume = 0
+	wzhzhzhzh.playing_range = 7
+	wzhzhzhzh.playing_falloff = 1
+	wzhzhzhzh.active = TRUE
 
 /obj/machinery/mineral/bluespace_miner/Destroy()
 	materials = null
 	STOP_PROCESSING(SSmachines, src)
+
+	vis_contents -= warp
+	warp = null
+
 	return ..()
 
 /obj/machinery/mineral/bluespace_miner/multitool_act(mob/living/user, obj/item/multitool/I)
@@ -99,18 +108,42 @@
 
 /obj/machinery/mineral/bluespace_miner/process()
 	if(!materials?.silo || materials?.on_hold())
+		wzhzhzhzh.playing_volume = 0
 		update_icon_state()
 		return
 
 	var/datum/component/material_container/mat_container = materials.mat_container
 	if(!mat_container || panel_open || !powered())
+		wzhzhzhzh.playing_volume = 0
 		update_icon_state()
 		return
 
 	var/datum/material/ore = pick_weight(ores)
 	if(!mat_container.can_hold_material(ore))
+		wzhzhzhzh.playing_volume = 0
 		WARNING("Валера, твой блюспейс майнер опять обосрался!!! Причина: [ore]")
 		return
+
+	for(var/obj/O in orange(4, src))
+		if(!O.anchored)
+			step_towards(O, src)
+	for(var/mob/living/M in orange(4, src))
+		if(!M.mob_negates_gravity())
+			step_towards(M, src)
+	for(var/obj/O in range(0, src))
+		if(!O.anchored)
+			if(isturf(O.loc))
+				var/turf/T = O.loc
+				if(T.intact && HAS_TRAIT(O, TRAIT_T_RAY_VISIBLE))
+					continue
+			var/mob/living/target = locate() in view(4, src)
+			if(target && !target.stat)
+				O.throw_at(target, 5, 10)
+
+	wzhzhzhzh.playing_volume = 100
+
+	animate(warp, time = 3, transform = matrix().Scale(0.5,0.5))
+	animate(time = 7, transform = matrix())
 
 	materials.mat_container.insert_amount_mat(mine_rate, ore)
 	update_icon_state()
