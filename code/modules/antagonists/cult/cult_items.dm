@@ -868,27 +868,26 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CULT_TRAIT)
 
-
-/obj/item/blood_beam/afterattack(atom/A, mob/living/user, flag, params)
+/obj/item/blood_beam/afterattack(atom/A, mob/living/user, proximity_flag, click_parameters)
 	. = ..()
 	if(firing || charging)
 		return
-	var/C = user.client
-	if(ishuman(user) && C)
-		var/list/angle_vector = calculate_projectile_angle_and_pixel_offsets(user, A, params)
-		angle = angle_vector[1]
+	if(ishuman(user))
+		angle = get_angle(user, A)
 	else
 		qdel(src)
 		return
 	charging = TRUE
 	INVOKE_ASYNC(src, .proc/charge, user)
-	if(do_after(user, 90, target = user))
+	if(do_after(user, 9 SECONDS, target = user))
 		firing = TRUE
-		INVOKE_ASYNC(src, .proc/pewpew, user, params)
+		ADD_TRAIT(user, TRAIT_IMMOBILIZED, CULT_TRAIT)
+		INVOKE_ASYNC(src, .proc/pewpew, user, click_parameters)
 		var/obj/structure/emergency_shield/cult/weak/N = new(user.loc)
-		if(do_after(user, 90, target = user))
+		if(do_after(user, 9 SECONDS, target = user))
 			user.Paralyze(40)
 			to_chat(user, "<span class='cult italic'>You have exhausted the power of this spell!</span>")
+		REMOVE_TRAIT(user, TRAIT_IMMOBILIZED, CULT_TRAIT)
 		firing = FALSE
 		if(N)
 			qdel(N)
@@ -911,7 +910,7 @@
 	if(O)
 		qdel(O)
 
-/obj/item/blood_beam/proc/pewpew(mob/user, params)
+/obj/item/blood_beam/proc/pewpew(mob/user, proximity_flag)
 	var/turf/targets_from = get_turf(src)
 	var/spread = 40
 	var/second = FALSE
@@ -937,7 +936,7 @@
 				break
 			T.narsie_act(TRUE, TRUE)
 			for(var/mob/living/target in T.contents)
-				if(iscultist(target))
+				if(IS_CULTIST(target))
 					new /obj/effect/temp_visual/cult/sparks(T)
 					if(ishuman(target))
 						var/mob/living/carbon/human/H = target
@@ -955,7 +954,7 @@
 						L.Paralyze(20)
 						L.adjustBruteLoss(45)
 						playsound(L, 'sound/hallucinations/wail.ogg', 50, TRUE)
-						L.emote("agony")
+						L.emote("scream")
 		user.Beam(temp_target, icon_state="blood_beam", time = 7, beam_type = /obj/effect/ebeam/blood)
 
 
