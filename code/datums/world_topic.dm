@@ -258,16 +258,14 @@
 		return "FAIL"
 	if(!recipient.current_ticket)
 		new /datum/admin_help(msg, recipient, TRUE)
-	to_chat(recipient, "<font color='red' size='4'><b>-- Discord administrator private message --</b></font>")
-	to_chat(recipient, span_red("Admin PM from-<b>[s_admin]</b>: [msg]"))
-	to_chat(recipient, span_red("<i>Write to ahelp to reply.</i>"))
-	to_chat(src, span_blue("Admin PM to-<b>[key_name(recipient, 1, 1)]</b>: [msg]"))
+	to_chat(recipient, "<font color='red' size='4'><b>-- Сообщение администратора из Discord --</b></font>")
+	to_chat(recipient, span_red("Сообщение от <b>[s_admin]</b>: [msg]"))
+	to_chat(recipient, span_red("<i>Нажми на имя администратора для ответа.</i>"))
+	to_chat(src, span_blue("Сообщение для <b>[key_name(recipient, 1, 1)]</b>: [msg]"))
 
 	recipient.giveadminhelpverb() //reset ahelp CD to allow fast reply
 
 	admin_ticket_log(recipient, span_blue("PM From [s_admin]: [keywordparsedmsg]"))
-	//Im fucking cumming
-	//SEND_SOUND(recipient, sound(pick('white/fogmann/APM/APM1.ogg', 'white/fogmann/APM/APM2.ogg', 'white/fogmann/APM/APM3.ogg', 'white/fogmann/APM/APM4.ogg', 'white/fogmann/APM/APM5.ogg', 'white/fogmann/APM/APM6.ogg')))
 	SEND_SOUND(recipient, sound('sound/effects/adminhelp.ogg'))
 	log_admin_private("PM: IRC -> [r_ckey]: [sanitize(msg)]")
 	for(var/client/X in GLOB.admins)
