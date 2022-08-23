@@ -121,6 +121,8 @@
 			return TRUE
 		if("runCode")
 			var/code = params["code"]
+			if(!length(code))
+				return
 			var/result = current_state.load_script(code)
 			var/index_with_result = current_state.log_result(result)
 			message_admins("[key_name(usr)] executed [length(code)] bytes of lua code. [ADMIN_LUAVIEW_CHUNK(current_state, index_with_result)]")
