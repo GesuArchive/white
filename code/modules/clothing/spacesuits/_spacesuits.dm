@@ -211,6 +211,9 @@
 		to_chat(user, span_notice("You turn [thermal_on ? "on" : "off"] <b>[src.name]</b>'s thermal regulator."))
 	SEND_SIGNAL(src, COMSIG_SUIT_SPACE_TOGGLE)
 
+/obj/item/clothing/suit/space/ui_action_click(mob/user, actiontype)
+	toggle_spacesuit(user)
+
 // let emags override the temperature settings
 /obj/item/clothing/suit/space/emag_act(mob/user)
 	if(!(obj_flags & EMAGGED))
