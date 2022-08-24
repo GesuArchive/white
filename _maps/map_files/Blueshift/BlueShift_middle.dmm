@@ -3156,7 +3156,7 @@
 	dir = 4
 	},
 /obj/machinery/button/elevator{
-	id = "CargoElevator";
+	lift_id = "CargoElevator";
 	pixel_y = 25
 	},
 /turf/open/floor/plasteel,
@@ -14004,7 +14004,7 @@
 /area/security/detectives_office)
 "ffv" = (
 /obj/structure/industrial_lift{
-	id = "CargoElevator"
+	lift_id = "CargoElevator"
 	},
 /turf/open/openspace,
 /area/cargo/sorting)
@@ -14194,7 +14194,7 @@
 /area/hallway/primary/port)
 "fiI" = (
 /obj/structure/industrial_lift{
-	id = "CargoElevator"
+	lift_id = "CargoElevator"
 	},
 /obj/structure/railing,
 /turf/open/openspace,
@@ -18775,7 +18775,7 @@
 /area/security/courtroom)
 "hek" = (
 /obj/structure/industrial_lift{
-	id = "CargoElevator"
+	lift_id = "CargoElevator"
 	},
 /obj/structure/railing{
 	dir = 1
@@ -24517,7 +24517,7 @@
 /area/commons/storage/primary)
 "juU" = (
 /obj/structure/industrial_lift{
-	id = "CargoElevator"
+	lift_id = "CargoElevator"
 	},
 /obj/structure/railing,
 /obj/structure/marker_beacon/burgundy,
@@ -35819,7 +35819,7 @@
 /area/hallway/primary/starboard)
 "omM" = (
 /obj/structure/industrial_lift{
-	id = "CargoElevator"
+	lift_id = "CargoElevator"
 	},
 /obj/structure/railing{
 	dir = 1
@@ -55388,7 +55388,7 @@
 /area/hallway/primary/central)
 "wtG" = (
 /obj/machinery/button/elevator{
-	id = "CargoElevator";
+	lift_id = "CargoElevator";
 	pixel_y = -25
 	},
 /obj/effect/turf_decal/stripes{

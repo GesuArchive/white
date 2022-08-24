@@ -4323,7 +4323,7 @@
 "aYE" = (
 /obj/machinery/light/floor,
 /obj/structure/industrial_lift{
-	id = "publicElevator"
+	lift_id = "publicElevator"
 	},
 /turf/open/openspace,
 /area/hallway/primary/upper)
@@ -6297,7 +6297,7 @@
 	dir = 5
 	},
 /obj/structure/industrial_lift{
-	id = "publicElevator"
+	lift_id = "publicElevator"
 	},
 /turf/open/openspace,
 /area/hallway/primary/upper)
@@ -26307,7 +26307,7 @@
 	dir = 6
 	},
 /obj/structure/industrial_lift{
-	id = "publicElevator"
+	lift_id = "publicElevator"
 	},
 /turf/open/openspace,
 /area/hallway/primary/upper)
@@ -31711,7 +31711,7 @@
 	dir = 9
 	},
 /obj/structure/industrial_lift{
-	id = "publicElevator"
+	lift_id = "publicElevator"
 	},
 /turf/open/openspace,
 /area/hallway/primary/upper)
@@ -40390,7 +40390,7 @@
 /area/maintenance/department/medical/central)
 "oNm" = (
 /obj/structure/industrial_lift{
-	id = "publicElevator"
+	lift_id = "publicElevator"
 	},
 /turf/open/openspace,
 /area/hallway/primary/upper)
@@ -51205,7 +51205,7 @@
 	dir = 10
 	},
 /obj/structure/industrial_lift{
-	id = "publicElevator"
+	lift_id = "publicElevator"
 	},
 /turf/open/openspace,
 /area/hallway/primary/upper)
@@ -65469,7 +65469,7 @@
 /area/maintenance/department/medical/central)
 "yiD" = (
 /obj/machinery/button/elevator{
-	id = "publicElevator";
+	lift_id = "publicElevator";
 	pixel_y = -25
 	},
 /obj/structure/railing{

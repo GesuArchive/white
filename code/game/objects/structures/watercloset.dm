@@ -312,7 +312,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink, (-14))
 	if(ndir)
 		dir = ndir
 
-	if(src.has_water_reclaimer != null)
+	if(has_water_reclaimer != null)
 		src.has_water_reclaimer = has_water_reclaimer
 
 	switch(dir)
@@ -329,8 +329,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink, (-14))
 			pixel_x = pixel_shift
 			pixel_y = 0
 
-	if(has_water_reclaimer)
-		create_reagents(100, NO_REACT)
+	create_reagents(100, NO_REACT)
+	if(src.has_water_reclaimer)
 		reagents.add_reagent(dispensedreagent, 100)
 	AddComponent(/datum/component/plumbing/simple_demand, extend_pipe_to_edge = TRUE)
 
@@ -338,9 +338,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink, (-14))
 	. = ..()
 	if(has_water_reclaimer)
 		. += span_notice("A water recycler is installed. It looks like you could pry it out.")
-	. += "<hr><span class='notice'>[reagents.total_volume]/[reagents.maximum_volume] liquids remaining.</span>"
+	. += span_notice("[reagents.total_volume]/[reagents.maximum_volume] liquids remaining.")
 
-/obj/structure/sink/attack_hand(mob/living/user)
+/obj/structure/sink/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
 	if(.)
 		return
@@ -360,7 +360,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink, (-14))
 	var/washing_face = 0
 	if(selected_area in list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_EYES))
 		washing_face = 1
-	user.visible_message(span_notice("[user] starts washing [user.ru_ego()] [washing_face ? "face" : "hands"]...") , \
+	user.visible_message(span_notice("[user] starts washing [user.p_their()] [washing_face ? "face" : "hands"]..."), \
 						span_notice("You start washing your [washing_face ? "face" : "hands"]..."))
 	busy = TRUE
 
@@ -389,7 +389,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink, (-14))
 	else
 		user.wash(CLEAN_WASH)
 
-	user.visible_message(span_notice("[user] washes [user.ru_ego()] [washing_face ? "face" : "hands"] using [src].") , \
+	user.visible_message(span_notice("[user] washes [user.p_their()] [washing_face ? "face" : "hands"] using [src]."), \
 						span_notice("You wash your [washing_face ? "face" : "hands"] using [src]."))
 
 /obj/structure/sink/attackby(obj/item/O, mob/living/user, params)
@@ -397,10 +397,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink, (-14))
 		to_chat(user, span_warning("Someone's already washing here!"))
 		return
 
-	if(istype(O, /obj/item/reagent_containers))
+	if(is_reagent_container(O))
 		var/obj/item/reagent_containers/RG = O
 		if(reagents.total_volume <= 0)
-			to_chat(user, span_notice("<b>[src.name]</b> is dry."))
+			to_chat(user, span_notice("\The [src] is dry."))
 			return FALSE
 		if(RG.is_refillable())
 			if(!RG.reagents.holder_full())
@@ -456,6 +456,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink, (-14))
 		G.use(1)
 		return
 
+	if(istype(O, /obj/item/stack/sheet/cloth))
+		var/obj/item/stack/sheet/cloth/cloth = O
+		new /obj/item/reagent_containers/glass/rag(loc)
+		to_chat(user, span_notice("You tear off a strip of cloth and make a rag."))
+		cloth.use(1)
+		return
+
 	if(istype(O, /obj/item/stack/ore/glass))
 		new /obj/item/stack/sheet/sandblock(loc)
 		to_chat(user, span_notice("You wet the sand in the sink and form it into a block."))
@@ -487,7 +494,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink, (-14))
 		busy = FALSE
 		O.wash(CLEAN_WASH)
 		reagents.expose(O, TOUCH, 5 / max(reagents.total_volume, 5))
-		user.visible_message(span_notice("[user] washes [O] using [src].") , \
+		user.visible_message(span_notice("[user] washes [O] using [src]."), \
 							span_notice("You wash [O] using [src]."))
 		return 1
 	else

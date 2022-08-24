@@ -37,7 +37,7 @@
 	},
 /area/ruin/unpowered)
 "s" = (
-/obj/item/paper/crumpled/docslogs,
+/obj/item/paper/crumpled/docslabnotes,
 /obj/item/pen,
 /turf/open/floor/plasteel/vaporwave,
 /area/ruin/unpowered)

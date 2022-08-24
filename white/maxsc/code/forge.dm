@@ -13,7 +13,7 @@
 	. = ..()
 	setup_parts()
 	create_reagents(150, REFILLABLE)
-	AddComponent(/datum/component/plumbing/simple_demand, TRUE, _turn_connects = FALSE)
+	AddComponent(/datum/component/plumbing/simple_demand, TRUE)
 
 /obj/machinery/forge/main/Destroy()
 	. = ..()
