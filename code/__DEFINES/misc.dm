@@ -30,6 +30,23 @@
 	pixel_x = -offset; \
 }
 
+#define MAPPING_DIRECTIONAL_HELPERS_INVERTED(path, offset) ##path/directional/north {\
+	dir = SOUTH; \
+	pixel_y = offset; \
+} \
+##path/directional/south {\
+	dir = NORTH; \
+	pixel_y = -offset; \
+} \
+##path/directional/east {\
+	dir = WEST; \
+	pixel_x = offset; \
+} \
+##path/directional/west {\
+	dir = EAST; \
+	pixel_x = -offset; \
+}
+
 //Human Overlays Indexes/////////
 #define MUTATIONS_LAYER			29		//mutations. Tk headglows, cold resistance glow, etc
 #define BODY_BEHIND_LAYER		28		//certain mutantrace features (tail when looking south) that must appear behind the body parts

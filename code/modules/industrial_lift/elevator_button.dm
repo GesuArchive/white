@@ -161,4 +161,4 @@
 	// Kind of a cop-out
 	AddElement(/datum/element/contextual_screentip_bare_hands, lmb_text = "Call Elevator")
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/elevator, 28)
+MAPPING_DIRECTIONAL_HELPERS_INVERTED(/obj/machinery/button/elevator, 28)
