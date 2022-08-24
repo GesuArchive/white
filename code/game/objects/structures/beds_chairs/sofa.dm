@@ -4,6 +4,7 @@
 	icon = 'icons/obj/sofa.dmi'
 	buildstackamount = 1
 	item_chair = null
+	color = rgb(141,70,0)
 	var/mutable_appearance/armrest
 
 /obj/structure/chair/sofa/Initialize(mapload)
@@ -97,3 +98,16 @@
 
 /obj/structure/chair/sofa/bamboo/right
 	icon_state = "bamboo_sofaend_right"
+
+/obj/structure/chair/iron_bench
+	name = "скамейка"
+	desc = "На этом можно сидеть, но не долго."
+	max_integrity = 250
+	integrity_failure = 0.1
+	icon_state = "iron_bench_center"
+
+/obj/structure/chair/iron_bench/left
+	icon_state = "iron_bench_left"
+
+/obj/structure/chair/iron_bench/right
+	icon_state = "iron_bench_right"
