@@ -280,7 +280,6 @@
 /obj/structure/chair/stool/bar,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/vomit,
-/obj/effect/mob_spawn/human/doctorhilbert,
 /turf/open/indestructible/hotelwood,
 /area/hilbertshotel)
 "aZ" = (
@@ -363,7 +362,6 @@
 /area/hilbertshotel)
 "bl" = (
 /obj/structure/table/reinforced,
-/obj/item/paper/crumpled/bloody/docsdeathnote,
 /turf/open/indestructible/hotelwood,
 /area/hilbertshotel)
 

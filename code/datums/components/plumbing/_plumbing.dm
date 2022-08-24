@@ -251,7 +251,7 @@
 				continue
 
 			for(var/datum/component/plumbing/plumber as anything in found_atom.GetComponents(/datum/component/plumbing))
-				if(plumber.ducting_layer & ducting_layer)
+				if(plumber && (plumber.ducting_layer & ducting_layer))
 					direct_connect(plumber, direction)
 
 /// Toggle our machinery on or off. This is called by a hook from default_unfasten_wrench with anchored as only param, so we dont have to copypaste this on every object that can move

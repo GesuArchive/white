@@ -3156,7 +3156,7 @@
 	dir = 4
 	},
 /obj/machinery/button/elevator{
-	lift_id = "CargoElevator";
+	id = "CargoElevator";
 	pixel_y = 25
 	},
 /turf/open/floor/plasteel,
@@ -24012,7 +24012,7 @@
 /area/maintenance/starboard/fore)
 "jkC" = (
 /obj/structure/industrial_lift{
-	id = "publicElevator2"
+	lift_id = "publicElevator2"
 	},
 /obj/machinery/light/floor,
 /turf/open/openspace,
@@ -55388,7 +55388,7 @@
 /area/hallway/primary/central)
 "wtG" = (
 /obj/machinery/button/elevator{
-	lift_id = "CargoElevator";
+	id = "CargoElevator";
 	pixel_y = -25
 	},
 /obj/effect/turf_decal/stripes{

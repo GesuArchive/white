@@ -65469,7 +65469,7 @@
 /area/maintenance/department/medical/central)
 "yiD" = (
 /obj/machinery/button/elevator{
-	lift_id = "publicElevator";
+	id = "publicElevator";
 	pixel_y = -25
 	},
 /obj/structure/railing{
