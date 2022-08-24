@@ -132,7 +132,7 @@ Slimecrossing Items
 	desc = "Масса затвердевшей слизи - совершенно непроницаемая, но она тает!"
 	icon = 'icons/obj/slimecrossing.dmi'
 	icon_state = "slimebarrier_thick"
-	CanAtmosPass = ATMOS_PASS_NO
+	can_atmos_pass = ATMOS_PASS_NO
 	opacity = TRUE
 	timeleft = 100
 

@@ -165,7 +165,7 @@
 
 /datum/artifact_effect/airfreeze/Initialize(atom/source)
 	. = ..()
-	source.CanAtmosPass = ATMOS_PASS_NO
+	source.can_atmos_pass = ATMOS_PASS_NO
 
 //===================
 // Atmos Stabilizer

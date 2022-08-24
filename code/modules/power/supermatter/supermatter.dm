@@ -332,6 +332,11 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	AddElement(/datum/element/bsa_blocker)
 	RegisterSignal(src, COMSIG_ATOM_BSA_BEAM, .proc/call_explode)
 
+	var/static/list/loc_connections = list(
+		COMSIG_TURF_INDUSTRIAL_LIFT_ENTER = .proc/tram_contents_consume,
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)	//Speficially for the tram, hacky
+
 	soundloop = new(src, TRUE)
 	if(ispath(psyOverlay))
 		psyOverlay = new psyOverlay()

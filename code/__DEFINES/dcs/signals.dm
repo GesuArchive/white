@@ -393,27 +393,6 @@
 ///from base of area/Exited(): (atom/movable/gone, direction)
 #define COMSIG_AREA_EXITED "area_exited"
 
-// /turf signals
-
-/// from base of turf/ChangeTurf(): (path, list/new_baseturfs, flags, list/post_change_callbacks).
-/// `post_change_callbacks` is a list that signal handlers can mutate to append `/datum/callback` objects.
-/// They will be called with the new turf after the turf has changed.
-#define COMSIG_TURF_CHANGE "turf_change"
-///from base of atom/has_gravity(): (atom/asker, list/forced_gravities)
-#define COMSIG_TURF_HAS_GRAVITY "turf_has_gravity"
-///from base of turf/multiz_turf_del(): (turf/source, direction)
-#define COMSIG_TURF_MULTIZ_DEL "turf_multiz_del"
-///from base of turf/multiz_turf_new: (turf/source, direction)
-#define COMSIG_TURF_MULTIZ_NEW "turf_multiz_new"
-///from base of turf/proc/onShuttleMove(): (turf/new_turf)
-#define COMSIG_TURF_ON_SHUTTLE_MOVE "turf_on_shuttle_move"
-///from /turf/open/temperature_expose(datum/gas_mixture/air, exposed_temperature)
-#define COMSIG_TURF_EXPOSE "turf_expose"
-///from /turf/proc/immediate_calculate_adjacent_turfs()
-#define COMSIG_TURF_CALCULATED_ADJACENT_ATMOS "turf_calculated_adjacent_atmos"
-///from /datum/element/decal/Detach(): (description, cleanable, directional, mutable_appearance/pic)
-#define COMSIG_TURF_DECAL_DETACHED "turf_decal_detached"
-
 // /atom/movable signals
 
 ///from base of atom/movable/Moved(): (/atom)
@@ -1363,7 +1342,7 @@
 /// Sent when fishing line is snapped
 #define COMSIG_FISHING_LINE_SNAPPED "fishing_line_interrupted"
 
-///from /obj/item/assembly/proc/pulsed()
+///from /obj/item/assembly/proc/pulsed(mob/pulser)
 #define COMSIG_ASSEMBLY_PULSED "assembly_pulsed"
 
 ///from base of /obj/item/mmi/set_brainmob(): (mob/living/brain/new_brainmob)
@@ -1631,3 +1610,11 @@
 
 /// Called when a techweb design is removed (datum/design/removed_design, custom)
 #define COMSIG_TECHWEB_REMOVE_DESIGN "techweb_remove_design"
+
+/// Global signal sent when a light mechanism is completed (try_id)
+#define COMSIG_GLOB_LIGHT_MECHANISM_COMPLETED "!light_mechanism_completed"
+
+//Cytology signals
+///Sent from /datum/biological_sample/proc/reset_sample
+#define COMSIG_SAMPLE_GROWTH_COMPLETED "sample_growth_completed"
+	#define SPARE_SAMPLE (1<<0)

@@ -224,12 +224,13 @@
 	var/list/stored_decals = list()
 
 
-/obj/item/assembly/trapdoor/pulsed(radio)
+/obj/item/assembly/trapdoor/pulsed(radio, mob/pulser)
 	. = ..()
 	if(linked)
 		return
 	if(!COOLDOWN_FINISHED(src, search_cooldown))
-		visible_message(span_warning("[capitalize(src)] слишком быстро!"))
+		if(loc && pulser)
+			loc.balloon_alert(pulser, "слишком быстро!")
 		return
 	attempt_link_up()
 	COOLDOWN_START(src, search_cooldown, search_cooldown_time)
@@ -297,20 +298,22 @@
 /obj/item/trapdoor_remote/attack_self(mob/user, modifiers)
 	. = ..()
 	if(.)
-		return
+		return TRUE
 	if(!LAZYLEN(internals))
-		to_chat(user, span_warning("[capitalize(src)] не имеет начинки!"))
-		return
+		user.balloon_alert(user, "нет начинки!")
+		return TRUE
 	if(!COOLDOWN_FINISHED(src, trapdoor_cooldown))
-		to_chat(user, span_warning("[capitalize(src)] на перезарядке."))
-		return
-	to_chat(user, span_notice("Активирую [src]."))
+		user.balloon_alert(user, "на перезарядке!")
+		return TRUE
+
+	user.balloon_alert(user, "активирую люки")
 	playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 	icon_state = "trapdoor_pressed"
 	addtimer(VARSET_CALLBACK(src, icon_state, initial(icon_state)), trapdoor_cooldown_time)
 	COOLDOWN_START(src, trapdoor_cooldown, trapdoor_cooldown_time)
 	for(var/i in 1 to LAZYLEN(internals))
-		internals[i].pulsed()
+		internals[i].pulsed(pulser = user)
+	return TRUE
 
 #undef TRAPDOOR_LINKING_SEARCH_RANGE
 

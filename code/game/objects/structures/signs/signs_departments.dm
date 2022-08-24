@@ -10,9 +10,13 @@
 	icon_state = "bluecross"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/medbay, 32)
+
 /obj/structure/sign/departments/medbay/alt
 	icon_state = "bluecross2"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/medbay/alt, 32)
 
 /obj/structure/sign/departments/examroom
 	name = "Табличка смотровой комнаты"
@@ -21,12 +25,16 @@
 	icon_state = "examroom"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/exam_room, 32)
+
 /obj/structure/sign/departments/chemistry
 	name = "Знак Химического отдела"
 	sign_change_name = "Отдел - Медбей: Химия"
 	desc = "Знак, обозначающий зону, в которой находится химическое оборудование."
 	icon_state = "chemistry1"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/chemistry, 32)
 
 /obj/structure/sign/departments/chemistry/pharmacy
 	name = "Знак аптеки"
@@ -35,12 +43,16 @@
 	icon_state = "pharmacy"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/chemistry/pharmacy, 32)
+
 /obj/structure/sign/departments/psychology
 	name = "Психология"
 	sign_change_name = "Отдел - Медбей: Психология"
 	desc = "Табличка с указанием места работы психолога, который, возможно, поможет вам разобраться в себе."
 	icon_state = "psychology"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/psychology, 32)
 
 ///////ENGINEERING
 
@@ -51,6 +63,8 @@
 	icon_state = "engine"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/engineering, 32)
+
 ///////SCIENCE
 
 /obj/structure/sign/departments/science
@@ -60,9 +74,13 @@
 	icon_state = "science1"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/science, 32)
+
 /obj/structure/sign/departments/science/alt
 	icon_state = "science2"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/science/alt, 32)
 
 /obj/structure/sign/departments/xenobio
 	name = "Знак Ксенобиологии"
@@ -71,12 +89,16 @@
 	icon_state = "xenobio"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/xenobio, 32)
+
 /obj/structure/sign/departments/nanites
 	name = "\improper Nanite Lab sign"
 	sign_change_name = "Department - Science: Nanites"
 	desc = "A sign labelling an area where testing and development of nanites is performed."
 	icon_state = "nanites"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/rndserver, 32)
 
 ///////SERVICE
 
@@ -87,12 +109,16 @@
 	icon_state = "hydro1"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/botany, 32)
+
 /obj/structure/sign/departments/custodian
 	name = "\improper Janitor sign"
 	sign_change_name = "Department - Janitor"
 	desc = "A sign labelling an area where the janitor works."
 	icon_state = "custodian"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/custodian, 32)
 
 /obj/structure/sign/departments/holy
 	name = "\improper Chapel sign"
@@ -101,12 +127,16 @@
 	icon_state = "holy"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/holy, 32)
+
 /obj/structure/sign/departments/lawyer
 	name = "\improper Legal Department sign"
 	sign_change_name = "Department - Legal"
 	desc = "A sign labelling an area where the Lawyers work, apply here for arrivals shuttle whiplash settlement."
 	icon_state = "lawyer"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/lawyer, 32)
 
 ///////SUPPLY
 
@@ -117,6 +147,8 @@
 	icon_state = "cargo"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/cargo, 32)
+
 ///////SECURITY
 
 /obj/structure/sign/departments/security
@@ -125,6 +157,8 @@
 	desc = "A sign labelling an area where the law is law."
 	icon_state = "security"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/security, 32)
 
 ////MISC LOCATIONS
 
@@ -135,12 +169,16 @@
 	icon_state = "restroom"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/restroom, 32)
+
 /obj/structure/sign/departments/mait
 	name = "\improper Maintenance Tunnel sign"
 	sign_change_name = "Location - Maintenance"
 	desc = "A sign labelling an area where the departments of the station are linked together."
 	icon_state = "mait1"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/maint, 32)
 
 /obj/structure/sign/departments/mait/alt
 	name = "\improper Maintenance Tunnel sign"
@@ -149,12 +187,16 @@
 	icon_state = "mait2"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/maint/alt, 32)
+
 /obj/structure/sign/departments/evac
 	name = "\improper Evacuation sign"
 	sign_change_name = "Location - Evacuation"
 	desc = "A sign labelling an area where evacuation procedures take place."
 	icon_state = "evac"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/evac, 32)
 
 /obj/structure/sign/departments/drop
 	name = "\improper Drop Pods sign"
@@ -163,6 +205,8 @@
 	icon_state = "drop"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/drop, 32)
+
 /obj/structure/sign/departments/court
 	name = "\improper Courtroom sign"
 	sign_change_name = "Location - Courtroom"
@@ -170,12 +214,7 @@
 	icon_state = "court"
 	is_editable = TRUE
 
-/obj/structure/sign/flags/che
-	name = "Флаг Чечни"
-	sign_change_name = "Флаг - Чечня"
-	desc = "Круто!"
-	icon_state = "court"
-	is_editable = TRUE
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/court, 32)
 
 /obj/structure/sign/flags
 	icon = 'white/valtos/icons/flags.dmi'
@@ -187,12 +226,16 @@
 	icon_state = "flag_chechen"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flags/che, 32)
+
 /obj/structure/sign/flags/soviet
 	name = "Флаг Совка"
 	sign_change_name = "Флаг - Совок"
 	desc = "+15 социальный рейтинг!"
 	icon_state = "flag_soviet"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flags/soviet, 32)
 
 /obj/structure/sign/flags/russia
 	name = "Флаг России"
@@ -201,6 +244,8 @@
 	icon_state = "flag_russia"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flags/russia, 32)
+
 /obj/structure/sign/flags/kazakh
 	name = "Флаг Казахстана"
 	sign_change_name = "Флаг - Казахстан"
@@ -208,9 +253,13 @@
 	icon_state = "flag_kazakh"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flags/kazakh, 32)
+
 /obj/structure/sign/flags/ua
 	name = "Флаг Украины"
 	sign_change_name = "Флаг - Украина"
 	desc = "Героям Слава!"
 	icon_state = "flag_ua"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flags/ua, 32)

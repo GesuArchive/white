@@ -11,7 +11,7 @@
 	use_power = NO_POWER_USE
 	interaction_flags_atom = NONE
 	interaction_flags_machine = NONE
-	CanAtmosPass = ATMOS_PASS_NO
+	can_atmos_pass = ATMOS_PASS_NO
 	light_range = 4
 	layer = ABOVE_OBJ_LAYER
 	var/obj/machinery/field/generator/FG1 = null
@@ -29,7 +29,7 @@
 /obj/machinery/field/containment/Destroy()
 	FG1.fields -= src
 	FG2.fields -= src
-	CanAtmosPass = ATMOS_PASS_YES
+	can_atmos_pass = ATMOS_PASS_YES
 	air_update_turf(TRUE)
 	return ..()
 

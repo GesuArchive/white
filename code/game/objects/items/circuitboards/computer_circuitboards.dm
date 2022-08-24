@@ -340,6 +340,10 @@
 	desc = "Консоль, которая предоставляет персоналу возможность выполнять небольшие поручения, достаточно лишь вставить свою ID-карту."
 	build_path = /obj/machinery/computer/piratepad_control/civilian
 
+/obj/item/circuitboard/computer/tram_controls
+	name = "Управление трамваем"
+	build_path = /obj/machinery/computer/tram_controls
+
 //Medical
 
 /obj/item/circuitboard/computer/crew

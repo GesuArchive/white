@@ -141,7 +141,7 @@
 
 /turf/open/indestructible/binary
 	name = "разрыв ткани реальности"
-	CanAtmosPass = ATMOS_PASS_NO
+	can_atmos_pass = ATMOS_PASS_NO
 	baseturfs = /turf/open/indestructible/binary
 	icon_state = "binary"
 	footstep = FOOTSTEP_PLATING

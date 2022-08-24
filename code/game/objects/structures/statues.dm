@@ -7,7 +7,7 @@
 	density = TRUE
 	anchored = FALSE
 	max_integrity = 100
-	CanAtmosPass = ATMOS_PASS_DENSITY
+	can_atmos_pass = ATMOS_PASS_DENSITY
 	material_modifier = 0.5
 	material_flags = MATERIAL_AFFECT_STATISTICS
 	/// Beauty component mood modifier

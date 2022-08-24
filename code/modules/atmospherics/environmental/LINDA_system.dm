@@ -1,22 +1,22 @@
-/atom/var/CanAtmosPass = ATMOS_PASS_YES
-/atom/var/CanAtmosPassVertical = ATMOS_PASS_YES
+/atom/var/can_atmos_pass = ATMOS_PASS_YES
+/atom/var/can_atmos_passVertical = ATMOS_PASS_YES
 
-/atom/proc/CanAtmosPass(turf/T)
-	switch (CanAtmosPass)
+/atom/proc/can_atmos_pass(turf/T)
+	switch (can_atmos_pass)
 		if (ATMOS_PASS_PROC)
 			return ATMOS_PASS_YES
 		if (ATMOS_PASS_DENSITY)
 			return !density
 		else
-			return CanAtmosPass
+			return can_atmos_pass
 
-/turf/CanAtmosPass = ATMOS_PASS_NO
-/turf/CanAtmosPassVertical = ATMOS_PASS_NO
+/turf/can_atmos_pass = ATMOS_PASS_NO
+/turf/can_atmos_passVertical = ATMOS_PASS_NO
 
-/turf/open/CanAtmosPass = ATMOS_PASS_PROC
-/turf/open/CanAtmosPassVertical = ATMOS_PASS_PROC
+/turf/open/can_atmos_pass = ATMOS_PASS_PROC
+/turf/open/can_atmos_passVertical = ATMOS_PASS_PROC
 
-/turf/open/CanAtmosPass(turf/T, vertical = FALSE)
+/turf/open/can_atmos_pass(turf/T, vertical = FALSE)
 	var/dir = vertical? get_dir_multiz(src, T) : get_dir(src, T)
 	var/opp = REVERSE_DIR(dir)
 	. = TRUE
@@ -30,7 +30,7 @@
 		var/turf/other = (O.loc == src ? T : src)
 		if(!(vertical? (CANVERTICALATMOSPASS(O, other)) : (CANATMOSPASS(O, other))))
 			. = FALSE
-		if(O.BlockThermalConductivity()) 	//the direction and open/closed are already checked on CanAtmosPass() so there are no arguments
+		if(O.BlockThermalConductivity()) 	//the direction and open/closed are already checked on can_atmos_pass() so there are no arguments
 			conductivity_blocked_directions |= dir
 			T.conductivity_blocked_directions |= opp
 			if(!.)

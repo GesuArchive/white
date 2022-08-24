@@ -68,7 +68,7 @@
 	desc = "Паутина достаточно плотная для того, чтобы задерживать воздушные потоки."
 	icon_state = "sealedweb"
 	sealed = TRUE
-	CanAtmosPass = ATMOS_PASS_NO
+	can_atmos_pass = ATMOS_PASS_NO
 
 /obj/structure/spider/stickyweb/genetic //for the spider genes in genetics
 	genetic = TRUE

@@ -6,7 +6,7 @@
 	density = 1
 	anchored = 1
 	var/id = 1.0
-	CanAtmosPass = ATMOS_PASS_NO
+	can_atmos_pass = ATMOS_PASS_NO
 
 /obj/structure/spacepoddoor/Initialize(mapload)
 	..()

@@ -7,7 +7,7 @@
 	canSmoothWith = list(SMOOTH_GROUP_BLUESPACE_OPENSPACE)
 	smoothing_groups = list(SMOOTH_GROUP_BLUESPACE_OPENSPACE)
 	baseturfs = /turf/open/floor/plating
-	CanAtmosPassVertical = ATMOS_PASS_YES
+	can_atmos_passVertical = ATMOS_PASS_YES
 	can_cover_up = FALSE
 	can_build_on = FALSE
 	requires_activation = TRUE
@@ -52,7 +52,7 @@
 	if(istype(below, /turf/open))
 		if(isopenspace(below) || isspaceturf(below))
 			return FALSE
-		below_override.CanAtmosPassVertical = ATMOS_PASS_YES
+		below_override.can_atmos_passVertical = ATMOS_PASS_YES
 
 	return TRUE
 
@@ -61,7 +61,7 @@
 		return
 
 	below_override.above_override = null
-	below_override.CanAtmosPassVertical = initial(below_override.CanAtmosPassVertical)
+	below_override.can_atmos_passVertical = initial(below_override.can_atmos_passVertical)
 
 	below_override = null
 

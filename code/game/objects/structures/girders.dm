@@ -27,6 +27,8 @@
 			. += span_notice("Анкерные <i>болты откручены</i> от пола, вся конструкция удерживается вместе парой <b>винтов</b>.")
 		if(GIRDER_DISASSEMBLED)
 			. += span_notice("[capitalize(src.name)] Ошибка! Сделайте скриншот и отправьте его в трудности перевода!")
+		if(GIRDER_TRAM)
+			. += span_notice("[capitalize(src.name)] используется для трамвая. Можно разобрать отвёрткой!")
 
 /obj/structure/girder/attackby(obj/item/W, mob/user, params)
 	var/platingmodifier = 1
@@ -51,12 +53,16 @@
 		if(iswallturf(loc))
 			to_chat(user, span_warning("Тут уже есть стена!"))
 			return
-		if(!isfloorturf(src.loc))
+		if(!isfloorturf(src.loc) && state != GIRDER_TRAM)
 			to_chat(user, span_warning("Для возведения фальшстены необходимо наличие пола!"))
 			return
 		if (locate(/obj/structure/falsewall) in src.loc.contents)
 			to_chat(user, span_warning("Тут уже есть фальшстена!"))
 			return
+		if(state == GIRDER_TRAM)
+			if(!locate(/obj/structure/industrial_lift/tram) in src.loc.contents)
+				balloon_alert(user, "нужен трамвайный пол!")
+				return
 
 		if(istype(W, /obj/item/stack/rods))
 			var/obj/item/stack/rods/S = W
@@ -111,6 +117,19 @@
 					return
 			else if(state == GIRDER_REINF)
 				to_chat(user, span_warning("Для завершения строительства укрепленной стены мне необходим лист пластали, обычное железо тут не подойдет."))
+				return
+			else if(state == GIRDER_TRAM)
+				if(S.get_amount() < 2)
+					balloon_alert(user, "требуется [2] листов!")
+					return
+				balloon_alert(user, "добавляем покрытие...")
+				if (do_after(user, 4 SECONDS, target = src))
+					if(S.get_amount() < 2)
+						return
+					S.use(2)
+					var/obj/structure/tramwall/tram_wall = new(loc)
+					transfer_fingerprints_to(tram_wall)
+					qdel(src)
 				return
 			else
 				if(S.get_amount() < 2)
@@ -232,6 +251,18 @@
 		return TRUE
 
 	. = FALSE
+	if(state == GIRDER_TRAM)
+		balloon_alert(user, "разбираем балку...")
+		if(tool.use_tool(src, user, 4 SECONDS, volume=100))
+			if(state != GIRDER_TRAM)
+				return
+			state = GIRDER_DISASSEMBLED
+			var/obj/item/stack/sheet/iron/M = new (loc, 2)
+			if (!QDELETED(M))
+				M.add_fingerprint(user)
+			qdel(src)
+		return TRUE
+
 	if(state == GIRDER_DISPLACED)
 		user.visible_message(span_warning("[user] разбирает балку.") ,
 			span_notice("Начинаю разбирать балку...") ,
@@ -335,7 +366,9 @@
 	girderpasschance = 0
 	max_integrity = 350
 
-
+/obj/structure/girder/tram
+	name = "трамвайная балка"
+	state = GIRDER_TRAM
 
 //////////////////////////////////////////// cult girder //////////////////////////////////////////////
 

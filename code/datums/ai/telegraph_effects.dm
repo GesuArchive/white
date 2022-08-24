@@ -13,3 +13,9 @@
 	icon = 'icons/mob/telegraphing/telegraph.dmi'
 	icon_state = "target_circle"
 	duration = 2 SECONDS
+
+/obj/effect/temp_visual/telegraphing/lift_travel
+
+/obj/effect/temp_visual/telegraphing/lift_travel/Initialize(mapload, duration)
+	src.duration = duration
+	return ..()

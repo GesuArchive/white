@@ -427,19 +427,25 @@
 
 /obj/effect/mob_spawn/human/skeleton
 	name = "Разложившиеся останки"
-	mob_name = "skeleton"
+	mob_name = "скелетыч"
 	mob_species = /datum/species/skeleton
 	mob_gender = NEUTER
 
 /obj/effect/mob_spawn/human/zombie
 	name = "Гниющий труп"
-	mob_name = "zombie"
+	mob_name = "зомби"
 	mob_species = /datum/species/zombie
 	assignedrole = "Zombie"
 
+/obj/effect/mob_spawn/human/monkey
+	name = "Мартыха"
+	mob_name = "мартышка"
+	mob_species = /datum/species/monkey
+	assignedrole = "Monkey"
+
 /obj/effect/mob_spawn/human/abductor
 	name = "Похититель"
-	mob_name = "alien"
+	mob_name = "пришелец"
 	mob_species = /datum/species/abductor
 	outfit = /datum/outfit/abductorcorpse
 
