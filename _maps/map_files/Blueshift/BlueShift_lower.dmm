@@ -496,18 +496,18 @@
 /obj/item/storage/box/ingredients/fiesta,
 /obj/item/storage/box/ingredients/american,
 /obj/item/reagent_containers/food/condiment/flour{
-	list_reagents = list(/datum/reagent/consumable/flour = 600);
+	list_reagents = list(/datum/reagent/consumable/flour=600);
 	name = "Premium All-Purpose Flour (16KG)";
 	volume = 600
 	},
 /obj/item/reagent_containers/food/condiment/milk,
 /obj/item/reagent_containers/food/condiment/enzyme{
-	list_reagents = list(/datum/reagent/consumable/enzyme = 500);
+	list_reagents = list(/datum/reagent/consumable/enzyme=500);
 	name = "universe-sized universal enyzyme";
 	volume = 500
 	},
 /obj/item/reagent_containers/food/condiment/rice{
-	list_reagents = list(/datum/reagent/consumable/rice = 150);
+	list_reagents = list(/datum/reagent/consumable/rice=150);
 	name = "Basmati Rice Sack (4KG)";
 	volume = 150
 	},
@@ -7171,10 +7171,6 @@
 /area/cargo/miningoffice)
 "efN" = (
 /obj/item/kirbyplants/random,
-/obj/machinery/button/elevator{
-	id = "publicElevator";
-	pixel_y = -25
-	},
 /turf/open/floor/plasteel,
 /area/maintenance/port)
 "egk" = (
@@ -7963,9 +7959,8 @@
 	},
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/loading_area/white,
-/obj/machinery/button/elevator{
-	id = "publicElevator2";
-	pixel_x = -24
+/obj/machinery/button/elevator/directional/west{
+	id = "publicElevator2"
 	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/entry)
@@ -12524,13 +12519,12 @@
 /turf/open/floor/plasteel,
 /area/cargo/warehouse)
 "iCX" = (
-/obj/machinery/button/elevator{
-	id = "CargoElevator";
-	pixel_x = -25
-	},
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/light/directional/west,
+/obj/machinery/button/elevator/directional/west{
+	id = "CargoElevator"
+	},
 /turf/open/floor/plasteel/dark,
 /area/cargo/storage)
 "iDc" = (
@@ -16120,7 +16114,7 @@
 /area/hallway/secondary/entry)
 "lqw" = (
 /obj/effect/turf_decal/delivery,
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/maintenance/port)
 "lrh" = (
 /obj/structure/sign/warning/fire,
@@ -16943,8 +16937,8 @@
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "mdr" = (
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating/airless,
 /area/maintenance/fore)
 "mdw" = (
 /obj/structure/cable,
@@ -20071,8 +20065,8 @@
 /obj/structure/shuttle/engine/huge{
 	dir = 1
 	},
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating/airless,
 /area/maintenance/fore)
 "osW" = (
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible{
@@ -20522,7 +20516,7 @@
 "oNm" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/caution/stand_clear,
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/maintenance/port)
 "oND" = (
 /obj/effect/turf_decal/bot,
@@ -27207,6 +27201,9 @@
 /obj/machinery/light,
 /mob/living/simple_animal/bot/secbot{
 	name = "Officer Tunnel Rat"
+	},
+/obj/machinery/button/elevator/directional/south{
+	id = "publicElevator"
 	},
 /turf/open/floor/plasteel,
 /area/maintenance/port)

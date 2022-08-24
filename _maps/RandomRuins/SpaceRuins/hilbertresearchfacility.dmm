@@ -468,6 +468,7 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 5
 	},
+/obj/structure/fluff/tram_rail,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/powered/hilbertresearchfacility)
 "lL" = (
@@ -1134,6 +1135,7 @@
 /turf/open/floor/mineral/titanium/tiled/yellow,
 /area/ruin/space/has_grav/powered/hilbertresearchfacility)
 "Bk" = (
+/turf/open/floor/plating/asteroid,
 /area/ruin/space/has_grav/powered/hilbertresearchfacility)
 "Bo" = (
 /turf/closed/indestructible/riveted/plastinum,
@@ -3372,7 +3374,7 @@ cg
 Bo
 hk
 KC
-KC
+Xw
 Bo
 RL
 Ok

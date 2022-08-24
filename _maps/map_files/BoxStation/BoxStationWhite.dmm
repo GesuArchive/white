@@ -22376,8 +22376,12 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "gCM" = (
+/obj/structure/industrial_lift,
+/obj/effect/landmark/lift_id{
+	specific_lift_id = "sci_box"
+	},
 /turf/open/openspace,
-/area/science/research)
+/area/science/lab)
 "gCN" = (
 /obj/machinery/camera/autoname{
 	dir = 5
@@ -49609,6 +49613,13 @@
 /obj/machinery/computer/cargo/request,
 /turf/open/floor/plasteel,
 /area/cargo/office)
+"pov" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/button/elevator/directional/north{
+	id = "sci_box"
+	},
+/turf/open/floor/plasteel/monofloor/white,
+/area/science/research/abandoned)
 "poE" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plating,
@@ -58658,9 +58669,7 @@
 /turf/open/floor/engine,
 /area/science/research/abandoned)
 "sjr" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/stairs/west,
-/turf/open/floor/plasteel/monofloor/white,
+/turf/open/floor/plasteel/elevatorshaft,
 /area/science/research/abandoned)
 "sjW" = (
 /obj/effect/turf_decal/tile/yellow,
@@ -73486,11 +73495,16 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/cargo/office)
 "xac" = (
-/obj/structure/railing/corner{
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/turf/open/floor/plasteel/monofloor,
-/area/science/lab)
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/science/research/abandoned)
 "xad" = (
 /obj/structure/railing/corner{
 	dir = 1
@@ -75719,11 +75733,11 @@
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/east)
 "xKW" = (
-/obj/structure/railing{
-	dir = 8
-	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
+	},
+/obj/machinery/button/elevator/directional/south{
+	id = "sci_box"
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/science/lab)
@@ -123692,7 +123706,7 @@ bpX
 vGb
 vGb
 vGb
-xDk
+wBr
 xDk
 xDk
 xDk
@@ -123949,7 +123963,7 @@ qaX
 jrH
 sve
 vGb
-sjr
+xDk
 xDk
 qea
 xDk
@@ -124206,7 +124220,7 @@ enB
 oCk
 qHw
 vGb
-hZk
+sjr
 xDk
 qea
 xDk
@@ -124463,7 +124477,7 @@ boQ
 bxe
 wHt
 vGb
-cBe
+xac
 xDk
 tgl
 xDk
@@ -124720,7 +124734,7 @@ tTS
 lLG
 jBe
 vGb
-hZk
+pov
 gDw
 hZk
 cBe
@@ -189485,7 +189499,7 @@ dMT
 seY
 poF
 kmz
-gCM
+kmz
 eQU
 mED
 qwd
@@ -189998,7 +190012,7 @@ ecd
 ydK
 ykI
 qIn
-xac
+paJ
 xKW
 riQ
 giD

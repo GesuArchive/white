@@ -241,7 +241,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/turf/open/floor/plating,
+/turf/open/floor/mineral/plastitanium,
 /area/shuttle/escape)
 "aQ" = (
 /obj/effect/turf_decal/stripes/corner{
@@ -289,7 +289,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/turf/open/floor/plating,
+/turf/open/floor/mineral/plastitanium,
 /area/shuttle/escape)
 "aW" = (
 /obj/effect/turf_decal/stripes/line,
