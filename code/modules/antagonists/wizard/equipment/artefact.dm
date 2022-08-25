@@ -4,8 +4,8 @@
 ///////////////////////////Veil Render//////////////////////
 
 /obj/item/veilrender
-	name = "veil render"
-	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast city."
+	name = "проявитель вуали"
+	desc = "Зловещий изогнутый клинок неизвестного происхождения, извлеченный из руин огромного города."
 	icon = 'icons/obj/eldritch.dmi'
 	icon_state = "bone_blade"
 	inhand_icon_state = "bone_blade"
@@ -21,21 +21,21 @@
 	var/charges = 1
 	var/spawn_type = /obj/tear_in_reality
 	var/spawn_amt = 1
-	var/activate_descriptor = "reality"
-	var/rend_desc = "You should run now."
+	var/activate_descriptor = "реальности"
+	var/rend_desc = "Нужно бежать, СРОЧНО!"
 	var/spawn_fast = FALSE //if TRUE, ignores checking for mobs on loc before spawning
 
 /obj/item/veilrender/attack_self(mob/user)
 	if(charges > 0)
 		new /obj/effect/rend(get_turf(user), spawn_type, spawn_amt, rend_desc, spawn_fast)
 		charges--
-		user.visible_message(span_boldannounce("[src] hums with power as [user] deals a blow to [activate_descriptor] itself!"))
+		user.visible_message(span_boldannounce("[src] гудит силой, когда [user] наносит удар по [activate_descriptor]!"))
 	else
-		to_chat(user, span_danger("The unearthly energies that powered the blade are now dormant."))
+		to_chat(user, span_danger("Неизвестная энергия, питавшая клинок, теперь неактивна."))
 
 /obj/effect/rend
-	name = "tear in the fabric of reality"
-	desc = "You should run now."
+	name = "разрыв в ткани реальности"
+	desc = "Нужно бежать, СРОЧНО!"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "rift"
 	density = TRUE
@@ -63,7 +63,7 @@
 
 /obj/effect/rend/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/nullrod))
-		user.visible_message(span_danger("[user] seals \the [src] with \the [I]."))
+		user.visible_message(span_danger("[user] запечатывает [src] с помощью [I]."))
 		qdel(src)
 		return
 	else
@@ -76,39 +76,39 @@
 	return
 
 /obj/item/veilrender/vealrender
-	name = "veal render"
-	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast farm."
+	name = "проявитель голода"
+	desc = "Зловещий изогнутый клинок неизвестного происхождения, найденный на развалинах огромной фермы."
 	spawn_type = /mob/living/simple_animal/cow
 	spawn_amt = 20
-	activate_descriptor = "hunger"
-	rend_desc = "Reverberates with the sound of ten thousand moos."
+	activate_descriptor = "голоду"
+	rend_desc = "Эхом отдается звук десяти тысяч Мууу-у-у-у!"
 
 /obj/item/veilrender/honkrender
-	name = "honk render"
-	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast circus."
+	name = "проявитель комедии"
+	desc = "Зловещий изогнутый клинок неизвестного происхождения, найденный на развалинах огромного цирка."
 	spawn_type = /mob/living/simple_animal/hostile/clown
 	spawn_amt = 10
-	activate_descriptor = "depression"
-	rend_desc = "Gently wafting with the sounds of endless laughter."
+	activate_descriptor = "депрессии"
+	rend_desc = "До вас долетают отзвуки бесконечного смеха."
 	icon_state = "banana_blade"
 	inhand_icon_state = "banana_blade"
 	worn_icon_state = "render"
 
 /obj/item/veilrender/honkrender/honkhulkrender
-	name = "superior honk render"
-	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast circus. This one gleams with a special light."
+	name = "проявитель трагедии"
+	desc = "Зловещий изогнутый клинок неизвестного происхождения, найденный на развалинах огромного цирка. Этот мерцает по особенному."
 	spawn_type = /mob/living/simple_animal/hostile/clown/clownhulk
 	spawn_amt = 5
-	activate_descriptor = "depression"
-	rend_desc = "Gently wafting with the sounds of mirthful grunting."
+	activate_descriptor = "депрессии"
+	rend_desc = "Вы слышите звуки веселого хонканья."
 
 #define TEAR_IN_REALITY_CONSUME_RANGE 3
 #define TEAR_IN_REALITY_SINGULARITY_SIZE STAGE_FOUR
 
 /// Tear in reality, spawned by the veil render
 /obj/tear_in_reality
-	name = "tear in the fabric of reality"
-	desc = "This isn't right."
+	name = "разрыв в ткани реальности"
+	desc = "Так быть не должно..."
 	icon = 'icons/effects/224x224.dmi'
 	icon_state = "reality"
 	pixel_x = -96
@@ -161,8 +161,8 @@
 /////////////////////////////////////////Scrying///////////////////
 
 /obj/item/scrying
-	name = "scrying orb"
-	desc = "An incandescent orb of otherworldly energy, merely holding it gives you vision and hearing beyond mortal means, and staring into it lets you see the entire universe."
+	name = "сфера провидца"
+	desc = "Раскаленный шар потусторонней энергии, просто держа его в руках, ваше зрение и слух с легкостью преступает рамки ограничивающие смертных, а пристальный взгляд в него позволяет вам увидеть всю вселенную."
 	icon = 'icons/obj/guns/projectiles.dmi'
 	icon_state ="bluespace"
 	throw_speed = 3
@@ -186,7 +186,7 @@
 	var/mob/holder = get(loc, /mob)
 	if(current_owner && current_owner != holder)
 
-		to_chat(current_owner, span_notice("Your otherworldly vision fades..."))
+		to_chat(current_owner, span_notice("Я больше не вижу мёртвых..."))
 
 		REMOVE_TRAIT(current_owner, TRAIT_SIXTHSENSE, SCRYING_ORB)
 		REMOVE_TRAIT(current_owner, TRAIT_XRAY_VISION, SCRYING_ORB)
@@ -197,21 +197,21 @@
 	if(!current_owner && holder)
 		current_owner = holder
 
-		to_chat(current_owner, span_notice("You can see...everything!"))
+		to_chat(current_owner, span_notice("Я вижу... вижу всё!"))
 
 		ADD_TRAIT(current_owner, TRAIT_SIXTHSENSE, SCRYING_ORB)
 		ADD_TRAIT(current_owner, TRAIT_XRAY_VISION, SCRYING_ORB)
 		current_owner.update_sight()
 
 /obj/item/scrying/attack_self(mob/user)
-	visible_message(span_danger("[user] stares into [src], their eyes glazing over."))
+	visible_message(span_danger("[user] смотрит в [src], и его глаза застилает тьма."))
 	user.ghostize(1)
 
 /////////////////////////////////////////Necromantic Stone///////////////////
 
 /obj/item/necromantic_stone
-	name = "necromantic stone"
-	desc = "A shard capable of resurrecting humans as skeleton thralls."
+	name = "камень некроманта"
+	desc = "Камень, способный воскрешать мёртвых в качестве ваших рабов-скелетов."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "necrostone"
 	inhand_icon_state = "electronic"
@@ -232,7 +232,7 @@
 		return
 
 	if(M.stat != DEAD)
-		to_chat(user, span_warning("This artifact can only affect the dead!"))
+		to_chat(user, span_warning("Этот артефакт бессилен на живых!"))
 		return
 
 	for(var/mob/dead/observer/ghost in GLOB.dead_mob_list) //excludes new players
@@ -241,19 +241,19 @@
 			break
 
 	if(!M.mind || !M.client)
-		to_chat(user, span_warning("There is no soul connected to this body..."))
+		to_chat(user, span_warning("Я не чувствую души..."))
 		return
 
 	check_spooky()//clean out/refresh the list
 	if(spooky_scaries.len >= 3 && !unlimited)
-		to_chat(user, span_warning("This artifact can only affect three undead at a time!"))
+		to_chat(user, span_warning("Этот артефакт может контролировать не более трёх рабов одновременно!"))
 		return
 
 	M.set_species(/datum/species/skeleton, icon_update=0)
 	M.revive(full_heal = TRUE, admin_revive = TRUE)
 	spooky_scaries |= M
-	to_chat(M, "[span_userdanger("You have been revived by ")]<B>[user.real_name]!</B>")
-	to_chat(M, span_userdanger("[user.p_theyre(TRUE)] your master now, assist [user.p_them()] even if it costs you your new life!"))
+	to_chat(M, "[span_userdanger("Вы были воскрешены ")]<B>[user.real_name]!</B>")
+	to_chat(M, span_userdanger("[user.p_theyre(TRUE)] теперь твой хозяин, помогите [user.p_them()] даже если это будет стоить вам вашей вашего оставшегося подобия жизни!"))
 	var/datum/antagonist/wizard/antag_datum = user.mind.has_antag_datum(/datum/antagonist/wizard)
 	if(antag_datum)
 		if(!antag_datum.wiz_team)
@@ -262,7 +262,7 @@
 
 	equip_roman_skeleton(M)
 
-	desc = "A shard capable of resurrecting humans as skeleton thralls[unlimited ? "." : ", [spooky_scaries.len]/3 active thralls."]"
+	desc = "Камень, способный воскрешать мёртвых в качестве ваших рабов-скелетов[unlimited ? "." : ", [spooky_scaries.len]/3 активных рабов."]"
 
 /obj/item/necromantic_stone/proc/check_spooky()
 	if(unlimited) //no point, the list isn't used.
@@ -301,8 +301,8 @@
 
 ///Warp whistle, spawns a tornado that teleports you
 /obj/item/warp_whistle
-	name = "warp whistle"
-	desc = "Calls a cloud to come pick you up and drop you at a random location on the station."
+	name = "варп-свисток"
+	desc = "Вызывает смерч, способное забрать вас и высадить в случайном месте на станции."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "whistle"
 
@@ -311,7 +311,7 @@
 
 /obj/item/warp_whistle/attack_self(mob/user)
 	if(whistler)
-		to_chat(user, span_warning("[src] is on cooldown."))
+		to_chat(user, span_warning("[src] еще не готов к повторному использованию!"))
 		return
 
 	whistler = user
@@ -322,8 +322,8 @@
 
 ///Teleporting tornado, spawned by warp whistle, teleports the user if they manage to pick them up.
 /obj/effect/temp_visual/teleporting_tornado
-	name = "tornado"
-	desc = "This thing sucks!"
+	name = "торнадо"
+	desc = "Эта штука ужасна!"
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "tornado"
 	layer = FLY_LAYER
