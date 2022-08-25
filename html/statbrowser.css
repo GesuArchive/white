@@ -142,31 +142,22 @@ li a:hover:not(.active) {
 }
 
 .button:active, .button.active {
-	background-color: #ffffff;
+	background-color: #000000;
 	color: black;
 	font-weight: bold;
-	border-top: 1px solid #cecece;
-	border-left: 1px solid #cecece;
-	border-right: 1px solid #cecece;
-	border-bottom: 1px solid #ffffff;
+	border: 1px solid #cecece;
 }
 
 .dark .button:active, .dark .button.active {
-	background-color: #080808;
+	background-color: #ffffff;
 	color: #d6d6d6;
-	border-top: 1px solid #343434;
-	border-left: 1px solid #343434;
-	border-right: 1px solid #343434;
-	border-bottom: 1px solid #080808;
+	border: 1px solid #343434;
 }
 
 .gruvbox .button:active, .gruvbox .button.active {
-	background-color: #1d2021;
+	background-color: #ffffff;
 	color: #fbf1c7;
-	border-top: 1px solid #343434;
-	border-left: 1px solid #343434;
-	border-right: 1px solid #343434;
-	border-bottom: 1px solid #080808;
+	border: 1px solid #343434;
 }
 
 .grid-container {
@@ -178,7 +169,7 @@ li a:hover:not(.active) {
 	position: relative;
 	display: inline-flex;
 	width: 30%;
-	font-size: 12px;
+	font-size: 11px;
 	white-space: pre-wrap;
 	padding: 3px 3px;
 	margin: 1px;
