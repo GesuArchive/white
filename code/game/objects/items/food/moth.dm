@@ -4,8 +4,8 @@
 
 //Base ingredients and miscellany, generally not served on their own
 /obj/item/food/herby_cheese
-	name = "herby cheese"
-	desc = "As a staple of mothic cuisine, cheese is often augmented with various flavours to keep variety in their diet. Herbs are one such addition, and are particularly beloved."
+	name = "сыр с травами"
+	desc = "Как основной продукт мотыльковой кухни, сыр часто дополняют различными вкусовыми добавками, чтобы сохранить разнообразие в рационе. Одним из таких дополнений являются травы, которые особенно любят моли."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "herby_cheese"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3)
@@ -14,8 +14,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/grilled_cheese
-	name = "grilled cheese"
-	desc = "As prescribed by Lord Alton, blessed be his name, 99.997% of the world's recipes for grilled cheese flat out lie: never once is the cheese grilled, it is merely a griddled sandwich containing melted cheese. This, on the other hand, is truly grilled cheese, grillmarks and all."
+	name = "жареный сыр"
+	desc = "Как предписывает лорд Алтон, да будет благословенно его имя, 99,997% мировых рецептов жареного сыра - чистая ложь: сыр ни разу не жарится, это просто сэндвич на гриле с расплавленным сыром. С другой стороны, это действительно жареный сыр, со всеми признаками того, что он жареный."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "grilled_cheese"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/char = 1)
@@ -24,8 +24,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/mothic_salad
-	name = "mothic salad"
-	desc = "A basic salad of cabbage, red onion and tomato. Can serve as a perfect base for a million different salads."
+	name = "салат для молей"
+	desc = "Простой салат из капусты, красного лука и помидоров. Может служить прекрасной основой для миллиона различных салатов"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "mothic_salad"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 5)
@@ -34,8 +34,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/toasted_seeds
-	name = "toasted seeds"
-	desc = "While they're far from filling, toasted seeds are a popular snack amongst the moths. Salt, sugar, or even some more exotic flavours may be added for some extra pep."
+	name = "поджаренные семена"
+	desc = "Хотя они далеко не сытные, поджаренные семечки являются популярной закуской среди молей. Для большей пикантности можно добавить соль, сахар или даже некоторые экзотические приправы."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "toasted_seeds"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 1)
@@ -44,8 +44,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/engine_fodder
-	name = "engine fodder"
-	desc = "A common snack for engineers on the mothic fleet, made of seeds, nuts, chocolate, popcorn, and potato chips- designed to be dense with calories and easy to snack on when an extra boost is needed."
+	name = "закуска для инженеров"
+	desc = "Обычная закуска для инженеров мотылькового флота, сделанная из семян, орехов, шоколада, попкорна и картофельных чипсов - она отличается высокой калорийностью и удобна для перекуса, когда требуется дополнительная подпитка."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "engine_fodder"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/salt = 1)
@@ -54,8 +54,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/mothic_pizza_dough
-	name = "mothic pizza dough"
-	desc = "A strong, glutenous dough, made with cornmeal and flour, designed to hold up to cheese and sauce."
+	name = "мольское тесто для пиццы"
+	desc = "Прочное, клейкое тесто, приготовленное из кукурузной муки."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "mothic_pizza_dough"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 3)
@@ -65,8 +65,8 @@
 
 //Entrees: categorising food that is 90% cheese and salad is not easy
 /obj/item/food/squeaking_stir_fry
-	name = "skeklitmischtpoppl" //skeklit = squeaking, mischt = stir, poppl = fry
-	desc = "A mothic classic made with cheese curds and tofu (amongst other things). Translated literally the name means 'squeaking stir fry', a name given due to the distinctive squeak of the proteins."
+	name = "стир фрай" //skeklit = squeaking, mischt = stir, poppl = fry
+	desc = "Мольская классика, приготовленная из творожного сыра и тофу (помимо всего прочего). В дословном переводе название означает \"пищащее жаркое\", название дано из-за характерного писка при приготовлении."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "squeaking_stir_fry"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 3)
@@ -75,8 +75,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/sweet_chili_cabbage_wrap
-	name = "sweet chili cabbage wrap"
-	desc = "Grilled cheese and salad in a cabbage wrap, topped with delicious sweet chili sauce."
+	name = "капустный ролл с чили"
+	desc = "Жареный сыр и салат в капустном обертывании, увенчанные восхитительным сладким соусом чили."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "sweet_chili_cabbage_wrap"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/consumable/capsaicin = 1)
@@ -85,8 +85,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/loaded_curds
-	name = "ozlsettitæloskekllön ede pommes" //ozlsettit = overflowing (ozl = over, sett = flow, it = ing), ælo = cheese, skekllön = curds (skeklit = squeaking, llön = pieces/bits), ede = and, pommes = fries (hey, France!)
-	desc = "What's better than cheese curds? Deep fried cheese curds! What's better than deep fried cheese curds? Deep fried cheese curds with chili (and more cheese) on top! And what's better than that? Putting it on fries!"
+	name = "творожный сыр во фритюре" //ozlsettit = overflowing (ozl = over, sett = flow, it = ing), ælo = cheese, skekllön = curds (skeklit = squeaking, llön = pieces/bits), ede = and, pommes = fries (hey, France!)
+	desc = "Что может быть лучше творожного сыра? Жареные во фритюре сырники! Что может быть лучше жареного во фритюре творожного сыра? Жареный во фритюре творожный сыр с чили (и еще больше сыра) сверху! А что еще лучше? Положить его на картофель фри!"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "loaded_curds"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/capsaicin = 1)
@@ -95,8 +95,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/baked_cheese
-	name = "baked cheese wheel"
-	desc = "A baked cheese wheel, melty and delicious."
+	name = "жареная головка сыра"
+	desc = "Жареная головка сыра, расплавленная и вкусная."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "baked_cheese"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/capsaicin = 1)
@@ -106,8 +106,8 @@
 	burns_in_oven = TRUE
 
 /obj/item/food/baked_cheese_platter
-	name = "stanntkraktælo" //stannt = oven, krakt = baked, ælo = cheese
-	desc = "A baked cheese wheel: a mothic favourite for sharing. Usually served with crispy bread slices for dipping, because the only thing better than good cheese is good cheese on bread."
+	name = "жареная головка сыра" //stannt = oven, krakt = baked, ælo = cheese
+	desc = "Запеченный сырный круг: любимое блюдо молей для совместного употребления. Обычно подается с хрустящими ломтиками хлеба для макания, потому что лучше хорошего сыра может быть только хороший сыр на хлебе."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "baked_cheese_platter"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/capsaicin = 1)
@@ -117,8 +117,8 @@
 
 //Baked Green Lasagna at the Whistlestop Cafe
 /obj/item/food/raw_green_lasagne
-	name = "raw green lasagne al forno"
-	desc = "A fine lasagne made with pesto and a herby white sauce, ready to bake. Good for multiple servings."
+	name = "сырая зеленая лазанья аль Форно"
+	desc = "Изысканная лазанья с песто и травянистым белым соусом, готовая к запеканию."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_green_lasagne"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 5)
@@ -130,8 +130,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/green_lasagne, rand(25 SECONDS, 45 SECONDS), TRUE, TRUE)
 
 /obj/item/food/green_lasagne
-	name = "green lasagne al forno"
-	desc = "A fine lasagne made with pesto and a herby white sauce. Good for multiple servings."
+	name = "зеленая лазанья аль Форно"
+	desc = "Изысканная лазанья, приготовленная с песто и травянистым белым соусом."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "green_lasagne"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 12, /datum/reagent/consumable/nutriment/vitamin = 18)
@@ -144,8 +144,8 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/green_lasagne_slice, 6, 30)
 
 /obj/item/food/green_lasagne_slice
-	name = "green lasagne al forno slice"
-	desc = "A slice of herby, pesto-y lasagne."
+	name = "кусочек зеленой лазаньи аль Форно"
+	desc = "Кусочек лазаньи с песто и травами."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "green_lasagne_slice"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/nutriment/vitamin = 3)
@@ -154,8 +154,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/raw_baked_rice
-	name = "big rice pan"
-	desc = "A big pan of layered potatoes topped with rice and vegetable stock, ready to be baked into a delicious sharing meal."
+	name = "сырой плов по Мольски"
+	desc = "Большая сковорода слоеного картофеля с рисом и овощным бульоном, готовая к запеканию в виде вкусного блюда для совместного употребления."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_baked_rice"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/nutriment/vitamin = 6)
@@ -167,8 +167,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/big_baked_rice, rand(25 SECONDS, 45 SECONDS), TRUE, TRUE)
 
 /obj/item/food/big_baked_rice
-	name = "big baked rice"
-	desc = "A mothic favourite, baked rice can be filled with a variety of vegetable fillings to make a delicious meal to share. Potatoes are also often layered on the bottom of the cooking vessel to create a flavourful crust which is hotly contested amongst diners."
+	name = "плов по мольски"
+	desc = "Любимое блюдо молей, запеченный рис по вкусу наполняется различными овощными начинками. Картофель также часто укладывают слоями на дно казана, чтобы получилась ароматная корочка, которая всегда вызывает горячее одобрение со стороны посетителей. Принято употреблять в большой компании."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "big_baked_rice"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 12, /datum/reagent/consumable/nutriment/vitamin = 36)
@@ -181,8 +181,8 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/lil_baked_rice, 6, 30)
 
 /obj/item/food/lil_baked_rice
-	name = "lil baked rice"
-	desc = "A single portion of baked rice, perfect as a side dish, or even as a full meal."
+	name = "порция плова по мольски"
+	desc = "Одна порция мольского плова, идеально подходит в качестве гарнира или даже полноценного блюда."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "lil_baked_rice"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/nutriment/vitamin = 6)
@@ -191,8 +191,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/oven_baked_corn
-	name = "oven-baked corn"
-	desc = "A cob of corn, baked in the roasting heat of an oven until it blisters and blackens. Beloved as a quick yet flavourful and filling component for dishes on the Fleet."
+	name = "кукуруза, запеченная в духовке"
+	desc = "Початок кукурузы, запеченный в жаркой духовке до почернения."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "oven_baked_corn"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/consumable/char = 1)
@@ -202,8 +202,8 @@
 	burns_in_oven = TRUE
 
 /obj/item/food/buttered_baked_corn
-	name = "buttered baked corn"
-	desc = "What's better than baked corn? Baked corn with butter!"
+	name = "запеченная кукуруза с маслом"
+	desc = "Что может быть лучше печеной кукурузы? Запеченная кукуруза с маслом!"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "buttered_baked_corn"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/consumable/char = 1)
@@ -212,8 +212,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/fiesta_corn_skillet
-	name = "fiesta corn skillet"
-	desc = "Sweet, spicy, saucy, and all kinds of corny."
+	name = "кукурузная фиеста на сковороде"
+	desc = "Сладкая, пряная, соленая, все вкусы в одном."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "fiesta_corn_skillet"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 7, /datum/reagent/consumable/char = 1)
@@ -222,8 +222,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/raw_ratatouille
-	name = "raw ratatouille" //rawtatouille?
-	desc = "Sliced vegetables with a roasted pepper sauce. Delicious, for a peasant food."
+	name = "сырой рататуй" //rawtatouille?
+	desc = "Нарезанные овощи с соусом из жареного перца."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_ratatouille"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 7, /datum/reagent/consumable/char = 1)
@@ -235,8 +235,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/ratatouille, rand(25 SECONDS, 45 SECONDS), TRUE, TRUE)
 
 /obj/item/food/ratatouille
-	name = "ratatouille"
-	desc = "The perfect dish to save your restaurant from a vindictive food critic. Bonus points if you've got a rat in your hat."
+	name = "рататуй"
+	desc = "Идеальное блюдо, которое спасет ваш ресторан от мстительного ресторанного критика. Бонусные очки, если у вас есть крыса в шляпе."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "ratatouille"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 7, /datum/reagent/consumable/char = 1)
@@ -246,8 +246,8 @@
 	burns_in_oven = TRUE
 
 /obj/item/food/mozzarella_sticks
-	name = "mozzarella sticks"
-	desc = "Little sticks of mozzarella, breaded and fried."
+	name = "палочки из моцареллы во фритюре"
+	desc = "Маленькие палочки моцареллы панированные и жареные."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "mozzarella_sticks"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 3)
@@ -256,8 +256,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/raw_stuffed_peppers
-	name = "raw voltölpaprik" //voltöl = stuffed (vol = full, töl = push), paprik (from German paprika) = bell pepper
-	desc = "A pepper with the top removed and a herby cheese and onion mix stuffed inside. Probably shouldn't be eaten raw."
+	name = "сырой фаршированный перец" //voltöl = stuffed (vol = full, töl = push), paprik (from German paprika) = bell pepper
+	desc = "Перец со снятой верхушкой и начинкой из сыра с травами и лука. Наверное, не стоит есть сырым."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_stuffed_pepper"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 3)
@@ -269,8 +269,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/stuffed_peppers, rand(15 SECONDS, 35 SECONDS), TRUE, TRUE)
 
 /obj/item/food/stuffed_peppers
-	name = "voltölpaprik"
-	desc = "A soft yet still crisp bell pepper, with a wonderful melty cheesy interior."
+	name = "фаршированный перец"
+	desc = "Мягкий, но в то же время хрустящий болгарский перец с чудесным расплавленным сыром внутри."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "stuffed_pepper"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 3)
@@ -280,8 +280,8 @@
 	burns_in_oven = TRUE
 
 /obj/item/food/fueljacks_lunch
-	name = "\improper Fueljack's lunch"
-	desc = "A dish made from fried vegetables, popular amongst fueljacks- the brave moths who operate the fuel skimmers to keep the fleet running. Given the constant need for fuel, and the limited windows in which the stars align for harvesting (literally), they'll often take packed meals to save on trips to the mess, which they heat using the fresh canisters."
+	name = "обед заправщика"
+	desc = "Блюдо, приготовленное из жареных овощей, популярное среди заправщиков - храбрых молей докеров, что управляют топливными тягачами, чтобы поддерживать работу космодока. Учитывая постоянную потребность в топливе и ограниченное время, в течение которого звезды выстраиваются для сбора урожая (в буквальном смысле), они часто берут упакованные блюда, которые они разогревают, используя плазменные форсунки катеров."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "fueljacks_lunch"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 3)
@@ -290,8 +290,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/mac_balls
-	name = "macheronirölen"
-	desc = "Fried balls of macaroni cheese dipped in corn batter, served with tomato sauce. A popular snack across the galaxy, and especially on the Mothic Fleet- where they tend to use Ready-Donk as the base."
+	name = "макаронные шарики с сыром"
+	desc = "Жареные шарики макарон с сыром, обмакнутые в кукурузное тесто, подаются с томатным соусом. Популярная закуска во всей галактике, особенно на Мольском флоте, где в качестве основы обычно едят Донк-покеты."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "mac_balls"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 3)
@@ -300,39 +300,39 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/sustenance_bar
-	name = "surplus fleet PSB"
-	desc = "The PSB, or Prepacked Sustenance Bar, is a densely packed, nutrient rich food which is designed to hold the populace over during times of food shortage. Made from soy and pea protein, each lasts 3 days if adequately rationed. While they have a long shelf life, they do eventually go bad- prompting them to be sold as surplus by the fleet. This particular one is, like most artificially-flavoured moth food, mixed-herb flavoured."
+	name = "спецбатончик \"Заряд\""
+	desc = "Спецбатончик \"Заряд\" или, как его ещё называют, энергетический батончик - это плотно упакованный, богатый питательными веществами продукт, предназначенный для поддержания жизнедеятельности населения во время нехватки продовольствия. Изготовленный из соевого и горохового белка, каждый батончик рассчитан на 3 дня при достаточном рационе. Несмотря на длительный срок хранения, со временем они портятся, что приводит к их продаже флотом в качестве излишков. Этот, как и большинство искусственно ароматизированных кормов для мотыльков, имеет смешанный травяной вкус."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "sustenance_bar"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20)
-	tastes = list("herbs" = 1)
+	tastes = list("травы" = 1)
 	foodtypes = VEGETABLES | GRAIN
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/sustenance_bar/neapolitan
-	name = "surplus fleet PSB- neapolitan flavour"
-	desc = "The PSB, or Prepacked Sustenance Bar, is a densely packed, nutrient rich food which is designed to hold the populace over during times of food shortage. Made from soy and pea protein, each lasts 3 days if adequately rationed. While they have a long shelf life, they do eventually go bad- prompting them to be sold as surplus by the fleet. This particular one is neapolitan flavoured- strawberry, vanilla, and chocolate."
-	tastes = list("strawberry" = 1, "vanilla" = 1, "chocolate" = 1)
+	name = "спецбатончик \"Заряд\" с неополитанским вкусом"
+	desc = "Спецбатончик \"Заряд\" или, как его ещё называют, энергетический батончик - это плотно упакованный, богатый питательными веществами продукт, предназначенный для поддержания жизнедеятельности населения во время нехватки продовольствия. Изготовленный из соевого и горохового белка, каждый батончик рассчитан на 3 дня при достаточном рационе. Несмотря на длительный срок хранения, со временем они портятся, что приводит к их продаже флотом в качестве излишков. Этот, как и большинство искусственно ароматизированных кормов для мотыльков, имеет смешанный травяной вкус. Этот неаполитанский со вкусом клубники, ванили и шоколада."
+	tastes = list("клубника" = 1, "ваниль" = 1, "шоколад" = 1)
 
 /obj/item/food/sustenance_bar/cheese
-	name = "surplus fleet PSB- three-cheese flavour"
-	desc = "The PSB, or Prepacked Sustenance Bar, is a densely packed, nutrient rich food which is designed to hold the populace over during times of food shortage. Made from soy and pea protein, each lasts 3 days if adequately rationed. While they have a long shelf life, they do eventually go bad- prompting them to be sold as surplus by the fleet. This particular one is three-cheese flavoured- parmesan, mozzarella, and cheddar."
-	tastes = list("parmesan" = 1, "mozzarella" = 1, "cheddar" = 1)
+	name = "спецбатончик \"Заряд\" со вкусом \"три сыра\""
+	desc = "Спецбатончик \"Заряд\" или, как его ещё называют, энергетический батончик - это плотно упакованный, богатый питательными веществами продукт, предназначенный для поддержания жизнедеятельности населения во время нехватки продовольствия. Изготовленный из соевого и горохового белка, каждый батончик рассчитан на 3 дня при достаточном рационе. Несмотря на длительный срок хранения, со временем они портятся, что приводит к их продаже флотом в качестве излишков. Этот, как и большинство искусственно ароматизированных кормов для мотыльков, имеет смешанный травяной вкус. Этот со вкусом трех сыров: пармезана, моцареллы и чеддера."
+	tastes = list("пармезан" = 1, "моцарелла" = 1, "чеддер" = 1)
 
 /obj/item/food/sustenance_bar/mint
-	name = "surplus fleet PSB- mint choc chip flavour"
-	desc = "The PSB, or Prepacked Sustenance Bar, is a densely packed, nutrient rich food which is designed to hold the populace over during times of food shortage. Made from soy and pea protein, each lasts 3 days if adequately rationed. While they have a long shelf life, they do eventually go bad- prompting them to be sold as surplus by the fleet. This particular one is mint choc chip flavoured- peppermint, dark chocolate, and potato chips, showing that mothkind has no idea what mint choc chip is."
-	tastes = list("peppermint" = 1, "potato chips(?)" = 1, "dark chocolate" = 1)
+	name = "спецбатончик \"Заряд\" со вкусом мятного шоколада"
+	desc = "Спецбатончик \"Заряд\" или, как его ещё называют, энергетический батончик - это плотно упакованный, богатый питательными веществами продукт, предназначенный для поддержания жизнедеятельности населения во время нехватки продовольствия. Изготовленный из соевого и горохового белка, каждый батончик рассчитан на 3 дня при достаточном рационе. Несмотря на длительный срок хранения, со временем они портятся, что приводит к их продаже флотом в качестве излишков. Этот, как и большинство искусственно ароматизированных кормов для мотыльков, имеет смешанный травяной вкус. Этот со вкусом мятного шоколада."
+	tastes = list("перечаня мята" = 1, "картофельные чипсы (?)" = 1, "тёмный шоколад" = 1)
 
 /obj/item/food/sustenance_bar/wonka
-	name = "surplus fleet PSB- three course dinner"
-	desc = "The PSB, or Prepacked Sustenance Bar, is a densely packed, nutrient rich food which is designed to hold the populace over during times of food shortage. Made from soy and pea protein, each lasts 3 days if adequately rationed. While they have a long shelf life, they do eventually go bad- prompting them to be sold as surplus by the fleet. This particular one is split into three flavours, making up a typical meal- tomato soup, roast pumpkin, and blueberry pie." //Thankfully not made by Willy Wonka
-	tastes = list("tomato soup" = 1, "roast pumpkin" = 1, "blueberry pie" = 1)
+	name = "спецбатончик \"Заряд\" - ужин из трёх блюд"
+	desc = "Спецбатончик \"Заряд\" или, как его ещё называют, энергетический батончик - это плотно упакованный, богатый питательными веществами продукт, предназначенный для поддержания жизнедеятельности населения во время нехватки продовольствия. Изготовленный из соевого и горохового белка, каждый батончик рассчитан на 3 дня при достаточном рационе. Несмотря на длительный срок хранения, со временем они портятся, что приводит к их продаже флотом в качестве излишков. Этот, как и большинство искусственно ароматизированных кормов для мотыльков, имеет смешанный травяной вкус. В этом сочетаются три вкуса - томатный суп, жареная тыква и черничный пирог."
+	tastes = list("томатный суп" = 1, "жареная тыква" = 1, "черничный пирог" = 1)
 
 //Soups
 /obj/item/food/soup/moth_cotton_soup
-	name = "flöfrölenmæsch" //flöf = cotton, rölen = ball, mæsch = soup
-	desc = "A soup made from raw cotton in a flavourful vegetable broth. Enjoyed only by moths and the criminally tasteless."
+	name = "суп с клёцками из хлопка" //flöf = cotton, rölen = ball, mæsch = soup
+	desc = "Суп из хлопка на ароматном овощном бульоне. Нравится только молям и тем, кто преступно безвкусен."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "moth_cotton_soup"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 3)
@@ -341,8 +341,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/soup/moth_cheese_soup
-	name = "ælosterrmæsch" //ælo = cheese, sterr = melt, mæsch = soup
-	desc = "A simple and filling soup made from homemade cheese and sweet potato. The curds provide texture while the whey provides volume- and they both provide deliciousness!"
+	name = "сырный суп" //ælo = cheese, sterr = melt, mæsch = soup
+	desc = "Простой и сытный суп из домашнего сыра и сладкого картофеля. Творог придает текстуру, а сыворотка - объем, вкуснятина!"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "moth_cheese_soup"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/salt = 1)
@@ -351,8 +351,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/soup/moth_seed_soup
-	name = "misklmæsch" //miskl = seed, mæsch = soup
-	desc = "A seed based soup, made by germinating seeds and then boiling them. Produces a particularly bitter broth which is usually balanced by the addition of vinegar."
+	name = "суп с семянами" //miskl = seed, mæsch = soup
+	desc = "Суп на основе семян."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "moth_seed_soup"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 6)
@@ -361,17 +361,17 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/soup/vegetarian_chili
-	name = "chili sin carne"
-	desc = "For the hombres who don't want carne."
+	name = "веганский чили кон карне"
+	desc = "Для тех, кто не хочет карне."
 	icon_state = "hotchili"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/consumable/capsaicin = 3, /datum/reagent/consumable/tomatojuice = 4, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("bitterness" = 1, "sourness" = 1)
 	foodtypes = VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/food/soup/moth_bean_stew 
-	name = "prickeldröndolhaskl" //prickeld = spicy, röndol = bean, haskl = stew
-	desc = "A spicy bean stew with lots of veggies, commonly served aboard the fleet as a filling and satisfying meal with rice or bread."
+/obj/item/food/soup/moth_bean_stew
+	name = "острая тушеная фасоль" //prickeld = spicy, röndol = bean, haskl = stew
+	desc = "Острая тушеная фасоль с большим количеством овощей, обычно подается на борту флота в качестве сытного блюда с рисом или хлебом."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "moth_bean_stew"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 7, /datum/reagent/consumable/char = 1)
@@ -380,8 +380,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/soup/moth_oat_stew
-	name = "häfmisklhaskl" //häfmiskl = oat (häf from German hafer meaning oat, miskl meaning seed), haskl = stew
-	desc = "A hearty oat stew, prepared with oats, sweet potatoes, and various winter vegetables."
+	name = "овсяное рагу" //häfmiskl = oat (häf from German hafer meaning oat, miskl meaning seed), haskl = stew
+	desc = "Сытное рагу, приготовленное из овса, сладкого картофеля и различных зимних овощей."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "moth_oat_stew"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 7, /datum/reagent/consumable/char = 1)
@@ -389,9 +389,9 @@
 	foodtypes = VEGETABLES | GRAIN
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/food/soup/moth_fire_soup 
-	name = "tömpröttkrakklmæsch" //tömprött = heart (tömp = thump, rött = muscle), krakkl = fire, mæsch = soup
-	desc = "Tömpröttkrakklmæsch, or heartburn soup, is a cold soup dish that originated amongst the jungle moths, and is named for two things- its rosy pink colour, and its scorchingly hot chilli heat."
+/obj/item/food/soup/moth_fire_soup
+	name = "изжоговый суп" //tömprött = heart (tömp = thump, rött = muscle), krakkl = fire, mæsch = soup
+	desc = "Это холодное суповое блюдо, которое зародилось среди джунглевых мотыльков и получило свое название за две вещи - его бордово-розовый цвет и обжигающе горячий перец чили."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "moth_fire_soup"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 5)
@@ -400,8 +400,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/soup/rice_porridge
-	name = "rice porridge" 
-	desc = "A plate of rice porridge. It's mostly flavourless, but it does fill a spot. To the Chinese it's congee, and moths call it höllflöfmisklsløsk." //höllflöfmiskl = rice (höllflöf = cloud, miskl = seed), sløsk = porridge
+	name = "рисовая каша"
+	desc = "Тарелка рисовой каши. В основном она не имеет вкуса, но заполняет место. Для китайцев это конги, а моли называют ее höllflöfmisklsløsk."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "rice_porridge"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 5)
@@ -410,8 +410,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/soup/hua_mulan_congee
-	name = "\improper Hua Mulan congee" 
-	desc = "Nobody is quite sure why this smiley bowl of rice porridge with eggs and bacon is named after a mythological Chinese figure- it's just sorta what it's always been called."
+	name = "отвар Хуа Мулань"
+	desc = "Никто точно не знает, почему эта улыбающаяся миска рисовой каши с яйцами и беконом названа в честь мифологической китайской героини."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "hua_mulan_congee"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/nutriment/protein = 5)
@@ -420,8 +420,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/soup/toechtauese_rice_porridge
-	name = "töchtaüse rice porridge" 
-	desc = "Commonly served aboard the mothic fleet, rice porridge with töchtaüse syrup is more palatable than the regular stuff, if even just because it's spicier than normal."
+	name = "острая рисовая каша"
+	desc = "На борту мотылькового флота обычно подают рисовую кашу с острым сиропом, которая более вкусна, чем обычная, хотя бы потому, что она более острая, чем обычно."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "toechtauese_rice_porridge"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 5)
@@ -430,8 +430,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/soup/cornmeal_porridge
-	name = "cornmeal porridge" 
-	desc = "A plate of cornmeal porridge. It's more flavourful than most porridges, and makes a good base for other flavours, too."
+	name = "кукурузная каша"
+	desc = "Тарелка кукурузной каши. Она более ароматна, чем большинство каш, и является хорошей основой для других блюд."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "cornmeal_porridge"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 5)
@@ -440,8 +440,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/soup/cheesy_porridge //milk, polenta, firm cheese, curd cheese, butter
-	name = "cheesy porridge" 
-	desc = "A rich and creamy bowl of cheesy cornmeal porridge."
+	name = "сырная каша"
+	desc = "Сытная и сливочная каша из сырной кукурузной муки."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "cheesy_porridge"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 5)
@@ -450,8 +450,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/soup/fried_eggplant_polenta
-	name = "fried eggplant and polenta" 
-	desc = "Polenta loaded with cheese, served with a few discs of fried eggplant and some tomato sauce. Lække!"
+	name = "жареные баклажаны с полентой"
+	desc = "Полента с сыром, подается с несколькими кусочками жареного баклажана и томатным соусом."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "fried_eggplant_polenta"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 5)
@@ -461,8 +461,8 @@
 
 //Salads: the bread and butter of mothic cuisine
 /obj/item/food/caprese_salad
-	name = "caprese salad"
-	desc = "While it's far from an original creation of the moths, caprese salad has become a favourite aboard the Fleet due to how simple it is to prepare yet how tasty it is. To the moths it's known as zaileskenknusksolt: two tone salad, in GalCom." //zail = two, esken = colour/tone, knuskolt = salad
+	name = "салат Капрезе"
+	desc = "Далеко не оригинальное творение молей, но салат капрезе стал любимым на борту флота благодаря простоте приготовления и вкусу." //zail = two, esken = colour/tone, knuskolt = salad
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "caprese_salad"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 2)
@@ -471,8 +471,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/salad/fleet_salad
-	name = "lörtonknusksolt" //lörton = fleet, knusksolt = salad (knusk = crisp, solt = bowl) // слушай идика ты нахуй
-	desc = "Lörtonknusksolt, or Fleet Salad in GalCom, is commonly seen at the snack bars and canteens aboard the Fleet. The grilled cheese makes it particularly filling, while the croutons provide a crunchy kick."
+	name = "салат \"Флит\"" //lörton = fleet, knusksolt = salad (knusk = crisp, solt = bowl) // слушай идика ты нахуй
+	desc = "Часто встречается в закусочных и столовых на борту флота. Жареный сыр делает его особенно сытным, а гренки придают хрустящий вкус."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "fleet_salad"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 5)
@@ -481,8 +481,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/salad/cotton_salad
-	name = "flöfrölenknusksolt"
-	desc = "A salad with added cotton and a basic dressing. Presumably either moths are around, or the South's risen again."
+	name = "салат из хлопка"
+	desc = "Салат с добавлением хлопка и заправки из масла."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "cotton_salad"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 5)
@@ -491,8 +491,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/salad/moth_kachumbari
-	name = "\improper Kæniatknusksolt" //Kæniat = Kenyan, knusksolt = salad // канадский салат трахает
-	desc = "Originally a Kenyan recipe, kachumbari is yet another cross-cultural favourite from humanity that has been adopted by the moths- though some ingredients have been necessarily changed."
+	name = "качумбари" //Kæniat = Kenyan, knusksolt = salad // канадский салат трахает
+	desc = "Изначально кенийский рецепт, качумбари - еще один межкультурный фаворит человечества, который переняли моли, хотя некоторые ингредиенты были обязательно изменены."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "moth_kachumbari"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 5)
@@ -502,8 +502,8 @@
 
 //Pizza
 /obj/item/food/raw_mothic_margherita
-	name = "raw mothic margherita pizza"
-	desc = "Another human classic adopted by the moths, mothic pizza is characterised by the use of fresh ingredients, particularly fresh mozzarella, and the use of strong flour to produce a glutenous dough."
+	name = "сырая пицца Маргарита для молей"
+	desc = "Еще одна человеческая классика, которую переняли моли."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_margherita_pizza"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 15, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 3)
@@ -514,8 +514,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/mothic_margherita, rand(20 SECONDS, 40 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizza/mothic_margherita
-	name = "mothic margherita pizza"
-	desc = "A key characteristic of mothic pizza is that it's sold by weight- single slices are available for discretionary credits, while a meal ticket can buy a whole pie."
+	name = "пицца Маргарита для молей"
+	desc = "Ключевой особенностью мольской пиццы является то, что она продается на вес - отдельные кусочки можно купить за кредиты, а за талон на питание можно купить целый круг."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "margherita_pizza"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
@@ -525,16 +525,16 @@
 	boxtag = "Margherita alla Moffuchi"
 
 /obj/item/food/pizzaslice/mothic_margherita
-	name = "mothic margherita slice"
-	desc = "A slice of mothic margherita pizza, the most humble of pizzas."
+	name = "кусочек пиццы Маргарита для молей"
+	desc = "Кусочек пиццы \"Маргарита\", самой скромной из пицц."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "margherita_slice"
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
 /obj/item/food/raw_mothic_firecracker
-	name = "raw mothic firecracker pizza"
-	desc = "A favourite amongst the more adventurous moths, firecracker pizza is HOT HOT HOT!"
+	name = "сырая огненная пицца для молей"
+	desc = "Огненная пицца - это фаворит среди более авантюрных молей. ГОРЯЧО! ГОРЯЧО! ГОРЯЧО!"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_firecracker_pizza"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 15, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/bbqsauce = 6, /datum/reagent/consumable/nutriment/vitamin = 3, /datum/reagent/consumable/capsaicin = 10)
@@ -545,8 +545,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/mothic_firecracker, rand(20 SECONDS, 40 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizza/mothic_firecracker
-	name = "mothic firecracker pizza"
-	desc = "They're not kidding when they call this a hot pizza pie."
+	name = "огненная пицца для молей"
+	desc = "Они не шутят, когда называют это горячей пиццей."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "firecracker_pizza"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/bbqsauce = 6, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/capsaicin = 10)
@@ -556,16 +556,16 @@
 	boxtag = "Vesuvian Firecracker"
 
 /obj/item/food/pizzaslice/mothic_firecracker
-	name = "mothic firecracker slice"
-	desc = "A spicy slice of something quite nice."
+	name = "кусочек огненной пиццы для молей"
+	desc = "Пикантный кусочек чего-то очень приятного."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "firecracker_slice"
 	tastes = list("crust" = 1, "chili" = 1, "corn" = 1, "cheese" = 1, "bbq sauce" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
 /obj/item/food/raw_mothic_five_cheese
-	name = "raw mothic five-cheese pizza"
-	desc = "For centuries, scholars have asked: how much cheese is too much cheese?"
+	name = "сырая пицца \"4+1 сыра\" для молей"
+	desc = "На протяжении веков ученые задавались вопросом: когда сыра становится слишком много?"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_five_cheese_pizza"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 15, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 3)
@@ -576,8 +576,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/mothic_five_cheese, rand(20 SECONDS, 40 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizza/mothic_five_cheese
-	name = "mothic five-cheese pizza"
-	desc = "A favourite amongst mice, rats, and English inventors."
+	name = "пицца \"4+1 сыра\" для молей"
+	desc = "Любимица мышей, крыс и английских изобретателей."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "five_cheese_pizza"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
@@ -587,16 +587,16 @@
 	boxtag = "Cheeseplosion"
 
 /obj/item/food/pizzaslice/mothic_five_cheese
-	name = "mothic five-cheese slice"
-	desc = "It's the cheesiest slice in the galaxy!"
+	name = "кусочек пиццы \"4+1 сыра\" для молей"
+	desc = "Это самый сырный кусочек в галактике!"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "five_cheese_slice"
 	tastes = list("crust" = 1, "cheese" = 1, "more cheese" = 1, "excessive amounts of cheese" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
 /obj/item/food/raw_mothic_white_pie
-	name = "raw mothic white-pie pizza"
-	desc = "A pizza made for the tomato haters."
+	name = "сырая пицца \"Бьянко\" для молей"
+	desc = "Пицца для тех, кто ненавидит томаты."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_white_pie_pizza"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 15, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 3)
@@ -607,8 +607,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/mothic_white_pie, rand(20 SECONDS, 40 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizza/mothic_white_pie
-	name = "mothic white-pie pizza"
-	desc = "You say to-may-to, I say to-mah-to, and we put neither on this pizza."
+	name = "пицца \"Бьянко\" для молей"
+	desc = "Ты говоришь \"томаты\", я говорю \"помидоры\", и мы не кладем на эту пиццу ни того, ни другого."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "white_pie_pizza"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
@@ -618,16 +618,16 @@
 	boxtag = "Pane Bianco"
 
 /obj/item/food/pizzaslice/mothic_white_pie
-	name = "mothic white-pie slice"
-	desc = "Cheesy, garlicky, herby, delicious!"
+	name = "кусочек пиццы \"Бьянко\" для молей"
+	desc = "Сырный, чесночный, вкусный!"
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "white_pie_slice"
 	tastes = list("crust" = 1, "cheese" = 1, "more cheese" = 1, "excessive amounts of cheese" = 1)
 	foodtypes = GRAIN | VEGETABLES | DAIRY
 
 /obj/item/food/raw_mothic_pesto
-	name = "raw mothic pesto pizza"
-	desc = "Pesto is a popular pizza topping for moths, quite possibly because it exemplifies their favourite flavours: cheese, herbs, and veggies."
+	name = "сырая пицца с соусом песто для молей"
+	desc = "Песто - популярная начинка для пиццы молей, возможно, потому, что она олицетворяет их любимые вкусы: сыр, зелень и овощи."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_pesto_pizza"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 15, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 3)
@@ -638,8 +638,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/mothic_pesto, rand(20 SECONDS, 40 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizza/mothic_pesto
-	name = "mothic pesto pizza"
-	desc = "Green as the grass in the garden. Not that there's many of those on mothic ships."
+	name = "пицца с соусом песто для молей"
+	desc = "Зеленый, как трава в саду. Не то чтобы на флоте молей много садов..."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "pesto_pizza"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
@@ -649,7 +649,7 @@
 	boxtag = "Presto Pesto"
 
 /obj/item/food/pizzaslice/mothic_pesto
-	name = "mothic pesto slice"
+	name = "кусочек пиццы с соусом песто для молей"
 	desc = "A slice of presto pesto pizza."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "pesto_slice"
@@ -657,8 +657,8 @@
 	foodtypes = GRAIN | VEGETABLES | DAIRY | NUTS
 
 /obj/item/food/raw_mothic_garlic
-	name = "raw mothic garlic pizzabread"
-	desc = "Ahh, garlic. A universally loved ingredient, except possibly by vampires."
+	name = "сырая чесночная пицца для молей"
+	desc = "Ах, чеснок. Его любят все, за исключением, возможно, вампиров."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "raw_garlic_pizza"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 15, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 3)
@@ -669,8 +669,8 @@
 	AddComponent(/datum/component/bakeable, /obj/item/food/pizza/mothic_garlic, rand(20 SECONDS, 40 SECONDS), TRUE, TRUE)
 
 /obj/item/food/pizza/mothic_garlic
-	name = "mothic garlic pizzabread"
-	desc = "The best food in the galaxy, hands down."
+	name = "чесночная пицца для молей"
+	desc = "Лучшая еда в галактике, несомненно."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "garlic_pizza"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 25, /datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/tomatojuice = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
@@ -680,8 +680,8 @@
 	boxtag = "Garlic Bread alla Moffuchi"
 
 /obj/item/food/pizzaslice/mothic_garlic
-	name = "mothic garlic pizzabread slice"
-	desc = "The best combination of oily, garlicky, and crusty known to mothkind."
+	name = "кусочек чесночной пиццы для молей"
+	desc = "Лучшее сочетание жирного, чесночного и корочки, известное молям."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "garlic_slice"
 	tastes = list("dough" = 1, "garlic" = 1, "butter" = 1)
@@ -689,8 +689,8 @@
 
 //Bread
 /obj/item/food/bread/corn
-	name = "cornbread"
-	desc = "Some good down-home country-style, rootin'-tootin', revolver-shootin', dad-gum yeehaw cornbread."
+	name = "кукурузный хлеб"
+	desc = "Вкусный домашний кукурузный хлеб в деревенском стиле."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "cornbread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 10)
@@ -702,8 +702,8 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/breadslice/corn, 6, 20)
 
 /obj/item/food/breadslice/corn
-	name = "cornbread slice"
-	desc = "A chunk of crispy, cowboy-style cornbread. Consume contentedly."
+	name = "ломтик кукурузного хлеба"
+	desc = "Кусок хрустящего кукурузного хлеба в ковбойском стиле. Ешьте с удовольствием."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "cornbread_slice"
 	foodtypes = GRAIN
@@ -711,8 +711,8 @@
 
 //Sweets
 /obj/item/food/moth_cheese_cakes
-	name = "\improper ælorölen" //ælo = cheese, rölen = balls // сырные яйца ебут пиздце
-	desc = "Ælorölen (cheese balls) are a traditional mothic dessert, made of soft cheese, powdered sugar and flour, rolled into balls, battered and then deep fried. They're often served with either chocolate sauce or honey, or sometimes both!"
+	name = "шарики из чизкейка" //ælo = cheese, rölen = balls // сырные яйца ебут пиздце
+	desc = "Традиционный мольский десерт, который готовится из мягкого сыра, сахарной пудры и муки, скатывается в шарики, обваливается и затем обжаривается во фритюре."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "moth_cheese_cakes"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/sugar = 5)
@@ -721,8 +721,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/cake/mothmallow
-	name = "mothmallow tray"
-	desc = "A light and fluffy vegan marshmallow flavoured with vanilla and rum and topped with soft chocolate. These are known to the moths as höllflöfstarkken: cloud squares." //höllflöf = cloud (höll = wind, flöf = cotton), starkken = squares
+	name = "зефирки для молей"
+	desc = "Легкий и пушистый веганский зефир со вкусом ванили и рома, увенчанный мягким шоколадом." //höllflöf = cloud (höll = wind, flöf = cotton), starkken = squares
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "mothmallow_tray"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 15, /datum/reagent/consumable/sugar = 10)
@@ -733,8 +733,8 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/cakeslice/mothmallow, 6, 20)
 
 /obj/item/food/cakeslice/mothmallow
-	name = "mothmallow"
-	desc = "Fluffy little clouds of joy- in a strangely moth-like colour."
+	name = "зефирки для молей"
+	desc = "Пушистые маленькие облака радости - странного цвета, похожего на моль."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "mothmallow_slice"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 2)
@@ -742,8 +742,8 @@
 	foodtypes = VEGETABLES | SUGAR
 
 /obj/item/food/soup/red_porridge
-	name = "eltsløsk ül a priktæolk" //eltsløsk = red porridge, ül a = with, prikt = sour, æolk = cream // чё блядь долбоеб?
-	desc = "Red porridge with yoghurt. The name and vegetable ingredients obscure the sweet nature of the dish, which is commonly served as a dessert aboard the fleet."
+	name = "свекольная каша с йогуртом" //eltsløsk = red porridge, ül a = with, prikt = sour, æolk = cream // чё блядь долбоеб?
+	desc = "Красная каша с йогуртом. Название и растительные ингредиенты скрывают сладкий характер блюда, которое обычно подается в качестве десерта на борту флота."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "red_porridge"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/consumable/sugar = 6)
@@ -752,28 +752,28 @@
 
 //misc food
 /obj/item/food/chewable/bubblegum/wake_up
-	name = "wake-up gum"
-	desc = "A rubbery strip of gum. It's stamped with the emblem of the Mothic Nomad Fleet."
+	name = "жвачка \"Актвин\""
+	desc = "Резиновая полоска жвачки. На ней нанесена эмблема флота молей-кочевников."
 	food_reagents = list(/datum/reagent/consumable/sugar = 13, /datum/reagent/drug/methamphetamine = 2)
 	tastes = list("herbs" = 1)
 	color = "#567D46"
 
 /obj/item/storage/box/gum/wake_up
-	name = "\improper Activin 12 Hour medicated gum packet"
-	desc = "Stay awake during long shifts in the maintenance tunnels with Activin! The approval seal of the Mothic Nomad Fleet is emblazoned on the packaging, alongside a litany of health and safety disclaimers in both Mothic and Galactic Common."
+	name = "жвачка \"Актвин\""
+	desc = "Оставайтесь бодрыми во время долгих смен в ремонтных туннелях с Активином!"
 	icon_state = "bubblegum_wake_up"
 	custom_premium_price = PAYCHECK_EASY * 1.5
 
 /obj/item/storage/box/gum/wake_up/examine_more(mob/user)
-	var/list/msg = list(span_notice("<i>You read some of the health and safety information...</i>"))
-	msg += "\t[span_info("For the relief of tiredness and drowsiness while working.")]"
-	msg += "\t[span_info("Do not chew more than one strip every 12 hours. Do not use as a complete substitute for sleep.")]"
-	msg += "\t[span_info("Do not give to children under 16. Do not exceed the maximum dosage. Do not ingest. Do not take for more than 3 days consecutively. Do not take in conjunction with other medication. May cause adverse reactions in patients with pre-existing heart conditions.")]"
-	msg += "\t[span_info("Side effects of Activin use may include twitchy antennae, overactive wings, loss of keratin sheen, loss of setae coverage, arrythmia, blurred vision, and euphoria. Cease taking the medication if side effects occur.")]"
-	msg += "\t[span_info("Repeated use may cause addiction.")]"
-	msg += "\t[span_info("If the maximum dosage is exceeded, inform a member of your assigned vessel's medical staff immediately. Do not induce vomiting.")]"
-	msg += "\t[span_info("Ingredients: each strip contains 500mg of Activin (dextro-methamphetamine). Other ingredients include Green Dye 450 (Verdant Meadow) and artificial herb flavouring.")]"
-	msg += "\t[span_info("Storage: keep in a cool dry place. Do not use after the use-by date: 32/4/350.")]"
+	var/list/msg = list(span_notice("<i>Читаю описание жвачки на упаковке...</i>"))
+	msg += "\t[span_info("Для снятия усталости и сонливости во время работы.")]"
+	msg += "\t[span_info("Не разжевывайте более одной полоски каждые 12 часов. Не используйте в качестве полной замены сна.")]"
+	msg += "\t[span_info("Не давать детям до 16 лет. Не превышайте максимальную дозировку. Не принимать внутрь. Не принимать более 3 дней подряд. Не принимать в сочетании с другими лекарствами. Может вызывать побочные реакции у пациентов с уже существующими заболеваниями сердца.")]"
+	msg += "\t[span_info("Побочные эффекты применения Активина могут включать подергивание усиков, гиперактивные крылья, потерю кератинового блеска, потерю покрытия волосков, аритмию, помутнение зрения и эйфорию. При появлении побочных эффектов прием препарата следует прекратить.")]"
+	msg += "\t[span_info("Повторное нескольких полосок за раз может вызвать зависимость.")]"
+	msg += "\t[span_info("В случае превышения максимальной дозы немедленно сообщите об этом члену медицинского персонала судна. Не вызывайте рвоту.")]"
+	msg += "\t[span_info("Состав: каждая полоска содержит 500 мг Активина (декстро-метамфетамин). Другие ингредиенты включают зеленый краситель 450 (Verdant Meadow) и искусственный травяной ароматизатор.")]"
+	msg += "\t[span_info("Хранение: хранить в сухом прохладном месте. Не использовать после истечения срока годности: 32/4/350.")]"
 	return msg
 
 /obj/item/storage/box/gum/wake_up/PopulateContents()
@@ -781,8 +781,8 @@
 		new /obj/item/food/chewable/bubblegum/wake_up(src)
 
 /obj/item/food/spacers_sidekick
-	name = "\improper Spacer's Sidekick mints"
-	desc = "Spacer's Sidekick: Breathe easy with a friend at your side!"
+	name = "мятные конфеты \"Кореш космонавта\""
+	desc = "Кореш космонавта : Дышите легко, когда рядом с вами друг!"
 	icon_state = "spacers_sidekick"
 	trash_type = /obj/item/trash/spacers_sidekick
 	food_reagents = list(/datum/reagent/consumable/sugar = 1, /datum/reagent/consumable/menthol = 1, /datum/reagent/medicine/salbutamol = 1)

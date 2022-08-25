@@ -193,7 +193,7 @@
 	subcategory = CAT_ICE
 
 /datum/crafting_recipe/food/clown_sc
-	name = "Гранисадо клоуна"
+	name = "Клоунское гранисадо"
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/sillycup = 1,
 		/datum/reagent/consumable/ice = 15,

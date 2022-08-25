@@ -300,7 +300,7 @@
 	subcategory = CAT_BURGER
 
 /datum/crafting_recipe/food/empoweredburger
-	name = "Неудержимый бургер"
+	name = "Заряженный бургер"
 	reqs = list(
 			/obj/item/stack/sheet/mineral/plasma = 2,
 			/obj/item/food/bun = 1

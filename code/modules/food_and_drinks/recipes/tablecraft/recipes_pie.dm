@@ -98,7 +98,7 @@
 	subcategory = CAT_PIE
 
 /datum/crafting_recipe/food/pumpkinpie
-	name = "Пирог с тофу"
+	name = "Тыквенный пирог"
 	reqs = list(
 		/datum/reagent/consumable/milk = 5,
 		/datum/reagent/consumable/sugar = 5,

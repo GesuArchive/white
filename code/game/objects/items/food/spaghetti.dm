@@ -16,15 +16,15 @@
 		AddComponent(/datum/component/spill, display_message, 'sound/effects/splat.ogg')
 
 /obj/item/food/spaghetti/raw
-	name = "spaghetti"
-	desc = "Now that's a nic'e pasta!"
+	name = "спагетти"
+	desc = "Вот это паста!"
 	icon_state = "spaghetti"
 	microwaved_type = /obj/item/food/spaghetti/boiledspaghetti
 	tastes = list("pasta" = 1)
 
 /obj/item/food/spaghetti/boiledspaghetti
-	name = "boiled spaghetti"
-	desc = "A plain dish of noodles, this needs more ingredients."
+	name = "вареное спагетти"
+	desc = "Обычное блюдо из макарон, стоит добавить больше ингредиентов."
 	icon_state = "spaghettiboiled"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/vitamin = 1)
 
@@ -33,8 +33,8 @@
 	AddComponent(/datum/component/customizable_reagent_holder, null, CUSTOM_INGREDIENT_ICON_SCATTER, max_ingredients = 6)
 
 /obj/item/food/spaghetti/pastatomato
-	name = "spaghetti"
-	desc = "Spaghetti and crushed tomatoes. Just like your abusive father used to make!"
+	name = "паста с томатным соусом"
+	desc = "Спагетти и измельченные томаты. По рецепту твоего отчима!"
 	icon_state = "pastatomato"
 	bite_consumption = 4
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/tomatojuice = 10, /datum/reagent/consumable/nutriment/vitamin = 4)
@@ -43,8 +43,8 @@
 	foodtypes = GRAIN | VEGETABLES
 
 /obj/item/food/spaghetti/copypasta
-	name = "copypasta"
-	desc = "You probably shouldn't try this, you always hear people talking about how bad it is..."
+	name = "копипаста"
+	desc = "Возможно, вам не стоит пробовать это..."
 	icon_state = "copypasta"
 	trash_type = /obj/item/trash/plate
 	bite_consumption = 4
@@ -54,8 +54,8 @@
 	foodtypes = GRAIN | VEGETABLES
 
 /obj/item/food/spaghetti/meatballspaghetti
-	name = "spaghetti and meatballs"
-	desc = "Now that's a nic'e meatball!"
+	name = "спагетти с фрикадельками"
+	desc = "Вот это фрикадельки!"
 	icon_state = "meatballspaghetti"
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 10, /datum/reagent/consumable/nutriment/vitamin = 2)
@@ -64,8 +64,8 @@
 	foodtypes = GRAIN | MEAT
 
 /obj/item/food/spaghetti/spesslaw
-	name = "spesslaw"
-	desc = "A lawyers favourite."
+	name = "фрикадельки со спагетти"
+	desc = "любимец адвокатов."
 	icon_state = "spesslaw"
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 20, /datum/reagent/consumable/nutriment/vitamin = 3)
@@ -73,8 +73,8 @@
 	tastes = list("паста" = 1, "мясо" = 1)
 
 /obj/item/food/spaghetti/chowmein
-	name = "chow mein"
-	desc = "A nice mix of noodles and fried vegetables."
+	name = "чау-мейн"
+	desc = "Хорошая смесь лапши и жареных овощей."
 	icon_state = "chowmein"
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/nutriment/vitamin = 6)
@@ -82,8 +82,8 @@
 	tastes = list("лапша" = 1, "томаты" = 1)
 
 /obj/item/food/spaghetti/beefnoodle
-	name = "beef noodle"
-	desc = "Nutritious, beefy and noodly."
+	name = "лапша с говядиной"
+	desc = "Питательно, говяже, и лапшично."
 	icon_state = "beefnoodle"
 	trash_type = /obj/item/reagent_containers/glass/bowl
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/nutriment/vitamin = 6, /datum/reagent/liquidgibs = 3)
@@ -92,8 +92,8 @@
 	foodtypes = GRAIN | MEAT
 
 /obj/item/food/spaghetti/butternoodles
-	name = "butter noodles"
-	desc = "Noodles covered in savory butter. Simple and slippery, but delicious."
+	name = "лапша с маслом"
+	desc = "Лапша, покрытая пикантным маслом."
 	icon_state = "butternoodles"
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/consumable/nutriment = 9, /datum/reagent/consumable/nutriment/vitamin = 2)
@@ -102,16 +102,16 @@
 	foodtypes = GRAIN | DAIRY
 
 /obj/item/food/spaghetti/mac_n_cheese
-	name = "mac n' cheese"
-	desc = "Made the proper way with only the finest cheese and breadcrumbs. And yet, it can't scratch the same itch as Ready-Donk."
+	name = "макароны с сыром"
+	desc = "Приготовлен как положено, с использованием только лучшего сыра и панировочных сухарей."
 	icon_state = "mac_n_cheese"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 9, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("cheese" = 1, "breadcrumbs" = 1, "pasta" = 1)
 	foodtypes = GRAIN | DAIRY
 
 /obj/item/food/spaghetti/lasagna
-	name = "Lasagna"
-	desc = "A slice of lasagna. Perfect for a Monday afternoon."
+	name = "лазанья"
+	desc = "Кусочек лазаньи. Идеально для понедельника."
 	icon_state = "lasagna"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/consumable/tomatojuice = 10)
 	tastes = list("мясо" = 3, "pasta" = 3, "tomato" = 2, "cheese" = 2)

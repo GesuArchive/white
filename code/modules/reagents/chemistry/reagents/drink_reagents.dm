@@ -513,7 +513,7 @@
 	..()
 
 /datum/reagent/consumable/spacemountainwind
-	name = "SM Wind"
+	name = "Солнечный Ветер"
 	description = "Blows right through you like a space wind."
 	color = "#102000" // rgb: 16, 32, 0
 	taste_description = "сладкая цитрусовая сода"
@@ -548,7 +548,7 @@
 	..()
 
 /datum/reagent/consumable/space_up
-	name = "Space-Up"
+	name = "На Взлёт!"
 	description = "Tastes like a hull breach in your mouth."
 	color = "#00FF00" // rgb: 0, 255, 0
 	taste_description = "вишневая сода"
@@ -564,7 +564,7 @@
 	..()
 
 /datum/reagent/consumable/lemon_lime
-	name = "Lemon Lime"
+	name = "Лаймон-Флеш"
 	description = "A tangy substance made of 0.5% natural citrus!"
 	color = "#8CFF00" // rgb: 135, 255, 0
 	taste_description = "острый лайм и лимонная сода"
@@ -581,7 +581,7 @@
 
 
 /datum/reagent/consumable/pwr_game
-	name = "Pwr Game"
+	name = "PWR Game"
 	description = "The only drink with the PWR that true gamers crave."
 	color = "#9385bf" // rgb: 58, 52, 75
 	taste_description = "сладкий и соленый запах"

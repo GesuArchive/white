@@ -239,7 +239,7 @@
 	subcategory = CAT_MEAT
 
 /datum/crafting_recipe/food/fried_chicken
-	name = "Жаренная курица"
+	name = "Жареная курица"
 	reqs = list(
 		/obj/item/food/meat/slab/chicken = 1,
 		/datum/reagent/consumable/flour = 5,

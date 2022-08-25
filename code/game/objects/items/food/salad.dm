@@ -12,8 +12,8 @@
 	venue_value = FOOD_PRICE_NORMAL
 
 /obj/item/food/salad/melonfruitbowl
-	name = "melon fruit bowl"
-	desc = "For people who wants edible fruit bowls."
+	name = "фруктовая арбузная миска"
+	desc = "Для тех, кто любит съедобные миски."
 	icon_state = "melonfruitbowl"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 4)
 	w_class = WEIGHT_CLASS_NORMAL
@@ -22,56 +22,56 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/salad/aesirsalad
-	name = "\improper Aesir salad"
-	desc = "Probably too incredible for mortal men to fully enjoy."
+	name = "салат Асов"
+	desc = "Вероятно, он слишком невероятен для обычных людей, чтобы насладиться этим салатом в полной мере."
 	icon_state = "aesirsalad"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/medicine/omnizine = 10, /datum/reagent/consumable/nutriment/vitamin = 12)
 	tastes = list("листья" = 1)
 	foodtypes = VEGETABLES | FRUIT
 
 /obj/item/food/salad/herbsalad
-	name = "herb salad"
-	desc = "A tasty salad with apples on top."
+	name = "травяной салат"
+	desc = "Вкусный салат с яблоками."
 	icon_state = "herbsalad"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/nutriment/vitamin = 6)
 	tastes = list("листья" = 1, "яблоки" = 1)
 	foodtypes = VEGETABLES | FRUIT
 
 /obj/item/food/salad/validsalad
-	name = "valid salad"
-	desc = "It's just an herb salad with meatballs and fried potato slices. Nothing suspicious about it."
+	name = "валидный салат"
+	desc = "Это просто салат с фрикадельками и ломтиками жареного картофеля. Ничего подозрительного."
 	icon_state = "validsalad"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/doctor_delight = 8, /datum/reagent/consumable/nutriment/vitamin = 6)
 	tastes = list("листья" = 1, "картоха" = 1, "мясо" = 1, "валиды" = 1)
 	foodtypes = VEGETABLES | MEAT | FRIED | JUNKFOOD | FRUIT
 
 /obj/item/food/salad/fruit
-	name = "fruit salad"
-	desc = "Your standard fruit salad."
+	name = "фруктовый салат"
+	desc = "Обычный фруктовый салат."
 	icon_state = "fruitsalad"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 9, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("фрукты" = 1)
 	foodtypes = FRUIT
 
 /obj/item/food/salad/jungle
-	name = "jungle salad"
-	desc = "Exotic fruits in a bowl."
+	name = "салат \"Джунгли\""
+	desc = "Экзотические фрукты в миске."
 	icon_state = "junglesalad"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 11, /datum/reagent/consumable/banana = 5, /datum/reagent/consumable/nutriment/vitamin = 7)
 	tastes = list("фрукты" = 1, "джунгли" = 1)
 	foodtypes = FRUIT
 
 /obj/item/food/salad/citrusdelight
-	name = "citrus delight"
-	desc = "Citrus overload!"
+	name = "цитрусовый восторг"
+	desc = "Цитрусовый передоз!"
 	icon_state = "citrusdelight"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 11, /datum/reagent/consumable/nutriment/vitamin = 7)
 	tastes = list("кислинка" = 1, "листья" = 1)
 	foodtypes = FRUIT
 
 /obj/item/food/salad/ricebowl
-	name = "ricebowl"
-	desc = "A bowl of raw rice."
+	name = "миска риса"
+	desc = "Миска сырого риса."
 	icon_state = "ricebowl"
 	microwaved_type = /obj/item/food/salad/boiledrice
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4)
@@ -79,32 +79,32 @@
 	foodtypes = GRAIN | RAW
 
 /obj/item/food/salad/boiledrice
-	name = "boiled rice"
-	desc = "A warm bowl of rice."
+	name = "миска вареного риса"
+	desc = "Еще теплая миска риса."
 	icon_state = "boiledrice"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("рис" = 1)
 	foodtypes = GRAIN
 
 /obj/item/food/salad/ricepudding
-	name = "rice pudding"
-	desc = "Everybody loves rice pudding!"
+	name = "рисовый пудинг"
+	desc = "Все любят рисовый пудинг!"
 	icon_state = "ricepudding"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/nutriment/vitamin = 3)
 	tastes = list("рис" = 1, "сладость" = 1)
 	foodtypes = GRAIN | DAIRY
 
 /obj/item/food/salad/ricepork
-	name = "rice and pork"
-	desc = "Well, it looks like pork..."
+	name = "рис и свинина"
+	desc = "Это рис и ...\"свинина\"..."
 	icon_state = "riceporkbowl"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 3)
 	tastes = list("рис" = 1, "мясо" = 1)
 	foodtypes = GRAIN | MEAT
 
 /obj/item/food/salad/risotto
-	name = "risotto"
-	desc = "Proof the Italians mastered every carb."
+	name = "ризотто"
+	desc = "Доказательство того, что итальянцы освоили все виды углеводов."
 	icon_state = "risotto"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/vitamin = 6)
 	tastes = list("rice" = 1, "cheese" = 1)
@@ -112,24 +112,24 @@
 	venue_value = FOOD_PRICE_EXOTIC
 
 /obj/item/food/salad/eggbowl
-	name = "egg bowl"
-	desc = "A bowl of rice with a fried egg."
+	name = "яичная миска"
+	desc = "Миска риса с приготовленным яйцом."
 	icon_state = "eggbowl"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("рис" = 1, "яйцо" = 1)
 	foodtypes = GRAIN | MEAT //EGG = MEAT -NinjaNomNom 2017
 
 /obj/item/food/salad/edensalad
-	name = "\improper Salad of Eden"
-	desc = "A salad brimming with untapped potential."
+	name = "салат Эдема"
+	desc = "Салат с нераскрытым потенциалом."
 	icon_state = "edensalad"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 7, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/medicine/earthsblood = 3, /datum/reagent/medicine/omnizine = 5, /datum/reagent/drug/happiness = 2)
 	tastes = list("extreme bitterness" = 3, "hope" = 1)
 	foodtypes = VEGETABLES
 
 /obj/item/food/salad/gumbo
-	name = "black eyed gumbo"
-	desc = "A spicy and savory meat and rice dish."
+	name = "Черноглазое гамбо"
+	desc = "Пряное и соленое блюдо из мяса и риса."
 	icon_state = "gumbo"
 	food_reagents = list(/datum/reagent/consumable/capsaicin = 2, /datum/reagent/consumable/nutriment/vitamin = 3, /datum/reagent/consumable/nutriment = 5)
 	tastes = list("building heat" = 2, "savory meat and vegtables" = 1)
@@ -137,8 +137,8 @@
 
 
 /obj/item/reagent_containers/glass/bowl
-	name = "чаша"
-	desc = "A simple bowl, used for soups and salads."
+	name = "миска"
+	desc = "Простая миска, используемая для супов и салатов."
 	icon = 'icons/obj/food/soupsalad.dmi'
 	icon_state = "bowl"
 	reagent_flags = OPENCONTAINER

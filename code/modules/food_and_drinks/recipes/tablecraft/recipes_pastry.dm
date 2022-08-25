@@ -285,7 +285,7 @@
 
 
 /datum/crafting_recipe/food/soylenviridians
-	name = "Soylent viridians"
+	name = "Желтый сойлент"
 	reqs = list(
 		/obj/item/food/pastrybase = 2,
 		/obj/item/food/grown/soybeans = 1
@@ -466,7 +466,7 @@
 	subcategory = CAT_PASTRY
 
 /datum/crafting_recipe/food/meatbun
-	name = "Meat bun"
+	name = "Булочка с мясом"
 	reqs = list(
 		/datum/reagent/consumable/soysauce = 5,
 		/obj/item/food/bun = 1,
@@ -477,7 +477,7 @@
 	subcategory = CAT_PASTRY
 
 /datum/crafting_recipe/food/khachapuri
-	name = "Khachapuri"
+	name = "Хачапури"
 	reqs = list(
 		/datum/reagent/consumable/eggyolk = 5,
 		/obj/item/food/cheesewedge = 1,
@@ -488,7 +488,7 @@
 
 /datum/crafting_recipe/food/sugarcookie
 	time = 15
-	name = "Sugar cookie"
+	name = "Сахарное печенье"
 	reqs = list(
 		/datum/reagent/consumable/sugar = 5,
 		/obj/item/food/pastrybase = 1
@@ -498,7 +498,7 @@
 
 /datum/crafting_recipe/food/fortunecookie
 	time = 15
-	name = "Fortune cookie"
+	name = "Печенье с предсказанием"
 	reqs = list(
 		/obj/item/food/pastrybase = 1,
 		/obj/item/paper = 1
@@ -511,7 +511,7 @@
 
 /datum/crafting_recipe/food/poppypretzel
 	time = 15
-	name = "Poppy pretzel"
+	name = "Крендель с маком"
 	reqs = list(
 		/obj/item/seeds/poppy = 1,
 		/obj/item/food/pastrybase = 1
@@ -521,7 +521,7 @@
 
 /datum/crafting_recipe/food/plumphelmetbiscuit
 	time = 15
-	name = "Plumphelmet biscuit"
+	name = "Печенье Толстошлемник"
 	reqs = list(
 		/obj/item/food/pastrybase = 1,
 		/obj/item/food/grown/mushroom/plumphelmet = 1
@@ -531,7 +531,7 @@
 
 /datum/crafting_recipe/food/cracker
 	time = 15
-	name = "Cracker"
+	name = "Крекер"
 	reqs = list(
 		/datum/reagent/consumable/salt = 1,
 		/obj/item/food/pastrybase = 1,
@@ -540,7 +540,7 @@
 	subcategory = CAT_PASTRY
 
 /datum/crafting_recipe/food/chococornet
-	name = "Choco cornet"
+	name = "Шоколадный рожок"
 	reqs = list(
 		/datum/reagent/consumable/salt = 1,
 		/obj/item/food/pastrybase = 1,
@@ -550,7 +550,7 @@
 	subcategory = CAT_PASTRY
 
 /datum/crafting_recipe/food/oatmealcookie
-	name = "Oatmeal cookie"
+	name = "Овсяное печенье"
 	reqs = list(
 		/obj/item/food/pastrybase = 1,
 		/obj/item/food/grown/oat = 1
@@ -559,7 +559,7 @@
 	subcategory = CAT_PASTRY
 
 /datum/crafting_recipe/food/raisincookie
-	name = "Raisin cookie"
+	name = "Печенье с изюмом"
 	reqs = list(
 		/obj/item/food/no_raisin = 1,
 		/obj/item/food/pastrybase = 1,
@@ -569,7 +569,7 @@
 	subcategory = CAT_PASTRY
 
 /datum/crafting_recipe/food/cherrycupcake
-	name = "Cherry cupcake"
+	name = "Вишневый кекс"
 	reqs = list(
 		/obj/item/food/pastrybase = 1,
 		/obj/item/food/grown/cherries = 1
@@ -578,7 +578,7 @@
 	subcategory = CAT_PASTRY
 
 /datum/crafting_recipe/food/bluecherrycupcake
-	name = "Blue cherry cupcake"
+	name = "Синевишневый кекс"
 	reqs = list(
 		/obj/item/food/pastrybase = 1,
 		/obj/item/food/grown/bluecherries = 1
@@ -587,7 +587,7 @@
 	subcategory = CAT_PASTRY
 
 /datum/crafting_recipe/food/honeybun
-	name = "Honey bun"
+	name = "Медовая булочка"
 	reqs = list(
 		/obj/item/food/pastrybase = 1,
 		/datum/reagent/consumable/honey = 5
@@ -596,7 +596,7 @@
 	subcategory = CAT_PASTRY
 
 /datum/crafting_recipe/food/cannoli
-	name = "Cannoli"
+	name = "Канноли"
 	reqs = list(
 		/obj/item/food/pastrybase = 1,
 		/datum/reagent/consumable/milk = 1,

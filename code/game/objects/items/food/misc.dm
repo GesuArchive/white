@@ -2,8 +2,8 @@
 ////////////////////////////////////////////OTHER////////////////////////////////////////////
 
 /obj/item/food/cheesewheel
-	name = "cheese wheel"
-	desc = "A big wheel of delcious Cheddar."
+	name = "головка сыра"
+	desc = "Большая головка вкуснейшего чеддера."
 	icon_state = "cheesewheel"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 5) //Hard cheeses contain about 25% protein
 	w_class = WEIGHT_CLASS_NORMAL
@@ -20,8 +20,8 @@
 /obj/item/food/cheesewheel/MakeBakeable()
 	AddComponent(/datum/component/bakeable, /obj/item/food/baked_cheese, rand(20 SECONDS, 25 SECONDS), TRUE, TRUE)
 /obj/item/food/royalcheese
-	name = "royal cheese"
-	desc = "Ascend the throne. Consume the wheel. Feel the POWER."
+	name = "королевский сыр"
+	desc = "Взойди на трон. Съешь этот сыр. Почувствуй ВЛАСТЬ."
 	icon_state = "royalcheese"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 15, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/gold = 20, /datum/reagent/toxin/mutagen = 5)
 	w_class = WEIGHT_CLASS_BULKY
@@ -29,8 +29,8 @@
 	foodtypes = DAIRY
 
 /obj/item/food/cheesewedge
-	name = "cheese wedge"
-	desc = "A wedge of delicious Cheddar. The cheese wheel it was cut from can't have gone far."
+	name = "кусок сыра"
+	desc = "Кусочек восхитительного Чеддера. Сырная головка, с которой он был срезан, не могла укатиться далеко."
 	icon_state = "cheesewedge"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("сыр" = 1)
@@ -38,8 +38,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/watermelonslice
-	name = "watermelon slice"
-	desc = "A slice of watery goodness."
+	name = "долька арбуза"
+	desc = "Кусочек водянистого совершенства."
 	icon_state = "watermelonslice"
 	tastes = list("арбуз" = 1)
 	food_reagents = list(/datum/reagent/water = 1, /datum/reagent/consumable/nutriment/vitamin = 0.2, /datum/reagent/consumable/nutriment = 1)
@@ -49,8 +49,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/candy_corn
-	name = "candy corn"
-	desc = "It's a handful of candy corn. Can be stored in a detective's hat."
+	name = "леденцовая кукуруза"
+	desc = "Это горсть леденцовой кукурузы. Может храниться в шляпе детектива."
 	icon_state = "candy_corn"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/sugar = 2)
 	tastes = list("сладкий попкорн" = 1)
@@ -59,16 +59,16 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/candy_corn/prison
-	name = "desiccated candy corn"
-	desc = "If this candy corn were any harder Security would confiscate it for being a potential shiv."
+	name = "сушеная леденцовая кукуруза"
+	desc = "Если бы эта леденцовая кукуруза была более твердой, служба безопасности конфисковала бы ее как потенциальную заточку."
 	force = 1 // the description isn't lying
 	throwforce = 1 // if someone manages to bust out of jail with candy corn god bless them
 	tastes = list("горький воск" = 1)
 	foodtypes = GROSS
 
 /obj/item/food/chocolatebar
-	name = "chocolate bar"
-	desc = "Such, sweet, fattening food."
+	name = "шоколадка"
+	desc = "Такая сладкая.. такая.. жирная.."
 	icon_state = "chocolatebar"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/sugar = 2, /datum/reagent/consumable/coco = 2)
 	tastes = list("шоколад" = 1)
@@ -77,8 +77,8 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/hugemushroomslice
-	name = "huge mushroom slice"
-	desc = "A slice from a huge mushroom."
+	name = "большая долька гриба"
+	desc = "Долька с большого гриба."
 	icon_state = "hugemushroomslice"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("грибы" = 1)
@@ -86,8 +86,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/popcorn
-	name = "popcorn"
-	desc = "Now let's find some cinema."
+	name = "попкорн"
+	desc = "Теперь давайте найдем какое-нибудь кино."
 	icon_state = "popcorn"
 	trash_type = /obj/item/trash/popcorn
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
@@ -98,8 +98,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/loadedbakedpotato
-	name = "loaded baked potato"
-	desc = "Totally baked."
+	name = "печеный картофель с начинкой"
+	desc = "Пропечен полностью."
 	icon_state = "loadedbakedpotato"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("картоха" = 1)
@@ -107,8 +107,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/fries
-	name = "space fries"
-	desc = "AKA: French Fries, Freedom Fries, etc."
+	name = "космический картофель фри"
+	desc = "Вкусно и точка."
 	icon_state = "fries"
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4)
@@ -122,8 +122,8 @@
 	AddElement(/datum/element/dunkable, 10)
 
 /obj/item/food/tatortot
-	name = "tator tot"
-	desc = "A large fried potato nugget that may or may not try to valid you."
+	name = "драники"
+	desc = "Натёртый сырой картофель, пожареный на масле."
 	icon_state = "tatortot"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4)
 	tastes = list("картоха" = 3, "valids" = 1)
@@ -136,8 +136,8 @@
 	AddElement(/datum/element/dunkable, 10)
 
 /obj/item/food/soydope
-	name = "soy dope"
-	desc = "Dope from a soy."
+	name = "соевая добавка"
+	desc = "Добавка из сои."
 	icon_state = "soydope"
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/protein = 1)
@@ -146,8 +146,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/cheesyfries
-	name = "cheesy fries"
-	desc = "Fries. Covered in cheese. Duh."
+	name = "сырное фри"
+	desc = "Картошка фри. В сыре. Ага."
 	icon_state = "cheesyfries"
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
@@ -161,8 +161,8 @@
 	AddElement(/datum/element/dunkable, 10)
 
 /obj/item/food/badrecipe
-	name = "burned mess"
-	desc = "Someone should be demoted from cook for this."
+	name = "сгоревшая масса"
+	desc = "Стоит уволить повара, который это приготовил."
 	icon_state = "badrecipe"
 	food_reagents = list(/datum/reagent/toxin/bad_food = 30)
 	foodtypes = GROSS
@@ -188,8 +188,8 @@
 	return COMPONENT_HANDLED_GRILLING
 
 /obj/item/food/carrotfries
-	name = "carrot fries"
-	desc = "Tasty fries from fresh Carrots."
+	name = "морковка фри"
+	desc = "Вкусное фри из свежей моркови."
 	icon_state = "carrotfries"
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/medicine/oculine = 3, /datum/reagent/consumable/nutriment/vitamin = 2)
@@ -202,8 +202,8 @@
 	AddElement(/datum/element/dunkable, 10)
 
 /obj/item/food/candiedapple
-	name = "candied apple"
-	desc = "An apple coated in sugary sweetness."
+	name = "карамелизированное яблоко"
+	desc = "Яблоко, покрытое сахарным сиропом."
 	icon_state = "candiedapple"
 	bite_consumption = 3
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/caramel = 5)
@@ -212,8 +212,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/mint
-	name = "mint"
-	desc = "It is only wafer thin."
+	name = "мята"
+	desc = "Это всего лишь тонкая пластинка."
 	icon_state = "mint"
 	bite_consumption = 1
 	trash_type = /obj/item/trash/plate
@@ -223,8 +223,8 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/eggwrap
-	name = "egg wrap"
-	desc = "The precursor to Pigs in a Blanket."
+	name = "яичная обертка"
+	desc = "Предшественник сосисок в тесте."
 	icon_state = "eggwrap"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/nutriment/vitamin = 3)
 	tastes = list("яйцо" = 1)
@@ -232,8 +232,8 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/spidereggs
-	name = "spider eggs"
-	desc = "A cluster of juicy spider eggs. A great side dish for when you care not for your health."
+	name = "паучьи яйца"
+	desc = "Скопление сочных паучьих яиц. Отличный гарнир для тех случаев, когда вы не заботитесь о своем здоровье."
 	icon_state = "spidereggs"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/toxin = 2)
 	tastes = list("паутина" = 1)
@@ -241,8 +241,8 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/spiderling
-	name = "spiderling"
-	desc = "It's slightly twitching in your hand. Ew..."
+	name = "спайдерлинг"
+	desc = "Он слегка подрагивает лапками в вашей руке. Фу...."
 	icon_state = "spiderling"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/toxin = 4)
 	tastes = list("паутина" = 1, "кишочки" = 2)
@@ -250,8 +250,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/chewable/spiderlollipop
-	name = "spider lollipop"
-	desc = "Still gross, but at least it has a mountain of sugar on it."
+	name = "паучий леденец"
+	desc = "Все равно противно, но, по крайней мере, на нем есть гора сахара."
 	icon_state = "spiderlollipop"
 	worn_icon_state = "lollipop_stick"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/toxin = 1, /datum/reagent/iron = 10, /datum/reagent/consumable/sugar = 5, /datum/reagent/medicine/omnizine = 2) //lollipop, but vitamins = toxins
@@ -261,8 +261,8 @@
 	slot_flags = ITEM_SLOT_MASK
 
 /obj/item/food/chococoin
-	name = "chocolate coin"
-	desc = "A completely edible but nonflippable festive coin."
+	name = "шоколадная монетка"
+	desc = "Полностью съедобная монетка."
 	icon_state = "chococoin"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/coco = 1, /datum/reagent/consumable/sugar = 1)
 	tastes = list("шоколад" = 1)
@@ -271,8 +271,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/fudgedice
-	name = "fudge dice"
-	desc = "A little cube of chocolate that tends to have a less intense taste if you eat too many at once."
+	name = "помадный кубик"
+	desc = "У вас появится шоколадная помадка на губах после его поедания."
 	icon_state = "chocodice"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/coco = 1, /datum/reagent/consumable/sugar = 1)
 	trash_type = /obj/item/dice/fudge
@@ -282,8 +282,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/chocoorange
-	name = "chocolate orange"
-	desc = "A festive chocolate orange."
+	name = "шоколадный апельсин"
+	desc = "Фестивальное угощение."
 	icon_state = "chocoorange"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/sugar = 1)
 	tastes = list("шоколад" = 3, "апельсины" = 1)
@@ -292,8 +292,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/eggplantparm
-	name = "eggplant parmigiana"
-	desc = "The only good recipe for eggplant."
+	name = "баклажанная пармиджана"
+	desc = "Единственный хороший рецепт приготовления баклажанов."
 	icon_state = "eggplantparm"
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/nutriment/vitamin = 4)
@@ -302,8 +302,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/tortilla
-	name = "tortilla"
-	desc = "The base for all your burritos."
+	name = "тортилья"
+	desc = "Основа для всех буррито."
 	icon = 'icons/obj/food/food_ingredients.dmi'
 	icon_state = "tortilla"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 1)
@@ -312,8 +312,8 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/burrito
-	name = "burrito"
-	desc = "Tortilla wrapped goodness."
+	name = "буррито"
+	desc = "Вкуснятина, завернутая в тортилью."
 	icon_state = "burrito"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2,/datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("плоская маисовая лепешка" = 2, "мясо" = 3)
@@ -322,8 +322,8 @@
 	venue_value = FOOD_PRICE_NORMAL
 
 /obj/item/food/cheesyburrito
-	name = "cheesy burrito"
-	desc = "It's a burrito filled with cheese."
+	name = "сырное буррито"
+	desc = "Буррито, наполненное сыром."
 	icon_state = "cheesyburrito"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("плоская маисовая лепешка" = 2, "мясо" = 3, "сыр" = 1)
@@ -332,8 +332,8 @@
 	venue_value = FOOD_PRICE_EXOTIC
 
 /obj/item/food/carneburrito
-	name = "carne asada burrito"
-	desc = "The best burrito for meat lovers."
+	name = "буррито Карне Асада"
+	desc = "Лучшее бурито для любителей мяса."
 	icon_state = "carneburrito"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("плоская маисовая лепешка" = 2, "мясо" = 4)
@@ -342,8 +342,8 @@
 	venue_value = FOOD_PRICE_EXOTIC
 
 /obj/item/food/fuegoburrito
-	name = "fuego plasma burrito"
-	desc = "A super spicy burrito."
+	name = "огненно-плазменный буррито"
+	desc = "Очень острый буррито."
 	icon_state = "fuegoburrito"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/capsaicin = 5, /datum/reagent/consumable/nutriment/vitamin = 3)
 	tastes = list("плоская маисовая лепешка" = 2, "мясо" = 3, "перцы" = 1)
@@ -352,8 +352,8 @@
 	venue_value = FOOD_PRICE_LEGENDARY
 
 /obj/item/food/yakiimo
-	name = "yaki imo"
-	desc = "Made with roasted sweet potatoes!"
+	name = "яки-имо"
+	desc = "Приготовлено из жареного сладкого картофеля!"
 	icon_state = "yakiimo"
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 4)
@@ -362,8 +362,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/roastparsnip
-	name = "roast parsnip"
-	desc = "Sweet and crunchy."
+	name = "жаренный пастернак"
+	desc = "Сладкий и хрустящий."
 	icon_state = "roastparsnip"
 	trash_type = /obj/item/trash/plate
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 4)
@@ -372,8 +372,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/nachos
-	name = "nachos"
-	desc = "Chips from Space Mexico."
+	name = "начос"
+	desc = "Чипсы из Космо-Мексики."
 	icon_state = "nachos"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("начос" = 1)
@@ -382,8 +382,8 @@
 	venue_value = FOOD_PRICE_CHEAP
 
 /obj/item/food/cheesynachos
-	name = "cheesy nachos"
-	desc = "The delicious combination of nachos and melting cheese."
+	name = "сырные начос"
+	desc = "Вкуснейшее сочетание начос и плавящегося сыра."
 	icon_state = "cheesynachos"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/protein = 1, /datum/reagent/consumable/nutriment/vitamin = 3)
 	tastes = list("начос" = 2, "сыр" = 1)
@@ -392,8 +392,8 @@
 	venue_value = FOOD_PRICE_EXOTIC
 
 /obj/item/food/cubannachos
-	name = "Cuban nachos"
-	desc = "That's some dangerously spicy nachos."
+	name = "кубинские начос"
+	desc = "Опасно острые начос."
 	icon_state = "cubannachos"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 7, /datum/reagent/consumable/capsaicin = 8, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("начос" = 2, "перец" = 1)
@@ -401,8 +401,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/melonkeg
-	name = "melon keg"
-	desc = "Who knew vodka was a fruit?"
+	name = "бочонок из дыни"
+	desc = "Кто ж знал, что водка - это фрукт?"
 	icon_state = "melonkeg"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 9, /datum/reagent/consumable/ethanol/vodka = 15, /datum/reagent/consumable/nutriment/vitamin = 4)
 	max_volume = 80
@@ -411,8 +411,8 @@
 	foodtypes = FRUIT | ALCOHOL
 
 /obj/item/food/honeybar
-	name = "honey nut bar"
-	desc = "Oats and nuts compressed together into a bar, held together with a honey glaze."
+	name = "медово-ореховый батончик"
+	desc = "Овсянка и орехи спрессованые в батончик, скрепленный медовой глазурью."
 	icon_state = "honeybar"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/honey = 5)
 	tastes = list("овес" = 3, "орешки" = 2, "мед" = 1)
@@ -421,8 +421,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/stuffedlegion
-	name = "stuffed legion"
-	desc = "The former skull of a damned human, filled with goliath meat. It has a decorative lava pool made of ketchup and hotsauce."
+	name = "фаршированный Легион"
+	desc = "Использование черепов в качестве мисок для еды еще никогда не казалось таким подходящим."
 	icon_state = "stuffed_legion"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/capsaicin = 2)
 	tastes = list("смерть" = 2, "камни" = 1, "мясо" = 1, "перцы" = 1)
@@ -431,8 +431,8 @@
 	venue_value = FOOD_PRICE_LEGENDARY
 
 /obj/item/food/powercrepe
-	name = "Powercrepe"
-	desc = "With great power, comes great crepes. It looks like a pancake filled with jelly but packs quite a punch."
+	name = "боевой блин"
+	desc = "С большой силой приходит большой блин."
 	icon_state = "powercrepe"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/cherryjelly = 5)
 	force = 30
@@ -489,8 +489,8 @@
 	. = ..()
 
 /obj/item/food/chewable/lollipop
-	name = "lollipop"
-	desc = "A delicious lollipop. Makes for a great Valentine's present."
+	name = "леденец"
+	desc = "Вкусный леденец. Подойдет для отличного подарка на День Святого Валентина."
 	icon = 'icons/obj/lollipop.dmi'
 	icon_state = "lollipop_stick"
 	inhand_icon_state = "lollipop_stick"
@@ -535,8 +535,8 @@
 		qdel(src)
 
 /obj/item/food/chewable/bubblegum
-	name = "bubblegum"
-	desc = "A rubbery strip of gum. Not exactly filling, but it keeps you busy."
+	name = "жвачка"
+	desc = "Резиновая полоска жвачки. Не совсем насыщает, но держит вас в тонусе."
 	icon_state = "bubblegum"
 	inhand_icon_state = "bubblegum"
 	color = "#E48AB5" // craftable custom gums someday?
@@ -548,21 +548,21 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/chewable/bubblegum/nicotine
-	name = "nicotine gum"
+	name = "никотиновая жвачка"
 	food_reagents = list(/datum/reagent/drug/nicotine = 10, /datum/reagent/consumable/menthol = 5)
 	tastes = list("мята" = 1)
 	color = "#60A584"
 
 /obj/item/food/chewable/bubblegum/happiness
-	name = "HP+ gum"
-	desc = "A rubbery strip of gum. It smells funny."
+	name = "HP+ жвачка"
+	desc = "Резиновая полоска жвачки. Пахнет забавно."
 	food_reagents = list(/datum/reagent/drug/happiness = 15)
 	tastes = list("растворитель" = 1)
 	color = "#EE35FF"
 
 /obj/item/food/chewable/bubblegum/bubblegum
-	name = "bubblegum gum"
-	desc = "A rubbery strip of gum. You don't feel like eating it is a good idea."
+	name = "резиновая жвачка"
+	desc = "Резиновая полоска жвачки. Кажется, что есть ее - не лучшая идея."
 	color = "#913D3D"
 	food_reagents = list(/datum/reagent/blood = 15)
 	tastes = list("ад" = 1)
@@ -597,13 +597,13 @@
 		return
 	if(prob(15))
 		new /datum/hallucination/oh_yeah(victim)
-		to_chat(victim, span_colossus("<b>[pick("I AM IMMORTAL.","I SHALL TAKE YOUR WORLD.","I SEE YOU.","YOU CANNOT ESCAPE ME FOREVER.","NOTHING CAN HOLD ME.")]</b>"))
+		to_chat(victim, span_colossus("<b>[pick("Я БЕССМЕРТЕН.","Я ЗАБЕРУ ТВОЙ МИР.","Я ТЕБЯ ВИЖУ.","ТЫ НЕ СМОЖЕШЬ СПРЯТАТЬСЯ ОТ МЕНЯ.","НИЧТО НЕ МОЖЕТ УДЕРЖАТЬ МЕНЯ.")]</b>"))
 	else
-		to_chat(victim, span_warning("[pick("You hear faint whispers.","You smell ash.","You feel hot.","You hear a roar in the distance.")]"))
+		to_chat(victim, span_warning("[pick("Я слышу тихий шепот.","Я чувствую запах пепла.","Мне жарко.","Я слышу рев вдали.")]"))
 
 /obj/item/food/chewable/gumball
-	name = "gumball"
-	desc = "A colorful, sugary gumball."
+	name = "жвачка"
+	desc = "Красочный, сладкий шарик жвачки."
 	icon = 'icons/obj/lollipop.dmi'
 	icon_state = "gumball"
 	worn_icon_state = "bubblegum"
@@ -634,8 +634,8 @@
 		qdel(src)
 
 /obj/item/food/taco
-	name = "classic taco"
-	desc = "A traditional taco with meat, cheese, and lettuce."
+	name = "классическое тако"
+	desc = "Традиционное тако с мясом, сыром и салатом."
 	icon_state = "taco"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/nutriment/vitamin = 2)
 	tastes = list("тако" = 4, "мясо" = 2, "сыр" = 2, "салат" = 1)
@@ -644,8 +644,8 @@
 	venue_value = FOOD_PRICE_NORMAL
 
 /obj/item/food/taco/plain
-	name = "plain taco"
-	desc = "A traditional taco with meat and cheese, minus the rabbit food."
+	name = "тако"
+	desc = "Традиционное тако с мясом и сыром, за вычетом кроличьего корма."
 	icon_state = "taco_plain"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("тако" = 4, "мясо" = 2, "сыр" = 2)
@@ -653,8 +653,8 @@
 	venue_value = FOOD_PRICE_CHEAP
 
 /obj/item/food/branrequests
-	name = "Bran Requests Cereal"
-	desc = "A dry cereal that satiates your requests for bran. Tastes uniquely like raisins and salt."
+	name = "сухой завтрак с отрубями"
+	desc = "Сухия хлопья, идеальны для завтрака. Вкус уникален: изюм и соль."
 	icon_state = "bran_requests"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/salt = 8)
 	tastes = list("отруби" = 4, "причинычи" = 3, "соль" = 1)
@@ -662,8 +662,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/butter
-	name = "stick of butter"
-	desc = "A stick of delicious, golden, fatty goodness."
+	name = "кусочек сливочного масла"
+	desc = "Палочка вкусной, золотистой, жирной пользы."
 	icon_state = "butter"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5)
 	tastes = list("масло" = 1)
@@ -672,15 +672,15 @@
 
 /obj/item/food/butter/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>If you had a rod you could make <b>butter on a stick</b>.</span>"
+	. += "<hr><span class='notice'>Если у вас есть стержень, вы можете сделать <b>масло на палочке</b>.</span>"
 
 /obj/item/food/butter/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = W
 		if(!R.use(1))//borgs can still fail this if they have no metal
-			to_chat(user, span_warning("You do not have enough iron to put [src] on a stick!"))
+			to_chat(user, span_warning("Мне не хватает железа, чтобы насадить [src] на палку!"))
 			return ..()
-		to_chat(user, span_notice("You stick the rod into the stick of butter."))
+		to_chat(user, span_notice("Я втыкаю стержень в кусочек масла."))
 		var/obj/item/food/butter/on_a_stick/new_item = new(usr.loc)
 		var/replace = (user.get_inactive_held_item() == R)
 		if(!R && replace)
@@ -690,15 +690,15 @@
 	..()
 
 /obj/item/food/butter/on_a_stick //there's something so special about putting it on a stick.
-	name = "butter on a stick"
-	desc = "delicious, golden, fatty goodness on a stick."
+	name = "масло на палочке"
+	desc = "Вкусное, золотистое, жирное лакомство на палочке."
 	icon_state = "butteronastick"
 	trash_type = /obj/item/stack/rods
 	food_flags = FOOD_FINGER_FOOD
 
 /obj/item/food/onionrings
-	name = "onion rings"
-	desc = "Onion slices coated in batter."
+	name = "луковые кольца"
+	desc = "Луковые кольца в кляре."
 	icon_state = "onionrings"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3)
 	gender = PLURAL
@@ -707,8 +707,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/pineappleslice
-	name = "pineapple slice"
-	desc = "A sliced piece of juicy pineapple."
+	name = "долька ананаса"
+	desc = "Отрезанный кусочек сочного ананаса."
 	icon_state = "pineapple_slice"
 	juice_results = list(/datum/reagent/consumable/pineapplejuice = 3)
 	tastes = list("ананас" = 1)
@@ -716,8 +716,8 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/tinychocolate
-	name = "chocolate"
-	desc = "A tiny and sweet chocolate."
+	name = "шоколад"
+	desc = "Маленький и сладкий шоколад."
 	icon_state = "tiny_chocolate"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sugar = 1, /datum/reagent/consumable/coco = 1)
 	tastes = list("шоколад" = 1)
@@ -726,8 +726,8 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/food/canned
-	name = "Canned Air"
-	desc = "If you ever wondered where air came from..."
+	name = "консервированный воздух"
+	desc = "Если вы когда-нибудь задумывались, откуда берется воздух..."
 	food_reagents = list(/datum/reagent/oxygen = 6, /datum/reagent/nitrogen = 24)
 	icon = 'icons/obj/food/canned.dmi'
 	icon_state = "peachcan"
@@ -739,7 +739,7 @@
 
 
 /obj/item/food/canned/proc/open_can(mob/user)
-	to_chat(user, span_notice("You pull back the tab of <b>[src.name]</b>."))
+	to_chat(user, span_notice("Тяну колечко от крышки <b>[src.name]</b>."))
 	playsound(user.loc, 'sound/items/foodcanopen.ogg', 50)
 	reagents.flags |= OPENCONTAINER
 	preserved_food = FALSE
@@ -753,13 +753,13 @@
 
 /obj/item/food/canned/attack(mob/living/M, mob/user, def_zone)
 	if (!is_drainable())
-		to_chat(user, span_warning("[capitalize(src.name)] lid hasn't been opened!"))
+		to_chat(user, span_warning("[capitalize(src.name)] не вскрыта!"))
 		return FALSE
 	return ..()
 
 /obj/item/food/canned/beans
-	name = "tin of beans"
-	desc = "Musical fruit in a slightly less musical container."
+	name = "консвервированные бобы"
+	desc = "Музыкальный фрукт в чуть менее музыкальном контейнере."
 	icon_state = "beans"
 	trash_type = /obj/item/trash/can/food/beans
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 9, /datum/reagent/consumable/ketchup = 4)
@@ -767,8 +767,8 @@
 	foodtypes = VEGETABLES
 
 /obj/item/food/canned/peaches
-	name = "canned peaches"
-	desc = "Just a nice can of ripe peaches swimming in their own juices."
+	name = "консервированные персики"
+	desc = "Красивая банка спелых персиков, плавающих в собственном соку."
 	icon_state = "peachcan"
 	trash_type = /obj/item/trash/can/food/peaches
 	food_reagents = list(/datum/reagent/consumable/peachjuice = 20, /datum/reagent/consumable/sugar = 8, /datum/reagent/consumable/nutriment = 2)
@@ -776,15 +776,15 @@
 	foodtypes = FRUIT | SUGAR
 
 /obj/item/food/canned/peaches/maint
-	name = "Maintenance Peaches"
-	desc = "I have a mouth and I must eat."
+	name = "персики для тех. обслуживания"
+	desc = "У меня есть рот, и я должен есть."
 	icon_state = "peachcanmaint"
 	trash_type = /obj/item/trash/can/food/peaches/maint
 	tastes = list("персики" = 1, "олово" = 7)
 
 /obj/item/food/canned/tomatoes
-	name = "canned San Marzano tomatoes"
-	desc = "A can of premium San Marzano tomatoes, from the hills of Southern Italy."
+	name = "консервированные помидоры San Marzano"
+	desc = "Банка первоклассных томатов San Marzano с холмов Южной Италии."
 	icon_state = "tomatoescan"
 	trash_type = /obj/item/trash/can/food/tomatoes
 	food_reagents = list(/datum/reagent/consumable/tomatojuice = 20, /datum/reagent/consumable/salt = 2)
@@ -792,8 +792,8 @@
 	foodtypes = VEGETABLES //fuck you, real life!
 
 /obj/item/food/canned/pine_nuts
-	name = "canned pine nuts"
-	desc = "A small can of pine nuts. Can be eaten on their own, if you're into that."
+	name = "консервированные кедровые орехи"
+	desc = "Небольшая банка кедровых орехов. Можно есть сами по себе, если вам такое нравится."
 	icon_state = "pinenutscan"
 	trash_type = /obj/item/trash/can/food/pine_nuts
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 3)
@@ -802,8 +802,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/crab_rangoon
-	name = "Crab Rangoon"
-	desc = "Has many names, like crab puffs, cheese won'tons, crab dumplings? Whatever you call them, they're a fabulous blast of cream cheesy crab."
+	name = "крабовый рангун"
+	desc = "У него много названий: крабовые слойки, сырные вонтоны, крабовые пельмени? Как бы вы его ни называли, это потрясающая комбинация сливочного сыра с крабовым мясом."
 	icon_state = "crabrangoon"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/protein = 7, /datum/reagent/consumable/nutriment/vitamin = 5)
 	w_class = WEIGHT_CLASS_SMALL
@@ -812,8 +812,8 @@
 	venue_value = FOOD_PRICE_CHEAP
 
 /obj/item/food/cornchips
-	name = "boritos corn chips"
-	desc = "Triangular corn chips. They do seem a bit bland but would probably go well with some kind of dipping sauce."
+	name = "кукурузные чипсы \"Boritos\""
+	desc = "Треугольные кукурузные чипсы. Они кажутся немного безвкусными, но, вероятно, хорошо сочетаются с каким-нибудь соусом."
 	icon_state = "boritos"
 	trash_type = /obj/item/trash/boritos
 	bite_consumption = 2
@@ -829,12 +829,12 @@
 
 
 /obj/item/food/rationpack
-	name = "ration pack"
-	desc = "A square bar that sadly <i>looks</i> like chocolate, packaged in a nondescript grey wrapper. Has saved soldiers' lives before - usually by stopping bullets."
+	name = "сухой паёк"
+	desc = "Квадратная плитка, которая, к сожалению, <i>выглядит</i> как шоколад, упакованная в серую обертку. Раньше спасал жизни солдат - обычно останавливая пули."
 	icon_state = "rationpack"
 	bite_consumption = 3
 	junkiness = 15
-	tastes = list("cardboard" = 3, "sadness" = 3)
+	tastes = list("картон" = 3, "грусть" = 3)
 	foodtypes = null //Don't ask what went into them. You're better off not knowing.
 	food_reagents = list(/datum/reagent/consumable/nutriment/stabilized = 10, /datum/reagent/consumable/nutriment = 2) //Won't make you fat. Will make you question your sanity.
 
@@ -857,8 +857,8 @@
 	return FOOD_DISLIKED
 
 /obj/item/food/ant_candy
-	name = "ant candy"
-	desc = "A colony of ants suspended in hardened sugar. Those things are dead, right?"
+	name = "муравьиная конфета"
+	desc = "Колония муравьев, в затвердевшем сахаре. Эти твари мертвы, верно?"
 	icon_state = "ant_pop"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/consumable/sugar = 5, /datum/reagent/ants = 3)
 	tastes = list("candy" = 1, "insects" = 1)
@@ -869,8 +869,8 @@
 //Curd cheese, a general term which I will now proceed to stretch as thin as the toppings on a supermarket sandwich:
 //I'll use it as a substitute for ricotta, cottage cheese and quark, as well as any other non-aged, soft grainy cheese
 /obj/item/food/curd_cheese
-	name = "curd cheese"
-	desc = "Known by many names throughout human cuisine, curd cheese is useful for a wide variety of dishes."
+	name = "творожный сыр"
+	desc = "Известный под многими названиями во всей человеческой кухне, творожный сыр полезен для приготовления самых разнообразных блюд."
 	icon_state = "curd_cheese"
 	microwaved_type = /obj/item/food/cheese_curds
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/cream = 1)
@@ -879,8 +879,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/cheese_curds
-	name = "cheese curds"
-	desc = "Not to be mistaken for curd cheese. Tasty deep fried."
+	name = "сырники"
+	desc = "Не путать с творожным сыром. Вкусней во фритюре."
 	icon_state = "cheese_curds"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3)
 	tastes = list("cheese" = 1)
@@ -892,8 +892,8 @@
 	AddElement(/datum/element/dryable,  /obj/item/food/firm_cheese)
 
 /obj/item/food/firm_cheese
-	name = "firm cheese"
-	desc = "Firm aged cheese, similar in texture to firm tofu. Due to its lack of moisture it's particularly useful for cooking with, as it doesn't melt easily."
+	name = "твердый сыр"
+	desc = "Твердый выдержанный сыр, по текстуре схожий с твердым тофу. Практически не плавится."
 	icon_state = "firm_cheese"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3)
 	tastes = list("aged cheese" = 1)
@@ -904,8 +904,8 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/firm_cheese_slice, 3, 30)
 
 /obj/item/food/firm_cheese_slice
-	name = "firm cheese slice"
-	desc = "A slice of firm cheese. Perfect for grilling or making into delicious pesto."
+	name = "кусок твёрдого сыра"
+	desc = "Кусок твердого сыра. Идеально подходит для гриля или приготовления вкусного песто."
 	icon_state = "firm_cheese_slice"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3)
 	tastes = list("aged cheese" = 1)
@@ -917,8 +917,8 @@
 	AddComponent(/datum/component/grillable, /obj/item/food/grilled_cheese, rand(25 SECONDS, 35 SECONDS), TRUE, TRUE)
 
 /obj/item/food/mozzarella
-	name = "mozzarella cheese"
-	desc = "Delicious, creamy, and cheesy, all in one simple package."
+	name = "моцарелла"
+	desc = "Вкусный, сливочный и сырный, все в одной простой упаковке."
 	icon_state = "mozzarella"
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3)
 	tastes = list("mozzarella" = 1)
@@ -926,8 +926,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/pesto
-	name = "pesto"
-	desc = "A combination of firm cheese, salt, herbs, garlic, oil, and pine nuts. Frequently used as a sauce for pasta or pizza, or eaten on bread."
+	name = "песто"
+	desc = "Сочетание твердого сыра, соли, трав, чеснока, масла и кедровых орехов. Часто используется в качестве соуса для пасты или пиццы, а также намазывается на хлеб."
 	icon_state = "pesto"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 3)
 	tastes = list("pesto" = 1)
@@ -935,8 +935,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/tomato_sauce
-	name = "tomato sauce"
-	desc = "Tomato sauce, perfect for pizza or pasta. Mamma mia!"
+	name = "томатный соус"
+	desc = "Томатный соус, идеально подходящий для пиццы или пасты. Mamma mia!"
 	icon_state = "tomato_sauce"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 3)
 	tastes = list("tomato" = 1, "herbs" = 1)
@@ -944,8 +944,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/bechamel_sauce
-	name = "béchamel sauce"
-	desc = "A classic white sauce common to several European cultures."
+	name = "соус Бешамель"
+	desc = "Классический белый соус, характерный для нескольких Европейских культур."
 	icon_state = "bechamel_sauce"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 3)
 	tastes = list("cream" = 1)
@@ -953,8 +953,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/roasted_bell_pepper
-	name = "roasted bell pepper"
-	desc = "A blackened, blistered bell pepper. Great for making sauces."
+	name = "жареный болгарский перец"
+	desc = "Почерневший, запекшийся болгарский перец. Отлично подходит для приготовления соусов."
 	icon_state = "roasted_bell_pepper"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/char = 1)
 	tastes = list("bell pepper" = 1, "char" = 1)
@@ -963,56 +963,56 @@
 
 //DONK DINNER: THE INNOVATIVE WAY TO GET YOUR DAILY RECOMMENDED ALLOWANCE OF SALT... AND THEN SOME!
 /obj/item/food/ready_donk
-	name = "\improper Ready-Donk: Bachelor Chow"
-	desc = "A quick Donk-dinner: now with flavour!"
+	name = "донк-покет \"Жрачка холостяка\""
+	desc = "Быстрый Донк-обед: теперь не безвкусный!"
 	icon_state = "ready_donk"
 	trash_type = /obj/item/trash/ready_donk
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5)
 	microwaved_type = /obj/item/food/ready_donk/warm
-	tastes = list("food?" = 2, "laziness" = 1)
+	tastes = list("еда?" = 2, "лень" = 1)
 	foodtypes = MEAT | JUNKFOOD
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/ready_donk/examine_more(mob/user)
-	var/list/msg = list(span_notice("<i>You browse the back of the box...</i>"))
-	msg += "\t[span_info("Ready-Donk: a product of Donk Co.")]"
-	msg += "\t[span_info("Heating instructions: open box and pierce film, heat in microwave on high for 2 minutes. Allow to stand for 60 seconds prior to eating. Product will be hot.")]"
-	msg += "\t[span_info("Per 200g serving contains: 8g Sodium; 25g Fat, of which 22g are saturated; 2g Sugar.")]"
+	var/list/msg = list(span_notice("<i>Вы осматриваете обратную сторону упаковки...</i>"))
+	msg += "\t[span_info("Готовый Донк-покет: продукт Donk Co.")]"
+	msg += "\t[span_info("Инструкция по приготовлению: откройте коробку и проткните пленку, разогрейте в микроволновой печи на высокой мощности в течение 2 минут. Дайте постоять 60 секунд перед употреблением. Продукт будет горячим.")]"
+	msg += "\t[span_info("На 200 г порции содержится: 8 г натрия; 25 г жиров, из которых 22 г насыщенных; 2 г сахара.")]"
 	return msg
 
 /obj/item/food/ready_donk/warm
-	name = "warm Ready-Donk: Bachelor Chow"
-	desc = "A quick Donk-dinner, now with flavour! And it's even hot!"
+	name = "донк-покет \"Жрачка холостяка\""
+	desc = "Быстрый Донк-обед: теперь не безвкусный! Всё ещё горячий!"
 	icon_state = "ready_donk_warm"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/medicine/omnizine = 3)
 	microwaved_type = null
-	tastes = list("food?" = 2, "laziness" = 1)
+	tastes = list("еда?" = 2, "лень" = 1)
 
 /obj/item/food/ready_donk/mac_n_cheese
-	name = "\improper Ready-Donk: Donk-a-Roni"
-	desc = "Neon-orange mac n' cheese in seconds!"
+	name = "донк-покет: \"Донкеронни\""
+	desc = "Неоново-оранжевые макароны с сыром за считанные секунды!"
 	microwaved_type = /obj/item/food/ready_donk/warm/mac_n_cheese
-	tastes = list("cheesy pasta" = 2, "laziness" = 1)
+	tastes = list("макароны с сыром" = 2, "лень" = 1)
 	foodtypes = GRAIN | DAIRY | JUNKFOOD
 
 /obj/item/food/ready_donk/warm/mac_n_cheese
-	name = "warm Ready-Donk: Donk-a-Roni"
-	desc = "Neon-orange mac n' cheese, ready to eat!"
+	name = "тёплый донк-покет \"Донкеронни\""
+	desc = "Неоново-оранжевые макароны с сыром, готовы к употреблению!"
 	icon_state = "ready_donk_warm_mac"
-	tastes = list("cheesy pasta" = 2, "laziness" = 1)
+	tastes = list("макароны с сыром" = 2, "лень" = 1)
 	foodtypes = GRAIN | DAIRY | JUNKFOOD
 
 /obj/item/food/ready_donk/donkhiladas
-	name = "\improper Ready-Donk: Donkhiladas"
-	desc = "Donk Co's signature Donkhiladas with Donk sauce, for an 'authentic' taste of Mexico."
+	name = "донк-покет \"Донкхиладас\""
+	desc = "Фирменные \"Донкхиладас\" от Donk Co с соусом Donk с \"настоящим\" вкусом Мексики"
 	microwaved_type = /obj/item/food/ready_donk/warm/donkhiladas
-	tastes = list("enchiladas" = 2, "laziness" = 1)
+	tastes = list("энчилада" = 2, "лень" = 1)
 	foodtypes = GRAIN | DAIRY | MEAT | VEGETABLES | JUNKFOOD
 
 /obj/item/food/ready_donk/warm/donkhiladas
-	name = "warm Ready-Donk: Donkhiladas"
+	name = "тёплый донк-покет \"Донкхиладас\""
 	desc = "Donk Co's signature Donkhiladas with Donk sauce, served as hot as the Mexican sun."
 	icon_state = "ready_donk_warm_mex"
-	tastes = list("enchiladas" = 2, "laziness" = 1)
+	tastes = list("энчилада" = 2, "лень" = 1)
 	foodtypes = GRAIN | DAIRY | MEAT | VEGETABLES | JUNKFOOD

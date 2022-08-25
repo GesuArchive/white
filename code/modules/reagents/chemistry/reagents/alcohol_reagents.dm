@@ -1678,7 +1678,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/creme_de_menthe
-	name = "Creme de Menthe"
+	name = "Мятный Ликер"
 	description = "A minty liqueur excellent for refreshing, cool drinks."
 	color = "#00cc00"
 	boozepwr = 20
@@ -1689,7 +1689,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/creme_de_cacao
-	name = "Creme de Cacao"
+	name = "Шоколадный ликер"
 	description = "A chocolatey liqueur excellent for adding dessert notes to beverages and bribing sororities."
 	color = "#996633"
 	boozepwr = 20
@@ -1700,7 +1700,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/creme_de_coconut
-	name = "Creme de Coconut"
+	name = "Кокосовый ликер"
 	description = "A coconut liqueur for smooth, creamy, tropical drinks."
 	color = "#F7F0D0"
 	boozepwr = 20

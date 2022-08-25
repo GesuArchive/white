@@ -3,8 +3,8 @@
 //don't even bother looking for recipes for these
 
 /obj/item/food/candy
-	name = "candy"
-	desc = "Nougat love it or hate it."
+	name = "конфетка"
+	desc = "Ты либо любишь это, либо ненавидишь."
 	icon_state = "candy"
 	trash_type = /obj/item/trash/candy
 	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sugar = 3)
@@ -16,8 +16,8 @@
 	preserved_food = TRUE
 
 /obj/item/food/candy/bronx
-	name = "South Bronx Paradise bar"
-	desc = "Lose weight, guaranteed! Caramel Mocha Flavor. Something about product consumption..."
+	name = "батончик \"South Bronx Paradise\""
+	desc = "Похудение гарантировано! Вкус карамельного мокко... Здесь ещё кое что написано, надо присмотреться..."
 	icon_state = "bronx"
 	inhand_icon_state = "candy"
 	trash_type = /obj/item/trash/candy
@@ -54,15 +54,15 @@
 /obj/item/food/candy/bronx/examine(mob/user)
 	. = ..()
 	if(!revelation)
-		to_chat(user, span_notice("Geeze, you need to get to get your eyes checked. You should look again..."))
-		desc = "Lose weight, guaranteed! Caramel Mocha Flavor! WARNING: PRODUCT NOT FIT FOR HUMAN CONSUMPTION. CONTAINS LIVE DIAMPHIDIA SPECIMENS."
-		name = "South Bronx Parasite bar"
+		to_chat(user, span_notice("Боже, что с моими глазами, ничего не вижу. Надо посмотреть ещё раз"))
+		desc = "Похудение гарантировано! Вкус карамельного мокко! ПРЕДУПРЕЖДЕНИЕ: ПРОДУКТ НЕ ПРИГОДЕН ДЛЯ УПОТРЕБЛЕНИЯ ЧЕЛОВЕКОМ. СОДЕРЖИТ ЖИВЫХ ЛИЧИНОК ДИАМФИДИЙ."
+		name = "батончик \"South Bronx Paradise\""
 		revelation = TRUE
 
 /obj/item/food/sosjerky
-	name = "\improper Scaredy's Private Reserve Beef Jerky"
+	name = "Вяленая говядина \"Scaredy's Private Reserve Beef Jerky\""
 	icon_state = "sosjerky"
-	desc = "Beef jerky made from the finest space cows."
+	desc = "Вяленая говядина, изготовленная из лучших космических коров."
 	trash_type = /obj/item/trash/sosjerky
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 3, /datum/reagent/consumable/sugar = 2, /datum/reagent/consumable/salt = 2)
 	junkiness = 25
@@ -72,14 +72,14 @@
 	preserved_food = TRUE
 
 /obj/item/food/sosjerky/healthy
-	name = "homemade beef jerky"
-	desc = "Homemade beef jerky made from the finest space cows."
+	name = "вяленая говядина домашнего приготовления"
+	desc = "Домашняя вяленая говядина, изготовленная из лучших коров космического происхождения."
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 1)
 	junkiness = 0
 
 /obj/item/food/chips
-	name = "chips"
-	desc = "Commander Riker's What-The-Crisps."
+	name = "чипсы"
+	desc = "Из 100% натурального картофеля."
 	icon_state = "chips"
 	trash_type = /obj/item/trash/chips
 	bite_consumption = 1
@@ -95,9 +95,9 @@
 		AddElement(/datum/element/food_trash, trash_type, FOOD_TRASH_POPABLE)
 
 /obj/item/food/no_raisin
-	name = "4no raisins"
+	name = "пачка изюма"
 	icon_state = "4no_raisins"
-	desc = "Best raisins in the universe. Not sure why."
+	desc = "Лучший изюм во вселенной. Не знаю почему."
 	trash_type = /obj/item/trash/raisins
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/sugar = 4)
 	junkiness = 25
@@ -109,17 +109,17 @@
 	preserved_food = TRUE
 
 /obj/item/food/no_raisin/healthy
-	name = "homemade raisins"
-	desc = "Homemade raisins, the best in all of spess."
+	name = "изюм домашнего приготовления"
+	desc = "Домашний изюм, лучший во изюм во вселенной."
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 2)
 	junkiness = 0
 	foodtypes = FRUIT
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/spacetwinkie
-	name = "space twinkie"
+	name = "космическое твинки"
 	icon_state = "space_twinkie"
-	desc = "Guaranteed to survive longer than you will."
+	desc = "Не испортится даже после твоей смерти."
 	food_reagents = list(/datum/reagent/consumable/sugar = 4)
 	junkiness = 25
 	foodtypes = JUNKFOOD | GRAIN | SUGAR
@@ -129,10 +129,10 @@
 	preserved_food = TRUE
 
 /obj/item/food/candy_trash
-	name = "candy cigarette butt"
+	name = "окурок леденцовой сигареты"
 	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "candybum"
-	desc = "The leftover from a smoked-out candy cigarette. Can be eaten!"
+	desc = "Остатки от выкуренной леденцовой сигареты. Можно съесть!"
 	food_reagents = list(/datum/reagent/consumable/sugar = 4, /datum/reagent/ash = 3)
 	junkiness = 10 //powergame trash food by buying candy cigs in bulk and eating them when they extinguish
 	foodtypes = JUNKFOOD | SUGAR
@@ -141,12 +141,12 @@
 	preserved_food = TRUE
 
 /obj/item/food/candy_trash/nicotine
-	desc = "The leftover from a smoked-out candy cigarette. Smells like nicotine..?"
+	desc = "Остатки от выкуренной конфетной сигареты. Пахнет никотином...?"
 	food_reagents = list(/datum/reagent/consumable/sugar = 4, /datum/reagent/ash = 3, /datum/reagent/drug/nicotine = 1)
 
 /obj/item/food/cheesiehonkers
-	name = "cheesie honkers"
-	desc = "Bite sized cheesie snacks that will honk all over your mouth."
+	name = "сырные хонкеры"
+	desc = "Сырные закуски, от которых ты будешь хонкать."
 	icon_state = "cheesie_honkers"
 	trash_type = /obj/item/trash/cheesie
 	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sugar = 3)
@@ -157,9 +157,9 @@
 	preserved_food = TRUE
 
 /obj/item/food/syndicake
-	name = "syndi-cakes"
+	name = "синди-кейки"
 	icon_state = "syndi_cakes"
-	desc = "An extremely moist snack cake that tastes just as good after being nuked."
+	desc = "Очень влажные кексы, вкус такой же, как и после ядерного взрыва."
 	trash_type = /obj/item/trash/syndi_cakes
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/doctor_delight = 5)
 	tastes = list("сладость" = 3, "торт" = 1)
@@ -168,9 +168,9 @@
 	preserved_food = TRUE
 
 /obj/item/food/energybar
-	name = "High-power energy bars"
+	name = "мощные энергетические батончики"
 	icon_state = "energybar"
-	desc = "An energy bar with a lot of punch, you probably shouldn't eat this if you're not an Ethereal."
+	desc = "Энергетический батончик, который, вероятно, не стоит есть."
 	trash_type = /obj/item/trash/energybar
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/liquidelectricity = 3)
 	tastes = list("электричество" = 3, "фитнес" = 2)
@@ -180,8 +180,8 @@
 	preserved_food = TRUE
 
 /obj/item/food/peanuts
-	name = "\improper Gallery's peanuts"
-	desc = "A favourite amongst the terminally angry."
+	name = "ореховый микс"
+	desc = "Фаворит среди неизлечимо злых людей."
 	icon_state = "peanuts"
 	trash_type = /obj/item/trash/peanuts
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
@@ -195,45 +195,45 @@
 	preserved_food = TRUE
 
 /obj/item/food/peanuts/salted
-	name = "\improper Gallery's salt reserves peanuts"
-	desc = "Tastes salty."
+	name = "соленый ореховый микс"
+	desc = "Ммм, солёный."
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/salt = 1)
 	tastes = list("peanuts" = 3, "salt" = 1, "high blood pressure" = 1)
 
 /obj/item/food/peanuts/wasabi
-	name = "\improper Gallery's raging wasabi peanuts"
-	desc = "The angriest of all peanut flavours."
+	name = "ореховый микс с васаби"
+	desc = "Острейший арахис."
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/capsaicin = 1)
 	tastes = list("peanuts" = 3, "wasabi" = 1, "rage" = 1)
 
 /obj/item/food/peanuts/honey_roasted
-	name = "\improper Gallery's delete sweet peanuts"
-	desc = "Oddly bitter for a sweet treat."
+	name = "сладкий ореховый микс"
+	desc = "Очень странная горечь для сладкого арахиса."
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/sugar = 1)
 	tastes = list("peanuts" = 3, "honey" = 1, "bitterness" = 1)
 
 /obj/item/food/peanuts/barbecue
-	name = "\improper Gallery's IDEDBBQ peanuts"
-	desc = "Where there's smoke, there's not necessarily fire- sometimes it's just BBQ sauce."
+	name = "ореховый микс со вкусом барбекю"
+	desc = "Не бывает дыма без огня? Бывает, просто иногда это соус барбекю."
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/bbqsauce = 1)
 	tastes = list("peanuts" = 3, "bbq sauce" = 1, "arguments" = 1)
 
 /obj/item/food/peanuts/ban_appeal
-	name = "\improper Gallery's peanuts Ban Appel mix"
-	desc = "An ill-fated attempt at trail mix, banned in 6 sectors. Yearly lobbying to overturn is denied not because the apples are toxic, but because they keep evading the ban."
+	name = "ореховый микс \"Ban Appel\""
+	desc = "Злаполучная смесь, запрещенная в 6 секторах."
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/toxin/cyanide = 1) //uses dried poison apples
 	tastes = list("peanuts" = 3, "apples" = 1, "regret" = 1)
 	safe_for_consumption = FALSE
 
 /obj/item/food/peanuts/random
-	name = "\improper Gallery's every-flavour peanuts"
-	desc = "What flavour will you get?"
+	name = "ореховый микс"
+	desc = "Угадай, с каким он будет вкусом?"
 	icon_state = "peanuts"
 	safe_for_consumption = FALSE
 
 /obj/item/food/cnds
-	name = "\improper C&Ds"
-	desc = "Legally, we cannot say that these won't melt in your hands."
+	name = "M&M’s"
+	desc = "Юридически мы не можем утверждать, что они не растают в ваших руках."
 	icon_state = "cnds"
 	trash_type = /obj/item/trash/cnds
 	food_reagents = list(/datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/coco = 1)
@@ -249,8 +249,8 @@
 	return TOXLOSS
 
 /obj/item/food/cnds/random
-	name = "mystery filled C&Ds"
-	desc = "Filled with one of four delicious flavours!"
+	name = "M&M’s \"Случайный вкус\""
+	desc = "Наполнен одним из четырех восхитительных вкусов!"
 
 /obj/item/food/cnds/random/Initialize(mapload)
 	var/random_flavour = pick(subtypesof(/obj/item/food/cnds) - /obj/item/food/cnds/random)

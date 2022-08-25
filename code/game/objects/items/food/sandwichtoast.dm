@@ -1,6 +1,6 @@
 /obj/item/food/sandwich
-	name = "sandwich"
-	desc = "A grand creation of meat, cheese, bread, and several leaves of lettuce! Arthur Dent would be proud."
+	name = "сэндвич"
+	desc = "Грандиозное творение из мяса, сыра, хлеба и нескольких листьев салата! Артуру Денту бы понравилось это."
 	icon = 'icons/obj/food/burgerbread.dmi'
 	icon_state = "sandwich"
 	trash_type = /obj/item/trash/plate
@@ -11,8 +11,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/grilled_cheese_sandwich
-	name = "grilled cheese sandwich"
-	desc = "A warm, melty sandwich that goes perfectly with tomato soup."
+	name = "сэндвич с жареным сыром"
+	desc = "Теплый сэндвич, который идеально сочетается с томатным супом."
 	icon = 'icons/obj/food/burgerbread.dmi'
 	icon_state = "toastedsandwich"
 	trash_type = /obj/item/trash/plate
@@ -24,8 +24,8 @@
 	burns_on_grill = TRUE
 
 /obj/item/food/cheese_sandwich
-	name = "cheese sandwich"
-	desc = "A light snack for a warm day. ...but what if you grilled it?"
+	name = "сырный сэндвич"
+	desc = "Легкая закуска ...но что если приготовить его на гриле?"
 	icon = 'icons/obj/food/burgerbread.dmi'
 	icon_state = "sandwich"
 	trash_type = /obj/item/trash/plate
@@ -39,8 +39,8 @@
 	AddComponent(/datum/component/grillable, /obj/item/food/grilled_cheese_sandwich, rand(30 SECONDS, 60 SECONDS), TRUE)
 
 /obj/item/food/jellysandwich
-	name = "jelly sandwich"
-	desc = "You wish you had some peanut butter to go with this..."
+	name = "желейный сэндвич"
+	desc = "Немного арахисового масла было бы кстати..."
 	icon = 'icons/obj/food/burgerbread.dmi'
 	icon_state = "jellysandwich"
 	trash_type = /obj/item/trash/plate
@@ -59,8 +59,8 @@
 	foodtypes = GRAIN | FRUIT | SUGAR
 
 /obj/item/food/notasandwich
-	name = "not-a-sandwich"
-	desc = "Something seems to be wrong with this, you can't quite figure what. Maybe it's his moustache."
+	name = "не-сэндвич"
+	desc = "Кажется, что-то здесь не так, но вы не можете понять, что именно. Может быть, дело в его усах."
 	icon = 'icons/obj/food/burgerbread.dmi'
 	icon_state = "notasandwich"
 	trash_type = /obj/item/trash/plate
@@ -71,8 +71,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/griddle_toast
-	name = "griddle toast"
-	desc = "Thick cut bread, griddled to perfection."
+	name = "Поджаренный тост"
+	desc = "Толстый кусок хлеба, обжаренный на гриле до золотистой корочки."
 	icon = 'icons/obj/food/burgerbread.dmi'
 	icon_state = "griddle_toast"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 3)

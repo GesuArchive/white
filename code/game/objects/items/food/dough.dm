@@ -2,7 +2,7 @@
 
 /obj/item/food/dough
 	name = "тесто"
-	desc = "A piece of dough."
+	desc = "Кусок теста."
 	icon = 'icons/obj/food/food_ingredients.dmi'
 	icon_state = "dough"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6)
@@ -18,7 +18,7 @@
 
 /obj/item/food/flatdough
 	name = "плоское тесто"
-	desc = "A flattened dough."
+	desc = "Раскатанное тесто."
 	icon = 'icons/obj/food/food_ingredients.dmi'
 	icon_state = "flat dough"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6)
@@ -34,7 +34,7 @@
 
 /obj/item/food/pizzabread
 	name = "тесто для пиццы"
-	desc = "Add ingredients to make a pizza."
+	desc = "Добавь ингридиентов для приготовления пиццы."
 	icon = 'icons/obj/food/food_ingredients.dmi'
 	icon_state = "pizzabread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 7)
@@ -48,7 +48,7 @@
 
 /obj/item/food/doughslice
 	name = "кусочек теста"
-	desc = "A slice of dough. Can be cooked into a bun."
+	desc = "Кусочек теста. Можно приготовить булку."
 	icon = 'icons/obj/food/food_ingredients.dmi'
 	icon_state = "doughslice"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
@@ -63,7 +63,7 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/bait/doughball, 5, 30)
 /obj/item/food/bun
 	name = "булочка"
-	desc = "A base for any self-respecting burger."
+	desc = "Основа для любого уважающего себя бургера"
 	icon = 'icons/obj/food/burgerbread.dmi'
 	icon_state = "bun"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3)
@@ -78,7 +78,7 @@
 
 /obj/item/food/cakebatter
 	name = "тесто для торта"
-	desc = "Cook it to get a cake."
+	desc = "Приготовьте, чтобы получить торт."
 	icon = 'icons/obj/food/food_ingredients.dmi'
 	icon_state = "cakebatter"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 9)
@@ -93,7 +93,7 @@
 
 /obj/item/food/piedough
 	name = "тесто для пирога"
-	desc = "Cook it to get a pie."
+	desc = "Приготовьте, чтобы получить пирог."
 	icon = 'icons/obj/food/food_ingredients.dmi'
 	icon_state = "piedough"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 9)
@@ -108,7 +108,7 @@
 
 /obj/item/food/rawpastrybase
 	name = "сырое сладкое тесто"
-	desc = "Must be cooked before use."
+	desc = "Необходимо приготовить перед использованием."
 	icon = 'icons/obj/food/food_ingredients.dmi'
 	icon_state = "rawpastrybase"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
@@ -121,7 +121,7 @@
 
 /obj/item/food/pastrybase
 	name = "сладкое тесто"
-	desc = "A base for any self-respecting pastry."
+	desc = "Основа для любого уважающего себя кондитерского изделия."
 	icon = 'icons/obj/food/food_ingredients.dmi'
 	icon_state = "pastrybase"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3)

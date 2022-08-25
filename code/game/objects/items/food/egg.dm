@@ -136,7 +136,7 @@
 	..()
 
 /obj/item/food/benedict
-	name = "яйцо Бенедикта"
+	name = "яйцо Бенедикт"
 	desc = "Здесь всего одно яйцо, как грубо."
 	icon_state = "benedict"
 	food_reagents = list(/datum/reagent/consumable/nutriment/vitamin = 6, /datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment = 3)

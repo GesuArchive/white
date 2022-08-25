@@ -78,7 +78,7 @@
 	subcategory = CAT_MOTH
 
 /datum/crafting_recipe/food/baked_cheese_platter
-	name = "Stanntkraktælo (Жаренная головка сыра)"
+	name = "Stanntkraktælo (Жареная головка сыра)"
 	reqs = list(
 		/obj/item/food/baked_cheese = 1,
 		/obj/item/food/griddle_toast = 3
@@ -87,7 +87,7 @@
 	subcategory = CAT_MOTH
 
 /datum/crafting_recipe/food/raw_green_lasagne
-	name = "Зеленая лазанья аль Форно"
+	name = "Сырая зеленая лазанья аль Форно"
 	reqs = list(
 		/obj/item/food/pesto = 1,
 		/obj/item/food/spaghetti/boiledspaghetti = 2,
@@ -98,7 +98,7 @@
 	subcategory = CAT_MOTH
 
 /datum/crafting_recipe/food/raw_baked_rice
-	name = "Плов по Мольски"
+	name = "Сырой плов по Мольски"
 	reqs = list(
 		/obj/item/food/salad/boiledrice = 2,
 		/obj/item/food/soup/vegetable = 1,
@@ -317,7 +317,7 @@
 	subcategory = CAT_MOTH
 
 /datum/crafting_recipe/food/fried_eggplant_polenta
-	name = "Жареные баклажане с полентой"
+	name = "Жареные баклажаны с полентой"
 	reqs = list(
 		/obj/item/food/soup/cheesy_porridge = 1,
 		/obj/item/food/grown/eggplant = 1,
@@ -379,7 +379,7 @@
 	subcategory = CAT_MOTH
 
 /datum/crafting_recipe/food/raw_mothic_margherita
-	name = "Пицца маргарита для молей"
+	name = "Пицца Маргарита для молей"
 	reqs = list(
 		/obj/item/food/mothic_pizza_dough = 1,
 		/obj/item/food/tomato_sauce = 1,

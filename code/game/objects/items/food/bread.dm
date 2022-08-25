@@ -23,8 +23,8 @@
 	AddElement(/datum/element/dunkable, 10)
 
 /obj/item/food/bread/plain
-	name = "bread"
-	desc = "Some plain old earthen bread."
+	name = "хлеб"
+	desc = "Обычный земной хлеб."
 	icon_state = "bread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 10)
 	tastes = list("хлеб" = 10)
@@ -41,8 +41,8 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/breadslice/plain, 5, 30)
 
 /obj/item/food/breadslice/plain
-	name = "bread slice"
-	desc = "A slice of home."
+	name = "ломтик хлеба"
+	desc = "Напоминание о доме."
 	icon_state = "breadslice"
 	foodtypes = GRAIN
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
@@ -55,8 +55,8 @@
 /obj/item/food/breadslice/plain/MakeGrillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/griddle_toast, rand(15 SECONDS, 25 SECONDS), TRUE, TRUE)
 /obj/item/food/breadslice/moldy
-	name = "moldy bread slice"
-	desc = "Entire stations have been ripped apart over arguing whether this is still good to eat."
+	name = "заплесневелый хлеб"
+	desc = "Плесень отвратительна на вкус, но очень вкусна, если у вас девиантные вкусы!"
 	icon_state = "moldybreadslice"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/mold = 10)
 	tastes = list("гниющая плесень" = 1)
@@ -67,8 +67,8 @@
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_MOLD, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 25)
 
 /obj/item/food/bread/jelliedtoast
-	name = "jellied toast"
-	desc = "A slice of toast covered with delicious jam."
+	name = "желейный тост"
+	desc = "Ломтик хлеба, покрытый вкусным джемом."
 	icon = 'icons/obj/food/burgerbread.dmi'
 	icon_state = "jellytoast"
 	trash_type = /obj/item/trash/plate
@@ -87,8 +87,8 @@
 	foodtypes = GRAIN | TOXIC | SUGAR | BREAKFAST
 
 /obj/item/food/bread/butteredtoast
-	name = "buttered toast"
-	desc = "Butter lightly spread over a piece of toast."
+	name = "тост с маслом"
+	desc = "Слегка намазанный маслом ломтик хлеба."
 	icon = 'icons/obj/food/burgerbread.dmi'
 	icon_state = "butteredtoast"
 	bite_consumption = 3
@@ -100,8 +100,8 @@
 
 
 /obj/item/food/bread/twobread
-	name = "two bread"
-	desc = "This seems awfully bitter."
+	name = "два хлеба"
+	desc = "Кажется ужастно горьким."
 	icon = 'icons/obj/food/burgerbread.dmi'
 	icon_state = "twobread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 4)
@@ -111,8 +111,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/bread/meat
-	name = "meatbread loaf"
-	desc = "The culinary base of every self-respecting eloquen/tg/entleman."
+	name = "мясной рулет"
+	desc = "Основное блюда для уважающего себя гурмана."
 	icon_state = "meatbread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 10, /datum/reagent/consumable/nutriment/protein = 12)
 	tastes = list("хлеб" = 10, "мясо" = 10)
@@ -124,15 +124,15 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/breadslice/meat, 5, 30)
 
 /obj/item/food/breadslice/meat
-	name = "meatbread slice"
-	desc = "A slice of delicious meatbread."
+	name = "ломтик мясного рулета"
+	desc = "Ломтик вкуснейшего мясного хлеба."
 	icon_state = "meatbreadslice"
 	foodtypes = GRAIN | MEAT
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/nutriment/protein = 2.4)
 
 /obj/item/food/bread/xenomeat
-	name = "xenomeatbread loaf"
-	desc = "The culinary base of every self-respecting eloquen/tg/entleman. Extra Heretical."
+	name = "хлеб с мясом чужого"
+	desc = "Основное блюда для уважающего себя гурмана. Сверхъеретический."
 	icon_state = "xenomeatbread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 10, /datum/reagent/consumable/nutriment/protein = 15)
 	tastes = list("хлеб" = 10, "кислота" = 10)
@@ -142,15 +142,15 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/breadslice/xenomeat, 5, 30)
 
 /obj/item/food/breadslice/xenomeat
-	name = "xenomeatbread slice"
-	desc = "A slice of delicious meatbread. Extra Heretical."
+	name = "ломтик хлеба с мясом чужого"
+	desc = "Ломтик вкуснейшего мясного хлеба. Сверхъеретический."
 	icon_state = "xenobreadslice"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/nutriment/protein = 3)
 	foodtypes = GRAIN | MEAT
 
 /obj/item/food/bread/spidermeat
-	name = "spider meat loaf"
-	desc = "Reassuringly green meatloaf made from spider meat."
+	name = "хлеб с паучьим мясом"
+	desc = "Обнадёживающе зеленый мясной рулет из мяса паука."
 	icon_state = "spidermeatbread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/toxin = 15, /datum/reagent/consumable/nutriment/vitamin = 10, /datum/reagent/consumable/nutriment/protein = 12)
 	tastes = list("хлеб" = 10, "паутинки" = 5)
@@ -160,15 +160,15 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/breadslice/spidermeat, 5, 30)
 
 /obj/item/food/breadslice/spidermeat
-	name = "spider meat bread slice"
-	desc = "A slice of meatloaf made from an animal that most likely still wants you dead."
+	name = "ломтик хлеба с паучиьм мясом"
+	desc = "Ломтик мясного рулета с мясом паука. Похоже, этот паук, ещё жаждет твоей смерти."
 	icon_state = "xenobreadslice"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/toxin = 3, /datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/consumable/nutriment/vitamin = 1)
 	foodtypes = GRAIN | MEAT | TOXIC
 
 /obj/item/food/bread/banana
-	name = "banana-nut bread"
-	desc = "A heavenly and filling treat."
+	name = "банановый хлеб"
+	desc = "Божественно сытное угощение."
 	icon_state = "bananabread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/banana = 20)
 	tastes = list("хлеб" = 10) // bananjuice will also flavour
@@ -178,15 +178,15 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/breadslice/banana, 5, 30)
 
 /obj/item/food/breadslice/banana
-	name = "banana-nut bread slice"
-	desc = "A slice of delicious banana bread."
+	name = "ломтик бананового хлеба"
+	desc = "Ломтик вкуснейшего бананового хлеба."
 	icon_state = "bananabreadslice"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/banana = 4)
 	foodtypes = GRAIN | FRUIT
 
 /obj/item/food/bread/tofu
-	name = "Tofubread"
-	desc = "Like meatbread but for vegetarians. Not guaranteed to give superpowers."
+	name = "хлеб тофу"
+	desc = "Как мясной рулет, но для вегетарианцев. Не гарантированно дает сверхспособности."
 	icon_state = "tofubread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 10, /datum/reagent/consumable/nutriment/protein = 10)
 	tastes = list("хлеб" = 10, "тофу" = 10)
@@ -197,15 +197,15 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/breadslice/tofu, 5, 30)
 
 /obj/item/food/breadslice/tofu
-	name = "tofubread slice"
-	desc = "A slice of delicious tofubread."
+	name = "ломтик хлеба тофу"
+	desc = "Ломтик вкуснейшего хлеба тофу."
 	icon_state = "tofubreadslice"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/nutriment/vitamin = 2)
 	foodtypes = GRAIN | VEGETABLES
 
 /obj/item/food/bread/creamcheese
-	name = "cream cheese bread"
-	desc = "Yum yum yum!"
+	name = "хлеб со сливочным сыром"
+	desc = "Вкуснятина!"
 	icon_state = "creamcheesebread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/protein = 10, /datum/reagent/consumable/nutriment/vitamin = 10)
 	tastes = list("хлеб" = 10, "сыр" = 10)
@@ -215,22 +215,33 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/breadslice/creamcheese, 5, 30)
 
 /obj/item/food/breadslice/creamcheese
-	name = "cream cheese bread slice"
-	desc = "A slice of yum!"
+	name = "ломтик хлеба со сливочным сыром"
+	desc = "Кусочек вкусняшки."
 	icon_state = "creamcheesebreadslice"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/nutriment/vitamin = 2)
 
 /obj/item/food/bread/empty
-	name = "bread"
+	name = "хлеб"
 	icon_state = "tofubread"
-	desc = "It's bread, customized to your wildest dreams."
+	desc = "Хлеб, созданный по вашим самым смелым идеям."
+
+// What you get from cutting a custom bread. Different from custom sliced bread.
+/obj/item/food/breadslice/empty
+	name = "ломтик хлеба"
+	icon_state = "tofubreadslice"
+	foodtypes = GRAIN
+	desc = "Ломтик хлеба, созданного по вашим самым смелым идеям."
 
 /obj/item/food/bread/empty/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/breadslice/empty, 5, 30)
 
+/obj/item/food/breadslice/empty/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/customizable_reagent_holder, null, CUSTOM_INGREDIENT_ICON_FILL, max_ingredients = 8)
+
 /obj/item/food/bread/mimana
-	name = "mimana bread"
-	desc = "Best eaten in silence."
+	name = "мимановский хлеб"
+	desc = "Лучше всего есть в тишине."
 	icon_state = "mimanabread"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/toxin/mutetoxin = 5, /datum/reagent/consumable/nothing = 5, /datum/reagent/consumable/nutriment/vitamin = 10)
 	tastes = list("хлеб" = 10, "тишина" = 10)
@@ -240,26 +251,15 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/breadslice/mimana, 5, 30)
 
 /obj/item/food/breadslice/mimana
-	name = "mimana bread slice"
-	desc = "A slice of silence!"
+	name = "ломтик мимановского хлеба"
+	desc = "Ломтик тишины!"
 	icon_state = "mimanabreadslice"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/toxin/mutetoxin = 1, /datum/reagent/consumable/nothing = 1, /datum/reagent/consumable/nutriment/vitamin = 2)
 	foodtypes = GRAIN | FRUIT
 
-// What you get from cutting a custom bread. Different from custom sliced bread.
-/obj/item/food/breadslice/empty
-	name = "bread slice"
-	icon_state = "tofubreadslice"
-	foodtypes = GRAIN
-	desc = "It's a slice of bread, customized to your wildest dreams."
-
-/obj/item/food/breadslice/empty/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/customizable_reagent_holder, null, CUSTOM_INGREDIENT_ICON_FILL, max_ingredients = 8)
-
 /obj/item/food/baguette
-	name = "baguette"
-	desc = "Bon appetit!"
+	name = "багет"
+	desc = "Бон аппети!"
 	icon = 'icons/obj/food/burgerbread.dmi'
 	icon_state = "baguette"
 	inhand_icon_state = "baguette"
@@ -275,8 +275,8 @@
 	venue_value = FOOD_PRICE_CHEAP
 
 /obj/item/food/garlicbread
-	name = "garlic bread"
-	desc = "Alas, it is limited."
+	name = "чесночный хлеб"
+	desc = "Увы, рано или поздно он заканчивается."
 	icon = 'icons/obj/food/burgerbread.dmi'
 	icon_state = "garlicbread"
 	inhand_icon_state = "garlicbread"
@@ -287,8 +287,8 @@
 	venue_value = FOOD_PRICE_NORMAL
 
 /obj/item/food/deepfryholder
-	name = "Deep Fried Foods Holder Obj"
-	desc = "If you can see this description the code for the deep fryer fucked up."
+	name = "сетка для фритюра"
+	desc = "Если ты видишь это описание, то в код для фритюрницы насрали."
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = ""
 	bite_consumption = 2
@@ -364,8 +364,8 @@
 	foodtypes |= FRIED
 
 /obj/item/food/butterbiscuit
-	name = "butter biscuit"
-	desc = "Well butter my biscuit!"
+	name = "бисквит с маслом"
+	desc = "Намажьте мне бисквит маслом!"
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "butterbiscuit"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 1)
@@ -375,8 +375,8 @@
 	venue_value = FOOD_PRICE_CHEAP
 
 /obj/item/food/butterdog
-	name = "butterdog"
-	desc = "Made from exotic butters."
+	name = "масло-дог"
+	desc = "Изготовлено с использованием экзотических масел."
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "butterdog"
 	bite_consumption = 1
