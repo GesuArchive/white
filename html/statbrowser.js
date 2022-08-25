@@ -81,35 +81,35 @@ function createStatusTab(name) {
 function get_icon_for_tab_by_name(name) {
 	switch(name) {
 		case 'Состояние':
-			return 'https://cdn.discordapp.com/attachments/891936642380759050/922266065113858118/test.png';
+			return 'sb_stat.png';
 		case 'IC':
-			return 'https://cdn.discordapp.com/attachments/891936642380759050/922276501490110494/ic.png';
+			return 'sb_ic.png';
 		case 'OOC':
-			return 'https://cdn.discordapp.com/attachments/891936642380759050/922276501666275428/ooc.png';
+			return 'sb_ooc.png';
 		case 'Настройки':
-			return 'https://media.discordapp.net/attachments/891936642380759050/922270099711352892/cog.png';
+			return 'sb_setting.png';
 		case 'Объект':
-			return 'https://media.discordapp.net/attachments/891936642380759050/922271046613225492/obj.png';
+			return 'sb_obj.png';
 		case 'Особенное':
-			return 'https://cdn.discordapp.com/attachments/891936642380759050/922302559752945664/other.png';
+			return 'sb_other.png';
 		case 'Призрак':
-			return 'https://cdn.discordapp.com/attachments/891936642380759050/922273417649070081/ghost.png';
+			return 'sb_ghost.png';
 		case 'Адм':
-			return 'https://cdn.discordapp.com/attachments/891936642380759050/922275501916164186/pidor.png';
+			return 'sb_admin.png';
 		case 'Дбг':
-			return 'https://cdn.discordapp.com/attachments/891936642380759050/922279552418476052/debug.png';
+			return 'sb_debug.png';
 		case 'Срв':
-			return 'https://cdn.discordapp.com/attachments/891936642380759050/922279819700494346/amogus.png';
+			return 'sb_server.png';
 		case 'Тикеты':
-			return 'https://cdn.discordapp.com/attachments/891936642380759050/922303360445579264/tickets.png';
+			return 'sb_ticket.png';
 		case 'MC':
-			return 'https://cdn.discordapp.com/attachments/891936642380759050/922304005646995466/MC.png';
+			return 'sb_mc.png';
 		case 'МАГИЯ':
-			return 'https://cdn.discordapp.com/attachments/891936642380759050/922279819700494346/amogus.png';
+			return 'sb_magic.png';
 		case 'Знаток':
-			return 'https://cdn.discordapp.com/attachments/891936642380759050/935522367902462012/pidor.png';
+			return 'sb_mentor.png';
 		default:
-			return 'https://cdn.discordapp.com/attachments/891936642380759050/922279819700494346/amogus.png';
+			return 'sb_default.png';
 	}
 }
 

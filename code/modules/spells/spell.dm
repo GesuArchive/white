@@ -46,7 +46,7 @@
 	icon_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "spell_default"
 	check_flags = AB_CHECK_CONSCIOUS
-	panel = "Spells"
+	panel = "МАГИЯ"
 	melee_cooldown_time = 0 SECONDS
 
 	/// The sound played on cast.

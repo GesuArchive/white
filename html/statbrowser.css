@@ -271,6 +271,7 @@ li a:hover:not(.active) {
 img {
 	-ms-interpolation-mode: nearest-neighbor;
 	image-rendering: pixelated;
+	border-bottom: 1px solid #343434;
 }
 
 .interview_panel_controls, .interview_panel_stats {
