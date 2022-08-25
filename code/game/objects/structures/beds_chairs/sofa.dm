@@ -64,6 +64,7 @@
 /obj/structure/chair/sofa/bench
 	name = "скамейка"
 	desc = "Идеальная конструкция, на которой удобно сидеть и чертовски неудобно спать."
+	color = null
 	icon_state = "bench_middle"
 	greyscale_config = /datum/greyscale_config/bench_middle
 	greyscale_colors = "#00B7EF"
@@ -87,6 +88,7 @@
 /obj/structure/chair/sofa/bamboo
 	name = "бамбуковая скамья"
 	desc = "Самодельная, хы."
+	color = null
 	icon_state = "bamboo_sofamiddle"
 	resistance_flags = FLAMMABLE
 	max_integrity = 60
