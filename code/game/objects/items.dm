@@ -955,18 +955,17 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		return
 
 	var/skill_modifier = 1
-	var/isMining = -1
+	var/skill_type_to_adjust = null
 
-	if(ishuman(user))
-		if(user.mind)
-			if(tool_behaviour == TOOL_MINING || tool_behaviour == TOOL_SHOVEL)
-				skill_modifier = user.mind.get_skill_modifier(/datum/skill/mining, SKILL_SPEED_MODIFIER)
-				isMining = 1
-				if(user.mind.get_skill_level(/datum/skill/mining) >= SKILL_LEVEL_JOURNEYMAN && prob(user.mind.get_skill_modifier(/datum/skill/mining, SKILL_PROBS_MODIFIER))) // we check if the skill level is greater than Journeyman and then we check for the probality for that specific level.
-					mineral_scan_pulse(get_turf(user), SKILL_LEVEL_JOURNEYMAN - 2) //SKILL_LEVEL_JOURNEYMAN = 3 So to get range of 1+ we have to subtract 2 from it,.
-			else if(tool_behaviour == TOOL_CROWBAR || tool_behaviour == TOOL_MULTITOOL || tool_behaviour == TOOL_SCREWDRIVER || tool_behaviour == TOOL_WELDER || tool_behaviour == TOOL_WIRECUTTER || tool_behaviour == TOOL_WRENCH)
-				skill_modifier = user.mind.get_skill_modifier(/datum/skill/engineering, SKILL_SPEED_MODIFIER)
-				isMining = 0
+	if(user?.mind)
+		if(tool_behaviour in MINING_TOOL_LIST)
+			skill_modifier = user.mind.get_skill_modifier(/datum/skill/mining, SKILL_SPEED_MODIFIER)
+			skill_type_to_adjust = /datum/skill/mining
+			if(user.mind.get_skill_level(/datum/skill/mining) >= SKILL_LEVEL_JOURNEYMAN && prob(user.mind.get_skill_modifier(/datum/skill/mining, SKILL_PROBS_MODIFIER))) // we check if the skill level is greater than Journeyman and then we check for the probality for that specific level.
+				mineral_scan_pulse(get_turf(user), SKILL_LEVEL_JOURNEYMAN - 2) //SKILL_LEVEL_JOURNEYMAN = 3 So to get range of 1+ we have to subtract 2 from it,.
+		else if(tool_behaviour in ENGINEERING_TOOL_LIST)
+			skill_modifier = user.mind.get_skill_modifier(/datum/skill/engineering, SKILL_SPEED_MODIFIER)
+			skill_type_to_adjust = /datum/skill/engineering
 	delay *= toolspeed * skill_modifier
 
 	// Play tool sound at the beginning of tool usage.
@@ -977,20 +976,20 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		var/datum/callback/tool_check = CALLBACK(src, .proc/tool_check_callback, user, amount, extra_checks)
 
 		if(ismob(target))
-			if(!do_mob(user, target, delay, extra_checks=tool_check))
+			if(!do_mob(user, target, delay, extra_checks = tool_check))
 				return
 
 		else
-			if(!do_after(user, delay, target=target, extra_checks=tool_check))
+			if(!do_after(user, delay, target=target, extra_checks = tool_check))
 				return
 	else
 		// Invoke the extra checks once, just in case.
 		if(extra_checks && !extra_checks.Invoke())
 			return
-	if(isMining == 1)
-		user.mind.adjust_experience(/datum/skill/mining, (delay / toolspeed / skill_modifier))
-	else if(isMining == 0)
-		user.mind.adjust_experience(/datum/skill/engineering, (delay / toolspeed / skill_modifier))
+
+	if(skill_type_to_adjust)
+		user?.mind?.adjust_experience(skill_type_to_adjust, (delay / toolspeed / skill_modifier))
+
 	// Use tool's fuel, stack sheets or charges if amount is set.
 	if(amount && !use(amount))
 		return
