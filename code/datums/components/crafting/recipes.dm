@@ -906,16 +906,14 @@
 				/obj/item/stack/sheet/animalhide/ashdrake = 5)
 	category = CAT_PRIMAL
 
-/*
 /datum/crafting_recipe/godslayer
 	name = "Godslayer Armour"
 	result = /obj/item/clothing/suit/hooded/cloak/godslayer
 	time = 60
-	reqs = list(/obj/item/ice_energy_crystal = 1, /obj/item/wendigo_skull = 1, /obj/item/clockwork_alloy = 1)
+	reqs = list(/obj/item/wendigo_skull = 1)
 	category = CAT_PRIMAL
-*/
 
-//datum/crafting_recipe/firebrand
+/datum/crafting_recipe/firebrand
 	name = "Факел"
 	result = /obj/item/match/firebrand
 	time = 100 //Long construction time. Making fire is hard work.
