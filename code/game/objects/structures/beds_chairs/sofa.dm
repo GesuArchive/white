@@ -104,6 +104,7 @@
 /obj/structure/chair/iron_bench
 	name = "скамейка"
 	desc = "На этом можно сидеть, но не долго."
+	icon = 'icons/obj/sofa.dmi'
 	max_integrity = 250
 	integrity_failure = 0.1
 	icon_state = "iron_bench_center"
