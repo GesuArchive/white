@@ -131,7 +131,7 @@ All the important duct code:
 /obj/machinery/duct/proc/connect_plumber(datum/component/plumbing/plumbing, direction)
 	var/opposite_dir = turn(direction, 180)
 
-	if(!(duct_layer & plumbing.ducting_layer))
+	if(!plumbing || !(duct_layer & plumbing.ducting_layer))
 		return FALSE
 
 	if(!plumbing.active)
