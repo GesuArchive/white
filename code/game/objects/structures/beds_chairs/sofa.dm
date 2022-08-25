@@ -48,6 +48,7 @@
 /obj/structure/chair/sofa/corp
 	name = "диван"
 	desc = "Мягкий и удобный."
+	color = null
 	icon_state = "corp_sofamiddle"
 
 /obj/structure/chair/sofa/corp/left
