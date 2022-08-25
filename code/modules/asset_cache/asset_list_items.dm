@@ -462,25 +462,6 @@
 		"board_WR.png" 			= 'white/valtos/icons/gk/board_WR.png'
 	)
 
-/datum/asset/simple/namespaced/statbrowser_icons
-	assets = list(
-		"sb_admin.png"			= 'html/si/admin.png',
-		"sb_debug.png"			= 'html/si/debug.png',
-		"sb_default.png" 		= 'html/si/default.png',
-		"sb_ghost.png" 			= 'html/si/ghost.png',
-		"sb_ic.png" 			= 'html/si/ic.png',
-		"sb_magic.png" 			= 'html/si/magic.png',
-		"sb_mc.png" 			= 'html/si/mc.png',
-		"sb_mentor.png" 		= 'html/si/mentor.png',
-		"sb_obj.png" 			= 'html/si/obj.png',
-		"sb_ooc.png" 			= 'html/si/ooc.png',
-		"sb_other.png" 			= 'html/si/other.png',
-		"sb_server.png" 		= 'html/si/server.png',
-		"sb_setting.png" 		= 'html/si/setting.png',
-		"sb_stat.png" 			= 'html/si/stat.png',
-		"sb_ticket.png" 		= 'html/si/ticket.png'
-	)
-
 /datum/asset/simple/white_mix
 	assets = list(
 		"zdoh.png"				= 'white/valtos/icons/zdoh.png'
