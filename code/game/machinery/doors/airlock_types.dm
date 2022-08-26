@@ -473,6 +473,20 @@
 	normal_integrity = 700
 	security_level = 1
 
+/obj/machinery/door/airlock/yohei
+	name = "шлюз йохеев"
+	desc = "Странный?"
+	icon = 'icons/obj/doors/airlocks/yohei/yohei.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/yohei/overlays.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_yohei
+	note_overlay_file = 'icons/obj/doors/airlocks/external/overlays.dmi'
+	damage_deflection = 30
+	explosion_block = 3
+	hackProof = TRUE
+	aiControlDisabled = AI_WIRE_DISABLED
+	normal_integrity = 700
+	security_level = 1
+
 //////////////////////////////////
 /*
 	Cult Airlocks

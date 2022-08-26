@@ -283,3 +283,12 @@
 	var/obj/machinery/door/airlock/door = ..()
 	door.set_custom_materials(custom_materials)
 	return door
+
+/obj/structure/door_assembly/door_assembly_yohei
+	name = "yohei airlock assembly"
+	icon = 'icons/obj/doors/airlocks/yohei/yohei.dmi'
+	base_name = "yohei airlock"
+	overlays_file = 'icons/obj/doors/airlocks/yohei/overlays.dmi'
+	airlock_type = /obj/machinery/door/airlock/yohei
+	material_type = /obj/item/stack/sheet/plasteel
+	noglass = TRUE
