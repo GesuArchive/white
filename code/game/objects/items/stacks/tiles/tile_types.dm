@@ -489,7 +489,7 @@
 	source = /datum/robot_energy_storage/iron
 	merge_type = /obj/item/stack/tile/plasteel
 	tile_reskin_types = list(
-		/obj/item/stack/tile/tg,
+		/obj/item/stack/tile/plasteel,
 		/obj/item/stack/tile/tg/edge,
 		/obj/item/stack/tile/tg/half,
 		/obj/item/stack/tile/tg/corner,
