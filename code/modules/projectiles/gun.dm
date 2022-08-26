@@ -162,6 +162,11 @@
 	to_chat(user, span_danger("*щёлк*"))
 	playsound(src, dry_fire_sound, 30, TRUE)
 
+/obj/item/gun/proc/fire_sounds()
+	if(suppressed)
+		playsound(src, suppressed_sound, suppressed_volume, vary_fire_sound, ignore_walls = FALSE, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_distance = 0)
+	else
+		playsound(src, fire_sound, fire_sound_volume, vary_fire_sound)
 
 /obj/item/gun/proc/shoot_live_shot(mob/living/user, pointblank = 0, atom/pbtarget = null, message = 1)
 	if(recoil)
@@ -169,23 +174,21 @@
 
 	SSspd.check_action(user?.client, SPD_SHOTS_FIRED)
 
-	if(suppressed)
-		playsound(user, suppressed_sound, suppressed_volume, vary_fire_sound, ignore_walls = FALSE, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_distance = 0)
-	else
-		playsound(user, fire_sound, fire_sound_volume, vary_fire_sound)
-		if(message)
-			if(pointblank)
-				user.visible_message(span_danger("<b>[user]</b> стреляет из <b>[src.name]</b> <b>В УПОР</b> по <b>[pbtarget]</b>!"),
-								span_danger("Стреляю из [src.name] <b>В УПОР</b> по <b>[pbtarget]</b>!"),
-								span_hear("Слышу выстрел!"), COMBAT_MESSAGE_RANGE, pbtarget, visible_message_flags = SPAM_MESSAGE)
-				if(pb_knockback > 0 && ismob(pbtarget))
-					var/mob/PBT = pbtarget
-					var/atom/throw_target = get_edge_target_turf(PBT, user.dir)
-					PBT.throw_at(throw_target, pb_knockback, 2)
-			else
-				user.visible_message(span_danger("<b>[user]</b> стреляет из <b>[src.name]</b>!"),
-								span_danger("Стреляю из [src.name]!"),
-								span_hear("Слышу выстрел!"), COMBAT_MESSAGE_RANGE, visible_message_flags = SPAM_MESSAGE)
+	fire_sounds()
+
+	if(!suppressed && message)
+		if(pointblank)
+			user.visible_message(span_danger("<b>[user]</b> стреляет из <b>[src.name]</b> <b>В УПОР</b> по <b>[pbtarget]</b>!"),
+							span_danger("Стреляю из [src.name] <b>В УПОР</b> по <b>[pbtarget]</b>!"),
+							span_hear("Слышу выстрел!"), COMBAT_MESSAGE_RANGE, pbtarget, visible_message_flags = SPAM_MESSAGE)
+			if(pb_knockback > 0 && ismob(pbtarget))
+				var/mob/PBT = pbtarget
+				var/atom/throw_target = get_edge_target_turf(PBT, user.dir)
+				PBT.throw_at(throw_target, pb_knockback, 2)
+		else
+			user.visible_message(span_danger("<b>[user]</b> стреляет из <b>[src.name]</b>!"),
+							span_danger("Стреляю из [src.name]!"),
+							span_hear("Слышу выстрел!"), COMBAT_MESSAGE_RANGE, visible_message_flags = SPAM_MESSAGE)
 
 /obj/item/gun/emp_act(severity)
 	. = ..()
