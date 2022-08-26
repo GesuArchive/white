@@ -490,67 +490,67 @@
 	merge_type = /obj/item/stack/tile/plasteel
 	tile_reskin_types = list(
 		/obj/item/stack/tile/plasteel,
-		/obj/item/stack/tile/tg/edge,
-		/obj/item/stack/tile/tg/half,
-		/obj/item/stack/tile/tg/corner,
-		/obj/item/stack/tile/tg/large,
-		/obj/item/stack/tile/tg/small,
-		/obj/item/stack/tile/tg/diagonal,
-		/obj/item/stack/tile/tg/herringbone,
-		/obj/item/stack/tile/tg/textured,
-		/obj/item/stack/tile/tg/textured_edge,
-		/obj/item/stack/tile/tg/textured_half,
-		/obj/item/stack/tile/tg/textured_corner,
-		/obj/item/stack/tile/tg/textured_large,
-		/obj/item/stack/tile/tg/dark,
-		/obj/item/stack/tile/tg/dark/smooth_edge,
-		/obj/item/stack/tile/tg/dark/smooth_half,
-		/obj/item/stack/tile/tg/dark/smooth_corner,
-		/obj/item/stack/tile/tg/dark/smooth_large,
-		/obj/item/stack/tile/tg/dark/small,
-		/obj/item/stack/tile/tg/dark/diagonal,
-		/obj/item/stack/tile/tg/dark/herringbone,
-		/obj/item/stack/tile/tg/dark_side,
-		/obj/item/stack/tile/tg/dark_corner,
-		/obj/item/stack/tile/tg/checker,
-		/obj/item/stack/tile/tg/dark/textured,
-		/obj/item/stack/tile/tg/dark/textured_edge,
-		/obj/item/stack/tile/tg/dark/textured_half,
-		/obj/item/stack/tile/tg/dark/textured_corner,
-		/obj/item/stack/tile/tg/dark/textured_large,
-		/obj/item/stack/tile/tg/white,
-		/obj/item/stack/tile/tg/white/smooth_edge,
-		/obj/item/stack/tile/tg/white/smooth_half,
-		/obj/item/stack/tile/tg/white/smooth_corner,
-		/obj/item/stack/tile/tg/white/smooth_large,
-		/obj/item/stack/tile/tg/white/small,
-		/obj/item/stack/tile/tg/white/diagonal,
-		/obj/item/stack/tile/tg/white/herringbone,
-		/obj/item/stack/tile/tg/white_side,
-		/obj/item/stack/tile/tg/white_corner,
-		/obj/item/stack/tile/tg/cafeteria,
-		/obj/item/stack/tile/tg/white/textured,
-		/obj/item/stack/tile/tg/white/textured_edge,
-		/obj/item/stack/tile/tg/white/textured_half,
-		/obj/item/stack/tile/tg/white/textured_corner,
-		/obj/item/stack/tile/tg/white/textured_large,
-		/obj/item/stack/tile/tg/smooth,
-		/obj/item/stack/tile/tg/smooth_edge,
-		/obj/item/stack/tile/tg/smooth_half,
-		/obj/item/stack/tile/tg/smooth_corner,
-		/obj/item/stack/tile/tg/smooth_large,
-		/obj/item/stack/tile/tg/terracotta,
-		/obj/item/stack/tile/tg/terracotta/small,
-		/obj/item/stack/tile/tg/terracotta/diagonal,
-		/obj/item/stack/tile/tg/terracotta/herringbone,
-		/obj/item/stack/tile/tg/kitchen,
-		/obj/item/stack/tile/tg/kitchen/small,
-		/obj/item/stack/tile/tg/kitchen/diagonal,
-		/obj/item/stack/tile/tg/kitchen/herringbone,
-		/obj/item/stack/tile/tg/chapel,
-		/obj/item/stack/tile/tg/showroomfloor,
-		/obj/item/stack/tile/tg/freezer,
-		/obj/item/stack/tile/tg/sepia,
+		/obj/item/stack/tile/plasteel/edge,
+		/obj/item/stack/tile/plasteel/half,
+		/obj/item/stack/tile/plasteel/corner,
+		/obj/item/stack/tile/plasteel/large,
+		/obj/item/stack/tile/plasteel/small,
+		/obj/item/stack/tile/plasteel/diagonal,
+		/obj/item/stack/tile/plasteel/herringbone,
+		/obj/item/stack/tile/plasteel/textured,
+		/obj/item/stack/tile/plasteel/textured_edge,
+		/obj/item/stack/tile/plasteel/textured_half,
+		/obj/item/stack/tile/plasteel/textured_corner,
+		/obj/item/stack/tile/plasteel/textured_large,
+		/obj/item/stack/tile/plasteel/dark,
+		/obj/item/stack/tile/plasteel/dark/smooth_edge,
+		/obj/item/stack/tile/plasteel/dark/smooth_half,
+		/obj/item/stack/tile/plasteel/dark/smooth_corner,
+		/obj/item/stack/tile/plasteel/dark/smooth_large,
+		/obj/item/stack/tile/plasteel/dark/small,
+		/obj/item/stack/tile/plasteel/dark/diagonal,
+		/obj/item/stack/tile/plasteel/dark/herringbone,
+		/obj/item/stack/tile/plasteel/dark_side,
+		/obj/item/stack/tile/plasteel/dark_corner,
+		/obj/item/stack/tile/plasteel/checker,
+		/obj/item/stack/tile/plasteel/dark/textured,
+		/obj/item/stack/tile/plasteel/dark/textured_edge,
+		/obj/item/stack/tile/plasteel/dark/textured_half,
+		/obj/item/stack/tile/plasteel/dark/textured_corner,
+		/obj/item/stack/tile/plasteel/dark/textured_large,
+		/obj/item/stack/tile/plasteel/white,
+		/obj/item/stack/tile/plasteel/white/smooth_edge,
+		/obj/item/stack/tile/plasteel/white/smooth_half,
+		/obj/item/stack/tile/plasteel/white/smooth_corner,
+		/obj/item/stack/tile/plasteel/white/smooth_large,
+		/obj/item/stack/tile/plasteel/white/small,
+		/obj/item/stack/tile/plasteel/white/diagonal,
+		/obj/item/stack/tile/plasteel/white/herringbone,
+		/obj/item/stack/tile/plasteel/white_side,
+		/obj/item/stack/tile/plasteel/white_corner,
+		/obj/item/stack/tile/plasteel/cafeteria,
+		/obj/item/stack/tile/plasteel/white/textured,
+		/obj/item/stack/tile/plasteel/white/textured_edge,
+		/obj/item/stack/tile/plasteel/white/textured_half,
+		/obj/item/stack/tile/plasteel/white/textured_corner,
+		/obj/item/stack/tile/plasteel/white/textured_large,
+		/obj/item/stack/tile/plasteel/smooth,
+		/obj/item/stack/tile/plasteel/smooth_edge,
+		/obj/item/stack/tile/plasteel/smooth_half,
+		/obj/item/stack/tile/plasteel/smooth_corner,
+		/obj/item/stack/tile/plasteel/smooth_large,
+		/obj/item/stack/tile/plasteel/terracotta,
+		/obj/item/stack/tile/plasteel/terracotta/small,
+		/obj/item/stack/tile/plasteel/terracotta/diagonal,
+		/obj/item/stack/tile/plasteel/terracotta/herringbone,
+		/obj/item/stack/tile/plasteel/kitchen,
+		/obj/item/stack/tile/plasteel/kitchen/small,
+		/obj/item/stack/tile/plasteel/kitchen/diagonal,
+		/obj/item/stack/tile/plasteel/kitchen/herringbone,
+		/obj/item/stack/tile/plasteel/chapel,
+		/obj/item/stack/tile/plasteel/showroomfloor,
+		/obj/item/stack/tile/plasteel/freezer,
+		/obj/item/stack/tile/plasteel/sepia,
 	)
 
 /obj/item/stack/tile/plastic
@@ -639,473 +639,473 @@
 /obj/item/stack/tile/rglass/fifty
 	amount = 50
 
-/obj/item/stack/tile/tg/base //this subtype should be used for most stuff
-	merge_type = /obj/item/stack/tile/tg/base
+/obj/item/stack/tile/plasteel/base //this subtype should be used for most stuff
+	merge_type = /obj/item/stack/tile/plasteel/base
 
-/obj/item/stack/tile/tg/base/cyborg //cant reskin these, fucks with borg code
-	merge_type = /obj/item/stack/tile/tg/base/cyborg
+/obj/item/stack/tile/plasteel/base/cyborg //cant reskin these, fucks with borg code
+	merge_type = /obj/item/stack/tile/plasteel/base/cyborg
 	tile_reskin_types = null
 
-/obj/item/stack/tile/tg/edge
+/obj/item/stack/tile/plasteel/edge
 	name = "edge tile"
 	singular_name = "edge floor tile"
 	icon_state = "tile_edge"
 	turf_type = /turf/open/floor/plasteel/tg/edge
-	merge_type = /obj/item/stack/tile/tg/edge
+	merge_type = /obj/item/stack/tile/plasteel/edge
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/obj/item/stack/tile/tg/half
+/obj/item/stack/tile/plasteel/half
 	name = "half tile"
 	singular_name = "half floor tile"
 	icon_state = "tile_half"
 	turf_type = /turf/open/floor/plasteel/tg/half
-	merge_type = /obj/item/stack/tile/tg/half
+	merge_type = /obj/item/stack/tile/plasteel/half
 	tile_rotate_dirs = list(SOUTH, NORTH)
 
-/obj/item/stack/tile/tg/corner
+/obj/item/stack/tile/plasteel/corner
 	name = "corner tile"
 	singular_name = "corner floor tile"
 	icon_state = "tile_corner"
 	turf_type = /turf/open/floor/plasteel/tg/corner
-	merge_type = /obj/item/stack/tile/tg/corner
+	merge_type = /obj/item/stack/tile/plasteel/corner
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/obj/item/stack/tile/tg/large
+/obj/item/stack/tile/plasteel/large
 	name = "large tile"
 	singular_name = "large floor tile"
 	icon_state = "tile_large"
 	turf_type = /turf/open/floor/plasteel/tg/large
-	merge_type = /obj/item/stack/tile/tg/large
+	merge_type = /obj/item/stack/tile/plasteel/large
 
-/obj/item/stack/tile/tg/textured
+/obj/item/stack/tile/plasteel/textured
 	name = "textured tile"
 	singular_name = "textured floor tile"
 	icon_state = "tile_textured"
 	turf_type = /turf/open/floor/plasteel/tg/textured
-	merge_type = /obj/item/stack/tile/tg/textured
+	merge_type = /obj/item/stack/tile/plasteel/textured
 
-/obj/item/stack/tile/tg/textured_edge
+/obj/item/stack/tile/plasteel/textured_edge
 	name = "textured edge tile"
 	singular_name = "edged textured floor tile"
 	icon_state = "tile_textured_edge"
 	turf_type = /turf/open/floor/plasteel/tg/textured_edge
-	merge_type = /obj/item/stack/tile/tg/textured_edge
+	merge_type = /obj/item/stack/tile/plasteel/textured_edge
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/obj/item/stack/tile/tg/textured_half
+/obj/item/stack/tile/plasteel/textured_half
 	name = "textured half tile"
 	singular_name = "halved textured floor tile"
 	icon_state = "tile_textured_half"
 	turf_type = /turf/open/floor/plasteel/tg/textured_half
-	merge_type = /obj/item/stack/tile/tg/textured_half
+	merge_type = /obj/item/stack/tile/plasteel/textured_half
 	tile_rotate_dirs = list(SOUTH, NORTH)
 
-/obj/item/stack/tile/tg/textured_corner
+/obj/item/stack/tile/plasteel/textured_corner
 	name = "textured corner tile"
 	singular_name = "cornered textured floor tile"
 	icon_state = "tile_textured_corner"
 	turf_type = /turf/open/floor/plasteel/tg/textured_corner
-	merge_type = /obj/item/stack/tile/tg/textured_corner
+	merge_type = /obj/item/stack/tile/plasteel/textured_corner
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/obj/item/stack/tile/tg/textured_large
+/obj/item/stack/tile/plasteel/textured_large
 	name = "textured large tile"
 	singular_name = "large textured floor tile"
 	icon_state = "tile_textured_large"
 	turf_type = /turf/open/floor/plasteel/tg/textured_large
-	merge_type = /obj/item/stack/tile/tg/textured_large
+	merge_type = /obj/item/stack/tile/plasteel/textured_large
 
-/obj/item/stack/tile/tg/small
+/obj/item/stack/tile/plasteel/small
 	name = "small tile"
 	singular_name = "small floor tile"
 	icon_state = "tile_small"
 	turf_type = /turf/open/floor/plasteel/tg/small
-	merge_type = /obj/item/stack/tile/tg/small
+	merge_type = /obj/item/stack/tile/plasteel/small
 
-/obj/item/stack/tile/tg/diagonal
+/obj/item/stack/tile/plasteel/diagonal
 	name = "diagonal tile"
 	singular_name = "diagonal floor tile"
 	icon_state = "tile_diagonal"
 	turf_type = /turf/open/floor/plasteel/tg/diagonal
-	merge_type = /obj/item/stack/tile/tg/diagonal
+	merge_type = /obj/item/stack/tile/plasteel/diagonal
 
-/obj/item/stack/tile/tg/herringbone
+/obj/item/stack/tile/plasteel/herringbone
 	name = "herringbone tile"
 	singular_name = "herringbone floor tile"
 	icon_state = "tile_herringbone"
 	turf_type = /turf/open/floor/plasteel/tg/herringbone
-	merge_type = /obj/item/stack/tile/tg/herringbone
+	merge_type = /obj/item/stack/tile/plasteel/herringbone
 
-/obj/item/stack/tile/tg/dark
+/obj/item/stack/tile/plasteel/dark
 	name = "dark tile"
 	singular_name = "dark floor tile"
 	icon_state = "tile_dark"
 	turf_type = /turf/open/floor/plasteel/tg/dark
-	merge_type = /obj/item/stack/tile/tg/dark
+	merge_type = /obj/item/stack/tile/plasteel/dark
 
-/obj/item/stack/tile/tg/dark/smooth_edge
+/obj/item/stack/tile/plasteel/dark/smooth_edge
 	name = "dark edge tile"
 	singular_name = "edged dark floor tile"
 	icon_state = "tile_dark_edge"
 	turf_type = /turf/open/floor/plasteel/tg/dark/smooth_edge
-	merge_type = /obj/item/stack/tile/tg/dark/smooth_edge
+	merge_type = /obj/item/stack/tile/plasteel/dark/smooth_edge
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/obj/item/stack/tile/tg/dark/smooth_half
+/obj/item/stack/tile/plasteel/dark/smooth_half
 	name = "dark half tile"
 	singular_name = "halved dark floor tile"
 	icon_state = "tile_dark_half"
 	turf_type = /turf/open/floor/plasteel/tg/dark/smooth_half
-	merge_type = /obj/item/stack/tile/tg/dark/smooth_half
+	merge_type = /obj/item/stack/tile/plasteel/dark/smooth_half
 	tile_rotate_dirs = list(SOUTH, NORTH)
 
-/obj/item/stack/tile/tg/dark/smooth_corner
+/obj/item/stack/tile/plasteel/dark/smooth_corner
 	name = "dark corner tile"
 	singular_name = "cornered dark floor tile"
 	icon_state = "tile_dark_corner"
 	turf_type = /turf/open/floor/plasteel/tg/dark/smooth_corner
-	merge_type = /obj/item/stack/tile/tg/dark/smooth_corner
+	merge_type = /obj/item/stack/tile/plasteel/dark/smooth_corner
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/obj/item/stack/tile/tg/dark/smooth_large
+/obj/item/stack/tile/plasteel/dark/smooth_large
 	name = "dark large tile"
 	singular_name = "large dark floor tile"
 	icon_state = "tile_dark_large"
 	turf_type = /turf/open/floor/plasteel/tg/dark/smooth_large
-	merge_type = /obj/item/stack/tile/tg/dark/smooth_large
+	merge_type = /obj/item/stack/tile/plasteel/dark/smooth_large
 
-/obj/item/stack/tile/tg/dark_side
+/obj/item/stack/tile/plasteel/dark_side
 	name = "half dark tile"
 	singular_name = "half dark floor tile"
 	icon_state = "tile_darkside"
 	turf_type = /turf/open/floor/plasteel/tg/dark/side
-	merge_type = /obj/item/stack/tile/tg/dark_side
+	merge_type = /obj/item/stack/tile/plasteel/dark_side
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST, SOUTHEAST, SOUTHWEST, NORTHEAST, NORTHWEST)
 
-/obj/item/stack/tile/tg/dark_corner
+/obj/item/stack/tile/plasteel/dark_corner
 	name = "quarter dark tile"
 	singular_name = "quarter dark floor tile"
 	icon_state = "tile_darkcorner"
 	turf_type = /turf/open/floor/plasteel/tg/dark/corner
-	merge_type = /obj/item/stack/tile/tg/dark_corner
+	merge_type = /obj/item/stack/tile/plasteel/dark_corner
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/obj/item/stack/tile/tg/checker
+/obj/item/stack/tile/plasteel/checker
 	name = "checker tile"
 	singular_name = "checker floor tile"
 	icon_state = "tile_checker"
 	turf_type = /turf/open/floor/plasteel/tg/checker
-	merge_type = /obj/item/stack/tile/tg/checker
+	merge_type = /obj/item/stack/tile/plasteel/checker
 	tile_rotate_dirs = list(SOUTH, NORTH)
 
-/obj/item/stack/tile/tg/dark/textured
+/obj/item/stack/tile/plasteel/dark/textured
 	name = "dark textured tile"
 	singular_name = "dark textured floor tile"
 	icon_state = "tile_textured_dark"
 	turf_type = /turf/open/floor/plasteel/tg/dark/textured
-	merge_type = /obj/item/stack/tile/tg/dark/textured
+	merge_type = /obj/item/stack/tile/plasteel/dark/textured
 
-/obj/item/stack/tile/tg/dark/textured_edge
+/obj/item/stack/tile/plasteel/dark/textured_edge
 	name = "dark textured edge tile"
 	singular_name = "edged dark textured floor tile"
 	icon_state = "tile_textured_dark_edge"
 	turf_type = /turf/open/floor/plasteel/tg/dark/textured_edge
-	merge_type = /obj/item/stack/tile/tg/dark/textured_edge
+	merge_type = /obj/item/stack/tile/plasteel/dark/textured_edge
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/obj/item/stack/tile/tg/dark/textured_half
+/obj/item/stack/tile/plasteel/dark/textured_half
 	name = "dark textured half tile"
 	singular_name = "halved dark textured floor tile"
 	icon_state = "tile_textured_dark_half"
 	turf_type = /turf/open/floor/plasteel/tg/dark/textured_half
-	merge_type = /obj/item/stack/tile/tg/dark/textured_half
+	merge_type = /obj/item/stack/tile/plasteel/dark/textured_half
 	tile_rotate_dirs = list(SOUTH, NORTH)
 
-/obj/item/stack/tile/tg/dark/textured_corner
+/obj/item/stack/tile/plasteel/dark/textured_corner
 	name = "dark textured corner tile"
 	singular_name = "cornered dark textured floor tile"
 	icon_state = "tile_textured_dark_corner"
 	turf_type = /turf/open/floor/plasteel/tg/dark/textured_corner
-	merge_type = /obj/item/stack/tile/tg/dark/textured_corner
+	merge_type = /obj/item/stack/tile/plasteel/dark/textured_corner
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/obj/item/stack/tile/tg/dark/textured_large
+/obj/item/stack/tile/plasteel/dark/textured_large
 	name = "dark textured large tile"
 	singular_name = "large dark textured floor tile"
 	icon_state = "tile_textured_dark_large"
 	turf_type = /turf/open/floor/plasteel/tg/dark/textured_large
-	merge_type = /obj/item/stack/tile/tg/dark/textured_large
+	merge_type = /obj/item/stack/tile/plasteel/dark/textured_large
 
-/obj/item/stack/tile/tg/dark/small
+/obj/item/stack/tile/plasteel/dark/small
 	name = "dark small tile"
 	singular_name = "dark small floor tile"
 	icon_state = "tile_dark_small"
 	turf_type = /turf/open/floor/plasteel/tg/dark/small
-	merge_type = /obj/item/stack/tile/tg/dark/small
+	merge_type = /obj/item/stack/tile/plasteel/dark/small
 
-/obj/item/stack/tile/tg/dark/diagonal
+/obj/item/stack/tile/plasteel/dark/diagonal
 	name = "dark diagonal tile"
 	singular_name = "dark diagonal floor tile"
 	icon_state = "tile_dark_diagonal"
 	turf_type = /turf/open/floor/plasteel/tg/dark/diagonal
-	merge_type = /obj/item/stack/tile/tg/dark/diagonal
+	merge_type = /obj/item/stack/tile/plasteel/dark/diagonal
 
-/obj/item/stack/tile/tg/dark/herringbone
+/obj/item/stack/tile/plasteel/dark/herringbone
 	name = "dark herringbone tile"
 	singular_name = "dark herringbone floor tile"
 	icon_state = "tile_dark_herringbone"
 	turf_type = /turf/open/floor/plasteel/tg/dark/herringbone
-	merge_type = /obj/item/stack/tile/tg/dark/herringbone
+	merge_type = /obj/item/stack/tile/plasteel/dark/herringbone
 
-/obj/item/stack/tile/tg/white
+/obj/item/stack/tile/plasteel/white
 	name = "white tile"
 	singular_name = "white floor tile"
 	icon_state = "tile_white"
 	turf_type = /turf/open/floor/plasteel/tg/white
-	merge_type = /obj/item/stack/tile/tg/white
+	merge_type = /obj/item/stack/tile/plasteel/white
 
-/obj/item/stack/tile/tg/white/smooth_edge
+/obj/item/stack/tile/plasteel/white/smooth_edge
 	name = "white edge tile"
 	singular_name = "edged white floor tile"
 	icon_state = "tile_white_edge"
 	turf_type = /turf/open/floor/plasteel/tg/white/smooth_edge
-	merge_type = /obj/item/stack/tile/tg/white/smooth_edge
+	merge_type = /obj/item/stack/tile/plasteel/white/smooth_edge
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/obj/item/stack/tile/tg/white/smooth_half
+/obj/item/stack/tile/plasteel/white/smooth_half
 	name = "white half tile"
 	singular_name = "halved white floor tile"
 	icon_state = "tile_white_half"
 	turf_type = /turf/open/floor/plasteel/tg/white/smooth_half
-	merge_type = /obj/item/stack/tile/tg/white/smooth_half
+	merge_type = /obj/item/stack/tile/plasteel/white/smooth_half
 	tile_rotate_dirs = list(SOUTH, NORTH)
 
-/obj/item/stack/tile/tg/white/smooth_corner
+/obj/item/stack/tile/plasteel/white/smooth_corner
 	name = "white corner tile"
 	singular_name = "cornered white floor tile"
 	icon_state = "tile_white_corner"
 	turf_type = /turf/open/floor/plasteel/tg/white/smooth_corner
-	merge_type = /obj/item/stack/tile/tg/white/smooth_corner
+	merge_type = /obj/item/stack/tile/plasteel/white/smooth_corner
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/obj/item/stack/tile/tg/white/smooth_large
+/obj/item/stack/tile/plasteel/white/smooth_large
 	name = "white large tile"
 	singular_name = "large white floor tile"
 	icon_state = "tile_white_large"
 	turf_type = /turf/open/floor/plasteel/tg/white/smooth_large
-	merge_type = /obj/item/stack/tile/tg/white/smooth_large
+	merge_type = /obj/item/stack/tile/plasteel/white/smooth_large
 
-/obj/item/stack/tile/tg/white_side
+/obj/item/stack/tile/plasteel/white_side
 	name = "half white tile"
 	singular_name = "half white floor tile"
 	icon_state = "tile_whiteside"
 	turf_type = /turf/open/floor/plasteel/tg/white/side
-	merge_type = /obj/item/stack/tile/tg/white_side
+	merge_type = /obj/item/stack/tile/plasteel/white_side
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST, SOUTHEAST, SOUTHWEST, NORTHEAST, NORTHWEST)
 
-/obj/item/stack/tile/tg/white_corner
+/obj/item/stack/tile/plasteel/white_corner
 	name = "quarter white tile"
 	singular_name = "quarter white floor tile"
 	icon_state = "tile_whitecorner"
 	turf_type = /turf/open/floor/plasteel/tg/white/corner
-	merge_type = /obj/item/stack/tile/tg/white_corner
+	merge_type = /obj/item/stack/tile/plasteel/white_corner
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/obj/item/stack/tile/tg/cafeteria
+/obj/item/stack/tile/plasteel/cafeteria
 	name = "cafeteria tile"
 	singular_name = "cafeteria floor tile"
 	icon_state = "tile_cafeteria"
 	turf_type = /turf/open/floor/plasteel/tg/cafeteria
-	merge_type = /obj/item/stack/tile/tg/cafeteria
+	merge_type = /obj/item/stack/tile/plasteel/cafeteria
 	tile_rotate_dirs = list(SOUTH, NORTH)
 
-/obj/item/stack/tile/tg/white/textured
+/obj/item/stack/tile/plasteel/white/textured
 	name = "white textured tile"
 	singular_name = "white textured floor tile"
 	icon_state = "tile_textured_white"
 	turf_type = /turf/open/floor/plasteel/tg/white/textured
-	merge_type = /obj/item/stack/tile/tg/white/textured
+	merge_type = /obj/item/stack/tile/plasteel/white/textured
 
-/obj/item/stack/tile/tg/white/textured_edge
+/obj/item/stack/tile/plasteel/white/textured_edge
 	name = "white textured edge tile"
 	singular_name = "edged white textured floor tile"
 	icon_state = "tile_textured_white_edge"
 	turf_type = /turf/open/floor/plasteel/tg/white/textured_edge
-	merge_type = /obj/item/stack/tile/tg/white/textured_edge
+	merge_type = /obj/item/stack/tile/plasteel/white/textured_edge
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/obj/item/stack/tile/tg/white/textured_half
+/obj/item/stack/tile/plasteel/white/textured_half
 	name = "white textured half tile"
 	singular_name = "halved white textured floor tile"
 	icon_state = "tile_textured_white_half"
 	turf_type = /turf/open/floor/plasteel/tg/white/textured_half
-	merge_type = /obj/item/stack/tile/tg/white/textured_half
+	merge_type = /obj/item/stack/tile/plasteel/white/textured_half
 	tile_rotate_dirs = list(SOUTH, NORTH)
 
-/obj/item/stack/tile/tg/white/textured_corner
+/obj/item/stack/tile/plasteel/white/textured_corner
 	name = "white textured corner tile"
 	singular_name = "cornered white textured floor tile"
 	icon_state = "tile_textured_white_corner"
 	turf_type = /turf/open/floor/plasteel/tg/white/textured_corner
-	merge_type = /obj/item/stack/tile/tg/white/textured_corner
+	merge_type = /obj/item/stack/tile/plasteel/white/textured_corner
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/obj/item/stack/tile/tg/white/textured_large
+/obj/item/stack/tile/plasteel/white/textured_large
 	name = "white textured large tile"
 	singular_name = "large white textured floor tile"
 	icon_state = "tile_textured_white_large"
 	turf_type = /turf/open/floor/plasteel/tg/white/textured_large
-	merge_type = /obj/item/stack/tile/tg/white/textured_large
+	merge_type = /obj/item/stack/tile/plasteel/white/textured_large
 
-/obj/item/stack/tile/tg/white/small
+/obj/item/stack/tile/plasteel/white/small
 	name = "white small tile"
 	singular_name = "white small floor tile"
 	icon_state = "tile_white_small"
 	turf_type = /turf/open/floor/plasteel/tg/white/small
-	merge_type = /obj/item/stack/tile/tg/white/small
+	merge_type = /obj/item/stack/tile/plasteel/white/small
 
-/obj/item/stack/tile/tg/white/diagonal
+/obj/item/stack/tile/plasteel/white/diagonal
 	name = "white diagonal tile"
 	singular_name = "white diagonal floor tile"
 	icon_state = "tile_white_diagonal"
 	turf_type = /turf/open/floor/plasteel/tg/white/diagonal
-	merge_type = /obj/item/stack/tile/tg/white/diagonal
+	merge_type = /obj/item/stack/tile/plasteel/white/diagonal
 
-/obj/item/stack/tile/tg/white/herringbone
+/obj/item/stack/tile/plasteel/white/herringbone
 	name = "white herringbone tile"
 	singular_name = "white herringbone floor tile"
 	icon_state = "tile_white_herringbone"
 	turf_type = /turf/open/floor/plasteel/tg/white/herringbone
-	merge_type = /obj/item/stack/tile/tg/white/herringbone
+	merge_type = /obj/item/stack/tile/plasteel/white/herringbone
 
-/obj/item/stack/tile/tg/smooth
+/obj/item/stack/tile/plasteel/smooth
 	name = "smooth tile"
 	singular_name = "smooth floor tile"
 	icon_state = "tile_smooth"
 	turf_type = /turf/open/floor/plasteel/tg/smooth
-	merge_type = /obj/item/stack/tile/tg/smooth
+	merge_type = /obj/item/stack/tile/plasteel/smooth
 
-/obj/item/stack/tile/tg/smooth_edge
+/obj/item/stack/tile/plasteel/smooth_edge
 	name = "smooth edge tile"
 	singular_name = "edged smooth floor tile"
 	icon_state = "tile_smooth_edge"
 	turf_type = /turf/open/floor/plasteel/tg/smooth_edge
-	merge_type = /obj/item/stack/tile/tg/smooth_edge
+	merge_type = /obj/item/stack/tile/plasteel/smooth_edge
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/obj/item/stack/tile/tg/smooth_half
+/obj/item/stack/tile/plasteel/smooth_half
 	name = "smooth half tile"
 	singular_name = "halved smooth floor tile"
 	icon_state = "tile_smooth_half"
 	turf_type = /turf/open/floor/plasteel/tg/smooth_half
-	merge_type = /obj/item/stack/tile/tg/smooth_half
+	merge_type = /obj/item/stack/tile/plasteel/smooth_half
 	tile_rotate_dirs = list(SOUTH, NORTH)
 
-/obj/item/stack/tile/tg/smooth_corner
+/obj/item/stack/tile/plasteel/smooth_corner
 	name = "smooth corner tile"
 	singular_name = "cornered smooth floor tile"
 	icon_state = "tile_smooth_corner"
 	turf_type = /turf/open/floor/plasteel/tg/smooth_corner
-	merge_type = /obj/item/stack/tile/tg/smooth_corner
+	merge_type = /obj/item/stack/tile/plasteel/smooth_corner
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
-/obj/item/stack/tile/tg/smooth_large
+/obj/item/stack/tile/plasteel/smooth_large
 	name = "smooth large tile"
 	singular_name = "large smooth floor tile"
 	icon_state = "tile_smooth_large"
 	turf_type = /turf/open/floor/plasteel/tg/smooth_large
-	merge_type = /obj/item/stack/tile/tg/smooth_large
+	merge_type = /obj/item/stack/tile/plasteel/smooth_large
 
-/obj/item/stack/tile/tg/terracotta
+/obj/item/stack/tile/plasteel/terracotta
 	name = "terracotta floor tile"
 	singular_name = "terracotta floor tile"
 	icon_state = "tile_terracotta"
 	turf_type = /turf/open/floor/plasteel/tg/terracotta
-	merge_type = /obj/item/stack/tile/tg/terracotta
+	merge_type = /obj/item/stack/tile/plasteel/terracotta
 
-/obj/item/stack/tile/tg/terracotta/small
+/obj/item/stack/tile/plasteel/terracotta/small
 	name = "terracotta small tile"
 	singular_name = "terracotta small floor tile"
 	icon_state = "tile_terracotta_small"
 	turf_type = /turf/open/floor/plasteel/tg/terracotta/small
-	merge_type = /obj/item/stack/tile/tg/terracotta/small
+	merge_type = /obj/item/stack/tile/plasteel/terracotta/small
 
-/obj/item/stack/tile/tg/terracotta/diagonal
+/obj/item/stack/tile/plasteel/terracotta/diagonal
 	name = "terracotta diagonal tile"
 	singular_name = "terracotta diagonal floor tile"
 	icon_state = "tile_terracotta_diagonal"
 	turf_type = /turf/open/floor/plasteel/tg/terracotta/diagonal
-	merge_type = /obj/item/stack/tile/tg/terracotta/diagonal
+	merge_type = /obj/item/stack/tile/plasteel/terracotta/diagonal
 
-/obj/item/stack/tile/tg/terracotta/herringbone
+/obj/item/stack/tile/plasteel/terracotta/herringbone
 	name = "terracotta herringbone tile"
 	singular_name = "terracotta herringbone floor tile"
 	icon_state = "tile_terracotta_herringbone"
 	turf_type = /turf/open/floor/plasteel/tg/terracotta/herringbone
-	merge_type = /obj/item/stack/tile/tg/terracotta/herringbone
+	merge_type = /obj/item/stack/tile/plasteel/terracotta/herringbone
 
-/obj/item/stack/tile/tg/kitchen
+/obj/item/stack/tile/plasteel/kitchen
 	name = "kitchen tile"
 	singular_name = "kitchen tile"
 	icon_state = "tile_kitchen"
 	turf_type = /turf/open/floor/plasteel/tg/kitchen
-	merge_type = /obj/item/stack/tile/tg/kitchen
+	merge_type = /obj/item/stack/tile/plasteel/kitchen
 
-/obj/item/stack/tile/tg/kitchen/small
+/obj/item/stack/tile/plasteel/kitchen/small
 	name = "small kitchen tile"
 	singular_name = "small kitchen floor tile"
 	icon_state = "tile_kitchen_small"
 	turf_type = /turf/open/floor/plasteel/tg/kitchen/small
-	merge_type = /obj/item/stack/tile/tg/kitchen/small
+	merge_type = /obj/item/stack/tile/plasteel/kitchen/small
 
-/obj/item/stack/tile/tg/kitchen/diagonal
+/obj/item/stack/tile/plasteel/kitchen/diagonal
 	name = "diagonal kitchen tile"
 	singular_name = "diagonal kitchen floor tile"
 	icon_state = "tile_kitchen_diagonal"
 	turf_type = /turf/open/floor/plasteel/tg/kitchen/diagonal
-	merge_type = /obj/item/stack/tile/tg/kitchen/diagonal
+	merge_type = /obj/item/stack/tile/plasteel/kitchen/diagonal
 
-/obj/item/stack/tile/tg/kitchen/herringbone
+/obj/item/stack/tile/plasteel/kitchen/herringbone
 	name = "herringbone kitchen tile"
 	singular_name = "herringbone kitchen floor tile"
 	icon_state = "tile_kitchen_herringbone"
 	turf_type = /turf/open/floor/plasteel/tg/kitchen/herringbone
-	merge_type = /obj/item/stack/tile/tg/kitchen/herringbone
+	merge_type = /obj/item/stack/tile/plasteel/kitchen/herringbone
 
-/obj/item/stack/tile/tg/chapel
+/obj/item/stack/tile/plasteel/chapel
 	name = "chapel floor tile"
 	singular_name = "chapel floor tile"
 	icon_state = "tile_chapel"
 	turf_type = /turf/open/floor/plasteel/tg/chapel
-	merge_type = /obj/item/stack/tile/tg/chapel
+	merge_type = /obj/item/stack/tile/plasteel/chapel
 	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST, SOUTHEAST, SOUTHWEST, NORTHEAST, NORTHWEST)
 
-/obj/item/stack/tile/tg/showroomfloor
+/obj/item/stack/tile/plasteel/showroomfloor
 	name = "showroom floor tile"
 	singular_name = "showroom floor tile"
 	icon_state = "tile_showroom"
 	turf_type = /turf/open/floor/plasteel/tg/showroomfloor
-	merge_type = /obj/item/stack/tile/tg/showroomfloor
+	merge_type = /obj/item/stack/tile/plasteel/showroomfloor
 
-/obj/item/stack/tile/tg/freezer
+/obj/item/stack/tile/plasteel/freezer
 	name = "freezer floor tile"
 	singular_name = "freezer floor tile"
 	icon_state = "tile_freezer"
 	turf_type = /turf/open/floor/plasteel/tg/freezer
-	merge_type = /obj/item/stack/tile/tg/freezer
+	merge_type = /obj/item/stack/tile/plasteel/freezer
 
-/obj/item/stack/tile/tg/sepia
+/obj/item/stack/tile/plasteel/sepia
 	name = "sepia floor tile"
 	singular_name = "sepia floor tile"
 	desc = "Well, the flow of time is normal on these tiles, weird."
 	icon_state = "tile_sepia"
 	turf_type = /turf/open/floor/plasteel/tg/sepia
-	merge_type = /obj/item/stack/tile/tg/sepia
+	merge_type = /obj/item/stack/tile/plasteel/sepia
 
-/obj/item/stack/tile/tg/vaporwave
+/obj/item/stack/tile/plasteel/vaporwave
 	name = "vaporwave floor tile"
 	singular_name = "vaporwave floor tile"
 	icon_state = "tile_vaporwave"
 	turf_type = /turf/open/floor/plasteel/tg/vaporwave
-	merge_type = /obj/item/stack/tile/tg/vaporwave
+	merge_type = /obj/item/stack/tile/plasteel/vaporwave
 	tile_reskin_types = null
