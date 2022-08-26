@@ -20,6 +20,11 @@
 
 	var/attachment_holes = TRUE
 
+	/// If true, will allow tiles to replace us if the tile [wants to] [/obj/item/stack/tile/var/replace_plating].
+	/// And if our baseturfs are compatible.
+	/// See [/obj/item/stack/tile/proc/place_tile].
+	var/allow_replacement = TRUE
+
 /turf/open/floor/plating/setup_broken_states()
 	return list("damaged1", "damaged2", "damaged4")
 
@@ -68,7 +73,7 @@
 					to_chat(user, span_warning("Кто-то пристёгнут к <b>[O]</b>! Надо бы убрать [M]."))
 					return
 			var/obj/item/stack/tile/tile = C
-			tile.place_tile(src)
+			tile.place_tile(src, user)
 			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 		else
 			if(!iscyborg(user))
