@@ -978,13 +978,6 @@
 	turf_type = /turf/open/floor/plasteel/tg/white/herringbone
 	merge_type = /obj/item/stack/tile/tg/white/herringbone
 
-/obj/item/stack/tile/tg/recharge_floor
-	name = "recharge floor tile"
-	singular_name = "recharge floor tile"
-	icon_state = "tile_recharge"
-	turf_type = /turf/open/floor/plasteel/tg/recharge_floor
-	merge_type = /obj/item/stack/tile/tg/recharge_floor
-
 /obj/item/stack/tile/tg/smooth
 	name = "smooth tile"
 	singular_name = "smooth floor tile"
