@@ -55,15 +55,13 @@ SUBSYSTEM_DEF(air)
 	// Max number of turfs to look for a space turf, and max number of turfs that will be decompressed.
 	var/equalize_hard_turf_limit = 2000
 	// Whether equalization should be enabled at all.
-	var/equalize_enabled = TRUE
+	var/equalize_enabled = FALSE
 	// Whether turf-to-turf heat exchanging should be enabled.
-	var/heat_enabled = TRUE
+	var/heat_enabled = FALSE
 	// Max number of times process_turfs will share in a tick.
 	var/share_max_steps = 3
 	// Excited group processing will try to equalize groups with total pressure difference less than this amount.
 	var/excited_group_pressure_goal = 1
-	// If this is set to 0, monstermos won't process planet atmos
-	var/planet_equalize_enabled = 0
 
 	var/list/atom_process = list()
 
@@ -392,17 +390,48 @@ SUBSYSTEM_DEF(air)
 /datum/controller/subsystem/air/proc/process_turf_equalize(resumed = FALSE)
 	if(process_turf_equalize_auxtools(resumed,MC_TICK_REMAINING_MS))
 		pause()
+	/*
+	//cache for sanic speed
+	var/fire_count = times_fired
+	if (!resumed)
+		src.currentrun = active_turfs.Copy()
+	//cache for sanic speed (lists are references anyways)
+	var/list/currentrun = src.currentrun
+	while(currentrun.len)
+		var/turf/open/T = currentrun[currentrun.len]
+		currentrun.len--
+		if (T)
+			T.equalize_pressure_in_zone(fire_count)
+			//equalize_pressure_in_zone(T, fire_count)
+		if (MC_TICK_CHECK)
+			return
+	*/
 
 /datum/controller/subsystem/air/proc/process_turfs(resumed = FALSE)
 	if(process_turfs_auxtools(resumed,MC_TICK_REMAINING_MS))
 		pause()
+	/*
+	//cache for sanic speed
+	var/fire_count = times_fired
+	if (!resumed)
+		src.currentrun = active_turfs.Copy()
+	//cache for sanic speed (lists are references anyways)
+	var/list/currentrun = src.currentrun
+	while(currentrun.len)
+		var/turf/open/T = currentrun[currentrun.len]
+		currentrun.len--
+		if (T)
+			T.process_cell(fire_count)
+		if (MC_TICK_CHECK)
+			return
+	*/
 
 /datum/controller/subsystem/air/proc/process_excited_groups(resumed = FALSE)
 	if(process_excited_groups_auxtools(resumed,MC_TICK_REMAINING_MS))
 		pause()
 
 /datum/controller/subsystem/air/proc/finish_turf_processing(resumed = FALSE)
-	if(finish_turf_processing_auxtools(MC_TICK_REMAINING_MS) || thread_running())
+	if(finish_turf_processing_auxtools(MC_TICK_REMAINING_MS))
 		pause()
 
 /datum/controller/subsystem/air/proc/post_process_turfs(resumed = FALSE)
@@ -426,10 +455,18 @@ SUBSYSTEM_DEF(air)
 	map_loading = FALSE
 
 /datum/controller/subsystem/air/proc/pause_z(z_level)
-	can_fire = FALSE
+	LAZYADD(paused_z_levels, z_level)
+	var/list/turfs_to_disable = block(locate(1, 1, z_level), locate(world.maxx, world.maxy, z_level))
+	for(var/turf/T as anything in turfs_to_disable)
+		T.ImmediateDisableAdjacency(FALSE)
+		CHECK_TICK
 
 /datum/controller/subsystem/air/proc/unpause_z(z_level)
-	can_fire = TRUE
+	var/list/turfs_to_reinit = block(locate(1, 1, z_level), locate(world.maxx, world.maxy, z_level))
+	for(var/turf/T as anything in turfs_to_reinit)
+		T.Initalize_Atmos()
+		CHECK_TICK
+	LAZYREMOVE(paused_z_levels, z_level)
 
 /datum/controller/subsystem/air/proc/setup_allturfs()
 	var/list/turfs_to_init = block(locate(1, 1, 1), locate(world.maxx, world.maxy, world.maxz))
