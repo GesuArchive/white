@@ -43,6 +43,7 @@
 	gas_overlay = "plasma"
 	moles_visible = MOLES_GAS_VISIBLE
 	flags = GAS_FLAG_DANGEROUS
+	fire_products = 0
 	// no fire info cause it has its own bespoke reaction for trit generation reasons
 
 /datum/gas/water_vapor
