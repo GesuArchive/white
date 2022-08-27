@@ -184,12 +184,3 @@
 #define ATMOS_PASS_PROC -1
 /// just check density
 #define ATMOS_PASS_DENSITY -2
-
-//Adjacent turf related defines, they dictate what to do with a turf once it's been recalculated
-//Used as "state" in CALCULATE_ADJACENT_TURFS
-///Normal non-active turf
-#define NORMAL_TURF 1
-///Set the turf to be activated on the next calculation
-#define MAKE_ACTIVE 2
-///Disable excited group
-#define KILL_EXCITED 3
