@@ -1,5 +1,4 @@
 /turf
-	//used for temperature calculations
 	//conductivity is divided by 10 when interacting with air for balance purposes
 	var/thermal_conductivity = 0.05
 	var/heat_capacity = 1
@@ -40,7 +39,6 @@
 		QDEL_NULL(active_hotspot)
 	return ..()
 
-/// Function for Extools Atmos
 /turf/proc/update_air_ref()
 
 /////////////////GAS MIXTURE PROCS///////////////////
@@ -55,6 +53,7 @@
 		SSair.deferred_airs += list(list(giver, air, moles / giver.total_moles()))
 	else
 		giver.transfer_to(air, moles)
+		update_visuals()
 	return TRUE
 
 /turf/open/assume_air_ratio(datum/gas_mixture/giver, ratio)
@@ -64,6 +63,7 @@
 		SSair.deferred_airs += list(list(giver, air, ratio))
 	else
 		giver.transfer_ratio_to(air, ratio)
+		update_visuals()
 	return TRUE
 
 /turf/open/transfer_air(datum/gas_mixture/taker, moles)
@@ -73,6 +73,7 @@
 		SSair.deferred_airs += list(list(air, taker, moles / air.total_moles()))
 	else
 		air.transfer_to(taker, moles)
+		update_visuals()
 	return TRUE
 
 /turf/open/transfer_air_ratio(datum/gas_mixture/taker, ratio)
@@ -82,16 +83,19 @@
 		SSair.deferred_airs += list(list(air, taker, ratio))
 	else
 		air.transfer_ratio_to(taker, ratio)
+		update_visuals()
 	return TRUE
 
 /turf/open/remove_air(amount)
 	var/datum/gas_mixture/ours = return_air()
 	var/datum/gas_mixture/removed = ours.remove(amount)
+	update_visuals()
 	return removed
 
 /turf/open/remove_air_ratio(ratio)
 	var/datum/gas_mixture/ours = return_air()
 	var/datum/gas_mixture/removed = ours.remove_ratio(ratio)
+	update_visuals()
 	return removed
 
 /turf/open/proc/copy_air_with_tile(turf/open/T)
@@ -131,6 +135,7 @@
 
 /////////////////////////GAS OVERLAYS//////////////////////////////
 
+
 /turf/open/proc/update_visuals()
 
 	var/list/atmos_overlay_types = src.atmos_overlay_types // Cache for free performance
@@ -143,6 +148,7 @@
 				vis_contents -= overlay
 			src.atmos_overlay_types = null
 		return
+
 
 	for(var/id in air.get_gases())
 		if (nonoverlaying_gases[id])
@@ -190,10 +196,6 @@
 
 /turf/open/proc/equalize_pressure_in_zone(cyclenum)
 /turf/open/proc/consider_firelocks(turf/T2)
-	for(var/obj/machinery/door/firedoor/FD in T2)
-		FD.emergency_pressure_stop()
-	for(var/obj/machinery/door/firedoor/FD in src)
-		FD.emergency_pressure_stop()
 
 /turf/proc/handle_decompression_floor_rip()
 /turf/open/floor/handle_decompression_floor_rip(sum)
@@ -216,10 +218,10 @@
 	return
 
 /turf/open/consider_pressure_difference(turf/T, difference)
+	SSair.high_pressure_delta |= src
 	if(difference > pressure_difference)
 		pressure_direction = get_dir(src, T)
 		pressure_difference = difference
-		SSair.high_pressure_delta[src] = TRUE
 
 /turf/open/proc/high_pressure_movements()
 	var/atom/movable/M
