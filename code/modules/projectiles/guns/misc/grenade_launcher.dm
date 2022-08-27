@@ -45,4 +45,4 @@
 	F.active = 1
 	F.icon_state = initial(F.icon_state) + "_active"
 	playsound(user.loc, 'white/Feline/sounds/Grenade_Shot.ogg', 100, TRUE)
-	addtimer(CALLBACK(F, /obj/item/grenade.proc/detonate), detonation_delay)
+	addtimer(CALLBACK(F, /obj/item/grenade.proc/detonate), F.det_time)
