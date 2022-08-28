@@ -69,8 +69,6 @@
 				break
 			if(gun.bayonet)
 				gun.remove_gun_attachment(item_to_remove = gun.bayonet)
-			if(gun.gun_light)
-				gun.remove_gun_attachment(item_to_remove = gun.gun_light)
 			for(var/obj/item/borg/upgrade/modkit/kit in gun.modkits)
 				kit.uninstall(gun)
 			var/obj/item/gun/energy/kinetic_accelerator/mega/newgun = new(get_turf(src))

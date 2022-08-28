@@ -27,7 +27,6 @@
 	icon_state = "tesla"
 	inhand_icon_state = "tesla"
 	ammo_type = list(/obj/item/ammo_casing/energy/tesla_revolver)
-	can_flashlight = FALSE
 	shaded_charge = 1
 
 /obj/item/gun/energy/e_gun/advtaser
@@ -41,9 +40,11 @@
 /obj/item/gun/energy/e_gun/advtaser/cyborg
 	name = "тазер киборга"
 	desc = "Интегрированный гибридный электрошокер, который берет прямо из силовой ячейки киборга. Оружие содержит ограничитель для предотвращения перегрева силовой ячейки киборга."
-	can_flashlight = FALSE
 	can_charge = FALSE
 	use_cyborg_cell = TRUE
+
+/obj/item/gun/energy/e_gun/advtaser/cyborg/add_seclight_point()
+	return
 
 /obj/item/gun/energy/e_gun/advtaser/cyborg/make_jamming()
 	return
@@ -55,10 +56,14 @@
 	inhand_icon_state = null
 	ammo_type = list(/obj/item/ammo_casing/energy/disabler)
 	ammo_x_offset = 2
-	can_flashlight = TRUE
-	flight_x_offset = 15
-	flight_y_offset = 10
 	fire_delay = 2
+
+/obj/item/gun/energy/disabler/add_seclight_point()
+	AddComponent(/datum/component/seclite_attachable, \
+		light_overlay_icon = 'icons/obj/weapons/guns/flashlights.dmi', \
+		light_overlay = "flight", \
+		overlay_x = 15, \
+		overlay_y = 10)
 
 /obj/item/gun/energy/disabler/cyborg
 	name = "усмиритель киборга"

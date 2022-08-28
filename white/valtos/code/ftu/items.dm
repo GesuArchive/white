@@ -62,7 +62,6 @@
 	mag_display_ammo = TRUE
 	fire_sound = 'white/valtos/sounds/r37.ogg'
 	can_bayonet = FALSE
-	can_flashlight = TRUE
 	mag_type = /obj/item/ammo_box/magazine/r37
 
 /obj/item/ammo_box/magazine/r37
@@ -96,7 +95,6 @@
 	mag_display_ammo = FALSE
 	fire_sound = 'white/valtos/sounds/r40.ogg'
 	can_bayonet = FALSE
-	can_flashlight = TRUE
 	mag_type = /obj/item/ammo_box/magazine/r40
 
 /obj/item/ammo_box/magazine/r40
@@ -127,7 +125,6 @@
 	fire_sound_volume = 110
 	rack_sound_volume = 110
 	spread = 1
-	can_flashlight = FALSE
 
 /obj/item/ammo_box/magazine/mm12/saphe
 	name = "магазин магнума 12.7x35mm SAP-HE"

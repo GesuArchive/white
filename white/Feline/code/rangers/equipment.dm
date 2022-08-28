@@ -289,11 +289,16 @@
 	w_class = WEIGHT_CLASS_SMALL
 	cell_type = /obj/item/stock_parts/cell/mini_egun
 	charge_sections = 3
-	can_flashlight = FALSE
-	gunlight_state = "mini-light"
-	flight_x_offset = 19
-	flight_y_offset = 13
 	dual_wield_spread = 10
 
 	ammo_x_offset = 1
 	shaded_charge = 1
+
+/obj/item/gun/energy/laser/rangers/sci/add_seclight_point()
+	AddComponent(/datum/component/seclite_attachable, \
+		starting_light = new /obj/item/flashlight/seclite(src), \
+		is_light_removable = FALSE, \
+		light_overlay_icon = 'icons/obj/weapons/guns/flashlights.dmi', \
+		light_overlay = "mini-light", \
+		overlay_x = 19, \
+		overlay_y = 13)
