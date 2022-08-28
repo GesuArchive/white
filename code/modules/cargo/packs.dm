@@ -1394,6 +1394,16 @@
 	crate_name = "raw flux anomaly"
 	crate_type = /obj/structure/closet/crate/secure/science
 
+/datum/supply_pack/science/raw_hallucination_anomaly
+	name = "Raw Hallucination Anomaly"
+	desc = "The raw core of a hallucination anomaly, ready to be implosion-compressed into a powerful artifact."
+	cost = BUY_CRATE_VALUE * 10
+	access = ACCESS_TOXINS
+	access_view = ACCESS_TOXINS
+	contains = list(/obj/item/raw_anomaly_core/hallucination)
+	crate_name = "raw hallucination anomaly"
+	crate_type = /obj/structure/closet/crate/secure/science
+
 /datum/supply_pack/science/raw_grav_anomaly
 	name = "Raw Gravitational Anomaly"
 	desc = "The raw core of a gravitational anomaly, ready to be implosion-compressed into a powerful artifact."
@@ -1432,6 +1442,26 @@
 	access_view = ACCESS_TOXINS
 	contains = list(/obj/item/raw_anomaly_core/pyro)
 	crate_name = "raw pyro anomaly"
+	crate_type = /obj/structure/closet/crate/secure/science
+
+/datum/supply_pack/science/raw_bioscrambler_anomaly
+	name = "Raw Bioscrambler Anomaly"
+	desc = "The raw core of a bioscrambler anomaly, ready to be implosion-compressed into a powerful artifact."
+	cost = BUY_CRATE_VALUE * 10
+	access = ACCESS_TOXINS
+	access_view = ACCESS_TOXINS
+	contains = list(/obj/item/raw_anomaly_core/bioscrambler)
+	crate_name = "raw bioscrambler anomaly"
+	crate_type = /obj/structure/closet/crate/secure/science
+
+/datum/supply_pack/science/raw_dimensional_anomaly
+	name = "Raw Dimensional Anomaly"
+	desc = "The raw core of a dimensional anomaly, ready to be implosion-compressed into a powerful artifact."
+	cost = BUY_CRATE_VALUE * 10
+	access = ACCESS_TOXINS
+	access_view = ACCESS_TOXINS
+	contains = list(/obj/item/raw_anomaly_core/dimensional)
+	crate_name = "raw dimensional anomaly"
 	crate_type = /obj/structure/closet/crate/secure/science
 
 /datum/supply_pack/science/robotics

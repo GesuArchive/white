@@ -248,6 +248,9 @@
 	var/armed = 0
 	var/trap_damage = 20
 
+/obj/item/restraints/legcuffs/beartrap/prearmed
+	armed = TRUE
+
 /obj/item/restraints/legcuffs/beartrap/Initialize(mapload)
 	. = ..()
 	update_icon()
