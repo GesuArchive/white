@@ -106,7 +106,7 @@
 /turf/closed/indestructible/splashscreen
 	name = "White Dream"
 	desc = "Поколение странных увлечений."
-	icon = 'icons/runtime/default_title.dmi'
+	icon = null
 	icon_state = "station_intact"
 	plane = SPLASHSCREEN_PLANE
 	bullet_bounce_sound = null
@@ -125,6 +125,7 @@
 		switch(var_name)
 			if(NAMEOF(src, icon))
 				SStitle.icon = icon
+				SStitle.autorotate = FALSE
 
 /turf/closed/indestructible/reinforced
 	name = "reinforced wall"

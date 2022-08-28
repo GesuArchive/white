@@ -70,6 +70,8 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	SSmapping.seedStation()
 	// генерируем штуки для закупа
 	generate_violence_gear()
+	// выключаем ротацию картинок в лобби
+	SStitle.autorotate = FALSE
 	// отключаем ивенты станции
 	GLOB.disable_fucking_station_shit_please = TRUE
 	// включаем режим насилия, который немного изменяет правила игры

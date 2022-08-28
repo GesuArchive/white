@@ -9,6 +9,7 @@ SUBSYSTEM_DEF(title)
 	var/icon/icon
 	var/icon/previous_icon
 	var/turf/closed/indestructible/splashscreen/splash_turf
+	var/autorotate = TRUE
 	var/cached_title
 
 	var/list/title_screens = list()
@@ -41,7 +42,7 @@ SUBSYSTEM_DEF(title)
 		file_path = "[global.config.directory]/title_screens/images/[pick(title_screens)]"
 
 	if(!file_path)
-		file_path = "icons/runtime/default_title.dmi"
+		return
 
 	ASSERT(fexists(file_path))
 
@@ -51,7 +52,7 @@ SUBSYSTEM_DEF(title)
 		splash_turf.icon = icon
 
 /datum/controller/subsystem/title/fire(resumed = FALSE)
-	if((splash_turf?.datum_flags & DF_VAR_EDITED) || GLOB.violence_mode_activated)
+	if(!autorotate)
 		return
 
 	rotate_title_screen()
@@ -65,6 +66,7 @@ SUBSYSTEM_DEF(title)
 			if(NAMEOF(src, icon))
 				if(splash_turf)
 					splash_turf.icon = icon
+					autorotate = FALSE
 
 /datum/controller/subsystem/title/Shutdown()
 	if(file_path)

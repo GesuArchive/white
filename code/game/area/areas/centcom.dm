@@ -19,6 +19,7 @@
 
 /area/centcom/circus
 	name = "Блядский цирк"
+	static_lighting = TRUE
 	has_gravity = TRUE
 
 /area/centcom/outdoors/circus

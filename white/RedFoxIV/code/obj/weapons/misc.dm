@@ -734,7 +734,8 @@
 		L.real_name = "Ali Rezun"
 		L.say("Убивать.")
 	L.name = L.real_name
-
+	SStitle.splash_turf.invisibility = 101
+	SStitle.autorotate = FALSE
 
 //stolen from CTF code
 /obj/effect/mob_spawn/human/donate/artist/process(delta_time)

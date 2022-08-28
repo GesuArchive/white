@@ -561,7 +561,7 @@
 	name = "старое радио"
 	icon_state = "radio"
 	worn_icon_state = "radio"
-
+/*
 /obj/item/radio/ancient/Initialize(mapload)
 	. = ..()
 	var/datum/component/soundplayer/SP = AddComponent(/datum/component/soundplayer)
@@ -572,3 +572,4 @@
 	SP.playing_range = 14
 	SP.playing_falloff = 1
 	SP.active = TRUE
+*/
