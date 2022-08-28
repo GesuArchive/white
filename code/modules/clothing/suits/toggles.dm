@@ -170,6 +170,14 @@
 	..()
 	ToggleHelmet()
 
+/obj/item/clothing/suit/space/hardsuit/ui_action_click(mob/user, action)
+	if(istype(action, /datum/action/item_action/toggle_spacesuit))
+		toggle_spacesuit(user)
+		return TRUE
+	else
+		ToggleHelmet()
+		return TRUE
+
 /obj/item/clothing/suit/space/hardsuit/equipped(mob/user, slot)
 	if(!helmettype)
 		return
