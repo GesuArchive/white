@@ -283,7 +283,7 @@ All the important duct code:
 			return FALSE
 	for(var/obj/machinery/machine in destination)
 		for(var/datum/component/plumbing/plumber as anything in machine.GetComponents(/datum/component/plumbing))
-			if(plumber.ducting_layer & duct_layer)
+			if(plumber && (plumber.ducting_layer & duct_layer))
 				return FALSE
 	return TRUE
 
