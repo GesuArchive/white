@@ -19,6 +19,10 @@
 	var/target_path = tgui_input_text(c, "Enter typepath:", "Typepath", "/obj/structure/closet")
 	objholder = text2path(target_path)
 	if(!ispath(objholder))
+		if(isnull(target_path) || target_path == FALSE || target_path == "")
+			if(tgui_alert(usr, "Are you sure you would like to display ALL of the atoms? This may freeze your client for a while.", list("Yes", "No") ) == "No")
+				tgui_alert(usr,"No path was selected")
+				return
 		objholder = pick_closest_path(target_path)
 		if(!objholder)
 			tgui_alert(usr,"No path was selected")
