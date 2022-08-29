@@ -9,13 +9,19 @@
 	var/obj/item/stock_parts/cell/charging = null
 	var/charge_rate = 1
 
-/obj/machinery/cell_charger/update_icon()
-	cut_overlays()
-	if(charging)
-		add_overlay("ccharger-on")
-		if(!(machine_stat & (BROKEN|NOPOWER)))
-			var/newlevel = 	round(charging.percent() * 4 / 100)
-			add_overlay("ccharger-o[newlevel]")
+/obj/machinery/cell_charger/update_overlays()
+	. = ..()
+
+	if(!charging)
+		return
+
+	if(!(machine_stat & (BROKEN|NOPOWER)))
+		var/newlevel = round(charging.percent() * 4 / 100)
+		. += "ccharger-o[newlevel]"
+	if(!charging.charging_icon)
+		. += image(charging.icon, charging.icon_state)
+	else
+		.+= image('icons/obj/cell.dmi', charging.charging_icon)\
 
 /obj/machinery/cell_charger/examine(mob/user)
 	. = ..()

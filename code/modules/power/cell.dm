@@ -28,6 +28,8 @@
 	var/ratingdesc = TRUE
 	/// If it's a grown that acts as a battery, add a wire overlay to it.
 	var/grown_battery = FALSE
+	///What charge lige sprite to use, null if no light
+	var/charge_light_type = "standard"
 	var/charging_icon = "cell_in"
 
 /obj/item/stock_parts/cell/get_cell()
@@ -54,31 +56,13 @@
 	UnregisterSignal(reagents, list(COMSIG_REAGENTS_NEW_REAGENT, COMSIG_REAGENTS_ADD_REAGENT, COMSIG_REAGENTS_DEL_REAGENT, COMSIG_REAGENTS_REM_REAGENT, COMSIG_PARENT_QDELETING))
 	return NONE
 
-/**
- * supply own icon file if your cell uses different overlays.
- * upper_charge_percent - charge % above which cell shows the "fully charged" overlay.
- * lower_charge_percent - charge % below which cell shows no overlay.
- * Inbetween those the cell shows the default blinking yellow overlay.
- * If you want to have more overlays, call it as ..(override = TRUE) to not get any of the default cell overlays, including wires for grown cells.
- **/
-/obj/item/stock_parts/cell/update_overlays(icon_file = FALSE, lower_charge_percent = 0.01, upper_charge_percent = 0.995, override = FALSE)
+/obj/item/stock_parts/cell/update_overlays()
 	. = ..()
-	if(override)
-		return
-
-	if(!icon_file)
-		icon_file = 'icons/obj/cell.dmi'
-
 	if(grown_battery)
 		. += mutable_appearance('icons/obj/power.dmi', "grown_wires")
-	if((charge < 0.01))
+	if((charge < 0.01) || !charge_light_type)
 		return
-	var/icon_link
-	if(!grown_battery)
-		icon_link = 'icons/obj/cell.dmi'
-	else
-		icon_link = 'icons/obj/power.dmi'
-	. += mutable_appearance(icon_link, "cell-o[(percent() >= 99.5) ? 2 : 1]")
+	. += mutable_appearance('icons/obj/cell.dmi', "cell-[charge_light_type]-o[(percent() >= 99.5) ? 2 : 1]")
 
 /obj/item/stock_parts/cell/proc/percent()		// return % charge of cell
 	return 100*charge/maxcharge
@@ -282,7 +266,7 @@
 /obj/item/stock_parts/cell/high/plus
 	name = "батарея увеличенной емкости+"
 	desc = "Усовершенстованный перезаряжаемый электрохимический элемент питания, вмещающий 15 МДж энергии."
-	icon_state = "h+cell"
+	icon_state = "hcell"
 	maxcharge = 15000
 	chargerate = 2250
 	rating = 2
@@ -369,6 +353,7 @@
 	charging_icon = "potato_in"
 	charge = 100
 	maxcharge = 300
+	charge_light_type = null
 	custom_materials = null
 	grown_battery = TRUE //it has the overlays for wires
 	custom_premium_price = PAYCHECK_ASSISTANT
@@ -427,6 +412,7 @@
 	chargerate = 0
 	custom_materials = null
 	grind_results = null
+	charge_light_type = null
 	rating = 5
 
 /obj/item/stock_parts/cell/crystal_cell/Initialize(mapload)
