@@ -23,6 +23,8 @@
 	var/dug
 	/// Whether to change the turf's icon_state to "[base_icon_state]_dug" when its dugged up
 	var/postdig_icon_change = TRUE
+	/// Percentage chance of receiving a bonus worm
+	var/worm_chance = 30
 
 /turf/open/floor/plating/asteroid/setup_broken_states()
 	return list("asteroid_dug")
@@ -38,6 +40,8 @@
 /turf/open/floor/plating/asteroid/proc/getDug()
 	dug = TRUE
 	new digResult(src, 5)
+	if (prob(worm_chance))
+		new /obj/item/food/bait/worm(src)
 	if(postdig_icon_change)
 		icon_state = "[base_icon_state]_dug"
 
@@ -112,6 +116,7 @@
 
 /turf/open/floor/plating/asteroid/basalt/airless
 	initial_gas_mix = AIRLESS_ATMOS
+	worm_chance = 0
 
 /turf/open/floor/plating/asteroid/basalt/Initialize(mapload)
 	. = ..()
@@ -144,6 +149,7 @@
 	initial_gas_mix = AIRLESS_ATMOS
 	baseturfs = /turf/open/floor/plating/asteroid/airless
 	turf_type = /turf/open/floor/plating/asteroid/airless
+	worm_chance = 0
 
 /turf/open/floor/plating/asteroid/snow
 	gender = PLURAL
@@ -209,6 +215,7 @@
 
 /turf/open/floor/plating/asteroid/snow/airless
 	initial_gas_mix = AIRLESS_ATMOS
+	worm_chance = 0
 
 /turf/open/floor/plating/asteroid/snow/temperatre
 	initial_gas_mix = "o2=22;n2=82;TEMP=255.37"

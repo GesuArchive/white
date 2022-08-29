@@ -131,7 +131,7 @@
 
 /turf/open/floor/grass/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/diggable, ore_type, 2, "вскапываю", "вскапывает")
+	AddElement(/datum/element/diggable, ore_type, 2, worm_chance = 50, "вскапываю", "вскапывает")
 	if(nospawn)
 		return
 	spawniconchange()
