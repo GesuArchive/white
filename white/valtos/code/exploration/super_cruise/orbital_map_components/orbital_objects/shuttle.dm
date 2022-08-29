@@ -76,7 +76,7 @@
 		docking_target = null
 
 	//I hate that I have to do this, but people keep flying them away.
-	if(position.x > 20000 || position.x < -20000 || position.y > 20000 || position.y < -20000)
+	if(position.x > 200000 || position.x < -200000 || position.y > 200000 || position.y < -200000)
 		priority_announce("Разрыв блюспейс ткани обнаружен, источник: [name].")
 		MOVE_ORBITAL_BODY(src, rand(-2000, 2000), rand(-2000, 2000))
 		velocity.x = 0
