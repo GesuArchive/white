@@ -44,6 +44,8 @@
  * * force - Should this mob be FORCABLY dusted?
 */
 /mob/living/proc/dust(just_ash, drop_items, force)
+	SEND_SIGNAL(src, COMSIG_LIVING_BEFORE_DUSTED)
+
 	death(TRUE)
 
 	if(drop_items)
@@ -54,7 +56,7 @@
 
 	dust_animation()
 	spawn_dust(just_ash)
-	QDEL_IN(src,5) // since this is sometimes called in the middle of movement, allow half a second for movement to finish, ghosting to happen and animation to play. Looks much nicer and doesn't cause multiple runtimes.
+	QDEL_IN(src, 5) // since this is sometimes called in the middle of movement, allow half a second for movement to finish, ghosting to happen and animation to play. Looks much nicer and doesn't cause multiple runtimes.
 
 /mob/living/proc/dust_animation()
 	return

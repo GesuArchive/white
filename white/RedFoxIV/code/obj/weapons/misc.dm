@@ -752,7 +752,7 @@
 	spawned_mobs += L
 	spawned_mobs[L] = L.ckey
 	if(from_lobby)
-		RegisterSignal(L, COMSIG_LIVING_DEATH, .proc/send_back_to_lobby)
+		RegisterSignal(L, COMSIG_LIVING_BEFORE_DUSTED, .proc/send_back_to_lobby)
 
 /obj/effect/mob_spawn/human/donate/artist/proc/send_back_to_lobby(datum/source, mob/living/dead, gibbed)
 	SIGNAL_HANDLER
