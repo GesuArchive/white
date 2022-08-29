@@ -700,6 +700,8 @@
 
 	req_sum = 50 // sugar is bad
 
+	bypass_roundstart = TRUE
+
 	//mobs that were spawned from /this/ one instance of the spawner
 	var/list/mob/living/spawned_mobs = list()
 
@@ -743,26 +745,29 @@
 		if(!i)
 			spawned_mobs -= i
 			continue
+
 		var/mob/living/carbon/human/artist = i
 		if(HAS_TRAIT(artist, TRAIT_CRITICAL_CONDITION) || artist.stat == DEAD || !artist.key)
 			spawned_mobs.Remove(artist)
 			artist.alpha = 0 //because dust animation does not hide the body while playing, which look really fuckiing weird
 			artist.dust(drop_items = TRUE)
 			continue
+
 		var/area/A = get_area(artist)
-		if(!istype(A, /area/centcom/circus) && !istype(A, /area/centcom/outdoors/circus)) //just in case
+		if(!istype(A, /area/centcom/circus) && !istype(A, /area/start) && !istype(A, /area/centcom/outdoors/circus)) //just in case
 			round_banned_ckeys.Add(spawned_mobs[artist])
 			spawned_mobs.Remove(artist)
 			to_chat(artist, span_userdanger("Ох, лучше бы я не покидал Цирк...")) //let them know they fucked up
 			message_admins("Игрок [artist.ckey], будучи Артистом, каким-то образом сбежал из цирка, за что был казнён и лишён доступа к спавнеру до конца раунда. Такого быть не должно: выясните, как он этого добился и передайте кодербасу. Если же это произошло по вине админбаса, удалите сикей игрока из переменной спавнера (round_banned_ckeys). Позиция игрока на момент обнаружения побега: x=[artist.x], y=[artist.y], z=[artist.z], название зоны - [get_area_name(artist)]")
 			artist.emote("agony")
 
-
 			for(var/s=1,s<51,s++)
 				addtimer(CALLBACK(artist, /mob/proc/emote, "poo"), 1+2*log(s) SECONDS)
+
 			spawn(8.7 SECONDS)
 				artist.visible_message(span_hypnophrase("[artist.name] распидорасило: похоже, за побег из Цирка он был отправлен в бессрочную ссылку на [pick("Цитадель", "Флаффи", "Скайрэт", "Опух", "парашу")]. [pick("Прикольно", "Страшно", "Помянем", "Ужасно", "Кошмар", "Грустно", "Смешно")]."))
 				artist.gib(TRUE)
+
 			continue
 		/*
 		else

@@ -40,10 +40,13 @@
 	var/ready = TRUE
 	/// If the spawner uses radials
 	var/radial_based = FALSE
+	var/bypass_roundstart = FALSE
 
 //ATTACK GHOST IGNORING PARENT RETURN VALUE
 /obj/effect/mob_spawn/attack_ghost(mob/user)
-	if(!SSticker.HasRoundStarted() || !loc || !ghost_usable || GLOB.violence_mode_activated)
+	if(!loc || !ghost_usable || GLOB.violence_mode_activated)
+		return FALSE
+	if(!bypass_roundstart && !SSticker.HasRoundStarted())
 		return FALSE
 	if(!radial_based)
 		var/ghost_role = tgui_alert(usr, "Точно хочешь занять этот спаунер? (внимание, текущее тело будет покинуто)",,list("Да","Нет"))

@@ -34,27 +34,6 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 		on_changed_z_level(old_turf, new_turf)
 	return ..()
 
-/mob/dead/get_status_tab_items()
-	. = ..()
-	. += ""
-	. += "Режим: [SSticker.hide_mode ? "СЕКРЕТ" : "[capitalize(GLOB.master_mode)]"]"
-
-	if(SSticker.HasRoundStarted())
-		return
-
-	var/time_remaining = SSticker.GetTimeLeft()
-	if(time_remaining > 0)
-		. += "Таймер: [round(time_remaining/10)]с"
-	else if(time_remaining == -10)
-		. += "Таймер: ОТЛОЖЕНО"
-	else
-		. += "Таймер: СКОРО"
-
-	var/tp = LAZYLEN(GLOB.clients) + GLOB.whitelist.len
-
-	. += "Игроки: [tp]"
-	. += "Готовы: [SSticker.totalPlayersReady]"
-
 /mob/dead/proc/server_hop()
 	set category = "OOC"
 	set name = "Server Hop!"
