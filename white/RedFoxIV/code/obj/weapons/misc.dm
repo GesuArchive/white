@@ -723,6 +723,9 @@
 /obj/effect/mob_spawn/human/donate/artist/proc/get_from_lobby(atom/source, mob/user)
 	SIGNAL_HANDLER
 
+	if(!isnewplayer(user))
+		return
+
 	spawn(-1)
 		attack_ghost(usr, TRUE)
 
