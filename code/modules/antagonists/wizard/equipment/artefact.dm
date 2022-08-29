@@ -253,7 +253,7 @@
 	M.revive(full_heal = TRUE, admin_revive = TRUE)
 	spooky_scaries |= M
 	to_chat(M, "[span_userdanger("Вы были воскрешены ")]<B>[user.real_name]!</B>")
-	to_chat(M, span_userdanger("[user.p_theyre(TRUE)] теперь твой хозяин, помогите [user.p_them()] даже если это будет стоить вам вашей вашего оставшегося подобия жизни!"))
+	to_chat(M, span_userdanger("[user.p_theyre(TRUE)] теперь твой хозяин, помогите [user.p_them()] даже если это будет стоить вашего оставшегося подобия жизни!"))
 	var/datum/antagonist/wizard/antag_datum = user.mind.has_antag_datum(/datum/antagonist/wizard)
 	if(antag_datum)
 		if(!antag_datum.wiz_team)
