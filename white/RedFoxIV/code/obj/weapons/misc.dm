@@ -724,19 +724,41 @@
 	SIGNAL_HANDLER
 
 	spawn(-1)
-		attack_ghost(usr)
+		attack_ghost(usr, TRUE)
 
-/obj/effect/mob_spawn/human/donate/artist/attack_ghost(mob/user)
+/obj/effect/mob_spawn/human/donate/artist/attack_ghost(mob/user, from_lobby = FALSE)
 	if(user.ckey in round_banned_ckeys)
 		to_chat(user, span_warning("А хуй тебе!"))
 		return
+	if(from_lobby)
+		if(!radial_based)
+			var/ghost_role = tgui_alert(usr, "Хочешь попробовать себя в роли артиста? После гибели ты будешь возвращён обратно в лобби.", ,list("Да", "Нет"))
+			if(ghost_role != "Да" || !loc || QDELETED(user))
+				return FALSE
+		if(is_banned_from(user.key, banType))
+			to_chat(user, span_warning("А хуй тебе!"))
+			return FALSE
+		log_game("[key_name(user)] became [mob_name]")
+		create(user, from_lobby = from_lobby)
+		return TRUE
 	. = ..()
 
-/obj/effect/mob_spawn/human/donate/artist/create(mob/user, newname)
+/obj/effect/mob_spawn/human/donate/artist/create(mob/user, newname, from_lobby)
 	. = ..()
 	var/mob/living/L = .
 	spawned_mobs += L
 	spawned_mobs[L] = L.ckey
+	if(from_lobby)
+		RegisterSignal(L, COMSIG_LIVING_DEATH, .proc/send_back_to_lobby)
+
+/obj/effect/mob_spawn/human/donate/artist/proc/send_back_to_lobby(datum/source, mob/living/dead, gibbed)
+	SIGNAL_HANDLER
+
+	dead?.mind?.remove_all_antag_datums()
+	DIRECT_OUTPUT(dead, sound(null))
+	var/mob/dead/new_player/NP = new()
+	NP.ckey = dead.ckey
+	qdel(dead)
 
 /obj/effect/mob_spawn/human/donate/artist/special(mob/living/L)
 	amount += 1
@@ -745,15 +767,44 @@
 		L.real_name = "Ali Rezun"
 		L.say("Убивать.")
 	L.name = L.real_name
-	SStitle.splash_turf.plane = GAME_PLANE_FOV_HIDDEN
-	SStitle.splash_turf.mouse_opacity = 0
-	SStitle.splash_turf.alpha = 225
-	SStitle.splash_turf.invisibility = 26
 	var/area/A = get_area(L)
 	A.luminosity = 1
 	DIRECT_OUTPUT(L, sound(null))
 	L.client?.tgui_panel?.stop_music()
 	L.client?.kill_lobby()
+
+/obj/machinery/artist_showcase_toggler
+	name = "большой ржавый рубильник"
+	desc = "Если приглядеться, то за толстым слоем ржавчины и крови можно разглядеть надпись \"ПЕРЕКЛЮЧЕНИЕ ВИДИМОСТИ\". К чему бы это?"
+	icon = 'white/valtos/icons/switch.dmi'
+	icon_state = "switch-off"
+	var/is_turned = FALSE
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+
+/obj/machinery/artist_showcase_toggler/attack_hand(mob/user)
+	. = ..()
+	if(.)
+		return
+	add_fingerprint(user)
+	if(is_turned)
+		to_chat(user, span_danger("Рубильник не поддаётся!"))
+		return
+	user.visible_message(span_warning("<b>[user]</b> дёргает рубильник! ПРЕДСТАВЛЕНИЕ НАЧИНАЕТСЯ!"))
+	is_turned = TRUE
+	icon_state = "switch-on"
+	SStitle.splash_turf.plane = GAME_PLANE_FOV_HIDDEN
+	SStitle.splash_turf.mouse_opacity = 0
+	SStitle.splash_turf.blend_mode = 3
+	playsound(src.loc, 'white/valtos/sounds/leveron.ogg', 50, TRUE)
+	spawn(180 SECONDS)
+		icon_state = "switch-off"
+		is_turned = FALSE
+		playsound(src.loc, 'white/valtos/sounds/leveroff.ogg', 90, TRUE)
+		var/turf/T = get_turf(src)
+		T.visible_message(span_notice("<b>[src]</b> возвращается на место!"))
+		SStitle.splash_turf.plane = SPLASHSCREEN_PLANE
+		SStitle.splash_turf.mouse_opacity = 1
+		SStitle.splash_turf.blend_mode = 0
 
 //stolen from CTF code
 /obj/effect/mob_spawn/human/donate/artist/process(delta_time)

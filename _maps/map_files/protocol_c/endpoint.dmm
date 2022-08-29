@@ -3261,7 +3261,9 @@
 /turf/open/floor/wood,
 /area/centcom/holding)
 "lA" = (
-/obj/effect/mob_spawn/human/donate/artist,
+/obj/effect/mob_spawn/human/donate/artist{
+	icon_state = "training"
+	},
 /turf/open/floor/plasteel/tg/dark/small,
 /area/centcom/circus)
 "lC" = (
@@ -4061,6 +4063,10 @@
 /obj/structure/flora/ausbushes/pointybush,
 /turf/open/floor/grass,
 /area/tdome/tdomeadmin)
+"oz" = (
+/obj/machinery/artist_showcase_toggler,
+/turf/closed/indestructible/syndicate,
+/area/centcom/circus)
 "oB" = (
 /obj/machinery/computer/arcade/battle{
 	dir = 8;
@@ -77467,7 +77473,7 @@ cs
 hS
 eu
 eu
-jT
+oz
 lA
 lS
 lW
