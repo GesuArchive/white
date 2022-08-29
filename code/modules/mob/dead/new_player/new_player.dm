@@ -6,7 +6,7 @@
 
 	invisibility = INVISIBILITY_ABSTRACT
 
-	see_invisible = 1
+	see_invisible = 26
 
 	density = FALSE
 	stat = DEAD

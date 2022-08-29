@@ -692,6 +692,7 @@
 	roundstart = FALSE
 	death = FALSE
 	permanent = TRUE
+	density = FALSE
 	uses = -1
 	short_desc = "Я артист. Я работаю на развлечение публики."
 	flavour_text = "Будущее цирковых технологий. Развлекайте публику на станции любыми возможными способами, не покидая Цирк."
@@ -746,7 +747,13 @@
 	L.name = L.real_name
 	SStitle.splash_turf.plane = GAME_PLANE_FOV_HIDDEN
 	SStitle.splash_turf.mouse_opacity = 0
-	SStitle.splash_turf.invisibility = 1
+	SStitle.splash_turf.alpha = 225
+	SStitle.splash_turf.invisibility = 26
+	var/area/A = get_area(L)
+	A.luminosity = 1
+	DIRECT_OUTPUT(L, sound(null))
+	L.client?.tgui_panel?.stop_music()
+	L.client?.kill_lobby()
 
 //stolen from CTF code
 /obj/effect/mob_spawn/human/donate/artist/process(delta_time)
