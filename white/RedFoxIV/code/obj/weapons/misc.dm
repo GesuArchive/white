@@ -720,14 +720,14 @@
 	UnregisterSignal(src, COMSIG_CLICK)
 	. = ..()
 
-/obj/effect/mob_spawn/human/donate/artist/proc/get_from_lobby(atom/source, mob/user)
+/obj/effect/mob_spawn/human/donate/artist/proc/get_from_lobby(datum/source, location, control, params, mob/user)
 	SIGNAL_HANDLER
 
 	if(!isnewplayer(user))
 		return
 
 	spawn(-1)
-		attack_ghost(usr, TRUE)
+		attack_ghost(user, TRUE)
 
 /obj/effect/mob_spawn/human/donate/artist/attack_ghost(mob/user, from_lobby = FALSE)
 	if(user.ckey in round_banned_ckeys)
