@@ -31,14 +31,15 @@
 	var/datum/scar/highest_scar
 
 /datum/wound/slash/wound_injury(datum/wound/slash/old_wound = null, attack_direction = null)
-	blood_flow = initial_flow
 	if(old_wound)
 		blood_flow = max(old_wound.blood_flow, initial_flow)
 		if(old_wound.severity > severity && old_wound.highest_scar)
 			highest_scar = old_wound.highest_scar
 			old_wound.highest_scar = null
-	else if(attack_direction && victim.blood_volume > BLOOD_VOLUME_OKAY)
-		victim.spray_blood(attack_direction, severity)
+	else
+		blood_flow = initial_flow
+		if(attack_direction && victim.blood_volume > BLOOD_VOLUME_OKAY)
+			victim.spray_blood(attack_direction, severity)
 
 	if(!highest_scar)
 		highest_scar = new
@@ -71,7 +72,7 @@
 
 /datum/wound/slash/receive_damage(wounding_type, wounding_dmg, wound_bonus)
 	if(victim.stat != DEAD && wound_bonus != CANT_WOUND && wounding_type == WOUND_SLASH) // can't stab dead bodies to make it bleed faster this way
-		blood_flow += 0.05 * wounding_dmg
+		blood_flow += WOUND_SLASH_DAMAGE_FLOW_COEFF * wounding_dmg
 
 /datum/wound/slash/drag_bleed_amount()
 	// say we have 3 severe cuts with 3 blood flow each, pretty reasonable
@@ -262,7 +263,7 @@
 	severity = WOUND_SEVERITY_MODERATE
 	initial_flow = 2
 	minimum_flow = 0.5
-	clot_rate = 0.06
+	clot_rate = 0.05
 	threshold_minimum = 20
 	threshold_penalty = 10
 	status_effect_type = /datum/status_effect/wound/slash/moderate
@@ -295,9 +296,9 @@
 	occur_text = "разрывается, дико брызгая кровью"
 	sound_effect = 'sound/effects/wounds/blood3.ogg'
 	severity = WOUND_SEVERITY_CRITICAL
-	initial_flow = 4.25
-	minimum_flow = 4
-	clot_rate = -0.025 // critical cuts actively get worse instead of better
+	initial_flow = 4
+	minimum_flow = 3.85
+	clot_rate = -0.015 // critical cuts actively get worse instead of better
 	threshold_minimum = 80
 	threshold_penalty = 40
 	demotes_to = /datum/wound/slash/severe

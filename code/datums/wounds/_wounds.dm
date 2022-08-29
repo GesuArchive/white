@@ -144,7 +144,7 @@
 	if(severity == WOUND_SEVERITY_TRIVIAL)
 		return
 
-	if(!(silent || demoted))
+	if(!silent && !demoted)
 		var/msg = span_smalldanger("[capitalize(limb.name)] <b>[victim]</b> [occur_text]!")
 		var/vis_dist = COMBAT_MESSAGE_RANGE
 
@@ -156,8 +156,8 @@
 		if(sound_effect)
 			playsound(L.owner, sound_effect, 70 + 20 * severity, TRUE)
 
+	wound_injury(old_wound, attack_direction = attack_direction)
 	if(!demoted)
-		wound_injury(old_wound, attack_direction = attack_direction)
 		second_wind()
 
 /datum/wound/proc/null_victim()

@@ -14,13 +14,16 @@
 		context[SCREENTIP_CONTEXT_LMB] = "Атаковать"
 	else if (human_user == src)
 		context[SCREENTIP_CONTEXT_LMB] = "Проверить раны"
+		var/obj/item/bodypart/limb = get_bodypart(human_user.zone_selected)
+		if (limb?.get_part_bleed_rate())
+			context[SCREENTIP_CONTEXT_CTRL_LMB] = "Зажать рану"
 
 	if (human_user != src)
 		context[SCREENTIP_CONTEXT_RMB] = "Толкнуть"
 
 		if (human_user.a_intent == INTENT_HELP)
 			if (body_position == STANDING_UP)
-				if(check_zone(user.zone_selected) == BODY_ZONE_HEAD && get_bodypart(BODY_ZONE_HEAD))
+				if(check_zone(human_user.zone_selected) == BODY_ZONE_HEAD && get_bodypart(BODY_ZONE_HEAD))
 					context[SCREENTIP_CONTEXT_LMB] = "Погладить"
 				else
 					context[SCREENTIP_CONTEXT_LMB] = "Обнять"

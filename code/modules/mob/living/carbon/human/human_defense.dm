@@ -792,7 +792,7 @@
 					if(WOUND_SEVERITY_SEVERE, WOUND_SEVERITY_CRITICAL)
 						partmsg += "\[<span class='red'><b>[uppertext(W.name)]</b></span>\] "
 
-			if(body_part.get_bleed_rate())
+			if(body_part.get_part_bleed_rate())
 				partmsg += "\[<span class='red'>КРОВОТЕЧЕНИЕ</span>\] "
 
 			for(var/obj/item/I in body_part.embedded_objects)
