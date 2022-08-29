@@ -110,6 +110,7 @@
 	icon_state = "station_intact"
 	plane = SPLASHSCREEN_PLANE
 	bullet_bounce_sound = null
+	density = FALSE
 	maptext_height = 480
 	maptext_width = 608
 	maptext_x = 4
