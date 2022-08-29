@@ -48,7 +48,7 @@
 		generated_maptext += MAPTEXT_REALLYBIG_COLOR("До начала: <b>[time_remaining]</b></br>", "#c625cf")
 		generated_maptext += MAPTEXT_REALLYBIG_COLOR("Готовы: <b>[SSticker.totalPlayersReady]/[LAZYLEN(GLOB.clients) + GLOB.whitelist.len]</b></br></br>", "#d60aaa")
 	else
-		generated_maptext += MAPTEXT_REALLYBIG_COLOR("В действии: <b>[LAZYLEN(GLOB.joined_player_list)]</b></br></br>", "#ac3cc2")
+		generated_maptext += MAPTEXT_REALLYBIG_COLOR("В действии: <b>[LAZYLEN(GLOB.joined_player_list)] человек</b></br></br>", "#ac3cc2")
 	generated_maptext += MAPTEXT_REALLYBIG_COLOR("Режим: <b>[SSticker.hide_mode ? "СЕКРЕТ" : "[capitalize(GLOB.master_mode)]"]</b>", "#ff4444")
 	maptext = generated_maptext
 

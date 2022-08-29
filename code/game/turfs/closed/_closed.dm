@@ -108,7 +108,7 @@
 	desc = "Поколение странных увлечений."
 	icon = null
 	icon_state = "station_intact"
-	plane = FLOOR_PLANE
+	plane = SPLASHSCREEN_PLANE
 	bullet_bounce_sound = null
 	density = FALSE
 	maptext_height = 480

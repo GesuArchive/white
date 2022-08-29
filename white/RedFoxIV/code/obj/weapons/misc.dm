@@ -687,8 +687,8 @@
 /obj/effect/mob_spawn/human/donate/artist
 	name = "Экстрактор"
 	desc = "Вытягивает заблудшие души с того света и конвертирует их в дешёвую рабочую силу."
-	icon = 'white/valtos/icons/prison/prison.dmi'
 	icon_state = "spwn"
+	plane = SPLASHSCREEN_PLANE
 	roundstart = FALSE
 	death = FALSE
 	permanent = TRUE
@@ -712,10 +712,17 @@
 /obj/effect/mob_spawn/human/donate/artist/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
+	RegisterSignal(src, COMSIG_CLICK, .proc/get_from_lobby)
 
 /obj/effect/mob_spawn/human/donate/artist/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
+	UnregisterSignal(src, COMSIG_CLICK)
 	. = ..()
+
+/obj/effect/mob_spawn/human/donate/artist/proc/get_from_lobby(atom/source, mob/user)
+	SIGNAL_HANDLER
+
+	attack_ghost(usr)
 
 /obj/effect/mob_spawn/human/donate/artist/attack_ghost(mob/user)
 	if(user.ckey in round_banned_ckeys)
@@ -736,8 +743,9 @@
 		L.real_name = "Ali Rezun"
 		L.say("Убивать.")
 	L.name = L.real_name
-	SStitle.splash_turf.blend_mode = 2
+	SStitle.splash_turf.plane = GAME_PLANE_FOV_HIDDEN
 	SStitle.splash_turf.mouse_opacity = 0
+	SStitle.splash_turf.invisibility = 1
 
 //stolen from CTF code
 /obj/effect/mob_spawn/human/donate/artist/process(delta_time)

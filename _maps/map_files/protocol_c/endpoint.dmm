@@ -2805,9 +2805,7 @@
 	},
 /area/centcom/circus)
 "ks" = (
-/obj/effect/mob_spawn/human/donate/artist{
-	pixel_y = 6
-	},
+/obj/effect/mob_spawn/human/donate/artist,
 /turf/open/floor/holofloor/carpet{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
@@ -2883,7 +2881,6 @@
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
-/obj/machinery/light/directional/north,
 /obj/item/stack/sheet/plastic/fifty,
 /obj/machinery/button{
 	desc = "Открывает дверь при нажатии.";
@@ -2926,7 +2923,6 @@
 	pixel_y = 24;
 	req_access_txt = "150"
 	},
-/obj/machinery/light/directional/north,
 /turf/open/floor/holofloor/carpet{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
@@ -3007,9 +3003,7 @@
 	},
 /area/centcom/circus)
 "le" = (
-/obj/effect/mob_spawn/human/donate/artist{
-	pixel_y = 6
-	},
+/obj/effect/mob_spawn/human/donate/artist,
 /turf/open/floor/wood{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
@@ -3197,7 +3191,6 @@
 	pixel_x = -8;
 	pixel_y = 4
 	},
-/obj/machinery/light/directional/east,
 /turf/open/floor/wood{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
@@ -4367,9 +4360,7 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/officetwo)
 "pV" = (
-/obj/effect/mob_spawn/human/donate/artist{
-	pixel_y = 6
-	},
+/obj/effect/mob_spawn/human/donate/artist,
 /turf/open/floor/plasteel/tg/dark/textured_large,
 /area/centcom/circus)
 "pW" = (
@@ -4553,10 +4544,6 @@
 	},
 /turf/open/floor/plasteel/cafeteria,
 /area/centcom/holding)
-"qF" = (
-/obj/machinery/light/directional/west,
-/turf/open/floor/plasteel/tg/dark/textured,
-/area/centcom/circus)
 "qG" = (
 /obj/structure/closet/secure_closet/ert_sec,
 /obj/effect/turf_decal/stripes/line{
@@ -4630,7 +4617,6 @@
 	products = list(/obj/item/stack/medical/gauze=100,/obj/item/reagent_containers/syringe=100,/obj/item/reagent_containers/dropper=100,/obj/item/healthanalyzer=100,/obj/item/stack/sticky_tape/surgical=100,/obj/item/healthanalyzer/wound=4,/obj/item/stack/medical/ointment=100,/obj/item/stack/medical/suture=100,/obj/item/stack/medical/bone_gel/four=100);
 	resistance_flags = 64
 	},
-/obj/machinery/light/directional/south,
 /turf/open/floor/holofloor/carpet{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
@@ -4663,9 +4649,6 @@
 	resistance_flags = 64
 	},
 /obj/machinery/light/floor,
-/obj/machinery/light_switch{
-	pixel_y = -32
-	},
 /turf/open/floor/holofloor/carpet{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
@@ -4829,13 +4812,6 @@
 	pixel_x = 1;
 	pixel_y = -4
 	},
-/turf/open/floor/holofloor/carpet{
-	baseturfs = /turf/open/floor/plating/asteroid
-	},
-/area/centcom/circus)
-"ru" = (
-/obj/machinery/light/directional/south,
-/obj/structure/table/wood,
 /turf/open/floor/holofloor/carpet{
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
@@ -72553,18 +72529,18 @@ im
 zV
 jU
 kr
-qF
 pI
 pI
 pI
 pI
-qF
+pI
+pI
 pI
 pI
 pI
 pF
 qi
-qF
+pI
 pI
 Zf
 jT
@@ -75393,7 +75369,7 @@ lN
 lN
 lN
 IO
-ru
+yK
 jT
 Co
 Co

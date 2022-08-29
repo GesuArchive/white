@@ -6,6 +6,8 @@
 
 	invisibility = INVISIBILITY_ABSTRACT
 
+	see_invisible = 1
+
 	density = FALSE
 	stat = DEAD
 	hud_type = /datum/hud/new_player
