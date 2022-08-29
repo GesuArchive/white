@@ -139,7 +139,7 @@
 		if (near.is_blind())
 			continue
 
-		var/dist = sqrt(1 / max(1, get_dist(near, location)))
+		var/dist = sqrt(1 / max(1, get_dist(near, get_turf(src))))
 		near.hallucination += 50 * dist
 		near.hallucination = clamp(near.hallucination, 0, 150)
 		var/list/messages = list(
