@@ -906,6 +906,14 @@
 	build_path = /obj/item/circuitboard/machine/accounting
 	category = list ("Различное оборудование")
 
+/datum/design/board/fax
+	name = "Факс"
+	desc = "Плата для факса."
+	id = "fax"
+	build_path = /obj/item/circuitboard/machine/fax
+	category = list ("Различное оборудование")
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_SERVICE
+
 //Hypertorus fusion reactor designs
 /datum/design/board/HFR_core
 	name = "Термоядерный реактор - Ядро"

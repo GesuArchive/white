@@ -49,6 +49,7 @@
 		"doppler_array",
 		"experi_scanner",
 		"experimentor",
+		"fax",
 		"mechfab",
 		"packagewrap",
 		"plastic_fork",

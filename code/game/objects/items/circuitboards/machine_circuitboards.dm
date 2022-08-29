@@ -660,6 +660,17 @@
 		/obj/item/stock_parts/scanning_module = 1
 	)
 
+/obj/item/circuitboard/machine/fax
+	name = "Факс"
+	desc = "Fucks."
+	greyscale_colors = CIRCUIT_COLOR_GENERIC
+	build_path = /obj/machinery/fax
+	req_components = list(
+		/obj/item/stock_parts/subspace/crystal = 1,
+		/obj/item/stock_parts/scanning_module = 1,
+		/obj/item/stock_parts/micro_laser = 1,
+		/obj/item/stock_parts/manipulator = 1,)
+
 //Medical
 
 /obj/item/circuitboard/machine/chem_dispenser
