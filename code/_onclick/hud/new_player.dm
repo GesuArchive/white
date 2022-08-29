@@ -35,10 +35,8 @@
 /atom/movable/screen/lobby/round_info/proc/update_info()
 	SIGNAL_HANDLER
 
-	var/generated_maptext = MAPTEXT_REALLYBIG_COLOR("Место действия: <b>[SSmapping.config?.map_name || "Загрузка..."]</b></br>", "#4960d4")
-	generated_maptext += MAPTEXT_REALLYBIG_COLOR("Номер события: <b>[GLOB.round_id ? GLOB.round_id : "NULL"]</b></br>", "#5be01e")
-	generated_maptext += MAPTEXT_REALLYBIG_COLOR("Время: <b>[SSday_night.get_twentyfourhour_timestamp()]</b></br>", "#0757bf")
-	generated_maptext += MAPTEXT_REALLYBIG_COLOR("Режим: <b>[GLOB.round_id ? GLOB.round_id : "NULL"]</b></br>", "#ff4444")
+	var/generated_maptext = MAPTEXT_REALLYBIG_COLOR("Место действия: <b>[SSmapping.config?.map_name || "Загрузка..."]</b></br>", "#9842cd")
+	generated_maptext += MAPTEXT_REALLYBIG_COLOR("Номер события: <b>[GLOB.round_id ? GLOB.round_id : "NULL"]</b></br>", "#bc1ee0")
 	if(!SSticker.HasRoundStarted())
 		var/time_remaining = SSticker.GetTimeLeft()
 		if(time_remaining > 0)
@@ -47,8 +45,11 @@
 			time_remaining = "ОТЛОЖЕНО"
 		else
 			time_remaining = "СЕЙЧАС"
-		generated_maptext += MAPTEXT_REALLYBIG_COLOR("До начала: <b>[time_remaining]</b></br>", "#e2c90a")
-		generated_maptext += MAPTEXT_REALLYBIG_COLOR("Готовы: <b>[SSticker.totalPlayersReady]/[LAZYLEN(GLOB.clients) + GLOB.whitelist.len]</b></br>", "#b90f0f")
+		generated_maptext += MAPTEXT_REALLYBIG_COLOR("До начала: <b>[time_remaining]</b></br>", "#c625cf")
+		generated_maptext += MAPTEXT_REALLYBIG_COLOR("Готовы: <b>[SSticker.totalPlayersReady]/[LAZYLEN(GLOB.clients) + GLOB.whitelist.len]</b></br>", "#d60aaa")
+	else
+		generated_maptext += MAPTEXT_REALLYBIG_COLOR("В действии: <b>[GLOB.joined_player_list]</b></br></br>", "#ac3cc2")
+	generated_maptext += MAPTEXT_REALLYBIG_COLOR("Режим: <b>[SSticker.hide_mode ? "СЕКРЕТ" : "[capitalize(GLOB.master_mode)]</b>", "#ff4444")
 	maptext = generated_maptext
 
 /atom/movable/screen/lobby/button
