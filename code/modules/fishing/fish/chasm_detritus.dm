@@ -7,7 +7,7 @@
 	var/static/list/default_contents = list(\
 		/obj/item/stack/ore/slag = 2, \
 		/obj/item/stack/sheet/bone = 3, \
-		/obj/effect/mob_spawn/corpse/human/skeleton = 1, \
+		/obj/effect/mob_spawn/human/skeleton = 1, \
 		/mob/living/simple_animal/hostile/asteroid/lobstrosity/lava = 1, \
 		)
 
