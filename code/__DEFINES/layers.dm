@@ -214,7 +214,7 @@
 #define TOOLTIP_LAYER 4
 
 ///Plane of the "splash" icon used that shows on the lobby screen. only render plate planes should be above this
-#define SPLASHSCREEN_PLANE -7
+#define SPLASHSCREEN_PLANE 9900
 
 //-------------------- Rendering ---------------------
 #define RENDER_PLANE_GAME 9990
