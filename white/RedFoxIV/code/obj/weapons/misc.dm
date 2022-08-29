@@ -722,7 +722,8 @@
 /obj/effect/mob_spawn/human/donate/artist/proc/get_from_lobby(atom/source, mob/user)
 	SIGNAL_HANDLER
 
-	attack_ghost(usr)
+	spawn(-1)
+		attack_ghost(usr)
 
 /obj/effect/mob_spawn/human/donate/artist/attack_ghost(mob/user)
 	if(user.ckey in round_banned_ckeys)
