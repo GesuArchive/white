@@ -2233,7 +2233,6 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/cryo)
 "qY" = (
-/obj/machinery/pdapainter/medbay,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
@@ -2247,6 +2246,8 @@
 /obj/machinery/light/floor{
 	dir = 1
 	},
+/obj/machinery/fax,
+/obj/structure/table/reinforced,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/cmo)
 "rb" = (
@@ -7037,6 +7038,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/blue,
+/obj/machinery/pdapainter/medbay,
 /turf/open/floor/plasteel/dark/side{
 	dir = 10
 	},

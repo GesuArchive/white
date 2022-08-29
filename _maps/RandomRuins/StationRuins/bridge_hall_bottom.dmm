@@ -446,6 +446,8 @@
 	pixel_y = 25
 	},
 /obj/structure/cable,
+/obj/structure/table/wood,
+/obj/machinery/fax,
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
 "hN" = (
@@ -866,6 +868,11 @@
 /obj/structure/sign/poster/random,
 /turf/closed/wall/r_wall,
 /area/maintenance/bottom_station_maints)
+"ph" = (
+/obj/machinery/fax,
+/obj/structure/table,
+/turf/open/floor/carpet,
+/area/command/heads_quarters/hop)
 "pv" = (
 /obj/structure/table/wood,
 /obj/item/hand_tele,
@@ -4319,7 +4326,7 @@ VN
 wN
 hG
 nk
-ob
+ph
 uz
 pN
 sA

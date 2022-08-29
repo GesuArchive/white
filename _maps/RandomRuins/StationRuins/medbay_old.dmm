@@ -2154,16 +2154,13 @@
 /area/medical/medbay)
 "wb" = (
 /obj/structure/table/glass,
-/obj/item/paper_bin{
-	pixel_x = -2;
-	pixel_y = 5
-	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+/obj/machinery/fax,
 /turf/open/floor/plasteel/cafeteria,
 /area/command/heads_quarters/cmo)
 "wi" = (
@@ -4128,14 +4125,18 @@
 "NP" = (
 /obj/structure/table/glass,
 /obj/item/folder/white,
+/obj/item/paper_bin{
+	pixel_x = -9;
+	pixel_y = 5
+	},
 /obj/item/stamp/cmo,
-/obj/item/clothing/glasses/hud/health,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+/obj/item/clothing/glasses/hud/health,
 /turf/open/floor/plasteel/cafeteria,
 /area/command/heads_quarters/cmo)
 "Oa" = (

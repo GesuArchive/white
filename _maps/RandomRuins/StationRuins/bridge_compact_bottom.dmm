@@ -122,6 +122,10 @@
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
 /obj/structure/cable,
+/obj/item/aicard{
+	pixel_y = 17;
+	pixel_x = -7
+	},
 /turf/open/floor/plasteel/dark,
 /area/command)
 "cw" = (
@@ -267,17 +271,7 @@
 /area/command/meeting_room)
 "gw" = (
 /obj/structure/table/wood,
-/obj/item/food/candy{
-	pixel_x = 5
-	},
-/obj/item/food/candy{
-	pixel_x = -4;
-	pixel_y = 9
-	},
-/obj/item/food/candy{
-	pixel_x = -2;
-	pixel_y = 4
-	},
+/obj/machinery/fax,
 /turf/open/floor/plasteel/grimy,
 /area/command/heads_quarters/captain)
 "gM" = (
@@ -700,6 +694,10 @@
 /obj/structure/table/wood,
 /obj/item/stamp/hop,
 /obj/structure/cable,
+/obj/item/book/manual/wiki/security_space_law{
+	pixel_x = -13;
+	pixel_y = 10
+	},
 /turf/open/floor/carpet,
 /area/command/meeting_room)
 "pa" = (
@@ -1529,9 +1527,8 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command)
 "FG" = (
-/obj/item/book/manual/wiki/security_space_law,
 /obj/structure/table/wood,
-/obj/item/storage/lockbox/medal,
+/obj/machinery/fax,
 /turf/open/floor/carpet,
 /area/command/meeting_room)
 "FO" = (

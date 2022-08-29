@@ -540,6 +540,11 @@
 	pixel_y = 4
 	},
 /obj/structure/table/wood,
+/obj/item/flashlight/lamp/green{
+	on = 0;
+	pixel_x = -6;
+	pixel_y = -6
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
 /area/command/heads_quarters/hos)
@@ -920,15 +925,7 @@
 /area/ai_monitored/security/armory)
 "cp" = (
 /obj/structure/table/wood,
-/obj/item/flashlight/lamp/green{
-	on = 0;
-	pixel_x = -3;
-	pixel_y = 8
-	},
-/obj/item/paper_bin{
-	pixel_x = -3;
-	pixel_y = 7
-	},
+/obj/machinery/fax,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
 /area/command/heads_quarters/hos)
@@ -954,6 +951,10 @@
 /obj/structure/table/wood,
 /obj/item/folder/red,
 /obj/item/stamp/hos,
+/obj/item/paper_bin{
+	pixel_x = -11;
+	pixel_y = 7
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet,
 /area/command/heads_quarters/hos)
@@ -1437,8 +1438,8 @@
 /turf/open/floor/plasteel,
 /area/security/main)
 "dF" = (
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel,
 /area/security/brig)
 "dG" = (
 /obj/structure/rack,
@@ -3353,10 +3354,6 @@
 /obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/plasteel,
 /area/security/brig)
-"xN" = (
-/turf/open/floor/plasteel,
-/obj/effect/mapping_helpers/broken_floor,
-/area/security/brig)
 "ys" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/extinguisher_cabinet/directional/north,
@@ -3461,19 +3458,11 @@
 	},
 /turf/template_noop,
 /area/space/nearstation)
-"Xp" = (
-/turf/open/floor/plasteel,
-/obj/effect/mapping_helpers/broken_floor,
-/area/security/brig)
 "Zw" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
 /turf/open/openspace,
-/area/security/brig)
-"ZQ" = (
-/turf/open/floor/plasteel,
-/obj/effect/mapping_helpers/broken_floor,
 /area/security/brig)
 
 (1,1,1) = {"
@@ -4703,8 +4692,8 @@ fw
 bw
 cc
 fw
-ZQ
-Xp
+dF
+dF
 iz
 ab
 "}
@@ -4747,7 +4736,7 @@ aV
 cO
 cd
 pH
-xN
+dF
 an
 iz
 ab

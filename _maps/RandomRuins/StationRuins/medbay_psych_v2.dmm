@@ -1682,11 +1682,6 @@
 /area/command/heads_quarters/cmo)
 "xa" = (
 /obj/structure/table/glass,
-/obj/item/paper_bin{
-	pixel_x = -2;
-	pixel_y = 5
-	},
-/obj/item/pen,
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -1700,6 +1695,7 @@
 /obj/machinery/airalarm{
 	pixel_y = 23
 	},
+/obj/machinery/fax,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/cmo)
 "xd" = (
@@ -3223,6 +3219,10 @@
 "RN" = (
 /obj/structure/table/glass,
 /obj/item/folder/white,
+/obj/item/paper_bin{
+	pixel_x = -7;
+	pixel_y = 11
+	},
 /obj/item/stamp/cmo,
 /obj/item/clothing/neck/stethoscope,
 /obj/effect/turf_decal/tile/blue,
@@ -3234,6 +3234,10 @@
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
+	},
+/obj/item/pen{
+	pixel_y = 9;
+	pixel_x = -8
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/heads_quarters/cmo)

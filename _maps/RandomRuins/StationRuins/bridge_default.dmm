@@ -684,6 +684,7 @@
 /area/hallway/primary/central/east)
 "cj" = (
 /obj/structure/table/reinforced,
+/obj/item/aicard,
 /obj/item/assembly/flash/handheld,
 /obj/item/assembly/flash/handheld,
 /turf/open/floor/plasteel/monofloor/dark,
@@ -711,14 +712,13 @@
 /area/command)
 "cn" = (
 /obj/structure/table/reinforced,
-/obj/item/aicard,
-/obj/item/multitool,
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+/obj/machinery/fax,
 /turf/open/floor/plasteel/dark,
 /area/command)
 "co" = (
@@ -746,6 +746,9 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/item/multitool{
+	pixel_x = 9
+	},
 /turf/open/floor/plasteel/dark,
 /area/command)
 "cq" = (
@@ -2318,17 +2321,26 @@
 /area/ai_monitored/turret_protected/ai_upload)
 "gf" = (
 /obj/structure/table/wood,
-/obj/item/paper_bin{
-	pixel_x = -3;
-	pixel_y = 7
-	},
-/obj/item/pen,
+/obj/machinery/fax,
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
 "gg" = (
 /obj/structure/table/wood,
-/obj/item/folder/blue,
-/obj/item/stamp/captain,
+/obj/item/folder/blue{
+	pixel_x = 8;
+	pixel_y = 6
+	},
+/obj/item/stamp/captain{
+	pixel_x = 3
+	},
+/obj/item/paper_bin{
+	pixel_x = -10;
+	pixel_y = 7
+	},
+/obj/item/pen{
+	pixel_x = -7;
+	pixel_y = 5
+	},
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
 "gh" = (
@@ -3573,6 +3585,8 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+/obj/machinery/fax,
+/obj/structure/table,
 /turf/open/floor/plasteel,
 /area/command/heads_quarters/hop)
 "jo" = (

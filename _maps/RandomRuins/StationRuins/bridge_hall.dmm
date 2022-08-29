@@ -870,7 +870,7 @@
 /area/hallway/primary/central/east)
 "me" = (
 /obj/structure/table/wood,
-/obj/item/book/manual/wiki/security_space_law,
+/obj/machinery/fax,
 /turf/open/floor/wood,
 /area/command/meeting_room)
 "mf" = (
@@ -1056,6 +1056,10 @@
 	name = "Station Intercom (Command)"
 	},
 /obj/effect/landmark/event_spawn,
+/obj/item/book/manual/wiki/security_space_law{
+	pixel_x = 12;
+	pixel_y = 3
+	},
 /turf/open/floor/wood,
 /area/command/meeting_room)
 "os" = (
@@ -2158,8 +2162,6 @@
 /area/hallway/primary/central/west)
 "BY" = (
 /obj/structure/table/reinforced,
-/obj/item/aicard,
-/obj/item/multitool,
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -2170,6 +2172,7 @@
 /obj/structure/disposalpipe/junction{
 	dir = 2
 	},
+/obj/machinery/fax,
 /turf/open/floor/plasteel/dark,
 /area/command)
 "Cf" = (
@@ -3028,6 +3031,9 @@
 /area/command/teleporter)
 "Os" = (
 /obj/structure/table/reinforced,
+/obj/item/aicard{
+	pixel_x = 4
+	},
 /obj/item/assembly/flash/handheld,
 /obj/item/assembly/flash/handheld,
 /obj/item/storage/firstaid/regular{
@@ -3485,6 +3491,9 @@
 "Un" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
+/obj/item/multitool{
+	pixel_x = -14
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command)
 "UL" = (

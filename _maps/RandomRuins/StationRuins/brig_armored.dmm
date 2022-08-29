@@ -201,6 +201,11 @@
 	pixel_y = 4
 	},
 /obj/structure/table/wood,
+/obj/item/flashlight/lamp/green{
+	on = 0;
+	pixel_x = -6;
+	pixel_y = -6
+	},
 /turf/open/floor/engine,
 /area/command/heads_quarters/hos)
 "bR" = (
@@ -532,21 +537,17 @@
 /area/command/heads_quarters/hos)
 "ct" = (
 /obj/structure/table/wood,
-/obj/item/flashlight/lamp/green{
-	on = 0;
-	pixel_x = -3;
-	pixel_y = 8
-	},
-/obj/item/paper_bin{
-	pixel_x = -3;
-	pixel_y = 7
-	},
+/obj/machinery/fax,
 /turf/open/floor/engine,
 /area/command/heads_quarters/hos)
 "cu" = (
 /obj/structure/table/wood,
 /obj/item/folder/red,
 /obj/item/stamp/hos,
+/obj/item/paper_bin{
+	pixel_x = -11;
+	pixel_y = 7
+	},
 /turf/open/floor/engine,
 /area/command/heads_quarters/hos)
 "cv" = (
