@@ -21,7 +21,7 @@
 	if(!charging.charging_icon)
 		. += image(charging.icon, charging.icon_state)
 	else
-		.+= image('icons/obj/cell.dmi', charging.charging_icon)\
+		.+= image('icons/obj/cell.dmi', charging.charging_icon)
 
 /obj/machinery/cell_charger/examine(mob/user)
 	. = ..()
