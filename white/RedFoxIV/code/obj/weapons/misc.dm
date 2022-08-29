@@ -723,11 +723,11 @@
 /obj/effect/mob_spawn/human/donate/artist/proc/get_from_lobby(datum/source, location, control, params, mob/user)
 	SIGNAL_HANDLER
 
-	if(!isnewplayer(user))
+	if(!isnewplayer(usr))
 		return
 
 	spawn(-1)
-		attack_ghost(user, TRUE)
+		attack_ghost(usr, from_lobby = TRUE)
 
 /obj/effect/mob_spawn/human/donate/artist/attack_ghost(mob/user, from_lobby = FALSE)
 	if(user.ckey in round_banned_ckeys)
@@ -746,7 +746,7 @@
 		return TRUE
 	. = ..()
 
-/obj/effect/mob_spawn/human/donate/artist/create(mob/user, newname, from_lobby)
+/obj/effect/mob_spawn/human/donate/artist/create(mob/user, newname, from_lobby = FALSE)
 	. = ..()
 	var/mob/living/L = .
 	spawned_mobs += L
@@ -820,7 +820,9 @@
 		if(HAS_TRAIT(artist, TRAIT_CRITICAL_CONDITION) || artist.stat == DEAD || !artist.key)
 			spawned_mobs.Remove(artist)
 			artist.alpha = 0 //because dust animation does not hide the body while playing, which look really fuckiing weird
-			artist.dust(drop_items = TRUE)
+			SEND_SIGNAL(artist, COMSIG_LIVING_BEFORE_DUSTED)
+			spawn(3 SECONDS)
+				artist.dust(drop_items = TRUE)
 			continue
 
 		var/area/A = get_area(artist)

@@ -609,7 +609,6 @@
 ///from base of mob/living/death(): (gibbed)
 #define COMSIG_LIVING_DEATH "living_death"
 
-///from base of mob/living/dust(): ()
 #define COMSIG_LIVING_BEFORE_DUSTED "living_before_dusted"
 
 /// from /proc/healthscan(): (list/scan_results, advanced, mob/user, mode)

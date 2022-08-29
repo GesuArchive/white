@@ -44,8 +44,6 @@
  * * force - Should this mob be FORCABLY dusted?
 */
 /mob/living/proc/dust(just_ash, drop_items, force)
-	SEND_SIGNAL(src, COMSIG_LIVING_BEFORE_DUSTED)
-
 	death(TRUE)
 
 	if(drop_items)
