@@ -185,6 +185,8 @@ SUBSYSTEM_DEF(ticker)
 				return
 			timeLeft -= wait
 
+			SEND_SIGNAL(SStitle, COMSIG_TITLE_UPDATE_INFO)
+
 			if(timeLeft <= 300 && !tipped)
 				send_tip_of_the_round()
 				tipped = TRUE
