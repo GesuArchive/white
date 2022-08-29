@@ -541,10 +541,10 @@
 		near.hallucination += 50 * dist
 		near.hallucination = clamp(near.hallucination, 0, 150)
 		var/list/messages = list(
-			"You feel your conscious mind fall apart!",
-			"Reality warps around you!",
-			"Something's wispering around you!",
-			"You are going insane!",
+			"Сознание разваливается!",
+			"Реальность оборачивается вокруг меня!",
+			"Кто-то что-то шепчет!",
+			"ААААААААААААААА!",
 		)
 		to_chat(near, span_warning(pick(messages)))
 

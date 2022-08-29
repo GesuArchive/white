@@ -76,6 +76,7 @@
 
 	vis_contents -= warp
 	warp = null
+	QDEL_NULL(warp)
 
 	return ..()
 
@@ -127,18 +128,27 @@
 	for(var/obj/O in orange(4, src))
 		if(!O.anchored)
 			step_towards(O, src)
-	for(var/mob/living/M in orange(4, src))
-		if(!M.mob_negates_gravity())
-			step_towards(M, src)
-	for(var/obj/O in range(0, src))
-		if(!O.anchored)
-			if(isturf(O.loc))
-				var/turf/T = O.loc
-				if(T.intact && HAS_TRAIT(O, TRAIT_T_RAY_VISIBLE))
-					continue
-			var/mob/living/target = locate() in view(4, src)
-			if(target && !target.stat)
-				O.throw_at(target, 5, 10)
+
+	for(var/mob/living/near in orange(4, src))
+		if(!near.mob_negates_gravity())
+			step_towards(near, src)
+
+		if (HAS_TRAIT(near, TRAIT_SUPERMATTER_MADNESS_IMMUNE) || (near.mind && HAS_TRAIT(near.mind, TRAIT_SUPERMATTER_MADNESS_IMMUNE)))
+			continue
+
+		if (near.is_blind())
+			continue
+
+		var/dist = sqrt(1 / max(1, get_dist(near, location)))
+		near.hallucination += 50 * dist
+		near.hallucination = clamp(near.hallucination, 0, 150)
+		var/list/messages = list(
+			"Сознание разваливается!",
+			"Реальность оборачивается вокруг меня!",
+			"Кто-то что-то шепчет!",
+			"ААААААААААААААА!",
+		)
+		to_chat(near, span_warning(pick(messages)))
 
 	wzhzhzhzh.playing_volume = 100
 
