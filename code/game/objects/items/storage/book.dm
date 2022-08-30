@@ -245,7 +245,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 					if(iscultist(M))
 						SSticker.mode.remove_cultist(M.mind, FALSE, FALSE)
 			for(var/mob/living/simple_animal/shade/EX in SS)
-				EX.icon_state = "ghost1"
+				EX.icon_state = "shade_holy"
 				EX.name = "Очищенный [initial(EX.name)]"
 			user.visible_message(span_notice("[user] очищает [SS]!"))
 	else if(istype(A, /obj/item/nullrod/scythe/talking))
