@@ -754,8 +754,10 @@
 	if(from_lobby)
 		RegisterSignal(L, COMSIG_LIVING_BEFORE_DUSTED, .proc/send_back_to_lobby)
 
-/obj/effect/mob_spawn/human/donate/artist/proc/send_back_to_lobby(datum/source, mob/living/dead, gibbed)
+/obj/effect/mob_spawn/human/donate/artist/proc/send_back_to_lobby(datum/source)
 	SIGNAL_HANDLER
+
+	var/mob/living/dead = source
 
 	dead?.mind?.remove_all_antag_datums()
 	DIRECT_OUTPUT(dead, sound(null))
@@ -821,8 +823,7 @@
 			spawned_mobs.Remove(artist)
 			artist.alpha = 0 //because dust animation does not hide the body while playing, which look really fuckiing weird
 			SEND_SIGNAL(artist, COMSIG_LIVING_BEFORE_DUSTED)
-			spawn(3 SECONDS)
-				artist.dust(drop_items = TRUE)
+			artist.dust(drop_items = TRUE)
 			continue
 
 		var/area/A = get_area(artist)
