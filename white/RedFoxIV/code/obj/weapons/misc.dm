@@ -973,7 +973,7 @@
 			if(bet > user.client.mc_cached)
 				to_chat(user, "Где деньги, Лебовски?")
 				return
-			//inc_metabalance(user, -bet, TRUE, "Оплатил входной билет.")
+			inc_metabalance(user, -bet, TRUE, "Оплатил входной билет.")
 			to_chat(user, span_clown("Потеряно [bet] дублей. Оплатил входной билет."))
 			spawn_user(user)
 		return
@@ -995,7 +995,7 @@
 		return
 	bet = betinput
 	duel_status = DUEL_PENDING
-	//inc_metabalance(user, -bet, TRUE, "Оплатил входной билет.")
+	inc_metabalance(user, -bet, TRUE, "Оплатил входной билет.")
 	to_chat(user, span_clown("Потеряно [bet] дублей. Оплатил входной билет."))
 	spawn_user(user, bet)
 	to_chat(user, span_noticealien("Создано предложение о дуэли. Если никто не откликнется за 30 секунд, дуэль будет отменена и вам вернут деньги."))
@@ -1100,10 +1100,10 @@
 
 
 	if(!first_lost)
-		//inc_metabalance(fighter1, bet*pay_mul, TRUE, msg)
+		inc_metabalance(fighter1, bet*pay_mul, TRUE, msg)
 		to_chat(fighter1, span_clown("Начислено [bet*pay_mul] дублей. [msg]"))
 	if(!second_lost)
-		//inc_metabalance(fighter2, bet*pay_mul, TRUE, msg)
+		inc_metabalance(fighter2, bet*pay_mul, TRUE, msg)
 		to_chat(fighter2, span_clown("Начислено [bet*pay_mul] дублей. [msg]"))
 
 	fighter1?.dust(FALSE, FALSE, TRUE)
