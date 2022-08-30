@@ -1,3 +1,24 @@
+/obj/item/implant/bonjour
+	name = "Пищалка"
+	desc = "Очень страшно пищит."
+	icon = 'icons/mob/actions/actions_items.dmi'
+	icon_state = "legsweep"
+	actions_types = list(/datum/action/cooldown/bonjour)
+
+/obj/item/implant/bonjour/get_data()
+
+	var/dat = {"<b>Implant Specifications:</b><BR>
+				<b>Name:</b> АААААААААААА<BR>
+				<b>Life:</b> БЛЯЯЯЯЯЯЯЯЯЯЯЯЯТЬ<BR>
+				<b>Important Notes:</b> СУКАААААААААААААААААААА<BR>
+				<HR>
+				<b>Implant Details:</b><img src="data:image/png;base64,[image_base64]"/> 
+				"}
+	return dat
+
+
+
+
 /datum/action/cooldown/bonjour
 	name = "Напугать жертву до усрачки."
 	icon_icon = 'icons/mob/actions/actions_items.dmi'
