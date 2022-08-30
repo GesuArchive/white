@@ -57,7 +57,7 @@
 		if(!listening_client?.mob)
 			continue
 		var/mob/listening_mob = listening_client.mob
-		if(LAZYLEN((listening_mob.GetComponents(/datum/component/soundplayer_listener) & listener_comps)))
+		if(LAZYLEN((list() + listening_mob.GetComponents(/datum/component/soundplayer_listener) & listener_comps)))
 			continue
 		var/datum/component/soundplayer_listener/SPL = listening_mob.AddComponent(/datum/component/soundplayer_listener, src)
 		listener_comps += SPL
