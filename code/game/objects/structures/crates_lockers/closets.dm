@@ -93,6 +93,13 @@
 	. = ..()
 	update_icon()
 	PopulateContents()
+	if(QDELETED(src)) //It turns out populate contents has a 1 in 100 chance of qdeling src on /obj/structure/closet/emcloset
+		return //Why
+	var/static/list/loc_connections = list(
+		COMSIG_CARBON_DISARM_COLLIDE = .proc/locker_carbon,
+		COMSIG_ATOM_MAGICALLY_UNLOCKED = .proc/on_magic_unlock,
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/closet/proc/create_password()
 	var/pass = ""
@@ -863,6 +870,32 @@
 	if(air_contents)
 		return air_contents.return_temperature()
 
+/obj/structure/closet/proc/locker_carbon(datum/source, mob/living/carbon/shover, mob/living/carbon/target, shove_blocked)
+	SIGNAL_HANDLER
+	if(!opened && (locked || welded)) //Yes this could be less code, no I don't care
+		return
+	if(!opened && !shove_blocked)
+		return
+	var/was_opened = opened
+	if(!toggle())
+		return
+	if(was_opened)
+		target.forceMove(src)
+	else
+		target.Knockdown(SHOVE_KNOCKDOWN_SOLID)
+	update_icon()
+	target.visible_message(span_danger("[shover.name] заталкивает [target.name] в [src]!"),
+		span_userdanger("[shover.name] заталкивает меня в [src]!"), span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!"), COMBAT_MESSAGE_RANGE, src)
+	to_chat(src, span_danger("Заталкиваю [target.name] в [src]!"))
+	log_combat(src, target, "shoved", "into [src] (locker/crate)")
+	return COMSIG_CARBON_SHOVE_HANDLED
+
+/// Signal proc for [COMSIG_ATOM_MAGICALLY_UNLOCKED]. Unlock and open up when we get knock casted.
+/obj/structure/closet/proc/on_magic_unlock(datum/source, datum/action/cooldown/spell/aoe/knock/spell, mob/living/caster)
+	SIGNAL_HANDLER
+
+	locked = FALSE
+	INVOKE_ASYNC(src, .proc/open)
 
 #undef MODE_PASSWORD
 #undef MODE_OPTIONAL

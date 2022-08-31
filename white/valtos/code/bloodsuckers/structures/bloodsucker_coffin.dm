@@ -205,14 +205,15 @@
 		var/datum/antagonist/bloodsucker/bloodsuckerdatum = user.mind.has_antag_datum(/datum/antagonist/bloodsucker)
 		if(!bloodsuckerdatum)
 			return FALSE
-		if(!bloodsuckerdatum.coffin && !resident)
-			switch(input("Do you wish to claim this as your coffin? [get_area(src)] will be your lair, and you will learn to craft new structures.","Claim Lair") in list("Yes", "No"))
-				if("Yes")
-					ClaimCoffin(user)
-			LockMe(user)
-		bloodsuckerdatum.SpendRank()
-		/// You're in a Coffin, everything else is done, you're likely here to heal. Let's offer them the oppertunity to do so.
-		bloodsuckerdatum.Check_Begin_Torpor()
+		spawn(-1)
+			if(!bloodsuckerdatum.coffin && !resident)
+				switch(input("Do you wish to claim this as your coffin? [get_area(src)] will be your lair, and you will learn to craft new structures.","Claim Lair") in list("Yes", "No"))
+					if("Yes")
+						ClaimCoffin(user)
+				LockMe(user)
+			bloodsuckerdatum.SpendRank()
+			/// You're in a Coffin, everything else is done, you're likely here to heal. Let's offer them the oppertunity to do so.
+			bloodsuckerdatum.Check_Begin_Torpor()
 	return TRUE
 
 /// You cannot weld or deconstruct an owned coffin. Only the owner can destroy their own coffin.
