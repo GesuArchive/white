@@ -225,6 +225,7 @@ GLOBAL_VAR_INIT(borderlands_outline_mode, FALSE)
 /atom/movable/screen/plane_master/pipecrawl
 	name = "pipecrawl plane master"
 	plane = PIPECRAWL_IMAGES_PLANE
+	render_relay_plane = RENDER_PLANE_GAME
 	appearance_flags = PLANE_MASTER
 	blend_mode = BLEND_OVERLAY
 
