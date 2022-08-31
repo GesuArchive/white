@@ -78,7 +78,7 @@
 	subcategory = CAT_MOTH
 
 /datum/crafting_recipe/food/baked_cheese_platter
-	name = "Stanntkraktælo (Жареная головка сыра)"
+	name = "Мольское фондю"
 	reqs = list(
 		/obj/item/food/baked_cheese = 1,
 		/obj/item/food/griddle_toast = 3

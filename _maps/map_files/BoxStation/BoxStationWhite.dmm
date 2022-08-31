@@ -12829,7 +12829,7 @@
 	},
 /area/hallway/secondary/exit)
 "dCI" = (
-/obj/structure/rospilovo/vanna{
+/obj/structure/reagent_dispensers/bath{
 	pixel_x = 6;
 	pixel_y = 12
 	},

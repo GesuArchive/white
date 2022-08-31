@@ -106,7 +106,7 @@
 	burns_in_oven = TRUE
 
 /obj/item/food/baked_cheese_platter
-	name = "жареная головка сыра" //stannt = oven, krakt = baked, ælo = cheese
+	name = "мольское фондю" //stannt = oven, krakt = baked, ælo = cheese
 	desc = "Запеченный сырный круг: любимое блюдо молей для совместного употребления. Обычно подается с хрустящими ломтиками хлеба для макания, потому что лучше хорошего сыра может быть только хороший сыр на хлебе."
 	icon = 'icons/obj/food/moth.dmi'
 	icon_state = "baked_cheese_platter"
