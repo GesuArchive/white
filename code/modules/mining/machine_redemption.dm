@@ -18,6 +18,7 @@
 	var/points = 0
 	var/ore_multiplier = 1
 	var/point_upgrade = 1
+	var/force_connect = FALSE
 	var/list/ore_values = list(/datum/material/iron = 1, /datum/material/glass = 1,  /datum/material/plasma = 15,  /datum/material/silver = 16, /datum/material/gold = 18, /datum/material/titanium = 30, /datum/material/uranium = 30, /datum/material/diamond = 50, /datum/material/bluespace = 50, /datum/material/bananium = 60)
 	/// Variable that holds a timer which is used for callbacks to `send_console_message()`. Used for preventing multiple calls to this proc while the ORM is eating a stack of ores.
 	var/console_notify_timer
@@ -28,7 +29,7 @@
 /obj/machinery/mineral/ore_redemption/Initialize(mapload)
 	. = ..()
 	stored_research = new /datum/techweb/specialized/autounlocking/smelter
-	materials = AddComponent(/datum/component/remote_materials, "orm", mapload, force_connect = TRUE, mat_container_flags=BREAKDOWN_FLAGS_ORM)
+	materials = AddComponent(/datum/component/remote_materials, "orm", mapload, force_connect = force_connect, mat_container_flags=BREAKDOWN_FLAGS_ORM)
 
 /obj/machinery/mineral/ore_redemption/Destroy()
 	QDEL_NULL(stored_research)
@@ -367,4 +368,4 @@
 		icon_state = "[initial(icon_state)]-off"
 
 /obj/machinery/mineral/ore_redemption/lavaland
-	var/force_connect = TRUE
+	force_connect = TRUE
