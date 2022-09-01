@@ -164,10 +164,14 @@
 	can_be_bought = FALSE
 
 /datum/map_template/shuttle/freelancer
-	name = "Фрегат Путешественника"
+	name = "Фрегат Путешественника: Малый"
 	port_id = "freelancer"
 	suffix = "small"
 	can_be_bought = FALSE
+
+/datum/map_template/shuttle/freelancer/medium
+	name = "Фрегат Путешественника: Средний"
+	suffix = "medium"
 
 // Shuttles start here:
 

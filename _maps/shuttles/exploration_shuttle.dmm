@@ -12,10 +12,10 @@
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
 "b" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/exploration)
 "c" = (

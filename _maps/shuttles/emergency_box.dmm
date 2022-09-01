@@ -542,9 +542,6 @@
 	pixel_y = 16
 	},
 /obj/item/hemostat,
-/obj/machinery/light{
-	dir = 4
-	},
 /turf/open/floor/plasteel/dark,
 /area/shuttle/escape)
 "gk" = (
@@ -638,6 +635,9 @@
 "qZ" = (
 /obj/structure/table/optable,
 /obj/effect/turf_decal/bot,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/escape)
 "rm" = (

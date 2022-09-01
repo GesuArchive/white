@@ -57,7 +57,7 @@
 		if(ID)
 			ID.registered_account.adjust_money(15000, 25000)
 
-	if(SSmapping.spawn_type_shuttle(/datum/map_template/shuttle/freelancer))
+	if(SSmapping.spawn_type_shuttle(/datum/map_template/shuttle/freelancer/medium))
 		for(var/_sloc in GLOB.start_landmarks_list)
 			var/obj/effect/landmark/start/sloc = _sloc
 			if(sloc.name != JOB_FREELANCER)
@@ -95,6 +95,21 @@
 	ambience_index = AMBIENCE_NONE
 	ambientsounds = SCARLET_DAWN_AMBIENT
 	area_limited_icon_smoothing = /area/shuttle/freelancer
+
+/area/shuttle/freelancer/cabine
+	name = "Фрегат Путешественника: Кабина"
+
+/area/shuttle/freelancer/cargo
+	name = "Фрегат Путешественника: Трюм"
+
+/area/shuttle/freelancer/passengers
+	name = "Фрегат Путешественника: Пассажиры"
+
+/area/shuttle/freelancer/rnd
+	name = "Фрегат Путешественника: Исследования"
+
+/area/shuttle/freelancer/med
+	name = "Фрегат Путешественника: Медбей"
 
 /obj/docking_port/mobile/freelancer
 	name = "Фрегат Путешественника"
