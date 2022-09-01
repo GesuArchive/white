@@ -39,10 +39,16 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
+/obj/machinery/light_switch/directional/west,
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/freelancer)
 "n" = (
-/turf/closed/wall/mineral/plastitanium,
+/obj/structure/cable,
+/obj/machinery/power/solar/t4_plastitaniumglass,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/airless/solarpanel,
 /area/shuttle/freelancer)
 "w" = (
 /obj/structure/closet/crate{
@@ -62,7 +68,12 @@
 /obj/effect/turf_decal/bot,
 /obj/item/multitool,
 /obj/item/gun/energy/e_gun/old,
+/obj/machinery/newscaster/directional/east,
 /turf/open/floor/mineral/plastitanium,
+/area/shuttle/freelancer)
+"x" = (
+/obj/structure/cable,
+/turf/closed/wall/mineral/titanium,
 /area/shuttle/freelancer)
 "A" = (
 /obj/structure/fans/tiny,
@@ -73,7 +84,6 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/shuttle,
-/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer)
 "E" = (
@@ -103,7 +113,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
-/obj/structure/cable,
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/freelancer)
 "K" = (
@@ -111,8 +120,21 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/freelancer)
 "O" = (
-/obj/structure/lattice,
-/turf/template_noop,
+/obj/machinery/power/solar/t4_plastitaniumglass,
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/airless/solarpanel,
+/area/shuttle/freelancer)
+"P" = (
+/obj/machinery/power/solar_control{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/item/radio/intercom/directional/north,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer)
 "T" = (
 /obj/structure/window/shuttle,
@@ -125,17 +147,26 @@
 /area/shuttle/freelancer)
 "W" = (
 /obj/machinery/computer/shuttle_flight/freelancer,
+/obj/effect/turf_decal/delivery,
 /turf/open/floor/mineral/plastitanium,
+/area/shuttle/freelancer)
+"X" = (
+/obj/structure/cable,
+/obj/machinery/power/tracker,
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/plasteel/airless/solarpanel,
 /area/shuttle/freelancer)
 
 (1,1,1) = {"
-T
+a
 T
 a
 A
 a
 a
-n
+a
 "}
 (2,1,1) = {"
 T
@@ -147,9 +178,9 @@ l
 K
 "}
 (3,1,1) = {"
-T
 a
 a
+P
 c
 i
 U
@@ -157,19 +188,19 @@ E
 "}
 (4,1,1) = {"
 O
-a
-a
+x
+x
 a
 w
 l
 K
 "}
 (5,1,1) = {"
-O
-O
-a
-a
-a
-a
+X
 n
+a
+a
+a
+a
+a
 "}

@@ -36,6 +36,9 @@
 	mask = /obj/item/clothing/mask/breath
 	glasses = /obj/item/clothing/glasses/sunglasses
 
+	r_pocket = /obj/item/kitchen/knife/combat
+	l_pocket = /obj/item/gps
+
 	back = /obj/item/mod/control/pre_equipped/prototype
 	suit_store = /obj/item/tank/internals/tactical
 	internals_slot = ITEM_SLOT_SUITSTORE

@@ -135,7 +135,7 @@ SUBSYSTEM_DEF(mapping)
 	return ..()
 
 /datum/controller/subsystem/mapping/proc/spawn_type_shuttle(datum/which_type = null)
-	if(!istype(which_type))
+	if(!which_type)
 		message_admins("No type provided! Beat to death your coders.")
 		return FALSE
 
@@ -152,7 +152,7 @@ SUBSYSTEM_DEF(mapping)
 		message_admins("[ship.name] load failed!")
 		return FALSE
 
-	message_admins("[ship.name] ship loaded at [x], [y], [z].")
+	message_admins("[ship.name] loaded at [x], [y], [z].")
 	return TRUE
 
 /datum/controller/subsystem/mapping/proc/wipe_reservations(wipe_safety_delay = 100)
