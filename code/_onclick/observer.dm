@@ -1,5 +1,7 @@
 /mob/dead/observer/DblClickOn(atom/A, params)
-	if(check_click_intercept(params, A))
+	//if(check_click_intercept(params, A)) // this goes right out the window
+	//	return
+	if(client?.click_intercept /*|| click_intercept*/) //should i check for mob-level intercepts?  
 		return
 
 	if(can_reenter_corpse && mind?.current)
