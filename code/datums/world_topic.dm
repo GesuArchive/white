@@ -355,6 +355,37 @@
 				return TRUE
 	return FALSE
 
+/**
+ * Отправляет сообщение от имени ЦК
+ */
+/proc/central_cmd_announce(msg)
+	minor_announce("[msg]", "Центральное Командование")
+	return TRUE
+
+/**
+ * Отправляет пирог в лицо пользователю
+ */
+/proc/creampie_user(userkey)
+	for(var/client/C in GLOB.clients)
+		if(userkey == C.ckey)
+			if(isliving(C.mob))
+				pieing_squad(C.mob, get_turf(C.mob))
+				return TRUE
+	return FALSE
+
+/**
+ * Случайная мартышка впадает в безумие
+ */
+/proc/monkey_frenzy()
+	for(var/mob/living/carbon/human/species/monkey/monkey_mob in GLOB.mob_living_list)
+		if(!ismonkey(monkey_mob))
+			continue
+		if(!monkey_mob?.ai_controller)
+			continue
+		monkey_mob.ai_controller.blackboard[BB_MONKEY_AGRESSIVE] = TRUE
+		return TRUE
+	return FALSE
+
 /datum/world_topic/socket
 	keyword = "socket"
 	require_comms_key = TRUE
