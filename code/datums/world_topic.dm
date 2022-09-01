@@ -377,7 +377,7 @@
  * Случайная мартышка впадает в безумие
  */
 /proc/monkey_frenzy()
-	for(var/mob/living/carbon/human/species/monkey/monkey_mob in GLOB.mob_living_list)
+	for(var/mob/monkey_mob in GLOB.mob_living_list)
 		if(!ismonkey(monkey_mob))
 			continue
 		if(!monkey_mob?.ai_controller)
