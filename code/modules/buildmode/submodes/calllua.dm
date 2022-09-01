@@ -31,7 +31,7 @@
 	to_chat(c, span_notice("Right mouse button on the buildmode button to select a lua state from existing ones."))
 	to_chat(c, span_notice("Different modifier key combinations call different functions. They all get clicked atom and your client as arguments."))
 	to_chat(c, span_notice("The lua functions for the you can define:"))
-	to_chat(c, span_notice("	CtrlAltShift\[Left/Middle/Right]Click(atom, client)"))
+	to_chat(c, span_notice("	CtrlAltShift\[Left/Middle/Right]Click(atom, client, params)"))
 	to_chat(c, span_notice("		Add/remove the modifier keys from the function name to bind it to a certain"))
 	to_chat(c, span_notice("		combination <i><u>but do not change their order.</u></i>"))
 	to_chat(c, span_notice("		e.g. CtrlShiftLeftClick(), AltShiftMiddleClick(), CtrlRightClick(), AltMiddleClick(), etc."))
@@ -104,7 +104,7 @@
 	
 	var/func_name = "[jointext(index, "")]Click"
 	log_admin("Build Mode: [key_name(c)] ([COORD(c.mob)]) called LUA function [func_name]([object.name]) from state [state.name]. [object.name] was at [COORD(object)]")
-	var/ret = state.call_function(func_name, object, c)
+	var/ret = state.call_function(func_name, object, c, p)
 	if(ret["status"] == "errored" || ret["status"] == "bad return") //error handling just in case
 		to_chat(c, span_red("[func_name]() returned an error: [ret["param"]]"))
 	else
