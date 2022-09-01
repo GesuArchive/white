@@ -90,6 +90,8 @@
 	var/rpg_title
 	var/rpg_title_ru
 
+	var/list/whitelisted = list()
+
 
 /datum/job/New()
 	. = ..()

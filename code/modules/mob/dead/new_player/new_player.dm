@@ -212,6 +212,8 @@
 		return JOB_UNAVAILABLE_GENERIC
 	if(job.metalocked && !(job.type in client.prefs.jobs_buyed))
 		return JOB_UNAVAILABLE_UNBUYED
+	if(LAZYLEN(job.whitelisted) && !(ckey in job.whitelisted))
+		return JOB_UNAVAILABLE_UNBUYED
 	if(GLOB.violence_mode_activated)
 		var/datum/violence_player/VP = GLOB.violence_players?[ckey]
 		if(VP?.role_name != rank)

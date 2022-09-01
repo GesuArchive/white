@@ -81,6 +81,11 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = JOB_PRISONER
 	delete_after_roundstart = FALSE
 
+/obj/effect/landmark/start/freelancer
+	name = JOB_FREELANCER
+	icon_state = JOB_FREELANCER
+	delete_after_roundstart = FALSE
+
 /obj/effect/landmark/start/bomj
 	name = JOB_BOMJ
 	icon_state = JOB_PRISONER

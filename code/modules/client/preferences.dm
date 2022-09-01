@@ -842,6 +842,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if(job.metalocked && !(job.type in jobs_buyed))
 				HTML += "<font color='#ff7777'>[ru_rank]</font></td><td><font color='#ff7777'> \[ $$$ \] </font></td></tr>"
 				continue
+			if(LAZYLEN(job.whitelisted) && !(user.ckey in job.whitelisted))
+				HTML += "<font color='#ff7777'>[ru_rank]</font></td><td><font color='#ff7777'> \[ SUB \] </font></td></tr>"
+				continue
 			if(!job.player_old_enough(user.client))
 				var/available_in_days = job.available_in_days(user.client)
 				HTML += "<font color='#ff7777'>[ru_rank]</font></td><td><font color='#ff7777'> \[ЧЕРЕЗ [(available_in_days)] ДНЕЙ\]</font></td></tr>"

@@ -162,6 +162,11 @@
 	suffix = "harvester"
 	can_be_bought = FALSE
 
+/datum/map_template/shuttle/freelancer
+	port_id = "freelancer"
+	suffix = "small"
+	can_be_bought = FALSE
+
 // Shuttles start here:
 
 /datum/map_template/shuttle/emergency/backup

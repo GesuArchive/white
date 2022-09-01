@@ -131,24 +131,29 @@ SUBSYSTEM_DEF(mapping)
 	initialize_reserved_level(transit.z_value)
 
 	// spawn yohei shuttle
-	spawn_yohei_shuttle()
+	spawn_type_shuttle(/datum/map_template/shuttle/yohei)
 	return ..()
 
-/datum/controller/subsystem/mapping/proc/spawn_yohei_shuttle()
+/datum/controller/subsystem/mapping/proc/spawn_type_shuttle(which_type)
+	if(!istype(which_type))
+		message_admins("No type provided! Beat to death your coders.")
+		return FALSE
 
-	var/datum/map_template/shuttle/yohei/ship = new /datum/map_template/shuttle/yohei
+	var/datum/map_template/shuttle/ship = new which_type
 	var/x = rand(TRANSITIONEDGE, world.maxx - TRANSITIONEDGE - ship.width)
 	var/y = rand(TRANSITIONEDGE, world.maxy - TRANSITIONEDGE - ship.height)
 	var/z = SSmapping.empty_space?.z_value
 	if(!z)
-		message_admins("Yohei ship can't be loaded.")
-		return
+		message_admins("[ship.name] can't be loaded.")
+		return FALSE
 	var/turf/T = locate(x, y, z)
 
 	if(!ship.load(T))
-		message_admins("Yohei load failed!")
+		message_admins("[ship.name] load failed!")
+		return FALSE
 
-	message_admins("Yohei ship loaded at [x], [y], [z].")
+	message_admins("[ship.name] ship loaded at [x], [y], [z].")
+	return TRUE
 
 /datum/controller/subsystem/mapping/proc/wipe_reservations(wipe_safety_delay = 100)
 	if(clearing_reserved_turfs || !initialized)			//in either case this is just not needed.
