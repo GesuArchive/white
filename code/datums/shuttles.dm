@@ -158,11 +158,13 @@
 	can_be_bought = FALSE
 
 /datum/map_template/shuttle/yohei
+	name = "Сборщик Йохеев"
 	port_id = "yohei"
 	suffix = "harvester"
 	can_be_bought = FALSE
 
 /datum/map_template/shuttle/freelancer
+	name = "Фрегат Путешественника"
 	port_id = "freelancer"
 	suffix = "small"
 	can_be_bought = FALSE

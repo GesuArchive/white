@@ -45,6 +45,9 @@
 
 	id_trim = /datum/id_trim/job/freelancer
 
+/datum/outfit/job/freelancer/pre_equip(mob/living/carbon/human/H, visualsOnly)
+	return
+
 /datum/outfit/job/freelancer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
 	if(visualsOnly)
@@ -57,8 +60,7 @@
 	if(SSmapping.spawn_type_shuttle(/datum/map_template/shuttle/freelancer))
 		for(var/_sloc in GLOB.start_landmarks_list)
 			var/obj/effect/landmark/start/sloc = _sloc
-			var/datum/job/J = jobtype
-			if(sloc.name != initial(J.title))
+			if(sloc.name != JOB_FREELANCER)
 				continue
 			H.forceMove(get_turf(sloc))
 
@@ -87,9 +89,6 @@
 /obj/machinery/computer/shuttle_flight/freelancer/LateInitialize()
 	. = ..()
 	var/datum/orbital_object/O = launch_shuttle()
-
-	var/datum/orbital_map/linked_map = SSorbits.orbital_maps[orbital_map_index]
-	O.set_orbitting_around_body(linked_map.center, 700 + 25 * rand(40, 20))
 
 /area/shuttle/freelancer
 	name = "Фрегат Путешественника"
