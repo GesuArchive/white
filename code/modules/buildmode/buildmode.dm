@@ -22,6 +22,9 @@
 	// dirswitch UI
 	var/atom/movable/screen/buildmode/bdir/dirbutton
 	var/list/dirswitch_buttons = list()
+	
+	var/static/list/dirs = list(NORTH, NORTHEAST, EAST, SOUTHEAST, SOUTH, SOUTHWEST, WEST, NORTHWEST)
+	var/dirindex = 5 //south is default
 
 /datum/buildmode/New(client/c)
 	mode = new /datum/buildmode_mode/basic(src)
@@ -34,6 +37,28 @@
 	holder.screen += buttons
 	holder.click_intercept = src
 	mode.enter_mode(src)
+	RegisterSignal(holder, COMSIG_MOUSE_SCROLL_ON, .proc/MouseWheelRotate)
+
+
+/datum/buildmode/proc/MouseWheelRotate(source, atom/A, delta_x, delta_y, params)
+	SIGNAL_HANDLER
+	dirindex += round(delta_y/120)
+
+	if(dirindex < 1)
+		dirindex = dirindex + 8
+	if(dirindex > 8)
+		dirindex = dirindex - 8
+
+	if(params2list(params).Find("shift")) //this whole if block is vile, there has to be a better way to do this
+		if(dirindex != 1 && \
+		dirindex != 3 && \
+		dirindex != 5 && \
+		dirindex != 7)
+			dirindex += round(delta_y/120)
+			if(dirindex > 8)
+				dirindex = dirindex - 8
+	build_dir = dirs[dirindex]
+	dirbutton.update_icon_state()
 
 /datum/buildmode/proc/quit()
 	mode.exit_mode(src)
@@ -43,6 +68,7 @@
 	qdel(src)
 
 /datum/buildmode/Destroy()
+	UnregisterSignal(holder, COMSIG_MOUSE_SCROLL_ON)
 	close_switchstates()
 	holder.player_details.post_login_callbacks -= li_cb
 	li_cb = null
