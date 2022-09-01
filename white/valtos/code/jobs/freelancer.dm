@@ -3,8 +3,8 @@
 	ru_title = "Путешественник"
 	department_head = list()
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 10
+	spawn_positions = 10
 	supervisors = "никому"
 	selection_color = "#e005e4"
 
@@ -27,7 +27,7 @@
 	rpg_title_ru = "Путешественник"
 
 	// пока так
-	whitelisted = list("nikitauou")
+	whitelisted = list("nikitauou", "valtosss")
 
 /datum/outfit/job/freelancer
 	name = JOB_FREELANCER
@@ -88,7 +88,7 @@
 
 /obj/machinery/computer/shuttle_flight/freelancer/LateInitialize()
 	. = ..()
-	var/datum/orbital_object/O = launch_shuttle()
+	launch_shuttle()
 
 /area/shuttle/freelancer
 	name = "Фрегат Путешественника"
