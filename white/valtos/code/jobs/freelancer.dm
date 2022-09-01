@@ -67,8 +67,8 @@
 /datum/id_trim/job/freelancer
 	assignment = JOB_FREELANCER
 	trim_state = "trim_freelancer"
-	full_access = list(ACCESS_MAINT_TUNNELS)
-	minimal_access = list()
+	full_access = list(ACCESS_MAINT_TUNNELS, ACCESS_AWAY_GENERAL)
+	minimal_access = list(ACCESS_MAINT_TUNNELS, ACCESS_AWAY_GENERAL)
 	config_job = "freelancer"
 	template_access = list(ACCESS_CAPTAIN, ACCESS_HOP, ACCESS_CHANGE_IDS)
 
