@@ -238,6 +238,7 @@
 			/obj/item/pen/uplink,
 			/obj/item/multitool/uplink,
 			/obj/item/dice/d20/fate/one_use,
+			/obj/item/dice/d100/fate/one_use,
 			/obj/item/storage/box/syndie_kit,
 			/obj/structure/closet/crate/necropolis,
 			/obj/item/book/granter,
