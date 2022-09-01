@@ -134,7 +134,7 @@ SUBSYSTEM_DEF(mapping)
 	spawn_type_shuttle(/datum/map_template/shuttle/yohei)
 	return ..()
 
-/datum/controller/subsystem/mapping/proc/spawn_type_shuttle(which_type)
+/datum/controller/subsystem/mapping/proc/spawn_type_shuttle(which_type = null)
 	if(!istype(which_type))
 		message_admins("No type provided! Beat to death your coders.")
 		return FALSE
