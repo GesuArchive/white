@@ -72,7 +72,8 @@ GLOBAL_LIST_INIT(security_positions, list(
 
 GLOBAL_LIST_INIT(scum_positions, list(
 	JOB_BOMJ,
-	JOB_PRISONER))
+	JOB_PRISONER,
+	JOB_FREELANCER))
 
 GLOBAL_LIST_INIT(combatant_red_positions, list(
 	JOB_COMBATANT_RED))

@@ -1283,6 +1283,8 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 		return "Шахтёр"
 	else if (job == JOB_HUNTER)
 		return "Охотник"
+	else if (job == JOB_FREELANCER)
+		return "Путешественник"
 	else if (job == JOB_RANGER)
 		return "Рейнджер"
 	else if (job == JOB_TRADER)
