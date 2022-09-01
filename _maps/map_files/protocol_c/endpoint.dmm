@@ -2282,6 +2282,10 @@
 /obj/machinery/vending/autodrobe,
 /turf/open/floor/wood,
 /area/centcom/holding)
+"it" = (
+/obj/effect/baseturf_helper/dune,
+/turf/closed/indestructible/syndicate,
+/area/centcom/circus)
 "iu" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -5395,6 +5399,7 @@
 /obj/effect/turf_decal/box/corners{
 	dir = 1
 	},
+/obj/effect/baseturf_helper/dune,
 /turf/open/floor/plasteel/tg/small,
 /area/start)
 "tt" = (
@@ -5612,6 +5617,52 @@
 /obj/structure/flora/ausbushes/genericbush,
 /turf/open/floor/grass,
 /area/tdome/tdomeadmin)
+"uz" = (
+/obj/machinery/button{
+	desc = "It's a secret!";
+	name = "secret button";
+	pixel_x = -10;
+	pixel_y = 23;
+	req_access_txt = "150"
+	},
+/obj/machinery/button{
+	desc = "It's a secret!";
+	name = "secret button";
+	pixel_x = 12;
+	pixel_y = 34;
+	req_access_txt = "150"
+	},
+/obj/machinery/button{
+	desc = "It's a secret!";
+	name = "secret button";
+	pixel_x = 12;
+	pixel_y = 23;
+	req_access_txt = "150"
+	},
+/obj/machinery/button{
+	desc = "It's a secret!";
+	name = "secret button";
+	pixel_x = 1;
+	pixel_y = 23;
+	req_access_txt = "150"
+	},
+/obj/machinery/button{
+	desc = "It's a secret!";
+	name = "secret button";
+	pixel_x = 1;
+	pixel_y = 34;
+	req_access_txt = "150"
+	},
+/obj/machinery/button{
+	desc = "It's a secret!";
+	name = "secret button";
+	pixel_x = -10;
+	pixel_y = 34;
+	req_access_txt = "150"
+	},
+/obj/effect/baseturf_helper/dune,
+/turf/open/indestructible/white,
+/area/centcom/control)
 "uC" = (
 /obj/structure/table,
 /obj/machinery/reagentgrinder,
@@ -8189,6 +8240,10 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/centcom/control)
+"Et" = (
+/obj/effect/baseturf_helper/dune,
+/turf/open/floor/plating/asteroid,
+/area/centcom/outdoors)
 "Eu" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/turf_decal/bot{
@@ -13962,6 +14017,7 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/brief)
 "Zf" = (
+/obj/effect/baseturf_helper/dune,
 /turf/closed/indestructible/splashscreen,
 /area/start)
 "Zg" = (
@@ -71050,7 +71106,7 @@ Co
 Co
 Co
 Co
-jT
+it
 jT
 jT
 jT
@@ -73600,7 +73656,7 @@ Co
 Co
 Co
 cs
-dm
+uz
 eu
 eF
 eF
@@ -73608,7 +73664,7 @@ eF
 eF
 eF
 eu
-fb
+Et
 fS
 fb
 fb
