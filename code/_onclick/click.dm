@@ -516,13 +516,18 @@
 
 /// MouseWheelOn
 /mob/proc/MouseWheelOn(atom/A, delta_x, delta_y, params)
+	if(SEND_SIGNAL(client, COMSIG_MOUSE_SCROLL_ON, A, delta_x, delta_y, params))
+		return
 	SEND_SIGNAL(src, COMSIG_MOUSE_SCROLL_ON, A, delta_x, delta_y, params)
+
+
+	
 
 /// MouseEnteredOn
 /mob/proc/MouseEnteredOn(atom/A, location, control, params)
 	SEND_SIGNAL(src, COMSIG_MOUSE_ENTERED_ON, A, location, control, params)
-
-/mob/dead/observer/MouseWheelOn(atom/A, delta_x, delta_y, params)
+/*
+/mob/dead/observer/MouseWheelOn(atom/A, delta_x, delta_y, params) //этим говном никто не пользуется
 	var/list/modifiers = params2list(params)
 	if(LAZYACCESS(modifiers, SHIFT_CLICK))
 		var/view = 0
@@ -531,7 +536,7 @@
 		else
 			view = 1
 		add_view_range(view)
-
+*/
 /mob/proc/check_click_intercept(params,A)
 	//Client level intercept
 	if(client?.click_intercept)
