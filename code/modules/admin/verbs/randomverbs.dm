@@ -594,7 +594,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	if ((devastation != -1) || (heavy != -1) || (light != -1) || (flash != -1) || (flames != -1))
 		if ((devastation > 20) || (heavy > 20) || (light > 20) || (flames > 20))
-			if (tgui_alert(usr, "Are you sure you want to do this? It will laaag.", "Confirmation", list("Yes", "No")) == "No")
+			var/r = tgui_alert(usr, "Are you sure you want to do this? It will laaag.", "Confirmation", list("Yes", "No"))
+			if (r != "Yes")
 				return
 
 		explosion(O, devastation, heavy, light, flames, flash, explosion_cause = mob)
