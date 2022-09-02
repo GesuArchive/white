@@ -1,6 +1,7 @@
 /datum/antagonist/bloodsucker
 	name = "\improper Bloodsucker"
 	antag_hud_name = "bloodsucker"
+	antag_hud_name = "vassal"
 	show_in_antagpanel = TRUE
 	roundend_category = "bloodsuckers"
 	antagpanel_category = "Bloodsucker"
