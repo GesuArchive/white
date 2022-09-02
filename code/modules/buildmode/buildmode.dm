@@ -42,23 +42,16 @@
 
 /datum/buildmode/proc/MouseWheelRotate(source, atom/A, delta_x, delta_y, params)
 	SIGNAL_HANDLER
-	dirindex += round(delta_y/120)
+	var/delta = round(delta_y/120)
+	if(GLOB.cardinals.Find(dirs[dirindex]) && !params2list(params).Find("ctrl"))
+		dirindex += delta
+	dirindex += delta
 
 	if(dirindex < 1)
 		dirindex = dirindex + 8
 	if(dirindex > 8)
 		dirindex = dirindex - 8
-
-	var/list/modifiers = params2list(params)
-
-	if(modifiers.Find("shift")) //this whole if block is vile, there has to be a better way to do this
-		if(dirindex != 1 && \
-		dirindex != 3 && \
-		dirindex != 5 && \
-		dirindex != 7)
-			dirindex += round(delta_y/120)
-			if(dirindex > 8)
-				dirindex = dirindex - 8
+пш
 	build_dir = dirs[dirindex]
 	dirbutton.update_icon_state()
 
