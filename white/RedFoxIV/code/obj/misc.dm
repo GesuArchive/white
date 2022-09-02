@@ -12,7 +12,7 @@
 				<b>Life:</b> БЛЯЯЯЯЯЯЯЯЯЯЯЯЯТЬ<BR>
 				<b>Important Notes:</b> СУКАААААААААААААААААААА<BR>
 				<HR>
-				<b>Implant Details:</b><img src="data:image/png;base64,[image_base64]"/> 
+				<b>Implant Details:</b><img src="data:image/png;base64,[image_base64]"/>
 				"}
 	return dat
 
@@ -44,7 +44,7 @@
 
 /datum/action/cooldown/bonjour/link_to(var/atom/owner)
 	..()
-	
+
 /datum/action/cooldown/bonjour/Destroy()
 	qdel(bonjour)
 	. = ..()
@@ -92,7 +92,7 @@
 	current_channel = open_sound_channel_for_tts()
 	START_PROCESSING(SSprocessing, src)
 	playing = TRUE
-	addtimer(CALLBACK(src, .stop), sound_length)
+	addtimer(CALLBACK(src, .proc/stop), sound_length)
 	return TRUE
 
 /datum/sound_player/proc/stop()

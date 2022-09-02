@@ -22,7 +22,7 @@
 	// dirswitch UI
 	var/atom/movable/screen/buildmode/bdir/dirbutton
 	var/list/dirswitch_buttons = list()
-	
+
 	var/static/list/dirs = list(NORTH, NORTHEAST, EAST, SOUTHEAST, SOUTH, SOUTHWEST, WEST, NORTHWEST)
 	var/dirindex = 5 //south is default
 
@@ -49,7 +49,9 @@
 	if(dirindex > 8)
 		dirindex = dirindex - 8
 
-	if(params2list(params).Find("shift")) //this whole if block is vile, there has to be a better way to do this
+	var/list/modifiers = params2list(params)
+
+	if(modifiers.Find("shift")) //this whole if block is vile, there has to be a better way to do this
 		if(dirindex != 1 && \
 		dirindex != 3 && \
 		dirindex != 5 && \
