@@ -269,6 +269,8 @@
 					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 10 единиц.</span>")
 			else
 				to_chat(user, "<span class='warning'>Уровень крови в пределах нормы.</span>")
+	user.changeNext_move(4 SECONDS) // ебало йохея представили?
+
 
 #undef MODE_PAINKILLER
 #undef MODE_OXYLOSS
