@@ -618,6 +618,10 @@
 	var/blank = !registered_name
 	name = "[blank ? initial(name) : "ID-карта [registered_name]"][(!assignment) ? "" : " ([ru_job_parse(assignment)])"]"
 
+/// Returns the trim assignment name.
+/obj/item/card/id/proc/get_trim_assignment()
+	return trim?.assignment || assignment
+
 /obj/item/card/id/away
 	name = "ID-карта"
 	desc = "ID персонала используется для доступа к дверям."
