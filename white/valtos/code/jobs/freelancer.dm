@@ -45,6 +45,15 @@
 
 	id_trim = /datum/id_trim/job/freelancer
 
+/datum/job/freelancer/override_latejoin_spawn(mob/living/carbon/human/H)
+	if(SSmapping.spawn_type_shuttle(/datum/map_template/shuttle/freelancer/medium))
+		for(var/_sloc in GLOB.start_landmarks_list)
+			var/obj/effect/landmark/start/sloc = _sloc
+			if(sloc.name != JOB_FREELANCER)
+				continue
+			H.forceMove(get_turf(sloc))
+	return TRUE
+
 /datum/outfit/job/freelancer/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	return
 
@@ -56,13 +65,6 @@
 		var/obj/item/card/id/ID = H.get_idcard()
 		if(ID)
 			ID.registered_account.adjust_money(15000, 25000)
-
-	if(SSmapping.spawn_type_shuttle(/datum/map_template/shuttle/freelancer/medium))
-		for(var/_sloc in GLOB.start_landmarks_list)
-			var/obj/effect/landmark/start/sloc = _sloc
-			if(sloc.name != JOB_FREELANCER)
-				continue
-			H.forceMove(get_turf(sloc))
 
 /datum/id_trim/job/freelancer
 	assignment = JOB_FREELANCER
