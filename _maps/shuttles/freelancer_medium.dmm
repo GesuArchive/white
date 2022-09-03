@@ -60,7 +60,10 @@
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer)
 "dw" = (
-/turf/open/floor/mineral/plastitanium,
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/freelancer/cargo)
 "ec" = (
 /mob/living/simple_animal/bot/medbot,
@@ -68,8 +71,27 @@
 	locked = 0
 	},
 /obj/structure/cable,
-/turf/open/floor/mineral/plastitanium,
+/obj/effect/turf_decal/stripes/end{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/cabine)
+"ef" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium/white,
+/area/shuttle/freelancer/passengers)
 "eB" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
@@ -113,7 +135,8 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
-/turf/open/floor/mineral/plastitanium,
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/cabine)
 "iK" = (
 /obj/machinery/power/smes,
@@ -140,12 +163,28 @@
 	locked = 0
 	},
 /obj/machinery/light_switch/directional/east,
-/turf/open/floor/mineral/plastitanium,
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/passengers)
 "jZ" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/open/floor/plating/airless,
 /area/shuttle/freelancer/rnd)
+"kb" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium/white,
+/area/shuttle/freelancer/passengers)
 "kc" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north{
@@ -158,10 +197,10 @@
 /area/shuttle/freelancer/rnd)
 "kf" = (
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/cabine)
 "kh" = (
@@ -204,6 +243,9 @@
 /obj/structure/grille,
 /turf/open/floor/plating,
 /area/shuttle/freelancer/cabine)
+"lw" = (
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/freelancer/passengers)
 "mB" = (
 /obj/machinery/atmospherics/components/unary/tank/air{
 	piping_layer = 4
@@ -211,15 +253,17 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/cargo)
 "ng" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/corner,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
 	},
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/cabine)
@@ -263,9 +307,6 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 6
 	},
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
@@ -379,7 +420,10 @@
 	locked = 0
 	},
 /obj/machinery/light/directional/south,
-/turf/open/floor/mineral/plastitanium,
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/cabine)
 "to" = (
 /obj/structure/cable,
@@ -481,7 +525,10 @@
 /turf/open/floor/plasteel/airless/solarpanel,
 /area/shuttle/freelancer)
 "Ag" = (
-/turf/open/floor/mineral/plastitanium,
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/passengers)
 "Be" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -497,7 +544,10 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/turf/open/floor/mineral/plastitanium,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/passengers)
 "Bt" = (
 /obj/structure/lattice/catwalk,
@@ -550,7 +600,10 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
-/turf/open/floor/mineral/plastitanium,
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/mineral/titanium/purple,
 /area/shuttle/freelancer/rnd)
 "Ew" = (
 /obj/structure/window/shuttle,
@@ -561,7 +614,10 @@
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/freelancer/med)
 "FW" = (
-/turf/open/floor/mineral/plastitanium,
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/mineral/titanium/purple,
 /area/shuttle/freelancer/rnd)
 "Gz" = (
 /obj/structure/cable,
@@ -574,7 +630,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
 /turf/open/floor/mineral/titanium/purple,
 /area/shuttle/freelancer/rnd)
 "Hc" = (
@@ -618,6 +676,22 @@
 	},
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/freelancer/med)
+"HY" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium/yellow,
+/area/shuttle/freelancer/cargo)
 "JJ" = (
 /obj/structure/cable,
 /obj/structure/extinguisher_cabinet/directional/south,
@@ -678,7 +752,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/freelancer/cargo)
 "MZ" = (
@@ -739,7 +813,6 @@
 /area/shuttle/freelancer/med)
 "PZ" = (
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
@@ -768,6 +841,12 @@
 /obj/structure/grille,
 /turf/open/floor/plating,
 /area/shuttle/freelancer)
+"RU" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/mineral/titanium/yellow,
+/area/shuttle/freelancer/cargo)
 "Tl" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/chair/comfy/shuttle{
@@ -799,15 +878,13 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/cabine)
 "Ui" = (
@@ -843,15 +920,14 @@
 	dwidth = 10;
 	width = 20;
 	height = 10;
-	dir = 4
+	dir = 4;
+	preferred_direction = 2;
+	port_direction = 4
 	},
 /turf/open/floor/plating,
 /area/shuttle/freelancer/passengers)
 "WX" = (
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -861,6 +937,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/passengers)
 "Xi" = (
@@ -893,7 +970,10 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
-/turf/open/floor/mineral/plastitanium,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/passengers)
 
 (1,1,1) = {"
@@ -903,9 +983,9 @@ qw
 qw
 qw
 qw
-qw
+CS
 oN
-tw
+lw
 tw
 WV
 pV
@@ -950,9 +1030,9 @@ Uf
 iW
 kt
 uT
-WX
-WX
-WX
+ef
+kb
+kb
 WX
 DB
 nN
@@ -979,7 +1059,7 @@ Ag
 tw
 to
 Be
-MK
+HY
 dw
 nC
 Xi
@@ -1002,7 +1082,7 @@ tw
 mB
 ci
 MK
-dw
+RU
 nC
 Xi
 "}
@@ -1032,9 +1112,9 @@ Xi
 CP
 Ns
 qw
-qw
+CS
 cJ
-qw
+CS
 qw
 dd
 kh

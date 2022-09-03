@@ -94,6 +94,8 @@
 
 /area/shuttle/freelancer
 	name = "Фрегат Путешественника"
+	requires_power = TRUE
+	area_flags = VALID_TERRITORY | UNIQUE_AREA
 	ambience_index = AMBIENCE_NONE
 	ambientsounds = SCARLET_DAWN_AMBIENT
 	area_limited_icon_smoothing = /area/shuttle/freelancer
