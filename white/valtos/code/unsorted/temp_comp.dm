@@ -7,7 +7,18 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 /area
 	var/env_temp_relative = 20
 
-/area/awaymission/chilly/Entered(atom/movable/AM, oldloc)
+/area/awaymission/rainy
+	name = "Дождливое место"
+	env_temp_relative = 3
+
+/area/awaymission/rainy/Initialize(mapload)
+	. = ..()
+	for(var/turf/T in contents)
+		if(!isturf(T))
+			continue
+		new /obj/effect/rain/sideways/tile(T)
+
+/area/awaymission/rainy/Entered(atom/movable/AM, oldloc)
 	. = ..()
 	if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
