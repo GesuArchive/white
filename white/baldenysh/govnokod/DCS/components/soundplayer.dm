@@ -114,11 +114,13 @@
 
 /datum/component/soundplayer_listener/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/update_sound)
+	RegisterSignal(myplayer.parent, COMSIG_MOVABLE_MOVED, .proc/update_sound)
 	RegisterSignal(parent, COMSIG_RIDDEN_DRIVER_MOVE, .proc/update_sound)
 	RegisterSignal(parent, COMSIG_MOB_LOGOUT, .proc/qdel_check)
 
 /datum/component/soundplayer_listener/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(myplayer.parent, COMSIG_MOVABLE_MOVED)
 	UnregisterSignal(parent, COMSIG_RIDDEN_DRIVER_MOVE)
 	UnregisterSignal(parent, COMSIG_MOB_LOGOUT)
 
