@@ -378,6 +378,8 @@ GLOBAL_LIST_EMPTY(station_turfs)
 					return FALSE
 				if((mover.movement_type & PHASING))
 					mover.Bump(thing)
+					if(QDELETED(mover)) //deleted from Bump()
+						return FALSE
 					continue
 				else
 					if(!firstbump || ((thing.layer > firstbump.layer || thing.flags_1 & ON_BORDER_1) && !(firstbump.flags_1 & ON_BORDER_1)))
