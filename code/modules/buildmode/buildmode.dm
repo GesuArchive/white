@@ -43,7 +43,8 @@
 /datum/buildmode/proc/MouseWheelRotate(source, atom/A, delta_x, delta_y, params)
 	SIGNAL_HANDLER
 	var/delta = round(delta_y/120)
-	if(GLOB.cardinals.Find(dirs[dirindex]) && !params2list(params).Find("ctrl"))
+	var/list/modifiers = params2list(params)
+	if(GLOB.cardinals.Find(dirs[dirindex]) && !modifiers.Find("ctrl"))
 		dirindex += delta
 	dirindex += delta
 
@@ -51,7 +52,7 @@
 		dirindex = dirindex + 8
 	if(dirindex > 8)
 		dirindex = dirindex - 8
-пш
+
 	build_dir = dirs[dirindex]
 	dirbutton.update_icon_state()
 
