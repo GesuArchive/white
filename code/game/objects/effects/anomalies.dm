@@ -203,7 +203,6 @@
 /obj/effect/anomaly/flux
 	name = "flux wave anomaly"
 	icon_state = "flux"
-	icon_state = "electricity2"
 	density = TRUE
 	aSignal = /obj/item/assembly/signaler/anomaly/flux
 	var/canshock = FALSE
