@@ -233,7 +233,7 @@ we use a hook instead
 	//Makes every gas in the given list have the same pressure, temperature and gas proportions.
 	//Returns: null
 
-/datum/gas_mixture/proc/__remove_by_flag()
+/datum/gas_mixture/proc/__remove_by_flag(taker, flag, amount)
 
 /datum/gas_mixture/remove_by_flag(flag, amount)
 	var/datum/gas_mixture/removed = new type
@@ -269,17 +269,7 @@ we use a hook instead
 /datum/gas_mixture/proc/__auxtools_parse_gas_string(gas_string)
 
 /datum/gas_mixture/parse_gas_string(gas_string)
-	var/list/gas = params2list(gas_string)
-	if(gas["TEMP"])
-		var/temp = text2num(gas["TEMP"])
-		gas -= "TEMP"
-		if(!isnum(temp) || temp < 2.7)
-			temp = 2.7
-		set_temperature(temp)
-	clear()
-	for(var/id in gas)
-		set_moles(id, text2num(gas[id]))
-	return 1
+	return __auxtools_parse_gas_string(gas_string)
 
 /datum/gas_mixture/proc/set_analyzer_results(instability)
 	if(!analyzer_results)
