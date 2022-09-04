@@ -110,7 +110,7 @@
 		add_overlay(handbeltsmod_active_overlay)
 		handbeltsmod_active = TRUE
 	else
-		to_chat(user, span_noticeital("Энергетические ремни рассеиваются, и более не удерживают [skloname(victim.name, VINITELNI, victim.gender)]."))
+		to_chat(user, "<span class='noticeital'>Энергетические ремни рассеиваются, и более не удерживают [skloname(victim.name, VINITELNI, victim.gender)].</span>")
 		log_combat(src, victim, "handcuffed", src.name)
 		playsound(src.loc, 'sound/weapons/saberoff.ogg', 50, TRUE)
 		handbeltsmod_active = FALSE

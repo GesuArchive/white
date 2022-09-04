@@ -113,7 +113,7 @@
 	else if(!mode)
 		return span_good("Ожидание")
 	else
-		return span_average("[mode_name[mode]]")
+		return "<span class='average'>[mode_name[mode]]</span>"
 
 /**
  * Returns a status string about the bot's current status, if it's moving, manually controlled, or idle.

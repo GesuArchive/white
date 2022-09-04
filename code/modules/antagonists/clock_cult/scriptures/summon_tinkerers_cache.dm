@@ -34,10 +34,10 @@
 		to_chat(user, span_warning("Пытаюсь засунуть руку в [src], но чуть не обжигаю её!"))
 		return
 	if(!anchored)
-		to_chat(user, span_brass("Стоит прикрутить [src] для начала."))
+		to_chat(user, "<span class='brass'>Стоит прикрутить [src] для начала.</span>")
 		return
 	if(cooldowntime > world.time)
-		to_chat(user, span_brass("[src] всё ещё нагревается, будет готов через [DisplayTimeText(cooldowntime - world.time)]."))
+		to_chat(user, "<span class='brass'>[src] всё ещё нагревается, будет готов через [DisplayTimeText(cooldowntime - world.time)].</span>")
 		return
 	var/choice = tgui_alert(user,"Начинаю соединять компоненты внутри тайника.",, list("Роба божества","Плащ-покров","Призрачные очки"))
 	var/list/pickedtype = list()
@@ -52,5 +52,5 @@
 		cooldowntime = world.time + 2400
 		for(var/N in pickedtype)
 			new N(get_turf(src))
-			to_chat(user, span_brass("Создаю [choice], практически идеальный образец, [src] начинает остывать."))
+			to_chat(user, "<span class='brass'>Создаю [choice], практически идеальный образец, [src] начинает остывать.</span>")
 

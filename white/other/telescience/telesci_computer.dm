@@ -173,7 +173,7 @@
 		if(M.buffer && istype(M.buffer, /obj/machinery/telepad))
 			telepad = M.buffer
 			M.buffer = null
-			to_chat(user, span_caution("Выгружаю данные из буффера [W.name] в консоль."))
+			to_chat(user, "<span class='caution'>Выгружаю данные из буффера [W.name] в консоль.</span>")
 	else
 		return ..()
 

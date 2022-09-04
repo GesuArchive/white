@@ -129,7 +129,7 @@
 			if(!ID)
 				return
 			if(R.stat == DEAD) //Dead borgs will listen to you no longer
-				to_chat(usr, span_warn("Ошибка: не удалось установить соединение с объектом:[R]"))
+				to_chat(usr, "<span class='warning'>Ошибка: не удалось установить соединение с объектом:[R]</span>")
 			var/message = stripped_input(usr, message = "Введите сообщение для отправки киборгу.", title = "Мессенджер")
 			if(!message)
 				return

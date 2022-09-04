@@ -36,7 +36,7 @@ GLOBAL_VAR_INIT(conversion_warning_stage, CONVERSION_WARNING_NONE)
 		var/datum/antagonist/servant_of_ratvar/cult_datum = cult_mind.has_antag_datum(/datum/antagonist/servant_of_ratvar)
 		if(!cult_datum)
 			return FALSE
-		to_chat(cult_mind, span_large_brass("Никогда не заб...[text2ratvar("ывай силу Дви'гателя!")]..."))
+		to_chat(cult_mind, "<span class='large_brass'>Никогда не заб...[text2ratvar("ывай силу Дви'гателя!")]...</span>")
 		to_chat(cult_mind, span_warning("Тихое тиканье в глубине души медленно исчезает..."))
 		cult_datum.silent = silent
 		cult_datum.on_removal()

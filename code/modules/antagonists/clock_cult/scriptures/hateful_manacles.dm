@@ -22,7 +22,7 @@
 	if(is_servant_of_ratvar(M))
 		return FALSE
 	if(M.handcuffed)
-		to_chat(invoker, span_brass("[M] уже связан!"))
+		to_chat(invoker, "<span class='brass'>[M] уже связан!</span>")
 		return FALSE
 	playsound(M, 'sound/weapons/handcuffs.ogg', 30, TRUE, -2)
 	M.visible_message(span_danger("[invoker] формирует силовое поле вокруг [M], латунь стягивает руки!") ,\

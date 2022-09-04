@@ -57,7 +57,7 @@
 						message_admins("[key_name_admin(C)] has taken control of ([key_name_admin(M)]) to replace an AFK player.")
 						M.key = C.key
 			else
-				visible_message(span_neovgre("[src] не может воскресить [M]!"))
+				visible_message("<span class='neovgre'>[src] не может воскресить [M]!</span>")
 			return
 		var/healing_performed = clamp(M.maxHealth - M.health, 0, 5)	//5 Vitality to heal 5 of all damage types at once
 		if(GLOB.clockcult_vitality >= healing_performed * 0.3)
@@ -69,7 +69,7 @@
 			M.adjustToxLoss(-5, FALSE)
 			M.adjustCloneLoss(-5)
 		else
-			visible_message(span_neovgre("[src] не может воскресить [M]!") , span_neovgre("Недостаточно жизненных сил, чтобы залечить раны!"))
+			visible_message("<span class='neovgre'>[src] не может воскресить [M]!</span>", "<span class='neovgre'>Недостаточно жизненных сил, чтобы залечить раны!</span>")
 	else
 		if(M.anti_magic_check())
 			return
@@ -80,13 +80,13 @@
 			M.become_husk()
 			M.death()
 			playsound(loc, 'sound/magic/exit_blood.ogg', 60)
-			to_chat(M, span_neovgre("Моя жизнь это ничто..."))
+			to_chat(M, "<span class='neovgre'>Моя жизнь это ничто...</span>")
 			hierophant_message("[M] был высосан полностью [src]!", null, "<span class='inathneq'>")
 			var/mob/cogger = new /mob/living/simple_animal/drone/cogscarab(get_turf(M))
 			cogger.key = M.key
 			add_servant_of_ratvar(cogger, silent=TRUE)
 			return
 		if(M.client)
-			M.visible_message(span_neovgre("[src] выглядит слабым, так как цвет его тела бледнеет.") , span_neovgre("ДуША рАЗаЛиВаЕтсЯ..."))
+			M.visible_message("<span class='neovgre'>[src] выглядит слабым, так как цвет его тела бледнеет.</span>", "<span class='neovgre'>ДуША рАЗаЛиВаЕтсЯ...</span>")
 			GLOB.clockcult_vitality += 30
 		GLOB.clockcult_vitality += 10

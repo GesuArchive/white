@@ -44,7 +44,7 @@
 		M.color = LIGHT_COLOR_BLOOD_MAGIC
 		animate(M, color = mob_color, time = 300)
 		M.say("Fwebar uloft'gib mirlig yro'fara!")
-		to_chat(invoker, span_brass("Не вышло остановить [M]!"))
+		to_chat(invoker, "<span class='brass'>Не вышло остановить [M]!</span>")
 		playsound(invoker, 'sound/magic/mm_hit.ogg', 50, TRUE)
 		return TRUE
 	//Successful Invokation
@@ -53,7 +53,7 @@
 		if(!HAS_TRAIT(M, TRAIT_MINDSHIELD))
 			M.Paralyze(150)
 		else
-			to_chat(invoker, span_brass("[M] кажется несколько устойчивым к моим силам!"))
+			to_chat(invoker, "<span class='brass'>[M] кажется несколько устойчивым к моим силам!</span>")
 			M.set_confusion(clamp(M.get_confusion(), 50, INFINITY))
 	if(issilicon(M))
 		var/mob/living/silicon/S = M

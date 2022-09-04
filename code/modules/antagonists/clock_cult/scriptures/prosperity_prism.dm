@@ -90,7 +90,7 @@
 			to_chat(user, span_warning("[src] хочет быть прикрученной к полу!"))
 			return
 		toggled_on = !toggled_on
-		to_chat(user, span_brass("Дёргаю [src], переводя её в режим [toggled_on?"ВКЛ":"ВЫКЛ"]!"))
+		to_chat(user, "<span class='brass'>Дёргаю [src], переводя её в режим [toggled_on?"ВКЛ":"ВЫКЛ"]!</span>")
 	else
 		. = ..()
 

@@ -108,7 +108,7 @@
 	if(!(user.name in coomers))
 		if(isliving(user))
 			inc_metabalance(user, 1, TRUE)
-			visible_message(span_noticeital("[user] кланяется статуе!"))
+			visible_message("<span class='noticeital'>[user] кланяется статуе!</span>")
 			coomers += user.name
 
 /obj/structure/statue/gold/robust/examine_more(mob/user)

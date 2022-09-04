@@ -126,7 +126,7 @@
 		wearer = user
 		applied_eye_damage = 0
 		START_PROCESSING(SSobj, src)
-		to_chat(user, span_nezbere("Внезапно вижу гораздо больше, но мои глаза начинают болеть..."))
+		to_chat(user, "<span class='nezbere'>Внезапно вижу гораздо больше, но мои глаза начинают болеть...</span>")
 
 /obj/item/clothing/glasses/clockwork/wraith_spectacles/process()
 	. = ..()
@@ -140,7 +140,7 @@
 /obj/item/clothing/glasses/clockwork/wraith_spectacles/dropped(mob/user)
 	. = ..()
 	if(wearer && is_servant_of_ratvar(wearer))
-		to_chat(user, span_nezbere("Моим глазам становится лучше."))
+		to_chat(user, "<span class='nezbere'>Моим глазам становится лучше.</span>")
 		addtimer(CALLBACK(wearer, /mob/living.proc/adjustOrganLoss, ORGAN_SLOT_EYES, -applied_eye_damage), 600)
 		wearer = null
 		applied_eye_damage = 0

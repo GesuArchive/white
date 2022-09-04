@@ -35,7 +35,7 @@
 				if(issilicon(M)) //Items in silicons warp the whole silicon
 					M.loc.visible_message(span_warning("[user] пропадает!"))
 					M.forceMove(user.loc)
-					M.loc.visible_message(span_caution("[user] появляется!"))
+					M.loc.visible_message("<span class='caution'>[user] появляется!</span>")
 					item_to_retrieve = null
 					break
 				M.dropItemToGround(item_to_retrieve)
@@ -69,8 +69,8 @@
 		item_to_retrieve.loc.visible_message(span_warning("[capitalize(item_to_retrieve.name)] исчезает!"))
 	if(!user.put_in_hands(item_to_retrieve))
 		item_to_retrieve.forceMove(user.drop_location())
-		item_to_retrieve.loc.visible_message(span_caution("[capitalize(item_to_retrieve.name)] появляется!"))
+		item_to_retrieve.loc.visible_message("<span class='caution'>[capitalize(item_to_retrieve.name)] появляется!</span>")
 		playsound(get_turf(user), 'sound/magic/summonitems_generic.ogg', 50, 1)
 	else
-		item_to_retrieve.loc.visible_message(span_caution("[capitalize(item_to_retrieve.name)] появляется в руке [user]!"))
+		item_to_retrieve.loc.visible_message("<span class='caution'>[capitalize(item_to_retrieve.name)] появляется в руке [user]!</span>")
 		playsound(get_turf(user), 'sound/magic/summonitems_generic.ogg', 50, 1)

@@ -12,7 +12,7 @@
 	do_sparks(5, TRUE, target_location)
 	do_teleport(M, target_location, channel = TELEPORT_CHANNEL_FREE, no_effects = TRUE, forced = TRUE)
 	new /obj/effect/temp_visual/ratvar/warp(target_location)
-	to_chat(servant, span_inathneq("Перемещаюсь к [get_area(target_location)]."))
+	to_chat(servant, "<span class='inathneq'>Перемещаюсь к [get_area(target_location)].</span>")
 	if(istype(P) && bring_dragging)
 		do_teleport(P, target_location, channel = TELEPORT_CHANNEL_FREE, no_effects = TRUE, forced = TRUE)
 		P.Paralyze(30)

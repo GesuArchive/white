@@ -364,9 +364,9 @@
 		if(BOT_GO_HOME)
 			dat += span_good("[mode_name[BOT_GO_HOME]]")
 		if(BOT_BLOCKED)
-			dat += span_average("[mode_name[BOT_BLOCKED]]")
+			dat += "<span class='average'>[mode_name[BOT_BLOCKED]]</span>"
 		if(BOT_NAV,BOT_WAIT_FOR_NAV)
-			dat += span_average("[mode_name[BOT_NAV]]")
+			dat += "<span class='average'>[mode_name[BOT_NAV]]</span>"
 		if(BOT_NO_ROUTE)
 			dat += span_bad("[mode_name[BOT_NO_ROUTE]]")
 	dat += "</div>"

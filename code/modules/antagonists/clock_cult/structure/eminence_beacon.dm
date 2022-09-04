@@ -18,7 +18,7 @@
 		hierophant_message("[user] отменяет голосование Преосвященства.")
 		return
 	if(used)
-		to_chat(user, span_brass("Преосвященство уже здесь."))
+		to_chat(user, "<span class='brass'>Преосвященство уже здесь.</span>")
 		return
 	var/option = tgui_alert(user,"Кто должен стать Преосвященством?",,list("Я","Призрак", "Отмена"))
 	if(option == "Отмена")

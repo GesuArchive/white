@@ -76,7 +76,7 @@
 		message_admins("No invoker for [name]")
 		return FALSE
 	if(invoker.get_active_held_item() != invoking_slab && !iscyborg(invoker))
-		to_chat(invoker, span_brass("Не вышло вызвать [name]."))
+		to_chat(invoker, "<span class='brass'>Не вышло вызвать [name].</span>")
 		return FALSE
 	var/invokers
 	for(var/mob/living/M in viewers(invoker))
@@ -85,13 +85,13 @@
 		if(is_servant_of_ratvar(M))
 			invokers++
 	if(invokers < invokers_required)
-		to_chat(invoker, span_brass("Требуется [invokers_required] прислужников для вызова [name]!"))
+		to_chat(invoker, "<span class='brass'>Требуется [invokers_required] прислужников для вызова [name]!</span>")
 		return FALSE
 	return TRUE
 
 /datum/clockcult/scripture/proc/begin_invoke(mob/living/M, obj/item/clockwork/clockwork_slab/slab, bypass_unlock_checks = FALSE)
 	if(M.get_active_held_item() != slab && !iscyborg(M))
-		to_chat(M, span_brass("Требуется держать [slab.name] в моей активной руке для действа."))
+		to_chat(M, "<span class='brass'>Требуется держать [slab.name] в моей активной руке для действа.</span>")
 		return
 	slab.invoking_scripture = src
 	invoker = M
@@ -106,7 +106,7 @@
 	recital()
 	if(do_after(M, invokation_time, target=M, extra_checks=CALLBACK(src, .proc/check_special_requirements)))
 		invoke()
-		to_chat(M, span_brass("Вызываю [name]."))
+		to_chat(M, "<span class='brass'>Вызываю [name].</span>")
 		if(end_on_invokation)
 			end_invoke()
 	else
@@ -131,7 +131,7 @@
 	if(!..())
 		return FALSE
 	for(var/obj/structure/destructible/clockwork/structure in get_turf(invoker))
-		to_chat(invoker, span_brass("Не могу вызвать это здесь, так как тут есть [structure]."))
+		to_chat(invoker, "<span class='brass'>Не могу вызвать это здесь, так как тут есть [structure].</span>")
 		return FALSE
 	return TRUE
 
@@ -183,7 +183,7 @@
 	invoking_slab.update_icon()
 	invoking_slab.active_scripture = src
 	invoker.click_intercept = src
-	to_chat(invoker, span_brass("Готовлю [name]. <b>Клик на цели для использования.</b>"))
+	to_chat(invoker, "<span class='brass'>Готовлю [name]. <b>Клик на цели для использования.</b></span>")
 	count_down()
 	invoke_success()
 
@@ -213,7 +213,7 @@
 	if(loop_timer_id)
 		deltimer(loop_timer_id)
 		loop_timer_id = null
-	to_chat(invoker, span_brass("Больше не вызываю <b>[name]</b>"))
+	to_chat(invoker, "<span class='brass'>Больше не вызываю <b>[name]</b></span>")
 	qdel(progress)
 	invoking_slab.charge_overlay = null
 	invoking_slab.update_icon()
@@ -279,7 +279,7 @@
 	if(!activation_slab.invoking_scripture)
 		scripture.begin_invoke(owner, activation_slab)
 	else
-		to_chat(owner, span_brass("Не вышло вызвать [name]."))
+		to_chat(owner, "<span class='brass'>Не вышло вызвать [name].</span>")
 
 //==================================//
 // !     Hierophant Transmit      ! //

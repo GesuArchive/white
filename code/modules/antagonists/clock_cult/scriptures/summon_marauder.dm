@@ -21,7 +21,7 @@
 	if(LAZYLEN(candidates))
 		selected = pick(candidates)
 	if(!selected)
-		to_chat(invoker, span_brass("<i>Никто особо и не хочет быть механическим мародёром!</i>"))
+		to_chat(invoker, "<span class='brass'><i>Никто особо и не хочет быть механическим мародёром!</i></span>")
 		invoke_fail()
 		if(invokation_chant_timer)
 			deltimer(invokation_chant_timer)

@@ -18,10 +18,10 @@
 	if(!..())
 		return FALSE
 	for(var/obj/structure/destructible/clockwork/structure in get_turf(invoker))
-		to_chat(invoker, span_brass("Здесь уже есть [structure]."))
+		to_chat(invoker, "<span class='brass'>Здесь уже есть [structure].</span>")
 		return FALSE
 	for(var/obj/structure/destructible/clockwork/ocular_warden/AC in range(OCULAR_WARDEN_PLACE_RANGE))
-		to_chat(invoker, span_nezbere("Рядом есть еще один окулярный страж, размещение их слишком близко заставит их драться!"))
+		to_chat(invoker, "<span class='nezbere'>Рядом есть еще один окулярный страж, размещение их слишком близко заставит их драться!</span>")
 		return FALSE
 	return TRUE
 

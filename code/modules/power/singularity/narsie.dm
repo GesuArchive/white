@@ -157,7 +157,7 @@
 	for (var/mob/living/carbon/victim in viewers(NARSIE_CONSUME_RANGE, src))
 		if (victim.stat == CONSCIOUS)
 			if (!iscultist(victim))
-				to_chat(victim, span_cultsmall("You feel conscious thought crumble away in an instant as you gaze upon [src]..."))
+				to_chat(victim, "<span class='cultsmall'>You feel conscious thought crumble away in an instant as you gaze upon [src]...</span>")
 				victim.apply_effect(NARSIE_MESMERIZE_EFFECT, EFFECT_STUN)
 
 /// Narsie rewards her cultists with being devoured first, then picks a ghost to follow.
@@ -204,7 +204,7 @@
 	if (food == old_target)
 		return
 
-	to_chat(old_target, span_cultsmall("NAR'SIE HAS LOST INTEREST IN YOU."))
+	to_chat(old_target, "<span class='cultsmall'>NAR'SIE HAS LOST INTEREST IN YOU.</span>")
 	singularity_component.target = food
 	if(ishuman(food))
 		to_chat(food, span_cult("NAR'SIE HUNGERS FOR YOUR SOUL."))
