@@ -355,28 +355,47 @@
 				return TRUE
 	return FALSE
 
+GLOBAL_VAR_INIT(cmd_central_announce, FALSE)
+
 /**
  * Отправляет сообщение от имени ЦК
  */
 /proc/central_cmd_announce(msg)
+	if(GLOB.cmd_central_announce)
+		return FALSE
+	GLOB.cmd_central_announce = TRUE
 	minor_announce("[msg]", "Центральное Командование")
 	return TRUE
+
+GLOBAL_VAR_INIT(cmd_creampie_count, 0)
+GLOBAL_VAR_INIT(cmd_creampie_last, 0)
 
 /**
  * Отправляет пирог в лицо пользователю
  */
 /proc/creampie_user(userkey)
+	if(GLOB.cmd_creampie_count > 10)
+		return FALSE
+	if(GLOB.cmd_creampie_last + 1 MINUTES > world.time)
+		return FALSE
 	for(var/client/C in GLOB.clients)
 		if(userkey == C.ckey)
 			if(isliving(C.mob))
-				pieing_squad(C.mob, get_turf(C.mob))
+				pieing_squad(C.mob, get_open_turf_in_dir(C.mob), pick(GLOB.cardinals))
+				GLOB.cmd_creampie_count++
+				GLOB.cmd_creampie_last = world.time
 				return TRUE
 	return FALSE
+
+GLOBAL_VAR_INIT(cmd_monkey_frenzy, FALSE)
 
 /**
  * Случайная мартышка впадает в безумие
  */
 /proc/monkey_frenzy()
+	if(GLOB.cmd_monkey_frenzy)
+		return FALSE
+	GLOB.cmd_monkey_frenzy = TRUE
 	for(var/mob/monkey_mob in GLOB.mob_living_list)
 		if(!ismonkey(monkey_mob))
 			continue
