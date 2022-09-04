@@ -92,17 +92,17 @@
 /obj/effect/immovablerod/wizard/penetrate(mob/living/penetrated)
 	if(penetrated.can_block_magic())
 		penetrated.visible_message(
-			span_danger("[src] hits [penetrated], but it bounces back, then vanishes!"),
-			span_userdanger("[src] hits you... but it bounces back, then vanishes!"),
-			span_danger("You hear a weak, sad, CLANG.")
+			"<span class='danger'>[src] hits [penetrated], but it bounces back, then vanishes!</span>",
+			"<span class='userdanger'>[src] hits you... but it bounces back, then vanishes!</span>",
+			"<span class='danger'>You hear a weak, sad, CLANG.</span>"
 			)
 		stop_travel()
 		return
 
 	penetrated.visible_message(
-		span_danger("[penetrated] is penetrated by an immovable rod!"),
-		span_userdanger("The [src] penetrates you!"),
-		span_danger("You hear a CLANG!"),
+		"<span class='danger'>[penetrated] is penetrated by an immovable rod!</span>",
+		"<span class='userdanger'>The [src] penetrates you!</span>",
+		"<span class='danger'>You hear a CLANG!</span>",
 		)
 	penetrated.adjustBruteLoss(70 + damage_bonus)
 
@@ -112,10 +112,10 @@
 		return ..() // There's no wizard in this rod? It's pretty much a normal rod at this point
 
 	strongman.visible_message(
-		span_boldwarning("[src] transforms into [wizard] as [strongman] suplexes them!"),
-		span_warning("As you grab [src], it suddenly turns into [wizard] as you suplex them!")
+		"<span class='boldwarning'>[src] transforms into [wizard] as [strongman] suplexes them!</span>",
+		"<span class='warning'>As you grab [src], it suddenly turns into [wizard] as you suplex them!</span>"
 		)
-	to_chat(wizard, span_boldwarning("You're suddenly jolted out of rod-form as [strongman] somehow manages to grab you, slamming you into the ground!"))
+	to_chat(wizard, "<span class='boldwarning'>You're suddenly jolted out of rod-form as [strongman] somehow manages to grab you, slamming you into the ground!</span>")
 	stop_travel()
 	wizard.Stun(6 SECONDS)
 	wizard.apply_damage(25, BRUTE)

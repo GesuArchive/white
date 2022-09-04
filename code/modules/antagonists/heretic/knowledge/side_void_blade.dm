@@ -33,13 +33,13 @@
 		if(body.stat != DEAD)
 			continue
 		if(!IS_VALID_GHOUL_MOB(body) || HAS_TRAIT(body, TRAIT_HUSK))
-			to_chat(user, span_hierophant_warning("От [body] осталась лишь оболочка. Этого не хватит."))
+			to_chat(user, "<span class='hierophant_warning'>От [body] осталась лишь оболочка. Этого не хватит.</span>")
 			continue
 		if(!body.mind)
-			to_chat(user, span_hierophant_warning("у [body] нет мозга."))
+			to_chat(user, "<span class='hierophant_warning'>у [body] нет мозга.</span>")
 			continue
 		if(!body.client && !body.mind.get_ghost(ghosts_with_clients = TRUE))
-			to_chat(user, span_hierophant_warning("у [body] нет души."))
+			to_chat(user, "<span class='hierophant_warning'>у [body] нет души.</span>")
 			continue
 
 		// We will only accept valid bodies with a mind, or with a ghost connected that used to control the body

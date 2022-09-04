@@ -91,12 +91,12 @@
 			if(surgeryinstance_notonmob.ignore_clothes || get_location_accessible(livingtarget, selected_zone))
 				var/datum/surgery/procedure = new surgeryinstance_notonmob.type(livingtarget, selected_zone, affecting)
 				ADD_TRAIT(livingtarget, TRAIT_ALLOWED_HONORBOUND_ATTACK, TRAIT_GENERIC)
-				user.visible_message(span_notice("[user] накладывает [source] на [ru_parse_zone(parse_zone(selected_zone))] [skloname(livingtarget.name, RODITELNI, livingtarget.gender)] для подготовки к операции."), \
-					span_notice("Накладываю [source] на [ru_parse_zone(parse_zone(selected_zone))] [skloname(livingtarget.name, RODITELNI, livingtarget.gender)] для подготовки к операции - \an [procedure.name]."))
+				user.visible_message("<span class='notice'>[user] накладывает [source] на [ru_parse_zone(parse_zone(selected_zone))] [skloname(livingtarget.name, RODITELNI, livingtarget.gender)] для подготовки к операции.</span>", \
+					"<span class='notice'>Накладываю [source] на [ru_parse_zone(parse_zone(selected_zone))] [skloname(livingtarget.name, RODITELNI, livingtarget.gender)] для подготовки к операции - \an [procedure.name].</span>")
 
 				log_combat(user, livingtarget, "operated on", null, "(OPERATION TYPE: [procedure.name]) (TARGET AREA: [selected_zone])")
 			else
-				to_chat(user, span_warning("Для того, чтобы начать операцию на [ru_parse_zone(parse_zone(selected_zone))] [skloname(livingtarget.name, RODITELNI, livingtarget.gender)] необходимо оголить ее!"))
+				to_chat(user, "<span class='warning'>Для того, чтобы начать операцию на [ru_parse_zone(parse_zone(selected_zone))] [skloname(livingtarget.name, RODITELNI, livingtarget.gender)] необходимо оголить ее!</span>")
 
 	else if(!current_surgery.step_in_progress)
 		attempt_cancel_surgery(current_surgery, source, livingtarget, user)
@@ -108,8 +108,8 @@
 	if(the_surgery.status == 1)
 		the_patient.surgeries -= the_surgery
 		REMOVE_TRAIT(the_patient, TRAIT_ALLOWED_HONORBOUND_ATTACK, TRAIT_GENERIC)
-		user.visible_message(span_notice("[user] убирает [the_item] с [ru_otkuda_zone(parse_zone(selected_zone))] [skloname(the_patient.name, RODITELNI, the_patient.gender)]."), \
-			span_notice("Убираю [the_item] с [ru_otkuda_zone(parse_zone(selected_zone))] [skloname(the_patient.name, RODITELNI, the_patient.gender)]."))
+		user.visible_message("<span class='notice'>[user] убирает [the_item] с [ru_otkuda_zone(parse_zone(selected_zone))] [skloname(the_patient.name, RODITELNI, the_patient.gender)].</span>", \
+			"<span class='notice'>Убираю [the_item] с [ru_otkuda_zone(parse_zone(selected_zone))] [skloname(the_patient.name, RODITELNI, the_patient.gender)].</span>")
 		qdel(the_surgery)
 		return
 
@@ -126,10 +126,10 @@
 	if(iscyborg(user))
 		close_tool = locate(/obj/item/cautery) in user.held_items
 		if(!close_tool)
-			to_chat(user, span_warning("Необходимо экипировать прижигатель в неактивный слот для завершения операции на [skloname(the_patient.name, RODITELNI, the_patient.gender)]!"))
+			to_chat(user, "<span class='warning'>Необходимо экипировать прижигатель в неактивный слот для завершения операции на [skloname(the_patient.name, RODITELNI, the_patient.gender)]!</span>")
 			return
 	else if(!close_tool || close_tool.tool_behaviour != required_tool_type)
-		to_chat(user, span_warning("Необходимо экипировать [is_robotic ? "отвертку" : "прижигатель"] в неактивный слот для завершения операции на [skloname(the_patient.name, RODITELNI, the_patient.gender)]!"))
+		to_chat(user, "<span class='warning'>Необходимо экипировать [is_robotic ? "отвертку" : "прижигатель"] в неактивный слот для завершения операции на [skloname(the_patient.name, RODITELNI, the_patient.gender)]!</span>")
 		return
 
 	if(the_surgery.operated_bodypart)
@@ -137,6 +137,6 @@
 
 	the_patient.surgeries -= the_surgery
 	REMOVE_TRAIT(the_patient, TRAIT_ALLOWED_HONORBOUND_ATTACK, TRAIT_GENERIC)
-	user.visible_message(span_notice("[user] завершает операцию на [ru_gde_zone(parse_zone(selected_zone))] [skloname(the_patient.name, RODITELNI, the_patient.gender)] при помощи [close_tool] и убирает [the_item]."), \
-		span_notice("Завершаю операцию на [ru_gde_zone(parse_zone(selected_zone))] [skloname(the_patient.name, RODITELNI, the_patient.gender)] при помощи [close_tool] и убираю [the_item]."))
+	user.visible_message("<span class='notice'>[user] завершает операцию на [ru_gde_zone(parse_zone(selected_zone))] [skloname(the_patient.name, RODITELNI, the_patient.gender)] при помощи [close_tool] и убирает [the_item].</span>", \
+		"<span class='notice'>Завершаю операцию на [ru_gde_zone(parse_zone(selected_zone))] [skloname(the_patient.name, RODITELNI, the_patient.gender)] при помощи [close_tool] и убираю [the_item].</span>")
 	qdel(the_surgery)

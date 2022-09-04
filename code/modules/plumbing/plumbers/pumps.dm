@@ -39,7 +39,7 @@
 			update_icon()
 		if(!geyser) //we didnt find one, abort
 			geyserless = TRUE
-			visible_message(span_warning("The [name] makes a sad beep!"))
+			visible_message("<span class='warning'>The [name] makes a sad beep!</span>")
 			playsound(src, 'white/valtos/sounds/error1.ogg', 50)
 			return
 

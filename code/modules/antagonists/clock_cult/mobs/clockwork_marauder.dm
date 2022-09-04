@@ -56,7 +56,7 @@
 	//Block Ranged Attacks
 	if(shield_health > 0)
 		damage_shield()
-		to_chat(src, span_warning("Щит блокирует атаку."))
+		to_chat(src, "<span class='warning'>Щит блокирует атаку.</span>")
 		return BULLET_ACT_BLOCK
 	return ..()
 
@@ -66,13 +66,13 @@
 	shield_health --
 	playsound(src, 'sound/magic/clockwork/anima_fragment_attack.ogg', 60, TRUE)
 	if(shield_health == 0)
-		to_chat(src, span_userdanger("Щит ломается!"))
+		to_chat(src, "<span class='userdanger'>Щит ломается!</span>")
 		to_chat(src, "<span class='brass'>Нужна сварка для починки!</span>")
 
 /mob/living/simple_animal/clockwork_marauder/welder_act(mob/living/user, obj/item/I)
 	if(do_after(user, 25, target=src))
 		health = min(health + 10, maxHealth)
-		to_chat(user, span_notice("Чиню [src] немного."))
+		to_chat(user, "<span class='notice'>Чиню [src] немного.</span>")
 		if(shield_health < MARAUDER_SHIELD_MAX)
 			shield_health ++
 			playsound(src, 'sound/magic/charge.ogg', 60, TRUE)

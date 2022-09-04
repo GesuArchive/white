@@ -100,7 +100,7 @@
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		open = !open
 
-		user.visible_message(span_notice("[user] [open ? "открывает" : "закрывает"] крышку навигатора.") , span_notice("[open ? "Открываю" : "Закрываю"] крышку навигатора."))
+		user.visible_message("<span class='notice'>[user] [open ? "открывает" : "закрывает"] крышку навигатора.</span>" , "<span class='notice'>[open ? "Открываю" : "Закрываю"] крышку навигатора.</span>")
 
 		update_icon()
 
@@ -108,12 +108,12 @@
 		if(open)
 			if (src.allowed(user))
 				src.locked = !src.locked
-				to_chat(user, span_notice("Доступ [src.locked ? "заблокирован" : "разблокирован"]."))
+				to_chat(user, "<span class='notice'>Доступ [src.locked ? "заблокирован" : "разблокирован"].</span>")
 			else
-				to_chat(user, span_danger("Доступ запрещён."))
+				to_chat(user, "<span class='danger'>Доступ запрещён.</span>")
 			updateDialog()
 		else
-			to_chat(user, span_warning("Крышка закрыта!"))
+			to_chat(user, "<span class='warning'>Крышка закрыта!</span>")
 	else
 		return ..()
 
@@ -131,7 +131,7 @@
 		return		// prevent intraction when T-scanner revealed
 
 	if(!open && !ai)	// can't alter controls if not open, unless you're an AI
-		to_chat(user, span_warning("Крышка закрыта!"))
+		to_chat(user, "<span class='warning'>Крышка закрыта!</span>")
 		return
 
 

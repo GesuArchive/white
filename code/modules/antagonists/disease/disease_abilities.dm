@@ -94,7 +94,7 @@ new /datum/disease_ability/symptom/powerful/youth
 
 /datum/disease_ability/proc/Buy(mob/camera/disease/D, silent = FALSE, trigger_cooldown = TRUE)
 	if(!silent)
-		to_chat(D, span_notice("Адаптировано [name]."))
+		to_chat(D, "<span class='notice'>Адаптировано [name].</span>")
 	D.points -= cost
 	D.unpurchased_abilities -= src
 	if(trigger_cooldown)
@@ -123,7 +123,7 @@ new /datum/disease_ability/symptom/powerful/youth
 
 /datum/disease_ability/proc/Refund(mob/camera/disease/D, silent = FALSE, trigger_cooldown = TRUE)
 	if(!silent)
-		to_chat(D, span_notice("Деградировало [name]."))
+		to_chat(D, "<span class='notice'>Деградировало [name].</span>")
 	D.points += cost
 	D.unpurchased_abilities[src] = TRUE
 	if(trigger_cooldown)
@@ -181,9 +181,9 @@ new /datum/disease_ability/symptom/powerful/youth
 	if(!L)
 		return FALSE
 	if(L.stat != CONSCIOUS)
-		to_chat(D, span_warning("Чтобы кашлять, заражённый должен быть в сознании."))
+		to_chat(D, "<span class='warning'>Чтобы кашлять, заражённый должен быть в сознании.</span>")
 		return FALSE
-	to_chat(D, span_notice("Заставляю [L.real_name] кашлять."))
+	to_chat(D, "<span class='notice'>Заставляю [L.real_name] кашлять.</span>")
 	L.emote("cough")
 	if(L.CanSpreadAirborneDisease()) //don't spread germs if they covered their mouth
 		var/datum/disease/advance/sentient_disease/SD = D.hosts[L]
@@ -216,9 +216,9 @@ new /datum/disease_ability/symptom/powerful/youth
 	if(!L)
 		return FALSE
 	if(L.stat != CONSCIOUS)
-		to_chat(D, span_warning("Чтобы чихать, заражённый должен быть в сознании."))
+		to_chat(D, "<span class='warning'>Чтобы чихать, заражённый должен быть в сознании.</span>")
 		return FALSE
-	to_chat(D, span_notice("Заставляю [L.real_name] чихать."))
+	to_chat(D, "<span class='notice'>Заставляю [L.real_name] чихать.</span>")
 	L.emote("sneeze")
 	if(L.CanSpreadAirborneDisease()) //don't spread germs if they covered their mouth
 		var/datum/disease/advance/sentient_disease/SD = D.hosts[L]

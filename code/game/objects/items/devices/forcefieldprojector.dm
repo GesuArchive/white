@@ -24,34 +24,34 @@
 	if(istype(target, /obj/structure/projected_forcefield))
 		var/obj/structure/projected_forcefield/F = target
 		if(F.generator == src)
-			to_chat(user, span_notice("Деактивирую [F]."))
+			to_chat(user, "<span class='notice'>Деактивирую [F].</span>")
 			qdel(F)
 			return
 	var/turf/T = get_turf(target)
 	var/obj/structure/projected_forcefield/found_field = locate() in T
 	if(found_field)
-		to_chat(user, span_warning("В этом месте уже установлено другое силовое поле!"))
+		to_chat(user, "<span class='warning'>В этом месте уже установлено другое силовое поле!</span>")
 		return
 	if(T.density)
 		return
 	if(get_dist(T,src) > field_distance_limit)
 		return
 	if (get_turf(src) == T)
-		to_chat(user, span_warning("Цель слишком близко, отмена!"))
+		to_chat(user, "<span class='warning'>Цель слишком близко, отмена!</span>")
 		return
 	if(LAZYLEN(current_fields) >= max_fields)
-		to_chat(user, span_warning("[capitalize(src.name)] не может поддерживать большее количество полей!"))
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] не может поддерживать большее количество полей!</span>")
 		return
 
 	playsound(src,'sound/weapons/resonator_fire.ogg',50,TRUE)
-	user.visible_message(span_warning("[user] создает силовое поле!") ,span_notice("Создаю силовое поле."))
+	user.visible_message("<span class='warning'>[user] создает силовое поле!</span>" ,"<span class='notice'>Создаю силовое поле.</span>")
 	var/obj/structure/projected_forcefield/F = new(T, src)
 	current_fields += F
 	user.changeNext_move(CLICK_CD_MELEE)
 
 /obj/item/forcefield_projector/attack_self(mob/user)
 	if(LAZYLEN(current_fields))
-		to_chat(user, span_notice("Деактивирую [src], все силовые поля исчезают."))
+		to_chat(user, "<span class='notice'>Деактивирую [src], все силовые поля исчезают.</span>")
 		for(var/obj/structure/projected_forcefield/F in current_fields)
 			qdel(F)
 
@@ -98,7 +98,7 @@
 	generator = origin
 
 /obj/structure/projected_forcefield/Destroy()
-	visible_message(span_warning("[capitalize(src.name)] мерцает и исчезает!"))
+	visible_message("<span class='warning'>[capitalize(src.name)] мерцает и исчезает!</span>")
 	playsound(src,'sound/weapons/resonator_blast.ogg',25,TRUE)
 	generator.current_fields -= src
 	generator = null

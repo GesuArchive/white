@@ -84,7 +84,7 @@
 /mob/living/simple_animal/hostile/netherworld/statue/Move(turf/NewLoc)
 	if(can_be_seen(NewLoc))
 		if(client)
-			to_chat(src, span_warning("You cannot move, there are eyes on you!"))
+			to_chat(src, "<span class='warning'>You cannot move, there are eyes on you!</span>")
 		return
 	return ..()
 
@@ -102,7 +102,7 @@
 /mob/living/simple_animal/hostile/netherworld/statue/AttackingTarget()
 	if(can_be_seen(get_turf(loc)))
 		if(client)
-			to_chat(src, span_warning("You cannot attack, there are eyes on you!"))
+			to_chat(src, "<span class='warning'>You cannot attack, there are eyes on you!</span>")
 		return FALSE
 	else
 		return ..()
@@ -181,7 +181,7 @@
 	aoe_radius = 14
 
 /datum/action/cooldown/spell/aoe/blindness/cast(atom/cast_on)
-	cast_on.visible_message(span_danger("[cast_on] glares their eyes."))
+	cast_on.visible_message("<span class='danger'>[cast_on] glares their eyes.</span>")
 	return ..()
 
 /datum/action/cooldown/spell/aoe/blindness/get_things_to_cast_on(atom/center)

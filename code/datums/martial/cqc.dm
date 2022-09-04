@@ -43,9 +43,9 @@
 	if(!can_use(A))
 		return FALSE
 	if(D.body_position == STANDING_UP)
-		D.visible_message(span_danger("[A] укладывает [D] на пол!"), \
-						span_userdanger("[A] укладывает меня на пол!"), span_hear("Слышу звук разрывающейся плоти!"), null, A)
-		to_chat(A, span_danger("Укладываю [D] на пол!"))
+		D.visible_message("<span class='danger'>[A] укладывает [D] на пол!</span>", \
+						"<span class='userdanger'>[A] укладывает меня на пол!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", null, A)
+		to_chat(A, "<span class='danger'>Укладываю [D] на пол!</span>")
 		playsound(get_turf(A), 'sound/weapons/slam.ogg', 50, TRUE, -1)
 		D.apply_damage(10, BRUTE)
 		D.Paralyze(12 SECONDS)
@@ -56,9 +56,9 @@
 	if(!can_use(A))
 		return FALSE
 	if(!D.stat || !D.IsParalyzed())
-		D.visible_message(span_danger("[A] пинает [D] в спину!"), \
-						span_userdanger("[A] пинает меня в спину!"), span_hear("Слышу звук разрывающейся плоти!"), COMBAT_MESSAGE_RANGE, A)
-		to_chat(A, span_danger("Пинаю [D] в спину!"))
+		D.visible_message("<span class='danger'>[A] пинает [D] в спину!</span>", \
+						"<span class='userdanger'>[A] пинает меня в спину!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
+		to_chat(A, "<span class='danger'>Пинаю [D] в спину!</span>")
 		playsound(get_turf(A), 'sound/weapons/cqchit1.ogg', 50, TRUE, -1)
 		var/atom/throw_target = get_edge_target_turf(D, A.dir)
 		D.throw_at(throw_target, 1, 14, A)
@@ -67,9 +67,9 @@
 		. = TRUE
 	if(D.IsParalyzed() && !D.stat)
 		log_combat(A, D, "knocked out (Head kick)(CQC)")
-		D.visible_message(span_danger("[A] лупит по голове [D], принуждая отрубиться!"), \
-						span_userdanger("[A] лупит меня по голове!"), span_hear("Слышу звук разрывающейся плоти!"), null, A)
-		to_chat(A, span_danger("Луплю [D], принуждая отрубиться!"))
+		D.visible_message("<span class='danger'>[A] лупит по голове [D], принуждая отрубиться!</span>", \
+						"<span class='userdanger'>[A] лупит меня по голове!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", null, A)
+		to_chat(A, "<span class='danger'>Луплю [D], принуждая отрубиться!</span>")
 		playsound(get_turf(A), 'sound/weapons/genhit1.ogg', 50, TRUE, -1)
 		D.SetSleeping(30 SECONDS)
 		D.adjustOrganLoss(ORGAN_SLOT_BRAIN, 15, 150)
@@ -79,9 +79,9 @@
 	if(!can_use(A))
 		return FALSE
 	log_combat(A, D, "pressured (CQC)")
-	D.visible_message(span_danger("[A] бьёт [D] в шею!"), \
-					span_userdanger("[A] бьёт меня в шею!"), span_hear("Слышу звук разрывающейся плоти!"), COMBAT_MESSAGE_RANGE, A)
-	to_chat(A, span_danger("Бью в шею [D]!"))
+	D.visible_message("<span class='danger'>[A] бьёт [D] в шею!</span>", \
+					"<span class='userdanger'>[A] бьёт меня в шею!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
+	to_chat(A, "<span class='danger'>Бью в шею [D]!</span>")
 	D.adjustStaminaLoss(60)
 	playsound(get_turf(A), 'sound/weapons/cqchit1.ogg', 50, TRUE, -1)
 	return TRUE
@@ -93,9 +93,9 @@
 		return FALSE
 	if(!D.stat)
 		log_combat(A, D, "restrained (CQC)")
-		D.visible_message(span_warning("[A] фиксирует [D] в удерживающем положении!"), \
-						span_userdanger("[A] фиксирует меня жёстко!"), span_hear("Слышу потасовку и тихий рёв!"), null, A)
-		to_chat(A, span_danger("Фиксирую [D] в удерживающем положении!"))
+		D.visible_message("<span class='warning'>[A] фиксирует [D] в удерживающем положении!</span>", \
+						"<span class='userdanger'>[A] фиксирует меня жёстко!</span>", "<span class='hear'>Слышу потасовку и тихий рёв!</span>", null, A)
+		to_chat(A, "<span class='danger'>Фиксирую [D] в удерживающем положении!</span>")
 		D.adjustStaminaLoss(20)
 		D.Stun(10 SECONDS)
 		restraining_mob = D
@@ -107,9 +107,9 @@
 		return FALSE
 	if(!D.stat)
 		log_combat(A, D, "consecutive CQC'd (CQC)")
-		D.visible_message(span_danger("[A] лупит [D] в живот, шею и спину последовательно!"), \
-						span_userdanger("Мой живот, шея и спина были последовательно наказаны ударами [A]!"), span_hear("Слышу звук разрывающейся плоти!") , COMBAT_MESSAGE_RANGE, A)
-		to_chat(A, span_danger("Бью живот, шею и спину [D] последовательно!"))
+		D.visible_message("<span class='danger'>[A] лупит [D] в живот, шею и спину последовательно!</span>", \
+						"<span class='userdanger'>Мой живот, шея и спина были последовательно наказаны ударами [A]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>" , COMBAT_MESSAGE_RANGE, A)
+		to_chat(A, "<span class='danger'>Бью живот, шею и спину [D] последовательно!</span>")
 		playsound(get_turf(D), 'sound/weapons/cqchit2.ogg', 50, TRUE, -1)
 		var/obj/item/I = D.get_active_held_item()
 		if(I && D.temporarilyRemoveItemFromInventory(I))
@@ -129,9 +129,9 @@
 			D.drop_all_held_items()
 			A.setGrabState(GRAB_AGGRESSIVE) //Instant agressive grab if on grab intent
 			log_combat(A, D, "grabbed", addition="aggressively")
-			D.visible_message(span_warning("[A] берёт в захват [D]!"), \
-							span_userdanger("[A] берёт меня в захват!"), span_hear("Слышу звуки агрессивной потасовки!"), COMBAT_MESSAGE_RANGE, A)
-			to_chat(A, span_danger("Беру в захват [D]!"))
+			D.visible_message("<span class='warning'>[A] берёт в захват [D]!</span>", \
+							"<span class='userdanger'>[A] берёт меня в захват!</span>", "<span class='hear'>Слышу звуки агрессивной потасовки!</span>", COMBAT_MESSAGE_RANGE, A)
+			to_chat(A, "<span class='danger'>Беру в захват [D]!</span>")
 		return TRUE
 	else
 		return FALSE
@@ -154,14 +154,14 @@
 		playsound(get_turf(D), 'sound/weapons/cqchit2.ogg', 50, TRUE, -1)
 	else
 		playsound(get_turf(D), 'sound/weapons/cqchit1.ogg', 50, TRUE, -1)
-	D.visible_message(span_danger("[A] [picked_hit_type] [D]!"), \
-					span_userdanger("[A] [picked_hit_type] меня!"), span_hear("Слышу звук разрывающейся плоти!") , COMBAT_MESSAGE_RANGE, A)
-	to_chat(A, span_danger("Моя атака [picked_hit_type] [D]!"))
+	D.visible_message("<span class='danger'>[A] [picked_hit_type] [D]!</span>", \
+					"<span class='userdanger'>[A] [picked_hit_type] меня!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>" , COMBAT_MESSAGE_RANGE, A)
+	to_chat(A, "<span class='danger'>Моя атака [picked_hit_type] [D]!</span>")
 	log_combat(A, D, "[picked_hit_type]s (CQC)")
 	if(A.resting && !D.stat && !D.IsParalyzed())
-		D.visible_message(span_danger("[A] сбивает с ног [D]!"), \
-						span_userdanger("[A] сбивает меня с ног!"), span_hear("Слышу звук разрывающейся плоти!") , null, A)
-		to_chat(A, span_danger("Сбиваю [D] с ног!"))
+		D.visible_message("<span class='danger'>[A] сбивает с ног [D]!</span>", \
+						"<span class='userdanger'>[A] сбивает меня с ног!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>" , null, A)
+		to_chat(A, "<span class='danger'>Сбиваю [D] с ног!</span>")
 		playsound(get_turf(A), 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
 		D.apply_damage(10, BRUTE)
 		D.Paralyze(60)
@@ -178,9 +178,9 @@
 	log_combat(A, D, "disarmed (CQC)", "[I ? " grabbing \the [I]" : ""]")
 	if(restraining_mob && A.pulling == restraining_mob)
 		log_combat(A, D, "knocked out (Chokehold)(CQC)")
-		D.visible_message(span_danger("[A] хватает [D] за шею!"), \
-						span_userdanger("[A] хватает меня за шею!"), span_hear("Слышу шорох и приглушенный стон!"), null, A)
-		to_chat(A, span_danger("Беру [D] в удушающий захват!"))
+		D.visible_message("<span class='danger'>[A] хватает [D] за шею!</span>", \
+						"<span class='userdanger'>[A] хватает меня за шею!</span>", "<span class='hear'>Слышу шорох и приглушенный стон!</span>", null, A)
+		to_chat(A, "<span class='danger'>Беру [D] в удушающий захват!</span>")
 		D.SetSleeping(40 SECONDS)
 		restraining_mob = null
 		if(A.grab_state < GRAB_NECK && !HAS_TRAIT(A, TRAIT_PACIFISM))
@@ -189,18 +189,18 @@
 	if(prob(65))
 		if(!D.stat || !D.IsParalyzed() || !restraining_mob)
 			I = D.get_active_held_item()
-			D.visible_message(span_danger("[A] лупит по челюсти [D]!"), \
-							span_userdanger("[A] бьёт меня по челюсти, мне плохо!"), span_hear("Слышу звук разрывающейся плоти!"), COMBAT_MESSAGE_RANGE, A)
-			to_chat(A, span_danger("Бью в [D] челюсть, от чего тот пошатывается!"))
+			D.visible_message("<span class='danger'>[A] лупит по челюсти [D]!</span>", \
+							"<span class='userdanger'>[A] бьёт меня по челюсти, мне плохо!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
+			to_chat(A, "<span class='danger'>Бью в [D] челюсть, от чего тот пошатывается!</span>")
 			playsound(get_turf(D), 'sound/weapons/cqchit1.ogg', 50, TRUE, -1)
 			if(I && D.temporarilyRemoveItemFromInventory(I))
 				A.put_in_hands(I)
 			D.Jitter(2)
 			D.apply_damage(5, A.get_attack_type())
 	else
-		D.visible_message(span_danger("[A] проваливает попытку обезоружить [D]!"), \
-						span_userdanger("Почти получилось обезоружить [A]!"), span_hear("Слышу взмах!"), COMBAT_MESSAGE_RANGE, A)
-		to_chat(A, span_warning("Не вышло обезоружить [D]!"))
+		D.visible_message("<span class='danger'>[A] проваливает попытку обезоружить [D]!</span>", \
+						"<span class='userdanger'>Почти получилось обезоружить [A]!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, A)
+		to_chat(A, "<span class='warning'>Не вышло обезоружить [D]!</span>")
 		playsound(D, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 	return TRUE
 

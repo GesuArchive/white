@@ -17,7 +17,7 @@
 
 /datum/religion_rites/song_tuner/invoke_effect(mob/living/user, obj/structure/altar_of_gods/altar)
 	. = ..()
-	to_chat(user, span_notice(song_invocation_message))
+	to_chat(user, "<span class='notice'>[song_invocation_message]</span>")
 	user.AddComponent(/datum/component/smooth_tunes, src, repeats_okay, particles_path, glow_color)
 
 /**
@@ -47,7 +47,7 @@
 	desc = "Распространяет слово вашего Бога, вы получаете благосклонность за каждого слушателя. В конце песни вы благословляете всех слушателей, поднимая им настроение."
 	particles_path = /particles/musical_notes/holy
 	song_invocation_message = "Подготавливаю священную песню!"
-	song_start_message = span_notice("Эта музыка звучит благословенно!")
+	song_start_message = "<span class='notice'>Эта музыка звучит благословенно!</span>"
 	glow_color = "#FEFFE0"
 	favor_cost = 0
 
@@ -72,7 +72,7 @@
 	desc = "Спойте тихую песню, защищая тех, кто слушает от волшебства."
 	particles_path = /particles/musical_notes/nullwave
 	song_invocation_message = "Подготавливаю антимагическую песню!"
-	song_start_message = span_nicegreen("Слушая эту музыку, чувствую себя защищенным!")
+	song_start_message = "<span class='nicegreen'>Слушая эту музыку, чувствую себя защищенным!</span>"
 	glow_color = "#a9a9b8"
 	repeats_okay = FALSE
 
@@ -89,7 +89,7 @@
 	desc = "Спойте резкую песню, разрезая окружающих. В конце песни ты вскроешь вены всех слушателей."
 	particles_path = /particles/musical_notes/harm
 	song_invocation_message = "Подготавливаю болезненную песню!"
-	song_start_message = span_danger("Эта музыка режет меня, как нож масло!")
+	song_start_message = "<span class='danger'>Эта музыка режет меня, как нож масло!</span>"
 	glow_color = "#FF4460"
 	repeats_okay = FALSE
 
@@ -116,7 +116,7 @@
 	desc = "Спойте колыбельную, утомляя окружающих, замедляя их. В конце песни вы вынудите людей, которые достаточно устали, заснуть."
 	particles_path = /particles/musical_notes/sleepy
 	song_invocation_message = "Подготавливаю сонливую песню!"
-	song_start_message = span_warning("Эта музыка... такая спокойная... хочется спать...")
+	song_start_message = "<span class='warning'>Эта музыка... такая спокойная... хочется спать...</span>"
 	favor_cost = 40 //actually really strong
 	glow_color = "#83F6FF"
 	repeats_okay = FALSE
@@ -136,7 +136,7 @@
 		if(listener.mind?.holy_role)
 			continue
 		if(prob(20))
-			to_chat(listener, span_warning(pick("Музыка усыпляет меня...", "Музыка вынуждает меня заснуть на мгновение.", "Вы пытаетесь сосредоточиться на бодрствовании и не слушать песню.")))
+			to_chat(listener, "<span class='warning'>[pick("Музыка усыпляет меня...", "Музыка вынуждает меня заснуть на мгновение.", "Вы пытаетесь сосредоточиться на бодрствовании и не слушать песню.")]</span>")
 			listener.emote("yawn")
 		listener.blur_eyes(2)
 
@@ -144,6 +144,6 @@
 	for(var/mob/living/carbon/human/listener in song_datum.hearing_mobs)
 		if(listener.anti_magic_check(TRUE, TRUE))
 			continue
-		to_chat(listener, span_danger("Вау, конец этой песни был... довольно...z-z-z"))//#ZА МИР!!!
+		to_chat(listener, "<span class='danger'>Вау, конец этой песни был... довольно...z-z-z</span>")//#ZА МИР!!!
 		listener.AdjustSleeping(5 SECONDS)
 

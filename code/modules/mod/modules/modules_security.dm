@@ -91,7 +91,7 @@
 		return
 	if(!check_power(use_power_cost))
 		return
-	mod.wearer.visible_message(span_warning("[src] reacts to the attack with a smoke of pepper spray!"), span_notice("Your [src] releases a cloud of pepper spray!"))
+	mod.wearer.visible_message("<span class='warning'>[src] reacts to the attack with a smoke of pepper spray!</span>", "<span class='notice'>Your [src] releases a cloud of pepper spray!</span>")
 	on_use()
 
 ///Holster - Instantly holsters any not huge gun.
@@ -365,4 +365,4 @@
 		new /obj/effect/temp_visual/sonar_ping(mod.wearer.loc, mod.wearer, creature)
 		creatures_detected++
 	playsound(mod.wearer, 'sound/effects/ping_hit.ogg', vol = 75, vary = TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE) // Should be audible for the radius of the sonar
-	to_chat(mod.wearer, span_notice("You slam your fist into the ground, sending out a sonic wave that detects [creatures_detected] living beings nearby!"))
+	to_chat(mod.wearer, "<span class='notice'>You slam your fist into the ground, sending out a sonic wave that detects [creatures_detected] living beings nearby!</span>")

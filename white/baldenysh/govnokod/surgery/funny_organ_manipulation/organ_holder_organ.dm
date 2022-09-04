@@ -26,9 +26,9 @@
 /datum/element/organ_holder_organ/proc/handle_examine(obj/item/organ/source, mob/user, list/examine_text)
 	SIGNAL_HANDLER
 	if(source.owner)
-		examine_text += span_notice("\n[capitalize(source.name)] можно отрезать <b>скальпелем</b> или вырвать руками.")
+		examine_text += "<span class='notice'>\n[capitalize(source.name)] можно отрезать <b>скальпелем</b> или вырвать руками.</span>"
 	else
-		examine_text += span_notice("\n[capitalize(source.name)] можно пришить используя <b>зажим</b>.")
+		examine_text += "<span class='notice'>\n[capitalize(source.name)] можно пришить используя <b>зажим</b>.</span>"
 
 /datum/element/organ_holder_organ/proc/apply_underlays(obj/item/organ/source, list/overlays)
 	SIGNAL_HANDLER
@@ -56,23 +56,23 @@
 		INVOKE_ASYNC(src, .proc/connect, source, user, source.loc.loc)
 
 /datum/element/organ_holder_organ/proc/cut_off(obj/item/organ/source, mob/user, mob/living/carbon/owner)
-	to_chat(user, span_notice("Начинаю отрезать [source]."))
+	to_chat(user, "<span class='notice'>Начинаю отрезать [source].</span>")
 	if(do_after(user, 5, ))
-		user.visible_message(span_notice("[user] успешно отрезает [source]!"), span_notice("Удалось отрезать [source]!"))
+		user.visible_message("<span class='notice'>[user] успешно отрезает [source]!</span>", "<span class='notice'>Удалось отрезать [source]!</span>")
 		source.Remove(owner)
 		source.update_icon(UPDATE_OVERLAYS)
 
 /datum/element/organ_holder_organ/proc/connect(obj/item/organ/source, mob/user, mob/living/carbon/owner)
-	to_chat(user, span_notice("Начинаю пришивать [source]."))
+	to_chat(user, "<span class='notice'>Начинаю пришивать [source].</span>")
 	if(do_after(user, 5, source.loc.loc))
-		user.visible_message(span_notice("[user] успешно пришивает [source]!"), span_notice("Удалось пришить [source]!"))
+		user.visible_message("<span class='notice'>[user] успешно пришивает [source]!</span>", "<span class='notice'>Удалось пришить [source]!</span>")
 		source.Insert(owner)
 		source.update_icon(UPDATE_OVERLAYS)
 
 /datum/element/organ_holder_organ/proc/rip(obj/item/organ/source, mob/user, mob/living/carbon/owner)
-	user.visible_message(span_danger("[user] пытается вырвать [source]!"), span_danger("Начинаю вырывать [source]!"))
+	user.visible_message("<span class='danger'>[user] пытается вырвать [source]!</span>", "<span class='danger'>Начинаю вырывать [source]!</span>")
 	if(do_after(user, 10 SECONDS, source.loc.loc))
-		user.visible_message(span_danger("[user] вырывает [source]!"), span_danger("Вырываю [source]!"))
+		user.visible_message("<span class='danger'>[user] вырывает [source]!</span>", "<span class='danger'>Вырываю [source]!</span>")
 		source.Remove(owner)
 		source.forceMove(get_turf(owner))
 		if(iscarbon(user))

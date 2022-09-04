@@ -23,7 +23,7 @@
 	var/force_opens = FALSE
 
 /obj/item/crowbar/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is beating [user.ru_na()]self to death with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message("<span class='suicide'>[user] is beating [user.ru_na()]self to death with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	playsound(loc, 'sound/weapons/genhit.ogg', 50, TRUE, -1)
 	return (BRUTELOSS)
 
@@ -108,10 +108,10 @@
 
 /obj/item/crowbar/power/suicide_act(mob/user)
 	if(tool_behaviour == TOOL_CROWBAR)
-		user.visible_message(span_suicide("[user] is putting [user.ru_ego()] head in [src], it looks like [user.p_theyre()] trying to commit suicide!"))
+		user.visible_message("<span class='suicide'>[user] is putting [user.ru_ego()] head in [src], it looks like [user.p_theyre()] trying to commit suicide!</span>")
 		playsound(loc, 'sound/items/jaws_pry.ogg', 50, TRUE, -1)
 	else
-		user.visible_message(span_suicide("[user] is wrapping <b>[src.name]</b> around [user.ru_ego()] neck. It looks like [user.p_theyre()] trying to rip [user.ru_ego()] head off!"))
+		user.visible_message("<span class='suicide'>[user] is wrapping <b>[src.name]</b> around [user.ru_ego()] neck. It looks like [user.p_theyre()] trying to rip [user.ru_ego()] head off!</span>")
 		playsound(loc, 'sound/items/jaws_cut.ogg', 50, TRUE, -1)
 		if(iscarbon(user))
 			var/mob/living/carbon/C = user
@@ -123,7 +123,7 @@
 
 /obj/item/crowbar/power/attack(mob/living/carbon/C, mob/user)
 	if(istype(C) && C.handcuffed && tool_behaviour == TOOL_WIRECUTTER)
-		user.visible_message(span_notice("[user] перекусывает наручи [C] используя [src]!"))
+		user.visible_message("<span class='notice'>[user] перекусывает наручи [C] используя [src]!</span>")
 		qdel(C.handcuffed)
 		return
 	else

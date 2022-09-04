@@ -57,8 +57,8 @@
 			if(!HAS_TRAIT(H, TRAIT_HACKER))
 				H.dropItemToGround(src, TRUE)
 				H.emote("agony")
-				to_chat(H, span_danger("КАК?!"))
-				visible_message(span_warning("<b>[H]</b> в панике бросает [src] на пол!"))
+				to_chat(H, "<span class='danger'>КАК?!</span>")
+				visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
 
 /obj/item/clothing/head/helmet/space/chronos/hacker/equipped(mob/user, slot)
 	. = ..()
@@ -70,8 +70,8 @@
 			if(!HAS_TRAIT(H, TRAIT_HACKER))
 				H.dropItemToGround(src, TRUE)
 				H.emote("agony")
-				to_chat(H, span_danger("КАК?!"))
-				visible_message(span_warning("<b>[H]</b> в панике бросает [src] на пол!"))
+				to_chat(H, "<span class='danger'>КАК?!</span>")
+				visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
 
 /obj/item/clothing/glasses/hud/hacker_rig
 	name = "NI-Трансфакторный Визор C3451"
@@ -99,8 +99,8 @@
 			if(!HAS_TRAIT(H, TRAIT_HACKER))
 				H.dropItemToGround(src, TRUE)
 				H.emote("agony")
-				to_chat(H, span_danger("КАК?!"))
-				visible_message(span_warning("<b>[H]</b> в панике бросает [src] на пол!"))
+				to_chat(H, "<span class='danger'>КАК?!</span>")
+				visible_message("<span class='warning'><b>[H]</b> в панике бросает [src] на пол!</span>")
 
 	if(slot != ITEM_SLOT_EYES)
 		return
@@ -125,7 +125,7 @@
 	if(. & EMP_PROTECT_SELF)
 		return
 	var/mob/living/carbon/human/user = src.loc
-	to_chat(user, span_danger("E:FATAL:RAM_READ_FAIL\nE:FATAL:STACK_EMPTY\nE:FATAL:READ_NULL_POINT\nE:FATAL:PWR_BUS_OVERLOAD"))
+	to_chat(user, "<span class='danger'>E:FATAL:RAM_READ_FAIL\nE:FATAL:STACK_EMPTY\nE:FATAL:READ_NULL_POINT\nE:FATAL:PWR_BUS_OVERLOAD</span>")
 	SEND_SOUND(user, sound('sound/ai/hacker/emp.ogg'))
 
 /obj/item/clothing/head/helmet/space/chronos/hacker
@@ -182,10 +182,10 @@
 
 	var/mob/living/carbon/C = usr
 	if(!C.stat)
-		to_chat(C, span_notice("А я ещё не умер!"))
+		to_chat(C, "<span class='notice'>А я ещё не умер!</span>")
 		return
 	if(C.has_status_effect(STATUS_EFFECT_HACKERS_IMMORTALITY))
-		to_chat(C, span_warning("А я уже воскрешаюсь!"))
+		to_chat(C, "<span class='warning'>А я уже воскрешаюсь!</span>")
 		return
 	C.apply_status_effect(STATUS_EFFECT_HACKERS_IMMORTALITY)
 	return 1
@@ -196,12 +196,12 @@
 	alert_type = /atom/movable/screen/alert/status_effect/hackers_revive
 
 /datum/status_effect/hackers_revive/on_apply()
-	to_chat(owner, span_notice("Смерть не мой конец! Сейчас восстановимся..."))
+	to_chat(owner, "<span class='notice'>Смерть не мой конец! Сейчас восстановимся...</span>")
 	return ..()
 
 /datum/status_effect/hackers_revive/on_remove()
 	owner.revive(full_heal = TRUE, admin_revive = TRUE)
-	owner.visible_message(span_warning("<b>[owner]</b> восстаёт из мёртвых!") , span_notice("Регенерирую полностью."))
+	owner.visible_message("<span class='warning'><b>[owner]</b> восстаёт из мёртвых!</span>" , "<span class='notice'>Регенерирую полностью.</span>")
 
 /atom/movable/screen/alert/status_effect/hackers_revive
 	name = "Цифровое бессмертие"

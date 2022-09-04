@@ -31,7 +31,7 @@
 			if(!I.tool_start_check(user, amount=0))
 				return
 
-			to_chat(user, span_notice("Начинаю ремонтировать [src]..."))
+			to_chat(user, "<span class='notice'>Начинаю ремонтировать [src]...</span>")
 			if(I.use_tool(src, user, 40, volume=40))
 				obj_integrity = clamp(obj_integrity + 20, 0, max_integrity)
 	else
@@ -67,10 +67,10 @@
 	if(istype(I,/obj/item/stack/sheet/mineral/wood))
 		var/obj/item/stack/sheet/mineral/wood/W = I
 		if(W.amount < 5)
-			to_chat(user, span_warning("Для укрепления баррикады мне понадобится хотя бы 5 досок!"))
+			to_chat(user, "<span class='warning'>Для укрепления баррикады мне понадобится хотя бы 5 досок!</span>")
 			return
 		else
-			to_chat(user, span_notice("Начинаю укреплять баррикаду [src]..."))
+			to_chat(user, "<span class='notice'>Начинаю укреплять баррикаду [src]...</span>")
 			if(do_after(user, 50, target=src))
 				W.use(5)
 				var/turf/T = get_turf(src)
@@ -138,7 +138,7 @@
 	set_density(TRUE)
 	set_anchored(TRUE)
 	if(deploy_message)
-		visible_message(span_warning("[capitalize(src.name)] развертывается в укрытие!"))
+		visible_message("<span class='warning'>[capitalize(src.name)] развертывается в укрытие!</span>")
 
 
 /obj/item/grenade/barrier
@@ -173,7 +173,7 @@
 			mode = SINGLE
 			arm_state = "barrier_1x1"
 	icon_state = arm_state
-	to_chat(user, span_notice("В данный момент [capitalize(src.name)] находится в <b>[mode]</b> режиме развертывания."))
+	to_chat(user, "<span class='notice'>В данный момент [capitalize(src.name)] находится в <b>[mode]</b> режиме развертывания.</span>")
 
 /obj/item/grenade/barrier/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
 	var/turf/T = get_turf(src)
@@ -181,7 +181,7 @@
 	if(user)
 		add_fingerprint(user)
 		if(msg)
-			to_chat(user, span_warning("Активирую [src]! [capitalize(DisplayTimeText(det_time))]!"))
+			to_chat(user, "<span class='warning'>Активирую [src]! [capitalize(DisplayTimeText(det_time))]!</span>")
 	if(shrapnel_type && shrapnel_radius)
 		shrapnel_initialized = TRUE
 		AddComponent(/datum/component/pellet_cloud, projectile_type=shrapnel_type, magnitude=shrapnel_radius)

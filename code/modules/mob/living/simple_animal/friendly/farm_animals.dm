@@ -51,7 +51,7 @@
 		if(enemies.len && DT_PROB(5, delta_time))
 			enemies.Cut()
 			LoseTarget()
-			src.visible_message(span_notice("[capitalize(src.name)] успокаивается."))
+			src.visible_message("<span class='notice'>[capitalize(src.name)] успокаивается.</span>")
 	if(stat != CONSCIOUS)
 		return
 
@@ -66,7 +66,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/goat/Retaliate()
 	..()
-	src.visible_message(span_danger("[capitalize(src.name)] возбужается."))
+	src.visible_message("<span class='danger'>[capitalize(src.name)] возбужается.</span>")
 
 /mob/living/simple_animal/hostile/retaliate/goat/Move()
 	. = ..()
@@ -94,8 +94,8 @@
 		var/mob/living/carbon/human/H = target
 		if(istype(H.dna.species, /datum/species/pod))
 			var/obj/item/bodypart/NB = pick(H.bodyparts)
-			H.visible_message(span_warning("[capitalize(src.name)] откусывает кусочек от [H]!"), \
-								  span_userdanger("[capitalize(src.name)] откусывает [NB]!"))
+			H.visible_message("<span class='warning'>[capitalize(src.name)] откусывает кусочек от [H]!</span>", \
+								  "<span class='userdanger'>[capitalize(src.name)] откусывает [NB]!</span>")
 			NB.dismember()
 
 /mob/living/simple_animal/hostile/retaliate/goat/wycc
@@ -202,7 +202,7 @@
 	else
 		seen_message = "[src] принимает свою судьбу."
 		self_message = "Принимаю свою судьбу."
-	visible_message(span_notice("[seen_message]"), span_notice("[self_message]"))
+	visible_message("<span class='notice'>[seen_message]</span>", "<span class='notice'>[self_message]</span>")
 
 ///Wisdom cow, gives XP to a random skill and speaks wisdoms
 /mob/living/simple_animal/cow/wisdom
@@ -221,7 +221,7 @@
 ///Give intense wisdom to the attacker if they're being friendly about it
 /mob/living/simple_animal/cow/wisdom/attack_hand(mob/living/carbon/user, list/modifiers)
 	if(!stat && !user.a_intent == INTENT_HARM)
-		to_chat(user, span_nicegreen("[capitalize(src.name)] шепчет некоторые сильные мудрости, а затем исчезает!"))
+		to_chat(user, "<span class='nicegreen'>[capitalize(src.name)] шепчет некоторые сильные мудрости, а затем исчезает!</span>")
 		user.mind?.adjust_experience(pick(GLOB.skill_types), 500)
 		do_smoke(1, get_turf(src))
 		qdel(src)
@@ -358,7 +358,7 @@
 	if(isturf(loc))
 		amount_grown += rand(1,2) * delta_time
 		if(amount_grown >= 200)
-			visible_message(span_notice("[capitalize(src.name)] вылупляется с тихим треском."))
+			visible_message("<span class='notice'>[capitalize(src.name)] вылупляется с тихим треском.</span>")
 			new /mob/living/simple_animal/chick(get_turf(src))
 			STOP_PROCESSING(SSobj, src)
 			qdel(src)

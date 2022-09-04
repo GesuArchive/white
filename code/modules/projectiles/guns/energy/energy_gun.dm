@@ -129,12 +129,12 @@
 			if(0 to 200)
 				fail_tick += (2*(fail_chance))
 				M.rad_act(40)
-				to_chat(M, span_userdanger("Мой [name] начинает нагреваться."))
+				to_chat(M, "<span class='userdanger'>Мой [name] начинает нагреваться.</span>")
 			if(201 to INFINITY)
 				SSobj.processing.Remove(src)
 				M.rad_act(80)
 				reactor_overloaded = TRUE
-				to_chat(M, span_userdanger("Мой [name] перегружается!"))
+				to_chat(M, "<span class='userdanger'>Мой [name] перегружается!</span>")
 
 /obj/item/gun/energy/e_gun/nuclear/emp_act(severity)
 	. = ..()

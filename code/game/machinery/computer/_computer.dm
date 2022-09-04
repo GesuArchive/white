@@ -60,7 +60,7 @@
 	if(clued)
 		if(!IS_DREAMER(user))
 			return FALSE
-		to_chat(user, span_notice("Убираю ШЕДЕВР..."))
+		to_chat(user, "<span class='notice'>Убираю ШЕДЕВР...</span>")
 		for(var/obj/item/fuck in src)
 			fuck.forceMove(drop_location())
 		cut_overlays()
@@ -72,7 +72,7 @@
 	if(..())
 		return TRUE
 	if(circuit && !(flags_1&NODECONSTRUCT_1))
-		to_chat(user, span_notice("You start to disconnect the monitor..."))
+		to_chat(user, "<span class='notice'>You start to disconnect the monitor...</span>")
 		if(I.use_tool(src, user, time_to_screwdrive, volume=50))
 			deconstruct(TRUE, user)
 	return TRUE
@@ -118,7 +118,7 @@
 			A.set_anchored(TRUE)
 			if(machine_stat & BROKEN)
 				if(user)
-					to_chat(user, span_notice("The broken glass falls out."))
+					to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
 				else
 					playsound(src, 'sound/effects/hit_on_shattered_glass.ogg', 70, TRUE)
 				new /obj/item/shard(drop_location())
@@ -127,7 +127,7 @@
 				A.icon_state = "3"
 			else
 				if(user)
-					to_chat(user, span_notice("You disconnect the monitor."))
+					to_chat(user, "<span class='notice'>You disconnect the monitor.</span>")
 				A.state = 4
 				A.icon_state = "4"
 		for(var/obj/C in src)
@@ -140,7 +140,7 @@
 		var/obj/item/organ/heart/heart = H.getorganslot(ORGAN_SLOT_HEART)
 		if(heart?.key_for_dreamer)
 			return FALSE
-		H.visible_message(span_danger("[H] пялится в экран [src.name] с отвращением!"), span_danger("ЧТО ЭТО ТАКОЕ?!"))
+		H.visible_message("<span class='danger'>[H] пялится в экран [src.name] с отвращением!</span>", "<span class='danger'>ЧТО ЭТО ТАКОЕ?!</span>")
 		H.pointed(src)
 		new /obj/effect/particle_effect/sparks(loc)
 		playsound(src, "zap", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
@@ -168,7 +168,7 @@
 				var/obj/item/req = new itype
 				req_list += req.name
 				qdel(req)
-			to_chat(user, span_revenbignotice("Для этого шедевра потребуется [english_list(req_list)]. Пока есть только [english_list(get_list)]"))
+			to_chat(user, "<span class='revenbignotice'>Для этого шедевра потребуется [english_list(req_list)]. Пока есть только [english_list(get_list)]</span>")
 			return
 		for(var/i in 1 to 10)
 			new /obj/effect/particle_effect/sparks(loc)
@@ -189,7 +189,7 @@
 		blood_splatter_icon.Blend("#fff", ICON_ADD)
 		blood_splatter_icon.Blend(icon('icons/effects/blood.dmi', "itemblood"), ICON_MULTIPLY)
 		add_overlay(blood_splatter_icon)
-		to_chat(user, span_revenbignotice("[clued]... ЭТОТ ШЕДЕВР ДОЛЖНЫ УЗРЕТЬ!"))
+		to_chat(user, "<span class='revenbignotice'>[clued]... ЭТОТ ШЕДЕВР ДОЛЖНЫ УЗРЕТЬ!</span>")
 		icon_screen = "clued"
 		update_icon()
 		tgui_id = "DreamerCorruption"
@@ -203,9 +203,9 @@
 	if(IS_DREAMER(user))
 		. += "<hr>"
 		if(clued)
-			. += span_revenbignotice("Чудо [clued]!")
+			. += "<span class='revenbignotice'>Чудо [clued]!</span>"
 		else
-			. += span_revenbignotice("СПРАВА есть АЛЬТЕРНАТИВНЫЙ секрет.")
+			. += "<span class='revenbignotice'>СПРАВА есть АЛЬТЕРНАТИВНЫЙ секрет.</span>"
 	else if (clued)
 		interact(user)
 

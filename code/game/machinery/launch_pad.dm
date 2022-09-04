@@ -49,7 +49,7 @@
 /obj/machinery/launchpad/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Maximum range: <b>[range]</b> units.")
+		. += "<span class='notice'>The status display reads: Maximum range: <b>[range]</b> units.</span>"
 
 /obj/machinery/launchpad/attackby(obj/item/I, mob/user, params)
 	if(stationary)
@@ -63,7 +63,7 @@
 					return
 				var/obj/item/multitool/M = I
 				M.buffer = src
-				to_chat(user, span_notice("You save the data in the [I.name]'s buffer."))
+				to_chat(user, "<span class='notice'>You save the data in the [I.name]'s buffer.</span>")
 				return 1
 
 		if(default_deconstruction_crowbar(I))
@@ -242,7 +242,7 @@
 	if(over_object == usr)
 		if(!briefcase || !usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
 			return
-		usr.visible_message(span_notice("[usr] starts closing [src]..."), span_notice("You start closing [src]..."))
+		usr.visible_message("<span class='notice'>[usr] starts closing [src]...</span>", "<span class='notice'>You start closing [src]...</span>")
 		if(do_after(usr, 30, target = usr))
 			usr.put_in_hands(briefcase)
 			moveToNullspace() //hides it from suitcase contents
@@ -255,7 +255,7 @@
 		if(L.pad == WEAKREF(src)) //do not attempt to link when already linked
 			return ..()
 		L.pad = WEAKREF(src)
-		to_chat(user, span_notice("You link [src] to [L]."))
+		to_chat(user, "<span class='notice'>You link [src] to [L].</span>")
 	else
 		return ..()
 
@@ -281,7 +281,7 @@
 	if(!isturf(user.loc)) //no setting up in a locker
 		return
 	add_fingerprint(user)
-	user.visible_message(span_notice("[user] starts setting down [src]..."), span_notice("You start setting up [pad]..."))
+	user.visible_message("<span class='notice'>[user] starts setting down [src]...</span>", "<span class='notice'>You start setting up [pad]...</span>")
 	if(do_after(user, 30, target = user))
 		pad.forceMove(get_turf(src))
 		pad.update_indicator()
@@ -295,7 +295,7 @@
 		if(L.pad == WEAKREF(src.pad)) //do not attempt to link when already linked
 			return ..()
 		L.pad = WEAKREF(src.pad)
-		to_chat(user, span_notice("You link [pad] to [L]."))
+		to_chat(user, "<span class='notice'>You link [pad] to [L].</span>")
 	else
 		return ..()
 
@@ -316,7 +316,7 @@
 /obj/item/launchpad_remote/attack_self(mob/user)
 	. = ..()
 	ui_interact(user)
-	to_chat(user, span_notice("[src] projects a display onto your retina."))
+	to_chat(user, "<span class='notice'>[src] projects a display onto your retina.</span>")
 
 
 /obj/item/launchpad_remote/ui_state(mob/user)
@@ -346,10 +346,10 @@
 
 /obj/item/launchpad_remote/proc/teleport(mob/user, obj/machinery/launchpad/pad)
 	if(QDELETED(pad))
-		to_chat(user, span_warning("ERROR: Launchpad not responding. Check launchpad integrity."))
+		to_chat(user, "<span class='warning'>ERROR: Launchpad not responding. Check launchpad integrity.</span>")
 		return
 	if(!pad.isAvailable())
-		to_chat(user, span_warning("ERROR: Launchpad not operative. Make sure the launchpad is ready and powered."))
+		to_chat(user, "<span class='warning'>ERROR: Launchpad not operative. Make sure the launchpad is ready and powered.</span>")
 		return
 	pad.doteleport(user, sending)
 

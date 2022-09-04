@@ -29,7 +29,7 @@
 	..()
 
 /datum/reagent/drug/space_drugs/overdose_start(mob/living/M)
-	to_chat(M, span_userdanger("Вот это меня накрыло!"))
+	to_chat(M, "<span class='userdanger'>Вот это меня накрыло!</span>")
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/overdose, name)
 
 /datum/reagent/drug/space_drugs/overdose_process(mob/living/M, delta_time, times_fired)
@@ -128,7 +128,7 @@
 /datum/reagent/drug/nicotine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(DT_PROB(0.5, delta_time))
 		var/smoke_message = pick("Я чувствую себя расслабленно.", "Я чувствую себя спокойно.","Я чувствую бдительность.","Я чувствую себя грубо.")
-		to_chat(M, span_notice("[smoke_message]"))
+		to_chat(M, "<span class='notice'>[smoke_message]</span>")
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "smoked", /datum/mood_event/smoked, name)
 	M.Jitter(0) //calms down any withdrawal jitters
 	M.AdjustStun(-50  * REM * delta_time)
@@ -160,7 +160,7 @@
 /datum/reagent/drug/crank/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(DT_PROB(2.5, delta_time))
 		var/high_message = pick("You feel jittery.", "You feel like you gotta go fast.", "You feel like you need to step it up.")
-		to_chat(M, span_notice("[high_message]"))
+		to_chat(M, "<span class='notice'>[high_message]</span>")
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "tweaking", /datum/mood_event/stimulant_medium, name)
 	M.AdjustStun(-20 * REM * delta_time)
 	M.AdjustKnockdown(-20 * REM * delta_time)
@@ -193,11 +193,11 @@
 /datum/reagent/drug/krokodil/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	var/high_message = pick("You feel calm.", "You feel collected.", "You feel like you need to relax.")
 	if(DT_PROB(2.5, delta_time))
-		to_chat(M, span_notice("[high_message]"))
+		to_chat(M, "<span class='notice'>[high_message]</span>")
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "smacked out", /datum/mood_event/narcotic_heavy, name)
 	if(current_cycle == 35 && creation_purity <= 0.6)
 		if(!istype(M.dna.species, /datum/species/krokodil_addict))
-			to_chat(M, span_userdanger("Your skin falls off easily!"))
+			to_chat(M, "<span class='userdanger'>Your skin falls off easily!</span>")
 			M.adjustBruteLoss(50*REM, 0) // holy shit your skin just FELL THE FUCK OFF
 			M.set_species(/datum/species/krokodil_addict)
 	..()
@@ -234,7 +234,7 @@
 /datum/reagent/drug/methamphetamine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	var/high_message = pick("Я чувствую скорость.", "Меня никто не остановит!", "Я чувствую, что могу взять мир в свои руки.")
 	if(DT_PROB(2.5, delta_time))
-		to_chat(M, span_notice("[high_message]"))
+		to_chat(M, "<span class='notice'>[high_message]</span>")
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "tweaking", /datum/mood_event/stimulant_medium, name)
 	M.AdjustStun(-40 * REM * delta_time)
 	M.AdjustKnockdown(-40 * REM * delta_time)
@@ -256,7 +256,7 @@
 	if(DT_PROB(10, delta_time))
 		M.emote("laugh")
 	if(DT_PROB(18, delta_time))
-		M.visible_message(span_danger("Руки [M] вывернулись и стали дрожать!"))
+		M.visible_message("<span class='danger'>Руки [M] вывернулись и стали дрожать!</span>")
 		M.drop_all_held_items()
 	..()
 	M.adjustToxLoss(1 * REM * delta_time, 0)
@@ -296,7 +296,7 @@
 /datum/reagent/drug/bath_salts/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	var/high_message = pick("You feel amped up.", "You feel ready.", "You feel like you can push it to the limit.")
 	if(DT_PROB(2.5, delta_time))
-		to_chat(M, span_notice("[high_message]"))
+		to_chat(M, "<span class='notice'>[high_message]</span>")
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "salted", /datum/mood_event/stimulant_heavy, name)
 	M.adjustStaminaLoss(-5 * REM * delta_time, 0)
 	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 4 * REM * delta_time)
@@ -331,7 +331,7 @@
 /datum/reagent/drug/aranesp/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	var/high_message = pick("You feel amped up.", "You feel ready.", "You feel like you can push it to the limit.")
 	if(DT_PROB(2.5, delta_time))
-		to_chat(M, span_notice("[high_message]"))
+		to_chat(M, "<span class='notice'>[high_message]</span>")
 	M.adjustStaminaLoss(-18 * REM * delta_time, 0)
 	M.adjustToxLoss(0.5 * REM * delta_time, 0)
 	if(DT_PROB(30, delta_time))
@@ -411,7 +411,7 @@
 	M.Jitter(5 * REM * delta_time)
 
 	if(DT_PROB(2.5, delta_time))
-		to_chat(M, span_notice("[pick("Да! Да! ДААААА!", "Я готов...", "Я неуязвим...")]"))
+		to_chat(M, "<span class='notice'>[pick("Да! Да! ДААААА!", "Я готов...", "Я неуязвим...")]</span>")
 	if(DT_PROB(7.5, delta_time))
 		M.losebreath++
 		M.adjustToxLoss(2, 0)
@@ -419,7 +419,7 @@
 	. = TRUE
 
 /datum/reagent/drug/pumpup/overdose_start(mob/living/M)
-	to_chat(M, span_userdanger("Не могу перестать дрожать, моё сердце бьется всё быстрее с каждой секундой..."))
+	to_chat(M, "<span class='userdanger'>Не могу перестать дрожать, моё сердце бьется всё быстрее с каждой секундой...</span>")
 
 /datum/reagent/drug/pumpup/overdose_process(mob/living/M, delta_time, times_fired)
 	M.Jitter(5 * REM * delta_time)
@@ -690,7 +690,7 @@
 	flip_count = 0
 	var/atom/throw_target = get_edge_target_turf(dancer, dancer.dir)  //Do a super flip
 	dancer.SpinAnimation(speed = 3, loops = 3)
-	dancer.visible_message(span_notice("[dancer] does an extravagant flip!"), span_nicegreen("You do an extravagant flip!"))
+	dancer.visible_message("<span class='notice'>[dancer] does an extravagant flip!</span>", "<span class='nicegreen'>You do an extravagant flip!</span>")
 	dancer.throw_at(throw_target, range = 6, speed = overdosed ? 4 : 1)
 
 ///This proc listens to the spin signal and throws the mob every third spin
@@ -705,7 +705,7 @@
 	if(spin_count < BLASTOFF_DANCE_MOVES_PER_SUPER_MOVE)
 		return
 	spin_count = 0 //Do a super spin.
-	dancer.visible_message(span_danger("[dancer] spins around violently!"), span_danger("You spin around violently!"))
+	dancer.visible_message("<span class='danger'>[dancer] spins around violently!</span>", "<span class='danger'>You spin around violently!</span>")
 	dancer.spin(30, 2)
 	if(dancer.disgust < 40)
 		dancer.adjust_disgust(10)
@@ -713,7 +713,7 @@
 		return
 	var/dancer_turf = get_turf(dancer)
 	var/atom/movable/dance_partner = dancer.pulledby
-	dance_partner.visible_message(span_danger("[dance_partner] tries to hold onto [dancer], but is thrown back!"), span_danger("You try to hold onto [dancer], but you are thrown back!"), null, COMBAT_MESSAGE_RANGE)
+	dance_partner.visible_message("<span class='danger'>[dance_partner] tries to hold onto [dancer], but is thrown back!</span>", "<span class='danger'>You try to hold onto [dancer], but you are thrown back!</span>", null, COMBAT_MESSAGE_RANGE)
 	var/throwtarget = get_edge_target_turf(dancer_turf, get_dir(dancer_turf, get_step_away(dance_partner, dancer_turf)))
 	if(overdosed)
 		dance_partner.throw_at(target = throwtarget, range = 7, speed = 4)
@@ -740,7 +740,7 @@
 /datum/reagent/drug/saturnx/on_mob_metabolize(mob/living/invisible_man)
 	. = ..()
 	playsound(invisible_man, 'sound/chemistry/saturnx_fade.ogg', 40)
-	to_chat(invisible_man, span_nicegreen("You feel pins and needles all over your skin as your body suddenly becomes transparent!"))
+	to_chat(invisible_man, "<span class='nicegreen'>You feel pins and needles all over your skin as your body suddenly becomes transparent!</span>")
 	addtimer(CALLBACK(src, .proc/turn_man_invisible, invisible_man), 10) //just a quick delay to synch up the sound.
 	if(!invisible_man.hud_used)
 		return
@@ -794,7 +794,7 @@
 	if(HAS_TRAIT(invisible_man, TRAIT_INVISIBLE_MAN))
 		invisible_man.add_to_all_human_data_huds() //Is this safe, what do you think, Floyd?
 		REMOVE_TRAIT(invisible_man, TRAIT_INVISIBLE_MAN, name)
-		to_chat(invisible_man, span_notice("As you sober up, opacity once again returns to your body meats."))
+		to_chat(invisible_man, "<span class='notice'>As you sober up, opacity once again returns to your body meats.</span>")
 
 		var/datum/dna/druggy_dna = invisible_man.has_dna()
 		if(druggy_dna?.species)
@@ -869,4 +869,4 @@
 	kronkaine_fiend.adjustOrganLoss(ORGAN_SLOT_HEART, 1 * REM * delta_time)
 	kronkaine_fiend.Jitter(10 * REM * delta_time)
 	if(DT_PROB(10, delta_time))
-		to_chat(kronkaine_fiend, span_danger(pick("You feel like your heart is going to explode!", "Your ears are ringing!", "You sweat like a pig!", "You clench your jaw and grind your teeth.", "You feel prickles of pain in your chest.")))
+		to_chat(kronkaine_fiend, "<span class='danger'>[pick("You feel like your heart is going to explode!", "Your ears are ringing!", "You sweat like a pig!", "You clench your jaw and grind your teeth.", "You feel prickles of pain in your chest.")]</span>")

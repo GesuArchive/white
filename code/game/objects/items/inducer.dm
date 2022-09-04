@@ -47,15 +47,15 @@
 
 /obj/item/inducer/proc/cantbeused(mob/user)
 	if(!ISADVANCEDTOOLUSER(user))
-		to_chat(user, span_warning("Мне не хватает ловкости для использования [src]!"))
+		to_chat(user, "<span class='warning'>Мне не хватает ловкости для использования [src]!</span>")
 		return TRUE
 
 	if(!cell)
-		to_chat(user, span_warning("[capitalize(src.name)] не имеет установленного элемента питания!"))
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] не имеет установленного элемента питания!</span>")
 		return TRUE
 
 	if(!cell.charge)
-		to_chat(user, span_warning("[capitalize(src.name)] батарея разряжена!"))
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] батарея разряжена!</span>")
 		return TRUE
 	return FALSE
 
@@ -64,12 +64,12 @@
 	if(W.tool_behaviour == TOOL_SCREWDRIVER)
 		W.play_tool_sound(src)
 		if(!opened)
-			to_chat(user, span_notice("Откручиваю защиту батарейного отсека."))
+			to_chat(user, "<span class='notice'>Откручиваю защиту батарейного отсека.</span>")
 			opened = TRUE
 			update_icon()
 			return
 		else
-			to_chat(user, span_notice("Закручиваю защиту батарейного отсека."))
+			to_chat(user, "<span class='notice'>Закручиваю защиту батарейного отсека.</span>")
 			opened = FALSE
 			update_icon()
 			return
@@ -78,12 +78,12 @@
 			if(!cell)
 				if(!user.transferItemToLoc(W, src))
 					return
-				to_chat(user, span_notice("Помещаю [W] в [src]."))
+				to_chat(user, "<span class='notice'>Помещаю [W] в [src].</span>")
 				cell = W
 				update_icon()
 				return
 			else
-				to_chat(user, span_warning("В [capitalize(src.name)] уже установлена [cell]!"))
+				to_chat(user, "<span class='warning'>В [capitalize(src.name)] уже установлена [cell]!</span>")
 				return
 
 	if(cantbeused(user))
@@ -105,20 +105,20 @@
 	var/obj/O
 	var/coefficient = 1
 	if(istype(A, /obj/item/gun/energy))
-		to_chat(user, span_alert("Ошибка, не удается подключиться к устройству."))
+		to_chat(user, "<span class='alert'>Ошибка, не удается подключиться к устройству.</span>")
 		return FALSE
 	if(istype(A, /obj/item/clothing/suit/space))
-		to_chat(user, span_alert("Ошибка, не удается подключиться к устройству."))
+		to_chat(user, "<span class='alert'>Ошибка, не удается подключиться к устройству.</span>")
 		return FALSE
 	if(istype(A, /obj))
 		O = A
 	if(C)
 		var/done_any = FALSE
 		if(C.charge >= C.maxcharge)
-			to_chat(user, span_notice("[A] полностью заряжен!"))
+			to_chat(user, "<span class='notice'>[A] полностью заряжен!</span>")
 			recharging = FALSE
 			return TRUE
-		user.visible_message(span_notice("[user] начинает заряжать [A] при помощи [src].") , span_notice("Начинаю заряжать [A] при помощи [src]."))
+		user.visible_message("<span class='notice'>[user] начинает заряжать [A] при помощи [src].</span>" , "<span class='notice'>Начинаю заряжать [A] при помощи [src].</span>")
 		while(C.charge < C.maxcharge)
 			if(do_after(user, 10, target = user) && cell && cell.charge)
 				done_any = TRUE
@@ -129,7 +129,7 @@
 			else
 				break
 		if(done_any) // Only show a message if we succeeded at least once
-			user.visible_message(span_notice("[user] зарядил [A]!") , span_notice("[A] заряжен!"))
+			user.visible_message("<span class='notice'>[user] зарядил [A]!</span>" , "<span class='notice'>[A] заряжен!</span>")
 		recharging = FALSE
 		return TRUE
 	recharging = FALSE
@@ -149,7 +149,7 @@
 
 /obj/item/inducer/attack_self(mob/user)
 	if(opened && cell)
-		user.visible_message(span_notice("[user] извлекает [cell] из [src]!") , span_notice("Извлекаю [cell]."))
+		user.visible_message("<span class='notice'>[user] извлекает [cell] из [src]!</span>" , "<span class='notice'>Извлекаю [cell].</span>")
 		cell.update_icon()
 		user.put_in_hands(cell)
 		cell = null
@@ -160,9 +160,9 @@
 	. = ..()
 	. += "<hr>"
 	if(cell)
-		. += span_notice("Его дисплей показывает: [display_energy(cell.charge)].")
+		. += "<span class='notice'>Его дисплей показывает: [display_energy(cell.charge)].</span>"
 	else
-		. += span_notice("Его дисплей темный.")
+		. += "<span class='notice'>Его дисплей темный.</span>"
 	if(opened)
 		. += "<hr><span class='notice'>Его батарейный отсек открыт.</span>"
 

@@ -40,7 +40,7 @@
 	UpdateButtons()
 	// Create & Link Targeting Proc
 	if(prefire_message != "")
-		to_chat(owner, span_announce("[prefire_message]"))
+		to_chat(owner, "<span class='announce'>[prefire_message]</span>")
 	return TRUE
 
 /datum/action/bloodsucker/targeted/DeactivatePower()

@@ -195,7 +195,7 @@
 /obj/item/pamk/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'><b>ЗАРЯД:</b></span> [charge_left]/100.</span>"
-	. += span_notice("\n<b>РЕЖИМ:</b></span> [uppertext(current_mode)].")
+	. += "<span class='notice'>\n<b>РЕЖИМ:</b></span> [uppertext(current_mode)].</span>"
 
 /obj/item/pamk/attack_self(mob/user)
 	. = ..()
@@ -213,7 +213,7 @@
 			new_mode = MODE_PAINKILLER
 	current_mode = new_mode
 	playsound(get_turf(src), 'white/valtos/sounds/pamk_mode.ogg', 80)
-	to_chat(user, span_notice("<b>РЕЖИМ:</b></span> [uppertext(current_mode)]."))
+	to_chat(user, "<span class='notice'><b>РЕЖИМ:</b></span> [uppertext(current_mode)].</span>")
 
 /obj/item/pamk/attack(mob/living/M, mob/user)
 	. = ..()
@@ -222,7 +222,7 @@
 /obj/item/pamk/proc/try_heal(mob/living/M, mob/user)
 	var/obj/item/bodypart/limb = M.get_bodypart(check_zone(user.zone_selected))
 	if(!limb)
-		to_chat(user, span_notice("А куда колоть то?!"))
+		to_chat(user, "<span class='notice'>А куда колоть то?!</span>")
 		return
 	switch(current_mode)
 		if(MODE_PAINKILLER)
@@ -230,45 +230,45 @@
 				if(use_charge(10))
 					M.heal_overall_damage(25, 25)
 				else
-					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц."))
+					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 10 единиц.</span>")
 			else
-				to_chat(user, span_warning("Не обнаружено повреждений, либо они незначительны."))
+				to_chat(user, "<span class='warning'>Не обнаружено повреждений, либо они незначительны.</span>")
 		if(MODE_OXYLOSS)
 			if(M.getOxyLoss() > 5)
 				if(use_charge(10))
 					M.setOxyLoss(0)
 				else
-					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц."))
+					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 10 единиц.</span>")
 			else
-				to_chat(user, span_warning("Уровень кислорода в норме."))
+				to_chat(user, "<span class='warning'>Уровень кислорода в норме.</span>")
 		if(MODE_TOXDUMP)
 			if(M.getToxLoss() > 5)
 				if(use_charge(20))
 					M.setToxLoss(0)
 				else
-					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц."))
+					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 10 единиц.</span>")
 			else
-				to_chat(user, span_warning("Токсины отсутствуют."))
+				to_chat(user, "<span class='warning'>Токсины отсутствуют.</span>")
 		if(MODE_FRACTURE)
 			if(limb?.wounds?.len)
 				if(use_charge(20))
 					for(var/thing in limb.wounds)
 						var/datum/wound/W = thing
 						W.remove_wound()
-					to_chat(user, span_notice("Успешно исправили все переломы и вывихи в этой конечности."))
+					to_chat(user, "<span class='notice'>Успешно исправили все переломы и вывихи в этой конечности.</span>")
 				else
-					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц."))
+					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 10 единиц.</span>")
 			else
-				to_chat(user, span_warning("Не обнаружено травм в этой конечности."))
+				to_chat(user, "<span class='warning'>Не обнаружено травм в этой конечности.</span>")
 		if(MODE_BLOOD_INJECTOR)
 			if(M.blood_volume <= initial(M.blood_volume) - 50)
 				if(use_charge(30))
 					M.restore_blood()
-					to_chat(user, span_notice("Кровь восстановлена."))
+					to_chat(user, "<span class='notice'>Кровь восстановлена.</span>")
 				else
-					to_chat(user, span_warning("Недостаточно заряда, требуется 10 единиц."))
+					to_chat(user, "<span class='warning'>Недостаточно заряда, требуется 10 единиц.</span>")
 			else
-				to_chat(user, span_warning("Уровень крови в пределах нормы."))
+				to_chat(user, "<span class='warning'>Уровень крови в пределах нормы.</span>")
 
 #undef MODE_PAINKILLER
 #undef MODE_OXYLOSS
@@ -308,13 +308,13 @@
 		return
 
 	if(assigned_by || assigned_to.special_role)
-		to_chat(user, span_danger("Уже кем-то нанят, какая жалость."))
+		to_chat(user, "<span class='danger'>Уже кем-то нанят, какая жалость.</span>")
 		return
 
 	if(assigned_to && user?.mind != assigned_to)
 		var/mob/living/carbon/human/H = assigned_to.current
 		if(!H || H?.stat)
-			to_chat(user, span_danger("Не обнаружен дееспособный Йохей..."))
+			to_chat(user, "<span class='danger'>Не обнаружен дееспособный Йохей...</span>")
 			return
 
 		var/obj/item/clothing/under/syndicate/yohei/YU = H.get_item_by_slot(ITEM_SLOT_ICLOTHING)
@@ -322,7 +322,7 @@
 		var/obj/item/clothing/head/hooded/yohei/YH = H.get_item_by_slot(ITEM_SLOT_HEAD)
 		var/obj/item/clothing/shoes/jackboots/yohei/YF = H.get_item_by_slot(ITEM_SLOT_FEET)
 		if(!istype(YS) || !istype(YH) || !istype(YU) || !istype(YF))
-			to_chat(user, span_danger("Йохей должен быть в своих униформе, ботинках, плаще и с капюшоном на голове."))
+			to_chat(user, "<span class='danger'>Йохей должен быть в своих униформе, ботинках, плаще и с капюшоном на голове.</span>")
 			return
 
 		YS.icon_state = "yohei_white"
@@ -343,7 +343,7 @@
 			var/datum/antagonist/yohei/V = new
 			V.protected_guy = user.mind
 			assigned_to.add_antag_datum(V)
-			to_chat(user, span_notice("Успешно нанимаю [assigned_to.name]. Теперь меня точно защитят."))
+			to_chat(user, "<span class='notice'>Успешно нанимаю [assigned_to.name]. Теперь меня точно защитят.</span>")
 			update_label()
 			GLOB.data_core.manifest_inject(H)
 			var/obj/item/card/id/IA = W
@@ -354,7 +354,7 @@
 				LM.internal_radio.talk_into(LM, "ВНИМАНИЕ: Один из наших наёмников по имени [assigned_to.name] был нанят членом вашего экипажа. Досье на него было передано вам. Пожалуйста, обращайтесь с ним бережно, иначе мы применим штрафы согласно пунктам договора о взаимном сотрудничестве 3.1.5 и 4.12.1.", FREQ_SECURITY)
 				LM.internal_radio.set_frequency(FREQ_YOHEI)
 		else
-			to_chat(user, span_danger("Карта неисправна. Самоутилизация активирована."))
+			to_chat(user, "<span class='danger'>Карта неисправна. Самоутилизация активирована.</span>")
 			qdel(W)
 
 /obj/item/book/yohei_codex
@@ -460,8 +460,8 @@
 	if(!HAS_TRAIT(user, TRAIT_YOHEI))
 		if(!do_after(user, 1 SECONDS, target = user))
 			return
-		user.visible_message(span_warning("[user] стреляет себе в ногу!"),
-			span_userdanger("Успешно стреляю себе в ногу..."))
+		user.visible_message("<span class='warning'>[user] стреляет себе в ногу!</span>",
+			"<span class='userdanger'>Успешно стреляю себе в ногу...</span>")
 		var/mob/living/carbon/human/thinky = user
 		thinky.apply_damage(30, BRUTE, pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG), wound_bonus = CANT_WOUND)
 		playsound(get_turf(user), 'white/valtos/sounds/cathit.ogg', 60)
@@ -476,7 +476,7 @@
 		T = SSmapping.get_turf_below(get_turf(T))
 
 	if(!isspaceturf(T))
-		to_chat(user, span_danger("Не получится здесь. Нужен космос."))
+		to_chat(user, "<span class='danger'>Не получится здесь. Нужен космос.</span>")
 		return
 
 	if(!do_after(user, 5 SECONDS, target = T, interaction_key = DOAFTER_SOURCE_HOOK_TARGETTING))
@@ -484,30 +484,30 @@
 
 	if(is_station_level(T.z))
 		picked = get_turf(pick(GLOB.yohei_beacons))
-		to_chat(user, span_notice("Успешно нацеливаюсь на наш корабль..."))
+		to_chat(user, "<span class='notice'>Успешно нацеливаюсь на наш корабль...</span>")
 	else
 		picked = get_turf(pick(GLOB.xeno_spawn))
-		to_chat(user, span_notice("Успешно нацеливаюсь на станцию..."))
+		to_chat(user, "<span class='notice'>Успешно нацеливаюсь на станцию...</span>")
 
 	if(!do_after(user, 1 SECONDS, target = T, interaction_key = DOAFTER_SOURCE_HOOK_PRE_SHOOTING))
 		return
 
-	to_chat(user, span_notice("Произвожу выстрел..."))
+	to_chat(user, "<span class='notice'>Произвожу выстрел...</span>")
 	playsound(get_turf(user), 'white/valtos/sounds/catlaunch.ogg', 90)
 	if(!do_after(user, 10 SECONDS, target = T, interaction_key = DOAFTER_SOURCE_HOOK_SHOOTING))
 		return
 
 	if(!prob(75))
-		to_chat(user, span_reallybig("МИМО!"))
+		to_chat(user, "<span class='reallybig'>МИМО!</span>")
 		return
 
-	to_chat(user, span_reallybig("ЕСТЬ!"))
+	to_chat(user, "<span class='reallybig'>ЕСТЬ!</span>")
 	playsound(get_turf(user), 'white/valtos/sounds/cathit.ogg', 60)
 	if(do_after(user, 5 SECONDS, target = T, interaction_key = DOAFTER_SOURCE_HOOK_PULLING))
 		var/mob/living/carbon/human/H = user
 		H.zMove(target = picked, z_move_flags = ZMOVE_CHECK_PULLEDBY|ZMOVE_ALLOW_BUCKLED|ZMOVE_INCLUDE_PULLED)
 		H.adjustStaminaLoss(100)
-		to_chat(user, span_notice("Вот я и на месте!"))
+		to_chat(user, "<span class='notice'>Вот я и на месте!</span>")
 	return
 
 /obj/item/defibrillator/compact/loaded/yohei

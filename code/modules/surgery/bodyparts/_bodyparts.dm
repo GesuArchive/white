@@ -128,18 +128,18 @@
 	. = ..()
 	. += "<hr>"
 	if(brute_dam > DAMAGE_PRECISION)
-		. += span_warning("Конечность имеет [brute_dam > 30 ? "серьёзные" : "незначительные"] травмы.")
+		. += "<span class='warning'>Конечность имеет [brute_dam > 30 ? "серьёзные" : "незначительные"] травмы.</span>"
 	if(burn_dam > DAMAGE_PRECISION)
-		. += span_warning("Конечность имеет [burn_dam > 30 ? "серьёзные" : "незначительные"] ожоги.")
+		. += "<span class='warning'>Конечность имеет [burn_dam > 30 ? "серьёзные" : "незначительные"] ожоги.</span>"
 
 	if(locate(/datum/wound/blunt) in wounds)
-		. += span_warning("\nКости этой кончености выглядят сильно потрескавшимися.")
+		. += "<span class='warning'>\nКости этой кончености выглядят сильно потрескавшимися.</span>"
 	if(locate(/datum/wound/slash) in wounds)
-		. += span_warning("\nПлоть этой конечности выглядит сильно порванной.")
+		. += "<span class='warning'>\nПлоть этой конечности выглядит сильно порванной.</span>"
 	if(locate(/datum/wound/pierce) in wounds)
-		. += span_warning("\nПлоть этой конечности выглядит сильно префорированной.")
+		. += "<span class='warning'>\nПлоть этой конечности выглядит сильно префорированной.</span>"
 	if(locate(/datum/wound/burn) in wounds)
-		. += span_warning("\nПлоть этой конечности выглядит сильно обгоревшей.")
+		. += "<span class='warning'>\nПлоть этой конечности выглядит сильно обгоревшей.</span>"
 
 /obj/item/bodypart/blob_act()
 	take_damage(max_damage)
@@ -152,14 +152,14 @@
 			if(!H.get_bodypart(body_zone) && !animal_origin)
 				user.temporarilyRemoveItemFromInventory(src, TRUE)
 				if(!attach_limb(C))
-					to_chat(user, span_warning("Тело [H] отторгает [src]!"))
+					to_chat(user, "<span class='warning'>Тело [H] отторгает [src]!</span>")
 					forceMove(H.loc)
 				if(H == user)
-					H.visible_message(span_warning("[H] впихивает [src] в себя!") ,\
-					span_notice("Впихиваю [src] в себя и оно вроде как стоит как надо!"))
+					H.visible_message("<span class='warning'>[H] впихивает [src] в себя!</span>" ,\
+					"<span class='notice'>Впихиваю [src] в себя и оно вроде как стоит как надо!</span>")
 				else
-					H.visible_message(span_warning("[user] впихивает [src] в [H]!") ,\
-					span_notice("[user] впихивает в меня [src] и оно вроде стоит как надо!"))
+					H.visible_message("<span class='warning'>[user] впихивает [src] в [H]!</span>" ,\
+					"<span class='notice'>[user] впихивает в меня [src] и оно вроде стоит как надо!</span>")
 				return
 	..()
 
@@ -167,11 +167,11 @@
 	if(W.get_sharpness())
 		add_fingerprint(user)
 		if(!contents.len)
-			to_chat(user, span_warning("А внутри [src] ничего и нет!"))
+			to_chat(user, "<span class='warning'>А внутри [src] ничего и нет!</span>")
 			return
 		playsound(loc, 'sound/weapons/slice.ogg', 50, TRUE, -1)
-		user.visible_message(span_warning("[user] начинает вскрывать [src].") ,\
-			span_notice("Начинаю вскрывать [src]..."))
+		user.visible_message("<span class='warning'>[user] начинает вскрывать [src].</span>" ,\
+			"<span class='notice'>Начинаю вскрывать [src]...</span>")
 		if(do_after(user, 54, target = src))
 			drop_organs(user, TRUE)
 	else
@@ -934,7 +934,7 @@
 		dam_mul *= iter_wound.damage_mulitplier_penalty
 
 	if(!LAZYLEN(wounds) && current_gauze && !replaced) // no more wounds = no need for the gauze anymore
-		owner.visible_message(span_notice("[current_gauze] на [owner] [name] отваливается.") , span_notice("[current_gauze] на моем [name] отваливается."))
+		owner.visible_message("<span class='notice'>[current_gauze] на [owner] [name] отваливается.</span>" , "<span class='notice'>[current_gauze] на моем [name] отваливается.</span>")
 		QDEL_NULL(current_gauze)
 
 	wound_damage_multiplier = dam_mul
@@ -1052,7 +1052,7 @@
 		return
 	current_gauze.absorption_capacity -= seep_amt
 	if(current_gauze.absorption_capacity <= 0)
-		owner.visible_message(span_danger("[current_gauze] на [owner] [name] отваливается, расслоившись на тряпки.") , span_warning(" [current_gauze] на моей [name] отваливается, расслоившись на тряпки.") , vision_distance=COMBAT_MESSAGE_RANGE)
+		owner.visible_message("<span class='danger'>[current_gauze] на [owner] [name] отваливается, расслоившись на тряпки.</span>" , "<span class='warning'> [current_gauze] на моей [name] отваливается, расслоившись на тряпки.</span>" , vision_distance=COMBAT_MESSAGE_RANGE)
 		QDEL_NULL(current_gauze)
 		SEND_SIGNAL(src, COMSIG_BODYPART_GAUZE_DESTROYED)
 

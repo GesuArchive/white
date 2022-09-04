@@ -34,7 +34,7 @@
 	. = ..()
 	if(!.)
 		var/obj/item/held_item = get_active_held_item()
-		to_chat(usr, span_warning("Моя другая рука слишком занята [held_item]."))
+		to_chat(usr, "<span class='warning'>Моя другая рука слишком занята [held_item].</span>")
 		return
 
 	if(!held_index)
@@ -120,8 +120,8 @@
 			take_bodypart_damage(10 + 5 * extra_speed, check_armor = TRUE, wound_bonus = extra_speed * 5)
 			victim.Paralyze(2 SECONDS)
 			Paralyze(2 SECONDS)
-			visible_message(span_danger("<b>[src]</b> врезается в <b>[victim]</b>[extra_speed ? "со всей силы" : ""], роняя обоих на пол!") ,\
-				span_userdanger("Жестко врезаюсь в <b>[victim]</b>[extra_speed ? " со всей дури" : ""]!"))
+			visible_message("<span class='danger'><b>[src]</b> врезается в <b>[victim]</b>[extra_speed ? "со всей силы" : ""], роняя обоих на пол!</span>" ,\
+				"<span class='userdanger'>Жестко врезаюсь в <b>[victim]</b>[extra_speed ? " со всей дури" : ""]!</span>")
 		playsound(src,'sound/weapons/punch1.ogg',50,TRUE)
 
 
@@ -171,7 +171,7 @@
 				thrown_thing = throwable_mob
 				stop_pulling()
 				if(HAS_TRAIT(src, TRAIT_PACIFISM))
-					to_chat(src, span_notice("Аккуратно отпускаю <b>[throwable_mob]</b>."))
+					to_chat(src, "<span class='notice'>Аккуратно отпускаю <b>[throwable_mob]</b>.</span>")
 					return
 	else
 		thrown_thing = I.on_thrown(src, target)
@@ -192,8 +192,8 @@
 			power_throw++
 		if(pulling && grab_state >= GRAB_NECK)
 			power_throw++
-		visible_message(span_danger("<b>[src]</b> кидает <b>[thrown_thing.name]</b>[power_throw ? " невероятно сильно!" : "."]") , \
-						span_danger("Кидаю <b>[thrown_thing.name]</b>[power_throw ? " невероятно сильно!" : "."]"))
+		visible_message("<span class='danger'><b>[src]</b> кидает <b>[thrown_thing.name]</b>[power_throw ? " невероятно сильно!" : "."]</span>" , \
+						"<span class='danger'>Кидаю <b>[thrown_thing.name]</b>[power_throw ? " невероятно сильно!" : "."]</span>")
 		playsound(get_turf(src), 'white/valtos/sounds/throw.wav', 50, TRUE)
 		log_message("has thrown [thrown_thing] [power_throw ? "really hard" : ""]", LOG_ATTACK)
 		newtonian_move(get_dir(target, src))
@@ -239,15 +239,15 @@
 		if(handcuffed)
 			O = src.get_item_by_slot(ITEM_SLOT_HANDCUFFED)
 			buckle_time = O.breakouttime
-		visible_message(span_warning("[capitalize(src.name)] пытается выбраться из наручников!") , \
-					span_notice("Пытаюсь выбраться из наручников..."))
+		visible_message("<span class='warning'>[capitalize(src.name)] пытается выбраться из наручников!</span>" , \
+					"<span class='notice'>Пытаюсь выбраться из наручников...</span>")
 		if(do_after(src, buckle_time, target = src, timed_action_flags = IGNORE_HELD_ITEM))
 			if(!buckled)
 				return
 			buckled.user_unbuckle_mob(src,src)
 		else
 			if(src && buckled)
-				to_chat(src, span_warning("Не получилось выбраться из наручников!"))
+				to_chat(src, "<span class='warning'>Не получилось выбраться из наручников!</span>")
 	else
 		buckled.user_unbuckle_mob(src,src)
 
@@ -255,12 +255,12 @@
 	adjust_fire_stacks(-5)
 	Paralyze(60, ignore_canstun = TRUE)
 	spin(32,2)
-	visible_message(span_danger("[capitalize(src.name)] катается по полу пытаясь сбросить пламя!") , \
-		span_notice("Останавливаюсь, падаю и катаюсь по полу!"))
+	visible_message("<span class='danger'>[capitalize(src.name)] катается по полу пытаясь сбросить пламя!</span>" , \
+		"<span class='notice'>Останавливаюсь, падаю и катаюсь по полу!</span>")
 	sleep(30)
 	if(fire_stacks <= 0 && !QDELETED(src))
-		visible_message(span_danger("[capitalize(src.name)] успешно тушит себя!") , \
-			span_notice("Фух! Мне удалось потушить себя."))
+		visible_message("<span class='danger'>[capitalize(src.name)] успешно тушит себя!</span>" , \
+			"<span class='notice'>Фух! Мне удалось потушить себя.</span>")
 	return
 
 /mob/living/carbon/resist_restraints()
@@ -284,19 +284,19 @@
 
 /mob/living/carbon/proc/cuff_resist(obj/item/I, cuff_break = 0)
 	if(I.item_flags & BEING_REMOVED)
-		to_chat(src, span_warning("Уже пытаюсь снять [I]!"))
+		to_chat(src, "<span class='warning'>Уже пытаюсь снять [I]!</span>")
 		return
 	I.item_flags |= BEING_REMOVED
 	var/breakouttimeisfsecurity = 1
 	if(!cuff_break)
-		visible_message(span_warning("[capitalize(src.name)] пытается снять [I]!"))
-		to_chat(src, span_notice("Пытаюсь снять [I]..."))
+		visible_message("<span class='warning'>[capitalize(src.name)] пытается снять [I]!</span>")
+		to_chat(src, "<span class='notice'>Пытаюсь снять [I]...</span>")
 		if(istype(I,/obj/item/restraints/handcuffs/cable) && (src.job in (GLOB.security_positions)))
 			if(prob(80))
 				var/obj/item/bodypart/arm = src.hand_bodyparts[src.active_hand_index]
-				to_chat(src, span_notice("Вспоминаю курс \"Как не быть закованным в стяжки\" и пытаюсь повторить действия инструктора."))
+				to_chat(src, "<span class='notice'>Вспоминаю курс \"Как не быть закованным в стяжки\" и пытаюсь повторить действия инструктора.</span>")
 				breakouttimeisfsecurity = 15
-				to_chat(src, span_notice("Резким движением лопаю стяжки."))
+				to_chat(src, "<span class='notice'>Резким движением лопаю стяжки.</span>")
 				arm.receive_damage(rand(5,8))
 
 
@@ -304,19 +304,19 @@
 		if(do_after(src, I.breakouttime/breakouttimeisfsecurity, target = src, timed_action_flags = IGNORE_HELD_ITEM))
 			. = clear_cuffs(I, cuff_break)
 		else
-			to_chat(src, span_warning("Не получилось снять [I]!"))
+			to_chat(src, "<span class='warning'>Не получилось снять [I]!</span>")
 
 	else if(cuff_break == FAST_CUFFBREAK)
-		visible_message(span_warning("[capitalize(src.name)] пытается разорвать [I]!"))
-		to_chat(src, span_notice("Пытаюсь разорвать [I]..."))
+		visible_message("<span class='warning'>[capitalize(src.name)] пытается разорвать [I]!</span>")
+		to_chat(src, "<span class='notice'>Пытаюсь разорвать [I]...</span>")
 		if(do_after(src, I.breakouttime * 0.1, target = src, timed_action_flags = IGNORE_HELD_ITEM))
 			. = clear_cuffs(I, cuff_break)
 		else
-			to_chat(src, span_warning("У меня не вышло разорвать [I]!"))
+			to_chat(src, "<span class='warning'>У меня не вышло разорвать [I]!</span>")
 
 	else if(cuff_break == INSTANT_CUFFBREAK)
 		. = clear_cuffs(I, cuff_break)
-		to_chat(src, span_alert("Опа!"))
+		to_chat(src, "<span class='alert'>Опа!</span>")
 	I.item_flags &= ~BEING_REMOVED
 
 /mob/living/carbon/proc/uncuff()
@@ -355,8 +355,8 @@
 		return FALSE
 	if(I != handcuffed && I != legcuffed)
 		return FALSE
-	visible_message(span_danger("[capitalize(src.name)] успешно [cuff_break ? "разрывает" : "снимает"] [I]!"))
-	to_chat(src, span_notice("Успешно [cuff_break ? "разрываю" : "снимаю"] [I]."))
+	visible_message("<span class='danger'>[capitalize(src.name)] успешно [cuff_break ? "разрывает" : "снимает"] [I]!</span>")
+	to_chat(src, "<span class='notice'>Успешно [cuff_break ? "разрываю" : "снимаю"] [I].</span>")
 
 	if(cuff_break)
 		. = !((I == handcuffed) || (I == legcuffed))
@@ -427,21 +427,21 @@
 
 	if(nutrition < 100 && !blood && !force)
 		if(message)
-			visible_message(span_warning("[capitalize(src.name)] корчится в рвотном позыве!") , \
-							span_userdanger("Рвота не идёт, ведь мой желудок пуст!"))
+			visible_message("<span class='warning'>[capitalize(src.name)] корчится в рвотном позыве!</span>" , \
+							"<span class='userdanger'>Рвота не идёт, ведь мой желудок пуст!</span>")
 		if(stun)
 			Paralyze(200)
 		return TRUE
 
 	if(is_mouth_covered()) //make this add a blood/vomit overlay later it'll be hilarious
 		if(message)
-			visible_message(span_danger("[capitalize(src.name)] заблёвывает себя!") , \
-							span_userdanger("Заблевываю себя."))
+			visible_message("<span class='danger'>[capitalize(src.name)] заблёвывает себя!</span>" , \
+							"<span class='userdanger'>Заблевываю себя.</span>")
 			SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "vomit", /datum/mood_event/vomitself)
 		distance = 0
 	else
 		if(message)
-			visible_message(span_danger("[capitalize(src.name)] блюёт!") , span_userdanger("Блюю!"))
+			visible_message("<span class='danger'>[capitalize(src.name)] блюёт!</span>" , "<span class='userdanger'>Блюю!</span>")
 			if(!isflyperson(src))
 				SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "vomit", /datum/mood_event/vomit)
 
@@ -480,8 +480,8 @@
  * * amount: int The amount of reagent
  */
 /mob/living/carbon/proc/expel_ingested(atom/bite, amount)
-	visible_message(span_danger("[src] throws up all over [ru_na()]self!") , \
-					span_userdanger("You are unable to keep the [bite] down without a stomach!"))
+	visible_message("<span class='danger'>[src] throws up all over [ru_na()]self!</span>" , \
+					"<span class='userdanger'>You are unable to keep the [bite] down without a stomach!</span>")
 
 	var/turf/floor = get_turf(src)
 	var/obj/effect/decal/cleanable/vomit/spew = new(floor, get_static_viruses())
@@ -936,7 +936,7 @@
 			O.Remove(src)
 			O.forceMove(drop_location())
 	if(organs_amt)
-		to_chat(user, span_notice("Мне удалось достать несколько внутренних органов из [src]!"))
+		to_chat(user, "<span class='notice'>Мне удалось достать несколько внутренних органов из [src]!</span>")
 	remove_all_embedded_objects()
 
 
@@ -1034,21 +1034,21 @@
 					if(BP)
 						BP.drop_limb()
 					else
-						to_chat(usr, span_boldwarning("[capitalize(src.name)] doesn't have such bodypart."))
+						to_chat(usr, "<span class='boldwarning'>[capitalize(src.name)] doesn't have such bodypart.</span>")
 				if("add")
 					if(BP)
-						to_chat(usr, span_boldwarning("[capitalize(src.name)] already has such bodypart."))
+						to_chat(usr, "<span class='boldwarning'>[capitalize(src.name)] already has such bodypart.</span>")
 					else
 						if(!regenerate_limb(result))
-							to_chat(usr, span_boldwarning("[capitalize(src.name)] cannot have such bodypart."))
+							to_chat(usr, "<span class='boldwarning'>[capitalize(src.name)] cannot have such bodypart.</span>")
 				if("augment")
 					if(ishuman(src))
 						if(BP)
 							BP.change_bodypart_status(BODYPART_ROBOTIC, TRUE, TRUE)
 						else
-							to_chat(usr, span_boldwarning("[capitalize(src.name)] doesn't have such bodypart."))
+							to_chat(usr, "<span class='boldwarning'>[capitalize(src.name)] doesn't have such bodypart.</span>")
 					else
-						to_chat(usr, span_boldwarning("Only humans can be augmented."))
+						to_chat(usr, "<span class='boldwarning'>Only humans can be augmented.</span>")
 		admin_ticket_log("[key_name_admin(usr)] has modified the bodyparts of [src]")
 	if(href_list[VV_HK_MAKE_AI])
 		if(!check_rights(R_SPAWN))
@@ -1072,14 +1072,14 @@
 		if(!usr)
 			return
 		if(QDELETED(src))
-			to_chat(usr, span_boldwarning("Mob doesn't exist anymore."))
+			to_chat(usr, "<span class='boldwarning'>Mob doesn't exist anymore.</span>")
 			return
 		if(result)
 			var/chosenart = artnames[result]
 			var/datum/martial_art/MA = new chosenart
 			MA.teach(src)
 			log_admin("[key_name(usr)] has taught [MA] to [key_name(src)].")
-			message_admins(span_notice("[key_name_admin(usr)] has taught [MA] to [key_name_admin(src)]."))
+			message_admins("<span class='notice'>[key_name_admin(usr)] has taught [MA] to [key_name_admin(src)].</span>")
 	if(href_list[VV_HK_GIVE_TRAUMA])
 		if(!check_rights(NONE))
 			return
@@ -1095,13 +1095,13 @@
 		var/datum/brain_trauma/BT = gain_trauma(result)
 		if(BT)
 			log_admin("[key_name(usr)] has traumatized [key_name(src)] with [BT.name]")
-			message_admins(span_notice("[key_name_admin(usr)] has traumatized [key_name_admin(src)] with [BT.name]."))
+			message_admins("<span class='notice'>[key_name_admin(usr)] has traumatized [key_name_admin(src)] with [BT.name].</span>")
 	if(href_list[VV_HK_CURE_TRAUMA])
 		if(!check_rights(NONE))
 			return
 		cure_all_traumas(TRAUMA_RESILIENCE_ABSOLUTE)
 		log_admin("[key_name(usr)] has cured all traumas from [key_name(src)].")
-		message_admins(span_notice("[key_name_admin(usr)] has cured all traumas from [key_name_admin(src)]."))
+		message_admins("<span class='notice'>[key_name_admin(usr)] has cured all traumas from [key_name_admin(src)].</span>")
 	if(href_list[VV_HK_HALLUCINATION])
 		if(!check_rights(NONE))
 			return

@@ -102,7 +102,7 @@
 			C.reagents.metabolize(C, delta_time, times_fired, can_overdose=TRUE)
 
 			if(provide_pain_message && damage > 10 && DT_PROB(damage/6, delta_time))//the higher the damage the higher the probability
-				to_chat(C, span_warning("Ощущаю тупую боль в животе."))
+				to_chat(C, "<span class='warning'>Ощущаю тупую боль в животе.</span>")
 
 
 	if(damage > maxHealth)//cap liver damage
@@ -173,11 +173,11 @@
 		return
 	switch(failure_time)
 		if(0 to 3 * LIVER_FAILURE_STAGE_SECONDS - 1)
-			examine_list += span_notice("\nГлаза [owner] желтоватые.")
+			examine_list += "<span class='notice'>\nГлаза [owner] желтоватые.</span>"
 		if(3 * LIVER_FAILURE_STAGE_SECONDS to 4 * LIVER_FAILURE_STAGE_SECONDS - 1)
-			examine_list += span_notice("\nГлаза [owner] жёлтые и похоже пациенту плохо.")
+			examine_list += "<span class='notice'>\nГлаза [owner] жёлтые и похоже пациенту плохо.</span>"
 		if(4 * LIVER_FAILURE_STAGE_SECONDS to INFINITY)
-			examine_list += span_danger("\nГлаза [owner] полностью жёлтые и из них сочится гадкая слизь. [owner.ru_who(TRUE)] не проживёт долго с этим.")
+			examine_list += "<span class='danger'>\nГлаза [owner] полностью жёлтые и из них сочится гадкая слизь. [owner.ru_who(TRUE)] не проживёт долго с этим.</span>"
 
 /obj/item/organ/liver/on_death(delta_time, times_fired)
 	. = ..()

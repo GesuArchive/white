@@ -39,7 +39,7 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 	drop_sound = 'white/valtos/sounds/rods_drop.ogg'
 
 /obj/item/stack/rods/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] начинает набивать <b>[src.name]</b> в свою глотку! Похоже, [user.p_theyre()] пытается совершить самоубийство!"))//it looks like theyre ur mum
+	user.visible_message("<span class='suicide'>[user] начинает набивать <b>[src.name]</b> в свою глотку! Похоже, [user.p_theyre()] пытается совершить самоубийство!</span>")//it looks like theyre ur mum
 	return BRUTELOSS
 
 /obj/item/stack/rods/Initialize(mapload, new_amount, merge = TRUE, list/mat_override=null, mat_amt=1)
@@ -71,14 +71,14 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 
 	if(W.tool_behaviour == TOOL_WELDER)
 		if(get_amount() < 2)
-			to_chat(user, span_warning("Мне потребуется как минимум два стержня для этого!"))
+			to_chat(user, "<span class='warning'>Мне потребуется как минимум два стержня для этого!</span>")
 			return
 
 		if(W.use_tool(src, user, 0, volume=40))
 			var/obj/item/stack/sheet/iron/new_item = new(usr.loc)
-			user.visible_message(span_notice("<b>[user.name]</b> плавит [src] в железный лист используя [W].") , \
-				span_notice("Плавлю [src] в железный лист используя [W].") , \
-				span_hear("Слышу сварку."))
+			user.visible_message("<span class='notice'><b>[user.name]</b> плавит [src] в железный лист используя [W].</span>" , \
+				"<span class='notice'>Плавлю [src] в железный лист используя [W].</span>" , \
+				"<span class='hear'>Слышу сварку.</span>")
 			var/obj/item/stack/rods/R = src
 			src = null
 			var/replace = (user.get_inactive_held_item()==R)

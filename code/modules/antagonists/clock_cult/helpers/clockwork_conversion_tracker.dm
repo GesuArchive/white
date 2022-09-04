@@ -37,7 +37,7 @@ GLOBAL_VAR_INIT(conversion_warning_stage, CONVERSION_WARNING_NONE)
 		if(!cult_datum)
 			return FALSE
 		to_chat(cult_mind, "<span class='large_brass'>Никогда не заб...[text2ratvar("ывай силу Дви'гателя!")]...</span>")
-		to_chat(cult_mind, span_warning("Тихое тиканье в глубине души медленно исчезает..."))
+		to_chat(cult_mind, "<span class='warning'>Тихое тиканье в глубине души медленно исчезает...</span>")
 		cult_datum.silent = silent
 		cult_datum.on_removal()
 		cult_mind.special_role = null

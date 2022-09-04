@@ -37,9 +37,9 @@ BONUS
 	switch(A.stage)
 		if(5)
 			ADD_TRAIT(M, TRAIT_DISFIGURED, DISEASE_TRAIT)
-			M.visible_message(span_warning("Лицо [M], кажется, входит в череп!") , span_notice("Лицо входит в череп!"))
+			M.visible_message("<span class='warning'>Лицо [M], кажется, входит в череп!</span>" , "<span class='notice'>Лицо входит в череп!</span>")
 		else
-			M.visible_message(span_warning("Лицо [M] начинает дёргаться...") , span_notice("Моё лицо становится мокрым и немного подёргивающимся..."))
+			M.visible_message("<span class='warning'>Лицо [M] начинает дёргаться...</span>" , "<span class='notice'>Моё лицо становится мокрым и немного подёргивающимся...</span>")
 
 
 /datum/symptom/disfiguration/End(datum/disease/advance/A)

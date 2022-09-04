@@ -264,22 +264,22 @@
 				// At lower pp, give out a little warning
 				SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "smell")
 				if(prob(5))
-					to_chat(src, span_notice("Здесь неприятно пахнет."))
+					to_chat(src, "<span class='notice'>Здесь неприятно пахнет.</span>")
 			if(5 to 20)
 				//At somewhat higher pp, warning becomes more obvious
 				if(prob(15))
-					to_chat(src, span_warning("Здесь точно что-то гниёт и неплохо так отдаёт запахом."))
+					to_chat(src, "<span class='warning'>Здесь точно что-то гниёт и неплохо так отдаёт запахом.</span>")
 					SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/bad_smell)
 			if(15 to 30)
 				//Small chance to vomit. By now, people have internals on anyway
 				if(prob(5))
-					to_chat(src, span_warning("Запах гниющей плоти бьёт мне прямо в нос!"))
+					to_chat(src, "<span class='warning'>Запах гниющей плоти бьёт мне прямо в нос!</span>")
 					SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/nauseating_stench)
 					vomit()
 			if(30 to INFINITY)
 				//Higher chance to vomit. Let the horror start
 				if(prob(25))
-					to_chat(src, span_warning("Запашок непередаваемый!"))
+					to_chat(src, "<span class='warning'>Запашок непередаваемый!</span>")
 					SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/nauseating_stench)
 					vomit()
 			else
@@ -561,16 +561,16 @@ All effects don't start immediately, but rather get worse over time; the rate is
 		if(drunkenness >= 81)
 			adjustToxLoss(0.5 * delta_time)
 			if(!stat && DT_PROB(2.5, delta_time))
-				to_chat(src, span_warning("Надо полежать..."))
+				to_chat(src, "<span class='warning'>Надо полежать...</span>")
 
 		if(drunkenness >= 91)
 			adjustToxLoss(0.5 * delta_time)
 			adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.2 * delta_time)
 			if(DT_PROB(10, delta_time) && !stat)
 				if(SSshuttle.emergency.mode == SHUTTLE_DOCKED && is_station_level(z)) //QoL mainly
-					to_chat(src, span_warning("Уф, надо бы поспать... но я не могу упустить этот шаттл..."))
+					to_chat(src, "<span class='warning'>Уф, надо бы поспать... но я не могу упустить этот шаттл...</span>")
 				else
-					to_chat(src, span_warning("Немного вздремнём..."))
+					to_chat(src, "<span class='warning'>Немного вздремнём...</span>")
 					Sleeping(900)
 
 		if(drunkenness >= 101)
@@ -795,11 +795,11 @@ All effects don't start immediately, but rather get worse over time; the rate is
 				if(limb.cremation_progress >= 100)
 					if(limb.status == BODYPART_ORGANIC) //Non-organic limbs don't burn
 						limb.drop_limb()
-						limb.visible_message(span_warning("[capitalize(limb.name)] <b>[src]</b> обращается в пепел!"))
+						limb.visible_message("<span class='warning'>[capitalize(limb.name)] <b>[src]</b> обращается в пепел!</span>")
 						qdel(limb)
 					else
 						limb.drop_limb()
-						limb.visible_message(span_warning("[capitalize(limb.name)] <b>[src]</b> отлетает от тела!"))
+						limb.visible_message("<span class='warning'>[capitalize(limb.name)] <b>[src]</b> отлетает от тела!</span>")
 	if(still_has_limbs)
 		return
 
@@ -811,17 +811,17 @@ All effects don't start immediately, but rather get worse over time; the rate is
 			if(head.cremation_progress >= 100)
 				if(head.status == BODYPART_ORGANIC) //Non-organic limbs don't burn
 					head.drop_limb()
-					head.visible_message(span_warning("Голова <b>[src]</b> обращается в пепел!"))
+					head.visible_message("<span class='warning'>Голова <b>[src]</b> обращается в пепел!</span>")
 					qdel(head)
 				else
 					head.drop_limb()
-					head.visible_message(span_warning("Голова <b>[src]</b> отлетает от тела!"))
+					head.visible_message("<span class='warning'>Голова <b>[src]</b> отлетает от тела!</span>")
 		return
 
 	//Nothing left: dust the body, drop the items (if they're flammable they'll burn on their own)
 	chest.cremation_progress += rand(1 * delta_time, 2.5 * delta_time)
 	if(chest.cremation_progress >= 100)
-		visible_message(span_warning("<b>[src]</b> обращается в пепел!"))
+		visible_message("<span class='warning'><b>[src]</b> обращается в пепел!</span>")
 		dust(TRUE, TRUE)
 
 ////////////////

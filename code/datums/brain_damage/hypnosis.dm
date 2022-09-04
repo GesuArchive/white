@@ -38,7 +38,7 @@
 /datum/brain_trauma/hypnosis/on_lose()
 	message_admins("[ADMIN_LOOKUPFLW(owner)] больше не загипнотизирован фразой '[hypnotic_phrase]'.")
 	log_game("[key_name(owner)] больше не загипнотизирован фразой '[hypnotic_phrase]'.")
-	to_chat(owner, span_userdanger("Внезапно выхожу из состояния гипноза. Фраза '[hypnotic_phrase]' больше не кажется важной."))
+	to_chat(owner, "<span class='userdanger'>Внезапно выхожу из состояния гипноза. Фраза '[hypnotic_phrase]' больше не кажется важной.</span>")
 	owner.clear_alert("hypnosis")
 	..()
 
@@ -47,9 +47,9 @@
 	if(DT_PROB(1, delta_time))
 		switch(rand(1,2))
 			if(1)
-				to_chat(owner, span_hypnophrase("<i>...[lowertext(hypnotic_phrase)]...</i>"))
+				to_chat(owner, "<span class='hypnophrase'><i>...[lowertext(hypnotic_phrase)]...</i></span>")
 			if(2)
-				new /datum/hallucination/chat(owner, TRUE, FALSE, span_hypnophrase("[hypnotic_phrase]"))
+				new /datum/hallucination/chat(owner, TRUE, FALSE, "<span class='hypnophrase'>[hypnotic_phrase]</span>")
 
 /datum/brain_trauma/hypnosis/handle_hearing(datum/source, list/hearing_args)
-	hearing_args[HEARING_RAW_MESSAGE] = target_phrase.Replace_char(hearing_args[HEARING_RAW_MESSAGE], span_hypnophrase("$1"))
+	hearing_args[HEARING_RAW_MESSAGE] = target_phrase.Replace_char(hearing_args[HEARING_RAW_MESSAGE], "<span class='hypnophrase'>$1</span>")

@@ -146,7 +146,7 @@
 			var/obj/machinery/rnd/server/S = locate(href_list["toggle"]) in SSresearch.servers
 			S.toggle_disable()
 		else
-			to_chat(usr, span_danger("Доступ запрещён."))
+			to_chat(usr, "<span class='danger'>Доступ запрещён.</span>")
 
 	updateUsrDialog()
 	return
@@ -190,4 +190,4 @@
 		return
 	playsound(src, "zap", 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	obj_flags |= EMAGGED
-	to_chat(user, span_notice("You disable the security protocols."))
+	to_chat(user, "<span class='notice'>You disable the security protocols.</span>")

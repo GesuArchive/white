@@ -13,7 +13,7 @@
 				pickable_races += initial(S.id)
 		pickable_races = sort_list(pickable_races)
 
-		to_chat(H, span_warning("ПРЕВРАЩАЮСЬ!"))
+		to_chat(H, "<span class='warning'>ПРЕВРАЩАЮСЬ!</span>")
 		var/species_type = pick(pickable_races)
 		H.set_species(species_type)
 		holder.del_reagent(type)

@@ -187,7 +187,7 @@ SUBSYSTEM_DEF(eventmaster)
 			action_area.env_temp_relative = new_temp
 		if(second_area)
 			second_area.set_base_lighting(new_color, second_area.base_lighting_alpha)
-		to_chat(world, span_greenannounce("<b>[SSday_night.get_twentyfourhour_timestamp()]</b> - [new_time]."))
+		to_chat(world, "<span class='greenannounce'><b>[SSday_night.get_twentyfourhour_timestamp()]</b> - [new_time].</span>")
 
 /client/proc/force_evenmaster_rules()
 	set name = "? Force Eventmaster Rules"

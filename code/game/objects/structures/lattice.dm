@@ -40,7 +40,7 @@
 	if(resistance_flags & INDESTRUCTIBLE)
 		return
 	if(C.tool_behaviour == TOOL_WIRECUTTER)
-		to_chat(user, span_notice("Режем [name]..."))
+		to_chat(user, "<span class='notice'>Режем [name]...</span>")
 		deconstruct()
 	else
 		var/turf/T = get_turf(src)
@@ -57,7 +57,7 @@
 
 /obj/structure/lattice/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	if(passed_mode == RCD_FLOORWALL)
-		to_chat(user, span_notice("Создаю пол."))
+		to_chat(user, "<span class='notice'>Создаю пол.</span>")
 		var/turf/T = src.loc
 		if(isspaceturf(T))
 			T.PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
@@ -82,7 +82,7 @@
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
 
 /obj/structure/lattice/catwalk/deconstruction_hints(mob/user)
-	return span_notice("Эти стержни можно <b>отрезать</b>.")
+	return "<span class='notice'>Эти стержни можно <b>отрезать</b>.</span>"
 
 /obj/structure/lattice/catwalk/Move()
 	var/turf/T = loc
@@ -111,16 +111,16 @@
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 /obj/structure/lattice/lava/deconstruction_hints(mob/user)
-	return span_notice("Эти стержни можно <b>отрезать</b>, но <i>термозащита будет уничтожена</i>. Здесь есть место для установки <i>плитки</i>.")
+	return "<span class='notice'>Эти стержни можно <b>отрезать</b>, но <i>термозащита будет уничтожена</i>. Здесь есть место для установки <i>плитки</i>.</span>"
 
 /obj/structure/lattice/lava/attackby(obj/item/C, mob/user, params)
 	. = ..()
 	if(istype(C, /obj/item/stack/tile/plasteel))
 		var/obj/item/stack/tile/plasteel/P = C
 		if(P.use(1))
-			to_chat(user, span_notice("Создаю обшивку и в это же время лава поглощает стержни."))
+			to_chat(user, "<span class='notice'>Создаю обшивку и в это же время лава поглощает стержни.</span>")
 			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 			new /turf/open/floor/plating(locate(x, y, z))
 		else
-			to_chat(user, span_warning("Требуется хотя бы одна единица плитки для создания обшивки на [src]."))
+			to_chat(user, "<span class='warning'>Требуется хотя бы одна единица плитки для создания обшивки на [src].</span>")
 		return

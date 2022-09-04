@@ -68,7 +68,7 @@
 /obj/item/mod/module/examine(mob/user)
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_DIAGNOSTIC_HUD))
-		. += span_notice("Complexity level: [complexity]")
+		. += "<span class='notice'>Complexity level: [complexity]</span>"
 
 
 /// Called when the module is selected from the TGUI, radial or the action button
@@ -96,7 +96,7 @@
 		return FALSE
 	if(!allowed_in_phaseout && istype(mod.wearer.loc, /obj/effect/dummy/phased_mob))
 		//specifically a to_chat because the user is phased out.
-		to_chat(mod.wearer, span_warning("You cannot activate this right now."))
+		to_chat(mod.wearer, "<span class='warning'>You cannot activate this right now.</span>")
 		return FALSE
 	if(SEND_SIGNAL(src, COMSIG_MODULE_TRIGGERED) & MOD_ABORT_USE)
 		return FALSE
@@ -151,7 +151,7 @@
 		return FALSE
 	if(!allowed_in_phaseout && istype(mod.wearer.loc, /obj/effect/dummy/phased_mob))
 		//specifically a to_chat because the user is phased out.
-		to_chat(mod.wearer, span_warning("You cannot activate this right now."))
+		to_chat(mod.wearer, "<span class='warning'>You cannot activate this right now.</span>")
 		return FALSE
 	if(SEND_SIGNAL(src, COMSIG_MODULE_TRIGGERED) & MOD_ABORT_USE)
 		return FALSE
@@ -340,13 +340,13 @@
 	if(!length(accepted_anomalies))
 		return
 	if(core)
-		. += span_notice("There is a [core.name] installed in it. You could remove it with a <b>screwdriver</b>...")
+		. += "<span class='notice'>There is a [core.name] installed in it. You could remove it with a <b>screwdriver</b>...</span>"
 	else
 		var/list/core_list = list()
 		for(var/path in accepted_anomalies)
 			var/atom/core_path = path
 			core_list += initial(core_path.name)
-		. += span_notice("You need to insert \a [english_list(core_list, and_text = " or ")] for this module to function.")
+		. += "<span class='notice'>You need to insert \a [english_list(core_list, and_text = " or ")] for this module to function.</span>"
 
 /obj/item/mod/module/anomaly_locked/on_select()
 	if(!core)

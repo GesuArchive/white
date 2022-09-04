@@ -29,10 +29,10 @@
 	if(!has_active_hand()) //can't attack without a hand.
 		var/obj/item/bodypart/check_arm = get_active_hand()
 		if(check_arm?.bodypart_disabled)
-			to_chat(src, span_warning("Моя [check_arm.name] слишком сильно повреждена! Надо бы поскорее починить её или хотя бы перевязать!"))
+			to_chat(src, "<span class='warning'>Моя [check_arm.name] слишком сильно повреждена! Надо бы поскорее починить её или хотя бы перевязать!</span>")
 			return
 
-		to_chat(src, span_notice("Смотрю на свою руку и вздыхаю."))
+		to_chat(src, "<span class='notice'>Смотрю на свою руку и вздыхаю.</span>")
 		return
 
 	// Special glove functions:
@@ -80,7 +80,7 @@
 	if(!user.can_interact_with(src, interaction_flags_atom & INTERACT_ATOM_ALLOW_USER_LOCATION))
 		return FALSE
 	if((interaction_flags_atom & INTERACT_ATOM_REQUIRES_DEXTERITY) && !ISADVANCEDTOOLUSER(user))
-		to_chat(user, span_warning("У меня не хватает ловкости для этого!"))
+		to_chat(user, "<span class='warning'>У меня не хватает ловкости для этого!</span>")
 		return FALSE
 	if(!(interaction_flags_atom & INTERACT_ATOM_IGNORE_INCAPACITATED))
 		var/ignore_flags = NONE
@@ -143,16 +143,16 @@
 
 	switch(a_intent)
 		if(INTENT_HELP)
-			visible_message(span_notice("<b>[src]</b> машет рукой <b>[target]</b>."), span_notice("Машу рукой <b>[target]</b>."), span_notice("Машу кому-то рукой."), ignored_mobs = target)
+			visible_message("<span class='notice'><b>[src]</b> машет рукой <b>[target]</b>.</span>", "<span class='notice'>Машу рукой <b>[target]</b>.</span>", "<span class='notice'>Машу кому-то рукой.</span>", ignored_mobs = target)
 			target_message = "машет мне рукой"
 		if(INTENT_DISARM)
-			visible_message(span_notice("<b>[src]</b> просит жестом <b>[target]</b> отойти."), span_notice("Прошу жестом <b>[target]</b> отойти."), span_notice("Прошу жестом кого-то отойти."), ignored_mobs = target)
+			visible_message("<span class='notice'><b>[src]</b> просит жестом <b>[target]</b> отойти.</span>", "<span class='notice'>Прошу жестом <b>[target]</b> отойти.</span>", "<span class='notice'>Прошу жестом кого-то отойти.</span>", ignored_mobs = target)
 			target_message = "просит меня отойти"
 		if(INTENT_GRAB)
-			visible_message(span_notice("<b>[src]</b> подманивает пальчиком <b>[target]</b>."), span_notice("Подманиваю пальчиком <b>[target]</b>."), span_notice("Подманиваю пальчиком кого-то."), ignored_mobs = target)
+			visible_message("<span class='notice'><b>[src]</b> подманивает пальчиком <b>[target]</b>.</span>", "<span class='notice'>Подманиваю пальчиком <b>[target]</b>.</span>", "<span class='notice'>Подманиваю пальчиком кого-то.</span>", ignored_mobs = target)
 			target_message = "подманивает меня пальчиком"
 		if(INTENT_HARM)
-			visible_message(span_warning("<b>[src]</b> угрожает кулаком <b>[target]</b>!"), span_warning("Угрожаю кулаком <b>[target]</b>!"), span_warning("Угрожаю кому-то кулаком!"), ignored_mobs = target)
+			visible_message("<span class='warning'><b>[src]</b> угрожает кулаком <b>[target]</b>!</span>", "<span class='warning'>Угрожаю кулаком <b>[target]</b>!</span>", "<span class='warning'>Угрожаю кому-то кулаком!</span>", ignored_mobs = target)
 			target_message = "угрожает мне кулаком"
 	changeNext_move(1 SECONDS)
 
@@ -162,9 +162,9 @@
 		return TRUE
 
 	if(a_intent == INTENT_HARM)
-		to_chat(target, span_danger("<b>[src]</b> [target_message]!"))
+		to_chat(target, "<span class='danger'><b>[src]</b> [target_message]!</span>")
 	else
-		to_chat(target, span_notice("<b>[src]</b> [target_message]."))
+		to_chat(target, "<span class='notice'><b>[src]</b> [target_message].</span>")
 
 	if(target_mob?.client?.prefs.chat_on_map)
 		target_mob.create_chat_message(src, raw_message = target_message, runechat_flags = EMOTE_MESSAGE)

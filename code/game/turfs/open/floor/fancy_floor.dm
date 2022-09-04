@@ -53,15 +53,15 @@
 		broken = FALSE
 		burnt = FALSE
 		if(user && !silent)
-			to_chat(user, span_notice("Снимаю сломанные доски."))
+			to_chat(user, "<span class='notice'>Снимаю сломанные доски.</span>")
 	else
 		if(make_tile)
 			if(user && !silent)
-				to_chat(user, span_notice("Откручиваю доски."))
+				to_chat(user, "<span class='notice'>Откручиваю доски.</span>")
 			spawn_tile()
 		else
 			if(user && !silent)
-				to_chat(user, span_notice("Силой отрываю доски, уничтожая их в процессе."))
+				to_chat(user, "<span class='notice'>Силой отрываю доски, уничтожая их в процессе.</span>")
 	return make_plating(force_plating)
 
 /turf/open/floor/wood/cold

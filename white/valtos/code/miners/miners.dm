@@ -79,10 +79,10 @@ SUBSYSTEM_DEF(spm)
 	if(contents.len)
 		. += "<hr><span class='notice'>Внутри можно заметить:</span>"
 		for(var/obj/item/mining_thing/MT in contents)
-			. += span_notice("\n[icon2html(MT, user)] [MT.tech_name] \[[MT.hashrate + MT.overclock] Sols/s]")
+			. += "<span class='notice'>\n[icon2html(MT, user)] [MT.tech_name] \[[MT.hashrate + MT.overclock] Sols/s]</span>"
 	. += "<hr><span class='notice'>Общая скорость: <b>[hashrate_total] Sols/s</b>.</span>"
-	. += span_notice("\nСложность сети: <b>[SSspm.diff]</b>.")
-	. += span_notice("\nПривязанный аккаунт: <b>[linked_account.account_holder]</b>.")
+	. += "<span class='notice'>\nСложность сети: <b>[SSspm.diff]</b>.</span>"
+	. += "<span class='notice'>\nПривязанный аккаунт: <b>[linked_account.account_holder]</b>.</span>"
 
 /obj/machinery/power/mining_rack/proc/get_env_temp()
 	var/datum/gas_mixture/env = loc.return_air()
@@ -104,32 +104,32 @@ SUBSYSTEM_DEF(spm)
 		var/obj/item/card/id/acard = I
 		if(acard.registered_account)
 			linked_account = acard.registered_account
-			to_chat(user, span_notice("Привязываю карту к полке."))
+			to_chat(user, "<span class='notice'>Привязываю карту к полке.</span>")
 			return
-		to_chat(user, span_warning("На карте нет аккаунта!"))
+		to_chat(user, "<span class='warning'>На карте нет аккаунта!</span>")
 		return
 
 	if(istype(I, /obj/item/mining_thing))
 		if(contents.len >= 3)
-			to_chat(user, span_warning("Стойка переполнена!"))
+			to_chat(user, "<span class='warning'>Стойка переполнена!</span>")
 			return
 		I.forceMove(src)
 		switch(contents.len)
 			if(1)
-				to_chat(user, span_notice("Устанавливаю оборудование в верхний слот."))
+				to_chat(user, "<span class='notice'>Устанавливаю оборудование в верхний слот.</span>")
 				add_overlay("top_miners")
 			if(2)
-				to_chat(user, span_notice("Устанавливаю оборудование в средний слот."))
+				to_chat(user, "<span class='notice'>Устанавливаю оборудование в средний слот.</span>")
 				add_overlay("mid_miners")
 			if(3)
-				to_chat(user, span_notice("Устанавливаю оборудование в нижний слот."))
+				to_chat(user, "<span class='notice'>Устанавливаю оборудование в нижний слот.</span>")
 				add_overlay("bot_miners")
 		recalculate_hashrate()
 
 	if(I.tool_behaviour == TOOL_WRENCH)
-		to_chat(user, span_notice("Начинаю [anchored ? "от" : "при"]кручивать [src.name]..."))
+		to_chat(user, "<span class='notice'>Начинаю [anchored ? "от" : "при"]кручивать [src.name]...</span>")
 		if(I.use_tool(src, user, 40, volume=75))
-			to_chat(user, span_notice("[anchored ? "От" : "При"]кручиваю [src.name]."))
+			to_chat(user, "<span class='notice'>[anchored ? "От" : "При"]кручиваю [src.name].</span>")
 			set_anchored(!anchored)
 		return
 
@@ -138,22 +138,22 @@ SUBSYSTEM_DEF(spm)
 		if(!new_key)
 			return
 		bound_key = new_key
-		to_chat(user, span_notice("Ключ \"[new_key]\" установлен."))
+		to_chat(user, "<span class='notice'>Ключ \"[new_key]\" установлен.</span>")
 		return
 
 	if(I.tool_behaviour == TOOL_CROWBAR)
 		if(!contents.len)
-			to_chat(user, span_warning("Внутри пусто!"))
+			to_chat(user, "<span class='warning'>Внутри пусто!</span>")
 			return
 		switch(contents.len)
 			if(1)
-				to_chat(user, span_notice("Вытаскиваю оборудование из верхнего слота."))
+				to_chat(user, "<span class='notice'>Вытаскиваю оборудование из верхнего слота.</span>")
 				cut_overlay("top_miners")
 			if(2)
-				to_chat(user, span_notice("Вытаскиваю оборудование из среднего слота."))
+				to_chat(user, "<span class='notice'>Вытаскиваю оборудование из среднего слота.</span>")
 				cut_overlay("mid_miners")
 			if(3)
-				to_chat(user, span_notice("Вытаскиваю оборудование из нижнего слота."))
+				to_chat(user, "<span class='notice'>Вытаскиваю оборудование из нижнего слота.</span>")
 				cut_overlay("bot_miners")
 		var/obj/item/TFM = contents[contents.len]
 		var/turf/T = get_turf(src)
@@ -228,15 +228,15 @@ SUBSYSTEM_DEF(spm)
 		return ..()
 
 	if(I.tool_behaviour == TOOL_MULTITOOL)
-		to_chat(user, span_notice("Пытаюсь разогнать [src.name]..."))
+		to_chat(user, "<span class='notice'>Пытаюсь разогнать [src.name]...</span>")
 		if(I.use_tool(src, user, 40, volume=75))
 			if(prob(overclock))
-				to_chat(user, span_warning("Успешно не разгоняю [src.name]?!"))
+				to_chat(user, "<span class='warning'>Успешно не разгоняю [src.name]?!</span>")
 				new /obj/item/mining_thing/burned(drop_location())
 				qdel(src)
 				return
 			overclock += rand(5, 10)
-			to_chat(user, span_notice("Успешно разгоняю [src.name]! Новый прирост: [overclock]."))
+			to_chat(user, "<span class='notice'>Успешно разгоняю [src.name]! Новый прирост: [overclock].</span>")
 
 /obj/item/mining_thing/examine(mob/user)
 	. = ..()

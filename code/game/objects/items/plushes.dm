@@ -109,25 +109,25 @@
 /obj/item/toy/plush/attack_self(mob/user)
 	. = ..()
 	if(stuffed || grenade)
-		to_chat(user, span_notice("Нежу [src]."))
+		to_chat(user, "<span class='notice'>Нежу [src].</span>")
 		if(grenade && !grenade.active)
 			log_game("[key_name(user)] активирует скрытую гранату в [src].")
 			grenade.arm_grenade(user, msg = FALSE, volume = 10)
 	else
-		to_chat(user, span_notice("Пытаюсь нежить [src], но у игрушки нет ваты внутри. Оу..."))
+		to_chat(user, "<span class='notice'>Пытаюсь нежить [src], но у игрушки нет ваты внутри. Оу...</span>")
 
 /obj/item/toy/plush/attackby(obj/item/I, mob/living/user, params)
 	if(I.get_sharpness())
 		if(!grenade)
 			if(!stuffed)
-				to_chat(user, span_warning("Ты и так убил его!"))
+				to_chat(user, "<span class='warning'>Ты и так убил его!</span>")
 				return
 			if(!divine)
-				user.visible_message(span_notice("[user] убирает всю вату из внутренностей [src]!") , span_notice("Убираю всю вату из внутренностей [src]. Убийца."))
+				user.visible_message("<span class='notice'>[user] убирает всю вату из внутренностей [src]!</span>" , "<span class='notice'>Убираю всю вату из внутренностей [src]. Убийца.</span>")
 				I.play_tool_sound(src)
 				stuffed = FALSE
 			else
-				to_chat(user, span_notice("Какой же ты дурак. [src] это бог, как можно убить бога? Какая великая и пьянящая невинность."))
+				to_chat(user, "<span class='notice'>Какой же ты дурак. [src] это бог, как можно убить бога? Какая великая и пьянящая невинность.</span>")
 				if(iscarbon(user))
 					var/mob/living/carbon/C = user
 					if(C.drunkenness < 50)
@@ -135,27 +135,27 @@
 				var/turf/current_location = get_turf(user)
 				var/area/current_area = current_location.loc //copied from hand tele code
 				if(current_location && current_area && (current_area.area_flags & NOTELEPORT))
-					to_chat(user, span_notice("Сбежать невозможно. Никакой отзыв или вмешательство не помогут в этом месте."))
+					to_chat(user, "<span class='notice'>Сбежать невозможно. Никакой отзыв или вмешательство не помогут в этом месте.</span>")
 				else
-					to_chat(user, span_notice("Сбежать невозможно. Хотя отзыв или вмешательство могут сработать в этом месте, попытки убежать от огромной силы [src] будут бесполезны."))
-				user.visible_message(span_notice("[user] ложится на пол и просит милосердия у [src]!") , span_notice("Прошу у [src] милосердия!"))
+					to_chat(user, "<span class='notice'>Сбежать невозможно. Хотя отзыв или вмешательство могут сработать в этом месте, попытки убежать от огромной силы [src] будут бесполезны.</span>")
+				user.visible_message("<span class='notice'>[user] ложится на пол и просит милосердия у [src]!</span>" , "<span class='notice'>Прошу у [src] милосердия!</span>")
 				user.drop_all_held_items()
 		else
-			to_chat(user, span_notice("Убираю гранату из [src]."))
+			to_chat(user, "<span class='notice'>Убираю гранату из [src].</span>")
 			user.put_in_hands(grenade)
 			grenade = null
 		return
 	if(istype(I, /obj/item/grenade))
 		if(stuffed)
-			to_chat(user, span_warning("Сначала надо убрать вату!"))
+			to_chat(user, "<span class='warning'>Сначала надо убрать вату!</span>")
 			return
 		if(grenade)
-			to_chat(user, span_warning("[capitalize(src.name)] уже имеет гранату!"))
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] уже имеет гранату!</span>")
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
-		user.visible_message(span_warning("[user] вставляет [grenade] в [src].") , \
-		span_danger("Добавляю [I] внутрь [src]."))
+		user.visible_message("<span class='warning'>[user] вставляет [grenade] в [src].</span>" , \
+		"<span class='danger'>Добавляю [I] внутрь [src].</span>")
 		grenade = I
 		var/turf/grenade_turf = get_turf(src)
 		log_game("[key_name(user)] added a grenade ([I.name]) to [src] at [AREACOORD(grenade_turf)].")
@@ -173,19 +173,19 @@
 
 	//we are not catholic
 	if(young == TRUE || Kisser.young == TRUE)
-		user.show_message(span_notice("[capitalize(src.name)] играют в тэг с [Kisser].") , MSG_VISUAL,
-			span_notice("Они счастливы.") , NONE)
+		user.show_message("<span class='notice'>[capitalize(src.name)] играют в тэг с [Kisser].</span>" , MSG_VISUAL,
+			"<span class='notice'>Они счастливы.</span>" , NONE)
 		Kisser.cheer_up()
 		cheer_up()
 
 	//never again
 	else if(Kisser in scorned)
 		//message, visible, alternate message, neither visible nor audible
-		user.show_message(span_notice("[capitalize(src.name)] отвергает ухожения [Kisser]!") , MSG_VISUAL,
-			span_notice("Это не сработало.") , NONE)
+		user.show_message("<span class='notice'>[capitalize(src.name)] отвергает ухожения [Kisser]!</span>" , MSG_VISUAL,
+			"<span class='notice'>Это не сработало.</span>" , NONE)
 	else if(src in Kisser.scorned)
-		user.show_message(span_notice("[Kisser] понимает, кто [src] таков, и отворачивается.") , MSG_VISUAL,
-			span_notice("Это не сработало.") , NONE)
+		user.show_message("<span class='notice'>[Kisser] понимает, кто [src] таков, и отворачивается.</span>" , MSG_VISUAL,
+			"<span class='notice'>Это не сработало.</span>" , NONE)
 
 	//first comes love
 	else if(Kisser.lover != src && Kisser.partner != src)	//cannot be lovers or married
@@ -198,41 +198,41 @@
 			chance -= duty	//do we mate for life?
 
 		if(prob(chance))	//did we bag a date?
-			user.visible_message(span_notice("[user] делает так, чтобы [Kisser] поцеловал[src.ru_a()] [src]!") ,
-									span_notice("Делаю так, чтобы [Kisser] поцеловал[src.ru_a()] [src]!"))
+			user.visible_message("<span class='notice'>[user] делает так, чтобы [Kisser] поцеловал[src.ru_a()] [src]!</span>" ,
+									"<span class='notice'>Делаю так, чтобы [Kisser] поцеловал[src.ru_a()] [src]!</span>")
 			if(lover)	//who cares for the past, we live in the present
 				lover.heartbreak(src)
 			new_lover(Kisser)
 			Kisser.new_lover(src)
 		else
-			user.show_message(span_notice("[capitalize(src.name)] отвергает ухаживания [Kisser], может, в следующий раз?") , MSG_VISUAL,
-								span_notice("Выглядит так, будто это не сработало. Пока что.") , NONE)
+			user.show_message("<span class='notice'>[capitalize(src.name)] отвергает ухаживания [Kisser], может, в следующий раз?</span>" , MSG_VISUAL,
+								"<span class='notice'>Выглядит так, будто это не сработало. Пока что.</span>" , NONE)
 
 	//then comes marriage
 	else if(Kisser.lover == src && Kisser.partner != src)	//need to be lovers (assumes loving is a two way street) but not married (also assumes similar)
-		user.visible_message(span_notice("[user] объявляет [Kisser] и [src] женатыми! Мило!") ,
-									span_notice("Объявляю [Kisser] и [src] женатыми!"))
+		user.visible_message("<span class='notice'>[user] объявляет [Kisser] и [src] женатыми! Мило!</span>" ,
+									"<span class='notice'>Объявляю [Kisser] и [src] женатыми!</span>")
 		new_partner(Kisser)
 		Kisser.new_partner(src)
 
 	//then comes a baby in a baby's carriage, or an adoption in an adoption's orphanage
 	//кто эту хуйню всерьёз кодил?
 	else if(Kisser.partner == src && !plush_child)	//the one advancing does not take ownership of the child and we have a one child policy in the toyshop
-		user.visible_message(span_notice("[user] страстно тыкает [Kisser] и [src] друг в друга") ,
-									span_notice("[Kisser] страстно обнимает [src] в своих руках!"))
+		user.visible_message("<span class='notice'>[user] страстно тыкает [Kisser] и [src] друг в друга</span>" ,
+									"<span class='notice'>[Kisser] страстно обнимает [src] в своих руках!</span>")
 		user.client.give_award(/datum/award/achievement/misc/rule8, user)
 		if(plop(Kisser))
-			user.visible_message(span_notice("Что-то падает к ногам [user].") ,
-							span_notice("Чудо о боже, неужели это только что вышло из [src]?!"))
+			user.visible_message("<span class='notice'>Что-то падает к ногам [user].</span>" ,
+							"<span class='notice'>Чудо о боже, неужели это только что вышло из [src]?!</span>")
 
 	//then comes protection, or abstinence if we are catholic
 	else if(Kisser.partner == src && plush_child)
-		user.visible_message(span_notice("[user] заставляет [Kisser] нежиться об [src]!") ,
-									span_notice("Заставляю [Kisser] нежиться об [src]!"))
+		user.visible_message("<span class='notice'>[user] заставляет [Kisser] нежиться об [src]!</span>" ,
+									"<span class='notice'>Заставляю [Kisser] нежиться об [src]!</span>")
 
 	//then oh fuck something unexpected happened
 	else
-		user.show_message(span_warning("[Kisser] и [src] не знают, что делать друг с другом.") , NONE)
+		user.show_message("<span class='warning'>[Kisser] и [src] не знают, что делать друг с другом.</span>" , NONE)
 
 /obj/item/toy/plush/proc/heartbreak(obj/item/toy/plush/Brutus)
 	if(lover != Brutus)
@@ -429,7 +429,7 @@
 			clash_target = null
 			return
 		if(!Adjacent(P))
-			visible_message(span_warning("Два плюши сердито бьют друг друга, но потом сдаются."))
+			visible_message("<span class='warning'>Два плюши сердито бьют друг друга, но потом сдаются.</span>")
 			clash_target = null
 			P.clashing = FALSE
 			return
@@ -607,15 +607,15 @@
 	if(!istype(fat_dart))
 		return ..()
 	if(splat)
-		to_chat(user, span_notice("[src] doesn't seem to be able to go hard right now."))
+		to_chat(user, "<span class='notice'>[src] doesn't seem to be able to go hard right now.</span>")
 		return
 	if(going_hard)
-		to_chat(user, span_notice("[src] is already going too hard!"))
+		to_chat(user, "<span class='notice'>[src] is already going too hard!</span>")
 		return
 	if(!fat_dart.lit)
-		to_chat(user, span_notice("You'll have to light that first!"))
+		to_chat(user, "<span class='notice'>You'll have to light that first!</span>")
 		return
-	to_chat(user, span_notice("You put [fat_dart] into [src]'s mouth."))
+	to_chat(user, "<span class='notice'>You put [fat_dart] into [src]'s mouth.</span>")
 	qdel(fat_dart)
 	going_hard = TRUE
 	update_icon(UPDATE_OVERLAYS)
@@ -629,15 +629,15 @@
 		update_icon(UPDATE_OVERLAYS)
 	icon_state = "goat_splat"
 	playsound(src, SFX_DESECRATION, 50, TRUE)
-	visible_message(span_danger("[src] gets absolutely flattened!"))
+	visible_message("<span class='danger'>[src] gets absolutely flattened!</span>")
 	splat = TRUE
 
 /obj/item/toy/plush/goatplushie/examine()
 	. = ..()
 	if(splat)
-		. += span_notice("[src] might need medical attention.")
+		. += "<span class='notice'>[src] might need medical attention.</span>"
 	if(going_hard)
-		. += span_notice("[src] is going so hard, feel free to take a picture.")
+		. += "<span class='notice'>[src] is going so hard, feel free to take a picture.</span>"
 
 /obj/item/toy/plush/goatplushie/update_overlays()
 	. = ..()
@@ -656,7 +656,7 @@
 	var/suicide_count = 0
 
 /obj/item/toy/plush/moth/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] пристально смотрит в глаза [src] и начинает поглощать [user.ru_na()]! Похоже, [user.p_theyre()] пытается совершить самоубийство!"))
+	user.visible_message("<span class='suicide'>[user] пристально смотрит в глаза [src] и начинает поглощать [user.ru_na()]! Похоже, [user.p_theyre()] пытается совершить самоубийство!</span>")
 	suicide_count++
 	if(suicide_count < 3)
 		desc = "Плюшевая игрушка, изображающая тревожного мотылька. После убийства [suicide_count] [suicide_count == 1 ? "человека" : "людей"] оно не выглядит таким обнимательным..."

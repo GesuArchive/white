@@ -121,8 +121,8 @@ Des: Removes all infected images from the alien.
 	return TRUE
 
 /mob/living/carbon/alien/proc/alien_evolve(mob/living/carbon/alien/new_xeno)
-	to_chat(src, span_noticealien("Начинаю эволюционировать!"))
-	visible_message(span_alertalien("[capitalize(src.name)] начинает искажаться и увеличиваться!"))
+	to_chat(src, "<span class='noticealien'>Начинаю эволюционировать!</span>")
+	visible_message("<span class='alertalien'>[capitalize(src.name)] начинает искажаться и увеличиваться!</span>")
 	new_xeno.setDir(dir)
 	if(numba && unique_name)
 		new_xeno.numba = numba

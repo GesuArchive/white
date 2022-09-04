@@ -105,7 +105,7 @@
 /obj/item/energylance/examine(mob/user)
 	. = ..()
 	. += "<hr>"
-	. += span_green("Накоплено урона: <b>[collected_force]</b>")
+	. += "<span class='green'>Накоплено урона: <b>[collected_force]</b></span>"
 
 /obj/item/energylance/Initialize(mapload)
 	. = ..()
@@ -162,7 +162,7 @@
 			collected_force++
 			L.dust(TRUE, TRUE)
 			if(user)
-				to_chat(user, span_green("Копьё усилено."))
+				to_chat(user, "<span class='green'>Копьё усилено.</span>")
 
 /obj/item/energylance/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()

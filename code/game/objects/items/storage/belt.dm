@@ -27,7 +27,7 @@
 	STR.max_items = 8
 
 /obj/item/storage/belt/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] begins belting [user.ru_na()]self with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message("<span class='suicide'>[user] begins belting [user.ru_na()]self with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return BRUTELOSS
 
 /obj/item/storage/belt/update_overlays()
@@ -822,7 +822,7 @@
 	. = ..()
 	. += "<hr>"
 	if(length(contents))
-		. += span_notice("Кликните, чтобы немедленно достать саблю.")
+		. += "<span class='notice'>Кликните, чтобы немедленно достать саблю.</span>"
 
 
 /obj/item/storage/belt/sabre/attack_hand_secondary(mob/user, list/modifiers)
@@ -831,11 +831,11 @@
 		return
 	if(length(contents))
 		var/obj/item/I = contents[1]
-		user.visible_message(span_notice("[user] достаёт [I] из [src]."), span_notice("Достаю [I] из [src]."))
+		user.visible_message("<span class='notice'>[user] достаёт [I] из [src].</span>", "<span class='notice'>Достаю [I] из [src].</span>")
 		user.put_in_hands(I)
 		update_appearance()
 	else
-		to_chat(user, span_warning("[capitalize(src.name)] пустой!"))
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] пустой!</span>")
 
 
 /obj/item/storage/belt/sabre/attack_hand(mob/user, list/modifiers)
@@ -846,7 +846,7 @@
 				return
 			for(var/i in contents)
 				if(istype(i, /obj/item/melee/sabre))
-					user.visible_message(span_notice("[user] достаёт из ножен [i]."), span_notice("Достаю [i] из ножен."))
+					user.visible_message("<span class='notice'>[user] достаёт из ножен [i].</span>", "<span class='notice'>Достаю [i] из ножен.</span>")
 					user.put_in_hands(i)
 					update_appearance()
 					playsound(user, 'sound/items/unsheath.ogg', 40, TRUE)

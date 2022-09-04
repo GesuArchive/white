@@ -18,7 +18,7 @@
 		message_admins("Swimming component erroneously added to a non-living mob ([parent]).")
 		return INITIALIZE_HINT_QDEL //Only mobs can swim, like Ian...
 	var/mob/M = parent
-	M.visible_message(span_notice("[parent] starts splashing around in the water!"))
+	M.visible_message("<span class='notice'>[parent] starts splashing around in the water!</span>")
 	M.add_movespeed_modifier(/datum/movespeed_modifier/swimming, TRUE)
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/onMove)
 	RegisterSignal(parent, COMSIG_MOB_ATTACK_HAND_TURF, .proc/try_leave_pool)
@@ -41,10 +41,10 @@
 		return
 	if(istype(clicked_turf, /turf/open/indestructible/pool))
 		return
-	to_chat(parent, span_notice("You start to climb out of the pool..."))
+	to_chat(parent, "<span class='notice'>You start to climb out of the pool...</span>")
 	if(do_after(parent, 1 SECONDS, target=clicked_turf))
 		L.forceMove(clicked_turf)
-		L.visible_message(span_notice("[parent] climbs out of the pool."))
+		L.visible_message("<span class='notice'>[parent] climbs out of the pool.</span>")
 		qdel(src)
 
 /datum/component/swimming/UnregisterFromParent()
@@ -98,16 +98,16 @@
 		victim.emote("gasp")
 	if(ticks_drowned > 20)
 		if(prob(10))
-			victim.visible_message(span_warning("[victim] falls unconcious for a moment!"))
+			victim.visible_message("<span class='warning'>[victim] falls unconcious for a moment!</span>")
 			victim.Unconscious(10)
 
 /datum/component/swimming/proc/start_drowning(mob/living/victim)
-	to_chat(victim, span_userdanger("Water fills your lungs and mouth, you can't breathe!"))
+	to_chat(victim, "<span class='userdanger'>Water fills your lungs and mouth, you can't breathe!</span>")
 	ADD_TRAIT(victim, TRAIT_MUTE, "pool")
 
 /datum/component/swimming/proc/stop_drowning(mob/living/victim)
 	victim.emote("cough")
-	to_chat(victim, span_notice("You cough up the last of the water, regaining your ability to speak and breathe clearly!"))
+	to_chat(victim, "<span class='notice'>You cough up the last of the water, regaining your ability to speak and breathe clearly!</span>")
 	REMOVE_TRAIT(victim, TRAIT_MUTE, "pool")
 	ticks_drowned = 0
 

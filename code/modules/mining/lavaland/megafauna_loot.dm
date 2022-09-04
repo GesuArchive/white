@@ -19,11 +19,11 @@
 /datum/action/innate/dash/hierophant/Teleport(mob/user, atom/target)
 	var/dist = get_dist(user, target)
 	if(dist > HIEROPHANT_BLINK_RANGE)
-		to_chat(user, span_hierophant_warning("Blink destination out of range."))
+		to_chat(user, "<span class='hierophant_warning'>Blink destination out of range.</span>")
 		return
 	var/turf/target_turf = get_turf(target)
 	if(target_turf.is_blocked_turf_ignore_climbable())
-		to_chat(user, span_hierophant_warning("Blink destination blocked."))
+		to_chat(user, "<span class='hierophant_warning'>Blink destination blocked.</span>")
 		return
 	. = ..()
 	if(!current_charges)
@@ -46,7 +46,7 @@
 	if(!owner)
 		return
 	owner.update_action_buttons_icon()
-	to_chat(owner, span_notice("[src] now has [current_charges]/[max_charges] charges."))
+	to_chat(owner, "<span class='notice'>[src] now has [current_charges]/[max_charges] charges.</span>")
 
 /obj/item/hierophant_club
 	name = "hierophant club"
@@ -91,14 +91,14 @@
 
 /obj/item/hierophant_club/examine(mob/user)
 	. = ..()
-	. += span_hierophant_warning("The[beacon ? " beacon is not currently":"re is a beacon"] attached.")
+	. += "<span class='hierophant_warning'>The[beacon ? " beacon is not currently":"re is a beacon"] attached.</span>"
 
 /obj/item/hierophant_club/suicide_act(mob/living/user)
 	say("Xverwpsgexmrk...", forced = "hierophant club suicide")
-	user.visible_message(span_suicide("[user] holds [src] into the air! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message("<span class='suicide'>[user] holds [src] into the air! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	new/obj/effect/temp_visual/hierophant/telegraph(get_turf(user))
 	playsound(user,'sound/machines/airlockopen.ogg', 75, TRUE)
-	user.visible_message(span_hierophant_warning("[user] fades out, leaving [user.p_their()] belongings behind!"))
+	user.visible_message("<span class='hierophant_warning'>[user] fades out, leaving [user.p_their()] belongings behind!</span>")
 	for(var/obj/item/I in user)
 		if(I != src)
 			user.dropItemToGround(I)
@@ -109,7 +109,7 @@
 
 /obj/item/hierophant_club/attack_self(mob/user)
 	blink_activated = !blink_activated
-	to_chat(user, span_notice("You [blink_activated ? "enable" : "disable"] the blink function on [src]."))
+	to_chat(user, "<span class='notice'>You [blink_activated ? "enable" : "disable"] the blink function on [src].</span>")
 
 /obj/item/hierophant_club/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
@@ -125,37 +125,37 @@
 
 /obj/item/hierophant_club/ui_action_click(mob/user, action)
 	if(!user.is_holding(src)) //you need to hold the staff to teleport
-		to_chat(user, span_warning("You need to hold the club in your hands to [beacon ? "teleport with it":"detach the beacon"]!"))
+		to_chat(user, "<span class='warning'>You need to hold the club in your hands to [beacon ? "teleport with it":"detach the beacon"]!</span>")
 		return
 	if(!beacon || QDELETED(beacon))
 		if(isturf(user.loc))
-			user.visible_message(span_hierophant_warning("[user] starts fiddling with [src]'s pommel..."), \
-			span_notice("You start detaching the hierophant beacon..."))
+			user.visible_message("<span class='hierophant_warning'>[user] starts fiddling with [src]'s pommel...</span>", \
+			"<span class='notice'>You start detaching the hierophant beacon...</span>")
 			if(do_after(user, 50, target = user) && !beacon)
 				var/turf/T = get_turf(user)
 				playsound(T,'sound/magic/blind.ogg', 200, TRUE, -4)
 				new /obj/effect/temp_visual/hierophant/telegraph/teleport(T, user)
 				beacon = new/obj/effect/hierophant(T)
 				user.update_action_buttons_icon()
-				user.visible_message(span_hierophant_warning("[user] places a strange machine beneath [user.p_their()] feet!"), \
-				"[span_hierophant("You detach the hierophant beacon, allowing you to teleport yourself and any allies to it at any time!")]\n\
-				[span_notice("You can remove the beacon to place it again by striking it with the club.")]")
+				user.visible_message("<span class='hierophant_warning'>[user] places a strange machine beneath [user.p_their()] feet!</span>", \
+				"["<span class='hierophant'>You detach the hierophant beacon, allowing you to teleport yourself and any allies to it at any time!</span>"]\n\
+				["<span class='notice'>You can remove the beacon to place it again by striking it with the club.</span>"]")
 		else
-			to_chat(user, span_warning("You need to be on solid ground to detach the beacon!"))
+			to_chat(user, "<span class='warning'>You need to be on solid ground to detach the beacon!</span>")
 		return
 	if(get_dist(user, beacon) <= 2) //beacon too close abort
-		to_chat(user, span_warning("You are too close to the beacon to teleport to it!"))
+		to_chat(user, "<span class='warning'>You are too close to the beacon to teleport to it!</span>")
 		return
 	var/turf/beacon_turf = get_turf(beacon)
 	if(beacon_turf?.is_blocked_turf(TRUE))
-		to_chat(user, span_warning("The beacon is blocked by something, preventing teleportation!"))
+		to_chat(user, "<span class='warning'>The beacon is blocked by something, preventing teleportation!</span>")
 		return
 	if(!isturf(user.loc))
-		to_chat(user, span_warning("You don't have enough space to teleport from here!"))
+		to_chat(user, "<span class='warning'>You don't have enough space to teleport from here!</span>")
 		return
 	teleporting = TRUE //start channel
 	user.update_action_buttons_icon()
-	user.visible_message(span_hierophant_warning("[user] starts to glow faintly..."))
+	user.visible_message("<span class='hierophant_warning'>[user] starts to glow faintly...</span>")
 	beacon.icon_state = "hierophant_tele_on"
 	var/obj/effect/temp_visual/hierophant/telegraph/edge/TE1 = new /obj/effect/temp_visual/hierophant/telegraph/edge(user.loc)
 	var/obj/effect/temp_visual/hierophant/telegraph/edge/TE2 = new /obj/effect/temp_visual/hierophant/telegraph/edge(beacon.loc)
@@ -164,7 +164,7 @@
 		var/turf/source = get_turf(user)
 		if(T.is_blocked_turf(TRUE))
 			teleporting = FALSE
-			to_chat(user, span_warning("The beacon is blocked by something, preventing teleportation!"))
+			to_chat(user, "<span class='warning'>The beacon is blocked by something, preventing teleportation!</span>")
 			user.update_action_buttons_icon()
 			beacon.icon_state = "hierophant_tele_off"
 			return
@@ -181,7 +181,7 @@
 			return
 		if(T.is_blocked_turf(TRUE))
 			teleporting = FALSE
-			to_chat(user, span_warning("The beacon is blocked by something, preventing teleportation!"))
+			to_chat(user, "<span class='warning'>The beacon is blocked by something, preventing teleportation!</span>")
 			user.update_action_buttons_icon()
 			beacon.icon_state = "hierophant_tele_off"
 			return
@@ -214,7 +214,7 @@
 	sleep(1)
 	if(!teleporting)
 		return
-	teleporting.visible_message(span_hierophant_warning("[teleporting] fades out!"))
+	teleporting.visible_message("<span class='hierophant_warning'>[teleporting] fades out!</span>")
 	sleep(2)
 	if(!teleporting)
 		return
@@ -226,7 +226,7 @@
 	sleep(1)
 	if(!teleporting)
 		return
-	teleporting.visible_message(span_hierophant_warning("[teleporting] fades in!"))
+	teleporting.visible_message("<span class='hierophant_warning'>[teleporting] fades in!</span>")
 	if(user != teleporting && success)
 		log_combat(user, teleporting, "teleported", null, "from [AREACOORD(source)]")
 
@@ -254,9 +254,9 @@
 /obj/item/mayhem/attack_self(mob/user)
 	for(var/mob/living/carbon/human/target in range(7,user))
 		target.apply_status_effect(STATUS_EFFECT_MAYHEM)
-	to_chat(user, span_notice("You shatter the bottle!"))
+	to_chat(user, "<span class='notice'>You shatter the bottle!</span>")
 	playsound(user.loc, 'sound/effects/glassbr1.ogg', 100, TRUE)
-	message_admins(span_adminnotice("[ADMIN_LOOKUPFLW(user)] has activated a bottle of mayhem!"))
+	message_admins("<span class='adminnotice'>[ADMIN_LOOKUPFLW(user)] has activated a bottle of mayhem!</span>")
 	user.log_message("activated a bottle of mayhem", LOG_ATTACK)
 	qdel(src)
 
@@ -282,9 +282,9 @@
 	if(istype(wearer) && DT_PROB(1, delta_time)) //cursed by bubblegum
 		if(DT_PROB(7.5, delta_time))
 			new /datum/hallucination/oh_yeah(wearer)
-			to_chat(wearer, span_colossus("<b>[pick("I AM IMMORTAL.","I SHALL TAKE BACK WHAT'S MINE.","I SEE YOU.","YOU CANNOT ESCAPE ME FOREVER.","DEATH CANNOT HOLD ME.")]</b>"))
+			to_chat(wearer, "<span class='colossus'><b>[pick("I AM IMMORTAL.","I SHALL TAKE BACK WHAT'S MINE.","I SEE YOU.","YOU CANNOT ESCAPE ME FOREVER.","DEATH CANNOT HOLD ME.")]</b></span>")
 		else
-			to_chat(wearer, span_warning("[pick("You hear faint whispers.","You smell ash.","You feel hot.","You hear a roar in the distance.")]"))
+			to_chat(wearer, "<span class='warning'>[pick("You hear faint whispers.","You smell ash.","You feel hot.","You hear a roar in the distance.")]</span>")
 
 /obj/item/clothing/head/helmet/space/hardsuit/hostile_environment
 	name = "H.E.C.K. helmet"
@@ -312,14 +312,14 @@
 	RegisterSignal(user, COMSIG_HUMAN_EARLY_UNARMED_ATTACK, .proc/butcher_target)
 	var/datum/component/butchering/butchering = GetComponent(/datum/component/butchering)
 	butchering.butchering_enabled = TRUE
-	to_chat(user, span_notice("You feel a bloodlust. You can now butcher corpses with your bare arms."))
+	to_chat(user, "<span class='notice'>You feel a bloodlust. You can now butcher corpses with your bare arms.</span>")
 
 /obj/item/clothing/head/helmet/space/hardsuit/hostile_environment/dropped(mob/user, silent = FALSE)
 	. = ..()
 	UnregisterSignal(user, COMSIG_HUMAN_EARLY_UNARMED_ATTACK)
 	var/datum/component/butchering/butchering = GetComponent(/datum/component/butchering)
 	butchering.butchering_enabled = FALSE
-	to_chat(user, span_notice("You lose your bloodlust."))
+	to_chat(user, "<span class='notice'>You lose your bloodlust.</span>")
 
 /obj/item/clothing/head/helmet/space/hardsuit/hostile_environment/proc/butcher_target(mob/user, atom/target, proximity)
 	SIGNAL_HANDLER
@@ -332,7 +332,7 @@
 		return
 	var/health_consumed = butchered.maxHealth * 0.1
 	user.heal_ordered_damage(health_consumed, list(BRUTE, BURN, TOX))
-	to_chat(user, span_notice("You heal from the corpse of [butchered]."))
+	to_chat(user, "<span class='notice'>You heal from the corpse of [butchered].</span>")
 	var/datum/client_colour/color = user.add_client_colour(/datum/client_colour/bloodlust)
 	QDEL_IN(color, 1 SECONDS)
 
@@ -391,7 +391,7 @@
 
 /obj/item/soulscythe/examine(mob/user)
 	. = ..()
-	. += soul.ckey ? span_nicegreen("There is a soul inhabiting it.") : span_danger("It's dormant.")
+	. += soul.ckey ? "<span class='nicegreen'>There is a soul inhabiting it.</span>" : "<span class='danger'>It's dormant.</span>"
 
 /obj/item/soulscythe/attack(mob/living/attacked, mob/living/user, params)
 	. = ..()
@@ -400,7 +400,7 @@
 
 /obj/item/soulscythe/attack_hand(mob/user, list/modifiers)
 	if(soul.ckey && !soul.faction_check_mob(user))
-		to_chat(user, span_warning("You can't pick up [src]!"))
+		to_chat(user, "<span class='warning'>You can't pick up [src]!</span>")
 		return
 	return ..()
 
@@ -475,7 +475,7 @@
 /obj/item/soulscythe/proc/use_blood(amount = 0, message = TRUE)
 	if(amount > soul.blood_level)
 		if(message)
-			to_chat(soul, span_warning("Not enough blood!"))
+			to_chat(soul, "<span class='warning'>Not enough blood!</span>")
 		return FALSE
 	soul.blood_level -= amount
 	return TRUE
@@ -533,7 +533,7 @@
 	projectile.preparePixelProjectile(attacked_atom, src)
 	projectile.firer = src
 	projectile.fire(null, attacked_atom)
-	visible_message(span_danger("[src] fires at [attacked_atom]!"), span_notice("You fire at [attacked_atom]!"))
+	visible_message("<span class='danger'>[src] fires at [attacked_atom]!</span>", "<span class='notice'>You fire at [attacked_atom]!</span>")
 	playsound(src, 'sound/magic/fireball.ogg', 50, TRUE)
 
 /obj/item/soulscythe/proc/slash_target(atom/attacked_atom)
@@ -542,7 +542,7 @@
 		if(attacked_mob.stat != DEAD)
 			give_blood(15)
 		attacked_mob.apply_damage(damage = force * (ishostile(attacked_mob) ? 2 : 1), sharpness = SHARP_EDGED, bare_wound_bonus = 5)
-		to_chat(attacked_mob, span_userdanger("You're slashed by [src]!"))
+		to_chat(attacked_mob, "<span class='userdanger'>You're slashed by [src]!</span>")
 	else if((ismachinery(attacked_atom) || isstructure(attacked_atom)) && use_blood(5))
 		var/obj/attacked_obj = attacked_atom
 		attacked_obj.take_damage(force, BRUTE, MELEE, FALSE)
@@ -552,7 +552,7 @@
 	animate(src)
 	SpinAnimation(5)
 	addtimer(CALLBACK(src, .proc/reset_spin), 1 SECONDS)
-	visible_message(span_danger("[src] slashes [attacked_atom]!"), span_notice("You slash [attacked_atom]!"))
+	visible_message("<span class='danger'>[src] slashes [attacked_atom]!</span>", "<span class='notice'>You slash [attacked_atom]!</span>")
 	playsound(src, 'sound/weapons/bladeslice.ogg', 50, TRUE)
 	do_attack_animation(attacked_atom, ATTACK_EFFECT_SLASH)
 
@@ -562,12 +562,12 @@
 	COOLDOWN_START(src, attack_cooldown, 5 SECONDS)
 	animate(src)
 	charging = TRUE
-	visible_message(span_danger("[src] starts charging..."))
+	visible_message("<span class='danger'>[src] starts charging...</span>")
 	balloon_alert(soul, "you start charging...")
 	if(!do_after(soul, 2 SECONDS, target = src, timed_action_flags = IGNORE_TARGET_LOC_CHANGE))
 		balloon_alert(soul, "interrupted!")
 		return
-	visible_message(span_danger("[src] charges at [attacked_atom]!"), span_notice("You charge at [attacked_atom]!"))
+	visible_message("<span class='danger'>[src] charges at [attacked_atom]!</span>", "<span class='notice'>You charge at [attacked_atom]!</span>")
 	new /obj/effect/temp_visual/mook_dust(get_turf(src))
 	playsound(src, 'sound/weapons/thudswoosh.ogg', 50, TRUE)
 	SpinAnimation(1)
@@ -650,9 +650,9 @@
 
 /obj/item/melee/ghost_sword/attack_self(mob/user)
 	if(summon_cooldown > world.time)
-		to_chat(user, span_warning("You just recently called out for aid. You don't want to annoy the spirits!"))
+		to_chat(user, "<span class='warning'>You just recently called out for aid. You don't want to annoy the spirits!</span>")
 		return
-	to_chat(user, span_notice("You call out for aid, attempting to summon spirits to your side."))
+	to_chat(user, "<span class='notice'>You call out for aid, attempting to summon spirits to your side.</span>")
 
 	notify_ghosts("[user] is raising [user.p_their()] [name], calling for your help!",
 		enter_link="<a href=?src=[REF(src)];orbit=1>(Click to help)</a>",
@@ -693,13 +693,13 @@
 	force = 0
 	var/ghost_counter = ghost_check()
 	force = clamp((ghost_counter * 4), 0, 75)
-	user.visible_message(span_danger("[user] strikes with the force of [ghost_counter] vengeful spirits!"))
+	user.visible_message("<span class='danger'>[user] strikes with the force of [ghost_counter] vengeful spirits!</span>")
 	..()
 
 /obj/item/melee/ghost_sword/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	var/ghost_counter = ghost_check()
 	final_block_chance += clamp((ghost_counter * 5), 0, 75)
-	owner.visible_message(span_danger("[owner] is protected by a ring of [ghost_counter] ghosts!"))
+	owner.visible_message("<span class='danger'>[owner] is protected by a ring of [ghost_counter] ghosts!</span>")
 	return ..()
 
 /obj/item/dragons_blood
@@ -717,20 +717,20 @@
 
 	switch(random)
 		if(1)
-			to_chat(user, span_danger("Your appearance morphs to that of a very small humanoid ash dragon! You get to look like a freak without the cool abilities."))
+			to_chat(user, "<span class='danger'>Your appearance morphs to that of a very small humanoid ash dragon! You get to look like a freak without the cool abilities.</span>")
 			consumer.dna.features = list("mcolor" = "A02720", "tail_lizard" = "Dark Tiger", "tail_human" = "None", "snout" = "Sharp", "horns" = "Curled", "ears" = "None", "wings" = "None", "frills" = "None", "spines" = "Long", "body_markings" = "Dark Tiger Body", "legs" = "Digitigrade Legs")
 			consumer.eye_color_left = "fee5a3"
 			consumer.eye_color_right = "fee5a3"
 			consumer.set_species(/datum/species/lizard)
 		if(2)
-			to_chat(user, span_danger("Your flesh begins to melt! Miraculously, you seem fine otherwise."))
+			to_chat(user, "<span class='danger'>Your flesh begins to melt! Miraculously, you seem fine otherwise.</span>")
 			consumer.set_species(/datum/species/skeleton)
 		if(3)
-			to_chat(user, span_danger("Power courses through you! You can now shift your form at will."))
+			to_chat(user, "<span class='danger'>Power courses through you! You can now shift your form at will.</span>")
 			var/datum/action/cooldown/spell/shapeshift/dragon/dragon_shapeshift = new(user.mind || user)
 			dragon_shapeshift.Grant(user)
 		if(4)
-			to_chat(user, span_danger("You feel like you could walk straight through lava now."))
+			to_chat(user, "<span class='danger'>You feel like you could walk straight through lava now.</span>")
 			ADD_TRAIT(user, TRAIT_LAVA_IMMUNE, type)
 
 	playsound(user,'sound/items/drink.ogg', 30, TRUE)
@@ -775,12 +775,12 @@
 			var/obj/effect/temp_visual/lavastaff/L = new /obj/effect/temp_visual/lavastaff(T)
 			L.alpha = 0
 			animate(L, alpha = 255, time = create_delay)
-			user.visible_message(span_danger("[user] points [src] at [T]!"))
+			user.visible_message("<span class='danger'>[user] points [src] at [T]!</span>")
 			timer = world.time + create_delay + 1
 			if(do_after(user, create_delay, target = T))
 				var/old_name = T.name
 				if(T.TerraformTurf(turf_type, flags = CHANGETURF_INHERIT_AIR))
-					user.visible_message(span_danger("[user] turns \the [old_name] into [transform_string]!"))
+					user.visible_message("<span class='danger'>[user] turns \the [old_name] into [transform_string]!</span>")
 					message_admins("[ADMIN_LOOKUPFLW(user)] fired the lava staff at [ADMIN_VERBOSEJMP(T)]")
 					log_game("[key_name(user)] fired the lava staff at [AREACOORD(T)].")
 					timer = world.time + create_cooldown
@@ -791,7 +791,7 @@
 		else
 			var/old_name = T.name
 			if(T.TerraformTurf(reset_turf_type, flags = CHANGETURF_INHERIT_AIR))
-				user.visible_message(span_danger("[user] turns \the [old_name] into [reset_string]!"))
+				user.visible_message("<span class='danger'>[user] turns \the [old_name] into [reset_string]!</span>")
 				timer = world.time + reset_cooldown
 				playsound(T,'sound/magic/fireball.ogg', 200, TRUE)
 
@@ -855,12 +855,12 @@
 
 /obj/item/melee/cleaving_saw/examine(mob/user)
 	. = ..()
-	. += span_notice("It is [is_open ? "open, will cleave enemies in a wide arc and deal additional damage to fauna":"closed, and can be used for rapid consecutive attacks that cause fauna to bleed"].")
-	. += span_notice("Both modes will build up existing bleed effects, doing a burst of high damage if the bleed is built up high enough.")
-	. += span_notice("Transforming it immediately after an attack causes the next attack to come out faster.")
+	. += "<span class='notice'>It is [is_open ? "open, will cleave enemies in a wide arc and deal additional damage to fauna":"closed, and can be used for rapid consecutive attacks that cause fauna to bleed"].</span>"
+	. += "<span class='notice'>Both modes will build up existing bleed effects, doing a burst of high damage if the bleed is built up high enough.</span>"
+	. += "<span class='notice'>Transforming it immediately after an attack causes the next attack to come out faster.</span>"
 
 /obj/item/melee/cleaving_saw/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is [is_open ? "closing [src] on [user.p_their()] neck" : "opening [src] into [user.p_their()] chest"]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message("<span class='suicide'>[user] is [is_open ? "closing [src] on [user.p_their()] neck" : "opening [src] into [user.p_their()] chest"]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	attack_self(user)
 	return BRUTELOSS
 
@@ -952,16 +952,16 @@
 
 /obj/item/storm_staff/examine(mob/user)
 	. = ..()
-	. += span_notice("It has [thunder_charges] charges remaining.")
-	. += span_notice("Use it in hand to dispel storms.")
-	. += span_notice("Use it on targets to summon thunderbolts from the sky.")
-	. += span_notice("The thunderbolts are boosted if in an area with weather effects.")
+	. += "<span class='notice'>It has [thunder_charges] charges remaining.</span>"
+	. += "<span class='notice'>Use it in hand to dispel storms.</span>"
+	. += "<span class='notice'>Use it on targets to summon thunderbolts from the sky.</span>"
+	. += "<span class='notice'>The thunderbolts are boosted if in an area with weather effects.</span>"
 
 /obj/item/storm_staff/attack_self(mob/user)
 	var/area/user_area = get_area(user)
 	var/turf/user_turf = get_turf(user)
 	if(!user_area || !user_turf || (is_type_in_list(user_area, excluded_areas)))
-		to_chat(user, span_warning("Something is preventing you from using the staff here."))
+		to_chat(user, "<span class='warning'>Something is preventing you from using the staff here.</span>")
 		return
 	var/datum/weather/affected_weather
 	for(var/datum/weather/weather as anything in SSweather.processing)
@@ -980,8 +980,8 @@
 	if(!do_after(user, 3 SECONDS, target = src))
 		balloon_alert(user, "interrupted!")
 		return
-	user.visible_message(span_warning("[user] holds [src] skywards as an orange beam travels into the sky!"), \
-	span_notice("You hold [src] skyward, dispelling the storm!"))
+	user.visible_message("<span class='warning'>[user] holds [src] skywards as an orange beam travels into the sky!</span>", \
+	"<span class='notice'>You hold [src] skyward, dispelling the storm!</span>")
 	playsound(user, 'sound/magic/staff_change.ogg', 200, FALSE)
 	var/old_color = user.color
 	user.color = list(340/255, 240/255, 0,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0)
@@ -1040,10 +1040,10 @@
 	for(var/turf/turf as anything in affected_turfs)
 		new /obj/effect/temp_visual/electricity(turf)
 		for(var/mob/living/hit_mob in turf)
-			to_chat(hit_mob, span_userdanger("You've been struck by lightning!"))
+			to_chat(hit_mob, "<span class='userdanger'>You've been struck by lightning!</span>")
 			hit_mob.electrocute_act(15 * (isanimal(hit_mob) ? 3 : 1) * (turf == target ? 2 : 1) * (boosted ? 2 : 1), src, flags = SHOCK_TESLA|SHOCK_NOSTUN)
 		for(var/obj/hit_thing in turf)
 			hit_thing.take_damage(20, BURN, ENERGY, FALSE)
 	playsound(target, 'sound/magic/lightningbolt.ogg', 100, TRUE)
-	target.visible_message(span_danger("A thunderbolt strikes [target]!"))
+	target.visible_message("<span class='danger'>A thunderbolt strikes [target]!</span>")
 	explosion(target, light_impact_range = (boosted ? 1 : 0), flame_range = (boosted ? 2 : 1), silent = TRUE)

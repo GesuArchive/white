@@ -53,7 +53,7 @@
 		singularity_size = NARSIE_SINGULARITY_SIZE, \
 	))
 
-	send_to_playing_players(span_narsie("NAR'SIE HAS RISEN"))
+	send_to_playing_players("<span class='narsie'>NAR'SIE HAS RISEN</span>")
 	sound_to_playing_players('sound/creatures/narsie_rises.ogg')
 
 	var/area/area = get_area(src)
@@ -94,7 +94,7 @@
 	check_gods_battle()
 
 /obj/narsie/Destroy()
-	send_to_playing_players(span_narsie("\"<b>[pick("Nooooo...", "Not die. How-", "Die. Mort-", "Sas tyen re-")]\"</b>"))
+	send_to_playing_players("<span class='narsie'>\"<b>[pick("Nooooo...", "Not die. How-", "Die. Mort-", "Sas tyen re-")]\"</b></span>")
 	sound_to_playing_players('sound/magic/demon_dies.ogg', 50)
 
 	var/list/all_cults = list()
@@ -125,7 +125,7 @@
 		if(get_dist(src, clashing) < 5)
 			if(next_attack_tick < world.time)
 				next_attack_tick = world.time + rand(50, 100)
-				to_chat(world, span_danger("[pick("You hear the scratching of cogs.","You hear the clanging of pipes.","You feel your bones start to rust...")]"))
+				to_chat(world, "<span class='danger'>[pick("You hear the scratching of cogs.","You hear the clanging of pipes.","You feel your bones start to rust...")]</span>")
 				SEND_SOUND(world, 'sound/magic/clockwork/narsie_attack.ogg')
 				SpinAnimation(4, 0)
 				for(var/mob/living/M in GLOB.player_list)
@@ -134,10 +134,10 @@
 				if(DT_PROB(max(SSticker.mode?.cult.len/2, 15), delta_time))
 					SEND_SOUND(world, 'sound/magic/clockwork/anima_fragment_death.ogg')
 					SEND_SOUND(world, pick(FAR_EXPLOSION_SOUNDS))
-					to_chat(world, span_narsie("You really thought you could best me twice?"))
+					to_chat(world, "<span class='narsie'>You really thought you could best me twice?</span>")
 					QDEL_NULL(clashing)
 					for(var/datum/mind/M as() in GLOB.servants_of_ratvar)
-						to_chat(M, span_userdanger("You feel a stabbing pain in your chest... This can't be happening!"))
+						to_chat(M, "<span class='userdanger'>You feel a stabbing pain in your chest... This can't be happening!</span>")
 						M.current?.dust()
 
 	if (!isnull(singularity_component) && (!singularity_component?.target || prob(NARSIE_CHANCE_TO_PICK_NEW_TARGET)))
@@ -207,9 +207,9 @@
 	to_chat(old_target, "<span class='cultsmall'>NAR'SIE HAS LOST INTEREST IN YOU.</span>")
 	singularity_component.target = food
 	if(ishuman(food))
-		to_chat(food, span_cult("NAR'SIE HUNGERS FOR YOUR SOUL."))
+		to_chat(food, "<span class='cult'>NAR'SIE HUNGERS FOR YOUR SOUL.</span>")
 	else
-		to_chat(food, span_cult("NAR'SIE HAS CHOSEN YOU TO LEAD HER TO HER NEXT MEAL."))
+		to_chat(food, "<span class='cult'>NAR'SIE HAS CHOSEN YOU TO LEAD HER TO HER NEXT MEAL.</span>")
 
 /// Called to make Nar'Sie convert objects to cult stuff, or to eat
 /obj/narsie/proc/consume(atom/target)

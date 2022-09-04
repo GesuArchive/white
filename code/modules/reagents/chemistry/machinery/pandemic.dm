@@ -34,7 +34,7 @@
 			is_close = TRUE
 		else
 			. += "It has a beaker inside it."
-		. += span_info("\nПКМ to eject [is_close ? beaker : "the beaker"].")
+		. += "<span class='info'>\nПКМ to eject [is_close ? beaker : "the beaker"].</span>"
 
 /obj/machinery/computer/pandemic/AltClick(mob/user)
 	. = ..()
@@ -207,7 +207,7 @@
 			var/id = get_virus_id_by_index(text2num(params["index"]))
 			var/datum/disease/advance/A = SSdisease.archive_diseases[id]
 			if(!istype(A) || !A.mutable)
-				to_chat(usr, span_warning("ОШИБКА: Невозможно воспроизвести штамм вируса."))
+				to_chat(usr, "<span class='warning'>ОШИБКА: Невозможно воспроизвести штамм вируса.</span>")
 				return
 			use_power(active_power_usage)
 			A = A.Copy()
@@ -243,13 +243,13 @@
 		if(machine_stat & (NOPOWER|BROKEN))
 			return
 		if(beaker)
-			to_chat(user, span_warning("Контейнер уже помещен в [src]!"))
+			to_chat(user, "<span class='warning'>Контейнер уже помещен в [src]!</span>")
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 
 		beaker = I
-		to_chat(user, span_notice("Ввел [I] в [src]."))
+		to_chat(user, "<span class='notice'>Ввел [I] в [src].</span>")
 		update_icon()
 	else
 		return ..()

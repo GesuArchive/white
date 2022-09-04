@@ -445,7 +445,7 @@
 			for(var/held_item in H.held_items)
 				if(!isgun(held_item))
 					continue
-				. += span_warning("Похоже, что я смогу дать пилоту в табло, если буду бить по центру или в голову.")
+				. += "<span class='warning'>Похоже, что я смогу дать пилоту в табло, если буду бить по центру или в голову.</span>"
 				break //in case user is holding two guns
 
 //processing internal damage, temperature, air regulation, alert updates, lights power use.
@@ -514,7 +514,7 @@
 
 	for(var/mob/living/occupant as anything in occupants)
 		if(!enclosed && occupant?.incapacitated()) //no sides mean it's easy to just sorta fall out if you're incapacitated.
-			visible_message(span_warning("[occupant] выскакивает из кабины!"))
+			visible_message("<span class='warning'>[occupant] выскакивает из кабины!</span>")
 			mob_exit(occupant) //bye bye
 			continue
 		if(cell)
@@ -623,7 +623,7 @@
 		target = pick(view(3,target))
 	var/mob/living/livinguser = user
 	if(!(livinguser in return_controllers_with_flag(VEHICLE_CONTROL_EQUIPMENT)))
-		to_chat(livinguser, span_warning("Неправильное место для взаимодействия с оборудованием!"))
+		to_chat(livinguser, "<span class='warning'>Неправильное место для взаимодействия с оборудованием!</span>")
 		return
 	var/obj/item/mecha_parts/mecha_equipment/selected
 	if(LAZYACCESS(modifiers, RIGHT_CLICK))
@@ -634,7 +634,7 @@
 		return
 	if(!Adjacent(target) && (selected.range & MECHA_RANGED))
 		if(HAS_TRAIT(livinguser, TRAIT_PACIFISM) && selected.harmful)
-			to_chat(livinguser, span_warning("Не хочу вредить живым существам!"))
+			to_chat(livinguser, "<span class='warning'>Не хочу вредить живым существам!</span>")
 			return
 		if(SEND_SIGNAL(src, COMSIG_MECHA_EQUIPMENT_CLICK, livinguser, target) & COMPONENT_CANCEL_EQUIPMENT_CLICK)
 			return
@@ -642,14 +642,14 @@
 		return
 	if((selected.range & MECHA_MELEE) && Adjacent(target))
 		if(isliving(target) && selected.harmful && HAS_TRAIT(livinguser, TRAIT_PACIFISM))
-			to_chat(livinguser, span_warning("Не хочу вредить живым существам!"))
+			to_chat(livinguser, "<span class='warning'>Не хочу вредить живым существам!</span>")
 			return
 		if(SEND_SIGNAL(src, COMSIG_MECHA_EQUIPMENT_CLICK, livinguser, target) & COMPONENT_CANCEL_EQUIPMENT_CLICK)
 			return
 		INVOKE_ASYNC(selected, /obj/item/mecha_parts/mecha_equipment.proc/action, user, target, modifiers)
 		return
 	if(!(livinguser in return_controllers_with_flag(VEHICLE_CONTROL_MELEE)))
-		to_chat(livinguser, span_warning("Неправильное место для взаимодействия с оборудованием!"))
+		to_chat(livinguser, "<span class='warning'>Неправильное место для взаимодействия с оборудованием!</span>")
 		return
 	var/on_cooldown = TIMER_COOLDOWN_CHECK(src, COOLDOWN_MECHA_MELEE_ATTACK)
 	var/adjacent = Adjacent(target)
@@ -903,7 +903,7 @@
 	if(user.can_dominate_mechs)
 		examine(user) //Get diagnostic information!
 		for(var/obj/item/mecha_parts/mecha_tracking/B in trackers)
-			to_chat(user, span_danger("Внимание: Отслеживающий маячок обнаружен. Входить на свой страх и риск. Данные:"))
+			to_chat(user, "<span class='danger'>Внимание: Отслеживающий маячок обнаружен. Входить на свой страх и риск. Данные:</span>")
 			to_chat(user, "[B.get_mecha_info()]")
 			break
 		//Nothing like a big, red link to make the player feel powerful!
@@ -911,7 +911,7 @@
 		return
 	examine(user)
 	if(length(return_drivers()) > 0)
-		to_chat(user, span_warning("Этот мех уже имеет оператора, который не хочет отдавать управление."))
+		to_chat(user, "<span class='warning'>Этот мех уже имеет оператора, который не хочет отдавать управление.</span>")
 		return
 	var/can_control_mech = FALSE
 	for(var/obj/item/mecha_parts/mecha_tracking/ai_control/A in trackers)
@@ -919,7 +919,7 @@
 		to_chat(user, "<span class='notice'>[icon2html(src, user)] Состояние [name]:</span>\n[A.get_mecha_info()]")
 		break
 	if(!can_control_mech)
-		to_chat(user, span_warning("Невозможно контролировать мех без специального маяка. Откат."))
+		to_chat(user, "<span class='warning'>Невозможно контролировать мех без специального маяка. Откат.</span>")
 		return
 	to_chat(user, "<a href='?src=[REF(user)];ai_take_control=[REF(src)]'><span class='boldnotice'>Принять управление мехом?</span></a><br>")
 
@@ -932,13 +932,13 @@
 	switch(interaction)
 		if(AI_TRANS_TO_CARD) //Upload AI from mech to AI card.
 			if(!construction_state) //Mech must be in maint mode to allow carding.
-				to_chat(user, span_warning("[name] должен иметь активные технические протоколы для входа."))
+				to_chat(user, "<span class='warning'>[name] должен иметь активные технические протоколы для входа.</span>")
 				return
 			var/list/ai_pilots = list()
 			for(var/mob/living/silicon/ai/aipilot in occupants)
 				ai_pilots += aipilot
 			if(!ai_pilots.len) //Mech does not have an AI for a pilot
-				to_chat(user, span_warning("Не обнаружено ИИ в набортном компьютере [name]."))
+				to_chat(user, "<span class='warning'>Не обнаружено ИИ в набортном компьютере [name].</span>")
 				return
 			if(ai_pilots.len > 1) //Input box for multiple AIs, but if there's only one we'll default to them.
 				AI = tgui_input_list(user, "Какой ИИ должен управлять?", "Выбор ИИ", sort_list(ai_pilots))
@@ -959,15 +959,15 @@
 			card.AI = AI
 			AI.controlled_equipment = null
 			AI.remote_control = null
-			to_chat(AI, span_notice("Меня загружают на карту. Беспроводное соединение отключено."))
+			to_chat(AI, "<span class='notice'>Меня загружают на карту. Беспроводное соединение отключено.</span>")
 			to_chat(user, "<span class='boldnotice'>Передача успешна</span>: [AI.name] ([rand(1000,9999)].exe) удалён из [name] и теперь хранится во внутренней памяти устройства.")
 			return
 
 		if(AI_MECH_HACK) //Called by AIs on the mech
 			AI.linked_core = new /obj/structure/ai_core/deactivated(AI.loc)
 			if(AI.can_dominate_mechs && LAZYLEN(occupants)) //Oh, I am sorry, were you using that?
-				to_chat(AI, span_warning("Обнаружен пилот! Экстренное катапультирование активировано!"))
-				to_chat(occupants, span_danger("Ух, ох!"))
+				to_chat(AI, "<span class='warning'>Обнаружен пилот! Экстренное катапультирование активировано!</span>")
+				to_chat(occupants, "<span class='danger'>Ух, ох!</span>")
 				for(var/ejectee in occupants)
 					mob_exit(ejectee, TRUE, TRUE) //IT IS MINE, NOW. SUCK IT, RD!
 				AI.can_shunt = FALSE //ONE AI ENTERS. NO AI LEAVES.
@@ -975,15 +975,15 @@
 		if(AI_TRANS_FROM_CARD) //Using an AI card to upload to a mech.
 			AI = card.AI
 			if(!AI)
-				to_chat(user, span_warning("Здесь нет ИИ на карте."))
+				to_chat(user, "<span class='warning'>Здесь нет ИИ на карте.</span>")
 				return
 			if(AI.deployed_shell) //Recall AI if shelled so it can be checked for a client
 				AI.disconnect_shell()
 			if(AI.stat || !AI.client)
-				to_chat(user, span_warning("[AI.name] более не отвечает на запросы, выгрузка невозможна."))
+				to_chat(user, "<span class='warning'>[AI.name] более не отвечает на запросы, выгрузка невозможна.</span>")
 				return
 			if((LAZYLEN(occupants) >= max_occupants) || dna_lock) //Normal AIs cannot steal mechs!
-				to_chat(user, span_warning("Доступ запрещён. [name] уже [LAZYLEN(occupants) >= max_occupants ? "полностью занят" : "заблокирован при помощи ДНК"]."))
+				to_chat(user, "<span class='warning'>Доступ запрещён. [name] уже [LAZYLEN(occupants) >= max_occupants ? "полностью занят" : "заблокирован при помощи ДНК"].</span>")
 				return
 			AI.control_disabled = FALSE
 			AI.radio_enabled = TRUE
@@ -999,8 +999,8 @@
 	AI.cancel_camera()
 	AI.controlled_equipment = src
 	AI.remote_control = src
-	to_chat(AI, AI.can_dominate_mechs ? span_announce("Захват [name] успешен! Теперь я нахожусь в набортном компьютере. Что-то запрещает мне покидать станцию!")  :\
-		span_notice("Меня загружают в набортный компьютер меха."))
+	to_chat(AI, AI.can_dominate_mechs ? "<span class='announce'>Захват [name] успешен! Теперь я нахожусь в набортном компьютере. Что-то запрещает мне покидать станцию!</span>"  :\
+		"<span class='notice'>Меня загружают в набортный компьютер меха.</span>")
 	to_chat(AI, "<span class='reallybig boldnotice'>Используй СКМ для активации функций и оборудования. Кликай обычно для взаимодействия как ИИ.</span>")
 
 
@@ -1029,44 +1029,44 @@
 	if(!ishuman(M)) // no silicons or drones in mechas.
 		return
 	if(HAS_TRAIT(M, TRAIT_PRIMITIVE)) //no lavalizards either.
-		to_chat(M, span_warning("Что это такое?!"))
+		to_chat(M, "<span class='warning'>Что это такое?!</span>")
 		return
 	log_message("[M] tries to move into [src].", LOG_MECHA)
 	if(dna_lock && M.has_dna())
 		var/mob/living/carbon/entering_carbon = M
 		if(entering_carbon.dna.unique_enzymes != dna_lock)
-			to_chat(M, span_warning("Доступ запрещён. [name] заблокирован при помощи ДНК."))
+			to_chat(M, "<span class='warning'>Доступ запрещён. [name] заблокирован при помощи ДНК.</span>")
 			log_message("Permission denied (DNA LOCK).", LOG_MECHA)
 			return
 	if(!operation_allowed(M))
-		to_chat(M, span_warning("Доступ запрещён. Недостаточно прав."))
+		to_chat(M, "<span class='warning'>Доступ запрещён. Недостаточно прав.</span>")
 		log_message("Permission denied (No keycode).", LOG_MECHA)
 		return
 	if(M.buckled)
-		to_chat(M, span_warning("Да мне бы со стула встать сначала."))
+		to_chat(M, "<span class='warning'>Да мне бы со стула встать сначала.</span>")
 		log_message("Permission denied (Buckled).", LOG_MECHA)
 		return
 	if(M.has_buckled_mobs()) //mob attached to us
-		to_chat(M, span_warning("Не могу войти с кем-то внутрь!"))
+		to_chat(M, "<span class='warning'>Не могу войти с кем-то внутрь!</span>")
 		log_message("Permission denied (Attached mobs).", LOG_MECHA)
 		return
 
-	visible_message(span_notice("[M] начинает забираться в [name]."))
+	visible_message("<span class='notice'>[M] начинает забираться в [name].</span>")
 
 	if(do_after(M, enter_delay, target = src))
 		if(obj_integrity <= 0)
-			to_chat(M, span_warning("Не могу забраться в [name], ведь он уничтожен!"))
+			to_chat(M, "<span class='warning'>Не могу забраться в [name], ведь он уничтожен!</span>")
 		else if(LAZYLEN(occupants) >= max_occupants)
-			to_chat(M, span_danger("[occupants[occupants.len]] быстрее! Лузер..."))//get the last one that hopped in
+			to_chat(M, "<span class='danger'>[occupants[occupants.len]] быстрее! Лузер...</span>")//get the last one that hopped in
 		else if(M.buckled)
-			to_chat(M, span_warning("Надо бы отстегнуться."))
+			to_chat(M, "<span class='warning'>Надо бы отстегнуться.</span>")
 		else if(M.has_buckled_mobs())
-			to_chat(M, span_warning("Не могу войти с кем-то внутрь!"))
+			to_chat(M, "<span class='warning'>Не могу войти с кем-то внутрь!</span>")
 		else
 			moved_inside(M)
 			return ..()
 	else
-		to_chat(M, span_warning("Прекращаю вход в меха!"))
+		to_chat(M, "<span class='warning'>Прекращаю вход в меха!</span>")
 
 
 /obj/vehicle/sealed/mecha/generate_actions()
@@ -1099,20 +1099,20 @@
 
 	var/mob/living/brain/B = M.brainmob
 	if(LAZYLEN(occupants) >= max_occupants)
-		to_chat(user, span_warning("Полон!"))
+		to_chat(user, "<span class='warning'>Полон!</span>")
 		return FALSE
 	if(dna_lock && (!B.stored_dna || (dna_lock != B.stored_dna.unique_enzymes)))
-		to_chat(user, span_warning("Доступ запрещён. [name] заблокирован при помощи ДНК."))
+		to_chat(user, "<span class='warning'>Доступ запрещён. [name] заблокирован при помощи ДНК.</span>")
 		return FALSE
 
-	visible_message(span_notice("[user] начинает вставлять MMI в [name]."))
+	visible_message("<span class='notice'>[user] начинает вставлять MMI в [name].</span>")
 
 	if(!do_after(user, 4 SECONDS, target = src))
-		to_chat(user, span_notice("Прекращаю вставлять MMI."))
+		to_chat(user, "<span class='notice'>Прекращаю вставлять MMI.</span>")
 		return FALSE
 	if(LAZYLEN(occupants) < max_occupants)
 		return mmi_moved_inside(M, user)
-	to_chat(user, span_warning("Внутри уже кто-то есть!"))
+	to_chat(user, "<span class='warning'>Внутри уже кто-то есть!</span>")
 	return FALSE
 
 /obj/vehicle/sealed/mecha/proc/mmi_moved_inside(obj/item/mmi/M, mob/user)
@@ -1123,7 +1123,7 @@
 
 	var/mob/living/brain/B = M.brainmob
 	if(!user.transferItemToLoc(M, src))
-		to_chat(user, span_warning("[M] застрял в моей руке, я не могу просто взять и вставить его в <b>[src.name]</b>!"))
+		to_chat(user, "<span class='warning'>[M] застрял в моей руке, я не могу просто взять и вставить его в <b>[src.name]</b>!</span>")
 		return FALSE
 
 	M.set_mecha(src)
@@ -1143,15 +1143,15 @@
 	if(isAI(user))
 		var/mob/living/silicon/ai/AI = user
 		if(!AI.can_shunt)
-			to_chat(AI, span_notice("Я не могу вылезти из меха после доминации над ним!"))
+			to_chat(AI, "<span class='notice'>Я не могу вылезти из меха после доминации над ним!</span>")
 			return FALSE
-	to_chat(user, span_notice("Начинаю процедуру извлечения. Оборудование будет отключено на это время. Подождём."))
+	to_chat(user, "<span class='notice'>Начинаю процедуру извлечения. Оборудование будет отключено на это время. Подождём.</span>")
 	is_currently_ejecting = TRUE
 	if(do_after(user, has_gravity() ? exit_delay : 0 , target = src))
-		to_chat(user, span_notice("Выхожу из меха."))
+		to_chat(user, "<span class='notice'>Выхожу из меха.</span>")
 		mob_exit(user, TRUE)
 	else
-		to_chat(user, span_notice("Прекращаю выходить из меха. Пушки снова работают."))
+		to_chat(user, "<span class='notice'>Прекращаю выходить из меха. Пушки снова работают.</span>")
 	is_currently_ejecting = FALSE
 
 
@@ -1173,11 +1173,11 @@
 		else
 			if(!AI.linked_core)
 				if(!silent)
-					to_chat(AI, span_userdanger("Ядро уничтожено. Возврат невозможен."))
+					to_chat(AI, "<span class='userdanger'>Ядро уничтожено. Возврат невозможен.</span>")
 				AI.linked_core = null
 				return
 			if(!silent)
-				to_chat(AI, span_notice("Возвращаемся в ядро..."))
+				to_chat(AI, "<span class='notice'>Возвращаемся в ядро...</span>")
 			AI.controlled_equipment = null
 			AI.remote_control = null
 			mob_container = AI
@@ -1294,7 +1294,7 @@
 /obj/vehicle/sealed/mecha/proc/ammo_resupply(obj/item/mecha_ammo/A, mob/user,fail_chat_override = FALSE)
 	if(!A.rounds)
 		if(!fail_chat_override)
-			to_chat(user, span_warning("Коробка с патронами пустая!"))
+			to_chat(user, "<span class='warning'>Коробка с патронами пустая!</span>")
 		return FALSE
 	var/ammo_needed
 	var/found_gun
@@ -1317,7 +1317,7 @@
 			else
 				gun.projectiles_cache = gun.projectiles_cache + ammo_needed
 			playsound(get_turf(user),A.load_audio,50,TRUE)
-			to_chat(user, span_notice("Загружаю [ammo_needed] [A.round_term][A.rounds > 1?"":"у"] в [gun.name]"))
+			to_chat(user, "<span class='notice'>Загружаю [ammo_needed] [A.round_term][A.rounds > 1?"":"у"] в [gun.name]</span>")
 			A.rounds = A.rounds - ammo_needed
 			if(A.custom_materials)
 				A.set_custom_materials(A.custom_materials, A.rounds / initial(A.rounds))
@@ -1329,16 +1329,16 @@
 		else
 			gun.projectiles_cache = gun.projectiles_cache + A.rounds
 		playsound(get_turf(user),A.load_audio,50,TRUE)
-		to_chat(user, span_notice("Загружаю [A.rounds] [A.round_term][A.rounds > 1?"":"у"] в [gun.name]"))
+		to_chat(user, "<span class='notice'>Загружаю [A.rounds] [A.round_term][A.rounds > 1?"":"у"] в [gun.name]</span>")
 		A.rounds = 0
 		A.set_custom_materials(list(/datum/material/iron=2000))
 		A.update_name()
 		return TRUE
 	if(!fail_chat_override)
 		if(found_gun)
-			to_chat(user, span_notice("Больше не помещается!"))
+			to_chat(user, "<span class='notice'>Больше не помещается!</span>")
 		else
-			to_chat(user, span_notice("Эти патроны не подходят вообще!"))
+			to_chat(user, "<span class='notice'>Эти патроны не подходят вообще!</span>")
 	return FALSE
 
 
@@ -1346,7 +1346,7 @@
 /obj/vehicle/sealed/mecha/proc/on_light_eater(obj/vehicle/sealed/source, datum/light_eater)
 	SIGNAL_HANDLER
 	if(mecha_flags & HAS_LIGHTS)
-		visible_message(span_danger("[src] прощается с лампочками!"))
+		visible_message("<span class='danger'>[src] прощается с лампочками!</span>")
 		mecha_flags &= ~HAS_LIGHTS
 	set_light_on(FALSE)
 	for(var/occupant in occupants)

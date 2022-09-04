@@ -16,4 +16,4 @@
 	if(istype(P) && bring_dragging)
 		do_teleport(P, target_location, channel = TELEPORT_CHANNEL_FREE, no_effects = TRUE, forced = TRUE)
 		P.Paralyze(30)
-		to_chat(P, span_warning("Мне плохо..."))
+		to_chat(P, "<span class='warning'>Мне плохо...</span>")

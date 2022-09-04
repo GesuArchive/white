@@ -103,7 +103,7 @@
 	if(!in_range(src, user) || user.stat || isnull(input))
 		return FALSE
 	target_id = clamp(input, 0, 65535) //from 0000 to FFFF
-	to_chat(user, span_notice("You change the target ID on [src.name] to [num2hex(target_id, 4)]."))
+	to_chat(user, "<span class='notice'>You change the target ID on [src.name] to [num2hex(target_id, 4)].</span>")
 	return TRUE
 
 
@@ -118,7 +118,7 @@
 		teles.Remove("[tele_id]")	//replace that ID with a new one
 		tele_id = clamp(input, 0, 65535) //from 0000 to FFFF
 		teles += list("[tele_id]" = src)
-	to_chat(user, span_notice("You change the tele ID on [src.name] to [num2hex(tele_id, 4)]."))
+	to_chat(user, "<span class='notice'>You change the tele ID on [src.name] to [num2hex(tele_id, 4)].</span>")
 	return TRUE
 
 /*
@@ -145,7 +145,7 @@
 /obj/item/mechcomp/teleport/can_unanchor(mob/user)
 	. = ..()
 	if(active)
-		to_chat(user,span_alert("The [src.name] is still recharging and is locked in place!"))
+		to_chat(user,"<span class='alert'>The [src.name] is still recharging and is locked in place!</span>")
 		return FALSE
 
 /obj/item/mechcomp/teleport/anchor(mob/user)

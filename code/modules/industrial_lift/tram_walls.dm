@@ -36,15 +36,15 @@
 		if(!welder.tool_start_check(user, amount=0))
 			return FALSE
 
-		to_chat(user, span_notice("You begin slicing through the outer plating..."))
+		to_chat(user, "<span class='notice'>You begin slicing through the outer plating...</span>")
 		if(welder.use_tool(src, user, slicing_duration, volume=100))
-			to_chat(user, span_notice("You remove the outer plating."))
+			to_chat(user, "<span class='notice'>You remove the outer plating.</span>")
 			dismantle(user, TRUE)
 	else
 		return ..()
 
 /obj/structure/tramwall/proc/dismantle(mob/user, disassembled=TRUE, obj/item/tool = null)
-	user.visible_message(span_notice("[user] dismantles the wall."), span_notice("You dismantle the wall."))
+	user.visible_message("<span class='notice'>[user] dismantles the wall.</span>", "<span class='notice'>You dismantle the wall.</span>")
 	if(tool)
 		tool.play_tool_sound(src, 100)
 	else
@@ -64,7 +64,7 @@
 	return null
 
 /obj/structure/tramwall/examine_status(mob/user)
-	to_chat(user, span_notice("The outer plating is <b>welded</b> firmly in place."))
+	to_chat(user, "<span class='notice'>The outer plating is <b>welded</b> firmly in place.</span>")
 	return null
 
 

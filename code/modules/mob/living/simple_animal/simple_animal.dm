@@ -239,7 +239,7 @@
 	if(!is_type_in_list(O, food_type))
 		return ..()
 
-	user.visible_message(span_notice("<b>[user]</b> даёт попробовать с руки [O] <b>[src]</b>.") , span_notice("Пытаюсь дать попробовать [O] <b>[src]</b>."))
+	user.visible_message("<span class='notice'><b>[user]</b> даёт попробовать с руки [O] <b>[src]</b>.</span>" , "<span class='notice'>Пытаюсь дать попробовать [O] <b>[src]</b>.</span>")
 	qdel(O)
 	if(tame)
 		return
@@ -766,7 +766,7 @@
 	if(isliving(hunted)) // Are we hunting a living mob?
 		var/mob/living/prey = hunted
 		if(inept_hunter) // Make your hunter inept to have them unable to catch their prey.
-			visible_message(span_warning("[src] chases [prey] around, to no avail!"))
+			visible_message("<span class='warning'>[src] chases [prey] around, to no avail!</span>")
 			step(prey, pick(GLOB.cardinals))
 			COOLDOWN_START(src, emote_cooldown, 1 MINUTES)
 			return

@@ -8,7 +8,7 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list( \
 		time = 4 SECONDS, \
 		one_per_turf = TRUE, \
 		on_floor = TRUE, \
-		desc = span_cultbold("Лечит (и регенерирует кровь) находящихся поблизости кровавых культистов и конструктов, но также превращает полы поблизости в гравированные."), \
+		desc = "<span class='cultbold'>Лечит (и регенерирует кровь) находящихся поблизости кровавых культистов и конструктов, но также превращает полы поблизости в гравированные.</span>", \
 		required_noun = "листов рунического металла", \
 	), \
 	new /datum/stack_recipe/radial( \
@@ -18,7 +18,7 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list( \
 		time = 4 SECONDS, \
 		one_per_turf = TRUE, \
 		on_floor = TRUE, \
-		desc = span_cultbold("Можно создать жуткие точильные камни, оболочки конструктов и фляги с несвятой водой."), \
+		desc = "<span class='cultbold'>Можно создать жуткие точильные камни, оболочки конструктов и фляги с несвятой водой.</span>", \
 		required_noun = "листов рунического металла", \
 	), \
 	new /datum/stack_recipe/radial( \
@@ -28,7 +28,7 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list( \
 		time = 4 SECONDS, \
 		one_per_turf = TRUE, \
 		on_floor = TRUE, \
-		desc = span_cultbold("Можно создать глазные повязки фанатиков, сферы проклятия шаттлов, и оборудование идущего по завесе."), \
+		desc = "<span class='cultbold'>Можно создать глазные повязки фанатиков, сферы проклятия шаттлов, и оборудование идущего по завесе.</span>", \
 		required_noun = "листов рунического металла", \
 	), \
 	new /datum/stack_recipe/radial( \
@@ -38,7 +38,7 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list( \
 		time = 4 SECONDS, \
 		one_per_turf = TRUE, \
 		on_floor = TRUE, \
-		desc = span_cultbold("Можно создать защищенные робы, робы флагелянтов и зеркальные щиты."), \
+		desc = "<span class='cultbold'>Можно создать защищенные робы, робы флагелянтов и зеркальные щиты.</span>", \
 		required_noun = "листов рунического металла", \
 	), \
 	new /datum/stack_recipe/radial( \
@@ -47,7 +47,7 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list( \
 		time = 5 SECONDS, \
 		one_per_turf = TRUE, \
 		on_floor = TRUE, \
-		desc = span_cultbold("Не слишком прочная дверь, оглушает коснувшихся не культистов."), \
+		desc = "<span class='cultbold'>Не слишком прочная дверь, оглушает коснувшихся не культистов.</span>", \
 		required_noun = "листов рунического металла", \
 	), \
 	new /datum/stack_recipe/radial( \
@@ -56,7 +56,7 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list( \
 		time = 5 SECONDS, \
 		one_per_turf = TRUE, \
 		on_floor = TRUE, \
-		desc = span_cultbold("Не рекомендованное использование рунного металла."), \
+		desc = "<span class='cultbold'>Не рекомендованное использование рунного металла.</span>", \
 		required_noun = "листов рунического металла", \
 	), \
 ))
@@ -79,7 +79,7 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list( \
 
 /obj/item/stack/sheet/runed_metal/interact(mob/user)
 	if(!IS_CULTIST(user))
-		to_chat(user, span_warning("Только обладающий запретными знаниями имеет шанс поработать с этим металлом..."))
+		to_chat(user, "<span class='warning'>Только обладающий запретными знаниями имеет шанс поработать с этим металлом...</span>")
 		return FALSE
 
 	var/turf/user_turf = get_turf(user)
@@ -89,7 +89,7 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list( \
 	var/is_valid_area = user_area && (user_area.area_flags & CULT_PERMITTED)
 
 	if(!is_valid_turf || !is_valid_area)
-		to_chat(user, span_warning("Завеса здесь недостаточно слабая."))
+		to_chat(user, "<span class='warning'>Завеса здесь недостаточно слабая.</span>")
 		return FALSE
 
 	return ..()

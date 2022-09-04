@@ -1,6 +1,6 @@
 //Code for the interceptor circuit
 /obj/machinery/telecomms/receiver/proc/Options_Menu()
-	var/dat = "<br>Remote control: <a href='?src=[REF(src)];toggle_remote_control=1'>[GLOB.remote_control ? "<font color='green'><b>ENABLED</b></font>" : span_red("<b>DISABLED</b>")]</a>"
+	var/dat = "<br>Remote control: <a href='?src=[REF(src)];toggle_remote_control=1'>[GLOB.remote_control ? "<font color='green'><b>ENABLED</b></font>" : "<span class='red'><b>DISABLED</b></span>"]</a>"
 	dat += "<br>Broadcasting signals: "
 	for(var/i in GLOB.ic_speakers)
 		var/obj/item/integrated_circuit_old/I = i

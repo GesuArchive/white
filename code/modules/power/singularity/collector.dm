@@ -76,11 +76,11 @@
 	if(!anchored)
 		return
 	if(locked)
-		to_chat(user, span_warning("The controls are locked!"))
+		to_chat(user, "<span class='warning'>The controls are locked!</span>")
 		return
 	toggle_power()
-	user.visible_message(span_notice("[user.name] turns the [src.name] [active? "on":"off"]."), \
-	span_notice("You turn the [src.name] [active? "on":"off"]."))
+	user.visible_message("<span class='notice'>[user.name] turns the [src.name] [active? "on":"off"].</span>", \
+	"<span class='notice'>You turn the [src.name] [active? "on":"off"].</span>")
 	var/datum/gas_mixture/tank_mix = loaded_tank?.return_air()
 	var/fuel
 	if(loaded_tank)
@@ -91,7 +91,7 @@
 /obj/machinery/power/rad_collector/can_be_unfasten_wrench(mob/user, silent)
 	if(loaded_tank)
 		if(!silent)
-			to_chat(user, span_warning("Надо бы вытащить бак для начала!"))
+			to_chat(user, "<span class='warning'>Надо бы вытащить бак для начала!</span>")
 		return FAILED_UNFASTEN
 	return ..()
 
@@ -107,13 +107,13 @@
 /obj/machinery/power/rad_collector/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/tank/internals/plasma))
 		if(!anchored)
-			to_chat(user, span_warning("<b>[src]</b> должен быть прикручен к полу!"))
+			to_chat(user, "<span class='warning'><b>[src]</b> должен быть прикручен к полу!</span>")
 			return TRUE
 		if(loaded_tank)
-			to_chat(user, span_warning("Здесь уже есть бак!"))
+			to_chat(user, "<span class='warning'>Здесь уже есть бак!</span>")
 			return TRUE
 		if(panel_open)
-			to_chat(user, span_warning("Техническая панель открыта. Не входит!"))
+			to_chat(user, "<span class='warning'>Техническая панель открыта. Не входит!</span>")
 			return TRUE
 		if(!user.transferItemToLoc(W, src))
 			return
@@ -123,11 +123,11 @@
 		if(allowed(user))
 			if(active)
 				locked = !locked
-				to_chat(user, span_notice("Управление [locked ? "заблокировано" : "разблокировано"]."))
+				to_chat(user, "<span class='notice'>Управление [locked ? "заблокировано" : "разблокировано"].</span>")
 			else
-				to_chat(user, span_warning("Управление может быть заблокировано только когда <b>[src]</b> включен!"))
+				to_chat(user, "<span class='warning'>Управление может быть заблокировано только когда <b>[src]</b> включен!</span>")
 		else
-			to_chat(user, span_danger("Доступ запрещён."))
+			to_chat(user, "<span class='danger'>Доступ запрещён.</span>")
 			return TRUE
 	else
 		return ..()
@@ -148,7 +148,7 @@
 	if(..())
 		return TRUE
 	if(loaded_tank)
-		to_chat(user, span_warning("Надо бы вытащить бак сначала!"))
+		to_chat(user, "<span class='warning'>Надо бы вытащить бак сначала!</span>")
 	else
 		default_deconstruction_screwdriver(user, icon_state, icon_state, I)
 	return TRUE
@@ -156,27 +156,27 @@
 /obj/machinery/power/rad_collector/crowbar_act(mob/living/user, obj/item/I)
 	if(loaded_tank)
 		if(locked)
-			to_chat(user, span_warning("Управление заблокировано!"))
+			to_chat(user, "<span class='warning'>Управление заблокировано!</span>")
 			return TRUE
 		eject()
 		return TRUE
 	if(default_deconstruction_crowbar(I))
 		return TRUE
-	to_chat(user, span_warning("Здесь нет бака!"))
+	to_chat(user, "<span class='warning'>Здесь нет бака!</span>")
 	return TRUE
 
 /obj/machinery/power/rad_collector/multitool_act(mob/living/user, obj/item/I)
 	if(!is_station_level(z) && !SSresearch.science_tech)
-		to_chat(user, span_warning("<b>[src]</b> не подключен к исследовательской сети!"))
+		to_chat(user, "<span class='warning'><b>[src]</b> не подключен к исследовательской сети!</span>")
 		return TRUE
 	if(locked)
-		to_chat(user, span_warning("<b>[src]</b> заблокирован!"))
+		to_chat(user, "<span class='warning'><b>[src]</b> заблокирован!</span>")
 		return TRUE
 	if(active)
-		to_chat(user, span_warning("<b>[src]</b> на данный момент работает и производит [bitcoinmining ? "исследовательские очки":"энергию"]."))
+		to_chat(user, "<span class='warning'><b>[src]</b> на данный момент работает и производит [bitcoinmining ? "исследовательские очки":"энергию"].</span>")
 		return TRUE
 	bitcoinmining = !bitcoinmining
-	to_chat(user, span_warning("[bitcoinmining ? "Включаю":"Выключаю"] сбор исследовательских очков у <b>[src]</b>."))
+	to_chat(user, "<span class='warning'>[bitcoinmining ? "Включаю":"Выключаю"] сбор исследовательских очков у <b>[src]</b>.</span>")
 	return TRUE
 
 /obj/machinery/power/rad_collector/return_analyzable_air()
@@ -194,14 +194,14 @@
 			// Therefore, its units are joules per SSmachines.wait * 0.1 seconds.
 			// So joules = stored_energy * SSmachines.wait * 0.1
 			var/joules = stored_energy * SSmachines.wait * 0.1
-			. += span_notice("Дисплей <b>[src]</b> сообщает о накопленных <b>[display_joules(joules)]</b> и выработке <b>[display_power(RAD_COLLECTOR_OUTPUT)]</b>.")
+			. += "<span class='notice'>Дисплей <b>[src]</b> сообщает о накопленных <b>[display_joules(joules)]</b> и выработке <b>[display_power(RAD_COLLECTOR_OUTPUT)]</b>.</span>"
 		else
-			. += span_notice("Дисплей <b>[src]</b> сообщает о <b>[stored_research]</b> исследовательских очках за всё время и также производит [RAD_COLLECTOR_OUTPUT*RAD_COLLECTOR_MINING_CONVERSION_RATE] исследовательских очков в минуту.")
+			. += "<span class='notice'>Дисплей <b>[src]</b> сообщает о <b>[stored_research]</b> исследовательских очках за всё время и также производит [RAD_COLLECTOR_OUTPUT*RAD_COLLECTOR_MINING_CONVERSION_RATE] исследовательских очков в минуту.</span>"
 	else
 		if(!bitcoinmining)
-			. += span_notice("Дисплей <b>[src]</b> сообщает:</b> \"Режим производства электроэнергии. Пожалуйста, вставьте <b>бак плазмы</b>. Используйте мультитул для изменения режимов производства.\"")
+			. += "<span class='notice'>Дисплей <b>[src]</b> сообщает:</b> \"Режим производства электроэнергии. Пожалуйста, вставьте <b>бак плазмы</b>. Используйте мультитул для изменения режимов производства.\"</span>"
 		else
-			. += span_notice("Дисплей <b>[src]</b> сообщает:</b> \"Исследовательский режим производства. Пожалуйста, вставьте <b>тритий</b> и <b>кислород</b>. Используйте мультитул для изменения режимов производства.\"")
+			. += "<span class='notice'>Дисплей <b>[src]</b> сообщает:</b> \"Исследовательский режим производства. Пожалуйста, вставьте <b>тритий</b> и <b>кислород</b>. Используйте мультитул для изменения режимов производства.\"</span>"
 
 /obj/machinery/power/rad_collector/obj_break(damage_flag)
 	. = ..()

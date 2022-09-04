@@ -34,20 +34,20 @@
 		return FALSE
 	/// Have No Lair (NOTE: You only got this power if you had a lair, so this means it's destroyed)
 	if(!istype(bloodsuckerdatum_power) || !bloodsuckerdatum_power.coffin)
-		to_chat(owner, span_warning("Your coffin has been destroyed!"))
+		to_chat(owner, "<span class='warning'>Your coffin has been destroyed!</span>")
 		return FALSE
 	return TRUE
 
 /datum/action/bloodsucker/gohome/ActivatePower()
 	. = ..()
-	to_chat(owner, span_notice("You focus on separating your consciousness from your physical form..."))
+	to_chat(owner, "<span class='notice'>You focus on separating your consciousness from your physical form...</span>")
 
 /datum/action/bloodsucker/gohome/UsePower(mob/living/user)
 	. = ..()
 	if(!.)
 		return FALSE
 	if(!bloodsuckerdatum_power.coffin)
-		to_chat(owner, span_warning("Your coffin has been destroyed! You no longer have a destination."))
+		to_chat(owner, "<span class='warning'>Your coffin has been destroyed! You no longer have a destination.</span>")
 		return FALSE
 	switch(teleporting_stage)
 		if(GOHOME_START)
@@ -67,7 +67,7 @@
 	if(!isturf(owner.loc))
 		return FALSE
 	if(!bloodsuckerdatum_power.coffin)
-		to_chat(owner, span_warning("Your coffin has been destroyed! You no longer have a destination."))
+		to_chat(owner, "<span class='warning'>Your coffin has been destroyed! You no longer have a destination.</span>")
 		return FALSE
 	return TRUE
 

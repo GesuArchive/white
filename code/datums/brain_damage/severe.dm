@@ -9,8 +9,8 @@
 	name = "Немота"
 	desc = "Пациент совершенно не может говорить."
 	scan_desc = "<b>обширного повреждения речевого центра мозга</b>"
-	gain_text = span_warning("А как говорить?!")
-	lose_text = span_notice("Ага, вот так вот можно говорить.")
+	gain_text = "<span class='warning'>А как говорить?!</span>"
+	lose_text = "<span class='notice'>Ага, вот так вот можно говорить.</span>"
 
 /datum/brain_trauma/severe/mute/on_gain()
 	ADD_TRAIT(owner, TRAIT_MUTE, TRAUMA_TRAIT)
@@ -24,8 +24,8 @@
 	name = "Проклятие Вавилона"
 	desc = "Пациент не может говорить или понимать какой-либо язык."
 	scan_desc = "<b>обширного повреждения языкового центра мозга</b>"
-	gain_text = span_warning("Проблемы с формированием слов в голове...")
-	lose_text = span_notice("А, вот как работают слова.")
+	gain_text = "<span class='warning'>Проблемы с формированием слов в голове...</span>"
+	lose_text = "<span class='notice'>А, вот как работают слова.</span>"
 
 /datum/brain_trauma/severe/aphasia/on_gain()
 	owner.add_blocked_language(subtypesof(/datum/language/) - /datum/language/aphasia, LANGUAGE_APHASIA)
@@ -41,8 +41,8 @@
 	name = "Церебральная слепота"
 	desc = "Мозг пациента больше не связан с его глазами."
 	scan_desc = "<b>повреждения зрительного нерва головного мозга</b>"
-	gain_text = span_warning("Ничерта не вижу!")
-	lose_text = span_notice("Зрение возвращается.")
+	gain_text = "<span class='warning'>Ничерта не вижу!</span>"
+	lose_text = "<span class='notice'>Зрение возвращается.</span>"
 
 /datum/brain_trauma/severe/blindness/on_gain()
 	owner.become_blind(TRAUMA_TRAIT)
@@ -97,8 +97,8 @@
 			subject = "левую ногу"
 			paralysis_traits = list(TRAIT_PARALYSIS_L_LEG)
 
-	gain_text = span_warning("Больше не чувствую [subject]!")
-	lose_text = span_notice("Снова могу чувствовать [subject]!")
+	gain_text = "<span class='warning'>Больше не чувствую [subject]!</span>"
+	lose_text = "<span class='notice'>Снова могу чувствовать [subject]!</span>"
 
 /datum/brain_trauma/severe/paralysis/on_gain()
 	..()
@@ -121,8 +121,8 @@
 	name = "Нарколепсия"
 	desc = "Пациент может непроизвольно заснуть во время обычных занятий."
 	scan_desc = "<b>нарколепсии</b>"
-	gain_text = span_warning("Пора спать...")
-	lose_text = span_notice("Бодрячком.")
+	gain_text = "<span class='warning'>Пора спать...</span>"
+	lose_text = "<span class='notice'>Бодрячком.</span>"
 
 /datum/brain_trauma/severe/narcolepsy/on_life(delta_time, times_fired)
 	..()
@@ -134,26 +134,26 @@
 	if(owner.drowsyness)
 		sleep_chance += 3
 	if(DT_PROB(0.5 * sleep_chance, delta_time))
-		to_chat(owner, span_warning("Засыпаю..."))
+		to_chat(owner, "<span class='warning'>Засыпаю...</span>")
 		owner.Sleeping(60)
 	else if(!owner.drowsyness && DT_PROB(sleep_chance, delta_time))
-		to_chat(owner, span_warning("Хочется спать..."))
+		to_chat(owner, "<span class='warning'>Хочется спать...</span>")
 		owner.drowsyness += 10
 
 /datum/brain_trauma/severe/monophobia
 	name = "монофобия"
 	desc = "Пациент чувствует себя больным и расстроенным, когда его нет рядом с другими людьми, что приводит к потенциально смертельному стрессу."
 	scan_desc = "<b>монофобии</b>"
-	gain_text = span_warning("Я очень боюсь остаться в одиночестве!")
-	lose_text = span_notice("Похоже можно побыть и в одиночестве.")
+	gain_text = "<span class='warning'>Я очень боюсь остаться в одиночестве!</span>"
+	lose_text = "<span class='notice'>Похоже можно побыть и в одиночестве.</span>"
 	var/stress = 0
 
 /datum/brain_trauma/severe/monophobia/on_gain()
 	..()
 	if(check_alone())
-		to_chat(owner, span_warning("Мне так одиноко..."))
+		to_chat(owner, "<span class='warning'>Мне так одиноко...</span>")
 	else
-		to_chat(owner, span_notice("В безопасности, пока рядом есть люди."))
+		to_chat(owner, "<span class='notice'>В безопасности, пока рядом есть люди.</span>")
 
 /datum/brain_trauma/severe/monophobia/on_life(delta_time, times_fired)
 	..()
@@ -182,18 +182,18 @@
 	switch(rand(1,5))
 		if(1)
 			if(!high_stress)
-				to_chat(owner, span_warning("Мне плохо..."))
+				to_chat(owner, "<span class='warning'>Мне плохо...</span>")
 			else
-				to_chat(owner, span_warning("Мне правда плохо от одиночества!"))
+				to_chat(owner, "<span class='warning'>Мне правда плохо от одиночества!</span>")
 			addtimer(CALLBACK(owner, /mob/living/carbon.proc/vomit, high_stress), 50) //blood vomit if high stress
 		if(2)
 			if(!high_stress)
-				to_chat(owner, span_warning("Не могу перестать шататься..."))
+				to_chat(owner, "<span class='warning'>Не могу перестать шататься...</span>")
 				owner.dizziness += 20
 				owner.add_confusion(20)
 				owner.Jitter(20)
 			else
-				to_chat(owner, span_warning("Ощущаю себя слабым и беззащитным! Если бы только я был не один..."))
+				to_chat(owner, "<span class='warning'>Ощущаю себя слабым и беззащитным! Если бы только я был не один...</span>")
 				owner.dizziness += 20
 				owner.add_confusion(20)
 				owner.Jitter(20)
@@ -201,30 +201,30 @@
 
 		if(3, 4)
 			if(!high_stress)
-				to_chat(owner, span_warning("Мне очень одиноко..."))
+				to_chat(owner, "<span class='warning'>Мне очень одиноко...</span>")
 			else
-				to_chat(owner, span_warning("Схожу с ума от одиночества!"))
+				to_chat(owner, "<span class='warning'>Схожу с ума от одиночества!</span>")
 				owner.hallucination += 30
 
 		if(5)
 			if(!high_stress)
-				to_chat(owner, span_warning("Моё сердце замирает на мгновение."))
+				to_chat(owner, "<span class='warning'>Моё сердце замирает на мгновение.</span>")
 				owner.adjustOxyLoss(8)
 			else
 				if(prob(15) && ishuman(owner))
 					var/mob/living/carbon/human/H = owner
 					H.set_heartattack(TRUE)
-					to_chat(H, span_userdanger("О-О-О! МОЁ СЕРДЦЕ!!!"))
+					to_chat(H, "<span class='userdanger'>О-О-О! МОЁ СЕРДЦЕ!!!</span>")
 				else
-					to_chat(owner, span_userdanger("Моё сердце хочет вырваться из груди..."))
+					to_chat(owner, "<span class='userdanger'>Моё сердце хочет вырваться из груди...</span>")
 					owner.adjustOxyLoss(8)
 
 /datum/brain_trauma/severe/discoordination
 	name = "Нарушение координации"
 	desc = "Пациент не может использовать сложные инструменты или оборудование."
 	scan_desc = "<b>нарушения тонкой моторики</b>"
-	gain_text = span_warning("Едва могу контролировать свои руки!")
-	lose_text = span_notice("Руки снова работают как надо.")
+	gain_text = "<span class='warning'>Едва могу контролировать свои руки!</span>"
+	lose_text = "<span class='notice'>Руки снова работают как надо.</span>"
 
 /datum/brain_trauma/severe/discoordination/on_gain()
 	ADD_TRAIT(owner, TRAIT_MONKEYLIKE, TRAUMA_TRAIT)
@@ -238,8 +238,8 @@
 	name = "Дефект миролюбия"
 	desc = "Пациент крайне не желает насильственно причинять вред другим."
 	scan_desc = "<b>тихоокеанского синдрома</b>"
-	gain_text = span_notice("Чувствую себя на удивление спокойно.")
-	lose_text = span_notice("Больше не чувствую себя обязанным не причинять вреда.")
+	gain_text = "<span class='notice'>Чувствую себя на удивление спокойно.</span>"
+	lose_text = "<span class='notice'>Больше не чувствую себя обязанным не причинять вреда.</span>"
 
 /datum/brain_trauma/severe/pacifism/on_gain()
 	ADD_TRAIT(owner, TRAIT_PACIFISM, TRAUMA_TRAIT)
@@ -253,8 +253,8 @@
 	name = "Гипнотический ступор"
 	desc = "Пациент склонен к приступам сильного ступора, что делает его чрезвычайно внушаемым."
 	scan_desc = "<b>аутонейрической петли обратной связи</b>"
-	gain_text = span_warning("Немного ошеломлен.")
-	lose_text = span_notice("Туман уходит из моей головы.")
+	gain_text = "<span class='warning'>Немного ошеломлен.</span>"
+	lose_text = "<span class='notice'>Туман уходит из моей головы.</span>"
 
 /datum/brain_trauma/severe/hypnotic_stupor/on_lose() //hypnosis must be cleared separately, but brain surgery should get rid of both anyway
 	..()
@@ -269,8 +269,8 @@
 	name = "Гипнотический триггер"
 	desc = "У пациента в подсознании есть триггерная фраза, которая вызывает внушаемое состояние, подобное трансу."
 	scan_desc = "<b>онейрической петли обратной связи</b>"
-	gain_text = span_warning("Что-то забыл... Что-то важное?")
-	lose_text = span_notice("Груз сняли с моего ума. Чудно.")
+	gain_text = "<span class='warning'>Что-то забыл... Что-то важное?</span>"
+	lose_text = "<span class='notice'>Груз сняли с моего ума. Чудно.</span>"
 	random_gain = FALSE
 	var/trigger_phrase = "NanoTrasen"
 
@@ -293,8 +293,8 @@
 
 	if(findtext(hearing_args[HEARING_RAW_MESSAGE], reg))
 		addtimer(CALLBACK(src, .proc/hypnotrigger), 10) //to react AFTER the chat message
-		hearing_args[HEARING_RAW_MESSAGE] = reg.Replace(hearing_args[HEARING_RAW_MESSAGE], span_hypnophrase("*********"))
+		hearing_args[HEARING_RAW_MESSAGE] = reg.Replace(hearing_args[HEARING_RAW_MESSAGE], "<span class='hypnophrase'>*********</span>")
 
 /datum/brain_trauma/severe/hypnotic_trigger/proc/hypnotrigger()
-	to_chat(owner, span_warning("Слова вызывают что-то глубокое внутри, сознание ускользает..."))
+	to_chat(owner, "<span class='warning'>Слова вызывают что-то глубокое внутри, сознание ускользает...</span>")
 	owner.apply_status_effect(/datum/status_effect/trance, rand(100,300), FALSE)

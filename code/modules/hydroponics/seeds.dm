@@ -110,9 +110,9 @@
 	. = ..()
 	. += "<hr><span class='notice'>Use a pen on it to rename it or change its description.</span>"
 	if(reagents_add && user.can_see_reagents())
-		. += span_notice("\n- Plant Reagents -")
+		. += "<span class='notice'>\n- Plant Reagents -</span>"
 		for(var/datum/plant_gene/reagent/G in genes)
-			. += span_notice("\n- [G.get_name()] -")
+			. += "<span class='notice'>\n- [G.get_name()] -</span>"
 
 /obj/item/seeds/proc/Copy()
 	var/obj/item/seeds/S = new type(null, 1)
@@ -301,14 +301,14 @@
 
 		// Heats up the plant's contents by 25 kelvin per 1 unit of nutriment. Mutually exclusive with cooling.
 		if(get_gene(/datum/plant_gene/trait/chem_heating))
-			T.visible_message(span_notice("[T] releases freezing air, consuming its nutriments to heat its contents."))
+			T.visible_message("<span class='notice'>[T] releases freezing air, consuming its nutriments to heat its contents.</span>")
 			T.reagents.remove_all_type(/datum/reagent/consumable/nutriment, num_nutriment, strict = TRUE)
 			T.reagents.chem_temp = min(1000, (T.reagents.chem_temp + num_nutriment * 25))
 			T.reagents.handle_reactions()
 			playsound(T.loc, 'sound/effects/wounds/sizzle2.ogg', 5)
 		// Cools down the plant's contents by 5 kelvin per 1 unit of nutriment. Mutually exclusive with heating.
 		else if(get_gene(/datum/plant_gene/trait/chem_cooling))
-			T.visible_message(span_notice("[T] releases a blast of hot air, consuming its nutriments to cool its contents."))
+			T.visible_message("<span class='notice'>[T] releases a blast of hot air, consuming its nutriments to cool its contents.</span>")
 			T.reagents.remove_all_type(/datum/reagent/consumable/nutriment, num_nutriment, strict = TRUE)
 			T.reagents.chem_temp = max(3, (T.reagents.chem_temp + num_nutriment * -5))
 			T.reagents.handle_reactions()
@@ -521,10 +521,10 @@
 				if(!user.canUseTopic(src, BE_CLOSE))
 					return
 				if (length(newplantname) > 20)
-					to_chat(user, span_warning("That name is too long!"))
+					to_chat(user, "<span class='warning'>That name is too long!</span>")
 					return
 				if(!newplantname)
-					to_chat(user, span_warning("That name is invalid."))
+					to_chat(user, "<span class='warning'>That name is invalid.</span>")
 					return
 				else
 					name = "[lowertext(newplantname)]"
@@ -534,10 +534,10 @@
 				if(!user.canUseTopic(src, BE_CLOSE))
 					return
 				if (length(newdesc) > 180)
-					to_chat(user, span_warning("That description is too long!"))
+					to_chat(user, "<span class='warning'>That description is too long!</span>")
 					return
 				if(!newdesc)
-					to_chat(user, span_warning("That description is invalid."))
+					to_chat(user, "<span class='warning'>That description is invalid.</span>")
 					return
 				else
 					desc = newdesc
@@ -548,10 +548,10 @@
 				if(!user.canUseTopic(src, BE_CLOSE))
 					return
 				if (length(newproductdesc) > 180)
-					to_chat(user, span_warning("That description is too long!"))
+					to_chat(user, "<span class='warning'>That description is too long!</span>")
 					return
 				if(!newproductdesc)
-					to_chat(user, span_warning("That description is invalid."))
+					to_chat(user, "<span class='warning'>That description is invalid.</span>")
 					return
 				else
 					productdesc = newproductdesc

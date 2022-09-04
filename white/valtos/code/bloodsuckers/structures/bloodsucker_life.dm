@@ -16,7 +16,7 @@
 		INVOKE_ASYNC(src, .proc/AddBloodVolume, passive_blood_drain) // -.1 currently
 	if(HandleHealing(1))
 		if((COOLDOWN_FINISHED(src, bloodsucker_spam_healing)) && owner.current.blood_volume > 0)
-			to_chat(owner.current, span_notice("The power of your blood begins knitting your wounds..."))
+			to_chat(owner.current, "<span class='notice'>The power of your blood begins knitting your wounds...</span>")
 			COOLDOWN_START(src, bloodsucker_spam_healing, BLOODSUCKER_SPAM_HEALING)
 	// Standard Updates
 	INVOKE_ASYNC(src, .proc/HandleDeath)
@@ -33,10 +33,10 @@
 
 /datum/antagonist/bloodsucker/proc/AddHumanityLost(value)
 	if(humanity_lost >= 500)
-		to_chat(owner.current, span_warning("You hit the maximum amount of lost Humanity, you are far from Human."))
+		to_chat(owner.current, "<span class='warning'>You hit the maximum amount of lost Humanity, you are far from Human.</span>")
 		return
 	humanity_lost += value
-	to_chat(owner.current, span_warning("You feel as if you lost some of your humanity, you will now enter Frenzy at [FRENZY_THRESHOLD_ENTER + (humanity_lost * 10)] Blood."))
+	to_chat(owner.current, "<span class='warning'>You feel as if you lost some of your humanity, you will now enter Frenzy at [FRENZY_THRESHOLD_ENTER + (humanity_lost * 10)] Blood.</span>")
 
 /// mult: SILENT feed is 1/3 the amount
 /datum/antagonist/bloodsucker/proc/HandleFeeding(mob/living/carbon/target, mult=1, power_level)
@@ -78,7 +78,7 @@
 		if(target.mind)
 			task_blood_drank += blood_taken
 		else
-			to_chat(owner, span_warning("[target] is catatonic and won't yield any usable blood for tasks!"))
+			to_chat(owner, "<span class='warning'>[target] is catatonic and won't yield any usable blood for tasks!</span>")
 	return blood_taken
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -105,7 +105,7 @@
 	var/amInCoffin = istype(user.loc, /obj/structure/closet/crate/coffin)
 	if(amInCoffin && HAS_TRAIT(user, TRAIT_NODEATH))
 		if(HAS_TRAIT(owner.current, TRAIT_MASQUERADE))
-			to_chat(user, span_warning("You will not heal while your Masquerade ability is active."))
+			to_chat(user, "<span class='warning'>You will not heal while your Masquerade ability is active.</span>")
 			return
 		fireheal = min(user.getFireLoss(), actual_regen)
 		mult *= 5 // Increase multiplier if we're sleeping in a coffin.
@@ -136,7 +136,7 @@
 		AddBloodVolume(limb_regen_cost)
 		var/obj/item/bodypart/missing_bodypart = user.get_bodypart(targetLimbZone) // 2) Limb returns Damaged
 		missing_bodypart.brute_dam = 60
-		to_chat(user, span_notice("Your flesh knits as it regrows your [missing_bodypart]!"))
+		to_chat(user, "<span class='notice'>Your flesh knits as it regrows your [missing_bodypart]!</span>")
 		playsound(user, 'sound/magic/demon_consume.ogg', 50, TRUE)
 		return TRUE
 
@@ -228,7 +228,7 @@
 	if(owner.current.stat == DEAD)
 		var/mob/living/carbon/human/dead_bloodsucker = owner.current
 		if(!HAS_TRAIT(dead_bloodsucker, TRAIT_NODEATH))
-			to_chat(dead_bloodsucker, span_danger("Your immortal body will not yet relinquish your soul to the abyss. You enter Torpor."))
+			to_chat(dead_bloodsucker, "<span class='danger'>Your immortal body will not yet relinquish your soul to the abyss. You enter Torpor.</span>")
 			Check_Begin_Torpor(TRUE)
 
 /datum/antagonist/bloodsucker/proc/HandleStarving() // I am thirsty for blood!
@@ -274,7 +274,7 @@
 				owner.current.apply_status_effect(STATUS_EFFECT_FRENZY)
 				return
 			if(1)
-				to_chat(owner, span_warning("You start feeling hungrier, you feel like a normal frenzy won't satiate it enough anymore."))
+				to_chat(owner, "<span class='warning'>You start feeling hungrier, you feel like a normal frenzy won't satiate it enough anymore.</span>")
 				owner.current.apply_status_effect(STATUS_EFFECT_FRENZY)
 				return
 			if(2 to INFINITY)
@@ -282,15 +282,15 @@
 				if(!do_mob(user, user, 2 SECONDS, TRUE))
 					return
 				playsound(user.loc, 'sound/weapons/slash.ogg', 25, 1)
-				to_chat(user, span_warning("<i><b>You skin rips and tears.</b></i>"))
+				to_chat(user, "<span class='warning'><i><b>You skin rips and tears.</b></i></span>")
 				if(!do_mob(user, user,  1 SECONDS, TRUE))
 					return
 				playsound(user.loc, 'sound/weapons/slashmiss.ogg', 25, 1)
-				to_chat(user, span_warning("<i><b>You heart pumps blackened blood into your veins as your skin turns into fur.</b></i>"))
+				to_chat(user, "<span class='warning'><i><b>You heart pumps blackened blood into your veins as your skin turns into fur.</b></i></span>")
 				if(!do_mob(user, user,  1 SECONDS, TRUE))
 					return
 				playsound(user.loc, 'sound/weapons/slice.ogg', 25, 1)
-				to_chat(user, span_boldnotice("<i><b><FONT size = 3>YOU HAVE AWOKEN.</b></i>"))
+				to_chat(user, "<span class='boldnotice'><i><b><FONT size = 3>YOU HAVE AWOKEN.</b></i></span>")
 				var/mob/living/simple_animal/hostile/bloodsucker/werewolf/ww
 				if(!ww || ww.stat == DEAD)
 					ww = new /mob/living/simple_animal/hostile/bloodsucker/werewolf(user.loc)
@@ -338,7 +338,7 @@
 		if(!HAS_TRAIT(owner.current, TRAIT_NODEATH))
 			/// Staked? Dont heal
 			if(owner.current.AmStaked())
-				to_chat(owner.current, span_userdanger("You are staked! Remove the offending weapon from your heart before sleeping."))
+				to_chat(owner.current, "<span class='userdanger'>You are staked! Remove the offending weapon from your heart before sleeping.</span>")
 				return
 			/// Otherwise, check if it's Sol, to enter Torpor.
 			if(clan.bloodsucker_sunlight.amDay)
@@ -377,7 +377,7 @@
 
 /datum/antagonist/bloodsucker/proc/Torpor_Begin()
 	var/mob/living/carbon/human/bloodsucker = owner.current
-	to_chat(owner.current, span_notice("You enter the horrible slumber of deathless Torpor. You will heal until you are renewed."))
+	to_chat(owner.current, "<span class='notice'>You enter the horrible slumber of deathless Torpor. You will heal until you are renewed.</span>")
 	/// Force them to go to sleep
 	REMOVE_TRAIT(owner.current, TRAIT_SLEEPIMMUNE, BLOODSUCKER_TRAIT)
 	/// Without this, you'll just keep dying while you recover.
@@ -393,7 +393,7 @@
 /datum/antagonist/bloodsucker/proc/Torpor_End()
 	var/mob/living/carbon/human/bloodsucker = owner.current
 	owner.current.grab_ghost()
-	to_chat(owner.current, span_warning("You have recovered from Torpor."))
+	to_chat(owner.current, "<span class='warning'>You have recovered from Torpor.</span>")
 	if(my_clan == CLAN_LASOMBRA)
 		bloodsucker.physiology.brute_mod *= 0
 	else
@@ -425,15 +425,15 @@
 	// Elders get dusted, Fledglings get gibbed
 	if(bloodsucker_level >= 4)
 		owner.current.visible_message(
-			span_warning("[owner.current]'s skin crackles and dries, their skin and bones withering to dust. A hollow cry whips from what is now a sandy pile of remains."),
-			span_userdanger("Your soul escapes your withering body as the abyss welcomes you to your Final Death."),
-			span_hear("You hear a dry, crackling sound."))
+			"<span class='warning'>[owner.current]'s skin crackles and dries, their skin and bones withering to dust. A hollow cry whips from what is now a sandy pile of remains.</span>",
+			"<span class='userdanger'>Your soul escapes your withering body as the abyss welcomes you to your Final Death.</span>",
+			"<span class='hear'>You hear a dry, crackling sound.</span>")
 		addtimer(CALLBACK(owner.current, /mob/living.proc/dust), 5 SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 	else
 		owner.current.visible_message(
-			span_warning("[owner.current]'s skin bursts forth in a spray of gore and detritus. A horrible cry echoes from what is now a wet pile of decaying meat."),
-			span_userdanger("Your soul escapes your withering body as the abyss welcomes you to your Final Death."),
-			span_hear("<span class='italics'>You hear a wet, bursting sound."))
+			"<span class='warning'>[owner.current]'s skin bursts forth in a spray of gore and detritus. A horrible cry echoes from what is now a wet pile of decaying meat.</span>",
+			"<span class='userdanger'>Your soul escapes your withering body as the abyss welcomes you to your Final Death.</span>",
+			"<span class='hear'><span class='italics'>You hear a wet, bursting sound.</span>")
 		owner.current.gib(TRUE, FALSE, FALSE)
 
 

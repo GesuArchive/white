@@ -35,7 +35,7 @@
 		return ..()
 	var/mob/living/pushed_mob = user.pulling
 	if(pushed_mob.buckled)
-		to_chat(user, span_warning("[pushed_mob] пристегнут к [pushed_mob.buckled]!"))
+		to_chat(user, "<span class='warning'>[pushed_mob] пристегнут к [pushed_mob.buckled]!</span>")
 		return ..()
 	to_chat(user,"<span class='notice>Пытаюсь coax [pushed_mob] onto [src]...</span>")
 	if(!do_after(user,(5 SECONDS),target = pushed_mob))
@@ -70,10 +70,10 @@
 
 /obj/item/ritual_totem/proc/block_magic(mob/user, major)
 	if(major)
-		to_chat(user, span_warning("[src] поглощает магию!"))
+		to_chat(user, "<span class='warning'>[src] поглощает магию!</span>")
 
 /obj/item/ritual_totem/proc/expire(mob/user)
-	to_chat(user, span_warning("[src] быстро сгнивает!"))
+	to_chat(user, "<span class='warning'>[src] быстро сгнивает!</span>")
 	qdel(src)
 	new /obj/effect/decal/cleanable/ash(drop_location())
 
@@ -85,18 +85,18 @@
 	. = ..()
 	var/is_holy = user.mind?.holy_role
 	if(is_holy)
-		. += span_notice("[src] может быть перемещен только последователем [GLOB.deity] с высоким саном.")
+		. += "<span class='notice'>[src] может быть перемещен только последователем [GLOB.deity] с высоким саном.</span>"
 
 /obj/item/ritual_totem/pickup(mob/taker)
 	var/initial_loc = loc
 	var/holiness = taker.mind?.holy_role
 	var/no_take = FALSE
 	if(holiness == NONE)
-		to_chat(taker, span_warning("Как бы я ни старался, у меня не получается поднять [src]!"))
+		to_chat(taker, "<span class='warning'>Как бы я ни старался, у меня не получается поднять [src]!</span>")
 		no_take = TRUE
 	else if(holiness == HOLY_ROLE_DEACON) //deacons cannot pick them up either
 		no_take = TRUE
-		to_chat(taker, span_warning("Не могу поднять [src]. Мой сан [GLOB.deity] слишком низок чтобы сделать это."))
+		to_chat(taker, "<span class='warning'>Не могу поднять [src]. Мой сан [GLOB.deity] слишком низок чтобы сделать это.</span>")
 	..()
 	if(no_take)
 		taker.dropItemToGround(src)

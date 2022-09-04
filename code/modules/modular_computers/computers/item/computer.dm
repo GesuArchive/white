@@ -266,7 +266,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 /obj/item/modular_computer/emag_act(mob/user)
 	if(!enabled)
-		to_chat(user, span_warning("Сначала тебе следует включить [src]."))
+		to_chat(user, "<span class='warning'>Сначала тебе следует включить [src].</span>")
 		return FALSE
 	obj_flags |= EMAGGED //Mostly for consistancy purposes; the programs will do their own emag handling
 	var/newemag = FALSE
@@ -277,9 +277,9 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		if(app.run_emag())
 			newemag = TRUE
 	if(newemag)
-		to_chat(user, span_notice("Провожу <b>[src.name]</b>. Окно консоли немедленно заполняет экран, а белый текст быстро прокручивается."))
+		to_chat(user, "<span class='notice'>Провожу <b>[src.name]</b>. Окно консоли немедленно заполняет экран, а белый текст быстро прокручивается.</span>")
 		return TRUE
-	to_chat(user, span_notice("Провожу <b>[src.name]</b>. Окно консоли заполняет экран, но оно быстро закрывается после того, как в него записано всего несколько строк."))
+	to_chat(user, "<span class='notice'>Провожу <b>[src.name]</b>. Окно консоли заполняет экран, но оно быстро закрывается после того, как в него записано всего несколько строк.</span>")
 	return FALSE
 
 /obj/item/modular_computer/examine(mob/user)
@@ -343,9 +343,9 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	var/issynth = issilicon(user) // Robots and AIs get different activation messages.
 	if(obj_integrity <= integrity_failure * max_integrity)
 		if(issynth)
-			to_chat(user, span_warning("Посылаю сигнал активации <b>[src.name]</b>, но он отвечает кодом ошибки. Должно быть, что он повреждён."))
+			to_chat(user, "<span class='warning'>Посылаю сигнал активации <b>[src.name]</b>, но он отвечает кодом ошибки. Должно быть, что он повреждён.</span>")
 		else
-			to_chat(user, span_warning("Нажимаю кнопку питания, но компьютер не загружается, перед повторным выключением отображается множество ошибок."))
+			to_chat(user, "<span class='warning'>Нажимаю кнопку питания, но компьютер не загружается, перед повторным выключением отображается множество ошибок.</span>")
 		return FALSE
 
 	// If we have a recharger, enable it automatically. Lets computer without a battery work.
@@ -355,9 +355,9 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 	if(all_components[MC_CPU] && use_power()) // use_power() checks if the PC is powered
 		if(issynth)
-			to_chat(user, span_notice("Посылаю сигнал активации <b>[src.name]</b>, включая его."))
+			to_chat(user, "<span class='notice'>Посылаю сигнал активации <b>[src.name]</b>, включая его.</span>")
 		else
-			to_chat(user, span_notice("Нажимаю кнопку питания включая <b>[src.name]</b>."))
+			to_chat(user, "<span class='notice'>Нажимаю кнопку питания включая <b>[src.name]</b>.</span>")
 		if(looping_sound)
 			soundloop.start()
 		enabled = 1
@@ -367,9 +367,9 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		return TRUE
 	else // Unpowered
 		if(issynth)
-			to_chat(user, span_warning("Посылаю сигнал активации <b>[src.name]</b>, но тот не отвечает."))
+			to_chat(user, "<span class='warning'>Посылаю сигнал активации <b>[src.name]</b>, но тот не отвечает.</span>")
 		else
-			to_chat(user, span_warning("Нажимаю кнопку питания <b>[src.name]</b>, но тот не отвечает."))
+			to_chat(user, "<span class='warning'>Нажимаю кнопку питания <b>[src.name]</b>, но тот не отвечает.</span>")
 		return FALSE
 
 // Process currently calls handle_power(), may be expanded in future if more things are added.
@@ -425,7 +425,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	if(!caller || !caller.alert_able || caller.alert_silenced || !alerttext) //Yeah, we're checking alert_able. No, you don't get to make alerts that the user can't silence.
 		return
 	playsound(src, sound, 50, TRUE)
-	visible_message(span_notice(" [src] отображает [caller.filedesc] уведомление: [alerttext]"))
+	visible_message("<span class='notice'> [src] отображает [caller.filedesc] уведомление: [alerttext]</span>")
 	var/mob/living/holder = loc
 	if(istype(holder))
 		to_chat(holder, "[icon2html(src)] <span class='notice'> [src] отображает [caller.filedesc] уведомление: [alerttext]</span>")
@@ -521,7 +521,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		CRASH("tried to open program that does not belong to this computer")
 
 	if(!program || !istype(program)) // Program not found or it's not executable program.
-		to_chat(user, span_danger("<b>[src.name]</b>'s экран показывает предупреждение \"I/O ОШИБКА — невозможно запустить программу\"."))
+		to_chat(user, "<span class='danger'><b>[src.name]</b>'s экран показывает предупреждение \"I/O ОШИБКА — невозможно запустить программу\".</span>")
 		return FALSE
 
 	if(!program.is_supported_by_hardware(hardware_flag, 1, user))
@@ -540,11 +540,11 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	var/obj/item/computer_hardware/processor_unit/PU = all_components[MC_CPU]
 
 	if(idle_threads.len > PU.max_idle_programs)
-		to_chat(user, span_danger("<b>[src.name]</b> отображает ошибку \"Достигнута максимальная загрузка процессора. Невозможно запустить другую программу.\"."))
+		to_chat(user, "<span class='danger'><b>[src.name]</b> отображает ошибку \"Достигнута максимальная загрузка процессора. Невозможно запустить другую программу.\".</span>")
 		return FALSE
 
 	if(program.requires_ntnet && !get_ntnet_status(program.requires_ntnet_feature)) // The program requires NTNet connection, but we are not connected to NTNet.
-		to_chat(user, span_danger("<b>[src.name]</b>'s экран отображает \"Невозможно подсоединиться к NTNet. Попробуйте заново. Если проблема не исчезнет, обратитесь к системному администратору.\" предупреждение."))
+		to_chat(user, "<span class='danger'><b>[src.name]</b>'s экран отображает \"Невозможно подсоединиться к NTNet. Попробуйте заново. Если проблема не исчезнет, обратитесь к системному администратору.\" предупреждение.</span>")
 		return FALSE
 
 	if(program.on_start(user))
@@ -579,7 +579,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	if(looping_sound)
 		soundloop.stop()
 	if(loud)
-		physical.visible_message(span_notice("<b>[src.name]</b> выключается."))
+		physical.visible_message("<span class='notice'><b>[src.name]</b> выключается.</span>")
 	enabled = 0
 	update_icon()
 
@@ -616,7 +616,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	if(!deconstructable)
 		return
 	if(!all_components.len)
-		to_chat(user, span_warning("На этом устройстве не установлены какие-либо компоненты."))
+		to_chat(user, "<span class='warning'>На этом устройстве не установлены какие-либо компоненты.</span>")
 		return
 	var/list/component_names = list()
 	for(var/h in all_components)
@@ -651,7 +651,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 			return
 		pai = W
 		pai.slotted = TRUE
-		to_chat(user, span_notice("You slot \the [W] into [src]."))
+		to_chat(user, "<span class='notice'>You slot \the [W] into [src].</span>")
 		return
 
 	// Scan a photo.
@@ -678,26 +678,26 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 	if(W.tool_behaviour == TOOL_WRENCH)
 		if(all_components.len)
-			to_chat(user, span_warning("Извлеките все компоненты из <b>[src.name]</b> перед его разборкой."))
+			to_chat(user, "<span class='warning'>Извлеките все компоненты из <b>[src.name]</b> перед его разборкой.</span>")
 			return
 		new /obj/item/stack/sheet/iron( get_turf(src.loc), steel_sheet_cost )
-		physical.visible_message(span_notice("<b>[src.name]</b> разобран [user]."))
+		physical.visible_message("<span class='notice'><b>[src.name]</b> разобран [user].</span>")
 		relay_qdel()
 		qdel(src)
 		return
 
 	if(W.tool_behaviour == TOOL_WELDER)
 		if(obj_integrity == max_integrity)
-			to_chat(user, span_warning("<b>[src.name]</b> не требуется ремонт."))
+			to_chat(user, "<span class='warning'><b>[src.name]</b> не требуется ремонт.</span>")
 			return
 
 		if(!W.tool_start_check(user, amount=1))
 			return
 
-		to_chat(user, span_notice("Начинаю ремонтировать повреждения <b>[src.name]</b>..."))
+		to_chat(user, "<span class='notice'>Начинаю ремонтировать повреждения <b>[src.name]</b>...</span>")
 		if(W.use_tool(src, user, 20, volume=50, amount=1))
 			obj_integrity = max_integrity
-			to_chat(user, span_notice("Чиню<b>[src.name]</b>."))
+			to_chat(user, "<span class='notice'>Чиню<b>[src.name]</b>.</span>")
 		return
 
 	var/obj/item/computer_hardware/card_slot/card_slot = all_components[MC_CARD]

@@ -2,7 +2,7 @@
 	name = "Слияние с пустотой"
 	desc = "Редкий геном, способный преодолеть законы эвклидового пространства и укрыть носителя за завесой мрачной и холодной пустоты мертвого космоса."
 	quality = MINOR_NEGATIVE //upsides and downsides
-	text_gain_indication = span_notice("Я ощущаю невероятную взгляд чего-то древнего и бесконечно огромного.")
+	text_gain_indication = "<span class='notice'>Я ощущаю невероятную взгляд чего-то древнего и бесконечно огромного.</span>"
 	instability = 30
 	power_path = /datum/action/cooldown/spell/void
 	energy_coeff = 1

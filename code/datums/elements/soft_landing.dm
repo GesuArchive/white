@@ -21,5 +21,5 @@
 	SIGNAL_HANDLER
 
 	for (var/mob/living/falling_victim in falling_movables)
-		to_chat(falling_victim, span_notice("[soft_object] provides a soft landing for you!"))
+		to_chat(falling_victim, "<span class='notice'>[soft_object] provides a soft landing for you!</span>")
 	return FALL_INTERCEPTED | FALL_NO_MESSAGE

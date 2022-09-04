@@ -23,12 +23,12 @@
 
 /obj/item/toy/singlecard/wizoff_ruleset/examine(mob/living/carbon/human/user)
 	. = ..()
-	. += span_notice("Remember the rules of Wiz-Off!")
-	. += span_info("Each player draws 5 cards.")
-	. += span_info("There are five rounds. Each round, a player selects a card to play, and the winner is selected based on the following rules:")
-	. += span_info("Defensive beats Offensive!")
-	. += span_info("Offensive beats Utility!")
-	. += span_info("Utility beats Defensive!")
-	. += span_info("If both players play the same type of spell, the higher number wins!")
-	. += span_info("The player who wins the most of the 5 rounds wins the game!")
-	. += span_notice("Now get ready to battle for the fate of the universe: Wiz-Off!")
+	. += "<span class='notice'>Remember the rules of Wiz-Off!</span>"
+	. += "<span class='info'>Each player draws 5 cards.</span>"
+	. += "<span class='info'>There are five rounds. Each round, a player selects a card to play, and the winner is selected based on the following rules:</span>"
+	. += "<span class='info'>Defensive beats Offensive!</span>"
+	. += "<span class='info'>Offensive beats Utility!</span>"
+	. += "<span class='info'>Utility beats Defensive!</span>"
+	. += "<span class='info'>If both players play the same type of spell, the higher number wins!</span>"
+	. += "<span class='info'>The player who wins the most of the 5 rounds wins the game!</span>"
+	. += "<span class='notice'>Now get ready to battle for the fate of the universe: Wiz-Off!</span>"

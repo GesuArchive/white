@@ -1,7 +1,7 @@
 /mob/living/silicon/ai/examine(mob/user)
 	. = list("")
 	if (stat == DEAD)
-		. += span_deadsay("Видимо он выключен полностью.")
+		. += "<span class='deadsay'>Видимо он выключен полностью.</span>"
 	else
 		if (getBruteLoss())
 			if (getBruteLoss() < 30)

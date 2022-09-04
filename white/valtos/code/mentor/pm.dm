@@ -3,7 +3,7 @@
 	set category = "Знаток"
 	set name = "Сообщение знатока"
 	if(!is_mentor())
-		to_chat(src, span_danger("Ошибка: Только знатоки или администраторы могут использовать эту команду.</span>"))
+		to_chat(src, "<span class='danger'>Ошибка: Только знатоки или администраторы могут использовать эту команду.</span></span>")
 		return
 	var/list/client/targets[0]
 	for(var/client/T)
@@ -28,13 +28,13 @@
 		target = whom
 	if(!target)
 		if(is_mentor())
-			to_chat(src, span_danger("Ошибка: Клиент не найден."))
+			to_chat(src, "<span class='danger'>Ошибка: Клиент не найден.</span>")
 		else
 			mentorhelp(msg)	//Mentor we are replying to left. Mentorhelp instead(check below)
 		return
 
 	if(is_mentor(whom))
-		to_chat(GLOB.mentors, span_mentor("[src] начинает отвечать [whom].</span>"))
+		to_chat(GLOB.mentors, "<span class='mentor'>[src] начинает отвечать [whom].</span></span>")
 
 	//get message text, limit it's length.and clean/escape html
 	if(!msg)
@@ -42,12 +42,12 @@
 
 		if(!msg)
 			if (is_mentor(whom))
-				to_chat(GLOB.mentors, span_mentor("[src] прекращает отвечать [whom].</span>"))
+				to_chat(GLOB.mentors, "<span class='mentor'>[src] прекращает отвечать [whom].</span></span>")
 			return
 
 		if(!target)
 			if(is_mentor())
-				to_chat(src, span_danger("Ошибка: Клиент не найден."))
+				to_chat(src, "<span class='danger'>Ошибка: Клиент не найден.</span>")
 			else
 				mentorhelp(msg)	//Mentor we are replying to has vanished, Mentorhelp instead (how the fuck does this work?let's hope it works,shrug)
 				return
@@ -58,7 +58,7 @@
 
 	if(!msg)
 		if (is_mentor(whom))
-			to_chat(GLOB.mentors, span_mentor("[src] прекращает отвечать [whom]."))
+			to_chat(GLOB.mentors, "<span class='mentor'>[src] прекращает отвечать [whom].</span>")
 		return
 	log_mentor("Mentor PM: [key_name(src)]->[key_name(target)]: [msg]")
 
@@ -67,17 +67,17 @@
 	var/show_char = CONFIG_GET(flag/mentors_mobname_only)
 	if(target.is_mentor())
 		if(is_mentor())//both are mentors
-			to_chat(target, span_mentor("Сообщение от <b>Знатока [key_name_mentor(src, target, 1, 0, 0)]</b>: [msg]"))
-			to_chat(src, span_mentor("Обращение <b>Знатока</b> к <b>[key_name_mentor(target, target, 1, 0, 0)]</b>: [msg]"))
+			to_chat(target, "<span class='mentor'>Сообщение от <b>Знатока [key_name_mentor(src, target, 1, 0, 0)]</b>: [msg]</span>")
+			to_chat(src, "<span class='mentor'>Обращение <b>Знатока</b> к <b>[key_name_mentor(target, target, 1, 0, 0)]</b>: [msg]</span>")
 
 		else		//recipient is a mentor but sender is not
-			to_chat(target, span_mentor("Ответ от <b>[key_name_mentor(src, target, 1, 0, show_char)]</b>: [msg]"))
-			to_chat(src, span_mentor("Ответ от <b>[key_name_mentor(target, target, 1, 0, 0)]</b>: [msg]"))
+			to_chat(target, "<span class='mentor'>Ответ от <b>[key_name_mentor(src, target, 1, 0, show_char)]</b>: [msg]</span>")
+			to_chat(src, "<span class='mentor'>Ответ от <b>[key_name_mentor(target, target, 1, 0, 0)]</b>: [msg]</span>")
 
 	else
 		if(is_mentor())	//sender is a mentor but recipient is not.
-			to_chat(target, span_mentor("Сообщение от <b>Знатока [key_name_mentor(src, target, 1, 0, 0)]</b>: [msg]"))
-			to_chat(src, span_mentor("Обращение <b>Знатока</b> к <b>[key_name_mentor(target, target, 1, 0, show_char)]</b>: [msg]"))
+			to_chat(target, "<span class='mentor'>Сообщение от <b>Знатока [key_name_mentor(src, target, 1, 0, 0)]</b>: [msg]</span>")
+			to_chat(src, "<span class='mentor'>Обращение <b>Знатока</b> к <b>[key_name_mentor(target, target, 1, 0, show_char)]</b>: [msg]</span>")
 
 	//we don't use message_Mentors here because the sender/receiver might get it too
 	var/show_char_sender = !is_mentor() && CONFIG_GET(flag/mentors_mobname_only)
@@ -85,4 +85,4 @@
 	for(var/it in GLOB.mentors)
 		var/client/mentor = it
 		if(mentor.key!=key && mentor.key!=target.key)	//check client/X is an Mentor and isn't the sender or recipient
-			to_chat(mentor, span_mentor("ЗНАТОК: [key_name_mentor(src, mentor, 0, 0, show_char_sender)]-&gt;[key_name_mentor(target, mentor, 0, 0, show_char_recip)]: [msg]"))
+			to_chat(mentor, "<span class='mentor'>ЗНАТОК: [key_name_mentor(src, mentor, 0, 0, show_char_sender)]-&gt;[key_name_mentor(target, mentor, 0, 0, show_char_recip)]: [msg]</span>")

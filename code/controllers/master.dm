@@ -265,7 +265,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 				msg = "Подсистема <b>[BadBoy.name]</b> похоже хочет умереть. Отключаем её."
 				BadBoy.flags |= SS_NO_FIRE
 		if(msg)
-			to_chat(GLOB.admins, span_green("[msg]"))
+			to_chat(GLOB.admins, "<span class='green'>[msg]</span>")
 			log_world(msg)
 
 	if (istype(Master.subsystems))
@@ -275,7 +275,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		current_runlevel = Master.current_runlevel
 		StartProcessing(10)
 	else
-		to_chat(world, span_green("Мастер-контроллер обосрался. Пытаемся переинициализировать <b>ВСЕ подсистемы</b>."))
+		to_chat(world, "<span class='green'>Мастер-контроллер обосрался. Пытаемся переинициализировать <b>ВСЕ подсистемы</b>.</span>")
 		Initialize(20, TRUE)
 
 
@@ -293,7 +293,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	init_stage_completed = 0
 	var/mc_started = FALSE
 
-	to_chat(world, span_green("Расставляем всё по полочкам..."))
+	to_chat(world, "<span class='green'>Расставляем всё по полочкам...</span>")
 
 	var/list/stage_sorted_subsystems = new(INITSTAGE_MAX)
 	for (var/i in 1 to INITSTAGE_MAX)
@@ -331,7 +331,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 			Master.StartProcessing(0)
 
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
-	to_chat(world, span_green("-- $<b>Мир</b>:> <b>[time]с</b> --"))
+	to_chat(world, "<span class='green'>-- $<b>Мир</b>:> <b>[time]с</b> --</span>")
 
 	log_world("World init for [time] seconds!")
 

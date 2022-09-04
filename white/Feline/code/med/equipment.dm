@@ -15,12 +15,12 @@
 /obj/item/medbot_carrier/attack(mob/living/M, mob/user, params)
 	var/mob/living/simple_animal/bot/medbot/bot = M
 	if(length(contents))
-		to_chat(user, span_warning("Переноска уже занята."))
+		to_chat(user, "<span class='warning'>Переноска уже занята.</span>")
 		return
 	if(!ismedbot(M))
-		to_chat(user, span_warning("В переноску можно поместить только медицинских ботов!"))
+		to_chat(user, "<span class='warning'>В переноску можно поместить только медицинских ботов!</span>")
 		return
-	to_chat(user, span_notice("Помещаю [M] в переноску, он довольно виляет лапками."))
+	to_chat(user, "<span class='notice'>Помещаю [M] в переноску, он довольно виляет лапками.</span>")
 	store(M)
 	icon_state = "medbot_carrier_[bot.damagetype_healer]"
 	w_class = WEIGHT_CLASS_BULKY
@@ -28,13 +28,13 @@
 
 /obj/item/medbot_carrier/attack_self(mob/user)
 	if(contents.len)
-		to_chat(user, span_notice("Выпускаю медбота на пол"))
+		to_chat(user, "<span class='notice'>Выпускаю медбота на пол</span>")
 		release()
 		icon_state = "medbot_carrier_empty"
 		w_class = WEIGHT_CLASS_NORMAL
 		worn_icon_state = "carrier_empty"
 	else
-		to_chat(user, span_warning("В переноске ничего нет..."))
+		to_chat(user, "<span class='warning'>В переноске ничего нет...</span>")
 
 /obj/item/medbot_carrier/proc/store(mob/living/M)
 	M.forceMove(src)
@@ -296,7 +296,7 @@
 /obj/item/solnce/attack_self(mob/user)
 	. = ..()
 	if(model_type == TYPE_SUN)
-		to_chat(usr, span_notice("Нажимаю кнопку выбора модели."))
+		to_chat(usr, "<span class='notice'>Нажимаю кнопку выбора модели.</span>")
 		var/static/list/choices = list(
 			"Инструкция" 	= image(icon = 'icons/obj/bureaucracy.dmi', icon_state = "paper_stack_words"),
 			"Венера" 		= image(icon = 'white/Feline/icons/sun.dmi', icon_state = "venus"),
@@ -356,7 +356,7 @@
 				blank_chem_1 = /datum/reagent/medicine/epinephrine
 				blank_chem_2 = /datum/reagent/medicine/c2/synthflesh
 		blank = BLANK_STEP_1
-		to_chat(user, span_notice("Выбрана модель МК-[model_type]."))
+		to_chat(user, "<span class='notice'>Выбрана модель МК-[model_type].</span>")
 		playsound(user, 'sound/items/rped.ogg', 100, TRUE)
 		update_icon()
 
@@ -365,7 +365,7 @@
 /obj/item/solnce/attackby(obj/item/I, mob/user, params)
 // 	Сброс при помощи отвертки
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
-		to_chat(user, span_notice("Сбрасываю выбранную систему к заводским настройкам."))
+		to_chat(user, "<span class='notice'>Сбрасываю выбранную систему к заводским настройкам.</span>")
 		playsound(user, 'sound/items/screwdriver.ogg', 100, TRUE)
 		if(!do_after(user, 2 SECONDS, src))
 			return TRUE
@@ -380,8 +380,8 @@
 	if(blank == BLANK_STEP_1)
 		if(istype(I, blank_item_1))
 //			var/obj/item/helper1 = blank_item_2
-//			to_chat(user, span_notice("Закрепляю [I] в первом слоте. Для следующего шага мне понадобится <b>[helper1.name]</b>."))
-			to_chat(user, span_notice("Закрепляю [I] в первом слоте."))
+//			to_chat(user, "<span class='notice'>Закрепляю [I] в первом слоте. Для следующего шага мне понадобится <b>[helper1.name]</b>.</span>")
+			to_chat(user, "<span class='notice'>Закрепляю [I] в первом слоте.</span>")
 			playsound(user, 'sound/machines/click.ogg', 100, TRUE)
 			qdel(I)
 			blank = BLANK_STEP_2
@@ -389,8 +389,8 @@
 	if(blank == BLANK_STEP_2)
 		if(istype(I, blank_item_2))
 //			var/datum/reagent/helper2 = blank_chem_1
-//			to_chat(user, span_notice("Закрепляю [I] во втором слоте. Для следующего шага мне понадобится <b>[helper2.name]</b> в объеме 10 единиц."))
-			to_chat(user, span_notice("Закрепляю [I] во втором слоте."))
+//			to_chat(user, "<span class='notice'>Закрепляю [I] во втором слоте. Для следующего шага мне понадобится <b>[helper2.name]</b> в объеме 10 единиц.</span>")
+			to_chat(user, "<span class='notice'>Закрепляю [I] во втором слоте.</span>")
 			playsound(user, 'sound/machines/click.ogg', 100, TRUE)
 			qdel(I)
 			blank = BLANK_STEP_3
@@ -398,11 +398,11 @@
 	if(blank == BLANK_STEP_3)
 		if(I.is_drainable() && I.reagents.has_reagent(blank_chem_1))
 			if(!I.reagents.has_reagent(blank_chem_1, 10))
-				to_chat(user, span_warning("В [I.name] недостаточно реагентов, необходимо по крайней мере 10 единиц!"))
+				to_chat(user, "<span class='warning'>В [I.name] недостаточно реагентов, необходимо по крайней мере 10 единиц!</span>")
 				return
 //			var/datum/reagent/helper3 = blank_chem_2
-//			to_chat(user, span_notice("Заливаю первый химический реагент. Для следующего шага мне понадобится <b>[helper3.name]</b> в объеме 10 единиц."))
-			to_chat(user, span_notice("Заливаю первый химический реагент."))
+//			to_chat(user, "<span class='notice'>Заливаю первый химический реагент. Для следующего шага мне понадобится <b>[helper3.name]</b> в объеме 10 единиц.</span>")
+			to_chat(user, "<span class='notice'>Заливаю первый химический реагент.</span>")
 			playsound(user, 'sound/machines/click.ogg', 100, TRUE)
 			I.reagents.remove_reagent(blank_chem_1, 10)
 			blank = BLANK_STEP_4
@@ -411,9 +411,9 @@
 		if(I.is_drainable() && I.reagents.has_reagent(blank_chem_2))
 
 			if(!I.reagents.has_reagent(blank_chem_2, 10))
-				to_chat(user, span_warning("В [I.name] недостаточно реагентов, необходимо по крайней мере 10 единиц!"))
+				to_chat(user, "<span class='warning'>В [I.name] недостаточно реагентов, необходимо по крайней мере 10 единиц!</span>")
 				return
-			to_chat(user, span_notice("Заливаю второй химический реагент."))
+			to_chat(user, "<span class='notice'>Заливаю второй химический реагент.</span>")
 			playsound(user, 'sound/machines/click.ogg', 100, TRUE)
 			I.reagents.remove_reagent(blank_chem_2, 10)
 			blank = BLANK_STEP_6
@@ -431,17 +431,17 @@
 /obj/item/solnce/attack(mob/living/M, mob/user)
 	. = ..()
 	if(model_type == TYPE_SUN)
-		to_chat(user, span_warning("Для начала работы, необходимо выбрать систему и установить расходные элементы."))
+		to_chat(user, "<span class='warning'>Для начала работы, необходимо выбрать систему и установить расходные элементы.</span>")
 		return
 	if(!blank == BLANK_STEP_6)
-		to_chat(user, span_warning("Необходимо установить расходные элементы."))
+		to_chat(user, "<span class='warning'>Необходимо установить расходные элементы.</span>")
 		return
 	var/obj/item/bodypart/limb = M.get_bodypart(check_zone(user.zone_selected))
 	if(!limb)
-		to_chat(user, span_notice("Конечность отсутствует!"))
+		to_chat(user, "<span class='notice'>Конечность отсутствует!</span>")
 		return
 	if(limb.status != BODYPART_ORGANIC)
-		to_chat(user, span_notice("Медицина бессильна перед синтетикой!"))
+		to_chat(user, "<span class='notice'>Медицина бессильна перед синтетикой!</span>")
 		return
 	switch(model_type)
 		if(TYPE_MARS)
@@ -450,10 +450,10 @@
 					use_charge()
 					M.heal_overall_damage(60, 60)
 				else
-					to_chat(user, span_warning("Уровень заряда критический, необходима перезарядка."))
+					to_chat(user, "<span class='warning'>Уровень заряда критический, необходима перезарядка.</span>")
 					playsound(user, 'white/Feline/sounds/solnce_off.ogg', 100, TRUE)
 			else
-				to_chat(user, span_notice("Состояние пациента удовлетворительное."))
+				to_chat(user, "<span class='notice'>Состояние пациента удовлетворительное.</span>")
 		if(TYPE_EARTH)
 			if(charge > 0)
 				use_charge()
@@ -461,7 +461,7 @@
 				M.reagents.add_reagent(/datum/reagent/medicine/space_stab,10)
 				M.reagents.add_reagent(/datum/reagent/medicine/salbutamol,10)
 			else
-				to_chat(user, span_warning("Уровень заряда критический, необходима перезарядка."))
+				to_chat(user, "<span class='warning'>Уровень заряда критический, необходима перезарядка.</span>")
 				playsound(user, 'white/Feline/sounds/solnce_off.ogg', 100, TRUE)
 		if(TYPE_VENUS)
 			if(M.getToxLoss() > 5)
@@ -469,10 +469,10 @@
 					use_charge()
 					M.setToxLoss(0)
 				else
-					to_chat(user, span_warning("Уровень заряда критический, необходима перезарядка."))
+					to_chat(user, "<span class='warning'>Уровень заряда критический, необходима перезарядка.</span>")
 					playsound(user, 'white/Feline/sounds/solnce_off.ogg', 100, TRUE)
 			else
-				to_chat(user, span_warning("Токсины отсутствуют."))
+				to_chat(user, "<span class='warning'>Токсины отсутствуют.</span>")
 		if(TYPE_SATURN)
 			if(limb?.wounds?.len)
 				if(charge > 0)
@@ -480,23 +480,23 @@
 					for(var/thing in limb.wounds)
 						var/datum/wound/W = thing
 						W.remove_wound()
-					to_chat(user, span_notice("Успешно исправили все переломы и вывихи в этой конечности."))
+					to_chat(user, "<span class='notice'>Успешно исправили все переломы и вывихи в этой конечности.</span>")
 				else
-					to_chat(user, span_warning("Уровень заряда критический, необходима перезарядка."))
+					to_chat(user, "<span class='warning'>Уровень заряда критический, необходима перезарядка.</span>")
 					playsound(user, 'white/Feline/sounds/solnce_off.ogg', 100, TRUE)
 			else
-				to_chat(user, span_warning("Не обнаружено травм в этой конечности."))
+				to_chat(user, "<span class='warning'>Не обнаружено травм в этой конечности.</span>")
 		if(TYPE_JUPITER)
 			if(M.blood_volume <= initial(M.blood_volume) - 50)
 				if(charge > 0)
 					use_charge()
 					M.restore_blood()
-					to_chat(user, span_notice("Уровень крови восстановлен."))
+					to_chat(user, "<span class='notice'>Уровень крови восстановлен.</span>")
 				else
-					to_chat(user, span_warning("Уровень заряда критический, необходима перезарядка."))
+					to_chat(user, "<span class='warning'>Уровень заряда критический, необходима перезарядка.</span>")
 					playsound(user, 'white/Feline/sounds/solnce_off.ogg', 100, TRUE)
 			else
-				to_chat(user, span_warning("Уровень крови в пределах нормы."))
+				to_chat(user, "<span class='warning'>Уровень крови в пределах нормы.</span>")
 
 #undef TYPE_SUN
 #undef TYPE_VENUS
@@ -564,11 +564,11 @@
 	if(alt_skin)
 		alt_skin = TRUE
 		worn_icon = 'white/Feline/icons/field_med_head_body_alt.dmi'
-		to_chat(user, span_notice("Разворачиваю кепку козырьком назад."))
+		to_chat(user, "<span class='notice'>Разворачиваю кепку козырьком назад.</span>")
 	else
 		alt_skin = FALSE
 		worn_icon = 'white/Feline/icons/field_med_head_body.dmi'
-		to_chat(user, span_notice("Разворачиваю кепку козырьком вперед."))
+		to_chat(user, "<span class='notice'>Разворачиваю кепку козырьком вперед.</span>")
 
 // 	Шкаф Полевика
 

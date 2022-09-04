@@ -60,7 +60,7 @@
 		var/mob/living/silicon/silicon = target
 		log_combat(shell, silicon, "shone in the sensors", src)
 		silicon.flash_act(affect_silicon = 1) /// no stunning, just a blind
-		to_chat(silicon, span_danger("Сенсоры перегружены лазером [shell]!"))
+		to_chat(silicon, "<span class='danger'>Сенсоры перегружены лазером [shell]!</span>")
 
 
 	///laserpointer image

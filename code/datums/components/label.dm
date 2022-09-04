@@ -62,7 +62,7 @@
 
 	remove_label()
 	playsound(parent, 'sound/items/poster_ripped.ogg', 20, TRUE)
-	to_chat(user, span_warning("Отклеиваю этикетку от [parent]."))
+	to_chat(user, "<span class='warning'>Отклеиваю этикетку от [parent].</span>")
 	qdel(src) // Remove the component from the object.
 
 /**
@@ -77,7 +77,7 @@
 /datum/component/label/proc/Examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
-	examine_list += span_notice("\nТут приклеена этикетка. Ее можно убрать той штукой с этикетками, удобно!")
+	examine_list += "<span class='notice'>\nТут приклеена этикетка. Ее можно убрать той штукой с этикетками, удобно!</span>"
 
 /// Applies a label to the name of the parent in the format of: "parent_name (label)"
 /datum/component/label/proc/apply_label()

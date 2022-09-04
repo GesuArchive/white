@@ -172,7 +172,7 @@
 	if(pod_ask == "Нет" || !src || QDELETED(src))
 		return
 	if(key)
-		to_chat(user, span_warning("Кто-то уже забрал спору"))
+		to_chat(user, "<span class='warning'>Кто-то уже забрал спору</span>")
 		return
 	key = user.key
 	log_game("[key_name(src)] took control of [name].")
@@ -200,7 +200,7 @@
 	H.forceMove(src)
 	oldguy = H
 	update_icons()
-	visible_message(span_warning("Тело [H.name] внезапно восстаёт из мёртвых!"))
+	visible_message("<span class='warning'>Тело [H.name] внезапно восстаёт из мёртвых!</span>")
 	if(!key)
 		if(!no_ghost)
 			notify_ghosts("<b>[src.name]</b> был создан в [get_area(src)].", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Зомби массы создан")

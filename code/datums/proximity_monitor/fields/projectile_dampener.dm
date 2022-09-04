@@ -105,7 +105,7 @@
 		if(!borg.has_buckled_mobs())
 			continue
 		for(var/mob/living/buckled_mob in borg.buckled_mobs)
-			buckled_mob.visible_message(span_warning("[buckled_mob] is knocked off of [borg] by the charge in [borg]'s chassis induced by the hyperkinetic dampener field!")) //I know it's bad.
+			buckled_mob.visible_message("<span class='warning'>[buckled_mob] is knocked off of [borg] by the charge in [borg]'s chassis induced by the hyperkinetic dampener field!</span>") //I know it's bad.
 			buckled_mob.Paralyze(1 SECONDS)
 			borg.unbuckle_mob(buckled_mob)
 			do_sparks(5, 0, buckled_mob)

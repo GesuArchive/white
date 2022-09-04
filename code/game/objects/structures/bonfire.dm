@@ -52,13 +52,13 @@
 			if("Stake")
 				can_buckle = TRUE
 				buckle_requires_restraints = TRUE
-				to_chat(user, span_notice("Добавляю прутик в <b>[src.name]</b>."))
+				to_chat(user, "<span class='notice'>Добавляю прутик в <b>[src.name]</b>.</span>")
 				var/mutable_appearance/rod_underlay = mutable_appearance('icons/obj/hydroponics/equipment.dmi', "bonfire_rod")
 				rod_underlay.pixel_y = 16
 				underlays += rod_underlay
 			if("Grill")
 				grill = TRUE
-				to_chat(user, span_notice("Добавляю гриль в <b>[src.name]</b>."))
+				to_chat(user, "<span class='notice'>Добавляю гриль в <b>[src.name]</b>.</span>")
 				add_overlay("bonfire_grill")
 			else
 				return ..()
@@ -84,7 +84,7 @@
 	if(.)
 		return
 	if(burning)
-		to_chat(user, span_warning("Нужно потушить [src], чтобы достать брёвна!"))
+		to_chat(user, "<span class='warning'>Нужно потушить [src], чтобы достать брёвна!</span>")
 		return
 	if(!has_buckled_mobs() && do_after(user, 50, target = src))
 		for(var/obj/item/grown/log/bonfire_log in contents)

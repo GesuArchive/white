@@ -85,9 +85,9 @@ GLOBAL_DATUM_INIT(cleaning_bubbles_higher, /mutable_appearance, mutable_appearan
 		cleaning_duration = cleaning_duration * min(user.mind.get_skill_modifier(/datum/skill/cleaning, SKILL_SPEED_MODIFIER)+skill_duration_modifier_offset,1)
 
 	//do the cleaning
-	user.visible_message(span_notice("<b>[user]</b> начинает мыть <b>[target]</b>!"), span_notice("Начинаю мыть <b>[target]</b>..."))
+	user.visible_message("<span class='notice'><b>[user]</b> начинает мыть <b>[target]</b>!</span>", "<span class='notice'>Начинаю мыть <b>[target]</b>...</span>")
 	if(do_after(user, cleaning_duration, target = target))
-		user.visible_message(span_notice("<b>[user]</b> моет <b>[target]</b>!"), span_notice("Мою <b>[target]</b>."))
+		user.visible_message("<span class='notice'><b>[user]</b> моет <b>[target]</b>!</span>", "<span class='notice'>Мою <b>[target]</b>.</span>")
 		if(clean_target)
 			if(isturf(target)) //cleaning the floor and every bit of filth on top of it
 				for(var/obj/effect/decal/cleanable/cleanable_decal in target) //it's important to do this before you wash all of the cleanables off

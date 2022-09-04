@@ -53,7 +53,7 @@
 	. = ..()
 	if(istype(W, /obj/item/assembly/signaler/anomaly/bluespace))
 		var/obj/item/assembly/signaler/anomaly/bluespace/S = W
-		to_chat(user, span_notice("Закрепляю ядро блюспейс аномалии в блюспейс сумке."))
+		to_chat(user, "<span class='notice'>Закрепляю ядро блюспейс аномалии в блюспейс сумке.</span>")
 		playsound(user, 'sound/items/handling/component_pickup.ogg', 100, TRUE)
 		if(!do_after(user, 2 SECONDS, src))
 			return TRUE
@@ -81,7 +81,7 @@
 	STR.max_combined_w_class = 35
 
 /obj/item/storage/backpack/holding/suicide_act(mob/living/user)
-	user.visible_message(span_suicide("[user] is jumping into [src]! It looks like [user.p_theyre()] trying to commit suicide."))
+	user.visible_message("<span class='suicide'>[user] is jumping into [src]! It looks like [user.p_theyre()] trying to commit suicide.</span>")
 	user.dropItemToGround(src, TRUE)
 	user.Stun(100, ignore_canstun = TRUE)
 	sleep(20)
@@ -106,7 +106,7 @@
 	STR.max_combined_w_class = 60
 
 /obj/item/storage/backpack/santabag/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] places [src] over [user.ru_ego()] head and pulls it tight! It looks like [user.ru_who()] [user.p_are()]n't in the Christmas spirit..."))
+	user.visible_message("<span class='suicide'>[user] places [src] over [user.ru_ego()] head and pulls it tight! It looks like [user.ru_who()] [user.p_are()]n't in the Christmas spirit...</span>")
 	return (OXYLOSS)
 
 /obj/item/storage/backpack/santabag/proc/regenerate_presents()
@@ -373,11 +373,11 @@
 		if(slowdown > 0)
 			slowdown = 0
 			playsound(user, 'sound/items/equip/toolbelt_equip.ogg', 100, TRUE)
-			to_chat(user, span_notice("Прикрепляю разгрузочно-подвесную систему к [src]."))
+			to_chat(user, "<span class='notice'>Прикрепляю разгрузочно-подвесную систему к [src].</span>")
 			add_overlay(duffel_anti_slow_overlay)
 			qdel(W)
 		else
-			to_chat(user, span_warning("[src] уже достаточно удобно сидит на спине и не нуждается в модернизации."))
+			to_chat(user, "<span class='warning'>[src] уже достаточно удобно сидит на спине и не нуждается в модернизации.</span>")
 	else
 		. = ..()
 /obj/item/duffel_anti_slow
@@ -451,10 +451,10 @@
 				playsound(src, 'sound/items/eatfood.ogg', 20, TRUE)
 				///poisoned food damages it
 				if(F.reagents.has_reagent(/datum/reagent/toxin))
-					to_chat(user, span_warning("The [name] grumbles!"))
+					to_chat(user, "<span class='warning'>The [name] grumbles!</span>")
 					obj_integrity -= 20
 				else
-					to_chat(user, span_notice("The [name] eats your [F]!"))
+					to_chat(user, "<span class='notice'>The [name] eats your [F]!</span>")
 				qdel(F)
 				hunger = 0
 				return
@@ -463,7 +463,7 @@
 		user.apply_damage(40, BRUTE, affecting)
 		hunger = 5
 		playsound(src, 'sound/items/eatfood.ogg', 20, TRUE)
-		to_chat(user, span_warning("The [name] eats your back!"))
+		to_chat(user, "<span class='warning'>The [name] eats your back!</span>")
 		obj_integrity -= 15
 
 /obj/item/storage/backpack/duffelbag/cursed/Destroy()

@@ -4,8 +4,8 @@
 	desc = "Геном изменяющий эпидермис носителя, позволяя ему сливаться окружающим пространством с течением времени."
 	quality = POSITIVE
 	difficulty = 16
-	text_gain_indication = span_notice("Я как будто могу смотреть сквозь свою руку...")
-	text_lose_indication = span_notice("Я более не прозрачен...")
+	text_gain_indication = "<span class='notice'>Я как будто могу смотреть сквозь свою руку...</span>"
+	text_lose_indication = "<span class='notice'>Я более не прозрачен...</span>"
 	instability = 25
 
 /datum/mutation/human/chameleon/on_acquiring(mob/living/carbon/human/owner)

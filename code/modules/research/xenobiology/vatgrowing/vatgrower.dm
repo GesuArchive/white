@@ -35,7 +35,7 @@
 		if(!prob(10))
 			return
 		playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
-		audible_message(pick(list(span_notice("[capitalize(src.name)] grumbles!") , span_notice("[capitalize(src.name)] makes a splashing noise!") , span_notice("[capitalize(src.name)] sloshes!"))))
+		audible_message(pick(list("<span class='notice'>[capitalize(src.name)] grumbles!</span>" , "<span class='notice'>[capitalize(src.name)] makes a splashing noise!</span>" , "<span class='notice'>[capitalize(src.name)] sloshes!</span>")))
 
 ///Handles the petri dish depositing into the vat.
 /obj/machinery/plumbing/growing_vat/attacked_by(obj/item/I, mob/living/user)
@@ -48,7 +48,7 @@
 		return ..()
 
 	if(biological_sample)
-		to_chat(user, span_warning("There is already a sample in the vat!"))
+		to_chat(user, "<span class='warning'>There is already a sample in the vat!</span>")
 		return
 	deposit_sample(user, petri)
 
@@ -59,7 +59,7 @@
 		biological_sample.micro_organisms += new m.type()
 	biological_sample.sample_layers = petri.sample.sample_layers
 	biological_sample.sample_color = petri.sample.sample_color
-	to_chat(user, span_warning("You put some of the sample in the vat!"))
+	to_chat(user, "<span class='warning'>You put some of the sample in the vat!</span>")
 	playsound(src, 'sound/effects/bubbles.ogg', 50, TRUE)
 	update_icon()
 	RegisterSignal(biological_sample, COMSIG_SAMPLE_GROWTH_COMPLETED, .proc/on_sample_growth_completed)
@@ -125,7 +125,7 @@
 		return
 	obj_flags |= EMAGGED
 	playsound(src, "sparks", 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-	to_chat(user, span_warning("You overload [src]'s resampling circuit."))
+	to_chat(user, "<span class='warning'>You overload [src]'s resampling circuit.</span>")
 	flick("growing_vat_emagged", src)
 
 /obj/machinery/plumbing/growing_vat/proc/on_sample_growth_completed()

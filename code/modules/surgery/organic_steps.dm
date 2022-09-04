@@ -7,9 +7,9 @@
 	time = 16
 
 /datum/surgery_step/incise/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю делать надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает делать надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает делать надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
+	display_results(user, target, "<span class='notice'>Начинаю делать надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...</span>" ,
+		"<span class='notice'>[user] начинает делать надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...</span>" ,
+		"<span class='notice'>[user] начинает делать надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
 		playsound(get_turf(target), 'sound/surgery/scalpel1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	display_pain(target, "Чувствую надрез в [ru_gde_zone(parse_zone(target_zone))].")
 
@@ -23,8 +23,8 @@
 	if ishuman(target)
 		var/mob/living/carbon/human/H = target
 		if (!(NOBLOOD in H.dna.species.species_traits))
-			display_results(user, target, span_notice("Кровь течет из надреза на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
-				span_notice("Кровь течет из надреза на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
+			display_results(user, target, "<span class='notice'>Кровь течет из надреза на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+				"<span class='notice'>Кровь течет из надреза на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
 				playsound(get_turf(target), 'sound/surgery/scalpel2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 			var/obj/item/bodypart/BP = target.get_bodypart(target_zone)
 			if(BP)
@@ -32,9 +32,9 @@
 	return ..()
 
 /datum/surgery_step/incise/nobleed/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Произвожу <i>аккуратный</i> надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает делать <i>аккуратный</i> надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начинает делать <i>аккуратный</i> надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
+	display_results(user, target, "<span class='notice'>Произвожу <i>аккуратный</i> надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...</span>" ,
+		"<span class='notice'>[user] начинает делать <i>аккуратный</i> надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+		"<span class='notice'>[user] начинает делать <i>аккуратный</i> надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
 		playsound(get_turf(target), 'sound/surgery/scalpel1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	display_pain(target, "Чувствую едва ощутимый надрез в [ru_gde_zone(parse_zone(target_zone))].")
 
@@ -45,15 +45,15 @@
 	time = 24
 
 /datum/surgery_step/clamp_bleeders/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю зажимать источник кровотечения на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает зажимать источник кровотечения на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начинает зажимать источник кровотечения на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, "<span class='notice'>Начинаю зажимать источник кровотечения на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...</span>" ,
+		"<span class='notice'>[user] начинает зажимать источник кровотечения на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+		"<span class='notice'>[user] начинает зажимать источник кровотечения на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>")
 	display_pain(target, "Чувствую укол в [ru_gde_zone(parse_zone(target_zone))].")
 
 /datum/surgery_step/clamp_bleeders/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
-	display_results(user, target, span_notice("Успешно зажимаю источник кровотечения на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."),
-		span_notice("[user] зажимает источник кровотечения на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."),
-		span_notice("[user] зажимает источник кровотечения на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."),
+	display_results(user, target, "<span class='notice'>Успешно зажимаю источник кровотечения на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>",
+		"<span class='notice'>[user] зажимает источник кровотечения на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>",
+		"<span class='notice'>[user] зажимает источник кровотечения на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>",
 		playsound(get_turf(target), 'sound/surgery/hemostat1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	if(locate(/datum/surgery_step/saw) in surgery.steps)
 		target.heal_bodypart_damage(20,0)
@@ -71,16 +71,16 @@
 	time = 24
 
 /datum/surgery_step/retract_skin/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю оттягивать кожу на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает оттягивать кожу на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начинает оттягивать кожу на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
+	display_results(user, target, "<span class='notice'>Начинаю оттягивать кожу на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...</span>" ,
+		"<span class='notice'>[user] начинает оттягивать кожу на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+		"<span class='notice'>[user] начинает оттягивать кожу на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
 		playsound(get_turf(target), 'sound/surgery/retractor1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	display_pain(target, "Чувствую тянущую боль в [parse_zone(target_zone)]!")
 
 /datum/surgery_step/retract_skin/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
-	display_results(user, target, span_notice("Успешно оттягиваю кожу на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."),
-		span_notice("[user] оттягивает кожу на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."),
-		span_notice("[user] оттягивает кожу на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."),
+	display_results(user, target, "<span class='notice'>Успешно оттягиваю кожу на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>",
+		"<span class='notice'>[user] оттягивает кожу на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>",
+		"<span class='notice'>[user] оттягивает кожу на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>",
 		playsound(get_turf(target), 'sound/surgery/retractor2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	return ..()
 
@@ -92,9 +92,9 @@
 	time = 24
 
 /datum/surgery_step/close/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю прижигать надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает прижигать надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начинает прижигать надрез на [ru_gde_zone(parse_zone(target_zone))].") ,
+	display_results(user, target, "<span class='notice'>Начинаю прижигать надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...</span>" ,
+		"<span class='notice'>[user] начинает прижигать надрез на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+		"<span class='notice'>[user] начинает прижигать надрез на [ru_gde_zone(parse_zone(target_zone))].</span>" ,
 		playsound(get_turf(target), 'sound/surgery/cautery1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	display_pain(target, "Ауч! Жжется!")
 
@@ -125,9 +125,9 @@
 	time = 54
 
 /datum/surgery_step/saw/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю пилить кость на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает пилить кость на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начинает пилить кость на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
+	display_results(user, target, "<span class='notice'>Начинаю пилить кость на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...</span>" ,
+		"<span class='notice'>[user] начинает пилить кость на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+		"<span class='notice'>[user] начинает пилить кость на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
 		playsound(get_turf(target), 'sound/surgery/saw.ogg', 40, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	display_pain(target, "Это очень больно! Моя [parse_zone(target_zone)]!")
 
@@ -138,9 +138,9 @@
 
 /datum/surgery_step/saw/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
 	target.apply_damage(50, BRUTE, "[target_zone]", wound_bonus=CANT_WOUND)
-	display_results(user, target, span_notice("Успешно отпиливаю кость на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] отпиливает кость на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
-		span_notice("[user] отпиливает кость на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
+	display_results(user, target, "<span class='notice'>Успешно отпиливаю кость на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+		"<span class='notice'>[user] отпиливает кость на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
+		"<span class='notice'>[user] отпиливает кость на [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
 		playsound(get_turf(target), 'sound/surgery/organ2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	display_pain(target, "От боли я практически не чувствую свою [ru_parse_zone(parse_zone(target_zone))]!")
 	return ..()
@@ -152,13 +152,13 @@
 	time = 30
 
 /datum/surgery_step/drill/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю сверление кости в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает сверление кости в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начинает сверление кости в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, "<span class='notice'>Начинаю сверление кости в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...</span>" ,
+		"<span class='notice'>[user] начинает сверление кости в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+		"<span class='notice'>[user] начинает сверление кости в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>")
 	display_pain(target, "Зубы сводит!")
 
 /datum/surgery_step/drill/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, span_notice("Успешно просверлил кость в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] успешно просверлил кость в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
-		span_notice("[user] успешно просверлил кость в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!"))
+	display_results(user, target, "<span class='notice'>Успешно просверлил кость в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+		"<span class='notice'>[user] успешно просверлил кость в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
+		"<span class='notice'>[user] успешно просверлил кость в [ru_gde_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!</span>")
 	return ..()

@@ -65,7 +65,7 @@ SUBSYSTEM_DEF(blackmarket)
 
 				var/obj/machinery/ltsrbt/pad = pick(telepads)
 
-				to_chat(recursive_loc_check(purchase.uplink.loc, /mob), span_notice("На экране [purchase.uplink] появляется сообщение, что [pad] обрабатывает заказ."))
+				to_chat(recursive_loc_check(purchase.uplink.loc, /mob), "<span class='notice'>На экране [purchase.uplink] появляется сообщение, что [pad] обрабатывает заказ.</span>")
 
 				queued_purchases -= purchase
 				pad.add_to_queue(purchase)
@@ -76,7 +76,7 @@ SUBSYSTEM_DEF(blackmarket)
 				if (!targetturf)
 					continue
 
-				to_chat(recursive_loc_check(purchase.uplink.loc, /mob), span_notice("На экране [purchase.uplink] появляется сообщение, что через 60 секунд заказ появится в [get_area(targetturf)]."))
+				to_chat(recursive_loc_check(purchase.uplink.loc, /mob), "<span class='notice'>На экране [purchase.uplink] появляется сообщение, что через 60 секунд заказ появится в [get_area(targetturf)].</span>")
 
 				// do_teleport does not want to teleport items from nullspace, so it just forceMoves and does sparks.
 				addtimer(CALLBACK(src, /datum/controller/subsystem/blackmarket/proc/fake_teleport, purchase.entry.spawn_item(), targetturf), 60 SECONDS)
@@ -91,7 +91,7 @@ SUBSYSTEM_DEF(blackmarket)
 				var/atom/movable/item = purchase.entry.spawn_item(pickedloc)
 				item.throw_at(purchase.uplink, 3, 3, spin = FALSE)
 
-				to_chat(recursive_loc_check(purchase.uplink.loc, /mob), span_notice("На экране [purchase.uplink] появляется сообщение, что заказ в данный момент летит в сторону станции из [dir2ru_text(startSide)]."))
+				to_chat(recursive_loc_check(purchase.uplink.loc, /mob), "<span class='notice'>На экране [purchase.uplink] появляется сообщение, что заказ в данный момент летит в сторону станции из [dir2ru_text(startSide)].</span>")
 
 				queued_purchases -= purchase
 				qdel(purchase)

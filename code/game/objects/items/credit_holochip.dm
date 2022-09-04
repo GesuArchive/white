@@ -78,7 +78,7 @@
 	if(istype(I, /obj/item/holochip))
 		var/obj/item/holochip/H = I
 		credits += H.credits
-		to_chat(user, span_notice("Вставляю кредиты в [src]."))
+		to_chat(user, "<span class='notice'>Вставляю кредиты в [src].</span>")
 		update_icon()
 		qdel(H)
 
@@ -96,7 +96,7 @@
 				H.forceMove(user.drop_location())
 			add_fingerprint(user)
 		H.add_fingerprint(user)
-		to_chat(user, span_notice("Извлек [split_amount] кредитов, формируя новый голочип."))
+		to_chat(user, "<span class='notice'>Извлек [split_amount] кредитов, формируя новый голочип.</span>")
 
 /obj/item/holochip/emp_act(severity)
 	. = ..()
@@ -104,7 +104,7 @@
 		return
 	var/wipe_chance = 60 / severity
 	if(prob(wipe_chance))
-		visible_message(span_warning("[capitalize(src.name)] fizzles and disappears!"))
+		visible_message("<span class='warning'>[capitalize(src.name)] fizzles and disappears!</span>")
 		qdel(src) //rip cash
 
 /obj/item/holochip/thousand

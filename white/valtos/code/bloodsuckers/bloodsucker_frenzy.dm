@@ -27,7 +27,7 @@
 	status_type = STATUS_EFFECT_UNIQUE
 	duration = -1
 	tick_interval = 10
-	examine_text = span_notice("They seem... inhumane, and feral!")
+	examine_text = "<span class='notice'>They seem... inhumane, and feral!</span>"
 	alert_type = /atom/movable/screen/alert/status_effect/frenzy
 	/// Store whether they were an advancedtooluser, to give the trait back upon exiting.
 	var/was_tooluser = FALSE
@@ -50,8 +50,8 @@
 
 	// Disable ALL Powers and notify their entry
 	bloodsuckerdatum.DisableAllPowers()
-	to_chat(owner, span_userdanger("<FONT size = 3>Blood! You need Blood, now! You enter a total Frenzy! Your skin starts sizzling...."))
-	to_chat(owner, span_announce("* Bloodsucker Tip: While in Frenzy, you instantly Aggresively grab, have stun resistance, cannot speak, hear, or use any powers outside of Feed and Trespass (If you have it)."))
+	to_chat(owner, "<span class='userdanger'><FONT size = 3>Blood! You need Blood, now! You enter a total Frenzy! Your skin starts sizzling....</span>")
+	to_chat(owner, "<span class='announce'>* Bloodsucker Tip: While in Frenzy, you instantly Aggresively grab, have stun resistance, cannot speak, hear, or use any powers outside of Feed and Trespass (If you have it).</span>")
 	// Stamina resistances
 	user.physiology.stamina_mod *= 0.4
 
@@ -75,7 +75,7 @@
 
 /datum/status_effect/frenzy/on_remove()
 	var/mob/living/carbon/human/user = owner
-	to_chat(owner, span_warning("You come back to your senses."))
+	to_chat(owner, "<span class='warning'>You come back to your senses.</span>")
 	REMOVE_TRAIT(owner, TRAIT_MUTE, FRENZY_TRAIT)
 	REMOVE_TRAIT(owner, TRAIT_DEAF, FRENZY_TRAIT)
 	if(was_tooluser)

@@ -54,11 +54,11 @@
 /obj/machinery/nuclearbomb/examine(mob/user)
 	. = ..()
 	if(IS_DREAMER(user))
-		. += span_danger("ТОЧКА ВЫХОДА. СЮДА НУЖНО ВВЕСТИ СУММУ ВСЕХ ЧИСЕЛ!")
+		. += "<span class='danger'>ТОЧКА ВЫХОДА. СЮДА НУЖНО ВВЕСТИ СУММУ ВСЕХ ЧИСЕЛ!</span>"
 	if(exploding)
-		. += span_danger("It is in the process of exploding. Perhaps reviewing your affairs is in order.")
+		. += "<span class='danger'>It is in the process of exploding. Perhaps reviewing your affairs is in order.</span>"
 	if(timing)
-		. += span_danger("There are [get_time_left()] seconds until detonation.")
+		. += "<span class='danger'>There are [get_time_left()] seconds until detonation.</span>"
 
 /obj/machinery/nuclearbomb/selfdestruct
 	name = "station self-destruct terminal"
@@ -106,10 +106,10 @@
 	switch(deconstruction_state)
 		if(NUKESTATE_INTACT)
 			if(istype(I, /obj/item/screwdriver/nuke))
-				to_chat(user, span_notice("You start removing [src] front panel's screws..."))
+				to_chat(user, "<span class='notice'>You start removing [src] front panel's screws...</span>")
 				if(I.use_tool(src, user, 60, volume=100))
 					deconstruction_state = NUKESTATE_UNSCREWED
-					to_chat(user, span_notice("You remove the screws from [src] front panel."))
+					to_chat(user, "<span class='notice'>You remove the screws from [src] front panel.</span>")
 					update_icon()
 				return
 
@@ -117,32 +117,32 @@
 			if(I.tool_behaviour == TOOL_WELDER)
 				if(!I.tool_start_check(user, amount=1))
 					return
-				to_chat(user, span_notice("You start cutting [src] inner plate..."))
+				to_chat(user, "<span class='notice'>You start cutting [src] inner plate...</span>")
 				if(I.use_tool(src, user, 80, volume=100, amount=1))
-					to_chat(user, span_notice("You cut [src] inner plate."))
+					to_chat(user, "<span class='notice'>You cut [src] inner plate.</span>")
 					deconstruction_state = NUKESTATE_WELDED
 					update_icon()
 				return
 		if(NUKESTATE_CORE_EXPOSED)
 			if(istype(I, /obj/item/nuke_core_container))
 				var/obj/item/nuke_core_container/core_box = I
-				to_chat(user, span_notice("You start loading the plutonium core into [core_box]..."))
+				to_chat(user, "<span class='notice'>You start loading the plutonium core into [core_box]...</span>")
 				if(do_after(user,50,target=src))
 					if(core_box.load(core, user))
-						to_chat(user, span_notice("You load the plutonium core into [core_box]."))
+						to_chat(user, "<span class='notice'>You load the plutonium core into [core_box].</span>")
 						deconstruction_state = NUKESTATE_CORE_REMOVED
 						update_icon()
 						core = null
 					else
-						to_chat(user, span_warning("You fail to load the plutonium core into [core_box]. [core_box] has already been used!"))
+						to_chat(user, "<span class='warning'>You fail to load the plutonium core into [core_box]. [core_box] has already been used!</span>")
 				return
 			if(istype(I, /obj/item/stack/sheet/iron))
 				if(!I.tool_start_check(user, amount=20))
 					return
 
-				to_chat(user, span_notice("You begin repairing [src] inner metal plate..."))
+				to_chat(user, "<span class='notice'>You begin repairing [src] inner metal plate...</span>")
 				if(I.use_tool(src, user, 100, amount=20))
-					to_chat(user, span_notice("You repair [src] inner metal plate. The radiation is contained."))
+					to_chat(user, "<span class='notice'>You repair [src] inner metal plate. The radiation is contained.</span>")
 					deconstruction_state = NUKESTATE_PANEL_REMOVED
 					STOP_PROCESSING(SSobj, core)
 					update_icon()
@@ -153,16 +153,16 @@
 	. = FALSE
 	switch(deconstruction_state)
 		if(NUKESTATE_UNSCREWED)
-			to_chat(user, span_notice("You start removing [src] front panel..."))
+			to_chat(user, "<span class='notice'>You start removing [src] front panel...</span>")
 			if(tool.use_tool(src, user, 30, volume=100))
-				to_chat(user, span_notice("You remove [src] front panel."))
+				to_chat(user, "<span class='notice'>You remove [src] front panel.</span>")
 				deconstruction_state = NUKESTATE_PANEL_REMOVED
 				update_icon()
 			return TRUE
 		if(NUKESTATE_WELDED)
-			to_chat(user, span_notice("You start prying off [src] inner plate..."))
+			to_chat(user, "<span class='notice'>You start prying off [src] inner plate...</span>")
 			if(tool.use_tool(src, user, 30, volume=100))
-				to_chat(user, span_notice("You pry off [src] inner plate. You can see the core's green glow!"))
+				to_chat(user, "<span class='notice'>You pry off [src] inner plate. You can see the core's green glow!</span>")
 				deconstruction_state = NUKESTATE_CORE_EXPOSED
 				update_icon()
 				START_PROCESSING(SSobj, core)
@@ -415,7 +415,7 @@
 
 /obj/machinery/nuclearbomb/proc/set_anchor()
 	if(isinspace() && !anchored)
-		to_chat(usr, span_warning("There is nothing to anchor to!"))
+		to_chat(usr, "<span class='warning'>There is nothing to anchor to!</span>")
 	else
 		set_anchored(!anchored)
 
@@ -434,7 +434,7 @@
 
 /obj/machinery/nuclearbomb/proc/set_active()
 	if(safety)
-		to_chat(usr, span_danger("The safety is still on."))
+		to_chat(usr, "<span class='danger'>The safety is still on.</span>")
 		return
 	timing = !timing
 	if(timing)
@@ -551,16 +551,16 @@
 /obj/machinery/nuclearbomb/beer/examine(mob/user)
 	. = ..()
 	if(keg.reagents.total_volume)
-		to_chat(user, span_notice("It has [keg.reagents.total_volume] unit\s left."))
+		to_chat(user, "<span class='notice'>It has [keg.reagents.total_volume] unit\s left.</span>")
 	else
-		to_chat(user, span_danger("It's empty."))
+		to_chat(user, "<span class='danger'>It's empty.</span>")
 
 /obj/machinery/nuclearbomb/beer/attackby(obj/item/W, mob/user, params)
 	if(W.is_refillable())
 		W.afterattack(keg, user, TRUE) 	// redirect refillable containers to the keg, allowing them to be filled
 		return TRUE 										// pretend we handled the attack, too.
 	if(istype(W, /obj/item/nuke_core_container))
-		to_chat(user, span_notice("[capitalize(src.name)] has had its plutonium core removed as a part of being decommissioned."))
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] has had its plutonium core removed as a part of being decommissioned.</span>")
 		return TRUE
 	return ..()
 
@@ -574,7 +574,7 @@
 	if(is_station_level(bomb_location.z))
 		addtimer(CALLBACK(src, .proc/really_actually_explode), 110)
 	else
-		visible_message(span_notice("[capitalize(src.name)] fizzes ominously."))
+		visible_message("<span class='notice'>[capitalize(src.name)] fizzes ominously.</span>")
 		addtimer(CALLBACK(src, .proc/local_foam), 110)
 
 /obj/machinery/nuclearbomb/beer/proc/disarm()
@@ -703,7 +703,7 @@ This is here to make the tiles around the station mininuke change when it's arme
 				loneop.weight += 1
 				if(loneop.weight % 5 == 0 && SSticker.totalPlayers > 1)
 					if(disk_comfort_level >= 2)
-						visible_message(span_notice("[capitalize(src)] тихонечко спит. Спи сладко, Диски."))
+						visible_message("<span class='notice'>[capitalize(src)] тихонечко спит. Спи сладко, Диски.</span>")
 						return
 					message_admins("[src] is stationary in [ADMIN_VERBOSEJMP(newturf)]. The weight of Lone Operative is now [loneop.weight].")
 				log_game("[src] is stationary for too long in [loc_name(newturf)], and has increased the weight of the Lone Operative event to [loneop.weight].")
@@ -730,8 +730,8 @@ This is here to make the tiles around the station mininuke change when it's arme
  * You can't accidentally eat the nuke disk, bro
  */
 /obj/item/disk/nuclear/on_accidental_consumption(mob/living/carbon/M, mob/living/carbon/user, obj/item/source_item, discover_after = TRUE)
-	M.visible_message(span_warning("[M] looks like [M.p_theyve()] just bitten into something important.") , \
-						span_warning("Wait, is this the nuke disk?"))
+	M.visible_message("<span class='warning'>[M] looks like [M.p_theyve()] just bitten into something important.</span>" , \
+						"<span class='warning'>Wait, is this the nuke disk?</span>")
 
 	return discover_after
 
@@ -739,18 +739,18 @@ This is here to make the tiles around the station mininuke change when it's arme
 	if(istype(I, /obj/item/claymore/highlander) && !fake)
 		var/obj/item/claymore/highlander/H = I
 		if(H.nuke_disk)
-			to_chat(user, span_notice("Wait... what?"))
+			to_chat(user, "<span class='notice'>Wait... what?</span>")
 			qdel(H.nuke_disk)
 			H.nuke_disk = null
 			return
-		user.visible_message(span_warning("[user] captures [src]!") , span_userdanger("You've got the disk! Defend it with your life!"))
+		user.visible_message("<span class='warning'>[user] captures [src]!</span>" , "<span class='userdanger'>You've got the disk! Defend it with your life!</span>")
 		forceMove(H)
 		H.nuke_disk = src
 		return TRUE
 	return ..()
 
 /obj/item/disk/nuclear/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is going delta! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message("<span class='suicide'>[user] is going delta! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	playsound(src, 'sound/machines/alarm.ogg', 50, -1, TRUE)
 	for(var/i in 1 to 100)
 		addtimer(CALLBACK(user, /atom/proc/add_atom_colour, (i % 2)? "#00FF00" : "#FF0000", ADMIN_COLOUR_PRIORITY), i)
@@ -759,7 +759,7 @@ This is here to make the tiles around the station mininuke change when it's arme
 
 /obj/item/disk/nuclear/proc/manual_suicide(mob/living/user)
 	user.remove_atom_colour(ADMIN_COLOUR_PRIORITY)
-	user.visible_message(span_suicide("[user] is destroyed by the nuclear blast!"))
+	user.visible_message("<span class='suicide'>[user] is destroyed by the nuclear blast!</span>")
 	user.adjustOxyLoss(200)
 	user.death(0)
 

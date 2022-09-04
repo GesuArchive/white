@@ -20,7 +20,7 @@
 	if(!change_id || QDELETED(user) || QDELETED(src) || !usr.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return
 	id = change_id
-	to_chat(user, span_notice("Меняю ID на [id]."))
+	to_chat(user, "<span class='notice'>Меняю ID на [id].</span>")
 
 /obj/item/assembly/control/activate()
 	var/openclose
@@ -41,7 +41,7 @@
 /obj/item/assembly/control/curtain/examine(mob/user)
 	. = ..()
 	if(id)
-		. += span_notice("Its channel ID is '[id]'.")
+		. += "<span class='notice'>Its channel ID is '[id]'.</span>"
 
 /obj/item/assembly/control/curtain/activate()
 	var/openclose

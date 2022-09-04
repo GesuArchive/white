@@ -334,10 +334,10 @@
 
 	var/obj/item/kiss_blower = new kiss_type(user)
 	if(user.put_in_hands(kiss_blower))
-		to_chat(user, span_notice("Готовлю свою руку для воздушного поцелуя."))
+		to_chat(user, "<span class='notice'>Готовлю свою руку для воздушного поцелуя.</span>")
 	else
 		qdel(kiss_blower)
-		to_chat(user, span_warning("Не могу пока целовать!"))
+		to_chat(user, "<span class='warning'>Не могу пока целовать!</span>")
 
 /datum/emote/living/laugh
 	key = "laugh"
@@ -714,7 +714,7 @@
 /datum/emote/living/custom/proc/check_invalid(mob/user, input)
 	var/static/regex/stop_bad_mime = regex(@"говорит|восклицает|кричит|спрашивает")
 	if(stop_bad_mime.Find(input, 1, 1))
-		to_chat(user, span_danger("Не знаю что делать!"))
+		to_chat(user, "<span class='danger'>Не знаю что делать!</span>")
 		return TRUE
 	return FALSE
 
@@ -722,12 +722,12 @@
 	if(!can_run_emote(user, TRUE, intentional))
 		return FALSE
 	if(is_banned_from(user.ckey, "Emote"))
-		to_chat(user, span_boldwarning("You cannot send custom emotes (banned)."))
+		to_chat(user, "<span class='boldwarning'>You cannot send custom emotes (banned).</span>")
 		return FALSE
 	else if(QDELETED(user))
 		return FALSE
 	else if(user.client && user.client.prefs.muted & MUTE_IC)
-		to_chat(user, span_boldwarning("You cannot send IC messages (muted)."))
+		to_chat(user, "<span class='boldwarning'>You cannot send IC messages (muted).</span>")
 		return FALSE
 	else if(!params)
 		var/custom_emote = copytext(sanitize(input("Choose an emote to display.") as text|null), 1, MAX_MESSAGE_LEN)

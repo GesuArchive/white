@@ -18,7 +18,7 @@
 		if(EQ.slot == slot)
 			room -= EQ.slot_space
 	if(room < slot_space)
-		to_chat(user, span_warning("There's no room for another [slot] system!"))
+		to_chat(user, "<span class='warning'>There's no room for another [slot] system!</span>")
 		return FALSE
 	return TRUE
 
@@ -47,11 +47,11 @@
 
 /obj/item/spacepod_equipment/weaponry/proc/fire_weapons(target)
 	if(spacepod.next_firetime > world.time)
-		to_chat(usr, span_warning("Your weapons are recharging."))
+		to_chat(usr, "<span class='warning'>Your weapons are recharging.</span>")
 		playsound(src, 'sound/weapons/gun/general/dry_fire.ogg', 30, TRUE)
 		return
 	if(!spacepod.cell || !spacepod.cell.use(shot_cost))
-		to_chat(usr, span_warning("Insufficient charge to fire the weapons"))
+		to_chat(usr, "<span class='warning'>Insufficient charge to fire the weapons</span>")
 		playsound(src, 'sound/weapons/gun/general/dry_fire.ogg', 30, TRUE)
 		return
 	spacepod.next_firetime = world.time + fire_delay
@@ -97,7 +97,7 @@
 
 /obj/item/spacepod_equipment/cargo/large/can_uninstall(mob/user)
 	if(storage)
-		to_chat(user, span_warning("Unload the cargo first!"))
+		to_chat(user, "<span class='warning'>Unload the cargo first!</span>")
 		return FALSE
 	return ..()
 
@@ -131,15 +131,15 @@
 		return FALSE
 	if(istype(A, storage_type) && SP.Adjacent(A)) // For loading ore boxes
 		if(!storage)
-			to_chat(user, span_notice("You begin loading [A] into [SP]'s [src]"))
+			to_chat(user, "<span class='notice'>You begin loading [A] into [SP]'s [src]</span>")
 			if(do_after_mob(user, list(A, SP), 40))
 				storage = A
 				A.forceMove(src)
-				to_chat(user, span_notice("You load [A] into [SP]'s [src]!"))
+				to_chat(user, "<span class='notice'>You load [A] into [SP]'s [src]!</span>")
 			else
-				to_chat(user, span_warning("You fail to load [A] into [SP]'s [src]"))
+				to_chat(user, "<span class='warning'>You fail to load [A] into [SP]'s [src]</span>")
 		else
-			to_chat(user, span_warning("[SP] already has \an [storage]"))
+			to_chat(user, "<span class='warning'>[SP] already has \an [storage]</span>")
 		return TRUE
 	return FALSE
 
@@ -180,7 +180,7 @@
 
 /obj/item/spacepod_equipment/cargo/chair/can_uninstall(mob/user)
 	if(spacepod.passengers.len > (spacepod.max_passengers - occupant_mod))
-		to_chat(user, span_warning("You can't remove an occupied seat! Remove the occupant first."))
+		to_chat(user, "<span class='warning'>You can't remove an occupied seat! Remove the occupant first.</span>")
 		return FALSE
 	return ..()
 
@@ -341,7 +341,7 @@
 			SP.lock_pod()
 			return
 		else
-			to_chat(user, span_warning("This is the wrong key!"))
+			to_chat(user, "<span class='warning'>This is the wrong key!</span>")
 		return TRUE
 	return FALSE
 
@@ -350,9 +350,9 @@
 		var/obj/item/spacepod_key/key = I
 		if(key.id == null)
 			key.id = id
-			to_chat(user, span_notice("You grind the blank key to fit the lock."))
+			to_chat(user, "<span class='notice'>You grind the blank key to fit the lock.</span>")
 		else
-			to_chat(user, span_warning("This key is already ground!"))
+			to_chat(user, "<span class='warning'>This key is already ground!</span>")
 	else
 		..()
 
@@ -394,7 +394,7 @@
 		icon_state = "lock_buster_on"
 	else
 		icon_state = "lock_buster_off"
-	to_chat(user, span_notice("You turn the [src] [on ? "on" : "off"]."))
+	to_chat(user, "<span class='notice'>You turn the [src] [on ? "on" : "off"].</span>")
 
 // Teleportation
 /obj/item/spacepod_equipment/teleport
@@ -409,7 +409,7 @@
 	set src = usr.loc
 
 	if(!(locate(/obj/item/spacepod_equipment/teleport) in equipment))
-		to_chat(usr, span_warning("Нет телепортирующего устройства!"))
+		to_chat(usr, "<span class='warning'>Нет телепортирующего устройства!</span>")
 		return
 
 	if(!verb_check())
@@ -417,7 +417,7 @@
 
 	if(do_after(usr, 5 SECONDS, src, timed_action_flags = IGNORE_INCAPACITATED))
 		if(!cell || !cell.use(5000))
-			to_chat(usr, span_warning("Недостаточно энергии!"))
+			to_chat(usr, "<span class='warning'>Недостаточно энергии!</span>")
 			return
 
 		for(var/atom/A in GLOB.yohei_beacons)
@@ -428,4 +428,4 @@
 				forceMove(T)
 				return
 
-		to_chat(usr, span_notice("ТЕЛЕПОРТИРУЕМСЯ!"))
+		to_chat(usr, "<span class='notice'>ТЕЛЕПОРТИРУЕМСЯ!</span>")

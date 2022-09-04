@@ -132,7 +132,7 @@
 
 /obj/item/armor_preassembly/proc/ap_add(obj/item/W, mob/user)
 	var/obj/item/stack/sheet/armor_plate/plasteel/S = W
-	to_chat(user, span_notice("Закрепляю [S] на дюраткани."))
+	to_chat(user, "<span class='notice'>Закрепляю [S] на дюраткани.</span>")
 	playsound(user, 'sound/items/handling/cloth_pickup.ogg', 100, TRUE)
 	if(!do_after(user, 2 SECONDS, src))
 		return TRUE
@@ -150,21 +150,21 @@
 			ap_add(W, user)
 			ap_plasteel = TRUE
 		else
-			to_chat(user, span_warning("На заготовке уже закреплена [W]."))
+			to_chat(user, "<span class='warning'>На заготовке уже закреплена [W].</span>")
 
 	if(istype(W, /obj/item/stack/sheet/armor_plate/ceramic))
 		if(!ap_ceramic)
 			ap_add(W, user)
 			ap_ceramic = TRUE
 		else
-			to_chat(user, span_warning("На заготовке уже закреплена [W]."))
+			to_chat(user, "<span class='warning'>На заготовке уже закреплена [W].</span>")
 
 	if(istype(W, /obj/item/stack/sheet/armor_plate/ablative))
 		if(!ap_ablative)
 			ap_add(W, user)
 			ap_ablative = TRUE
 		else
-			to_chat(user, span_warning("На заготовке уже закреплена [W]."))
+			to_chat(user, "<span class='warning'>На заготовке уже закреплена [W].</span>")
 
 	if(ap_plasteel && ap_ceramic && ap_ablative)
 		ap_step2 = TRUE
@@ -176,7 +176,7 @@
 		if(ap_step2)
 			var/obj/item/stack/cable_coil/S = W
 			if(S.amount >= 15)
-				to_chat(user, span_notice("Добавляю провода для скрепления конструкции."))
+				to_chat(user, "<span class='notice'>Добавляю провода для скрепления конструкции.</span>")
 				playsound(user, 'sound/items/handling/tape_pickup.ogg', 100, TRUE)
 				if(!do_after(user, 2 SECONDS, src))
 					return TRUE
@@ -188,9 +188,9 @@
 				new /obj/item/armor_disassembly	(src.drop_location())
 				qdel(src)
 			else
-				to_chat(user, span_warning("Для создания заготовки бронежилета необходимо по крайней мере 15 метров кабеля."))
+				to_chat(user, "<span class='warning'>Для создания заготовки бронежилета необходимо по крайней мере 15 метров кабеля.</span>")
 		else
-			to_chat(user, span_warning("Сначала необходимо закрепить все бронелисты."))
+			to_chat(user, "<span class='warning'>Сначала необходимо закрепить все бронелисты.</span>")
 
 /obj/item/armor_disassembly
 	name = "заготовка бронежилета"
@@ -201,7 +201,7 @@
 /obj/item/armor_disassembly/attackby(obj/item/W, mob/user, params)
 // 	Стандартная броня - отвертка
 	if(W.tool_behaviour == TOOL_SCREWDRIVER)
-		to_chat(user, span_notice("Распределяю бронепластины по стандартной схеме и закручиваю заклепки."))
+		to_chat(user, "<span class='notice'>Распределяю бронепластины по стандартной схеме и закручиваю заклепки.</span>")
 		playsound(user, 'sound/items/screwdriver.ogg', 100, TRUE)
 		if(!do_after(user, 2 SECONDS, src))
 			return TRUE
@@ -210,7 +210,7 @@
 		qdel(src)
 // 	Разборка заготовки на компоненты - кусачки
 	if(W.tool_behaviour == TOOL_WIRECUTTER)
-		to_chat(user, span_notice("Перекусываю скрепляющие швы на заготовке."))
+		to_chat(user, "<span class='notice'>Перекусываю скрепляющие швы на заготовке.</span>")
 		playsound(user, 'sound/items/wirecutter.ogg', 100, TRUE)
 		if(!do_after(user, 2 SECONDS, src))
 			return TRUE
@@ -224,7 +224,7 @@
 // 	Пуленепробиваемая броня - Керамическая
 	if(istype(W, /obj/item/stack/sheet/armor_plate/ceramic))
 		var/obj/item/stack/sheet/armor_plate/ceramic/S = W
-		to_chat(user, span_notice("Прикрепляю дополнительную бронепластину к раскройке и перераспределяю уже установленные, теперь бронежилет будет лучше защищать от пуль."))
+		to_chat(user, "<span class='notice'>Прикрепляю дополнительную бронепластину к раскройке и перераспределяю уже установленные, теперь бронежилет будет лучше защищать от пуль.</span>")
 		playsound(user, 'sound/items/handling/toolbelt_pickup.ogg', 100, TRUE)
 		if(!do_after(user, 2 SECONDS, src))
 			return TRUE
@@ -240,7 +240,7 @@
 	if(istype(W, /obj/item/stack/sheet/durathread))
 		var/obj/item/stack/sheet/durathread/S = W
 		if(S.amount >= 6)
-			to_chat(user, span_notice("Добавляю еще несколько слоев дюраткани, а так же распределяю бронепластины таким образом, чтобы они закрывали все тело, однако мне понадобится еще как минимум одна бронепластина."))
+			to_chat(user, "<span class='notice'>Добавляю еще несколько слоев дюраткани, а так же распределяю бронепластины таким образом, чтобы они закрывали все тело, однако мне понадобится еще как минимум одна бронепластина.</span>")
 			playsound(user, 'sound/items/handling/cloth_pickup.ogg', 100, TRUE)
 			if(!do_after(user, 2 SECONDS, src))
 				return TRUE
@@ -254,11 +254,11 @@
 			user.put_in_hands(I)
 			qdel(src)
 		else
-			to_chat(user, span_warning("Для создания брони антибунт необходимо по крайней мере 6 отрезов дюраткани."))
+			to_chat(user, "<span class='warning'>Для создания брони антибунт необходимо по крайней мере 6 отрезов дюраткани.</span>")
 // 	Зеркальная броня - Пласталь
 	if(istype(W, /obj/item/stack/sheet/armor_plate/ablative))
 		var/obj/item/stack/sheet/armor_plate/ablative/S = W
-		to_chat(user, span_notice("Прикрепляю дополнительные аблазивные раадиаторы к раскройке и перераспределяю уже установленные, теперь бронежилет будет лучше защищать от лазеров."))
+		to_chat(user, "<span class='notice'>Прикрепляю дополнительные аблазивные раадиаторы к раскройке и перераспределяю уже установленные, теперь бронежилет будет лучше защищать от лазеров.</span>")
 		playsound(user, 'sound/items/handling/toolbelt_pickup.ogg', 100, TRUE)
 		if(!do_after(user, 2 SECONDS, src))
 			return TRUE
@@ -273,7 +273,7 @@
 
 // 	Лабораторная броня
 	if(istype(W, /obj/item/clothing/suit/toggle/labcoat))
-		to_chat(user, span_notice("Закрепляю раскройку на лабораторном халате. Теперь у бронежилета повышеная защита от кислот и биоугроз, а так же есть крепления как для боевого снаряжения, так и медицинского."))
+		to_chat(user, "<span class='notice'>Закрепляю раскройку на лабораторном халате. Теперь у бронежилета повышеная защита от кислот и биоугроз, а так же есть крепления как для боевого снаряжения, так и медицинского.</span>")
 		playsound(user, 'sound/items/equip/toolbelt_equip.ogg', 100, TRUE)
 		if(!do_after(user, 2 SECONDS, src))
 			return TRUE
@@ -313,7 +313,7 @@
 	. = ..()
 	if(istype(W, /obj/item/stack/sheet/armor_plate/plasteel))
 		var/obj/item/stack/sheet/armor_plate/plasteel/S = W
-		to_chat(user, span_notice("Прикрепляю дополнительную демпферную бронепластину, теперь бронежилет будет лучше защищать от ударов."))
+		to_chat(user, "<span class='notice'>Прикрепляю дополнительную демпферную бронепластину, теперь бронежилет будет лучше защищать от ударов.</span>")
 		playsound(user, 'sound/items/handling/toolbelt_pickup.ogg', 100, TRUE)
 		if(!do_after(user, 2 SECONDS, src))
 			return TRUE
@@ -722,7 +722,7 @@
 				user.put_in_hands(I)
 				update_appearance()
 			else
-				to_chat(user, span_warning("[capitalize(src.name)] пустой!"))
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] пустой!</span>")
 	else ..()
 	return
 

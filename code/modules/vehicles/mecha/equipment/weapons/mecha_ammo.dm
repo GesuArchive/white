@@ -22,10 +22,10 @@
 /obj/item/mecha_ammo/attack_self(mob/user)
 	..()
 	if(rounds)
-		to_chat(user, span_warning("Вы не можете расплющить коробку с боеприпасами, пока она не опустеет!"))
+		to_chat(user, "<span class='warning'>Вы не можете расплющить коробку с боеприпасами, пока она не опустеет!</span>")
 		return
 
-	to_chat(user, span_notice("Вы расплющиваете [src]."))
+	to_chat(user, "<span class='notice'>Вы расплющиваете [src].</span>")
 	var/trash = new /obj/item/stack/sheet/iron(user.loc)
 	qdel(src)
 	user.put_in_hands(trash)

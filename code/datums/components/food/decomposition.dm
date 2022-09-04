@@ -108,7 +108,7 @@
 	I.icon_state = decomp.icon_state
 	I.name = "гнилая [decomp.name]"
 	I.desc = "Фу. [decomp.desc]"
-	decomp.visible_message(span_notice("[capitalize(decomp.name)] портится!"))
+	decomp.visible_message("<span class='notice'>[capitalize(decomp.name)] портится!</span>")
 	qdel(decomp)
 	return
 

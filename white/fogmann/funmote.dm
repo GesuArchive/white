@@ -16,7 +16,7 @@
 				W.take_damage(25)
 			return
 		else if(user.key == "Deadman1740")
-			to_chat(user, span_red("<b>BACKDOOR INSIDE PIDORI OUTSIDE</b>"))
+			to_chat(user, "<span class='red'><b>BACKDOOR INSIDE PIDORI OUTSIDE</b></span>")
 			playsound(H, 'white/fogmann/vamban.ogg')
 			qdel(H)
 			return

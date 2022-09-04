@@ -34,11 +34,11 @@
 	var/udder_filled_percentage = PERCENT(udder.reagents.total_volume / udder.reagents.maximum_volume)
 	switch(udder_filled_percentage)
 		if(0 to 10)
-			examine_list += span_notice("<hr>[capitalize(udder.name)] [parent] сухое.")
+			examine_list += "<span class='notice'><hr>[capitalize(udder.name)] [parent] сухое.</span>"
 		if(11 to 99)
-			examine_list += span_notice("<hr>[capitalize(udder.name)] [parent] можно подоить, нужно только ведро или что-то похожее.")
+			examine_list += "<span class='notice'><hr>[capitalize(udder.name)] [parent] можно подоить, нужно только ведро или что-то похожее.</span>"
 		if(100)
-			examine_list += span_notice("<hr>[capitalize(udder.name)] [parent] вздутое и его можно подоить, нужно только ведро или что-то похожее.")
+			examine_list += "<span class='notice'><hr>[capitalize(udder.name)] [parent] вздутое и его можно подоить, нужно только ведро или что-то похожее.</span>"
 
 
 ///signal called on parent being attacked with an item
@@ -109,13 +109,13 @@
  */
 /obj/item/udder/proc/milk(obj/item/reagent_containers/glass/milk_holder, mob/user)
 	if(milk_holder.reagents.total_volume >= milk_holder.volume)
-		to_chat(user, span_warning("[milk_holder] переполнено."))
+		to_chat(user, "<span class='warning'>[milk_holder] переполнено.</span>")
 		return
 	var/transfered = reagents.trans_to(milk_holder, rand(5,10))
 	if(transfered)
-		user.visible_message(span_notice("[user] доит [src.name] используя [milk_holder]."), span_notice("Дою [src.name] используя [milk_holder]."))
+		user.visible_message("<span class='notice'>[user] доит [src.name] используя [milk_holder].</span>", "<span class='notice'>Дою [src.name] используя [milk_holder].</span>")
 	else
-		to_chat(user, span_warning("Вымя сухое. Надо немного подождать..."))
+		to_chat(user, "<span class='warning'>Вымя сухое. Надо немного подождать...</span>")
 
 /**
  * # gutlunch udder subtype
@@ -150,7 +150,7 @@
 
 	if(is_type_in_typecache(target, gutlunch.wanted_objects)) //we eats
 		generate()
-		gutlunch.visible_message(span_notice("[udder_mob] сосёт у [target]."))
+		gutlunch.visible_message("<span class='notice'>[udder_mob] сосёт у [target].</span>")
 		qdel(target)
 	return COMPONENT_HOSTILE_NO_ATTACK //there is no longer a target to attack
 

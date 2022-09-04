@@ -201,11 +201,11 @@
 	if(playing)
 		return
 	if(!using_instrument?.ready())
-		to_chat(user, span_warning("Произошла ошибка с [src]. Пожалуйста, перезагрузите инструмент."))
+		to_chat(user, "<span class='warning'>Произошла ошибка с [src]. Пожалуйста, перезагрузите инструмент.</span>")
 		return
 	compile_chords()
 	if(!length(compiled_chords))
-		to_chat(user, span_warning("Песня пуста."))
+		to_chat(user, "<span class='warning'>Песня пуста.</span>")
 		return
 	playing = TRUE
 	//we can not afford to runtime, since we are going to be doing sound channel reservations and if we runtime it means we have a channel allocation leak.

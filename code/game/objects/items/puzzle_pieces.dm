@@ -68,14 +68,14 @@
 		var/obj/item/keycard/key = I
 		if((!puzzle_id || puzzle_id == key.puzzle_id)  && density)
 			if(open_message)
-				to_chat(user, span_notice("[open_message]"))
+				to_chat(user, "<span class='notice'>[open_message]</span>")
 			open()
 			return
 		else if(puzzle_id != key.puzzle_id)
-			to_chat(user, span_notice("[capitalize(src.name)] buzzes. This must not be the right key."))
+			to_chat(user, "<span class='notice'>[capitalize(src.name)] buzzes. This must not be the right key.</span>")
 			return
 		else
-			to_chat(user, span_notice("This door doesn't appear to close."))
+			to_chat(user, "<span class='notice'>This door doesn't appear to close.</span>")
 			return
 
 //Test doors. Gives admins a few doors to use quickly should they so choose for events.
@@ -105,10 +105,10 @@
 	if(puzzle_id && puzzle_id != try_id)
 		return FALSE
 	if(!density)
-		visible_message(span_warning("The door can't seem to be closed."))
+		visible_message("<span class='warning'>The door can't seem to be closed.</span>")
 		return TRUE
 	if(open_message)
-		visible_message(span_notice(open_message))
+		visible_message("<span class='notice'>[open_message]</span>")
 	open()
 	return TRUE
 
@@ -249,7 +249,7 @@
 	for(var/checking_light in light_list)
 		if(!checking_light)
 			return
-	visible_message(span_boldnotice("[src] becomes fully charged!"))
+	visible_message("<span class='boldnotice'>[src] becomes fully charged!</span>")
 	powered = TRUE
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_LIGHT_MECHANISM_COMPLETED, puzzle_id)
 	playsound(src, 'sound/machines/synth_yes.ogg', 100, TRUE)

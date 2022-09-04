@@ -13,18 +13,18 @@
 	time = 64
 
 /datum/surgery_step/sever_limb/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю отрезать [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает отрезать [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
-		span_notice("[user] начинает отрезать [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
+	display_results(user, target, "<span class='notice'>Начинаю отрезать [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]...</span>" ,
+		"<span class='notice'>[user] начинает отрезать [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
+		"<span class='notice'>[user] начинает отрезать [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
 		playsound(get_turf(target), 'sound/surgery/scalpel1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	display_pain(target, "Чувствую ужасную боль в [ru_gde_zone(parse_zone(target_zone))]!")
 
 
 /datum/surgery_step/sever_limb/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 //	var/mob/living/carbon/human/L = target
-	display_results(user, target, span_notice("Отрезал [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] отрезал [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
-		span_notice("[user] отрезал [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!") ,
+	display_results(user, target, "<span class='notice'>Отрезал [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+		"<span class='notice'>[user] отрезал [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
+		"<span class='notice'>[user] отрезал [ru_parse_zone(parse_zone(target_zone))] [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
 		playsound(get_turf(target), 'sound/surgery/organ2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	display_pain(target, "Я больше не чувствую свою [ru_parse_zone(parse_zone(target_zone))]!")
 	if(surgery.operated_bodypart)

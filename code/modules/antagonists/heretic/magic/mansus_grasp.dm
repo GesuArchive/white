@@ -26,8 +26,8 @@
 	var/mob/living/living_hit = victim
 	if(living_hit.can_block_magic(antimagic_flags))
 		victim.visible_message(
-			span_danger("The spell bounces off of [victim]!"),
-			span_danger("The spell bounces off of you!"),
+			"<span class='danger'>The spell bounces off of [victim]!</span>",
+			"<span class='danger'>The spell bounces off of you!</span>",
 		)
 		return FALSE
 
@@ -78,11 +78,11 @@
 	remove_hand_with_no_refund(user)
 
 /obj/item/melee/touch_attack/mansus_fist/ignition_effect(atom/to_light, mob/user)
-	. = span_notice("[user] effortlessly snaps [user.p_their()] fingers near [to_light], igniting it with eldritch energies. Fucking badass!")
+	. = "<span class='notice'>[user] effortlessly snaps [user.p_their()] fingers near [to_light], igniting it with eldritch energies. Fucking badass!</span>"
 	remove_hand_with_no_refund(user)
 
 /obj/item/melee/touch_attack/mansus_fist/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] covers [user.p_their()] face with [user.p_their()] sickly-looking hand! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message("<span class='suicide'>[user] covers [user.p_their()] face with [user.p_their()] sickly-looking hand! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	var/mob/living/carbon/carbon_user = user //iscarbon already used in spell's parent
 	var/datum/action/cooldown/spell/touch/mansus_grasp/source = locate() in user.actions
 	if(!IS_HERETIC(user))

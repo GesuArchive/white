@@ -47,7 +47,7 @@
 	if(!owner || !chassis || !(owner in chassis.occupants))
 		return
 	if(!(chassis.mecha_flags & HAS_LIGHTS))
-		to_chat(owner, span_warning("Свет уничтожен, проклятье!"))
+		to_chat(owner, "<span class='warning'>Свет уничтожен, проклятье!</span>")
 		return
 	chassis.mecha_flags ^= LIGHTS_ON
 	if(chassis.mecha_flags & LIGHTS_ON)
@@ -84,7 +84,7 @@
 	if(!(user in occupants) || !user.canUseTopic(src))
 		return
 	if(!(user in return_controllers_with_flag(VEHICLE_CONTROL_DRIVE)))
-		to_chat(user, span_warning("Неправильное место для взаимодействия с оборудованием!"))
+		to_chat(user, "<span class='warning'>Неправильное место для взаимодействия с оборудованием!</span>")
 		return
 
 	toggle_strafe()

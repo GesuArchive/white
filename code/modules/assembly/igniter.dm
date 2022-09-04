@@ -14,7 +14,7 @@
 	pickup_sound =  'sound/items/handling/component_pickup.ogg'
 
 /obj/item/assembly/igniter/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] пытается ignite [user.ru_na()]self with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message("<span class='suicide'>[user] пытается ignite [user.ru_na()]self with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	user.ignite_mob()
 	return FIRELOSS
 
@@ -48,7 +48,7 @@
 	add_fingerprint(user)
 
 /obj/item/assembly/igniter/ignition_effect(atom/A, mob/user)
-	. = span_notice("[user] fiddles with [src], and manages to light [A].")
+	. = "<span class='notice'>[user] fiddles with [src], and manages to light [A].</span>"
 	activate()
 	add_fingerprint(user)
 

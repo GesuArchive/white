@@ -48,7 +48,7 @@ GLOBAL_LIST_INIT(ore_probability, list(
  */
 /obj/structure/spawner/ice_moon/proc/destroy_effect()
 	playsound(loc,pick(FAR_EXPLOSION_SOUNDS), 200, TRUE)
-	visible_message(span_boldannounce("[capitalize(src.name)] collapses, sealing everything inside!</span>\n<span class='warning'>Ores fall out of the cave as it is destroyed!"))
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] collapses, sealing everything inside!</span>\n<span class='warning'>Ores fall out of the cave as it is destroyed!</span>")
 
 /**
  * Drops items after the spawner is destroyed
@@ -112,7 +112,7 @@ GLOBAL_LIST_INIT(ore_probability, list(
 /obj/effect/collapsing_demonic_portal/Initialize(mapload)
 	. = ..()
 	playsound(loc,'sound/effects/tendril_destroyed.ogg', 200, FALSE, 50, TRUE, TRUE)
-	visible_message(span_boldannounce("[capitalize(src.name)] begins to collapse, cutting it off from this world!"))
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] begins to collapse, cutting it off from this world!</span>")
 	animate(src, transform = matrix().Scale(0, 1), alpha = 50, time = 5 SECONDS)
 	addtimer(CALLBACK(src, .proc/collapse), 5 SECONDS)
 
@@ -129,7 +129,7 @@ GLOBAL_LIST_INIT(ore_probability, list(
  *
  */
 /obj/effect/collapsing_demonic_portal/proc/drop_loot()
-	visible_message(span_warning("Something slips out of [src]!"))
+	visible_message("<span class='warning'>Something slips out of [src]!</span>")
 	var/loot = rand(1, 28)
 	switch(loot)
 		if(1)

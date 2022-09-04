@@ -271,10 +271,10 @@
 
 /obj/machinery/autodoc/emag_act(mob/user)
 	if(caesar)
-		to_chat(user, span_notice("Бедный <b>[src]</b> уже взломан!"))
+		to_chat(user, "<span class='notice'>Бедный <b>[src]</b> уже взломан!</span>")
 		return
 	log_combat(user, src, "emagged")
-	to_chat(user, span_notice("Нещадно провожу криптокаркой по <b>[src]</b>, заставляя его сойти с ума."))
+	to_chat(user, "<span class='notice'>Нещадно провожу криптокаркой по <b>[src]</b>, заставляя его сойти с ума.</span>")
 	add_fingerprint(user)
 	caesar = TRUE
 
@@ -293,13 +293,13 @@
 
 /obj/machinery/autodoc/proc/toggle_open(mob/user)
 	if(panel_open)
-		to_chat(user, span_notice("Надо бы панель закрыть."))
+		to_chat(user, "<span class='notice'>Надо бы панель закрыть.</span>")
 		return
 	if(state_open)
 		close_machine(null, user)
 		return
 	else if(in_use)
-		to_chat(user, span_notice("Не открыть. Похоже надо подождать."))
+		to_chat(user, "<span class='notice'>Не открыть. Похоже надо подождать.</span>")
 		return
 	open_machine()
 
@@ -316,7 +316,7 @@
 	if(user.stat || in_use)
 		if(message_cooldown <= world.time)
 			message_cooldown = world.time + 50
-			to_chat(user, span_warning("Дверца <b>[src]</b> застряла!"))
+			to_chat(user, "<span class='warning'>Дверца <b>[src]</b> застряла!</span>")
 		return
 	open_machine()
 
@@ -391,7 +391,7 @@
 		var/obj/item/bodypart/target_limb = surgery.operated_bodypart
 		target_limb.drop_limb()
 		target_limb.forceMove(get_turf(autodoc))
-		autodoc.visible_message(span_notice("<b>[autodoc]</b> выплёвывает <b>[target_limb]</b>!"))
+		autodoc.visible_message("<span class='notice'><b>[autodoc]</b> выплёвывает <b>[target_limb]</b>!</span>")
 	return TRUE
 
 /datum/surgery_step/heal/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)
@@ -436,7 +436,7 @@
 	newmeat.subjectjob = H.job
 	newmeat.reagents.add_reagent (/datum/reagent/consumable/nutriment, (removednutriment / 15)) //To balance with nutriment_factor of nutriment
 	newmeat.forceMove(get_turf(autodoc))
-	autodoc.visible_message(span_notice("<b>[autodoc]</b> выплёвывает <b>[newmeat]</b>!"))
+	autodoc.visible_message("<span class='notice'><b>[autodoc]</b> выплёвывает <b>[newmeat]</b>!</span>")
 	return TRUE
 
 /datum/surgery_step/fix_eyes/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)

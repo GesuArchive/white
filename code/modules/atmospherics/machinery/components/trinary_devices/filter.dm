@@ -25,7 +25,7 @@
 	if(can_interact(user))
 		transfer_rate = MAX_TRANSFER_RATE
 		investigate_log("was set to [transfer_rate] L/s by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, span_notice("Выкручиваю мощность [src] на [transfer_rate] Л/с."))
+		to_chat(user, "<span class='notice'>Выкручиваю мощность [src] на [transfer_rate] Л/с.</span>")
 		update_icon()
 	return ..()
 
@@ -141,7 +141,7 @@
 /obj/machinery/atmospherics/components/trinary/filter/can_unwrench(mob/user)
 	. = ..()
 	if(. && on && is_operational)
-		to_chat(user, span_warning("Не могу открутить [src.name], сначала нужно выключить это!"))
+		to_chat(user, "<span class='warning'>Не могу открутить [src.name], сначала нужно выключить это!</span>")
 		return FALSE
 
 // mapping

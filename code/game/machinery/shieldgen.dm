@@ -88,7 +88,7 @@
 
 /obj/structure/emergency_shield/cult/barrier/Destroy()
 	if(parent_rune)
-		parent_rune.visible_message(span_danger("The [parent_rune] fades away as [src] is destroyed!"))
+		parent_rune.visible_message("<span class='danger'>The [parent_rune] fades away as [src] is destroyed!</span>")
 		QDEL_NULL(parent_rune)
 	return ..()
 
@@ -164,25 +164,25 @@
 	if(.)
 		return
 	if(locked && !issilicon(user))
-		to_chat(user, span_warning("The machine is locked, you are unable to use it!"))
+		to_chat(user, "<span class='warning'>The machine is locked, you are unable to use it!</span>")
 		return
 	if(panel_open)
-		to_chat(user, span_warning("The panel must be closed before operating this machine!"))
+		to_chat(user, "<span class='warning'>The panel must be closed before operating this machine!</span>")
 		return
 
 	if (active)
-		user.visible_message(span_notice("[user] deactivated <b>[src.name]</b>.") , \
-			span_notice("You deactivate <b>[src.name]</b>.") , \
-			span_hear("You hear heavy droning fade out."))
+		user.visible_message("<span class='notice'>[user] deactivated <b>[src.name]</b>.</span>" , \
+			"<span class='notice'>You deactivate <b>[src.name]</b>.</span>" , \
+			"<span class='hear'>You hear heavy droning fade out.</span>")
 		shields_down()
 	else
 		if(anchored)
-			user.visible_message(span_notice("[user] activated <b>[src.name]</b>.") , \
-				span_notice("You activate <b>[src.name]</b>.") , \
-				span_hear("You hear heavy droning."))
+			user.visible_message("<span class='notice'>[user] activated <b>[src.name]</b>.</span>" , \
+				"<span class='notice'>You activate <b>[src.name]</b>.</span>" , \
+				"<span class='hear'>You hear heavy droning.</span>")
 			shields_up()
 		else
-			to_chat(user, span_warning("The device must first be secured to the floor!"))
+			to_chat(user, "<span class='warning'>The device must first be secured to the floor!</span>")
 	return
 
 /obj/machinery/shieldgen/attackby(obj/item/W, mob/user, params)
@@ -190,60 +190,60 @@
 		W.play_tool_sound(src, 100)
 		panel_open = !panel_open
 		if(panel_open)
-			to_chat(user, span_notice("You open the panel and expose the wiring."))
+			to_chat(user, "<span class='notice'>You open the panel and expose the wiring.</span>")
 		else
-			to_chat(user, span_notice("You close the panel."))
+			to_chat(user, "<span class='notice'>You close the panel.</span>")
 	else if(istype(W, /obj/item/stack/cable_coil) && (machine_stat & BROKEN) && panel_open)
 		var/obj/item/stack/cable_coil/coil = W
 		if (coil.get_amount() < 1)
-			to_chat(user, span_warning("You need one length of cable to repair [src]!"))
+			to_chat(user, "<span class='warning'>You need one length of cable to repair [src]!</span>")
 			return
-		to_chat(user, span_notice("You begin to replace the wires..."))
+		to_chat(user, "<span class='notice'>You begin to replace the wires...</span>")
 		if(do_after(user, 30, target = src))
 			if(coil.get_amount() < 1)
 				return
 			coil.use(1)
 			obj_integrity = max_integrity
 			set_machine_stat(machine_stat & ~BROKEN)
-			to_chat(user, span_notice("You repair <b>[src.name]</b>."))
+			to_chat(user, "<span class='notice'>You repair <b>[src.name]</b>.</span>")
 			update_icon()
 
 	else if(W.tool_behaviour == TOOL_WRENCH)
 		if(locked)
-			to_chat(user, span_warning("The bolts are covered! Unlocking this would retract the covers."))
+			to_chat(user, "<span class='warning'>The bolts are covered! Unlocking this would retract the covers.</span>")
 			return
 		if(!anchored && !isinspace())
 			W.play_tool_sound(src, 100)
-			to_chat(user, span_notice("You secure <b>[src.name]</b> to the floor!"))
+			to_chat(user, "<span class='notice'>You secure <b>[src.name]</b> to the floor!</span>")
 			set_anchored(TRUE)
 		else if(anchored)
 			W.play_tool_sound(src, 100)
-			to_chat(user, span_notice("You unsecure <b>[src.name]</b> from the floor!"))
+			to_chat(user, "<span class='notice'>You unsecure <b>[src.name]</b> from the floor!</span>")
 			if(active)
-				to_chat(user, span_notice("<b>[src.name]</b> shuts off!"))
+				to_chat(user, "<span class='notice'><b>[src.name]</b> shuts off!</span>")
 				shields_down()
 			set_anchored(FALSE)
 
 	else if(W.GetID())
 		if(allowed(user) && !(obj_flags & EMAGGED))
 			locked = !locked
-			to_chat(user, span_notice("You [locked ? "lock" : "unlock"] the controls."))
+			to_chat(user, "<span class='notice'>You [locked ? "lock" : "unlock"] the controls.</span>")
 		else if(obj_flags & EMAGGED)
-			to_chat(user, span_danger("Error, access controller damaged!"))
+			to_chat(user, "<span class='danger'>Error, access controller damaged!</span>")
 		else
-			to_chat(user, span_danger("Доступ запрещён."))
+			to_chat(user, "<span class='danger'>Доступ запрещён.</span>")
 
 	else
 		return ..()
 
 /obj/machinery/shieldgen/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
-		to_chat(user, span_warning("The access controller is damaged!"))
+		to_chat(user, "<span class='warning'>The access controller is damaged!</span>")
 		return
 	obj_flags |= EMAGGED
 	locked = FALSE
 	playsound(src, "sparks", 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-	to_chat(user, span_warning("You short out the access controller."))
+	to_chat(user, "<span class='warning'>You short out the access controller.</span>")
 
 /obj/machinery/shieldgen/update_icon_state()
 	if(active)
@@ -309,9 +309,9 @@
 		if(!active_power_usage || surplus() >= active_power_usage)
 			add_load(active_power_usage)
 		else
-			visible_message(span_danger("The [src.name] shuts down due to lack of power!") , \
+			visible_message("<span class='danger'>The [src.name] shuts down due to lack of power!</span>" , \
 				"If this message is ever seen, something is wrong.",
-				span_hear("You hear heavy droning fade out."))
+				"<span class='hear'>You hear heavy droning fade out.</span>")
 			icon_state = "shield_wall_gen"
 			active = FALSE
 			log_game("[src] deactivated due to lack of power at [AREACOORD(src)]")
@@ -377,7 +377,7 @@
 /obj/machinery/power/shieldwallgen/can_be_unfasten_wrench(mob/user, silent)
 	if(active)
 		if(!silent)
-			to_chat(user, span_warning("Turn off the shield generator first!"))
+			to_chat(user, "<span class='warning'>Turn off the shield generator first!</span>")
 		return FAILED_UNFASTEN
 	return ..()
 
@@ -395,11 +395,11 @@
 	if(W.GetID())
 		if(allowed(user) && !(obj_flags & EMAGGED))
 			locked = !locked
-			to_chat(user, span_notice("You [src.locked ? "lock" : "unlock"] the controls."))
+			to_chat(user, "<span class='notice'>You [src.locked ? "lock" : "unlock"] the controls.</span>")
 		else if(obj_flags & EMAGGED)
-			to_chat(user, span_danger("Error, access controller damaged!"))
+			to_chat(user, "<span class='danger'>Error, access controller damaged!</span>")
 		else
-			to_chat(user, span_danger("Доступ запрещён."))
+			to_chat(user, "<span class='danger'>Доступ запрещён.</span>")
 
 	else
 		add_fingerprint(user)
@@ -410,37 +410,37 @@
 	if(.)
 		return
 	if(!anchored)
-		to_chat(user, span_warning("<b>[src.name]</b> needs to be firmly secured to the floor first!"))
+		to_chat(user, "<span class='warning'><b>[src.name]</b> needs to be firmly secured to the floor first!</span>")
 		return
 	if(locked && !issilicon(user))
-		to_chat(user, span_warning("The controls are locked!"))
+		to_chat(user, "<span class='warning'>The controls are locked!</span>")
 		return
 	if(!powernet)
-		to_chat(user, span_warning("<b>[src.name]</b> needs to be powered by a wire!"))
+		to_chat(user, "<span class='warning'><b>[src.name]</b> needs to be powered by a wire!</span>")
 		return
 
 	if(active)
-		user.visible_message(span_notice("[user] turned <b>[src.name]</b> off.") , \
-			span_notice("You turn off <b>[src.name]</b>.") , \
-			span_hear("You hear heavy droning fade out."))
+		user.visible_message("<span class='notice'>[user] turned <b>[src.name]</b> off.</span>" , \
+			"<span class='notice'>You turn off <b>[src.name]</b>.</span>" , \
+			"<span class='hear'>You hear heavy droning fade out.</span>")
 		active = FALSE
 		log_game("[src] was deactivated by [key_name(user)] at [AREACOORD(src)]")
 	else
-		user.visible_message(span_notice("[user] turned <b>[src.name]</b> on.") , \
-			span_notice("You turn on <b>[src.name]</b>.") , \
-			span_hear("You hear heavy droning."))
+		user.visible_message("<span class='notice'>[user] turned <b>[src.name]</b> on.</span>" , \
+			"<span class='notice'>You turn on <b>[src.name]</b>.</span>" , \
+			"<span class='hear'>You hear heavy droning.</span>")
 		active = ACTIVE_SETUPFIELDS
 		log_game("[src] was activated by [key_name(user)] at [AREACOORD(src)]")
 	add_fingerprint(user)
 
 /obj/machinery/power/shieldwallgen/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
-		to_chat(user, span_warning("The access controller is damaged!"))
+		to_chat(user, "<span class='warning'>The access controller is damaged!</span>")
 		return
 	obj_flags |= EMAGGED
 	locked = FALSE
 	playsound(src, "sparks", 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-	to_chat(user, span_warning("You short out the access controller."))
+	to_chat(user, "<span class='warning'>You short out the access controller.</span>")
 
 //////////////Containment Field START
 /obj/machinery/shieldwall
@@ -463,7 +463,7 @@
 		needs_power = TRUE
 		setDir(get_dir(gen_primary, gen_secondary))
 	for(var/mob/living/L in get_turf(src))
-		visible_message(span_danger("<b>[src.name]</b> is suddenly occupying the same space as [L]!"))
+		visible_message("<span class='danger'><b>[src.name]</b> is suddenly occupying the same space as [L]!</span>")
 		L.gib()
 	RegisterSignal(src, COMSIG_ATOM_SINGULARITY_TRY_MOVE, .proc/block_singularity)
 

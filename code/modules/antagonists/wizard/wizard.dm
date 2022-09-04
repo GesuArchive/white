@@ -176,7 +176,7 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 	H.equipOutfit(outfit_type)
 
 /datum/antagonist/wizard/greet()
-	to_chat(owner, span_boldannounce("Да я же Космический Волшебник!"))
+	to_chat(owner, "<span class='boldannounce'>Да я же Космический Волшебник!</span>")
 	to_chat(owner, "<B>Федерация космических волшебников поставила мне следующие задачи:</B>")
 	owner.announce_objectives()
 	to_chat(owner, "В моей книге заклинаний записаны десятки заклинаний, однако одновременно запомнить я могу лишь часть из них. Нужно тщательно выбирать свой магический арсенал.")
@@ -185,7 +185,7 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 	to_chat(owner,"<B>Не забыть:</B> Заранее подготовить свои заклинания.")
 
 /datum/antagonist/wizard/farewell()
-	to_chat(owner, span_userdanger("Мой магический патенциал израсходовал себя! Я больше не способен творить волшебство!"))
+	to_chat(owner, "<span class='userdanger'>Мой магический патенциал израсходовал себя! Я больше не способен творить волшебство!</span>")
 
 /datum/antagonist/wizard/proc/rename_wizard()
 	set waitfor = FALSE
@@ -252,18 +252,14 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 				/datum/action/cooldown/spell/aoe/magic_missile,
 				/datum/action/cooldown/spell/pointed/projectile/fireball,
 			)
-			to_chat(owner, span_bold("Your service has not gone unrewarded, however. \
-				Studying under [master.current.real_name], you have learned powerful, \
-				destructive spells. You are able to cast magic missile and fireball."))
+			to_chat(owner, "<span class='bold'>Your service has not gone unrewarded, however. Studying under [master.current.real_name], you have learned powerful, destructive spells. You are able to cast magic missile and fireball.</span>")
 
 		if(APPRENTICE_BLUESPACE)
 			spells_to_grant = list(
 				/datum/action/cooldown/spell/teleport/area_teleport/wizard,
 				/datum/action/cooldown/spell/jaunt/ethereal_jaunt,
 			)
-			to_chat(owner, span_bold("Your service has not gone unrewarded, however. \
-				Studying under [master.current.real_name], you have learned reality-bending \
-				mobility spells. You are able to cast teleport and ethereal jaunt."))
+			to_chat(owner, "<span class='bold'>Your service has not gone unrewarded, however. Studying under [master.current.real_name], you have learned reality-bending mobility spells. You are able to cast teleport and ethereal jaunt.</span>")
 
 		if(APPRENTICE_HEALING)
 			spells_to_grant = list(
@@ -273,17 +269,13 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 			items_to_grant = list(
 				/obj/item/gun/magic/staff/healing,
 			)
-			to_chat(owner, span_bold("Your service has not gone unrewarded, however. \
-				Studying under [master.current.real_name], you have learned life-saving \
-				survival spells. You are able to cast charge and forcewall, and have a staff of healing."))
+			to_chat(owner, "<span class='bold'>Your service has not gone unrewarded, however. Studying under [master.current.real_name], you have learned life-saving survival spells. You are able to cast charge and forcewall, and have a staff of healing.</span>")
 		if(APPRENTICE_ROBELESS)
 			spells_to_grant = list(
 				/datum/action/cooldown/spell/aoe/knock,
 				/datum/action/cooldown/spell/pointed/mind_transfer,
 			)
-			to_chat(owner, span_bold("Your service has not gone unrewarded, however. \
-				Studying under [master.current.real_name], you have learned stealthy, \
-				robeless spells. You are able to cast knock and mindswap."))
+			to_chat(owner, "<span class='bold'>Your service has not gone unrewarded, however. Studying under [master.current.real_name], you have learned stealthy, robeless spells. You are able to cast knock and mindswap.</span>")
 
 	for(var/spell_type in spells_to_grant)
 		var/datum/action/cooldown/spell/new_spell = new spell_type(owner)
@@ -380,9 +372,9 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 		count++
 
 	if(wizardwin)
-		parts += span_greentext("Волшебник успешен!!")
+		parts += "<span class='greentext'>Волшебник успешен!!</span>"
 	else
-		parts += span_redtext("Волшебник провалился!")
+		parts += "<span class='redtext'>Волшебник провалился!</span>"
 
 	var/list/purchases = list()
 	for(var/list/log as anything in GLOB.wizard_spellbook_purchases_by_key[owner.key])
@@ -392,10 +384,10 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 		purchases += "[amount > 1 ? "[amount]x ":""][initial(bought.name)]"
 
 	if(length(purchases))
-		parts += span_bold("[owner.name] использовал следующие заклинания:")
+		parts += "<span class='bold'>[owner.name] использовал следующие заклинания:</span>"
 		parts += purchases.Join(", ")
 	else
-		parts += span_bold("[owner.name] не использовал заклинания!")
+		parts += "<span class='bold'>[owner.name] не использовал заклинания!</span>"
 
 	return parts.Join("<br>")
 
@@ -403,10 +395,10 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 /datum/team/wizard/roundend_report()
 	var/list/parts = list()
 
-	parts += span_header("Волшебники и Ведьмы из команды [master_wizard.owner.name] были:")
+	parts += "<span class='header'>Волшебники и Ведьмы из команды [master_wizard.owner.name] были:</span>"
 	parts += master_wizard.roundend_report()
 	parts += " "
-	parts += span_header("Учениками и приспешниками [master_wizard.owner.name] были:")
+	parts += "<span class='header'>Учениками и приспешниками [master_wizard.owner.name] были:</span>"
 	parts += printplayerlist(members - master_wizard.owner)
 
 	return "<div class='panel redborder'>[parts.Join("<br>")]</div>"

@@ -76,7 +76,7 @@
 		return
 	var/mob/living/carbon/human/human_to_dunk = hit_atom
 	if(!human_to_dunk.get_item_by_slot(ITEM_SLOT_HEAD) && prob(50) && zombify(human_to_dunk))
-		to_chat(human_to_dunk, span_userdanger("[src] latches onto your head as it pierces your skull, instantly killing you!"))
+		to_chat(human_to_dunk, "<span class='userdanger'>[src] latches onto your head as it pierces your skull, instantly killing you!</span>")
 		human_to_dunk.death(FALSE)
 
 /mob/living/simple_animal/hostile/blackmesa/xen/headcrab/proc/zombify(mob/living/carbon/human/zombified_human)
@@ -106,7 +106,7 @@
 	zombified_human.forceMove(src)
 	oldguy = zombified_human
 	update_appearance()
-	visible_message(span_warning("The corpse of [zombified_human.name] suddenly rises!"))
+	visible_message("<span class='warning'>The corpse of [zombified_human.name] suddenly rises!</span>")
 	return TRUE
 
 /mob/living/simple_animal/hostile/blackmesa/xen/headcrab/Destroy()

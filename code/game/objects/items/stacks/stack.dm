@@ -137,7 +137,7 @@
 
 /obj/item/stack/grind_requirements()
 	if(is_cyborg)
-		to_chat(usr, span_warning("[src] синтезируется в электронном виде в вашем шасси и не может быть измельчен!"))
+		to_chat(usr, "<span class='warning'>[src] синтезируется в электронном виде в вашем шасси и не может быть измельчен!</span>")
 		return
 	return TRUE
 
@@ -357,8 +357,8 @@
 		var/adjusted_time = 0
 		builder.balloon_alert(builder, "создаю...")
 		builder.visible_message(
-			span_notice("[builder] начинает создавать [recipe.title]."),
-			span_notice("Начинаю создавать [recipe.title]..."),
+			"<span class='notice'>[builder] начинает создавать [recipe.title].</span>",
+			"<span class='notice'>Начинаю создавать [recipe.title]...</span>",
 		)
 		if(HAS_TRAIT(builder, recipe.trait_booster))
 			adjusted_time = (recipe.time * recipe.trait_modifier*builder.mind.get_skill_modifier(/datum/skill/engineering, SKILL_SPEED_MODIFIER))
@@ -472,7 +472,7 @@
 		for(var/direction in GLOB.cardinals)
 			nearby_turf = get_step(dest_turf, direction)
 			if(locate(recipe.result_type) in nearby_turf)
-				to_chat(builder, span_warning("\The [recipe.title] must not be built directly adjacent to another!"))
+				to_chat(builder, "<span class='warning'>\The [recipe.title] must not be built directly adjacent to another!</span>")
 				builder.balloon_alert(builder, "can't be adjacent to another!")
 				return FALSE
 	if(recipe.placement_checks & STACK_CHECK_ADJACENT)
@@ -504,11 +504,11 @@
 		// then a more specific message about how much they need and what they need specifically
 		if(singular_name)
 			if(amount > 1)
-				to_chat(user, span_warning("Мне потребуется [amount] [singular_name] для этого!"))
+				to_chat(user, "<span class='warning'>Мне потребуется [amount] [singular_name] для этого!</span>")
 			else
-				to_chat(user, span_warning("Мне потребуется [amount] [singular_name] для этого!"))
+				to_chat(user, "<span class='warning'>Мне потребуется [amount] [singular_name] для этого!</span>")
 		else
-			to_chat(user, span_warning("Мне потребуется [amount] для этого!"))
+			to_chat(user, "<span class='warning'>Мне потребуется [amount] для этого!</span>")
 
 		return FALSE
 
@@ -650,7 +650,7 @@
 	if(stackmaterial == null || stackmaterial <= 0 || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		return SECONDARY_ATTACK_CONTINUE_CHAIN
 	split_stack(user, stackmaterial)
-	to_chat(user, span_notice("Достаю [stackmaterial] листов из кучи."))
+	to_chat(user, "<span class='notice'>Достаю [stackmaterial] листов из кучи.</span>")
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /** Splits the stack into two stacks.
@@ -677,7 +677,7 @@
 	if(can_merge(W))
 		var/obj/item/stack/S = W
 		if(merge(S))
-			to_chat(user, span_notice("Моя куча <b>[S.name]</b> теперь содержит [S.get_amount()] [S.singular_name]."))
+			to_chat(user, "<span class='notice'>Моя куча <b>[S.name]</b> теперь содержит [S.get_amount()] [S.singular_name].</span>")
 	else
 		. = ..()
 

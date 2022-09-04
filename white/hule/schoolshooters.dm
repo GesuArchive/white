@@ -76,7 +76,7 @@
 	else
 		result += "<span class='redtext big'>[name] team failed its mission.</span>"
 
-	result += span_header("The [name] were:")
+	result += "<span class='header'>The [name] were:</span>"
 	for(var/datum/mind/shooter in members)
 		result += printplayer(shooter)
 	result += printobjectives(objectives)

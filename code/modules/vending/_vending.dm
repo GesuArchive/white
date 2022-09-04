@@ -547,7 +547,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 			add_overlay("[initial(icon_state)]-panel")
 		updateUsrDialog()
 	else
-		to_chat(user, span_warning("Надо бы прикрутить [src]."))
+		to_chat(user, "<span class='warning'>Надо бы прикрутить [src].</span>")
 	return TRUE
 
 /obj/machinery/vending/attackby(obj/item/I, mob/user, params)
@@ -557,21 +557,21 @@ GLOBAL_LIST_EMPTY(vending_products)
 
 	if(refill_canister && istype(I, refill_canister))
 		if (!panel_open)
-			to_chat(user, span_warning("Надо бы открутить панель сначала!"))
+			to_chat(user, "<span class='warning'>Надо бы открутить панель сначала!</span>")
 		else if (machine_stat & (BROKEN|NOPOWER))
-			to_chat(user, span_notice("[capitalize(src.name)] не отвечает."))
+			to_chat(user, "<span class='notice'>[capitalize(src.name)] не отвечает.</span>")
 		else
 			//if the panel is open we attempt to refill the machine
 			var/obj/item/vending_refill/canister = I
 			if(canister.get_part_rating() == 0)
-				to_chat(user, span_warning("[canister] пустая!"))
+				to_chat(user, "<span class='warning'>[canister] пустая!</span>")
 			else
 				// instantiate canister if needed
 				var/transferred = restock(canister)
 				if(transferred)
-					to_chat(user, span_notice("Загружаю [transferred] предметов в [src]."))
+					to_chat(user, "<span class='notice'>Загружаю [transferred] предметов в [src].</span>")
 				else
-					to_chat(user, span_warning("Здесь уже всё укомплектовано!"))
+					to_chat(user, "<span class='warning'>Здесь уже всё укомплектовано!</span>")
 			return
 	if(compartmentLoadAccessCheck(user) && user.a_intent != INTENT_HARM)
 		if(canLoadItem(I))
@@ -584,7 +584,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 			var/denied_items = 0
 			for(var/obj/item/the_item in T.contents)
 				if(contents.len >= MAX_VENDING_INPUT_AMOUNT) // no more than 30 item can fit inside, legacy from snack vending although not sure why it exists
-					to_chat(user, span_warning("[capitalize(src.name)] переполнен."))
+					to_chat(user, "<span class='warning'>[capitalize(src.name)] переполнен.</span>")
 					break
 				if(canLoadItem(the_item) && loadingAttempt(the_item,user))
 					SEND_SIGNAL(T, COMSIG_TRY_STORAGE_TAKE, the_item, src, TRUE)
@@ -592,9 +592,9 @@ GLOBAL_LIST_EMPTY(vending_products)
 				else
 					denied_items++
 			if(denied_items)
-				to_chat(user, span_warning("[capitalize(src.name)] не принимает некоторые вещи!"))
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] не принимает некоторые вещи!</span>")
 			if(loaded)
-				to_chat(user, span_notice("Вставляю [loaded] блюдцев в [src]."))
+				to_chat(user, "<span class='notice'>Вставляю [loaded] блюдцев в [src].</span>")
 				updateUsrDialog()
 	else
 		. = ..()
@@ -614,7 +614,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 					tilt(user, crit=TRUE)
 
 /obj/machinery/vending/proc/freebie(mob/fatty, freebies)
-	visible_message(span_notice("[capitalize(src.name)] хранит [freebies > 1 ? "несколько бесплатных штук" : "бесплатную штуку"]!"))
+	visible_message("<span class='notice'>[capitalize(src.name)] хранит [freebies > 1 ? "несколько бесплатных штук" : "бесплатную штуку"]!</span>")
 
 	for(var/i in 1 to freebies)
 		playsound(src, 'sound/machines/machine_vend.ogg', 50, TRUE, extrarange = -3)
@@ -632,7 +632,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 
 ///Tilts ontop of the atom supplied, if crit is true some extra shit can happen. Returns TRUE if it dealt damage to something.
 /obj/machinery/vending/proc/tilt(atom/fatty, crit=FALSE)
-	visible_message(span_danger("[src] прыгает!"))
+	visible_message("<span class='danger'>[src] прыгает!</span>")
 	tilted = TRUE
 	layer = ABOVE_MOB_LAYER
 	plane = GAME_PLANE_UPPER
@@ -657,8 +657,8 @@ GLOBAL_LIST_EMPTY(vending_products)
 				var/crit_rebate = 0 // lessen the normal damage we deal for some of the crits
 
 				if(crit_case < 5) // the body/head asplode case has its own description
-					C.visible_message(span_danger("[C] обнимается с [src]!") , \
-						span_userdanger("На меня падает [src]!"))
+					C.visible_message("<span class='danger'>[C] обнимается с [src]!</span>" , \
+						"<span class='userdanger'>На меня падает [src]!</span>")
 
 				switch(crit_case) // only carbons can have the fun crits
 					if(1) // shatter their legs and bleed 'em
@@ -671,13 +671,13 @@ GLOBAL_LIST_EMPTY(vending_products)
 						if(r)
 							r.receive_damage(brute=200)
 						if(l || r)
-							C.visible_message(span_danger("[C] теряет одну из своих ног!") , \
-								span_userdanger("НОГА!"))
+							C.visible_message("<span class='danger'>[C] теряет одну из своих ног!</span>" , \
+								"<span class='userdanger'>НОГА!</span>")
 					if(2) // pin them beneath the machine until someone untilts it
 						forceMove(get_turf(C))
 						buckle_mob(C, force=TRUE)
-						C.visible_message(span_danger("[C] умело ложится под [src]!") , \
-							span_userdanger("На меня падает [src]!"))
+						C.visible_message("<span class='danger'>[C] умело ложится под [src]!</span>" , \
+							"<span class='userdanger'>На меня падает [src]!</span>")
 					if(3) // glass candy
 						crit_rebate = 50
 						for(var/i = 0, i < num_shards, i++)
@@ -689,7 +689,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 							shard.updateEmbedding()
 					if(4) // paralyze this binch
 						// the new paraplegic gets like 4 lines of losing their legs so skip them
-						visible_message(span_danger("[src] ломает [C] хребет!") , ignored_mobs = list(C))
+						visible_message("<span class='danger'>[src] ломает [C] хребет!</span>" , ignored_mobs = list(C))
 						C.gain_trauma(/datum/brain_trauma/severe/paralysis/paraplegic)
 					if(5) // limb squish!
 						for(var/i in C.bodyparts)
@@ -699,13 +699,13 @@ GLOBAL_LIST_EMPTY(vending_products)
 								squish_part.force_wound_upwards(type_wound)
 							else
 								squish_part.receive_damage(brute=30)
-						C.visible_message(span_danger("[C] теряет одну из конечностей при плотном контакте с [src]!") , \
-							span_userdanger("[src] давит меня!"))
+						C.visible_message("<span class='danger'>[C] теряет одну из конечностей при плотном контакте с [src]!</span>" , \
+							"<span class='userdanger'>[src] давит меня!</span>")
 					if(6) // skull squish!
 						var/obj/item/bodypart/head/O = C.get_bodypart(BODY_ZONE_HEAD)
 						if(O)
-							C.visible_message(span_danger("[O] взрывается от слишком жёсткого давления [src]!") , \
-								span_userdanger("Ох б-"))
+							C.visible_message("<span class='danger'>[O] взрывается от слишком жёсткого давления [src]!</span>" , \
+								"<span class='userdanger'>Ох б-</span>")
 							O.dismember()
 							O.drop_organs()
 							qdel(O)
@@ -718,8 +718,8 @@ GLOBAL_LIST_EMPTY(vending_products)
 					C.take_bodypart_damage((squish_damage - crit_rebate)*0.5, wound_bonus = 5)
 				C.AddElement(/datum/element/squish, 80 SECONDS)
 			else
-				L.visible_message(span_danger("[src] падает на [L]!") , \
-				span_userdanger("На меня падает [src]!"))
+				L.visible_message("<span class='danger'>[src] падает на [L]!</span>" , \
+				"<span class='userdanger'>На меня падает [src]!</span>")
 				L.apply_damage(squish_damage, forced=TRUE)
 				if(crit_case)
 					L.apply_damage(squish_damage, forced=TRUE)
@@ -741,8 +741,8 @@ GLOBAL_LIST_EMPTY(vending_products)
 
 /obj/machinery/vending/proc/untilt(mob/user)
 	if(user)
-		user.visible_message(span_notice("[user] ставит на место [src].") , \
-			span_notice("Ставлю на место [src]."))
+		user.visible_message("<span class='notice'>[user] ставит на место [src].</span>" , \
+			"<span class='notice'>Ставлю на место [src].</span>")
 
 	unbuckle_all_mobs(TRUE)
 
@@ -762,7 +762,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		vending_machine_input[format_text(I.name)]++
 	else
 		vending_machine_input[format_text(I.name)] = 1
-	to_chat(user, span_notice("Вставляю [I] в [src]."))
+	to_chat(user, "<span class='notice'>Вставляю [I] в [src].</span>")
 	loaded_items++
 
 /obj/machinery/vending/unbuckle_mob(mob/living/buckled_mob, force = FALSE, can_fall = TRUE)
@@ -793,7 +793,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		if(do_you_have_access)
 			return TRUE
 		else
-			to_chat(user, span_warning("[capitalize(src.name)] мигает красным: Недостаточно доступа."))
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] мигает красным: Недостаточно доступа.</span>")
 			return FALSE
 
 /obj/machinery/vending/exchange_parts(mob/user, obj/item/storage/part_replacer/W)
@@ -814,7 +814,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 	else
 		display_parts(user)
 	if(moved)
-		to_chat(user, span_notice("[moved] переукомплектован."))
+		to_chat(user, "<span class='notice'>[moved] переукомплектован.</span>")
 		W.play_rped_sound()
 	return TRUE
 
@@ -826,7 +826,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
-	to_chat(user, span_notice("Взламываю [src]."))
+	to_chat(user, "<span class='notice'>Взламываю [src].</span>")
 
 /obj/machinery/vending/_try_interact(mob/user)
 	if(seconds_electrified && !(machine_stat & NOPOWER))
@@ -834,7 +834,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 			return
 
 	if(tilted && !user.buckled && !isAI(user))
-		to_chat(user, span_notice("Поднимаю [src]."))
+		to_chat(user, "<span class='notice'>Поднимаю [src].</span>")
 		if(do_after(user, 50, target=src))
 			untilt(user)
 		return
@@ -946,7 +946,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 	if(!vend_ready)
 		return
 	if(panel_open)
-		to_chat(user, span_warning("Кажется открытая панель мешает нормальной работе аппарата!"))
+		to_chat(user, "<span class='warning'>Кажется открытая панель мешает нормальной работе аппарата!</span>")
 		return
 	return TRUE
 
@@ -1067,9 +1067,9 @@ GLOBAL_LIST_EMPTY(vending_products)
 		vended_item.set_greyscale(colors=greyscale_colors)
 	R.amount--
 	if(usr.CanReach(src) && usr.put_in_hands(vended_item))
-		to_chat(usr, span_notice("Достаю [R.name] из отверстия."))
+		to_chat(usr, "<span class='notice'>Достаю [R.name] из отверстия.</span>")
 	else
-		to_chat(usr, span_warning("[capitalize(R.name)] падает на пол!"))
+		to_chat(usr, "<span class='warning'>[capitalize(R.name)] падает на пол!</span>")
 	SSblackbox.record_feedback("nested tally", "vending_machine_usage", 1, list("[type]", "[R.product_path]"))
 	vend_ready = TRUE
 
@@ -1157,7 +1157,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 	pre_throw(throw_item)
 
 	throw_item.throw_at(target, 16, 3)
-	visible_message(span_danger("[capitalize(src.name)] launches [throw_item] at [target]!"))
+	visible_message("<span class='danger'>[capitalize(src.name)] launches [throw_item] at [target]!</span>")
 	return TRUE
 /**
  * A callback called before an item is tossed out
@@ -1212,7 +1212,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 	tilt(L)
 
 /obj/machinery/vending/attack_tk_grab(mob/user)
-	to_chat(user, span_warning("[capitalize(src)] сопротивляется с невиданной силой!"))
+	to_chat(user, "<span class='warning'>[capitalize(src)] сопротивляется с невиданной силой!</span>")
 
 ///Crush the mob that the vending machine got thrown at
 /obj/machinery/vending/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
@@ -1397,7 +1397,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 
 /obj/item/price_tagger/attack_self(mob/user)
 	price = max(1, round(input(user,"Установим цену","Цена") as num|null, 1))
-	to_chat(user, span_notice("Теперь [src] будет выставлять всем предметам цену в размере [price] кредитов."))
+	to_chat(user, "<span class='notice'>Теперь [src] будет выставлять всем предметам цену в размере [price] кредитов.</span>")
 
 /obj/item/price_tagger/afterattack(atom/target, mob/user, proximity)
 	. = ..()
@@ -1406,7 +1406,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 	if(isitem(target))
 		var/obj/item/I = target
 		I.custom_price = price
-		to_chat(user, span_notice("Устанавливаю цену [I] в величину [price] кредитов."))
+		to_chat(user, "<span class='notice'>Устанавливаю цену [I] в величину [price] кредитов.</span>")
 
 /obj/machinery/vending/custom/greed //name and like decided by the spawn
 	custom_materials = list(/datum/material/gold = MINERAL_MATERIAL_AMOUNT * 5)

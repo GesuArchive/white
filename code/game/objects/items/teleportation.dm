@@ -137,7 +137,7 @@
 /obj/item/hand_tele/proc/try_dispel_portal(atom/target, mob/user)
 	if(is_parent_of_portal(target))
 		qdel(target)
-		to_chat(user, span_notice("You dispel [target] with \the [src]!"))
+		to_chat(user, "<span class='notice'>You dispel [target] with \the [src]!</span>")
 		return TRUE
 	return FALSE
 
@@ -153,7 +153,7 @@
 		portal_location = last_portal_location_ref.resolve()
 
 	if (isnull(portal_location))
-		to_chat(user, span_warning("[src] flashes briefly. No target is locked in."))
+		to_chat(user, "<span class='warning'>[src] flashes briefly. No target is locked in.</span>")
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 	try_create_portal_to(user, portal_location)
@@ -207,7 +207,7 @@
 /// Takes either PORTAL_LOCATION_DANGEROUS or an /obj/machinery/computer/teleport/computer.
 /obj/item/hand_tele/proc/try_create_portal_to(mob/user, teleport_location)
 	if (length(active_portal_pairs) >= max_portal_pairs)
-		user.show_message(span_notice("[src] is recharging!"))
+		user.show_message("<span class='notice'>[src] is recharging!</span>")
 		return
 
 	var/atom/teleport_target
@@ -233,12 +233,12 @@
 		teleport_target = target
 
 	if (teleport_target == null)
-		to_chat(user, span_notice("[src] vibrates, then stops. Maybe you should try something else."))
+		to_chat(user, "<span class='notice'>[src] vibrates, then stops. Maybe you should try something else.</span>")
 		return
 
 	var/area/teleport_area = get_area(teleport_target)
 	if (teleport_area.area_flags & NOTELEPORT)
-		to_chat(user, span_notice("[src] is malfunctioning."))
+		to_chat(user, "<span class='notice'>[src] is malfunctioning.</span>")
 		return
 
 	if (!can_teleport_notifies(user))
@@ -260,7 +260,7 @@
 	investigate_log("was used by [key_name(user)] at [AREACOORD(user)] to create a portal pair with destinations [AREACOORD(portal1)] and [AREACOORD(portal2)].", INVESTIGATE_PORTAL)
 	add_fingerprint(user)
 
-	user.show_message(span_notice("Locked in."), MSG_AUDIBLE)
+	user.show_message("<span class='notice'>Locked in.</span>", MSG_AUDIBLE)
 
 	return TRUE
 
@@ -268,7 +268,7 @@
 	var/turf/current_location = get_turf(user)
 	var/area/current_area = current_location.loc
 	if (!current_location || (current_area.area_flags & NOTELEPORT) || is_away_level(current_location.z) || !isturf(user.loc))
-		to_chat(user, span_notice("[src] is malfunctioning."))
+		to_chat(user, "<span class='notice'>[src] is malfunctioning.</span>")
 		return FALSE
 
 	return TRUE
@@ -297,16 +297,16 @@
 
 /obj/item/hand_tele/suicide_act(mob/user)
 	if(iscarbon(user))
-		user.visible_message(span_suicide("[user] is creating a weak portal and sticking [user.p_their()] head through! It looks like [user.p_theyre()] trying to commit suicide!"))
+		user.visible_message("<span class='suicide'>[user] is creating a weak portal and sticking [user.p_their()] head through! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 		var/mob/living/carbon/itemUser = user
 		var/obj/item/bodypart/head/head = itemUser.get_bodypart(BODY_ZONE_HEAD)
 		if(head)
 			head.drop_limb()
 			var/list/safeLevels = SSmapping.levels_by_any_trait(list(ZTRAIT_LAVA_RUINS, ZTRAIT_STATION, ZTRAIT_MINING))
 			head.forceMove(locate(rand(1, world.maxx), rand(1, world.maxy), pick(safeLevels)))
-			itemUser.visible_message(span_suicide("The portal snaps closed taking [user]'s head with it!"))
+			itemUser.visible_message("<span class='suicide'>The portal snaps closed taking [user]'s head with it!</span>")
 		else
-			itemUser.visible_message(span_suicide("[user] looks even further depressed as they realize they do not have a head...and suddenly dies of shame!"))
+			itemUser.visible_message("<span class='suicide'>[user] looks even further depressed as they realize they do not have a head...and suddenly dies of shame!</span>")
 		return (BRUTELOSS)
 
 /obj/item/syndicate_teleporter
@@ -343,7 +343,7 @@
 
 /obj/item/syndicate_teleporter/examine(mob/user)
 	. = ..()
-	. += span_notice("[src] has <b>[charges]</b> out of [max_charges] charges left.")
+	. += "<span class='notice'>[src] has <b>[charges]</b> out of [max_charges] charges left.</span>"
 
 /obj/item/syndicate_teleporter/attack_self(mob/user)
 	. = ..()
@@ -374,7 +374,7 @@
 					teleported_something = TRUE
 				attempt_teleport(user = mob_on_same_tile, triggered_by_emp = TRUE, not_holding_tele = TRUE)
 			if(!teleported_something)
-				visible_message(span_danger("[src] blinks out of existence!"))
+				visible_message("<span class='danger'>[src] blinks out of existence!</span>")
 				do_sparks(2, 1, src)
 				qdel(src)
 
@@ -407,7 +407,7 @@
 			panic_teleport(user, destination) //We're in a wall, engage emergency parallel teleport.
 		else
 			if(bagholdingcheck && !not_holding_tele)
-				to_chat(user, span_warning("The bluespace interface on your bag of holding interferes with the teleport!"))
+				to_chat(user, "<span class='warning'>The bluespace interface on your bag of holding interferes with the teleport!</span>")
 			get_fragged(user, destination, not_holding_tele) //EMP teleported you into a wall? Wearing a BoH? You're dead.
 	else
 		telefrag(destination, user)
@@ -468,9 +468,9 @@
 	playsound(destination, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	playsound(destination, "sound/magic/disintegrate.ogg", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	if(!not_holding_tele)
-		to_chat(victim, span_userdanger("You teleport into [destination], [src] tries to save you, but..."))
+		to_chat(victim, "<span class='userdanger'>You teleport into [destination], [src] tries to save you, but...</span>")
 	else
-		to_chat(victim, span_userdanger("You teleport into [destination]."))
+		to_chat(victim, "<span class='userdanger'>You teleport into [destination].</span>")
 	destination.ex_act(EXPLODE_HEAVY)
 	victim.unequip_everything()
 	victim.gib()
@@ -480,7 +480,7 @@
 	for(var/mob/living/victim in fragging_location)//Hit everything in the turf
 		victim.apply_damage(20, BRUTE)
 		victim.Paralyze(6 SECONDS)
-		to_chat(victim, span_warning("[user] teleports into you, knocking you to the floor with the bluespace wave!"))
+		to_chat(victim, "<span class='warning'>[user] teleports into you, knocking you to the floor with the bluespace wave!</span>")
 
 /obj/item/paper/syndicate_teleporter
 	name = "Teleporter Guide"

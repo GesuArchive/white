@@ -106,7 +106,7 @@
 	if(open)
 		if(cell)
 			. += "<hr><span class='notice'>Внутри установлена [cell].</span>"
-			. += span_info("\nМожно использовать <b>ломик</b> для изъятия.")
+			. += "<span class='info'>\nМожно использовать <b>ломик</b> для изъятия.</span>"
 		else
 			. += "<hr><span class='notice'>Внутри отсутствует <b>батарейка</b>.</span>"
 	if(load) //observer check is so we don't show the name of the ghost that's sitting on it to prevent metagaming who's ded.
@@ -150,25 +150,25 @@
 		update_icon()
 	else if(istype(I, /obj/item/stock_parts/cell) && open)
 		if(cell)
-			to_chat(user, span_warning("[capitalize(src.name)] внутри уже есть батарейка!"))
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] внутри уже есть батарейка!</span>")
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 		cell = I
 		diag_hud_set_mulebotcell()
-		visible_message(span_notice("[user] вставляет [cell] в [src.name].") ,
-						span_notice("Вставляю [cell] в [src.name]."))
+		visible_message("<span class='notice'>[user] вставляет [cell] в [src.name].</span>" ,
+						"<span class='notice'>Вставляю [cell] в [src.name].</span>")
 	else if(I.tool_behaviour == TOOL_CROWBAR && open && user.a_intent != INTENT_HARM)
 		if(!cell)
-			to_chat(user, span_warning("[capitalize(src.name)] не имеет батарейки!"))
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] не имеет батарейки!</span>")
 			return
 		cell.add_fingerprint(user)
 		if(Adjacent(user) && !issilicon(user))
 			user.put_in_hands(cell)
 		else
 			cell.forceMove(drop_location())
-		visible_message(span_notice("[user] вытаскивает [cell] из [src.name].") ,
-						span_notice("Вытаскиваю [cell] из [src.name]."))
+		visible_message("<span class='notice'>[user] вытаскивает [cell] из [src.name].</span>" ,
+						"<span class='notice'>Вытаскиваю [cell] из [src.name].</span>")
 		cell = null
 		diag_hud_set_mulebotcell()
 	else if(is_wire_tool(I) && open)
@@ -176,10 +176,10 @@
 	else if(load && ismob(load))  // chance to knock off rider
 		if(prob(1 + I.force * 2))
 			unload(0)
-			user.visible_message(span_danger("[user] сталкивает [load] с [src.name] используя [I]!") ,
-									span_danger("Сталкиваю [load] с [src.name] используя [I]!"))
+			user.visible_message("<span class='danger'>[user] сталкивает [load] с [src.name] используя [I]!</span>" ,
+									"<span class='danger'>Сталкиваю [load] с [src.name] используя [I]!</span>")
 		else
-			to_chat(user, span_warning("Бью [src.name] используя [I], но ничего не происходит!"))
+			to_chat(user, "<span class='warning'>Бью [src.name] используя [I], но ничего не происходит!</span>")
 			return ..()
 	else
 		return ..()
@@ -189,7 +189,7 @@
 		emagged = TRUE
 	if(!open)
 		locked = !locked
-		to_chat(user, span_notice("Управление [src.name] [locked ? "заблокировано" : "разблокировано"]!"))
+		to_chat(user, "<span class='notice'>Управление [src.name] [locked ? "заблокировано" : "разблокировано"]!</span>")
 	flick("[base_icon]-emagged", src)
 	playsound(src, "zap", 100, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 
@@ -224,7 +224,7 @@
 		if(prob(50) && !isnull(load))
 			unload(0)
 		if(prob(25))
-			visible_message(span_danger("Что-то закоротило внутри [src.name]!"))
+			visible_message("<span class='danger'>Что-то закоротило внутри [src.name]!</span>")
 			wires.cut_random()
 
 /mob/living/simple_animal/bot/mulebot/interact(mob/user)
@@ -283,11 +283,11 @@
 			if(on)
 				turn_off()
 			else if(open)
-				to_chat(usr, span_warning("[name] имеет открытую техническую панель!"))
+				to_chat(usr, "<span class='warning'>[name] имеет открытую техническую панель!</span>")
 				return
 			else if(cell)
 				if(!turn_on())
-					to_chat(usr, span_warning("Не могу включить [src.name]!"))
+					to_chat(usr, "<span class='warning'>Не могу включить [src.name]!</span>")
 					return
 			. = TRUE
 		else
@@ -358,17 +358,17 @@
 	dat += "<div class='statusDisplay'>"
 	switch(mode)
 		if(BOT_IDLE)
-			dat += span_good("Готов")
+			dat += "<span class='good'>Готов</span>"
 		if(BOT_DELIVER)
-			dat += span_good("[mode_name[BOT_DELIVER]]")
+			dat += "<span class='good'>[mode_name[BOT_DELIVER]]</span>"
 		if(BOT_GO_HOME)
-			dat += span_good("[mode_name[BOT_GO_HOME]]")
+			dat += "<span class='good'>[mode_name[BOT_GO_HOME]]</span>"
 		if(BOT_BLOCKED)
 			dat += "<span class='average'>[mode_name[BOT_BLOCKED]]</span>"
 		if(BOT_NAV,BOT_WAIT_FOR_NAV)
 			dat += "<span class='average'>[mode_name[BOT_NAV]]</span>"
 		if(BOT_NO_ROUTE)
-			dat += span_bad("[mode_name[BOT_NO_ROUTE]]")
+			dat += "<span class='bad'>[mode_name[BOT_NO_ROUTE]]</span>"
 	dat += "</div>"
 
 	var/load_message = get_load_name()
@@ -400,16 +400,16 @@
 /mob/living/simple_animal/bot/mulebot/proc/buzz(type)
 	switch(type)
 		if(SIGH)
-			audible_message(span_hear("[capitalize(src.name)] вздыхающе гудит."))
+			audible_message("<span class='hear'>[capitalize(src.name)] вздыхающе гудит.</span>")
 			playsound(src, 'white/valtos/sounds/error1.ogg', 50, FALSE)
 		if(ANNOYED)
-			audible_message(span_hear("[capitalize(src.name)] раздражённо жужжит."))
+			audible_message("<span class='hear'>[capitalize(src.name)] раздражённо жужжит.</span>")
 			playsound(src, 'white/valtos/sounds/error2.ogg', 50, FALSE)
 		if(DELIGHT)
-			audible_message(span_hear("[capitalize(src.name)] делает радостный пинг!"))
+			audible_message("<span class='hear'>[capitalize(src.name)] делает радостный пинг!</span>")
 			playsound(src, 'sound/machines/ping.ogg', 50, FALSE)
 		if(CHIME)
-			audible_message(span_hear("[capitalize(src.name)] делает звыньк!"))
+			audible_message("<span class='hear'>[capitalize(src.name)] делает звыньк!</span>")
 			playsound(src, 'sound/machines/chime.ogg', 50, FALSE)
 	flick("[base_icon]1", src)
 
@@ -687,7 +687,7 @@
 		if(pathset) //The AI called us here, so notify it of our arrival.
 			loaddir = dir //The MULE will attempt to load a crate in whatever direction the MULE is "facing".
 			if(calling_ai)
-				to_chat(calling_ai, span_notice("[icon2html(src, calling_ai)] [src.name] удалённо проигрывает звук!"))
+				to_chat(calling_ai, "<span class='notice'>[icon2html(src, calling_ai)] [src.name] удалённо проигрывает звук!</span>")
 				calling_ai.playsound_local(calling_ai, 'sound/machines/chime.ogg', 40, FALSE)
 				calling_ai = null
 				radio_channel = RADIO_CHANNEL_AI_PRIVATE //Report on AI Private instead if the AI is controlling us.
@@ -727,17 +727,17 @@
 	var/mob/living/L = M
 	if(wires.is_cut(WIRE_AVOIDANCE)) // usually just bumps, but if the avoidance wire is cut, knocks them over.
 		if(iscyborg(L))
-			visible_message(span_danger("[capitalize(src.name)] влетает в [L]!"))
+			visible_message("<span class='danger'>[capitalize(src.name)] влетает в [L]!</span>")
 		else if(L.Knockdown(8 SECONDS))
 			log_combat(src, L, "knocked down")
-			visible_message(span_danger("[capitalize(src.name)] сбивает [L]!"))
+			visible_message("<span class='danger'>[capitalize(src.name)] сбивает [L]!</span>")
 	return ..()
 
 // when mulebot is in the same loc
 /mob/living/simple_animal/bot/mulebot/proc/run_over(mob/living/carbon/human/H)
 	log_combat(src, H, "run over", null, "(DAMTYPE: [uppertext(BRUTE)])")
-	H.visible_message(span_danger("[capitalize(src.name)] давит [H]!") , \
-					span_userdanger("[capitalize(src.name)] давит меня!"))
+	H.visible_message("<span class='danger'>[capitalize(src.name)] давит [H]!</span>" , \
+					"<span class='userdanger'>[capitalize(src.name)] давит меня!</span>")
 	playsound(src, 'sound/effects/splat.ogg', 50, TRUE)
 
 	var/damage = rand(5,15)
@@ -790,7 +790,7 @@
 
 
 /mob/living/simple_animal/bot/mulebot/explode()
-	visible_message(span_boldannounce("[capitalize(src.name)] взрывается!"))
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] взрывается!</span>")
 	var/atom/Tsec = drop_location()
 
 	new /obj/item/assembly/prox_sensor(Tsec)
@@ -826,7 +826,7 @@
 /mob/living/simple_animal/bot/mulebot/insertpai(mob/user, obj/item/paicard/card)
 	. = ..()
 	if(.)
-		visible_message(span_notice("[src]'s safeties are locked on."))
+		visible_message("<span class='notice'>[src]'s safeties are locked on.</span>")
 
 /// Checks whether the bot can complete a step_towards, checking whether the bot is on and has the charge to do the move. Returns COMPONENT_MOB_BOT_CANCELSTEP if the bot should not step.
 /mob/living/simple_animal/bot/mulebot/proc/check_pre_step(datum/source)
@@ -871,7 +871,7 @@
 		return
 
 	if(isobserver(AM))
-		visible_message(span_warning("Призрачная фигура появлятся на [src.name]!"))
+		visible_message("<span class='warning'>Призрачная фигура появлятся на [src.name]!</span>")
 		RegisterSignal(AM, COMSIG_MOVABLE_MOVED, .proc/ghostmoved)
 		AM.forceMove(src)
 
@@ -914,7 +914,7 @@
 
 /mob/living/simple_animal/bot/mulebot/paranormal/proc/ghostmoved()
 	SIGNAL_HANDLER
-	visible_message(span_notice("Призрачная фигура пропадает..."))
+	visible_message("<span class='notice'>Призрачная фигура пропадает...</span>")
 	UnregisterSignal(load, COMSIG_MOVABLE_MOVED)
 	unload(0)
 

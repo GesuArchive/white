@@ -130,7 +130,7 @@
 
 /obj/machinery/nanite_chamber/proc/toggle_open(mob/user)
 	if(panel_open)
-		to_chat(user, span_notice("Сначала необходимо закрыть панель обслуживания."))
+		to_chat(user, "<span class='notice'>Сначала необходимо закрыть панель обслуживания.</span>")
 		return
 
 	if(state_open)
@@ -138,7 +138,7 @@
 		return
 
 	else if(locked)
-		to_chat(user, span_notice("Болты опущены, надежно фиксируя капсулу."))
+		to_chat(user, "<span class='notice'>Болты опущены, надежно фиксируя капсулу.</span>")
 		return
 
 	open_machine()
@@ -151,15 +151,15 @@
 		return
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
-	user.visible_message(span_notice("Я вижу как [user] истерично долбится в дверь нанитной камеры, пытаясь выбраться!") , \
-		span_notice("Упираюсь спиной о борт нанитной камеры и пытаюсь выбить дверь ногой... (это займет у меня [DisplayTimeText(breakout_time)].)") , \
-		span_hear("Я слышу металический шум из нанитной камеры."))
+	user.visible_message("<span class='notice'>Я вижу как [user] истерично долбится в дверь нанитной камеры, пытаясь выбраться!</span>" , \
+		"<span class='notice'>Упираюсь спиной о борт нанитной камеры и пытаюсь выбить дверь ногой... (это займет у меня [DisplayTimeText(breakout_time)].)</span>" , \
+		"<span class='hear'>Я слышу металический шум из нанитной камеры.</span>")
 	if(do_after(user,(breakout_time), target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src || state_open || !locked || busy)
 			return
 		locked = FALSE
-		user.visible_message(span_warning("[user] с судорожным вздохом выбирается из нанитной камеры!") , \
-			span_notice("У меня получилось выбраться из нанитной камеры!"))
+		user.visible_message("<span class='warning'>[user] с судорожным вздохом выбирается из нанитной камеры!</span>" , \
+			"<span class='notice'>У меня получилось выбраться из нанитной камеры!</span>")
 		open_machine()
 
 /obj/machinery/nanite_chamber/close_machine(mob/living/carbon/user)
@@ -181,7 +181,7 @@
 	if(user.stat || locked)
 		if(message_cooldown <= world.time)
 			message_cooldown = world.time + 50
-			to_chat(user, span_warning("[capitalize(src.name)] door won't budge!"))
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] door won't budge!</span>")
 		return
 	open_machine()
 

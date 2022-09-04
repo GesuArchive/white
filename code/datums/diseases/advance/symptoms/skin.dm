@@ -38,4 +38,4 @@ BONUS
 				M.reagents.add_reagent(color, 5)
 		else
 			if (prob(50)) // spam
-				M.visible_message(span_warning("[M] выглядит довольно ярким..."), span_notice("Цвета, чувак, цвета..."))
+				M.visible_message("<span class='warning'>[M] выглядит довольно ярким...</span>", "<span class='notice'>Цвета, чувак, цвета...</span>")

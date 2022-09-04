@@ -30,12 +30,12 @@
 	if(istype(I, /obj/item/swapper))
 		var/obj/item/swapper/other_swapper = I
 		if(other_swapper.linked_swapper)
-			to_chat(user, span_warning("[other_swapper] уже связан, для установки нового соединения необходимо разорвать предыдущее."))
+			to_chat(user, "<span class='warning'>[other_swapper] уже связан, для установки нового соединения необходимо разорвать предыдущее.</span>")
 			return
 		if(linked_swapper)
-			to_chat(user, span_warning("[capitalize(src.name)] уже связан, для установки нового соединения необходимо разорвать предыдущее."))
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] уже связан, для установки нового соединения необходимо разорвать предыдущее.</span>")
 			return
-		to_chat(user, span_notice("Устанавливаю квантовую связь между двумя устройствами."))
+		to_chat(user, "<span class='notice'>Устанавливаю квантовую связь между двумя устройствами.</span>")
 		linked_swapper = other_swapper
 		other_swapper.linked_swapper = src
 		update_icon()
@@ -45,17 +45,17 @@
 
 /obj/item/swapper/attack_self(mob/living/user)
 	if(world.time < next_use)
-		to_chat(user, span_warning("[capitalize(src.name)] все еще перезаряжается."))
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] все еще перезаряжается.</span>")
 		return
 	if(QDELETED(linked_swapper))
-		to_chat(user, span_warning("[capitalize(src.name)] не синхронизирован с квантовым близнецом."))
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] не синхронизирован с квантовым близнецом.</span>")
 		return
 	playsound(src, 'sound/weapons/flash.ogg', 25, TRUE)
-	to_chat(user, span_notice("You activate [src]."))
+	to_chat(user, "<span class='notice'>You activate [src].</span>")
 	playsound(linked_swapper, 'sound/weapons/flash.ogg', 25, TRUE)
 	if(ismob(linked_swapper.loc))
 		var/mob/holder = linked_swapper.loc
-		to_chat(holder, span_notice("[linked_swapper] начинает жужжать."))
+		to_chat(holder, "<span class='notice'>[linked_swapper] начинает жужжать.</span>")
 	next_use = world.time + cooldown //only the one used goes on cooldown
 	addtimer(CALLBACK(src, .proc/swap, user), 25)
 
@@ -71,7 +71,7 @@
 /obj/item/swapper/AltClick(mob/living/user)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
 		return
-	to_chat(user, span_notice("Разрываю текущую связь."))
+	to_chat(user, "<span class='notice'>Разрываю текущую связь.</span>")
 	if(!QDELETED(linked_swapper))
 		linked_swapper.linked_swapper = null
 		linked_swapper.update_icon()
@@ -110,4 +110,4 @@
 		do_teleport(B, target_A, forceMove = TRUE, channel = TELEPORT_CHANNEL_QUANTUM)
 		if(ismob(B))
 			var/mob/M = B
-			to_chat(M, span_warning("[linked_swapper] активируется и через мгновение я осознаю, что нахожусь в совершенно другом месте."))
+			to_chat(M, "<span class='warning'>[linked_swapper] активируется и через мгновение я осознаю, что нахожусь в совершенно другом месте.</span>")

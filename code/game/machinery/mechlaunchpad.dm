@@ -44,7 +44,7 @@
 		return
 	var/obj/item/multitool/multitool = tool
 	multitool.buffer = src
-	to_chat(user, span_notice("Сохраняю данные в буфер [multitool.name]."))
+	to_chat(user, "<span class='notice'>Сохраняю данные в буфер [multitool.name].</span>")
 	return TRUE
 
 /**

@@ -111,7 +111,7 @@ GLOBAL_LIST_INIT(chasm_storage, list())
 			if(istype(H.belt, /obj/item/wormhole_jaunter))
 				var/obj/item/wormhole_jaunter/J = H.belt
 				//To freak out any bystanders
-				H.visible_message(span_boldwarning("[H] falls into [parent]!"))
+				H.visible_message("<span class='boldwarning'>[H] falls into [parent]!</span>")
 				J.chasm_react(H)
 				return FALSE
 	return TRUE
@@ -128,8 +128,8 @@ GLOBAL_LIST_INIT(chasm_storage, list())
 
 	if(T)
 		// send to the turf below
-		dropped_thing.visible_message(span_boldwarning("<b>[dropped_thing]</b> падает в [parent]!") , span_userdanger("[fall_message]"))
-		T.visible_message(span_boldwarning("<b>[dropped_thing]</b> падает сверху!"))
+		dropped_thing.visible_message("<span class='boldwarning'><b>[dropped_thing]</b> падает в [parent]!</span>" , "<span class='userdanger'>[fall_message]</span>")
+		T.visible_message("<span class='boldwarning'><b>[dropped_thing]</b> падает сверху!</span>")
 		dropped_thing.forceMove(T)
 		if(isliving(dropped_thing))
 			var/mob/living/L = dropped_thing
@@ -138,7 +138,7 @@ GLOBAL_LIST_INIT(chasm_storage, list())
 		falling_atoms -= falling_ref
 		return
 	// send to oblivion
-	dropped_thing.visible_message(span_boldwarning("<b>[dropped_thing]</b> падает в <b>[parent]</b>!"), span_userdanger("[oblivion_message]"))
+	dropped_thing.visible_message("<span class='boldwarning'><b>[dropped_thing]</b> падает в <b>[parent]</b>!</span>", "<span class='userdanger'>[oblivion_message]</span>")
 	if (isliving(dropped_thing))
 		var/mob/living/falling_mob = dropped_thing
 		falling_mob.notransform = TRUE
@@ -178,7 +178,7 @@ GLOBAL_LIST_INIT(chasm_storage, list())
 			RegisterSignal(dropped_thing, COMSIG_LIVING_REVIVE, .proc/on_revive)
 		SEND_SIGNAL(dropped_thing, COMSIG_MOVABLE_SECLUDED_LOCATION)
 	else
-		parent.visible_message(span_boldwarning("[parent] выплёвывает [dropped_thing]!"))
+		parent.visible_message("<span class='boldwarning'>[parent] выплёвывает [dropped_thing]!</span>")
 		dropped_thing.throw_at(get_edge_target_turf(parent, pick(GLOB.alldirs)), rand(1, 10), rand(1, 10))
 
 	if (isliving(dropped_thing))
@@ -213,7 +213,7 @@ GLOBAL_LIST_INIT(chasm_storage, list())
 /datum/component/chasm/proc/on_revive(mob/living/escapee)
 	SIGNAL_HANDLER
 	var/atom/parent = src.parent
-	parent.visible_message(span_boldwarning("После долгого подъёма, [escapee] вылезает из [parent]!"))
+	parent.visible_message("<span class='boldwarning'>После долгого подъёма, [escapee] вылезает из [parent]!</span>")
 	ADD_TRAIT(escapee, TRAIT_MOVE_FLYING, CHASM_TRAIT) //Otherwise they instantly fall back in
 	escapee.forceMove(get_turf(parent))
 	escapee.throw_at(get_edge_target_turf(parent, pick(GLOB.alldirs)), rand(1, 10), rand(1, 10))

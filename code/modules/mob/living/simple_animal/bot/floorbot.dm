@@ -117,17 +117,17 @@
 
 /mob/living/simple_animal/bot/floorbot/attackby(obj/item/W , mob/user, params)
 	if(istype(W, /obj/item/stack/tile/plasteel))
-		to_chat(user, span_notice("[name] способен самостоятельно воспроизводить обычную плитку и не нуждается в её пополнении."))
+		to_chat(user, "<span class='notice'>[name] способен самостоятельно воспроизводить обычную плитку и не нуждается в её пополнении.</span>")
 		return
 	if(istype(W, /obj/item/stack/tile))
 		var/old_amount = tilestack ? tilestack.amount : 0
 		var/obj/item/stack/tile/tiles = W
 		if(tilestack)
 			if(!tiles.can_merge(tilestack))
-				to_chat(user, span_warning("В флурбота уже вставлен другой вид плитки."))
+				to_chat(user, "<span class='warning'>В флурбота уже вставлен другой вид плитки.</span>")
 				return
 			if(tilestack.amount >= maxtiles)
-				to_chat(user, span_warning("Флурбот переполнен."))
+				to_chat(user, "<span class='warning'>Флурбот переполнен.</span>")
 				return
 			tiles.merge(tilestack, maxtiles)
 		else
@@ -136,7 +136,7 @@
 			else
 				tilestack = W
 			tilestack.forceMove(src)
-		to_chat(user, span_notice("Загружаю [tilestack.amount - old_amount] плиток во флурбота. Теперь он содержит [tilestack.amount] плиток."))
+		to_chat(user, "<span class='notice'>Загружаю [tilestack.amount - old_amount] плиток во флурбота. Теперь он содержит [tilestack.amount] плиток.</span>")
 		return
 	else
 		..()
@@ -145,7 +145,7 @@
 	..()
 	if(emagged == 2)
 		if(user)
-			to_chat(user, span_danger("[capitalize(src.name)] жужжит."))
+			to_chat(user, "<span class='danger'>[capitalize(src.name)] жужжит.</span>")
 
 ///mobs should use move_resist instead of anchored.
 /mob/living/simple_animal/bot/floorbot/proc/toggle_magnet(engage = TRUE, change_icon = TRUE)
@@ -261,7 +261,7 @@
 					F.ReplaceWithLattice()
 				else
 					F.ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
-				audible_message(span_danger("[capitalize(src.name)] издает возбужденный писк.")) //шруман не сжимай
+				audible_message("<span class='danger'>[capitalize(src.name)] издает возбужденный писк.</span>") //шруман не сжимай
 				addtimer(CALLBACK(src, .proc/go_idle), 0.5 SECONDS)
 			path = list()
 			return
@@ -347,7 +347,7 @@
 		return
 	if(isspaceturf(target_turf)) //If we are fixing an area not part of pure space, it is
 		toggle_magnet()
-		visible_message(span_notice("[targetdirection ? "[capitalize(src.name)] начинает устанавливать обшивку." : "[capitalize(src.name)] начинает чинить пробоину."] "))
+		visible_message("<span class='notice'>[targetdirection ? "[capitalize(src.name)] начинает устанавливать обшивку." : "[capitalize(src.name)] начинает чинить пробоину."] </span>")
 		mode = BOT_REPAIRING
 		if(do_after(src, 50, target = target_turf) && mode == BOT_REPAIRING)
 			if(autotile) //Build the floor and include a tile.
@@ -368,14 +368,14 @@
 		if(F.broken || F.burnt || isplatingturf(F))
 			toggle_magnet()
 			mode = BOT_REPAIRING
-			visible_message(span_notice("[capitalize(src.name)] начинает [(F.broken || F.burnt) ? "чинить пол" : "укладывать плитку"]."))
+			visible_message("<span class='notice'>[capitalize(src.name)] начинает [(F.broken || F.burnt) ? "чинить пол" : "укладывать плитку"].</span>")
 			if(do_after(src, 50, target = F) && mode == BOT_REPAIRING)
 				success = TRUE
 
 		else if(replacetiles && tilestack && F.type != tilestack.turf_type)
 			toggle_magnet()
 			mode = BOT_REPAIRING
-			visible_message(span_notice("[capitalize(src.name)] начинает заменять повреждённую плитку."))
+			visible_message("<span class='notice'>[capitalize(src.name)] начинает заменять повреждённую плитку.</span>")
 			if(do_after(src, 50, target = target_turf) && mode == BOT_REPAIRING && tilestack)
 				success = TRUE
 
@@ -397,7 +397,7 @@
 /mob/living/simple_animal/bot/floorbot/explode()
 	on = FALSE
 	target = null
-	visible_message(span_boldannounce("[capitalize(src.name)] взрывается!"))
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] взрывается!</span>")
 	var/atom/Tsec = drop_location()
 
 	drop_part(toolbox, Tsec)

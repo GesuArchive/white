@@ -59,7 +59,7 @@
 	if(bomb)
 		bomb.forceMove(user.loc)
 		user.put_in_hands(bomb)
-		user.visible_message(span_warning("[user] отсоединяет [bomb] от [src]."))
+		user.visible_message("<span class='warning'>[user] отсоединяет [bomb] от [src].</span>")
 		bomb = null
 		name = initial(name)
 		desc = initial(desc)
@@ -76,13 +76,13 @@
 		return ..()
 
 	if(!bomb_to_attach.tank_one || !bomb_to_attach.tank_two)
-		to_chat(user, span_warning("И что за польза от незавершенной бомбы?"))
+		to_chat(user, "<span class='warning'>И что за польза от незавершенной бомбы?</span>")
 		return FALSE
 	if(!user.transferItemToLoc(bomb_to_attach, src))
-		to_chat(user, span_warning("[bomb_to_attach] похоже, застряла в твоей руке!"))
+		to_chat(user, "<span class='warning'>[bomb_to_attach] похоже, застряла в твоей руке!</span>")
 		return FALSE
 
-	user.visible_message(span_warning("[user] присоединил [bomb_to_attach] к [src]!"))
+	user.visible_message("<span class='warning'>[user] присоединил [bomb_to_attach] к [src]!</span>")
 	bomb = bomb_to_attach
 	name = "пушка уничтожитель"
 	desc = "Самодельное устройство используемое для концентрации энергии от взрыва бомбы в направленную волну."
@@ -124,7 +124,7 @@
 	var/heavy = power * 0.25
 	var/medium = power * 0.5
 	var/light = power
-	user.visible_message(span_danger("[user] opens [bomb] on [user.ru_ego()] [name] and fires a blast wave at [target]!") ,span_danger("You open [bomb] on your [name] and fire a blast wave at [target]!"))
+	user.visible_message("<span class='danger'>[user] opens [bomb] on [user.ru_ego()] [name] and fires a blast wave at [target]!</span>" ,"<span class='danger'>You open [bomb] on your [name] and fire a blast wave at [target]!</span>")
 	playsound(user, "explosion", 100, TRUE)
 	var/turf/starting = get_turf(user)
 	var/turf/targturf = get_turf(target)

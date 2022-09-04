@@ -68,9 +68,9 @@
 	used_tray.AddToPlate(baked_result)
 
 	if(positive_result)
-		used_oven.visible_message(span_warning("От [used_oven] исходит приятный запах."))
+		used_oven.visible_message("<span class='warning'>От [used_oven] исходит приятный запах.</span>")
 	else
-		used_oven.visible_message(span_warning("От [used_oven] пахнет чем-то горелым."))
+		used_oven.visible_message("<span class='warning'>От [used_oven] пахнет чем-то горелым.</span>")
 	SEND_SIGNAL(parent, COMSIG_BAKE_COMPLETED, baked_result)
 	qdel(parent)
 
@@ -80,13 +80,13 @@
 
 	if(!current_bake_time) //Not baked yet
 		if(positive_result)
-			examine_list += span_notice("\n[capitalize(A.name)] можно <b>испечь</b>.")
+			examine_list += "<span class='notice'>\n[capitalize(A.name)] можно <b>испечь</b>.</span>"
 		return
 
 	if(positive_result)
 		if(current_bake_time <= required_bake_time * 0.75)
-			examine_list += span_notice("\n[A] еще не пропек[A.ru_sya()]!")
+			examine_list += "<span class='notice'>\n[A] еще не пропек[A.ru_sya()]!</span>"
 		else if(current_bake_time <= required_bake_time)
-			examine_list += span_notice("\n[A] почти пропек[A.ru_sya()]!")
+			examine_list += "<span class='notice'>\n[A] почти пропек[A.ru_sya()]!</span>"
 	else
-		examine_list += span_danger("\n[A] пропек[A.ru_sya()] как следует!")
+		examine_list += "<span class='danger'>\n[A] пропек[A.ru_sya()] как следует!</span>"

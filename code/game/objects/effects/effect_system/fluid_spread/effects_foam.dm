@@ -306,7 +306,7 @@
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	user.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
-	to_chat(user, span_warning("Бью [src], но ей всё равно!"))
+	to_chat(user, "<span class='warning'>Бью [src], но ей всё равно!</span>")
 	playsound(src.loc, 'sound/weapons/tap.ogg', 100, TRUE)
 
 /obj/structure/foamedmetal/attackby(obj/item/W, mob/user, params)
@@ -325,13 +325,13 @@
 	var/obj/item/stack/sheet/sheet_for_plating = W
 	if(istype(sheet_for_plating, /obj/item/stack/sheet/iron))
 		if(sheet_for_plating.get_amount() < 2)
-			to_chat(user, span_warning("Потребуется два листа металла для создания стены на [src]!"))
+			to_chat(user, "<span class='warning'>Потребуется два листа металла для создания стены на [src]!</span>")
 			return
-		to_chat(user, span_notice("Начинаю добавлять металл..."))
+		to_chat(user, "<span class='notice'>Начинаю добавлять металл...</span>")
 		if (do_after(user, 40 * platingmodifier, target = src))
 			if(!sheet_for_plating.use(2))
 				return
-			to_chat(user, span_notice("Добавляю металл."))
+			to_chat(user, "<span class='notice'>Добавляю металл.</span>")
 			var/turf/T = get_turf(src)
 			T.PlaceOnTop(/turf/closed/wall/metal_foam_base)
 			transfer_fingerprints_to(T)
@@ -414,7 +414,7 @@
 		if(!comp.welded)
 			comp.welded = TRUE
 			comp.update_appearance()
-			comp.visible_message(span_danger("[comp] sealed shut!"))
+			comp.visible_message("<span class='danger'>[comp] sealed shut!</span>")
 
 	for(var/mob/living/potential_tinder in location)
 		potential_tinder.extinguish_mob()

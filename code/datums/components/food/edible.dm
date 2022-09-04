@@ -292,37 +292,37 @@ Behavior that's still missing from this component that original food items had t
 		var/message_to_blind_consumer = ""
 */
 		if(junkiness && eater.satiety < -150 && eater.nutrition > NUTRITION_LEVEL_STARVING + 50 && !HAS_TRAIT(eater, TRAIT_VORACIOUS))
-			to_chat(eater, span_warning("Не хочу я жрать эти отбросы!"))
+			to_chat(eater, "<span class='warning'>Не хочу я жрать эти отбросы!</span>")
 			return
 		else if(fullness <= 50)
-			eater.visible_message(span_notice("[eater] жадно [eatverb] [parent], проглатывая кусками!") , span_notice("Жадно кусаю [parent], проглатывая кусками!"))
+			eater.visible_message("<span class='notice'>[eater] жадно [eatverb] [parent], проглатывая кусками!</span>" , "<span class='notice'>Жадно кусаю [parent], проглатывая кусками!</span>")
 		else if(fullness > 50 && fullness < 150)
-			eater.visible_message(span_notice("[eater] жадно [eatverb] [parent].") , span_notice("Жадно пожираю [parent]."))
+			eater.visible_message("<span class='notice'>[eater] жадно [eatverb] [parent].</span>" , "<span class='notice'>Жадно пожираю [parent].</span>")
 		else if(fullness > 150 && fullness < 500)
-			eater.visible_message(span_notice("[eater] [eatverb] [parent].") , span_notice("Кушаю [parent]."))
+			eater.visible_message("<span class='notice'>[eater] [eatverb] [parent].</span>" , "<span class='notice'>Кушаю [parent].</span>")
 		else if(fullness > 500 && fullness < 600)
-			eater.visible_message(span_notice("[eater] нехотя [eatverb] кусочек [parent].") , span_notice("Нямкаю кусочек [parent]."))
+			eater.visible_message("<span class='notice'>[eater] нехотя [eatverb] кусочек [parent].</span>" , "<span class='notice'>Нямкаю кусочек [parent].</span>")
 		else if(fullness > (600 * (1 + eater.overeatduration / (4000 SECONDS))))	// The more you eat - the more you can eat
-			eater.visible_message(span_warning("[eater] не может запихнуть [parent] в свою глотку!") , span_warning("В меня больше не лезет [parent]!"))
+			eater.visible_message("<span class='warning'>[eater] не может запихнуть [parent] в свою глотку!</span>" , "<span class='warning'>В меня больше не лезет [parent]!</span>")
 			return
 	else //If you're feeding it to someone else.
 		if(isbrain(eater))
-			to_chat(feeder, span_warning("[eater] похоже не имеет рта!"))
+			to_chat(feeder, "<span class='warning'>[eater] похоже не имеет рта!</span>")
 			return
 		if(fullness <= (600 * (1 + eater.overeatduration / (2000 SECONDS))))
-			eater.visible_message(span_danger("[feeder] пытается дать [eater] попробовать [parent].") , \
-									span_userdanger("[feeder] пытается дать мне попробовать [parent]."))
+			eater.visible_message("<span class='danger'>[feeder] пытается дать [eater] попробовать [parent].</span>" , \
+									"<span class='userdanger'>[feeder] пытается дать мне попробовать [parent].</span>")
 		else
-			eater.visible_message(span_warning("[feeder] не может больше запихнуть [parent] внутрь [eater]!") , \
-									span_warning("[feeder] не может больше запихнуть [parent] в меня!"))
+			eater.visible_message("<span class='warning'>[feeder] не может больше запихнуть [parent] внутрь [eater]!</span>" , \
+									"<span class='warning'>[feeder] не может больше запихнуть [parent] в меня!</span>")
 			return
 		if(!do_mob(feeder, eater)) //Wait 3 seconds before you can feed
 			return
 		if(IsFoodGone(owner, feeder))
 			return
 		log_combat(feeder, eater, "fed", owner.reagents.log_list())
-		eater.visible_message(span_danger("[feeder] принуждает [eater] скушать [parent]!") , \
-									span_userdanger("[feeder] принуждает меня скушать [parent]!"))
+		eater.visible_message("<span class='danger'>[feeder] принуждает [eater] скушать [parent]!</span>" , \
+									"<span class='userdanger'>[feeder] принуждает меня скушать [parent]!</span>")
 
 	TakeBite(eater, feeder)
 
@@ -369,7 +369,7 @@ Behavior that's still missing from this component that original food items had t
 		covered = "намордник"
 	if(covered)
 		var/who = (isnull(feeder) || eater == feeder) ? "мой" : "[eater.ru_ego()]"
-		to_chat(feeder, span_warning("Надо бы снять [who] [covered] сначала!"))
+		to_chat(feeder, "<span class='warning'>Надо бы снять [who] [covered] сначала!</span>")
 		return FALSE
 	return TRUE
 
@@ -388,7 +388,7 @@ Behavior that's still missing from this component that original food items had t
 
 	if(HAS_TRAIT(H, TRAIT_AGEUSIA))
 		if(foodtypes & H.dna.species.toxic_food)
-			to_chat(H, span_warning("Что я только что съел?!"))
+			to_chat(H, "<span class='warning'>Что я только что съел?!</span>")
 			H.adjust_disgust(25 + 30 * fraction)
 		return // Don't care about the later checks if user has ageusia
 
@@ -407,15 +407,15 @@ Behavior that's still missing from this component that original food items had t
 
 	switch(food_taste_reaction)
 		if(FOOD_TOXIC)
-			to_chat(H,span_warning("ГОСПОДИ, ЭТО ОТВРАТИТЕЛЬНО!"))
+			to_chat(H,"<span class='warning'>ГОСПОДИ, ЭТО ОТВРАТИТЕЛЬНО!</span>")
 			H.adjust_disgust(25 + 30 * fraction)
 			SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "toxic_food", /datum/mood_event/disgusting_food)
 		if(FOOD_DISLIKED)
-			to_chat(H,span_notice("Фу! Я не люблю это!"))
+			to_chat(H,"<span class='notice'>Фу! Я не люблю это!</span>")
 			H.adjust_disgust(11 + 15 * fraction)
 			SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "gross_food", /datum/mood_event/gross_food)
 		if(FOOD_LIKED)
-			to_chat(H,span_notice("Вкусно!"))
+			to_chat(H,"<span class='notice'>Вкусно!</span>")
 			H.adjust_disgust(-5 + -2.5 * fraction)
 			SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "fav_food", /datum/mood_event/favorite_food)
 
@@ -425,7 +425,7 @@ Behavior that's still missing from this component that original food items had t
 
 	on_consume?.Invoke(eater, feeder)
 
-	to_chat(feeder, span_warning("Совсем не осталось [parent], о нет!"))
+	to_chat(feeder, "<span class='warning'>Совсем не осталось [parent], о нет!</span>")
 	if(isturf(parent))
 		var/turf/T = parent
 		T.ScrapeAway(1, CHANGETURF_INHERIT_AIR)

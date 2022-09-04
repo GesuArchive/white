@@ -25,23 +25,23 @@
 /obj/item/conv_printer/examine(mob/user)
 	. = ..()
 	. += "<hr>"
-	. += span_notice("It currently holds [matter]/[mattermax] fabrication-units.")
+	. += "<span class='notice'>It currently holds [matter]/[mattermax] fabrication-units.</span>"
 
 /obj/item/conv_printer/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/rcd_ammo))
 		if((matter + 10) > mattermax)
-			to_chat(user, span_notice("The RCBP can't hold any more matter."))
+			to_chat(user, "<span class='notice'>The RCBP can't hold any more matter.</span>")
 			return
 		qdel(I)
 		matter += 10
 		playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
-		to_chat(user, span_notice("The RCBP now holds [matter]/[mattermax] fabrication-units."))
+		to_chat(user, "<span class='notice'>The RCBP now holds [matter]/[mattermax] fabrication-units.</span>")
 	/*
 	else if (istype(I, /obj/item/multitool))
 		c_id = tgui_input_text(user, "Input a conveyor id", "Conveyor ID", c_id)
 	*/
 	else if(istype(I, /obj/item/conveyor_switch_construct))
-		to_chat(user, span_notice("You link the switch to the RCBP."))
+		to_chat(user, "<span class='notice'>You link the switch to the RCBP.</span>")
 		var/obj/item/conveyor_switch_construct/C = I
 		c_id = C.id
 	else
@@ -53,20 +53,20 @@
 		return
 
 	if(c_id == "")
-		to_chat(user, span_notice("No switch linked!"))
+		to_chat(user, "<span class='notice'>No switch linked!</span>")
 		return
 
 	if(istype(A, /obj/machinery/conveyor) && user.a_intent == INTENT_HARM)
 		matter++
 		qdel(A)
-		to_chat(user, span_notice("Deconstructing [A.name]..."))
+		to_chat(user, "<span class='notice'>Deconstructing [A.name]...</span>")
 		return
 
 	if (matter < 1)
-		to_chat(user, span_warning("<b>[src.name]</b> doesn't have enough matter left."))
+		to_chat(user, "<span class='warning'><b>[src.name]</b> doesn't have enough matter left.</span>")
 		return
 
-	to_chat(user, span_notice("Constructing conveyor belt..."))
+	to_chat(user, "<span class='notice'>Constructing conveyor belt...</span>")
 
 	var/obj/machinery/conveyor/B = new(get_turf(A))
 	B.id = c_id
@@ -77,7 +77,7 @@
 	playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
 
 	matter--
-	to_chat(user, span_notice("The RCBP now holds [matter]/[mattermax] fabrication-units."))
+	to_chat(user, "<span class='notice'>The RCBP now holds [matter]/[mattermax] fabrication-units.</span>")
 
 /datum/design/conv_printer
 	name = "Rapid Conveyor Belt Printer"

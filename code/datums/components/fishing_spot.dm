@@ -43,7 +43,7 @@
 		return COMPONENT_NO_AFTERATTACK
 	var/denial_reason = fish_source.can_fish(rod, user)
 	if(denial_reason)
-		to_chat(user, span_warning(denial_reason))
+		to_chat(user, "<span class='warning'>[denial_reason]</span>")
 		return COMPONENT_NO_AFTERATTACK
 	start_fishing_challenge(rod, user)
 	return COMPONENT_NO_AFTERATTACK

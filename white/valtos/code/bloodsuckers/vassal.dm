@@ -84,32 +84,30 @@
 
 /datum/antagonist/vassal/greet()
 	. = ..()
-	to_chat(owner, span_userdanger("You are now the mortal servant of [master.owner.current], a Bloodsucker!"))
-	to_chat(owner, span_boldannounce("The power of [master.owner.current.p_their()] immortal blood compels you to obey [master.owner.current.p_them()] in all things, even offering your own life to prolong theirs.\n\
-		You are not required to obey any other Bloodsucker, for only [master.owner.current] is your master. The laws of Nanotrasen do not apply to you now; only your vampiric master's word must be obeyed."))
+	to_chat(owner, "<span class='userdanger'>You are now the mortal servant of [master.owner.current], a Bloodsucker!</span>")
+	to_chat(owner, "<span class='boldannounce'>The power of [master.owner.current.p_their()] immortal blood compels you to obey [master.owner.current.p_them()] in all things, even offering your own life to prolong theirs.\nYou are not required to obey any other Bloodsucker, for only [master.owner.current] is your master. The laws of Nanotrasen do not apply to you now; only your vampiric master's word must be obeyed.</span>")
 	owner.current.playsound_local(null, 'sound/magic/mutate.ogg', 100, FALSE, pressure_affected = FALSE)
 	antag_memory += "You have been vassalized, becoming the mortal servant of <b>[master.owner.current]</b>, a bloodsucking vampire!<br>"
 	/// Message told to your Master.
-	to_chat(master.owner, span_userdanger("[owner.current] has become addicted to your immortal blood. [owner.current.p_they(TRUE)] [owner.current.p_are()] now your undying servant!"))
+	to_chat(master.owner, "<span class='userdanger'>[owner.current] has become addicted to your immortal blood. [owner.current.p_they(TRUE)] [owner.current.p_are()] now your undying servant!</span>")
 	master.owner.current.playsound_local(null, 'sound/magic/mutate.ogg', 100, FALSE, pressure_affected = FALSE)
 
 /datum/antagonist/vassal/farewell()
 	owner.current.visible_message(
-		span_deconversion_message("[owner.current]'s eyes dart feverishly from side to side, and then stop. [owner.current.p_they(TRUE)] seem[owner.current.p_s()] calm, \
-		like [owner.current.p_they()] [owner.current.p_have()] regained some lost part of [owner.current.p_them()]self."),
+		"<span class='deconversion_message'>[owner.current]'s eyes dart feverishly from side to side, and then stop. [owner.current.p_they(TRUE)] seem[owner.current.p_s()] calm, like [owner.current.p_they()] [owner.current.p_have()] regained some lost part of [owner.current.p_them()]self.</span>",
 	)
-	to_chat(owner, span_deconversion_message("With a snap, you are no longer enslaved to [master.owner]! You breathe in heavily, having regained your free will."))
+	to_chat(owner, "<span class='deconversion_message'>With a snap, you are no longer enslaved to [master.owner]! You breathe in heavily, having regained your free will.</span>")
 	owner.current.playsound_local(null, 'sound/magic/mutate.ogg', 100, FALSE, pressure_affected = FALSE)
 	/// Message told to your (former) Master.
 	if(master && master.owner)
-		to_chat(master.owner, span_cultbold("You feel the bond with your vassal [owner.current] has somehow been broken!"))
+		to_chat(master.owner, "<span class='cultbold'>You feel the bond with your vassal [owner.current] has somehow been broken!</span>")
 
 /// Called when we are made into the Favorite Vassal
 /datum/antagonist/vassal/proc/make_favorite(mob/living/master)
 	// Default stuff for all
 	favorite_vassal = TRUE
-	to_chat(master, span_danger("You have turned [owner.current] into your Favorite Vassal! They will no longer be deconverted upon Mindshielding!"))
-	to_chat(owner, span_notice("As Blood drips over your body, you feel closer to your Master... You are now the Favorite Vassal!"))
+	to_chat(master, "<span class='danger'>You have turned [owner.current] into your Favorite Vassal! They will no longer be deconverted upon Mindshielding!</span>")
+	to_chat(owner, "<span class='notice'>As Blood drips over your body, you feel closer to your Master... You are now the Favorite Vassal!</span>")
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = master.mind.has_antag_datum(/datum/antagonist/bloodsucker)
 	var/mob/living/carbon/human/vassal = owner.current
 	switch(bloodsuckerdatum.my_clan)
@@ -194,5 +192,5 @@
 
 /datum/status_effect/agent_pinpointer/vassal_edition/Destroy()
 	if(scan_target)
-		to_chat(owner, span_notice("You've lost your master's trail."))
+		to_chat(owner, "<span class='notice'>You've lost your master's trail.</span>")
 	return ..()

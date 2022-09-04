@@ -34,7 +34,7 @@
 /obj/item/implant/adrenalin/activate()
 	. = ..()
 	uses--
-	to_chat(imp_in, span_notice("You feel a sudden surge of energy!"))
+	to_chat(imp_in, "<span class='notice'>You feel a sudden surge of energy!</span>")
 	imp_in.SetKnockdown(0)
 	imp_in.setStaminaLoss(0)
 	imp_in.set_resting(FALSE)

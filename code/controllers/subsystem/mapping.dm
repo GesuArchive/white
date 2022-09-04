@@ -68,7 +68,7 @@ SUBSYSTEM_DEF(mapping)
 		var/old_config = config
 		config = global.config.defaultmap
 		if(!config || config.defaulted)
-			to_chat(world, span_boldannounce("Не могу загрузить следующий или стандартный конфиг карты, ставлю Meta Station."))
+			to_chat(world, "<span class='boldannounce'>Не могу загрузить следующий или стандартный конфиг карты, ставлю Meta Station.</span>")
 			config = old_config
 	initialize_biomes()
 	loadWorld()
@@ -230,7 +230,7 @@ Used by the AI doomsday and the self-destruct nuke.
 
 	z_list = SSmapping.z_list
 
-#define INIT_ANNOUNCE(X) to_chat(world, span_green("[X]")); log_world(X)
+#define INIT_ANNOUNCE(X) to_chat(world, "<span class='green'>[X]</span>"); log_world(X)
 /datum/controller/subsystem/mapping/proc/LoadGroup(list/errorList, name, path, files, list/traits, list/default_traits, silent = FALSE, orbital_body_type)
 	. = list()
 	var/start_time = REALTIMEOFDAY
@@ -287,7 +287,7 @@ Used by the AI doomsday and the self-destruct nuke.
 				name = "Станция"
 			if("Lavaland")
 				name = "Лаваленд"
-		to_chat(world, span_green(" -- #<b>[name]</b>:> <b>[(REALTIMEOFDAY - start_time)/10]</b> -- "))
+		to_chat(world, "<span class='green'> -- #<b>[name]</b>:> <b>[(REALTIMEOFDAY - start_time)/10]</b> -- </span>")
 	return parsed_maps
 
 /datum/controller/subsystem/mapping/proc/loadWorld()
@@ -300,7 +300,7 @@ Used by the AI doomsday and the self-destruct nuke.
 	// load the station
 	station_start = world.maxz + 1
 	log_world("Loading map config named [config.map_name]...")
-	to_chat(world, span_green(" -- $<b>Настройка</b>:> <b>[config.map_name]</b> -- "))
+	to_chat(world, "<span class='green'> -- $<b>Настройка</b>:> <b>[config.map_name]</b> -- </span>")
 	LoadGroup(FailedZs, "Station", config.map_path, config.map_file, config.traits, ZTRAITS_STATION, orbital_body_type = /datum/orbital_object/z_linked/station)
 
 	if(SSdbcore.Connect())
@@ -417,7 +417,7 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 	message_admins("Случайно выбираем [VM.map_name]")
 	. = changemap(VM)
 	if (. && VM.map_name != config.map_name)
-		to_chat(world, span_boldannounce("Выбрана карта [VM.map_name] для следующего раунда!"))
+		to_chat(world, "<span class='boldannounce'>Выбрана карта [VM.map_name] для следующего раунда!</span>")
 
 /datum/controller/subsystem/mapping/proc/mapvote()
 	if(map_voted || SSmapping.next_map_config) //If voted or set by other means.
@@ -536,13 +536,13 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 			if(!mapfile)
 				return
 			away_name = "[mapfile] custom"
-			to_chat(usr,span_notice("Открываем врата к [away_name]..."))
+			to_chat(usr,"<span class='notice'>Открываем врата к [away_name]...</span>")
 			var/datum/map_template/template = new(mapfile, "Away Mission")
 			away_level = template.load_new_z()
 		else
 			if(answer in GLOB.potentialRandomZlevels)
 				away_name = answer
-				to_chat(usr,span_notice("Открываем врата к [away_name]..."))
+				to_chat(usr,"<span class='notice'>Открываем врата к [away_name]...</span>")
 				var/datum/map_template/template = new(away_name, "Away Mission")
 				away_level = template.load_new_z()
 			else

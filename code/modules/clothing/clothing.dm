@@ -146,9 +146,9 @@
 		if(CLOTHING_SHREDDED)
 			var/obj/item/stack/cloth_repair = W
 			if(cloth_repair.amount < 3)
-				to_chat(user, span_warning("Мне потребуется 3 единицы [W.name] для починки [src.name]."))
+				to_chat(user, "<span class='warning'>Мне потребуется 3 единицы [W.name] для починки [src.name].</span>")
 				return TRUE
-			to_chat(user, span_notice("Начинаю чинить повреждения [src.name] используя [cloth_repair]..."))
+			to_chat(user, "<span class='notice'>Начинаю чинить повреждения [src.name] используя [cloth_repair]...</span>")
 			if(!do_after(user, 6 SECONDS, src) || !cloth_repair.use(3))
 				return TRUE
 			repair(user, params)
@@ -166,7 +166,7 @@
 	damage_by_parts = null
 	if(user)
 		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
-		to_chat(user, span_notice("Чиню повреждения [src]."))
+		to_chat(user, "<span class='notice'>Чиню повреждения [src].</span>")
 
 /**
  * take_damage_zone() is used for dealing damage to specific bodyparts on a worn piece of clothing, meant to be called from [/obj/item/bodypart/proc/check_woundings_mods]
@@ -215,7 +215,7 @@
 
 	if(iscarbon(loc))
 		var/mob/living/carbon/C = loc
-		C.visible_message(span_danger("[capitalize(zone_name)] [src.name] на [C] [break_verb]!"), span_userdanger("[capitalize(zone_name)] [src.name] [break_verb]!"), vision_distance = COMBAT_MESSAGE_RANGE)
+		C.visible_message("<span class='danger'>[capitalize(zone_name)] [src.name] на [C] [break_verb]!</span>", "<span class='userdanger'>[capitalize(zone_name)] [src.name] [break_verb]!</span>", vision_distance = COMBAT_MESSAGE_RANGE)
 		RegisterSignal(C, COMSIG_MOVABLE_MOVED, .proc/bristle, override = TRUE)
 
 	zones_disabled++
@@ -277,27 +277,27 @@
 	. += "<hr>"
 
 	if(damaged_clothes == CLOTHING_SHREDDED)
-		. += span_warning("<b>Полностью разорвано и требует починки!</b>")
+		. += "<span class='warning'><b>Полностью разорвано и требует починки!</b></span>"
 		return
 
 	switch (max_heat_protection_temperature)
 		if (400 to 1000)
-			. += span_smallnotice("[capitalize(src.name)] немного защищает от огня.")
+			. += "<span class='smallnotice'>[capitalize(src.name)] немного защищает от огня.</span>"
 		if (1001 to 1600)
-			. += span_notice("[capitalize(src.name)] может защитить от огня.")
+			. += "<span class='notice'>[capitalize(src.name)] может защитить от огня.</span>"
 		if (1601 to 35000)
-			. += span_smalldanger("[capitalize(src.name)] неплохо защищает от огня.")
+			. += "<span class='smalldanger'>[capitalize(src.name)] неплохо защищает от огня.</span>"
 
 	for(var/zone in damage_by_parts)
 		var/pct_damage_part = damage_by_parts[zone] / limb_integrity * 100
 		var/zone_name = parse_zone(zone)
 		switch(pct_damage_part)
 			if(100 to INFINITY)
-				. += span_smalldanger(span_warning("<b>[capitalize(zone_name)] [src.name] разорвана в клочья!</b>"))
+				. += "<span class='smalldanger'><span class='warning'><b>[capitalize(zone_name)] [src.name] разорвана в клочья!</b></span></span>"
 			if(60 to 99)
-				. += span_notice(span_warning("[capitalize(zone_name)] [src.name] сильно потрёпана!"))
+				. += "<span class='notice'><span class='warning'>[capitalize(zone_name)] [src.name] сильно потрёпана!</span></span>"
 			if(30 to 59)
-				. += span_smallnotice(span_danger("[capitalize(zone_name)] [src.name] немного порвана."))
+				. += "<span class='smallnotice'><span class='danger'>[capitalize(zone_name)] [src.name] немного порвана.</span></span>"
 
 	var/datum/component/storage/pockets = GetComponent(/datum/component/storage)
 	if(pockets)
@@ -404,9 +404,9 @@
 	if(isliving(loc)) //It's not important enough to warrant a message if it's not on someone
 		var/mob/living/M = loc
 		if(src in M.get_equipped_items(FALSE))
-			to_chat(M, span_warning("Мой [name] начинает распадаться на части!"))
+			to_chat(M, "<span class='warning'>Мой [name] начинает распадаться на части!</span>")
 		else
-			to_chat(M, span_warning("[capitalize(src.name)] начинает распадаться на части!"))
+			to_chat(M, "<span class='warning'>[capitalize(src.name)] начинает распадаться на части!</span>")
 
 //This mostly exists so subtypes can call appriopriate update icon calls on the wearer.
 /obj/item/clothing/proc/update_clothes_damaged_state(damaged_state = CLOTHING_DAMAGED)
@@ -449,7 +449,7 @@ BLIND     // can't see anything
 
 	visor_toggling()
 
-	to_chat(user, span_notice("[up ? "Поднимаю" : "Опускаю"] забрало [src]."))
+	to_chat(user, "<span class='notice'>[up ? "Поднимаю" : "Опускаю"] забрало [src].</span>")
 
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
@@ -501,7 +501,7 @@ BLIND     // can't see anything
 		new /obj/effect/decal/cleanable/shreds(current_position, name)
 		if(isliving(loc))
 			var/mob/living/possessing_mob = loc
-			possessing_mob.visible_message(span_danger("[src] is consumed until naught but shreds remains!"), span_boldwarning("[src] falls apart into little bits!"))
+			possessing_mob.visible_message("<span class='danger'>[src] is consumed until naught but shreds remains!</span>", "<span class='boldwarning'>[src] falls apart into little bits!</span>")
 		deconstruct(FALSE)
 	else if(!(damage_flag in list(ACID, FIRE)))
 		body_parts_covered = NONE
@@ -510,10 +510,10 @@ BLIND     // can't see anything
 		if(isliving(loc))
 			var/mob/living/M = loc
 			if(src in M.get_equipped_items(FALSE)) //make sure they were wearing it and not attacking the item in their hands / eating it if they were a moth.
-				M.visible_message(span_danger("[capitalize(src.name)] [M] распадается на части!"), span_warning("<b>[capitalize(src.name)] распадается на части!</b>"), vision_distance = COMBAT_MESSAGE_RANGE)
+				M.visible_message("<span class='danger'>[capitalize(src.name)] [M] распадается на части!</span>", "<span class='warning'><b>[capitalize(src.name)] распадается на части!</b></span>", vision_distance = COMBAT_MESSAGE_RANGE)
 				M.dropItemToGround(src)
 			else
-				M.visible_message(span_danger("[capitalize(src.name)] распадается на части!"), vision_distance = COMBAT_MESSAGE_RANGE)
+				M.visible_message("<span class='danger'>[capitalize(src.name)] распадается на части!</span>", vision_distance = COMBAT_MESSAGE_RANGE)
 		name = "изорванный [initial(name)]" // change the name -after- the message, not before.
 	else
 		..()
@@ -525,6 +525,6 @@ BLIND     // can't see anything
 	if(!istype(L))
 		return
 	if(prob(0.2))
-		to_chat(L, span_warning("Порванные нитки на [src.name] шевелятся!"))
+		to_chat(L, "<span class='warning'>Порванные нитки на [src.name] шевелятся!</span>")
 
 #undef MOTH_EATING_CLOTHING_DAMAGE

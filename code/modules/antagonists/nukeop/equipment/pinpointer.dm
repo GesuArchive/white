@@ -31,7 +31,7 @@
 					playsound(src, 'sound/items/nuke_toy_lowpower.ogg', 50, FALSE)
 					if(isliving(loc))
 						var/mob/living/L = loc
-						to_chat(L, span_userdanger("Мой [name] вибрирует и издает звонкий сигнал тревоги. Ой-ой."))
+						to_chat(L, "<span class='userdanger'>Мой [name] вибрирует и издает звонкий сигнал тревоги. Ой-ой.</span>")
 
 /obj/item/pinpointer/nuke/scan_for_target()
 	target = null
@@ -55,7 +55,7 @@
 /obj/item/pinpointer/nuke/proc/switch_mode_to(new_mode)
 	if(isliving(loc))
 		var/mob/living/L = loc
-		to_chat(L, span_userdanger("Мой [name] подает звуковой сигнал, перенастраивая алгоритмы слежения."))
+		to_chat(L, "<span class='userdanger'>Мой [name] подает звуковой сигнал, перенастраивая алгоритмы слежения.</span>")
 		playsound(L, 'sound/machines/triple_beep.ogg', 50, TRUE)
 	mode = new_mode
 	scan_for_target()

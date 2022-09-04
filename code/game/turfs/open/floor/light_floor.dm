@@ -31,8 +31,8 @@
 /turf/open/floor/light/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'>Здесь есть <b>небольшая щель</b> с краю.</span>"
-	. += span_notice("\nМультитулом можно изменить цвет, надо не забыть.")
-	. += span_notice("\nОтвёрткой можно отключить или включить эту плитку.")
+	. += "<span class='notice'>\nМультитулом можно изменить цвет, надо не забыть.</span>"
+	. += "<span class='notice'>\nОтвёрткой можно отключить или включить эту плитку.</span>"
 	if(state) ///check if broken
 		. += "<hr><span class='danger'>Похоже лампочка перегорела!</span>"
 
@@ -123,15 +123,15 @@
 	if(istype(C, /obj/item/light/bulb)) //only for light tiles
 		var/obj/item/light/bulb/B = C
 		if(B.status)/// check if broken
-			to_chat(user, span_danger("The light bulb is broken!"))
+			to_chat(user, "<span class='danger'>The light bulb is broken!</span>")
 			return
 		if(state && user.temporarilyRemoveItemFromInventory(C))
 			qdel(C)
 			state = LIGHTFLOOR_FINE //fixing it by bashing it with a light bulb, fun eh?
 			update_icon()
-			to_chat(user, span_notice("Заменяю лампочку."))
+			to_chat(user, "<span class='notice'>Заменяю лампочку.</span>")
 		else
-			to_chat(user, span_notice("Лампочка кажется в порядке, замена лампочки не требуется."))
+			to_chat(user, "<span class='notice'>Лампочка кажется в порядке, замена лампочки не требуется.</span>")
 
 /turf/open/floor/light/emp_act(severity)
 	. = ..()

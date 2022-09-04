@@ -37,7 +37,7 @@
 	. = ..()
 	. += "<br>"
 	if(!cell)
-		. += span_alert("There is no cell inside...")
+		. += "<span class='alert'>There is no cell inside...</span>"
 	switch(cell.charge)
 		if(3501 to INFINITY)
 			. += "It seems to be overcharged, somehow..." //i dunno.
@@ -60,31 +60,31 @@
 
 	if(cell.charge < minimum_energy_to_activate)
 		if(active)
-			. += span_alert("<br>Turning it off now means you won't be able to turn it back on until recharged!")
+			. += "<span class='alert'><br>Turning it off now means you won't be able to turn it back on until recharged!</span>"
 		else
-			. += span_alert("<br>The charge is too low to turn the shield on! Remove the cell with a screwdriver and recharge it.")
+			. += "<span class='alert'><br>The charge is too low to turn the shield on! Remove the cell with a screwdriver and recharge it.</span>"
 
 /obj/item/emergency_shield/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
 	if(I.tool_behaviour == TOOL_SCREWDRIVER && cell)
 		if(active)
-			to_chat(user, span_alert("Сначала надо выключить прожектор!"))
+			to_chat(user, "<span class='alert'>Сначала надо выключить прожектор!</span>")
 			return
 		cell.forceMove(src.drop_location())
 		cell.update_icon()
 		I.play_tool_sound(src,50)
-		visible_message(span_notice("[user.name] вытаскивает [cell.name] из прожектора щита."), span_notice("Вытаскиваю [cell.name] из прожектора щита."))
+		visible_message("<span class='notice'>[user.name] вытаскивает [cell.name] из прожектора щита.</span>", "<span class='notice'>Вытаскиваю [cell.name] из прожектора щита.</span>")
 		icon_state = "nocell"
 		cell = null
 
 	if(istype(I, /obj/item/stock_parts/cell) && !cell)
 		if(!istype(I, /obj/item/stock_parts/cell/emergency_shield))
-			to_chat(user, span_notice("Аварийный прожектор щита можно запитать только специальной батарейкой для прожекторов."))
+			to_chat(user, "<span class='notice'>Аварийный прожектор щита можно запитать только специальной батарейкой для прожекторов.</span>")
 			return
 		cell = I
 		cell.forceMove(src)
 		playsound(src, 'sound/items/crowbar.ogg', 15, TRUE)
-		visible_message(span_notice("[user.name] вставляет батарею в аварийный прожектор щита."), span_notice("Вставляю [cell.name] в прожектор щита."))
+		visible_message("<span class='notice'>[user.name] вставляет батарею в аварийный прожектор щита.</span>", "<span class='notice'>Вставляю [cell.name] в прожектор щита.</span>")
 		icon_state = "inactive"
 
 /obj/item/emergency_shield/attack_self(mob/user)

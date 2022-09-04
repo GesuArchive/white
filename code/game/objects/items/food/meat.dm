@@ -391,23 +391,23 @@
 	if(faction)
 		bananas.faction = faction
 	if (!QDELETED(bananas))
-		visible_message(span_notice("[capitalize(src.name)] расширяется!"))
+		visible_message("<span class='notice'>[capitalize(src.name)] расширяется!</span>")
 		bananas.log_message("Spawned via [src] at [AREACOORD(src)], Last attached mob: [key_name(spammer)].", LOG_ATTACK)
 	else if (!spammer) // Visible message in case there are no fingerprints
-		visible_message(span_notice("[capitalize(src.name)] не смог достаточно расшириться!"))
+		visible_message("<span class='notice'>[capitalize(src.name)] не смог достаточно расшириться!</span>")
 	qdel(src)
 
 /obj/item/food/monkeycube/suicide_act(mob/living/M)
-	M.visible_message(span_suicide("[M] суёт [src] в [M.ru_ego()] рот! Похоже, [M.p_theyre()] пытается совершить самоубийство!"))
+	M.visible_message("<span class='suicide'>[M] суёт [src] в [M.ru_ego()] рот! Похоже, [M.p_theyre()] пытается совершить самоубийство!</span>")
 	var/eating_success = do_after(M, 1 SECONDS, src)
 	if(QDELETED(M)) //qdeletion: the nuclear option of self-harm
 		return SHAME
 	if(!eating_success || QDELETED(src)) //checks if src is gone or if they failed to wait for a second
-		M.visible_message(span_suicide("[M] струсил!"))
+		M.visible_message("<span class='suicide'>[M] струсил!</span>")
 		return SHAME
 	if(HAS_TRAIT(M, TRAIT_NOHUNGER)) //plasmamen don't have saliva/stomach acid
-		M.visible_message(span_suicide("[M] понимает, что [M.ru_ego()] тело не может принять [src]!")
-		,span_warning("Моё тело не может принять [src]..."))
+		M.visible_message("<span class='suicide'>[M] понимает, что [M.ru_ego()] тело не может принять [src]!</span>"
+		,"<span class='warning'>Моё тело не может принять [src]...</span>")
 		return SHAME
 	playsound(M, 'sound/items/eatfood.ogg', rand(10,50), TRUE)
 	M.temporarilyRemoveItemFromInventory(src) //removes from hands, keeps in M
@@ -418,10 +418,10 @@
 	if(QDELETED(M) || QDELETED(src))
 		return
 	if((src.loc != M)) //how the hell did you manage this
-		to_chat(M, span_warning("Что-то случилось с [src]..."))
+		to_chat(M, "<span class='warning'>Что-то случилось с [src]...</span>")
 		return
 	Expand()
-	M.visible_message(span_danger("[M] лопается, и из него появляется примат!"))
+	M.visible_message("<span class='danger'>[M] лопается, и из него появляется примат!</span>")
 	M.gib(null, TRUE, null, TRUE)
 
 /obj/item/food/monkeycube/syndicate
@@ -868,7 +868,7 @@
 	foodtypes = RAW | MEAT | TOXIC
 
 /obj/item/food/meat/slab/goliath/burn()
-	visible_message(span_notice("[capitalize(src.name)] finishes cooking!"))
+	visible_message("<span class='notice'>[capitalize(src.name)] finishes cooking!</span>")
 	new /obj/item/food/meat/steak/goliath(loc)
 	qdel(src)
 

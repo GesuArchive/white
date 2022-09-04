@@ -4,7 +4,7 @@
 	if(!check_rights(R_POLL))
 		return
 	if(!SSdbcore.Connect())
-		to_chat(src, span_danger("Failed to establish database connection."))
+		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
 		return
 	var/polltype = tgui_input_list(src, "Choose poll type.", "Poll Type", list("Single Option","Text Reply","Rating","Multiple Choice", "Instant Runoff Voting"))
 	var/choice_amount = 0

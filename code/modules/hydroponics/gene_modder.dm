@@ -82,23 +82,23 @@
 
 	if(istype(I, /obj/item/seeds))
 		if (operation)
-			to_chat(user, span_notice("Please complete current operation."))
+			to_chat(user, "<span class='notice'>Please complete current operation.</span>")
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 		eject_seed()
 		insert_seed(I)
-		to_chat(user, span_notice("You add [I] to the machine."))
+		to_chat(user, "<span class='notice'>You add [I] to the machine.</span>")
 		interact(user)
 	else if(istype(I, /obj/item/disk/plantgene))
 		if (operation)
-			to_chat(user, span_notice("Please complete current operation."))
+			to_chat(user, "<span class='notice'>Please complete current operation.</span>")
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 		eject_disk()
 		disk = I
-		to_chat(user, span_notice("You add [I] to the machine."))
+		to_chat(user, "<span class='notice'>You add [I] to the machine.</span>")
 		interact(user)
 	else
 		..()
@@ -134,7 +134,7 @@
 				dat += "<span class='highlight'>[target.get_name()]</span> gene from \the <span class='highlight'>[seed]</span>?<br>"
 			if("extract")
 				dat += "<span class='highlight'>[target.get_name()]</span> gene from \the <span class='highlight'>[seed]</span>?<br>"
-				dat += span_bad("The sample will be destroyed in process!")
+				dat += "<span class='bad'>The sample will be destroyed in process!</span>"
 				if(istype(target, /datum/plant_gene/core))
 					var/datum/plant_gene/core/gene = target
 					if(istype(target, /datum/plant_gene/core/potency))
@@ -270,7 +270,7 @@
 				return
 			eject_seed()
 			insert_seed(I)
-			to_chat(usr, span_notice("You add [I] to the machine."))
+			to_chat(usr, "<span class='notice'>You add [I] to the machine.</span>")
 		else
 			eject_seed()
 	else if(href_list["eject_disk"] && !operation)
@@ -280,7 +280,7 @@
 				return
 			eject_disk()
 			disk = I
-			to_chat(usr, span_notice("You add [I] to the machine."))
+			to_chat(usr, "<span class='notice'>You add [I] to the machine.</span>")
 		else
 			eject_disk()
 	else if(href_list["op"] == "insert" && disk && disk.gene && seed)
@@ -457,7 +457,7 @@
 
 /obj/item/disk/plantgene/attack_self(mob/user)
 	read_only = !read_only
-	to_chat(user, span_notice("You flip the write-protect tab to [src.read_only ? "protected" : "unprotected"]."))
+	to_chat(user, "<span class='notice'>You flip the write-protect tab to [src.read_only ? "protected" : "unprotected"].</span>")
 
 /obj/item/disk/plantgene/examine(mob/user)
 	. = ..()

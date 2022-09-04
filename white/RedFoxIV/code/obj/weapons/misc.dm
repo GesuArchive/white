@@ -402,10 +402,10 @@
 		if(!user.transferItemToLoc(B, src))
 			return
 		replace_beaker(user, B)
-		to_chat(user, span_notice("Добавил [B] в [src]."))
+		to_chat(user, "<span class='notice'>Добавил [B] в [src].</span>")
 		updateUsrDialog()
 	else if(user.a_intent != INTENT_HARM && !istype(I, /obj/item/card/emag))
-		to_chat(user, span_warning("Не могу загрузить [I] в [src]!"))
+		to_chat(user, "<span class='warning'>Не могу загрузить [I] в [src]!</span>")
 		return ..()
 	else
 		return ..()
@@ -610,7 +610,7 @@
 				ass = "чуть-чуть"
 			else
 				ass = "почти никак не"
-		cell.visible_message(span_hypnophrase("Чудодейственное вещество проникает в щели и отверстия [cell.name], [ass] увеличивая энергоёмкость батареи."))
+		cell.visible_message("<span class='hypnophrase'>Чудодейственное вещество проникает в щели и отверстия [cell.name], [ass] увеличивая энергоёмкость батареи.</span>")
 		cell.desc = initial(cell.desc) + " Обладаёт лёгким и неописуемым ароматом."
 		return ..()
 
@@ -627,7 +627,7 @@
 				if(4 to INFINITY)
 					ass = "<i>многократно</i>"
 			SP.rating = new_rating
-			SP.visible_message(span_hypnophrase("Чудодейственное вещество проникает в щели и отверстия [SP.name], [ass] оптимизируя и улучшая его работу! "))
+			SP.visible_message("<span class='hypnophrase'>Чудодейственное вещество проникает в щели и отверстия [SP.name], [ass] оптимизируя и улучшая его работу! </span>")
 		SP.desc = initial(SP.desc) + " Обладаёт лёгким и неописуемым ароматом."
 		return ..()
 
@@ -731,7 +731,7 @@
 
 /obj/effect/mob_spawn/human/donate/artist/attack_ghost(mob/user, from_lobby = FALSE)
 	if(user.ckey in round_banned_ckeys)
-		to_chat(user, span_warning("А хуй тебе!"))
+		to_chat(user, "<span class='warning'>А хуй тебе!</span>")
 		return
 	if(from_lobby)
 		if(!radial_based)
@@ -739,7 +739,7 @@
 			if(ghost_role != "Да" || !loc || QDELETED(user))
 				return FALSE
 		if(is_banned_from(user.key, banType))
-			to_chat(user, span_warning("А хуй тебе!"))
+			to_chat(user, "<span class='warning'>А хуй тебе!</span>")
 			return FALSE
 		log_game("[key_name(user)] became [mob_name]")
 		create(user, from_lobby = from_lobby)
@@ -792,9 +792,9 @@
 		return
 	add_fingerprint(user)
 	if(is_turned)
-		to_chat(user, span_danger("Рубильник не поддаётся!"))
+		to_chat(user, "<span class='danger'>Рубильник не поддаётся!</span>")
 		return
-	user.visible_message(span_warning("<b>[user]</b> дёргает рубильник! ПРЕДСТАВЛЕНИЕ НАЧИНАЕТСЯ!"))
+	user.visible_message("<span class='warning'><b>[user]</b> дёргает рубильник! ПРЕДСТАВЛЕНИЕ НАЧИНАЕТСЯ!</span>")
 	is_turned = TRUE
 	icon_state = "switch-on"
 	SStitle.splash_turf.plane = GAME_PLANE_FOV_HIDDEN
@@ -806,7 +806,7 @@
 		is_turned = FALSE
 		playsound(src.loc, 'white/valtos/sounds/leveroff.ogg', 90, TRUE)
 		var/turf/T = get_turf(src)
-		T.visible_message(span_notice("<b>[src]</b> возвращается на место!"))
+		T.visible_message("<span class='notice'><b>[src]</b> возвращается на место!</span>")
 		SStitle.splash_turf.plane = SPLASHSCREEN_PLANE
 		SStitle.splash_turf.mouse_opacity = 1
 		SStitle.splash_turf.blend_mode = 0
@@ -830,7 +830,7 @@
 		if(!istype(A, /area/centcom/circus) && !istype(A, /area/start) && !istype(A, /area/centcom/outdoors/circus)) //just in case
 			round_banned_ckeys.Add(spawned_mobs[artist])
 			spawned_mobs.Remove(artist)
-			to_chat(artist, span_userdanger("Ох, лучше бы я не покидал Цирк...")) //let them know they fucked up
+			to_chat(artist, "<span class='userdanger'>Ох, лучше бы я не покидал Цирк...</span>") //let them know they fucked up
 			message_admins("Игрок [artist.ckey], будучи Артистом, каким-то образом сбежал из цирка, за что был казнён и лишён доступа к спавнеру до конца раунда. Такого быть не должно: выясните, как он этого добился и передайте кодербасу. Если же это произошло по вине админбаса, удалите сикей игрока из переменной спавнера (round_banned_ckeys). Позиция игрока на момент обнаружения побега: x=[artist.x], y=[artist.y], z=[artist.z], название зоны - [get_area_name(artist)]")
 			artist.emote("agony")
 
@@ -838,7 +838,7 @@
 				addtimer(CALLBACK(artist, /mob/proc/emote, "poo"), 1+2*log(s) SECONDS)
 
 			spawn(8.7 SECONDS)
-				artist.visible_message(span_hypnophrase("[artist.name] распидорасило: похоже, за побег из Цирка он был отправлен в бессрочную ссылку на [pick("Цитадель", "Флаффи", "Скайрэт", "Опух", "парашу")]. [pick("Прикольно", "Страшно", "Помянем", "Ужасно", "Кошмар", "Грустно", "Смешно")]."))
+				artist.visible_message("<span class='hypnophrase'>[artist.name] распидорасило: похоже, за побег из Цирка он был отправлен в бессрочную ссылку на [pick("Цитадель", "Флаффи", "Скайрэт", "Опух", "парашу")]. [pick("Прикольно", "Страшно", "Помянем", "Ужасно", "Кошмар", "Грустно", "Смешно")].</span>")
 				artist.gib(TRUE)
 
 			continue
@@ -949,17 +949,17 @@
 
 /obj/effect/duel_controller/attack_ghost(mob/user)
 	if(banned_ckeys.Find(user.ckey))
-		to_chat(user, span_warning("runtime error: cannot read null.stat.<br><br> \
+		to_chat(user, "<span class='warning'>runtime error: cannot read null.stat.<br><br> \
 						proc name: attack_ghost (/obj/effect/duel_controller/attack_ghost)<br> \
 						usr: [user.ckey] ([user.type])<br> \
 						src: [src.name] ([src.type])<br> \
-						src.loc: null"))
+						src.loc: null</span>")
 		return
 	if(!SSticker.HasRoundStarted() || !loc)
 		return
 
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_SPAWNER) && !(flags_1 & ADMIN_SPAWNED_1))
-		to_chat(user, span_warning("Администраторы временно отключили гост-роли."))
+		to_chat(user, "<span class='warning'>Администраторы временно отключили гост-роли.</span>")
 		return
 
 
@@ -974,7 +974,7 @@
 				to_chat(user, "Где деньги, Лебовски?")
 				return
 			inc_metabalance(user, -bet, TRUE, "Оплатил входной билет.")
-			to_chat(user, span_clown("Потеряно [bet] дублей. Оплатил входной билет."))
+			to_chat(user, "<span class='clown'>Потеряно [bet] дублей. Оплатил входной билет.</span>")
 			spawn_user(user)
 		return
 
@@ -984,21 +984,21 @@
 	var/betinput = input("Сколько метакэша готов поставить? (Не меньше 50!)", "1XBET", 50) as num
 	if(betinput < 0)
 		banned_ckeys += user.ckey
-		to_chat(user, span_userdanger("ебать ты умный нахуй"))
+		to_chat(user, "<span class='userdanger'>ебать ты умный нахуй</span>")
 	if(betinput < 50)
 		return
 	if(betinput > user.client.mc_cached)
-		to_chat(user, span_notice("Где деньги, Лебовски?"))
+		to_chat(user, "<span class='notice'>Где деньги, Лебовски?</span>")
 		return
 	if(duel_status != DUEL_NODUEL)
-		to_chat(user, span_notice("Ты опоздал, дружок!"))
+		to_chat(user, "<span class='notice'>Ты опоздал, дружок!</span>")
 		return
 	bet = betinput
 	duel_status = DUEL_PENDING
 	inc_metabalance(user, -bet, TRUE, "Оплатил входной билет.")
-	to_chat(user, span_clown("Потеряно [bet] дублей. Оплатил входной билет."))
+	to_chat(user, "<span class='clown'>Потеряно [bet] дублей. Оплатил входной билет.</span>")
 	spawn_user(user, bet)
-	to_chat(user, span_noticealien("Создано предложение о дуэли. Если никто не откликнется за 30 секунд, дуэль будет отменена и вам вернут деньги."))
+	to_chat(user, "<span class='noticealien'>Создано предложение о дуэли. Если никто не откликнется за 30 секунд, дуэль будет отменена и вам вернут деньги.</span>")
 	notify_ghosts("[user.name] приглашает всех желающих поучавствовать в дуэли на [bet] метакэша. <a href=?src=[REF(src)];ass=1>(Click to play)</a>", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, ignore_key = POLL_IGNORE_SPLITPERSONALITY)
 	timeout_timer = addtimer(CALLBACK(src, .proc/timeout), 30 SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
 
@@ -1037,22 +1037,22 @@
 	fighter2.forceMove(get_turf(second_spawnpoint))
 	fighter2.Paralyze(3 SECONDS)
 
-	announce(span_alert("Дуэль начнётся через 3 секунды..."))
-	announce_timer(span_userdanger("2..."), 			1 SECONDS, FALSE)
-	announce_timer(span_userdanger("1..."), 			2 SECONDS, FALSE)
-	announce_timer(span_hypnophrase("Дуэль началась!"), 3 SECONDS, FALSE)
+	announce("<span class='alert'>Дуэль начнётся через 3 секунды...</span>")
+	announce_timer("<span class='userdanger'>2...</span>", 			1 SECONDS, FALSE)
+	announce_timer("<span class='userdanger'>1...</span>", 			2 SECONDS, FALSE)
+	announce_timer("<span class='hypnophrase'>Дуэль началась!</span>", 3 SECONDS, FALSE)
 
 	// i fucking hate this
 
-	announce_timer(span_warning("30 секунд до окончания боя!"), 30 SECONDS)
-	announce_timer(span_warning("15 секунд до окончания боя!"), 15 SECONDS)
-	announce_timer(span_warning("10 секунд до окончания боя!"), 10 SECONDS)
+	announce_timer("<span class='warning'>30 секунд до окончания боя!</span>", 30 SECONDS)
+	announce_timer("<span class='warning'>15 секунд до окончания боя!</span>", 15 SECONDS)
+	announce_timer("<span class='warning'>10 секунд до окончания боя!</span>", 10 SECONDS)
 
-	announce_timer(span_userdanger("5..."), 5 SECONDS)
-	announce_timer(span_userdanger("4..."), 4 SECONDS)
-	announce_timer(span_userdanger("3..."), 3 SECONDS)
-	announce_timer(span_userdanger("2..."), 2 SECONDS)
-	announce_timer(span_userdanger("1..."), 1 SECONDS)
+	announce_timer("<span class='userdanger'>5...</span>", 5 SECONDS)
+	announce_timer("<span class='userdanger'>4...</span>", 4 SECONDS)
+	announce_timer("<span class='userdanger'>3...</span>", 3 SECONDS)
+	announce_timer("<span class='userdanger'>2...</span>", 2 SECONDS)
+	announce_timer("<span class='userdanger'>1...</span>", 1 SECONDS)
 	timeout_timer = addtimer(CALLBACK(src, .proc/timeout), duel_timelimit SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
 	START_PROCESSING(SSfastprocess, src)
 
@@ -1062,10 +1062,10 @@
 			stack_trace("Duel controller timed out with with duel_status equal to NODUEL. This is dumb.")
 			finish_duel(DUEL_ERROR)
 		if(DUEL_PENDING)
-			to_chat(fighter1, span_notice("Никто не принял твой вызов за 30 секунд."))
+			to_chat(fighter1, "<span class='notice'>Никто не принял твой вызов за 30 секунд.</span>")
 			finish_duel(DUEL_PENDING_TIMEOUT)
 		if(DUEL_IN_PROGRESS)
-			announce(span_notice("Время вышло! Никто не победил."))
+			announce("<span class='notice'>Время вышло! Никто не победил.</span>")
 			finish_duel(DUEL_TIMEOUT)
 
 
@@ -1101,10 +1101,10 @@
 
 	if(!first_lost)
 		inc_metabalance(fighter1, bet*pay_mul, TRUE, msg)
-		to_chat(fighter1, span_clown("Начислено [bet*pay_mul] дублей. [msg]"))
+		to_chat(fighter1, "<span class='clown'>Начислено [bet*pay_mul] дублей. [msg]</span>")
 	if(!second_lost)
 		inc_metabalance(fighter2, bet*pay_mul, TRUE, msg)
-		to_chat(fighter2, span_clown("Начислено [bet*pay_mul] дублей. [msg]"))
+		to_chat(fighter2, "<span class='clown'>Начислено [bet*pay_mul] дублей. [msg]</span>")
 
 	fighter1?.dust(FALSE, FALSE, TRUE)
 	fighter2?.dust(FALSE, FALSE, TRUE)
@@ -1131,7 +1131,7 @@
 
 /obj/effect/duel_controller/proc/check(mob/living/carbon/human/D)
 	if(get_area(D) != arena_area)
-		to_chat(D, span_warning("<b>Вы покинули арену. [pick("Очень глупо с вашей стороны.", "Мнда.", "Лох..")]</b>"))
+		to_chat(D, "<span class='warning'><b>Вы покинули арену. [pick("Очень глупо с вашей стороны.", "Мнда.", "Лох..")]</b></span>")
 		return TRUE
 
 	if( (D.status_traits.Find("floored") && stun_is_deadly) || HAS_TRAIT(D, TRAIT_CRITICAL_CONDITION) || D.stat == DEAD)
@@ -1269,7 +1269,7 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 
 	for(var/assblast in GLOB.assblasts)
 		var/desc = GLOB.assblasts[assblast]
-		to_chat(usr, span_notice("<i><b>[assblast]</b> - [desc]</i>"))
+		to_chat(usr, "<span class='notice'><i><b>[assblast]</b> - [desc]</i></span>")
 
 /client/proc/assblast_panel()
 	set name = "Assblast-панель"
@@ -1403,9 +1403,8 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 		var/C = can_push(L)
 		if(C == TRUE*2)
 			speed = speed * 0.75
-			L.visible_message(span_alert("Энергетическая волна подхватывает [L.name] и уносит его!"),\
-								span_userdanger("Энергетическая волна подхватила меня и понесла куда-то! \
-			[pick("Блять-блять-бляяять!", "Чё-ё-ёрт!", "Сука-а-а!", "Ох бля-я-ять!", "Мля-я-я!", "Ёбаный в рот этой станции!!")]"))
+			L.visible_message("<span class='alert'>Энергетическая волна подхватывает [L.name] и уносит его!</span>",\
+								"<span class='userdanger'>Энергетическая волна подхватила меня и понесла куда-то! [pick("Блять-блять-бляяять!", "Чё-ё-ёрт!", "Сука-а-а!", "Ох бля-я-ять!", "Мля-я-я!", "Ёбаный в рот этой станции!!")]</span>")
 			losers.Add(L)
 			L.Knockdown(5)
 			if(isnull(fired_from))
@@ -1477,14 +1476,14 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 
 
 /datum/reagent/drug/soldier/on_mob_metabolize(mob/living/L)
-	//to_chat(L, span_clown("oh boy"))
+	//to_chat(L, "<span class='clown'>oh boy</span>")
 	L.next_move_adjust += -750
 	//commando = L
 	//RegisterSignal(L, COMSIG_CLICK, .proc/reset_clickcd)
 
 
 /datum/reagent/drug/soldier/on_mob_end_metabolize(mob/living/L)
-	//to_chat(L, span_clown("aww"))
+	//to_chat(L, "<span class='clown'>aww</span>")
 	L.next_move_adjust -= -750
 	//UnregisterSignal(L, COMSIG_CLICK)
 

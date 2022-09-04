@@ -21,7 +21,7 @@
 		painting = C
 		C.forceMove(get_turf(src))
 		C.layer = layer+0.1
-		user.visible_message(span_notice("[user] ставит [C] на [src].") ,span_notice("Ставлю [C] на [src]."))
+		user.visible_message("<span class='notice'>[user] ставит [C] на [src].</span>" ,"<span class='notice'>Ставлю [C] на [src].</span>")
 	else
 		return ..()
 
@@ -183,30 +183,30 @@
 	var/mob/living/living_user = user
 	var/obj/item/card/id/id_card = living_user.get_idcard(TRUE)
 	if(!id_card)
-		to_chat(user,span_notice("А где карта?"))
+		to_chat(user,"<span class='notice'>А где карта?</span>")
 		return
 	if(!id_card.registered_account || !id_card.registered_account.account_job)
-		to_chat(user,span_notice("Неправильная карта."))
+		to_chat(user,"<span class='notice'>Неправильная карта.</span>")
 		return
 	var/datum/bank_account/account = id_card.registered_account
 	if(account.account_balance < painting_metadata.credit_value)
-		to_chat(user,span_notice("Недостаточно средств."))
+		to_chat(user,"<span class='notice'>Недостаточно средств.</span>")
 		return
 	var/sniped_amount = painting_metadata.credit_value
 	var/offer_amount = input(user,"Сколько мы предложим? Минимум: [painting_metadata.credit_value]", "Объём пожертвований", painting_metadata.credit_value + 1) as num|null
 	if(account.account_balance < offer_amount)
-		to_chat(user,span_notice("Недостаточно средств."))
+		to_chat(user,"<span class='notice'>Недостаточно средств.</span>")
 		return
 	if(!offer_amount || sniped_amount != painting_metadata.credit_value || offer_amount < painting_metadata.credit_value+1 || !user.canUseTopic(src))
 		return
 	if(!account.adjust_money(-offer_amount))
-		to_chat(user,span_warning("Ошибка транзакции, попробуйте ещё."))
+		to_chat(user,"<span class='warning'>Ошибка транзакции, попробуйте ещё.</span>")
 		return
 	painting_metadata.patron_ckey = user.ckey
 	painting_metadata.patron_name = user.real_name
 	painting_metadata.credit_value = offer_amount
 	last_patron = WEAKREF(user.mind)
-	to_chat(user, span_notice("Nanotrasen Trust Foundation thanks you for your contribution. You're now offical patron of this painting."))
+	to_chat(user, "<span class='notice'>Nanotrasen Trust Foundation thanks you for your contribution. You're now offical patron of this painting.</span>")
 	var/list/possible_frames = SSpersistent_paintings.get_available_frames(offer_amount)
 	if(possible_frames.len <= 1) // Not much room for choices here.
 		return
@@ -426,17 +426,17 @@
 /obj/structure/sign/painting/examine(mob/user)
 	. = ..()
 	if(persistence_id)
-		. += span_notice("<hr>Все картины помещённые сюда будут сохранены.")
+		. += "<span class='notice'><hr>Все картины помещённые сюда будут сохранены.</span>"
 	if(current_canvas)
 		current_canvas.ui_interact(user)
-		. += span_notice("<hr>Кусачки помогут снять картину.")
+		. += "<span class='notice'><hr>Кусачки помогут снять картину.</span>"
 
 /obj/structure/sign/painting/wirecutter_act(mob/living/user, obj/item/I)
 	. = ..()
 	if(current_canvas)
 		current_canvas.forceMove(drop_location())
 		current_canvas = null
-		to_chat(user, span_notice("Достаю картину из рамки."))
+		to_chat(user, "<span class='notice'>Достаю картину из рамки.</span>")
 		update_appearance()
 		return TRUE
 
@@ -445,7 +445,7 @@
 		current_canvas = new_canvas
 		if(!current_canvas.finalized)
 			current_canvas.finalize(user)
-		to_chat(user,span_notice("Устанавливаю в рамку [current_canvas]."))
+		to_chat(user,"<span class='notice'>Устанавливаю в рамку [current_canvas].</span>")
 	update_appearance()
 
 /obj/structure/sign/painting/proc/try_rename(mob/user)
@@ -577,7 +577,7 @@
 /obj/item/paint_palette/examine(mob/user)
 	. = ..()
 	. += "<hr>"
-	. += span_info("ПКМ, чтобы выбрать непрозрачность. Текущая: [current_alpha].")
+	. += "<span class='info'>ПКМ, чтобы выбрать непрозрачность. Текущая: [current_alpha].</span>"
 
 /obj/item/paint_palette/attack_self_secondary(mob/user, modifiers)
 	. = ..()

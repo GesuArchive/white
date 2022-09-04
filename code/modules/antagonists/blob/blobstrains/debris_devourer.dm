@@ -49,16 +49,16 @@
 	. += "<hr>"
 	var/obj/structure/blob/special/core/core = overmind.blob_core
 	if (isobserver(user))
-		. += span_notice("Поглощенный мусор в настоящее время снижает входящий урон на [round(max(min(DEBRIS_DENSITY, 10),0))]")
+		. += "<span class='notice'>Поглощенный мусор в настоящее время снижает входящий урон на [round(max(min(DEBRIS_DENSITY, 10),0))]</span>"
 	else
 		switch (round(max(min(DEBRIS_DENSITY, 10),0)))
 			if (0)
-				. += span_notice("В настоящее время недостаточно поглощенного мусора, чтобы уменьшить урон.")
+				. += "<span class='notice'>В настоящее время недостаточно поглощенного мусора, чтобы уменьшить урон.</span>"
 			if (1 to 3)
-				. += span_notice("Поглощенный мусор в настоящее время снижает входящий урон на очень небольшую величину.")  // these roughly correspond with force description strings
+				. += "<span class='notice'>Поглощенный мусор в настоящее время снижает входящий урон на очень небольшую величину.</span>"  // these roughly correspond with force description strings
 			if (4 to 7)
-				. += span_notice("Поглощенный мусор в настоящее время снижает входящий урон на небольшую величину.")
+				. += "<span class='notice'>Поглощенный мусор в настоящее время снижает входящий урон на небольшую величину.</span>"
 			if (8 to 10)
-				. += span_notice("Поглощенный мусор в настоящее время снижает входящий урон на средний уровень.")
+				. += "<span class='notice'>Поглощенный мусор в настоящее время снижает входящий урон на средний уровень.</span>"
 
 #undef DEBRIS_DENSITY

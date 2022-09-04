@@ -100,11 +100,11 @@
 	U.tracking = 1
 
 	if(!target || !target.can_track(src))
-		to_chat(U, span_warning("Цель не видна на активных камерах."))
+		to_chat(U, "<span class='warning'>Цель не видна на активных камерах.</span>")
 		U.cameraFollow = null
 		return
 
-	to_chat(U, span_notice("Теперь следим за [target.get_visible_name()]."))
+	to_chat(U, "<span class='notice'>Теперь следим за [target.get_visible_name()].</span>")
 
 	INVOKE_ASYNC(src, .proc/do_track, target, U)
 
@@ -118,11 +118,11 @@
 		if(!target.can_track(usr))
 			U.tracking = TRUE
 			if(!cameraticks)
-				to_chat(U, span_warning("Цель не видна на активных камерах. Пытаемся найти снова..."))
+				to_chat(U, "<span class='warning'>Цель не видна на активных камерах. Пытаемся найти снова...</span>")
 			cameraticks++
 			if(cameraticks > 9)
 				U.cameraFollow = null
-				to_chat(U, span_warning("Не смогли найти цель, отменяем слежку..."))
+				to_chat(U, "<span class='warning'>Не смогли найти цель, отменяем слежку...</span>")
 				tracking = FALSE
 				return
 			else

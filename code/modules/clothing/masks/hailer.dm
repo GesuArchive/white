@@ -91,17 +91,17 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 	if(..())
 		return
 	else if (aggressiveness == AGGR_BROKEN)
-		to_chat(user, span_danger("Настраиваю ограничитель, но ничего не происходит. Похоже он сломан."))
+		to_chat(user, "<span class='danger'>Настраиваю ограничитель, но ничего не происходит. Похоже он сломан.</span>")
 		return
 	var/position = aggressiveness == AGGR_GOOD_COP ? "середину" : aggressiveness == AGGR_BAD_COP ? "максимум" : "минимум"
-	to_chat(user, span_notice("Настраиваю ограничитель на [position]."))
+	to_chat(user, "<span class='notice'>Настраиваю ограничитель на [position].</span>")
 	aggressiveness = aggressiveness % 3 + 1 // loop AGGR_GOOD_COP -> AGGR_SHIT_COP
 
 /obj/item/clothing/mask/gas/sechailer/wirecutter_act(mob/living/user, obj/item/I)
 	. = TRUE
 	..()
 	if(aggressiveness != AGGR_BROKEN)
-		to_chat(user, span_danger("Ограничитель сломан!"))
+		to_chat(user, "<span class='danger'>Ограничитель сломан!</span>")
 		aggressiveness = AGGR_BROKEN
 
 /obj/item/clothing/mask/gas/sechailer/ui_action_click(mob/user, action)
@@ -115,7 +115,7 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 /obj/item/clothing/mask/gas/sechailer/emag_act(mob/user)
 	if(safety)
 		safety = FALSE
-		to_chat(user, span_warning("Незаметно зашквариваю [src.name] голосовую схему криптографическим секвенсором."))
+		to_chat(user, "<span class='warning'>Незаметно зашквариваю [src.name] голосовую схему криптографическим секвенсором.</span>")
 
 /obj/item/clothing/mask/gas/sechailer/verb/halt()
 	set category = "Объект"
@@ -124,7 +124,7 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 	if(!isliving(usr) || !can_use(usr) || cooldown)
 		return
 	if(broken_hailer)
-		to_chat(usr, span_warning("Кричалка [src.name] сломана."))
+		to_chat(usr, "<span class='warning'>Кричалка [src.name] сломана.</span>")
 		return
 
 	// handle recent uses for overuse
@@ -136,12 +136,12 @@ GLOBAL_LIST_INIT(hailer_phrases, list(
 
 	switch(recent_uses)
 		if(3)
-			to_chat(usr, span_warning("Кричалка [src.name] начинает нагреваться."))
+			to_chat(usr, "<span class='warning'>Кричалка [src.name] начинает нагреваться.</span>")
 		if(4)
-			to_chat(usr, span_userdanger("Кричалка [src.name] нагревается достаточно сильно!"))
+			to_chat(usr, "<span class='userdanger'>Кричалка [src.name] нагревается достаточно сильно!</span>")
 		if(5) // overload
 			broken_hailer = TRUE
-			to_chat(usr, span_userdanger("Кричалка [src.name] перегревается и сгорает."))
+			to_chat(usr, "<span class='userdanger'>Кричалка [src.name] перегревается и сгорает.</span>")
 			return
 
 	// select phrase to play

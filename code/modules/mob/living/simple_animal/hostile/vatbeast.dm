@@ -66,7 +66,7 @@
 	if(!.)
 		return
 
-	to_chat(on_who, span_notice("You prepare your [on_who == owner ? "":"steed's "]pimp-tentacle. <b>Left-click to slap a target!</b>"))
+	to_chat(on_who, "<span class='notice'>You prepare your [on_who == owner ? "":"steed's "]pimp-tentacle. <b>Left-click to slap a target!</b></span>")
 
 /datum/action/cooldown/tentacle_slap/unset_click_ability(mob/on_who, refund_cooldown = TRUE)
 	. = ..()
@@ -74,7 +74,7 @@
 		return
 
 	if(refund_cooldown)
-		to_chat(on_who, span_notice("You stop preparing your [on_who == owner ? "":"steed's "]pimp-tentacle."))
+		to_chat(on_who, "<span class='notice'>You stop preparing your [on_who == owner ? "":"steed's "]pimp-tentacle.</span>")
 
 /datum/action/cooldown/tentacle_slap/InterceptClickOn(mob/living/caller, params, atom/target)
 	// Check if we can slap
@@ -93,7 +93,7 @@
 	// Give feedback from the slap.
 	// Additional feedback for if a rider did it
 	if(caller != owner)
-		to_chat(caller, span_notice("You command [owner] to slap [target] with its tentacles."))
+		to_chat(caller, "<span class='notice'>You command [owner] to slap [target] with its tentacles.</span>")
 
 	return TRUE
 
@@ -101,8 +101,8 @@
 	var/mob/living/living_to_slap = to_slap
 
 	owner.visible_message(
-		span_warning("[owner] slaps [to_slap] with its tentacle!"),
-		span_notice("You slap [to_slap] with your tentacle."),
+		"<span class='warning'>[owner] slaps [to_slap] with its tentacle!</span>",
+		"<span class='notice'>You slap [to_slap] with your tentacle.</span>",
 	)
 	playsound(owner, 'sound/effects/assslap.ogg', 90)
 	var/atom/throw_target = get_edge_target_turf(to_slap, owner.dir)

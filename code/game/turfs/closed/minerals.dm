@@ -61,7 +61,7 @@
 
 /turf/closed/mineral/attackby(obj/item/I, mob/user, params)
 	if (!ISADVANCEDTOOLUSER(user))
-		to_chat(usr, span_warning("Маловато у меня сил для такой работы!"))
+		to_chat(usr, "<span class='warning'>Маловато у меня сил для такой работы!</span>")
 		return
 
 	if(I.tool_behaviour == TOOL_MINING)
@@ -72,11 +72,11 @@
 		if(last_act + (40 * I.toolspeed) > world.time)//prevents message spam
 			return
 		last_act = world.time
-		to_chat(user, span_notice("Начинаю копать..."))
+		to_chat(user, "<span class='notice'>Начинаю копать...</span>")
 
 		if(I.use_tool(src, user, 40, volume=50))
 			if(ismineralturf(src))
-				to_chat(user, span_notice("Вскапываю камень."))
+				to_chat(user, "<span class='notice'>Вскапываю камень.</span>")
 				attempt_drill(user, TRUE)
 				SSblackbox.record_feedback("tally", "pick_used_mining", 1, I.type)
 	else
@@ -127,10 +127,10 @@
 	..()
 
 /turf/closed/mineral/attack_alien(mob/living/carbon/alien/M)
-	to_chat(M, span_notice("You start digging into the rock..."))
+	to_chat(M, "<span class='notice'>You start digging into the rock...</span>")
 	playsound(src, 'sound/effects/break_stone.ogg', 50, TRUE)
 	if(do_after(M, 40, target = src))
-		to_chat(M, span_notice("You tunnel into the rock."))
+		to_chat(M, "<span class='notice'>You tunnel into the rock.</span>")
 		attempt_drill(M)
 
 /turf/closed/mineral/attack_hulk(mob/living/carbon/human/H)
@@ -593,7 +593,7 @@
 
 /turf/closed/mineral/gibtonite/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/mining_scanner) || istype(I, /obj/item/t_scanner/adv_mining_scanner) && stage == 1)
-		user.visible_message(span_notice("[user] holds [I] to [src]...") , span_notice("You use [I] to locate where to cut off the chain reaction and attempt to stop it..."))
+		user.visible_message("<span class='notice'>[user] holds [I] to [src]...</span>" , "<span class='notice'>You use [I] to locate where to cut off the chain reaction and attempt to stop it...</span>")
 		defuse()
 	..()
 
@@ -605,7 +605,7 @@
 		name = "месторождение гибтонита"
 		desc = "Активный резерв гибтонита. Беги!"
 		stage = GIBTONITE_ACTIVE
-		visible_message(span_danger("ДА ЭТО ЖЕ ГИБТОНИТ! ОН СЕЙЧАС ВЗОРВЁТСЯ!"))
+		visible_message("<span class='danger'>ДА ЭТО ЖЕ ГИБТОНИТ! ОН СЕЙЧАС ВЗОРВЁТСЯ!</span>")
 
 		var/notify_admins = !is_mining_level(z)
 
@@ -638,7 +638,7 @@
 		stage = GIBTONITE_STABLE
 		if(det_time < 0)
 			det_time = 0
-		visible_message(span_notice("Цепная реакция была остановлена! Гибтонит содержал [det_time] реакций, оставшихся до взрыва!"))
+		visible_message("<span class='notice'>Цепная реакция была остановлена! Гибтонит содержал [det_time] реакций, оставшихся до взрыва!</span>")
 
 /turf/closed/mineral/gibtonite/attempt_drill(mob/user, triggered_by_explosion = FALSE)
 	if(stage == GIBTONITE_UNSTRUCK && mineralAmt >= 1) //Gibtonite deposit is activated
@@ -730,12 +730,12 @@
 
 /turf/closed/mineral/strong/attackby(obj/item/I, mob/user, params)
 	if(!ishuman(user))
-		to_chat(usr, span_warning("Только более продвинутый в своих способностях вид мог бы разбить такую скалу, как эта!"))
+		to_chat(usr, "<span class='warning'>Только более продвинутый в своих способностях вид мог бы разбить такую скалу, как эта!</span>")
 		return FALSE
 	if(user.mind?.get_skill_level(/datum/skill/mining) >= SKILL_LEVEL_MASTER)
 		. = ..()
 	else
-		to_chat(usr, span_warning("Похоже, камень слишком крепок, чтобы его уничтожить. Может быть, я смогу сломать его, когда стану главным шахтёром."))
+		to_chat(usr, "<span class='warning'>Похоже, камень слишком крепок, чтобы его уничтожить. Может быть, я смогу сломать его, когда стану главным шахтёром.</span>")
 
 
 /turf/closed/mineral/strong/gets_drilled(mob/user)

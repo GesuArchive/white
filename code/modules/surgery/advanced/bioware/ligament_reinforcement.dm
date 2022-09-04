@@ -18,14 +18,14 @@
 	time = 125
 
 /datum/surgery_step/reinforce_ligaments/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю укреплять связки [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начал укреплять связки [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начал работу со связками [skloname(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, "<span class='notice'>Начинаю укреплять связки [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+		"<span class='notice'>[user] начал укреплять связки [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+		"<span class='notice'>[user] начал работу со связками [skloname(target.name, RODITELNI, target.gender)].</span>")
 
 /datum/surgery_step/reinforce_ligaments/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, span_notice("Укрепил связки [skloname(target.name, RODITELNI, target.gender)]!") ,
-		span_notice("[user] укрепил связки [skloname(target.name, RODITELNI, target.gender)]!") ,
-		span_notice("[user] закончил работу со связками [skloname(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, "<span class='notice'>Укрепил связки [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
+		"<span class='notice'>[user] укрепил связки [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
+		"<span class='notice'>[user] закончил работу со связками [skloname(target.name, RODITELNI, target.gender)].</span>")
 	new /datum/bioware/reinforced_ligaments(target)
 	return ..()
 

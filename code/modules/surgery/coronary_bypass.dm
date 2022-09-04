@@ -22,9 +22,9 @@
 	time = 16
 
 /datum/surgery_step/incise_heart/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю делать надрез в сердце [skloname(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает делать надрез в [target.ru_who()] сердце.") ,
-		span_notice("[user] начинает делать надрез в [target.ru_who()] сердце.") ,
+	display_results(user, target, "<span class='notice'>Начинаю делать надрез в сердце [skloname(target.name, RODITELNI, target.gender)]...</span>" ,
+		"<span class='notice'>[user] начинает делать надрез в [target.ru_who()] сердце.</span>" ,
+		"<span class='notice'>[user] начинает делать надрез в [target.ru_who()] сердце.</span>" ,
 		playsound(get_turf(target), 'sound/surgery/scalpel1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	display_pain(target, "Мое сердце! Почему так больно? Эй! А можно наркоз?!")
 
@@ -32,8 +32,8 @@
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
 		if (!(NOBLOOD in H.dna.species.species_traits))
-			display_results(user, target, span_notice("Кровь брызгает вокруг надреза в сердце [H].") ,
-				span_notice("Кровь брызгает вокруг надреза в сердце [H]") ,
+			display_results(user, target, "<span class='notice'>Кровь брызгает вокруг надреза в сердце [H].</span>" ,
+				"<span class='notice'>Кровь брызгает вокруг надреза в сердце [H]</span>" ,
 				playsound(get_turf(target), 'sound/surgery/scalpel2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1),
 				"")
 			var/obj/item/bodypart/BP = H.get_bodypart(target_zone)
@@ -44,9 +44,9 @@
 /datum/surgery_step/incise_heart/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался, сделав слишком глубокий надрез в сердце!") ,
-			span_warning("[user] облажался, из-за чего из груди [H] брызгает кровь!") ,
-			span_warning("[user] облажался, из-за чего из груди [H] брызгает кровь!") ,
+		display_results(user, target, "<span class='warning'>[gvorno(TRUE)], но я облажался, сделав слишком глубокий надрез в сердце!</span>" ,
+			"<span class='warning'>[user] облажался, из-за чего из груди [H] брызгает кровь!</span>" ,
+			"<span class='warning'>[user] облажался, из-за чего из груди [H] брызгает кровь!</span>" ,
 			playsound(get_turf(target), 'sound/surgery/organ2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 		var/obj/item/bodypart/BP = H.get_bodypart(target_zone)
 		BP.generic_bleedstacks += 10
@@ -60,9 +60,9 @@
 	time = 90
 
 /datum/surgery_step/coronary_bypass/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю делать обходное штунирование сердца [skloname(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает делать обходное штунирование [target.ru_who()] сердца!") ,
-		span_notice("[user] начинает делать обходное штунирование [target.ru_who()] сердца!") ,
+	display_results(user, target, "<span class='notice'>Начинаю делать обходное штунирование сердца [skloname(target.name, RODITELNI, target.gender)]...</span>" ,
+		"<span class='notice'>[user] начинает делать обходное штунирование [target.ru_who()] сердца!</span>" ,
+		"<span class='notice'>[user] начинает делать обходное штунирование [target.ru_who()] сердца!</span>" ,
 		playsound(get_turf(target), 'sound/surgery/hemostat1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	display_pain(target, "Дьявол! Боль в груди невыносима! Я едва могу терпеть её!")
 
@@ -71,9 +71,9 @@
 	var/obj/item/organ/heart/heart = target.getorganslot(ORGAN_SLOT_HEART)
 	if(heart)	//slightly worrying if we lost our heart mid-operation, but that's life
 		heart.operated = TRUE
-		display_results(user, target, span_notice("Успешно выполняю обходное штунирование на сердце [skloname(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] успешно выполняет обходное штунирование на [target.ru_who()] сердце.") ,
-			span_notice("[user] успешно выполняет обходное штунирование на [target.ru_who()] сердце.") ,
+		display_results(user, target, "<span class='notice'>Успешно выполняю обходное штунирование на сердце [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+			"<span class='notice'>[user] успешно выполняет обходное штунирование на [target.ru_who()] сердце.</span>" ,
+			"<span class='notice'>[user] успешно выполняет обходное штунирование на [target.ru_who()] сердце.</span>" ,
 			playsound(get_turf(target), 'sound/surgery/hemostat1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 		display_pain(target, "Господи! Наконец то это закончилось...")
 	return ..()
@@ -81,9 +81,9 @@
 /datum/surgery_step/coronary_bypass/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался, выполняя штунирование, разорвав часть сердца!") ,
-			span_warning("[user] облажался, из-за чего из груди [H] обильно льётся кровь!") ,
-			span_warning("[user] облажался, из-за чего из груди [H] обильно льётся кровь!") ,
+		display_results(user, target, "<span class='warning'>[gvorno(TRUE)], но я облажался, выполняя штунирование, разорвав часть сердца!</span>" ,
+			"<span class='warning'>[user] облажался, из-за чего из груди [H] обильно льётся кровь!</span>" ,
+			"<span class='warning'>[user] облажался, из-за чего из груди [H] обильно льётся кровь!</span>" ,
 			playsound(get_turf(target), 'sound/surgery/organ2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 		display_pain(target, "Грудь буквально горит болью! Кажется, будто я схожу с ума!")
 		H.adjustOrganLoss(ORGAN_SLOT_HEART, 20)

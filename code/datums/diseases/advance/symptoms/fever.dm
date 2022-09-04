@@ -49,9 +49,9 @@ Bonus
 		return
 	var/mob/living/carbon/M = A.affected_mob
 	if(!unsafe || A.stage < 4)
-		to_chat(M, span_warning("[pick("Жарко.", "Горю.")]"))
+		to_chat(M, "<span class='warning'>[pick("Жарко.", "Горю.")]</span>")
 	else
-		to_chat(M, span_userdanger("[pick("Очень жарко.", "Кровь кипит.")]"))
+		to_chat(M, "<span class='userdanger'>[pick("Очень жарко.", "Кровь кипит.")]</span>")
 	set_body_temp(A.affected_mob, A)
 
 /**

@@ -43,21 +43,21 @@ Bonus
 	switch(A.stage)
 		if(1)
 			if(prob(50))
-				to_chat(M, span_warning("Надо отдохнуть."))
+				to_chat(M, "<span class='warning'>Надо отдохнуть.</span>")
 		if(2)
 			if(prob(50))
-				to_chat(M, span_warning("Надо подремать."))
+				to_chat(M, "<span class='warning'>Надо подремать.</span>")
 		if(3)
 			if(prob(50))
-				to_chat(M, span_warning("Пытаюсь не заснуть."))
+				to_chat(M, "<span class='warning'>Пытаюсь не заснуть.</span>")
 			if(M.drowsyness < 70)
 				M.drowsyness += 5
 		if(4)
 			if(prob(50))
 				if(yawning)
-					to_chat(M, span_warning("Пытаюсь не зевнуть."))
+					to_chat(M, "<span class='warning'>Пытаюсь не зевнуть.</span>")
 				else
-					to_chat(M, span_warning("Засыпаю на мгновение.")) //you can't really yawn while nodding off, can you?
+					to_chat(M, "<span class='warning'>Засыпаю на мгновение.</span>") //you can't really yawn while nodding off, can you?
 			if(M.drowsyness < 70)
 				M.drowsyness += 10
 			if(yawning)
@@ -66,7 +66,7 @@ Bonus
 					A.spread(6)
 		if(5)
 			if(prob(50))
-				to_chat(M, span_warning("[pick("Спать...","Очень хочется спать.","Трудно держать глаза открытыми.","Пытаюсь не заснуть.")]"))
+				to_chat(M, "<span class='warning'>[pick("Спать...","Очень хочется спать.","Трудно держать глаза открытыми.","Пытаюсь не заснуть.")]</span>")
 			if(M.drowsyness < 70)
 				M.drowsyness += 40
 			if(yawning)

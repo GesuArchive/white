@@ -69,7 +69,7 @@
 	addtimer(CALLBACK(src, .proc/endgame_shit),  30 SECONDS)
 
 /mob/living/simple_animal/hostile/blackmesa/xen/nihilanth/proc/endgame_shit()
-	to_chat(world, span_danger("You feel as though a powerful force has been defeated..."))
+	to_chat(world, "<span class='danger'>You feel as though a powerful force has been defeated...</span>")
 	if(prob(60))
 		var/datum/round_event_control/resonance_cascade/event_to_start = new()
 		event_to_start.runEvent()

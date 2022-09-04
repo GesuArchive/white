@@ -7,7 +7,7 @@
 
 ///Returns a short description of the cell line
 /datum/micro_organism/proc/get_details(show_details)
-	return span_notice("\n[desc]")
+	return "<span class='notice'>\n[desc]</span>"
 
 ///A "mob" cell. Can grow into a mob in a growing vat.
 /datum/micro_organism/cell_line
@@ -86,7 +86,7 @@
 	return TRUE
 
 /datum/micro_organism/cell_line/proc/fuck_up_growing(obj/machinery/plumbing/growing_vat/vat)
-	vat.visible_message(span_warning("The biological sample in [vat] seems to have dissipated!"))
+	vat.visible_message("<span class='warning'>The biological sample in [vat] seems to have dissipated!</span>")
 	if(prob(50))
 		new /obj/effect/gibspawner/generic(get_turf(vat)) //Spawn some gibs.
 	if(SEND_SIGNAL(vat.biological_sample, COMSIG_SAMPLE_GROWTH_COMPLETED) & SPARE_SAMPLE)
@@ -101,7 +101,7 @@
 		for(var/x in 1 to resulting_atoms[created_thing])
 			var/atom/thing = new created_thing(get_turf(vat))
 			ADD_TRAIT(thing, TRAIT_VATGROWN, "vatgrowing")
-			vat.visible_message(span_nicegreen("[thing] pops out of [vat]!"))
+			vat.visible_message("<span class='nicegreen'>[thing] pops out of [vat]!</span>")
 	if(SEND_SIGNAL(vat.biological_sample, COMSIG_SAMPLE_GROWTH_COMPLETED) & SPARE_SAMPLE)
 		return
 	QDEL_NULL(vat.biological_sample)

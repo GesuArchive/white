@@ -44,7 +44,7 @@
 /turf/open/chasm/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
 		if(RCD_FLOORWALL)
-			to_chat(user, span_notice("Строю пол."))
+			to_chat(user, "<span class='notice'>Строю пол.</span>")
 			PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
 			return TRUE
 	return FALSE
@@ -61,12 +61,12 @@
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		if(!L)
 			if(R.use(1))
-				to_chat(user, span_notice("Строю решетку."))
+				to_chat(user, "<span class='notice'>Строю решетку.</span>")
 				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 				// Create a lattice, without reverting to our baseturf
 				new /obj/structure/lattice(src)
 			else
-				to_chat(user, span_warning("Надо бы больше прутьев."))
+				to_chat(user, "<span class='warning'>Надо бы больше прутьев.</span>")
 			return
 	if(istype(C, /obj/item/stack/tile/plasteel))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
@@ -75,13 +75,13 @@
 			if(S.use(1))
 				qdel(L)
 				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
-				to_chat(user, span_notice("Строю пол."))
+				to_chat(user, "<span class='notice'>Строю пол.</span>")
 				// Create a floor, which has this chasm underneath it
 				PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
 			else
-				to_chat(user, span_warning("Надо бы плиточку!"))
+				to_chat(user, "<span class='warning'>Надо бы плиточку!</span>")
 		else
-			to_chat(user, span_warning("Надо бы чем-то удерживать плиточку, чтобы она не упала вниз."))
+			to_chat(user, "<span class='warning'>Надо бы чем-то удерживать плиточку, чтобы она не упала вниз.</span>")
 
 // Chasms for Lavaland, with planetary atmos and lava glow
 /turf/open/chasm/lavaland

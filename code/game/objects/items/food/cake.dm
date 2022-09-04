@@ -211,7 +211,7 @@
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/cakeslice/birthday/energy, 5, 30)
 
 /obj/item/food/cake/birthday/energy/proc/energy_bite(mob/living/user)
-	to_chat(user, span_boldwarning("Когда я ел этот торт, я случайно поранился. Откуда в нём энергетический меч?!"))
+	to_chat(user, "<span class='boldwarning'>Когда я ел этот торт, я случайно поранился. Откуда в нём энергетический меч?!</span>")
 	user.apply_damage(30,BRUTE,BODY_ZONE_HEAD)
 	playsound(user, 'sound/weapons/blade1.ogg', 5, TRUE)
 
@@ -235,7 +235,7 @@
 	tastes = list("торт" = 3, "a Vlad's Salad" = 1)
 
 /obj/item/food/cakeslice/birthday/energy/proc/energy_bite(mob/living/user)
-	to_chat(user, span_boldwarning("Когда я ел этот торт, я случайно поранился. Откуда в нём энергетический меч?!"))
+	to_chat(user, "<span class='boldwarning'>Когда я ел этот торт, я случайно поранился. Откуда в нём энергетический меч?!</span>")
 	user.apply_damage(18,BRUTE,BODY_ZONE_HEAD)
 	playsound(user, 'sound/weapons/blade1.ogg', 5, TRUE)
 

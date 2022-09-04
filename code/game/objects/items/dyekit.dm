@@ -36,7 +36,7 @@
 	if(!new_grad_color || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE) || !user.CanReach(target))
 		return
 
-	to_chat(user, span_notice("Начинаю красить [lowertext(beard_or_hair)]..."))
+	to_chat(user, "<span class='notice'>Начинаю красить [lowertext(beard_or_hair)]...</span>")
 	if(!do_after(user, 3 SECONDS, target))
 		return
 	var/gradient_key = beard_or_hair == "Волосы" ? GRADIENT_HAIR_KEY : GRADIENT_FACIAL_HAIR_KEY

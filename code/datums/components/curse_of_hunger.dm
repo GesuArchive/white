@@ -47,9 +47,9 @@
 	if(!awakened)
 		return //we should not reveal we are cursed until equipped
 	if(poison_food_tolerance != FULL_HEALTH)
-		examine_list += span_notice("\n[parent] выглядит нездорово. Может, съел что-то не то.")
+		examine_list += "<span class='notice'>\n[parent] выглядит нездорово. Может, съел что-то не то.</span>"
 	if(hunger > HUNGER_THRESHOLD_WARNING)
-		examine_list += span_danger("\n[parent] хочет кушать...")
+		examine_list += "<span class='danger'>\n[parent] хочет кушать...</span>"
 
 ///signal called from equipping parent
 /datum/component/curse_of_hunger/proc/on_equip(datum/source, mob/equipper, slot)
@@ -128,7 +128,7 @@
 
 	//only taking the most reasonable slot is fine since it unequips what is there to equip itself.
 	cursed_item.AddElement(/datum/element/cursed, slot_priority[1])
-	cursed_item.visible_message(span_warning("[cursed_item] начинает двигаться сам по себе..."))
+	cursed_item.visible_message("<span class='warning'>[cursed_item] начинает двигаться сам по себе...</span>")
 
 /datum/component/curse_of_hunger/process(delta_time)
 	var/obj/item/cursed_item = parent
@@ -150,17 +150,17 @@
 		playsound(cursed_item, 'sound/items/eatfood.ogg', 20, TRUE)
 		///poisoned food damages it
 		if(istype(food, /obj/item/food/badrecipe))
-			to_chat(cursed, span_warning("[cursed_item] съедает [food]. Похоже, ему плохо!"))
+			to_chat(cursed, "<span class='warning'>[cursed_item] съедает [food]. Похоже, ему плохо!</span>")
 			poison_food_tolerance--
 		else
-			to_chat(cursed, span_notice("[cursed_item] съедает [food]."))
+			to_chat(cursed, "<span class='notice'>[cursed_item] съедает [food].</span>")
 		cursed.temporarilyRemoveItemFromInventory(food, force = TRUE)
 		qdel(food)
 		hunger = 0
 		return
 	///no food found: it bites you and regains some poison food tolerance
 	playsound(cursed_item, 'sound/items/eatfood.ogg', 20, TRUE)
-	to_chat(cursed, span_userdanger("[cursed_item] кусает меня от голода!"))
+	to_chat(cursed, "<span class='userdanger'>[cursed_item] кусает меня от голода!</span>")
 	var/affecting = cursed.get_bodypart(BODY_ZONE_CHEST)
 	cursed.apply_damage(60, BRUTE, affecting)
 	hunger = 0

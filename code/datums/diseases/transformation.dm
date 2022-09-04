@@ -86,12 +86,12 @@
 	var/list/mob/dead/observer/candidates = poll_candidates_for_mob("Хочешь быть [affected_mob.real_name]?", bantype, null, 50, affected_mob)
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/C = pick(candidates)
-		to_chat(affected_mob, span_userdanger("Тело захватил призрак! Подай апелляцию, если хочешь избежать этого в будущем!"))
+		to_chat(affected_mob, "<span class='userdanger'>Тело захватил призрак! Подай апелляцию, если хочешь избежать этого в будущем!</span>")
 		message_admins("[key_name_admin(C)] has taken control of ([key_name_admin(affected_mob)]) to replace a jobbanned player.")
 		affected_mob.ghostize(0)
 		affected_mob.key = C.key
 	else
-		to_chat(new_mob, span_userdanger("Тело захвачено смертью. Подай апелляцию, если хочешь избежать этого в будущем!"))
+		to_chat(new_mob, "<span class='userdanger'>Тело захвачено смертью. Подай апелляцию, если хочешь избежать этого в будущем!</span>")
 		new_mob.death()
 		if (!QDELETED(new_mob))
 			new_mob.ghostize(can_reenter_corpse = FALSE)
@@ -119,9 +119,9 @@
 	stage1	= list()
 	stage2	= list()
 	stage3	= list()
-	stage4	= list(span_warning("Спина болит") , span_warning("Дышу через РОТ.") ,
-					span_warning("Хочу бананы.") , span_warning("В голове туман."))
-	stage5	= list(span_warning("Да я же обезьяна."))
+	stage4	= list("<span class='warning'>Спина болит</span>" , "<span class='warning'>Дышу через РОТ.</span>" ,
+					"<span class='warning'>Хочу бананы.</span>" , "<span class='warning'>В голове туман.</span>")
+	stage5	= list("<span class='warning'>Да я же обезьяна.</span>")
 
 /datum/disease/transformation/jungle_fever/do_disease_transformation(mob/living/carbon/affected_mob)
 	if(affected_mob.mind && !is_monkey(affected_mob.mind))
@@ -137,10 +137,10 @@
 	switch(stage)
 		if(2)
 			if(DT_PROB(1, delta_time))
-				to_chat(affected_mob, span_notice("Моя [pick("спина", "рука", "нога", "жопа", "голова")] чешется."))
+				to_chat(affected_mob, "<span class='notice'>Моя [pick("спина", "рука", "нога", "жопа", "голова")] чешется.</span>")
 		if(3)
 			if(DT_PROB(2, delta_time))
-				to_chat(affected_mob, span_danger("Чувствую острую боль в голове!."))
+				to_chat(affected_mob, "<span class='danger'>Чувствую острую боль в голове!.</span>")
 				affected_mob.add_confusion(10)
 		if(4)
 			if(DT_PROB(1.5, delta_time))
@@ -172,10 +172,10 @@
 	severity = DISEASE_SEVERITY_BIOHAZARD
 	visibility_flags = NONE
 	stage1	= list()
-	stage2	= list("Суставы жестеют.", span_danger("Бип... Буп..."))
-	stage3	= list(span_danger("Суставы сильно жестеют.") , "Кожа слезает.", span_danger("Что-то движется... внутри."))
-	stage4	= list(span_danger("Кожа сейчас отвалится.") , span_danger("Ощущаю... что-то... внутри меня."))
-	stage5	= list(span_danger("Кожа слетает с меня!"))
+	stage2	= list("Суставы жестеют.", "<span class='danger'>Бип... Буп...</span>")
+	stage3	= list("<span class='danger'>Суставы сильно жестеют.</span>" , "Кожа слезает.", "<span class='danger'>Что-то движется... внутри.</span>")
+	stage4	= list("<span class='danger'>Кожа сейчас отвалится.</span>" , "<span class='danger'>Ощущаю... что-то... внутри меня.</span>")
+	stage5	= list("<span class='danger'>Кожа слетает с меня!</span>")
 	new_form = /mob/living/silicon/robot
 	infectable_biotypes = MOB_ORGANIC|MOB_UNDEAD|MOB_ROBOTIC
 	bantype = JOB_CYBORG
@@ -191,7 +191,7 @@
 			if (DT_PROB(4, delta_time))
 				affected_mob.say(pick("Бип, буп", "Бип, бип!", "Буп... буп"), forced = "robotic transformation")
 			if(DT_PROB(2, delta_time))
-				to_chat(affected_mob, span_danger("Чувствую острую боль в голове!."))
+				to_chat(affected_mob, "<span class='danger'>Чувствую острую боль в голове!.</span>")
 				affected_mob.Unconscious(40)
 		if(4)
 			if (DT_PROB(10, delta_time))
@@ -209,10 +209,10 @@
 	severity = DISEASE_SEVERITY_BIOHAZARD
 	visibility_flags = NONE
 	stage1	= list()
-	stage2	= list("Горло чешется.", span_danger("Убивать..."))
-	stage3	= list(span_danger("Горло очень сильно чешется.") , "Кожа утягивается.", span_danger("Что-то движется... внутри."))
-	stage4	= list(span_danger("Кожа очень плотная.") , span_danger("Кровь кипит!") , span_danger("Ощущаю... что-то... внутри меня."))
-	stage5	= list(span_danger("Кожа слетает с меня!"))
+	stage2	= list("Горло чешется.", "<span class='danger'>Убивать...</span>")
+	stage3	= list("<span class='danger'>Горло очень сильно чешется.</span>" , "Кожа утягивается.", "<span class='danger'>Что-то движется... внутри.</span>")
+	stage4	= list("<span class='danger'>Кожа очень плотная.</span>" , "<span class='danger'>Кровь кипит!</span>" , "<span class='danger'>Ощущаю... что-то... внутри меня.</span>")
+	stage5	= list("<span class='danger'>Кожа слетает с меня!</span>")
 	new_form = /mob/living/carbon/alien/humanoid/hunter
 	bantype = ROLE_ALIEN
 
@@ -225,7 +225,7 @@
 	switch(stage)
 		if(3)
 			if(DT_PROB(2, delta_time))
-				to_chat(affected_mob, span_danger("Чувствую острую боль в голове!."))
+				to_chat(affected_mob, "<span class='danger'>Чувствую острую боль в голове!.</span>")
 				affected_mob.Unconscious(40)
 		if(4)
 			if(DT_PROB(10, delta_time))
@@ -243,9 +243,9 @@
 	visibility_flags = NONE
 	stage1	= list("Мне плохо.")
 	stage2	= list("Кожа скользкая.")
-	stage3	= list(span_danger("Пальцы тают.") , span_danger("Конечности меняют форму."))
-	stage4	= list(span_danger("Превращаюсь в слайма."))
-	stage5	= list(span_danger("Да я же слайм."))
+	stage3	= list("<span class='danger'>Пальцы тают.</span>" , "<span class='danger'>Конечности меняют форму.</span>")
+	stage4	= list("<span class='danger'>Превращаюсь в слайма.</span>")
+	stage5	= list("<span class='danger'>Да я же слайм.</span>")
 	new_form = /mob/living/simple_animal/slime/random
 
 
@@ -276,9 +276,9 @@
 	visibility_flags = NONE
 	stage1	= list("ГАВ.")
 	stage2	= list("Чувствую необходимость носить глупые шляпы.")
-	stage3	= list(span_danger("Надо... поесть... шоколад...") , span_danger("ЯП"))
-	stage4	= list(span_danger("Видения стиральных машин атакуют мой разум!"))
-	stage5	= list(span_danger("АУУУУУУУ!!!"))
+	stage3	= list("<span class='danger'>Надо... поесть... шоколад...</span>" , "<span class='danger'>ЯП</span>")
+	stage4	= list("<span class='danger'>Видения стиральных машин атакуют мой разум!</span>")
+	stage5	= list("<span class='danger'>АУУУУУУУ!!!</span>")
 	new_form = /mob/living/simple_animal/pet/dog/corgi
 
 
@@ -306,9 +306,9 @@
 	visibility_flags = NONE
 	stage1	= list("В животе урчит.")
 	stage2	= list("Кожа обвисла.")
-	stage3	= list(span_danger("Пальцы растворяются.") , span_danger("Конечности меняют форму."))
-	stage4	= list(span_danger("Хочу кушать."))
-	stage5	= list(span_danger("Кажется я теперь морф."))
+	stage3	= list("<span class='danger'>Пальцы растворяются.</span>" , "<span class='danger'>Конечности меняют форму.</span>")
+	stage4	= list("<span class='danger'>Хочу кушать.</span>")
+	stage5	= list("<span class='danger'>Кажется я теперь морф.</span>")
 	new_form = /mob/living/simple_animal/hostile/morph
 	infectable_biotypes = MOB_ORGANIC|MOB_MINERAL|MOB_UNDEAD //magic!
 	transformed_antag_datum = /datum/antagonist/morph
@@ -325,9 +325,9 @@
 	visibility_flags = NONE
 	stage1	= list("Походка стала немного легче.")
 	stage2	= list("Улыбаюсь.")
-	stage3	= list(span_danger("Жестокое чувство покоя овладевает мной.") , span_danger("Не чувствую рук!") , span_danger("Больше не хочу бить клоуна."))
-	stage4	= list(span_danger("Больше не ощущаю руки. Да и это меня не волнует.") , span_danger("Прощаю клоуну все пакости в мою сторону."))
-	stage5	= list(span_danger("Становлюсь Гондолой."))
+	stage3	= list("<span class='danger'>Жестокое чувство покоя овладевает мной.</span>" , "<span class='danger'>Не чувствую рук!</span>" , "<span class='danger'>Больше не хочу бить клоуна.</span>")
+	stage4	= list("<span class='danger'>Больше не ощущаю руки. Да и это меня не волнует.</span>" , "<span class='danger'>Прощаю клоуну все пакости в мою сторону.</span>")
+	stage5	= list("<span class='danger'>Становлюсь Гондолой.</span>")
 	new_form = /mob/living/simple_animal/pet/gondola
 
 
@@ -355,7 +355,7 @@
 			if(DT_PROB(1, delta_time))
 				var/obj/item/held_item = affected_mob.get_active_held_item()
 				if(held_item)
-					to_chat(affected_mob, span_danger("Отпускаю всё, что держал."))
+					to_chat(affected_mob, "<span class='danger'>Отпускаю всё, что держал.</span>")
 					affected_mob.dropItemToGround(held_item)
 
 
@@ -370,8 +370,8 @@
 	visibility_flags = NONE
 	stage1	= list("Живот урчит.")
 	stage2	= list("Слышу смех краем уха.")
-	stage3	= list(span_danger("Моя кожа пахнет бананами.") , span_danger("Набираю вес."))
-	stage4	= list(span_danger("Так хочется есть..."))
-	stage5	= list(span_danger("Теперь я Апостол."))
+	stage3	= list("<span class='danger'>Моя кожа пахнет бананами.</span>" , "<span class='danger'>Набираю вес.</span>")
+	stage4	= list("<span class='danger'>Так хочется есть...</span>")
+	stage5	= list("<span class='danger'>Теперь я Апостол.</span>")
 	new_form = /mob/living/simple_animal/hostile/clown/mutant/glutton/
 	infectable_biotypes = MOB_ORGANIC|MOB_MINERAL|MOB_UNDEAD //magic!

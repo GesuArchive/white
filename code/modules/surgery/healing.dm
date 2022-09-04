@@ -50,9 +50,9 @@
 	if(istype(surgery,/datum/surgery/healing))
 		var/datum/surgery/healing/the_surgery = surgery
 		if(!the_surgery.antispam)
-			display_results(user, target, span_notice("Пытаюсь залатать [woundtype] [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] пытается залатать [woundtype] [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] пытается залатать [woundtype] [skloname(target.name, RODITELNI, target.gender)].") ,
+			display_results(user, target, "<span class='notice'>Пытаюсь залатать [woundtype] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+		"<span class='notice'>[user] пытается залатать [woundtype] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+		"<span class='notice'>[user] пытается залатать [woundtype] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
 		playsound(get_turf(target), 'sound/surgery/retractor2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 
 /datum/surgery_step/heal/initiate(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, try_to_fail = FALSE)
@@ -80,9 +80,9 @@
 		umsg += " настолько хорошо, насколько смог из-за мешающейся одежды."
 		tmsg += " настолько хорошо, насколько смог из-за мешающейся одежды."
 	target.heal_bodypart_damage(urhealedamt_brute,urhealedamt_burn)
-	display_results(user, target, span_notice("[umsg].") ,
-		span_notice("[tmsg]."),
-		span_notice("[tmsg]."),
+	display_results(user, target, "<span class='notice'>[umsg].</span>" ,
+		"<span class='notice'>[tmsg].</span>",
+		"<span class='notice'>[tmsg].</span>",
 		playsound(get_turf(target), 'sound/surgery/retractor2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	if(istype(surgery, /datum/surgery/healing))
 		var/datum/surgery/healing/the_surgery = surgery
@@ -90,9 +90,9 @@
 	return ..()
 
 /datum/surgery_step/heal/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался!") ,
-		span_warning("[user] облажался!") ,
-		span_notice("[user] залатывает некоторые раны [skloname(target.name, RODITELNI, target.gender)].") , TRUE,
+	display_results(user, target, "<span class='warning'>[gvorno(TRUE)], но я облажался!</span>" ,
+		"<span class='warning'>[user] облажался!</span>" ,
+		"<span class='notice'>[user] залатывает некоторые раны [skloname(target.name, RODITELNI, target.gender)].</span>" , TRUE,
 		playsound(get_turf(target), 'sound/surgery/organ2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1),)
 	var/urdamageamt_burn = brutehealing * 0.8
 	var/urdamageamt_brute = burnhealing * 0.8
@@ -222,7 +222,7 @@
 	missinghpbonus = 2.5
 
 /datum/surgery_step/heal/combo/upgraded/femto/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался!") ,
-		span_warning("[user] облажался!") ,
-		span_notice("[user] залатывает некоторые раны [skloname(target.name, RODITELNI, target.gender)].") , TRUE)
+	display_results(user, target, "<span class='warning'>[gvorno(TRUE)], но я облажался!</span>" ,
+		"<span class='warning'>[user] облажался!</span>" ,
+		"<span class='notice'>[user] залатывает некоторые раны [skloname(target.name, RODITELNI, target.gender)].</span>" , TRUE)
 	target.take_bodypart_damage(5,5)

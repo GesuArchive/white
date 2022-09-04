@@ -15,7 +15,7 @@
 
 /obj/item/freeze_cube/examine(mob/user)
 	. = ..()
-	. += span_notice("Throw this at objects or creatures to freeze them, it will boomerang back so be cautious!")
+	. += "<span class='notice'>Throw this at objects or creatures to freeze them, it will boomerang back so be cautious!</span>"
 
 /obj/item/freeze_cube/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, quickstart = TRUE)
 	. = ..()
@@ -39,7 +39,7 @@
 	if(isobj(hit_atom))
 		var/obj/hit_object = hit_atom
 		if(hit_object.resistance_flags & FREEZE_PROOF)
-			hit_object.visible_message(span_warning("[hit_object] is freeze-proof!"))
+			hit_object.visible_message("<span class='warning'>[hit_object] is freeze-proof!</span>")
 			return
 		if(!(hit_object.obj_flags & FROZEN))
 			hit_object.make_frozen_visual()

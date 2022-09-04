@@ -37,10 +37,10 @@
 /obj/item/clothing/head/helmet/proc/rolldown()
 	if(ishuman(usr))
 		if(flags_inv == HIDEHAIR)
-			to_chat(usr, span_notice("Распускаю волосы."))
+			to_chat(usr, "<span class='notice'>Распускаю волосы.</span>")
 			flags_inv = null
 		else
-			to_chat(usr, span_notice("Заправляю волосы под шлем."))
+			to_chat(usr, "<span class='notice'>Заправляю волосы под шлем.</span>")
 			flags_inv = initial(flags_inv)
 		var/mob/living/carbon/human/H = usr
 //		H.update_inv_w_uniform()
@@ -114,14 +114,14 @@
 	if(issignaler(I))
 		var/obj/item/assembly/signaler/S = I
 		if(attached_light) //Has a flashlight. Player must remove it, else it will be lost forever.
-			to_chat(user, span_warning("Установленный фонарик мешает, сначала снять бы его!"))
+			to_chat(user, "<span class='warning'>Установленный фонарик мешает, сначала снять бы его!</span>")
 			return
 
 		if(S.secured)
 			qdel(S)
 			var/obj/item/bot_assembly/secbot/A = new
 			user.put_in_hands(A)
-			to_chat(user, span_notice("Добавляю сигналлер к шлему."))
+			to_chat(user, "<span class='notice'>Добавляю сигналлер к шлему.</span>")
 			qdel(src)
 			return
 	return ..()
@@ -223,7 +223,7 @@
 			flags_inv ^= visor_flags_inv
 			flags_cover ^= visor_flags_cover
 			update_icon_state()
-			to_chat(user, span_notice("[up ? alt_toggle_message : toggle_message] [src]."))
+			to_chat(user, "<span class='notice'>[up ? alt_toggle_message : toggle_message] [src].</span>")
 
 			user.update_inv_head()
 			if(iscarbon(user))
@@ -486,11 +486,11 @@
 /obj/item/clothing/head/helmet/monkey_sentience/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='boldwarning'>---ВНИМАНИЕ: УДАЛЕНИЕ ШЛЕМА С СУБЪЕКТА МОЖЕТ ПРИВЕСТИ К:---</span>"
-	. += span_warning("\nЖАЖДЕ КРОВИ")
-	. += span_warning("\nСМЕРТИ МОЗГА")
-	. += span_warning("\nАКТИВАЦИИ ПЕРВОБЫТНОГО ГЕНА")
-	. += span_warning("\nМАССОВОЙ УСТОЙЧИВОСТИ ГЕНЕТИЧЕСКОГО СОСТАВА")
-	. += span_boldnotice("\nПеред применением устройства проконсультируйтесь с вашим главным врачом.")
+	. += "<span class='warning'>\nЖАЖДЕ КРОВИ</span>"
+	. += "<span class='warning'>\nСМЕРТИ МОЗГА</span>"
+	. += "<span class='warning'>\nАКТИВАЦИИ ПЕРВОБЫТНОГО ГЕНА</span>"
+	. += "<span class='warning'>\nМАССОВОЙ УСТОЙЧИВОСТИ ГЕНЕТИЧЕСКОГО СОСТАВА</span>"
+	. += "<span class='boldnotice'>\nПеред применением устройства проконсультируйтесь с вашим главным врачом.</span>"
 
 /obj/item/clothing/head/helmet/monkey_sentience/update_icon_state()
 	icon_state = "[initial(icon_state)][light_colors][magnification ? "up" : ""]"
@@ -501,28 +501,28 @@
 		return
 	if(!ismonkey(user) || user.ckey)
 		var/mob/living/something = user
-		to_chat(something, span_boldnotice("На секунду ощутил колющую боль в затылке."))
+		to_chat(something, "<span class='boldnotice'>На секунду ощутил колющую боль в затылке.</span>")
 		something.apply_damage(5,BRUTE,BODY_ZONE_HEAD,FALSE,FALSE,FALSE) //notably: no damage resist (it's in your helmet), no damage spread (it's in your helmet)
 		playsound(src, 'white/valtos/sounds/error1.ogg', 30, TRUE)
 		return
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_STATION_SENTIENCE))
 		say("ERROR: Центральное командование временно запретило использование шлемов по увеличению обезьянего интеллекта в этом секторе. БЛИЖАЙШИЙ ЗАКОННЫЙ СЕКТОР: в 2,537 миллионов световых лет от меня.")
 	magnification = user //this polls ghosts
-	visible_message(span_warning("[capitalize(src.name)] включается!"))
+	visible_message("<span class='warning'>[capitalize(src.name)] включается!</span>")
 	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
 	polling = TRUE
 	var/list/candidates = poll_candidates_for_mob("Хотите поиграть за обезьянку с увеличенным интеллектом?", ROLE_SENTIENCE, null, 50, magnification, POLL_IGNORE_SENTIENCE_POTION)
 	polling = FALSE
 	if(!candidates.len)
 		magnification = null
-		visible_message(span_notice("[capitalize(src.name)] замолкает и падает на пол. Может стоит попробовать позже?"))
+		visible_message("<span class='notice'>[capitalize(src.name)] замолкает и падает на пол. Может стоит попробовать позже?</span>")
 		playsound(src, 'white/valtos/sounds/error1.ogg', 30, TRUE)
 		user.dropItemToGround(src)
 		return
 	var/mob/picked = pick(candidates)
 	magnification.key = picked.key
 	playsound(src, 'sound/machines/microwave/microwave-end.ogg', 100, FALSE)
-	to_chat(magnification, span_notice("Обезьянка с увеличенным интеллектом! Нужно защищать свой шлем ценой жизни - если я его потеряю, то и моя разумность пропадет вместе с ним!"))
+	to_chat(magnification, "<span class='notice'>Обезьянка с увеличенным интеллектом! Нужно защищать свой шлем ценой жизни - если я его потеряю, то и моя разумность пропадет вместе с ним!</span>")
 	var/policy = get_policy(ROLE_MONKEY_HELMET)
 	if(policy)
 		to_chat(magnification, policy)
@@ -537,7 +537,7 @@
 		return
 	if(!polling)//put on a viable head, but taken off after polling finished.
 		if(magnification.client)
-			to_chat(magnification, span_userdanger("Чую как я теряю проблески разума, и всё становится тусклым..."))
+			to_chat(magnification, "<span class='userdanger'>Чую как я теряю проблески разума, и всё становится тусклым...</span>")
 			magnification.ghostize(FALSE)
 		if(prob(10))
 			switch(rand(1,4))
@@ -552,7 +552,7 @@
 	//either used up correctly or taken off before polling finished (punish this by destroying the helmet)
 	playsound(src, 'white/valtos/sounds/error1.ogg', 30, TRUE)
 	playsound(src, "sparks", 100, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-	visible_message(span_warning("[capitalize(src.name)] шипит и распадается"))
+	visible_message("<span class='warning'>[capitalize(src.name)] шипит и распадается</span>")
 	magnification = null
 	new /obj/effect/decal/cleanable/ash/crematorium(drop_location()) //just in case they're in a locker or other containers it needs to use crematorium ash, see the path itself for an explanation
 
@@ -590,7 +590,7 @@
 		if(can_flashlight && !attached_light)
 			if(!user.transferItemToLoc(S, src))
 				return
-			to_chat(user, span_notice("Прикрепляю [S] к [src]."))
+			to_chat(user, "<span class='notice'>Прикрепляю [S] к [src].</span>")
 			set_attached_light(S)
 			update_icon()
 			update_helmlight()
@@ -604,7 +604,7 @@
 	. = ..()
 	if(can_flashlight && attached_light) //if it has a light but can_flashlight is false, the light is permanently attached.
 		I.play_tool_sound(src)
-		to_chat(user, span_notice("Откручиваю [attached_light] от [src]."))
+		to_chat(user, "<span class='notice'>Откручиваю [attached_light] от [src].</span>")
 		attached_light.forceMove(drop_location())
 		if(Adjacent(user) && !issilicon(user))
 			user.put_in_hands(attached_light)
@@ -630,7 +630,7 @@
 		return
 	attached_light.on = !attached_light.on
 	attached_light.update_brightness()
-	to_chat(user, span_notice("[attached_light.on ? "Включаю":"Выключаю"] фонарик на шлеме."))
+	to_chat(user, "<span class='notice'>[attached_light.on ? "Включаю":"Выключаю"] фонарик на шлеме.</span>")
 
 	playsound(user, 'sound/weapons/empty.ogg', 100, TRUE)
 	update_helmlight()

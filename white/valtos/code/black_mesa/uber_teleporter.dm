@@ -25,7 +25,7 @@
 				possible_turfs += iterating_turf
 
 	if(!LAZYLEN(possible_turfs))
-		to_chat(user, span_warning("The spell matrix was unable to locate a suitable teleport destination for an unknown reason. Sorry."))
+		to_chat(user, "<span class='warning'>The spell matrix was unable to locate a suitable teleport destination for an unknown reason. Sorry.</span>")
 		return
 
 	if(user.buckled)

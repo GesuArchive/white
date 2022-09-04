@@ -183,7 +183,7 @@
 		return
 
 	if(force && HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, span_warning("Не хочу вредить живым существам!"))
+		to_chat(user, "<span class='warning'>Не хочу вредить живым существам!</span>")
 		return
 
 	if(!force)
@@ -233,8 +233,8 @@
 			no_damage = FALSE
 		//only witnesses close by and the victim see a hit message.
 		log_combat(user, src, "attacked", I)
-		user.visible_message(span_danger("<b>[user]</b> бьёт <b>[src]</b> используя <b>[I]</b>[no_damage ? ", не оставляя даже царапины" : ""]!"), \
-			span_danger("Бью <b>[src]</b> используя <b>[I]</b>[no_damage ? ", не оставляя даже царапины" : ""]!"), null, COMBAT_MESSAGE_RANGE)
+		user.visible_message("<span class='danger'><b>[user]</b> бьёт <b>[src]</b> используя <b>[I]</b>[no_damage ? ", не оставляя даже царапины" : ""]!</span>", \
+			"<span class='danger'>Бью <b>[src]</b> используя <b>[I]</b>[no_damage ? ", не оставляя даже царапины" : ""]!</span>", null, COMBAT_MESSAGE_RANGE)
 
 /mob/living/attacked_by(obj/item/I, mob/living/user)
 	send_item_attack_message(I, user)
@@ -320,7 +320,7 @@
 		attack_message_victim = "<b>[user]</b> [message_verb_continuous] меня[message_hit_area] [skloname(I.name, TVORITELNI, I.gender)]!"
 	if(user == src)
 		attack_message_victim = "Моя атака [message_verb_simple] меня[message_hit_area] [skloname(I.name, TVORITELNI, I.gender)]"
-	visible_message(span_danger("[attack_message_spectator]") ,\
-		span_userdanger("[attack_message_victim]") , null, COMBAT_MESSAGE_RANGE, user)
-	to_chat(user, span_danger("[attack_message_attacker]"))
+	visible_message("<span class='danger'>[attack_message_spectator]</span>" ,\
+		"<span class='userdanger'>[attack_message_victim]</span>" , null, COMBAT_MESSAGE_RANGE, user)
+	to_chat(user, "<span class='danger'>[attack_message_attacker]</span>")
 	return 1

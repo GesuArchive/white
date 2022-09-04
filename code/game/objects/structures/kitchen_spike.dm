@@ -12,12 +12,12 @@
 /obj/structure/kitchenspike_frame/welder_act(mob/living/user, obj/item/tool)
 	if(!tool.tool_start_check(user, amount = 0))
 		return FALSE
-	to_chat(user, span_notice("You begin cutting \the [src] apart..."))
+	to_chat(user, "<span class='notice'>You begin cutting \the [src] apart...</span>")
 	if(!tool.use_tool(src, user, 5 SECONDS, volume = 50))
 		return TRUE
-	visible_message(span_notice("[user] slices apart \the [src]."),
-		span_notice("You cut \the [src] apart with \the [tool]."),
-		span_hear("You hear welding."))
+	visible_message("<span class='notice'>[user] slices apart \the [src].</span>",
+		"<span class='notice'>You cut \the [src] apart with \the [tool].</span>",
+		"<span class='hear'>You hear welding.</span>")
 	new /obj/item/stack/sheet/iron(loc, MEATSPIKE_IRONROD_REQUIREMENT)
 	qdel(src)
 	return TRUE
@@ -33,7 +33,7 @@
 	var/obj/item/stack/rods/used_rods = attacking_item
 	if(used_rods.get_amount() >= MEATSPIKE_IRONROD_REQUIREMENT)
 		used_rods.use(MEATSPIKE_IRONROD_REQUIREMENT)
-		to_chat(user, span_notice("You add spikes to the frame."))
+		to_chat(user, "<span class='notice'>You add spikes to the frame.</span>")
 		var/obj/structure/new_meatspike = new /obj/structure/kitchenspike(loc)
 		transfer_fingerprints_to(new_meatspike)
 		qdel(src)
@@ -54,11 +54,11 @@
 
 /obj/structure/kitchenspike/crowbar_act(mob/living/user, obj/item/tool)
 	if(has_buckled_mobs())
-		to_chat(user, span_warning("You can't do that while something's on the spike!"))
+		to_chat(user, "<span class='warning'>You can't do that while something's on the spike!</span>")
 		return TRUE
 
 	if(tool.use_tool(src, user, 2 SECONDS, volume = 100))
-		to_chat(user, span_notice("You pry the spikes out of the frame."))
+		to_chat(user, "<span class='notice'>You pry the spikes out of the frame.</span>")
 		deconstruct(TRUE)
 		return TRUE
 	return FALSE
@@ -83,23 +83,23 @@
 
 /obj/structure/kitchenspike/user_unbuckle_mob(mob/living/buckled_mob, mob/user)
 	if(buckled_mob != user)
-		buckled_mob.visible_message(span_notice("[user] tries to pull [buckled_mob] free of [src]!"),\
-			span_notice("[user] is trying to pull you off [src], opening up fresh wounds!"),\
-			span_hear("You hear a squishy wet noise."))
+		buckled_mob.visible_message("<span class='notice'>[user] tries to pull [buckled_mob] free of [src]!</span>",\
+			"<span class='notice'>[user] is trying to pull you off [src], opening up fresh wounds!</span>",\
+			"<span class='hear'>You hear a squishy wet noise.</span>")
 		if(!do_after(user, 30 SECONDS, target = src))
 			if(buckled_mob?.buckled)
-				buckled_mob.visible_message(span_notice("[user] fails to free [buckled_mob]!"),\
-					span_notice("[user] fails to pull you off of [src]."))
+				buckled_mob.visible_message("<span class='notice'>[user] fails to free [buckled_mob]!</span>",\
+					"<span class='notice'>[user] fails to pull you off of [src].</span>")
 			return
 
 	else
-		buckled_mob.visible_message(span_warning("[buckled_mob] struggles to break free from [src]!"),\
-		span_notice("You struggle to break free from [src], exacerbating your wounds! (Stay still for two minutes.)"),\
-		span_hear("You hear a wet squishing noise.."))
+		buckled_mob.visible_message("<span class='warning'>[buckled_mob] struggles to break free from [src]!</span>",\
+		"<span class='notice'>You struggle to break free from [src], exacerbating your wounds! (Stay still for two minutes.)</span>",\
+		"<span class='hear'>You hear a wet squishing noise..</span>")
 		buckled_mob.adjustBruteLoss(30)
 		if(!do_after(buckled_mob, 2 MINUTES, target = src))
 			if(buckled_mob?.buckled)
-				to_chat(buckled_mob, span_warning("You fail to free yourself!"))
+				to_chat(buckled_mob, "<span class='warning'>You fail to free yourself!</span>")
 			return
 	return ..()
 

@@ -32,7 +32,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	dog_fashion = null
 
 /obj/item/radio/headset/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] begins putting <b>[src.name]</b>'s antenna up [user.ru_ego()] nose! It looks like [user.p_theyre()] trying to give [user.ru_na()]self cancer!"))
+	user.visible_message("<span class='suicide'>[user] begins putting <b>[src.name]</b>'s antenna up [user.ru_ego()] nose! It looks like [user.p_theyre()] trying to give [user.ru_na()]self cancer!</span>")
 	return TOXLOSS
 
 /obj/item/radio/headset/examine(mob/user)
@@ -345,14 +345,14 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 				keyslot2 = null
 
 			recalculateChannels()
-			to_chat(user, span_notice("Вытаскиваю ключи шифрования из гарнитуры."))
+			to_chat(user, "<span class='notice'>Вытаскиваю ключи шифрования из гарнитуры.</span>")
 
 		else
-			to_chat(user, span_warning("У этой гарнитуры нет уникальных ключей шифрования! Как бесполезно...."))
+			to_chat(user, "<span class='warning'>У этой гарнитуры нет уникальных ключей шифрования! Как бесполезно....</span>")
 
 	else if(istype(W, /obj/item/encryptionkey))
 		if(keyslot && keyslot2)
-			to_chat(user, span_warning("Гарнитура не может держать другой ключ!"))
+			to_chat(user, "<span class='warning'>Гарнитура не может держать другой ключ!</span>")
 			return
 
 		if(!keyslot)
@@ -393,4 +393,4 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 		return
 	if (command)
 		use_command = !use_command
-		to_chat(user, span_notice("[use_command ? "Громкоговоритель включен." : "Громкоговоритель выключен."]."))
+		to_chat(user, "<span class='notice'>[use_command ? "Громкоговоритель включен." : "Громкоговоритель выключен."].</span>")

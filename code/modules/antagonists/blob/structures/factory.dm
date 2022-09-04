@@ -40,7 +40,7 @@
 			spore.factory = null
 	if(naut)
 		naut.factory = null
-		to_chat(naut, span_userdanger("Завод уничтожен! ПОРА УМИРАТЬ!"))
+		to_chat(naut, "<span class='userdanger'>Завод уничтожен! ПОРА УМИРАТЬ!</span>")
 		naut.throw_alert("nofactory", /atom/movable/screen/alert/nofactory)
 	spores = null
 	if(overmind)

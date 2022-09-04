@@ -84,7 +84,7 @@
 
 /obj/machinery/portable_atmospherics/canister/interact(mob/user)
 	if(!allowed(user))
-		to_chat(user, span_alert("Ошибка - недостаточно привилегий."))
+		to_chat(user, "<span class='alert'>Ошибка - недостаточно привилегий.</span>")
 		playsound(src, 'sound/misc/compiler-failure.ogg', 50, TRUE)
 		return
 	..()
@@ -418,12 +418,12 @@
 		return TRUE
 	var/pressure = air_contents.return_pressure()
 	if(pressure > 300)
-		to_chat(user, span_alert("Индикаторы канистры сообщают о высоком давлении внутри... может стоит передумать?"))
+		to_chat(user, "<span class='alert'>Индикаторы канистры сообщают о высоком давлении внутри... может стоит передумать?</span>")
 		message_admins("[src] deconstructed by [ADMIN_LOOKUPFLW(user)]")
 		log_game("[src] deconstructed by [key_name(user)]")
-	to_chat(user, span_notice("Начинаю резать <b>[src.name]</b> на куски..."))
+	to_chat(user, "<span class='notice'>Начинаю резать <b>[src.name]</b> на куски...</span>")
 	if(I.use_tool(src, user, 3 SECONDS, volume=50))
-		to_chat(user, span_notice("Режу <b>[src.name]</b> на куски."))
+		to_chat(user, "<span class='notice'>Режу <b>[src.name]</b> на куски.</span>")
 		deconstruct(TRUE)
 
 	return TRUE

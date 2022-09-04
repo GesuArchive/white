@@ -18,14 +18,14 @@
 	time = 125
 
 /datum/surgery_step/reshape_ligaments/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю менять форму связок [skloname(target.name, RODITELNI, target.gender)] на крючкообразную.") ,
-		span_notice("[user] начал менять форму связок [skloname(target.name, RODITELNI, target.gender)] на крючкообразную.") ,
-		span_notice("[user] начал работать над связками [skloname(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, "<span class='notice'>Начинаю менять форму связок [skloname(target.name, RODITELNI, target.gender)] на крючкообразную.</span>" ,
+		"<span class='notice'>[user] начал менять форму связок [skloname(target.name, RODITELNI, target.gender)] на крючкообразную.</span>" ,
+		"<span class='notice'>[user] начал работать над связками [skloname(target.name, RODITELNI, target.gender)].</span>")
 
 /datum/surgery_step/reshape_ligaments/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, span_notice("Изменил форму связок [skloname(target.name, RODITELNI, target.gender)] на соединяющий крючок!") ,
-		span_notice("[user] сформировал из связок [skloname(target.name, RODITELNI, target.gender)] соединяющий крючок!") ,
-		span_notice("[user] закончил работу над связками [skloname(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, "<span class='notice'>Изменил форму связок [skloname(target.name, RODITELNI, target.gender)] на соединяющий крючок!</span>" ,
+		"<span class='notice'>[user] сформировал из связок [skloname(target.name, RODITELNI, target.gender)] соединяющий крючок!</span>" ,
+		"<span class='notice'>[user] закончил работу над связками [skloname(target.name, RODITELNI, target.gender)].</span>")
 	new /datum/bioware/hooked_ligaments(target)
 	return ..()
 

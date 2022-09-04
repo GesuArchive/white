@@ -13,13 +13,13 @@
 	var/datum/effect_system/fluid_spread/smoke/smoke = new
 	smoke.set_up(2, location = loc)
 	smoke.start()
-	visible_message(span_boldannounce("[capitalize(src.name)] warps in!"))
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] warps in!</span>")
 	playsound(src.loc, 'sound/effects/empulse.ogg', 25, TRUE)
 	addtimer(CALLBACK(src, .proc/warpbots), rand(10, 600))
 
 /obj/structure/hivebot_beacon/proc/warpbots()
 	icon_state = "def_radar"
-	visible_message(span_danger("[capitalize(src.name)] turns on!"))
+	visible_message("<span class='danger'>[capitalize(src.name)] turns on!</span>")
 	while(bot_amt > 0)
 		bot_amt--
 		switch(bot_type)
@@ -30,7 +30,7 @@
 			if("rapid")
 				new /mob/living/simple_animal/hostile/hivebot/rapid(get_turf(src))
 	sleep(100)
-	visible_message(span_boldannounce("[capitalize(src.name)] warps out!"))
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] warps out!</span>")
 	playsound(src.loc, 'sound/effects/empulse.ogg', 25, TRUE)
 	qdel(src)
 	return

@@ -58,17 +58,17 @@
 		return
 
 	if(user.is_holding(src))
-		user.visible_message(span_notice("[user] проверяет свою карту."), span_notice("Карта: [cardname]."))
+		user.visible_message("<span class='notice'>[user] проверяет свою карту.</span>", "<span class='notice'>Карта: [cardname].</span>")
 		if(blank)
-			. += span_notice("Карта пустая. Надо её заполнить.")
+			. += "<span class='notice'>Карта пустая. Надо её заполнить.</span>"
 	else if(HAS_TRAIT(user, TRAIT_XRAY_VISION))
-		. += span_notice("Сканирую карту своим рентгеновским зрением: [cardname].")
+		. += "<span class='notice'>Сканирую карту своим рентгеновским зрением: [cardname].</span>"
 	else
-		. += span_warning("Надо бы держать карту в руке!")
+		. += "<span class='warning'>Надо бы держать карту в руке!</span>"
 
 	var/marked_color = getMarkedColor(user)
 	if(marked_color)
-		. += span_notice("Карта имеет [marked_color] пометку с краю!")
+		. += "<span class='notice'>Карта имеет [marked_color] пометку с краю!</span>"
 
 /obj/item/toy/singlecard/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	if(isnull(held_item) || src == held_item)
@@ -101,7 +101,7 @@
 	return NONE
 
 /obj/item/toy/singlecard/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] is slitting [user.p_their()] wrists with \the [src]! It looks like [user.p_they()] [user.p_have()] an unlucky card!"))
+	user.visible_message("<span class='suicide'>[user] is slitting [user.p_their()] wrists with \the [src]! It looks like [user.p_they()] [user.p_have()] an unlucky card!</span>")
 	playsound(src, 'sound/weapons/bladeslice.ogg', 50, TRUE)
 	return BRUTELOSS
 
@@ -198,12 +198,12 @@
 
 	if(can_item_write && !blank) // You cheated not only the game, but yourself
 		marked_color = marked_cheating_color
-		to_chat(user, span_notice("Устанавливаю [marked_color] пометку на краю [src] используя [item]. Победим!"))
+		to_chat(user, "<span class='notice'>Устанавливаю [marked_color] пометку на краю [src] используя [item]. Победим!</span>")
 		return
 
 	if(can_item_write)
 		if(!user.is_literate())
-			to_chat(user, span_notice("Чет рисую на [src]!"))
+			to_chat(user, "<span class='notice'>Чет рисую на [src]!</span>")
 			return
 
 		var/cardtext = stripped_input(user, "Что же мы напишем на карте?", "Картопис", "", 50)

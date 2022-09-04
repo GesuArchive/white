@@ -102,14 +102,14 @@
 		return FALSE
 	// Cooldown?
 	if(!COOLDOWN_FINISHED(src, bloodsucker_power_cooldown))
-		to_chat(owner, span_warning("[src] on cooldown!"))
+		to_chat(owner, "<span class='warning'>[src] on cooldown!</span>")
 		return FALSE
 	// Have enough blood? Bloodsuckers in a Frenzy don't need to pay them
 	var/mob/living/user = owner
 	if(bloodsuckerdatum_power?.frenzied)
 		return TRUE
 	if(user.blood_volume < bloodcost)
-		to_chat(owner, span_warning("You need at least [bloodcost] blood to activate [name]"))
+		to_chat(owner, "<span class='warning'>You need at least [bloodcost] blood to activate [name]</span>")
 		return FALSE
 	return TRUE
 
@@ -121,27 +121,27 @@
 		return FALSE
 	// Torpor?
 	if((check_flags & BP_CANT_USE_IN_TORPOR) && HAS_TRAIT(user, TRAIT_NODEATH))
-		to_chat(user, span_warning("Not while you're in Torpor."))
+		to_chat(user, "<span class='warning'>Not while you're in Torpor.</span>")
 		return FALSE
 	// Frenzy?
 	if((check_flags & BP_CANT_USE_IN_FRENZY) && (bloodsuckerdatum_power?.frenzied))
-		to_chat(user, span_warning("You cannot use powers while in a Frenzy!"))
+		to_chat(user, "<span class='warning'>You cannot use powers while in a Frenzy!</span>")
 		return FALSE
 	// Stake?
 	if((check_flags & BP_CANT_USE_WHILE_STAKED) && user.AmStaked())
-		to_chat(user, span_warning("You have a stake in your chest! Your powers are useless."))
+		to_chat(user, "<span class='warning'>You have a stake in your chest! Your powers are useless.</span>")
 		return FALSE
 	// Conscious? -- We use our own (AB_CHECK_CONSCIOUS) here so we can control it more, like the error message.
 	if((check_flags & BP_CANT_USE_WHILE_UNCONSCIOUS) && user.stat != CONSCIOUS)
-		to_chat(user, span_warning("You can't do this while you are unconcious!"))
+		to_chat(user, "<span class='warning'>You can't do this while you are unconcious!</span>")
 		return FALSE
 	// Incapacitated?
 	if((check_flags & BP_CANT_USE_WHILE_INCAPACITATED) && (user.incapacitated(IGNORE_RESTRAINTS|IGNORE_GRAB)))
-		to_chat(user, span_warning("Not while you're incapacitated!"))
+		to_chat(user, "<span class='warning'>Not while you're incapacitated!</span>")
 		return FALSE
 	// Constant Cost (out of blood)
 	if(constant_bloodcost > 0 && user.blood_volume <= 0)
-		to_chat(user, span_warning("You don't have the blood to upkeep [src]."))
+		to_chat(user, "<span class='warning'>You don't have the blood to upkeep [src].</span>")
 		return FALSE
 	return TRUE
 

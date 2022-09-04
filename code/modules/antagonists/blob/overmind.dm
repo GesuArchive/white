@@ -120,7 +120,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 		if(!placed)
 			if(manualplace_min_time && world.time >= manualplace_min_time)
 				to_chat(src, "<b><span class='big'><font color=\"#EE4000\">Теперь можно разместить ядро.</font></span></b>")
-				to_chat(src, span_big("<font color=\"#EE4000\">Ядро будет автоматически установлено через [DisplayTimeText(autoplace_max_time - world.time)].</font>"))
+				to_chat(src, "<span class='big'><font color=\"#EE4000\">Ядро будет автоматически установлено через [DisplayTimeText(autoplace_max_time - world.time)].</font></span>")
 				manualplace_min_time = 0
 			if(autoplace_max_time && world.time >= autoplace_max_time)
 				place_blob_core(1)
@@ -220,7 +220,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	. = ..()
 	if(!. || !client)
 		return FALSE
-	to_chat(src, span_notice("Я высший разум!"))
+	to_chat(src, "<span class='notice'>Я высший разум!</span>")
 	blob_help()
 	update_health_hud()
 	add_points(0)
@@ -248,7 +248,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 
 	if (src.client)
 		if(client.prefs.muted & MUTE_IC)
-			to_chat(src, span_boldwarning("НЕ МОГУ!"))
+			to_chat(src, "<span class='boldwarning'>НЕ МОГУ!</span>")
 			return
 		if (!(ignore_spam || forced) && src.client.handle_spam_prevention(message,MUTE_IC))
 			return
@@ -268,7 +268,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	src.log_talk(message, LOG_SAY)
 
 	var/message_a = say_quote(capitalize(message))
-	var/rendered = span_big("<font color=\"#EE4000\"><b>\[Телепатия\] [name](<font color=\"[blobstrain.color]\">[blobstrain.name]</font>)</b> [message_a]</font>")
+	var/rendered = "<span class='big'><font color=\"#EE4000\"><b>\[Телепатия\] [name](<font color=\"[blobstrain.color]\">[blobstrain.name]</font>)</b> [message_a]</font></span>"
 
 	for(var/mob/M in GLOB.mob_list)
 		if(isovermind(M) || istype(M, /mob/living/simple_animal/hostile/blob))

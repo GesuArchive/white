@@ -26,7 +26,7 @@
 
 	if(ishuman(A))
 		var/mob/living/carbon/human/rammed = A
-		visible_message(span_danger("<b>[src]</b> давит <b>[A]</b>!"))
+		visible_message("<span class='danger'><b>[src]</b> давит <b>[A]</b>!</span>")
 		rammed.gib()
 		return ..()
 
@@ -108,7 +108,7 @@
 
 	cannon_last_fire_time = world.time
 	if(cannon_projectile_type)
-		visible_message(span_danger("[src] производит стрельбу пушечными ядрами XVIII века!"))
+		visible_message("<span class='danger'>[src] производит стрельбу пушечными ядрами XVIII века!</span>")
 		for(var/mob/shaken_mob in urange(10, src))
 			if(shaken_mob.stat == CONSCIOUS)
 				shake_camera(shaken_mob, 3, 1)

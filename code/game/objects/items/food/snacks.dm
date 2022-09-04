@@ -54,7 +54,7 @@
 /obj/item/food/candy/bronx/examine(mob/user)
 	. = ..()
 	if(!revelation)
-		to_chat(user, span_notice("Боже, что с моими глазами, ничего не вижу. Надо посмотреть ещё раз"))
+		to_chat(user, "<span class='notice'>Боже, что с моими глазами, ничего не вижу. Надо посмотреть ещё раз</span>")
 		desc = "Похудение гарантировано! Вкус карамельного мокко! ПРЕДУПРЕЖДЕНИЕ: ПРОДУКТ НЕ ПРИГОДЕН ДЛЯ УПОТРЕБЛЕНИЯ ЧЕЛОВЕКОМ. СОДЕРЖИТ ЖИВЫХ ЛИЧИНОК ДИАМФИДИЙ."
 		name = "батончик \"South Bronx Paradise\""
 		revelation = TRUE
@@ -245,7 +245,7 @@
 
 /obj/item/food/cnds/suicide_act(mob/user)
 	. = ..()
-	user.visible_message(span_suicide("[user] is letting [src] melt in [user.p_their()] hand! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message("<span class='suicide'>[user] is letting [src] melt in [user.p_their()] hand! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return TOXLOSS
 
 /obj/item/food/cnds/random

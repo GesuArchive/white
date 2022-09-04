@@ -10,18 +10,18 @@
 	time = 64
 
 /datum/surgery_step/reshape_face/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	user.visible_message(span_notice("[user] начинает менять внешность [skloname(target.name, RODITELNI, target.gender)].") , span_notice("Начинаю менять внешность [skloname(target.name, RODITELNI, target.gender)]..."))
-	display_results(user, target, span_notice("Начинаю менять внешность [skloname(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает менять внешность [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] делает надрез на лице [skloname(target.name, RODITELNI, target.gender)]."))
+	user.visible_message("<span class='notice'>[user] начинает менять внешность [skloname(target.name, RODITELNI, target.gender)].</span>" , "<span class='notice'>Начинаю менять внешность [skloname(target.name, RODITELNI, target.gender)]...</span>")
+	display_results(user, target, "<span class='notice'>Начинаю менять внешность [skloname(target.name, RODITELNI, target.gender)]...</span>" ,
+		"<span class='notice'>[user] начинает менять внешность [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+		"<span class='notice'>[user] делает надрез на лице [skloname(target.name, RODITELNI, target.gender)].</span>")
 	display_pain(target, "Лицо горит от множественных порезов!")
 
 /datum/surgery_step/reshape_face/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(HAS_TRAIT_FROM(target, TRAIT_DISFIGURED, TRAIT_GENERIC))
 		REMOVE_TRAIT(target, TRAIT_DISFIGURED, TRAIT_GENERIC)
-		display_results(user, target, span_notice("Успешно изменил внешность [skloname(target.name, RODITELNI, target.gender)].") ,
-			span_notice("[user] успешно изменил внешность [skloname(target.name, RODITELNI, target.gender)]!") ,
-			span_notice("[user] завершил операцию на лице [skloname(target.name, RODITELNI, target.gender)]."))
+		display_results(user, target, "<span class='notice'>Успешно изменил внешность [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+			"<span class='notice'>[user] успешно изменил внешность [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
+			"<span class='notice'>[user] завершил операцию на лице [skloname(target.name, RODITELNI, target.gender)].</span>")
 		display_pain(target, "Все лицо щиплет!")
 	else
 		var/list/names = list()
@@ -38,9 +38,9 @@
 		var/oldname = target.real_name
 		target.real_name = chosen_name
 		var/newname = target.real_name	//something about how the code handles names required that I use this instead of target.real_name
-		display_results(user, target, span_notice("Лицо [oldname] полностью изменено, и [target.ru_who()] новое имя [newname].") ,
-			span_notice("[user] изменяет внешность [oldname], и [target.ru_who()] новое имя [newname]!") ,
-			span_notice("[user] завершает операцию на лице [skloname(target.name, RODITELNI, target.gender)]."))
+		display_results(user, target, "<span class='notice'>Лицо [oldname] полностью изменено, и [target.ru_who()] новое имя [newname].</span>" ,
+			"<span class='notice'>[user] изменяет внешность [oldname], и [target.ru_who()] новое имя [newname]!</span>" ,
+			"<span class='notice'>[user] завершает операцию на лице [skloname(target.name, RODITELNI, target.gender)].</span>")
 		display_pain(target, "Я сегодня не такой как вчера!")
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
@@ -48,9 +48,9 @@
 	return ..()
 
 /datum/surgery_step/reshape_face/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался, изуродовав внешность [skloname(target.name, RODITELNI, target.gender)]!") ,
-		span_notice("[user] облажался, изуродовав внешность [skloname(target.name, RODITELNI, target.gender)]!") ,
-		span_notice("[user] завершил операцию на лице [skloname(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, "<span class='warning'>[gvorno(TRUE)], но я облажался, изуродовав внешность [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
+		"<span class='notice'>[user] облажался, изуродовав внешность [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
+		"<span class='notice'>[user] завершил операцию на лице [skloname(target.name, RODITELNI, target.gender)].</span>")
 	display_pain(target, "Мое лицо! Мое прекрастное лицо! Оно обезображено!")
 	ADD_TRAIT(target, TRAIT_DISFIGURED, TRAIT_GENERIC)
 	return FALSE

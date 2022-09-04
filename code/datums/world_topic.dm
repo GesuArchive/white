@@ -79,7 +79,7 @@
 		if(PRcounts[id] > PR_ANNOUNCEMENTS_PER_ROUND)
 			return
 
-	var/final_composed = span_announce("PR: [input[keyword]]")
+	var/final_composed = "<span class='announce'>PR: [input[keyword]]</span>"
 	for(var/client/C in GLOB.clients)
 		C.AnnouncePR(final_composed)
 
@@ -88,7 +88,7 @@
 	require_comms_key = TRUE
 
 /datum/world_topic/ahelp_relay/Run(list/input)
-	relay_msg_admins(span_adminnotice("<b><font color=red>HELP: </font> [input["source"]] [input["message_sender"]]: [input["message"]]</b>"))
+	relay_msg_admins("<span class='adminnotice'><b><font color=red>HELP: </font> [input["source"]] [input["message_sender"]]: [input["message"]]</b></span>")
 
 /datum/world_topic/comms_console
 	keyword = "Comms_Console"
@@ -259,17 +259,17 @@
 	if(!recipient.current_ticket)
 		new /datum/admin_help(msg, recipient, TRUE)
 	to_chat(recipient, "<font color='red' size='4'><b>-- Сообщение администратора из Discord --</b></font>")
-	to_chat(recipient, span_red("Сообщение от <b>[s_admin]</b>: [msg]"))
-	to_chat(recipient, span_red("<i>Нажми на имя администратора для ответа.</i>"))
-	to_chat(src, span_blue("Сообщение для <b>[key_name(recipient, 1, 1)]</b>: [msg]"))
+	to_chat(recipient, "<span class='red'>Сообщение от <b>[s_admin]</b>: [msg]</span>")
+	to_chat(recipient, "<span class='red'><i>Нажми на имя администратора для ответа.</i></span>")
+	to_chat(src, "<span class='blue'>Сообщение для <b>[key_name(recipient, 1, 1)]</b>: [msg]</span>")
 
 	recipient.giveadminhelpverb() //reset ahelp CD to allow fast reply
 
-	admin_ticket_log(recipient, span_blue("PM From [s_admin]: [keywordparsedmsg]"))
+	admin_ticket_log(recipient, "<span class='blue'>PM From [s_admin]: [keywordparsedmsg]</span>")
 	SEND_SOUND(recipient, sound('sound/effects/adminhelp.ogg'))
 	log_admin_private("PM: IRC -> [r_ckey]: [sanitize(msg)]")
 	for(var/client/X in GLOB.admins)
-		to_chat(X, span_blue("<B>PM: DISCORD([s_admin]) -&gt; [key_name(recipient, X, 0)]</B> [keywordparsedmsg]"))
+		to_chat(X, "<span class='blue'><B>PM: DISCORD([s_admin]) -&gt; [key_name(recipient, X, 0)]</B> [keywordparsedmsg]</span>")
 	webhook_send_ahelp("[input["admin"]] -> [ckey(input["ckey"])]", input["response"])
 
 /datum/world_topic/special_cmd

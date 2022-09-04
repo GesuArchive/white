@@ -30,7 +30,7 @@
 				A.inflamed = 1
 				A.update_icon()
 			if(DT_PROB(1.5, delta_time))
-				to_chat(affected_mob, span_warning("Чувствуете колющую боль в животе!"))
+				to_chat(affected_mob, "<span class='warning'>Чувствуете колющую боль в животе!</span>")
 				affected_mob.adjustOrganLoss(ORGAN_SLOT_APPENDIX, 5)
 				affected_mob.Stun(rand(40, 60))
 				affected_mob.adjustToxLoss(1, FALSE)

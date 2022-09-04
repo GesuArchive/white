@@ -19,7 +19,7 @@
 /obj/item/shuttlespawner/attack_self()
 	//Can't grab when capsule is New() because templates aren't loaded then
 	if(!used)
-		loc.visible_message(span_warning("<b>[src.name]</b> begins to shake. Stand back!"))
+		loc.visible_message("<span class='warning'><b>[src.name]</b> begins to shake. Stand back!</span>")
 		used = TRUE
 		sleep(50)
 		var/turf/deploy_location = get_turf(src)
@@ -27,11 +27,11 @@
 		var/status = temp_template.check_deploy(deploy_location)
 		switch(status)
 			if("bad area")
-				src.loc.visible_message(span_warning("<b>[src.name]</b> will not function in this area."))
+				src.loc.visible_message("<span class='warning'><b>[src.name]</b> will not function in this area.</span>")
 			if("bad turfs", "anchored objects")
 				var/width = temp_template.width
 				var/height = temp_template.height
-				src.loc.visible_message(span_warning("<b>[src.name]</b> doesn't have room to deploy! You need to clear a [width]x[height] area!"))
+				src.loc.visible_message("<span class='warning'><b>[src.name]</b> doesn't have room to deploy! You need to clear a [width]x[height] area!</span>")
 
 		if(status != "allowed")
 			used = FALSE

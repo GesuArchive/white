@@ -54,10 +54,10 @@
 	if(istype(O, /obj/item/organ/brain)) //Time to stick a brain in it --NEO
 		var/obj/item/organ/brain/newbrain = O
 		if(brain)
-			to_chat(user, span_warning("Здесь уже есть мозг в MMI!"))
+			to_chat(user, "<span class='warning'>Здесь уже есть мозг в MMI!</span>")
 			return
 		if(!newbrain.brainmob)
-			to_chat(user, span_warning("Не уверены, откуда взялся этот мозг, но уверен, что это бесполезный мозг!"))
+			to_chat(user, "<span class='warning'>Не уверены, откуда взялся этот мозг, но уверен, что это бесполезный мозг!</span>")
 			return
 
 		if(!user.transferItemToLoc(O, src))
@@ -65,7 +65,7 @@
 		var/mob/living/brain/B = newbrain.brainmob
 		if(!B.key)
 			B.notify_ghost_cloning("Кто-то воткнул мои мозги в MMI!", source = src)
-		user.visible_message(span_notice("[user] впихивает [newbrain] в [src].") , span_notice("Индикатор [src] начинает светиться, когда я впихиваю [newbrain]."))
+		user.visible_message("<span class='notice'>[user] впихивает [newbrain] в [src].</span>" , "<span class='notice'>Индикатор [src] начинает светиться, когда я впихиваю [newbrain].</span>")
 
 		set_brainmob(newbrain.brainmob)
 		newbrain.brainmob = null
@@ -75,10 +75,10 @@
 		if(!fubar_brain && !(newbrain.organ_flags & ORGAN_FAILING)) // the brain organ hasn't been beaten to death, nor was from a suicider.
 			brainmob.set_stat(CONSCIOUS) //we manually revive the brain mob
 		else if(!fubar_brain && newbrain.organ_flags & ORGAN_FAILING) // the brain is damaged, but not from a suicider
-			to_chat(user, span_warning("[capitalize(src.name)] жёлтым сигналом сообщает о том, что мозг повреждён."))
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] жёлтым сигналом сообщает о том, что мозг повреждён.</span>")
 			playsound(src, 'sound/machines/synth_no.ogg', 5, TRUE)
 		else
-			to_chat(user, span_warning("[capitalize(src.name)] красным сигналом сообщает о том, что стоит проверить мозг ещё раз."))
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] красным сигналом сообщает о том, что стоит проверить мозг ещё раз.</span>")
 			playsound(src, 'sound/machines/triple_beep.ogg', 5, TRUE)
 
 		brainmob.reset_perspective()
@@ -104,12 +104,12 @@
 /obj/item/mmi/attack_self(mob/user)
 	if(!brain)
 		radio.set_on(!radio.is_on())
-		to_chat(user, span_notice("[radio.is_on() ? "Включаю" : "Выключаю"] рацию [src]."))
+		to_chat(user, "<span class='notice'>[radio.is_on() ? "Включаю" : "Выключаю"] рацию [src].</span>")
 	else
 		eject_brain(user)
 		update_icon()
 		name = initial(name)
-		to_chat(user, span_notice("Вытряхиваю мозги из [src] на пол с нежным сочным звуком."))
+		to_chat(user, "<span class='notice'>Вытряхиваю мозги из [src] на пол с нежным сочным звуком.</span>")
 
 /obj/item/mmi/proc/eject_brain(mob/user)
 	brainmob.container = null //Reset brainmob mmi var.
@@ -202,13 +202,13 @@
 	set popup_menu = FALSE
 
 	if(brainmob.stat)
-		to_chat(brainmob, span_warning("Не могу сделать это в таком состоянии!"))
+		to_chat(brainmob, "<span class='warning'>Не могу сделать это в таком состоянии!</span>")
 	if(!radio.is_on())
-		to_chat(brainmob, span_warning("Рацию то выключили!"))
+		to_chat(brainmob, "<span class='warning'>Рацию то выключили!</span>")
 		return
 
 	radio.set_listening(!radio.get_listening())
-	to_chat(brainmob, span_notice("Прослушивание [radio.get_listening() ? "теперь" : "больше не"] работает."))
+	to_chat(brainmob, "<span class='notice'>Прослушивание [radio.get_listening() ? "теперь" : "больше не"] работает.</span>")
 
 /obj/item/mmi/emp_act(severity)
 	. = ..()
@@ -239,11 +239,11 @@
 		var/mob/living/brain/B = brainmob
 		. += "<hr>"
 		if(!B.key || !B.mind || B.stat == DEAD)
-			. += span_warning("Мозг внутри [src] не в рабочем состоянии.")
+			. += "<span class='warning'>Мозг внутри [src] не в рабочем состоянии.</span>"
 		else if(!B.client)
-			. += span_warning("Мозг внутри [src] пока не работает. Возможно это временно!")
+			. += "<span class='warning'>Мозг внутри [src] пока не работает. Возможно это временно!</span>"
 		else
-			. += span_notice("Мозг внутри [src] активен.")
+			. += "<span class='notice'>Мозг внутри [src] активен.</span>"
 
 /obj/item/mmi/relaymove(mob/living/user, direction)
 	return //so that the MMI won't get a warning about not being able to move if it tries to move
@@ -252,27 +252,27 @@
 	var/mob/living/brain/B = brainmob
 	if(!B)
 		if(user)
-			to_chat(user, span_warning("Внутри [src] нет мозга!"))
+			to_chat(user, "<span class='warning'>Внутри [src] нет мозга!</span>")
 		return FALSE
 	if(!B.key || !B.mind)
 		if(user)
-			to_chat(user, span_warning("Внутри [src]. Мозг никак не реагирует на запросы!"))
+			to_chat(user, "<span class='warning'>Внутри [src]. Мозг никак не реагирует на запросы!</span>")
 		return FALSE
 	if(!B.client)
 		if(user)
-			to_chat(user, span_warning("Мозг внутри [src] не отвечает на запросы. Но принимает их."))
+			to_chat(user, "<span class='warning'>Мозг внутри [src] не отвечает на запросы. Но принимает их.</span>")
 		return FALSE
 	if(B.suiciding || brain?.suicided)
 		if(user)
-			to_chat(user, span_warning("Мозг внутри [src] сообщает о том, что не хочет жить!"))
+			to_chat(user, "<span class='warning'>Мозг внутри [src] сообщает о том, что не хочет жить!</span>")
 		return FALSE
 	if(B.stat == DEAD)
 		if(user)
-			to_chat(user, span_warning("Мозг внутри [src] полностью мёртв!"))
+			to_chat(user, "<span class='warning'>Мозг внутри [src] полностью мёртв!</span>")
 		return FALSE
 	if(brain?.organ_flags & ORGAN_FAILING)
 		if(user)
-			to_chat(user, span_warning("Мозг внутри [src] похож на кашу!"))
+			to_chat(user, "<span class='warning'>Мозг внутри [src] похож на кашу!</span>")
 		return FALSE
 	return TRUE
 

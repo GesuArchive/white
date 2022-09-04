@@ -154,10 +154,10 @@
  */
 /mob/living/simple_animal/hostile/swarmer/proc/Fabricate(atom/fabrication_object,fabrication_cost = 0)
 	if(!isturf(loc))
-		to_chat(src, span_warning("Эта локация не подходит. Нужно больше места."))
+		to_chat(src, "<span class='warning'>Эта локация не подходит. Нужно больше места.</span>")
 		return
 	if(resources < fabrication_cost)
-		to_chat(src, span_warning("Недостаточно ресурсов для этого объекта."))
+		to_chat(src, "<span class='warning'>Недостаточно ресурсов для этого объекта.</span>")
 		return
 	resources -= fabrication_cost
 	return new fabrication_object(drop_location())
@@ -172,10 +172,10 @@
 /mob/living/simple_animal/hostile/swarmer/proc/Integrate(obj/target)
 	var/resource_gain = target.integrate_amount()
 	if(resources + resource_gain > max_resources)
-		to_chat(src, span_warning("Мы не можем хранить больше материалов!"))
+		to_chat(src, "<span class='warning'>Мы не можем хранить больше материалов!</span>")
 		return TRUE
 	if(!resource_gain)
-		to_chat(src, span_warning("[target] не подходит нам."))
+		to_chat(src, "<span class='warning'>[target] не подходит нам.</span>")
 		return FALSE
 	resources += resource_gain
 	do_attack_animation(target)
@@ -217,10 +217,10 @@
 		return
 
 	if(!is_station_level(z) && !is_mining_level(z))
-		to_chat(src, span_warning("Наш блюспейс-передатчик не может найти блюспейс канал для связи, телепортация будет бесполезна в этой зоне."))
+		to_chat(src, "<span class='warning'>Наш блюспейс-передатчик не может найти блюспейс канал для связи, телепортация будет бесполезна в этой зоне.</span>")
 		return
 
-	to_chat(src, span_info("Пытаемся убрать это существо подальше."))
+	to_chat(src, "<span class='info'>Пытаемся убрать это существо подальше.</span>")
 
 	if(!do_mob(src, target, 30))
 		return
@@ -262,13 +262,13 @@
  */
 /mob/living/simple_animal/hostile/swarmer/proc/dismantle_machine(obj/machinery/target)
 	do_attack_animation(target)
-	to_chat(src, span_info("Начинаем разбирать эту машину. Необходимо невмешательство."))
+	to_chat(src, "<span class='info'>Начинаем разбирать эту машину. Необходимо невмешательство.</span>")
 	var/obj/effect/temp_visual/swarmer/dismantle/dismantle_effect = new /obj/effect/temp_visual/swarmer/dismantle(get_turf(target))
 	dismantle_effect.pixel_x = target.pixel_x
 	dismantle_effect.pixel_y = target.pixel_y
 	dismantle_effect.pixel_z = target.pixel_z
 	if(do_mob(src, target, 100))
-		to_chat(src, span_info("Разборка машины успешна."))
+		to_chat(src, "<span class='info'>Разборка машины успешна.</span>")
 		var/atom/target_loc = target.drop_location()
 		new /obj/item/stack/sheet/iron(target_loc, 5)
 		for(var/p in target.component_parts)
@@ -295,10 +295,10 @@
 	set category = "Swarmer"
 	set desc = "Создает простую ловушку, которая ударит током тех, кто на нее наступит, без смертельного исхода. Стоит 4 ресурса."
 	if(locate(/obj/structure/swarmer/trap) in loc)
-		to_chat(src, span_warning("Здесь уже есть ловушка. Прерывание."))
+		to_chat(src, "<span class='warning'>Здесь уже есть ловушка. Прерывание.</span>")
 		return
 	if(resources < 4)
-		to_chat(src, span_warning("У нас нет ресурсов для этого!"))
+		to_chat(src, "<span class='warning'>У нас нет ресурсов для этого!</span>")
 		return
 	Fabricate(/obj/structure/swarmer/trap, 4)
 
@@ -312,10 +312,10 @@
 	set category = "Swarmer"
 	set desc = "Создает баррикаду, которая остановит прохождение чего угодно, кроме роевиков и лучей усмирителей. Стоит 4 ресурса."
 	if(locate(/obj/structure/swarmer/blockade) in loc)
-		to_chat(src, span_warning("Здесь уже баррикада. Прерывание."))
+		to_chat(src, "<span class='warning'>Здесь уже баррикада. Прерывание.</span>")
 		return
 	if(resources < 4)
-		to_chat(src, span_warning("У нас нет ресурсов для этого!"))
+		to_chat(src, "<span class='warning'>У нас нет ресурсов для этого!</span>")
 		return
 	if(!do_mob(src, src, 1 SECONDS))
 		return
@@ -330,12 +330,12 @@
 	set name = "Репликация"
 	set category = "Swarmer"
 	set desc = "Создает дубликат нас самих, способный защитить нас, пока мы добиваемся своих целей."
-	to_chat(src, span_info("Мы пытаемся копировать самих себя. Нам нужно будет стоять на месте, пока процесс не завершится."))
+	to_chat(src, "<span class='info'>Мы пытаемся копировать самих себя. Нам нужно будет стоять на месте, пока процесс не завершится.</span>")
 	if(resources < 20)
-		to_chat(src, span_warning("У нас нет ресурсов для этого!"))
+		to_chat(src, "<span class='warning'>У нас нет ресурсов для этого!</span>")
 		return
 	if(!isturf(loc))
-		to_chat(src, span_warning("Это не подходящее место для самовоспроизведения. Нам нужно больше места."))
+		to_chat(src, "<span class='warning'>Это не подходящее место для самовоспроизведения. Нам нужно больше места.</span>")
 		return
 	if(!do_mob(src, src, 5 SECONDS))
 		return
@@ -362,11 +362,11 @@
 /mob/living/simple_animal/hostile/swarmer/proc/repair_self()
 	if(!isturf(loc))
 		return
-	to_chat(src, span_info("Пытаемся восстановить повреждение нашего тела, ожидание..."))
+	to_chat(src, "<span class='info'>Пытаемся восстановить повреждение нашего тела, ожидание...</span>")
 	if(!do_mob(src, src, 10 SECONDS))
 		return
 	adjustHealth(-maxHealth)
-	to_chat(src, span_info("Мы успешно отремонтировали нас."))
+	to_chat(src, "<span class='info'>Мы успешно отремонтировали нас.</span>")
 
 /**
  * Called when a swarmer toggles its light

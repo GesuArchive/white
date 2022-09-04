@@ -179,9 +179,9 @@
 	if(!isitem(exposed_obj) || istype(exposed_obj, /obj/item/food/deepfryholder))
 		return
 	if(is_type_in_typecache(exposed_obj, GLOB.oilfry_blacklisted_items) || (exposed_obj.resistance_flags & INDESTRUCTIBLE))
-		exposed_obj.loc.visible_message(span_notice("Горячее масло не оказало эффекта на [exposed_obj]!"))
+		exposed_obj.loc.visible_message("<span class='notice'>Горячее масло не оказало эффекта на [exposed_obj]!</span>")
 		return
-	exposed_obj.loc.visible_message(span_warning("[exposed_obj] быстро обжарился благодаря вылитому горячему маслу! Каким то образом."))
+	exposed_obj.loc.visible_message("<span class='warning'>[exposed_obj] быстро обжарился благодаря вылитому горячему маслу! Каким то образом.</span>")
 	var/obj/item/food/deepfryholder/fry_target = new(exposed_obj.drop_location(), exposed_obj)
 	fry_target.fry(volume)
 	fry_target.reagents.add_reagent(/datum/reagent/consumable/cooking_oil, reac_volume)
@@ -196,8 +196,8 @@
 		oil_damage *= max(1 - touch_protection, 0)
 	var/FryLoss = round(min(38, oil_damage * reac_volume))
 	if(!HAS_TRAIT(exposed_mob, TRAIT_OIL_FRIED))
-		exposed_mob.visible_message(span_warning("Кипящее масло шипит, покрывая [exposed_mob]!") , \
-		span_userdanger("Облит кипящим маслом!"))
+		exposed_mob.visible_message("<span class='warning'>Кипящее масло шипит, покрывая [exposed_mob]!</span>" , \
+		"<span class='userdanger'>Облит кипящим маслом!</span>")
 		if(FryLoss)
 			exposed_mob.emote("agony")
 		playsound(exposed_mob, 'sound/machines/fryer/deep_fryer_emerge.ogg', 25, TRUE)
@@ -236,7 +236,7 @@
 		mytray.adjustPests(rand(1,2))
 
 /datum/reagent/consumable/sugar/overdose_start(mob/living/M)
-	to_chat(M, span_userdanger("Впадаю в гипергликемическую кому! Нужно завязывать со сладким!"))
+	to_chat(M, "<span class='userdanger'>Впадаю в гипергликемическую кому! Нужно завязывать со сладким!</span>")
 	M.AdjustSleeping(600)
 	. = TRUE
 
@@ -395,7 +395,7 @@
 	if(methods & INGEST)
 		if(!holder.has_reagent(/datum/reagent/consumable/milk))
 			if(prob(15))
-				to_chat(exposed_mob, span_danger("[pick("Голова Болит.", "Во рту будто пожар.", "Чувствую головокружение.")]"))
+				to_chat(exposed_mob, "<span class='danger'>[pick("Голова Болит.", "Во рту будто пожар.", "Чувствую головокружение.")]</span>")
 			if(prob(10))
 				victim.blur_eyes(1)
 			if(prob(10))
@@ -406,7 +406,7 @@
 /datum/reagent/consumable/condensedcapsaicin/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(!holder.has_reagent(/datum/reagent/consumable/milk))
 		if(DT_PROB(5, delta_time))
-			M.visible_message(span_warning("[M] [pick("тошнит!","кашляет!","хрипит!")]"))
+			M.visible_message("<span class='warning'>[M] [pick("тошнит!","кашляет!","хрипит!")]</span>")
 	..()
 
 /datum/reagent/consumable/salt
@@ -452,7 +452,7 @@
 /datum/reagent/consumable/coco/on_mob_add(mob/living/carbon/M)
 	. = ..()
 	if(isfelinid(M))
-		to_chat(M, span_warning("Ваши внутренности переворачиваются от шоколада!"))
+		to_chat(M, "<span class='warning'>Ваши внутренности переворачиваются от шоколада!</span>")
 		M.vomit(20)
 		M.losebreath += 20
 		M.Paralyze(150)
@@ -510,7 +510,7 @@
 /datum/reagent/consumable/garlic/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(isvampire(M)) //incapacitating but not lethal. Unfortunately, vampires cannot vomit.
 		if(DT_PROB(min(current_cycle/2, 12.5), delta_time))
-			to_chat(M, span_danger("Не могу отделаться от чесночного запаха! Из-за него мысли путаются..."))
+			to_chat(M, "<span class='danger'>Не могу отделаться от чесночного запаха! Из-за него мысли путаются...</span>")
 			M.Paralyze(10)
 			M.Jitter(10)
 	else
@@ -759,10 +759,10 @@
 		return
 
 	if(!exposed_mob.getorganslot(ORGAN_SLOT_EYES))	//can't blind somebody with no eyes
-		to_chat(exposed_mob, span_notice("Уголки глаз намокли."))
+		to_chat(exposed_mob, "<span class='notice'>Уголки глаз намокли.</span>")
 	else
 		if(!exposed_mob.eye_blurry)
-			to_chat(exposed_mob, span_warning("Слезы вытекают из моих глаз!"))
+			to_chat(exposed_mob, "<span class='warning'>Слезы вытекают из моих глаз!</span>")
 		exposed_mob.blind_eyes(2)
 		exposed_mob.blur_eyes(5)
 
@@ -771,7 +771,7 @@
 	if(M.eye_blurry)	//Don't worsen vision if it was otherwise fine
 		M.blur_eyes(4 * REM * delta_time)
 		if(DT_PROB(5, delta_time))
-			to_chat(M, span_warning("Глаза болят!"))
+			to_chat(M, "<span class='warning'>Глаза болят!</span>")
 			M.blind_eyes(2)
 
 

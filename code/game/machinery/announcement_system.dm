@@ -57,12 +57,12 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	if(P.tool_behaviour == TOOL_SCREWDRIVER)
 		P.play_tool_sound(src)
 		panel_open = !panel_open
-		to_chat(user, span_notice("You [panel_open ? "open" : "close"] the maintenance hatch of [src]."))
+		to_chat(user, "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>")
 		update_icon()
 	else if(default_deconstruction_crowbar(P))
 		return
 	else if(P.tool_behaviour == TOOL_MULTITOOL && panel_open && (machine_stat & BROKEN))
-		to_chat(user, span_notice("You reset [src] firmware."))
+		to_chat(user, "<span class='notice'>You reset [src] firmware.</span>")
 		set_machine_stat(machine_stat & ~BROKEN)
 		update_icon()
 	else
@@ -123,7 +123,7 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	if(!usr.canUseTopic(src, !issilicon(usr)))
 		return
 	if(machine_stat & BROKEN)
-		visible_message(span_warning("[capitalize(src.name)] buzzes.") , span_hear("You hear a faint buzz."))
+		visible_message("<span class='warning'>[capitalize(src.name)] buzzes.</span>" , "<span class='hear'>You hear a faint buzz.</span>")
 		playsound(src.loc, 'white/valtos/sounds/error2.ogg', 50, TRUE)
 		return
 	switch(action)
@@ -156,7 +156,7 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	if(!user.canUseTopic(src, !issilicon(user)))
 		return
 	if(machine_stat & BROKEN)
-		to_chat(user, span_warning("[capitalize(src.name)] firmware appears to be malfunctioning!"))
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] firmware appears to be malfunctioning!</span>")
 		return
 	interact(user)
 

@@ -25,7 +25,7 @@
 		if(!hard_target)
 			return
 		if(ismob(M))
-			to_chat(M, span_notice("Начинаю лезть в трещину."))
+			to_chat(M, "<span class='notice'>Начинаю лезть в трещину.</span>")
 			if(do_after(M, 50, target=src))
 				var/obj/effect/landmark/city_of_cogs/target_spawn = pick(GLOB.city_of_cogs_spawns)
 				var/turf/T = get_turf(target_spawn)

@@ -27,9 +27,9 @@
 /obj/item/mod/module/pathfinder/examine(mob/user)
 	. = ..()
 	if(implant)
-		. += span_notice("Use it on a human to implant them.")
+		. += "<span class='notice'>Use it on a human to implant them.</span>"
 	else
-		. += span_warning("The implant is missing.")
+		. += "<span class='warning'>The implant is missing.</span>"
 
 /obj/item/mod/module/pathfinder/attack(mob/living/target, mob/living/user, params)
 	if(!ishuman(target) || !implant)
@@ -41,9 +41,9 @@
 		balloon_alert(user, "can't implant!")
 		return
 	if(target == user)
-		to_chat(user, span_notice("You implant yourself with [implant]."))
+		to_chat(user, "<span class='notice'>You implant yourself with [implant].</span>")
 	else
-		target.visible_message(span_notice("[user] implants [target]."), span_notice("[user] implants you with [implant]."))
+		target.visible_message("<span class='notice'>[user] implants [target].</span>", "<span class='notice'>[user] implants you with [implant].</span>")
 	playsound(src, 'sound/effects/spray.ogg', 30, TRUE, -6)
 	icon_state = "pathfinder_empty"
 	implant = null

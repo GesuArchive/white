@@ -140,23 +140,23 @@
 /obj/item/bodypart/chest/robot/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stock_parts/cell))
 		if(cell)
-			to_chat(user, span_warning("Уже вставил ячейку питания!"))
+			to_chat(user, "<span class='warning'>Уже вставил ячейку питания!</span>")
 			return
 		else
 			if(!user.transferItemToLoc(W, src))
 				return
 			cell = W
-			to_chat(user, span_notice("Вставил ячейку питания."))
+			to_chat(user, "<span class='notice'>Вставил ячейку питания.</span>")
 	else if(istype(W, /obj/item/stack/cable_coil))
 		if(wired)
-			to_chat(user, span_warning("Уже вставил провод!"))
+			to_chat(user, "<span class='warning'>Уже вставил провод!</span>")
 			return
 		var/obj/item/stack/cable_coil/coil = W
 		if (coil.use(1))
 			wired = TRUE
-			to_chat(user, span_notice("Вставил провод."))
+			to_chat(user, "<span class='notice'>Вставил провод.</span>")
 		else
-			to_chat(user, span_warning("Мне нужен 1 кусок провода, чтобы присоединить его сюда!"))
+			to_chat(user, "<span class='warning'>Мне нужен 1 кусок провода, чтобы присоединить его сюда!</span>")
 	else
 		return ..()
 
@@ -166,7 +166,7 @@
 		return
 	. = TRUE
 	I.play_tool_sound(src)
-	to_chat(user, span_notice("Отрезаю провода в [src]."))
+	to_chat(user, "<span class='notice'>Отрезаю провода в [src].</span>")
 	new /obj/item/stack/cable_coil(drop_location(), 1)
 	wired = FALSE
 
@@ -174,10 +174,10 @@
 	..()
 	. = TRUE
 	if(!cell)
-		to_chat(user, span_warning("В [src] не установлен источник питания!"))
+		to_chat(user, "<span class='warning'>В [src] не установлен источник питания!</span>")
 		return
 	I.play_tool_sound(src)
-	to_chat(user, span_notice("Извлечь [cell] из [src]."))
+	to_chat(user, "<span class='notice'>Извлечь [cell] из [src].</span>")
 	cell.forceMove(drop_location())
 	cell = null
 
@@ -191,7 +191,7 @@
 		. += "<hr><span class='info'>Имеет пустой слот для <b>ячейки питания</b>.</span>"
 	if(wired)
 		. += "<hr>Всё подключено [cell ? " и готово для использования" : ""].\n"+\
-		span_info("Можно использовать <b>кусачки</b> чтобы извлечь проводку.")
+		"<span class='info'>Можно использовать <b>кусачки</b> чтобы извлечь проводку.</span>"
 	else
 		. += "<hr><span class='info'>Имеет пару гнезд, которые необходимо <b>подключить</b>.</span>"
 
@@ -253,16 +253,16 @@
 			<span class='info'>В нем есть еще один свободный разъем под <b>вспышку</b>.</span>"}
 		else
 			. += "<hr>Оба глазных разъема заняты вспышками."
-		. += span_notice("\nМожно извлечь установленную [single_flash ? "вспышку":"вспышки"] при помощи <b>ломика</b>.")
+		. += "<span class='notice'>\nМожно извлечь установленную [single_flash ? "вспышку":"вспышки"] при помощи <b>ломика</b>.</span>"
 
 /obj/item/bodypart/head/robot/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/assembly/flash/handheld))
 		var/obj/item/assembly/flash/handheld/F = W
 		if(flash1 && flash2)
-			to_chat(user, span_warning("Уже вставил глаза!"))
+			to_chat(user, "<span class='warning'>Уже вставил глаза!</span>")
 			return
 		else if(F.burnt_out)
-			to_chat(user, span_warning("Не могу использовать сломанную вспышку!"))
+			to_chat(user, "<span class='warning'>Не могу использовать сломанную вспышку!</span>")
 			return
 		else
 			if(!user.transferItemToLoc(F, src))
@@ -271,7 +271,7 @@
 				flash2 = F
 			else
 				flash1 = F
-			to_chat(user, span_notice("Вставил вспышку в глазной разъем."))
+			to_chat(user, "<span class='notice'>Вставил вспышку в глазной разъем.</span>")
 			return
 	return ..()
 
@@ -279,7 +279,7 @@
 	..()
 	if(flash1 || flash2)
 		I.play_tool_sound(src)
-		to_chat(user, span_notice("Извлек вспышку из [src]."))
+		to_chat(user, "<span class='notice'>Извлек вспышку из [src].</span>")
 		if(flash1)
 			flash1.forceMove(drop_location())
 			flash1 = null
@@ -287,7 +287,7 @@
 			flash2.forceMove(drop_location())
 			flash2 = null
 	else
-		to_chat(user, span_warning("В [src] нет вспышки которую можно извлечь."))
+		to_chat(user, "<span class='warning'>В [src] нет вспышки которую можно извлечь.</span>")
 	return TRUE
 
 

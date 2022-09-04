@@ -36,10 +36,10 @@
 		return COMPONENT_CANCEL_GUN_FIRE
 
 /datum/element/jamming/proc/on_jammed(obj/item/gun/source, mob/living/user)
-	to_chat(user, span_userdanger("ЗАКЛИНИЛО!"))
+	to_chat(user, "<span class='userdanger'>ЗАКЛИНИЛО!</span>")
 	source.shoot_with_empty_chamber(user)
 
 //импостер
 /datum/element/jamming/energy/on_jammed(obj/item/gun/source, mob/living/user)
-	to_chat(user, span_userdanger("КРИТИЧЕСКАЯ ОШИБКА!"))
+	to_chat(user, "<span class='userdanger'>КРИТИЧЕСКАЯ ОШИБКА!</span>")
 	playsound(get_turf(source), 'sound/weapons/gun/general/empty_alarm.ogg', 100)

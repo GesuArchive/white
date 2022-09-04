@@ -307,7 +307,7 @@
 			if(!isnull(comp.welded) && !comp.welded) //must be an unwelded vent pump or vent scrubber.
 				comp.welded = TRUE
 				comp.update_appearance()
-				comp.visible_message(span_danger("[comp] замерзает!"))
+				comp.visible_message("<span class='danger'>[comp] замерзает!</span>")
 
 	// Extinguishes everything in the turf
 	for(var/mob/living/potential_tinder in chilly)

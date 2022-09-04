@@ -228,16 +228,16 @@
 			inhand_icon_state = "proton-on"
 			light_range = 3
 			playsound(user, 'white/Feline/sounds/proton_cutter.ogg', 100, TRUE)
-			user.visible_message(span_warning("Протонный резак в руках [user] выплескивает шквал искр!"), span_notice("Форсирую генератор гамма излучения. Протонный резак выплескивает шквал искр!"))
+			user.visible_message("<span class='warning'>Протонный резак в руках [user] выплескивает шквал искр!</span>", "<span class='notice'>Форсирую генератор гамма излучения. Протонный резак выплескивает шквал искр!</span>")
 			sparks.start()
 			amplification = TRUE
 			set_light_on(amplification)
 		else
-			to_chat(user, span_warning("Генератор перегружен! Необходимо охлаждение перед повторным применением."))
+			to_chat(user, "<span class='warning'>Генератор перегружен! Необходимо охлаждение перед повторным применением.</span>")
 	else
 		proton_off()
 		playsound(user, 'white/Feline/sounds/proton_cutter_off.ogg', 100, TRUE)
-		to_chat(user, span_notice("Приглушаю генератор гамма излучения!"))
+		to_chat(user, "<span class='notice'>Приглушаю генератор гамма излучения!</span>")
 
 // 	Список разрешенных мобов
 //#define isstunmob(A) (istype(A, /mob/living/simple_animal/hostile/zombie) || istype(A, /mob/living/simple_animal/hostile/alien) || istype(A, /mob/living/simple_animal/hostile/giant_spider) || istype(A, /mob/living/simple_animal/hostile/netherworld) || istype(A, /mob/living/simple_animal/hostile/blob) || istype(A, /mob/living/simple_animal/hostile/ratvar))
@@ -367,7 +367,7 @@
 	. = ..()
 	. += "<hr>"
 	if(length(contents))
-		. += span_notice("ЛКМ, чтобы мгновенно выхватить резак. ПКМ, для доступа к кармашкам.")
+		. += "<span class='notice'>ЛКМ, чтобы мгновенно выхватить резак. ПКМ, для доступа к кармашкам.</span>"
 
 /obj/item/storage/belt/avangard_belt/attack_hand(mob/user, list/modifiers)
 
@@ -377,7 +377,7 @@
 				return
 			for(var/i in contents)
 				if(istype(i, /obj/item/melee/sabre/proton_cutter))
-					user.visible_message(span_notice("[user] достаёт из ножен [i]."), span_notice("Достаю [i] из ножен."))
+					user.visible_message("<span class='notice'>[user] достаёт из ножен [i].</span>", "<span class='notice'>Достаю [i] из ножен.</span>")
 					user.put_in_hands(i)
 					update_appearance()
 					playsound(user, 'sound/items/unsheath.ogg', 40, TRUE)

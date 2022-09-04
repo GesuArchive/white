@@ -34,26 +34,26 @@
 /obj/machinery/cell_charger/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stock_parts/cell) && !panel_open)
 		if(machine_stat & BROKEN)
-			to_chat(user, span_warning("[capitalize(src.name)] сломан!"))
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] сломан!</span>")
 			return
 		if(!anchored)
-			to_chat(user, span_warning("[capitalize(src.name)] не прикручен!"))
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] не прикручен!</span>")
 			return
 		if(charging)
-			to_chat(user, span_warning("Здесь уже есть батарейка!"))
+			to_chat(user, "<span class='warning'>Здесь уже есть батарейка!</span>")
 			return
 		else
 			var/area/a = loc.loc // Gets our locations location, like a dream within a dream
 			if(!isarea(a))
 				return
 			if(a.power_equip == 0) // There's no APC in this area, don't try to cheat power!
-				to_chat(user, span_warning("[capitalize(src.name)] мигает красным диодом!"))
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] мигает красным диодом!</span>")
 				return
 			if(!user.transferItemToLoc(W,src))
 				return
 
 			charging = W
-			user.visible_message(span_notice("[user] вставляет батарейку в [src].") , span_notice("Вставляю батарейку в [src]."))
+			user.visible_message("<span class='notice'>[user] вставляет батарейку в [src].</span>" , "<span class='notice'>Вставляю батарейку в [src].</span>")
 			update_icon()
 	else
 		if(!charging && default_deconstruction_screwdriver(user, icon_state, icon_state, W))
@@ -88,7 +88,7 @@
 	user.put_in_hands(charging)
 	charging.add_fingerprint(user)
 
-	user.visible_message(span_notice("[user] достаёт [charging] из [src].") , span_notice("Достаю [charging] из [src]."))
+	user.visible_message("<span class='notice'>[user] достаёт [charging] из [src].</span>" , "<span class='notice'>Достаю [charging] из [src].</span>")
 
 	removecell()
 
@@ -98,7 +98,7 @@
 		return
 
 	charging.forceMove(loc)
-	to_chat(user, span_notice("Телекинетически достаю [charging] из [src]."))
+	to_chat(user, "<span class='notice'>Телекинетически достаю [charging] из [src].</span>")
 
 	removecell()
 	return COMPONENT_CANCEL_ATTACK_CHAIN

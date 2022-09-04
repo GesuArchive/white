@@ -4,9 +4,9 @@
 #define DRONE_TOTAL_LAYERS 2
 
 /// Message displayed when new drone spawns in drone network
-#define DRONE_NET_CONNECT span_notice("DRONE NETWORK: [name] connected.")
+#define DRONE_NET_CONNECT "<span class='notice'>DRONE NETWORK: [name] connected.</span>"
 /// Message displayed when drone in network dies
-#define DRONE_NET_DISCONNECT span_danger("DRONE NETWORK: [name] is not responding.")
+#define DRONE_NET_DISCONNECT "<span class='danger'>DRONE NETWORK: [name] is not responding.</span>"
 
 /// Maintenance Drone icon_state (multiple colors)
 #define MAINTDRONE	"drone_maint"
@@ -121,7 +121,7 @@
 	"<span class='warning'>За любой твой косяк администрация в праве заблокировать тебе доступ к дронам.</span>\n"+\
 	"<span class='warning'>ЕРП с дронами разрешено.\n"+\
 	"<span class='warning'>ЕРП с живыми существами запрещено.\n"+\
-	span_warning("<u>Даже если ты умудрился сотвориться без правил для силиконов, ты должен подчиняться правилам, которые указаны выше.</u>")
+	"<span class='warning'><u>Даже если ты умудрился сотвориться без правил для силиконов, ты должен подчиняться правилам, которые указаны выше.</u></span>"
 
 /mob/living/simple_animal/drone/Initialize(mapload)
 	. = ..()
@@ -259,10 +259,10 @@
 	if(. & EMP_PROTECT_SELF)
 		return
 	Stun(100)
-	to_chat(src, span_danger("<b>ER@%R: MME^RY CO#RU9T!</b> R&$b@0tin)..."))
+	to_chat(src, "<span class='danger'><b>ER@%R: MME^RY CO#RU9T!</b> R&$b@0tin)...</span>")
 	if(severity >= EXPLODE_DEVASTATE)
 		adjustBruteLoss(heavy_emp_damage)
-		to_chat(src, span_userdanger("HeAV% DA%^MMA+G TO I/O CIR!%UUT!"))
+		to_chat(src, "<span class='userdanger'>HeAV% DA%^MMA+G TO I/O CIR!%UUT!</span>")
 
 /mob/living/simple_animal/drone/proc/alarm_triggered(datum/source, alarm_type, area/source_area)
 	SIGNAL_HANDLER

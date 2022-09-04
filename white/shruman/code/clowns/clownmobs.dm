@@ -48,7 +48,7 @@
 	if(pod_ask != "Да" || !src || QDELETED(src))
 		return
 	if(key)
-		to_chat(user, span_warning("Кто-то уже занял этого клоуна!"))
+		to_chat(user, "<span class='warning'>Кто-то уже занял этого клоуна!</span>")
 		return
 	key = user.key
 	log_game("[key_name(src)] took control of [name].")
@@ -59,7 +59,7 @@
 	if(pod_ask != "Да" || !src || QDELETED(src))
 		return
 	if(key)
-		to_chat(user, span_warning("Кто-то уже занял этого клоуна!"))
+		to_chat(user, "<span class='warning'>Кто-то уже занял этого клоуна!</span>")
 		return
 	key = user.key
 	to_chat(src, "<B><font size=3 color=pink>Ты - Апостол Хонкоматери.</font></B>")
@@ -472,7 +472,7 @@
 /mob/living/simple_animal/hostile/clown/mutant/glutton/proc/eat(atom/movable/A)
 	if(A && A.loc != src)
 		playsound(src, 'sound/items/eatfood.ogg', 100, TRUE)
-		visible_message(span_warning("[capitalize(src.name)] пожирает [A]!"))
+		visible_message("<span class='warning'>[capitalize(src.name)] пожирает [A]!</span>")
 		biomass += 75
 		qdel(A)
 		return TRUE
@@ -482,7 +482,7 @@
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.stat == DEAD)
-			to_chat(src, span_warning("Начинаю проглатывать [L]..."))
+			to_chat(src, "<span class='warning'>Начинаю проглатывать [L]...</span>")
 			if(do_after_mob(src, L, 2 SECONDS))
 				eat(L)
 			return
@@ -497,7 +497,7 @@
 		playsound(src, 'sound/effects/splat.ogg', 100, TRUE)
 		new /obj/structure/spawner/clown/clowncorpse(get_turf(A.loc))
 		new /obj/effect/particle_effect/fluid/foam(get_turf(A.loc))
-		visible_message(span_warning("[capitalize(src.name)] заражает тело [A] хонкочервями!"))
+		visible_message("<span class='warning'>[capitalize(src.name)] заражает тело [A] хонкочервями!</span>")
 		qdel(A)
 		return TRUE
 	return FALSE
@@ -506,7 +506,7 @@
 	if(isliving(target))
 		var/mob/living/L = target
 		if(L.stat == DEAD)
-			to_chat(src, span_warning("Начинаю заражать труп [L]..."))
+			to_chat(src, "<span class='warning'>Начинаю заражать труп [L]...</span>")
 			if(do_after_mob(src, L, 6 SECONDS))
 				eat(L)
 			return
@@ -541,7 +541,7 @@
 		SEND_SOUND(M, sound('sound/effects/screech.ogg'))
 		M.add_confusion(25)
 		M.Jitter(50)
-	to_chat(cast_on, span_notice("Издаю ужасающий визг, высасывая энергию из лампочек вокруг!"))
+	to_chat(cast_on, "<span class='notice'>Издаю ужасающий визг, высасывая энергию из лампочек вокруг!</span>")
 	return ..()
 
 
@@ -597,12 +597,12 @@
 	var/turf/glutton_turf = get_turf(glutton)
 
 	if (glutton.biomass < 25)
-		to_chat(glutton, span_warning("Недостаточно плоти!"))
+		to_chat(glutton, "<span class='warning'>Недостаточно плоти!</span>")
 		return FALSE
 	if(locate(/obj/structure/fleshbuilding/clownweeds/node/) in glutton_turf)
-		to_chat(glutton, span_warning("Здесь уже есть рассадник кожи!"))
+		to_chat(glutton, "<span class='warning'>Здесь уже есть рассадник кожи!</span>")
 		return FALSE
-	glutton.visible_message(span_alertalien("[glutton] выращивает на полу рассадник кожи!"))
+	glutton.visible_message("<span class='alertalien'>[glutton] выращивает на полу рассадник кожи!</span>")
 	new/obj/structure/fleshbuilding/clownweeds/node/(glutton.loc)
 	glutton.biomass = glutton.biomass - 25
 	return TRUE
@@ -615,12 +615,12 @@
 	var/turf/glutton_turf = get_turf(glutton)
 
 	if (glutton.biomass < 25)
-		to_chat(glutton, span_warning("Недостаточно плоти!"))
+		to_chat(glutton, "<span class='warning'>Недостаточно плоти!</span>")
 		return FALSE
 	if(locate(/obj/structure/fleshbuilding/clownweeds/node/) in glutton_turf)
-		to_chat(glutton, span_warning("Здесь уже есть рассадник кожи!"))
+		to_chat(glutton, "<span class='warning'>Здесь уже есть рассадник кожи!</span>")
 		return FALSE
-	glutton.visible_message(span_alertalien("[glutton] выращивает на полу рассадник кожи!"))
+	glutton.visible_message("<span class='alertalien'>[glutton] выращивает на полу рассадник кожи!</span>")
 	new/obj/structure/fleshbuilding/clownweeds/node/(glutton.loc)
 	glutton.biomass = glutton.biomass - 25
 	return TRUE
@@ -648,7 +648,7 @@
 		var/turf/closed/wall/clown/oldturf = get_turf(src)
 		oldturf.add_filter("stasis_status_ripple", 2, list("type" = "ripple", "flags" = WAVE_BOUNDED, "radius" = 0, "size" = 2))
 		var/filter = oldturf.get_filter("stasis_status_ripple")
-		audible_message(span_warning("Кожистая стена начинает чавкать..."))
+		audible_message("<span class='warning'>Кожистая стена начинает чавкать...</span>")
 		animate(filter, radius = 0, time = 0.2 SECONDS, size = 2, easing = JUMP_EASING, loop = -1, flags = ANIMATION_PARALLEL)
 		animate(radius = 32, time = 1.5 SECONDS, size = 0)
 		if(do_after(src, 2 SECONDS, newloc))
@@ -695,12 +695,12 @@
 	var/obj/structure/spawner/clown/spawner =  new choice
 	var/ccost = spawner.cost
 	if(ccost > glutton.biomass)
-		to_chat(glutton, span_notice("Недостаточно плоти."))
+		to_chat(glutton, "<span class='notice'>Недостаточно плоти.</span>")
 		return FALSE
 	else
 		new choice(glutton.loc)
-		to_chat(glutton, span_notice("Леплю из плоти [spawner.name]."))
-		glutton.visible_message(span_notice("[glutton] формирует неестественное строение из накопленной плоти."))
+		to_chat(glutton, "<span class='notice'>Леплю из плоти [spawner.name].</span>")
+		glutton.visible_message("<span class='notice'>[glutton] формирует неестественное строение из накопленной плоти.</span>")
 		glutton.biomass -= ccost
 		return TRUE
 
@@ -715,24 +715,24 @@
 		var/obj/structure/fleshbuilding/building =  new choice
 		ccost = building.cost
 		if(ccost > glutton.biomass)
-			to_chat(glutton, span_notice("Недостаточно плоти."))
+			to_chat(glutton, "<span class='notice'>Недостаточно плоти.</span>")
 			return FALSE
 		else
 			new choice(glutton.loc)
-			to_chat(glutton, span_notice("Леплю из плоти [building.name]."))
-			glutton.visible_message(span_notice("[glutton] формирует неестественное строение из накопленной плоти."))
+			to_chat(glutton, "<span class='notice'>Леплю из плоти [building.name].</span>")
+			glutton.visible_message("<span class='notice'>[glutton] формирует неестественное строение из накопленной плоти.</span>")
 			glutton.biomass -= ccost
 			return TRUE
 	if (istype(choice, /turf/closed/wall/clown/ ))
 		var/turf/closed/wall/clown/building =  new choice
 		ccost = building.cost
 		if(ccost > glutton.biomass)
-			to_chat(glutton, span_notice("Недостаточно плоти."))
+			to_chat(glutton, "<span class='notice'>Недостаточно плоти.</span>")
 			return FALSE
 		else
 			new choice(glutton.loc)
-			to_chat(glutton, span_notice("Леплю из плоти [building.name]."))
-			glutton.visible_message(span_notice("[glutton] создает стену из кожи и плоти."))
+			to_chat(glutton, "<span class='notice'>Леплю из плоти [building.name].</span>")
+			glutton.visible_message("<span class='notice'>[glutton] создает стену из кожи и плоти.</span>")
 			glutton.biomass -= ccost
 			return TRUE
 

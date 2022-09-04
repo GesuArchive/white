@@ -50,9 +50,9 @@ Bonus
 	switch(A.stage)
 		if(2,3)
 			if(prob(base_message_chance))
-				to_chat(M, span_warning("[pick("Всё тело болит.", "Кожа кровоточит.")]"))
+				to_chat(M, "<span class='warning'>[pick("Всё тело болит.", "Кожа кровоточит.")]</span>")
 		if(4,5)
-			to_chat(M, span_userdanger("[pick("Съеживаюсь от сильной боли, которая овладевает телом.", "ТЕЛО ЕСТ САМО СЕБЯ!", "БОЛЬНО!")]"))
+			to_chat(M, "<span class='userdanger'>[pick("Съеживаюсь от сильной боли, которая овладевает телом.", "ТЕЛО ЕСТ САМО СЕБЯ!", "БОЛЬНО!")]</span>")
 			Flesheat(M, A)
 
 /datum/symptom/flesh_eating/proc/Flesheat(mob/living/M, datum/disease/advance/A)
@@ -119,10 +119,10 @@ Bonus
 	switch(A.stage)
 		if(2,3)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(M, span_warning("[pick("Тело разваливается на куски.", "С меня песок сыпется.")]"))
+				to_chat(M, "<span class='warning'>[pick("Тело разваливается на куски.", "С меня песок сыпется.")]</span>")
 		if(4,5)
 			if(prob(base_message_chance / 2)) //reduce spam
-				to_chat(M, span_userdanger("[pick("Мышцы расслабляются.", "Кожа отваливается.", "Ощущаю песочность.")]"))
+				to_chat(M, "<span class='userdanger'>[pick("Мышцы расслабляются.", "Кожа отваливается.", "Ощущаю песочность.")]</span>")
 			Flesh_death(M, A)
 
 /datum/symptom/flesh_death/proc/Flesh_death(mob/living/M, datum/disease/advance/A)

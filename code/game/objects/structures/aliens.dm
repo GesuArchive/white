@@ -314,19 +314,19 @@
 	if(user.getorgan(/obj/item/organ/alien/plasmavessel))
 		switch(status)
 			if(BURST)
-				to_chat(user, span_notice("Убираю вылупившееся яйцо."))
+				to_chat(user, "<span class='notice'>Убираю вылупившееся яйцо.</span>")
 				playsound(loc, 'sound/effects/attackblob.ogg', 100, TRUE)
 				qdel(src)
 				return
 			if(GROWING)
-				to_chat(user, span_notice("Этот детеныш еще не готов к вылуплению."))
+				to_chat(user, "<span class='notice'>Этот детеныш еще не готов к вылуплению.</span>")
 				return
 			if(GROWN)
-				to_chat(user, span_notice("Пробуждаю детеныша."))
+				to_chat(user, "<span class='notice'>Пробуждаю детеныша.</span>")
 				Burst(kill=FALSE)
 				return
 	else
-		to_chat(user, span_notice("Оно склизкое на ощупь."))
+		to_chat(user, "<span class='notice'>Оно склизкое на ощупь.</span>")
 		user.changeNext_move(CLICK_CD_MELEE)
 
 

@@ -19,9 +19,9 @@
 /obj/item/organ/body_egg/alien_embryo/on_find(mob/living/finder)
 	..()
 	if(stage < 5)
-		to_chat(finder, span_notice("Это маленький, слабый, слегка шевелящийся паразит."))
+		to_chat(finder, "<span class='notice'>Это маленький, слабый, слегка шевелящийся паразит.</span>")
 	else
-		to_chat(finder, span_notice("Это довольно большой и пытающийся вырваться из ваших рук паразит."))
+		to_chat(finder, "<span class='notice'>Это довольно большой и пытающийся вырваться из ваших рук паразит.</span>")
 		if(prob(10))
 			AttemptGrow(0)
 
@@ -34,30 +34,30 @@
 			if(DT_PROB(1, delta_time))
 				owner.emote("cough")
 			if(DT_PROB(1, delta_time))
-				to_chat(owner, span_danger("Очень болит горло."))
+				to_chat(owner, "<span class='danger'>Очень болит горло.</span>")
 			if(DT_PROB(1, delta_time))
-				to_chat(owner, span_danger("Не могу перестать сглатывать огромное количество слизи застывшей в моем горле."))
+				to_chat(owner, "<span class='danger'>Не могу перестать сглатывать огромное количество слизи застывшей в моем горле.</span>")
 		if(5)
 			if(DT_PROB(1, delta_time))
 				owner.emote("sneeze")
 			if(DT_PROB(1, delta_time))
 				owner.emote("cough")
 			if(DT_PROB(2, delta_time))
-				to_chat(owner, span_danger("Мышцы ноют."))
+				to_chat(owner, "<span class='danger'>Мышцы ноют.</span>")
 				if(prob(20))
 					owner.take_bodypart_damage(1)
 			if(DT_PROB(2, delta_time))
-				to_chat(owner, span_danger("Очень болит грудь."))
+				to_chat(owner, "<span class='danger'>Очень болит грудь.</span>")
 				if(prob(20))
 					owner.adjustToxLoss(1)
 		if(6)
-			to_chat(owner, span_danger("Господи, оно шевелится... и кажется оно очень хочет наружу..."))
+			to_chat(owner, "<span class='danger'>Господи, оно шевелится... и кажется оно очень хочет наружу...</span>")
 			owner.adjustToxLoss(5 * delta_time) // Why is this [TOX]?
 
 /// Controls Xenomorph Embryo growth. If embryo is fully grown (or overgrown), stop the proc. If not, increase the stage by one and if it's not fully grown (stage 6), add a timer to do this proc again after however long the growth time variable is.
 /obj/item/organ/body_egg/alien_embryo/proc/advance_embryo_stage()
 	if(owner?.stat == DEAD && stage <=2) //Если носитель умер слишком рано то, яйцо тоже умрет. А дальше зависит от удачи.
-		owner.visible_message(span_danger("Эмбрион погибает из-за смерти носителя!"))
+		owner.visible_message("<span class='danger'>Эмбрион погибает из-за смерти носителя!</span>")
 		qdel(src) //Минус эмбрион.
 	if(stage >= 6)
 		return
@@ -118,10 +118,10 @@
 		new_xeno.invisibility = 0
 
 	if(gib_on_success)
-		new_xeno.visible_message(span_danger("[new_xeno] вырвется из груди [owner], разрывая своего носителя в фонтане крови!") , span_userdanger("Выбираюсь из груди своего предыдущего носителя.") , span_hear("Слышу крики боли и страшные звуки разрываемой плоти!"))
+		new_xeno.visible_message("<span class='danger'>[new_xeno] вырвется из груди [owner], разрывая своего носителя в фонтане крови!</span>" , "<span class='userdanger'>Выбираюсь из груди своего предыдущего носителя.</span>" , "<span class='hear'>Слышу крики боли и страшные звуки разрываемой плоти!</span>")
 		owner.gib(TRUE)
 	else
-		new_xeno.visible_message(span_danger("[new_xeno] выскальзывает из груди [owner]!") , span_userdanger("Выбираюсь из груди своего предыдущего носителя."))
+		new_xeno.visible_message("<span class='danger'>[new_xeno] выскальзывает из груди [owner]!</span>" , "<span class='userdanger'>Выбираюсь из груди своего предыдущего носителя.</span>")
 		owner.adjustBruteLoss(40)
 		owner.cut_overlay(overlay)
 	qdel(src)

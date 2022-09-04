@@ -15,12 +15,12 @@
 		owner.teach_crafting_recipe(/datum/crafting_recipe/woodenducky)
 		if(my_clan != CLAN_TZIMISCE) // better things to do
 			owner.teach_crafting_recipe(/datum/crafting_recipe/bloodaltar)
-		to_chat(owner, span_danger("You learned new recipes - You can view them in the Structure and Weaponry section of the crafting menu!"))
+		to_chat(owner, "<span class='danger'>You learned new recipes - You can view them in the Structure and Weaponry section of the crafting menu!</span>")
 	// This is my Lair
 	coffin = claimed
 	lair = get_area(claimed)
-	to_chat(owner, span_userdanger("You have claimed the [claimed] as your place of immortal rest! Your lair is now [lair]."))
-	to_chat(owner, span_announce("Bloodsucker Tip: Find new lair recipes in the structure tab of the <i>Crafting Menu</i>, including the <i>Persuasion Rack</i> for converting crew into Vassals and the <i>Blood Altar</i> which lets you gain two tasks per night to Rank Up."))
+	to_chat(owner, "<span class='userdanger'>You have claimed the [claimed] as your place of immortal rest! Your lair is now [lair].</span>")
+	to_chat(owner, "<span class='announce'>Bloodsucker Tip: Find new lair recipes in the structure tab of the <i>Crafting Menu</i>, including the <i>Persuasion Rack</i> for converting crew into Vassals and the <i>Blood Altar</i> which lets you gain two tasks per night to Rank Up.</span>")
 	return TRUE
 
 /// From crate.dm
@@ -32,10 +32,10 @@
 /obj/structure/closet/crate/coffin/examine(mob/user)
 	. = ..()
 	if(user == resident)
-		. += span_cult("This is your Claimed Coffin.")
-		. += span_cult("Rest in it while injured to enter Torpor. Entering it with unspent Ranks will allow you to spend one.")
-		. += span_cult("Alt Click while inside the Coffin to Lock/Unlock.")
-		. += span_cult("Alt Click while outside of your Coffin to Unclaim it, unwrenching it and all your other structures as a result.")
+		. += "<span class='cult'>This is your Claimed Coffin.</span>"
+		. += "<span class='cult'>Rest in it while injured to enter Torpor. Entering it with unspent Ranks will allow you to spend one.</span>"
+		. += "<span class='cult'>Alt Click while inside the Coffin to Lock/Unlock.</span>"
+		. += "<span class='cult'>Alt Click while outside of your Coffin to Unclaim it, unwrenching it and all your other structures as a result.</span>"
 
 /obj/structure/closet/crate/coffin/blackcoffin
 	name = "black coffin"
@@ -177,9 +177,9 @@
 		if(bloodsucker_structure.owner == resident)
 			bloodsucker_structure.unbolt()
 	if(manual)
-		to_chat(resident, span_cultitalic("You have unclaimed your coffin! This also unclaims all your other Bloodsucker structures!"))
+		to_chat(resident, "<span class='cultitalic'>You have unclaimed your coffin! This also unclaims all your other Bloodsucker structures!</span>")
 	else
-		to_chat(resident, span_cultitalic("You sense that the link with your coffin and your sacred lair, has been broken! You will need to seek another."))
+		to_chat(resident, "<span class='cultitalic'>You sense that the link with your coffin and your sacred lair, has been broken! You will need to seek another.</span>")
 	// Remove resident. Because this object isnt removed from the game immediately (GC?) we need to give them a way to see they don't have a home anymore.
 	resident = null
 
@@ -194,7 +194,7 @@
 		locked = FALSE
 		return TRUE
 	playsound(get_turf(src), 'sound/machines/door_locked.ogg', 20, 1)
-	to_chat(user, span_notice("[src] is locked tight from the inside."))
+	to_chat(user, "<span class='notice'>[src] is locked tight from the inside.</span>")
 
 /obj/structure/closet/crate/coffin/close(mob/living/user)
 	. = ..()
@@ -221,23 +221,23 @@
 	if(resident)
 		if(user != resident)
 			if(istype(item, cutting_tool))
-				to_chat(user, span_notice("This is a much more complex mechanical structure than you thought. You don't know where to begin cutting [src]."))
+				to_chat(user, "<span class='notice'>This is a much more complex mechanical structure than you thought. You don't know where to begin cutting [src].</span>")
 				return
 		if(anchored && istype(item, /obj/item/wrench))
-			to_chat(user, span_danger("The coffin won't come unanchored from the floor.[user == resident ? " You can Alt Click to unclaim and unwrench your Coffin." : ""]"))
+			to_chat(user, "<span class='danger'>The coffin won't come unanchored from the floor.[user == resident ? " You can Alt Click to unclaim and unwrench your Coffin." : ""]</span>")
 			return
 
 	if(locked && istype(item, /obj/item/crowbar))
 		var/pry_time = pryLidTimer * item.toolspeed // Pry speed must be affected by the speed of the tool.
 		user.visible_message(
-			span_notice("[user] tries to pry the lid off of [src] with [item]."),
-			span_notice("You begin prying the lid off of [src] with [item]. This should take about [DisplayTimeText(pry_time)]."))
+			"<span class='notice'>[user] tries to pry the lid off of [src] with [item].</span>",
+			"<span class='notice'>You begin prying the lid off of [src] with [item]. This should take about [DisplayTimeText(pry_time)].</span>")
 		if(!do_mob(user, src, pry_time))
 			return
 		bust_open()
 		user.visible_message(
-			span_notice("[user] snaps the door of [src] wide open."),
-			span_notice("The door of [src] snaps open."))
+			"<span class='notice'>[user] snaps the door of [src] wide open.</span>",
+			"<span class='notice'>The door of [src] snaps open.</span>")
 		return
 	. = ..()
 
@@ -260,13 +260,13 @@
 	if(user == resident)
 		if(!broken)
 			locked = inLocked
-			to_chat(user, span_notice("You flip a secret latch and [locked?"":"un"]lock yourself inside [src]."))
+			to_chat(user, "<span class='notice'>You flip a secret latch and [locked?"":"un"]lock yourself inside [src].</span>")
 			return
 		// Broken? Let's fix it.
-		to_chat(resident, span_notice("The secret latch to lock [src] from the inside is broken. You set it back into place..."))
+		to_chat(resident, "<span class='notice'>The secret latch to lock [src] from the inside is broken. You set it back into place...</span>")
 		if(!do_mob(resident, src, 5 SECONDS))
-			to_chat(resident, span_notice("You fail to fix [src]'s mechanism."))
+			to_chat(resident, "<span class='notice'>You fail to fix [src]'s mechanism.</span>")
 			return
-		to_chat(resident, span_notice("You fix the mechanism and lock it."))
+		to_chat(resident, "<span class='notice'>You fix the mechanism and lock it.</span>")
 		broken = FALSE
 		locked = TRUE

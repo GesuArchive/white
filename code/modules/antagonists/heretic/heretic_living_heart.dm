@@ -65,7 +65,7 @@
 /datum/component/living_heart/proc/on_organ_removed(obj/item/organ/source, mob/living/carbon/old_owner)
 	SIGNAL_HANDLER
 
-	to_chat(old_owner, span_userdanger("Когда [source.name] покидает моё тело, я чуствую связь с Мансусом слабеет!"))
+	to_chat(old_owner, "<span class='userdanger'>Когда [source.name] покидает моё тело, я чуствую связь с Мансусом слабеет!</span>")
 	qdel(src)
 
 /*

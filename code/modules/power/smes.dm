@@ -94,10 +94,10 @@
 			if(term && term.dir == turn(dir, 180))
 				terminal = term
 				terminal.master = src
-				to_chat(user, span_notice("Терминал питания найден."))
+				to_chat(user, "<span class='notice'>Терминал питания найден.</span>")
 				break
 		if(!terminal)
-			to_chat(user, span_alert("Не найдено терминала питания."))
+			to_chat(user, "<span class='alert'>Не найдено терминала питания.</span>")
 			return
 		set_machine_stat(machine_stat & ~BROKEN)
 		update_icon()
@@ -110,25 +110,25 @@
 			return
 
 		if(terminal) //is there already a terminal ?
-			to_chat(user, span_warning("Этот СНМЭ имеет терминал питания!"))
+			to_chat(user, "<span class='warning'>Этот СНМЭ имеет терминал питания!</span>")
 			return
 
 		if(!panel_open) //is the panel open ?
-			to_chat(user, span_warning("Стоит открыть техническую панель сначала!"))
+			to_chat(user, "<span class='warning'>Стоит открыть техническую панель сначала!</span>")
 			return
 
 		var/turf/T = get_turf(user)
 		if (T.intact) //is the floor plating removed ?
-			to_chat(user, span_warning("Нужно убрать плитку прежде чем делать это!"))
+			to_chat(user, "<span class='warning'>Нужно убрать плитку прежде чем делать это!</span>")
 			return
 
 
 		var/obj/item/stack/cable_coil/C = I
 		if(C.get_amount() < 10)
-			to_chat(user, span_warning("Нужно больше проводов!"))
+			to_chat(user, "<span class='warning'>Нужно больше проводов!</span>")
 			return
 
-		to_chat(user, span_notice("Начинаю делать терминал питания..."))
+		to_chat(user, "<span class='notice'>Начинаю делать терминал питания...</span>")
 		playsound(src.loc, 'sound/items/deconstruct.ogg', 50, TRUE)
 
 		if(do_after(user, 20, target = src))
@@ -140,8 +140,8 @@
 				return
 			if(!terminal)
 				C.use(10)
-				user.visible_message(span_notice("[user.name] сделал терминал питания.") ,\
-					span_notice("Делаю терминал питания."))
+				user.visible_message("<span class='notice'>[user.name] сделал терминал питания.</span>" ,\
+					"<span class='notice'>Делаю терминал питания.</span>")
 
 				//build the terminal and link it to the network
 				make_terminal(T)
@@ -171,7 +171,7 @@
 
 /obj/machinery/power/smes/default_deconstruction_crowbar(obj/item/crowbar/C)
 	if(istype(C) && terminal)
-		to_chat(usr, span_warning("Нужно сначала убрать терминал питания!"))
+		to_chat(usr, "<span class='warning'>Нужно сначала убрать терминал питания!</span>")
 		return FALSE
 
 	return ..()

@@ -145,14 +145,14 @@
 		return
 
 	if(!silent && !demoted)
-		var/msg = span_smalldanger("[capitalize(limb.name)] <b>[victim]</b> [occur_text]!")
+		var/msg = "<span class='smalldanger'>[capitalize(limb.name)] <b>[victim]</b> [occur_text]!</span>"
 		var/vis_dist = COMBAT_MESSAGE_RANGE
 
 		if(severity != WOUND_SEVERITY_MODERATE)
 			msg = "<b>[msg]</b>"
 			vis_dist = DEFAULT_MESSAGE_RANGE
 
-		victim.visible_message(msg, span_userdanger("Моя [limb.name] [occur_text]!") , vision_distance = vis_dist)
+		victim.visible_message(msg, "<span class='userdanger'>Моя [limb.name] [occur_text]!</span>" , vision_distance = vis_dist)
 		if(sound_effect)
 			playsound(L.owner, sound_effect, 70 + 20 * severity, TRUE)
 
@@ -308,7 +308,7 @@
 
 	// now that we've determined we have a valid attempt at treating, we can stomp on their dreams if we're already interacting with the patient or if their part is obscured
 	if(DOING_INTERACTION_WITH_TARGET(user, victim))
-		to_chat(user, span_warning("Уже взаимодействую с [victim]!"))
+		to_chat(user, "<span class='warning'>Уже взаимодействую с [victim]!</span>")
 		return TRUE
 
 	// next we check if the bodypart in actually accessible (not under thick clothing). We skip the species trait check since skellies

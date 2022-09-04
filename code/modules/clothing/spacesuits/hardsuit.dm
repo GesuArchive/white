@@ -136,7 +136,7 @@
 	. = ..()
 	. += "<hr><span class='notice'>Здесь есть крепления для дополнительных <b>броневых пластин</b>. На текущий момент закреплено <b>[armor_plate_amount]/3</b> бронепластин.</span>"
 	if(!helmet && helmettype)
-		. += span_notice("\nШлем [src] кажется неисправным. На нем нужно заменить лампочку.")
+		. += "<span class='notice'>\nШлем [src] кажется неисправным. На нем нужно заменить лампочку.</span>"
 
 /obj/item/clothing/suit/space/hardsuit/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -145,12 +145,12 @@
 		if(armor_plate_amount < 3)
 			var/obj/item/stack/sheet/armor_plate/S = I
 			if(armor.getRating(S.armor_type) >= 70)
-				to_chat(user, span_warning("Все уязвимые места уже перекрыты, я не представляю как это можно дополнительно укрепить!"))
+				to_chat(user, "<span class='warning'>Все уязвимые места уже перекрыты, я не представляю как это можно дополнительно укрепить!</span>")
 				return
 			else
 				if(armor.getRating(S.armor_type) >= 20)
 					src.armor = src.armor.attachArmor(I.armor)
-					to_chat(user, span_notice("Закрепляю дополнительную бронепластину на [src]."))
+					to_chat(user, "<span class='notice'>Закрепляю дополнительную бронепластину на [src].</span>")
 				else
 					if(armor.getRating(S.armor_type) >= 10)
 						src.armor = src.armor.attachArmor(I.armor)
@@ -159,7 +159,7 @@
 						src.armor = src.armor.attachArmor(I.armor)
 						src.armor = src.armor.attachArmor(I.armor)
 						src.armor = src.armor.attachArmor(I.armor)
-					to_chat(user, span_notice("Закрепляю основную бронепластину на груди [src]."))
+					to_chat(user, "<span class='notice'>Закрепляю основную бронепластину на груди [src].</span>")
 			armor_plate_amount = armor_plate_amount + 1
 			playsound(get_turf(src), 'white/Feline/sounds/molnia.ogg', 80)
 
@@ -169,25 +169,25 @@
 			else
 				qdel(I)
 		else
-			to_chat(user, span_warning("Все слоты дополнительного бронирования заняты!"))
+			to_chat(user, "<span class='warning'>Все слоты дополнительного бронирования заняты!</span>")
 
 	if(istype(I, /obj/item/tank/jetpack/suit))
 		if(jetpack)
-			to_chat(user, span_warning("Джетпак [src] уже установлен."))
+			to_chat(user, "<span class='warning'>Джетпак [src] уже установлен.</span>")
 			return
 		if(src == user.get_item_by_slot(ITEM_SLOT_OCLOTHING)) //Make sure the player is not wearing the suit before applying the upgrade.
-			to_chat(user, span_warning("Не могу установить улучшение [src] пока он надет."))
+			to_chat(user, "<span class='warning'>Не могу установить улучшение [src] пока он надет.</span>")
 			return
 
 		if(user.transferItemToLoc(I, src))
 			jetpack = I
-			to_chat(user, span_notice("Успешно установил джетпак в [src]."))
+			to_chat(user, "<span class='notice'>Успешно установил джетпак в [src].</span>")
 			return
 	else if(!cell_cover_open && I.tool_behaviour == TOOL_SCREWDRIVER)
 
 // 	Извлечение бронепластин
 		if(armor_plate_amount)
-			to_chat(user, span_notice("Извлекаю внешние бронепластины..."))
+			to_chat(user, "<span class='notice'>Извлекаю внешние бронепластины...</span>")
 			playsound(user, 'sound/items/screwdriver.ogg',70, TRUE)
 			if(!do_after(user, 5 SECONDS, src))
 				return TRUE
@@ -206,32 +206,32 @@
 			return
 
 		if(!jetpack)
-			to_chat(user, span_warning("Джетпак [src] не установлен."))
+			to_chat(user, "<span class='warning'>Джетпак [src] не установлен.</span>")
 			return
 		if(src == user.get_item_by_slot(ITEM_SLOT_OCLOTHING))
-			to_chat(user, span_warning("Не могу вытащить джетпак из надетого [src]."))
+			to_chat(user, "<span class='warning'>Не могу вытащить джетпак из надетого [src].</span>")
 			return
 
 		jetpack.turn_off(user)
 		jetpack.forceMove(drop_location())
 		jetpack = null
-		to_chat(user, span_notice("Успешно вытащил джетпак из [src]."))
+		to_chat(user, "<span class='notice'>Успешно вытащил джетпак из [src].</span>")
 		return
 	else if(istype(I, /obj/item/light) && helmettype)
 		if(src == user.get_item_by_slot(ITEM_SLOT_OCLOTHING))
-			to_chat(user, span_warning("Не могу заменить лампочку на шлеме [src] пока он надет."))
+			to_chat(user, "<span class='warning'>Не могу заменить лампочку на шлеме [src] пока он надет.</span>")
 			return
 		if(helmet)
-			to_chat(user, span_warning("Шлему [src] не нужна новая лампочка."))
+			to_chat(user, "<span class='warning'>Шлему [src] не нужна новая лампочка.</span>")
 			return
 		var/obj/item/light/L = I
 		if(L.status)
-			to_chat(user, span_warning("Эта лампочка слишком повреждена чтобы использовать её в качестве замены!"))
+			to_chat(user, "<span class='warning'>Эта лампочка слишком повреждена чтобы использовать её в качестве замены!</span>")
 			return
 		if(do_after(user, 5 SECONDS, src))
 			qdel(I)
 			helmet = new helmettype(src)
-			to_chat(user, span_notice("Успешно заменил лампочку на шлеме [src]."))
+			to_chat(user, "<span class='notice'>Успешно заменил лампочку на шлеме [src].</span>")
 			new /obj/item/light/bulb/broken(drop_location())
 	return ..()
 
@@ -260,7 +260,7 @@
 	var/mob/living/carbon/human/user = src.loc
 	if(istype(user))
 		user.apply_damage(HARDSUIT_EMP_BURN, BURN, spread_damage=TRUE)
-		to_chat(user, span_warning("You feel <b>[src.name]</b> heat up from the EMP burning you slightly."))
+		to_chat(user, "<span class='warning'>You feel <b>[src.name]</b> heat up from the EMP burning you slightly.</span>")
 
 		// Chance to scream
 		if (user.stat < UNCONSCIOUS && prob(10))
@@ -442,11 +442,11 @@
 
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/attack_self(mob/user) //Toggle Helmet
 	if(!isturf(user.loc))
-		to_chat(user, span_warning("Не могу переключить шлем. На нём [user.loc]!")  )
+		to_chat(user, "<span class='warning'>Не могу переключить шлем. На нём [user.loc]!</span>"  )
 		return
 	on = !on
 	if(on || force)
-		to_chat(user, span_notice("Переключаю костюм в режим скафандра, жертвуем скоростью для защиты от космоса."))
+		to_chat(user, "<span class='notice'>Переключаю костюм в режим скафандра, жертвуем скоростью для защиты от космоса.</span>")
 		name = initial(name)
 		desc = initial(desc)
 		set_light_on(TRUE)
@@ -455,7 +455,7 @@
 		flags_inv |= visor_flags_inv
 		cold_protection |= HEAD
 	else
-		to_chat(user, span_notice("Переключаю костюм в боевой режим. Скорость увеличена."))
+		to_chat(user, "<span class='notice'>Переключаю костюм в боевой режим. Скорость увеличена.</span>")
 		name += " (боевой)"
 		desc = alt_desc
 		set_light_on(FALSE)

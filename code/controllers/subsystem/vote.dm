@@ -109,7 +109,7 @@ SUBSYSTEM_DEF(vote)
 		text += "<b>Результат: ЕДИНАЯ РОССИЯ!</b>"
 	log_vote(text)
 	remove_action_buttons()
-	to_chat(world, span_purple("\n[text]"))
+	to_chat(world, "<span class='purple'>\n[text]</span>")
 	return .
 
 /datum/controller/subsystem/vote/proc/result()
@@ -164,7 +164,7 @@ SUBSYSTEM_DEF(vote)
 /datum/controller/subsystem/vote/proc/initiate_vote(vote_type, initiator_key)
 	//Server is still intializing.
 	if(!MC_RUNNING(init_stage))
-		to_chat(usr, span_warning("Cannot start vote, server is not done initializing."))
+		to_chat(usr, "<span class='warning'>Cannot start vote, server is not done initializing.</span>")
 		return FALSE
 	var/lower_admin = FALSE
 	var/ckey = ckey(initiator_key)
@@ -175,10 +175,10 @@ SUBSYSTEM_DEF(vote)
 		if(started_time)
 			var/next_allowed_time = (started_time + CONFIG_GET(number/vote_delay))
 			if(mode)
-				to_chat(usr, span_warning("There is already a vote in progress! please wait for it to finish."))
+				to_chat(usr, "<span class='warning'>There is already a vote in progress! please wait for it to finish.</span>")
 				return FALSE
 			if(next_allowed_time > world.time && !lower_admin)
-				to_chat(usr, span_warning("A vote was initiated recently, you must wait [DisplayTimeText(next_allowed_time-world.time)] before a new vote can be started!"))
+				to_chat(usr, "<span class='warning'>A vote was initiated recently, you must wait [DisplayTimeText(next_allowed_time-world.time)] before a new vote can be started!</span>")
 				return FALSE
 
 		reset()
@@ -189,7 +189,7 @@ SUBSYSTEM_DEF(vote)
 				choices.Add(config.votable_modes)
 			if("карту")
 				if(!lower_admin && SSmapping.map_voted)
-					to_chat(usr, span_warning("Следующая карта уже была выбрана."))
+					to_chat(usr, "<span class='warning'>Следующая карта уже была выбрана.</span>")
 					return FALSE
 				// Randomizes the list so it isn't always METASTATION
 				var/list/maps = list()

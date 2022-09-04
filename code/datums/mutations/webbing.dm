@@ -3,7 +3,7 @@
 	name = "Паутиновые железы"
 	desc = "Позволяет носителю создавать паутину и беспрепятственно двигаться через нее."
 	quality = POSITIVE
-	text_gain_indication = span_notice("На запястьях появились странные железы, и из них тянется тонкая белесая нить.")
+	text_gain_indication = "<span class='notice'>На запястьях появились странные железы, и из них тянется тонкая белесая нить.</span>"
 	instability = 15
 	power_path = /datum/action/cooldown/spell/lay_genetic_web
 
@@ -35,17 +35,17 @@
 /datum/action/cooldown/spell/lay_genetic_web/cast(atom/cast_on)
 	var/turf/web_spot = cast_on.loc
 	if(!isturf(web_spot) || (locate(web_path) in web_spot))
-		to_chat(cast_on, span_warning("Здесь сплести паутину не выйдет!"))
+		to_chat(cast_on, "<span class='warning'>Здесь сплести паутину не выйдет!</span>")
 		reset_spell_cooldown()
 		return FALSE
 
 	cast_on.visible_message(
-		span_notice("[cast_on] начинает выделять липкую субстанцию из своих запястий."),
-		span_notice("Начинаю плетение паутины."),
+		"<span class='notice'>[cast_on] начинает выделять липкую субстанцию из своих запястий.</span>",
+		"<span class='notice'>Начинаю плетение паутины.</span>",
 	)
 
 	if(!do_after(cast_on, webbing_time, target = web_spot))
-		to_chat(cast_on, span_warning("Мне помешали!"))
+		to_chat(cast_on, "<span class='warning'>Мне помешали!</span>")
 		return
 
 	new web_path(web_spot, cast_on)

@@ -33,19 +33,19 @@
 	set category = "Особенное"
 
 	if(ckey in GLOB.bug_downs)
-		to_chat(src, span_notice("Отправлено!"))
+		to_chat(src, "<span class='notice'>Отправлено!</span>")
 		return
 
 	var/message = stripped_multiline_input(usr, "Опишите вашу проблему. (минимум 140 символов, координаты, ваш сикей и ID раунда отправляются автоматически)", "Обнаружен баг?", "## Описание:\n\n## Как повторить?")
 
 	if(!message || length_char(message) < 140)
-		to_chat(src, span_warning("Минимум 140 символов!"))
+		to_chat(src, "<span class='warning'>Минимум 140 символов!</span>")
 		return
 
 	var/message_header = tgui_input_text(usr, "Придумайте заголовок. (минимум 16 символов)", "Обнаружен баг!")
 
 	if(!message_header || length_char(message_header) < 16)
-		to_chat(src, span_warning("Минимум 16 символов!"))
+		to_chat(src, "<span class='warning'>Минимум 16 символов!</span>")
 		return
 
 	var/list/what_we_should_say = list("title" = "\[BUG\] [message_header]", "body" = "[message]\nKey: [key]\nLoc: [AREACOORD(usr)]\n## ID Раунда: [GLOB.round_id]", "labels" = list("🐛 баг"))
@@ -59,7 +59,7 @@
 
 	SSblackbox.record_feedback("amount", "bugs_send", 1) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-	to_chat(src, span_notice("Успех!"))
+	to_chat(src, "<span class='notice'>Успех!</span>")
 	message_admins("[key_name_admin(usr)] отправляет в гитхаб сообщение [what_we_should_say].")
 
 	remove_verb(usr, /client/verb/report_a_bug)

@@ -55,7 +55,7 @@
 	. = ..()
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = user.mind.has_antag_datum(/datum/antagonist/bloodsucker)
 	if(IS_BLOODSUCKER(user) && bloodsuckerdatum.my_clan == CLAN_TZIMISCE)
-		. += span_cult("By looking at it you comprehend that it would yield [size] points for ritual usage.")
+		. += "<span class='cult'>By looking at it you comprehend that it would yield [size] points for ritual usage.</span>"
 
 /obj/item/muscle/attackby(obj/item/I, mob/user, params) // handles muscle crafting
 	var/newsize = 0
@@ -67,17 +67,17 @@
 		var/obj/item/muscle/muscle2 = I
 		newsize = size + muscle2.size
 		if(newsize > SIZE_BIG) //so you only have to change defines if you want to balance muscles
-			to_chat(user, span_warning("You can't make [src] any bigger!"))
+			to_chat(user, "<span class='warning'>You can't make [src] any bigger!</span>")
 			return
-		to_chat(user, span_notice("You merge [src] and [muscle2] into a bigger piece."))
+		to_chat(user, "<span class='notice'>You merge [src] and [muscle2] into a bigger piece.</span>")
 		qdel(muscle2)
 	if(I.sharpness == SHARP_EDGED)
 		newsize = size / 2
 		quantity = 2
 		if(newsize < SIZE_SMALL)
-			to_chat(user, span_warning("You can't cut [src] anymore!"))
+			to_chat(user, "<span class='warning'>You can't cut [src] anymore!</span>")
 			return
-		to_chat(user, span_notice("You cut [src] into smaller pieces."))
+		to_chat(user, "<span class='notice'>You cut [src] into smaller pieces.</span>")
 	switch(newsize)
 		if(0)
 			return ..()
@@ -114,26 +114,26 @@
 			user.do_attack_animation(Ctarget, ATTACK_EFFECT_PUNCH)
 			playsound(usr.loc, "sound/weapons/slice.ogg", 50, TRUE)
 			if(!target_part)
-				to_chat(user, span_warning("[Ctarget] has no limb there!"))
+				to_chat(user, "<span class='warning'>[Ctarget] has no limb there!</span>")
 				Ctarget.adjustBruteLoss(15 * level_current / 2)
 				return
 			switch(level_current)
 				if(0 to 3)
 					Ctarget.apply_damage(50, STAMINA, selected_zone)
-					to_chat(user, span_warning("You swiftly disable the nerves in [Ctarget]'s [target_part] with a precise strike."))
+					to_chat(user, "<span class='warning'>You swiftly disable the nerves in [Ctarget]'s [target_part] with a precise strike.</span>")
 				if(3 to 6)
 					Ctarget.apply_damage(25, STAMINA, selected_zone)
 					Ctarget.apply_damage(25, BRUTE, selected_zone)
 					Ctarget.drop_all_held_items()
-					to_chat(user, span_warning("You hastly damage the ligaments in [Ctarget]'s [target_part] with a fierce blow."))
+					to_chat(user, "<span class='warning'>You hastly damage the ligaments in [Ctarget]'s [target_part] with a fierce blow.</span>")
 				if(6 to INFINITY)
 					if(target_part.dismemberable)
 						target_part.dismember()
-						to_chat(user, span_warning("You sever [Ctarget]'s [target_part] with a clean swipe."))
+						to_chat(user, "<span class='warning'>You sever [Ctarget]'s [target_part] with a clean swipe.</span>")
 					else
 						Ctarget.apply_damage(30, BRUTE, selected_zone)
 						Ctarget.drop_all_held_items()
-						to_chat(user, span_warning("As [Ctarget]'s [target_part] is too tough to chop in a single action!"))
+						to_chat(user, "<span class='warning'>As [Ctarget]'s [target_part] is too tough to chop in a single action!</span>")
 		else
 			target.adjustBruteLoss(25)
 		return
@@ -149,7 +149,7 @@
 					qdel(bodypart)
 					new /obj/item/muscle/medium(H.loc)
 				else
-					to_chat(user, span_warning("You can't dismember this [bodypart] of [target]"))
+					to_chat(user, "<span class='warning'>You can't dismember this [bodypart] of [target]</span>")
 		return
 	if(iscarbon(target))
 		var/mob/living/carbon/C = target

@@ -69,7 +69,7 @@ SUBSYSTEM_DEF(lag_switch)
 
 	slowmode_cooldown = length_secs
 	if(measures[SLOWMODE_SAY])
-		to_chat(world, span_boldannounce("Slowmode timer has been changed to [length] seconds by an admin."))
+		to_chat(world, "<span class='boldannounce'>Slowmode timer has been changed to [length] seconds by an admin.</span>")
 	return TRUE
 
 /// Handle the state change for individual measures
@@ -91,7 +91,7 @@ SUBSYSTEM_DEF(lag_switch)
 				for(var/mob/user as anything in GLOB.player_list)
 					if(user.stat == DEAD && !user.client?.holder)
 						GLOB.keyloop_list -= user
-				deadchat_broadcast(span_big("To increase performance Observer freelook is now disabled. Please use Orbit, Teleport, and Jump to look around."), message_type = DEADCHAT_ANNOUNCEMENT)
+				deadchat_broadcast("<span class='big'>To increase performance Observer freelook is now disabled. Please use Orbit, Teleport, and Jump to look around.</span>", message_type = DEADCHAT_ANNOUNCEMENT)
 			else
 				GLOB.keyloop_list |= GLOB.player_list
 				deadchat_broadcast("Observer freelook has been re-enabled. Enjoy your wooshing.", message_type = DEADCHAT_ANNOUNCEMENT)
@@ -104,26 +104,26 @@ SUBSYSTEM_DEF(lag_switch)
 						ghost.client.view_size.resetToDefault()
 		if(SLOWMODE_SAY)
 			if(state)
-				to_chat(world, span_boldannounce("Slowmode for IC/dead chat has been enabled with [slowmode_cooldown/10] seconds between messages."))
+				to_chat(world, "<span class='boldannounce'>Slowmode for IC/dead chat has been enabled with [slowmode_cooldown/10] seconds between messages.</span>")
 			else
 				for(var/client/C as anything in GLOB.clients)
 					COOLDOWN_RESET(C, say_slowmode)
-				to_chat(world, span_boldannounce("Slowmode for IC/dead chat has been disabled by an admin."))
+				to_chat(world, "<span class='boldannounce'>Slowmode for IC/dead chat has been disabled by an admin.</span>")
 		if(DISABLE_NON_OBSJOBS)
 			world.update_status()
 		if(DISABLE_PARALLAX)
 			if (state)
-				to_chat(world, span_boldannounce("Parallax has been disabled for performance concerns."))
+				to_chat(world, "<span class='boldannounce'>Parallax has been disabled for performance concerns.</span>")
 			else
-				to_chat(world, span_boldannounce("Parallax has been re-enabled."))
+				to_chat(world, "<span class='boldannounce'>Parallax has been re-enabled.</span>")
 
 			for (var/mob/mob as anything in GLOB.mob_list)
 				mob.hud_used?.update_parallax_pref()
 		if (DISABLE_FOOTSTEPS)
 			if (state)
-				to_chat(world, span_boldannounce("Footstep sounds have been disabled for performance concerns."))
+				to_chat(world, "<span class='boldannounce'>Footstep sounds have been disabled for performance concerns.</span>")
 			else
-				to_chat(world, span_boldannounce("Footstep sounds have been re-enabled."))
+				to_chat(world, "<span class='boldannounce'>Footstep sounds have been re-enabled.</span>")
 
 	return TRUE
 

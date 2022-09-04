@@ -46,13 +46,13 @@
 				return
 			if(length(contents))
 				var/obj/item/I = contents[1]
-				user.visible_message(span_notice("[user] достаёт из кобуры [I]."), span_notice("Достаю из кобуры [I]."))
+				user.visible_message("<span class='notice'>[user] достаёт из кобуры [I].</span>", "<span class='notice'>Достаю из кобуры [I].</span>")
 				user.put_in_hands(I)
 				update_appearance()
 //				playsound(user, 'white/valtos/sounds/lasercock.wav', 80, TRUE)
 				return
 			else
-				to_chat(user, span_warning("Кобура пуста!"))
+				to_chat(user, "<span class='warning'>Кобура пуста!</span>")
 	else ..()
 	return
 

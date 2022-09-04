@@ -42,7 +42,7 @@
 
 /datum/component/tattoo/proc/on_examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
-	examine_list += span_boldnotice(tattoo_description)
+	examine_list += "<span class='boldnotice'>[tattoo_description]</span>"
 
 /datum/component/tattoo/proc/setup_tatted_owner(mob/living/carbon/new_owner)
 	RegisterSignal(new_owner, COMSIG_PARENT_EXAMINE, .proc/on_bodypart_owner_examine)
@@ -58,5 +58,5 @@
 		if(possibly_blocking.body_parts_covered & tatted_limb.body_part) //check to see if something is obscuring their tattoo.
 			return
 
-	examine_list += span_notice("[tatted_limb] [bodypart_owner] имеет тату!")
-	examine_list += span_boldnotice(tattoo_description)
+	examine_list += "<span class='notice'>[tatted_limb] [bodypart_owner] имеет тату!</span>"
+	examine_list += "<span class='boldnotice'>[tattoo_description]</span>"

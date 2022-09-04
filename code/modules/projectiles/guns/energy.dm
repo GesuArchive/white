@@ -91,7 +91,7 @@
 	if(!ammo_type.len)
 		return
 	var/obj/projectile/exam_proj
-	readout += "\nStandard models of this projectile weapon have [span_warning("[ammo_type.len] mode\s")]"
+	readout += "\nStandard models of this projectile weapon have ["<span class='warning'>[ammo_type.len] mode\s</span>"]"
 	readout += "Our heroic interns have shown that one can theoretically stay standing after..."
 	for(var/obj/item/ammo_casing/energy/for_ammo as anything in ammo_type)
 		exam_proj = GLOB.proj_by_path_key[for_ammo?.projectile_type]
@@ -99,11 +99,11 @@
 			continue
 
 		if(exam_proj.damage > 0) // Don't divide by 0!!!!!
-			readout += "[span_warning("[HITS_TO_CRIT(exam_proj.damage)] shot\s")] on [span_warning("[for_ammo.select_name]")] mode before collapsing from [exam_proj.damage_type == STAMINA ? "immense pain" : "their wounds"]."
+			readout += "["<span class='warning'>[HITS_TO_CRIT(exam_proj.damage)] shot\s</span>"] on ["<span class='warning'>[for_ammo.select_name]</span>"] mode before collapsing from [exam_proj.damage_type == STAMINA ? "immense pain" : "their wounds"]."
 			if(exam_proj.stamina > 0) // In case a projectile does damage AND stamina damage (Energy Crossbow)
-				readout += "[span_warning("[HITS_TO_CRIT(exam_proj.stamina)] shot\s")] on [span_warning("[for_ammo.select_name]")] mode before collapsing from immense pain."
+				readout += "["<span class='warning'>[HITS_TO_CRIT(exam_proj.stamina)] shot\s</span>"] on ["<span class='warning'>[for_ammo.select_name]</span>"] mode before collapsing from immense pain."
 		else
-			readout += "a theoretically infinite number of shots on [span_warning("[for_ammo.select_name]")] mode."
+			readout += "a theoretically infinite number of shots on ["<span class='warning'>[for_ammo.select_name]</span>"] mode."
 
 	return readout.Join("\n") // Sending over the singular string, rather than the whole list
 
@@ -196,7 +196,7 @@
 	fire_sound = shot.fire_sound
 	fire_delay = shot.delay
 	if (shot.select_name)
-		to_chat(user, span_notice("<b>[capitalize(src.name)]</b> теперь в режиме [shot.select_name]."))
+		to_chat(user, "<span class='notice'><b>[capitalize(src.name)]</b> теперь в режиме [shot.select_name].</span>")
 	chambered = null
 	recharge_newshot(TRUE)
 	update_icon()
@@ -252,20 +252,20 @@
 
 /obj/item/gun/energy/suicide_act(mob/living/user)
 	if (istype(user) && can_shoot() && can_trigger_gun(user) && user.get_bodypart(BODY_ZONE_HEAD))
-		user.visible_message(span_suicide("[user] is putting the barrel of [src] in [user.ru_ego()] mouth. It looks like [user.p_theyre()] trying to commit suicide!"))
+		user.visible_message("<span class='suicide'>[user] is putting the barrel of [src] in [user.ru_ego()] mouth. It looks like [user.p_theyre()] trying to commit suicide!</span>")
 		sleep(25)
 		if(user.is_holding(src))
-			user.visible_message(span_suicide("[user] melts [user.ru_ego()] face off with [src]!"))
+			user.visible_message("<span class='suicide'>[user] melts [user.ru_ego()] face off with [src]!</span>")
 			playsound(loc, fire_sound, 50, TRUE, -1)
 			var/obj/item/ammo_casing/energy/shot = ammo_type[select]
 			cell.use(shot.e_cost)
 			update_icon()
 			return(FIRELOSS)
 		else
-			user.visible_message(span_suicide("[user] panics and starts choking to death!"))
+			user.visible_message("<span class='suicide'>[user] panics and starts choking to death!</span>")
 			return(OXYLOSS)
 	else
-		user.visible_message(span_suicide("[user] is pretending to melt [user.ru_ego()] face off with [src]! It looks like [user.p_theyre()] trying to commit suicide!</b>"))
+		user.visible_message("<span class='suicide'>[user] is pretending to melt [user.ru_ego()] face off with [src]! It looks like [user.p_theyre()] trying to commit suicide!</b></span>")
 		playsound(src, dry_fire_sound, 30, TRUE)
 		return (OXYLOSS)
 
@@ -290,13 +290,13 @@
 		if(!loaded_projectile)
 			. = ""
 		else if(loaded_projectile.nodamage || !loaded_projectile.damage || loaded_projectile.damage_type == STAMINA)
-			user.visible_message(span_danger("[user] пытается зажечь [A.loc == user ? "[user.ru_ego()] [A.name]" : A] используя [src], но не выходит. Тупица."))
+			user.visible_message("<span class='danger'>[user] пытается зажечь [A.loc == user ? "[user.ru_ego()] [A.name]" : A] используя [src], но не выходит. Тупица.</span>")
 			playsound(user, E.fire_sound, 50, TRUE)
 			playsound(user, loaded_projectile.hitsound, 50, TRUE)
 			cell.use(E.e_cost)
 			. = ""
 		else if(loaded_projectile.damage_type != BURN)
-			user.visible_message(span_danger("[user] пытается поджечь [A.loc == user ? "[user.ru_ego()] [A.name]" : A] при помощи [src], но в итоге просто уничтожил это. Тупица."))
+			user.visible_message("<span class='danger'>[user] пытается поджечь [A.loc == user ? "[user.ru_ego()] [A.name]" : A] при помощи [src], но в итоге просто уничтожил это. Тупица.</span>")
 			playsound(user, E.fire_sound, 50, TRUE)
 			playsound(user, loaded_projectile.hitsound, 50, TRUE)
 			cell.use(E.e_cost)
@@ -306,5 +306,5 @@
 			playsound(user, E.fire_sound, 50, TRUE)
 			playsound(user, loaded_projectile.hitsound, 50, TRUE)
 			cell.use(E.e_cost)
-			. = span_danger("[user] непринужденно зажигает [A.loc == user ? "[user.ru_ego()] [A.name]" : A] при помощи [src]. Вот блин.")
+			. = "<span class='danger'>[user] непринужденно зажигает [A.loc == user ? "[user.ru_ego()] [A.name]" : A] при помощи [src]. Вот блин.</span>"
 

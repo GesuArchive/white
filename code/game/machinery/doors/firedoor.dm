@@ -97,13 +97,13 @@
 	. = ..()
 	. += "<hr>"
 	if(!density)
-		. += span_notice("<span class='notice'>Он открыт, но может быть закрыт <b>ломиком</b>.\n")
+		. += "<span class='notice'><span class='notice'>Он открыт, но может быть закрыт <b>ломиком</b>.\n</span>"
 	else if(!welded)
-		. += span_notice("<span class='notice'>Он закрыт, но может быть открыт <i>ломиком</i>. Для разбора придётся <b>заварить</b> его намертво.\n")
+		. += "<span class='notice'><span class='notice'>Он закрыт, но может быть открыт <i>ломиком</i>. Для разбора придётся <b>заварить</b> его намертво.\n</span>"
 	else if(boltslocked)
-		. += span_notice("Он <i>заварен</i> намертво. Осталось <b>отвинтить</b> от пола.\n")
+		. += "<span class='notice'>Он <i>заварен</i> намертво. Осталось <b>отвинтить</b> от пола.\n</span>"
 	else
-		. += span_notice("Он <i>отвинчен</i>, но сами винты <b>прикручены</b> к полу.")
+		. += "<span class='notice'>Он <i>отвинчен</i>, но сами винты <b>прикручены</b> к полу.</span>"
 
 /**
  * Calculates what areas we should worry about.
@@ -385,12 +385,12 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 
 	if(!user.a_intent == INTENT_HARM)
-		user.visible_message(span_notice("[user] бьётся в [src]."), \
-			span_notice("Бьюсь в [src]."))
+		user.visible_message("<span class='notice'>[user] бьётся в [src].</span>", \
+			"<span class='notice'>Бьюсь в [src].</span>")
 		playsound(src, knock_sound, 50, TRUE)
 	else
-		user.visible_message(span_warning("[user] лупит по [src]!"), \
-			span_warning("Луплю [src]!"))
+		user.visible_message("<span class='warning'>[user] лупит по [src]!</span>", \
+			"<span class='warning'>Луплю [src]!</span>")
 		playsound(src, bash_sound, 100, TRUE)
 
 /obj/machinery/door/firedoor/wrench_act(mob/living/user, obj/item/tool)
@@ -399,24 +399,24 @@
 		return FALSE
 
 	if(boltslocked)
-		to_chat(user, span_notice("Есть винты, фиксирующие болты на месте!"))
+		to_chat(user, "<span class='notice'>Есть винты, фиксирующие болты на месте!</span>")
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 	tool.play_tool_sound(src)
-	user.visible_message(span_notice("[user] начинает откручивать болты [src]..."), \
-		span_notice("Начинаю откручивать болты [src]..."))
+	user.visible_message("<span class='notice'>[user] начинает откручивать болты [src]...</span>", \
+		"<span class='notice'>Начинаю откручивать болты [src]...</span>")
 	if(!tool.use_tool(src, user, DEFAULT_STEP_TIME))
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 	playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
-	user.visible_message(span_notice("[user] откручивает болты [src]."), \
-		span_notice("Откручиваю болты [src]."))
+	user.visible_message("<span class='notice'>[user] откручивает болты [src].</span>", \
+		"<span class='notice'>Откручиваю болты [src].</span>")
 	deconstruct(TRUE)
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
 /obj/machinery/door/firedoor/screwdriver_act(mob/living/user, obj/item/tool)
 	if(operating || !welded)
 		return FALSE
-	user.visible_message(span_notice("[user] [boltslocked ? "разблокирует" : "блокирует"] болты [src]."), \
-				span_notice("[boltslocked ? "Разблокирую" : "Блокирую"] болты [src]."))
+	user.visible_message("<span class='notice'>[user] [boltslocked ? "разблокирует" : "блокирует"] болты [src].</span>", \
+				"<span class='notice'>[boltslocked ? "Разблокирую" : "Блокирую"] болты [src].</span>")
 	tool.play_tool_sound(src)
 	boltslocked = !boltslocked
 	return TOOL_ACT_TOOLTYPE_SUCCESS
@@ -427,10 +427,10 @@
 /obj/machinery/door/firedoor/try_to_weld(obj/item/weldingtool/W, mob/user)
 	if(!W.tool_start_check(user, amount=0))
 		return
-	user.visible_message(span_notice("[user] начинает [welded ? "разваривать" : "заваривать"] [src].") , span_notice("Начинаю оперировать сваркой над [src]."))
+	user.visible_message("<span class='notice'>[user] начинает [welded ? "разваривать" : "заваривать"] [src].</span>" , "<span class='notice'>Начинаю оперировать сваркой над [src].</span>")
 	if(W.use_tool(src, user, DEFAULT_STEP_TIME, volume=50))
 		welded = !welded
-		to_chat(user, span_danger("[user] [welded?"заваривает":"разваривает"] [src].") , span_notice("[welded ? "Завариваю" : "Развариваю"] [src]."))
+		to_chat(user, "<span class='danger'>[user] [welded?"заваривает":"разваривает"] [src].</span>" , "<span class='notice'>[welded ? "Завариваю" : "Развариваю"] [src].</span>")
 		log_game("[key_name(user)] [welded ? "welded":"unwelded"] firedoor [src] with [W] at [AREACOORD(src)]")
 		update_appearance()
 		correct_state()
@@ -502,7 +502,7 @@
 /obj/machinery/door/firedoor/attack_alien(mob/user, list/modifiers)
 	add_fingerprint(user)
 	if(welded)
-		to_chat(user, span_warning("[src] не поддаётся!"))
+		to_chat(user, "<span class='warning'>[src] не поддаётся!</span>")
 		return
 	open()
 	if(active)
@@ -695,11 +695,11 @@
 	. += "<hr>"
 	switch(constructionStep)
 		if(CONSTRUCTION_PANEL_OPEN)
-			. += span_notice("Он <i>откручен</i> от пола. Микросхема может быть изъята <b>ломиком</b>.")
+			. += "<span class='notice'>Он <i>откручен</i> от пола. Микросхема может быть изъята <b>ломиком</b>.</span>"
 			if(!reinforced)
-				. += span_notice("\nОн может быть укреплён пласталью.")
+				. += "<span class='notice'>\nОн может быть укреплён пласталью.</span>"
 		if(CONSTRUCTION_NO_CIRCUIT)
-			. += span_notice("Здесь нет <i>микросхемы</i> внутри. Рама может быть <b>разварена</b> на части.")
+			. += "<span class='notice'>Здесь нет <i>микросхемы</i> внутри. Рама может быть <b>разварена</b> на части.</span>"
 
 /obj/structure/firelock_frame/update_icon_state()
 	icon_state = "[base_icon_state][constructionStep]"
@@ -710,32 +710,32 @@
 		if(CONSTRUCTION_PANEL_OPEN)
 			if(attacking_object.tool_behaviour == TOOL_CROWBAR)
 				attacking_object.play_tool_sound(src)
-				user.visible_message(span_notice("[user] начинает извлекать микросхему из [src]...") , \
-					span_notice("Начинаю извлекать микросхему из [src]..."))
+				user.visible_message("<span class='notice'>[user] начинает извлекать микросхему из [src]...</span>" , \
+					"<span class='notice'>Начинаю извлекать микросхему из [src]...</span>")
 				if(!attacking_object.use_tool(src, user, DEFAULT_STEP_TIME))
 					return
 				if(constructionStep != CONSTRUCTION_PANEL_OPEN)
 					return
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
-				user.visible_message(span_notice("[user] извлекает плату из [src].") , \
-					span_notice("Извлекаю плату из [src]."))
+				user.visible_message("<span class='notice'>[user] извлекает плату из [src].</span>" , \
+					"<span class='notice'>Извлекаю плату из [src].</span>")
 				new /obj/item/electronics/firelock(drop_location())
 				constructionStep = CONSTRUCTION_NO_CIRCUIT
 				update_appearance()
 				return
 			if(attacking_object.tool_behaviour == TOOL_WRENCH)
 				if(locate(/obj/machinery/door/firedoor) in get_turf(src))
-					to_chat(user, span_warning("Здесь уже есть пожарный шлюз."))
+					to_chat(user, "<span class='warning'>Здесь уже есть пожарный шлюз.</span>")
 					return
 				attacking_object.play_tool_sound(src)
-				user.visible_message(span_notice("[user] начинает прикручивать [src]...") , \
-					span_notice("Начинаю прикручивать [src]..."))
+				user.visible_message("<span class='notice'>[user] начинает прикручивать [src]...</span>" , \
+					"<span class='notice'>Начинаю прикручивать [src]...</span>")
 				if(!attacking_object.use_tool(src, user, DEFAULT_STEP_TIME))
 					return
 				if(locate(/obj/machinery/door/firedoor) in get_turf(src))
 					return
-				user.visible_message(span_notice("[user] заканчивает пожарный шлюз.") , \
-					span_notice("Заканчиваю пожарный шлюз."))
+				user.visible_message("<span class='notice'>[user] заканчивает пожарный шлюз.</span>" , \
+					"<span class='notice'>Заканчиваю пожарный шлюз.</span>")
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 				if(reinforced)
 					new /obj/machinery/door/firedoor/heavy(get_turf(src))
@@ -746,48 +746,48 @@
 			if(istype(attacking_object, /obj/item/stack/sheet/plasteel))
 				var/obj/item/stack/sheet/plasteel/plasteel_sheet = attacking_object
 				if(reinforced)
-					to_chat(user, span_warning("[capitalize(src.name)] уже укреплён."))
+					to_chat(user, "<span class='warning'>[capitalize(src.name)] уже укреплён.</span>")
 					return
 				if(plasteel_sheet.get_amount() < 2)
-					to_chat(user, span_warning("Мне потребуется чуть больше пластали для [src]."))
+					to_chat(user, "<span class='warning'>Мне потребуется чуть больше пластали для [src].</span>")
 					return
-				user.visible_message(span_notice("[user] начинает укреплять [src]...") , \
-					span_notice("Начинаю укреплять [src]..."))
+				user.visible_message("<span class='notice'>[user] начинает укреплять [src]...</span>" , \
+					"<span class='notice'>Начинаю укреплять [src]...</span>")
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 				if(do_after(user, DEFAULT_STEP_TIME, target = src))
 					if(constructionStep != CONSTRUCTION_PANEL_OPEN || reinforced || plasteel_sheet.get_amount() < 2 || !plasteel_sheet)
 						return
-					user.visible_message(span_notice("[user] укрепляет [src].") , \
-						span_notice("Укрепляю [src]."))
+					user.visible_message("<span class='notice'>[user] укрепляет [src].</span>" , \
+						"<span class='notice'>Укрепляю [src].</span>")
 					playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 					plasteel_sheet.use(2)
 					reinforced = 1
 				return
 		if(CONSTRUCTION_NO_CIRCUIT)
 			if(istype(attacking_object, /obj/item/electronics/firelock))
-				user.visible_message(span_notice("[user] начинает устанавливает [attacking_object] к [src]...") , \
-					span_notice("Начинаю вставлять плату в [src]..."))
+				user.visible_message("<span class='notice'>[user] начинает устанавливает [attacking_object] к [src]...</span>" , \
+					"<span class='notice'>Начинаю вставлять плату в [src]...</span>")
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 				if(!do_after(user, DEFAULT_STEP_TIME, target = src))
 					return
 				if(constructionStep != CONSTRUCTION_NO_CIRCUIT)
 					return
 				qdel(attacking_object)
-				user.visible_message(span_notice("[user] устанавливает плату в [src].") , \
-					span_notice("Вставляю плату в [attacking_object]."))
+				user.visible_message("<span class='notice'>[user] устанавливает плату в [src].</span>" , \
+					"<span class='notice'>Вставляю плату в [attacking_object].</span>")
 				playsound(get_turf(src), 'sound/items/deconstruct.ogg', 50, TRUE)
 				constructionStep = CONSTRUCTION_PANEL_OPEN
 				return
 			if(attacking_object.tool_behaviour == TOOL_WELDER)
 				if(!attacking_object.tool_start_check(user, amount=1))
 					return
-				user.visible_message(span_notice("[user] начинает разваривать [src]...") , \
-					span_notice("Начинаю разваривать [src] на куски..."))
+				user.visible_message("<span class='notice'>[user] начинает разваривать [src]...</span>" , \
+					"<span class='notice'>Начинаю разваривать [src] на куски...</span>")
 				if(attacking_object.use_tool(src, user, DEFAULT_STEP_TIME, volume=50, amount=1))
 					if(constructionStep != CONSTRUCTION_NO_CIRCUIT)
 						return
-					user.visible_message(span_notice("[user] разваривает на куски [src]!") , \
-						span_notice("Развариваю [src] в метал."))
+					user.visible_message("<span class='notice'>[user] разваривает на куски [src]!</span>" , \
+						"<span class='notice'>Развариваю [src] в метал.</span>")
 					var/turf/T = get_turf(src)
 					new /obj/item/stack/sheet/iron(T, 3)
 					if(reinforced)
@@ -798,8 +798,8 @@
 				var/obj/item/electroadaptive_pseudocircuit/raspberrypi = attacking_object
 				if(!raspberrypi.adapt_circuit(user, DEFAULT_STEP_TIME * 0.5))
 					return
-				user.visible_message(span_notice("[user] создаёт специальную плату и вставляет в [src].") , \
-					span_notice("Адаптирую микросхему и вставляю в пожарный шлюз."))
+				user.visible_message("<span class='notice'>[user] создаёт специальную плату и вставляет в [src].</span>" , \
+					"<span class='notice'>Адаптирую микросхему и вставляю в пожарный шлюз.</span>")
 				constructionStep = CONSTRUCTION_PANEL_OPEN
 				update_appearance()
 				return
@@ -815,13 +815,13 @@
 /obj/structure/firelock_frame/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
 		if(RCD_UPGRADE_SIMPLE_CIRCUITS)
-			user.visible_message(span_notice("[user] создаёт специальную плату и вставляет в [src].") , \
-			span_notice("Адаптирую микросхему и вставляю в пожарный шлюз."))
+			user.visible_message("<span class='notice'>[user] создаёт специальную плату и вставляет в [src].</span>" , \
+			"<span class='notice'>Адаптирую микросхему и вставляю в пожарный шлюз.</span>")
 			constructionStep = CONSTRUCTION_PANEL_OPEN
 			update_appearance()
 			return TRUE
 		if(RCD_DECONSTRUCT)
-			to_chat(user, span_notice("Разбираю [src]."))
+			to_chat(user, "<span class='notice'>Разбираю [src].</span>")
 			qdel(src)
 			return TRUE
 	return FALSE

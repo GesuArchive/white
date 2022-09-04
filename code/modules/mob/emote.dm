@@ -18,7 +18,7 @@
 
 	if(!length(key_emotes))
 		if(intentional)
-			to_chat(src, span_notice("'[act]' не существует. Напиши <b>*help</b> для вывода списка доступных."))
+			to_chat(src, "<span class='notice'>'[act]' не существует. Напиши <b>*help</b> для вывода списка доступных.</span>")
 		return FALSE
 	var/silenced = FALSE
 	for(var/datum/emote/P in key_emotes)
@@ -30,7 +30,7 @@
 			SEND_SIGNAL(src, COMSIG_MOB_EMOTED(P.key))
 			return TRUE
 	if(intentional && !silenced)
-		to_chat(src, span_notice("Эмоция '[act]' невозможна. Напиши <b>*help</b> для вывода списка доступных."))
+		to_chat(src, "<span class='notice'>Эмоция '[act]' невозможна. Напиши <b>*help</b> для вывода списка доступных.</span>")
 	return FALSE
 
 /datum/emote/flip
@@ -56,21 +56,21 @@
 		if(prob(90) && !(HAS_TRAIT(user, TRAIT_FREERUNNING)))
 			user.Knockdown(5 SECONDS)
 			user.visible_message(
-				span_notice("[user] пытается сделать кувырок и падает на голову, во чудила!") ,
-				span_notice("Пытаюсь сделать изящный кувырок, но спотыкаюсь и падаю!"))
+				"<span class='notice'>[user] пытается сделать кувырок и падает на голову, во чудила!</span>" ,
+				"<span class='notice'>Пытаюсь сделать изящный кувырок, но спотыкаюсь и падаю!</span>")
 			if(prob(75))
 				user.adjustBruteLoss(5)
 		else
 			user.visible_message(
-				span_notice("[user] пытается удержать баланс после прыжка.") ,
-				span_notice("Ух..."))
+				"<span class='notice'>[user] пытается удержать баланс после прыжка.</span>" ,
+				"<span class='notice'>Ух...</span>")
 
 		var/current_confusion = user.get_confusion()
 		if(current_confusion > BEYBLADE_PUKE_THRESHOLD)
 			user.vomit(BEYBLADE_PUKE_NUTRIENT_LOSS, distance = 0)
 			return
 		if(prob(BEYBLADE_DIZZINESS_PROBABILITY))
-			to_chat(user, span_warning("Что-то мне плохо."))
+			to_chat(user, "<span class='warning'>Что-то мне плохо.</span>")
 			user.Dizzy(BEYBLADE_DIZZINESS_VALUE)
 			if(current_confusion < BEYBLADE_CONFUSION_LIMIT)
 				user.add_confusion(BEYBLADE_CONFUSION_INCREMENT)
@@ -101,7 +101,7 @@
 		user.vomit(BEYBLADE_PUKE_NUTRIENT_LOSS, distance = 0)
 		return
 	if(prob(BEYBLADE_DIZZINESS_PROBABILITY))
-		to_chat(user, span_warning("Что-то мне плохо."))
+		to_chat(user, "<span class='warning'>Что-то мне плохо.</span>")
 		user.Dizzy(BEYBLADE_DIZZINESS_VALUE)
 		if(current_confusion < BEYBLADE_CONFUSION_LIMIT)
 			user.add_confusion(BEYBLADE_CONFUSION_INCREMENT)

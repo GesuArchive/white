@@ -130,22 +130,22 @@
 		return
 	if(ismonkey(user))
 		if(require_twohands)
-			to_chat(user, span_notice("[parent] слишком тяжелый и неудобный!"))
+			to_chat(user, "<span class='notice'>[parent] слишком тяжелый и неудобный!</span>")
 			user.dropItemToGround(parent, force=TRUE)
 		else
-			to_chat(user, span_notice("Эта штука слишком тяжелая!"))
+			to_chat(user, "<span class='notice'>Эта штука слишком тяжелая!</span>")
 		return
 	if(user.get_inactive_held_item())
 		if(require_twohands)
-			to_chat(user, span_notice("[parent] невозможно удержать одной рукой!"))
+			to_chat(user, "<span class='notice'>[parent] невозможно удержать одной рукой!</span>")
 			user.dropItemToGround(parent, force=TRUE)
 		else
-			to_chat(user, span_warning("Мне нужны свободные руки!"))
+			to_chat(user, "<span class='warning'>Мне нужны свободные руки!</span>")
 		return
 	if(user.usable_hands < 2)
 		if(require_twohands)
 			user.dropItemToGround(parent, force=TRUE)
-		to_chat(user, span_warning("Одной рукой это не удержать!"))
+		to_chat(user, "<span class='warning'>Одной рукой это не удержать!</span>")
 		return
 
 	// wield update status
@@ -167,9 +167,9 @@
 	parent_item.update_icon()
 
 	if(iscyborg(user))
-		to_chat(user, span_notice("Подключаю дополнительный манипулятор для удержания [parent]."))
+		to_chat(user, "<span class='notice'>Подключаю дополнительный манипулятор для удержания [parent].</span>")
 	else
-		to_chat(user, span_notice("Перехватываю [parent] обоими руками."))
+		to_chat(user, "<span class='notice'>Перехватываю [parent] обоими руками.</span>")
 
 	// Play sound if one is set
 	if(wieldsound)
@@ -233,11 +233,11 @@
 		// Show message if requested
 		if(show_message)
 			if(iscyborg(user))
-				to_chat(user, span_notice("Освобождаю вспомогательный манипулятор."))
+				to_chat(user, "<span class='notice'>Освобождаю вспомогательный манипулятор.</span>")
 			else if(require_twohands)
-				to_chat(user, span_notice("Роняю [parent]."))
+				to_chat(user, "<span class='notice'>Роняю [parent].</span>")
 			else
-				to_chat(user, span_notice("Беру [parent] в одну руку."))
+				to_chat(user, "<span class='notice'>Беру [parent] в одну руку.</span>")
 
 	// Play sound if set
 	if(unwieldsound)

@@ -11,7 +11,7 @@
 		else if (query != null)
 			src << link(wikiurl)
 	else
-		to_chat(src, span_danger("The wiki URL is not set in the server configuration."))
+		to_chat(src, "<span class='danger'>The wiki URL is not set in the server configuration.</span>")
 	return
 
 /client/verb/rules()
@@ -24,7 +24,7 @@
 			return
 		src << link(rulesurl)
 	else
-		to_chat(src, span_danger("The rules URL is not set in the server configuration."))
+		to_chat(src, "<span class='danger'>The rules URL is not set in the server configuration.</span>")
 	return
 
 /client/verb/github()
@@ -37,5 +37,5 @@
 			return
 		src << link(githuburl)
 	else
-		to_chat(src, span_danger("The Github URL is not set in the server configuration."))
+		to_chat(src, "<span class='danger'>The Github URL is not set in the server configuration.</span>")
 	return

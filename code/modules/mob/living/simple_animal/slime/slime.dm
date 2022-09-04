@@ -282,8 +282,8 @@
 			return
 		if(buckled)
 			Feedstop(silent = TRUE)
-			visible_message(span_danger("[M] pulls [src] off!") , \
-				span_danger("You pull [src] off!"))
+			visible_message("<span class='danger'>[M] pulls [src] off!</span>" , \
+				"<span class='danger'>You pull [src] off!</span>")
 			return
 		attacked += 5
 		if(nutrition >= 100) //steal some nutrition. negval handled in life()
@@ -318,26 +318,26 @@
 		M.do_attack_animation(src, ATTACK_EFFECT_DISARM)
 		if(buckled == M)
 			if(prob(60))
-				M.visible_message(span_warning("[M] пытается скинуть [name]!") , \
-					span_danger("Пытаюсь скинуть [name]!"))
+				M.visible_message("<span class='warning'>[M] пытается скинуть [name]!</span>" , \
+					"<span class='danger'>Пытаюсь скинуть [name]!</span>")
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 
 			else
-				M.visible_message(span_warning("[M] удаётся побороть [name]!") , \
-					span_notice("Мне удаётся побороть [name]!"))
+				M.visible_message("<span class='warning'>[M] удаётся побороть [name]!</span>" , \
+					"<span class='notice'>Мне удаётся побороть [name]!</span>")
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 
 				discipline_slime(M)
 
 		else
 			if(prob(30))
-				buckled.visible_message(span_warning("[M] пытается побороть [name] [buckled]!") , \
-					span_warning("[M] пытается побороть мой [name]!"))
+				buckled.visible_message("<span class='warning'>[M] пытается побороть [name] [buckled]!</span>" , \
+					"<span class='warning'>[M] пытается побороть мой [name]!</span>")
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 
 			else
-				buckled.visible_message(span_warning("[M] удаётся побороть [name] [buckled]!") , \
-					span_notice("[M] удаётся побороть мой [name]!"))
+				buckled.visible_message("<span class='warning'>[M] удаётся побороть [name] [buckled]!</span>" , \
+					"<span class='notice'>[M] удаётся побороть мой [name]!</span>")
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 
 				discipline_slime(M)
@@ -364,7 +364,7 @@
 					return 1
 	if(istype(W, /obj/item/stack/sheet/mineral/plasma) && !stat) //Let's you feed slimes plasma.
 		add_friendship(user, 1)
-		to_chat(user, span_notice("Кормлю слизь плазмой. Он весело верещит."))
+		to_chat(user, "<span class='notice'>Кормлю слизь плазмой. Он весело верещит.</span>")
 		var/obj/item/stack/sheet/mineral/plasma/S = W
 		S.use(1)
 		return
@@ -373,7 +373,7 @@
 		if(prob(25))
 			user.do_attack_animation(src)
 			user.changeNext_move(CLICK_CD_MELEE)
-			to_chat(user, span_danger("[W] проходит сквозь [src]!"))
+			to_chat(user, "<span class='danger'>[W] проходит сквозь [src]!</span>")
 			return
 		if(Discipline && prob(50)) // wow, buddy, why am I getting attacked??
 			Discipline = 0
@@ -386,7 +386,7 @@
 	if(istype(W, /obj/item/storage/bag/bio))
 		var/obj/item/storage/P = W
 		if(!effectmod)
-			to_chat(user, span_warning("Слайм в настоящее время не мутирует."))
+			to_chat(user, "<span class='warning'>Слайм в настоящее время не мутирует.</span>")
 			return
 		var/hasOutput = FALSE //Have we outputted text?
 		var/hasFound = FALSE //Have we found an extract to be added?
@@ -397,23 +397,23 @@
 				applied++
 				hasFound = TRUE
 			if(applied >= SLIME_EXTRACT_CROSSING_REQUIRED)
-				to_chat(user, span_notice("Кормлю слайма как можно большим количеством экстрактов из мешка, и он мутирует!"))
+				to_chat(user, "<span class='notice'>Кормлю слайма как можно большим количеством экстрактов из мешка, и он мутирует!</span>")
 				playsound(src, 'sound/effects/attackblob.ogg', 50, TRUE)
 				spawn_corecross()
 				hasOutput = TRUE
 				break
 		if(!hasOutput)
 			if(!hasFound)
-				to_chat(user, span_warning("В сумке нет экстрактов, которые примет этот слайм!"))
+				to_chat(user, "<span class='warning'>В сумке нет экстрактов, которые примет этот слайм!</span>")
 			else
-				to_chat(user, span_notice("Кормлю слайма экстрактами из мешка."))
+				to_chat(user, "<span class='notice'>Кормлю слайма экстрактами из мешка.</span>")
 				playsound(src, 'sound/effects/attackblob.ogg', 50, TRUE)
 		return
 	..()
 
 /mob/living/simple_animal/slime/proc/spawn_corecross()
 	var/static/list/crossbreeds = subtypesof(/obj/item/slimecross)
-	visible_message(span_danger("[capitalize(src.name)] вздрагивает, его мутировавшее ядро поглощает остальную часть его тела!"))
+	visible_message("<span class='danger'>[capitalize(src.name)] вздрагивает, его мутировавшее ядро поглощает остальную часть его тела!</span>")
 	playsound(src, 'sound/magic/smoke.ogg', 50, TRUE)
 	var/crosspath
 	for(var/X in crossbreeds)
@@ -424,7 +424,7 @@
 	if(crosspath)
 		new crosspath(loc)
 	else
-		visible_message(span_warning("Мутировавшее ядро вздрагивает и падает в лужу, не в силах сохранить свою форму."))
+		visible_message("<span class='warning'>Мутировавшее ядро вздрагивает и падает в лужу, не в силах сохранить свою форму.</span>")
 	qdel(src)
 
 /mob/living/simple_animal/slime/proc/apply_water()

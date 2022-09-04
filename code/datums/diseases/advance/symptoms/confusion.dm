@@ -55,9 +55,9 @@ Bonus
 	switch(A.stage)
 		if(1, 2, 3, 4)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(M, span_warning("[pick("Голова болит.", "Разум на мгновение остался пустым.")]"))
+				to_chat(M, "<span class='warning'>[pick("Голова болит.", "Разум на мгновение остался пустым.")]</span>")
 		else
-			to_chat(M, span_userdanger("Не могу думать!"))
+			to_chat(M, "<span class='userdanger'>Не могу думать!</span>")
 			M.add_confusion(16 * power)
 			if(brain_damage)
 				M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3 * power, 80)

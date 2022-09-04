@@ -25,15 +25,15 @@
 	return TRUE
 
 /datum/surgery_step/fix_brain/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю исправлять мозг [skloname(target.name, RODITELNI, target.gender)]...") ,
-		span_notice("[user] начинает исправлять мозг [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начинает операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, "<span class='notice'>Начинаю исправлять мозг [skloname(target.name, RODITELNI, target.gender)]...</span>" ,
+		"<span class='notice'>[user] начинает исправлять мозг [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+		"<span class='notice'>[user] начинает операцию на мозге [skloname(target.name, RODITELNI, target.gender)].</span>")
 	display_pain(target, "Моя голова отдает невообразимой болью!")
 
 /datum/surgery_step/fix_brain/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, span_notice("Успешно исправил мозг [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] успешно исправил мозг [skloname(target.name, RODITELNI, target.gender)]!") ,
-		span_notice("[user] завершил операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, "<span class='notice'>Успешно исправил мозг [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+		"<span class='notice'>[user] успешно исправил мозг [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
+		"<span class='notice'>[user] завершил операцию на мозге [skloname(target.name, RODITELNI, target.gender)].</span>")
 	display_pain(target, "Боль в голове утихает, думать становится немного проще!")
 	if(target.mind?.has_antag_datum(/datum/antagonist/brainwashed))
 		target.mind.remove_antag_datum(/datum/antagonist/brainwashed)
@@ -45,12 +45,12 @@
 
 /datum/surgery_step/fix_brain/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	if(target.getorganslot(ORGAN_SLOT_BRAIN))
-		display_results(user, target, span_warning("[gvorno(TRUE)], но я облажался, нанеся еще больший ущерб!") ,
-			span_warning("[user] облажался, повредив мозг!") ,
-			span_notice("[user] завершил операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
+		display_results(user, target, "<span class='warning'>[gvorno(TRUE)], но я облажался, нанеся еще больший ущерб!</span>" ,
+			"<span class='warning'>[user] облажался, повредив мозг!</span>" ,
+			"<span class='notice'>[user] завершил операцию на мозге [skloname(target.name, RODITELNI, target.gender)].</span>")
 		display_pain(target, "Голова пульсирует с ужасной болью, я едва могу соображать!")
 		target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 60)
 		target.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_LOBOTOMY)
 	else
-		user.visible_message(span_warning("[user] внезапно замечает что мозг [user.ru_who()] над которым работал [user.p_were()] пропал.") , span_warning("Неожиданно обнаруживаю что мозг, над которым я работал, исчез."))
+		user.visible_message("<span class='warning'>[user] внезапно замечает что мозг [user.ru_who()] над которым работал [user.p_were()] пропал.</span>" , "<span class='warning'>Неожиданно обнаруживаю что мозг, над которым я работал, исчез.</span>")
 	return FALSE

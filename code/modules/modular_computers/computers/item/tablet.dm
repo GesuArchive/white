@@ -48,18 +48,18 @@
 		if(W.w_class >= WEIGHT_CLASS_SMALL) // Anything equal to or larger than small won't work
 			return
 		if(inserted_item)
-			to_chat(user, span_warning("There is already \a [inserted_item] in \the [src]!"))
+			to_chat(user, "<span class='warning'>There is already \a [inserted_item] in \the [src]!</span>")
 		else
 			if(!user.transferItemToLoc(W, src))
 				return
-			to_chat(user, span_notice("You insert \the [W] into \the [src]."))
+			to_chat(user, "<span class='notice'>You insert \the [W] into \the [src].</span>")
 			inserted_item = W
 			playsound(src, 'sound/machines/pda_button1.ogg', 50, TRUE)
 
 	if(istype(W, /obj/item/paper))
 		var/obj/item/paper/paper = W
 
-		to_chat(user, span_notice("You scan \the [W] into \the [src]."))
+		to_chat(user, "<span class='notice'>You scan \the [W] into \the [src].</span>")
 		note = paper.info
 
 /obj/item/modular_computer/tablet/AltClick(mob/user)
@@ -97,13 +97,13 @@
 		return
 
 	if(inserted_item)
-		to_chat(user, span_notice("You remove [inserted_item] from [src]."))
+		to_chat(user, "<span class='notice'>You remove [inserted_item] from [src].</span>")
 		user.put_in_hands(inserted_item)
 		inserted_item = null
 		update_appearance()
 		playsound(src, 'sound/machines/pda_button2.ogg', 50, TRUE)
 	else
-		to_chat(user, span_warning("This tablet does not have a pen in it!"))
+		to_chat(user, "<span class='warning'>This tablet does not have a pen in it!</span>")
 
 // Tablet 'splosion..
 
@@ -117,9 +117,9 @@
 
 	if (ismob(loc))
 		var/mob/M = loc
-		M.show_message(span_userdanger("Your [src] explodes!"), MSG_VISUAL, span_warning("You hear a loud *pop*!"), MSG_AUDIBLE)
+		M.show_message("<span class='userdanger'>Your [src] explodes!</span>", MSG_VISUAL, "<span class='warning'>You hear a loud *pop*!</span>", MSG_AUDIBLE)
 	else
-		visible_message(span_danger("[src] explodes!"), span_warning("You hear a loud *pop*!"))
+		visible_message("<span class='danger'>[src] explodes!</span>", "<span class='warning'>You hear a loud *pop*!</span>")
 
 	if(T)
 		T.hotspot_expose(700,125)
@@ -154,9 +154,9 @@
 
 /obj/item/modular_computer/tablet/nukeops/emag_act(mob/user)
 	if(!enabled)
-		to_chat(user, span_warning("Сначала мне нужно повернуть [src]."))
+		to_chat(user, "<span class='warning'>Сначала мне нужно повернуть [src].</span>")
 		return FALSE
-	to_chat(user, span_notice("Провожу <b>[src.name]</b>. На экране на короткое время отображается следующее сообщение: \"ИНЪЕКЦИЯ КОДА ПАМЯТИ ОБНАРУЖЕНА И УСПЕШНО ПОМЕЩЕНА В КАРАНТИН\"."))
+	to_chat(user, "<span class='notice'>Провожу <b>[src.name]</b>. На экране на короткое время отображается следующее сообщение: \"ИНЪЕКЦИЯ КОДА ПАМЯТИ ОБНАРУЖЕНА И УСПЕШНО ПОМЕЩЕНА В КАРАНТИН\".</span>")
 	return FALSE
 
 /// Borg Built-in tablet interface
@@ -251,7 +251,7 @@
 	if(!caller || !caller.alert_able || caller.alert_silenced || !alerttext) //Yeah, we're checking alert_able. No, you don't get to make alerts that the user can't silence.
 		return
 	borgo.playsound_local(src, sound, 50, TRUE)
-	to_chat(borgo, span_notice("[src] отображает [caller.filedesc] уведомление: [alerttext]"))
+	to_chat(borgo, "<span class='notice'>[src] отображает [caller.filedesc] уведомление: [alerttext]</span>")
 
 /obj/item/modular_computer/tablet/integrated/ui_state(mob/user)
 	return GLOB.reverse_contained_state
@@ -299,7 +299,7 @@
 		. += mutable_appearance(init_icon, "light_overlay")
 
 /obj/item/modular_computer/tablet/pda/attack_ai(mob/user)
-	to_chat(user, span_notice("It doesn't feel right to snoop around like that..."))
+	to_chat(user, "<span class='notice'>It doesn't feel right to snoop around like that...</span>")
 	return // we don't want ais or cyborgs using a private role tablet
 
 /obj/item/modular_computer/tablet/pda/Initialize(mapload)

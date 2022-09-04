@@ -259,7 +259,7 @@
 	. = TRUE
 
 	if(!allowed(usr))
-		to_chat(usr, span_warning("Доступ запрещён."))
+		to_chat(usr, "<span class='warning'>Доступ запрещён.</span>")
 		return FALSE
 
 	switch(action)

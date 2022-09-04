@@ -334,7 +334,7 @@
 				cut_color(target_wire)
 				. = TRUE
 			else
-				to_chat(L, span_warning("Нужны кусачки!"))
+				to_chat(L, "<span class='warning'>Нужны кусачки!</span>")
 		if("pulse")
 			I = L.is_holding_tool_quality(TOOL_MULTITOOL)
 			if(I || isAdminGhostAI(usr))
@@ -343,7 +343,7 @@
 				pulse_color(target_wire, L)
 				. = TRUE
 			else
-				to_chat(L, span_warning("Нужен мультитул!"))
+				to_chat(L, "<span class='warning'>Нужен мультитул!</span>")
 		if("attach")
 			if(is_attached(target_wire))
 				I = detach_assembly(target_wire)
@@ -361,6 +361,6 @@
 							A.forceMove(L.drop_location())
 						. = TRUE
 					else
-						to_chat(L, span_warning("Нужна штука, которую я смогу прикрепить!"))
+						to_chat(L, "<span class='warning'>Нужна штука, которую я смогу прикрепить!</span>")
 
 #undef MAXIMUM_EMP_WIRES

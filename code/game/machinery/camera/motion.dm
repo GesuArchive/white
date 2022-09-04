@@ -61,7 +61,7 @@
 		return FALSE
 	if(status)
 		if(alarm_manager.send_alarm(ALARM_MOTION, src, src))
-			visible_message(span_warning("Красный огонек зажигается на [src]!"))
+			visible_message("<span class='warning'>Красный огонек зажигается на [src]!</span>")
 	detectTime = -1
 	return TRUE
 

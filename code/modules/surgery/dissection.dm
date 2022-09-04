@@ -49,9 +49,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("Начинаю патологоанатомическое вскрытие [target][ending]"),
-		span_notice("[user] начинает патологоанатомическое вскрытие [target]..."),
-		span_notice("[user] начинает патологоанатомическое вскрытие!"),
+		"<span class='notice'>Начинаю патологоанатомическое вскрытие [target][ending]</span>",
+		"<span class='notice'>[user] начинает патологоанатомическое вскрытие [target]...</span>",
+		"<span class='notice'>[user] начинает патологоанатомическое вскрытие!</span>",
 	)
 
 /datum/surgery_step/dissection/success(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
@@ -67,9 +67,9 @@
 	display_results(
 		user,
 		target,
-		span_notice("Кажется я это был не очень аккуратный разрез! Впрочем пациенту кажется уже все равно..."),
-		span_notice("[user] действует очень неаккуратно! Впрочем пациенту кажется уже все равно..."),
-		span_notice("[user] действует очень неаккуратно! Впрочем пациенту кажется уже все равно...!")
+		"<span class='notice'>Кажется я это был не очень аккуратный разрез! Впрочем пациенту кажется уже все равно...</span>",
+		"<span class='notice'>[user] действует очень неаккуратно! Впрочем пациенту кажется уже все равно...</span>",
+		"<span class='notice'>[user] действует очень неаккуратно! Впрочем пациенту кажется уже все равно...!</span>"
 	)
 
 	target.adjustOrganLoss(pick(

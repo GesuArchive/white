@@ -22,18 +22,18 @@
 /obj/item/discovery_scanner/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'>Левый клик по чему угодно для начала исследований.</span>"
-	. += span_notice("\n[capitalize(src.name)] имеет безлимитный радиус, можете сканировать хоть через камеры.")
-	. += span_notice("\nНаучные очки помогут узнать что может оказаться полезным.")
+	. += "<span class='notice'>\n[capitalize(src.name)] имеет безлимитный радиус, можете сканировать хоть через камеры.</span>"
+	. += "<span class='notice'>\nНаучные очки помогут узнать что может оказаться полезным.</span>"
 
 /obj/item/discovery_scanner/attack_obj(obj/O, mob/living/user)
 	if(istype(O, /obj/machinery/computer/rdconsole))
-		to_chat(user, span_notice("Привязываю [src] к [O]."))
+		to_chat(user, "<span class='notice'>Привязываю [src] к [O].</span>")
 		var/obj/machinery/computer/rdconsole/rdconsole = O
 		linked_techweb = rdconsole.stored_research
 		return
 	. = ..()
 
 /obj/item/discovery_scanner/proc/begin_scanning(mob/user, datum/component/discoverable/discoverable)
-	to_chat(user, span_notice("Начинаю сканировать [discoverable.parent]..."))
+	to_chat(user, "<span class='notice'>Начинаю сканировать [discoverable.parent]...</span>")
 	if(do_after(user, 50, target=get_turf(user)))
 		discoverable.discovery_scan(linked_techweb, user)

@@ -51,7 +51,7 @@
 		var/organ_nutriments = 0
 		for(var/datum/reagent/consumable/nutriment/N in O.reagents.reagent_list)
 			organ_nutriments += N.volume * N.nutriment_factor
-		to_chat(owner, span_userdanger("Чувствую жгучую боль в районе [O.name]!"))
+		to_chat(owner, "<span class='userdanger'>Чувствую жгучую боль в районе [O.name]!</span>")
 		qdel(O)
 		return organ_nutriments*5
 	if(!HAS_TRAIT(owner, TRAIT_HUSK) && prob(10))

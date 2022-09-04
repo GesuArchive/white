@@ -72,7 +72,7 @@
 	AddComponent(/datum/component/two_handed, force_unwielded=100, force_wielded=500000) // Kills you DEAD
 
 /obj/item/pitchfork/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] impales [user.p_them()]self in [user.p_their()] abdomen with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message("<span class='suicide'>[user] impales [user.p_them()]self in [user.p_their()] abdomen with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return (BRUTELOSS)
 
 /obj/item/pitchfork/demonic/ascended/afterattack(atom/target, mob/user, proximity)
@@ -81,7 +81,7 @@
 		return
 	if(iswallturf(target))
 		var/turf/closed/wall/W = target
-		user.visible_message(span_danger("[user] blasts [target] with [src]!"))
+		user.visible_message("<span class='danger'>[user] blasts [target] with [src]!</span>")
 		playsound(target, 'sound/magic/disintegrate.ogg', 100, TRUE)
 		W.break_wall()
 		W.ScrapeAway(flags = CHANGETURF_INHERIT_AIR)

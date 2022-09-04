@@ -73,21 +73,21 @@ Difficulty: Hard
 	name = "Heavy Stomp"
 	icon_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "sniper_zoom"
-	chosen_message = span_colossus("You are now stomping the ground around you.")
+	chosen_message = "<span class='colossus'>You are now stomping the ground around you.</span>"
 	chosen_attack_num = 1
 
 /datum/action/innate/megafauna_attack/teleport
 	name = "Teleport"
 	icon_icon = 'icons/effects/bubblegum.dmi'
 	button_icon_state = "smack ya one"
-	chosen_message = span_colossus("You are now teleporting at the target you click on.")
+	chosen_message = "<span class='colossus'>You are now teleporting at the target you click on.</span>"
 	chosen_attack_num = 2
 
 /datum/action/innate/megafauna_attack/shockwave_scream
 	name = "Shockwave Scream"
 	icon_icon = 'icons/turf/walls/wall.dmi'
 	button_icon_state = "wall-0"
-	chosen_message = span_colossus("You are now screeching, disorienting targets around you.")
+	chosen_message = "<span class='colossus'>You are now screeching, disorienting targets around you.</span>"
 	chosen_attack_num = 3
 
 /mob/living/simple_animal/hostile/megafauna/wendigo/Initialize(mapload)
@@ -154,7 +154,7 @@ Difficulty: Hard
 			for(var/mob/living/L in stomp_turf)
 				if(L == source || L.throwing)
 					continue
-				to_chat(L, span_userdanger("[source]'s ground slam shockwave sends you flying!"))
+				to_chat(L, "<span class='userdanger'>[source]'s ground slam shockwave sends you flying!</span>")
 				var/turf/thrownat = get_ranged_target_turf_direct(source, L, throw_range, rand(-10, 10))
 				L.throw_at(thrownat, 8, 2, null, TRUE, force = MOVE_FORCE_OVERPOWERING, gentle = TRUE)
 				L.apply_damage(20, BRUTE, wound_bonus=CANT_WOUND)
@@ -208,7 +208,7 @@ Difficulty: Hard
 	animate(pixel_z = 0, time = 1)
 	for(var/mob/living/dizzy_target in get_hearers_in_view(7, src) - src)
 		dizzy_target.Dizzy(6)
-		to_chat(dizzy_target, span_danger("The wendigo screams loudly!"))
+		to_chat(dizzy_target, "<span class='danger'>The wendigo screams loudly!</span>")
 	SLEEP_CHECK_DEATH(1 SECONDS, src)
 	spiral_attack()
 	update_cooldowns(list(COOLDOWN_UPDATE_SET_MELEE = 3 SECONDS, COOLDOWN_UPDATE_SET_RANGED = 3 SECONDS))
@@ -298,7 +298,7 @@ Difficulty: Hard
 	var/mob/living/carbon/human/human_user = user
 	if(!human_user.mind)
 		return
-	to_chat(human_user, span_danger("Power courses through you! You can now shift your form at will."))
+	to_chat(human_user, "<span class='danger'>Power courses through you! You can now shift your form at will.</span>")
 	var/datum/action/cooldown/spell/shapeshift/polar_bear/transformation_spell = new(user.mind || user)
 	transformation_spell.Grant(user)
 	playsound(human_user.loc, 'sound/items/drink.ogg', rand(10,50), TRUE)

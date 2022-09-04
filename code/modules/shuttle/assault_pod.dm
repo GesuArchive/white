@@ -59,6 +59,6 @@
 			S.recall_docking_port_id = "[landing_zone.id]"
 			S.valid_docks = list("[landing_zone.id]")
 
-	to_chat(user, span_notice("Landing zone set."))
+	to_chat(user, "<span class='notice'>Landing zone set.</span>")
 
 	qdel(src)

@@ -36,7 +36,7 @@
 	if(in_range(user, src) || isobserver(user))
 		. += "<hr><span class='notice'>Дисплей: Скорость зарядки <b>[recharge_speed] Дж</b> за цикл.</span>"
 		if(repairs)
-			. += span_notice("\n[capitalize(src.name)] поддерживает функцию автоматизированного ремонта.")
+			. += "<span class='notice'>\n[capitalize(src.name)] поддерживает функцию автоматизированного ремонта.</span>"
 
 
 /obj/machinery/recharge_station/on_set_is_operational(old_value)

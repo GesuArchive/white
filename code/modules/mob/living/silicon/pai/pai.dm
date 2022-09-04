@@ -263,11 +263,11 @@
 /obj/item/paicard/attackby(obj/item/used, mob/user, params)
 	if(pai && istype(used, /obj/item/encryptionkey))
 		if(!pai.encryptmod)
-			to_chat(user, span_alert("Encryption Key ports not configured."))
+			to_chat(user, "<span class='alert'>Encryption Key ports not configured.</span>")
 			return
 		user.set_machine(src)
 		pai.radio.attackby(used, user, params)
-		to_chat(user, span_notice("You insert [used] into the [src]."))
+		to_chat(user, "<span class='notice'>You insert [used] into the [src].</span>")
 		return
 
 	return ..()
@@ -275,8 +275,8 @@
 /obj/item/paicard/emag_act(mob/user) // Emag to wipe the master DNA and supplemental directive
 	if(!pai)
 		return
-	to_chat(user, span_notice("You override [pai]'s directive system, clearing its master string and supplied directive."))
-	to_chat(pai, span_userdanger("Warning: System override detected, check directive sub-system for any changes."))
+	to_chat(user, "<span class='notice'>You override [pai]'s directive system, clearing its master string and supplied directive.</span>")
+	to_chat(pai, "<span class='userdanger'>Warning: System override detected, check directive sub-system for any changes.</span>")
 	log_game("[key_name(user)] emagged [key_name(pai)], wiping their master DNA and supplemental directive.")
 	pai.emagged = TRUE
 	pai.master = null

@@ -41,16 +41,16 @@
 	if (deconstruction != BLASTDOOR_FINISHED)
 		return
 	if(id != 1) // Быстрый пропуск проверки для стандартного 1 канала
-		to_chat(user, span_notice("Кажется на этом шлюзе уже меняли заводские настройки ID. Начинаю перебирать коды..."))
+		to_chat(user, "<span class='notice'>Кажется на этом шлюзе уже меняли заводские настройки ID. Начинаю перебирать коды...</span>")
 		if(!do_after(user, 60 SECONDS, user))
 			return TRUE
 		if(!encrypted) // Проверка на пользовательский диапазон от 1 до 100, обычный мультитул может взламывать только такие шлюзы
-			to_chat(user, span_notice("Текущий ID [id]..."))
+			to_chat(user, "<span class='notice'>Текущий ID [id]...</span>")
 		else
 			if(istype(tool, /obj/item/multitool/mechcomp) || istype(tool, /obj/item/multitool/tricorder) || istype(tool, /obj/item/closet_hacker))
-				to_chat(user, span_notice("Текущий ID [id]..."))
+				to_chat(user, "<span class='notice'>Текущий ID [id]...</span>")
 			else
-				to_chat(user, span_notice("ID закодирован более сложным шифром, мне понадобится устройство помощнее для взлома этого шлюза..."))
+				to_chat(user, "<span class='notice'>ID закодирован более сложным шифром, мне понадобится устройство помощнее для взлома этого шлюза...</span>")
 				return
 
 	var/change_id = tgui_input_number(user, "Установите номер ID", "Канал", id, 100)
@@ -58,7 +58,7 @@
 		return
 	id = change_id
 	encrypted = FALSE
-	to_chat(user, span_notice("Меняю ID на [id]."))
+	to_chat(user, "<span class='notice'>Меняю ID на [id].</span>")
 	balloon_alert(user, "ID изменен")
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
@@ -125,15 +125,15 @@
 	. = ..()
 	if(panel_open)
 		if(deconstruction == BLASTDOOR_FINISHED)
-			. += span_notice("Панель технического обслуживания открыта, и плата может быть <b>извлечена</b>.")
+			. += "<span class='notice'>Панель технического обслуживания открыта, и плата может быть <b>извлечена</b>.</span>"
 		else if(deconstruction == BLASTDOOR_NEEDS_ELECTRONICS)
-			. += span_notice("<i>Плата</i> отсутствует, и <b>провода</b> торчат наружу.")
+			. += "<span class='notice'><i>Плата</i> отсутствует, и <b>провода</b> торчат наружу.</span>"
 		else if(deconstruction == BLASTDOOR_NEEDS_WIRES)
-			. += span_notice("<i>Провода</i> извлечены, теперь корпус можно <b>разварить на части</b>.")
+			. += "<span class='notice'><i>Провода</i> извлечены, теперь корпус можно <b>разварить на части</b>.</span>"
 /*			if(!anchored)
-				. += span_notice("<i>Анкерные болты</i> <b>откручены</b>.")
+				. += "<span class='notice'><i>Анкерные болты</i> <b>откручены</b>.</span>"
 			else
-				. += span_notice("<i>Анкерные болты</i> <b>закручены</b>.")
+				. += "<span class='notice'><i>Анкерные болты</i> <b>закручены</b>.</span>"
 */
 // 	Ручная сборка
 
@@ -150,9 +150,9 @@
 			var/datum/crafting_recipe/recipe = locate(recipe_type) in GLOB.crafting_recipes
 			var/amount = recipe.reqs[/obj/item/stack/sheet/plasteel]
 			if(S.amount < amount)
-				to_chat(user, span_warning("Для сборки шлюза необходимо по крайней мере 10 метров кабеля."))
+				to_chat(user, "<span class='warning'>Для сборки шлюза необходимо по крайней мере 10 метров кабеля.</span>")
 				return
-			to_chat(user, span_notice("Закрепляю проводку..."))
+			to_chat(user, "<span class='notice'>Закрепляю проводку...</span>")
 			playsound(user, 'sound/items/deconstruct.ogg', 100, TRUE)
 			if(!do_after(user, 2 SECONDS, src))
 				return TRUE
@@ -167,7 +167,7 @@
 		if(!panel_open)
 			return
 		if (deconstruction == BLASTDOOR_NEEDS_ELECTRONICS)
-			to_chat(user, span_notice("Устанавливаю плату на место..."))
+			to_chat(user, "<span class='notice'>Устанавливаю плату на место...</span>")
 			playsound(user, 'sound/items/deconstruct.ogg', 100, TRUE)
 			if(!do_after(user, 2 SECONDS, src))
 				return TRUE
@@ -231,9 +231,9 @@
 /obj/machinery/door/poddoor/attack_alien(mob/living/carbon/alien/humanoid/user, list/modifiers)
 	if(density & !(resistance_flags & INDESTRUCTIBLE))
 		add_fingerprint(user)
-		user.visible_message(span_warning("[user] begins prying open [src]."),\
-					span_noticealien("You begin digging your claws into [src] with all your might!"),\
-					span_warning("You hear groaning metal..."))
+		user.visible_message("<span class='warning'>[user] begins prying open [src].</span>",\
+					"<span class='noticealien'>You begin digging your claws into [src] with all your might!</span>",\
+					"<span class='warning'>You hear groaning metal...</span>")
 		playsound(src, 'sound/machines/airlock_alien_prying.ogg', 100, TRUE)
 
 		var/time_to_open = 5 SECONDS
@@ -242,7 +242,7 @@
 
 		if(do_after(user, time_to_open, src))
 			if(density && !open(TRUE)) //The airlock is still closed, but something prevented it opening. (Another player noticed and bolted/welded the airlock in time!)
-				to_chat(user, span_warning("Despite your efforts, [src] managed to resist your attempts to open it!"))
+				to_chat(user, "<span class='warning'>Despite your efforts, [src] managed to resist your attempts to open it!</span>")
 
 	else
 		return ..()
@@ -355,9 +355,9 @@
 		return
 	if(density & !(resistance_flags & INDESTRUCTIBLE))
 		add_fingerprint(user)
-		user.visible_message(span_warning("[user] начинает отжимать [src].") ,\
-					span_noticealien("Вцепляюсь когтями в [src] и наваливаюсь всей своей мощью на створки!") ,\
-					span_warning("Где-то рядом раздается скрежет металла..."))
+		user.visible_message("<span class='warning'>[user] начинает отжимать [src].</span>" ,\
+					"<span class='noticealien'>Вцепляюсь когтями в [src] и наваливаюсь всей своей мощью на створки!</span>" ,\
+					"<span class='warning'>Где-то рядом раздается скрежет металла...</span>")
 		playsound(src, 'sound/machines/airlock_alien_prying.ogg', 100, TRUE)
 
 		var/time_to_open = 5 SECONDS
@@ -366,7 +366,7 @@
 
 		if(do_after(user, time_to_open, src))
 			if(density && !open(TRUE)) //The airlock is still closed, but something prevented it opening. (Another player noticed and bolted/welded the airlock in time!)
-				to_chat(user, span_warning("Несмотря на все мои потуги, [src] сопротивляется попыткам его открытия!"))
+				to_chat(user, "<span class='warning'>Несмотря на все мои потуги, [src] сопротивляется попыткам его открытия!</span>")
 
 	else
 		return ..()

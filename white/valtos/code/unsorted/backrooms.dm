@@ -30,7 +30,7 @@
 	sound_environment = SOUND_ENVIRONMENT_CARPETED_HALLWAY
 	flags_1 = NONE
 	mood_bonus = -1
-	mood_message = span_notice("Где я...\n")
+	mood_message = "<span class='notice'>Где я...\n</span>"
 
 // ещё один костыльный оверрайт
 /area/backrooms/Entered(atom/movable/arrived, area/old_area)

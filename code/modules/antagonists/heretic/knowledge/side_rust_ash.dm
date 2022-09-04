@@ -40,12 +40,12 @@
 	route = PATH_SIDE
 
 /datum/heretic_knowledge/curse/corrosion/curse(mob/living/carbon/human/chosen_mob)
-	to_chat(chosen_mob, span_danger("Ужасно себя чувствую."))
+	to_chat(chosen_mob, "<span class='danger'>Ужасно себя чувствую.</span>")
 	chosen_mob.apply_status_effect(/datum/status_effect/corrosion_curse)
 
 /datum/heretic_knowledge/curse/corrosion/uncurse(mob/living/carbon/human/chosen_mob)
 	chosen_mob.remove_status_effect(/datum/status_effect/corrosion_curse)
-	to_chat(chosen_mob, span_notice("Мне становится лучше."))
+	to_chat(chosen_mob, "<span class='notice'>Мне становится лучше.</span>")
 
 /datum/heretic_knowledge/summon/rusty
 	name = "Ритуал Ржавчины"

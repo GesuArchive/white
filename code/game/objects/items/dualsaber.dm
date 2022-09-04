@@ -47,7 +47,7 @@
 
 	if(user?.has_dna())
 		if(user.dna.check_mutation(HULK))
-			to_chat(user, span_warning("You lack the grace to wield this!"))
+			to_chat(user, "<span class='warning'>You lack the grace to wield this!</span>")
 			return COMPONENT_TWOHANDED_BLOCK_WIELD
 	wielded = TRUE
 	w_class = w_class_on
@@ -79,7 +79,7 @@
 
 /obj/item/dualsaber/suicide_act(mob/living/carbon/user)
 	if(wielded)
-		user.visible_message(span_suicide("[user] begins spinning way too fast! It looks like [user.p_theyre()] trying to commit suicide!"))
+		user.visible_message("<span class='suicide'>[user] begins spinning way too fast! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 
 		var/obj/item/bodypart/head/myhead = user.get_bodypart(BODY_ZONE_HEAD)//stole from chainsaw code
 		var/obj/item/organ/brain/B = user.getorganslot(ORGAN_SLOT_BRAIN)
@@ -94,11 +94,11 @@
 					myhead.drop_limb()
 				sleep(3)
 			else
-				user.visible_message(span_suicide("[user] panics and starts choking to death!"))
+				user.visible_message("<span class='suicide'>[user] panics and starts choking to death!</span>")
 				return OXYLOSS
 
 	else
-		user.visible_message(span_suicide("[user] begins beating [user.ru_na()]self to death with <b>[src.name]</b>'s handle! It probably would've been cooler if [user.ru_who()] turned it on first!"))
+		user.visible_message("<span class='suicide'>[user] begins beating [user.ru_na()]self to death with <b>[src.name]</b>'s handle! It probably would've been cooler if [user.ru_who()] turned it on first!</span>")
 	return BRUTELOSS
 
 /obj/item/dualsaber/Initialize(mapload)
@@ -124,7 +124,7 @@
 /obj/item/dualsaber/attack(mob/target, mob/living/carbon/human/user)
 	if(user.has_dna())
 		if(user.dna.check_mutation(HULK))
-			to_chat(user, span_warning("You grip the blade too hard and accidentally drop it!"))
+			to_chat(user, "<span class='warning'>You grip the blade too hard and accidentally drop it!</span>")
 			if(wielded)
 				user.dropItemToGround(src, force=TRUE)
 				return
@@ -139,7 +139,7 @@
 	dance_rotate(user, CALLBACK(user, /mob.proc/emote, "spin"))
 
 /obj/item/dualsaber/proc/impale(mob/living/user)
-	to_chat(user, span_warning("You twirl around a bit before losing your balance and impaling yourself on [src]."))
+	to_chat(user, "<span class='warning'>You twirl around a bit before losing your balance and impaling yourself on [src].</span>")
 	if(wielded)
 		user.take_bodypart_damage(20,25,check_armor = TRUE)
 	else
@@ -171,7 +171,7 @@
 		var/mob/living/carbon/C = user
 		if(C.wear_mask)
 			in_mouth = ", barely missing [user.ru_ego()] nose"
-	. = span_warning("[user] swings [user.ru_ego()] [name][in_mouth]. [user.ru_who(TRUE)] light[user.p_s()] [A.loc == user ? "[user.ru_ego()] [A.name]" : A] in the process.")
+	. = "<span class='warning'>[user] swings [user.ru_ego()] [name][in_mouth]. [user.ru_who(TRUE)] light[user.p_s()] [A.loc == user ? "[user.ru_ego()] [A.name]" : A] in the process.</span>"
 	playsound(loc, hitsound, get_clamped_volume(), TRUE, -1)
 	add_fingerprint(user)
 	// Light your candles while spinning around the room
@@ -193,10 +193,10 @@
 	if(W.tool_behaviour == TOOL_MULTITOOL)
 		if(!hacked)
 			hacked = TRUE
-			to_chat(user, span_warning("2XRNBW_ENGAGE"))
+			to_chat(user, "<span class='warning'>2XRNBW_ENGAGE</span>")
 			saber_color = "rainbow"
 			update_icon()
 		else
-			to_chat(user, span_warning("It's starting to look like a triple rainbow - no, nevermind."))
+			to_chat(user, "<span class='warning'>It's starting to look like a triple rainbow - no, nevermind.</span>")
 	else
 		return ..()

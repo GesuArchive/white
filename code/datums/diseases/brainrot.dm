@@ -25,7 +25,7 @@
 			if(DT_PROB(1, delta_time))
 				affected_mob.emote("yawn")
 			if(DT_PROB(1, delta_time))
-				to_chat(affected_mob, span_danger("Я это не я."))
+				to_chat(affected_mob, "<span class='danger'>Я это не я.</span>")
 			if(DT_PROB(2.5, delta_time))
 				affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 1, 170)
 		if(3)
@@ -36,7 +36,7 @@
 			if(DT_PROB(5, delta_time))
 				affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 2, 170)
 				if(prob(2))
-					to_chat(affected_mob, span_danger("Пытаюсь вспомнить что-то важное... но не могу."))
+					to_chat(affected_mob, "<span class='danger'>Пытаюсь вспомнить что-то важное... но не могу.</span>")
 
 		if(4)
 			if(DT_PROB(1, delta_time))
@@ -46,11 +46,11 @@
 			if(DT_PROB(7.5, delta_time))
 				affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3, 170)
 				if(prob(2))
-					to_chat(affected_mob, span_danger("Странное жужжание наполняет голову, унося все мысли."))
+					to_chat(affected_mob, "<span class='danger'>Странное жужжание наполняет голову, унося все мысли.</span>")
 			if(DT_PROB(1.5, delta_time))
-				to_chat(affected_mob, span_danger("Сознание покидает меня..."))
-				affected_mob.visible_message(span_warning("[affected_mob] отрубается!") , \
-											span_userdanger("Отрубаюсь!"))
+				to_chat(affected_mob, "<span class='danger'>Сознание покидает меня...</span>")
+				affected_mob.visible_message("<span class='warning'>[affected_mob] отрубается!</span>" , \
+											"<span class='userdanger'>Отрубаюсь!</span>")
 				affected_mob.Unconscious(rand(100, 200))
 				if(prob(1))
 					affected_mob.emote("snore")

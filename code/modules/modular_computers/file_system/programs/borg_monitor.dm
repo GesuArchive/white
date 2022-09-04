@@ -43,7 +43,7 @@
 	var/obj/item/card/id/stored_card = computer.GetID()
 	if(istype(stored_card) && stored_card.registered_name)
 		username = "user [stored_card.registered_name]"
-	to_chat(borgo, span_userdanger("Запрос файла системного журнала получен от [username]. Идёт загрузка."))//Могут содержаться ужасающие улики, так что предупреждай борга
+	to_chat(borgo, "<span class='userdanger'>Запрос файла системного журнала получен от [username]. Идёт загрузка.</span>")//Могут содержаться ужасающие улики, так что предупреждай борга
 	borgo.logevent("File request by [username]: /var/logs/syslog")
 	return TRUE
 
@@ -55,7 +55,7 @@
 	var/turf/here = get_turf(computer)
 	var/turf/there = get_turf(DL_source)
 	if(!here.Adjacent(there))//If someone walked away, cancel the download
-		to_chat(DL_source, span_danger("Ошибка загрузки журнала: общая ошибка подключения."))//Пусть борг знает, что загрузка остановлена
+		to_chat(DL_source, "<span class='danger'>Ошибка загрузки журнала: общая ошибка подключения.</span>")//Пусть борг знает, что загрузка остановлена
 		DL_source = null
 		DL_progress = -1
 		return

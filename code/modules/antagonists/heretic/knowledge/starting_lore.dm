@@ -71,7 +71,7 @@ GLOBAL_LIST_INIT(heretic_start_knowledge, initialize_starting_knowledge())
 				where_to_put_our_heart = look_for_backup
 				our_heretic.living_heart_organ_slot = backup_slot
 				required_organ_type = backup_organs[backup_slot]
-				to_chat(user, span_boldnotice("As your species does not have a heart, your Living Heart is located in your [look_for_backup.name]."))
+				to_chat(user, "<span class='boldnotice'>As your species does not have a heart, your Living Heart is located in your [look_for_backup.name].</span>")
 				break
 
 	if(where_to_put_our_heart)
@@ -84,7 +84,7 @@ GLOBAL_LIST_INIT(heretic_start_knowledge, initialize_starting_knowledge())
 			you will additionally require a usable organic [where_to_put_our_heart.name] in the transmutation."
 
 	else
-		to_chat(user, span_boldnotice("You don't have a heart, or any chest organs for that matter. You didn't get a Living Heart because of it."))
+		to_chat(user, "<span class='boldnotice'>You don't have a heart, or any chest organs for that matter. You didn't get a Living Heart because of it.</span>")
 
 /datum/heretic_knowledge/living_heart/on_lose(mob/user)
 	var/datum/antagonist/heretic/our_heretic = IS_HERETIC(user)
@@ -147,7 +147,7 @@ GLOBAL_LIST_INIT(heretic_start_knowledge, initialize_starting_knowledge())
 		var/obj/item/organ/our_replacement_heart = locate(required_organ_type) in selected_atoms
 		if(our_replacement_heart)
 			// Throw our current heart out of our chest, violently
-			user.visible_message(span_boldwarning("[user]'s [our_new_heart.name] bursts suddenly out of [user.p_their()] chest!"))
+			user.visible_message("<span class='boldwarning'>[user]'s [our_new_heart.name] bursts suddenly out of [user.p_their()] chest!</span>")
 			INVOKE_ASYNC(user, /mob/proc/emote, "scream")
 			user.apply_damage(20, BRUTE, BODY_ZONE_CHEST)
 			// And put our organic heart in its place
@@ -165,7 +165,7 @@ GLOBAL_LIST_INIT(heretic_start_knowledge, initialize_starting_knowledge())
 		selected_atoms -= our_new_heart
 
 	our_new_heart.AddComponent(/datum/component/living_heart)
-	to_chat(user, span_warning("You feel your [our_new_heart.name] begin pulse faster and faster as it awakens!"))
+	to_chat(user, "<span class='warning'>You feel your [our_new_heart.name] begin pulse faster and faster as it awakens!</span>")
 	playsound(user, 'sound/magic/demon_consume.ogg', 50, TRUE)
 	return TRUE
 

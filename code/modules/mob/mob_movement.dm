@@ -191,7 +191,7 @@
 		return TRUE
 	else if(HAS_TRAIT(mob, TRAIT_RESTRAINED))
 		COOLDOWN_START(src, move_delay, 1 SECONDS)
-		to_chat(src, span_warning("Урод держит меня! Не могу двигаться!"))
+		to_chat(src, "<span class='warning'>Урод держит меня! Не могу двигаться!</span>")
 		return TRUE
 	return mob.resist_grab(TRUE)
 
@@ -266,17 +266,17 @@
 			var/turf/open/floor/stepTurf = get_step(L, direct)
 			if(stepTurf)
 				for(var/obj/effect/decal/cleanable/food/salt/S in stepTurf)
-					to_chat(L, span_warning("[capitalize(S)] не даёт пройти!"))
+					to_chat(L, "<span class='warning'>[capitalize(S)] не даёт пройти!</span>")
 					if(isrevenant(L))
 						var/mob/living/simple_animal/revenant/R = L
 						R.reveal(20)
 						R.stun(20)
 					return
 				if(stepTurf.turf_flags & NOJAUNT)
-					to_chat(L, span_warning("Странная аура блокирует путь."))
+					to_chat(L, "<span class='warning'>Странная аура блокирует путь.</span>")
 					return
 				if (locate(/obj/effect/blessing, stepTurf))
-					to_chat(L, span_warning("Святая энергия блокирует мой путь!"))
+					to_chat(L, "<span class='warning'>Святая энергия блокирует мой путь!</span>")
 					return
 
 				L.forceMove(stepTurf)
@@ -285,17 +285,17 @@
 			var/turf/open/floor/stepTurf = get_step(L, direct)
 			if(stepTurf)
 				for(var/obj/effect/decal/cleanable/food/salt/S in stepTurf)
-					to_chat(L, span_warning("[capitalize(S)] не даёт пройти!"))
+					to_chat(L, "<span class='warning'>[capitalize(S)] не даёт пройти!</span>")
 					if(isrevenant(L))
 						var/mob/living/simple_animal/revenant/R = L
 						R.reveal(20)
 						R.stun(20)
 					return
 				if((stepTurf.turf_flags & NOJAUNT) && !istype(stepTurf, /turf/closed/wall/clockwork))
-					to_chat(L, span_warning("Странная аура блокирует путь."))
+					to_chat(L, "<span class='warning'>Странная аура блокирует путь.</span>")
 					return
 				if (locate(/obj/effect/blessing, stepTurf))
-					to_chat(L, span_warning("Святая энергия блокирует мой путь!"))
+					to_chat(L, "<span class='warning'>Святая энергия блокирует мой путь!</span>")
 					return
 
 				L.forceMove(stepTurf)
@@ -332,7 +332,7 @@
 	if(backup.newtonian_move(turn(movement_dir, 180), instant = TRUE)) //You're pushing off something movable, so it moves
 		// We set it down here so future calls to Process_Spacemove by the same pair in the same tick don't lead to fucky
 		backup.last_pushoff = world.time
-		to_chat(src, span_info("Отталкиваю [backup] от себя, чтобы двигаться дальше."))
+		to_chat(src, "<span class='info'>Отталкиваю [backup] от себя, чтобы двигаться дальше.</span>")
 	return TRUE
 
 /**
@@ -571,22 +571,22 @@
 	var/turf/above_turf = SSmapping.get_turf_above(current_turf)
 
 	if(!isturf(loc))
-		to_chat(src, span_userdanger("Это очень глупая идея."))
+		to_chat(src, "<span class='userdanger'>Это очень глупая идея.</span>")
 		return
 
 	if(!above_turf)
-		to_chat(src, span_warning("НЕКУДА!"))
+		to_chat(src, "<span class='warning'>НЕКУДА!</span>")
 		return
 
 	if(can_z_move(DOWN, above_turf, current_turf, ZMOVE_FALL_FLAGS)) //Will we fall down if we go up?
 		if(buckled)
-			to_chat(src, span_notice("[buckled] не умеет летать."))
+			to_chat(src, "<span class='notice'>[buckled] не умеет летать.</span>")
 		else
-			to_chat(src, span_notice("Не умею летать."))
+			to_chat(src, "<span class='notice'>Не умею летать.</span>")
 		return
 
 	if(zMove(UP, z_move_flags = ZMOVE_FLIGHT_FLAGS|ZMOVE_FEEDBACK))
-		to_chat(src, span_notice("Поднимаюсь наверх."))
+		to_chat(src, "<span class='notice'>Поднимаюсь наверх.</span>")
 
 ///Moves a mob down a z level
 /mob/verb/down()
@@ -594,9 +594,9 @@
 	set category = null
 
 	if(!isturf(loc))
-		to_chat(src, span_userdanger("Это очень глупая идея."))
+		to_chat(src, "<span class='userdanger'>Это очень глупая идея.</span>")
 		return
 
 	if(zMove(DOWN, z_move_flags = ZMOVE_FLIGHT_FLAGS|ZMOVE_FEEDBACK))
-		to_chat(src, span_notice("Спускаюсь вниз."))
+		to_chat(src, "<span class='notice'>Спускаюсь вниз.</span>")
 	return FALSE

@@ -13,7 +13,7 @@
 	if(!IS_HERETIC(user))
 		return
 
-	. += span_notice("Allows you to cast heretic spells while the hood is up.")
+	. += "<span class='notice'>Allows you to cast heretic spells while the hood is up.</span>"
 
 /obj/item/clothing/suit/hooded/cultrobes/eldritch
 	name = "ominous armor"
@@ -32,7 +32,7 @@
 	if(!IS_HERETIC(user))
 		return
 
-	. += span_notice("Allows you to cast heretic spells while the hood is up.")
+	. += "<span class='notice'>Allows you to cast heretic spells while the hood is up.</span>"
 
 // Void cloak. Turns invisible with the hood up, lets you hide stuff.
 /obj/item/clothing/head/hooded/cult_hoodie/void
@@ -65,7 +65,7 @@
 	if (!HAS_TRAIT(src, TRAIT_NO_STRIP))
 		return ..()
 	var/mob/living/carbon/carbon_user = loc
-	to_chat(carbon_user, span_notice("The kaleidoscope of colours collapses around you, as the cloak shifts to visibility!"))
+	to_chat(carbon_user, "<span class='notice'>The kaleidoscope of colours collapses around you, as the cloak shifts to visibility!</span>")
 	item_flags &= ~EXAMINE_SKIP
 	REMOVE_TRAIT(src, TRAIT_NO_STRIP, src)
 	return ..()
@@ -77,9 +77,9 @@
 	var/mob/living/carbon/carbon_user = loc
 	if(IS_HERETIC_OR_MONSTER(carbon_user))
 		. = ..()
-		to_chat(carbon_user,span_notice("The light shifts around you making the cloak invisible!"))
+		to_chat(carbon_user,"<span class='notice'>The light shifts around you making the cloak invisible!</span>")
 		item_flags |= EXAMINE_SKIP
 		ADD_TRAIT(src, TRAIT_NO_STRIP, src)
 		return
 
-	to_chat(carbon_user,span_danger("You can't force the hood onto your head!"))
+	to_chat(carbon_user,"<span class='danger'>You can't force the hood onto your head!</span>")

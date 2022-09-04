@@ -28,11 +28,11 @@
 		return
 
 	if(!isliving(owner))
-		to_chat(owner, span_warning("Мне не хватает необходимой жизненной силы для этого действия."))
+		to_chat(owner, "<span class='warning'>Мне не хватает необходимой жизненной силы для этого действия.</span>")
 		return
 
 	var/mob/living/living_owner = owner
 	if (living_owner.usable_hands <= 0)
-		to_chat(living_owner, span_warning("Как я буду делать это без рук?"))
+		to_chat(living_owner, "<span class='warning'>Как я буду делать это без рук?</span>")
 	else
-		to_chat(living_owner, span_warning("Мои руки заняты!"))
+		to_chat(living_owner, "<span class='warning'>Мои руки заняты!</span>")

@@ -10,7 +10,7 @@
 	if(user != owner || owner.incapacitated())
 		return FALSE
 	if(owner.control_disabled)
-		to_chat(user, span_warning("Беспроводное управление отключено."))
+		to_chat(user, "<span class='warning'>Беспроводное управление отключено.</span>")
 		return FALSE
 	return TRUE
 
@@ -61,13 +61,13 @@
 	switch(action)
 		if("callbot") //Command a bot to move to a selected location.
 			if(owner.call_bot_cooldown > world.time)
-				to_chat(usr, span_danger("Ошибка: Ваша последняя команда всё ещё в процессе. Пожалуйста, дождитесь когда бот закончит просчёт маршрута."))
+				to_chat(usr, "<span class='danger'>Ошибка: Ваша последняя команда всё ещё в процессе. Пожалуйста, дождитесь когда бот закончит просчёт маршрута.</span>")
 				return
 			owner.Bot = locate(params["ref"]) in GLOB.bots_list
 			if(!owner.Bot || owner.Bot.remote_disabled || owner.control_disabled)
 				return
 			owner.waypoint_mode = TRUE
-			to_chat(usr, span_notice("Установите точку маршрута, нажав на место свободное от препятствий."))
+			to_chat(usr, "<span class='notice'>Установите точку маршрута, нажав на место свободное от препятствий.</span>")
 			. = TRUE
 		if("interface") //Remotely connect to a bot!
 			owner.Bot = locate(params["ref"]) in GLOB.bots_list

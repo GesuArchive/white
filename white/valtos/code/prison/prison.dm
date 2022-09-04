@@ -35,18 +35,18 @@
 			if(living_mob)
 				REMOVE_TRAIT(living_mob, TRAIT_PACIFISM, "grace_period")
 
-		to_chat(living_mob, span_userdanger("За недавно совершённый бунт нас оставили здесь на сутки без еды и воды."))
+		to_chat(living_mob, "<span class='userdanger'>За недавно совершённый бунт нас оставили здесь на сутки без еды и воды.</span>")
 
 	if(job.title == JOB_SECURITY_OFFICER)
 		var/datum/martial_art/cqc/glinomes = new
 		glinomes.teach(living_mob)
 
-		to_chat(living_mob, span_info("После недавнего бунта нас научили более понятному языку жестов. Так как данный проект полностью засекречен, <i>случайные</i> трупы заключённых необходимо хранить в морге."))
+		to_chat(living_mob, "<span class='info'>После недавнего бунта нас научили более понятному языку жестов. Так как данный проект полностью засекречен, <i>случайные</i> трупы заключённых необходимо хранить в морге.</span>")
 
 	if(job.title == JOB_CAPTAIN)
 		spawned_captain = living_mob
-		to_chat(living_mob, span_info("Необходимо обеспечить автономную работу аванпоста. Используйте труд выделенных вам заключённых для достижения этой цели."))
-		to_chat(living_mob, span_userdanger("Если я погибну, то со мной погибнет и весь аванпост."))
+		to_chat(living_mob, "<span class='info'>Необходимо обеспечить автономную работу аванпоста. Используйте труд выделенных вам заключённых для достижения этой цели.</span>")
+		to_chat(living_mob, "<span class='userdanger'>Если я погибну, то со мной погибнет и весь аванпост.</span>")
 
 /datum/game_mode/prison/process()
 	if(spawned_captain)

@@ -103,7 +103,7 @@
 	if (!proximity_flag || (selected_experiment == null && !(config_flags & EXPERIMENT_CONFIG_ALWAYS_ACTIVE)))
 		return
 	playsound(user, 'white/valtos/sounds/error1.ogg', 25)
-	to_chat(user, span_notice("[target] is not related to your currently selected experiment."))
+	to_chat(user, "<span class='notice'>[target] is not related to your currently selected experiment.</span>")
 
 /**
  * Checks that an experiment can be run using the provided target, used for preventing the cancellation of the attack chain inappropriately
@@ -128,16 +128,16 @@
  */
 /datum/component/experiment_handler/proc/try_run_handheld_experiment_async(datum/source, atom/target, mob/user, params)
 	if (selected_experiment == null && !(config_flags & EXPERIMENT_CONFIG_ALWAYS_ACTIVE))
-		to_chat(user, span_notice("You do not have an experiment selected!"))
+		to_chat(user, "<span class='notice'>You do not have an experiment selected!</span>")
 		return
 	if(!do_after(user, 1 SECONDS, target = target))
 		return
 	if(action_experiment(source, target))
 		playsound(user, 'sound/machines/ping.ogg', 25)
-		to_chat(user, span_notice("You scan [target]."))
+		to_chat(user, "<span class='notice'>You scan [target].</span>")
 	else
 		playsound(user, 'white/valtos/sounds/error1.ogg', 25)
-		to_chat(user, span_notice("[target] is not related to your currently selected experiment."))
+		to_chat(user, "<span class='notice'>[target] is not related to your currently selected experiment.</span>")
 
 
 /**
@@ -148,7 +148,7 @@
 	var/atom/movable/our_scanner = parent
 	if (selected_experiment == null)
 		playsound(our_scanner, 'white/valtos/sounds/error1.ogg', 25)
-		to_chat(our_scanner, span_notice("No experiment selected!"))
+		to_chat(our_scanner, "<span class='notice'>No experiment selected!</span>")
 		return
 	var/successful_scan
 	for(var/scan_target in scanned_atoms)
@@ -157,7 +157,7 @@
 			break
 	if(successful_scan)
 		playsound(our_scanner, 'sound/machines/ping.ogg', 25)
-		to_chat(our_scanner, span_notice("The scan succeeds."))
+		to_chat(our_scanner, "<span class='notice'>The scan succeeds.</span>")
 	else
 		playsound(src, 'white/valtos/sounds/error1.ogg', 25)
 		our_scanner.say("The scan did not result in anything.")

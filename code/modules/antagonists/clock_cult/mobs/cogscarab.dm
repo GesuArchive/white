@@ -55,7 +55,7 @@ GLOBAL_LIST_INIT(cogscarabs, list())
 	if(CONFIG_GET(flag/use_age_restriction_for_jobs))
 		if(!isnum(user.client.player_age)) //apparently what happens when there's no DB connected. just don't let anybody be a drone without admin intervention
 			if(user.client.player_age < 14)
-				to_chat(user, span_danger("Ты слишком слаб. Попробуй через [14 - user.client.player_age] дней."))
+				to_chat(user, "<span class='danger'>Ты слишком слаб. Попробуй через [14 - user.client.player_age] дней.</span>")
 				return
 	if(!SSticker.mode)
 		to_chat(user, "Невозможно стать мехскарабеем, пока игра не началась.")

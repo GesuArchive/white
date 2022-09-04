@@ -79,7 +79,7 @@
 	if((vent_movement & VENTCRAWL_ENTRANCE_ALLOWED) && isliving(user))
 		var/mob/living/L = user
 		if(HAS_TRAIT(L, TRAIT_VENTCRAWLER_NUDE) || HAS_TRAIT(L, TRAIT_VENTCRAWLER_ALWAYS))
-			. += span_notice("ПКМ, чтобы заползти в вентиляцию.")
+			. += "<span class='notice'>ПКМ, чтобы заползти в вентиляцию.</span>"
 
 /obj/machinery/atmospherics/New(loc, process = TRUE, setdir)
 	if(!isnull(setdir))
@@ -345,17 +345,17 @@
 	var/unsafe_wrenching = FALSE
 	var/internal_pressure = int_air.return_pressure()-env_air.return_pressure()
 
-	to_chat(user, span_notice("Начинаю откручивать [src.name]..."))
+	to_chat(user, "<span class='notice'>Начинаю откручивать [src.name]...</span>")
 
 	if (internal_pressure > 2*ONE_ATMOSPHERE)
-		to_chat(user, span_warning("Начинаю откручивать [src.name], попутно ощущая сильный поток воздуха... может стоит ПЕРЕДУМАТЬ?"))
+		to_chat(user, "<span class='warning'>Начинаю откручивать [src.name], попутно ощущая сильный поток воздуха... может стоит ПЕРЕДУМАТЬ?</span>")
 		unsafe_wrenching = TRUE //Oh dear oh dear
 
 	if(I.use_tool(src, user, 20, volume=50))
 		user.visible_message( \
 			"[user] откручивает [src.name].", \
-			span_notice("Откручиваю [src.name].") , \
-			span_hear("Слышу трещотку."))
+			"<span class='notice'>Откручиваю [src.name].</span>" , \
+			"<span class='hear'>Слышу трещотку.</span>")
 		investigate_log("was <span class='warning'>REMOVED</span> by [key_name(usr)]", INVESTIGATE_ATMOS)
 
 		//You unwrenched a pipe full of pressure? Let's splat you into the wall, silly.
@@ -391,7 +391,7 @@
 		var/datum/gas_mixture/env_air = loc.return_air()
 		pressures = int_air.return_pressure() - env_air.return_pressure()
 
-	user.visible_message(span_danger("Мощный поток воздуха отправляет <b>[user]</b> полетать!") ,span_userdanger("ВОТ ЭТО НАПОР!"))
+	user.visible_message("<span class='danger'>Мощный поток воздуха отправляет <b>[user]</b> полетать!</span>" ,"<span class='userdanger'>ВОТ ЭТО НАПОР!</span>")
 
 	// if get_dir(src, user) is not 0, target is the edge_target_turf on that dir
 	// otherwise, edge_target_turf uses a random cardinal direction

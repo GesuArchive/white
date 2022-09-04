@@ -112,7 +112,7 @@
 /obj/lab_monitor/yohei/AltClick(mob/user)
 	. = ..()
 	if(!current_task)
-		to_chat(user, span_notice("Нечего отменять!"))
+		to_chat(user, "<span class='notice'>Нечего отменять!</span>")
 		return
 	switch(tgui_alert(user, "Ты правда хочешь сменить эту задачу? За это будет наложен штраф!", "Сменить задачу", list("Да", "Нет")))
 		if("Да")
@@ -173,6 +173,6 @@
 	. = ..()
 	if(current_task)
 		. += "<hr>"
-		. += span_notice("<b>Задание:</b> [current_task.desc]")
-		. += span_notice("\n<b>Награда:</b> [current_task.prize]")
-		. += span_notice("\n<b>Исполнители:</b> [english_list(action_guys)]")
+		. += "<span class='notice'><b>Задание:</b> [current_task.desc]</span>"
+		. += "<span class='notice'>\n<b>Награда:</b> [current_task.prize]</span>"
+		. += "<span class='notice'>\n<b>Исполнители:</b> [english_list(action_guys)]</span>"

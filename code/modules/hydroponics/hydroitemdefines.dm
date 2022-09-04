@@ -43,13 +43,13 @@
 /obj/item/plant_analyzer/attack_self(mob/user)
 	. = ..()
 	scan_mode = !scan_mode
-	to_chat(user, span_notice("Меняю режим [src] в [scan_mode == PLANT_SCANMODE_CHEMICALS ? "сканирование реагентов и признаков растения" : "сканирования статистики и анализа роста"]."))
+	to_chat(user, "<span class='notice'>Меняю режим [src] в [scan_mode == PLANT_SCANMODE_CHEMICALS ? "сканирование реагентов и признаков растения" : "сканирования статистики и анализа роста"].</span>")
 
 /obj/item/plant_analyzer/attack(mob/living/M, mob/living/carbon/human/user)
 	//Checks if target is a podman
 	if(ispodperson(M))
-		user.visible_message(span_notice("[user] анализирует показатели [M].") , \
-							span_notice("Анализирую показатели [M]."))
+		user.visible_message("<span class='notice'>[user] анализирует показатели [M].</span>" , \
+							"<span class='notice'>Анализирую показатели [M].</span>")
 		if(scan_mode == PLANT_SCANMODE_STATS)
 			healthscan(user, M, advanced = TRUE)
 		else
@@ -200,7 +200,7 @@
 		var/datum/reagent/reagent  = _reagent
 		var/amount = reagent.volume
 		chem_cap += reagent.volume
-		reagents_text += span_info("\n- [reagent.name]: [amount]")
+		reagents_text += "<span class='info'>\n- [reagent.name]: [amount]</span>"
 	if(chem_cap > 100)
 		text += "<br><span class='warning'>- Производство реагентов 100%</span></br>"
 
@@ -250,7 +250,7 @@
 	list_reagents = list(/datum/reagent/toxin/plantbgone/weedkiller = 100)
 
 /obj/item/reagent_containers/spray/weedspray/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] впрыскивает [src]! Кажется, [user.p_theyre()] пытается покончить с собой!"))
+	user.visible_message("<span class='suicide'>[user] впрыскивает [src]! Кажется, [user.p_theyre()] пытается покончить с собой!</span>")
 	return (TOXLOSS)
 
 /obj/item/reagent_containers/spray/pestspray // -- Skie
@@ -266,7 +266,7 @@
 	list_reagents = list(/datum/reagent/toxin/pestkiller = 100)
 
 /obj/item/reagent_containers/spray/pestspray/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] впрыскивает в себя [src]! Кажется, [user.p_theyre()] пытается покончить с собой!"))
+	user.visible_message("<span class='suicide'>[user] впрыскивает в себя [src]! Кажется, [user.p_theyre()] пытается покончить с собой!</span>")
 	return (TOXLOSS)
 
 /obj/item/cultivator
@@ -287,7 +287,7 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
 /obj/item/cultivator/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] чешет [user.ru_ego()] спину насколько сильно может [user.ru_who()] ,используя, <b>[src.name]</b>! Кажется, [user.p_theyre()] пытается покончить с собой!"))
+	user.visible_message("<span class='suicide'>[user] чешет [user.ru_ego()] спину насколько сильно может [user.ru_who()] ,используя, <b>[src.name]</b>! Кажется, [user.p_theyre()] пытается покончить с собой!</span>")
 	return (BRUTELOSS)
 
 /obj/item/cultivator/rake
@@ -317,8 +317,8 @@
 		H.set_confusion(max(H.get_confusion(), 10))
 		H.Stun(20)
 		playsound(src, 'sound/weapons/punch4.ogg', 50, TRUE)
-		H.visible_message(span_warning("[H] наступает на [src], ударяя рукояткой [H.ru_na()] прямо в лицо!") , \
-						  span_userdanger("Наступаю на [src], ударяя рукояткой прямо по моему лицу!"))
+		H.visible_message("<span class='warning'>[H] наступает на [src], ударяя рукояткой [H.ru_na()] прямо в лицо!</span>" , \
+						  "<span class='userdanger'>Наступаю на [src], ударяя рукояткой прямо по моему лицу!</span>")
 
 /obj/item/hatchet
 	name = "Топорик"
@@ -345,7 +345,7 @@
 	AddComponent(/datum/component/butchering, 70, 100)
 
 /obj/item/hatchet/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] рубит [user.ru_na()]себя [src]! Кажется, [user.p_theyre()] он хочет покончить с собой!"))
+	user.visible_message("<span class='suicide'>[user] рубит [user.ru_na()]себя [src]! Кажется, [user.p_theyre()] он хочет покончить с собой!</span>")
 	playsound(src, 'sound/weapons/bladeslice.ogg', 50, TRUE, -1)
 	return (BRUTELOSS)
 
@@ -379,7 +379,7 @@
 	AddComponent(/datum/component/butchering, 90, 105)
 
 /obj/item/scythe/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] обезглавливает [user.ru_na()]себя [src]! Кажется, [user.p_theyre()] хочет покончить с собой!"))
+	user.visible_message("<span class='suicide'>[user] обезглавливает [user.ru_na()]себя [src]! Кажется, [user.p_theyre()] хочет покончить с собой!</span>")
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		var/obj/item/bodypart/BP = C.get_bodypart(BODY_ZONE_HEAD)

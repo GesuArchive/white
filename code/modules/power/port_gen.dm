@@ -122,7 +122,7 @@
 	. = ..()
 	. += "<hr><span class='notice'>The generator has [sheets] units of [sheet_name] fuel left, producing [display_power(power_gen)] per cycle.</span>"
 	if(anchored)
-		. += span_notice("\nIt is anchored to the ground.")
+		. += "<span class='notice'>\nIt is anchored to the ground.</span>"
 	if(in_range(user, src) || isobserver(user))
 		. += "<hr><span class='notice'>Дисплей: Fuel efficiency increased by <b>[(consumption*100)-100]%</b>.</span>"
 
@@ -188,9 +188,9 @@
 		var/obj/item/stack/addstack = O
 		var/amount = min((max_sheets - sheets), addstack.amount)
 		if(amount < 1)
-			to_chat(user, span_notice("The [src.name] is full!"))
+			to_chat(user, "<span class='notice'>The [src.name] is full!</span>")
 			return
-		to_chat(user, span_notice("You add [amount] sheets to the [src.name]."))
+		to_chat(user, "<span class='notice'>You add [amount] sheets to the [src.name].</span>")
 		sheets += amount
 		addstack.use(amount)
 		return
@@ -198,10 +198,10 @@
 		if(O.tool_behaviour == TOOL_WRENCH)
 			if(!anchored && !isinspace())
 				set_anchored(TRUE)
-				to_chat(user, span_notice("You secure the generator to the floor."))
+				to_chat(user, "<span class='notice'>You secure the generator to the floor.</span>")
 			else if(anchored)
 				set_anchored(FALSE)
-				to_chat(user, span_notice("You unsecure the generator from the floor."))
+				to_chat(user, "<span class='notice'>You unsecure the generator from the floor.</span>")
 
 			playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
 			return
@@ -209,9 +209,9 @@
 			panel_open = !panel_open
 			O.play_tool_sound(src)
 			if(panel_open)
-				to_chat(user, span_notice("You open the access panel."))
+				to_chat(user, "<span class='notice'>You open the access panel.</span>")
 			else
-				to_chat(user, span_notice("You close the access panel."))
+				to_chat(user, "<span class='notice'>You close the access panel.</span>")
 			return
 		else if(default_deconstruction_crowbar(O))
 			return

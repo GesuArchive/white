@@ -83,11 +83,11 @@
 				if("value")
 					path_list = list_element["value"]
 				else
-					to_chat(usr, span_warning("invalid path element type \[[path_element["type"]]] for list traversal (expected \"key\" or \"value\""))
+					to_chat(usr, "<span class='warning'>invalid path element type \[[path_element["type"]]] for list traversal (expected \"key\" or \"value\"</span>")
 					return
 			// The element we are entering SHOULD be a list, unless we're at the end of the path
 			if(!islist(path_list) && LAZYLEN(path))
-				to_chat(usr, span_warning("invalid path element \[[path_list]] for list traversal (expected a list)"))
+				to_chat(usr, "<span class='warning'>invalid path element \[[path_list]] for list traversal (expected a list)</span>")
 				return
 			current_list = path_list
 		return current_list
@@ -165,7 +165,7 @@
 				var/key = element["key"]
 				var/value = element["value"]
 				if(!(istext(key) || isnum(key)))
-					to_chat(usr, span_warning("invalid key \[[key]] for function call (expected text or num)"))
+					to_chat(usr, "<span class='warning'>invalid key \[[key]] for function call (expected text or num)</span>")
 					return
 				function += key
 				if(islist(value))
@@ -174,7 +174,7 @@
 					var/regex/function_regex = regex("^function: 0x\[0-9a-fA-F]+$")
 					if(function_regex.Find(value))
 						break
-					to_chat(usr, span_warning("invalid path element \[[value]] for function call (expected list or text matching [function_regex])"))
+					to_chat(usr, "<span class='warning'>invalid path element \[[value]] for function call (expected list or text matching [function_regex])</span>")
 					return
 			var/result = current_state.call_function(arglist(list(function) + arguments))
 			current_state.log_result(result)
@@ -228,7 +228,7 @@
 	if(!check_rights_for(src, R_DEBUG))
 		return
 	if(SSlua.initialized != TRUE)
-		to_chat(usr, span_warning("SSlua is not initialized!"))
+		to_chat(usr, "<span class='warning'>SSlua is not initialized!</span>")
 		return
 	var/datum/lua_editor/editor = new()
 	editor.ui_interact(usr)

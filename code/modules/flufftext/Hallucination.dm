@@ -253,7 +253,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	update_icon("alienh_pounce")
 	if(hit_atom == target && target.stat!=DEAD)
 		target.Paralyze(100)
-		target.visible_message(span_danger("[target] flails around wildly.") ,span_userdanger("[name] pounces on you!"))
+		target.visible_message("<span class='danger'>[target] flails around wildly.</span>" ,"<span class='userdanger'>[name] pounces on you!</span>")
 
 // The numbers of seconds it takes to get to each stage of the xeno attack choreography
 #define XENO_ATTACK_STAGE_LEAP_AT_TARGET 1
@@ -293,10 +293,10 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	if (time_processing >= stage)
 		switch (time_processing)
 			if (XENO_ATTACK_STAGE_FINISH to INFINITY)
-				to_chat(target, span_notice("[xeno.name] scrambles into the ventilation ducts!"))
+				to_chat(target, "<span class='notice'>[xeno.name] scrambles into the ventilation ducts!</span>")
 				qdel(src)
 			if (XENO_ATTACK_STAGE_CLIMB to XENO_ATTACK_STAGE_FINISH)
-				to_chat(target, span_notice("[xeno.name] begins climbing into the ventilation system..."))
+				to_chat(target, "<span class='notice'>[xeno.name] begins climbing into the ventilation system...</span>")
 				stage = XENO_ATTACK_STAGE_FINISH
 			if (XENO_ATTACK_STAGE_LEAP_AT_PUMP to XENO_ATTACK_STAGE_CLIMB)
 				xeno.update_icon("alienh_leap",'icons/mob/alienleap.dmi', -32, -32)
@@ -395,7 +395,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			target.adjustStaminaLoss(40)
 			step_away(target, bubblegum)
 			shake_camera(target, 4, 3)
-			target.visible_message(span_warning("[target] jumps backwards, falling on the ground!") ,span_userdanger("[bubblegum] slams into you!"))
+			target.visible_message("<span class='warning'>[target] jumps backwards, falling on the ground!</span>" ,"<span class='userdanger'>[bubblegum] slams into you!</span>")
 		next_action = 0.2
 	else
 		STOP_PROCESSING(SSfastprocess, src)
@@ -719,7 +719,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	A.override = 1
 	if(target?.client)
 		if(wabbajack)
-			to_chat(target, span_hear("...wabbajack...wabbajack..."))
+			to_chat(target, "<span class='hear'>...wabbajack...wabbajack...</span>")
 			target.playsound_local(target,'sound/magic/staff_change.ogg', 50, 1)
 		delusion = A
 		target.client.images |= A
@@ -896,7 +896,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	if(other)
 		if(close_other) //increase the odds
 			for(var/i in 1 to 5)
-				message_pool.Add(span_warning("Что-то укололо меня!"))
+				message_pool.Add("<span class='warning'>Что-то укололо меня!</span>")
 		var/obj/item/storage/equipped_backpack = other.get_item_by_slot(ITEM_SLOT_BACK)
 		if(istype(equipped_backpack))
 			for(var/i in 1 to 5) //increase the odds
@@ -909,19 +909,19 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 
 		message_pool.Add("<B>[other]</B> [pick("чихает","кашляет")].")
 
-	message_pool.Add(span_notice("Что-то ползает по трубам...") , \
-		span_notice("[pick("Рука", "Нога", "Спина", "Голова")] чешется.") ,\
-		span_warning("Ощущаю [pick("жар","холод","сухость","сырость","головокружение","слабость")].") ,
-		span_warning("В животе что-то грохочет.") ,
-		span_warning("Голова болит.") ,
-		span_warning("Голова гудит.") ,
+	message_pool.Add("<span class='notice'>Что-то ползает по трубам...</span>" , \
+		"<span class='notice'>[pick("Рука", "Нога", "Спина", "Голова")] чешется.</span>" ,\
+		"<span class='warning'>Ощущаю [pick("жар","холод","сухость","сырость","головокружение","слабость")].</span>" ,
+		"<span class='warning'>В животе что-то грохочет.</span>" ,
+		"<span class='warning'>Голова болит.</span>" ,
+		"<span class='warning'>Голова гудит.</span>" ,
 		"<B>[target]</B> чихает.")
 	if(prob(10))
-		message_pool.Add(span_warning("Позади меня.") ,\
-			span_warning("Кто-то тихо смеётся.") ,
-			span_warning("Что-то движется.") ,
-			span_warning("Что-то шумит на потолке.") ,
-			span_warning("Что-то движется ко мне."))
+		message_pool.Add("<span class='warning'>Позади меня.</span>" ,\
+			"<span class='warning'>Кто-то тихо смеётся.</span>" ,
+			"<span class='warning'>Что-то движется.</span>" ,
+			"<span class='warning'>Что-то шумит на потолке.</span>" ,
+			"<span class='warning'>Что-то движется ко мне.</span>")
 	if(prob(10))
 		message_pool.Add("[pick_list_replacements(HAL_LINES_FILE, "advice")]")
 	var/chosen = pick(message_pool)
@@ -1082,7 +1082,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			SEND_SOUND(target, SSstation.announcer.event_sounds[ANNOUNCER_METEORS])
 		if("supermatter")
 			SEND_SOUND(target, sound('sound/magic/charge.ogg'))
-			to_chat(target, span_boldannounce("Ощущаю искажение реальности на мгновение..."))
+			to_chat(target, "<span class='boldannounce'>Ощущаю искажение реальности на мгновение...</span>")
 
 /datum/hallucination/hudscrew
 
@@ -1364,9 +1364,9 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	if(AM == target)
 		if(istype(target, /obj/effect/dummy/phased_mob))
 			return
-		to_chat(target, span_userdanger("Падаю в пропасть!"))
+		to_chat(target, "<span class='userdanger'>Падаю в пропасть!</span>")
 		target.Paralyze(40)
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, target, span_notice("Но тут удивительно не глубоко.")), 15)
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, target, "<span class='notice'>Но тут удивительно не глубоко.</span>"), 15)
 		QDEL_IN(src, 30)
 
 /obj/effect/hallucination/danger/anomaly
@@ -1406,7 +1406,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	target.set_screwyhud(SCREWYHUD_DEAD)
 	target.Paralyze(300)
 	target.silent += 10
-	to_chat(target, span_deadsay("<b>[target.real_name]</b> погибает в локации <b>[get_area_name(target)]</b>."))
+	to_chat(target, "<span class='deadsay'><b>[target.real_name]</b> погибает в локации <b>[get_area_name(target)]</b>.</span>")
 
 	var/delay = 0
 
@@ -1454,7 +1454,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	fire_overlay = image('icons/mob/onfire.dmi', target, "human_burning", ABOVE_MOB_LAYER)
 	if(target?.client)
 		target.client.images += fire_overlay
-	to_chat(target, span_userdanger("ГОРЮ!"))
+	to_chat(target, "<span class='userdanger'>ГОРЮ!</span>")
 	target.throw_alert("fire", /atom/movable/screen/alert/fire, override = TRUE)
 	times_to_lower_stamina = rand(5, 10)
 	addtimer(CALLBACK(src, .proc/start_expanding), 20)
@@ -1536,7 +1536,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	shock_image.override = TRUE
 	electrocution_skeleton_anim = image('icons/mob/human.dmi', target, icon_state = "electrocuted_base", layer=ABOVE_MOB_LAYER)
 	electrocution_skeleton_anim.appearance_flags |= RESET_COLOR|KEEP_APART
-	to_chat(target, span_userdanger("Меня ударило током. ЭТО ОЧЕНЬ БОЛЬНО!"))
+	to_chat(target, "<span class='userdanger'>Меня ударило током. ЭТО ОЧЕНЬ БОЛЬНО!</span>")
 	if(target?.client)
 		target.client.images |= shock_image
 		target.client.images |= electrocution_skeleton_anim

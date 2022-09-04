@@ -37,16 +37,16 @@
 /obj/structure/deployable_barricade/examine(mob/user)
 	. = ..()
 	if(is_wired)
-		to_chat(user, span_info("По верху этой баррикады протянута колючая проволока."))
+		to_chat(user, "<span class='info'>По верху этой баррикады протянута колючая проволока.</span>")
 	switch((obj_integrity / max_integrity) * 100)
 		if(75 to INFINITY)
-			to_chat(user, span_info("Она в отличном состоянии."))
+			to_chat(user, "<span class='info'>Она в отличном состоянии.</span>")
 		if(50 to 75)
-			to_chat(user, span_warning("Она немного повреждена, но выдержит еще много ударов."))
+			to_chat(user, "<span class='warning'>Она немного повреждена, но выдержит еще много ударов.</span>")
 		if(25 to 50)
-			to_chat(user, span_warning("Она серьезно потрепана, но пока еще держится."))
+			to_chat(user, "<span class='warning'>Она серьезно потрепана, но пока еще держится.</span>")
 		if(-INFINITY to 25)
-			to_chat(user, span_warning("Она разваливается на части! Еще несколько ударов и она рухнет!"))
+			to_chat(user, "<span class='warning'>Она разваливается на части! Еще несколько ударов и она рухнет!</span>")
 
 
 /obj/structure/deployable_barricade/proc/on_try_exit(datum/source, atom/movable/leaving, direction)
@@ -118,15 +118,15 @@
 	if(!is_wired)
 		return FALSE
 
-	user.visible_message(span_notice("[user] начинает перекусывать колючую проволоку на [src]."),
-	span_notice("Вы начинаете перекусывать колючую проволоку на [src]."))
+	user.visible_message("<span class='notice'>[user] начинает перекусывать колючую проволоку на [src].</span>",
+	"<span class='notice'>Вы начинаете перекусывать колючую проволоку на [src].</span>")
 
 	if(!do_after(user, 2 SECONDS, src))
 		return TRUE
 
 	playsound(loc, 'sound/items/wirecutter.ogg', 25, TRUE)
-	user.visible_message(span_notice("[user] перекусил колючую проволоку на [src]."),
-	span_notice("Вы перекусили колючую проволоку на [src]."))
+	user.visible_message("<span class='notice'>[user] перекусил колючую проволоку на [src].</span>",
+	"<span class='notice'>Вы перекусили колючую проволоку на [src].</span>")
 	modify_max_integrity(max_integrity - 50)
 	can_wire = TRUE
 	is_wired = FALSE
@@ -148,7 +148,7 @@
 /obj/structure/deployable_barricade/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
-			visible_message(span_danger("[src] сейчас рванет!"))
+			visible_message("<span class='danger'>[src] сейчас рванет!</span>")
 			deconstruct(FALSE)
 			return
 		if(EXPLODE_HEAVY)
@@ -210,7 +210,7 @@
 	set src in oview(1)
 
 	if(anchored)
-		to_chat(usr, span_warning("Она прикручена к полу, вы не можете повернуть ее!"))
+		to_chat(usr, "<span class='warning'>Она прикручена к полу, вы не можете повернуть ее!</span>")
 		return FALSE
 
 	setDir(turn(dir, 90))
@@ -221,7 +221,7 @@
 	set src in oview(1)
 
 	if(anchored)
-		to_chat(usr, span_warning("Она прикручена к полу, вы не можете повернуть ее!"))
+		to_chat(usr, "<span class='warning'>Она прикручена к полу, вы не можете повернуть ее!</span>")
 		return FALSE
 
 	setDir(turn(dir, 270))
@@ -230,7 +230,7 @@
 /obj/structure/deployable_barricade/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
 	if(anchored)
-		to_chat(user, span_warning("Она прикручена к полу, вы не можете повернуть ее!"))
+		to_chat(user, "<span class='warning'>Она прикручена к полу, вы не можете повернуть ее!</span>")
 		return FALSE
 
 	setDir(turn(dir, 270))
@@ -311,10 +311,10 @@
 			return
 
 		if(D.get_amount() < 1)
-			to_chat(user, span_warning("Для ремонта [skloname(src.name, RODITELNI, src.gender)] вам понадобится хотя бы одна доска."))
+			to_chat(user, "<span class='warning'>Для ремонта [skloname(src.name, RODITELNI, src.gender)] вам понадобится хотя бы одна доска.</span>")
 			return
 
-		visible_message(span_notice("[user] начинает чинить [skloname(src.name, VINITELNI, src.gender)]."))
+		visible_message("<span class='notice'>[user] начинает чинить [skloname(src.name, VINITELNI, src.gender)].</span>")
 
 		if(!do_after(user,20, src) || obj_integrity >= max_integrity)
 			return
@@ -323,7 +323,7 @@
 			return
 
 		repair_damage(max_integrity)
-		visible_message(span_notice("[user] завершает починку [skloname(src.name, RODITELNI, src.gender)]."))
+		visible_message("<span class='notice'>[user] завершает починку [skloname(src.name, RODITELNI, src.gender)].</span>")
 
 	else ..()
 
@@ -392,10 +392,10 @@
 			return attempt_barricade_upgrade(I, user, params)
 
 		if(metal_sheets.get_amount() < 2)
-			to_chat(user, span_warning("Для ремонта каркаса [skloname(src.name, RODITELNI, src.gender)] вам понадобится хотя бы два листа металла."))
+			to_chat(user, "<span class='warning'>Для ремонта каркаса [skloname(src.name, RODITELNI, src.gender)] вам понадобится хотя бы два листа металла.</span>")
 			return FALSE
 
-		visible_message(span_notice("[user] начинает ремонтировать каркас [skloname(src.name, RODITELNI, src.gender)]."))
+		visible_message("<span class='notice'>[user] начинает ремонтировать каркас [skloname(src.name, RODITELNI, src.gender)].</span>")
 
 		if(!do_after(user, 2 SECONDS, src) || obj_integrity >= max_integrity)
 			return FALSE
@@ -404,28 +404,28 @@
 			return FALSE
 
 		repair_damage(max_integrity * 0.3)
-		visible_message(span_notice("[user] производит ремонт каркаса [skloname(src.name, RODITELNI, src.gender)]."))
+		visible_message("<span class='notice'>[user] производит ремонт каркаса [skloname(src.name, RODITELNI, src.gender)].</span>")
 
 	else ..()
 
 
 /obj/structure/deployable_barricade/metal/proc/attempt_barricade_upgrade(obj/item/stack/sheet/iron/metal_sheets, mob/user, params)
 	if(barricade_upgrade_type)
-		to_chat(user, span_warning("[src] уже улучшена."))
+		to_chat(user, "<span class='warning'>[src] уже улучшена.</span>")
 		return FALSE
 	if(obj_integrity < max_integrity)
-		to_chat(user, span_warning("Перед улучшением [skloname(src.name, RODITELNI, src.gender)], сначала вам необходимо полностью восстановить ее прочность."))
+		to_chat(user, "<span class='warning'>Перед улучшением [skloname(src.name, RODITELNI, src.gender)], сначала вам необходимо полностью восстановить ее прочность.</span>")
 		return FALSE
 
 	if(metal_sheets.get_amount() < CADE_UPGRADE_REQUIRED_SHEETS)
-		to_chat(user, span_warning("Для ремонта каркаса [skloname(src.name, RODITELNI, src.gender)] вам понадобится хотя бы [CADE_UPGRADE_REQUIRED_SHEETS] листа металла."))
+		to_chat(user, "<span class='warning'>Для ремонта каркаса [skloname(src.name, RODITELNI, src.gender)] вам понадобится хотя бы [CADE_UPGRADE_REQUIRED_SHEETS] листа металла.</span>")
 		return FALSE
 
 	var/static/list/cade_types = list(CADE_TYPE_BOMB = image(icon = 'white/valtos/icons/barricade.dmi', icon_state = "explosive_obj"), CADE_TYPE_MELEE = image(icon = 'white/valtos/icons/barricade.dmi', icon_state = "brute_obj"), CADE_TYPE_ACID = image(icon = 'white/valtos/icons/barricade.dmi', icon_state = "burn_obj"))
 	var/choice = show_radial_menu(user, src, cade_types, require_near = TRUE, tooltips = TRUE)
 
-	user.visible_message(span_notice("[user] начинает присоединять [choice] к [skloname(src.name, DATELNI, src.gender)]."),
-		span_notice("Вы начинаете присоединять [choice] к [skloname(src.name, DATELNI, src.gender)]."))
+	user.visible_message("<span class='notice'>[user] начинает присоединять [choice] к [skloname(src.name, DATELNI, src.gender)].</span>",
+		"<span class='notice'>Вы начинаете присоединять [choice] к [skloname(src.name, DATELNI, src.gender)].</span>")
 	if(!do_after(user, 2 SECONDS, src))
 		return FALSE
 
@@ -442,8 +442,8 @@
 
 	barricade_upgrade_type = choice
 
-	user.visible_message(span_notice("[user] присоединил [choice] к [skloname(src.name, DATELNI, src.gender)]."),
-		span_notice("Вы присоединили [choice] к [skloname(src.name, DATELNI, src.gender)]."))
+	user.visible_message("<span class='notice'>[user] присоединил [choice] к [skloname(src.name, DATELNI, src.gender)].</span>",
+		"<span class='notice'>Вы присоединили [choice] к [skloname(src.name, DATELNI, src.gender)].</span>")
 
 	playsound(loc, 'sound/items/screwdriver.ogg', 25, TRUE)
 	update_icon()
@@ -453,13 +453,13 @@
 	. = ..()
 	switch(build_state)
 		if(BARRICADE_METAL_FIRM)
-			to_chat(user, span_info("Защитная панель плотно привинчена на своем месте."))
+			to_chat(user, "<span class='info'>Защитная панель плотно привинчена на своем месте.</span>")
 		if(BARRICADE_METAL_ANCHORED)
-			to_chat(user, span_info("Защитная панель снята, вы видите туго закрученные анкерные болты."))
+			to_chat(user, "<span class='info'>Защитная панель снята, вы видите туго закрученные анкерные болты.</span>")
 		if(BARRICADE_METAL_LOOSE)
-			to_chat(user, span_info("Защитная панель снята, а анкерные болты расслаблены. Баррикаду можно разобрать."))
+			to_chat(user, "<span class='info'>Защитная панель снята, а анкерные болты расслаблены. Баррикаду можно разобрать.</span>")
 
-	to_chat(user, span_info("Вы видите [barricade_upgrade_type ? "[barricade_upgrade_type] на этой баррикаде" : ", что эта баррикада не улучшена"]."))
+	to_chat(user, "<span class='info'>Вы видите [barricade_upgrade_type ? "[barricade_upgrade_type] на этой баррикаде" : ", что эта баррикада не улучшена"].</span>")
 
 /obj/structure/deployable_barricade/metal/welder_act(mob/living/user, obj/item/I)
 
@@ -469,15 +469,15 @@
 		return FALSE
 
 	if(obj_integrity <= max_integrity * 0.3)
-		to_chat(user, span_warning("Кажется [src] получила слишком значительные повреждения и одной сваркой тут не обойтись, потребуется пара металлических листов."))
+		to_chat(user, "<span class='warning'>Кажется [src] получила слишком значительные повреждения и одной сваркой тут не обойтись, потребуется пара металлических листов.</span>")
 		return TRUE
 
 	if(obj_integrity == max_integrity)
-		to_chat(user, span_warning("[src] не нуждается в ремонте."))
+		to_chat(user, "<span class='warning'>[src] не нуждается в ремонте.</span>")
 		return TRUE
 
-	user.visible_message(span_notice("[user] начинает заваривать пробоины в [skloname(src.name, DATELNI, src.gender)]."),
-	span_notice("Вы начинаете заваривать пробоины в [skloname(src.name, DATELNI, src.gender)]."))
+	user.visible_message("<span class='notice'>[user] начинает заваривать пробоины в [skloname(src.name, DATELNI, src.gender)].</span>",
+	"<span class='notice'>Вы начинаете заваривать пробоины в [skloname(src.name, DATELNI, src.gender)].</span>")
 	playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
 
 	if(!do_after(user, 5 SECONDS, src))
@@ -487,11 +487,11 @@
 		return TRUE
 
 	if(!WT.use(2))
-		to_chat(user, span_warning("Вам не хватает сварочного топлива для ремонта."))
+		to_chat(user, "<span class='warning'>Вам не хватает сварочного топлива для ремонта.</span>")
 		return TRUE
 
-	user.visible_message(span_notice("[user] заварил пробоины в [skloname(src.name, DATELNI, src.gender)]."),
-	span_notice("Вы заварили пробоины в [skloname(src.name, DATELNI, src.gender)]."))
+	user.visible_message("<span class='notice'>[user] заварил пробоины в [skloname(src.name, DATELNI, src.gender)].</span>",
+	"<span class='notice'>Вы заварили пробоины в [skloname(src.name, DATELNI, src.gender)].</span>")
 	repair_damage(150)
 	update_icon()
 	playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
@@ -506,8 +506,8 @@
 			if(!do_after(user, 5 SECONDS, src))
 				return TRUE
 
-			user.visible_message(span_notice("[user] установил защитную панель [skloname(src.name, RODITELNI, src.gender)] на свое место."),
-			span_notice("Вы установили защитную панель [skloname(src.name, RODITELNI, src.gender)] на свое место."))
+			user.visible_message("<span class='notice'>[user] установил защитную панель [skloname(src.name, RODITELNI, src.gender)] на свое место.</span>",
+			"<span class='notice'>Вы установили защитную панель [skloname(src.name, RODITELNI, src.gender)] на свое место.</span>")
 			build_state = BARRICADE_METAL_FIRM
 			return TRUE
 
@@ -518,8 +518,8 @@
 			if(!do_after(user, 5 SECONDS, src))
 				return TRUE
 
-			user.visible_message(span_notice("[user] снимает защитную панель с [skloname(src.name, RODITELNI, src.gender)]."),
-			span_notice("Вы сняли защитную панель с [skloname(src.name, RODITELNI, src.gender)], за ней видны анкерные болты."))
+			user.visible_message("<span class='notice'>[user] снимает защитную панель с [skloname(src.name, RODITELNI, src.gender)].</span>",
+			"<span class='notice'>Вы сняли защитную панель с [skloname(src.name, RODITELNI, src.gender)], за ней видны анкерные болты.</span>")
 			build_state = BARRICADE_METAL_ANCHORED
 			return TRUE
 
@@ -532,8 +532,8 @@
 			if(!do_after(user, 5 SECONDS, src))
 				return TRUE
 
-			user.visible_message(span_notice("[user] расслабляет анкерные болты [skloname(src.name, RODITELNI, src.gender)]."),
-			span_notice("Вы расслабляете анкерные болты [skloname(src.name, RODITELNI, src.gender)]."))
+			user.visible_message("<span class='notice'>[user] расслабляет анкерные болты [skloname(src.name, RODITELNI, src.gender)].</span>",
+			"<span class='notice'>Вы расслабляете анкерные болты [skloname(src.name, RODITELNI, src.gender)].</span>")
 			build_state = BARRICADE_METAL_LOOSE
 			anchored = FALSE
 			modify_max_integrity(initial(max_integrity) * 0.5)
@@ -544,20 +544,20 @@
 
 			var/turf/mystery_turf = get_turf(src)
 			if(!isopenturf(mystery_turf))
-				to_chat(user, span_warning("Невозможно установить баррикаду в данном месте!"))
+				to_chat(user, "<span class='warning'>Невозможно установить баррикаду в данном месте!</span>")
 				return TRUE
 
 			for(var/obj/structure/deployable_barricade/B in loc)
 				if(B != src && B.dir == dir)
-					to_chat(user, span_warning("Здесь уже установлена другая баррикада."))
+					to_chat(user, "<span class='warning'>Здесь уже установлена другая баррикада.</span>")
 					return TRUE
 
 			playsound(loc, 'sound/items/ratchet.ogg', 25, TRUE)
 			if(!do_after(user, 5 SECONDS, src))
 				return TRUE
 
-			user.visible_message(span_notice("[user] затягивает анкерные болты [skloname(src.name, RODITELNI, src.gender)]."),
-			span_notice("Вы затягиваете анкерные болты [skloname(src.name, RODITELNI, src.gender)]."))
+			user.visible_message("<span class='notice'>[user] затягивает анкерные болты [skloname(src.name, RODITELNI, src.gender)].</span>",
+			"<span class='notice'>Вы затягиваете анкерные болты [skloname(src.name, RODITELNI, src.gender)].</span>")
 			build_state = BARRICADE_METAL_ANCHORED
 			anchored = TRUE
 			modify_max_integrity(initial(max_integrity))
@@ -569,15 +569,15 @@
 	switch(build_state)
 		if(BARRICADE_METAL_LOOSE) //Anchor bolts loosened step. Apply crowbar to unseat the panel and take apart the whole thing. Apply wrench to resecure anchor bolts
 
-			user.visible_message(span_notice("[user] начинает разбирать [skloname(src.name, VINITELNI, src.gender)]."),
-			span_notice("Вы начинате разбирать [skloname(src.name, VINITELNI, src.gender)]."))
+			user.visible_message("<span class='notice'>[user] начинает разбирать [skloname(src.name, VINITELNI, src.gender)].</span>",
+			"<span class='notice'>Вы начинате разбирать [skloname(src.name, VINITELNI, src.gender)].</span>")
 
 			playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
 			if(!do_after(user, 5 SECONDS, src))
 				return TRUE
 
-			user.visible_message(span_notice("[user] разбирает [skloname(src.name, VINITELNI, src.gender)]."),
-			span_notice("Вы разбираете [skloname(src.name, VINITELNI, src.gender)]."))
+			user.visible_message("<span class='notice'>[user] разбирает [skloname(src.name, VINITELNI, src.gender)].</span>",
+			"<span class='notice'>Вы разбираете [skloname(src.name, VINITELNI, src.gender)].</span>")
 			playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
 			var/deconstructed = TRUE
 			deconstruct(deconstructed)
@@ -585,18 +585,18 @@
 		if(BARRICADE_METAL_FIRM)
 
 			if(!barricade_upgrade_type) //Check to see if we actually have upgrades to remove.
-				to_chat(user, span_warning("У этой баррикады нет улучшений!"))
+				to_chat(user, "<span class='warning'>У этой баррикады нет улучшений!</span>")
 				return TRUE
 
-			user.visible_message(span_notice("[user] начинает отсоединять бронепластины от [skloname(src.name, RODITELNI, src.gender)]."),
-			span_notice("Вы начинаете отсоединять бронепластины от [skloname(src.name, RODITELNI, src.gender)]."))
+			user.visible_message("<span class='notice'>[user] начинает отсоединять бронепластины от [skloname(src.name, RODITELNI, src.gender)].</span>",
+			"<span class='notice'>Вы начинаете отсоединять бронепластины от [skloname(src.name, RODITELNI, src.gender)].</span>")
 
 			playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
 			if(!do_after(user, 5 SECONDS, src))
 				return TRUE
 
-			user.visible_message(span_notice("[user] отсоединяет бронепластины от [skloname(src.name, RODITELNI, src.gender)]."),
-			span_notice("Вы отсоединяете бронепластины от [skloname(src.name, RODITELNI, src.gender)]."))
+			user.visible_message("<span class='notice'>[user] отсоединяет бронепластины от [skloname(src.name, RODITELNI, src.gender)].</span>",
+			"<span class='notice'>Вы отсоединяете бронепластины от [skloname(src.name, RODITELNI, src.gender)].</span>")
 			playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
 
 			switch(barricade_upgrade_type)
@@ -663,11 +663,11 @@
 
 	switch(build_state)
 		if(BARRICADE_PLASTEEL_FIRM)
-			to_chat(user, span_info("Защитная панель плотно привинчена на своем месте."))
+			to_chat(user, "<span class='info'>Защитная панель плотно привинчена на своем месте.</span>")
 		if(BARRICADE_PLASTEEL_ANCHORED)
-			to_chat(user, span_info("Защитная панель снята, вы видите туго закрученные анкерные болты."))
+			to_chat(user, "<span class='info'>Защитная панель снята, вы видите туго закрученные анкерные болты.</span>")
 		if(BARRICADE_PLASTEEL_LOOSE)
-			to_chat(user, span_info("Защитная панель снята, а анкерные болты расслаблены. Баррикаду можно разобрать."))
+			to_chat(user, "<span class='info'>Защитная панель снята, а анкерные болты расслаблены. Баррикаду можно разобрать.</span>")
 
 
 /obj/structure/deployable_barricade/plasteel/attackby(obj/item/I, mob/user, params)
@@ -678,10 +678,10 @@
 				return
 
 			if(plasteel_sheets.get_amount() < 2)
-				to_chat(user, span_warning("Для ремонта каркаса [skloname(src.name, RODITELNI, src.gender)] вам понадобится хотя бы два листа пластали."))
+				to_chat(user, "<span class='warning'>Для ремонта каркаса [skloname(src.name, RODITELNI, src.gender)] вам понадобится хотя бы два листа пластали.</span>")
 				return
 
-			visible_message(span_notice("[user] начинает ремонтировать каркас [skloname(src.name, RODITELNI, src.gender)]."))
+			visible_message("<span class='notice'>[user] начинает ремонтировать каркас [skloname(src.name, RODITELNI, src.gender)].</span>")
 
 			if(!do_after(user, 2 SECONDS, src) || obj_integrity >= max_integrity)
 				return
@@ -690,7 +690,7 @@
 				return
 
 			repair_damage(max_integrity * 0.3)
-			visible_message(span_notice("[user] производит ремонт каркаса [skloname(src.name, RODITELNI, src.gender)]."))
+			visible_message("<span class='notice'>[user] производит ремонт каркаса [skloname(src.name, RODITELNI, src.gender)].</span>")
 			return
 
 		if(busy)
@@ -702,19 +702,19 @@
 			var/obj/item/weldingtool/WT = I
 
 			if(obj_integrity <= max_integrity * 0.3)
-				to_chat(user, span_warning("Кажется [src] получила слишком значительные повреждения и одной сваркой тут не обойтись, потребуется пара листов пластали."))
+				to_chat(user, "<span class='warning'>Кажется [src] получила слишком значительные повреждения и одной сваркой тут не обойтись, потребуется пара листов пластали.</span>")
 				return
 
 			if(obj_integrity == max_integrity)
-				to_chat(user, span_warning("[src] не нуждается в ремонте."))
+				to_chat(user, "<span class='warning'>[src] не нуждается в ремонте.</span>")
 				return
 
 			if(!WT.use(0))
 				return FALSE
 
 
-			user.visible_message(span_notice("[user] начинает заваривать пробоины в [skloname(src.name, DATELNI, src.gender)]."),
-			span_notice("Вы начинаете заваривать пробоины в [skloname(src.name, DATELNI, src.gender)]."))
+			user.visible_message("<span class='notice'>[user] начинает заваривать пробоины в [skloname(src.name, DATELNI, src.gender)].</span>",
+			"<span class='notice'>Вы начинаете заваривать пробоины в [skloname(src.name, DATELNI, src.gender)].</span>")
 			playsound(loc, 'sound/items/welder2.ogg', 25, 1)
 			busy = TRUE
 
@@ -723,8 +723,8 @@
 				return
 
 			busy = FALSE
-			user.visible_message(span_notice("[user] заварил пробоины в [skloname(src.name, DATELNI, src.gender)]."),
-			span_notice("Вы заварили пробоины в [skloname(src.name, DATELNI, src.gender)]."))
+			user.visible_message("<span class='notice'>[user] заварил пробоины в [skloname(src.name, DATELNI, src.gender)].</span>",
+			"<span class='notice'>Вы заварили пробоины в [skloname(src.name, DATELNI, src.gender)].</span>")
 			repair_damage(150)
 			update_icon()
 			playsound(loc, 'sound/items/welder2.ogg', 25, 1)
@@ -736,7 +736,7 @@
 
 					for(var/obj/structure/deployable_barricade/B in loc)
 						if(B != src && B.dir == dir)
-							to_chat(user, span_warning("Здесь уже установлена другая баррикада."))
+							to_chat(user, "<span class='warning'>Здесь уже установлена другая баррикада.</span>")
 							return
 
 					playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
@@ -744,12 +744,12 @@
 						return TRUE
 
 					build_state = BARRICADE_PLASTEEL_ANCHORED
-					user.visible_message(span_notice("[user] снимает защитную панель с [skloname(src.name, RODITELNI, src.gender)]."),
-					span_notice("Вы сняли защитную панель с [skloname(src.name, RODITELNI, src.gender)], за ней видны анкерные болты."))
+					user.visible_message("<span class='notice'>[user] снимает защитную панель с [skloname(src.name, RODITELNI, src.gender)].</span>",
+					"<span class='notice'>Вы сняли защитную панель с [skloname(src.name, RODITELNI, src.gender)], за ней видны анкерные болты.</span>")
 
 
 				if(I.tool_behaviour == TOOL_CROWBAR)
-					user.visible_message(span_notice(" [user] [linked ? "разъединяет" : "объединяет" ] [src] с соседними."), span_notice("[linked ? "Разъединяю" : "Объединяю" ] [src] с соседними."))
+					user.visible_message("<span class='notice'> [user] [linked ? "разъединяет" : "объединяет" ] [src] с соседними.</span>", "<span class='notice'>[linked ? "Разъединяю" : "Объединяю" ] [src] с соседними.</span>")
 					if(!do_after(user, 5 SECONDS, src))
 						return TRUE
 
@@ -762,8 +762,8 @@
 
 			if(BARRICADE_PLASTEEL_ANCHORED) //Protection panel removed step. Screwdriver to put the panel back, wrench to unsecure the anchor bolts
 				if(I.tool_behaviour == TOOL_SCREWDRIVER)
-					user.visible_message(span_notice("[user] установил защитную панель [skloname(src.name, RODITELNI, src.gender)] на свое место."),
-					span_notice("Вы установили защитную панель [skloname(src.name, RODITELNI, src.gender)] на свое место."))
+					user.visible_message("<span class='notice'>[user] установил защитную панель [skloname(src.name, RODITELNI, src.gender)] на свое место.</span>",
+					"<span class='notice'>Вы установили защитную панель [skloname(src.name, RODITELNI, src.gender)] на свое место.</span>")
 					playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
 					if(!do_after(user, 5 SECONDS, src))
 						return TRUE
@@ -771,8 +771,8 @@
 					build_state = BARRICADE_PLASTEEL_FIRM
 
 				if(I.tool_behaviour == TOOL_WRENCH)
-					user.visible_message(span_notice("[user] расслабляет анкерные болты [skloname(src.name, RODITELNI, src.gender)]."),
-					span_notice("Вы расслабляете анкерные болты [skloname(src.name, RODITELNI, src.gender)]."))
+					user.visible_message("<span class='notice'>[user] расслабляет анкерные болты [skloname(src.name, RODITELNI, src.gender)].</span>",
+					"<span class='notice'>Вы расслабляете анкерные болты [skloname(src.name, RODITELNI, src.gender)].</span>")
 					playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
 					if(!do_after(user, 5 SECONDS, src))
 						return TRUE
@@ -787,11 +787,11 @@
 
 					var/turf/mystery_turf = get_turf(src)
 					if(!isopenturf(mystery_turf))
-						to_chat(user, span_warning("Невозможно установить баррикаду в данном месте!"))
+						to_chat(user, "<span class='warning'>Невозможно установить баррикаду в данном месте!</span>")
 						return
 
-					user.visible_message(span_notice("[user] затягивает анкерные болты [skloname(src.name, RODITELNI, src.gender)]."),
-					span_notice("Вы затягиваете анкерные болты [skloname(src.name, RODITELNI, src.gender)]."))
+					user.visible_message("<span class='notice'>[user] затягивает анкерные болты [skloname(src.name, RODITELNI, src.gender)].</span>",
+					"<span class='notice'>Вы затягиваете анкерные болты [skloname(src.name, RODITELNI, src.gender)].</span>")
 					playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
 					if(!do_after(user, 5 SECONDS, src))
 						return TRUE
@@ -802,8 +802,8 @@
 					update_icon() //unanchored changes layer
 
 				if(I.tool_behaviour == TOOL_CROWBAR)
-					user.visible_message(span_notice("[user] начинает разбирать [skloname(src.name, VINITELNI, src.gender)]."),
-					span_notice("Вы начинаете разбирать [skloname(src.name, VINITELNI, src.gender)]."))
+					user.visible_message("<span class='notice'>[user] начинает разбирать [skloname(src.name, VINITELNI, src.gender)].</span>",
+					"<span class='notice'>Вы начинаете разбирать [skloname(src.name, VINITELNI, src.gender)].</span>")
 					playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
 					busy = TRUE
 
@@ -812,8 +812,8 @@
 						return
 
 					busy = FALSE
-					user.visible_message(span_notice("[user] разбирает [skloname(src.name, VINITELNI, src.gender)]."),
-					span_notice("Вы разбираете [skloname(src.name, VINITELNI, src.gender)]."))
+					user.visible_message("<span class='notice'>[user] разбирает [skloname(src.name, VINITELNI, src.gender)].</span>",
+					"<span class='notice'>Вы разбираете [skloname(src.name, VINITELNI, src.gender)].</span>")
 					playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
 					var/deconstructed = TRUE
 					deconstruct(deconstructed)
@@ -834,8 +834,8 @@
 	closed = !closed
 	density = !density
 
-	user?.visible_message(span_notice("[user] [closed ? "закрывает" :"открывает"] [skloname(src.name, VINITELNI, src.gender)] ."),
-		span_notice("[closed ? "Закрываю" :"Открываю"] [skloname(src.name, VINITELNI, src.gender)]."))
+	user?.visible_message("<span class='notice'>[user] [closed ? "закрывает" :"открывает"] [skloname(src.name, VINITELNI, src.gender)] .</span>",
+		"<span class='notice'>[closed ? "Закрываю" :"Открываю"] [skloname(src.name, VINITELNI, src.gender)].</span>")
 
 	if(!closed)
 		src.layer = ABOVE_MOB_LAYER		// Закрывает космонавтика
@@ -909,24 +909,24 @@
 /obj/structure/deployable_barricade/sandbags/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/shovel) && user.a_intent != INTENT_HARM)
 		var/obj/item/shovel/ET = I
-		user.visible_message(span_notice("[user] начинает разбирать [src]."),
-		span_notice("Вы начинаете разбирать [src]."))
+		user.visible_message("<span class='notice'>[user] начинает разбирать [src].</span>",
+		"<span class='notice'>Вы начинаете разбирать [src].</span>")
 		if(do_after(user, ET.toolspeed, src))
-			user.visible_message(span_notice("[user] разбирает [src]."),
-			span_notice("Вы разбираете [src]."))
+			user.visible_message("<span class='notice'>[user] разбирает [src].</span>",
+			"<span class='notice'>Вы разбираете [src].</span>")
 			var/deconstructed = TRUE
 			deconstruct(deconstructed)
 		return TRUE
 
 	if(istype(I, /obj/item/stack/sheet/mineral/sandbags) )
 		if(obj_integrity == max_integrity)
-			to_chat(user, span_warning("[src] не нуждается в починке!"))
+			to_chat(user, "<span class='warning'>[src] не нуждается в починке!</span>")
 			return
 		var/obj/item/stack/sheet/mineral/sandbags/D = I
 		if(D.get_amount() < 1)
-			to_chat(user, span_warning("Вам необходимы новые мешки для ремонта [src]."))
+			to_chat(user, "<span class='warning'>Вам необходимы новые мешки для ремонта [src].</span>")
 			return
-		visible_message(span_notice("[user] начинает заменять поврежденные мешки в [src]..."))
+		visible_message("<span class='notice'>[user] начинает заменять поврежденные мешки в [src]...</span>")
 
 		if(!do_after(user, 30, src) || obj_integrity >= max_integrity)
 			return
@@ -935,8 +935,8 @@
 			return
 
 		repair_damage(max_integrity * 0.2) //Each sandbag restores 20% of max health as 5 sandbags = 1 sandbag barricade.
-		user.visible_message(span_notice("[user] заменяет поврежденные мешки в [src], тем самым ремонтируя ее."),
-		span_notice("Вы заменили поврежденные мешки в [src], тем самым починив ее."))
+		user.visible_message("<span class='notice'>[user] заменяет поврежденные мешки в [src], тем самым ремонтируя ее.</span>",
+		"<span class='notice'>Вы заменили поврежденные мешки в [src], тем самым починив ее.</span>")
 		update_icon()
 	else ..()
 
@@ -982,23 +982,23 @@
 
 	var/turf/mystery_turf = user.loc
 	if(!isopenturf(mystery_turf))
-		to_chat(user, span_warning("Невозможно начать развертывание в данном месте!"))
+		to_chat(user, "<span class='warning'>Невозможно начать развертывание в данном месте!</span>")
 		return FALSE
 
 	var/turf/open/placement_loc = mystery_turf
 	if(placement_loc.density) //We shouldn't be building here.
-		to_chat(user, span_warning("Невозможно начать развертывание в данном месте!"))
+		to_chat(user, "<span class='warning'>Невозможно начать развертывание в данном месте!</span>")
 		return FALSE
 
 	for(var/obj/thing in user.loc)
 		if(!thing.density) //not dense, move on
 			continue
 		if(!(thing.flags_1 & ON_BORDER_1)) //dense and non-directional, end
-			to_chat(user, span_warning("Тут нет места для баррикады."))
+			to_chat(user, "<span class='warning'>Тут нет места для баррикады.</span>")
 			return FALSE
 		if(thing.dir != user.dir)
 			continue
-		to_chat(user, span_warning("Тут нет места для баррикады."))
+		to_chat(user, "<span class='warning'>Тут нет места для баррикады.</span>")
 		return FALSE
 	to_chat(user, "<span class='notice'>Вы подготавливаете комплекс для развертывания.")
 	return TRUE

@@ -19,7 +19,7 @@
 
 /datum/action/bloodsucker/fortitude/ActivatePower()
 	. = ..()
-	to_chat(owner, span_notice("Your flesh, skin, and muscles become as steel."))
+	to_chat(owner, "<span class='notice'>Your flesh, skin, and muscles become as steel.</span>")
 	// Traits & Effects
 	ADD_TRAIT(owner, TRAIT_PIERCEIMMUNE, BLOODSUCKER_TRAIT)
 	ADD_TRAIT(owner, TRAIT_NODISMEMBER, BLOODSUCKER_TRAIT)
@@ -48,7 +48,7 @@
 	/// Prevents running while on Fortitude
 	if(user.m_intent != MOVE_INTENT_WALK)
 		user.toggle_move_intent()
-		to_chat(user, span_warning("You attempt to run, crushing yourself."))
+		to_chat(user, "<span class='warning'>You attempt to run, crushing yourself.</span>")
 		user.adjustBruteLoss(rand(5,15))
 	/// We don't want people using fortitude being able to use vehicles
 	if(user.buckled && istype(user.buckled, /obj/vehicle))
@@ -104,7 +104,7 @@
 	if(light_amount <= 0.2)
 		owner.add_overlay(armor_overlay)
 		bloodsuckerdatum.frenzygrab.teach(user, TRUE)
-		to_chat(user, span_notice("Shadow tentacles form and attach themselves to your body, you feel as if your muscles have merged with the shadows!"))
+		to_chat(user, "<span class='notice'>Shadow tentacles form and attach themselves to your body, you feel as if your muscles have merged with the shadows!</span>")
 	var/datum/species/user_species = user.dna.species
 	user_species.punchdamagelow += 0.5 * level_current
 	user_species.punchdamagehigh += 0.5 * level_current
@@ -118,7 +118,7 @@
 	if(light_amount > 0.2)
 		owner.cut_overlay(armor_overlay)
 		bloodsuckerdatum.frenzygrab.remove(user)
-		to_chat(user, span_warning("As you enter in contact with the light, the tentacles dissipate!"))
+		to_chat(user, "<span class='warning'>As you enter in contact with the light, the tentacles dissipate!</span>")
 
 /datum/action/bloodsucker/fortitude/shadow/DeactivatePower()
 	. = ..()

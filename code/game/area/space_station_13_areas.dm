@@ -703,7 +703,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Зона отдыха: Бар"
 	icon_state = "bar"
 	mood_bonus = 5
-	mood_message = span_nicegreen("Обожаю отдохнуть в баре!\n")
+	mood_message = "<span class='nicegreen'>Обожаю отдохнуть в баре!\n</span>"
 	airlock_wires = /datum/wires/airlock/service
 	sound_environment = SOUND_AREA_WOODFLOOR
 
@@ -1141,7 +1141,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Медбей: Психолог"
 	icon_state = "psychology"
 	mood_bonus = 3
-	mood_message = span_nicegreen("Здесь спокойно.\n")
+	mood_message = "<span class='nicegreen'>Здесь спокойно.\n</span>"
 	ambientsounds = list('sound/ambience/aurora_caelus_short.ogg')
 
 //Security
@@ -1174,7 +1174,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Тюрьма"
 	icon_state = "sec_prison"
 	mood_bonus = -0.5
-	mood_message = span_danger("Я здесь точно сгнию...\n")
+	mood_message = "<span class='danger'>Я здесь точно сгнию...\n</span>"
 
 /area/security/prison/toilet //radproof
 	name = "Тюрьма: Туалет"

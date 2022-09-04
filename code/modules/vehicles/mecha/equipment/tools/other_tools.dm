@@ -96,7 +96,7 @@
 						to_chat(source, "[icon2html(src, source)]<span class='warning'>[target] невосприимчивый к гравитационным импульсам, захват невозможен!</span>")
 						return
 				movable_target = target
-				to_chat(source, "[icon2html(src, source)][span_notice("захват зафиксирован на [target].")]")
+				to_chat(source, "[icon2html(src, source)]["<span class='notice'>захват зафиксирован на [target].</span>"]")
 			else if(target!=movable_target)
 				if(movable_target in view(chassis))
 					var/turf/targ = get_turf(target)
@@ -106,7 +106,7 @@
 					log_game("[key_name(source)] used a Gravitational Catapult to throw [movable_target] (From [AREACOORD(orig)]) at [target] ([AREACOORD(targ)]).")
 					return ..()
 				movable_target = null
-				to_chat(source, "[icon2html(src, source)][span_notice("захват на [movable_target] disengaged.")]")
+				to_chat(source, "[icon2html(src, source)]["<span class='notice'>захват на [movable_target] disengaged.</span>"]")
 
 		if(GRAVPUSH_MODE)
 			var/list/atomstothrow = list()
@@ -312,11 +312,11 @@
 	. = ..()
 	if(action == "toggle")
 		if(equip_ready)
-			to_chat(usr, "[icon2html(src, usr)][span_warning("Power generation enabled.")]")
+			to_chat(usr, "[icon2html(src, usr)]["<span class='warning'>Power generation enabled.</span>"]")
 			START_PROCESSING(SSobj, src)
 			log_message("Activated.", LOG_MECHA)
 		else
-			to_chat(usr, "[icon2html(src, usr)][span_warning("Power generation disabled.")]")
+			to_chat(usr, "[icon2html(src, usr)]["<span class='warning'>Power generation disabled.</span>"]")
 			STOP_PROCESSING(SSobj, src)
 			log_message("Deactivated.", LOG_MECHA)
 		return TRUE
@@ -356,7 +356,7 @@
 	var/cur_charge = chassis.get_charge()
 	if(isnull(cur_charge))
 		equip_ready = FALSE
-		to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)][span_notice("No power cell detected.")]")
+		to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)]["<span class='notice'>No power cell detected.</span>"]")
 		log_message("Deactivated.", LOG_MECHA)
 		return PROCESS_KILL
 	var/use_fuel = fuelrate_idle
@@ -398,7 +398,7 @@
 /obj/item/mecha_parts/mecha_equipment/thrusters/try_attach_part(mob/user, obj/vehicle/sealed/mecha/M, attach_right)
 	for(var/obj/item/I in M.equip_by_category[MECHA_UTILITY])
 		if(istype(I, src))
-			to_chat(user, span_warning("[M] already has this thruster package!"))
+			to_chat(user, "<span class='warning'>[M] already has this thruster package!</span>")
 			return FALSE
 	return ..()
 
@@ -461,7 +461,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/thrusters/gas/try_attach_part(mob/user, obj/vehicle/sealed/mecha/M, attach_right = FALSE)
 	if(!M.internal_tank)
-		to_chat(user, span_warning("[M] не имеет внутреннего бака и не может поддерживать это устройство!"))
+		to_chat(user, "<span class='warning'>[M] не имеет внутреннего бака и не может поддерживать это устройство!</span>")
 		return FALSE
 	return ..()
 

@@ -261,7 +261,7 @@
 	var/mob/living/L = usr
 	if(L != owner)
 		return
-	to_chat(L, span_mind_control("[command]"))
+	to_chat(L, "<span class='mind_control'>[command]</span>")
 
 /atom/movable/screen/alert/drunk
 	name = "Пьян"
@@ -375,8 +375,8 @@
 		qdel(src)
 		return
 
-	offerer.visible_message(span_notice("[rube] rushes in to high-five [offerer], but-"), span_nicegreen("[rube] falls for your trick just as planned, lunging for a high-five that no longer exists! Classic!"), ignored_mobs=rube)
-	to_chat(rube, span_nicegreen("You go in for [offerer]'s high-five, but-"))
+	offerer.visible_message("<span class='notice'>[rube] rushes in to high-five [offerer], but-</span>", "<span class='nicegreen'>[rube] falls for your trick just as planned, lunging for a high-five that no longer exists! Classic!</span>", ignored_mobs=rube)
+	to_chat(rube, "<span class='nicegreen'>You go in for [offerer]'s high-five, but-</span>")
 	addtimer(CALLBACK(src, .proc/too_slow_p2, offerer, rube), 0.5 SECONDS)
 
 /// Part two of the ultimate prank
@@ -386,9 +386,9 @@
 		qdel(src)
 		return
 
-	offerer.visible_message(span_danger("[offerer] pulls away from [rube]'s slap at the last second, dodging the high-five entirely!"), span_nicegreen("[rube] fails to make contact with your hand, making an utter fool of [rube.p_them()]self!"), span_hear("You hear a disappointing sound of flesh not hitting flesh!"), ignored_mobs=rube)
+	offerer.visible_message("<span class='danger'>[offerer] pulls away from [rube]'s slap at the last second, dodging the high-five entirely!</span>", "<span class='nicegreen'>[rube] fails to make contact with your hand, making an utter fool of [rube.p_them()]self!</span>", "<span class='hear'>You hear a disappointing sound of flesh not hitting flesh!</span>", ignored_mobs=rube)
 	var/all_caps_for_emphasis = uppertext("NO! [offerer] PULLS [offerer.p_their()] HAND AWAY FROM YOURS! YOU'RE TOO SLOW!")
-	to_chat(rube, span_userdanger("[all_caps_for_emphasis]"))
+	to_chat(rube, "<span class='userdanger'>[all_caps_for_emphasis]</span>")
 	playsound(offerer, 'sound/weapons/thudswoosh.ogg', 100, TRUE, 1)
 	rube.Knockdown(1 SECONDS)
 	SEND_SIGNAL(offerer, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/down_low)
@@ -400,7 +400,7 @@
 	SIGNAL_HANDLER
 
 	if(!receiving)
-		examine_list += "[span_warning("[offerer]'s arm appears tensed up, as if [offerer.p_they()] plan on pulling it back suddenly...")]\n"
+		examine_list += "["<span class='warning'>[offerer]'s arm appears tensed up, as if [offerer.p_they()] plan on pulling it back suddenly...</span>"]\n"
 
 /atom/movable/screen/alert/give/secret_handshake
 	icon_state = "default"
@@ -865,7 +865,7 @@
 		return FALSE
 	var/list/modifiers = params2list(params)
 	if(LAZYACCESS(modifiers, SHIFT_CLICK)) // screen objects don't do the normal Click() stuff so we'll cheat
-		to_chat(usr, span_boldnotice("[name]</span> - <span class='info'>[desc]"))
+		to_chat(usr, "<span class='boldnotice'>[name]</span> - <span class='info'>[desc]</span>")
 		return FALSE
 	if(master && click_master)
 		return usr.client.Click(master, location, control, params)

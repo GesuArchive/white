@@ -15,5 +15,5 @@
 	)
 
 /obj/item/book/granter/crafting_recipe/trash_cannon/recoil(mob/living/user)
-	to_chat(user, span_warning("Книга рассыпалась в пыль в моих руках."))
+	to_chat(user, "<span class='warning'>Книга рассыпалась в пыль в моих руках.</span>")
 	qdel(src)

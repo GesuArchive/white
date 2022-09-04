@@ -57,7 +57,7 @@
 	else if(istype(old_headgear, /obj/item/clothing/mask/chameleon/drone))
 		new_headgear = new /obj/item/clothing/head/chameleon/drone()
 	else
-		to_chat(owner, span_warning("Нельзя переключить камуфляжную шлем-маску если она не надета."))
+		to_chat(owner, "<span class='warning'>Нельзя переключить камуфляжную шлем-маску если она не надета.</span>")
 	if(new_headgear)
 		// Force drop the item in the headslot, even though
 		// it's has TRAIT_NODROP
@@ -582,7 +582,7 @@
 
 /obj/item/clothing/mask/chameleon/attack_self(mob/user)
 	voice_change = !voice_change
-	to_chat(user, span_notice("Синтезатор голоса теперь [voice_change ? "включен" : "отключен"]!"))
+	to_chat(user, "<span class='notice'>Синтезатор голоса теперь [voice_change ? "включен" : "отключен"]!</span>")
 
 
 /obj/item/clothing/mask/chameleon/drone
@@ -601,7 +601,7 @@
 	randomise_action.UpdateButtons()
 
 /obj/item/clothing/mask/chameleon/drone/attack_self(mob/user)
-	to_chat(user, span_notice("[capitalize(src.name)] не имеет синтезатора голоса."))
+	to_chat(user, "<span class='notice'>[capitalize(src.name)] не имеет синтезатора голоса.</span>")
 
 /obj/item/clothing/shoes/chameleon
 	name = "чёрные ботинки"

@@ -61,21 +61,21 @@
 	if(istype(multitool.buffer, /obj/machinery/mechpad))
 		var/obj/machinery/mechpad/buffered_console = multitool.buffer
 		if(!(mechpads.len < maximum_pads))
-			to_chat(user, span_warning("[capitalize(src.name)] cannot handle any more connections!"))
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] cannot handle any more connections!</span>")
 			return
 		if(buffered_console == connected_mechpad)
-			to_chat(user, span_warning("[capitalize(src.name)] cannot connect to its own mechpad!"))
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] cannot connect to its own mechpad!</span>")
 		else if(!connected_mechpad && buffered_console == connect_to_pad())
 			connected_mechpad = buffered_console
 			connected_mechpad.connected_console = src
 			connected_mechpad.id = id
 			multitool.buffer = null
-			to_chat(user, span_notice("You connect the console to the pad with data from the [multitool.name] buffer."))
+			to_chat(user, "<span class='notice'>You connect the console to the pad with data from the [multitool.name] buffer.</span>")
 		else
 			mechpads += buffered_console
 			LAZYADD(buffered_console.consoles, src)
 			multitool.buffer = null
-			to_chat(user, span_notice("You upload the data from the [multitool.name] buffer."))
+			to_chat(user, "<span class='notice'>You upload the data from the [multitool.name] buffer.</span>")
 
 /**
  * Tries to call the launch proc on the connected mechpad, returns if there is no connected mechpad or there is no mecha on the pad
@@ -85,13 +85,13 @@
  */
 /obj/machinery/computer/mechpad/proc/try_launch(mob/user, obj/machinery/mechpad/where)
 	if(!connected_mechpad)
-		to_chat(user, span_warning("[capitalize(src.name)] has no connected pad!"))
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] has no connected pad!</span>")
 		return
 	if(connected_mechpad.panel_open)
-		to_chat(user, span_warning("[capitalize(src.name)] pad has its' panel open! It won't work!"))
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] pad has its' panel open! It won't work!</span>")
 		return
 	if(!(locate(/obj/vehicle/sealed/mecha) in get_turf(connected_mechpad)))
-		to_chat(user, span_warning("[capitalize(src.name)] detects no mecha on the pad!"))
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] detects no mecha on the pad!</span>")
 		return
 	connected_mechpad.launch(where)
 

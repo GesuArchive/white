@@ -40,7 +40,7 @@
 	// stop swooped target movement
 	swooping = TRUE
 	owner.set_density(FALSE)
-	owner.visible_message(span_boldwarning("[owner] swoops up high!"))
+	owner.visible_message("<span class='boldwarning'>[owner] swoops up high!</span>")
 
 	var/negative
 	var/initial_x = owner.x
@@ -98,7 +98,7 @@
 	playsound(owner.loc, 'sound/effects/meteorimpact.ogg', 200, TRUE)
 	for(var/mob/living/L in orange(1, owner) - owner)
 		if(L.stat)
-			owner.visible_message(span_warning("[owner] slams down on [L], crushing [L.p_them()]!"))
+			owner.visible_message("<span class='warning'>[owner] slams down on [L], crushing [L.p_them()]!</span>")
 			L.gib()
 		else
 			L.adjustBruteLoss(75)
@@ -108,7 +108,7 @@
 					throw_dir = pick(GLOB.alldirs)
 				var/throwtarget = get_edge_target_turf(owner, throw_dir)
 				L.throw_at(throwtarget, 3)
-				owner.visible_message(span_warning("[L] is thrown clear of [owner]!"))
+				owner.visible_message("<span class='warning'>[L] is thrown clear of [owner]!</span>")
 	for(var/obj/vehicle/sealed/mecha/M in orange(1, owner))
 		M.take_damage(75, BRUTE, MELEE, 1)
 
@@ -125,7 +125,7 @@
 /datum/action/cooldown/mob_cooldown/lava_swoop/proc/lava_pools(atom/target, amount = 30, delay = 0.8)
 	if(!target)
 		return
-	target.visible_message(span_boldwarning("Lava starts to pool up around you!"))
+	target.visible_message("<span class='boldwarning'>Lava starts to pool up around you!</span>")
 
 	while(amount > 0)
 		if(QDELETED(target))
@@ -140,7 +140,7 @@
 /datum/action/cooldown/mob_cooldown/lava_swoop/proc/lava_arena(atom/target)
 	if(!target || !isliving(target))
 		return
-	target.visible_message(span_boldwarning("[owner] encases you in an arena of fire!"))
+	target.visible_message("<span class='boldwarning'>[owner] encases you in an arena of fire!</span>")
 	var/amount = 3
 	var/turf/center = get_turf(owner)
 	var/list/walled = RANGE_TURFS(3, center) - RANGE_TURFS(2, center)

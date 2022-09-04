@@ -92,7 +92,7 @@
 
 	if(enrage(target))
 		if(move_to_delay == initial(move_to_delay))
-			visible_message(span_colossus("\"<b>You can't dodge.</b>\""))
+			visible_message("<span class='colossus'>\"<b>You can't dodge.</b>\"</span>")
 		ranged_cooldown = world.time + 30
 		telegraph()
 		dir_shots.fire_in_directions(src, target, GLOB.alldirs)
@@ -124,7 +124,7 @@
 		spiral_shots.enraged = COLOSSUS_ENRAGED
 		telegraph()
 		icon_state = "eva_attack"
-		visible_message(COLOSSUS_ENRAGED ? span_colossus("\"<b>Die.</b>\"") : span_colossus("\"<b>Judgement.</b>\""))
+		visible_message(COLOSSUS_ENRAGED ? "<span class='colossus'>\"<b>Die.</b>\"</span>" : "<span class='colossus'>\"<b>Judgement.</b>\"</span>")
 
 /mob/living/simple_animal/hostile/megafauna/colossus/proc/finished_attack(mob/living/owner, datum/action/cooldown/finished)
 	SIGNAL_HANDLER
@@ -141,7 +141,7 @@
 			. = TRUE
 
 /mob/living/simple_animal/hostile/megafauna/colossus/devour(mob/living/L)
-	visible_message(span_colossus("[capitalize(src.name)] disintegrates [L]!"))
+	visible_message("<span class='colossus'>[capitalize(src.name)] disintegrates [L]!</span>")
 	L.dust()
 
 /obj/effect/temp_visual/at_shield
@@ -509,7 +509,7 @@
 		if(L.stat != DEAD)
 			L.heal_overall_damage(melee_damage_upper, melee_damage_upper)
 			new /obj/effect/temp_visual/heal(get_turf(target), "#80F5FF")
-			visible_message(span_notice("[capitalize(src.name)] mends the wounds of [target].") ,span_notice("You mend the wounds of [target]."))
+			visible_message("<span class='notice'>[capitalize(src.name)] mends the wounds of [target].</span>" ,"<span class='notice'>You mend the wounds of [target].</span>")
 
 /mob/living/simple_animal/hostile/lightgeist/ghost()
 	. = ..()

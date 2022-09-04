@@ -27,7 +27,7 @@
 
 /obj/machinery/plumbing/examine(mob/user)
 	. = ..()
-	. += span_notice("The maximum volume display reads: <b>[reagents.maximum_volume] units</b>.")
+	. += "<span class='notice'>The maximum volume display reads: <b>[reagents.maximum_volume] units</b>.</span>"
 
 /obj/machinery/plumbing/wrench_act(mob/living/user, obj/item/I)
 	..()
@@ -35,9 +35,9 @@
 	return TRUE
 
 /obj/machinery/plumbing/plunger_act(obj/item/plunger/P, mob/living/user, reinforced)
-	to_chat(user, span_notice("You start furiously plunging [name]."))
+	to_chat(user, "<span class='notice'>You start furiously plunging [name].</span>")
 	if(do_after(user, 30, target = src))
-		to_chat(user, span_notice("You finish plunging the [name]."))
+		to_chat(user, "<span class='notice'>You finish plunging the [name].</span>")
 		reagents.expose(get_turf(src), TOUCH) //splash on the floor
 		reagents.clear_reagents()
 
@@ -109,20 +109,20 @@
 	var/input = prompt("pairs glue",pairs_glue)
 	if(!isnull(input))
 		pairs_glue = input
-		to_chat(user, span_notice("You set the pairs glue to [pairs_glue]."))
+		to_chat(user, "<span class='notice'>You set the pairs glue to [pairs_glue].</span>")
 
 /obj/machinery/plumbing/tank/proc/setlistglue(obj/item/I, mob/user)
 	var/input = prompt("list glue",list_glue)
 	if(!isnull(input))
 		list_glue = input
-		to_chat(user, span_notice("You set the list glue to [list_glue]."))
+		to_chat(user, "<span class='notice'>You set the list glue to [list_glue].</span>")
 
 /obj/machinery/plumbing/tank/proc/toggleenname(obj/item/I, mob/user)
 	use_enname_for_list = !use_enname_for_list
 	if(use_enname_for_list)
-		to_chat(user, span_notice("Now the [src.name] will use english reagent names for output list, if they're available."))
+		to_chat(user, "<span class='notice'>Now the [src.name] will use english reagent names for output list, if they're available.</span>")
 	else
-		to_chat(user, span_notice("Now the [src.name] will use russian reagent names for output list."))
+		to_chat(user, "<span class='notice'>Now the [src.name] will use russian reagent names for output list.</span>")
 
 /obj/machinery/plumbing/tank/proc/prompt(varname, v)
 	var/input = input("Set [varname] to what? Make sure to select a unique symbol like \"&\", otherwise extracting from list will be very problematic! (Groups of symbols are also accepted!)", "[varname]", v) as null|num

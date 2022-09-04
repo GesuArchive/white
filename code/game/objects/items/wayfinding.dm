@@ -108,14 +108,14 @@
 
 	if(world.time < user_interact_cooldowns[user.real_name])
 		set_expression("veryhappy", 2 SECONDS)
-		to_chat(user, span_notice("It just grins at you. Maybe you should give it a bit?")) //telling instead of showing but I'm lazy
+		to_chat(user, "<span class='notice'>It just grins at you. Maybe you should give it a bit?</span>") //telling instead of showing but I'm lazy
 		return
 
 	user_interact_cooldowns[user.real_name] = world.time + COOLDOWN_INTERACT
 
 	for(var/obj/item/pinpointer/wayfinding/WP in user.get_all_contents())
 		set_expression("veryhappy", 2 SECONDS)
-		say(span_robot("You already have a pinpointer!"))
+		say("<span class='robot'>You already have a pinpointer!</span>")
 		return
 
 	var/msg
@@ -127,7 +127,7 @@
 
 	if(pnpts_found)
 		set_expression("veryhappy", 2 SECONDS)
-		say(span_robot("[pnpts_found == 1 ? "There's a pinpointer" : "There are pinpointers"] there!"))
+		say("<span class='robot'>[pnpts_found == 1 ? "There's a pinpointer" : "There are pinpointers"] there!</span>")
 		return
 
 	if(world.time < user_spawn_cooldowns[user.real_name])
@@ -149,10 +149,10 @@
 
 	if(!dispense)
 		set_expression("sad", 2 SECONDS)
-		say(span_robot("Sorry, [user.first_name()]! You'll need [msg]!"))
+		say("<span class='robot'>Sorry, [user.first_name()]! You'll need [msg]!</span>")
 	else
 		set_expression("veryhappy", 2 SECONDS)
-		say(span_robot("Here's your pinpointer!"))
+		say("<span class='robot'>Here's your pinpointer!</span>")
 		var/obj/item/pinpointer/wayfinding/P = new /obj/item/pinpointer/wayfinding(get_turf(src))
 		user_spawn_cooldowns[user.real_name] = world.time + COOLDOWN_SPAWN
 		user.put_in_hands(P)
@@ -165,7 +165,7 @@
 	if(istype(I, /obj/item/pinpointer/wayfinding))
 		var/obj/item/pinpointer/wayfinding/WP = I
 
-		to_chat(user, span_notice("You put [WP] in the return slot."))
+		to_chat(user, "<span class='notice'>You put [WP] in the return slot.</span>")
 
 		var/refundiscredits = FALSE
 		var/itsmypinpointer = TRUE
@@ -207,7 +207,7 @@
 		if(!itsmypinpointer)
 			the_pinpointer = "that pinpointer"
 
-		say(span_robot("Thank you for [recycling] [the_pinpointer]! Here [is_a_thing]"))
+		say("<span class='robot'>Thank you for [recycling] [the_pinpointer]! Here [is_a_thing]</span>")
 
 		return
 
@@ -218,7 +218,7 @@
 		//Any other type of pinpointer can make it throw up.
 		if(COOLDOWN_FINISHED(src, next_spew_tick))
 			I.forceMove(loc)
-			visible_message(span_warning("\The [src] smartly rejects [I]."))
+			visible_message("<span class='warning'>\The [src] smartly rejects [I].</span>")
 			say("BLEURRRRGH!")
 			I.throw_at(user, 2, 3)
 			COOLDOWN_START(src, next_spew_tick, COOLDOWN_SPEW)
@@ -257,7 +257,7 @@
 /obj/item/pinpointer/wayfinding/attack_self(mob/living/user)
 	if(active)
 		toggle_on()
-		to_chat(user, span_notice("You deactivate your pinpointer."))
+		to_chat(user, "<span class='notice'>You deactivate your pinpointer.</span>")
 		return
 
 	if (!owner)
@@ -269,7 +269,7 @@
 		beacons[B.codes["wayfinding"]] = B
 
 	if(!beacons.len)
-		to_chat(user, span_notice("Your pinpointer fails to detect a signal."))
+		to_chat(user, "<span class='notice'>Your pinpointer fails to detect a signal.</span>")
 		return
 
 	var/A = tgui_input_list(user, "", "Pinpoint", sort_list(beacons))
@@ -278,7 +278,7 @@
 
 	target = beacons[A]
 	toggle_on()
-	to_chat(user, span_notice("You activate your pinpointer."))
+	to_chat(user, "<span class='notice'>You activate your pinpointer.</span>")
 
 /obj/item/pinpointer/wayfinding/examine(mob/user)
 	. = ..()

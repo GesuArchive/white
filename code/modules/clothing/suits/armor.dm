@@ -49,12 +49,12 @@
 		if(armor_plate_amount < 3)
 			var/obj/item/stack/sheet/armor_plate/S = W
 			if(armor.getRating(S.armor_type) >= 70)
-				to_chat(user, span_warning("Все уязвимые места уже перекрыты, я не представляю как это можно дополнительно укрепить!"))
+				to_chat(user, "<span class='warning'>Все уязвимые места уже перекрыты, я не представляю как это можно дополнительно укрепить!</span>")
 				return
 			else
 				if(armor.getRating(S.armor_type) >= 20)
 					src.armor = src.armor.attachArmor(W.armor)
-					to_chat(user, span_notice("Закрепляю дополнительную бронепластину на [src]."))
+					to_chat(user, "<span class='notice'>Закрепляю дополнительную бронепластину на [src].</span>")
 				else
 					if(armor.getRating(S.armor_type) >= 10)
 						src.armor = src.armor.attachArmor(W.armor)
@@ -63,7 +63,7 @@
 						src.armor = src.armor.attachArmor(W.armor)
 						src.armor = src.armor.attachArmor(W.armor)
 						src.armor = src.armor.attachArmor(W.armor)
-					to_chat(user, span_notice("Закрепляю основную бронепластину на груди [src]."))
+					to_chat(user, "<span class='notice'>Закрепляю основную бронепластину на груди [src].</span>")
 			armor_plate_amount = armor_plate_amount + 1
 			if(istype(W, /obj/item/stack/sheet/armor_plate/plasteel))
 				armor_plate_plasteel = armor_plate_plasteel + 1
@@ -79,7 +79,7 @@
 			else
 				qdel(W)
 		else
-			to_chat(user, span_warning("Все слоты дополнительного бронирования заняты!"))
+			to_chat(user, "<span class='warning'>Все слоты дополнительного бронирования заняты!</span>")
 
 // 	Защита рук и ног
 
@@ -87,18 +87,18 @@
 		if(!full_armor_flag)
 			full_armor_flag = TRUE
 			playsound(user, 'sound/items/equip/toolbelt_equip.ogg', 70, TRUE)
-			to_chat(user, span_notice("Прикрепляю дополнительные элементы защиты рук и ног к [src]."))
+			to_chat(user, "<span class='notice'>Прикрепляю дополнительные элементы защиты рук и ног к [src].</span>")
 			body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 			cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 			heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 			qdel(W)
 		else
-			to_chat(user, span_warning("Данная броня уже усилена дополнительными элементами защиты рук и ног."))
+			to_chat(user, "<span class='warning'>Данная броня уже усилена дополнительными элементами защиты рук и ног.</span>")
 
 	if(W.tool_behaviour == TOOL_SCREWDRIVER)
 // 	Извлечение бронепластин
 		if(armor_plate_amount)
-			to_chat(user, span_notice("Извлекаю внешние бронепластины..."))
+			to_chat(user, "<span class='notice'>Извлекаю внешние бронепластины...</span>")
 			playsound(user, 'sound/items/screwdriver.ogg',70, TRUE)
 			if(!do_after(user, 5 SECONDS, src))
 				return TRUE
@@ -118,7 +118,7 @@
 // 	Разборка Пуленепробиваемой
 		if(disassembly_flag)
 			if(istype(src, /obj/item/clothing/suit/armor/bulletproof))
-				to_chat(user, span_notice("Извлекаю дополнительную керамическую бронепластину и перераспределяю оставшиеся по стандартной схеме..."))
+				to_chat(user, "<span class='notice'>Извлекаю дополнительную керамическую бронепластину и перераспределяю оставшиеся по стандартной схеме...</span>")
 				playsound(user, 'sound/items/screwdriver.ogg', 70, TRUE)
 				if(!do_after(user, 5 SECONDS, src))
 					return TRUE
@@ -129,7 +129,7 @@
 				return
 // 	Разборка Риот
 			if(istype(src, /obj/item/clothing/suit/armor/riot))
-				to_chat(user, span_notice("Извлекаю дополнительную ударостойкую бронепластину и перераспределяю оставшиеся по стандартной схеме..."))
+				to_chat(user, "<span class='notice'>Извлекаю дополнительную ударостойкую бронепластину и перераспределяю оставшиеся по стандартной схеме...</span>")
 				playsound(user, 'sound/items/screwdriver.ogg', 70, TRUE)
 				if(!do_after(user, 5 SECONDS, src))
 					return TRUE
@@ -142,7 +142,7 @@
 // 	Разборка Зеркальной
 		if(disassembly_flag)
 			if(istype(src, /obj/item/clothing/suit/armor/laserproof))
-				to_chat(user, span_notice("Извлекаю дополнительную зеркальную бронепластину и перераспределяю оставшиеся по стандартной схеме..."))
+				to_chat(user, "<span class='notice'>Извлекаю дополнительную зеркальную бронепластину и перераспределяю оставшиеся по стандартной схеме...</span>")
 				playsound(user, 'sound/items/screwdriver.ogg', 70, TRUE)
 				if(!do_after(user, 5 SECONDS, src))
 					return TRUE
@@ -153,12 +153,12 @@
 				return
 // 	Разборка Старого бронежилета
 			if(istype(src, /obj/item/clothing/suit/armor/vest/old))
-				to_chat(user, span_notice("Извлекаю заклепки и расслабляю шнуровку..."))
+				to_chat(user, "<span class='notice'>Извлекаю заклепки и расслабляю шнуровку...</span>")
 				playsound(user, 'sound/items/screwdriver.ogg', 70, TRUE)
 				if(!do_after(user, 5 SECONDS, src))
 					return TRUE
 				playsound(user, 'sound/items/handling/cloth_pickup.ogg', 70, TRUE)
-				to_chat(user, span_warning("Стоило мне отковырять пару заклепок и бронежилет развалился на части!"))
+				to_chat(user, "<span class='warning'>Стоило мне отковырять пару заклепок и бронежилет развалился на части!</span>")
 				new /obj/item/stack/sheet/durathread/ten(src.drop_location())
 				if(prob(80))
 					new /obj/item/stack/sheet/armor_plate/plasteel(src.drop_location())
@@ -170,7 +170,7 @@
 				return
 // 	Разборка Стандартного бронежилета
 			if(istype(src, /obj/item/clothing/suit/armor/vest))
-				to_chat(user, span_notice("Извлекаю заклепки и расслабляю шнуровку..."))
+				to_chat(user, "<span class='notice'>Извлекаю заклепки и расслабляю шнуровку...</span>")
 				playsound(user, 'sound/items/screwdriver.ogg', 70, TRUE)
 				if(!do_after(user, 5 SECONDS, src))
 					return TRUE

@@ -31,24 +31,24 @@
 /obj/item/radio/intercom/attackby(obj/item/I, mob/living/user, params)
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		if(unscrewed)
-			user.visible_message(span_notice("[user] начинает затягивать винтики [src.name]...") , span_notice("Начинаю прикручивать [src.name]..."))
+			user.visible_message("<span class='notice'>[user] начинает затягивать винтики [src.name]...</span>" , "<span class='notice'>Начинаю прикручивать [src.name]...</span>")
 			if(I.use_tool(src, user, 30, volume=50))
-				user.visible_message(span_notice("[user] затягивает винтики [src.name]!") , span_notice("Прикручиваю [src.name]."))
+				user.visible_message("<span class='notice'>[user] затягивает винтики [src.name]!</span>" , "<span class='notice'>Прикручиваю [src.name].</span>")
 				unscrewed = FALSE
 		else
-			user.visible_message(span_notice("[user] начинает откручивать винтики [src.name]...") , span_notice("Начинаю откручивать [src.name]..."))
+			user.visible_message("<span class='notice'>[user] начинает откручивать винтики [src.name]...</span>" , "<span class='notice'>Начинаю откручивать [src.name]...</span>")
 			if(I.use_tool(src, user, 40, volume=50))
-				user.visible_message(span_notice("[user] откручивает винтики [src.name]!") , span_notice("Откручиваю [src.name] от стены."))
+				user.visible_message("<span class='notice'>[user] откручивает винтики [src.name]!</span>" , "<span class='notice'>Откручиваю [src.name] от стены.</span>")
 				unscrewed = TRUE
 		return
 	else if(I.tool_behaviour == TOOL_WRENCH)
 		if(!unscrewed)
-			to_chat(user, span_warning("Нужно открутить [src.name] от стены!"))
+			to_chat(user, "<span class='warning'>Нужно открутить [src.name] от стены!</span>")
 			return
-		user.visible_message(span_notice("[user] начинает снимать [src.name]...") , span_notice("Начинаю снимать [src.name]..."))
+		user.visible_message("<span class='notice'>[user] начинает снимать [src.name]...</span>" , "<span class='notice'>Начинаю снимать [src.name]...</span>")
 		I.play_tool_sound(src)
 		if(I.use_tool(src, user, 80))
-			user.visible_message(span_notice("[user] снимает [src.name]!") , span_notice("Снимаю [src.name] со стены."))
+			user.visible_message("<span class='notice'>[user] снимает [src.name]!</span>" , "<span class='notice'>Снимаю [src.name] со стены.</span>")
 			playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
 			new/obj/item/wallframe/intercom(get_turf(src))
 			qdel(src)

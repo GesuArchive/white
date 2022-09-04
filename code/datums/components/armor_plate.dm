@@ -38,16 +38,16 @@
 	if(ismecha(parent))
 		if(amount)
 			if(amount < maxamount)
-				examine_list += span_notice("\nБроня увеличена на [amount] [upgrade_name].")
+				examine_list += "<span class='notice'>\nБроня увеличена на [amount] [upgrade_name].</span>"
 			else
-				examine_list += span_notice("\nВсе броневые пластины укреплены [upgrade_name] - должно быть его пилот знаменитый охотник на монстров.")
+				examine_list += "<span class='notice'>\nВсе броневые пластины укреплены [upgrade_name] - должно быть его пилот знаменитый охотник на монстров.</span>"
 		else
-			examine_list += span_notice("\nНа корпусе заметны точки крепления для дополнительной брони. Может, удастся усилить ее шкурой какой-нибудь твари?")
+			examine_list += "<span class='notice'>\nНа корпусе заметны точки крепления для дополнительной брони. Может, удастся усилить ее шкурой какой-нибудь твари?</span>"
 	else
 		if(amount)
-			examine_list += span_notice("\nЗдесь есть крепления для дополнительных броневых пластин, кажется сюда подойдет [upgrade_name]. На текущий момент закреплено [amount]/[maxamount] бронепластин.")
+			examine_list += "<span class='notice'>\nЗдесь есть крепления для дополнительных броневых пластин, кажется сюда подойдет [upgrade_name]. На текущий момент закреплено [amount]/[maxamount] бронепластин.</span>"
 		else
-			examine_list += span_notice("\nЗдесь есть [maxamount] крепления для дополнительных броневых пластин, кажется сюда подойдет [upgrade_name].")
+			examine_list += "<span class='notice'>\nЗдесь есть [maxamount] крепления для дополнительных броневых пластин, кажется сюда подойдет [upgrade_name].</span>"
 
 /datum/component/armor_plate/proc/applyplate(datum/source, obj/item/I, mob/user, params)
 	SIGNAL_HANDLER
@@ -55,14 +55,14 @@
 	if(!istype(I,upgrade_item))
 		return
 	if(amount >= maxamount)
-		to_chat(user, span_warning("Дальнейшее улучшение брони [parent] невозможно!"))
+		to_chat(user, "<span class='warning'>Дальнейшее улучшение брони [parent] невозможно!</span>")
 		return
 
 	if(istype(I,/obj/item/stack))
 		I.use(1)
 	else
 		if(length(I.contents))
-			to_chat(user, span_warning("[I] не может быть улучшен пока внутри что-то есть!"))
+			to_chat(user, "<span class='warning'>[I] не может быть улучшен пока внутри что-то есть!</span>")
 			return
 		qdel(I)
 
@@ -73,10 +73,10 @@
 	if(ismecha(O))
 		var/obj/vehicle/sealed/mecha/R = O
 		R.update_icon()
-		to_chat(user, span_info("Закрепляю дополнительные бронепластины на [R]."))
+		to_chat(user, "<span class='info'>Закрепляю дополнительные бронепластины на [R].</span>")
 	else
 		SEND_SIGNAL(O, COMSIG_ARMOR_PLATED, amount, maxamount)
-		to_chat(user, span_info("Закрепляю дополнительные бронепластины на [O]."))
+		to_chat(user, "<span class='info'>Закрепляю дополнительные бронепластины на [O].</span>")
 
 
 /datum/component/armor_plate/proc/dropplates(datum/source, force)

@@ -23,8 +23,8 @@
 /datum/component/jammed/proc/on_examine(atom/A, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 	examine_list += "<hr>"
-	examine_list += span_danger("<big>СТВОЛ ЗАКЛИНИЛО!</big>")
-	examine_list += span_info("\nМожно попытаться починить его используя ПКМ.")
+	examine_list += "<span class='danger'><big>СТВОЛ ЗАКЛИНИЛО!</big></span>"
+	examine_list += "<span class='info'>\nМожно попытаться починить его используя ПКМ.</span>"
 
 /datum/component/jammed/proc/on_gun_fired(obj/item/gun/source, mob/living/user, atom/target)
 	SIGNAL_HANDLER
@@ -37,13 +37,13 @@
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /datum/component/jammed/proc/jammed_fire(obj/item/gun/source, mob/user)
-	to_chat(user, span_userdanger("ЗАКЛИНИЛО!"))
+	to_chat(user, "<span class='userdanger'>ЗАКЛИНИЛО!</span>")
 	source.shoot_with_empty_chamber(user)
 
 /datum/component/jammed/proc/start_fixing(obj/item/gun/jammed_gun, mob/user)
-	to_chat(user, span_notice("Начинаю чинить [jammed_gun]."))
+	to_chat(user, "<span class='notice'>Начинаю чинить [jammed_gun].</span>")
 	if(do_after(user, fixing_time, jammed_gun, timed_action_flags = (fix_on_move ? IGNORE_USER_LOC_CHANGE : null)))
-		to_chat(user, span_notice("Удалось починить [jammed_gun]."))
+		to_chat(user, "<span class='notice'>Удалось починить [jammed_gun].</span>")
 		on_fix(jammed_gun, user)
 		qdel(src)
 
@@ -62,7 +62,7 @@
 	var/obj/item/gun/energy/E = source
 	if(prob(15))
 		if(prob(5))
-			user.visible_message(span_danger("[user] совершает глупую ошибку!"))
+			user.visible_message("<span class='danger'>[user] совершает глупую ошибку!</span>")
 			playsound(get_turf(E), 'white/valtos/sounds/explo.ogg', 80) //лол валера че за звуки из аниме библиотек
 			spawn(1 SECONDS)
 				empulse(get_turf(E), rand(1, 4), rand(4, 8))

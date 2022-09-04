@@ -51,9 +51,9 @@ Bonus
 		switch(A.stage)
 			if(1, 2)
 				if(prob(base_message_chance) && !suppress_warning)
-					to_chat(M, span_warning("Глаза чешутся."))
+					to_chat(M, "<span class='warning'>Глаза чешутся.</span>")
 			if(3, 4)
-				to_chat(M, span_warning("<b>ГЛАЗА ГОРЯТ!</b>"))
+				to_chat(M, "<span class='warning'><b>ГЛАЗА ГОРЯТ!</b></span>")
 				M.blur_eyes(10)
 				eyes.applyOrganDamage(1)
 			else
@@ -64,11 +64,11 @@ Bonus
 				if(prob(eyes.damage - 10 + 1))
 					if(!remove_eyes)
 						if(!M.is_blind())
-							to_chat(M, span_userdanger("Слепну!"))
+							to_chat(M, "<span class='userdanger'>Слепну!</span>")
 							eyes.applyOrganDamage(eyes.maxHealth)
 					else
-						M.visible_message(span_warning("Глаза [M] выпадают!"), span_userdanger("Глаза выпадают из орбит!"))
+						M.visible_message("<span class='warning'>Глаза [M] выпадают!</span>", "<span class='userdanger'>Глаза выпадают из орбит!</span>")
 						eyes.Remove(M)
 						eyes.forceMove(get_turf(M))
 				else
-					to_chat(M, span_userdanger("ГЛАЗА УЖАСНО БОЛЯТ!"))
+					to_chat(M, "<span class='userdanger'>ГЛАЗА УЖАСНО БОЛЯТ!</span>")

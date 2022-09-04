@@ -46,8 +46,8 @@ Bonus
 	switch(A.stage)
 		if(1, 2, 3, 4)
 			if(prob(base_message_chance))
-				to_chat(M, span_warning("[pick("Хочется кушать.", "Сейчас бы пожрать.")]"))
+				to_chat(M, "<span class='warning'>[pick("Хочется кушать.", "Сейчас бы пожрать.")]</span>")
 		else
-			to_chat(M, span_warning("<i>[pick("Голодно...", "Убью за еду...", "Голод пожирает меня...")]</i>"))
+			to_chat(M, "<span class='warning'><i>[pick("Голодно...", "Убью за еду...", "Голод пожирает меня...")]</i></span>")
 			M.overeatduration = max(M.overeatduration - 200 SECONDS, 0)
 			M.adjust_nutrition(-100)

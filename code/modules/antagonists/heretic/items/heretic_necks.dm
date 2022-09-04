@@ -10,7 +10,7 @@
 	if(!IS_HERETIC(user))
 		return
 
-	. += span_notice("Allows you to cast advanced heretic spells when worn.")
+	. += "<span class='notice'>Allows you to cast advanced heretic spells when worn.</span>"
 
 /obj/item/clothing/neck/eldritch_amulet
 	name = "Warm Eldritch Medallion"

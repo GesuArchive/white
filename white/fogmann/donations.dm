@@ -308,7 +308,7 @@ GLOBAL_PROTECT(donations_list)
 
 
 	if(!SSticker || SSticker.current_state < GAME_STATE_PLAYING)
-		to_chat(src, span_warning("Не так быстро, игра ещё не началась!"))
+		to_chat(src, "<span class='warning'>Не так быстро, игра ещё не началась!</span>")
 		return
 
 	if (!GLOB.donators[ckey]) //If it doesn't exist yet
@@ -390,27 +390,27 @@ GLOBAL_PROTECT(donators)
 			var/mob/living/carbon/human/user = usr
 
 			if(!SSticker || SSticker.current_state < 3)
-				to_chat(user,span_warning("Игра ещё не началась!"))
+				to_chat(user,"<span class='warning'>Игра ещё не началась!</span>")
 				return FALSE
 
 			if((world.time-SSticker.round_start_time) > DONATIONS_SPAWN_WINDOW && !istype(get_area(user), /area/service/bar))
-				to_chat(user,span_warning("Нужно быть в баре."))
+				to_chat(user,"<span class='warning'>Нужно быть в баре.</span>")
 				return FALSE
 
 			if(istype(get_area(user), /area/violence))
-				to_chat(user,span_warning("Поставки товаров СиндиЭкспресс в данную зону невозможны."))
+				to_chat(user,"<span class='warning'>Поставки товаров СиндиЭкспресс в данную зону невозможны.</span>")
 				return FALSE
 
 			if(prize.cost > money)
-				to_chat(user,span_warning("Недостаточно баланса."))
+				to_chat(user,"<span class='warning'>Недостаточно баланса.</span>")
 				return FALSE
 
 			if(!allowed_num_items)
-				to_chat(user,span_warning("Достигли максимума. Ура."))
+				to_chat(user,"<span class='warning'>Достигли максимума. Ура.</span>")
 				return FALSE
 
 			if(!user)
-				to_chat(user,span_warning("Нужно быть живым."))
+				to_chat(user,"<span class='warning'>Нужно быть живым.</span>")
 				return FALSE
 
 			if(!ispath(prize.path_to))
@@ -420,12 +420,12 @@ GLOBAL_PROTECT(donators)
 				return FALSE
 
 			if(prize.stock <= 0)
-				to_chat(user,span_warning("Поставки <b>[prize.name]</b> закончились."))
+				to_chat(user,"<span class='warning'>Поставки <b>[prize.name]</b> закончились.</span>")
 				return FALSE
 
 			if(prize.special)
 				if (prize.special != user.ckey)
-					to_chat(user,span_warning("Этот предмет предназначен для <b>[prize.special]</b>."))
+					to_chat(user,"<span class='warning'>Этот предмет предназначен для <b>[prize.special]</b>.</span>")
 					return FALSE
 
 			prize.stock--
@@ -436,7 +436,7 @@ GLOBAL_PROTECT(donators)
 				"spawn" = prize.path_to
 			))
 
-			to_chat(user, span_info("[capitalize(prize.name)] был создан!"))
+			to_chat(user, "<span class='info'>[capitalize(prize.name)] был создан!</span>")
 
 			money -= prize.cost
 			allowed_num_items--

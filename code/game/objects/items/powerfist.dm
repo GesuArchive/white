@@ -34,7 +34,7 @@
 		if(!tank)
 			var/obj/item/tank/internals/IT = W
 			if(IT.volume <= 3)
-				to_chat(user, span_warning("\The [IT] is too small for <b>[src.name]</b>."))
+				to_chat(user, "<span class='warning'>\The [IT] is too small for <b>[src.name]</b>.</span>")
 				return
 			updateTank(W, 0, user)
 	else if(W.tool_behaviour == TOOL_WRENCH)
@@ -46,7 +46,7 @@
 			if(3)
 				fisto_setting = 1
 		W.play_tool_sound(src)
-		to_chat(user, span_notice("Настраиваю поршневой клапан <b>[src.name]</b> на [fisto_setting]."))
+		to_chat(user, "<span class='notice'>Настраиваю поршневой клапан <b>[src.name]</b> на [fisto_setting].</span>")
 	else if(W.tool_behaviour == TOOL_SCREWDRIVER)
 		if(tank)
 			updateTank(tank, 1, user)
@@ -54,28 +54,28 @@
 /obj/item/melee/powerfist/proc/updateTank(obj/item/tank/internals/thetank, removing = 0, mob/living/carbon/human/user)
 	if(removing)
 		if(!tank)
-			to_chat(user, span_notice("<b>[src.name]</b> не имеет баллона."))
+			to_chat(user, "<span class='notice'><b>[src.name]</b> не имеет баллона.</span>")
 			return
-		to_chat(user, span_notice("Открепляю [thetank] от <b>[src.name]</b>."))
+		to_chat(user, "<span class='notice'>Открепляю [thetank] от <b>[src.name]</b>.</span>")
 		tank.forceMove(get_turf(user))
 		user.put_in_hands(tank)
 		tank = null
 	if(!removing)
 		if(tank)
-			to_chat(user, span_warning("<b>[src.name]</b> уже имеет баллон."))
+			to_chat(user, "<span class='warning'><b>[src.name]</b> уже имеет баллон.</span>")
 			return
 		if(!user.transferItemToLoc(thetank, src))
 			return
-		to_chat(user, span_notice("Присоединяю [thetank] к <b>[src.name]</b>."))
+		to_chat(user, "<span class='notice'>Присоединяю [thetank] к <b>[src.name]</b>.</span>")
 		tank = thetank
 
 
 /obj/item/melee/powerfist/attack(mob/living/target, mob/living/user)
 	if(!tank)
-		to_chat(user, span_warning("<b>[src.name]</b> не может работать без источника газа!"))
+		to_chat(user, "<span class='warning'><b>[src.name]</b> не может работать без источника газа!</span>")
 		return
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, span_warning("Не хочу вредить живым существам!"))
+		to_chat(user, "<span class='warning'>Не хочу вредить живым существам!</span>")
 		return
 	var/datum/gas_mixture/gasused = tank.air_contents.remove(gasperfist * fisto_setting)
 	var/turf/T = get_turf(src)
@@ -84,23 +84,23 @@
 	T.assume_air(gasused)
 	T.air_update_turf()
 	if(!gasused)
-		to_chat(user, span_warning("<b>[src.name]</b>'s tank is empty!"))
+		to_chat(user, "<span class='warning'><b>[src.name]</b>'s tank is empty!</span>")
 		target.apply_damage((force / 5), BRUTE)
 		playsound(loc, 'sound/weapons/punch1.ogg', 50, TRUE)
-		target.visible_message(span_danger("[user] силовой кулак издает тупой стук от удара [user.ru_who()] по [user.p_es()] [target.name]!") , \
-			span_userdanger("[user] бьет тебя!"))
+		target.visible_message("<span class='danger'>[user] силовой кулак издает тупой стук от удара [user.ru_who()] по [user.p_es()] [target.name]!</span>" , \
+			"<span class='userdanger'>[user] бьет тебя!</span>")
 		return
 	if(gasused.total_moles() < gasperfist * fisto_setting)
-		to_chat(user, span_warning("Поршневая рама <b>[src.name]</b> издает слабое шипение, ей нужно больше газа!"))
+		to_chat(user, "<span class='warning'>Поршневая рама <b>[src.name]</b> издает слабое шипение, ей нужно больше газа!</span>")
 		playsound(loc, 'sound/weapons/punch4.ogg', 50, TRUE)
 		target.apply_damage((force / 2), BRUTE)
-		target.visible_message(span_danger("[user] силовой кулак издает слабое шипение во время удара [user.ru_who()] по [user.p_es()] [target.name]!") , \
-			span_userdanger("[user] бьет с большой силой!"))
+		target.visible_message("<span class='danger'>[user] силовой кулак издает слабое шипение во время удара [user.ru_who()] по [user.p_es()] [target.name]!</span>" , \
+			"<span class='userdanger'>[user] бьет с большой силой!</span>")
 		return
 
 	target.apply_damage(force * fisto_setting, BRUTE, wound_bonus = CANT_WOUND)
-	target.visible_message(span_danger("[user] силовой кулак издает сильное шипение во время удара [user.ru_who()] по [user.p_es()] [target.name]!") , \
-		span_userdanger("Вскрикиваю от боли, когда [user] удар отбрасывает меня назад!"))
+	target.visible_message("<span class='danger'>[user] силовой кулак издает сильное шипение во время удара [user.ru_who()] по [user.p_es()] [target.name]!</span>" , \
+		"<span class='userdanger'>Вскрикиваю от боли, когда [user] удар отбрасывает меня назад!</span>")
 	new /obj/effect/temp_visual/kinetic_blast(target.loc)
 	playsound(loc, 'sound/weapons/resonator_blast.ogg', 50, TRUE)
 	playsound(loc, 'sound/weapons/genhit2.ogg', 50, TRUE)

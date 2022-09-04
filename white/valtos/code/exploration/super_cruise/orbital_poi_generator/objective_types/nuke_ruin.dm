@@ -124,7 +124,7 @@
 
 /obj/machinery/nuclearbomb/decomission/set_active()
 	if(safety)
-		to_chat(usr, span_danger("Механизм безопасности включен."))
+		to_chat(usr, "<span class='danger'>Механизм безопасности включен.</span>")
 		return
 	timing = !timing
 	if(timing)

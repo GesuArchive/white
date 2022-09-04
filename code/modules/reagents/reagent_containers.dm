@@ -51,7 +51,7 @@
 					amount_per_transfer_from_this = possible_transfer_amounts[i+1]
 				else
 					amount_per_transfer_from_this = possible_transfer_amounts[1]
-				to_chat(user, span_notice("Перемещаю [amount_per_transfer_from_this] единиц."))
+				to_chat(user, "<span class='notice'>Перемещаю [amount_per_transfer_from_this] единиц.</span>")
 				return
 
 /obj/item/reagent_containers/attack(atom/target, mob/living/user, def_zone)
@@ -76,17 +76,17 @@
 
 	var/reagent_text
 	user.visible_message(
-		span_danger("[user] проливает содержмое [src] на [target][punctuation]") ,
-		span_danger("Проливаю содержимое [src] на [target][punctuation]") ,
+		"<span class='danger'>[user] проливает содержмое [src] на [target][punctuation]</span>" ,
+		"<span class='danger'>Проливаю содержимое [src] на [target][punctuation]</span>" ,
 		ignored_mobs = target,
 	)
 
 	if (ismob(target))
 		var/mob/target_mob = target
 		target_mob.show_message(
-			span_userdanger("[user] проливает содержимое [src] на меня!") ,
+			"<span class='userdanger'>[user] проливает содержимое [src] на меня!</span>" ,
 			MSG_VISUAL,
-			span_userdanger("Мокренько!") ,
+			"<span class='userdanger'>Мокренько!</span>" ,
 		)
 
 	for(var/datum/reagent/reagent as anything in reagents.reagent_list)
@@ -114,7 +114,7 @@
 		covered = "маску"
 	if(covered)
 		var/who = (isnull(user) || eater == user) ? "мою" : "[eater.ru_ego()]"
-		to_chat(user, span_warning("Нужно снять [who] [covered] сначала!"))
+		to_chat(user, "<span class='warning'>Нужно снять [who] [covered] сначала!</span>")
 		return FALSE
 	return TRUE
 
@@ -160,8 +160,8 @@
 			reagents.total_volume *= rand(5,10) * 0.1 //Not all of it makes contact with the target
 		var/mob/M = target
 		var/R
-		target.visible_message(span_danger("[M] покрывается чем-то!") , \
-						span_userdanger("[M] покрывается чем-то!"))
+		target.visible_message("<span class='danger'>[M] покрывается чем-то!</span>" , \
+						"<span class='userdanger'>[M] покрывается чем-то!</span>")
 		for(var/datum/reagent/A in reagents.reagent_list)
 			R += "[A.type]  ([num2text(A.volume)]),"
 
@@ -170,7 +170,7 @@
 		reagents.expose(target, TOUCH)
 
 	else if(bartender_check(target) && thrown)
-		visible_message(span_notice("[capitalize(src.name)] приземляется на [target.name] не потеряв и капли."))
+		visible_message("<span class='notice'>[capitalize(src.name)] приземляется на [target.name] не потеряв и капли.</span>")
 		return
 
 	else
@@ -178,7 +178,7 @@
 			log_combat(thrown_by, target, "splashed (thrown) [english_list(reagents.reagent_list)]", "in [AREACOORD(target)]")
 			log_game("[key_name(thrown_by)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [AREACOORD(target)].")
 			message_admins("[ADMIN_LOOKUPFLW(thrown_by)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [ADMIN_VERBOSEJMP(target)].")
-		visible_message(span_notice("[src] проливается на [target]."))
+		visible_message("<span class='notice'>[src] проливается на [target].</span>")
 		reagents.expose(target, TOUCH)
 		if(QDELETED(src))
 			return

@@ -105,7 +105,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 		if(removing) // They're a clown becoming an antag, remove clumsy
 			H.dna.remove_mutation(CLOWNMUT)
 			if(!silent && message)
-				to_chat(H, span_boldnotice("[message]"))
+				to_chat(H, "<span class='boldnotice'>[message]</span>")
 		else
 			H.dna.add_mutation(CLOWNMUT) // We're removing their antag status, add back clumsy
 
@@ -128,7 +128,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 	if(!silent)
 		greet()
 		if(ui_name)
-			to_chat(owner.current, span_boldnotice("For more info, read the panel. you can always come back to it using the button in the top left."))
+			to_chat(owner.current, "<span class='boldnotice'>For more info, read the panel. you can always come back to it using the button in the top left.</span>")
 			info_button.Trigger()
 	apply_innate_effects()
 	give_antag_moodies()

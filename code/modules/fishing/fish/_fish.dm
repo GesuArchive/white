@@ -116,8 +116,8 @@
 /obj/item/fish/examine(mob/user)
 	. = ..()
 	// All spacemen have magic eyes of fish weight perception until fish scale (get it?) is implemented.
-	. += span_notice("It's [size] cm long.")
-	. += span_notice("It weighs [weight] g.")
+	. += "<span class='notice'>It's [size] cm long.</span>"
+	. += "<span class='notice'>It weighs [weight] g.</span>"
 
 /obj/item/fish/proc/randomize_weight_and_size(modifier = 0)
 	var/size_deviation = 0.2 * average_size
@@ -212,7 +212,7 @@
 			status = FISH_DEAD
 			STOP_PROCESSING(SSobj, src)
 			stop_flopping()
-			var/message = span_notice("\The [name] dies.")
+			var/message = "<span class='notice'>\The [name] dies.</span>"
 			if(istype(loc,/obj/structure/aquarium))
 				loc.visible_message(message)
 			else

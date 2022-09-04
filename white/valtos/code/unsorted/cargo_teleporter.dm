@@ -10,8 +10,8 @@
 
 /obj/item/cargo_teleporter/examine(mob/user)
 	. = ..()
-	. += span_notice("<hr>Используй в руке для установки маркера.")
-	. += span_notice("<hr>ПКМ для удаления всех маркеров!")
+	. += "<span class='notice'><hr>Используй в руке для установки маркера.</span>"
+	. += "<span class='notice'><hr>ПКМ для удаления всех маркеров!</span>"
 
 /obj/item/cargo_teleporter/Destroy()
 	if(length(marker_children))
@@ -22,9 +22,9 @@
 
 /obj/item/cargo_teleporter/attack_self(mob/user, modifiers)
 	if(length(marker_children) >= 3)
-		to_chat(user, span_warning("Максимум три маркера!"))
+		to_chat(user, "<span class='warning'>Максимум три маркера!</span>")
 		return
-	to_chat(user, span_notice("Устанавливаю маркер."))
+	to_chat(user, "<span class='notice'>Устанавливаю маркер.</span>")
 	var/obj/effect/decal/cleanable/cargo_mark/spawned_marker = new /obj/effect/decal/cleanable/cargo_mark(get_turf(src))
 	playsound(src, 'sound/machines/click.ogg', 50)
 	spawned_marker.parent_item = src
@@ -42,7 +42,7 @@
 	if(target == src)
 		return ..()
 	if(!COOLDOWN_FINISHED(src, use_cooldown))
-		to_chat(user, span_warning("[capitalize(src.name)] перезаряжается!"))
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] перезаряжается!</span>")
 		return
 	var/choice = tgui_input_list(user, "К какой метке будем телепортировать груз?", "Выбор метки", GLOB.cargo_marks)
 	if(!choice)
@@ -92,7 +92,7 @@
 
 /obj/effect/decal/cleanable/cargo_mark/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/cargo_teleporter))
-		to_chat(user, span_notice("Удаляю [src] используя [W]."))
+		to_chat(user, "<span class='notice'>Удаляю [src] используя [W].</span>")
 		playsound(src, 'sound/machines/click.ogg', 50)
 		qdel(src)
 		return

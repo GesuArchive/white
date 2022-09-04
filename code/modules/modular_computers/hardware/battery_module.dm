@@ -36,29 +36,29 @@
 		return FALSE
 
 	if(battery)
-		to_chat(user, span_warning("Пытаюсь подключить [I] к <b>[src.name]</b>, но не могу найти куда."))
+		to_chat(user, "<span class='warning'>Пытаюсь подключить [I] к <b>[src.name]</b>, но не могу найти куда.</span>")
 		return FALSE
 
 	if(I.w_class > holder.max_hardware_size)
-		to_chat(user, span_warning("Эта батарея слишком велика для [holder]!"))
+		to_chat(user, "<span class='warning'>Эта батарея слишком велика для [holder]!</span>")
 		return FALSE
 
 	if(user && !user.transferItemToLoc(I, src))
 		return FALSE
 
 	battery = I
-	to_chat(user, span_notice("Подключаю [I] к <b>[src.name]</b>."))
+	to_chat(user, "<span class='notice'>Подключаю [I] к <b>[src.name]</b>.</span>")
 
 	return TRUE
 
 /obj/item/computer_hardware/battery/try_eject(mob/living/user, forced = FALSE)
 	if(!battery)
-		to_chat(user, span_warning("Батарея не подключена к <b>[src.name]</b>."))
+		to_chat(user, "<span class='warning'>Батарея не подключена к <b>[src.name]</b>.</span>")
 		return FALSE
 	else
 		if(user)
 			user.put_in_hands(battery)
-			to_chat(user, span_notice("You detach \the [battery] from \the [src]."))
+			to_chat(user, "<span class='notice'>You detach \the [battery] from \the [src].</span>")
 		else if(holder)
 			battery.forceMove(get_turf(holder))
 		return TRUE

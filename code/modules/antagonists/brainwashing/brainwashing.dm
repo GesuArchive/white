@@ -36,7 +36,7 @@
 	greentext_reward = 5
 
 /datum/antagonist/brainwashed/greet()
-	to_chat(owner, span_warning("Разум начинает фокусироваться на одной цели..."))
+	to_chat(owner, "<span class='warning'>Разум начинает фокусироваться на одной цели...</span>")
 	to_chat(owner, "<big><span class='warning'><b>Выполнять Директивы любой ценой!</b></span></big>")
 	var/i = 1
 	for(var/X in objectives)
@@ -45,7 +45,7 @@
 		i++
 
 /datum/antagonist/brainwashed/farewell()
-	to_chat(owner, span_warning("Разум внезапно проясняется..."))
+	to_chat(owner, "<span class='warning'>Разум внезапно проясняется...</span>")
 	to_chat(owner, "<big><span class='warning'><b>Тяжесть Директив исчезает! Больше не обязан им подчиняться.</b></span></big>")
 	owner.announce_objectives()
 

@@ -44,7 +44,7 @@
 	SIGNAL_HANDLER
 
 	if(item.force >= 5 || item.throwforce >= 5 || item.override_notes || item.offensive_notes || attached_proc) /// Only show this tag for items that could feasibly be weapons, shields, or those that have special notes
-		examine_texts += span_notice("<hr>На [item.ru_na()] есть обновляющася блюспейс <a href='?src=[REF(item)];examine=1'>этикетка</a>.")
+		examine_texts += "<span class='notice'><hr>На [item.ru_na()] есть обновляющася блюспейс <a href='?src=[REF(item)];examine=1'>этикетка</a>.</span>"
 
 /**
  *
@@ -62,7 +62,7 @@
 	SIGNAL_HANDLER
 
 	if(href_list["examine"])
-		to_chat(user, span_notice("<div class='examine_block'>[build_label_text(source)]</div>"))
+		to_chat(user, "<span class='notice'><div class='examine_block'>[build_label_text(source)]</div></span>")
 
 /**
  *
@@ -77,22 +77,22 @@
 	var/list/readout = list("") // Readout is used to store the text block output to the user so it all can be sent in one message
 
 	// Meaningless flavor text. The number of crimes is constantly changing because of the complex Nanotrasen legal system and the esoteric nature of time itself!
-	readout += "[span_warning("ВНИМАНИЕ:")] Этот предмет был обозначен NT как потенциально опасный ввиду его использования в [span_warning("[rand(2,99)] [crimes[rand(1, crimes.len)]]")] за прошедший час.\n"
+	readout += "["<span class='warning'>ВНИМАНИЕ:</span>"] Этот предмет был обозначен NT как потенциально опасный ввиду его использования в ["<span class='warning'>[rand(2,99)] [crimes[rand(1, crimes.len)]]</span>"] за прошедший час.\n"
 
 	// Doesn't show the base notes for items that have the override notes variable set to true
 	if(!source.override_notes)
 		// Make sure not to divide by 0 on accident
 		if(source.force > 0)
-			readout += "Наши исследования показали, что нужно ударить всего [span_warning("[HITS_TO_CRIT(source.force)] раз")] чтобы отправить в нокаут [victims[rand(1, victims.len)]] без брони."
+			readout += "Наши исследования показали, что нужно ударить всего ["<span class='warning'>[HITS_TO_CRIT(source.force)] раз</span>"] чтобы отправить в нокаут [victims[rand(1, victims.len)]] без брони."
 		else
 			readout += "Согласно нашим исследованиям, этим нельзя никому навредить."
 
 		if(source.throwforce > 0)
-			readout += "В случае с бросками, понадобится бросить [span_warning("[HITS_TO_CRIT(source.throwforce)] раз")]."
+			readout += "В случае с бросками, понадобится бросить ["<span class='warning'>[HITS_TO_CRIT(source.throwforce)] раз</span>"]."
 		else
 			readout += "В случае с бросками, эта штука не сможет никому навредить."
 		if(source.armour_penetration > 0 || source.block_chance > 0)
-			readout += "Предмет имеет [span_warning("[weapon_tag_convert(source.armour_penetration)]")] пробивную характеристику и [span_warning("[weapon_tag_convert(source.block_chance)]")] возможность блокирования ударов."
+			readout += "Предмет имеет ["<span class='warning'>[weapon_tag_convert(source.armour_penetration)]</span>"] пробивную характеристику и ["<span class='warning'>[weapon_tag_convert(source.block_chance)]</span>"] возможность блокирования ударов."
 	// Custom manual notes
 	if(source.offensive_notes)
 		readout += source.offensive_notes

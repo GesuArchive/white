@@ -7,8 +7,8 @@
 	name = "синдром бога"
 	desc = "Пациент иногда впадает в транс и становится гласом древних богов, когда разговаривает."
 	scan_desc = "<b>синдрома бога</b>"
-	gain_text = span_notice("Чувствую высшую силу внутри разума...")
-	lose_text = span_warning("Божественное присутствие покидает голову.")
+	gain_text = "<span class='notice'>Чувствую высшую силу внутри разума...</span>"
+	lose_text = "<span class='warning'>Божественное присутствие покидает голову.</span>"
 
 /datum/brain_trauma/special/godwoken/on_life(delta_time, times_fired)
 	..()
@@ -51,8 +51,8 @@
 	name = "Блюспейс пророчество"
 	desc = "Пациент может ощущать движение и переплетение блюспейса вокруг себя, открывая для них проходы, которые никто другой не может видеть."
 	scan_desc = "<b>созвучия блюспейса</b>"
-	gain_text = span_notice("Чувствую, как голубое пространство пульсирует вокруг...")
-	lose_text = span_warning("Слабая пульсация синего пространства исчезает в тишине.")
+	gain_text = "<span class='notice'>Чувствую, как голубое пространство пульсирует вокруг...</span>"
+	lose_text = "<span class='warning'>Слабая пульсация синего пространства исчезает в тишине.</span>"
 	/// Cooldown so we can't teleport literally everywhere on a whim
 	COOLDOWN_DECLARE(portal_cooldown)
 
@@ -118,20 +118,20 @@
 		"втягивается в невидимый водоворот, исчезая из поля зрения")
 	var/slip_out_message = pick("бесшумно появляется", "появляется прямо из воздуха","появляется", "выходит из невидимой двери",\
 		"выскальзывает из складки пространства-времени")
-	to_chat(user, span_notice("Пытаюсь войти в блюспейс поток..."))
+	to_chat(user, "<span class='notice'>Пытаюсь войти в блюспейс поток...</span>")
 	if(do_after(user, 20, target = src))
 		new /obj/effect/temp_visual/bluespace_fissure(get_turf(src))
 		new /obj/effect/temp_visual/bluespace_fissure(get_turf(linked_to))
 		user.forceMove(get_turf(linked_to))
-		user.visible_message(span_warning("[user] [slip_in_message].") , null, null, null, user)
-		user.visible_message(span_warning("[user] [slip_out_message].") , span_notice("...and find your way to the other side."))
+		user.visible_message("<span class='warning'>[user] [slip_in_message].</span>" , null, null, null, user)
+		user.visible_message("<span class='warning'>[user] [slip_out_message].</span>" , "<span class='notice'>...and find your way to the other side.</span>")
 
 /datum/brain_trauma/special/quantum_alignment
 	name = "квантовая связь"
 	desc = "Пациент склонен к частым спонтанным квантовым запутываниям, вопреки всему, вызывающим пространственные аномалии."
 	scan_desc = "<b>квантовой связи</b>"
-	gain_text = span_notice("Чувствую слабую связь со всем, что меня окружает...")
-	lose_text = span_warning("Больше не чувствую связи со своим окружением.")
+	gain_text = "<span class='notice'>Чувствую слабую связь со всем, что меня окружает...</span>"
+	lose_text = "<span class='warning'>Больше не чувствую связи со своим окружением.</span>"
 	var/atom/linked_target = null
 	var/linked = FALSE
 	var/returning = FALSE
@@ -181,7 +181,7 @@
 	entangle(get_turf(owner))
 
 /datum/brain_trauma/special/quantum_alignment/proc/entangle(atom/target)
-	to_chat(owner, span_notice("Начинаю испытывать сильное чувство связи с [target]."))
+	to_chat(owner, "<span class='notice'>Начинаю испытывать сильное чувство связи с [target].</span>")
 	linked_target = target
 	linked = TRUE
 	COOLDOWN_START(src, snapback_cooldown, rand(45 SECONDS, 10 MINUTES))
@@ -191,7 +191,7 @@
 		linked_target = null
 		linked = FALSE
 		return
-	to_chat(owner, span_warning("Ощущаю сильную связь с [linked_target]... физически ощущаю притяжение!"))
+	to_chat(owner, "<span class='warning'>Ощущаю сильную связь с [linked_target]... физически ощущаю притяжение!</span>")
 	owner.playsound_local(owner, 'sound/magic/lightning_chargeup.ogg', 75, FALSE)
 	returning = TRUE
 	addtimer(CALLBACK(src, .proc/snapback), 100)
@@ -199,11 +199,11 @@
 /datum/brain_trauma/special/quantum_alignment/proc/snapback()
 	returning = FALSE
 	if(QDELETED(linked_target))
-		to_chat(owner, span_notice("Связь резко обрывается, а вместе с ней и притяжение."))
+		to_chat(owner, "<span class='notice'>Связь резко обрывается, а вместе с ней и притяжение.</span>")
 		linked_target = null
 		linked = FALSE
 		return
-	to_chat(owner, span_warning("Меня тянет сквозь пространство и время!"))
+	to_chat(owner, "<span class='warning'>Меня тянет сквозь пространство и время!</span>")
 	do_teleport(owner, get_turf(linked_target), null, TRUE, channel = TELEPORT_CHANNEL_QUANTUM)
 	owner.playsound_local(owner, 'sound/magic/repulse.ogg', 100, FALSE)
 	linked_target = null
@@ -213,15 +213,15 @@
 	name = "насильственный психоз"
 	desc = "Пациент сражается непредсказуемыми способами, начиная от оказания помощи своей цели и заканчивая нанесением ей ударов с жестокой силой."
 	scan_desc = "<b>насильственного психоза</b>"
-	gain_text = span_warning("Не могу сконцентрироваться на собственном настроении...")
-	lose_text = span_notice("Чувствую себя более уравновешенным.")
+	gain_text = "<span class='warning'>Не могу сконцентрироваться на собственном настроении...</span>"
+	lose_text = "<span class='notice'>Чувствую себя более уравновешенным.</span>"
 	var/datum/martial_art/psychotic_brawling/psychotic_brawling
 
 /datum/brain_trauma/special/psychotic_brawling/on_gain()
 	..()
 	psychotic_brawling = new(null)
 	if(!psychotic_brawling.teach(owner, TRUE))
-		to_chat(owner, span_notice("Но кулаки чешутся."))
+		to_chat(owner, "<span class='notice'>Но кулаки чешутся.</span>")
 		qdel(src)
 
 /datum/brain_trauma/special/psychotic_brawling/on_lose()
@@ -236,8 +236,8 @@
 	name = "Стойкость"
 	desc = "Пациент психологически не подвержен боли и травмам и может оставаться на ногах гораздо дольше, чем обычный человек."
 	scan_desc = "<b>травматической невропатии</b>"
-	gain_text = span_warning("Внезапно перестаю чувствовать боль.")
-	lose_text = span_warning("Снова могу чувствовать боль.")
+	gain_text = "<span class='warning'>Внезапно перестаю чувствовать боль.</span>"
+	lose_text = "<span class='warning'>Снова могу чувствовать боль.</span>"
 
 /datum/brain_trauma/special/tenacity/on_gain()
 	ADD_TRAIT(owner, TRAIT_NOSOFTCRIT, TRAUMA_TRAIT)
@@ -253,8 +253,8 @@
 	name = "экстрасенсорное восприятие"
 	desc = "Мозг пациента застрял в функциональном предсмертном состоянии, вызывая случайные моменты осознанных галлюцинаций, которые часто интерпретируются как голоса мертвых."
 	scan_desc = "<b>экстрасенсорного восприятия</b>"
-	gain_text = span_warning("You feel dead inside.")
-	lose_text = span_notice("You feel alive again.")
+	gain_text = "<span class='warning'>You feel dead inside.</span>"
+	lose_text = "<span class='notice'>You feel alive again.</span>"
 	var/active = FALSE
 
 /datum/brain_trauma/special/death_whispers/on_life()
@@ -280,8 +280,8 @@
 	name = "экзистенциальный кризис"
 	desc = "Связь пациента с реальностью ослабевает, вызывая случайные приступы небытия."
 	scan_desc = "<b>экзистенциального кризиса</b>"
-	gain_text = span_notice("Ощущаю себя менее реальным.")
-	lose_text = span_warning("Ощущаю себя более реальным.")
+	gain_text = "<span class='notice'>Ощущаю себя менее реальным.</span>"
+	lose_text = "<span class='warning'>Ощущаю себя более реальным.</span>"
 	var/obj/effect/abstract/sync_holder/veil/veil
 	/// A cooldown to prevent constantly erratic dolphining through the fabric of reality
 	COOLDOWN_DECLARE(crisis_cooldown)
@@ -319,7 +319,7 @@
 
 /datum/brain_trauma/special/existential_crisis/proc/fade_in()
 	QDEL_NULL(veil)
-	to_chat(owner, span_notice("Ты возвращаешься в реальность."))
+	to_chat(owner, "<span class='notice'>Ты возвращаешься в реальность.</span>")
 	COOLDOWN_START(src, crisis_cooldown, 1 MINUTES)
 
 //base sync holder is in desynchronizer.dm
@@ -331,8 +331,8 @@
 	name = "Criminal"
 	desc = "Преступоление и наказание. Судья, прокурор и палач ваш собственный разум."
 	scan_desc = "<b>аутопокаятельной шизофрении</b>"
-	gain_text = span_warning("Правосудие придет за мной.")
-	lose_text = span_notice("Получаю прощение за свои преступления.")
+	gain_text = "<span class='warning'>Правосудие придет за мной.</span>"
+	lose_text = "<span class='notice'>Получаю прощение за свои преступления.</span>"
 	random_gain = FALSE
 	var/obj/effect/hallucination/simple/securitron/beepsky
 
@@ -365,7 +365,7 @@
 		return
 	if(get_dist(owner, beepsky) <= 1)
 		owner.playsound_local(owner, 'sound/weapons/egloves.ogg', 50)
-		owner.visible_message(span_warning("[owner] тело дергается, как будто его шокировали.") , span_userdanger("Чувствую тяжелую руку ЗАКОНА."))
+		owner.visible_message("<span class='warning'>[owner] тело дергается, как будто его шокировали.</span>" , "<span class='userdanger'>Чувствую тяжелую руку ЗАКОНА.</span>")
 		owner.take_bodypart_damage(0,0,rand(40, 70))
 		QDEL_NULL(beepsky)
 	if(prob(20) && get_dist(owner, beepsky) <= 8)
@@ -388,7 +388,7 @@
 	if(prob(60))
 		forceMove(get_step_towards(src, victim))
 		if(prob(5))
-			to_chat(victim, span_name("[name]</span> exclaims, \"<span class='robotic'>Level 10 infraction alert!\""))
+			to_chat(victim, "<span class='name'>[name]</span> exclaims, \"<span class='robotic'>Level 10 infraction alert!\"</span>")
 
 /obj/effect/hallucination/simple/securitron/Destroy()
 	STOP_PROCESSING(SSfastprocess,src)

@@ -38,7 +38,7 @@
 	if(istype(I, /obj/item/disk/nanite_program))
 		var/obj/item/disk/nanite_program/N = I
 		if(user.transferItemToLoc(N, src))
-			to_chat(user, span_notice("Вставляю [N] в [src]."))
+			to_chat(user, "<span class='notice'>Вставляю [N] в [src].</span>")
 			playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 			if(disk)
 				eject(user)
@@ -67,7 +67,7 @@
 
 /obj/machinery/nanite_program_hub/AltClick(mob/user)
 	if(disk && user.canUseTopic(src, !issilicon(user)))
-		to_chat(user, span_notice("Извлекаю [disk] из [src]."))
+		to_chat(user, "<span class='notice'>Извлекаю [disk] из [src].</span>")
 		eject(user)
 	return
 

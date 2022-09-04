@@ -41,22 +41,22 @@
 
 
 	if (HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, span_warning("Не могу позволить себе проткнуть глаз человеку! Это навредит ему!"))
+		to_chat(user, "<span class='warning'>Не могу позволить себе проткнуть глаз человеку! Это навредит ему!</span>")
 		return
 
 	if (ishuman(target) && isnull(target_limb))
 		return
 
 	if (target.is_eyes_covered())
-		to_chat(user, span_warning("You failed to stab [target.p_their()] eyes, you need to remove [target.p_their()] eye protection first!"))
+		to_chat(user, "<span class='warning'>You failed to stab [target.p_their()] eyes, you need to remove [target.p_their()] eye protection first!</span>")
 		return
 
 	if (isalien(target))
-		to_chat(user, span_warning("You cannot locate any eyes on this creature!"))
+		to_chat(user, "<span class='warning'>You cannot locate any eyes on this creature!</span>")
 		return
 
 	if (isbrain(target))
-		to_chat(user, span_warning("You cannot locate any organic eyes on this brain!"))
+		to_chat(user, "<span class='warning'>You cannot locate any organic eyes on this brain!</span>")
 		return
 
 	item.add_fingerprint(user)
@@ -67,13 +67,13 @@
 
 	if (target == user)
 		user.visible_message(
-			span_danger("[user] протыкает свой глаз с помощью [item]!"),
-			span_userdanger("Протыкаю себе глаз с помощью [item]!"),
+			"<span class='danger'>[user] протыкает свой глаз с помощью [item]!</span>",
+			"<span class='userdanger'>Протыкаю себе глаз с помощью [item]!</span>",
 		)
 	else
 		target.visible_message(
-			span_danger("[user] протыкает глаз [target] с помощью [item]!"),
-			span_userdanger("[user] протыкает ваш глаз с помощью [item]!"),
+			"<span class='danger'>[user] протыкает глаз [target] с помощью [item]!</span>",
+			"<span class='userdanger'>[user] протыкает ваш глаз с помощью [item]!</span>",
 		)
 
 	if (target_limb)
@@ -97,23 +97,23 @@
 
 	target.adjust_blurriness(15)
 	if (target.stat != DEAD)
-		to_chat(target, span_danger("Мои глаза начинают обильно кровоточить!"))
+		to_chat(target, "<span class='danger'>Мои глаза начинают обильно кровоточить!</span>")
 
 	if (!target.is_blind() && !HAS_TRAIT(target, TRAIT_NEARSIGHT))
-		to_chat(target, span_danger("Мое зрение ухудшилось!"))
+		to_chat(target, "<span class='danger'>Мое зрение ухудшилось!</span>")
 
 	target.become_nearsighted(EYE_DAMAGE)
 
 	if (prob(50))
 		if (target.stat != DEAD && target.drop_all_held_items())
-			to_chat(target, span_danger("Роняю то, что держу в руках, и хватаюсь за глаза!"))
+			to_chat(target, "<span class='danger'>Роняю то, что держу в руках, и хватаюсь за глаза!</span>")
 		target.adjust_blurriness(10)
 		target.Unconscious(20)
 		target.Paralyze(40)
 
 	if (prob(eyes.damage - EYESTAB_BLEEDING_THRESHOLD + 1))
 		target.become_blind(EYE_DAMAGE)
-		to_chat(target, span_danger("Я ОСЛЕП!"))
+		to_chat(target, "<span class='danger'>Я ОСЛЕП!</span>")
 
 #undef CLUMSY_ATTACK_SELF_CHANCE
 #undef EYESTAB_BLEEDING_THRESHOLD

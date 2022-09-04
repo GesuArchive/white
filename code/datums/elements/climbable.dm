@@ -30,7 +30,7 @@
 
 /datum/element/climbable/proc/on_examine(atom/source, mob/user, list/examine_texts)
 	SIGNAL_HANDLER
-	examine_texts += span_notice("<hr>Похоже, на [source] можно забраться.")
+	examine_texts += "<span class='notice'><hr>Похоже, на [source] можно забраться.</span>"
 
 /datum/element/climbable/proc/can_climb(atom/source, mob/user)
 	var/dir_step = get_dir(user, source.loc)
@@ -49,17 +49,17 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		user.do_attack_animation(climbed_thing)
 		structure_climber.Paralyze(40)
-		structure_climber.visible_message(span_warning("[structure_climber] столкнут с [climbed_thing]."),\
-			span_warning("Столкнули с [climbed_thing]!"),\
-			span_hear("Слышу крик [structure_climber] и удар об пол следом за ним."))
+		structure_climber.visible_message("<span class='warning'>[structure_climber] столкнут с [climbed_thing].</span>",\
+			"<span class='warning'>Столкнули с [climbed_thing]!</span>",\
+			"<span class='hear'>Слышу крик [structure_climber] и удар об пол следом за ним.</span>")
 
 
 /datum/element/climbable/proc/climb_structure(atom/climbed_thing, mob/living/user, params)
 	if(!can_climb(climbed_thing, user))
 		return
 	climbed_thing.add_fingerprint(user)
-	user.visible_message(span_warning("[user] начинает взбираться на [climbed_thing]."), \
-								span_notice("Лезу на [climbed_thing]..."))
+	user.visible_message("<span class='warning'>[user] начинает взбираться на [climbed_thing].</span>", \
+								"<span class='notice'>Лезу на [climbed_thing]...</span>")
 	var/adjusted_climb_time = climb_time
 	var/adjusted_climb_stun = climb_stun
 	if(HAS_TRAIT(user, TRAIT_HANDS_BLOCKED)) //climbing takes twice as long without help from the hands.
@@ -74,13 +74,13 @@
 		if(QDELETED(climbed_thing)) //Checking if structure has been destroyed
 			return
 		if(do_climb(climbed_thing, user, params))
-			user.visible_message(span_warning("[user] залезает на [climbed_thing]."), \
-								span_notice("Влезаю на [climbed_thing]."))
+			user.visible_message("<span class='warning'>[user] залезает на [climbed_thing].</span>", \
+								"<span class='notice'>Влезаю на [climbed_thing].</span>")
 			log_combat(user, climbed_thing, "climbed onto")
 			if(adjusted_climb_stun)
 				user.Stun(adjusted_climb_stun)
 		else
-			to_chat(user, span_warning("Не вышло залезть."))
+			to_chat(user, "<span class='warning'>Не вышло залезть.</span>")
 	LAZYREMOVEASSOC(current_climbers, climbed_thing, user)
 
 

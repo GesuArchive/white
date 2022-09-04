@@ -29,7 +29,7 @@
 		. += "<span class='info'>Это же <EM>[!obscure_name ? name : "Неизвестный"]</EM>, [racetext ? "<big class='interface'>[racetext]</big>" : "[get_age_text()]"]!<hr>"
 
 	if(user?.stat == CONSCIOUS && ishuman(user))
-		user.visible_message(span_small("<b>[user]</b> смотрит на <b>[!obscure_name ? name : "Неизвестного"]</b>.") , span_small("Смотрю на <b>[!obscure_name ? name : "Неизвестного"]</b>.") , null, COMBAT_MESSAGE_RANGE)
+		user.visible_message("<span class='small'><b>[user]</b> смотрит на <b>[!obscure_name ? name : "Неизвестного"]</b>.</span>" , "<span class='small'>Смотрю на <b>[!obscure_name ? name : "Неизвестного"]</b>.</span>" , null, COMBAT_MESSAGE_RANGE)
 
 	var/obscured = check_obscured_slots()
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
@@ -149,7 +149,7 @@
 			if(suiciding)
 				. += "<span class='warning'>[t_on] выглядит как суицидник... [t_ego] уже невозможно спасти.</span>\n"
 			if(hellbound)
-				. += span_warning("[t_ego] душа выглядит вырванной из [t_ego] тела. Воскрешение невозможно.")
+				. += "<span class='warning'>[t_ego] душа выглядит вырванной из [t_ego] тела. Воскрешение невозможно.</span>"
 
 			. += generate_death_examine_text()
 
@@ -394,16 +394,16 @@
 
 	switch(scar_severity)
 		if(1 to 4)
-			msg += span_smallnoticeital("\n[t_on] похоже имеет шрамы... Стоит присмотреться, чтобы разглядеть ещё.")
+			msg += "<span class='smallnoticeital'>\n[t_on] похоже имеет шрамы... Стоит присмотреться, чтобы разглядеть ещё.</span>"
 		if(5 to 8)
-			msg += span_notice("\n<i>[t_on] имеет несколько серьёзных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i>")
+			msg += "<span class='notice'>\n<i>[t_on] имеет несколько серьёзных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></span>"
 		if(9 to 11)
-			msg += span_notice("\n<b><i>[t_on] имеет множество ужасных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></b>")
+			msg += "<span class='notice'>\n<b><i>[t_on] имеет множество ужасных шрамов... Стоит присмотреться, чтобы разглядеть ещё.</i></b></span>"
 		if(12 to INFINITY)
-			msg += span_notice("\n<b><i>[t_on] имеет разорванное в хлам тело состоящее из шрамов... Стоит присмотреться, чтобы разглядеть ещё?</i></b>")
+			msg += "<span class='notice'>\n<b><i>[t_on] имеет разорванное в хлам тело состоящее из шрамов... Стоит присмотреться, чтобы разглядеть ещё?</i></b></span>"
 
 	if (length(msg))
-		. += span_warning("[msg.Join("")]")
+		. += "<span class='warning'>[msg.Join("")]</span>"
 
 	var/perpname = get_face_name(get_id_name(""))
 	if(perpname && (HAS_TRAIT(user, TRAIT_SECURITY_HUD) || HAS_TRAIT(user, TRAIT_MEDICAL_HUD)))
@@ -451,7 +451,7 @@
 	if(true_info)
 		var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
 		if(heart?.key_for_dreamer)
-			. += span_revenbignotice("<hr>Оно ЗНАЕТ ключ [heart.key_for_dreamer]!")
+			. += "<span class='revenbignotice'><hr>Оно ЗНАЕТ ключ [heart.key_for_dreamer]!</span>"
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 
@@ -488,4 +488,4 @@
 				age_text = "старик"
 		if(101 to INFINITY)
 			age_text = "сейчас превратится в пыль"
-	. += list(span_notice("<hr>[ru_who(TRUE)] на вид [age_text]."))
+	. += list("<span class='notice'><hr>[ru_who(TRUE)] на вид [age_text].</span>")

@@ -24,22 +24,22 @@
 	time = 40
 
 /datum/surgery_step/pacify/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("Начинаю умиротворять [skloname(target.name, VINITELNI, target.gender)]...") ,
-		span_notice("[user] начинает исправлять мозг [skloname(target.name, RODITELNI, target.gender)].") ,
-		span_notice("[user] начинает операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, "<span class='notice'>Начинаю умиротворять [skloname(target.name, VINITELNI, target.gender)]...</span>" ,
+		"<span class='notice'>[user] начинает исправлять мозг [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+		"<span class='notice'>[user] начинает операцию на мозге [skloname(target.name, RODITELNI, target.gender)].</span>")
 	display_pain(target, "В мозгу что то кольнуло и мысли начинают путаться!")
 
 /datum/surgery_step/pacify/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	display_results(user, target, span_notice("Мне удалось неврологически усмирить [skloname(target.name, VINITELNI, target.gender)].") ,
-		span_notice("[user] успешно исправил мозг [skloname(target.name, RODITELNI, target.gender)]!") ,
-		span_notice("[user] завершает операцию на могзе [skloname(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, "<span class='notice'>Мне удалось неврологически усмирить [skloname(target.name, VINITELNI, target.gender)].</span>" ,
+		"<span class='notice'>[user] успешно исправил мозг [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
+		"<span class='notice'>[user] завершает операцию на могзе [skloname(target.name, RODITELNI, target.gender)].</span>")
 	display_pain(target, "Голова раскалывается... Но это не важно, ведь мне желают лишь добра...")
 	target.gain_trauma(/datum/brain_trauma/severe/pacifism, TRAUMA_RESILIENCE_LOBOTOMY)
 	return ..()
 
 /datum/surgery_step/pacify/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, span_notice("[gvorno(TRUE)], но я облажался, перепутав часть мозга [skloname(target.name, RODITELNI, target.gender)]...") ,
-			span_warning("[user] облажался, повредив мозг!") ,
-			span_notice("[user] завершает операцию на мозге [skloname(target.name, RODITELNI, target.gender)]."))
+	display_results(user, target, "<span class='notice'>[gvorno(TRUE)], но я облажался, перепутав часть мозга [skloname(target.name, RODITELNI, target.gender)]...</span>" ,
+			"<span class='warning'>[user] облажался, повредив мозг!</span>" ,
+			"<span class='notice'>[user] завершает операцию на мозге [skloname(target.name, RODITELNI, target.gender)].</span>")
 	target.gain_trauma_type(BRAIN_TRAUMA_SEVERE, TRAUMA_RESILIENCE_LOBOTOMY)
 	return FALSE

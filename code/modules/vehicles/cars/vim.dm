@@ -34,12 +34,12 @@
 
 /obj/vehicle/sealed/car/vim/examine(mob/user)
 	. = ..()
-	. += span_notice("<hr>[src] can be repaired with a welder.")
+	. += "<span class='notice'><hr>[src] can be repaired with a welder.</span>"
 
 /obj/vehicle/sealed/car/vim/obj_destruction(damage_flag)
 	new /obj/effect/decal/cleanable/oil(get_turf(src))
 	do_sparks(5, TRUE, src)
-	visible_message(span_boldannounce("[src] blows apart!"))
+	visible_message("<span class='boldannounce'>[src] blows apart!</span>")
 	return ..()
 
 /obj/vehicle/sealed/car/vim/mob_try_enter(mob/entering)
@@ -64,7 +64,7 @@
 		return
 
 	user.balloon_alert(user, "repairing [src]...")
-	audible_message(span_hear("You hear welding."))
+	audible_message("<span class='hear'>You hear welding.</span>")
 	being_repaired = TRUE
 	if(!tool.use_tool(src, user, 3 SECONDS, volume=50))
 		being_repaired = FALSE

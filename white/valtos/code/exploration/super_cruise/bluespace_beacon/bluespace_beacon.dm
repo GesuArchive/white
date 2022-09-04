@@ -31,14 +31,14 @@
 
 /obj/structure/bluespace_beacon/wrench_act(mob/living/user, obj/item/I)
 	if(anchored)
-		to_chat(user, span_notice("Начинаю откручивать [src]..."))
+		to_chat(user, "<span class='notice'>Начинаю откручивать [src]...</span>")
 	else
-		to_chat(user, span_notice("Начинаю прикручивать [src]..."))
+		to_chat(user, "<span class='notice'>Начинаю прикручивать [src]...</span>")
 	if(I.use_tool(src, user, 40, volume=50))
 		if(QDELETED(I))
 			return
 		if(anchored)
-			to_chat(user, span_notice("Откручиваю [src]."))
+			to_chat(user, "<span class='notice'>Откручиваю [src].</span>")
 		else
-			to_chat(user, span_notice("Прикручиваю [src]."))
+			to_chat(user, "<span class='notice'>Прикручиваю [src].</span>")
 		anchored = !anchored

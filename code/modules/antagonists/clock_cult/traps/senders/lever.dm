@@ -18,5 +18,5 @@
 
 /datum/component/clockwork_trap/lever/clicked(mob/user)
 	trigger_connected()
-	to_chat(user, span_notice("Дёргаю рычаг."))
+	to_chat(user, "<span class='notice'>Дёргаю рычаг.</span>")
 	playsound(user, 'sound/machines/click.ogg', 50)

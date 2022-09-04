@@ -34,7 +34,7 @@
 		return
 	if(!HAS_TRAIT(user,TRAIT_WEB_WEAVER))
 		return
-	user.visible_message(span_notice("[user] начинает создавать из паутины шелк."), span_notice("Начинаю создавать из паутины шелк."))
+	user.visible_message("<span class='notice'>[user] начинает создавать из паутины шелк.</span>", "<span class='notice'>Начинаю создавать из паутины шелк.</span>")
 	if(!do_after(user, 2 SECONDS))
 		return
 	qdel(src)
@@ -58,7 +58,7 @@
 		if(istype(mover.pulledby, /mob/living/simple_animal/hostile/giant_spider))
 			return TRUE
 		if(prob(50))
-			to_chat(mover, span_danger("На мгновение запутываюсь в паутине."))
+			to_chat(mover, "<span class='danger'>На мгновение запутываюсь в паутине.</span>")
 			return FALSE
 	else if(istype(mover, /obj/projectile))
 		return prob(30)
@@ -86,7 +86,7 @@
 		if(mover.pulledby == allowed_mob)
 			return TRUE
 		if(prob(50))
-			to_chat(mover, span_danger("You get stuck in \the [src] for a moment."))
+			to_chat(mover, "<span class='danger'>You get stuck in \the [src] for a moment.</span>")
 			return FALSE
 	else if(istype(mover, /obj/projectile))
 		return prob(30)
@@ -191,7 +191,7 @@
 	if(!.)
 		return FALSE
 	if(!ready)
-		to_chat(user, span_warning("[src] еще недостаточно созрела!"))
+		to_chat(user, "<span class='warning'>[src] еще недостаточно созрела!</span>")
 		return FALSE
 
 /obj/effect/mob_spawn/spider/equip(mob/living/simple_animal/hostile/giant_spider/spawned_spider)
@@ -249,7 +249,7 @@
 		spider_list[initial(spider.name)] = choice
 		var/datum/radial_menu_choice/option = new
 		option.image = image(icon = initial(spider.icon), icon_state = initial(spider.icon_state))
-		option.info = span_boldnotice("[initial(spider.desc)]")
+		option.info = "<span class='boldnotice'>[initial(spider.desc)]</span>"
 		display_spiders[initial(spider.name)] = option
 	sort_list(display_spiders)
 	var/chosen_spider = show_radial_menu(user, egg, display_spiders, radius = 38)
@@ -324,7 +324,7 @@
 		return
 
 	if(prob(50))
-		audible_message(span_hear("Слышу шорох множества ножек, доносящийся из вентиляции."))
+		audible_message("<span class='hear'>Слышу шорох множества ножек, доносящийся из вентиляции.</span>")
 
 	addtimer(CALLBACK(src, .proc/finish_vent_move, exit_vent), travel_time)
 
@@ -352,7 +352,7 @@
 			var/obj/machinery/atmospherics/components/unary/vent_pump/exit_vent = pick(vents)
 			if(prob(50))
 				visible_message("<B>[src] протискивается в вентиляцию!</B>", \
-								span_hear("Слышу шорох множества ножек, доносящийся из вентиляции."))
+								"<span class='hear'>Слышу шорох множества ножек, доносящийся из вентиляции.</span>")
 
 			addtimer(CALLBACK(src, .proc/vent_move, exit_vent), rand(20,60))
 
@@ -364,7 +364,7 @@
 			var/target_atom = pick(nearby)
 			SSmove_manager.move_to(src, target_atom)
 			if(prob(40))
-				src.visible_message(span_notice("\The [src] skitters[pick(" away"," around","")]."))
+				src.visible_message("<span class='notice'>\The [src] skitters[pick(" away"," around","")].</span>")
 	else if(prob(10))
 		//ventcrawl!
 		for(var/obj/machinery/atmospherics/components/unary/vent_pump/v in view(7,src))
@@ -399,8 +399,8 @@
 	var/breakout_time = 600
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
-	to_chat(user, span_notice("Пытаюсь вырваться... (Это займет приблизительно [DisplayTimeText(breakout_time)].)"))
-	visible_message(span_notice("[src] шевелится и дергается, как будто кто-то пытается вырваться из него!"))
+	to_chat(user, "<span class='notice'>Пытаюсь вырваться... (Это займет приблизительно [DisplayTimeText(breakout_time)].)</span>")
+	visible_message("<span class='notice'>[src] шевелится и дергается, как будто кто-то пытается вырваться из него!</span>")
 	if(do_after(user,(breakout_time), target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src)
 			return
@@ -408,7 +408,7 @@
 
 /obj/structure/spider/cocoon/Destroy()
 	var/turf/T = get_turf(src)
-	src.visible_message(span_warning("[src] рассыпается."))
+	src.visible_message("<span class='warning'>[src] рассыпается.</span>")
 	for(var/atom/movable/A in contents)
 		A.forceMove(T)
 	return ..()

@@ -102,7 +102,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 		return
 
 	if(!num_mobs_hit)
-		. += span_notice("So far, this rod has not hit any mobs.")
+		. += "<span class='notice'>So far, this rod has not hit any mobs.</span>"
 		return
 
 	. += "\t<span class='notice'>So far, this rod has hit: \n\
@@ -145,14 +145,14 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 			var/direction = z_diff > 0 ? UP : DOWN
 			var/turf/target_z_turf = get_step_multiz(src, direction)
 
-			visible_message(span_danger("[src] phases out of reality."))
+			visible_message("<span class='danger'>[src] phases out of reality.</span>")
 
 			if(!do_teleport(src, target_z_turf))
 				// We failed to teleport. Might as well admit defeat.
 				qdel(src)
 				return
 
-			visible_message(span_danger("[src] phases into reality."))
+			visible_message("<span class='danger'>[src] phases into reality.</span>")
 			SSmove_manager.home_onto(src, special_target)
 
 		if(loc == target_turf)
@@ -200,7 +200,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 /obj/effect/immovablerod/Bump(atom/clong)
 	if(prob(10))
 		playsound(src, 'sound/effects/bang.ogg', 50, TRUE)
-		audible_message(span_danger("You hear a CLANG!"))
+		audible_message("<span class='danger'>You hear a CLANG!</span>")
 
 	if(special_target && clong == special_target)
 		complete_trajectory()
@@ -208,7 +208,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	// If rod meets rod, they collapse into a singularity. Yes, this means that if two wizard rods collide,
 	// they ALSO collapse into a singulo.
 	if(istype(clong, /obj/effect/immovablerod))
-		visible_message(span_danger("[src] collides with [clong]! This cannot end well."))
+		visible_message("<span class='danger'>[src] collides with [clong]! This cannot end well.</span>")
 		var/datum/effect_system/fluid_spread/smoke/smoke = new
 		smoke.set_up(2, location = get_turf(src))
 		smoke.start()
@@ -241,7 +241,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	CRASH("[src] Bump()ed into non-atom thing [clong] ([clong.type])")
 
 /obj/effect/immovablerod/proc/penetrate(mob/living/smeared_mob)
-	smeared_mob.visible_message(span_danger("[smeared_mob] is penetrated by an immovable rod!") , span_userdanger("The rod penetrates you!") , span_danger("You hear a CLANG!"))
+	smeared_mob.visible_message("<span class='danger'>[smeared_mob] is penetrated by an immovable rod!</span>" , "<span class='userdanger'>The rod penetrates you!</span>" , "<span class='danger'>You hear a CLANG!</span>")
 
 	if(smeared_mob.stat != DEAD)
 		num_mobs_hit++
@@ -287,8 +287,8 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 /obj/effect/immovablerod/proc/suplex_rod(mob/living/strongman)
 	strongman.client?.give_award(/datum/award/achievement/misc/feat_of_strength, strongman)
 	strongman.visible_message(
-		span_boldwarning("[strongman] suplexes [src] into the ground!"),
-		span_warning("You suplex [src] into the ground!")
+		"<span class='boldwarning'>[strongman] suplexes [src] into the ground!</span>",
+		"<span class='warning'>You suplex [src] into the ground!</span>"
 		)
 	new /obj/structure/festivus/anchored(drop_location())
 	new /obj/effect/anomaly/flux(drop_location())

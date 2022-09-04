@@ -126,14 +126,14 @@
 	examine_text += "<hr>"
 
 	if (isnull(attached_circuit))
-		examine_text += span_notice("Здесь есть USB-порт спереди")
+		examine_text += "<span class='notice'>Здесь есть USB-порт спереди</span>"
 	else
-		examine_text += span_notice("[attached_circuit.shell || attached_circuit] подключен через USB-порт.")
+		examine_text += "<span class='notice'>[attached_circuit.shell || attached_circuit] подключен через USB-порт.</span>"
 
 /datum/component/usb_port/proc/on_examine_shell(datum/source, mob/user, list/examine_text)
 	SIGNAL_HANDLER
 
-	examine_text += span_notice("<hr>Здесь [parent] подключённый через USB-порт.")
+	examine_text += "<span class='notice'><hr>Здесь [parent] подключённый через USB-порт.</span>"
 
 /datum/component/usb_port/proc/on_atom_usb_cable_try_attach(datum/source, obj/item/usb_cable/connecting_cable, mob/user)
 	SIGNAL_HANDLER

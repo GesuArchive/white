@@ -152,16 +152,16 @@
 		return
 
 	if(!panel_open)
-		to_chat(user, span_warning("Стоит открыть панель!"))
+		to_chat(user, "<span class='warning'>Стоит открыть панель!</span>")
 		return TRUE
 
 	if(generator)
-		to_chat(user, span_warning("Нужно отключить [generator] сначала!"))
+		to_chat(user, "<span class='warning'>Нужно отключить [generator] сначала!</span>")
 		return TRUE
 
 	anchored = !anchored
 	I.play_tool_sound(src)
-	to_chat(user, span_notice("[anchored?"Прикручиваю":"Откручиваю"] [src]."))
+	to_chat(user, "<span class='notice'>[anchored?"Прикручиваю":"Откручиваю"] [src].</span>")
 
 	var/obj/machinery/atmospherics/node1 = nodes[1]
 	var/obj/machinery/atmospherics/node2 = nodes[2]
@@ -213,11 +213,11 @@
 	if(user.a_intent == INTENT_HARM)
 		return
 	if(generator)
-		to_chat(user, span_warning("Нужно отключить [generator] сначала!"))
+		to_chat(user, "<span class='warning'>Нужно отключить [generator] сначала!</span>")
 		return TRUE
 
 	mode = !mode
-	to_chat(user, span_notice("Выставляю режим [src] в [mode?"холодный":"горячий"] поток."))
+	to_chat(user, "<span class='notice'>Выставляю режим [src] в [mode?"холодный":"горячий"] поток.</span>")
 	return TRUE
 
 /obj/machinery/atmospherics/components/binary/circulator/screwdriver_act(mob/user, obj/item/I)
@@ -226,12 +226,12 @@
 	if(user.a_intent == INTENT_HARM)
 		return
 	if(generator)
-		to_chat(user, span_warning("Сначала нужно отключить генератор!"))
+		to_chat(user, "<span class='warning'>Сначала нужно отключить генератор!</span>")
 		return TRUE
 
 	panel_open = !panel_open
 	I.play_tool_sound(src)
-	to_chat(user, span_notice("[panel_open?"Открываю":"Закрываю"] панель [src]."))
+	to_chat(user, "<span class='notice'>[panel_open?"Открываю":"Закрываю"] панель [src].</span>")
 	update_icon_nopipes()
 	return TRUE
 
@@ -239,7 +239,7 @@
 	if(user.a_intent == INTENT_HARM)
 		return
 	if(anchored)
-		to_chat(user, span_warning("[capitalize(src.name)] прикручен!"))
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] прикручен!</span>")
 		return TRUE
 	if(!panel_open)
 		circulator_flip()
@@ -274,7 +274,7 @@
 		return
 
 	flipped = !flipped
-	to_chat(usr, span_notice("Кручу [src.name]."))
+	to_chat(usr, "<span class='notice'>Кручу [src.name].</span>")
 	playsound(src, 'sound/items/change_drill.ogg', 50)
 	update_icon_nopipes()
 

@@ -28,7 +28,7 @@
 	log_admin("[key_name(usr)] checked the individual player panel for [key_name(M)][isobserver(usr)?"":" while in game"].")
 
 	if(!M)
-		to_chat(usr, span_warning("You seem to be selecting a mob that doesn't exist anymore."))
+		to_chat(usr, "<span class='warning'>You seem to be selecting a mob that doesn't exist anymore.</span>")
 		return
 
 	var/body = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>Панель [M.key]</title></head>"
@@ -345,7 +345,7 @@
 	else
 		message_admins("[key_name(usr)] set the admin notice.")
 		log_admin("[key_name(usr)] set the admin notice:\n[new_admin_notice]")
-		to_chat(world, span_adminnotice("<b>Admin Notice:</b>\n \t [new_admin_notice]"))
+		to_chat(world, "<span class='adminnotice'><b>Admin Notice:</b>\n \t [new_admin_notice]</span>")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Set Admin Notice") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	GLOB.admin_notice = new_admin_notice
 	return
@@ -385,17 +385,17 @@
 			if(SSticker.current_state == GAME_STATE_STARTUP)
 				msg = " (The server is still setting up, but the round will be \
 					started as soon as possible.)"
-			message_admins(span_blue("[usr.key] has started the game.[msg]"))
+			message_admins("<span class='blue'>[usr.key] has started the game.[msg]</span>")
 			SSblackbox.record_feedback("tally", "admin_verb", 1, "Start Now") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 			return TRUE
 		SSticker.start_immediately = FALSE
 		SSticker.SetTimeLeft(1800)
 		to_chat(world, "<b>The game will start in 180 seconds.</b>")
 		SEND_SOUND(world, sound(SSstation.announcer.get_rand_alert_sound()))
-		message_admins(span_blue("[usr.key] has cancelled immediate game start. Game will start in 180 seconds."))
+		message_admins("<span class='blue'>[usr.key] has cancelled immediate game start. Game will start in 180 seconds.</span>")
 		log_admin("[usr.key] has cancelled immediate game start.")
 	else
-		to_chat(usr, span_red("Error: Start Now: Game has already started."))
+		to_chat(usr, "<span class='red'>Error: Start Now: Game has already started.</span>")
 	return FALSE
 
 /datum/admins/proc/toggleenter()
@@ -433,7 +433,7 @@
 		to_chat(world, "<B>Разрешено переродиться.</B>")
 	else
 		to_chat(world, "<B>Запрещено перерождаться.</B>")
-	message_admins(span_adminnotice("[key_name_admin(usr)] toggled respawn to [!new_nores ? "On" : "Off"]."))
+	message_admins("<span class='adminnotice'>[key_name_admin(usr)] toggled respawn to [!new_nores ? "On" : "Off"].</span>")
 	log_admin("[key_name(usr)] toggled respawn to [!new_nores ? "On" : "Off"].")
 	world.update_status()
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Respawn", "[!new_nores ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -613,7 +613,7 @@
 	else
 		to_chat(world, "<B>Guests may now enter the game.</B>")
 	log_admin("[key_name(usr)] toggled guests game entering [!new_guest_ban ? "" : "dis"]allowed.")
-	message_admins(span_adminnotice("[key_name_admin(usr)] toggled guests game entering [!new_guest_ban ? "" : "dis"]allowed."))
+	message_admins("<span class='adminnotice'>[key_name_admin(usr)] toggled guests game entering [!new_guest_ban ? "" : "dis"]allowed.</span>")
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Guests", "[!new_guest_ban ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/output_ai_laws()
@@ -765,7 +765,7 @@
 			if(tomob.mind == ghost.mind)
 				ghost.mind = null
 
-	message_admins(span_adminnotice("[key_name_admin(usr)] has put [frommob.key] in control of [tomob.name]."))
+	message_admins("<span class='adminnotice'>[key_name_admin(usr)] has put [frommob.key] in control of [tomob.name].</span>")
 	log_admin("[key_name(usr)] stuffed [frommob.key] into [tomob.name].")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Ghost Drag Control")
 
@@ -793,7 +793,7 @@
 	set desc="Display the controls for drastic lag mitigation measures."
 
 	if(!SSlag_switch.initialized)
-		to_chat(usr, span_notice("The Lag Switch subsystem has not yet been initialized."))
+		to_chat(usr, "<span class='notice'>The Lag Switch subsystem has not yet been initialized.</span>")
 		return
 	if(!check_rights())
 		return
@@ -829,7 +829,7 @@
 	GLOB.custom_status_text = new_hub_message
 
 	log_admin("[key_name(usr)] changes HUB message to [new_hub_message]")
-	message_admins(span_adminnotice("[key_name_admin(usr)] changes HUB message to [new_hub_message]"))
+	message_admins("<span class='adminnotice'>[key_name_admin(usr)] changes HUB message to [new_hub_message]</span>")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Change HUB message") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/get_spd_list()

@@ -54,7 +54,7 @@
 					QDEL_NULL(painting.current_canvas)
 					painting.update_appearance()
 			log_admin("[key_name(user)] has deleted a persistent painting made by [chosen_painting.creator_ckey].")
-			message_admins(span_notice("[key_name_admin(user)] удаляет картину созданную [chosen_painting.creator_ckey]."))
+			message_admins("<span class='notice'>[key_name_admin(user)] удаляет картину созданную [chosen_painting.creator_ckey].</span>")
 			return TRUE
 		if("rename")
 			//Modify the metadata

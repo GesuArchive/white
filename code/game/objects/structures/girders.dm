@@ -17,18 +17,18 @@
 	. += "<hr>"
 	switch(state)
 		if(GIRDER_REINF)
-			. += span_notice("Ребра жесткости <b>закреплены</b> винтами на своем месте.")
+			. += "<span class='notice'>Ребра жесткости <b>закреплены</b> винтами на своем месте.</span>"
 		if(GIRDER_REINF_STRUTS)
-			. += span_notice("Ребра жесткости <i>откручены</i> и могут быть <b>перекушены</b> для демонтажа.")
+			. += "<span class='notice'>Ребра жесткости <i>откручены</i> и могут быть <b>перекушены</b> для демонтажа.</span>"
 		if(GIRDER_NORMAL)
 			if(can_displace)
-				. += span_notice("Анкерные <b>болты прикручены</b> к полу.")
+				. += "<span class='notice'>Анкерные <b>болты прикручены</b> к полу.</span>"
 		if(GIRDER_DISPLACED)
-			. += span_notice("Анкерные <i>болты откручены</i> от пола, вся конструкция удерживается вместе парой <b>винтов</b>.")
+			. += "<span class='notice'>Анкерные <i>болты откручены</i> от пола, вся конструкция удерживается вместе парой <b>винтов</b>.</span>"
 		if(GIRDER_DISASSEMBLED)
-			. += span_notice("[capitalize(src.name)] Ошибка! Сделайте скриншот и отправьте его в трудности перевода!")
+			. += "<span class='notice'>[capitalize(src.name)] Ошибка! Сделайте скриншот и отправьте его в трудности перевода!</span>"
 		if(GIRDER_TRAM)
-			. += span_notice("[capitalize(src.name)] используется для трамвая. Можно разобрать отвёрткой!")
+			. += "<span class='notice'>[capitalize(src.name)] используется для трамвая. Можно разобрать отвёрткой!</span>"
 
 /obj/structure/girder/attackby(obj/item/W, mob/user, params)
 	var/platingmodifier = 1
@@ -40,9 +40,9 @@
 	add_fingerprint(user)
 
 	if(istype(W, /obj/item/gun/energy/plasmacutter))
-		to_chat(user, span_notice("Начинаю перерезать раму..."))
+		to_chat(user, "<span class='notice'>Начинаю перерезать раму...</span>")
 		if(W.use_tool(src, user, 40, volume=100))
-			to_chat(user, span_notice("Разрезаю раму на листы металла."))
+			to_chat(user, "<span class='notice'>Разрезаю раму на листы металла.</span>")
 			var/obj/item/stack/sheet/iron/M = new (loc, 2)
 			if (!QDELETED(M))
 				M.add_fingerprint(user)
@@ -51,13 +51,13 @@
 
 	else if(istype(W, /obj/item/stack))
 		if(iswallturf(loc))
-			to_chat(user, span_warning("Тут уже есть стена!"))
+			to_chat(user, "<span class='warning'>Тут уже есть стена!</span>")
 			return
 		if(!isfloorturf(src.loc) && state != GIRDER_TRAM)
-			to_chat(user, span_warning("Для возведения фальшстены необходимо наличие пола!"))
+			to_chat(user, "<span class='warning'>Для возведения фальшстены необходимо наличие пола!</span>")
 			return
 		if (locate(/obj/structure/falsewall) in src.loc.contents)
-			to_chat(user, span_warning("Тут уже есть фальшстена!"))
+			to_chat(user, "<span class='warning'>Тут уже есть фальшстена!</span>")
 			return
 		if(state == GIRDER_TRAM)
 			if(!locate(/obj/structure/industrial_lift/tram) in src.loc.contents)
@@ -68,28 +68,28 @@
 			var/obj/item/stack/rods/S = W
 			if(state == GIRDER_DISPLACED)
 				if(S.get_amount() < 2)
-					to_chat(user, span_warning("Для создания фальшивой укрепленной стены мне понадобится как минимум два металлических стержня!"))
+					to_chat(user, "<span class='warning'>Для создания фальшивой укрепленной стены мне понадобится как минимум два металлических стержня!</span>")
 					return
-				to_chat(user, span_notice("Начинаю строить фальшивую укрепленную стену..."))
+				to_chat(user, "<span class='notice'>Начинаю строить фальшивую укрепленную стену...</span>")
 				if(do_after(user, 20, target = src))
 					if(S.get_amount() < 2)
 						return
 					S.use(2)
-					to_chat(user, span_notice("Готово. Для открытия или закрытия прохода необходимо надавить на стену."))
+					to_chat(user, "<span class='notice'>Готово. Для открытия или закрытия прохода необходимо надавить на стену.</span>")
 					var/obj/structure/falsewall/iron/FW = new (loc)
 					transfer_fingerprints_to(FW)
 					qdel(src)
 					return
 			else
 				if(S.get_amount() < 5)
-					to_chat(user, span_warning("Для добавления обшивки мне понадобится не менее пяти металлических стержней!"))
+					to_chat(user, "<span class='warning'>Для добавления обшивки мне понадобится не менее пяти металлических стержней!</span>")
 					return
-				to_chat(user, span_notice("Начинаю закреплять обшивку..."))
+				to_chat(user, "<span class='notice'>Начинаю закреплять обшивку...</span>")
 				if(do_after(user, 40, target = src))
 					if(S.get_amount() < 5)
 						return
 					S.use(5)
-					to_chat(user, span_notice("Закрепляю обшивку."))
+					to_chat(user, "<span class='notice'>Закрепляю обшивку.</span>")
 					var/turf/T = get_turf(src)
 					T.PlaceOnTop(/turf/closed/wall/mineral/iron)
 					transfer_fingerprints_to(T)
@@ -103,20 +103,20 @@
 		if(istype(S, /obj/item/stack/sheet/iron))
 			if(state == GIRDER_DISPLACED)
 				if(S.get_amount() < 2)
-					to_chat(user, span_warning("Для создания фальшивой стены мне понадобится как минимум два листа железа!"))
+					to_chat(user, "<span class='warning'>Для создания фальшивой стены мне понадобится как минимум два листа железа!</span>")
 					return
-				to_chat(user, span_notice("Начинаю строить фальшивую стену..."))
+				to_chat(user, "<span class='notice'>Начинаю строить фальшивую стену...</span>")
 				if(do_after(user, 20*platingmodifier, target = src))
 					if(S.get_amount() < 2)
 						return
 					S.use(2)
-					to_chat(user, span_notice("Готово. Для открытия или закрытия прохода необходимо надавить на стену."))
+					to_chat(user, "<span class='notice'>Готово. Для открытия или закрытия прохода необходимо надавить на стену.</span>")
 					var/obj/structure/falsewall/F = new (loc)
 					transfer_fingerprints_to(F)
 					qdel(src)
 					return
 			else if(state == GIRDER_REINF)
-				to_chat(user, span_warning("Для завершения строительства укрепленной стены мне необходим лист пластали, обычное железо тут не подойдет."))
+				to_chat(user, "<span class='warning'>Для завершения строительства укрепленной стены мне необходим лист пластали, обычное железо тут не подойдет.</span>")
 				return
 			else if(state == GIRDER_TRAM)
 				if(S.get_amount() < 2)
@@ -133,14 +133,14 @@
 				return
 			else
 				if(S.get_amount() < 2)
-					to_chat(user, span_warning("Для завершения строительства стены мне понадобится как минимум два листа железа!"))
+					to_chat(user, "<span class='warning'>Для завершения строительства стены мне понадобится как минимум два листа железа!</span>")
 					return
-				to_chat(user, span_notice("Начинаю закреплять обшивку..."))
+				to_chat(user, "<span class='notice'>Начинаю закреплять обшивку...</span>")
 				if (do_after(user, 40*platingmodifier, target = src))
 					if(S.get_amount() < 2)
 						return
 					S.use(2)
-					to_chat(user, span_notice("Закрепляю обшивку."))
+					to_chat(user, "<span class='notice'>Закрепляю обшивку.</span>")
 					var/turf/T = get_turf(src)
 					T.PlaceOnTop(/turf/closed/wall)
 					transfer_fingerprints_to(T)
@@ -150,14 +150,14 @@
 		if(istype(S, /obj/item/stack/sheet/plasteel))
 			if(state == GIRDER_DISPLACED)
 				if(S.get_amount() < 2)
-					to_chat(user, span_warning("Для создания фальшстены мне понадобится как минимум два листа пластали!"))
+					to_chat(user, "<span class='warning'>Для создания фальшстены мне понадобится как минимум два листа пластали!</span>")
 					return
-				to_chat(user, span_notice("Начинаю строить фальшивую укрепленную стену..."))
+				to_chat(user, "<span class='notice'>Начинаю строить фальшивую укрепленную стену...</span>")
 				if(do_after(user, 20, target = src))
 					if(S.get_amount() < 2)
 						return
 					S.use(2)
-					to_chat(user, span_notice("Готово. Для открытия или закрытия прохода необходимо надавить на стену."))
+					to_chat(user, "<span class='notice'>Готово. Для открытия или закрытия прохода необходимо надавить на стену.</span>")
 					var/obj/structure/falsewall/reinforced/FW = new (loc)
 					transfer_fingerprints_to(FW)
 					qdel(src)
@@ -165,12 +165,12 @@
 			else if(state == GIRDER_REINF)
 				if(S.get_amount() < 1)
 					return
-				to_chat(user, span_notice("Начинаю закреплять бронелисты..."))
+				to_chat(user, "<span class='notice'>Начинаю закреплять бронелисты...</span>")
 				if(do_after(user, 50*platingmodifier, target = src))
 					if(S.get_amount() < 1)
 						return
 					S.use(1)
-					to_chat(user, span_notice("Закрепляю бронелисты."))
+					to_chat(user, "<span class='notice'>Закрепляю бронелисты.</span>")
 					var/turf/T = get_turf(src)
 					T.PlaceOnTop(/turf/closed/wall/r_wall)
 					transfer_fingerprints_to(T)
@@ -179,12 +179,12 @@
 			else
 				if(S.get_amount() < 1)
 					return
-				to_chat(user, span_notice("Начинаю устанавливать ребра жесткости..."))
+				to_chat(user, "<span class='notice'>Начинаю устанавливать ребра жесткости...</span>")
 				if(do_after(user, 60*platingmodifier, target = src))
 					if(S.get_amount() < 1)
 						return
 					S.use(1)
-					to_chat(user, span_notice("Устанавливаю ребра жесткости."))
+					to_chat(user, "<span class='notice'>Устанавливаю ребра жесткости.</span>")
 					var/obj/structure/girder/reinforced/R = new (loc)
 					transfer_fingerprints_to(R)
 					qdel(src)
@@ -195,30 +195,30 @@
 			if(state == GIRDER_DISPLACED)
 				var/falsewall_type = text2path("/obj/structure/falsewall/[M]")
 				if(!falsewall_type)
-					to_chat(user, span_warning("Кажется [S] не подходит в качестве материала для строительства фальшивой стены!"))
+					to_chat(user, "<span class='warning'>Кажется [S] не подходит в качестве материала для строительства фальшивой стены!</span>")
 					return
 				if(S.get_amount() < 2)
-					to_chat(user, span_warning("Для создания фальшстены мне понадобится как минимум два листа [S]!"))
+					to_chat(user, "<span class='warning'>Для создания фальшстены мне понадобится как минимум два листа [S]!</span>")
 					return
 				if(do_after(user, 20, target = src))
 					if(S.get_amount() < 2)
 						return
 					S.use(2)
-					to_chat(user, span_notice("Готово. Для открытия или закрытия прохода необходимо надавить на стену."))
+					to_chat(user, "<span class='notice'>Готово. Для открытия или закрытия прохода необходимо надавить на стену.</span>")
 					var/obj/structure/falsewall/FW = new falsewall_type (loc)
 					transfer_fingerprints_to(FW)
 					qdel(src)
 					return
 			else
 				if(S.get_amount() < 2)
-					to_chat(user, span_warning("Для завершения строительства стены мне понадобится как минимум два листа [S]!"))
+					to_chat(user, "<span class='warning'>Для завершения строительства стены мне понадобится как минимум два листа [S]!</span>")
 					return
-				to_chat(user, span_notice("Начинаю закреплять обшивку..."))
+				to_chat(user, "<span class='notice'>Начинаю закреплять обшивку...</span>")
 				if (do_after(user, 40, target = src))
 					if(S.get_amount() < 2)
 						return
 					S.use(2)
-					to_chat(user, span_notice("Закрепляю обшивку."))
+					to_chat(user, "<span class='notice'>Закрепляю обшивку.</span>")
 					var/turf/T = get_turf(src)
 					if(S.walltype)
 						T.PlaceOnTop(S.walltype)
@@ -241,7 +241,7 @@
 		if (P.pipe_type in list(0, 1, 5))	//simple pipes, simple bends, and simple manifolds.
 			if(!user.transferItemToLoc(P, drop_location()))
 				return
-			to_chat(user, span_notice("Пропускаю трубу под стеной."))
+			to_chat(user, "<span class='notice'>Пропускаю трубу под стеной.</span>")
 	else
 		return ..()
 
@@ -264,14 +264,14 @@
 		return TRUE
 
 	if(state == GIRDER_DISPLACED)
-		user.visible_message(span_warning("[user] разбирает балку.") ,
-			span_notice("Начинаю разбирать балку...") ,
-			span_hear("Слышу металлический шелест."))
+		user.visible_message("<span class='warning'>[user] разбирает балку.</span>" ,
+			"<span class='notice'>Начинаю разбирать балку...</span>" ,
+			"<span class='hear'>Слышу металлический шелест.</span>")
 		if(tool.use_tool(src, user, 40, volume=100))
 			if(state != GIRDER_DISPLACED)
 				return
 			state = GIRDER_DISASSEMBLED
-			to_chat(user, span_notice("Разбираю балку."))
+			to_chat(user, "<span class='notice'>Разбираю балку.</span>")
 			var/obj/item/stack/sheet/iron/M = new (loc, 2)
 			if (!QDELETED(M))
 				M.add_fingerprint(user)
@@ -279,20 +279,20 @@
 		return TRUE
 
 	else if(state == GIRDER_REINF)
-		to_chat(user, span_notice("Начинаю откручивать ребра жесткости..."))
+		to_chat(user, "<span class='notice'>Начинаю откручивать ребра жесткости...</span>")
 		if(tool.use_tool(src, user, 40, volume=100))
 			if(state != GIRDER_REINF)
 				return
-			to_chat(user, span_notice("Откручиваю ребра жесткости."))
+			to_chat(user, "<span class='notice'>Откручиваю ребра жесткости.</span>")
 			state = GIRDER_REINF_STRUTS
 		return TRUE
 
 	else if(state == GIRDER_REINF_STRUTS)
-		to_chat(user, span_notice("Начинаю прикручивать ребра жесткости..."))
+		to_chat(user, "<span class='notice'>Начинаю прикручивать ребра жесткости...</span>")
 		if(tool.use_tool(src, user, 40, volume=100))
 			if(state != GIRDER_REINF_STRUTS)
 				return
-			to_chat(user, span_notice("Прикручиваю ребра жесткости."))
+			to_chat(user, "<span class='notice'>Прикручиваю ребра жесткости.</span>")
 			state = GIRDER_REINF
 		return TRUE
 
@@ -300,9 +300,9 @@
 /obj/structure/girder/wirecutter_act(mob/user, obj/item/tool)
 	. = ..()
 	if(state == GIRDER_REINF_STRUTS)
-		to_chat(user, span_notice("Начинаю демонтировать ребра жесткости..."))
+		to_chat(user, "<span class='notice'>Начинаю демонтировать ребра жесткости...</span>")
 		if(tool.use_tool(src, user, 40, volume=100))
-			to_chat(user, span_notice("Перекусываю ребра жесткости."))
+			to_chat(user, "<span class='notice'>Перекусываю ребра жесткости.</span>")
 			new /obj/item/stack/sheet/plasteel(get_turf(src))
 			var/obj/structure/girder/G = new (loc)
 			transfer_fingerprints_to(G)
@@ -313,19 +313,19 @@
 	. = ..()
 	if(state == GIRDER_DISPLACED)
 		if(!isfloorturf(loc))
-			to_chat(user, span_warning("Для закручивания анкерных болтов необходимо наличие пола!"))
+			to_chat(user, "<span class='warning'>Для закручивания анкерных болтов необходимо наличие пола!</span>")
 
-		to_chat(user, span_notice("Начинаю закручивать анкерные болты..."))
+		to_chat(user, "<span class='notice'>Начинаю закручивать анкерные болты...</span>")
 		if(tool.use_tool(src, user, 40, volume=100))
-			to_chat(user, span_notice("Закручиваю анкерные болты."))
+			to_chat(user, "<span class='notice'>Закручиваю анкерные болты.</span>")
 			var/obj/structure/girder/G = new (loc)
 			transfer_fingerprints_to(G)
 			qdel(src)
 		return TRUE
 	else if(state == GIRDER_NORMAL && can_displace)
-		to_chat(user, span_notice("Начинаю откручивать анкерные болты..."))
+		to_chat(user, "<span class='notice'>Начинаю откручивать анкерные болты...</span>")
 		if(tool.use_tool(src, user, 40, volume=100))
-			to_chat(user, span_notice("Откручиваю анкерные болты."))
+			to_chat(user, "<span class='notice'>Откручиваю анкерные болты.</span>")
 			var/obj/structure/girder/displaced/D = new (loc)
 			transfer_fingerprints_to(D)
 			qdel(src)
@@ -382,7 +382,7 @@
 /obj/structure/girder/cult/attackby(obj/item/W, mob/user, params)
 	add_fingerprint(user)
 	if(istype(W, /obj/item/melee/cultblade/dagger) && iscultist(user)) //Cultists can demolish cult girders instantly with their tomes
-		user.visible_message(span_warning("[user] бьет руническую балку используя [W]!") , span_notice("Уничтожаю руническую балку."))
+		user.visible_message("<span class='warning'>[user] бьет руническую балку используя [W]!</span>" , "<span class='notice'>Уничтожаю руническую балку.</span>")
 		new /obj/item/stack/sheet/runed_metal(drop_location(), 1)
 		qdel(src)
 
@@ -390,9 +390,9 @@
 		if(!W.tool_start_check(user, amount=0))
 			return
 
-		to_chat(user, span_notice("Начинаю разрезать балку..."))
+		to_chat(user, "<span class='notice'>Начинаю разрезать балку...</span>")
 		if(W.use_tool(src, user, 40, volume=50))
-			to_chat(user, span_notice("Разрезаю балку на части."))
+			to_chat(user, "<span class='notice'>Разрезаю балку на части.</span>")
 			var/obj/item/stack/sheet/runed_metal/R = new(drop_location(), 1)
 			transfer_fingerprints_to(R)
 			qdel(src)
@@ -400,13 +400,13 @@
 	else if(istype(W, /obj/item/stack/sheet/runed_metal))
 		var/obj/item/stack/sheet/runed_metal/R = W
 		if(R.get_amount() < 1)
-			to_chat(user, span_warning("Мне нужен хотя бы один лист рунического металла, чтобы построить руническую стену!"))
+			to_chat(user, "<span class='warning'>Мне нужен хотя бы один лист рунического металла, чтобы построить руническую стену!</span>")
 			return
-		user.visible_message(span_notice("[user] начинает закреплять рунический металл на балке...") , span_notice("Начинаю сооружать руническую стену..."))
+		user.visible_message("<span class='notice'>[user] начинает закреплять рунический металл на балке...</span>" , "<span class='notice'>Начинаю сооружать руническую стену...</span>")
 		if(do_after(user, 50, target = src))
 			if(R.get_amount() < 1)
 				return
-			user.visible_message(span_notice("[user] закрепляет рунический металл на балке.") , span_notice("Сооружаю руническую стену."))
+			user.visible_message("<span class='notice'>[user] закрепляет рунический металл на балке.</span>" , "<span class='notice'>Сооружаю руническую стену.</span>")
 			R.use(1)
 			var/turf/T = get_turf(src)
 			T.PlaceOnTop(/turf/closed/wall/mineral/cult)
@@ -438,12 +438,12 @@
 	var/turf/T = get_turf(src)
 	switch(passed_mode)
 		if(RCD_FLOORWALL)
-			to_chat(user, span_notice("Ремонтирую стену."))
+			to_chat(user, "<span class='notice'>Ремонтирую стену.</span>")
 			T.PlaceOnTop(/turf/closed/wall)
 			qdel(src)
 			return TRUE
 		if(RCD_DECONSTRUCT)
-			to_chat(user, span_notice("Деконструирую балку."))
+			to_chat(user, "<span class='notice'>Деконструирую балку.</span>")
 			qdel(src)
 			return TRUE
 	return FALSE
@@ -460,9 +460,9 @@
 	if(W.tool_behaviour == TOOL_WELDER)
 		if(!W.tool_start_check(user, amount = 0))
 			return
-		to_chat(user, span_notice("Начинаю разрезать огромную шестерню..."))
+		to_chat(user, "<span class='notice'>Начинаю разрезать огромную шестерню...</span>")
 		if(W.use_tool(src, user, 40, volume=50))
-			to_chat(user, span_notice("Разрезаю огромную шестерню на части."))
+			to_chat(user, "<span class='notice'>Разрезаю огромную шестерню на части.</span>")
 			var/obj/item/stack/tile/bronze/B = new(drop_location(), 2)
 			transfer_fingerprints_to(B)
 			qdel(src)
@@ -470,13 +470,13 @@
 	else if(istype(W, /obj/item/stack/tile/bronze))
 		var/obj/item/stack/tile/bronze/B = W
 		if(B.get_amount() < 2)
-			to_chat(user, span_warning("Мне нужно по крайней мере два бронзовых листа, чтобы построить бронзовую стену!"))
+			to_chat(user, "<span class='warning'>Мне нужно по крайней мере два бронзовых листа, чтобы построить бронзовую стену!</span>")
 			return
-		user.visible_message(span_notice("[user] начинает закреплять бронзу на огромной шестерне...") , span_notice("Начинаю конструировать бронзовую стену..."))
+		user.visible_message("<span class='notice'>[user] начинает закреплять бронзу на огромной шестерне...</span>" , "<span class='notice'>Начинаю конструировать бронзовую стену...</span>")
 		if(do_after(user, 50, target = src))
 			if(B.get_amount() < 2)
 				return
-			user.visible_message(span_notice("[user] закрепляет бронзу на огромной шестерне!") , span_notice("Конструирую бронзовую стену."))
+			user.visible_message("<span class='notice'>[user] закрепляет бронзу на огромной шестерне!</span>" , "<span class='notice'>Конструирую бронзовую стену.</span>")
 			B.use(2)
 			var/turf/T = get_turf(src)
 			T.PlaceOnTop(/turf/closed/wall/mineral/bronze)

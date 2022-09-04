@@ -36,4 +36,4 @@
 ///So people know what the frick they're doing without reading from a wiki page (I mean they will inevitably but i'm trying to help, ok?)
 /datum/element/processable/proc/OnExamine(atom/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
-	examine_list += span_notice("\nC помощью <b>[tool_behaviour_name(tool_behaviour)]</b> можно сделать из [source][amount_created ? " [amount_created]" : ""] [initial(result_atom_type.name)]!")
+	examine_list += "<span class='notice'>\nC помощью <b>[tool_behaviour_name(tool_behaviour)]</b> можно сделать из [source][amount_created ? " [amount_created]" : ""] [initial(result_atom_type.name)]!</span>"

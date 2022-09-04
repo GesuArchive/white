@@ -34,14 +34,14 @@ SUBSYSTEM_DEF(pai)
 */
 /datum/controller/subsystem/pai/proc/findPAI(obj/item/paicard/pai, mob/user)
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_SILICONS))
-		to_chat(user, span_warning("Due to growing incidents of SELF corrupted independent artificial intelligences, freeform personality devices have been temporarily banned in this sector."))
+		to_chat(user, "<span class='warning'>Due to growing incidents of SELF corrupted independent artificial intelligences, freeform personality devices have been temporarily banned in this sector.</span>")
 		return
 	if(request_spam)
-		to_chat(user, span_warning("Request sent too recently."))
+		to_chat(user, "<span class='warning'>Request sent too recently.</span>")
 		return
 	request_spam = TRUE
 	playsound(src, 'sound/machines/ping.ogg', 20, TRUE)
-	to_chat(user, span_notice("You have requested pAI assistance."))
+	to_chat(user, "<span class='notice'>You have requested pAI assistance.</span>")
 	var/mutable_appearance/alert_overlay = mutable_appearance('icons/obj/aicards.dmi', "pai")
 	notify_ghosts("[user] is requesting a pAI personality! Use the pAI button to submit yourself as one.", source=user, alert_overlay = alert_overlay, action=NOTIFY_ORBIT, header="pAI Request!", ignore_key = POLL_IGNORE_PAI)
 	addtimer(CALLBACK(src, .proc/request_again), 10 SECONDS)
@@ -92,7 +92,7 @@ SUBSYSTEM_DEF(pai)
 	/// The matching candidate from search
 	var/datum/pai_candidate/candidate = check_candidate(usr)
 	if(isnull(candidate))
-		to_chat(usr, span_warning("There was an error. Please resubmit."))
+		to_chat(usr, "<span class='warning'>There was an error. Please resubmit.</span>")
 		ui.close()
 		return FALSE
 	switch(action)
@@ -108,7 +108,7 @@ SUBSYSTEM_DEF(pai)
 			candidate.description = params["candidate"]["description"]
 			candidate.name = params["candidate"]["name"]
 			candidate.savefile_save(usr)
-			to_chat(usr, span_boldnotice("You have saved pAI information locally."))
+			to_chat(usr, "<span class='boldnotice'>You have saved pAI information locally.</span>")
 		if("load")
 			candidate.savefile_load(usr)
 			//In case people have saved unsanitized stuff.
@@ -138,13 +138,13 @@ SUBSYSTEM_DEF(pai)
  */
 /datum/controller/subsystem/pai/proc/submit_alert()
 	if(submit_spam)
-		to_chat(usr, span_warning("Your candidacy has been submitted, but pAI cards have been alerted too recently."))
+		to_chat(usr, "<span class='warning'>Your candidacy has been submitted, but pAI cards have been alerted too recently.</span>")
 		return FALSE
 	submit_spam = TRUE
 	for(var/obj/item/paicard/paicard in pai_card_list)
 		if(!paicard.pai)
 			paicard.alertUpdate()
-	to_chat(usr, span_notice("Your pAI candidacy has been submitted!"))
+	to_chat(usr, "<span class='notice'>Your pAI candidacy has been submitted!</span>")
 	addtimer(CALLBACK(src, .proc/submit_again), 10 SECONDS)
 	return TRUE
 

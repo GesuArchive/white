@@ -17,14 +17,14 @@
 		return
 
 	if(!reagents || !reagents.total_volume)
-		to_chat(user, span_warning("[capitalize(src.name)] пуст!"))
+		to_chat(user, "<span class='warning'>[capitalize(src.name)] пуст!</span>")
 		return
 
 	if(istype(M))
 		if(user.a_intent == INTENT_HARM)
 			var/R
-			M.visible_message(span_danger("[user] разливает содержимое [src] на [M]!") , \
-							span_userdanger("[user] разливает содержимое [src] на меня!"))
+			M.visible_message("<span class='danger'>[user] разливает содержимое [src] на [M]!</span>" , \
+							"<span class='userdanger'>[user] разливает содержимое [src] на меня!</span>")
 			if(reagents)
 				for(var/datum/reagent/A in reagents.reagent_list)
 					R += "[A] ([num2text(A.volume)]),"
@@ -38,23 +38,23 @@
 		else
 			if(M != user)
 				if(M.hydration >= HYDRATION_LEVEL_OVERHYDRATED)
-					M.visible_message(span_danger("[user] не может больше напоить [M] содержимым [src.name]."), \
-					span_userdanger("[user] больше не может напоить меня содержимым [src.name]."))
+					M.visible_message("<span class='danger'>[user] не может больше напоить [M] содержимым [src.name].</span>", \
+					"<span class='userdanger'>[user] больше не может напоить меня содержимым [src.name].</span>")
 					return
-				M.visible_message(span_danger("[user] пытается напоить [M] из [src].") , \
-							span_userdanger("[user] пытается напоить меня из [src]."))
+				M.visible_message("<span class='danger'>[user] пытается напоить [M] из [src].</span>" , \
+							"<span class='userdanger'>[user] пытается напоить меня из [src].</span>")
 				if(!do_mob(user, M))
 					return
 				if(!reagents || !reagents.total_volume)
 					return // The drink might be empty after the delay, such as by spam-feeding
-				M.visible_message(span_danger("[user] поит [M] чем-то из [src].") , \
-							span_userdanger("[user] поит меня чем-то из [src]."))
+				M.visible_message("<span class='danger'>[user] поит [M] чем-то из [src].</span>" , \
+							"<span class='userdanger'>[user] поит меня чем-то из [src].</span>")
 				log_combat(user, M, "fed", reagents.log_list())
 			else
 				if(user.hydration >= HYDRATION_LEVEL_OVERHYDRATED)
-					to_chat(M, span_warning("В меня больше не лезет содержимое [src.name]!"))
+					to_chat(M, "<span class='warning'>В меня больше не лезет содержимое [src.name]!</span>")
 					return
-				to_chat(user, span_notice("Делаю глоток из [src]."))
+				to_chat(user, "<span class='notice'>Делаю глоток из [src].</span>")
 
 			for(var/datum/reagent/R in reagents.reagent_list)
 				if(R.type in M.known_reagent_sounds)
@@ -88,36 +88,36 @@
 
 	if(target.is_refillable()) //Something like a glass. Player probably wants to transfer TO it.
 		if(!reagents.total_volume)
-			to_chat(user, span_warning("[capitalize(src.name)] пуст!"))
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] пуст!</span>")
 			return
 
 		if(target.reagents.holder_full())
-			to_chat(user, span_warning("[target] полон."))
+			to_chat(user, "<span class='warning'>[target] полон.</span>")
 			return
 
 		var/trans = reagents.trans_to(target, amount_per_transfer_from_this, transfered_by = user)
-		to_chat(user, span_notice("Переливаю [trans] единиц в [target]."))
+		to_chat(user, "<span class='notice'>Переливаю [trans] единиц в [target].</span>")
 
 		playsound(get_turf(user), pick(WATER_FLOW_MINI), 50, TRUE)
 
 	else if(target.is_drainable()) //A dispenser. Transfer FROM it TO us.
 		if(!target.reagents.total_volume)
-			to_chat(user, span_warning("[target] пуст и не может быть заполнен!"))
+			to_chat(user, "<span class='warning'>[target] пуст и не может быть заполнен!</span>")
 			return
 
 		if(reagents.holder_full())
-			to_chat(user, span_warning("[capitalize(src.name)] полон."))
+			to_chat(user, "<span class='warning'>[capitalize(src.name)] полон.</span>")
 			return
 
 		var/trans = target.reagents.trans_to(src, amount_per_transfer_from_this, transfered_by = user)
-		to_chat(user, span_notice("Наполняю [src] [trans] единицами из [target]."))
+		to_chat(user, "<span class='notice'>Наполняю [src] [trans] единицами из [target].</span>")
 
 		playsound(get_turf(user), pick(WATER_FLOW_MINI), 50, TRUE)
 
 	else if(reagents.total_volume)
 		if(user.a_intent == INTENT_HARM)
-			user.visible_message(span_danger("[user] разливает содержимое [src] на [target]!") , \
-								span_notice("Разливаю содержмое [src] на [target]."))
+			user.visible_message("<span class='danger'>[user] разливает содержимое [src] на [target]!</span>" , \
+								"<span class='notice'>Разливаю содержмое [src] на [target].</span>")
 			reagents.expose(target, TOUCH)
 			reagents.clear_reagents()
 
@@ -125,7 +125,7 @@
 	var/hotness = I.get_temperature()
 	if(hotness && reagents)
 		reagents.expose_temperature(hotness)
-		to_chat(user, span_notice("Грею [name] используя [I]!"))
+		to_chat(user, "<span class='notice'>Грею [name] используя [I]!</span>")
 
 	//Cooling method
 	if(istype(I, /obj/item/extinguisher))
@@ -133,11 +133,11 @@
 		if(extinguisher.safety)
 			return
 		if (extinguisher.reagents.total_volume < 1)
-			to_chat(user, span_warning("[capitalize(extinguisher)] пуст!"))
+			to_chat(user, "<span class='warning'>[capitalize(extinguisher)] пуст!</span>")
 			return
 		var/cooling = (0 - reagents.chem_temp) * extinguisher.cooling_power * 2
 		reagents.expose_temperature(cooling)
-		to_chat(user, span_notice("Охлаждаю [name] используя [I]!"))
+		to_chat(user, "<span class='notice'>Охлаждаю [name] используя [I]!</span>")
 		playsound(loc, 'sound/effects/extinguish.ogg', 75, TRUE, -3)
 		extinguisher.reagents.remove_all(1)
 
@@ -145,9 +145,9 @@
 		var/obj/item/food/egg/E = I
 		if(reagents)
 			if(reagents.total_volume >= reagents.maximum_volume)
-				to_chat(user, span_notice("[capitalize(src.name)] полон."))
+				to_chat(user, "<span class='notice'>[capitalize(src.name)] полон.</span>")
 			else
-				to_chat(user, span_notice("Раздавливаю [E] в [src]."))
+				to_chat(user, "<span class='notice'>Раздавливаю [E] в [src].</span>")
 				E.reagents.trans_to(src, E.reagents.total_volume, transfered_by = user)
 				qdel(E)
 			return
@@ -303,23 +303,23 @@
 	if(istype(O, /obj/item/mop))
 		if(user.a_intent == INTENT_HARM)
 			if(O.reagents.total_volume == 0)
-				to_chat(user, span_warning("[capitalize(O.name)] сухая!"))
+				to_chat(user, "<span class='warning'>[capitalize(O.name)] сухая!</span>")
 				return
 			if(reagents.total_volume == reagents.maximum_volume)
-				to_chat(user, span_warning("[capitalize(src.name)] переполнено!"))
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] переполнено!</span>")
 				return
 			O.reagents.remove_any(O.reagents.total_volume*SQUEEZING_DISPERSAL_PERCENT)
 			O.reagents.trans_to(src, O.reagents.total_volume, transfered_by = user)
-			to_chat(user, span_notice("Выживаю [O.name] в [src.name]."))
+			to_chat(user, "<span class='notice'>Выживаю [O.name] в [src.name].</span>")
 		else
 			if(reagents.total_volume < 1)
-				to_chat(user, span_warning("[capitalize(src.name)] пустое!"))
+				to_chat(user, "<span class='warning'>[capitalize(src.name)] пустое!</span>")
 			else
 				reagents.trans_to(O, 5, transfered_by = user)
-				to_chat(user, span_notice("Окунаю [O.name] в [src.name]."))
+				to_chat(user, "<span class='notice'>Окунаю [O.name] в [src.name].</span>")
 				playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
 	else if(isprox(O)) //This works with wooden buckets for now. Somewhat unintended, but maybe someone will add sprites for it soon(TM)
-		to_chat(user, span_notice("Добавил [O.name] в [src.name]."))
+		to_chat(user, "<span class='notice'>Добавил [O.name] в [src.name].</span>")
 		qdel(O)
 		qdel(src)
 		user.put_in_hands(new /obj/item/bot_assembly/cleanbot)
@@ -332,7 +332,7 @@
 	..()
 	if (slot == ITEM_SLOT_HEAD)
 		if(reagents.total_volume)
-			to_chat(user, span_userdanger("Содержимое [capitalize(src.name)] разлилось на меня!"))
+			to_chat(user, "<span class='userdanger'>Содержимое [capitalize(src.name)] разлилось на меня!</span>")
 			reagents.expose(user, TOUCH)
 			reagents.clear_reagents()
 		reagents.flags = NONE
@@ -374,43 +374,43 @@
 	if(grinded)
 		grinded.forceMove(drop_location())
 		grinded = null
-		to_chat(user, span_notice("You eject the item inside."))
+		to_chat(user, "<span class='notice'>You eject the item inside.</span>")
 
 /obj/item/reagent_containers/glass/mortar/attackby(obj/item/I, mob/living/carbon/human/user)
 	..()
 	if(istype(I,/obj/item/pestle))
 		if(grinded)
 			if(user.getStaminaLoss() > 50)
-				to_chat(user, span_warning("You are too tired to work!"))
+				to_chat(user, "<span class='warning'>You are too tired to work!</span>")
 				return
-			to_chat(user, span_notice("You start grinding..."))
+			to_chat(user, "<span class='notice'>You start grinding...</span>")
 			if((do_after(user, 25, target = src)) && grinded)
 				user.adjustStaminaLoss(40)
 				if(grinded.juice_results) //prioritize juicing
 					grinded.on_juice()
 					reagents.add_reagent_list(grinded.juice_results)
-					to_chat(user, span_notice("You juice [grinded] into a fine liquid."))
+					to_chat(user, "<span class='notice'>You juice [grinded] into a fine liquid.</span>")
 					QDEL_NULL(grinded)
 					return
 				grinded.on_grind()
 				reagents.add_reagent_list(grinded.grind_results)
 				if(grinded.reagents) //food and pills
 					grinded.reagents.trans_to(src, grinded.reagents.total_volume, transfered_by = user)
-				to_chat(user, span_notice("You break [grinded] into powder."))
+				to_chat(user, "<span class='notice'>You break [grinded] into powder.</span>")
 				QDEL_NULL(grinded)
 				return
 			return
 		else
-			to_chat(user, span_warning("There is nothing to grind!"))
+			to_chat(user, "<span class='warning'>There is nothing to grind!</span>")
 			return
 	if(grinded)
-		to_chat(user, span_warning("There is something inside already!"))
+		to_chat(user, "<span class='warning'>There is something inside already!</span>")
 		return
 	if(I.juice_results || I.grind_results)
 		I.forceMove(src)
 		grinded = I
 		return
-	to_chat(user, span_warning("You can't grind this!"))
+	to_chat(user, "<span class='warning'>You can't grind this!</span>")
 
 /obj/item/reagent_containers/glass/saline
 	name = "saline canister"

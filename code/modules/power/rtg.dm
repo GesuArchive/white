@@ -73,8 +73,8 @@
 	if(going_kaboom)
 		return
 	going_kaboom = TRUE
-	visible_message(span_danger("<b>[src.name]</b> lets out a shower of sparks as it starts to lose stability!") ,\
-		span_hear("You hear a loud electrical crack!"))
+	visible_message("<span class='danger'><b>[src.name]</b> lets out a shower of sparks as it starts to lose stability!</span>" ,\
+		"<span class='hear'>You hear a loud electrical crack!</span>")
 	playsound(src.loc, 'sound/magic/lightningshock.ogg', 100, TRUE, extrarange = 5)
 	tesla_zap(src, 5, power_gen * 0.05)
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/explosion, src, 2, 3, 4, null, 8), 10 SECONDS) // Not a normal explosion.
@@ -138,16 +138,16 @@
 
 /obj/machinery/power/rtg/old_station/attackby(obj/item/I, mob/user, params)
 	if(default_deconstruction_screwdriver(user, "[initial(icon_state)]-open", initial(icon_state), I))
-		to_chat(user,span_warning("You feel it crumbling under your hands!"))
+		to_chat(user,"<span class='warning'>You feel it crumbling under your hands!</span>")
 		return
 	else if(default_deconstruction_crowbar(I, user = user))
 		return
 	return ..()
 
 /obj/machinery/power/rtg/old_station/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct, mob/user)
-	to_chat(user,span_warning("It's starting to fall off!"))
+	to_chat(user,"<span class='warning'>It's starting to fall off!</span>")
 	if(!do_after(user, 3 SECONDS, src))
 		return TRUE
-	to_chat(user,span_notice("You feel like you made a mistake"))
+	to_chat(user,"<span class='notice'>You feel like you made a mistake</span>")
 	new /obj/effect/decal/cleanable/ash/large(loc)
 	qdel(src)

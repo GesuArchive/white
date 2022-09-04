@@ -147,8 +147,8 @@
 	desc = "Долгое время работы в рисовых полях и жара палящего сверху солнца даровала вам этот прекрасный акцент."
 	value = 0
 	mob_trait = TRAIT_ASIAT
-	gain_text = span_notice("Чиньг-чоньг!.")
-	lose_text = span_danger("Аниме говно.")
+	gain_text = "<span class='notice'>Чиньг-чоньг!.</span>"
+	lose_text = "<span class='danger'>Аниме говно.</span>"
 	medical_record_text = "Пациент - азиат."
 
 /datum/quirk/kartavii
@@ -156,8 +156,8 @@
 	desc = "Вы не знаете, как проговаривать букву \"Р\"."
 	value = 0
 	mob_trait = TRAIT_KARTAVII
-	gain_text = span_notice("Забываю как проговаривать букву \"Р\".")
-	lose_text = span_danger("Вспоминаю как проговаривать букву \"Р\".")
+	gain_text = "<span class='notice'>Забываю как проговаривать букву \"Р\".</span>"
+	lose_text = "<span class='danger'>Вспоминаю как проговаривать букву \"Р\".</span>"
 	medical_record_text = "Пациент не может проговаривать букву \"Р\"."
 
 

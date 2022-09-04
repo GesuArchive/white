@@ -16,13 +16,13 @@ GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 	var/det_time = 30
 
 /obj/item/terroristsc4/afterattack(atom/movable/AM, mob/user, flag)
-	to_chat(user, span_notice("Нужно активировать бомбу в РУКЕ для установки."))
+	to_chat(user, "<span class='notice'>Нужно активировать бомбу в РУКЕ для установки.</span>")
 	return
 
 /obj/item/terroristsc4/attack_self(mob/user)
 	var/datum/antagonist/combatant/comb = user.mind.has_antag_datum(/datum/antagonist/combatant/red)
 	if(!comb)
-		to_chat(user, span_notice("Это не входит в рамки специальной операции."))
+		to_chat(user, "<span class='notice'>Это не входит в рамки специальной операции.</span>")
 		return
 	var/found = FALSE
 	for(var/atom/A in GLOB.violence_bomb_locations)
@@ -32,10 +32,10 @@ GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 			found = TRUE
 
 	if(!found)
-		to_chat(user, span_notice("Нужно ставить бомбу строго возле необходимой точки!"))
+		to_chat(user, "<span class='notice'>Нужно ставить бомбу строго возле необходимой точки!</span>")
 		return
 
-	to_chat(user, span_notice("Начинаю устанавливать [src]. Таймер установлен на [det_time]..."))
+	to_chat(user, "<span class='notice'>Начинаю устанавливать [src]. Таймер установлен на [det_time]...</span>")
 
 	playsound(get_turf(user), 'white/valtos/sounds/c4_click.ogg', 100)
 
@@ -47,12 +47,12 @@ GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 	if(!user.temporarilyRemoveItemFromInventory(src))
 		return
 
-	to_chat(world, leader_brass("Бомба установлена! Время до взрыва: [det_time] секунд."))
+	to_chat(world, "<span class='leader_brass'>Бомба установлена! Время до взрыва: [det_time] секунд.</span>")
 
 	if(GLOB.violence_players[user?.ckey])
 		var/datum/violence_player/VP = GLOB.violence_players[user.ckey]
 		VP.money += 30
-		to_chat(user, span_boldnotice("+30₽ за установку бомбы!"))
+		to_chat(user, "<span class='boldnotice'>+30₽ за установку бомбы!</span>")
 
 	GLOB.violence_time_limit = 30 SECONDS
 
@@ -78,13 +78,13 @@ GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 		return
 	playsound(get_turf(user), 'white/valtos/sounds/c4_disarm.ogg', 100)
 	if(do_after(user, 10 SECONDS, target = src))
-		to_chat(world, leader_brass("Бомба обезврежена [user]!"))
+		to_chat(world, "<span class='leader_brass'>Бомба обезврежена [user]!</span>")
 		GLOB.violence_bomb_active = FALSE
 		play_sound_to_everyone(null, 0, CHANNEL_NASHEED)
 		if(GLOB.violence_players[user?.ckey])
 			var/datum/violence_player/VP = GLOB.violence_players[user.ckey]
 			VP.money += 30
-			to_chat(user, span_boldnotice("+30₽ за обезвреживание бомбы!"))
+			to_chat(user, "<span class='boldnotice'>+30₽ за обезвреживание бомбы!</span>")
 		qdel(src)
 
 /obj/item/terroristsc4/attackby(obj/item/I, mob/user, params)
@@ -101,13 +101,13 @@ GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 	playsound(get_turf(user), 'white/valtos/sounds/c4_disarm.ogg', 100)
 
 	if(do_after(user, defuse_time, target = src))
-		to_chat(world, leader_brass("Бомба обезврежена [user]!"))
+		to_chat(world, "<span class='leader_brass'>Бомба обезврежена [user]!</span>")
 		GLOB.violence_bomb_active = FALSE
 		play_sound_to_everyone(null, 0, CHANNEL_NASHEED)
 		if(GLOB.violence_players[user?.ckey])
 			var/datum/violence_player/VP = GLOB.violence_players[user.ckey]
 			VP.money += 30
-			to_chat(user, span_boldnotice("+30₽ за обезвреживание бомбы!"))
+			to_chat(user, "<span class='boldnotice'>+30₽ за обезвреживание бомбы!</span>")
 		qdel(src)
 
 /obj/item/terroristsc4/proc/detonate()
@@ -118,5 +118,5 @@ GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 	GLOB.violence_bomb_detonated = TRUE
 	explosion(src, light_impact_range = 3, flame_range = 14, flash_range = 14)
 	explosion(get_turf(src), 0, 0, 0, 0)
-	to_chat(world, leader_brass("Бомба взорвана!"))
+	to_chat(world, "<span class='leader_brass'>Бомба взорвана!</span>")
 	qdel(src)

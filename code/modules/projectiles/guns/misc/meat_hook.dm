@@ -16,7 +16,7 @@
 	force = 18
 
 /obj/item/gun/magic/hook/shoot_with_empty_chamber(mob/living/user)
-	to_chat(user, span_warning("[src] isn't ready to fire yet!"))
+	to_chat(user, "<span class='warning'>[src] isn't ready to fire yet!</span>")
 
 /obj/item/ammo_casing/magic/hook
 	name = "hook"
@@ -51,7 +51,7 @@
 		var/atom/movable/A = target
 		if(A.anchored)
 			return
-		A.visible_message(span_danger("[A] is snagged by [firer]'s hook!"))
+		A.visible_message("<span class='danger'>[A] is snagged by [firer]'s hook!</span>")
 		new /datum/forced_movement(A, get_turf(firer), 5, TRUE)
 		if (isliving(target))
 			var/mob/living/fresh_meat = target

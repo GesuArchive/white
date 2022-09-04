@@ -73,7 +73,7 @@
 			hooked_singulo = S
 			hooked_singulo.forceMove(get_turf(src))
 			hooked_singulo.alpha = 200
-			visible_message(span_warning("[capitalize(src.name)] цапает сингулярность!"))
+			visible_message("<span class='warning'>[capitalize(src.name)] цапает сингулярность!</span>")
 			qdel(hooked_singulo.singularity_component)
 	else if (hooked_singulo)
 		if(magpower > 1)
@@ -137,15 +137,15 @@
 	. = ..()
 	. += "<hr><span class='notice'><b>Режим:</b> [asteroid_mode ? "АСТЕРОИДЫ" : "МЕТЕОРЫ"].</span>"
 	if(asteroid_mode)
-		. += span_notice("\nЛовит объекты размером максимум <b>[catch_power] метров</b>.")
+		. += "<span class='notice'>\nЛовит объекты размером максимум <b>[catch_power] метров</b>.</span>"
 		if(asteroid_catching)
 			if(!asteroid_catched)
-				. += span_notice("\nВремя до прилёта объекта <b>[DisplayTimeText(asteroid_catch_time / catch_power)]</b>.")
+				. += "<span class='notice'>\nВремя до прилёта объекта <b>[DisplayTimeText(asteroid_catch_time / catch_power)]</b>.</span>"
 			else
-				. += span_notice("\nВремя до отправки объекта <b>[DisplayTimeText(asteroid_catch_time / catch_power)]</b>.")
-		. += span_notice("\n<b>Последняя ошибка:</b> [last_err].")
+				. += "<span class='notice'>\nВремя до отправки объекта <b>[DisplayTimeText(asteroid_catch_time / catch_power)]</b>.</span>"
+		. += "<span class='notice'>\n<b>Последняя ошибка:</b> [last_err].</span>"
 	else
-		. += span_notice("\nЛовит максимум <b>[catch_power] метеоров</b>.")
+		. += "<span class='notice'>\nЛовит максимум <b>[catch_power] метеоров</b>.</span>"
 
 
 /obj/machinery/meteor_catcher/RefreshParts()
@@ -157,7 +157,7 @@
 
 /obj/machinery/meteor_catcher/attackby(obj/item/I, mob/living/user, params)
 	if(asteroid_catching)
-		to_chat(user, span_warning("<b>[capitalize(src.name)]</b> занят!"))
+		to_chat(user, "<span class='warning'><b>[capitalize(src.name)]</b> занят!</span>")
 		return FALSE
 	if(I.tool_behaviour == TOOL_WRENCH)
 		if(default_unfasten_wrench(user, I, time = 20) == SUCCESSFUL_UNFASTEN)
@@ -168,7 +168,7 @@
 				STOP_PROCESSING(SSobj, src)
 			return
 	if(I.tool_behaviour == TOOL_MULTITOOL)
-		to_chat(user, span_warning("Меняю режим."))
+		to_chat(user, "<span class='warning'>Меняю режим.</span>")
 		STOP_PROCESSING(SSobj, src)
 		asteroid_mode = !asteroid_mode
 		return
@@ -182,29 +182,29 @@
 	. = ..()
 	if(anchored)
 		if(asteroid_catching)
-			to_chat(user, span_warning("<b>[capitalize(src.name)]</b> занят!"))
+			to_chat(user, "<span class='warning'><b>[capitalize(src.name)]</b> занят!</span>")
 			return
 		if(asteroid_catched)
-			user.visible_message(span_notice("<b>[user]</b> включает <b>[src.name]</b>.") , \
-						span_notice("Включаю <b>[src.name]</b>.") , \
-						span_hear("Слышу тяжёлое жужжание."))
+			user.visible_message("<span class='notice'><b>[user]</b> включает <b>[src.name]</b>.</span>" , \
+						"<span class='notice'>Включаю <b>[src.name]</b>.</span>" , \
+						"<span class='hear'>Слышу тяжёлое жужжание.</span>")
 			START_PROCESSING(SSobj, src)
 			icon_state = "beacon_on"
 			return
 		if(!(datum_flags & DF_ISPROCESSING))
-			user.visible_message(span_notice("<b>[user]</b> включает <b>[src.name]</b>.") , \
-						span_notice("Включаю <b>[src.name]</b>.") , \
-						span_hear("Слышу тяжёлое жужжание."))
+			user.visible_message("<span class='notice'><b>[user]</b> включает <b>[src.name]</b>.</span>" , \
+						"<span class='notice'>Включаю <b>[src.name]</b>.</span>" , \
+						"<span class='hear'>Слышу тяжёлое жужжание.</span>")
 			START_PROCESSING(SSobj, src)
 			icon_state = "beacon_on"
 		else
-			user.visible_message(span_notice("<b>[user]</b> выключает <b>[src.name]</b>.") , \
-						span_notice("Выключаю <b>[src.name]</b>.") , \
-						span_hear("Слышу утихающее жужжание."))
+			user.visible_message("<span class='notice'><b>[user]</b> выключает <b>[src.name]</b>.</span>" , \
+						"<span class='notice'>Выключаю <b>[src.name]</b>.</span>" , \
+						"<span class='hear'>Слышу утихающее жужжание.</span>")
 			STOP_PROCESSING(SSobj, src)
 			icon_state = "beacon_off"
 	else
-		to_chat(user, span_warning("<b>[capitalize(src.name)]</b> должен быть закреплён на полу!"))
+		to_chat(user, "<span class='warning'><b>[capitalize(src.name)]</b> должен быть закреплён на полу!</span>")
 
 /obj/machinery/meteor_catcher/process()
 	if(!anchored)
@@ -304,7 +304,7 @@
 				var/obj/effect/meteor/M = new meteor_to(T)
 				last_catch = world.time
 				enslaved_meteors += M
-				visible_message(span_notice("<b>[capitalize(src.name)]</b> ловит в захват <b>[M]</b>."))
+				visible_message("<span class='notice'><b>[capitalize(src.name)]</b> ловит в захват <b>[M]</b>.</span>")
 				Beam(get_turf(M), icon_state = "nzcrentrs_power", time = 5 SECONDS)
 				return
 		else

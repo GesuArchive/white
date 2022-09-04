@@ -9,7 +9,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	attack_verb_continuous = list("тычет")
 	attack_verb_simple = list("тычет")
-	var/fail_message = span_warning("НЕПРАВИЛЬНЫЙ ПОЛЬЗОВАТЕЛЬ.")
+	var/fail_message = "<span class='warning'>НЕПРАВИЛЬНЫЙ ПОЛЬЗОВАТЕЛЬ.</span>"
 	var/selfdestruct = FALSE // Explode when user check is failed.
 	var/force_replace = FALSE // Can forcefully replace other pins.
 	var/pin_removeable = FALSE // Can be replaced by any pin.
@@ -27,7 +27,7 @@
 			var/obj/item/gun/G = target
 			var/obj/item/firing_pin/old_pin = G.pin
 			if(old_pin && (force_replace || old_pin.pin_removeable))
-				to_chat(user, span_notice("Убираю [old_pin] из [G]."))
+				to_chat(user, "<span class='notice'>Убираю [old_pin] из [G].</span>")
 				if(Adjacent(user))
 					user.put_in_hands(old_pin)
 				else
@@ -38,15 +38,15 @@
 				if(!user.temporarilyRemoveItemFromInventory(src))
 					return
 				gun_insert(user, G)
-				to_chat(user, span_notice("Вставляю [src] в [G]."))
+				to_chat(user, "<span class='notice'>Вставляю [src] в [G].</span>")
 			else
-				to_chat(user, span_notice("Это оружие уже имеет ударник."))
+				to_chat(user, "<span class='notice'>Это оружие уже имеет ударник.</span>")
 
 /obj/item/firing_pin/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
-	to_chat(user, span_notice("Перезаписываю механизм авторизации."))
+	to_chat(user, "<span class='notice'>Перезаписываю механизм авторизации.</span>")
 
 /obj/item/firing_pin/proc/gun_insert(mob/living/user, obj/item/gun/G)
 	gun = G
@@ -68,7 +68,7 @@
 	if(selfdestruct)
 		if(user)
 			user.show_message("<span class='danger'>Запуск механизма самоуничтожения...</span><br>", MSG_VISUAL)
-			to_chat(user, span_userdanger("[gun] взорвался!"))
+			to_chat(user, "<span class='userdanger'>[gun] взорвался!</span>")
 		explosion(src, devastation_range = -1, light_impact_range = 2, flash_range = 3)
 		if(gun)
 			qdel(gun)
@@ -83,7 +83,7 @@
 /obj/item/firing_pin/test_range
 	name = "ударник для тестовой площадки"
 	desc = "Данный ударник позволяет протестировать оружие на тестовой площадке. В ином месте это не будет работать."
-	fail_message = span_warning("НЕ НА ТЕСТОВОЙ ПЛОЩАДКЕ.")
+	fail_message = "<span class='warning'>НЕ НА ТЕСТОВОЙ ПЛОЩАДКЕ.</span>"
 	pin_removeable = TRUE
 
 /obj/item/firing_pin/test_range/pin_auth(mob/living/user)
@@ -98,7 +98,7 @@
 /obj/item/firing_pin/implant
 	name = "иплантозависимый ударник"
 	desc = "Этот ударник позволяет только авторизованным пользователям делать выстрел, причем пользователь должен быть имплантирован определенным устройством."
-	fail_message = span_warning("НЕТ ИМПЛАНТА. В ДОСТУПЕ ОТКАЗАНО.")
+	fail_message = "<span class='warning'>НЕТ ИМПЛАНТА. В ДОСТУПЕ ОТКАЗАНО.</span>"
 	var/obj/item/implant/req_implant = null
 
 /obj/item/firing_pin/implant/pin_auth(mob/living/user)
@@ -127,7 +127,7 @@
 	name = "веселый ударник"
 	desc = "Усовершенствованый клованский ударник. Рекомендуется сунуть в капитанскую лазерную пушку для большей ржаки."
 	color = "#FFFF00"
-	fail_message = span_warning("ВОТ ЭТО ПРИКОЛ!")
+	fail_message = "<span class='warning'>ВОТ ЭТО ПРИКОЛ!</span>"
 	force_replace = TRUE
 
 /obj/item/firing_pin/clown/pin_auth(mob/living/user)
@@ -175,7 +175,7 @@
 	name = "генный ударник"
 	desc = "Связывает вас и оружие на генном уровне. Никто, кроме вас, не сможет выстрелить."
 	icon_state = "firing_pin_dna"
-	fail_message = span_warning("ХРОМОСОМЫ НЕ СОВПАДАЮТ.")
+	fail_message = "<span class='warning'>ХРОМОСОМЫ НЕ СОВПАДАЮТ.</span>"
 	var/unique_enzymes = null
 
 /obj/item/firing_pin/dna/afterattack(atom/target, mob/user, proximity_flag)
@@ -184,7 +184,7 @@
 		var/mob/living/carbon/M = target
 		if(M.dna && M.dna.unique_enzymes)
 			unique_enzymes = M.dna.unique_enzymes
-			to_chat(user, span_notice("ДНК установлено."))
+			to_chat(user, "<span class='notice'>ДНК установлено.</span>")
 
 /obj/item/firing_pin/dna/pin_auth(mob/living/carbon/user)
 	if(user && user.dna && user.dna.unique_enzymes)
@@ -196,7 +196,7 @@
 	if(!unique_enzymes)
 		if(user && user.dna && user.dna.unique_enzymes)
 			unique_enzymes = user.dna.unique_enzymes
-			to_chat(user, span_notice("ДНК установлено."))
+			to_chat(user, "<span class='notice'>ДНК установлено.</span>")
 	else
 		..()
 
@@ -220,7 +220,7 @@
 
 /obj/item/firing_pin/paywall/attack_self(mob/user)
 	multi_payment = !multi_payment
-	to_chat(user, span_notice("Установил ударник на [( multi_payment ) ? "обрабатывать платеж за каждый выстрел" : "единоразовый платеж по лицензии"]."))
+	to_chat(user, "<span class='notice'>Установил ударник на [( multi_payment ) ? "обрабатывать платеж за каждый выстрел" : "единоразовый платеж по лицензии"].</span>")
 
 /obj/item/firing_pin/paywall/examine(mob/user)
 	. = ..()
@@ -229,15 +229,15 @@
 
 /obj/item/firing_pin/paywall/gun_insert(mob/living/user, obj/item/gun/G)
 	if(!pin_owner)
-		to_chat(user, span_warning("ERROR: Проведите картой по ударнику, прежде чем вставлять в оружие!"))
+		to_chat(user, "<span class='warning'>ERROR: Проведите картой по ударнику, прежде чем вставлять в оружие!</span>")
 		return
 	gun = G
 	forceMove(gun)
 	gun.pin = src
 	if(multi_payment)
-		gun.desc += span_notice(" Этот [gun.name] имеет стоимость за выстрел [payment_amount] cr.[( payment_amount > 1 ) ? "s" : ""].")
+		gun.desc += "<span class='notice'> Этот [gun.name] имеет стоимость за выстрел [payment_amount] cr.[( payment_amount > 1 ) ? "s" : ""].</span>"
 		return
-	gun.desc += span_notice(" Этот [gun.name] премиальный доступ за [payment_amount] cr.[( payment_amount > 1 ) ? "s" : ""].")
+	gun.desc += "<span class='notice'> Этот [gun.name] премиальный доступ за [payment_amount] cr.[( payment_amount > 1 ) ? "s" : ""].</span>"
 	return
 
 
@@ -249,20 +249,20 @@
 	if(istype(M, /obj/item/card/id))
 		var/obj/item/card/id/id = M
 		if(!id.registered_account)
-			to_chat(user, span_warning("ERROR: У карты отсутствует банковский счет!"))
+			to_chat(user, "<span class='warning'>ERROR: У карты отсутствует банковский счет!</span>")
 			return
 		if(id != pin_owner && owned)
-			to_chat(user, span_warning("ERROR: Ударник уже авторизован!"))
+			to_chat(user, "<span class='warning'>ERROR: Ударник уже авторизован!</span>")
 			return
 		if(id == pin_owner)
-			to_chat(user, span_notice("Отвязываю ударник от карты."))
+			to_chat(user, "<span class='notice'>Отвязываю ударник от карты.</span>")
 			gun_owners -= user
 			pin_owner = null
 			owned = FALSE
 			return
 		var/transaction_amount = input(user, "Введите действительную сумму депозита для покупки оружия", "Денежный депозит") as null|num
 		if(transaction_amount < 1)
-			to_chat(user, span_warning("ERROR: Указана неверная сумма."))
+			to_chat(user, "<span class='warning'>ERROR: Указана неверная сумма.</span>")
 			return
 		if(!transaction_amount)
 			return
@@ -270,7 +270,7 @@
 		owned = TRUE
 		payment_amount = transaction_amount
 		gun_owners += user
-		to_chat(user, span_notice("Связываю карту с ударником."))
+		to_chat(user, "<span class='notice'>Связываю карту с ударником.</span>")
 
 /obj/item/firing_pin/paywall/pin_auth(mob/living/user)
 	if(!istype(user))//nice try commie
@@ -281,7 +281,7 @@
 			if(credit_card_details.adjust_money(-payment_amount))
 				pin_owner.registered_account.adjust_money(payment_amount)
 				return TRUE
-			to_chat(user, span_warning("ERROR: Недостаточно баланса пользователя для успешной транзакции!"))
+			to_chat(user, "<span class='warning'>ERROR: Недостаточно баланса пользователя для успешной транзакции!</span>")
 			return FALSE
 		return TRUE
 	if(credit_card_details && !active_prompt)
@@ -295,15 +295,15 @@
 				if(credit_card_details.adjust_money(-payment_amount))
 					pin_owner.registered_account.adjust_money(payment_amount)
 					gun_owners += user
-					to_chat(user, span_notice("Куплена лицензия!"))
+					to_chat(user, "<span class='notice'>Куплена лицензия!</span>")
 					active_prompt = FALSE
 					return FALSE //we return false here so you don't click initially to fire, get the prompt, accept the prompt, and THEN the gun
-				to_chat(user, span_warning("ERROR: Недостаточно баланса пользователя для успешной транзакции!"))
+				to_chat(user, "<span class='warning'>ERROR: Недостаточно баланса пользователя для успешной транзакции!</span>")
 				return FALSE
 			if("No")
-				to_chat(user, span_warning("ERROR: Пользователь отказался от лицензии на покупку оружия!"))
+				to_chat(user, "<span class='warning'>ERROR: Пользователь отказался от лицензии на покупку оружия!</span>")
 				return FALSE
-	to_chat(user, span_warning("ERROR: У пользователя нет действующего банковского счета!"))
+	to_chat(user, "<span class='warning'>ERROR: У пользователя нет действующего банковского счета!</span>")
 	return FALSE
 
 // Explorer Firing Pin- Prevents use on station Z-Level, so it's justifiable to give Explorers guns that don't suck.
@@ -311,13 +311,13 @@
 	name = "малонаселенный ударник"
 	desc = "Ударник, используемый австралийскими силами, переоборудован, чтобы предотвратить сброс оружия на станцию"
 	icon_state = "firing_pin_explorer"
-	fail_message = span_warning("НЕ СТРЕЛЯЕТ НА СТАНЦИИ, ДРУЖОК!")
+	fail_message = "<span class='warning'>НЕ СТРЕЛЯЕТ НА СТАНЦИИ, ДРУЖОК!</span>"
 
 // This checks that the user isn't on the station Z-level.
 /obj/item/firing_pin/explorer/pin_auth(mob/living/user)
 	var/turf/station_check = get_turf(user)
 	if(!station_check||is_station_level(station_check.z))
-		to_chat(user, span_warning("Не могу использовать оружие на станции!"))
+		to_chat(user, "<span class='warning'>Не могу использовать оружие на станции!</span>")
 		return FALSE
 	return TRUE
 
@@ -325,7 +325,7 @@
 /obj/item/firing_pin/tag
 	name = "ударник для лазертага"
 	desc = "Работает когда одет костюм для лазертага."
-	fail_message = span_warning("КОСТЮМ ОТСУТСТВУЕТ.")
+	fail_message = "<span class='warning'>КОСТЮМ ОТСУТСТВУЕТ.</span>"
 	var/obj/item/clothing/suit/suit_requirement = null
 	var/tagcolor = ""
 
@@ -334,7 +334,7 @@
 		var/mob/living/carbon/human/M = user
 		if(istype(M.wear_suit, suit_requirement))
 			return TRUE
-	to_chat(user, span_warning("Нужно надеть [tagcolor] броню для лазертага!"))
+	to_chat(user, "<span class='warning'>Нужно надеть [tagcolor] броню для лазертага!</span>")
 	return FALSE
 
 /obj/item/firing_pin/tag/red

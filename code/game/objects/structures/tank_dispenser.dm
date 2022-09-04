@@ -54,17 +54,17 @@
 		default_unfasten_wrench(user, I, time = 20)
 		return
 	else if(user.a_intent != INTENT_HARM)
-		to_chat(user, span_notice("[I] не может принять [src]."))
+		to_chat(user, "<span class='notice'>[I] не может принять [src].</span>")
 		return
 	else
 		return ..()
 	if(full)
-		to_chat(user, span_notice("[capitalize(src.name)] не может принять [I]."))
+		to_chat(user, "<span class='notice'>[capitalize(src.name)] не может принять [I].</span>")
 		return
 
 	if(!user.transferItemToLoc(I, src))
 		return
-	to_chat(user, span_notice("Вставляю <b>[I]</b> в [src]."))
+	to_chat(user, "<span class='notice'>Вставляю <b>[I]</b> в [src].</span>")
 	playsound(src, 'white/valtos/sounds/fucking.ogg', 50, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 	update_icon()
 

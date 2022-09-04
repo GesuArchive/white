@@ -81,7 +81,7 @@
 
 /obj/item/grown/log/attackby(obj/item/W, mob/user, params)
 	if(W.get_sharpness())
-		user.show_message(span_notice("Заготавливаю [plank_name] из <b>[src.name]</b>!") , MSG_VISUAL)
+		user.show_message("<span class='notice'>Заготавливаю [plank_name] из <b>[src.name]</b>!</span>" , MSG_VISUAL)
 		var/seed_modifier = 0
 		if(seed)
 			seed_modifier = round(seed.potency / 25)
@@ -91,13 +91,13 @@
 			if(ST != plank && istype(ST, plank_type) && ST.amount < ST.max_amount)
 				ST.attackby(plank, user) //we try to transfer all old unfinished stacks to the new stack we created.
 		if(plank.amount > old_plank_amount)
-			to_chat(user, span_notice("Добавляю новую [plank_name] в кучу. Теперь тут [plank.amount] [plank_name]."))
+			to_chat(user, "<span class='notice'>Добавляю новую [plank_name] в кучу. Теперь тут [plank.amount] [plank_name].</span>")
 		qdel(src)
 
 	if(CheckAccepted(W))
 		var/obj/item/food/grown/leaf = W
 		if(HAS_TRAIT(leaf, TRAIT_DRIED))
-			user.show_message(span_notice("Оборачиваю [W] вокруг бревна и получаю факел!"))
+			user.show_message("<span class='notice'>Оборачиваю [W] вокруг бревна и получаю факел!</span>")
 			var/obj/item/flashlight/flare/torch/T = new /obj/item/flashlight/flare/torch(user.loc)
 			usr.dropItemToGround(W)
 			usr.put_in_active_hand(T)
@@ -105,7 +105,7 @@
 			qdel(src)
 			return
 		else
-			to_chat(usr, span_warning("Сначала надо высушить!"))
+			to_chat(usr, "<span class='warning'>Сначала надо высушить!</span>")
 	else
 		return ..()
 
@@ -181,7 +181,7 @@
 		if(LAZYLEN(buckled_mobs))
 			return
 		if(buckle_mob(fallen_mob, TRUE))
-			to_chat(fallen_mob, span_userdanger("You are impaled by [src]!"))
+			to_chat(fallen_mob, "<span class='userdanger'>You are impaled by [src]!</span>")
 			fallen_mob.apply_damage(25 * levels, BRUTE, sharpness = SHARP_POINTY)
 			if(iscarbon(fallen_mob))
 				var/mob/living/carbon/fallen_carbon = fallen_mob
@@ -193,10 +193,10 @@
 /obj/structure/punji_sticks/unbuckle_mob(mob/living/buckled_mob, force, can_fall)
 	if(force)
 		return ..()
-	to_chat(buckled_mob, span_warning("You begin climbing out of [src]."))
+	to_chat(buckled_mob, "<span class='warning'>You begin climbing out of [src].</span>")
 	buckled_mob.apply_damage(5, BRUTE, sharpness = SHARP_POINTY)
 	if(!do_after(buckled_mob, 5 SECONDS, target = src))
-		to_chat(buckled_mob, span_userdanger("You fail to detach yourself from [src]."))
+		to_chat(buckled_mob, "<span class='userdanger'>You fail to detach yourself from [src].</span>")
 		return
 	cut_overlay(stab_overlay)
 	return ..()

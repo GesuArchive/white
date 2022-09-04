@@ -20,8 +20,8 @@
 	. = ..()
 
 /datum/antagonist/disease/greet()
-	to_chat(owner.current, span_notice("Вы [owner.special_role]!"))
-	to_chat(owner.current, span_notice("Заражайте членов экипажа, чтобы получить очки адаптации и распространите инфекцию по станции."))
+	to_chat(owner.current, "<span class='notice'>Вы [owner.special_role]!</span>")
+	to_chat(owner.current, "<span class='notice'>Заражайте членов экипажа, чтобы получить очки адаптации и распространите инфекцию по станции.</span>")
 	owner.announce_objectives()
 
 /datum/antagonist/disease/apply_innate_effects(mob/living/mob_override)
@@ -58,9 +58,9 @@
 	var/special_role_text = lowertext(name)
 
 	if(win)
-		result += span_greentext("[special_role_text] успешена!")
+		result += "<span class='greentext'>[special_role_text] успешена!</span>"
 	else
-		result += span_redtext("[special_role_text] провалена...")
+		result += "<span class='redtext'>[special_role_text] провалена...</span>"
 
 	if(istype(owner.current, /mob/camera/disease))
 		var/mob/camera/disease/D = owner.current

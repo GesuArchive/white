@@ -11,7 +11,7 @@
 	set hidden = 1
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, span_danger("Не могу молиться."))
+		to_chat(usr, "<span class='danger'>Не могу молиться.</span>")
 		return
 
 	msg = copytext_char(sanitize(msg), 1, MAX_MESSAGE_LEN)
@@ -20,7 +20,7 @@
 	log_prayer("[src.key]/([src.name]): [msg]")
 	if(usr.client)
 		if(usr.client.prefs.muted & MUTE_PRAY)
-			to_chat(usr, span_danger("Не хочу молиться."))
+			to_chat(usr, "<span class='danger'>Не хочу молиться.</span>")
 			return
 		if(src.client.handle_spam_prevention(msg,MUTE_PRAY))
 			return
@@ -49,7 +49,7 @@
 
 	var/msg_tmp = msg
 	GLOB.requests.pray(usr.client, msg, usr.job == JOB_CHAPLAIN)
-	msg = span_adminnotice("[icon2html(cross, GLOB.admins)]<b><font color=[font_color]>[prayer_type][deity ? " (to [deity])" : ""]: </font>[ADMIN_FULLMONTY(src)] [ADMIN_SC(src)]:</b> <span class='linkify'>[msg]</span>")
+	msg = "<span class='adminnotice'>[icon2html(cross, GLOB.admins)]<b><font color=[font_color]>[prayer_type][deity ? " (to [deity])" : ""]: </font>[ADMIN_FULLMONTY(src)] [ADMIN_SC(src)]:</b> <span class='linkify'>[msg]</span></span>"
 
 	for(var/client/C in GLOB.admins)
 		if(C.prefs.chat_toggles & CHAT_PRAYER)
@@ -57,7 +57,7 @@
 			if(C.prefs.toggles & SOUND_PRAYERS)
 				if(usr.job == JOB_CHAPLAIN)
 					SEND_SOUND(C, sound('sound/effects/pray.ogg'))
-	to_chat(usr, span_info("Молитва: \"[msg_tmp]\""))
+	to_chat(usr, "<span class='info'>Молитва: \"[msg_tmp]\"</span>")
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Prayer") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -66,7 +66,7 @@
 /proc/message_centcom(text, mob/sender)
 	var/msg = copytext_char(sanitize(text), 1, MAX_MESSAGE_LEN)
 	GLOB.requests.message_centcom(sender.client, msg)
-	msg = span_adminnotice("<b><font color=orange>CENTCOM:</font>[ADMIN_FULLMONTY(sender)] [ADMIN_CENTCOM_REPLY(sender)]:</b> [msg]")
+	msg = "<span class='adminnotice'><b><font color=orange>CENTCOM:</font>[ADMIN_FULLMONTY(sender)] [ADMIN_CENTCOM_REPLY(sender)]:</b> [msg]</span>"
 	to_chat(GLOB.admins, msg)
 	for(var/obj/machinery/computer/communications/console in GLOB.machines)
 		console.override_cooldown()
@@ -75,7 +75,7 @@
 /proc/message_syndicate(text, mob/sender)
 	var/msg = copytext_char(sanitize(text), 1, MAX_MESSAGE_LEN)
 	GLOB.requests.message_syndicate(sender.client, msg)
-	msg = span_adminnotice("<b><font color=crimson>SYNDICATE:</font>[ADMIN_FULLMONTY(sender)] [ADMIN_SYNDICATE_REPLY(sender)]:</b> [msg]")
+	msg = "<span class='adminnotice'><b><font color=crimson>SYNDICATE:</font>[ADMIN_FULLMONTY(sender)] [ADMIN_SYNDICATE_REPLY(sender)]:</b> [msg]</span>"
 	to_chat(GLOB.admins, msg)
 	for(var/obj/machinery/computer/communications/console in GLOB.machines)
 		console.override_cooldown()
@@ -84,7 +84,7 @@
 /proc/nuke_request(text, mob/sender)
 	var/msg = copytext_char(sanitize(text), 1, MAX_MESSAGE_LEN)
 	GLOB.requests.nuke_request(sender.client, msg)
-	msg = span_adminnotice("<b><font color=orange>NUKE CODE REQUEST:</font>[ADMIN_FULLMONTY(sender)] [ADMIN_CENTCOM_REPLY(sender)] [ADMIN_SET_SD_CODE]:</b> [msg]")
+	msg = "<span class='adminnotice'><b><font color=orange>NUKE CODE REQUEST:</font>[ADMIN_FULLMONTY(sender)] [ADMIN_CENTCOM_REPLY(sender)] [ADMIN_SET_SD_CODE]:</b> [msg]</span>"
 	to_chat(GLOB.admins, msg)
 	for(var/obj/machinery/computer/communications/console in GLOB.machines)
 		console.override_cooldown()

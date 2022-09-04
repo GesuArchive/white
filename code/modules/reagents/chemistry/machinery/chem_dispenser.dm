@@ -152,9 +152,9 @@
 
 /obj/machinery/chem_dispenser/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
-		to_chat(user, span_warning("У [capitalize(src.name)] отсутствуют функциональные предохранители, которые можно взломать."))
+		to_chat(user, "<span class='warning'>У [capitalize(src.name)] отсутствуют функциональные предохранители, которые можно взломать.</span>")
 		return
-	to_chat(user, span_notice("Закоротил предохранители [src]."))
+	to_chat(user, "<span class='notice'>Закоротил предохранители [src].</span>")
 	dispensable_reagents |= emagged_reagents//add the emagged reagents to the dispensable ones
 	obj_flags |= EMAGGED
 
@@ -331,7 +331,7 @@
 				for(var/reagent in recording_recipe)
 					var/reagent_id = GLOB.name2reagent[translate_legacy_chem_id(reagent)]
 					if(!dispensable_reagents.Find(reagent_id))
-						visible_message(span_warning("[capitalize(src.name)] гудит.") , span_hear("Слышу слабое гудение."))
+						visible_message("<span class='warning'>[capitalize(src.name)] гудит.</span>" , "<span class='hear'>Слышу слабое гудение.</span>")
 						to_chat(usr, "<span class ='danger'>[capitalize(src.name)] не может найти <b>[reagent]</b>!</span>")
 						playsound(src, 'white/valtos/sounds/error2.ogg', 50, TRUE)
 						return
@@ -361,10 +361,10 @@
 		if(!user.transferItemToLoc(B, src))
 			return
 		replace_beaker(user, B)
-		to_chat(user, span_notice("Добавил [B] в [src]."))
+		to_chat(user, "<span class='notice'>Добавил [B] в [src].</span>")
 		updateUsrDialog()
 	else if(user.a_intent != INTENT_HARM && !istype(I, /obj/item/card/emag))
-		to_chat(user, span_warning("Не могу загрузить [I] в [src]!"))
+		to_chat(user, "<span class='warning'>Не могу загрузить [I] в [src]!</span>")
 		return ..()
 	else
 		return ..()
@@ -392,7 +392,7 @@
 	cell.use(total/powerefficiency)
 	cell.emp_act(severity)
 	work_animation()
-	visible_message(span_danger("[capitalize(src.name)] неисправен и забрызгивает всё химикатами!"))
+	visible_message("<span class='danger'>[capitalize(src.name)] неисправен и забрызгивает всё химикатами!</span>")
 
 /obj/machinery/chem_dispenser/RefreshParts()
 	. = ..()

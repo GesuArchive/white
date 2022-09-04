@@ -40,7 +40,7 @@
 		slowdown = slowdown_active
 	magpulse = !magpulse
 	icon_state = "[magboot_state][magpulse]"
-	to_chat(user, span_notice("Переключаю магниты в состояние [magpulse ? "вкл" : "выкл"]."))
+	to_chat(user, "<span class='notice'>Переключаю магниты в состояние [magpulse ? "вкл" : "выкл"].</span>")
 	update_gravity_trait(user)
 	user.update_inv_shoes()	//so our mob-overlays update
 	user.update_gravity(user.has_gravity())

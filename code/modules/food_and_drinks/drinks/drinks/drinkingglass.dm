@@ -105,9 +105,9 @@
 		var/obj/item/food/egg/E = I
 		if(reagents)
 			if(reagents.total_volume >= reagents.maximum_volume)
-				to_chat(user, span_notice("[capitalize(src.name)] полон."))
+				to_chat(user, "<span class='notice'>[capitalize(src.name)] полон.</span>")
 			else
-				to_chat(user, span_notice("Ломаю [E] в [src]."))
+				to_chat(user, "<span class='notice'>Ломаю [E] в [src].</span>")
 				reagents.add_reagent(/datum/reagent/consumable/eggyolk, 5)
 				qdel(E)
 			return
@@ -116,8 +116,8 @@
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/attack(obj/target, mob/user)
 	if(user.a_intent == INTENT_HARM && ismob(target) && target.reagents && reagents.total_volume)
-		target.visible_message(span_danger("[user] проливает содержимое [src] на [target]!") , \
-						span_userdanger("[user] проливает содержимое [src] на меня!"))
+		target.visible_message("<span class='danger'>[user] проливает содержимое [src] на [target]!</span>" , \
+						"<span class='userdanger'>[user] проливает содержимое [src] на меня!</span>")
 		log_combat(user, target, "splashed", src)
 		reagents.expose(target, TOUCH)
 		reagents.clear_reagents()
@@ -130,8 +130,8 @@
 		return
 
 	else if(reagents.total_volume && user.a_intent == INTENT_HARM)
-		user.visible_message(span_danger("[user] проливает содержимое [src] на [target]!") , \
-							span_notice("Проливаю содержимое [src] на [target]."))
+		user.visible_message("<span class='danger'>[user] проливает содержимое [src] на [target]!</span>" , \
+							"<span class='notice'>Проливаю содержимое [src] на [target].</span>")
 		reagents.expose(target, TOUCH)
 		reagents.clear_reagents()
 		return

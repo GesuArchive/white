@@ -50,18 +50,18 @@
 			if(!I.tool_start_check(user, amount=0))
 				return
 
-			to_chat(user, span_notice("Начинаю чинить [src]..."))
+			to_chat(user, "<span class='notice'>Начинаю чинить [src]...</span>")
 			if(I.use_tool(src, user, 40, volume=50))
 				obj_integrity = max_integrity
-				to_chat(user, span_notice("Чиню [src]."))
+				to_chat(user, "<span class='notice'>Чиню [src].</span>")
 		else
-			to_chat(user, span_warning("[src] и так в хорошем состоянии!"))
+			to_chat(user, "<span class='warning'>[src] и так в хорошем состоянии!</span>")
 		return
 
 /obj/structure/railing/wirecutter_act(mob/living/user, obj/item/I)
 	. = ..()
 	if(!anchored)
-		to_chat(user, span_warning("Разрезаю перила."))
+		to_chat(user, "<span class='warning'>Разрезаю перила.</span>")
 		I.play_tool_sound(src, 100)
 		deconstruct()
 		return TRUE
@@ -77,10 +77,10 @@
 	. = ..()
 	if(flags_1&NODECONSTRUCT_1)
 		return
-	to_chat(user, span_notice("Начинаю [anchored ? "откреплять перила":"прикреплять перила"]..."))
+	to_chat(user, "<span class='notice'>Начинаю [anchored ? "откреплять перила":"прикреплять перила"]...</span>")
 	if(I.use_tool(src, user, volume = 75, extra_checks = CALLBACK(src, .proc/check_anchored, anchored)))
 		set_anchored(!anchored)
-		to_chat(user, span_notice("[anchored ? "Прикручиваю перила к полу":"Откручиваю перила от пола"]."))
+		to_chat(user, "<span class='notice'>[anchored ? "Прикручиваю перила к полу":"Откручиваю перила от пола"].</span>")
 	return TRUE
 
 /obj/structure/railing/CanPass(atom/movable/mover, border_dir)
@@ -124,13 +124,13 @@
 
 /obj/structure/railing/proc/can_be_rotated(mob/user,rotation_type)
 	if(anchored)
-		to_chat(user, span_warning("[src] нельзя поворачивать, пока он закреплен к полу!"))
+		to_chat(user, "<span class='warning'>[src] нельзя поворачивать, пока он закреплен к полу!</span>")
 		return FALSE
 
 	var/target_dir = turn(dir, rotation_type == ROTATION_CLOCKWISE ? -90 : 90)
 
 	if(!valid_window_location(loc, target_dir, is_fulltile = FALSE)) //Expanded to include rails, as well!
-		to_chat(user, span_warning("[src] не может повернуться в этом направлении!"))
+		to_chat(user, "<span class='warning'>[src] не может повернуться в этом направлении!</span>")
 		return FALSE
 	return TRUE
 

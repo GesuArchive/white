@@ -144,7 +144,7 @@
 /datum/antagonist/traitor/internal_affairs/proc/steal_targets(datum/mind/victim)
 	if(!owner.current||owner.current.stat==DEAD)
 		return
-	to_chat(owner.current, span_userdanger("Цель ликвидирована: [victim.name]"))
+	to_chat(owner.current, "<span class='userdanger'>Цель ликвидирована: [victim.name]</span>")
 	for(var/objective_ in victim.get_all_objectives())
 		if(istype(objective_, /datum/objective/assassinate/internal))
 			var/datum/objective/assassinate/internal/objective = objective_
@@ -158,7 +158,7 @@
 				add_objective(new_objective)
 				targets_stolen += objective.target
 				var/status_text = objective.check_completion() ? "нейтрализована" : "жива"
-				to_chat(owner.current, span_userdanger("Новая цель внесена в базу данных: [objective.target.name] ([status_text])"))
+				to_chat(owner.current, "<span class='userdanger'>Новая цель внесена в базу данных: [objective.target.name] ([status_text])</span>")
 		else if(istype(objective_, /datum/objective/destroy/internal))
 			var/datum/objective/destroy/internal/objective = objective_
 			var/datum/objective/destroy/internal/new_objective = new
@@ -171,7 +171,7 @@
 				add_objective(new_objective)
 				targets_stolen += objective.target
 				var/status_text = objective.check_completion() ? "нейтрализована" : "жива"
-				to_chat(owner.current, span_userdanger("Новая цель внесена в базу данных: [objective.target.name] ([status_text])"))
+				to_chat(owner.current, "<span class='userdanger'>Новая цель внесена в базу данных: [objective.target.name] ([status_text])</span>")
 	last_man_standing = TRUE
 	for(var/objective_ in objectives)
 		if(!is_internal_objective(objective_))
@@ -182,9 +182,9 @@
 			return
 	if(last_man_standing)
 		if(syndicate)
-			to_chat(owner.current,span_userdanger("Все лояльные агенты мертвы, и вы больше не нуждаетесь в чём-либо. Умрите славной смертью!"))
+			to_chat(owner.current,"<span class='userdanger'>Все лояльные агенты мертвы, и вы больше не нуждаетесь в чём-либо. Умрите славной смертью!</span>")
 		else
-			to_chat(owner.current,span_userdanger("Все остальные агенты мертвы, и вы остались одни. Организуйте террористическую атаку Синдиката, чтобы сокрыть сегодняшние события этой смены. У вас больше не имеется ограничений на ущерб корпорации."))
+			to_chat(owner.current,"<span class='userdanger'>Все остальные агенты мертвы, и вы остались одни. Организуйте террористическую атаку Синдиката, чтобы сокрыть сегодняшние события этой смены. У вас больше не имеется ограничений на ущерб корпорации.</span>")
 		replace_escape_objective(owner)
 
 /datum/antagonist/traitor/internal_affairs/proc/iaa_process()
@@ -205,12 +205,12 @@
 					objective.stolen = TRUE
 			else
 				if(objective.stolen)
-					var/fail_msg = span_userdanger("Ваши сенсоры говорят, что ваша цель - [objective.target.current.real_name], которую необходимо ликвидировать, всё еще жива! Выполните свою работу тщательнее!")
+					var/fail_msg = "<span class='userdanger'>Ваши сенсоры говорят, что ваша цель - [objective.target.current.real_name], которую необходимо ликвидировать, всё еще жива! Выполните свою работу тщательнее!</span>"
 					if(last_man_standing)
 						if(syndicate)
-							fail_msg += span_userdanger(" У вас больше нет права на смерть. ")
+							fail_msg += "<span class='userdanger'> У вас больше нет права на смерть. </span>"
 						else
-							fail_msg += span_userdanger(" Остались свидетели!</font><B><font size=5 color=red> Немедленно прекратите любые террористические действия, вредящие имуществу NanoTrasen или приводящие к гибели сотрудников! В противном случае это приведёт к расторжению контракта.")
+							fail_msg += "<span class='userdanger'> Остались свидетели!</font><B><font size=5 color=red> Немедленно прекратите любые террористические действия, вредящие имуществу NanoTrasen или приводящие к гибели сотрудников! В противном случае это приведёт к расторжению контракта.</span>"
 						reinstate_escape_objective(owner)
 						last_man_standing = FALSE
 					to_chat(owner.current, fail_msg)
@@ -275,17 +275,17 @@
 	)
 
 	if(syndicate)
-		to_chat(owner.current, span_userdanger("Вы внутренний агент Синдиката."))
-		to_chat(owner.current, span_userdanger("Ваша цель обвиняется в [crime], и вам было поручено ликвидировать её для предотвращения защиты цели в суде."))
+		to_chat(owner.current, "<span class='userdanger'>Вы внутренний агент Синдиката.</span>")
+		to_chat(owner.current, "<span class='userdanger'>Ваша цель обвиняется в [crime], и вам было поручено ликвидировать её для предотвращения защиты цели в суде.</span>")
 		to_chat(owner.current, "<B><font size=5 color=red>Любой ущерб, который вы причините, станет позором для NanoTrasen, поэтому у вас не имеется ограничений на вред станции.</font></B>")
-		to_chat(owner.current, span_userdanger("Вам был предоставлен стандартный аплинк для успешного выполнения вашей задачи."))
+		to_chat(owner.current, "<span class='userdanger'>Вам был предоставлен стандартный аплинк для успешного выполнения вашей задачи.</span>")
 	else
-		to_chat(owner.current, span_userdanger("Вы внутренний агент NanoTrasen."))
-		to_chat(owner.current, span_userdanger("Ваша цель подозревается в [crime], и вам было поручено ликвидировать её любой ценой, чтобы избежать дальнейшей разборки в крайне затратном и позорным для корпорации суде."))
+		to_chat(owner.current, "<span class='userdanger'>Вы внутренний агент NanoTrasen.</span>")
+		to_chat(owner.current, "<span class='userdanger'>Ваша цель подозревается в [crime], и вам было поручено ликвидировать её любой ценой, чтобы избежать дальнейшей разборки в крайне затратном и позорным для корпорации суде.</span>")
 		to_chat(owner.current, "<B><font size=5 color=red>В то время, как у вас имеется лицензия на убийство цели, нежелательный материальный ущерб или гибель сотрудников NT приведут к расторжению контракта с Вами.</font></B>")
-		to_chat(owner.current, span_userdanger("Ради правдоподобного отрицания и прикрытия, вам был предоставлен трофейный аплинк Синдиката."))
+		to_chat(owner.current, "<span class='userdanger'>Ради правдоподобного отрицания и прикрытия, вам был предоставлен трофейный аплинк Синдиката.</span>")
 
-	to_chat(owner.current, span_userdanger("Будьте предельно аккуратны и осторожными. У вашей цели есть весьма серьёзные связи, и наши разведданные предполагают, что кто-то мог заключить контракт на обеспечение защиты для неё."))
+	to_chat(owner.current, "<span class='userdanger'>Будьте предельно аккуратны и осторожными. У вашей цели есть весьма серьёзные связи, и наши разведданные предполагают, что кто-то мог заключить контракт на обеспечение защиты для неё.</span>")
 	owner.announce_objectives()
 
 /datum/antagonist/traitor/internal_affairs/greet()

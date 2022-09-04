@@ -25,7 +25,7 @@
 				var/obj/item/borg/upgrade/modkit/MK = I
 				MK.install(src, user)
 				return
-		to_chat(user, span_warning("Не могу установить [I], она несовместима!"))
+		to_chat(user, "<span class='warning'>Не могу установить [I], она несовместима!</span>")
 		return
 	else
 		..()

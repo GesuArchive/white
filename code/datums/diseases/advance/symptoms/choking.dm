@@ -49,16 +49,16 @@ Bonus
 	switch(A.stage)
 		if(1, 2)
 			if(prob(base_message_chance) && !suppress_warning)
-				to_chat(M, span_warning("[pick("Дышать сложно.", "Моё дыхание становится более тяжелым.")]"))
+				to_chat(M, "<span class='warning'>[pick("Дышать сложно.", "Моё дыхание становится более тяжелым.")]</span>")
 		if(3, 4)
 			if(!suppress_warning)
-				to_chat(M, span_warning("[pick("Моё дыхательное горлышко похоже на соломинку.", "Дышать невероятно сложно.")]"))
+				to_chat(M, "<span class='warning'>[pick("Моё дыхательное горлышко похоже на соломинку.", "Дышать невероятно сложно.")]</span>")
 			else
-				to_chat(M, span_warning("Чувствую себя очень [pick("плохо","дурно","слабо")].")) //fake bloodloss messages
+				to_chat(M, "<span class='warning'>Чувствую себя очень [pick("плохо","дурно","слабо")].</span>") //fake bloodloss messages
 			Choke_stage_3_4(M, A)
 			M.emote("gasp")
 		else
-			to_chat(M, span_userdanger("[pick("Задыхаюсь!", "Не могу дышать!")]"))
+			to_chat(M, "<span class='userdanger'>[pick("Задыхаюсь!", "Не могу дышать!")]</span>")
 			Choke(M, A)
 			M.emote("gasp")
 
@@ -121,15 +121,15 @@ Bonus
 	var/mob/living/M = A.affected_mob
 	switch(A.stage)
 		if(3, 4)
-			to_chat(M, span_warning("<b>[pick("Кажется, что горло сжалось.", "Легкие уменьшились.")]"))
+			to_chat(M, "<span class='warning'><b>[pick("Кажется, что горло сжалось.", "Легкие уменьшились.")]</span>")
 			Asphyxiate_stage_3_4(M, A)
 			M.emote("gasp")
 		if(5)
-			to_chat(M, span_userdanger("[pick("В груди очень сильно болит!", "Больно дышать!")]"))
+			to_chat(M, "<span class='userdanger'>[pick("В груди очень сильно болит!", "Больно дышать!")]</span>")
 			Asphyxiate(M, A)
 			M.emote("gasp")
 			if(M.getOxyLoss() >= 120)
-				M.visible_message(span_warning("[M] перестает дышать, как будто легкие полностью сжались!"))
+				M.visible_message("<span class='warning'>[M] перестает дышать, как будто легкие полностью сжались!</span>")
 				Asphyxiate_death(M, A)
 	return
 

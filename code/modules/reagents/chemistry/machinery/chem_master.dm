@@ -122,24 +122,24 @@
 	if(istype(I, /obj/item/reagent_containers) && !(I.item_flags & ABSTRACT) && I.is_open_container())
 		. = TRUE // no afterattack
 		if(panel_open)
-			to_chat(user, span_warning("Не могу использовать [src.name] пока его панель открыта!"))
+			to_chat(user, "<span class='warning'>Не могу использовать [src.name] пока его панель открыта!</span>")
 			return
 		var/obj/item/reagent_containers/B = I
 		. = TRUE // no afterattack
 		if(!user.transferItemToLoc(B, src))
 			return
 		replace_beaker(user, B)
-		to_chat(user, span_notice("Добавил [B] к [src]."))
+		to_chat(user, "<span class='notice'>Добавил [B] к [src].</span>")
 		updateUsrDialog()
 		update_icon()
 	else if(!condi && istype(I, /obj/item/storage/pill_bottle))
 		if(bottle)
-			to_chat(user, span_warning("Пузырек с таблетками уже помещен в [src]!"))
+			to_chat(user, "<span class='warning'>Пузырек с таблетками уже помещен в [src]!</span>")
 			return
 		if(!user.transferItemToLoc(I, src))
 			return
 		bottle = I
-		to_chat(user, span_notice("Добавил [I] в разъем раздатчика."))
+		to_chat(user, "<span class='notice'>Добавил [I] в разъем раздатчика.</span>")
 		updateUsrDialog()
 	else
 		return ..()

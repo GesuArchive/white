@@ -14,7 +14,7 @@
 	. = ..()
 	if(M.dna.species.id != "nightmare")
 		M.set_species(/datum/species/shadow/nightmare)
-		visible_message(span_warning("[M] thrashes as [src] takes root in [M.p_their()] body!"))
+		visible_message("<span class='warning'>[M] thrashes as [src] takes root in [M.p_their()] body!</span>")
 
 	our_jaunt = new(M)
 	our_jaunt.Grant(M)
@@ -43,14 +43,14 @@
 	if(M != user)
 		return ..()
 	user.visible_message(
-		span_warning("[user] подносит [src] ко рту [user.p_their()] и вгрызается в него зубами [user.p_their()]!") ,
-		span_danger("[src] кажется неестественно холодным в моих руках. Ты подносишь [src] к своему рту и пожираешь его!")
+		"<span class='warning'>[user] подносит [src] ко рту [user.p_their()] и вгрызается в него зубами [user.p_their()]!</span>" ,
+		"<span class='danger'>[src] кажется неестественно холодным в моих руках. Ты подносишь [src] к своему рту и пожираешь его!</span>"
 	)
 	playsound(user, 'sound/magic/demon_consume.ogg', 50, TRUE)
 
 	user.visible_message(
-		span_warning("Кровь извергается из руки [user], когда формируется меч!") ,
-		span_userdanger("У меня кровь стынет в жилах от зрелища, как моя рука неестественно искажается и перестраивается, формируя гротескный меч из плоти и костей!")
+		"<span class='warning'>Кровь извергается из руки [user], когда формируется меч!</span>" ,
+		"<span class='userdanger'>У меня кровь стынет в жилах от зрелища, как моя рука неестественно искажается и перестраивается, формируя гротескный меч из плоти и костей!</span>"
 	)
 	user.temporarilyRemoveItemFromInventory(src, TRUE)
 	Insert(user)
@@ -64,7 +64,7 @@
 /obj/item/organ/heart/nightmare/Remove(mob/living/carbon/M, special = FALSE)
 	respawn_progress = 0
 	if(blade && special != HEART_SPECIAL_SHADOWIFY)
-		M.visible_message(span_warning("\The [blade] распадается!"))
+		M.visible_message("<span class='warning'>\The [blade] распадается!</span>")
 		QDEL_NULL(blade)
 	return ..()
 
@@ -89,9 +89,9 @@
 		Remove(owner, HEART_SPECIAL_SHADOWIFY)
 		old_owner.set_species(/datum/species/shadow)
 		Insert(old_owner, HEART_SPECIAL_SHADOWIFY)
-		to_chat(owner, span_userdanger("Я чувствую, что тени обволакивают меня, они проникают в моё сердце и оно снова начинает биться! Тьма вернулась в этот мир!"))
+		to_chat(owner, "<span class='userdanger'>Я чувствую, что тени обволакивают меня, они проникают в моё сердце и оно снова начинает биться! Тьма вернулась в этот мир!</span>")
 		SEND_SOUND(owner, sound('sound/effects/ghost.ogg'))
-	owner.visible_message(span_warning("[owner] поднимается на ноги!"))
+	owner.visible_message("<span class='warning'>[owner] поднимается на ноги!</span>")
 	playsound(owner, 'sound/hallucinations/far_noise.ogg', 50, TRUE)
 	respawn_progress = 0
 

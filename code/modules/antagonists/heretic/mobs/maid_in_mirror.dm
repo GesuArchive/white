@@ -55,8 +55,8 @@
 	// If we have health, we take some damage
 	if(health > (maxHealth * 0.125))
 		visible_message(
-				span_warning("[src] seems to fade in and out slightly."),
-				span_userdanger("[user]'s gaze pierces your every being!"),
+				"<span class='warning'>[src] seems to fade in and out slightly.</span>",
+				"<span class='userdanger'>[user]'s gaze pierces your every being!</span>",
 		)
 
 		recent_examiner_refs += user_ref
@@ -67,8 +67,8 @@
 	// If we're examined on low enough health we die straight up
 	else
 		visible_message(
-				span_danger("[src] vanishes from existence!"),
-				span_userdanger("[user]'s gaze shatters your form, destroying you!"),
+				"<span class='danger'>[src] vanishes from existence!</span>",
+				"<span class='userdanger'>[user]'s gaze shatters your form, destroying you!</span>",
 		)
 
 		death()

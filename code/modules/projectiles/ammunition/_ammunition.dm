@@ -71,11 +71,11 @@
 	var/list/readout = list()
 	// No dividing by 0
 	if(exam_proj.damage > 0)
-		readout += "Most monkeys our legal team subjected to these [span_warning(caliber)] rounds succumbed to their wounds after [span_warning("[HITS_TO_CRIT(exam_proj.damage * pellets)] shot\s")] at point-blank, taking [span_warning("[pellets] shot\s")] per round"
+		readout += "Most monkeys our legal team subjected to these ["<span class='warning'>[caliber]</span>"] rounds succumbed to their wounds after ["<span class='warning'>[HITS_TO_CRIT(exam_proj.damage * pellets)] shot\s</span>"] at point-blank, taking ["<span class='warning'>[pellets] shot\s</span>"] per round"
 	if(exam_proj.stamina > 0)
-		readout += "[!readout.len ? "Most monkeys" : "More fortunate monkeys"] collapsed from exhaustion after [span_warning("[HITS_TO_CRIT(exam_proj.stamina * pellets)] impact\s")] of these [span_warning("[caliber]")] rounds"
+		readout += "[!readout.len ? "Most monkeys" : "More fortunate monkeys"] collapsed from exhaustion after ["<span class='warning'>[HITS_TO_CRIT(exam_proj.stamina * pellets)] impact\s</span>"] of these ["<span class='warning'>[caliber]</span>"] rounds"
 	if(!readout.len) // Everything else failed, give generic text
-		return "Our legal team has determined the offensive nature of these [span_warning(caliber)] rounds to be esoteric"
+		return "Our legal team has determined the offensive nature of these ["<span class='warning'>[caliber]</span>"] rounds to be esoteric"
 	return readout.Join("\n") // Sending over a single string, rather than the whole list
 
 /obj/item/ammo_casing/update_icon()
@@ -115,9 +115,9 @@
 					continue
 			if (boolets > 0)
 				box.update_icon()
-				to_chat(user, span_notice("Собираю [boolets] в [box], который теперь содержит [box.stored_ammo.len] патронов."))
+				to_chat(user, "<span class='notice'>Собираю [boolets] в [box], который теперь содержит [box.stored_ammo.len] патронов.</span>")
 			else
-				to_chat(user, span_warning("ОЙ!"))
+				to_chat(user, "<span class='warning'>ОЙ!</span>")
 	else
 		return ..()
 

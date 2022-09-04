@@ -30,9 +30,9 @@
 /datum/component/spirit_holding/proc/on_examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 	if(!bound_spirit)
-		examine_list += span_notice("\n[parent] sleeps. Use [parent] in your hands to attempt to awaken it.")
+		examine_list += "<span class='notice'>\n[parent] sleeps. Use [parent] in your hands to attempt to awaken it.</span>"
 		return
-	examine_list += span_notice("\n[parent] is alive.")
+	examine_list += "<span class='notice'>\n[parent] is alive.</span>"
 
 ///signal fired on self attacking parent
 /datum/component/spirit_holding/proc/on_attack_self(datum/source, mob/user)
@@ -48,18 +48,18 @@
  */
 /datum/component/spirit_holding/proc/attempt_spirit_awaken(mob/awakener)
 	if(attempting_awakening)
-		to_chat(awakener, span_warning("You are already trying to awaken [parent]!"))
+		to_chat(awakener, "<span class='warning'>You are already trying to awaken [parent]!</span>")
 		return
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_STATION_SENTIENCE))
-		to_chat(awakener, span_warning("Anomalous otherworldly energies block you from awakening [parent]!"))
+		to_chat(awakener, "<span class='warning'>Anomalous otherworldly energies block you from awakening [parent]!</span>")
 		return
 
 	attempting_awakening = TRUE
-	to_chat(awakener, span_notice("You attempt to wake the spirit of [parent]..."))
+	to_chat(awakener, "<span class='notice'>You attempt to wake the spirit of [parent]...</span>")
 
 	var/list/candidates = poll_ghost_candidates("Do you want to play as the spirit of [awakener.real_name]'s blade?", ROLE_PAI, FALSE, 100, POLL_IGNORE_POSSESSED_BLADE)
 	if(!LAZYLEN(candidates))
-		to_chat(awakener, span_warning("[parent] is dormant. Maybe you can try again later."))
+		to_chat(awakener, "<span class='warning'>[parent] is dormant. Maybe you can try again later.</span>")
 		attempting_awakening = FALSE
 		return
 
@@ -100,22 +100,22 @@
  */
 /datum/component/spirit_holding/proc/attempt_exorcism(mob/exorcist)
 	var/atom/movable/exorcised_movable = parent
-	to_chat(exorcist, span_notice("You begin to exorcise [parent]..."))
+	to_chat(exorcist, "<span class='notice'>You begin to exorcise [parent]...</span>")
 	playsound(src,'sound/hallucinations/veryfar_noise.ogg',40,TRUE)
 	if(!do_after(exorcist, 4 SECONDS, target = exorcised_movable))
 		return
 	playsound(src,'sound/effects/pray_chaplain.ogg',60,TRUE)
 	UnregisterSignal(exorcised_movable, list(COMSIG_ATOM_RELAYMOVE, COMSIG_BIBLE_SMACKED))
 	RegisterSignal(exorcised_movable, COMSIG_ITEM_ATTACK_SELF, .proc/on_attack_self)
-	to_chat(bound_spirit, span_userdanger("You were exorcised!"))
+	to_chat(bound_spirit, "<span class='userdanger'>You were exorcised!</span>")
 	QDEL_NULL(bound_spirit)
 	exorcised_movable.name = initial(exorcised_movable.name)
-	exorcist.visible_message(span_notice("[exorcist] exorcises [exorcised_movable]!"), \
-						span_notice("You successfully exorcise [exorcised_movable]!"))
+	exorcist.visible_message("<span class='notice'>[exorcist] exorcises [exorcised_movable]!</span>", \
+						"<span class='notice'>You successfully exorcise [exorcised_movable]!</span>")
 	return COMSIG_END_BIBLE_CHAIN
 
 ///signal fired from parent being destroyed
 /datum/component/spirit_holding/proc/on_destroy(datum/source)
 	SIGNAL_HANDLER
-	to_chat(bound_spirit, span_userdanger("You were destroyed!"))
+	to_chat(bound_spirit, "<span class='userdanger'>You were destroyed!</span>")
 	QDEL_NULL(bound_spirit)

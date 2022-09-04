@@ -194,37 +194,37 @@
  */
 /mob/living/carbon/proc/give(mob/living/carbon/offered)
 	if(has_status_effect(STATUS_EFFECT_OFFERING))
-		to_chat(src, span_warning("Уже что-то даю!"))
+		to_chat(src, "<span class='warning'>Уже что-то даю!</span>")
 		return
 
 	if(IS_DEAD_OR_INCAP(src))
-		to_chat(src, span_warning("Что-то не выходит!"))
+		to_chat(src, "<span class='warning'>Что-то не выходит!</span>")
 		return
 
 	var/obj/item/offered_item = get_active_held_item()
 	if(!offered_item)
-		to_chat(src, span_warning("А у меня в руке ничего и нет!"))
+		to_chat(src, "<span class='warning'>А у меня в руке ничего и нет!</span>")
 		return
 
 	if(offered)
 
 		if(IS_DEAD_OR_INCAP(offered))
-			to_chat(src, span_warning("Он[offered.ru_a(TRUE)] особо и не может что-то взять в таком состоянии!"))
+			to_chat(src, "<span class='warning'>Он[offered.ru_a(TRUE)] особо и не может что-то взять в таком состоянии!</span>")
 			return
 
 		if(!CanReach(offered))
-			to_chat(src, span_warning("Слишком далеко!"))
+			to_chat(src, "<span class='warning'>Слишком далеко!</span>")
 			return
 	else
 		if(!(locate(/mob/living/carbon) in orange(1, src)))
-			to_chat(src, span_warning("Никто не хочет брать!"))
+			to_chat(src, "<span class='warning'>Никто не хочет брать!</span>")
 			return
 
 	if(offered_item.on_offered(src)) // see if the item interrupts with its own behavior
 		return
 
-	visible_message(span_notice("<b>[src.name]</b> хочет дать <b>[offered_item.name].</b>") , \
-					span_notice("Хочу дать <b>[offered_item.name]</b>.") , null, 2)
+	visible_message("<span class='notice'><b>[src.name]</b> хочет дать <b>[offered_item.name].</b></span>" , \
+					"<span class='notice'>Хочу дать <b>[offered_item.name]</b>.</span>" , null, 2)
 
 	apply_status_effect(STATUS_EFFECT_OFFERING, offered_item, null, offered)
 
@@ -240,22 +240,22 @@
 /mob/living/carbon/proc/take(mob/living/carbon/offerer, obj/item/I)
 	clear_alert("[offerer]")
 	if(IS_DEAD_OR_INCAP(src))
-		to_chat(src, span_warning("Как-то не выходит в моём состоянии!"))
+		to_chat(src, "<span class='warning'>Как-то не выходит в моём состоянии!</span>")
 		return
 	if(get_dist(src, offerer) > 1)
-		to_chat(src, span_warning("<b>[offerer.name]</b> слишком далеко!"))
+		to_chat(src, "<span class='warning'><b>[offerer.name]</b> слишком далеко!</span>")
 		return
 	if(!I || offerer.get_active_held_item() != I)
-		to_chat(src, span_warning("<b>[offerer.name]</b> уже не хочет давать мне это!"))
+		to_chat(src, "<span class='warning'><b>[offerer.name]</b> уже не хочет давать мне это!</span>")
 		return
 	if(!get_empty_held_indexes())
-		to_chat(src, span_warning("Мои руки заняты!"))
+		to_chat(src, "<span class='warning'>Мои руки заняты!</span>")
 		return
 	if(I.on_offer_taken(offerer, src)) // see if the item has special behavior for being accepted
 		return
 	if(!offerer.temporarilyRemoveItemFromInventory(I))
-		visible_message(span_notice("<b>[offerer.name]</b> пытается дать <b>[I.name]</b>, но похоже оно приклеено к его руке..."))
+		visible_message("<span class='notice'><b>[offerer.name]</b> пытается дать <b>[I.name]</b>, но похоже оно приклеено к его руке...</span>")
 		return
-	visible_message(span_notice("<b>[src]</b> берёт [I.name] у <b>[offerer.name]</b>.") , \
-					span_notice("Беру [I.name] у <b>[offerer.name]</b>."))
+	visible_message("<span class='notice'><b>[src]</b> берёт [I.name] у <b>[offerer.name]</b>.</span>" , \
+					"<span class='notice'>Беру [I.name] у <b>[offerer.name]</b>.</span>")
 	put_in_hands(I)

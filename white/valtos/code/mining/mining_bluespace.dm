@@ -83,21 +83,21 @@
 /obj/machinery/mineral/bluespace_miner/multitool_act(mob/living/user, obj/item/multitool/I)
 	. = ..()
 	if (istype(I))
-		to_chat(user, span_notice("Обновляю буфер майнера буфером мультитула."))
+		to_chat(user, "<span class='notice'>Обновляю буфер майнера буфером мультитула.</span>")
 		materials?.silo = I.buffer
 		return TRUE
 	else
-		to_chat(user, span_notice("Буфер пуст."))
+		to_chat(user, "<span class='notice'>Буфер пуст.</span>")
 		return FALSE
 
 /obj/machinery/mineral/bluespace_miner/examine(mob/user)
 	. = ..()
 	. += "<hr>"
-	. += span_notice("Скорость сбора ресурсов [mine_rate]")
+	. += "<span class='notice'>Скорость сбора ресурсов [mine_rate]</span>"
 	if(!materials?.silo)
-		. += span_notice("\nБункер для руды не подключен. Используйте многофункциональный инструмент, чтобы связать бункер для руды с этой машиной.")
+		. += "<span class='notice'>\nБункер для руды не подключен. Используйте многофункциональный инструмент, чтобы связать бункер для руды с этой машиной.</span>"
 	else if(materials?.on_hold())
-		. += span_warning("\nДоступ к рудным бункерам заблокирован, обратитесь к завхозу.")
+		. += "<span class='warning'>\nДоступ к рудным бункерам заблокирован, обратитесь к завхозу.</span>"
 
 /obj/machinery/mineral/bluespace_miner/attackby(obj/item/O, mob/user, params)
 	if(user.a_intent == INTENT_HARM)
@@ -148,7 +148,7 @@
 			"Кто-то что-то шепчет!",
 			"ААААААААААААААА!",
 		)
-		to_chat(near, span_warning(pick(messages)))
+		to_chat(near, "<span class='warning'>[pick(messages)]</span>")
 
 	wzhzhzhzh.playing_volume = 100
 

@@ -68,11 +68,11 @@
 	ADD_TRAIT(H, TRAIT_HACKER, JOB_TRAIT)
 
 	spawn(5 SECONDS)
-		to_chat(H, span_revenbignotice("Давно не виделись, а?"))
+		to_chat(H, "<span class='revenbignotice'>Давно не виделись, а?</span>")
 		if(H?.hud_used)
 			H.hud_used.update_parallax_pref(H)
 
-		to_chat(H, span_notice("Вспоминаю как создавать сверхкрепкую броню..."))
+		to_chat(H, "<span class='notice'>Вспоминаю как создавать сверхкрепкую броню...</span>")
 
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/head)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/suit)

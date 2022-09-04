@@ -37,7 +37,7 @@
 /obj/item/gun/ballistic/automatic/fallout/railgun/AltClick(mob/user)
 	if(user?.client?.holder)
 		fatality_mode = !fatality_mode
-		to_chat(user, span_notice("<b>ЭКСТЕРМИНАТУС:</b> [fatality_mode ? "АКТИВЕН" : "ВЫКЛЮЧЕН"]!"))
+		to_chat(user, "<span class='notice'><b>ЭКСТЕРМИНАТУС:</b> [fatality_mode ? "АКТИВЕН" : "ВЫКЛЮЧЕН"]!</span>")
 		if(fatality_mode)
 			extra_damage = 1500
 			extra_penetration = 1500

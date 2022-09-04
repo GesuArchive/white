@@ -168,7 +168,7 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	. += GLOB.metal_recipes
 
 /obj/item/stack/sheet/iron/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] начинает лупить [user.ru_na()]себя по голове <b>[src.name]</b>! Похоже на то, что [user.p_theyre()] пытается покончить с собой!"))
+	user.visible_message("<span class='suicide'>[user] начинает лупить [user.ru_na()]себя по голове <b>[src.name]</b>! Похоже на то, что [user.p_theyre()] пытается покончить с собой!</span>")
 	return BRUTELOSS
 
 /*
@@ -533,13 +533,13 @@ GLOBAL_LIST_INIT(cardboard_recipes, list (																				 \
 		var/atom/droploc = drop_location()
 		if(use(1))
 			playsound(I, 'sound/items/bikehorn.ogg', 50, TRUE, -1)
-			to_chat(user, span_notice("Пнул картонку! Это клоунская коробка! Хонк!"))
+			to_chat(user, "<span class='notice'>Пнул картонку! Это клоунская коробка! Хонк!</span>")
 			if (amount >= 0)
 				new/obj/item/storage/box/clown(droploc) //bugfix
 	if(istype(I, /obj/item/stamp/chameleon) && !istype(loc, /obj/item/storage))
 		var/atom/droploc = drop_location()
 		if(use(1))
-			to_chat(user, span_notice("Зловеще пнул картонку."))
+			to_chat(user, "<span class='notice'>Зловеще пнул картонку.</span>")
 			if (amount >= 0)
 				new/obj/item/storage/box/syndie_kit(droploc)
 	else
@@ -599,7 +599,7 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 
 /obj/item/stack/tile/bronze/attack_self(mob/living/user)
 	if(!is_servant_of_ratvar(user))
-		to_chat(user, span_danger("[src] кажется слишком хрупким, чтобы строить из него.")) //haha that's because it's actually replicant alloy you DUMMY << WOAH TOOO FAR!
+		to_chat(user, "<span class='danger'>[src] кажется слишком хрупким, чтобы строить из него.</span>") //haha that's because it's actually replicant alloy you DUMMY << WOAH TOOO FAR!
 	else
 		return ..()
 

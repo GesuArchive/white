@@ -108,7 +108,7 @@
 		retrieved.set_output(COMPONENT_SIGNAL)
 
 /obj/machinery/computer/launchpad/attack_paw(mob/user, list/modifiers)
-	to_chat(user, span_warning("You are too primitive to use this computer!"))
+	to_chat(user, "<span class='warning'>You are too primitive to use this computer!</span>")
 	return
 
 /obj/machinery/computer/launchpad/attackby(obj/item/W, mob/user, params)
@@ -120,9 +120,9 @@
 			if(LAZYLEN(launchpads) < maximum_pads)
 				launchpads |= M.buffer
 				M.buffer = null
-				to_chat(user, span_notice("You upload the data from the [W.name]'s buffer."))
+				to_chat(user, "<span class='notice'>You upload the data from the [W.name]'s buffer.</span>")
 			else
-				to_chat(user, span_warning("[src] cannot handle any more connections!"))
+				to_chat(user, "<span class='warning'>[src] cannot handle any more connections!</span>")
 	else
 		return ..()
 
@@ -225,7 +225,7 @@
 			if(isnull(checks))
 				current_pad.doteleport(usr, TRUE)
 			else
-				to_chat(usr, span_warning(checks))
+				to_chat(usr, "<span class='warning'>[checks]</span>")
 			. = TRUE
 
 		if("pull")
@@ -233,7 +233,7 @@
 			if(isnull(checks))
 				current_pad.doteleport(usr, FALSE)
 			else
-				to_chat(usr, span_warning(checks))
+				to_chat(usr, "<span class='warning'>[checks]</span>")
 
 			. = TRUE
 	. = TRUE

@@ -77,7 +77,7 @@
 		baked_item.fire_act(1000) //Hot hot hot!
 
 		if(DT_PROB(10, delta_time))
-			visible_message(span_danger("Веет чем-то сгоревшим со стороны [src.name]!"))
+			visible_message("<span class='danger'>Веет чем-то сгоревшим со стороны [src.name]!</span>")
 	set_smoke_state(worst_cooked_food_state)
 	update_icon()
 	use_power(active_power_usage)
@@ -85,7 +85,7 @@
 /obj/machinery/oven/attackby(obj/item/I, mob/user, params)
 	if(open && !used_tray && istype(I, /obj/item/plate/oven_tray))
 		if(user.transferItemToLoc(I, src, silent = FALSE))
-			to_chat(user, span_notice("Вставляю [I.name] в [src.name]."))
+			to_chat(user, "<span class='notice'>Вставляю [I.name] в [src.name].</span>")
 			add_tray_to_oven(I)
 	else
 		return ..()
@@ -124,13 +124,13 @@
 	if(open)
 		playsound(src, 'sound/machines/oven/oven_open.ogg', 75, TRUE)
 		set_smoke_state(OVEN_SMOKE_STATE_NONE)
-		to_chat(user, span_notice("Открываю [src.name]."))
+		to_chat(user, "<span class='notice'>Открываю [src.name].</span>")
 		end_processing()
 		if(used_tray)
 			used_tray.vis_flags &= ~VIS_HIDE
 	else
 		playsound(src, 'sound/machines/oven/oven_close.ogg', 75, TRUE)
-		to_chat(user, span_notice("Закрываю [src.name]."))
+		to_chat(user, "<span class='notice'>Закрываю [src.name].</span>")
 		if(used_tray)
 			begin_processing()
 			used_tray.vis_flags |= VIS_HIDE

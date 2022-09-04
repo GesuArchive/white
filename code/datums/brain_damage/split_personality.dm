@@ -5,8 +5,8 @@
 	name = "Раздвоение личности"
 	desc = "Сознание пациента раскололось на две личности, каждая из которых, в процессе борьбы, переодически перехватывает управление телом."
 	scan_desc = "<b>диссоциативного расстройства идентичности</b>"
-	gain_text = span_warning("Чувствую себя так, словно твой разум разделился надвое.")
-	lose_text = span_notice("Ты ощущаешь себя единовластным хозяином своего тела.")
+	gain_text = "<span class='warning'>Чувствую себя так, словно твой разум разделился надвое.</span>"
+	lose_text = "<span class='notice'>Ты ощущаешь себя единовластным хозяином своего тела.</span>"
 	var/current_controller = OWNER
 	var/initialized = FALSE //to prevent personalities deleting themselves while we wait for ghosts
 	var/mob/living/split_personality/stranger_backseat //there's two so they can swap without overwriting
@@ -81,8 +81,8 @@
 		return
 
 	log_game("[key_name(current_backseat)] перехватил контроль над [key_name(owner)] при [src]. (Первоначальный владелец: [current_controller == OWNER ? owner.key : current_backseat.key])")
-	to_chat(owner, span_userdanger("Контроль над телом угасает... альтернативная личность взяла верх!"))
-	to_chat(current_backseat, span_userdanger("Удалось вернуть контроль над телом!"))
+	to_chat(owner, "<span class='userdanger'>Контроль над телом угасает... альтернативная личность взяла верх!</span>")
+	to_chat(current_backseat, "<span class='userdanger'>Удалось вернуть контроль над телом!</span>")
 
 	//Body to backseat
 
@@ -158,11 +158,11 @@
 	. = ..()
 	if(!. || !client)
 		return FALSE
-	to_chat(src, span_notice("Будучи альтернативной личностью, вы не можете ничего делать, кроме как наблюдать. Однако в конечном итоге вы обретете контроль над своим телом, поменявшись местами с нынешней личностью."))
-	to_chat(src, span_warning("<b>Не совершайте самоубийства и не ставьте тело в смертельно опасное положение. Это и ваше тело тоже, поэтому требуется заботиться об этом теле так же сильно, как и владелец.</b>"))
+	to_chat(src, "<span class='notice'>Будучи альтернативной личностью, вы не можете ничего делать, кроме как наблюдать. Однако в конечном итоге вы обретете контроль над своим телом, поменявшись местами с нынешней личностью.</span>")
+	to_chat(src, "<span class='warning'><b>Не совершайте самоубийства и не ставьте тело в смертельно опасное положение. Это и ваше тело тоже, поэтому требуется заботиться об этом теле так же сильно, как и владелец.</b></span>")
 
 /mob/living/split_personality/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
-	to_chat(src, span_warning("Не могу говорить, второе 'я' контролирует тело!"))
+	to_chat(src, "<span class='warning'>Не могу говорить, второе 'я' контролирует тело!</span>")
 	return FALSE
 
 /mob/living/split_personality/emote(act, m_type = null, message = null, intentional = FALSE, force_silence = FALSE)
@@ -175,7 +175,7 @@
 	desc = "Сознание пациента раскололось на две личности, каждая из которых, в процессе борьбы, переодически перехватывает управление телом."
 	scan_desc = "<b>диссоциативного расстройства идентичности</b>"
 	gain_text = ""
-	lose_text = span_notice("Освобождаюсь от внедренных паттернов.")
+	lose_text = "<span class='notice'>Освобождаюсь от внедренных паттернов.</span>"
 	can_gain = FALSE
 	var/codeword
 	var/objective
@@ -219,7 +219,7 @@
 		return
 	var/message = hearing_args[HEARING_RAW_MESSAGE]
 	if(findtext(message, codeword))
-		hearing_args[HEARING_RAW_MESSAGE] = replacetext(message, codeword, span_warning("[codeword]"))
+		hearing_args[HEARING_RAW_MESSAGE] = replacetext(message, codeword, "<span class='warning'>[codeword]</span>")
 		addtimer(CALLBACK(src, /datum/brain_trauma/severe/split_personality.proc/switch_personalities), 10)
 
 /datum/brain_trauma/severe/split_personality/brainwashing/handle_speech(datum/source, list/speech_args)
@@ -236,10 +236,10 @@
 	. = ..()
 	if(!. || !client)
 		return FALSE
-	to_chat(src, span_notice("Как личность с промытыми мозгами, мне ничего не остаётся, кроме как наблюдать. Однако можно получить контроль над телом, если специальное кодовое слово будет произнесено."))
-	to_chat(src, span_notice("Кодовое слово для активации: <b>[codeword]</b>"))
+	to_chat(src, "<span class='notice'>Как личность с промытыми мозгами, мне ничего не остаётся, кроме как наблюдать. Однако можно получить контроль над телом, если специальное кодовое слово будет произнесено.</span>")
+	to_chat(src, "<span class='notice'>Кодовое слово для активации: <b>[codeword]</b></span>")
 	if(objective)
-		to_chat(src, span_notice("Хозяин оставил цель: <b>[objective]</b>. Мне необходимо следовать этой цели любой ценой, когда я в теле."))
+		to_chat(src, "<span class='notice'>Хозяин оставил цель: <b>[objective]</b>. Мне необходимо следовать этой цели любой ценой, когда я в теле.</span>")
 
 #undef OWNER
 #undef STRANGER

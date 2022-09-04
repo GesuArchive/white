@@ -80,7 +80,7 @@
 			living_target.throw_at(get_edge_target_turf(living_target, dir), rand(1, 2), 7, src)
 		else
 			living_target.Paralyze(2 SECONDS)
-			visible_message(span_danger("[src] knocks [living_target] down!"))
+			visible_message("<span class='danger'>[src] knocks [living_target] down!</span>")
 
 /mob/living/simple_animal/hostile/gorilla/CanAttack(atom/the_target)
 	var/list/parts = get_target_bodyparts(target)
@@ -105,7 +105,7 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/gorilla/can_use_guns(obj/item/G)
-	to_chat(src, span_warning("Your meaty finger is much too large for the trigger guard!"))
+	to_chat(src, "<span class='warning'>Your meaty finger is much too large for the trigger guard!</span>")
 	return FALSE
 
 
@@ -173,8 +173,8 @@
 
 	mind.assigned_role = SSjob.GetJobType(/datum/job/cargo_technician)
 	mind.special_role = "Cargorilla"
-	to_chat(src, span_boldnotice("You are a Cargorilla, a pacifistic friend of the station and carrier of freight."))
-	to_chat(src, span_notice("You can pick up crates by clicking on them, and drop them by clicking on the ground."))
+	to_chat(src, "<span class='boldnotice'>You are a Cargorilla, a pacifistic friend of the station and carrier of freight.</span>")
+	to_chat(src, "<span class='notice'>You can pick up crates by clicking on them, and drop them by clicking on the ground.</span>")
 
 /obj/item/card/id/advanced/cargo_gorilla
 	name = "cargorilla ID"

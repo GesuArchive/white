@@ -167,9 +167,9 @@
 /// Default on_hit proc, since cult robes are stupid and have different descriptions/sparks
 /datum/component/shielded/proc/default_run_hit_callback(mob/living/owner, attack_text, current_charges)
 	do_sparks(2, TRUE, owner)
-	owner.visible_message(span_danger("Щит [owner] отражает [attack_text]!"))
+	owner.visible_message("<span class='danger'>Щит [owner] отражает [attack_text]!</span>")
 	if(current_charges <= 0)
-		owner.visible_message(span_warning("Щит [owner] перегружается!"))
+		owner.visible_message("<span class='warning'>Щит [owner] перегружается!</span>")
 
 /datum/component/shielded/proc/check_recharge_rune(datum/source, obj/item/wizard_armour_charge/recharge_rune, mob/living/user)
 	SIGNAL_HANDLER
@@ -178,9 +178,9 @@
 		return
 	. = COMPONENT_NO_AFTERATTACK
 	if(!istype(parent, /obj/item/clothing/suit/space/hardsuit/shielded/wizard))
-		to_chat(user, span_warning("Руна может быть использована только на броне боевого мага!"))
+		to_chat(user, "<span class='warning'>Руна может быть использована только на броне боевого мага!</span>")
 		return
 
 	current_charges += recharge_rune.restored_charges
-	to_chat(user, span_notice("Заряжаю [parent]. Теперь она сможет поглотить [current_charges] ударов."))
+	to_chat(user, "<span class='notice'>Заряжаю [parent]. Теперь она сможет поглотить [current_charges] ударов.</span>")
 	qdel(recharge_rune)

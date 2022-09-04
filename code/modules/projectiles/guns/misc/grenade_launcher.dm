@@ -24,18 +24,18 @@
 			if(!user.transferItemToLoc(I, src))
 				return
 			grenades += I
-			to_chat(user, span_notice("Помещаю гранату в гранатомет."))
+			to_chat(user, "<span class='notice'>Помещаю гранату в гранатомет.</span>")
 			playsound(user.loc, 'white/Feline/sounds/Grenade_Reload.ogg', 100, TRUE)
-			to_chat(user, span_notice("[grenades.len]/[max_grenades] гранат."))
+			to_chat(user, "<span class='notice'>[grenades.len]/[max_grenades] гранат.</span>")
 		else
-			to_chat(usr, span_warning("Гранатомет полностью заряжен!"))
+			to_chat(usr, "<span class='warning'>Гранатомет полностью заряжен!</span>")
 
 /obj/item/gun/grenadelauncher/can_shoot()
 	return grenades.len
 
 /obj/item/gun/grenadelauncher/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
-	user.visible_message(span_danger("[user] выстреливает гранатой!") , \
-						span_danger("Стреляю из гранатомета!"))
+	user.visible_message("<span class='danger'>[user] выстреливает гранатой!</span>" , \
+						"<span class='danger'>Стреляю из гранатомета!</span>")
 	var/obj/item/grenade/F = grenades[1]
 	grenades -= F
 	F.forceMove(user.loc)

@@ -123,7 +123,7 @@
 		to_chat(user, "<span class='warning'>You are not the high priest, and therefore cannot select a religious sect.")
 		return
 	if(!user.canUseTopic(parent, BE_CLOSE, FALSE, NO_TK))
-		to_chat(user,span_warning("You cannot select a sect at this time."))
+		to_chat(user,"<span class='warning'>You cannot select a sect at this time.</span>")
 		return
 	if(GLOB.religious_sect)
 		return
@@ -150,7 +150,7 @@
 		to_chat(user, "<span class='notice'>There is a rite currently being performed here already.")
 		return
 	if(!user.canUseTopic(parent, BE_CLOSE, FALSE, NO_TK))
-		to_chat(user,span_warning("You are not close enough to perform the rite."))
+		to_chat(user,"<span class='warning'>You are not close enough to perform the rite.</span>")
 		return
 	performing_rite = new path(parent)
 	if(!performing_rite.perform_rite(user, parent))
@@ -233,12 +233,12 @@
 
 	if(!can_i_see)
 		return
-	examine_list += span_notice("\nПохоже, тут может пригодиться библия...")
+	examine_list += "<span class='notice'>\nПохоже, тут может пригодиться библия...</span>"
 	if(!easy_access_sect)
 		if(operation_flags & RELIGION_TOOL_SECTSELECT)
-			examine_list += span_notice("\nТут я могу выбрать свой путь!")
+			examine_list += "<span class='notice'>\nТут я могу выбрать свой путь!</span>"
 			return
 	if(operation_flags & RELIGION_TOOL_SACRIFICE)//this can be moved around if things change but usually no rites == no sacrifice
-		examine_list += span_notice("\nТут можно делать подношения.")
+		examine_list += "<span class='notice'>\nТут можно делать подношения.</span>"
 	if(easy_access_sect.rites_list && operation_flags & RELIGION_TOOL_INVOKE)
-		examine_list += span_notice("\nТут можно проводить ритуалы.")
+		examine_list += "<span class='notice'>\nТут можно проводить ритуалы.</span>"

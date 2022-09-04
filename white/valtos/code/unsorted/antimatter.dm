@@ -238,31 +238,31 @@
 		if(!anchored)
 			W.play_tool_sound(src, 75)
 			user.visible_message("<b>[user.name]</b> прикручивает <b>[src.name]</b> к полу.", \
-				span_notice("Прикручиваю удерживающие болты к полу.") , \
-				span_italics("Слышу как крутят что-то."))
+				"<span class='notice'>Прикручиваю удерживающие болты к полу.</span>" , \
+				"<span class='italics'>Слышу как крутят что-то.</span>")
 			src.anchored = TRUE
 			connect_to_network()
 		else if(!linked_shielding.len > 0)
 			W.play_tool_sound(src, 75)
 			user.visible_message("<b>[user.name]</b> откручивает <b>[src.name]</b> от пола.", \
-				span_notice("Откручиваю от пола.") , \
-				span_italics("Слышу как крутят что-то."))
+				"<span class='notice'>Откручиваю от пола.</span>" , \
+				"<span class='italics'>Слышу как крутят что-то.</span>")
 			src.anchored = FALSE
 			disconnect_from_network()
 		else
-			to_chat(user, span_warning("Как только <b>[src.name]</b> собран и подключён он не может быть передвинут!"))
+			to_chat(user, "<span class='warning'>Как только <b>[src.name]</b> собран и подключён он не может быть передвинут!</span>")
 
 	else if(istype(W, /obj/item/am_containment))
 		if(fueljar)
-			to_chat(user, span_warning("Здесь уже есть [fueljar] внутри!"))
+			to_chat(user, "<span class='warning'>Здесь уже есть [fueljar] внутри!</span>")
 			return
 
 		if(!user.transferItemToLoc(W, src))
 			return
 		fueljar = W
 		user.visible_message("<b>[user.name]</b> загружает <b>[W.name]</b> внутрь <b>[src.name]</b>.", \
-				span_notice("Загружаю <b>[W.name]</b>.") , \
-				span_italics("Слышу стук."))
+				"<span class='notice'>Загружаю <b>[W.name]</b>.</span>" , \
+				"<span class='italics'>Слышу стук.</span>")
 	else
 		return ..()
 
@@ -439,12 +439,12 @@
 	addtimer(CALLBACK(src, .proc/controllerscan), 10)
 
 /obj/machinery/am_shielding/proc/overheat()
-	visible_message(span_danger("<b>[src]</b> тает!"))
+	visible_message("<span class='danger'><b>[src]</b> тает!</span>")
 	new /obj/effect/hotspot(loc)
 	qdel(src)
 
 /obj/machinery/am_shielding/proc/collapse()
-	visible_message(span_notice("<b>[src]</b> схлопывается обратно в контейнер!"))
+	visible_message("<span class='notice'><b>[src]</b> схлопывается обратно в контейнер!</span>")
 	new /obj/item/am_shielding_container(drop_location())
 	qdel(src)
 

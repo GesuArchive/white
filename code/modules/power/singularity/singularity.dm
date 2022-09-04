@@ -119,9 +119,9 @@
 	. = COMPONENT_CANCEL_ATTACK_CHAIN
 	var/mob/living/carbon/jedi = user
 	jedi.visible_message(
-		span_danger("Голова <b>[jedi]</b> взрывается!</span>!") ,
-		span_userdanger("Моя голова начинает разрываться! Это хуёвая идея!") ,
-		span_hear("Слышу как что-то взрывается со сладким хрустом.")
+		"<span class='danger'>Голова <b>[jedi]</b> взрывается!</span>!</span>" ,
+		"<span class='userdanger'>Моя голова начинает разрываться! Это хуёвая идея!</span>" ,
+		"<span class='hear'>Слышу как что-то взрывается со сладким хрустом.</span>"
 		)
 	jedi.Stun(3 SECONDS)
 	new /obj/effect/gibspawner/generic(get_turf(jedi), jedi)
@@ -280,7 +280,7 @@
 		resolved_singularity.singularity_size = current_size
 
 	if(current_size == allowed_size)
-		investigate_log(span_red("grew to size [current_size]"), INVESTIGATE_SINGULO)
+		investigate_log("<span class='red'>grew to size [current_size]</span>", INVESTIGATE_SINGULO)
 		update_icon(temp_allowed_size)
 		return TRUE
 	else if(current_size < (--temp_allowed_size))
@@ -453,8 +453,8 @@
 
 /obj/singularity/proc/combust_mobs()
 	for(var/mob/living/carbon/C in urange(20, src, 1))
-		C.visible_message(span_warning("Кожа <b>[C]</b> воспламеняется!") , \
-						  span_userdanger("Чувствую, что я сейчас <b>ГОРЮ</b>!"))
+		C.visible_message("<span class='warning'>Кожа <b>[C]</b> воспламеняется!</span>" , \
+						  "<span class='userdanger'>Чувствую, что я сейчас <b>ГОРЮ</b>!</span>")
 		C.adjust_fire_stacks(5)
 		C.ignite_mob()
 	return
@@ -471,12 +471,12 @@
 				if(istype(H.glasses, /obj/item/clothing/glasses/meson))
 					var/obj/item/clothing/glasses/meson/MS = H.glasses
 					if(MS.vision_flags == SEE_TURFS)
-						to_chat(H, span_notice("Смотрю прямо в <b>сингулярность</b>, но меня спасают мои защитные очки!"))
+						to_chat(H, "<span class='notice'>Смотрю прямо в <b>сингулярность</b>, но меня спасают мои защитные очки!</span>")
 						return
 
 		M.apply_effect(60, EFFECT_STUN)
-		M.visible_message(span_danger("<b>[M]</b> смотрит прямо в <b>сингулярность</b>!") , \
-						span_userdanger("Смотрю прямо в <b>сингулярность</b> и ощущаю слабость."))
+		M.visible_message("<span class='danger'><b>[M]</b> смотрит прямо в <b>сингулярность</b>!</span>" , \
+						"<span class='userdanger'>Смотрю прямо в <b>сингулярность</b> и ощущаю слабость.</span>")
 
 
 /obj/singularity/proc/emp_area()

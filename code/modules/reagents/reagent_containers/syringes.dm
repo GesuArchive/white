@@ -75,14 +75,14 @@
 		if(SYRINGE_DRAW)
 
 			if(reagents.total_volume >= reagents.maximum_volume)
-				to_chat(user, span_notice("Шприц полон."))
+				to_chat(user, "<span class='notice'>Шприц полон.</span>")
 				return
 
 			if(L) //living mob
 				var/drawn_amount = reagents.maximum_volume - reagents.total_volume
 				if(target != user)
-					target.visible_message(span_danger("<b>[user]</b> пытается взять кровь у <b>[target]</b>!") , \
-									span_userdanger("<b>[user]</b> пытается взять кровь у меня!"))
+					target.visible_message("<span class='danger'><b>[user]</b> пытается взять кровь у <b>[target]</b>!</span>" , \
+									"<span class='userdanger'><b>[user]</b> пытается взять кровь у меня!</span>")
 					busy = TRUE
 					if(!do_mob(user, target, extra_checks=CALLBACK(L, /mob/living/proc/can_inject, user, TRUE)))
 						busy = FALSE
@@ -91,22 +91,22 @@
 						return
 				busy = FALSE
 				if(L.transfer_blood_to(src, drawn_amount))
-					user.visible_message(span_notice("<b>[user]</b> берёт кровь у <b>[L]</b>."))
+					user.visible_message("<span class='notice'><b>[user]</b> берёт кровь у <b>[L]</b>.</span>")
 				else
-					to_chat(user, span_warning("Не могу взять кровь у <b>[L]</b>!"))
+					to_chat(user, "<span class='warning'>Не могу взять кровь у <b>[L]</b>!</span>")
 
 			else //if not mob
 				if(!target.reagents.total_volume)
-					to_chat(user, span_warning("<b>[target]</b> пустая!"))
+					to_chat(user, "<span class='warning'><b>[target]</b> пустая!</span>")
 					return
 
 				if(!target.is_drawable(user))
-					to_chat(user, span_warning("Из <b>[target]</b> не получится изъять что-то!"))
+					to_chat(user, "<span class='warning'>Из <b>[target]</b> не получится изъять что-то!</span>")
 					return
 
 				var/trans = target.reagents.trans_to(src, amount_per_transfer_from_this, transfered_by = user) // transfer from, transfer to - who cares?
 
-				to_chat(user, span_notice("Наполняю <b>[src]</b> [trans] единицами раствора. Теперь он содержит [reagents.total_volume] единиц."))
+				to_chat(user, "<span class='notice'>Наполняю <b>[src]</b> [trans] единицами раствора. Теперь он содержит [reagents.total_volume] единиц.</span>")
 			if (reagents.total_volume >= reagents.maximum_volume)
 				mode=!mode
 				update_icon()
@@ -117,38 +117,38 @@
 			log_combat(user, target, "attempted to inject", src, addition="which had [contained]")
 
 			if(!reagents.total_volume)
-				to_chat(user, span_warning("<b>[capitalize(src.name)]</b> пуст!"))
+				to_chat(user, "<span class='warning'><b>[capitalize(src.name)]</b> пуст!</span>")
 				return
 
 			if(!L && !target.is_injectable(user)) //only checks on non-living mobs, due to how can_inject() handles
-				to_chat(user, span_warning("Не могу напрямую заполнить <b>[target]</b>!"))
+				to_chat(user, "<span class='warning'>Не могу напрямую заполнить <b>[target]</b>!</span>")
 				return
 
 			if(target.reagents.total_volume >= target.reagents.maximum_volume)
-				to_chat(user, span_notice("<b>[target]</b> полная."))
+				to_chat(user, "<span class='notice'><b>[target]</b> полная.</span>")
 				return
 
 			if(L) //living mob
 				if(!L.can_inject(user, TRUE))
 					return
 				if(L != user)
-					L.visible_message(span_danger("<b>[user]</b> пытается ввести что-то в <b>[L]</b>!") , \
-											span_userdanger("<b>[user]</b> пытается ввести что-то в меня!"))
+					L.visible_message("<span class='danger'><b>[user]</b> пытается ввести что-то в <b>[L]</b>!</span>" , \
+											"<span class='userdanger'><b>[user]</b> пытается ввести что-то в меня!</span>")
 					if(!do_mob(user, L, extra_checks=CALLBACK(L, /mob/living/proc/can_inject, user, TRUE)))
 						return
 					if(!reagents.total_volume)
 						return
 					if(L.reagents.total_volume >= L.reagents.maximum_volume)
 						return
-					L.visible_message(span_danger("<b>[user]</b> вводит что-то в <b>[L]</b> шприцом!") , \
-									span_userdanger("<b>[user]</b> вводит в меня что-то шприцом!"))
+					L.visible_message("<span class='danger'><b>[user]</b> вводит что-то в <b>[L]</b> шприцом!</span>" , \
+									"<span class='userdanger'><b>[user]</b> вводит в меня что-то шприцом!</span>")
 
 				if(L != user)
 					log_combat(user, L, "injected", src, addition="which had [contained]")
 				else
 					L.log_message("injected themselves ([contained]) with [src.name]", LOG_ATTACK, color="orange")
 			reagents.trans_to(target, amount_per_transfer_from_this, transfered_by = user, methods = INJECT)
-			to_chat(user, span_notice("Ввожу [amount_per_transfer_from_this] единиц раствора. Шприц теперь содержит [reagents.total_volume] единиц."))
+			to_chat(user, "<span class='notice'>Ввожу [amount_per_transfer_from_this] единиц раствора. Шприц теперь содержит [reagents.total_volume] единиц.</span>")
 			if (reagents.total_volume <= 0 && mode==SYRINGE_INJECT)
 				mode = SYRINGE_DRAW
 				update_icon()
@@ -158,9 +158,9 @@
  */
 /obj/item/reagent_containers/syringe/on_accidental_consumption(mob/living/carbon/victim, mob/living/carbon/user, obj/item/source_item,  discover_after = TRUE)
 	if(source_item)
-		to_chat(victim, span_boldwarning("Здесь [name] в [source_item]!!"))
+		to_chat(victim, "<span class='boldwarning'>Здесь [name] в [source_item]!!</span>")
 	else
-		to_chat(victim, span_boldwarning("[capitalize(name)] входит в меня!"))
+		to_chat(victim, "<span class='boldwarning'>[capitalize(name)] входит в меня!</span>")
 
 	victim.apply_damage(5, BRUTE, BODY_ZONE_HEAD)
 	reagents?.trans_to(victim, round(reagents.total_volume*(2/3)), transfered_by = user, methods = INJECT)

@@ -3,19 +3,19 @@
 		return FALSE
 
 	if(try_install.w_class > max_hardware_size)
-		to_chat(user, span_warning("Этот компонент слишком велик для <b>[src.name]</b>!"))
+		to_chat(user, "<span class='warning'>Этот компонент слишком велик для <b>[src.name]</b>!</span>")
 		return FALSE
 
 	if(try_install.expansion_hw)
 		if(LAZYLEN(expansion_bays) >= max_bays)
-			to_chat(user, span_warning("Все отсеки расширения компьютера заполнены."))
+			to_chat(user, "<span class='warning'>Все отсеки расширения компьютера заполнены.</span>")
 			return FALSE
 		if(LAZYACCESS(expansion_bays, try_install.device_type))
-			to_chat(user, span_warning("Компьютер сразу отторгает [try_install] и отображает ошибку: \"Конфликт адресов оборудования\"."))
+			to_chat(user, "<span class='warning'>Компьютер сразу отторгает [try_install] и отображает ошибку: \"Конфликт адресов оборудования\".</span>")
 			return FALSE
 
 	if(all_components[try_install.device_type])
-		to_chat(user, span_warning("Слот оборудования этого компьютера уже занят [all_components[try_install.device_type]]."))
+		to_chat(user, "<span class='warning'>Слот оборудования этого компьютера уже занят [all_components[try_install.device_type]].</span>")
 		return FALSE
 	return TRUE
 
@@ -32,7 +32,7 @@
 		LAZYSET(expansion_bays, install.device_type, install)
 	all_components[install.device_type] = install
 
-	to_chat(user, span_notice("Устанавливаю [install] в <b>[src.name]</b>."))
+	to_chat(user, "<span class='notice'>Устанавливаю [install] в <b>[src.name]</b>.</span>")
 	install.holder = src
 	install.forceMove(src)
 	install.on_install(src, user)
@@ -43,7 +43,7 @@
 	if(yeet.holder != src) // Not our component at all.
 		return FALSE
 
-	to_chat(user, span_notice("Извлекаю [yeet] из <b>[src.name]</b>."))
+	to_chat(user, "<span class='notice'>Извлекаю [yeet] из <b>[src.name]</b>.</span>")
 
 	yeet.forceMove(get_turf(src))
 	forget_component(yeet)

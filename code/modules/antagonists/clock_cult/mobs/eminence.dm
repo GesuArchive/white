@@ -111,7 +111,7 @@
 
 /mob/living/simple_animal/eminence/say_verb(message as text)
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, span_danger("Не могу говорить."))
+		to_chat(usr, "<span class='danger'>Не могу говорить.</span>")
 		return
 	if(message)
 		hierophant_message(message, src, span="<span class='large_brass'>", say=FALSE)
@@ -121,7 +121,7 @@
 
 /mob/living/simple_animal/eminence/Move(atom/newloc, direct)
 	if(istype(get_area(newloc), /area/service/chapel))
-		to_chat(usr, span_warning("Не могу покинуть святые земли!"))
+		to_chat(usr, "<span class='warning'>Не могу покинуть святые земли!</span>")
 		return
 	. = ..()
 
@@ -170,7 +170,7 @@
 		SEND_SOUND(user, sound('sound/magic/magic_missile.ogg'))
 		flash_color(user, flash_color = "#AF0AAF", flash_time = 25)
 	else
-		to_chat(user, span_warning("Ой-ой!"))
+		to_chat(user, "<span class='warning'>Ой-ой!</span>")
 
 //=====Warp to station=====
 /datum/action/cooldown/spell/eminence/station
@@ -185,7 +185,7 @@
 		SEND_SOUND(user, sound('sound/magic/magic_missile.ogg'))
 		flash_color(user, flash_color = "#AF0AAF", flash_time = 25)
 	else
-		to_chat(user, span_warning("Да я уже на станции!"))
+		to_chat(user, "<span class='warning'>Да я уже на станции!</span>")
 
 //=====Teleport to servant=====
 /datum/action/cooldown/spell/eminence/servant_warp
@@ -204,11 +204,11 @@
 			choice = L
 			break
 	if(!isliving(choice))
-		to_chat(user, span_warning("Не могу!"))
+		to_chat(user, "<span class='warning'>Не могу!</span>")
 		return
 	var/mob/living/M = choice
 	if(!is_servant_of_ratvar(M))
-		to_chat(user, span_warning("Это больше не служитель Ратвара!"))
+		to_chat(user, "<span class='warning'>Это больше не служитель Ратвара!</span>")
 		return
 	var/turf/T = get_turf(M)
 	user.forceMove(get_turf(T))
@@ -264,9 +264,9 @@
 		return FALSE
 	to_chat(E, "<span class='brass'>Начинаю процесс возвышения [L]...</span>")
 	to_chat(L, "<span class='brass'>Преосвященство возвышает меня...</span>")
-	L.visible_message(span_warning("[L] вспыхивает."))
+	L.visible_message("<span class='warning'>[L] вспыхивает.</span>")
 	if(do_after(E, 70, target=L))
-		L.visible_message(span_warning("[L] исчезает!"))
+		L.visible_message("<span class='warning'>[L] исчезает!</span>")
 		var/turf/T = get_turf(pick(GLOB.servant_spawns))
 		try_warp_servant(L, T, FALSE)
 		consume_cogs(E)

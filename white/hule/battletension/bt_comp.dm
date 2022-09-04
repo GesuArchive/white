@@ -254,7 +254,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		if(BT)
 			BT.pick_sound()
 	else
-		to_chat(usr, span_danger("Жаль, что я не <b>человек</b>."))
+		to_chat(usr, "<span class='danger'>Жаль, что я не <b>человек</b>.</span>")
 
 /client/proc/customize_battletension()
 	var/list/genres = list(PRIKOL, TECHNO, TOUHOU, MORTAL, NAZIST)
@@ -288,13 +288,13 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		var/new_volume = input(usr, "Громкость", null) as num|null
 		if(new_volume)
 			prefs.btvolume_max = max(0, min(100, new_volume))
-			to_chat(usr, span_danger("Выбрана максимальная громкость в [prefs.btvolume_max]%."))
+			to_chat(usr, "<span class='danger'>Выбрана максимальная громкость в [prefs.btvolume_max]%.</span>")
 	else if(selected in settings)
 		settings -= selected
-		to_chat(usr, span_danger("Больше не хочу [selected]."))
+		to_chat(usr, "<span class='danger'>Больше не хочу [selected].</span>")
 	else
 		settings += selected
-		to_chat(usr, span_danger("Теперь хочу [selected]."))
+		to_chat(usr, "<span class='danger'>Теперь хочу [selected].</span>")
 
 	prefs.btprefsnew = settings
 	prefs.save_preferences()

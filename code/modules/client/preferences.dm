@@ -210,7 +210,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	if(!user || !user.client)
 		return
 	if(!MC_RUNNING())
-		to_chat(user, span_info("Сервер всё ещё инициализируется. Подождите..."))
+		to_chat(user, "<span class='info'>Сервер всё ещё инициализируется. Подождите...</span>")
 		return
 	if(slot_randomized)
 		load_character(default_slot) // Reloads the character slot. Prevents random features from overwriting the slot if saved.
@@ -443,7 +443,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 
 			if(gear_tab == "Инвентарь")
-				dat += span_linkoff("Инвентарь")
+				dat += "<span class='linkoff'>Инвентарь</span>"
 			else
 				dat += "<a href='?_src_=prefs;preference=gear;select_category=Инвентарь'>Инвентарь</a>"
 
@@ -943,7 +943,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		return
 
 	if (!isnum(desiredLvl))
-		to_chat(user, span_danger("UpdateJobPreference - desired level was not a number. Please notify coders!"))
+		to_chat(user, "<span class='danger'>UpdateJobPreference - desired level was not a number. Please notify coders!</span>")
 		ShowChoices(user)
 		return
 
@@ -973,7 +973,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 /datum/preferences/proc/SetQuirks(mob/user)
 	if(!SSquirks)
-		to_chat(user, span_danger("The quirk subsystem is still initializing! Try again in a minute."))
+		to_chat(user, "<span class='danger'>The quirk subsystem is still initializing! Try again in a minute.</span>")
 		return
 
 	var/list/dat = list()
@@ -1069,7 +1069,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			var/expires = " Это перманентный бан."
 			if(ban_details["expiration_time"])
 				expires = " Блокировка на [DisplayTimeText(text2num(ban_details["duration"]) MINUTES)] и заканчивается [ban_details["expiration_time"]] (по серверному времени)."
-			to_chat(user, span_danger("Доступ запрещён к [href_list["bancheck"]], [ban_details["key"]].<br>Метка: [ban_details["reason"]]<br>Блокировка (ID #[ban_details["id"]]) была создана [ban_details["admin_key"]] в [ban_details["bantime"]] во время раунда [ban_details["round_id"]].<br>[expires]"))
+			to_chat(user, "<span class='danger'>Доступ запрещён к [href_list["bancheck"]], [ban_details["key"]].<br>Метка: [ban_details["reason"]]<br>Блокировка (ID #[ban_details["id"]]) была создана [ban_details["admin_key"]] в [ban_details["bantime"]] во время раунда [ban_details["round_id"]].<br>[expires]</span>")
 			return
 	if(href_list["preference"] == "job")
 		switch(href_list["task"])
@@ -1112,22 +1112,22 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						continue
 					for(var/Q in all_quirks)
 						if((Q in L) && !(Q == quirk)) //two quirks have lined up in the list of the list of quirks that conflict with each other, so return (see quirks.dm for more details)
-							to_chat(user, span_danger("[quirk] is incompatible with [Q]."))
+							to_chat(user, "<span class='danger'>[quirk] is incompatible with [Q].</span>")
 							return
 				var/value = SSquirks.quirk_points[quirk]
 				var/balance = GetQuirkBalance()
 				if(quirk in all_quirks)
 					if(balance + value < 0)
-						to_chat(user, span_warning("Refunding this would cause you to go below your balance!"))
+						to_chat(user, "<span class='warning'>Refunding this would cause you to go below your balance!</span>")
 						return
 					all_quirks -= quirk
 				else
 					var/is_positive_quirk = SSquirks.quirk_points[quirk] > 0
 					if(is_positive_quirk && GetPositiveQuirkCount() >= MAX_QUIRKS)
-						to_chat(user, span_warning("You can't have more than [MAX_QUIRKS] positive quirks!"))
+						to_chat(user, "<span class='warning'>You can't have more than [MAX_QUIRKS] positive quirks!</span>")
 						return
 					if(balance - value < 0)
-						to_chat(user, span_warning("You don't have enough balance to gain this quirk!"))
+						to_chat(user, "<span class='warning'>You don't have enough balance to gain this quirk!</span>")
 						return
 					all_quirks += quirk
 				SetQuirks(user)
@@ -1147,7 +1147,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					inc_metabalance(user, (TG.cost * -1), TRUE, "Покупаю [TG.display_name].")
 					save_preferences()
 			else
-				to_chat(user, span_warning("У меня не хватает метакэша для покупки [TG.display_name]!"))
+				to_chat(user, "<span class='warning'>У меня не хватает метакэша для покупки [TG.display_name]!</span>")
 		if(href_list["toggle_gear"])
 			var/datum/gear/TG = GLOB.gear_datums[href_list["toggle_gear"]]
 			if(TG.id in equipped_gear_by_character[default_slot])
@@ -1166,7 +1166,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(!(TG.subtype_path in type_blacklist) || !(TG.slot in slot_blacklist))
 						LAZYADDASSOCLIST(equipped_gear_by_character, default_slot, TG.id)
 					else
-						to_chat(user, span_warning("Нет места для [TG.display_name]. Что-то уже есть в этом слоте."))
+						to_chat(user, "<span class='warning'>Нет места для [TG.display_name]. Что-то уже есть в этом слоте.</span>")
 			save_preferences()
 
 		else if(href_list["select_category"])
@@ -1264,7 +1264,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						if(new_name)
 							real_name = new_name
 						else
-							to_chat(user, span_red("Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and . It must not contain any words restricted by IC chat and name filters."))
+							to_chat(user, "<span class='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and . It must not contain any words restricted by IC chat and name filters.</span>")
 
 				if("age")
 					var/new_age = input(user, "Choose your character's age:\n([AGE_MIN]-[AGE_MAX])", "Character Preference") as num|null
@@ -1439,7 +1439,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						else if((MUTCOLORS_PARTSONLY in pref_species.species_traits) || ReadHSV(temp_hsv)[3] >= ReadHSV("#7F7F7F")[3]) // mutantcolors must be bright, but only if they affect the skin
 							features["mcolor"] = sanitize_hexcolor(new_mutantcolor)
 						else
-							to_chat(user, span_danger("Invalid color. Your color is not bright enough."))
+							to_chat(user, "<span class='danger'>Invalid color. Your color is not bright enough.</span>")
 
 				if("color_ethereal")
 					var/new_etherealcolor = tgui_input_list(user, "Choose your ethereal color", "Character Preference", GLOB.color_list_ethereal)
@@ -1457,7 +1457,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/new_tail
 					new_tail = tgui_input_list(user, "Choose your character's tail:", "Character Preference", GLOB.tails_list_human)
 					if((!user.client.holder && !(user.client.ckey in GLOB.custom_tails_donations)) && (new_tail == "Fox" || new_tail == "Oni"))
-						to_chat(user, span_danger("Pedos not allowed? <big>ВАШЕ ДЕЙСТВИЕ БУДЕТ ЗАПИСАНО</big>."))
+						to_chat(user, "<span class='danger'>Pedos not allowed? <big>ВАШЕ ДЕЙСТВИЕ БУДЕТ ЗАПИСАНО</big>.</span>")
 						message_admins("[ADMIN_LOOKUPFLW(user)] попытался выбрать фуррятину в виде хвоста.")
 						return
 					if(new_tail)
@@ -1790,7 +1790,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("clear_scars")
 					var/path = "data/player_saves/[user.ckey[1]]/[user.ckey]/scars.sav"
 					fdel(path)
-					to_chat(user, span_notice("All scar slots cleared."))
+					to_chat(user, "<span class='notice'>All scar slots cleared.</span>")
 
 				if("hear_midis")
 					toggles ^= SOUND_MIDI
@@ -1957,7 +1957,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("clear_heart")
 					hearted = FALSE
 					hearted_until = null
-					to_chat(user, span_notice("OOC Commendation Heart disabled"))
+					to_chat(user, "<span class='notice'>OOC Commendation Heart disabled</span>")
 					save_preferences()
 
 	ShowChoices(user)
@@ -2096,7 +2096,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	else
 		var/sanitized_name = reject_bad_name(raw_name,namedata["allow_numbers"])
 		if(!sanitized_name)
-			to_chat(user, span_red("Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, [namedata["allow_numbers"] ? "0-9, " : ""]-, ' and . It must not contain any words restricted by IC chat and name filters."))
+			to_chat(user, "<span class='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, [namedata["allow_numbers"] ? "0-9, " : ""]-, ' and . It must not contain any words restricted by IC chat and name filters.</span>")
 			return
 		else
 			custom_names[name_id] = sanitized_name

@@ -2,7 +2,7 @@
 
 /mob/camera/blob/proc/can_buy(cost = 15)
 	if(blob_points < cost)
-		to_chat(src, span_warning("Не хватает ресурсов, требуется [cost]!"))
+		to_chat(src, "<span class='warning'>Не хватает ресурсов, требуется [cost]!</span>")
 		return FALSE
 	add_points(-cost)
 	return TRUE
@@ -16,34 +16,34 @@
 				if(ROLE_BLOB in M.faction)
 					continue
 				if(M.client)
-					to_chat(src, span_warning("Кто-то рядом с моим ядром!"))
+					to_chat(src, "<span class='warning'>Кто-то рядом с моим ядром!</span>")
 					return FALSE
 			for(var/mob/living/M in view(13, src))
 				if(ROLE_BLOB in M.faction)
 					continue
 				if(M.client)
-					to_chat(src, span_warning("Кто-то сможет увидеть ядро здесь!"))
+					to_chat(src, "<span class='warning'>Кто-то сможет увидеть ядро здесь!</span>")
 					return FALSE
 		var/turf/T = get_turf(src)
 		if(T.density)
-			to_chat(src, span_warning("Слишком плотное место для установки!"))
+			to_chat(src, "<span class='warning'>Слишком плотное место для установки!</span>")
 			return FALSE
 		var/area/A = get_area(T)
 		if(isspaceturf(T) || A && !(A.area_flags & BLOBS_ALLOWED))
-			to_chat(src, span_warning("Не выходит установить ядро здесь!"))
+			to_chat(src, "<span class='warning'>Не выходит установить ядро здесь!</span>")
 			return FALSE
 		for(var/obj/O in T)
 			if(istype(O, /obj/structure/blob))
 				if(istype(O, /obj/structure/blob/normal))
 					qdel(O)
 				else
-					to_chat(src, span_warning("Здесь уже есть масса!"))
+					to_chat(src, "<span class='warning'>Здесь уже есть масса!</span>")
 					return FALSE
 			else if(O.density)
-				to_chat(src, span_warning("Слишком плотное место для установки!"))
+				to_chat(src, "<span class='warning'>Слишком плотное место для установки!</span>")
 				return FALSE
 		if(!pop_override && world.time <= manualplace_min_time && world.time <= autoplace_max_time)
-			to_chat(src, span_warning("Слишком рано для установки ядра!"))
+			to_chat(src, "<span class='warning'>Слишком рано для установки ядра!</span>")
 			return FALSE
 	else if(placement_override == 1)
 		var/turf/T = pick(GLOB.blobstart)
@@ -81,23 +81,23 @@
 		T = get_turf(src)
 	var/obj/structure/blob/B = (locate(/obj/structure/blob) in T)
 	if(!B)
-		to_chat(src, span_warning("Здесь нет массы!"))
+		to_chat(src, "<span class='warning'>Здесь нет массы!</span>")
 		return
 	if(!istype(B, /obj/structure/blob/normal))
-		to_chat(src, span_warning("Невозможно установить здесь. Нужна обычная масса."))
+		to_chat(src, "<span class='warning'>Невозможно установить здесь. Нужна обычная масса.</span>")
 		return
 	if(needsNode)
 		var/area/A = get_area(src)
 		if(!(A.area_flags & BLOBS_ALLOWED)) //factory and resource blobs must be legit
-			to_chat(src, span_warning("Этот тип массы может быть установлен только на станции!"))
+			to_chat(src, "<span class='warning'>Этот тип массы может быть установлен только на станции!</span>")
 			return
 		if(nodes_required && !(locate(/obj/structure/blob/special/node) in orange(BLOB_NODE_PULSE_RANGE, T)) && !(locate(/obj/structure/blob/special/core) in orange(BLOB_CORE_PULSE_RANGE, T)))
-			to_chat(src, span_warning("Эту массу необходимо установить рядом с ядром или родительской массой!"))
+			to_chat(src, "<span class='warning'>Эту массу необходимо установить рядом с ядром или родительской массой!</span>")
 			return //handholdotron 2000
 	if(minSeparation)
 		for(var/obj/structure/blob/L in orange(minSeparation, T))
 			if(L.type == blobstrain)
-				to_chat(src, span_warning("Похожая структура рядом, необходимо установить её на расстоянии [minSeparation] клеток от похожей!"))
+				to_chat(src, "<span class='warning'>Похожая структура рядом, необходимо установить её на расстоянии [minSeparation] клеток от похожей!</span>")
 				return
 	if(!can_buy(price))
 		return
@@ -107,9 +107,9 @@
 /mob/camera/blob/proc/toggle_node_req()
 	nodes_required = !nodes_required
 	if(nodes_required)
-		to_chat(src, span_warning("Теперь родительская масса и ядро будут устанавливать прозводящие и ресурсные структуры."))
+		to_chat(src, "<span class='warning'>Теперь родительская масса и ядро будут устанавливать прозводящие и ресурсные структуры.</span>")
 	else
-		to_chat(src, span_warning("Теперь родительская масса и ядро не будут устанавливать прозводящие и ресурсные структуры."))
+		to_chat(src, "<span class='warning'>Теперь родительская масса и ядро не будут устанавливать прозводящие и ресурсные структуры.</span>")
 
 /mob/camera/blob/proc/create_shield(turf/T)
 	var/obj/structure/blob/shield/S = locate(/obj/structure/blob/shield) in T
@@ -118,9 +118,9 @@
 			return
 		if(S.obj_integrity < S.max_integrity * 0.5)
 			add_points(BLOB_UPGRADE_REFLECTOR_COST)
-			to_chat(src, span_warning("Крепкая масса слишком повреждена для модификации!"))
+			to_chat(src, "<span class='warning'>Крепкая масса слишком повреждена для модификации!</span>")
 			return
-		to_chat(src, span_warning("Добавляю возможность отражать снаряды, однако структура немного ослаблена."))
+		to_chat(src, "<span class='warning'>Добавляю возможность отражать снаряды, однако структура немного ослаблена.</span>")
 		S.change_to(/obj/structure/blob/shield/reflective, src)
 	else
 		createSpecial(BLOB_UPGRADE_STRONG_COST, /obj/structure/blob/shield, 0, FALSE, T)
@@ -129,25 +129,25 @@
 	var/turf/T = get_turf(src)
 	var/obj/structure/blob/special/factory/B = locate(/obj/structure/blob/special/factory) in T
 	if(!B)
-		to_chat(src, span_warning("Нужно находиться прямо на производящей структуре!"))
+		to_chat(src, "<span class='warning'>Нужно находиться прямо на производящей структуре!</span>")
 		return
 	if(B.naut) //if it already made a blobbernaut, it can't do it again
-		to_chat(src, span_warning("Эта производящая структура уже поддерживает массанаута."))
+		to_chat(src, "<span class='warning'>Эта производящая структура уже поддерживает массанаута.</span>")
 		return
 	if(B.obj_integrity < B.max_integrity * 0.5)
-		to_chat(src, span_warning("Эта производящая структура слишком повреждена для массанаута."))
+		to_chat(src, "<span class='warning'>Эта производящая структура слишком повреждена для массанаута.</span>")
 		return
 	if(!can_buy(BLOBMOB_BLOBBERNAUT_RESOURCE_COST))
 		return
 
 	B.naut = TRUE //temporary placeholder to prevent creation of more than one per factory.
-	to_chat(src, span_notice("Пытаюсь произвести массанаута."))
+	to_chat(src, "<span class='notice'>Пытаюсь произвести массанаута.</span>")
 	var/list/mob/dead/observer/candidates = poll_ghost_candidates("Хочешь быть массанаутом [blobstrain.name]?", ROLE_BLOB, null, 50) //players must answer rapidly
 	if(LAZYLEN(candidates)) //if we got at least one candidate, they're a blobbernaut now.
 		B.max_integrity = initial(B.max_integrity) * 0.25 //factories that produced a blobbernaut have much lower health
 		B.obj_integrity = min(B.obj_integrity, B.max_integrity)
 		B.update_icon()
-		B.visible_message(span_warning("<b>Массанаут [pick("вырывает", "прорезает", "разрубает")] себе путь из производящей массы!</b>"))
+		B.visible_message("<span class='warning'><b>Массанаут [pick("вырывает", "прорезает", "разрубает")] себе путь из производящей массы!</b></span>")
 		playsound(B.loc, 'sound/effects/splat.ogg', 50, TRUE)
 		var/mob/living/simple_animal/hostile/blob/blobbernaut/blobber = new /mob/living/simple_animal/hostile/blob/blobbernaut(get_turf(B))
 		flick("blobbernaut_produce", blobber)
@@ -167,7 +167,7 @@
 		to_chat(blobber, "Структура моего надмозга: <b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font>!")
 		to_chat(blobber, "<b><font color=\"[blobstrain.color]\">[blobstrain.name]</b></font> [blobstrain.shortdesc ? "[blobstrain.shortdesc]" : "[blobstrain.description]"]")
 	else
-		to_chat(src, span_warning("Не вышло создать разум для массанаута. Энергия была возвращена. Попробуем позже."))
+		to_chat(src, "<span class='warning'>Не вышло создать разум для массанаута. Энергия была возвращена. Попробуем позже.</span>")
 		add_points(BLOBMOB_BLOBBERNAUT_RESOURCE_COST)
 		B.naut = null
 
@@ -175,14 +175,14 @@
 	var/turf/T = get_turf(src)
 	var/obj/structure/blob/special/node/B = locate(/obj/structure/blob/special/node) in T
 	if(!B)
-		to_chat(src, span_warning("Надо быть на массе!"))
+		to_chat(src, "<span class='warning'>Надо быть на массе!</span>")
 		return
 	if(!blob_core)
-		to_chat(src, span_userdanger("У меня нет ядра и я скоро умру! Пиздец."))
+		to_chat(src, "<span class='userdanger'>У меня нет ядра и я скоро умру! Пиздец.</span>")
 		return
 	var/area/A = get_area(T)
 	if(isspaceturf(T) || A && !(A.area_flags & BLOBS_ALLOWED))
-		to_chat(src, span_warning("Не могу переместить сюда свое ядро!"))
+		to_chat(src, "<span class='warning'>Не могу переместить сюда свое ядро!</span>")
 		return
 	if(!can_buy(BLOB_POWER_RELOCATE_COST))
 		return
@@ -196,17 +196,17 @@
 /mob/camera/blob/proc/remove_blob(turf/T)
 	var/obj/structure/blob/B = locate() in T
 	if(!B)
-		to_chat(src, span_warning("Здесь нет массы!"))
+		to_chat(src, "<span class='warning'>Здесь нет массы!</span>")
 		return
 	if(B.point_return < 0)
-		to_chat(src, span_warning("Невозможно удалить эту массу."))
+		to_chat(src, "<span class='warning'>Невозможно удалить эту массу.</span>")
 		return
 	if(max_blob_points < B.point_return + blob_points)
-		to_chat(src, span_warning("Ресурсов слишком много!"))
+		to_chat(src, "<span class='warning'>Ресурсов слишком много!</span>")
 		return
 	if(B.point_return)
 		add_points(B.point_return)
-		to_chat(src, span_notice("Получили [B.point_return] ресурсов благодаря удалению [B]."))
+		to_chat(src, "<span class='notice'>Получили [B.point_return] ресурсов благодаря удалению [B].</span>")
 	qdel(B)
 
 /mob/camera/blob/proc/expand_blob(turf/T)
@@ -216,7 +216,7 @@
 	for(var/obj/structure/blob/AB in range(T, 1))
 		possibleblobs += AB
 	if(!possibleblobs.len)
-		to_chat(src, span_warning("Здесь нет массы рядом!"))
+		to_chat(src, "<span class='warning'>Здесь нет массы рядом!</span>")
 		return
 	if(can_buy(BLOB_EXPAND_COST))
 		var/attacksuccess = FALSE
@@ -232,7 +232,7 @@
 				B.blob_attack_animation(T, src)
 				add_points(BLOB_ATTACK_REFUND)
 			else
-				to_chat(src, span_warning("Здесь уже есть масса!"))
+				to_chat(src, "<span class='warning'>Здесь уже есть масса!</span>")
 				add_points(BLOB_EXPAND_COST) //otherwise, refund all of the cost
 		else
 			var/list/cardinalblobs = list()
@@ -273,7 +273,7 @@
 
 /mob/camera/blob/proc/strain_reroll()
 	if (!free_strain_rerolls && blob_points < BLOB_POWER_REROLL_COST)
-		to_chat(src, span_warning("Требуется [BLOB_POWER_REROLL_COST] ресурсов для перестроения структуры!"))
+		to_chat(src, "<span class='warning'>Требуется [BLOB_POWER_REROLL_COST] ресурсов для перестроения структуры!</span>")
 		return
 
 	open_reroll_menu()
@@ -290,7 +290,7 @@
 			var/image/strain_icon = image('icons/mob/blob.dmi', "blob_core")
 			strain_icon.color = initial(strain.color)
 
-			var/info_text = span_boldnotice("[initial(strain.name)]")
+			var/info_text = "<span class='boldnotice'>[initial(strain.name)]</span>"
 			info_text += "<br><span class='notice'>[initial(strain.analyzerdescdamage)]</span>"
 			if (!isnull(initial(strain.analyzerdesceffect)))
 				info_text += "<br><span class='notice'>[initial(strain.analyzerdesceffect)]</span>"
@@ -339,7 +339,7 @@
 	to_chat(src, "<b>Хоткеи:</b> Клик = Расширение <b>|</b> СКМ = Направить споры <b>|</b> CTRL+Клик = Создать крепкую массу <b>|</b> ALT+Клик = Удалить массу")
 	to_chat(src, "Попытка заговорить отправит сообщение всем остальным высшим разумам, позволяя координировать свои действия с ними.")
 	if(!placed && autoplace_max_time <= world.time)
-		to_chat(src, span_big("<font color=\"#EE4000\">Ядро будет размещено автоматически через [DisplayTimeText(autoplace_max_time - world.time)].</font>"))
-		to_chat(src, span_big("<font color=\"#EE4000\">[manualplace_min_time ? "Я скоро смогу":"Можно"] установить ядро нажатием кнопки Установить Ядро.</font>"))
+		to_chat(src, "<span class='big'><font color=\"#EE4000\">Ядро будет размещено автоматически через [DisplayTimeText(autoplace_max_time - world.time)].</font></span>")
+		to_chat(src, "<span class='big'><font color=\"#EE4000\">[manualplace_min_time ? "Я скоро смогу":"Можно"] установить ядро нажатием кнопки Установить Ядро.</font></span>")
 
 #undef BLOB_REROLL_RADIUS

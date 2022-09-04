@@ -17,11 +17,11 @@
 		user.changeNext_move(1)
 		var/turf/closed/T = target
 		if(locate(/obj/structure/garland) in T)
-			to_chat(user, span_warning("Здесь уже есть гирлянда!"))
+			to_chat(user, "<span class='warning'>Здесь уже есть гирлянда!</span>")
 			return
 		if(use(1))
-			user.visible_message(span_notice("[user] вешает [src] на [T].") , \
-								span_notice("Вешаю гирлянду на [T]."))
+			user.visible_message("<span class='notice'>[user] вешает [src] на [T].</span>" , \
+								"<span class='notice'>Вешаю гирлянду на [T].</span>")
 			playsound(T, 'sound/items/deconstruct.ogg', 50, TRUE)
 			var/obj/structure/garland/S = new(T)
 			transfer_fingerprints_to(S)
@@ -66,14 +66,14 @@
 /obj/structure/garland/attacked_by(obj/item/I, mob/living/user)
 	. = ..()
 	if(I.tool_behaviour == TOOL_MULTITOOL)
-		to_chat(user, span_notice("[on ? "Выключаю" : "Включаю"] гирлянду."))
+		to_chat(user, "<span class='notice'>[on ? "Выключаю" : "Включаю"] гирлянду.</span>")
 		update_garland()
 
 /obj/structure/garland/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
 		return
-	to_chat(user, span_notice("Начинаю снимать [src]..."))
+	to_chat(user, "<span class='notice'>Начинаю снимать [src]...</span>")
 	if(do_after(user, 50, target = src))
 		var/obj/item/stack/garland_pack/M = new(loc)
 		transfer_fingerprints_to(M)

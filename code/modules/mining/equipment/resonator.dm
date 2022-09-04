@@ -24,10 +24,10 @@
 
 /obj/item/resonator/attack_self(mob/user)
 	if(mode == RESONATOR_MODE_AUTO)
-		to_chat(user, span_info("Устанавливаю резонатор на ручной подрыв."))
+		to_chat(user, "<span class='info'>Устанавливаю резонатор на ручной подрыв.</span>")
 		mode = RESONATOR_MODE_MANUAL
 	else
-		to_chat(user, span_info("Устанавливаю резонатор на двухсекундный таймер."))
+		to_chat(user, "<span class='info'>Устанавливаю резонатор на двухсекундный таймер.</span>")
 		mode = RESONATOR_MODE_AUTO
 
 /obj/item/resonator/proc/CreateResonance(target, mob/user)
@@ -114,7 +114,7 @@
 	for(var/mob/living/L in T)
 		if(creator)
 			log_combat(creator, L, "used a resonator field on", "resonator")
-		to_chat(L, span_userdanger("[src] схлопывается на мне!"))
+		to_chat(L, "<span class='userdanger'>[src] схлопывается на мне!</span>")
 		L.apply_damage(resonance_damage, BRUTE)
 		L.add_movespeed_modifier(/datum/movespeed_modifier/resonance)
 		addtimer(CALLBACK(L, /mob/proc/remove_movespeed_modifier, /datum/movespeed_modifier/resonance), 10 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
@@ -144,13 +144,13 @@
 
 /obj/item/resonator/upgraded/attack_self(mob/user)
 	if(mode == RESONATOR_MODE_AUTO)
-		to_chat(user, span_info("Устанавливаю резонатор на ручной подрыв."))
+		to_chat(user, "<span class='info'>Устанавливаю резонатор на ручной подрыв.</span>")
 		mode = RESONATOR_MODE_MANUAL
 	else if(mode == RESONATOR_MODE_MANUAL)
-		to_chat(user, span_info("Устанавливаю резонатор в режим миноукладчика."))
+		to_chat(user, "<span class='info'>Устанавливаю резонатор в режим миноукладчика.</span>")
 		mode = RESONATOR_MODE_MATRIX
 	else
-		to_chat(user, span_info("Устанавливаю резонатор на двухсекундный таймер."))
+		to_chat(user, "<span class='info'>Устанавливаю резонатор на двухсекундный таймер.</span>")
 		mode = RESONATOR_MODE_AUTO
 
 #undef RESONATOR_MODE_AUTO

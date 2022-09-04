@@ -190,7 +190,7 @@
 		log_game("[key_name(user)] has set the teleporter target to [targets[desc]] at [AREACOORD(target_turf)]")
 	else
 		if (targets.len == 0)
-			to_chat(user, span_alert("No active connected stations located."))
+			to_chat(user, "<span class='alert'>No active connected stations located.</span>")
 			return
 
 		var/desc = tgui_input_list(usr, "Please select a station to lock in.", "Locking Computer", sort_list(targets))

@@ -31,7 +31,7 @@
 	if(incapacitated())
 		return FALSE
 	if(!radio_enabled) //AI cannot speak if radio is disabled (via intellicard) or depowered.
-		to_chat(src, span_danger("Радио-трансмиттер отключён!"))
+		to_chat(src, "<span class='danger'>Радио-трансмиттер отключён!</span>")
 		return FALSE
 	..()
 
@@ -54,7 +54,7 @@
 		send_speech(message, 7, T, MODE_ROBOT, message_language = language)
 		to_chat(src, "<i><span class='game say'>Голопад передаёт, <span class='name'>[real_name]</span> <span class='message robot'>\"[message]\"</span></span></i>")
 	else
-		to_chat(src, span_alert("Нет подключенных голопадов."))
+		to_chat(src, "<span class='alert'>Нет подключенных голопадов.</span>")
 
 
 // Make sure that the code compiles with AI_VOX undefined
@@ -95,7 +95,7 @@
 /mob/living/silicon/ai/proc/announcement()
 	var/static/announcing_vox = 0 // Stores the time of the last announcement
 	if(announcing_vox > world.time)
-		to_chat(src, span_notice("Пожалуйста подождите [DisplayTimeText(announcing_vox - world.time)]."))
+		to_chat(src, "<span class='notice'>Пожалуйста подождите [DisplayTimeText(announcing_vox - world.time)].</span>")
 		return
 
 	var/message = tgui_input_text(src, "Помощь по вводу можно найти в кнопке 'Announcement Help'", "Звуковое оповещение", src.last_announcement)
@@ -109,7 +109,7 @@
 		return
 
 	if(control_disabled)
-		to_chat(src, span_warning("Беспроводной интерфейс отключён, взаимодействие с системой оповещения невозможно."))
+		to_chat(src, "<span class='warning'>Беспроводной интерфейс отключён, взаимодействие с системой оповещения невозможно.</span>")
 		return
 
 	var/list/words = splittext(trim(message), " ")
@@ -127,7 +127,7 @@
 			incorrect_words += word
 
 	if(incorrect_words.len)
-		to_chat(src, span_notice("Этих слов нет в системе оповещения: [english_list(incorrect_words)]."))
+		to_chat(src, "<span class='notice'>Этих слов нет в системе оповещения: [english_list(incorrect_words)].</span>")
 		return
 
 	announcing_vox = world.time + VOX_DELAY

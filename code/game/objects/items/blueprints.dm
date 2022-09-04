@@ -36,7 +36,7 @@
 			return
 		var/area/A = get_area(usr)
 		if(A.area_flags & NOTELEPORT)
-			to_chat(usr, span_warning("You cannot edit restricted areas."))
+			to_chat(usr, "<span class='warning'>You cannot edit restricted areas.</span>")
 			return
 		in_use = TRUE
 		create_area(usr)
@@ -106,9 +106,9 @@
 	if(href_list["view_wireset"])
 		legend = href_list["view_wireset"];
 	if(href_list["view_blueprints"])
-		set_viewer(usr, span_notice("You flip the blueprints over to view the complex information diagram."))
+		set_viewer(usr, "<span class='notice'>You flip the blueprints over to view the complex information diagram.</span>")
 	if(href_list["hide_blueprints"])
-		clear_viewer(usr,span_notice("You flip the blueprints over to view the simple information diagram."))
+		clear_viewer(usr,"<span class='notice'>You flip the blueprints over to view the simple information diagram.</span>")
 	if(href_list["refresh"])
 		clear_viewer(usr)
 		set_viewer(usr)
@@ -192,12 +192,12 @@
 	if(!str || !length(str) || str==prevname) //cancel
 		return
 	if(length(str) > 50)
-		to_chat(usr, span_warning("Слишком длинное название. Имя зоны не изменено."))
+		to_chat(usr, "<span class='warning'>Слишком длинное название. Имя зоны не изменено.</span>")
 		return
 
 	rename_area(A, str)
 
-	to_chat(usr, span_notice("Переименовую '[prevname]' в '[str]'."))
+	to_chat(usr, "<span class='notice'>Переименовую '[prevname]' в '[str]'.</span>")
 	log_game("[key_name(usr)] переименовал [prevname] в [str]")
 	A.update_areasize()
 	interact()

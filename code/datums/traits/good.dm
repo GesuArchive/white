@@ -6,8 +6,8 @@
 	desc = "Пьянею медленнее и на меня меньше действует алкоголь."
 	value = 4
 	mob_trait = TRAIT_ALCOHOL_TOLERANCE
-	gain_text = span_notice("Чувствую, что с лёгкостью могу выпить целую бутылку!")
-	lose_text = span_danger("Больше не чувствую свою стойкость к алкоголю. Как-то.")
+	gain_text = "<span class='notice'>Чувствую, что с лёгкостью могу выпить целую бутылку!</span>"
+	lose_text = "<span class='danger'>Больше не чувствую свою стойкость к алкоголю. Как-то.</span>"
 	medical_record_text = "Пациент демонстрирует сильную устойчивость к алкоголю."
 
 /datum/quirk/apathetic
@@ -33,8 +33,8 @@
 	desc = "Ничего, кроме очередной хорошей выпивки не будет придавать мне чувство, что вы находитесь на вершине мира. Когда вы пьяны, то медленно будете регенерировать повреждения."
 	value = 8
 	mob_trait = TRAIT_DRUNK_HEALING
-	gain_text = span_notice("Чувствую, что алкоголь может принести мне пользу.")
-	lose_text = span_danger("Больше не могу чувствовать, как алкоголь лечит меня!")
+	gain_text = "<span class='notice'>Чувствую, что алкоголь может принести мне пользу.</span>"
+	lose_text = "<span class='danger'>Больше не могу чувствовать, как алкоголь лечит меня!</span>"
 	medical_record_text = "Пациент имеет необычную эффективность метаболизма печени лечить его от ран, употребляя алкогольные напитки."
 
 /datum/quirk/drunkhealing/on_process(delta_time)
@@ -55,8 +55,8 @@
 	desc = "Или шестое чувство, или просто тщательное изучение языка тела, но мне просто будет достаточно взгляда на кого-нибудь, чтобы понять, как он себя чувствует."
 	value = 8
 	mob_trait = TRAIT_EMPATH
-	gain_text = span_notice("Чувствую себя в гармонии с теми, кто окружает меня.")
-	lose_text = span_danger("Чувствую себя изолированными ото всех.")
+	gain_text = "<span class='notice'>Чувствую себя в гармонии с теми, кто окружает меня.</span>"
+	lose_text = "<span class='danger'>Чувствую себя изолированными ото всех.</span>"
 	medical_record_text = "Пациент очень восприимчив и чувствителен к социальным сигналам, или возможно имеет экстрасенсорные способности. Необходимо дальнейшее изучение."
 
 /datum/quirk/fan_clown
@@ -64,8 +64,8 @@
 	desc = "Меня веселят клоуны. Моё настроение повышается, если я ношу на груди значок с их изображением."
 	value = 2
 	mob_trait = TRAIT_FAN_CLOWN
-	gain_text = span_notice("Теперь я большой фанат клоунов.")
-	lose_text = span_danger("Мне кажется, что клоуны-то не особо смешны...")
+	gain_text = "<span class='notice'>Теперь я большой фанат клоунов.</span>"
+	lose_text = "<span class='danger'>Мне кажется, что клоуны-то не особо смешны...</span>"
 	medical_record_text = "Пациент утверждает, что он является фанатом клоунов."
 
 /datum/quirk/fan_clown/on_spawn()
@@ -84,8 +84,8 @@
 	desc = "Меня нравится мимы. Моё настроение повышается, если я ношу на груди значок с их изображением."
 	value = 2
 	mob_trait = TRAIT_FAN_MIME
-	gain_text = span_notice("Теперь я большой фанат мимов..")
-	lose_text = span_danger("Мне кажется, что мимы слишком скучны...")
+	gain_text = "<span class='notice'>Теперь я большой фанат мимов..</span>"
+	lose_text = "<span class='danger'>Мне кажется, что мимы слишком скучны...</span>"
 	medical_record_text = "Пациент утверждает, что он является фанатом мимов."
 
 /datum/quirk/fan_mime/on_spawn()
@@ -104,8 +104,8 @@
 	desc = "Могу быстрее забираться на столы, а также буду получать сниженный урон от падения."
 	value = 8
 	mob_trait = TRAIT_FREERUNNING
-	gain_text = span_notice("Чувствую гибкость своих ног!")
-	lose_text = span_danger("Чувствую себя неуклюжим.")
+	gain_text = "<span class='notice'>Чувствую гибкость своих ног!</span>"
+	lose_text = "<span class='danger'>Чувствую себя неуклюжим.</span>"
 	medical_record_text = "Пациент набрал большое количество очков в кардио-тестах."
 
 /datum/quirk/friendly
@@ -113,8 +113,8 @@
 	desc = "Я умею обниматься, особенно это будет заметно при повышенном настроении."
 	value = 4
 	mob_trait = TRAIT_FRIENDLY
-	gain_text = span_notice("Хочу кого-нибудь обнять.")
-	lose_text = span_danger("Больше не чувствую необходимость обнимать кого-то.")
+	gain_text = "<span class='notice'>Хочу кого-нибудь обнять.</span>"
+	lose_text = "<span class='danger'>Больше не чувствую необходимость обнимать кого-то.</span>"
 	mood_quirk = TRUE
 	medical_record_text = "Пациент демонстрирует довольно низкие ограничения физического контакта."
 
@@ -135,8 +135,8 @@
 	desc = "Буду ходить аккуратно; буду нежнее наступать на осколки, а наносимый урон от этого будет меньше. Также не оставляю после себя следов."
 	value = 4
 	mob_trait = TRAIT_LIGHT_STEP
-	gain_text = span_notice("Хожу с немного большей гибкостью.")
-	lose_text = span_danger("Начинаю делать такие шаги, словно какой-то варвар.")
+	gain_text = "<span class='notice'>Хожу с немного большей гибкостью.</span>"
+	lose_text = "<span class='danger'>Начинаю делать такие шаги, словно какой-то варвар.</span>"
 	medical_record_text = "Пациент демонстрирует хорошо развитые стопы."
 
 /datum/quirk/musician
@@ -144,8 +144,8 @@
 	desc = "Смогу настраивать музыкальные инструменты таким образом, что мелодия будет снимать определенные негативные эффекты у окружающих и успокаивать душу."
 	value = 2
 	mob_trait = TRAIT_MUSICIAN
-	gain_text = span_notice("Знаю всё о музыкальных инструментах.")
-	lose_text = span_danger("Забываю, как работают музыкальные инструменты.")
+	gain_text = "<span class='notice'>Знаю всё о музыкальных инструментах.</span>"
+	lose_text = "<span class='danger'>Забываю, как работают музыкальные инструменты.</span>"
 	medical_record_text = "Сканирование мозга пациента показывает высокоразвитые слуховые мышцы."
 
 /datum/quirk/musician/on_spawn()
@@ -162,8 +162,8 @@
 	desc = "Буду видеть в темноте немного лучше."
 	value = 4
 	mob_trait = TRAIT_NIGHT_VISION
-	gain_text = span_notice("Тени кажутся мне менее темными.")
-	lose_text = span_danger("Всё кажется немного темнее.")
+	gain_text = "<span class='notice'>Тени кажутся мне менее темными.</span>"
+	lose_text = "<span class='danger'>Всё кажется немного темнее.</span>"
 	medical_record_text = "Глаза пациента показывают выше-среднюю акклиматизацию к темноте."
 
 /datum/quirk/night_vision/on_spawn()
@@ -192,8 +192,8 @@
 	desc = "Шанс, что молитвы будут услышаны, будет немного увеличен. Возможно."
 	value = 4
 	mob_trait = TRAIT_SPIRITUAL
-	gain_text = span_notice("Теперь вы верите в высшую силу.")
-	lose_text = span_danger("Больше не верую!")
+	gain_text = "<span class='notice'>Теперь вы верите в высшую силу.</span>"
+	lose_text = "<span class='danger'>Больше не верую!</span>"
 	medical_record_text = "Пациент сообщает о своей вере в некую силу."
 
 /datum/quirk/spiritual/on_spawn()
@@ -206,8 +206,8 @@
 	desc = "В прошлом, довольно часто доводилось заниматься рисованием граффити. Буду экономно расходовать количество использований баллончика."
 	value = 4
 	mob_trait = TRAIT_TAGGER
-	gain_text = span_notice("Знаю, как эффективно расходовать баллончик.")
-	lose_text = span_danger("Забываю, как правильно расходовать баллончик.")
+	gain_text = "<span class='notice'>Знаю, как эффективно расходовать баллончик.</span>"
+	lose_text = "<span class='danger'>Забываю, как правильно расходовать баллончик.</span>"
 	medical_record_text = "Пациент был недавно замечен за рисованием граффити на стене."
 
 /datum/quirk/tagger/on_spawn()
@@ -222,5 +222,5 @@
 	desc = "Ничего не встает на пути между мной и едой. Буду есть в два раза быстрее и вполне смогу перекусить нездоровой пищей. Быть толстым мне очень подходит."
 	value = 4
 	mob_trait = TRAIT_VORACIOUS
-	gain_text = span_notice("Чувствую бурление в желудке.")
-	lose_text = span_danger("Мне кажется, что мой аппетит немного снизился.")
+	gain_text = "<span class='notice'>Чувствую бурление в желудке.</span>"
+	lose_text = "<span class='danger'>Мне кажется, что мой аппетит немного снизился.</span>"

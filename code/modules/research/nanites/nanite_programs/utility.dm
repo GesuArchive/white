@@ -235,7 +235,7 @@
 		SEND_SIGNAL(infectee, COMSIG_NANITE_SYNC, nanites)
 		SEND_SIGNAL(infectee, COMSIG_NANITE_SET_CLOUD, nanites.cloud_id)
 		infectee.investigate_log("was infected by a nanite cluster with cloud ID [nanites.cloud_id] by [key_name(host_mob)] at [AREACOORD(infectee)].", INVESTIGATE_NANITES)
-		to_chat(infectee, span_warning("Что-то укололо меня."))
+		to_chat(infectee, "<span class='warning'>Что-то укололо меня.</span>")
 
 /datum/nanite_program/mitosis
 	name = "Митоз"
@@ -285,8 +285,8 @@
 
 /datum/nanite_program/dermal_button/proc/press()
 	if(activated)
-		host_mob.visible_message(span_notice("[host_mob] нажимает кнопку на своей руке.") ,
-								span_notice("Нажимаю кнопку на своей руке.") , null, 2)
+		host_mob.visible_message("<span class='notice'>[host_mob] нажимает кнопку на своей руке.</span>" ,
+								"<span class='notice'>Нажимаю кнопку на своей руке.</span>" , null, 2)
 		var/datum/nanite_extra_setting/sent_code = extra_settings[NES_SENT_CODE]
 		SEND_SIGNAL(host_mob, COMSIG_NANITE_SIGNAL, sent_code.get_value(), "a [name] program")
 

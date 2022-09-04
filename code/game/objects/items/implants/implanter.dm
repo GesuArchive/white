@@ -26,25 +26,25 @@
 		return
 	if(user && imp)
 		if(M != user)
-			M.visible_message(span_warning("<b>[user]</b> пытается проимплантировать <b>[M]</b>."))
+			M.visible_message("<span class='warning'><b>[user]</b> пытается проимплантировать <b>[M]</b>.</span>")
 
 		var/turf/T = get_turf(M)
 		if(T && (M == user || do_mob(user, M, 50)))
 			if(src && imp)
 				if(imp.implant(M, user))
 					if (M == user)
-						to_chat(user, span_notice("ЧИПИРУЮ СЕБЯ!"))
+						to_chat(user, "<span class='notice'>ЧИПИРУЮ СЕБЯ!</span>")
 					else
-						M.visible_message(span_notice("<b>[user]</b> имплантирует <b>[M]</b>.") , span_notice("<b>[user]</b> имплантирует меня."))
+						M.visible_message("<span class='notice'><b>[user]</b> имплантирует <b>[M]</b>.</span>" , "<span class='notice'><b>[user]</b> имплантирует меня.</span>")
 					imp = null
 					update_icon()
 				else
-					to_chat(user, span_warning("<b>[src]</b> проваливает попытку ЧИПИЗАЦИИ <b>[M]</b>."))
+					to_chat(user, "<span class='warning'><b>[src]</b> проваливает попытку ЧИПИЗАЦИИ <b>[M]</b>.</span>")
 
 /obj/item/implanter/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/pen))
 		if(!user.is_literate())
-			to_chat(user, span_notice("Махаю ручкой перед <b>[W]</b>!"))
+			to_chat(user, "<span class='notice'>Махаю ручкой перед <b>[W]</b>!</span>")
 			return
 		var/t = stripped_input(user, "Что же мы напишем?", name, null)
 		if(user.get_active_held_item() != W)

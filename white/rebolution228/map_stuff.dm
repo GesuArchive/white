@@ -11,9 +11,9 @@
 	. = ..()
 	if(I.sharpness == SHARP_EDGED)
 		new /obj/item/stack/sheet/cloth(get_turf(src))
-		user.visible_message(span_notice("<b>[user]</b> нарезает <b>[src]</b> на нитки и быстро сплетает из него куски ткани при помощи <b>[I]</b>.") , \
-			span_notice("Нарезаю <b>[src]</b> на нитки и быстро сплетаю из него куски ткани при помощи <b>[I]</b>.") , \
-			span_hear("Слышу как что-то режет ткань."))
+		user.visible_message("<span class='notice'><b>[user]</b> нарезает <b>[src]</b> на нитки и быстро сплетает из него куски ткани при помощи <b>[I]</b>.</span>" , \
+			"<span class='notice'>Нарезаю <b>[src]</b> на нитки и быстро сплетаю из него куски ткани при помощи <b>[I]</b>.</span>" , \
+			"<span class='hear'>Слышу как что-то режет ткань.</span>")
 		qdel(src)
 
 //Trees

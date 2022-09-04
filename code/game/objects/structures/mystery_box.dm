@@ -139,7 +139,7 @@ GLOBAL_LIST_INIT(mystery_box_extended, list(
 
 /// The box has finished choosing, mark it as available for grabbing
 /obj/structure/mystery_box/proc/present_weapon()
-	visible_message(span_notice("<b>[capitalize(src)]</b> представляет <b>[presented_item]</b>!"), vision_distance = COMBAT_MESSAGE_RANGE)
+	visible_message("<span class='notice'><b>[capitalize(src)]</b> представляет <b>[presented_item]</b>!</span>", vision_distance = COMBAT_MESSAGE_RANGE)
 	box_state = MYSTERY_BOX_PRESENTING
 	box_expire_timer = addtimer(CALLBACK(src, .proc/start_expire_offer), MBOX_DURATION_PRESENTING, TIMER_STOPPABLE)
 
@@ -179,7 +179,7 @@ GLOBAL_LIST_INIT(mystery_box_extended, list(
 				var/obj/item/ammo_box/magazine/extra_mag = new instantiated_ballistic.mag_type(loc)
 				user.put_in_hands(extra_mag)
 
-	user.visible_message(span_notice("<b>[user]</b> достаёт [presented_item] из <b>[src]</b>."), span_notice("Достаю [presented_item] из <b>[src]</b>."), vision_distance = COMBAT_MESSAGE_RANGE)
+	user.visible_message("<span class='notice'><b>[user]</b> достаёт [presented_item] из <b>[src]</b>.</span>", "<span class='notice'>Достаю [presented_item] из <b>[src]</b>.</span>", vision_distance = COMBAT_MESSAGE_RANGE)
 	playsound(src, grant_sound, 80, FALSE, channel = CHANNEL_MBOX)
 	close_box()
 

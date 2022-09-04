@@ -40,54 +40,54 @@
 /datum/interaction/proc/evaluate_user(mob/living/carbon/human/user, silent = TRUE)
 	if(require_user_mouth && user.wear_mask)
 		if(!silent)
-			to_chat(user, span_warning("Мой рот прикрыт."))
+			to_chat(user, "<span class='warning'>Мой рот прикрыт.</span>")
 		return FALSE
 	if(require_user_hands && !ishuman(user))
 		if(!silent)
-			to_chat(user, span_warning("У меня нет рук.</span>"))
+			to_chat(user, "<span class='warning'>У меня нет рук.</span></span>")
 		return FALSE
 	if(user_not_tired && user.dancing_period)
 		if(!silent)
-			to_chat(user, span_warning("Всё еще не хочу после прошлого раза."))
+			to_chat(user, "<span class='warning'>Всё еще не хочу после прошлого раза.</span>")
 		return FALSE
 	if(require_user_naked && !user.is_literally_ready_to_dance())
 		if(!silent)
-			to_chat(user, span_warning("Мешает одежда.</span>"))
+			to_chat(user, "<span class='warning'>Мешает одежда.</span></span>")
 		return FALSE
 	if(require_user_dancer && user.gender == FEMALE)
 		if(!silent)
-			to_chat(user, span_warning("Нет огурца.</span>"))
+			to_chat(user, "<span class='warning'>Нет огурца.</span></span>")
 		return FALSE
 	if(require_user_danceress && user.gender == MALE)
 		if(!silent)
-			to_chat(user, span_warning("Нет пельмешка.</span>"))
+			to_chat(user, "<span class='warning'>Нет пельмешка.</span></span>")
 		return FALSE
 	return TRUE
 
 /datum/interaction/proc/evaluate_target(mob/living/carbon/human/user, mob/living/carbon/human/target, silent = TRUE)
 	if(require_target_mouth && target.wear_mask)
 		if(!silent)
-			to_chat(user, span_warning("Рот <b>[target.name]</b> прикрыт.</span>"))
+			to_chat(user, "<span class='warning'>Рот <b>[target.name]</b> прикрыт.</span></span>")
 		return FALSE
 	if(!ishuman(target))
 		if(!silent)
-			to_chat(user, span_warning("У <b>[target.name]</b> нет рук.</span>"))
+			to_chat(user, "<span class='warning'>У <b>[target.name]</b> нет рук.</span></span>")
 		return FALSE
 	if(target_not_tired && target.dancing_period)
 		if(!silent)
-			to_chat(user, span_warning("Цели не хочется."))
+			to_chat(user, "<span class='warning'>Цели не хочется.</span>")
 		return FALSE
 	if(require_target_naked && !target.is_literally_ready_to_dance())
 		if(!silent)
-			to_chat(user, span_warning("Цели мешает одежда.</span>"))
+			to_chat(user, "<span class='warning'>Цели мешает одежда.</span></span>")
 		return FALSE
 	if(require_target_dancer && target.gender == FEMALE)
 		if(!silent)
-			to_chat(user, span_warning("У цели нет огурца.</span>"))
+			to_chat(user, "<span class='warning'>У цели нет огурца.</span></span>")
 		return FALSE
 	if(require_target_danceress && target.gender == MALE)
 		if(!silent)
-			to_chat(user, span_warning("У цели нет пельмешка.</span>"))
+			to_chat(user, "<span class='warning'>У цели нет пельмешка.</span></span>")
 		return FALSE
 	return TRUE
 
@@ -106,10 +106,10 @@
 	if(cooldaun)
 		return
 	if(get_dist(user, target) > max_distance)
-		to_chat(user, span_warning("<b>[target.name]</b> слишком далеко."))
+		to_chat(user, "<span class='warning'><b>[target.name]</b> слишком далеко.</span>")
 		return
 	if(needs_physical_contact && !(user.Adjacent(target) && target.Adjacent(user)))
-		to_chat(user, span_warning("Не могу добраться до <b>[target.name]</b>."))
+		to_chat(user, "<span class='warning'>Не могу добраться до <b>[target.name]</b>.</span>")
 		return
 	if(!evaluate_user(user, silent = FALSE))
 		return

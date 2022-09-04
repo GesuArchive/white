@@ -54,7 +54,7 @@
 	summon_objective.owner = our_heretic.owner
 	our_heretic.objectives += summon_objective
 
-	to_chat(user, span_hierophant("Обязуясь следовать по Пути Плоти, вы так же получаете и ещё одну цель."))
+	to_chat(user, "<span class='hierophant'>Обязуясь следовать по Пути Плоти, вы так же получаете и ещё одну цель.</span>")
 	our_heretic.owner.announce_objectives()
 
 /datum/heretic_knowledge/limited_amount/flesh_grasp
@@ -151,7 +151,7 @@
 		if(body.stat != DEAD)
 			continue
 		if(!IS_VALID_GHOUL_MOB(body) || HAS_TRAIT(body, TRAIT_HUSK))
-			to_chat(user, span_hierophant_warning("Тело [skloname(body, RODITELNI, body.gender)] неспособно стать гулем."))
+			to_chat(user, "<span class='hierophant_warning'>Тело [skloname(body, RODITELNI, body.gender)] неспособно стать гулем.</span>")
 			continue
 
 		// We'll select any valid bodies here. If they're clientless, we'll give them a new one.

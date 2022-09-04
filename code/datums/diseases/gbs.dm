@@ -25,9 +25,9 @@
 			if(DT_PROB(2.5, delta_time))
 				affected_mob.emote("gasp")
 			if(DT_PROB(5, delta_time))
-				to_chat(affected_mob, span_danger("Всё тело болит!"))
+				to_chat(affected_mob, "<span class='danger'>Всё тело болит!</span>")
 		if(4)
-			to_chat(affected_mob, span_userdanger("Тело разрывается на куски!"))
+			to_chat(affected_mob, "<span class='userdanger'>Тело разрывается на куски!</span>")
 			if(DT_PROB(30, delta_time))
 				affected_mob.gib()
 				return FALSE

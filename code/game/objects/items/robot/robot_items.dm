@@ -25,8 +25,8 @@
 	M.Paralyze(100)
 	M.apply_effect(EFFECT_STUTTER, 5)
 
-	M.visible_message(span_danger("[user] ударил [M] с помощью [src]!") , \
-					span_userdanger("[user] ударил меня электрифицированной рукой!"))
+	M.visible_message("<span class='danger'>[user] ударил [M] с помощью [src]!</span>" , \
+					"<span class='userdanger'>[user] ударил меня электрифицированной рукой!</span>")
 
 	playsound(loc, 'sound/weapons/egloves.ogg', 50, TRUE, -1)
 
@@ -74,57 +74,57 @@
 					M.attack_hand(user) //This enables borgs to get the floating heart icon and mob emote from simple_animal's that have petbonus == true.
 					return
 				if(user.zone_selected == BODY_ZONE_HEAD)
-					user.visible_message(span_notice("[user] игриво боднул [skloname(M.name, VINITELNI, M.gender)]!") , \
-									span_notice("Игриво бодаю [skloname(M.name, VINITELNI, M.gender)]!"))
+					user.visible_message("<span class='notice'>[user] игриво боднул [skloname(M.name, VINITELNI, M.gender)]!</span>" , \
+									"<span class='notice'>Игриво бодаю [skloname(M.name, VINITELNI, M.gender)]!</span>")
 					user.do_attack_animation(M, ATTACK_EFFECT_BOOP)
 					playsound(loc, 'sound/weapons/tap.ogg', 50, TRUE, -1)
 				else if(ishuman(M))
 					if(user.body_position == LYING_DOWN)
-						user.visible_message(span_notice("[user] встряхивает [skloname(M.name, VINITELNI, M.gender)] в попытке поднять [M.ru_ego()] на ноги!") , \
-										span_notice("Встряхиваю [skloname(M.name, VINITELNI, M.gender)] в попытке поднять [M.ru_ego()] на ноги !"))
+						user.visible_message("<span class='notice'>[user] встряхивает [skloname(M.name, VINITELNI, M.gender)] в попытке поднять [M.ru_ego()] на ноги!</span>" , \
+										"<span class='notice'>Встряхиваю [skloname(M.name, VINITELNI, M.gender)] в попытке поднять [M.ru_ego()] на ноги !</span>")
 					else
-						user.visible_message(span_notice("[user] обнял [skloname(M.name, VINITELNI, M.gender)] чтобы [M.ru_who()] почувствовал[M.ru_a()] себя лучше!") , \
-								span_notice("Обнимаю [skloname(M.name, VINITELNI, M.gender)], чтобы [M.ru_who()] почувствовал[M.ru_a()] себя лучше!"))
+						user.visible_message("<span class='notice'>[user] обнял [skloname(M.name, VINITELNI, M.gender)] чтобы [M.ru_who()] почувствовал[M.ru_a()] себя лучше!</span>" , \
+								"<span class='notice'>Обнимаю [skloname(M.name, VINITELNI, M.gender)], чтобы [M.ru_who()] почувствовал[M.ru_a()] себя лучше!</span>")
 					if(M.resting)
 						M.set_resting(FALSE, TRUE)
 				else
-					user.visible_message(span_notice("[user] гладит [skloname(M.name, VINITELNI, M.gender)]!") , \
-							span_notice("Глажу [skloname(M.name, VINITELNI, M.gender)]!"))
+					user.visible_message("<span class='notice'>[user] гладит [skloname(M.name, VINITELNI, M.gender)]!</span>" , \
+							"<span class='notice'>Глажу [skloname(M.name, VINITELNI, M.gender)]!</span>")
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 		if(1)
 			if(M.health >= 0)
 				if(ishuman(M))
 					if(M.body_position == LYING_DOWN)
-						user.visible_message(span_notice("[user] встряхивает [skloname(M.name, VINITELNI, M.gender)] в попытке поднять [M.ru_ego()] на ноги!") , \
-										span_notice("Встряхиваю [skloname(M.name, VINITELNI, M.gender)] в попытке поднять [M.ru_ego()] на ноги!"))
+						user.visible_message("<span class='notice'>[user] встряхивает [skloname(M.name, VINITELNI, M.gender)] в попытке поднять [M.ru_ego()] на ноги!</span>" , \
+										"<span class='notice'>Встряхиваю [skloname(M.name, VINITELNI, M.gender)] в попытке поднять [M.ru_ego()] на ноги!</span>")
 					else if(user.zone_selected == BODY_ZONE_HEAD)
-						user.visible_message(span_warning("[user] погладил [skloname(M.name, VINITELNI, M.gender)] по голове!") , \
-										span_warning("Глажу [skloname(M.name, VINITELNI, M.gender)] по голове!"))
+						user.visible_message("<span class='warning'>[user] погладил [skloname(M.name, VINITELNI, M.gender)] по голове!</span>" , \
+										"<span class='warning'>Глажу [skloname(M.name, VINITELNI, M.gender)] по голове!</span>")
 						user.do_attack_animation(M, ATTACK_EFFECT_PUNCH)
 					else
-						user.visible_message(span_warning("[user] крепко обнял [skloname(M.name, VINITELNI, M.gender)]! Кажется [M.ru_emu()] некомфортно...") , \
-								span_warning("Крепко обнимаю [skloname(M.name, VINITELNI, M.gender)], чтобы [M.ru_who()] почувствовал[M.ru_a()] себя лучше! Кажется [M.ru_emu()] некомфортно..."))
+						user.visible_message("<span class='warning'>[user] крепко обнял [skloname(M.name, VINITELNI, M.gender)]! Кажется [M.ru_emu()] некомфортно...</span>" , \
+								"<span class='warning'>Крепко обнимаю [skloname(M.name, VINITELNI, M.gender)], чтобы [M.ru_who()] почувствовал[M.ru_a()] себя лучше! Кажется [M.ru_emu()] некомфортно...</span>")
 					if(M.resting)
 						M.set_resting(FALSE, TRUE)
 				else
-					user.visible_message(span_warning("[user] погладил [skloname(M.name, VINITELNI, M.gender)] по голове!") , \
-							span_warning("Глажу [skloname(M.name, VINITELNI, M.gender)] по голове!"))
+					user.visible_message("<span class='warning'>[user] погладил [skloname(M.name, VINITELNI, M.gender)] по голове!</span>" , \
+							"<span class='warning'>Глажу [skloname(M.name, VINITELNI, M.gender)] по голове!</span>")
 				playsound(loc, 'sound/weapons/tap.ogg', 50, TRUE, -1)
 		if(2)
 			if(scooldown < world.time)
 				if(M.health >= 0)
 					if(ishuman(M))
 						M.electrocute_act(5, "[user]", flags = SHOCK_NOGLOVES)
-						user.visible_message(span_userdanger("[user] прикасается к [skloname(M.name, DATELNI, M.gender)] и ударяет [M.ru_ego()] током!") , \
-							span_danger("Прикасаюсь к [skloname(M.name, DATELNI, M.gender)] и бью [M.ru_ego()] током!"))
+						user.visible_message("<span class='userdanger'>[user] прикасается к [skloname(M.name, DATELNI, M.gender)] и ударяет [M.ru_ego()] током!</span>" , \
+							"<span class='danger'>Прикасаюсь к [skloname(M.name, DATELNI, M.gender)] и бью [M.ru_ego()] током!</span>")
 					else
 						if(!iscyborg(M))
 							M.adjustFireLoss(10)
-							user.visible_message(span_userdanger("[user] прикасается к [skloname(M.name, DATELNI, M.gender)] и ударяет [M.ru_ego()] током!") , \
-								span_danger("Прикасаюсь к [skloname(M.name, DATELNI, M.gender)] и бью [M.ru_ego()] током!"))
+							user.visible_message("<span class='userdanger'>[user] прикасается к [skloname(M.name, DATELNI, M.gender)] и ударяет [M.ru_ego()] током!</span>" , \
+								"<span class='danger'>Прикасаюсь к [skloname(M.name, DATELNI, M.gender)] и бью [M.ru_ego()] током!</span>")
 						else
-							user.visible_message(span_userdanger("[user]  прикасается к [skloname(M.name, DATELNI, M.gender)] и пытается ударить [M.ru_ego()] током, но это не возымело эффекта!") , \
-								span_danger("Прикасаюсь к [skloname(M.name, DATELNI, M.gender)] и бью [M.ru_ego()] током, но это не возымело эффекта!"))
+							user.visible_message("<span class='userdanger'>[user]  прикасается к [skloname(M.name, DATELNI, M.gender)] и пытается ударить [M.ru_ego()] током, но это не возымело эффекта!</span>" , \
+								"<span class='danger'>Прикасаюсь к [skloname(M.name, DATELNI, M.gender)] и бью [M.ru_ego()] током, но это не возымело эффекта!</span>")
 					playsound(loc, 'sound/effects/sparks2.ogg', 50, TRUE, -1)
 					user.cell.charge -= 500
 					scooldown = world.time + 20
@@ -132,11 +132,11 @@
 			if(ccooldown < world.time)
 				if(M.health >= 0)
 					if(ishuman(M))
-						user.visible_message(span_userdanger("[user] сминает [skloname(M.name, VINITELNI, M.gender)] в своих обьятиях!") , \
-							span_danger("Сминаю [skloname(M.name, VINITELNI, M.gender)] в своих обьятиях!"))
+						user.visible_message("<span class='userdanger'>[user] сминает [skloname(M.name, VINITELNI, M.gender)] в своих обьятиях!</span>" , \
+							"<span class='danger'>Сминаю [skloname(M.name, VINITELNI, M.gender)] в своих обьятиях!</span>")
 					else
-						user.visible_message(span_userdanger("[user] сминает [skloname(M.name, VINITELNI, M.gender)]!") , \
-								span_danger("Я сминаю [skloname(M.name, VINITELNI, M.gender)]!"))
+						user.visible_message("<span class='userdanger'>[user] сминает [skloname(M.name, VINITELNI, M.gender)]!</span>" , \
+								"<span class='danger'>Я сминаю [skloname(M.name, VINITELNI, M.gender)]!</span>")
 					playsound(loc, 'sound/weapons/smash.ogg', 50, TRUE, -1)
 					M.adjustBruteLoss(15)
 					user.cell.charge -= 300
@@ -165,7 +165,7 @@
 	else
 		mode = "draw"
 	playsound(src, 'sound/weapons/batonextend.ogg', 50, TRUE)
-	to_chat(user, span_notice("Переключаю [src] в режим [mode == "draw" ? "вытягивания" : "передачи"] энергии."))
+	to_chat(user, "<span class='notice'>Переключаю [src] в режим [mode == "draw" ? "вытягивания" : "передачи"] энергии.</span>")
 	update_icon()
 
 /obj/item/borg/charger/afterattack(obj/item/target, mob/living/silicon/robot/user, proximity_flag)
@@ -176,10 +176,10 @@
 		if(is_type_in_list(target, charge_machines))
 			var/obj/machinery/M = target
 			if((M.machine_stat & (NOPOWER|BROKEN)) || !M.anchored)
-				to_chat(user, span_warning("[M] обесточен!"))
+				to_chat(user, "<span class='warning'>[M] обесточен!</span>")
 				return
 
-			to_chat(user, span_notice("Начинаю вытягивать энергию из [M]..."))
+			to_chat(user, "<span class='notice'>Начинаю вытягивать энергию из [M]...</span>")
 			while(do_after(user, 15, target = M, progress = 0))
 				if(!user || !user.cell || mode != "draw")
 					return
@@ -193,27 +193,27 @@
 				M.use_power(500)
 				do_sparks(1, FALSE, target)
 
-			to_chat(user, span_notice("Извлекаю зарядник."))
+			to_chat(user, "<span class='notice'>Извлекаю зарядник.</span>")
 
 		else if(is_type_in_list(target, charge_items))	// Вытягивание из оружия или батареи
 			var/obj/item/stock_parts/cell/cell = target
 			if(!istype(cell))
 				cell = locate(/obj/item/stock_parts/cell) in target
 			if(!cell)
-				to_chat(user, span_warning("[target] не имеет батареи!"))
+				to_chat(user, "<span class='warning'>[target] не имеет батареи!</span>")
 				return
 
 			if(istype(target, /obj/item/gun/energy))
 				var/obj/item/gun/energy/E = target
 				if(!E.can_charge)
-					to_chat(user, span_warning("[target] не имеет разъема питания!"))
+					to_chat(user, "<span class='warning'>[target] не имеет разъема питания!</span>")
 					return
 
 			if(!cell.charge)
-				to_chat(user, span_warning("[target] разряжена!"))
+				to_chat(user, "<span class='warning'>[target] разряжена!</span>")
 
 
-			to_chat(user, span_notice("Начинаю вытягивать энергию из [target]..."))
+			to_chat(user, "<span class='notice'>Начинаю вытягивать энергию из [target]...</span>")
 
 			while(do_after(user, 15, target = target, progress = 0))
 				if(!user || !user.cell || mode != "draw")
@@ -233,26 +233,26 @@
 				target.update_icon()
 				do_sparks(1, FALSE, target)
 
-			to_chat(user, span_notice("Извлекаю зарядник."))
+			to_chat(user, "<span class='notice'>Извлекаю зарядник.</span>")
 
 	else if(is_type_in_list(target, charge_items))	// 	Зарядка батареи или оружия
 		var/obj/item/stock_parts/cell/cell = target
 		if(!istype(cell))
 			cell = locate(/obj/item/stock_parts/cell) in target
 		if(!cell)
-			to_chat(user, span_warning("[target] не имеет батареи!"))
+			to_chat(user, "<span class='warning'>[target] не имеет батареи!</span>")
 			return
 
 		if(istype(target, /obj/item/gun/energy))
 			var/obj/item/gun/energy/E = target
 			if(!E.can_charge)
-				to_chat(user, span_warning("[target] не имеет разъема питания!"))
+				to_chat(user, "<span class='warning'>[target] не имеет разъема питания!</span>")
 				return
 
 		if(cell.charge >= cell.maxcharge)
-			to_chat(user, span_warning("[target] полностью заряжен!"))
+			to_chat(user, "<span class='warning'>[target] полностью заряжен!</span>")
 
-		to_chat(user, span_notice("Начинаю заряжать [target]..."))
+		to_chat(user, "<span class='notice'>Начинаю заряжать [target]...</span>")
 
 		while(do_after(user, 15, target = target, progress = 0))
 			if(!user || !user.cell || mode != "charge")
@@ -272,7 +272,7 @@
 			target.update_icon()
 			do_sparks(1, FALSE, target)
 
-		to_chat(user, span_notice("Извлекаю зарядник [target]."))
+		to_chat(user, "<span class='notice'>Извлекаю зарядник [target].</span>")
 
 /obj/item/harmalarm
 	name = "звуковой подавитель насилия"
@@ -284,33 +284,33 @@
 /obj/item/harmalarm/emag_act(mob/user)
 	obj_flags ^= EMAGGED
 	if(obj_flags & EMAGGED)
-		to_chat(user, span_red("Деактивирую предохранители на [src]!"))
+		to_chat(user, "<span class='red'>Деактивирую предохранители на [src]!</span>")
 	else
-		to_chat(user, span_red("Вновь активирую предохранители на [src]!"))
+		to_chat(user, "<span class='red'>Вновь активирую предохранители на [src]!</span>")
 
 /obj/item/harmalarm/attack_self(mob/user)
 	var/safety = !(obj_flags & EMAGGED)
 	if(cooldown > world.time)
-		to_chat(user, span_red("Устройство всё ещё перезаряжается!"))
+		to_chat(user, "<span class='red'>Устройство всё ещё перезаряжается!</span>")
 		return
 
 	if(iscyborg(user))
 		var/mob/living/silicon/robot/R = user
 		if(!R.cell || R.cell.charge < 1200)
-			to_chat(user, span_warning("Недостаточно заряда для активации устройства!"))
+			to_chat(user, "<span class='warning'>Недостаточно заряда для активации устройства!</span>")
 			return
 		R.cell.charge -= 1000
 		if(R.emagged)
 			safety = FALSE
 
 	if(safety == TRUE)
-		user.visible_message(span_boldwarning("[user] издает оглушительную сирену из своих динамиков!"), \
-			span_userdanger("Оглушительный звук заставляет мысли путаться!") , \
-			span_danger("Оглушительный звук заставляет мысли путаться!"))
+		user.visible_message("<span class='boldwarning'>[user] издает оглушительную сирену из своих динамиков!</span>", \
+			"<span class='userdanger'>Оглушительный звук заставляет мысли путаться!</span>" , \
+			"<span class='danger'>Оглушительный звук заставляет мысли путаться!</span>")
 		for(var/mob/living/carbon/M in get_hearers_in_view(9, user))
 			if(M.get_ear_protection() == FALSE)
 				M.add_confusion(6)
-		audible_message(span_boldwarning("HUMAN HARM")) //Специально оставил
+		audible_message("<span class='boldwarning'>HUMAN HARM</span>") //Специально оставил
 		playsound(get_turf(src), 'sound/ai/harmalarm.ogg', 70, 3)
 		cooldown = world.time + 200
 		user.log_message("Использовал устройство звукового подавления в [AREACOORD(user)]", LOG_ATTACK)
@@ -321,7 +321,7 @@
 		return
 
 	if(safety == FALSE)
-		user.audible_message(span_boldwarning("БЗЗЗЗЗЗЗЗЗЗЗЗЗЗЗЗЗЗЗЗЗ"))
+		user.audible_message("<span class='boldwarning'>БЗЗЗЗЗЗЗЗЗЗЗЗЗЗЗЗЗЗЗЗЗ</span>")
 		for(var/mob/living/carbon/C in get_hearers_in_view(9, user))
 			var/bang_effect = C.soundbang_act(2, 0, 0, 5)
 			switch(bang_effect)
@@ -380,7 +380,7 @@
 
 /obj/item/borg/lollipop/proc/dispense(atom/A, mob/user)
 	if(candy <= 0)
-		to_chat(user, span_warning("Сладости закончились!"))
+		to_chat(user, "<span class='warning'>Сладости закончились!</span>")
 		return FALSE
 	var/turf/T = get_turf(A)
 	if(!T || !istype(T) || !isopenturf(T))
@@ -409,16 +409,16 @@
 	check_amount()
 
 	if(into_hands)
-		user.visible_message(span_notice("[user] дал леденец прямо в руку [A].") , span_notice("[A] дал мне леденец.") , span_hear("Слышу щелчок."))
+		user.visible_message("<span class='notice'>[user] дал леденец прямо в руку [A].</span>" , "<span class='notice'>[A] дал мне леденец.</span>" , "<span class='hear'>Слышу щелчок.</span>")
 	else
-		user.visible_message(span_notice("[user] произвел леденец.") , span_notice("Синтезирую леденец.") , span_hear("Слышу щелчок."))
+		user.visible_message("<span class='notice'>[user] произвел леденец.</span>" , "<span class='notice'>Синтезирую леденец.</span>" , "<span class='hear'>Слышу щелчок.</span>")
 
 	playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 	return TRUE
 
 /obj/item/borg/lollipop/proc/shootL(atom/target, mob/living/user, params)
 	if(candy <= 0)
-		to_chat(user, span_warning("Недостаточно леденцов!"))
+		to_chat(user, "<span class='warning'>Недостаточно леденцов!</span>")
 		return FALSE
 	candy--
 
@@ -431,12 +431,12 @@
 
 	playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 	A.fire_casing(target, user, params, 0, 0, null, 0, 0, 0, src)
-	user.visible_message(span_warning("[user] выстрелил леденцом в [target]!"))
+	user.visible_message("<span class='warning'>[user] выстрелил леденцом в [target]!</span>")
 	check_amount()
 
 /obj/item/borg/lollipop/proc/shootG(atom/target, mob/living/user, params)	//Most certainly a good idea.
 	if(candy <= 0)
-		to_chat(user, span_warning("Недостаточно жвачки!"))
+		to_chat(user, "<span class='warning'>Недостаточно жвачки!</span>")
 		return FALSE
 	candy--
 	var/obj/item/ammo_casing/caseless/gumball/A
@@ -449,7 +449,7 @@
 	A.loaded_projectile.color = rgb(rand(0, 255), rand(0, 255), rand(0, 255))
 	playsound(src.loc, 'sound/weapons/bulletflyby3.ogg', 50, TRUE)
 	A.fire_casing(target, user, params, 0, 0, null, 0, 0, 0, src)
-	user.visible_message(span_warning("[user] выстрелил в [target] жвачкой!"))
+	user.visible_message("<span class='warning'>[user] выстрелил в [target] жвачкой!</span>")
 	check_amount()
 
 /obj/item/borg/lollipop/afterattack(atom/target, mob/living/user, proximity, click_params)
@@ -458,7 +458,7 @@
 	if(iscyborg(user))
 		var/mob/living/silicon/robot/R = user
 		if(!R.cell.use(12))
-			to_chat(user, span_warning("Недостаточно энергии."))
+			to_chat(user, "<span class='warning'>Недостаточно энергии.</span>")
 			return FALSE
 	switch(mode)
 		if(DISPENSE_LOLLIPOP_MODE, DISPENSE_ICECREAM_MODE)
@@ -474,16 +474,16 @@
 	switch(mode)
 		if(DISPENSE_LOLLIPOP_MODE)
 			mode = THROW_LOLLIPOP_MODE
-			to_chat(user, span_notice("Модуль переключен на стрельбу леденцами."))
+			to_chat(user, "<span class='notice'>Модуль переключен на стрельбу леденцами.</span>")
 		if(THROW_LOLLIPOP_MODE)
 			mode = THROW_GUMBALL_MODE
-			to_chat(user, span_notice("Модуль переключен на стрельбу жвачкой."))
+			to_chat(user, "<span class='notice'>Модуль переключен на стрельбу жвачкой.</span>")
 		if(THROW_GUMBALL_MODE)
 			mode = DISPENSE_ICECREAM_MODE
-			to_chat(user, span_notice("Модуль переключён на выдачу мороженного."))
+			to_chat(user, "<span class='notice'>Модуль переключён на выдачу мороженного.</span>")
 		if(DISPENSE_ICECREAM_MODE)
 			mode = DISPENSE_LOLLIPOP_MODE
-			to_chat(user, span_notice("Модуль переключён на выдачу леденцов."))
+			to_chat(user, "<span class='notice'>Модуль переключён на выдачу леденцов.</span>")
 	..()
 
 #undef DISPENSE_LOLLIPOP_MODE
@@ -789,7 +789,7 @@
 	if(stored && !user.client?.keys_held["Alt"] && user.a_intent != INTENT_HELP)
 		var/obj/item/reagent_containers/C = stored
 		C.SplashReagents(get_turf(user))
-		loc.visible_message(span_notice("[user] разливает содержимое [C] на пол."))
+		loc.visible_message("<span class='notice'>[user] разливает содержимое [C] на пол.</span>")
 		return
 	. = ..()
 
@@ -848,4 +848,4 @@
 /obj/item/borg/apparatus/circuit/pre_attack(atom/A, mob/living/user, params)
 	. = ..()
 	if(istype(A, /obj/item/ai_module) && !stored) //If an admin wants a borg to upload laws, who am I to stop them? Otherwise, we can hint that it fails
-		to_chat(user, span_warning("Блокировка уровня аппаратного приоритета, отмена!"))
+		to_chat(user, "<span class='warning'>Блокировка уровня аппаратного приоритета, отмена!</span>")

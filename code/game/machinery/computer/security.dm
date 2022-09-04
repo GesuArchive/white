@@ -203,7 +203,7 @@
 	if(isliving(user))
 		playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 	if(src.z > 6)
-		to_chat(user, "[span_boldannounce("Unable to establish a connection")]: \black You're too far away from the station!")
+		to_chat(user, "["<span class='boldannounce'>Unable to establish a connection</span>"]: \black You're too far away from the station!")
 		return
 	var/dat
 
@@ -495,7 +495,7 @@ What a mess.*/
 					rank = I.assignment
 					screen = 1
 				else
-					to_chat(usr, span_danger("Unauthorized Access."))
+					to_chat(usr, "<span class='danger'>Unauthorized Access.</span>")
 				playsound(src, 'sound/machines/terminal_on.ogg', 50, FALSE)
 
 //RECORD FUNCTIONS
@@ -522,19 +522,19 @@ What a mess.*/
 						if(C && istype(C))
 							var/pay = C.get_item_credit_value()
 							if(!pay)
-								to_chat(usr, span_warning("[C] doesn't seem to be worth anything!"))
+								to_chat(usr, "<span class='warning'>[C] doesn't seem to be worth anything!</span>")
 							else
 								var/diff = p.fine - p.paid
 								GLOB.data_core.payCitation(active2.fields["id"], text2num(href_list["cdataid"]), pay)
-								to_chat(usr, span_notice("You have paid [pay] credit\s towards your fine."))
+								to_chat(usr, "<span class='notice'>You have paid [pay] credit\s towards your fine.</span>")
 								if (pay == diff || pay > diff || pay >= diff)
 									investigate_log("Citation Paid off: <strong>[p.crimeName]</strong> Fine: [p.fine] | Paid off by [key_name(usr)]", INVESTIGATE_RECORDS)
-									to_chat(usr, span_notice("The fine has been paid in full."))
+									to_chat(usr, "<span class='notice'>The fine has been paid in full.</span>")
 								SSblackbox.ReportCitation(text2num(href_list["cdataid"]),"","","","", 0, pay)
 								qdel(C)
 								playsound(src, "terminal_type", 25, FALSE)
 						else
-							to_chat(usr, span_warning("Fines can only be paid with holochips!"))
+							to_chat(usr, "<span class='warning'>Fines can only be paid with holochips!</span>")
 
 			if("Print Record")
 				if(!( printing ))
@@ -857,7 +857,7 @@ What a mess.*/
 							fine = min(fine, maxFine)
 
 							if(fine < 0)
-								to_chat(usr, span_warning("You're pretty sure that's not how money works."))
+								to_chat(usr, "<span class='warning'>You're pretty sure that's not how money works.</span>")
 								return
 
 							if(!canUseSecurityRecordsConsole(usr, t1, null, a2))

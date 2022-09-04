@@ -144,18 +144,18 @@
 
 		// Mind Assigned
 		if((bloodsucker_vassals.owner.assigned_role in valid_jobs) && !(bloodsucker_vassals.owner.assigned_role in counted_roles))
-			//to_chat(owner, span_userdanger("PROTEGE OBJECTIVE: (MIND ROLE)"))
+			//to_chat(owner, "<span class='userdanger'>PROTEGE OBJECTIVE: (MIND ROLE)</span>")
 			this_role = bloodsucker_vassals.owner.assigned_role
 		// Mob Assigned
 		else if((bloodsucker_vassals.owner.current.job in valid_jobs) && !(bloodsucker_vassals.owner.current.job in counted_roles))
-			//to_chat(owner, span_userdanger("PROTEGE OBJECTIVE: (MOB JOB)"))
+			//to_chat(owner, "<span class='userdanger'>PROTEGE OBJECTIVE: (MOB JOB)</span>")
 			this_role = bloodsucker_vassals.owner.current.job
 		// PDA Assigned
 		else if(bloodsucker_vassals.owner.current && ishuman(bloodsucker_vassals.owner.current))
 			var/mob/living/carbon/human/vassal_users = bloodsucker_vassals.owner.current
 			var/obj/item/card/id/id_cards = vassal_users.wear_id ? vassal_users.wear_id.GetID() : null
 			if(id_cards && (id_cards.assignment in valid_jobs) && !(id_cards.assignment in counted_roles))
-				//to_chat(owner, span_userdanger("PROTEGE OBJECTIVE: (GET ID)"))
+				//to_chat(owner, "<span class='userdanger'>PROTEGE OBJECTIVE: (GET ID)</span>")
 				this_role = id_cards.assignment
 
 		// NO MATCH

@@ -87,7 +87,7 @@
 /obj/effect/decal/cleanable/oil/attackby(obj/item/I, mob/living/user)
 	var/attacked_by_hot_thing = I.get_temperature()
 	if(attacked_by_hot_thing)
-		visible_message(span_warning("[user] пытается поджечь [src.name] используя [I]!") , span_warning("Пытаюсь поджечь [src.name] используя [I]."))
+		visible_message("<span class='warning'>[user] пытается поджечь [src.name] используя [I]!</span>" , "<span class='warning'>Пытаюсь поджечь [src.name] используя [I].</span>")
 		log_combat(user, src, (attacked_by_hot_thing < 480) ? "tried to ignite" : "ignited", I)
 		fire_act(attacked_by_hot_thing)
 		return
@@ -96,7 +96,7 @@
 /obj/effect/decal/cleanable/oil/fire_act(exposed_temperature, exposed_volume)
 	if(exposed_temperature < 480)
 		return
-	visible_message(span_danger("[capitalize(src.name)] загорается!"))
+	visible_message("<span class='danger'>[capitalize(src.name)] загорается!</span>")
 	var/turf/T = get_turf(src)
 	qdel(src)
 	new /obj/effect/hotspot(T)

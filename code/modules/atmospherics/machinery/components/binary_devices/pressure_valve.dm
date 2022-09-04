@@ -33,7 +33,7 @@
 	if(can_interact(user))
 		target_pressure = MAX_OUTPUT_PRESSURE
 		investigate_log("was set to [target_pressure] kPa by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, span_notice("Выставляю давление в [src] на [target_pressure] кПа."))
+		to_chat(user, "<span class='notice'>Выставляю давление в [src] на [target_pressure] кПа.</span>")
 		update_icon()
 	return ..()
 
@@ -154,7 +154,7 @@
 /obj/machinery/atmospherics/components/binary/pressure_valve/can_unwrench(mob/user)
 	. = ..()
 	if(. && on && is_operational)
-		to_chat(user, span_warning("Не могу открутить [src.name], сначала нужно выключить это!"))
+		to_chat(user, "<span class='warning'>Не могу открутить [src.name], сначала нужно выключить это!</span>")
 		return FALSE
 
 

@@ -54,7 +54,7 @@
 	AddElement(/datum/element/connect_loc, loc_connections)
 
 /mob/living/simple_animal/bot/hygienebot/explode()
-	visible_message(span_boldannounce("[capitalize(src.name)] взрывается и разбрызгивает вокруг пену!"))
+	visible_message("<span class='boldannounce'>[capitalize(src.name)] взрывается и разбрызгивает вокруг пену!</span>")
 	do_sparks(3, TRUE, src)
 	on = FALSE
 	new /obj/effect/particle_effect/fluid/foam(loc)

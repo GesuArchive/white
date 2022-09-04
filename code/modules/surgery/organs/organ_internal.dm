@@ -144,9 +144,9 @@
 
 	if(organ_flags & ORGAN_FAILING)
 		if(status == ORGAN_ROBOTIC)
-			. += span_warning("\n[capitalize(src.name)] повреждён.")
+			. += "<span class='warning'>\n[capitalize(src.name)] повреждён.</span>"
 			return
-		. += span_warning("\n[capitalize(src.name)] слишком долго разлагался и приобрел болезненный цвет. Без ремонта наверное не заработает.")
+		. += "<span class='warning'>\n[capitalize(src.name)] слишком долго разлагался и приобрел болезненный цвет. Без ремонта наверное не заработает.</span>"
 		return
 
 	if(damage > high_threshold)
