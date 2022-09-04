@@ -147,7 +147,7 @@
 #define span_big_brass(str) ("<span class='big_brass'>" + str + "</span>")
 #define span_ratvar(str) ("<span class='ratvar'>" + str + "</span>")
 #define span_nezbere(str) ("<span class='nezbere'>" + str + "</span>")
-#define span_nzcrentr(str) ("<span class='nzcrentr'>" + str + "</span>")
+//#define span_nzcrentr(str) ("<span class='nzcrentr'>" + str + "</span>")
 #define span_neovgre(str) ("<span class='neovgre'>" + str + "</span>")
 #define span_inathneq(str) ("<span class='inathneq'>" + str + "</span>")
 #define span_sevtug(str) ("<span class='sevtug'>" + str + "</span>")
