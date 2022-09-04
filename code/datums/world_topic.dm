@@ -381,7 +381,7 @@ GLOBAL_VAR_INIT(cmd_creampie_last, 0)
 	for(var/client/C in GLOB.clients)
 		if(userkey == C.ckey)
 			if(isliving(C.mob))
-				pieing_squad(C.mob, get_open_turf_in_dir(C.mob), pick(GLOB.cardinals))
+				pieing_squad(C.mob, get_open_turf_in_dir(C.mob, pick(GLOB.cardinals)))
 				GLOB.cmd_creampie_count++
 				GLOB.cmd_creampie_last = world.time
 				return TRUE
