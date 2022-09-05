@@ -1,5 +1,5 @@
 SUBSYSTEM_DEF(air)
-	name = "Гипер-Атмос"
+	name = "Квантовый-Атмос"
 	init_order = INIT_ORDER_AIR
 	priority = FIRE_PRIORITY_AIR
 	wait = 0.5 SECONDS
@@ -31,6 +31,7 @@ SUBSYSTEM_DEF(air)
 	var/list/networks = list()
 	var/list/pipenets_needing_rebuilt = list()
 	var/list/deferred_airs = list()
+	var/cur_deferred_airs = 0
 	var/max_deferred_airs = 0
 	var/list/obj/machinery/atmos_machinery = list()
 	var/list/obj/machinery/atmos_air_machinery = list()
@@ -55,13 +56,21 @@ SUBSYSTEM_DEF(air)
 	// Max number of turfs to look for a space turf, and max number of turfs that will be decompressed.
 	var/equalize_hard_turf_limit = 2000
 	// Whether equalization should be enabled at all.
-	var/equalize_enabled = FALSE
+	var/equalize_enabled = TRUE
+	// Whether equalization should be enabled.
+	var/should_do_equalization = TRUE
+	// When above 0, won't equalize; performance handling
+	var/eq_cooldown = 0
 	// Whether turf-to-turf heat exchanging should be enabled.
 	var/heat_enabled = FALSE
 	// Max number of times process_turfs will share in a tick.
 	var/share_max_steps = 3
+	// Target for share_max_steps; can go below this, if it determines the thread is taking too long.
+	var/share_max_steps_target = 3
 	// Excited group processing will try to equalize groups with total pressure difference less than this amount.
 	var/excited_group_pressure_goal = 1
+	// Target for excited_group_pressure_goal; can go below this, if it determines the thread is taking too long.
+	var/excited_group_pressure_goal_target = 1
 	// If this is set to 0, monstermos won't process planet atmos
 	var/planet_equalize_enabled = 0
 
@@ -223,22 +232,23 @@ SUBSYSTEM_DEF(air)
 		if(state != SS_RUNNING)
 			return
 		resumed = FALSE
-		currentpart = SSAIR_ACTIVETURFS
-	// This simply starts the turf thread. It runs in the background until the FINALIZE_TURFS step, at which point it's waited for.
-	// This also happens to do all the commented out stuff below, all in a single separate thread. This is mostly so that the
-	// waiting is consistent.
-	if(currentpart == SSAIR_ACTIVETURFS)
-		timer = TICK_USAGE_REAL
-		process_turfs(resumed)
-		cost_turfs = MC_AVERAGE(cost_turfs, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
-		if(state != SS_RUNNING)
-			return
-		resumed = FALSE
 		currentpart = SSAIR_PROCESS_ATOMS
 	if(currentpart == SSAIR_PROCESS_ATOMS)
 		timer = TICK_USAGE_REAL
 		process_atoms(resumed)
 		cost_atoms = MC_AVERAGE(cost_atoms, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
+		if(state != SS_RUNNING)
+			return
+		resumed = FALSE
+		currentpart = SSAIR_ACTIVETURFS
+	// This simply starts the turf thread. It runs in the background until the FINALIZE_TURFS step, at which point it's waited for.
+	// This also happens to do all the commented out stuff below, all in a single separate thread. This is mostly so that the
+	// waiting is consistent.
+	if(currentpart == SSAIR_ACTIVETURFS)
+		run_delay_heuristics()
+		timer = TICK_USAGE_REAL
+		process_turfs(resumed)
+		cost_turfs = MC_AVERAGE(cost_turfs, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 		if(state != SS_RUNNING)
 			return
 		resumed = FALSE
@@ -294,7 +304,8 @@ SUBSYSTEM_DEF(air)
 		pipenets_needing_rebuilt += atmos_machine
 
 /datum/controller/subsystem/air/proc/process_deferred_airs(resumed = FALSE)
-	max_deferred_airs = max(deferred_airs.len,max_deferred_airs)
+	cur_deferred_airs = deferred_airs.len
+	max_deferred_airs = max(cur_deferred_airs, max_deferred_airs)
 	while(deferred_airs.len)
 		var/list/cur_op = deferred_airs[deferred_airs.len]
 		deferred_airs.len--
@@ -319,6 +330,7 @@ SUBSYSTEM_DEF(air)
 			return
 
 /datum/controller/subsystem/air/proc/process_atmos_machinery(resumed = FALSE)
+	var/seconds = wait * 0.1
 	if (!resumed)
 		src.currentrun = atmos_machinery.Copy()
 	//cache for sanic speed (lists are references anyways)
@@ -326,9 +338,7 @@ SUBSYSTEM_DEF(air)
 	while(currentrun.len)
 		var/obj/machinery/M = currentrun[currentrun.len]
 		currentrun.len--
-		if(M == null)
-			atmos_machinery.Remove(M)
-		if(!M || (M.process_atmos() == PROCESS_KILL))
+		if(!M || (M.process_atmos(seconds) == PROCESS_KILL))
 			atmos_machinery.Remove(M)
 		if(MC_TICK_CHECK)
 			return
@@ -378,7 +388,6 @@ SUBSYSTEM_DEF(air)
 		if(MC_TICK_CHECK)
 			return
 
-
 /datum/controller/subsystem/air/proc/process_high_pressure_delta(resumed = FALSE)
 	while (high_pressure_delta.len)
 		var/turf/open/T = high_pressure_delta[high_pressure_delta.len]
@@ -393,6 +402,26 @@ SUBSYSTEM_DEF(air)
 	if(process_turf_equalize_auxtools(resumed,MC_TICK_REMAINING_MS))
 		pause()
 
+/datum/controller/subsystem/air/proc/run_delay_heuristics()
+	if(should_do_equalization)
+		if(!equalize_enabled)
+			cost_equalize = 0
+			if(should_do_equalization)
+				eq_cooldown--
+				if(eq_cooldown <= 0)
+					equalize_enabled = TRUE
+	else
+		equalize_enabled = FALSE
+	var/total_thread_time = cost_turfs + cost_equalize + cost_groups + cost_post_process
+	if(total_thread_time)
+		var/wait_ms = wait * 100
+		var/delay_threshold = 1-(total_thread_time/wait_ms + cur_deferred_airs / 50)
+		share_max_steps = max(1,round(share_max_steps_target * delay_threshold, 1))
+		eq_cooldown += (1-delay_threshold) * (cost_equalize / total_thread_time) * 2
+		if(eq_cooldown > 0.5)
+			equalize_enabled = FALSE
+		excited_group_pressure_goal = max(0,excited_group_pressure_goal_target * delay_threshold)
+
 /datum/controller/subsystem/air/proc/process_turfs(resumed = FALSE)
 	if(process_turfs_auxtools(resumed,MC_TICK_REMAINING_MS))
 		pause()
@@ -402,7 +431,7 @@ SUBSYSTEM_DEF(air)
 		pause()
 
 /datum/controller/subsystem/air/proc/finish_turf_processing(resumed = FALSE)
-	if(finish_turf_processing_auxtools(MC_TICK_REMAINING_MS))
+	if(finish_turf_processing_auxtools(MC_TICK_REMAINING_MS) || thread_running())
 		pause()
 
 /datum/controller/subsystem/air/proc/post_process_turfs(resumed = FALSE)

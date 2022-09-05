@@ -55,6 +55,7 @@
 		SSair.deferred_airs += list(list(giver, air, moles / giver.total_moles()))
 	else
 		giver.transfer_to(air, moles)
+		update_visuals()
 	return TRUE
 
 /turf/open/assume_air_ratio(datum/gas_mixture/giver, ratio)
@@ -64,6 +65,7 @@
 		SSair.deferred_airs += list(list(giver, air, ratio))
 	else
 		giver.transfer_ratio_to(air, ratio)
+		update_visuals()
 	return TRUE
 
 /turf/open/transfer_air(datum/gas_mixture/taker, moles)
@@ -73,6 +75,7 @@
 		SSair.deferred_airs += list(list(air, taker, moles / air.total_moles()))
 	else
 		air.transfer_to(taker, moles)
+		update_visuals()
 	return TRUE
 
 /turf/open/transfer_air_ratio(datum/gas_mixture/taker, ratio)
@@ -82,16 +85,19 @@
 		SSair.deferred_airs += list(list(air, taker, ratio))
 	else
 		air.transfer_ratio_to(taker, ratio)
+		update_visuals()
 	return TRUE
 
 /turf/open/remove_air(amount)
 	var/datum/gas_mixture/ours = return_air()
 	var/datum/gas_mixture/removed = ours.remove(amount)
+	update_visuals()
 	return removed
 
 /turf/open/remove_air_ratio(ratio)
 	var/datum/gas_mixture/ours = return_air()
 	var/datum/gas_mixture/removed = ours.remove_ratio(ratio)
+	update_visuals()
 	return removed
 
 /turf/open/proc/copy_air_with_tile(turf/open/T)
@@ -190,23 +196,24 @@
 
 /turf/open/proc/equalize_pressure_in_zone(cyclenum)
 /turf/open/proc/consider_firelocks(turf/T2)
+	var/reconsider_adj = FALSE
 	for(var/obj/machinery/door/firedoor/FD in T2)
+		if((FD.flags_1 & ON_BORDER_1) && get_dir(T2, src) != FD.dir)
+			continue
 		FD.emergency_pressure_stop()
+		reconsider_adj = TRUE
 	for(var/obj/machinery/door/firedoor/FD in src)
+		if((FD.flags_1 & ON_BORDER_1) && get_dir(src, T2) != FD.dir)
+			continue
 		FD.emergency_pressure_stop()
+		reconsider_adj = TRUE
+	if(reconsider_adj)
+		T2.ImmediateCalculateAdjacentTurfs() // We want those firelocks closed yesterday.
 
 /turf/proc/handle_decompression_floor_rip()
 /turf/open/floor/handle_decompression_floor_rip(sum)
-	if(sum > 20 && prob(clamp(sum / 20, 0, 15)))
-		if(floor_tile)
-			new floor_tile(src)
-		make_plating()
-
-/turf/open/floor/plating/handle_decompression_floor_rip()
-	return
-
-/turf/open/floor/engine/handle_decompression_floor_rip()
-	return
+	if(sum > 20 && prob(clamp(sum / 10, 0, 30)))
+		remove_tile()
 
 /turf/open/process_cell(fire_count)
 
