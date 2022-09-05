@@ -19,6 +19,11 @@
 
 	timerid = QDEL_IN(src, duration)
 
+/obj/effect/temp_visual/reset_timer(time)
+	deltimer(timerid)
+	duration = isnull(time) ? initial(duration) : time
+	timerid = QDEL_IN(src, duration)
+
 /obj/effect/temp_visual/Destroy()
 	. = ..()
 	deltimer(timerid)
