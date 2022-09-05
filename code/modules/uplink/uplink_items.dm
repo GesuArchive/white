@@ -2213,3 +2213,9 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	surplus = 0
 	cant_discount = FALSE
 	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
+
+/datum/uplink_item/badass/leetball
+	name = "Ботинки футболиста"
+	desc = "Специализированная пара спортивных ботинок предназначенных для игры в профессиональный футбол."
+	item = /obj/item/clothing/shoes/leetball
+	cost = 8

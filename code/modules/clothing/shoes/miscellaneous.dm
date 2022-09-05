@@ -281,7 +281,7 @@
 		user.visible_message("<span class='warning'>[usr] взлетает в воздух!</span>")
 		recharging_time = world.time + recharging_rate
 	else
-		to_chat(user, "<span class='warning'>SЧто-то мешает мне взлететь!</span>")
+		to_chat(user, "<span class='warning'>Что-то мешает мне взлететь!</span>")
 
 /obj/item/clothing/shoes/bhop/rocket
 	name = "rocket boots"
@@ -593,3 +593,36 @@
 	icon_state = "aerostatic_boots"
 	inhand_icon_state = "aerostatic_boots"
 
+/obj/item/clothing/shoes/leetball
+	name = "ботинки футболиста"
+	desc = "Специализированная пара спортивных ботинок предназначенных для игры в профессиональный футбол."
+	icon_state = "leetball"
+	inhand_icon_state = "leetball"
+	resistance_flags = FIRE_PROOF | ACID_PROOF
+	actions_types = list(/datum/action/item_action/leetball)
+	armor = list(MELEE = 5, BULLET = 5, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 90, FIRE = 0, ACID = 0)
+	strip_delay = 30
+	COOLDOWN_DECLARE(recharging_time)
+
+/obj/item/clothing/shoes/leetball/ui_action_click(mob/user, action)
+	if(!isliving(user))
+		return
+
+	if(!COOLDOWN_FINISHED(src, recharging_time))
+		to_chat(user, "<span class='warning'>Надо подождать немного!</span>")
+		return
+
+	var/atom/movable/throw_thing = user.get_active_held_item()
+	if(!throw_thing)
+		var/turf/T = get_step(user, user.dir)
+		for(var/atom/movable/AM in T)
+			if(isobj(AM) && ismob(AM))
+				continue
+			throw_thing = AM
+
+	if(throw_thing && throw_thing.throw_at(get_edge_target_turf(user, user.dir), 15, 5, spin = TRUE, diagonals_first = TRUE))
+		playsound(src, 'sound/weapons/resonator_blast.ogg', 50, TRUE, TRUE)
+		user.visible_message("<span class='warning'>[user] пинает [throw_thing]!</span>")
+		COOLDOWN_START(src, recharging_time, 5 SECONDS)
+	else
+		to_chat(user, "<span class='warning'>Нечего пинать!</span>")
