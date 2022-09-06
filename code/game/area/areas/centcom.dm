@@ -207,10 +207,42 @@
 	static_lighting = TRUE
 	network_root_id = SYNDICATE_NETWORK_ROOT
 
+/area/syndicate_mothership/expansion_bombthreat
+	name = "Синдикат: Исследование токсинов"
+	icon_state = "syndie-elite"
+	static_lighting = TRUE
+	network_root_id = SYNDICATE_NETWORK_ROOT
+	area_flags = NOTELEPORT
+	ambience_index = AMBIENCE_ENGI
+
+/area/syndicate_mothership/expansion_bioterrorism
+	name = "Синдикат: Биологическое оружие"
+	icon_state = "syndie-elite"
+	static_lighting = TRUE
+	network_root_id = SYNDICATE_NETWORK_ROOT
+	area_flags = NOTELEPORT
+	ambience_index = AMBIENCE_MEDICAL
+
+/area/syndicate_mothership/expansion_chemicalwarfare
+	name = "Синдикат: Химическое оружие"
+	icon_state = "syndie-elite"
+	static_lighting = TRUE
+	network_root_id = SYNDICATE_NETWORK_ROOT
+	area_flags = NOTELEPORT
+	ambience_index = AMBIENCE_REEBE
+
+/area/syndicate_mothership/expansion_fridgerummage
+	name = "Синдикат: Кухня"
+	icon_state = "syndie-elite"
+	static_lighting = TRUE
+	network_root_id = SYNDICATE_NETWORK_ROOT
+	area_flags = NOTELEPORT
+
 /area/syndicate_mothership/elite_squad
 	name = "Синдикат: Элитный отряд"
 	icon_state = "syndie-elite"
 	network_root_id = SYNDICATE_NETWORK_ROOT
+
 //CAPTURE THE FLAG
 
 /area/ctf
