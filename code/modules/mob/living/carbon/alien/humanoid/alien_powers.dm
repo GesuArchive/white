@@ -85,7 +85,7 @@ Doesn't work on other aliens/AI.*/
 /datum/action/cooldown/alien/make_structure/proc/check_for_duplicate()
 	var/obj/structure/existing_thing = locate(made_structure_type) in owner.loc
 	if(existing_thing)
-		to_chat(owner, "<span class='warning'>Здесь уже есть [existing_thing]!</span>")
+		to_chat(owner, span_warning("Здесь уже есть [existing_thing]!"))
 		return FALSE
 
 	return TRUE
@@ -110,7 +110,7 @@ Doesn't work on other aliens/AI.*/
 	made_structure_type = /obj/structure/alien/weeds/node
 
 /datum/action/cooldown/alien/make_structure/plant_weeds/Activate(atom/target)
-	owner.visible_message("<span class='alertalien'>[owner] откладывает смоляную колонию!</span>")
+	owner.visible_message(span_alertalien("[owner] откладывает смоляную колонию!"))
 	return ..()
 
 /datum/action/cooldown/alien/whisper
@@ -125,7 +125,7 @@ Doesn't work on other aliens/AI.*/
 		possible_recipients += recipient
 
 	if(!length(possible_recipients))
-		to_chat(owner, "<span class='noticealien'>Не с кем связываться.</span>")
+		to_chat(owner, span_noticealien("Не с кем связываться."))
 		return FALSE
 
 	var/mob/living/chosen_recipient = tgui_input_list(owner, "ыберите цель для связи", "Псионическая связь", sort_names(possible_recipients))
@@ -136,18 +136,18 @@ Doesn't work on other aliens/AI.*/
 	if(QDELETED(chosen_recipient) || QDELETED(src) || QDELETED(owner) || !IsAvailable() || !to_whisper)
 		return FALSE
 	if(chosen_recipient.can_block_magic(MAGIC_RESISTANCE_MIND, charge_cost = 0))
-		to_chat(owner, "<span class='warning'>Пытаюсь настроиться на волну чужих мыслей, однако передо моим ментальным взором встает непреодолимая стена из фольги. Я не смогу ее преодолеть...</span>")
+		to_chat(owner, span_warning("Пытаюсь настроиться на волну чужих мыслей, однако передо моим ментальным взором встает непреодолимая стена из фольги. Я не смогу ее преодолеть..."))
 		return FALSE
 
 	log_directed_talk(owner, chosen_recipient, to_whisper, LOG_SAY, tag = "alien whisper")
-	to_chat(chosen_recipient, "["<span class='noticealien'>Слышу странный, чужеродный голос в своей голове...</span>"][to_whisper]")
-	to_chat(owner, "<span class='noticealien'>Сообщаю: \"[to_whisper]\" -> [chosen_recipient]</span>")
+	to_chat(chosen_recipient, "[span_noticealien("Слышу странный, чужеродный голос в своей голове...")][to_whisper]")
+	to_chat(owner, span_noticealien("Сообщаю: \"[to_whisper]\" -> [chosen_recipient]"))
 	for(var/mob/dead_mob as anything in GLOB.dead_mob_list)
 		if(!isobserver(dead_mob))
 			continue
 		var/follow_link_user = FOLLOW_LINK(dead_mob, owner)
 		var/follow_link_whispee = FOLLOW_LINK(dead_mob, chosen_recipient)
-		to_chat(dead_mob, "[follow_link_user] ["<span class='name'>[owner]</span>"] ["<span class='alertalien'>Псионическая связь --> </span>"] [follow_link_whispee] ["<span class='name'>[chosen_recipient]</span>"] ["<span class='noticealien'>[to_whisper]</span>"]")
+		to_chat(dead_mob, "[follow_link_user] [span_name("[owner]")] [span_alertalien("Псионическая связь --> ")] [follow_link_whispee] [span_name("[chosen_recipient]")] [span_noticealien("[to_whisper]")]")
 
 	return TRUE
 
@@ -166,7 +166,7 @@ Doesn't work on other aliens/AI.*/
 		aliens_around += alien
 
 	if(!length(aliens_around))
-		to_chat(owner, "<span class='noticealien'>Никого нет в округе.</span>")
+		to_chat(owner, span_noticealien("Никого нет в округе."))
 		return FALSE
 
 	var/mob/living/carbon/donation_target = tgui_input_list(owner, "Выберите цель для передачи", "Передача плазмы", sort_names(aliens_around))
@@ -178,14 +178,14 @@ Doesn't work on other aliens/AI.*/
 		return FALSE
 
 	if(get_dist(owner, donation_target) > 1)
-		to_chat(owner, "<span class='noticealien'>[donation_target] находится слишком далеко от меня!</span>")
+		to_chat(owner, span_noticealien("[donation_target] находится слишком далеко от меня!"))
 		return FALSE
 
 	donation_target.adjustPlasma(amount)
 	carbon_owner.adjustPlasma(-amount)
 
-	to_chat(donation_target, "<span class='noticealien'>[owner] передаёт [amount] единиц плазмы.</span>")
-	to_chat(owner, "<span class='noticealien'>Передаю [amount] единиц плазмы [donation_target].</span>")
+	to_chat(donation_target, span_noticealien("[owner] передаёт [amount] единиц плазмы."))
+	to_chat(owner, span_noticealien("Передаю [amount] единиц плазмы [donation_target]."))
 	return TRUE
 
 /datum/action/cooldown/alien/acid
@@ -203,7 +203,7 @@ Doesn't work on other aliens/AI.*/
 	if(!.)
 		return
 
-	to_chat(on_who, "<span class='noticealien'>Подготавливаю кислотную железу. <B>ЛКМ для стрельбы!</B></span>")
+	to_chat(on_who, span_noticealien("Подготавливаю кислотную железу. <B>ЛКМ для стрельбы!</B>"))
 	on_who.update_icons()
 
 /datum/action/cooldown/alien/acid/corrosion/unset_click_ability(mob/on_who, refund_cooldown = TRUE)
@@ -212,7 +212,7 @@ Doesn't work on other aliens/AI.*/
 		return
 
 	if(refund_cooldown)
-		to_chat(on_who, "<span class='noticealien'>Железа опустошена.</span>")
+		to_chat(on_who, span_noticealien("Железа опустошена."))
 	on_who.update_icons()
 
 /datum/action/cooldown/alien/acid/corrosion/PreActivate(atom/target)
@@ -226,12 +226,12 @@ Doesn't work on other aliens/AI.*/
 
 /datum/action/cooldown/alien/acid/corrosion/Activate(atom/target)
 	if(!target.acid_act(200, 1000))
-		to_chat(owner, "<span class='noticealien'>Этот объект слишком стойкий.</span>")
+		to_chat(owner, span_noticealien("Этот объект слишком стойкий."))
 		return FALSE
 
 	owner.visible_message(
-		"<span class='alertalien'>[owner] изрыгает кислотную слизь на [target]. Материал начинает шипеть и плавиться, стекая вниз дымящимися струйками!</span>",
-		"<span class='noticealien'>Изрыгаю кислотную слизь на [target]. Материал начинает шипеть и плавиться, стекая вниз дымящимися струйками!</span>",
+		span_alertalien("[owner] изрыгает кислотную слизь на [target]. Материал начинает шипеть и плавиться, стекая вниз дымящимися струйками!"),
+		span_noticealien("Изрыгаю кислотную слизь на [target]. Материал начинает шипеть и плавиться, стекая вниз дымящимися струйками!"),
 	)
 	return TRUE
 
@@ -249,7 +249,7 @@ Doesn't work on other aliens/AI.*/
 	if(!.)
 		return
 
-	to_chat(on_who, "<span class='notice'>Подготавливаю нейротоксичную железу. <B>ЛКМ для стрельбы!</B></span>")
+	to_chat(on_who, span_notice("Подготавливаю нейротоксичную железу. <B>ЛКМ для стрельбы!</B>"))
 
 	button_icon_state = "alien_neurotoxin_1"
 	UpdateButtons()
@@ -261,7 +261,7 @@ Doesn't work on other aliens/AI.*/
 		return
 
 	if(refund_cooldown)
-		to_chat(on_who, "<span class='notice'>Скрываю нейротоксичную железу во рту.</span>")
+		to_chat(on_who, span_notice("Скрываю нейротоксичную железу во рту."))
 
 	button_icon_state = "alien_neurotoxin_0"
 	UpdateButtons()
@@ -283,8 +283,8 @@ Doesn't work on other aliens/AI.*/
 
 	var/modifiers = params2list(params)
 	caller.visible_message(
-		"<span class='danger'>[caller] плюется нейротоксином!</span>",
-		"<span class='alertalien'>Плююсь нейротоксином.</span>",
+		span_danger("[caller] плюется нейротоксином!"),
+		span_alertalien("Плююсь нейротоксином."),
 	)
 	var/obj/projectile/neurotoxin/neurotoxin = new /obj/projectile/neurotoxin(caller.loc)
 	neurotoxin.preparePixelProjectile(target, caller, modifiers)
@@ -314,7 +314,7 @@ Doesn't work on other aliens/AI.*/
 	for(var/blocker_name in structures)
 		var/obj/structure/blocker_type = structures[blocker_name]
 		if(locate(blocker_type) in owner.loc)
-			to_chat(owner, "<span class='warning'>Это место уже занято!</span>")
+			to_chat(owner, span_warning("Это место уже занято!"))
 			return FALSE
 
 	return TRUE
@@ -329,8 +329,8 @@ Doesn't work on other aliens/AI.*/
 		return FALSE
 
 	owner.visible_message(
-		"<span class='notice'>[owner] выделяет густую фиолетовую субстанцию и начинает придавать ей форму.</span>",
-		"<span class='notice'>Начинаю формировать [choice].</span>",
+		span_notice("[owner] выделяет густую фиолетовую субстанцию и начинает придавать ей форму."),
+		span_notice("Начинаю формировать [choice]."),
 	)
 
 	new choice_path(owner.loc)
@@ -355,12 +355,12 @@ Doesn't work on other aliens/AI.*/
 		// It's safest to go to the initial alpha of the mob.
 		// Otherwise we get permanent invisbility exploits.
 		owner.alpha = initial(owner.alpha)
-		to_chat(owner, "<span class='noticealien'>Выхожу из теней!</span>")
+		to_chat(owner, span_noticealien("Выхожу из теней!"))
 		REMOVE_TRAIT(owner, TRAIT_ALIEN_SNEAK, name)
 
 	else
 		owner.alpha = sneak_alpha
-		to_chat(owner, "<span class='noticealien'>Сливаюсь с тенями...</span>")
+		to_chat(owner, span_noticealien("Сливаюсь с тенями..."))
 		ADD_TRAIT(owner, TRAIT_ALIEN_SNEAK, name)
 
 	return TRUE
@@ -379,14 +379,14 @@ Doesn't work on other aliens/AI.*/
 	var/mob/living/carbon/alien/humanoid/alieninated_owner = owner
 	var/obj/item/organ/stomach/alien/melting_pot = alieninated_owner.getorganslot(ORGAN_SLOT_STOMACH)
 	if(!melting_pot)
-		owner.visible_message("<span class='clown'>[src] gags, and spits up a bit of purple liquid. Ewwww.</span>", \
-			"<span class='alien'>You feel a pain in your... chest? There's nothing there there's nothing there no no n-</span>")
+		owner.visible_message(span_clown("[src] gags, and spits up a bit of purple liquid. Ewwww."), \
+			span_alien("You feel a pain in your... chest? There's nothing there there's nothing there no no n-"))
 		return
 
 	if(!length(melting_pot.stomach_contents))
-		to_chat(owner, "<span class='alien'>There's nothing in your stomach, what exactly do you plan on spitting up?</span>")
+		to_chat(owner, span_alien("There's nothing in your stomach, what exactly do you plan on spitting up?"))
 		return
-	owner.visible_message("<span class='danger'>[owner] hurls out the contents of their stomach!</span>")
+	owner.visible_message(span_danger("[owner] hurls out the contents of their stomach!"))
 	var/dir_angle = dir2angle(owner.dir)
 
 	playsound(owner, 'sound/creatures/alien_york.ogg', 100)

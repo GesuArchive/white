@@ -82,7 +82,7 @@
 	if(!patient_insertion_check(target))
 		return
 	to_chat(source, "[icon2html(src, source)]<span class='notice'>Вы начинаете помещать [target] в [src]...</span>")
-	chassis.visible_message("<span class='warning'>[chassis] начинает помещать [target] в <b>[src.name]</b>.</span>")
+	chassis.visible_message(span_warning("[chassis] начинает помещать [target] в <b>[src.name]</b>."))
 	if(!do_after(source, equip_cooldown, target=target))
 		return
 	if(!chassis || !(get_dir(chassis, target) & chassis.dir))
@@ -92,8 +92,8 @@
 	target.forceMove(src)
 	patient = target
 	START_PROCESSING(SSobj, src)
-	to_chat(source, "[icon2html(src, source)]["<span class='notice'>[target] успешно помещен в [src]. Активированы протоколы поддержания жизненных систем.</span>"]")
-	chassis.visible_message("<span class='warning'>[chassis] помещает [target] в [src].</span>")
+	to_chat(source, "[icon2html(src, source)][span_notice("[target] успешно помещен в [src]. Активированы протоколы поддержания жизненных систем.")]")
+	chassis.visible_message(span_warning("[chassis] помещает [target] в [src]."))
 	log_message("[target] загружен в криокапсулу. Активированы протоколы поддержания жизненных систем.", LOG_MECHA)
 	return ..()
 
@@ -237,7 +237,7 @@
 	if(!M)
 		return
 	if(M.loc != src)
-		to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)]["<span class='notice'>[patient] no longer detected. Life support functions diabled.</span>"]")
+		to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)][span_notice("[patient] no longer detected. Life support functions diabled.")]")
 		log_message("[patient] no longer detected - Life support functions disabled.", LOG_MECHA)
 		STOP_PROCESSING(SSobj, src)
 		patient = null
@@ -457,12 +457,12 @@
 		to_chat(user, "[icon2html(src, user)]<span class='warning'>[capitalize(src.name)] магазин полон!</span>")
 		return FALSE
 	if(!chassis.Adjacent(S))
-		to_chat(user, "[icon2html(src, user)]["<span class='warning'>Не удалось загрузить шприц!</span>"]")
+		to_chat(user, "[icon2html(src, user)][span_warning("Не удалось загрузить шприц!")]")
 		return FALSE
 	S.reagents.trans_to(src, S.reagents.total_volume, transfered_by = user)
 	S.forceMove(src)
 	LAZYADD(syringes,S)
-	to_chat(user, "[icon2html(src, user)]["<span class='notice'>Шприц заряжен.</span>"]")
+	to_chat(user, "[icon2html(src, user)][span_notice("Шприц заряжен.")]")
 	return TRUE
 
 /obj/item/mecha_parts/mecha_equipment/medical/syringe_gun/proc/analyze_reagents(atom/A, mob/user)

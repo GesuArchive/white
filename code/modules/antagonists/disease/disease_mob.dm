@@ -87,7 +87,7 @@ the new instance inside the host to be updated to the template's stats.
 	if(!. || !client)
 		return FALSE
 	if(freemove)
-		to_chat(src, "<span class='warning'>У вас есть [DisplayTimeText(freemove_end - world.time)] для выбора нулевого пациента. Нажмите на человека, чтобы заразить его.</span>")
+		to_chat(src, span_warning("У вас есть [DisplayTimeText(freemove_end - world.time)] для выбора нулевого пациента. Нажмите на человека, чтобы заразить его."))
 
 
 /mob/camera/disease/get_status_tab_items()
@@ -108,7 +108,7 @@ the new instance inside the host to be updated to the template's stats.
 		. += {"<hr><span class='notice'>[capitalize(src.name)] имеет [points]/[total_points] очков адаптации.</span>\n
 		<span class='notice'>[capitalize(src.name)] и мутации:</span>"}
 		for(var/datum/disease_ability/ability in purchased_abilities)
-			. += "<span class='notice'>\n[ability.name]</span>"
+			. += span_notice("\n[ability.name]")
 
 /mob/camera/disease/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
 	return
@@ -164,7 +164,7 @@ the new instance inside the host to be updated to the template's stats.
 			set_name = "Разумный Вирус"
 			break
 		if(taken_names[input])
-			to_chat(src, "<span class='warning'>Вы не можете использовать название такой известной болезни!</span>")
+			to_chat(src, span_warning("Вы не можете использовать название такой известной болезни!"))
 		else
 			set_name = input
 	real_name = "[set_name] (Разумная Болезнь)"
@@ -242,7 +242,7 @@ the new instance inside the host to be updated to the template's stats.
 	var/datum/atom_hud/my_hud = GLOB.huds[DATA_HUD_SENTIENT_DISEASE]
 	my_hud.add_atom_to_hud(V.affected_mob)
 
-	to_chat(src, "<span class='notice'>Новый носитель, <b>[V.affected_mob.real_name]</b>, был заражён.</span>")
+	to_chat(src, span_notice("Новый носитель, <b>[V.affected_mob.real_name]</b>, был заражён."))
 
 	if(!following_host)
 		set_following(V.affected_mob)
@@ -253,7 +253,7 @@ the new instance inside the host to be updated to the template's stats.
 		disease_instances -= V
 		hosts -= V.affected_mob
 	else
-		to_chat(src, "<span class='notice'>Один из моих носителей, <b>[V.affected_mob.real_name]</b>, больше не заражён.</span>")
+		to_chat(src, span_notice("Один из моих носителей, <b>[V.affected_mob.real_name]</b>, больше не заражён."))
 
 		var/datum/atom_hud/my_hud = GLOB.huds[DATA_HUD_SENTIENT_DISEASE]
 		my_hud.remove_atom_from_hud(V.affected_mob)
@@ -265,7 +265,7 @@ the new instance inside the host to be updated to the template's stats.
 		hosts -= V.affected_mob
 
 		if(!disease_instances.len)
-			to_chat(src, "<span class='userdanger'>Все мои носители исцелились от инфекции, это поражение.</span>")
+			to_chat(src, span_userdanger("Все мои носители исцелились от инфекции, это поражение."))
 			set_following(null)
 			qdel(src)
 		refresh_adaptation_menu()
@@ -307,17 +307,17 @@ the new instance inside the host to be updated to the template's stats.
 		if(!freemove)
 			return
 		if(QDELETED(H) || !force_infect(H))
-			to_chat(src, "<span class='warning'>[H ? H.name : "Host"] не может быть инфицирован.</span>")
+			to_chat(src, span_warning("[H ? H.name : "Host"] не может быть инфицирован."))
 	else
 		..()
 
 /mob/camera/disease/proc/adapt_cooldown()
-	to_chat(src, "<span class='notice'>Я недавно уже изменял свою генетическую структуру. Мне нужно время для адаптации [DisplayTimeText(adaptation_cooldown)].</span>")
+	to_chat(src, span_notice("Я недавно уже изменял свою генетическую структуру. Мне нужно время для адаптации [DisplayTimeText(adaptation_cooldown)]."))
 	next_adaptation_time = world.time + adaptation_cooldown
 	addtimer(CALLBACK(src, .proc/notify_adapt_ready), adaptation_cooldown)
 
 /mob/camera/disease/proc/notify_adapt_ready()
-	to_chat(src, "<span class='notice'>Я готов к новой адаптации.</span>")
+	to_chat(src, span_notice("Я готов к новой адаптации."))
 	refresh_adaptation_menu()
 
 /mob/camera/disease/proc/refresh_adaptation_menu()
@@ -354,12 +354,12 @@ the new instance inside the host to be updated to the template's stats.
 				if(A.CanBuy(src))
 					purchase_text = "<a href='byond://?src=[REF(src)];buy_ability=[REF(A)]'>Purchase</a>"
 				else
-					purchase_text = "<span class='linkoff'>Адаптировать</span>"
+					purchase_text = span_linkoff("Адаптировать")
 			else
 				if(A.CanRefund(src))
 					purchase_text = "<a href='byond://?src=[REF(src)];refund_ability=[REF(A)]'>Refund</a>"
 				else
-					purchase_text = "<span class='linkoff'>Деградировать</span>"
+					purchase_text = span_linkoff("Деградировать")
 			dat += "<tr><td>[A.cost]</td><td>[purchase_text]</td><td>[A.required_total_points]</td><td><a href='byond://?src=[REF(src)];examine_ability=[REF(A)]'>[A.name]</a></td><td>[A.category]</td><td>[A.short_desc]</td></tr>"
 
 		dat += "</table><br>Заражайте больше носителей, чтобы получить очки адаптации.<hr><h1>Заражённые</h1>"

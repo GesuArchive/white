@@ -118,7 +118,7 @@
 
 	var/datum/admin_help/current_ticket = target.current_ticket
 	if (!current_ticket)
-		to_chat(admin, "<span class='warning'>[key_name(target)] нет ахелпа, абортинг.</span>")
+		to_chat(admin, span_warning("[key_name(target)] нет ахелпа, абортинг."))
 		return
 
 	admin.cmd_admin_pm(target, message)

@@ -81,7 +81,7 @@
 
 	travel_distance = 0
 
-	bumped_atom.visible_message("<span class='userdanger'>[src] crashes into the field violently!</span>")
+	bumped_atom.visible_message(span_userdanger("[src] crashes into the field violently!"))
 	for(var/obj/structure/industrial_lift/tram/tram_part as anything in lift_platforms)
 		tram_part.set_travelling(FALSE)
 		if(prob(15) || locate(/mob/living) in tram_part.lift_load) //always go boom on people on the track

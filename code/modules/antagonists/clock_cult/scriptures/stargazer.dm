@@ -62,7 +62,7 @@
 	clockwork_desc = "Небольшой пьедестал, светящийся божественной энергией. Используется для придания предметам особых способностей."
 	default_icon_state = "stargazer"
 	anchored = TRUE
-	break_message = "<span class='warning'>The stargazer collapses.</span>"
+	break_message = span_warning("The stargazer collapses.")
 	var/cooldowntime = 0
 	var/mobs_in_range = FALSE
 	var/fading = FALSE

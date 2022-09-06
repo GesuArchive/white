@@ -25,11 +25,11 @@
 	if(!inspiration_available)
 		return
 	if(morale_time > world.time)
-		to_chat(user, "<span class='warning'>Я недостаточно вдохновлён, чтобы снова размахивать [src].</span>")
-		to_chat(user, "<span class='warning'>You aren't feeling inspired enough to flourish [src] again yet.</span>")
+		to_chat(user, span_warning("Я недостаточно вдохновлён, чтобы снова размахивать [src]."))
+		to_chat(user, span_warning("You aren't feeling inspired enough to flourish [src] again yet."))
 		return
 	user.visible_message("<span class='big notice'>[user] размахивает [src]!</span>", \
-	"<span class='notice'>Я поднимаю [src] ввысь, вдохновляя союзников!</span>")
+	span_notice("Я поднимаю [src] ввысь, вдохновляя союзников!"))
 	playsound(src, "rustle", 100, FALSE)
 	if(warcry)
 		user.say("[warcry]", forced="banner")
@@ -56,7 +56,7 @@
 	for(var/V in inspired)
 		var/mob/living/carbon/human/H = V
 		if(H != user)
-			to_chat(H, "<span class='notice'>Я становлюсь более уверенным по мере того, как [user] размахивает [user.ru_ego()] [name]!</span>")
+			to_chat(H, span_notice("Я становлюсь более уверенным по мере того, как [user] размахивает [user.ru_ego()] [name]!"))
 		inspiration(H)
 		special_inspiration(H)
 
@@ -328,7 +328,7 @@
 	if(staffcooldown + staffwait > world.time)
 		return
 
-	user.visible_message("<span class='notice'>[user] напевает и размахивает [user.ru_ego()] посохом!</span>")
+	user.visible_message(span_notice("[user] напевает и размахивает [user.ru_ego()] посохом!"))
 	if(do_after(user, 2 SECONDS, src))
 		target.add_atom_colour(conversion_color, WASHABLE_COLOUR_PRIORITY) //wololo
 	staffcooldown = world.time

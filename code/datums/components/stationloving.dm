@@ -43,7 +43,7 @@
 	var/atom/movable/movable_parent = parent
 	playsound(movable_parent, 'sound/machines/synth_no.ogg', 5, TRUE)
 	movable_parent.forceMove(target_turf)
-	to_chat(get(parent, /mob), "<span class='danger'>You can't help but feel that you just lost something back there...</span>")
+	to_chat(get(parent, /mob), span_danger("You can't help but feel that you just lost something back there..."))
 
 	return target_turf
 

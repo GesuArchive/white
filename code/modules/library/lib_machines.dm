@@ -333,15 +333,15 @@
 
 /obj/machinery/computer/bookmanagement/proc/print_forbidden_lore(mob/user)
 	new /obj/item/melee/cultblade/dagger(get_turf(src))
-	to_chat(user, "<span class='warning'>Ваш рассудок едва выдерживает секунды, проведенные в окне просмотра хранилища. Единственное, что напоминает вам об этом, когда вы прекращаете просмотр, - это зловещий кинжал, лежащий на столе. Вы даже не помните, откуда он взялся...</span>")
-	user.visible_message("<span class='warning'>[user] на несколько мгновений смотрит на пустой экран, [user.ru_ego()] выражение лица застыло от страха.</span>" , 2)
+	to_chat(user, span_warning("Ваш рассудок едва выдерживает секунды, проведенные в окне просмотра хранилища. Единственное, что напоминает вам об этом, когда вы прекращаете просмотр, - это зловещий кинжал, лежащий на столе. Вы даже не помните, откуда он взялся..."))
+	user.visible_message(span_warning("[user] на несколько мгновений смотрит на пустой экран, [user.ru_ego()] выражение лица застыло от страха.") , 2)
 
 /obj/machinery/computer/bookmanagement/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/barcodescanner))
 		var/obj/item/barcodescanner/scanner = W
 		scanner.computer = src
-		to_chat(user, "<span class='notice'>[scanner] связанная машина была установлена на [src].</span>")
-		audible_message("<span class='hear'>[capitalize(src.name)] издает низкий, короткий сигнал.</span>")
+		to_chat(user, span_notice("[scanner] связанная машина была установлена на [src]."))
+		audible_message(span_hear("[capitalize(src.name)] издает низкий, короткий сигнал."))
 	else
 		return ..()
 
@@ -485,7 +485,7 @@
 					B.author = author
 					B.dat = content
 					B.icon_state = "book[rand(1,8)]"
-					visible_message("<span class='notice'>[capitalize(src.name)] принтер гудит, выпуская полностью переплетенную книгу. Как он это сделал?</span>")
+					visible_message(span_notice("[capitalize(src.name)] принтер гудит, выпуская полностью переплетенную книгу. Как он это сделал?"))
 				break
 			qdel(query_library_print)
 	if(href_list["printbible"])
@@ -588,18 +588,18 @@
 	if(machine_stat)
 		return
 	if(busy)
-		to_chat(user, "<span class='warning'>Переплетчик занят. Пожалуйста, подождите завершения предыдущей операции.</span>")
+		to_chat(user, span_warning("Переплетчик занят. Пожалуйста, подождите завершения предыдущей операции."))
 		return
 	if(!user.transferItemToLoc(P, src))
 		return
-	user.visible_message("<span class='notice'>[user] загружает немного бумаги в [src].</span>" , "<span class='notice'>Загружаю немного бумаги в [src].</span>")
-	audible_message("<span class='hear'>[capitalize(src.name)] начинает шуметь, разогревая свои печатные барабаны.</span>")
+	user.visible_message(span_notice("[user] загружает немного бумаги в [src].") , span_notice("Загружаю немного бумаги в [src]."))
+	audible_message(span_hear("[capitalize(src.name)] начинает шуметь, разогревая свои печатные барабаны."))
 	busy = TRUE
 	sleep(rand(200,400))
 	busy = FALSE
 	if(P)
 		if(!machine_stat)
-			visible_message("<span class='notice'>[capitalize(src.name)] жужжит, печатая и создавая новую книгу.</span>")
+			visible_message(span_notice("[capitalize(src.name)] жужжит, печатая и создавая новую книгу."))
 			var/obj/item/book/B = new(src.loc)
 			B.dat = P.info
 			B.name = "Работа #" + "[rand(100, 999)]"

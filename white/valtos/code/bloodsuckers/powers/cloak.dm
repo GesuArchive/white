@@ -22,7 +22,7 @@
 	if(!.)
 		return FALSE
 	for(var/mob/living/watchers in viewers(9, owner) - owner)
-		to_chat(owner, "<span class='warning'>You can only vanish unseen.</span>")
+		to_chat(owner, span_warning("You can only vanish unseen."))
 		return FALSE
 	return TRUE
 
@@ -34,7 +34,7 @@
 		if(was_running)
 			user.toggle_move_intent()
 	user.AddElement(/datum/element/digitalcamo)
-	to_chat(user, "<span class='notice'>You put your Cloak of Darkness on.</span>")
+	to_chat(user, span_notice("You put your Cloak of Darkness on."))
 
 /datum/action/bloodsucker/cloak/UsePower(mob/living/user)
 	// Checks that we can keep using this.
@@ -45,7 +45,7 @@
 	// Prevents running while on Cloak of Darkness
 	if(runbound)
 		if(user.m_intent != MOVE_INTENT_WALK)
-			to_chat(owner, "<span class='warning'>You attempt to run, crushing yourself.</span>")
+			to_chat(owner, span_warning("You attempt to run, crushing yourself."))
 			user.toggle_move_intent()
 			user.adjustBruteLoss(rand(5,15))
 
@@ -55,7 +55,7 @@
 		return FALSE
 	/// Must be CONSCIOUS
 	if(user.stat != CONSCIOUS)
-		to_chat(owner, "<span class='warning'>Your Cloak of Darkness fell off due to you falling unconcious!</span>")
+		to_chat(owner, span_warning("Your Cloak of Darkness fell off due to you falling unconcious!"))
 		return FALSE
 	return TRUE
 
@@ -67,7 +67,7 @@
 	if(runbound)
 		if(was_running && user.m_intent == MOVE_INTENT_WALK)
 			user.toggle_move_intent()
-	to_chat(user, "<span class='notice'>You take your Cloak of Darkness off.</span>")
+	to_chat(user, span_notice("You take your Cloak of Darkness off."))
 
 /datum/action/bloodsucker/cloak/shadow
 	name = "Cloak of Shadows"
@@ -102,7 +102,7 @@
 	if(light_amount > 0.2)
 		qdel(src)
 		STOP_PROCESSING(SSobj, src)
-		src.visible_message("<span class='warning'>The cape desintegrates as the light contacts it's surface!</span>")
+		src.visible_message(span_warning("The cape desintegrates as the light contacts it's surface!"))
 
 /datum/action/bloodsucker/cloak/shadow/ActivatePower()
 	. = ..()

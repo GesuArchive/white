@@ -115,7 +115,7 @@
 
 /datum/spellbook_entry/item/wands/try_equip_item(mob/living/carbon/human/user, obj/item/to_equip)
 	var/was_equipped = user.equip_to_slot_if_possible(to_equip, ITEM_SLOT_BELT, disable_warning = TRUE)
-	to_chat(user, "<span class='notice'>[to_equip.name] был вызван [was_equipped ? "в моих руках" : "у моих ног"].</span>")
+	to_chat(user, span_notice("[to_equip.name] был вызван [was_equipped ? "в моих руках" : "у моих ног"]."))
 
 /datum/spellbook_entry/item/armor
 	name = "Комплект Доспехов Боевого Мага"

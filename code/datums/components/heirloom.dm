@@ -15,10 +15,10 @@
 	SIGNAL_HANDLER
 
 	if(user.mind == owner)
-		examine_list += "<span class='notice'>\nА это моя семейная реликвия. Главное - не потерять!</span>"
+		examine_list += span_notice("\nА это моя семейная реликвия. Главное - не потерять!")
 	else if(isobserver(user))
-		examine_list += "<span class='notice'>\nЭто реликвия семьи [family_name], принадлежащая [skloname(owner.current.name, DATELNI, owner.current.gender)].</span>"
+		examine_list += span_notice("\nЭто реликвия семьи [family_name], принадлежащая [skloname(owner.current.name, DATELNI, owner.current.gender)].")
 	else
 		var/datum/antagonist/obsessed/creeper = user.mind.has_antag_datum(/datum/antagonist/obsessed)
 		if(creeper && creeper.trauma.obsession == owner)
-			examine_list += "<span class='nicegreen'>\nПохоже, это семейная реликвия [owner][owner.ru_a()]! Пахнет удивительно похоже...</span>"
+			examine_list += span_nicegreen("\nПохоже, это семейная реликвия [owner][owner.ru_a()]! Пахнет удивительно похоже...")

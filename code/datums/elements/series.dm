@@ -31,5 +31,5 @@
 	SIGNAL_HANDLER
 
 	var/series_number = subtype_list.Find(target.type)
-	examine_list += "<span class='boldnotice'>\n[target] is part of the \"[series_name]\" series!</span>"
-	examine_list += "<span class='notice'>\nCollect them all: [series_number]/[length(subtype_list)].</span>"
+	examine_list += span_boldnotice("\n[target] is part of the \"[series_name]\" series!")
+	examine_list += span_notice("\nCollect them all: [series_number]/[length(subtype_list)].")

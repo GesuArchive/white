@@ -24,7 +24,7 @@
 	SIGNAL_HANDLER
 	if(is_traitor(user))
 		examine_list += "<hr>"
-		examine_list += "<span class='rose'>[desc]</span>"
+		examine_list += span_rose(desc)
 
 /datum/element/traitor_desc/proc/on_secondary(obj/target, mob/user, list/modifiers)
 	SIGNAL_HANDLER
@@ -38,7 +38,7 @@
 	switch(sabotage_target)
 		if(SABOTAGE_ENGINE)
 			if(GLOB.is_engine_sabotaged)
-				to_chat(user, "<span class='rose'>Кто-то уже саботировал двигатель до этого. Лишнее внимание нам не нужно.</span>")
+				to_chat(user, span_rose("Кто-то уже саботировал двигатель до этого. Лишнее внимание нам не нужно."))
 				return COMPONENT_CANCEL_ATTACK_CHAIN
 
 			GLOB.is_engine_sabotaged = TRUE
@@ -49,7 +49,7 @@
 
 		if(SABOTAGE_CARGO)
 			if(GLOB.is_cargo_sabotaged)
-				to_chat(user, "<span class='rose'>Кто-то уже саботировал снабжение до этого.</span>")
+				to_chat(user, span_rose("Кто-то уже саботировал снабжение до этого."))
 				return COMPONENT_CANCEL_ATTACK_CHAIN
 
 			GLOB.is_cargo_sabotaged = TRUE
@@ -58,7 +58,7 @@
 
 		if(SABOTAGE_RESEARCH)
 			if(GLOB.is_research_sabotaged)
-				to_chat(user, "<span class='rose'>Кто-то уже саботировал научный отдел до этого.</span>")
+				to_chat(user, span_rose("Кто-то уже саботировал научный отдел до этого."))
 				return COMPONENT_CANCEL_ATTACK_CHAIN
 
 			GLOB.is_research_sabotaged = TRUE
@@ -68,8 +68,8 @@
 			for(var/obj/machinery/rnd/server/S in SSresearch.servers)
 				S.current_temp = pick(228, 666)
 
-	user.visible_message("<span class='danger'>[user] ковыряется в [target].</span>" ,\
-		"<span class='rose'>[action_message]</span>")
+	user.visible_message(span_danger("[user] ковыряется в [target].") ,\
+		span_rose(action_message))
 
 	var/datum/component/uplink/U = user.mind.find_syndicate_uplink()
 	if(U)

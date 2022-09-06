@@ -21,7 +21,7 @@
 			playsound(src, 'sound/items/welder.ogg', 50, TRUE)
 		else
 			return 0
-	mecha_attacker.visible_message("<span class='danger'>[mecha_attacker] бьёт [src]!</span>", "<span class='danger'>Бью [src]!</span>", null, COMBAT_MESSAGE_RANGE)
+	mecha_attacker.visible_message(span_danger("[mecha_attacker] бьёт [src]!"), span_danger("Бью [src]!"), null, COMBAT_MESSAGE_RANGE)
 	if(prob(hardness + mecha_attacker.force) && mecha_attacker.force > 20)
 		dismantle_wall(1)
 		playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)
@@ -39,7 +39,7 @@
 			playsound(src, 'sound/items/welder.ogg', 50, TRUE)
 		else
 			return 0
-	mecha_attacker.visible_message("<span class='danger'>[mecha_attacker.name] бьёт [src]!</span>", "<span class='danger'>Бью [src]!</span>", null, COMBAT_MESSAGE_RANGE)
+	mecha_attacker.visible_message(span_danger("[mecha_attacker.name] бьёт [src]!"), span_danger("Бью [src]!"), null, COMBAT_MESSAGE_RANGE)
 	..()
 	return take_damage(mecha_attacker.force * 3, mecha_attacker.damtype, "melee", FALSE, get_dir(src, mecha_attacker)) // multiplied by 3 so we can hit objs hard but not be overpowered against mobs.
 
@@ -52,12 +52,12 @@
 	if(!user.a_intent == INTENT_HARM)
 		step_away(src, mecha_attacker)
 		log_combat(user, src, "pushed", mecha_attacker)
-		visible_message("<span class='warning'>[mecha_attacker] толкает [src].</span>", \
-						"<span class='warning'>[mecha_attacker] толкает меня.</span>", "<span class='hear'>Слышу агрессивную потасовку!</span>", 5, list(mecha_attacker))
-		to_chat(mecha_attacker, "<span class='danger'>Толкаю [src].</span>")
+		visible_message(span_warning("[mecha_attacker] толкает [src]."), \
+						span_warning("[mecha_attacker] толкает меня."), span_hear("Слышу агрессивную потасовку!"), 5, list(mecha_attacker))
+		to_chat(mecha_attacker, span_danger("Толкаю [src]."))
 		return 0
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, "<span class='warning'>Не хочу вредить живым существам!</span>")
+		to_chat(user, span_warning("Не хочу вредить живым существам!"))
 		return
 	mecha_attacker.do_attack_animation(src)
 	if(mecha_attacker.damtype == BRUTE)
@@ -85,8 +85,8 @@
 			else
 				return 0
 		. = dmg
-	visible_message("<span class='danger'>[mecha_attacker.name] лупит [src]!</span>" , \
-					"<span class='userdanger'>[mecha_attacker.name] лупит меня!</span>" , "<span class='hear'>Слышу звук разрывающейся плоти!</span>" , COMBAT_MESSAGE_RANGE, list(mecha_attacker))
-	to_chat(mecha_attacker, "<span class='danger'>Луплю [src]!</span>")
+	visible_message(span_danger("[mecha_attacker.name] лупит [src]!") , \
+					span_userdanger("[mecha_attacker.name] лупит меня!") , span_hear("Слышу звук разрывающейся плоти!") , COMBAT_MESSAGE_RANGE, list(mecha_attacker))
+	to_chat(mecha_attacker, span_danger("Луплю [src]!"))
 	log_combat(user, src, "attacked", mecha_attacker, "(INTENT: [uppertext(user.a_intent)]) (DAMTYPE: [uppertext(mecha_attacker.damtype)])")
 	return ..()

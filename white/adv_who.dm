@@ -143,7 +143,7 @@
 				continue //Don't show afk admins to adminwho
 			if(!C.holder.fakekey)
 				msg += "\t[C] - [C.holder.rank]\n"
-		msg += "<span class='info'>Ахелпы также отправляются в Discord, если нет педалей онлайн.\n</span>"
+		msg += span_info("Ахелпы также отправляются в Discord, если нет педалей онлайн.\n")
 
 	msg += "<b>Знатоки:</b>\n"
 	for(var/X in GLOB.mentors)

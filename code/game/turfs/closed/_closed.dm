@@ -48,7 +48,7 @@
 	add_fingerprint(user)
 	if(isopenspace(turf_one))
 		if(locate(/obj/structure/lattice) in turf_one)
-			to_chat(user, "<span class='notice'>Решётка над головой не даёт пройти</span>")
+			to_chat(user, span_notice("Решётка над головой не даёт пройти"))
 			return
 		if(do_after(user, 3 SECONDS, target = src))
 			if(isopenturf(turf_two))
@@ -64,11 +64,11 @@
 							var/mob/living/carbon/human/H = user
 							H.adjustStaminaLoss(60)
 							H.set_resting(TRUE)
-					to_chat(user, "<span class='notice'>Взбираюсь по стене наверх...</span>")
+					to_chat(user, span_notice("Взбираюсь по стене наверх..."))
 					return
 			user.movement_type |= FLYING
 			user.forceMove(turf_one)
-			to_chat(user, "<span class='notice'>Взбираюсь по стене наверх осторожно...</span>")
+			to_chat(user, span_notice("Взбираюсь по стене наверх осторожно..."))
 			var/time_to_fall = 1 SECONDS
 			if(!HAS_TRAIT(user, TRAIT_FREERUNNING))
 				if(ishuman(user))
@@ -84,7 +84,7 @@
 						return
 					feetson.zFall(user)
 	else
-		to_chat(user, "<span class='notice'>Толкаю стену, но ничего не происходит!</span>")
+		to_chat(user, span_notice("Толкаю стену, но ничего не происходит!"))
 
 /turf/closed/indestructible/oldshuttle
 	name = "странная челночная стена"

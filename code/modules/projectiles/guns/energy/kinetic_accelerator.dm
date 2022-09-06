@@ -41,18 +41,18 @@
 		. += "\n<span class='info'>Можно использовать <b>ломик</b> для изъятия модификаций.</span><hr>"
 		for(var/A in modkits)
 			var/obj/item/borg/upgrade/modkit/M = A
-			. += "<span class='notice'>\nЗдесь установлен [M.name]. Использует <b>[M.cost]%</b> мощности.</span>"
+			. += span_notice("\nЗдесь установлен [M.name]. Использует <b>[M.cost]%</b> мощности.")
 
 /obj/item/gun/energy/kinetic_accelerator/crowbar_act(mob/living/user, obj/item/I)
 	. = TRUE
 	if(modkits.len)
-		to_chat(user, "<span class='notice'>Вытаскиваю все модификации.</span>")
+		to_chat(user, span_notice("Вытаскиваю все модификации."))
 		I.play_tool_sound(src, 100)
 		for(var/a in modkits)
 			var/obj/item/borg/upgrade/modkit/M = a
 			M.forceMove(drop_location()) //uninstallation handled in Exited(), or /mob/living/silicon/robot/remove_from_upgrades() for borgs
 	else
-		to_chat(user, "<span class='notice'>Внутри нет модификаций.</span>")
+		to_chat(user, span_notice("Внутри нет модификаций."))
 
 /obj/item/gun/energy/kinetic_accelerator/Exited(atom/A)
 	if(modkits.len && (A in modkits))
@@ -153,7 +153,7 @@
 	if(!suppressed)
 		playsound(src.loc, 'sound/weapons/kenetic_reload.ogg', 60, TRUE)
 	else
-		to_chat(loc, "<span class='warning'>[capitalize(src.name)] тихо перезаряжается.</span>")
+		to_chat(loc, span_warning("[capitalize(src.name)] тихо перезаряжается."))
 	update_icon()
 	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)
 	overheat = FALSE
@@ -293,10 +293,10 @@
 	. = TRUE
 	if(minebot_upgrade)
 		if(minebot_exclusive && !istype(KA.loc, /mob/living/simple_animal/hostile/mining_drone))
-			to_chat(user, "<span class='notice'>Модкит, который я пытаюсь установить, рассчитан только на использование для шахтёрского робота.</span>")
+			to_chat(user, span_notice("Модкит, который я пытаюсь установить, рассчитан только на использование для шахтёрского робота."))
 			return FALSE
 	else if(istype(KA.loc, /mob/living/simple_animal/hostile/mining_drone))
-		to_chat(user, "<span class='notice'>Модкит, который я пытаюсь установить, не рассчитан на использование для шахтёрского робота.</span>")
+		to_chat(user, span_notice("Модкит, который я пытаюсь установить, не рассчитан на использование для шахтёрского робота."))
 		return FALSE
 	if(denied_type)
 		var/number_of_denied = 0
@@ -311,13 +311,13 @@
 		if(.)
 			if(transfer_to_loc && !user.transferItemToLoc(src, KA))
 				return
-			to_chat(user, "<span class='notice'>Устанавливаю модификацию.</span>")
+			to_chat(user, span_notice("Устанавливаю модификацию."))
 			playsound(loc, 'sound/items/screwdriver.ogg', 100, TRUE)
 			KA.modkits += src
 		else
-			to_chat(user, "<span class='notice'>Модкит, который я пытаюсь установить, будет конфликтовать с уже установленным модкитом. Стоит использовать лом для удаления существующих модкитов.</span>")
+			to_chat(user, span_notice("Модкит, который я пытаюсь установить, будет конфликтовать с уже установленным модкитом. Стоит использовать лом для удаления существующих модкитов."))
 	else
-		to_chat(user, "<span class='notice'>Здесь недостаточно места. <b>[KA.get_remaining_mod_capacity()]%</b> осталось, [cost]% требуется для установки модификации. Стоит использовать лом для удаления существующих модкитов.</span>")
+		to_chat(user, span_notice("Здесь недостаточно места. <b>[KA.get_remaining_mod_capacity()]%</b> осталось, [cost]% требуется для установки модификации. Стоит использовать лом для удаления существующих модкитов."))
 		. = FALSE
 
 /obj/item/borg/upgrade/modkit/deactivate(mob/living/silicon/robot/R, user = usr)
@@ -438,7 +438,7 @@
 			if(K.pressure_decrease_active)
 				effective_modifier *= K.pressure_decrease
 			L.apply_damage(K.damage*effective_modifier, K.damage_type, K.def_zone, armor)
-			to_chat(L, "<span class='userdanger'>В меня попадает [K.name]!</span>")
+			to_chat(L, span_userdanger("В меня попадает [K.name]!"))
 
 /obj/item/borg/upgrade/modkit/aoe/turfs
 	name = "горный взрыв"

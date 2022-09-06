@@ -4,11 +4,11 @@ GLOBAL_VAR_INIT(isGatewayLoaded, FALSE)
 
 /proc/createRandomZlevel()
 	if(GLOB.potentialRandomZlevels && GLOB.potentialRandomZlevels.len)
-		to_chat(world, "<span class='boldannounce'>Загружаем дальнюю миссию...</span>")
+		to_chat(world, span_boldannounce("Загружаем дальнюю миссию..."))
 		var/map = pick(GLOB.potentialRandomZlevels)
 		var/lev = load_new_z_level(map, "Away Mission")
 		SSmapping.run_map_generation_in_z(lev)
-		message_admins("<span class='boldannounce'>Дальняя миссия загружена на уровне: [lev].</span>")
+		message_admins(span_boldannounce("Дальняя миссия загружена на уровне: [lev]."))
 
 /obj/effect/landmark/awaystart
 	name = "away mission spawn"

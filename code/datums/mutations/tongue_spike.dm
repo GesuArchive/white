@@ -2,7 +2,7 @@
 	name = "Языковой шип"
 	desc = "Позволяет произвести мгновенную коварную атаку, выстрелив в оппонента скрывающимся в вашем рту острым шипом."
 	quality = POSITIVE
-	text_gain_indication = "<span class='notice'>Чувствую себя весьма острым на язык.</span>"
+	text_gain_indication = span_notice("Чувствую себя весьма острым на язык.")
 	instability = 15
 	power_path = /datum/action/cooldown/spell/tongue_spike
 
@@ -27,12 +27,12 @@
 /datum/action/cooldown/spell/tongue_spike/cast(mob/living/carbon/cast_on)
 	. = ..()
 	if(HAS_TRAIT(cast_on, TRAIT_NODISMEMBER))
-		to_chat(cast_on, "<span class='notice'>Концентрируюсь, но ничего не выходит.</span>")
+		to_chat(cast_on, span_notice("Концентрируюсь, но ничего не выходит."))
 		return
 
 	var/obj/item/organ/tongue/to_fire = locate() in cast_on.internal_organs
 	if(!to_fire)
-		to_chat(cast_on, "<span class='notice'>Языка нет!</span>")
+		to_chat(cast_on, span_notice("Языка нет!"))
 		return
 
 	to_fire.Remove(cast_on, special = TRUE)
@@ -75,7 +75,7 @@
 		missed = FALSE
 
 /obj/item/hardened_spike/unembedded()
-	visible_message("<span class='warning'>[capitalize(src.name)] трескается и ломается, превращаясь в обычный кусок плоти!</span>")
+	visible_message(span_warning("[capitalize(src.name)] трескается и ломается, превращаясь в обычный кусок плоти!"))
 	for(var/obj/tongue as anything in contents)
 		tongue.forceMove(get_turf(src))
 
@@ -85,7 +85,7 @@
 	name = "Химический шип"
 	desc = "Позволяет выстрелить в оппонента собственным языком, после чего перенести все химические препараты из вашей крови в цель."
 	quality = POSITIVE
-	text_gain_indication = "<span class='notice'>Чувствую себя очень токсичным на язык.</span>"
+	text_gain_indication = span_notice("Чувствую себя очень токсичным на язык.")
 	instability = 15
 	locked = TRUE
 	power_path = /datum/action/cooldown/spell/tongue_spike/chem
@@ -127,12 +127,12 @@
 	chem_action.transfered_ref = WEAKREF(embedded_mob)
 	chem_action.Grant(fired_by)
 
-	to_chat(fired_by, "<span class='notice'>Связь установлена! Используйте \"Передачу химикатов\" для перемещения их из вашей крови в тело жертвы!</span>")
+	to_chat(fired_by, span_notice("Связь установлена! Используйте \"Передачу химикатов\" для перемещения их из вашей крови в тело жертвы!"))
 
 /obj/item/hardened_spike/chem/unembedded()
 	var/mob/living/carbon/fired_by = fired_by_ref?.resolve()
 	if(fired_by)
-		to_chat(fired_by, "<span class='warning'>Связь потеряна!</span>")
+		to_chat(fired_by, span_warning("Связь потеряна!"))
 		var/datum/action/send_chems/chem_action = locate() in fired_by.actions
 		QDEL_NULL(chem_action)
 
@@ -165,7 +165,7 @@
 	if(!ishuman(transfered))
 		return FALSE
 
-	to_chat(transfered, "<span class='warning'>Что-то укололо меня!</span>")
+	to_chat(transfered, span_warning("Что-то укололо меня!"))
 	transferer.reagents.trans_to(transfered, transferer.reagents.total_volume, 1, 1, 0, transfered_by = transferer)
 
 	var/obj/item/hardened_spike/chem/chem_spike = target
@@ -173,5 +173,5 @@
 
 	//this is where it would deal damage, if it transfers chems it removes itself so no damage
 	chem_spike.forceMove(get_turf(spike_location))
-	chem_spike.visible_message("<span class='notice'>[chem_spike] выпал из [spike_location]!</span>")
+	chem_spike.visible_message(span_notice("[chem_spike] выпал из [spike_location]!"))
 	return TRUE

@@ -68,7 +68,7 @@
 	if(!target.getorganslot(ORGAN_SLOT_EYES))
 		return
 
-	to_chat(target, "<span class='danger'>Ослепительно яркий зеленый свет сжигает ваши глаза!</span>")
+	to_chat(target, span_danger("Ослепительно яркий зеленый свет сжигает ваши глаза!"))
 	target.adjustOrganLoss(ORGAN_SLOT_EYES, 15)
 	target.blur_eyes(10)
 

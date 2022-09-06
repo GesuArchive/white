@@ -81,7 +81,7 @@
 	merge_type = /obj/item/stack/package_wrap
 
 /obj/item/stack/package_wrap/suicide_act(mob/living/user)
-	user.visible_message("<span class='suicide'>[user] begins wrapping [user.p_them()]self in \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] begins wrapping [user.p_them()]self in \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	if(use(3))
 		var/obj/item/delivery/big/parcel = new(get_turf(user.loc))
 		parcel.base_icon_state = "deliverypackage5"
@@ -90,7 +90,7 @@
 		parcel.add_fingerprint(user)
 		return OXYLOSS
 	else
-		to_chat(user, "<span class='warning'>Не хватает обёрточной бумаги для суицида! Лох!</span>")
+		to_chat(user, span_warning("Не хватает обёрточной бумаги для суицида! Лох!"))
 		return SHAME
 
 /obj/item/proc/can_be_package_wrapped() //can the item be wrapped with package wrapper into a delivery package
@@ -141,10 +141,10 @@
 	else if(istype(target, /obj/structure/closet))
 		var/obj/structure/closet/closet = target
 		if(closet.opened)
-			balloon_alert(user, "<span class='warning'>Не могу обернуть [target] в открытом состоянии!</span>")
+			balloon_alert(user, span_warning("Не могу обернуть [target] в открытом состоянии!"))
 			return
 		if(!closet.delivery_icon) //no delivery icon means unwrappable closet (e.g. body bags)
-			balloon_alert(user, "<span class='warning'>Невозможно!</span>")
+			balloon_alert(user, span_warning("Невозможно!"))
 			return
 		if(use(3))
 			var/obj/item/delivery/big/parcel = new(get_turf(closet.loc))
@@ -155,13 +155,13 @@
 			parcel.add_fingerprint(user)
 			closet.add_fingerprint(user)
 		else
-			balloon_alert(user, "<span class='warning'>Нужно больше бумаги!</span>")
+			balloon_alert(user, span_warning("Нужно больше бумаги!"))
 			return
 
 	else if(istype(target,  /obj/machinery/portable_atmospherics))
 		var/obj/machinery/portable_atmospherics/portable_atmospherics = target
 		if(portable_atmospherics.anchored)
-			balloon_alert(user, "<span class='warning'>Не могу обернуть [target], пока он прикручен!</span>")
+			balloon_alert(user, span_warning("Не могу обернуть [target], пока он прикручен!"))
 			return
 		if(use(3))
 			var/obj/item/delivery/big/parcel = new(get_turf(portable_atmospherics.loc))
@@ -172,14 +172,14 @@
 			parcel.add_fingerprint(user)
 			portable_atmospherics.add_fingerprint(user)
 		else
-			balloon_alert(user, "<span class='warning'>Нужно больше бумаги!</span>")
+			balloon_alert(user, span_warning("Нужно больше бумаги!"))
 			return
 
 	else
-		balloon_alert(user, "<span class='warning'>Объект не подходит для сортировки!</span>")
+		balloon_alert(user, span_warning("Объект не подходит для сортировки!"))
 		return
 
-	user.visible_message("<span class='notice'>[user] оборачивает [target].</span>")
+	user.visible_message(span_notice("[user] оборачивает [target]."))
 	user.log_message("has used [name] on [key_name(target)]", LOG_ATTACK, color="blue")
 
 /obj/item/stack/package_wrap/use(used, transfer = FALSE, check = TRUE)

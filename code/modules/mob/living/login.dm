@@ -23,7 +23,7 @@
 	//Vents
 	var/ventcrawler = HAS_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS) || HAS_TRAIT(src, TRAIT_VENTCRAWLER_NUDE)
 	if(ventcrawler)
-		to_chat(src, "<span class='notice'>Есть возможность ползать по трубам! Используй alt+клик на вентиляции/вытяжке и попадёшь во внутрь.</span>")
+		to_chat(src, span_notice("Есть возможность ползать по трубам! Используй alt+клик на вентиляции/вытяжке и попадёшь во внутрь."))
 
 	var/datum/antagonist/changeling/changeling = mind.has_antag_datum(/datum/antagonist/changeling)
 	if(changeling)

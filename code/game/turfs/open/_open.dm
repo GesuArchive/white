@@ -217,7 +217,7 @@
 			if(slipper.m_intent == MOVE_INTENT_WALK && (lube&NO_SLIP_WHEN_WALKING))
 				return FALSE
 		if(!(lube&SLIDE_ICE))
-			to_chat(slipper, "<span class='notice'>Слишком скоо-о-ользко[ O ? "! [uppertext(O.name)] ПОПАДАЕТСЯ МНЕ ПОД НОГИ" : ""]!</span>")
+			to_chat(slipper, span_notice("Слишком скоо-о-ользко[ O ? "! [uppertext(O.name)] ПОПАДАЕТСЯ МНЕ ПОД НОГИ" : ""]!"))
 			playsound(slipper.loc, 'sound/misc/slip.ogg', 50, TRUE, -3)
 
 		SEND_SIGNAL(slipper, COMSIG_ON_CARBON_SLIP)

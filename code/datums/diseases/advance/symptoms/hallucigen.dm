@@ -52,19 +52,19 @@ Bonus
 		if(1, 2)
 			if(prob(base_message_chance))
 				if(!fake_healthy)
-					to_chat(M, "<span class='notice'>[pick("Что-то появляется в периферийном зрении, а затем гаснет.", "Кто-то что-то шепчет.", "Голова болит.")]</span>")
+					to_chat(M, span_notice("[pick("Что-то появляется в периферийном зрении, а затем гаснет.", "Кто-то что-то шепчет.", "Голова болит.")]"))
 				else
-					to_chat(M, "<span class='notice'>[pick(healthy_messages)]</span>")
+					to_chat(M, span_notice("[pick(healthy_messages)]"))
 		if(3, 4)
 			if(prob(base_message_chance))
 				if(!fake_healthy)
-					to_chat(M, "<span class='danger'>[pick("Кто-то идёт за мной.", "Кто-то смотрит на меня.", "Кто-то шепчет мне что-то на ухо.", "Кто-то идёт по моим пятам.")]</span>")
+					to_chat(M, span_danger("[pick("Кто-то идёт за мной.", "Кто-то смотрит на меня.", "Кто-то шепчет мне что-то на ухо.", "Кто-то идёт по моим пятам.")]"))
 				else
-					to_chat(M, "<span class='notice'>[pick(healthy_messages)]</span>")
+					to_chat(M, span_notice("[pick(healthy_messages)]"))
 		else
 			if(prob(base_message_chance))
 				if(!fake_healthy)
-					to_chat(M, "<span class='userdanger'>[pick("Ох, голова...", "Моя голова разрывается.", "ОНИ ПОВСЮДУ! Бежим!", "Что-то затаилось в тенях...")]</span>")
+					to_chat(M, span_userdanger("[pick("Ох, голова...", "Моя голова разрывается.", "ОНИ ПОВСЮДУ! Бежим!", "Что-то затаилось в тенях...")]"))
 				else
-					to_chat(M, "<span class='notice'>[pick(healthy_messages)]</span>")
+					to_chat(M, span_notice("[pick(healthy_messages)]"))
 			M.hallucination += (45 * power)

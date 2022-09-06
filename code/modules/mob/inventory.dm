@@ -220,13 +220,13 @@
 		if (merge_stacks)
 			if (istype(active_stack) && active_stack.can_merge(item_stack))
 				if (item_stack.merge(active_stack))
-					to_chat(usr, "<span class='notice'>[capitalize(active_stack.name)] теперь содержит [active_stack.get_amount()] [active_stack.singular_name].</span>")
+					to_chat(usr, span_notice("[capitalize(active_stack.name)] теперь содержит [active_stack.get_amount()] [active_stack.singular_name]."))
 					return TRUE
 			else
 				var/obj/item/stack/inactive_stack = get_inactive_held_item()
 				if (istype(inactive_stack) && inactive_stack.can_merge(item_stack))
 					if (item_stack.merge(inactive_stack))
-						to_chat(usr, "<span class='notice'>[capitalize(active_stack.name)] теперь содержит [inactive_stack.get_amount()] [inactive_stack.singular_name].</span>")
+						to_chat(usr, span_notice("[capitalize(active_stack.name)] теперь содержит [inactive_stack.get_amount()] [inactive_stack.singular_name]."))
 						return TRUE
 
 	if(put_in_active_hand(I, forced))
@@ -400,7 +400,7 @@
 
 /obj/item/proc/equip_to_best_slot(mob/M, check_hand = TRUE)
 	if(check_hand && src != M.get_active_held_item())
-		to_chat(M, "<span class='warning'>В руке ничего нет!</span>")
+		to_chat(M, span_warning("В руке ничего нет!"))
 		return FALSE
 
 	if(M.equip_to_appropriate_slot(src))
@@ -421,7 +421,7 @@
 		if(SEND_SIGNAL(I, COMSIG_TRY_STORAGE_INSERT, src, M))
 			return TRUE
 
-	to_chat(M, "<span class='warning'>Не получается!</span>")
+	to_chat(M, span_warning("Не получается!"))
 	return FALSE
 
 

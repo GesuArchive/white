@@ -257,11 +257,11 @@
 		if(build_path == /obj/machinery/computer/bookmanagement)
 			name = "Library Visitor Console (Консоль)"
 			build_path = /obj/machinery/computer/libraryconsole
-			to_chat(user, "<span class='notice'>Defaulting access protocols.</span>")
+			to_chat(user, span_notice("Defaulting access protocols."))
 		else
 			name = "Book Inventory Management Console (Консоль)"
 			build_path = /obj/machinery/computer/bookmanagement
-			to_chat(user, "<span class='notice'>Access protocols successfully updated.</span>")
+			to_chat(user, span_notice("Access protocols successfully updated."))
 	else
 		return ..()
 
@@ -521,15 +521,15 @@
 	. = ..()
 	if(!(obj_flags & EMAGGED))
 		contraband = !contraband
-		to_chat(user, "<span class='notice'>Receiver spectrum set to [contraband ? "Broad" : "Standard"].</span>")
+		to_chat(user, span_notice("Receiver spectrum set to [contraband ? "Broad" : "Standard"]."))
 	else
-		to_chat(user, "<span class='alert'>The spectrum chip is unresponsive.</span>")
+		to_chat(user, span_alert("The spectrum chip is unresponsive."))
 
 /obj/item/circuitboard/computer/cargo/emag_act(mob/living/user)
 	if(!(obj_flags & EMAGGED))
 		contraband = TRUE
 		obj_flags |= EMAGGED
-		to_chat(user, "<span class='notice'>You adjust [src] routing and receiver spectrum, unlocking special supplies and contraband.</span>")
+		to_chat(user, span_notice("You adjust [src] routing and receiver spectrum, unlocking special supplies and contraband."))
 
 /obj/item/circuitboard/computer/cargo/configure_machine(obj/machinery/computer/cargo/machine)
 	if(!istype(machine))
@@ -550,14 +550,14 @@
 	if(!(obj_flags & EMAGGED))
 		contraband = TRUE
 		obj_flags |= EMAGGED
-		to_chat(user, "<span class='notice'>Изменяю протоколы маршрутизации, позволяя десантной капсуле приземляться в любом месте станции.</span>")
+		to_chat(user, span_notice("Изменяю протоколы маршрутизации, позволяя десантной капсуле приземляться в любом месте станции."))
 
 /obj/item/circuitboard/computer/cargo/express/multitool_act(mob/living/user)
 	if (!(obj_flags & EMAGGED))
 		contraband = !contraband
-		to_chat(user, "<span class='notice'>Диапазон товаров установлен на [contraband ? "Расширенный" : "Стандартный"].</span>")
+		to_chat(user, span_notice("Диапазон товаров установлен на [contraband ? "Расширенный" : "Стандартный"]."))
 	else
-		to_chat(user, "<span class='notice'>Сбрасываю протоколы маршрутизации назначения и спектр приемника до заводских настроек по умолчанию.</span>")
+		to_chat(user, span_notice("Сбрасываю протоколы маршрутизации назначения и спектр приемника до заводских настроек по умолчанию."))
 		contraband = FALSE
 		obj_flags &= ~EMAGGED
 

@@ -50,7 +50,7 @@
 	if(!dug)
 		return TRUE
 	if(user)
-		to_chat(user, "<span class='warning'>Похоже, здесь кто-то уже копал!</span>")
+		to_chat(user, span_warning("Похоже, здесь кто-то уже копал!"))
 
 /turf/open/floor/plating/asteroid/try_replace_tile(obj/item/stack/tile/T, mob/user, params)
 	return
@@ -172,7 +172,7 @@
 
 /turf/open/floor/plating/asteroid/snow/burn_tile()
 	if(!burnt)
-		visible_message("<span class='danger'>[capitalize(src.name)] melts away!.</span>")
+		visible_message(span_danger("[capitalize(src.name)] melts away!."))
 		slowdown = 0
 		burnt = TRUE
 		icon_state = "snow_dug"

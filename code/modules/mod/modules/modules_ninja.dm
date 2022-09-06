@@ -42,7 +42,7 @@
 /obj/item/mod/module/stealth/proc/unstealth(datum/source)
 	SIGNAL_HANDLER
 
-	to_chat(mod.wearer, "<span class='warning'>[src] gets discharged from contact!</span>")
+	to_chat(mod.wearer, span_warning("[src] gets discharged from contact!"))
 	do_sparks(2, TRUE, src)
 	drain_power(use_power_cost)
 	on_deactivation(display_message = TRUE, deleting = FALSE)
@@ -146,9 +146,9 @@
 
 /obj/item/mod/module/hacker/proc/charge_message(atom/drained_atom, drain_amount)
 	if(drain_amount)
-		to_chat(mod.wearer, "<span class='notice'>Gained <B>[drain_amount]</B> units of energy from [drained_atom].</span>")
+		to_chat(mod.wearer, span_notice("Gained <B>[drain_amount]</B> units of energy from [drained_atom]."))
 	else
-		to_chat(mod.wearer, "<span class='warning'>[drained_atom] has run dry of energy, you must find another source!</span>")
+		to_chat(mod.wearer, span_warning("[drained_atom] has run dry of energy, you must find another source!"))
 
 ///Weapon Recall - Teleports your katana to you, prevents gun use.
 /obj/item/mod/module/weapon_recall
@@ -199,7 +199,7 @@
 	linked_weapon.forceMove(linked_weapon.drop_location())
 	if(in_view)
 		do_sparks(5, FALSE, linked_weapon)
-		mod.wearer.visible_message("<span class='danger'>[linked_weapon] flies towards [mod.wearer]!</span>","<span class='warning'>You hold out your hand and [linked_weapon] flies towards you!</span>")
+		mod.wearer.visible_message(span_danger("[linked_weapon] flies towards [mod.wearer]!"),span_warning("You hold out your hand and [linked_weapon] flies towards you!"))
 		linked_weapon.throw_at(mod.wearer, distance+1, linked_weapon.throw_speed, mod.wearer)
 	else
 		recall_weapon()
@@ -258,7 +258,7 @@
 	if(. != MOD_CANCEL_ACTIVATE || !isliving(user))
 		return
 	var/mob/living/living_user = user
-	to_chat(living_user, "<span class='danger'><B>fATaL EERRoR</B>: 382200-*#00CODE <B>RED</B>\nUNAUTHORIZED USE DETECteD\nCoMMENCING SUB-R0UTIN3 13...\nTERMInATING U-U-USER...</span>")
+	to_chat(living_user, span_danger("<B>fATaL EERRoR</B>: 382200-*#00CODE <B>RED</B>\nUNAUTHORIZED USE DETECteD\nCoMMENCING SUB-R0UTIN3 13...\nTERMInATING U-U-USER..."))
 	living_user.gib()
 
 /obj/item/mod/module/dna_lock/reinforced/on_emp(datum/source, severity)
@@ -357,7 +357,7 @@
 	mod.wearer.Beam(living_target, "n_beam", time = 1.5 SECONDS)
 	var/obj/structure/energy_net/net = new /obj/structure/energy_net(living_target.drop_location())
 	net.affecting = living_target
-	mod.wearer.visible_message("<span class='danger'>[mod.wearer] caught [living_target] with an energy net!</span>", "<span class='notice'>You caught [living_target] with an energy net!</span>")
+	mod.wearer.visible_message(span_danger("[mod.wearer] caught [living_target] with an energy net!"), span_notice("You caught [living_target] with an energy net!"))
 	if(living_target.buckled)
 		living_target.buckled.unbuckle_mob(living_target, force = TRUE)
 	net.buckle_mob(living_target, force = TRUE)
@@ -396,7 +396,7 @@
 		return
 	if(IS_SPACE_NINJA(mod.wearer))
 		mod.wearer.say(pick_list_replacements(NINJA_FILE, "lines"), forced = type)
-	to_chat(mod.wearer, "<span class='notice'>You have used the adrenaline boost.</span>")
+	to_chat(mod.wearer, span_notice("You have used the adrenaline boost."))
 	mod.wearer.SetUnconscious(0)
 	mod.wearer.SetStun(0)
 	mod.wearer.SetKnockdown(0)
@@ -441,4 +441,4 @@
 	if(!affected_mob)
 		return
 	reagents.trans_to(affected_mob, reagents.total_volume)
-	to_chat(affected_mob, "<span class='danger'>You are beginning to feel the after-effect of the injection.</span>")
+	to_chat(affected_mob, span_danger("You are beginning to feel the after-effect of the injection."))

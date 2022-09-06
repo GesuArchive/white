@@ -47,7 +47,7 @@
 	target = find_target()
 	desc = "Убить [target.real_name]."
 	prize = max(rand(prize - 30, prize + 30), 1)
-	to_chat(target, "<span class='userdanger'>Кто-то хочет мне навредить...</span>")
+	to_chat(target, span_userdanger("Кто-то хочет мне навредить..."))
 
 /datum/yohei_task/kill/check_task(autocheck)
 	if(target && target.stat != DEAD)
@@ -77,7 +77,7 @@
 		return_pod.style = STYLE_SYNDICATE
 
 		do_sparks(8, FALSE, target)
-		target.visible_message("<span class='notice'><b>[target]</b> исчезает...</span>")
+		target.visible_message(span_notice("<b>[target]</b> исчезает..."))
 
 		for(var/obj/item/W in target)
 			if (ishuman(target))

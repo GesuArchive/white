@@ -16,7 +16,7 @@
 	if(check_donations_avail(user?.ckey) >= req_sum)
 		. = ..()
 	else
-		to_chat(user, "<span class='warning'>Эта роль требует <b>[req_sum]</b> донат-поинтов для доступа.</span>")
+		to_chat(user, span_warning("Эта роль требует <b>[req_sum]</b> донат-поинтов для доступа."))
 		return
 
 /obj/effect/mob_spawn/human/donate/yohei
@@ -36,7 +36,7 @@
 
 /obj/effect/mob_spawn/human/donate/yohei/attack_ghost(mob/user)
 	if(GLOB.migger_alarm)
-		to_chat(user, "<span class='userdanger'>Последнюю капсулу направлявшуюся сюда недавно сбили в этом секторе. Похоже, пока лететь точно не стоит.</span>")
+		to_chat(user, span_userdanger("Последнюю капсулу направлявшуюся сюда недавно сбили в этом секторе. Похоже, пока лететь точно не стоит."))
 		return
 	var/static/list/choices = list(
 		"Медик" 	= image(icon = 'white/valtos/icons/objects.dmi', icon_state = "ymedic"),
@@ -74,7 +74,7 @@
 	C?.prefs?.copy_to(H, TRUE, FALSE, FALSE, TRUE, TRUE)
 
 	if(SSticker.mode.config_tag == "extended" || SSticker.mode.config_tag == "teaparty")
-		to_chat(H, "<span class='userdanger'>Так как в этом мире насилия не существует, кодекс запрещает мне проявлять враждебность ко всем живым существам.</span>")
+		to_chat(H, span_userdanger("Так как в этом мире насилия не существует, кодекс запрещает мне проявлять враждебность ко всем живым существам."))
 		ADD_TRAIT(H, TRAIT_PACIFISM, "yohei")
 
 	var/newname = sanitize_name(reject_bad_text(stripped_input(H, "Меня когда-то звали [H.name]. Пришло время снова сменить прозвище?", "Прозвище", H.name, MAX_NAME_LEN)))

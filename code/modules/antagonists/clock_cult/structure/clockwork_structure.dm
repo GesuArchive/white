@@ -10,7 +10,7 @@
 	density = TRUE
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	var/can_be_repaired = TRUE //if a fabricator can repair it
-	break_message = "<span class='warning'>Искры разлетаются, когда латунная конструкция разбивается о землю.</span>"  //The message shown when a structure breaks
+	break_message = span_warning("Искры разлетаются, когда латунная конструкция разбивается о землю.")  //The message shown when a structure breaks
 	break_sound = 'sound/magic/clockwork/anima_fragment_death.ogg' //The sound played when a structure breaks
 	debris = list(/obj/item/clockwork/alloy_shards/large = 1, \
 		/obj/item/clockwork/alloy_shards/medium = 2, \

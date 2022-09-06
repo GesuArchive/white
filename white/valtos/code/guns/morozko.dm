@@ -33,7 +33,7 @@
 	if(!istype(user))
 		return
 	if(user.get_item_by_slot(user.getBackSlot()) != src)
-		to_chat(user, "<span class='warning'>Нужно носить это на спине для использования!</span>")
+		to_chat(user, span_warning("Нужно носить это на спине для использования!"))
 		return
 	if(user.incapacitated())
 		return
@@ -43,7 +43,7 @@
 	if(noz in src)
 		//Detach the nuzzle into the user's hands
 		if(!user.put_in_hands(noz))
-			to_chat(user, "<span class='warning'>Нужны свободные руки!</span>")
+			to_chat(user, span_warning("Нужны свободные руки!"))
 			return
 	else
 		//Remove from their hands and put back "into" the tank
@@ -119,7 +119,7 @@
 /obj/item/morozko_nuzzle/doMove(atom/destination)
 	if(destination && (destination != tank.loc || !ismob(destination)))
 		if (loc != tank)
-			to_chat(tank.loc, "<span class='notice'>Распылитель прыгает обратно к баку.</span>")
+			to_chat(tank.loc, span_notice("Распылитель прыгает обратно к баку."))
 		destination = tank
 	..()
 
@@ -195,7 +195,7 @@
 		for(var/mob/living/L in T.contents)
 			L.adjust_bodytemperature(-300)
 			L.apply_status_effect(/datum/status_effect/freon)
-			to_chat(L, "<span class='userdanger'>ХОЛОДНО!!!</span>")
+			to_chat(L, span_userdanger("ХОЛОДНО!!!"))
 
 		for(var/obj/I in T.contents)
 			if(I.resistance_flags & FREEZE_PROOF)

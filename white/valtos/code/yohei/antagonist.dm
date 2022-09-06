@@ -24,7 +24,7 @@
 	. = ..()
 
 /datum/antagonist/yohei/greet()
-	to_chat(owner, "<span class='warning'><B>Базовый контракт заморожен. Согласно протоколу 'WhiteHat'[protected_guy.name] теперь мой начальник и желательно защитить его от смерти.</B></span>")
+	to_chat(owner, span_warning  ("<B>Базовый контракт заморожен. Согласно протоколу 'WhiteHat'[protected_guy.name] теперь мой начальник и желательно защитить его от смерти.</B>"))
 
 
 //Squashed up a bit

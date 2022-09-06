@@ -49,9 +49,9 @@
 /obj/vehicle/sealed/fonser/examine(mob/user)
 	. = ..()
 	. += "<hr>"
-	. += "<span class='notice'><b>Броня:</b> [max_integrity]\n</span>"
-	. += "<span class='notice'><b>Скорость:</b> [thru]\n</span>"
-	. += "<span class='notice'><b>Манёвренность:</b> [mane]</span>"
+	. += span_notice("<b>Броня:</b> [max_integrity]\n")
+	. += span_notice("<b>Скорость:</b> [thru]\n")
+	. += span_notice("<b>Манёвренность:</b> [mane]")
 
 /obj/vehicle/sealed/fonser/Move(newloc, move_dir)
 	if(occupants.len)

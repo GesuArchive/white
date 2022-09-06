@@ -8,4 +8,4 @@
 		return
 	for(var/datum/crafting_recipe/crafting_recipe_type as anything in crafting_recipe_types)
 		user.mind.teach_crafting_recipe(crafting_recipe_type)
-		to_chat(user, "<span class='notice'>Теперь я знаю, как создать [initial(crafting_recipe_type.name)].</span>")
+		to_chat(user, span_notice("Теперь я знаю, как создать [initial(crafting_recipe_type.name)]."))

@@ -10,15 +10,15 @@
 	if(owner.layer == hide_layer)
 		owner.layer = initial(owner.layer)
 		owner.visible_message(
-			"<span class='notice'>[owner] медленно поднимается...</span>",
-			"<span class='noticealien'>Я больше не прячусь.</span>",
+			span_notice("[owner] медленно поднимается..."),
+			span_noticealien("Я больше не прячусь."),
 		)
 
 	else
 		owner.layer = hide_layer
 		owner.visible_message(
-			"<span class='name'>[owner] приникает к земле!</span>",
-			"<span class='noticealien'>Я прячусь.</span>",
+			span_name("[owner] приникает к земле!"),
+			span_noticealien("Я прячусь."),
 		)
 
 	return TRUE
@@ -57,7 +57,7 @@
 		var/datum/radial_menu_choice/hunter = new()
 		hunter.name = "Охотник"
 		hunter.image  = image(icon = initial(hunter_path.icon), icon_state = initial(hunter_path.icon_state))
-		hunter.info = "<span class='info'>Это самый быстрый подвид, задачей которых является добыча новых инкубаторов. Они намного быстрее человека и могут прыгать, однако не намного сильнее дрона.</span>"
+		hunter.info = span_info("Это самый быстрый подвид, задачей которых является добыча новых инкубаторов. Они намного быстрее человека и могут прыгать, однако не намного сильнее дрона.")
 
 		caste_options["Охотник"] = hunter
 
@@ -65,7 +65,7 @@
 		var/datum/radial_menu_choice/sentinel = new()
 		sentinel.name = "Страж"
 		sentinel.image  = image(icon = initial(sentinel_path.icon), icon_state = initial(sentinel_path.icon_state))
-		sentinel.info = "<span class='info'>Защитники улья. Более живучие и не такие быстрые как охотники, но способны скрываться в тенях и стрелять нейротоксичной слизью, после чего утаскивать бессознательную жертву в гнездо.</span>"
+		sentinel.info = span_info("Защитники улья. Более живучие и не такие быстрые как охотники, но способны скрываться в тенях и стрелять нейротоксичной слизью, после чего утаскивать бессознательную жертву в гнездо.")
 
 		caste_options["Страж"] = sentinel
 
@@ -73,7 +73,7 @@
 		var/datum/radial_menu_choice/drone = new()
 		drone.name = "Трутень"
 		drone.image  = image(icon = initial(drone_path.icon), icon_state = initial(drone_path.icon_state))
-		drone.info = "<span class='info'>Являются самым слабым и медленным подвидом, однако могут вырасти сначала в преторианца, а затем и в королеву, если ее не существует на тот момент, так же они крайне важны за счет их способности выделять биполярную смолу для строительства и расширения улья.</span>"
+		drone.info = span_info("Являются самым слабым и медленным подвидом, однако могут вырасти сначала в преторианца, а затем и в королеву, если ее не существует на тот момент, так же они крайне важны за счет их способности выделять биполярную смолу для строительства и расширения улья.")
 
 		caste_options["Трутень"] = drone
 

@@ -43,8 +43,8 @@
 		new /obj/item/food/bait/worm(source)
 
 	user.visible_message(
-		"<span class='notice'>[user] [action_text_third_person] [source].</span>",
-		"<span class='notice'>[capitalize(action_text)] [source].</span>",
+		span_notice("[user] [action_text_third_person] [source]."),
+		span_notice("[capitalize(action_text)] [source]."),
 	)
 
 	playsound(source, 'sound/effects/shovel_dig.ogg', 50, TRUE)

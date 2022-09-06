@@ -16,7 +16,7 @@
 		return
 
 	var/show_char = CONFIG_GET(flag/mentors_mobname_only)
-	var/mentor_msg = "<span class='mentor'><b>ЗНАТОК:</b> <b>[key_name_mentor(src, 1, 0, 1, show_char)]</b>: [msg]</span>"
+	var/mentor_msg = span_mentor("<b>ЗНАТОК:</b> <b>[key_name_mentor(src, 1, 0, 1, show_char)]</b>: [msg]")
 	log_mentor("MENTORHELP: [key_name_mentor(src, 0, 0, 0, 0)]: [msg]")
 
 	for(var/mentor in GLOB.mentors)
@@ -25,7 +25,7 @@
 			SEND_SOUND(mentor_client, 'sound/items/bikehorn.ogg')
 			to_chat(mentor_client, mentor_msg)
 
-	to_chat(src, "<span class='mentor'>Сообщение <b>Знатокам</b>: [msg]</span>")
+	to_chat(src, span_mentor("Сообщение <b>Знатокам</b>: [msg]"))
 	return
 
 /proc/get_mentor_counts()

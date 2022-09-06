@@ -13,7 +13,7 @@
 /obj/item/toy/plush/carpplushie/dehy_carp/attack_self(mob/user)
 	src.add_fingerprint(user)	//Anyone can add their fingerprints to it with this
 	if(!owned)
-		to_chat(user, "<span class='notice'>Глажу [src]. Клянусь, он посмотрел на меня.</span>")
+		to_chat(user, span_notice("Глажу [src]. Клянусь, он посмотрел на меня."))
 		owner = user
 		owned = 1
 	else
@@ -24,7 +24,7 @@
 
 /obj/item/toy/plush/carpplushie/dehy_carp/proc/Swell()
 	desc = "Он растет!"
-	visible_message("<span class='notice'>[capitalize(src.name)] раздувается в размерах!</span>")
+	visible_message(span_notice("[capitalize(src.name)] раздувается в размерах!"))
 
 	//Animation
 	icon = 'icons/mob/carp.dmi'
@@ -43,14 +43,14 @@
 				factions -= F
 		M.faction = factions
 	if (!owner || owner.faction != M.faction)
-		visible_message("<span class='warning'>У меня плохое предчувствие насчет этого</span>") //welcome to the hostile carp enjoy your die
+		visible_message(span_warning("У меня плохое предчувствие насчет этого")) //welcome to the hostile carp enjoy your die
 	else
-		visible_message("<span class='notice'>Выросший [M.name] смотрит на меня дружелюбным взглядом</span>")
+		visible_message(span_notice("Выросший [M.name] смотрит на меня дружелюбным взглядом"))
 	qdel(src)
 
 /obj/item/toy/plush/carpplushie/dehy_carp/suicide_act(mob/user)
 	var/mob/living/carbon/human/H = user
-	user.visible_message("<span class='suicide'>[user] starts eating [src]. It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] starts eating [src]. It looks like [user.p_theyre()] trying to commit suicide!"))
 	playsound(src, 'sound/items/eatfood.ogg', 50, TRUE)
 	if(istype(H))
 		H.Paralyze(30)

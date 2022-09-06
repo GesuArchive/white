@@ -27,13 +27,13 @@
 	if(user.pulling && user.grab_state >= GRAB_NECK && isliving(user.pulling))
 		user.emote("laugh")
 		var/mob/living/projarka_mob = user.pulling
-		projarka_mob.visible_message("<span class='warning'><b>[user]</b> пытается принудить <b>[projarka_mob]</b> подышать паром над <b>парилкой</b>...</span>" , \
-						"<span class='userdanger'><b>[user]</b> пытается приставить <b>мою голову</b> к <b>парилке</b>...</span>")
+		projarka_mob.visible_message(span_warning("<b>[user]</b> пытается принудить <b>[projarka_mob]</b> подышать паром над <b>парилкой</b>...") , \
+						span_userdanger("<b>[user]</b> пытается приставить <b>мою голову</b> к <b>парилке</b>..."))
 		if(do_after(user, 3 SECONDS, target = projarka_mob))
 			projarka_mob.emote("agony")
 			playsound(projarka_mob, 'sound/machines/shower/shower_mid1.ogg', 90, TRUE)
-			projarka_mob.visible_message("<span class='danger'><b>[user]</b> принуждает <b>[projarka_mob]</b> вкусить свежий пар!</span>" ,
-						"<span class='userdanger'><b>[user]</b> принуждает меня вкусить свежий пар!</span>")
+			projarka_mob.visible_message(span_danger("<b>[user]</b> принуждает <b>[projarka_mob]</b> вкусить свежий пар!") ,
+						span_userdanger("<b>[user]</b> принуждает меня вкусить свежий пар!"))
 			log_combat(user, projarka_mob, "head fried", null, "against <b>[src]</b>")
 			SEND_SIGNAL(projarka_mob, COMSIG_ADD_MOOD_EVENT, "effector", /datum/mood_event/fried)
 			projarka_mob.apply_damage(30, BURN, BODY_ZONE_HEAD)

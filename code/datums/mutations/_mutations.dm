@@ -99,7 +99,7 @@
 	for(var/datum/mutation/human/mewtayshun as anything in acquirer.dna.mutations) //check for conflicting powers
 		if(!(mewtayshun.type in conflicts) && !(type in mewtayshun.conflicts))
 			continue
-		to_chat(acquirer, "<span class='warning'>You feel your genes resisting something.</span>")
+		to_chat(acquirer, span_warning("You feel your genes resisting something."))
 		return TRUE
 	owner = acquirer
 	dna = acquirer.dna

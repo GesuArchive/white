@@ -39,7 +39,7 @@ SUBSYSTEM_DEF(lua)
 		can_fire = FALSE
 		var/time = (REALTIMEOFDAY - start_timeofday) / 10
 		var/msg = "Failed to initialize [name] subsystem after [time] seconds!"
-		to_chat(world, "<span class='boldwarning'>[msg]</span>")
+		to_chat(world, span_boldwarning("[msg]"))
 		warning(e.name)
 		return time
 

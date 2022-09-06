@@ -41,10 +41,10 @@
 	if(computer)
 		printer = computer.all_components[MC_PRINT]
 	if(!printer)
-		to_chat(usr, "<span class='notice'>Аппаратная ошибка: Для печати картины требуется принтер.</span>")
+		to_chat(usr, span_notice("Аппаратная ошибка: Для печати картины требуется принтер."))
 		return
 	if(printer.stored_paper < CANVAS_PAPER_COST)
-		to_chat(usr, "<span class='notice'>Ошибка печати: Вашему принтеру требуется не менее [CANVAS_PAPER_COST] листов бумаги для печати картины.</span>")
+		to_chat(usr, span_notice("Ошибка печати: Вашему принтеру требуется не менее [CANVAS_PAPER_COST] листов бумаги для печати картины."))
 		return
 	printer.stored_paper -= CANVAS_PAPER_COST
 
@@ -73,5 +73,5 @@
 	///this is a copy of something that is already in the database- it should not be able to be saved.
 	printed_canvas.no_save = TRUE
 	printed_canvas.update_icon()
-	to_chat(usr, "<span class='notice'>Печатаю [chosen_portrait.title] на новом холсте.</span>")
+	to_chat(usr, span_notice("Печатаю [chosen_portrait.title] на новом холсте."))
 	playsound(computer.physical, 'sound/items/poster_being_created.ogg', 100, TRUE)

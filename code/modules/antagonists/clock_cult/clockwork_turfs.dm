@@ -116,29 +116,29 @@
 /turf/closed/wall/clockwork/attack_hulk(mob/user, does_attack_animation)
 	if(prob(10))
 		return ..()
-	to_chat(user, "<span class='warning'>Немного царапаю [src].</span>")
+	to_chat(user, span_warning("Немного царапаю [src]."))
 	return
 
 //========Deconstruction Handled Here=======
 /turf/closed/wall/clockwork/deconstruction_hints(mob/user)
 	switch(d_state)
 		if(INTACT)
-			return "<span class='notice'>Стена достаточно слабая, чтобы <b>отварить</b> латунные пластины.</span>"
+			return span_notice("Стена достаточно слабая, чтобы <b>отварить</b> латунные пластины.")
 		if(COG_COVER)
-			return "<span class='notice'>Внешняя обшивка <i>отварена</i>, однако внутренняя защитная панель <b>прикручена</b>.</span>"
+			return span_notice("Внешняя обшивка <i>отварена</i>, однако внутренняя защитная панель <b>прикручена</b>.")
 		if(COG_EXPOSED)
-			return "<span class='notice'>Внутренняя защитная панель <i>откручена</i>. Внешняя обшивка может быть <b>выломана</b>.</span>"
+			return span_notice("Внутренняя защитная панель <i>откручена</i>. Внешняя обшивка может быть <b>выломана</b>.")
 
 /turf/closed/wall/clockwork/try_decon(obj/item/I, mob/user, turf/T)
 	if(I.tool_behaviour != TOOL_WELDER)
 		return 0
 	if(!I.tool_start_check(user, amount=0))
 		return 0
-	to_chat(user, "<span class='warning'>Начинаю разваривать [src].</span>")
+	to_chat(user, span_warning("Начинаю разваривать [src]."))
 	if(I.use_tool(src, user, 40, volume=100))
 		if(!istype(src, /turf/closed/wall/clockwork) || d_state != INTACT)
 			return 0
-		to_chat(user, "<span class='warning'>Развариваю [src] на части!</span>")
+		to_chat(user, span_warning("Развариваю [src] на части!"))
 		dismantle_wall()
 		return 1
 	return
@@ -203,9 +203,9 @@
 			return TRUE
 	else if(baseturfs == type)
 		return TRUE
-	user.visible_message("<span class='notice'>[user] начинает медленно снимать [src]...</span>" , "<span class='notice'>Начинаю медленно снимать [src]...</span>")
+	user.visible_message(span_notice("[user] начинает медленно снимать [src]...") , span_notice("Начинаю медленно снимать [src]..."))
 	if(I.use_tool(src, user, 70, volume=80))
-		user.visible_message("<span class='notice'>[user] отрывает [src]!</span>" , "<span class='notice'>Отрываю [src]!</span>")
+		user.visible_message(span_notice("[user] отрывает [src]!") , span_notice("Отрываю [src]!"))
 		make_plating()
 	return TRUE
 
@@ -408,30 +408,30 @@
 		return 0
 	else if(I.tool_behaviour == TOOL_WRENCH)
 		if(construction_state == GEAR_SECURE)
-			user.visible_message("<span class='notice'>[user] начинает откручивать шестерню [src]...</span>" , "<span class='notice'>Начинаю откручивать шестерню [src]...</span>")
+			user.visible_message(span_notice("[user] начинает откручивать шестерню [src]...") , span_notice("Начинаю откручивать шестерню [src]..."))
 			if(!I.use_tool(src, user, 75, volume=50) || construction_state != GEAR_SECURE)
 				return 1
-			user.visible_message("<span class='notice'>[user] откручивает шестерню [src]!</span>" , "<span class='notice'>Шестерня [src] вылетает из пазов.</span>")
+			user.visible_message(span_notice("[user] откручивает шестерню [src]!") , span_notice("Шестерня [src] вылетает из пазов."))
 			playsound(src, 'sound/items/deconstruct.ogg', 50, 1)
 			construction_state = GEAR_LOOSE
 		else if(construction_state == GEAR_LOOSE)
-			user.visible_message("<span class='notice'>[user] начинает прикручивать шестерню [src]...</span>" , "<span class='notice'>Начинаю прикручивать шестерню [src] на место...</span>")
+			user.visible_message(span_notice("[user] начинает прикручивать шестерню [src]...") , span_notice("Начинаю прикручивать шестерню [src] на место..."))
 			if(!I.use_tool(src, user, 75, volume=50) || construction_state != GEAR_LOOSE)
 				return 1
-			user.visible_message("<span class='notice'>[user] прикручивает шестерню [src]!</span>" , "<span class='notice'>Туго прикручиваю шестерню [src] на место.</span>")
+			user.visible_message(span_notice("[user] прикручивает шестерню [src]!") , span_notice("Туго прикручиваю шестерню [src] на место."))
 			playsound(src, 'sound/items/deconstruct.ogg', 50, 1)
 			construction_state = GEAR_SECURE
 		return 1
 	else if(I.tool_behaviour == TOOL_CROWBAR)
 		if(construction_state == GEAR_SECURE)
-			to_chat(user, "<span class='warning'>[src] шестерня сидит глубоко! Моя [I.name] не может туда пролезть!</span>")
+			to_chat(user, span_warning("[src] шестерня сидит глубоко! Моя [I.name] не может туда пролезть!"))
 			return 1
 		else if(construction_state == GEAR_LOOSE)
-			user.visible_message("<span class='notice'>[user] начинает медленно выковыривать шестерню [src]...</span>" , "<span class='notice'>Начинаю медленно выковыривать шестерню [src]...</span>")
+			user.visible_message(span_notice("[user] начинает медленно выковыривать шестерню [src]...") , span_notice("Начинаю медленно выковыривать шестерню [src]..."))
 			if(!I.use_tool(src, user, 75, volume=50) || construction_state != GEAR_LOOSE)
 				return 1
-			user.visible_message("<span class='notice'>[user] выковыривает шестерню [src] и шлюз разваливается!</span>" , \
-			"<span class='notice'>Выковыриваю шестерню [src] и шлюз разваливается!</span>")
+			user.visible_message(span_notice("[user] выковыривает шестерню [src] и шлюз разваливается!") , \
+			span_notice("Выковыриваю шестерню [src] и шлюз разваливается!"))
 			deconstruct(TRUE)
 		return 1
 	return 0

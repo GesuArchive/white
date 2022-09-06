@@ -38,7 +38,7 @@
 /obj/item/melee/energy/sword/ignis/on_transform(obj/item/source, mob/user, active)
 	. = ..()
 	playsound(user, 'white/valtos/sounds/ignis_toggle.ogg', 35, TRUE)  //changed it from 50% volume to 35% because deafness
-	//to_chat(user, "<span class='notice'>[src] [blade_active ? "теперь активен":"может быть убран"].</span>")
+	//to_chat(user, span_notice("[src] [blade_active ? "теперь активен":"может быть убран"]."))
 
 ///////40x32 R37 PULSE RIFLE
 /obj/item/gun/ballistic/automatic/pitbull/r37

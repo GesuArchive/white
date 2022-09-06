@@ -32,7 +32,7 @@
 
 /obj/structure/destructible/clockwork/sigil/submission/apply_effects(mob/living/M)
 	if(!..())
-		M.visible_message("<span class='warning'>[M] сопротивляется!</span>")
+		M.visible_message(span_warning("[M] сопротивляется!"))
 		return FALSE
 	M.Paralyze(50)
 	if(M.client)

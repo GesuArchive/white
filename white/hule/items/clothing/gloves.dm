@@ -16,17 +16,17 @@
 
 		var/list/L = usr.get_empty_held_indexes()
 		if(LAZYLEN(L) == usr.held_items.len)
-			to_chat(usr, "<span class='notice'>Мои руки пусты и расслаблены...</span>")
+			to_chat(usr, span_notice("Мои руки пусты и расслаблены..."))
 			active = 0
 			stored_items = list()
 		else
 			for(var/obj/item/I in stored_items)
-				to_chat(usr, "<span class='notice'>Your [usr.get_held_index_name(usr.get_held_index_of_item(I))] grip tightens.</span>")
+				to_chat(usr, span_notice("Your [usr.get_held_index_name(usr.get_held_index_of_item(I))] grip tightens."))
 				ADD_TRAIT(I,TRAIT_NODROP, "mag-grip")
 
 	else
 		release_items()
-		to_chat(usr, "<span class='notice'>Деактивирую магниты...</span>")
+		to_chat(usr, span_notice("Деактивирую магниты..."))
 
 /obj/item/clothing/gloves/combat/maggloves/proc/release_items()
 	for(var/obj/item/I in stored_items)

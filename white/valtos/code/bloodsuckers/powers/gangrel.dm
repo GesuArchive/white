@@ -45,18 +45,18 @@
 				user_species.punchdamagelow += 5.0
 				user_species.punchdamagehigh += 5.0 //stronk
 				user_species.armor += 30
-				to_chat(user, "<span class='notice'>You aren't strong enough to morph into something stronger! But you do certainly feel more feral and stronger than before.</span>")
+				to_chat(user, span_notice("You aren't strong enough to morph into something stronger! But you do certainly feel more feral and stronger than before."))
 			else
-				to_chat(user, "<span class='notice'>You still haven't evolved your ability yet.</span>")
+				to_chat(user, span_notice("You still haven't evolved your ability yet."))
 				bloodsuckerdatum.AddBloodVolume(75)
 		if(500 to 1000)
 			if(!mediumtransformdone)
 				user.gorillize()
 				playsound(user.loc, 'sound/creatures/gorilla.ogg', 50)
 				mediumtransformdone = TRUE
-				to_chat(owner, "<span class='notice'>You transform into a gorrila-ey beast, you feel stronger!</span>")
+				to_chat(owner, span_notice("You transform into a gorrila-ey beast, you feel stronger!"))
 			else
-				to_chat(owner, "<span class='notice'>You still haven't evolved your ability yet.</span>")
+				to_chat(owner, span_notice("You still haven't evolved your ability yet."))
 				bloodsuckerdatum.AddBloodVolume(50)
 		if(1500 to INFINITY)
 			var/mob/living/simple_animal/hostile/bloodsucker/giantbat/gb
@@ -78,7 +78,7 @@
 					power.Grant(gb)
 				QDEL_IN(gb, 2 MINUTES)
 				playsound(gb.loc, 'sound/items/toysqueak1.ogg', 50, TRUE)
-			to_chat(owner, "<span class='notice'>You transform into a fatty beast!</span>")
+			to_chat(owner, span_notice("You transform into a fatty beast!"))
 			return ..() //early to not mess with vampire organs proc
 	bloodsuckerdatum.HealVampireOrgans() //regives you the stuff
 	. = ..()
@@ -160,7 +160,7 @@
 /datum/action/bloodsucker/targeted/bloodbolt/FireTargetedPower(atom/target_atom)
 	. = ..()
 	var/mob/living/user = owner
-	to_chat(user, "<span class='warning'>You fire a blood bolt!</span>")
+	to_chat(user, span_warning("You fire a blood bolt!"))
 	user.changeNext_move(CLICK_CD_RANGE)
 	user.newtonian_move(get_dir(target_atom, user))
 	var/obj/projectile/magic/arcane_barrage/bloodsucker/magic_9ball = new(user.loc)
@@ -216,10 +216,10 @@
 		if(M.loc == user)
 			continue
 		M.visible_message(
-			"<span class='danger'>[user] flaps their wings viciously, sending [M] flying away!</span>", \
-			"<span class='userdanger'>You were sent flying by the flap of [user]'s wings!</span>",
+			span_danger("[user] flaps their wings viciously, sending [M] flying away!"), \
+			span_userdanger("You were sent flying by the flap of [user]'s wings!"),
 		)
-		to_chat(user, "<span class='warning'>You flap your wings, sending [M] flying!</span>")
+		to_chat(user, span_warning("You flap your wings, sending [M] flying!"))
 		playsound(user.loc, 'sound/weapons/punch4.ogg', 60, 1, -1)
 		M.adjustBruteLoss(10)
 		M.Knockdown(40)
@@ -272,8 +272,8 @@
 	var/affecting = pick(BODY_ZONE_CHEST, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 	playsound(get_turf(target), 'sound/weapons/bite.ogg', 60, 1, -1)
 	target.apply_damage(35, BRUTE, affecting, target.run_armor_check(affecting, "melee", armour_penetration = 10), sharpness = SHARP_EDGED)
-	target.visible_message("<span class='danger'>[user] takes a large bite out of [target]!</span>", \
-					  "<span class='userdanger'>[user] takes a large bite out of you!</span>")
+	target.visible_message(span_danger("[user] takes a large bite out of [target]!"), \
+					  span_userdanger("[user] takes a large bite out of you!"))
 	PowerActivatedSuccessfully()
 
 /datum/action/bloodsucker/gangrel/wolfortitude
@@ -295,7 +295,7 @@
 
 /datum/action/bloodsucker/gangrel/wolfortitude/ActivatePower()
 	. = ..()
-	to_chat(owner, "<span class='notice'>Your fur and claws harden, becoming as hard as steel.</span>")
+	to_chat(owner, span_notice("Your fur and claws harden, becoming as hard as steel."))
 	var/mob/living/simple_animal/hostile/A = owner
 	A.maxHealth *= 1.2
 	A.health *= 1.2
@@ -406,11 +406,11 @@
 /datum/action/bloodsucker/gangrel/howl/ActivatePower()
 	. = ..()
 	var/mob/living/simple_animal/hostile/bloodsucker/werewolf/A = owner
-	A.visible_message("<span class='danger'>[A] inhales a ton of air!</span>", "<span class='warning'>You prepare to howl!</span>")
+	A.visible_message(span_danger("[A] inhales a ton of air!"), span_warning("You prepare to howl!"))
 	if(!do_mob(A, A, 2.5 SECONDS, TRUE))
 		return
 	playsound(A.loc, 'white/valtos/sounds/bloodsucker/darkspawn_howl.ogg', 50, TRUE)
-	A.visible_message("<span class='userdanger'>[A] let's out a chilling howl!</span>", "<span class='boldwarning'>You howl, confusing and deafening nearby mortals.</span>")
+	A.visible_message(span_userdanger("[A] let's out a chilling howl!"), span_boldwarning("You howl, confusing and deafening nearby mortals."))
 	for(var/mob/target in range(3, A))
 		if(target == (A || A.bloodsucker))
 			continue

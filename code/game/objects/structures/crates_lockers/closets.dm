@@ -143,8 +143,8 @@
 					if(keypad_input == password && locked)
 						locked = FALSE
 						keypad_input = ""
-						usr.visible_message("<span class='notice'>[usr] [locked ? "блокирует" : "разблокировывает"] [src].</span>" ,
-							"<span class='notice'>[locked ? "Блокирую" : "Разблокировываю"] [src].</span>")
+						usr.visible_message(span_notice("[usr] [locked ? "блокирует" : "разблокировывает"] [src].") ,
+							span_notice("[locked ? "Блокирую" : "Разблокировываю"] [src]."))
 						playsound(src, 'white/valtos/sounds/locker.ogg', 25, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 						update_icon()
 				if("0","1","2","3","4","5","6","7","8","9")
@@ -284,7 +284,7 @@
 	for(var/mob/living/L in T)
 		if(L.anchored || horizontal && L.mob_size > MOB_SIZE_TINY && L.density)
 			if(user)
-				to_chat(user, "<span class='danger'>Что-то сверху [src], мешает его открыть.</span>"  )
+				to_chat(user, span_danger("Что-то сверху [src], мешает его открыть.")  )
 			return FALSE
 	return TRUE
 
@@ -296,7 +296,7 @@
 	for(var/mob/living/L in T)
 		if(L.anchored || horizontal && L.mob_size > MOB_SIZE_TINY && L.density)
 			if(user)
-				to_chat(user, "<span class='danger'>Внутри [src] что-то большое, оно мешает закрыть его.</span>")
+				to_chat(user, span_danger("Внутри [src] что-то большое, оно мешает закрыть его."))
 			return FALSE
 	return TRUE
 
@@ -433,18 +433,18 @@
 				if(!W.tool_start_check(user, amount=0))
 					return
 
-				to_chat(user, "<span class='notice'>Начинаю резать <b>[src.name]</b> на части...</span>")
+				to_chat(user, span_notice("Начинаю резать <b>[src.name]</b> на части..."))
 				if(W.use_tool(src, user, 40, volume=50))
 					if(!opened)
 						return
-					user.visible_message("<span class='notice'>[user] разрезает <b>[src.name]</b>.</span>" ,
-									"<span class='notice'>Режу <b>[src.name]</b> с помощью [W].</span>" ,
-									"<span class='hear'>Слышу сварку.</span>")
+					user.visible_message(span_notice("[user] разрезает <b>[src.name]</b>.") ,
+									span_notice("Режу <b>[src.name]</b> с помощью [W].") ,
+									span_hear("Слышу сварку."))
 					deconstruct(TRUE)
 				return
 			else // for example cardboard box is cut with wirecutters
-				user.visible_message("<span class='notice'>[user] разрезает <b>[src.name]</b>.</span>" , \
-									"<span class='notice'>Режу <b>[src.name]</b> с помощью [W].</span>")
+				user.visible_message(span_notice("[user] разрезает <b>[src.name]</b>.") , \
+									span_notice("Режу <b>[src.name]</b> с помощью [W]."))
 				deconstruct(TRUE)
 				return
 		if(user.transferItemToLoc(W, drop_location())) // so we put in unlit welder too
@@ -453,16 +453,16 @@
 		if(!W.tool_start_check(user, amount=0))
 			return
 
-		to_chat(user, "<span class='notice'>Начинаю [welded ? "разваривать":"заваривать"] <b>[src.name]</b>...</span>")
+		to_chat(user, span_notice("Начинаю [welded ? "разваривать":"заваривать"] <b>[src.name]</b>..."))
 		if(W.use_tool(src, user, 40, volume=50))
 			if(opened)
 				return
 			welded = !welded
 			after_weld(welded)
 			update_airtightness()
-			user.visible_message("<span class='notice'>[user] [welded ? "заваривает" : "разваривает"] <b>[src.name]</b>.</span>" ,
-							"<span class='notice'>[welded ? "Завариваю" : "Развариваю"] <b>[src.name]</b> используя [W].</span>" ,
-							"<span class='hear'>Слышу сварку.</span>")
+			user.visible_message(span_notice("[user] [welded ? "заваривает" : "разваривает"] <b>[src.name]</b>.") ,
+							span_notice("[welded ? "Завариваю" : "Развариваю"] <b>[src.name]</b> используя [W].") ,
+							span_hear("Слышу сварку."))
 			log_game("[key_name(user)] [welded ? "welded":"unwelded"] closet [src] with [W] at [AREACOORD(src)]")
 			update_icon()
 	else if(W.tool_behaviour == TOOL_WRENCH && anchorable)
@@ -470,20 +470,20 @@
 			return
 		set_anchored(!anchored)
 		W.play_tool_sound(src, 75)
-		user.visible_message("<span class='notice'><b>[user]</b> [anchored ? "прикручивает" : "откручивает"] <b>[src.name]</b> [anchored ? "к полу" : "от пола"].</span>" , \
-						"<span class='notice'>[anchored ? "Прикручиваю" : "Откручиваю"] <b>[src.name]</b> [anchored ? "к полу" : "от полу"].</span>" , \
-						"<span class='hear'>Слышу трещотку.</span>")
+		user.visible_message(span_notice("<b>[user]</b> [anchored ? "прикручивает" : "откручивает"] <b>[src.name]</b> [anchored ? "к полу" : "от пола"].") , \
+						span_notice("[anchored ? "Прикручиваю" : "Откручиваю"] <b>[src.name]</b> [anchored ? "к полу" : "от полу"].") , \
+						span_hear("Слышу трещотку."))
 	else if(istype(W, /obj/item/stack/sheet/plasteel) && secure)
 		if(reinforced)
-			to_chat(user, "<span class='warning'>Уже укреплено. Если поставить больше, то шкаф развалится.</span>")
+			to_chat(user, span_warning("Уже укреплено. Если поставить больше, то шкаф развалится."))
 			return
 		var/obj/item/stack/S = W
 		if(!S.use(5))
-			to_chat(user, "<span class='warning'>Нужно 5 листов пластали для укрепления шкафа.</span>")
+			to_chat(user, span_warning("Нужно 5 листов пластали для укрепления шкафа."))
 			return
-		user.visible_message("<span class='notice'><b>[user]</b> укрепляет <b>[src.name]</b> пласталью.</span>" , \
-						"<span class='notice'>Укрепляю <b>[src.name]</b> пласталью. Теперь ему не страшны копья.</span>" , \
-						"<span class='hear'>Слышу лязг метала.</span>")
+		user.visible_message(span_notice("<b>[user]</b> укрепляет <b>[src.name]</b> пласталью.") , \
+						span_notice("Укрепляю <b>[src.name]</b> пласталью. Теперь ему не страшны копья.") , \
+						span_hear("Слышу лязг метала."))
 		armor = armor.modifyRating(melee = 10, bullet = 10, laser = 10, energy = 10, bomb = 10, fire = 10)
 		reinforced = TRUE
 		update_icon()
@@ -500,16 +500,16 @@
 				return
 			var/list/l = list("Пароль и ID-Карта"=MODE_OPTIONAL, "Только ID-Карта"=MODE_CARD, "Только Пароль"=MODE_PASSWORD)
 			open_mode = l[answer]
-			to_chat(user, "<span class='notice'>Меняю режим на [lowertext(answer)].</span>")
-			user.visible_message("<span class='warning'>[user] блокирует <b>[src]</b> используя [W].</span>" ,
-									"<span class='warning'>Блокирую <b>[src]</b>.</span>")
+			to_chat(user, span_notice("Меняю режим на [lowertext(answer)]."))
+			user.visible_message(span_warning("[user] блокирует <b>[src]</b> используя [W].") ,
+									span_warning("Блокирую <b>[src]</b>."))
 			locked = TRUE
 			playsound(src, 'white/valtos/sounds/locker.ogg', 25, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 			update_icon()
 			return
 	else if(W.tool_behaviour == TOOL_MULTITOOL && secure)
 		if(!locked && password)
-			to_chat(user, "<span class='notice'>Пароль: [password].</span>")
+			to_chat(user, span_notice("Пароль: [password]."))
 		if(locked && open_mode == MODE_PASSWORD | open_mode == MODE_OPTIONAL)
 			ui_interact(user)
 	else if(istype(W, /obj/item/closet_hacker) && locked && secure && password)
@@ -518,11 +518,11 @@
 		var/obj/item/closet_hacker/H = W
 		if(!busy_hacked)
 			busy_hacked = TRUE
-			to_chat(user, "<span class='notice'>Начинаю взлом [src].</span>")
+			to_chat(user, span_notice("Начинаю взлом [src]."))
 			if(do_after(user, H.hack_time, src))
 				keypad_input+=password[length(keypad_input)+1]
 				playsound(src, 'white/maxsc/sound/numpad-button.ogg', 20, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
-			to_chat(user, "<span class='notice'>Заканчиваю взлом [src].</span>")
+			to_chat(user, span_notice("Заканчиваю взлом [src]."))
 			busy_hacked = FALSE
 	else if(istype(W, /obj/item/electronics/airlock) && !secure && !opened)
 		var/obj/item/electronics/airlock/A = W
@@ -540,9 +540,9 @@
 			if(valid)
 				S.password = input
 			else
-				to_chat(user, "<span class='notice'>Не удалось назначить указанный пароль, используется стандартный.</span>")
-		user.visible_message("<span class='notice'>[user] прикручивает [A] к [src].</span>",
-		"<span class='notice'>Прикручиваю [A] к [src]</span>")
+				to_chat(user, span_notice("Не удалось назначить указанный пароль, используется стандартный."))
+		user.visible_message(span_notice("[user] прикручивает [A] к [src]."),
+		span_notice("Прикручиваю [A] к [src]"))
 		playsound(S, 'sound/items/screwdriver.ogg', 20, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 		S.locked = FALSE
 		S.update_icon()
@@ -585,14 +585,14 @@
 	var/turf/T = get_turf(src)
 	var/list/targets = list(O, src)
 	add_fingerprint(user)
-	user.visible_message("<span class='warning'>[user] [actuallyismob ? "Пытаюсь ":""]вставить[O] в [src].</span>" , \
-		"<span class='warning'>[actuallyismob ? "Пытаюсь ":""]вставить [O] в [src].</span>" , \
-		"<span class='hear'>Слышу лязг.</span>")
+	user.visible_message(span_warning("[user] [actuallyismob ? "Пытаюсь ":""]вставить[O] в [src].") , \
+		span_warning("[actuallyismob ? "Пытаюсь ":""]вставить [O] в [src].") , \
+		span_hear("Слышу лязг."))
 	if(actuallyismob)
 		if(do_after_mob(user, targets, 40))
-			user.visible_message("<span class='notice'>[user] вставляет [O] в [src].</span>" , \
-				"<span class='notice'>Вставляю [O] в [src].</span>" , \
-				"<span class='hear'>Cлышу громкий металлический удар.</span>")
+			user.visible_message(span_notice("[user] вставляет [O] в [src].") , \
+				span_notice("Вставляю [O] в [src].") , \
+				span_hear("Cлышу громкий металлический удар."))
 			var/mob/living/L = O
 			if(!issilicon(L))
 				L.Paralyze(40)
@@ -611,7 +611,7 @@
 	if(locked)
 		if(message_cooldown <= world.time)
 			message_cooldown = world.time + 50
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] дверь не поддается!</span>")
+			to_chat(user, span_warning("[capitalize(src.name)] дверь не поддается!"))
 		return
 	container_resist_act(user)
 
@@ -655,7 +655,7 @@
 	if(iscarbon(usr) || issilicon(usr) || isdrone(usr))
 		return toggle(usr)
 	else
-		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
+		to_chat(usr, span_warning("This mob type can't use this verb."))
 
 // Objects that try to exit a locker by stepping were doing so successfully,
 // and due to an oversight in turf/Enter() were going through walls.  That
@@ -682,19 +682,19 @@
 	//okay, so the closet is either welded or locked... resist!!!
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
-	user.visible_message("<span class='warning'>[capitalize(src.name)] начинает сильно трястись!</span>" , \
-		"<span class='notice'>Упираюсь спиной в [src] и начинаю толкать дверь... (это займёт примерно [DisplayTimeText(breakout_time)].)</span>" , \
-		"<span class='hear'>Слышу стук от [src].</span>")
+	user.visible_message(span_warning("[capitalize(src.name)] начинает сильно трястись!") , \
+		span_notice("Упираюсь спиной в [src] и начинаю толкать дверь... (это займёт примерно [DisplayTimeText(breakout_time)].)") , \
+		span_hear("Слышу стук от [src]."))
 	if(do_after(user,(breakout_time), target = src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src || opened || (!locked && !welded) )
 			return
 		//we check after a while whether there is a point of resisting anymore and whether the user is capable of resisting
-		user.visible_message("<span class='danger'>[user] успешно вырвался из хватки [src]!</span>" ,
-							"<span class='notice'>Успешно вырвался из захвата [src]!</span>")
+		user.visible_message(span_danger("[user] успешно вырвался из хватки [src]!") ,
+							span_notice("Успешно вырвался из захвата [src]!"))
 		bust_open()
 	else
 		if(user.loc == src) //so we don't get the message if we resisted multiple times and succeeded.
-			to_chat(user, "<span class='warning'>Не могу вырваться из захвата [src]!</span>")
+			to_chat(user, span_warning("Не могу вырваться из захвата [src]!"))
 
 /obj/structure/closet/proc/bust_open()
 	SIGNAL_HANDLER
@@ -729,8 +729,8 @@
 			else
 				locked = !locked
 				playsound(src, 'white/valtos/sounds/locker.ogg', 25, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
-				user.visible_message("<span class='notice'>[user] [locked ? "блокирует" : "разблокировывает"] [src].</span>" ,
-								"<span class='notice'>[locked ? "Блокирую" : "Разблокировываю"] [src].</span>")
+				user.visible_message(span_notice("[user] [locked ? "блокирует" : "разблокировывает"] [src].") ,
+								span_notice("[locked ? "Блокирую" : "Разблокировываю"] [src]."))
 				update_icon()
 			return
 		if(allowed(user) && open_mode == MODE_OPTIONAL | open_mode == MODE_CARD )
@@ -738,8 +738,8 @@
 				add_fingerprint(user)
 			locked = !locked
 			playsound(src, 'white/valtos/sounds/locker.ogg', 25, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
-			user.visible_message("<span class='notice'>[user] [locked ? "блокирует" : "разблокировывает"] [src].</span>" ,
-							"<span class='notice'>[locked ? "Блокирую" : "Разблокировываю"] [src].</span>")
+			user.visible_message(span_notice("[user] [locked ? "блокирует" : "разблокировывает"] [src].") ,
+							span_notice("[locked ? "Блокирую" : "Разблокировываю"] [src]."))
 			update_icon()
 		else if(!allowed(user) && open_mode == MODE_OPTIONAL)
 			if(iscarbon(user))
@@ -747,16 +747,16 @@
 			if(locked)
 				INVOKE_ASYNC(src, /datum/.proc/ui_interact, user)
 		else if(!silent)
-			to_chat(user, "<span class='alert'>Доступ запрещён.</span>")
+			to_chat(user, span_alert("Доступ запрещён."))
 	else if(secure && broken)
-		to_chat(user, "<span class='warning'><b>[src.name]</b> сломан!</span>")
+		to_chat(user, span_warning("<b>[src.name]</b> сломан!"))
 
 /obj/structure/closet/emag_act(mob/user)
 	if(secure && !broken)
 		if(user)
-			user.visible_message("<span class='warning'>От [src.name] летят искры!</span>" ,
-							"<span class='warning'>Взламываю защиту [src.name]!</span>" ,
-							"<span class='hear'>Слышу слабое искрение.</span>")
+			user.visible_message(span_warning("От [src.name] летят искры!") ,
+							span_warning("Взламываю защиту [src.name]!") ,
+							span_hear("Слышу слабое искрение."))
 		playsound(src, "zap", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		broken = TRUE
 		locked = FALSE
@@ -812,19 +812,19 @@
 		if(locked)
 			togglelock(user, TRUE)
 		if(!open(user))
-			to_chat(user, "<span class='warning'>Это не сдвинется с места!</span>")
+			to_chat(user, span_warning("Это не сдвинется с места!"))
 			return
 	step_towards(user, T2)
 	T1 = get_turf(user)
 	if(T1 == T2)
 		user.set_resting(TRUE) //so people can jump into crates without slamming the lid on their head
 		if(!close(user))
-			to_chat(user, "<span class='warning'>Не могу заставить [src] закрыться!</span>")
+			to_chat(user, span_warning("Не могу заставить [src] закрыться!"))
 			user.set_resting(FALSE)
 			return
 		user.set_resting(FALSE)
 		togglelock(user)
-		T1.visible_message("<span class='warning'>[user] прыгает в [src]!</span>")
+		T1.visible_message(span_warning("[user] прыгает в [src]!"))
 
 /obj/structure/closet/proc/update_airtightness()
 	var/is_airtight = FALSE
@@ -884,9 +884,9 @@
 	else
 		target.Knockdown(SHOVE_KNOCKDOWN_SOLID)
 	update_icon()
-	target.visible_message("<span class='danger'>[shover.name] заталкивает [target.name] в [src]!</span>",
-		"<span class='userdanger'>[shover.name] заталкивает меня в [src]!</span>", "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>", COMBAT_MESSAGE_RANGE, src)
-	to_chat(src, "<span class='danger'>Заталкиваю [target.name] в [src]!</span>")
+	target.visible_message(span_danger("[shover.name] заталкивает [target.name] в [src]!"),
+		span_userdanger("[shover.name] заталкивает меня в [src]!"), span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!"), COMBAT_MESSAGE_RANGE, src)
+	to_chat(src, span_danger("Заталкиваю [target.name] в [src]!"))
 	log_combat(src, target, "shoved", "into [src] (locker/crate)")
 	return COMSIG_CARBON_SHOVE_HANDLED
 

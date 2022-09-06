@@ -32,8 +32,8 @@
 /datum/action/bloodsucker/masquerade/ActivatePower()
 	. = ..()
 	var/mob/living/carbon/user = owner
-	to_chat(user, "<span class='notice'>Your heart beats falsely within your lifeless chest. You may yet pass for a mortal.</span>")
-	to_chat(user, "<span class='warning'>Your vampiric healing is halted while imitating life.</span>")
+	to_chat(user, span_notice("Your heart beats falsely within your lifeless chest. You may yet pass for a mortal."))
+	to_chat(user, span_warning("Your vampiric healing is halted while imitating life."))
 	// Remove Clan-specific stuff
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = user.mind.has_antag_datum(/datum/antagonist/bloodsucker)
 	switch(bloodsuckerdatum.my_clan)
@@ -132,7 +132,7 @@
 				var/obj/item/clothing/shoes/previousdrip = user.get_item_by_slot(ITEM_SLOT_FEET)
 				user.dropItemToGround(previousdrip)
 				user.equip_to_slot_or_del(new /obj/item/clothing/shoes/wolflegs(user), ITEM_SLOT_FEET)
-	to_chat(user, "<span class='notice'>Your heart beats one final time, while your skin dries out and your icy pallor returns.</span>")
+	to_chat(user, span_notice("Your heart beats one final time, while your skin dries out and your icy pallor returns."))
 
 /**
  * # Status effect

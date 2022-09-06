@@ -5,4 +5,4 @@
 /datum/smite/puzzle/effect(client/user, mob/living/target)
 	. = ..()
 	if(!puzzle_imprison(target))
-		to_chat(user, "<span class='warning'>Imprisonment failed!</span>")
+		to_chat(user, span_warning("Imprisonment failed!"))

@@ -82,7 +82,7 @@
 	uses = 301
 
 /obj/item/soap/omega/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is using [src] to scrub themselves from the timeline! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] is using [src] to scrub themselves from the timeline! It looks like [user.p_theyre()] trying to commit suicide!"))
 	new /obj/structure/chrono_field(user.loc, user)
 	return MANUAL_SUICIDE
 
@@ -94,7 +94,7 @@
 
 /obj/item/soap/suicide_act(mob/user)
 	user.say(";FFFFFFFFFFFFFFFFUUUUUUUDGE!!", forced="soap suicide")
-	user.visible_message("<span class='suicide'>[user] lifts [src] to [user.ru_ego()] mouth and gnaws on it furiously, producing a thick froth! [user.ru_who(TRUE)]'ll never get that BB gun now!</span>")
+	user.visible_message(span_suicide("[user] lifts [src] to [user.ru_ego()] mouth and gnaws on it furiously, producing a thick froth! [user.ru_who(TRUE)]'ll never get that BB gun now!"))
 	new /obj/effect/particle_effect/fluid/foam(loc)
 	return (TOXLOSS)
 
@@ -114,7 +114,7 @@
 	if(prob(skillcheck*100)) //higher level = more uses assuming RNG is nice
 		uses--
 	if(uses <= 0)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] crumbles into tiny bits!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] crumbles into tiny bits!"))
 		qdel(src)
 
 /obj/item/soap/afterattack(atom/target, mob/user, proximity)
@@ -123,7 +123,7 @@
 		return
 	if(ishuman(target) && user.zone_selected == BODY_ZONE_PRECISE_MOUTH) //washing that potty mouth of yours
 		var/mob/living/carbon/human/human_user = user
-		user.visible_message("<span class='warning'>\the [user] washes [target] mouth out with [src.name]!</span>" , "<span class='notice'>You wash [target] mouth out with [src.name]!</span>") //washes mouth out with soap sounds better than 'the soap' here			if(user.zone_selected == "mouth")
+		user.visible_message(span_warning("\the [user] washes [target] mouth out with [src.name]!") , span_notice("You wash [target] mouth out with [src.name]!")) //washes mouth out with soap sounds better than 'the soap' here			if(user.zone_selected == "mouth")
 		if(human_user.lip_style)
 			user.mind?.adjust_experience(/datum/skill/cleaning, CLEAN_SKILL_GENERIC_WASH_XP)
 			human_user.lip_style = null //removes lipstick
@@ -170,7 +170,7 @@
 	return ..()
 
 /obj/item/bikehorn/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] solemnly points [src] at [user.ru_ego()] temple! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] solemnly points [src] at [user.ru_ego()] temple! It looks like [user.p_theyre()] trying to commit suicide!"))
 	playsound(src, 'sound/items/bikehorn.ogg', 50, TRUE)
 	return (BRUTELOSS)
 

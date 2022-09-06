@@ -18,7 +18,7 @@
 	clockwork_desc = "Небольшое устройство, которое будет замедлять атакующих поблизости при небольшой стоимости энергии."
 	default_icon_state = "interdiction_lens"
 	anchored = TRUE
-	break_message = "<span class='warning'>Линза запрета разбивается на несколько фрагментов, которые плавно падают на землю.</span>"
+	break_message = span_warning("Линза запрета разбивается на несколько фрагментов, которые плавно падают на землю.")
 	max_integrity = 150
 	obj_integrity = 150
 	minimum_power = 5
@@ -39,7 +39,7 @@
 /obj/structure/destructible/clockwork/gear_base/interdiction_lens/attack_hand(mob/user)
 	if(is_servant_of_ratvar(user))
 		if(!anchored)
-			to_chat(user, "<span class='warning'>[src] хочет быть прикрученной к полу!</span>")
+			to_chat(user, span_warning("[src] хочет быть прикрученной к полу!"))
 			return
 		enabled = !enabled
 		to_chat(user, "<span class='brass'>Дёргаю переключатель на [src], переводя её в режим [enabled?"ВКЛ":"ВЫКЛ"]!</span>")
@@ -48,7 +48,7 @@
 				repowered()
 			else
 				enabled = FALSE
-				to_chat(user, "<span class='warning'>[src] не может найти источник энергии!</span>")
+				to_chat(user, span_warning("[src] не может найти источник энергии!"))
 		else
 			depowered()
 	else

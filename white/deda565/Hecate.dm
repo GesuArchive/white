@@ -39,7 +39,7 @@
 			var/G = get_dir(src, get_step_away(target, src))
 			var/atom/A = get_edge_target_turf(target, REVERSE_DIR(G))
 			var/funnirecoil = 100
-			to_chat(user, "<span class='warning'>ВЫ НЕ МОЖЕТЕ СПРАВИТЬСЯ С ОТДАЧЕЙ И УЛЕТАЕТЕ ОТ НЕЁ!</span>")
+			to_chat(user, span_warning("ВЫ НЕ МОЖЕТЕ СПРАВИТЬСЯ С ОТДАЧЕЙ И УЛЕТАЕТЕ ОТ НЕЁ!"))
 			user.throw_at(A, 256, funnirecoil, user, gentle = FALSE, callback = CALLBACK(user, /mob/living/carbon/human.proc/adjustBruteLoss, 500))
 			return
 		else

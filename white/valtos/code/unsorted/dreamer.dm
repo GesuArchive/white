@@ -320,7 +320,7 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 
 /datum/component/dreamer/proc/attack_us_with_hallucination()
 
-	to_chat(our_dreamer, "<span class='holoparasite'>[pick("ДАВАЙ ПОТАНЦУЕМ?!", "НЕ МЕШАЙ!", "ТЫ НЕ НУЖЕН!", "УХОДИ!", "У ТЕБЯ НЕТ ВРЕМЕНИ!", "СДАЙСЯ!", "ТЫ ЭТОГО НЕ ЗАСЛУЖИВАЕШЬ!")]</span>")
+	to_chat(our_dreamer, span_holoparasite(pick("ДАВАЙ ПОТАНЦУЕМ?!", "НЕ МЕШАЙ!", "ТЫ НЕ НУЖЕН!", "УХОДИ!", "У ТЕБЯ НЕТ ВРЕМЕНИ!", "СДАЙСЯ!", "ТЫ ЭТОГО НЕ ЗАСЛУЖИВАЕШЬ!")))
 
 	new /datum/hallucination/xeno_attack(our_dreamer)
 
@@ -397,10 +397,10 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 		return FALSE
 	A.do_attack_animation(D, ATTACK_EFFECT_SMASH)
 	var/atk_verb = pick("УНИЧТОЖАЕТ", "РАЗРЫВАЕТ", "ЛОПАЕТ")
-	D.visible_message("<span class='danger'><b>[A]</b> [atk_verb] <b>[D]</b>!</span>", \
-					"<span class='userdanger'><b>[A]</b> [atk_verb] меня!</span>", \
-					"<span class='hear'>Слышу звук разрывающейся плоти!</span>" , null, A)
-	to_chat(A, "<span class='danger'>Уничтожаю свинью <b>[D]</b>!</span>")
+	D.visible_message(span_danger("<b>[A]</b> [atk_verb] <b>[D]</b>!"), \
+					span_userdanger("<b>[A]</b> [atk_verb] меня!"), \
+					span_hear("Слышу звук разрывающейся плоти!") , null, A)
+	to_chat(A, span_danger("Уничтожаю свинью <b>[D]</b>!"))
 	if(ishuman(D))
 		var/mob/living/carbon/human/victim = D
 		var/obj/item/bodypart/BP = victim.get_bodypart(A.zone_selected)
@@ -417,10 +417,10 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 			return FALSE
 		A.do_attack_animation(D, ATTACK_EFFECT_SLASH)
 		var/atk_verb = pick("НЕИСТОВО", "ЯРОСТНО", "НЕНАВИСТНО")
-		D.visible_message("<span class='danger'><b>[A]</b> [atk_verb] РВЁТ <b>[D]</b>!</span>", \
-						"<span class='userdanger'><b>[uppertext(A)]</b> [atk_verb] РВЁТ МЕНЯ!</span>", \
-						"<span class='hear'>Слышу звук разрывающейся плоти!</span>" , null, A)
-		to_chat(A, "<span class='danger'>Рву свинью <b>[D]</b>!</span>")
+		D.visible_message(span_danger("<b>[A]</b> [atk_verb] РВЁТ <b>[D]</b>!"), \
+						span_userdanger("<b>[uppertext(A)]</b> [atk_verb] РВЁТ МЕНЯ!"), \
+						span_hear("Слышу звук разрывающейся плоти!") , null, A)
+		to_chat(A, span_danger("Рву свинью <b>[D]</b>!"))
 		D.grabbedby(A, TRUE)
 		D.drop_all_held_items()
 		A.setGrabState(GRAB_KILL)
@@ -442,10 +442,10 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 		return FALSE
 	A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 	var/atk_verb = pick("лупит", "пинает", "вмазывает")
-	D.visible_message("<span class='danger'><b>[A]</b> [atk_verb] <b>[D]</b> с НЕВЕРОЯТНОЙ СИЛОЙ!</span>", \
-					"<span class='userdanger'><b>[A]</b> [atk_verb] меня с НЕВЕРОЯТНОЙ СИЛОЙ!</span>", \
-					"<span class='hear'>Слышу звук разрывающейся плоти!</span>" , null, A)
-	to_chat(A, "<span class='danger'>Пинаю свинью <b>[D]</b>!</span>")
+	D.visible_message(span_danger("<b>[A]</b> [atk_verb] <b>[D]</b> с НЕВЕРОЯТНОЙ СИЛОЙ!"), \
+					span_userdanger("<b>[A]</b> [atk_verb] меня с НЕВЕРОЯТНОЙ СИЛОЙ!"), \
+					span_hear("Слышу звук разрывающейся плоти!") , null, A)
+	to_chat(A, span_danger("Пинаю свинью <b>[D]</b>!"))
 	if(block_chance >= 50)
 		D.apply_damage(rand(5, 10), A.get_attack_type())
 	var/throwtarget = get_edge_target_turf(A, get_dir(A, get_step_away(D, A)))
@@ -462,7 +462,7 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 	if(!isturf(A.loc) || !prob(block_chance))
 		return BULLET_ACT_HIT
 	else
-		A.visible_message("<span class='danger'><b>[A]</b> поглощает [P.name]!</span>", "<span class='userdanger'>Отвергаю существование [P.name]!</span>")
+		A.visible_message(span_danger("<b>[A]</b> поглощает [P.name]!"), span_userdanger("Отвергаю существование [P.name]!"))
 		qdel(P)
 		return BULLET_ACT_BLOCK
 
@@ -555,7 +555,7 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 	)
 	spawn(-1)
 		for(var/str in dreamlist)
-			to_chat(S, "<span class='notice'><i>... [str] ...</i></span>")
+			to_chat(S, span_notice("<i>... [str] ...</i>"))
 			sleep(5 SECONDS)
 
 		S.reagents.add_reagent(/datum/reagent/toxin/lexorin, 50)
@@ -602,7 +602,7 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 				S.playsound_local(get_turf(S), 'sound/weapons/flashbang.ogg', 100, TRUE, 8)
 				S.Sleeping(120 SECONDS)
 	spawn(64 SECONDS)
-		to_chat(S, "<span class='boldnotice'><i>... АААААААААААААААААА ...</i></span>")
+		to_chat(S, span_boldnotice("<i>... АААААААААААААААААА ...</i>"))
 	spawn(65 SECONDS)
 		if(old_mob)
 			old_mob.ckey = S.ckey

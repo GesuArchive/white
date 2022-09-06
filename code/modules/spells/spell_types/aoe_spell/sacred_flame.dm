@@ -31,9 +31,9 @@
 	// Let people who got afflicted know they're suddenly a matchstick
 	// But skip the caster - they'll know anyways.
 	if(victim != caster)
-		to_chat(victim, "<span class='warning'>You suddenly feel very flammable.</span>")
+		to_chat(victim, span_warning("You suddenly feel very flammable."))
 
 /datum/action/cooldown/spell/aoe/sacred_flame/cast(mob/living/cast_on)
 	. = ..()
 	cast_on.ignite_mob()
-	to_chat(cast_on, "<span class='danger'>You feel a roaring flame build up inside you!</span>")
+	to_chat(cast_on, span_danger("You feel a roaring flame build up inside you!"))

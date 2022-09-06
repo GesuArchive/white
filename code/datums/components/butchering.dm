@@ -46,39 +46,39 @@
 		var/mob/living/carbon/human/H = M
 		if((user.pulling == H && user.grab_state >= GRAB_AGGRESSIVE) && user.zone_selected == BODY_ZONE_HEAD) // Only aggressive grabbed can be sliced.
 			if(H.has_status_effect(/datum/status_effect/neck_slice))
-				user.show_message("<span class='warning'>Глотка [H] уже порезана!</span>", MSG_VISUAL, \
-								"<span class='warning'>Глотка и так уже порезана!</span>")
+				user.show_message(span_warning("Глотка [H] уже порезана!"), MSG_VISUAL, \
+								span_warning("Глотка и так уже порезана!"))
 				return COMPONENT_CANCEL_ATTACK_CHAIN
 			INVOKE_ASYNC(src, .proc/startNeckSlice, source, H, user)
 			return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /datum/component/butchering/proc/startButcher(obj/item/source, mob/living/M, mob/living/user)
-	to_chat(user, "<span class='notice'>Начинаю разделывать [M]...</span>")
+	to_chat(user, span_notice("Начинаю разделывать [M]..."))
 	playsound(M.loc, butcher_sound, 50, TRUE, -1)
 	if(do_mob(user, M, speed) && M.Adjacent(source))
 		Butcher(user, M)
 
 /datum/component/butchering/proc/startNeckSlice(obj/item/source, mob/living/carbon/human/H, mob/living/user)
 	if(DOING_INTERACTION_WITH_TARGET(user, H))
-		to_chat(user, "<span class='warning'>Уже взаимодействую с [H]!</span>")
+		to_chat(user, span_warning("Уже взаимодействую с [H]!"))
 		return
 
-	user.visible_message("<span class='danger'>[user] начинает резать глотку [H]!</span>" , \
-					"<span class='danger'>Начинаю резать глотку [H]!</span>" , \
-					"<span class='hear'>Слышу звуки нарезки мяса!</span>" , ignored_mobs = H)
-	H.show_message("<span class='userdanger'>[user] начинает перерезать мою глотку!</span>" , MSG_VISUAL, \
+	user.visible_message(span_danger("[user] начинает резать глотку [H]!") , \
+					span_danger("Начинаю резать глотку [H]!") , \
+					span_hear("Слышу звуки нарезки мяса!") , ignored_mobs = H)
+	H.show_message(span_userdanger("[user] начинает перерезать мою глотку!") , MSG_VISUAL, \
 					"<span class = 'userdanger'>Что-то режет мою глотку!</span>", NONE)
 	log_combat(user, H, "starts slicing the throat of")
 
 	playsound(H.loc, butcher_sound, 50, TRUE, -1)
 	if(do_mob(user, H, clamp(500 / source.force, 30, 100)) && H.Adjacent(source))
 		if(H.has_status_effect(/datum/status_effect/neck_slice))
-			user.show_message("<span class='warning'>[H] уже имеет второй рот на шее, куда больше?!</span>" , MSG_VISUAL, \
-							"<span class='warning'>Здесь уже есть второй рот на шее, куда больше?!</span>")
+			user.show_message(span_warning("[H] уже имеет второй рот на шее, куда больше?!") , MSG_VISUAL, \
+							span_warning("Здесь уже есть второй рот на шее, куда больше?!"))
 			return
 
-		H.visible_message("<span class='danger'>[user] режет глотку [H]!</span>" , \
-					"<span class='userdanger'>[user] режет мою глотку...</span>")
+		H.visible_message(span_danger("[user] режет глотку [H]!") , \
+					span_userdanger("[user] режет мою глотку..."))
 		playsound(get_turf(H), 'sound/effects/wounds/crackandbleed.ogg', 40)
 		log_combat(user, H, "wounded via throat slitting", source)
 		H.apply_damage(source.force, BRUTE, BODY_ZONE_HEAD, wound_bonus=CANT_WOUND) // easy tiger, we'll get to that in a sec
@@ -106,12 +106,12 @@
 		for(var/_i in 1 to amount)
 			if(!prob(final_effectiveness))
 				if(butcher)
-					to_chat(butcher, "<span class='warning'>Не вышло вырезать [initial(bones.name)] из [meat].</span>")
+					to_chat(butcher, span_warning("Не вышло вырезать [initial(bones.name)] из [meat]."))
 				continue
 
 			if(prob(bonus_chance))
 				if(butcher)
-					to_chat(butcher, "<span class='info'>Вырезаю [initial(bones.name)] из [meat]!</span>")
+					to_chat(butcher, span_info("Вырезаю [initial(bones.name)] из [meat]!"))
 				results += new bones (T)
 			results += new bones (T)
 
@@ -131,8 +131,8 @@
 		carrion.set_custom_materials((carrion.custom_materials - meat_mats) + list(GET_MATERIAL_REF(/datum/material/meat/mob_meat, meat) = counterlist_sum(meat_mats)))
 
 	if(butcher)
-		butcher.visible_message("<span class='notice'>[butcher] разделывает [meat].</span>", \
-								"<span class='notice'>Разделываю [meat].</span>")
+		butcher.visible_message(span_notice("[butcher] разделывает [meat]."), \
+								span_notice("Разделываю [meat]."))
 	butcher_callback?.Invoke(butcher, meat)
 	meat.harvest(butcher)
 	meat.gib(FALSE, FALSE, TRUE)

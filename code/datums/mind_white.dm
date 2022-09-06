@@ -25,7 +25,7 @@
 			if(isobserver(M))
 				G = M
 			else if(isliving(M))
-				M.visible_message("<span class='danger'>[M] отправляется обратно куда-то в даль загадочно..........................</span>", "<span class='danger'>Отправляюсь обратно...</span>")
+				M.visible_message(span_danger("[M] отправляется обратно куда-то в даль загадочно.........................."), span_danger("Отправляюсь обратно..."))
 				G = M.ghostize(FALSE)
 			current.client = G.client
 	. = G

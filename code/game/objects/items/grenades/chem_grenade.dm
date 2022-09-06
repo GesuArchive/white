@@ -39,9 +39,9 @@
 			. += "<hr><span class='notice'>Внутри обнаружены следующие реагенты:</span>"
 			for(var/obj/item/reagent_containers/glass/G in beakers)
 				for(var/datum/reagent/R in G.reagents.reagent_list)
-					. += "<span class='notice'>\n[R.volume] единиц [R.name] в [G.name].</span>"
+					. += span_notice("\n[R.volume] единиц [R.name] в [G.name].")
 			if(beakers.len == 1)
-				. += "<span class='notice'>\nВторой емкости не обнаружено.</span>"
+				. += span_notice("\nВторой емкости не обнаружено.")
 		else
 			. += "<hr><span class='notice'>Граната не снаряжена.</span>"
 	else if(stage != GRENADE_READY && beakers.len)
@@ -49,7 +49,7 @@
 			. += "<hr><span class='notice'>Внутри находится два [beakers[1].name].</span>"
 		else
 			for(var/obj/item/reagent_containers/glass/G in beakers)
-				. += "<span class='notice'>\nВнутри находится [G.name].</span>"
+				. += span_notice("\nВнутри находится [G.name].")
 
 /obj/item/grenade/chem_grenade/attack_self(mob/user)
 	if(stage == GRENADE_READY && !active)
@@ -64,10 +64,10 @@
 		if(stage == GRENADE_WIRED)
 			if(beakers.len)
 				stage_change(GRENADE_READY)
-				to_chat(user, "<span class='notice'>Завершаю сборку гранаты.</span>")
+				to_chat(user, span_notice("Завершаю сборку гранаты."))
 				I.play_tool_sound(src, 25)
 			else
-				to_chat(user, "<span class='warning'>Для завершения сборки необходимо поместить внутрь хотя бы одну емкость!</span>")
+				to_chat(user, span_warning("Для завершения сборки необходимо поместить внутрь хотя бы одну емкость!"))
 		else if(stage == GRENADE_READY)
 //			det_time = det_time == 50 ? 30 : 50 //toggle between 30 and 50
 			var/previous_time = det_time
@@ -83,42 +83,42 @@
 			if(landminemode)
 				landminemode.time = det_time * 0.1	//overwrites the proxy sensor activation timer
 
-			to_chat(user, "<span class='notice'>Устанавливаю задержку в [DisplayTimeText(det_time)].</span>")
+			to_chat(user, span_notice("Устанавливаю задержку в [DisplayTimeText(det_time)]."))
 		else
-			to_chat(user, "<span class='warning'>Для начала необходимо добавить провода!</span>")
+			to_chat(user, span_warning("Для начала необходимо добавить провода!"))
 		return
 	else if(stage == GRENADE_WIRED && is_type_in_list(I, allowed_containers))
 		. = TRUE //no afterattack
 		if(is_type_in_list(I, banned_containers))
-			to_chat(user, "<span class='warning'>Это здесь не поместится!</span>") // this one hits home huh anon?
+			to_chat(user, span_warning("Это здесь не поместится!")) // this one hits home huh anon?
 			return
 		if(beakers.len == 2)
-			to_chat(user, "<span class='warning'>Больше не влезет!</span>")
+			to_chat(user, span_warning("Больше не влезет!"))
 			return
 		else
 			if(I.reagents.total_volume)
 				if(!user.transferItemToLoc(I, src))
 					return
-				to_chat(user, "<span class='notice'>Помещаю [I] в заготовку.</span>")
+				to_chat(user, span_notice("Помещаю [I] в заготовку."))
 				beakers += I
 				var/reagent_list = pretty_string_from_reagent_list(I.reagents)
 				user.log_message("inserted [I] ([reagent_list]) into [src]",LOG_GAME)
 			else
-				to_chat(user, "<span class='warning'>[I] пуст!</span>")
+				to_chat(user, span_warning("[I] пуст!"))
 
 	else if(stage == GRENADE_EMPTY && istype(I, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/C = I
 		if (C.use(1))
 			det_time = 50 // In case the cable_coil was removed and readded.
 			stage_change(GRENADE_WIRED)
-			to_chat(user, "<span class='notice'>Закрепляю проводку.</span>")
+			to_chat(user, span_notice("Закрепляю проводку."))
 		else
-			to_chat(user, "<span class='warning'>Необходимо больше проводов!</span>")
+			to_chat(user, span_warning("Необходимо больше проводов!"))
 			return
 
 	else if(stage == GRENADE_READY && I.tool_behaviour == TOOL_WIRECUTTER && !active)
 		stage_change(GRENADE_WIRED)
-		to_chat(user, "<span class='notice'>Отсоединяю взрыватель.</span>")
+		to_chat(user, span_notice("Отсоединяю взрыватель."))
 
 	else if(stage == GRENADE_WIRED && I.tool_behaviour == TOOL_WRENCH)
 		if(beakers.len)
@@ -129,12 +129,12 @@
 				var/reagent_list = pretty_string_from_reagent_list(O.reagents)
 				user.log_message("removed [O] ([reagent_list]) from [src]", LOG_GAME)
 			beakers = list()
-			to_chat(user, "<span class='notice'>Извлекаю боеукладку.</span>")
+			to_chat(user, span_notice("Извлекаю боеукладку."))
 			return
 		wires.detach_assembly(wires.get_wire(1))
 		new /obj/item/stack/cable_coil(get_turf(src),1)
 		stage_change(GRENADE_EMPTY)
-		to_chat(user, "<span class='notice'>Разбираю заготовку.</span>")
+		to_chat(user, span_notice("Разбираю заготовку."))
 	else
 		return ..()
 
@@ -178,9 +178,9 @@
 		add_fingerprint(user)
 		if(msg)
 			if(landminemode)
-				to_chat(user, "<span class='warning'>Взвожу [src], активируя датчик движения.</span>")
+				to_chat(user, span_warning("Взвожу [src], активируя датчик движения."))
 			else
-				to_chat(user, "<span class='warning'>Активирую [src]! [DisplayTimeText(det_time)]!</span>")
+				to_chat(user, span_warning("Активирую [src]! [DisplayTimeText(det_time)]!"))
 	playsound(src, 'sound/weapons/armbomb.ogg', volume, TRUE)
 	icon_state = initial(icon_state) + "_active"
 	if(landminemode)
@@ -257,7 +257,7 @@
 	if(istype(I, /obj/item/slime_extract) && stage == GRENADE_WIRED)
 		if(!user.transferItemToLoc(I, src))
 			return
-		to_chat(user, "<span class='notice'>Помещаю [I] в заготовку.</span>")
+		to_chat(user, span_notice("Помещаю [I] в заготовку."))
 		beakers += I
 	else
 		return ..()
@@ -290,9 +290,9 @@
 		if (newspread != null && user.canUseTopic(src, BE_CLOSE))
 			newspread = round(newspread)
 			unit_spread = clamp(newspread, 5, 100)
-			to_chat(user, "<span class='notice'>Устанавливаю форсунки на выброс [unit_spread] единиц за активацию.</span>")
+			to_chat(user, span_notice("Устанавливаю форсунки на выброс [unit_spread] единиц за активацию."))
 		if (newspread != unit_spread)
-			to_chat(user, "<span class='notice'>Выход из диапазона - допустимое значение от 5 до 100 единиц за раз!</span>")
+			to_chat(user, span_notice("Выход из диапазона - допустимое значение от 5 до 100 единиц за раз!"))
 	..()
 
 /obj/item/grenade/chem_grenade/adv_release/detonate(mob/living/lanced_by)

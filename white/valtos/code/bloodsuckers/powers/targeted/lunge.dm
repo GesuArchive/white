@@ -30,7 +30,7 @@
 		return FALSE
 	/// Are we being grabbed?
 	if(user.pulledby && user.pulledby.grab_state >= GRAB_AGGRESSIVE)
-		to_chat(user, "<span class='warning'>You're being grabbed!</span>")
+		to_chat(user, span_warning("You're being grabbed!"))
 		return FALSE
 	return TRUE
 
@@ -53,7 +53,7 @@
 	// Check: can the Bloodsucker even move?
 	var/mob/living/user = owner
 	if(!(user.mobility_flags & MOBILITY_STAND) || user.IsImmobilized())
-		to_chat(user, "<span class='warning'>You need to be standing and aware to lunge!</span>")
+		to_chat(user, span_warning("You need to be standing and aware to lunge!"))
 		return FALSE
 	return TRUE
 
@@ -80,7 +80,7 @@
 
 /datum/action/bloodsucker/targeted/lunge/proc/prepare_target_lunge(atom/target_atom)
 	casting = TRUE;
-	to_chat(owner, "<span class='notice'>You prepare to lunge!</span>")
+	to_chat(owner, span_notice("You prepare to lunge!"))
 	//animate them shake
 	var/base_x = owner.pixel_x
 	var/base_y = owner.pixel_y
@@ -104,8 +104,8 @@
 	if(prob(75))
 		owner.spin(8, 1)
 		owner.visible_message(
-			"<span class='warning'>[owner] spins wildly!</span>",
-			"<span class='notice'>You spin!</span>",
+			span_warning("[owner] spins wildly!"),
+			span_notice("You spin!"),
 			)
 		return
 	do_smoke(0, owner.loc, smoke_type = /obj/effect/particle_effect/fluid/smoke/transparent)
@@ -126,18 +126,18 @@
 	// Is my target a Monster hunter?
 	var/mob/living/carbon/human/H = target
 	if(IS_MONSTERHUNTER(target) || H.is_shove_knockdown_blocked())
-		to_chat(owner, "<span class='danger'>You get pushed away!</span>")
+		to_chat(owner, span_danger("You get pushed away!"))
 		H.grabbedby(owner)
 		return
 
-	to_chat(owner, "<span class='danger'>You lunge at [target]!</span>")
+	to_chat(owner, span_danger("You lunge at [target]!"))
 	if(target.stat == DEAD)
 		var/obj/item/bodypart/chest = target.get_bodypart(BODY_ZONE_CHEST)
 		var/datum/wound/slash/moderate/crit_wound = new
 		crit_wound.apply_wound(chest)
 		owner.visible_message(
-			"<span class='warning'>[owner] tears into [target]'s chest!</span>",
-			"<span class='warning'>You tear into [target]'s chest!</span>")
+			span_warning("[owner] tears into [target]'s chest!"),
+			span_warning("You tear into [target]'s chest!"))
 		var/obj/item/organ/heart/myheart_now = locate() in target.internal_organs
 		if(myheart_now)
 			myheart_now.Remove(target)

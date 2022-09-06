@@ -283,8 +283,8 @@
 /obj/structure/punching_bag/pizdul/examine(mob/user)
 	. = ..()
 	. += "<hr><span class='notice'>Производительность: <b>[tier]</b></span>"
-	. += "<span class='notice'>\nОпыт: <b>[exp]</b></span>"
-	. += "<span class='notice'>\nПривязанный аккаунт: <b>[linked_account.account_holder]</b>.</span>"
+	. += span_notice("\nОпыт: <b>[exp]</b>")
+	. += span_notice("\nПривязанный аккаунт: <b>[linked_account.account_holder]</b>.")
 
 /obj/structure/punching_bag/pizdul/attack_hand(mob/user as mob)
 	. = ..()
@@ -306,9 +306,9 @@
 		var/obj/item/card/id/acard = I
 		if(acard.registered_account)
 			linked_account = acard.registered_account
-			to_chat(user, "<span class='notice'>Привязываю карту к пиздюлегенератору.</span>")
+			to_chat(user, span_notice("Привязываю карту к пиздюлегенератору."))
 			return
-		to_chat(user, "<span class='warning'>На карте нет аккаунта!</span>")
+		to_chat(user, span_warning("На карте нет аккаунта!"))
 		return
 
 	. = ..()

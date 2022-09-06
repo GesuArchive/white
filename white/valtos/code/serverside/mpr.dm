@@ -40,14 +40,14 @@
 
 			var/player_to_be = ckey(name)
 			if(!player_to_be)
-				to_chat(usr, "<span class='warning'>\"[name]\" is not a valid CKEY.</span>")
+				to_chat(usr, span_warning("\"[name]\" is not a valid CKEY."))
 				return
 
 			switch(group)
 				if("Mentor")
 					for(var/a_mentor as anything in GLOB.mentor_datums)
 						if(player_to_be == a_mentor)
-							to_chat(usr, "<span class='warning'>\"[player_to_be]\" is already a [group_title]!</span>")
+							to_chat(usr, span_warning("\"[player_to_be]\" is already a [group_title]!"))
 							return
 					// Now that we know that the ckey is valid and they're not already apart of that group, let's add them to it!
 					new /datum/mentors(player_to_be)
@@ -55,7 +55,7 @@
 				if("EXRP")
 					for(var/a_exrp as anything in GLOB.whitelist_exrp)
 						if(player_to_be == a_exrp)
-							to_chat(usr, "<span class='warning'>\"[player_to_be]\" is already a [group_title]!</span>")
+							to_chat(usr, span_warning("\"[player_to_be]\" is already a [group_title]!"))
 							return
 					// Now that we know that the ckey is valid and they're not already apart of that group, let's add them to it!
 					GLOB.whitelist_exrp[player_to_be] = TRUE
@@ -74,7 +74,7 @@
 
 			var/player_that_was = ckey(name)
 			if(!player_that_was)
-				to_chat(usr, "<span class='warning'>\"[name]\" is not a valid CKEY.</span>")
+				to_chat(usr, span_warning("\"[name]\" is not a valid CKEY."))
 				return
 
 			var/changes = FALSE
@@ -86,7 +86,7 @@
 							mentor_datum.remove_mentor()
 							changes = TRUE
 					if(!changes)
-						to_chat(usr, "<span class='warning'>\"[player_that_was]\" was already not a [group_title].</span>")
+						to_chat(usr, span_warning("\"[player_that_was]\" was already not a [group_title]."))
 					save_mentors()
 				if("EXRP")
 					for(var/a_exrp as anything in GLOB.whitelist_exrp)
@@ -94,7 +94,7 @@
 							GLOB.whitelist_exrp -= player_that_was
 							changes = TRUE
 					if(!changes)
-						to_chat(usr, "<span class='warning'>\"[player_that_was]\" was already not a [group_title].</span>")
+						to_chat(usr, span_warning("\"[player_that_was]\" was already not a [group_title]."))
 						return
 					save_exrp_players()
 				else

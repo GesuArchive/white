@@ -30,7 +30,7 @@
 	switch(action)
 		if("signal")
 			if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_SIGNALLER_SEND))
-				to_chat(usr, "<span class='warning'>[filename] все еще перезаряжается...</span>")
+				to_chat(usr, span_warning("[filename] все еще перезаряжается..."))
 				return
 			TIMER_COOLDOWN_START(src, COOLDOWN_SIGNALLER_SEND, 1 SECONDS)
 			INVOKE_ASYNC(src, .proc/signal)

@@ -41,7 +41,7 @@
 		return FALSE
 	if(currently_channeling)
 		if(feedback)
-			to_chat(owner, "<span class='warning'>You're already channeling [src]!</span>")
+			to_chat(owner, span_warning("You're already channeling [src]!"))
 		return FALSE
 
 	return TRUE
@@ -51,7 +51,7 @@
 	if(. & SPELL_CANCEL_CAST)
 		return
 
-	to_chat(cast_on, "<span class='notice'>You start gathering power...</span>")
+	to_chat(cast_on, span_notice("You start gathering power..."))
 	charge_sound = new /sound('sound/magic/lightning_chargeup.ogg', channel = 7)
 	halo ||= mutable_appearance('icons/effects/effects.dmi', "electricity", EFFECTS_LAYER)
 	cast_on.add_overlay(halo)
@@ -99,8 +99,8 @@
 
 	if(to_zap.can_block_magic(antimagic_flags))
 		to_zap.visible_message(
-			"<span class='warning'>[to_zap] absorbs the spell, remaining unharmed!</span>",
-			"<span class='userdanger'>You absorb the spell, remaining unharmed!</span>",
+			span_warning("[to_zap] absorbs the spell, remaining unharmed!"),
+			span_userdanger("You absorb the spell, remaining unharmed!"),
 		)
 
 	else

@@ -42,7 +42,7 @@
 				continue
 			O_limit++
 			if(O_limit >= 20)
-				audible_message("<span class='notice'>[capitalize(src.name)] lets out a screech, it doesn't seem to be able to handle the load.</span>")
+				audible_message(span_notice("[capitalize(src.name)] lets out a screech, it doesn't seem to be able to handle the load."))
 				break
 			use_power(active_power_usage)
 			O.throw_at(target, drive_range * power, power)

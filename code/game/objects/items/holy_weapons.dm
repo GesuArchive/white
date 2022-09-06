@@ -68,7 +68,7 @@
 		SSblackbox.record_feedback("tally", "chaplain_armor", 1, "[choice]")
 		GLOB.holy_armor_type = choice
 	else
-		to_chat(M, "<span class='warning'>Выбор сделан. Самоуничтожение...</span>")
+		to_chat(M, span_warning("Выбор сделан. Самоуничтожение..."))
 		return
 
 
@@ -249,7 +249,7 @@
 	AddComponent(/datum/component/anti_magic, TRUE, TRUE, FALSE, null, null, FALSE)
 
 /obj/item/nullrod/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] убивает [user.ru_na()] себя используя [src]! Похоже, что [user.p_theyre()] пытается стать ближе к богу!</span>")
+	user.visible_message(span_suicide("[user] убивает [user.ru_na()] себя используя [src]! Похоже, что [user.p_theyre()] пытается стать ближе к богу!"))
 	return (BRUTELOSS|FIRELOSS)
 
 /obj/item/nullrod/attack_self(mob/user)
@@ -463,8 +463,8 @@
 	attack_verb_simple = list("НЕРЕАЛЬНО рубит", "НЕРЕАЛЬНО режет", "НЕРЕАЛЬНО кромсает", "НЕРЕАЛЬНО разрывает", "НЕРЕАЛЬНО протыкает", "НЕРЕАЛЬНО атакует", "НЕРЕАЛЬНО делит", "НЕРЕАЛЬНО колбасит")
 
 /obj/item/nullrod/sord/suicide_act(mob/user) //a near-exact copy+paste of the actual sord suicide_act()
-	user.visible_message("<span class='suicide'>[user] пытается impale [user.ru_na()]self with [src]! It might be a suicide attempt if it weren't so HOLY.</span>" , \
-	"<span class='suicide'>Пытаюсь проткнуть себя [src], но он СЛИШКОМ СВЯТОЙ...</span>")
+	user.visible_message(span_suicide("[user] пытается impale [user.ru_na()]self with [src]! It might be a suicide attempt if it weren't so HOLY.") , \
+	span_suicide("Пытаюсь проткнуть себя [src], но он СЛИШКОМ СВЯТОЙ..."))
 	return SHAME
 
 /obj/item/nullrod/scythe
@@ -528,10 +528,10 @@
 	if(possessed)
 		return
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_STATION_SENTIENCE))
-		to_chat(user, "<span class='notice'>Аномальные потусторонние энергии мешают вам пробудить клинок!</span>")
+		to_chat(user, span_notice("Аномальные потусторонние энергии мешают вам пробудить клинок!"))
 		return
 
-	to_chat(user, "<span class='notice'>Вы пытаетесь пробудить дух клинка...</span>")
+	to_chat(user, span_notice("Вы пытаетесь пробудить дух клинка..."))
 
 	possessed = TRUE
 
@@ -552,12 +552,12 @@
 			name = input
 			S.fully_replace_character_name(null, "Дух [input]")
 	else
-		to_chat(user, "<span class='warning'>Клинок дремлет. Возможно, вы можете попробовать позже.</span>")
+		to_chat(user, span_warning("Клинок дремлет. Возможно, вы можете попробовать позже."))
 		possessed = FALSE
 
 /obj/item/nullrod/scythe/talking/Destroy()
 	for(var/mob/living/simple_animal/shade/S in contents)
-		to_chat(S, "<span class='userdanger'>Я был уничтожен!</span>")
+		to_chat(S, span_userdanger("Я был уничтожен!"))
 		qdel(S)
 	return ..()
 
@@ -646,8 +646,8 @@
 	AddElement(/datum/element/kneejerk)
 	AddElement(
 		/datum/element/chemical_transfer,\
-		"<span class='notice'>Ваша гордость отражает %VICTIM.</span>",\
-		"<span class='userdanger'>Вы чувствуете себя неуверенно, взяв на себя бремя %ATTACKER.</span>",\
+		span_notice("Ваша гордость отражает %VICTIM."),\
+		span_userdanger("Вы чувствуете себя неуверенно, взяв на себя бремя %ATTACKER."),\
 		CHEMICAL_TRANSFER_CHANCE\
 	)
 
@@ -722,7 +722,7 @@
 
 /obj/item/nullrod/carp/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/faction_granter, "carp", holy_role_required = HOLY_ROLE_PRIEST, grant_message = "<span class='boldnotice'>You are blessed by Carp-Sie. Wild space carp will no longer attack you.</span>")
+	AddComponent(/datum/component/faction_granter, "carp", holy_role_required = HOLY_ROLE_PRIEST, grant_message = span_boldnotice("You are blessed by Carp-Sie. Wild space carp will no longer attack you."))
 
 /obj/item/nullrod/claymore/bostaff //May as well make it a "claymore" and inherit the blocking
 	name = "посох монаха"

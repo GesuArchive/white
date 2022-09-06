@@ -12,13 +12,13 @@
 
 /datum/action/neck_chop/Trigger(trigger_flags)
 	if(owner.incapacitated())
-		to_chat(owner, "<span class='warning'>Не могу использовать [name], когда я парализован.</span>")
+		to_chat(owner, span_warning("Не могу использовать [name], когда я парализован."))
 		return
 	if (owner.mind.martial_art.streak == "neck_chop")
-		owner.visible_message("<span class='danger'><b>[owner]</b> становится в нейтральную стойку.</span>", "<b><i>Выхожу из боевой стойки.</i></b>")
+		owner.visible_message(span_danger("<b>[owner]</b> становится в нейтральную стойку."), "<b><i>Выхожу из боевой стойки.</i></b>")
 		owner.mind.martial_art.streak = ""
 	else
-		owner.visible_message("<span class='danger'><b>[owner]</b> принимает стойку удара по шее!</span>", "<b><i>Cледующей атакой будет <b>Удар по шее</b>.</i></b>")
+		owner.visible_message(span_danger("<b>[owner]</b> принимает стойку удара по шее!"), "<b><i>Cледующей атакой будет <b>Удар по шее</b>.</i></b>")
 		owner.mind.martial_art.streak = "neck_chop"
 
 /datum/action/leg_sweep
@@ -28,13 +28,13 @@
 
 /datum/action/leg_sweep/Trigger(trigger_flags)
 	if(owner.incapacitated())
-		to_chat(owner, "<span class='warning'>Не могу использовать [name], когда я парализован.</span>")
+		to_chat(owner, span_warning("Не могу использовать [name], когда я парализован."))
 		return
 	if (owner.mind.martial_art.streak == "leg_sweep")
-		owner.visible_message("<span class='danger'><b>[owner]</b> становится в нейтральную стойку.</span>", "<b><i>Выхожу из боевой стойки.</i></b>")
+		owner.visible_message(span_danger("<b>[owner]</b> становится в нейтральную стойку."), "<b><i>Выхожу из боевой стойки.</i></b>")
 		owner.mind.martial_art.streak = ""
 	else
-		owner.visible_message("<span class='danger'><b>[owner]</b> принимает стойку маха ногой!</span>", "<b><i>Cледующей атакой будет <b>Взмах ногой</b>.</i></b>")
+		owner.visible_message(span_danger("<b>[owner]</b> принимает стойку маха ногой!"), "<b><i>Cледующей атакой будет <b>Взмах ногой</b>.</i></b>")
 		owner.mind.martial_art.streak = "leg_sweep"
 
 /datum/action/lung_punch//referred to internally as 'quick choke'
@@ -44,25 +44,25 @@
 
 /datum/action/lung_punch/Trigger(trigger_flags)
 	if(owner.incapacitated())
-		to_chat(owner, "<span class='warning'>Не могу использовать [name], когда я парализован.</span>")
+		to_chat(owner, span_warning("Не могу использовать [name], когда я парализован."))
 		return
 	if (owner.mind.martial_art.streak == "quick_choke")
-		owner.visible_message("<span class='danger'>[owner] становится в нейтральную стойку.</span>", "<b><i>Выхожу из боевой стойки.</i></b>")
+		owner.visible_message(span_danger("[owner] становится в нейтральную стойку."), "<b><i>Выхожу из боевой стойки.</i></b>")
 		owner.mind.martial_art.streak = ""
 	else
-		owner.visible_message("<span class='danger'>[owner] принимает стойку удара в лёгкие!</span>", "<b><i>Cледующей атакой будет <b>Удар в легкие</b>.</i></b>")
+		owner.visible_message(span_danger("[owner] принимает стойку удара в лёгкие!"), "<b><i>Cледующей атакой будет <b>Удар в легкие</b>.</i></b>")
 		owner.mind.martial_art.streak = "quick_choke"//internal name for lung punch
 
 /datum/martial_art/krav_maga/teach(mob/living/owner, make_temporary=FALSE)
 	if(..())
-		to_chat(owner, "<span class='userdanger'>Теперь я знаю искусство [name]!</span>")
-		to_chat(owner, "<span class='danger'>Наведитесь курсором на иконку приёма, чтобы узнать о нём подробнее.</span>")
+		to_chat(owner, span_userdanger("Теперь я знаю искусство [name]!"))
+		to_chat(owner, span_danger("Наведитесь курсором на иконку приёма, чтобы узнать о нём подробнее."))
 		neckchop.Grant(owner)
 		legsweep.Grant(owner)
 		lungpunch.Grant(owner)
 
 /datum/martial_art/krav_maga/on_remove(mob/living/owner)
-	to_chat(owner, "<span class='userdanger'>Внезапно забываю искусство [name]...</span>")
+	to_chat(owner, span_userdanger("Внезапно забываю искусство [name]..."))
 	neckchop.Remove(owner)
 	legsweep.Remove(owner)
 	lungpunch.Remove(owner)
@@ -92,9 +92,9 @@
 		return FALSE
 	var/obj/item/bodypart/affecting = D.get_bodypart(BODY_ZONE_CHEST)
 	var/armor_block = D.run_armor_check(affecting, MELEE)
-	D.visible_message("<span class='warning'><b>[A]</b> сбивает с ног <b>[D]</b>!</span>" , \
-					"<span class='userdanger'><b>[A]</b> сметает меня с ног!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", null, A)
-	to_chat(A, "<span class='danger'>Сбиваю <b>[D]</b> с ног!</span>")
+	D.visible_message(span_warning("<b>[A]</b> сбивает с ног <b>[D]</b>!") , \
+					span_userdanger("<b>[A]</b> сметает меня с ног!"), span_hear("Слышу звук разрывающейся плоти!"), null, A)
+	to_chat(A, span_danger("Сбиваю <b>[D]</b> с ног!"))
 	playsound(get_turf(A), 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
 	D.apply_damage(rand(20,30), STAMINA, affecting, armor_block)
 	D.Knockdown(60)
@@ -104,9 +104,9 @@
 /datum/martial_art/krav_maga/proc/quick_choke(mob/living/A, mob/living/D)//is actually lung punch
 	if(!can_use(A))
 		return FALSE
-	D.visible_message("<span class='warning'><b>[A]</b> долбит в грудь <b>[D]</b>!</span>" , \
-					"<span class='userdanger'><b>[A]</b> ударяет меня в грудь! Не могу дышать!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-	to_chat(A, "<span class='danger'>Бью в грудь <b>[D]</b>!</span>")
+	D.visible_message(span_warning("<b>[A]</b> долбит в грудь <b>[D]</b>!") , \
+					span_userdanger("<b>[A]</b> ударяет меня в грудь! Не могу дышать!"), span_hear("Слышу звук разрывающейся плоти!"), COMBAT_MESSAGE_RANGE, A)
+	to_chat(A, span_danger("Бью в грудь <b>[D]</b>!"))
 	playsound(get_turf(A), 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
 	if(D.losebreath <= 10)
 		D.losebreath = clamp(D.losebreath + 5, 0, 10)
@@ -117,9 +117,9 @@
 /datum/martial_art/krav_maga/proc/neck_chop(mob/living/A, mob/living/D)
 	if(!can_use(A))
 		return FALSE
-	D.visible_message("<span class='warning'><b>[A]</b> лупит шею <b>[D]</b> в стиле каратэ!</span>" , \
-					"<span class='userdanger'><b>[A]</b> лупит меня в шею в стиле каратэ! Говорить не могу!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-	to_chat(A, "<span class='danger'>Бью шею <b>[D]</b> в стиле каратэ, заставляя [D.ru_ego()] замолчать!</span>")
+	D.visible_message(span_warning("<b>[A]</b> лупит шею <b>[D]</b> в стиле каратэ!") , \
+					span_userdanger("<b>[A]</b> лупит меня в шею в стиле каратэ! Говорить не могу!"), span_hear("Слышу звук разрывающейся плоти!"), COMBAT_MESSAGE_RANGE, A)
+	to_chat(A, span_danger("Бью шею <b>[D]</b> в стиле каратэ, заставляя [D.ru_ego()] замолчать!"))
 	playsound(get_turf(A), 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
 	D.apply_damage(5, A.get_attack_type())
 	if (iscarbon(D))
@@ -157,9 +157,9 @@
 	else
 		A.do_attack_animation(D, ATTACK_EFFECT_PUNCH)
 		playsound(get_turf(D), 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
-	D.visible_message("<span class='danger'><b>[A]</b> [picked_hit_type] <b>[D]</b>!</span>", \
-					"<span class='userdanger'><b>[A]</b> [picked_hit_type] меня!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-	to_chat(A, "<span class='danger'>Моя атака [picked_hit_type] <b>[D]</b>!</span>")
+	D.visible_message(span_danger("<b>[A]</b> [picked_hit_type] <b>[D]</b>!"), \
+					span_userdanger("<b>[A]</b> [picked_hit_type] меня!"), span_hear("Слышу звук разрывающейся плоти!"), COMBAT_MESSAGE_RANGE, A)
+	to_chat(A, span_danger("Моя атака [picked_hit_type] <b>[D]</b>!"))
 	log_combat(A, D, "[picked_hit_type] with [name]")
 	return TRUE
 
@@ -171,23 +171,23 @@
 	var/obj/item/bodypart/affecting = D.get_bodypart(ran_zone(A.zone_selected))
 	var/armor_block = D.run_armor_check(affecting, MELEE)
 	if(D.body_position == STANDING_UP)
-		D.visible_message("<span class='danger'><b>[A]</b> утихомиривает <b>[D]</b>!</span>", \
-					"<span class='userdanger'><b>[A]</b> даёт мощную пощёчину мне!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", COMBAT_MESSAGE_RANGE, A)
-		to_chat(A, "<span class='danger'>Даю мощного джеба <b>[D]</b>!</span>")
+		D.visible_message(span_danger("<b>[A]</b> утихомиривает <b>[D]</b>!"), \
+					span_userdanger("<b>[A]</b> даёт мощную пощёчину мне!"), span_hear("Слышу звук разрывающейся плоти!"), COMBAT_MESSAGE_RANGE, A)
+		to_chat(A, span_danger("Даю мощного джеба <b>[D]</b>!"))
 		A.do_attack_animation(D, ATTACK_EFFECT_PUNCH)
 		playsound(D, 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
 		D.apply_damage(rand(5,10), STAMINA, affecting, armor_block)
 		log_combat(A, D, "punched nonlethally")
 	if(D.body_position == LYING_DOWN)
-		D.visible_message("<span class='danger'><b>[A]</b> утихомиривает <b>[D]</b>!</span>", \
-					"<span class='userdanger'><b>[A]</b> вершит насилие надо мной!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>" , COMBAT_MESSAGE_RANGE, A)
-		to_chat(A, "<span class='danger'>Втаптываю <b>[D]</b> поучительно!</span>")
+		D.visible_message(span_danger("<b>[A]</b> утихомиривает <b>[D]</b>!"), \
+					span_userdanger("<b>[A]</b> вершит насилие надо мной!"), span_hear("Слышу звук разрывающейся плоти!") , COMBAT_MESSAGE_RANGE, A)
+		to_chat(A, span_danger("Втаптываю <b>[D]</b> поучительно!"))
 		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 		playsound(D, 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
 		D.apply_damage(rand(10,15), STAMINA, affecting, armor_block)
 		log_combat(A, D, "stomped nonlethally")
 	if(prob(D.getStaminaLoss()))
-		D.visible_message("<span class='warning'><b>[D]</b> плюётся и отшатывается от боли!</span>", "<span class='userdanger'>Удар в болевую точку отдаётся по всему телу!</span>")
+		D.visible_message(span_warning("<b>[D]</b> плюётся и отшатывается от боли!"), span_userdanger("Удар в болевую точку отдаётся по всему телу!"))
 		D.drop_all_held_items()
 	return TRUE
 

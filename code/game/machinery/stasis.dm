@@ -52,7 +52,7 @@
 	. += "<hr><span class='notice'>Alt + Клик для [stasis_enabled ? "<b>выключения</b>" : "<b>включения</b>"] машины.</span>"
 	if(handbeltsmod)
 		. += "<hr><span class='notice'>ПКМ для активации <b>энергетических ремней</b>, ЛКМ для отстегивания.</span>"
-	. += "<span class='notice'>\n<b>[src.name]</b> [op_computer ? "синхронизирована" : "<b>НЕ</b> синхронизирована"] с операционным компьютером.</span>"
+	. += span_notice("\n<b>[src.name]</b> [op_computer ? "синхронизирована" : "<b>НЕ</b> синхронизирована"] с операционным компьютером.")
 
 /obj/machinery/stasis/proc/play_power_sound()
 	var/_running = stasis_running()
@@ -69,9 +69,9 @@
 		stasis_enabled = !stasis_enabled
 		stasis_can_toggle = world.time + STASIS_TOGGLE_COOLDOWN
 		playsound(src, 'sound/machines/click.ogg', 60, TRUE)
-		user.visible_message("<span class='notice'><b>[src.name]</b> [stasis_enabled ? "включается" : "выключается"].</span>" , \
-					"<span class='notice'>[stasis_enabled ? "Включаю" : "Выключаю"] <b>[src.name]</b>.</span>" , \
-					"<span class='hear'>Слышу звук [stasis_enabled ? "включения" : "выключения"] машины.</span>")
+		user.visible_message(span_notice("<b>[src.name]</b> [stasis_enabled ? "включается" : "выключается"].") , \
+					span_notice("[stasis_enabled ? "Включаю" : "Выключаю"] <b>[src.name]</b>.") , \
+					span_hear("Слышу звук [stasis_enabled ? "включения" : "выключения"] машины."))
 		play_power_sound()
 		update_icon()
 

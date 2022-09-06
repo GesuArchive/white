@@ -10,10 +10,10 @@
 	if(istype(target, /obj/item/clothing/head/helmet/space/hardsuit/berserker))
 		var/obj/item/clothing/head/helmet/space/hardsuit/berserker/berzerk = target
 		if(berzerk.berserk_active)
-			to_chat(owner, "<span class='warning'>Я УЖЕ В ЯРОСТИ!</span>")
+			to_chat(owner, span_warning("Я УЖЕ В ЯРОСТИ!"))
 			return
 		if(berzerk.berserk_charge < 100)
-			to_chat(owner, "<span class='warning'>Не хватает заряда.</span>")
+			to_chat(owner, span_warning("Не хватает заряда."))
 			return
 		berzerk.berserk_mode(owner)
 		return

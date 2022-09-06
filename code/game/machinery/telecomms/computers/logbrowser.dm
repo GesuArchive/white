@@ -174,7 +174,7 @@
 	if(href_list["delete"])
 
 		if(!src.allowed(usr) && !(obj_flags & EMAGGED))
-			to_chat(usr, "<span class='danger'>Доступ запрещён.</span>")
+			to_chat(usr, span_danger("Доступ запрещён."))
 			return
 
 		if(SelectedServer)

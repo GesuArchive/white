@@ -19,19 +19,19 @@
 /obj/item/shield/riot/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/melee/baton) || istype(W, /obj/item/melee/sabre/proton_cutter))
 		if(bash_cooldown < world.time - 10)
-			user.visible_message("<span class='warning'><b>[user]</b> бьёт <b>[src.name]</b> используя [W]!</span>")
+			user.visible_message(span_warning("<b>[user]</b> бьёт <b>[src.name]</b> используя [W]!"))
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 100, TRUE)
 			bash_cooldown = world.time
 	else if(W.tool_behaviour == TOOL_WELDER)
 		if (obj_integrity >= max_integrity)
-			to_chat(user, "<span class='warning'><b>[src.name]</b> уже в превосходном состоянии.</span>")
+			to_chat(user, span_warning("<b>[src.name]</b> уже в превосходном состоянии."))
 		if(!W.use_tool(src, user, 40, volume=50, amount=2))
 			return
 		obj_integrity = max_integrity
-		to_chat(user, "<span class='notice'>Ремонтирую <b>[src.name]</b> используя <b>[W]</b>.</span>")
+		to_chat(user, span_notice("Ремонтирую <b>[src.name]</b> используя <b>[W]</b>."))
 	else if(istype(W, /obj/item/wallframe/flasher))	// Сборка ослепляющего щита
 		if(flasher_assembly)
-			to_chat(user, "<span class='notice'>Закрепляю раму для вспышки на щите.</span>")
+			to_chat(user, span_notice("Закрепляю раму для вспышки на щите."))
 			playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 			var/obj/item/shield/riot/flash/burned/I = new()
 			user.put_in_hands(I)
@@ -75,11 +75,11 @@
 
 /obj/item/broken_shield/riot/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stack/sheet/glass))
-		to_chat(user, "<span class='warning'>Обычное стекло слишком хрупкое для использования в качестве защиты!</span>")
+		to_chat(user, span_warning("Обычное стекло слишком хрупкое для использования в качестве защиты!"))
 		return
 	if(istype(W, /obj/item/stack/sheet/rglass) || istype(W, /obj/item/stack/sheet/plastic))
 		var/obj/item/stack/sheet/T = W
-		to_chat(user, "<span class='notice'>Ремонтирую щит используя [W].</span>")
+		to_chat(user, span_notice("Ремонтирую щит используя [W]."))
 		if(!do_after(user, 5 SECONDS, src))
 			return TRUE
 		T.use(5)
@@ -142,7 +142,7 @@
 /obj/item/shield/riot/on_shield_block(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", damage = 0, attack_type = MELEE_ATTACK)
 	if (obj_integrity <= damage)
 		var/turf/T = get_turf(owner)
-		T.visible_message("<span class='warning'><b>[capitalize(hitby.name)]</b> уничтожает <b>[src.name]</b>!</span>")
+		T.visible_message(span_warning("<b>[capitalize(hitby.name)]</b> уничтожает <b>[src.name]</b>!"))
 		shatter(owner)
 		if(broken_shield)
 			new broken_shield(src.drop_location())
@@ -176,7 +176,7 @@
 /obj/item/broken_shield/military/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stack/sheet/mineral/titanium))
 		var/obj/item/stack/sheet/T = W
-		to_chat(user, "<span class='notice'>Ремонтирую щит используя [W].</span>")
+		to_chat(user, span_notice("Ремонтирую щит используя [W]."))
 		if(!do_after(user, 5 SECONDS, src))
 			return TRUE
 		T.use(5)
@@ -235,7 +235,7 @@
 /obj/item/broken_shield/kevlar/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stack/sheet/plasteel))
 		var/obj/item/stack/sheet/T = W
-		to_chat(user, "<span class='notice'>Ремонтирую щит используя [W].</span>")
+		to_chat(user, span_notice("Ремонтирую щит используя [W]."))
 		if(!do_after(user, 5 SECONDS, src))
 			return TRUE
 		T.use(5)
@@ -312,11 +312,11 @@
 
 /obj/item/broken_shield/flash/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stack/sheet/glass))
-		to_chat(user, "<span class='warning'>Обычное стекло слишком хрупкое для использования в качестве защиты!</span>")
+		to_chat(user, span_warning("Обычное стекло слишком хрупкое для использования в качестве защиты!"))
 		return
 	if(istype(W, /obj/item/stack/sheet/rglass) || istype(W, /obj/item/stack/sheet/plastic))
 		var/obj/item/stack/sheet/T = W
-		to_chat(user, "<span class='notice'>Ремонтирую щит используя [W].</span>")
+		to_chat(user, span_notice("Ремонтирую щит используя [W]."))
 		if(!do_after(user, 5 SECONDS, src))
 			return TRUE
 		T.use(5)
@@ -354,10 +354,10 @@
 	if(istype(W, /obj/item/assembly/flash/handheld))
 		var/obj/item/assembly/flash/handheld/flash = W
 		if(flash.burnt_out)
-			to_chat(user, "<span class='warning'>Нет смысла заменять её сгоревшей вспышкой!</span>")
+			to_chat(user, span_warning("Нет смысла заменять её сгоревшей вспышкой!"))
 			return
 		else
-			to_chat(user, "<span class='notice'>Устанавливаю новую вспышку...</span>")
+			to_chat(user, span_notice("Устанавливаю новую вспышку..."))
 			if(do_after(user, 20, target = user))
 				if(flash.burnt_out || !flash || QDELETED(flash))
 					return
@@ -468,11 +468,11 @@
 
 /obj/item/broken_shield/tele/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stack/sheet/glass))
-		to_chat(user, "<span class='warning'>Обычное стекло слишком хрупкое для использования в качестве защиты!</span>")
+		to_chat(user, span_warning("Обычное стекло слишком хрупкое для использования в качестве защиты!"))
 		return
 	if(istype(W, /obj/item/stack/sheet/rglass) || istype(W, /obj/item/stack/sheet/plastic))
 		var/obj/item/stack/sheet/T = W
-		to_chat(user, "<span class='notice'>Ремонтирую щит используя [W].</span>")
+		to_chat(user, span_notice("Ремонтирую щит используя [W]."))
 		if(!do_after(user, 5 SECONDS, src))
 			return TRUE
 		T.use(5)

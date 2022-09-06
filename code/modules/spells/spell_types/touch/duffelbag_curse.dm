@@ -29,8 +29,8 @@
 		"fond memories with your buddy Keith",
 	)
 	if(duffel_victim.can_block_magic(antimagic_flags))
-		to_chat(caster, "<span class='warning'>The spell can't seem to affect [duffel_victim]!</span>")
-		to_chat(duffel_victim, "<span class='warning'>You really don't feel like talking about your [pick(elaborate_backstory)] with complete strangers today.</span>")
+		to_chat(caster, span_warning("The spell can't seem to affect [duffel_victim]!"))
+		to_chat(duffel_victim, span_warning("You really don't feel like talking about your [pick(elaborate_backstory)] with complete strangers today."))
 		return TRUE
 
 	// To get it started, stun and knockdown the person being hit
@@ -41,15 +41,15 @@
 
 	// If someone's already cursed, don't try to give them another
 	if(HAS_TRAIT(duffel_victim, TRAIT_DUFFEL_CURSE_PROOF))
-		to_chat(caster, "<span class='warning'>The burden of [duffel_victim]'s duffel bag becomes too much, shoving them to the floor!</span>")
-		to_chat(duffel_victim, "<span class='warning'>The weight of this bag becomes overburdening!</span>")
+		to_chat(caster, span_warning("The burden of [duffel_victim]'s duffel bag becomes too much, shoving them to the floor!"))
+		to_chat(duffel_victim, span_warning("The weight of this bag becomes overburdening!"))
 		return TRUE
 
 	// However if they're uncursed, they're fresh for getting a cursed bag
 	var/obj/item/storage/backpack/duffelbag/cursed/conjured_duffel = new get_turf(victim)
 	duffel_victim.visible_message(
-		"<span class='danger'>A growling duffel bag appears on [duffel_victim]!</span>",
-		"<span class='danger'>You feel something attaching itself to you, and a strong desire to discuss your [pick(elaborate_backstory)] at length!</span>",
+		span_danger("A growling duffel bag appears on [duffel_victim]!"),
+		span_danger("You feel something attaching itself to you, and a strong desire to discuss your [pick(elaborate_backstory)] at length!"),
 	)
 
 	// This duffelbag is now cuuuurrrsseed! Equip it on them

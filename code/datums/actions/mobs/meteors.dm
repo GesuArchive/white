@@ -13,7 +13,7 @@
 /datum/action/cooldown/mob_cooldown/meteors/proc/create_meteors(atom/target)
 	if(!target)
 		return
-	target.visible_message("<span class='boldwarning'>Fire rains from the sky!</span>")
+	target.visible_message(span_boldwarning("Fire rains from the sky!"))
 	var/turf/targetturf = get_turf(target)
 	for(var/turf/turf as anything in RANGE_TURFS(9,targetturf))
 		if(prob(11))

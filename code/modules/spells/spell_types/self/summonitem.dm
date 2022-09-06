@@ -35,7 +35,7 @@
 	SIGNAL_HANDLER
 
 	if(owner)
-		to_chat(owner, "<span class='boldwarning'>You sense your marked item has been destroyed!</span>")
+		to_chat(owner, span_boldwarning("You sense your marked item has been destroyed!"))
 	unmark_item()
 
 /datum/action/cooldown/spell/summonitem/cast(mob/living/cast_on)
@@ -55,9 +55,9 @@
 	var/obj/item/potential_mark = caster.get_active_held_item()
 	if(!potential_mark)
 		if(caster.get_inactive_held_item())
-			to_chat(caster, "<span class='warning'>You must hold the desired item in your hands to mark it for recall!</span>")
+			to_chat(caster, span_warning("You must hold the desired item in your hands to mark it for recall!"))
 		else
-			to_chat(caster, "<span class='warning'>You aren't holding anything that can be marked for recall!</span>")
+			to_chat(caster, span_warning("You aren't holding anything that can be marked for recall!"))
 		return FALSE
 
 	var/link_message = ""
@@ -69,18 +69,18 @@
 		link_message += "Though it feels redundant... "
 
 	link_message += "You mark [potential_mark] for recall."
-	to_chat(caster, "<span class='notice'>[link_message]</span>")
+	to_chat(caster, span_notice(link_message))
 	mark_item(potential_mark)
 	return TRUE
 
 /// If we have a marked item and it's in our hand, we will try to unlink it
 /datum/action/cooldown/spell/summonitem/proc/try_unlink_item(mob/living/caster)
-	to_chat(caster, "<span class='notice'>You begin removing the mark on [marked_item]...</span>")
+	to_chat(caster, span_notice("You begin removing the mark on [marked_item]..."))
 	if(!do_after(caster, 5 SECONDS, marked_item))
-		to_chat(caster, "<span class='notice'>You decide to keep [marked_item] marked.</span>")
+		to_chat(caster, span_notice("You decide to keep [marked_item] marked."))
 		return FALSE
 
-	to_chat(caster, "<span class='notice'>You remove the mark on [marked_item] to use elsewhere.</span>")
+	to_chat(caster, span_notice("You remove the mark on [marked_item] to use elsewhere."))
 	unmark_item()
 	return TRUE
 
@@ -108,9 +108,9 @@
 
 				// Items in silicons warp the whole silicon
 				if(issilicon(holding_mark))
-					holding_mark.loc.visible_message("<span class='warning'>[holding_mark] suddenly disappears!</span>")
+					holding_mark.loc.visible_message(span_warning("[holding_mark] suddenly disappears!"))
 					holding_mark.forceMove(caster.loc)
-					holding_mark.loc.visible_message("<span class='warning'>[holding_mark] suddenly appears!</span>")
+					holding_mark.loc.visible_message(span_warning("[holding_mark] suddenly appears!"))
 					item_to_retrieve = null
 					break
 
@@ -144,11 +144,11 @@
 	if(!item_to_retrieve)
 		return
 
-	item_to_retrieve.loc?.visible_message("<span class='warning'>[item_to_retrieve] suddenly disappears!</span>")
+	item_to_retrieve.loc?.visible_message(span_warning("[item_to_retrieve] suddenly disappears!"))
 
 	if(isitem(item_to_retrieve) && caster.put_in_hands(item_to_retrieve))
-		item_to_retrieve.loc.visible_message("<span class='warning'>[item_to_retrieve] suddenly appears in [caster]'s hand!</span>")
+		item_to_retrieve.loc.visible_message(span_warning("[item_to_retrieve] suddenly appears in [caster]'s hand!"))
 	else
 		item_to_retrieve.forceMove(caster.drop_location())
-		item_to_retrieve.loc.visible_message("<span class='warning'>[item_to_retrieve] suddenly appears!</span>")
+		item_to_retrieve.loc.visible_message(span_warning("[item_to_retrieve] suddenly appears!"))
 	playsound(get_turf(item_to_retrieve), 'sound/magic/summonitems_generic.ogg', 50, TRUE)

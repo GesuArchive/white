@@ -51,7 +51,7 @@
 		return
 
 	if(reagents.total_volume < 0.1)
-		to_chat(user, "<span class='warning'>Швабра сухая!</span>")
+		to_chat(user, span_warning("Швабра сухая!"))
 		return
 
 	var/turf/T = get_turf(A)
@@ -79,7 +79,7 @@
 		J.mymop=src
 		J.update_icon()
 	else
-		to_chat(user, "<span class='warning'>Эта штука не помещается у меня в [J.name].</span>")
+		to_chat(user, span_warning("Эта штука не помещается у меня в [J.name]."))
 		return
 
 /obj/item/mop/cyborg
@@ -112,7 +112,7 @@
 		START_PROCESSING(SSobj, src)
 	else
 		STOP_PROCESSING(SSobj,src)
-	to_chat(user, "<span class='notice'>Устанавливаю переключатель конденсатора в положение '[refill_enabled ? "ВКЛ" : "ВЫКЛ"]'.</span>")
+	to_chat(user, span_notice("Устанавливаю переключатель конденсатора в положение '[refill_enabled ? "ВКЛ" : "ВЫКЛ"]'."))
 	playsound(user, 'sound/machines/click.ogg', 30, TRUE)
 
 /obj/item/mop/advanced/process(delta_time)

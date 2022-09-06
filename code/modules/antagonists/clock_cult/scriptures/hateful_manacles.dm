@@ -25,8 +25,8 @@
 		to_chat(invoker, "<span class='brass'>[M] уже связан!</span>")
 		return FALSE
 	playsound(M, 'sound/weapons/handcuffs.ogg', 30, TRUE, -2)
-	M.visible_message("<span class='danger'>[invoker] формирует силовое поле вокруг [M], латунь стягивает руки!</span>" ,\
-						"<span class='userdanger'>[invoker] пытается меня связать!</span>")
+	M.visible_message(span_danger("[invoker] формирует силовое поле вокруг [M], латунь стягивает руки!") ,\
+						span_userdanger("[invoker] пытается меня связать!"))
 	if(do_after(invoker, 30, target=M))
 		if(M.handcuffed)
 			return FALSE

@@ -142,7 +142,7 @@
 			post_change_callbacks += CALLBACK(src, /datum/component/trapdoor.proc/carry_over_trapdoor, path, conspicuous, assembly)
 			return
 		// otherwise, break trapdoor
-		dying_trapdoor.visible_message("<span class='warning'>Механизм внутри [dying_trapdoor] сломан!</span>")
+		dying_trapdoor.visible_message(span_warning("Механизм внутри [dying_trapdoor] сломан!"))
 		if(assembly)
 			assembly.linked = FALSE
 			assembly.stored_decals.Cut()
@@ -182,7 +182,7 @@
 	if(assembly)
 		RegisterSignal(parent, COMSIG_TURF_DECAL_DETACHED, .proc/decal_detached)
 	playsound(trapdoor_turf, 'sound/machines/trapdoor/trapdoor_open.ogg', 50)
-	trapdoor_turf.visible_message("<span class='warning'>[trapdoor_turf] открывается!</span>")
+	trapdoor_turf.visible_message(span_warning("[trapdoor_turf] открывается!"))
 	trapdoor_turf.ChangeTurf(/turf/open/openspace, flags = CHANGETURF_INHERIT_AIR | CHANGETURF_TRAPDOOR_INDUCED)
 
 /**
@@ -195,10 +195,10 @@
 	var/turf/open/trapdoor_turf = parent
 	var/obj/structure/lattice/blocking = locate() in trapdoor_turf.contents
 	if(blocking)
-		trapdoor_turf.visible_message("<span class='warning'>Механизм люка [trapdoor_turf] пытается закрыться, но ему мешает [blocking]!</span>")
+		trapdoor_turf.visible_message(span_warning("Механизм люка [trapdoor_turf] пытается закрыться, но ему мешает [blocking]!"))
 		return
 	playsound(trapdoor_turf, 'sound/machines/trapdoor/trapdoor_shut.ogg', 50)
-	trapdoor_turf.visible_message("<span class='warning'>Механизм люка [trapdoor_turf] закрывается!</span>")
+	trapdoor_turf.visible_message(span_warning("Механизм люка [trapdoor_turf] закрывается!"))
 	trapdoor_turf.ChangeTurf(trapdoor_turf_path, flags = CHANGETURF_INHERIT_AIR | CHANGETURF_TRAPDOOR_INDUCED)
 
 #undef IS_OPEN
@@ -239,14 +239,14 @@
 	var/turf/assembly_turf = get_turf(src)
 	if(!COOLDOWN_FINISHED(src, search_cooldown))
 		var/timeleft = DisplayTimeText(COOLDOWN_TIMELEFT(src, search_cooldown))
-		assembly_turf.visible_message("<span class='warning'>[capitalize(src)] на перезарядке! Надо подождать [timeleft].</span>", vision_distance = SAMETILE_MESSAGE_RANGE)
+		assembly_turf.visible_message(span_warning("[capitalize(src)] на перезарядке! Надо подождать [timeleft]."), vision_distance = SAMETILE_MESSAGE_RANGE)
 		return
 	if(SEND_GLOBAL_SIGNAL(COMSIG_GLOB_TRAPDOOR_LINK, src) & LINKED_UP)
 		playsound(assembly_turf, 'sound/machines/chime.ogg', 25, TRUE)
 		assembly_turf.visible_message("<span class='notice'>[capitalize(src)] успешно привязывается к ближайшему люку!</span>", vision_distance = SAMETILE_MESSAGE_RANGE)
 	else
 		playsound(assembly_turf, 'white/valtos/sounds/error1.ogg', 50, FALSE)
-		assembly_turf.visible_message("<span class='warning'>[capitalize(src)] не может найти люк.</span>", vision_distance = SAMETILE_MESSAGE_RANGE)
+		assembly_turf.visible_message(span_warning("[capitalize(src)] не может найти люк."), vision_distance = SAMETILE_MESSAGE_RANGE)
 
 /**
  * ## trapdoor remotes!
@@ -267,20 +267,20 @@
 /obj/item/trapdoor_remote/examine(mob/user)
 	. = ..()
 	if(!LAZYLEN(internals))
-		. += "<span class='warning'>[capitalize(src)] не имеет начинки! Нужен контроллер люка для работы.</span>"
+		. += span_warning("[capitalize(src)] не имеет начинки! Нужен контроллер люка для работы.")
 		return
-	. += "<span class='notice'>Контроллер люка может быть удалён отвёрткой.</span>"
+	. += span_notice("Контроллер люка может быть удалён отвёрткой.")
 	if(!COOLDOWN_FINISHED(src, trapdoor_cooldown))
-		. += "<span class='warning'>На перезарядке.</span>"
-	. += "<span class='notice'>[capitalize(src)] может быть привязан к [LAZYLEN(internals)] люкам одновременно.</span>"
+		. += span_warning("На перезарядке.")
+	. += span_notice("[capitalize(src)] может быть привязан к [LAZYLEN(internals)] люкам одновременно.")
 
 /obj/item/trapdoor_remote/screwdriver_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if(!LAZYLEN(internals))
-		to_chat(user, "<span class='warning'>[capitalize(src)] не имеет начинки!</span>")
+		to_chat(user, span_warning("[capitalize(src)] не имеет начинки!"))
 		return
 	for(var/obj/item/I in internals)
-		to_chat(user, "<span class='notice'>Вытаскиваю [I] из [src].</span>")
+		to_chat(user, span_notice("Вытаскиваю [I] из [src]."))
 		I.forceMove(get_turf(src))
 	internals = list()
 
@@ -289,9 +289,9 @@
 	if(. || !istype(assembly))
 		return
 	if(LAZYLEN(internals) >= maximum_internals)
-		to_chat(user, "<span class='warning'>[capitalize(src)] переполнен начинкой!</span>")
+		to_chat(user, span_warning("[capitalize(src)] переполнен начинкой!"))
 		return
-	to_chat(user, "<span class='notice'>Добавляю [assembly] к [src].</span>")
+	to_chat(user, span_notice("Добавляю [assembly] к [src]."))
 	internals += assembly
 	assembly.forceMove(src)
 

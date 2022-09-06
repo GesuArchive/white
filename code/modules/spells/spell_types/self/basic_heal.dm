@@ -20,8 +20,8 @@
 /datum/action/cooldown/spell/basic_heal/cast(mob/living/cast_on)
 	. = ..()
 	cast_on.visible_message(
-		"<span class='warning'>A wreath of gentle light passes over [cast_on]!</span>",
-		"<span class='notice'>You wreath yourself in healing light!</span>",
+		span_warning("A wreath of gentle light passes over [cast_on]!"),
+		span_notice("You wreath yourself in healing light!"),
 	)
 	cast_on.adjustBruteLoss(-brute_to_heal, FALSE)
 	cast_on.adjustFireLoss(-burn_to_heal)

@@ -49,13 +49,13 @@
 			. += "<hr><span class='warning'>The stand's <b>griddle</b> is completely broken!</span>"
 		else
 			. += "<hr><span class='notice'>The stand's <b>griddle</b> is intact.</span>"
-		. += "<span class='notice'>\nThe stand's <b>fridge</b> seems fine.</span>" //weirdly enough, these fridges don't break
-		. += "<span class='notice'>\nThe stand's <b>table</b> seems fine.</span>"
+		. += span_notice("\nThe stand's <b>fridge</b> seems fine.") //weirdly enough, these fridges don't break
+		. += span_notice("\nThe stand's <b>table</b> seems fine.")
 
 /obj/machinery/food_cart/proc/pack_up()
 	if(!unpacked)
 		return
-	visible_message("<span class='notice'>[src] retracts all of it's unpacked components.</span>")
+	visible_message(span_notice("[src] retracts all of it's unpacked components."))
 	for(var/o in packed_things)
 		var/obj/object = o
 		UnregisterSignal(object, COMSIG_MOVABLE_MOVED)
@@ -67,9 +67,9 @@
 	if(unpacked)
 		return
 	if(!check_setup_place())
-		to_chat(user, "<span class='warning'>There isn't enough room to unpack here! Bad spaces were marked in red.</span>")
+		to_chat(user, span_warning("There isn't enough room to unpack here! Bad spaces were marked in red."))
 		return
-	visible_message("<span class='notice'>[src] expands into a full stand.</span>")
+	visible_message(span_notice("[src] expands into a full stand."))
 	anchored = TRUE
 	var/iteration = 1
 	var/turf/grabbed_turf = get_step(get_turf(src), EAST)
@@ -84,15 +84,15 @@
 /obj/machinery/food_cart/attack_hand(mob/living/user)
 	. = ..()
 	if(machine_stat & BROKEN)
-		to_chat(user, "<span class='warning'>[src] is completely busted.</span>")
+		to_chat(user, span_warning("[src] is completely busted."))
 		return
 	var/obj/item/card/id/id_card = user.get_idcard(hand_first = TRUE)
 	if(!check_access(id_card))
 		playsound(src, 'white/valtos/sounds/error1.ogg', 30, TRUE)
 		return
-	to_chat(user, "<span class='notice'>You attempt to [unpacked ? "pack up" :"unpack"] [src]...</span>")
+	to_chat(user, span_notice("You attempt to [unpacked ? "pack up" :"unpack"] [src]..."))
 	if(!do_after(user, 5 SECONDS, src))
-		to_chat(user, "<span class='warning'>Your [unpacked ? "" :"un"]packing of [src] was interrupted!</span>")
+		to_chat(user, span_warning("Your [unpacked ? "" :"un"]packing of [src] was interrupted!"))
 		return
 	if(unpacked)
 		pack_up()

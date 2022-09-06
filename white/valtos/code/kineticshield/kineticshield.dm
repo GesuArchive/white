@@ -19,7 +19,7 @@
 	. = ..()
 	if(our_powercell)
 		. += "<hr>"
-		. += "<span class='notice'><b>[uppertext(our_powercell.name)]:</b> [our_powercell.percent()]%</span>"
+		. += span_notice("<b>[uppertext(our_powercell.name)]:</b> [our_powercell.percent()]%")
 
 /obj/item/kinetic_shield/equipped(mob/user, slot, initial)
 	. = ..()
@@ -60,7 +60,7 @@
 			START_PROCESSING(SSobj, src)
 			for(var/obj/item/kinetic_shield/KS in user.contents)
 				if(KS != src && KS.ison == TRUE)
-					to_chat(user, "<span class='userdanger'>Щиты перегружаются!</span>")
+					to_chat(user, span_userdanger("Щиты перегружаются!"))
 					explosion(user, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 4, flame_range = 5, flash_range = 10)
 					qdel(src)
 					qdel(KS)
@@ -92,13 +92,13 @@
 		attacking_item.forceMove(src)
 		our_powercell = attacking_item
 		playsound(loc, 'sound/weapons/kenetic_reload.ogg', 60, TRUE)
-		to_chat(user, "<span class='notice'>Тактически заменяю батарею.</span>")
+		to_chat(user, span_notice("Тактически заменяю батарею."))
 		check_charge()
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(our_powercell)
 			var/turf/T = get_turf(src)
 			our_powercell.forceMove(T)
-			to_chat(user, "<span class='notice'>Достаю батарею.</span>")
+			to_chat(user, span_notice("Достаю батарею."))
 			check_charge()
 
 /obj/item/kinetic_shield/process(delta_time)
@@ -129,7 +129,7 @@
 	else
 		AM.throw_at(get_distant_turf(get_turf(AM), REVERSE_DIR(AM.dir), 3), 3, 4)
 
-	visible_message("<span class='danger'>Щит <b>[M]</b> отражает [AM.name]!</span>", "<span class='userdanger'>Щит отражает [AM.name]!</span>")
+	visible_message(span_danger("Щит <b>[M]</b> отражает [AM.name]!"), span_userdanger("Щит отражает [AM.name]!"))
 	playsound(loc, 'sound/effects/empulse.ogg', 75, TRUE)
 	check_charge()
 	return SHIELD_BLOCK

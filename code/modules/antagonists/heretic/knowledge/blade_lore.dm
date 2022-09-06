@@ -173,9 +173,9 @@
 	playsound(get_turf(source), 'sound/weapons/parry.ogg', 100, TRUE)
 	source.balloon_alert(source, "парирование")
 	source.visible_message(
-		"<span class='warning'>[source] использует [attack_text] и наносит ответный удар [target]!</span>",
-		"<span class='warning'>Я делаю выпад навстречу атаке и наношу контрудар [target]!</span>",
-		"<span class='hear'>Слышу лязг, за которым следует удар.</span>",
+		span_warning("[source] использует [attack_text] и наносит ответный удар [target]!"),
+		span_warning("Я делаю выпад навстречу атаке и наношу контрудар [target]!"),
+		span_hear("Слышу лязг, за которым следует удар."),
 	)
 	weapon.melee_attack_chain(source, target)
 
@@ -204,7 +204,7 @@
 
 	var/area/to_lock_to = get_area(target)
 	blade_mark.locked_to = to_lock_to
-	to_chat(target, "<span class='hypnophrase'>Что-то не даёт мне покинуть [get_area_name(to_lock_to)]!</span>")
+	to_chat(target, span_hypnophrase("Что-то не даёт мне покинуть [get_area_name(to_lock_to)]!"))
 
 /datum/heretic_knowledge/mark/blade_mark/trigger_mark(mob/living/source, mob/living/target)
 	. = ..()
@@ -258,7 +258,7 @@
 
 	var/obj/item/held_item = source.get_active_held_item()
 	if(in_duelist_stance)
-		examine_list += "<span class='warning'>[source] выглядит неестественно уравновешенным [held_item?.force >= 15 ? " и готовым к бою":""].</span>"
+		examine_list += span_warning("[source] выглядит неестественно уравновешенным [held_item?.force >= 15 ? " и готовым к бою":""].")
 
 /datum/heretic_knowledge/duel_stance/proc/on_wound_gain(mob/living/source, datum/wound/gained_wound, obj/item/bodypart/limb)
 	SIGNAL_HANDLER

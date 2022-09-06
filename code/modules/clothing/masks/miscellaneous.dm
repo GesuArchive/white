@@ -12,7 +12,7 @@
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		if(src == C.wear_mask)
-			to_chat(user, "<span class='warning'>Мне понадобиться помощь для того чтобы это снять!</span>")
+			to_chat(user, span_warning("Мне понадобиться помощь для того чтобы это снять!"))
 			return
 	..()
 
@@ -118,7 +118,7 @@
 
 /obj/item/clothing/mask/bandana/attack_self(mob/user)
 	if(slot_flags & ITEM_SLOT_NECK)
-		to_chat(user, "<span class='warning'>You must undo [src] in order to push it into a hat!</span>")
+		to_chat(user, span_warning("You must undo [src] in order to push it into a hat!"))
 		return
 	adjustmask(user)
 	if(greyscale_config == initial(greyscale_config) && greyscale_config_worn == initial(greyscale_config_worn))
@@ -142,13 +142,13 @@
 		var/mob/living/carbon/C = user
 		var/matrix/widen = matrix()
 		if(!user.is_holding(src))
-			to_chat(user, "<span class='warning'>You must be holding [src] in order to tie it!</span>")
+			to_chat(user, span_warning("You must be holding [src] in order to tie it!"))
 			return
 		if((C.get_item_by_slot(ITEM_SLOT_HEAD == src)) || (C.get_item_by_slot(ITEM_SLOT_MASK) == src))
-			to_chat(user, "<span class='warning'>You can't tie [src] while wearing it!</span>")
+			to_chat(user, span_warning("You can't tie [src] while wearing it!"))
 			return
 		if(slot_flags & ITEM_SLOT_HEAD)
-			to_chat(user, "<span class='warning'>You must undo [src] before you can tie it into a neckerchief!</span>")
+			to_chat(user, span_warning("You must undo [src] before you can tie it into a neckerchief!"))
 			return
 		if(slot_flags & ITEM_SLOT_MASK)
 			undyeable = TRUE
@@ -156,13 +156,13 @@
 			worn_y_offset = -3
 			widen.Scale(1.25, 1)
 			transform = widen
-			user.visible_message("<span class='notice'>[user] ties [src] up like a neckerchief.</span>", "<span class='notice'>You tie [src] up like a neckerchief.</span>")
+			user.visible_message(span_notice("[user] ties [src] up like a neckerchief."), span_notice("You tie [src] up like a neckerchief."))
 		else
 			undyeable = initial(undyeable)
 			slot_flags = initial(slot_flags)
 			worn_y_offset = initial(worn_y_offset)
 			transform = initial(transform)
-			user.visible_message("<span class='notice'>[user] unties the neckercheif.</span>", "<span class='notice'>You untie the neckercheif.</span>")
+			user.visible_message(span_notice("[user] unties the neckercheif."), span_notice("You untie the neckercheif."))
 
 /obj/item/clothing/mask/bandana/red
 	name = "красная бандана"
@@ -346,7 +346,7 @@
 
 /obj/item/clothing/mask/muzzle/tape/examine(mob/user)
 	. = ..()
-	. += "["<span class='notice'>Target mouth and use it on someone to tape their mouth closed.</span>"]"
+	. += "[span_notice("Target mouth and use it on someone to tape their mouth closed.")]"
 
 /obj/item/clothing/mask/muzzle/tape/dropped(mob/living/user)
 	. = ..()
@@ -356,16 +356,16 @@
 	if(harmful_strip)
 		user.apply_damage(stripping_damage, BRUTE, BODY_ZONE_HEAD)
 		user.emote("scream")
-		to_chat(user, "<span class='userdanger'>You feel a massive pain as hundreds of tiny spikes tear free from your face!</span>")
+		to_chat(user, span_userdanger("You feel a massive pain as hundreds of tiny spikes tear free from your face!"))
 
 /obj/item/clothing/mask/muzzle/tape/attack(mob/living/carbon/victim, mob/living/carbon/attacker, params)
 	if(attacker.a_intent == INTENT_HARM)
 		return ..()
 	if(victim.is_mouth_covered(head_only = TRUE))
-		to_chat(attacker, "<span class='notice'>[victim]'s mouth is covered.</span>")
+		to_chat(attacker, span_notice("[victim]'s mouth is covered."))
 		return
 	if(!mob_can_equip(victim, attacker, ITEM_SLOT_MASK))
-		to_chat(attacker, "<span class='notice'>[victim] is already wearing somthing on their face.</span>")
+		to_chat(attacker, span_notice("[victim] is already wearing somthing on their face."))
 		return
 	balloon_alert(attacker, "taping mouth...")
 	if(!do_after(attacker, equip_delay_other, target = victim))

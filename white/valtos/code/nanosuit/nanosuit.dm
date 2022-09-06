@@ -59,24 +59,24 @@
 				if(NS.cell.charge >= NANO_JUMP_USE)
 					NS.set_nano_energy(NANO_JUMP_USE,NANO_CHARGE_DELAY)
 				else
-					to_chat(user, "<span class='warning'>Недостаточно энергии.</span>")
+					to_chat(user, span_warning("Недостаточно энергии."))
 					return
 			else
-				to_chat(user, "<span class='warning'>Нужно находиться на твёрдой поверхности.</span>")
+				to_chat(user, span_warning("Нужно находиться на твёрдой поверхности."))
 				return
 		else
 			to_chat(user, "<span class='warning'Доступно только в режиме <b>силы</b>.</span>")
 			return
 	else
-		to_chat(user, "<span class='warning'>Без нанокостюма эти ботинки бесполезны.</span>")
+		to_chat(user, span_warning("Без нанокостюма эти ботинки бесполезны."))
 		return
 
 	var/atom/target = get_edge_target_turf(user, user.dir) //gets the user's direction
 	if(user.throw_at(target, jumpdistance, jumpspeed, spin = FALSE, diagonals_first = TRUE))
 		playsound(src, 'sound/effects/stealthoff.ogg', 50, TRUE)
-		user.visible_message("<span class='warning'>[user] прыгает вперёд с невероятной силой!</span>")
+		user.visible_message(span_warning("[user] прыгает вперёд с невероятной силой!"))
 	else
-		to_chat(user, "<span class='warning'>Что-то не даёт тебе прыгнуть!</span>")
+		to_chat(user, span_warning("Что-то не даёт тебе прыгнуть!"))
 
 
 /obj/item/clothing/shoes/combat/coldres/nanojump/equipped(mob/user, slot)
@@ -334,7 +334,7 @@
 	var/obj/projectile/P = hitby
 	if(mode == NANO_ARMOR && cell && cell.charge)
 		if(prob(final_block_chance))
-			user.visible_message("<span class='danger'>Защита [user] отражает [attack_text]!</span>")
+			user.visible_message(span_danger("Защита [user] отражает [attack_text]!"))
 			if(damage)
 				if(attack_type != STAMINA)
 					set_nano_energy(10 + damage,NANO_CHARGE_DELAY)//laser guns, anything lethal drains 5 + the damage dealt
@@ -345,7 +345,7 @@
 			return TRUE
 		else
 			medical_timer = world.time + medical_delay
-			user.visible_message("<span class='warning'>Защита [user] не смогла отразить [attack_text].</span>")
+			user.visible_message(span_warning("Защита [user] не смогла отразить [attack_text]."))
 			if(damage && attack_type == PROJECTILE_ATTACK && P.damage_type != STAMINA && prob(50))
 				var/datum/effect_system/spark_spread/s = new
 				s.set_up(1, 1, src)
@@ -651,12 +651,12 @@
 		return
 	if(zoom || force_off)
 		user.client.change_view(user.client.getScreenSize())
-		to_chat(user, "<span class='boldnotice'>Отключено: увеличение детализации.</span>")
+		to_chat(user, span_boldnotice("Отключено: увеличение детализации."))
 		zoom = FALSE
 		return FALSE
 	else
 		user.client.change_view(zoom_range)
-		to_chat(user, "<span class='boldnotice'>Включено: увеличение детализации.</span>")
+		to_chat(user, span_boldnotice("Включено: увеличение детализации."))
 		zoom = TRUE
 		return TRUE
 
@@ -802,8 +802,8 @@
 
 /datum/martial_art/nanosuit/proc/PowerPunch(mob/living/carbon/human/A, mob/living/carbon/human/D)
 	if(!D.stat || !D.IsParalyzed())
-		D.visible_message("<span class='warning'>[A] сверхсильно бьёт [D]!</span>" , \
-						  	"<span class='userdanger'>[A] бьёт меня с невероятной силой!</span>")
+		D.visible_message(span_warning("[A] сверхсильно бьёт [D]!") , \
+						  	span_userdanger("[A] бьёт меня с невероятной силой!"))
 		playsound(get_turf(A), 'sound/effects/hit_punch.ogg', 75, TRUE, -1)
 		D.apply_damage(20, BRUTE)
 		var/atom/throw_target = get_edge_target_turf(D, A.dir)
@@ -817,8 +817,8 @@
 	if(head)
 		head.drop_limb()
 		head.drop_organs()
-		D.visible_message("<span class='warning'>[A] лупит [D] в голову, разбрызгивая мозги по полу!</span>" , \
-					"<span class='userdanger'>ВОТ БЛ-</span>")
+		D.visible_message(span_warning("[A] лупит [D] в голову, разбрызгивая мозги по полу!") , \
+					span_userdanger("ВОТ БЛ-"))
 		playsound(get_turf(A), 'white/valtos/sounds/squishy.ogg', 75, TRUE, -1)
 		playsound(get_turf(A), 'sound/magic/disintegrate.ogg', 50, TRUE, -1)
 		D.death(FALSE)
@@ -836,8 +836,8 @@
 		A.start_pulling(D, TRUE)
 		if(A.pulling)
 			D.stop_pulling()
-			D.visible_message("<span class='danger'>[A] загребает [D]!</span>" , \
-								"<span class='userdanger'>[A] неистово хватает меня!</span>")
+			D.visible_message(span_danger("[A] загребает [D]!") , \
+								span_userdanger("[A] неистово хватает меня!"))
 			A.grab_state = GRAB_AGGRESSIVE //Instant aggressive grab
 			log_combat(A, D, "grabbed", addition="aggressively")
 	return TRUE
@@ -863,7 +863,7 @@
 			bonus_damage += 5
 			D.Paralyze(15)
 			D.visible_message("<span class='warning'>[A] сбивает [D] с ног!", \
-							"<span class='userdanger'>[A] сбивает меня с ног!</span>")
+							span_userdanger("[A] сбивает меня с ног!"))
 			if(prob(75))
 				step_away(D,A,15)
 		else if(A.grab_state > GRAB_AGGRESSIVE)
@@ -873,10 +873,10 @@
 			bonus_damage += 10
 			D.Paralyze(60)
 			D.visible_message("<span class='warning'>[A] бьет [D] очень сильно!", \
-							"<span class='userdanger'>[A] бьет меня очень сильно</span>")
+							span_userdanger("[A] бьет меня очень сильно"))
 		else if(A.resting && (D.mobility_flags & MOBILITY_STAND)) //but we can't legsweep ourselves!
 			D.visible_message("<span class='warning'>[A] ломает колено [D]!", \
-								"<span class='userdanger'>[A] ломает тебе колено!</span>")
+								span_userdanger("[A] ломает тебе колено!"))
 			playsound(get_turf(A), 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
 			bonus_damage += 5
 			D.Paralyze(60)
@@ -891,8 +891,8 @@
 				return TRUE
 		else if(prob(35))
 			return FALSE
-	D.visible_message("<span class='danger'>[A] [quick?"быстро":""] [picked_hit_type] [D]!</span>" , \
-					"<span class='userdanger'>[A] [quick?"быстро":""] [picked_hit_type] меня!</span>")
+	D.visible_message(span_danger("[A] [quick?"быстро":""] [picked_hit_type] [D]!") , \
+					span_userdanger("[A] [quick?"быстро":""] [picked_hit_type] меня!"))
 	if(picked_hit_type == "пинает" || picked_hit_type == "топчется по")
 		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 		playsound(get_turf(D), 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
@@ -911,13 +911,13 @@
 		if(I)
 			if(D.temporarilyRemoveItemFromInventory(I))
 				A.put_in_hands(I)
-		D.visible_message("<span class='danger'>[A] обезоруживает [D]!</span>" , \
-							"<span class='userdanger'>[A] обезоруживает [D]!</span>")
+		D.visible_message(span_danger("[A] обезоруживает [D]!") , \
+							span_userdanger("[A] обезоруживает [D]!"))
 		playsound(D, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
 		D.Paralyze(40)
 	else
-		D.visible_message("<span class='danger'>[A] пытается обезоружить [D]!</span>" , \
-							"<span class='userdanger'>[A] пытается обезоружить [D]!</span>")
+		D.visible_message(span_danger("[A] пытается обезоружить [D]!") , \
+							span_userdanger("[A] пытается обезоружить [D]!"))
 		playsound(D, 'sound/weapons/punchmiss.ogg', 25, TRUE, -1)
 	log_combat(A, D, "disarmed with nanosuit", "[I ? " removing [I]" : ""]")
 	return TRUE
@@ -941,8 +941,8 @@
 			step_away(src,user,15)
 			hitverb = "влетает в"
 		playsound(loc, "punch", 25, TRUE, -1)
-		visible_message("<span class='danger'>[user] [hitverb] [src]!</span>" , \
-		"<span class='userdanger'>[user] [hitverb] [src]!</span>" , null, COMBAT_MESSAGE_RANGE)
+		visible_message(span_danger("[user] [hitverb] [src]!") , \
+		span_userdanger("[user] [hitverb] [src]!") , null, COMBAT_MESSAGE_RANGE)
 		return TRUE
 
 /obj/item/attack_nanosuit(mob/living/carbon/human/user)
@@ -965,7 +965,7 @@
 /obj/attack_nanosuit(mob/living/carbon/human/user, does_attack_animation = FALSE)//attacking objects barehand
 	if(user.a_intent == INTENT_HARM)
 		..(user, TRUE)
-		visible_message("<span class='danger'>[user] ломает [src]!</span>" , null, null, COMBAT_MESSAGE_RANGE)
+		visible_message(span_danger("[user] ломает [src]!") , null, null, COMBAT_MESSAGE_RANGE)
 		if(density)
 			playsound(src, 'sound/effects/bang.ogg', 100, TRUE)//less ear rape
 		else
@@ -976,7 +976,7 @@
 
 /obj/attacked_by(obj/item/I, mob/living/user)
 	if(I.force && I.damtype == BRUTE && ishuman(user) && user.mind.has_martialart(MARTIALART_NANOSUIT))
-		visible_message("<span class='danger'>[user] бьёт [src] с невероятной силой при помощи [I.name]!</span>" , null, null, COMBAT_MESSAGE_RANGE)
+		visible_message(span_danger("[user] бьёт [src] с невероятной силой при помощи [I.name]!") , null, null, COMBAT_MESSAGE_RANGE)
 		take_damage(I.force*1.75, I.damtype, "melee", TRUE)//take 75% more damage with strength on
 		return
 	return ..()
@@ -1053,8 +1053,8 @@
 		if(response == "Нет")
 			return FALSE
 	active = TRUE //to avoid it triggering multiple times due to dying
-	to_chat(imp_in, "<span class='notice'>Кислотный имплант активируется!</span>")
-	imp_in.visible_message("<span class='warning'>[imp_in] обращается в пепел!</span>")
+	to_chat(imp_in, span_notice("Кислотный имплант активируется!"))
+	imp_in.visible_message(span_warning("[imp_in] обращается в пепел!"))
 	var/turf/T = get_turf(imp_in)
 	message_admins("[ADMIN_LOOKUPFLW(imp_in)] has activated their [name] at [ADMIN_VERBOSEJMP(T)], with cause of [cause].")
 	playsound(loc, 'sound/effects/fuse.ogg', 30, FALSE)

@@ -50,24 +50,24 @@
 ///  handles the messages and animation, calls refill to end the animation
 /obj/machinery/medipen_refiller/attackby(obj/item/I, mob/user, params)
 	if(busy)
-		to_chat(user, "<span class='danger'>Машина занята.</span>")
+		to_chat(user, span_danger("Машина занята."))
 		return
 	if(istype(I, /obj/item/reagent_containers) && I.is_open_container())
 		var/obj/item/reagent_containers/RC = I
 		var/units = RC.reagents.trans_to(src, RC.amount_per_transfer_from_this, transfered_by = user)
 		if(units)
-			to_chat(user, "<span class='notice'>Переливаю [units] единиц раствора в [name].</span>")
+			to_chat(user, span_notice("Переливаю [units] единиц раствора в [name]."))
 			return
 		else
-			to_chat(user, "<span class='danger'>[name] полон.</span>")
+			to_chat(user, span_danger("[name] полон."))
 			return
 	if(istype(I, /obj/item/reagent_containers/hypospray/medipen))
 		var/obj/item/reagent_containers/hypospray/medipen/P = I
 		if(!(LAZYFIND(allowed, P.type)))
-			to_chat(user, "<span class='danger'>Ошибка! В базе нет данных о конструкции данного медипена!</span>")
+			to_chat(user, span_danger("Ошибка! В базе нет данных о конструкции данного медипена!"))
 			return
 		if(P.reagents?.reagent_list.len)
-			to_chat(user, "<span class='notice'>Данный медипен уже заряжен.</span>")
+			to_chat(user, span_notice("Данный медипен уже заряжен."))
 			return
 		if(reagents.has_reagent(allowed[P.type], 10))
 			busy = TRUE
@@ -76,14 +76,14 @@
 			addtimer(CALLBACK(src, .proc/refill, P, user), 20)
 			qdel(P)
 			return
-		to_chat(user, "<span class='danger'>Внимание! В машине недостаточно реагентов или они не соответствуют данному медипену.</span>")
+		to_chat(user, span_danger("Внимание! В машине недостаточно реагентов или они не соответствуют данному медипену."))
 		return
 	..()
 
 /obj/machinery/medipen_refiller/plunger_act(obj/item/plunger/P, mob/living/user, reinforced)
-	to_chat(user, "<span class='notice'>Яростно прочищаю [name].</span>")
+	to_chat(user, span_notice("Яростно прочищаю [name]."))
 	if(do_after(user, 30, target = src))
-		to_chat(user, "<span class='notice'>Готово, [name] пуст.</span>")
+		to_chat(user, span_notice("Готово, [name] пуст."))
 		reagents.expose(get_turf(src), TOUCH)
 		reagents.clear_reagents()
 
@@ -122,7 +122,7 @@
 	reagents.remove_reagent(allowed[P.type], 10)
 	cut_overlays()
 	busy = FALSE
-	to_chat(user, "<span class='notice'>Медипен перезаряжен.</span>")
+	to_chat(user, span_notice("Медипен перезаряжен."))
 	use_power(active_power_usage)
 
 
@@ -131,7 +131,7 @@
 /obj/machinery/medipen_refiller/attack_hand(mob/user)
 	. = ..()
 	if(last_request + medipen_cd < world.time)
-		to_chat(usr, "<span class='notice'>Нажимаю кнопку производства болванки нового медипена.</span>")
+		to_chat(usr, span_notice("Нажимаю кнопку производства болванки нового медипена."))
 		var/static/list/choices = list(
 			"Адреналин" 			= image(icon = 'icons/obj/syringe.dmi', icon_state = "medipen"),
 			"Салициловая кислота" 	= image(icon = 'icons/obj/syringe.dmi', icon_state = "salacid"),
@@ -161,7 +161,7 @@
 		playsound(src, 'sound/effects/light_flicker.ogg', 30, TRUE, -6)
 		return TRUE
 	else
-		to_chat(usr, "<span class='notice'>Производится синтез материалов для новой болванки. До завершения [(last_request + medipen_cd - world.time)/10] секунд.</span>")
+		to_chat(usr, span_notice("Производится синтез материалов для новой болванки. До завершения [(last_request + medipen_cd - world.time)/10] секунд."))
 		return
 
 //	Пустые

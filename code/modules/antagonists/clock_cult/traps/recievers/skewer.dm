@@ -32,7 +32,7 @@
 			continue
 		if(buckle_mob(M, TRUE))
 			target_stabbed = TRUE
-			to_chat(M, "<span class='userdanger'>Меня протыкает [src]!</span>")
+			to_chat(M, span_userdanger("Меня протыкает [src]!"))
 			M.emote("agony")
 			M.apply_damage(5, BRUTE, BODY_ZONE_CHEST)
 			if(ishuman(M))
@@ -48,11 +48,11 @@
 		return ..()
 	if(!buckled_mob.break_do_after_checks())
 		return
-	to_chat(buckled_mob, "<span class='warning'>Пытаюсь слезть с [src].</span>")
+	to_chat(buckled_mob, span_warning("Пытаюсь слезть с [src]."))
 	if(do_after(buckled_mob, 50, target=src))
 		. = ..()
 	else
-		to_chat(buckled_mob, "<span class='userdanger'>Не вышло слезть с [src].</span>")
+		to_chat(buckled_mob, span_userdanger("Не вышло слезть с [src]."))
 
 /obj/structure/destructible/clockwork/trap/skewer/post_unbuckle_mob(mob/living/M)
 	if(!has_buckled_mobs())

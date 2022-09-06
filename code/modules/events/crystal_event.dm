@@ -286,9 +286,9 @@ This section is for the event controller
 	. = ..()
 	if(!I.tool_start_check(user, amount=0))
 		return FALSE
-	to_chat(user, "<span class='notice'>Ты начинаешь нагревать кристалл...</span>")
+	to_chat(user, span_notice("Ты начинаешь нагревать кристалл..."))
 	if(I.use_tool(src, user, 2.5 SECONDS, volume=100))
-		to_chat(user, "<span class='notice'>Кристалл крошится в пыль.</span>")
+		to_chat(user, span_notice("Кристалл крошится в пыль."))
 		ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 		return TRUE
 	return FALSE
@@ -308,9 +308,9 @@ This section is for the event controller
 	. = ..()
 	if(!I.tool_start_check(user, amount=0))
 		return FALSE
-	to_chat(user, "<span class='notice'>Ты начинаешь нагревать кристалл...</span>")
+	to_chat(user, span_notice("Ты начинаешь нагревать кристалл..."))
 	if(I.use_tool(src, user, 2.5 SECONDS, volume=100))
-		to_chat(user, "<span class='notice'>Кристалл крошится в пыль.</span>")
+		to_chat(user, span_notice("Кристалл крошится в пыль."))
 		ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 		return TRUE
 	return FALSE
@@ -379,25 +379,25 @@ This section is for the destabilized SM
 		return
 	if(istype(W, /obj/item/crystal_stabilizer))
 		if(length(GLOB.huge_crystal_portals) > 0)
-			to_chat(user, "<span class='notice'>Щит, защищающий кристалл, все еще активен! Закройте все основные порталы, прежде чем пытаться снова!</span>")
+			to_chat(user, span_notice("Щит, защищающий кристалл, все еще активен! Закройте все основные порталы, прежде чем пытаться снова!"))
 			return
 		var/obj/item/crystal_stabilizer/injector = W
 		if(!injector.filled)
-			to_chat(user, "<span class='notice'>\The [W] is empty!</span>")
+			to_chat(user, span_notice("\The [W] is empty!"))
 			return
-		to_chat(user, "<span class='notice'>You carefully begin injecting <b>[src.name]</b> with [W]... take care not to move until all the steps are finished!</span>")
+		to_chat(user, span_notice("You carefully begin injecting <b>[src.name]</b> with [W]... take care not to move until all the steps are finished!"))
 		if(!W.use_tool(src, user, 1 SECONDS, volume = 100))
 			return
-		to_chat(user, "<span class='notice'>Seems that <b>[src.name]</b> internal resonance is fading with the fluid!</span>")
+		to_chat(user, span_notice("Seems that <b>[src.name]</b> internal resonance is fading with the fluid!"))
 		playsound(get_turf(src), 'sound/effects/supermatter.ogg', 35, TRUE)
 		if(!W.use_tool(src, user, 1.5 SECONDS, volume = 100))
 			return
-		to_chat(user, "<span class='notice'>The [src] is reacting violently with the fluid!</span>")
+		to_chat(user, span_notice("The [src] is reacting violently with the fluid!"))
 		fire_nuclear_particle()
 		radiation_pulse(src, 1000, 6)
 		if(!W.use_tool(src, user, 2 SECONDS, volume = 100))
 			return
-		to_chat(user, "<span class='notice'> [src] был восстановлен и стабилизирован!</span>")
+		to_chat(user, span_notice(" [src] был восстановлен и стабилизирован!"))
 		playsound(get_turf(src), 'sound/effects/supermatter.ogg', 35, TRUE)
 		injector.filled = FALSE
 		active = FALSE
@@ -407,9 +407,9 @@ This section is for the destabilized SM
 	. = ..()
 	. += "<hr><span class='notice'>The Crystal appears to be heavily destabilized. Maybe it can be fixed by injecting it with something from another world.</span>"
 	if(length(GLOB.huge_crystal_portals) > 0)
-		. += "<span class='notice'>\nДестабилизированный Кристалл защищен неким щитом.</span>"
+		. += span_notice("\nДестабилизированный Кристалл защищен неким щитом.")
 	else
-		. += "<span class='notice'>\nЩита, что защищает кристалл, больше нет, время восстановить кристалл.</span>"
+		. += span_notice("\nЩита, что защищает кристалл, больше нет, время восстановить кристалл.")
 
 /obj/machinery/destabilized_crystal/Bumped(atom/movable/movable_atom)
 	if(!isliving(movable_atom))
@@ -417,9 +417,9 @@ This section is for the destabilized SM
 	var/mob/living/user = movable_atom
 	if(isnull(user.mind))
 		return
-	movable_atom.visible_message("<span class='danger'>\The [movable_atom] slams into <b>[src.name]</b> inducing a resonance... [movable_atom.ru_ego()] body starts to glow and burst into flames before flashing into dust!</span>" ,\
-	"<span class='userdanger'>You slam into <b>[src.name]</b> as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"</span>" ,\
-	"<span class='hear'>You hear an unearthly noise as a wave of heat washes over you.</span>")
+	movable_atom.visible_message(span_danger("\The [movable_atom] slams into <b>[src.name]</b> inducing a resonance... [movable_atom.ru_ego()] body starts to glow and burst into flames before flashing into dust!") ,\
+	span_userdanger("You slam into <b>[src.name]</b> as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"") ,\
+	span_hear("You hear an unearthly noise as a wave of heat washes over you."))
 	playsound(get_turf(src), 'sound/effects/supermatter.ogg', 50, TRUE)
 	consume(movable_atom)
 
@@ -454,9 +454,9 @@ This section is for the crystal stabilizer item and the crystal from the closed 
 	. = ..()
 	. += "<hr><span class='notice'>There is a compartment for something small... like a crystal...</span>"
 	if(!filled)
-		. += "<span class='notice'>\nThe [src] is empty.</span>"
+		. += span_notice("\nThe [src] is empty.")
 	else
-		. += "<span class='notice'>\n[src] полон и может быть использован для стабилизации Суперматерии.</span>"
+		. += span_notice("\n[src] полон и может быть использован для стабилизации Суперматерии.")
 
 /obj/item/crystal_stabilizer/attackby(obj/item/W, mob/living/user, params)
 	. = ..()
@@ -465,7 +465,7 @@ This section is for the crystal stabilizer item and the crystal from the closed 
 	if(istype(W, /obj/item/stack/sheet/otherworld_crystal))
 		if(filled)
 			return
-		to_chat(user, "<span class='notice'>You refill the [src]</span>")
+		to_chat(user, span_notice("You refill the [src]"))
 		playsound(src, 'sound/effects/spray2.ogg', 100, TRUE)
 		filled = TRUE
 		qdel(W)
@@ -571,13 +571,13 @@ This section is for the crystal portals variations
 	if((W.item_flags & ABSTRACT) || !istype(user))
 		return
 	if(istype(W, /obj/item/anomaly_neutralizer))
-		to_chat(user, "<span class='notice'>You start closing <b>[src.name]</b>...</span>")
+		to_chat(user, span_notice("You start closing <b>[src.name]</b>..."))
 		if(W.use_tool(src, user, 5.5 SECONDS, volume = 100))
-			to_chat(user, "<span class='notice'>You successfully close <b>[src.name]</b>!</span>")
+			to_chat(user, span_notice("You successfully close <b>[src.name]</b>!"))
 			closed = TRUE
 			qdel(src)
 	if(W.tool_behaviour == TOOL_ANALYZER)
-		to_chat(user, "<span class='notice'>Analyzing... [src] unstable field is fluctuating along frequency [format_frequency(a_signal.frequency)], code [a_signal.code].</span>")
+		to_chat(user, span_notice("Analyzing... [src] unstable field is fluctuating along frequency [format_frequency(a_signal.frequency)], code [a_signal.code]."))
 
 /obj/structure/crystal_portal/proc/modify_component()
 	spawn_time += 5

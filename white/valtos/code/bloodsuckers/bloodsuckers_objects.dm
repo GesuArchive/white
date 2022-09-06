@@ -21,16 +21,16 @@
 	lair_owner = user
 	START_PROCESSING(SSobj, src)
 	if(!bloodsuckerdatum)
-		to_chat(user, "<span class='notice'>Although it seems simple you have no idea how to reactivate the stake trap.</span>")
+		to_chat(user, span_notice("Although it seems simple you have no idea how to reactivate the stake trap."))
 		return
 	if(armed)
 		STOP_PROCESSING(SSobj,src)
 		return ..() //disarm it, otherwise continue to try and place
 	if(!bloodsuckerdatum.lair)
-		to_chat(user, "<span class='danger'>You don't have a lair. Claim a coffin to make that location your lair.</span>")
+		to_chat(user, span_danger("You don't have a lair. Claim a coffin to make that location your lair."))
 		return
 	if(lair_area != get_area(src))
-		to_chat(user, "<span class='danger'>You may only activate this trap in your lair: [lair_area].</span>")
+		to_chat(user, span_danger("You may only activate this trap in your lair: [lair_area]."))
 		return
 	lair_area = bloodsuckerdatum.lair
 	lair_owner = user
@@ -40,7 +40,7 @@
 /obj/item/restraints/legcuffs/beartrap/bloodsucker/spring_trap(datum/source, AM as mob|obj)
 	var/mob/living/carbon/human/user = AM
 	if(armed && (IS_BLOODSUCKER(user) || IS_VASSAL(user)))
-		to_chat(user, "<span class='notice'>You gracefully step over the blood puddle and avoid triggering the trap</span>")
+		to_chat(user, span_notice("You gracefully step over the blood puddle and avoid triggering the trap"))
 		return
 	..()
 
@@ -135,20 +135,20 @@
 	if(target == user)
 		return TRUE
 	if(!target.can_be_staked()) // Oops! Can't.
-		to_chat(user, "<span class='danger'>You can't stake [target] when they are moving about! They have to be laying down or grabbed by the neck!</span>")
+		to_chat(user, span_danger("You can't stake [target] when they are moving about! They have to be laying down or grabbed by the neck!"))
 		return TRUE
 	if(HAS_TRAIT(target, TRAIT_PIERCEIMMUNE))
-		to_chat(user, "<span class='danger'>[target]'s chest resists the stake. It won't go in.</span>")
+		to_chat(user, span_danger("[target]'s chest resists the stake. It won't go in."))
 		return TRUE
 
-	to_chat(user, "<span class='notice'>You put all your weight into embedding the stake into [target]'s chest...</span>")
+	to_chat(user, span_notice("You put all your weight into embedding the stake into [target]'s chest..."))
 	playsound(user, 'sound/magic/Demon_consume.ogg', 50, 1)
 	if(!do_mob(user, target, staketime, extra_checks = CALLBACK(target, /mob/living/carbon.proc/can_be_staked))) // user / target / time / uninterruptable / show progress bar / extra checks
 		return
 	// Drop & Embed Stake
 	user.visible_message(
-		"<span class='danger'>[user.name] drives the [src] into [target]'s chest!</span>",
-		"<span class='danger'>You drive the [src] into [target]'s chest!</span>",
+		span_danger("[user.name] drives the [src] into [target]'s chest!"),
+		span_danger("You drive the [src] into [target]'s chest!"),
 	)
 	playsound(get_turf(target), 'sound/effects/splat.ogg', 40, 1)
 //	user.dropItemToGround(src, TRUE)
@@ -162,8 +162,8 @@
 		if(target.StakeCanKillMe())
 			bloodsuckerdatum.FinalDeath()
 		else
-			to_chat(target, "<span class='userdanger'>You have been staked! Your powers are useless, your death forever, while it remains in place.</span>")
-			to_chat(target, "<span class='userdanger'>You have been staked!</span>")
+			to_chat(target, span_userdanger("You have been staked! Your powers are useless, your death forever, while it remains in place."))
+			to_chat(target, span_userdanger("You have been staked!"))
 
 /// Created by welding and acid-treating a simple stake.
 /obj/item/stake/hardened
@@ -242,7 +242,7 @@
 /obj/item/book/kindred/attackby(obj/item/item, mob/user, params)
 	// Copied from '/obj/item/book/attackby(obj/item/item, mob/user, params)'
 	if((istype(item, /obj/item/kitchen/knife) || item.tool_behaviour == TOOL_WIRECUTTER) && !(flags_1 & HOLOGRAM_1))
-		to_chat(user, "<span class='notice'>You feel the gentle whispers of a Librarian telling you not to cut [title].</span>")
+		to_chat(user, span_notice("You feel the gentle whispers of a Librarian telling you not to cut [title]."))
 		return
 	return ..()
 
@@ -258,10 +258,10 @@
 	if(HAS_TRAIT(user, TRAIT_BLOODSUCKER_HUNTER))
 		if(in_use || (target == user) || !ismob(target))
 			return
-		user.visible_message("<span class='notice'>[user] begins to quickly look through [src], repeatedly looking back up at [target].</span>")
+		user.visible_message(span_notice("[user] begins to quickly look through [src], repeatedly looking back up at [target]."))
 		in_use = TRUE
 		if(!do_mob(user, target, 3 SECONDS, NONE, TRUE))
-			to_chat(user, "<span class='notice'>You quickly close [src].</span>")
+			to_chat(user, span_notice("You quickly close [src]."))
 			in_use = FALSE
 			return
 		in_use = FALSE
@@ -269,18 +269,18 @@
 		// Are we a Bloodsucker | Are we on Masquerade. If one is true, they will fail.
 		if(IS_BLOODSUCKER(target) && !HAS_TRAIT(target, TRAIT_MASQUERADE))
 			if(bloodsuckerdatum.broke_masquerade)
-				to_chat(user, "<span class='warning'>[target], also known as '[bloodsuckerdatum.ReturnFullName(TRUE)]', is indeed a Bloodsucker, but you already knew this.</span>")
+				to_chat(user, span_warning("[target], also known as '[bloodsuckerdatum.ReturnFullName(TRUE)]', is indeed a Bloodsucker, but you already knew this."))
 				return
 			else
-				to_chat(user, "<span class='warning'>You found the one! [target], also known as '[bloodsuckerdatum.ReturnFullName(TRUE)]', is not knowingly part of a Clan. You quickly note this information down, memorizing it.</span>")
+				to_chat(user, span_warning("You found the one! [target], also known as '[bloodsuckerdatum.ReturnFullName(TRUE)]', is not knowingly part of a Clan. You quickly note this information down, memorizing it."))
 				bloodsuckerdatum.break_masquerade()
 		else
-			to_chat(user, "<span class='notice'>You fail to draw any conclusions to [target] being a Bloodsucker.</span>")
+			to_chat(user, span_notice("You fail to draw any conclusions to [target] being a Bloodsucker."))
 	// Bloodsucker using it
 	else if(IS_BLOODSUCKER(user))
-		to_chat(user, "<span class='notice'>[src] seems to be too complicated for you. It would be best to leave this for someone else to take.</span>")
+		to_chat(user, span_notice("[src] seems to be too complicated for you. It would be best to leave this for someone else to take."))
 	else
-		to_chat(user, "<span class='warning'>[src] burns your hands as you try to use it!</span>")
+		to_chat(user, span_warning("[src] burns your hands as you try to use it!"))
 		user.apply_damage(12, BURN, pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))
 
 /*
@@ -293,14 +293,14 @@
 		return
 	// Curator/Tremere using it
 	if(HAS_TRAIT(user, TRAIT_BLOODSUCKER_HUNTER))
-		user.visible_message("<span class='notice'>[user] opens [src] and begins reading intently.</span>")
+		user.visible_message(span_notice("[user] opens [src] and begins reading intently."))
 		ui_interact(user)
 		return
 	// Bloodsucker using it
 	if(IS_BLOODSUCKER(user))
-		to_chat(user, "<span class='notice'>[src] seems to be too complicated for you. It would be best to leave this for someone else to take.</span>")
+		to_chat(user, span_notice("[src] seems to be too complicated for you. It would be best to leave this for someone else to take."))
 		return
-	to_chat(user, "<span class='warning'>You feel your eyes burn as you begin to read through [src]!</span>")
+	to_chat(user, span_warning("You feel your eyes burn as you begin to read through [src]!"))
 	var/obj/item/organ/eyes/eyes = user.getorganslot(ORGAN_SLOT_EYES)
 	user.blur_eyes(5)
 	eyes.applyOrganDamage(5)

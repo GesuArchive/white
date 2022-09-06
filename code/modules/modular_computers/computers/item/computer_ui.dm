@@ -14,7 +14,7 @@
 		return
 
 	if(HAS_TRAIT(user, TRAIT_CHUNKYFINGERS) && !allow_chunky)
-		to_chat(user, "<span class='warning'>Your fingers are too big to use this right now!</span>")
+		to_chat(user, span_warning("Your fingers are too big to use this right now!"))
 		return
 
 	// Robots don't really need to see the screen, their wireless connection works as long as computer is on.
@@ -34,7 +34,7 @@
 	// This screen simply lists available programs and user may select them.
 	var/obj/item/computer_hardware/hard_drive/hard_drive = all_components[MC_HDD]
 	if(!hard_drive || !hard_drive.stored_files || !hard_drive.stored_files.len)
-		to_chat(user, "<span class='danger'><b>[src.name]</b> издает три звуковых сигнала, на экране отображается предупреждение \"ОШИБКА ДИСКА\".</span>")
+		to_chat(user, span_danger("<b>[src.name]</b> издает три звуковых сигнала, на экране отображается предупреждение \"ОШИБКА ДИСКА\"."))
 		return // No HDD, No HDD files list or no stored files. Something is very broken.
 
 	if(honkamnt > 0) // EXTRA annoying, huh!
@@ -148,7 +148,7 @@
 				return
 
 			P.kill_program(forced = TRUE)
-			to_chat(user, "<span class='notice'>Программа [P.filename].[P.filetype] с PID [rand(100,999)] была уничтожена.</span>")
+			to_chat(user, span_notice("Программа [P.filename].[P.filetype] с PID [rand(100,999)] была уничтожена."))
 
 		if("PC_runprogram")
 			// only function of the last implementation (?)
@@ -167,7 +167,7 @@
 				if(!new_color)
 					return
 				if(color_hex2num(new_color) < 200) //Colors too dark are rejected
-					to_chat(user, "<span class='warning'>Этот цвет слишком темный! Выберите какой-то посветлее..</span>")
+					to_chat(user, span_warning("Этот цвет слишком темный! Выберите какой-то посветлее.."))
 					new_color = null
 			return set_flashlight_color(new_color)
 
@@ -219,7 +219,7 @@
 					usr.put_in_hands(pai)
 					pai.slotted = FALSE
 					pai = null
-					to_chat(usr, "<span class='notice'>You remove the pAI from the [name].</span>")
+					to_chat(usr, span_notice("You remove the pAI from the [name]."))
 				if("interact")
 					pai.attack_self(usr)
 			return UI_UPDATE

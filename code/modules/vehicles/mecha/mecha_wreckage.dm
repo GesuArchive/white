@@ -54,16 +54,16 @@
 	..()
 	. = TRUE
 	if(salvage_num <= 0 || !length(welder_salvage))
-		to_chat(user, "<span class='notice'>Не видижу ничего, что можно было бы вырезать из [I]!</span>")
+		to_chat(user, span_notice("Не видижу ничего, что можно было бы вырезать из [I]!"))
 		return
 	if(!I.use_tool(src, user, 0, volume=50))
 		return
 	if(prob(30))
-		to_chat(user, "<span class='notice'>Не удалось спасти ничего ценного из [src]!</span>")
+		to_chat(user, span_notice("Не удалось спасти ничего ценного из [src]!"))
 		return
 	var/type = pick(welder_salvage)
 	var/N = new type(get_turf(user))
-	user.visible_message("<span class='notice'>[user] вырезает [N] из [src].</span>" , "<span class='notice'>Вырезаю [N] из [src].</span>")
+	user.visible_message(span_notice("[user] вырезает [N] из [src].") , span_notice("Вырезаю [N] из [src]."))
 	if(!istype(N, /obj/item/stack))
 		welder_salvage -= type
 	salvage_num--
@@ -72,10 +72,10 @@
 	..()
 	. = TRUE
 	if(wires_removed)
-		to_chat(user, "<span class='notice'>Не вижу ничего ценного, что можно было бы отсоединить от [I]!</span>")
+		to_chat(user, span_notice("Не вижу ничего ценного, что можно было бы отсоединить от [I]!"))
 		return
 	var/N = new /obj/item/stack/cable_coil(get_turf(user), rand(1,3))
-	user.visible_message("<span class='notice'>[user] отсоединяет [N] от [src].</span>" , "<span class='notice'>Отсоединяю [N] от [src].</span>")
+	user.visible_message(span_notice("[user] отсоединяет [N] от [src].") , span_notice("Отсоединяю [N] от [src]."))
 	wires_removed = TRUE
 
 /obj/structure/mecha_wreckage/crowbar_act(mob/living/user, obj/item/I)
@@ -84,10 +84,10 @@
 	if(crowbar_salvage.len)
 		var/obj/S = pick(crowbar_salvage)
 		S.forceMove(user.drop_location())
-		user.visible_message("<span class='notice'>[user] выламывает [S] из [src].</span>" , "<span class='notice'>Выламываю [S] из [src].</span>")
+		user.visible_message(span_notice("[user] выламывает [S] из [src].") , span_notice("Выламываю [S] из [src]."))
 		crowbar_salvage -= S
 		return
-	to_chat(user, "<span class='notice'>Не вижу ничего ценного, что можно было бы отсоединить от [I]!</span>")
+	to_chat(user, span_notice("Не вижу ничего ценного, что можно было бы отсоединить от [I]!"))
 
 /obj/structure/mecha_wreckage/transfer_ai(interaction, mob/user, null, obj/item/aicard/card)
 	if(!..())
@@ -97,13 +97,13 @@
 	if(interaction != AI_TRANS_TO_CARD) //AIs can only be transferred in one direction, from the wreck to the card.
 		return
 	if(!AI) //No AI in the wreck
-		to_chat(user, "<span class='warning'>Черный ящик пуст.</span>")
+		to_chat(user, span_warning("Черный ящик пуст."))
 		return
 	cut_overlays() //Remove the recovery beacon overlay
 	AI.forceMove(card) //Move the dead AI to the card.
 	card.AI = AI
 	if(AI.client) //AI player is still in the dead AI and is connected
-		to_chat(AI, "<span class='notice'>Остатки вашей файловой системы были восстановлены на мобильном устройстве хранения данных.</span>")
+		to_chat(AI, span_notice("Остатки вашей файловой системы были восстановлены на мобильном устройстве хранения данных."))
 	else //Give the AI a heads-up that it is probably going to get fixed.
 		AI.notify_ghost_cloning("Вас извлекли из-под обломков!", source = card)
 	to_chat(user, "<span class='boldnotice'>Восстановленные файлы резервных копий</span>: [AI.name] ([rand(1000,9999)].exe) извлечены из [name] и сохранены в локальной памяти.")

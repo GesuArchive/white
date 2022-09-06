@@ -27,9 +27,9 @@
 	if(QDELETED(data.user))
 		return // can't send a message to a missing user
 	if(error_code == NETWORK_ERROR_UNAUTHORIZED)
-		to_chat(data.user, "<span class='notice'>Этот пульт управления не хочет работать с этим шлюзом.</span>")
+		to_chat(data.user, span_notice("Этот пульт управления не хочет работать с этим шлюзом."))
 	else
-		to_chat(data.user, "<span class='notice'>ОШИБКА: [error_code]</span>")
+		to_chat(data.user, span_notice("ОШИБКА: [error_code]"))
 
 /obj/item/door_remote/attack_self(mob/user)
 	var/static/list/desc = list(WAND_OPEN = "Открыть шлюз", WAND_BOLT = "Переключить болты", WAND_EMERGENCY = "Переключить экстренный доступ", WAND_SHOCK = "Медиум-рейр")
@@ -45,14 +45,14 @@
 				mode = WAND_OPEN
 		if(WAND_SHOCK)
 			mode = WAND_OPEN
-	to_chat(user, "<span class='notice'>Режим: [desc[mode]].</span>")
+	to_chat(user, span_notice("Режим: [desc[mode]]."))
 
 /obj/item/door_remote/emag_act(mob/user, obj/item/card/emag/E)
 	. = ..()
 	if(obj_flags & EMAGGED)
 		return
 	obj_flags |= EMAGGED
-	to_chat(user, "<span class='warning'>Шокирующий режим разблокирован.</span>")
+	to_chat(user, span_warning("Шокирующий режим разблокирован."))
 
 // Airlock remote works by sending NTNet packets to whatever it's pointed at.
 /obj/item/door_remote/afterattack(atom/A, mob/user)

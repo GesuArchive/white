@@ -57,7 +57,7 @@
 /obj/item/melee/energy/suicide_act(mob/user)
 	if(!blade_active)
 		attack_self(user)
-	user.visible_message("<span class='suicide'>[user] is [pick("slitting [user.p_their()] stomach open with", "falling on")] [src]! It looks like [user.p_theyre()] trying to commit seppuku!</span>")
+	user.visible_message(span_suicide("[user] is [pick("slitting [user.p_their()] stomach open with", "falling on")] [src]! It looks like [user.p_theyre()] trying to commit seppuku!"))
 	return (BRUTELOSS|FIRELOSS)
 
 /obj/item/melee/energy/add_blood_DNA(list/blood_dna)
@@ -76,7 +76,7 @@
 		var/mob/living/carbon/C = user
 		if(C.wear_mask)
 			in_mouth = ", barely missing [C.ru_ego()] nose"
-	. = "<span class='warning'>[user] swings [user.ru_ego()] [name][in_mouth]. [user.ru_who(TRUE)] light[user.p_s()] [user.ru_ego()] [A.name] in the process.</span>"
+	. = span_warning("[user] swings [user.ru_ego()] [name][in_mouth]. [user.ru_who(TRUE)] light[user.p_s()] [user.ru_ego()] [A.name] in the process.")
 	playsound(loc, hitsound, get_clamped_volume(), TRUE, -1)
 	add_fingerprint(user)
 
@@ -146,7 +146,7 @@
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
 
 /obj/item/melee/energy/axe/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] swings [src] towards [user.p_their()] head! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] swings [src] towards [user.p_their()] head! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return (BRUTELOSS|FIRELOSS)
 
 /// Energy swords.
@@ -184,7 +184,7 @@
 	var/obj/item/stock_parts/cell/our_cell = user.cell
 	if(blade_active && !(our_cell.use(hitcost)))
 		attack_self(user)
-		to_chat(user, "<span class='notice'>It's out of charge!</span>")
+		to_chat(user, span_notice("It's out of charge!"))
 		return
 	return ..()
 
@@ -253,11 +253,11 @@
 /obj/item/melee/energy/sword/saber/attackby(obj/item/weapon, mob/living/user, params)
 	if(weapon.tool_behaviour == TOOL_MULTITOOL)
 		if(hacked)
-			to_chat(user, "<span class='warning'>It's already fabulous!</span>")
+			to_chat(user, span_warning("It's already fabulous!"))
 		else
 			hacked = TRUE
 			sword_color_icon = "rainbow"
-			to_chat(user, "<span class='warning'>RNBW_ENGAGE</span>")
+			to_chat(user, span_warning("RNBW_ENGAGE"))
 			if(force >= active_force)
 				icon_state = "[initial(icon_state)]_on_rainbow"
 				user.update_inv_hands()

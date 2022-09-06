@@ -72,7 +72,7 @@
 	master_speech = new(src)
 	master_speech.Grant(owner)
 
-	to_chat(owner, "<span class='boldnotice'>You establish a [network_name], allowing you to link minds to communicate telepathically.</span>")
+	to_chat(owner, span_boldnotice("You establish a [network_name], allowing you to link minds to communicate telepathically."))
 
 /datum/component/mind_linker/Destroy(force, silent)
 	for(var/mob/living/remaining_mob as anything in linked_mobs)
@@ -110,11 +110,11 @@
 	if(to_link == owner)
 		return FALSE
 
-	to_chat(to_link, "<span class='notice'>[link_message]</span>")
-	to_chat(owner, "<span class='notice'>You connect [to_link]'s mind to your [network_name].</span>")
+	to_chat(to_link, span_notice(link_message))
+	to_chat(owner, span_notice("You connect [to_link]'s mind to your [network_name]."))
 
 	for(var/mob/living/other_link as anything in linked_mobs)
-		to_chat(other_link, "<span class='notice'>You feel a new presence within [owner.real_name]'s [network_name].</span>")
+		to_chat(other_link, span_notice("You feel a new presence within [owner.real_name]'s [network_name]."))
 
 	var/datum/action/innate/linked_speech/new_link = new(src)
 	new_link.Grant(to_link)
@@ -136,7 +136,7 @@
 	if(!linked_mobs[to_unlink])
 		return
 
-	to_chat(to_unlink, "<span class='warning'>[unlink_message]</span>")
+	to_chat(to_unlink, span_warning(unlink_message))
 	post_unlink_callback?.Invoke(to_unlink)
 
 	UnregisterSignal(to_unlink, list(COMSIG_LIVING_DEATH, COMSIG_PARENT_QDELETING, COMSIG_MINDSHIELD_IMPLANTED))
@@ -147,9 +147,9 @@
 
 	var/mob/living/owner = parent
 
-	to_chat(owner, "<span class='warning'>You feel someone disconnect from your [network_name].</span>")
+	to_chat(owner, span_warning("You feel someone disconnect from your [network_name]."))
 	for(var/mob/living/other_link as anything in linked_mobs)
-		to_chat(other_link, "<span class='warning'>You feel a pressence disappear from [owner.real_name]'s [network_name].</span>")
+		to_chat(other_link, span_warning("You feel a pressence disappear from [owner.real_name]'s [network_name]."))
 
 /**
  *  Signal proc sent from any signals given to us initialize.
@@ -160,7 +160,7 @@
 
 	if(isliving(source))
 		var/mob/living/owner = source
-		to_chat(owner, "<span class='boldwarning'>Your [network_name] breaks!</span>")
+		to_chat(owner, span_boldwarning("Your [network_name] breaks!"))
 
 	qdel(src)
 
@@ -198,7 +198,7 @@
 		return
 
 	if(QDELETED(linker))
-		to_chat(owner, "<span class='warning'>The link seems to have been severed.</span>")
+		to_chat(owner, span_warning("The link seems to have been severed."))
 		return
 
 	var/formatted_message = "<i><font color=[linker.chat_color]>\[[linker_parent.real_name]'s [linker.network_name]\] <b>[owner]:</b> [message]</font></i>"

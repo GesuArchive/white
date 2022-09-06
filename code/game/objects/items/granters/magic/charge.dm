@@ -16,5 +16,5 @@
 
 /obj/item/book/granter/action/spell/charge/recoil(mob/living/user)
 	. = ..()
-	to_chat(user,"<span class='warning'>[src] suddenly feels very warm!</span>")
+	to_chat(user,span_warning("[src] suddenly feels very warm!"))
 	empulse(src, 1, 1)

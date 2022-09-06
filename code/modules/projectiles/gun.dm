@@ -122,13 +122,13 @@
 	if(!pinless)
 		. += "<hr>"
 		if(pin)
-			. += "<span class='info'>Внутри установлен [pin] и его можно вытащить при помощи <b>инструментов</b>.</span>"
+			. += span_info("Внутри установлен [pin] и его можно вытащить при помощи <b>инструментов</b>.")
 		else
-			. += "<span class='danger'>Внутри отсутствует <b>ударник</b>, поэтому огонь вести невозможно.</span>"
+			. += span_danger("Внутри отсутствует <b>ударник</b>, поэтому огонь вести невозможно.")
 
 	if(bayonet)
 		. += "\n"
-		. += "<span class='info'>На нём установлен [bayonet], который [can_bayonet ? "" : "<b>надёжно</b> "]прикреплён к нему.</span>"
+		. += span_info("На нём установлен [bayonet], который [can_bayonet ? "" : "<b>надёжно</b> "]прикреплён к нему.")
 	else if(can_bayonet)
 		. += "\n"
 		. += "Сюда можно прикрепить <b>штык</b>."
@@ -147,7 +147,7 @@
 	return TRUE
 
 /obj/item/gun/proc/shoot_with_empty_chamber(mob/living/user as mob|obj)
-	to_chat(user, "<span class='danger'>*щёлк*</span>")
+	to_chat(user, span_danger("*щёлк*"))
 	playsound(src, dry_fire_sound, 30, TRUE)
 
 /obj/item/gun/proc/fire_sounds()
@@ -166,17 +166,17 @@
 
 	if(!suppressed && message)
 		if(pointblank)
-			user.visible_message("<span class='danger'><b>[user]</b> стреляет из <b>[src.name]</b> <b>В УПОР</b> по <b>[pbtarget]</b>!</span>",
-							"<span class='danger'>Стреляю из [src.name] <b>В УПОР</b> по <b>[pbtarget]</b>!</span>",
-							"<span class='hear'>Слышу выстрел!</span>", COMBAT_MESSAGE_RANGE, pbtarget, visible_message_flags = SPAM_MESSAGE)
+			user.visible_message(span_danger("<b>[user]</b> стреляет из <b>[src.name]</b> <b>В УПОР</b> по <b>[pbtarget]</b>!"),
+							span_danger("Стреляю из [src.name] <b>В УПОР</b> по <b>[pbtarget]</b>!"),
+							span_hear("Слышу выстрел!"), COMBAT_MESSAGE_RANGE, pbtarget, visible_message_flags = SPAM_MESSAGE)
 			if(pb_knockback > 0 && ismob(pbtarget))
 				var/mob/PBT = pbtarget
 				var/atom/throw_target = get_edge_target_turf(PBT, user.dir)
 				PBT.throw_at(throw_target, pb_knockback, 2)
 		else
-			user.visible_message("<span class='danger'><b>[user]</b> стреляет из <b>[src.name]</b>!</span>",
-							"<span class='danger'>Стреляю из [src.name]!</span>",
-							"<span class='hear'>Слышу выстрел!</span>", COMBAT_MESSAGE_RANGE, visible_message_flags = SPAM_MESSAGE)
+			user.visible_message(span_danger("<b>[user]</b> стреляет из <b>[src.name]</b>!"),
+							span_danger("Стреляю из [src.name]!"),
+							span_hear("Слышу выстрел!"), COMBAT_MESSAGE_RANGE, visible_message_flags = SPAM_MESSAGE)
 
 /obj/item/gun/emp_act(severity)
 	. = ..()
@@ -186,10 +186,10 @@
 
 /obj/item/gun/attack_secondary(mob/living/victim, mob/living/user, params)
 	if (user.GetComponent(/datum/component/gunpoint))
-		to_chat(user, "<span class='warning'>Уже держу кого-то на прицеле!</span>")
+		to_chat(user, span_warning("Уже держу кого-то на прицеле!"))
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	if (user == victim)
-		to_chat(user,"<span class='warning'>Не могу целиться в себя!</span>")
+		to_chat(user,span_warning("Не могу целиться в себя!"))
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 	user.AddComponent(/datum/component/gunpoint, victim, src)
@@ -239,7 +239,7 @@
 
 	var/obj/item/bodypart/other_hand = user.has_hand_for_held_index(user.get_inactive_hand_index()) //returns non-disabled inactive hands
 	if(weapon_weight == WEAPON_HEAVY && (user.get_inactive_held_item() || !other_hand))
-		to_chat(user, "<span class='warning'>Надо бы держать [src.name] в обеих руках!</span>")
+		to_chat(user, span_warning("Надо бы держать [src.name] в обеих руках!"))
 		return
 	//DUAL (or more!) WIELDING
 	var/bonus_spread = 0
@@ -260,7 +260,7 @@
 	if(clumsy_check)
 		if(istype(user))
 			if(HAS_TRAIT(user, TRAIT_CLUMSY) && prob(40))
-				to_chat(user, "<span class='userdanger'>Стреляю себе в ногу из [src.name]!</span>")
+				to_chat(user, span_userdanger("Стреляю себе в ногу из [src.name]!"))
 				var/shot_leg = pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 				process_fire(user, user, FALSE, null, shot_leg)
 				SEND_SIGNAL(user, COMSIG_MOB_CLUMSY_SHOOT_FOOT)
@@ -282,7 +282,7 @@
 			pin.auth_fail(user)
 			return FALSE
 	else
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] курок заблокирован. У этого оружия нет бойка!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] курок заблокирован. У этого оружия нет бойка!"))
 	return FALSE
 
 /obj/item/gun/proc/recharge_newshot()
@@ -299,7 +299,7 @@
 	if(chambered?.loaded_projectile)
 		if(HAS_TRAIT(user, TRAIT_PACIFISM)) // If the user has the pacifist trait, then they won't be able to fire [src] if the round chambered inside of [src] is lethal.
 			if(chambered.harmful) // Is the bullet chambered harmful?
-				to_chat(user, "<span class='warning'>[capitalize(src.name)] заряжен летально! Я же ведь не хочу навредить кому-то...</span>")
+				to_chat(user, span_warning("[capitalize(src.name)] заряжен летально! Я же ведь не хочу навредить кому-то..."))
 				return
 		if(randomspread)
 			sprd = round((rand(0, 1) - 0.5) * DUALWIELD_PENALTY_EXTRA_MULTIPLIER * (randomized_gun_spread + randomized_bonus_spread))
@@ -371,7 +371,7 @@
 		if(chambered)
 			if(HAS_TRAIT(user, TRAIT_PACIFISM)) // If the user has the pacifist trait, then they won't be able to fire [src] if the round chambered inside of [src] is lethal.
 				if(chambered.harmful) // Is the bullet chambered harmful?
-					to_chat(user, "<span class='warning'>[capitalize(src.name)] заряжен летально! Я же ведь не хочу навредить кому-то...</span>")
+					to_chat(user, span_warning("[capitalize(src.name)] заряжен летально! Я же ведь не хочу навредить кому-то..."))
 					return
 			sprd = round((rand(0, 1) - 0.5) * DUALWIELD_PENALTY_EXTRA_MULTIPLIER * (randomized_gun_spread + randomized_bonus_spread))
 			before_firing(target,user)
@@ -426,7 +426,7 @@
 			return ..()
 		if(!user.transferItemToLoc(I, src))
 			return
-		to_chat(user, "<span class='notice'>Монтирую [K] на [src].</span>")
+		to_chat(user, span_notice("Монтирую [K] на [src]."))
 		bayonet = K
 		update_appearance()
 
@@ -444,13 +444,13 @@
 		return remove_gun_attachment(user, I, bayonet, "unfix")
 
 	else if(pin && user.is_holding(src))
-		user.visible_message("<span class='warning'>[user] attempts to remove [pin] from [src] with [I].</span>",
-		"<span class='notice'>You attempt to remove [pin] from [src]. (It will take [DisplayTimeText(FIRING_PIN_REMOVAL_DELAY)].)</span>", null, 3)
+		user.visible_message(span_warning("[user] attempts to remove [pin] from [src] with [I]."),
+		span_notice("You attempt to remove [pin] from [src]. (It will take [DisplayTimeText(FIRING_PIN_REMOVAL_DELAY)].)"), null, 3)
 		if(I.use_tool(src, user, FIRING_PIN_REMOVAL_DELAY, volume = 50))
 			if(!pin) //check to see if the pin is still there, or we can spam messages by clicking multiple times during the tool delay
 				return
-			user.visible_message("<span class='notice'>[pin] is pried out of [src] by [user], destroying the pin in the process.</span>",
-								"<span class='warning'>You pry [pin] out with [I], destroying the pin in the process.</span>", null, 3)
+			user.visible_message(span_notice("[pin] is pried out of [src] by [user], destroying the pin in the process."),
+								span_warning("You pry [pin] out with [I], destroying the pin in the process."), null, 3)
 			QDEL_NULL(pin)
 			return TRUE
 
@@ -461,13 +461,13 @@
 	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return
 	if(pin && user.is_holding(src))
-		user.visible_message("<span class='warning'>[user] attempts to remove [pin] from [src] with [I].</span>",
-		"<span class='notice'>You attempt to remove [pin] from [src]. (It will take [DisplayTimeText(FIRING_PIN_REMOVAL_DELAY)].)</span>", null, 3)
+		user.visible_message(span_warning("[user] attempts to remove [pin] from [src] with [I]."),
+		span_notice("You attempt to remove [pin] from [src]. (It will take [DisplayTimeText(FIRING_PIN_REMOVAL_DELAY)].)"), null, 3)
 		if(I.use_tool(src, user, FIRING_PIN_REMOVAL_DELAY, 5, volume = 50))
 			if(!pin) //check to see if the pin is still there, or we can spam messages by clicking multiple times during the tool delay
 				return
-			user.visible_message("<span class='notice'>[pin] is spliced out of [src] by [user], melting part of the pin in the process.</span>",
-								"<span class='warning'>You splice [pin] out of [src] with [I], melting part of the pin in the process.</span>", null, 3)
+			user.visible_message(span_notice("[pin] is spliced out of [src] by [user], melting part of the pin in the process."),
+								span_warning("You splice [pin] out of [src] with [I], melting part of the pin in the process."), null, 3)
 			QDEL_NULL(pin)
 			return TRUE
 
@@ -478,20 +478,20 @@
 	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		return
 	if(pin && user.is_holding(src))
-		user.visible_message("<span class='warning'>[user] attempts to remove [pin] from [src] with [I].</span>",
-		"<span class='notice'>You attempt to remove [pin] from [src]. (It will take [DisplayTimeText(FIRING_PIN_REMOVAL_DELAY)].)</span>", null, 3)
+		user.visible_message(span_warning("[user] attempts to remove [pin] from [src] with [I]."),
+		span_notice("You attempt to remove [pin] from [src]. (It will take [DisplayTimeText(FIRING_PIN_REMOVAL_DELAY)].)"), null, 3)
 		if(I.use_tool(src, user, FIRING_PIN_REMOVAL_DELAY, volume = 50))
 			if(!pin) //check to see if the pin is still there, or we can spam messages by clicking multiple times during the tool delay
 				return
-			user.visible_message("<span class='notice'>[pin] is ripped out of [src] by [user], mangling the pin in the process.</span>",
-								"<span class='warning'>You rip [pin] out of [src] with [I], mangling the pin in the process.</span>", null, 3)
+			user.visible_message(span_notice("[pin] is ripped out of [src] by [user], mangling the pin in the process."),
+								span_warning("You rip [pin] out of [src] with [I], mangling the pin in the process."), null, 3)
 			QDEL_NULL(pin)
 			return TRUE
 
 /obj/item/gun/proc/remove_gun_attachment(mob/living/user, obj/item/tool_item, obj/item/item_to_remove, removal_verb)
 	if(tool_item)
 		tool_item.play_tool_sound(src)
-	to_chat(user, "<span class='notice'>You [removal_verb ? removal_verb : "remove"] [item_to_remove] from [src].</span>")
+	to_chat(user, span_notice("You [removal_verb ? removal_verb : "remove"] [item_to_remove] from [src]."))
 	item_to_remove.forceMove(drop_location())
 
 	if(Adjacent(user) && !issilicon(user))
@@ -532,26 +532,26 @@
 		return
 
 	if(user == target)
-		target.visible_message("<span class='warning'>[user] sticks [src] in [user.p_their()] mouth, ready to pull the trigger...</span>", \
-			"<span class='userdanger'>You stick [src] in your mouth, ready to pull the trigger...</span>")
+		target.visible_message(span_warning("[user] sticks [src] in [user.p_their()] mouth, ready to pull the trigger..."), \
+			span_userdanger("You stick [src] in your mouth, ready to pull the trigger..."))
 	else
-		target.visible_message("<span class='warning'>[user] points [src] at [target]'s head, ready to pull the trigger...</span>", \
-			"<span class='userdanger'>[user] points [src] at your head, ready to pull the trigger...</span>")
+		target.visible_message(span_warning("[user] points [src] at [target]'s head, ready to pull the trigger..."), \
+			span_userdanger("[user] points [src] at your head, ready to pull the trigger..."))
 
 	semicd = TRUE
 
 	if(!bypass_timer && (!do_mob(user, target, 120) || user.zone_selected != BODY_ZONE_PRECISE_MOUTH))
 		if(user)
 			if(user == target)
-				user.visible_message("<span class='notice'>[user] decided not to shoot.</span>")
+				user.visible_message(span_notice("[user] decided not to shoot."))
 			else if(target?.Adjacent(user))
-				target.visible_message("<span class='notice'>[user] has decided to spare [target]</span>", "<span class='notice'>[user] has decided to spare your life!</span>")
+				target.visible_message(span_notice("[user] has decided to spare [target]"), span_notice("[user] has decided to spare your life!"))
 		semicd = FALSE
 		return
 
 	semicd = FALSE
 
-	target.visible_message("<span class='warning'>[user] pulls the trigger!</span>", "<span class='userdanger'>[(user == target) ? "You pull" : "[user] pulls"] the trigger!</span>")
+	target.visible_message(span_warning("[user] pulls the trigger!"), span_userdanger("[(user == target) ? "You pull" : "[user] pulls"] the trigger!"))
 
 	if(chambered?.loaded_projectile)
 		chambered.loaded_projectile.damage *= 5

@@ -1118,7 +1118,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				return FALSE
 			if(DIGITIGRADE in species_traits)
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>Обувь здесь не совместима с нашими ногами!</span>")
+					to_chat(H, span_warning("Обувь здесь не совместима с нашими ногами!"))
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_BELT)
@@ -1126,7 +1126,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 			if(!H.w_uniform && !nojumpsuit && (!O || O.status != BODYPART_ROBOTIC))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>Нужен комбинезон, прежде чем прикреплять этот <b>[I.name]</b>!</span>")
+					to_chat(H, span_warning("Нужен комбинезон, прежде чем прикреплять этот <b>[I.name]</b>!"))
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_EYES)
@@ -1150,7 +1150,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_CHEST)
 			if(!H.w_uniform && !nojumpsuit && (!O || O.status != BODYPART_ROBOTIC))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>Нужен комбинезон, прежде чем прикреплять этот <b>[I.name]</b>!</span>")
+					to_chat(H, span_warning("Нужен комбинезон, прежде чем прикреплять этот <b>[I.name]</b>!"))
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_LPOCKET)
@@ -1163,7 +1163,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 			if(!H.w_uniform && !nojumpsuit && (!O || O.status != BODYPART_ROBOTIC))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>Нужен комбинезон, прежде чем прикреплять этот <b>[I.name]</b>!</span>")
+					to_chat(H, span_warning("Нужен комбинезон, прежде чем прикреплять этот <b>[I.name]</b>!"))
 				return FALSE
 			return TRUE
 		if(ITEM_SLOT_RPOCKET)
@@ -1176,7 +1176,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 			if(!H.w_uniform && !nojumpsuit && (!O || O.status != BODYPART_ROBOTIC))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>Нужен комбинезон, прежде чем прикреплять этот <b>[I.name]</b>!</span>")
+					to_chat(H, span_warning("Нужен комбинезон, прежде чем прикреплять этот <b>[I.name]</b>!"))
 				return FALSE
 			return TRUE
 		if(ITEM_SLOT_SUITSTORE)
@@ -1184,15 +1184,15 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				return FALSE
 			if(!H.wear_suit)
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>Нужна верхняя одежда, прежде чем прикреплять этот <b>[I.name]</b>!</span>")
+					to_chat(H, span_warning("Нужна верхняя одежда, прежде чем прикреплять этот <b>[I.name]</b>!"))
 				return FALSE
 			if(!H.wear_suit.allowed)
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>Этот костюм не хочет принимать предмет. Почему-то.</span>")
+					to_chat(H, span_warning("Этот костюм не хочет принимать предмет. Почему-то."))
 				return FALSE
 			if(I.w_class > WEIGHT_CLASS_BULKY)
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'><b>[capitalize(I.name)]</b> слишком большой!</span>") //should be src?
+					to_chat(H, span_warning("<b>[capitalize(I.name)]</b> слишком большой!")) //should be src?
 				return FALSE
 			if( istype(I, /obj/item/modular_computer/tablet/pda) || istype(I, /obj/item/pen) || is_type_in_list(I, H.wear_suit.allowed) )
 				return TRUE
@@ -1218,7 +1218,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 /datum/species/proc/equip_delay_self_check(obj/item/I, mob/living/carbon/human/H, bypass_equip_delay_self)
 	if(!I.equip_delay_self || bypass_equip_delay_self)
 		return TRUE
-	H.visible_message("<span class='notice'><b>[H]</b> начинает надевать <b>[I]</b>...</span>" , "<span class='notice'>Начинаю надевать <b>[I]</b>...</span>")
+	H.visible_message(span_notice("<b>[H]</b> начинает надевать <b>[I]</b>...") , span_notice("Начинаю надевать <b>[I]</b>..."))
 	return do_after(H, I.equip_delay_self, target = H)
 
 /datum/species/proc/before_equip_job(datum/job/J, mob/living/carbon/human/H)
@@ -1260,14 +1260,14 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	//The fucking TRAIT_FAT mutation is the dumbest shit ever. It makes the code so difficult to work with
 	if(HAS_TRAIT_FROM(H, TRAIT_FAT, OBESITY))//I share your pain, past coder.
 		if(H.overeatduration < (200 SECONDS))
-			to_chat(H, "<span class='notice'>Возвращаю свою стройную форму!</span>")
+			to_chat(H, span_notice("Возвращаю свою стройную форму!"))
 			REMOVE_TRAIT(H, TRAIT_FAT, OBESITY)
 			H.remove_movespeed_modifier(/datum/movespeed_modifier/obesity)
 			H.update_inv_w_uniform()
 			H.update_inv_wear_suit()
 	else
 		if(H.overeatduration >= (200 SECONDS))
-			to_chat(H, "<span class='danger'>Мне удалось разжиреть!</span>")
+			to_chat(H, span_danger("Мне удалось разжиреть!"))
 			ADD_TRAIT(H, TRAIT_FAT, OBESITY)
 			H.add_movespeed_modifier(/datum/movespeed_modifier/obesity)
 			H.update_inv_w_uniform()
@@ -1307,15 +1307,15 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		H.metabolism_efficiency = 1
 	else if(H.nutrition > NUTRITION_LEVEL_FED && H.satiety > 80)
 		if(H.metabolism_efficiency != 1.25 && !HAS_TRAIT(H, TRAIT_NOHUNGER))
-			to_chat(H, "<span class='notice'>Ощущаю сытость.</span>")
+			to_chat(H, span_notice("Ощущаю сытость."))
 			H.metabolism_efficiency = 1.25
 	else if(H.nutrition < NUTRITION_LEVEL_STARVING + 50)
 		if(H.metabolism_efficiency != 0.8)
-			to_chat(H, "<span class='notice'>Снова хочется кушать.</span>")
+			to_chat(H, span_notice("Снова хочется кушать."))
 		H.metabolism_efficiency = 0.8
 	else
 		if(H.metabolism_efficiency == 1.25)
-			to_chat(H, "<span class='notice'>Похоже надо покушать.</span>")
+			to_chat(H, span_notice("Похоже надо покушать."))
 		H.metabolism_efficiency = 1
 
 	//Hunger slowdown for if mood isn't enabled
@@ -1374,20 +1374,20 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(!source.IsParalyzed())
 			source.emote("collapse")
 		source.Paralyze(RAD_MOB_KNOCKDOWN_AMOUNT)
-		to_chat(source, "<span class='danger'>Ощущаю слабость.</span>")
+		to_chat(source, span_danger("Ощущаю слабость."))
 
 	if(radiation > RAD_MOB_VOMIT && DT_PROB(RAD_MOB_VOMIT_PROB, delta_time))
 		source.vomit(10, TRUE)
 
 	if(radiation > RAD_MOB_MUTATE && DT_PROB(RAD_MOB_MUTATE_PROB, delta_time))
-		to_chat(source, "<span class='danger'>Кажется мутирую!</span>")
+		to_chat(source, span_danger("Кажется мутирую!"))
 		source.easy_randmut(NEGATIVE + MINOR_NEGATIVE)
 		source.emote("gasp")
 		source.domutcheck()
 
 	if(radiation > RAD_MOB_HAIRLOSS && DT_PROB(RAD_MOB_HAIRLOSS_PROB, delta_time))
 		if(!(source.hairstyle == "Bald") && (HAIR in species_traits))
-			to_chat(source, "<span class='danger'>Мои волосы начинают выпадать...</span>")
+			to_chat(source, span_danger("Мои волосы начинают выпадать..."))
 			addtimer(CALLBACK(src, .proc/go_bald, source), 5 SECONDS)
 
 /**
@@ -1426,9 +1426,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 /datum/species/proc/grab(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	if(target.check_block())
-		target.visible_message("<span class='warning'><b>[target]</b> блокирует попытку захвата <b>[user]</b>!</span>" , \
-							"<span class='userdanger'>Блокирую попытку захвата <b>[user]</b>!</span>" , "<span class='hear'>Слышу взмах!</span>" , COMBAT_MESSAGE_RANGE, user)
-		to_chat(user, "<span class='warning'>Моя попытка захвата <b>[target]</b> была отражена!</span>")
+		target.visible_message(span_warning("<b>[target]</b> блокирует попытку захвата <b>[user]</b>!") , \
+							span_userdanger("Блокирую попытку захвата <b>[user]</b>!") , span_hear("Слышу взмах!") , COMBAT_MESSAGE_RANGE, user)
+		to_chat(user, span_warning("Моя попытка захвата <b>[target]</b> была отражена!"))
 		return FALSE
 	if(attacker_style?.grab_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
@@ -1439,15 +1439,15 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 ///This proc handles punching damage. IMPORTANT: Our owner is the TARGET and not the USER in this proc. For whatever reason...
 /datum/species/proc/harm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, "<span class='warning'>Не хочу вредить <b>[target]</b>!</span>")
+		to_chat(user, span_warning("Не хочу вредить <b>[target]</b>!"))
 		return FALSE
 
 	SSspd.check_action(user?.client, SPD_HUMAN_HARM)
 
 	if(target.check_block())
-		target.visible_message("<span class='warning'>[target] блокирует удар [user]!</span>" , \
-							"<span class='userdanger'>Блокирую удар [user]!</span>" , "<span class='hear'>Слышу взмах!</span>" , COMBAT_MESSAGE_RANGE, user)
-		to_chat(user, "<span class='warning'>Моя атака по [target] была отражена!</span>")
+		target.visible_message(span_warning("[target] блокирует удар [user]!") , \
+							span_userdanger("Блокирую удар [user]!") , span_hear("Слышу взмах!") , COMBAT_MESSAGE_RANGE, user)
+		to_chat(user, span_warning("Моя атака по [target] была отражена!"))
 		return FALSE
 	if(attacker_style?.harm_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
@@ -1461,7 +1461,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		if(atk_effect == ATTACK_EFFECT_BITE)
 			if(user.is_mouth_covered(mask_only = TRUE))
-				to_chat(user, "<span class='warning'>Рот закрыт!</span>")
+				to_chat(user, span_warning("Рот закрыт!"))
 				return FALSE
 		user.do_attack_animation(target, atk_effect)
 
@@ -1482,9 +1482,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		if(!damage || !affecting || prob(miss_chance))//future-proofing for species that have 0 damage/weird cases where no zone is targeted
 			playsound(target.loc, user.dna.species.miss_sound, 25, TRUE, -1)
-			target.visible_message("<span class='danger'>[user] [atk_verb] мимо [target]!</span>" ,\
-							"<span class='userdanger'>[user] [atk_verb] мимо меня!</span>" , "<span class='hear'>Слышу взмах!</span>" , COMBAT_MESSAGE_RANGE, user)
-			to_chat(user, "<span class='warning'>Промахиваюсь пытаясь ударить [target]!</span>")
+			target.visible_message(span_danger("[user] [atk_verb] мимо [target]!") ,\
+							span_userdanger("[user] [atk_verb] мимо меня!") , span_hear("Слышу взмах!") , COMBAT_MESSAGE_RANGE, user)
+			to_chat(user, span_warning("Промахиваюсь пытаясь ударить [target]!"))
 
 			log_combat(user, target, "attempted to punch")
 			return FALSE
@@ -1496,11 +1496,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		playsound(target.loc, user.dna.species.attack_sound, 25, TRUE, -1)
 
 		if(target == user)
-			to_chat(user, "<span class='danger'>Бью себя!</span>")
+			to_chat(user, span_danger("Бью себя!"))
 		else
-			target.visible_message("<span class='danger'>[user] [atk_verb] [target]!</span>" , \
-						"<span class='userdanger'>[user] [atk_verb] меня!</span>" , "<span class='hear'>Слышу как что-то бьёт по плоти!</span>" , COMBAT_MESSAGE_RANGE, user)
-			to_chat(user, "<span class='danger'>Бью [target]!</span>")
+			target.visible_message(span_danger("[user] [atk_verb] [target]!") , \
+						span_userdanger("[user] [atk_verb] меня!") , span_hear("Слышу как что-то бьёт по плоти!") , COMBAT_MESSAGE_RANGE, user)
+			to_chat(user, span_danger("Бью [target]!"))
 
 		user.dna.species.spec_unarmedattacked(user, target)
 
@@ -1521,9 +1521,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			log_combat(user, target, "punched")
 
 		if((target.stat != DEAD) && damage >= user.dna.species.punchstunthreshold)
-			target.visible_message("<span class='danger'>[user] валит [target] на пол!</span>" , \
-							"<span class='userdanger'>[user] валит меня на пол!</span>" , "<span class='hear'>Слышу агрессивную потасовку сопровождающуюся громким стуком!</span>" , COMBAT_MESSAGE_RANGE, user)
-			to_chat(user, "<span class='danger'>Укладываю [target] полежать!</span>")
+			target.visible_message(span_danger("[user] валит [target] на пол!") , \
+							span_userdanger("[user] валит меня на пол!") , span_hear("Слышу агрессивную потасовку сопровождающуюся громким стуком!") , COMBAT_MESSAGE_RANGE, user)
+			to_chat(user, span_danger("Укладываю [target] полежать!"))
 			var/knockdown_duration = 40 + (target.getStaminaLoss() + (target.getBruteLoss()*0.5))*0.8 //50 total damage = 40 base stun + 40 stun modifier = 80 stun duration, which is the old base duration
 			target.apply_effect(knockdown_duration, EFFECT_KNOCKDOWN, armor_block)
 			log_combat(user, target, "got a stun punch with their previous punch")
@@ -1533,9 +1533,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 /datum/species/proc/disarm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	if(target.check_block())
-		target.visible_message("<span class='warning'>[target] блокирует попытку толчка [user]!</span>" , \
-							"<span class='userdanger'>Блокирую попытку толчка [user]!</span>" , "<span class='hear'>Слышу взмах!</span>" , COMBAT_MESSAGE_RANGE, user)
-		to_chat(user, "<span class='warning'>Моя попытка толкнуть [target] провалилась!</span>")
+		target.visible_message(span_warning("[target] блокирует попытку толчка [user]!") , \
+							span_userdanger("Блокирую попытку толчка [user]!") , span_hear("Слышу взмах!") , COMBAT_MESSAGE_RANGE, user)
+		to_chat(user, span_warning("Моя попытка толкнуть [target] провалилась!"))
 		return FALSE
 	if(attacker_style?.disarm_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
@@ -1563,9 +1563,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		attacker_style = owner.mind.martial_art
 	if((owner != target) && owner.a_intent != INTENT_HELP && target.check_shields(owner, 0, owner.name, attack_type = UNARMED_ATTACK))
 		log_combat(owner, target, "attempted to touch")
-		target.visible_message("<span class='warning'>[owner] пытается дотронуться до [target]!</span>", \
-						"<span class='userdanger'>[owner] пытается дотронуться до меня!</span>", "<span class='hear'>Слышу взмах!</span>", COMBAT_MESSAGE_RANGE, owner)
-		to_chat(owner, "<span class='warning'>Пытаюсь дотронуться до [target]!</span>")
+		target.visible_message(span_warning("[owner] пытается дотронуться до [target]!"), \
+						span_userdanger("[owner] пытается дотронуться до меня!"), span_hear("Слышу взмах!"), COMBAT_MESSAGE_RANGE, owner)
+		to_chat(owner, span_warning("Пытаюсь дотронуться до [target]!"))
 		return
 
 	SEND_SIGNAL(owner, COMSIG_MOB_ATTACK_HAND, owner, target, attacker_style)
@@ -1594,8 +1594,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(H.check_shields(I, I.force, "[I.name]", MELEE_ATTACK, I.armour_penetration))
 			return FALSE
 	if(H.check_block())
-		H.visible_message("<span class='warning'>[H] блокирует [I]!</span>" , \
-						"<span class='userdanger'>Блокирую [I]!</span>")
+		H.visible_message(span_warning("[H] блокирует [I]!") , \
+						span_userdanger("Блокирую [I]!"))
 		return FALSE
 
 	var/hit_area
@@ -1605,7 +1605,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	hit_area = ru_parse_zone(affecting.name)
 	var/def_zone = affecting.body_zone
 
-	var/armor_block = H.run_armor_check(affecting, MELEE, "<span class='notice'>Броня защищает меня от удара в [hit_area]!</span>" , "<span class='warning'>Броня смягчает удар в [hit_area]!</span>" ,I.armour_penetration)
+	var/armor_block = H.run_armor_check(affecting, MELEE, span_notice("Броня защищает меня от удара в [hit_area]!") , span_warning("Броня смягчает удар в [hit_area]!") ,I.armour_penetration)
 	armor_block = min(90,armor_block) //cap damage reduction at 90%
 	var/Iwound_bonus = I.wound_bonus
 
@@ -1639,8 +1639,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					if(prob(I.force * 2))
 						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, I.force * 0.5)
 						if(H.stat == CONSCIOUS)
-							H.visible_message("<span class='danger'>[H] беспорядочно шатается!</span>" , \
-											"<span class='userdanger'>Вам пришло письмо-о-о!</span>")
+							H.visible_message(span_danger("[H] беспорядочно шатается!") , \
+											span_userdanger("Вам пришло письмо-о-о!"))
 							H.set_confusion(max(H.get_confusion(), 20))
 							H.adjust_blurriness(I.force)
 							H.dizziness += (I.force) //Анкон идет нахуй, пусть шатает экран.
@@ -1670,8 +1670,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(BODY_ZONE_CHEST)
 				if(H.stat == CONSCIOUS && !I.get_sharpness() && armor_block < 50)
 					if(prob(I.force))
-						H.visible_message("<span class='danger'>[H] оглушен[H.ru_a()]!</span>" , \
-									"<span class='userdanger'>Меня оглушило!</span>")
+						H.visible_message(span_danger("[H] оглушен[H.ru_a()]!") , \
+									span_userdanger("Меня оглушило!"))
 						H.apply_effect(60, EFFECT_KNOCKDOWN, armor_block)
 
 				if(bloody)
@@ -1748,11 +1748,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	// called when hit by a projectile
 	switch(P.type)
 		if(/obj/projectile/energy/floramut) // overwritten by plants/pods
-			H.show_message("<span class='notice'>Радиоактивный луч безвредно проходит сквозь моё тело.</span>")
+			H.show_message(span_notice("Радиоактивный луч безвредно проходит сквозь моё тело."))
 		if(/obj/projectile/energy/florayield)
-			H.show_message("<span class='notice'>Радиоактивный луч безвредно проходит сквозь моё тело.</span>")
+			H.show_message(span_notice("Радиоактивный луч безвредно проходит сквозь моё тело."))
 		if(/obj/projectile/energy/florarevolution)
-			H.show_message("<span class='notice'>Радиоактивный луч безвредно проходит сквозь моё тело.</span>")
+			H.show_message(span_notice("Радиоактивный луч безвредно проходит сквозь моё тело."))
 
 /datum/species/proc/bullet_act(obj/projectile/P, mob/living/carbon/human/H)
 	// called before a projectile hit
@@ -2194,7 +2194,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(H.stat || H.body_position == LYING_DOWN)
 		return FALSE
 	if(H.wear_suit && ((H.wear_suit.flags_inv & HIDEJUMPSUIT) && (!H.wear_suit.species_exception || !is_type_in_list(src, H.wear_suit.species_exception))))	//Jumpsuits have tail holes, so it makes sense they have wing holes too
-		to_chat(H, "<span class='warning'>Костюм мешает моим крыльям расправиться!</span>")
+		to_chat(H, span_warning("Костюм мешает моим крыльям расправиться!"))
 		return FALSE
 	var/turf/T = get_turf(H)
 	if(!T)
@@ -2202,7 +2202,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	var/datum/gas_mixture/environment = T.return_air()
 	if(environment && !(environment.return_pressure() > 30))
-		to_chat(H, "<span class='warning'>Слишком слабое давление для полёта!</span>")
+		to_chat(H, span_warning("Слишком слабое давление для полёта!"))
 		return FALSE
 	else
 		return TRUE
@@ -2212,7 +2212,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(human.buckled)
 		buckled_obj = human.buckled
 
-	to_chat(human, "<span class='notice'>Мои крылья начинают спазмировать и я падаю!</span>")
+	to_chat(human, span_notice("Мои крылья начинают спазмировать и я падаю!"))
 
 	playsound(human.loc, 'sound/misc/slip.ogg', 50, TRUE, -3)
 
@@ -2258,9 +2258,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(S.CanFly(H))
 		S.ToggleFlight(H)
 		if(!(H.movement_type & FLYING))
-			to_chat(H, "<span class='notice'>Мягко сажусь обратно на пол...</span>")
+			to_chat(H, span_notice("Мягко сажусь обратно на пол..."))
 		else
-			to_chat(H, "<span class='notice'>Начинаю взмахивать крыльями и плавно парить над полом...</span>")
+			to_chat(H, span_notice("Начинаю взмахивать крыльями и плавно парить над полом..."))
 			H.set_resting(FALSE, TRUE)
 
 /**

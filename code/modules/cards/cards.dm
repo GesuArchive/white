@@ -103,7 +103,7 @@
 
 	var/has_no_cards = !LAZYLEN(cards)
 	if(has_no_cards)
-		to_chat(user, "<span class='warning'>Больше нет карт!</span>")
+		to_chat(user, span_warning("Больше нет карт!"))
 		return
 
 	card = card || cards[1] //draw the card on top

@@ -130,5 +130,5 @@
 /obj/item/construction/rcd/internal
 	name = "внутренний RCD"
 	max_matter = 600
-	no_ammo_message = "<span class='warning'>Внутренняя материя исчерпана. Пожалуйста, добавьте дополнительные материалы.</span>"
+	no_ammo_message = span_warning("Внутренняя материя исчерпана. Пожалуйста, добавьте дополнительные материалы.")
 	delay_mod = 0.5

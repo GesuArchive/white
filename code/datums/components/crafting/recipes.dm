@@ -1091,7 +1091,7 @@
 	if(!aicard.AI)
 		return TRUE
 
-	to_chat(user, "<span class='boldwarning'>Я не могу это сделать, пока в интелкарту загружен ИИ!</span>")
+	to_chat(user, span_boldwarning("Я не могу это сделать, пока в интелкарту загружен ИИ!"))
 	return FALSE
 
 /datum/crafting_recipe/aispook
@@ -1109,7 +1109,7 @@
 	if(!aicard.AI)
 		return TRUE
 
-	to_chat(user, "<span class='boldwarning'>Я не могу это сделать, пока в интелкарту загружен ИИ!</span>")
+	to_chat(user, span_boldwarning("Я не могу это сделать, пока в интелкарту загружен ИИ!"))
 	return FALSE
 
 /datum/crafting_recipe/ghettojetpack

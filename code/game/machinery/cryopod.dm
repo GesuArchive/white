@@ -90,7 +90,7 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 	switch(action)
 		if("one_item")
 			if(!allowed(user))
-				to_chat(user, "<span class='warning'>Доступ запрещён.</span>")
+				to_chat(user, span_warning("Доступ запрещён."))
 				return
 
 			if(!allow_items) return
@@ -100,21 +100,21 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 
 			var/obj/item/item = frozen_items[text2num(params["item"])]
 			if(!item)
-				to_chat(user, "<span class='notice'>[capitalize(item.name)] более не в хранилище.</span>")
+				to_chat(user, span_notice("[capitalize(item.name)] более не в хранилище."))
 				return
 
-			visible_message("<span class='notice'>[capitalize(src.name)] выдавливает [item].</span>")
+			visible_message(span_notice("[capitalize(src.name)] выдавливает [item]."))
 			item.forceMove(get_turf(src))
 			frozen_items -= item
 
 		if("all_items")
 			if(!allowed(user))
-				to_chat(user, "<span class='warning'>Доступ запрещён.</span>")
+				to_chat(user, span_warning("Доступ запрещён."))
 				return
 
 			if(!allow_items) return
 
-			visible_message("<span class='notice'>[capitalize(src.name)] выдавливает кучу хлама на пол.</span>")
+			visible_message(span_notice("[capitalize(src.name)] выдавливает кучу хлама на пол."))
 
 			for(var/obj/item/item in frozen_items)
 				item.forceMove(get_turf(src))
@@ -187,7 +187,7 @@ GLOBAL_VAR_INIT(cryopods_enabled, FALSE)
 		..(user)
 		var/mob/living/mob_occupant = occupant
 		if(mob_occupant && mob_occupant.stat != DEAD)
-			to_chat(occupant, "<span class='boldnotice'>Холодный воздух, брр... кажется я засыпаю...</span>")
+			to_chat(occupant, span_boldnotice("Холодный воздух, брр... кажется я засыпаю..."))
 		if(mob_occupant.client || !mob_occupant.key) // Self cryos and SSD
 			despawn_world_time = world.time + (fast_despawn) // This gives them 30 seconds
 		else
@@ -201,8 +201,8 @@ GLOBAL_VAR_INIT(cryopods_enabled, FALSE)
 	name = initial(name)
 
 /obj/machinery/cryopod/container_resist_act(mob/living/user)
-	visible_message("<span class='notice'>[occupant] вылезает из [src]!</span>",
-		"<span class='notice'>Вылезаю из [src]!</span>")
+	visible_message(span_notice("[occupant] вылезает из [src]!"),
+		span_notice("Вылезаю из [src]!"))
 	open_machine()
 
 /obj/machinery/cryopod/relaymove(mob/user)
@@ -313,7 +313,7 @@ GLOBAL_VAR_INIT(cryopods_enabled, FALSE)
 		var/obj/machinery/announcement_system/announcer = pick(GLOB.announcement_systems)
 		announcer.announce("CRYOSTORAGE", mob_occupant.real_name, announce_rank, list())
 
-	visible_message("<span class='notice'>[capitalize(src.name)] начинает дико шуметь, когда [mob_occupant.real_name] входит в хранилище.</span>")
+	visible_message(span_notice("[capitalize(src.name)] начинает дико шуметь, когда [mob_occupant.real_name] входит в хранилище."))
 
 	for(var/obj/item/item in mob_occupant.get_all_contents())
 		if(item.loc.loc && (item.loc.loc == loc || item.loc.loc == control_computer))
@@ -348,22 +348,22 @@ GLOBAL_VAR_INIT(cryopods_enabled, FALSE)
 		return
 
 	if(!GLOB.cryopods_enabled)
-		to_chat(user, "<span class='boldnotice'>Криокамера отключена на данный момент времени. Она заработает через [round(((30 MINUTES) - world.time) / (1 MINUTES))] минут.</span>")
+		to_chat(user, span_boldnotice("Криокамера отключена на данный момент времени. Она заработает через [round(((30 MINUTES) - world.time) / (1 MINUTES))] минут."))
 		return
 
 	if(occupant)
-		to_chat(user, "<span class='notice'>[capitalize(src.name)] занято!</span>")
+		to_chat(user, span_notice("[capitalize(src.name)] занято!"))
 		return
 
 	if(target.stat == DEAD)
-		to_chat(user, "<span class='notice'>Мёртвых нельзя сюда поместить.</span>")
+		to_chat(user, span_notice("Мёртвых нельзя сюда поместить."))
 		return
 
 	if(target.client && user != target)
 		if(iscyborg(target))
-			to_chat(user, "<span class='danger'>Не могу уложить [target] в [src], пока киборг включен.</span>")
+			to_chat(user, span_danger("Не могу уложить [target] в [src], пока киборг включен."))
 		else
-			to_chat(user, "<span class='danger'>Не могу уложить [target] в [src], пока цель в сознании.</span>")
+			to_chat(user, span_danger("Не могу уложить [target] в [src], пока цель в сознании."))
 		return
 	else if(target.client)
 		if(alert(target,"Войдём в криокамеру?",,"Да","Нет") != "Да")
@@ -393,11 +393,11 @@ GLOBAL_VAR_INIT(cryopods_enabled, FALSE)
 		visible_message("[user] начинает запихивать [target] в криокамеру.")
 
 	if(occupant)
-		to_chat(user, "<span class='notice'>[capitalize(src.name)] уже используется.</span>")
+		to_chat(user, span_notice("[capitalize(src.name)] уже используется."))
 		return
 	close_machine(target)
 
-	to_chat(target, "<span class='boldnotice'>Теперь можно спокойно покинуть этот мир. Только надо бы не забыть вернуться...</span>")
+	to_chat(target, span_boldnotice("Теперь можно спокойно покинуть этот мир. Только надо бы не забыть вернуться..."))
 	name = "[name] ([occupant.name])"
 	log_admin("[key_name(target)] entered a stasis pod.")
 	message_admins("[key_name_admin(target)] entered a stasis pod. [ADMIN_JMP(src)]")

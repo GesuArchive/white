@@ -75,5 +75,5 @@
 	. = ..()
 	if(.)
 		return
-	to_chat(user, "<span class='notice'>Снимаю [src].</span>")
+	to_chat(user, span_notice("Снимаю [src]."))
 	deconstruct(TRUE)

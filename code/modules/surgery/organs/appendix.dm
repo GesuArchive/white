@@ -8,8 +8,8 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY
 
-	now_failing = "<span class='warning'>Взрывная боль заполнила правый нижний угол живота!</span>"
-	now_fixed = "<span class='info'>Боль в животе утихла.</span>"
+	now_failing = span_warning("Взрывная боль заполнила правый нижний угол живота!")
+	now_fixed = span_info("Боль в животе утихла.")
 
 	var/inflamed
 

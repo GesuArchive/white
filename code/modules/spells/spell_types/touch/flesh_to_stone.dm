@@ -18,8 +18,8 @@
 
 	var/mob/living/living_victim = victim
 	if(living_victim.can_block_magic(antimagic_flags))
-		to_chat(caster, "<span class='warning'>The spell can't seem to affect [victim]!</span>")
-		to_chat(victim, "<span class='warning'>You feel your flesh turn to stone for a moment, then revert back!</span>")
+		to_chat(caster, span_warning("The spell can't seem to affect [victim]!"))
+		to_chat(victim, span_warning("You feel your flesh turn to stone for a moment, then revert back!"))
 		return TRUE
 
 	living_victim.Stun(4 SECONDS)

@@ -46,7 +46,7 @@ GLOBAL_LIST_EMPTY(hivemind_bank)
 
 /datum/action/changeling/hivemind_upload/sting_action(mob/living/user)
 	if (HAS_TRAIT(user, CHANGELING_HIVEMIND_MUTE))
-		to_chat(user, "<span class='warning'>Яд в воздухе препятствует нашей способности взаимодействовать с роем.</span>")
+		to_chat(user, span_warning("Яд в воздухе препятствует нашей способности взаимодействовать с роем."))
 		return
 	..()
 	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
@@ -56,7 +56,7 @@ GLOBAL_LIST_EMPTY(hivemind_bank)
 			names += prof.name
 
 	if(names.len <= 0)
-		to_chat(user, "<span class='warning'>В эфире уже есть наш ДНК!</span>")
+		to_chat(user, span_warning("В эфире уже есть наш ДНК!"))
 		return
 
 	var/chosen_name = tgui_input_list(usr, "Выбрать бы ДНК для отправки: ", "Обмен ДНК с роем", sort_list(names))
@@ -70,7 +70,7 @@ GLOBAL_LIST_EMPTY(hivemind_bank)
 	var/datum/changelingprofile/uploaded_dna = new chosen_dna.type
 	chosen_dna.copy_profile(uploaded_dna)
 	GLOB.hivemind_bank += uploaded_dna
-	to_chat(user, "<span class='notice'>Мы рассеиваем ДНК <b>[chosen_name]</b> по воздуху.</span>")
+	to_chat(user, span_notice("Мы рассеиваем ДНК <b>[chosen_name]</b> по воздуху."))
 	return TRUE
 
 /datum/action/changeling/hivemind_download
@@ -84,12 +84,12 @@ GLOBAL_LIST_EMPTY(hivemind_bank)
 	if(!..())
 		return
 	if (HAS_TRAIT(user, CHANGELING_HIVEMIND_MUTE))
-		to_chat(user, "<span class='warning'>Яд в воздухе препятствует нашей способности взаимодействовать с роем.</span>")
+		to_chat(user, span_warning("Яд в воздухе препятствует нашей способности взаимодействовать с роем."))
 		return
 	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
 	var/datum/changelingprofile/first_prof = changeling.stored_profiles[1]
 	if(first_prof.name == user.real_name)//If our current DNA is the stalest, we gotta ditch it.
-		to_chat(user, "<span class='warning'>Мы достигли максимума хранения ДНК! Нам нужно трансформироваться перед поглощением новых.</span>")
+		to_chat(user, span_warning("Мы достигли максимума хранения ДНК! Нам нужно трансформироваться перед поглощением новых."))
 		return
 	return 1
 
@@ -101,7 +101,7 @@ GLOBAL_LIST_EMPTY(hivemind_bank)
 			names[prof.name] = prof
 
 	if(names.len <= 0)
-		to_chat(user, "<span class='warning'>Похоже ещё никто не делился ДНК!</span>")
+		to_chat(user, span_warning("Похоже ещё никто не делился ДНК!"))
 		return
 
 	var/S = tgui_input_list(usr, "Какое ДНК мы поглотим сегодня: ", "Поглощение ДНК", sort_list(names))
@@ -114,8 +114,8 @@ GLOBAL_LIST_EMPTY(hivemind_bank)
 	if(!(changeling.has_dna(chosen_prof.dna)))
 		chosen_prof.copy_profile(chosen_prof)
 		changeling.add_profile(chosen_prof)
-		to_chat(user, "<span class='notice'>Мы поглощаем днк <b>[S]</b> из воздуха.</span>")
+		to_chat(user, span_notice("Мы поглощаем днк <b>[S]</b> из воздуха."))
 	else
-		to_chat(user, "<span class='notice'>У нас уже есть это ДНК в хранилище.</span>")
+		to_chat(user, span_notice("У нас уже есть это ДНК в хранилище."))
 		return
 	return TRUE

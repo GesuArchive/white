@@ -205,7 +205,7 @@
 		switch(action)
 			if("stopmaint")
 				if(construction_state > MECHA_LOCKED)
-					to_chat(usr, "<span class='warning'>Технические протоколы в действии!</span>")
+					to_chat(usr, span_warning("Технические протоколы в действии!"))
 					return
 				mecha_flags &= ~ADDING_MAINT_ACCESS_POSSIBLE
 				ui.close()
@@ -215,10 +215,10 @@
 					return FALSE
 				if(construction_state == MECHA_LOCKED)
 					construction_state = MECHA_SECURE_BOLTS
-					to_chat(usr, "<span class='notice'>Рамочные винты выдвигаются.</span>")
+					to_chat(usr, span_notice("Рамочные винты выдвигаются."))
 				else if(construction_state == MECHA_SECURE_BOLTS)
 					construction_state = MECHA_LOCKED
-					to_chat(usr, "<span class='notice'>Рамочные винты скрыты.</span>")
+					to_chat(usr, span_notice("Рамочные винты скрыты."))
 			if("drop_cell")
 				if(construction_state != MECHA_OPEN_HATCH)
 					return
@@ -239,7 +239,7 @@
 				if(isnull(new_pressure) || !construction_state)
 					return
 				internal_tank_valve = new_pressure
-				to_chat(usr, "<span class='notice'>Внутреннее давление теперь [internal_tank_valve]кПа.</span>")
+				to_chat(usr, span_notice("Внутреннее давление теперь [internal_tank_valve]кПа."))
 			if("add_req_access")
 				if(!(mecha_flags & ADDING_ACCESS_POSSIBLE))
 					return
@@ -272,10 +272,10 @@
 		if("dna_lock")
 			var/mob/living/carbon/user = usr
 			if(!istype(user) || !user.dna)
-				to_chat(user, "[icon2html(src, occupants)]["<span class='notice'>Не обнаружено ДНК!</span>"]")
+				to_chat(user, "[icon2html(src, occupants)][span_notice("Не обнаружено ДНК!")]")
 				return
 			dna_lock = user.dna.unique_enzymes
-			to_chat(user, "[icon2html(src, occupants)]["<span class='notice'>Ощущаю небольшое покалывание.</span>"]")
+			to_chat(user, "[icon2html(src, occupants)][span_notice("Ощущаю небольшое покалывание.")]")
 		if("reset_dna")
 			dna_lock = null
 		if("view_dna")
@@ -288,20 +288,20 @@
 		if("toggle_port")
 			if(internal_tank.connected_port)
 				if(internal_tank.disconnect())
-					to_chat(occupants, "[icon2html(src, occupants)]["<span class='notice'>Отключились от воздушного порта.</span>"]")
+					to_chat(occupants, "[icon2html(src, occupants)][span_notice("Отключились от воздушного порта.")]")
 					log_message("Disconnected from gas port.", LOG_MECHA)
 					return TRUE
-				to_chat(occupants, "[icon2html(src, occupants)]["<span class='warning'>Невозможно отключиться от воздушного порта!</span>"]")
+				to_chat(occupants, "[icon2html(src, occupants)][span_warning("Невозможно отключиться от воздушного порта!")]")
 				return
 			var/obj/machinery/atmospherics/components/unary/portables_connector/possible_port = locate() in loc
 			if(internal_tank.connect(possible_port))
-				to_chat(occupants, "[icon2html(src, occupants)]["<span class='notice'>Подключились к воздушному порту.</span>"]")
+				to_chat(occupants, "[icon2html(src, occupants)][span_notice("Подключились к воздушному порту.")]")
 				log_message("Connected to gas port.", LOG_MECHA)
 				return TRUE
-			to_chat(occupants, "[icon2html(src, occupants)]["<span class='warning'>Не обнаружен воздушный порт!</span>"]")
+			to_chat(occupants, "[icon2html(src, occupants)][span_warning("Не обнаружен воздушный порт!")]")
 		if("toggle_maintenance")
 			if(construction_state)
-				to_chat(occupants, "[icon2html(src, occupants)]["<span class='danger'>Технические протоколы активны.</span>"]")
+				to_chat(occupants, "[icon2html(src, occupants)][span_danger("Технические протоколы активны.")]")
 				return
 			mecha_flags ^= ADDING_MAINT_ACCESS_POSSIBLE
 		if("toggle_id_panel")

@@ -95,7 +95,7 @@
 			var/pen_mod = -(armor * penetrative_behaviour) // if our shrapnel is weak into armor, then we restore our armor to the full value.
 			actual_chance += pen_mod // doing the armor pen as a separate calc just in case this ever gets expanded on
 			if(actual_chance <= 0)
-				victim.visible_message("<span class='danger'>[weapon] отскакивает от брони [victim]!</span>", "<span class='notice'>[weapon] отскакивает от моей брони!</span>", vision_distance = COMBAT_MESSAGE_RANGE)
+				victim.visible_message(span_danger("[weapon] отскакивает от брони [victim]!"), span_notice("[weapon] отскакивает от моей брони!"), vision_distance = COMBAT_MESSAGE_RANGE)
 				return
 
 	if(!prob(actual_chance))

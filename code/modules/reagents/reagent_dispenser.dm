@@ -27,7 +27,7 @@
 	if(can_be_tanked)
 		. += "<hr><span class='notice'>Можно использовать лист метала, чтобы заставить это работать с химическими трубами.</span>"
 	if(leaking)
-		. += "<span class='warning'><hr>Заглушка откручена!</span>"
+		. += span_warning("<hr>Заглушка откручена!")
 
 /obj/structure/reagent_dispensers/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1, attack_dir)
 	. = ..()
@@ -60,7 +60,7 @@
 		icon_state = "water_fools"
 
 /obj/structure/reagent_dispensers/proc/boom()
-	visible_message("<span class='danger'><b>[src.name]</b> разрывается!</span>")
+	visible_message(span_danger("<b>[src.name]</b> разрывается!"))
 	chem_splash(loc, 5, list(reagents))
 	qdel(src)
 
@@ -145,7 +145,7 @@
 /obj/structure/reagent_dispensers/fueltank/examine(mob/user)
 	. = ..()
 	if(get_dist(user, src) <= 2 && rig)
-		. += "<span class='notice'>Здесь что-то приделано. Хм...</span>"
+		. += span_notice("Здесь что-то приделано. Хм...")
 
 /obj/structure/reagent_dispensers/fueltank/attack_hand(mob/user, list/modifiers)
 	. = ..()
@@ -197,19 +197,19 @@
 /obj/structure/reagent_dispensers/fueltank/attackby(obj/item/I, mob/living/user, params)
 	if(I.tool_behaviour == TOOL_WELDER)
 		if(!reagents.has_reagent(/datum/reagent/fuel))
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] пуст!</span>")
+			to_chat(user, span_warning("[capitalize(src.name)] пуст!"))
 			return
 		var/obj/item/weldingtool/W = I
 		if(istype(W) && !W.welding)
 			if(W.reagents.has_reagent(/datum/reagent/fuel, W.max_fuel))
-				to_chat(user, "<span class='warning'>Мой [W.name] полон!</span>")
+				to_chat(user, span_warning("Мой [W.name] полон!"))
 				return
 			reagents.trans_to(W, W.max_fuel, transfered_by = user)
-			user.visible_message("<span class='notice'>[user] заправляет [user.ru_ego()] [W.name].</span>" , "<span class='notice'>Заправляю [W].</span>")
+			user.visible_message(span_notice("[user] заправляет [user.ru_ego()] [W.name].") , span_notice("Заправляю [W]."))
 			playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
 			W.update_icon()
 		else
-			user.visible_message("<span class='danger'>[user] делает глупую ошибку пытаясь заправить [user.ru_ego()] [I.name]!</span>" , "<span class='userdanger'>Это было глупо.</span>")
+			user.visible_message(span_danger("[user] делает глупую ошибку пытаясь заправить [user.ru_ego()] [I.name]!") , span_userdanger("Это было глупо."))
 			log_bomber(user, "detonated a", src, "via welding tool")
 			SSspd.check_action(user?.client, SPD_FUEL_TANK_EXPLOSION)
 			boom()
@@ -244,7 +244,7 @@
 		var/obj/item/weldingtool/W = I
 		if(istype(W) && W.welding)
 			. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
-			user.visible_message("<span class='danger'>[user] начинает ТАКТИКУЛЬНО греть [src] с помощью [user.ru_ego()] [I.name]!</span>", "<span class='userdanger'>Прикол инбаунд.</span>")
+			user.visible_message(span_danger("[user] начинает ТАКТИКУЛЬНО греть [src] с помощью [user.ru_ego()] [I.name]!"), span_userdanger("Прикол инбаунд."))
 			SSspd.check_action(user?.client, SPD_FUEL_TANK_EXPLOSION)
 			if(do_after(user, 10 SECONDS, src))
 				explosion(src, devastation_range = 1, heavy_impact_range = 3, light_impact_range = 7, flame_range = 7)
@@ -324,9 +324,9 @@
 	if(.)
 		return
 	if(!paper_cups)
-		to_chat(user, "<span class='warning'>Внутри нет стаканчиков!</span>")
+		to_chat(user, span_warning("Внутри нет стаканчиков!"))
 		return
-	user.visible_message("<span class='notice'>[user] достаёт стаканчик из [src].</span>" , "<span class='notice'>Достаю стаканчик из [src].</span>")
+	user.visible_message(span_notice("[user] достаёт стаканчик из [src].") , span_notice("Достаю стаканчик из [src]."))
 	var/obj/item/reagent_containers/food/drinks/sillycup/S = new(get_turf(src))
 	user.put_in_hands(S)
 	paper_cups--
@@ -430,7 +430,7 @@
 
 /obj/structure/reagent_dispensers/plumbed/storage/proc/can_be_rotated(mob/user, rotation_type)
 	if(anchored)
-		to_chat(user, "<span class='warning'>It is fastened to the floor!</span>")
+		to_chat(user, span_warning("It is fastened to the floor!"))
 	return !anchored
 
 /obj/structure/reagent_dispensers/plumbed/fuel

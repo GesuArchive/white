@@ -196,27 +196,27 @@
 /obj/item/mod/control/examine(mob/user)
 	. = ..()
 	if(active)
-		. += "<span class='notice'><hr>Charge: [core ? "[get_charge_percent()]%" : "No core"].</span>"
-		. += "<span class='notice'>\nSelected module: [selected_module || "None"].</span>"
+		. += span_notice("<hr>Charge: [core ? "[get_charge_percent()]%" : "No core"].")
+		. += span_notice("\nSelected module: [selected_module || "None"].")
 	if(!open && !active)
 		if(!wearer)
-			. += "<span class='notice'><hr>You could equip it to turn it on.</span>"
-		. += "<span class='notice'><hr>You could open the cover with a <b>screwdriver</b>.</span>"
+			. += span_notice("<hr>You could equip it to turn it on.")
+		. += span_notice("<hr>You could open the cover with a <b>screwdriver</b>.")
 	else if(open)
-		. += "<span class='notice'><hr>You could close the cover with a <b>screwdriver</b>.</span>"
-		. += "<span class='notice'>\nYou could use <b>modules</b> on it to install them.</span>"
-		. += "<span class='notice'>\nYou could remove modules with a <b>crowbar</b>.</span>"
-		. += "<span class='notice'>\nYou could update the access lock with an <b>ID</b>.</span>"
-		. += "<span class='notice'>\nYou could access the wire panel with a <b>wire tool</b>.</span>"
+		. += span_notice("<hr>You could close the cover with a <b>screwdriver</b>.")
+		. += span_notice("\nYou could use <b>modules</b> on it to install them.")
+		. += span_notice("\nYou could remove modules with a <b>crowbar</b>.")
+		. += span_notice("\nYou could update the access lock with an <b>ID</b>.")
+		. += span_notice("\nYou could access the wire panel with a <b>wire tool</b>.")
 		if(core)
-			. += "<span class='notice'><hr>You could remove [core] with a <b>wrench</b>.</span>"
+			. += span_notice("<hr>You could remove [core] with a <b>wrench</b>.")
 		else
-			. += "<span class='notice'><hr>You could use a <b>MOD core</b> on it to install one.</span>"
+			. += span_notice("<hr>You could use a <b>MOD core</b> on it to install one.")
 		if(ai)
-			. += "<span class='notice'><hr>You could remove [ai] with an <b>intellicard</b>.</span>"
+			. += span_notice("<hr>You could remove [ai] with an <b>intellicard</b>.")
 		else
-			. += "<span class='notice'><hr>You could install an AI with an <b>intellicard</b>.</span>"
-	. += "<span class='notice'><hr><i>Можно осмотреть это повнимательнее...</i></span>"
+			. += span_notice("<hr>You could install an AI with an <b>intellicard</b>.")
+	. += span_notice("<hr><i>Можно осмотреть это повнимательнее...</i>")
 
 /obj/item/mod/control/examine_more(mob/user)
 	. = ..()
@@ -419,12 +419,12 @@
 	. = ..()
 	if(!active || !wearer)
 		return
-	to_chat(wearer, "<span class='notice'>[severity > 1 ? "Light" : "Strong"] electromagnetic pulse detected!</span>")
+	to_chat(wearer, span_notice("[severity > 1 ? "Light" : "Strong"] electromagnetic pulse detected!"))
 	if(. & EMP_PROTECT_CONTENTS)
 		return
 	selected_module?.on_deactivation(display_message = TRUE)
 	wearer.apply_damage(5 / severity, BURN, spread_damage=TRUE)
-	to_chat(wearer, "<span class='danger'>You feel [src] heat up from the EMP, burning you slightly.</span>")
+	to_chat(wearer, span_danger("You feel [src] heat up from the EMP, burning you slightly."))
 	if(wearer.stat < UNCONSCIOUS && prob(10))
 		wearer.emote("scream")
 
@@ -706,12 +706,12 @@
 	SIGNAL_HANDLER
 
 	if(slowdown_inactive <= 0)
-		to_chat(user, "<span class='warning'>[src] has already been coated with red, that's as fast as it'll go!</span>")
+		to_chat(user, span_warning("[src] has already been coated with red, that's as fast as it'll go!"))
 		return SPEED_POTION_STOP
 	if(active)
-		to_chat(user, "<span class='warning'>It's too dangerous to smear [speed_potion] on [src] while it's active!</span>")
+		to_chat(user, span_warning("It's too dangerous to smear [speed_potion] on [src] while it's active!"))
 		return SPEED_POTION_STOP
-	to_chat(user, "<span class='notice'>You slather the red gunk over [src], making it faster.</span>")
+	to_chat(user, span_notice("You slather the red gunk over [src], making it faster."))
 	set_mod_color("#FF0000")
 	slowdown_inactive = 0
 	slowdown_active = 0

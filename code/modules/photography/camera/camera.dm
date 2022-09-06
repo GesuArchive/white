@@ -48,13 +48,13 @@
 /obj/item/camera/attack_self(mob/user)
 	if(!disk)
 		return
-	to_chat(user, "<span class='notice'>Достаю [disk] из [src].</span>")
+	to_chat(user, span_notice("Достаю [disk] из [src]."))
 	user.put_in_hands(disk)
 	disk = null
 
 /obj/item/camera/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'><hr>ALT-Клик для настройки фокуса, позволит выбрать насколько большую фотографию мы собираемся сделать.</span>"
+	. += span_notice("<hr>ALT-Клик для настройки фокуса, позволит выбрать насколько большую фотографию мы собираемся сделать.")
 
 /obj/item/camera/proc/adjust_zoom(mob/user)
 	var/desired_x = input(user, "Насколько широко будем делать нашу фотографию, [picture_size_x_min] и [picture_size_x_max]?", "Зум", picture_size_x) as num|null
@@ -81,23 +81,23 @@
 /obj/item/camera/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/camera_film))
 		if(pictures_left)
-			to_chat(user, "<span class='notice'>[src] уже имеет плёнку!</span>")
+			to_chat(user, span_notice("[src] уже имеет плёнку!"))
 			return
 		if(!user.temporarilyRemoveItemFromInventory(I))
 			return
-		to_chat(user, "<span class='notice'>Вставляю [I] в [src].</span>")
+		to_chat(user, span_notice("Вставляю [I] в [src]."))
 		qdel(I)
 		pictures_left = pictures_max
 		return
 	if(istype(I, /obj/item/disk/holodisk))
 		if (!disk)
 			if(!user.transferItemToLoc(I, src))
-				to_chat(user, "<span class='warning'>[I] застряла в моей руке!</span>")
+				to_chat(user, span_warning("[I] застряла в моей руке!"))
 				return TRUE
-			to_chat(user, "<span class='notice'>Вставляю [I] в [src].</span>")
+			to_chat(user, span_notice("Вставляю [I] в [src]."))
 			disk = I
 		else
-			to_chat(user, "<span class='warning'>Здесь есть диск внутри [src].</span>")
+			to_chat(user, span_warning("Здесь есть диск внутри [src]."))
 		return TRUE //no afterattack
 	..()
 
@@ -135,7 +135,7 @@
 			disk.record.caller_name = M.name
 			disk.record.set_caller_image(M)
 		else
-			to_chat(user, "<span class='warning'>Неправильная цель для голодиска.</span>")
+			to_chat(user, span_warning("Неправильная цель для голодиска."))
 			return
 
 	if(!can_target(target, user, flag))
@@ -229,7 +229,7 @@
 		if(!ispAI(user))
 			user.put_in_hands(p)
 			pictures_left--
-			to_chat(user, "<span class='notice'>[pictures_left] фотографий осталось.</span>")
+			to_chat(user, span_notice("[pictures_left] фотографий осталось."))
 		var/customise = "Нет"
 		if(can_customise)
 			customise = tgui_alert(user, "Настроим нашу фотографию?", "Кастомизация", list("Да", "Нет"))

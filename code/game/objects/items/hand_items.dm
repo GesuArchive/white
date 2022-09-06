@@ -42,10 +42,10 @@
 		return
 
 	if(owner == sucker) // big mood
-		to_chat(owner, "<span class='danger'>Wait a second... you just looked at your own [src.name]!</span>")
+		to_chat(owner, span_danger("Wait a second... you just looked at your own [src.name]!"))
 		addtimer(CALLBACK(src, .proc/selfGottem, owner), 10)
 	else
-		to_chat(sucker, "<span class='danger'>Wait a second... was that a-</span>")
+		to_chat(sucker, span_danger("Wait a second... was that a-"))
 		addtimer(CALLBACK(src, .proc/GOTTEM, owner, sucker), 6)
 
 /// Stage 3A: We face our own failures
@@ -54,8 +54,8 @@
 		return
 
 	playsound(get_turf(owner), 'sound/effects/hit_punch.ogg', 50, TRUE, -1)
-	owner.visible_message("<span class='danger'>[owner] shamefully bops [owner.p_them()]self with [owner.p_their()] [src.name].</span>", "<span class='userdanger'>You shamefully bop yourself with your [src.name].</span>", \
-		"<span class='hear'>You hear a dull thud!</span>")
+	owner.visible_message(span_danger("[owner] shamefully bops [owner.p_them()]self with [owner.p_their()] [src.name]."), span_userdanger("You shamefully bop yourself with your [src.name]."), \
+		span_hear("You hear a dull thud!"))
 	log_combat(owner, owner, "bopped", src.name, "(self)")
 	owner.do_attack_animation(owner)
 	owner.apply_damage(100, STAMINA)
@@ -68,15 +68,15 @@
 		return
 
 	if(QDELETED(src) || QDELETED(owner))
-		to_chat(sucker, "<span class='warning'>Nevermind... must've been your imagination...</span>")
+		to_chat(sucker, span_warning("Nevermind... must've been your imagination..."))
 		return
 
 	if(!in_range(owner, sucker) || !(owner.mobility_flags & MOBILITY_USE))
-		to_chat(sucker, "<span class='notice'>Phew... you moved away before [owner] noticed you saw [owner.p_their()] [src.name]...</span>")
+		to_chat(sucker, span_notice("Phew... you moved away before [owner] noticed you saw [owner.p_their()] [src.name]..."))
 		return
 
-	to_chat(owner, "<span class='warning'>[sucker] looks down at your [src.name] before trying to avert [sucker.p_their()] eyes, but it's too late!</span>")
-	to_chat(sucker, "<span class='danger'><b>[owner] sees the fear in your eyes as you try to look away from [owner.p_their()] [src.name]!</b></span>")
+	to_chat(owner, span_warning("[sucker] looks down at your [src.name] before trying to avert [sucker.p_their()] eyes, but it's too late!"))
+	to_chat(sucker, span_danger("<b>[owner] sees the fear in your eyes as you try to look away from [owner.p_their()] [src.name]!</b>"))
 
 	owner.face_atom(sucker)
 	if(owner.client)
@@ -86,20 +86,20 @@
 	owner.do_attack_animation(sucker)
 
 	if(HAS_TRAIT(owner, TRAIT_HULK))
-		owner.visible_message("<span class='danger'>[owner] bops [sucker] with [owner.p_their()] [src.name] much harder than intended, sending [sucker.p_them()] flying!</span>", \
-			"<span class='danger'>You bop [sucker] with your [src.name] much harder than intended, sending [sucker.p_them()] flying!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", ignored_mobs=list(sucker))
-		to_chat(sucker, "<span class='userdanger'>[owner] bops you incredibly hard with [owner.p_their()] [src.name], sending you flying!</span>")
+		owner.visible_message(span_danger("[owner] bops [sucker] with [owner.p_their()] [src.name] much harder than intended, sending [sucker.p_them()] flying!"), \
+			span_danger("You bop [sucker] with your [src.name] much harder than intended, sending [sucker.p_them()] flying!"), span_hear("Слышу звук разрывающейся плоти!"), ignored_mobs=list(sucker))
+		to_chat(sucker, span_userdanger("[owner] bops you incredibly hard with [owner.p_their()] [src.name], sending you flying!"))
 		sucker.apply_damage(50, STAMINA)
 		sucker.Knockdown(50)
 		log_combat(owner, sucker, "bopped", src.name, "(setup- Hulk)")
 		var/atom/throw_target = get_edge_target_turf(sucker, owner.dir)
 		sucker.throw_at(throw_target, 6, 3, owner)
 	else
-		owner.visible_message("<span class='danger'>[owner] bops [sucker] with [owner.p_their()] [src.name]!</span>", "<span class='danger'>You bop [sucker] with your [src.name]!</span>", \
-			"<span class='hear'>You hear a dull thud!</span>", ignored_mobs=list(sucker))
+		owner.visible_message(span_danger("[owner] bops [sucker] with [owner.p_their()] [src.name]!"), span_danger("You bop [sucker] with your [src.name]!"), \
+			span_hear("You hear a dull thud!"), ignored_mobs=list(sucker))
 		sucker.apply_damage(15, STAMINA)
 		log_combat(owner, sucker, "bopped", src.name, "(setup)")
-		to_chat(sucker, "<span class='userdanger'>[owner] bops you with [owner.p_their()] [src.name]!</span>")
+		to_chat(sucker, span_userdanger("[owner] bops you with [owner.p_their()] [src.name]!"))
 	qdel(src)
 
 
@@ -114,11 +114,11 @@
 
 /obj/item/noogie/attack(mob/living/carbon/target, mob/living/carbon/human/user)
 	if(!istype(target))
-		to_chat(user, "<span class='warning'>You don't think you can give this a noogie!</span>")
+		to_chat(user, span_warning("You don't think you can give this a noogie!"))
 		return
 
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, "<span class='warning'>You can't bring yourself to noogie [target]! You don't want to risk harming anyone...</span>")
+		to_chat(user, span_warning("You can't bring yourself to noogie [target]! You don't want to risk harming anyone..."))
 		return
 
 	if(!(target?.get_bodypart(BODY_ZONE_HEAD)) || user.pulling != target || user.grab_state < GRAB_AGGRESSIVE || user.getStaminaLoss() > 80)
@@ -126,7 +126,7 @@
 
 	var/obj/item/bodypart/head/the_head = target.get_bodypart(BODY_ZONE_HEAD)
 	if((target.get_biological_state() != BIO_FLESH_BONE && target.get_biological_state() != BIO_JUST_FLESH) || !the_head.is_organic_limb())
-		to_chat(user, "<span class='warning'>You can't noogie [target], [target.p_they()] [target.p_have()] no skin on [target.p_their()] head!</span>")
+		to_chat(user, span_warning("You can't noogie [target], [target.p_they()] [target.p_have()] no skin on [target.p_their()] head!"))
 		return
 
 	// [user] gives [target] a [prefix_desc] noogie[affix_desc]!
@@ -147,12 +147,12 @@
 	var/message_others = "[prefix_desc] noogie[affix_desc]"
 	var/message_target = "[prefix_desc] noogie[affix_desc_target]"
 
-	user.visible_message("<span class='danger'>[user] begins giving [target] a [message_others]!</span>", "<span class='warning'>You start giving [target] a [message_others]!</span>", vision_distance=COMBAT_MESSAGE_RANGE, ignored_mobs=target)
-	to_chat(target, "<span class='userdanger'>[user] starts giving you a [message_target]!</span>")
+	user.visible_message(span_danger("[user] begins giving [target] a [message_others]!"), span_warning("You start giving [target] a [message_others]!"), vision_distance=COMBAT_MESSAGE_RANGE, ignored_mobs=target)
+	to_chat(target, span_userdanger("[user] starts giving you a [message_target]!"))
 
 	if(!do_after(user, 1.5 SECONDS, target))
-		to_chat(user, "<span class='warning'>You fail to give [target] a noogie!</span>")
-		to_chat(target, "<span class='danger'>[user] fails to give you a noogie!</span>")
+		to_chat(user, span_warning("You fail to give [target] a noogie!"))
+		to_chat(target, span_danger("[user] fails to give you a noogie!"))
 		return
 
 	if(brutal_noogie)
@@ -168,8 +168,8 @@
 		return FALSE
 
 	if(user.getStaminaLoss() > 80)
-		to_chat(user, "<span class='warning'>You're too tired to continue giving [target] a noogie!</span>")
-		to_chat(target, "<span class='danger'>[user] is too tired to continue giving you a noogie!</span>")
+		to_chat(user, span_warning("You're too tired to continue giving [target] a noogie!"))
+		to_chat(target, span_danger("[user] is too tired to continue giving you a noogie!"))
 		return
 
 	var/damage = rand(1, 5)
@@ -187,12 +187,12 @@
 	playsound(get_turf(user), pick('sound/effects/rustle1.ogg','sound/effects/rustle2.ogg','sound/effects/rustle3.ogg','sound/effects/rustle4.ogg','sound/effects/rustle5.ogg'), 50)
 
 	if(prob(33))
-		user.visible_message("<span class='danger'>[user] continues noogie'ing [target]!</span>", "<span class='warning'>You continue giving [target] a noogie!</span>", vision_distance=COMBAT_MESSAGE_RANGE, ignored_mobs=target)
-		to_chat(target, "<span class='userdanger'>[user] continues giving you a noogie!</span>")
+		user.visible_message(span_danger("[user] continues noogie'ing [target]!"), span_warning("You continue giving [target] a noogie!"), vision_distance=COMBAT_MESSAGE_RANGE, ignored_mobs=target)
+		to_chat(target, span_userdanger("[user] continues giving you a noogie!"))
 
 	if(!do_after(user, 1 SECONDS + (iteration * 2), target))
-		to_chat(user, "<span class='warning'>You fail to give [target] a noogie!</span>")
-		to_chat(target, "<span class='danger'>[user] fails to give you a noogie!</span>")
+		to_chat(user, span_warning("You fail to give [target] a noogie!"))
+		to_chat(target, span_danger("[user] fails to give you a noogie!"))
 		return
 
 	iteration++
@@ -223,10 +223,10 @@
 	var/slap_volume = 50
 	var/datum/status_effect/offering/kiss_check = M.has_status_effect(STATUS_EFFECT_OFFERING)
 	if(kiss_check && istype(kiss_check.offered_item, /obj/item/kisser) && (user in kiss_check.possible_takers))
-		user.visible_message("<span class='danger'>[user] смеётся над предложением [M], размахивается и сильно шлепает [M.ru_ego()] по лицу!</span>",
-			"<span class='notice'>Брр! Вмазываю [M] от души, что он[M.ru_a()] аж валится с ног!</span>",
-			"<span class='hear'>Слышу звуки выбивания дерьма!</span>", ignored_mobs = M)
-		to_chat(M, "<span class='userdanger'>Вижу как [user] замахивается своей рукой и... Теперь я лежу и в ушах звенит!</span>")
+		user.visible_message(span_danger("[user] смеётся над предложением [M], размахивается и сильно шлепает [M.ru_ego()] по лицу!"),
+			span_notice("Брр! Вмазываю [M] от души, что он[M.ru_a()] аж валится с ног!"),
+			span_hear("Слышу звуки выбивания дерьма!"), ignored_mobs = M)
+		to_chat(M, span_userdanger("Вижу как [user] замахивается своей рукой и... Теперь я лежу и в ушах звенит!"))
 		slap_volume = 120
 		SEND_SOUND(M, sound('sound/weapons/flash_ring.ogg'))
 		shake_camera(M, 2, 2)
@@ -234,22 +234,22 @@
 		M.add_confusion(7)
 		M.adjustStaminaLoss(40)
 	else if(user.zone_selected == BODY_ZONE_HEAD || user.zone_selected == BODY_ZONE_PRECISE_MOUTH)
-		user.visible_message("<span class='danger'>[user] шлёпает [M] по лицу!</span>",
-			"<span class='notice'>Шлёпаю [M] по лицу!</span>",
-			"<span class='hear'>Слышу шлепок.</span>")
+		user.visible_message(span_danger("[user] шлёпает [M] по лицу!"),
+			span_notice("Шлёпаю [M] по лицу!"),
+			span_hear("Слышу шлепок."))
 	else if(user.zone_selected == BODY_ZONE_PRECISE_GROIN && ishuman(M))
 		var/mob/living/carbon/human/L = M
 		if(istype(L.w_uniform, /obj/item/clothing/under/costume/jabroni))
 			user.do_attack_animation(M)
 			playsound(M, 'white/Gargule/sounds/pidr_oret.ogg', 75, 1, -1)//bringigng gachislaps
 			playsound(M, 'sound/weapons/slap.ogg', 50, 1, -1)
-			user.visible_message("<span class='danger'>[user] шлёпает [M] по заднице!</span>" ,
-			"<span class='notice'>Шлёпаю [M] по заднице!</span>" ,\
+			user.visible_message(span_danger("[user] шлёпает [M] по заднице!") ,
+			span_notice("Шлёпаю [M] по заднице!") ,\
 			"Слышу шлепок.")
 	else
-		user.visible_message("<span class='danger'>[user] шлёпает [M]!</span>",
-			"<span class='notice'>Шлёпаю [M]!</span>",
-			"<span class='hear'>Слышу шлепок.</span>")
+		user.visible_message(span_danger("[user] шлёпает [M]!"),
+			span_notice("Шлёпаю [M]!"),
+			span_hear("Слышу шлепок."))
 	playsound(M, 'sound/weapons/slap.ogg', slap_volume, TRUE, -1)
 	return
 
@@ -269,12 +269,12 @@
 		SEND_SIGNAL(user, COMSIG_LIVING_SLAM_TABLE, the_table)
 		SEND_SIGNAL(the_table, COMSIG_TABLE_SLAMMED, user)
 		playsound(get_turf(the_table), 'sound/effects/tableslam.ogg', 110, TRUE)
-		user.visible_message("<b>["<span class='danger'>[user] шлёпает рукой по [the_table]!</span>"]</b>", "<b>["<span class='danger'>Шлёпаю рукой по [the_table]!</span>"]</b>")
+		user.visible_message("<b>[span_danger("[user] шлёпает рукой по [the_table]!")]</b>", "<b>[span_danger("Шлёпаю рукой по [the_table]!")]</b>")
 		qdel(src)
 	else
 		user.do_attack_animation(the_table)
 		playsound(get_turf(the_table), 'sound/effects/tableslam.ogg', 40, TRUE)
-		user.visible_message("<span class='notice'>[user] шлёпает рукой по [the_table].</span>", "<span class='notice'>Шлёпаю рукой по [the_table].</span>", vision_distance=COMBAT_MESSAGE_RANGE)
+		user.visible_message(span_notice("[user] шлёпает рукой по [the_table]."), span_notice("Шлёпаю рукой по [the_table]."), vision_distance=COMBAT_MESSAGE_RANGE)
 		table_smacks_left--
 		if(table_smacks_left <= 0)
 			qdel(src)
@@ -283,12 +283,12 @@
 	. = TRUE
 
 	if(!(locate(/mob/living/carbon) in orange(1, offerer)))
-		visible_message("<span class='danger'>[offerer] пытается дать кому-нибудь пять, но проваливает свою попытку!</span>", \
-			"<span class='warning'>Пытаюсь дать кому-нибудь пять, но рядом никого нет!</span>", null, 2)
+		visible_message(span_danger("[offerer] пытается дать кому-нибудь пять, но проваливает свою попытку!"), \
+			span_warning("Пытаюсь дать кому-нибудь пять, но рядом никого нет!"), null, 2)
 		return
 
-	offerer.visible_message("<span class='notice'>[offerer] хочет дать пять!</span>", \
-		"<span class='notice'>Хочу дать пять!</span>", null, 2)
+	offerer.visible_message(span_notice("[offerer] хочет дать пять!"), \
+		span_notice("Хочу дать пять!"), null, 2)
 	offerer.apply_status_effect(STATUS_EFFECT_OFFERING, src, /atom/movable/screen/alert/give/highfive)
 
 /// Yeah broh! This is where we do the high-fiving (or high-tenning :o)
@@ -302,7 +302,7 @@
 			open_hands_taker++
 
 	if(!open_hands_taker)
-		to_chat(taker, "<span class='warning'>Не могу дать пять [offerer] с занятыми руками!</span>")
+		to_chat(taker, span_warning("Не могу дать пять [offerer] с занятыми руками!"))
 		SEND_SIGNAL(taker, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_five_full_hand) // not so successful now!
 		return
 
@@ -312,14 +312,14 @@
 			slappers_giver++
 
 	if(slappers_giver >= 2) // we only check this if it's already established the taker has 2+ hands free
-		offerer.visible_message("<span class='notice'>[taker] с энтузиазмом даёт десять [offerer]!</span>", "<span class='nicegreen'>Вау! Даю десять [taker]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", ignored_mobs=taker)
-		to_chat(taker, "<span class='nicegreen'>Даю все десять [offerer]!</span>")
+		offerer.visible_message(span_notice("[taker] с энтузиазмом даёт десять [offerer]!"), span_nicegreen("Вау! Даю десять [taker]!"), span_hear("Слышу звук разрывающейся плоти!"), ignored_mobs=taker)
+		to_chat(taker, span_nicegreen("Даю все десять [offerer]!"))
 		playsound(offerer, 'sound/weapons/slap.ogg', 100, TRUE, 1)
 		SEND_SIGNAL(offerer, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_ten)
 		SEND_SIGNAL(taker, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_ten)
 	else
-		offerer.visible_message("<span class='notice'>[taker] даёт пять [offerer]!</span>", "<span class='nicegreen'>Класс! Даю пять [taker]!</span>", "<span class='hear'>Слышу звук разрывающейся плоти!</span>", ignored_mobs=taker)
-		to_chat(taker, "<span class='nicegreen'>Даю пять [offerer]!</span>")
+		offerer.visible_message(span_notice("[taker] даёт пять [offerer]!"), span_nicegreen("Класс! Даю пять [taker]!"), span_hear("Слышу звук разрывающейся плоти!"), ignored_mobs=taker)
+		to_chat(taker, span_nicegreen("Даю пять [offerer]!"))
 		playsound(offerer, 'sound/weapons/slap.ogg', 50, TRUE, -1)
 		SEND_SIGNAL(offerer, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_five)
 		SEND_SIGNAL(taker, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_five)
@@ -369,7 +369,7 @@
 /obj/item/slapper/secret_handshake/on_offer_taken(mob/living/carbon/offerer, mob/living/carbon/taker)
 	. = TRUE
 	if (!(null in taker.held_items))
-		to_chat(taker, "<span class='warning'>You can't get taught the secret handshake if [offerer] has no free hands!</span>")
+		to_chat(taker, span_warning("You can't get taught the secret handshake if [offerer] has no free hands!"))
 		return
 
 	if(HAS_TRAIT(taker, TRAIT_MINDSHIELD))
@@ -384,8 +384,8 @@
 		to_chat(taker, "You started your family. You can't turn your back on it now.")
 		return
 
-	offerer.visible_message("<span class='notice'>[taker] is taught the secret handshake by [offerer]!</span>", "<span class='nicegreen'>All right! You've taught the secret handshake to [taker]!</span>", "<span class='hear'>You hear a bunch of weird shuffling and flesh slapping sounds!</span>", ignored_mobs=taker)
-	to_chat(taker, "<span class='nicegreen'>You get taught the secret handshake by [offerer]!</span>")
+	offerer.visible_message(span_notice("[taker] is taught the secret handshake by [offerer]!"), span_nicegreen("All right! You've taught the secret handshake to [taker]!"), span_hear("You hear a bunch of weird shuffling and flesh slapping sounds!"), ignored_mobs=taker)
+	to_chat(taker, span_nicegreen("You get taught the secret handshake by [offerer]!"))
 	var/datum/antagonist/gang/owner_gang_datum = offerer.mind.has_antag_datum(/datum/antagonist/gang)
 	handler = owner_gang_datum.handler
 	gang_to_use = owner_gang_datum.type
@@ -414,7 +414,7 @@
 	if(HAS_TRAIT(user, TRAIT_GARLIC_BREATH))
 		kiss_type = /obj/projectile/kiss/french
 	var/obj/projectile/blown_kiss = new kiss_type(get_turf(user))
-	user.visible_message("<b>[user]</b> отправляет воздушный [blown_kiss] [target]!", "<span class='notice'>Отправляю воздушный [blown_kiss] [target]!</span>")
+	user.visible_message("<b>[user]</b> отправляет воздушный [blown_kiss] [target]!", span_notice("Отправляю воздушный [blown_kiss] [target]!"))
 
 	//Shooting Code:
 	blown_kiss.original = target
@@ -430,19 +430,19 @@
 		return TRUE
 
 	cheek_kiss = (offerer.zone_selected != BODY_ZONE_PRECISE_MOUTH)
-	offerer.visible_message("<span class='notice'>[offerer] слегка наклоняется, предлагая поцелуй [cheek_kiss ? " в щеку" : ""]!</span>",
-		"<span class='notice'>Немного наклоняюсь, предлагая поцелуй[cheek_kiss ? " в щеку" : ""]!</span>", null, 2)
+	offerer.visible_message(span_notice("[offerer] слегка наклоняется, предлагая поцелуй [cheek_kiss ? " в щеку" : ""]!"),
+		span_notice("Немного наклоняюсь, предлагая поцелуй[cheek_kiss ? " в щеку" : ""]!"), null, 2)
 	offerer.apply_status_effect(STATUS_EFFECT_OFFERING, src)
 	return TRUE
 
 /obj/item/kisser/on_offer_taken(mob/living/carbon/offerer, mob/living/carbon/taker)
 	var/obj/projectile/blown_kiss = new kiss_type(get_turf(offerer))
 	if(offerer.zone_selected != BODY_ZONE_PRECISE_MOUTH)
-		offerer.visible_message("<b>[offerer]</b> целует [taker] в щеку!", "<span class='notice'>Целую [taker] в щеку!</span>", ignored_mobs = taker)
-		to_chat(taker, "<span class='nicegreen'>[offerer] целует меня в щеку!</span>")
+		offerer.visible_message("<b>[offerer]</b> целует [taker] в щеку!", span_notice("Целую [taker] в щеку!"), ignored_mobs = taker)
+		to_chat(taker, span_nicegreen("[offerer] целует меня в щеку!"))
 	else
-		offerer.visible_message("<b>[offerer]</b> целует [taker]!!", "<span class='notice'>Целую [taker]!</span>", ignored_mobs = taker)
-		to_chat(taker, "<span class='nicegreen'>[offerer] целует меня!</span>")
+		offerer.visible_message("<b>[offerer]</b> целует [taker]!!", span_notice("Целую [taker]!"), ignored_mobs = taker)
+		to_chat(taker, span_nicegreen("[offerer] целует меня!"))
 	offerer.face_atom(taker)
 	taker.face_atom(offerer)
 	offerer.do_item_attack_animation(taker, used_item=src)
@@ -497,7 +497,7 @@
 /obj/projectile/kiss/proc/harmless_on_hit(mob/living/living_target)
 	playsound(get_turf(living_target), hitsound, 100, TRUE)
 	if(!suppressed)  // direct
-		living_target.visible_message("<span class='danger'>В <b>[living_target]</b> попадает <b>[src.name]</b>.</span>", "<span class='userdanger'>В меня попадает <b>[src.name]</b>!</span>", vision_distance=COMBAT_MESSAGE_RANGE)
+		living_target.visible_message(span_danger("В <b>[living_target]</b> попадает <b>[src.name]</b>."), span_userdanger("В меня попадает <b>[src.name]</b>!"), vision_distance=COMBAT_MESSAGE_RANGE)
 	SEND_SIGNAL(living_target, COMSIG_ADD_MOOD_EVENT, "kiss", /datum/mood_event/kiss, firer, suppressed)
 	try_fluster(living_target)
 
@@ -526,7 +526,7 @@
 			living_target.face_atom(firer)
 			living_target.Stun(rand(3 SECONDS, 8 SECONDS))
 
-	living_target.visible_message("<b>[living_target]</b> [other_msg]", "<span class='userdanger'>Ой-ой! [self_msg]</span>")
+	living_target.visible_message("<b>[living_target]</b> [other_msg]", span_userdanger("Ой-ой! [self_msg]"))
 
 /obj/projectile/kiss/on_hit(atom/target, blocked, pierce_hit)
 	def_zone = BODY_ZONE_HEAD // let's keep it PG, people

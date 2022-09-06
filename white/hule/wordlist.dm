@@ -59,11 +59,11 @@ GLOBAL_VAR_INIT(apply_execution_protocol, FALSE)
 				playsound(get_turf(H), 'white/valtos/sounds/gibpart.ogg', 80, TRUE)
 
 		INVOKE_ASYNC(L, /mob.proc/emote, "agony")
-		to_chat(src, "<span class='userdanger'>... [uppertext(for_what)] ...</span>")
+		to_chat(src, span_userdanger("... [uppertext(for_what)] ..."))
 	else if(client.bad_word_counter == 1)
-		to_chat(src, "<span class='boldnotice'>...Возможно, мне не стоит говорить такие \"смешные\" слова, как \"[uppertext(for_what)]\"...</span>")
+		to_chat(src, span_boldnotice("...Возможно, мне не стоит говорить такие \"смешные\" слова, как \"[uppertext(for_what)]\"..."))
 	else
-		to_chat(src, "<span class='boldnotice'>...Чувствую, что мне за \"[uppertext(for_what)]\" скоро влетит...</span>")
+		to_chat(src, span_boldnotice("...Чувствую, что мне за \"[uppertext(for_what)]\" скоро влетит..."))
 
 /client
 	var/bad_word_counter = 0

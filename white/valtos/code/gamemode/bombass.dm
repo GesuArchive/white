@@ -6,7 +6,7 @@
 	has_gravity = TRUE
 	outdoors = TRUE
 	mood_bonus = 150
-	mood_message = "<span class='nicegreen'>СЕГОДНЯ Я УМРУ!\n</span>"
+	mood_message = span_nicegreen("СЕГОДНЯ Я УМРУ!\n")
 
 /area/awaymission/bombass/indoors
 	name = "Бункер бомбасса"

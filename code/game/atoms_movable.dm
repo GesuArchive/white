@@ -191,7 +191,7 @@
 
 /atom/movable/proc/onZImpact(turf/impacted_turf, levels, message = TRUE)
 	if(message)
-		visible_message("<span class='danger'>[src] падает на [impacted_turf]!</span>")
+		visible_message(span_danger("[src] падает на [impacted_turf]!"))
 	var/atom/highest = impacted_turf
 	for(var/atom/hurt_atom as anything in impacted_turf.contents)
 		if(!hurt_atom.density)
@@ -274,20 +274,20 @@
 		destination = get_step_multiz(start, direction)
 		if(!destination)
 			if(z_move_flags & ZMOVE_FEEDBACK)
-				to_chat(rider || src, "<span class='warning'>Некуда!</span>")
+				to_chat(rider || src, span_warning("Некуда!"))
 			return FALSE
 	if(z_move_flags & ZMOVE_FALL_CHECKS && (throwing || (movement_type & (FLYING|FLOATING)) || !has_gravity(start)))
 		return FALSE
 	if(z_move_flags & ZMOVE_CAN_FLY_CHECKS && !(movement_type & (FLYING|FLOATING)) && has_gravity(start))
 		if(z_move_flags & ZMOVE_FEEDBACK)
 			if(rider)
-				to_chat(rider, "<span class='notice'>[src] не умеет летать.</span>")
+				to_chat(rider, span_notice("[src] не умеет летать."))
 			else
-				to_chat(src, "<span class='notice'>Не умею летать.</span>")
+				to_chat(src, span_notice("Не умею летать."))
 		return FALSE
 	if(!(z_move_flags & ZMOVE_IGNORE_OBSTACLES) && !(start.zPassOut(src, direction, destination) && destination.zPassIn(src, direction, start)))
 		if(z_move_flags & ZMOVE_FEEDBACK)
-			to_chat(rider || src, "<span class='warning'>Не могу тут пройти!</span>")
+			to_chat(rider || src, span_warning("Не могу тут пройти!"))
 		return FALSE
 	return destination //used by some child types checks and zMove()
 
@@ -373,8 +373,8 @@
 		var/mob/M = AM
 		log_combat(src, M, "grabbed", addition="passive grab")
 		if(!supress_message)
-			M.visible_message("<span class='warning'><b>[src]</b> хватает <b>[M]</b>.</span>" , \
-				"<span class='danger'><b>[src]</b> хватает меня.</span>")
+			M.visible_message(span_warning("<b>[src]</b> хватает <b>[M]</b>.") , \
+				span_danger("<b>[src]</b> хватает меня."))
 	return TRUE
 
 /atom/movable/proc/stop_pulling()
@@ -1169,12 +1169,12 @@
 /atom/movable/proc/force_push(atom/movable/AM, force = move_force, direction, silent = FALSE)
 	. = AM.force_pushed(src, force, direction)
 	if(!silent && .)
-		visible_message("<span class='warning'>[capitalize(src.name)] forcefully pushes against [AM]!</span>" , "<span class='warning'>You forcefully push against [AM]!</span>")
+		visible_message(span_warning("[capitalize(src.name)] forcefully pushes against [AM]!") , span_warning("You forcefully push against [AM]!"))
 
 /atom/movable/proc/move_crush(atom/movable/AM, force = move_force, direction, silent = FALSE)
 	. = AM.move_crushed(src, force, direction)
 	if(!silent && .)
-		visible_message("<span class='danger'>[capitalize(src.name)] crushes past [AM]!</span>" , "<span class='danger'>You crush [AM]!</span>")
+		visible_message(span_danger("[capitalize(src.name)] crushes past [AM]!") , span_danger("You crush [AM]!"))
 
 /atom/movable/proc/move_crushed(atom/movable/pusher, force = MOVE_FORCE_DEFAULT, direction)
 	return FALSE
@@ -1421,12 +1421,12 @@
 
 		// This should never happen, but if it does it should not be silent.
 		if(deadchat_plays() == COMPONENT_INCOMPATIBLE)
-			to_chat(usr, "<span class='warning'>Deadchat control not compatible with [src].</span>")
+			to_chat(usr, span_warning("Deadchat control not compatible with [src]."))
 			CRASH("deadchat_control component incompatible with object of type: [type]")
 
-		to_chat(usr, "<span class='notice'>Deadchat now control [src].</span>")
+		to_chat(usr, span_notice("Deadchat now control [src]."))
 		log_admin("[key_name(usr)] has added deadchat control to [src]")
-		message_admins("<span class='notice'>[key_name(usr)] has added deadchat control to [src]</span>")
+		message_admins(span_notice("[key_name(usr)] has added deadchat control to [src]"))
 
 /**
 * A wrapper for setDir that should only be able to fail by living mobs.

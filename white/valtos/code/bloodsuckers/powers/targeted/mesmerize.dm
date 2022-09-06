@@ -37,11 +37,11 @@
 	if(!.) // Default checks
 		return FALSE
 	if(!user.getorganslot(ORGAN_SLOT_EYES))
-		to_chat(user, "<span class='warning'>You have no eyes with which to mesmerize.</span>")
+		to_chat(user, span_warning("You have no eyes with which to mesmerize."))
 		return FALSE
 	// Check: Eyes covered?
 	if(istype(user) && (user.is_eyes_covered() && level_current <= 2) || !isturf(user.loc))
-		to_chat(user, "<span class='warning'>Your eyes are concealed from sight.</span>")
+		to_chat(user, span_warning("Your eyes are concealed from sight."))
 		return FALSE
 	return TRUE
 
@@ -58,11 +58,11 @@
 	var/mob/living/current_target = target_atom // We already know it's carbon due to CheckValidTarget()
 	// No mind
 	if(!current_target.mind)
-		to_chat(owner, "<span class='warning'>[current_target] is mindless.</span>")
+		to_chat(owner, span_warning("[current_target] is mindless."))
 		return FALSE
 	// Bloodsucker
 	if(IS_BLOODSUCKER(current_target))
-		to_chat(owner, "<span class='notice'>Bloodsuckers are immune to [src].</span>")
+		to_chat(owner, span_notice("Bloodsuckers are immune to [src]."))
 		return FALSE
 	// Dead/Unconscious
 	if(current_target.stat > CONSCIOUS)
@@ -70,19 +70,19 @@
 		return FALSE
 	// Target has eyes?
 	if(!current_target.getorganslot(ORGAN_SLOT_EYES))
-		to_chat(owner, "<span class='warning'>[current_target] has no eyes.</span>")
+		to_chat(owner, span_warning("[current_target] has no eyes."))
 		return FALSE
 	// Target blind?
 	if(current_target.eye_blind > 0)
-		to_chat(owner, "<span class='warning'>[current_target] is blind.</span>")
+		to_chat(owner, span_warning("[current_target] is blind."))
 		return FALSE
 	//Facing target?
 	if(!is_source_facing_target(owner, current_target)) // in unsorted.dm
-		to_chat(owner, "<span class='warning'>You must be facing [current_target].</span>")
+		to_chat(owner, span_warning("You must be facing [current_target]."))
 		return FALSE
 	// Target facing me? (On the floor, they're facing everyone)
 	if(((current_target.mobility_flags & MOBILITY_STAND) && !is_source_facing_target(current_target, owner) && level_current <= 4))
-		to_chat(owner, "<span class='warning'>[current_target] must be facing you.</span>")
+		to_chat(owner, span_warning("[current_target] must be facing you."))
 		return FALSE
 	return TRUE
 
@@ -90,7 +90,7 @@
 	. = ..()
 	var/mob/living/target = target_atom
 	var/mob/living/user = owner
-	to_chat(owner, "<span class='notice'>Attempting to hypnotically gaze [target]...</span>")
+	to_chat(owner, span_notice("Attempting to hypnotically gaze [target]..."))
 	if(!power_activates_immediately)
 		if(!do_mob(user, target, mesmerizingtime, NONE, TRUE))
 			return
@@ -98,14 +98,14 @@
 	PowerActivatedSuccessfully() // PAY COST! BEGIN COOLDOWN!
 	var/power_time = 90 + level_current * 15
 	if(IS_MONSTERHUNTER(target))
-		to_chat(target, "<span class='warning'>You feel your eyes burn for a while, but it passes.</span>")
+		to_chat(target, span_warning("You feel your eyes burn for a while, but it passes."))
 		return
 	if(HAS_TRAIT_FROM(target, TRAIT_MUTE, BLOODSUCKER_TRAIT))
-		to_chat(owner, "<span class='notice'>[target] is already in a hypnotic gaze.</span>")
+		to_chat(owner, span_notice("[target] is already in a hypnotic gaze."))
 		return
 	if(iscarbon(target))
 		var/mob/living/carbon/mesmerized = target
-		to_chat(owner, "<span class='notice'>Successfully mesmerized [mesmerized].</span>")
+		to_chat(owner, span_notice("Successfully mesmerized [mesmerized]."))
 		if(level_current >= 6)
 			mesmerized.SetUnconscious(power_time)
 		else if(level_current >= 2)
@@ -125,7 +125,7 @@
 	REMOVE_TRAIT(target, TRAIT_MUTE, BLOODSUCKER_TRAIT)
 	// They Woke Up! (Notice if within view)
 	if(istype(user) && target.stat == CONSCIOUS && (target in view(6, get_turf(user))))
-		to_chat(owner, "<span class='warning'>[target] snapped out of their trance.</span>")
+		to_chat(owner, span_warning("[target] snapped out of their trance."))
 
 /datum/action/bloodsucker/targeted/mesmerize/shadow
 	name = "Glare"

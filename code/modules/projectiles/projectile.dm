@@ -303,13 +303,13 @@
 		else if(suppressed)
 			playsound(loc, hitsound, 5, TRUE, -1)
 			if(L?.client?.prefs?.chat_toggles & CHAT_SPAM)
-				to_chat(L, "<span class='userdanger'>В [organ_hit_text] попадает <b>[src.name]</b>!</span>")
+				to_chat(L, span_userdanger("В [organ_hit_text] попадает <b>[src.name]</b>!"))
 		else
 			if(hitsound)
 				var/volume = vol_by_damage()
 				playsound(src, hitsound, volume, TRUE, -1)
-			L.visible_message("<span class='danger'>В [organ_hit_text] <b>[L]</b> попадает <b>[src.name]</b>!</span>",
-					"<span class='userdanger'>В [organ_hit_text] попадает <b>[src.name]</b>!</span>", null, COMBAT_MESSAGE_RANGE, visible_message_flags = SPAM_MESSAGE)
+			L.visible_message(span_danger("В [organ_hit_text] <b>[L]</b> попадает <b>[src.name]</b>!"),
+					span_userdanger("В [organ_hit_text] попадает <b>[src.name]</b>!"), null, COMBAT_MESSAGE_RANGE, visible_message_flags = SPAM_MESSAGE)
 		L.on_hit(src)
 
 	var/reagent_note

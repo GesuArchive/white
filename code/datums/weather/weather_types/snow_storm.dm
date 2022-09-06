@@ -3,17 +3,17 @@
 	desc = "Сильные снежные бури бродят по вершине этой арктической планеты, хороня любую область, достаточно неудачную, чтобы оказаться на ее пути."
 	probability = 90
 
-	telegraph_message = "<span class='warning'>Дрейфующие частицы снега начинают создавать пыль вокруг...</span>"
+	telegraph_message = span_warning("Дрейфующие частицы снега начинают создавать пыль вокруг...")
 	telegraph_duration = 300
 	telegraph_overlay = "light_snow"
 
-	weather_message = "<span class='userdanger'><i>Резкий ветер усиливается, когда с неба начинает падать густой снег! В УБЕЖИЩЕ!</i></span>"
+	weather_message = span_userdanger("<i>Резкий ветер усиливается, когда с неба начинает падать густой снег! В УБЕЖИЩЕ!</i>")
 	weather_overlay = "snow_storm"
 	weather_duration_lower = 600
 	weather_duration_upper = 1500
 
 	end_duration = 100
-	end_message = "<span class='boldannounce'>Снегопад стихает, выходить на улицу снова безопасно.</span>"
+	end_message = span_boldannounce("Снегопад стихает, выходить на улицу снова безопасно.")
 
 	area_type = /area
 	protect_indoors = TRUE

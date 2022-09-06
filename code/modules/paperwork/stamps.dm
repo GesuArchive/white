@@ -14,7 +14,7 @@
 	attack_verb_simple = list("штампует")
 
 /obj/item/stamp/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] ставит печать 'МЁРТВ' на своём лбу, а затем быстро падает замертво.</span>")
+	user.visible_message(span_suicide("[user] ставит печать 'МЁРТВ' на своём лбу, а затем быстро падает замертво."))
 	return (OXYLOSS)
 
 /obj/item/stamp/qm

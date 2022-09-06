@@ -60,13 +60,13 @@
 	if(isliving(at_least_atom))
 		var/mob/living/potentially_dead_horse = at_least_atom
 		if(potentially_dead_horse.stat == DEAD)
-			to_chat(attacker, "<span class='warning'>[at_least_atom] мертв[at_least_atom.ru_a()]!</span>")
+			to_chat(attacker, span_warning("[at_least_atom] мертв[at_least_atom.ru_a()]!"))
 			return COMPONENT_CANCEL_ATTACK_CHAIN
 	if(eggs_left > max_eggs_held)
-		to_chat(attacker, "<span class='warning'>[at_least_atom] не голод[at_least_atom.ru_en()]!</span>")
+		to_chat(attacker, span_warning("[at_least_atom] не голод[at_least_atom.ru_en()]!"))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
-	attacker.visible_message("<span class='notice'>[attacker] кормит [skloname(at_least_atom.name, VINITELNI, at_least_atom.gender)] [skloname(food.name, TVORITELNI, food.gender)].</span>", \
-											"<span class='notice'>Кормлю [skloname(at_least_atom.name, VINITELNI, at_least_atom.gender)] [skloname(food.name, TVORITELNI, food.gender)].</span>")
+	attacker.visible_message(span_notice("[attacker] кормит [skloname(at_least_atom.name, VINITELNI, at_least_atom.gender)] [skloname(food.name, TVORITELNI, food.gender)]."), \
+											span_notice("Кормлю [skloname(at_least_atom.name, VINITELNI, at_least_atom.gender)] [skloname(food.name, TVORITELNI, food.gender)]."))
 	at_least_atom.visible_message(pick(feed_messages))
 	qdel(food)
 	eggs_left += min(eggs_left + eggs_added_from_eating, max_eggs_held)
@@ -82,7 +82,7 @@
 	if(!eggs_left || !DT_PROB(1.5, delta_time))
 		return
 
-	at_least_atom.visible_message("<span class='alertalien'>[at_least_atom] [pick(lay_messages)]</span>")
+	at_least_atom.visible_message(span_alertalien("[at_least_atom] [pick(lay_messages)]"))
 	eggs_left--
 	var/obj/item/egg = new egg_type(get_turf(at_least_atom))
 	egg.pixel_x = rand(-6, 6)

@@ -29,7 +29,7 @@
 
 	if(!(methods & (VAPOR|PATCH|TOUCH)))
 		return //remove non-touch reagent exposure
-	to_chat(mod.wearer, "<span class='danger'>[src] makes an ominous click sound...</span>")
+	to_chat(mod.wearer, span_danger("[src] makes an ominous click sound..."))
 	playsound(src, 'sound/items/modsuit/springlock.ogg', 75, TRUE)
 	addtimer(CALLBACK(src, .proc/snap_shut), rand(3 SECONDS, 5 SECONDS))
 	RegisterSignal(mod, COMSIG_MOD_ACTIVATE, .proc/on_activate_spring_block)
@@ -46,7 +46,7 @@
 	UnregisterSignal(mod, COMSIG_MOD_ACTIVATE)
 	if(!mod.wearer) //while there is a guaranteed user when on_wearer_exposed() fires, that isn't the same case for this proc
 		return
-	mod.wearer.visible_message("[src] inside [mod.wearer]'s [mod.name] snaps shut, mutilating the user inside!", "<span class='userdanger'>*SNAP*</span>")
+	mod.wearer.visible_message("[src] inside [mod.wearer]'s [mod.name] snaps shut, mutilating the user inside!", span_userdanger("*SNAP*"))
 	mod.wearer.emote("scream")
 	playsound(mod.wearer, 'sound/effects/snap.ogg', 75, TRUE, frequency = 0.5)
 	playsound(mod.wearer, 'sound/effects/splat.ogg', 50, TRUE, frequency = 0.5)
@@ -230,7 +230,7 @@
 		if(crisp_paper in mod.wearer.held_items)
 			mod.wearer.dropItemToGround(crisp_paper, force = TRUE)
 		crisp_paper.balloon_alert(mod.wearer, "PC LOAD LETTER!")
-		crisp_paper.visible_message("<span class='warning'>[crisp_paper] bursts into flames, it's too crisp!</span>")
+		crisp_paper.visible_message(span_warning("[crisp_paper] bursts into flames, it's too crisp!"))
 		crisp_paper.fire_act(1000, 100)
 
 	drain_power(use_power_cost)
@@ -291,7 +291,7 @@
 
 /obj/item/mod/module/atrocinator/on_deactivation(display_message = TRUE, deleting = FALSE)
 	if(you_fucked_up && !deleting)
-		to_chat(mod.wearer, "<span class='danger'>It's too late.</span>")
+		to_chat(mod.wearer, span_danger("It's too late."))
 		return FALSE
 	. = ..()
 	if(!.)
@@ -327,7 +327,7 @@
 /obj/item/mod/module/atrocinator/proc/fly_away()
 	you_fucked_up = TRUE
 	playsound(src, 'sound/effects/whirthunk.ogg', 75)
-	to_chat(mod.wearer, "<span class='userdanger'>That was stupid.</span>")
+	to_chat(mod.wearer, span_userdanger("That was stupid."))
 	mod.wearer.Stun(FLY_TIME, ignore_canstun = TRUE)
 	animate(mod.wearer, FLY_TIME, pixel_z = 256, alpha = 0)
 	QDEL_IN(mod.wearer, FLY_TIME)

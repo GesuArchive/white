@@ -439,7 +439,7 @@
 				. = TRUE
 
 /obj/item/radio/suicide_act(mob/living/user)
-	user.visible_message("<span class='suicide'>[user] starts bouncing [src] off [user.p_their()] head! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] starts bouncing [src] off [user.p_their()] head! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return BRUTELOSS
 
 /obj/item/radio/examine(mob/user)
@@ -455,9 +455,9 @@
 	add_fingerprint(user)
 	unscrewed = !unscrewed
 	if(unscrewed)
-		to_chat(user, "<span class='notice'>Теперь рация может быть приделана к чему-то или модифицированна!</span>")
+		to_chat(user, span_notice("Теперь рация может быть приделана к чему-то или модифицированна!"))
 	else
-		to_chat(user, "<span class='notice'>Теперь рация не может быть приделана к чему-то или модифицированна!</span>")
+		to_chat(user, span_notice("Теперь рация не может быть приделана к чему-то или модифицированна!"))
 
 /obj/item/radio/emp_act(severity)
 	. = ..()
@@ -466,14 +466,14 @@
 	emped++ //There's been an EMP; better count it
 	var/curremp = emped //Remember which EMP this was
 	if (listening && ismob(loc))	// if the radio is turned on and on someone's person they notice
-		to_chat(loc, "<span class='warning'>[capitalize(src.name)] перегружается.</span>")
+		to_chat(loc, span_warning("[capitalize(src.name)] перегружается."))
 	for (var/ch_name in channels)
 		channels[ch_name] = 0
 	set_on(FALSE)
 	addtimer(CALLBACK(src, .proc/end_emp_effect, curremp), 200)
 
 /obj/item/radio/suicide_act(mob/living/user)
-	user.visible_message("<span class='suicide'>[user] starts bouncing [src] off [user.p_their()] head! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] starts bouncing [src] off [user.p_their()] head! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return BRUTELOSS
 
 /obj/item/radio/Destroy()
@@ -518,7 +518,7 @@
 
 /obj/item/radio/borg/screwdriver_act(mob/living/user, obj/item/tool)
 	if(!keyslot)
-		to_chat(user, "<span class='warning'>Внутри нет ключей шифрования!</span>")
+		to_chat(user, span_warning("Внутри нет ключей шифрования!"))
 		return
 
 	for(var/ch_name in channels)
@@ -532,14 +532,14 @@
 			keyslot = null
 
 	recalculateChannels()
-	to_chat(user, "<span class='notice'>Вынимаю ключ шифрования из рации.</span>")
+	to_chat(user, span_notice("Вынимаю ключ шифрования из рации."))
 	return ..()
 
 /obj/item/radio/borg/attackby(obj/item/attacking_item, mob/user, params)
 
 	if(istype(attacking_item, /obj/item/encryptionkey))
 		if(keyslot)
-			to_chat(user, "<span class='warning'>Эта рация не может иметь больше ключей шифрования!</span>")
+			to_chat(user, span_warning("Эта рация не может иметь больше ключей шифрования!"))
 			return
 
 		if(!keyslot)

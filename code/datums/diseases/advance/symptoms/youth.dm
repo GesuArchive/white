@@ -38,20 +38,20 @@ BONUS
 			if(1)
 				if(H.age > 41)
 					H.age = 41
-					to_chat(H, "<span class='notice'>У меня не было столько энергии годами!</span>")
+					to_chat(H, span_notice("У меня не было столько энергии годами!"))
 			if(2)
 				if(H.age > 36)
 					H.age = 36
-					to_chat(H, "<span class='notice'>Моё настроение повысилось.</span>")
+					to_chat(H, span_notice("Моё настроение повысилось."))
 			if(3)
 				if(H.age > 31)
 					H.age = 31
-					to_chat(H, "<span class='notice'>Я более гибкий.</span>")
+					to_chat(H, span_notice("Я более гибкий."))
 			if(4)
 				if(H.age > 26)
 					H.age = 26
-					to_chat(H, "<span class='notice'>Ощущаю воодушевление.</span>")
+					to_chat(H, span_notice("Ощущаю воодушевление."))
 			if(5)
 				if(H.age > 21)
 					H.age = 21
-					to_chat(H, "<span class='notice'>Пора захватывать мир!</span>")
+					to_chat(H, span_notice("Пора захватывать мир!"))

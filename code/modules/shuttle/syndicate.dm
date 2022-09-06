@@ -17,7 +17,7 @@
 		return
 	var/obj/item/circuitboard/computer/syndicate_shuttle/board = circuit
 	if(board.challenge && world.time < SYNDICATE_CHALLENGE_TIMER)
-		to_chat(usr, "<span class='warning'>Вы бросили вызов станции! Вы ВЫНУЖДЕНЫ дать им по крайней мере [DisplayTimeText(SYNDICATE_CHALLENGE_TIMER - world.time)] для их подготовки.</span>")
+		to_chat(usr, span_warning("Вы бросили вызов станции! Вы ВЫНУЖДЕНЫ дать им по крайней мере [DisplayTimeText(SYNDICATE_CHALLENGE_TIMER - world.time)] для их подготовки."))
 		return FALSE
 	board.moved = TRUE
 	. = ..()

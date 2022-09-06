@@ -39,9 +39,9 @@
 
 /datum/heretic_knowledge/curse/paralysis/curse(mob/living/carbon/human/chosen_mob)
 	if(chosen_mob.usable_legs <= 0) // What're you gonna do, curse someone who already can't walk?
-		to_chat(chosen_mob, "<span class='notice'>Чувствую легкую боль, но она быстро проходит. Странно.</span>")
+		to_chat(chosen_mob, span_notice("Чувствую легкую боль, но она быстро проходит. Странно."))
 	else
-		to_chat(chosen_mob, "<span class='danger'>Внезапно перестаю чувствовать свои ноги!</span>")
+		to_chat(chosen_mob, span_danger("Внезапно перестаю чувствовать свои ноги!"))
 
 	ADD_TRAIT(chosen_mob, TRAIT_PARALYSIS_L_LEG, type)
 	ADD_TRAIT(chosen_mob, TRAIT_PARALYSIS_R_LEG, type)
@@ -51,9 +51,9 @@
 	REMOVE_TRAIT(chosen_mob, TRAIT_PARALYSIS_R_LEG, type)
 
 	if(chosen_mob.usable_legs <= 0) // What're you gonna do, curse someone who already can't walk?
-		to_chat(chosen_mob, "<span class='notice'>Слабая боль возвращается, но вскоре снова пропадает.</span>")
+		to_chat(chosen_mob, span_notice("Слабая боль возвращается, но вскоре снова пропадает."))
 	else
-		to_chat(chosen_mob, "<span class='notice'>Вновь начинаю чувствовать свои ноги!</span>")
+		to_chat(chosen_mob, span_notice("Вновь начинаю чувствовать свои ноги!"))
 
 /datum/heretic_knowledge/summon/ashy
 	name = "Ритуал Пепла"

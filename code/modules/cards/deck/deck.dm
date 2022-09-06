@@ -64,7 +64,7 @@
 	wielded = FALSE
 
 /obj/item/toy/cards/deck/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] is slitting [user.p_their()] wrists with \the [src]! It looks like their luck ran out!</span>")
+	user.visible_message(span_suicide("[user] is slitting [user.p_their()] wrists with \the [src]! It looks like their luck ran out!"))
 	playsound(src, 'sound/items/cardshuffle.ogg', 50, TRUE)
 	return BRUTELOSS
 
@@ -74,11 +74,11 @@
 	if(cards.len > 0)
 		var/obj/item/toy/singlecard/card = cards[1]
 		if(HAS_TRAIT(user, TRAIT_XRAY_VISION))
-			. += "<span class='notice'>You scan the deck with your x-ray vision and the top card reads: [card.cardname].</span>"
+			. += span_notice("You scan the deck with your x-ray vision and the top card reads: [card.cardname].")
 		var/marked_color = card.getMarkedColor(user)
 		if(marked_color)
-			. += "<span class='notice'>The top card of the deck has a [marked_color] mark on the corner!</span>"
-	. += "<span class='notice'>Click and drag the deck to yourself to pickup.</span>" // This should be a context screentip
+			. += span_notice("The top card of the deck has a [marked_color] mark on the corner!")
+	. += span_notice("Click and drag the deck to yourself to pickup.") // This should be a context screentip
 
 /obj/item/toy/cards/deck/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	if(src == held_item)
@@ -152,7 +152,7 @@
 		if(wielded)
 			shuffle_cards(user)
 		else
-			to_chat(user, "<span class='notice'>Надо бы держать [src] обеими руками для перетасовки.</span>")
+			to_chat(user, span_notice("Надо бы держать [src] обеими руками для перетасовки."))
 	return ..()
 
 /obj/item/toy/cards/deck/update_icon_state()
@@ -197,7 +197,7 @@
 
 	var/mob/living/thrower = throwingdatum.thrower
 
-	target.visible_message("<span class='warning'>[target] играет в собери 52 карты!</span>", "<span class='warning'>Меня принуждают поиграть в собери 52 карты.</span>")
+	target.visible_message(span_warning("[target] играет в собери 52 карты!"), span_warning("Меня принуждают поиграть в собери 52 карты."))
 	SEND_SIGNAL(target, COMSIG_ADD_MOOD_EVENT, "lost_52_card_pickup", /datum/mood_event/lost_52_card_pickup)
 	SEND_SIGNAL(thrower, COMSIG_ADD_MOOD_EVENT, "won_52_card_pickup", /datum/mood_event/won_52_card_pickup)
 

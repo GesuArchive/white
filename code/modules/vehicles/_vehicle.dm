@@ -55,7 +55,7 @@
 		if(25 to 50)
 			. += "\nВыглядит серьёзно повреждённым."
 		if(0 to 25)
-			. += "<span class='warning'>\nВот-вот развалится!</span>"
+			. += span_warning("\nВот-вот развалится!")
 
 /obj/vehicle/proc/is_key(obj/item/I)
 	return istype(I, key_type)

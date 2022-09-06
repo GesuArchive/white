@@ -25,7 +25,7 @@
 
 /datum/action/bloodsucker/recuperate/ActivatePower()
 	. = ..()
-	to_chat(owner, "<span class='notice'>Your muscles clench as your master's immortal blood mixes with your own, knitting your wounds.</span>")
+	to_chat(owner, span_notice("Your muscles clench as your master's immortal blood mixes with your own, knitting your wounds."))
 
 /datum/action/bloodsucker/recuperate/UsePower(mob/living/carbon/user)
 	. = ..()

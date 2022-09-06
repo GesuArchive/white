@@ -79,15 +79,15 @@
 	if(activated)
 		return
 	if(!iscarbon(user))
-		to_chat(user, "<span class='warning'>Змея на жезле на мгновение оживает и смотрит на меня, но через мгновение разочаровано отворачивается и снова замирает, как будто она знает, что я неспособен сдержать свою клятву.</span>")
+		to_chat(user, span_warning("Змея на жезле на мгновение оживает и смотрит на меня, но через мгновение разочаровано отворачивается и снова замирает, как будто она знает, что я неспособен сдержать свою клятву."))
 		return
 	var/mob/living/carbon/itemUser = user
 	usedHand = itemUser.get_held_index_of_item(src)
 	if(itemUser.has_status_effect(STATUS_EFFECT_HIPPOCRATIC_OATH))
-		to_chat(user, "<span class='warning'>Не в моих силах нести больше ответственности, чем я могу на себя принять!</span>")
+		to_chat(user, span_warning("Не в моих силах нести больше ответственности, чем я могу на себя принять!"))
 		return
-	var/failText = "<span class='warning'>Змея, похоже, недовольна моей неполной клятвой и вновь замирает, возвращаясь в свое спящее, деревянное состояние. Я должен подойти к этому дело ответственно и стоять неподвижно во время принесения торжественной клятвы!</span>"
-	to_chat(itemUser, "<span class='notice'>Деревянная змея, вырезанная на жезле, внезапно оживает и обвивает мою руку! У меня проявляется необычайно сильное желание помогать другим...</span>")
+	var/failText = span_warning("Змея, похоже, недовольна моей неполной клятвой и вновь замирает, возвращаясь в свое спящее, деревянное состояние. Я должен подойти к этому дело ответственно и стоять неподвижно во время принесения торжественной клятвы!")
+	to_chat(itemUser, span_notice("Деревянная змея, вырезанная на жезле, внезапно оживает и обвивает мою руку! У меня проявляется необычайно сильное желание помогать другим..."))
 	if(do_after(itemUser, 40, target = itemUser))
 		itemUser.say("Получая высокое звание врача и приступая к профессиональной деятельности, я торжественно клянусь:", forced = "hippocratic oath")
 	else
@@ -123,7 +123,7 @@
 	else
 		to_chat(itemUser, failText)
 		return
-	to_chat(itemUser, "<span class='notice'>Змея, удовлетворенная моей клятвой, обвивает мою руку и жезл, теперь я не смогу отпустить его, даже если захочу. Мои мысли, сконцентрированы исключительно на помощи страждущим, а в голове запечетлелась фраза: \"Не навреди\"...</span>")
+	to_chat(itemUser, span_notice("Змея, удовлетворенная моей клятвой, обвивает мою руку и жезл, теперь я не смогу отпустить его, даже если захочу. Мои мысли, сконцентрированы исключительно на помощи страждущим, а в голове запечетлелась фраза: \"Не навреди\"..."))
 	var/datum/status_effect/hippocratic_oath/effect = itemUser.apply_status_effect(STATUS_EFFECT_HIPPOCRATIC_OATH)
 	effect.hand = usedHand
 	activated()
@@ -138,22 +138,22 @@
 /obj/item/rod_of_asclepius/attack(mob/living/M, mob/living/user)
 	if(activated)
 		if(M.stat == DEAD)
-			to_chat(user, "<span class='notice'>Начинаю ритуал воскрешения [M]</span>")
+			to_chat(user, span_notice("Начинаю ритуал воскрешения [M]"))
 			playsound(user, 'white/Feline/sounds/resurect_cast.ogg', 100, TRUE)
 			if(do_after(user, 100, target = M))
-				to_chat(user, "<span class='warning'>Жезл расцветает крохотными листиками!</span>")
+				to_chat(user, span_warning("Жезл расцветает крохотными листиками!"))
 			else
-				to_chat(user, "<span class='warning'>Ритуал прерван!</span>")
+				to_chat(user, span_warning("Ритуал прерван!"))
 				return
 
 			if(M.suiciding || M.hellbound)
-				M.visible_message("<span class='warning'>[user] отрывает крохотный листик от жезла и помещает в рот [M], однако тело не реагирует...</span>")
+				M.visible_message(span_warning("[user] отрывает крохотный листик от жезла и помещает в рот [M], однако тело не реагирует..."))
 				return
 			if(M.getBruteLoss()+M.getFireLoss() >= 200 || HAS_TRAIT(M, TRAIT_HUSK))
-				M.visible_message("<span class='warning'>[user] отрывает крохотный листик от жезла и помещает в рот [M], тело недолго бьется в конвульсиях, а затем вновь замирает.</span>")
+				M.visible_message(span_warning("[user] отрывает крохотный листик от жезла и помещает в рот [M], тело недолго бьется в конвульсиях, а затем вновь замирает."))
 				M.do_jitter_animation(10)
 				return
-			M.visible_message("<span class='warning'>[user] отрывает крохотный листик от жезла и помещает в рот [M], тело начинает биться в конвульсиях!</span>")
+			M.visible_message(span_warning("[user] отрывает крохотный листик от жезла и помещает в рот [M], тело начинает биться в конвульсиях!"))
 			M.do_jitter_animation(10)
 			addtimer(CALLBACK(M, /mob/living/carbon.proc/do_jitter_animation, 10), 40)
 			addtimer(CALLBACK(M, /mob/living/carbon.proc/do_jitter_animation, 10), 80)
@@ -161,7 +161,7 @@
 			..()
 		else
 			if(last_used_peace + 100 < world.time)
-				user.visible_message("<span class='warning'>Змея обвивающая руку [user] производит короткий рывок и кусает [M]! Лицо жертвы мгновенно расплывается в глуповатой, но очень миролюбивой физиономии!</span>")
+				user.visible_message(span_warning("Змея обвивающая руку [user] производит короткий рывок и кусает [M]! Лицо жертвы мгновенно расплывается в глуповатой, но очень миролюбивой физиономии!"))
 				playsound(user, 'white/Feline/sounds/snake_shhh.ogg', 100, TRUE)
 				M.reagents.add_reagent(/datum/reagent/pax/peaceborg,3)
 				last_used_peace = world.time
@@ -195,9 +195,9 @@
 	return ..()
 
 /obj/item/clothing/neck/necklace/memento_mori/proc/memento(mob/living/carbon/human/user)
-	to_chat(user, "<span class='warning'>You feel your life being drained by the pendant...</span>")
+	to_chat(user, span_warning("You feel your life being drained by the pendant..."))
 	if(do_after(user, 40, target = user))
-		to_chat(user, "<span class='notice'>Your lifeforce is now linked to the pendant! You feel like removing it would kill you, and yet you instinctively know that until then, you won't die.</span>")
+		to_chat(user, span_notice("Your lifeforce is now linked to the pendant! You feel like removing it would kill you, and yet you instinctively know that until then, you won't die."))
 		ADD_TRAIT(user, TRAIT_NODEATH, CLOTHING_TRAIT)
 		ADD_TRAIT(user, TRAIT_NOHARDCRIT, CLOTHING_TRAIT)
 		ADD_TRAIT(user, TRAIT_NOCRITDAMAGE, CLOTHING_TRAIT)
@@ -212,7 +212,7 @@
 	UnregisterSignal(active_owner, COMSIG_CARBON_HEALTH_UPDATE)
 	var/mob/living/carbon/human/H = active_owner //to avoid infinite looping when dust unequips the pendant
 	active_owner = null
-	to_chat(H, "<span class='userdanger'>You feel your life rapidly slipping away from you!</span>")
+	to_chat(H, span_userdanger("You feel your life rapidly slipping away from you!"))
 	H.dust(TRUE, TRUE)
 
 /obj/item/clothing/neck/necklace/memento_mori/proc/check_health(mob/living/source)
@@ -236,13 +236,13 @@
 	new /obj/effect/temp_visual/guardian/phase/out(get_turf(guardian))
 	guardian.locked = TRUE
 	guardian.forceMove(src)
-	to_chat(guardian, "<span class='userdanger'>You have been locked away in your summoner's pendant!</span>")
+	to_chat(guardian, span_userdanger("You have been locked away in your summoner's pendant!"))
 	guardian.playsound_local(get_turf(guardian), 'sound/magic/summonitems_generic.ogg', 50, TRUE)
 
 /obj/item/clothing/neck/necklace/memento_mori/proc/regurgitate_guardian(mob/living/simple_animal/hostile/guardian/guardian)
 	guardian.locked = FALSE
 	guardian.Recall(TRUE)
-	to_chat(guardian, "<span class='notice'>You have been returned back from your summoner's pendant!</span>")
+	to_chat(guardian, span_notice("You have been returned back from your summoner's pendant!"))
 	guardian.playsound_local(get_turf(guardian), 'sound/magic/repulse.ogg', 50, TRUE)
 
 /datum/action/item_action/hands_free/memento_mori
@@ -270,18 +270,18 @@
 
 /obj/item/wisp_lantern/attack_self(mob/user)
 	if(!wisp)
-		to_chat(user, "<span class='warning'>The wisp has gone missing!</span>")
+		to_chat(user, span_warning("The wisp has gone missing!"))
 		icon_state = "lantern"
 		return
 
 	if(wisp.loc == src)
-		to_chat(user, "<span class='notice'>You release the wisp. It begins to bob around your head.</span>")
+		to_chat(user, span_notice("You release the wisp. It begins to bob around your head."))
 		icon_state = "lantern"
 		wisp.orbit(user, 20)
 		SSblackbox.record_feedback("tally", "wisp_lantern", 1, "Freed")
 
 	else
-		to_chat(user, "<span class='notice'>You return the wisp to the lantern.</span>")
+		to_chat(user, span_notice("You return the wisp to the lantern."))
 		icon_state = "lantern-blue"
 		wisp.forceMove(src)
 		SSblackbox.record_feedback("tally", "wisp_lantern", 1, "Returned")
@@ -295,7 +295,7 @@
 		if(wisp.loc == src)
 			qdel(wisp)
 		else
-			wisp.visible_message("<span class='notice'>[wisp] has a sad feeling for a moment, then it passes.</span>")
+			wisp.visible_message(span_notice("[wisp] has a sad feeling for a moment, then it passes."))
 	return ..()
 
 /obj/effect/wisp
@@ -317,13 +317,13 @@
 		RegisterSignal(thing, COMSIG_MOB_UPDATE_SIGHT, .proc/update_user_sight)
 		var/mob/being = thing
 		being.update_sight()
-		to_chat(thing, "<span class='notice'>The wisp enhances your vision.</span>")
+		to_chat(thing, span_notice("The wisp enhances your vision."))
 
 /obj/effect/wisp/stop_orbit(datum/component/orbiter/orbits)
 	. = ..()
 	if(ismob(orbits.parent))
 		UnregisterSignal(orbits.parent, COMSIG_MOB_UPDATE_SIGHT)
-		to_chat(orbits.parent, "<span class='notice'>Your vision returns to normal.</span>")
+		to_chat(orbits.parent, span_notice("Your vision returns to normal."))
 
 /obj/effect/wisp/proc/update_user_sight(mob/user)
 	SIGNAL_HANDLER
@@ -351,7 +351,7 @@
 	var/turf/current_location = get_turf(user)
 	var/area/current_area = current_location.loc
 	if(!linked || (current_area.area_flags & NOTELEPORT))
-		to_chat(user, "<span class='warning'>[src] fizzles uselessly.</span>")
+		to_chat(user, span_warning("[src] fizzles uselessly."))
 		return
 	if(teleporting)
 		return
@@ -422,7 +422,7 @@
 		cooldown = world.time + 600
 		new /obj/effect/immortality_talisman(get_turf(user), user)
 	else
-		to_chat(user, "<span class='warning'>[src] is not ready yet!</span>")
+		to_chat(user, span_warning("[src] is not ready yet!"))
 
 /obj/effect/immortality_talisman
 	name = "hole in reality"
@@ -438,7 +438,7 @@
 		vanish(new_user)
 
 /obj/effect/immortality_talisman/proc/vanish(mob/user)
-	user.visible_message("<span class='danger'>[user] [vanish_description], leaving a hole in [user.p_their()] place!</span>")
+	user.visible_message(span_danger("[user] [vanish_description], leaving a hole in [user.p_their()] place!"))
 
 	desc = "It's shaped an awful lot like [user.name]."
 	setDir(user.dir)
@@ -456,7 +456,7 @@
 	user.notransform = FALSE
 	user.forceMove(get_turf(src))
 
-	user.visible_message("<span class='danger'>[user] pops back into reality!</span>")
+	user.visible_message(span_danger("[user] pops back into reality!"))
 	can_destroy = TRUE
 	qdel(src)
 
@@ -519,7 +519,7 @@
 /obj/item/book_of_babel/attack_self(mob/user)
 	if(!user.can_read(src))
 		return FALSE
-	to_chat(user, "<span class='notice'>You flip through the pages of the book, quickly and conveniently learning every language in existence. Somewhat less conveniently, the aging book crumbles to dust in the process. Whoops.</span>")
+	to_chat(user, span_notice("You flip through the pages of the book, quickly and conveniently learning every language in existence. Somewhat less conveniently, the aging book crumbles to dust in the process. Whoops."))
 	user.grant_all_languages()
 	new /obj/effect/decal/cleanable/ash(get_turf(user))
 	qdel(src)
@@ -552,15 +552,15 @@
 		var/holycheck = ishumanbasic(exposed_carbon)
 		if(!HAS_TRAIT(exposed_carbon, TRAIT_CAN_USE_FLIGHT_POTION) || reac_volume < 5)
 			if((methods & INGEST) && show_message)
-				to_chat(exposed_carbon, "<span class='notice'><i>You feel nothing but a terrible aftertaste.</i></span>")
+				to_chat(exposed_carbon, span_notice("<i>You feel nothing but a terrible aftertaste.</i>"))
 			return
 		if(exposed_carbon.dna.species.has_innate_wings)
-			to_chat(exposed_carbon, "<span class='userdanger'>A terrible pain travels down your back as your wings change shape!</span>")
+			to_chat(exposed_carbon, span_userdanger("A terrible pain travels down your back as your wings change shape!"))
 		else
-			to_chat(exposed_carbon, "<span class='userdanger'>A terrible pain travels down your back as wings burst out!</span>")
+			to_chat(exposed_carbon, span_userdanger("A terrible pain travels down your back as wings burst out!"))
 		exposed_carbon.dna.species.GiveSpeciesFlight(exposed_carbon)
 		if(holycheck)
-			to_chat(exposed_carbon, "<span class='notice'>You feel blessed!</span>")
+			to_chat(exposed_carbon, span_notice("You feel blessed!"))
 			ADD_TRAIT(exposed_carbon, TRAIT_HOLY, SPECIES_TRAIT)
 		playsound(exposed_carbon.loc, 'sound/items/poster_ripped.ogg', 50, TRUE, -1)
 		exposed_carbon.adjustBruteLoss(20)
@@ -577,7 +577,7 @@
 	var/turf/T = get_turf(src)
 	var/ladder_x = T.x
 	var/ladder_y = T.y
-	to_chat(user, "<span class='notice'>You unfold the ladder. It extends much farther than you were expecting.</span>")
+	to_chat(user, span_notice("You unfold the ladder. It extends much farther than you were expecting."))
 	var/last_ladder = null
 	for(var/i in 1 to world.maxz)
 		if(is_centcom_level(i) || is_reserved_level(i) || is_away_level(i))
@@ -667,7 +667,7 @@
 	scan_ability.Remove(user)
 
 /obj/item/clothing/glasses/godeye/proc/pain(mob/living/victim)
-	to_chat(victim, "<span class='userdanger'>You experience blinding pain, as [src] burrows into your skull.</span>")
+	to_chat(victim, span_userdanger("You experience blinding pain, as [src] burrows into your skull."))
 	victim.emote("agony")
 	victim.flash_act()
 
@@ -701,7 +701,7 @@
 	scan_pinpointer.scan_target = living_scanned
 
 	living_scanned.jitteriness = 100
-	to_chat(living_scanned, "<span class='warning'>You've been staggered!</span>")
+	to_chat(living_scanned, span_warning("You've been staggered!"))
 	living_scanned.add_filter("scan", 2, list("type" = "outline", "color" = COLOR_YELLOW, "size" = 1))
 	addtimer(CALLBACK(living_scanned, /atom/.proc/remove_filter, "scan"), 30 SECONDS)
 
@@ -745,7 +745,7 @@
 
 /obj/item/organ/cyberimp/arm/katana/attack_self(mob/user, modifiers)
 	. = ..()
-	to_chat(user, "<span class='userdanger'>The mass goes up your arm and goes inside it!</span>")
+	to_chat(user, span_userdanger("The mass goes up your arm and goes inside it!"))
 	playsound(user, 'sound/magic/demon_consume.ogg', 50, TRUE)
 	var/index = user.get_held_index_of_item(src)
 	zone = (index == LEFT_HANDS ? BODY_ZONE_L_ARM : BODY_ZONE_R_ARM)
@@ -761,7 +761,7 @@
 	if(!katana || katana.shattered)
 		return
 	if(!katana.drew_blood)
-		to_chat(owner, "<span class='userdanger'>[katana] lashes out at you in hunger!</span>")
+		to_chat(owner, span_userdanger("[katana] lashes out at you in hunger!"))
 		playsound(owner, 'sound/magic/demon_attack1.ogg', 50, TRUE)
 		var/obj/item/bodypart/part = owner.get_holding_bodypart_of_item(katana)
 		if(part)
@@ -818,12 +818,12 @@
 	for(var/combo in combo_list)
 		var/list/combo_specifics = combo_list[combo]
 		var/step_string = english_list(combo_specifics[COMBO_STEPS])
-		combo_strings += "<span class='notice'><b>[combo]</b> - [step_string]</span>"
+		combo_strings += span_notice("<b>[combo]</b> - [step_string]")
 
 /obj/item/cursed_katana/examine(mob/user)
 	. = ..()
-	. += drew_blood ? "<span class='nicegreen'>It's sated... for now.</span>" : "<span class='danger'>It will not be sated until it tastes blood.</span>"
-	. += "<span class='notice'><i>There seem to be inscriptions on it... you could examine them closer?</i></span>"
+	. += drew_blood ? span_nicegreen("It's sated... for now.") : span_danger("It will not be sated until it tastes blood.")
+	. += span_notice("<i>There seem to be inscriptions on it... you could examine them closer?</i>")
 
 /obj/item/cursed_katana/examine_more(mob/user)
 	. = ..()
@@ -883,15 +883,15 @@
 		deltimer(timerid)
 
 /obj/item/cursed_katana/proc/strike(mob/living/target, mob/user)
-	user.visible_message("<span class='warning'>[user] strikes [target] with [src]'s hilt!</span>",
-		"<span class='notice'>You hilt strike [target]!</span>")
-	to_chat(target, "<span class='userdanger'>You've been struck by [user]!</span>")
+	user.visible_message(span_warning("[user] strikes [target] with [src]'s hilt!"),
+		span_notice("You hilt strike [target]!"))
+	to_chat(target, span_userdanger("You've been struck by [user]!"))
 	playsound(src, 'sound/weapons/genhit3.ogg', 50, TRUE)
 	RegisterSignal(target, COMSIG_MOVABLE_IMPACT, .proc/strike_throw_impact)
 	var/atom/throw_target = get_edge_target_turf(target, user.dir)
 	target.throw_at(throw_target, 5, 3, user, FALSE, gentle = TRUE)
 	target.apply_damage(damage = 17, bare_wound_bonus = 10)
-	to_chat(target, "<span class='userdanger'>You've been struck by [user]!</span>")
+	to_chat(target, span_userdanger("You've been struck by [user]!"))
 	user.do_attack_animation(target, ATTACK_EFFECT_PUNCH)
 
 /obj/item/cursed_katana/proc/strike_throw_impact(mob/living/source, atom/hit_atom, datum/thrownthing/thrownthing)
@@ -909,8 +909,8 @@
 	return NONE
 
 /obj/item/cursed_katana/proc/slice(mob/living/target, mob/user)
-	user.visible_message("<span class='warning'>[user] does a wide slice!</span>",
-		"<span class='notice'>You do a wide slice!</span>")
+	user.visible_message(span_warning("[user] does a wide slice!"),
+		span_notice("You do a wide slice!"))
 	playsound(src, 'sound/weapons/bladeslice.ogg', 50, TRUE)
 	var/turf/user_turf = get_turf(user)
 	var/dir_to_target = get_dir(user_turf, get_turf(target))
@@ -921,15 +921,15 @@
 		for(var/mob/living/additional_target in turf)
 			if(user.Adjacent(additional_target) && additional_target.density)
 				additional_target.apply_damage(damage = 15, sharpness = SHARP_EDGED, bare_wound_bonus = 10)
-				to_chat(additional_target, "<span class='userdanger'>You've been sliced by [user]!</span>")
+				to_chat(additional_target, span_userdanger("You've been sliced by [user]!"))
 	target.apply_damage(damage = 5, sharpness = SHARP_EDGED, wound_bonus = 10)
 
 /obj/item/cursed_katana/proc/cloak(mob/living/target, mob/user)
 	user.alpha = 150
 	user.invisibility = INVISIBILITY_OBSERVER // so hostile mobs cant see us or target us
 	user.sight |= SEE_SELF // so we can see us
-	user.visible_message("<span class='warning'>[user] vanishes into thin air!</span>",
-		"<span class='notice'>You enter the dark cloak.</span>")
+	user.visible_message(span_warning("[user] vanishes into thin air!"),
+		span_notice("You enter the dark cloak."))
 	playsound(src, 'sound/magic/smoke.ogg', 50, TRUE)
 	if(ishostile(target))
 		var/mob/living/simple_animal/hostile/hostile_target = target
@@ -940,14 +940,14 @@
 	user.alpha = 255
 	user.invisibility = 0
 	user.sight &= ~SEE_SELF
-	user.visible_message("<span class='warning'>[user] appears from thin air!</span>",
-		"<span class='notice'>You exit the dark cloak.</span>")
+	user.visible_message(span_warning("[user] appears from thin air!"),
+		span_notice("You exit the dark cloak."))
 	playsound(src, 'sound/magic/summonitems_generic.ogg', 50, TRUE)
 
 /obj/item/cursed_katana/proc/cut(mob/living/target, mob/user)
-	user.visible_message("<span class='warning'>[user] cuts [target]'s tendons!</span>",
-		"<span class='notice'>You tendon cut [target]!</span>")
-	to_chat(target, "<span class='userdanger'>Your tendons have been cut by [user]!</span>")
+	user.visible_message(span_warning("[user] cuts [target]'s tendons!"),
+		span_notice("You tendon cut [target]!"))
+	to_chat(target, span_userdanger("Your tendons have been cut by [user]!"))
 	target.apply_damage(damage = 15, sharpness = SHARP_EDGED, wound_bonus = 15)
 	user.do_attack_animation(target, ATTACK_EFFECT_DISARM)
 	playsound(src, 'sound/weapons/rapierhit.ogg', 50, TRUE)
@@ -958,9 +958,9 @@
 		status.add_stacks(6)
 
 /obj/item/cursed_katana/proc/dash(mob/living/target, mob/user)
-	user.visible_message("<span class='warning'>[user] dashes through [target]!</span>",
-		"<span class='notice'>You dash through [target]!</span>")
-	to_chat(target, "<span class='userdanger'>[user] dashes through you!</span>")
+	user.visible_message(span_warning("[user] dashes through [target]!"),
+		span_notice("You dash through [target]!"))
+	to_chat(target, span_userdanger("[user] dashes through you!"))
 	playsound(src, 'sound/magic/blink.ogg', 50, TRUE)
 	target.apply_damage(damage = 17, sharpness = SHARP_POINTY, bare_wound_bonus = 10)
 	var/turf/dash_target = get_turf(target)
@@ -976,9 +976,9 @@
 	do_teleport(user, dash_target, channel = TELEPORT_CHANNEL_MAGIC)
 
 /obj/item/cursed_katana/proc/shatter(mob/living/target, mob/user)
-	user.visible_message("<span class='warning'>[user] shatters [src] over [target]!</span>",
-		"<span class='notice'>You shatter [src] over [target]!</span>")
-	to_chat(target, "<span class='userdanger'>[user] shatters [src] over you!</span>")
+	user.visible_message(span_warning("[user] shatters [src] over [target]!"),
+		span_notice("You shatter [src] over [target]!"))
+	to_chat(target, span_userdanger("[user] shatters [src] over you!"))
 	target.apply_damage(damage = ishostile(target) ? 75 : 35, wound_bonus = 20)
 	user.do_attack_animation(target, ATTACK_EFFECT_SMASH)
 	playsound(src, 'sound/effects/glassbr3.ogg', 100, TRUE)

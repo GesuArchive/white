@@ -77,7 +77,7 @@
 
 /obj/structure/ladder/singularity_pull()
 	if (!(resistance_flags & INDESTRUCTIBLE))
-		visible_message("<span class='danger'>[capitalize(src.name)] разлетается на куски под силой гравитации!</span>")
+		visible_message(span_danger("[capitalize(src.name)] разлетается на куски под силой гравитации!"))
 		qdel(src)
 
 /obj/structure/ladder/proc/use(mob/user, going_up = TRUE)
@@ -140,7 +140,7 @@
 	var/up_down = going_up ? "поднимается" : "опускается"
 
 	//POV of players around the source
-	visible_message("<span class='notice'>[user] [up_down] по лестнице.</span>")
+	visible_message(span_notice("[user] [up_down] по лестнице."))
 	//POV of players around the destination
 	user.balloon_alert_to_viewers("[up_down]")
 

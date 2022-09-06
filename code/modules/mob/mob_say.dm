@@ -7,7 +7,7 @@
 	set instant = TRUE
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>Не могу говорить.</span>")
+		to_chat(usr, span_danger("Не могу говорить."))
 		return
 
 	//queue this message because verbs are scheduled to process after SendMaps in the tick and speech is pretty expensive when it happens.
@@ -28,7 +28,7 @@
 	set instant = TRUE
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>Не могу шептать.</span>")
+		to_chat(usr, span_danger("Не могу шептать."))
 		return
 
 	if(message)
@@ -45,7 +45,7 @@
 	set category = "IC"
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>Не могу изображать.</span>")
+		to_chat(usr, span_danger("Не могу изображать."))
 		return
 
 	message = pointization(trim(copytext_char(sanitize(message), 1, MAX_MESSAGE_LEN)))
@@ -63,7 +63,7 @@
 	var/alt_name = ""
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>Не могу говорить</span>")
+		to_chat(usr, span_danger("Не могу говорить"))
 		return
 
 	var/jb = is_banned_from(ckey, "Deadchat")
@@ -71,17 +71,17 @@
 		return
 
 	if(jb)
-		to_chat(src, "<span class='danger'>Мне нельзя говорить.</span>")
+		to_chat(src, span_danger("Мне нельзя говорить."))
 		return
 
 	if (src.client)
 		if(src.client.prefs.muted & MUTE_DEADCHAT)
-			to_chat(src, "<span class='danger'>Не хочу говорить.</span>")
+			to_chat(src, span_danger("Не хочу говорить."))
 			return
 /*
 		if(SSlag_switch.measures[SLOWMODE_SAY] && !HAS_TRAIT(src, TRAIT_BYPASS_MEASURES) && src == usr)
 			if(!COOLDOWN_FINISHED(client, say_slowmode))
-				to_chat(src, "<span class='warning'>Сообщение не было отправлено из-за ограничений. Подождите [SSlag_switch.slowmode_cooldown/10] секунд.\n\"[message]\"</span>")
+				to_chat(src, span_warning("Сообщение не было отправлено из-за ограничений. Подождите [SSlag_switch.slowmode_cooldown/10] секунд.\n\"[message]\""))
 				return
 			COOLDOWN_START(client, say_slowmode, SSlag_switch.slowmode_cooldown)
 */

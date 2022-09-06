@@ -17,9 +17,9 @@
 /datum/action/bloodsucker/trackvamp/ActivatePower()
 	. = ..()
 	/// Return text indicating direction
-	to_chat(owner, "<span class='notice'>You look around, scanning your environment and discerning signs of any filthy, wretched affronts to the natural order...</span>")
+	to_chat(owner, span_notice("You look around, scanning your environment and discerning signs of any filthy, wretched affronts to the natural order..."))
 	if(!do_mob(owner, owner, 6 SECONDS))
-		to_chat(owner,"<span class='warning'>You were interrupted and lost the tracks!</span>")
+		to_chat(owner,span_warning("You were interrupted and lost the tracks!"))
 		DeactivatePower()
 		return
 	if(give_pinpointer)
@@ -68,8 +68,8 @@
 	/// Found one!
 	if(closest_monster)
 		var/distString = closest_dist <= HUNTER_SCAN_MAX_DISTANCE / 2 ? "<b>somewhere nearby!</b>" : "somewhere in the distance."
-		to_chat(owner, "<span class='warning'>You detect signs of monsters [distString]</span>")
+		to_chat(owner, span_warning("You detect signs of monsters [distString]"))
 
 	/// Will yield a "?"
 	else
-		to_chat(owner, "<span class='notice'>There are no monsters nearby.</span>")
+		to_chat(owner, span_notice("There are no monsters nearby."))

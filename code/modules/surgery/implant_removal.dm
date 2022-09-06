@@ -17,20 +17,20 @@
 		I = O
 		break
 	if(I)
-		display_results(user, target, "<span class='notice'>Начинаю извлекать [I] из [ru_otkuda_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]...</span>" ,
-			"<span class='notice'>[user] начинает извлекать [I] из [ru_otkuda_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
-			"<span class='notice'>[user] начинает извлекать что-то из [ru_otkuda_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].</span>")
+		display_results(user, target, span_notice("Начинаю извлекать [I] из [ru_otkuda_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает извлекать [I] из [ru_otkuda_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] начинает извлекать что-то из [ru_otkuda_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]."))
 		display_pain(target, "Чувствую сильную боль в [ru_gde_zone(target_zone)]!")
 	else
-		display_results(user, target, "<span class='notice'>Начинаю искать микроимпланты в [ru_gde_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]...</span>" ,
-			"<span class='notice'>[user] начинает искать микроимпланты в [ru_gde_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
-			"<span class='notice'>[user] начинает искать что-то в [ru_gde_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].</span>")
+		display_results(user, target, span_notice("Начинаю искать микроимпланты в [ru_gde_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]...") ,
+			span_notice("[user] начинает искать микроимпланты в [ru_gde_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] начинает искать что-то в [ru_gde_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]."))
 
 /datum/surgery_step/extract_implant/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	if(I)
-		display_results(user, target, "<span class='notice'>Извлекаю [I] из [ru_otkuda_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].</span>" ,
-			"<span class='notice'>[user] успешно извлек [I] из [ru_otkuda_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
-			"<span class='notice'>[user] успешно извлек что-то из [ru_otkuda_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
+		display_results(user, target, span_notice("Извлекаю [I] из [ru_otkuda_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)].") ,
+			span_notice("[user] успешно извлек [I] из [ru_otkuda_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!") ,
+			span_notice("[user] успешно извлек что-то из [ru_otkuda_zone(target_zone)] [skloname(target.name, RODITELNI, target.gender)]!") ,
 			playsound(get_turf(target), 'sound/surgery/organ2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 		display_pain(target, "Ауч! Кажется из меня что-то вытащили!")
 		I.removed(target)
@@ -45,14 +45,14 @@
 			case.imp = I
 			I.forceMove(case)
 			case.update_icon()
-			display_results(user, target, "<span class='notice'>Помещаю [I] в [case].</span>" ,
-				"<span class='notice'>[user] помещает [I] в [case]!</span>" ,
-				"<span class='notice'>[user] помещает что-то в [case]!</span>")
+			display_results(user, target, span_notice("Помещаю [I] в [case].") ,
+				span_notice("[user] помещает [I] в [case]!") ,
+				span_notice("[user] помещает что-то в [case]!"))
 		else
 			qdel(I)
 
 	else
-		to_chat(user, "<span class='warning'>Я ничего не нашел в [target_zone] [skloname(target.name, RODITELNI, target.gender)]!</span>")
+		to_chat(user, span_warning("Я ничего не нашел в [target_zone] [skloname(target.name, RODITELNI, target.gender)]!"))
 	return ..()
 
 /datum/surgery/implant_removal/mechanic

@@ -359,7 +359,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 	if(!istype(H))
 		return
 
-	to_chat(H, "<span class='userdanger'>ДАВАЙ! ДАВАЙ! ДАВАЙ!</span>")
+	to_chat(H, span_userdanger("ДАВАЙ! ДАВАЙ! ДАВАЙ!"))
 
 	H.hallucination = 500
 
@@ -374,7 +374,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 	if(!where)
 		return
 	else
-		to_chat(H, "<span class='userdanger'>Мне подкинули маяк в [where]. При активации двигателей они выдадут своё местоположение.</span>")
+		to_chat(H, span_userdanger("Мне подкинули маяк в [where]. При активации двигателей они выдадут своё местоположение."))
 		if(where == "сумку")
 			SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
 

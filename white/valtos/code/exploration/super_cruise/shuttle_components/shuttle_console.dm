@@ -70,9 +70,9 @@
 				say("Шаттл прибыл в точку назначения.")
 				QDEL_NULL(shuttleObject)
 			if(1)
-				to_chat(usr, "<span class='warning'>Неправильный шаттл запрошен.</span>")
+				to_chat(usr, span_warning("Неправильный шаттл запрошен."))
 			else
-				to_chat(usr, "<span class='notice'>БЛЯТЬ!</span>")
+				to_chat(usr, span_notice("БЛЯТЬ!"))
 
 /obj/machinery/computer/shuttle_flight/ui_state(mob/user)
 	return GLOB.default_state
@@ -84,7 +84,7 @@
 	//Ash walkers cannot use the console because they are unga bungas
 	if(user.mind?.has_antag_datum(/datum/antagonist/ashwalker))
 		say("Пошёл нахуй, ящер ёбаный.")
-		//to_chat(user, "<span class='warning'>Пошёл на хуй, ящер ёбаный.</span>")
+		//to_chat(user, span_warning("Пошёл на хуй, ящер ёбаный."))
 		return
 	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -264,7 +264,7 @@
 				say("Шаттл не летит.")
 				return
 			if(shuttleObject.autopilot)
-				to_chat(usr, "<span class='warning'>Работает автопилот.</span>")
+				to_chat(usr, span_warning("Работает автопилот."))
 				return
 			shuttleObject.thrust = clamp(params["thrust"], 0, 100)
 		if("setAngle")
@@ -272,7 +272,7 @@
 				say("Шаттл не летит.")
 				return
 			if(shuttleObject.autopilot)
-				to_chat(usr, "<span class='warning'>Работает автопилот.</span>")
+				to_chat(usr, span_warning("Работает автопилот."))
 				return
 			shuttleObject.angle = params["angle"]
 		if("nautopilot")
@@ -375,7 +375,7 @@
 						say("Консоль блокирована.")
 						return
 					if(current_user)
-						to_chat(usr, "<span class='warning'>Кто-то уже стыкуется.</span>")
+						to_chat(usr, span_warning("Кто-то уже стыкуется."))
 						return
 					view_range = max(mobile_port.width, mobile_port.height) + 4
 					give_eye_control(usr)
@@ -413,9 +413,9 @@
 					say("Активирован протокол стыковки, ожидайте...")
 					INVOKE_ASYNC(src, .proc/unfreeze_shuttle, mobile_port, SSmapping.get_level(target_port.z))
 				if(1)
-					to_chat(usr, "<span class='warning'>Неправильный шаттл запрошен.</span>")
+					to_chat(usr, span_warning("Неправильный шаттл запрошен."))
 				else
-					to_chat(usr, "<span class='notice'>Ошибка! Данные повреждены.</span>")
+					to_chat(usr, span_notice("Ошибка! Данные повреждены."))
 
 /obj/machinery/computer/shuttle_flight/proc/launch_shuttle()
 	if(check_banned_contents())
@@ -544,7 +544,7 @@
 		return
 	req_access = list()
 	obj_flags |= EMAGGED
-	to_chat(user, "<span class='notice'>Сжигаю консоль.</span>")
+	to_chat(user, span_notice("Сжигаю консоль."))
 
 // temp solution
 

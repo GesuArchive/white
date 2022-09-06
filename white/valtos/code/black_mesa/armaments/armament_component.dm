@@ -63,7 +63,7 @@
 		return
 
 	if(!check_access(user))
-		to_chat(user, "<span class='warning'>You don't have the required access!</span>")
+		to_chat(user, span_warning("You don't have the required access!"))
 		return
 
 	INVOKE_ASYNC(src, .proc/ui_interact, user)
@@ -145,11 +145,11 @@
 	if(!armament_entry.magazine)
 		return
 	if(!inserted_card)
-		to_chat(user, "<span class='warning'>No card inserted!</span>")
+		to_chat(user, span_warning("No card inserted!"))
 		return
 	var/quantity_cost = armament_entry.magazine_cost * quantity
 	if(!inserted_card.use_points(quantity_cost))
-		to_chat(user, "<span class='warning'>Not enough points!</span>")
+		to_chat(user, span_warning("Not enough points!"))
 		return
 	for(var/i in 1 to quantity)
 		new armament_entry.magazine(parent_atom.drop_location())
@@ -171,28 +171,28 @@
 
 /datum/component/armament/proc/eject_card(mob/user)
 	if(!inserted_card)
-		to_chat(user, "<span class='warning'>No card inserted!</span>")
+		to_chat(user, span_warning("No card inserted!"))
 		return
 	inserted_card.forceMove(parent_atom.drop_location())
 	user.put_in_hands(inserted_card)
 	inserted_card = null
-	to_chat(user, "<span class='notice'>Card ejected!</span>")
+	to_chat(user, span_notice("Card ejected!"))
 	playsound(src, 'sound/machines/terminal_insert_disc.ogg', 70)
 
 /datum/component/armament/proc/select_armament(mob/user, datum/armament_entry/armament_entry)
 	if(!inserted_card)
-		to_chat(user, "<span class='warning'>No card inserted!</span>")
+		to_chat(user, span_warning("No card inserted!"))
 		return
 	if(used_categories[armament_entry.category] >= GLOB.armament_entries[armament_entry.category][CATEGORY_LIMIT])
-		to_chat(user, "<span class='warning'>Category limit reached!</span>")
+		to_chat(user, span_warning("Category limit reached!"))
 		return
 	if(purchased_items[armament_entry] >= armament_entry.max_purchase)
-		to_chat(user, "<span class='warning'>Item limit reached!</span>")
+		to_chat(user, span_warning("Item limit reached!"))
 		return
 	if(!ishuman(user))
 		return
 	if(!inserted_card.use_points(armament_entry.cost))
-		to_chat(user, "<span class='warning'>Not enough points!</span>")
+		to_chat(user, span_warning("Not enough points!"))
 		return
 
 	var/mob/living/carbon/human/human_to_equip = user
@@ -205,7 +205,7 @@
 	playsound(src, 'sound/machines/machine_vend.ogg', 50, TRUE, extrarange = -3)
 
 	if(armament_entry.equip_to_human(human_to_equip, new_item))
-		to_chat(user, "<span class='notice'>Equipped directly to your person.</span>")
+		to_chat(user, span_notice("Equipped directly to your person."))
 		playsound(src, 'sound/items/equip/toolbelt_equip.ogg', 100)
 	armament_entry.after_equip(parent_atom.drop_location(), new_item)
 

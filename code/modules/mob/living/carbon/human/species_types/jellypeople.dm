@@ -47,7 +47,7 @@
 	if(!H.blood_volume)
 		H.blood_volume += 2.5 * delta_time
 		H.adjustBruteLoss(2.5 * delta_time)
-		to_chat(H, "<span class='danger'>You feel empty!</span>")
+		to_chat(H, span_danger("You feel empty!"))
 
 	if(H.blood_volume < BLOOD_VOLUME_NORMAL)
 		if(H.nutrition >= NUTRITION_LEVEL_STARVING)
@@ -56,7 +56,7 @@
 
 	if(H.blood_volume < BLOOD_VOLUME_OKAY)
 		if(DT_PROB(2.5, delta_time))
-			to_chat(H, "<span class='danger'>You feel drained!</span>")
+			to_chat(H, span_danger("You feel drained!"))
 
 	if(H.blood_volume < BLOOD_VOLUME_BAD)
 		Cannibalize_Body(H)
@@ -74,7 +74,7 @@
 		limbs_to_consume -= list(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM)
 	consumed_limb = H.get_bodypart(pick(limbs_to_consume))
 	consumed_limb.drop_limb()
-	to_chat(H, "<span class='userdanger'>Your [consumed_limb] is drawn back into your body, unable to maintain its shape!</span>")
+	to_chat(H, span_userdanger("Your [consumed_limb] is drawn back into your body, unable to maintain its shape!"))
 	qdel(consumed_limb)
 	H.blood_volume += 20
 
@@ -100,13 +100,13 @@
 	var/mob/living/carbon/human/H = owner
 	var/list/limbs_to_heal = H.get_missing_limbs()
 	if(limbs_to_heal.len < 1)
-		to_chat(H, "<span class='notice'>You feel intact enough as it is.</span>")
+		to_chat(H, span_notice("You feel intact enough as it is."))
 		return
-	to_chat(H, "<span class='notice'>You focus intently on your missing [limbs_to_heal.len >= 2 ? "limbs" : "limb"]...</span>")
+	to_chat(H, span_notice("You focus intently on your missing [limbs_to_heal.len >= 2 ? "limbs" : "limb"]..."))
 	if(H.blood_volume >= 40*limbs_to_heal.len+BLOOD_VOLUME_OKAY)
 		H.regenerate_limbs()
 		H.blood_volume -= 40*limbs_to_heal.len
-		to_chat(H, "<span class='notice'>...and after a moment you finish reforming!</span>")
+		to_chat(H, span_notice("...and after a moment you finish reforming!"))
 		return
 	else if(H.blood_volume >= 40)//We can partially heal some limbs
 		while(H.blood_volume >= BLOOD_VOLUME_OKAY+40)
@@ -114,9 +114,9 @@
 			H.regenerate_limb(healed_limb)
 			limbs_to_heal -= healed_limb
 			H.blood_volume -= 40
-		to_chat(H, "<span class='warning'>...but there is not enough of you to fix everything! You must attain more mass to heal completely!</span>")
+		to_chat(H, span_warning("...but there is not enough of you to fix everything! You must attain more mass to heal completely!"))
 		return
-	to_chat(H, "<span class='warning'>...but there is not enough of you to go around! You must attain more mass to heal!</span>")
+	to_chat(H, span_warning("...but there is not enough of you to go around! You must attain more mass to heal!"))
 
 ////////////////////////////////////////////////////////SLIMEPEOPLE///////////////////////////////////////////////////////////////////
 
@@ -180,7 +180,7 @@
 /datum/species/jelly/slime/spec_life(mob/living/carbon/human/H, delta_time, times_fired)
 	if(H.blood_volume >= BLOOD_VOLUME_SLIME_SPLIT)
 		if(DT_PROB(2.5, delta_time))
-			to_chat(H, "<span class='notice'>You feel very bloated!</span>")
+			to_chat(H, span_notice("You feel very bloated!"))
 
 	else if(H.nutrition >= NUTRITION_LEVEL_WELL_FED)
 		H.blood_volume += 1.5 * delta_time
@@ -220,9 +220,9 @@
 		if(H.blood_volume >= BLOOD_VOLUME_SLIME_SPLIT)
 			make_dupe()
 		else
-			to_chat(H, "<span class='warning'>...but there is not enough of you to go around! You must attain more mass to split!</span>")
+			to_chat(H, span_warning("...but there is not enough of you to go around! You must attain more mass to split!"))
 	else
-		to_chat(H, "<span class='warning'>...but fail to stand perfectly still!</span>")
+		to_chat(H, span_warning("...but fail to stand perfectly still!"))
 
 	H.notransform = FALSE
 
@@ -267,7 +267,7 @@
 
 /datum/action/innate/swap_body/Activate()
 	if(!isslimeperson(owner))
-		to_chat(owner, "<span class='warning'>You are not a slimeperson.</span>")
+		to_chat(owner, span_warning("You are not a slimeperson."))
 		Remove(owner)
 	else
 		ui_interact(owner)
@@ -392,14 +392,14 @@
 	if(M.current.stat == CONSCIOUS)
 		M.current.visible_message("<span class='notice'>[M.current] \
 			stops moving and starts staring vacantly into space.</span>",
-			"<span class='notice'>You stop moving this body...</span>")
+			span_notice("You stop moving this body..."))
 	else
-		to_chat(M.current, "<span class='notice'>You abandon this body...</span>")
+		to_chat(M.current, span_notice("You abandon this body..."))
 	M.current.transfer_trait_datums(dupe)
 	M.transfer_to(dupe)
 	dupe.visible_message("<span class='notice'>[dupe] blinks and looks \
 		around.</span>",
-		"<span class='notice'>...and move this one instead.</span>")
+		span_notice("...and move this one instead."))
 
 
 ///////////////////////////////////LUMINESCENTS//////////////////////////////////////////
@@ -517,23 +517,23 @@
 		if(!H.put_in_active_hand(S))
 			S.forceMove(H.drop_location())
 		species.current_extract = null
-		to_chat(H, "<span class='notice'>You eject [S].</span>")
+		to_chat(H, span_notice("You eject [S]."))
 		species.update_slime_actions()
 	else
 		var/obj/item/I = H.get_active_held_item()
 		if(istype(I, /obj/item/slime_extract))
 			var/obj/item/slime_extract/S = I
 			if(!S.Uses)
-				to_chat(H, "<span class='warning'>[I] is spent! You cannot integrate it.</span>")
+				to_chat(H, span_warning("[I] is spent! You cannot integrate it."))
 				return
 			if(!H.temporarilyRemoveItemFromInventory(S))
 				return
 			S.forceMove(H)
 			species.current_extract = S
-			to_chat(H, "<span class='notice'>You consume [I], and you feel it pulse within you...</span>")
+			to_chat(H, span_notice("You consume [I], and you feel it pulse within you..."))
 			species.update_slime_actions()
 		else
-			to_chat(H, "<span class='warning'>You need to hold an unused slime extract in your active hand!</span>")
+			to_chat(H, span_warning("You need to hold an unused slime extract in your active hand!"))
 
 /datum/action/innate/use_extract
 	name = "Extract Minor Activation"
@@ -631,7 +631,7 @@
 	for(var/mob/living/recipient in oview(telepath))
 		recipient_options.Add(recipient)
 	if(!length(recipient_options))
-		to_chat(telepath, "<span class='warning'>You don't see anyone to send your thought to.</span>")
+		to_chat(telepath, span_warning("You don't see anyone to send your thought to."))
 		return
 	var/mob/living/recipient = tgui_input_list(telepath, "Choose a telepathic message recipient", "Telepathy", sort_names(recipient_options))
 	if(isnull(recipient))
@@ -640,17 +640,17 @@
 	if(isnull(msg))
 		return
 	if(recipient.can_block_magic(MAGIC_RESISTANCE_MIND, charge_cost = 0))
-		to_chat(telepath, "<span class='warning'>As you reach into [recipient]'s mind, you are stopped by a mental blockage. It seems you've been foiled.</span>")
+		to_chat(telepath, span_warning("As you reach into [recipient]'s mind, you are stopped by a mental blockage. It seems you've been foiled."))
 		return
 	log_directed_talk(telepath, recipient, msg, LOG_SAY, "slime telepathy")
-	to_chat(recipient, "["<span class='notice'>You hear an alien voice in your head... </span>"]<font color=#008CA2>[msg]</font>")
-	to_chat(telepath, "<span class='notice'>You telepathically said: \"[msg]\" to [recipient]</span>")
+	to_chat(recipient, "[span_notice("You hear an alien voice in your head... ")]<font color=#008CA2>[msg]</font>")
+	to_chat(telepath, span_notice("You telepathically said: \"[msg]\" to [recipient]"))
 	for(var/dead in GLOB.dead_mob_list)
 		if(!isobserver(dead))
 			continue
 		var/follow_link_user = FOLLOW_LINK(dead, telepath)
 		var/follow_link_target = FOLLOW_LINK(dead, recipient)
-		to_chat(dead, "[follow_link_user] ["<span class='name'>[telepath]</span>"] ["<span class='alertalien'>Slime Telepathy --> </span>"] [follow_link_target] ["<span class='name'>[recipient]</span>"] ["<span class='noticealien'>[msg]</span>"]")
+		to_chat(dead, "[follow_link_user] [span_name("[telepath]")] [span_alertalien("Slime Telepathy --> ")] [follow_link_target] [span_name("[recipient]")] [span_noticealien("[msg]")]")
 
 /datum/action/innate/link_minds
 	name = "Link Minds"
@@ -682,21 +682,21 @@
 
 /datum/action/innate/link_minds/Activate()
 	if(!isliving(owner.pulling) || owner.grab_state < GRAB_AGGRESSIVE)
-		to_chat(owner, "<span class='warning'>You need to aggressively grab someone to link minds!</span>")
+		to_chat(owner, span_warning("You need to aggressively grab someone to link minds!"))
 		return
 
 	var/mob/living/living_target = owner.pulling
 	if(living_target.stat == DEAD)
-		to_chat(owner, "<span class='warning'>They're dead!</span>")
+		to_chat(owner, span_warning("They're dead!"))
 		return
 
-	to_chat(owner, "<span class='notice'>You begin linking [living_target]'s mind to yours...</span>")
-	to_chat(living_target, "<span class='warning'>You feel a foreign presence within your mind...</span>")
+	to_chat(owner, span_notice("You begin linking [living_target]'s mind to yours..."))
+	to_chat(living_target, span_warning("You feel a foreign presence within your mind..."))
 	currently_linking = TRUE
 
 	if(!do_after(owner, 6 SECONDS, target = living_target, extra_checks = CALLBACK(src, .proc/while_link_callback, living_target)))
-		to_chat(owner, "<span class='warning'>You can't seem to link [living_target]'s mind.</span>")
-		to_chat(living_target, "<span class='warning'>The foreign presence leaves your mind.</span>")
+		to_chat(owner, span_warning("You can't seem to link [living_target]'s mind."))
+		to_chat(living_target, span_warning("The foreign presence leaves your mind."))
 		currently_linking = FALSE
 		return
 
@@ -706,8 +706,8 @@
 
 	var/datum/component/mind_linker/linker = target
 	if(!linker.link_mob(living_target))
-		to_chat(owner, "<span class='warning'>You can't seem to link [living_target]'s mind.</span>")
-		to_chat(living_target, "<span class='warning'>The foreign presence leaves your mind.</span>")
+		to_chat(owner, span_warning("You can't seem to link [living_target]'s mind."))
+		to_chat(living_target, span_warning("The foreign presence leaves your mind."))
 
 
 /// Callback ran during the do_after of Activate() to see if we can keep linking with someone.

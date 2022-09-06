@@ -83,7 +83,7 @@ SUBSYSTEM_DEF(job)
 	occupations = list()
 	var/list/all_jobs = subtypesof(/datum/job)
 	if(!all_jobs.len)
-		to_chat(world, "<span class='boldannounce'>Error setting up jobs, no job datums found</span>")
+		to_chat(world, span_boldannounce("Error setting up jobs, no job datums found"))
 		return FALSE
 
 	var/list/new_joinable_departments_by_type = list()
@@ -559,7 +559,7 @@ SUBSYSTEM_DEF(job)
 				M.client.holder.auto_deadmin()
 			else
 				handle_auto_deadmin_roles(M.client, rank)
-		to_chat(M, "<span class='notice'>\nКак <b>[ru_job_parse(rank)]</b>, я подчиняюсь [job.supervisors]. Некоторые обстоятельства могут изменить это.</span>")
+		to_chat(M, span_notice("\nКак <b>[ru_job_parse(rank)]</b>, я подчиняюсь [job.supervisors]. Некоторые обстоятельства могут изменить это."))
 		job.radio_help_message(M)
 		if(job.req_admin_notify)
 			to_chat(M, "\n<span class='revenbignotice'>Это ответственная должность. Перед уходом стоит найти себе замену.</spawn>")
@@ -853,9 +853,9 @@ SUBSYSTEM_DEF(job)
 	var/where = new_captain.equip_in_one_of_slots(paper, slots, FALSE) || "мои ляшки"
 
 	if(acting_captain)
-		to_chat(new_captain, "<span class='notice'>Учитывая мою должность на станции, меня назначили её Капитаном. Важный документ подкинули в [ru_parse_zone(where)].</span>")
+		to_chat(new_captain, span_notice("Учитывая мою должность на станции, меня назначили её Капитаном. Важный документ подкинули в [ru_parse_zone(where)]."))
 	else
-		to_chat(new_captain, "<span class='notice'>Сейф можно найти в капитанской каюте, либо на мостике. Важный документ положили в [ru_parse_zone(where)].</span>")
+		to_chat(new_captain, span_notice("Сейф можно найти в капитанской каюте, либо на мостике. Важный документ положили в [ru_parse_zone(where)]."))
 
 	// Force-give their ID card bridge access.
 	var/obj/item/id_slot = new_captain.get_item_by_slot(ITEM_SLOT_ID)

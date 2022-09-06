@@ -438,12 +438,12 @@
 					user.put_in_hands(result)
 				else
 					result.forceMove(user.drop_location())
-				to_chat(user, "<span class='notice'>[crafting_recipe.name] создано.</span>")
+				to_chat(user, span_notice("[crafting_recipe.name] создано."))
 				user.mind.adjust_experience(/datum/skill/engineering, crafting_recipe.time)
 				user.investigate_log("[key_name(user)] crafted [crafting_recipe]", INVESTIGATE_CRAFTING)
 				crafting_recipe.on_craft_completion(user, result)
 			else
-				to_chat(user, "<span class='warning'>Создание провалено[result]</span>")
+				to_chat(user, span_warning("Создание провалено[result]"))
 			busy = FALSE
 		if("toggle_recipes")
 			display_craftable_only = !display_craftable_only

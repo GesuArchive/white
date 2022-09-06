@@ -173,9 +173,9 @@
 
 /datum/team/gang/roundend_report()
 	var/list/report = list()
-	report += "<span class='header'>[name]:</span>"
+	report += span_header("[name]:")
 	if(!members.len)
-		report += "<span class='redtext'>The family was wiped out!</span>"
+		report += span_redtext("The family was wiped out!")
 	if(current_theme.everyone_objective)
 		report += "Objective: [current_theme.everyone_objective]"
 	else
@@ -216,18 +216,18 @@
 
 	var/obj/item/slapper/secret_handshake/secret_handshake_item = new(owner)
 	if(owner.put_in_hands(secret_handshake_item))
-		to_chat(owner, "<span class='notice'>You ready your secret handshake.</span>")
+		to_chat(owner, span_notice("You ready your secret handshake."))
 	else
 		qdel(secret_handshake_item)
-		to_chat(owner, "<span class='warning'>You're incapable of performing a handshake in your current state.</span>")
+		to_chat(owner, span_warning("You're incapable of performing a handshake in your current state."))
 		return FALSE
-	owner.visible_message("<span class='notice'>[src] is offering to induct people into the Family.</span>",
-		"<span class='notice'>You offer to induct people into the Family.</span>", null, 2)
+	owner.visible_message(span_notice("[src] is offering to induct people into the Family."),
+		span_notice("You offer to induct people into the Family."), null, 2)
 	if(H.has_status_effect(STATUS_EFFECT_HANDSHAKE))
 		return FALSE
 	if(!(locate(/mob/living/carbon) in orange(1, owner)))
-		owner.visible_message("<span class='danger'>[src] offers to induct people into the Family, but nobody was around.</span>", \
-			"<span class='warning'>You offer to induct people into the Family, but nobody is around.</span>", null, 2)
+		owner.visible_message(span_danger("[src] offers to induct people into the Family, but nobody was around."), \
+			span_warning("You offer to induct people into the Family, but nobody is around."), null, 2)
 		return FALSE
 
 	H.apply_status_effect(STATUS_EFFECT_HANDSHAKE, secret_handshake_item)

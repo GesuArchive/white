@@ -185,7 +185,7 @@
 	if(!isliving(target))
 		if(!target.density || target.CanPass(source, get_dir(target, source)))
 			return
-		source.visible_message("<span class='danger'>[source] smashes into [target]!</span>")
+		source.visible_message(span_danger("[source] smashes into [target]!"))
 		if(!living_source)
 			return
 		living_source.Stun(6, ignore_canstun = TRUE)
@@ -198,7 +198,7 @@
 			living_source.Stun(6, ignore_canstun = TRUE)
 			return
 
-	living_target.visible_message("<span class='danger'>[source] charges on [living_target]!</span>", "<span class='userdanger'>[source] charges into you!</span>")
+	living_target.visible_message(span_danger("[source] charges on [living_target]!"), span_userdanger("[source] charges into you!"))
 	living_target.Knockdown(6)
 
 /datum/action/cooldown/mob_cooldown/charge/triple_charge

@@ -17,7 +17,7 @@
 
 /obj/item/book/granter/action/spell/mindswap/on_reading_finished()
 	. = ..()
-	visible_message("<span class='notice'>[src] begins to shake and shift.</span>")
+	visible_message(span_notice("[src] begins to shake and shift."))
 	action_name = pick(
 		"fireball",
 		"smoke",
@@ -35,23 +35,23 @@
 	var/mob/living/real_stored_swap = stored_swap_ref?.resolve()
 	if(QDELETED(real_stored_swap))
 		stored_swap_ref = WEAKREF(user)
-		to_chat(user, "<span class='warning'>For a moment you feel like you don't even know who you are anymore.</span>")
+		to_chat(user, span_warning("For a moment you feel like you don't even know who you are anymore."))
 		return
 	if(real_stored_swap.stat == DEAD)
 		stored_swap_ref = null
 		return
 	if(real_stored_swap == user)
-		to_chat(user, "<span class='notice'>You stare at the book some more, but there doesn't seem to be anything else to learn...</span>")
+		to_chat(user, span_notice("You stare at the book some more, but there doesn't seem to be anything else to learn..."))
 		return
 
 	var/datum/action/cooldown/spell/pointed/mind_transfer/swapper = new(src)
 
 	if(swapper.swap_minds(user, real_stored_swap))
-		to_chat(user, "<span class='warning'>You're suddenly somewhere else... and someone else?!</span>")
-		to_chat(real_stored_swap, "<span class='warning'>Suddenly you're staring at [src] again... where are you, who are you?!</span>")
+		to_chat(user, span_warning("You're suddenly somewhere else... and someone else?!"))
+		to_chat(real_stored_swap, span_warning("Suddenly you're staring at [src] again... where are you, who are you?!"))
 
 	else
 		// if the mind_transfer failed to transfer mobs (likely due to the target being catatonic).
-		user.visible_message("<span class='warning'>[src] fizzles slightly as it stops glowing!</span>")
+		user.visible_message(span_warning("[src] fizzles slightly as it stops glowing!"))
 
 	stored_swap_ref = null

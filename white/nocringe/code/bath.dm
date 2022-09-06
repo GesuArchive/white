@@ -67,9 +67,9 @@
 		set_anchored(!anchored)
 		leaking = !leaking
 		tool.play_tool_sound(src, 75)
-		user.visible_message("<span class='notice'><b>[user]</b> [anchored ? "прикручивает" : "откручивает"] <b>ванну</b> [anchored ? "к полу" : "от пола"].</span>" , \
-						"<span class='notice'>[anchored ? "Прикручиваю" : "Откручиваю"] <b>ванну</b> [anchored ? "к полу" : "от пола"].</span>" , \
-						"<span class='hear'>Слышу трещотку.</span>")
+		user.visible_message(span_notice("<b>[user]</b> [anchored ? "прикручивает" : "откручивает"] <b>ванну</b> [anchored ? "к полу" : "от пола"].") , \
+						span_notice("[anchored ? "Прикручиваю" : "Откручиваю"] <b>ванну</b> [anchored ? "к полу" : "от пола"].") , \
+						span_hear("Слышу трещотку."))
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
 /obj/structure/reagent_dispensers/bath/examine(mob/user)

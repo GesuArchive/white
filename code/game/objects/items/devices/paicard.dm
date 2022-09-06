@@ -23,7 +23,7 @@
 	var/emotion_icon = "off"
 
 /obj/item/paicard/suicide_act(mob/living/user)
-	user.visible_message("<span class='suicide'>[user] is staring sadly at [src]! [user.ru_who()] can't keep living without real human intimacy!</span>")
+	user.visible_message(span_suicide("[user] is staring sadly at [src]! [user.ru_who()] can't keep living without real human intimacy!"))
 	return OXYLOSS
 
 /obj/item/paicard/Initialize(mapload)
@@ -120,8 +120,8 @@
 			setPersonality(new_pai)
 			SSpai.candidates -= candidate
 		if("fix_speech")
-			to_chat(pai, "<span class='notice'>Your owner has corrected your speech modulation!</span>")
-			to_chat(usr, "<span class='notice'>You fix the pAI's speech modulator.</span>")
+			to_chat(pai, span_notice("Your owner has corrected your speech modulation!"))
+			to_chat(usr, span_notice("You fix the pAI's speech modulator."))
 			pai.stuttering = 0
 			pai.slurring = 0
 			pai.derpspeech = 0
@@ -132,12 +132,12 @@
 			if(pai.master_dna)
 				return
 			if(!iscarbon(usr))
-				to_chat(usr, "<span class='warning'>You don't have any DNA, or your DNA is incompatible with this device!</span>")
+				to_chat(usr, span_warning("You don't have any DNA, or your DNA is incompatible with this device!"))
 			else
 				var/mob/living/carbon/master = usr
 				pai.master = master.real_name
 				pai.master_dna = master.dna.unique_enzymes
-				to_chat(pai, "<span class='notice'>You have been bound to a new master.</span>")
+				to_chat(pai, span_notice("You have been bound to a new master."))
 				pai.laws.set_zeroth_law("Serve your master.")
 				pai.emittersemicd = FALSE
 		if("set_laws")
@@ -146,13 +146,13 @@
 				pai.add_supplied_law(0,newlaws)
 		if("toggle_holo")
 			if(pai.canholo)
-				to_chat(pai, "<span class='warning'>Your owner has disabled your holomatrix projectors!</span>")
+				to_chat(pai, span_warning("Your owner has disabled your holomatrix projectors!"))
 				pai.canholo = FALSE
-				to_chat(usr, "<span class='notice'>You disable your pAI's holomatrix!</span>")
+				to_chat(usr, span_notice("You disable your pAI's holomatrix!"))
 			else
-				to_chat(pai, "<span class='notice'>Your owner has enabled your holomatrix projectors!</span>")
+				to_chat(pai, span_notice("Your owner has enabled your holomatrix projectors!"))
 				pai.canholo = TRUE
-				to_chat(usr, "<span class='notice'>You enable your pAI's holomatrix!</span>")
+				to_chat(usr, span_notice("You enable your pAI's holomatrix!"))
 		if("toggle_radio")
 			var/transmitting = params["option"] == "transmit" //it can't be both so if we know it's not transmitting it must be receiving.
 			var/transmit_holder = (transmitting ? WIRE_TX : WIRE_RX)
@@ -162,18 +162,18 @@
 				pai.can_receive = !pai.can_receive
 			pai.radio.wires.cut(transmit_holder)//wires.cut toggles cut and uncut states
 			transmit_holder = (transmitting ? pai.can_transmit : pai.can_receive) //recycling can be fun!
-			to_chat(usr, "<span class='notice'>You [transmit_holder ? "enable" : "disable"] your pAI's [transmitting ? "outgoing" : "incoming"] radio transmissions!</span>")
-			to_chat(pai, "<span class='notice'>Your owner has [transmit_holder ? "enabled" : "disabled"] your [transmitting ? "outgoing" : "incoming"] radio transmissions!</span>")
+			to_chat(usr, span_notice("You [transmit_holder ? "enable" : "disable"] your pAI's [transmitting ? "outgoing" : "incoming"] radio transmissions!"))
+			to_chat(pai, span_notice("Your owner has [transmit_holder ? "enabled" : "disabled"] your [transmitting ? "outgoing" : "incoming"] radio transmissions!"))
 		if("wipe_pai")
 			var/confirm = alert(usr, "Are you certain you wish to delete the current personality? This action cannot be undone.", "Personality Wipe", list("Yes", "No"))
 			if(confirm != "Yes")
 				return
 			if(!pai)
 				return
-			to_chat(pai, "<span class='warning'>You feel yourself slipping away from reality.</span>")
-			to_chat(pai, "<span class='danger'>Byte by byte you lose your sense of self.</span>")
-			to_chat(pai, "<span class='userdanger'>Your mental faculties leave you.</span>")
-			to_chat(pai, "<span class='rose'>oblivion... </span>")
+			to_chat(pai, span_warning("You feel yourself slipping away from reality."))
+			to_chat(pai, span_danger("Byte by byte you lose your sense of self."))
+			to_chat(pai, span_userdanger("Your mental faculties leave you."))
+			to_chat(pai, span_rose("oblivion... "))
 			qdel(pai)
 	return
 
@@ -196,7 +196,7 @@
 	add_alert()
 	addtimer(CALLBACK(src, .proc/remove_alert), 5 SECONDS)
 	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
-	loc.visible_message("<span class='info'>[capitalize(src.name)] flashes a message across its screen, \"Additional personalities available for download.\"</span>" , blind_message = "<span class='notice'>[capitalize(src.name)] vibrates with an alert.</span>")
+	loc.visible_message(span_info("[capitalize(src.name)] flashes a message across its screen, \"Additional personalities available for download.\"") , blind_message = span_notice("[capitalize(src.name)] vibrates with an alert."))
 
 /obj/item/paicard/proc/add_alert()
 	add_overlay(

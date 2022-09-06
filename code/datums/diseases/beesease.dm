@@ -21,21 +21,21 @@
 	switch(stage)
 		if(2) //also changes say, see say.dm
 			if(DT_PROB(1, delta_time))
-				to_chat(affected_mob, "<span class='notice'>На вкус как мёд.</span>")
+				to_chat(affected_mob, span_notice("На вкус как мёд."))
 		if(3)
 			if(DT_PROB(5, delta_time))
-				to_chat(affected_mob, "<span class='notice'>Желудок жужжит.</span>")
+				to_chat(affected_mob, span_notice("Желудок жужжит."))
 			if(DT_PROB(1, delta_time))
-				to_chat(affected_mob, "<span class='danger'>Желудок колется больно.</span>")
+				to_chat(affected_mob, span_danger("Желудок колется больно."))
 				if(prob(20))
 					affected_mob.adjustToxLoss(2)
 		if(4)
 			if(DT_PROB(5, delta_time))
-				affected_mob.visible_message("<span class='danger'>[affected_mob] жужжит.</span>" , \
-												"<span class='userdanger'>Желудок жёстко жужжит!</span>")
+				affected_mob.visible_message(span_danger("[affected_mob] жужжит.") , \
+												span_userdanger("Желудок жёстко жужжит!"))
 			if(DT_PROB(2.5, delta_time))
-				to_chat(affected_mob, "<span class='danger'>Что-то двигается в моём рту.</span>")
+				to_chat(affected_mob, span_danger("Что-то двигается в моём рту."))
 			if(DT_PROB(0.5, delta_time))
-				affected_mob.visible_message("<span class='danger'>[affected_mob] выкашливает пчёл!</span>" , \
-													"<span class='userdanger'>Выкашливаю рой пчёл!</span>")
+				affected_mob.visible_message(span_danger("[affected_mob] выкашливает пчёл!") , \
+													span_userdanger("Выкашливаю рой пчёл!"))
 				new /mob/living/simple_animal/hostile/poison/bees(affected_mob.loc)

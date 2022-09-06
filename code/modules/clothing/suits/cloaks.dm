@@ -11,7 +11,7 @@
 	flags_inv = HIDESUITSTORAGE
 
 /obj/item/clothing/neck/cloak/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is strangling [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] is strangling [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return(OXYLOSS)
 
 /obj/item/clothing/neck/cloak/hos
@@ -170,7 +170,7 @@
 	SIGNAL_HANDLER
 	if(new_stat > CONSCIOUS && new_stat < DEAD && COOLDOWN_FINISHED(src, effect_cooldown))
 		user.heal_ordered_damage(heal_amount, damage_heal_order)
-		user.visible_message("<span class='notice'>[user] suddenly revives, as their armor swirls with demonic energy!</span>", "<span class='notice'>You suddenly feel invigorated!</span>")
+		user.visible_message(span_notice("[user] suddenly revives, as their armor swirls with demonic energy!"), span_notice("You suddenly feel invigorated!"))
 		playsound(user.loc, 'sound/magic/clockwork/ratvar_attack.ogg', 50)
 		COOLDOWN_START(src, effect_cooldown, effect_cooldown_time)
 

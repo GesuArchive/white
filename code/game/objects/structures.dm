@@ -58,7 +58,7 @@
 			return  "Вмятины видны невооруженным глазом."
 		if(0 to 25)
 			if(!broken)
-				return "<span class='warning'>Кажется эта штука сейчас развалится!</span>"
+				return span_warning("Кажется эта штука сейчас развалится!")
 
 /obj/structure/rust_heretic_act()
 	take_damage(500, BRUTE, "melee", 1)

@@ -3,15 +3,15 @@
 	name = "the floor is lava"
 	desc = "Пол превращается в удивительно прохладную лаву, слегка повреждая что-либо на полу."
 
-	telegraph_message = "<span class='warning'>Ощущаю, что земля под моими ногами становится горячей. Волны тепла искажают воздух.</span>"
+	telegraph_message = span_warning("Ощущаю, что земля под моими ногами становится горячей. Волны тепла искажают воздух.")
 	telegraph_duration = 150
 
-	weather_message = "<span class='userdanger'>Пол - лава! Нужно куда-то повыше!</span>"
+	weather_message = span_userdanger("Пол - лава! Нужно куда-то повыше!")
 	weather_duration_lower = 300
 	weather_duration_upper = 600
 	weather_overlay = "lava"
 
-	end_message = "<span class='danger'>Пол остывает и возвращается к своей обычной форме.</span>"
+	end_message = span_danger("Пол остывает и возвращается к своей обычной форме.")
 	end_duration = 0
 
 	area_type = /area

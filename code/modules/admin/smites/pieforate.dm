@@ -12,7 +12,7 @@
 /datum/smite/pieforate/effect(client/user, mob/living/target)
 	. = ..()
 	if (!iscarbon(target))
-		to_chat(user, "<span class='warning'>This must be used on a carbon mob.</span>")
+		to_chat(user, span_warning("This must be used on a carbon mob."))
 		return
 
 	var/repetitions

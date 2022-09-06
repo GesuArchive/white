@@ -4,7 +4,7 @@
 	desc = "Мутация, позволяющая владельцу перемещать предметы силой мысли."
 	quality = POSITIVE
 	difficulty = 18
-	text_gain_indication = "<span class='notice'>Хм, у меня такое ощущение что я могу дотянуться до чего угодно!</span>"
+	text_gain_indication = span_notice("Хм, у меня такое ощущение что я могу дотянуться до чего угодно!")
 	limb_req = BODY_ZONE_HEAD
 	instability = 30
 

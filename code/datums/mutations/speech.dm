@@ -5,7 +5,7 @@
 	name = "Нервозность"
 	desc = "Вызывает заикание."
 	quality = MINOR_NEGATIVE
-	text_gain_indication = "<span class='danger'>Я в-в-в п-п-по-рядке!</span>"
+	text_gain_indication = span_danger("Я в-в-в п-п-по-рядке!")
 
 /datum/mutation/human/nervousness/on_life(delta_time, times_fired)
 	if(DT_PROB(5, delta_time))
@@ -16,8 +16,8 @@
 	name = "Чокнутый"
 	desc = "Нет... Ты не клоун... Ты весь цирк в одном лице..."
 	quality = MINOR_NEGATIVE
-	text_gain_indication = "<span class='sans'>Вы чувствуете прикольное ощущение в своем голосовом аппарате.</span>"
-	text_lose_indication = "<span class='notice'>Речь приходит в норму.</span>"
+	text_gain_indication = span_sans("Вы чувствуете прикольное ощущение в своем голосовом аппарате.")
+	text_lose_indication = span_notice("Речь приходит в норму.")
 
 /datum/mutation/human/wacky/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
@@ -38,8 +38,8 @@
 	name = "Немота"
 	desc = "Полностью подавляет речевой отдел мозга."
 	quality = NEGATIVE
-	text_gain_indication = "<span class='danger'>А как говорить?</span>"
-	text_lose_indication = "<span class='danger'>Могу свободно выражать свои мысли вслух.</span>"
+	text_gain_indication = span_danger("А как говорить?")
+	text_lose_indication = span_danger("Могу свободно выражать свои мысли вслух.")
 
 /datum/mutation/human/mute/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
@@ -55,8 +55,8 @@
 	name = "Невнятность"
 	desc = "Частично подавляет речевой отдел мозга, сильно искажая речь."
 	quality = NEGATIVE
-	text_gain_indication = "<span class='danger'>Я внезапно потерял осознание того, как из звуков составлять слова!</span>"
-	text_lose_indication = "<span class='danger'>Выражать свои мысли стало намного проще.</span>"
+	text_gain_indication = span_danger("Я внезапно потерял осознание того, как из звуков составлять слова!")
+	text_lose_indication = span_danger("Выражать свои мысли стало намного проще.")
 
 /datum/mutation/human/unintelligible/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
@@ -72,8 +72,8 @@
 	name = "Швед"
 	desc = "Чудовищная мутация из далекого прошлого. Берет свои корни из инцидента в 2037 году."
 	quality = MINOR_NEGATIVE
-	text_gain_indication = "<span class='notice'>Внезапно осознаю, что я коренной Швед.</span>"
-	text_lose_indication = "<span class='notice'>Мои Шведские корни ушли в небытие.</span>"
+	text_gain_indication = span_notice("Внезапно осознаю, что я коренной Швед.")
+	text_lose_indication = span_notice("Мои Шведские корни ушли в небытие.")
 
 /datum/mutation/human/swedish/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
@@ -103,8 +103,8 @@
 	name = "Феня"
 	desc = "Ген случайным образом вырабатывающийся у ассистентов"
 	quality = MINOR_NEGATIVE
-	text_gain_indication = "<span class='notice'>Ощущаю себя дебилом с окраины?</span>"
-	text_lose_indication = "<span class='notice'>Что то больше не хочется быть быдлом.</span>"
+	text_gain_indication = span_notice("Ощущаю себя дебилом с окраины?")
+	text_lose_indication = span_notice("Что то больше не хочется быть быдлом.")
 
 /datum/mutation/human/chav/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
@@ -179,8 +179,8 @@
 	desc = "Чудовищная мутация названная в честь нулевого пациента."
 	quality = MINOR_NEGATIVE
 	locked = TRUE
-	text_gain_indication = "<span class='notice'>Чувствую себя четко.</span>"
-	text_lose_indication = "<span class='notice'>А... И так сойдет.</span>"
+	text_gain_indication = span_notice("Чувствую себя четко.")
+	text_lose_indication = span_notice("А... И так сойдет.")
 
 /datum/mutation/human/elvis/on_life(delta_time, times_fired)
 	switch(pick(1,2))
@@ -226,8 +226,8 @@
 	desc = "Распространенная мутация, которая сильно снижает интеллект."
 	quality = NEGATIVE
 	locked = TRUE
-	text_gain_indication = "<span class='notice'>Чувствую себя... да зашибись себя чувствую, чел!</span>"
-	text_lose_indication = "<span class='notice'>Отпустило.</span>"
+	text_gain_indication = span_notice("Чувствую себя... да зашибись себя чувствую, чел!")
+	text_lose_indication = span_notice("Отпустило.")
 
 /datum/mutation/human/stoner/on_acquiring(mob/living/carbon/human/owner)
 	..()
@@ -243,8 +243,8 @@
 	name = "Средневековый"
 	desc = "Ужасная мутация, происходящая из далекого прошлого, которая, как считается, когда-то была общим геном во всей Европе старого света."
 	quality = MINOR_NEGATIVE
-	text_gain_indication = "<span class='notice'>Настало время приступить к поискам святого грааля!</span>"
-	text_lose_indication = "<span class='notice'>А что я вообще искал?</span>"
+	text_gain_indication = span_notice("Настало время приступить к поискам святого грааля!")
+	text_lose_indication = span_notice("А что я вообще искал?")
 
 /datum/mutation/human/medieval/on_acquiring(mob/living/carbon/human/owner)
 	if(..())

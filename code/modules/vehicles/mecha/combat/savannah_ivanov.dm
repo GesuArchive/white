@@ -103,23 +103,23 @@
 	skyfall_charge_level++
 	switch(skyfall_charge_level)
 		if(1)
-			visible_message("<span class='warning'>[src] щелкает и жужжит на мгновение, с низким гулом, исходящим из ног.</span>")
+			visible_message(span_warning("[src] щелкает и жужжит на мгновение, с низким гулом, исходящим из ног."))
 			playsound(src, 'sound/items/rped.ogg', 50, TRUE)
 		if(2)
-			visible_message("<span class='warning'>[src] начинает трястись, звуки электричества становятся громче.</span>")
+			visible_message(span_warning("[src] начинает трястись, звуки электричества становятся громче."))
 			Shake(5, 5, SKYFALL_SINGLE_CHARGE_TIME-1) // -1 gives space between the animates, so they don't interrupt eachother
 		if(3)
-			visible_message("<span class='warning'>[src] принимает позу, когда он сильно гремит.</span>")
+			visible_message(span_warning("[src] принимает позу, когда он сильно гремит."))
 			Shake(7, 7, SKYFALL_SINGLE_CHARGE_TIME-1) // -1 gives space between the animates, so they don't interrupt eachother
 			spark_system.start()
 			update_icon_state()
 		if(4)
-			visible_message("<span class='warning'>[src] вспыхивает и захлопывается, завершая подготовку.</span>")
+			visible_message(span_warning("[src] вспыхивает и захлопывается, завершая подготовку."))
 			playsound(src, 'sound/mecha/skyfall_power_up.ogg', 50, TRUE)
 			Shake(10, 10, SKYFALL_SINGLE_CHARGE_TIME-1) // -1 gives space between the animates, so they don't interrupt eachother
 			spark_system.start()
 		if(SKYFALL_CHARGELEVEL_LAUNCH)
-			visible_message("<span class='danger'>[src] взмывает вверх!</span>")
+			visible_message(span_danger("[src] взмывает вверх!"))
 			playsound(src, 'sound/weapons/gun/general/rocket_launch.ogg', 50, TRUE)
 	if(skyfall_charge_level != SKYFALL_CHARGELEVEL_LAUNCH)
 		INVOKE_ASYNC(src, .proc/skyfall_charge_loop, pilot)
@@ -169,7 +169,7 @@
  * * pilot: mob that activated the skyfall ability
  */
 /obj/vehicle/sealed/mecha/combat/savannah_ivanov/proc/land(mob/living/pilot)
-	visible_message("<span class='danger'>[src] приземляется сверху!</span>")
+	visible_message(span_danger("[src] приземляется сверху!"))
 	playsound(src, 'sound/effects/explosion1.ogg', 50, 1)
 	resistance_flags &= ~INDESTRUCTIBLE
 	mecha_flags &= ~(QUIET_STEPS|QUIET_TURNS|CANNOT_INTERACT)
@@ -200,13 +200,13 @@
 			if(crushed_victim in occupants)
 				continue
 			if(crushed_victim in landed_on)
-				to_chat(crushed_victim, "<span class='userdanger'>[src] падает на меня сверху!</span>")
+				to_chat(crushed_victim, span_userdanger("[src] падает на меня сверху!"))
 				if(crushed_victim.stat != CONSCIOUS)
 					crushed_victim.gib(FALSE, FALSE, FALSE)
 				else
 					crushed_victim.adjustBruteLoss(80)
 			else
-				to_chat(crushed_victim, "<span class='userdanger'>Ударная волна от падения [src] отправляет меня в полёт!</span>")
+				to_chat(crushed_victim, span_userdanger("Ударная волна от падения [src] отправляет меня в полёт!"))
 				var/fly_away_direction = get_dir(src, crushed_victim)
 				crushed_victim.throw_at(get_edge_target_turf(crushed_victim, fly_away_direction), 4, 3)
 				crushed_victim.adjustBruteLoss(15)
@@ -314,11 +314,11 @@
 		return
 	var/obj/vehicle/sealed/mecha/combat/savannah_ivanov/savannah_mecha = chassis
 	if(savannah_mecha.phasing)
-		to_chat(owner, "<span class='warning'>МЫ УЖЕ ЛЕТИМ!</span>")
+		to_chat(owner, span_warning("МЫ УЖЕ ЛЕТИМ!"))
 		return
 	if(!COOLDOWN_FINISHED(savannah_mecha, skyfall_cooldown))
 		var/timeleft = COOLDOWN_TIMELEFT(savannah_mecha, skyfall_cooldown)
-		to_chat(owner, "<span class='warning'>Нужно подождать [DisplayTimeText(timeleft, 1)] перед очередным ударом.</span>")
+		to_chat(owner, span_warning("Нужно подождать [DisplayTimeText(timeleft, 1)] перед очередным ударом."))
 		return
 	if(savannah_mecha.skyfall_charge_level)
 		savannah_mecha.abort_skyfall(owner)
@@ -344,7 +344,7 @@
 	var/obj/vehicle/sealed/mecha/combat/savannah_ivanov/ivanov_mecha = chassis
 	if(!COOLDOWN_FINISHED(ivanov_mecha, strike_cooldown))
 		var/timeleft = COOLDOWN_TIMELEFT(ivanov_mecha, strike_cooldown)
-		to_chat(owner, "<span class='warning'>Нужно подождать [DisplayTimeText(timeleft, 1)] перед очередным ударом.</span>")
+		to_chat(owner, span_warning("Нужно подождать [DisplayTimeText(timeleft, 1)] перед очередным ударом."))
 		return
 	if(ivanov_mecha.aiming_ivanov)
 		ivanov_mecha.end_missile_targeting(owner)

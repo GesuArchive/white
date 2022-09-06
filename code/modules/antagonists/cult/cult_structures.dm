@@ -17,7 +17,7 @@
 
 /obj/structure/destructible/cult/proc/conceal() //for spells that hide cult presence
 	set_density(FALSE)
-	visible_message("<span class='danger'>[src] fades away.</span>")
+	visible_message(span_danger("[src] fades away."))
 	invisibility = INVISIBILITY_OBSERVER
 	alpha = 100 //To help ghosts distinguish hidden runes
 	set_light_power(0)
@@ -28,7 +28,7 @@
 /obj/structure/destructible/cult/proc/reveal() //for spells that reveal cult presence
 	set_density(initial(density))
 	invisibility = 0
-	visible_message("<span class='danger'>[capitalize(src.name)] suddenly appears!</span>")
+	visible_message(span_danger("[capitalize(src.name)] suddenly appears!"))
 	alpha = initial(alpha)
 	set_light_range(initial(light_range))
 	set_light_power(initial(light_power))
@@ -49,7 +49,7 @@
 	if(iscultist(user) || isobserver(user))
 		var/t_It = ru_who(TRUE)
 		var/t_is = p_are()
-		return "<span class='cult'>[t_It] [t_is] at <b>[round(obj_integrity * 100 / max_integrity)]%</b> stability.</span>"
+		return span_cult("[t_It] [t_is] at <b>[round(obj_integrity * 100 / max_integrity)]%</b> stability.")
 	return ..()
 
 /obj/structure/destructible/cult/attack_animal(mob/living/simple_animal/M)
@@ -58,10 +58,10 @@
 			M.changeNext_move(CLICK_CD_MELEE)
 			obj_integrity = min(max_integrity, obj_integrity + 5)
 			Beam(M, icon_state="sendbeam", time=4)
-			M.visible_message("<span class='danger'>[M] repairs \the <b>[src]</b>.</span>" , \
-				"<span class='cult'>You repair <b>[src]</b>, leaving [ru_who()] at <b>[round(obj_integrity * 100 / max_integrity)]%</b> stability.</span>")
+			M.visible_message(span_danger("[M] repairs \the <b>[src]</b>.") , \
+				span_cult("You repair <b>[src]</b>, leaving [ru_who()] at <b>[round(obj_integrity * 100 / max_integrity)]%</b> stability."))
 		else
-			to_chat(M, "<span class='cult'>You cannot repair [src], as [p_theyre()] undamaged!</span>")
+			to_chat(M, span_cult("You cannot repair [src], as [p_theyre()] undamaged!"))
 	else
 		..()
 
@@ -77,7 +77,7 @@
 /obj/structure/destructible/cult/attackby(obj/I, mob/user, params)
 	if(istype(I, /obj/item/melee/cultblade/dagger) && iscultist(user))
 		set_anchored(!anchored)
-		to_chat(user, "<span class='notice'>You [anchored ? "":"un"]secure <b>[src.name]</b> [anchored ? "to":"from"] the floor.</span>")
+		to_chat(user, span_notice("You [anchored ? "":"un"]secure <b>[src.name]</b> [anchored ? "to":"from"] the floor."))
 	else
 		return ..()
 
@@ -93,17 +93,17 @@
 	desc = "A bloodstained altar dedicated to Nar'Sie."
 	cultist_examine_message = "A blood cultist can use it to create eldritch whetstones, construct shells, and flasks of unholy water."
 	icon_state = "talismanaltar"
-	break_message = "<span class='warning'>The altar shatters, leaving only the wailing of the damned!</span>"
+	break_message = span_warning("The altar shatters, leaving only the wailing of the damned!")
 
 /obj/structure/destructible/cult/talisman/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
 		return
 	if(!iscultist(user))
-		to_chat(user, "<span class='warning'>You're pretty sure you know exactly what this is used for and you can't seem to touch it.</span>")
+		to_chat(user, span_warning("You're pretty sure you know exactly what this is used for and you can't seem to touch it."))
 		return
 	if(!anchored)
-		to_chat(user, "<span class='cultitalic'>You need to anchor [src] to the floor with your dagger first.</span>")
+		to_chat(user, span_cultitalic("You need to anchor [src] to the floor with your dagger first."))
 		return
 	if(cooldowntime > world.time)
 		to_chat(user, "<span class='cult italic'>The magic in [src] is weak, it will be ready to use again in [DisplayTimeText(cooldowntime - world.time)].</span>")
@@ -128,7 +128,7 @@
 		cooldowntime = world.time + 2400
 		for(var/N in pickedtype)
 			new N(get_turf(src))
-			to_chat(user, "<span class='cultitalic'>You kneel before the altar and your faith is rewarded with the [choice]!</span>")
+			to_chat(user, span_cultitalic("You kneel before the altar and your faith is rewarded with the [choice]!"))
 
 /obj/structure/destructible/cult/forge
 	name = "daemon forge"
@@ -137,17 +137,17 @@
 	icon_state = "forge"
 	light_range = 2
 	light_color = LIGHT_COLOR_LAVA
-	break_message = "<span class='warning'>The force breaks apart into shards with a howling scream!</span>"
+	break_message = span_warning("The force breaks apart into shards with a howling scream!")
 
 /obj/structure/destructible/cult/forge/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
 		return
 	if(!iscultist(user))
-		to_chat(user, "<span class='warning'>The heat radiating from [src] pushes you back.</span>")
+		to_chat(user, span_warning("The heat radiating from [src] pushes you back."))
 		return
 	if(!anchored)
-		to_chat(user, "<span class='cultitalic'>You need to anchor [src] to the floor with your dagger first.</span>")
+		to_chat(user, span_cultitalic("You need to anchor [src] to the floor with your dagger first."))
 		return
 	if(cooldowntime > world.time)
 		to_chat(user, "<span class='cult italic'>The magic in [src] is weak, it will be ready to use again in [DisplayTimeText(cooldowntime - world.time)].</span>")
@@ -172,7 +172,7 @@
 		cooldowntime = world.time + 2400
 		for(var/N in pickedtype)
 			new N(get_turf(src))
-			to_chat(user, "<span class='cultitalic'>You work the forge as dark knowledge guides your hands, creating the [choice]!</span>")
+			to_chat(user, span_cultitalic("You work the forge as dark knowledge guides your hands, creating the [choice]!"))
 
 /obj/structure/destructible/cult/tome
 	name = "archives"
@@ -181,17 +181,17 @@
 	icon_state = "tomealtar"
 	light_range = 1.5
 	light_color = LIGHT_COLOR_FIRE
-	break_message = "<span class='warning'>The books and tomes of the archives burn into ash as the desk shatters!</span>"
+	break_message = span_warning("The books and tomes of the archives burn into ash as the desk shatters!")
 
 /obj/structure/destructible/cult/tome/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
 		return
 	if(!iscultist(user))
-		to_chat(user, "<span class='warning'>These books won't open and it hurts to even try and read the covers.</span>")
+		to_chat(user, span_warning("These books won't open and it hurts to even try and read the covers."))
 		return
 	if(!anchored)
-		to_chat(user, "<span class='cultitalic'>You need to anchor [src] to the floor with your dagger first.</span>")
+		to_chat(user, span_cultitalic("You need to anchor [src] to the floor with your dagger first."))
 		return
 	if(cooldowntime > world.time)
 		to_chat(user, "<span class='cult italic'>The magic in [src] is weak, it will be ready to use again in [DisplayTimeText(cooldowntime - world.time)].</span>")
@@ -217,7 +217,7 @@
 		cooldowntime = world.time + 2400
 		for(var/N in pickedtype)
 			new N(get_turf(src))
-			to_chat(user, "<span class='cultitalic'>You summon the [choice] from the archives!</span>")
+			to_chat(user, span_cultitalic("You summon the [choice] from the archives!"))
 
 /obj/effect/gateway
 	name = "gateway"

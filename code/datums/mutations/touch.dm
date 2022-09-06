@@ -4,8 +4,8 @@
 	quality = POSITIVE
 	locked = TRUE
 	difficulty = 16
-	text_gain_indication = "<span class='notice'>Между моими пальцами пробегают разряды молний.</span>"
-	text_lose_indication = "<span class='notice'>Энергия утекает.</span>"
+	text_gain_indication = span_notice("Между моими пальцами пробегают разряды молний.")
+	text_lose_indication = span_notice("Энергия утекает.")
 	power_path = /datum/action/cooldown/spell/touch/shock
 	instability = 30
 
@@ -30,8 +30,8 @@
 			carbon_victim.dropItemToGround(carbon_victim.get_inactive_held_item())
 			carbon_victim.add_confusion(15)
 			carbon_victim.visible_message(
-				"<span class='danger'>[caster] ударяет [victim] током!</span>",
-				"<span class='userdanger'>[caster] ударяет меня током!</span>",
+				span_danger("[caster] ударяет [victim] током!"),
+				span_userdanger("[caster] ударяет меня током!"),
 			)
 			return TRUE
 
@@ -39,12 +39,12 @@
 		var/mob/living/living_victim = victim
 		if(living_victim.electrocute_act(15, caster, 1, SHOCK_NOSTUN))
 			living_victim.visible_message(
-				"<span class='danger'>[caster] ударяет [victim] током!</span>",
-				"<span class='userdanger'>[caster] ударяет меня током!</span>",
+				span_danger("[caster] ударяет [victim] током!"),
+				span_userdanger("[caster] ударяет меня током!"),
 			)
 			return TRUE
 
-	to_chat(caster, "<span class='warning'>[victim] никак не реагирует...</span>")
+	to_chat(caster, span_warning("[victim] никак не реагирует..."))
 	return TRUE
 
 /obj/item/melee/touch_attack/shock

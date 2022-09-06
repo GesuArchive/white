@@ -94,10 +94,10 @@
 	if(I.tool_behaviour == TOOL_WIRECUTTER)
 		I.play_tool_sound(src, 100)
 		if(ruined)
-			to_chat(user, "<span class='notice'>Снимаю остатки плаката со стены.</span>")
+			to_chat(user, span_notice("Снимаю остатки плаката со стены."))
 			qdel(src)
 		else
-			to_chat(user, "<span class='notice'>Аккуратно снимаю плакат со стены.</span>")
+			to_chat(user, span_notice("Аккуратно снимаю плакат со стены."))
 			roll_and_drop(user.loc)
 
 /obj/structure/sign/poster/attack_hand(mob/user)
@@ -106,7 +106,7 @@
 		return
 	if(ruined)
 		return
-	visible_message("<span class='notice'>[user] срывает [src] одним решительным движением!</span>"  )
+	visible_message(span_notice("[user] срывает [src] одним решительным движением!")  )
 	playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, TRUE)
 
 	var/obj/structure/sign/poster/ripped/R = new(loc)
@@ -125,7 +125,7 @@
 //separated to reduce code duplication. Moved here for ease of reference and to unclutter r_wall/attackby()
 /turf/closed/wall/proc/place_poster(obj/item/poster/P, mob/user)
 	if(!P.poster_structure)
-		to_chat(user, "<span class='warning'>[P] не имеет плаката... внутри? Че бля!</span>")
+		to_chat(user, span_warning("[P] не имеет плаката... внутри? Че бля!"))
 		return
 
 	// Deny placing posters on currently-diagonal walls, although the wall may change in the future.
@@ -138,14 +138,14 @@
 	var/stuff_on_wall = 0
 	for(var/obj/O in contents) //Let's see if it already has a poster on it or too much stuff
 		if(istype(O, /obj/structure/sign/poster))
-			to_chat(user, "<span class='warning'>Стена слишком загромождена, чтобы разместить плакат!</span>")
+			to_chat(user, span_warning("Стена слишком загромождена, чтобы разместить плакат!"))
 			return
 		stuff_on_wall++
 		if(stuff_on_wall == 3)
-			to_chat(user, "<span class='warning'>Стена слишком загромождена, чтобы разместить плакат!</span>")
+			to_chat(user, span_warning("Стена слишком загромождена, чтобы разместить плакат!"))
 			return
 
-	to_chat(user, "<span class='notice'>Начинаю вешать плакат на стену...</span>" 	)
+	to_chat(user, span_notice("Начинаю вешать плакат на стену...") 	)
 
 	var/obj/structure/sign/poster/D = P.poster_structure
 
@@ -160,10 +160,10 @@
 			return
 
 		if(iswallturf(src) && user && user.loc == temp_loc)	//Let's check if everything is still there
-			to_chat(user, "<span class='notice'>Вешаю плакат!</span>")
+			to_chat(user, span_notice("Вешаю плакат!"))
 			return
 
-	to_chat(user, "<span class='notice'>Плакат падает!</span>")
+	to_chat(user, span_notice("Плакат падает!"))
 	D.roll_and_drop(get_turf(user))
 
 // Various possible posters follow
@@ -445,10 +445,10 @@
 	icon_state = "poster51"
 
 /obj/structure/sign/poster/contraband/donk_co/examine_more(mob/user)
-	var/list/msg = list("<span class='notice'><i>Вы просматриваете некоторую информацию о постере...</i></span>")
-	msg += "\t["<span class='info'>ДОНК КО. БРЕНД ДОНК ПОКЕТОВ: НЕОТРАЗИМЫЙ ДОНК!</span>"]"
-	msg += "\t["<span class='info'>ДОСТУПНОЕ В БОЛЕЕ 200 ВКУСОВ: ПОПРОБУЙТЕ КЛАССИЧЕСКОЕ МЯСО, ГОРЯЧИЙ И ОСТРЫЙ, НОВЫЙ ВКУС ПЕПЕРОНИ ПИЦЦЫ, ЗАВТРАК СОСИСКА И ЯЙЦО, ФИЛАДЕЛЬФИЯ СЫРНЫЙ СТЕЙК, ГАМБУРГЕР ДОНКО-РОНИ, СЫР, И МНОГИЕ ДРУГИЕ!</span>"]"
-	msg += "\t["<span class='info'>ДОСТУПНО ОТ ВСЕХ ХОРОШИХ РОЗНИЧНЫХ ПРОДАВЦОВ, И МНОГИХ ПЛОХИХ ТОЖЕ!</span>"]"
+	var/list/msg = list(span_notice("<i>Вы просматриваете некоторую информацию о постере...</i>"))
+	msg += "\t[span_info("ДОНК КО. БРЕНД ДОНК ПОКЕТОВ: НЕОТРАЗИМЫЙ ДОНК!")]"
+	msg += "\t[span_info("ДОСТУПНОЕ В БОЛЕЕ 200 ВКУСОВ: ПОПРОБУЙТЕ КЛАССИЧЕСКОЕ МЯСО, ГОРЯЧИЙ И ОСТРЫЙ, НОВЫЙ ВКУС ПЕПЕРОНИ ПИЦЦЫ, ЗАВТРАК СОСИСКА И ЯЙЦО, ФИЛАДЕЛЬФИЯ СЫРНЫЙ СТЕЙК, ГАМБУРГЕР ДОНКО-РОНИ, СЫР, И МНОГИЕ ДРУГИЕ!")]"
+	msg += "\t[span_info("ДОСТУПНО ОТ ВСЕХ ХОРОШИХ РОЗНИЧНЫХ ПРОДАВЦОВ, И МНОГИХ ПЛОХИХ ТОЖЕ!")]"
 	return msg
 
 /obj/structure/sign/poster/contraband/cybersun_six_hundred
@@ -703,14 +703,14 @@
 	icon_state = "plasma_effects"
 
 /obj/structure/sign/poster/official/plasma_effects/examine_more(mob/user)
-	var/list/msg = list("<span class='notice'><i>Вы просматриваете некоторую информацию постера...</i></span>")
-	msg += "\t["<span class='info'>Плазма (научное название Amenthium) классифицируется TerraGov как 1-й класс опасности для здоровья и имеет значительные риски для здоровья, связанные с хроническим воздействием.</span>"]"
-	msg += "\t["<span class='info'>Известно, что плазма пересекает барьер крови/мозга и биоаккумулируется в тканях головного мозга, где она начинает приводить к ухудшению функции мозга. Механизм нарушений еще не до конца известен, и как таковой не имеется конкретных предварительных рекомендаций при условии надлежащего использования СИЗ (перчатки + защитный комбинезон + респиратор).</span>"]"
-	msg += "\t["<span class='info'>В небольших дозах плазма вызывает путаницу, кратковременную амнезию и повышенную агрессию. Эти эффекты сохраняются с постоянным воздействием.</span>"]"
-	msg += "\t["<span class='info'>У лиц с хроническим воздействием отмечаются тяжелые последствия. Далее повышенная агрессия, долгосрочная амнезия, симптомы Альцгеймера, шизофрения, молекулярная дегенерация, аневризмы, повышенный риск инсульта и симптомы Паркинсона</span>"]"
-	msg += "\t["<span class='info'>Рекомендуется, чтобы все лица, находящиеся в незащищенном контакте с сырой плазмой, регулярно консультировались с работниками здравоохранения компании.</span>"]"
-	msg += "\t["<span class='info'>Для получения дополнительной информации, пожалуйста, обратитесь на экстранет-сайт TerraGov на Amenthium: wwww.terra.gov/health_and_safety/amenthium/, или наши внутренние документы по оценке риска (номера документов #47582-b (таблицы данных по безопасности плазмы) и #64210- #64225 (Регламент СИЗ для работы с плазмой), доступный через Нанодок для всех сотрудников).</span>"]"
-	msg += "\t["<span class='info'>Нанотрейзен: Всегда заботиться о вашем здоровье.</span>"]"
+	var/list/msg = list(span_notice("<i>Вы просматриваете некоторую информацию постера...</i>"))
+	msg += "\t[span_info("Плазма (научное название Amenthium) классифицируется TerraGov как 1-й класс опасности для здоровья и имеет значительные риски для здоровья, связанные с хроническим воздействием.")]"
+	msg += "\t[span_info("Известно, что плазма пересекает барьер крови/мозга и биоаккумулируется в тканях головного мозга, где она начинает приводить к ухудшению функции мозга. Механизм нарушений еще не до конца известен, и как таковой не имеется конкретных предварительных рекомендаций при условии надлежащего использования СИЗ (перчатки + защитный комбинезон + респиратор).")]"
+	msg += "\t[span_info("В небольших дозах плазма вызывает путаницу, кратковременную амнезию и повышенную агрессию. Эти эффекты сохраняются с постоянным воздействием.")]"
+	msg += "\t[span_info("У лиц с хроническим воздействием отмечаются тяжелые последствия. Далее повышенная агрессия, долгосрочная амнезия, симптомы Альцгеймера, шизофрения, молекулярная дегенерация, аневризмы, повышенный риск инсульта и симптомы Паркинсона")]"
+	msg += "\t[span_info("Рекомендуется, чтобы все лица, находящиеся в незащищенном контакте с сырой плазмой, регулярно консультировались с работниками здравоохранения компании.")]"
+	msg += "\t[span_info("Для получения дополнительной информации, пожалуйста, обратитесь на экстранет-сайт TerraGov на Amenthium: wwww.terra.gov/health_and_safety/amenthium/, или наши внутренние документы по оценке риска (номера документов #47582-b (таблицы данных по безопасности плазмы) и #64210- #64225 (Регламент СИЗ для работы с плазмой), доступный через Нанодок для всех сотрудников).")]"
+	msg += "\t[span_info("Нанотрейзен: Всегда заботиться о вашем здоровье.")]"
 	return msg
 
 /obj/structure/sign/poster/official/terragov

@@ -174,7 +174,7 @@
 
 /obj/item/cable_coil_box/attack_self(mob/user)
 	var/obj/item/stack/cable_coil/A = new
-	to_chat(user, "<span class='notice'>Разрываю упаковку на кусочки и достаю провода.</span>")
+	to_chat(user, span_notice("Разрываю упаковку на кусочки и достаю провода."))
 	playsound(get_turf(user), 'white/valtos/sounds/rip1.ogg', 40, TRUE)
 	qdel(src)
 	user.put_in_hands(A)
@@ -219,7 +219,7 @@
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/attack_self(mob/user)
 	. = ..()
-	to_chat(user, "<span class='notice'>Разрываю [src] на кусочки.</span>")
+	to_chat(user, span_notice("Разрываю [src] на кусочки."))
 	src.emptyStorage()
 	playsound(src, ripsound, 40, TRUE)
 	qdel(src)
@@ -227,7 +227,7 @@
 /obj/item/storage/part_replacer/pre_attack(obj/item/storage/part_replacer/stock_parts_box_x10/T, mob/living/user, params)
 	if(istype(T))
 		T.emptyStorage()
-		to_chat(user, "<span class='notice'>Разрываю [T] на кусочки.</span>")
+		to_chat(user, span_notice("Разрываю [T] на кусочки."))
 		playsound(get_turf(user), 'white/valtos/sounds/rip1.ogg', 40, TRUE)
 		qdel(T)
 	return ..()

@@ -50,7 +50,7 @@
 	if (causes_damage && !iszombie(owner) && owner.stat != DEAD)
 		owner.adjustToxLoss(0.5 * delta_time)
 		if(DT_PROB(5, delta_time))
-			to_chat(owner, "<span class='danger'>Мне очень плохо... У меня болит голова, а во рту вкус мяса...</span>")
+			to_chat(owner, span_danger("Мне очень плохо... У меня болит голова, а во рту вкус мяса..."))
 	if(timer_id)
 		return
 	if(owner.suiciding)
@@ -88,11 +88,11 @@
 		return
 
 	owner.grab_ghost()
-	owner.visible_message("<span class='danger'>[owner] внезапно дергается, открывает затянутые мутной пеленой глаза... В этом мертвом взгляде нет даже проблеска сознания, лишь только бесконечный голод...</span>" , "<span class='alien'>Я-я-я хочу ЖРАААТЬ!</span>")
+	owner.visible_message(span_danger("[owner] внезапно дергается, открывает затянутые мутной пеленой глаза... В этом мертвом взгляде нет даже проблеска сознания, лишь только бесконечный голод...") , span_alien("Я-я-я хочу ЖРАААТЬ!"))
 	playsound(owner.loc, 'sound/hallucinations/far_noise.ogg', 50, TRUE)
 	owner.do_jitter_animation(living_transformation_time)
 	owner.Stun(living_transformation_time)
-	to_chat(owner, "<span class='alertalien'>Ты мертв! Но твоя \"не жизнь\" только начинается! Ты не помнишь ничего о происходящем, все эти люди вокруг теперь всего лишь еда! Твои мертвые товарищи тебе абсолютно не интересны и у тебя нет никакого желания нападать на них! Ты гоним лишь жаждой плоти, и даже смерть не остановит тебя!</span>")
+	to_chat(owner, span_alertalien("Ты мертв! Но твоя \"не жизнь\" только начинается! Ты не помнишь ничего о происходящем, все эти люди вокруг теперь всего лишь еда! Твои мертвые товарищи тебе абсолютно не интересны и у тебя нет никакого желания нападать на них! Ты гоним лишь жаждой плоти, и даже смерть не остановит тебя!"))
 
 /obj/item/organ/zombie_infection/nodamage
 	causes_damage = FALSE

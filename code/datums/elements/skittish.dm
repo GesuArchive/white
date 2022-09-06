@@ -49,7 +49,7 @@
 /datum/element/skittish/proc/async_shit(obj/structure/closet/closet, mob/living/scooby, atom/target)
 	var/turf/closet_turf = get_turf(closet)
 	if(!closet.close(scooby))
-		to_chat(scooby, "<span class='warning'>You can't get [closet] to close!</span>")
+		to_chat(scooby, span_warning("You can't get [closet] to close!"))
 		if(closet.horizontal)
 			scooby.set_resting(FALSE, silent = TRUE)
 		return
@@ -59,6 +59,6 @@
 	if(closet.horizontal)
 		scooby.set_resting(FALSE, silent = TRUE)
 
-	closet_turf.visible_message("<span class='warning'>[scooby] dives into [closet]!</span>")
+	closet_turf.visible_message(span_warning("[scooby] dives into [closet]!"))
 	// If you run into a locker, you don't want to run out immediately
 	scooby.Immobilize(0.5 SECONDS)

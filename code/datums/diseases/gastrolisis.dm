@@ -40,8 +40,8 @@
 			if(!eyes && DT_PROB(2.5, delta_time))
 				var/obj/item/organ/eyes/snail/new_eyes = new()
 				new_eyes.Insert(affected_mob, drop_if_replaced = TRUE)
-				affected_mob.visible_message("<span class='warning'>Глаза [affected_mob] выпадают, их место занимают глаза улитки!</span>" , \
-				"<span class='userdanger'>Кричу от боли, когда твои мои глаза улитки выталкивают глаза!</span>")
+				affected_mob.visible_message(span_warning("Глаза [affected_mob] выпадают, их место занимают глаза улитки!") , \
+				span_userdanger("Кричу от боли, когда твои мои глаза улитки выталкивают глаза!"))
 				affected_mob.emote("agony")
 				return
 
@@ -51,8 +51,8 @@
 			if(!shell && DT_PROB(2.5, delta_time))
 				if(affected_mob.dropItemToGround(affected_mob.get_item_by_slot(ITEM_SLOT_BACK)))
 					affected_mob.equip_to_slot_or_del(new /obj/item/storage/backpack/snail(affected_mob), ITEM_SLOT_BACK)
-					affected_mob.visible_message("<span class='warning'>[affected_mob] выращивает на спине гротескный панцирь!</span>" , \
-					"<span class='userdanger'>Кричу от боли, когда панцирь вырывается из-под кожи!</span>")
+					affected_mob.visible_message(span_warning("[affected_mob] выращивает на спине гротескный панцирь!") , \
+					span_userdanger("Кричу от боли, когда панцирь вырывается из-под кожи!"))
 					affected_mob.emote("agony")
 					return
 
@@ -60,14 +60,14 @@
 			if(!tongue && DT_PROB(2.5, delta_time))
 				var/obj/item/organ/tongue/snail/new_tongue = new()
 				new_tongue.Insert(affected_mob)
-				to_chat(affected_mob, "<span class='userdanger'>Речь замедляется...</span>")
+				to_chat(affected_mob, span_userdanger("Речь замедляется..."))
 				return
 
 			if(shell && eyes && tongue && DT_PROB(2.5, delta_time))
 				affected_mob.set_species(/datum/species/snail)
 				affected_mob.client?.give_award(/datum/award/achievement/misc/snail, affected_mob)
-				affected_mob.visible_message("<span class='warning'>[affected_mob] превращается в улитку!</span>" , \
-				"<span class='boldnotice'>Кажется теперь я улитка! Пора пооолзааааать...</span>")
+				affected_mob.visible_message(span_warning("[affected_mob] превращается в улитку!") , \
+				span_boldnotice("Кажется теперь я улитка! Пора пооолзааааать..."))
 				cure()
 				return FALSE
 

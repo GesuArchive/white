@@ -43,13 +43,13 @@ LINEN BINS
 	if(layer == initial(layer))
 		layer = ABOVE_MOB_LAYER
 		plane = GAME_PLANE_UPPER
-		to_chat(user, "<span class='notice'>Накрываю себя [src].</span>")
+		to_chat(user, span_notice("Накрываю себя [src]."))
 		pixel_x = 0
 		pixel_y = 0
 	else
 		layer = initial(layer)
 		plane = initial(plane)
-		to_chat(user, "<span class='notice'>Расстелаю [src] под собой.</span>")
+		to_chat(user, span_notice("Расстелаю [src] под собой."))
 	add_fingerprint(user)
 	return
 
@@ -61,7 +61,7 @@ LINEN BINS
 				transfer_fingerprints_to(shreds)
 				shreds.add_fingerprint(user)
 		qdel(src)
-		to_chat(user, "<span class='notice'>You tear [src] up.</span>")
+		to_chat(user, span_notice("You tear [src] up."))
 	else
 		return ..()
 
@@ -540,10 +540,10 @@ LINEN BINS
 	if(flags_1 & NODECONSTRUCT_1)
 		return FALSE
 	if(amount)
-		to_chat(user, "<span class='warning'>Сначала [src] нужно освободить!</span>")
+		to_chat(user, span_warning("Сначала [src] нужно освободить!"))
 		return TOOL_ACT_TOOLTYPE_SUCCESS
 	if(tool.use_tool(src, user, 0.5 SECONDS, volume=50))
-		to_chat(user, "<span class='notice'>Разбираю [src].</span>")
+		to_chat(user, span_notice("Разбираю [src]."))
 		new /obj/item/stack/rods(loc, 2)
 		qdel(src)
 		return TOOL_ACT_TOOLTYPE_SUCCESS
@@ -557,15 +557,15 @@ LINEN BINS
 			return
 		sheets.Add(I)
 		amount++
-		to_chat(user, "<span class='notice'>Засунул [I] в [src].</span>")
+		to_chat(user, span_notice("Засунул [I] в [src]."))
 		update_appearance()
 
 	else if(amount && !hidden && I.w_class < WEIGHT_CLASS_BULKY) //make sure there's sheets to hide it among, make sure nothing else is hidden in there.
 		if(!user.transferItemToLoc(I, src))
-			to_chat(user, "<span class='warning'>[I] застрял в моей руке, я не могу спрятать его среди просыней!</span>")
+			to_chat(user, span_warning("[I] застрял в моей руке, я не могу спрятать его среди просыней!"))
 			return
 		hidden = I
-		to_chat(user, "<span class='notice'>Спрятал [I] среди простыней.</span>")
+		to_chat(user, span_notice("Спрятал [I] среди простыней."))
 
 
 /obj/structure/bedsheetbin/attack_paw(mob/user, list/modifiers)
@@ -592,12 +592,12 @@ LINEN BINS
 
 		B.forceMove(drop_location())
 		user.put_in_hands(B)
-		to_chat(user, "<span class='notice'>Вытащил [B] из [src].</span>")
+		to_chat(user, span_notice("Вытащил [B] из [src]."))
 		update_appearance()
 
 		if(hidden)
 			hidden.forceMove(drop_location())
-			to_chat(user, "<span class='notice'>[hidden] выпадает из [B]!</span>")
+			to_chat(user, span_notice("[hidden] выпадает из [B]!"))
 			hidden = null
 
 	add_fingerprint(user)
@@ -616,7 +616,7 @@ LINEN BINS
 			B = new /obj/item/bedsheet(loc)
 
 		B.forceMove(drop_location())
-		to_chat(user, "<span class='notice'>Телекинетически вытащил [B] из [src].</span>")
+		to_chat(user, span_notice("Телекинетически вытащил [B] из [src]."))
 		update_appearance()
 
 		if(hidden)

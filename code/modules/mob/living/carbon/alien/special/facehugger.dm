@@ -147,8 +147,8 @@
 		if(target.wear_mask && istype(target.wear_mask, /obj/item/clothing/mask/facehugger))
 			return FALSE
 	// passed initial checks - time to leap!
-	M.visible_message("<span class='danger'>[capitalize(src.name)] вцепляется в лицо [M]!</span>" , \
-							"<span class='userdanger'>[capitalize(src.name)] вцепляется в мое лицо!</span>")
+	M.visible_message(span_danger("[capitalize(src.name)] вцепляется в лицо [M]!") , \
+							span_userdanger("[capitalize(src.name)] вцепляется в мое лицо!"))
 
 	// probiscis-blocker handling
 	if(iscarbon(M))
@@ -157,16 +157,16 @@
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H.is_mouth_covered(head_only = 1))
-				H.visible_message("<span class='danger'>[capitalize(src.name)] бессильно разбивается о [H.head] [H]!</span>" , \
-									"<span class='userdanger'>[capitalize(src.name)] бессильно разбивается о [H.head]!</span>")
+				H.visible_message(span_danger("[capitalize(src.name)] бессильно разбивается о [H.head] [H]!") , \
+									span_userdanger("[capitalize(src.name)] бессильно разбивается о [H.head]!"))
 				Die()
 				return FALSE
 
 		if(target.wear_mask)
 			var/obj/item/clothing/W = target.wear_mask
 			if(target.dropItemToGround(W))
-				target.visible_message("<span class='danger'>[capitalize(src.name)] срывает [W] и вцепляется в лицо [target]!</span>" , \
-									"<span class='userdanger'>[capitalize(src.name)] срывает [W] и вцепляется в мое лицо!</span>")
+				target.visible_message(span_danger("[capitalize(src.name)] срывает [W] и вцепляется в лицо [target]!") , \
+									span_userdanger("[capitalize(src.name)] срывает [W] и вцепляется в мое лицо!"))
 		target.equip_to_slot_if_possible(src, ITEM_SLOT_MASK, 0, 1, 1)
 	return TRUE // time for a smoke
 
@@ -202,8 +202,8 @@
 			return
 
 	if(!sterile)
-		target.visible_message("<span class='danger'>[capitalize(src.name)] безвольно отваливается от лица [target]!</span>" , \
-								"<span class='userdanger'>[capitalize(src.name)] безвольно отваливается от моего лица!</span>")
+		target.visible_message(span_danger("[capitalize(src.name)] безвольно отваливается от лица [target]!") , \
+								span_userdanger("[capitalize(src.name)] безвольно отваливается от моего лица!"))
 
 		REMOVE_TRAIT(target, TRAIT_NOBREATH, "facehugger")
 		Die()
@@ -217,8 +217,8 @@
 				log_game("[key_name(target)] был заражен лицехватом [loc_name(T)]")
 
 	else
-		target.visible_message("<span class='danger'>[capitalize(src.name)] бестолково тычется в лицо [target]!</span>" , \
-								"<span class='userdanger'>[capitalize(src.name)] бестолково тычется в мое лицо!</span>")
+		target.visible_message(span_danger("[capitalize(src.name)] бестолково тычется в лицо [target]!") , \
+								span_userdanger("[capitalize(src.name)] бестолково тычется в мое лицо!"))
 
 /obj/item/clothing/mask/facehugger/proc/GoActive()
 	if(stat == DEAD || stat == CONSCIOUS)
@@ -244,7 +244,7 @@
 	inhand_icon_state = "facehugger_inactive"
 	stat = DEAD
 
-	visible_message("<span class='danger'>[capitalize(src.name)] сворачивается в клубок!</span>")
+	visible_message(span_danger("[capitalize(src.name)] сворачивается в клубок!"))
 
 /proc/CanHug(mob/living/M)
 	if(!istype(M))

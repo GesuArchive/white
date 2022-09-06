@@ -9,7 +9,7 @@ GLOBAL_DATUM_INIT(known_alts, /datum/known_alts, new)
 		return
 
 	if (!SSdbcore.Connect())
-		to_chat(usr, "<span class='warning'>Couldn't connect to the database.</span>")
+		to_chat(usr, span_warning("Couldn't connect to the database."))
 		return
 
 	var/datum/admins/holder = usr.client?.holder
@@ -162,7 +162,7 @@ GLOBAL_DATUM_INIT(known_alts, /datum/known_alts, new)
 		return
 
 	if (!SSdbcore.Connect())
-		to_chat(usr, "<span class='warning'>Couldn't connect to the database.</span>")
+		to_chat(usr, span_warning("Couldn't connect to the database."))
 		return
 
 	var/list/known_alts_html = list()

@@ -15,7 +15,7 @@
 		return
 	if(!A.panel_open)
 		//Cut open the panel
-		to_chat(user, "<span class='notice'>Начинаю разрезать [A].</span>")
+		to_chat(user, span_notice("Начинаю разрезать [A]."))
 		if(do_after(user, 50, target=A))
 			to_chat(user, "<span class='brass'>Разрезаю [A] используя [src].</span>")
 			A.panel_open = TRUE
@@ -23,13 +23,13 @@
 			return
 		return
 	//Insert the cog
-	to_chat(user, "<span class='notice'>Начинаю вставлять [src] в [A].</span>")
+	to_chat(user, span_notice("Начинаю вставлять [src] в [A]."))
 	if(do_after(user, 40, target=A))
 		A.integration_cog = src
 		forceMove(A)
 		A.panel_open = FALSE
 		A.update_icon()
-		to_chat(user, "<span class='notice'>Вставляю [src] в [A].</span>")
+		to_chat(user, span_notice("Вставляю [src] в [A]."))
 		playsound(get_turf(user), 'sound/machines/clockcult/integration_cog_install.ogg', 20)
 		if(!A.clock_cog_rewarded)
 			GLOB.installed_integration_cogs ++

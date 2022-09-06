@@ -59,7 +59,7 @@
 
 
 /obj/item/book/ruchinese/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] бьет себя словарем по голове, кажется он чувствует себя хуево!</span>")
+	user.visible_message(span_suicide("[user] бьет себя словарем по голове, кажется он чувствует себя хуево!"))
 	return (BRUTELOSS)
 
 /datum/uplink_item/role_restricted/ruchinese

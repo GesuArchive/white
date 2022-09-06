@@ -122,7 +122,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	// выбираем рандом, если не зафоршен режим
 	if(!GLOB.violence_playmode)
 		GLOB.violence_playmode = pick(list(VIOLENCE_PLAYMODE_TEAMFIGHT, VIOLENCE_PLAYMODE_BOMBDEF))
-	to_chat(world, "<span class='leader_brass'>Был выбран режим [GLOB.violence_playmode]!</span>")
+	to_chat(world, leader_brass("Был выбран режим [GLOB.violence_playmode]!"))
 	// выключаем рандомные ивенты наверняка
 	CONFIG_SET(flag/allow_random_events, FALSE)
 	// готовим новый раунд
@@ -236,10 +236,10 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	switch(vp_dead.team)
 		if("red")
 			GLOB.violence_red_team -= dead.mind
-			to_chat(world, "<span class='red'>[LAZYLEN(GLOB.violence_red_team)]/[last_reds]</span>")
+			to_chat(world, span_red("[LAZYLEN(GLOB.violence_red_team)]/[last_reds]"))
 		if("blue")
 			GLOB.violence_blue_team -= dead.mind
-			to_chat(world, "<span class='blue'>[LAZYLEN(GLOB.violence_blue_team)]/[last_blues]</span>")
+			to_chat(world, span_blue("[LAZYLEN(GLOB.violence_blue_team)]/[last_blues]"))
 
 	var/datum/violence_player/vp_killer = vp_get_player(dead?.lastattackermob?.ckey)
 
@@ -251,7 +251,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	vp_killer.money += rightkill ? payout : -payout
 	vp_killer.kills += rightkill ? 1 : -1
 
-	to_chat(dead?.lastattackermob, "<span class='boldnotice'>[rightkill ? "+[payout]" : "-[payout]"]₽</span>")
+	to_chat(dead?.lastattackermob, span_boldnotice("[rightkill ? "+[payout]" : "-[payout]"]₽"))
 
 
 /datum/game_mode/violence/proc/update_timer()
@@ -297,10 +297,10 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		LAZYADD(stats, stats_reds)
 		LAZYADD(stats, stats_blues)
 		stats += "</table>"
-		to_chat(world, "<span class='info'>[stats.Join()]</span>")
-		to_chat(world, "<span class='leader_brass'>РАУНД [GLOB.violence_current_round]/[VIOLENCE_FINAL_ROUND-1] ЗАВЕРШЁН!</span>")
-		to_chat(world, "<span class='leader_brass'>ПОБЕДА [winner]! <b class='red'>[wins_reds]</b>/<b class='blue'>[wins_blues]</b></span>")
-		to_chat(world, "<span class='leader_brass'>Выдано [payout * GLOB.violence_current_round]₽ победителям и [(payout * GLOB.violence_current_round) + (winner != "КРАСНЫХ" ? losestreak_reds * payout : losestreak_blues * payout)]₽ проигравшим!</span>")
+		to_chat(world, span_info(stats.Join()))
+		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round]/[VIOLENCE_FINAL_ROUND-1] ЗАВЕРШЁН!"))
+		to_chat(world, leader_brass("ПОБЕДА [winner]! <b class='red'>[wins_reds]</b>/<b class='blue'>[wins_blues]</b>"))
+		to_chat(world, leader_brass("Выдано [payout * GLOB.violence_current_round]₽ победителям и [(payout * GLOB.violence_current_round) + (winner != "КРАСНЫХ" ? losestreak_reds * payout : losestreak_blues * payout)]₽ проигравшим!"))
 	play_sound_to_everyone('white/valtos/sounds/crowd_win.ogg')
 	spawn(10 SECONDS)
 		new_round()
@@ -378,7 +378,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		// метим время начала
 		round_started_at = world.time
 		// оповещаем игроков
-		to_chat(world, "<span class='leader_brass'>РАУНД [GLOB.violence_current_round]!</span>")
+		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round]!"))
 		play_sound_to_everyone('white/valtos/sounds/horn.ogg')
 		// открываем шаттерсы через время
 		spawn(30 SECONDS)
@@ -387,9 +387,9 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 				var/mob/living/carbon/human/terrorist = terr_mind.current
 				var/obj/item/terroristsc4/terroristsc4 = new(get_turf(terrorist))
 				terrorist.put_in_hands(terroristsc4)
-				terrorist.visible_message("<span class='fuckingbig'><b>[terrorist]</b> получает бомбу! Помогите ему установить её.</span>",
-					"<span class='fuckingbig'>Мне досталась бомба. Необходимо установить её в заранее обозначенной точке.</span>")
-			to_chat(world, "<span class='leader_brass'>В БОЙ!</span>")
+				terrorist.visible_message(span_fuckingbig("<b>[terrorist]</b> получает бомбу! Помогите ему установить её."),
+					span_fuckingbig("Мне досталась бомба. Необходимо установить её в заранее обозначенной точке."))
+			to_chat(world, leader_brass("В БОЙ!"))
 			last_reds = LAZYLEN(GLOB.violence_red_team)
 			last_blues = LAZYLEN(GLOB.violence_blue_team)
 			play_sound_to_everyone('white/valtos/sounds/gong.ogg')

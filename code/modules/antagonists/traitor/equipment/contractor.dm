@@ -163,7 +163,7 @@
 	. = ..()
 
 	if (.)
-		to_chat(user, "<span class='notice'>Мой аплинк тихо вибрирует, подключаясь к ближайшим оперативникам...</span>")
+		to_chat(user, span_notice("Мой аплинк тихо вибрирует, подключаясь к ближайшим оперативникам..."))
 
 		var/list/mob/dead/observer/candidates = poll_ghost_candidates("Do you want to play as the Contractor Support Unit for [user.real_name]?", ROLE_PAI, null, 100, POLL_IGNORE_CONTRACTOR_SUPPORT)
 
@@ -171,7 +171,7 @@
 			var/mob/dead/observer/C = pick(candidates)
 			spawn_contractor_partner(user, C.key)
 		else
-			to_chat(user, "<span class='notice'>На данный момент нет свободных оперативников. Пожалуйста, попробуйте позже.</span>")
+			to_chat(user, span_notice("На данный момент нет свободных оперативников. Пожалуйста, попробуйте позже."))
 
 			// refund and add the limit back.
 			limited += 1
@@ -227,7 +227,7 @@
 	partner_mind = partner.mind
 	partner_mind.make_Contractor_Support()
 
-	to_chat(partner_mind.current, "<span class='alertwarning'>\n[user.real_name] is your superior. Follow any, and all orders given by them. You're here to support their mission only.</span>")
+	to_chat(partner_mind.current, span_alertwarning("\n[user.real_name] is your superior. Follow any, and all orders given by them. You're here to support their mission only."))
 	to_chat(partner_mind.current, "<span class='alertwarning'>Should they perish, or be otherwise unavailable, you're to assist other active agents in this mission area to the best of your ability.</span>\n\n")
 
 	new /obj/effect/pod_landingzone(free_location, arrival_pod)
@@ -267,9 +267,9 @@
 		var/atom/item_to_create = new item(get_turf(user))
 
 		if(user.put_in_hands(item_to_create))
-			to_chat(user, "<span class='notice'>Моя покупка материализуется в моих руках!</span>")
+			to_chat(user, span_notice("Моя покупка материализуется в моих руках!"))
 		else
-			to_chat(user, "<span class='notice'>Моя покупка материализуется на полу.</span>")
+			to_chat(user, span_notice("Моя покупка материализуется на полу."))
 
 		return item_to_create
 	return TRUE

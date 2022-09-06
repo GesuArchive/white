@@ -21,7 +21,7 @@
 	var/list/files = list()
 
 /obj/item/card/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins to swipe [user.ru_ego()] neck with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] begins to swipe [user.ru_ego()] neck with <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return BRUTELOSS
 
 /obj/item/card/data
@@ -402,7 +402,7 @@
 		var/minor
 		if(registered_name && registered_age && registered_age < AGE_MINOR)
 			minor = " <b>(СТАЖИРОВКА)</b>"
-		user.visible_message("<span class='notice'><b>[user]</b> показывает мне: [icon2html(src, viewers(user))] <b>[src.name][minor]</b>.</span>" , "<span class='notice'>Показываю <b>[src.name][minor]</b>.</span>")
+		user.visible_message(span_notice("<b>[user]</b> показывает мне: [icon2html(src, viewers(user))] <b>[src.name][minor]</b>.") , span_notice("Показываю <b>[src.name][minor]</b>."))
 	add_fingerprint(user)
 
 /obj/item/card/id/vv_edit_var(var_name, var_value)
@@ -418,7 +418,7 @@
 
 /obj/item/card/id/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/rupee))
-		to_chat(user, "<span class='warning'>Your ID smartly rejects the strange shard of glass. Who knew, apparently it's not ACTUALLY valuable!</span>")
+		to_chat(user, span_warning("Your ID smartly rejects the strange shard of glass. Who knew, apparently it's not ACTUALLY valuable!"))
 		return
 	else if(iscash(W))
 		insert_money(W, user)
@@ -430,7 +430,7 @@
 		var/money_added = mass_insert_money(money_contained, user)
 
 		if (money_added)
-			to_chat(user, "<span class='notice'>Прикладываю деньги к карте. Они исчезают в клубах дыма, добавляя [money_added] кредит[get_num_string(money_added)] на мой аккаунт.</span>")
+			to_chat(user, span_notice("Прикладываю деньги к карте. Они исчезают в клубах дыма, добавляя [money_added] кредит[get_num_string(money_added)] на мой аккаунт."))
 		return
 	else
 		return ..()
@@ -449,26 +449,26 @@
 		physical_currency = TRUE
 
 	if(!registered_account)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] не имеет аккаунта в себе!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] не имеет аккаунта в себе!"))
 		return
 	var/cash_money = money.get_item_credit_value()
 	if(!cash_money)
-		to_chat(user, "<span class='warning'><b>[capitalize(money.name)]</b> не очень похоже на деньги!</span>")
+		to_chat(user, span_warning("<b>[capitalize(money.name)]</b> не очень похоже на деньги!"))
 		return
 	registered_account.adjust_money(cash_money)
 	SSblackbox.record_feedback("amount", "credits_inserted", cash_money)
 	log_econ("[cash_money] credits were inserted into [src] owned by [src.registered_name]")
 	if(physical_currency)
-		to_chat(user, "<span class='notice'>Вставляю <b>[money.name]</b> в <b>[src.name]</b>. Они исчезают в клубах дыма, добавляя [cash_money] кредит[get_num_string(cash_money)] на мой аккаунт.</span>")
+		to_chat(user, span_notice("Вставляю <b>[money.name]</b> в <b>[src.name]</b>. Они исчезают в клубах дыма, добавляя [cash_money] кредит[get_num_string(cash_money)] на мой аккаунт."))
 	else
-		to_chat(user, "<span class='notice'>Вставляю <b>[money.name]</b> в <b>[src.name]</b> добавляя [cash_money] кредит[get_num_string(cash_money)] на мой аккаунт.</span>")
+		to_chat(user, span_notice("Вставляю <b>[money.name]</b> в <b>[src.name]</b> добавляя [cash_money] кредит[get_num_string(cash_money)] на мой аккаунт."))
 
-	to_chat(user, "<span class='notice'>Привязанный аккаунт сообщает о балансе в размере [registered_account.account_balance] кредит[get_num_string(registered_account.account_balance)].</span>")
+	to_chat(user, span_notice("Привязанный аккаунт сообщает о балансе в размере [registered_account.account_balance] кредит[get_num_string(registered_account.account_balance)]."))
 	qdel(money)
 
 /obj/item/card/id/proc/mass_insert_money(list/money, mob/user)
 	if(!registered_account)
-		to_chat(user, "<span class='warning'><b>[capitalize(src.name)]</b> не имеет привязанного аккаунта, чтобы вкладывать туда что-то!</span>")
+		to_chat(user, span_warning("<b>[capitalize(src.name)]</b> не имеет привязанного аккаунта, чтобы вкладывать туда что-то!"))
 		return FALSE
 
 	if (!money || !money.len)
@@ -509,10 +509,10 @@
 	if(!alt_click_can_use_id(user))
 		return
 	if(!new_bank_id || new_bank_id < 111111 || new_bank_id > 999999)
-		to_chat(user, "<span class='warning'>ID-номер аккаунта может быть от 111111 до 999999.</span>")
+		to_chat(user, span_warning("ID-номер аккаунта может быть от 111111 до 999999."))
 		return
 	if (registered_account && registered_account.account_id == new_bank_id)
-		to_chat(user, "<span class='warning'>ID-номер уже привязан к этой карте.</span>")
+		to_chat(user, span_warning("ID-номер уже привязан к этой карте."))
 		return
 
 	var/datum/bank_account/B = SSeconomy.bank_accounts_by_id["[new_bank_id]"]
@@ -522,11 +522,11 @@
 
 		B.bank_cards += src
 		registered_account = B
-		to_chat(user, "<span class='notice'>ID-номер теперь привязан к этой карте.</span>")
+		to_chat(user, span_notice("ID-номер теперь привязан к этой карте."))
 
 		return TRUE
 
-	to_chat(user, "<span class='warning'>ID-номер аккаунта неверный.</span>")
+	to_chat(user, span_warning("ID-номер аккаунта неверный."))
 	return
 
 /obj/item/card/id/AltClick(mob/living/user)
@@ -538,7 +538,7 @@
 		return
 
 	if (registered_account.being_dumped)
-		registered_account.bank_card_talk("<span class='warning'>е†…йѓЁжњЌеЉЎе™Ёй”™иЇЇ</span>" , TRUE)
+		registered_account.bank_card_talk(span_warning("е†…йѓЁжњЌеЉЎе™Ёй”™иЇЇ") , TRUE)
 		return
 
 	var/amount_to_remove =  FLOOR(input(user, "Сколько извлекаем? Баланс: [registered_account.account_balance]", "Вывод бабла", 5) as num|null, 1)
@@ -550,13 +550,13 @@
 	if(registered_account.adjust_money(-amount_to_remove))
 		var/obj/item/holochip/holochip = new (user.drop_location(), amount_to_remove)
 		user.put_in_hands(holochip)
-		to_chat(user, "<span class='notice'>Снимаю [amount_to_remove] кредит[get_num_string(amount_to_remove)] формируя голо-чип.</span>")
+		to_chat(user, span_notice("Снимаю [amount_to_remove] кредит[get_num_string(amount_to_remove)] формируя голо-чип."))
 		SSblackbox.record_feedback("amount", "credits_removed", amount_to_remove)
 		log_econ("[amount_to_remove] credits were removed from [src] owned by [src.registered_name]")
 		return
 	else
 		var/difference = amount_to_remove - registered_account.account_balance
-		registered_account.bank_card_talk("<span class='warning'>ОШИБКА: Привязанный аккаунт имеет недостаток в размере [difference] кредит[get_num_string(difference)] для снятия суммы.</span>" , TRUE)
+		registered_account.bank_card_talk(span_warning("ОШИБКА: Привязанный аккаунт имеет недостаток в размере [difference] кредит[get_num_string(difference)] для снятия суммы.") , TRUE)
 
 /obj/item/card/id/examine(mob/user)
 	. = ..()
@@ -580,17 +580,17 @@
 			var/datum/bank_account/D = SSeconomy.get_dep_account(registered_account.account_job.paycheck_department)
 			if(D)
 				msg += "\nБаланс [D.account_holder] составляет <b>[D.account_balance] кредит[get_num_string(D.account_balance)]."
-		msg += "<span class='info'>\nПКМ на ID-карте для снятия денег.</span>"
-		msg += "<span class='info'>\nПохоже сюда можно вставлять голо-чипы, монетки и прочую валюту.</span>"
+		msg += span_info("\nПКМ на ID-карте для снятия денег.")
+		msg += span_info("\nПохоже сюда можно вставлять голо-чипы, монетки и прочую валюту.")
 		if(registered_account.civilian_bounty)
 			msg += "\n<span class='info'><b>Есть активный гражданский заказ.</b>"
-			msg += "<span class='info'>\n<i>[registered_account.bounty_text()]</i></span>"
-			msg += "<span class='info'>\nКоличество: [registered_account.bounty_num()]</span>"
-			msg += "<span class='info'>\nНаграда: [registered_account.bounty_value()]</span>"
+			msg += span_info("\n<i>[registered_account.bounty_text()]</i>")
+			msg += span_info("\nКоличество: [registered_account.bounty_num()]")
+			msg += span_info("\nНаграда: [registered_account.bounty_value()]")
 		if(registered_account.account_holder == user.real_name)
-			msg += "<span class='boldnotice'>\nЕсли ты потеряешь эту ID-карту, ты можешь запросто переподключить свой счёт используя ПКМ на своей новой карте.</span>"
+			msg += span_boldnotice("\nЕсли ты потеряешь эту ID-карту, ты можешь запросто переподключить свой счёт используя ПКМ на своей новой карте.")
 	else
-		msg += "<span class='info'>Похоже здесь не привязан аккаунт. ПКМ для привязки аккаунта поможет.</span>"
+		msg += span_info("Похоже здесь не привязан аккаунт. ПКМ для привязки аккаунта поможет.")
 
 	return msg
 
@@ -697,7 +697,7 @@
 	icon_state = "car_budget" //saving up for a new tesla
 
 /obj/item/card/id/departmental_budget/car/AltClick(mob/living/user)
-	registered_account.bank_card_talk("<span class='warning'>Снимать с этой карты запрещено картой. Может потому что она не умеет печатать голочипы?</span>" , TRUE) //prevents the vault bank machine being useless and putting money from the budget to your card to go over personal crates
+	registered_account.bank_card_talk(span_warning("Снимать с этой карты запрещено картой. Может потому что она не умеет печатать голочипы?") , TRUE) //prevents the vault bank machine being useless and putting money from the budget to your card to go over personal crates
 
 /obj/item/card/id/departmental_budget/sta
 	department_ID = ACCOUNT_STA
@@ -944,7 +944,7 @@
 	var/points = 0
 
 /obj/item/card/id/advanced/prisoner/attack_self(mob/user)
-	to_chat(usr, "<span class='notice'>Собрано [points] очков. Всего нужно собрать [goal] для выхода.</span>")
+	to_chat(usr, span_notice("Собрано [points] очков. Всего нужно собрать [goal] для выхода."))
 
 /obj/item/card/id/advanced/prisoner/one
 	name = "Заключённый #13-001"
@@ -1037,10 +1037,10 @@
 	// to sneakily steal their accesses by swiping our agent ID card near them. As a result, we
 	// return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN to cancel any part of the following the attack chain.
 	if(istype(target, /mob/living/carbon/human))
-		to_chat(user, "<span class='notice'>You covertly start to scan [target] with \the [src], hoping to pick up a wireless ID card signal...</span>")
+		to_chat(user, span_notice("You covertly start to scan [target] with \the [src], hoping to pick up a wireless ID card signal..."))
 
 		if(!do_mob(user, target, 2 SECONDS))
-			to_chat(user, "<span class='notice'>The scan was interrupted.</span>")
+			to_chat(user, span_notice("The scan was interrupted."))
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 		var/mob/living/carbon/human/human_target = target
@@ -1048,11 +1048,11 @@
 		var/list/target_id_cards = human_target.get_all_contents_type(/obj/item/card/id)
 
 		if(!length(target_id_cards))
-			to_chat(user, "<span class='notice'>The scan failed to locate any ID cards.</span>")
+			to_chat(user, span_notice("The scan failed to locate any ID cards."))
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 		var/selected_id = pick(target_id_cards)
-		to_chat(user, "<span class='notice'>You successfully sync your [src] with \the [selected_id].</span>")
+		to_chat(user, span_notice("You successfully sync your [src] with \the [selected_id]."))
 		theft_target = WEAKREF(selected_id)
 		ui_interact(user)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
@@ -1060,7 +1060,7 @@
 	if(istype(target, /obj/item))
 		var/obj/item/target_item = target
 
-		to_chat(user, "<span class='notice'>You covertly start to scan [target] with your [src], hoping to pick up a wireless ID card signal...</span>")
+		to_chat(user, span_notice("You covertly start to scan [target] with your [src], hoping to pick up a wireless ID card signal..."))
 
 		var/list/target_id_cards = target_item.get_all_contents_type(/obj/item/card/id)
 
@@ -1070,11 +1070,11 @@
 			target_id_cards |= target_item_id
 
 		if(!length(target_id_cards))
-			to_chat(user, "<span class='notice'>The scan failed to locate any ID cards.</span>")
+			to_chat(user, span_notice("The scan failed to locate any ID cards."))
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 		var/selected_id = pick(target_id_cards)
-		to_chat(user, "<span class='notice'>You successfully sync your [src] with \the [selected_id].</span>")
+		to_chat(user, span_notice("You successfully sync your [src] with \the [selected_id]."))
 		theft_target = WEAKREF(selected_id)
 		ui_interact(user)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
@@ -1151,7 +1151,7 @@
 
 	var/obj/item/card/id/target_card = theft_target?.resolve()
 	if(QDELETED(target_card))
-		to_chat(usr, "<span class='notice'>Карта слишком далеко.</span>")
+		to_chat(usr, span_notice("Карта слишком далеко."))
 		target_card = null
 		return TRUE
 
@@ -1159,7 +1159,7 @@
 	var/turf/our_turf = get_turf(src)
 	var/turf/target_turf = get_turf(target_card)
 	if(!our_turf.Adjacent(target_turf))
-		to_chat(usr, "<span class='notice'>Карта слишком далеко.</span>")
+		to_chat(usr, span_notice("Карта слишком далеко."))
 		target_card = null
 		return TRUE
 
@@ -1173,17 +1173,17 @@
 				return TRUE
 
 			if(!(access_type in target_card.access))
-				to_chat(usr, "<span class='notice'>ОШИБКА-ID: ID-карта отвергает запрос на модификацию.</span>")
+				to_chat(usr, span_notice("ОШИБКА-ID: ID-карта отвергает запрос на модификацию."))
 				LOG_ID_ACCESS_CHANGE(usr, src, "failed to add [SSid_access.get_access_desc(access_type)][try_wildcard ? " with wildcard [try_wildcard]" : ""]")
 				return TRUE
 
 			if(!can_add_wildcards(list(access_type), try_wildcard))
-				to_chat(usr, "<span class='notice'>ОШИБКА-ID: ID-карта отвергает запрос на модификацию.</span>")
+				to_chat(usr, span_notice("ОШИБКА-ID: ID-карта отвергает запрос на модификацию."))
 				LOG_ID_ACCESS_CHANGE(usr, src, "failed to add [SSid_access.get_access_desc(access_type)][try_wildcard ? " with wildcard [try_wildcard]" : ""]")
 				return TRUE
 
 			if(!add_access(list(access_type), try_wildcard))
-				to_chat(usr, "<span class='notice'>ОШИБКА-ID: ID-карта отвергает запрос на модификацию.</span>")
+				to_chat(usr, span_notice("ОШИБКА-ID: ID-карта отвергает запрос на модификацию."))
 				LOG_ID_ACCESS_CHANGE(usr, src, "failed to add [SSid_access.get_access_desc(access_type)][try_wildcard ? " with wildcard [try_wildcard]" : ""]")
 				return TRUE
 
@@ -1247,7 +1247,7 @@
 				update_label()
 				update_icon()
 				forged = TRUE
-				to_chat(user, "<span class='notice'>Успешно модифицирую ID-карту.</span>")
+				to_chat(user, span_notice("Успешно модифицирую ID-карту."))
 				log_game("[key_name(user)] has forged [initial(name)] with name \"[registered_name]\", occupation \"[assignment]\" and trim \"[trim?.assignment]\".")
 
 				if(!registered_account)
@@ -1258,7 +1258,7 @@
 						if(account)
 							account.bank_cards += src
 							registered_account = account
-							to_chat(user, "<span class='notice'>Номер аккаунта автоматически выбран.</span>")
+							to_chat(user, span_notice("Номер аккаунта автоматически выбран."))
 				return
 			if(forged)
 				registered_name = initial(registered_name)
@@ -1269,7 +1269,7 @@
 				update_label()
 				update_icon()
 				forged = FALSE
-				to_chat(user, "<span class='notice'>Успешно сбрасываю ID-карту.</span>")
+				to_chat(user, span_notice("Успешно сбрасываю ID-карту."))
 				return
 		if (popup_input == "Изменить ID-номер")
 			set_new_account(user)

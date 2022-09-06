@@ -23,7 +23,7 @@
 	clockwork_desc = "Бронзовый унитаз, заполненный деталями. Может быть использован для создания мощных предметов Ратвара."
 	default_icon_state = "tinkerers_cache"
 	anchored = TRUE
-	break_message = "<span class='warning'>Тайник мастера тает в груду латуни.</span>"
+	break_message = span_warning("Тайник мастера тает в груду латуни.")
 	var/cooldowntime = 0
 
 /obj/structure/destructible/clockwork/gear_base/tinkerers_cache/attack_hand(mob/living/user)
@@ -31,7 +31,7 @@
 	if(.)
 		return
 	if(!is_servant_of_ratvar(user))
-		to_chat(user, "<span class='warning'>Пытаюсь засунуть руку в [src], но чуть не обжигаю её!</span>")
+		to_chat(user, span_warning("Пытаюсь засунуть руку в [src], но чуть не обжигаю её!"))
 		return
 	if(!anchored)
 		to_chat(user, "<span class='brass'>Стоит прикрутить [src] для начала.</span>")

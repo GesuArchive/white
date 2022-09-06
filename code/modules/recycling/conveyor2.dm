@@ -38,7 +38,7 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 /obj/machinery/conveyor/examine(mob/user)
 	. = ..()
 	if(inverted)
-		. += "<span class='notice'>It is currently set to go in reverse.</span>"
+		. += span_notice("It is currently set to go in reverse.")
 	. += "\nLeft-click with a <b>wrench</b> to rotate."
 	. += "Left-click with a <b>screwdriver</b> to invert its direction."
 	. += "Right-click with a <b>screwdriver</b> to flip its belt around."
@@ -245,8 +245,8 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 // attack with item, place item on conveyor
 /obj/machinery/conveyor/attackby(obj/item/attacking_item, mob/living/user, params)
 	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
-		user.visible_message("<span class='notice'>[user] struggles to pry up [src] with [attacking_item].</span>", \
-		"<span class='notice'>You struggle to pry up [src] with [attacking_item].</span>")
+		user.visible_message(span_notice("[user] struggles to pry up [src] with [attacking_item]."), \
+		span_notice("You struggle to pry up [src] with [attacking_item]."))
 
 		if(!attacking_item.use_tool(src, user, 4 SECONDS, volume = 40))
 			return
@@ -256,19 +256,19 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 		if(!QDELETED(belt_item)) //God I hate stacks
 			transfer_fingerprints_to(belt_item)
 
-		to_chat(user, "<span class='notice'>You remove [src].</span>")
+		to_chat(user, span_notice("You remove [src]."))
 		qdel(src)
 
 	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(src)
 		setDir(turn(dir, -45))
-		to_chat(user, "<span class='notice'>You rotate [src].</span>")
+		to_chat(user, span_notice("You rotate [src]."))
 
 	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		attacking_item.play_tool_sound(src)
 		inverted = !inverted
 		update_move_direction()
-		to_chat(user, "<span class='notice'>You set [src]'s direction [inverted ? "backwards" : "back to default"].</span>")
+		to_chat(user, span_notice("You set [src]'s direction [inverted ? "backwards" : "back to default"]."))
 
 	else if(!user.a_intent == INTENT_HARM)
 		user.transferItemToLoc(attacking_item, drop_location())
@@ -280,7 +280,7 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 		attacking_item.play_tool_sound(src)
 		flipped = !flipped
 		update_move_direction()
-		to_chat(user, "<span class='notice'>You flip [src]'s belt [flipped ? "around" : "back to normal"].</span>")
+		to_chat(user, span_notice("You flip [src]'s belt [flipped ? "around" : "back to normal"]."))
 
 	else if(!user.a_intent == INTENT_HARM)
 		user.transferItemToLoc(attacking_item, drop_location())
@@ -404,27 +404,27 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 	var/obj/item/conveyor_switch_construct/switch_construct = new/obj/item/conveyor_switch_construct(src.loc)
 	switch_construct.id = id
 	transfer_fingerprints_to(switch_construct)
-	to_chat(user, "<span class='notice'>You detach [src].</span>")
+	to_chat(user, span_notice("You detach [src]."))
 	qdel(src)
 	return TRUE
 
 /obj/machinery/conveyor_switch/screwdriver_act(mob/user, obj/item/tool)
 	tool.play_tool_sound(src, 50)
 	oneway = !oneway
-	to_chat(user, "<span class='notice'>You set [src] to [oneway ? "one way" : "default"] configuration.</span>")
+	to_chat(user, span_notice("You set [src] to [oneway ? "one way" : "default"] configuration."))
 	return TRUE
 
 /obj/machinery/conveyor_switch/wrench_act(mob/user, obj/item/tool)
 	tool.play_tool_sound(src, 50)
 	invert_icon = !invert_icon
 	update_appearance()
-	to_chat(user, "<span class='notice'>You set [src] to [invert_icon ? "inverted": "normal"] position.</span>")
+	to_chat(user, span_notice("You set [src] to [invert_icon ? "inverted": "normal"] position."))
 	return TRUE
 
 /obj/machinery/conveyor_switch/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>[src] is set to [oneway ? "one way" : "default"] configuration. It can be changed with a <b>screwdriver</b>.</span>"
-	. += "<span class='notice'>[src] is set to [invert_icon ? "inverted": "normal"] position. It can be rotated with a <b>wrench</b>.</span>"
+	. += span_notice("[src] is set to [oneway ? "one way" : "default"] configuration. It can be changed with a <b>screwdriver</b>.")
+	. += span_notice("[src] is set to [invert_icon ? "inverted": "normal"] position. It can be rotated with a <b>wrench</b>.")
 
 /obj/machinery/conveyor_switch/oneway
 	icon_state = "conveyor_switch_oneway"
@@ -452,7 +452,7 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 /obj/item/conveyor_switch_construct/attack_self(mob/user)
 	for(var/obj/item/stack/conveyor/belt in view())
 		belt.id = id
-	to_chat(user, "<span class='notice'>You have linked all nearby conveyor belt assemblies to this switch.</span>")
+	to_chat(user, span_notice("You have linked all nearby conveyor belt assemblies to this switch."))
 
 /obj/item/conveyor_switch_construct/afterattack(atom/target, mob/user, proximity)
 	. = ..()
@@ -465,7 +465,7 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 			found = TRUE
 			break
 	if(!found)
-		to_chat(user, "[icon2html(src, user)]" + "<span class='notice'>The conveyor switch did not detect any linked conveyor belts in range.</span>")
+		to_chat(user, "[icon2html(src, user)]" + span_notice("The conveyor switch did not detect any linked conveyor belts in range."))
 		return
 	var/obj/machinery/conveyor_switch/built_switch = new/obj/machinery/conveyor_switch(target, id)
 	transfer_fingerprints_to(built_switch)
@@ -493,7 +493,7 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 		return
 	var/belt_dir = get_dir(target, user)
 	if(target == user.loc)
-		to_chat(user, "<span class='warning'>You cannot place a conveyor belt under yourself!</span>")
+		to_chat(user, span_warning("You cannot place a conveyor belt under yourself!"))
 		return
 	var/obj/machinery/conveyor/belt = new/obj/machinery/conveyor(target, belt_dir, id)
 	transfer_fingerprints_to(belt)
@@ -502,7 +502,7 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 /obj/item/stack/conveyor/attackby(obj/item/item_used, mob/user, params)
 	..()
 	if(istype(item_used, /obj/item/conveyor_switch_construct))
-		to_chat(user, "<span class='notice'>You link the switch to the conveyor belt assembly.</span>")
+		to_chat(user, span_notice("You link the switch to the conveyor belt assembly."))
 		var/obj/item/conveyor_switch_construct/switch_construct = item_used
 		id = switch_construct.id
 

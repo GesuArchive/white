@@ -314,7 +314,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 			break
 	if(prev_turf && !(flags & FALL_NO_MESSAGE))
 		for(var/mov_name in falling_mov_names)
-			prev_turf.visible_message("<span class='danger'>[mov_name] падает сквозь [prev_turf]!</span>")
+			prev_turf.visible_message(span_danger("[mov_name] падает сквозь [prev_turf]!"))
 	if(!(flags & FALL_INTERCEPTED) && zFall(falling, levels + 1))
 		return FALSE
 	for(var/atom/movable/falling_mov as anything in falling_movables)

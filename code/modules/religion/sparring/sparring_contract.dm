@@ -72,7 +72,7 @@
 	var/mob/user = usr
 
 	if(!ishuman(user))
-		to_chat(user, "<span class='warning'>Этот контракт отказывается от подписания столь ничтожным существом вроде меня.</span>")
+		to_chat(user, span_warning("Этот контракт отказывается от подписания столь ничтожным существом вроде меня."))
 		return
 
 	var/datum/religion_sect/spar/sect = GLOB.religious_sect
@@ -84,7 +84,7 @@
 			resolved_opponents += resolved
 
 	if(user in resolved_opponents && params["stakes"] == STAKES_HOLY_MATCH)
-		to_chat(user, "<span class='warning'>Этот контракт отказывает в подписании на святой матч уже проигравшему в другом святом матче. Нужно выбрать другую ставку!</span>")
+		to_chat(user, span_warning("Этот контракт отказывает в подписании на святой матч уже проигравшему в другом святом матче. Нужно выбрать другую ставку!"))
 
 	//any updating of the terms should update the UI to display new terms
 	. = TRUE
@@ -103,7 +103,7 @@
 			if(!left_partner || !right_partner || !left_partner.mind || !right_partner.mind)
 				return
 			if(HAS_TRAIT(left_partner, TRAIT_SPARRING) || HAS_TRAIT(right_partner, TRAIT_SPARRING))
-				to_chat(user, "<span class='warning'>Участник уже спаррингует!</span>")
+				to_chat(user, span_warning("Участник уже спаррингует!"))
 				return
 			var/chaplain = left_partner.mind.holy_role ? left_partner : right_partner
 			var/opponent = left_partner.mind.holy_role ? right_partner : left_partner
@@ -111,7 +111,7 @@
 			qdel(src)
 		if("sign")
 			if(user == left_partner || user == right_partner)
-				to_chat(user, "<span class='warning'>Вы уже подписали другую сторону контракта.</span>")
+				to_chat(user, span_warning("Вы уже подписали другую сторону контракта."))
 				return
 			var/area/arena_condition_name = GLOB.areas_by_type[arena_condition]
 			arena_condition_name = format_text(arena_condition_name.name)
@@ -136,7 +136,7 @@
 			//if you change the terms you have to get the other person to sign again.
 			if(terms_changed && (left_partner || right_partner))
 				signed_by = list(null, null)//remove weakrefs
-				to_chat(user, "<span class='warning'>Нужно предложить спарринг-партнеру снова подписать контракт на новых условиях, которые вы установили.</span>")
+				to_chat(user, span_warning("Нужно предложить спарринг-партнеру снова подписать контракт на новых условиях, которые вы установили."))
 			//fluff and signing
 			var/datum/weakref/user_ref = WEAKREF(user)
 			if(params["sign_position"] == CONTRACT_LEFT_FIELD)

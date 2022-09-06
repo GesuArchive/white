@@ -46,7 +46,7 @@
 				qdel(BP)
 				slave.regenerate_icons()
 			explosion(src, devastation_range = -1, heavy_impact_range = -1, flame_range = 1)
-		visible_message("<span class='danger'>Голова [slave] взрывается!</span>")
+		visible_message(span_danger("Голова [slave] взрывается!"))
 		qdel(src)
 
 /obj/item/clothing/neck/explosive_collar/proc/deactivate()

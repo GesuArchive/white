@@ -208,7 +208,7 @@ GLOBAL_DATUM(cargo_ripley, /obj/vehicle/sealed/mecha/working/ripley/cargo)
 		var/obj/crate = locate(params["cargoref"]) in miner.cargo
 		if(!crate)
 			return FALSE
-		to_chat(miner.occupants, "[icon2html(src,  miner.occupants)]["<span class='notice'>You unload [crate].</span>"]")
+		to_chat(miner.occupants, "[icon2html(src,  miner.occupants)][span_notice("You unload [crate].")]")
 		crate.forceMove(drop_location())
 		LAZYREMOVE(miner.cargo, crate)
 		if(crate == miner.box)
@@ -218,16 +218,16 @@ GLOBAL_DATUM(cargo_ripley, /obj/vehicle/sealed/mecha/working/ripley/cargo)
 
 
 /obj/vehicle/sealed/mecha/working/ripley/relay_container_resist_act(mob/living/user, obj/O)
-	to_chat(user, "<span class='notice'>Пытаюсь выдавить стенку [O], чтобы попытаться выбраться из [src].</span>")
+	to_chat(user, span_notice("Пытаюсь выдавить стенку [O], чтобы попытаться выбраться из [src]."))
 	if(do_after(user, 300, target = O))
 		if(!user || user.stat != CONSCIOUS || user.loc != src || O.loc != src )
 			return
-		to_chat(user, "<span class='notice'>Успешно выдавливаю стенку [O] и выбираюсь из [src]!</span>")
+		to_chat(user, span_notice("Успешно выдавливаю стенку [O] и выбираюсь из [src]!"))
 		O.forceMove(drop_location())
 		LAZYREMOVE(cargo, O)
 	else
 		if(user.loc == src) //so we don't get the message if we resisted multiple times and succeeded.
-			to_chat(user, "<span class='warning'>Не выходит выдавить стенку [O] и выбраться из [src]!</span>")
+			to_chat(user, span_warning("Не выходит выдавить стенку [O] и выбраться из [src]!"))
 
 /**
  * Makes the mecha go faster and halves the mecha drill cooldown if in Lavaland pressure.

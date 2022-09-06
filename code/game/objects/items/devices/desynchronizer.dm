@@ -18,7 +18,7 @@
 
 /obj/item/desynchronizer/attack_self(mob/living/user)
 	if(world.time < next_use)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] is still recharging.</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] is still recharging."))
 		return
 	if(!sync_holder)
 		desync(user)
@@ -30,7 +30,7 @@
 	if(world.time < next_use)
 		. += "<hr><span class='warning'>До перезарядки осталось: [DisplayTimeText(next_use - world.time)]</span>"
 	. += "<hr><span class='notice'>ПКМ для изменения длительности, текущая длительность: [DisplayTimeText(duration)].</span>"
-	. += "<span class='notice'>\nЭффект десинхронизации можно прервать досрочно, при этом перезарядка будет равняться продолжительности воздействия.</span>"
+	. += span_notice("\nЭффект десинхронизации можно прервать досрочно, при этом перезарядка будет равняться продолжительности воздействия.")
 
 /obj/item/desynchronizer/AltClick(mob/living/user)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
@@ -40,14 +40,14 @@
 		new_duration = new_duration SECONDS
 		new_duration = clamp(new_duration, 50, max_duration)
 		duration = new_duration
-		to_chat(user, "<span class='notice'>Устанавливаю время на [DisplayTimeText(duration)].</span>")
+		to_chat(user, span_notice("Устанавливаю время на [DisplayTimeText(duration)]."))
 
 /obj/item/desynchronizer/proc/desync(mob/living/user)
 	if(sync_holder)
 		return
 	sync_holder = new(drop_location())
 	new /obj/effect/temp_visual/desynchronizer(drop_location())
-	to_chat(user, "<span class='notice'>Активирую [src], десинхронизируя себя с пространством и временем. С одной стороны ничего не изменилось, а с другой стороны изменилось абсолютно все. Мир отдалился и стал чуждым, я здесь лишь сторонний наблюдатель.</span>")
+	to_chat(user, span_notice("Активирую [src], десинхронизируя себя с пространством и временем. С одной стороны ничего не изменилось, а с другой стороны изменилось абсолютно все. Мир отдалился и стал чуждым, я здесь лишь сторонний наблюдатель."))
 	user.forceMove(sync_holder)
 	SEND_SIGNAL(user, COMSIG_MOVABLE_SECLUDED_LOCATION)
 	for(var/thing in user)

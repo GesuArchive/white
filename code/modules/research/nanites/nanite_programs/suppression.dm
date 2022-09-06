@@ -9,7 +9,7 @@
 	rogue_types = list(/datum/nanite_program/brain_misfire, /datum/nanite_program/brain_decay)
 
 /datum/nanite_program/sleepy/on_trigger(comm_message)
-	to_chat(host_mob, "<span class='warning'>Я очень хочу спать...</span>")
+	to_chat(host_mob, span_warning("Я очень хочу спать..."))
 	host_mob.drowsyness += 20
 	addtimer(CALLBACK(host_mob, /mob/living.proc/Sleeping, 200), rand(60,200))
 
@@ -24,11 +24,11 @@
 
 /datum/nanite_program/paralyzing/enable_passive_effect()
 	. = ..()
-	to_chat(host_mob, "<span class='warning'>Мышцы свело! Я пальцем пошевелить немогу!</span>")
+	to_chat(host_mob, span_warning("Мышцы свело! Я пальцем пошевелить немогу!"))
 
 /datum/nanite_program/paralyzing/disable_passive_effect()
 	. = ..()
-	to_chat(host_mob, "<span class='notice'>Я снова могу двигаться.</span>")
+	to_chat(host_mob, span_notice("Я снова могу двигаться."))
 
 /datum/nanite_program/shocking
 	name = "Удар током"
@@ -153,7 +153,7 @@
 		return
 	if(host_mob.stat == DEAD)
 		return
-	to_chat(host_mob, "<span class='warning'>You feel compelled to speak...</span>")
+	to_chat(host_mob, span_warning("You feel compelled to speak..."))
 	host_mob.say(sent_message, forced = "nanite speech")
 
 /datum/nanite_program/comm/voice

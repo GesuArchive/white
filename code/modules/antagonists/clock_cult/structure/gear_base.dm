@@ -3,7 +3,7 @@
 	desc = "Большая шестерня, лежащая на полу на уровне ног."
 	clockwork_desc = "Большая шестерня, лежащая на полу на уровне ног."
 	anchored = FALSE
-	break_message = "<span class='warning'>О, это сломалось. Я думаю, вы могли бы сообщить об этом кодировщикам или просто игнорировать это сообщение и продолжать убивать этих чертовых еретиков, пришедших сломать Ковчег.</span>"
+	break_message = span_warning("О, это сломалось. Я думаю, вы могли бы сообщить об этом кодировщикам или просто игнорировать это сообщение и продолжать убивать этих чертовых еретиков, пришедших сломать Ковчег.")
 	var/default_icon_state = "gear_base"
 	var/unwrenched_suffix = "_unwrenched"
 	var/list/transmission_sigils
@@ -24,9 +24,9 @@
 
 /obj/structure/destructible/clockwork/gear_base/attackby(obj/item/I, mob/user, params)
 	if(is_servant_of_ratvar(user) && I.tool_behaviour == TOOL_WRENCH)
-		to_chat(user, "<span class='notice'>Начинаю [anchored ? "откручивать" : "прикручивать"] [src].</span>")
+		to_chat(user, span_notice("Начинаю [anchored ? "откручивать" : "прикручивать"] [src]."))
 		if(I.use_tool(src, user, 20, volume=50))
-			to_chat(user, "<span class='notice'>Успешно [anchored ? "откручиваю" : "прикручиваю"] [src].</span>")
+			to_chat(user, span_notice("Успешно [anchored ? "откручиваю" : "прикручиваю"] [src]."))
 			set_anchored(!anchored)
 			update_icon_state()
 		return TRUE

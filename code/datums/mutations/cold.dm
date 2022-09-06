@@ -2,7 +2,7 @@
 	name = "Аквакрионика"
 	desc = "Позволяет сконденсировать влагу из воздуха в руках и обратить ее в снег."
 	quality = POSITIVE
-	text_gain_indication = "<span class='notice'>Мои руки холодные, как снег...</span>"
+	text_gain_indication = span_notice("Мои руки холодные, как снег...")
 	instability = 10
 	difficulty = 10
 	synchronizer_coeff = 1
@@ -23,7 +23,7 @@
 	name = "Криокинез"
 	desc = "Псионическая способность заморозить цель на расстоянии."
 	quality = POSITIVE //upsides and downsides
-	text_gain_indication = "<span class='notice'>Мои руки холодные, как лед...</span>"
+	text_gain_indication = span_notice("Мои руки холодные, как лед...")
 	instability = 20
 	difficulty = 12
 	synchronizer_coeff = 1

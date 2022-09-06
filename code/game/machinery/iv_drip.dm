@@ -82,13 +82,13 @@
 		return
 
 	if(attached)
-		visible_message("<span class='warning'>[attached] is detached from [src].</span>")
+		visible_message(span_warning("[attached] is detached from [src]."))
 		attached = null
 		update_appearance()
 		return
 
 	if(!target.has_dna())
-		to_chat(usr, "<span class='danger'>Капельница пищит: Внимание, несовместимое существо!</span>")
+		to_chat(usr, span_danger("Капельница пищит: Внимание, несовместимое существо!"))
 		return
 
 	if(Adjacent(target) && usr.Adjacent(target))
@@ -96,8 +96,8 @@
 			attach_iv(target, usr)
 		else
 			if(target == usr && Adjacent(usr))
-//			to_chat(usr, "<span class='warning'>К капельнице ничего не присоединено!</span>")
-				usr.visible_message("<span class='notice'>[usr] складывает [src.name].</span>" , "<span class='notice'>Складываю [src.name].</span>")
+//			to_chat(usr, span_warning("К капельнице ничего не присоединено!"))
+				usr.visible_message(span_notice("[usr] складывает [src.name].") , span_notice("Складываю [src.name]."))
 				var/obj/machinery/iv_drip/B = new /obj/item/iv_drip_item(get_turf(src))
 				usr.put_in_hands(B)
 				qdel(src)
@@ -108,12 +108,12 @@
 
 	if(is_type_in_typecache(W, drip_containers) || IS_EDIBLE(W))
 		if(reagent_container)
-			to_chat(user, "<span class='warning'>[reagent_container] is already loaded on [src]!</span>")
+			to_chat(user, span_warning("[reagent_container] is already loaded on [src]!"))
 			return
 		if(!user.transferItemToLoc(W, src))
 			return
 		reagent_container = W
-		to_chat(user, "<span class='notice'>Присоединяю [W] к [src].</span>")
+		to_chat(user, span_notice("Присоединяю [W] к [src]."))
 		user.log_message("attached a [W] to [src] at [AREACOORD(src)] containing ([reagent_container.reagents.log_list()])", LOG_ATTACK)
 		add_fingerprint(user)
 		update_appearance()
@@ -131,7 +131,7 @@
 		return PROCESS_KILL
 
 	if(!(get_dist(src, attached) <= 1 && isturf(attached.loc)))
-		to_chat(attached, "<span class='userdanger'>Из меня выпала игла для капельницы!</span>")
+		to_chat(attached, span_userdanger("Из меня выпала игла для капельницы!"))
 		attached.apply_damage(3, BRUTE, pick(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM))
 		detach_iv()
 		return PROCESS_KILL
@@ -157,12 +157,12 @@
 			// If the beaker is full, ping
 			if(!amount)
 				if(prob(5))
-					visible_message("<span class='hear'>[src] pings.</span>")
+					visible_message(span_hear("[src] pings."))
 				return
 
 			// If the human is losing too much blood, beep.
 			if(attached.blood_volume < BLOOD_VOLUME_SAFE && prob(5))
-				visible_message("<span class='hear'>[src] beeps loudly.</span>")
+				visible_message(span_hear("[src] beeps loudly."))
 				playsound(loc, 'sound/machines/twobeep_high.ogg', 50, TRUE)
 			var/atom/movable/target = use_internal_storage ? src : reagent_container
 			attached.transfer_blood_to(target, amount)
@@ -175,7 +175,7 @@
 	if(!ishuman(user) && !iscyborg(user))
 		return
 	if(attached)
-		visible_message("<span class='notice'>[attached] отделяется от [src].</span>")
+		visible_message(span_notice("[attached] отделяется от [src]."))
 		detach_iv()
 		return
 	else if(reagent_container)
@@ -194,10 +194,10 @@
 
 	if(dripfeed)
 		dripfeed = FALSE
-		to_chat(usr, "<span class='notice'>Ослабляю клапан, чтобы ускорить [src].</span>")
+		to_chat(usr, span_notice("Ослабляю клапан, чтобы ускорить [src]."))
 	else
 		dripfeed = TRUE
-		to_chat(usr, "<span class='notice'>Затягиваю клапан, чтобы медленно, покапельно подавать содержимое [src].</span>")
+		to_chat(usr, span_notice("Затягиваю клапан, чтобы медленно, покапельно подавать содержимое [src]."))
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/machinery/iv_drip/attack_robot_secondary(mob/user, modifiers)
@@ -206,7 +206,7 @@
 
 ///called when an IV is attached
 /obj/machinery/iv_drip/proc/attach_iv(mob/living/target, mob/user)
-	usr.visible_message("<span class='warning'>[usr] присоединяет [src] к [target].</span>", "<span class='notice'>Присоединяю [src] к [target].</span>")
+	usr.visible_message(span_warning("[usr] присоединяет [src] к [target]."), span_notice("Присоединяю [src] к [target]."))
 	var/datum/reagents/container = get_reagent_holder()
 	log_combat(usr, target, "присоединено", src, "содержит: ([container.log_list()])")
 	add_fingerprint(usr)
@@ -232,7 +232,7 @@
 	set src in view(1)
 
 	if(!isliving(usr))
-		to_chat(usr, "<span class='warning'>Не могу это сделать!</span>")
+		to_chat(usr, span_warning("Не могу это сделать!"))
 		return
 	if (!usr.canUseTopic())
 		return
@@ -249,14 +249,14 @@
 	set src in view(1)
 
 	if(!isliving(usr))
-		to_chat(usr, "<span class='warning'>Не могу это сделать!</span>")
+		to_chat(usr, span_warning("Не могу это сделать!"))
 		return
 	if (!usr.canUseTopic())
 		return
 	if(usr.incapacitated())
 		return
 	mode = !mode
-	to_chat(usr, "<span class='notice'>Капельница теперь [mode ? "вводит" : "берет кровь"].</span>")
+	to_chat(usr, span_notice("Капельница теперь [mode ? "вводит" : "берет кровь"]."))
 	update_appearance()
 
 /obj/machinery/iv_drip/examine(mob/user)
@@ -268,7 +268,7 @@
 
 	if(reagent_container)
 		if(reagent_container.reagents && reagent_container.reagents.reagent_list.len)
-			. += "<span class='notice'><hr>Здесь закреплен [reagent_container] и в нем осталось [reagent_container.reagents.total_volume] единиц раствора.</span>"
+			. += span_notice("<hr>Здесь закреплен [reagent_container] и в нем осталось [reagent_container.reagents.total_volume] единиц раствора.")
 		else
 			. += "<hr><span class='notice'>Здесь закреплен пустой [reagent_container.name].</span>"
 	else if(use_internal_storage)

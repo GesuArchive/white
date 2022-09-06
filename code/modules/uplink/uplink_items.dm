@@ -137,9 +137,9 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	if(ishuman(user) && istype(A, /obj/item))
 		var/mob/living/carbon/human/H = user
 		if(H.put_in_hands(A))
-			to_chat(H, "<span class='boldnotice'>[A] материализуется в ваших руках!</span>")
+			to_chat(H, span_boldnotice("[A] материализуется в ваших руках!"))
 			return A
-	to_chat(user, "<span class='boldnotice'>[A] материализуется на полу!</span>")
+	to_chat(user, span_boldnotice("[A] материализуется на полу!"))
 	return A
 
 //Discounts (dynamically filled above)
@@ -1548,7 +1548,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 		return
 	U.failsafe_code = U.generate_code()
 	var/code = "[islist(U.failsafe_code) ? english_list(U.failsafe_code) : U.failsafe_code]"
-	to_chat(user, "<span class='warning'>Новый код для самоподрыва: [code].</span>")
+	to_chat(user, span_warning("Новый код для самоподрыва: [code]."))
 	if(user.mind)
 		user.mind.store_memory("Код для самоуничтожения аплинка [U.parent] : [code]")
 	return U.parent //For log icon

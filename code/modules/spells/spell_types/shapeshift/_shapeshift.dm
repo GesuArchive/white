@@ -98,7 +98,7 @@
 	else
 		our_pipeline = pipenets
 
-	to_chat(cast_on, "<span class='userdanger'>Casting [src] inside of [pipe_you_die_in] quickly turns you into a bloody mush!</span>")
+	to_chat(cast_on, span_userdanger("Casting [src] inside of [pipe_you_die_in] quickly turns you into a bloody mush!"))
 	var/obj/effect/gib_type = isalien(cast_on) ? /obj/effect/gibspawner/xeno : /obj/effect/gibspawner/generic
 
 	for(var/obj/machinery/atmospherics/components/unary/possible_vent in range(10, get_turf(cast_on)))
@@ -120,7 +120,7 @@
 
 /datum/action/cooldown/spell/shapeshift/proc/do_shapeshift(mob/living/caster)
 	if(is_shifted(caster))
-		to_chat(caster, "<span class='warning'>You're already shapeshifted!</span>")
+		to_chat(caster, span_warning("You're already shapeshifted!"))
 		CRASH("[type] called do_shapeshift while shapeshifted.")
 
 	var/mob/living/new_shape = new shapeshift_type(caster.loc)

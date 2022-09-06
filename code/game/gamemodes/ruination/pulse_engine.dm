@@ -14,9 +14,9 @@
 
 /obj/structure/pulse_engine/examine(mob/user)
 	. = ..()
-	. += "<span class='danger'><hr>Текущая мощность: [engine_power]%</span>"
-	. += "<span class='danger'>\nМинимальная мощность: [minimum_power]%</span>"
-	. += "<span class='notice'><hr>Похоже, если его неплохо так поколотить, то он станет работать <b>намного [(user?.mind?.has_antag_datum(/datum/antagonist/traitor/ruiner) || user?.mind?.has_antag_datum(/datum/antagonist/ert)) ? "лучше" : "хуже"]</b>.</span>"
+	. += span_danger("<hr>Текущая мощность: [engine_power]%")
+	. += span_danger("\nМинимальная мощность: [minimum_power]%")
+	. += span_notice("<hr>Похоже, если его неплохо так поколотить, то он станет работать <b>намного [(user?.mind?.has_antag_datum(/datum/antagonist/traitor/ruiner) || user?.mind?.has_antag_datum(/datum/antagonist/ert)) ? "лучше" : "хуже"]</b>.")
 
 /obj/structure/pulse_engine/Initialize(mapload)
 	. = ..()
@@ -34,13 +34,13 @@
 		var/area/A = get_area(T)
 		if(istype(A, /area/space) || isinspace())
 			add_overlay("peoverlay")
-			to_chat(user, "<span class='danger'>ДВИГАТЕЛЬ ВКЛЮЧЁН!</span>")
+			to_chat(user, span_danger("ДВИГАТЕЛЬ ВКЛЮЧЁН!"))
 			playsound(T, 'sound/vehicles/rocketlaunch.ogg', 80, TRUE, 20)
 			animate(src, pixel_z = -300, time = 30, easing = LINEAR_EASING)
 			QDEL_IN(src, 30)
 			return
 		if(engine_active)
-			to_chat(user, "<span class='danger'>Уже включён.</span>")
+			to_chat(user, span_danger("Уже включён."))
 			return
 		GLOB.pulse_engines += src
 		engine_active = TRUE
@@ -53,7 +53,7 @@
 			START_PROCESSING(SSmachines, src)
 			priority_announce("Был обнаружен импульсный двигатель в локации [get_area_name(src, TRUE)].", null, sound('white/valtos/sounds/trevoga2.ogg'), "Priority")
 			set_light(8, 2, "#f79947")
-		to_chat(user, "<span class='notice'>Включаю двигатель.</span>")
+		to_chat(user, span_notice("Включаю двигатель."))
 
 /obj/structure/pulse_engine/attackby(obj/item/I, mob/living/user, params)
 	. = ..()

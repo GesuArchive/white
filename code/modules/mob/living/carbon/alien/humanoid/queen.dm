@@ -76,7 +76,7 @@
 
 /datum/action/cooldown/alien/make_structure/lay_egg/Activate(atom/target)
 	. = ..()
-	owner.visible_message("<span class='alertalien'>[owner] откладывает яйцо!</span>")
+	owner.visible_message(span_alertalien("[owner] откладывает яйцо!"))
 
 //Button to let queen choose her praetorian.
 /datum/action/cooldown/alien/promote
@@ -110,21 +110,21 @@
 /datum/action/cooldown/alien/promote/Activate(atom/target)
 	var/obj/item/queen_promotion/existing_promotion = locate() in owner.held_items
 	if(existing_promotion)
-		to_chat(owner, "<span class='noticealien'>Мне пока не понадобится [existing_promotion].</span>")
+		to_chat(owner, span_noticealien("Мне пока не понадобится [existing_promotion]."))
 		owner.temporarilyRemoveItemFromInventory(existing_promotion)
 		qdel(existing_promotion)
 		return TRUE
 
 	if(!owner.get_empty_held_indexes())
-		to_chat(owner, "<span class='warning'>Мне нужны свободные руки для этого.</span>")
+		to_chat(owner, span_warning("Мне нужны свободные руки для этого."))
 		return FALSE
 
 	var/obj/item/queen_promotion/new_promotion = new(owner.loc)
 	if(!owner.put_in_hands(new_promotion, del_on_fail = TRUE))
-		to_chat(owner, "<span class='noticealien'>Не вышло подготовить паразита.</span>")
+		to_chat(owner, span_noticealien("Не вышло подготовить паразита."))
 		return FALSE
 
-	to_chat(owner, "<span class='noticealien'>Введите королевского паразита одной из взрослых особей для того чтобы возвысить ее до преторианского гвардейца!</span>")
+	to_chat(owner, span_noticealien("Введите королевского паразита одной из взрослых особей для того чтобы возвысить ее до преторианского гвардейца!"))
 	return TRUE
 
 /obj/item/queen_promotion
@@ -148,11 +148,11 @@
 		CRASH("[type] was created and handled by a mob ([queen]) that didn't have a promotion action associated.")
 
 	if(!isalienhumanoid(to_promote) || isalienroyal(to_promote))
-		to_chat(queen, "<span class='noticealien'>Возвысить можно только взрослые, не королевские особи!</span>")
+		to_chat(queen, span_noticealien("Возвысить можно только взрослые, не королевские особи!"))
 		return
 
 	if(!promotion.IsAvailable())
-		to_chat(queen, "<span class='noticealien'>Не могу возвысить на данный момент!</span>")
+		to_chat(queen, span_noticealien("Не могу возвысить на данный момент!"))
 		return
 
 	if(to_promote.stat != CONSCIOUS || !to_promote.mind || !to_promote.key)
@@ -160,10 +160,10 @@
 
 	queen.adjustPlasma(-promotion.promotion_plasma_cost)
 
-	to_chat(queen, "<span class='noticealien'>Возвышаю [to_promote] до преторианца!</span>")
+	to_chat(queen, span_noticealien("Возвышаю [to_promote] до преторианца!"))
 	to_promote.visible_message(
-		"<span class='alertalien'>Тело [to_promote] начинает искажаться и увеличиваться!</span>",
-		"<span class='noticealien'>Королева возвысила меня до преторианца!</span>",
+		span_alertalien("Тело [to_promote] начинает искажаться и увеличиваться!"),
+		span_noticealien("Королева возвысила меня до преторианца!"),
 	)
 
 	var/mob/living/carbon/alien/humanoid/royal/praetorian/new_prae = new(to_promote.loc)
@@ -174,10 +174,10 @@
 	return TRUE
 
 /obj/item/queen_promotion/attack_self(mob/user)
-	to_chat(user, "<span class='noticealien'>Мне пока не понадобится [src].</span>")
+	to_chat(user, span_noticealien("Мне пока не понадобится [src]."))
 	qdel(src)
 
 /obj/item/queen_promotion/dropped(mob/user, silent)
 	if(!silent)
-		to_chat(user, "<span class='noticealien'>Мне пока не понадобится [src].</span>")
+		to_chat(user, span_noticealien("Мне пока не понадобится [src]."))
 	return ..()

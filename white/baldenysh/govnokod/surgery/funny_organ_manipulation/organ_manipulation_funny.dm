@@ -24,7 +24,7 @@
 /datum/surgery_step/manipulate_organs_adv/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	var/atom/movable/organ_holder/OH = locate() in target.contents
 	if(!OH)
-		to_chat(user, "<span class='warning'>У [target] отсутствует органовый костыль!!</span>")
+		to_chat(user, span_warning("У [target] отсутствует органовый костыль!!"))
 		return -1
 
 /datum/surgery_step/manipulate_organs_adv/success(mob/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)

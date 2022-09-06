@@ -16,7 +16,7 @@
 	AddComponent(/datum/component/cleaner, 3 SECONDS)
 
 /obj/item/reagent_containers/glass/rag/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is smothering [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] is smothering [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return (OXYLOSS)
 
 /obj/item/reagent_containers/glass/rag/afterattack(atom/A as obj|turf|area, mob/user,proximity)
@@ -29,12 +29,12 @@
 		var/log_object = "containing [reagentlist]"
 		if(user.a_intent == INTENT_HARM && !C.is_mouth_covered())
 			reagents.trans_to(C, reagents.total_volume, transfered_by = user, methods = INGEST)
-			C.visible_message("<span class='danger'>[user] душит [C] используя [src]!</span>" , "<span class='userdanger'>[user] душит вас используя [src]!</span>" , "<span class='hear'>Слышу звуки борьбы и приглушенные удивленные вскрики.</span>")
+			C.visible_message(span_danger("[user] душит [C] используя [src]!") , span_userdanger("[user] душит вас используя [src]!") , span_hear("Слышу звуки борьбы и приглушенные удивленные вскрики."))
 			log_combat(user, C, "задушен", src, log_object)
 		else
 			reagents.expose(C, TOUCH)
 			reagents.clear_reagents()
-			C.visible_message("<span class='notice'>[user] трогает [C] [src].</span>")
+			C.visible_message(span_notice("[user] трогает [C] [src]."))
 			log_combat(user, C, "потроган", src, log_object)
 
 	else if(istype(A) && (src in user))

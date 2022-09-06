@@ -44,34 +44,34 @@
 /obj/item/clothing/neck/tie/examine(mob/user)
 	. = ..()
 	if(clip_on)
-		. += "<span class='notice'>Looking closely, you can see that it's actually a cleverly disguised clip-on.</span>"
+		. += span_notice("Looking closely, you can see that it's actually a cleverly disguised clip-on.")
 	else if(!is_tied)
-		. += "<span class='notice'>The tie can be tied with Alt-Click.</span>"
+		. += span_notice("The tie can be tied with Alt-Click.")
 	else
-		. += "<span class='notice'>The tie can be untied with Alt-Click.</span>"
+		. += span_notice("The tie can be untied with Alt-Click.")
 
 /obj/item/clothing/neck/tie/AltClick(mob/user)
 	. = ..()
 	if(clip_on)
 		return
-	to_chat(user, "<span class='notice'>You concentrate as you begin [is_tied ? "untying" : "tying"] [src]...</span>")
+	to_chat(user, span_notice("You concentrate as you begin [is_tied ? "untying" : "tying"] [src]..."))
 	var/tie_timer_actual = tie_timer
 	// Mirrors give you a boost to your tying speed. I realize this stacks and I think that's hilarious.
 	for(var/obj/structure/mirror/reflection in view(2, user))
 		tie_timer_actual /= 1.25
 	// Tie/Untie our tie
 	if(!do_after(user, tie_timer_actual))
-		to_chat(user, "<span class='notice'>Your fingers fumble away from [src] as your concentration breaks.</span>")
+		to_chat(user, span_notice("Your fingers fumble away from [src] as your concentration breaks."))
 		return
 	// Clumsy & Dumb people have trouble tying their ties.
 	if((HAS_TRAIT(user, TRAIT_CLUMSY) || HAS_TRAIT(user, TRAIT_DUMB)) && prob(50))
-		to_chat(user, "<span class='notice'>You just can't seem to get a proper grip on [src]!</span>")
+		to_chat(user, span_notice("You just can't seem to get a proper grip on [src]!"))
 		return
 	// Success!
 	is_tied = !is_tied
 	user.visible_message(
-		"<span class='notice'>[user] adjusts [user.p_their()] tie[HAS_TRAIT(user, TRAIT_BALD) ? "" : " and runs a hand across [user.p_their()] head"].</span>",
-		"<span class='notice'>You successfully [is_tied ? "tied" : "untied"] [src]!</span>",
+		span_notice("[user] adjusts [user.p_their()] tie[HAS_TRAIT(user, TRAIT_BALD) ? "" : " and runs a hand across [user.p_their()] head"]."),
+		span_notice("You successfully [is_tied ? "tied" : "untied"] [src]!"),
 	)
 	update_appearance(UPDATE_ICON)
 	user.update_clothing(ITEM_SLOT_NECK)
@@ -167,7 +167,7 @@
 	icon_state = "stethoscope"
 
 /obj/item/clothing/neck/stethoscope/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] puts <b>[src.name]</b> to [user.ru_ego()] chest! It looks like [user.ru_who()] won't hear much!</span>")
+	user.visible_message(span_suicide("[user] puts <b>[src.name]</b> to [user.ru_ego()] chest! It looks like [user.ru_who()] won't hear much!"))
 	return OXYLOSS
 
 /obj/item/clothing/neck/stethoscope/attack(mob/living/carbon/human/M, mob/living/user)
@@ -175,24 +175,24 @@
 		if(user.a_intent == INTENT_HELP)
 			var/body_part = parse_zone(user.zone_selected)
 
-			var/heart_strength = "<span class='danger'>отсутствие</span>"
-			var/lung_strength = "<span class='danger'>отсутствие</span>"
+			var/heart_strength = span_danger("отсутствие")
+			var/lung_strength = span_danger("отсутствие")
 
 			var/obj/item/organ/heart/heart = M.getorganslot(ORGAN_SLOT_HEART)
 			var/obj/item/organ/lungs/lungs = M.getorganslot(ORGAN_SLOT_LUNGS)
 
 			if(!(M.stat == DEAD || (HAS_TRAIT(M, TRAIT_FAKEDEATH))))
 				if(heart && istype(heart))
-					heart_strength = "<span class='danger'>нестабильность</span>"
+					heart_strength = span_danger("нестабильность")
 					if(heart.beating)
 						heart_strength = "здоровый звук"
 				if(lungs && istype(lungs))
-					lung_strength = "<span class='danger'>напряженно</span>"
+					lung_strength = span_danger("напряженно")
 					if(!(M.failed_last_breath || M.losebreath))
 						lung_strength = "здоровый звук"
 
 			var/diagnosis = (body_part == BODY_ZONE_CHEST ? "Слышу [heart_strength] пульса и [lung_strength] дыхания." : "Я еле слышу [heart_strength] пульса.")
-			user.visible_message("<span class='notice'>[user] пристраивает [src] в [ru_exam_parse_zone(body_part)] [M] и слушает внимательно.</span>" , "<span class='notice'>Прикладываю [src] к [ru_exam_parse_zone(body_part)] [M]. [diagnosis]</span>")
+			user.visible_message(span_notice("[user] пристраивает [src] в [ru_exam_parse_zone(body_part)] [M] и слушает внимательно.") , span_notice("Прикладываю [src] к [ru_exam_parse_zone(body_part)] [M]. [diagnosis]"))
 			return
 	return ..(M,user)
 
@@ -364,7 +364,7 @@
 /obj/item/clothing/neck/necklace/dope/merchant/attack_self(mob/user)
 	. = ..()
 	selling = !selling
-	to_chat(user, "<span class='notice'>[capitalize(src.name)] теперь в режиме [selling ? "'ПРОДАВАТЬ'" : "'УЗНАТЬ ЦЕНУ'"].</span>")
+	to_chat(user, span_notice("[capitalize(src.name)] теперь в режиме [selling ? "'ПРОДАВАТЬ'" : "'УЗНАТЬ ЦЕНУ'"]."))
 
 /obj/item/clothing/neck/necklace/dope/merchant/afterattack(obj/item/I, mob/user, proximity)
 	. = ..()
@@ -381,7 +381,7 @@
 
 	if(price)
 		var/true_price = round(price*profit_scaling)
-		to_chat(user, "<span class='notice'>[selling ? "Продаём" : "Оцениваем"] [I], стоимость: <b>[true_price]</b> кредитов[I.contents.len ? " (содержимое включено)" : ""].[profit_scaling < 1 && selling ? "<b>[round(price-true_price)]</b> кредитов было взято как процент." : ""]</span>")
+		to_chat(user, span_notice("[selling ? "Продаём" : "Оцениваем"] [I], стоимость: <b>[true_price]</b> кредитов[I.contents.len ? " (содержимое включено)" : ""].[profit_scaling < 1 && selling ? "<b>[round(price-true_price)]</b> кредитов было взято как процент." : ""]"))
 		if(selling)
 			new /obj/item/holochip(get_turf(user),true_price)
 			for(var/i in ex.exported_atoms_ref)
@@ -392,7 +392,7 @@
 					continue
 				qdel(AM)
 	else
-		to_chat(user, "<span class='warning'>[capitalize(I.name)] ничего не стоит.</span>")
+		to_chat(user, span_warning("[capitalize(I.name)] ничего не стоит."))
 
 /obj/item/clothing/neck/beads
 	name = "пластиковые бусы"

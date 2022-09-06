@@ -106,13 +106,13 @@
 	if(!owner|| owner.stat == DEAD)
 		return
 	if(isalien(owner)) //Different effects for aliens than humans
-		to_chat(owner, "<span class='userdanger'>Королева-мать была повержена!</span>")
-		to_chat(owner, "<span class='danger'>Псионический канал искажен непреодолимой агонией! Мысли путаются, а связь с коллективным разумом разорвана.</span>")
+		to_chat(owner, span_userdanger("Королева-мать была повержена!"))
+		to_chat(owner, span_danger("Псионический канал искажен непреодолимой агонией! Мысли путаются, а связь с коллективным разумом разорвана."))
 		owner.emote("roar")
 		owner.Stun(200) //Actually just slows them down a bit.
 
 	else if(ishuman(owner)) //Humans, being more fragile, are more overwhelmed by the mental backlash.
-		to_chat(owner, "<span class='danger'>Волна боли затапливает разум, псионический канал искажается от агонии погибшей королевы! После чего все затихает, а чувство единения с роем пропадает...</span>")
+		to_chat(owner, span_danger("Волна боли затапливает разум, псионический канал искажается от агонии погибшей королевы! После чего все затихает, а чувство единения с роем пропадает..."))
 		owner.emote("agony")
 		owner.Paralyze(100)
 
@@ -131,7 +131,7 @@
 	recent_queen_death = FALSE
 	if(!owner) //In case the xeno is butchered or subjected to surgery after death.
 		return
-	to_chat(owner, "<span class='noticealien'>Боль от смерти королевы ослабевает. Я снова могу слышать коллективный разум.</span>")
+	to_chat(owner, span_noticealien("Боль от смерти королевы ослабевает. Я снова могу слышать коллективный разум."))
 	owner.clear_alert("alien_noqueen")
 
 #undef QUEEN_DEATH_DEBUFF_DURATION
@@ -254,9 +254,9 @@
 	var/atom/play_from = owner || src
 	var/stomach_text = owner ? "\the [owner]'s stomach" : "\the [src]"
 	if(prob(25))
-		play_from.audible_message("<span class='warning'>You hear something rumbling inside [stomach_text]...</span>", \
-			"<span class='warning'>You hear something rumbling.</span>", 4,\
-			self_message = "<span class='userdanger'>Something is rumbling inside your stomach!</span>")
+		play_from.audible_message(span_warning("You hear something rumbling inside [stomach_text]..."), \
+			span_warning("You hear something rumbling."), 4,\
+			self_message = span_userdanger("Something is rumbling inside your stomach!"))
 
 	if(user.client)
 		user.client.move_delay = world.time + 1.5 SECONDS
@@ -287,8 +287,8 @@
 		if(damage_ratio < part_dam_ratio)
 			damage_ratio = part_dam_ratio
 
-	play_from.visible_message("<span class='danger'>[user] [attack_verb] [stomach_text] wall with the [attack_name]!</span>", \
-			"<span class='userdanger'>[user] [attack_verb] your stomach wall with the [attack_name]!</span>")
+	play_from.visible_message(span_danger("[user] [attack_verb] [stomach_text] wall with the [attack_name]!"), \
+			span_userdanger("[user] [attack_verb] your stomach wall with the [attack_name]!"))
 
 	// At 100% damage, the stomach burts
 	// Otherwise, we give them a -50% -> 50% chance scaling with damage dealt
@@ -315,11 +315,11 @@
 		return
 	// Failure condition
 	if(isalienhumanoid(user))
-		play_from.visible_message("<span class='danger'>[user] blows a hole in [stomach_text] and escapes!</span>", \
-			"<span class='userdanger'>As your hive's food bursts out of your stomach, one thought fills your mind. \"Oh, so this is how the other side feels\"</span>")
+		play_from.visible_message(span_danger("[user] blows a hole in [stomach_text] and escapes!"), \
+			span_userdanger("As your hive's food bursts out of your stomach, one thought fills your mind. \"Oh, so this is how the other side feels\""))
 	else // Just to be safe ya know?
-		play_from.visible_message("<span class='danger'>[user] blows a hole in [stomach_text] and escapes!</span>", \
-			"<span class='userdanger'>[user] escapes from your [stomach_text]. Hell, that hurts.</span>")
+		play_from.visible_message(span_danger("[user] blows a hole in [stomach_text] and escapes!"), \
+			span_userdanger("[user] escapes from your [stomach_text]. Hell, that hurts."))
 
 	playsound(get_turf(play_from), 'sound/creatures/alien_explode.ogg', 100, extrarange = 4)
 	eject_stomach(border_diamond_range_turfs(play_from, 6), 5, 1.5, 1, 8)

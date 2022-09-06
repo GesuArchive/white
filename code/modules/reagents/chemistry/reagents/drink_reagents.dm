@@ -201,7 +201,7 @@
 
 /datum/reagent/consumable/superlaughter/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(DT_PROB(16, delta_time))
-		M.visible_message("<span class='danger'>[M] разразился приступом неконтролируемого смеха!</span>" , "<span class='userdanger'>Зашелся в приступе неконтролируемого смеха!</span>")
+		M.visible_message(span_danger("[M] разразился приступом неконтролируемого смеха!") , span_userdanger("Зашелся в приступе неконтролируемого смеха!"))
 		M.Stun(5)
 		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "chemical_laughter", /datum/mood_event/chemical_superlaughter)
 	..()
@@ -368,7 +368,7 @@
 
 /datum/reagent/consumable/tea/arnold_palmer/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(DT_PROB(2.5, delta_time))
-		to_chat(M, "<span class='notice'>[pick("Вспомнил что нужно расправить плечи.","Вспомнил что нужно опустить голову.","Не могу решить что делать, расправить плечи или опустить голову.","Вспомнил что нужно расслабиться.","Думаю, однажды, я улучшу свой счет в гольфе, снизив его на два удара.")]</span>")
+		to_chat(M, span_notice("[pick("Вспомнил что нужно расправить плечи.","Вспомнил что нужно опустить голову.","Не могу решить что делать, расправить плечи или опустить голову.","Вспомнил что нужно расслабиться.","Думаю, однажды, я улучшу свой счет в гольфе, снизив его на два удара.")]"))
 	..()
 	. = TRUE
 
@@ -1128,14 +1128,14 @@
 /datum/reagent/consumable/rootbeer/on_mob_end_metabolize(mob/living/L)
 	REMOVE_TRAIT(L, TRAIT_DOUBLE_TAP, type)
 	if(current_cycle > 10)
-		to_chat(L, "<span class='warning'>You feel kinda tired as your sugar rush wears off...</span>")
+		to_chat(L, span_warning("You feel kinda tired as your sugar rush wears off..."))
 		L.adjustStaminaLoss(min(80, current_cycle * 3))
 		L.drowsyness += current_cycle
 	..()
 
 /datum/reagent/consumable/rootbeer/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(current_cycle >= 3 && !effect_enabled) // takes a few seconds for the bonus to kick in to prevent microdosing
-		to_chat(M, "<span class='notice'>You feel your trigger finger getting itchy...</span>")
+		to_chat(M, span_notice("You feel your trigger finger getting itchy..."))
 		ADD_TRAIT(M, TRAIT_DOUBLE_TAP, type)
 		effect_enabled = TRUE
 

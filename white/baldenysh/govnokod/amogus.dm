@@ -29,7 +29,7 @@
 /obj/structure/statue/amogus/examine(mob/user)
 	. = ..()
 	if(get_dist(src, user) < 2)
-		. += "<span class='notice'>\nПохоже, между ягодицами можно просунуть руку... \n GROIN+GRAB+CLICK чтобы пошариться в заднице статуи.</span>"
+		. += span_notice("\nПохоже, между ягодицами можно просунуть руку... \n GROIN+GRAB+CLICK чтобы пошариться в заднице статуи.")
 
 /obj/structure/statue/amogus/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	return
@@ -39,12 +39,12 @@
 	if(user.zone_selected == BODY_ZONE_PRECISE_GROIN && user.a_intent == INTENT_GRAB && iscarbon(user))
 		var/mob/living/carbon/c_user = user
 		var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-		user.visible_message("<span class='notice'>[user] сует руку в попу [src].</span>" , \
-			"<span class='notice'>Начинаю шариться между булками у [src]...</span>")
+		user.visible_message(span_notice("[user] сует руку в попу [src].") , \
+			span_notice("Начинаю шариться между булками у [src]..."))
 		if(do_after(c_user, 7 SECONDS))
 			if(ripper && prob(80))
-				user.visible_message("<span class='danger'>[src] вырывает и засасывает руку [user]!</span>" , \
-					"<span class='userdanger'>Задница [src] поглощает мою драгоценную ручку!!!</span>")
+				user.visible_message(span_danger("[src] вырывает и засасывает руку [user]!") , \
+					span_userdanger("Задница [src] поглощает мою драгоценную ручку!!!"))
 				var/which_hand = BODY_ZONE_L_ARM
 				if(!(c_user.active_hand_index % 2))
 					which_hand = BODY_ZONE_R_ARM

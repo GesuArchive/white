@@ -15,5 +15,5 @@
 
 /obj/item/book/granter/action/spell/blind/recoil(mob/living/user)
 	. = ..()
-	to_chat(user, "<span class='warning'>You go blind!</span>")
+	to_chat(user, span_warning("You go blind!"))
 	user.blind_eyes(10)

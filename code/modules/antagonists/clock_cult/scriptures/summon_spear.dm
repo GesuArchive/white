@@ -33,7 +33,7 @@
 				var/mob/M = item_to_retrieve.loc
 
 				if(issilicon(M)) //Items in silicons warp the whole silicon
-					M.loc.visible_message("<span class='warning'>[user] пропадает!</span>")
+					M.loc.visible_message(span_warning("[user] пропадает!"))
 					M.forceMove(user.loc)
 					M.loc.visible_message("<span class='caution'>[user] появляется!</span>")
 					item_to_retrieve = null
@@ -46,7 +46,7 @@
 						var/obj/item/bodypart/part = X
 						if(item_to_retrieve in part.embedded_objects)
 							part.embedded_objects -= item_to_retrieve
-							to_chat(C, "<span class='warning'>Ого, [item_to_retrieve], который застрял в [user], внезапно исчезает. Чудо!</span>")
+							to_chat(C, span_warning("Ого, [item_to_retrieve], который застрял в [user], внезапно исчезает. Чудо!"))
 							if(!C.has_embedded_objects())
 								C.clear_alert("embeddedobject")
 								SEND_SIGNAL(C, COMSIG_CLEAR_MOOD_EVENT, "embedded")
@@ -66,7 +66,7 @@
 		return
 
 	if(item_to_retrieve.loc)
-		item_to_retrieve.loc.visible_message("<span class='warning'>[capitalize(item_to_retrieve.name)] исчезает!</span>")
+		item_to_retrieve.loc.visible_message(span_warning("[capitalize(item_to_retrieve.name)] исчезает!"))
 	if(!user.put_in_hands(item_to_retrieve))
 		item_to_retrieve.forceMove(user.drop_location())
 		item_to_retrieve.loc.visible_message("<span class='caution'>[capitalize(item_to_retrieve.name)] появляется!</span>")

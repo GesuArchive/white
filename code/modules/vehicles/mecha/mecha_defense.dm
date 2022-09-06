@@ -59,7 +59,7 @@
 		spark_system.start()
 		try_deal_internal_damage(.)
 		if(. >= 5 || prob(33))
-			to_chat(occupants, "[icon2html(src, occupants)]["<span class='userdanger'>Получаем урон!</span>"]")
+			to_chat(occupants, "[icon2html(src, occupants)][span_userdanger("Получаем урон!")]")
 		log_message("Took [.] points of damage. Damage type: [damage_type]", LOG_MECHA)
 
 /obj/vehicle/sealed/mecha/run_obj_armor(damage_amount, damage_type, damage_flag = 0, attack_dir, armour_penentration)
@@ -76,7 +76,7 @@
 	user.changeNext_move(CLICK_CD_MELEE) // Ugh. Ideally we shouldn't be setting cooldowns outside of click code.
 	user.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
 	playsound(loc, 'sound/weapons/tap.ogg', 40, TRUE, -1)
-	user.visible_message("<span class='danger'><b>[user]</b> бьёт <b>[name]</b>. Ничего не происходит.</span>", null, null, COMBAT_MESSAGE_RANGE)
+	user.visible_message(span_danger("<b>[user]</b> бьёт <b>[name]</b>. Ничего не происходит."), null, null, COMBAT_MESSAGE_RANGE)
 	log_message("Attack by hand/paw (no damage). Attacker - [user].", LOG_MECHA, color="red")
 
 /obj/vehicle/sealed/mecha/attack_paw(mob/user as mob)
@@ -182,7 +182,7 @@
 	log_message("EMP detected", LOG_MECHA, color="red")
 
 	if(!equipment_disabled && LAZYLEN(occupants)) //prevent spamming this message with back-to-back EMPs
-		to_chat(occupants, "<span class='warning'>Ошибка -- Соединение с оборудованием прервано.</span>")
+		to_chat(occupants, span_warning("Ошибка -- Соединение с оборудованием прервано."))
 	addtimer(CALLBACK(src, /obj/vehicle/sealed/mecha.proc/restore_equipment), 3 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 	equipment_disabled = TRUE
 	set_mouse_pointer()
@@ -204,9 +204,9 @@
 /obj/vehicle/sealed/mecha/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/mmi))
 		if(mmi_move_inside(W,user))
-			to_chat(user, "<span class='notice'>[capitalize(src.name)]-[W] интерфейс инициализирован успешно.</span>")
+			to_chat(user, span_notice("[capitalize(src.name)]-[W] интерфейс инициализирован успешно."))
 		else
-			to_chat(user, "<span class='warning'>[capitalize(src.name)]-[W] интерфейс инициализирован с ошибкой.</span>")
+			to_chat(user, span_warning("[capitalize(src.name)]-[W] интерфейс инициализирован с ошибкой."))
 		return
 
 	if(istype(W, /obj/item/mecha_ammo))
@@ -218,9 +218,9 @@
 			if(internals_access_allowed(user))
 				ui_interact(user)
 				return
-			to_chat(user, "<span class='warning'>Неправильный ID: Доступ запрещён.</span>")
+			to_chat(user, span_warning("Неправильный ID: Доступ запрещён."))
 			return
-		to_chat(user, "<span class='warning'>Технические протоколы заблокированы оператором.</span>")
+		to_chat(user, span_warning("Технические протоколы заблокированы оператором."))
 		return
 
 	if(istype(W, /obj/item/stock_parts/cell))
@@ -229,12 +229,12 @@
 				if(!user.transferItemToLoc(W, src, silent = FALSE))
 					return
 				var/obj/item/stock_parts/cell/C = W
-				to_chat(user, "<span class='notice'>Устанавливаю аккумулятор.</span>")
+				to_chat(user, span_notice("Устанавливаю аккумулятор."))
 				playsound(src, 'sound/items/screwdriver2.ogg', 50, FALSE)
 				cell = C
 				log_message("Power cell installed", LOG_MECHA)
 			else
-				to_chat(user, "<span class='warning'>Аккумулятор уже установлен!</span>")
+				to_chat(user, span_warning("Аккумулятор уже установлен!"))
 		return
 
 	if(istype(W, /obj/item/stock_parts/scanning_module))
@@ -242,13 +242,13 @@
 			if(!scanmod)
 				if(!user.transferItemToLoc(W, src))
 					return
-				to_chat(user, "<span class='notice'>Устанавливаю сканирующий модуль.</span>")
+				to_chat(user, span_notice("Устанавливаю сканирующий модуль."))
 				playsound(src, 'sound/items/screwdriver2.ogg', 50, FALSE)
 				scanmod = W
 				log_message("[W] installed", LOG_MECHA)
 				update_part_values()
 			else
-				to_chat(user, "<span class='warning'>Сканирующий модуль уже установлен!</span>")
+				to_chat(user, span_warning("Сканирующий модуль уже установлен!"))
 		return
 
 	if(istype(W, /obj/item/stock_parts/capacitor))
@@ -256,13 +256,13 @@
 			if(!capacitor)
 				if(!user.transferItemToLoc(W, src))
 					return
-				to_chat(user, "<span class='notice'>Устанавливаю конденсатор.</span>")
+				to_chat(user, span_notice("Устанавливаю конденсатор."))
 				playsound(src, 'sound/items/screwdriver2.ogg', 50, FALSE)
 				capacitor = W
 				log_message("[W] installed", LOG_MECHA)
 				update_part_values()
 			else
-				to_chat(user, "<span class='warning'>Конденсатор установлен!</span>")
+				to_chat(user, span_warning("Конденсатор установлен!"))
 		return
 
 	if(istype(W, /obj/item/mecha_parts))
@@ -280,22 +280,22 @@
 	. = TRUE
 	if(construction_state == MECHA_SECURE_BOLTS)
 		construction_state = MECHA_LOOSE_BOLTS
-		to_chat(user, "<span class='notice'>Расслабляю защитные болты.</span>")
+		to_chat(user, span_notice("Расслабляю защитные болты."))
 		return
 	if(construction_state == MECHA_LOOSE_BOLTS)
 		construction_state = MECHA_SECURE_BOLTS
-		to_chat(user, "<span class='notice'>Затягиваю защитные болты.</span>")
+		to_chat(user, span_notice("Затягиваю защитные болты."))
 
 /obj/vehicle/sealed/mecha/crowbar_act(mob/living/user, obj/item/I)
 	..()
 	. = TRUE
 	if(construction_state == MECHA_LOOSE_BOLTS)
 		construction_state = MECHA_OPEN_HATCH
-		to_chat(user, "<span class='notice'>Открываю щиток с доступом к аккумулятору.</span>")
+		to_chat(user, span_notice("Открываю щиток с доступом к аккумулятору."))
 		return
 	if(construction_state == MECHA_OPEN_HATCH)
 		construction_state = MECHA_LOOSE_BOLTS
-		to_chat(user, "<span class='notice'>Закрываю щиток с доступом к аккумулятору.</span>")
+		to_chat(user, span_notice("Закрываю щиток с доступом к аккумулятору."))
 
 /obj/vehicle/sealed/mecha/welder_act(mob/living/user, obj/item/W)
 	. = ..()
@@ -305,12 +305,12 @@
 	if(obj_integrity < max_integrity)
 		if(!W.use_tool(src, user, 0, volume=50, amount=1))
 			return
-		user.visible_message("<span class='notice'>[user] немного чинит [name].</span>" , "<span class='notice'>Немного чиню [src].</span>")
+		user.visible_message(span_notice("[user] немного чинит [name].") , span_notice("Немного чиню [src]."))
 		obj_integrity += min(10, max_integrity-obj_integrity)
 		if(obj_integrity == max_integrity)
-			to_chat(user, "<span class='notice'>Теперь всё в порядке.</span>")
+			to_chat(user, span_notice("Теперь всё в порядке."))
 		return
-	to_chat(user, "<span class='warning'>[src] цел!</span>")
+	to_chat(user, span_warning("[src] цел!"))
 
 /obj/vehicle/sealed/mecha/proc/full_repair(charge_cell)
 	obj_integrity = max_integrity

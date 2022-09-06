@@ -29,13 +29,13 @@
 		return FALSE
 	// Being Grabbed
 	if(user.pulledby && user.pulledby.grab_state >= GRAB_AGGRESSIVE)
-		to_chat(user, "<span class='warning'>You're being grabbed!</span>")
+		to_chat(user, span_warning("You're being grabbed!"))
 		return FALSE
 	if(!user.has_gravity(user.loc)) //We dont want people to be able to use this to fly around in space
-		to_chat(user, "<span class='warning'>You cannot dash while floating!</span>")
+		to_chat(user, span_warning("You cannot dash while floating!"))
 		return FALSE
 	if(!(user.mobility_flags & MOBILITY_STAND))
-		to_chat(user, "<span class='warning'>You must be standing to tackle!</span>")
+		to_chat(user, span_warning("You must be standing to tackle!"))
 		return FALSE
 	return TRUE
 
@@ -57,7 +57,7 @@
 	user.pulledby?.stop_pulling()
 	// Go to target turf
 	// DO NOT USE WALK TO.
-	to_chat(owner, "<span class='notice'>You dash into the air!</span>")
+	to_chat(owner, span_notice("You dash into the air!"))
 	playsound(get_turf(owner), 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 	var/safety = get_dist(user, targeted_turf) * 3 + 1
 	var/consequetive_failures = 0
@@ -122,6 +122,6 @@
 			continue
 		if(ishuman(target))
 			var/mob/living/carbon/human/H = target
-			to_chat(H, "<span class='danger'><b>As a figure passes by, you feel your head spike up!</b></span>")
+			to_chat(H, span_danger("<b>As a figure passes by, you feel your head spike up!</b>"))
 			H.add_confusion(4)
 			H.adjustOrganLoss(ORGAN_SLOT_EARS, 15)

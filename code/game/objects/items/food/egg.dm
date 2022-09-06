@@ -48,16 +48,16 @@
 		var/clr = C.crayon_color
 
 		if(!(clr in list("blue", "green", "mime", "orange", "purple", "rainbow", "red", "yellow")))
-			to_chat(usr, "<span class='notice'>[capitalize(src.name)] не хочет принимать новый цвет!</span>")
+			to_chat(usr, span_notice("[capitalize(src.name)] не хочет принимать новый цвет!"))
 			return
 
-		to_chat(usr, "<span class='notice'>Крашу [src] используя [W].</span>")
+		to_chat(usr, span_notice("Крашу [src] используя [W]."))
 		icon_state = "egg-[clr]"
 	else if(istype(W, /obj/item/stamp/clown))
 		var/clowntype = pick("grock", "grimaldi", "rainbow", "chaos", "joker", "sexy", "standard", "bobble", "krusty", "bozo", "pennywise", "ronald", "jacobs", "kelly", "popov", "cluwne")
 		icon_state = "egg-clown-[clowntype]"
 		desc = "Яйцо, украшенное гротескным подобием лица клоуна. "
-		to_chat(usr, "<span class='notice'>Штампую [src] используя [W], создавая художественное и ничуть не ужасающее подобие клоунского грима.</span>")
+		to_chat(usr, span_notice("Штампую [src] используя [W], создавая художественное и ничуть не ужасающее подобие клоунского грима."))
 	else
 		..()
 
@@ -121,11 +121,11 @@
 	if(istype(W, /obj/item/kitchen/fork))
 		var/obj/item/kitchen/fork/F = W
 		if(F.forkload)
-			to_chat(user, "<span class='warning'>У меня уже есть омлет на вилке!</span>")
+			to_chat(user, span_warning("У меня уже есть омлет на вилке!"))
 		else
 			F.icon_state = "forkloaded"
-			user.visible_message("<span class='notice'>[user] отрывает кусочек омлета [user.ru_ego()] вилкой!</span>" , \
-				"<span class='notice'>Беру кусочек омлета вилкой.</span>")
+			user.visible_message(span_notice("[user] отрывает кусочек омлета [user.ru_ego()] вилкой!") , \
+				span_notice("Беру кусочек омлета вилкой."))
 
 			var/datum/reagent/R = pick(reagents.reagent_list)
 			reagents.remove_reagent(R.type, 1)

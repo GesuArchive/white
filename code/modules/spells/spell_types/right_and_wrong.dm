@@ -122,7 +122,7 @@ GLOBAL_LIST_INIT(summoned_magic_objectives, list(
 
 	var/in_hand = to_equip.put_in_hands(spawned_gun) // not always successful
 
-	to_chat(to_equip, "<span class='warning'>\A [spawned_gun] appears [in_hand ? "in your hand" : "at your feet"]!</span>")
+	to_chat(to_equip, span_warning("\A [spawned_gun] appears [in_hand ? "in your hand" : "at your feet"]!"))
 
 /*
  * Gives [to_equip] a random magical spell from a list.
@@ -146,9 +146,9 @@ GLOBAL_LIST_INIT(summoned_magic_objectives, list(
 
 	var/in_hand = to_equip.put_in_hands(spawned_magic)
 
-	to_chat(to_equip, "<span class='warning'>\A [spawned_magic] appears [in_hand ? "in your hand" : "at your feet"]!</span>")
+	to_chat(to_equip, span_warning("\A [spawned_magic] appears [in_hand ? "in your hand" : "at your feet"]!"))
 	if(magic_type in GLOB.summoned_special_magic)
-		to_chat(to_equip, "<span class='notice'>You feel incredibly lucky.</span>")
+		to_chat(to_equip, span_notice("You feel incredibly lucky."))
 
 /*
  * Triggers Summon Ghosts from [user].
@@ -158,7 +158,7 @@ GLOBAL_LIST_INIT(summoned_magic_objectives, list(
 	var/datum/round_event_control/wizard/ghost/ghost_event = locate() in SSevents.control
 	if(ghost_event)
 		if(user)
-			to_chat(user, "<span class='warning'>You summoned ghosts!</span>")
+			to_chat(user, span_warning("You summoned ghosts!"))
 			message_admins("[ADMIN_LOOKUPFLW(user)] summoned ghosts!")
 			log_game("[key_name(user)] summoned ghosts!")
 		else
@@ -168,7 +168,7 @@ GLOBAL_LIST_INIT(summoned_magic_objectives, list(
 	else
 		stack_trace("Unable to run summon ghosts, due to being unable to locate the associated event.")
 		if(user)
-			to_chat(user, "<span class='warning'>You... try to summon ghosts, but nothing seems to happen. Shame.</span>")
+			to_chat(user, span_warning("You... try to summon ghosts, but nothing seems to happen. Shame."))
 
 /*
  * Triggers Summon Magic from [user].
@@ -177,7 +177,7 @@ GLOBAL_LIST_INIT(summoned_magic_objectives, list(
  */
 /proc/summon_magic(mob/user, survivor_probability = 0)
 	if(user)
-		to_chat(user, "<span class='warning'>You summoned magic!</span>")
+		to_chat(user, span_warning("You summoned magic!"))
 		message_admins("[ADMIN_LOOKUPFLW(user)] summoned magic!")
 		log_game("[key_name(user)] summoned magic!")
 	else
@@ -197,7 +197,7 @@ GLOBAL_LIST_INIT(summoned_magic_objectives, list(
  */
 /proc/summon_guns(mob/user, survivor_probability = 0)
 	if(user)
-		to_chat(user, "<span class='warning'>You summoned guns!</span>")
+		to_chat(user, span_warning("You summoned guns!"))
 		message_admins("[ADMIN_LOOKUPFLW(user)] summoned guns!")
 		log_game("[key_name(user)] summoned guns!")
 	else
@@ -223,7 +223,7 @@ GLOBAL_LIST_INIT(summoned_magic_objectives, list(
 
 		SSevents.reschedule()
 		if(user)
-			to_chat(user, "<span class='warning'>You have intensified summon events, causing them to occur more often!</span>")
+			to_chat(user, span_warning("You have intensified summon events, causing them to occur more often!"))
 			message_admins("[ADMIN_LOOKUPFLW(user)] intensified summon events!")
 			log_game("[key_name(user)] intensified events!")
 		else
@@ -238,7 +238,7 @@ GLOBAL_LIST_INIT(summoned_magic_objectives, list(
 		SSevents.toggleWizardmode()
 		SSevents.reschedule()
 		if(user)
-			to_chat(user, "<span class='warning'>You have cast summon events!</span>")
+			to_chat(user, span_warning("You have cast summon events!"))
 			message_admins("[ADMIN_LOOKUPFLW(user)] summoned events!")
 			log_game("[key_name(user)] summoned events!")
 		else

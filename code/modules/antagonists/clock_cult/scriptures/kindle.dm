@@ -31,8 +31,8 @@
 		var/mutable_appearance/forbearance = mutable_appearance('icons/effects/genetics.dmi', "servitude", -MUTATIONS_LAYER)
 		M.add_overlay(forbearance)
 		addtimer(CALLBACK(M, /atom/proc/cut_overlay, forbearance), 100)
-		M.visible_message("<span class='warning'>[M] просто смотрит, как поток энергии пролетает мимо него.</span>" , \
-									   "<span class='userdanger'>Ощущаю как вокруг меня пролетают обрывки энергии.</span>")
+		M.visible_message(span_warning("[M] просто смотрит, как поток энергии пролетает мимо него.") , \
+									   span_userdanger("Ощущаю как вокруг меня пролетают обрывки энергии."))
 		playsound(invoker, 'sound/magic/mm_hit.ogg', 50, TRUE)
 		return TRUE
 	//Blood Cultist Effect

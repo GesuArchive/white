@@ -9,11 +9,11 @@
 	playsound(get_turf(user), 'sound/items/change_drill.ogg', 50, TRUE)
 	if(tool_behaviour == TOOL_BLOODFILTER)
 		tool_behaviour = TOOL_BONESET
-		to_chat(user, "<span class='notice'>При нажатии кнопки [src] перестраивается, теперь он готов к манипуляции с костями.</span>")
+		to_chat(user, span_notice("При нажатии кнопки [src] перестраивается, теперь он готов к манипуляции с костями."))
 		icon_state = "bonesetter_a"
 	else
 		tool_behaviour = TOOL_BLOODFILTER
-		to_chat(user, "<span class='notice'>При нажатии кнопки [src] перестраивается, теперь он готов подключится к кровеносной системе.</span>")
+		to_chat(user, span_notice("При нажатии кнопки [src] перестраивается, теперь он готов подключится к кровеносной системе."))
 		icon_state = "bloodfilter_a"
 
 /obj/item/bonesetter/advanced/examine()
@@ -45,16 +45,16 @@
 	if(M == user)
 		return
 	if (M.is_mouth_covered())
-		to_chat(user, "<span class='warning'>Для произведения ИВЛ с пациента надо снять маску!</span>")
+		to_chat(user, span_warning("Для произведения ИВЛ с пациента надо снять маску!"))
 		return
-	to_chat(user, "<span class='notice'>Прикладываю дыхательную маску к лицу [skloname(M.name, RODITELNI, M.gender)].</span>")
+	to_chat(user, span_notice("Прикладываю дыхательную маску к лицу [skloname(M.name, RODITELNI, M.gender)]."))
 	if(!do_after(user, 30, user))
-		to_chat(user, "<span class='warning'>Не получается!</span>")
+		to_chat(user, span_warning("Не получается!"))
 		return
 	. = ..()
 	playsound(user,'white/Feline/sounds/breathing_bag.ogg', 100, TRUE)
 	for(var/ivl in 1 to 15)
 		if(!do_after(user, 10, user))
 			return
-		to_chat(user, "<span class='notice'>Произвожу искуственную вентиляцию легких!</span>")
+		to_chat(user, span_notice("Произвожу искуственную вентиляцию легких!"))
 		M.adjustOxyLoss(-15)

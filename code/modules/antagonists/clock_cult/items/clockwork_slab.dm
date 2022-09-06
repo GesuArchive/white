@@ -120,7 +120,7 @@ GLOBAL_LIST_INIT(clockwork_slabs, list())
 		user.electrocute_act(10, "[name]")
 		return
 	if(!is_servant_of_ratvar(user))
-		to_chat(user, "<span class='warning'>Сложно понять, для чего нужно это устройство!</span>")
+		to_chat(user, span_warning("Сложно понять, для чего нужно это устройство!"))
 		return
 	if(active_scripture)
 		active_scripture.end_invokation()

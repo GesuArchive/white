@@ -109,12 +109,12 @@
 
 	if(length(contents))
 		var/obj/item/I = contents[1]
-		user.visible_message("<span class='notice'>[user] достаёт [I] из [src].</span>", "<span class='notice'>Достаю [I] из [src].</span>")
+		user.visible_message(span_notice("[user] достаёт [I] из [src]."), span_notice("Достаю [I] из [src]."))
 		user.put_in_hands(I)
 		update_appearance()
 		user.update_inv_s_store()
 	else
-		to_chat(user, "<span class='warning'>Крепления расстегнуты, [capitalize(src.name)] пуст.</span>")
+		to_chat(user, span_warning("Крепления расстегнуты, [capitalize(src.name)] пуст."))
 
 	return ..()
 

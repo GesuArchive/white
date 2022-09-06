@@ -87,7 +87,7 @@
 		printer_ready = world.time + PRINTER_TIMEOUT
 		new /obj/item/paper/record_printout(loc, record)
 	else if(user)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] занят.</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] занят."))
 
 /obj/item/paper/record_printout
 	name = "бумага - Журнал"
@@ -117,16 +117,16 @@
 	if(I.tool_behaviour == TOOL_WRENCH)
 		if(!anchored && !isinspace())
 			set_anchored(TRUE)
-			to_chat(user, "<span class='notice'>Прикручиваю [src].</span>")
+			to_chat(user, span_notice("Прикручиваю [src]."))
 		else if(anchored)
 			set_anchored(FALSE)
-			to_chat(user, "<span class='notice'>Откручиваю [src].</span>")
+			to_chat(user, span_notice("Откручиваю [src]."))
 		I.play_tool_sound(src)
 		return
 	return ..()
 
 /obj/machinery/doppler_array/proc/rot_message(mob/user)
-	to_chat(user, "<span class='notice'>Настраиваю блюдце [src] на [dir2ru_text(dir)].</span>")
+	to_chat(user, span_notice("Настраиваю блюдце [src] на [dir2ru_text(dir)]."))
 	playsound(src, 'sound/items/screwdriver2.ogg', 50, TRUE)
 
 /obj/machinery/doppler_array/proc/sense_explosion(datum/source, turf/epicenter, devastation_range, heavy_impact_range, light_impact_range,

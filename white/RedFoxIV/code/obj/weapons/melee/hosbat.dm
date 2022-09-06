@@ -163,7 +163,7 @@
 	if(isliving(loc) && prob(75)) //i have no fucking idea if this works lmfao
 		return
 	if(!istype(hit_atom,/mob/living))
-		src.visible_message(message = "<span class='alert'>The brick shatters into a fine mist upon impact, like it never existed to begin with...</span>")
+		src.visible_message(message = span_alert("The brick shatters into a fine mist upon impact, like it never existed to begin with..."))
 		qdel(src)
 		return
 
@@ -176,7 +176,7 @@
 		if(!head)
 			qdel(src)
 			return
-		L.visible_message("<span class='danger'>Голова [L] распидорашивается кирпичом нахуй!</span>" , "<span class='userdanger'>Кирпич уничтожает мою голову!</span>")
+		L.visible_message(span_danger("Голова [L] распидорашивается кирпичом нахуй!") , span_userdanger("Кирпич уничтожает мою голову!"))
 		new /obj/effect/gibspawner/generic(get_turf(L), L)
 		head.dismember(BRUTE)
 		head.drop_organs()

@@ -102,7 +102,7 @@
 	SIGNAL_HANDLER
 
 	if(rotation_flags & ROTATION_ALTCLICK)
-		examine_list += "<span class='notice'><hr>ПКМ для поворота по часовой стрелке.</span>"
+		examine_list += span_notice("<hr>ПКМ для поворота по часовой стрелке.")
 
 /datum/component/simple_rotation/proc/HandRot(datum/source, mob/user, rotation = default_rotation_direction)
 	SIGNAL_HANDLER
@@ -142,7 +142,7 @@
 	return !AM.anchored
 
 /datum/component/simple_rotation/proc/default_after_rotation(mob/user, rotation_type)
-	to_chat(user,"<span class='notice'>[rotation_type == ROTATION_FLIP ? "Переворачиваю" : "Поворачиваю"] [parent].</span>")
+	to_chat(user,span_notice("[rotation_type == ROTATION_FLIP ? "Переворачиваю" : "Поворачиваю"] [parent]."))
 
 /atom/movable/proc/simple_rotate_clockwise()
 	set name = "Повернуть по часовой"

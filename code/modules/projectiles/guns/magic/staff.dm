@@ -43,7 +43,7 @@
 /obj/item/gun/magic/staff/change/pickup(mob/user)
 	. = ..()
 	if(!is_wizard_or_friend(user))
-		to_chat(user, "<span class='hypnophrase'><span style='font-size: 24px'>You don't feel strong enough to properly wield this staff!</span></span>")
+		to_chat(user, span_hypnophrase("<span style='font-size: 24px'>You don't feel strong enough to properly wield this staff!</span>"))
 		balloon_alert(user, "you feel weak holding this staff")
 
 /obj/item/gun/magic/staff/change/on_intruder_use(mob/living/user, atom/target)
@@ -74,7 +74,7 @@
 /obj/item/gun/magic/staff/healing/pickup(mob/user)
 	. = ..()
 	if(!is_wizard_or_friend(user))
-		to_chat(user, "<span class='hypnophrase'><span style='font-size: 24px'>The staff feels weaker as you touch it</span></span>")
+		to_chat(user, span_hypnophrase("<span style='font-size: 24px'>The staff feels weaker as you touch it</span>"))
 		balloon_alert(user, "the staff feels weaker as you touch it")
 
 /obj/item/gun/magic/staff/healing/Initialize(mapload)

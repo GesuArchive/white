@@ -11,6 +11,6 @@
 	msg = emoji_parse(msg)
 	log_mentor("MSAY: [key_name(src)]: [msg]")
 
-	msg = "<span class='mentor'><span class='prefix'>ЗНАТОК:</span> <EM>[key_name(src, 0, 0)]</EM>: <span class='message'>[msg]</span></span>"
+	msg = span_mentor("<span class='prefix'>ЗНАТОК:</span> <EM>[key_name(src, 0, 0)]</EM>: <span class='message'>[msg]</span>")
 
 	to_chat(GLOB.mentors | GLOB.admins, msg)

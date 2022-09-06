@@ -36,7 +36,7 @@
 /datum/component/deployable/proc/examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
-	examine_list += "<span class='notice'>\n[source] может быть развернут в [deployed_name].</span>"
+	examine_list += span_notice("\n[source] может быть развернут в [deployed_name].")
 
 /datum/component/deployable/proc/on_attack_hand(datum/source, mob/user, location, direction)
 	SIGNAL_HANDLER

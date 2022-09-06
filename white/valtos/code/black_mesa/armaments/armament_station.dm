@@ -47,7 +47,7 @@
 
 /obj/item/armament_points_card/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'><hr>Здесь [points] очков осталось.</span>"
+	. += span_notice("<hr>Здесь [points] очков осталось.")
 
 /obj/item/armament_points_card/proc/use_points(points_to_use)
 	if(points_to_use > points)
@@ -60,14 +60,14 @@
 	return TRUE
 
 /obj/item/armament_points_card/proc/update_maptext()
-	maptext = "<span class='maptext'><div align='center' valign='middle' style='position:relative'>[points]</div></span>"
+	maptext = span_maptext("<div align='center' valign='middle' style='position:relative'>[points]</div>")
 
 /obj/item/armament_points_card/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
 	if(istype(attacking_item, /obj/item/armament_points_card))
 		var/obj/item/armament_points_card/attacking_card = attacking_item
 		if(!attacking_card.points)
-			to_chat(user, "<span class='warning'>No points left on [attacking_card]!</span>")
+			to_chat(user, span_warning("No points left on [attacking_card]!"))
 			return
 		var/points_to_transfer = clamp(tgui_input_number(user, "How many points do you want to transfer?", "Transfer Points", 1, attacking_card.points, 1), 0, attacking_card.points)
 
@@ -80,4 +80,4 @@
 		if(attacking_card.use_points(points_to_transfer))
 			points += points_to_transfer
 			update_maptext()
-			to_chat(user, "<span class='notice'>You transfer [points_to_transfer] onto [src]!</span>")
+			to_chat(user, span_notice("You transfer [points_to_transfer] onto [src]!"))

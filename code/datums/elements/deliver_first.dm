@@ -42,8 +42,8 @@
 ///signal sent from examining target
 /datum/element/deliver_first/proc/on_examine(obj/structure/closet/target, mob/user, list/examine_list)
 	SIGNAL_HANDLER
-	examine_list += "<span class='warning'>An electronic delivery lock prevents this from opening until it reaches its destination, [GLOB.areas_by_type[goal_area_type]].</span>"
-	examine_list += "<span class='warning'>This crate cannot be sold until it is opened.</span>"
+	examine_list += span_warning("An electronic delivery lock prevents this from opening until it reaches its destination, [GLOB.areas_by_type[goal_area_type]].")
+	examine_list += span_warning("This crate cannot be sold until it is opened.")
 
 ///registers the signal that blocks target from opening when outside of the valid area, returns if it is now unlocked
 /datum/element/deliver_first/proc/area_check(obj/structure/closet/target)
@@ -89,7 +89,7 @@
 
 ///called to remove the element in a flavorful way, either from delivery or from emagging/breaking open the crate
 /datum/element/deliver_first/proc/remove_lock(obj/structure/closet/target)
-	target.visible_message("<span class='notice'>[target]'s delivery lock self destructs, spewing sparks from the mechanism!</span>")
+	target.visible_message(span_notice("[target]'s delivery lock self destructs, spewing sparks from the mechanism!"))
 	var/datum/effect_system/spark_spread/spark_system = new /datum/effect_system/spark_spread()
 	spark_system.set_up(4, 0, target.loc)
 	spark_system.start()

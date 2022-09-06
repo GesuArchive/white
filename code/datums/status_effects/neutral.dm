@@ -92,7 +92,7 @@
 		rewarded = caster
 
 /datum/status_effect/bounty/on_apply()
-	to_chat(owner, "<span class='boldnotice'>You hear something behind you talking...</span> <span class='notice'>You have been marked for death by [rewarded]. If you die, they will be rewarded.</span>")
+	to_chat(owner, span_boldnotice("You hear something behind you talking...</span> <span class='notice'>You have been marked for death by [rewarded]. If you die, they will be rewarded."))
 	playsound(owner, 'sound/weapons/gun/shotgun/rack.ogg', 75, FALSE)
 	return ..()
 
@@ -103,9 +103,9 @@
 
 /datum/status_effect/bounty/proc/rewards()
 	if(rewarded && rewarded.mind && rewarded.stat != DEAD)
-		to_chat(owner, "<span class='boldnotice'>You hear something behind you talking... \"Bounty claimed.\"</span>")
+		to_chat(owner, span_boldnotice("You hear something behind you talking... \"Bounty claimed.\""))
 		playsound(owner, 'sound/weapons/gun/shotgun/shot.ogg', 75, FALSE)
-		to_chat(rewarded, "<span class='greentext'>You feel a surge of mana flow into you!</span>")
+		to_chat(rewarded, span_greentext("You feel a surge of mana flow into you!"))
 		for(var/datum/action/cooldown/spell/spell in rewarded.actions)
 			spell.reset_spell_cooldown()
 
@@ -217,7 +217,7 @@
 	if(owner.CanReach(taker) && !IS_DEAD_OR_INCAP(taker))
 		return
 
-	to_chat(taker, "<span class='warning'>[owner] слишком далеко!</span>")
+	to_chat(taker, span_warning("[owner] слишком далеко!"))
 	remove_candidate(taker)
 
 /// The offerer moved, see if anyone is out of range now
@@ -338,7 +338,7 @@
 	//These run on specific cycles
 	switch(current_cycle)
 		if(0)
-			to_chat(owner, "<span class='userdanger'>You feel like you're being pulled across to somewhere else. You feel empty inside.</span>")
+			to_chat(owner, span_userdanger("You feel like you're being pulled across to somewhere else. You feel empty inside."))
 
 		//phase 1
 		if(1 to EIGENSTASIUM_PHASE_1_END)
@@ -348,7 +348,7 @@
 		//phase 2
 		if(EIGENSTASIUM_PHASE_1_END to EIGENSTASIUM_PHASE_2_END)
 			if(current_cycle == 51)
-				to_chat(owner, "<span class='userdanger'>You start to convlse violently as you feel your consciousness merges across realities, your possessions flying wildy off your body!</span>")
+				to_chat(owner, span_userdanger("You start to convlse violently as you feel your consciousness merges across realities, your possessions flying wildy off your body!"))
 				owner.Jitter(200)
 				owner.Knockdown(10)
 			var/items = owner.get_contents()
@@ -366,7 +366,7 @@
 			switch(phase_3_cycle) //Loops 0 -> 1 -> 2 -> 1 -> 2 -> 1 ...ect.
 				if(0)
 					owner.Jitter(100)
-					to_chat(owner, "<span class='userdanger'>Your eigenstate starts to rip apart, drawing in alternative reality versions of yourself!</span>")
+					to_chat(owner, span_userdanger("Your eigenstate starts to rip apart, drawing in alternative reality versions of yourself!"))
 				if(1)
 					var/typepath = owner.type
 					alt_clone = new typepath(owner.loc)
@@ -431,7 +431,7 @@
 			do_sparks(5, FALSE, owner)
 			owner.Sleeping(100)
 			owner.Jitter(50)
-			to_chat(owner, "<span class='userdanger'>You feel your eigenstate settle, as \"you\" become an alternative version of yourself!</span>")
+			to_chat(owner, span_userdanger("You feel your eigenstate settle, as \"you\" become an alternative version of yourself!"))
 			owner.emote("me",1,"flashes into reality suddenly, gasping as they gaze around in a bewildered and highly confused fashion!",TRUE)
 			log_game("FERMICHEM: [owner] ckey: [owner.key] has become an alternative universe version of themselves.")
 			//new you new stuff

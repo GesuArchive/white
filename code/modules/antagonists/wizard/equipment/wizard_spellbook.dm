@@ -47,8 +47,8 @@
 		"ТЫ ЖЕ НЕ ДУМАЛ, ЧТО ЭТО БУДЕТ ТАК ПРОСТО, НЕ ТАК ЛИ?",
 	)
 
-	to_chat(caster, "<span class='warning'>На передней обложке появляются светящиеся красные буквы...</span>")
-	to_chat(caster, "<span class='red'>[pick(clever_girl)]</span>")
+	to_chat(caster, span_warning("На передней обложке появляются светящиеся красные буквы..."))
+	to_chat(caster, span_red(pick(clever_girl)))
 
 	return COMPONENT_ITEM_BURNT_OUT
 
@@ -63,15 +63,15 @@
 	if(!owner)
 		if(!user.mind)
 			return
-		to_chat(user, "<span class='notice'>Привязываю [src] к себе.</span>")
+		to_chat(user, span_notice("Привязываю [src] к себе."))
 		owner = user.mind
 		return
 
 	if(user.mind != owner)
 		if(user.mind?.special_role == ROLE_WIZARD_APPRENTICE)
-			to_chat(user, "<span class='warning'>Если меня поймают, когда я 'случайно' заглядываю в книгу заклинаний моего учителя, меня, скорее всего, исключат из Академии волшебников. Лучше не надо.</span>")
+			to_chat(user, span_warning("Если меня поймают, когда я 'случайно' заглядываю в книгу заклинаний моего учителя, меня, скорее всего, исключат из Академии волшебников. Лучше не надо."))
 		else
-			to_chat(user, "<span class='warning'>[src] не признает меня своим владельцем и отказывается открываться!</span>")
+			to_chat(user, span_warning("[src] не признает меня своим владельцем и отказывается открываться!"))
 		return
 
 	return ..()
@@ -81,17 +81,17 @@
 	if(istype(O, /obj/item/antag_spawner/contract))
 		var/datum/spellbook_entry/item/contract/contract_entry = locate() in entries
 		if(!istype(contract_entry))
-			to_chat(user, "<span class='warning'>[src], похоже, не хочет возвращать очки заклинаний [O].</span>")
+			to_chat(user, span_warning("[src], похоже, не хочет возвращать очки заклинаний [O]."))
 			return
 		if(!contract_entry.can_refund(user, src))
-			to_chat(user, "<span class='warning'>Я не могу вернуть очки заклинаний из [src].</span>")
+			to_chat(user, span_warning("Я не могу вернуть очки заклинаний из [src]."))
 			return
 		var/obj/item/antag_spawner/contract/contract = O
 		if(contract.used)
-			to_chat(user, "<span class='warning'>Контракт был использован, теперь вы не можете вернуть свои очки заклинаний обратно!</span>")
+			to_chat(user, span_warning("Контракт был использован, теперь вы не можете вернуть свои очки заклинаний обратно!"))
 			return
 
-		to_chat(user, "<span class='notice'>Запихиваю контракт обратно в книгу заклинаний, возвращая свои очки заклинаний.</span>")
+		to_chat(user, span_notice("Запихиваю контракт обратно в книгу заклинаний, возвращая свои очки заклинаний."))
 		uses += contract_entry.cost
 		contract_entry.times--
 		qdel(O)
@@ -99,13 +99,13 @@
 	else if(istype(O, /obj/item/antag_spawner/slaughter_demon/laughter))
 		var/datum/spellbook_entry/item/hugbottle/demon_entry = locate() in entries
 		if(!istype(demon_entry))
-			to_chat(user, "<span class='warning'>[src], похоже, не хочет возвращать очки заклинаний [O].</span>")
+			to_chat(user, span_warning("[src], похоже, не хочет возвращать очки заклинаний [O]."))
 			return
 		if(!demon_entry.can_refund(user, src))
-			to_chat(user, "<span class='warning'>Я не могу вернуть очки заклинаний [O].</span>")
+			to_chat(user, span_warning("Я не могу вернуть очки заклинаний [O]."))
 			return
 
-		to_chat(user, "<span class='notice'>Если подумать, то, возможно, призыв демона - не самая смешная идея. Я возвращаю свои очки заклинаний.</span>")
+		to_chat(user, span_notice("Если подумать, то, возможно, призыв демона - не самая смешная идея. Я возвращаю свои очки заклинаний."))
 		uses += demon_entry.cost
 		demon_entry.times--
 		qdel(O)
@@ -113,13 +113,13 @@
 	else if(istype(O, /obj/item/antag_spawner/slaughter_demon))
 		var/datum/spellbook_entry/item/bloodbottle/demon_entry = locate() in entries
 		if(!istype(demon_entry))
-			to_chat(user, "<span class='warning'>[src], похоже, не хочет возвращать очки заклинаний [O].</span>")
+			to_chat(user, span_warning("[src], похоже, не хочет возвращать очки заклинаний [O]."))
 			return
 		if(!demon_entry.can_refund(user, src))
-			to_chat(user, "<span class='warning'>Я не могу вернуть очки заклинаний [O].</span>")
+			to_chat(user, span_warning("Я не могу вернуть очки заклинаний [O]."))
 			return
 
-		to_chat(user, "<span class='notice'>Если подумать, то, возможно, призыв демона - плохая идея. Я возвращаю свои очки заклинаний.</span>")
+		to_chat(user, span_notice("Если подумать, то, возможно, призыв демона - плохая идея. Я возвращаю свои очки заклинаний."))
 		uses += demon_entry.cost
 		demon_entry.times--
 		qdel(O)
@@ -180,7 +180,7 @@
 		return
 	var/mob/living/carbon/human/wizard = usr
 	if(!istype(wizard))
-		to_chat(wizard, "<span class='warning'>The book doesn't seem to listen to lower life forms.</span>")
+		to_chat(wizard, span_warning("The book doesn't seem to listen to lower life forms."))
 		return FALSE
 
 	// Actions that are always available
@@ -204,7 +204,7 @@
 			return TRUE
 
 	if(uses < initial(uses))
-		to_chat(wizard, "<span class='warning'>You need to have all your spell points to do this!</span>")
+		to_chat(wizard, span_warning("You need to have all your spell points to do this!"))
 		return FALSE
 
 	// Actions that are only available if you have full spell points

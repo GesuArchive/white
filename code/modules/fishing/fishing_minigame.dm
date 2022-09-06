@@ -82,7 +82,7 @@
 	SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "fishing", /datum/mood_event/fishing)
 	RegisterSignal(user, COMSIG_MOB_CLICKON, .proc/handle_click)
 	start_baiting_phase()
-	to_chat(user, "<span class='notice'>You start fishing...</span>")
+	to_chat(user, span_notice("You start fishing..."))
 	playsound(lure, 'sound/effects/splash.ogg', 100)
 
 /datum/fishing_challenge/proc/handle_click()

@@ -177,23 +177,23 @@
 		return
 
 	if(absorbedcount < thepower.req_dna)
-		to_chat(owner.current, "<span class='warning'>У нас недостаточно энергии для развития этой способности!</span>")
+		to_chat(owner.current, span_warning("У нас недостаточно энергии для развития этой способности!"))
 		return
 
 	if(has_sting(thepower))
-		to_chat(owner.current, "<span class='warning'>Мы уже развили эту способность!</span>")
+		to_chat(owner.current, span_warning("Мы уже развили эту способность!"))
 		return
 
 	if(thepower.dna_cost < 0)
-		to_chat(owner.current, "<span class='warning'>Мы не можем развить эту способность!</span>")
+		to_chat(owner.current, span_warning("Мы не можем развить эту способность!"))
 		return
 
 	if(geneticpoints < thepower.dna_cost)
-		to_chat(owner.current, "<span class='warning'>Мы достигли лимита наших способностей!</span>")
+		to_chat(owner.current, span_warning("Мы достигли лимита наших способностей!"))
 		return
 
 	if(HAS_TRAIT(owner.current, TRAIT_DEATHCOMA))//To avoid potential exploits by buying new powers while in stasis, which clears your verblist.
-		to_chat(owner.current, "<span class='warning'>У нас недостаточно силы для развития этой способности сейчас!</span>")
+		to_chat(owner.current, span_warning("У нас недостаточно силы для развития этой способности сейчас!"))
 		return
 
 	geneticpoints -= thepower.dna_cost
@@ -202,19 +202,19 @@
 
 /datum/antagonist/changeling/proc/readapt()
 	if(!ishuman(owner.current))
-		to_chat(owner.current, "<span class='warning'>Мы не можем избавиться от наших способностей в этой форме!</span>")
+		to_chat(owner.current, span_warning("Мы не можем избавиться от наших способностей в этой форме!"))
 		return
 	if(HAS_TRAIT_FROM(owner.current, TRAIT_DEATHCOMA, CHANGELING_TRAIT))
-		to_chat(owner.current, "<span class='warning'>We are too busy reforming ourselves to readapt right now!</span>")
+		to_chat(owner.current, span_warning("We are too busy reforming ourselves to readapt right now!"))
 		return
 	if(canrespec)
-		to_chat(owner.current, "<span class='notice'>Мы избавились от способностей в этой форме, теперь мы готовы переадаптироваться.</span>")
+		to_chat(owner.current, span_notice("Мы избавились от способностей в этой форме, теперь мы готовы переадаптироваться."))
 		reset_powers()
 		canrespec = FALSE
 		SSblackbox.record_feedback("tally", "changeling_power_purchase", 1, "Readapt")
 		return TRUE
 	else
-		to_chat(owner.current, "<span class='warning'>У нас недостаточно сил для переадаптирования!</span>")
+		to_chat(owner.current, span_warning("У нас недостаточно сил для переадаптирования!"))
 		return FALSE
 
 //Called in life()
@@ -248,29 +248,29 @@
 		var/datum/changelingprofile/prof = stored_profiles[1]
 		if(prof.dna == user.dna && stored_profiles.len >= dna_max)//If our current DNA is the stalest, we gotta ditch it.
 			if(verbose)
-				to_chat(user, "<span class='warning'>Мы достигли максимума хранения запаса ДНК у нас! Мы должны трансформироваться перед поглощением новых генов.</span>")
+				to_chat(user, span_warning("Мы достигли максимума хранения запаса ДНК у нас! Мы должны трансформироваться перед поглощением новых генов."))
 			return
 	if(!target)
 		return
 	if(NO_DNA_COPY in target.dna.species.species_traits)
 		if(verbose)
-			to_chat(user, "<span class='warning'><b>[target]</b> не подходит нашему биологическому типу.</span>")
+			to_chat(user, span_warning("<b>[target]</b> не подходит нашему биологическому типу."))
 		return
 	if(HAS_TRAIT(target, TRAIT_BADDNA))
 		if(verbose)
-			to_chat(user, "<span class='warning'>ДНК <b>[target]</b> разрушен и не подлежит восстановлению!</span>")
+			to_chat(user, span_warning("ДНК <b>[target]</b> разрушен и не подлежит восстановлению!"))
 		return
 	if(HAS_TRAIT(target, TRAIT_HUSK))
 		if(verbose)
-			to_chat(user, "<span class='warning'>Тело <b>[target]</b> испорчено, геномов не извлечь!</span>")
+			to_chat(user, span_warning("Тело <b>[target]</b> испорчено, геномов не извлечь!"))
 		return
 	if(!ishuman(target))//Absorbing monkeys is entirely possible, but it can cause issues with transforming. That's what lesser form is for anyway!
 		if(verbose)
-			to_chat(user, "<span class='warning'>Мы не получим никакой пользы от поглощения данного существа.</span>")
+			to_chat(user, span_warning("Мы не получим никакой пользы от поглощения данного существа."))
 		return
 	if(!target.has_dna())
 		if(verbose)
-			to_chat(user, "<span class='warning'><b>[target]</b> не подходит нашему биологическому типу.</span>")
+			to_chat(user, span_warning("<b>[target]</b> не подходит нашему биологическому типу."))
 		return
 	return TRUE
 
@@ -417,7 +417,7 @@
 	owner.announce_objectives()
 
 /datum/antagonist/changeling/farewell()
-	to_chat(owner.current, "<span class='userdanger'>Похоже я перерос в человека! Больше не ощущаю сил и скорее всего я застрял в этой форме навсегда.</span>")
+	to_chat(owner.current, span_userdanger("Похоже я перерос в человека! Больше не ощущаю сил и скорее всего я застрял в этой форме навсегда."))
 
 
 /datum/antagonist/changeling/proc/forge_objectives()
@@ -495,7 +495,7 @@
 
 /datum/antagonist/changeling/admin_add(datum/mind/new_owner,mob/admin)
 	. = ..()
-	to_chat(new_owner.current, "<span class='boldannounce'>Наши силы пробудились. Частички памяти мгновенно дают нам понять, мы [changelingID], генокрад!</span>")
+	to_chat(new_owner.current, span_boldannounce("Наши силы пробудились. Частички памяти мгновенно дают нам понять, мы [changelingID], генокрад!"))
 
 /datum/antagonist/changeling/get_admin_commands()
 	. = ..()
@@ -504,7 +504,7 @@
 
 /datum/antagonist/changeling/proc/admin_restore_appearance(mob/admin)
 	if(!stored_profiles.len || !iscarbon(owner.current))
-		to_chat(admin, "<span class='danger'>Сброс ДНК не успешен!</span>")
+		to_chat(admin, span_danger("Сброс ДНК не успешен!"))
 	else
 		var/mob/living/carbon/C = owner.current
 		first_prof.dna.transfer_identity(C, transfer_SE=1)
@@ -581,9 +581,9 @@
 			count++
 
 	if(changelingwin)
-		parts += "<span class='greentext'>Генокрад успешен!</span>"
+		parts += span_greentext("Генокрад успешен!")
 	else
-		parts += "<span class='redtext'>Генокрад провален.</span>"
+		parts += span_redtext("Генокрад провален.")
 
 	return parts.Join("<br>")
 

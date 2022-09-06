@@ -89,15 +89,15 @@
 		return
 
 	if(tip_time > 0)
-		to_chat(tipper, "<span class='warning'>Начинаю переворачивать [tipped_mob]...</span>")
+		to_chat(tipper, span_warning("Начинаю переворачивать [tipped_mob]..."))
 		tipped_mob.visible_message(
-			"<span class='warning'>[tipper] начинает переворачивать [tipped_mob].</span>",
-			"<span class='userdanger'>[tipper] начинает меня переворачивать!</span>",
+			span_warning("[tipper] начинает переворачивать [tipped_mob]."),
+			span_userdanger("[tipper] начинает меня переворачивать!"),
 			ignored_mobs = tipper
 		)
 
 		if(!do_after(tipper, tip_time, target = tipped_mob))
-			to_chat(tipper, "<span class='danger'>Не удалось перевернуть [tipped_mob].</span>")
+			to_chat(tipper, span_danger("Не удалось перевернуть [tipped_mob]."))
 			return
 	do_tip(tipped_mob, tipper)
 
@@ -113,10 +113,10 @@
 	if(QDELETED(tipped_mob))
 		CRASH("Tippable component: do_tip() called with QDELETED tipped_mob!")
 
-	to_chat(tipper, "<span class='warning'>Переворачиваю [tipped_mob].</span>")
+	to_chat(tipper, span_warning("Переворачиваю [tipped_mob]."))
 	tipped_mob.visible_message(
-		"<span class='warning'>[tipper] переворачивает [tipped_mob].</span>",
-		"<span class='userdanger'>[tipper] переворачивает меня!</span>",
+		span_warning("[tipper] переворачивает [tipped_mob]."),
+		span_userdanger("[tipper] переворачивает меня!"),
 		ignored_mobs = tipper
 		)
 
@@ -138,15 +138,15 @@
  */
 /datum/component/tippable/proc/try_untip(mob/living/tipped_mob, mob/untipper)
 	if(untip_time > 0)
-		to_chat(untipper, "<span class='notice'>Начинаю ставить на место [tipped_mob]...</span>")
+		to_chat(untipper, span_notice("Начинаю ставить на место [tipped_mob]..."))
 		tipped_mob.visible_message(
-			"<span class='notice'>[untipper] начинает ставить на место [tipped_mob].</span>",
-			"<span class='notice'>[untipper] начинает ставить меня на место.</span>",
+			span_notice("[untipper] начинает ставить на место [tipped_mob]."),
+			span_notice("[untipper] начинает ставить меня на место."),
 			ignored_mobs = untipper
 		)
 
 		if(!do_after(untipper, untip_time, target = tipped_mob))
-			to_chat(untipper, "<span class='warning'>Не вышло поставить на место [tipped_mob].</span>")
+			to_chat(untipper, span_warning("Не вышло поставить на место [tipped_mob]."))
 			return
 
 	do_untip(tipped_mob, untipper)
@@ -162,10 +162,10 @@
 	if(QDELETED(tipped_mob))
 		return
 
-	to_chat(untipper, "<span class='notice'>Ставлю на место [tipped_mob].</span>")
+	to_chat(untipper, span_notice("Ставлю на место [tipped_mob]."))
 	tipped_mob.visible_message(
-		"<span class='notice'>[untipper] ставит на место [tipped_mob].</span>",
-		"<span class='notice'>[untipper] ставит меня на место!</span>",
+		span_notice("[untipper] ставит на место [tipped_mob]."),
+		span_notice("[untipper] ставит меня на место!"),
 		ignored_mobs = untipper
 		)
 
@@ -186,8 +186,8 @@
 	post_untipped_callback?.Invoke()
 
 	tipped_mob.visible_message(
-		"<span class='notice'>[tipped_mob] переворачивается сам по себе.</span>",
-		"<span class='notice'>Переворачиваюсь.</span>"
+		span_notice("[tipped_mob] переворачивается сам по себе."),
+		span_notice("Переворачиваюсь.")
 		)
 
 /*

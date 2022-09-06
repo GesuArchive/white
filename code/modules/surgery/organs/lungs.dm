@@ -11,11 +11,11 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY * 0.9 // fails around 16.5 minutes, lungs are one of the last organs to die (of the ones we have)
 
-	low_threshold_passed = "<span class='warning'>Трудно дышать...</span>"
-	high_threshold_passed = "<span class='warning'>Ощущаю какое-то сжатие вокруг груди, моё дыхание становится поверхностным и быстрым.</span>"
-	now_fixed = "<span class='warning'>Моим лёгким, похоже, стало легче.</span>"
-	low_threshold_cleared = "<span class='info'>Воздух начинает поступать в мои лёгкие. Благодать.</span>"
-	high_threshold_cleared = "<span class='info'>Давление вокруг моей груди ослабевает, дышать стало легче.</span>"
+	low_threshold_passed = span_warning("Трудно дышать...")
+	high_threshold_passed = span_warning("Ощущаю какое-то сжатие вокруг груди, моё дыхание становится поверхностным и быстрым.")
+	now_fixed = span_warning("Моим лёгким, похоже, стало легче.")
+	low_threshold_cleared = span_info("Воздух начинает поступать в мои лёгкие. Благодать.")
+	high_threshold_cleared = span_info("Давление вокруг моей груди ослабевает, дышать стало легче.")
 
 
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/medicine/salbutamol = 5)
@@ -287,22 +287,22 @@
 						// At lower pp, give out a little warning
 						SEND_SIGNAL(owner, COMSIG_CLEAR_MOOD_EVENT, "smell")
 						if(prob(5))
-							to_chat(owner, "<span class='notice'>Тошнотворный запах.</span>")
+							to_chat(owner, span_notice("Тошнотворный запах."))
 					if(6 to 15)
 						//At somewhat higher pp, warning becomes more obvious
 						if(prob(15))
-							to_chat(owner, "<span class='warning'>Здесь кто-то умер? Воняет ужасно...</span>")
+							to_chat(owner, span_warning("Здесь кто-то умер? Воняет ужасно..."))
 							SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/bad_smell)
 					if(16 to 30)
 						//Small chance to vomit. By now, people have internals on anyway
 						if(prob(5))
-							to_chat(owner, "<span class='warning'>Вонь гниющих туш невыносима! Тошнит...</span>")
+							to_chat(owner, span_warning("Вонь гниющих туш невыносима! Тошнит..."))
 							SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/nauseating_stench)
 							owner.vomit()
 					if(31 to INFINITY)
 						//Higher chance to vomit. Let the horror start
 						if(prob(15))
-							to_chat(owner, "<span class='warning'>Вонь гниющих туш невыносима! Сейчас блевану...</span>")
+							to_chat(owner, span_warning("Вонь гниющих туш невыносима! Сейчас блевану..."))
 							SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "smell", /datum/mood_event/disgust/nauseating_stench)
 							owner.vomit()
 					else
@@ -321,12 +321,12 @@
 	// Freon
 		var/freon_pp = PP(breath, GAS_FREON)
 		if (prob(freon_pp))
-			to_chat(H, "<span class='alert'>Глотка горит!</span>")
+			to_chat(H, span_alert("Глотка горит!"))
 		if (freon_pp > 40)
 			H.emote("gasp")
 			H.adjustFireLoss(15)
 			if (prob(freon_pp / 2))
-				to_chat(H, "<span class='alert'>Сложно дышать!</span>")
+				to_chat(H, span_alert("Сложно дышать!"))
 				H.silent = max(H.silent, 3)
 		else
 			H.adjustFireLoss(freon_pp / 4)
@@ -339,7 +339,7 @@
 		var/healium_pp = PP(breath, GAS_HEALIUM)
 		if(healium_pp > gas_stimulation_min)
 			if(prob(15))
-				to_chat(H, "<span class='alert'>Голова кружится, лёгкие горят!</span>")
+				to_chat(H, span_alert("Голова кружится, лёгкие горят!"))
 				H.emote("gasp")
 
 		if(healium_pp > 3)
@@ -407,7 +407,7 @@
 			H.apply_damage_type(cold_level_1_damage*cold_modifier, cold_damage_type)
 		if(breath_temperature < cold_level_1_threshold)
 			if(prob(20))
-				to_chat(H, "<span class='warning'>Ощущаю [cold_message] в мои лёгкие!</span>")
+				to_chat(H, span_warning("Ощущаю [cold_message] в мои лёгкие!"))
 
 	if(!HAS_TRAIT(H, TRAIT_RESISTHEAT)) // HEAT DAMAGE
 		var/heat_modifier = H.dna.species.heatmod
@@ -419,7 +419,7 @@
 			H.apply_damage_type(heat_level_3_damage*heat_modifier, heat_damage_type)
 		if(breath_temperature > heat_level_1_threshold)
 			if(prob(20))
-				to_chat(H, "<span class='warning'>Ощущаю [hot_message] в мои лёгкие!</span>")
+				to_chat(H, span_warning("Ощущаю [hot_message] в мои лёгкие!"))
 
 	// The air you breathe out should match your body temperature
 	breath.set_temperature(H.bodytemperature)
@@ -434,7 +434,7 @@
 		if(do_i_cough)
 			owner.emote("cough")
 	if(organ_flags & ORGAN_FAILING && owner.stat == CONSCIOUS)
-		owner.visible_message("<span class='danger'>[owner] grabs [owner.ru_ego()] throat, struggling for breath!</span>" , "<span class='userdanger'>You suddenly feel like you can't breathe!</span>")
+		owner.visible_message(span_danger("[owner] grabs [owner.ru_ego()] throat, struggling for breath!") , span_userdanger("You suddenly feel like you can't breathe!"))
 		failed = TRUE
 
 /obj/item/organ/lungs/get_availability(datum/species/S)

@@ -211,7 +211,7 @@
 
 	on_fire = TRUE
 	if(!silent)
-		owner.visible_message("<span class='warning'>[owner] горит!</span>", "<span class='userdanger'>ГОРЮ!</span>")
+		owner.visible_message(span_warning("[owner] горит!"), span_userdanger("ГОРЮ!"))
 
 	if(firelight_type)
 		firelight_ref = WEAKREF(new firelight_type(owner))

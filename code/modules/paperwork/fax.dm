@@ -45,7 +45,7 @@
 	if(!(obj_flags & EMAGGED))
 		obj_flags |= EMAGGED
 		playsound(src, 'sound/creatures/dog/growl2.ogg', 50, FALSE)
-		to_chat(user, "<span class='warning'>Изображение, в виде Яна в форме офицера Синдиката, проявляется на экранчике [src]а.</span>")
+		to_chat(user, span_warning("Изображение, в виде Яна в форме офицера Синдиката, проявляется на экранчике [src]а."))
 
 /obj/machinery/fax/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
@@ -61,7 +61,7 @@
 		if (fax_name_exist(new_fax_name))
 			// Being able to set the same name as another fax machine will give a lot of gimmicks for the traitor.
 			if (syndicate_network != TRUE && obj_flags != EMAGGED)
-				to_chat(user, "<span class='warning'>Уже существует факс с таким же именем.</span>")
+				to_chat(user, span_warning("Уже существует факс с таким же именем."))
 				return TOOL_ACT_TOOLTYPE_SUCCESS
 		fax_name = new_fax_name
 	return TOOL_ACT_TOOLTYPE_SUCCESS

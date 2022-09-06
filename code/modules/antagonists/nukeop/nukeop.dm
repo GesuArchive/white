@@ -26,7 +26,7 @@
 
 /datum/antagonist/nukeop/greet()
 	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ops.ogg', 100, 0, use_reverb = FALSE)
-	to_chat(owner, "<span class='notice'>Да я же оперативник Синдиката!</span>")
+	to_chat(owner, span_notice("Да я же оперативник Синдиката!"))
 	owner.announce_objectives()
 
 /datum/antagonist/nukeop/on_gain()
@@ -142,7 +142,7 @@
 		antag_memory += "<B>Код от ядерной бомбы</B>: [code]<br>"
 		to_chat(owner.current, "Код авторизации ядерного устройства: <B>[code]</B>")
 	else
-		to_chat(admin, "<span class='danger'>БОМБЫ НЕТ!</span>")
+		to_chat(admin, span_danger("БОМБЫ НЕТ!"))
 
 /datum/antagonist/nukeop/leader
 	name = "Лидер Оперативников"
@@ -304,7 +304,7 @@
 
 /datum/team/nuclear/roundend_report()
 	var/list/parts = list()
-	parts += "<span class='header'>[syndicate_name] Оперативники:</span>"
+	parts += span_header("[syndicate_name] Оперативники:")
 
 	switch(get_result())
 		if(NUKE_RESULT_FLUKE)

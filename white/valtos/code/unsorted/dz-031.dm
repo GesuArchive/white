@@ -121,8 +121,8 @@
 	color = "#B34646"
 
 /turf/closed/dz/normal/cyber/ice/red/melt_ice(mob/living/user)
-	visible_message("<span class='warning'><b>[user]</b> уничтожает <b>[src]</b> и покрывается ссадинами!</span>", \
-					"<span class='userdanger'>Уничтожаю <b>[src]</b> и... УХ БЛЯ!</span>")
+	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и покрывается ссадинами!"), \
+					span_userdanger("Уничтожаю <b>[src]</b> и... УХ БЛЯ!"))
 	user.adjustBruteLoss(5)
 	. = ..()
 
@@ -131,8 +131,8 @@
 	color = "#AEA341"
 
 /turf/closed/dz/normal/cyber/ice/yellow/melt_ice(mob/living/user)
-	visible_message("<span class='warning'><b>[user]</b> уничтожает <b>[src]</b> и загорается!</span>", \
-					"<span class='userdanger'>Уничтожаю <b>[src]</b> и... ЗАГОРАЮСЬ!</span>")
+	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и загорается!"), \
+					span_userdanger("Уничтожаю <b>[src]</b> и... ЗАГОРАЮСЬ!"))
 	user.adjust_fire_stacks(1)
 	user.ignite_mob()
 	. = ..()
@@ -142,8 +142,8 @@
 	color = "#55AC3F"
 
 /turf/closed/dz/normal/cyber/ice/green/melt_ice(mob/living/user)
-	visible_message("<span class='warning'><b>[user]</b> уничтожает <b>[src]</b> и покрывается кислотой!</span>", \
-					"<span class='userdanger'>Уничтожаю <b>[src]</b> и... КИСЛОТА-А-А!</span>")
+	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и покрывается кислотой!"), \
+					span_userdanger("Уничтожаю <b>[src]</b> и... КИСЛОТА-А-А!"))
 	user.acid_act(25, 10)
 	. = ..()
 
@@ -152,8 +152,8 @@
 	color = "#222222"
 
 /turf/closed/dz/normal/cyber/ice/black/melt_ice(mob/living/user)
-	visible_message("<span class='warning'><b>[user]</b> уничтожает <b>[src]</b> и засыпает!</span>", \
-					"<span class='userdanger'>Уничтожаю <b>[src]</b> и засыпаю...</span>")
+	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и засыпает!"), \
+					span_userdanger("Уничтожаю <b>[src]</b> и засыпаю..."))
 	user.AdjustSleeping(1 SECONDS)
 	. = ..()
 
@@ -174,8 +174,8 @@
 		var/obj/item/thingy = pick(things)
 		found_something = new thingy(src)
 
-	visible_message("<span class='notice'><b>[user]</b> уничтожает <b>[src]</b>[found_something ? " и находит внутри <b>[found_something]</b>" : ""].</span>", \
-					"<span class='notice'>Уничтожаю <b>[src]</b>[found_something ? " и нахожу внутри <b>[found_something]</b>" : ""].</span>")
+	visible_message(span_notice("<b>[user]</b> уничтожает <b>[src]</b>[found_something ? " и находит внутри <b>[found_something]</b>" : ""]."), \
+					span_notice("Уничтожаю <b>[src]</b>[found_something ? " и нахожу внутри <b>[found_something]</b>" : ""]."))
 
 	. = ..()
 
@@ -272,7 +272,7 @@
 			icon_state = "spike_strike"
 			var/latched = FALSE
 			for(var/mob/living/L in loc)
-				visible_message("<span class='danger'>Стержень жёстко пробивает тушку <b>[L]</b>!</span>")
+				visible_message(span_danger("Стержень жёстко пробивает тушку <b>[L]</b>!"))
 				L.adjustBruteLoss(50)
 				var/turf/T = get_turf(src)
 				new /obj/effect/decal/cleanable/blood(T)
@@ -387,7 +387,7 @@
 				say("Доступ запрещён.")
 
 	if(W.tool_behaviour == TOOL_SCREWDRIVER)
-		to_chat(user, "<span class='warning'>Вставляю отвёртку в картоприёмник...</span>")
+		to_chat(user, span_warning("Вставляю отвёртку в картоприёмник..."))
 		playsound(src, 'white/valtos/sounds/dz/cardin.ogg', 60, TRUE)
 		if(isliving(user))
 			var/mob/living/L = user

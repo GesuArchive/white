@@ -193,7 +193,7 @@
 	if(!.)
 		return
 	if(!SSticker?.IsRoundInProgress())
-		to_chat(hud.mymob, "<span class='boldwarning'>Раунд ещё не начался или уже завершился...</span>")
+		to_chat(hud.mymob, span_boldwarning("Раунд ещё не начался или уже завершился..."))
 		return
 
 	//Determines Relevent Population Cap
@@ -208,16 +208,16 @@
 	var/mob/dead/new_player/new_player = hud.mymob
 
 	if(SSticker.queued_players.len || (relevant_cap && living_player_count() >= relevant_cap && !(ckey(new_player.key) in GLOB.admin_datums)))
-		to_chat(new_player, "<span class='danger'>[CONFIG_GET(string/hard_popcap_message)]</span>")
+		to_chat(new_player, span_danger("[CONFIG_GET(string/hard_popcap_message)]"))
 
 		var/queue_position = SSticker.queued_players.Find(new_player)
 		if(queue_position == 1)
-			to_chat(new_player, "<span class='notice'>Ты следующий по списку желающих войти в раунд. Тебя оповестят о подходящей возможности.</span>")
+			to_chat(new_player, span_notice("Ты следующий по списку желающих войти в раунд. Тебя оповестят о подходящей возможности."))
 		else if(queue_position)
-			to_chat(new_player, "<span class='notice'>Перед тобой [queue_position-1] игроков в очереди ожидания захода в раунд.</span>")
+			to_chat(new_player, span_notice("Перед тобой [queue_position-1] игроков в очереди ожидания захода в раунд."))
 		else
 			SSticker.queued_players += new_player
-			to_chat(new_player, "<span class='notice'>Тебя добавили в очередь для захода в игру. Твой номер в очереди: [SSticker.queued_players.len].</span>")
+			to_chat(new_player, span_notice("Тебя добавили в очередь для захода в игру. Твой номер в очереди: [SSticker.queued_players.len]."))
 		return
 	if(GLOB.violence_mode_activated)
 		new_player.violence_choices()

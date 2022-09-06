@@ -40,9 +40,9 @@
 		if(!playing)
 			dat += "<A href='?src=[REF(src)];play=1'>Играть</A> <SPAN CLASS='linkOn'>Остановить</SPAN><BR><BR>"
 			dat += "Повторов: "
-			dat += repeat > 0 ? "<A href='?src=[REF(src)];repeat=-10'>-</A><A href='?src=[REF(src)];repeat=-1'>-</A>" : "<span class='linkoff'>-</SPAN><SPAN CLASS='linkOff'>-</span>"
+			dat += repeat > 0 ? "<A href='?src=[REF(src)];repeat=-10'>-</A><A href='?src=[REF(src)];repeat=-1'>-</A>" : span_linkoff("-</SPAN><SPAN CLASS='linkOff'>-")
 			dat += " [repeat] раз/раза "
-			dat += repeat < max_repeats ? "<A href='?src=[REF(src)];repeat=1'>+</A><A href='?src=[REF(src)];repeat=10'>+</A>" : "<span class='linkoff'>+</SPAN><SPAN CLASS='linkOff'>+</span>"
+			dat += repeat < max_repeats ? "<A href='?src=[REF(src)];repeat=1'>+</A><A href='?src=[REF(src)];repeat=10'>+</A>" : span_linkoff("+</SPAN><SPAN CLASS='linkOff'>+")
 			dat += "<BR>"
 		else
 			dat += "<SPAN CLASS='linkOn'>Играть</SPAN> <A href='?src=[REF(src)];stop=1'>Остановить</A><BR>"

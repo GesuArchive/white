@@ -23,7 +23,7 @@
 	switch(stage)
 		if(1)
 			if(DT_PROB(2.5, delta_time))
-				to_chat(affected_mob, "<span class='warning'>[pick("Голова кружится.", "Ощущаю вялость.")]</span>")
+				to_chat(affected_mob, span_warning(pick("Голова кружится.", "Ощущаю вялость.")))
 		if(2)
 			if(DT_PROB(5, delta_time))
 				affected_mob.Unconscious(40)
@@ -35,4 +35,4 @@
 				affected_mob.Dizzy(10)
 
 			if(DT_PROB(2.5, delta_time))
-				to_chat(affected_mob, "<span class='warning'>[pick("Ощущаю стреляющую боль в ногах!", "Кажется я сейчас потеряю сознание.", "Голова сильно кружится.")]</span>")
+				to_chat(affected_mob, span_warning(pick("Ощущаю стреляющую боль в ногах!", "Кажется я сейчас потеряю сознание.", "Голова сильно кружится.")))

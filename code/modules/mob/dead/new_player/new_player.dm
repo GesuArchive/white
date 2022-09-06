@@ -74,25 +74,25 @@
 				VP.money -= VG.cost
 				VP.loadout_items += VG
 				SEND_SOUND(usr, pick(list('white/valtos/sounds/coin1.ogg', 'white/valtos/sounds/coin2.ogg', 'white/valtos/sounds/coin3.ogg')))
-				to_chat(usr, "<span class='notice'>Куплено <b>[VG.name]</b> за [VG.cost]₽!</span>")
+				to_chat(usr, span_notice("Куплено <b>[VG.name]</b> за [VG.cost]₽!"))
 			else
-				to_chat(usr, "<span class='boldwarning'>Недостаточно средств.</span>")
+				to_chat(usr, span_boldwarning("Недостаточно средств."))
 			violence_choices()
 		return
 
 	if(href_list["late_join"]) //This still exists for queue messages in chat
 		if(!SSticker?.IsRoundInProgress())
-			to_chat(usr, "<span class='boldwarning'>Раунд ещё не начался или уже завершился...</span>")
+			to_chat(usr, span_boldwarning("Раунд ещё не начался или уже завершился..."))
 			return
 		LateChoices()
 
 	if(href_list["SelectedJob"])
 		if(!SSticker?.IsRoundInProgress())
-			to_chat(usr, "<span class='danger'>Раунд ещё не начался или уже завершился...</span>")
+			to_chat(usr, span_danger("Раунд ещё не начался или уже завершился..."))
 			return
 
 		if(SSlag_switch.measures[DISABLE_NON_OBSJOBS])
-			to_chat(usr, "<span class='notice'>Нельзя!</span>")
+			to_chat(usr, span_notice("Нельзя!"))
 			return
 
 		//Determines Relevent Population Cap
@@ -106,7 +106,7 @@
 
 		if(SSticker.queued_players.len && !(ckey(key) in GLOB.admin_datums))
 			if((living_player_count() >= relevant_cap) || (src != SSticker.queued_players[1]))
-				to_chat(usr, "<span class='warning'>Полновато здесь.</span>")
+				to_chat(usr, span_warning("Полновато здесь."))
 				return
 
 		AttemptLateSpawn(href_list["SelectedJob"])
@@ -144,11 +144,11 @@
 	observer.started_as_observer = TRUE
 	close_spawn_windows()
 	var/obj/effect/landmark/observer_start/O = locate(/obj/effect/landmark/observer_start) in GLOB.landmarks_list
-	to_chat(src, "<span class='notice'>Телепортируемся! Аспект: [SSaspects.ca_desc]</span>")
+	to_chat(src, span_notice("Телепортируемся! Аспект: [SSaspects.ca_desc]"))
 	if (O)
 		observer.forceMove(O.loc)
 	else
-		to_chat(src, "<span class='notice'>Что-то сломалось и тебя забросило немного не там, где нужно. Ничего страшного.</span>")
+		to_chat(src, span_notice("Что-то сломалось и тебя забросило немного не там, где нужно. Ничего страшного."))
 		stack_trace("There's no freaking observer landmark available on this map or you're making observers before the map is initialised")
 	observer.key = key
 	observer.client = client
@@ -282,7 +282,7 @@
 			AnnounceArrival(humanc, rank)
 		AddEmploymentContract(humanc)
 		if(GLOB.highlander)
-			to_chat(humanc, "<span class='userdanger'><i>THERE CAN BE ONLY ONE!!!</i></span>")
+			to_chat(humanc, span_userdanger("<i>THERE CAN BE ONLY ONE!!!</i>"))
 			humanc.make_scottish()
 
 		humanc.increment_scar_slot()
@@ -478,7 +478,7 @@
 		has_antags = TRUE
 	if(client.prefs.job_preferences.len == 0)
 		if(!ineligible_for_roles)
-			to_chat(src, "<span class='danger'>You have no jobs enabled, along with return to lobby if job is unavailable. This makes you ineligible for any round start role, please update your job preferences.</span>")
+			to_chat(src, span_danger("You have no jobs enabled, along with return to lobby if job is unavailable. This makes you ineligible for any round start role, please update your job preferences."))
 		ineligible_for_roles = TRUE
 		ready = PLAYER_NOT_READY
 		if(has_antags)

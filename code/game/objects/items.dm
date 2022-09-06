@@ -382,7 +382,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	. += "<hr>"
 
 	if(resistance_flags & INDESTRUCTIBLE)
-		. += "<span class='smallnotice'><b>Защитные свойства:</b> [icon2html(EMOJI_SET, user, "indestructible")] неуязвимый.</span>\n"
+		. += span_smallnotice("<b>Защитные свойства:</b> [icon2html(EMOJI_SET, user, "indestructible")] Неуязвимый.\n")
 	else
 		var/list/rfm = list()
 		if(resistance_flags & LAVA_PROOF)
@@ -394,9 +394,9 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		if(resistance_flags & FIRE_PROOF)
 			rfm += icon2html(EMOJI_SET, user, "fire")
 		if(rfm.len)
-			. += "<span class='smallnotice'><b>Защитные свойства:</b> [rfm.Join(" ")]\n</span>"
+			. += span_smallnotice("<b>Защитные свойства:</b> [rfm.Join(" ")]\n")
 
-	. += "<span class='smallnotice'><b>Размер:</b> [weight_class_to_icon(w_class, user, TRUE)]</span>"
+	. += span_smallnotice("<b>Размер:</b> [weight_class_to_icon(w_class, user, TRUE)]")
 
 	if(!HAS_TRAIT(user, TRAIT_RESEARCH_SCANNER))
 		return
@@ -467,9 +467,9 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 
 		if(can_handle_hot)
 			extinguish()
-			to_chat(user, "<span class='notice'>Тушу [src].</span>")
+			to_chat(user, span_notice("Тушу [src]."))
 		else
-			to_chat(user, "<span class='warning'>Обжигаюсь дотронувшись до [src]!</span>")
+			to_chat(user, span_warning("Обжигаюсь дотронувшись до [src]!"))
 			var/obj/item/bodypart/affecting = C.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 			if(affecting?.receive_damage( 0, 5 ))		// 5 burn damage
 				C.update_damage_overlays()
@@ -482,7 +482,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	var/grav = user.has_gravity()
 	if(grav > STANDARD_GRAVITY)
 		var/grav_power = min(3,grav - STANDARD_GRAVITY)
-		to_chat(user,"<span class='notice'>С трудом начинаю поднимать [src]...</span>")
+		to_chat(user,span_notice("С трудом начинаю поднимать [src]..."))
 		if(!do_mob(user,src,30*grav_power))
 			return
 
@@ -533,7 +533,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	if(!user.can_hold_items(src))
 		if(src in A.contents) // To stop Aliens having items stuck in their pockets
 			A.dropItemToGround(src)
-		to_chat(user, "<span class='warning'>У меня лапки!</span>")
+		to_chat(user, span_warning("У меня лапки!"))
 		return
 	attack_paw(A)
 
@@ -557,7 +557,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		return TRUE
 
 	if(!owner.stat && prob(final_block_chance) && (attack_type != MELEE_ATTACK || defense_check(get_turf(owner), get_turf(hitby), owner.dir)))
-		owner.visible_message("<span class='danger'><b>[owner]</b> блокирует [attack_text] при помощи <b>[src.name]</b>!</span>")
+		owner.visible_message(span_danger("<b>[owner]</b> блокирует [attack_text] при помощи <b>[src.name]</b>!"))
 		return TRUE
 	return FALSE
 
@@ -825,7 +825,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 
 /obj/item/proc/ignition_effect(atom/A, mob/user)
 	if(get_temperature())
-		. = "<span class='notice'>[user] поджигает [A] при помощи [src].</span>"
+		. = span_notice("[user] поджигает [A] при помощи [src].")
 	else
 		. = ""
 
@@ -1085,7 +1085,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		return
 	user.dropItemToGround(src, silent = TRUE)
 	if(throwforce && HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, "<span class='notice'>You set [src] down gently on the ground.</span>")
+		to_chat(user, span_notice("You set [src] down gently on the ground."))
 		return
 
 	return src
@@ -1158,8 +1158,8 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 /obj/item/proc/on_accidental_consumption(mob/living/carbon/victim, mob/living/carbon/user, obj/item/source_item, discover_after = TRUE)
 	if(get_sharpness() && force >= 5) //if we've got something sharp with a decent force (ie, not plastic)
 		INVOKE_ASYNC(victim, /mob.proc/emote, "agony")
-		victim.visible_message("<span class='warning'>[victim] looks like [victim.p_theyve()] just bit something they shouldn't have!</span>" , \
-							"<span class='boldwarning'>OH GOD! Was that a crunch? That didn't feel good at all!!</span>")
+		victim.visible_message(span_warning("[victim] looks like [victim.p_theyve()] just bit something they shouldn't have!") , \
+							span_boldwarning("OH GOD! Was that a crunch? That didn't feel good at all!!"))
 
 		victim.apply_damage(max(15, force), BRUTE, BODY_ZONE_HEAD, wound_bonus = 10, sharpness = TRUE)
 		victim.losebreath += 2
@@ -1202,8 +1202,8 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 			discover_after = FALSE
 
 		victim.adjust_disgust(33)
-		victim.visible_message("<span class='warning'>[victim] looks like [victim.p_theyve()] just bitten into something hard.</span>" , \
-						"<span class='warning'>Eugh! Did I just bite into something?</span>")
+		victim.visible_message(span_warning("[victim] looks like [victim.p_theyve()] just bitten into something hard.") , \
+						span_warning("Eugh! Did I just bite into something?"))
 
 	else if(w_class == WEIGHT_CLASS_TINY) //small items like soap or toys that don't have mat datums
 		/// victim's chest (for cavity implanting the item)
@@ -1211,16 +1211,16 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		if(victim_cavity.cavity_item)
 			victim.vomit(5, FALSE, FALSE, distance = 0)
 			forceMove(drop_location())
-			to_chat(victim, "<span class='warning'>You vomit up a [name]! [source_item? "Was that in [source_item]?" : ""]</span>")
+			to_chat(victim, span_warning("You vomit up a [name]! [source_item? "Was that in [source_item]?" : ""]"))
 		else
 			victim.transferItemToLoc(src, victim, TRUE)
 			victim.losebreath += 2
 			victim_cavity.cavity_item = src
-			to_chat(victim, "<span class='warning'>Проглатываю что-то жёсткое. [source_item? "Это было в [source_item]..." : ""]</span>")
+			to_chat(victim, span_warning("Проглатываю что-то жёсткое. [source_item? "Это было в [source_item]..." : ""]"))
 		discover_after = FALSE
 
 	else
-		to_chat(victim, "<span class='warning'>[source_item? "Something strange was in the [source_item]..." : "I just bit something strange..."] </span>")
+		to_chat(victim, span_warning("[source_item? "Something strange was in the [source_item]..." : "I just bit something strange..."] "))
 
 	return discover_after
 

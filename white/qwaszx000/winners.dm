@@ -50,34 +50,34 @@
 	if(open && !showpiece)
 		if(user.transferItemToLoc(W, src))
 			showpiece = W
-			to_chat(user, "<span class='notice'>Ставлю [W] в витрину.</span>")
+			to_chat(user, span_notice("Ставлю [W] в витрину."))
 			update_icon()
 	else if(W.tool_behaviour == TOOL_WELDER && user.a_intent == INTENT_HELP && !broken)
 		if(obj_integrity < max_integrity)
 			if(!W.tool_start_check(user, amount=5))
-				to_chat(user, "<span class='warning'>Нет топлива!</span>")
+				to_chat(user, span_warning("Нет топлива!"))
 				return
-			to_chat(user, "<span class='notice'>Начинаю чинить [src].</span>")
+			to_chat(user, span_notice("Начинаю чинить [src]."))
 			if(W.use_tool(src, user, 40, amount=5, volume=50))
 				obj_integrity = max_integrity
 				update_icon()
-				to_chat(user, "<span class='notice'>Чиню [src].</span>")
+				to_chat(user, span_notice("Чиню [src]."))
 				return
 		else
-			to_chat(user, "<span class='warning'>[capitalize(src.name)] уже в отличном состоянии!</span>")
+			to_chat(user, span_warning("[capitalize(src.name)] уже в отличном состоянии!"))
 			return
 	else if(W.GetID() && !broken && openable)
-		to_chat(user, "<span class='warning'>Имеет защиту по отпечатку пальца! Не ID!</span>")
+		to_chat(user, span_warning("Имеет защиту по отпечатку пальца! Не ID!"))
 		return
 	else
 		return ..()
 
 /obj/structure/displaycase/winner/attack_hand(mob/user)
 	if(ckey(user.ckey) == ckey(winner_key) && !broken && openable)
-		to_chat(user,  "<span class='notice'>[open ? "Закрываю":"Открываю"] [src].</span>")
+		to_chat(user,  span_notice("[open ? "Закрываю":"Открываю"] [src]."))
 		toggle_lock(user)
 	else
-		to_chat(user, "<span class='warning'>Лузер.</span>")
+		to_chat(user, span_warning("Лузер."))
 
 /obj/structure/displaycase/winner/AltClick(mob/user)
 	if(open)

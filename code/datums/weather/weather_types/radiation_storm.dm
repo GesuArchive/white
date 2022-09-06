@@ -4,9 +4,9 @@
 	desc = "Облако интенсивного излучения проходит через область, нанося вред тем, кто не защищен."
 
 	telegraph_duration = 400
-	telegraph_message = "<span class='danger'>Воздух начинает прогреваться.</span>"
+	telegraph_message = span_danger("Воздух начинает прогреваться.")
 
-	weather_message = "<span class='userdanger'><i>Чувствую, как волны тепла охватывают меня! В ТЕХИ СРОЧНО!</i></span>"
+	weather_message = span_userdanger("<i>Чувствую, как волны тепла охватывают меня! В ТЕХИ СРОЧНО!</i>")
 	weather_overlay = "ash_storm"
 	weather_duration_lower = 600
 	weather_duration_upper = 1500
@@ -14,7 +14,7 @@
 	weather_sound = 'sound/misc/bloblarm.ogg'
 
 	end_duration = 100
-	end_message = "<span class='notice'>Кажется, воздух снова остывает.</span>"
+	end_message = span_notice("Кажется, воздух снова остывает.")
 
 	area_type = /area
 	protected_areas = list(/area/maintenance, /area/ai_monitored/turret_protected/ai_upload, /area/ai_monitored/turret_protected/ai_upload_foyer,

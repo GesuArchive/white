@@ -298,7 +298,7 @@ GLOBAL_LIST_EMPTY(lifts)
 				playsound(hit_wall, 'sound/effects/meteorimpact.ogg', 100, TRUE)
 
 			for(var/mob/living/crushed in dest_turf.contents)
-				to_chat(crushed, "<span class='userdanger'>You are crushed by [src]!</span>")
+				to_chat(crushed, span_userdanger("You are crushed by [src]!"))
 				if(violent_landing)
 					// Violent landing = gibbed. But the nicest kind of gibbing, keeping everything intact.
 					crushed.gib(FALSE, FALSE, FALSE)
@@ -351,13 +351,13 @@ GLOBAL_LIST_EMPTY(lifts)
 				if(!is_type_in_typecache(victim_structure, lift_master_datum.ignored_smashthroughs) && victim_structure.layer >= LOW_OBJ_LAYER)
 
 					if(victim_structure.anchored && initial(victim_structure.anchored) == TRUE)
-						visible_message("<span class='danger'>[src] smashes through [victim_structure]!</span>")
+						visible_message(span_danger("[src] smashes through [victim_structure]!"))
 						victim_structure.deconstruct(FALSE)
 
 					else
 						if(!throw_target)
 							throw_target = get_edge_target_turf(src, turn(going, pick(45, -45)))
-						visible_message("<span class='danger'>[src] violently rams [victim_structure] out of the way!</span>")
+						visible_message(span_danger("[src] violently rams [victim_structure] out of the way!"))
 						victim_structure.anchored = FALSE
 						victim_structure.take_damage(rand(20, 25) * collision_lethality)
 						victim_structure.throw_at(throw_target, 200 * collision_lethality, 4 * collision_lethality)
@@ -371,13 +371,13 @@ GLOBAL_LIST_EMPTY(lifts)
 					continue
 				if(victim_machine.layer >= LOW_OBJ_LAYER) //avoids stuff that is probably flush with the ground
 					playsound(src, 'sound/effects/bang.ogg', 50, TRUE)
-					visible_message("<span class='danger'>[src] smashes through [victim_machine]!</span>")
+					visible_message(span_danger("[src] smashes through [victim_machine]!"))
 					qdel(victim_machine)
 
 			for(var/mob/living/collided in dest_turf.contents)
 				if(lift_master_datum.ignored_smashthroughs[collided.type])
 					continue
-				to_chat(collided, "<span class='userdanger'>[src] collides into you!</span>")
+				to_chat(collided, span_userdanger("[src] collides into you!"))
 				playsound(src, 'sound/effects/splat.ogg', 50, TRUE)
 				var/damage = rand(5, 10) * collision_lethality
 				collided.apply_damage(2 * damage, BRUTE, BODY_ZONE_HEAD)
@@ -683,10 +683,10 @@ GLOBAL_LIST_EMPTY(lifts)
  */
 /obj/structure/industrial_lift/proc/show_fluff_message(direction, mob/user)
 	if(direction == UP)
-		user.visible_message("<span class='notice'>[user] moves the lift upwards.</span>", "<span class='notice'>You move the lift upwards.</span>")
+		user.visible_message(span_notice("[user] moves the lift upwards."), span_notice("You move the lift upwards."))
 
 	if(direction == DOWN)
-		user.visible_message("<span class='notice'>[user] moves the lift downwards.</span>", "<span class='notice'>You move the lift downwards.</span>")
+		user.visible_message(span_notice("[user] moves the lift downwards."), span_notice("You move the lift downwards."))
 
 // A subtype intended for "public use"
 /obj/structure/industrial_lift/public
@@ -815,7 +815,7 @@ GLOBAL_LIST_EMPTY(lifts)
  * Tram finds its location at this point before fully unlocking controls to the user.
  */
 /obj/structure/industrial_lift/tram/proc/unlock_controls()
-	visible_message("<span class='notice'>[src]'s controls are now unlocked.</span>")
+	visible_message(span_notice("[src]'s controls are now unlocked."))
 	for(var/obj/structure/industrial_lift/tram/tram_part as anything in lift_master_datum.lift_platforms) //only thing everyone needs to know is the new location.
 		tram_part.set_travelling(FALSE)
 		lift_master_datum.set_controls(LIFT_PLATFORM_UNLOCKED)

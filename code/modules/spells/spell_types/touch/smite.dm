@@ -27,8 +27,8 @@
 	var/mob/living/living_victim = victim
 	if(living_victim.can_block_magic(antimagic_flags))
 		caster.visible_message(
-			"<span class='warning'>The feedback blows [caster]'s arm off!</span>",
-			"<span class='userdanger'>The spell bounces from [living_victim]'s skin back into your arm!</span>",
+			span_warning("The feedback blows [caster]'s arm off!"),
+			span_userdanger("The spell bounces from [living_victim]'s skin back into your arm!"),
 		)
 		caster.flash_act()
 		var/obj/item/bodypart/to_dismember = caster.get_holding_bodypart_of_item(hand)
@@ -39,7 +39,7 @@
 		var/mob/living/carbon/human/human_victim = victim
 		var/obj/item/clothing/suit/worn_suit = human_victim.wear_suit
 		if(istype(worn_suit, /obj/item/clothing/suit/hooded/bloated_human))
-			human_victim.visible_message("<span class='danger'>[victim]'s [worn_suit] explodes off of them into a puddle of gore!</span>")
+			human_victim.visible_message(span_danger("[victim]'s [worn_suit] explodes off of them into a puddle of gore!"))
 			human_victim.dropItemToGround(worn_suit)
 			qdel(worn_suit)
 			new /obj/effect/gibspawner(get_turf(victim))

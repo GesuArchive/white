@@ -67,7 +67,7 @@
 		return
 
 	if(solution != lock_code)
-		to_chat(user, "<span class='info'>Ответ неверный.</span>")
+		to_chat(user, span_info("Ответ неверный."))
 		if(isliving(user))
 			var/mob/living/L = user
 			L.gib()
@@ -78,7 +78,7 @@
 	hidden_uplink.active = TRUE
 	hidden_uplink.locked = FALSE
 
-	to_chat(user, "<span class='info'>Ответ верный.</span>")
+	to_chat(user, span_info("Ответ верный."))
 
 /obj/item/uplink/nuclear/debug
 	name = "debug nuclear uplink"

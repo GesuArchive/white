@@ -17,13 +17,13 @@
 /datum/clockcult/scripture/cogscarab/begin_invoke(mob/living/M, obj/item/clockwork/clockwork_slab/slab, bypass_unlock_checks)
 	invokation_time = 120 + (60 * GLOB.cogscarabs.len)
 	if(!is_reebe(M.z))
-		to_chat(M, "<span class='warning'>Это можно сделать только на Риби!</span>")
+		to_chat(M, span_warning("Это можно сделать только на Риби!"))
 		return
 	if(GLOB.cogscarabs.len > 8)
-		to_chat(M, "<span class='warning'>Не могу призвать больше мехскарабеев.</span>")
+		to_chat(M, span_warning("Не могу призвать больше мехскарабеев."))
 		return
 	if(GLOB.gateway_opening)
-		to_chat(M, "<span class='warning'>Слишком поздно, Рат'вар уже идёт!</span>")
+		to_chat(M, span_warning("Слишком поздно, Рат'вар уже идёт!"))
 		return
 	. = ..()
 

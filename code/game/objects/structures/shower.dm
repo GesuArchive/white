@@ -96,11 +96,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 
 /obj/machinery/shower/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>It looks like the thermostat has an adjustment screw.</span>"
+	. += span_notice("It looks like the thermostat has an adjustment screw.")
 	if(has_water_reclaimer)
-		. += "<span class='notice'>A water recycler is installed. It looks like you could pry it out.</span>"
-	. += "<span class='notice'>The auto shut-off is programmed to [GLOB.shower_mode_descriptions["[mode]"]].</span>"
-	. += "<span class='notice'>[reagents.total_volume]/[reagents.maximum_volume] liquids remaining.</span>"
+		. += span_notice("A water recycler is installed. It looks like you could pry it out.")
+	. += span_notice("The auto shut-off is programmed to [GLOB.shower_mode_descriptions["[mode]"]].")
+	. += span_notice("[reagents.total_volume]/[reagents.maximum_volume] liquids remaining.")
 
 /obj/machinery/shower/Destroy()
 	QDEL_NULL(soundloop)
@@ -124,13 +124,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 	. = ..()
 
 	tool.play_tool_sound(src)
-	to_chat(user, "<span class='notice'>The water temperature seems to be [current_temperature].</span>")
+	to_chat(user, span_notice("The water temperature seems to be [current_temperature]."))
 	return TRUE
 
 /obj/machinery/shower/attackby(obj/item/tool, mob/user, params)
 	if(istype(tool, /obj/item/stock_parts/water_recycler))
 		if(has_water_reclaimer)
-			to_chat(user, "<span class='warning'>There is already has a water recycler installed.</span>")
+			to_chat(user, span_warning("There is already has a water recycler installed."))
 			return
 
 		playsound(src, 'sound/machines/click.ogg', 20, TRUE)
@@ -148,7 +148,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 	tool.play_tool_sound(src)
 	mode = (mode + 1) % SHOWER_MODE_COUNT
 	begin_processing()
-	to_chat(user, "<span class='notice'>You change the shower's auto shut-off mode to [GLOB.shower_mode_descriptions["[mode]"]].</span>")
+	to_chat(user, span_notice("You change the shower's auto shut-off mode to [GLOB.shower_mode_descriptions["[mode]"]]."))
 	return TRUE
 
 /obj/machinery/shower/crowbar_act(mob/living/user, obj/item/tool)
@@ -156,18 +156,18 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 	if(.)
 		return
 	if(!has_water_reclaimer)
-		to_chat(user, "<span class='warning'>There isn't a water recycler to remove.</span>")
+		to_chat(user, span_warning("There isn't a water recycler to remove."))
 		return
 
 	tool.play_tool_sound(src)
 	has_water_reclaimer = FALSE
 	new/obj/item/stock_parts/water_recycler(get_turf(loc))
-	to_chat(user, "<span class='notice'>You remove the water reclaimer from [src]</span>")
+	to_chat(user, span_notice("You remove the water reclaimer from [src]"))
 	return TRUE
 
 /obj/machinery/shower/screwdriver_act(mob/living/user, obj/item/I)
 	..()
-	to_chat(user, "<span class='notice'>You begin to adjust the temperature valve with [I]...</span>")
+	to_chat(user, span_notice("You begin to adjust the temperature valve with [I]..."))
 	if(I.use_tool(src, user, 50))
 		switch(current_temperature)
 			if(SHOWER_NORMAL)
@@ -176,7 +176,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 				current_temperature = SHOWER_BOILING
 			if(SHOWER_BOILING)
 				current_temperature = SHOWER_NORMAL
-		user.visible_message("<span class='notice'>[user] adjusts the shower with [I].</span>" , "<span class='notice'>You adjust the shower with [I] to [current_temperature] temperature.</span>")
+		user.visible_message(span_notice("[user] adjusts the shower with [I].") , span_notice("You adjust the shower with [I] to [current_temperature] temperature."))
 		user.log_message("has wrenched a shower at [AREACOORD(src)] to [current_temperature].", LOG_ATTACK)
 		add_hiddenprint(user)
 	handle_mist()
@@ -323,12 +323,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 	if(current_temperature == SHOWER_FREEZING)
 		if(iscarbon(L))
 			C.adjust_bodytemperature(-80, 80)
-		to_chat(L, "<span class='warning'>[capitalize(src.name)] is freezing!</span>")
+		to_chat(L, span_warning("[capitalize(src.name)] is freezing!"))
 	else if(current_temperature == SHOWER_BOILING)
 		if(iscarbon(L))
 			C.adjust_bodytemperature(35, 0, 500)
 		L.adjustFireLoss(5)
-		to_chat(L, "<span class='danger'>[capitalize(src.name)] is searing!</span>")
+		to_chat(L, span_danger("[capitalize(src.name)] is searing!"))
 
 
 /obj/structure/showerframe
@@ -368,7 +368,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/shower, (-16))
 
 /obj/structure/showerframe/proc/can_be_rotated(mob/user, rotation_type)
 	if(anchored)
-		to_chat(user, "<span class='warning'>It is fastened to the floor!</span>")
+		to_chat(user, span_warning("It is fastened to the floor!"))
 	return !anchored
 
 /obj/effect/mist

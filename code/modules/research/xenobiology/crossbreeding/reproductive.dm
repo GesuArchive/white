@@ -17,7 +17,7 @@ Reproductive extracts:
 
 /obj/item/slimecross/reproductive/examine()
 	. = ..()
-	. += "<span class='danger'>Уже скушал [length(contents)] кубов.</span>"
+	. += span_danger("Уже скушал [length(contents)] кубов.")
 
 /obj/item/slimecross/reproductive/Initialize(mapload)
 	. = ..()
@@ -25,21 +25,21 @@ Reproductive extracts:
 
 /obj/item/slimecross/reproductive/attackby(obj/item/O, mob/user)
 	if((last_produce + cooldown) > world.time)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] is still digesting!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] is still digesting!"))
 		return
 	if(length(contents) >= feedAmount) //if for some reason the contents are full, but it didnt digest, attempt to digest again
-		to_chat(user, "<span class='warning'>[src] appears to be full but is not digesting! Maybe poking it stimulated it to digest.</span>")
+		to_chat(user, span_warning("[src] appears to be full but is not digesting! Maybe poking it stimulated it to digest."))
 		slimeStorage.processCubes(src, user)
 		return
 	if(istype(O, /obj/item/storage/bag/bio))
 		var/list/inserted = list()
 		SEND_SIGNAL(O, COMSIG_TRY_STORAGE_TAKE_TYPE, /obj/item/food/monkeycube, src, feedAmount - length(contents), TRUE, FALSE, user, inserted)
 		if(inserted.len)
-			to_chat(user, "<span class='notice'>You feed [length(inserted)] Monkey Cube[p_s()] to [src], and it pulses gently.</span>")
+			to_chat(user, span_notice("You feed [length(inserted)] Monkey Cube[p_s()] to [src], and it pulses gently."))
 			playsound(src, 'sound/items/eatfood.ogg', 20, TRUE)
 			slimeStorage.processCubes(src, user)
 		else
-			to_chat(user, "<span class='warning'>There are no monkey cubes in the bio bag!</span>")
+			to_chat(user, span_warning("There are no monkey cubes in the bio bag!"))
 	return
 
 /obj/item/slimecross/reproductive/Destroy()

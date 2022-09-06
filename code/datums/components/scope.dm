@@ -63,7 +63,7 @@
 /datum/component/scope/proc/on_examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
-	examine_list += "<span class='notice'><hr>Прицел активируется на <b>ПКМ</b>.</span>"
+	examine_list += span_notice("<hr>Прицел активируется на <b>ПКМ</b>.")
 
 /**
  * We find and return the best target to hit on a given turf.

@@ -26,7 +26,7 @@
 ///Handles all injection checks, injection and logging.
 /obj/item/reagent_containers/hypospray/proc/inject(mob/living/M, mob/user)
 	if(!reagents.total_volume)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] is empty!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] is empty!"))
 		return FALSE
 	if(!iscarbon(M))
 		return FALSE
@@ -39,8 +39,8 @@
 	log_combat(user, M, "пытается вколоть", src, "([contained])")
 
 	if(reagents.total_volume && (ignore_flags || M.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE))) // Ignore flag should be checked first or there will be an error message.
-		to_chat(M, "<span class='warning'>Что-то укололо меня!</span>")
-		to_chat(user, "<span class='notice'>Вкалываю [src] [skloname(M.name, DATELNI, M.gender)].</span>")
+		to_chat(M, span_warning("Что-то укололо меня!"))
+		to_chat(user, span_notice("Вкалываю [src] [skloname(M.name, DATELNI, M.gender)]."))
 		var/fraction = min(amount_per_transfer_from_this/reagents.total_volume, 1)
 
 
@@ -51,7 +51,7 @@
 			else
 				reagents.expose(M, INJECT, fraction)
 				trans = reagents.copy_to(M, amount_per_transfer_from_this)
-			to_chat(user, "<span class='notice'>Введено [trans] единиц химикатов. В [src] осталось [reagents.total_volume] единиц химикатов.</span>")
+			to_chat(user, span_notice("Введено [trans] единиц химикатов. В [src] осталось [reagents.total_volume] единиц химикатов."))
 			log_combat(user, M, "вкалывает", src, "([contained])")
 		return TRUE
 	return FALSE
@@ -117,7 +117,7 @@
 	var/empty_start = FALSE
 
 /obj/item/reagent_containers/hypospray/medipen/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins to choke on <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] begins to choke on <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return OXYLOSS//ironic. he could save others from oxyloss, but not himself.
 
 /obj/item/reagent_containers/hypospray/medipen/inject(mob/living/M, mob/user)
@@ -233,10 +233,10 @@
 		return ..()
 
 	if(DOING_INTERACTION(user, DOAFTER_SOURCE_SURVIVALPEN))
-		to_chat(user,"<span class='notice'>Я слишком занят для того чтобы использовать <b>[src.name]</b>!</span>")
+		to_chat(user,span_notice("Я слишком занят для того чтобы использовать <b>[src.name]</b>!"))
 		return
 
-	to_chat(user,"<span class='notice'>Начинаю с силой продавливать поршень клапана, но он сопротивляется при таком высоком давлении... нужно... давить... сильнее...</span>")
+	to_chat(user,span_notice("Начинаю с силой продавливать поршень клапана, но он сопротивляется при таком высоком давлении... нужно... давить... сильнее..."))
 	if(!do_mob(user, M, 10 SECONDS, interaction_key = DOAFTER_SOURCE_SURVIVALPEN))
 		return
 

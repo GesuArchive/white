@@ -12,7 +12,7 @@
 		return
 	for(var/obj/structure/destructible/clockwork/trap/T in get_turf(src))
 		if(istype(T, type))
-			to_chat(user, "<span class='warning'>That space is occupied!</span>")
+			to_chat(user, span_warning("That space is occupied!"))
 			return
 	to_chat(user, "<span class='brass'>You place [src], use a <b>clockwork slab</b> to link it to other traps.</span>")
 	var/obj/new_obj = new result_path(get_turf(src))
@@ -40,7 +40,7 @@
 	icon = 'icons/obj/clockwork_objects.dmi'
 	density = FALSE
 	layer = LOW_OBJ_LAYER
-	break_message = "<span class='warning'>Замысловатое устройство разваливается.</span>"
+	break_message = span_warning("Замысловатое устройство разваливается.")
 	var/unwrench_path = /obj/item/wallframe/clocktrap
 	var/component_datum = /datum/component/clockwork_trap
 
@@ -50,9 +50,9 @@
 
 /obj/structure/destructible/clockwork/trap/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
-	to_chat(user, "<span class='warning'>Начинаю откручивать [src]...</span>")
+	to_chat(user, span_warning("Начинаю откручивать [src]..."))
 	if(do_after(user, 50, target=src))
-		to_chat(user, "<span class='warning'>Отсоединяю [src], убирая все подключения к нему.</span>")
+		to_chat(user, span_warning("Отсоединяю [src], убирая все подключения к нему."))
 		new unwrench_path(get_turf(src))
 		qdel(src)
 		return TRUE

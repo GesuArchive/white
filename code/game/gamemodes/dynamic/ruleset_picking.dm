@@ -106,7 +106,7 @@
 /// Fired when an admin cancels the current midround injection.
 /datum/game_mode/dynamic/proc/admin_cancel_midround(mob/user, timer_id)
 	if (midround_injection_timer_id != timer_id || !deltimer(midround_injection_timer_id))
-		to_chat(user, "<span class='notice'>Too late!</span>")
+		to_chat(user, span_notice("Too late!"))
 		return
 
 	log_admin("[key_name(user)] cancelled the next midround injection.")
@@ -117,7 +117,7 @@
 /// Fired when an admin requests a different midround injection.
 /datum/game_mode/dynamic/proc/admin_different_midround(mob/user, timer_id)
 	if (midround_injection_timer_id != timer_id || !deltimer(midround_injection_timer_id))
-		to_chat(user, "<span class='notice'>Too late!</span>")
+		to_chat(user, span_notice("Too late!"))
 		return
 
 	midround_injection_timer_id = null

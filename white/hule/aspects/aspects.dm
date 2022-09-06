@@ -596,7 +596,7 @@
 
 
 		for(var/mob/living/syndie in tators)
-			to_chat(syndie, "<span class='alert'>Внимание, коммуникации синдиката перехвачены, вас раскрыли!</span>")
+			to_chat(syndie, span_alert("Внимание, коммуникации синдиката перехвачены, вас раскрыли!"))
 			syndie.playsound_local(get_turf(syndie), 'white/alexs410/sound/palevo.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 
 	spawn(rand(20, 300) SECONDS)

@@ -17,33 +17,33 @@
 /obj/structure/bloodsucker/examine(mob/user)
 	. = ..()
 	if(!user.mind && Ghost_desc != "")
-		. += "<span class='cult'>[Ghost_desc]</span>"
+		. += span_cult(Ghost_desc)
 	if(IS_BLOODSUCKER(user) && Vamp_desc)
 		if(!owner)
-			. += "<span class='cult'>It is unsecured. Click on [src] while in your lair to secure it in place to get its full potential.</span>"
+			. += span_cult("It is unsecured. Click on [src] while in your lair to secure it in place to get its full potential.")
 			return
-		. += "<span class='cult'>[Vamp_desc]</span>"
+		. += span_cult(Vamp_desc)
 	if(IS_VASSAL(user) && Vassal_desc != "")
-		. += "<span class='cult'>[Vassal_desc]</span>"
+		. += span_cult(Vassal_desc)
 	if(IS_MONSTERHUNTER(user) && Hunter_desc != "")
-		. += "<span class='cult'>[Hunter_desc]</span>"
+		. += span_cult(Hunter_desc)
 
 /// This handles bolting down the structure.
 /obj/structure/bloodsucker/proc/bolt(mob/user)
-	to_chat(user, "<span class='danger'>You have secured [src] in place.</span>")
-	to_chat(user, "<span class='announce'>* Bloodsucker Tip: Examine [src] to understand how it functions!</span>")
+	to_chat(user, span_danger("You have secured [src] in place."))
+	to_chat(user, span_announce("* Bloodsucker Tip: Examine [src] to understand how it functions!"))
 	owner = user
 
 /// This handles unbolting of the structure.
 /obj/structure/bloodsucker/proc/unbolt(mob/user)
-	to_chat(user, "<span class='danger'>You have unsecured [src].</span>")
+	to_chat(user, span_danger("You have unsecured [src]."))
 	owner = null
 
 /obj/structure/bloodsucker/attackby(obj/item/item, mob/living/user, params)
 	/// If a Bloodsucker tries to wrench it in place, yell at them.
 	if(item.tool_behaviour == TOOL_WRENCH && !anchored && IS_BLOODSUCKER(user))
 		user.playsound_local(null, 'sound/machines/buzz-sigh.ogg', 40, FALSE, pressure_affected = FALSE)
-		to_chat(user, "<span class='announce'>* Bloodsucker Tip: Examine the Persuasion Rack to understand how it functions!</span>")
+		to_chat(user, span_announce("* Bloodsucker Tip: Examine the Persuasion Rack to understand how it functions!"))
 		return
 	. = ..()
 
@@ -53,10 +53,10 @@
 	/// Claiming the Rack instead of using it?
 	if(istype(bloodsuckerdatum) && !owner)
 		if(!bloodsuckerdatum.lair)
-			to_chat(user, "<span class='danger'>You don't have a lair. Claim a coffin to make that location your lair.</span>")
+			to_chat(user, span_danger("You don't have a lair. Claim a coffin to make that location your lair."))
 			return FALSE
 		if(bloodsuckerdatum.lair != get_area(src))
-			to_chat(user, "<span class='danger'>You may only activate this structure in your lair: [bloodsuckerdatum.lair].</span>")
+			to_chat(user, span_danger("You may only activate this structure in your lair: [bloodsuckerdatum.lair]."))
 			return FALSE
 
 		/// Menu for securing your Persuasion rack in place.
@@ -118,11 +118,11 @@
 	if(!.)
 		return FALSE
 	if(!IS_BLOODSUCKER(user))
-		to_chat(user, "<span class='warning'>You can't figure out how this works.</span>")
+		to_chat(user, span_warning("You can't figure out how this works."))
 		return FALSE
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = user.mind.has_antag_datum(/datum/antagonist/bloodsucker)
 	if(bloodsuckerdatum.altar_uses >= ALTAR_RANKS_PER_DAY)
-		to_chat(user, "<span class='notice'>You have done all tasks for the night, come back tomorrow for more.</span>")
+		to_chat(user, span_notice("You have done all tasks for the night, come back tomorrow for more."))
 		return
 	var/task //just like amongus
 	var/suckamount = 0
@@ -146,12 +146,12 @@
 		bloodsuckerdatum.altar_uses++
 		bloodsuckerdatum.task_blood_drank = 0
 		sacrifices = 0
-		to_chat(user, "<span class='notice'>You have sucessfully done a task and gained a rank!</span>")
+		to_chat(user, span_notice("You have sucessfully done a task and gained a rank!"))
 		task_completed = FALSE
 		sacrificialtask = FALSE
 		return
 	if(bloodsuckerdatum.current_task)
-		to_chat(user, "<span class='warning'>You already have a rank up task!</span>")
+		to_chat(user, span_warning("You already have a rank up task!"))
 		return
 	if(!bloodsuckerdatum.current_task)
 		var/want_rank = alert("Do you want to gain a task? This will cost 100 Blood.", "Task Manager", "Yes", "No")
@@ -159,7 +159,7 @@
 			return
 		var/mob/living/carbon/C = user
 		if(C.blood_volume < 100)
-			to_chat(user, "<span class='danger'>You don't have enough blood to gain a task!</span>")
+			to_chat(user, span_danger("You don't have enough blood to gain a task!"))
 			return
 		C.blood_volume -= 100
 		switch(rand(1, 3))
@@ -170,13 +170,13 @@
 				sacrificialtask = TRUE
 		bloodsuckerdatum.task_memory += "<B>Current Rank Up Task</B>: [task]<br>"
 		bloodsuckerdatum.current_task = TRUE
-		to_chat(user, "<span class='boldnotice'>You have gained a new Task! [task] Remember to collect it by using the blood altar!</span>")
+		to_chat(user, span_boldnotice("You have gained a new Task! [task] Remember to collect it by using the blood altar!"))
 
 /obj/structure/bloodsucker/bloodaltar/examine(mob/user)
 	. = ..()
 	if(sacrificialtask)
 		if(sacrifices > 0)
-			. += "<span class='boldnotice'>It currently contains [sacrifices] [organ_name].</span>"
+			. += span_boldnotice("It currently contains [sacrifices] [organ_name].")
 	else
 		return ..()
 
@@ -186,10 +186,10 @@
 	if(sacrificialtask)
 		if(istype(H, /obj/item/organ/heart))
 			if(istype(H, /obj/item/organ/heart/gland))
-				to_chat(usr, "<span class='warning'>This type of organ doesn't have blood to sustain the altar!</span>")
+				to_chat(usr, span_warning("This type of organ doesn't have blood to sustain the altar!"))
 				return ..()
 			organ_name = H.name
-			to_chat(usr, "<span class='notice'>You feed the heart to the altar!</span>")
+			to_chat(usr, span_notice("You feed the heart to the altar!"))
 			qdel(H)
 			sacrifices++
 			return
@@ -221,7 +221,7 @@
 	if(!IS_BLOODSUCKER(user) && !IS_VASSAL(user))
 		return ..()
 	if(!awoken)
-		to_chat(usr, "<span class='notice'>As you touch [src], you start sensing something different coming from [src]!</span>")
+		to_chat(usr, span_notice("As you touch [src], you start sensing something different coming from [src]!"))
 		qdel(H)
 		awoken = TRUE
 		return
@@ -261,12 +261,12 @@
 				bloodsuckerdatum.BuyPower(new /datum/action/bloodsucker/cloak/shadow)
 			bloodsuckerdatum.powers -= choice
 			qdel(choice)
-			to_chat(user, "<span class='boldnotice'>You have ascended [choice]!</span>")
+			to_chat(user, span_boldnotice("You have ascended [choice]!"))
 			bloodsuckerdatum.clanpoints--
 			return
 		if(bloodsuckerdatum.bloodsucker_level >= 4 )
 			if(!awoken) //don't want this to affect power upgrading if you make another one
-				to_chat(user, "<span class='cult'>Seems like you need a direct link to the abyss to awaken [src]. Maybe searching a spacial influence would yield something.</span>")
+				to_chat(user, span_cult("Seems like you need a direct link to the abyss to awaken [src]. Maybe searching a spacial influence would yield something."))
 				return
 			icon_state = initial(icon_state) + (awoken ? "_idle" : "_awaken")
 			update_icon()
@@ -275,7 +275,7 @@
 				if(0)
 					bloodsuckerdatum.clanprogress++
 					bloodsuckerdatum.clanpoints++
-					to_chat(user, "<span class='notice'>As you touch the [src] you feel the a slight abyssal pulse flow through you... You have gained a point!</span>")
+					to_chat(user, span_notice("As you touch the [src] you feel the a slight abyssal pulse flow through you... You have gained a point!"))
 					return
 				if(1 to 3)
 					rankspent = 1
@@ -284,7 +284,7 @@
 				if(7)
 					rankspent = 3
 				if(8 to INFINITY)
-					to_chat(user, "<span class='notice'>You have evolved all abilities possible.</span>")
+					to_chat(user, span_notice("You have evolved all abilities possible."))
 					return
 			var/want_clantask = alert("Do you want to spend a rank to gain a shadowpoint? This will cost [rankspent] ranks.", "Dark Manager", "Yes", "No")
 			if(want_clantask == "No" || QDELETED(src))
@@ -295,7 +295,7 @@
 					return
 				var/mob/living/carbon/C = user
 				if(C.blood_volume < 550)
-					to_chat(user, "<span class='danger'>You don't have enough blood to gain a shadowpoint!</span>")
+					to_chat(user, span_danger("You don't have enough blood to gain a shadowpoint!"))
 					return
 				C.blood_volume -= 550
 			else
@@ -359,15 +359,15 @@
 
 /obj/structure/bloodsucker/possessedarmor/attackby(obj/item/I, mob/user, params)
 	if(upgraded)
-		to_chat(user, "<span class='warning'>[src] is already reinforced!</span>")
+		to_chat(user, span_warning("[src] is already reinforced!"))
 		return
 	if(istype(I, /obj/item/stack/sheet/mineral/silver))
 		var/obj/item/stack/sheet/mineral/silver/S = I
 		if(S.amount < 5)
-			to_chat(user, "<span class='warning'>You need at least five silver bars to reinforce [src]!</span>")
+			to_chat(user, span_warning("You need at least five silver bars to reinforce [src]!"))
 			return
 		else
-			to_chat(user, "<span class='notice'>You start adding [I] to [src]...</span>")
+			to_chat(user, span_notice("You start adding [I] to [src]..."))
 			if(do_after(user, 5 SECONDS, src))
 				S.use(5)
 				new /obj/structure/bloodsucker/possessedarmor/upgraded(src.loc)
@@ -383,7 +383,7 @@
 	for(var/mob/living/passerby in dview(1, get_turf(src)))
 		if(IS_BLOODSUCKER(passerby) || IS_VASSAL(passerby))
 			continue
-		to_chat(passerby, "<span class='warning'>The armor starts moving!</span>")
+		to_chat(passerby, span_warning("The armor starts moving!"))
 		if(upgraded)
 			new /mob/living/simple_animal/hostile/bloodsucker/possessedarmor/upgraded(src.loc)
 		else
@@ -442,8 +442,8 @@
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = user.mind.has_antag_datum(/datum/antagonist/bloodsucker)
 	if(bloodsuckerdatum.my_clan == CLAN_TZIMISCE)
 		if(meat_amount > 0)
-			. += "<span class='boldnotice'>It currently contains [meat_points] points to use in rituals.</span>"
-			. += "<span class='boldnotice'>You can add meat points to the rack by using muscle, acquired from <i>Dicing</i> corpses, on it.</span>"
+			. += span_boldnotice("It currently contains [meat_points] points to use in rituals.")
+			. += span_boldnotice("You can add meat points to the rack by using muscle, acquired from <i>Dicing</i> corpses, on it.")
 	else
 		return ..()
 
@@ -460,15 +460,15 @@
 /obj/structure/bloodsucker/vassalrack/MouseDrop_T(atom/movable/movable_atom, mob/user)
 	var/mob/living/living_target = movable_atom
 	if(!anchored && IS_BLOODSUCKER(user))
-		to_chat(user, "<span class='danger'>Until this rack is secured in place, it cannot serve its purpose.</span>")
-		to_chat(user, "<span class='announce'>* Bloodsucker Tip: Examine the Persuasion Rack to understand how it functions!</span>")
+		to_chat(user, span_danger("Until this rack is secured in place, it cannot serve its purpose."))
+		to_chat(user, span_announce("* Bloodsucker Tip: Examine the Persuasion Rack to understand how it functions!"))
 		return
 	// Default checks
 	if(!isliving(movable_atom) || !living_target.Adjacent(src) || living_target == user || !isliving(user) || use_lock || has_buckled_mobs() || user.incapacitated() || living_target.buckled)
 		return
 	// Don't buckle Silicon to it please.
 	if(issilicon(living_target))
-		to_chat(user, "<span class='danger'>You realize that Silicon cannot be vassalized, therefore it is useless to buckle them.</span>")
+		to_chat(user, span_danger("You realize that Silicon cannot be vassalized, therefore it is useless to buckle them."))
 		return
 	// Good to go - Buckle them!
 	use_lock = TRUE
@@ -483,8 +483,8 @@
 	if(!buckle_mob(target))
 		return
 	user.visible_message(
-		"<span class='notice'>[user] straps [target] into the rack, immobilizing them.</span>",
-		"<span class='boldnotice'>You secure [target] tightly in place. They won't escape you now.</span>",
+		span_notice("[user] straps [target] into the rack, immobilizing them."),
+		span_boldnotice("You secure [target] tightly in place. They won't escape you now."),
 	)
 
 	playsound(src.loc, 'sound/effects/pop_expl.ogg', 25, 1)
@@ -501,15 +501,15 @@
 	if(!IS_BLOODSUCKER(user) || !IS_VASSAL(user))
 		if(buckled_mob == user)
 			buckled_mob.visible_message(
-				"<span class='danger'>[user] tries to release themself from the rack!</span>",
-				"<span class='danger'>You attempt to release yourself from the rack!</span>",
-				"<span class='hear'>You hear a squishy wet noise.</span>",
+				span_danger("[user] tries to release themself from the rack!"),
+				span_danger("You attempt to release yourself from the rack!"),
+				span_hear("You hear a squishy wet noise."),
 			)
 		else
 			buckled_mob.visible_message(
-				"<span class='danger'>[user] tries to pull [buckled_mob] from the rack!</span>",
-				"<span class='danger'>[user] tries to pull [buckled_mob] from the rack!</span>",
-				"<span class='hear'>You hear a squishy wet noise.</span>",
+				span_danger("[user] tries to pull [buckled_mob] from the rack!"),
+				span_danger("[user] tries to pull [buckled_mob] from the rack!"),
+				span_hear("You hear a squishy wet noise."),
 			)
 		// Monster hunters are used to this sort of stuff, they know how they work, which includes breaking others out
 		var/breakout_timer = IS_MONSTERHUNTER(user) ? 20 SECONDS : 10 SECONDS
@@ -522,7 +522,7 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	src.visible_message("<span class='danger'>[buckled_mob][buckled_mob.stat == DEAD ? "'s corpse" : ""] slides off of the rack.</span>")
+	src.visible_message(span_danger("[buckled_mob][buckled_mob.stat == DEAD ? "'s corpse" : ""] slides off of the rack."))
 	density = FALSE
 	buckled_mob.Paralyze(3 SECONDS)
 	update_icon()
@@ -550,7 +550,7 @@
 	// Are they our Vassal, or Dead?
 	if(buckled_carbons.stat == DEAD)
 		if(bloodsuckerdatum.my_clan != CLAN_TZIMISCE)
-			to_chat(user, "<span class='warning'>[buckled_carbons] is dead!</span>")
+			to_chat(user, span_warning("[buckled_carbons] is dead!"))
 			return
 		do_ritual(user, buckled_carbons)
 		return
@@ -573,7 +573,7 @@
 		return ..() // only gamers
 	if(istype(I, /obj/item/muscle))
 		if(meat_amount >= MEATLIMIT)
-			to_chat(user, "<span class='warning'>You can't fit more meat into [src]</span>")
+			to_chat(user, span_warning("You can't fit more meat into [src]"))
 			return
 		var/obj/item/muscle/M = I
 		meat_points += M.size
@@ -628,7 +628,7 @@
 			bigmeat--
 			meat_points -= 4
 	else
-		to_chat(user, "<span class='warning'>There's no meat to retrieve in [src]</span>")
+		to_chat(user, span_warning("There's no meat to retrieve in [src]"))
 	meat_amount = bigmeat + intermeat + mediummeat + smallmeat
 	update_icon()
 
@@ -644,10 +644,10 @@
 	use_lock = TRUE
 	/// Conversion Process
 	if(convert_progress > 0)
-		to_chat(user, "<span class='notice'>You spill some blood and prepare to initiate [target] into your service.</span>")
+		to_chat(user, span_notice("You spill some blood and prepare to initiate [target] into your service."))
 		bloodsuckerdatum.AddBloodVolume(-TORTURE_BLOOD_COST)
 		if(!do_torture(user,target))
-			to_chat(user, "<span class='danger'><i>The ritual has been interrupted!</i></span>")
+			to_chat(user, span_danger("<i>The ritual has been interrupted!</i>"))
 		else
 			/// Prevent them from unbuckling themselves as long as we're torturing.
 			target.Paralyze(1 SECONDS)
@@ -657,37 +657,37 @@
 				if(IS_VASSAL(target))
 					var/datum/antagonist/vassal/vassaldatum = target.mind.has_antag_datum(/datum/antagonist/vassal)
 					if(!vassaldatum.master.broke_masquerade)
-						to_chat(user, "<span class='boldwarning'>[target] is under the spell of another Bloodsucker!</span>")
+						to_chat(user, span_boldwarning("[target] is under the spell of another Bloodsucker!"))
 						return
 				if(RequireDisloyalty(user, target))
-					to_chat(user, "<span class='boldwarning'>[target] has external loyalties! [target.p_they(TRUE)] will require more <i>persuasion</i> to break [target.p_them()] to your will!</span>")
+					to_chat(user, span_boldwarning("[target] has external loyalties! [target.p_they(TRUE)] will require more <i>persuasion</i> to break [target.p_them()] to your will!"))
 				else
-					to_chat(user, "<span class='notice'>[target] looks ready for the <b>Dark Communion</b>.</span>")
+					to_chat(user, span_notice("[target] looks ready for the <b>Dark Communion</b>."))
 			/// Otherwise, we're not done, we need to persuade them some more.
 			else
-				to_chat(user, "<span class='notice'>[target] could use [convert_progress == 1 ? "a little" : "some"] more <i>persuasion</i>.</span>")
+				to_chat(user, span_notice("[target] could use [convert_progress == 1 ? "a little" : "some"] more <i>persuasion</i>."))
 		use_lock = FALSE
 		return
 	/// Check: Mindshield & Antag
 	if(!disloyalty_confirm && RequireDisloyalty(user, target))
 		if(!do_disloyalty(user,target))
-			to_chat(user, "<span class='danger'><i>The ritual has been interrupted!</i></span>")
+			to_chat(user, span_danger("<i>The ritual has been interrupted!</i>"))
 		else if(!disloyalty_confirm)
-			to_chat(user, "<span class='danger'>[target] refuses to give into your persuasion. Perhaps a little more?</span>")
+			to_chat(user, span_danger("[target] refuses to give into your persuasion. Perhaps a little more?"))
 		else
-			to_chat(user, "<span class='notice'>[target] looks ready for the <b>Dark Communion</b>.</span>")
+			to_chat(user, span_notice("[target] looks ready for the <b>Dark Communion</b>."))
 		use_lock = FALSE
 		return
 	user.visible_message(
-		"<span class='notice'>[user] marks a bloody smear on [target]'s forehead and puts a wrist up to [target.p_their()] mouth!</span>",
-		"<span class='notice'>You paint a bloody marking across [target]'s forehead, place your wrist to [target.p_their()] mouth, and subject [target.p_them()] to the Dark Communion.</span>",
+		span_notice("[user] marks a bloody smear on [target]'s forehead and puts a wrist up to [target.p_their()] mouth!"),
+		span_notice("You paint a bloody marking across [target]'s forehead, place your wrist to [target.p_their()] mouth, and subject [target.p_them()] to the Dark Communion."),
 	)
 	if(!do_mob(user, src, 5 SECONDS))
-		to_chat(user, "<span class='danger'><i>The ritual has been interrupted!</i></span>")
+		to_chat(user, span_danger("<i>The ritual has been interrupted!</i>"))
 		use_lock = FALSE
 		return
 	if(HAS_TRAIT(target, TRAIT_MINDSHIELD))
-		to_chat(user, "<span class='danger'><i>They're mindshielded! Break their mindshield with a candelabrum or surgery before continuing!</i></span>")
+		to_chat(user, span_danger("<i>They're mindshielded! Break their mindshield with a candelabrum or surgery before continuing!</i>"))
 		return
 	/// Convert to Vassal!
 	bloodsuckerdatum.AddBloodVolume(-TORTURE_CONVERSION_COST)
@@ -741,8 +741,8 @@
 		playsound(loc, held_item.hitsound, 30, 1, -1)
 		held_item.play_tool_sound(target)
 	target.visible_message(
-		"<span class='danger'>[user] performs a ritual, spilling some of [target]'s blood from their [target_string] and shaking them up!</span>",
-		"<span class='userdanger'>[user] performs a ritual, spilling some blood from your [target_string], shaking you up!</span>",
+		span_danger("[user] performs a ritual, spilling some of [target]'s blood from their [target_string] and shaking them up!"),
+		span_userdanger("[user] performs a ritual, spilling some blood from your [target_string], shaking you up!"),
 	)
 	INVOKE_ASYNC(target, /mob.proc/emote, "scream")
 	target.Jitter(5)
@@ -754,10 +754,10 @@
 	spawn(10)
 		/// Are we still torturing? Did we cancel? Are they still here?
 		if(use_lock && target && target.client)
-			to_chat(user, "<span class='notice'>[target] has been given the opportunity for servitude. You await their decision...</span>")
+			to_chat(user, span_notice("[target] has been given the opportunity for servitude. You await their decision..."))
 			var/alert_text = "You are being tortured! Do you want to give in and pledge your undying loyalty to [user]?"
 			alert_text += "\n\nYou will not lose your current objectives, but they come second to the will of your new master!"
-			to_chat(target, "<span class='cultlarge'>THE HORRIBLE PAIN! WHEN WILL IT END?!</span>")
+			to_chat(target, span_cultlarge("THE HORRIBLE PAIN! WHEN WILL IT END?!"))
 			var/list/torture_icons = list(
 				"Accept" = image(icon = 'icons/mob/actions/actions_bloodsucker.dmi', icon_state = "power_recup"),
 				"Refuse" = image(icon = 'icons/obj/baton.dmi', icon_state = "stunbaton_active")
@@ -792,7 +792,7 @@
 	// Failsafe: You already said YES.
 	if(disloyalty_confirm)
 		return
-	to_chat(target, "<span class='notice'>You refuse to give in! You <i>will not</i> break!</span>")
+	to_chat(target, span_notice("You refuse to give in! You <i>will not</i> break!"))
 
 
 /obj/structure/bloodsucker/vassalrack/proc/offer_favorite_vassal(mob/living/carbon/human/user, mob/living/target)
@@ -807,37 +807,37 @@
 			vassaldatum.antag_hud_name = "vassal6"
 			user.mind.antag_hud.update_icon()
 		else
-			to_chat(user, "<span class='danger'>You decide not to turn [target] into your Favorite Vassal.</span>")
+			to_chat(user, span_danger("You decide not to turn [target] into your Favorite Vassal."))
 			use_lock = FALSE
 
 /obj/structure/bloodsucker/vassalrack/proc/do_ritual(mob/living/user, mob/living/target)
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = user.mind.has_antag_datum(/datum/antagonist/bloodsucker)
 	if(!target.mind)
-		to_chat(user, "<span class='warning'>[target] is catatonic!</span>")
+		to_chat(user, span_warning("[target] is catatonic!"))
 	/// To deal with Blood
 	var/mob/living/carbon/human/B = user
 	var/mob/living/carbon/human/H = target
 
 	/// Due to the checks leding up to this, if they fail this, they're dead & Not our vassal.
 	if(!IS_VASSAL(target))
-		to_chat(user, "<span class='notice'>Do you wish to rebuild this body? This will remove any restraints they might have, and will cost 150 Blood!</span>")
+		to_chat(user, span_notice("Do you wish to rebuild this body? This will remove any restraints they might have, and will cost 150 Blood!"))
 		var/revive_response = alert(usr, "Would you like to revive [target]?", "Ghetto Medbay", "Yes", "No")
 		switch(revive_response)
 			if("Yes")
 				if(!do_mob(user, src, 7 SECONDS))
-					to_chat(user, "<span class='danger'><i>The ritual has been interrupted!</i></span>")
+					to_chat(user, span_danger("<i>The ritual has been interrupted!</i>"))
 					return
 				if(prob(15) && bloodsuckerdatum.bloodsucker_level <= 2)
-					to_chat(user, "<span class='danger'>Something has gone terribly wrong! You have accidentally turned [target] into a High-Functioning Zombie!</span>")
-					to_chat(target, "<span class='announce'>As Blood drips over your body, your heart fails to beat... But you still wake up.</span>")
+					to_chat(user, span_danger("Something has gone terribly wrong! You have accidentally turned [target] into a High-Functioning Zombie!"))
+					to_chat(target, span_announce("As Blood drips over your body, your heart fails to beat... But you still wake up."))
 					H.set_species(/datum/species/zombie)
 				else
-					to_chat(user, "<span class='danger'>You have brought [target] back from the Dead!</span>")
-					to_chat(target, "<span class='announce'>As Blood drips over your body, your heart begins to beat... You live again!</span>")
+					to_chat(user, span_danger("You have brought [target] back from the Dead!"))
+					to_chat(target, span_announce("As Blood drips over your body, your heart begins to beat... You live again!"))
 				B.blood_volume -= 150
 				target.revive(full_heal = TRUE, admin_revive = FALSE)
 				return
-		to_chat(user, "<span class='danger'>You decide not to revive [target].</span>")
+		to_chat(user, span_danger("You decide not to revive [target]."))
 		// Unbuckle them now.
 		unbuckle_mob(B)
 		use_lock = FALSE
@@ -859,25 +859,25 @@
 	var/meat_cost = 0
 	var/blood_gained
 	if(!answer)
-		to_chat(user, "<span class='notice'>You decide to leave your Vassal just the way they are.</span>")
+		to_chat(user, span_notice("You decide to leave your Vassal just the way they are."))
 		return
-	to_chat(user, "<span class='warning'>You start mutating your Vassal into a [answer]...</span>")
+	to_chat(user, span_warning("You start mutating your Vassal into a [answer]..."))
 	if(!do_mob(user, src, 5 SECONDS))
-		to_chat(user, "<span class='danger'><i>The ritual has been interrupted!</i></span>")
+		to_chat(user, span_danger("<i>The ritual has been interrupted!</i>"))
 		return
 	playsound(target.loc, 'sound/weapons/slash.ogg', 50, TRUE, -1)
 	switch(answer)
 		if(HUSK_MONSTER)
 			if(HAS_TRAIT(target, TRAIT_HUSK))
-				to_chat(user, "<span class='warning'>[target] is already a Husk!</span>")
+				to_chat(user, span_warning("[target] is already a Husk!"))
 				return
 			if(!do_mob(user, target, 1 SECONDS))
 				return
 			playsound(target.loc, 'sound/weapons/slash.ogg', 50, TRUE, -1)
 			if(!do_mob(user, target, 1 SECONDS))
 				return
-			to_chat(user, "<span class='notice'>You suck all the blood out of [target], turning them into a Living Husk!</span>")
-			to_chat(target, "<span class='notice'>Your master has mutated you into a Living Husk!</span>")
+			to_chat(user, span_notice("You suck all the blood out of [target], turning them into a Living Husk!"))
+			to_chat(target, span_notice("Your master has mutated you into a Living Husk!"))
 			playsound(target.loc, 'sound/magic/mutate.ogg', 50, TRUE, -1)
 			/// Just take it all
 			blood_gained = 250
@@ -889,16 +889,16 @@
 			meat_cost = 4
 			var/mob/living/simple_animal/hostile/bloodsucker/tzimisce/armmy/A
 			if(!(HAS_TRAIT(target, TRAIT_HUSK)))
-				to_chat(user, "<span class='warning'>You need to mutilate [target] into a husk first before doing this.</span>")
+				to_chat(user, span_warning("You need to mutilate [target] into a husk first before doing this."))
 				return
 			if(meat_points < meat_cost)
-				to_chat(user, "<span class='warning'>You need atleast [meat_cost - meat_points] more meat points to do this.</span>")
+				to_chat(user, span_warning("You need atleast [meat_cost - meat_points] more meat points to do this."))
 				return
 			if(!do_mob(user, target, 1 SECONDS))
 				return
 			playsound(target.loc, 'sound/weapons/slash.ogg', 50, TRUE, -1)
-			to_chat(user, "<span class='notice'>You transfer your blood and toy with [target]'s flesh, leaving their body as a head and arm almalgam.</span>")
-			to_chat(target, "<span class='notice'>Your master has mutated you into a tiny arm monster!</span>")
+			to_chat(user, span_notice("You transfer your blood and toy with [target]'s flesh, leaving their body as a head and arm almalgam."))
+			to_chat(target, span_notice("Your master has mutated you into a tiny arm monster!"))
 			B.blood_volume -= 100
 			A = new /mob/living/simple_animal/hostile/bloodsucker/tzimisce/armmy(target.loc)
 			target.forceMove(A)
@@ -909,16 +909,16 @@
 			meat_cost = 8
 			var/mob/living/simple_animal/hostile/bloodsucker/tzimisce/calcium/C
 			if(!(HAS_TRAIT(target, TRAIT_HUSK)))
-				to_chat(user, "<span class='warning'>You need to mutilate [target] into a husk first before doing this.</span>")
+				to_chat(user, span_warning("You need to mutilate [target] into a husk first before doing this."))
 				return
 			if(meat_points < meat_cost)
-				to_chat(user, "<span class='warning'>You need atleast [meat_cost - meat_points] more meat points to do this.</span>")
+				to_chat(user, span_warning("You need atleast [meat_cost - meat_points] more meat points to do this."))
 				return
 			if(!do_mob(user, target, 1 SECONDS))
 				return
 			playsound(target.loc, 'sound/weapons/slash.ogg', 50, TRUE, -1)
-			to_chat(user, "<span class='notice'>You transfer your blood and toy with [target]'s flesh and bones, leaving their body as a boney and flesh amalgam.</span>")
-			to_chat(target, "<span class='notice'>Your master has mutated you into a fractured monster!</span>")
+			to_chat(user, span_notice("You transfer your blood and toy with [target]'s flesh and bones, leaving their body as a boney and flesh amalgam."))
+			to_chat(target, span_notice("Your master has mutated you into a fractured monster!"))
 			B.blood_volume -= 150
 			C = new /mob/living/simple_animal/hostile/bloodsucker/tzimisce/calcium(target.loc)
 			target.forceMove(C)
@@ -928,18 +928,18 @@
 			meat_cost = 12
 			var/mob/living/simple_animal/hostile/bloodsucker/tzimisce/triplechest/T
 			if(!(HAS_TRAIT(target, TRAIT_HUSK)))
-				to_chat(user, "<span class='warning'>You need to mutilate [target] into a husk first before doing this.</span>")
+				to_chat(user, span_warning("You need to mutilate [target] into a husk first before doing this."))
 				return
 			if(meat_points < meat_cost)
-				to_chat(user, "<span class='warning'>You need atleast [meat_cost - meat_points] more meat points to do this.</span>")
+				to_chat(user, span_warning("You need atleast [meat_cost - meat_points] more meat points to do this."))
 				return
 			if(!do_mob(user, target, 1 SECONDS))
 				return
 			playsound(target.loc, 'sound/weapons/slash.ogg', 50, TRUE, -1)
 			if(!do_mob(user, target, 1 SECONDS))
 				return
-			to_chat(user, "<span class='notice'>You transfer your blood and toy with [target]'s flesh and bones, leaving their body as a huge pile of flesh and organs.</span>")
-			to_chat(target, "<span class='notice'>Your master has mutated you into a gigartuan monster!</span>")
+			to_chat(user, span_notice("You transfer your blood and toy with [target]'s flesh and bones, leaving their body as a huge pile of flesh and organs."))
+			to_chat(target, span_notice("Your master has mutated you into a gigartuan monster!"))
 			B.blood_volume -= 300
 			T = new /mob/living/simple_animal/hostile/bloodsucker/tzimisce/triplechest(target.loc)
 			target.forceMove(T)
@@ -1041,7 +1041,7 @@
 		else
 			nearly_people.adjustStaminaLoss(10)
 		SEND_SIGNAL(nearly_people, COMSIG_ADD_MOOD_EVENT, "vampcandle", /datum/mood_event/vampcandle)
-		to_chat(nearly_people, "<span class='warning'><i>You start to feel extremely weak and drained.</i></span>")
+		to_chat(nearly_people, span_warning("<i>You start to feel extremely weak and drained.</i>"))
 
 /// Mindshield breaking
 /obj/structure/bloodsucker/candelabrum/attack_hand(mob/living/user, list/modifiers)
@@ -1062,12 +1062,12 @@
 					if("Yes")
 						user.blood_volume -= 150
 						if(!do_mob(user, target, 60 SECONDS))
-							to_chat(user, "<span class='danger'><i>The ritual has been interrupted!</i></span>")
+							to_chat(user, span_danger("<i>The ritual has been interrupted!</i>"))
 							return FALSE
 						remove_loyalties(target)
-						to_chat(user, "<span class='boldnotice'>You deactivated [target]'s mindshield!</span>")
+						to_chat(user, span_boldnotice("You deactivated [target]'s mindshield!"))
 			else
-				to_chat(user, "<span class='danger'>You don't have enough Blood to deactivate [target]'s mindshield.</span>")
+				to_chat(user, span_danger("You don't have enough Blood to deactivate [target]'s mindshield."))
 			return
 	if(IS_VASSAL(user) || IS_BLOODSUCKER(user))
 		toggle()
@@ -1075,14 +1075,14 @@
 /// Buckling someone in
 /obj/structure/bloodsucker/candelabrum/MouseDrop_T(mob/living/target, mob/user)
 	if(!anchored && IS_BLOODSUCKER(user))
-		to_chat(user, "<span class='danger'>Until the candelabrum is secured in place, it cannot serve its purpose.</span>")
+		to_chat(user, span_danger("Until the candelabrum is secured in place, it cannot serve its purpose."))
 		return
 	/// Default checks
 	if(!target.Adjacent(src) || target == user || !isliving(user) || has_buckled_mobs() || user.incapacitated() || target.buckled)
 		return
 	/// Are they mindshielded or a bloodsucker/vassal?
 	if(!HAS_TRAIT(target, TRAIT_MINDSHIELD))
-		to_chat(user, "<span class='warning'>[target] doesn't have a mindshield for you to turn off!</span>")
+		to_chat(user, span_warning("[target] doesn't have a mindshield for you to turn off!"))
 		return
 	/// Good to go - Buckle them!
 	if(do_mob(user, target, 5 SECONDS))
@@ -1090,8 +1090,8 @@
 
 /obj/structure/bloodsucker/candelabrum/proc/attach_mob(mob/living/target, mob/living/user)
 	user.visible_message(
-		"<span class='notice'>[user] lifts and buckles [target] onto the candelabrum.</span>",
-		"<span class='boldnotice'>You buckle [target] onto the candelabrum.</span>",
+		span_notice("[user] lifts and buckles [target] onto the candelabrum."),
+		span_boldnotice("You buckle [target] onto the candelabrum."),
 	)
 
 	playsound(src.loc, 'sound/effects/pop_expl.ogg', 25, 1)
@@ -1110,7 +1110,7 @@
 /// Attempt Unbuckle
 /obj/structure/bloodsucker/candelabrum/unbuckle_mob(mob/living/buckled_mob, force = FALSE, can_fall = TRUE)
 	. = ..()
-	src.visible_message("<span class='danger'>[buckled_mob][buckled_mob.stat==DEAD?"'s corpse":""] slides off of the candelabrum.</span>")
+	src.visible_message(span_danger("[buckled_mob][buckled_mob.stat==DEAD?"'s corpse":""] slides off of the candelabrum."))
 	update_icon()
 
 /// Blood Throne - Allows Bloodsuckers to remotely speak with their Vassals. - Code (Mostly) stolen from comfy chairs (armrests) and chairs (layers)
@@ -1176,17 +1176,17 @@
 // Buckling
 /obj/structure/bloodsucker/bloodthrone/buckle_mob(mob/living/user, force = FALSE, check_loc = TRUE)
 	if(!anchored)
-		to_chat(user, "<span class='announce'>[src] is not bolted to the ground!</span>")
+		to_chat(user, span_announce("[src] is not bolted to the ground!"))
 		return
 	user.visible_message(
-		"<span class='notice'>[user] sits down on [src].</span>",
-		"<span class='boldnotice'>You sit down onto [src].</span>",
+		span_notice("[user] sits down on [src]."),
+		span_boldnotice("You sit down onto [src]."),
 	)
 	if(IS_BLOODSUCKER(user))
 		RegisterSignal(user, COMSIG_MOB_SAY, .proc/handle_speech)
 	else
 		user.Paralyze(6 SECONDS)
-		to_chat(user, "<span class='cult'>The power of the blood throne overwhelms you!</span>")
+		to_chat(user, span_cult("The power of the blood throne overwhelms you!"))
 		user.apply_damage(10, BRUTE)
 		unbuckle_mob(user)
 		return
@@ -1199,7 +1199,7 @@
 
 // Unbuckling
 /obj/structure/bloodsucker/bloodthrone/unbuckle_mob(mob/living/user, force = FALSE, can_fall = TRUE)
-	src.visible_message("<span class='danger'>[user] unbuckles themselves from [src].</span>")
+	src.visible_message(span_danger("[user] unbuckles themselves from [src]."))
 	if(IS_BLOODSUCKER(user))
 		UnregisterSignal(user, COMSIG_MOB_SAY)
 	return ..()
@@ -1212,7 +1212,7 @@
 
 	var/message = speech_args[SPEECH_MESSAGE]
 	var/mob/living/carbon/human/user = source
-	var/rendered = "<span class='cultlarge'><b>[user.real_name]:</b> [message]</span>"
+	var/rendered = span_cultlarge("<b>[user.real_name]:</b> [message]")
 	user.log_talk(message, LOG_SAY, tag=ROLE_BLOODSUCKER)
 	for(var/mob/living/carbon/human/vassals in GLOB.player_list)
 		var/datum/antagonist/vassal/vassaldatum = vassals.mind.has_antag_datum(/datum/antagonist/vassal)

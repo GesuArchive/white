@@ -85,7 +85,7 @@
 		blackboard[BB_HOSTILE_FRIEND] = null
 
 	if(in_range(pawn, new_friend))
-		new_friend.visible_message("<b>[pawn]</b> смотрит на [new_friend] с доверием!", "<span class='notice'>[pawn] смотрит на меня с доверием!</span>")
+		new_friend.visible_message("<b>[pawn]</b> смотрит на [new_friend] с доверием!", span_notice("[pawn] смотрит на меня с доверием!"))
 	blackboard[BB_HOSTILE_FRIEND] = friend_ref
 	RegisterSignal(new_friend, COMSIG_MOB_POINTED, .proc/check_point)
 	RegisterSignal(new_friend, COMSIG_MOB_SAY, .proc/check_verbal_command)
@@ -105,7 +105,7 @@
 	if(blackboard[BB_HOSTILE_FRIEND] == WEAKREF(user))
 		var/mob/living/living_pawn = pawn
 		if(!IS_DEAD_OR_INCAP(living_pawn))
-			examine_text += "<span class='notice'>Он[pawn.ru_a()] рад[pawn.ru_a()] видеть меня!</span>"
+			examine_text += span_notice("Он[pawn.ru_a()] рад[pawn.ru_a()] видеть меня!")
 
 // next section is regarding commands
 
@@ -176,12 +176,12 @@
 	switch(command)
 		// heel: stop what you're doing, relax and try not to do anything for a little bit
 		if(COMMAND_STOP)
-			pawn.visible_message("<span class='notice'>[pawn] [blackboard[BB_HOSTILE_ATTACK_WORD]] после команды [commander], но останавливается.</span>")
+			pawn.visible_message(span_notice("[pawn] [blackboard[BB_HOSTILE_ATTACK_WORD]] после команды [commander], но останавливается."))
 			blackboard[BB_HOSTILE_ORDER_MODE] = HOSTILE_COMMAND_NONE
 			CancelActions()
 		// fetch: whatever the commander points to, try and bring it back
 		if(COMMAND_FOLLOW)
-			pawn.visible_message("<span class='notice'>[pawn] [blackboard[BB_HOSTILE_ATTACK_WORD]] после команды [commander] и начинает двигаться за ним.</span>")
+			pawn.visible_message(span_notice("[pawn] [blackboard[BB_HOSTILE_ATTACK_WORD]] после команды [commander] и начинает двигаться за ним."))
 			CancelActions()
 			blackboard[BB_HOSTILE_ORDER_MODE] = HOSTILE_COMMAND_FOLLOW
 			blackboard[BB_FOLLOW_TARGET] = WEAKREF(commander)
@@ -192,7 +192,7 @@
 			queue_behavior(/datum/ai_behavior/follow)
 		// attack: harass whoever the commander points to
 		if(COMMAND_ATTACK)
-			pawn.visible_message("<span class='danger'>[pawn] [blackboard[BB_HOSTILE_ATTACK_WORD]] после команды [commander] и начинает рычать сильнее.</span>") // imagine getting intimidated by a corgi
+			pawn.visible_message(span_danger("[pawn] [blackboard[BB_HOSTILE_ATTACK_WORD]] после команды [commander] и начинает рычать сильнее.")) // imagine getting intimidated by a corgi
 			CancelActions()
 			blackboard[BB_HOSTILE_ORDER_MODE] = HOSTILE_COMMAND_ATTACK
 
@@ -215,7 +215,7 @@
 	COOLDOWN_START(src, command_cooldown, AI_HOSTILE_COMMAND_COOLDOWN)
 
 	if(blackboard[BB_HOSTILE_ORDER_MODE] == HOSTILE_COMMAND_ATTACK)
-		pawn.visible_message("<span class='notice'>[pawn] следует за жестом [pointing_friend], двигаясь к [pointed_movable] и [blackboard[BB_HOSTILE_ATTACK_WORD]] интенсивно!</span>")
+		pawn.visible_message(span_notice("[pawn] следует за жестом [pointing_friend], двигаясь к [pointed_movable] и [blackboard[BB_HOSTILE_ATTACK_WORD]] интенсивно!"))
 		current_movement_target = pointed_movable
 		blackboard[BB_ATTACK_TARGET] = WEAKREF(pointed_movable)
 		if(living_pawn.buckled)

@@ -597,9 +597,9 @@
 		return
 	if(prob(15))
 		new /datum/hallucination/oh_yeah(victim)
-		to_chat(victim, "<span class='colossus'><b>[pick("Я БЕССМЕРТЕН.","Я ЗАБЕРУ ТВОЙ МИР.","Я ТЕБЯ ВИЖУ.","ТЫ НЕ СМОЖЕШЬ СПРЯТАТЬСЯ ОТ МЕНЯ.","НИЧТО НЕ МОЖЕТ УДЕРЖАТЬ МЕНЯ.")]</b></span>")
+		to_chat(victim, span_colossus("<b>[pick("Я БЕССМЕРТЕН.","Я ЗАБЕРУ ТВОЙ МИР.","Я ТЕБЯ ВИЖУ.","ТЫ НЕ СМОЖЕШЬ СПРЯТАТЬСЯ ОТ МЕНЯ.","НИЧТО НЕ МОЖЕТ УДЕРЖАТЬ МЕНЯ.")]</b>"))
 	else
-		to_chat(victim, "<span class='warning'>[pick("Я слышу тихий шепот.","Я чувствую запах пепла.","Мне жарко.","Я слышу рев вдали.")]</span>")
+		to_chat(victim, span_warning("[pick("Я слышу тихий шепот.","Я чувствую запах пепла.","Мне жарко.","Я слышу рев вдали.")]"))
 
 /obj/item/food/chewable/gumball
 	name = "жвачка"
@@ -678,9 +678,9 @@
 	if(istype(W, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = W
 		if(!R.use(1))//borgs can still fail this if they have no metal
-			to_chat(user, "<span class='warning'>Мне не хватает железа, чтобы насадить [src] на палку!</span>")
+			to_chat(user, span_warning("Мне не хватает железа, чтобы насадить [src] на палку!"))
 			return ..()
-		to_chat(user, "<span class='notice'>Я втыкаю стержень в кусочек масла.</span>")
+		to_chat(user, span_notice("Я втыкаю стержень в кусочек масла."))
 		var/obj/item/food/butter/on_a_stick/new_item = new(usr.loc)
 		var/replace = (user.get_inactive_held_item() == R)
 		if(!R && replace)
@@ -739,7 +739,7 @@
 
 
 /obj/item/food/canned/proc/open_can(mob/user)
-	to_chat(user, "<span class='notice'>Тяну колечко от крышки <b>[src.name]</b>.</span>")
+	to_chat(user, span_notice("Тяну колечко от крышки <b>[src.name]</b>."))
 	playsound(user.loc, 'sound/items/foodcanopen.ogg', 50)
 	reagents.flags |= OPENCONTAINER
 	preserved_food = FALSE
@@ -753,7 +753,7 @@
 
 /obj/item/food/canned/attack(mob/living/M, mob/user, def_zone)
 	if (!is_drainable())
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] не вскрыта!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] не вскрыта!"))
 		return FALSE
 	return ..()
 
@@ -975,10 +975,10 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/ready_donk/examine_more(mob/user)
-	var/list/msg = list("<span class='notice'><i>Вы осматриваете обратную сторону упаковки...</i></span>")
-	msg += "\t["<span class='info'>Готовый Донк-покет: продукт Donk Co.</span>"]"
-	msg += "\t["<span class='info'>Инструкция по приготовлению: откройте коробку и проткните пленку, разогрейте в микроволновой печи на высокой мощности в течение 2 минут. Дайте постоять 60 секунд перед употреблением. Продукт будет горячим.</span>"]"
-	msg += "\t["<span class='info'>На 200 г порции содержится: 8 г натрия; 25 г жиров, из которых 22 г насыщенных; 2 г сахара.</span>"]"
+	var/list/msg = list(span_notice("<i>Вы осматриваете обратную сторону упаковки...</i>"))
+	msg += "\t[span_info("Готовый Донк-покет: продукт Donk Co.")]"
+	msg += "\t[span_info("Инструкция по приготовлению: откройте коробку и проткните пленку, разогрейте в микроволновой печи на высокой мощности в течение 2 минут. Дайте постоять 60 секунд перед употреблением. Продукт будет горячим.")]"
+	msg += "\t[span_info("На 200 г порции содержится: 8 г натрия; 25 г жиров, из которых 22 г насыщенных; 2 г сахара.")]"
 	return msg
 
 /obj/item/food/ready_donk/warm

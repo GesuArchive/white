@@ -35,9 +35,9 @@
 	time = 52
 
 /datum/surgery_step/gastrectomy/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	display_results(user, target, "<span class='notice'>Начинаю вырезать часть поврежденного желудка [skloname(target.name, RODITELNI, target.gender)]...</span>" ,
-		"<span class='notice'>[user] делает надрез желудка [skloname(target.name, RODITELNI, target.gender)].</span>" ,
-		"<span class='notice'>[user] делает надрез желудка [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+	display_results(user, target, span_notice("Начинаю вырезать часть поврежденного желудка [skloname(target.name, RODITELNI, target.gender)]...") ,
+		span_notice("[user] делает надрез желудка [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] делает надрез желудка [skloname(target.name, RODITELNI, target.gender)].") ,
 		playsound(get_turf(target), 'sound/surgery/scalpel1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	display_pain(target, "Чувствую резкую боль в животе!")
 
@@ -46,9 +46,9 @@
 	var/obj/item/organ/stomach/L = H.getorganslot(ORGAN_SLOT_STOMACH)
 	L.operated = TRUE
 	H.setOrganLoss(ORGAN_SLOT_STOMACH, 60) // Stomachs have a threshold for being able to even digest food, so I might tweak this number
-	display_results(user, target, "<span class='notice'>Успешно извлек поврежденную часть желудка [skloname(target.name, RODITELNI, target.gender)].</span>" ,
-		"<span class='notice'>[user] успешно извлек поврежденную часть желудка [skloname(target.name, RODITELNI, target.gender)].</span>" ,
-		"<span class='notice'>[user] успешно извлек поврежденную часть желудка [skloname(target.name, RODITELNI, target.gender)].</span>" ,
+	display_results(user, target, span_notice("Успешно извлек поврежденную часть желудка [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] успешно извлек поврежденную часть желудка [skloname(target.name, RODITELNI, target.gender)].") ,
+		span_notice("[user] успешно извлек поврежденную часть желудка [skloname(target.name, RODITELNI, target.gender)].") ,
 		playsound(get_turf(target), 'sound/surgery/organ1.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	display_pain(target, "Боль в животе ослабевает и немного утихает.")
 	return ..()
@@ -56,8 +56,8 @@
 /datum/surgery_step/hepatectomy/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery)
 	var/mob/living/carbon/human/H = target
 	H.adjustOrganLoss(ORGAN_SLOT_STOMACH, 15)
-	display_results(user, target, "<span class='warning'>Вырезал неверную часть желудка [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
-		"<span class='warning'>[user] вырезал неверную часть желудка [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
-		"<span class='warning'>[user] вырезал неверную часть желудка [skloname(target.name, RODITELNI, target.gender)]!</span>" ,
+	display_results(user, target, span_warning("Вырезал неверную часть желудка [skloname(target.name, RODITELNI, target.gender)]!") ,
+		span_warning("[user] вырезал неверную часть желудка [skloname(target.name, RODITELNI, target.gender)]!") ,
+		span_warning("[user] вырезал неверную часть желудка [skloname(target.name, RODITELNI, target.gender)]!") ,
 		playsound(get_turf(target), 'sound/surgery/organ2.ogg', 75, TRUE, falloff_exponent = 12, falloff_distance = 1))
 	display_pain(target, "Больно! Дьявол, это очень больно!")

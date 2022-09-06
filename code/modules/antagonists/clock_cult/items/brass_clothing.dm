@@ -14,7 +14,7 @@
 	. = ..()
 	spawn(20)
 		if(src && user && !is_servant_of_ratvar(user))
-			to_chat(user, "<span class='userdanger'>Чувствую прилив энергии по всему телу!</span>")
+			to_chat(user, span_userdanger("Чувствую прилив энергии по всему телу!"))
 			user.dropItemToGround(src, TRUE)
 			var/mob/living/carbon/C = user
 			if(ishuman(C))
@@ -88,7 +88,7 @@
 /obj/item/clothing/glasses/clockwork/equipped(mob/user, slot)
 	. = ..()
 	if(!is_servant_of_ratvar(user))
-		to_chat(user, "<span class='userdanger'>Чувствую прилив энергии по всему телу!</span>")
+		to_chat(user, span_userdanger("Чувствую прилив энергии по всему телу!"))
 		user.dropItemToGround(src, TRUE)
 		var/mob/living/carbon/C = user
 		if(ishuman(C))

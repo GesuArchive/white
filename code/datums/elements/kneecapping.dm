@@ -76,11 +76,11 @@
 	if(LAZYACCESS(attacker.do_afters, weapon))
 		return
 
-	attacker.visible_message("<span class='warning'>[attacker] carefully aims [attacker.p_their()] [weapon] for a swing at [target]'s kneecaps!</span>", "<span class='danger'>You carefully aim \the [weapon] for a swing at [target]'s kneecaps!</span>")
+	attacker.visible_message(span_warning("[attacker] carefully aims [attacker.p_their()] [weapon] for a swing at [target]'s kneecaps!"), span_danger("You carefully aim \the [weapon] for a swing at [target]'s kneecaps!"))
 	log_combat(attacker, target, "started aiming a swing to break the kneecaps of", weapon)
 
 	if(do_mob(attacker, target, 3 SECONDS, interaction_key = weapon))
-		attacker.visible_message("<span class='warning'>[attacker] swings [attacker.p_their()] [weapon] at [target]'s kneecaps!</span>", "<span class='danger'>You swing \the [weapon] at [target]'s kneecaps!</span>")
+		attacker.visible_message(span_warning("[attacker] swings [attacker.p_their()] [weapon] at [target]'s kneecaps!"), span_danger("You swing \the [weapon] at [target]'s kneecaps!"))
 		var/datum/wound/blunt/severe/severe_wound_type = /datum/wound/blunt/severe
 		var/datum/wound/blunt/critical/critical_wound_type = /datum/wound/blunt/critical
 		leg.receive_damage(brute = weapon.force, wound_bonus = rand(initial(severe_wound_type.threshold_minimum), initial(critical_wound_type.threshold_minimum) + 10))

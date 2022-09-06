@@ -86,8 +86,8 @@
 	if(!(flags & CALTROP_SILENT) && !H.has_status_effect(/datum/status_effect/caltropped))
 		H.apply_status_effect(/datum/status_effect/caltropped)
 		H.visible_message(
-			"<span class='danger'>[H] наступает на [parent].</span>",
-			"<span class='userdanger'>Наступаю на [parent]!</span>"
+			span_danger("[H] наступает на [parent]."),
+			span_userdanger("Наступаю на [parent]!")
 		)
 
 	var/atom/atom_parent = parent

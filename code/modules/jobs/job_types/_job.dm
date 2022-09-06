@@ -190,7 +190,7 @@
 					permitted = FALSE
 
 				if(!permitted && !only_view)
-					to_chat(our_client, "<span class='warning'>Не удалость пронести <b>[G.display_name]</b> на станцию!</span>")
+					to_chat(our_client, span_warning("Не удалость пронести <b>[G.display_name]</b> на станцию!"))
 					continue
 
 				if(G.slot)
@@ -209,7 +209,7 @@
 			else
 				our_client.prefs.equipped_gear_by_character[our_client.prefs.default_slot] -= gear
 		if(!only_view)
-			to_chat(our_client, "<span class='notice'>\nЭкипируем [english_list(equiped_names)]!</span>")
+			to_chat(our_client, span_notice("\nЭкипируем [english_list(equiped_names)]!"))
 
 	if(!only_view && gear_leftovers.len)
 		for(var/datum/gear/G in gear_leftovers)
@@ -219,25 +219,25 @@
 
 			if(istype(placed_in))
 				if(isturf(placed_in))
-					to_chat(our_client, "<span class='notice'>[capitalize(G.display_name)] находится в [placed_in]!</span>")
+					to_chat(our_client, span_notice("[capitalize(G.display_name)] находится в [placed_in]!"))
 				else
 					to_chat(our_client, "<span class='noticed'>[capitalize(G.display_name)] находится на [placed_in.name]]")
 				continue
 
 			if(H.equip_to_appropriate_slot(item))
-				to_chat(our_client, "<span class='notice'>[capitalize(G.display_name)] удалось успешно пронести!</span>")
+				to_chat(our_client, span_notice("[capitalize(G.display_name)] удалось успешно пронести!"))
 				continue
 			if(H.put_in_hands(item))
-				to_chat(our_client, "<span class='notice'>[capitalize(G.display_name)] у меня в руках!</span>")
+				to_chat(our_client, span_notice("[capitalize(G.display_name)] у меня в руках!"))
 				continue
 
 			var/obj/item/storage/B = (locate() in H)
 			if(B && item)
 				item.forceMove(B)
-				to_chat(our_client, "<span class='notice'>[capitalize(G.display_name)] в [B.name]!</span>")
+				to_chat(our_client, span_notice("[capitalize(G.display_name)] в [B.name]!"))
 				continue
 
-			to_chat(our_client, "<span class='danger'>Что-то пришлось оставить...</span>")
+			to_chat(our_client, span_danger("Что-то пришлось оставить..."))
 			qdel(item)
 
 /datum/job/proc/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
@@ -338,7 +338,7 @@
 	return TRUE
 
 /datum/job/proc/radio_help_message(mob/M)
-	to_chat(M, "<span class='smallnotice'>\nЕсли добавить :h перед сообщением, то получится говорить в канал отдела. Чтобы увидеть другие каналы, стоит посмотреть на наушник.</span>")
+	to_chat(M, span_smallnotice("\nЕсли добавить :h перед сообщением, то получится говорить в канал отдела. Чтобы увидеть другие каналы, стоит посмотреть на наушник."))
 
 /datum/outfit/job
 	name = "Standard Gear"

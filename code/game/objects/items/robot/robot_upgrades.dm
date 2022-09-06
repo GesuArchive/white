@@ -19,11 +19,11 @@
 
 /obj/item/borg/upgrade/proc/action(mob/living/silicon/robot/R, user = usr)
 	if(R.stat == DEAD)
-		to_chat(user, "<span class='warning'>[capitalize(src.name)] невозможно подключить к деактевированному киборгу!</span>")
+		to_chat(user, span_warning("[capitalize(src.name)] невозможно подключить к деактевированному киборгу!"))
 		return FALSE
 	if(module_type && !is_type_in_list(R.module, module_type))
-		to_chat(R, "<span class='alert'>Ошибка установки модуля! Подходящей точки крепления не обнаружено.</span>")
-		to_chat(user, "<span class='warning'>Подходящей точки крепления не обнаружено!</span>")
+		to_chat(R, span_alert("Ошибка установки модуля! Подходящей точки крепления не обнаружено."))
+		to_chat(user, span_warning("Подходящей точки крепления не обнаружено!"))
 		return FALSE
 	return TRUE
 
@@ -62,7 +62,7 @@
 
 /obj/item/borg/upgrade/restart/action(mob/living/silicon/robot/R, user = usr)
 	if(R.health < 0)
-		to_chat(user, "<span class='warning'>Перед использованием этого модуля нужно починить киборга!</span>")
+		to_chat(user, span_warning("Перед использованием этого модуля нужно починить киборга!"))
 		return FALSE
 
 	if(R.mind)
@@ -86,11 +86,11 @@
 	if(.)
 		var/obj/item/gun/energy/disabler/cyborg/T = locate() in R.module.modules
 		if(!T)
-			to_chat(user, "<span class='warning'>У этого киборга нет Усмирителя!</span>")
+			to_chat(user, span_warning("У этого киборга нет Усмирителя!"))
 			return FALSE
 		if(T.charge_delay <= 2)
-			to_chat(R, "<span class='warning'>Радиатор уже установлен!</span>")
-			to_chat(user, "<span class='warning'>Радиатор уже установлен!</span>")
+			to_chat(R, span_warning("Радиатор уже установлен!"))
+			to_chat(user, span_warning("Радиатор уже установлен!"))
 			return FALSE
 
 		T.charge_delay = max(2 , T.charge_delay - 4)
@@ -112,7 +112,7 @@
 	. = ..()
 	if(.)
 		if(R.ionpulse)
-			to_chat(user, "<span class='warning'>Ионные двигатели уже установлены!</span>")
+			to_chat(user, span_warning("Ионные двигатели уже установлены!"))
 			return FALSE
 
 		R.ionpulse = TRUE
@@ -322,7 +322,7 @@
 	if(.)
 		var/obj/item/borg/upgrade/selfrepair/U = locate() in R
 		if(U)
-			to_chat(user, "<span class='warning'>Киборг уже оснащен системой саморемонта!</span>")
+			to_chat(user, span_warning("Киборг уже оснащен системой саморемонта!"))
 			return FALSE
 
 		icon_state = "selfrepair_off"
@@ -338,10 +338,10 @@
 
 /obj/item/borg/upgrade/selfrepair/ui_action_click()
 	if(on)
-		to_chat(toggle_action.owner, "<span class='notice'>Протокол саморемонта деактивирован.</span>")
+		to_chat(toggle_action.owner, span_notice("Протокол саморемонта деактивирован."))
 		deactivate_sr()
 	else
-		to_chat(toggle_action.owner, "<span class='notice'>Протокол саморемонта активирован.</span>")
+		to_chat(toggle_action.owner, span_notice("Протокол саморемонта активирован."))
 		activate_sr()
 
 
@@ -369,12 +369,12 @@
 
 	if(istype(cyborg) && (cyborg.stat != DEAD) && on)
 		if(!cyborg.cell)
-			to_chat(cyborg, "<span class='alert'>Протокол саморемонта деактивирован. Вставьте батарею.</span>")
+			to_chat(cyborg, span_alert("Протокол саморемонта деактивирован. Вставьте батарею."))
 			deactivate_sr()
 			return
 
 		if(cyborg.cell.charge < powercost * 2)
-			to_chat(cyborg, "<span class='alert'>Протокол саморемонта деактивирован. Низкий уровень заряда.</span>")
+			to_chat(cyborg, span_alert("Протокол саморемонта деактивирован. Низкий уровень заряда."))
 			deactivate_sr()
 			return
 
@@ -400,7 +400,7 @@
 				msgmode = "critical"
 			else if(cyborg.health < cyborg.maxHealth)
 				msgmode = "normal"
-			to_chat(cyborg, "<span class='notice'>Self-repair is active in <span class='boldnotice'>[msgmode]</span> mode.</span>")
+			to_chat(cyborg, span_notice("Self-repair is active in <span class='boldnotice'>[msgmode]</span> mode."))
 	else
 		deactivate_sr()
 
@@ -472,7 +472,7 @@
 		var/obj/item/borg/upgrade/defib/backpack/BP = locate() in R //If a full defib unit was used to upgrade prior, we can just pop it out now and replace
 		if(BP)
 			BP.deactivate(R, user)
-			to_chat(user, "<span class='notice'>Вы демонтируете дефибриллятор для замены на более компактную версию.</span>")
+			to_chat(user, span_notice("Вы демонтируете дефибриллятор для замены на более компактную версию."))
 		var/obj/item/shockpaddles/cyborg/S = new(R.module)
 		R.module.basic_modules += S
 		R.module.add_module(S, FALSE, TRUE)
@@ -540,10 +540,10 @@
 	. = ..()
 	if(.)
 		if(R.shell)
-			to_chat(user, "<span class='warning'>Данный киборг уже является оболочкой ИИ!</span>")
+			to_chat(user, span_warning("Данный киборг уже является оболочкой ИИ!"))
 			return FALSE
 		if(R.key) //You cannot replace a player unless the key is completely removed.
-			to_chat(user, "<span class='warning'>Зарегестрирован интелект класса [R.braintype]. Отмена операции.</span>")
+			to_chat(user, span_warning("Зарегестрирован интелект класса [R.braintype]. Отмена операции."))
 			return FALSE
 
 		R.make_shell(src)
@@ -565,7 +565,7 @@
 	if(.)
 
 		if(R.hasExpanded)
-			to_chat(usr, "<span class='warning'>Этот киборг уже оснащен модулем расширения!</span>")
+			to_chat(usr, span_warning("Этот киборг уже оснащен модулем расширения!"))
 			return FALSE
 
 		R.notransform = TRUE
@@ -610,7 +610,7 @@
 
 		var/obj/item/storage/part_replacer/cyborg/RPED = locate() in R
 		if(RPED)
-			to_chat(user, "<span class='warning'>Этот киборг уже оснащен РПЕД модулем!</span>")
+			to_chat(user, span_warning("Этот киборг уже оснащен РПЕД модулем!"))
 			return FALSE
 
 		RPED = new(R.module)
@@ -640,7 +640,7 @@
 
 		var/obj/item/pinpointer/crew/PP = locate() in R.module
 		if(PP)
-			to_chat(user, "<span class='warning'>Этот киборг уже оснащен монитором экипажа!</span>")
+			to_chat(user, span_warning("Этот киборг уже оснащен монитором экипажа!"))
 			return FALSE
 
 		PP = new(R.module)
@@ -699,7 +699,7 @@
 	if(.)
 		var/obj/item/borg/apparatus/circuit/C = locate() in R.module.modules
 		if(C)
-			to_chat(user, "<span class='warning'>This unit is already equipped with a circuit apparatus!</span>")
+			to_chat(user, span_warning("This unit is already equipped with a circuit apparatus!"))
 			return FALSE
 
 		C = new(R.module)
@@ -726,7 +726,7 @@
 	if(.)
 		var/obj/item/borg/apparatus/beaker/extra/E = locate() in R.module.modules
 		if(E)
-			to_chat(user, "<span class='warning'>Нет места!</span>")
+			to_chat(user, span_warning("Нет места!"))
 			return FALSE
 
 		E = new(R.module)
@@ -754,7 +754,7 @@
 		return
 	var/obj/item/pushbroom/cyborg/BR = locate() in R.module.modules
 	if (BR)
-		to_chat(user, "<span class='warning'>Этот киборг уже оснащен экспериментальным толкателем!</span>")
+		to_chat(user, span_warning("Этот киборг уже оснащен экспериментальным толкателем!"))
 		return FALSE
 	BR = new(R.module)
 	R.module.basic_modules += BR

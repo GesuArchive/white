@@ -112,7 +112,7 @@ GLOBAL_LIST_INIT(abstraction_crystals, list())
 	icon_state = "obelisk_inactive"
 	clockwork_desc = "Мощный кристалл, позволяющий пользователю проявлять себя на других кристаллах абстракции."
 	max_integrity = 200
-	break_message = "<span class='warning'>Кристалл взрывается ливнем осколков!</span>"
+	break_message = span_warning("Кристалл взрывается ливнем осколков!")
 	var/key_word = ""
 	var/mob/living/activator
 	var/mob/living/carbon/human/abstraction_hologram/active_hologram

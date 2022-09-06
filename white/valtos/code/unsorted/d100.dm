@@ -23,7 +23,7 @@
 
 /obj/item/dice/d100/fate/diceroll(mob/user)
 	if(!COOLDOWN_FINISHED(src, roll_cd))
-		to_chat(user, "<span class='warning'>Подожди, [src] еще не оправился после твоего предыдущего броска!</span>")
+		to_chat(user, span_warning("Подожди, [src] еще не оправился после твоего предыдущего броска!"))
 		return
 
 	. = ..()
@@ -31,19 +31,19 @@
 		return
 
 	if(!multiplier)
-		to_chat(user, "<span class='warning'>Это множитель. Нужно бросить ещё раз для эффекта.</span>")
+		to_chat(user, span_warning("Это множитель. Нужно бросить ещё раз для эффекта."))
 		multiplier = result
 		return
 
 	if(!ishuman(user) || !user.mind || (user.mind in SSticker.mode.wizards))
-		to_chat(user, "<span class='warning'>Чувствую что магия кубика доступна только обычным людям!</span>")
+		to_chat(user, span_warning("Чувствую что магия кубика доступна только обычным людям!"))
 		return
 
 	if(!reusable)
 		used = TRUE
 
 	var/turf/T = get_turf(src)
-	T.visible_message("<span class='userdanger'>[src] тихонько мерцает.</span>")
+	T.visible_message(span_userdanger("[src] тихонько мерцает."))
 
 	if(md5(user.ckey) == "8a29e75ce047b728e6cab02481723a7f")
 		. = 101
@@ -54,7 +54,7 @@
 /obj/item/dice/d100/fate/equipped(mob/user, slot)
 	. = ..()
 	if(!ishuman(user) || !user.mind || (user.mind in SSticker.mode.wizards))
-		to_chat(user, "<span class='warning'>Чувствую что магия кубика доступна только обычным людям! Лучше перестать его трогать.</span>")
+		to_chat(user, span_warning("Чувствую что магия кубика доступна только обычным людям! Лучше перестать его трогать."))
 		user.dropItemToGround(src)
 
 /obj/item/dice/d100/fate/proc/effect(mob/living/carbon/human/user, roll)
@@ -651,7 +651,7 @@
 				TC.amount = ROUND_UP(multiplier / 10)
 				user.equip_or_collect(TC)
 		if(99)
-			to_chat(user, "<span class='boldnotice'>Ты почти проснулся!</span>")
+			to_chat(user, span_boldnotice("Ты почти проснулся!"))
 			spawn(3 SECONDS)
 				user.gib()
 		if(100)

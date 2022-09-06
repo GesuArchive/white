@@ -9,9 +9,9 @@
 	/// Ref to the hand we currently have deployed.
 	var/obj/item/melee/touch_attack/attached_hand
 	/// The message displayed to the person upon creating the touch hand
-	var/draw_message = "<span class='notice'>You channel the power of the spell to your hand.</span>"
+	var/draw_message = span_notice("You channel the power of the spell to your hand.")
 	/// The message displayed upon willingly dropping / deleting / cancelling the touch hand before using it
-	var/drop_message = "<span class='notice'>You draw the power out of your hand.</span>"
+	var/drop_message = span_notice("You draw the power out of your hand.")
 
 /datum/action/cooldown/spell/touch/Destroy()
 	// If we have an owner, the hand is cleaned up in Remove(), which Destroy() calls.
@@ -63,9 +63,9 @@
 	if(!cast_on.put_in_hands(new_hand, del_on_fail = TRUE))
 		reset_spell_cooldown()
 		if (cast_on.usable_hands == 0)
-			to_chat(cast_on, "<span class='warning'>You dont have any usable hands!</span>")
+			to_chat(cast_on, span_warning("You dont have any usable hands!"))
 		else
-			to_chat(cast_on, "<span class='warning'>Your hands are full!</span>")
+			to_chat(cast_on, span_warning("Your hands are full!"))
 		return FALSE
 
 	attached_hand = new_hand
@@ -243,7 +243,7 @@
 	if(!iscarbon(user)) //Look ma, no hands
 		return TRUE
 	if(!(user.mobility_flags & MOBILITY_USE))
-		to_chat(user, "<span class='warning'>You can't reach out!</span>")
+		to_chat(user, span_warning("You can't reach out!"))
 		return TRUE
 	return ..()
 

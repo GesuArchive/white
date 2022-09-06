@@ -163,7 +163,7 @@
 
 /mob/living/simple_animal/hostile/megafauna/dragon/proc/arena_escape_enrage() // you ran somehow / teleported away from my arena attack now i'm mad fucker
 	SLEEP_CHECK_DEATH(0, src)
-	visible_message("<span class='boldwarning'>[src] starts to glow vibrantly as its wounds close up!</span>")
+	visible_message(span_boldwarning("[src] starts to glow vibrantly as its wounds close up!"))
 	adjustBruteLoss(-250) // yeah you're gonna pay for that, don't run nerd
 	add_atom_colour(rgb(255, 255, 0), TEMPORARY_COLOUR_PRIORITY)
 	move_to_delay = move_to_delay / 2
@@ -191,11 +191,11 @@
 			hit_list += L
 			if(!frozen)
 				L.adjustFireLoss(20)
-				to_chat(L, "<span class='userdanger'>You're hit by [source]'s fire breath!</span>")
+				to_chat(L, span_userdanger("You're hit by [source]'s fire breath!"))
 				continue
 			L.adjustFireLoss(10)
 			L.apply_status_effect(/datum/status_effect/ice_block_talisman, 20)
-			to_chat(L, "<span class='userdanger'>You're hit by [source]'s freezing breath!</span>")
+			to_chat(L, span_userdanger("You're hit by [source]'s freezing breath!"))
 
 		// deals damage to mechs
 		for(var/obj/vehicle/sealed/mecha/M in T.contents)
@@ -261,7 +261,7 @@
 		if(istype(L, /mob/living/simple_animal/hostile/megafauna/dragon))
 			continue
 		L.adjustFireLoss(10)
-		to_chat(L, "<span class='userdanger'>You fall directly into the pool of lava!</span>")
+		to_chat(L, span_userdanger("You fall directly into the pool of lava!"))
 
 	// deals damage to mechs
 	for(var/obj/vehicle/sealed/mecha/M in T.contents)
@@ -333,7 +333,7 @@
 			continue
 		if(islist(flame_hit) && !flame_hit[L])
 			L.adjustFireLoss(40)
-			to_chat(L, "<span class='userdanger'>You're hit by the drake's fire breath!</span>")
+			to_chat(L, span_userdanger("You're hit by the drake's fire breath!"))
 			flame_hit[L] = TRUE
 		else
 			L.adjustFireLoss(10) //if we've already hit them, do way less damage

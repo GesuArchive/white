@@ -29,9 +29,9 @@
 	if(charges > 0)
 		new /obj/effect/rend(get_turf(user), spawn_type, spawn_amt, rend_desc, spawn_fast)
 		charges--
-		user.visible_message("<span class='boldannounce'>[src] гудит силой, когда [user] наносит удар по [activate_descriptor]!</span>")
+		user.visible_message(span_boldannounce("[src] гудит силой, когда [user] наносит удар по [activate_descriptor]!"))
 	else
-		to_chat(user, "<span class='danger'>Неизвестная энергия, питавшая клинок, теперь неактивна.</span>")
+		to_chat(user, span_danger("Неизвестная энергия, питавшая клинок, теперь неактивна."))
 
 /obj/effect/rend
 	name = "разрыв в ткани реальности"
@@ -63,7 +63,7 @@
 
 /obj/effect/rend/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/nullrod))
-		user.visible_message("<span class='danger'>[user] запечатывает [src] с помощью [I].</span>")
+		user.visible_message(span_danger("[user] запечатывает [src] с помощью [I]."))
 		qdel(src)
 		return
 	else
@@ -142,7 +142,7 @@
 	var/datum/component/mood/insaneinthemembrane = jedi.GetComponent(/datum/component/mood)
 	if(insaneinthemembrane.sanity < 15)
 		return //they've already seen it and are about to die, or are just too insane to care
-	to_chat(jedi, "<span class='userdanger'>БОЖЕ! ЭТО НЕ ПРАВДА! ЭТО ВСЁ НЕ ПРААААААААВДАААААААА!</span>")
+	to_chat(jedi, span_userdanger("БОЖЕ! ЭТО НЕ ПРАВДА! ЭТО ВСЁ НЕ ПРААААААААВДАААААААА!"))
 	insaneinthemembrane.sanity = 0
 	for(var/lore in typesof(/datum/brain_trauma/severe))
 		jedi.gain_trauma(lore)
@@ -186,7 +186,7 @@
 	var/mob/holder = get(loc, /mob)
 	if(current_owner && current_owner != holder)
 
-		to_chat(current_owner, "<span class='notice'>Я больше не вижу мёртвых...</span>")
+		to_chat(current_owner, span_notice("Я больше не вижу мёртвых..."))
 
 		REMOVE_TRAIT(current_owner, TRAIT_SIXTHSENSE, SCRYING_ORB)
 		REMOVE_TRAIT(current_owner, TRAIT_XRAY_VISION, SCRYING_ORB)
@@ -197,14 +197,14 @@
 	if(!current_owner && holder)
 		current_owner = holder
 
-		to_chat(current_owner, "<span class='notice'>Я вижу... вижу всё!</span>")
+		to_chat(current_owner, span_notice("Я вижу... вижу всё!"))
 
 		ADD_TRAIT(current_owner, TRAIT_SIXTHSENSE, SCRYING_ORB)
 		ADD_TRAIT(current_owner, TRAIT_XRAY_VISION, SCRYING_ORB)
 		current_owner.update_sight()
 
 /obj/item/scrying/attack_self(mob/user)
-	visible_message("<span class='danger'>[user] смотрит в [src], и его глаза застилает тьма.</span>")
+	visible_message(span_danger("[user] смотрит в [src], и его глаза застилает тьма."))
 	user.ghostize(1)
 
 /////////////////////////////////////////Necromantic Stone///////////////////
@@ -232,7 +232,7 @@
 		return
 
 	if(M.stat != DEAD)
-		to_chat(user, "<span class='warning'>Этот артефакт бессилен на живых!</span>")
+		to_chat(user, span_warning("Этот артефакт бессилен на живых!"))
 		return
 
 	for(var/mob/dead/observer/ghost in GLOB.dead_mob_list) //excludes new players
@@ -241,19 +241,19 @@
 			break
 
 	if(!M.mind || !M.client)
-		to_chat(user, "<span class='warning'>Я не чувствую души...</span>")
+		to_chat(user, span_warning("Я не чувствую души..."))
 		return
 
 	check_spooky()//clean out/refresh the list
 	if(spooky_scaries.len >= 3 && !unlimited)
-		to_chat(user, "<span class='warning'>Этот артефакт может контролировать не более трёх рабов одновременно!</span>")
+		to_chat(user, span_warning("Этот артефакт может контролировать не более трёх рабов одновременно!"))
 		return
 
 	M.set_species(/datum/species/skeleton, icon_update=0)
 	M.revive(full_heal = TRUE, admin_revive = TRUE)
 	spooky_scaries |= M
-	to_chat(M, "["<span class='userdanger'>Вы были воскрешены </span>"]<B>[user.real_name]!</B>")
-	to_chat(M, "<span class='userdanger'>[user.p_theyre(TRUE)] теперь твой хозяин, помогите [user.p_them()] даже если это будет стоить вашего оставшегося подобия жизни!</span>")
+	to_chat(M, "[span_userdanger("Вы были воскрешены ")]<B>[user.real_name]!</B>")
+	to_chat(M, span_userdanger("[user.p_theyre(TRUE)] теперь твой хозяин, помогите [user.p_them()] даже если это будет стоить вашего оставшегося подобия жизни!"))
 	var/datum/antagonist/wizard/antag_datum = user.mind.has_antag_datum(/datum/antagonist/wizard)
 	if(antag_datum)
 		if(!antag_datum.wiz_team)
@@ -311,7 +311,7 @@
 
 /obj/item/warp_whistle/attack_self(mob/user)
 	if(whistler)
-		to_chat(user, "<span class='warning'>[src] еще не готов к повторному использованию!</span>")
+		to_chat(user, span_warning("[src] еще не готов к повторному использованию!"))
 		return
 
 	whistler = user

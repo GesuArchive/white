@@ -315,16 +315,16 @@
 	var/did_the_thing = (l_arm?.dismember() || r_arm?.dismember()) //not all limbs can be removed, so important to check that we did. the. thing.
 	if(!did_the_thing)
 		return
-	to_chat(user, "<span class='userdanger'>Может быть, я дам тебе пиццу, может быть, я сломаю тебе руку..</span>") //makes the reference more obvious
-	user.visible_message("<span class='warning'><b>[src.name]</b> ломает руку [user]!</span>" , "<span class='warning'><b>[src.name]</b> ломает мою руку!</span>")
+	to_chat(user, span_userdanger("Может быть, я дам тебе пиццу, может быть, я сломаю тебе руку..")) //makes the reference more obvious
+	user.visible_message(span_warning("<b>[src.name]</b> ломает руку [user]!") , span_warning("<b>[src.name]</b> ломает мою руку!"))
 	playsound(user, "desecration", 50, TRUE, -1)
 
 /obj/item/food/proc/i_kill_you(obj/item/I, mob/living/user)
 	if(istype(I, /obj/item/food/pineappleslice))
-		to_chat(user, "<span class='boldwarning'>Если ты хочешь чего-то безумного, по типу ананасов, я убью тебя.</span>") //this is in bigger text because it's hard to spam something that gibs you, and so that you're perfectly aware of the reason why you died
+		to_chat(user, span_boldwarning("Если ты хочешь чего-то безумного, по типу ананасов, я убью тебя.")) //this is in bigger text because it's hard to spam something that gibs you, and so that you're perfectly aware of the reason why you died
 		user.gib() //if you want something crazy like pineapple, i'll kill you
 	else if(istype(I, /obj/item/food/grown/mushroom) && iscarbon(user))
-		to_chat(user, "<span class='userdanger'>Так что, если хочешь грибов, заткнись.</span>") //not as large as the pineapple text, because you could in theory spam it
+		to_chat(user, span_userdanger("Так что, если хочешь грибов, заткнись.")) //not as large as the pineapple text, because you could in theory spam it
 		var/mob/living/carbon/shutup = user
 		shutup.gain_trauma(/datum/brain_trauma/severe/mute)
 

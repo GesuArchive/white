@@ -52,7 +52,7 @@
 		if(TABLET_MEDICAL_MODE)
 			var/mob/living/carbon/carbon = A
 			if(istype(carbon))
-				carbon.visible_message("<span class='notice'>[user] анализирует показатели [A].</span>")
+				carbon.visible_message(span_notice("[user] анализирует показатели [A]."))
 				last_record = healthscan(user, carbon, 1, tochat = FALSE)
 
 /datum/computer_file/program/phys_scanner/ui_act(action, list/params, datum/tgui/ui)

@@ -24,8 +24,8 @@
 	if(istype(I, /obj/item/reagent_containers))
 		var/obj/item/reagent_containers/C = I
 		if(C.reagents.trans_to(src, C.amount_per_transfer_from_this))
-			src.visible_message("<span class='notice'>[user] переливает немного содержимого [I.name] в [src]</span>", \
-			"<span class='notice'>Переливаю немного содержимого [I.name] в [src]</span>")
+			src.visible_message(span_notice("[user] переливает немного содержимого [I.name] в [src]"), \
+			span_notice("Переливаю немного содержимого [I.name] в [src]"))
 	else
 		. = ..()
 

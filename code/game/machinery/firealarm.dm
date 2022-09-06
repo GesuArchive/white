@@ -166,8 +166,8 @@
 	obj_flags |= EMAGGED
 	update_appearance()
 	if(user)
-		user.visible_message("<span class='warning'>Искры вылетают из [src]!</span>",
-							"<span class='notice'>Ломаю [src], отключая динамик.</span>")
+		user.visible_message(span_warning("Искры вылетают из [src]!"),
+							span_notice("Ломаю [src], отключая динамик."))
 	playsound(src, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	set_status()
 
@@ -258,7 +258,7 @@
 	if(tool.tool_behaviour == TOOL_SCREWDRIVER && buildstage == 2)
 		tool.play_tool_sound(src)
 		panel_open = !panel_open
-		to_chat(user, "<span class='notice'>Провода теперь [panel_open ? "видно" : "скрыты"].</span>")
+		to_chat(user, span_notice("Провода теперь [panel_open ? "видно" : "скрыты"]."))
 		update_appearance()
 		return
 
@@ -269,12 +269,12 @@
 				if(!tool.tool_start_check(user, amount=0))
 					return
 
-				to_chat(user, "<span class='notice'>Начинаю чинить [src]...</span>")
+				to_chat(user, span_notice("Начинаю чинить [src]..."))
 				if(tool.use_tool(src, user, 40, volume=50))
 					obj_integrity = max_integrity
-					to_chat(user, "<span class='notice'>Чиню [src].</span>")
+					to_chat(user, span_notice("Чиню [src]."))
 			else
-				to_chat(user, "<span class='warning'>[src] уже целая!</span>")
+				to_chat(user, span_warning("[src] уже целая!"))
 			return
 
 		switch(buildstage)
@@ -283,7 +283,7 @@
 					buildstage = 1
 					tool.play_tool_sound(src)
 					new /obj/item/stack/cable_coil(user.loc, 5)
-					to_chat(user, "<span class='notice'>Снимаю проводку [src].</span>")
+					to_chat(user, span_notice("Снимаю проводку [src]."))
 					update_appearance()
 					return
 
@@ -298,31 +298,31 @@
 				if(istype(tool, /obj/item/stack/cable_coil))
 					var/obj/item/stack/cable_coil/coil = tool
 					if(coil.get_amount() < 5)
-						to_chat(user, "<span class='warning'>Мне потребуется больше проводов!</span>")
+						to_chat(user, span_warning("Мне потребуется больше проводов!"))
 					else
 						coil.use(5)
 						buildstage = 2
-						to_chat(user, "<span class='notice'>Делаю проводку [src].</span>")
+						to_chat(user, span_notice("Делаю проводку [src]."))
 						update_appearance()
 					return
 
 				else if(tool.tool_behaviour == TOOL_CROWBAR)
-					user.visible_message("<span class='notice'>[user.name] удаляет электронику из [src.name].</span>", \
-										"<span class='notice'>Начинаю вытаскивать плату...</span>")
+					user.visible_message(span_notice("[user.name] удаляет электронику из [src.name]."), \
+										span_notice("Начинаю вытаскивать плату..."))
 					if(tool.use_tool(src, user, 20, volume=50))
 						if(buildstage == 1)
 							if(machine_stat & BROKEN)
-								to_chat(user, "<span class='notice'>Удаляю разрушенную плату.</span>")
+								to_chat(user, span_notice("Удаляю разрушенную плату."))
 								set_machine_stat(machine_stat & ~BROKEN)
 							else
-								to_chat(user, "<span class='notice'>Вытаскиваю плату.</span>")
+								to_chat(user, span_notice("Вытаскиваю плату."))
 								new /obj/item/electronics/firealarm(user.loc)
 							buildstage = 0
 							update_appearance()
 					return
 			if(0)
 				if(istype(tool, /obj/item/electronics/firealarm))
-					to_chat(user, "<span class='notice'>Вставляю плату.</span>")
+					to_chat(user, span_notice("Вставляю плату."))
 					qdel(tool)
 					buildstage = 1
 					update_appearance()
@@ -332,15 +332,15 @@
 					var/obj/item/electroadaptive_pseudocircuit/pseudoc = tool
 					if(!pseudoc.adapt_circuit(user, 15))
 						return
-					user.visible_message("<span class='notice'>[user] создаёт специальную плату и вставляет в [src].</span>", \
-					"<span class='notice'>Создаю специальную плату и вставляю.</span>")
+					user.visible_message(span_notice("[user] создаёт специальную плату и вставляет в [src]."), \
+					span_notice("Создаю специальную плату и вставляю."))
 					buildstage = 1
 					update_appearance()
 					return
 
 				else if(tool.tool_behaviour == TOOL_WRENCH)
-					user.visible_message("<span class='notice'>[user] снимает пожарную тревогу со стены.</span>", \
-						"<span class='notice'>Снимаю пожарную тревогу со стены.</span>")
+					user.visible_message(span_notice("[user] снимает пожарную тревогу со стены."), \
+						span_notice("Снимаю пожарную тревогу со стены."))
 					var/obj/item/wallframe/firealarm/frame = new /obj/item/wallframe/firealarm()
 					frame.forceMove(user.drop_location())
 					tool.play_tool_sound(src)
@@ -356,8 +356,8 @@
 /obj/machinery/firealarm/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
 		if(RCD_UPGRADE_SIMPLE_CIRCUITS)
-			user.visible_message("<span class='notice'>[user] создаёт специальную плату и вставляет в [src].</span>", \
-			"<span class='notice'>Создаю специальную плату и вставляю.</span>")
+			user.visible_message(span_notice("[user] создаёт специальную плату и вставляет в [src]."), \
+			span_notice("Создаю специальную плату и вставляю."))
 			buildstage = 1
 			update_appearance()
 			return TRUE
@@ -410,12 +410,12 @@
 
 /obj/machinery/firealarm/AICtrlClick(mob/living/silicon/robot/user)
 	if(obj_flags & EMAGGED)
-		to_chat(user, "<span class='warning'>Плата внутри [src] не отвечает.</span>")
+		to_chat(user, span_warning("Плата внутри [src] не отвечает."))
 		return
 	my_area.fire_detect = !my_area.fire_detect
 	for(var/obj/machinery/firealarm/fire_panel in my_area.firealarms)
 		fire_panel.update_icon()
-	to_chat(user, "<span class='notice'>[ my_area.fire_detect ? "Включаю" : "Выключаю" ] термальные датчики!</span>")
+	to_chat(user, span_notice("[ my_area.fire_detect ? "Включаю" : "Выключаю" ] термальные датчики!"))
 	log_game("[user] has [ my_area.fire_detect ? "enabled" : "disabled" ] firelock sensors using [src] at [COORD(src)]")
 
 /obj/machinery/firealarm/directional/north

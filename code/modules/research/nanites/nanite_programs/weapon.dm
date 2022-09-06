@@ -14,7 +14,7 @@
 	else
 		host_mob.adjustBruteLoss(1, TRUE)
 	if(prob(3))
-		to_chat(host_mob, "<span class='warning'>You feel a stab of pain from somewhere inside you.</span>")
+		to_chat(host_mob, span_warning("You feel a stab of pain from somewhere inside you."))
 
 /datum/nanite_program/poison
 	name = "Отравление"
@@ -25,7 +25,7 @@
 /datum/nanite_program/poison/active_effect()
 	host_mob.adjustToxLoss(1)
 	if(prob(2))
-		to_chat(host_mob, "<span class='warning'>You feel nauseous.</span>")
+		to_chat(host_mob, span_warning("You feel nauseous."))
 		if(iscarbon(host_mob))
 			var/mob/living/carbon/C = host_mob
 			C.vomit(20)
@@ -66,12 +66,12 @@
 
 /datum/nanite_program/meltdown/enable_passive_effect()
 	. = ..()
-	to_chat(host_mob, "<span class='userdanger'>Your blood is burning!</span>")
+	to_chat(host_mob, span_userdanger("Your blood is burning!"))
 	nanites.safety_threshold = 0
 
 /datum/nanite_program/meltdown/disable_passive_effect()
 	. = ..()
-	to_chat(host_mob, "<span class='warning'>Your blood cools down, and the pain gradually fades.</span>")
+	to_chat(host_mob, span_warning("Your blood cools down, and the pain gradually fades."))
 
 /datum/nanite_program/explosive
 	name = "Цепная детонация"
@@ -82,8 +82,8 @@
 	rogue_types = list(/datum/nanite_program/toxic)
 
 /datum/nanite_program/explosive/on_trigger(comm_message)
-	host_mob.visible_message("<span class='warning'>Кожа [host_mob] начинает светится в беспорядочном, но все более и более нарастающем темпе...</span>" ,\
-							"<span class='userdanger'>Моя кожа начинает светится в беспорядочном, но все более и более нарастающем темпе...</span>")
+	host_mob.visible_message(span_warning("Кожа [host_mob] начинает светится в беспорядочном, но все более и более нарастающем темпе...") ,\
+							span_userdanger("Моя кожа начинает светится в беспорядочном, но все более и более нарастающем темпе..."))
 	addtimer(CALLBACK(src, .proc/boom), clamp((nanites.nanite_volume * 0.35), 25, 150))
 
 /datum/nanite_program/explosive/proc/boom()

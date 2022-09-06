@@ -29,7 +29,7 @@
 	register_context()
 
 /obj/item/toy/cards/cardhand/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] is slitting [user.p_their()] wrists with \the [src]! It looks like [user.p_they()] [user.p_have()] a crummy hand!</span>")
+	user.visible_message(span_suicide("[user] is slitting [user.p_their()] wrists with \the [src]! It looks like [user.p_they()] [user.p_have()] a crummy hand!"))
 	playsound(src, 'sound/items/cardshuffle.ogg', 50, TRUE)
 	return BRUTELOSS
 
@@ -37,10 +37,10 @@
 	. = ..()
 	for(var/obj/item/toy/singlecard/card in cards)
 		if(HAS_TRAIT(user, TRAIT_XRAY_VISION))
-			. += "<span class='notice'>You scan the cardhand with your x-ray vision and there is a: [card.cardname]</span>"
+			. += span_notice("You scan the cardhand with your x-ray vision and there is a: [card.cardname]")
 		var/marked_color = card.getMarkedColor(user)
 		if(marked_color)
-			. += "<span class='notice'>There is a [marked_color] mark on the corner of a card in the cardhand!</span>"
+			. += span_notice("There is a [marked_color] mark on the corner of a card in the cardhand!")
 
 /obj/item/toy/cards/cardhand/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	if(istype(held_item, /obj/item/toy/cards/deck))

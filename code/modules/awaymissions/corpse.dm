@@ -53,13 +53,13 @@
 		if(ghost_role != "Да" || !loc || QDELETED(user))
 			return FALSE
 	if(!(GLOB.ghost_role_flags & GHOSTROLE_SPAWNER) && !(flags_1 & ADMIN_SPAWNED_1))
-		to_chat(user, "<span class='warning'>Администраторы временно отключили гост-роли</span>")
+		to_chat(user, span_warning("Администраторы временно отключили гост-роли"))
 		return FALSE
 	if(!uses)
-		to_chat(user, "<span class='warning'>Заряды кончились!</span>")
+		to_chat(user, span_warning("Заряды кончились!"))
 		return FALSE
 	if(is_banned_from(user.key, banType))
-		to_chat(user, "<span class='warning'>А хуй тебе!</span>")
+		to_chat(user, span_warning("А хуй тебе!"))
 		return FALSE
 	if(!allow_spawn(user))
 		return FALSE
@@ -128,9 +128,9 @@
 		if(show_flavour)
 			var/output_message = "<span class='big bold'>[short_desc]</span>"
 			if(flavour_text != "")
-				output_message += "<span class='bold'>\n[flavour_text]</span>"
+				output_message += span_bold("\n[flavour_text]")
 			if(important_info != "")
-				output_message += "<span class='userdanger'>\n[important_info]</span>"
+				output_message += span_userdanger("\n[important_info]")
 			to_chat(M, output_message)
 		var/datum/mind/MM = M.mind
 		var/datum/antagonist/A

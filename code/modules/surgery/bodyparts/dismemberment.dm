@@ -17,9 +17,9 @@
 	affecting.receive_damage(clamp(brute_dam/2 * affecting.body_damage_coeff, 15, 50), clamp(burn_dam/2 * affecting.body_damage_coeff, 0, 50), wound_bonus=CANT_WOUND) //Damage the chest based on limb's existing damage
 	if(!silent)
 		if(detach_limb)
-			C.visible_message("<span class='danger'><B>[capitalize(src.name)] отлетает от [C]!</B></span>")
+			C.visible_message(span_danger("<B>[capitalize(src.name)] отлетает от [C]!</B>"))
 		else
-			C.visible_message("<span class='danger'><B>[capitalize(src.name)] [C] разлетается на кусочки!</B></span>")
+			C.visible_message(span_danger("<B>[capitalize(src.name)] [C] разлетается на кусочки!</B>"))
 	INVOKE_ASYNC(C, /mob.proc/emote, "agony")
 	SEND_SIGNAL(C, COMSIG_ADD_MOOD_EVENT, "dismembered", /datum/mood_event/dismembered)
 

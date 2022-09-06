@@ -22,11 +22,11 @@
 
 	if(human_victim.can_block_magic(antimagic_flags))
 		victim.visible_message(
-			"<span class='danger'>The spell bounces off of [victim]!</span>",
-			"<span class='danger'>The spell bounces off of you!</span>",
+			span_danger("The spell bounces off of [victim]!"),
+			span_danger("The spell bounces off of you!"),
 		)
 		return FALSE
 
-	to_chat(caster, "<span class='warning'>[human_victim.name] has been cursed!</span>")
+	to_chat(caster, span_warning("[human_victim.name] has been cursed!"))
 	SEND_SIGNAL(target, COMSIG_ADD_MOOD_EVENT, "gates_of_mansus", /datum/mood_event/gates_of_mansus)
 	return TRUE

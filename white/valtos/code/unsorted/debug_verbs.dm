@@ -13,7 +13,7 @@
 		C.change_view("15x15", TRUE)
 		C.mob.add_client_colour(/datum/client_colour/ohfuckrection)
 		C.mob.overlay_fullscreen("fuckoise", /atom/movable/screen/fullscreen/noisescreen)
-		to_chat(C, "<span class='revenbignotice'>Было совершено военное преступление.</span>")
+		to_chat(C, span_revenbignotice("Было совершено военное преступление."))
 
 /client/proc/uncommit_warcrime()
 	set name = " ? UnCommit Warcrime"
@@ -30,7 +30,7 @@
 		C.change_view("19x15", TRUE)
 		C.mob.remove_client_colour(/datum/client_colour/ohfuckrection)
 		C.mob.clear_fullscreen("fuckoise")
-		to_chat(C, "<span class='revenbignotice'>Военных преступлений не было.</span>")
+		to_chat(C, span_revenbignotice("Военных преступлений не было."))
 
 /client/proc/raspidoars()
 	set name = " ? Raspidoars"
@@ -116,7 +116,7 @@
 	var/fuckz = input("З-уровень") as num
 
 	if(!fuckz || fuckz > world.maxz)
-		to_chat(usr, "<span class='adminnotice'> !! RETARD !! </span>")
+		to_chat(usr, span_adminnotice(" !! RETARD !! "))
 		return
 
 	message_admins("[ADMIN_LOOKUPFLW(usr)] запустил генерацию миникарты Z-уровня [fuckz].")
@@ -125,7 +125,7 @@
 	spawn(0)
 		var/icon/I = gen_tacmap(fuckz)
 		usr << browse_rsc(I, "tacmap[fuckz].png")
-		to_chat(usr, "<span class='adminnotice'>Ваша овсянка, сер:</span>")
+		to_chat(usr, span_adminnotice("Ваша овсянка, сер:"))
 		to_chat(usr, "<img src='tacmap[fuckz].png'>")
 
 /client/proc/toggle_major_mode()
@@ -157,7 +157,7 @@
 	)
 
 	var/data_to_send = jointext(data_list, "\n")
-	to_chat(src, "<span class='notice'>\n[data_to_send]\n</span>")
+	to_chat(src, span_notice("\n[data_to_send]\n"))
 
 /client/proc/change_lobby_music()
 	set category = "Особенное"
@@ -173,7 +173,7 @@
 
 	SSticker.login_music = sound(msg)
 
-	message_admins("<span class='danger'>[ADMIN_LOOKUPFLW(usr)] меняет лобби-трек на: [msg]</span>")
+	message_admins(span_danger("[ADMIN_LOOKUPFLW(usr)] меняет лобби-трек на: [msg]"))
 	log_admin("[key_name(usr)] changes lobby music to [msg].")
 
 	for(var/client/C in GLOB.clients)

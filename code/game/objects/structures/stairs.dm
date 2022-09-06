@@ -25,17 +25,17 @@
 
 	if(!anchored)
 		anchored = TRUE
-		to_chat(user, "<span class='notice'>Намертво привариваю лестницу.</span>")
+		to_chat(user, span_notice("Намертво привариваю лестницу."))
 		playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
 		return TRUE
 
 
 	if(obj_integrity == max_integrity)
-		to_chat(user, "<span class='warning'>[src] не нуждается в ремонте.</span>")
+		to_chat(user, span_warning("[src] не нуждается в ремонте."))
 		return TRUE
 
-	user.visible_message("<span class='notice'>[user] начинает заваривать пробоины в лестнице.</span>",
-	"<span class='notice'>Начинаю заваривать пробоины в лестнице.</span>")
+	user.visible_message(span_notice("[user] начинает заваривать пробоины в лестнице."),
+	span_notice("Начинаю заваривать пробоины в лестнице."))
 	playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
 
 	if(!do_after(user, 5 SECONDS, src))
@@ -45,11 +45,11 @@
 		return TRUE
 
 	if(!WT.use(2))
-		to_chat(user, "<span class='warning'>Вам не хватает сварочного топлива для ремонта.</span>")
+		to_chat(user, span_warning("Вам не хватает сварочного топлива для ремонта."))
 		return TRUE
 
-	user.visible_message("<span class='notice'>[user] заварил пробоины в лестнице.</span>",
-	"<span class='notice'>Вы заварили пробоины в лестнице.</span>")
+	user.visible_message(span_notice("[user] заварил пробоины в лестнице."),
+	span_notice("Вы заварили пробоины в лестнице."))
 	repair_damage(max_integrity)
 	playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
 
@@ -58,7 +58,7 @@
 	. = ..()
 	if(!anchored)
 		. += "<hr>"
-		. += "<span class='smallnotice'>Можно приварить к полу сваркой.</span>"
+		. += span_smallnotice("Можно приварить к полу сваркой.")
 
 /obj/structure/stairs/unanchored
 	anchored =  FALSE

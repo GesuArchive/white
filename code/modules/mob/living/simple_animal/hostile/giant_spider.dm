@@ -103,10 +103,10 @@
 	if(!. || !client)
 		return FALSE
 	if(directive)
-		to_chat(src, "<span class='spider'>Королева отдала приказ! Его необходимо выполнить любой ценой!</span>")
-		to_chat(src, "<span class='spider'><b>[directive]</b></span>")
+		to_chat(src, span_spider("Королева отдала приказ! Его необходимо выполнить любой ценой!"))
+		to_chat(src, span_spider("<b>[directive]</b>"))
 		if(mind)
-			mind.store_memory("<span class='spider'><b>[directive]</b></span>")
+			mind.store_memory(span_spider("<b>[directive]</b>"))
 	GLOB.spidermobs[src] = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/Destroy()
@@ -181,19 +181,19 @@
 		return ..()
 	var/mob/living/simple_animal/hostile/giant_spider/hurt_spider = target
 	if(hurt_spider == src)
-		to_chat(src, "<span class='warning'>Не получается извернуться и дотянутся до своих собственных ран.</span>")
+		to_chat(src, span_warning("Не получается извернуться и дотянутся до своих собственных ран."))
 		return
 	if(hurt_spider.health >= hurt_spider.maxHealth)
-		to_chat(src, "<span class='warning'>Этот собрат цел.</span>")
+		to_chat(src, span_warning("Этот собрат цел."))
 		return
-	visible_message("<span class='notice'>[src] начинает залатывать раны [hurt_spider].</span>" ,"<span class='notice'>Начинаю залатывать раны [hurt_spider].</span>")
+	visible_message(span_notice("[src] начинает залатывать раны [hurt_spider].") ,span_notice("Начинаю залатывать раны [hurt_spider]."))
 
 	if(!do_after(src, 2 SECONDS, target = hurt_spider, interaction_key = INTERACTION_SPIDER_KEY))
 		return
 
 	hurt_spider.heal_overall_damage(20, 20)
 	new /obj/effect/temp_visual/heal(get_turf(hurt_spider), "#80F5FF")
-	visible_message("<span class='notice'>[src] залатала раны [hurt_spider].</span>" ,"<span class='notice'>Залатываю раны [hurt_spider].</span>")
+	visible_message(span_notice("[src] залатала раны [hurt_spider].") ,span_notice("Залатываю раны [hurt_spider]."))
 
 /**
  * # Tarantula
@@ -339,7 +339,7 @@
 	var/mob/living/simple_animal/hostile/giant_spider/spider = owner
 	var/obj/structure/spider/stickyweb/web = locate() in get_turf(spider)
 	if(web && (!spider.web_sealer || istype(web, /obj/structure/spider/stickyweb/sealed)))
-		to_chat(spider, "<span class='warning'>Тут уже есть паутина!</span>")
+		to_chat(spider, span_warning("Тут уже есть паутина!"))
 		return FALSE
 
 	if(!isturf(spider.loc))
@@ -353,13 +353,13 @@
 	var/obj/structure/spider/stickyweb/web = locate() in spider_turf
 	if(web)
 		spider.visible_message(
-			"<span class='notice'>[spider] начинает выделять липкую субстанцию.</span>",
-			"<span class='notice'>Начинаю плести паутину.</span>",
+			span_notice("[spider] начинает выделять липкую субстанцию."),
+			span_notice("Начинаю плести паутину."),
 		)
 	else
 		spider.visible_message(
-			"<span class='notice'>[spider] начинает выделять липкую субстанцию.</span>",
-			"<span class='notice'>Начинаю плести паутину.</span>",
+			span_notice("[spider] начинает выделять липкую субстанцию."),
+			span_notice("Начинаю плести паутину."),
 		)
 
 	spider.stop_automated_movement = TRUE
@@ -400,7 +400,7 @@
 	if(!.)
 		return
 
-	to_chat(on_who, "<span class='notice'>Подготавливаю паутиновые железы. <B>Left-click your target to start wrapping!</B></span>")
+	to_chat(on_who, span_notice("Подготавливаю паутиновые железы. <B>Left-click your target to start wrapping!</B>"))
 	button_icon_state = "wrap_0"
 	UpdateButtons()
 
@@ -410,7 +410,7 @@
 		return
 
 	if(refund_cooldown)
-		to_chat(on_who, "<span class='notice'>Скрываю паутиновые железы.</span>")
+		to_chat(on_who, span_notice("Скрываю паутиновые железы."))
 	button_icon_state = "wrap_1"
 	UpdateButtons()
 
@@ -439,8 +439,8 @@
 
 /datum/action/cooldown/wrap/proc/cocoon(atom/movable/to_wrap)
 	owner.visible_message(
-		"<span class='notice'>[owner] начинает оборачивать [to_wrap] паутиной.</span>",
-		"<span class='notice'>Начинаю заворачивать [to_wrap] в кокон.</span>",
+		span_notice("[owner] начинает оборачивать [to_wrap] паутиной."),
+		span_notice("Начинаю заворачивать [to_wrap] в кокон."),
 	)
 
 	var/mob/living/simple_animal/animal_owner = owner
@@ -458,13 +458,13 @@
 					egg_power.charges++
 					egg_power.UpdateButtons()
 					owner.visible_message(
-						"<span class='danger'>[owner] втыкает хоботок в [living_wrapped] и высасывает всякое из него.</span>",
-						"<span class='notice'>Сосу вкусняху из [living_wrapped], теперь можно произвести более сильное потомство.</span>",
+						span_danger("[owner] втыкает хоботок в [living_wrapped] и высасывает всякое из него."),
+						span_notice("Сосу вкусняху из [living_wrapped], теперь можно произвести более сильное потомство."),
 					)
 
 				living_wrapped.death() //you just ate them, they're dead.
 			else
-				to_chat(owner, "<span class='warning'>[living_wrapped] не сможет удовлетворить мой голод!</span>")
+				to_chat(owner, span_warning("[living_wrapped] не сможет удовлетворить мой голод!"))
 
 		to_wrap.forceMove(casing)
 		if(to_wrap.density || ismob(to_wrap))
@@ -492,7 +492,7 @@
 		return FALSE
 	var/obj/structure/spider/eggcluster/eggs = locate() in get_turf(owner)
 	if(eggs)
-		to_chat(owner, "<span class='warning'>Это место уже занято!</span>")
+		to_chat(owner, span_warning("Это место уже занято!"))
 		return FALSE
 	if(DOING_INTERACTION(owner, INTERACTION_SPIDER_KEY))
 		return FALSE
@@ -502,8 +502,8 @@
 /datum/action/innate/spider/lay_eggs/Activate()
 
 	owner.visible_message(
-		"<span class='notice'>[owner] начинает откладывать яйца.</span>",
-		"<span class='notice'>Начинаю откладывать яйца.</span>",
+		span_notice("[owner] начинает откладывать яйца."),
+		span_notice("Начинаю откладывать яйца."),
 	)
 
 	var/mob/living/simple_animal/hostile/giant_spider/spider = owner
@@ -579,7 +579,7 @@
 	if(!message)
 		return
 	var/my_message
-	my_message = "<span class='spider'><b>Приказ от [user]:</b> [message]</span>"
+	my_message = span_spider("<b>Приказ от [user]:</b> [message]")
 	for(var/mob/living/simple_animal/hostile/giant_spider/spider in GLOB.spidermobs)
 		to_chat(spider, my_message)
 	for(var/ghost in GLOB.dead_mob_list)
@@ -662,13 +662,13 @@
 		return
 	if(src == target)
 		if(health >= maxHealth)
-			to_chat(src, "<span class='warning'>Мое тело в порядке и не нуждается в восстановлении.</span>")
+			to_chat(src, span_warning("Мое тело в порядке и не нуждается в восстановлении."))
 			return
-		visible_message("<span class='notice'>[src] заращивает на себе раны...</span>","<span class='notice'>Начинаю заращивать свои раны...</span>")
+		visible_message(span_notice("[src] заращивает на себе раны..."),span_notice("Начинаю заращивать свои раны..."))
 		if(do_after(src, 2 SECONDS, target = src, interaction_key = INTERACTION_SPIDER_KEY))
 			heal_overall_damage(50, 50)
 			new /obj/effect/temp_visual/heal(get_turf(src), "#80F5FF")
-			visible_message("<span class='notice'>[src] восстанавливается.</span>","<span class='notice'>Мне лучше.</span>")
+			visible_message(span_notice("[src] восстанавливается."),span_notice("Мне лучше."))
 		return
 	return ..()
 

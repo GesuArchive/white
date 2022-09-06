@@ -54,10 +54,10 @@
 		if(iswallturf(from_turf))
 			if(wallbound)
 				var/wallwarning = (i == 1) ? "in the way" : "at your destination"
-				to_chat(owner, "<span class='warning'>There is a wall [wallwarning].</span>")
+				to_chat(owner, span_warning("There is a wall [wallwarning]."))
 				return FALSE
 			if(!wallbound)
-				to_chat(owner, "<span class='notice'>You begin passing through the wall, this will take a while and take more energy.</span>")
+				to_chat(owner, span_notice("You begin passing through the wall, this will take a while and take more energy."))
 				soliddelay = 2
 	// Done
 	target_turf = from_turf
@@ -72,8 +72,8 @@
 	var/turf/my_turf = get_turf(owner)
 
 	user.visible_message(
-		"<span class='warning'>[user]'s form dissipates into a cloud of mist!</span>",
-		"<span class='notice'>You dissipate into formless mist.</span>",
+		span_warning("[user]'s form dissipates into a cloud of mist!"),
+		span_notice("You dissipate into formless mist."),
 	)
 	// Effect Origin
 	var/sound_strength = max(60, 70 - level_current * 10)

@@ -96,7 +96,7 @@
 	. += "<hr><span class='notice'>Термостат настроен на температуру [target_temperature]K ([(T0C-target_temperature)*-1]C).</span>"
 	if(in_range(user, src) || isobserver(user))
 		. += "<hr><span class='notice'>Дисплей: Эффективность <b>[(heat_capacity/5000)*100]%</b>.</span>"
-		. += "<span class='notice'>\nВариация температур <b>[min_temperature]K - [max_temperature]K ([(T0C-min_temperature)*-1]C - [(T0C-max_temperature)*-1]C)</b>.</span>"
+		. += span_notice("\nВариация температур <b>[min_temperature]K - [max_temperature]K ([(T0C-min_temperature)*-1]C - [(T0C-max_temperature)*-1]C)</b>.")
 
 /obj/machinery/atmospherics/components/unary/thermomachine/AltClick(mob/living/user)
 	if(!can_interact(user))
@@ -104,11 +104,11 @@
 	if(cooling)
 		target_temperature = min_temperature
 		investigate_log("was set to [target_temperature] K by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, "<span class='notice'>Уменьшаю температуру термомашины до минимума в размере [target_temperature] K.</span>")
+		to_chat(user, span_notice("Уменьшаю температуру термомашины до минимума в размере [target_temperature] K."))
 	else
 		target_temperature = max_temperature
 		investigate_log("was set to [target_temperature] K by [key_name(user)]", INVESTIGATE_ATMOS)
-		to_chat(user, "<span class='notice'>Увеличиваю температуру термомашины до максимума в размере [target_temperature] K.</span>")
+		to_chat(user, span_notice("Увеличиваю температуру термомашины до максимума в размере [target_temperature] K."))
 
 /obj/machinery/atmospherics/components/unary/thermomachine/process_atmos()
 	..()

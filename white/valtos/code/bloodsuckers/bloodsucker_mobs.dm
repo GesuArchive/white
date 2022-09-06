@@ -138,7 +138,7 @@
 
 /mob/living/simple_animal/hostile/bloodsucker/Destroy() //makes us alive again
 	if(bloodsucker && mind)
-		visible_message("<span class='warning'>[src] rapidly transforms into a humanoid figure!</span>", "<span class='warning'>You forcefully return to your normal form.</span>")
+		visible_message(span_warning("[src] rapidly transforms into a humanoid figure!"), span_warning("You forcefully return to your normal form."))
 		playsound(src, 'sound/weapons/slash.ogg', 50, TRUE)
 		mind.transfer_to(bloodsucker)
 		if(bloodsucker.status_flags & GODMODE)
@@ -171,13 +171,13 @@
 		if(istype(src, /mob/living/simple_animal/hostile/bloodsucker/werewolf))
 			var/mob/living/simple_animal/hostile/bloodsucker/werewolf/ww = src
 			ww.satiation++
-			src.visible_message("<span class='danger'>[src] devours [target]'s organs!</span>", \
-			"<span class='userdanger'>As you devour [target]'s organs you feel as if the beast inside you has calmed itself down, you'll need to feast [3 - ww.satiation] more times to become human again.</span>")
+			src.visible_message(span_danger("[src] devours [target]'s organs!"), \
+			span_userdanger("As you devour [target]'s organs you feel as if the beast inside you has calmed itself down, you'll need to feast [3 - ww.satiation] more times to become human again."))
 	for(var/obj/item/bodypart/B in H.bodyparts)
 		if(B.body_zone == "chest")
 			B.dismember()
 		else
-			to_chat(src, "<span class='warning'>There are no organs left in this corpse.</span>")
+			to_chat(src, span_warning("There are no organs left in this corpse."))
 
 ///////////////////////////
 ///      Tzimisce       ///
@@ -198,7 +198,7 @@
 		adjustFireLoss(2.5)
 		updatehealth() //3 minutes to die
 	if(satiation >= 3)
-		to_chat(src, "<span class='notice'>It has been fed. You turn back to normal.</span>")
+		to_chat(src, span_notice("It has been fed. You turn back to normal."))
 		qdel(src)
 	return
 
@@ -235,9 +235,9 @@
 				if(DIGITIGRADE in user.dna.species.species_traits)
 					mutation = /obj/item/clothing/shoes/xeno_wraps/wolfdigilegs
 			if(5 to INFINITY)
-				to_chat(user, "<span class='danger'>The beast inside of you seems satisfied with your current form.</span>")
+				to_chat(user, span_danger("The beast inside of you seems satisfied with your current form."))
 				return
-		to_chat(user, "<span class='danger'>After returning to normal, you feel strange. [additionalmessage]</span>")
+		to_chat(user, span_danger("After returning to normal, you feel strange. [additionalmessage]"))
 		var/obj/item/pastdrip = user.get_item_by_slot(slot)
 		user.dropItemToGround(pastdrip)
 		user.equip_to_slot_or_del(new mutation(user), slot)

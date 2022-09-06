@@ -21,7 +21,7 @@
 	if(prob(1))
 		new/obj/effect/particle_effect/fluid(get_turf(src))
 		playsound(src, 'sound/effects/smoke.ogg', 50, TRUE)
-		visible_message("<span class='warning'>О, боги! [src] испорчен! А что если...?</span>")
+		visible_message(span_warning("О, боги! [src] испорчен! А что если...?"))
 		name = "steamed ham"
 		desc = pick("Ааа, Глава Персонала, добро пожаловать. Надеюсь, вы готовы к незабываемому обеду!",
 		"И вы называете это ветчиной на пару, несмотря на то, что она явно приготовлена в микроволновке?",

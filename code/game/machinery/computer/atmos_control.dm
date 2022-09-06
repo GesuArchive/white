@@ -429,7 +429,7 @@ GLOBAL_LIST_EMPTY(atmos_air_controllers)
 		var/list/text = splittext(U.id, "_")
 		IO |= text[1]
 	if(!IO.len)
-		to_chat(user, "<span class='alert'>No machinery detected.</span>")
+		to_chat(user, span_alert("No machinery detected."))
 	var/S = tgui_input_list(usr, "Select the device set: ", "Selection", sort_list(IO), IO[1])
 	if(src)
 		src.input_tag = "[S]_in"

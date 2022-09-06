@@ -11,11 +11,11 @@
 	. = ..()
 	mechcomp_enabled = !mechcomp_enabled
 	if(mechcomp_enabled)
-		to_chat(user, "<span class='notice'>You slide out the mechcomp control panel on the \"C.U.M.\", allowing you to connect, disconnect mechcomp parts and configure them.</span>") // haha funni
+		to_chat(user, span_notice("You slide out the mechcomp control panel on the \"C.U.M.\", allowing you to connect, disconnect mechcomp parts and configure them.")) // haha funni
 		icon_state = "linker_mechcomp"
 		tool_behaviour = TOOL_MECHCOMP
 	else
-		to_chat(user, "<span class='notice'>You slide in the mechcomp control panel on the \"C.U.M.\", making it function like a regular multitool.</span>")
+		to_chat(user, span_notice("You slide in the mechcomp control panel on the \"C.U.M.\", making it function like a regular multitool."))
 		icon_state = "linker_multitool"
 		tool_behaviour = TOOL_MULTITOOL
 	//So, apparently tool behaviours are not bitflags and are instead just plain strings with some #defines sprinkled over.

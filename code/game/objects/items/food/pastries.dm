@@ -384,9 +384,9 @@
 		return
 	var/mob/living/carbon/human/moffin_observer = user
 	if(moffin_observer.dna.species.liked_food & CLOTH)
-		. += "<span class='nicegreen'>М-м-м! На нем даже есть кусочки ткани! Вкуснятина!</span>"
+		. += span_nicegreen("М-м-м! На нем даже есть кусочки ткани! Вкуснятина!")
 	else
-		. += "<span class='warning'>Я не думаю, что на поверхности этого маффина находится что-то съедобное...</span>"
+		. += span_warning("Я не думаю, что на поверхности этого маффина находится что-то съедобное...")
 
 ////////////////////////////////////////////WAFFLES////////////////////////////////////////////
 
@@ -800,11 +800,11 @@
 	if(newresult)
 		qdel(garnish)
 		if(istype(garnish, /obj/item/food/grown/berries))
-			to_chat(user, "<span class='notice'>Я добавил чернику к блинчику</span>")
+			to_chat(user, span_notice("Я добавил чернику к блинчику"))
 		else if(istype(garnish, /obj/item/food/chocolatebar))
-			to_chat(user, "<span class='notice'>Я добавил шоколадную крошку к блинчику.</span>")
+			to_chat(user, span_notice("Я добавил шоколадную крошку к блинчику."))
 		else
-			to_chat(user, "<span class='notice'>Я добавил [garnish] к [src].</span>")
+			to_chat(user, span_notice("Я добавил [garnish] к [src]."))
 		AddComponent(/datum/component/grillable, cook_result = newresult)
 
 /obj/item/food/pancakes/raw/examine(mob/user)
@@ -864,11 +864,11 @@
 	if(istype(item, /obj/item/food/pancakes))
 		var/obj/item/food/pancakes/pancake = item
 		if((contents.len >= PANCAKE_MAX_STACK) || ((pancake.contents.len + contents.len) > PANCAKE_MAX_STACK))
-			to_chat(user, "<span class='warning'>Не могу добавить больше блинов!</span>")
+			to_chat(user, span_warning("Не могу добавить больше блинов!"))
 		else
 			if(!user.transferItemToLoc(pancake, src))
 				return
-			to_chat(user, "<span class='notice'>Я добавил блинчик к стопке блинов.</span>")
+			to_chat(user, span_notice("Я добавил блинчик к стопке блинов."))
 			pancake.name = initial(pancake.name)
 			contents += pancake
 			update_snack_overlays(pancake)

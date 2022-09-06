@@ -129,7 +129,7 @@
 			return(UI_UPDATE)
 		if("PDA_sendEveryone")
 			if(!sending_and_receiving)
-				to_chat(usr, "<span class='notice'>ОШИБКА: Отправка отключена.</span>")
+				to_chat(usr, span_notice("ОШИБКА: Отправка отключена."))
 				return
 
 			var/list/targets = list()
@@ -143,20 +143,20 @@
 			return(UI_UPDATE)
 		if("PDA_sendMessage")
 			if(!sending_and_receiving)
-				to_chat(usr, "<span class='notice'>ОШИБКА: Отправка отключена.</span>")
+				to_chat(usr, span_notice("ОШИБКА: Отправка отключена."))
 				return
 			var/obj/item/modular_computer/target = locate(params["ref"])
 			if(!target)
 				return // we don't want tommy sending his messages to nullspace
 			if(!(target.saved_identification == params["name"] && target.saved_job == params["job"]))
-				to_chat(usr, "<span class='notice'>ОШИБКА: Пользователь не существует.</span>")
+				to_chat(usr, span_notice("ОШИБКА: Пользователь не существует."))
 				return
 
 			var/obj/item/computer_hardware/hard_drive/drive = target.all_components[MC_HDD]
 
 			for(var/datum/computer_file/program/messenger/app in drive.stored_files)
 				if(!app.sending_and_receiving && !sending_virus)
-					to_chat(usr, "<span class='notice'>ОШИБКА: Отправка отключена.</span>")
+					to_chat(usr, span_notice("ОШИБКА: Отправка отключена."))
 					return
 				if(sending_virus)
 					var/obj/item/computer_hardware/hard_drive/portable/virus/disk = computer.all_components[MC_SDD]
@@ -263,7 +263,7 @@
 
 	// If it didn't reach, note that fact
 	if (!signal.data["done"])
-		to_chat(user, "<span class='notice'>ОШИБКА: Сервер не отвечает.</span>")
+		to_chat(user, span_notice("ОШИБКА: Сервер не отвечает."))
 		if(ringer_status)
 			playsound(src, 'sound/machines/terminal_error.ogg', 15, TRUE)
 		return FALSE
@@ -282,7 +282,7 @@
 	message_data["photo"] = signal.data["photo"]
 
 	// Show it to ghosts
-	var/ghost_message = "<span class='name'>[message_data["name"]] </span><span class='game say'>[rigged ? "Взрывное " : ""]Сообщение ПДА</span> --> ["<span class='name'>[signal.format_target()]</span>"]: <span class='message'>[signal.format_message()]</span>"
+	var/ghost_message = span_name("[message_data["name"]] </span><span class='game say'>[rigged ? "Взрывное " : ""]Сообщение ПДА</span> --> [span_name("[signal.format_target()]")]: <span class='message'>[signal.format_message()]")
 	for(var/mob/M in GLOB.player_list)
 		if(isobserver(M) && (M.client?.prefs.chat_toggles & CHAT_GHOSTPDA))
 			to_chat(M, "[FOLLOW_LINK(M, user)] [ghost_message]")
@@ -291,7 +291,7 @@
 	user.log_talk(message, LOG_PDA, tag="[rigged ? "Rigged" : ""] PDA: [initial(message_data["name"])] to [signal.format_target()]")
 	if(rigged)
 		log_bomber(user, "sent a rigged PDA message (Name: [message_data["name"]]. Job: [message_data["job"]]) to [english_list(string_targets)] [!is_special_character(user) ? "(SENT BY NON-ANTAG)" : ""]")
-	to_chat(user, "<span class='info'>Сообщение отправлено [signal.format_target()]: [signal.format_message()]</span>")
+	to_chat(user, span_info("Сообщение отправлено [signal.format_target()]: [signal.format_message()]"))
 
 	if (ringer_status)
 		computer.send_sound()

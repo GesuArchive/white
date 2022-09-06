@@ -34,11 +34,11 @@
 /datum/martial_art/hunterfu/proc/body_slam(mob/living/carbon/human/A, mob/living/carbon/human/D)
 	if(D.mobility_flags & MOBILITY_STAND)
 		D.visible_message(
-			"<span class='danger'>[A] slams both them and [D] into the ground!</span>",
-			"<span class='userdanger'>You're slammed into the ground by [A]!</span>",
-			"<span class='hear'>Слышу звук разрывающейся плоти!</span>",
+			span_danger("[A] slams both them and [D] into the ground!"),
+			span_userdanger("You're slammed into the ground by [A]!"),
+			span_hear("Слышу звук разрывающейся плоти!"),
 		)
-		to_chat(A, "<span class='danger'>You slam [D] into the ground!</span>")
+		to_chat(A, span_danger("You slam [D] into the ground!"))
 		playsound(get_turf(A), 'sound/weapons/slam.ogg', 50, TRUE, -1)
 		log_combat(A, D, "bodyslammed (Hunter-Fu)")
 		if(!D.mind)
@@ -46,7 +46,7 @@
 			A.Paralyze(25)
 			return TRUE
 		if(D.mind.has_antag_datum(/datum/antagonist/changeling))
-			to_chat(D, "<span class='cultlarge'>Our DNA shakes as we are body slammed!</span>")
+			to_chat(D, span_cultlarge("Our DNA shakes as we are body slammed!"))
 			D.apply_damage(A.dna.species.punchdamagehigh + 5, BRUTE)	//15 damage
 			D.Paralyze(60)
 			A.Paralyze(25)
@@ -60,11 +60,11 @@
 
 /datum/martial_art/hunterfu/proc/stake_stab(mob/living/carbon/human/A, mob/living/carbon/human/D)
 	D.visible_message(
-		"<span class='danger'>[A] stabs [D] in the heart!</span>",
-		"<span class='userdanger'>You're staked in the heart by [A]!</span>",
-		"<span class='hear'>Слышу звук разрывающейся плоти!</span>",
+		span_danger("[A] stabs [D] in the heart!"),
+		span_userdanger("You're staked in the heart by [A]!"),
+		span_hear("Слышу звук разрывающейся плоти!"),
 	)
-	to_chat(A, "<span class='danger'>You stab [D] viciously!</span>")
+	to_chat(A, span_danger("You stab [D] viciously!"))
 	playsound(get_turf(A), 'sound/weapons/bladeslice.ogg', 50, TRUE, -1)
 	log_combat(A, D, "stakestabbed (Hunter-Fu)")
 	var/stake_damagehigh = A.dna.species.punchdamagehigh * 1.5 + 10	//25 damage
@@ -72,11 +72,11 @@
 		D.apply_damage(A.dna.species.punchdamagehigh + 5, BRUTE, BODY_ZONE_CHEST)	//15 damage
 		return TRUE
 	if(D.mind.has_antag_datum(/datum/antagonist/changeling))
-		to_chat(D, "<span class='danger'>Their arm tears through our monstrous form!</span>")
+		to_chat(D, span_danger("Their arm tears through our monstrous form!"))
 		D.apply_damage(stake_damagehigh, BRUTE, BODY_ZONE_CHEST)
 		return TRUE
 	if(D.mind.has_antag_datum(/datum/antagonist/bloodsucker))
-		to_chat(D, "<span class='cultlarge'>Their arm stakes straight into our undead flesh!</span>")
+		to_chat(D, span_cultlarge("Their arm stakes straight into our undead flesh!"))
 		D.apply_damage(A.dna.species.punchdamagehigh + 10, BURN)				//20 damage
 		D.apply_damage(A.dna.species.punchdamagehigh, BRUTE, BODY_ZONE_CHEST)	//10 damage
 		return TRUE
@@ -87,11 +87,11 @@
 /datum/martial_art/hunterfu/proc/neck_snap(mob/living/carbon/human/A, mob/living/carbon/human/D)
 	if(!D.stat)
 		D.visible_message(
-			"<span class='danger'>[A] snapped [D]'s neck!</span>",
-			"<span class='userdanger'>Your neck is snapped by [A]!</span>",
-			"<span class='hear'>You hear a snap!</span>",
+			span_danger("[A] snapped [D]'s neck!"),
+			span_userdanger("Your neck is snapped by [A]!"),
+			span_hear("You hear a snap!"),
 		)
-		to_chat(A, "<span class='danger'>You snap [D]'s neck!</span>")
+		to_chat(A, span_danger("You snap [D]'s neck!"))
 		playsound(get_turf(A), 'sound/effects/snap.ogg', 50, TRUE, -1)
 		log_combat(A, D, "neck snapped (Hunter-Fu)")
 		if(!D.mind)
@@ -100,15 +100,15 @@
 			log_combat(A, D, "neck snapped (Hunter-Fu)")
 			return TRUE
 		if(D.mind.has_antag_datum(/datum/antagonist/changeling))
-			to_chat(D, "<span class='warning'>Our monstrous form protects us from being put to sleep!</span>")
+			to_chat(D, span_warning("Our monstrous form protects us from being put to sleep!"))
 			return TRUE
 		if(D.mind.has_antag_datum(/datum/antagonist/heretic))
-			to_chat(D, "<span class='cultlarge'>The power of the Codex Cicatrix flares as we are swiftly put to sleep!</span>")
+			to_chat(D, span_cultlarge("The power of the Codex Cicatrix flares as we are swiftly put to sleep!"))
 			D.apply_damage(A.dna.species.punchdamagehigh + 5, BRUTE, BODY_ZONE_HEAD)	//15 damage
 			D.SetSleeping(40)
 			return TRUE
 		if(D.mind.has_antag_datum(/datum/antagonist/bloodsucker))
-			to_chat(D, "<span class='warning'>Our undead form protects us from being put to sleep!</span>")
+			to_chat(D, span_warning("Our undead form protects us from being put to sleep!"))
 			return TRUE
 		else
 			D.SetSleeping(30)
@@ -116,11 +116,11 @@
 
 /datum/martial_art/hunterfu/proc/holy_kick(mob/living/carbon/human/A, mob/living/carbon/human/D)
 	D.visible_message(
-		"<span class='warning'>[A] kicks [D], splashing holy water in every direction!</span>",
-		"<span class='userdanger'>You're kicked by [A], with holy water dripping down on you!</span>",
-		"<span class='hear'>Слышу звук разрывающейся плоти!</span>",
+		span_warning("[A] kicks [D], splashing holy water in every direction!"),
+		span_userdanger("You're kicked by [A], with holy water dripping down on you!"),
+		span_hear("Слышу звук разрывающейся плоти!"),
 	)
-	to_chat(A, "<span class='danger'>You holy kick [D]!</span>")
+	to_chat(A, span_danger("You holy kick [D]!"))
 	playsound(get_turf(A), 'sound/weapons/slash.ogg', 50, TRUE, -1)
 	log_combat(A, D, "holy kicked (Hunter-Fu)")
 	var/holykick_staminadamage = A.dna.species.punchdamagehigh * 3 + 30 //60 damage (holy shit)
@@ -130,24 +130,24 @@
 		D.Paralyze(20)
 		return TRUE
 	if(D.mind.has_antag_datum(/datum/antagonist/heretic))
-		to_chat(D, "<span class='cultlarge'>The holy water burns our flesh!</span>")
+		to_chat(D, span_cultlarge("The holy water burns our flesh!"))
 		D.apply_damage(holykick_hereticburn, BURN)
 		D.apply_damage(holykick_staminadamage, STAMINA)
 		D.Paralyze(20)
 		return TRUE
 	if(D.mind.has_antag_datum(/datum/antagonist/bloodsucker))
-		to_chat(D, "<span class='warning'>This just seems like regular water...</span>")
+		to_chat(D, span_warning("This just seems like regular water..."))
 		return TRUE
 	if(D.mind.has_antag_datum(/datum/antagonist/cult))
 		for(var/datum/action/innate/cult/blood_magic/BD in D.actions)
-			to_chat(D, "<span class='cultlarge'>Our blood rites falter as the holy water drips onto our body!</span>")
+			to_chat(D, span_cultlarge("Our blood rites falter as the holy water drips onto our body!"))
 			for(var/datum/action/innate/cult/blood_spell/BS in BD.spells)
 				qdel(BS)
 		D.apply_damage(holykick_staminadamage, STAMINA)
 		D.Paralyze(20)
 		return TRUE
 	if(D.mind.has_antag_datum(/datum/antagonist/wizard) || (/datum/antagonist/wizard/apprentice))
-		to_chat(D, "<span class='danger'>The holy water seems to be muting us somehow!</span>")
+		to_chat(D, span_danger("The holy water seems to be muting us somehow!"))
 		if(D.silent <= 10)
 			D.silent = clamp(D.silent + 10, 0, 10)
 		D.apply_damage(holykick_staminadamage, STAMINA)
@@ -175,10 +175,10 @@
 	var/atk_verb = pick("kick", "chop", "hit", "slam")
 	var/harm_damage = A.dna.species.punchdamagehigh + rand(0,5)	//10-15 damage
 	D.visible_message(
-		"<span class='danger'>[A] [atk_verb]s [D]!</span>",
-		"<span class='userdanger'>[A] [atk_verb]s you!</span>",
+		span_danger("[A] [atk_verb]s [D]!"),
+		span_userdanger("[A] [atk_verb]s you!"),
 	)
-	to_chat(A, "<span class='danger'>You [atk_verb] [D]!</span>")
+	to_chat(A, span_danger("You [atk_verb] [D]!"))
 	D.apply_damage(harm_damage, BRUTE, affecting, wound_bonus = CANT_WOUND)
 	playsound(get_turf(D), 'sound/weapons/punch1.ogg', 25, TRUE, -1)
 	log_combat(A, D, "harmed (Hunter-Fu)")
@@ -196,11 +196,11 @@
 			A.grab_state = GRAB_AGGRESSIVE // Instant agressive grab
 			log_combat(A, D, "grabbed (Hunter-Fu)")
 			D.visible_message(
-				"<span class='warning'>[A] violently grabs [D]!</span>",
-				"<span class='userdanger'>You're grabbed violently by [A]!</span>",
-				"<span class='hear'>You hear sounds of aggressive fondling!</span>",
+				span_warning("[A] violently grabs [D]!"),
+				span_userdanger("You're grabbed violently by [A]!"),
+				span_hear("You hear sounds of aggressive fondling!"),
 			)
-			to_chat(A, "<span class='danger'>You violently grab [D]!</span>")
+			to_chat(A, span_danger("You violently grab [D]!"))
 		return TRUE
 	..()
 
@@ -208,11 +208,11 @@
 	set name = "Remember The Basics"
 	set desc = "You try to remember some of the basics of Hunter-Fu."
 	set category = "Hunter-Fu"
-	to_chat(usr, "<span class='notice'><b><i>You try to remember some of the basics of Hunter-Fu.</i></b></span>")
+	to_chat(usr, span_notice("<b><i>You try to remember some of the basics of Hunter-Fu.</i></b>"))
 
-	to_chat(usr, "<span class='notice'><b>Body Slam</b>: Grab Harm. Slam opponent into the ground, knocking you both down.</span>")
-	to_chat(usr, "<span class='notice'><b>Stake Stab</b>: Harm Harm. Stabs opponent with your bare fist, as strong as a Stake.</span>")
-	to_chat(usr, "<span class='notice'><b>Neck Snap</b>: Grab Disarm Harm. Snaps an opponents neck, knocking them out.</span>")
-	to_chat(usr, "<span class='notice'><b>Holy Kick</b>: Disarm Grab. Splashes the user with Holy Water, removing Cult Spells, while dealing stamina damage.</span>")
+	to_chat(usr, span_notice("<b>Body Slam</b>: Grab Harm. Slam opponent into the ground, knocking you both down."))
+	to_chat(usr, span_notice("<b>Stake Stab</b>: Harm Harm. Stabs opponent with your bare fist, as strong as a Stake."))
+	to_chat(usr, span_notice("<b>Neck Snap</b>: Grab Disarm Harm. Snaps an opponents neck, knocking them out."))
+	to_chat(usr, span_notice("<b>Holy Kick</b>: Disarm Grab. Splashes the user with Holy Water, removing Cult Spells, while dealing stamina damage."))
 
-	to_chat(usr, "<span class='notice'><b><i>In addition, by having your throw mode on, you take a defensive position, allowing you to block and sometimes even counter attacks done to you.</i></b></span>")
+	to_chat(usr, span_notice("<b><i>In addition, by having your throw mode on, you take a defensive position, allowing you to block and sometimes even counter attacks done to you.</i></b>"))

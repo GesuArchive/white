@@ -190,7 +190,7 @@
 /datum/sparring_match/proc/violation(mob/living/carbon/human/offender, reason)
 	SIGNAL_HANDLER
 
-	to_chat(offender, "<span class='userdanger'>Violation! No [reason]!</span>")
+	to_chat(offender, span_userdanger("Violation! No [reason]!"))
 	if(offender == chaplain)
 		chaplain_violations_allowed--
 		if(!chaplain_violations_allowed)
@@ -207,14 +207,14 @@
 			possible_punishments += PUNISHMENT_BRAND
 		switch(pick(possible_punishments))
 			if(PUNISHMENT_OMEN)
-				to_chat(interfering, "<span class='warning'>You get a bad feeling... for interfering with [chaplain]'s sparring match...</span>")
+				to_chat(interfering, span_warning("You get a bad feeling... for interfering with [chaplain]'s sparring match..."))
 				interfering.AddComponent(/datum/component/omen, TRUE, null, FALSE)
 			if(PUNISHMENT_LIGHTNING)
-				to_chat(interfering, "<span class='warning'>[GLOB.deity] has punished you for interfering with [chaplain]'s sparring match!</span>")
+				to_chat(interfering, span_warning("[GLOB.deity] has punished you for interfering with [chaplain]'s sparring match!"))
 				lightningbolt(interfering)
 			if(PUNISHMENT_BRAND)
 				var/mob/living/carbon/human/branded = interfering
-				to_chat(interfering, "<span class='warning'>[GLOB.deity] brands your flesh for interfering with [chaplain]'s sparring match!!</span>")
+				to_chat(interfering, span_warning("[GLOB.deity] brands your flesh for interfering with [chaplain]'s sparring match!!"))
 				var/obj/item/bodypart/branded_limb = pick(branded.bodyparts)
 				branded_limb.force_wound_upwards(/datum/wound/burn/severe/brand)
 				branded.emote("scream")
@@ -228,9 +228,9 @@
 	cleanup_sparring_match()
 
 	if(chaplain) //flubing means we don't know who is still standing
-		to_chat(chaplain, "<span class='boldannounce'>The match was flub'd! No winners, no losers. You may restart the match with another contract.</span>")
+		to_chat(chaplain, span_boldannounce("The match was flub'd! No winners, no losers. You may restart the match with another contract."))
 	if(opponent)
-		to_chat(opponent, "<span class='boldannounce'>The match was flub'd! No winners, no losers.</span>")
+		to_chat(opponent, span_boldannounce("The match was flub'd! No winners, no losers."))
 	qdel(src)
 
 ///helper to remove all the effects after a match ends
@@ -244,15 +244,15 @@
 
 /datum/sparring_match/proc/end_match(mob/living/carbon/human/winner, mob/living/carbon/human/loser, violation_victory = FALSE)
 	cleanup_sparring_match()
-	to_chat(chaplain, "<span class='boldannounce'>[violation_victory ? "[loser] DISQUALIFIED!" : ""]  [winner] HAS WON!</span>")
-	to_chat(opponent, "<span class='boldannounce'>[violation_victory ? "[loser] DISQUALIFIED!" : ""]  [winner] HAS WON!</span>")
+	to_chat(chaplain, span_boldannounce("[violation_victory ? "[loser] DISQUALIFIED!" : ""]  [winner] HAS WON!"))
+	to_chat(opponent, span_boldannounce("[violation_victory ? "[loser] DISQUALIFIED!" : ""]  [winner] HAS WON!"))
 	win(winner, loser, violation_victory)
 	lose(loser, winner)
 	if(stakes_condition != STAKES_YOUR_SOUL)
 		var/healing_message = "You may want to heal up the loser now."
 		if(winner == chaplain)
 			healing_message += " Your bible will heal the loser for awhile."
-		to_chat(winner, "<span class='notice'>[healing_message]</span>")
+		to_chat(winner, span_notice(healing_message))
 	qdel(src)
 
 ///most of the effects are handled on `lose()` instead.
@@ -261,16 +261,16 @@
 		if(STAKES_HOLY_MATCH)
 			if(winner == chaplain)
 				if(violation_victory)
-					to_chat(winner, "<span class='warning'>[GLOB.deity] is not entertained from a matched decided by violations. No favor awarded...</span>")
+					to_chat(winner, span_warning("[GLOB.deity] is not entertained from a matched decided by violations. No favor awarded..."))
 				else
-					to_chat(winner, "<span class='nicegreen'>You've won favor with [GLOB.deity]!</span>")
+					to_chat(winner, span_nicegreen("You've won favor with [GLOB.deity]!"))
 				var/datum/religion_sect/spar/sect = GLOB.religious_sect
 				sect.adjust_favor(1, winner)
 				sect.past_opponents += WEAKREF(loser)
 		if(STAKES_MONEY_MATCH)
-			to_chat(winner, "<span class='nicegreen'>You've won all of [loser]'s money!</span>")
+			to_chat(winner, span_nicegreen("You've won all of [loser]'s money!"))
 		if(STAKES_YOUR_SOUL)
-			to_chat(winner, "<span class='nicegreen'>You've won [loser]'s SOUL!</span>")
+			to_chat(winner, span_nicegreen("You've won [loser]'s SOUL!"))
 
 /datum/sparring_match/proc/lose(mob/living/carbon/human/loser, mob/living/carbon/human/winner)
 	if(!loser) //shit happened?
@@ -281,15 +281,15 @@
 				var/datum/religion_sect/spar/sect = GLOB.religious_sect
 				sect.matches_lost++
 				if(sect.matches_lost < 3)
-					to_chat(loser, "<span class='userdanger'>[GLOB.deity] is angry you lost in their name!</span>")
+					to_chat(loser, span_userdanger("[GLOB.deity] is angry you lost in their name!"))
 					return
-				to_chat(loser, "<span class='userdanger'>[GLOB.deity] is enraged by your lackluster sparring record!</span>")
+				to_chat(loser, span_userdanger("[GLOB.deity] is enraged by your lackluster sparring record!"))
 				lightningbolt(loser)
 				SEND_SIGNAL(loser, COMSIG_ADD_MOOD_EVENT, "sparring", /datum/mood_event/banished)
 				loser.mind.holy_role = NONE
-				to_chat(loser, "<span class='userdanger'>You have been excommunicated! You are no longer holy!</span>")
+				to_chat(loser, span_userdanger("You have been excommunicated! You are no longer holy!"))
 		if(STAKES_MONEY_MATCH)
-			to_chat(loser, "<span class='userdanger'>You've lost all your money to [winner]!</span>")
+			to_chat(loser, span_userdanger("You've lost all your money to [winner]!"))
 			var/datum/bank_account/loser_account = loser.get_bank_account()
 			var/datum/bank_account/winner_account = winner.get_bank_account()
 			if(!loser_account || !winner_account)//the winner is pretty owned in this case but whatever shoulda read the fine print of the contract
@@ -299,6 +299,6 @@
 			var/turf/shard_turf = get_turf(loser)
 			if(!shard_turf)
 				return
-			to_chat(loser, "<span class='userdanger'>You've lost ownership over your soul to [winner]!</span>")
+			to_chat(loser, span_userdanger("You've lost ownership over your soul to [winner]!"))
 			var/obj/item/soulstone/anybody/chaplain/sparring/shard = new(shard_turf)
 			shard.capture_soul(loser, winner, forced = TRUE)

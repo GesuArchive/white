@@ -3,7 +3,7 @@
 	name = "Близорукость"
 	desc = "Обладатель этой мутации имеет плохое зрение."
 	quality = MINOR_NEGATIVE
-	text_gain_indication = "<span class='danger'>Я стал видеть намного хуже!</span>"
+	text_gain_indication = span_danger("Я стал видеть намного хуже!")
 
 /datum/mutation/human/nearsight/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
@@ -21,7 +21,7 @@
 	name = "Слепота"
 	desc = "Носитель этой мутации слеп как крот."
 	quality = NEGATIVE
-	text_gain_indication = "<span class='danger'>Я ничерта не вижу!</span>"
+	text_gain_indication = span_danger("Я ничерта не вижу!")
 
 /datum/mutation/human/blind/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
@@ -39,8 +39,8 @@
 	desc = "Позволяет носителю чувствовать тепловые сигнатуры живых объектов даже сквозь многометровые стальные перегородки."
 	quality = POSITIVE
 	difficulty = 18
-	text_gain_indication = "<span class='notice'>Мир окрасился всеми оттенками оранжевого и кажется даже стены не могут удержать эти теплые краски...</span>"
-	text_lose_indication = "<span class='notice'>Мир снова сузился до размеров этой комнаты, он снова стал холодным и пустым...</span>"
+	text_gain_indication = span_notice("Мир окрасился всеми оттенками оранжевого и кажется даже стены не могут удержать эти теплые краски...")
+	text_lose_indication = span_notice("Мир снова сузился до размеров этой комнаты, он снова стал холодным и пустым...")
 	instability = 25
 	var/visionflag = TRAIT_THERMAL_VISION
 
@@ -61,7 +61,7 @@
 /datum/mutation/human/thermal/x_ray
 	name = "Рентгеновское зрение"
 	desc = "Редчайшая мутация, возможно даже навсегда утеренная для будущих поколений, позволяет в прямом смысле видеть сквозь стены!" //actual x-ray would mean you'd constantly be blasting rads, wich might be fun for later //hmb
-	text_gain_indication = "<span class='notice'>Стены внезапно исчезли!</span>"
+	text_gain_indication = span_notice("Стены внезапно исчезли!")
 	instability = 35
 	locked = TRUE
 	visionflag = TRAIT_XRAY_VISION
@@ -73,7 +73,7 @@
 	quality = POSITIVE
 	locked = TRUE
 	difficulty = 16
-	text_gain_indication = "<span class='notice'>Я чувствую как мои глаза накапливают свет...</span>"
+	text_gain_indication = span_notice("Я чувствую как мои глаза накапливают свет...")
 	layer_used = FRONT_MUTATIONS_LAYER
 	limb_req = BODY_ZONE_HEAD
 
@@ -103,7 +103,7 @@
 
 	if(source.a_intent != INTENT_HARM)
 		return
-	to_chat(source, "<span class='warning'>Я стреляю лазером прямо из своих глаз!</span>")
+	to_chat(source, span_warning("Я стреляю лазером прямо из своих глаз!"))
 	source.changeNext_move(CLICK_CD_RANGE)
 	source.newtonian_move(get_dir(target, source))
 	var/obj/projectile/beam/laser_eyes/LE = new(source.loc)

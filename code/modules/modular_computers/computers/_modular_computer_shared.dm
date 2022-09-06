@@ -57,7 +57,7 @@
 				. += "<hr>Здесь [multiple_slots ? "два слота" : "слот"] для ID-карты[multiple_cards ? ", которые содержат [first_ID] и [second_ID]" : ", один из которых содержит [first_ID ? first_ID : second_ID]"]."
 			else
 				. += "<hr>Здесь [multiple_slots ? "два слота" : "слот"] для ID-карты, [multiple_cards ? "оба из них заняты" : "один из них занят"]."
-			. += "<span class='info'>\nПКМ для извлечения карт[multiple_cards ? "":"ы"] идентификации.</span>"
+			. += span_info("\nПКМ для извлечения карт[multiple_cards ? "":"ы"] идентификации.")
 		else
 			. += "<hr>Здесь [multiple_slots ? "два слота" : "слот"] для ID-карт."
 

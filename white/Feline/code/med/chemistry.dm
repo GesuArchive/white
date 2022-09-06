@@ -23,7 +23,7 @@
 	M.Dizzy(15 SECONDS * amount)
 	M.Jitter(15 SECONDS * amount)
 	M.hallucination += 75 * amount
-	to_chat(M, "<span class='userdanger'>МНЕ ЧУДОВИЩНО ПЛОХО!!!</span>")
+	to_chat(M, span_userdanger("МНЕ ЧУДОВИЩНО ПЛОХО!!!"))
 	M.overlay_fullscreen("depression", /atom/movable/screen/fullscreen/depression, 3)
 	M.sound_environment_override = SOUND_ENVIRONMENT_PSYCHOTIC
 
@@ -91,11 +91,11 @@
 	list_reagents = list(/datum/reagent/medicine/raccoon = 4, /datum/reagent/toxin/zed = 4)
 
 /obj/item/reagent_containers/hypospray/medipen/raccoon/inject(mob/living/M, mob/user)
-	to_chat(user, "<span class='warning'>Господи, как я не хочу этого делать...</span>")
+	to_chat(user, span_warning("Господи, как я не хочу этого делать..."))
 	if(isliving(M))
 		if(M != user)
-			M.visible_message("<span class='danger'><b>[user]</b> пытается вколоть <b>[M]</b> медипен с угрожающей расцветкой!</span>" , \
-									"<span class='userdanger'><b>[user]</b> пытается вколоть мне медипен с угрожающей расцветкой!</span>")
+			M.visible_message(span_danger("<b>[user]</b> пытается вколоть <b>[M]</b> медипен с угрожающей расцветкой!") , \
+									span_userdanger("<b>[user]</b> пытается вколоть мне медипен с угрожающей расцветкой!"))
 	if(do_after(user, 5 SECONDS, user))
 		return ..()
 
@@ -131,11 +131,11 @@
 	list_reagents = list(/datum/reagent/medicine/nostromo = 4, /datum/reagent/toxin/zed = 4)
 
 /obj/item/reagent_containers/hypospray/medipen/nostromo/inject(mob/living/M, mob/user)
-	to_chat(user, "<span class='warning'>Господи, как я не хочу этого делать...</span>")
+	to_chat(user, span_warning("Господи, как я не хочу этого делать..."))
 	if(isliving(M))
 		if(M != user)
-			M.visible_message("<span class='danger'><b>[user]</b> пытается вколоть <b>[M]</b> медипен с угрожающей расцветкой!</span>" , \
-									"<span class='userdanger'><b>[user]</b> пытается вколоть мне медипен с угрожающей расцветкой!</span>")
+			M.visible_message(span_danger("<b>[user]</b> пытается вколоть <b>[M]</b> медипен с угрожающей расцветкой!") , \
+									span_userdanger("<b>[user]</b> пытается вколоть мне медипен с угрожающей расцветкой!"))
 	if(do_after(user, 5 SECONDS, user))
 		return ..()
 
@@ -150,11 +150,11 @@
 	list_reagents = list(/datum/reagent/medicine/nostromo = 4, /datum/reagent/medicine/raccoon = 4, /datum/reagent/toxin/zed = 2)
 
 /obj/item/reagent_containers/hypospray/medipen/sputnik_lite/inject(mob/living/M, mob/user)
-	to_chat(user, "<span class='warning'>Господи, как я не хочу этого делать...</span>")
+	to_chat(user, span_warning("Господи, как я не хочу этого делать..."))
 	if(isliving(M))
 		if(M != user)
-			M.visible_message("<span class='danger'><b>[user]</b> пытается вколоть <b>[M]</b> медипен с угрожающей расцветкой!</span>" , \
-									"<span class='userdanger'><b>[user]</b> пытается вколоть мне медипен с угрожающей расцветкой!</span>")
+			M.visible_message(span_danger("<b>[user]</b> пытается вколоть <b>[M]</b> медипен с угрожающей расцветкой!") , \
+									span_userdanger("<b>[user]</b> пытается вколоть мне медипен с угрожающей расцветкой!"))
 	if(do_after(user, 5 SECONDS, user))
 		return ..()
 
@@ -181,12 +181,12 @@
 /datum/reagent/medicine/saver/on_mob_metabolize(mob/living/M, amount)
 	. = ..()
 	ADD_TRAIT(M, TRAIT_PARASITE_IMMUNE, name)
-	to_chat(M, "<span class='notice'>[pick("Я должен...", "Никто кроме нас...", "Это мой долг...", "Теперь моя очередь...", "Сам погибай, но товарища выручай...")]</span>")
+	to_chat(M, span_notice(pick("Я должен...", "Никто кроме нас...", "Это мой долг...", "Теперь моя очередь...", "Сам погибай, но товарища выручай...")))
 
 /datum/reagent/medicine/saver/on_mob_end_metabolize(mob/living/M, amount)
 	. = ..()
 	REMOVE_TRAIT(M, TRAIT_PARASITE_IMMUNE, name)
-	to_chat(M, "<span class='warning'>Чувствую как флёр героизма меня покидает...</span>")
+	to_chat(M, span_warning("Чувствую как флёр героизма меня покидает..."))
 
 /obj/item/reagent_containers/pill/saver
 	name = "таблетка спасателя"
@@ -247,14 +247,14 @@
 	M.add_overlay(space_overlay)
 	ADD_TRAIT(M, TRAIT_RESISTLOWPRESSURE, name)
 	ADD_TRAIT(M, TRAIT_RESISTCOLD, name)
-	to_chat(M, "<span class='notice'>[pick("Чувствую себя, немного озябшим")]</span>")
+	to_chat(M, span_notice(pick("Чувствую себя, немного озябшим")))
 
 /datum/reagent/medicine/space_stab/on_mob_end_metabolize(mob/living/M, amount)
 	. = ..()
 	M.cut_overlay(space_overlay)
 	REMOVE_TRAIT(M, TRAIT_RESISTLOWPRESSURE, name)
 	REMOVE_TRAIT(M, TRAIT_RESISTCOLD, name)
-	to_chat(M, "<span class='warning'>Холод ушел</span>")
+	to_chat(M, span_warning("Холод ушел"))
 
 // 	Восстановление крови
 
@@ -277,7 +277,7 @@
 	..()
 
 /datum/reagent/medicine/hematogen/overdose_start(mob/living/M)
-	to_chat(M, "<span class='userdanger'>Впадаю в гипергликемическую кому! Нужно завязывать со сладким!</span>")
+	to_chat(M, span_userdanger("Впадаю в гипергликемическую кому! Нужно завязывать со сладким!"))
 	M.AdjustSleeping(600)
 	. = TRUE
 
