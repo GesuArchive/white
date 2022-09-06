@@ -75,6 +75,8 @@
 		body += "<br><b>Метакэш</b>: [metabalance]"
 		if(check_rights(R_SECURED, show_msg = FALSE))
 			body += " <a href='?_src_=holder;[HrefToken()];changemetacash=[REF(M)]'>\[???\]</a>"
+			body += " <a href='?_src_=holder;[HrefToken()];addmetacash=[REF(M)]'>\[!!!\]</a>"
+			
 		var/full_version = "Unknown"
 		if(M.client.byond_version)
 			full_version = "[M.client.byond_version].[M.client.byond_build ? M.client.byond_build : "xxx"]"

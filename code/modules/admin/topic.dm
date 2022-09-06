@@ -2112,6 +2112,24 @@
 			C.set_metacoin_count(amount)
 			message_admins("[key_name(usr)] изменяет баланс метакэша [key_name(C)] на [amount].")
 
+	else if(href_list["addmetacash"])
+		if(!check_rights(R_SECURED))
+			return
+
+		var/amount = text2num(tgui_input_text(usr, "Отрицательные числа отнимают метакеш, положительные увеличивают." ,"Сколько даём?"))
+		if(!isnum(amount))
+			return
+		var/reason = tgui_input_text(usr, "[amount > 0 ? "Выдаём" : "Забираем"] [abs(amount)] метакеша." ,"Причина?")
+		if(isnull(reason))
+			return
+
+		if (amount)
+			var/mob/M = locate(href_list["addmetacash"]) in GLOB.mob_list
+			var/client/C = M.client
+			inc_metabalance(M, amount, TRUE, reason)
+			message_admins("[key_name(usr)] [amount > 0 ? "увеличивает" : "уменьшает"] баланс метакэша [key_name(C)] на [amount] с причиной \"[reason]\".")
+
+
 	else if(href_list["slowquery"])
 		if(!check_rights(R_ADMIN))
 			return
