@@ -364,7 +364,7 @@ GLOBAL_VAR_INIT(cmd_central_announce, FALSE)
 	if(GLOB.cmd_central_announce)
 		return FALSE
 	GLOB.cmd_central_announce = TRUE
-	minor_announce("[msg]", "Центральное Командование")
+	minor_announce("Входящее сообщение из неизвестного источника: \"[msg]\"", "Центральное Командование")
 	return TRUE
 
 GLOBAL_VAR_INIT(cmd_creampie_count, 0)
