@@ -48,7 +48,7 @@
 		var/difference = GLOB.installed_integration_cogs - calculated_cogs
 		calculated_cogs += difference
 		cogs += difference
-		to_chat(src, "<span class='brass'>Получаю [difference] шестерней!</span>")
+		to_chat(src, span_brass("Получаю [difference] шестерней!"))
 
 //Cannot gib the eminence.
 /mob/living/simple_animal/eminence/gib()
@@ -84,9 +84,9 @@
 	. = ..()
 	var/datum/antagonist/servant_of_ratvar/S = add_servant_of_ratvar(src, silent=TRUE)
 	S.prefix = CLOCKCULT_PREFIX_EMINENCE
-	to_chat(src, "<span class='large_brass'>Я Преосвященство!</span>")
-	to_chat(src, "<span class='brass'>Кликаем на разные штуки и они начинают работать!</span>")
-	to_chat(src, "<span class='brass'>Большая часть заклинаний требует цель. Клик для выбора цели!</span>")
+	to_chat(src, span_large_brass("Я Преосвященство!"))
+	to_chat(src, span_brass("Кликаем на разные штуки и они начинают работать!"))
+	to_chat(src, span_brass("Большая часть заклинаний требует цель. Клик для выбора цели!"))
 
 /mob/living/simple_animal/eminence/update_health_hud()
 	return //we use no hud
@@ -252,18 +252,18 @@
 	. = ..()
 	var/mob/living/simple_animal/eminence/E = user
 	if(!istype(E))
-		to_chat(E, "<span class='brass'>Я Преосвященство! (ЧТО-ТО СЛОМАЛОСЬ)</span>")
+		to_chat(E, span_brass("Я Преосвященство! (ЧТО-ТО СЛОМАЛОСЬ)"))
 		return FALSE
 	if(!E.selected_mob || !is_servant_of_ratvar(E.selected_mob))
 		E.selected_mob = null
-		to_chat(user, "<span class='neovgre'>Нужно бы выбрать цель для начала.</span>")
+		to_chat(user, span_neovgre("Нужно бы выбрать цель для начала."))
 		return FALSE
 	var/mob/living/L = E.selected_mob
 	if(!istype(L))
-		to_chat(E, "<span class='brass'>Не могу взаимодействовать с этим!</span>")
+		to_chat(E, span_brass("Не могу взаимодействовать с этим!"))
 		return FALSE
-	to_chat(E, "<span class='brass'>Начинаю процесс возвышения [L]...</span>")
-	to_chat(L, "<span class='brass'>Преосвященство возвышает меня...</span>")
+	to_chat(E, span_brass("Начинаю процесс возвышения [L]..."))
+	to_chat(L, span_brass("Преосвященство возвышает меня..."))
 	L.visible_message(span_warning("[L] вспыхивает."))
 	if(do_after(E, 70, target=L))
 		L.visible_message(span_warning("[L] исчезает!"))
@@ -272,7 +272,7 @@
 		consume_cogs(E)
 		return TRUE
 	else
-		to_chat(E, "<span class='brass'>Не вышло возвысить [L].</span>")
+		to_chat(E, span_brass("Не вышло возвысить [L]."))
 		return FALSE
 
 
@@ -317,30 +317,30 @@
 /mob/living/eminence_act(mob/living/simple_animal/eminence/eminence)
 	if(is_servant_of_ratvar(src) && !iseminence(src))
 		eminence.selected_mob = src
-		to_chat(eminence, "<span class='brass'>Выбираю [src].</span>")
+		to_chat(eminence, span_brass("Выбираю [src]."))
 
 /obj/machinery/light_switch/eminence_act(mob/living/simple_animal/eminence/eminence)
 	. = ..()
-	to_chat(usr, "<span class='brass'>Начинаю манипулировать с [src]!</span>")
+	to_chat(usr, span_brass("Начинаю манипулировать с [src]!"))
 	if(do_after(eminence, 20, target=get_turf(eminence)))
 		interact(eminence)
 
 /obj/machinery/flasher/eminence_act(mob/living/simple_animal/eminence/eminence)
 	. = ..()
-	to_chat(usr, "<span class='brass'>Начинаю манипулировать с [src]!</span>")
+	to_chat(usr, span_brass("Начинаю манипулировать с [src]!"))
 	if(do_after(eminence, 20, target=get_turf(eminence)))
 		if(anchored)
 			flash()
 
 /obj/machinery/button/eminence_act(mob/living/simple_animal/eminence/eminence)
 	. = ..()
-	to_chat(usr, "<span class='brass'>Начинаю манипулировать с [src]!</span>")
+	to_chat(usr, span_brass("Начинаю манипулировать с [src]!"))
 	if(do_after(eminence, 20, target=get_turf(eminence)))
 		attack_hand(eminence)
 
 /obj/machinery/firealarm/eminence_act(mob/living/simple_animal/eminence/eminence)
 	. = ..()
-	to_chat(usr, "<span class='brass'>Начинаю манипулировать с [src]!</span>")
+	to_chat(usr, span_brass("Начинаю манипулировать с [src]!"))
 	if(do_after(eminence, 20, target=get_turf(eminence)))
 		attack_hand(eminence)
 
@@ -350,7 +350,7 @@
 
 /obj/machinery/door/airlock/eminence_act(mob/living/simple_animal/eminence/eminence)
 	..()
-	to_chat(usr, "<span class='brass'>Начинаю манипулировать с [src]!</span>")
+	to_chat(usr, span_brass("Начинаю манипулировать с [src]!"))
 	if(do_after(eminence, 20, target=get_turf(eminence)))
 		if(welded)
 			to_chat(eminence, text("Шлюз заварен!"))

@@ -114,7 +114,7 @@ GLOBAL_LIST_INIT(clockwork_slabs, list())
 /obj/item/clockwork/clockwork_slab/attack_self(mob/living/user)
 	. = ..()
 	if(iscultist(user))
-		to_chat(user, "<span class='big_brass'>Ты не должен играть с моими игрушками...</span>")
+		to_chat(user, span_big_brass("Ты не должен играть с моими игрушками..."))
 		user.Stun(60)
 		user.adjust_blindness(150)
 		user.electrocute_act(10, "[name]")
@@ -127,7 +127,7 @@ GLOBAL_LIST_INIT(clockwork_slabs, list())
 		return
 	if(buffer)
 		buffer = null
-		to_chat(user, "<span class='brass'>Очищаю буфер [src.name].</span>")
+		to_chat(user, span_brass("Очищаю буфер [src.name]."))
 		return
 	ui_interact(user)
 
@@ -177,10 +177,10 @@ GLOBAL_LIST_INIT(clockwork_slabs, list())
 				return FALSE
 			if(S.type in purchased_scriptures)
 				if(invoking_scripture)
-					to_chat(M, "<span class='brass'>Не вышло вызвать [name].</span>")
+					to_chat(M, span_brass("Не вышло вызвать [name]."))
 					return FALSE
 				if(S.power_cost > GLOB.clockcult_power)
-					to_chat(M, "<span class='neovgre'>Требуется [S.power_cost]W для вызова [S.name].</span>")
+					to_chat(M, span_neovgre("Требуется [S.power_cost]W для вызова [S.name]."))
 					return FALSE
 				var/datum/clockcult/scripture/new_scripture = new S.type()
 				//Create a new scripture temporarilly to process, when it's done it will be qdeleted.
@@ -189,11 +189,11 @@ GLOBAL_LIST_INIT(clockwork_slabs, list())
 			else
 				if(cogs >= S.cogs_required)
 					cogs -= S.cogs_required
-					to_chat(M, "<span class='brass'>Разблокировано: [S.name]. Теперь это можно использовать с моими часами.</span>")
+					to_chat(M, span_brass("Разблокировано: [S.name]. Теперь это можно использовать с моими часами."))
 					purchased_scriptures += S.type
 				else
-					to_chat(M, "<span class='brass'>Мне потребуется [S.cogs_required] шестерней для разблокировки [S.name], однако у меня есть только [cogs]!</span>")
-					to_chat(M, "<span class='brass'><b>Заметка:</b> Можно призывать интеграционные шестерни и вставлять их в электрощитки для получения шестерней.</span>")
+					to_chat(M, span_brass("Мне потребуется [S.cogs_required] шестерней для разблокировки [S.name], однако у меня есть только [cogs]!"))
+					to_chat(M, span_brass("<b>Заметка:</b> Можно призывать интеграционные шестерни и вставлять их в электрощитки для получения шестерней."))
 			return TRUE
 		if("quickbind")
 			var/datum/clockcult/scripture/S = GLOB.clockcult_all_scriptures[params["scriptureName"]]

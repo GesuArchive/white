@@ -355,7 +355,7 @@
 				else
 					dept_dat += "<a class='job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'>[job_datum.ru_title] <span class='rightround'>[display_positions(job_datum)]</span></a>"
 		if(!dept_dat.len)
-			dept_dat += "<span class='nopositions'>Нет свободных позиций.</span>"
+			dept_dat += span_nopositions("Нет свободных позиций.")
 		dat += jointext(dept_dat, "")
 		dat += "</fieldset><br>"
 		column_counter++

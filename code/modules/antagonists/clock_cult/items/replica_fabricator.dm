@@ -71,4 +71,4 @@
 	GLOB.clockcult_power -= sheets * BRASS_POWER_COST
 	new /obj/item/stack/tile/bronze(target, sheets)
 	playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-	to_chat(user, "<span class='brass'>Создаю [sheets] листов латуни.</span>")
+	to_chat(user, span_brass("Создаю [sheets] листов латуни."))

@@ -25,12 +25,12 @@
 	if(!owner.current)
 		return
 	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/clockcultalr.ogg', 60, FALSE, pressure_affected = FALSE)
-	to_chat(owner.current, "<span class='heavy_brass'><font size='7'>Чувствую вспышку света, и мир кружится вокруг меня!</font></span>")
-	to_chat(owner.current, "<span class='brass'><font size='5'>Используя механизм, я могу призывать различные силы, которые помогут мне выполнить волю Ратвара.</font></span>")
-	to_chat(owner.current, "<span class='brass'>Используя консоли наблюдения Ратвара, я могу следить за командой и перемещаться на станцию.</span>")
-	to_chat(owner.current, "<span class='brass'>Используя мехазим, я могу вызвать интеграционные шестерни, чтобы разблокировать больше Священных Писаний и откачать энергию.</span>")
-	to_chat(owner.current, "<span class='brass'>Стоит разблокировать Разжечь, чтобы оглушать цели, Оковы ненависти, чтобы сдерживать их, и надо использовать знак подчинения, чтобы конвертировать их!</span>")
-	to_chat(owner.current, "<span class='brass'>В конце нужно будет соберать 6 культистов вокруг Ковчега и активировать его, чтобы вызвать Рат'вара, но сначала надо подготовиться.</span>")
+	to_chat(owner.current, span_heavy_brass("<font size='7'>Чувствую вспышку света, и мир кружится вокруг меня!</font>"))
+	to_chat(owner.current, span_brass("<font size='5'>Используя механизм, я могу призывать различные силы, которые помогут мне выполнить волю Ратвара.</font>"))
+	to_chat(owner.current, span_brass("Используя консоли наблюдения Ратвара, я могу следить за командой и перемещаться на станцию."))
+	to_chat(owner.current, span_brass("Используя мехазим, я могу вызвать интеграционные шестерни, чтобы разблокировать больше Священных Писаний и откачать энергию."))
+	to_chat(owner.current, span_brass("Стоит разблокировать Разжечь, чтобы оглушать цели, Оковы ненависти, чтобы сдерживать их, и надо использовать знак подчинения, чтобы конвертировать их!"))
+	to_chat(owner.current, span_brass("В конце нужно будет соберать 6 культистов вокруг Ковчега и активировать его, чтобы вызвать Рат'вара, но сначала надо подготовиться."))
 
 /datum/antagonist/servant_of_ratvar/on_gain()
 	. = ..()

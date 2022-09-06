@@ -42,7 +42,7 @@
 			to_chat(user, span_warning("[src] хочет быть прикрученной к полу!"))
 			return
 		enabled = !enabled
-		to_chat(user, "<span class='brass'>Дёргаю переключатель на [src], переводя её в режим [enabled?"ВКЛ":"ВЫКЛ"]!</span>")
+		to_chat(user, span_brass("Дёргаю переключатель на [src], переводя её в режим [enabled?"ВКЛ":"ВЫКЛ"]!"))
 		if(enabled)
 			if(update_power())
 				repowered()

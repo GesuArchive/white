@@ -249,13 +249,13 @@ GLOBAL_DATUM(battle_royale, /datum/battle_royale_controller)
 		winner = M
 		CHECK_TICK
 	if(living_victims <= 1 && !debug_mode)
-		to_chat(world, "<span class='ratvar'><font size=14>ПОБЕДА!!!</font></span>")
+		to_chat(world, span_ratvar("<font size=14>ПОБЕДА!!!</font>"))
 		if(winner)
 			winner.client?.process_greentext(30, 1)
-			to_chat(world, "<span class='ratvar'><font size=14>[key_name(winner)] победитель!</font></span>")
+			to_chat(world, span_ratvar("<font size=14>[key_name(winner)] победитель!</font>"))
 			new /obj/item/melee/supermatter_sword(get_turf(winner))
 		else
-			to_chat(world, "<span class='ratvar'><font size=14>Победила дружба!</font></span>")
+			to_chat(world, span_ratvar("<font size=14>Победила дружба!</font>"))
 		qdel(src)
 		return
 	//Once every 15 seconsd
@@ -280,7 +280,7 @@ GLOBAL_DATUM(battle_royale, /datum/battle_royale_controller)
 		if(check_rights_for(C, R_FUN))
 			C.verbs += BATTLE_ROYALE_AVERBS
 	toggle_ooc(FALSE)
-	to_chat(world, "<span class='ratvar'><font size=14>Королевская Битва начинается...</span></span>")
+	to_chat(world, span_ratvar("<font size=14>Королевская Битва начинается...</span>"))
 	//Stop new player joining
 	GLOB.enter_allowed = FALSE
 	world.update_status()

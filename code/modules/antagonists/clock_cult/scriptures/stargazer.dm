@@ -99,27 +99,27 @@
 		. = ..()
 		return
 	if(!anchored)
-		to_chat(user, "<span class='brass'>Нужно прикрутить [src] к полу.</span>")
+		to_chat(user, span_brass("Нужно прикрутить [src] к полу."))
 		return
 	if(cooldowntime > world.time)
-		to_chat(user, "<span class='brass'>[src] всё ещё нагревается, всё будет готово через [DisplayTimeText(cooldowntime - world.time)].</span>")
+		to_chat(user, span_brass("[src] всё ещё нагревается, всё будет готово через [DisplayTimeText(cooldowntime - world.time)]."))
 		return
 	if(HAS_TRAIT(I, TRAIT_STARGAZED))
-		to_chat(user, "<span class='brass'>[I] уже улучшена!</span>")
+		to_chat(user, span_brass("[I] уже улучшена!"))
 		return
-	to_chat(user, "<span class='brass'>Начинаю устанавливать [I] на [src].</span>")
+	to_chat(user, span_brass("Начинаю устанавливать [I] на [src]."))
 	if(do_after(user, 60, target=I))
 		if(cooldowntime > world.time)
-			to_chat(user, "<span class='brass'>[src] всё ещё нагревается, всё будет готово через [DisplayTimeText(cooldowntime - world.time)].</span>")
+			to_chat(user, span_brass("[src] всё ещё нагревается, всё будет готово через [DisplayTimeText(cooldowntime - world.time)]."))
 			return
 		if(HAS_TRAIT(I, TRAIT_STARGAZED))
-			to_chat(user, "<span class='brass'>[I] уже улучшена!</span>")
+			to_chat(user, span_brass("[I] уже улучшена!"))
 			return
 		if(istype(I, /obj/item) && !istype(I, /obj/item/clothing) && I.force)
 			upgrade_weapon(I, user)
 			cooldowntime = world.time + STARGAZER_COOLDOWN
 			return
-		to_chat(user, "<span class='brass'>Не могу улучшить [I].</span>")
+		to_chat(user, span_brass("Не могу улучшить [I]."))
 
 /obj/structure/destructible/clockwork/gear_base/stargazer/proc/upgrade_weapon(obj/item/I, mob/living/user)
 	//Prevent re-enchanting

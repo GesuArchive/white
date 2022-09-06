@@ -148,7 +148,7 @@
 	var/effect_description
 	if(quality >= 0)
 		span = "<span class='notice'>"
-		effect_description = "<span class='heavy_brass'>мерцающим золотым сиянием</span>"
+		effect_description = span_heavy_brass("мерцающим золотым сиянием")
 	else
 		span = "<span class='danger'>"
 		effect_description = span_bold("пестрым черным свечением")

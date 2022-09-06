@@ -360,9 +360,9 @@
 	var/gear_text = "Что-то ебётся и трахается у шлюза. F1"
 	switch(construction_state)
 		if(GEAR_SECURE)
-			gear_text = "<span class='brass'>Зубчатое колесо прочно <b>прикручено</b> к латуни вокруг него.</span>"
+			gear_text = span_brass("Зубчатое колесо прочно <b>прикручено</b> к латуни вокруг него.")
 		if(GEAR_LOOSE)
-			gear_text = "<span class='alloy'>Зубчатое колесо <i>ослаблено</i>, но остается <b>неплотно соединенным</b> с дверью!</span>"
+			gear_text = span_alloy("Зубчатое колесо <i>ослаблено</i>, но остается <b>неплотно соединенным</b> с дверью!")
 	. += "<hr>"
 	. += gear_text
 

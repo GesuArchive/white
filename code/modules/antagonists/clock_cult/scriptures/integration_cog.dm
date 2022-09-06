@@ -15,8 +15,8 @@
 /datum/clockcult/scripture/integration_cog/invoke_success()
 	var/obj/item/clockwork/integration_cog/IC = new()
 	if(invoker.put_in_hands(IC, TRUE))
-		to_chat(invoker, "<span class='brass'>Вызываю интеграционную шестерню!</span>")
+		to_chat(invoker, span_brass("Вызываю интеграционную шестерню!"))
 		playsound(src, 'sound/machines/click.ogg', 50)
 	else
-		to_chat(invoker, "<span class='brass'>У меня должна быть свободна неактивная рука, чтобы вызвать интеграционную шестерню!</span>")
+		to_chat(invoker, span_brass("У меня должна быть свободна неактивная рука, чтобы вызвать интеграционную шестерню!"))
 		return FALSE

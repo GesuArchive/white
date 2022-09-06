@@ -19,7 +19,7 @@
 	if(!isliving(owner))
 		return
 	if(GLOB.gateway_opening)
-		to_chat(owner, "<span class='brass'>ВРАТА ОТКРЫВАЮТСЯ, НЕКОГДА!</span>")
+		to_chat(owner, span_brass("ВРАТА ОТКРЫВАЮТСЯ, НЕКОГДА!"))
 		return
 	if(warping)
 		button_icon_state = "warp_down"
@@ -30,7 +30,7 @@
 	var/mob/camera/ai_eye/remote/ratvar/cam = M.remote_control
 	var/target_loc = get_turf(cam)
 	if(isclosedturf(target_loc))
-		to_chat(owner, "<span class='brass'>Не могу вот прям сюда телепортироваться.</span>")
+		to_chat(owner, span_brass("Не могу вот прям сюда телепортироваться."))
 		return
 	do_sparks(5, TRUE, get_turf(cam))
 	warping = TRUE

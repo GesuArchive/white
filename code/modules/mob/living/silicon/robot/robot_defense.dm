@@ -101,7 +101,7 @@ GLOBAL_LIST_INIT(blacklisted_borg_hats, typecacheof(list( //Hats that don't real
 
 	if(W.slot_flags & ITEM_SLOT_HEAD && hat_offset != INFINITY && user.a_intent == INTENT_HELP && !is_type_in_typecache(W, GLOB.blacklisted_borg_hats))
 		if(hat && HAS_TRAIT(hat, TRAIT_NODROP))
-			to_chat(user, "<span class='warning'>You can't seem to remove [src] existing headwear!</span>")
+			to_chat(user, span_warn("You can't seem to remove [src] existing headwear!"))
 			return
 		to_chat(user, span_notice("You begin to place [W] on [src] head..."))
 		to_chat(src, span_notice("[user] is placing [W] on your head..."))

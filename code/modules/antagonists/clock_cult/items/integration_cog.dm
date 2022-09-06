@@ -11,13 +11,13 @@
 		return ..()
 	var/obj/machinery/power/apc/A = O
 	if(A.integration_cog)
-		to_chat(user, "<span class='brass'>Здесь уже есть [src] в [A].</span>")
+		to_chat(user, span_brass("Здесь уже есть [src] в [A]."))
 		return
 	if(!A.panel_open)
 		//Cut open the panel
 		to_chat(user, span_notice("Начинаю разрезать [A]."))
 		if(do_after(user, 50, target=A))
-			to_chat(user, "<span class='brass'>Разрезаю [A] используя [src].</span>")
+			to_chat(user, span_brass("Разрезаю [A] используя [src]."))
 			A.panel_open = TRUE
 			A.update_icon()
 			return

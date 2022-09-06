@@ -24,10 +24,10 @@ GLOBAL_LIST_INIT(abstraction_crystals, list())
 		return FALSE
 	var/obj/structure/destructible/clockwork/structure = locate() in get_turf(invoker)
 	if(structure)
-		to_chat(invoker, "<span class='brass'>Здесь уже есть [structure].</span>")
+		to_chat(invoker, span_brass("Здесь уже есть [structure]."))
 		return FALSE
 	if(locate(/obj/structure/destructible/clockwork/abstraction_crystal) in range(5))
-		to_chat(invoker, "<span class='brass'>Рядом есть кристалл абстракции, не получится сделать ещё.</span>")
+		to_chat(invoker, span_brass("Рядом есть кристалл абстракции, не получится сделать ещё."))
 		return FALSE
 	return TRUE
 
@@ -174,9 +174,9 @@ GLOBAL_LIST_INIT(abstraction_crystals, list())
 	var/mutable_appearance/forbearance = mutable_appearance('icons/effects/genetics.dmi', "servitude", -MUTATIONS_LAYER)
 	active_hologram.add_overlay(forbearance)
 
-	to_chat(active_hologram, "<span class='neovgre'>Проявляю себя в [src].</span>")
-	to_chat(active_hologram, "<span class='neovgre'>Урон мне не страшен, ведь я его почти не получаю.</span>")
-	to_chat(active_hologram, "<span class='neovgre'>Следует дотронуться до кристалла, если нужно будет вернуться.</span>")
+	to_chat(active_hologram, span_neovgre("Проявляю себя в [src]."))
+	to_chat(active_hologram, span_neovgre("Урон мне не страшен, ведь я его почти не получаю."))
+	to_chat(active_hologram, span_neovgre("Следует дотронуться до кристалла, если нужно будет вернуться."))
 
 	//Equip with generic gear
 	add_servant_of_ratvar(active_hologram, silent=TRUE, servant_type=/datum/antagonist/servant_of_ratvar/manifestation)

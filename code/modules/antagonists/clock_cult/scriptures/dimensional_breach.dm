@@ -21,13 +21,13 @@
 		return FALSE
 	var/area/AR = get_area(invoker)
 	if(!is_reebe(AR.z))
-		to_chat(invoker, "<span class='brass'>Нужно быть рядом с Ковчегом!</span>")
+		to_chat(invoker, span_brass("Нужно быть рядом с Ковчегом!"))
 		return FALSE
 	return TRUE
 
 /datum/clockcult/scripture/ark_activation/invoke_success()
 	var/obj/structure/destructible/clockwork/massive/celestial_gateway/gateway = GLOB.celestial_gateway
 	if(!gateway)
-		to_chat(invoker, "<span class='brass'>Пук.</span>")
+		to_chat(invoker, span_brass("Пук."))
 		return FALSE
 	gateway.open_gateway()

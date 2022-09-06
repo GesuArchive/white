@@ -40,7 +40,7 @@ SUBSYSTEM_DEF(eventmaster)
 /datum/controller/subsystem/eventmaster/proc/execute_ignition_rules()
 	switch(target_event)
 		if(EVENT_TYPE_OPENWORLD)
-			to_chat(world, "<span class='heavy_brass'>Активация правил режима OpenWorld...</span>")
+			to_chat(world, span_heavy_brass("Активация правил режима OpenWorld..."))
 			GLOB.disable_fucking_station_shit_please = TRUE
 			SSair.flags |= SS_NO_FIRE
 			SSevents.flags |= SS_NO_FIRE
@@ -50,45 +50,45 @@ SUBSYSTEM_DEF(eventmaster)
 			SSeconomy.flags |= SS_NO_FIRE
 			SSeconomy.flags |= SS_NO_FIRE
 			SSjob.DisableJobsButThis(/datum/job/assistant)
-			to_chat(world, "<span class='heavy_brass'>Остановка лишних контроллеров успешна!</span>")
+			to_chat(world, span_heavy_brass("Остановка лишних контроллеров успешна!"))
 			action_area = GLOB.areas_by_type[/area/partyhard/outdoors]
 			second_area = GLOB.areas_by_type[/area/partyhard/indoors]
 			action_area?.luminosity = 1
 			second_area?.luminosity = 1
 			//adjust_areas_light()
-			to_chat(world, "<span class='heavy_brass'>Свет готов!</span>")
-			to_chat(world, "<span class='heavy_brass'>Готово!</span>")
+			to_chat(world, span_heavy_brass("Свет готов!"))
+			to_chat(world, span_heavy_brass("Готово!"))
 			return TRUE
 		if(EVENT_TYPE_SPAWN_EVERYONE)
-			to_chat(world, "<span class='heavy_brass'>Активация правил режима перемещения всех в игру...</span>")
+			to_chat(world, span_heavy_brass("Активация правил режима перемещения всех в игру..."))
 			if(SSticker.current_state == GAME_STATE_PREGAME)
 				for(var/mob/dead/new_player/player in GLOB.player_list)
 					to_chat(player, "<span class=greenannounce>Ты призрак. Скоро предоставят возможность вступить в схватку за одну из сторон.</span>")
 					player.ready = FALSE
 					player.make_me_an_observer(TRUE)
 				SSticker.start_immediately = TRUE
-			to_chat(world, "<span class='heavy_brass'>Готово!</span>")
+			to_chat(world, span_heavy_brass("Готово!"))
 			target_event = EVENT_TYPE_OPENWORLD
 			return TRUE
 		if(EVENT_READJUST_TO_WARFARE)
-			to_chat(world, "<span class='heavy_brass'>Отключение всех ролей...</span>")
+			to_chat(world, span_heavy_brass("Отключение всех ролей..."))
 			SSjob.DisableAllJobs()
-			to_chat(world, "<span class='heavy_brass'>Перестройка под боевые действия...</span>")
+			to_chat(world, span_heavy_brass("Перестройка под боевые действия..."))
 			action_area = GLOB.areas_by_type[/area/ctf/warfare]
 			second_area = GLOB.areas_by_type[/area/ctf/warfare/indoors]
 			action_area?.luminosity = 1
 			second_area?.luminosity = 1
 			//adjust_areas_light()
-			to_chat(world, "<span class='heavy_brass'>Готово!</span>")
+			to_chat(world, span_heavy_brass("Готово!"))
 			target_event = EVENT_TYPE_OPENWORLD
 			return TRUE
 		if(EVENT_TYPE_NATIONS)
-			to_chat(world, "<span class='heavy_brass'>Активация режима Nations v9.851...</span>")
+			to_chat(world, span_heavy_brass("Активация режима Nations v9.851..."))
 			for(var/i in GLOB.start_landmarks_list)
 				var/obj/effect/landmark/start/S = i
 				if(istype(S))
 					S.delete_after_roundstart = FALSE
-			to_chat(world, "<span class='heavy_brass'>Готово!</span>")
+			to_chat(world, span_heavy_brass("Готово!"))
 			return TRUE
 		if(EVENT_SPAWN_EVERYONE)
 			var/name_of_pitlord = tgui_input_text(usr, "Имя", "КАК")
@@ -97,15 +97,15 @@ SUBSYSTEM_DEF(eventmaster)
 				name_of_pitlord = "Боец"
 			if(!posttransformoutfit)
 				return FALSE
-			to_chat(world, "<span class='heavy_brass'>Перемещение всех призраков в одну точку...</span>")
+			to_chat(world, span_heavy_brass("Перемещение всех призраков в одну точку..."))
 			var/num_spawned = 0
 			for(var/mob/dead/observer/O in GLOB.player_list)
 				num_spawned++
 				var/mob/living/carbon/human/newmob = O.change_mob_type(/mob/living/carbon/human, get_turf(usr), "[name_of_pitlord] #[num_spawned]", TRUE)
 				if(posttransformoutfit && istype(newmob))
 					newmob.equipOutfit(posttransformoutfit)
-			to_chat(world, "<span class='heavy_brass'>Создано [num_spawned] тел...</span>")
-			to_chat(world, "<span class='heavy_brass'>Готово!</span>")
+			to_chat(world, span_heavy_brass("Создано [num_spawned] тел..."))
+			to_chat(world, span_heavy_brass("Готово!"))
 			return TRUE
 		else
 			return FALSE

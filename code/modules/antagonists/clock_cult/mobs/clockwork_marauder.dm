@@ -42,7 +42,7 @@
 /mob/living/simple_animal/clockwork_marauder/Login()
 	. = ..()
 	add_servant_of_ratvar(src)
-	to_chat(src, "<span class='brass'>Можно заблокировать до 4 атак своим щитом, однако после этого потребуется ремонт сваркой.</span>")
+	to_chat(src, span_brass("Можно заблокировать до 4 атак своим щитом, однако после этого потребуется ремонт сваркой."))
 
 /mob/living/simple_animal/clockwork_marauder/death(gibbed)
 	. = ..()
@@ -67,7 +67,7 @@
 	playsound(src, 'sound/magic/clockwork/anima_fragment_attack.ogg', 60, TRUE)
 	if(shield_health == 0)
 		to_chat(src, span_userdanger("Щит ломается!"))
-		to_chat(src, "<span class='brass'>Нужна сварка для починки!</span>")
+		to_chat(src, span_brass("Нужна сварка для починки!"))
 
 /mob/living/simple_animal/clockwork_marauder/welder_act(mob/living/user, obj/item/I)
 	if(do_after(user, 25, target=src))

@@ -14,7 +14,7 @@
 		if(istype(T, type))
 			to_chat(user, span_warning("That space is occupied!"))
 			return
-	to_chat(user, "<span class='brass'>You place [src], use a <b>clockwork slab</b> to link it to other traps.</span>")
+	to_chat(user, span_brass("You place [src], use a <b>clockwork slab</b> to link it to other traps."))
 	var/obj/new_obj = new result_path(get_turf(src))
 	new_obj.setDir(user.dir)
 	qdel(src)
@@ -31,7 +31,7 @@
 /obj/item/wallframe/clocktrap/examine(mob/user)
 	. = ..()
 	if(is_servant_of_ratvar(user))
-		. += "<span class='brass'><hr>Это можно разместить на стене.</span>"
+		. += span_brass("<hr>Это можно разместить на стене.")
 
 //Wall item (either spawned by a wallframe or directly)
 /obj/structure/destructible/clockwork/trap
@@ -90,17 +90,17 @@
 			var/obj/item/clockwork/clockwork_slab/slab = I
 			if(slab.buffer)
 				if(takes_input)
-					to_chat(user, "<span class='brass'>Подключаю [slab.buffer.parent] к [parent].</span>")
+					to_chat(user, span_brass("Подключаю [slab.buffer.parent] к [parent]."))
 					add_output(slab.buffer)
 					slab.buffer = null
 				else
-					to_chat(user, "<span class='brass'>У этого механизма нет входа.</span>")
+					to_chat(user, span_brass("У этого механизма нет входа."))
 			else
 				if(sends_input)
-					to_chat(user, "<span class='brass'>Буду подключать [parent] к другим механизмам.</span>")
+					to_chat(user, span_brass("Буду подключать [parent] к другим механизмам."))
 					slab.buffer = src
 				else
-					to_chat(user, "<span class='brass'>Этот механизм не имеет выходов.</span>")
+					to_chat(user, span_brass("Этот механизм не имеет выходов."))
 
 /datum/component/clockwork_trap/proc/trigger_connected()
 	for(var/obj/O in outputs)
