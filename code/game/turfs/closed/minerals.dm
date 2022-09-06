@@ -77,7 +77,7 @@
 		if(I.use_tool(src, user, 40, volume=50))
 			if(ismineralturf(src))
 				to_chat(user, span_notice("Вскапываю камень."))
-				attempt_drill(user, TRUE)
+				attempt_drill(user, FALSE, 1, TRUE)
 				SSblackbox.record_feedback("tally", "pick_used_mining", 1, I.type)
 	else
 		return attack_hand(user)
@@ -105,10 +105,10 @@
 	addtimer(CALLBACK(src, .proc/AfterChange), 1, TIMER_UNIQUE)
 	playsound(src, 'sound/effects/break_stone.ogg', 50, TRUE) //beautiful destruction
 
-/turf/closed/mineral/proc/attempt_drill(mob/user,triggered_by_explosion = FALSE, power = 1)
+/turf/closed/mineral/proc/attempt_drill(mob/user, triggered_by_explosion = FALSE, power = 1, give_exp = FALSE)
 	hardness -= power
 	if(hardness <= 0)
-		gets_drilled(user,triggered_by_explosion)
+		gets_drilled(user, give_exp, triggered_by_explosion)
 	else
 		update_icon()
 
@@ -699,10 +699,10 @@
 	mineralType = /obj/item/magmite
 	scan_state = "rock_Magmite"
 
-/turf/closed/mineral/magmite/gets_drilled(mob/user, triggered_by_explosion = FALSE)
-	if(!triggered_by_explosion)
-		mineralAmt = 0
-	..(user,triggered_by_explosion,TRUE)
+/turf/closed/mineral/magmite/gets_drilled(user, give_exp = FALSE, triggered_by_explosion = FALSE)
+	if(triggered_by_explosion)
+		new /obj/item/magmite(src)
+	..(user, give_exp, triggered_by_explosion, TRUE)
 
 /turf/closed/mineral/magmite/volcanic
 	environment_type = "basalt"
