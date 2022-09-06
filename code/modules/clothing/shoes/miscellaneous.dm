@@ -281,7 +281,7 @@
 		user.visible_message(span_warning("[usr] взлетает в воздух!"))
 		recharging_time = world.time + recharging_rate
 	else
-		to_chat(user, span_warning("SЧто-то мешает мне взлететь!"))
+		to_chat(user, span_warning("Что-то мешает мне взлететь!"))
 
 /obj/item/clothing/shoes/bhop/rocket
 	name = "rocket boots"
