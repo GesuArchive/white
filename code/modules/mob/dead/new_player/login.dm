@@ -22,10 +22,10 @@
 
 	var/version = global.config.current_version_string
 	if(version && !GLOB.violence_mode_activated)
-		to_chat(src, "<span class='nzcrentr'>[version]</span>")
+		to_chat(src, span_nzcrentr("[version]"))
 
 	if(GLOB.changelog_json && !GLOB.violence_mode_activated)
-		to_chat(src, "<span class='nzcrentr'>-- <a href='byond://winset?command=view-changelog'>Список изменений</a> --</span>")
+		to_chat(src, span_nzcrentr("-- <a href='byond://winset?command=view-changelog'>Список изменений</a> --"))
 
 	if(GLOB.admin_notice)
 		to_chat(src, span_notice("<b>ВАЖНАЯ ЗАМЕТКА:</b>\n \t [GLOB.admin_notice]"))
