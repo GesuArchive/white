@@ -14234,7 +14234,7 @@
 /area/centcom/holding)
 "Ni" = (
 /obj/docking_port/stationary{
-	area_type = /area/centcom/syndicate_mothership/control;
+	area_type = /area/syndicate_mothership/control;
 	dir = 2;
 	dwidth = 3;
 	height = 7;
