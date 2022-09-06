@@ -42,8 +42,8 @@
 /obj/item/clothing/mask/proc/handle_speech()
 	SIGNAL_HANDLER
 
-/obj/item/clothing/mask/worn_overlays(isinhands = FALSE)
-	. = list()
+/obj/item/clothing/mask/worn_overlays(mutable_appearance/standing, isinhands = TRUE, icon_file)
+	. = ..()
 	if(!isinhands)
 		if(body_parts_covered & HEAD)
 			if(damaged_clothes)

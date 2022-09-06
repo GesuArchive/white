@@ -21,8 +21,8 @@
 	var/mutantrace_variation = NO_MUTANTRACE_VARIATION //Are there special sprites for specific situations? Don't use this unless you need to.
 	var/freshly_laundered = FALSE
 
-/obj/item/clothing/under/worn_overlays(isinhands = FALSE)
-	. = list()
+/obj/item/clothing/under/worn_overlays(mutable_appearance/standing, isinhands = TRUE, icon_file)
+	. = ..()
 	if(!isinhands)
 		if(damaged_clothes)
 			. += mutable_appearance('icons/effects/item_damage.dmi', "damageduniform")

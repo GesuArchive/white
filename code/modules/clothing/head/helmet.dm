@@ -53,7 +53,7 @@
 	if(attached_light)
 		alight = new(src)
 /*
-/obj/item/clothing/head/helmet/worn_overlays(isinhands)
+/obj/item/clothing/head/helmet/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file)
 	. = ..()
 	if(!isinhands)
 		var/datum/component/armor_plate/plasteel/ap = GetComponent(/datum/component/armor_plate/plasteel)

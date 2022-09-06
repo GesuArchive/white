@@ -240,7 +240,7 @@
 		icon_state = hair_style.icon_state
 	return ..()
 
-/obj/item/clothing/head/wig/worn_overlays(isinhands = FALSE, file2use)
+/obj/item/clothing/head/wig/worn_overlays(mutable_appearance/standing, isinhands = TRUE, icon_file)
 	. = ..()
 
 	if(isinhands)

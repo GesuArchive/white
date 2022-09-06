@@ -97,7 +97,7 @@
 		else
 			to_chat(user, span_warning("Seems like someone already drew something on this helmet's visor!"))
 
-/obj/item/clothing/head/helmet/space/plasmaman/worn_overlays(isinhands)
+/obj/item/clothing/head/helmet/space/plasmaman/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file)
 	. = ..()
 	if(!isinhands && smile)
 		var/mutable_appearance/M = mutable_appearance('icons/mob/clothing/head.dmi', smile_state)

@@ -61,8 +61,8 @@
 
 
 
-/obj/item/clothing/head/worn_overlays(isinhands = FALSE)
-	. = list()
+/obj/item/clothing/head/worn_overlays(mutable_appearance/standing, isinhands = TRUE, icon_file)
+	. = ..()
 	if(!isinhands)
 		if(damaged_clothes)
 			. += mutable_appearance('icons/effects/item_damage.dmi', "damagedhelmet")

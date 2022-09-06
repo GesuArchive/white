@@ -24,7 +24,7 @@
 	if(!allowed)
 		allowed = GLOB.security_vest_allowed
 
-/obj/item/clothing/suit/armor/worn_overlays(isinhands)
+/obj/item/clothing/suit/armor/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file)
 	. = ..()
 	if(!isinhands)
 		if(armor_plate_amount)
@@ -33,7 +33,7 @@
 
 
 /*
-/obj/item/clothing/suit/armor/worn_overlays(isinhands)
+/obj/item/clothing/suit/armor/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file)
 	. = ..()
 	if(!isinhands)
 		var/datum/component/armor_plate/plasteel/ap = GetComponent(/datum/component/armor_plate/plasteel)

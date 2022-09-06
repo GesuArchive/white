@@ -26,8 +26,8 @@
 	user.visible_message(span_suicide("<b>[src.name]</b> заставляют руки [user] схватить его за [user.ru_ego()] шею! Выглядит так, будто перчатки одержимы!"))
 	return OXYLOSS
 
-/obj/item/clothing/gloves/worn_overlays(isinhands = FALSE)
-	. = list()
+/obj/item/clothing/gloves/worn_overlays(mutable_appearance/standing, isinhands = TRUE, icon_file)
+	. = ..()
 	if(!isinhands)
 		if(damaged_clothes)
 			. += mutable_appearance('icons/effects/item_damage.dmi', "damagedgloves")

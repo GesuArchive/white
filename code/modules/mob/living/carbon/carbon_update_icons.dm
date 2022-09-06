@@ -231,8 +231,15 @@
 //Overlays for the worn overlay so you can overlay while you overlay
 //eg: ammo counters, primed grenade flashing, etc.
 //"icon_file" is used automatically for inhands etc. to make sure it gets the right inhand file
-/obj/item/proc/worn_overlays(isinhands = FALSE, icon_file)
+/obj/item/proc/worn_overlays(mutable_appearance/standing, isinhands = FALSE, icon_file)
+	SHOULD_CALL_PARENT(TRUE)
+	RETURN_TYPE(/list)
+
 	. = list()
+	if(!blocks_emissive)
+		return
+
+	. += emissive_blocker(standing.icon, standing.icon_state, alpha = standing.alpha)
 
 
 /mob/living/carbon/update_body()
