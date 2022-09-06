@@ -6487,7 +6487,7 @@
 /area/centcom/circus)
 "si" = (
 /obj/machinery/air_sensor{
-	chamber_id = "nukiebase";
+	frequency = "nukiebase";
 	name = "syndicate ordnance gas sensor"
 	},
 /turf/open/floor/engine/vacuum,
