@@ -5849,7 +5849,7 @@
 /area/centcom/holding)
 "qD" = (
 /obj/docking_port/stationary{
-	area_type = /area/centcom/syndicate_mothership;
+	area_type = /area/syndicate_mothership;
 	dheight = 1;
 	dir = 4;
 	dwidth = 12;
