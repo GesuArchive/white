@@ -259,15 +259,19 @@
 	slowdown = 2
 	flags_1 = NONE
 	planetary_atmos = TRUE
-	broken_states = list("snow_dug")
-	burnt_states = list("snow_dug")
 	bullet_sizzle = TRUE
 	bullet_bounce_sound = null
 	digResult = /obj/item/stack/sheet/mineral/snow
 
+/turf/open/floor/plating/asteroid/boxplanet/surface/setup_broken_states()
+	return list("snow_dug")
+
+/turf/open/floor/plating/asteroid/boxplanet/surface/setup_burnt_states()
+	return list("snow_dug")
+
 /turf/open/floor/plating/asteroid/boxplanet/surface/burn_tile()
 	if(!burnt)
-		visible_message(span_danger("[capitalize(src.name)] тает!."))
+		visible_message(span_danger("[capitalize(src.name)] тает!"))
 		slowdown = 0
 		burnt = TRUE
 		icon_state = "snow_dug"

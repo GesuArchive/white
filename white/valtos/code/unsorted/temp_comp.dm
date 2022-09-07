@@ -11,19 +11,31 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 	name = "Дождливое место"
 	env_temp_relative = 3
 
-/area/awaymission/rainy/Initialize(mapload)
-	. = ..()
-	for(var/turf/T in contents)
-		if(!isturf(T))
-			continue
-		new /obj/effect/rain/sideways/tile(T)
-
 /area/awaymission/rainy/Entered(atom/movable/AM, oldloc)
 	. = ..()
-	if(ishuman(AM))
-		var/mob/living/carbon/human/H = AM
-		if(!H.GetComponent(/datum/component/realtemp))
-			H.AddComponent(/datum/component/realtemp)
+	if(!ismob(AM))
+		return
+
+	var/mob/M = AM
+
+	if(!M?.hud_used?.weather?.particles)
+		M.hud_used.weather.particles = new /particles/rain/sideways
+
+	if(!ishuman(M))
+		return
+
+	if(!M.GetComponent(/datum/component/realtemp))
+		M.AddComponent(/datum/component/realtemp)
+
+/area/awaymission/rainy/Exited(atom/movable/AM, direction)
+	. = ..()
+	if(!ismob(AM))
+		return
+
+	var/mob/M = AM
+
+	if(M?.hud_used)
+		M.hud_used.weather.particles = null
 
 /datum/component/realtemp
 	var/mob/living/carbon/human/owner

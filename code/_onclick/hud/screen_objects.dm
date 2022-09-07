@@ -752,3 +752,7 @@
 		var/image/intent_icon = image(icon,src,"combo_[intent_text]")
 		intent_icon.pixel_x = 6 * (i - 1) - 8 * length(streak)
 		add_overlay(intent_icon)
+
+/atom/movable/screen/weather
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	screen_loc = "CENTER"

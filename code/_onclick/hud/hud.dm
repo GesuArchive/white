@@ -81,6 +81,8 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/datum/action_group/listed/listed_actions
 	var/list/floating_actions
 
+	var/atom/movable/screen/weather
+
 	var/atom/movable/screen/healths
 	var/atom/movable/screen/stamina
 	var/atom/movable/screen/healthdoll
@@ -160,6 +162,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	throw_icon = null
 	QDEL_LIST(infodisplay)
 
+	weather = null
 	healths = null
 	stamina = null
 	healthdoll = null

@@ -18,7 +18,9 @@
 	icon = 'white/valtos/icons/rospilovo/grass.dmi'
 	icon_state = "grass1"
 	color = "#ffffaa"
-	broken_states = list("sand1", "sand2", "sand3", "sand4")
+
+/turf/open/floor/grass/rospilovo/setup_broken_states()
+	return list("sand1", "sand2", "sand3", "sand4")
 
 /turf/open/floor/grass/rospilovo/Initialize(mapload)
 	. = ..()

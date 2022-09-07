@@ -71,7 +71,7 @@
 	#endif
 
 /particles/rain
-	width = 672
+	width = 900
 	height = 480
 	count = 2500    // 2500 particles
 	spawning = 48
@@ -81,7 +81,7 @@
 	// spawn within a certain x,y,z space
 	icon = 'white/valtos/icons/particles.dmi'
 	icon_state = "starsmall"
-	position = generator("box", list(-300,50,0), list(300,300,50))
+	position = generator("box", list(-400,50,0), list(400,400,50))
 	gravity = list(0, -3)
 	friction = 0.05
 	drift = generator("sphere", 0, 1)

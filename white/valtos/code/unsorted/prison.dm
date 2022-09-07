@@ -113,8 +113,13 @@
 	icon = 'white/valtos/icons/prison/beton.dmi'
 	floor_tile = /obj/item/stack/tile/trot
 	slowdown = -0.1
-	broken_states = list("damaged")
 	baseturfs = /turf/open/floor/plating/beach/sand
+
+/turf/open/floor/trot/setup_broken_states()
+	return list("damaged")
+
+/turf/open/floor/trot/setup_burnt_states()
+	return list("damaged")
 
 /turf/open/floor/beton
 	name = "бетон"
@@ -124,12 +129,17 @@
 	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
 	icon = 'white/valtos/icons/prison/beton.dmi'
 	floor_tile = /obj/item/stack/tile/beton
-	broken_states = list("damaged")
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_CARPET_DONK)
 	canSmoothWith = list(SMOOTH_GROUP_CARPET_DONK)
 	flags_1 = NONE
 	baseturfs = /turf/open/floor/plating/beach/sand
+
+/turf/open/floor/beton/setup_broken_states()
+	return list("damaged")
+
+/turf/open/floor/beton/setup_burnt_states()
+	return list("damaged")
 
 /turf/open/floor/beton/Initialize(mapload)
 	..()
