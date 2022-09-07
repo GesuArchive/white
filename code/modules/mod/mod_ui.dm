@@ -56,16 +56,16 @@
 	if(.)
 		return
 	if(locked && !allowed(usr))
-		balloon_alert(usr, "insufficient access!")
+		balloon_alert(usr, "Доступ запрещен!")
 		playsound(src, 'sound/machines/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
 		return
 	if(malfunctioning && prob(75))
-		balloon_alert(usr, "button malfunctions!")
+		balloon_alert(usr, "Кнопки неисправны!!")
 		return
 	switch(action)
 		if("lock")
 			locked = !locked
-			balloon_alert(usr, "[locked ? "locked" : "unlocked"]!")
+			balloon_alert(usr, "[locked ? "заблокирован" : "разблокирован"]!")
 		if("activate")
 			toggle_activate(usr)
 		if("select")

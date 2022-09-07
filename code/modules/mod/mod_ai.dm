@@ -3,16 +3,16 @@
 	if(!.)
 		return
 	if(!open) //mod must be open
-		balloon_alert(user, "suit must be open to transfer!")
+		balloon_alert(user, "Для установки протокола удаленного доступа скафандр должен быть открыт!")
 		return
 	switch(interaction)
 		if(AI_TRANS_TO_CARD)
 			if(!ai)
-				balloon_alert(user, "no AI in suit!")
+				balloon_alert(user, "ИИ отсутствует!")
 				return
-			balloon_alert(user, "transferring to card...")
+			balloon_alert(user, "Перенос на карту...")
 			if(!do_after(user, 5 SECONDS, target = src))
-				balloon_alert(user, "interrupted!")
+				balloon_alert(user, "Прервано!")
 				return
 			if(!ai)
 				return
@@ -27,30 +27,30 @@
 				action.Remove(intAI)
 			intAI.controlled_equipment = null
 			intAI.remote_control = null
-			balloon_alert(intAI, "transferred to a card")
-			balloon_alert(user, "AI transferred to card")
+			balloon_alert(intAI, "Перенос на интелкарту успешен")
+			balloon_alert(user, "Перенос ИИ на интелкарту успешен")
 			ai = null
 
 		if(AI_TRANS_FROM_CARD) //Using an AI card to upload to the suit.
 			intAI = card.AI
 			if(!intAI)
-				balloon_alert(user, "no AI in card!")
+				balloon_alert(user, "Нет ИИ в интелкарте!")
 				return
 			if(ai)
-				balloon_alert(user, "already has AI!")
+				balloon_alert(user, "Уже имеет ИИ!")
 				return
 			if(intAI.deployed_shell) //Recall AI if shelled so it can be checked for a client
 				intAI.disconnect_shell()
 			if(intAI.stat || !intAI.client)
-				balloon_alert(user, "AI unresponsive!")
+				balloon_alert(user, "ИИ не реагирует!")
 				return
-			balloon_alert(user, "transferring to suit...")
+			balloon_alert(user, "Перенос в скафандр...")
 			if(!do_after(user, 5 SECONDS, target = src))
-				balloon_alert(user, "interrupted!")
+				balloon_alert(user, "Прервано!")
 				return
 			if(ai)
 				return
-			balloon_alert(user, "AI transferred to suit")
+			balloon_alert(user, "ИИ перенесён в скафандр")
 			ai_enter_mod(intAI)
 			card.AI = null
 
@@ -63,7 +63,7 @@
 	new_ai.remote_control = src
 	new_ai.forceMove(src)
 	ai = new_ai
-	balloon_alert(new_ai, "transferred to a suit")
+	balloon_alert(new_ai, "Перенос в скафандр успешен")
 	for(var/datum/action/action as anything in actions)
 		action.Grant(new_ai)
 
@@ -103,8 +103,8 @@
 	REMOVE_TRAIT(wearer, TRAIT_FORCED_STANDING, MOD_TRAIT)
 
 /obj/item/mod/ai_minicard
-	name = "AI mini-card"
-	desc = "A small card designed to eject dead AIs. You could use an intellicard to recover it."
+	name = "Мини-интелкарта"
+	desc = "Небольшая карта, предназначенная для извлечения деактивированных ИИ и их последующего восстановления."
 	icon = 'icons/obj/aicards.dmi'
 	icon_state = "minicard"
 	var/datum/weakref/stored_ai
@@ -125,7 +125,7 @@
 
 /obj/item/mod/ai_minicard/examine(mob/user)
 	. = ..()
-	. += span_notice("You see [stored_ai.resolve() || "no AI"] stored inside.")
+	. += span_notice("Внутри [stored_ai.resolve() || "нет ИИ"]")
 
 /obj/item/mod/ai_minicard/transfer_ai(interaction, mob/user, mob/living/silicon/ai/intAI, obj/item/aicard/card)
 	. = ..()
@@ -135,15 +135,15 @@
 		return
 	var/mob/living/silicon/ai/ai = stored_ai.resolve()
 	if(!ai)
-		balloon_alert(user, "no AI!")
+		balloon_alert(user, "ИИ не обнаружен!")
 		return
-	balloon_alert(user, "transferring to card...")
+	balloon_alert(user, "Перенос на карту...")
 	if(!do_after(user, 5 SECONDS, target = src) || !ai)
-		balloon_alert(user, "interrupted!")
+		balloon_alert(user, "Прервано!")
 		return
 	icon_state = "minicard"
 	ai.forceMove(card)
 	card.AI = ai
-	ai.notify_ghost_cloning("You have been recovered from the wreckage!", source = card)
-	balloon_alert(user, "AI transferred to card")
+	ai.notify_ghost_cloning("АКТИВИРОВАН ПРОТОКОЛ РЕЗЕРВНОГО КОПИРОВАНИЯ ДАННЫХ!", source = card)
+	balloon_alert(user, "ИИ передан на карту")
 	stored_ai = null

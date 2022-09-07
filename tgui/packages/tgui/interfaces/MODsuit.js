@@ -99,13 +99,13 @@ const RadCounter = (props, context) => {
     <Stack fill textAlign="center">
       <Stack.Item grow>
         <Section
-          title="Radiation Level"
+          title="Уровень радиации"
           color={active && userradiated ? 'bad' : 'good'}>
-          {active && userradiated ? 'IRRADIATED' : 'RADIATION-FREE'}
+          {active && userradiated ? 'РАДИОАКТИВЕН' : 'ЧИСТ'}
         </Section>
       </Stack.Item>
       <Stack.Item grow>
-        <Section title="Toxins Level">
+        <Section title="Уровень токсинов">
           <ProgressBar
             value={active ? usertoxins / usermaxtoxins : 0}
             ranges={{
@@ -119,7 +119,7 @@ const RadCounter = (props, context) => {
       </Stack.Item>
       <Stack.Item grow>
         <Section
-          title="Hazard Level"
+          title="Уровень заражения"
           color={active && threatlevel ? 'bad' : 'good'}
           bold>
           {active && threatlevel ? threatlevel : 0}
@@ -141,7 +141,7 @@ const HealthAnalyzer = (props, context) => {
   } = props;
   return (
     <>
-      <Section title="Health">
+      <Section title="Здоровье">
         <ProgressBar
           value={active ? userhealth / usermaxhealth : 0}
           ranges={{
@@ -154,7 +154,7 @@ const HealthAnalyzer = (props, context) => {
       </Section>
       <Stack textAlign="center">
         <Stack.Item grow>
-          <Section title="Brute">
+          <Section title="Ушибы">
             <ProgressBar
               value={active ? userbrute / usermaxhealth : 0}
               ranges={{
@@ -167,7 +167,7 @@ const HealthAnalyzer = (props, context) => {
           </Section>
         </Stack.Item>
         <Stack.Item grow>
-          <Section title="Burn">
+          <Section title="Ожоги">
             <ProgressBar
               value={active ? userburn / usermaxhealth : 0}
               ranges={{
@@ -180,7 +180,7 @@ const HealthAnalyzer = (props, context) => {
           </Section>
         </Stack.Item>
         <Stack.Item grow>
-          <Section title="Toxin">
+          <Section title="Токсины">
             <ProgressBar
               value={active ? usertoxin / usermaxhealth : 0}
               ranges={{
@@ -193,7 +193,7 @@ const HealthAnalyzer = (props, context) => {
           </Section>
         </Stack.Item>
         <Stack.Item grow>
-          <Section title="Suffocation">
+          <Section title="Удушье">
             <ProgressBar
               value={active ? useroxy / usermaxhealth : 0}
               ranges={{
@@ -231,17 +231,17 @@ const StatusReadout = (props, context) => {
     <>
       <Stack textAlign="center">
         <Stack.Item grow>
-          <Section title="Operation Time">
+          <Section title="Время операции">
             {active ? statustime : '00:00:00'}
           </Section>
         </Stack.Item>
         <Stack.Item grow>
-          <Section title="Operation Number">
+          <Section title="Номер операции">
             {active ? statusid || '0' : '???'}
           </Section>
         </Stack.Item>
       </Stack>
-      <Section title="Health">
+      <Section title="Здоровье">
         <ProgressBar
           value={active ? statushealth / statusmaxhealth : 0}
           ranges={{
@@ -254,7 +254,7 @@ const StatusReadout = (props, context) => {
       </Section>
       <Stack textAlign="center">
         <Stack.Item grow>
-          <Section title="Brute">
+          <Section title="Ушибы">
             <ProgressBar
               value={active ? statusbrute / statusmaxhealth : 0}
               ranges={{
@@ -267,7 +267,7 @@ const StatusReadout = (props, context) => {
           </Section>
         </Stack.Item>
         <Stack.Item grow>
-          <Section title="Burn">
+          <Section title="Ожоги">
             <ProgressBar
               value={active ? statusburn / statusmaxhealth : 0}
               ranges={{
@@ -280,7 +280,7 @@ const StatusReadout = (props, context) => {
           </Section>
         </Stack.Item>
         <Stack.Item grow>
-          <Section title="Toxin">
+          <Section title="Токсины">
             <ProgressBar
               value={active ? statustoxin / statusmaxhealth : 0}
               ranges={{
@@ -293,7 +293,7 @@ const StatusReadout = (props, context) => {
           </Section>
         </Stack.Item>
         <Stack.Item grow>
-          <Section title="Suffocation">
+          <Section title="Удушение">
             <ProgressBar
               value={active ? statusoxy / statusmaxhealth : 0}
               ranges={{
@@ -308,33 +308,33 @@ const StatusReadout = (props, context) => {
       </Stack>
       <Stack textAlign="center">
         <Stack.Item grow>
-          <Section title="Body Temperature">{active ? statustemp : 0}</Section>
+          <Section title="Температура тела">{active ? statustemp : 0}</Section>
         </Stack.Item>
         <Stack.Item grow>
-          <Section title="Nutrition Status">
+          <Section title="Статус насыщения">
             {active ? statusnutrition : 0}
           </Section>
         </Stack.Item>
       </Stack>
-      <Section title="DNA">
+      <Section title="ДНК">
         <LabeledList>
-          <LabeledList.Item label="Fingerprints">
+          <LabeledList.Item label="Отпечатки пальцев">
             {active ? statusfingerprints : '???'}
           </LabeledList.Item>
-          <LabeledList.Item label="Unique Enzymes">
+          <LabeledList.Item label="Уникальные энзимы">
             {active ? statusdna : '???'}
           </LabeledList.Item>
         </LabeledList>
       </Section>
       {!!active && !!statusviruses && (
-        <Section title="Diseases">
+        <Section title="Болезни">
           <Table>
             <Table.Row header>
               <Table.Cell textAlign="center">
                 <Button
                   color="transparent"
                   icon="signature"
-                  tooltip="Name"
+                  tooltip="Название"
                   tooltipPosition="top"
                 />
               </Table.Cell>
@@ -342,7 +342,7 @@ const StatusReadout = (props, context) => {
                 <Button
                   color="transparent"
                   icon="wind"
-                  tooltip="Type"
+                  tooltip="Тип"
                   tooltipPosition="top"
                 />
               </Table.Cell>
@@ -350,7 +350,7 @@ const StatusReadout = (props, context) => {
                 <Button
                   color="transparent"
                   icon="bolt"
-                  tooltip="Stage"
+                  tooltip="Стадия"
                   tooltipPosition="top"
                 />
               </Table.Cell>
@@ -358,7 +358,7 @@ const StatusReadout = (props, context) => {
                 <Button
                   color="transparent"
                   icon="flask"
-                  tooltip="Cure"
+                  tooltip="Лекарство"
                   tooltipPosition="top"
                 />
               </Table.Cell>
@@ -392,7 +392,7 @@ const LockedInterface = () => (
   <Section align="center" fill>
     <Icon color="red" name="exclamation-triangle" size={15} />
     <Box fontSize="30px" color="red">
-      ERROR: INTERFACE UNRESPONSIVE
+      ОШИБКА: ИНТЕРФЕЙС НЕ ОТВЕЧАЕТ
     </Box>
   </Section>
 );
@@ -403,7 +403,7 @@ const LockedModule = (props, context) => {
     <Dimmer>
       <Stack>
         <Stack.Item fontSize="16px" color="blue">
-          SUIT UNPOWERED
+          ОБЕСТОЧЕН
         </Stack.Item>
       </Stack>
     </Dimmer>
@@ -450,11 +450,11 @@ const ConfigureScreen = (props, context) => {
 const displayText = (param) => {
   switch (param) {
     case 1:
-      return 'Use';
+      return 'Использовать';
     case 2:
-      return 'Toggle';
+      return 'Переключить';
     case 3:
-      return 'Select';
+      return 'Выбрать';
   }
 };
 
@@ -473,48 +473,48 @@ const ParametersSection = (props, context) => {
     AI,
   } = data;
   const status = malfunctioning
-    ? 'Malfunctioning'
+    ? 'Неисправность'
     : active
-      ? 'Active'
-      : 'Inactive';
+      ? 'Активен'
+      : 'Неактивент';
   return (
-    <Section title="Parameters">
+    <Section title="Параметры">
       <LabeledList>
         <LabeledList.Item
-          label="Status"
+          label="Статус"
           buttons={
             <Button
               icon="power-off"
-              content={active ? 'Deactivate' : 'Activate'}
+              content={active ? 'Деактивировать' : 'Активировать'}
               onClick={() => act('activate')}
             />
           }>
           {status}
         </LabeledList.Item>
         <LabeledList.Item
-          label="ID Lock"
+          label="ИД блокировка"
           buttons={
             <Button
               icon={locked ? 'lock-open' : 'lock'}
-              content={locked ? 'Unlock' : 'Lock'}
+              content={locked ? 'Разблокировать' : 'Заблокировать'}
               onClick={() => act('lock')}
             />
           }>
-          {locked ? 'Locked' : 'Unlocked'}
+          {locked ? 'Заблокировано' : 'Разблокировано'}
         </LabeledList.Item>
-        <LabeledList.Item label="Cover">
-          {open ? 'Open' : 'Closed'}
+        <LabeledList.Item label="Панель">
+          {open ? 'Открыта' : 'Закрыта'}
         </LabeledList.Item>
-        <LabeledList.Item label="Selected Module">
-          {selected_module || 'None'}
+        <LabeledList.Item label="Выбранный модуль">
+          {selected_module || 'Нет'}
         </LabeledList.Item>
-        <LabeledList.Item label="Complexity">
+        <LabeledList.Item label="Сложность">
           {complexity} ({complexity_max})
         </LabeledList.Item>
-        <LabeledList.Item label="Occupant">
+        <LabeledList.Item label="Носитель">
           {wearer_name}, {wearer_job}
         </LabeledList.Item>
-        <LabeledList.Item label="Onboard AI">{AI || 'None'}</LabeledList.Item>
+        <LabeledList.Item label="Бортовой ИИ">{AI || 'Нет'}</LabeledList.Item>
       </LabeledList>
     </Section>
   );
@@ -533,25 +533,25 @@ const HardwareSection = (props, context) => {
     charge,
   } = data;
   return (
-    <Section title="Hardware">
+    <Section title="Оборудование">
       <Collapsible title="Parts">
         <LabeledList>
-          <LabeledList.Item label="Control Unit">{control}</LabeledList.Item>
-          <LabeledList.Item label="Helmet">{helmet || 'None'}</LabeledList.Item>
-          <LabeledList.Item label="Chestplate">
-            {chestplate || 'None'}
+          <LabeledList.Item label="Управляющий блок">{control}</LabeledList.Item>
+          <LabeledList.Item label="Шлем">{helmet || 'Нет'}</LabeledList.Item>
+          <LabeledList.Item label="Нагрудник">
+            {chestplate || 'Нет'}
           </LabeledList.Item>
-          <LabeledList.Item label="Gauntlets">
-            {gauntlets || 'None'}
+          <LabeledList.Item label="Перчатки">
+            {gauntlets || 'Нет'}
           </LabeledList.Item>
-          <LabeledList.Item label="Boots">{boots || 'None'}</LabeledList.Item>
+          <LabeledList.Item label="Ботинки">{boots || 'Нет'}</LabeledList.Item>
         </LabeledList>
       </Collapsible>
-      <Collapsible title="Core">
+      <Collapsible title="Ядро">
         {(core && (
           <LabeledList>
-            <LabeledList.Item label="Core Type">{core}</LabeledList.Item>
-            <LabeledList.Item label="Core Charge">
+            <LabeledList.Item label="Тип ядра">{core}</LabeledList.Item>
+            <LabeledList.Item label="Заряд ядра">
               <ProgressBar
                 value={charge / 100}
                 content={charge + '%'}
@@ -565,7 +565,7 @@ const HardwareSection = (props, context) => {
           </LabeledList>
         )) || (
           <Box color="bad" textAlign="center">
-            No Core Detected
+            Ядро не обнаружено
           </Box>
         )}
       </Collapsible>
@@ -579,7 +579,7 @@ const InfoSection = (props, context) => {
   const info_modules = modules.filter((module) => !!module.id);
 
   return (
-    <Section title="Info">
+    <Section title="Информация">
       <Stack vertical>
         {(info_modules.length !== 0 &&
           info_modules.map((module) => {
@@ -590,7 +590,7 @@ const InfoSection = (props, context) => {
                 <Module {...module} active={active} />
               </Stack.Item>
             );
-          })) || <Box textAlign="center">No Info Modules Detected</Box>}
+          })) || <Box textAlign="center">Нет информационных модулей</Box>}
       </Stack>
     </Section>
   );
@@ -605,7 +605,7 @@ const ModuleSection = (props, context) => {
     null
   );
   return (
-    <Section title="Modules" fill>
+    <Section title="Модули" fill>
       <Flex direction="column">
         {(modules.length !== 0 &&
           modules.map((module) => {
@@ -626,7 +626,7 @@ const ModuleSection = (props, context) => {
                           <Button
                             color="transparent"
                             icon="save"
-                            tooltip="Complexity"
+                            tooltip="Нагрузка на систему"
                             tooltipPosition="top"
                           />
                         </Table.Cell>
@@ -634,7 +634,7 @@ const ModuleSection = (props, context) => {
                           <Button
                             color="transparent"
                             icon="plug"
-                            tooltip="Idle Power Cost"
+                            tooltip="Пассивное потребление"
                             tooltipPosition="top"
                           />
                         </Table.Cell>
@@ -642,7 +642,7 @@ const ModuleSection = (props, context) => {
                           <Button
                             color="transparent"
                             icon="lightbulb"
-                            tooltip="Active Power Cost"
+                            tooltip="Активное потребление"
                             tooltipPosition="top"
                           />
                         </Table.Cell>
@@ -650,7 +650,7 @@ const ModuleSection = (props, context) => {
                           <Button
                             color="transparent"
                             icon="bolt"
-                            tooltip="Use Power Cost"
+                            tooltip="Потребление при активации"
                             tooltipPosition="top"
                           />
                         </Table.Cell>
@@ -658,7 +658,7 @@ const ModuleSection = (props, context) => {
                           <Button
                             color="transparent"
                             icon="hourglass-half"
-                            tooltip="Cooldown"
+                            tooltip="Перезарядка"
                             tooltipPosition="top"
                           />
                         </Table.Cell>
@@ -666,7 +666,7 @@ const ModuleSection = (props, context) => {
                           <Button
                             color="transparent"
                             icon="tasks"
-                            tooltip="Actions"
+                            tooltip="Действия"
                             tooltipPosition="top"
                           />
                         </Table.Cell>
@@ -723,7 +723,7 @@ const ModuleSection = (props, context) => {
             );
           })) || (
           <Flex.Item>
-            <Box textAlign="center">No Modules Detected</Box>
+            <Box textAlign="center">Модули не обнаружены</Box>
           </Flex.Item>
         )}
       </Flex>
@@ -739,7 +739,7 @@ export const MODsuit = (props, context) => {
       width={400}
       height={525}
       theme={ui_theme}
-      title="MOD Interface Panel"
+      title="МУВ панель интерфейса"
       resizable>
       <Window.Content scrollable={!interface_break}>
         {(!!interface_break && <LockedInterface />) || (

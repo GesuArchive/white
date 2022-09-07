@@ -6,11 +6,10 @@
 
 ///Health Analyzer - Gives the user a ranged health analyzer and their health status in the panel.
 /obj/item/mod/module/health_analyzer
-	name = "MOD health analyzer module"
-	desc = "A module installed into the glove of the suit. This is a high-tech biological scanning suite, \
-		allowing the user indepth information on the vitals and injuries of others even at a distance, \
-		all with the flick of the wrist. Data is displayed in a convenient package on HUD in the helmet, \
-		but it's up to you to do something with it."
+	name = "модуль медицинского анализатора"
+	desc = "Этот высокотехнологичный прибор медицинской диагностики, \
+		позволяет пользователю получить подробную информацию о жизненных показателях и травмах пациентов даже на расстоянии, \
+		Данные отображаются на визоре"
 	icon_state = "health"
 	module_type = MODULE_ACTIVE
 	complexity = 2
@@ -49,7 +48,7 @@
 
 /obj/item/mod/module/health_analyzer/get_configuration()
 	. = ..()
-	.["mode"] = add_ui_configuration("Scan Mode", "list", mode, modes)
+	.["mode"] = add_ui_configuration("Режим сканирования", "Список", mode, modes)
 
 /obj/item/mod/module/health_analyzer/configure_edit(key, value)
 	switch(key)
@@ -62,9 +61,9 @@
 
 ///Quick Carry - Lets the user carry bodies quicker.
 /obj/item/mod/module/quick_carry
-	name = "MOD quick carry module"
-	desc = "A suite of advanced servos, redirecting power from the suit's arms to help carry the wounded; \
-		or simply for fun. However, Nanotrasen has locked the module's ability to assist in hand-to-hand combat."
+	name = "модуль транспортировки раненных"
+	desc = "Набор продвинутых сервоприводов, перенаправляющих энергию скафандра в руки, и облегчающих переноску раненых. \
+	По требованиям техники безопасности эффект усиления блокируется в рукопашном бою."
 	icon_state = "carry"
 	complexity = 1
 	idle_power_cost = DEFAULT_CHARGE_DRAIN * 0.3
@@ -77,7 +76,7 @@
 	REMOVE_TRAIT(mod.wearer, TRAIT_QUICK_CARRY, MOD_TRAIT)
 
 /obj/item/mod/module/quick_carry/advanced
-	name = "MOD advanced quick carry module"
+	name = "продвинутый модуль быстрой переноски"
 	removable = FALSE
 	complexity = 0
 
@@ -91,10 +90,10 @@
 
 ///Injector - Gives the suit an extendable large-capacity piercing syringe.
 /obj/item/mod/module/injector
-	name = "MOD injector module"
-	desc = "A module installed into the wrist of the suit, this functions as a high-capacity syringe, \
-		with a tip fine enough to locate the emergency injection ports on any suit of armor, \
-		penetrating it with ease. Even yours."
+	name = "модуль инъектора"
+	desc = "Модуль устанавливаемый в запястье и функционирующий как универсальный инъектор высокой емкости. \
+		Если же пациент находится в скафандре, то ввод лекарств осуществляется через аварийный медицинский катетер, \
+		коим оснащены большинство современных скафандров."
 	icon_state = "injector"
 	module_type = MODULE_ACTIVE
 	complexity = 1
@@ -104,9 +103,9 @@
 	cooldown_time = 0.5 SECONDS
 
 /obj/item/reagent_containers/syringe/mod
-	name = "MOD injector syringe"
-	desc = "A high-capacity syringe, with a tip fine enough to locate \
-		the emergency injection ports on any suit of armor, penetrating it with ease. Even yours."
+	name = "шприц инъектора"
+	desc = "Шприц высокой емкости. Если же пациент находится в скафандре, \
+	то ввод лекарств осуществляется через аварийный медицинский катетер, коим оснащены большинство современных скафандров."
 	icon_state = "mod_0"
 	base_icon_state = "mod"
 	amount_per_transfer_from_this = 30
@@ -115,12 +114,11 @@
 
 ///Organ Thrower - Lets you shoot organs, immediately replacing them if the target has the organ manipulation surgery.
 /obj/item/mod/module/organ_thrower
-	name = "MOD organ thrower module"
-	desc = "A device recovered from a crashed Interdyne Pharmaceuticals vessel, \
-		this module has been unearthed for better or for worse. \
-		It's an arm-mounted device utilizing technology similar to modern-day part replacers, \
-		capable of storing and inserting organs into open patients. \
-		It's recommended by the DeForest Medical Corporation to not inform patients it has been used."
+	name = "модуль замены органов"
+	desc = "Данное устройство является экспериментальным прототипом обнаруженным на разбитом корабле Интердайн Фарм. \
+		Основываясь на технической документации, \
+		данный хирургический прибор способен сохранять и оперативно трансплантировать органы непосредственно в пациента, при условии подготовки зоны операции к трансплантации. \
+		Дефорест Медкорп, рекомендует не информировать пациентов о таком способе замены органов."
 	icon_state = "organ_thrower"
 	module_type = MODULE_ACTIVE
 	complexity = 2
@@ -142,11 +140,11 @@
 			return
 		var/atom/movable/organ = target
 		if(length(organ_list) >= max_organs)
-			balloon_alert(mod.wearer, "too many organs!")
+			balloon_alert(mod.wearer, "Слишком много органов!")
 			return
 		organ_list += organ
 		organ.forceMove(src)
-		balloon_alert(mod.wearer, "picked up [organ]")
+		balloon_alert(mod.wearer, "Подобрал [organ]")
 		playsound(src, 'sound/mecha/hydraulic.ogg', 25, TRUE)
 		drain_power(use_power_cost)
 		return

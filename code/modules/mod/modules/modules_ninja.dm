@@ -2,10 +2,9 @@
 
 ///Cloaking - Lowers the user's visibility, can be interrupted by being touched or attacked.
 /obj/item/mod/module/stealth
-	name = "MOD prototype cloaking module"
-	desc = "A complete retrofitting of the suit, this is a form of visual concealment tech employing esoteric technology \
-		to bend light around the user, as well as mimetic materials to make the surface of the suit match the \
-		surroundings based off sensor data. For some reason, this tech is rarely seen."
+	name = "прототип маскировочного модуля"
+	desc = "Этот модуль использует технологию искажения потока фотонов и мимикрии для визуальной маскировки носителя. \
+		Возможно именно по этому такие модули редко попадаются на глаза."
 	icon_state = "cloak"
 	module_type = MODULE_TOGGLE
 	complexity = 4
@@ -42,7 +41,7 @@
 /obj/item/mod/module/stealth/proc/unstealth(datum/source)
 	SIGNAL_HANDLER
 
-	to_chat(mod.wearer, span_warning("[src] gets discharged from contact!"))
+	to_chat(mod.wearer, span_warning("[src] разрядился от контакта!"))
 	do_sparks(2, TRUE, src)
 	drain_power(use_power_cost)
 	on_deactivation(display_message = TRUE, deleting = FALSE)
@@ -63,12 +62,12 @@
 
 //Advanced Cloaking - Doesn't turf off on bump, less power drain, more stealthy.
 /obj/item/mod/module/stealth/ninja
-	name = "MOD advanced cloaking module"
-	desc = "The latest in stealth technology, this module is a definite upgrade over previous versions. \
-		The field has been tuned to be even more responsive and fast-acting, with enough stability to \
-		continue operation of the field even if the user bumps into others. \
-		The power draw has been reduced drastically, making this perfect for activities like \
-		standing near sentry turrets for extended periods of time."
+	name = "продвинутый маскировочный модуль"
+	desc = "Последняя модель в технологии маскировки, этот модуль определённо является обновлением по сравнению с предыдущими версиями. \
+		Поле было настроено на ещё более быструю и стойкую маскировку, достаточно стойкую для \
+		длительной работы поля, даже если пользователь сталкивается с другими объектами. \
+		Энергопотребление было значительно сокращено, что делает его идеальным для \
+		длительной слежки за своими целями."
 	icon_state = "cloak_ninja"
 	bumpoff = FALSE
 	stealth_alpha = 20
@@ -78,11 +77,10 @@
 
 ///Camera Vision - Prevents flashes, blocks tracking.
 /obj/item/mod/module/welding/camera_vision
-	name = "MOD camera vision module"
-	desc = "A module installed into the suit's helmet. This specialized piece of technology is built for subterfuge, \
-		replacing the standard visor with a nanotech display; capable of displaying specialized imagery at \
-		just the right frequency to jam all known forms of camera tracking and facial recognition, \
-		as well as automatically dimming incoming flashes of light to protect the user's eyes. Become the unseen."
+	name = "модуль шифрования изображения"
+	desc = "Этот специализированный модуль нарушает работу камер для маскировки носителя на изображениях, \
+		а так же заглушает работу любых программ автоматической слежки и распознования лиц. \
+		В комплекте идёт нанодисплей для защиты глаз от резких вспышек. Станьте невидимым."
 	icon_state = "welding_camera"
 	removable = FALSE
 	complexity = 0
@@ -103,21 +101,21 @@
 
 //Ninja Star Dispenser - Dispenses ninja stars.
 /obj/item/mod/module/dispenser/ninja
-	name = "MOD ninja star dispenser module"
-	desc = "This piece of Spider Clan technology can exploit known energy-matter equivalence principles, \
-		using the nanites already hosted in the wearer's suit to transmute into monomolecular shuriken. \
-		While these lack the intense bleeding edge of conventional throwing stars, \
-		they have been set to electrify fleeing targets; and branded with the Spider Clan symbol."
+	name = "модуль репликатора метальных звёзд"
+	desc = "Уникальная разработка Клана Пауков, использующая заряд скафандра для репликации метательных звёзд непосредственно в руке пользователя. \
+		Наниты, расположенные в перчатках скафандра, при подаче энергии начинают собиратся в мономолекулярные звёзды, \
+		однако, сюрикены собранные таким образом не имеют таких же острых краёв как классические звезды, \
+		взамен, однако, неплохо изматывают свою цель."
 	dispense_type = /obj/item/throwing_star/stamina/ninja
 	cooldown_time = 0.5 SECONDS
 
 ///Hacker - This module hooks onto your right-clicks with empty hands and causes ninja actions.
 /obj/item/mod/module/hacker
-	name = "MOD hacker module"
-	desc = "Built for one purpose, electronic warfare, this module is built into the hands. \
-		Using near-field communication alongside precise electro-stimulation of the wires in machines, \
-		this decker's dream is normally used to pass through doors like a phantom. \
-		It's also capable of non-precise electro-stimulation of an assassin-saboteur's opponents on disarming attacks."
+	name = "модуль взлома"
+	desc = "Модуль созданный для саботажа электронных устройств, \
+		Посредством узконаправленной электромагнитной индукции. \
+		Данное воздействие на большинство стандартных шлюзов, машин и прочих электронных устройств вызывает короткие замыкания или активацию аварийных протоколов. \
+		Он также способен обезвреживать противника точной электростимуляцией нервной системы."
 	icon_state = "hacker"
 	removable = FALSE
 	incompatible_modules = list(/obj/item/mod/module/hacker)
@@ -146,19 +144,18 @@
 
 /obj/item/mod/module/hacker/proc/charge_message(atom/drained_atom, drain_amount)
 	if(drain_amount)
-		to_chat(mod.wearer, span_notice("Gained <B>[drain_amount]</B> units of energy from [drained_atom]."))
+		to_chat(mod.wearer, span_notice("Получено <B>[drain_amount]</B> единиц энергии с [drained_atom]."))
 	else
-		to_chat(mod.wearer, span_warning("[drained_atom] has run dry of energy, you must find another source!"))
+		to_chat(mod.wearer, span_warning("[drained_atom] истощен, необходимо найти другой источник питания!"))
 
 ///Weapon Recall - Teleports your katana to you, prevents gun use.
 /obj/item/mod/module/weapon_recall
-	name = "MOD weapon recall module"
-	desc = "The cornerstone of a clanmember's life as a blademaster, and a module symbolizing their eternal bond with their weapon. \
-		This hooks to the micro bluespace drive inside an energy katana's handle, capable of recalling it to the user's \
-		skilled hands wherever they are. However, those that make such a bond with their weapon are cursed to \
-		fusing their existence with acts of combat, with a singular purpose; Cutting Down Their Opponent. \
-		Their hand a hand that is cutting, their body a body that is cutting, their mind, a mind that is cutting. \
-		Ranged weapons are forbidden."
+	name = "модуль связи с оружием"
+	desc = "Краеугольный камень жизни Клана Пауков как мастеров клинков. Модуль символизирует их вечную связь с оружием. \
+		Устройство способно возвращать привязанное оружие обратно к умелым рукам владельца, \
+		где бы оно не было. Однако, те, кто делают такую связь с оружием на веки прокляты, \
+		связывая своё существование с насилием, для единственной цели: Сократить количество противника. \
+		Их рука - клинок, их тело - тень, их разум - беспощадный."
 	icon_state = "recall"
 	removable = FALSE
 	module_type = MODULE_USABLE
@@ -183,23 +180,23 @@
 	if(!linked_weapon)
 		var/obj/item/weapon_to_link = mod.wearer.is_holding_item_of_type(accepted_type)
 		if(!weapon_to_link)
-			balloon_alert(mod.wearer, "can't locate weapon!")
+			balloon_alert(mod.wearer, "Не могу найти оружие!")
 			return
 		set_weapon(weapon_to_link)
-		balloon_alert(mod.wearer, "[linked_weapon.name] linked")
+		balloon_alert(mod.wearer, "[linked_weapon.name] связано")
 		return
 	if(linked_weapon in mod.wearer.get_all_contents())
-		balloon_alert(mod.wearer, "already on self!")
+		balloon_alert(mod.wearer, "Уже с вами!")
 		return
 	var/distance = get_dist(mod.wearer, linked_weapon)
 	var/in_view = (linked_weapon in view(mod.wearer))
 	if(!in_view && !drain_power(use_power_cost * distance))
-		balloon_alert(mod.wearer, "not enough charge!")
+		balloon_alert(mod.wearer, "Не хватает энергии!")
 		return
 	linked_weapon.forceMove(linked_weapon.drop_location())
 	if(in_view)
 		do_sparks(5, FALSE, linked_weapon)
-		mod.wearer.visible_message(span_danger("[linked_weapon] flies towards [mod.wearer]!"),span_warning("You hold out your hand and [linked_weapon] flies towards you!"))
+		mod.wearer.visible_message(span_danger("[linked_weapon] прилетает обратно к [mod.wearer]!"),span_warning("Складываю свою руку в специальном жесте и [linked_weapon] прилетает обратно ко мне"))
 		linked_weapon.throw_at(mod.wearer, distance+1, linked_weapon.throw_speed, mod.wearer)
 	else
 		recall_weapon()
@@ -213,16 +210,16 @@
 	linked_weapon.forceMove(get_turf(src))
 	var/alert = ""
 	if(mod.wearer.put_in_hands(linked_weapon))
-		alert = "[linked_weapon.name] teleports to your hand"
+		alert = "[linked_weapon.name] телепортируется мне обратно в руки!"
 	else if(mod.wearer.equip_to_slot_if_possible(linked_weapon, ITEM_SLOT_BELT, disable_warning = TRUE))
-		alert = "[linked_weapon.name] sheathes itself in your belt"
+		alert = "[linked_weapon.name] помещается на мой пояс"
 	else
-		alert = "[linked_weapon.name] teleports under you"
+		alert = "[linked_weapon.name] телепортируется под меня"
 	if(caught)
 		if(mod.wearer.is_holding(linked_weapon))
-			alert = "you catch [linked_weapon.name]"
+			alert = "Ловлю [linked_weapon.name]"
 		else
-			alert = "[linked_weapon.name] lands under you"
+			alert = "[linked_weapon.name] падает перед мною"
 	else
 		do_sparks(5, FALSE, linked_weapon)
 	if(alert)
@@ -245,11 +242,11 @@
 
 //Reinforced DNA Lock - Gibs if wrong DNA, emp-proof.
 /obj/item/mod/module/dna_lock/reinforced
-	name = "MOD reinforced DNA lock module"
-	desc = "A module which engages with the various locks and seals tied to the suit's systems, \
-		enabling it to only be worn by someone corresponding with the user's exact DNA profile. \
-		Due to utilizing a skintight dampening shield, this one is entirely sealed against electromagnetic interference; \
-		it also dutifully protects the secrets of the Spider Clan from unknowing outsiders."
+	name = "улучшеный модуль ДНК блокировки"
+	desc = "Модуль блокировки центрального ядра костюма, \
+		не позволяющий не авторизованному лицу получить доступ без проверки ДНК. \
+		Из-за использования экспериментального ингибитора поля, модуль полностью защищен от электромагнитных помех. \
+		Он также послушно защищает секреты Клана Пауков от посторонних глаз."
 	icon_state = "dnalock_ninja"
 	use_power_cost = DEFAULT_CHARGE_DRAIN * 0.5
 
@@ -258,7 +255,7 @@
 	if(. != MOD_CANCEL_ACTIVATE || !isliving(user))
 		return
 	var/mob/living/living_user = user
-	to_chat(living_user, span_danger("<B>fATaL EERRoR</B>: 382200-*#00CODE <B>RED</B>\nUNAUTHORIZED USE DETECteD\nCoMMENCING SUB-R0UTIN3 13...\nTERMInATING U-U-USER..."))
+	to_chat(living_user, span_danger("<B>ФАаТальнАя ОшИбка</B>: 382200-*#00КОД <B>КРАСНЫЙ</B>\nНЕАВТОРИЗОВАННОЕ ИСПОЛЬЗОВАНИЕ ОБНАРУЖЕНО\nИСПОЛНЯЮ СУБ-П40ТОК0Л 13...\nУниЧТОЖАЮ ПО-ПОЛЬЗОВАТЕЛЯ..."))
 	living_user.gib()
 
 /obj/item/mod/module/dna_lock/reinforced/on_emp(datum/source, severity)
@@ -266,10 +263,10 @@
 
 //EMP Pulse - In addition to normal shielding, can also launch an EMP itself.
 /obj/item/mod/module/emp_shield/pulse
-	name = "MOD EMP pulse module"
-	desc = "This module is normally set to activate on dramatic gestures, inverting and expanding the suit's \
-		EMP dampening shield to cause an electromagnetic pulse of its own. While this won't interfere with the wearer, \
-		it will piss off everyone around them."
+	name = "модуль эми импульса"
+	desc = "Прототип ингибитора поля, защищающего скафандр от ЭМИ импульсов \
+		Носитель может перегрузить и тем самым инвертировать работу модуля, \
+		вызвав сильный ЭМИ-импульс, посредством складывания из рук специальной печати."
 	icon_state = "emp_pulse"
 	module_type = MODULE_USABLE
 	use_power_cost = DEFAULT_CHARGE_DRAIN * 10
@@ -285,11 +282,10 @@
 
 ///Status Readout - Puts a lot of information including health, nutrition, fingerprints, temperature to the suit TGUI.
 /obj/item/mod/module/status_readout
-	name = "MOD status readout module"
-	desc = "A once-common module, this technology went unfortunately out of fashion; \
-		and right into the arachnid grip of the Spider Clan. This hooks into the suit's spine, \
-		capable of capturing and displaying all possible biometric data of the wearer; sleep, nutrition, fitness, fingerprints, \
-		and even useful information such as their overall health and wellness."
+	name = "модуль биомонитора"
+	desc = "Судя по всему когда-то это было обычным гражданским медицинским модулем подвергшимся серьезной модификации. \
+		Клан Паука адаптировал данное устройство под мониторинг основных жизненных показателей носителя, \
+		от стандартных биометрических данных, до уровня насыщения и общего состояния."
 	icon_state = "status"
 	complexity = 1
 	use_power_cost = DEFAULT_CHARGE_DRAIN * 0.1
@@ -326,10 +322,8 @@
 
 ///Energy Net - Ensnares enemies in a net that prevents movement.
 /obj/item/mod/module/energy_net
-	name = "MOD energy net module"
-	desc = "A custom-built net-thrower. While conventional implementations of this capturing device \
-		tilize monomolecular fibers or cutting razorwire, this uses hardlight technology to deploy a \
-		trapping field capable of immobilizing even the strongest opponents."
+	name = "модуль энергосети"
+	desc = "Хитроумное устройство для запуска энергетической ловчей сети из мономолекулярного волокна и удержания противника на месте."
 	icon_state = "energy_net"
 	removable = FALSE
 	module_type = MODULE_ACTIVE
@@ -342,22 +336,22 @@
 	if(!.)
 		return
 	if(!isliving(target))
-		balloon_alert(mod.wearer, "invalid target!")
+		balloon_alert(mod.wearer, "Неправильная цель!")
 		return
 	var/mob/living/living_target = target
 	if(locate(/obj/structure/energy_net) in get_turf(living_target))
-		balloon_alert(mod.wearer, "already trapped!")
+		balloon_alert(mod.wearer, "Уже закован!")
 		return
 	for(var/turf/between_turf as anything in get_line(get_turf(mod.wearer), get_turf(living_target)))
 		if(between_turf.density)
-			balloon_alert(mod.wearer, "not through obstacles!")
+			balloon_alert(mod.wearer, "За препятствием!")
 			return
 	if(IS_SPACE_NINJA(mod.wearer))
-		mod.wearer.say("Get over here!", forced = type)
+		mod.wearer.say("А ну иди сюда!", forced = type)
 	mod.wearer.Beam(living_target, "n_beam", time = 1.5 SECONDS)
 	var/obj/structure/energy_net/net = new /obj/structure/energy_net(living_target.drop_location())
 	net.affecting = living_target
-	mod.wearer.visible_message(span_danger("[mod.wearer] caught [living_target] with an energy net!"), span_notice("You caught [living_target] with an energy net!"))
+	mod.wearer.visible_message(span_danger("[mod.wearer] поймал [living_target] энергосетью!"), span_notice("Вы поймали [living_target] энергосетью!"))
 	if(living_target.buckled)
 		living_target.buckled.unbuckle_mob(living_target, force = TRUE)
 	net.buckle_mob(living_target, force = TRUE)
@@ -365,13 +359,11 @@
 
 ///Adrenaline Boost - Stops all stuns the ninja is affected with, increases his speed.
 /obj/item/mod/module/adrenaline_boost
-	name = "MOD adrenaline boost module"
-	desc = "The secrets of the Spider Clan are many. The exact specifications of their suits, \
-		the techniques they use to make every singular cut make their enemies weep with admiration, \
-		but one of their greatest mysteries is the chemical compound their assassin-saboteurs use in times of need. \
-		It's capable of clearing any fatigue whatsoever from the user, any immobilizing effect, and can even \
-		cure total paralysis. All that's known is that the fluid requires radiation to properly 'cook,' \
-		so this module demands radium to be refilled with."
+	name = "модуль адреналинового усиления"
+	desc = "У Клана Паука множество секретов. Точные характеристики их костюмов, \
+		техники, которые они используют, чтобы сделать каждый шаг со взмахом клинка. \
+		Но одна из их величайших тайн - это химическое соединение, которое используют убийцы-диверсанты в случае необходимости. \
+		нейтрализовать эффект полной парализации. Все, что о ней известно, это то, что для синтеза химиката необходимо радиоактивное излучение."
 	icon_state = "adrenaline_boost"
 	removable = FALSE
 	module_type = MODULE_USABLE
@@ -389,14 +381,14 @@
 
 /obj/item/mod/module/adrenaline_boost/on_use()
 	if(!reagents.has_reagent(reagent_required, reagent_required_amount))
-		balloon_alert(mod.wearer, "no charge!")
+		balloon_alert(mod.wearer, "Нет энергии!")
 		return
 	. = ..()
 	if(!.)
 		return
 	if(IS_SPACE_NINJA(mod.wearer))
 		mod.wearer.say(pick_list_replacements(NINJA_FILE, "lines"), forced = type)
-	to_chat(mod.wearer, span_notice("You have used the adrenaline boost."))
+	to_chat(mod.wearer, span_notice("Использовал адреналиновое усиление."))
 	mod.wearer.SetUnconscious(0)
 	mod.wearer.SetStun(0)
 	mod.wearer.SetKnockdown(0)
@@ -430,15 +422,15 @@
 	if(!attacking_item.is_open_container())
 		return FALSE
 	if(reagents.has_reagent(reagent_required, reagent_required_amount))
-		balloon_alert(mod.wearer, "already charged!")
+		balloon_alert(mod.wearer, "Уже заряжено!")
 		return FALSE
 	if(!attacking_item.reagents.trans_id_to(src, reagent_required, reagent_required_amount))
 		return FALSE
-	balloon_alert(mod.wearer, "charge [reagents.has_reagent(reagent_required, reagent_required_amount) ? "fully" : "partially"] reloaded")
+	balloon_alert(mod.wearer, "Модуль [reagents.has_reagent(reagent_required, reagent_required_amount) ? "полностью" : "частично"] заряжен")
 	return TRUE
 
 /obj/item/mod/module/adrenaline_boost/proc/boost_aftereffects(mob/affected_mob)
 	if(!affected_mob)
 		return
 	reagents.trans_to(affected_mob, reagents.total_volume)
-	to_chat(affected_mob, span_danger("You are beginning to feel the after-effect of the injection."))
+	to_chat(affected_mob, span_danger("Чувствую последствия усиления."))

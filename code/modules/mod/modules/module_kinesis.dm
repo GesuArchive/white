@@ -1,11 +1,11 @@
 ///Kinesis - Gives you the ability to move and launch objects.
 /obj/item/mod/module/anomaly_locked/kinesis
-	name = "MOD kinesis module"
-	desc = "A modular plug-in to the forearm, this module was presumed lost for many years, \
-		despite the suits it used to be mounted on still seeing some circulation. \
-		This piece of technology allows the user to generate precise anti-gravity fields, \
-		letting them move objects as small as a titanium rod to as large as industrial machinery. \
-		Oddly enough, it doesn't seem to work on living creatures."
+	name = "кинезис модуль"
+	desc = "Модуль, подключаемый к предплечью, технология изготовления которого считалась потерянной в течение многих лет, \
+		и крайне редко встречаемый за исключением немногочисленных сохранившихся образцов. \
+		Эта технология позволяет пользователю создавать точные антигравитационные поля, \
+		позволяя им перемещать объекты размером от от небольшого металлического стержня до больших промышленных машин. \
+		Как ни странно, это не работает на живых существах."
 	icon_state = "kinesis"
 	module_type = MODULE_ACTIVE
 	complexity = 3
@@ -53,10 +53,10 @@
 		clear_grab(playsound = FALSE)
 		return
 	if(!range_check(target))
-		balloon_alert(mod.wearer, "too far!")
+		balloon_alert(mod.wearer, "Слишком далеко!")
 		return
 	if(!can_grab(target))
-		balloon_alert(mod.wearer, "can't grab!")
+		balloon_alert(mod.wearer, "Не могу схватить!")
 		return
 	drain_power(use_power_cost)
 	grabbed_atom = target
@@ -85,7 +85,7 @@
 		clear_grab()
 		return
 	if(!range_check(grabbed_atom))
-		balloon_alert(mod.wearer, "out of range!")
+		balloon_alert(mod.wearer, "Вне радиуса!")
 		clear_grab()
 		return
 	if(!kinesis_catcher.given_turf)
@@ -214,7 +214,7 @@
 	prebuilt = TRUE
 
 /obj/item/mod/module/anomaly_locked/kinesis/prebuilt/prototype
-	name = "MOD prototype kinesis module"
+	name = "МУВ прототип кинезис модуля"
 	complexity = 0
 	use_power_cost = DEFAULT_CHARGE_DRAIN * 5
 	removable = FALSE
@@ -263,12 +263,11 @@
 	given_y = round(icon_y - world.icon_size * our_y, 1)
 
 /obj/item/mod/module/anomaly_locked/kinesis/plus
-	name = "MOD kinesis+ module"
-	desc = "A modular plug-in to the forearm, this module was recently redeveloped in secret. \
-		The bane of all ne'er-do-wells, the kinesis+ module is a powerful tool that allows the user \
-		to manipulate the world around them. Like it's older counterpart, it's capable of manipulating \
-		structures, machinery, vehicles, and, thanks to the fruitful efforts of it's creators - living  \
-		beings. They can, however, still struggle after an initial burst of inertia."
+	name = "продвинутый кинезис модуль"
+	desc = "Секретная военная разработка безымянного правительственного оружейного концерна. \
+		Продвинутый кинезис модуль - это мощный тактический инструмент, позволяющий пользователю воздействовать на физическую природу гравитации. \
+		В отличии от своего раннего прототипа эта модель так же способна воздействовать на живые объекты. \
+		Однако, они все еще могут бороться с гравитационным захватом."
 	complexity = 0
 	prebuilt = TRUE
 	stat_required = CONSCIOUS
