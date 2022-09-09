@@ -120,8 +120,6 @@
 		var/animate_time = 0
 		for(var/thing in C.parallax_layers)
 			var/atom/movable/screen/parallax_layer/L = thing
-			if(!L)
-				continue
 			L.icon_state = initial(L.icon_state)
 			L.update_o(C.view)
 			var/T = PARALLAX_LOOP_TIME / L.speed
@@ -145,8 +143,7 @@
 	if(!skip_windups)
 		for(var/thing in C.parallax_layers)
 			var/atom/movable/screen/parallax_layer/L = thing
-			if(!L)
-				continue
+
 			var/T = PARALLAX_LOOP_TIME / L.speed
 			if (isnull(shortesttimer))
 				shortesttimer = T
