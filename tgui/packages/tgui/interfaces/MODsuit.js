@@ -739,7 +739,7 @@ export const MODsuit = (props, context) => {
       width={400}
       height={525}
       theme={ui_theme}
-      title="МУВ панель интерфейса"
+      title="MOD панель интерфейса"
       resizable>
       <Window.Content scrollable={!interface_break}>
         {(!!interface_break && <LockedInterface />) || (

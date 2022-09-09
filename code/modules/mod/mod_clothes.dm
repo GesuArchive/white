@@ -1,6 +1,6 @@
 /obj/item/clothing/head/mod
-	name = "МУВ шлем"
-	desc = "Шлем для МУВ-Скафандра."
+	name = "MOD шлем"
+	desc = "Шлем для MOD-Скафандра."
 	icon = 'icons/obj/clothing/modsuit/mod_clothing.dmi'
 	icon_state = "helmet"
 	worn_icon = 'icons/mob/clothing/modsuit/mod_clothing.dmi'
@@ -11,8 +11,8 @@
 	obj_flags = IMMUTABLE_SLOW
 
 /obj/item/clothing/suit/mod
-	name = "МУВ нагрудник"
-	desc = "Нагрудник для МУВ-Скафандра."
+	name = "MOD нагрудник"
+	desc = "Нагрудник для MOD-Скафандра."
 	icon = 'icons/obj/clothing/modsuit/mod_clothing.dmi'
 	icon_state = "chestplate"
 	worn_icon = 'icons/mob/clothing/modsuit/mod_clothing.dmi'
@@ -24,8 +24,8 @@
 	obj_flags = IMMUTABLE_SLOW
 
 /obj/item/clothing/gloves/mod
-	name = "МУВ перчатки"
-	desc = "Пара перчаток для МУВ-Скафандра."
+	name = "MOD перчатки"
+	desc = "Пара перчаток для MOD-Скафандра."
 	icon = 'icons/obj/clothing/modsuit/mod_clothing.dmi'
 	icon_state = "gauntlets"
 	worn_icon = 'icons/mob/clothing/modsuit/mod_clothing.dmi'
@@ -36,8 +36,8 @@
 	obj_flags = IMMUTABLE_SLOW
 
 /obj/item/clothing/shoes/mod
-	name = "МУВ Ботинки"
-	desc = "Пара ботинок для МУВ-Скафандра"
+	name = "MOD Ботинки"
+	desc = "Пара ботинок для MOD-Скафандра"
 	icon = 'icons/obj/clothing/modsuit/mod_clothing.dmi'
 	icon_state = "boots"
 	worn_icon = 'icons/mob/clothing/modsuit/mod_clothing.dmi'

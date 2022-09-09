@@ -58,7 +58,7 @@
 ///Rave Visor - Gives you a rainbow visor and plays jukebox music to you.
 /obj/item/mod/module/visor/rave
 	name = "модуль рейв визора"
-	desc = "Супер крутой афигенный визор (СКАВ), для МУВ-Скафандров."
+	desc = "Супер крутой афигенный визор (СКАВ), для MOD-Скафандров."
 	icon_state = "rave_visor"
 	complexity = 1
 	overlay_state_inactive = "module_rave"
@@ -149,7 +149,7 @@
 ///Tanner - Tans you with spraytan.
 /obj/item/mod/module/tanner
 	name = "модуль загара"
-	desc = "Модуль загара для МУВ-Скафандров. Технически факт образования рака кожи не был доказан, \
+	desc = "Модуль загара для MOD-Скафандров. Технически факт образования рака кожи не был доказан, \
 		хотя, кто-знает, ходят некоторые слухи..."
 	icon_state = "tanning"
 	module_type = MODULE_USABLE

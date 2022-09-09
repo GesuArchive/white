@@ -3,7 +3,7 @@
 	name = "MOD module"
 	icon = 'icons/obj/clothing/modsuit/mod_modules.dmi'
 	icon_state = "module"
-	var/ru_name = "МУВ модуль"
+	var/ru_name = "MOD модуль"
 	/// If it can be removed
 	var/removable = TRUE
 	/// If it's passive, togglable, usable or active
@@ -313,7 +313,7 @@
 
 ///Anomaly Locked - Causes the module to not function without an anomaly.
 /obj/item/mod/module/anomaly_locked
-	name = "МУВ нерабочий без ядра аномалии"
+	name = "MOD нерабочий без ядра аномалии"
 	desc = "Тип модулей, не работающий без ядра аномалии"
 	incompatible_modules = list(/obj/item/mod/module/anomaly_locked)
 	/// The core item the module runs off.

@@ -1,6 +1,6 @@
 /// MODsuits, trade-off between armor and utility
 /obj/item/mod
-	name = "Базовый МУВ"
+	name = "Базовый MOD"
 	desc = "Ты не должен видеть это, сообщи кодерам об этом!"
 	icon = 'icons/obj/clothing/modsuit/mod_clothing.dmi'
 	worn_icon = 'icons/mob/clothing/modsuit/mod_clothing.dmi'
@@ -31,7 +31,7 @@
 	alternate_worn_layer = HANDS_LAYER+0.1 //we want it to go above generally everything, but not hands
 	/// The MOD's theme, decides on some stuff like armor and statistics.
 	var/datum/mod_theme/theme = /datum/mod_theme
-	var/ru_name = "блок управления МУВ-Скафа"
+	var/ru_name = "блок управления MOD-Скафа"
 	/// Looks of the MOD.
 	var/skin = "standard"
 	/// Theme of the MOD TGUI
@@ -212,7 +212,7 @@
 		if(core)
 			. += span_notice("Ядро ")
 		else
-			. += span_notice("Вы можете использовать <b>МУВ ядро</b> на этом для установки.")
+			. += span_notice("Вы можете использовать <b>MOD ядро</b> на этом для установки.")
 		if(ai)
 			. += span_notice("Вы можете удалить [ai] используя <b>интелкарту</b>.")
 		else

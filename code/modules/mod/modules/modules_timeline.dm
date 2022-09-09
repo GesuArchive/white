@@ -39,7 +39,7 @@
 	SIGNAL_HANDLER
 
 	if(true_owner_ckey && user.ckey != true_owner_ckey)
-		to_chat(mod.wearer, span_userdanger("\"МУВ-Скафандр экипирован обитателем текущей временной линии! СТИРАНИЕ...\""))
+		to_chat(mod.wearer, span_userdanger("\"MOD-Скафандр экипирован обитателем текущей временной линии! СТИРАНИЕ...\""))
 		new /obj/structure/chrono_field(user.loc, user)
 		return MOD_CANCEL_ACTIVATE
 

@@ -289,7 +289,7 @@
 
 ///Power kick - Lets the user launch themselves at someone to kick them.
 /obj/item/mod/module/power_kick
-	name = "МУВ модуль силового удара"
+	name = "MOD модуль силового удара"
 	desc = "Этот модуль использует мощный маймер, чтобы сгенерировать невероятное количество энергии и передать её в удар"
 	icon_state = "power_kick"
 	module_type = MODULE_ACTIVE

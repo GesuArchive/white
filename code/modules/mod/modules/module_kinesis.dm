@@ -214,7 +214,7 @@
 	prebuilt = TRUE
 
 /obj/item/mod/module/anomaly_locked/kinesis/prebuilt/prototype
-	name = "МУВ прототип кинезис модуля"
+	name = "MOD прототип кинезис модуля"
 	complexity = 0
 	use_power_cost = DEFAULT_CHARGE_DRAIN * 5
 	removable = FALSE

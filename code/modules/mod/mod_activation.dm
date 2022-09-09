@@ -149,7 +149,7 @@
 			continue
 		module.on_deactivation(display_message = FALSE)
 	activating = TRUE
-	to_chat(wearer, span_notice("МУВ-Скафандр [active ? "выключается" : "включается"]."))
+	to_chat(wearer, span_notice("MOD-Скафандр [active ? "выключается" : "включается"]."))
 	if(do_after(wearer, activation_step_time, wearer, MOD_ACTIVATION_STEP_FLAGS, extra_checks = CALLBACK(src, .proc/has_wearer)))
 		to_chat(wearer, span_notice("[boots] [active ? "расслабляют крепление с ногами" : "закрепляются вокруг ваших ног"]."))
 		playsound(src, 'sound/mecha/mechmove03.ogg', 25, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)

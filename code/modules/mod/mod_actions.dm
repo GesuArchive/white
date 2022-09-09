@@ -39,7 +39,7 @@
 	return TRUE
 
 /datum/action/item_action/mod/deploy
-	name = "Развернуть МУВ-Скафандр"
+	name = "Развернуть MOD-Скафандр"
 	desc = "ЛКМ: Развернуть/Свернуть части. ПКМ: Развернуть/Свернуть полностью."
 	button_icon_state = "deploy"
 
@@ -57,7 +57,7 @@
 	ai_action = TRUE
 
 /datum/action/item_action/mod/activate
-	name = "Активировать МУВ-Скаф"
+	name = "Активировать MOD-Скаф"
 	desc = "ЛКМ: Активировать/Деактивировать костюм с предупреждением. ПКМ: Активировать/Деактивировать костюм игнорируя предупреждение."
 	button_icon_state = "activate"
 	/// First time clicking this will set it to TRUE, second time will activate it.
@@ -92,7 +92,7 @@
 
 /datum/action/item_action/mod/module
 	name = "Переключить модули"
-	desc = "Переключить модули МУВ-Скафандра."
+	desc = "Переключить модули MOD-Скафандра."
 	button_icon_state = "module"
 
 /datum/action/item_action/mod/module/Trigger(trigger_flags)
@@ -106,8 +106,8 @@
 	ai_action = TRUE
 
 /datum/action/item_action/mod/panel
-	name = "Панель МУВ-Скафандра"
-	desc = "Открыть панель управления МУВ-Скафа."
+	name = "Панель MOD-Скафандра"
+	desc = "Открыть панель управления MOD-Скафа."
 	button_icon_state = "panel"
 
 /datum/action/item_action/mod/panel/Trigger(trigger_flags)

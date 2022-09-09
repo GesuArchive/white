@@ -1280,7 +1280,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/mod_core_standard
-	name = "МУВ ядро (Стандартное)"
+	name = "MOD ядро (Стандартное)"
 	result = /obj/item/mod/core/standard
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 10 SECONDS
@@ -1292,7 +1292,7 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/mod_core_ethereal
-	name = "МУВ ядро (Этериал)"
+	name = "MOD ядро (Этериал)"
 	result = /obj/item/mod/core/ethereal
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 10 SECONDS

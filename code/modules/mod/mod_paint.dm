@@ -6,7 +6,7 @@
 #define MODPAINT_MIN_OVERALL_COLORS 1.5
 
 /obj/item/mod/paint
-	name = "набор покраски МУВ-Скафандра"
+	name = "набор покраски MOD-Скафандра"
 	desc = "Этот комплект перекрасит ваш скафандр во что-то уникальное."
 	icon = 'icons/obj/clothing/modsuit/mod_construction.dmi'
 	icon_state = "paintkit"
@@ -20,8 +20,8 @@
 
 /obj/item/mod/paint/examine(mob/user)
 	. = ..()
-	. += span_notice("<b>Левый-клик</b> на МУВ-Скаф для смены вида.")
-	. += span_notice("<b>Правый-клик</b> На МУВ-Скаф для смены цвета.")
+	. += span_notice("<b>Левый-клик</b> на MOD-Скаф для смены вида.")
+	. += span_notice("<b>Правый-клик</b> На MOD-Скаф для смены цвета.")
 
 /obj/item/mod/paint/pre_attack(atom/attacked_atom, mob/living/user, params)
 	if(!istype(attacked_atom, /obj/item/mod/control))
@@ -163,7 +163,7 @@
 #undef MODPAINT_MIN_OVERALL_COLORS
 
 /obj/item/mod/skin_applier
-	name = "Набор смены внешнего вида МУВ-Скафандра"
+	name = "Набор смены внешнего вида MOD-Скафандра"
 	desc = "Этот модуль изменит внешний вид к костюмам определенного типа."
 	icon = 'icons/obj/clothing/modsuit/mod_construction.dmi'
 	icon_state = "skinapplier"
@@ -172,7 +172,7 @@
 
 /obj/item/mod/skin_applier/Initialize(mapload)
 	. = ..()
-	name = "МУВ [skin] смена внешнего вида"
+	name = "MOD [skin] смена внешнего вида"
 
 /obj/item/mod/skin_applier/pre_attack(atom/attacked_atom, mob/living/user, params)
 	if(!istype(attacked_atom, /obj/item/mod/control))

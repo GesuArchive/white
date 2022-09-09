@@ -1,6 +1,6 @@
 /obj/item/mod/core
-	name = "ядро МУВ-Скафа"
-	desc = "Нерабочее ядро МУВ-Скафа. Сообщи кодерам если видишь это!."
+	name = "ядро MOD-Скафа"
+	desc = "Нерабочее ядро MOD-Скафа. Сообщи кодерам если видишь это!."
 	icon = 'icons/obj/clothing/modsuit/mod_construction.dmi'
 	icon_state = "mod-core"
 	inhand_icon_state = "electronic"
@@ -45,9 +45,9 @@
 	mod.wearer.clear_alert("mod_charge")
 
 /obj/item/mod/core/infinite
-	name = "бесконечное ядро МУВ-Скафа"
+	name = "бесконечное ядро MOD-Скафа"
 	icon_state = "mod-core-infinite" // валериум и правда смешно
-	desc = "Ядро синтеза, использующее редкий Валериум для поддержания достаточной энергии на протяжении всей жизни пользователя МУВ-Скафа. \
+	desc = "Ядро синтеза, использующее редкий Валериум для поддержания достаточной энергии на протяжении всей жизни пользователя MOD-Скафа. \
 		Это может быть из-за медленно убивающего яда внутри, но это просто слухи."
 
 /obj/item/mod/core/infinite/charge_source()
@@ -69,7 +69,7 @@
 	return TRUE
 
 /obj/item/mod/core/standard
-	name = "стандартное ядро МУВ-Скафа"
+	name = "стандартное ядро MOD-Скафа"
 	icon_state = "mod-core-standard"
 	desc = "На планете Росток есть кристалл, известный как Хартблум. Найти его можно только в самых пышных, плодородных областях. \
 		Эти редкие, органические пьезоэлектрические кристаллы Особый сакральный смысл они имеют для художников, \
@@ -235,9 +235,9 @@
 	mod.update_charge_alert()
 
 /obj/item/mod/core/ethereal
-	name = "ядро МУВ-Скафа Этериала"
+	name = "ядро MOD-Скафа Этериала"
 	icon_state = "mod-core-ethereal"
-	desc = "Ядро МУВ-Скафа адаптированное под этериалов. \
+	desc = "Ядро MOD-Скафа адаптированное под этериалов. \
 	    Использует естественное жидкое электричество Этериалов, \
 		и устраняет необходимость в внешних источниках для преобразования электрического заряда."
 	/// A modifier to all charge we use, ethereals don't need to spend as much energy as normal suits.
@@ -281,7 +281,7 @@
 	mod.wearer.throw_alert("mod_charge", /atom/movable/screen/alert/nocell)
 
 /obj/item/mod/core/plasma
-	name = "МУВ плазма ядро"
+	name = "MOD плазма ядро"
 	icon_state = "mod-core-plasma"
 	desc = "Продукт исследования Нанотрейзен в области плазмы. Эти плазменные ядра заправляются \
 		плазменным топливом, что позволяет использовать их для шахтёрских отрядов."

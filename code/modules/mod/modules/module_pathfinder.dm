@@ -64,7 +64,7 @@
 
 /obj/item/implant/mod
 	name = "имплант удаленного вызова"
-	desc = "Позволяет вызвать к себе МУВ-Скафандр."
+	desc = "Позволяет вызвать к себе MOD-Скафандр."
 	actions_types = list(/datum/action/item_action/mod_recall)
 	/// The pathfinder module we are linked to.
 	var/obj/item/mod/module/pathfinder/module
@@ -142,8 +142,8 @@
 	source.transform = mod_matrix
 
 /datum/action/item_action/mod_recall
-	name = "Вызвать МУВ"
-	desc = "Вызывает МУВ-Скафандр, куда угодно, в любое время."
+	name = "Вызвать MOD"
+	desc = "Вызывает MOD-Скафандр, куда угодно, в любое время."
 	check_flags = AB_CHECK_CONSCIOUS
 	background_icon_state = "bg_tech_blue"
 	icon_icon = 'icons/mob/actions/actions_mod.dmi'
