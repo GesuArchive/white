@@ -90,6 +90,11 @@
 		current_player_sound.channel = chan
 	update_sounds()
 
+/datum/component/soundplayer/proc/set_channel_auto()
+	playing_channel = open_sound_channel_for_boombox()
+	if(current_player_sound)
+		current_player_sound.channel = playing_channel
+	update_sounds()
 ////////////////////////////////////////////////
 
 /datum/component/soundplayer_listener
