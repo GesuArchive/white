@@ -3,8 +3,8 @@
 #define AUXLUA (world.system_type == MS_WINDOWS ? "auxtools/auxlua.dll" : __detect_auxtools("auxlua"))
 
 /proc/__detect_auxtools(library)
-	if(IsAdminAdvancedProcCall())
-		return
+	//if(IsAdminAdvancedProcCall())
+	//	return
 	if (fexists("./lib[library].so"))
 		return "./lib[library].so"
 	else if (fexists("./auxtools/[library].so"))
