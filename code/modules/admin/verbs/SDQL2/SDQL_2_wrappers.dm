@@ -48,6 +48,9 @@
 /proc/_image(icon, loc, icon_state, layer, dir)
 	return image(icon, loc, icon_state, layer, dir)
 
+/proc/_sound(file, repeat, wait, channel, volume)
+	return sound(file, repeat, wait, channel, volume)
+
 /proc/_istype(object, type)
 	return istype(object, type)
 
@@ -104,6 +107,9 @@
 
 /proc/_oview(Dist, Center = usr)
 	return oview(Dist, Center)
+
+/proc/_view(Dist, Center = usr)
+	return view(Dist, Center)
 
 /proc/_oviewers(Dist, Center = usr)
 	return oviewers(Dist, Center)
@@ -237,6 +243,46 @@
 
 /proc/_turn(dir, angle)
 	return turn(dir, angle)
+
+/proc/_file(path)
+	return file(path)
+
+/proc/_direct_output(A, B)
+	DIRECT_OUTPUT(A, B) // A << B
+
+/proc/_direct_input(A, B)
+	DIRECT_INPUT(A, B)  // A >> B
+
+/proc/_input(recipient, message, title, default)
+	return input(recipient, message, title, default)
+
+/proc/_input_file(recipient, message, title, default)
+	return input(recipient, message, title, default) as null|file
+
+/proc/_input_icon(recipient, message, title, default)
+	return input(recipient, message, title, default) as null|icon
+
+/proc/_input_sound(recipient, message, title, default)
+	return input(recipient, message, title, default) as null|sound
+
+/proc/_show_image(client/c, image, stack = FALSE)
+	if(stack) // ¯\_(ツ)_/¯
+		c.images += image
+	else
+		c.images |= image
+
+/proc/_hide_image(client/c, image)
+	c.images -= image
+
+/proc/_qdeling(datum)
+	return QDELING(datum)
+
+/proc/_qdeleted(datum)
+	return QDELETED(datum)
+
+/proc/_qdestroying(datum)
+	return QDESTROYING(datum)
+
 
 /// Auxtools REALLY doesn't know how to handle filters as values;
 /// when passed as arguments to auxtools-called procs, they aren't simply treated as nulls -
