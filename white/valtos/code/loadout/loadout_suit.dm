@@ -22,7 +22,7 @@
 /datum/gear/suit/wintercoat/security
 	display_name = "защитное зимнее пальто"
 	path = /obj/item/clothing/suit/hooded/wintercoat/security
-	allowed_roles = list(JOB_SECURITY_OFFICER, "Brig Physician", JOB_HEAD_OF_SECURITY)
+	allowed_roles = list(JOB_SECURITY_OFFICER, JOB_HEAD_OF_SECURITY)
 
 /datum/gear/suit/wintercoat/medical
 	display_name = "медицинское зимнее пальто"
