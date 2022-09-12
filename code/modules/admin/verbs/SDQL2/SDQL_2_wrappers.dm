@@ -274,13 +274,13 @@
 /proc/_hide_image(client/c, image)
 	c.images -= image
 
-/proc/_qdeling(datum)
+/proc/_qdeling(datum/datum)
 	return QDELING(datum)
 
-/proc/_qdeleted(datum)
+/proc/_qdeleted(datum/datum)
 	return QDELETED(datum)
 
-/proc/_qdestroying(datum)
+/proc/_qdestroying(datum/datum)
 	return QDESTROYING(datum)
 
 
