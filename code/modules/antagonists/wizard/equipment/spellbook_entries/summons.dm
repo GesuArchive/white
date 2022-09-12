@@ -3,10 +3,10 @@
 #define MINIMUM_THREAT_FOR_RITUALS 100
 
 /datum/spellbook_entry/summon/ghosts
-	name = "Summon Ghosts"
-	desc = "Spook the crew out by making them see dead people. \
-		Be warned, ghosts are capricious and occasionally vindicative, \
-		and some will use their incredibly minor abilities to frustrate you."
+	name = "Призыв Призраков"
+	desc = "Напугайте команду, заставив их увидеть души мёртвый. \
+		Имейте в виду, призраки капризны и иногда мстительны, \
+		а некоторые будут использовать свои невероятно незначительные способности, чтобы напакостить вам."
 	cost = 0
 
 /datum/spellbook_entry/summon/ghosts/buy_spell(mob/living/carbon/human/user, obj/item/spellbook/book)
@@ -15,9 +15,9 @@
 	return ..()
 
 /datum/spellbook_entry/summon/guns
-	name = "Summon Guns"
-	desc = "Nothing could possibly go wrong with arming a crew of lunatics just itching for an excuse to kill you. \
-		There is a good chance that they will shoot each other first."
+	name = "Призыв Оружия"
+	desc = "Что может пойти не так, если вооружить команду сумасшедших, которые только и ждут повода, чтобы убить тебя? \
+		Есть хороший шанс, что они сначала перестреляют друг друга."
 
 /datum/spellbook_entry/summon/guns/can_be_purchased()
 	// Must be config enabled
@@ -29,9 +29,9 @@
 	return ..()
 
 /datum/spellbook_entry/summon/magic
-	name = "Summon Magic"
-	desc = "Share the wonders of magic with the crew and show them \
-		why they aren't to be trusted with it at the same time."
+	name = "Призыв Магии"
+	desc = "Поделитесь чудесами магии с командой и покажите им \
+			почему нельзя доверить её всей станции одновременно."
 
 /datum/spellbook_entry/summon/magic/can_be_purchased()
 	// Must be config enabled
@@ -43,10 +43,10 @@
 	return ..()
 
 /datum/spellbook_entry/summon/events
-	name = "Summon Events"
-	desc = "Give Murphy's law a little push and replace all events with \
-		special wizard ones that will confound and confuse everyone. \
-		Multiple castings increase the rate of these events."
+	name = "Горизонт событий"
+	desc = "Немного подтолкните закон Мерфи и замените все события на \
+		особые волшебные, которые приведут всех в замешательство. \
+		Многократное использование увеличивает частоту событий."
 	cost = 2
 	limit = 5 // Each purchase can intensify it.
 
@@ -60,12 +60,12 @@
 	return ..()
 
 /datum/spellbook_entry/summon/curse_of_madness
-	name = "Curse of Madness"
-	desc = "Curses the station, warping the minds of everyone inside, causing lasting traumas. Warning: this spell can affect you if not cast from a safe distance."
+	name = "Проклятие Безумия"
+	desc = "Проклинает станцию, искажая сознание всех, кто на ней находится, вызывая длительные травмы. Предупреждение: Это заклинание может так же повлиять и на вас, если не произнести его из вашей обители."
 	cost = 4
 
 /datum/spellbook_entry/summon/curse_of_madness/buy_spell(mob/living/carbon/human/user, obj/item/spellbook/book)
-	var/message = tgui_input_text(user, "Whisper a secret truth to drive your victims to madness", "Whispers of Madness")
+	var/message = tgui_input_text(user, "Шепните шокирующее откровение, чтобы довести своих жертв до безумия.", "Шепот безумия")
 	if(!message)
 		return FALSE
 	curse_of_madness(user, message)

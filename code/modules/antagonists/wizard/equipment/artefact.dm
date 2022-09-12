@@ -302,7 +302,7 @@
 ///Warp whistle, spawns a tornado that teleports you
 /obj/item/warp_whistle
 	name = "варп-свисток"
-	desc = "Вызывает смерч, способное забрать вас и высадить в случайном месте на станции."
+	desc = "Вызывает смерч, способный забрать вас и высадить в случайном месте на станции."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "whistle"
 
