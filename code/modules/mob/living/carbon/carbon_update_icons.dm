@@ -236,10 +236,10 @@
 	RETURN_TYPE(/list)
 
 	. = list()
-	if(!blocks_emissive)
-		return
+//	if(!blocks_emissive)
+//		return
 
-	. += emissive_blocker(standing.icon, standing.icon_state, alpha = standing.alpha)
+//	. += emissive_blocker(standing.icon, standing.icon_state, alpha = standing.alpha)
 
 
 /mob/living/carbon/update_body()
