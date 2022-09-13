@@ -156,13 +156,13 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	M.remove_atom_colour(TEMPORARY_COLOUR_PRIORITY, color)
 
 /datum/reagent/consumable/ethanol/kahlua
-	name = "Калуа"
+	name = "Кофейный ликер"
 	enname = "Kahlua"
 	description = "Широко известный мексиканский ликер со вкусом кофе. Выпускается с 1936-го года!"
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 45
 	glass_icon_state = "kahluaglass"
-	glass_name = "Стакан калуа"
+	glass_name = "Стакан кофейного ликера"
 	glass_desc = "БЛЯ ЭТА ШТУКА ВЫГЛЯДИТ КРЕПКО!"
 	shot_glass_icon_state = "shotglasscream"
 	ph = 6
