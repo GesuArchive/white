@@ -165,10 +165,12 @@
 
 /obj/machinery/suit_storage_unit/rd/old
 	suit_type = /obj/item/clothing/suit/space/hardsuit/rd
+	storage_type = /obj/item/tank/internals/oxygen
 	mask_type = /obj/item/clothing/mask/breath
 
 /obj/machinery/suit_storage_unit/rd
 	mask_type = /obj/item/clothing/mask/breath
+	storage_type = /obj/item/tank/internals/oxygen
 	mod_type = /obj/item/mod/control/pre_equipped/research
 
 /obj/machinery/suit_storage_unit/syndicate/old
