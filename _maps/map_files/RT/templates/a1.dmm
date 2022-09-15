@@ -1,0 +1,183 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/indestructible/iridium,
+/area/ctf)
+"f" = (
+/obj/effect/turf_decal/stripes{
+	dir = 1
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ctf)
+"k" = (
+/obj/machinery/arena_spawn/green,
+/obj/effect/turf_decal/stripes{
+	dir = 5
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ctf)
+"l" = (
+/turf/open/floor/carpet/black,
+/area/ctf)
+"o" = (
+/obj/effect/turf_decal/stripes{
+	dir = 1
+	},
+/turf/open/floor/carpet/black,
+/area/ctf)
+"q" = (
+/obj/effect/turf_decal/stripes{
+	dir = 6
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ctf)
+"s" = (
+/obj/machinery/arena_spawn/red,
+/obj/effect/turf_decal/stripes{
+	dir = 10
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ctf)
+"v" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/obj/effect/turf_decal/stripes,
+/turf/open/floor/circuit/red/anim,
+/area/ctf)
+"w" = (
+/obj/effect/turf_decal/stripes{
+	dir = 8
+	},
+/turf/open/floor/carpet/black,
+/area/ctf)
+"x" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/obj/effect/turf_decal/stripes{
+	dir = 4
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ctf)
+"C" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/obj/effect/turf_decal/stripes{
+	dir = 8
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ctf)
+"F" = (
+/obj/effect/turf_decal/stripes{
+	dir = 4
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ctf)
+"J" = (
+/obj/effect/turf_decal/stripes{
+	dir = 9
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ctf)
+"O" = (
+/obj/effect/turf_decal/stripes{
+	dir = 8
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ctf)
+"R" = (
+/obj/effect/turf_decal/stripes,
+/turf/open/floor/circuit/red/anim,
+/area/ctf)
+"S" = (
+/obj/effect/turf_decal/stripes,
+/turf/open/floor/carpet/black,
+/area/ctf)
+"T" = (
+/obj/effect/turf_decal/stripes{
+	dir = 4
+	},
+/turf/open/floor/carpet/black,
+/area/ctf)
+"Y" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/obj/effect/turf_decal/stripes{
+	dir = 1
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ctf)
+"Z" = (
+/obj/effect/baseturf_helper/dune,
+/turf/closed/indestructible/iridium,
+/area/ctf)
+
+(1,1,1) = {"
+Z
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+J
+O
+w
+C
+s
+a
+"}
+(3,1,1) = {"
+a
+f
+l
+l
+l
+v
+a
+"}
+(4,1,1) = {"
+a
+o
+l
+l
+l
+S
+a
+"}
+(5,1,1) = {"
+a
+Y
+l
+l
+l
+R
+a
+"}
+(6,1,1) = {"
+a
+k
+x
+T
+F
+q
+a
+"}
+(7,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+"}

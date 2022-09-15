@@ -1,0 +1,1367 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aY" = (
+/obj/machinery/arena_spawn/red,
+/obj/effect/turf_decal/box,
+/turf/open/floor/plating,
+/area/ctf)
+"bn" = (
+/obj/machinery/arena_spawn/green,
+/obj/effect/turf_decal/box,
+/turf/open/floor/plating/snowed/temperatre,
+/area/ctf)
+"bR" = (
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 1
+	},
+/turf/open/floor/grass/snow/safe,
+/area/ctf)
+"bS" = (
+/turf/open/floor/grass/snow/safe,
+/area/ctf)
+"cs" = (
+/obj/structure/barricade/wooden/snowed,
+/turf/open/floor/plating/snowed/temperatre,
+/area/ctf)
+"cK" = (
+/turf/closed/wall/ice,
+/area/ctf)
+"cZ" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/plating/ice/smooth,
+/area/ctf)
+"dB" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/obj/structure/railing,
+/turf/open/floor/plating/ice/smooth,
+/area/ctf)
+"dS" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 10
+	},
+/obj/structure/railing{
+	dir = 5
+	},
+/turf/open/floor/plating/ice/smooth,
+/area/ctf)
+"eA" = (
+/obj/structure/fence/end{
+	dir = 1
+	},
+/turf/open/floor/grass/snow/safe,
+/area/ctf)
+"fg" = (
+/turf/open/floor/plating,
+/area/ctf)
+"gk" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 5
+	},
+/turf/open/floor/plating/ice/smooth,
+/area/ctf)
+"jF" = (
+/turf/open/floor/wood,
+/area/ctf)
+"jI" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/obj/structure/barricade/wooden/snowed,
+/turf/open/floor/plating/snowed/temperatre,
+/area/ctf)
+"lB" = (
+/turf/open/floor/plating/ice/smooth,
+/area/ctf)
+"mK" = (
+/obj/structure/flora/rock/icy,
+/turf/open/floor/grass/snow/safe,
+/area/ctf)
+"na" = (
+/obj/effect/baseturf_helper/asteroid,
+/turf/template_noop,
+/area/ctf)
+"nM" = (
+/obj/machinery/arena_spawn/red,
+/obj/effect/turf_decal/box,
+/turf/open/floor/plating/snowed/temperatre,
+/area/ctf)
+"oe" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/obj/structure/barricade/wooden/snowed,
+/turf/open/floor/plating/snowed/temperatre,
+/area/ctf)
+"rs" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/plating/ice/smooth,
+/area/ctf)
+"rY" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/turf/open/floor/plating/ice/smooth,
+/area/ctf)
+"tW" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 6
+	},
+/obj/structure/railing{
+	dir = 9
+	},
+/turf/open/floor/plating/ice/smooth,
+/area/ctf)
+"uU" = (
+/obj/machinery/arena_spawn/green,
+/obj/effect/turf_decal/box,
+/turf/open/floor/plating,
+/area/ctf)
+"uV" = (
+/obj/structure/deployable_barricade/snow{
+	dir = 4
+	},
+/turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/ctf)
+"ws" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/turf/open/floor/plating/snowed/temperatre,
+/area/ctf)
+"xC" = (
+/obj/structure/statue/snow/snowlegion,
+/turf/open/floor/grass/snow/safe,
+/area/ctf)
+"yC" = (
+/obj/effect/turf_decal/weather/side/corner,
+/obj/effect/turf_decal/weather/side/corner,
+/turf/open/floor/grass/snow/safe,
+/area/ctf)
+"BV" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 8
+	},
+/turf/open/floor/plating/ice/smooth,
+/area/ctf)
+"DU" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/turf/open/floor/plating/snowed/temperatre,
+/area/ctf)
+"Ek" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/turf/open/floor/plating/snowed/temperatre,
+/area/ctf)
+"FL" = (
+/obj/effect/spawner/structure/window/ice,
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/turf/open/floor/plating,
+/area/ctf)
+"Hq" = (
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 4
+	},
+/turf/open/floor/grass/snow/safe,
+/area/ctf)
+"IB" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 4
+	},
+/turf/open/floor/plating/ice/smooth,
+/area/ctf)
+"IC" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/turf/open/floor/plating/snowed/temperatre,
+/area/ctf)
+"IF" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/turf/open/floor/plating/snowed/temperatre,
+/area/ctf)
+"Ke" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/turf/open/floor/plating/snowed/temperatre,
+/area/ctf)
+"Ko" = (
+/obj/structure/barricade/wooden/snowed,
+/turf/open/floor/plating,
+/area/ctf)
+"Lb" = (
+/turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/ctf)
+"Mc" = (
+/obj/effect/turf_decal/weather/side,
+/turf/open/floor/plating/ice/smooth,
+/area/ctf)
+"MN" = (
+/turf/template_noop,
+/area/ctf)
+"Nr" = (
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 8
+	},
+/turf/open/floor/grass/snow/safe,
+/area/ctf)
+"Pq" = (
+/obj/structure/fence,
+/turf/open/floor/grass/snow/safe,
+/area/ctf)
+"Su" = (
+/obj/structure/statue/snow/snowman,
+/turf/open/floor/grass/snow/safe,
+/area/ctf)
+"SY" = (
+/obj/structure/flora/rock/pile/icy,
+/turf/open/floor/grass/snow/safe,
+/area/ctf)
+"Tf" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 9
+	},
+/obj/structure/railing{
+	dir = 6
+	},
+/turf/open/floor/plating/ice/smooth,
+/area/ctf)
+"Vk" = (
+/obj/structure/fence,
+/obj/structure/fence/end,
+/turf/open/floor/grass/snow/safe,
+/area/ctf)
+"VO" = (
+/obj/effect/turf_decal/weather/side/corner,
+/turf/open/floor/grass/snow/safe,
+/area/ctf)
+"WA" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/turf/open/floor/plating/snowed/temperatre,
+/area/ctf)
+"WL" = (
+/obj/effect/spawner/structure/window/ice,
+/turf/open/floor/plating,
+/area/ctf)
+"Yq" = (
+/obj/structure/deployable_barricade/snow{
+	dir = 8
+	},
+/turf/open/floor/plating/snowed/smoothed/temperatre,
+/area/ctf)
+"YR" = (
+/turf/closed/indestructible/rock/snow,
+/area/ctf)
+"Zm" = (
+/turf/open/floor/plating/snowed/temperatre,
+/area/ctf)
+"Zx" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/turf/open/floor/plating/snowed/temperatre,
+/area/ctf)
+"ZE" = (
+/obj/effect/turf_decal/weather/side,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/plating/ice/smooth,
+/area/ctf)
+
+(1,1,1) = {"
+na
+MN
+MN
+MN
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+MN
+MN
+MN
+"}
+(2,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+Lb
+Lb
+Lb
+Lb
+Lb
+Lb
+Lb
+Lb
+Lb
+Lb
+Lb
+bS
+bS
+bS
+YR
+MN
+MN
+MN
+"}
+(3,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+bS
+cK
+cK
+cK
+Ek
+IF
+cK
+cK
+cK
+bS
+Lb
+bS
+bS
+bS
+YR
+MN
+MN
+MN
+"}
+(4,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+bS
+cK
+Zm
+Zm
+Zm
+Zm
+Zm
+Zm
+cK
+bS
+Lb
+bS
+bS
+mK
+YR
+MN
+MN
+MN
+"}
+(5,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+bS
+cK
+bn
+Zm
+fg
+fg
+fg
+bn
+cK
+bS
+Lb
+bS
+bS
+bS
+YR
+MN
+MN
+MN
+"}
+(6,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+bS
+FL
+Zm
+fg
+Zm
+fg
+fg
+fg
+FL
+bS
+Lb
+bS
+bS
+bS
+YR
+MN
+MN
+MN
+"}
+(7,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+bS
+cK
+uU
+fg
+fg
+fg
+fg
+uU
+cK
+bS
+Lb
+bS
+bS
+bS
+YR
+MN
+MN
+MN
+"}
+(8,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+bS
+cK
+fg
+fg
+fg
+Zm
+fg
+Zm
+cK
+bS
+Lb
+bS
+bS
+bS
+YR
+MN
+MN
+MN
+"}
+(9,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+bS
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+bS
+Lb
+bS
+SY
+bS
+YR
+MN
+MN
+MN
+"}
+(10,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+Lb
+bS
+bS
+bS
+YR
+MN
+MN
+MN
+"}
+(11,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+Lb
+uV
+uV
+uV
+uV
+Lb
+Lb
+uV
+uV
+uV
+Lb
+bS
+bS
+bS
+YR
+MN
+MN
+MN
+"}
+(12,1,1) = {"
+MN
+MN
+MN
+YR
+YR
+bS
+xC
+bS
+bS
+bS
+bS
+bS
+Lb
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+SY
+YR
+MN
+MN
+MN
+"}
+(13,1,1) = {"
+MN
+MN
+MN
+YR
+bS
+bS
+bS
+mK
+bS
+bS
+bS
+bS
+Lb
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+YR
+MN
+MN
+MN
+"}
+(14,1,1) = {"
+YR
+YR
+YR
+YR
+Pq
+Pq
+Pq
+Pq
+Pq
+Pq
+Vk
+Nr
+jF
+bR
+eA
+Pq
+Pq
+Pq
+Pq
+Pq
+Pq
+YR
+YR
+YR
+YR
+"}
+(15,1,1) = {"
+YR
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+lB
+lB
+dB
+jF
+Mc
+lB
+lB
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+YR
+"}
+(16,1,1) = {"
+YR
+bS
+cK
+oe
+cK
+cK
+cK
+bS
+lB
+lB
+lB
+dB
+jF
+ZE
+lB
+lB
+lB
+bS
+cK
+cK
+cK
+oe
+cK
+bS
+YR
+"}
+(17,1,1) = {"
+YR
+bS
+cK
+fg
+fg
+Ko
+cK
+bS
+lB
+lB
+lB
+rY
+jF
+ZE
+lB
+lB
+lB
+bS
+cK
+cs
+fg
+Zm
+cK
+bS
+YR
+"}
+(18,1,1) = {"
+YR
+bS
+WL
+fg
+fg
+fg
+cK
+Nr
+rs
+rs
+BV
+Tf
+jF
+dS
+BV
+rs
+BV
+bR
+cK
+fg
+fg
+Zm
+WL
+bS
+YR
+"}
+(19,1,1) = {"
+YR
+bS
+WL
+fg
+fg
+fg
+WA
+jF
+jF
+jF
+jF
+jF
+jF
+jF
+jF
+jF
+jF
+jF
+Zx
+fg
+fg
+fg
+WL
+bS
+YR
+"}
+(20,1,1) = {"
+YR
+bS
+WL
+fg
+fg
+Zm
+IC
+jF
+jF
+jF
+jF
+jF
+jF
+jF
+jF
+jF
+jF
+jF
+DU
+fg
+Zm
+fg
+WL
+bS
+YR
+"}
+(21,1,1) = {"
+YR
+bS
+WL
+fg
+fg
+fg
+cK
+Hq
+cZ
+cZ
+cZ
+gk
+jF
+tW
+cZ
+IB
+cZ
+yC
+cK
+fg
+fg
+fg
+WL
+bS
+YR
+"}
+(22,1,1) = {"
+YR
+bS
+cK
+fg
+fg
+cs
+cK
+bS
+lB
+lB
+lB
+dB
+jF
+ZE
+lB
+lB
+lB
+bS
+cK
+Ko
+fg
+Zm
+cK
+bS
+YR
+"}
+(23,1,1) = {"
+YR
+bS
+cK
+jI
+cK
+cK
+cK
+bS
+lB
+lB
+lB
+dB
+jF
+ZE
+lB
+lB
+lB
+bS
+cK
+cK
+cK
+jI
+cK
+bS
+YR
+"}
+(24,1,1) = {"
+YR
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+lB
+lB
+dB
+jF
+ZE
+lB
+lB
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+YR
+"}
+(25,1,1) = {"
+YR
+YR
+YR
+YR
+Pq
+Pq
+Pq
+Pq
+Pq
+Pq
+Vk
+Hq
+jF
+VO
+eA
+Pq
+Pq
+Pq
+Pq
+Pq
+Pq
+YR
+YR
+YR
+YR
+"}
+(26,1,1) = {"
+MN
+MN
+MN
+YR
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+Lb
+bS
+bS
+bS
+bS
+bS
+bS
+SY
+bS
+YR
+MN
+MN
+MN
+"}
+(27,1,1) = {"
+MN
+MN
+MN
+YR
+YR
+bS
+Su
+bS
+bS
+bS
+bS
+bS
+Lb
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+YR
+MN
+MN
+MN
+"}
+(28,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+Lb
+Yq
+Yq
+Yq
+Yq
+Lb
+Yq
+Yq
+Yq
+Yq
+Lb
+bS
+bS
+bS
+YR
+MN
+MN
+MN
+"}
+(29,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+bS
+Lb
+bS
+bS
+bS
+YR
+MN
+MN
+MN
+"}
+(30,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+bS
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+cK
+bS
+Lb
+bS
+bS
+mK
+YR
+MN
+MN
+MN
+"}
+(31,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+bS
+cK
+fg
+Zm
+Zm
+Zm
+fg
+fg
+cK
+bS
+Lb
+bS
+bS
+bS
+YR
+MN
+MN
+MN
+"}
+(32,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+bS
+cK
+aY
+fg
+fg
+fg
+fg
+aY
+cK
+bS
+Lb
+bS
+bS
+bS
+YR
+MN
+MN
+MN
+"}
+(33,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+mK
+Lb
+bS
+FL
+fg
+fg
+fg
+fg
+fg
+Zm
+FL
+bS
+Lb
+bS
+bS
+bS
+YR
+MN
+MN
+MN
+"}
+(34,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+bS
+cK
+aY
+fg
+fg
+fg
+Zm
+nM
+cK
+bS
+Lb
+bS
+bS
+bS
+YR
+MN
+MN
+MN
+"}
+(35,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+bS
+cK
+Zm
+Zm
+Zm
+Zm
+fg
+Zm
+cK
+bS
+Lb
+bS
+bS
+bS
+YR
+MN
+MN
+MN
+"}
+(36,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+bS
+cK
+cK
+cK
+ws
+Ke
+cK
+cK
+cK
+bS
+Lb
+bS
+SY
+bS
+YR
+MN
+MN
+MN
+"}
+(37,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+bS
+Lb
+Lb
+Lb
+Lb
+Lb
+Lb
+Lb
+Lb
+Lb
+Lb
+Lb
+Lb
+bS
+bS
+bS
+YR
+MN
+MN
+MN
+"}
+(38,1,1) = {"
+MN
+MN
+MN
+MN
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+YR
+MN
+MN
+MN
+"}
+(39,1,1) = {"
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+MN
+"}

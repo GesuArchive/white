@@ -1,0 +1,120 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/plasteel/cult,
+/area/ctf)
+"b" = (
+/obj/machinery/arena_spawn/green,
+/turf/open/floor/plasteel/cult,
+/area/ctf)
+"d" = (
+/obj/effect/gibspawner/human,
+/turf/open/floor/plasteel/cult,
+/area/ctf)
+"H" = (
+/obj/machinery/arena_spawn/red,
+/turf/open/floor/plasteel/cult,
+/area/ctf)
+"I" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/turf/open/floor/plasteel/cult,
+/area/ctf)
+"J" = (
+/turf/closed/indestructible/cult,
+/area/ctf)
+"K" = (
+/obj/effect/rune/apocalypse,
+/obj/structure/destructible/cult/pylon,
+/turf/open/floor/plasteel/cult,
+/area/ctf)
+"R" = (
+/obj/effect/baseturf_helper/dune,
+/turf/closed/indestructible/cult,
+/area/ctf)
+"Z" = (
+/obj/effect/rune/narsie,
+/turf/open/floor/plasteel/cult,
+/area/ctf)
+
+(1,1,1) = {"
+R
+J
+J
+J
+J
+J
+J
+J
+"}
+(2,1,1) = {"
+J
+H
+I
+a
+a
+d
+a
+J
+"}
+(3,1,1) = {"
+J
+I
+Z
+a
+a
+K
+a
+J
+"}
+(4,1,1) = {"
+J
+d
+a
+d
+a
+a
+a
+J
+"}
+(5,1,1) = {"
+J
+a
+a
+a
+a
+d
+a
+J
+"}
+(6,1,1) = {"
+J
+a
+K
+a
+a
+Z
+I
+J
+"}
+(7,1,1) = {"
+J
+a
+d
+a
+a
+I
+b
+J
+"}
+(8,1,1) = {"
+J
+J
+J
+J
+J
+J
+J
+J
+"}

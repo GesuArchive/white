@@ -1,0 +1,140 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/indestructible/oldshuttle/corner{
+	dir = 4
+	},
+/area/ctf)
+"d" = (
+/turf/closed/indestructible/oldshuttle/corner{
+	dir = 1
+	},
+/area/ctf)
+"j" = (
+/turf/closed/indestructible/oldshuttle/corner{
+	dir = 8
+	},
+/area/ctf)
+"m" = (
+/obj/machinery/arena_spawn/green,
+/turf/open/floor/oldshuttle,
+/area/ctf)
+"t" = (
+/turf/closed/indestructible/oldshuttle/corner,
+/area/ctf)
+"y" = (
+/obj/machinery/arena_spawn/red,
+/turf/open/floor/oldshuttle,
+/area/ctf)
+"R" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/turf/open/floor/oldshuttle,
+/area/ctf)
+"S" = (
+/turf/open/floor/oldshuttle,
+/area/ctf)
+"V" = (
+/turf/closed/indestructible/oldshuttle,
+/area/ctf)
+
+(1,1,1) = {"
+j
+V
+V
+V
+V
+V
+V
+V
+a
+"}
+(2,1,1) = {"
+V
+S
+S
+S
+S
+S
+R
+y
+V
+"}
+(3,1,1) = {"
+V
+S
+S
+S
+S
+S
+R
+R
+V
+"}
+(4,1,1) = {"
+V
+S
+S
+S
+S
+S
+S
+S
+V
+"}
+(5,1,1) = {"
+V
+S
+S
+S
+S
+S
+S
+S
+V
+"}
+(6,1,1) = {"
+V
+S
+S
+S
+S
+S
+S
+S
+V
+"}
+(7,1,1) = {"
+V
+R
+R
+S
+S
+S
+S
+S
+V
+"}
+(8,1,1) = {"
+V
+m
+R
+S
+S
+S
+S
+S
+V
+"}
+(9,1,1) = {"
+t
+V
+V
+V
+V
+V
+V
+V
+d
+"}

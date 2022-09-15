@@ -1,0 +1,180 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/wall/clockwork,
+/area/ctf)
+"k" = (
+/turf/open/floor/bronze,
+/area/ctf)
+"u" = (
+/turf/template_noop,
+/area/ctf)
+"v" = (
+/obj/structure/chair/bronze,
+/turf/open/floor/bronze,
+/area/ctf)
+"G" = (
+/obj/structure/chair/bronze{
+	dir = 1
+	},
+/turf/open/floor/bronze,
+/area/ctf)
+"I" = (
+/obj/structure/chair/bronze{
+	dir = 8
+	},
+/turf/open/floor/bronze,
+/area/ctf)
+"J" = (
+/obj/structure/table/bronze,
+/turf/open/floor/bronze,
+/area/ctf)
+"M" = (
+/obj/effect/baseturf_helper/dune,
+/turf/template_noop,
+/area/ctf)
+"O" = (
+/obj/structure/girder/bronze,
+/turf/open/floor/bronze,
+/area/ctf)
+"Q" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/turf/open/floor/bronze,
+/area/ctf)
+"X" = (
+/obj/machinery/arena_spawn/green,
+/turf/open/floor/bronze,
+/area/ctf)
+"Y" = (
+/obj/machinery/arena_spawn/red,
+/turf/open/floor/bronze,
+/area/ctf)
+"Z" = (
+/obj/structure/chair/bronze{
+	dir = 4
+	},
+/turf/open/floor/bronze,
+/area/ctf)
+
+(1,1,1) = {"
+M
+u
+u
+a
+a
+a
+a
+u
+u
+u
+"}
+(2,1,1) = {"
+u
+a
+a
+a
+J
+J
+a
+a
+a
+u
+"}
+(3,1,1) = {"
+u
+a
+Y
+Q
+I
+I
+k
+O
+a
+u
+"}
+(4,1,1) = {"
+a
+a
+Q
+k
+k
+k
+k
+k
+a
+a
+"}
+(5,1,1) = {"
+a
+J
+G
+k
+k
+k
+k
+v
+J
+a
+"}
+(6,1,1) = {"
+a
+J
+G
+k
+k
+k
+k
+v
+J
+a
+"}
+(7,1,1) = {"
+a
+a
+k
+k
+k
+k
+k
+Q
+a
+a
+"}
+(8,1,1) = {"
+u
+a
+O
+k
+Z
+Z
+Q
+X
+a
+u
+"}
+(9,1,1) = {"
+u
+a
+a
+a
+J
+J
+a
+a
+a
+u
+"}
+(10,1,1) = {"
+u
+u
+u
+a
+a
+a
+a
+u
+u
+u
+"}

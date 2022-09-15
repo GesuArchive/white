@@ -1,0 +1,185 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/rospilovo/wood,
+/area/ctf)
+"h" = (
+/obj/structure/rospilovo/doski,
+/turf/open/floor/rospilovo/wood,
+/area/ctf)
+"j" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/turf/open/floor/rospilovo/wood,
+/area/ctf)
+"k" = (
+/obj/structure/rospilovo/leest,
+/turf/open/floor/rospilovo/wood,
+/area/ctf)
+"o" = (
+/obj/structure/rospilovo/doski/doski2,
+/turf/open/floor/rospilovo/wood,
+/area/ctf)
+"r" = (
+/obj/structure/rospilovo/painting/stalin,
+/turf/closed/wall/brick,
+/area/ctf)
+"s" = (
+/obj/structure/rospilovo/musor_yashik/green,
+/turf/open/floor/rospilovo/wood,
+/area/ctf)
+"t" = (
+/turf/template_noop,
+/area/ctf)
+"w" = (
+/obj/structure/rospilovo/doski/doski4,
+/turf/open/floor/rospilovo/wood,
+/area/ctf)
+"y" = (
+/obj/machinery/arena_spawn/red,
+/turf/open/floor/rospilovo/wood,
+/area/ctf)
+"z" = (
+/obj/structure/rospilovo/painting/gorbachev,
+/turf/closed/wall/brick,
+/area/ctf)
+"A" = (
+/obj/machinery/arena_spawn/green,
+/turf/open/floor/rospilovo/wood,
+/area/ctf)
+"I" = (
+/obj/structure/rospilovo/doski/doski3,
+/turf/open/floor/rospilovo/wood,
+/area/ctf)
+"J" = (
+/turf/closed/wall/brick,
+/area/ctf)
+"L" = (
+/obj/structure/rospilovo/musor_yashik/red/full,
+/turf/open/floor/rospilovo/wood,
+/area/ctf)
+"M" = (
+/obj/structure/rospilovo/switcher,
+/turf/closed/wall/brick,
+/area/ctf)
+"N" = (
+/obj/structure/rospilovo/intercom,
+/turf/closed/wall/brick,
+/area/ctf)
+"O" = (
+/obj/structure/rospilovo/lift,
+/turf/closed/wall/brick,
+/area/ctf)
+"S" = (
+/obj/structure/rospilovo/painting/lenin,
+/turf/closed/wall/brick,
+/area/ctf)
+"X" = (
+/obj/structure/rospilovo/rozetka,
+/turf/closed/wall/brick,
+/area/ctf)
+"Z" = (
+/obj/effect/baseturf_helper/dune,
+/turf/closed/wall/brick,
+/area/ctf)
+
+(1,1,1) = {"
+Z
+J
+J
+t
+t
+t
+J
+J
+J
+"}
+(2,1,1) = {"
+S
+y
+J
+J
+z
+M
+J
+J
+t
+"}
+(3,1,1) = {"
+J
+j
+a
+a
+a
+I
+L
+J
+t
+"}
+(4,1,1) = {"
+J
+J
+a
+h
+a
+a
+a
+J
+t
+"}
+(5,1,1) = {"
+t
+O
+a
+a
+a
+a
+a
+X
+t
+"}
+(6,1,1) = {"
+t
+N
+w
+a
+a
+o
+a
+J
+J
+"}
+(7,1,1) = {"
+t
+J
+s
+a
+k
+a
+a
+j
+J
+"}
+(8,1,1) = {"
+t
+J
+J
+J
+J
+J
+J
+A
+r
+"}
+(9,1,1) = {"
+J
+J
+J
+t
+t
+t
+J
+J
+J
+"}

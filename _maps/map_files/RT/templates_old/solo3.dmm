@@ -1,0 +1,229 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/ctf)
+"e" = (
+/obj/machinery/arena_spawn/red,
+/turf/open/floor/dz/cyber,
+/area/ctf)
+"m" = (
+/turf/open/floor/dz/cyber,
+/area/ctf)
+"n" = (
+/obj/structure/reflector/box/anchored,
+/turf/open/floor/dz/hot_plates,
+/area/ctf)
+"q" = (
+/obj/structure/reflector/box/anchored{
+	dir = 8
+	},
+/turf/open/floor/dz/hot_plates,
+/area/ctf)
+"u" = (
+/turf/open/floor/dz/normal,
+/area/ctf)
+"D" = (
+/obj/structure/reflector/box/anchored{
+	dir = 1
+	},
+/turf/open/floor/dz/hot_plates,
+/area/ctf)
+"E" = (
+/obj/structure/reflector/box/anchored{
+	dir = 4
+	},
+/turf/open/floor/dz/hot_plates,
+/area/ctf)
+"H" = (
+/obj/machinery/power/emitter/energycannon{
+	dir = 1
+	},
+/turf/closed/dz/normal/cyber,
+/area/ctf)
+"K" = (
+/turf/open/floor/dz/hot_plates,
+/area/ctf)
+"U" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/turf/open/floor/dz/green,
+/area/ctf)
+"V" = (
+/obj/machinery/power/emitter/energycannon,
+/turf/closed/dz/normal/cyber,
+/area/ctf)
+"W" = (
+/turf/closed/dz/normal/cyber,
+/area/ctf)
+"Z" = (
+/obj/machinery/arena_spawn/green,
+/turf/open/floor/dz/cyber,
+/area/ctf)
+
+(1,1,1) = {"
+W
+W
+W
+W
+W
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+W
+e
+m
+e
+W
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+W
+W
+U
+W
+W
+W
+W
+W
+W
+"}
+(4,1,1) = {"
+V
+K
+K
+K
+K
+K
+K
+E
+W
+"}
+(5,1,1) = {"
+W
+E
+K
+K
+K
+K
+K
+D
+W
+"}
+(6,1,1) = {"
+W
+K
+u
+u
+u
+u
+u
+K
+W
+"}
+(7,1,1) = {"
+W
+K
+u
+u
+u
+u
+u
+K
+W
+"}
+(8,1,1) = {"
+W
+K
+u
+u
+u
+u
+u
+K
+W
+"}
+(9,1,1) = {"
+W
+K
+u
+u
+u
+u
+u
+K
+W
+"}
+(10,1,1) = {"
+W
+K
+u
+u
+u
+u
+u
+K
+W
+"}
+(11,1,1) = {"
+W
+n
+K
+K
+K
+K
+K
+q
+W
+"}
+(12,1,1) = {"
+W
+q
+K
+K
+K
+K
+K
+K
+H
+"}
+(13,1,1) = {"
+W
+W
+W
+W
+W
+W
+U
+W
+W
+"}
+(14,1,1) = {"
+a
+a
+a
+a
+W
+Z
+m
+Z
+W
+"}
+(15,1,1) = {"
+a
+a
+a
+a
+W
+W
+W
+W
+W
+"}
