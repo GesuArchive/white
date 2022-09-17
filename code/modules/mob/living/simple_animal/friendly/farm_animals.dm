@@ -104,7 +104,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/goat/wycc/Initialize(mapload)
 	. = ..()
-	maxHealth = (100 - LAZYLEN(GLOB.clients))
+	maxHealth = (100 + 5 * LAZYLEN(GLOB.clients))
 	health = maxHealth
 	desc = "Ест детей. [LAZYLEN(GLOB.clients)] из 100 успели спрятаться от него."
 
