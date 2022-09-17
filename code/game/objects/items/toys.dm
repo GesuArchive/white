@@ -316,7 +316,7 @@
  * Toy swords
  */
 /obj/item/toy/sword
-	name = "игрушечный меч"
+	name = "энергетический меч"
 	desc = "Дешевая, пластиковая копия энергетического меча. Реалистичные звуки! Для детей от 8 лет и старше."
 	icon_state = "e_sword"
 	icon = 'icons/obj/transforming_energy.dmi'
@@ -333,7 +333,7 @@
 	. = ..()
 	AddComponent(/datum/component/transforming, \
 		throw_speed_on = throw_speed, \
-		hitsound_on = hitsound, \
+		hitsound_on = 'sound/weapons/blade1.ogg', \
 		clumsy_check = FALSE)
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
 
@@ -449,7 +449,7 @@
  * Subtype of Double-Bladed Energy Swords
  */
 /obj/item/dualsaber/toy
-	name = "двойной игрушечный меч"
+	name = "двойной энергетический меч"
 	desc = "Дешевая пластиковая копия ДВУХ энергетических мечей. Двойное удовольствие!"
 	force = 0
 	throwforce = 0
