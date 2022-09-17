@@ -152,7 +152,7 @@
 	icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
-	greyscale_colors = "#3F3C40#FFCE5B"
+	greyscale_colors = "#39393f#FFCE5B"
 
 /obj/item/clothing/head/hos/beret/navyhos
 	name = "берет начальника охраны"
@@ -248,7 +248,7 @@
 	dog_fashion = null
 	greyscale_config = /datum/greyscale_config/beret_badge
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
-	greyscale_colors = "#972A2A#F2F2F2"
+	greyscale_colors = "#A52f29#F2F2F2"
 	flags_1 = NONE
 
 /obj/item/clothing/head/beret/sec/navywarden
