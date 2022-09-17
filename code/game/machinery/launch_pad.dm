@@ -235,7 +235,7 @@
 /obj/machinery/launchpad/briefcase/isAvailable()
 	if(closed)
 		return FALSE
-	return ..()
+	return TRUE
 
 /obj/machinery/launchpad/briefcase/MouseDrop(over_object, src_location, over_location)
 	. = ..()
