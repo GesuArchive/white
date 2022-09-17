@@ -1854,6 +1854,11 @@
 	icon_state = "shirt_commie"
 	gender = NEUTER
 
+/datum/sprite_accessory/undershirt/sanitar
+	name = "Shirt (Sanitar)"
+	icon_state = "shirt_sanitar"
+	gender = NEUTER
+
 /datum/sprite_accessory/undershirt/greenshirt
 	name = "Shirt (Green)"
 	icon_state = "shirt_green"
