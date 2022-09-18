@@ -29,5 +29,12 @@
 /obj/effect/projectile/muzzle/wormhole
 	icon_state = "wormhole_g"
 
+/obj/effect/projectile/muzzle/laser/emitter
+	name = "emitter flash"
+	icon_state = "muzzle_emitter"
+
+/obj/effect/projectile/muzzle/solar
+	icon_state = "muzzle_solar"
+
 /obj/effect/projectile/muzzle/sniper
 	icon_state = "sniper"
