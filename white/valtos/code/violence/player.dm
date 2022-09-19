@@ -17,7 +17,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 	LAZYADD(full_of_items, saved_items)
 	for(var/item in full_of_items)
 		var/obj/item/O = new item(get_turf(H))
-		if(H.equip_to_appropriate_slot(O, FALSE))
+		if(H.equip_to_appropriate_slot(O, FALSE, TRUE))
 			continue
 		if(H.put_in_hands(item))
 			continue
