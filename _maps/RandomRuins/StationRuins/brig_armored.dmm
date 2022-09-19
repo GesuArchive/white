@@ -1444,6 +1444,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
+/obj/vehicle/ridden/forklift/security{
+	dir = 8
+	},
 /turf/open/floor/engine,
 /area/security/main)
 "fn" = (
