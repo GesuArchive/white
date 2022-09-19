@@ -157,3 +157,24 @@
 	// запрет на снятие ID и униформы
 	ADD_TRAIT(W, TRAIT_NODROP, ABSTRACT_ITEM_TRAIT)
 	ADD_TRAIT(H.w_uniform, TRAIT_NODROP, ABSTRACT_ITEM_TRAIT)
+
+	if(GLOB.violence_friendlyfire)
+		return
+
+	RegisterSignal(H, COMSIG_MOB_EQUIPPED_ITEM, .proc/factionee_projectiles)
+
+/proc/factionee_projectiles(mob/living/source, obj/item/equipped_item, slot)
+	SIGNAL_HANDLER
+
+	var/actual_faction = source?.faction
+
+	if(!actual_faction)
+		return
+
+	if(ismag(equipped_item))
+		for(var/obj/item/ammo_casing/AC as() in equipped_item)
+			AC?.loaded_projectile?.ignored_factions = actual_faction
+	else if(isgun(equipped_item))
+		var/obj/item/gun/ballistic/G = equipped_item
+		for(var/obj/item/ammo_casing/AC as() in G.magazine)
+			AC?.loaded_projectile?.ignored_factions = actual_faction

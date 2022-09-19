@@ -1190,6 +1190,12 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	item = /obj/vehicle/sealed/mecha/combat/marauder/mauler/loaded
 	cost = 140
 
+/datum/uplink_item/support/turretbox
+	name = "Развёртываемая турель"
+	desc = "Многоразовая система развертывания турели, ловко замаскированная под ящик с инструментами, с применением гаечного ключа для функциональности. Встречайте - инженер!"
+	item = /obj/item/storage/toolbox/emergency/turret/nukie
+	cost = 16
+
 // Stealth Items
 /datum/uplink_item/stealthy_tools
 	category = "Стелс-гаджеты"
