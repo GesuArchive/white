@@ -194,7 +194,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 #define SETUP_START_NODE(L)  		  	 		 	 		"<div class='csetup_character_node'><div class='csetup_character_label'>[L]</div><div class='csetup_character_input'>"
 
 #define SETUP_GET_LINK(pref, task, task_type, value) 		"<a href='?_src_=prefs;preference=[pref][task ? ";[task_type]=[task]" : ""]'>[value]</a>"
-#define SETUP_GET_LINK_RANDOM(random_type) 		  	 		"<a href='?_src_=prefs;preference=toggle_random;random_type=[random_type]'>[randomise[random_type] ? "Случайно" : "Фиксированно"]</a>"
+#define SETUP_GET_LINK_RANDOM(random_type) 		  	 		"<a href='?_src_=prefs;preference=toggle_random;random_type=[random_type]'>[randomise[random_type] ? "🎲" : "🔒"]</a>"
 #define SETUP_COLOR_BOX(color) 				  	 	 		"<span style='border: 1px solid #161616; background-color: #[color];'>&nbsp;&nbsp;&nbsp;</span>"
 
 #define SETUP_NODE_SWITCH(label, pref, value)		  		"[SETUP_START_NODE(label)][SETUP_GET_LINK(pref, null, null, value)][SETUP_CLOSE_NODE]"
@@ -579,7 +579,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += SETUP_NODE_INPUT("Ширина экрана", "widescreenwidth", widescreenwidth)
 
 			button_name = pixel_size
-			dat += SETUP_NODE_SWITCH("Пиксельное скалирование", "pixel_size", (button_name) ? "Один к [button_name]" : "Растянуть")
+			dat += SETUP_NODE_SWITCH("Скалирование", "pixel_size", (button_name) ? "Один к [button_name]" : "Растянуть")
 
 			switch(scaling_method)
 				if(SCALING_METHOD_DISTORT)
@@ -589,7 +589,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if(SCALING_METHOD_BLUR)
 					button_name = "Bilinear"
 
-			dat += SETUP_NODE_SWITCH("Метод скалирования", "scaling_method", button_name)
+			dat += SETUP_NODE_SWITCH("Метод", "scaling_method", button_name)
 
 			dat += SETUP_NODE_SWITCH("Контекст", "tooltip_no_context", (w_toggles & TOOLTIP_NO_CONTEXT) ? "Выкл" : "Вкл")
 			dat += SETUP_NODE_SWITCH("Позиция на экране", "tooltip_pos", (w_toggles & TOOLTIP_USER_POS) ? "Внизу" : "Вверху")
@@ -745,7 +745,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	stuff.send(user)
 
 	winshow(user, "preferences_window", TRUE)
-	var/datum/browser/popup = new(user, "preferences_browser_new", null, 1200, 770)
+	var/datum/browser/popup = new(user, "preferences_browser_new", null, 1300, 800)
 	popup.set_content(dat.Join())
 	popup.open(FALSE)
 	onclose(user, "preferences_window", src)
@@ -1936,10 +1936,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("save")
 					save_preferences()
 					save_character()
+					to_chat(user, span_notice("Настройки успешно сохранены!"))
 
 				if("load")
 					load_preferences()
 					load_character()
+					to_chat(user, span_notice("Настройки успешно загружены!"))
 
 				if("changeslot")
 					if(!load_character(text2num(href_list["num"])))
