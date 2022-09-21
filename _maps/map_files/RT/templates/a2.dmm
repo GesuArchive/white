@@ -1,42 +1,42 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/open/floor/plasteel/cult,
-/area/ctf)
+/area/tournament)
 "b" = (
 /obj/machinery/arena_spawn/green,
 /turf/open/floor/plasteel/cult,
-/area/ctf)
+/area/tournament)
 "d" = (
 /obj/effect/gibspawner/human,
 /turf/open/floor/plasteel/cult,
-/area/ctf)
+/area/tournament)
 "H" = (
 /obj/machinery/arena_spawn/red,
 /turf/open/floor/plasteel/cult,
-/area/ctf)
+/area/tournament)
 "I" = (
 /obj/machinery/door/poddoor{
 	id = "arena_default";
 	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
 	},
 /turf/open/floor/plasteel/cult,
-/area/ctf)
+/area/tournament)
 "J" = (
 /turf/closed/indestructible/cult,
-/area/ctf)
+/area/tournament)
 "K" = (
 /obj/effect/rune/apocalypse,
 /obj/structure/destructible/cult/pylon,
 /turf/open/floor/plasteel/cult,
-/area/ctf)
+/area/tournament)
 "R" = (
 /obj/effect/baseturf_helper/dune,
 /turf/closed/indestructible/cult,
-/area/ctf)
+/area/tournament)
 "Z" = (
 /obj/effect/rune/narsie,
 /turf/open/floor/plasteel/cult,
-/area/ctf)
+/area/tournament)
 
 (1,1,1) = {"
 R

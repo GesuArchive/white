@@ -5,7 +5,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/ctf)
+/area/tournament)
 "c" = (
 /obj/machinery/door/poddoor{
 	id = "arena_default";
@@ -18,7 +18,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/ctf)
+/area/tournament)
 "e" = (
 /obj/machinery/door/poddoor{
 	id = "arena_default";
@@ -29,7 +29,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/ctf)
+/area/tournament)
 "g" = (
 /obj/effect/turf_decal/tile/dark,
 /obj/effect/turf_decal/tile/dark{
@@ -39,7 +39,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/ctf)
+/area/tournament)
 "k" = (
 /obj/machinery/arena_spawn/red,
 /obj/effect/turf_decal/tile/dark{
@@ -52,7 +52,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/ctf)
+/area/tournament)
 "l" = (
 /obj/effect/turf_decal/tile/dark{
 	dir = 1
@@ -61,7 +61,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/ctf)
+/area/tournament)
 "s" = (
 /obj/effect/turf_decal/tile/dark{
 	dir = 1
@@ -70,18 +70,18 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/ctf)
+/area/tournament)
 "t" = (
 /obj/effect/baseturf_helper/dune,
 /turf/closed/wall,
-/area/ctf)
+/area/tournament)
 "v" = (
 /obj/effect/turf_decal/tile/dark{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/dark,
 /turf/open/floor/plasteel,
-/area/ctf)
+/area/tournament)
 "H" = (
 /obj/machinery/arena_spawn/green,
 /obj/effect/turf_decal/tile/dark,
@@ -92,10 +92,10 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/ctf)
+/area/tournament)
 "N" = (
 /turf/open/floor/plasteel,
-/area/ctf)
+/area/tournament)
 "T" = (
 /obj/machinery/door/poddoor{
 	id = "arena_default";
@@ -106,7 +106,7 @@
 	},
 /obj/effect/turf_decal/tile/dark,
 /turf/open/floor/plasteel,
-/area/ctf)
+/area/tournament)
 "W" = (
 /obj/machinery/door/poddoor{
 	id = "arena_default";
@@ -119,10 +119,10 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/ctf)
+/area/tournament)
 "X" = (
 /turf/closed/wall,
-/area/ctf)
+/area/tournament)
 "Y" = (
 /obj/effect/turf_decal/tile/dark{
 	dir = 1
@@ -132,7 +132,7 @@
 	},
 /obj/effect/turf_decal/tile/dark,
 /turf/open/floor/plasteel,
-/area/ctf)
+/area/tournament)
 
 (1,1,1) = {"
 t

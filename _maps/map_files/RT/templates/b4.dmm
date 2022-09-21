@@ -2,56 +2,56 @@
 "a" = (
 /obj/machinery/door/airlock/wood/glass,
 /turf/open/floor/rospilovo/wood,
-/area/ctf)
+/area/tournament)
 "d" = (
 /turf/open/floor/beton,
-/area/ctf)
+/area/tournament)
 "i" = (
 /turf/closed/wall/brick,
-/area/ctf)
+/area/tournament)
 "p" = (
 /turf/open/floor/rospilovo/wood,
-/area/ctf)
+/area/tournament)
 "w" = (
 /obj/structure/rospilovo/musor_yashik/red,
 /turf/open/floor/trot,
-/area/ctf)
+/area/tournament)
 "y" = (
 /obj/structure/table/rospilovo,
 /turf/open/floor/rospilovo/wood,
-/area/ctf)
+/area/tournament)
 "A" = (
 /obj/machinery/arena_spawn/green,
 /turf/open/floor/beton,
-/area/ctf)
+/area/tournament)
 "B" = (
 /obj/effect/baseturf_helper/dune,
 /turf/closed/wall/brick,
-/area/ctf)
+/area/tournament)
 "D" = (
 /turf/open/floor/trot,
-/area/ctf)
+/area/tournament)
 "E" = (
 /obj/structure/rospilovo/okno{
 	icon_state = "okno4"
 	},
 /turf/closed/wall/brick,
-/area/ctf)
+/area/tournament)
 "T" = (
 /obj/machinery/arena_spawn/red,
 /turf/open/floor/beton,
-/area/ctf)
+/area/tournament)
 "V" = (
 /obj/structure/rospilovo/stolb,
 /turf/open/floor/trot,
-/area/ctf)
+/area/tournament)
 "W" = (
 /obj/machinery/door/poddoor{
 	id = "arena_default";
 	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
 	},
 /turf/open/floor/beton,
-/area/ctf)
+/area/tournament)
 
 (1,1,1) = {"
 B

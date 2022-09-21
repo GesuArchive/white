@@ -318,3 +318,13 @@
 	. = ..()
 	spawn(5 SECONDS)
 		update_base_lighting()
+
+/area/tournament
+	name = "Турнирная арена"
+	icon_state = "yellow"
+	requires_power = FALSE
+	static_lighting = FALSE
+	base_lighting_color = COLOR_WHITE
+	base_lighting_alpha = 255
+	has_gravity = STANDARD_GRAVITY
+	flags_1 = NONE

@@ -1,35 +1,35 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/open/floor/wood/large,
-/area/ctf)
+/area/tournament)
 "j" = (
 /turf/open/floor/wood/tile,
-/area/ctf)
+/area/tournament)
 "t" = (
 /obj/machinery/arena_spawn/green,
 /turf/open/floor/wood/tile,
-/area/ctf)
+/area/tournament)
 "u" = (
 /obj/machinery/arena_spawn/red,
 /turf/open/floor/wood/tile,
-/area/ctf)
+/area/tournament)
 "C" = (
 /obj/structure/closet/cabinet{
 	anchored = 1
 	},
 /obj/effect/turf_decal/box,
 /turf/open/floor/wood/large,
-/area/ctf)
+/area/tournament)
 "F" = (
 /obj/effect/baseturf_helper/dune,
 /turf/closed/wall/mineral/wood/nonmetal,
-/area/ctf)
+/area/tournament)
 "H" = (
 /turf/closed/wall/mineral/wood/nonmetal,
-/area/ctf)
+/area/tournament)
 "J" = (
 /turf/open/floor/wood/parquet,
-/area/ctf)
+/area/tournament)
 "V" = (
 /obj/structure/bookcase/random/adult,
 /obj/machinery/door/poddoor{
@@ -37,18 +37,18 @@
 	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
 	},
 /turf/open/floor/wood/parquet,
-/area/ctf)
+/area/tournament)
 "Y" = (
 /obj/structure/bookcase/random/adult,
 /turf/open/floor/wood/parquet,
-/area/ctf)
+/area/tournament)
 "Z" = (
 /obj/machinery/door/poddoor{
 	id = "arena_default";
 	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
 	},
 /turf/open/floor/wood/tile,
-/area/ctf)
+/area/tournament)
 
 (1,1,1) = {"
 F

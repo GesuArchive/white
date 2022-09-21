@@ -1,36 +1,36 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/open/floor/plating/asteroid/snow/atmosphere,
-/area/ctf)
+/area/tournament)
 "o" = (
 /obj/machinery/arena_spawn/red,
 /turf/open/floor/plating/snowed/smoothed/safe,
-/area/ctf)
+/area/tournament)
 "q" = (
 /obj/machinery/arena_spawn/green,
 /turf/open/floor/plating/snowed/smoothed/safe,
-/area/ctf)
+/area/tournament)
 "x" = (
 /obj/effect/spawner/structure/window/ice,
 /turf/open/floor/plating/snowed/safe,
-/area/ctf)
+/area/tournament)
 "D" = (
 /turf/closed/wall/ice,
-/area/ctf)
+/area/tournament)
 "L" = (
 /obj/effect/baseturf_helper/dune,
 /turf/closed/wall/ice,
-/area/ctf)
+/area/tournament)
 "O" = (
 /obj/machinery/door/poddoor{
 	id = "arena_default";
 	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
 	},
 /turf/open/floor/plating/snowed/smoothed/safe,
-/area/ctf)
+/area/tournament)
 "U" = (
 /turf/open/floor/plating/snowed/smoothed/safe,
-/area/ctf)
+/area/tournament)
 
 (1,1,1) = {"
 L

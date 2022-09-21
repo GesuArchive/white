@@ -554,3 +554,37 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 	var/turf/open/floor/floor = get_turf(src)
 	floor.burn_tile()
 	qdel(src)
+
+/obj/effect/mapping_helpers/turf_rotation
+	name = "ротация турфов"
+	icon_state = "turf_rotation"
+	late = TRUE
+	var/timer = 15 SECONDS
+	var/current_time = null
+	var/current_turf_type = /turf/open/lava
+
+/obj/effect/mapping_helpers/turf_rotation/Initialize(mapload)
+	.=..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/mapping_helpers/turf_rotation/process(delta_time)
+	var/turf/open/floor/floor = get_turf(src)
+	if(!floor)
+		qdel(src)
+		return PROCESS_KILL
+	current_time--
+	floor.maptext = MAPTEXT_REALLYBIG_COLOR("[current_time]", "#d10404")
+	if(current_time >= 0)
+		return
+	current_time = timer
+	var/old_turf_type = floor.type
+	floor.ChangeTurf(current_turf_type)
+	current_turf_type = old_turf_type
+
+/obj/effect/mapping_helpers/turf_rotation/LateInitialize()
+	current_time = timer
+	START_PROCESSING(SSprocessing, src)
+
+/obj/effect/mapping_helpers/turf_rotation/Destroy(force)
+	. = ..()
+	STOP_PROCESSING(SSprocessing, src)

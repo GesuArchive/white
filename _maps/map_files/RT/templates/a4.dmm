@@ -1,62 +1,62 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/closed/wall/clockwork,
-/area/ctf)
+/area/tournament)
 "k" = (
 /turf/open/floor/bronze,
-/area/ctf)
+/area/tournament)
 "u" = (
 /turf/template_noop,
-/area/ctf)
+/area/tournament)
 "v" = (
 /obj/structure/chair/bronze,
 /turf/open/floor/bronze,
-/area/ctf)
+/area/tournament)
 "G" = (
 /obj/structure/chair/bronze{
 	dir = 1
 	},
 /turf/open/floor/bronze,
-/area/ctf)
+/area/tournament)
 "I" = (
 /obj/structure/chair/bronze{
 	dir = 8
 	},
 /turf/open/floor/bronze,
-/area/ctf)
+/area/tournament)
 "J" = (
 /obj/structure/table/bronze,
 /turf/open/floor/bronze,
-/area/ctf)
+/area/tournament)
 "M" = (
 /obj/effect/baseturf_helper/dune,
 /turf/template_noop,
-/area/ctf)
+/area/tournament)
 "O" = (
 /obj/structure/girder/bronze,
 /turf/open/floor/bronze,
-/area/ctf)
+/area/tournament)
 "Q" = (
 /obj/machinery/door/poddoor{
 	id = "arena_default";
 	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
 	},
 /turf/open/floor/bronze,
-/area/ctf)
+/area/tournament)
 "X" = (
 /obj/machinery/arena_spawn/green,
 /turf/open/floor/bronze,
-/area/ctf)
+/area/tournament)
 "Y" = (
 /obj/machinery/arena_spawn/red,
 /turf/open/floor/bronze,
-/area/ctf)
+/area/tournament)
 "Z" = (
 /obj/structure/chair/bronze{
 	dir = 4
 	},
 /turf/open/floor/bronze,
-/area/ctf)
+/area/tournament)
 
 (1,1,1) = {"
 M

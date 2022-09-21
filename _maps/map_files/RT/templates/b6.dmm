@@ -1,139 +1,139 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/closed/mineral/ash_rock,
-/area/ctf)
+/area/tournament)
 "e" = (
 /obj/structure/flora/grass/jungle/b,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "f" = (
 /obj/structure/flora/grass/jungle,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "g" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "i" = (
 /obj/structure/flora/bush,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "k" = (
 /obj/structure/flora/stump,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "l" = (
 /obj/structure/flora/rock/pile/largejungle,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "m" = (
 /obj/machinery/door/poddoor{
 	id = "arena_default";
 	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
 	},
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "n" = (
 /obj/structure/flora/tree/jungle,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "o" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "p" = (
 /obj/structure/flora/junglebush/large,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "q" = (
 /obj/structure/flora/ausbushes/reedbush,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "s" = (
 /obj/structure/flora/tree/jungle/small,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "t" = (
 /obj/structure/flora/ausbushes/fernybush,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "w" = (
 /obj/structure/flora/junglebush/b,
 /obj/structure/flora/junglebush/large,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "x" = (
 /obj/effect/baseturf_helper/dune,
 /turf/closed/mineral/ash_rock,
-/area/ctf)
+/area/tournament)
 "z" = (
 /obj/machinery/arena_spawn/red,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "A" = (
 /obj/structure/flora/ausbushes/genericbush,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "D" = (
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "F" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "G" = (
 /obj/structure/flora/tree/jungle/small,
 /obj/structure/flora/junglebush/c,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "I" = (
 /obj/structure/flora/rock/jungle,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "K" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "L" = (
 /obj/structure/flora/junglebush/b,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "M" = (
 /obj/structure/flora/ausbushes/grassybush,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "N" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "Q" = (
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "R" = (
 /obj/structure/flora/junglebush,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "T" = (
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "W" = (
 /obj/structure/flora/ausbushes/pointybush,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "X" = (
 /obj/machinery/arena_spawn/green,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "Y" = (
 /obj/structure/flora/junglebush/c,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 "Z" = (
 /obj/structure/flora/biolumi,
 /turf/open/floor/plating/grass/jungle,
-/area/ctf)
+/area/tournament)
 
 (1,1,1) = {"
 x

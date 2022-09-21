@@ -1,56 +1,56 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/open/floor/circuit/green/anim,
-/area/ctf)
+/area/tournament)
 "f" = (
 /turf/open/floor/dz/corruption,
-/area/ctf)
+/area/tournament)
 "g" = (
 /turf/open/floor/dz/hot_plates,
-/area/ctf)
+/area/tournament)
 "h" = (
 /turf/open/floor/glass,
-/area/ctf)
+/area/tournament)
 "k" = (
 /turf/closed/dz/normal/cyber/ice/red,
-/area/ctf)
+/area/tournament)
 "t" = (
 /turf/closed/dz/normal/cyber/ice/yellow,
-/area/ctf)
+/area/tournament)
 "u" = (
 /obj/machinery/door/poddoor{
 	id = "arena_default";
 	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
 	},
 /turf/open/floor/dz/cyber,
-/area/ctf)
+/area/tournament)
 "w" = (
 /turf/closed/dz/normal/cyber/ice/black,
-/area/ctf)
+/area/tournament)
 "x" = (
 /obj/machinery/arena_spawn/red,
 /turf/open/floor/dz/cyber,
-/area/ctf)
+/area/tournament)
 "H" = (
 /turf/closed/dz/normal/cyber/ice/blue,
-/area/ctf)
+/area/tournament)
 "J" = (
 /turf/open/floor/circuit/red/anim,
-/area/ctf)
+/area/tournament)
 "N" = (
 /obj/machinery/arena_spawn/green,
 /turf/open/floor/dz/cyber,
-/area/ctf)
+/area/tournament)
 "R" = (
 /turf/open/floor/dz/cyber,
-/area/ctf)
+/area/tournament)
 "S" = (
 /obj/effect/baseturf_helper/dune,
 /turf/closed/dz/normal/cyber,
-/area/ctf)
+/area/tournament)
 "T" = (
 /turf/closed/dz/normal/cyber,
-/area/ctf)
+/area/tournament)
 
 (1,1,1) = {"
 S

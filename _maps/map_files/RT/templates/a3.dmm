@@ -1,88 +1,88 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/open/floor/rospilovo/wood,
-/area/ctf)
+/area/tournament)
 "h" = (
 /obj/structure/rospilovo/doski,
 /turf/open/floor/rospilovo/wood,
-/area/ctf)
+/area/tournament)
 "j" = (
 /obj/machinery/door/poddoor{
 	id = "arena_default";
 	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
 	},
 /turf/open/floor/rospilovo/wood,
-/area/ctf)
+/area/tournament)
 "k" = (
 /obj/structure/rospilovo/leest,
 /turf/open/floor/rospilovo/wood,
-/area/ctf)
+/area/tournament)
 "o" = (
 /obj/structure/rospilovo/doski/doski2,
 /turf/open/floor/rospilovo/wood,
-/area/ctf)
+/area/tournament)
 "r" = (
 /obj/structure/rospilovo/painting/stalin,
 /turf/closed/wall/brick,
-/area/ctf)
+/area/tournament)
 "s" = (
 /obj/structure/rospilovo/musor_yashik/green,
 /turf/open/floor/rospilovo/wood,
-/area/ctf)
+/area/tournament)
 "t" = (
 /turf/template_noop,
-/area/ctf)
+/area/tournament)
 "w" = (
 /obj/structure/rospilovo/doski/doski4,
 /turf/open/floor/rospilovo/wood,
-/area/ctf)
+/area/tournament)
 "y" = (
 /obj/machinery/arena_spawn/red,
 /turf/open/floor/rospilovo/wood,
-/area/ctf)
+/area/tournament)
 "z" = (
 /obj/structure/rospilovo/painting/gorbachev,
 /turf/closed/wall/brick,
-/area/ctf)
+/area/tournament)
 "A" = (
 /obj/machinery/arena_spawn/green,
 /turf/open/floor/rospilovo/wood,
-/area/ctf)
+/area/tournament)
 "I" = (
 /obj/structure/rospilovo/doski/doski3,
 /turf/open/floor/rospilovo/wood,
-/area/ctf)
+/area/tournament)
 "J" = (
 /turf/closed/wall/brick,
-/area/ctf)
+/area/tournament)
 "L" = (
 /obj/structure/rospilovo/musor_yashik/red/full,
 /turf/open/floor/rospilovo/wood,
-/area/ctf)
+/area/tournament)
 "M" = (
 /obj/structure/rospilovo/switcher,
 /turf/closed/wall/brick,
-/area/ctf)
+/area/tournament)
 "N" = (
 /obj/structure/rospilovo/intercom,
 /turf/closed/wall/brick,
-/area/ctf)
+/area/tournament)
 "O" = (
 /obj/structure/rospilovo/lift,
 /turf/closed/wall/brick,
-/area/ctf)
+/area/tournament)
 "S" = (
 /obj/structure/rospilovo/painting/lenin,
 /turf/closed/wall/brick,
-/area/ctf)
+/area/tournament)
 "X" = (
 /obj/structure/rospilovo/rozetka,
 /turf/closed/wall/brick,
-/area/ctf)
+/area/tournament)
 "Z" = (
 /obj/effect/baseturf_helper/dune,
 /turf/closed/wall/brick,
-/area/ctf)
+/area/tournament)
 
 (1,1,1) = {"
 Z

@@ -1,77 +1,77 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/closed/wall/mineral/bamboo,
-/area/ctf)
+/area/tournament)
 "c" = (
 /obj/machinery/arena_spawn/green,
 /turf/open/floor/bamboo,
-/area/ctf)
+/area/tournament)
 "d" = (
 /obj/structure/chair/sofa/bamboo/left{
 	dir = 1
 	},
 /turf/open/floor/carpet/green,
-/area/ctf)
+/area/tournament)
 "e" = (
 /obj/machinery/arena_spawn/red,
 /turf/open/floor/bamboo,
-/area/ctf)
+/area/tournament)
 "h" = (
 /turf/open/floor/bamboo,
-/area/ctf)
+/area/tournament)
 "k" = (
 /obj/structure/mineral_door/paperframe,
 /turf/open/floor/bamboo,
-/area/ctf)
+/area/tournament)
 "l" = (
 /turf/open/floor/carpet/green,
-/area/ctf)
+/area/tournament)
 "q" = (
 /turf/open/water,
-/area/ctf)
+/area/tournament)
 "t" = (
 /obj/machinery/door/poddoor{
 	id = "arena_default";
 	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
 	},
 /turf/open/floor/bamboo,
-/area/ctf)
+/area/tournament)
 "v" = (
 /obj/structure/chair/sofa/bamboo/right,
 /turf/open/floor/carpet/green,
-/area/ctf)
+/area/tournament)
 "B" = (
 /obj/effect/baseturf_helper/dune,
 /turf/open/water,
-/area/ctf)
+/area/tournament)
 "G" = (
 /obj/structure/chair/sofa/bamboo{
 	dir = 1
 	},
 /turf/open/floor/carpet/green,
-/area/ctf)
+/area/tournament)
 "I" = (
 /obj/structure/window/paperframe,
 /turf/open/floor/bamboo,
-/area/ctf)
+/area/tournament)
 "N" = (
 /obj/structure/chair/sofa/bamboo/right{
 	dir = 1
 	},
 /turf/open/floor/carpet/green,
-/area/ctf)
+/area/tournament)
 "O" = (
 /obj/structure/punji_sticks,
 /turf/open/water,
-/area/ctf)
+/area/tournament)
 "W" = (
 /obj/structure/chair/sofa/bamboo/left,
 /turf/open/floor/carpet/green,
-/area/ctf)
+/area/tournament)
 "Z" = (
 /obj/structure/chair/sofa/bamboo,
 /turf/open/floor/carpet/green,
-/area/ctf)
+/area/tournament)
 
 (1,1,1) = {"
 B
