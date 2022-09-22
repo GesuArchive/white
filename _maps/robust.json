@@ -1,8 +1,8 @@
 {
 	"version": 1,
-    "map_name": "Robust Tournament: Wintersnow",
+    "map_name": "Robust Tournament: Autumn Cage",
     "map_path": "map_files/RT",
-    "map_file": "RT2.dmm",
+    "map_file": "RT3.dmm",
     "shuttles": {
 	    "cargo": "cargo_box",
 	    "ferry": "ferry_fancy",
