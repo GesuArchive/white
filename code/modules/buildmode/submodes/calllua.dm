@@ -17,8 +17,13 @@
 	if(saved_state[BM.holder.ckey])
 		state = saved_state[BM.holder.ckey]
 		return
+	
+	if(state)
+		state.call_function("bm_enable", BM.holder)
 
 /datum/buildmode_mode/call_lua/Destroy()
+	if(state)
+		state.call_function("bm_disable", BM.holder)
 	. = ..()
 
 /datum/buildmode_mode/call_lua/show_help(client/c)
