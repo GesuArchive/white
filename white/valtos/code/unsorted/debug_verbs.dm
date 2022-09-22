@@ -39,13 +39,13 @@
 	if(!check_rights(R_SECURED))
 		return
 
-	var/turf/where = get_turf(mob)
 
-	if(!where)
-		return
 
 	var/rss = input("Raspidoars range (Tiles):") as num
-
+	var/turf/where = get_turf(mob)
+	if(!where)
+		to_chat(usr, span_userwarning("Null loc, what the fuck?"))
+		return
 	message_admins("[ADMIN_LOOKUPFLW(usr)] жмёт на всякое!")
 	log_admin("[key_name(usr)] uses raspidoars.")
 
