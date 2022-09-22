@@ -1544,7 +1544,7 @@
 	var/direction = get_approx_dir(get_angle(src, A))
 	dir = direction & (EAST | WEST)
 	if(!dir)
-		direction & (NORTH | SOUTH)
+		dir = direction & (NORTH | SOUTH)
 	var/x_offset = 0
 	var/y_offset = 0
 	if(direction & NORTH)
