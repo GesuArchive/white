@@ -15,7 +15,7 @@
 // Get dir closest to angle
 /proc/get_approx_dir(angle)
 	var/static/list/dirs = list(NORTH, NORTHEAST, EAST, SOUTHEAST, SOUTH, SOUTHWEST, WEST, NORTHWEST)
-	var/ind = round(angle, 45) / 45
+	var/ind = (round(angle, 45) / 45 % 8) + 1
 	return dirs[ind]
 
 /// Angle between two arbitrary points and horizontal line same as [/proc/get_angle]
