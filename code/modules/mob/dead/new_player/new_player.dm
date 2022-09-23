@@ -129,12 +129,12 @@
 	var/less_input_message
 	if(SSlag_switch.measures[DISABLE_DEAD_KEYLOOP])
 		less_input_message = " - Заметка: Призраки на данный момент ограничены."
-	var/this_is_like_playing_right = tgui_alert(usr, "Действительно хочешь следить? У меня не будет возможности зайти в этот раунд (исключая частые ивенты и спаунеры)![less_input_message]","Странный господин",list("Да","Нет"))
 
-	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Да")
-		ready = PLAYER_NOT_READY
-		src << browse(null, "window=playersetup") //closes the player setup window
-		return FALSE
+	if(QDELETED(src) || !src.client)
+		if(!force_observe && tgui_alert(usr, "Действительно хочешь следить? У меня не будет возможности зайти в этот раунд (исключая частые ивенты и спаунеры)![less_input_message]","Странный господин",list("Да","Нет")) != "Да")
+			ready = PLAYER_NOT_READY
+			src << browse(null, "window=playersetup") //closes the player setup window
+			return FALSE
 
 	var/mob/dead/observer/observer = new()
 	spawning = TRUE

@@ -32,7 +32,7 @@
 	/// Name of currently loaded template
 	var/current_arena_template = "None"
 	// What turf arena clears to
-	var/empty_turf_type = /turf/open/chasm
+	var/empty_turf_type = /turf/open/indestructible/boss/air
 	// List of team ids
 	var/list/teams = list(ARENA_RED_TEAM,ARENA_GREEN_TEAM)
 	/// List of hud instances indedxed by team id

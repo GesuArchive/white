@@ -559,6 +559,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 	name = "ротация турфов"
 	icon_state = "turf_rotation"
 	late = TRUE
+	invisibility = INVISIBILITY_MAXIMUM
 	var/timer = 15 SECONDS
 	var/current_time = null
 	var/current_turf_type = /turf/open/lava
@@ -572,7 +573,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 	if(!floor)
 		qdel(src)
 		return PROCESS_KILL
-	current_time--
+	current_time -= 1 SECONDS
 	floor.maptext = MAPTEXT_REALLYBIG_COLOR("[current_time]", "#d10404")
 	if(current_time >= 0)
 		return
