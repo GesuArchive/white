@@ -196,7 +196,7 @@ SUBSYSTEM_DEF(eventmaster)
 	if(!holder || !check_rights(R_DEBUG))
 		return
 
-	var/list/possible_options = list("OPENWORLD EVENT", "GHOSTIZE EVERYONE", "SET WARFARE", "NATIONS EVENT", "NONE")
+	var/list/possible_options = list("OPENWORLD EVENT", "GHOSTIZE EVERYONE", "SET WARFARE", "NATIONS EVENT", "SPAWN EVERYONE HERE", "NONE")
 
 	var/what_the_fuck = tgui_input_list(usr, "SHIT YES?", "Cum", possible_options)
 
