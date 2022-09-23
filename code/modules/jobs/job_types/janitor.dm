@@ -1,6 +1,5 @@
 /datum/job/janitor
 	title = JOB_JANITOR
-	ru_title = "Уборщик"
 	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = "Station"
 	total_positions = 2

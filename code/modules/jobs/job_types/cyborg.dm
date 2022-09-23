@@ -1,6 +1,5 @@
 /datum/job/cyborg
 	title = JOB_CYBORG
-	ru_title = "Киборг"
 	auto_deadmin_role_flags = DEADMIN_POSITION_SILICON
 	faction = "Station"
 	total_positions = 0

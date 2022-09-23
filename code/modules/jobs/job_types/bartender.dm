@@ -1,6 +1,5 @@
 /datum/job/bartender
 	title = JOB_BARTENDER
-	ru_title = "Бармен"
 	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = "Station"
 	total_positions = 1

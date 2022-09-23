@@ -1,6 +1,5 @@
 /datum/job/security_officer
 	title = JOB_SECURITY_OFFICER
-	ru_title = "Офицер Безопасности"
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	department_head = list(JOB_HEAD_OF_SECURITY)
 	faction = "Station"

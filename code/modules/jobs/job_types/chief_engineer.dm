@@ -1,6 +1,5 @@
 /datum/job/chief_engineer
 	title = JOB_CHIEF_ENGINEER
-	ru_title = "Старший Инженер"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	department_head = list(JOB_CAPTAIN)
 	head_announce = list("Engineering")

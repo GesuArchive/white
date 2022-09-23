@@ -1,6 +1,5 @@
 /datum/job/station_engineer
 	title = JOB_STATION_ENGINEER
-	ru_title = "Инженер"
 	department_head = list(JOB_CHIEF_ENGINEER)
 	faction = "Station"
 	total_positions = 4

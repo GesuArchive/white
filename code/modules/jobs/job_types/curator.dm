@@ -1,6 +1,5 @@
 /datum/job/curator
 	title = JOB_CURATOR
-	ru_title = "Куратор"
 	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = "Station"
 	total_positions = 1

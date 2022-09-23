@@ -650,3 +650,12 @@
 	GLOB.apply_execution_protocol = TRUE
 	LAZYADD(GLOB.bad_words, GLOB.ru_ban_words)
 	..()
+
+/datum/round_aspect/lfwb
+	name = "30XX"
+	desc = "Какой сейчас год?!"
+	weight = 2
+
+/datum/round_aspect/lfwb/run_aspect()
+	change_server_theme("lfwb")
+	..()

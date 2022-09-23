@@ -1,6 +1,5 @@
 /datum/job/atmospheric_technician
 	title = JOB_ATMOSPHERIC_TECHNICIAN
-	ru_title = "Атмосферный Техник"
 	department_head = list(JOB_CHIEF_ENGINEER = "Старший Инженер")
 	faction = "Station"
 	total_positions = 1

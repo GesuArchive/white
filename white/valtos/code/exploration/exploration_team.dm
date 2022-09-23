@@ -1,6 +1,5 @@
 /datum/job/exploration
 	title = JOB_RANGER
-	ru_title = "Рейнджер"
 	department_head = list(JOB_HEAD_OF_PERSONNEL, JOB_RESEARCH_DIRECTOR)
 	exp_type = EXP_TYPE_CREW
 	faction = "Station"

@@ -1078,6 +1078,12 @@ GLOBAL_VAR_INIT(is_theme_applied, FALSE)
 	if(!(which_theme in themes))
 		return
 
+	change_server_theme(which_theme)
+
+	message_admins(span_adminnotice("[key_name_admin(src)] меняет тему игры на [which_theme]."))
+	log_admin("[key_name(src)] меняет тему игры на [which_theme].")
+
+/proc/change_server_theme(which_theme)
 	switch(which_theme)
 		if("onyx")
 			for(var/turf/open/T in world)
@@ -1111,7 +1117,4 @@ GLOBAL_VAR_INIT(is_theme_applied, FALSE)
 			for(var/i in 1 to 3)
 				smooth_zlevel(i)
 
-	GLOB.is_theme_applied = TRUE
-
-	message_admins(span_adminnotice("[key_name_admin(src)] меняет тему игры на [which_theme]."))
-	log_admin("[key_name(src)] меняет тему игры на [which_theme].")
+	GLOB.is_theme_applied = which_theme

@@ -47,7 +47,6 @@
 
 /datum/job/combantant
 	title = "Combantant"
-	ru_title = "Комбатант"
 	faction = "Violence"
 	total_positions = 0
 	spawn_positions = 0
@@ -58,7 +57,6 @@
 
 /datum/job/combantant/red
 	title = JOB_COMBATANT_RED
-	ru_title = "Комбатант: Красные"
 	faction = "Violence"
 	supervisors = "красным"
 	selection_color = "#dd0000"
@@ -72,7 +70,6 @@
 
 /datum/job/combantant/blue
 	title = JOB_COMBATANT_BLUE
-	ru_title = "Комбатант: Синие"
 	faction = "Violence"
 	supervisors = "синим"
 	selection_color = "#0000dd"

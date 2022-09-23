@@ -1,6 +1,5 @@
 /datum/job/psychologist
 	title = JOB_PSYCHOLOGIST
-	ru_title = "Психолог"
 	department_head = list(JOB_HEAD_OF_PERSONNEL, JOB_CHIEF_MEDICAL_OFFICER)
 	faction = "Station"
 	total_positions = 1

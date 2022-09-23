@@ -1,6 +1,5 @@
 /datum/job/captain
 	title = JOB_CAPTAIN
-	ru_title = "Капитан"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD|DEADMIN_POSITION_SECURITY
 	department_head = list("CentCom")
 	faction = "Station"

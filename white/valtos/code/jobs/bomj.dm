@@ -1,6 +1,5 @@
 /datum/job/bomj
 	title = JOB_BOMJ
-	ru_title = "Бомж"
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3

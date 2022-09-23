@@ -1,7 +1,6 @@
 /*
 /datum/job/security_officer/omon
 	title = JOB_RUSSIAN_OFFICER
-	ru_title = "Русский Офицер"
 	total_positions = 1
 	spawn_positions = 1
 	outfit = /datum/outfit/job/security/omon
@@ -15,7 +14,6 @@
 
 /datum/job/security_officer/veteran
 	title = JOB_VETERAN
-	ru_title = "Ветеран"
 	total_positions = 1
 	spawn_positions = 1
 	minimal_player_age = 365

@@ -830,7 +830,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			HTML += "<tr style='color: [job.selection_color]'><td width='60%' align='right'>"
 			var/rank = job.title
-			var/ru_rank = job.ru_title
+			var/ru_rank = ru_job_parse(job.title)
 			lastJob = job
 			if(is_banned_from(user.ckey, rank))
 				HTML += "<font color='#ff7777'>[ru_rank]</font></td><td><a href='?_src_=prefs;bancheck=[rank]'> БЛОК</a></td></tr>"

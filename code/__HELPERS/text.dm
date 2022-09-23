@@ -1221,6 +1221,8 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 
 // FUCK?
 /proc/ru_job_parse(job)
+	if(GLOB.is_theme_applied == "lfwb")
+		return ru_lfwb_job_parse(job)
 	if (job == JOB_ASSISTANT)
 		return "Ассистент"
 	else if (job == JOB_CAPTAIN)
@@ -1313,6 +1315,112 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 		return "Мим"
 	else if (job == JOB_PRISONER)
 		return "Заключённый"
+	else if (job == JOB_BOMJ)
+		return "Бомж"
+	else if (job == JOB_COMBATANT_RED)
+		return "комбатанта красных"
+	else if (job == JOB_COMBATANT_BLUE)
+		return "комбатанта синих"
+	else if (job == "red")
+		return "Красный"
+	else if (job == "blue")
+		return "Синий"
+	else
+		return job
+
+/proc/ru_lfwb_job_parse(job)
+	if (job == JOB_ASSISTANT)
+		return "Служанка"
+	else if (job == JOB_CAPTAIN)
+		return "Барон"
+	else if (job == JOB_CHIEF_ENGINEER)
+		return "Старший Мортус"
+	else if (job == JOB_STATION_ENGINEER)
+		return "Мортус"
+	else if (job == JOB_MECHANIC)
+		return "Горбач"
+	else if (job == JOB_ATMOSPHERIC_TECHNICIAN)
+		return "Атмосферный Горбач"
+	else if (job == JOB_CHIEF_MEDICAL_OFFICER)
+		return "Эскулап"
+	else if (job == JOB_MEDICAL_DOCTOR)
+		return "Серпент"
+	else if (job == JOB_PARAMEDIC)
+		return "Консайт"
+	else if (job == JOB_VIROLOGIST)
+		return "Знахарь"
+	else if (job == JOB_CHEMIST)
+		return "Химсестра"
+	else if (job == JOB_FIELD_MEDIC)
+		return "Полевой Серпент"
+	else if (job == JOB_RESEARCH_DIRECTOR)
+		return "Инквизитор"
+	else if (job == JOB_SCIENTIST)
+		return "Практик"
+	else if (job == JOB_GENETICIST)
+		return "Монахиня"
+	else if (job == JOB_ROBOTICIST)
+		return "Монах"
+	else if (job == JOB_HACKER)
+		return "Дример"
+	else if (job == JOB_HEAD_OF_SECURITY)
+		return "Цензор"
+	else if (job == JOB_WARDEN)
+		return "Инкарн"
+	else if (job == JOB_DETECTIVE)
+		return "Нюхач"
+	else if (job == JOB_SECURITY_OFFICER)
+		return "Цербер"
+	else if (job == JOB_SECURITY_OFFICER_SUPPLY)
+		return "Цербер (Торговец)"
+	else if (job == JOB_SECURITY_OFFICER_ENGINEERING)
+		return "Цербер (Мортуарий)"
+	else if (job == JOB_SECURITY_OFFICER_MEDICAL)
+		return "Цербер (Санктуарий)"
+	else if (job == JOB_SECURITY_OFFICER_SCIENCE)
+		return "Цербер (Инквизиция)"
+	else if (job == JOB_RUSSIAN_OFFICER)
+		return "Русский Цербер"
+	else if (job == JOB_VETERAN)
+		return "Ветеран"
+	else if (job == JOB_QUARTERMASTER)
+		return "Торговец"
+	else if (job == JOB_CARGO_TECHNICIAN)
+		return "Грузчик"
+	else if (job == JOB_SHAFT_MINER)
+		return "Шахтёр"
+	else if (job == JOB_HUNTER)
+		return "Охотник"
+	else if (job == JOB_FREELANCER)
+		return "Приключенец"
+	else if (job == JOB_RANGER)
+		return "Ушер"
+	else if (job == JOB_TRADER)
+		return "Купец"
+	else if (job == JOB_HEAD_OF_PERSONNEL)
+		return "Десница"
+	else if (job == JOB_BARTENDER)
+		return "Трактирщик"
+	else if (job == JOB_BOTANIST)
+		return "Земляр"
+	else if (job == JOB_COOK)
+		return "Жена Трактирщика"
+	else if (job == JOB_JANITOR)
+		return "Мизеро"
+	else if (job == JOB_CURATOR)
+		return "Гадалка"
+	else if (job == JOB_PSYCHOLOGIST)
+		return "Барыга"
+	else if (job == JOB_LAWYER)
+		return "Крестоносец"
+	else if (job == JOB_CHAPLAIN)
+		return "Епископ"
+	else if (job == JOB_CLOWN)
+		return "Шут"
+	else if (job == JOB_MIME)
+		return "Забавница"
+	else if (job == JOB_PRISONER)
+		return "Узник"
 	else if (job == JOB_BOMJ)
 		return "Бомж"
 	else if (job == JOB_COMBATANT_RED)

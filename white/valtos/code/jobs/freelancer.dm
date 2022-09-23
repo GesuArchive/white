@@ -1,6 +1,5 @@
 /datum/job/freelancer
 	title = JOB_FREELANCER
-	ru_title = "Путешественник"
 	department_head = list()
 	faction = "Station"
 	total_positions = 10

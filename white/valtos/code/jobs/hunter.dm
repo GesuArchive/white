@@ -1,6 +1,5 @@
 /datum/job/hunter
 	title = JOB_HUNTER
-	ru_title = "Охотник"
 	department_head = list()
 	faction = "Station"
 	total_positions = 1

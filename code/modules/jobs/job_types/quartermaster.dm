@@ -1,6 +1,5 @@
 /datum/job/quartermaster
 	title = JOB_QUARTERMASTER
-	ru_title = "Квартирмейстер"
 	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = "Station"
 	total_positions = 1

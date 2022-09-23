@@ -1,6 +1,5 @@
 /datum/job/scientist
 	title = JOB_SCIENTIST
-	ru_title = "Учёный"
 	department_head = list(JOB_RESEARCH_DIRECTOR)
 	faction = "Station"
 	total_positions = 5

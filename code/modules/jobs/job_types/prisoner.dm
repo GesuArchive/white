@@ -1,6 +1,5 @@
 /datum/job/prisoner
 	title = JOB_PRISONER
-	ru_title = "Заключённый"
 	department_head = list("The Security Team")
 	faction = "Station"
 	total_positions = 5

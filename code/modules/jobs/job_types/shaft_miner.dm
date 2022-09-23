@@ -1,6 +1,5 @@
 /datum/job/shaft_miner
 	title = JOB_SHAFT_MINER
-	ru_title = "Шахтёр"
 	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = "Station"
 	total_positions = 2

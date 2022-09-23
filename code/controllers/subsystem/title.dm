@@ -103,7 +103,7 @@ SUBSYSTEM_DEF(title)
 					if(player.client.prefs.job_preferences[j] == JP_HIGH)
 						var/datum/job/jobdatum = SSjob.GetJob(j)
 						if(jobdatum)
-							role_thing = jobdatum.ru_title
+							role_thing = ru_job_parse(jobdatum.title)
 							break
 			if(!caa[role_thing])
 				caa[role_thing] = list(player.key)

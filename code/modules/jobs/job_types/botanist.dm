@@ -1,6 +1,5 @@
 /datum/job/botanist
 	title = JOB_BOTANIST
-	ru_title = "Ботаник"
 	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = "Station"
 	total_positions = 3

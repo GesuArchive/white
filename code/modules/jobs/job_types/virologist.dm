@@ -1,6 +1,5 @@
 /datum/job/virologist
 	title = JOB_VIROLOGIST
-	ru_title = "Вирусолог"
 	department_head = list(JOB_CHIEF_MEDICAL_OFFICER)
 	faction = "Station"
 	total_positions = 1

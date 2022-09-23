@@ -351,9 +351,9 @@
 				if(job in GLOB.command_positions)
 					command_bold = " command"
 				if(job_datum in SSjob.prioritized_jobs)
-					dept_dat += "<a class='job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'><span class='priority'>[job_datum.ru_title] <span class='rightround'>[display_positions(job_datum)]</span></span></a>"
+					dept_dat += "<a class='job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'><span class='priority'>[ru_job_parse(job_datum.title)] <span class='rightround'>[display_positions(job_datum)]</span></span></a>"
 				else
-					dept_dat += "<a class='job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'>[job_datum.ru_title] <span class='rightround'>[display_positions(job_datum)]</span></a>"
+					dept_dat += "<a class='job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'>[ru_job_parse(job_datum.title)] <span class='rightround'>[display_positions(job_datum)]</span></a>"
 		if(!dept_dat.len)
 			dept_dat += span_nopositions("Нет свободных позиций.")
 		dat += jointext(dept_dat, "")
