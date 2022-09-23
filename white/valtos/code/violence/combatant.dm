@@ -160,7 +160,7 @@
 	ADD_TRAIT(W, TRAIT_NODROP, ABSTRACT_ITEM_TRAIT)
 	ADD_TRAIT(H.w_uniform, TRAIT_NODROP, ABSTRACT_ITEM_TRAIT)
 
-/proc/factionee_projectiles(mob/living/source, obj/item/equipped_item, slot)
+/datum/outfit/job/combantant/proc/factionee_projectiles(mob/living/source, obj/item/equipped_item, slot)
 	SIGNAL_HANDLER
 
 	var/actual_faction = source?.faction
