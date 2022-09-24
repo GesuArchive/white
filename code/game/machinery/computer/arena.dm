@@ -20,7 +20,7 @@
 
 /// Controller for admin event arenas
 /obj/machinery/computer/arena
-	name = "arena controller"
+	name = "контроллер арены"
 	/// Arena ID
 	var/arena_id = ARENA_DEFAULT_ID
 	/// Enables/disables spawning
@@ -87,7 +87,7 @@
 /obj/machinery/computer/arena/proc/get_load_point()
 	var/turf/A = get_landmark_turf(ARENA_CORNER_A)
 	var/turf/B = get_landmark_turf(ARENA_CORNER_B)
-	return locate(min(A.x,B.x),min(A.y,B.y),A.z)
+	return locate(round(abs(A.x - B.x) * 0.5, 1), round(abs(A.y - B.y), 1), A.z)
 
 /obj/machinery/computer/arena/proc/get_arena_turfs()
 	var/lp = get_load_point()
@@ -106,7 +106,7 @@
 		return
 	var/datum/map_template/M = arena_templates[arena_template]
 	if(!M)
-		to_chat(user,span_warning("No such arena"))
+		to_chat(user,span_warning("Нет арены?"))
 		return
 	clear_arena() //Clear current arena
 	var/turf/A = get_landmark_turf(ARENA_CORNER_A)
@@ -114,7 +114,7 @@
 	var/wh = abs(A.x - B.x) + 1
 	var/hz = abs(A.y - B.y) + 1
 	if(M.width > wh || M.height > hz)
-		to_chat(user,span_warning("Arena template is too big for the current arena!"))
+		to_chat(user,span_warning("Слишком большая арена!"))
 		return
 	loading = TRUE
 	var/bd = M.load(get_load_point())
@@ -124,8 +124,6 @@
 
 	message_admins("[key_name_admin(user)] loaded [arena_template] event arena for [arena_id] arena.")
 	log_admin("[key_name(user)] loaded [arena_template] event arena for [arena_id] arena.")
-
-
 
 /obj/machinery/computer/arena/proc/add_new_arena_template(user,fname,friendly_name)
 	if(!fname)
@@ -137,7 +135,7 @@
 
 	var/datum/map_template/T = new(fname,friendly_name,TRUE)
 	if(!T.cached_map || T.cached_map.check_for_errors())
-		to_chat(user,"Map failed to parse check for errors.")
+		to_chat(user,"АРЕНА СЛОМАНА.")
 		return
 
 	arena_templates[T.name] = T
@@ -145,7 +143,7 @@
 	log_admin("[key_name(user)] uploaded new event arena: [friendly_name].")
 
 /obj/machinery/computer/arena/proc/load_team(user,team)
-	var/rawteam = stripped_multiline_input(user,"Enter team list (ckeys separated by newline)")
+	var/rawteam = stripped_multiline_input(user,"Список команды (сикеи с новой строки)")
 	for(var/i in splittext(rawteam,"\n"))
 		var/key = ckey(i)
 		if(!i)
@@ -157,7 +155,7 @@
 		var/list/keys = list()
 		for(var/mob/M in GLOB.player_list)
 			keys += M.client
-		var/client/selection = tgui_input_list(usr, "Please, select a player!", "Team member", sortKey(keys))
+		var/client/selection = tgui_input_list(usr, "Выберем игрока!", "Мембер", sortKey(keys))
 		//Could be freeform if you want to add disconnected i guess
 		if(!selection)
 			return
@@ -166,11 +164,11 @@
 		team_keys[team] = list(key)
 	else
 		team_keys[team] |= key
-	to_chat(user,"[key] added to [team] team.")
+	to_chat(user,"[key] добавлен в [team].")
 
 /obj/machinery/computer/arena/proc/remove_member(mob/user,ckey,team)
 	team_keys[team] -= ckey
-	to_chat(user,"[ckey] removed from [team] team.")
+	to_chat(user,"[ckey] удалён из [team].")
 
 /obj/machinery/computer/arena/proc/spawn_member(obj/machinery/arena_spawn/spawnpoint,ckey,team)
 	var/mob/oldbody = get_mob_by_key(ckey)
@@ -188,12 +186,12 @@
 
 /obj/machinery/computer/arena/proc/toggle_spawn(mob/user)
 	ready_to_spawn = !ready_to_spawn
-	to_chat(user,"You [ready_to_spawn ? "enable" : "disable"] the spawners.")
+	to_chat(user,"[ready_to_spawn ? "Включаю" : "Выключаю"] спаунеры.")
 	log_admin("[key_name(user)] toggled event arena spawning for [arena_id] arena.")
 	// Could use update_icon on spawnpoints here to show they're on
 	if(ready_to_spawn)
 		for(var/mob/M in all_contestants())
-			to_chat(M,span_userdanger("Arena you're signed up for is ready!"))
+			to_chat(M,span_userdanger("Арена ещё не готова!"))
 
 /obj/machinery/computer/arena/proc/all_contestants()
 	. = list()
@@ -215,9 +213,9 @@
 /obj/machinery/computer/arena/proc/start_match(mob/user)
 	//TODO: Check if everyone is spawned in, if not ask for confirmation.
 	var/timetext = DisplayTimeText(start_delay)
-	to_chat(user,span_notice("The match will start in [timetext]."))
+	to_chat(user,span_notice("Матч начнётся через [timetext]."))
 	for(var/mob/M in all_contestants())
-		to_chat(M,span_userdanger("The gates will open in [timetext]!"))
+		to_chat(M,span_userdanger("Врата откроются через [timetext]!"))
 	start_time = world.time + start_delay
 	addtimer(CALLBACK(src,.proc/begin),start_delay)
 	for(var/team in teams)
@@ -234,7 +232,7 @@
 			var/obj/machinery/arena_spawn/A = get_spawn(team)
 			playsound(A,start_sound, start_sound_volume)
 	for(var/mob/M in all_contestants())
-		to_chat(M,span_userdanger("START!"))
+		to_chat(M,span_userdanger("В БОЙ!"))
 	//Clean up the countdowns
 	QDEL_LIST(countdowns)
 	start_time = null
@@ -296,7 +294,7 @@
 
 /obj/machinery/computer/arena/proc/load_random_arena(mob/user)
 	if(!length(arena_templates))
-		to_chat(user,span_warning("No arenas present"))
+		to_chat(user,span_warning("Нет арен"))
 		return
 	var/picked = pick(arena_templates)
 	load_arena(picked,user)
@@ -306,7 +304,7 @@
 	for(var/mob/living/L in GLOB.mob_living_list)
 		if(L.stat != DEAD && (get_turf(L) in arena_turfs))
 			var/obj/item/reagent_containers/food/drinks/trophy/gold_cup/G = new(get_turf(L))
-			G.name = "[L.real_name] Trophy"
+			G.name = "трофей [L.real_name]"
 
 /obj/machinery/computer/arena/ui_interact(mob/user)
 	. = ..()
@@ -339,7 +337,7 @@
 
 	dat += "Current arena: [current_arena_template]"
 	dat += "<h2>Arena List:</h2>"
-	for(var/A in arena_templates)
+	for(var/A in sort_list(arena_templates))
 		dat += "<a href='?src=[REF(src)];change_arena=[url_encode(A)]'>[A]</a><br>"
 	dat += "<hr>"
 	dat += "<a href='?src=[REF(src)];upload=1'>Upload new arena</a><br>"
@@ -367,12 +365,12 @@
 	var/obj/machinery/computer/arena/_controller
 
 /obj/machinery/arena_spawn/red
-	name = "Red Team Spawnpoint"
+	name = "Красная команда"
 	color = "red"
 	team = ARENA_RED_TEAM
 
 /obj/machinery/arena_spawn/green
-	name = "Green Team Spawnpoint"
+	name = "Зелёная команда"
 	color = "green"
 	team = ARENA_GREEN_TEAM
 
@@ -391,7 +389,7 @@
 	if(C.ready_to_spawn)
 		var/list/allowed_keys = C.team_keys[team]
 		if(!(user.ckey in allowed_keys))
-			to_chat(user,span_warning("You're not on the team list."))
+			to_chat(user,span_warning("Тебя нет в списке."))
 			return
 		C.spawn_member(src,user.ckey,team)
 
