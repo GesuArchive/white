@@ -660,5 +660,7 @@
 	change_server_theme("lfwb")
 	spawn(3 SECONDS)
 		for(var/mob/living/carbon/human/H in GLOB.mob_list)
-			H.fully_replace_character_name(H.real_name, H.real_name) // just for job names trigger
+			var/hrn = H.real_name
+			H.fully_replace_character_name(hrn, "[hrn]F") // just for job names trigger
+			H.fully_replace_character_name("[hrn]F", hrn)
 	..()
