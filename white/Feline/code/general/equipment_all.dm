@@ -4,8 +4,11 @@
 	name = "Космонавтик Зеленый"
 
 	suit = /obj/item/clothing/suit/space/hardsuit/shielded/ctf/green/robast
+	suit_store = /obj/item/tank/internals/tactical
+	mask = /obj/item/clothing/mask/breath
 	gloves = /obj/item/clothing/gloves/combat
-
+	back = /obj/item/tank/jetpack/oxygen/harness/robast
+	internals_slot = ITEM_SLOT_SUITSTORE
 	belt = /obj/item/gun/energy/laser/rangers/robast
 	r_pocket = /obj/item/melee/energy/sword/saber/green/robast
 
@@ -13,8 +16,11 @@
 	name = "Космонавтик Красный"
 
 	suit = /obj/item/clothing/suit/space/hardsuit/shielded/ctf/red/robast
+	suit_store = /obj/item/tank/internals/tactical
+	mask = /obj/item/clothing/mask/breath
 	gloves = /obj/item/clothing/gloves/combat
-
+	back = /obj/item/tank/jetpack/oxygen/harness/robast
+	internals_slot = ITEM_SLOT_SUITSTORE
 	belt = /obj/item/gun/energy/laser/rangers/robast
 	r_pocket = /obj/item/melee/energy/sword/saber/red/robast
 
@@ -65,7 +71,6 @@
 	projectile_type = /obj/projectile/beam/laser/heavylaser/robast
 	select_name = "убить"
 	e_cost = 40
-
 
 /obj/item/melee/energy/sword/saber/red/robast
 	name = "военный лазерный меч"

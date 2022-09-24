@@ -396,7 +396,12 @@
 "kh" = (
 /obj/structure/alien/weeds,
 /obj/structure/bed/nest,
-/mob/living/simple_animal/hostile/alien/sentinel,
+/mob/living/simple_animal/hostile/alien/sentinel{
+	melee_damage_lower = 300;
+	melee_damage_upper = 300;
+	health = 5000;
+	maxHealth = 5000
+	},
 /turf/open/indestructible/hoteltile,
 /area/ctf)
 "kB" = (
@@ -426,7 +431,12 @@
 /obj/effect/decal/cleanable/leaper_sludge,
 /obj/effect/decal/cleanable/oil,
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/simple_animal/hostile/zombie{
+	melee_damage_lower = 300;
+	melee_damage_upper = 300;
+	health = 5000;
+	maxHealth = 5000
+	},
 /turf/open/floor/engine,
 /area/ctf)
 "lk" = (
@@ -567,7 +577,6 @@
 /area/ctf)
 "nW" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/item/dnainjector/h2m,
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 10
 	},
@@ -654,11 +663,16 @@
 /turf/open/indestructible/hoteltile,
 /area/ctf)
 "oZ" = (
-/obj/structure/alien/weeds/node,
-/mob/living/simple_animal/hostile/alien/queen,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/mob/living/simple_animal/hostile/clown/worm{
+	melee_damage_lower = 300;
+	melee_damage_upper = 300;
+	health = 5000;
+	maxHealth = 5000
+	},
+/obj/structure/fleshbuilding/clownweeds/node,
 /turf/open/indestructible/hoteltile,
 /area/ctf)
 "ph" = (
@@ -673,7 +687,6 @@
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/food/grown/banana,
-/obj/item/dnainjector/h2m,
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 10
 	},
@@ -1008,7 +1021,6 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
-/obj/item/dnainjector/h2m,
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 9
 	},
@@ -1391,7 +1403,6 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/item/dnainjector/h2m,
 /turf/open/indestructible/hoteltile,
 /area/ctf)
 "GA" = (
@@ -1468,14 +1479,6 @@
 	},
 /turf/open/indestructible/hoteltile,
 /area/ctf)
-"IY" = (
-/obj/effect/turf_decal/trimline/green/filled/line{
-	dir = 9
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/item/dnainjector/h2m,
-/turf/open/indestructible/hoteltile,
-/area/ctf)
 "Jg" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 6
@@ -1505,7 +1508,12 @@
 /turf/open/floor/plasteel/freezer,
 /area/ctf)
 "Jw" = (
-/mob/living/simple_animal/hostile/giant_spider/midwife,
+/mob/living/simple_animal/hostile/giant_spider/midwife{
+	melee_damage_lower = 300;
+	melee_damage_upper = 300;
+	health = 5000;
+	maxHealth = 5000
+	},
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/disposalpipe/trunk{
@@ -1587,7 +1595,12 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/mob/living/simple_animal/hostile/alien/queen,
+/mob/living/simple_animal/hostile/alien/queen{
+	melee_damage_lower = 300;
+	melee_damage_upper = 300;
+	health = 5000;
+	maxHealth = 5000
+	},
 /turf/open/indestructible/hoteltile,
 /area/ctf)
 "Mg" = (
@@ -1628,7 +1641,12 @@
 /obj/structure/disposalpipe/segment{
 	invisibility = 100
 	},
-/mob/living/simple_animal/hostile/giant_spider/tarantula,
+/mob/living/simple_animal/hostile/giant_spider/tarantula{
+	melee_damage_lower = 300;
+	melee_damage_upper = 300;
+	health = 5000;
+	maxHealth = 5000
+	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/engine,
 /area/ctf)
@@ -1758,12 +1776,16 @@
 /turf/open/indestructible/hoteltile,
 /area/ctf)
 "Ru" = (
-/obj/structure/alien/weeds,
-/obj/structure/bed/nest,
-/mob/living/simple_animal/hostile/alien/sentinel,
 /obj/structure/disposalpipe/segment{
 	invisibility = 100
 	},
+/mob/living/simple_animal/hostile/clown/mutant{
+	melee_damage_lower = 300;
+	melee_damage_upper = 300;
+	health = 5000;
+	maxHealth = 5000
+	},
+/obj/structure/fleshbuilding/clownweeds,
 /turf/open/indestructible/hoteltile,
 /area/ctf)
 "RG" = (
@@ -1852,7 +1874,12 @@
 "Tk" = (
 /obj/effect/decal/cleanable/vomit,
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/simple_animal/hostile/zombie,
+/mob/living/simple_animal/hostile/zombie{
+	melee_damage_lower = 300;
+	melee_damage_upper = 300;
+	health = 5000;
+	maxHealth = 5000
+	},
 /turf/open/floor/engine,
 /area/ctf)
 "Tp" = (
@@ -1880,7 +1907,6 @@
 	},
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/item/dnainjector/h2m,
 /turf/open/indestructible/hoteltile,
 /area/ctf)
 "Ud" = (
@@ -1968,7 +1994,6 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/poo,
 /obj/effect/decal/cleanable/plastic,
 /obj/effect/decal/cleanable/shreds,
 /obj/effect/decal/cleanable/blood/tracks{
@@ -2014,6 +2039,10 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/food/grown/banana,
+/turf/open/indestructible/hoteltile,
+/area/ctf)
+"XB" = (
+/obj/structure/fleshbuilding/clownweeds,
 /turf/open/indestructible/hoteltile,
 /area/ctf)
 "XC" = (
@@ -2080,12 +2109,10 @@
 /turf/open/indestructible/hoteltile,
 /area/ctf)
 "ZQ" = (
-/obj/structure/alien/weeds,
-/obj/structure/alien/egg/burst,
-/obj/effect/decal/cleanable/insectguts,
 /obj/structure/disposalpipe/segment{
 	invisibility = 100
 	},
+/obj/structure/fleshbuilding/clownweeds,
 /turf/open/indestructible/hoteltile,
 /area/ctf)
 "ZZ" = (
@@ -2121,7 +2148,7 @@ mN
 vR
 pR
 Nv
-IY
+KS
 OL
 Nv
 tM
@@ -2227,7 +2254,7 @@ nS
 xz
 ud
 oZ
-wr
+XB
 Nv
 kT
 nt

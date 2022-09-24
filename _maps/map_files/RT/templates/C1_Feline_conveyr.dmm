@@ -1,0 +1,869 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"az" = (
+/obj/effect/turf_decal/tile/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/machinery/conveyor/auto{
+	dir = 1;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"bj" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/machinery/conveyor/auto{
+	dir = 1;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"bq" = (
+/obj/item/grown/bananapeel,
+/obj/machinery/conveyor/auto{
+	dir = 6;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"bL" = (
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"bU" = (
+/obj/machinery/arena_spawn/red,
+/obj/effect/turf_decal/tile/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/machinery/conveyor/auto{
+	dir = 5;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"eT" = (
+/obj/machinery/conveyor/auto{
+	dir = 5;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"eX" = (
+/obj/item/ammo_box/magazine/wt550m9/wtic,
+/obj/machinery/conveyor/auto{
+	dir = 8;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"gr" = (
+/obj/item/gun/ballistic/automatic/pistol/aps,
+/obj/machinery/conveyor/auto{
+	dir = 8;
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"gA" = (
+/obj/item/bikehorn/rubberducky,
+/obj/machinery/conveyor/auto{
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"gB" = (
+/obj/item/ammo_box/magazine/m9mm_aps/fire,
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"ij" = (
+/obj/item/grown/bananapeel,
+/obj/machinery/conveyor/auto{
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"iC" = (
+/obj/item/ammo_box/magazine/wt550m9/wtic,
+/obj/machinery/conveyor/auto{
+	dir = 1;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"jt" = (
+/obj/machinery/conveyor/auto{
+	dir = 9;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"kC" = (
+/obj/item/food/pie/cream,
+/obj/machinery/conveyor/auto{
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"kN" = (
+/obj/machinery/conveyor/auto{
+	dir = 1;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"lc" = (
+/obj/machinery/conveyor/inverted/auto{
+	dir = 5;
+	color = "#ff66ff"
+	},
+/obj/structure/closet/crate,
+/obj/item/grenade/frag,
+/turf/open/floor/plasteel,
+/area/tournament)
+"lm" = (
+/obj/effect/turf_decal/tile/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/obj/item/food/pie/cream,
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"ot" = (
+/obj/effect/turf_decal/tile/dark,
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/item/bikehorn,
+/obj/machinery/conveyor/auto{
+	dir = 8;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"pY" = (
+/obj/machinery/conveyor/inverted/auto{
+	dir = 6;
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"qL" = (
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	color = "#fee407"
+	},
+/mob/living/simple_animal/bot/honkbot,
+/turf/open/floor/plasteel,
+/area/tournament)
+"ro" = (
+/obj/item/food/pie/cream,
+/obj/machinery/conveyor/inverted/auto{
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"to" = (
+/obj/item/grown/bananapeel,
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"tQ" = (
+/obj/item/ammo_box/magazine/m9mm_aps/fire,
+/obj/machinery/conveyor/auto{
+	dir = 8;
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"tT" = (
+/obj/item/ammo_box/magazine/wt550m9/wtic,
+/obj/machinery/conveyor/auto{
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"vu" = (
+/obj/machinery/conveyor/inverted/auto{
+	dir = 5;
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"vR" = (
+/obj/item/ammo_box/magazine/m9mm_aps/fire,
+/obj/machinery/conveyor/auto{
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"vT" = (
+/obj/machinery/conveyor/inverted/auto{
+	dir = 10;
+	color = "#ff66ff"
+	},
+/obj/structure/closet/crate,
+/obj/item/grenade/frag,
+/turf/open/floor/plasteel,
+/area/tournament)
+"ww" = (
+/obj/item/pneumatic_cannon/pie/selfcharge,
+/obj/machinery/conveyor/auto{
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"xn" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/obj/effect/turf_decal/tile/dark,
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/machinery/conveyor/auto{
+	dir = 8;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"xC" = (
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark,
+/obj/machinery/conveyor/auto{
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"xY" = (
+/obj/item/ammo_box/magazine/wt550m9/wtic,
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"ys" = (
+/obj/machinery/conveyor/inverted/auto{
+	color = "#ff66ff"
+	},
+/obj/item/ammo_box/magazine/m9mm_aps/fire,
+/turf/open/floor/plasteel,
+/area/tournament)
+"yv" = (
+/obj/item/bikehorn,
+/obj/machinery/conveyor/auto{
+	dir = 8;
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"zA" = (
+/obj/structure/closet/crate/large,
+/obj/machinery/conveyor/auto{
+	dir = 8;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"zT" = (
+/obj/machinery/conveyor/auto{
+	dir = 10;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"Ak" = (
+/obj/effect/turf_decal/tile/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"Br" = (
+/obj/machinery/conveyor/inverted/auto{
+	dir = 6;
+	color = "#ff66ff"
+	},
+/obj/item/grown/bananapeel,
+/turf/open/floor/plasteel,
+/area/tournament)
+"Bs" = (
+/obj/item/gun/ballistic/automatic/pistol/aps,
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"Ea" = (
+/obj/effect/baseturf_helper/dune,
+/turf/closed/wall/clown,
+/area/tournament)
+"Hl" = (
+/obj/item/pneumatic_cannon/pie/selfcharge,
+/obj/machinery/conveyor/auto{
+	dir = 1;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"Hv" = (
+/obj/item/bikehorn,
+/obj/machinery/conveyor/inverted/auto{
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"Hz" = (
+/obj/machinery/conveyor/inverted/auto{
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"Ip" = (
+/obj/structure/closet/crate/coffin,
+/obj/item/gun/ballistic/automatic/evgenii/fuckyou,
+/obj/machinery/conveyor/auto{
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"JU" = (
+/obj/item/grown/bananapeel,
+/obj/machinery/conveyor/auto{
+	dir = 1;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"KB" = (
+/obj/item/bikehorn,
+/obj/machinery/conveyor/auto{
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"KT" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark,
+/obj/machinery/conveyor/auto{
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"Lu" = (
+/obj/effect/turf_decal/tile/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark,
+/obj/machinery/conveyor/auto{
+	dir = 6;
+	color = "#fee407"
+	},
+/obj/item/grown/bananapeel,
+/turf/open/floor/plasteel,
+/area/tournament)
+"LQ" = (
+/obj/effect/turf_decal/tile/dark,
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/machinery/conveyor/auto{
+	dir = 8;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"LS" = (
+/obj/item/gun/ballistic/automatic/wt550,
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"LT" = (
+/obj/item/bikehorn/rubberducky,
+/obj/machinery/conveyor/inverted/auto{
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"MI" = (
+/obj/machinery/conveyor/auto{
+	dir = 8;
+	color = "#fee407"
+	},
+/mob/living/simple_animal/bot/honkbot,
+/turf/open/floor/plasteel,
+/area/tournament)
+"Ng" = (
+/obj/effect/turf_decal/tile/dark,
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/item/food/pie/cream,
+/obj/machinery/conveyor/auto{
+	dir = 8;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"Nh" = (
+/obj/machinery/conveyor/auto{
+	dir = 9;
+	color = "#fee407"
+	},
+/obj/item/grown/bananapeel,
+/turf/open/floor/plasteel,
+/area/tournament)
+"NC" = (
+/obj/structure/closet/crate/large,
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"NT" = (
+/obj/machinery/conveyor/inverted/auto{
+	dir = 9;
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"Ow" = (
+/obj/machinery/conveyor/auto{
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"OF" = (
+/obj/machinery/conveyor/auto{
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"Pr" = (
+/obj/item/gun/ballistic/automatic/wt550,
+/obj/machinery/conveyor/auto{
+	dir = 8;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"Qc" = (
+/obj/machinery/conveyor/inverted/auto{
+	dir = 10;
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"Qf" = (
+/obj/item/bikehorn,
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"QD" = (
+/obj/machinery/conveyor/auto{
+	dir = 8;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"QE" = (
+/obj/structure/ore_box,
+/obj/machinery/conveyor/inverted/auto{
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"QK" = (
+/obj/machinery/arena_spawn/green,
+/obj/effect/turf_decal/tile/dark,
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/machinery/conveyor/auto{
+	dir = 10;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"QP" = (
+/obj/item/grown/bananapeel,
+/obj/machinery/conveyor/auto{
+	dir = 8;
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"Rc" = (
+/obj/item/bikehorn/rubberducky,
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"Rf" = (
+/obj/machinery/conveyor/auto{
+	dir = 1;
+	color = "#fee407"
+	},
+/obj/structure/closet/crate/coffin,
+/obj/item/gun/ballistic/automatic/evgenii/fuckyou,
+/turf/open/floor/plasteel,
+/area/tournament)
+"RC" = (
+/obj/structure/ore_box,
+/obj/machinery/conveyor/auto{
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"RZ" = (
+/obj/structure/statue/bananium/clown{
+	anchored = 1
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"Tk" = (
+/obj/item/bikehorn/rubberducky,
+/obj/machinery/conveyor/auto{
+	dir = 8;
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"Tn" = (
+/obj/machinery/conveyor/inverted/auto{
+	dir = 9;
+	color = "#ff66ff"
+	},
+/obj/item/grown/bananapeel,
+/turf/open/floor/plasteel,
+/area/tournament)
+"Wa" = (
+/turf/closed/wall/clown,
+/area/tournament)
+"Xi" = (
+/obj/effect/turf_decal/tile/dark,
+/obj/effect/turf_decal/tile/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 8
+	},
+/obj/item/grown/bananapeel,
+/obj/machinery/conveyor/auto{
+	dir = 9;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"Xu" = (
+/obj/machinery/conveyor/auto{
+	dir = 6;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"XG" = (
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"XO" = (
+/obj/machinery/conveyor/auto{
+	dir = 8;
+	color = "#ff66ff"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"YR" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+"ZD" = (
+/obj/effect/turf_decal/tile/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/dark{
+	dir = 4
+	},
+/obj/item/bikehorn,
+/obj/machinery/conveyor/auto{
+	dir = 4;
+	color = "#fee407"
+	},
+/turf/open/floor/plasteel,
+/area/tournament)
+
+(1,1,1) = {"
+Ea
+Wa
+Wa
+Wa
+Wa
+Wa
+Wa
+Wa
+Wa
+Wa
+Wa
+Wa
+Wa
+"}
+(2,1,1) = {"
+Wa
+bU
+bj
+az
+az
+az
+az
+az
+az
+az
+az
+Xi
+Wa
+"}
+(3,1,1) = {"
+Wa
+YR
+lc
+OF
+KB
+OF
+kC
+OF
+vR
+OF
+Tn
+LQ
+Wa
+"}
+(4,1,1) = {"
+Wa
+lm
+XO
+eT
+iC
+kN
+Hl
+kN
+JU
+jt
+XG
+LQ
+Wa
+"}
+(5,1,1) = {"
+Wa
+Ak
+tQ
+NC
+vu
+gA
+OF
+RC
+NT
+eX
+Rc
+LQ
+Wa
+"}
+(6,1,1) = {"
+Wa
+Ak
+XO
+bL
+QP
+eT
+Rf
+Nh
+Qf
+QD
+XG
+ot
+Wa
+"}
+(7,1,1) = {"
+Wa
+Ak
+gr
+LS
+XO
+qL
+RZ
+MI
+XG
+Pr
+Bs
+LQ
+Wa
+"}
+(8,1,1) = {"
+Wa
+ZD
+XO
+bL
+yv
+bq
+Ip
+zT
+to
+QD
+XG
+LQ
+Wa
+"}
+(9,1,1) = {"
+Wa
+Ak
+Tk
+xY
+pY
+QE
+Hz
+LT
+Qc
+zA
+gB
+LQ
+Wa
+"}
+(10,1,1) = {"
+Wa
+Ak
+XO
+Xu
+ij
+Ow
+ww
+Ow
+tT
+zT
+XG
+Ng
+Wa
+"}
+(11,1,1) = {"
+Wa
+Ak
+Br
+Hz
+ys
+Hz
+ro
+Hz
+Hv
+Hz
+vT
+xn
+Wa
+"}
+(12,1,1) = {"
+Wa
+Lu
+xC
+xC
+xC
+xC
+xC
+xC
+xC
+xC
+KT
+QK
+Wa
+"}
+(13,1,1) = {"
+Wa
+Wa
+Wa
+Wa
+Wa
+Wa
+Wa
+Wa
+Wa
+Wa
+Wa
+Wa
+Wa
+"}

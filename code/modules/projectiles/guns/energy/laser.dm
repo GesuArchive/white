@@ -96,7 +96,6 @@
 	flags_1 =  CONDUCT_1
 	slot_flags = ITEM_SLOT_BACK
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/accelerator)
-	pin = null
 	ammo_x_offset = 3
 
 /obj/item/ammo_casing/energy/laser/accelerator

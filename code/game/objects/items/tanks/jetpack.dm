@@ -157,6 +157,12 @@
 	throw_range = 7
 	w_class = WEIGHT_CLASS_NORMAL
 
+/obj/item/tank/jetpack/oxygen/harness/robast
+
+/obj/item/tank/jetpack/oxygen/harness/robast/equipped(mob/living/carbon/human/user, slot)
+	. = ..()
+	turn_on(user)
+
 /obj/item/tank/jetpack/oxygen/captain
 	name = "captain's jetpack"
 	desc = "A compact, lightweight jetpack containing a high amount of compressed oxygen."

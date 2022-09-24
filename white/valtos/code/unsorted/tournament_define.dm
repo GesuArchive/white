@@ -79,6 +79,29 @@
 	uniform = /obj/item/clothing/under/color/grey
 	shoes = /obj/item/clothing/shoes/sneakers/black
 
+/datum/outfit/whiterobust/ass/monkey
+	name = "Манкификация - Красный"
+	mask = /obj/item/clothing/mask/gas/monkeymask/monkeyize
+	uniform = null
+
+/datum/outfit/whiterobust/ass/monkey/green
+	name = "Манкификация - Зеленый"
+	mask = /obj/item/clothing/mask/gas/monkeymask/monkeyize/green
+
+
+/obj/item/clothing/mask/gas/monkeymask/monkeyize
+	color = "#ff0000"
+	flags_cover = 0
+
+/obj/item/clothing/mask/gas/monkeymask/monkeyize/green
+	color = "#00c814"
+
+/obj/item/clothing/mask/gas/monkeymask/monkeyize/equipped(mob/living/carbon/human/user, slot)
+	. = ..()
+	if(!istype(user))
+		return
+	user.monkeyize()
+
 /datum/outfit/whiterobust/ass/box
 	name = "Ассистуха + Тулбокс"
 

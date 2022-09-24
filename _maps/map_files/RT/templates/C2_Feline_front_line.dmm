@@ -1,0 +1,777 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"az" = (
+/obj/machinery/arena_spawn/red,
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"bU" = (
+/turf/closed/indestructible/riveted/dirtystone,
+/area/tournament)
+"ct" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "l9"
+	},
+/obj/item/gun/ballistic/shotgun/fallout/cowboy,
+/obj/effect/gibspawner/human/bodypartless,
+/turf/open/floor/plating/is12/dirt,
+/area/tournament)
+"cQ" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 1
+	},
+/turf/open/floor/plating/is12/surface,
+/area/tournament)
+"dp" = (
+/obj/structure/cannon{
+	dir = 8
+	},
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"ep" = (
+/obj/machinery/arena_spawn/green,
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"fw" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "l2"
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/tournament)
+"gA" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 4
+	},
+/obj/item/ammo_box/magazine/a792x57,
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"gK" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
+	},
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"gS" = (
+/obj/structure/deployable_barricade/sandbags{
+	pixel_y = -10
+	},
+/turf/open/floor/plating/is12/surface,
+/area/tournament)
+"hw" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "l9"
+	},
+/obj/item/ammo_box/magazine/a792x57,
+/turf/open/floor/plating/is12/dirt,
+/area/tournament)
+"hF" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
+	},
+/obj/item/flashlight/flare/torch,
+/obj/item/wrench,
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"jD" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 4
+	},
+/obj/item/stack/cannonball/shellball/fourteen,
+/obj/structure/table/wood,
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"lq" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 4
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/tournament)
+"lY" = (
+/obj/structure/table/wood,
+/obj/item/shield/riot/buckler{
+	pixel_x = 3
+	},
+/obj/item/shield/riot/buckler{
+	pixel_x = -3
+	},
+/obj/item/melee/sabre/german{
+	pixel_x = 2;
+	pixel_y = -2
+	},
+/obj/item/melee/sabre/german{
+	pixel_y = 2;
+	pixel_x = -2
+	},
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"mC" = (
+/obj/structure/flora/stump,
+/obj/effect/turf_decal/is12{
+	icon_state = "l8"
+	},
+/obj/effect/gibspawner/human/bodypartless,
+/turf/open/floor/plating/is12/surface,
+/area/tournament)
+"nr" = (
+/obj/item/stack/sheet/mineral/sandbags{
+	amount = 50
+	},
+/obj/item/shield/riot/buckler,
+/obj/item/clothing/mask/gas/germanfull,
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"nP" = (
+/obj/structure/table/wood,
+/obj/item/clothing/suit/armor/vest/warden/alt,
+/obj/item/clothing/head/helmet/izanhelm/elite{
+	armor = list("melee"=15,"bullet"=60,"laser"=10,"energy"=10,"bomb"=40,"bio"=0,"rad"=0,"fire"=50,"acid"=50,"wound"=5);
+	flags_inv = 0
+	},
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"oh" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"pA" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "grass"
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/tournament)
+"rH" = (
+/obj/structure/flora/stump,
+/turf/open/floor/plating/is12/surface,
+/area/tournament)
+"sf" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 4
+	},
+/turf/open/floor/plating/is12/surface,
+/area/tournament)
+"ti" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "l8"
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/tournament)
+"tm" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"tY" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "grass"
+	},
+/obj/effect/turf_decal/is12{
+	icon_state = "l6"
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/tournament)
+"vm" = (
+/obj/machinery/door/poddoor{
+	id = "arena_default";
+	name = "FUCK THIS DOOR FUCK YOU LET ME IN FUCK FUCK"
+	},
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"wX" = (
+/obj/effect/turf_decal/is12,
+/turf/open/floor/plating/is12/surface,
+/area/tournament)
+"yJ" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
+	},
+/obj/item/ammo_box/magazine/a792x57,
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"Ac" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"Be" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "l3"
+	},
+/turf/open/floor/plating/is12/surface,
+/area/tournament)
+"Bp" = (
+/obj/structure/flora/rock/jungle,
+/obj/item/grenade/chem_grenade/teargas,
+/turf/open/floor/plating/is12/dirt,
+/area/tournament)
+"Bs" = (
+/turf/open/floor/plating/is12/surface,
+/area/tournament)
+"Fm" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "l7"
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/tournament)
+"Fn" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "l7"
+	},
+/turf/open/floor/plating/is12/surface,
+/area/tournament)
+"Hl" = (
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"Hs" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "l3"
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/tournament)
+"Iy" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
+	},
+/obj/item/stack/cannonball/shellball/fourteen,
+/obj/structure/table/wood,
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"IO" = (
+/obj/effect/mine/explosive,
+/turf/open/floor/plating/is12/dirt,
+/area/tournament)
+"IZ" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "m1"
+	},
+/turf/open/floor/plating/is12/surface,
+/area/tournament)
+"KY" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "l3"
+	},
+/obj/structure/deployable_barricade/sandbags{
+	pixel_y = -10
+	},
+/turf/open/floor/plating/is12/surface,
+/area/tournament)
+"Lu" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "l2"
+	},
+/turf/open/floor/plating/is12/surface,
+/area/tournament)
+"LQ" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
+	},
+/turf/open/floor/plating/is12/surface,
+/area/tournament)
+"LT" = (
+/obj/structure/cannon{
+	dir = 4
+	},
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"Mp" = (
+/obj/effect/gibspawner/human/bodypartless,
+/turf/open/floor/plating/is12/surface,
+/area/tournament)
+"NL" = (
+/obj/item/ammo_box/magazine/a792x57,
+/turf/open/floor/plating/is12/dirt,
+/area/tournament)
+"NT" = (
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"NV" = (
+/obj/structure/flora/rock/pile/largejungle,
+/turf/open/floor/plating/is12/dirt,
+/area/tournament)
+"OF" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 4
+	},
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"PN" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "l1"
+	},
+/turf/open/floor/plating/is12/surface,
+/area/tournament)
+"Qc" = (
+/obj/effect/baseturf_helper/dune,
+/turf/closed/indestructible/riveted/dirtystone,
+/area/tournament)
+"QT" = (
+/obj/item/clothing/suit/armor/vest/warden,
+/obj/structure/table/wood,
+/obj/item/clothing/head/helmet/izanhelm/elite{
+	armor = list("melee"=15,"bullet"=60,"laser"=10,"energy"=10,"bomb"=40,"bio"=0,"rad"=0,"fire"=50,"acid"=50,"wound"=5);
+	flags_inv = 0
+	},
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"RJ" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "l5"
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/tournament)
+"Tn" = (
+/turf/closed/mineral/ash_rock,
+/area/tournament)
+"Ux" = (
+/obj/effect/decal/cleanable/blood/gibs/old,
+/turf/open/floor/plating/is12/surface,
+/area/tournament)
+"Wa" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "l4"
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/tournament)
+"Xa" = (
+/obj/structure/fermenting_barrel/gunpowder,
+/obj/item/reagent_containers/glass/bucket/wooden,
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"Xi" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/tournament)
+"Xm" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 4
+	},
+/obj/item/flashlight/flare/torch,
+/obj/item/wrench,
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+"Xv" = (
+/obj/effect/turf_decal/is12{
+	icon_state = "l1"
+	},
+/turf/open/floor/plating/is12/dirt,
+/area/tournament)
+"YS" = (
+/turf/open/floor/plating/is12/dirt,
+/area/tournament)
+"ZM" = (
+/obj/structure/table/wood,
+/obj/item/gun/ballistic/rifle/boltaction/kar98k,
+/obj/item/gun/ballistic/rifle/boltaction/kar98k{
+	pixel_y = -6
+	},
+/obj/item/ammo_box/magazine/a792x57{
+	pixel_x = -3
+	},
+/obj/item/ammo_box/magazine/a792x57{
+	pixel_x = 3
+	},
+/turf/open/floor/plating/is12/wood{
+	slowdown = 0
+	},
+/area/tournament)
+
+(1,1,1) = {"
+Qc
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+"}
+(2,1,1) = {"
+bU
+Hl
+Hl
+az
+ZM
+nP
+nP
+lY
+az
+Hl
+Hl
+bU
+"}
+(3,1,1) = {"
+bU
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+bU
+"}
+(4,1,1) = {"
+bU
+vm
+Tn
+Tn
+Tn
+vm
+vm
+Tn
+Tn
+Tn
+vm
+bU
+"}
+(5,1,1) = {"
+bU
+OF
+tm
+Hl
+nr
+Hl
+Hl
+Hl
+Hl
+Ac
+Hl
+bU
+"}
+(6,1,1) = {"
+bU
+Bs
+Bs
+Hl
+Hl
+Hl
+OF
+OF
+LT
+Xm
+jD
+bU
+"}
+(7,1,1) = {"
+bU
+Bs
+Tn
+Xa
+Hl
+Hl
+Hl
+Bs
+Bs
+Bs
+Bs
+bU
+"}
+(8,1,1) = {"
+bU
+Bs
+Tn
+Tn
+gA
+OF
+OF
+Ux
+Bs
+wX
+YS
+bU
+"}
+(9,1,1) = {"
+bU
+PN
+Mp
+rH
+IZ
+Bs
+Bs
+YS
+YS
+NV
+YS
+bU
+"}
+(10,1,1) = {"
+bU
+Lu
+sf
+sf
+Bs
+YS
+YS
+YS
+YS
+YS
+NL
+bU
+"}
+(11,1,1) = {"
+bU
+KY
+Bs
+Bs
+YS
+YS
+pA
+lq
+YS
+Tn
+Tn
+bU
+"}
+(12,1,1) = {"
+bU
+gS
+Bs
+YS
+Fm
+ti
+Xv
+YS
+YS
+YS
+Bp
+bU
+"}
+(13,1,1) = {"
+bU
+YS
+IO
+YS
+tY
+ct
+fw
+YS
+YS
+IO
+YS
+bU
+"}
+(14,1,1) = {"
+bU
+Bp
+YS
+YS
+RJ
+Wa
+Hs
+pA
+YS
+Bs
+cQ
+bU
+"}
+(15,1,1) = {"
+bU
+Tn
+Tn
+YS
+Xi
+pA
+YS
+YS
+Bs
+Bs
+cQ
+bU
+"}
+(16,1,1) = {"
+bU
+hw
+fw
+YS
+YS
+YS
+YS
+Bs
+LQ
+LQ
+Bs
+bU
+"}
+(17,1,1) = {"
+bU
+Wa
+Hs
+NV
+YS
+Bs
+Bs
+Bs
+Fn
+mC
+PN
+bU
+"}
+(18,1,1) = {"
+bU
+YS
+Bs
+Bs
+Bs
+oh
+gK
+yJ
+Tn
+Tn
+Lu
+bU
+"}
+(19,1,1) = {"
+bU
+Bs
+Bs
+Bs
+Bs
+Hl
+Hl
+Hl
+Xa
+Tn
+Be
+bU
+"}
+(20,1,1) = {"
+bU
+Iy
+hF
+dp
+gK
+gK
+Hl
+Hl
+Hl
+Bs
+Bs
+bU
+"}
+(21,1,1) = {"
+bU
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+nr
+NT
+gK
+gK
+bU
+"}
+(22,1,1) = {"
+bU
+vm
+Tn
+Tn
+Tn
+vm
+vm
+Tn
+Tn
+Tn
+vm
+bU
+"}
+(23,1,1) = {"
+bU
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+Hl
+bU
+"}
+(24,1,1) = {"
+bU
+Hl
+Hl
+ep
+ZM
+QT
+QT
+lY
+ep
+Hl
+Hl
+bU
+"}
+(25,1,1) = {"
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+"}

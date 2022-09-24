@@ -446,3 +446,6 @@
 
 /obj/item/ammo_box/magazine/evgenii/fuckyou
 	max_ammo = 500
+
+/obj/item/gun/ballistic/automatic/evgenii/fuckyou
+	mag_type = /obj/item/ammo_box/magazine/evgenii/fuckyou
