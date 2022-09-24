@@ -87,7 +87,7 @@
 /obj/machinery/computer/arena/proc/get_load_point()
 	var/turf/A = get_landmark_turf(ARENA_CORNER_A)
 	var/turf/B = get_landmark_turf(ARENA_CORNER_B)
-	return locate(round(abs(A.x - B.x) * 0.5, 1), round(abs(A.y - B.y), 1), A.z)
+	return locate(min(A.x,B.x), min(A.y,B.y),A.z)
 
 /obj/machinery/computer/arena/proc/get_arena_turfs()
 	var/lp = get_load_point()
