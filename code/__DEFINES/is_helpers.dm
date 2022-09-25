@@ -218,6 +218,10 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 
 #define isgun(A) (istype(A, /obj/item/gun))
 
+#define isenergygun(A) (istype(A, /obj/item/gun/energy))
+
+#define isballisticgun(A) (istype(A, /obj/item/gun/ballistic))
+
 #define ismag(A) (istype(A, /obj/item/ammo_box))
 
 #define isinstrument(A) (istype(A, /obj/item/instrument) || istype(A, /obj/structure/musician))

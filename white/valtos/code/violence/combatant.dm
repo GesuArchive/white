@@ -171,7 +171,7 @@
 	if(ismag(equipped_item))
 		for(var/obj/item/ammo_casing/AC as() in equipped_item)
 			AC?.loaded_projectile?.ignored_factions = actual_faction
-	else if(isgun(equipped_item))
+	else if(isballisticgun(equipped_item))
 		var/obj/item/gun/ballistic/G = equipped_item
 		if(!G?.magazine)
 			return
