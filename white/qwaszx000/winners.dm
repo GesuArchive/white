@@ -92,7 +92,7 @@
 	start_showpieces = list(list("type" = /obj/item/clothing/neck/cloak/engineer_winer, "trophy_message" = "Слава <span class='boldnotice'>" + ENGINEER_WINER_CKEY + "</span>!", "winner_key" = ENGINEER_WINER_CKEY))
 
 /obj/structure/statue/gold/robust
-	name = "Статуя Rick Miller"
+	name = "Статуя: Алексия Истер и Андрей Ершов"
 	desc = "Победитель осеннего робаст-турнира 2022. Надпись гласит: \"Битва за мать Редкокса\".<hr><b>Chituka09</b> - первое место осеннего турнира!"
 	icon = 'white/kacherkin/icons/robust_statue.dmi'
 	icon_state = "robust_2023"
