@@ -102,6 +102,7 @@
 	density = FALSE
 	anchored = TRUE
 	flags_1 = NODECONSTRUCT_1
+	pixel_x = -8
 	var/list/coomers = list()
 
 /obj/structure/statue/gold/robust/attack_hand(mob/user)
