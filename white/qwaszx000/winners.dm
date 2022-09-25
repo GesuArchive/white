@@ -1,5 +1,5 @@
 #define ENGINEER_WINER_CKEY "Laxesh"
-#define ROBUST_WINER_CKEY "Zarri" // 2022. Old winner is Jzouz. 2021. Old winner is Moonmandoom. 2020. Old winner is DarkKeeper072
+#define ROBUST_WINER_CKEY "Chituka09" // 2022 2. Old winner is Zarri. 2022. Old winner is Jzouz. 2021. Old winner is Moonmandoom. 2020. Old winner is DarkKeeper072
 
 /obj/item/extinguisher/robust
 	name = "мощный огнетушитель"
@@ -93,12 +93,13 @@
 
 /obj/structure/statue/gold/robust
 	name = "Статуя Rick Miller"
-	desc = "Победитель робаст-турнира 2022. Надпись снизу гласит: \"Продам гараж\".<hr><b>Zarri</b> - первое место!"
-	icon = 'white/valtos/icons/robust.dmi'
-	icon_state = "gold_2022"
+	desc = "Победитель осеннего робаст-турнира 2022. Надпись гласит: \"Битва за мать Редкокса\".<hr><b>Chituka09</b> - первое место осеннего турнира!"
+	icon = 'white/kacherkin/icons/robust_statue.dmi'
+	icon_state = "robust_2023"
 	can_be_unanchored = FALSE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	layer = ABOVE_MOB_LAYER
+	density = FALSE
 	anchored = TRUE
 	flags_1 = NODECONSTRUCT_1
 	var/list/coomers = list()
@@ -116,10 +117,10 @@
 		return "<hr><b>Уважение проявили:</b> <i>[english_list(coomers)]</i>."
 
 /obj/structure/sign/plaques/robust
-	name = "Портрет: Maye Frey"
-	desc = "На портрете изображена фелинидка с голубыми волосами. Её взгляд, смотрящий на вас, слегка наполняет вас счастьем и верой в светлое будущее.<hr><b>TequilaSunr1se</b> - второе место!"
+	name = "Портрет"
+	desc = "<b>TheLone</b> - второе место осеннего турнира!"
 	icon = 'white/valtos/icons/robust.dmi'
-	icon_state = "silver_2022"
+	icon_state = "silver_2022_2"
 	can_be_unanchored = FALSE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	custom_materials = list(/datum/material/silver=MINERAL_MATERIAL_AMOUNT*2)
@@ -140,8 +141,13 @@
 			coomers += user.name
 
 /obj/structure/sign/plaques/robust/bronze
-	name = "Портрет: Ash Williams"
-	desc = "Лошара, третье место.<hr><b>Rev1n</b> - третье место!"
-	icon_state = "bronze_2022"
+	name = "Портрет: Estrella Picard"
+	desc = "Глядя на портрет вы чувствуете себя в надежных руках.<hr><b>Alex971</b> - третье место осеннего турнира!"
+	icon_state = "bronze_2022_2"
 	custom_materials = list(/datum/material/bronze=MINERAL_MATERIAL_AMOUNT*2)
 	flags_1 = NODECONSTRUCT_1
+
+/obj/structure/sign/plaques/robust/bronze/duo
+	name = "Портрет: Charlotte Wiltshire"
+	desc = "Оставайтесь чисто белыми!<hr><b>Kamenshik13</b> - третье место осеннего турнира!"
+	icon_state = "bronze_2022_3"

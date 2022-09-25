@@ -1530,9 +1530,6 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/plaques/robust{
-	pixel_y = 32
-	},
 /turf/open/floor/plasteel,
 /area/security/main)
 "dP" = (

@@ -3531,18 +3531,6 @@
 /obj/machinery/computer/secure_data,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/hos)
-"Sg" = (
-/obj/effect/turf_decal/tile/red{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/obj/structure/sign/plaques/robust{
-	pixel_y = 32
-	},
-/turf/open/floor/plasteel,
-/area/security/main)
 "Ug" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -5664,7 +5652,7 @@ cf
 cx
 dv
 dv
-Sg
+eN
 eQ
 eQ
 er
