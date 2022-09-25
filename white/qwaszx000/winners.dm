@@ -117,8 +117,8 @@
 		return "<hr><b>Уважение проявили:</b> <i>[english_list(coomers)]</i>."
 
 /obj/structure/sign/plaques/robust
-	name = "Портрет"
-	desc = "<b>TheLone</b> - второе место осеннего турнира!"
+	name = "Портрет: Норман Норманс"
+	desc = "Мудилла на электрике.<hr><b>TheLone</b> - второе место осеннего турнира!"
 	icon = 'white/valtos/icons/robust.dmi'
 	icon_state = "silver_2022_2"
 	can_be_unanchored = FALSE
