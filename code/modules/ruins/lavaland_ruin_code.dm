@@ -167,4 +167,4 @@
 
 /obj/item/clothing/mask/chameleon/gps/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/gps, "Encrypted Signal")
+	AddComponent(/datum/component/gps, "Зашифрованный синал")

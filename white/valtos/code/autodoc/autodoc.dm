@@ -73,6 +73,14 @@
 		else
 			speed_mult = 0.1
 
+	//Энергопотребление (10к -> 7.5к -> 5к -> 2.5к -> 1к)
+	var/Pwr = -1
+	for(var/obj/item/stock_parts/capacitor/cap in component_parts)
+		Pwr += cap.rating
+	active_power_usage = initial(active_power_usage) - (initial(active_power_usage)*(Pwr))/4
+	if(active_power_usage <= 1000)
+		active_power_usage = 1000
+
 /obj/machinery/autodoc/CtrlClick(mob/user)
 	playsound(src, 'white/valtos/sounds/error2.ogg', 50, FALSE)
 
@@ -350,9 +358,9 @@
 /datum/techweb_node/autodoc
 	id = "autodoc"
 	display_name = "Автоматические медицинские комплексы"
-	description = "\"Авто-Док МК IX\" - автоматический хирургически комплекс специализированный на восстановительных и модернизирующих операциях. Многофункциональный медицинский комплекс \"Солнце\" - передовая военная разработка в области экстренной полевой медицины. Аппарат искуственной вентиляции легких."
+	description = "\"Авто-Док МК IX\" - автоматический хирургически комплекс специализированный на восстановительных и модернизирующих операциях. Многофункциональный медицинский комплекс \"Солнце\" - передовая военная разработка в области экстренной полевой медицины."
 	prereq_ids = list("exp_surgery", "bio_process", "adv_datatheory", "adv_engi", "high_efficiency")
-	design_ids = list("autodoc", "solnce", "ivlmodif")
+	design_ids = list("autodoc", "solnce")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 15000)
 
 /datum/surgery_step/incise/autodoc_success(mob/living/carbon/target, target_zone, datum/surgery/surgery, obj/machinery/autodoc/autodoc)

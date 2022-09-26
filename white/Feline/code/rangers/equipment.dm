@@ -18,6 +18,10 @@
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen)
 	var/static/list/holdable_weapons_list = list(
 		/obj/item/kinetic_crusher = "crusher",
+		/obj/item/gun/ballistic/shotgun/automatic/combat = "auto_shotgun",
+		/obj/item/gun/ballistic/shotgun/riot = "shotgun",
+		/obj/item/gun/ballistic/shotgun/doublebarrel = "doublebarrel",
+		/obj/item/gun/grenadelauncher = "grenadelauncher",
 		/obj/item/gun/ballistic/automatic/pistol = "pistol",
 		/obj/item/gun/ballistic/automatic/pistol/nail_gun = "nail_gun",
 		/obj/item/gun/ballistic/revolver = "pistol",
@@ -118,7 +122,7 @@
 
 	return ..()
 
-//Изменение картинки в зависимости от содержания, прародители должны быть в списке до наследников, если моделька не прописана, то будет стоять коробка
+//Изменение картинки в зависимости от содержания
 /obj/item/tank/internals/tactical/update_icon_state()
 	icon_state = initial(icon_state)
 	worn_icon_state = initial(worn_icon_state)

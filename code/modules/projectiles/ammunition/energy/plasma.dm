@@ -12,3 +12,7 @@
 
 /obj/item/ammo_casing/energy/plasma/adv/mega
 	projectile_type = /obj/projectile/plasma/adv/mega
+
+// ПВЕ
+/obj/item/ammo_casing/energy/plasma/adv/pve
+	projectile_type = /obj/projectile/plasma/adv/pve

@@ -35,8 +35,9 @@
 #define TELEPATHY	/datum/mutation/human/telepathy
 #define FIREBREATH	/datum/mutation/human/firebreath
 #define VOID		/datum/mutation/human/void
-#define TONGUESPIKE	/datum/mutation/human/tonguespike
+#define TONGUESPIKE	/datum/mutation/human/tongue_spike
 #define TONGUESPIKECHEM		/datum/mutation/human/tongue_spike/chem
+#define AUTOTOMIA	/datum/mutation/human/self_amputation
 #define STRONG    	/datum/mutation/human/strong
 #define STIMMED		/datum/mutation/human/stimmed
 #define FIRESWEAT	/datum/mutation/human/fire

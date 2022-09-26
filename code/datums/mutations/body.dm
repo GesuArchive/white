@@ -27,7 +27,7 @@
 	name = "Нестабильная ДНК"
 	desc = "Серьезное генетическое отклонение, которое нарушает генетическую стабильность, тем самым вызывая произвольные мутации."
 	quality = NEGATIVE
-	text_gain_indication = span_danger("Я чувству себя не таким как вчера...")
+	text_gain_indication = span_danger("Я чувствую себя не таким как вчера...")
 	locked = TRUE
 
 /datum/mutation/human/bad_dna/on_acquiring(mob/living/carbon/human/owner)

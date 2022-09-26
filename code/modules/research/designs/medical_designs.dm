@@ -22,7 +22,7 @@
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 500)
 	construction_time = 75
 	build_path = /obj/item/mmi
-	category = list("Медицинские разработки", "Медицинское снаряжение", "Научное снаряжение")
+	category = list("Медицинские разработки", "Медицинское снаряжение", "Научное снаряжение", "Снаряжение СБ")
 	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -143,7 +143,7 @@
 	construction_time = 30
 	materials = list(/datum/material/iron = 3000, /datum/material/plasma = 2000, /datum/material/diamond = 500, /datum/material/bluespace = 500)
 	build_path = /obj/item/bodybag/bluespace
-	category = list("Медицинские разработки", "Медицинское снаряжение", "Научное снаряжение")
+	category = list("Медицинские разработки", "Медицинское снаряжение", "Научное снаряжение", "Снаряжение СБ")
 	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -166,7 +166,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 3000, /datum/material/glass = 1500, /datum/material/gold = 500)
 	build_path = /obj/item/pinpointer/crew
-	category = list("Медицинские разработки", "Медицинское снаряжение")
+	category = list("Медицинские разработки", "Медицинское снаряжение", "Снаряжение СБ")
 	sub_category = list("Диагностика и мониторинг")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -178,7 +178,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 1200, /datum/material/glass = 300, /datum/material/gold = 200)
 	build_path = /obj/item/pinpointer/crew/prox
-	category = list("Медицинские разработки", "Медицинское снаряжение")
+	category = list("Медицинские разработки", "Медицинское снаряжение", "Снаряжение СБ")
 	sub_category = list("Диагностика и мониторинг")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -571,7 +571,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 600, /datum/material/glass = 200)
 	build_path = /obj/item/implanter
-	category = list("Импланты", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки", "Снаряжение СБ")
 	sub_category = list("Микро Импланты")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 
@@ -583,7 +583,7 @@
 	construction_time = 20
 	materials = list(/datum/material/glass = 500)
 	build_path = /obj/item/implantcase
-	category = list("Импланты", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки", "Снаряжение СБ")
 	sub_category = list("Микро Импланты")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 
@@ -595,7 +595,7 @@
 	construction_time = 30
 	materials = list(/datum/material/glass = 500, /datum/material/bananium = 500)
 	build_path = /obj/item/implantcase/sad_trombone
-	category = list("Импланты", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки", "Снаряжение СБ")
 	sub_category = list("Микро Импланты")
 
 
@@ -607,7 +607,7 @@
 	construction_time = 30
 	materials = list(/datum/material/glass = 700)
 	build_path = /obj/item/implantcase/chem
-	category = list("Импланты", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки", "Снаряжение СБ")
 	sub_category = list("Микро Импланты")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 
@@ -619,7 +619,7 @@
 	construction_time = 30
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
 	build_path = /obj/item/implantcase/tracking
-	category = list("Импланты", "Медицинские разработки")
+	category = list("Импланты", "Медицинские разработки", "Снаряжение СБ")
 	sub_category = list("Микро Импланты")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 

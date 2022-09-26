@@ -7,7 +7,7 @@
 	opacity = TRUE
 	density = TRUE
 	smoothing_flags = SMOOTH_BITMASK
-	hardness = 10
+	hardness = 5
 	sheet_type = /obj/item/stack/sheet/plasteel
 	sheet_amount = 1
 	girder_type = /obj/structure/girder/reinforced
@@ -32,7 +32,7 @@
 		if(SUPPORT_RODS)
 			return span_notice("Болты удерживающие каркас <i>откручены</i>, но всё ещё <b>приварены</b> крепко к основанию.")
 		if(SHEATH)
-			return span_notice("Поддерживающие каркас болты <i>срезаны</i>, внутреннее покрытие <b>прикручено слабо</b> к основанию.")
+			return span_notice("Поддерживающие каркас болты <i>срезаны</i>, внутреннее покрытие <b>едва держится</b> на основании.")
 
 /turf/closed/wall/r_wall/devastate_wall()
 	new sheet_type(src, sheet_amount)

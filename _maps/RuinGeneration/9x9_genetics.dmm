@@ -16,6 +16,7 @@
 	name = "Monkey Pen";
 	pixel_y = 2
 	},
+/obj/effect/spawner/lootdrop/genetics_filler,
 /turf/open/floor/plasteel/freezer,
 /area/ruin/unpowered)
 "d" = (
@@ -36,6 +37,13 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue,
+/turf/open/floor/plasteel/white,
+/area/ruin/unpowered)
+"g" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/spawner/lootdrop/genetics_filler,
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "h" = (
@@ -103,7 +111,7 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "q" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "s" = (
 /obj/machinery/door/window/westleft{
@@ -252,6 +260,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
+/obj/effect/spawner/lootdrop/genetics_good,
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "N" = (
@@ -279,6 +288,21 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/blue,
+/turf/open/floor/plasteel/white,
+/area/ruin/unpowered)
+"U" = (
+/obj/machinery/dna_scannernew,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/spawner/lootdrop/genetics_filler,
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "V" = (
@@ -354,7 +378,7 @@ F
 "}
 (4,1,1) = {"
 q
-v
+U
 E
 T
 v
@@ -367,7 +391,7 @@ q
 q
 D
 w
-t
+g
 W
 W
 J

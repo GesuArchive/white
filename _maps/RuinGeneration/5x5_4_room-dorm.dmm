@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "b" = (
 /obj/structure/bed,

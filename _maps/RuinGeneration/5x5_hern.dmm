@@ -27,7 +27,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "W" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 
 (1,1,1) = {"

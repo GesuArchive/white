@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/rifle
-	name = "Bolt Rifle"
+	name = "болтовка"
 	desc = "Some kind of bolt action rifle. You get the feeling you shouldn't have this."
 	icon_state = "moistnugget"
 	w_class = WEIGHT_CLASS_BULKY
@@ -53,7 +53,7 @@
 ///////////////////////
 
 /obj/item/gun/ballistic/rifle/boltaction
-	name = "\improper Mosin Nagant"
+	name = "Мосинка"
 	desc = "This piece of junk looks like something that could have been used 700 years ago. It feels slightly moist."
 	sawn_desc = "An extremely sawn-off Mosin Nagant, popularly known as an \"obrez\". There was probably a reason it wasn't manufactured this short to begin with."
 	weapon_weight = WEAPON_HEAVY
@@ -80,7 +80,7 @@
 		. = 1
 
 /obj/item/gun/ballistic/rifle/boltaction/harpoon
-	name = "ballistic harpoon gun"
+	name = "гарпуномет"
 	desc = "A weapon favored by carp hunters, but just as infamously employed by agents of the Animal Rights Consortium against human aggressors. Because it's ironic."
 	icon_state = "speargun"
 	inhand_icon_state = "speargun"

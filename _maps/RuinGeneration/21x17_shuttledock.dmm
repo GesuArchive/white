@@ -16,10 +16,6 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
-"d" = (
-/obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
-/area/ruin/unpowered)
 "e" = (
 /obj/effect/spawner/lootdrop/glowstick,
 /turf/open/floor/plasteel,
@@ -29,11 +25,6 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
-"g" = (
-/obj/effect/turf_decal/loading_area,
-/obj/effect/turf_decal/dust,
-/turf/open/floor/plasteel,
-/area/ruin/unpowered)
 "h" = (
 /obj/effect/abstract/open_area_marker{
 	dir = 8
@@ -41,8 +32,8 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "i" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
 /area/ruin/unpowered)
 "j" = (
 /obj/effect/turf_decal/tile/yellow{
@@ -121,7 +112,6 @@
 /area/ruin/unpowered)
 "w" = (
 /obj/effect/turf_decal/box,
-/obj/effect/turf_decal/dust,
 /obj/effect/decal/cleanable/greenglow/filled,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
@@ -165,7 +155,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "F" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "G" = (
 /obj/effect/turf_decal/stripes/corner{
@@ -178,7 +168,6 @@
 /area/ruin/unpowered)
 "H" = (
 /obj/effect/turf_decal/box,
-/obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "I" = (
@@ -213,7 +202,6 @@
 /turf/open/floor/plating/asteroid/no_generation,
 /area/ruin/unpowered)
 "M" = (
-/obj/effect/turf_decal/dust,
 /obj/effect/turf_decal/box,
 /obj/machinery/portable_atmospherics/pump,
 /turf/open/floor/plasteel,
@@ -323,7 +311,6 @@ F
 (2,1,1) = {"
 F
 q
-d
 k
 k
 k
@@ -331,10 +318,11 @@ k
 k
 k
 k
-d
 k
 k
-d
+k
+k
+k
 k
 k
 F
@@ -343,11 +331,11 @@ F
 F
 u
 k
-d
 k
 k
 k
-d
+k
+k
 k
 k
 k
@@ -380,7 +368,7 @@ F
 (5,1,1) = {"
 F
 k
-d
+k
 k
 F
 R
@@ -410,7 +398,7 @@ A
 A
 z
 i
-d
+k
 k
 k
 F
@@ -456,7 +444,7 @@ F
 (9,1,1) = {"
 F
 n
-g
+V
 s
 Y
 A
@@ -468,7 +456,7 @@ A
 A
 Z
 E
-d
+k
 k
 F
 "}
@@ -512,8 +500,8 @@ F
 "}
 (12,1,1) = {"
 F
-d
-d
+k
+k
 s
 v
 A
@@ -526,13 +514,13 @@ A
 F
 B
 k
-d
+k
 F
 "}
 (13,1,1) = {"
 F
 k
-d
+k
 r
 F
 A
@@ -543,7 +531,7 @@ A
 A
 A
 F
-d
+k
 k
 k
 F
@@ -552,7 +540,7 @@ F
 F
 k
 e
-d
+k
 i
 A
 A
@@ -569,7 +557,7 @@ F
 "}
 (15,1,1) = {"
 F
-d
+k
 k
 k
 i
@@ -600,7 +588,7 @@ A
 A
 x
 i
-d
+k
 k
 k
 F
@@ -621,7 +609,7 @@ R
 F
 k
 k
-d
+k
 F
 "}
 (18,1,1) = {"
@@ -650,15 +638,15 @@ k
 k
 k
 k
-d
 k
 k
 k
 k
-d
 k
 k
-d
+k
+k
+k
 I
 F
 "}
@@ -667,12 +655,12 @@ F
 k
 k
 k
-d
 k
 k
 k
 k
-d
+k
+k
 k
 k
 k

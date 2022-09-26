@@ -82,7 +82,7 @@ GLOBAL_VAR_INIT(fscpassword, generate_password())
 
 /obj/structure/fluff/empty_sleeper/syndicate/captain/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/gps, "Old Encrypted Signal")
+	AddComponent(/datum/component/gps, "Старый зашифрованный сигнал")
 
 /obj/item/storage/box/firingpins/syndicate
 	name = "коробка синдикатовских бойков"

@@ -61,6 +61,10 @@
 /obj/item/food/pizzaslice/meat,
 /turf/open/floor/plating/asteroid,
 /area/ruin/unpowered)
+"V" = (
+/obj/item/food/pizza/sassysage,
+/turf/open/floor/plating/asteroid,
+/area/ruin/unpowered)
 
 (1,1,1) = {"
 b
@@ -154,7 +158,7 @@ e
 e
 e
 d
-F
+V
 b
 "}
 (6,1,1) = {"
@@ -243,7 +247,7 @@ I
 I
 I
 I
-G
+F
 G
 e
 e

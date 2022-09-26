@@ -206,6 +206,7 @@
 		JOB_CAPTAIN,
 		JOB_DETECTIVE,
 		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 		JOB_HEAD_OF_PERSONNEL,
 		JOB_HEAD_OF_SECURITY,
 		JOB_PRISONER,
@@ -271,6 +272,7 @@
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
 		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 	)
 	exclusive_roles = list(JOB_AI)
 	required_enemies = list(4,4,4,4,4,4,2,2,2,0)
@@ -330,6 +332,7 @@
 		JOB_HEAD_OF_SECURITY,
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 		JOB_CHAPLAIN,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
@@ -372,6 +375,7 @@
 		JOB_HEAD_OF_SECURITY,
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 		JOB_ASSISTANT,
 	)
 	required_enemies = list(3,3,3,3,3,2,1,1,0,0)
@@ -431,6 +435,7 @@
 		JOB_HEAD_OF_SECURITY,
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 		JOB_RESEARCH_DIRECTOR,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
@@ -456,6 +461,7 @@
 		JOB_CAPTAIN,
 		JOB_DETECTIVE,
 		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 		JOB_HEAD_OF_SECURITY,
 		JOB_PRISONER,
 		JOB_SECURITY_OFFICER,
@@ -475,6 +481,7 @@
 		JOB_HEAD_OF_SECURITY,
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 		JOB_RESEARCH_DIRECTOR,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
@@ -522,6 +529,7 @@
 		JOB_HEAD_OF_SECURITY,
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -577,6 +585,7 @@
 		JOB_HEAD_OF_SECURITY,
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 		JOB_ASSISTANT,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
@@ -631,6 +640,7 @@
 		JOB_HEAD_OF_SECURITY,
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -682,6 +692,7 @@
 		JOB_HEAD_OF_SECURITY,
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 		JOB_ASSISTANT
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
@@ -728,6 +739,7 @@
 		JOB_HEAD_OF_SECURITY,
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -774,6 +786,7 @@
 		JOB_HEAD_OF_SECURITY,
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 0
@@ -799,6 +812,7 @@
 		JOB_HEAD_OF_SECURITY,
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -872,6 +886,7 @@
 		JOB_HEAD_OF_SECURITY,
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 0
@@ -906,6 +921,7 @@
 		JOB_HEAD_OF_SECURITY,
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -946,6 +962,7 @@
 		JOB_CAPTAIN,
 		JOB_DETECTIVE,
 		JOB_FIELD_MEDIC,
+		JOB_SPECIALIST,
 		JOB_HEAD_OF_SECURITY,
 		JOB_PRISONER,
 		JOB_SECURITY_OFFICER,

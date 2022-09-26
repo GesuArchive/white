@@ -15,6 +15,7 @@
 		"basic_micro_laser",
 		"basic_matter_bin",
 		"basic_cell",
+		"basic_cell2",
 		"basic_capacitor_x10",
 		"basic_scanning_x10",
 		"micro_mani_x10",
@@ -60,11 +61,33 @@
 		"rdservercontrol",
 		"restaurant_portal",
 		"salestagger",
+		"seclite",
+		"c9mm",
+		"c10mm",
+		"c45",
 		"sec_38",
+		"c38_bouncy",
+		"foam_dart",
+		"riot_dart",
+		"riot_darts",
+		"electropack",
+		"handcuffs",
 		"sec_Islug",
+		"sec_slug",
+		"sec_bshot",
 		"sec_beanbag_slug",
 		"sec_dart",
 		"sec_rshot",
+		"a357",
+		"sec_beanbag_slug_x7",
+		"sec_rshot_x7",
+		"sec_slug_x7",
+		"sec_bshot_x7",
+		"sec_dart_x7",
+		"sec_Islug_x7",
+		"armor_plate_plasteel",
+		"armor_plate_ceramic",
+		"armor_plate_ablative",
 		"space_heater",
 		"tech_disk",
 		"gas_filter",
@@ -75,6 +98,7 @@
 		"plastic_box",
 		"custom_vendor_refill",
 		"price_tagger",
+		"flamethrower",
 	)
 
 /datum/techweb_node/basic_medical
@@ -274,6 +298,8 @@
 		"blast",
 		"laptop",
 		"tablet",
+		"recorder",
+		"tape",
 	)
 
 /datum/techweb_node/basic_circuitry
@@ -409,6 +435,7 @@
 		"defibrillator_compact",
 		"ph_meter",
 		"gloves_polymer",
+		"ivlmodif",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
 	required_experiments = list(/datum/experiment/dissection/nonhuman)
@@ -616,7 +643,6 @@
 		"emergency_oxygen_engi",
 		"plasmaman_tank_belt",
 		"electrolyzer",
-		"pneumatic_seal",
 		"crystallizer",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 12500)
@@ -647,6 +673,33 @@
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
 	discount_experiments = list(/datum/experiment/scanning/random/material/medium/one = 4000)
+
+/datum/techweb_node/sb_engi
+	id = "sb_engi"
+	display_name = "Основы фортификации и безопасности"
+	description = "При грамотно спроектированной обороне, одинокий защитник способен весьма длительное время сдерживать превосходящие силы противника."
+	prereq_ids = list(
+		"adv_engi",
+		"sec_basic",
+	)
+	design_ids = list(
+		"pneumatic_seal",
+		"kursk",
+	)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2000)
+
+/datum/techweb_node/adv_sb_engi
+	id = "adv_sb_engi"
+	display_name = "Продвинутая фортификация и безопасность"
+	description = "Лучшее нападение - это оборона."
+	prereq_ids = list(
+		"weaponry",
+		"sb_engi",
+	)
+	design_ids = list(
+		"pneumatic_seal_sb",
+	)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 4000)
 
 /datum/techweb_node/anomaly
 	id = "anomaly_research"
@@ -1570,6 +1623,7 @@
 		"hydro_tray",
 		"biogenerator",
 		"seed_extractor",
+		"plantgenes",
 		"diskplantgene",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 4000)
@@ -1601,7 +1655,6 @@
 	display_name = "Базовое оборудование службы безопасности"
 	description = "Стандартная экипировка для СБ."
 	design_ids = list(
-		"seclite",
 		"pepperspray",
 		"bola_energy",
 		"zipties",
@@ -1646,6 +1699,35 @@
 	discount_experiments = list(/datum/experiment/scanning/random/material/hard/two = 5000)
 
 /////////////////////////weaponry tech/////////////////////////
+
+/datum/techweb_node/egun_cells
+	id = "egun_cells"
+	display_name = "Базовая модификация энергетического оружия"
+	description = "Один маленький шаг для НаноТрейзен и гигантский пинок под зад всем сторонникам огнестрельного оружия."
+	prereq_ids = list(
+		"adv_power",
+		"sec_basic",
+	)
+	design_ids = list(
+		"portable_recharger",
+		"hell_gun",
+	)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2000)
+
+/datum/techweb_node/adv_egun_cells
+	id = "adv_egun_cells"
+	display_name = "Продвинутая модификация энергетического оружия"
+	description = "Что всегда успокаивает нервы бывалого солдата на передовой? Правильно: фляжка с самогоном и импульсный карабин! А что дает ему уверенность в завтрашнем дне? Ответ очевиден: запасная фляжка и протоплазменный тактический зарядник за спиной!"
+	prereq_ids = list(
+		"egun_cells",
+		"emp_super",
+		"bluespace_power",
+	)
+	design_ids = list(
+		"tactical_recharger",
+	)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
+
 /datum/techweb_node/weaponry
 	id = "weaponry"
 	display_name = "Оружейные технологии"
@@ -1657,6 +1739,7 @@
 		"pin_testing",
 		"pin_battle",
 		"tele_shield",
+		"c38_dumdum",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 10000)
 	required_experiments = list(/datum/experiment/explosion/calibration)
@@ -1681,7 +1764,8 @@
 	description = "Сила молнии в ваших руках"
 	prereq_ids = list(
 		"weaponry",
-		"adv_power"  , "emp_basic",
+		"adv_power",
+		"emp_basic",
 	)
 	design_ids = list(
 		"stunrevolver",
@@ -1751,8 +1835,10 @@
 	)
 	design_ids = list(
 		"techshotshell",
+		"techshotshell_x7",
 		"c38_hotshot",
 		"c38_iceblox",
+		"c38_match",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 /*
@@ -2813,6 +2899,7 @@
 		"base",
 	)
 	design_ids = list(
+		"fishing_rod",
 		"fishing_rod_tech",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)

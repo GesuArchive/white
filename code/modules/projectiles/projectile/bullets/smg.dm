@@ -1,25 +1,25 @@
 // .45 (M1911 & C20r)
 
 /obj/projectile/bullet/c45
-	name = ".45 пуля"
+	name = "пуля .45 калибра"
 	damage = 30
 	wound_bonus = -10
 	wound_falloff_tile = -10
 
 /obj/projectile/bullet/c45_ap
-	name = ".45 ББ пуля"
-	damage = 30
-	armour_penetration = 50
+	name = "бронебойная пуля .45 калибра"
+	damage = 25
+	armour_penetration = 30
 
 /obj/projectile/bullet/incendiary/c45
-	name = ".45 поджигающая пуля"
-	damage = 15
+	name = "зажигательная пуля .45 калибра"
+	damage = 20
 	fire_stacks = 2
 
 // 4.6x30mm (Autorifles)
 
 /obj/projectile/bullet/c46x30mm
-	name = "4.6x30mm пуля"
+	name = "пуля калибра 4.6x30мм"
 	damage = 20
 	wound_bonus = -5
 	bare_wound_bonus = 5
@@ -27,13 +27,14 @@
 	min_hitchance = 5 //WT-550 balance
 
 /obj/projectile/bullet/c46x30mm_ap
-	name = "4.6x30mm ББ пуля"
+	name = "бронебойная пуля калибра 4.6x30мм"
 	damage = 15
-	armour_penetration = 40
+	armour_penetration = 30
 	embedding = null
 	min_hitchance = 5 //WT-550 balance
+
 /obj/projectile/bullet/incendiary/c46x30mm
-	name = "4.6x30mm поджигающая пуля"
+	name = "зажигательная пуля калибра 4.6x30мм"
 	damage = 10
 	fire_stacks = 1
 	min_hitchance = 5 //WT-550 balance
@@ -41,5 +42,5 @@
 // 9x19mm (PP-95)
 
 /obj/projectile/bullet/c9x19mm
-	name = "9x19mm bullet"
+	name = "9x19мм пуля"
 	damage = 10

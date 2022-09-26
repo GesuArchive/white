@@ -5,19 +5,29 @@
 "n" = (
 /obj/machinery/door/airlock/external/glass,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "t" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
 /area/ruin/unpowered)
 "y" = (
 /obj/machinery/door/airlock/external/glass,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
+"E" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/template_noop)
+"P" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/template_noop)
 "T" = (
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
@@ -25,7 +35,7 @@
 /turf/template_noop,
 /area/template_noop)
 "V" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "Y" = (
 /obj/effect/abstract/open_area_marker{
@@ -39,9 +49,9 @@ V
 V
 V
 V
-U
-U
-U
+E
+E
+E
 U
 U
 "}
@@ -52,8 +62,8 @@ T
 t
 t
 t
-U
-U
+E
+P
 U
 "}
 (3,1,1) = {"
@@ -63,7 +73,7 @@ T
 n
 h
 y
-U
+E
 U
 U
 "}
@@ -74,8 +84,8 @@ T
 t
 t
 t
-U
-U
+E
+P
 U
 "}
 (5,1,1) = {"
@@ -83,9 +93,9 @@ V
 V
 V
 V
-U
-U
-U
+E
+E
+E
 U
 U
 "}

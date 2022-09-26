@@ -437,11 +437,10 @@
 				/obj/item/circuitboard/machine/chem_dispenser/drinks/beer,
 				/obj/item/circuitboard/computer/slot_machine,
 				/obj/item/circuitboard/machine/smoke_machine,
-				/obj/item/storage/box/chemdisp
 				)
 /obj/item/storage/box/chemdisp
-	name = "chem dispenser kit"
-	desc = "A box of parts for a chem dispenser assembly."
+	name = "компоненты хим-раздатчика"
+	desc = "Коробка содержащая все необходимое для строительства хим-раздатчика."
 	illustration = "writing"
 
 /obj/item/storage/box/chemdisp/PopulateContents()
@@ -452,6 +451,27 @@
 	new /obj/item/stock_parts/manipulator(src)
 	new /obj/item/stack/sheet/glass(src)
 	new /obj/item/stock_parts/cell/super(src)
+
+/obj/item/storage/box/chemmaster
+	name = "компоненты хим-мастера"
+	desc = "Коробка содержащая все необходимое для строительства хим-мастера."
+	illustration = "writing"
+
+/obj/item/storage/box/chemmaster/PopulateContents()
+	new /obj/item/circuitboard/machine/chem_master(src)
+	new /obj/item/reagent_containers/glass/beaker(src)
+	new /obj/item/reagent_containers/glass/beaker(src)
+	new /obj/item/stock_parts/manipulator(src)
+	new /obj/item/stack/sheet/glass(src)
+/obj/item/storage/box/chemheater
+	name = "компоненты реакционной камеры"
+	desc = "Коробка содержащая все необходимое для строительства реакционной камеры."
+	illustration = "writing"
+
+/obj/item/storage/box/chemheater/PopulateContents()
+	new /obj/item/circuitboard/machine/chem_heater(src)
+	new /obj/item/stock_parts/micro_laser(src)
+	new /obj/item/stack/sheet/glass(src)
 
 /obj/effect/spawner/lootdrop/techstorage/rnd
 	name = "RnD circuit board spawner"
@@ -505,11 +525,12 @@
 /obj/effect/spawner/lootdrop/techstorage/medical
 	name = "medical circuit board spawner"
 	loot = list(
-				/obj/item/circuitboard/machine/chem_dispenser,
 				/obj/item/circuitboard/computer/med_data,
 				/obj/item/circuitboard/machine/smoke_machine,
-				/obj/item/circuitboard/machine/chem_master,
-				/obj/item/circuitboard/computer/pandemic
+				/obj/item/circuitboard/computer/pandemic,
+				/obj/item/storage/box/chemdisp,
+				/obj/item/storage/box/chemmaster,
+				/obj/item/storage/box/chemheater
 				)
 
 /obj/effect/spawner/lootdrop/techstorage/ai
@@ -649,6 +670,7 @@
 	loot = list(
 		/obj/item/scalpel/advanced = 1,
 		/obj/item/retractor/advanced = 1,
+		/obj/item/bonesetter/advanced = 1,
 		/obj/item/cautery/advanced = 1
 	)
 

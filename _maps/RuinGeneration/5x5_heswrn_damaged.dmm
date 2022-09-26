@@ -18,7 +18,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "u" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "A" = (
 /obj/structure/lattice,

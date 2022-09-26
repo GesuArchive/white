@@ -1,6 +1,6 @@
 /obj/item/ammo_box/magazine/m10mm/rifle
-	name = "rifle magazine (10mm)"
-	desc = "A well-worn magazine fitted for the surplus rifle."
+	name = "винтовочный 10мм магазин"
+	desc = "Содержит обычные патроны калибра 10мм. Используется в самозарядных винтовках."
 	icon_state = "75-8"
 	ammo_type = /obj/item/ammo_casing/c10mm
 	caliber = "10mm"
@@ -14,7 +14,8 @@
 		icon_state = "75-0"
 
 /obj/item/ammo_box/magazine/m556
-	name = "toploader magazine (5.56mm)"
+	name = "горизонтальный магазин калибра 5.56мм"
+	desc = "Содержит обычные патроны калибра 5.56мм. Используется в пистолет-пулемете M-90gl."
 	icon_state = "5.56m"
 	ammo_type = /obj/item/ammo_casing/a556
 	caliber = "a556"

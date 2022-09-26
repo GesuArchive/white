@@ -17,8 +17,14 @@
 /datum/gear/roles/field_medic
 	display_name = "Полевой медик"
 	description = "Имеет имплантер для слежки за заключёнными/офицерами и набор инструментов. Он обязательно их спасёт."
-	cost = 2000
+	cost = 3000
 	job_path = /datum/job/doctor/field_medic
+
+/datum/gear/roles/specialist
+	display_name = "Специалист"
+	description = "Военный инженер, осуществляющий техническую поддержку СБ. При себе имеет набор с инструментами, тактическую зарядную станцию и фортификационные принадлежности."
+	cost = 6000
+	job_path = /datum/job/station_engineer/specialist
 
 /datum/gear/roles/bomj
 	display_name = "Бомж"

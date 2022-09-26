@@ -252,6 +252,10 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 /obj/machinery/gateway/lavaland
 	destination_name = "Лаваленд"
 
+/obj/machinery/gateway/lavaland/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/gps, "Шахтерская база")
+
 /obj/machinery/gateway/centerstation/Initialize(mapload)
 	. = ..()
 	if(!GLOB.the_gateway)
@@ -340,7 +344,7 @@ GLOBAL_LIST_EMPTY(gateway_destinations)
 				if(isliving(usr))
 					var/mob/living/L = usr
 					if(!check_access(L.get_idcard()))
-						say("Нет доступа. Обратитесь к одной из глав.")
+						say("Доступ к открытию врат авторизован только для Глав и корпуса Рейнджеров.")
 						return
 				message_admins("[ADMIN_LOOKUPFLW(usr)] активирует врата.")
 				log_game("[key_name(usr)] активирует врата.")

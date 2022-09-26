@@ -30,7 +30,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "y" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "B" = (
 /obj/item/kirbyplants/random,

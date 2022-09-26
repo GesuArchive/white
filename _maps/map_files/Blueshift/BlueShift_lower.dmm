@@ -2902,6 +2902,10 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/firealarm/directional/north,
+/obj/machinery/door/airlock/mining{
+	name = "Cargo Bay";
+	req_access_txt = "31"
+	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/entry)
 "boj" = (
@@ -18355,6 +18359,10 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2{
 	dir = 4
+	},
+/obj/machinery/door/airlock/mining{
+	name = "Cargo Bay";
+	req_access_txt = "31"
 	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/entry)

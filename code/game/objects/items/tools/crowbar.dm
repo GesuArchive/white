@@ -95,6 +95,14 @@
 	playsound(user ? user : src, 'sound/items/change_jaws.ogg', 50, TRUE)
 	return COMPONENT_NO_DEFAULT_MESSAGE
 
+/obj/item/crowbar/power/specialist
+	name = "гидравлические ножницы"
+	desc = "Спасательный инструмент для выламывания и перекусывания конструкций, форсированного открытия шлюзов и демонтажа оборудования."
+	icon_state = "jaws_spec"
+	inhand_icon_state = "jawsoflife"
+	worn_icon_state = "jawsoflife"
+	icon = 'icons/obj/tools.dmi'
+
 /obj/item/crowbar/power/syndicate
 	name = "гидравлические ножницы Синдиката"
 	desc = "Переработанная версия гидравлических ножниц Нанотрейзен. Как и оригинал может использоваться для форсированного открытия воздушных шлюзов."

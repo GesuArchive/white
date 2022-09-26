@@ -105,9 +105,8 @@
 	pixel_x = -1;
 	pixel_y = 7
 	},
-/obj/item/gps/mining{
-	pixel_x = 12;
-	pixel_y = 2
+/obj/item/gps/mining/exploration{
+	gpstag = "Шаттл рейнджеров"
 	},
 /turf/open/floor/mineral/titanium/purple,
 /area/shuttle/exploration)

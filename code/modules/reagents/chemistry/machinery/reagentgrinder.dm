@@ -59,7 +59,7 @@
 /obj/machinery/reagentgrinder/examine(mob/user)
 	. = ..()
 	if(!in_range(user, src) && !issilicon(user) && !isobserver(user))
-		. += "<hr><span class='warning'>Слишком далеко, чтобы рассмотреть дисплей [src.name]!</span>"
+		. += "<hr><span class='warning'>Слишком далеко, чтобы рассмотреть дисплей миксера!</span>"
 		return
 
 	if(operating)

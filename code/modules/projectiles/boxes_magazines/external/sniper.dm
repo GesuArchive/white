@@ -1,5 +1,6 @@
 /obj/item/ammo_box/magazine/sniper_rounds
-	name = "sniper rounds (.50)"
+	name = "магазин .50 калибра"
+	desc = "Содержит обычные патроны .50 калибра. Используется в крупнокалиберных снайперских винтовках."
 	icon_state = ".50mag"
 	ammo_type = /obj/item/ammo_casing/p50
 	max_ammo = 6
@@ -13,21 +14,21 @@
 		icon_state = "[initial(icon_state)]"
 
 /obj/item/ammo_box/magazine/sniper_rounds/soporific
-	name = "sniper rounds (Zzzzz)"
-	desc = "Soporific sniper rounds, designed for happy days and dead quiet nights..."
+	name = "магазин .50 калибра: Транквилизатор"
+	desc = "Содержат патроны .50 специализирующийся на отправке цели в сон, а не в ад. Используется в крупнокалиберных снайперских винтовках."
 	icon_state = "soporific"
 	ammo_type = /obj/item/ammo_casing/p50/soporific
 	max_ammo = 3
 	caliber = ".50"
 
 /obj/item/ammo_box/magazine/sniper_rounds/penetrator
-	name = "sniper rounds (penetrator)"
-	desc = "An extremely powerful round capable of passing straight through cover and anyone unfortunate enough to be behind it."
+	name = "магазин .50 калибра: Бронебойный"
+	desc = "Содержит патроны с закаленным сердечником, это заметно повышает бронепробитие, однако незначительно понижает урон. Используется в крупнокалиберных снайперских винтовках."
 	ammo_type = /obj/item/ammo_casing/p50/penetrator
 	max_ammo = 5
 
 /obj/item/ammo_box/magazine/sniper_rounds/marksman
-	name = "sniper rounds (marksman)"
-	desc = "An extremely fast sniper round able to pretty much instantly shoot through something."
+	name = "магазин .50 калибра: Высокоточный"
+	desc = "Содержат высококачественные патроны, пуля из которых с высокой вероятностью рикошетит и доводится на противника. Используется в крупнокалиберных снайперских винтовках."
 	ammo_type = /obj/item/ammo_casing/p50/marksman
 	max_ammo = 5

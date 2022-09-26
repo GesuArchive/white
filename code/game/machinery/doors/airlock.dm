@@ -93,6 +93,8 @@
 	var/obj/item/note //Any papers pinned to the airlock
 	/// The seal on the airlock
 	var/obj/item/seal
+	var/seal_sb_block = FALSE	// Шлюз заблокирован замком СБ с активированной блокировкой
+	var/req_one_access_old = null // Старые параметры доступа при установке блока
 	var/detonated = FALSE
 	var/abandoned = FALSE
 	var/cutAiWire = FALSE
@@ -513,7 +515,13 @@
 			if(welded)
 				weld_overlay = get_airlock_overlay("welded", overlays_file)
 			if(seal)
-				seal_overlay = get_airlock_overlay("sealed", overlays_file)
+				if(istype(seal, /obj/item/door_seal/sb))
+					if(seal_sb_block)
+						seal_overlay = get_airlock_overlay("seal_locked", 'white/Feline/icons/door_seal.dmi')
+					else
+						seal_overlay = get_airlock_overlay("seal_open", 'white/Feline/icons/door_seal.dmi')
+				else
+					seal_overlay = get_airlock_overlay("sealed", overlays_file)
 			if(obj_integrity < integrity_failure * max_integrity)
 				damag_overlay = get_airlock_overlay("sparks_broken", overlays_file)
 			else if(obj_integrity < (0.75 * max_integrity))
@@ -546,7 +554,13 @@
 			if(welded)
 				weld_overlay = get_airlock_overlay("welded", overlays_file)
 			if(seal)
-				seal_overlay = get_airlock_overlay("sealed", overlays_file)
+				if(istype(seal, /obj/item/door_seal/sb))
+					if(seal_sb_block)
+						seal_overlay = get_airlock_overlay("seal_locked", 'white/Feline/icons/door_seal.dmi')
+					else
+						seal_overlay = get_airlock_overlay("seal_open", 'white/Feline/icons/door_seal.dmi')
+				else
+					seal_overlay = get_airlock_overlay("sealed", overlays_file)
 			lights_overlay = get_airlock_overlay("lights_denied", overlays_file)
 			if(note)
 				note_overlay = get_airlock_overlay(notetype, note_overlay_file)
@@ -570,7 +584,13 @@
 			if(welded)
 				weld_overlay = get_airlock_overlay("welded", overlays_file)
 			if(seal)
-				seal_overlay = get_airlock_overlay("sealed", overlays_file)
+				if(istype(seal, /obj/item/door_seal/sb))
+					if(seal_sb_block)
+						seal_overlay = get_airlock_overlay("seal_locked", 'white/Feline/icons/door_seal.dmi')
+					else
+						seal_overlay = get_airlock_overlay("seal_open", 'white/Feline/icons/door_seal.dmi')
+				else
+					seal_overlay = get_airlock_overlay("sealed", overlays_file)
 			if(note)
 				note_overlay = get_airlock_overlay(notetype, note_overlay_file)
 
@@ -686,7 +706,7 @@
 			. += "<hr>Здесь есть [note.name]...\n"
 			. += note.examine(user)
 	if(seal)
-		. += "Он закрыт пневматической заглушкой."
+		. += "<hr>Он заблокирован пневматическим замком."
 	if(panel_open)
 		. += "<hr>"
 		switch(security_level)
@@ -1020,6 +1040,14 @@
 		playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
 		user.visible_message(span_notice("[user] блокирует [src].") , span_notice("Блокирую [src]."))
 		seal = airlockseal
+		if(istype(airlockseal, /obj/item/door_seal/sb))
+			if(req_access != null)
+				req_one_access_old = req_one_access + req_access
+			else
+				req_one_access_old = req_one_access
+			req_one_access = list(ACCESS_HEADS, ACCESS_SECURITY)
+			req_access = null
+			req_access_txt = null
 		modify_max_integrity(max_integrity * AIRLOCK_SEAL_MULTIPLIER)
 		damage_deflection = (damage_deflection * AIRLOCK_SEAL_ARMOR_MULT)
 		update_icon()
@@ -1034,6 +1062,24 @@
 		user.visible_message(span_notice("[user] прикрепляет [C] к [src].") , span_notice("Прикрепляю [C] к [src]."))
 		note = C
 		update_icon()
+	else if(istype(C, /obj/item/card/id/advanced))
+		if(seal)
+			var/obj/item/door_seal/airlockseal = seal
+			if(istype(airlockseal, /obj/item/door_seal/sb))
+				if(isliving(user))
+					var/mob/living/L = user
+					if(!do_after(user, 1 SECONDS, src))
+						return TRUE
+					if(check_access(L.get_idcard()))
+						seal_sb_block = !seal_sb_block
+						to_chat(user, span_warning("[seal_sb_block ? "Блокирую" : "Разблокирую"] пневмозамок."))
+						playsound(user, seal_sb_block ? 'sound/machines/boltsdown.ogg' : 'sound/machines/boltsup.ogg', 40, FALSE)
+						update_icon()
+						return
+					else
+						playsound(src, 'sound/machines/scanbuzz.ogg', 100, FALSE)
+						to_chat(user, span_warning("Доступ заблокирован! Для изменения статуса блокировки нужно провести по сканеру <b>ID-картой СБ</b> или <b>Командного состава</b>."))
+						return
 	else
 		return ..()
 
@@ -1089,6 +1135,12 @@
 	if(!ishuman(user))
 		to_chat(user, span_warning("Я не понимаю как это работает!"))
 		return TRUE
+	if(istype(airlockseal, /obj/item/door_seal/sb))
+		if(seal_sb_block)
+			playsound(src, 'sound/machines/scanbuzz.ogg', 100, FALSE)
+			to_chat(user, span_warning("Шлюз заблокирован! Для снятия блокировки нужно провести по сканеру <b>ID-картой СБ</b> или <b>Командного состава</b>."))
+			return TRUE
+
 	user.visible_message(span_notice("[user] начинает разблокировать [src].") , span_notice("Начинаю снимать пневматический замок с [src]..."))
 	playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
 	if(!do_after(user, airlockseal.unseal_time, target = src))
@@ -1097,7 +1149,10 @@
 		return TRUE
 	playsound(src, 'sound/items/jaws_pry.ogg', 30, TRUE)
 	airlockseal.forceMove(get_turf(user))
-	user.visible_message(span_notice("[user] разблокировывает [src].") , span_notice("Снимаю пневматический замок с [src]."))
+	user.visible_message(span_notice("[user] разблокирует [src].") , span_notice("Снимаю пневматический замок с [src]."))
+	if(istype(airlockseal, /obj/item/door_seal/sb))
+		req_one_access = req_one_access_old
+		req_one_access_old = null
 	seal = null
 	modify_max_integrity(max_integrity / AIRLOCK_SEAL_MULTIPLIER)
 	damage_deflection = (damage_deflection / AIRLOCK_SEAL_ARMOR_MULT)

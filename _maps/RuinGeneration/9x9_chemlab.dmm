@@ -117,8 +117,8 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "s" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
 /area/ruin/unpowered)
 "t" = (
 /obj/effect/turf_decal/tile/yellow{
@@ -326,7 +326,7 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "O" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "T" = (
 /obj/machinery/smartfridge/chemistry/preloaded,

@@ -22,6 +22,15 @@
 	var/use_cyborg_cell = FALSE //whether the gun's cell drains the cyborg user's cell to recharge
 	var/dead_cell = FALSE //set to true so the gun is given an empty cell
 
+//	Отображение заряда при осмотре
+/obj/item/gun/energy/examine(mob/user)
+	. = ..()
+	if(!in_range(user, src) && !issilicon(user) && !isobserver(user))
+		. += "<hr><span class='warning'>Слишком далеко, чтобы рассмотреть дисплей оружия!</span>"
+		return
+	. += "<hr><span class='notice'>Дисплей:</span>"
+	. += "</br><span class='notice'>- Уроверь батареи <b>[cell.charge*100/cell.maxcharge]%</b>.</span>"
+
 /obj/item/gun/energy/fire_sounds()
 	var/obj/item/ammo_casing/energy/shot = ammo_type[select]
 	var/batt_percent = FLOOR(clamp(cell.charge / cell.maxcharge, 0, 1) * 100, 1)
@@ -44,7 +53,6 @@
 		playsound(src, suppressed_sound, suppressed_volume, vary_fire_sound, ignore_walls = FALSE, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_distance = 0, frequency = frequency_to_use)
 	else
 		playsound(src, fire_sound, fire_sound_volume, vary_fire_sound, frequency = frequency_to_use)
-
 
 /obj/item/gun/energy/make_jamming()
 	AddElement(/datum/element/jamming/energy, 0.1, /datum/component/jammed/energy)

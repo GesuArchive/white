@@ -11,7 +11,7 @@
 	construction_time = 40
 	materials = list(/datum/material/glass = 1000, /datum/material/gold = 200)
 	build_path = /obj/item/aicard
-	category = list("Электроника", "Научное снаряжение")
+	category = list("Электроника", "Научное снаряжение", "Снаряжение СБ")
 	sub_category = list("Электроника")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -23,7 +23,7 @@
 	construction_time = 40
 	materials = list(/datum/material/glass = 500, /datum/material/iron = 500)
 	build_path = /obj/item/paicard
-	category = list("Электроника", "Инженерное снаряжение", "Научное снаряжение", "Карго снаряжение")
+	category = list("Электроника", "Инженерное снаряжение", "Научное снаряжение", "Карго снаряжение", "Снаряжение СБ")
 	sub_category = list("Экипировка")
 
 
@@ -35,7 +35,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 5000, /datum/material/gold = 15000, /datum/material/silver = 15000, /datum/material/diamond = 20000, /datum/material/plasma = 10000)
 	build_path = /obj/item/surveillance_upgrade
-	category = list("Электроника", "Научное снаряжение")
+	category = list("Электроника", "Научное снаряжение", "Снаряжение СБ")
 	sub_category = list("Электроника")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 

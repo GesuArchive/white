@@ -49,7 +49,7 @@
 	spawnwithmagazine = FALSE
 
 /obj/item/gun/ballistic/automatic/pistol/deagle
-	name = "Desert Eagle"
+	name = "Пустынный Орел"
 	desc = "Мощный пистолет .50 АЕ калибра."
 	icon_state = "deagle"
 	force = 14
@@ -73,7 +73,7 @@
 
 /obj/item/gun/ballistic/automatic/pistol/aps
 	name = "автоматический пистолет Стечкина"
-	desc = "Старый советский автоматический пистолет. Стреляет быстро, но бьет как мул. Использует патроны калибра 9-мм. Имеет специальный ствол для установки глушителя."
+	desc = "Старый советский автоматический пистолет. Стреляет быстро, но бьет как мул. Использует патроны калибра 9-мм. На стволе присутствует резьба для установки глушителя."
 	icon_state = "aps"
 	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = /obj/item/ammo_box/magazine/m9mm_aps

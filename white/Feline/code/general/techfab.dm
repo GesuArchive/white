@@ -5,6 +5,7 @@
  * У фабрикатора в отличии от протолата по другому задается время производства: construction_time = 40 равняется 4 секундам с деталями Т1 и 1 секунде с деталями Т4
  * Так же должен быть проставлен category = list() в соответствии с пунктами фабрикатора. Если такого пункта нет - отображатся он там не будет
  * Флагов отделов у фабрикатора нет, поэтому все пункты в разных фабрикаторах должны быть уникальными или будет дубликация (если это и не есть цель)
+ * Чтобы этого избежать можно добавлять пробелы, например "Рабочие инструменты" и "Рабочие инструменты ", но лучше этим не злоупотреблять как я...
  * Для подкласса необходимо проставить в датумах sub_category = list() если этого не сделать, то отображение будет в виде общего списка с названием "Снаряжение"
  * Для создание новых подклассов объявлять их не нужно, достаточно лишь вписать новое значение в датум предмета, после чего он сгруппирует их со схожими.
  * Порядок отображения подклассов зависит от порядка исследования в нодах, стартовые можно менять смещая их относительно друг друга.
@@ -20,6 +21,7 @@
 	circuit = /obj/item/circuitboard/machine/mechfab/med
 	drop_zone = FALSE
 	part_sets = list(					// Подклассы:
+		"Рабочие инструменты    ",		// "Базовые инструменты", "Прочее"
 		"Хирургические инструменты",	// "Базовые инструменты", "Продвинутые инструменты", "Инопланетные инструменты", "Прочее"
 		"Медицинское снаряжение",		// "Диагностика и мониторинг","Экипировка", "Прочее", "Датчики и Сигнальные устройства"
 		"Фармацевтика",					// "Химическая посуда", "Инъекции", "Хим-фабрика", "Прочее"
@@ -163,6 +165,42 @@
 	else
 		icon_state = "[initial(icon_state)]-off"
 
+//	СБ фабрикатор
+
+/obj/machinery/mecha_part_fabricator/sb
+	icon = 'white/Feline/icons/techfab.dmi'
+	icon_state = "fab-idle"
+	name = "СБ фабрикатор"
+	desc = "Используется для создания медицинского оборудования."
+	circuit = /obj/item/circuitboard/machine/mechfab/sb
+	drop_zone = FALSE
+	part_sets = list(					// Подклассы:
+		"Рабочие инструменты    ",		// "Базовые инструменты", "Прочее"
+		"Снаряжение СБ",				// "Диагностика и мониторинг","Экипировка", "Прочее", "Датчики и Сигнальные устройства", "Фортификация и блокировка", "Связь и навигация", "Огнетушители и газовые баллоны", "Электроника", "Микро Импланты", "Щиты и бронепластины"
+		"Оборудование СБ",				//
+		"Боеприпасы",					// "Револьвер .38 калибра", Ружья: 12 калибра", "Пистолеты, ПП, Револьверы","Прочее"
+		"Оружейное дело",				// "Бойки", "Модернизация энергооружия"
+		"Гранаты",						//
+		"Сплавы и синтез",				//	"Сплавы металлов", "Силикатные сплавы", "Синтез"
+		"Прочее"						//
+		)
+
+/obj/item/circuitboard/machine/mechfab/sb
+	name = "плата фабрикатора СБ"
+	desc = "Продвинутая версия протолата с удобным визуальным интерфейсом."
+	greyscale_colors = CIRCUIT_COLOR_SECURITY
+	build_path = /obj/machinery/mecha_part_fabricator/sb
+
+/obj/machinery/mecha_part_fabricator/sb/Initialize(mapload)
+	. = ..()
+	add_overlay("sb")
+
+/obj/machinery/mecha_part_fabricator/sb/update_icon_state()
+	if(powered())
+		icon_state = initial(icon_state)
+	else
+		icon_state = "[initial(icon_state)]-off"
+
 //	Коробка с проводами
 
 /obj/item/cable_coil_box
@@ -186,7 +224,7 @@
 	construction_time = 60
 	materials = list(/datum/material/iron = 900, /datum/material/glass = 450)
 	build_path = /obj/item/cable_coil_box
-	category = list("Рабочие инструменты ","Рабочие инструменты  ", "Рабочие инструменты   ")
+	category = list("Рабочие инструменты ","Рабочие инструменты  ", "Рабочие инструменты   ", "Рабочие инструменты    ")
 	sub_category = list("Прочее")
 
 //	Пакеты с деталями
@@ -781,3 +819,69 @@
 	category = list("Сплавы и синтез")
 	sub_category = list("Силикатные сплавы")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
+
+//  Упаковки ружейный патронов
+/datum/design/beanbag_slug/sec/x7
+	name = "12 Калибр: Резиновая пуля - 7 шт."
+	id = "sec_beanbag_slug_x7"
+	construction_time = 40
+	materials = list(/datum/material/iron = 14000)
+	build_path = /obj/item/storage/box/beanbag
+	sub_category = list("Упаковки патронов 12 калибра")
+
+/datum/design/rubbershot/sec/x7
+	name = "12 Калибр: Резиновая картечь - 7 шт."
+	id = "sec_rshot_x7"
+	construction_time = 40
+	materials = list(/datum/material/iron = 14000)
+	build_path = /obj/item/storage/box/beanbag
+	sub_category = list("Упаковки патронов 12 калибра")
+
+/datum/design/shotgun_slug/sec/x7
+	name = "12 Калибр: Пулевой - 7 шт."
+	id = "sec_slug_x7"
+	construction_time = 40
+	materials = list(/datum/material/iron = 21000)
+	build_path = /obj/item/storage/box/rubbershot
+	sub_category = list("Упаковки патронов 12 калибра")
+
+/datum/design/buckshot_shell/sec/x7
+	name = "12 Калибр: Картечь - 7 шт."
+	id = "sec_bshot_x7"
+	construction_time = 40
+	materials = list(/datum/material/iron = 21000)
+	build_path = /obj/item/storage/box/lethalshot
+	sub_category = list("Упаковки патронов 12 калибра")
+
+/datum/design/shotgun_dart/sec/x7
+	name = "12 Калибр: Дротик - 7 шт."
+	id = "sec_dart_x7"
+	construction_time = 40
+	materials = list(/datum/material/iron = 21000)
+	build_path = /obj/item/storage/box/battle_dart
+	sub_category = list("Упаковки патронов 12 калибра")
+
+/datum/design/incendiary_slug/sec/x7
+	name = "12 Калибр: Зажигательный - 7 шт."
+	id = "sec_Islug_x7"
+	construction_time = 40
+	materials = list(/datum/material/iron = 21000)
+	build_path = /obj/item/storage/box/battle_incendiary
+	sub_category = list("Упаковки патронов 12 калибра")
+/*
+/datum/design/stunshell/х7
+	name = "12 Калибр: Электрошок - 7 шт."
+	id = "stunshell_х7"
+	construction_time = 40
+	materials = list(/datum/material/iron = 21000, /datum/material/gold = 7000)
+	build_path = /obj/item/storage/box/battle_stunslug
+	sub_category = list("Упаковки патронов 12 калибра")
+*/
+
+/datum/design/techshell/x7
+	name = "12 Калибр: Высокотехнологичный - 7 шт."
+	id = "techshotshell_x7"
+	construction_time = 40
+	materials = list(/datum/material/iron = 21000, /datum/material/glass = 3500)
+	build_path = /obj/item/storage/box/battle_techshell
+	sub_category = list("Упаковки патронов 12 калибра")

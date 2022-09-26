@@ -23,7 +23,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "G" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "I" = (
 /turf/open/floor/plasteel,

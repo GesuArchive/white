@@ -3,8 +3,8 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "f" = (
-/obj/effect/spawner/structure/window,
-/turf/open/floor/plating,
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
 /area/ruin/unpowered)
 "j" = (
 /obj/effect/abstract/doorway_marker{
@@ -14,11 +14,14 @@
 /area/ruin/unpowered)
 "s" = (
 /obj/structure/lattice/catwalk,
-/turf/template_noop,
+/turf/open/floor/plating/asteroid/no_generation,
 /area/template_noop)
 "t" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
+"A" = (
+/turf/open/floor/plating/asteroid/no_generation,
+/area/template_noop)
 "E" = (
 /turf/open/floor/plating,
 /area/ruin/unpowered)
@@ -29,6 +32,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "Y" = (
+/obj/structure/lattice,
 /turf/template_noop,
 /area/template_noop)
 
@@ -56,21 +60,21 @@ t
 (4,1,1) = {"
 Y
 s
-Y
+A
 s
 Y
 "}
 (5,1,1) = {"
-Y
+A
 s
 Y
 s
-Y
+A
 "}
 (6,1,1) = {"
 Y
 s
-Y
+A
 s
 Y
 "}

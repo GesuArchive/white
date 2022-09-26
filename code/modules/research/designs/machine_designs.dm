@@ -260,7 +260,10 @@
 	id = "hypnochair"
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 	build_path = /obj/item/circuitboard/machine/hypnochair
-	category = list("Различное оборудование")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	category = list("Различное оборудование", "Оборудование СБ")
+	sub_category = list("Бриг")
 
 /datum/design/board/biogenerator
 	name = "Биореактор"
@@ -275,6 +278,14 @@
 	desc = "Это самая высокотехнологичная, автоматизированная, автономная грядка которую вы когда-либо видели."
 	id = "hydro_tray"
 	build_path = /obj/item/circuitboard/machine/hydroponics
+	category = list ("Оборудование гидропоники")
+	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
+
+/datum/design/board/plantgenes
+	name = "Манипулятор ДНК растений"
+	desc = "Позволяет работать с генетическим кодом растений для увеличения их потенциала."
+	id = "plantgenes"
+	build_path = /obj/item/circuitboard/machine/plantgenes
 	category = list ("Оборудование гидропоники")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
@@ -371,7 +382,7 @@
 	desc = "Устройство, заряжающее киборгов и переснаряжающая их материалами."
 	id = "cyborgrecharger"
 	build_path = /obj/item/circuitboard/machine/cyborgrecharger
-	category = list("Исследовательское оборудование", "Инженерное оборудование", "Научное оборудование")
+	category = list("Исследовательское оборудование", "Инженерное оборудование", "Научное оборудование", "Оборудование СБ")
 	sub_category = list("Производство")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -382,7 +393,7 @@
 	desc = "Порт, заряжающий внутреннюю силовую ячейку меха."
 	id = "mech_recharger"
 	build_path = /obj/item/circuitboard/machine/mech_recharger
-	category = list("Исследовательское оборудование", "Инженерное оборудование", "Научное оборудование")
+	category = list("Исследовательское оборудование", "Инженерное оборудование", "Научное оборудование", "Оборудование СБ")
 	sub_category = list("Производство")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -550,7 +561,7 @@
 	desc = "Устройство сканирующее проходящих сквозь него пользователей и подающее звуковой сигнал при заданных параметрах."
 	id = "scanner_gate"
 	build_path = /obj/item/circuitboard/machine/scanner_gate
-	category = list ("Различное оборудование", "Строительство")
+	category = list ("Различное оборудование", "Строительство", "Оборудование СБ")
 	sub_category = list("Напольные конструкции")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -561,7 +572,7 @@
 	desc = "Напольное устройство для проецирования голографических изображений."
 	id = "holopad"
 	build_path = /obj/item/circuitboard/machine/holopad
-	category = list ("Различное оборудование", "Строительство")
+	category = list ("Различное оборудование", "Строительство", "Оборудование СБ")
 	sub_category = list("Напольные конструкции")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -572,7 +583,7 @@
 	desc = "Производит изделия из металла и стекла."
 	id = "autolathe"
 	build_path = /obj/item/circuitboard/machine/autolathe
-	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование", "Карго оборудование")
+	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование", "Карго оборудование", "Оборудование СБ")
 	sub_category = list("Производство")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -584,7 +595,7 @@
 	id = "recharger"
 	materials = list(/datum/material/glass = 1000, /datum/material/gold = 2000)
 	build_path = /obj/item/circuitboard/machine/recharger
-	category = list("Различное оборудование", "Инженерное оборудование", "Научное оборудование", "Карго оборудование")
+	category = list("Различное оборудование", "Инженерное оборудование", "Научное оборудование", "Карго оборудование", "Оборудование СБ")
 	sub_category = list("Энергоснабжение")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -595,7 +606,7 @@
 	desc = "Комерция в действии! Вид торгового автомата можно изменить при помощи отвертки."
 	id = "vendor"
 	build_path = /obj/item/circuitboard/machine/vendor
-	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование", "Карго оборудование")
+	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование", "Карго оборудование", "Оборудование СБ")
 	sub_category = list("Производство")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -737,7 +748,7 @@
 	desc = "Заряжает аккумуляторные батареи, не подходит для вооружения."
 	id = "cell_charger"
 	build_path = /obj/item/circuitboard/machine/cell_charger
-	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование", "Карго оборудование")
+	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование", "Карго оборудование", "Оборудование СБ")
 	sub_category = list("Энергоснабжение")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -791,7 +802,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	build_path = /obj/item/circuitboard/machine/paystand
-	category = list ("Различное оборудование", "Медицинское оборудование", "Инженерное оборудование", "Научное оборудование", "Карго оборудование")
+	category = list ("Различное оборудование", "Медицинское оборудование", "Инженерное оборудование", "Научное оборудование", "Карго оборудование", "Оборудование СБ")
 	sub_category = list("Прочее")
 
 
@@ -892,7 +903,7 @@
 	desc = "Осваивайте навыки с всего лишь мизерными шансами на повреждение головного мозга!"
 	id = "skill_station"
 	build_path = /obj/item/circuitboard/machine/skill_station
-	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование", "Карго оборудование")
+	category = list ("Различное оборудование", "Инженерное оборудование", "Научное оборудование", "Карго оборудование", "Оборудование СБ")
 	sub_category = list("Прочее")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -904,7 +915,10 @@
 	id = "accounting"
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 	build_path = /obj/item/circuitboard/machine/accounting
-	category = list ("Различное оборудование")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	category = list("Различное оборудование", "Оборудование СБ")
+	sub_category = list("Бриг")
 
 /datum/design/board/fax
 	name = "Факс"

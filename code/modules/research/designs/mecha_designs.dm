@@ -196,8 +196,8 @@
 	build_path = /obj/item/mecha_ammo/scattershot
 	materials = list(/datum/material/iron=6000)
 	construction_time = 20
-	category = list("Орудийные модули")
-	sub_category = list("Аммуниция")
+	category = list("Орудийные модули", "Боеприпасы")
+	sub_category = list("Боеприпасы экзокостюмов")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/mech_carbine
@@ -219,8 +219,8 @@
 	build_path = /obj/item/mecha_ammo/incendiary
 	materials = list(/datum/material/iron=6000)
 	construction_time = 20
-	category = list("Орудийные модули")
-	sub_category = list("Аммуниция")
+	category = list("Орудийные модули", "Боеприпасы")
+	sub_category = list("Боеприпасы экзокостюмов")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/mech_ion
@@ -297,8 +297,8 @@
 	build_path = /obj/item/mecha_ammo/flashbang
 	materials = list(/datum/material/iron=4000,/datum/material/gold=500,/datum/material/iron=500)
 	construction_time = 20
-	category = list("Орудийные модули")
-	sub_category = list("Аммуниция")
+	category = list("Орудийные модули", "Боеприпасы")
+	sub_category = list("Боеприпасы экзокостюмов")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/mech_missile_rack
@@ -320,8 +320,8 @@
 	build_path = /obj/item/mecha_ammo/missiles_br
 	materials = list(/datum/material/iron=8000,/datum/material/gold=500,/datum/material/iron=500)
 	construction_time = 20
-	category = list("Орудийные модули")
-	sub_category = list("Аммуниция")
+	category = list("Орудийные модули", "Боеприпасы")
+	sub_category = list("Боеприпасы экзокостюмов")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/clusterbang_launcher
@@ -343,8 +343,8 @@
 	build_path = /obj/item/mecha_ammo/clusterbang
 	materials = list(/datum/material/iron=6000,/datum/material/gold=1500,/datum/material/uranium=1500)
 	construction_time = 20
-	category = list("Орудийные модули")
-	sub_category = list("Аммуниция")
+	category = list("Орудийные модули", "Боеприпасы")
+	sub_category = list("Боеприпасы экзокостюмов")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/mech_wormhole_gen
@@ -487,8 +487,8 @@
 	build_path = /obj/item/mecha_ammo/lmg
 	materials = list(/datum/material/iron=4000)
 	construction_time = 20
-	category = list("Орудийные модули")
-	sub_category = list("Аммуниция")
+	category = list("Орудийные модули", "Боеприпасы")
+	sub_category = list("Боеприпасы экзокостюмов")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/mech_sleeper

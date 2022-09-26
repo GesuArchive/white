@@ -242,7 +242,7 @@
 
 /obj/item/solnce/jupiter
 	name = "МК-Юпитер"
-	desc = "Многофункциональный медицинский комплекс \"Солнце\", модель \"Юпитер\". При активации встроенный автохирург подключается к кровеносной системе и, автоматически определяя группу крови пострадавшего, восстанавливает уровень крови из внутренних запасов устройства."
+	desc = "Многофункциональный медицинский комплекс \"Солнце\", модель \"Юпитер\". При активации встроенный автохирург подключается к кровеносной системе, вводит коагулянт и, автоматически определяя группу крови пострадавшего, восстанавливает уровень крови из внутренних запасов устройства. Так же восстанавливает организм после хаскирования."
 	icon = 'white/Feline/icons/sun.dmi'
 	icon_state = "jupiter"
 	charge = 3
@@ -342,7 +342,7 @@
 			if("Юпитер")
 				model_type = TYPE_JUPITER
 				name = "МК-Юпитер"
-				desc = "Многофункциональный медицинский комплекс \"Солнце\", модель \"Юпитер\". При активации встроенный автохирург подключается к кровеносной системе и, автоматически определяя группу крови пострадавшего, восстанавливает уровень крови из внутренних запасов устройства."
+				desc = "Многофункциональный медицинский комплекс \"Солнце\", модель \"Юпитер\". При активации встроенный автохирург подключается к кровеносной системе, вводит коагулянт и, автоматически определяя группу крови пострадавшего, восстанавливает уровень крови из внутренних запасов устройства. Так же восстанавливает организм после хаскирования."
 				blank_item_1 = /obj/item/scalpel
 				blank_item_2 = /obj/item/retractor
 				blank_chem_1 = /datum/reagent/medicine/salglu_solution
@@ -487,11 +487,25 @@
 			else
 				to_chat(user, span_warning("Не обнаружено травм в этой конечности."))
 		if(TYPE_JUPITER)
-			if(M.blood_volume <= initial(M.blood_volume) - 50)
+			if((M.blood_volume <= initial(M.blood_volume) - 50) || (HAS_TRAIT(M, TRAIT_HUSK))) // проверка на малокровие и хаска
 				if(charge > 0)
-					use_charge()
-					M.restore_blood()
-					to_chat(user, span_notice("Уровень крови восстановлен."))
+					if(HAS_TRAIT(M, TRAIT_HUSK))
+						if(HAS_TRAIT(M, TRAIT_BADDNA))
+							REMOVE_TRAIT(M, TRAIT_BADDNA, CHANGELING_DRAIN)
+							to_chat(user, span_notice("Ликвидация генетического хаскирования..."))
+						else
+							to_chat(user, span_notice("Ликвидация ожогового хаскирования..."))
+						M.cure_husk()
+						use_charge()
+					if(M.blood_volume <= initial(M.blood_volume) - 50)
+						if(charge <= 0)
+							to_chat(user, span_warning("Процедура завершена не до конца - уровень заряда критический, необходима перезарядка."))
+							playsound(user, 'white/Feline/sounds/solnce_off.ogg', 100, TRUE)
+							return
+						M.reagents.add_reagent(/datum/reagent/medicine/coagulant,10)
+						M.restore_blood()
+						to_chat(user, span_notice("Уровень крови восстановлен."))
+						use_charge()
 				else
 					to_chat(user, span_warning("Уровень заряда критический, необходима перезарядка."))
 					playsound(user, 'white/Feline/sounds/solnce_off.ogg', 100, TRUE)
@@ -540,7 +554,7 @@
 	icon_state = "helmet_plus"
 	worn_icon = 'white/Feline/icons/field_med_head_body.dmi'
 	inhand_icon_state = "helmetalt"
-	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 70, RAD = 30, FIRE = 50, ACID = 70, WOUND = 20)
+	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 90, RAD = 30, FIRE = 50, ACID = 90, WOUND = 20)
 	can_flashlight = TRUE
 
 /obj/item/clothing/head/helmet/field_med/beret
@@ -589,8 +603,6 @@
 	new /obj/item/radio/headset/headset_medsec(src)
 	new /obj/item/radio/headset/headset_medsec/alt(src)
 	new /obj/item/detective_scanner(src)
-	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
-	new /obj/item/flashlight/seclite(src)
 	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/storage/box/trackimp(src)
 	new /obj/item/storage/box/chemimp(src)

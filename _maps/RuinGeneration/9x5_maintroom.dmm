@@ -29,12 +29,8 @@
 	},
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
-"W" = (
-/obj/effect/turf_decal/dust,
-/turf/open/floor/plating,
-/area/ruin/unpowered)
 "Z" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 
 (1,1,1) = {"
@@ -54,7 +50,7 @@ Z
 (3,1,1) = {"
 Z
 f
-W
+y
 y
 Z
 "}
@@ -62,27 +58,27 @@ Z
 Z
 y
 y
-W
+y
 Z
 "}
 (5,1,1) = {"
 Z
-W
 y
-W
+y
+y
 Z
 "}
 (6,1,1) = {"
 Z
 y
-W
-W
+y
+y
 Z
 "}
 (7,1,1) = {"
 Z
-W
-W
+y
+y
 E
 Z
 "}

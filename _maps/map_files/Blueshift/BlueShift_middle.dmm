@@ -8590,7 +8590,7 @@
 "cMy" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/bot,
-/obj/machinery/rnd/production/techfab/department/security,
+/obj/machinery/mecha_part_fabricator/sb,
 /turf/open/floor/plasteel/dark/side,
 /area/security/main)
 "cMJ" = (

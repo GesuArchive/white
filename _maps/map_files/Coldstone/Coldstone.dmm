@@ -8368,10 +8368,6 @@
 /obj/machinery/status_display/evac/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/service/chapel/office)
-"xl" = (
-/obj/machinery/camera/autoname/directional/west,
-/turf/open/floor/plasteel/dark,
-/area/engineering/engine_room)
 "xm" = (
 /obj/structure/table,
 /obj/structure/table/glass,
@@ -15108,6 +15104,7 @@
 /obj/item/circuitboard/machine/mechfab/engi,
 /obj/item/circuitboard/machine/mechfab/sci,
 /obj/item/circuitboard/machine/mechfab/cargo,
+/obj/item/circuitboard/machine/mechfab/sb,
 /obj/item/circuitboard/machine/techfab,
 /obj/item/circuitboard/machine/techfab,
 /obj/structure/closet/supplypod,
@@ -156082,7 +156079,7 @@ Ay
 tj
 QK
 VP
-xl
+DO
 iI
 LE
 LE

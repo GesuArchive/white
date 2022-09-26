@@ -16,7 +16,7 @@
 /turf/open/space/basic,
 /area/ruin/unpowered)
 "F" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "M" = (
 /obj/effect/abstract/open_area_marker{

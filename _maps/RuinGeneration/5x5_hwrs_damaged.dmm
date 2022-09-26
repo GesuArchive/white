@@ -20,7 +20,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "U" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "V" = (
 /turf/open/floor/plating,

@@ -1,32 +1,39 @@
 /obj/item/ammo_box/magazine/mm712x82
-	name = "box magazine (7.12x82mm)"
+	name = "коробчатый магазин калибра 7.12x82мм"
+	desc = "Содержит обычные патроны калибра 7.12x82мм. Используется в некоторых пулеметах."
 	icon_state = "a762-50"
 	ammo_type = /obj/item/ammo_casing/mm712x82
 	caliber = "mm71282"
 	max_ammo = 50
 
 /obj/item/ammo_box/magazine/mm712x82/hollow
-	name = "box magazine (Hollow-Point 7.12x82mm)"
+	name = "коробчатый магазин калибра 7.12x82мм: Экспансивный"
+	desc = "Содержит пули со смещенным центром тяжести. Они наносят повышенный урон, однако заметно хуже пробивает броню. Используется в некоторых пулеметах."
 	ammo_type = /obj/item/ammo_casing/mm712x82/hollow
 
 /obj/item/ammo_box/magazine/mm712x82/ap
-	name = "box magazine (Armor Penetrating 7.12x82mm)"
+	name = "коробчатый магазин калибра 7.12x82мм: Бронебойный"
+	desc = "Содержит пули с закаленным сердечником, это заметно повышает бронепробитие, однако незначительно понижает урон. Используется в некоторых пулеметах."
 	ammo_type = /obj/item/ammo_casing/mm712x82/ap
 
 /obj/item/ammo_box/magazine/mm712x82/incen
-	name = "box magazine (Incendiary 7.12x82mm)"
+	name = "коробчатый магазин калибра 7.12x82мм: Зажигательный"
+	desc = "Содержит пули которые поджигают цель. Немного слабее стандартных пуль. Используется в некоторых пулеметах."
 	ammo_type = /obj/item/ammo_casing/mm712x82/incen
 
 /obj/item/ammo_box/magazine/mm712x82/match
-	name = "box magazine (Match 7.12x82mm)"
+	name = "коробчатый магазин калибра 7.12x82мм: Самонаводящийся"
+	desc = "Содержит высококачественный патроны, пули которые с высокой вероятностью рикошетят и доводится на противника. Используется в некоторых пулеметах."
 	ammo_type = /obj/item/ammo_casing/mm712x82/match
 
 /obj/item/ammo_box/magazine/mm712x82/bouncy
-	name = "box magazine (Rubber 7.12x82mm)"
+	name = "коробчатый магазин калибра 7.12x82мм: Травматический"
+	desc = "Стандартные пули заменены на резиновую болванку. Урон значительно снижен, однако такие попадания сильно изматывают цель, а пули могут рекошетить от стен. Используется в некоторых пулеметах."
 	ammo_type = /obj/item/ammo_casing/mm712x82/bouncy
 
 /obj/item/ammo_box/magazine/mm712x82/bouncy/hicap
-	name = "hi-cap box magazine (Rubber 7.12x82mm)"
+	name = "коробчатый магазин повышенной емкости калибра 7.12x82мм: Травматический"
+	desc = "Стандартные пули заменены на резиновую болванку. Урон значительно снижен, однако такие попадания сильно изматывают цель, а пули могут рекошетить от стен. Используется в некоторых пулеметах."
 	max_ammo = 150
 
 /obj/item/ammo_box/magazine/mm712x82/update_icon()

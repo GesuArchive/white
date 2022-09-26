@@ -30,10 +30,10 @@
 
 //overclocked laser, does a bit more damage but has much higher wound power (-0 vs -20)
 /obj/projectile/beam/laser/hellfire
-	name = "адский лазер"
+	name = "адский луч"
 	wound_bonus = 0
-	damage = 25
-	speed = 0.6 // higher power = faster, that's how light works right
+	damage = 30
+	speed = 0.5 // higher power = faster, that's how light works right
 
 /obj/projectile/beam/laser/hellfire/Initialize(mapload)
 	. = ..()

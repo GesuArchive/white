@@ -34,7 +34,7 @@
 	pixel_x = -26
 /obj/machinery/flasher/portable //Portable version of the flasher. Only flashes when anchored
 	name = "стробоскоп"
-	desc = "Мобильная установка с яркой лампой внутри. Автоматически срабатывает при детекции движения. Плохо реагирует на медленно двигающиеся объекты. Для корректной работы необходимо прикрутить к полу."
+	desc = "Мобильная установка с яркой лампой внутри. Автоматически срабатывает при детекции движения. Плохо реагирует на медленно двигающиеся объекты. Для корректной работы необходимо прикрутить к полу. Если не прикручен к полу, то его можно сложить для переноски."
 	icon_state = "pflash1-p"
 	strength = 80
 	anchored = FALSE
@@ -44,6 +44,22 @@
 	light_range = FLASH_LIGHT_RANGE
 	light_on = FALSE
 	layer = ABOVE_OBJ_LAYER // no hiding it under a pile of laundry
+
+// 	Сворачивание стробоскопа
+/obj/machinery/flasher/portable/MouseDrop(over_object, src_location, over_location)
+	. = ..()
+	if(over_object == usr && Adjacent(usr))
+		if(!ishuman(usr) || !usr.canUseTopic(src, BE_CLOSE))
+			return FALSE
+		if(anchored)
+			to_chat(usr, span_warning("Невозможно свернуть стробоскоп пока он прикручен к полу!"))
+			return FALSE
+		if(!do_after(usr, 1 SECONDS, src))
+			return TRUE
+		usr.visible_message(span_notice("[usr] сворачивает стробоскоп.") , span_notice("Сворачиваю стробоскоп."))
+		var/obj/item/flasher_portable_item/B = new /obj/item/flasher_portable_item(get_turf(src))
+		usr.put_in_hands(B)
+		qdel(src)
 
 /obj/machinery/flasher_assembly
 	name = "каркас стробоскопа"

@@ -41,7 +41,7 @@
 	fake = TRUE
 
 /obj/item/disk/nuclear/decommission/ComponentInitialize()
-	AddComponent(/datum/component/gps, "AUTH0", TRUE)
+	AddComponent(/datum/component/gps, "диск аутентификации", TRUE)
 
 //==============
 //The bomb
@@ -62,7 +62,7 @@
 
 /obj/machinery/nuclearbomb/decomission/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/gps, "BOMB0", TRUE)
+	AddComponent(/datum/component/gps, "Термоядерная бомба", TRUE)
 
 /obj/machinery/nuclearbomb/decomission/Initialize(mapload)
 	. = ..()

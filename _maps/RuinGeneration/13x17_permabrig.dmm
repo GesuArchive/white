@@ -53,12 +53,12 @@
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "kJ" = (
-/obj/machinery/seed_extractor,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/seed_extractor,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "lv" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "lG" = (
 /obj/structure/toilet{
@@ -67,12 +67,11 @@
 /turf/open/floor/plasteel/freezer,
 /area/ruin/unpowered)
 "lI" = (
-/obj/machinery/door/airlock/public/glass{
-	id_tag = "permabolt2";
-	name = "Cell 2"
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock/security/glass{
+	name = "Long-Term Cell 2"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "mj" = (
@@ -88,17 +87,9 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "pO" = (
-/obj/machinery/door/airlock/security/glass{
-	name = "Long-Term Cell 1";
-	req_access_txt = "2"
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/brigdoor,
+/obj/effect/spawner/lootdrop/ruinloot/security,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "pR" = (
@@ -117,7 +108,6 @@
 	id_tag = "permabolt3";
 	name = "Cell 3"
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
@@ -244,8 +234,6 @@
 /area/ruin/unpowered)
 "BT" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/ruinloot/security,
-/obj/effect/spawner/lootdrop/ruinloot/security,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "CC" = (
@@ -253,7 +241,6 @@
 	id_tag = "permabolt1";
 	name = "Cell 1"
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
@@ -267,8 +254,8 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "Ez" = (
-/obj/structure/bed,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/spawner/lootdrop/ruinloot/security,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "EM" = (
@@ -292,6 +279,7 @@
 /obj/structure/table,
 /obj/item/paper,
 /obj/item/pen,
+/obj/effect/spawner/lootdrop/ruinloot/security,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "FW" = (
@@ -352,8 +340,8 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "My" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
 /area/ruin/unpowered)
 "MX" = (
 /obj/effect/turf_decal/tile/red{
@@ -381,14 +369,11 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "NZ" = (
-/obj/machinery/door/airlock/security/glass{
-	name = "Long-Term Cell 2";
-	req_access_txt = "2"
-	},
+/obj/machinery/door/airlock/security/glass,
+/obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "Oe" = (
@@ -419,7 +404,6 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/obj/effect/spawner/lootdrop/ruinloot/security,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "Qh" = (
@@ -428,6 +412,7 @@
 	pixel_x = -12;
 	pixel_y = 2
 	},
+/obj/effect/spawner/lootdrop/ruinloot/security,
 /turf/open/floor/plasteel/freezer,
 /area/ruin/unpowered)
 "RC" = (
@@ -459,17 +444,6 @@
 "TT" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/closed/wall/r_wall,
-/area/ruin/unpowered)
-"VE" = (
-/obj/machinery/door/airlock/security/glass{
-	name = "Long-Term Cell 3";
-	req_access_txt = "2"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "VL" = (
 /obj/machinery/holopad,
@@ -511,7 +485,7 @@
 /area/ruin/unpowered)
 "ZT" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 
 (1,1,1) = {"
@@ -527,7 +501,7 @@ TT
 EW
 TT
 TT
-lv
+EW
 bO
 xV
 ee
@@ -536,17 +510,17 @@ lv
 (2,1,1) = {"
 EW
 EW
-EW
+My
 EW
 hU
 dQ
-NR
+Ez
 NR
 NR
 rp
 NR
 NR
-VE
+My
 bO
 bO
 wg
@@ -562,10 +536,10 @@ RC
 NR
 VL
 NR
-lv
+My
 PN
 vM
-lv
+My
 bO
 bO
 mj
@@ -582,9 +556,9 @@ NR
 NR
 Ha
 lv
-lv
-lv
-lv
+My
+My
+EW
 bO
 bO
 VT
@@ -600,10 +574,10 @@ NR
 RC
 NR
 NR
-lv
-Ez
+My
 NR
-lv
+NR
+pO
 bO
 bO
 Xh
@@ -638,10 +612,10 @@ hq
 CE
 NR
 NR
-lv
+My
 RC
 vM
-lv
+EW
 bO
 bO
 BT
@@ -658,9 +632,9 @@ NR
 NR
 NR
 lv
-lv
-lv
-lv
+My
+My
+EW
 bO
 bO
 Me
@@ -676,10 +650,10 @@ NR
 NR
 NR
 NR
-lv
+My
 SO
 Fz
-lv
+My
 bO
 bO
 Me
@@ -698,7 +672,7 @@ NR
 CC
 NR
 NR
-pO
+My
 bO
 bO
 Me
@@ -707,8 +681,8 @@ lv
 (11,1,1) = {"
 EW
 cK
-kJ
 NR
+kJ
 EM
 pR
 Ty
@@ -717,7 +691,7 @@ ve
 lv
 ZT
 ZT
-lv
+EW
 bO
 bO
 MX
@@ -726,7 +700,7 @@ lv
 (12,1,1) = {"
 EW
 EW
-EW
+My
 EW
 EW
 EW
@@ -736,7 +710,7 @@ xh
 fZ
 Qh
 lG
-lv
+EW
 bO
 bO
 bO

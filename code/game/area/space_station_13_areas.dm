@@ -322,6 +322,14 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Коридоры: Южные"
 	icon_state = "hallA"
 
+/area/hallway/primary/aft/exploration
+	name = "Коридоры, низ: Рейнджеры"
+	icon_state = "hallAL1"
+
+/area/hallway/primary/aft/restroom
+	name = "Коридоры, низ: Южные"
+	icon_state = "hallAL2"
+
 /area/hallway/primary/fore
 	name = "Коридоры: Северные"
 	icon_state = "hallF"
@@ -361,6 +369,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/hallway/primary/port/to_arrival
 	name = "Коридоры: К прибытию"
 	icon_state = "hallP1"
+
+/area/hallway/primary/port/gate
+	name = "Коридоры, низ: Врата"
+	icon_state = "hallPL1"
 
 /area/hallway/primary/port/vault
 	name = "Коридоры: Ваулт"
@@ -908,6 +920,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/engineering/storage_shared
 	name = "Инженерный: Общее хранилище"
 	icon_state = "engi_storage"
+
+/area/engineering/second_engy
+	name = "Вторичный инженерный блок"
+	icon_state = "engine_room1"
 
 /area/engineering/transit_tube
 	name = "Инженерный: Транзитная труба"
@@ -1496,7 +1512,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "aux_storage"
 
 /area/engineering/storage/tech
-	name = "Хранилище: Техника"
+	name = "Хранилище: Платы"
 	icon_state = "aux_storage"
 
 /area/commons/storage/mining

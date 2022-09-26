@@ -43,3 +43,17 @@
 	damage = 24
 	range = 7
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
+
+// ПВЕ
+/obj/projectile/plasma/adv/pve
+	range = 7
+	damage = 18		//В ПВП урон ниже
+
+/obj/projectile/plasma/adv/pve/on_hit(atom/target)
+	if(iscarbon(target))
+		damage = 9
+	if(issilicon(target))
+		damage = 9
+	if(isalienadult(target))
+		damage = 18
+	. = ..()

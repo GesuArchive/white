@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/automatic/pistol/tanner
-	name = "Tanner M41"
-	desc = "Неплохой аналог Стечкина. Также принимает обоймы 10mm."
+	name = "Таннер М41"
+	desc = "Пистолет повышенной пробивной способности. Принимает 10мм магазины."
 	icon = 'white/valtos/icons/gun.dmi'
 	icon_state = "tanner"
 	w_class = WEIGHT_CLASS_NORMAL

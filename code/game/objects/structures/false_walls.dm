@@ -90,7 +90,7 @@
 				to_chat(user, span_warning("[src.name] заблокирована!"))
 				return
 			if(!isfloorturf(T))
-				to_chat(user, span_warning("[src.name] не ощущает пола под собой!"))
+				to_chat(user, span_warning("Под [src.name] отсутствует пол!"))
 				return
 			user.visible_message(span_notice("[user] затягивает болты стены.") , span_notice("Затягиваю болты стены."))
 			ChangeToWall()
@@ -104,7 +104,7 @@
 		return ..()
 
 /obj/structure/falsewall/proc/dismantle(mob/user, disassembled=TRUE, obj/item/tool = null)
-	user.visible_message(span_notice("[user] dismantles the false wall.") , span_notice("You dismantle the false wall."))
+	user.visible_message(span_notice("[user] разбирает фальшстену.") , span_notice("Разбираю фальшстену."))
 	if(tool)
 		tool.play_tool_sound(src, 100)
 	else
@@ -149,6 +149,20 @@
 	..()
 	if(tool.tool_behaviour == TOOL_WIRECUTTER)
 		dismantle(user, TRUE, tool)
+
+/*
+ * Фальшивая клепаная стена
+ */
+
+/obj/structure/falsewall/riveted_wall
+	name = "армированная стена"
+	desc = "Здоровенный укреплённый кусок металла, который служит для разделения помещений."
+	icon = DEFAULT_RIVWALL_ICON
+	icon_state = "riveted_wall-0"
+	base_icon_state = "riveted_wall"
+	walltype = /turf/closed/wall/riveted_wall
+	mineral = /obj/item/stack/sheet/riveted_metal
+	smoothing_flags = SMOOTH_BITMASK
 
 /*
  * Uranium Falsewalls

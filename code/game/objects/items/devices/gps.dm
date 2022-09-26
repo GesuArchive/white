@@ -11,6 +11,7 @@
 	slot_flags = ITEM_SLOT_NECK
 	obj_flags = UNIQUE_RENAME
 	var/gpstag
+	var/offline = FALSE
 
 /obj/item/gps/Initialize(mapload)
 	. = ..()
@@ -18,7 +19,10 @@
 
 /// Adds the GPS component to this item.
 /obj/item/gps/proc/add_gps_component()
-	AddComponent(/datum/component/gps/item, gpstag)
+	if(offline)
+		AddComponent(/datum/component/gps/item/off, gpstag)
+	else
+		AddComponent(/datum/component/gps/item, gpstag)
 
 /obj/item/gps/spaceruin
 	gpstag = SPACE_SIGNAL_GPSTAG
@@ -37,7 +41,10 @@
 	icon_state = "gps-m"
 	worn_icon_state = "gps-m"
 	gpstag = "MINE0"
-	desc = "A positioning system helpful for rescuing trapped or injured miners, keeping one on you at all times while mining might just save your life."
+	desc = "GPS поисковая система для поиска пропавших шахтеров и объектов повышенного интереса."
+
+/obj/item/gps/mining/off
+	offline = TRUE
 
 /obj/item/gps/mining/exploration
 	gpstag = "EXP0"

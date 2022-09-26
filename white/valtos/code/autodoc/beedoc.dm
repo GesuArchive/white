@@ -19,10 +19,27 @@
 
 /obj/machinery/organdoc/RefreshParts()
 	. = ..()
+/*
 	var/max_time = 350
 	for(var/obj/item/stock_parts/L in component_parts)
 		max_time -= (L.rating*10)
 	surgerytime = max(max_time,10)
+*/
+	//Скорость работы (300 -> 225 -> 150 -> 75 -> 30)
+	var/T = -2
+	for(var/obj/item/stock_parts/micro_laser/Ml in component_parts)
+		T += Ml.rating
+	surgerytime = initial(surgerytime) - (initial(surgerytime)*(T))/8
+	if(surgerytime <= 30)
+		surgerytime = 30
+
+	//Энергопотребление (10к -> 7.5к -> 5к -> 2.5к -> 1к)
+	var/P = -1
+	for(var/obj/item/stock_parts/capacitor/cap in component_parts)
+		P += cap.rating
+	active_power_usage = initial(active_power_usage) - (initial(active_power_usage)*(P))/4
+	if(active_power_usage <= 1000)
+		active_power_usage = 1000
 
 /obj/machinery/organdoc/examine(mob/user)
 	. = ..()
@@ -176,8 +193,9 @@
 	req_components = list(/obj/item/scalpel/advanced = 1,
 		/obj/item/retractor/advanced = 1,
 		/obj/item/cautery/advanced = 1,
+		/obj/item/stock_parts/capacitor = 1,
 		/obj/item/stock_parts/manipulator = 1,
-		/obj/item/stock_parts/micro_laser = 3,
+		/obj/item/stock_parts/micro_laser = 2,
 		/obj/item/stock_parts/matter_bin = 1)
 
 /datum/design/board/organdoc

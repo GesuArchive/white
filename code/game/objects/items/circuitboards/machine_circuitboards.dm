@@ -674,7 +674,7 @@
 //Medical
 
 /obj/item/circuitboard/machine/chem_dispenser
-	name = "Плата Хим-раздатчика"
+	name = "плата хим-раздатчика"
 	desc = "Создает и выдает химикаты."
 	greyscale_colors = CIRCUIT_COLOR_MEDICAL
 	build_path = /obj/machinery/chem_dispenser
@@ -721,7 +721,7 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/chem_heater
-	name = "Плата Реакционной камеры"
+	name = "плата реакционной камеры"
 	desc = "Миниатюрная термомашина способная быстро изменять и удерживать температуру состава, а так же мануально контролировать баланс ПШ."
 	greyscale_colors = CIRCUIT_COLOR_MEDICAL
 	build_path = /obj/machinery/chem_heater
@@ -730,7 +730,7 @@
 		/obj/item/stack/sheet/glass = 1)
 
 /obj/item/circuitboard/machine/chem_master
-	name = "Плата ХимМастера 3000"
+	name = "плата хим-мастера 3000"
 	desc = "Используется для разделения химикатов и их распределения в различных состояниях. Режим изменяет отверткой."
 	greyscale_colors = CIRCUIT_COLOR_MEDICAL
 	build_path = /obj/machinery/chem_master
@@ -1204,7 +1204,8 @@
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/plantgenes
-	name = "Plant DNA Manipulator (Оборудование)"
+	name = "манипулятор ДНК растений"
+	desc = "Позволяет работать с генетическим кодом растений для увеличения их потенциала."
 	greyscale_colors = CIRCUIT_COLOR_SERVICE
 	build_path = /obj/machinery/plantgenes
 	req_components = list(

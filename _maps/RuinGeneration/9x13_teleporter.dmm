@@ -5,10 +5,7 @@
 /area/ruin/unpowered)
 "c" = (
 /obj/structure/table,
-/obj/item/stock_parts/cell{
-	charge = 100;
-	maxcharge = 15000
-	},
+/obj/item/stock_parts/cell/bluespace,
 /turf/open/floor/plasteel/airless,
 /area/ruin/unpowered)
 "e" = (
@@ -20,9 +17,24 @@
 "g" = (
 /turf/open/floor/plasteel/airless,
 /area/ruin/unpowered)
+"k" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/multitool/abductor,
+/turf/open/floor/plating/airless,
+/area/ruin/unpowered)
+"l" = (
+/obj/item/stack/ore/bluespace_crystal,
+/turf/open/floor/plating/airless,
+/area/ruin/unpowered)
 "q" = (
 /turf/template_noop,
 /area/template_noop)
+"r" = (
+/obj/structure/table,
+/obj/item/cargo_teleporter,
+/turf/open/floor/plasteel/airless,
+/area/ruin/unpowered)
 "y" = (
 /obj/machinery/teleport/station,
 /turf/open/floor/plasteel/airless,
@@ -30,6 +42,11 @@
 "z" = (
 /obj/machinery/door/airlock/vault,
 /obj/effect/mapping_helpers/airlock/locked,
+/turf/open/floor/plasteel/airless,
+/area/ruin/unpowered)
+"B" = (
+/obj/structure/table,
+/obj/item/hand_tele,
 /turf/open/floor/plasteel/airless,
 /area/ruin/unpowered)
 "I" = (
@@ -41,6 +58,11 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/airless,
+/area/ruin/unpowered)
+"N" = (
+/obj/structure/table,
+/obj/item/beacon,
+/turf/open/floor/plating/airless,
 /area/ruin/unpowered)
 "P" = (
 /turf/closed/wall/r_wall,
@@ -55,6 +77,10 @@
 /area/ruin/unpowered)
 "X" = (
 /turf/open/floor/plating/airless,
+/area/ruin/unpowered)
+"Z" = (
+/obj/item/stack/ore/bluespace_crystal,
+/turf/open/floor/plasteel/airless,
 /area/ruin/unpowered)
 
 (1,1,1) = {"
@@ -113,7 +139,7 @@ X
 g
 g
 X
-X
+l
 q
 q
 "}
@@ -121,7 +147,7 @@ q
 q
 Q
 P
-g
+B
 g
 g
 g
@@ -136,13 +162,13 @@ q
 q
 q
 P
-g
+r
 g
 e
 y
 I
 g
-X
+N
 P
 q
 q
@@ -155,9 +181,9 @@ T
 X
 g
 g
+Z
 g
-g
-X
+k
 P
 Q
 q
@@ -181,7 +207,7 @@ q
 q
 q
 q
-X
+l
 X
 P
 P

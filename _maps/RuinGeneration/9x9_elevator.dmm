@@ -8,7 +8,7 @@
 /turf/open/floor/carpet/red,
 /area/ruin/unpowered)
 "g" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "l" = (
 /turf/closed/wall/r_wall,

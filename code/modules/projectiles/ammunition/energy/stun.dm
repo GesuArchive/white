@@ -13,7 +13,7 @@
 	e_cost = 100
 
 /obj/item/ammo_casing/energy/electrode/old
-	e_cost = 1000
+	e_cost = 500
 
 /obj/item/ammo_casing/energy/disabler
 	projectile_type = /obj/projectile/beam/disabler

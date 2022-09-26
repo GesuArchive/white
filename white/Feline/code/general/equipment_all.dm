@@ -305,6 +305,20 @@
 		qdel(W)
 		qdel(src)
 
+// 	Бронекуртка механика
+	if(istype(W, /obj/item/clothing/suit/mechanicus))
+		to_chat(user, span_notice("Закрепляю раскройку на куртке механика. Теперь у бронежилета повышеная защита от огня, радиации и взрывов, а так же присутствует множество всевозможных крепежей для инструментов и приборов. Однако бронепластины не дадут свернуть куртку в ремень."))
+		playsound(user, 'sound/items/equip/toolbelt_equip.ogg', 100, TRUE)
+		if(!do_after(user, 2 SECONDS, src))
+			return TRUE
+		playsound(user, 'sound/items/zip.ogg', 100, TRUE)
+
+		var/obj/item/clothing/suit/armor/vest/specialist/mechanicus/I = new()
+		user.put_in_hands(I)
+
+		qdel(W)
+		qdel(src)
+
 	. = ..()
 
 // 	Риот броня 2 шаг
@@ -389,6 +403,9 @@
 	icon = 'white/Feline/icons/lab_armor_front.dmi'
 	worn_icon = 'white/Feline/icons/lab_armor_body.dmi'
 	icon_state = "fieldmed"
+	body_parts_covered = CHEST|GROIN|ARMS|HANDS
+	cold_protection = CHEST|GROIN|ARMS|HANDS
+	heat_protection = CHEST|GROIN|ARMS|HANDS
 	allowed = list(
 		/obj/item/ammo_box,
 		/obj/item/ammo_casing,
@@ -411,9 +428,10 @@
 		/obj/item/healthanalyzer,
 		/obj/item/medbot_carrier,
 		/obj/item/gun/syringe,
-		/obj/item/solnce
+		/obj/item/solnce,
+		/obj/item/tactical_recharger
 	)
-	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 70, RAD = 30, FIRE = 50, ACID = 70, WOUND = 20)
+	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 90, RAD = 30, FIRE = 50, ACID = 90, WOUND = 20)
 
 /obj/item/clothing/suit/armor/vest/fieldmedic/med
 	name = "лабораторный бронежилет врача"
@@ -470,6 +488,113 @@
 	icon = 'white/Feline/icons/lab_armor_front.dmi'
 	worn_icon = 'white/Feline/icons/lab_armor_body.dmi'
 	icon_state = "genetics"
+
+// 	Бронекуртка Специалиста
+/obj/item/clothing/suit/armor/vest/specialist
+	name = "бронекуртка специалиста"
+	desc = "Бронированная куртка технического специалиста спецназа. Поверх броневых пластин присутствует множество всевозможных крепежей для инструментов и приборов. Однако бронепластины не дадут свернуть куртку в ремень."
+	icon = 'white/Feline/icons/engi_items.dmi'
+	icon_state = "specialist"
+	worn_icon = 'white/Feline/icons/engi_back.dmi'
+	worn_icon_state = "specialist"
+	inhand_icon_state = "hazard"
+	pocket_storage_component_path = /datum/component/storage/concrete/pockets/mechanicus
+	full_armor_flag = TRUE
+	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	var/loaded = TRUE
+	allowed = list(
+		/obj/item/ammo_box,
+		/obj/item/ammo_casing,
+		/obj/item/flashlight,
+		/obj/item/gun/ballistic,
+		/obj/item/gun/energy,
+		/obj/item/gun/grenadelauncher,
+		/obj/item/kitchen/knife/combat,
+		/obj/item/melee/baton,
+		/obj/item/melee/classic_baton,
+		/obj/item/reagent_containers/spray/pepper,
+		/obj/item/restraints/handcuffs,
+		/obj/item/tank/internals/emergency_oxygen,
+		/obj/item/tank/internals/plasmaman,
+		/obj/item/tank/internals/tactical,
+		/obj/item/storage/belt/holster/detective,
+		/obj/item/storage/belt/holster/thermal,
+		/obj/item/storage/belt/holster/nukie,
+		/obj/item/tank/internals/emergency_oxygen,
+		/obj/item/storage/belt/specialist,
+		/obj/item/tactical_recharger,
+	)
+	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 70, BIO = 30, RAD = 90, FIRE = 90, ACID = 30, WOUND = 20)
+
+/obj/item/clothing/suit/armor/vest/specialist/empty
+	loaded = FALSE
+
+/obj/item/clothing/suit/armor/vest/specialist/update_icon_state()
+	cut_overlays()
+	// Шурик > отвертка + кусачки
+	if(locate(/obj/item/screwdriver/power) in contents)
+		add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_shur"))
+	else
+		if(locate(/obj/item/screwdriver) in contents)
+			add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_skr"))
+		if(locate(/obj/item/wirecutters) in contents)
+			add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_cuter"))
+	// Ножницы > лом + гаечник
+	if(locate(/obj/item/crowbar/power) in contents)
+		add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_jaws"))
+	else
+		if(locate(/obj/item/crowbar) in contents)
+			add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_crow"))
+		if(locate(/obj/item/wrench) in contents)
+			add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_wrench"))
+	// Сварочники
+//	if(locate(/obj/item/weldingtool) in contents)
+//		add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "duffel_overlay"))
+	// Мультитулы
+	if((locate(/obj/item/multitool) in contents) || (locate(/obj/item/analyzer) in contents))
+		add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_multi"))
+	// РЦД
+	if(locate(/obj/item/construction/rcd) in contents)
+		add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_rcd"))
+	// РПД
+	if(locate(/obj/item/pipe_dispenser) in contents)
+		add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_rpd"))
+	// Индуктор
+	if(locate(/obj/item/inducer) in contents)
+		add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_ind"))
+	// Провода
+	if(locate(/obj/item/stack/cable_coil) in contents)
+		add_overlay(mutable_appearance('white/Feline/icons/engi_items.dmi', "mechanikus_wire"))
+
+	return ..()
+
+//Загрузка кармана
+/obj/item/clothing/suit/armor/vest/specialist/Initialize(mapload)
+	. = ..()
+	if(ispath(pocket_storage_component_path))
+		LoadComponent(pocket_storage_component_path)
+
+	if(loaded)
+		new /obj/item/screwdriver(src)
+		new /obj/item/wrench(src)
+		new /obj/item/weldingtool/largetank(src)
+		new /obj/item/crowbar/power/specialist(src)
+		new /obj/item/multitool(src)
+		new /obj/item/analyzer(src)
+		new /obj/item/stack/cable_coil(src)
+		new /obj/item/grenade/barbed_wire(src)
+	update_appearance()
+
+// 	Бронекуртка механика
+/obj/item/clothing/suit/armor/vest/specialist/mechanicus
+	name = "бронекуртка механика"
+	desc = "Бронированная куртка военного инженера. Поверх броневых пластин присутствует множество всевозможных крепежей для инструментов и приборов. Однако бронепластины не дадут свернуть куртку в ремень."
+	icon_state = "mechanikus_body"
+	worn_icon_state = "mechanikus"
+	inhand_icon_state = "hazard"
+	loaded = FALSE
 
 /datum/crafting_recipe/lab_armor_paramedic
 	name = "Бронекуртка парамедика"
@@ -616,7 +741,7 @@
 	category = CAT_ARMOR
 
 /datum/crafting_recipe/ablative_armor_plate
-	name = "зеркальная бронепластина"
+	name = "Зеркальная бронепластина"
 	result =  /obj/item/stack/sheet/armor_plate/ablative
 	time = 80
 	reqs = list(
@@ -930,5 +1055,7 @@
 		/obj/item/inducer,
 		/obj/item/plunger,
 		/obj/item/airlock_painter,
-		/obj/item/pipe_painter
+		/obj/item/pipe_painter,
+		/obj/item/restraints/handcuffs,
+		/obj/item/grenade
 		))

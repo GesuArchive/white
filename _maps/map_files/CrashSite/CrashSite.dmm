@@ -873,6 +873,7 @@
 /obj/item/circuitboard/machine/mechfab/engi,
 /obj/item/circuitboard/machine/mechfab/sci,
 /obj/item/circuitboard/machine/mechfab/cargo,
+/obj/item/circuitboard/machine/mechfab/sb,
 /obj/item/circuitboard/machine/techfab,
 /obj/item/circuitboard/machine/techfab,
 /obj/machinery/light/small,

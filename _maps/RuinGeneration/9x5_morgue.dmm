@@ -24,7 +24,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "o" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "q" = (
 /obj/effect/spawner/lootdrop/ruinloot/basic,

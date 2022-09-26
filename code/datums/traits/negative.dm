@@ -205,7 +205,7 @@
 			//Engineering
 			if(JOB_CHIEF_ENGINEER)
 				heirloom_type = pick(/obj/item/clothing/head/hardhat/white, /obj/item/screwdriver, /obj/item/wrench, /obj/item/weldingtool, /obj/item/crowbar, /obj/item/wirecutters)
-			if(JOB_STATION_ENGINEER, JOB_MECHANIC)
+			if(JOB_STATION_ENGINEER, JOB_MECHANIC, JOB_SPECIALIST)
 				heirloom_type = pick(/obj/item/clothing/head/hardhat, /obj/item/screwdriver, /obj/item/wrench, /obj/item/weldingtool, /obj/item/crowbar, /obj/item/wirecutters)
 			if(JOB_ATMOSPHERIC_TECHNICIAN)
 				heirloom_type = pick(/obj/item/lighter, /obj/item/lighter/greyscale, /obj/item/storage/box/matches)

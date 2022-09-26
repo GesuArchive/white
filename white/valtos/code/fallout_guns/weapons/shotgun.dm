@@ -37,8 +37,8 @@
 	extra_penetration = 10
 
 /obj/item/gun/ballistic/shotgun/fallout/cowboy
-	name = "cowboy repeater"
-	desc = "A classic lever action repeater chambered for .357."
+	name = "рычажной карабин"
+	desc = "Классический карабин со скобой Генри под .357 калибр."
 	icon_state = "cowboy"
 	inhand_icon_state = "cowboy"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/tube357
@@ -46,7 +46,6 @@
 	weapon_weight = WEAPON_HEAVY
 	fire_sound = 'white/valtos/sounds/fallout/gunsounds/repeater/repeater1.ogg'
 	fire_delay = 5
-	extra_damage = 35
 	extra_penetration = 10
 
 /obj/item/gun/ballistic/shotgun/fallout/brush
@@ -116,7 +115,7 @@
 
 /obj/item/ammo_box/magazine/internal/shot/tube357
 	name = ".357 magnum internal tube magazine"
-	ammo_type = /obj/item/ammo_casing/fallout/a357
+	ammo_type = /obj/item/ammo_casing/a357
 	caliber = "357"
 	max_ammo = 7
 
@@ -167,10 +166,10 @@
 	max_ammo = 8
 
 /obj/item/ammo_box/fallout/tube357
-	name = ".357 speed loader tube"
+	name = "винтовочный скорозарядник .357 калибра"
 	icon = 'white/valtos/icons/fallout/ammo.dmi'
 	icon_state = "357tube"
-	ammo_type = /obj/item/ammo_casing/fallout/a357
+	ammo_type = /obj/item/ammo_casing/a357
 	caliber = "357"
 	max_ammo = 7
 

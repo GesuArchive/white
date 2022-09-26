@@ -1,7 +1,7 @@
 //Ваучер на экипировку
 
 /obj/item/rangers_voucher
-	name = "Рейнджерский ваучер"
+	name = "рейнджерский ваучер"
 	desc = "Талончик, который вы можете обменять на согласованные с ЦК наборы снаряжения. Для использования вставьте его в приемник рейнджерского торгового автомата."
 	icon = 'white/Feline/icons/voucher_duffelbag.dmi'
 	icon_state = "rangers_voucher"
@@ -38,7 +38,7 @@
 //Наборы
 
 /obj/item/storage/backpack/duffelbag/rangers
-	name = "Сумка Рейнджера"
+	name = "сумка рейнджера"
 	desc = "Объемная сумка для рейнджеров."
 	icon = 'white/Feline/icons/voucher_duffelbag.dmi'
 	icon_state = "leader"
@@ -49,7 +49,7 @@
 //Медицинский Набор
 
 /obj/item/storage/backpack/duffelbag/rangers/med
-	name = "Набор экипировки рейнджера-медика"
+	name = "набор экипировки рейнджера-медика"
 	desc = "Огромная сумка с медицинскими инструментами для полевой хирургии, медикаментами экстренной помощи и оборудованием для поиска и мониторинга здоровья экипажа. Позволяет спасать жизни, даже находясь в десятках тысяч километров от цивилизации."
 	icon_state = "med"
 	inhand_icon_state = "duffel-med"
@@ -71,7 +71,7 @@
 
 
 /obj/item/storage/firstaid/medical/field_surgery
-	name = "Укладка полевого хирурга"
+	name = "укладка полевого хирурга"
 	desc = "Компактный набор самых необходимых медицинских инструментов для неотложного хирургического вмешательства в полевых условиях."
 
 /obj/item/storage/firstaid/medical/field_surgery/PopulateContents()
@@ -96,7 +96,7 @@
 //Инженерный Набор
 
 /obj/item/storage/backpack/duffelbag/rangers/engi
-	name = "Набор экипировки рейнджера-инженера"
+	name = "набор экипировки рейнджера-инженера"
 	desc = "Сумка инженера-бортмеханика, содержит инструменты для залатывания своего корпуса и создания дыр в чужом."
 	icon_state = "engi"
 	inhand_icon_state = "duffel-eng"
@@ -108,7 +108,7 @@
 	new /obj/item/stack/sheet/iron/fifty(src)
 	new /obj/item/stack/sheet/glass/fifty(src)
 	new /obj/item/storage/belt/utility/full/engi(src)
-	new /obj/item/gun/energy/plasmacutter(src)
+	new /obj/item/gun/energy/plasmacutter/adv/rangers(src)
 	new /obj/item/inducer(src)
 	new /obj/item/stock_parts/cell/hyper(src)
 	new /obj/item/clothing/glasses/meson(src)
@@ -118,7 +118,7 @@
 	new /obj/item/research_disk_pinpointer(src)
 
 /obj/item/storage/box/demolition
-	name = "Боеукладка разрушителя"
+	name = "боеукладка разрушителя"
 	desc = "Для организации прохода туда, куда вас не хотели пускать по хорошему."
 	icon_state = "plasticbox"
 
@@ -130,11 +130,20 @@
 	new /obj/item/grenade/exploration(src)
 	new /obj/item/exploration_detonator(src)
 
+/obj/item/gun/energy/plasmacutter/adv/rangers
+	name = "плазменный резак \"Термит\""
+	desc = "Тяжелая версия плазменного резака адаптированная для быстрого вскрытия обшивки. Батарея адаптирована под питание от стандартных оружейных зарядников. Так же в корпус встроен миниатюрный генератор гамма излучения."
+	icon = 'white/Feline/icons/rangers_engi.dmi'
+	icon_state = "termit"
+	inhand_icon_state = "plasmacutter_mega"
+	can_charge = TRUE
+	w_class = WEIGHT_CLASS_BULKY
+	ammo_type = list(/obj/item/ammo_casing/energy/plasma/adv/pve)
 
 //Боевой Набор
 
 /obj/item/storage/backpack/duffelbag/rangers/gunner
-	name = "Набор экипировки рейнджера-боевика"
+	name = "набор экипировки рейнджера-боевика"
 	desc = "Продвинутое снаряжение для зачистки реликтов в глубоком космосе, поможет сохранить социальную дистанцию и ясность сознания."
 	icon_state = "gunner"
 	inhand_icon_state = "duffel-sec"
@@ -151,7 +160,7 @@
 	new /obj/item/reagent_containers/hypospray/medipen/salacid(src)
 
 /obj/item/gun/energy/laser/rangers
-	name = "Экспериментальная лазерная пушка"
+	name = "экспериментальная лазерная пушка"
 	desc = "Неожиданный результат экспериментов Нанотрейзен в области увеличения энергоячеек. Боезапас винтовки был удвоен, но из за особенностей энергораспределения поражающая мощность понизилась. Однако был обнаружен полезный побочный эффект: нестабильное излучение оказывает чрезвычайно разрушительный эффект на нервную систему примитивных форм жизни. Предоставлена корпусу рейнджеров на полевые испытания."
 	icon = 'white/Feline/icons/weapon_rangers.dmi'
 	icon_state = "rangerlaser"
@@ -182,6 +191,7 @@
 	light_range = 3
 	light_on = FALSE
 	light_system = MOVABLE_LIGHT
+	tool_behaviour = TOOL_SAW
 
 	var/amplification = FALSE
 	var/last_activation = 0
@@ -395,6 +405,7 @@
 	STR.set_holdable(list(
 		/obj/item/melee/sabre/proton_cutter,
 		/obj/item/melee/classic_baton,
+		/obj/item/melee/baton/loaded/german,
 		/obj/item/gun/ballistic/automatic/pistol,
 		/obj/item/gun/ballistic/revolver,
 		/obj/item/gun/energy/e_gun/mini,

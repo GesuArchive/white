@@ -3,6 +3,10 @@
 /obj/structure/lattice,
 /turf/open/floor/plating/asteroid/no_generation,
 /area/template_noop)
+"b" = (
+/obj/structure/particle_accelerator/particle_emitter/left,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin)
 "c" = (
 /turf/open/floor/plasteel,
 /area/ruin)
@@ -12,8 +16,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/ruin)
+"f" = (
+/obj/machinery/field/generator/anchored,
+/turf/open/floor/plating/no_generation,
+/area/template_noop)
 "g" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin)
 "j" = (
 /obj/structure/sign/warning/radiation{
@@ -25,8 +33,20 @@
 /obj/machinery/the_singularitygen,
 /turf/open/floor/plating/no_generation,
 /area/template_noop)
+"m" = (
+/obj/machinery/power/emitter/welded{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/ruin)
+"n" = (
+/obj/machinery/power/emitter/welded{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/ruin)
 "o" = (
-/obj/machinery/field/generator,
+/obj/machinery/power/rad_collector,
 /turf/open/floor/plating/no_generation,
 /area/template_noop)
 "p" = (
@@ -38,6 +58,13 @@
 	pixel_y = -32
 	},
 /turf/open/floor/plasteel,
+/area/ruin)
+"s" = (
+/obj/structure/particle_accelerator/power_box,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin)
+"v" = (
+/turf/open/floor/plasteel/durasteel,
 /area/ruin)
 "x" = (
 /obj/structure/table/reinforced,
@@ -53,6 +80,10 @@
 /area/ruin)
 "C" = (
 /turf/closed/wall/r_wall,
+/area/ruin)
+"D" = (
+/obj/structure/particle_accelerator/end_cap,
+/turf/open/floor/plasteel/durasteel,
 /area/ruin)
 "E" = (
 /obj/machinery/computer,
@@ -70,6 +101,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/ruin)
+"J" = (
+/obj/structure/particle_accelerator/particle_emitter/center,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin)
 "M" = (
 /turf/open/floor/plating/asteroid/no_generation,
 /area/template_noop)
@@ -77,13 +112,29 @@
 /obj/effect/decal/fakelattice,
 /turf/open/floor/plating/asteroid/no_generation,
 /area/template_noop)
+"P" = (
+/obj/machinery/door/airlock/engineering,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin)
+"Q" = (
+/obj/structure/particle_accelerator/particle_emitter/right,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin)
 "R" = (
-/obj/effect/spawner/structure/window/plasma/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating,
 /area/ruin)
 "S" = (
 /turf/open/floor/plating/no_generation,
 /area/template_noop)
+"T" = (
+/obj/structure/particle_accelerator/fuel_chamber,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin)
+"U" = (
+/obj/machinery/particle_accelerator/control_box,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin)
 "W" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -195,12 +246,12 @@ c
 c
 c
 c
-c
+n
 c
 c
 p
+n
 c
-p
 c
 c
 c
@@ -217,10 +268,10 @@ c
 c
 C
 C
-R
-R
-R
 C
+R
+R
+R
 R
 R
 R
@@ -238,9 +289,9 @@ c
 c
 c
 c
-C
-M
-N
+P
+v
+P
 M
 N
 M
@@ -261,14 +312,14 @@ c
 c
 c
 c
-R
+C
+C
+C
 N
 o
-M
-S
-S
-S
-M
+o
+o
+N
 o
 N
 R
@@ -282,17 +333,17 @@ g
 g
 c
 c
-c
-c
+v
+v
+v
+v
 R
-M
-M
-M
+f
 a
 M
 a
-M
-M
+f
+N
 M
 R
 E
@@ -304,18 +355,18 @@ g
 (10,1,1) = {"
 c
 c
-c
-c
-c
+v
+v
+U
+v
+b
 R
-N
-S
 a
 S
 S
 S
 a
-S
+o
 N
 R
 E
@@ -327,12 +378,12 @@ c
 (11,1,1) = {"
 d
 c
-c
-c
-c
-C
-M
-S
+v
+D
+T
+s
+J
+R
 M
 S
 l
@@ -350,18 +401,18 @@ A
 (12,1,1) = {"
 c
 c
-c
-c
-c
+v
+v
+v
+v
+Q
 R
-N
-S
 a
 S
 S
 S
 a
-S
+o
 N
 R
 E
@@ -374,17 +425,17 @@ c
 g
 c
 c
-c
-c
+v
+v
+v
+v
 R
-M
-M
-M
+f
 a
 M
 a
-M
-M
+f
+N
 M
 R
 E
@@ -399,14 +450,14 @@ c
 c
 c
 c
-R
+C
+C
+C
 N
 o
-M
-S
-S
-S
-M
+o
+o
+N
 o
 N
 R
@@ -422,9 +473,9 @@ c
 c
 c
 c
-C
-M
-N
+P
+v
+P
 M
 N
 M
@@ -447,10 +498,10 @@ c
 c
 C
 C
-R
-R
-R
 C
+R
+R
+R
 R
 R
 R
@@ -471,11 +522,11 @@ c
 c
 c
 c
+m
+c
+c
 p
-p
-c
-c
-c
+m
 c
 c
 c

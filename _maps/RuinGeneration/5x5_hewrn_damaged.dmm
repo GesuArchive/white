@@ -24,7 +24,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "Q" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "W" = (
 /obj/structure/lattice,

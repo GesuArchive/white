@@ -56,8 +56,8 @@
 /turf/open/floor/plating/asteroid/no_generation,
 /area/ruin/unpowered)
 "o" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
 /area/ruin/unpowered)
 "q" = (
 /obj/structure/chair/sofa/right{
@@ -140,7 +140,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "I" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "J" = (
 /obj/effect/abstract/open_area_marker{
@@ -252,16 +252,16 @@
 (1,1,1) = {"
 R
 R
-I
-I
-I
-I
-I
-I
-I
-I
-I
-I
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
 R
 R
 e
@@ -430,7 +430,7 @@ e
 I
 "}
 (10,1,1) = {"
-R
+I
 t
 C
 H
@@ -450,7 +450,7 @@ e
 e
 "}
 (11,1,1) = {"
-R
+I
 u
 e
 e
@@ -470,7 +470,7 @@ e
 W
 "}
 (12,1,1) = {"
-R
+I
 v
 e
 e

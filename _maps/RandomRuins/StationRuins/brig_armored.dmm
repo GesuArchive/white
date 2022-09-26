@@ -32,16 +32,37 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/engine,
 /area/security/brig)
+"aN" = (
+/obj/structure/lattice,
+/obj/structure/grille,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "aR" = (
 /turf/closed/wall/r_wall,
 /area/ai_monitored/security/armory)
 "aS" = (
-/obj/machinery/camera/motion{
-	c_tag = "Armory - External";
+/obj/effect/turf_decal/tile/hex/neutral,
+/obj/effect/turf_decal/tile/hex/neutral{
 	dir = 1
 	},
-/turf/template_noop,
-/area/template_noop)
+/obj/effect/turf_decal/tile/hex/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/hex/neutral{
+	dir = 8
+	},
+/obj/structure/rack,
+/obj/item/recharger_item{
+	pixel_y = 5
+	},
+/obj/item/recharger_item{
+	pixel_y = -5
+	},
+/turf/open/floor/engine,
+/area/ai_monitored/security/armory)
 "aW" = (
 /turf/closed/wall/r_wall,
 /area/command/heads_quarters/hos)
@@ -276,13 +297,6 @@
 /area/ai_monitored/security/armory)
 "ci" = (
 /obj/structure/table,
-/obj/item/storage/box/chemimp{
-	pixel_x = 6
-	},
-/obj/item/storage/box/trackimp{
-	pixel_x = -3
-	},
-/obj/item/storage/lockbox/loyalty,
 /obj/effect/turf_decal/tile/hex/neutral,
 /obj/effect/turf_decal/tile/hex/neutral{
 	dir = 1
@@ -296,6 +310,16 @@
 /obj/machinery/firealarm{
 	pixel_y = 25
 	},
+/obj/item/storage/toolbox/drone{
+	pixel_y = 10
+	},
+/obj/item/storage/box/chemimp{
+	pixel_x = 6
+	},
+/obj/item/storage/box/trackimp{
+	pixel_x = -3
+	},
+/obj/item/storage/lockbox/loyalty,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "cj" = (
@@ -514,6 +538,9 @@
 	c_tag = "Brig Equipment Room";
 	dir = 4
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/floor/engine,
 /area/security/main)
 "cq" = (
@@ -702,7 +729,6 @@
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "dc" = (
-/obj/item/storage/toolbox/drone,
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
@@ -915,7 +941,6 @@
 /turf/open/floor/engine,
 /area/security/brig)
 "dI" = (
-/obj/machinery/flasher/portable,
 /obj/effect/turf_decal/tile/hex/neutral,
 /obj/effect/turf_decal/tile/hex/neutral{
 	dir = 1
@@ -926,7 +951,19 @@
 /obj/effect/turf_decal/tile/hex/neutral{
 	dir = 8
 	},
-/obj/machinery/flasher/portable,
+/obj/structure/rack,
+/obj/item/flasher_portable_item{
+	pixel_x = -7
+	},
+/obj/item/flasher_portable_item{
+	pixel_x = -2
+	},
+/obj/item/flasher_portable_item{
+	pixel_x = 3
+	},
+/obj/item/flasher_portable_item{
+	pixel_x = 8
+	},
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "dJ" = (
@@ -1782,13 +1819,15 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
-/obj/machinery/iv_drip,
 /obj/item/reagent_containers/blood/lizard,
 /obj/item/reagent_containers/blood/ethereal,
 /obj/item/reagent_containers/blood/universal,
 /obj/item/reagent_containers/blood/universal,
 /obj/item/reagent_containers/blood/o_minus,
 /obj/item/reagent_containers/blood/o_minus,
+/obj/item/iv_drip_item,
+/obj/structure/closet/crate/freezer/blood,
+/obj/item/iv_drip_item,
 /turf/open/floor/engine,
 /area/security/brig)
 "ga" = (
@@ -2308,7 +2347,7 @@
 /turf/open/floor/engine,
 /area/security/main)
 "he" = (
-/obj/machinery/rnd/production/techfab/department/security,
+/obj/machinery/mecha_part_fabricator/sb,
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 8
 	},
@@ -3524,18 +3563,40 @@
 /obj/structure/grille,
 /turf/template_noop,
 /area/space/nearstation)
+"lf" = (
+/obj/structure/table/wood,
+/turf/open/floor/engine,
+/area/command/heads_quarters/hos)
+"lY" = (
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
+/obj/machinery/door/poddoor/preopen{
+	id = "lockerspace";
+	name = "space shutters"
+	},
+/turf/open/floor/engine,
+/area/security/main)
 "mp" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
 /turf/open/floor/engine,
 /area/security/brig)
+"qI" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/start/specialist,
+/turf/open/floor/engine,
+/area/security/main)
 "tR" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/security/main)
 "tZ" = (
 /obj/structure/extinguisher_cabinet/directional/north,
+/turf/open/floor/engine,
+/area/security/main)
+"wE" = (
+/obj/structure/closet/secure_closet/security/specialist,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/engine,
 /area/security/main)
 "EV" = (
@@ -3574,6 +3635,13 @@
 	},
 /turf/open/floor/engine,
 /area/security/brig)
+"Qd" = (
+/obj/structure/lattice,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "Rq" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/secure_closet/security/field_med,
@@ -3588,6 +3656,20 @@
 /obj/machinery/light,
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
+"VV" = (
+/obj/machinery/button/door{
+	id = "lockerspace";
+	name = "Space Shutters Control";
+	pixel_x = -26;
+	pixel_y = 26
+	},
+/turf/open/floor/engine,
+/area/security/main)
+"ZX" = (
+/obj/effect/turf_decal/bot,
+/obj/effect/landmark/secequipment,
+/turf/open/floor/engine,
+/area/security/main)
 
 (1,1,1) = {"
 ab
@@ -4980,7 +5062,7 @@ aR
 ch
 cJ
 db
-dI
+aS
 dI
 aR
 fu
@@ -5060,8 +5142,8 @@ ag
 ag
 ag
 ab
-kL
 ab
+kL
 ab
 ab
 aR
@@ -5104,8 +5186,8 @@ ag
 ab
 ag
 ab
-kL
 ab
+kL
 ab
 ab
 aR
@@ -5148,8 +5230,8 @@ kL
 ab
 ag
 ab
-kL
 ab
+kL
 ab
 ab
 aR
@@ -5192,8 +5274,8 @@ kL
 ab
 ag
 ab
-kL
 ab
+kL
 ab
 ab
 aR
@@ -5236,8 +5318,8 @@ kL
 ab
 ag
 ab
-kL
 ab
+kL
 ab
 ab
 aR
@@ -5279,9 +5361,9 @@ ab
 kL
 ab
 ag
-ab
+ag
 kL
-ab
+kL
 ab
 ab
 aR
@@ -5323,11 +5405,11 @@ ab
 kL
 ag
 ag
-ag
 kL
-aS
+Qd
 be
-bi
+lY
+lY
 aR
 aR
 aR
@@ -5366,12 +5448,12 @@ ab
 ab
 kL
 ab
-ab
 ag
 kL
 ab
 be
 Rq
+wE
 bM
 cp
 cN
@@ -5411,10 +5493,10 @@ ab
 kL
 ab
 ab
-ab
 kL
 ab
-bi
+lY
+VV
 bx
 bx
 bx
@@ -5455,11 +5537,11 @@ ab
 kL
 ab
 ab
-ab
 kL
 ab
 be
 tZ
+ZX
 bN
 bN
 bN
@@ -5499,10 +5581,10 @@ ab
 kL
 ag
 ag
-ag
 kL
 ag
-bi
+lY
+bx
 bx
 bO
 cq
@@ -5544,10 +5626,10 @@ kL
 ab
 ab
 ab
-ab
 kL
 be
 by
+bw
 bw
 bw
 bw
@@ -5556,7 +5638,7 @@ be
 be
 be
 fG
-cq
+qI
 bu
 hc
 be
@@ -5588,8 +5670,8 @@ kL
 ag
 ag
 ag
-ag
-ag
+kL
+aW
 aW
 aW
 aW
@@ -5631,11 +5713,11 @@ ab
 kL
 ab
 ab
-ab
-ab
+kL
 ag
 aW
 bA
+lf
 bQ
 ct
 cP
@@ -5675,11 +5757,11 @@ ab
 kL
 ag
 ag
-ag
-ag
+kL
 ag
 bI
 bB
+cw
 bR
 cu
 cQ
@@ -5719,11 +5801,11 @@ ab
 kL
 ab
 ab
-ab
-ab
+kL
 ag
 bI
 bC
+bS
 bS
 cv
 cR
@@ -5761,13 +5843,13 @@ ab
 ab
 ac
 kL
+ab
+ab
 kL
-kL
-kL
-ag
 ag
 bI
 bD
+cw
 bT
 cw
 cS
@@ -5804,14 +5886,14 @@ ab
 ab
 ab
 ab
-ab
+kL
 ab
 ab
 kL
-ab
 ag
 aW
 bE
+lf
 bU
 cx
 dm
@@ -5848,12 +5930,12 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
 kL
 ag
 ag
+ag
+aN
+aW
 aW
 aW
 aW
@@ -5892,10 +5974,10 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
 kL
+kL
+ag
+ab
 ab
 ag
 ab
@@ -5937,8 +6019,8 @@ ab
 ab
 ab
 ab
-ab
-ab
+kL
+kL
 kL
 kL
 kL

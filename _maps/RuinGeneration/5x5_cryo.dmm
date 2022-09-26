@@ -25,8 +25,8 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/ruin/unpowered)
 "u" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
 /area/ruin/unpowered)
 "x" = (
 /obj/effect/abstract/doorway_marker,
@@ -45,7 +45,7 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/ruin/unpowered)
 "L" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "P" = (
 /obj/structure/fluff/empty_sleeper/nanotrasen{

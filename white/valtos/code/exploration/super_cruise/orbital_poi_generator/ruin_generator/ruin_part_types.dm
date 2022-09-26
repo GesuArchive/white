@@ -108,6 +108,10 @@
 	file_name = "17x13_cargo"
 	weight = 2
 
+/datum/map_template/ruin_part/toxinstorage
+	file_name = "9x9_toxinstorage"
+	weight = 2
+
 /datum/map_template/ruin_part/donutroom
 	file_name = "13x13_donutroom"
 	weight = 4
@@ -129,6 +133,14 @@
 /datum/map_template/ruin_part/kitchen
 	file_name = "9x13_kitchen"
 	weight = 6
+
+/datum/map_template/ruin_part/cafeteria
+	file_name = "11x11_2_room_cafeteria"
+	weight = 6
+
+/datum/map_template/ruin_part/corgbar
+	file_name = "17x11_2_room_corgbar"
+	weight = 2
 
 /datum/map_template/ruin_part/sleeproom
 	file_name = "9x13_sleeproom"
@@ -398,7 +410,6 @@
 /datum/map_template/ruin_part/researchlab
 	file_name = "13x9_researchlab"
 	weight = 2
-	//Contains a research disk
 	max_occurances = 1
 
 /datum/map_template/ruin_part/cratestorage
@@ -408,6 +419,12 @@
 
 /datum/map_template/ruin_part/medstorage
 	file_name = "9x13_medstorage"
+	weight = 2
+
+/datum/map_template/ruin_part/teleporter
+	file_name = "9x13_teleporter"
+	weight = 3
+	max_occurances = 1
 
 /datum/map_template/ruin_part/hallwaystrange
 	file_name = "7x7_hallwaystrange"
@@ -416,6 +433,7 @@
 /datum/map_template/ruin_part/morgue
 	file_name = "9x5_morgue"
 	weight = 4
+
 /datum/map_template/ruin_part/teleporter_two
 	file_name = "9x9_teleporter"
 	weight = 1
@@ -482,6 +500,11 @@
 	weight = 1
 	loot_room = TRUE
 
+/datum/map_template/ruin_part/interrogation	// Щиты разума и бойки
+	file_name = "12x7_interrogation"
+	weight = 3
+	loot_room = TRUE
+
 /datum/map_template/ruin_part/pizzaguard	// Спец Пицца + Босс
 	file_name = "13x17_pizzaroom"
 	weight = 3
@@ -499,11 +522,23 @@
 	loot_room = TRUE
 	max_occurances = 1
 
-/datum/map_template/ruin_part/medlab2		// Медлуч + имплантер
-	file_name = "13x13_medlab2"
+/datum/map_template/ruin_part/dissecting_room		// Медлуч + имплантер
+	file_name = "22x11_dissecting_room"
 	weight = 5
 	loot_room = TRUE
 	max_occurances = 1
+
+/datum/map_template/ruin_part/charliestation		// ПЭП
+	file_name = "69x45_charliestation"
+	weight = 3
+	max_occurances = 1
+	loot_room = TRUE
+
+/datum/map_template/ruin_part/telepadovo		// Инъектор, телепад, слипер, палка
+	file_name = "23x21_telepadovo"
+	weight = 4
+	max_occurances = 1
+	loot_room = TRUE
 
 //	Ресурсные комнаты
 
@@ -519,24 +554,6 @@
 
 
 // 	Обитаемые
-
-/datum/map_template/ruin_part/charliestation
-	file_name = "69x45_charliestation"
-	loot_room = TRUE
-	max_occurances = 1
-	special_flags = RUIN_PART_HABITABLE
-
-/datum/map_template/ruin_part/teleporter
-	file_name = "9x13_teleporter"
-	weight = 50
-	max_occurances = 1
-	special_flags = RUIN_PART_HABITABLE
-
-/datum/map_template/ruin_part/telepadovo
-	file_name = "23x21_telepadovo"
-	weight = 50
-	max_occurances = 1
-	special_flags = RUIN_PART_HABITABLE
 
 /datum/map_template/ruin_part/autism
 	file_name = "49x47_autism"

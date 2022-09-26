@@ -1,6 +1,6 @@
 /obj/item/ammo_casing/caseless/foam_dart
 	name = "пенчик"
-	desc = "It's nerf or nothing! Детям от восьми лет и выше."
+	desc = "Детям от восьми лет и старше."
 	projectile_type = /obj/projectile/bullet/reusable/foam_dart
 	caliber = "foam_force"
 	icon = 'icons/obj/guns/toy.dmi'

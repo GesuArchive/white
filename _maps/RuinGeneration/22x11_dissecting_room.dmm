@@ -457,6 +457,9 @@
 	},
 /turf/open/floor/plasteel/dark/side,
 /area/ruin/unpowered)
+"nE" = (
+/turf/closed/wall/riveted_wall,
+/area/ruin/unpowered)
 "nN" = (
 /obj/structure/table/reinforced,
 /obj/structure/railing{
@@ -1114,12 +1117,9 @@
 /area/ruin/unpowered)
 "Ia" = (
 /obj/effect/abstract/doorway_marker{
-	dir = 4
+	dir = 8
 	},
-/obj/effect/abstract/doorway_marker{
-	dir = 4
-	},
-/turf/open/floor/plasteel/monofloor/white,
+/turf/open/floor/material,
 /area/ruin/unpowered)
 "If" = (
 /obj/effect/turf_decal/trimline/green/warning{
@@ -1849,15 +1849,15 @@ ca
 "}
 (19,1,1) = {"
 ca
-ca
+nE
 Zy
-ca
+nE
 PX
 Nz
 MQ
-ca
+nE
 Zy
-ca
+nE
 ca
 "}
 (20,1,1) = {"

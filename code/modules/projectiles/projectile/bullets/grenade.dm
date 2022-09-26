@@ -1,7 +1,7 @@
 // 40mm (Grenade Launcher
 
 /obj/projectile/bullet/a40mm
-	name ="40mm граната"
+	name ="40мм граната"
 	desc = "USE A WEEL GUN"
 	icon_state= "bolter"
 	damage = 60

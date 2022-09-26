@@ -3,8 +3,8 @@
 #define ROD_SLOT_HOOK "hook"
 
 /obj/item/fishing_rod
-	name = "fishing rod"
-	desc = "You can fish with this."
+	name = "удочка"
+	desc = "Ловись рыбка большая и маленькая."
 	icon = 'icons/obj/fishing.dmi'
 	icon_state = "fishing_rod"
 	lefthand_file = 'icons/mob/inhands/equipment/fishing_rod_lefthand.dmi'
@@ -20,7 +20,7 @@
 	/// Fishing minigame difficulty modifier (additive)
 	var/difficulty_modifier = 0
 	/// Explaination of rod functionality shown in the ui
-	var/ui_description = "A classic fishing rod, with no special qualities."
+	var/ui_description = "Классическая удочка, не обладающая никакими особыми качествами."
 
 	var/obj/item/bait
 	var/obj/item/fishing_line/line
@@ -377,17 +377,17 @@
 	category = CAT_PRIMAL
 
 /obj/item/fishing_rod/master
-	name = "master fishing rod"
-	desc = "The mythical rod of a lost fisher king. Said to be imbued with un-paralleled fishing power. There's writing on the back of the pole. \"中国航天制造\""
+	name = "профессиональная удочка"
+	desc = "Мифическая удочка потерянного короля-рыбака. Говорят, что она обладает непревзойденной рыболовной силой. Вдоль корпуса идет надпись: \"中国航天制造\""
 	difficulty_modifier = -10
-	ui_description = "This rods makes fishing easy even for an absolute beginner."
+	ui_description = "Это удилище делает рыбалку легкой даже для абсолютного новичка."
 	icon_state = "fishing_rod_master"
 
 
 /obj/item/fishing_rod/tech
-	name = "advanced fishing rod"
-	desc = "An embedded universal constructor along with micro-fusion generator makes this marvel of technology never run out of bait. Interstellar treaties prevent using it outside of recreational fishing. And you can fish with this. "
-	ui_description = "This rod has an infinite supply of synthetic bait."
+	name = "продвинутая удочка"
+	desc = "Встроенный универсальный синтезатор наживки позволяет этому чуду техники обходиться без в лишних запасов. Межзвездные соглашения запрещают использовать его за пределами любительского рыболовства. И вы можете ловить рыбу с помощью этого."
+	ui_description = "Бесконечная наживка."
 	icon_state = "fishing_rod_science"
 
 /obj/item/fishing_rod/tech/Initialize(mapload)
@@ -409,7 +409,7 @@
 #undef ROD_SLOT_HOOK
 
 /obj/projectile/fishing_cast
-	name = "fishing hook"
+	name = "рыболовный крючок"
 	icon = 'icons/obj/fishing.dmi'
 	icon_state = "hook_projectile"
 	damage = 0

@@ -66,6 +66,7 @@
 	/// Expected lifetime of this bandage in seconds is thus absorption_capacity/absorption_rate,
 	/// or until the cut heals, whichever comes first
 	var/absorption_rate
+	var/merge_parent = FALSE
 
 /obj/item/stack/Initialize(mapload, new_amount, merge = TRUE, list/mat_override=null, mat_amt=1)
 	if(new_amount != null)
@@ -550,8 +551,12 @@
  * - [check][/obj/item/stack]: The stack to check for mergeability.
  */
 /obj/item/stack/proc/can_merge(obj/item/stack/check)
-	if(!isstrictlytype(check, merge_type))
-		return FALSE
+	if(!merge_parent)
+		if(!isstrictlytype(check, merge_type))
+			return FALSE
+	else
+		if(!istype(check, merge_type))
+			return FALSE
 	if(mats_per_unit != check.mats_per_unit)
 		return FALSE
 	if(is_cyborg) // No merging cyborg stacks into other stacks

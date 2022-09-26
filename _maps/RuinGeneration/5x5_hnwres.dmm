@@ -19,7 +19,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "R" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "Z" = (
 /obj/effect/abstract/doorway_marker{

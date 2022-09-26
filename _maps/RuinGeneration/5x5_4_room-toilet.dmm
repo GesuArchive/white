@@ -25,7 +25,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "q" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "K" = (
 /obj/effect/abstract/doorway_marker{

@@ -35,6 +35,7 @@
 	back = /obj/item/mod/control/pre_equipped/responsory/commander
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
+		/obj/item/melee/baton/loaded/german = 1,
 	)
 	belt = /obj/item/storage/belt/security/full
 	l_pocket = /obj/item/switchblade
@@ -64,7 +65,7 @@
 	id = /obj/item/card/id/advanced/centcom/ert/security
 	back = /obj/item/mod/control/pre_equipped/responsory/security
 	backpack_contents = list(
-		/obj/item/melee/baton/loaded = 1,
+		/obj/item/melee/baton/loaded/german = 1,
 		/obj/item/storage/box/handcuffs = 1,
 		/obj/item/storage/box/survival/engineer = 1,
 	)
@@ -101,7 +102,7 @@
 	back = /obj/item/mod/control/pre_equipped/responsory/medic
 	backpack_contents = list(
 		/obj/item/gun/medbeam = 1,
-		/obj/item/melee/baton/loaded = 1,
+		/obj/item/melee/baton/loaded/german = 1,
 		/obj/item/reagent_containers/hypospray/combat = 1,
 		/obj/item/storage/box/hug = 1,
 		/obj/item/storage/box/survival/engineer = 1,
@@ -142,7 +143,7 @@
 	back = /obj/item/mod/control/pre_equipped/responsory/engineer
 	backpack_contents = list(
 		/obj/item/construction/rcd/combat = 1,
-		/obj/item/melee/baton/loaded = 1,
+		/obj/item/melee/baton/loaded/german = 1,
 		/obj/item/pipe_dispenser = 1,
 		/obj/item/storage/box/survival/engineer = 1,
 	)
@@ -226,24 +227,24 @@
 	name = "Охранник Инвизиторов"
 
 	suit_store = /obj/item/tank/internals/tactical/e_gun_taser
-	r_hand = /obj/item/melee/baton/loaded
 	back = /obj/item/mod/control/pre_equipped/responsory/inquisitory/security
 	backpack_contents = list(
 		/obj/item/construction/rcd/loaded = 1,
 		/obj/item/storage/box/handcuffs = 1,
 		/obj/item/storage/box/survival/engineer = 1,
+		/obj/item/melee/baton/loaded/german = 1,
 	)
 /datum/outfit/centcom/ert/medic/inquisitor
 	name = "Медик Инвизиторов"
 
 	suit_store = /obj/item/tank/internals/oxygen
-	r_hand = /obj/item/melee/baton/loaded
 	back = /obj/item/mod/control/pre_equipped/responsory/inquisitory/medic
 	backpack_contents = list(
 		/obj/item/gun/medbeam = 1,
 		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/reagent_containers/hypospray/combat = 1,
 		/obj/item/reagent_containers/hypospray/combat/heresypurge = 1,
+		/obj/item/melee/baton/loaded/german = 1,
 	)
 
 /datum/outfit/centcom/ert/chaplain
@@ -282,7 +283,6 @@
 	name = "Уборщик ERT"
 
 	id = /obj/item/card/id/advanced/centcom/ert/janitor
-	r_hand = /obj/item/melee/baton/loaded
 	l_hand = /obj/item/storage/bag/trash/bluespace
 	back = /obj/item/mod/control/pre_equipped/responsory/janitor
 	backpack_contents = list(
@@ -292,6 +292,7 @@
 		/obj/item/storage/box/lights/mixed = 1,
 		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/tank/internals/oxygen = 1,
+		/obj/item/melee/baton/loaded/german = 1,
 	)
 	belt = /obj/item/storage/belt/janitor/full
 	glasses = /obj/item/clothing/glasses/night

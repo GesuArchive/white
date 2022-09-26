@@ -51,6 +51,10 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
+"o" = (
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
+/area/ruin/unpowered)
 "r" = (
 /obj/structure/rack,
 /turf/open/floor/mineral/titanium,
@@ -141,7 +145,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "M" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "N" = (
 /obj/effect/turf_decal/tile/brown{
@@ -388,7 +392,7 @@ K
 V
 V
 V
-M
+o
 "}
 (14,1,1) = {"
 M
@@ -403,7 +407,7 @@ K
 w
 V
 V
-M
+o
 "}
 (15,1,1) = {"
 M
@@ -445,8 +449,8 @@ M
 M
 M
 M
-M
-M
+o
+o
 M
 M
 "}

@@ -44,7 +44,7 @@
 	retreat_distance = 5
 	minimum_distance = 5
 	ranged_cooldown_time = 2 SECONDS
-	gps_name = "Echoing Signal"
+	gps_name = "Отраженный сигнал"
 	achievement_type = /datum/award/achievement/boss/legion_kill
 	crusher_achievement_type = /datum/award/achievement/boss/legion_crusher
 	score_achievement_type = /datum/award/score/legion_score

@@ -2,7 +2,7 @@
 	name = "химический пластырь"
 	desc = "Благодаря эпидермальному обмену веществ позволяет вводить химические вещества прямо в кровь без посредников в виде шприцев."
 	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bandaid"
+	icon_state = "band1"
 	inhand_icon_state = "bandaid"
 	possible_transfer_amounts = list()
 	volume = 40
@@ -31,22 +31,22 @@
 	name = "пластырь либитала"
 	desc = "Применяется при лечении легких травм, негативно сказывается на печени. Разбавлен Гранбиталури."
 	list_reagents = list(/datum/reagent/medicine/c2/libital = 5, /datum/reagent/medicine/granibitaluri = 10) //10 iterations
-	icon_state = "bandaid_brute"
+	icon_state = "band14"
 
 /obj/item/reagent_containers/pill/patch/aiuri
 	name = "пластырь айури"
 	desc = "Применяется при лечении легких ожогов, негативно сказывается на органах зрения. Разбавлен Гранбиталури."
 	list_reagents = list(/datum/reagent/medicine/c2/aiuri = 5, /datum/reagent/medicine/granibitaluri = 10)
-	icon_state = "bandaid_burn"
+	icon_state = "band7"
 
 /obj/item/reagent_containers/pill/patch/lenturi
 	name = "пластырь лентури"
 	desc = "Применяется при лечении легких ожогов, негативно сказывается на желудке. Вызывает переутомление. Разбавлен Гранбиталури."
 	list_reagents = list(/datum/reagent/medicine/c2/lenturi = 5, /datum/reagent/medicine/granibitaluri = 10)
-	icon_state = "bandaid_burn"
+	icon_state = "band16"
 
 /obj/item/reagent_containers/pill/patch/synthflesh
 	name = "пластырь синтеплоти"
 	desc = "Излечивает физические и ожоговые травмы ценой сильной интоксикации в размере 2/3 от объема повреждений. Применяется при лечении хаскированных ожогов высшей степени тяжести."
 	list_reagents = list(/datum/reagent/medicine/c2/synthflesh = 20)
-	icon_state = "bandaid_both"
+	icon_state = "band17"

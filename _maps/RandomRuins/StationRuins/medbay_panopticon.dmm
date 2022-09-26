@@ -4535,9 +4535,15 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
 	},
-/obj/item/plunger,
+/obj/item/plunger{
+	pixel_x = -16
+	},
 /obj/item/construction/plumbing,
 /obj/item/construction/plumbing,
+/obj/item/stack/cable_coil{
+	pixel_y = -4;
+	pixel_x = 15
+	},
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "Hq" = (

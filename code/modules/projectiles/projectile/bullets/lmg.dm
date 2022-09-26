@@ -6,12 +6,12 @@
 // Mech LMG
 
 /obj/projectile/bullet/lmg
-	damage = 20
+	damage = 30
 
 // Mech FNX-99
 
 /obj/projectile/bullet/incendiary/fnx99
-	damage = 20
+	damage = 30
 
 // Turrets
 
@@ -27,19 +27,19 @@
 // 7.12x82mm (SAW)
 
 /obj/projectile/bullet/mm712x82
-	name = "7.12x82mm пуля"
+	name = "пуля калибра 7.12x82"
 	damage = 40
 	armour_penetration = 5
 	wound_bonus = -50
 	wound_falloff_tile = 0
 
 /obj/projectile/bullet/mm712x82_ap
-	name = "7.12x82mm ББ пуля"
-	damage = 40
-	armour_penetration = 75
+	name = "бронебойная пуля калибра 7.12x82"
+	damage = 35
+	armour_penetration = 40
 
 /obj/projectile/bullet/mm712x82_hp
-	name = "7.12x82mm экспансивная пуля"
+	name = "экспансивная пуля калибра 7.12x82"
 	damage = 50
 	armour_penetration = -60
 	sharpness = SHARP_EDGED
@@ -48,12 +48,12 @@
 	wound_falloff_tile = -8
 
 /obj/projectile/bullet/incendiary/mm712x82
-	name = "7.12x82mm поджигающая пуля"
-	damage = 20
+	name = "зажигательная пуля калибра 7.12x82"
+	damage = 30
 	fire_stacks = 3
 
 /obj/projectile/bullet/mm712x82_match
-	name = "спортивная пуля калибра 7.12x82мм"
+	name = "самонаводящаяся пуля калибра 7.12x82"
 	damage = 40
 	ricochets_max = 2
 	ricochet_chance = 60
@@ -62,8 +62,8 @@
 	wound_bonus = -50
 
 /obj/projectile/bullet/mm712x82_bouncy
-	name = "резиновая пуля калибра 7.12x82мм"
-	damage = 25
+	name = "резиновая пуля калибра 7.12x82"
+	damage = 15
 	ricochets_max = 40
 	ricochet_chance = 500 // will bounce off anything and everything, whether they like it or not
 	ricochet_auto_aim_range = 4

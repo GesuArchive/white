@@ -1,7 +1,7 @@
 // .50 (Sniper)
 
 /obj/projectile/bullet/p50
-	name =".50 пуля"
+	name = "пуля .50 калибра"
 	speed = 0.4
 	damage = 70
 	paralyze = 100
@@ -16,7 +16,7 @@
 	return ..()
 
 /obj/projectile/bullet/p50/soporific
-	name =".50 усыпляющая пуля"
+	name = "усыпляющая пуля .50 калибра"
 	armour_penetration = 0
 	damage = 0
 	dismemberment = 25
@@ -30,7 +30,7 @@
 	return ..()
 
 /obj/projectile/bullet/p50/penetrator
-	name = "ББ пуля"
+	name = "бронебойная пуля .50 калибра"
 	icon_state = "gauss"
 	damage = 60
 	projectile_piercing = PASSMOB
@@ -46,7 +46,7 @@
 	range = 16
 
 /obj/projectile/bullet/p50/marksman
-	name = "снайперская пуля"
+	name = "высокоточная пуля .50 калибра"
 	damage = 50
 	paralyze = 0
 	tracer_type = /obj/effect/projectile/tracer/sniper

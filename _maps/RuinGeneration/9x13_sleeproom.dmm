@@ -3,6 +3,11 @@
 /obj/structure/closet/secure_closet/personal,
 /turf/open/floor/carpet/blue,
 /area/ruin/unpowered)
+"c" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 6
+	},
+/area/ruin/unpowered)
 "d" = (
 /obj/structure/closet/secure_closet/personal,
 /turf/open/floor/carpet/orange,
@@ -26,6 +31,11 @@
 /area/ruin/unpowered)
 "j" = (
 /turf/open/floor/carpet/orange,
+/area/ruin/unpowered)
+"k" = (
+/turf/open/floor/plasteel/dark/side{
+	dir = 4
+	},
 /area/ruin/unpowered)
 "l" = (
 /obj/structure/bed,
@@ -53,6 +63,10 @@
 /obj/effect/spawner/lootdrop/ruinloot/medical,
 /turf/open/floor/carpet/blue,
 /area/ruin/unpowered)
+"q" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/carpet/green,
+/area/ruin/unpowered)
 "s" = (
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
@@ -77,8 +91,9 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "y" = (
-/obj/item/kirbyplants/random,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark/side{
+	dir = 5
+	},
 /area/ruin/unpowered)
 "z" = (
 /obj/machinery/door/airlock{
@@ -112,7 +127,7 @@
 /area/ruin/unpowered)
 "H" = (
 /obj/structure/reagent_dispensers/water_cooler,
-/turf/open/floor/plasteel,
+/turf/open/floor/carpet/green,
 /area/ruin/unpowered)
 "I" = (
 /turf/open/floor/carpet/blue,
@@ -124,7 +139,7 @@
 /obj/structure/chair/comfy/black{
 	dir = 8
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/carpet/green,
 /area/ruin/unpowered)
 "O" = (
 /obj/structure/chair/stool{
@@ -140,7 +155,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "Q" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "R" = (
 /obj/structure/closet/secure_closet/personal,
@@ -161,7 +176,7 @@
 	pixel_x = 1;
 	pixel_y = 5
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/carpet/green,
 /area/ruin/unpowered)
 "Y" = (
 /obj/effect/abstract/open_area_marker{
@@ -265,11 +280,11 @@ Y
 s
 s
 s
-s
-s
-s
-s
-s
+k
+k
+k
+k
+k
 s
 s
 s
@@ -279,12 +294,12 @@ e
 s
 s
 s
-y
-s
+c
+q
 H
 M
 W
-s
+q
 y
 s
 s

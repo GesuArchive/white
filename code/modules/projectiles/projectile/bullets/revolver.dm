@@ -1,19 +1,19 @@
 // 7.62x38mmR (Nagant Revolver)
 
 /obj/projectile/bullet/n762
-	name = "7.62x38mmR пуля"
+	name = "пуля калибра 7.62x38mmR"
 	damage = 60
 
 // .50AE (Desert Eagle)
 
 /obj/projectile/bullet/a50ae
-	name = ".50AE пуля"
+	name = "пуля .50AE калибра"
 	damage = 60
 
 // .38 (Detective's Gun)
 
 /obj/projectile/bullet/c38
-	name = ".38 пуля"
+	name = "пуля .38 калибра"
 	damage = 25
 	ricochets_max = 2
 	ricochet_chance = 50
@@ -25,7 +25,7 @@
 	embed_falloff_tile = -4
 
 /obj/projectile/bullet/c38/match
-	name = ".38 самонаводящаяся пуля"
+	name = "самонаводящаяся пуля .38 калибра"
 	ricochets_max = 4
 	ricochet_chance = 100
 	ricochet_auto_aim_angle = 40
@@ -35,13 +35,13 @@
 	ricochet_decay_damage = 1
 
 /obj/projectile/bullet/c38/match/bouncy
-	name = ".38 резиновая пуля"
+	name = "резиновая пуля .38 калибра"
 	damage = 10
-	stamina = 30
+	stamina = 50
 	armour_penetration = -30
-	ricochets_max = 6
+	ricochets_max = 12
 	ricochet_incidence_leeway = 0
-	ricochet_chance = 130
+	ricochet_chance = 260
 	ricochet_decay_damage = 0.8
 	shrapnel_type = null
 	sharpness = NONE
@@ -49,8 +49,8 @@
 
 // premium .38 ammo from cargo, weak against armor, lower base damage, but excellent at embedding and causing slice wounds at close range
 /obj/projectile/bullet/c38/dumdum
-	name = ".38 DumDum пуля"
-	damage = 15
+	name = "экспансивная пуля .38 калибра"
+	damage = 40
 	armour_penetration = -30
 	ricochets_max = 0
 	sharpness = SHARP_EDGED
@@ -61,7 +61,7 @@
 	embed_falloff_tile = -15
 
 /obj/projectile/bullet/c38/trac
-	name = ".38 TRAC пуля"
+	name = "следящая пуля .38 калибра"
 	damage = 10
 	ricochets_max = 0
 
@@ -79,7 +79,7 @@
 		imp.implant(M)
 
 /obj/projectile/bullet/c38/hotshot //similar to поджигающая пуляs, but do not leave a flaming trail
-	name = ".38 Hot Shot пуля"
+	name = "зажигательная пуля .38 калибра"
 	damage = 20
 	ricochets_max = 0
 
@@ -91,7 +91,7 @@
 		M.ignite_mob()
 
 /obj/projectile/bullet/c38/iceblox //see /obj/projectile/temp for the original code
-	name = ".38 Iceblox пуля"
+	name = "замораживающая пуля .38 калибра"
 	damage = 20
 	var/temperature = 100
 	ricochets_max = 0
@@ -105,13 +105,13 @@
 // .357 (Syndie Revolver)
 
 /obj/projectile/bullet/a357
-	name = ".357 пуля"
+	name = "пуля .357 калибра"
 	damage = 60
 	wound_bonus = -30
 
 // admin only really, for ocelot memes
 /obj/projectile/bullet/a357/match
-	name = ".357 самонаводящаяся пуля"
+	name = "самонаводящаяся пуля .357 калибра"
 	ricochets_max = 5
 	ricochet_chance = 140
 	ricochet_auto_aim_angle = 50

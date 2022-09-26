@@ -131,6 +131,22 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	icon_state = "eng_headset"
 	keyslot = new /obj/item/encryptionkey/headset_eng
 
+/obj/item/radio/headset/headset_eng_sec
+	name = "гарнитура специалиста"
+	desc = "Гарнитура квалифицированного военного инженера."
+	icon_state = "eng_sec_headset"
+	keyslot = new /obj/item/encryptionkey/headset_eng_sec
+
+/obj/item/radio/headset/headset_eng_sec/alt
+	name = "гарнитура специалиста"
+	desc = "Гарнитура квалифицированного военного инженера. Защищает уши от светошумовых гранат."
+	icon_state = "eng_sec_headset_alt"
+	keyslot = new /obj/item/encryptionkey/headset_eng_sec
+
+/obj/item/radio/headset/headset_eng_sec/alt/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+
 /obj/item/radio/headset/headset_rob
 	name = "гарнитура роботехника"
 	desc = "Сделано специально для робототехников, которые не могут выбирать между отделами."
@@ -152,7 +168,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 /obj/item/radio/headset/headset_medsec/alt
 	name = "гарнитура-бабочка полевого медика"
 	desc = "Гарнитура для обученного персонала медотсека. С доступом к каналу охраны. Защищает уши от светошумовых гранат."
-	icon_state = "med_headset_alt"
+	icon_state = "med_sec_headset_alt"
 	keyslot = new /obj/item/encryptionkey/headset_medsec
 
 /obj/item/radio/headset/headset_medsec/alt/ComponentInitialize()

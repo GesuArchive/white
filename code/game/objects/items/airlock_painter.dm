@@ -373,8 +373,8 @@
 	initial_ink_type = /obj/item/toner/extreme
 
 /obj/item/airlock_painter/decal/tile
-	name = "tile sprayer"
-	desc = "An airlock painter, reprogramed to use a different style of paint in order to spray colors on floor tiles as well, in addition to repainting doors. Decals break when the floor tiles are removed. Alt-Click to change design."
+	name = "полокрас"
+	desc = "Маркировщик шлюзов, переделанный для работы с напольной плиткой, в дополнение к перекраске дверей. При демонтаже напольной плитки краска удаляется. Щелкните ПКМ чтобы изменить дизайн."
 	icon_state = "tile_sprayer"
 	stored_dir = 2
 	stored_color = "#D4D4D4"

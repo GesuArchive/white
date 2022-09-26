@@ -2067,7 +2067,7 @@
 /turf/open/floor/plasteel,
 /area/tcommsat/computer)
 "JS" = (
-/obj/machinery/rnd/production/techfab/department/security,
+/obj/machinery/mecha_part_fabricator/sb,
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
 "JT" = (

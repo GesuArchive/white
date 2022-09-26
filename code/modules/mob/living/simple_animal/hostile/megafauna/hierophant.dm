@@ -61,7 +61,7 @@ Difficulty: Hard
 	loot = list(/obj/item/hierophant_club)
 	crusher_loot = list(/obj/item/hierophant_club, /obj/item/crusher_trophy/vortex_talisman)
 	wander = FALSE
-	gps_name = "Zealous Signal"
+	gps_name = "Ревностный сигнал"
 	achievement_type = /datum/award/achievement/boss/hierophant_kill
 	crusher_achievement_type = /datum/award/achievement/boss/hierophant_crusher
 	score_achievement_type = /datum/award/score/hierophant_score

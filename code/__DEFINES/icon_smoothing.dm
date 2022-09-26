@@ -66,7 +66,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define DEFAULT_PLASTITANUM_ICON		'icons/turf/walls/plastitanium_wall.dmi'
 #define DEFAULT_WALL_ICON				'icons/turf/walls/baywall.dmi'
 #define DEFAULT_RWALL_ICON				'icons/turf/walls/rbaywall.dmi'
-#define DEFAULT_RIVETED_ICON			'icons/turf/walls/riveted.dmi'
+#define DEFAULT_RIVWALL_ICON			'icons/turf/walls/rell_wall.dmi'	// Проклепанная стена дереликтов (разбираема)
+#define DEFAULT_RIVETED_ICON			'icons/turf/walls/riveted.dmi'	// Проклепанная стена ЦК (неразрушаема)
 #define DEFAULT_RWINDOW_ICON			'white/valtos/icons/window_rglass.dmi'
 
 #define ONYX_FLOORS_ICON				'white/valtos/icons/special/onyx/floors.dmi'

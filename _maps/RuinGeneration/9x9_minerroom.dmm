@@ -99,8 +99,8 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "s" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/sign/departments/cargo,
+/obj/effect/spawner/structure/window/reinforced/partyhard,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "t" = (
@@ -132,12 +132,6 @@
 /area/ruin/unpowered)
 "z" = (
 /obj/machinery/door/airlock/mining/glass,
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "A" = (
@@ -236,7 +230,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "O" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "P" = (
 /obj/effect/abstract/open_area_marker,
@@ -276,9 +270,7 @@
 /obj/machinery/door/window/eastright{
 	base_state = "left";
 	dir = 2;
-	icon_state = "left";
-	name = "Robotics Desk";
-	req_access_txt = "29"
+	icon_state = "left"
 	},
 /obj/item/stack/ore/bananium{
 	amount = 10;
@@ -293,8 +285,8 @@
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "X" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plasteel,
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
 /area/ruin/unpowered)
 "Y" = (
 /obj/machinery/vendor/mining,

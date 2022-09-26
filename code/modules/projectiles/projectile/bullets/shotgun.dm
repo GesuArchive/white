@@ -1,37 +1,41 @@
 /obj/projectile/bullet/shotgun_slug
-	name = "12g пуля"
+	name = "пуля 12 калибра"
 	damage = 50
 	sharpness = SHARP_POINTY
 	wound_bonus = -20 //Выбивание органов с двух пуль это смешно, но не очень честно.
 
 /obj/projectile/bullet/shotgun_slug/executioner
-	name = "executioner slug" // admin only, can dismember limbs
+	name = "калечащая пуля 12 калибра" // admin only, can dismember limbs
 	sharpness = SHARP_EDGED
 	wound_bonus = 80
 
 /obj/projectile/bullet/shotgun_slug/pulverizer
-	name = "pulverizer slug" // admin only, can crush bones
+	name = "увечащая пуля 12 калибра" // admin only, can crush bones
 	sharpness = NONE
 	wound_bonus = 80
 
 /obj/projectile/bullet/shotgun_beanbag
-	name = "резиновая пуля"
+	name = "резиновая пуля 12 калибра"
 	damage = 10
 	stamina = 55
 	wound_bonus = 20
 	sharpness = NONE
 	embedding = null
+	ricochets_max = 6
+	ricochet_incidence_leeway = 0
+	ricochet_chance = 130
+	ricochet_decay_damage = 0.8
 
 /obj/projectile/bullet/incendiary/shotgun
-	name = "поджигающая пуля"
-	damage = 20
+	name = "зажигательная пуля 12 калибра"
+	damage = 40
 
 /obj/projectile/bullet/incendiary/shotgun/dragonsbreath
 	name = "гранула драконьего дыхания"
-	damage = 5
+	damage = 10
 
 /obj/projectile/bullet/shotgun_stunslug
-	name = "электропуля"
+	name = "электропуля 12 калибра"
 	damage = 5
 	paralyze = 100
 	stutter = 5
@@ -42,12 +46,12 @@
 	embedding = null
 
 /obj/projectile/bullet/shotgun_meteorslug
-	name = "метеоропуля"
+	name = "пуля-метеор 12 калибра"
 	icon = 'icons/obj/meteor.dmi'
 	icon_state = "dust"
-	damage = 30
+	damage = 25
 	paralyze = 15
-	knockdown = 80
+	knockdown = 60
 	hitsound = 'sound/effects/meteorimpact.ogg'
 
 /obj/projectile/bullet/shotgun_meteorslug/on_hit(atom/target, blocked = FALSE)
@@ -62,7 +66,7 @@
 	SpinAnimation()
 
 /obj/projectile/bullet/shotgun_frag12
-	name ="frag12 пуля"
+	name = "разрывная пуля 12 калибра"
 	damage = 15
 	paralyze = 10
 
@@ -140,7 +144,7 @@
 	damage = 24
 
 /obj/projectile/bullet/apslug
-	name = "12g бронебойная пуля"
+	name = "бронебойная пуля 12 калибра"
 	armour_penetration = 40
 	damage = 40
 	projectile_phasing = (ALL & (~PASSMOB))

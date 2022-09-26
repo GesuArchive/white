@@ -1,5 +1,5 @@
 /obj/projectile/bullet/cannonball
-	name = "cannonball"
+	name = "ядро"
 	icon_state = "cannonball"
 	damage = 110 //gets set to 100 before first mob impact.
 	sharpness = NONE
@@ -29,7 +29,7 @@
 	return ..()
 
 /obj/projectile/bullet/cannonball/explosive
-	name = "explosive shell"
+	name = "разрывное ядро"
 	color = "#FF0000"
 	projectile_piercing = NONE
 	damage = 40 //set to 30 before first mob impact, but they're gonna be gibbed by the explosion
@@ -39,7 +39,7 @@
 	. = ..()
 
 /obj/projectile/bullet/cannonball/emp
-	name = "malfunction shot"
+	name = "магнитное ядро"
 	icon_state = "emp_cannonball"
 	projectile_piercing = NONE
 	damage = 15 //very low
@@ -49,7 +49,7 @@
 	. = ..()
 
 /obj/projectile/bullet/cannonball/biggest_one
-	name = "\"The Biggest One\""
+	name = "\"Здоровяк\""
 	icon_state = "biggest_one"
 	damage = 70 //low pierce
 

@@ -846,9 +846,20 @@
 	else
 		new /obj/item/tank/internals/plasmaman/belt(src)
 
+////////////Ружейные коробки
+/obj/item/storage/box/beanbag
+	name = "12 Калибр: Резиновая пуля - 7 шт."
+	desc = "Коробка с травматическими пулями 12 калибра, предназначенными для дробовиков."
+	icon_state = "rubbershot_box"
+	illustration = null
+
+/obj/item/storage/box/beanbag/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_casing/shotgun/beanbag(src)
+
 /obj/item/storage/box/rubbershot
-	name = "коробка с резиновой дробью"
-	desc = "Коробка с резиновой дробью 12 калибра, предназначенная для дробовиков."
+	name = "12 Калибр: Резиновая картечь - 7 шт."
+	desc = "Коробка с резиновой картечью 12 калибра, предназначенными для дробовиков."
 	icon_state = "rubbershot_box"
 	illustration = null
 
@@ -856,8 +867,18 @@
 	for(var/i in 1 to 7)
 		new /obj/item/ammo_casing/shotgun/rubbershot(src)
 
+/obj/item/storage/box/s12_bullet
+	name = "12 Калибр: Пулевой - 7 шт."
+	desc = "Коробка с боевыми пулями 12 калибра, предназначенными для дробовиков."
+	icon_state = "lethalshot_box"
+	illustration = null
+
+/obj/item/storage/box/s12_bullet/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_casing/shotgun(src)
+
 /obj/item/storage/box/lethalshot
-	name = "коробка с дробью"
+	name = "12 Калибр: Картечь - 7 шт."
 	desc = "Коробка с патронами 12 калибра с дробью."
 	icon_state = "lethalshot_box"
 	illustration = null
@@ -866,15 +887,57 @@
 	for(var/i in 1 to 7)
 		new /obj/item/ammo_casing/shotgun/buckshot(src)
 
-/obj/item/storage/box/beanbag
-	name = "коробка с резиновыми пулями"
-	desc = "Коробка с травматическими пулями 12 калибра, предназначенная для дробовиков."
+/obj/item/storage/box/battle_incendiary
+	name = "12 Калибр: Зажигательный - 7 шт."
+	desc = "Коробка с зажигательными пулями 12 калибра, предназначенными для дробовиков."
+	icon_state = "lethalshot_box"
+	illustration = null
+
+/obj/item/storage/box/battle_incendiary/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_casing/shotgun/incendiary(src)
+
+/obj/item/storage/box/battle_dart
+	name = "12 Калибр: Дротик - 7 шт."
+	desc = "Коробка с химическими пулями 12 калибра, предназначенными для дробовиков."
 	icon_state = "rubbershot_box"
 	illustration = null
 
-/obj/item/storage/box/beanbag/PopulateContents()
-	for(var/i in 1 to 6)
-		new /obj/item/ammo_casing/shotgun/beanbag(src)
+/obj/item/storage/box/battle_dart/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_casing/shotgun/dart(src)
+
+/obj/item/storage/box/battle_stunslug
+	name = "12 Калибр: Электрошок - 7 шт."
+	desc = "Коробка с парализующими пулями 12 калибра, предназначенными для дробовиков."
+	icon_state = "rubbershot_box"
+	illustration = null
+
+/obj/item/storage/box/battle_stunslug/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_casing/shotgun/stunslug(src)
+
+/obj/item/storage/box/battle_techshell
+	name = "12 Калибр: Высокотехнологичные - 7 шт."
+	desc = "Коробка с зажигательными пулями 12 калибра, предназначенными для дробовиков."
+	icon_state = "lethalshot_box"
+	illustration = null
+
+/obj/item/storage/box/battle_techshell/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_casing/shotgun/techshell(src)
+
+/obj/item/storage/box/battle_pulverizer
+	name = "12 Калибр: Увечащие - 7 шт."
+	desc = "Коробка с травмирующими пулями 12 калибра, предназначенными для дробовиков."
+	icon_state = "lethalshot_box"
+	illustration = null
+
+/obj/item/storage/box/battle_pulverizer/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_casing/shotgun/pulverizer(src)
+
+//////////////////////
 
 /obj/item/storage/box/actionfigure
 	name = "коробка фигурок"

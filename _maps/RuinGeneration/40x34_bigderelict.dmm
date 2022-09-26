@@ -427,7 +427,6 @@
 /turf/open/floor/plasteel,
 /area/ruin)
 "pR" = (
-/obj/structure/alien/resin/membrane/creature,
 /turf/open/floor/plating{
 	icon_state = "wall_thermite";
 	name = "melted wall"
@@ -484,6 +483,13 @@
 "rp" = (
 /obj/effect/spawner/structure/window/shuttle,
 /turf/open/floor/plating,
+/area/ruin)
+"ru" = (
+/obj/structure/alien/weeds/creature,
+/obj/structure/sign/warning/vacuum{
+	pixel_y = 32
+	},
+/turf/open/floor/plasteel,
 /area/ruin)
 "rD" = (
 /obj/effect/decal/cleanable/blood/old{
@@ -731,9 +737,6 @@
 "ym" = (
 /obj/structure/alien/weeds/creature,
 /obj/structure/glowshroom/single,
-/obj/structure/sign/warning/vacuum{
-	pixel_y = 32
-	},
 /obj/effect/decal/cleanable/blood/old{
 	dir = 4;
 	icon_state = "trails_1";
@@ -916,6 +919,7 @@
 "DO" = (
 /obj/structure/closet/crate/medical,
 /obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/advanced,
 /turf/open/floor/mineral/titanium/yellow,
 /area/ruin)
 "DQ" = (
@@ -1045,6 +1049,9 @@
 	pixel_y = -24
 	},
 /turf/open/floor/plasteel,
+/area/ruin)
+"GA" = (
+/turf/closed/wall/riveted_wall,
 /area/ruin)
 "GG" = (
 /obj/effect/turf_decal/tile/yellow,
@@ -1286,6 +1293,18 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ruin)
+"Mi" = (
+/obj/structure/alien/weeds/creature,
+/obj/effect/decal/cleanable/blood/old{
+	dir = 4;
+	icon_state = "trails_1";
+	name = "dried blood trail"
+	},
+/obj/structure/sign/warning/vacuum{
+	pixel_y = 32
+	},
+/turf/open/floor/plasteel,
+/area/ruin)
 "Ml" = (
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/structure/alien/weeds/creature,
@@ -1411,7 +1430,7 @@
 /area/ruin)
 "Qj" = (
 /obj/machinery/light,
-/turf/closed/wall/r_wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin)
 "Qn" = (
 /obj/structure/closet/crate{
@@ -1566,8 +1585,8 @@
 /turf/open/floor/plasteel,
 /area/ruin)
 "TW" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
 /area/ruin)
 "Ub" = (
 /obj/structure/extinguisher_cabinet{
@@ -1809,9 +1828,9 @@ Ur
 Ur
 Ur
 Ur
-Dk
+GA
 Vf
-Dk
+GA
 Ur
 Ur
 Ur
@@ -1845,13 +1864,13 @@ Ur
 Ur
 Ur
 Ur
-Dk
+GA
 ug
-Dk
-Dk
-Dk
-Dk
-Dk
+GA
+GA
+GA
+GA
+GA
 YT
 YT
 II
@@ -1881,13 +1900,13 @@ Ur
 Ur
 Ur
 Ur
-Dk
+GA
 iQ
 gh
 wx
 ZN
 dO
-Dk
+GA
 YT
 II
 II
@@ -1917,27 +1936,27 @@ Ur
 Ur
 Ur
 Ur
-Dk
+GA
 qV
 ea
 QM
 Gh
 HP
-wq
-Dk
-Dk
-Dk
-Dk
-Dk
-Dk
-Dk
-Dk
-Dk
-Dk
-Dk
-Dk
-Dk
-Dk
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+TW
+TW
+GA
+GA
+GA
+GA
 YT
 YT
 Ur
@@ -1953,13 +1972,13 @@ YT
 YT
 II
 II
-Dk
+GA
 kS
 On
 On
 On
 ZN
-wq
+GA
 ER
 ZN
 Fz
@@ -1973,7 +1992,7 @@ ZN
 ZN
 eI
 Jx
-Dk
+GA
 YT
 YT
 Ur
@@ -1989,13 +2008,13 @@ YT
 YT
 II
 II
-Dk
+GA
 qV
 ea
 ZN
 On
 On
-wq
+GA
 ER
 YG
 DY
@@ -2007,9 +2026,9 @@ BQ
 BQ
 mm
 ZN
-Dk
+GA
 Jx
-Dk
+GA
 YT
 Ur
 Ur
@@ -2017,35 +2036,35 @@ Ur
 "}
 (7,1,1) = {"
 YT
-Dk
-Dk
-Dk
-Dk
-Dk
-Dk
-Dk
-Dk
-wq
-wq
-wq
-wq
-wq
+GA
+TW
+TW
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
 PB
-wq
+GA
 Yd
 Pu
-Dk
-Dk
-Dk
-Dk
-Dk
+GA
+GA
+GA
+GA
+GA
 yx
 yx
 rD
-Dk
-Dk
+GA
+GA
 Jx
-Dk
+GA
 YT
 Ur
 Ur
@@ -2053,7 +2072,7 @@ Ur
 "}
 (8,1,1) = {"
 YT
-Dk
+GA
 zH
 vn
 dq
@@ -2070,18 +2089,18 @@ On
 DB
 ZN
 Vz
-Dk
+GA
 lI
 SN
-Dk
+GA
 Aj
 ZN
 ZN
 rH
 aC
-Dk
+GA
 Jx
-Dk
+GA
 YT
 YT
 Ur
@@ -2089,7 +2108,7 @@ Ur
 "}
 (9,1,1) = {"
 YT
-Dk
+GA
 ZN
 ZN
 ZN
@@ -2106,18 +2125,18 @@ On
 ll
 Dg
 sD
-Dk
+GA
 NK
 XY
-Dk
+GA
 rL
 ZN
 ZN
 rH
 Qn
-Dk
+GA
 Jx
-Dk
+GA
 YT
 YT
 Ur
@@ -2142,18 +2161,18 @@ wu
 On
 YG
 YG
-Dk
+GA
 He
 QV
-Dk
+GA
 tg
 IG
 in
 rH
 UD
-Dk
+GA
 Jx
-Dk
+GA
 II
 YT
 Ur
@@ -2178,18 +2197,18 @@ wu
 jN
 YG
 Dg
-Dk
+GA
 ce
 Ko
-Dk
+GA
 ZN
 ZN
 ZN
 rH
 ZN
-Dk
+GA
 Jx
-Dk
+GA
 II
 YT
 Ur
@@ -2214,18 +2233,18 @@ wu
 SU
 YG
 ZN
-Dk
+GA
 Za
 wS
-Dk
+GA
 KH
 ZN
 ZN
 rH
 Gu
-Dk
+GA
 Jx
-Dk
+GA
 II
 YT
 Ur
@@ -2250,18 +2269,18 @@ wu
 Qt
 wM
 IK
-Dk
+GA
 Ko
 sp
-Dk
+GA
 KH
 ZN
 iT
 Qv
 oh
-Dk
+GA
 Jx
-Dk
+GA
 II
 II
 YT
@@ -2286,18 +2305,18 @@ wu
 Qt
 IK
 Rh
-Dk
+GA
 Ko
 sp
-Dk
+GA
 na
 ZN
 iH
 rH
 ZN
-Dk
+GA
 Jx
-Dk
+GA
 II
 II
 YT
@@ -2322,18 +2341,18 @@ Ez
 CC
 IK
 IK
-Dk
+GA
 lI
 ag
-Dk
+GA
 Ym
 ZN
 ZN
 rH
 KH
-Dk
+GA
 Jx
-Dk
+GA
 II
 II
 YT
@@ -2358,18 +2377,18 @@ Km
 XP
 Gb
 mm
-Dk
+GA
 XO
 Ko
-Dk
+GA
 sr
 Db
 Un
 rH
 KH
-Dk
+GA
 Jx
-Dk
+GA
 II
 II
 YT
@@ -2394,18 +2413,18 @@ wu
 eH
 YG
 MQ
-Dk
+GA
 Uf
 Ko
-Dk
+GA
 ZN
 ZN
 ZN
 rH
 wM
-Dk
+GA
 Jx
-Dk
+GA
 II
 II
 YT
@@ -2430,18 +2449,18 @@ Km
 Qt
 YG
 MQ
-Dk
+GA
 Uf
 QV
-Dk
+GA
 ew
 ZN
 LD
 rH
 Gc
-Dk
+GA
 Jx
-Dk
+GA
 II
 II
 YT
@@ -2449,7 +2468,7 @@ YT
 "}
 (19,1,1) = {"
 YT
-Dk
+GA
 ZN
 ZN
 On
@@ -2466,18 +2485,18 @@ Qt
 Qt
 Qt
 yK
-Dk
+GA
 Uf
 Lh
-Dk
+GA
 Gq
 ZN
 XJ
 Qv
 SQ
-Dk
+GA
 Jx
-Dk
+GA
 II
 II
 YT
@@ -2485,7 +2504,7 @@ YT
 "}
 (20,1,1) = {"
 YT
-Dk
+GA
 XK
 ZN
 On
@@ -2502,18 +2521,18 @@ Qt
 ZN
 ZN
 Lx
-Dk
+GA
 XO
 MO
-Dk
+GA
 oz
 On
 On
 TT
 pL
-Dk
+GA
 Jx
-Dk
+GA
 II
 YT
 YT
@@ -2521,35 +2540,35 @@ YT
 "}
 (21,1,1) = {"
 UU
-Dk
-Dk
-Dk
-Dk
+GA
+TW
+TW
+GA
 CJ
-Dk
-Dk
+GA
+GA
 Ii
 vB
-Dk
-Dk
-Dk
-Dk
+GA
+GA
+GA
+GA
 On
 ZN
 ZN
 pA
-Dk
+GA
 rU
-Dk
-Dk
-Dk
-Dk
-Dk
-Dk
+GA
+GA
+GA
+GA
+GA
+GA
 Zu
-Dk
+GA
 DM
-Dk
+GA
 II
 YT
 YT
@@ -2574,7 +2593,7 @@ DQ
 wq
 wq
 ks
-wq
+GA
 bZ
 Ml
 lB
@@ -2585,7 +2604,7 @@ sP
 Hp
 DM
 qB
-Dk
+GA
 YT
 YT
 YT
@@ -2611,17 +2630,17 @@ wp
 wq
 HH
 Qj
-Dk
-Dk
-Dk
-Dk
-Dk
+GA
+GA
+GA
+GA
+GA
 RU
-Dk
-Dk
-Dk
-Dk
-Dk
+GA
+GA
+GA
+GA
+GA
 YT
 YT
 YT
@@ -2754,14 +2773,14 @@ wq
 DS
 wq
 fx
-wq
-Dk
-Dk
-Dk
-Dk
-Dk
+GA
+GA
+GA
+GA
+GA
+GA
 pR
-Dk
+GA
 QV
 QV
 QV
@@ -2785,7 +2804,7 @@ ov
 ov
 GG
 Rx
-Dk
+GA
 Fz
 iw
 Ub
@@ -2820,8 +2839,8 @@ UU
 UU
 UU
 UU
-Dk
-Dk
+GA
+GA
 ZN
 iw
 ZN
@@ -2856,7 +2875,7 @@ YT
 UU
 TW
 TW
-Dk
+GA
 yC
 YG
 iw
@@ -2893,7 +2912,7 @@ YT
 xI
 Jx
 Br
-XK
+ZN
 YG
 iw
 On
@@ -2928,8 +2947,8 @@ YT
 UU
 TW
 TW
-Dk
-YG
+GA
+ru
 YG
 MQ
 On
@@ -2964,7 +2983,7 @@ YT
 YT
 YT
 YT
-Dk
+GA
 VY
 BQ
 TO
@@ -3000,7 +3019,7 @@ YT
 YT
 YT
 YT
-Dk
+GA
 iw
 ZN
 ZN
@@ -3036,7 +3055,7 @@ YT
 YT
 YT
 YT
-Dk
+GA
 ym
 FG
 Dk
@@ -3072,8 +3091,8 @@ YT
 YT
 TW
 TW
-Dk
-iw
+GA
+Mi
 FG
 YG
 FG
@@ -3144,7 +3163,7 @@ YT
 YT
 TW
 TW
-Dk
+GA
 QQ
 xd
 aD
@@ -3180,11 +3199,11 @@ TK
 TK
 UU
 UU
-Dk
-Dk
-Dk
-Dk
-Dk
+GA
+GA
+GA
+GA
+GA
 qh
 Lp
 CN

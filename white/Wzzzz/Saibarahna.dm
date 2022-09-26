@@ -141,7 +141,9 @@
 	custom_price = 0
 
 /obj/item/melee/baton/loaded/german
-	desc = "A german stun baton."
+	name = "продвинутая электрошоковая дубинка"
+	desc = "Это все ради вашей же безопасности..."
+	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'white/Wzzzz/icons/Uebermarginal/weapons.dmi'
 	lefthand_file = 'white/Wzzzz/icons/Weeal.dmi'
 	righthand_file = 'white/Wzzzz/icons/Weear.dmi'

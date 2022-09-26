@@ -49,6 +49,7 @@
 	name = "ПЭП"
 	desc = "NT-P:01 Прототип Энергетической Пушки. Ранняя стадия разработки уникальной лазерной винтовки с многогранной энергетической линзой, позволяющей оружию изменять форму снаряда, стреляющего по команде."
 	icon_state = "protolaser"
+	cell_type = /obj/item/stock_parts/cell/weapon/cell_1500
 	ammo_x_offset = 2
 	ammo_type = list(/obj/item/ammo_casing/energy/laser, /obj/item/ammo_casing/energy/electrode/old)
 

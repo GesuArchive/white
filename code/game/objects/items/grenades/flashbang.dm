@@ -1,5 +1,5 @@
 /obj/item/grenade/flashbang
-	name = "flashbang"
+	name = "свето-шумовая граната"
 	icon_state = "flashbang"
 	inhand_icon_state = "flashbang"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
@@ -42,7 +42,7 @@
 		M.soundbang_act(1, max(200/max(1,distance), 60), rand(0, 5))
 
 /obj/item/grenade/stingbang
-	name = "stingbang"
+	name = "антибунт граната"
 	icon_state = "timeg"
 	inhand_icon_state = "flashbang"
 	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'

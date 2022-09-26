@@ -12,7 +12,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "v" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "L" = (
 /obj/effect/abstract/open_area_marker,

@@ -9,6 +9,10 @@
 	},
 /turf/open/floor/plasteel/vaporwave,
 /area/ruin/space/has_grav/powered/aesthetic)
+"d" = (
+/obj/effect/spawner/lootdrop/gloves,
+/turf/open/floor/plasteel/vaporwave,
+/area/ruin/space/has_grav/powered/aesthetic)
 "e" = (
 /turf/open/floor/holofloor/beach,
 /area/ruin/space/has_grav/powered/aesthetic)
@@ -80,6 +84,14 @@
 	},
 /turf/open/floor/plasteel/vaporwave,
 /area/ruin/space/has_grav/powered/aesthetic)
+"z" = (
+/obj/effect/spawner/lootdrop/ruinloot/important,
+/turf/open/floor/plasteel/vaporwave,
+/area/ruin/space/has_grav/powered/aesthetic)
+"D" = (
+/mob/living/simple_animal/pet/gondola,
+/turf/open/floor/plasteel/vaporwave,
+/area/ruin/space/has_grav/powered/aesthetic)
 "G" = (
 /turf/open/floor/plasteel/vaporwave,
 /area/ruin/space/has_grav/powered/aesthetic)
@@ -88,14 +100,15 @@
 /turf/open/floor/plasteel/vaporwave,
 /area/ruin/space/has_grav/powered/aesthetic)
 "I" = (
-/turf/closed/wall/rust,
+/obj/effect/spawner/lootdrop/costume,
+/turf/open/floor/plasteel/vaporwave,
 /area/ruin/space/has_grav/powered/aesthetic)
 "L" = (
 /obj/effect/overlay/palmtree_l,
 /turf/open/floor/holofloor/beach,
 /area/ruin/space/has_grav/powered/aesthetic)
 "O" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/space/has_grav/powered/aesthetic)
 "P" = (
 /obj/structure/fans/tiny,
@@ -113,6 +126,10 @@
 "T" = (
 /obj/item/instrument/eguitar,
 /turf/open/floor/holofloor/beach,
+/area/ruin/space/has_grav/powered/aesthetic)
+"V" = (
+/obj/effect/spawner/lootdrop/space/fancytool/advmedicalonly,
+/turf/open/floor/plasteel/vaporwave,
 /area/ruin/space/has_grav/powered/aesthetic)
 "W" = (
 /obj/structure/table/reinforced,
@@ -134,11 +151,11 @@
 (1,1,1) = {"
 O
 O
-I
-I
-I
 O
-I
+O
+O
+O
+O
 a
 "}
 (2,1,1) = {"
@@ -152,7 +169,7 @@ O
 a
 "}
 (3,1,1) = {"
-I
+O
 b
 q
 q
@@ -164,7 +181,7 @@ a
 (4,1,1) = {"
 O
 h
-G
+d
 G
 Z
 i
@@ -173,10 +190,10 @@ O
 "}
 (5,1,1) = {"
 O
+V
 G
-G
-G
-G
+D
+I
 G
 O
 m
@@ -185,14 +202,14 @@ m
 O
 v
 v
-G
+z
 G
 G
 P
 X
 "}
 (7,1,1) = {"
-I
+O
 Q
 W
 G
@@ -202,13 +219,13 @@ O
 p
 "}
 (8,1,1) = {"
-I
+O
 s
 o
 G
 H
 i
-I
+O
 O
 "}
 (9,1,1) = {"
@@ -222,22 +239,22 @@ O
 a
 "}
 (10,1,1) = {"
-I
+O
 L
 T
 L
 r
 S
-I
+O
 a
 "}
 (11,1,1) = {"
 O
 O
-I
 O
-I
-I
-I
+O
+O
+O
+O
 a
 "}

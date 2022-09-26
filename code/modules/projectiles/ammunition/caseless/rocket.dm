@@ -1,6 +1,6 @@
 /obj/item/ammo_casing/caseless/rocket
-	name = "ВВ-9Р"
-	desc = "Высоко Взрывоопасная 84-миллиметровая Ракета. Стреляй в людей и молись."
+	name = "ПГ-7ВС"
+	desc = "Фугасная 84-миллиметровая Ракета. Повышенная зона поражения."
 	caliber = "84mm"
 	icon_state = "srm-8"
 	projectile_type = /obj/projectile/bullet/a84mm_he
@@ -10,19 +10,19 @@
 	icon_state = "[initial(icon_state)]"
 
 /obj/item/ammo_casing/caseless/rocket/hedp
-	name = "ВВ-9РДН"
-	desc = "Высоко Взрывоопасная 84-миллиметровая Ракета Двойного Назначения. Заостренный конец к мехам."
+	name = "ПГ-7ВЛ \"Луч\""
+	desc = "Кумулятивная 84-миллиметровая Ракета. Повышенное бронепробитие."
 	caliber = "84mm"
 	icon_state = "84mm-hedp"
 	projectile_type = /obj/projectile/bullet/a84mm
 
 /obj/item/ammo_casing/caseless/rocket/weak
-	name = "\improper PM-9HE Low-Yield"
-	desc = "An 84mm High Explosive rocket. This one isn't quite as devastating."
+	name = "ПГ-7В"
+	desc = "Фугасная 84-миллиметровая Ракета. Уменьшенная зона поражения."
 	projectile_type = /obj/projectile/bullet/a84mm_weak
 
 /obj/item/ammo_casing/caseless/a75
-	desc = ".75 гильза."
+	desc = "патрон .75 калибра."
 	caliber = "75"
 	icon_state = "s-casing-live"
 	projectile_type = /obj/projectile/bullet/gyro

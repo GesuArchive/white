@@ -1,5 +1,6 @@
 //pronoun procs, for getting pronouns without using the text macros that only work in certain positions
 //datums don't have gender, but most of their subtypes do!
+// #Склонения #Склонятор #Род
 /datum/proc/ru_who(capitalized, temp_gender)
 	. = "он"
 	if(capitalized)

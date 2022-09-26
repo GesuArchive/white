@@ -45,7 +45,7 @@
 	pixel_x = -32
 	base_pixel_x = -32
 	del_on_death = TRUE
-	gps_name = "Angelic Signal"
+	gps_name = "Ангельский сигнал"
 	achievement_type = /datum/award/achievement/boss/colossus_kill
 	crusher_achievement_type = /datum/award/achievement/boss/colossus_crusher
 	score_achievement_type = /datum/award/score/colussus_score

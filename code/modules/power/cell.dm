@@ -254,6 +254,14 @@
 	name = "pulse pistol power cell"
 	maxcharge = 2000
 
+/obj/item/stock_parts/cell/weapon/cell_1000
+	name = "оружейная батарея на 1000 Вт"
+	maxcharge = 1000
+
+/obj/item/stock_parts/cell/weapon/cell_1500
+	name = "оружейная батарея на 1500 Вт"
+	maxcharge = 1500
+
 /obj/item/stock_parts/cell/high
 	name = "батарея увеличенной емкости"
 	desc = "Перезаряжаемый электрохимический элемент питания, вмещающий 10 МДж энергии."

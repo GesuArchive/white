@@ -50,7 +50,7 @@
 
 /obj/machinery/computer/auxiliary_base/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/gps, "NT_AUX")
+	AddComponent(/datum/component/gps, "Строительная площадка")
 
 /obj/machinery/computer/auxiliary_base/ui_interact(mob/user, datum/tgui/ui)
 	. = ..()

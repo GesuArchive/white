@@ -196,12 +196,11 @@
 /turf/closed/wall/r_wall,
 /area/ai_monitored/security/armory)
 "aS" = (
-/obj/machinery/camera/motion{
-	c_tag = "Armory - External";
-	dir = 1
-	},
-/turf/template_noop,
-/area/template_noop)
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/security/sec,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plasteel/showroomfloor,
+/area/security/main)
 "aT" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -312,9 +311,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/security/main)
-"bh" = (
-/turf/closed/wall,
-/area/command/heads_quarters/hos)
 "bi" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/preopen{
@@ -642,6 +638,9 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/floor/plasteel/showroomfloor,
 /area/security/main)
 "bO" = (
@@ -686,9 +685,6 @@
 /area/command/heads_quarters/hos)
 "bU" = (
 /obj/structure/table,
-/obj/item/storage/box/firingpins,
-/obj/item/storage/box/firingpins,
-/obj/item/key/security,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -700,6 +696,12 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/storage/toolbox/drone{
+	pixel_y = 9
+	},
+/obj/item/storage/box/firingpins,
+/obj/item/storage/box/firingpins,
+/obj/item/key/security,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "bV" = (
@@ -1186,13 +1188,13 @@
 /turf/open/floor/plasteel,
 /area/security/brig)
 "dd" = (
-/obj/item/storage/toolbox/drone,
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/preopen{
+	id = "lockerspace";
+	name = "space shutters"
 	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel,
-/area/ai_monitored/security/armory)
+/turf/open/floor/plating,
+/area/security/main)
 "de" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
@@ -1344,7 +1346,6 @@
 /turf/open/floor/plasteel,
 /area/security/brig)
 "ds" = (
-/obj/machinery/flasher/portable,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -1356,7 +1357,19 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/flasher/portable,
+/obj/structure/rack,
+/obj/item/flasher_portable_item{
+	pixel_x = -7
+	},
+/obj/item/flasher_portable_item{
+	pixel_x = -2
+	},
+/obj/item/flasher_portable_item{
+	pixel_x = 3
+	},
+/obj/item/flasher_portable_item{
+	pixel_x = 8
+	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "dt" = (
@@ -2050,6 +2063,7 @@
 "eZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/start/specialist,
 /turf/open/floor/plasteel,
 /area/security/main)
 "fa" = (
@@ -2573,7 +2587,7 @@
 /turf/open/floor/plasteel,
 /area/security/main)
 "ge" = (
-/obj/machinery/rnd/production/techfab/department/security,
+/obj/machinery/mecha_part_fabricator/sb,
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -3309,6 +3323,16 @@
 /obj/machinery/holopad,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/security/brig)
+"lZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/button/door{
+	id = "lockerspace";
+	name = "Space Shutters Control";
+	pixel_x = -26;
+	pixel_y = 26
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/security/main)
 "mK" = (
 /obj/machinery/door/airlock/security{
 	name = "Interrogation";
@@ -3340,6 +3364,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/brig)
+"ss" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/bot,
+/obj/structure/closet/secure_closet/security/specialist,
+/turf/open/floor/plasteel/showroomfloor,
+/area/security/main)
 "tI" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -3386,6 +3416,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
+"zg" = (
+/obj/structure/table/wood,
+/turf/open/floor/carpet,
+/area/command/heads_quarters/hos)
 "zr" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -3417,17 +3451,49 @@
 /obj/tacmap/directional/north,
 /turf/open/floor/plasteel,
 /area/security/main)
+"KB" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/rack,
+/obj/item/recharger_item{
+	pixel_y = 5
+	},
+/obj/item/recharger_item{
+	pixel_y = -5
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/security/armory)
 "Lp" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/secure_closet/security/field_med,
 /turf/open/floor/plasteel/showroomfloor,
 /area/security/main)
+"MB" = (
+/turf/open/floor/carpet,
+/area/command/heads_quarters/hos)
 "Nj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/optable,
 /turf/open/floor/plasteel/white,
 /area/security/brig)
+"QP" = (
+/obj/structure/lattice,
+/obj/structure/grille,
+/obj/machinery/camera/autoname{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space/nearstation)
 "Ta" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/extinguisher_cabinet/directional/north,
@@ -4336,7 +4402,7 @@ hv
 fw
 bm
 bL
-fw
+iz
 cX
 df
 dh
@@ -4424,7 +4490,7 @@ hv
 fw
 bo
 bO
-fw
+iz
 dc
 dg
 dr
@@ -4468,9 +4534,9 @@ hw
 mK
 bp
 zr
-fw
-fw
-fw
+iz
+iz
+iz
 iz
 iz
 "}
@@ -4644,9 +4710,9 @@ Nj
 fw
 bw
 ca
-fw
-fw
-fw
+iz
+iz
+iz
 iz
 ab
 "}
@@ -4688,7 +4754,7 @@ kc
 fw
 bw
 cc
-fw
+iz
 dF
 dF
 iz
@@ -4776,7 +4842,7 @@ aU
 aW
 bw
 cf
-fw
+iz
 Zw
 dF
 iz
@@ -4820,9 +4886,9 @@ fz
 ba
 bw
 nW
-fw
-fw
-fw
+iz
+iz
+iz
 iz
 ab
 "}
@@ -4853,7 +4919,7 @@ aR
 bU
 cx
 cS
-ds
+KB
 ds
 aR
 en
@@ -4896,7 +4962,7 @@ ab
 aR
 ci
 cK
-dd
+dK
 dt
 yY
 aR
@@ -4933,8 +4999,8 @@ ab
 ab
 ad
 ab
-ag
 ab
+ag
 ab
 ab
 aR
@@ -4977,8 +5043,8 @@ ab
 ab
 ad
 ab
-ag
 ab
+ag
 ab
 ab
 aR
@@ -4996,9 +5062,9 @@ gc
 ba
 bw
 cg
-fw
-fw
-fw
+iz
+iz
+iz
 iz
 ab
 "}
@@ -5021,8 +5087,8 @@ ab
 ab
 ad
 ab
-ag
 ab
+ag
 ab
 ab
 aR
@@ -5065,8 +5131,8 @@ ab
 ab
 ad
 ab
-ag
 ab
+ag
 ab
 ab
 aR
@@ -5109,8 +5175,8 @@ ab
 ab
 ad
 ab
-ag
 ab
+ag
 ab
 ab
 aR
@@ -5128,7 +5194,7 @@ gc
 ba
 bw
 cf
-fw
+iz
 iT
 jl
 jv
@@ -5152,9 +5218,9 @@ ab
 ab
 ab
 ad
-ab
+ad
 ag
-ab
+ag
 ab
 ab
 aR
@@ -5196,11 +5262,11 @@ ab
 ab
 ad
 ad
-ad
 ag
-aS
+VP
 be
-bg
+dd
+dd
 aR
 aR
 aR
@@ -5239,12 +5305,12 @@ ab
 ab
 ab
 ab
-ab
 ad
 ag
 ab
 be
 Lp
+ss
 by
 bN
 cq
@@ -5284,10 +5350,10 @@ ab
 ab
 ab
 ab
-ab
 ag
 ab
-bg
+dd
+lZ
 aE
 aE
 aE
@@ -5304,9 +5370,9 @@ aM
 bp
 cO
 cI
-fw
-fw
-fw
+iz
+iz
+iz
 iz
 ab
 "}
@@ -5328,11 +5394,11 @@ ab
 ab
 ab
 ab
-ab
 ag
 ab
 be
 Ta
+aE
 aE
 aE
 aE
@@ -5372,10 +5438,10 @@ ab
 ab
 ab
 ad
-ad
 ag
 ad
-bg
+dd
+aE
 aE
 bz
 bP
@@ -5417,10 +5483,10 @@ ab
 ab
 ab
 ab
-ab
 ag
 be
 bx
+aS
 aD
 aD
 aD
@@ -5461,22 +5527,22 @@ ab
 ad
 ad
 ad
-ad
-ad
+ag
 Cp
-bh
-bh
+Cp
+Cp
+Cp
 cs
 cs
-bh
-bh
+Cp
+Cp
 dN
 ec
 eC
 fj
 fE
 gd
-bf
+be
 ab
 ab
 ab
@@ -5504,11 +5570,11 @@ ab
 ab
 ab
 ab
-ab
-ab
+ag
 ad
 Cp
 aG
+zg
 bE
 cp
 cN
@@ -5520,7 +5586,7 @@ eD
 fm
 fE
 ge
-bf
+be
 ab
 ab
 ab
@@ -5548,11 +5614,11 @@ ab
 ab
 ad
 ad
-ad
-ad
+ag
 ad
 bi
 bA
+MB
 bQ
 ct
 cP
@@ -5564,7 +5630,7 @@ ee
 fn
 fF
 gf
-bf
+be
 ab
 ab
 ab
@@ -5592,11 +5658,11 @@ ab
 ab
 ab
 ab
-ab
-ab
+ag
 ad
 bi
 bB
+MB
 bR
 cu
 cQ
@@ -5608,7 +5674,7 @@ eJ
 fD
 fG
 gg
-bf
+be
 ab
 ab
 ab
@@ -5636,11 +5702,11 @@ ac
 ad
 ad
 ad
-ad
-ad
+ag
 ad
 bi
 bC
+MB
 bS
 cv
 cv
@@ -5652,7 +5718,7 @@ eg
 fp
 fE
 gh
-bf
+be
 ab
 ab
 ab
@@ -5680,11 +5746,11 @@ ab
 ab
 ab
 ab
-ab
-ab
+ag
 ad
 Cp
 bD
+zg
 bT
 cw
 cR
@@ -5696,7 +5762,7 @@ eK
 fq
 fH
 gj
-bf
+be
 ab
 ab
 ab
@@ -5725,22 +5791,22 @@ ab
 ab
 ab
 ab
-ab
-VP
+QP
 Cp
 Cp
 Cp
 Cp
 Cp
 Cp
-bh
+Cp
+Cp
 IV
 ei
 ei
 fs
 fI
 gk
-bf
+be
 ab
 ab
 ab
@@ -5770,8 +5836,8 @@ ab
 ab
 ab
 ab
-ab
-ab
+ag
+ad
 ab
 ab
 ab
@@ -5784,7 +5850,7 @@ eL
 ft
 fJ
 gl
-bf
+be
 ab
 ab
 ab
@@ -5815,10 +5881,10 @@ ab
 ab
 ab
 ab
-ab
-ab
-ad
-ad
+ag
+ag
+ag
+ag
 ad
 bg
 dE
@@ -5828,7 +5894,7 @@ be
 gu
 be
 fl
-bf
+be
 ab
 ab
 ab
@@ -5862,8 +5928,8 @@ ab
 ab
 ab
 bV
-bf
-bf
+be
+be
 be
 be
 eE
@@ -5950,13 +6016,13 @@ ab
 ab
 ab
 ac
-bf
-bf
-bf
-bf
+be
+be
+be
+be
 eG
-bf
-bf
+be
+be
 ab
 ab
 ab

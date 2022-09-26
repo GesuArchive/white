@@ -547,7 +547,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "Zr" = (
-/obj/effect/spawner/structure/window/survival_pod,
+/obj/effect/spawner/structure/window/reinforced/derelict,
 /turf/open/floor/circuit,
 /area/ruin/unpowered)
 "Zy" = (

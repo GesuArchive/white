@@ -1265,6 +1265,8 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 		return "Детектив"
 	else if (job == JOB_SECURITY_OFFICER)
 		return "Офицер"
+	else if (job == JOB_SPECIALIST)
+		return "Специалист"
 	else if (job == JOB_SECURITY_OFFICER_SUPPLY)
 		return "Офицер (Снабжение)"
 	else if (job == JOB_SECURITY_OFFICER_ENGINEERING)

@@ -171,6 +171,22 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	user.visible_message(span_suicide("[user] начинает лупить [user.ru_na()]себя по голове <b>[src.name]</b>! Похоже на то, что [user.p_theyre()] пытается покончить с собой!"))
 	return BRUTELOSS
 
+/obj/item/stack/sheet/iron/attackby(obj/item/W, mob/user, params)
+
+	if(istype(W, /obj/item/gun/ballistic/automatic/pistol/nail_gun))	// 	Боеприпасы для гвоздомета
+		var/obj/item/gun/ballistic/automatic/pistol/nail_gun/ng = W
+		if(ng.chambered)
+			ng.process_fire(src, user, TRUE)
+			obj_integrity = max_integrity
+			if(amount > 1)
+				amount = amount - 1
+				update_icon()
+			else
+				qdel(src)
+			new /obj/item/stack/sheet/riveted_metal(user.drop_location())
+	else
+		return ..()
+
 /*
  * Plasteel
  */
@@ -218,6 +234,29 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
 
 /obj/item/stack/sheet/plasteel/fifty
 	amount = 50
+
+/*
+ * Проклепанный металл
+ */
+
+/obj/item/stack/sheet/riveted_metal
+	name = "проклепанное железо"
+	singular_name = "проклепанный лист железа"
+	desc = "Обычный лист железа с множеством заклепок, они придают поверхности дополнительную прочность и износостойкость."
+	icon_state = "sheet-plasteel"
+	inhand_icon_state = "sheet-plasteel"
+	mats_per_unit = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
+	material_type = /datum/material/alloy/plasteel
+	throwforce = 10
+	flags_1 = CONDUCT_1
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 80)
+	resistance_flags = FIRE_PROOF
+	merge_type = /obj/item/stack/sheet/riveted_metal
+	grind_results = list(/datum/reagent/iron = 30)
+	point_value = 15
+	tableVariant = /obj/structure/table
+	material_flags = MATERIAL_NO_EFFECTS
+	matter_amount = 8
 
 /*
  * Wood

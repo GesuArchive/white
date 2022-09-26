@@ -142,7 +142,7 @@
 	build_type = MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/plastic = 2000)
-	category = list("Медицинское снаряжение")
+	category = list("Медицинское снаряжение", "Снаряжение СБ")
 	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -214,7 +214,7 @@
 	build_type = MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 3000, /datum/material/glass = 3000, /datum/material/plastic = 4000, /datum/material/silver = 3000)
-	category = list("Медицинское снаряжение")
+	category = list("Медицинское снаряжение", "Снаряжение СБ")
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -274,7 +274,7 @@
 	build_type = MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 1000, /datum/material/plastic = 2000)
-	category = list("Медицинское снаряжение")
+	category = list("Медицинское снаряжение", "Снаряжение СБ")
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 

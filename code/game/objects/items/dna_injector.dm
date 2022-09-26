@@ -79,358 +79,498 @@
 	icon_state = "dnainjector0"
 	desc += " Этот всё."
 
-
-/obj/item/dnainjector/antihulk
-	name = "инъектор ДНК (Anti-Hulk)"
-	desc = "Cures green skin."
-	remove_mutations = list(HULK)
-
-/obj/item/dnainjector/hulkmut
-	name = "инъектор ДНК (Hulk)"
-	desc = "This will make you big and strong, but give you a bad skin condition."
-	add_mutations = list(HULK)
-
-/obj/item/dnainjector/xraymut
-	name = "инъектор ДНК (X-ray)"
-	desc = "Finally you can see what the Captain does."
-	add_mutations = list(XRAY)
-
-/obj/item/dnainjector/antixray
-	name = "инъектор ДНК (Anti-X-ray)"
-	desc = "It will make you see harder."
-	remove_mutations = list(XRAY)
-
-/////////////////////////////////////
-/obj/item/dnainjector/antiglasses
-	name = "инъектор ДНК (Anti-Glasses)"
-	desc = "Toss away those glasses!"
-	remove_mutations = list(BADSIGHT)
-
-/obj/item/dnainjector/glassesmut
-	name = "инъектор ДНК (Glasses)"
-	desc = "Will make you need dorkish glasses."
-	add_mutations = list(BADSIGHT)
-
-/obj/item/dnainjector/epimut
-	name = "инъектор ДНК (Epi.)"
-	desc = "Shake shake shake the room!"
-	add_mutations = list(EPILEPSY)
-
-/obj/item/dnainjector/antiepi
-	name = "инъектор ДНК (Anti-Epi.)"
-	desc = "Will fix you up from shaking the room."
-	remove_mutations = list(EPILEPSY)
-////////////////////////////////////
-/obj/item/dnainjector/anticough
-	name = "инъектор ДНК (Anti-Cough)"
-	desc = "Will stop that awful noise."
-	remove_mutations = list(COUGH)
-
-/obj/item/dnainjector/coughmut
-	name = "инъектор ДНК (Cough)"
-	desc = "Will bring forth a sound of horror from your throat."
-	add_mutations = list(COUGH)
-
-/obj/item/dnainjector/antidwarf
-	name = "инъектор ДНК (Anti-Dwarfism)"
-	desc = "Helps you grow big and strong."
-	remove_mutations = list(DWARFISM)
+//	Хорошие
 
 /obj/item/dnainjector/dwarf
-	name = "инъектор ДНК (Dwarfism)"
-	desc = "It's a small world after all."
+	name = "инъектор ДНК (Дворфизм)"
+	desc = "Мутация которая увеличивает мир вокруг носителя."
 	add_mutations = list(DWARFISM)
 
-/obj/item/dnainjector/clumsymut
-	name = "инъектор ДНК (Clumsy)"
-	desc = "Makes clown minions."
-	add_mutations = list(CLOWNMUT)
-
-/obj/item/dnainjector/anticlumsy
-	name = "инъектор ДНК (Anti-Clumsy)"
-	desc = "Apply this for Security Clown."
-	remove_mutations = list(CLOWNMUT)
-
-/obj/item/dnainjector/antitour
-	name = "инъектор ДНК (Anti-Tour.)"
-	desc = "Will cure Tourette's."
-	remove_mutations = list(TOURETTES)
-
-/obj/item/dnainjector/tourmut
-	name = "инъектор ДНК (Tour.)"
-	desc = "Gives you a nasty case of Tourette's."
-	add_mutations = list(TOURETTES)
-
-/obj/item/dnainjector/stuttmut
-	name = "инъектор ДНК (Stutt.)"
-	desc = "Makes you s-s-stuttterrr."
-	add_mutations = list(NERVOUS)
-
-/obj/item/dnainjector/antistutt
-	name = "инъектор ДНК (Anti-Stutt.)"
-	desc = "Fixes that speaking impairment."
-	remove_mutations = list(NERVOUS)
-
-/obj/item/dnainjector/antifire
-	name = "инъектор ДНК (Anti-Fire)"
-	desc = "Cures fire."
-	remove_mutations = list(SPACEMUT)
+/obj/item/dnainjector/antidwarf
+	name = "инъектор ДНК (Анти-Дворфизм)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(DWARFISM)
 
 /obj/item/dnainjector/firemut
-	name = "инъектор ДНК (Fire)"
-	desc = "Gives you fire."
+	name = "инъектор ДНК (Космическая адаптация)"
+	desc = "Мутация сформировавшаяся у экипажей разведывательных межсистемных первопроходцев, странным образом ограждает носителя от холода и космического вакуума. К сожалению мы все еще нуждаемся в кислороде."
 	add_mutations = list(SPACEMUT)
 
-/obj/item/dnainjector/blindmut
-	name = "инъектор ДНК (Blind)"
-	desc = "Makes you not see anything."
-	add_mutations = list(BLINDMUT)
-
-/obj/item/dnainjector/antiblind
-	name = "инъектор ДНК (Anti-Blind)"
-	desc = "IT'S A MIRACLE!!!"
-	remove_mutations = list(BLINDMUT)
-
-/obj/item/dnainjector/antitele
-	name = "инъектор ДНК (Anti-Tele.)"
-	desc = "Will make you not able to control your mind."
-	remove_mutations = list(TK)
+/obj/item/dnainjector/antifire
+	name = "инъектор ДНК (Анти-Космическая адаптация)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(SPACEMUT)
 
 /obj/item/dnainjector/telemut
-	name = "инъектор ДНК (Tele.)"
-	desc = "Super brain man!"
+	name = "инъектор ДНК (Телекинез)"
+	desc = "Мутация, позволяющая владельцу перемещать предметы силой мысли."
 	add_mutations = list(TK)
 
 /obj/item/dnainjector/telemut/darkbundle
-	name = "\improper DNA injector"
-	desc = "Good. Let the hate flow through you."
+	desc = "Да пребудет с тобой темная сила."
 
-/obj/item/dnainjector/deafmut
-	name = "инъектор ДНК (Deaf)"
-	desc = "Sorry, what did you say?"
-	add_mutations = list(DEAFMUT)
-
-/obj/item/dnainjector/antideaf
-	name = "инъектор ДНК (Anti-Deaf)"
-	desc = "Will make you hear once more."
-	remove_mutations = list(DEAFMUT)
-
-/obj/item/dnainjector/h2m
-	name = "инъектор ДНК (Human > Monkey)"
-	desc = "Will make you a flea bag."
-	add_mutations = list(RACEMUT)
-
-/obj/item/dnainjector/m2h
-	name = "инъектор ДНК (Monkey > Human)"
-	desc = "Will make you...less hairy."
-	remove_mutations = list(RACEMUT)
-
-/obj/item/dnainjector/antichameleon
-	name = "инъектор ДНК (Anti-Chameleon)"
-	remove_mutations = list(CHAMELEON)
+/obj/item/dnainjector/antitele
+	name = "инъектор ДНК (Анти-Телекинез)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(TK)
 
 /obj/item/dnainjector/chameleonmut
-	name = "инъектор ДНК (Chameleon)"
+	name = "инъектор ДНК (Хамелеон)"
+	desc = "Геном изменяющий эпидермис носителя, позволяя ему сливаться окружающим пространством с течением времени."
 	add_mutations = list(CHAMELEON)
 
-/obj/item/dnainjector/antiwacky
-	name = "инъектор ДНК (Anti-Wacky)"
-	remove_mutations = list(WACKY)
-
-/obj/item/dnainjector/wackymut
-	name = "инъектор ДНК (Wacky)"
-	add_mutations = list(WACKY)
-
-/obj/item/dnainjector/antimute
-	name = "инъектор ДНК (Anti-Mute)"
-	remove_mutations = list(MUT_MUTE)
-
-/obj/item/dnainjector/mutemut
-	name = "инъектор ДНК (Mute)"
-	add_mutations = list(MUT_MUTE)
-
-/obj/item/dnainjector/unintelligiblemut
-	name = "инъектор ДНК (Unintelligible)"
-	add_mutations = list(UNINTELLIGIBLE)
-
-/obj/item/dnainjector/antiunintelligible
-	name = "инъектор ДНК (Anti-Unintelligible)"
-	remove_mutations = list(UNINTELLIGIBLE)
-
-/obj/item/dnainjector/swedishmut
-	name = "инъектор ДНК (Swedish)"
-	add_mutations = list(SWEDISH)
-
-/obj/item/dnainjector/antiswedish
-	name = "инъектор ДНК (Anti-Swedish)"
-	remove_mutations = list(SWEDISH)
-
-/obj/item/dnainjector/chavmut
-	name = "инъектор ДНК (Chav)"
-	add_mutations = list(CHAV)
-
-/obj/item/dnainjector/antichav
-	name = "инъектор ДНК (Anti-Chav)"
-	remove_mutations = list(CHAV)
-
-/obj/item/dnainjector/elvismut
-	name = "инъектор ДНК (Elvis)"
-	add_mutations = list(ELVIS)
-
-/obj/item/dnainjector/antielvis
-	name = "инъектор ДНК (Anti-Elvis)"
-	remove_mutations = list(ELVIS)
-
-/obj/item/dnainjector/lasereyesmut
-	name = "инъектор ДНК (Laser Eyes)"
-	add_mutations = list(LASEREYES)
-
-/obj/item/dnainjector/antilasereyes
-	name = "инъектор ДНК (Anti-Laser Eyes)"
-	remove_mutations = list(LASEREYES)
-
-/obj/item/dnainjector/void
-	name = "инъектор ДНК (Void)"
-	add_mutations = list(VOID)
-
-/obj/item/dnainjector/antivoid
-	name = "инъектор ДНК (Anti-Void)"
-	remove_mutations = list(VOID)
+/obj/item/dnainjector/antichameleon
+	name = "инъектор ДНК (Анти-Хамелеон)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(CHAMELEON)
 
 /obj/item/dnainjector/antenna
-	name = "инъектор ДНК (Antenna)"
+	name = "инъектор ДНК (Антенна)"
+	desc = "Из головы носителя вырастает радиоантенна. Это позволяет ему общаться на базовых радиочастотах даже без внешней гарнитуры."
 	add_mutations = list(ANTENNA)
 
 /obj/item/dnainjector/antiantenna
-	name = "инъектор ДНК (Anti-Antenna)"
+	name = "инъектор ДНК (Анти-Антенна)"
+	desc = "Удаляет конкретную мутацию."
 	remove_mutations = list(ANTENNA)
 
-/obj/item/dnainjector/paranoia
-	name = "инъектор ДНК (Paranoia)"
-	add_mutations = list(PARANOIA)
-
-/obj/item/dnainjector/antiparanoia
-	name = "инъектор ДНК (Anti-Paranoia)"
-	remove_mutations = list(PARANOIA)
-
-/obj/item/dnainjector/mindread
-	name = "инъектор ДНК (Mindread)"
-	add_mutations = list(MINDREAD)
-
-/obj/item/dnainjector/antimindread
-	name = "инъектор ДНК (Anti-Mindread)"
-	remove_mutations = list(MINDREAD)
-
-/obj/item/dnainjector/radioactive
-	name = "инъектор ДНК (Radioactive)"
-	add_mutations = list(RADIOACTIVE)
-
-/obj/item/dnainjector/antiradioactive
-	name = "инъектор ДНК (Anti-Radioactive)"
-	remove_mutations = list(RADIOACTIVE)
 /obj/item/dnainjector/olfaction
-	name = "инъектор ДНК (Olfaction)"
+	name = "инъектор ДНК (Сверхчувствительное обоняние)"
+	desc = "Изменяет обонятельные рецепторы подопытного, усиливая их чувствительность до уровня сравнимого с охотничьими гончими."
 	add_mutations = list(OLFACTION)
 
 /obj/item/dnainjector/antiolfaction
-	name = "инъектор ДНК (Anti-Olfaction)"
+	name = "инъектор ДНК (Анти-Сверхчувствительное обоняние)"
+	desc = "Удаляет конкретную мутацию."
 	remove_mutations = list(OLFACTION)
 
 /obj/item/dnainjector/insulated
-	name = "инъектор ДНК (Insulated)"
+	name = "инъектор ДНК (Электроизоляция)"
+	desc = "Делает организм носителя невосприимчивым к ударам электрическим током."
 	add_mutations = list(INSULATED)
 
 /obj/item/dnainjector/antiinsulated
-	name = "инъектор ДНК (Anti-Insulated)"
+	name = "инъектор ДНК (Анти-Электроизоляция)"
+	desc = "Удаляет конкретную мутацию."
 	remove_mutations = list(INSULATED)
 
-/obj/item/dnainjector/shock
-	name = "инъектор ДНК (Shock Touch)"
-	add_mutations = list(SHOCKTOUCH)
-
-/obj/item/dnainjector/antishock
-	name = "инъектор ДНК (Anti-Shock Touch)"
-	remove_mutations = list(SHOCKTOUCH)
-
-/obj/item/dnainjector/spatialinstability
-	name = "инъектор ДНК (Spatial Instability)"
-	add_mutations = list(BADBLINK)
-
-/obj/item/dnainjector/antispatialinstability
-	name = "инъектор ДНК (Anti-Spatial Instability)"
-	remove_mutations = list(BADBLINK)
-
-/obj/item/dnainjector/acidflesh
-	name = "инъектор ДНК (Acid Flesh)"
-	add_mutations = list(ACIDFLESH)
-
-/obj/item/dnainjector/antiacidflesh
-	name = "инъектор ДНК (Acid Flesh)"
-	remove_mutations = list(ACIDFLESH)
-
-/obj/item/dnainjector/gigantism
-	name = "инъектор ДНК (Gigantism)"
-	add_mutations = list(GIGANTISM)
-
-/obj/item/dnainjector/antigigantism
-	name = "инъектор ДНК (Anti-Gigantism)"
-	remove_mutations = list(GIGANTISM)
-
-/obj/item/dnainjector/spastic
-	name = "инъектор ДНК (Spastic)"
-	add_mutations = list(SPASTIC)
-
-/obj/item/dnainjector/antispastic
-	name = "инъектор ДНК (Anti-Spastic)"
-	remove_mutations = list(SPASTIC)
-
-/obj/item/dnainjector/twoleftfeet
-	name = "инъектор ДНК (Two Left Feet)"
-	add_mutations = list(EXTRASTUN)
-
-/obj/item/dnainjector/antitwoleftfeet
-	name = "инъектор ДНК (Anti-Two Left Feet)"
-	remove_mutations = list(EXTRASTUN)
-
 /obj/item/dnainjector/geladikinesis
-	name = "инъектор ДНК (Geladikinesis)"
+	name = "инъектор ДНК (Аквакрионика)"
+	desc = "Позволяет сконденсировать влагу из воздуха в руках и обратить ее в снег."
 	add_mutations = list(GELADIKINESIS)
 
 /obj/item/dnainjector/antigeladikinesis
-	name = "инъектор ДНК (Anti-Geladikinesis)"
+	name = "инъектор ДНК (Анти-Аквакрионика)"
+	desc = "Удаляет конкретную мутацию."
 	remove_mutations = list(GELADIKINESIS)
 
 /obj/item/dnainjector/cryokinesis
-	name = "инъектор ДНК (Cryokinesis)"
+	name = "инъектор ДНК (Криокинез)"
+	desc = "Псионическая способность заморозить цель на расстоянии."
 	add_mutations = list(CRYOKINESIS)
 
 /obj/item/dnainjector/anticryokinesis
-	name = "инъектор ДНК (Anti-Cryokinesis)"
+	name = "инъектор ДНК (Анти-Криокинез)"
+	desc = "Удаляет конкретную мутацию."
 	remove_mutations = list(CRYOKINESIS)
 
 /obj/item/dnainjector/thermal
-	name = "инъектор ДНК (Thermal Vision)"
+	name = "инъектор ДНК (Термосенсорное восприятие)"
+	desc = "Позволяет носителю чувствовать тепловые сигнатуры живых объектов даже сквозь многометровые стальные перегородки."
 	add_mutations = list(THERMAL)
 
 /obj/item/dnainjector/antithermal
-	name = "инъектор ДНК (Anti-Thermal Vision)"
+	name = "инъектор ДНК (Анти-Термосенсорное восприятие)"
+	desc = "Удаляет конкретную мутацию."
 	remove_mutations = list(THERMAL)
 
 /obj/item/dnainjector/glow
-	name = "инъектор ДНК (Glowy)"
+	name = "инъектор ДНК (Свечение)"
+	desc = "Трансмутирует кожный покров носителя, тем самым вынуждая его постоянно излучать свет случайного цвета и интенсивностью."
 	add_mutations = list(GLOWY)
 
 /obj/item/dnainjector/removeglow
-	name = "инъектор ДНК (Anti-Glowy)"
+	name = "инъектор ДНК (Анти-Свечение)"
+	desc = "Удаляет конкретную мутацию."
 	remove_mutations = list(GLOWY)
 
+/obj/item/dnainjector/webbing
+	name = "инъектор ДНК (Паутиновые железы)"
+	desc = "Позволяет носителю создавать паутину и беспрепятственно двигаться через нее."
+	add_mutations = list(SPIDER_WEB)
+
+/obj/item/dnainjector/removewebbing
+	name = "инъектор ДНК (Анти-Паутиновые железы)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(SPIDER_WEB)
+
+/obj/item/dnainjector/telepathy
+	name = "инъектор ДНК (Телепатия)"
+	desc = "Редкая мутация, которая позволяет пользователю телепатически общаться с другими."
+	add_mutations = list(TELEPATHY)
+
+/obj/item/dnainjector/removetelepathy
+	name = "инъектор ДНК (Анти-Телепатия)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(TELEPATHY)
+
+/obj/item/dnainjector/tongue_spike
+	name = "инъектор ДНК (Языковой шип)"
+	desc = "Позволяет произвести мгновенную коварную атаку, выстрелив в оппонента скрывающимся в вашем рту острым шипом."
+	add_mutations = list(TONGUESPIKE)
+
+/obj/item/dnainjector/removetongue_spike
+	name = "инъектор ДНК (Анти-Языковой шип)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(TONGUESPIKE)
+
+/obj/item/dnainjector/self_amputation
+	name = "инъектор ДНК (Аутотомия)"
+	desc = "Позволяет существу добровольно сбросить выбранную часть тела по своему желанию."
+	add_mutations = list(AUTOTOMIA)
+
+/obj/item/dnainjector/removeself_amputation
+	name = "инъектор ДНК (Анти-Аутотомия)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(AUTOTOMIA)
+
+//	Плохие
+
+/obj/item/dnainjector/glassesmut
+	name = "инъектор ДНК (Близорукость)"
+	desc = "Обладатель этой мутации имеет плохое зрение."
+	add_mutations = list(BADSIGHT)
+
+/obj/item/dnainjector/antiglasses
+	name = "инъектор ДНК (Анти-Близорукость)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(BADSIGHT)
+
+/obj/item/dnainjector/epimut
+	name = "инъектор ДНК (Эпилепсия)"
+	desc = "Генетический дефект, который время от времени вызывает судороги."
+	add_mutations = list(EPILEPSY)
+
+/obj/item/dnainjector/antiepi
+	name = "инъектор ДНК (Анти-Эпилепсия)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(EPILEPSY)
+
+/obj/item/dnainjector/coughmut
+	name = "инъектор ДНК (Кашель)"
+	desc = "Хронический кашель."
+	add_mutations = list(COUGH)
+
+/obj/item/dnainjector/anticough
+	name = "инъектор ДНК (Анти-Кашель)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(COUGH)
+
+/obj/item/dnainjector/clumsymut
+	name = "инъектор ДНК (Неуклюжесть)"
+	desc = "Ген нарушающий тонкую моторику и блокирующий некоторые связи в мозге носителя. Хонк!"
+	add_mutations = list(CLOWNMUT)
+
+/obj/item/dnainjector/anticlumsy
+	name = "инъектор ДНК (Анти-Неуклюжесть)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(CLOWNMUT)
+
+/obj/item/dnainjector/tourmut
+	name = "инъектор ДНК (Синдром Туретта)"
+	desc = "Хроническое генетическое отклонение, вынуждающее носителя непроизвольно выкрикивать слова."
+	add_mutations = list(TOURETTES)
+
+/obj/item/dnainjector/antitour
+	name = "инъектор ДНК (Анти-Синдром Туретта)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(TOURETTES)
+
+/obj/item/dnainjector/stuttmut
+	name = "инъектор ДНК (Нервозность)"
+	desc = "Вызывает заикание."
+	add_mutations = list(NERVOUS)
+
+/obj/item/dnainjector/antistutt
+	name = "инъектор ДНК (Анти-Нервозность)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(NERVOUS)
+
+/obj/item/dnainjector/blindmut
+	name = "инъектор ДНК (Слепота)"
+	desc = "Носитель этой мутации слеп как крот."
+	add_mutations = list(BLINDMUT)
+
+/obj/item/dnainjector/antiblind
+	name = "инъектор ДНК (Анти-Слепота)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(BLINDMUT)
+
+/obj/item/dnainjector/deafmut
+	name = "инъектор ДНК (Глухота)"
+	desc = "Носитель полностью генетически глух."
+	add_mutations = list(DEAFMUT)
+
+/obj/item/dnainjector/antideaf
+	name = "инъектор ДНК (Анти-Глухота)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(DEAFMUT)
+
+/obj/item/dnainjector/h2m
+	name = "инъектор ДНК (Манкификация)"
+	desc = "Странный геном, который показывает, что мы не так уж и далеко ушли от обезьян."
+	add_mutations = list(RACEMUT)
+
+/obj/item/dnainjector/m2h
+	name = "инъектор ДНК (Анти-Манкификация)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(RACEMUT)
+
+/obj/item/dnainjector/wackymut
+	name = "инъектор ДНК (Чокнутый)"
+	desc = "Нет... Ты не клоун... Ты весь цирк в одном лице..."
+	add_mutations = list(WACKY)
+
+/obj/item/dnainjector/antiwacky
+	name = "инъектор ДНК (Анти-Чокнутый)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(WACKY)
+
+/obj/item/dnainjector/mutemut
+	name = "инъектор ДНК (Немота)"
+	desc = "Полностью подавляет речевой отдел мозга."
+	add_mutations = list(MUT_MUTE)
+
+/obj/item/dnainjector/antimute
+	name = "инъектор ДНК (Анти-Немота)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(MUT_MUTE)
+
+/obj/item/dnainjector/unintelligiblemut
+	name = "инъектор ДНК (Невнятность)"
+	desc = "Частично подавляет речевой отдел мозга, сильно искажая речь."
+	add_mutations = list(UNINTELLIGIBLE)
+
+/obj/item/dnainjector/antiunintelligible
+	name = "инъектор ДНК (Анти-Невнятность)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(UNINTELLIGIBLE)
+
+/obj/item/dnainjector/swedishmut
+	name = "инъектор ДНК (Швед)"
+	desc = "Чудовищная мутация из далекого прошлого. Берет свои корни из инцидента в 2037 году."
+	add_mutations = list(SWEDISH)
+
+/obj/item/dnainjector/antiswedish
+	name = "инъектор ДНК (Анти-Швед)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(SWEDISH)
+
+/obj/item/dnainjector/chavmut
+	name = "инъектор ДНК (Феня)"
+	desc = "Ген случайным образом вырабатывающийся у ассистентов"
+	add_mutations = list(CHAV)
+
+/obj/item/dnainjector/antichav
+	name = "инъектор ДНК (Анти-Феня)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(CHAV)
+
+/obj/item/dnainjector/elvismut
+	name = "инъектор ДНК (Элвис)"
+	desc = "Чудовищная мутация названная в честь нулевого пациента."
+	add_mutations = list(ELVIS)
+
+/obj/item/dnainjector/antielvis
+	name = "инъектор ДНК (Анти-Элвис)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(ELVIS)
+
+/obj/item/dnainjector/void
+	name = "инъектор ДНК (Слияние с пустотой)"
+	desc = "Редкий геном, способный преодолеть законы эвклидового пространства и укрыть носителя за завесой мрачной и холодной пустоты мертвого космоса."
+	add_mutations = list(VOID)
+
+/obj/item/dnainjector/antivoid
+	name = "инъектор ДНК (Анти-Слияние с пустотой)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(VOID)
+
+/obj/item/dnainjector/paranoia
+	name = "инъектор ДНК (Паранойя)"
+	desc = "Субъект легко поддается панике и может страдать от галлюцинаций."
+	add_mutations = list(PARANOIA)
+
+/obj/item/dnainjector/antiparanoia
+	name = "инъектор ДНК (Анти-Паранойя)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(PARANOIA)
+
+/obj/item/dnainjector/radioactive
+	name = "инъектор ДНК (Радиоактивность)"
+	desc = "Мутация которая активирует радиоизотопный распад молекулярной структуры носителя, вредоносное как для него, так и окружающих."
+	add_mutations = list(RADIOACTIVE)
+
+/obj/item/dnainjector/antiradioactive
+	name = "инъектор ДНК (Анти-Радиоактивность)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(RADIOACTIVE)
+
+/obj/item/dnainjector/spatialinstability
+	name = "инъектор ДНК (Пространственная нестабильность)"
+	desc = "Жертва теряет связь с пространственно-временным континуумом и совершает неконтролируемые прыжки. Также вызывает сильную тошноту."
+	add_mutations = list(BADBLINK)
+
+/obj/item/dnainjector/antispatialinstability
+	name = "инъектор ДНК (Анти-Пространственная нестабильность)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(BADBLINK)
+
+/obj/item/dnainjector/acidflesh
+	name = "инъектор ДНК (Кислотная плоть)"
+	desc = "Под кожей жертвы образуются нарывы с едкой кислотой. Летально!"
+	add_mutations = list(ACIDFLESH)
+
+/obj/item/dnainjector/antiacidflesh
+	name = "инъектор ДНК (Анти-Кислотная плоть)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(ACIDFLESH)
+
+/obj/item/dnainjector/gigantism
+	name = "инъектор ДНК (Гигантизм)"
+	desc = "Увеличивает межклеточное пространство в организме носителя, тем самым увеличивая его физический размер."
+	add_mutations = list(GIGANTISM)
+
+/obj/item/dnainjector/antigigantism
+	name = "инъектор ДНК (Анти-Гигантизм)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(GIGANTISM)
+
+/obj/item/dnainjector/spastic
+	name = "инъектор ДНК (Мышечные спазмы)"
+	desc = "Субъект страдает от мышечных спазмов."
+	add_mutations = list(SPASTIC)
+
+/obj/item/dnainjector/antispastic
+	name = "инъектор ДНК (Анти-Мышечные спазмы)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(SPASTIC)
+
+/obj/item/dnainjector/twoleftfeet
+	name = "инъектор ДНК (Две левых ноги)"
+	desc = "Мутация, которая заменяет вашу правую ногу еще одной левой ногой. Будьте готовы к постоянным встречам вашего лица с полом."
+	add_mutations = list(EXTRASTUN)
+
+/obj/item/dnainjector/antitwoleftfeet
+	name = "инъектор ДНК (Анти-Две левых ноги)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(EXTRASTUN)
+
+/obj/item/dnainjector/bad_dna
+	name = "инъектор ДНК (Нестабильная ДНК)"
+	desc = "Серьезное генетическое отклонение, которое нарушает генетическую стабильность, тем самым вызывая произвольные мутации."
+	add_mutations = list(MUTATE)
+
+/obj/item/dnainjector/antibad_dna
+	name = "инъектор ДНК (Анти-Нестабильная ДНК)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(MUTATE)
+
+//	Комбинаторные
+
+/obj/item/dnainjector/hulkmut
+	name = "инъектор ДНК (Халк)"
+	desc = "Плохо изученный геном, который неестественно увеличивает мышцы, угнетает речевой аппарат и окрашивает кожу в странный зеленый цвет."
+	add_mutations = list(HULK)
+
+/obj/item/dnainjector/antihulk
+	name = "инъектор ДНК (Анти-Халк)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(HULK)
+
+/obj/item/dnainjector/mindread
+	name = "инъектор ДНК (Чтение мыслей)"
+	desc = "Носитель получает способность читать последние мысли цели, а так же определять его истинную суть."
+	add_mutations = list(MINDREAD)
+
+/obj/item/dnainjector/antimindread
+	name = "инъектор ДНК (Анти-Чтение мыслей)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(MINDREAD)
+
+/obj/item/dnainjector/shock
+	name = "инъектор ДНК (Электрошок)"
+	desc = "Позволяет накапливать крайне высокий заряд статического электричества и при желании разряжаться на выбраную цель при касании."
+	add_mutations = list(SHOCKTOUCH)
+
+/obj/item/dnainjector/antishock
+	name = "инъектор ДНК (Анти-Электрошок)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(SHOCKTOUCH)
+
 /obj/item/dnainjector/antiglow
-	name = "инъектор ДНК (Antiglowy)"
+	name = "инъектор ДНК (Светопоглощение)"
+	desc = "Кожа носителя поглощает частицы света и препятствует его отражению, образно говоря создавая вокруг носителя тьму."
 	add_mutations = list(ANTIGLOWY)
 
 /obj/item/dnainjector/removeantiglow
-	name = "инъектор ДНК (Anti-Antiglowy)"
+	name = "инъектор ДНК (Анти-Светопоглощение)"
+	desc = "Удаляет конкретную мутацию."
 	remove_mutations = list(ANTIGLOWY)
+
+/obj/item/dnainjector/martyrdom
+	name = "инъектор ДНК (Кровавый мученик)"
+	desc = "Мутация которая вызывает коллапсирующую клеточную дестабилизацию если организм носителя близок к смерти. Взрыв наносит небольшой урон, а так же очень, ОЧЕНЬ сильно дезориентирует!"
+	add_mutations = list(MARTYRDOM)
+
+/obj/item/dnainjector/removemartyrdom
+	name = "инъектор ДНК (Анти-Кровавый мученик)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(MARTYRDOM)
+
+/obj/item/dnainjector/chemtongue_spike
+	name = "инъектор ДНК (Химический шип)"
+	desc = "Позволяет выстрелить в оппонента собственным языком, после чего перенести все химические препараты из вашей крови в цель."
+	add_mutations = list(TONGUESPIKECHEM)
+
+/obj/item/dnainjector/removechemtongue_spike
+	name = "инъектор ДНК (Анти-Химический шип)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(TONGUESPIKECHEM)
+
+// 	Недоступные
+
+/obj/item/dnainjector/xraymut
+	name = "инъектор ДНК (Рентгеновское зрение)"
+	desc = "Редчайшая мутация, возможно даже навсегда утеренная для будущих поколений, позволяет в прямом смысле видеть сквозь стены!" //actual x-ray would mean you'd constantly be blasting rads, wich might be fun for later //hmb
+	add_mutations = list(XRAY)
+
+/obj/item/dnainjector/antixray
+	name = "инъектор ДНК (Анти-Рентгеновское зрение)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(XRAY)
+
+/obj/item/dnainjector/lasereyesmut
+	name = "инъектор ДНК (Глаза-Лазеры)"
+	desc = "Перестраивает хрусталик глаза позволяя аккумулировать свет и выстреливать им в цель в виде сконцентрированного лазерного луча."
+	add_mutations = list(LASEREYES)
+
+/obj/item/dnainjector/antilasereyes
+	name = "инъектор ДНК (Анти-Глаза-Лазеры)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(LASEREYES)
+
+/obj/item/dnainjector/firebreath
+	name = "инъектор ДНК (Огненное Дыхание)"
+	desc = "Древняя мутация которая позволяет ящерам выдыхать струю пламени."
+	add_mutations = list(FIREBREATH)
+
+/obj/item/dnainjector/antifirebreath
+	name = "инъектор ДНК (Огненное Дыхание)"
+	desc = "Удаляет конкретную мутацию."
+	remove_mutations = list(FIREBREATH)
+
+////////////////////////////////////
 
 /obj/item/dnainjector/timed
 	var/duration = 600

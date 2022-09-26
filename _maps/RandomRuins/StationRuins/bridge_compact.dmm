@@ -2512,7 +2512,7 @@
 /turf/open/floor/plasteel,
 /area/command/heads_quarters/hop)
 "ia" = (
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/engineering/storage/tech)
 "ib" = (
 /obj/effect/turf_decal/tile/blue{
@@ -4046,9 +4046,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/south)
-"Mj" = (
-/turf/closed/wall,
-/area/hallway/primary/central/south)
 "Mz" = (
 /obj/machinery/holopad,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -4854,7 +4851,7 @@ as
 Qp
 Cz
 Hb
-Mj
+Hk
 "}
 (6,1,1) = {"
 ab
@@ -4930,7 +4927,7 @@ eM
 fO
 Cz
 jW
-Mj
+Hk
 "}
 (8,1,1) = {"
 ab

@@ -4,7 +4,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "i" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "j" = (
 /turf/open/floor/plasteel,

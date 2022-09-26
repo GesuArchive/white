@@ -34,7 +34,7 @@
 
 /obj/item/blackbox/objective/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/gps, "BLACKBOX #[rand(1000, 9999)]", TRUE)
+	AddComponent(/datum/component/gps, "Черный ящик #[rand(1000, 9999)]", TRUE)
 
 /obj/item/blackbox/objective/proc/setup_recover(linked_mission)
 	AddComponent(/datum/component/recoverable, linked_mission)

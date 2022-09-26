@@ -17,6 +17,10 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/cable_coil_box,
+/obj/item/cable_coil_box,
+/obj/item/cable_coil_box,
+/obj/item/storage/part_replacer/bluespace/tier3,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "bs" = (
@@ -43,15 +47,17 @@
 	dir = 1
 	},
 /obj/item/paper_bin,
+/obj/effect/spawner/lootdrop/ruinloot/science,
+/obj/effect/spawner/lootdrop/ruinloot/science,
+/obj/effect/spawner/lootdrop/ruinloot/science,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "ee" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
 /area/ruin/unpowered)
 "fW" = (
 /obj/structure/table,
-/obj/item/stack/sheet/iron/fifty,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
@@ -59,22 +65,26 @@
 	pixel_x = -25
 	},
 /obj/machinery/cell_charger,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
-/obj/effect/spawner/lootdrop/ruinloot/science,
-/obj/effect/spawner/lootdrop/ruinloot/science,
-/obj/effect/spawner/lootdrop/ruinloot/science,
+/obj/item/stock_parts/cell/hyper,
+/obj/item/stock_parts/cell/hyper,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "gc" = (
+/obj/effect/turf_decal/bot,
 /obj/effect/spawner/lootdrop/ruinloot/science,
-/turf/open/floor/plasteel,
+/turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "iV" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
+	},
+/obj/structure/table,
+/obj/item/mmi/posibrain{
+	pixel_y = 6;
+	pixel_x = -3
+	},
+/obj/item/mmi/posibrain{
+	pixel_x = 3
 	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
@@ -137,10 +147,10 @@
 /obj/structure/table/optable{
 	name = "Robotics Operating Table"
 	},
+/obj/effect/spawner/lootdrop/ruinloot/science,
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "nu" = (
-/obj/effect/mapping_helpers/airlock/abandoned,
 /obj/machinery/door/airlock/hatch,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
@@ -153,7 +163,11 @@
 	dir = 6
 	},
 /obj/machinery/light,
-/obj/effect/spawner/lootdrop/ruinloot/science,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "oo" = (
@@ -188,6 +202,11 @@
 /obj/machinery/requests_console{
 	pixel_y = 32
 	},
+/obj/item/stack/sheet/glass{
+	amount = 40;
+	pixel_x = 3;
+	pixel_y = -4
+	},
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "qH" = (
@@ -207,14 +226,10 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/effect/spawner/lootdrop/ruinloot/science,
-/obj/effect/spawner/lootdrop/ruinloot/science,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "wk" = (
-/obj/effect/turf_decal/dust,
-/obj/effect/spawner/lootdrop/glowstick,
-/turf/open/floor/plating,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "zu" = (
 /obj/effect/turf_decal/stripes/line{
@@ -244,6 +259,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
+/obj/effect/spawner/lootdrop/ruinloot/science,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "BT" = (
@@ -269,7 +285,6 @@
 /area/ruin/unpowered)
 "Fz" = (
 /obj/effect/turf_decal/bot,
-/obj/effect/turf_decal/dust,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "FZ" = (
@@ -299,6 +314,11 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/borg/upgrade/syndicate,
+/obj/item/borg/upgrade/thrusters,
+/obj/item/borg/upgrade/selfrepair,
+/obj/item/borg/upgrade/hypospray/expanded,
+/obj/item/borg/upgrade/piercing_hypospray,
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "JU" = (
@@ -306,8 +326,11 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "Kj" = (
-/obj/effect/turf_decal/dust,
-/turf/open/floor/plating,
+/obj/effect/abstract/open_area_marker{
+	dir = 1
+	},
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
 /area/ruin/unpowered)
 "KX" = (
 /obj/effect/turf_decal/stripes/line{
@@ -317,14 +340,12 @@
 /area/ruin/unpowered)
 "Lh" = (
 /obj/structure/closet/firecloset,
-/obj/effect/turf_decal/dust,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "LO" = (
 /obj/machinery/door/window/eastleft{
 	dir = 1;
-	name = "Robotics Deliveries";
-	req_access_txt = "29"
+	name = "Robotics Deliveries"
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -353,23 +374,15 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/effect/spawner/lootdrop/ruinloot/science,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "NA" = (
-/obj/effect/abstract/doorway_marker{
-	dir = 1
-	},
+/obj/machinery/door/airlock/public/glass,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "Oa" = (
 /obj/effect/spawner/lootdrop/glowstick,
 /turf/open/floor/plasteel,
-/area/ruin/unpowered)
-"OK" = (
-/obj/effect/spawner/lootdrop/crate_spawner,
-/obj/effect/turf_decal/dust,
-/turf/open/floor/plating,
 /area/ruin/unpowered)
 "Pb" = (
 /turf/closed/wall/r_wall,
@@ -394,7 +407,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/effect/mapping_helpers/airlock/abandoned,
 /obj/machinery/door/airlock/hatch,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
@@ -442,7 +454,7 @@
 
 (1,1,1) = {"
 Pb
-aO
+Pb
 Uk
 aO
 Pb
@@ -451,9 +463,9 @@ Pb
 Pb
 Pb
 Pb
-aO
-aO
-aO
+wk
+wk
+wk
 "}
 (2,1,1) = {"
 Pb
@@ -461,7 +473,7 @@ Bs
 jM
 Iq
 fW
-aO
+wk
 UJ
 JM
 oy
@@ -486,9 +498,9 @@ jM
 SN
 "}
 (4,1,1) = {"
-ee
+Kj
 jM
-gc
+jM
 jM
 jM
 MP
@@ -506,14 +518,14 @@ jM
 jM
 jM
 ZS
-aO
+wk
 VW
 DW
 jP
 Pb
-aO
+wk
 nu
-aO
+wk
 "}
 (6,1,1) = {"
 Pb
@@ -521,14 +533,14 @@ Ni
 uX
 zu
 iV
-aO
-aO
+wk
+wk
 Pb
 Pb
 Pb
 qH
-OK
-aO
+ba
+wk
 "}
 (7,1,1) = {"
 Pb
@@ -540,10 +552,10 @@ KX
 kB
 Pb
 qH
-Kj
-Kj
 qH
-aO
+qH
+qH
+wk
 "}
 (8,1,1) = {"
 Pb
@@ -554,11 +566,11 @@ BT
 JU
 oe
 Pb
-Kj
-aO
-aO
-aO
-aO
+qH
+wk
+wk
+wk
+wk
 "}
 (9,1,1) = {"
 Pb
@@ -570,68 +582,68 @@ BT
 LO
 FZ
 qH
-aO
+wk
 UR
-aO
+wk
 Pw
 "}
 (10,1,1) = {"
 Pb
 Fz
 bs
-JU
+gc
 BT
-JU
+gc
 Bi
 Pb
-Kj
 qH
-Kj
-aO
+qH
+qH
+wk
 Pw
 "}
 (11,1,1) = {"
 Pb
 RL
-aO
+Pb
 ee
 ee
 ee
-aO
+Pb
 Pb
 Ca
-Kj
-Kj
-aO
+qH
+qH
+wk
 Pw
 "}
 (12,1,1) = {"
-aO
-Kj
 wk
 qH
-Kj
+Ca
+qH
+qH
 qH
 ba
 qH
-Kj
+qH
 Lh
 RE
-aO
+wk
 Pw
 "}
 (13,1,1) = {"
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
-aO
+wk
+wk
+wk
+wk
+wk
+wk
+wk
+wk
+wk
+wk
+wk
+wk
 Pw
 "}

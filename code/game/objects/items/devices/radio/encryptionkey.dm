@@ -47,6 +47,11 @@
 	icon_state = "eng_cypherkey"
 	channels = list(RADIO_CHANNEL_ENGINEERING = 1)
 
+/obj/item/encryptionkey/headset_eng_sec
+	name = "ключ шифрования (Инженерный, СБ)"
+	icon_state = "eng_cypherkey"
+	channels = list(RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_SECURITY = 1)
+
 /obj/item/encryptionkey/headset_rob
 	name = "ключ шифрования роботехников"
 	icon_state = "rob_cypherkey"

@@ -163,6 +163,7 @@
 	anchored = TRUE
 	density = TRUE
 	pixel_y = -32
+	gpstag = "Убежище"
 
 /obj/item/gps/computer/wrench_act(mob/living/user, obj/item/I)
 	..()

@@ -6,7 +6,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "r" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "z" = (
 /turf/open/space/basic,

@@ -19,6 +19,11 @@
 #define SUPPORT_RODS 5
 #define SHEATH 6
 
+// Проклепанная стена rivet
+#define RIVET_FULL 0
+#define RIVET_HEAT 1
+#define RIVET_BAR 2
+
 // cwall construction states
 #define COG_COVER 1
 #define COG_EXPOSED 3

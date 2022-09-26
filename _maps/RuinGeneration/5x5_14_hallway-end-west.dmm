@@ -1,7 +1,11 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "g" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
+"w" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/template_noop)
 "y" = (
 /turf/template_noop,
 /area/template_noop)
@@ -19,23 +23,23 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "V" = (
-/obj/effect/spawner/structure/window,
-/turf/open/floor/plating,
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
 /area/ruin/unpowered)
 
 (1,1,1) = {"
 y
+w
 y
-y
-y
+w
 y
 "}
 (2,1,1) = {"
-y
+z
 z
 y
 z
-y
+z
 "}
 (3,1,1) = {"
 g

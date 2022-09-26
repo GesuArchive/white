@@ -129,6 +129,7 @@
 #define JOB_WARDEN "Warden"
 #define JOB_DETECTIVE "Detective"
 #define JOB_FIELD_MEDIC "Field Medic"
+#define JOB_SPECIALIST "Specialist"
 #define JOB_RUSSIAN_OFFICER "Russian Officer"
 #define JOB_VETERAN "Veteran"
 #define JOB_SECURITY_OFFICER "Security Officer"

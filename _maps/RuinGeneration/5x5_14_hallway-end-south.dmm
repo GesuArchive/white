@@ -3,15 +3,19 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/template_noop)
+"d" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/template_noop)
 "g" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "j" = (
 /turf/template_noop,
 /area/template_noop)
 "C" = (
-/obj/effect/spawner/structure/window,
-/turf/open/floor/plating,
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
 /area/ruin/unpowered)
 "P" = (
 /turf/open/floor/plasteel,
@@ -27,7 +31,7 @@
 g
 g
 g
-j
+c
 j
 "}
 (2,1,1) = {"
@@ -35,7 +39,7 @@ P
 P
 C
 c
-j
+d
 "}
 (3,1,1) = {"
 Q
@@ -49,12 +53,12 @@ P
 P
 C
 c
-j
+d
 "}
 (5,1,1) = {"
 g
 g
 g
-j
+c
 j
 "}

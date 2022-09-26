@@ -11,7 +11,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 150, /datum/material/glass = 100)
 	build_path = /obj/item/beacon
-	category = list("Блюспейс разработки", "Инженерное снаряжение", "Научное снаряжение", "Карго снаряжение")
+	category = list("Блюспейс разработки", "Инженерное снаряжение", "Научное снаряжение", "Карго снаряжение", "Снаряжение СБ")
 	sub_category = list("Связь и навигация")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SECURITY
 
@@ -59,7 +59,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 1000)
 	build_path = /obj/item/gps
-	category = list("Блюспейс разработки", "Инженерное снаряжение", "Научное снаряжение", "Карго снаряжение")
+	category = list("Блюспейс разработки", "Инженерное снаряжение", "Научное снаряжение", "Карго снаряжение", "Снаряжение СБ")
 	sub_category = list("Связь и навигация")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
 
@@ -71,7 +71,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 500, /datum/material/silver = 1500, /datum/material/bluespace = 1000)
 	build_path = /obj/item/desynchronizer
-	category = list("Блюспейс разработки", "Научное снаряжение")
+	category = list("Блюспейс разработки", "Научное снаряжение", "Снаряжение СБ")
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -95,7 +95,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 1000, /datum/material/bluespace = 2000, /datum/material/gold = 1500, /datum/material/silver = 1000)
 	build_path = /obj/item/swapper
-	category = list("Блюспейс разработки", "Научное снаряжение")
+	category = list("Блюспейс разработки", "Научное снаряжение", "Снаряжение СБ")
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 

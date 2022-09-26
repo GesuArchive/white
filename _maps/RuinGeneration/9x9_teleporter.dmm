@@ -22,14 +22,10 @@
 /obj/effect/mapping_helpers/broken_floor,
 /area/ruin)
 "k" = (
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin)
 "l" = (
-/turf/open/floor/plating/airless,
-/area/ruin)
-"m" = (
-/obj/machinery/portable_atmospherics/canister/air,
 /turf/open/floor/plating/airless,
 /area/ruin)
 "n" = (
@@ -223,7 +219,7 @@ z
 y
 y
 Z
-m
+l
 e
 y
 y

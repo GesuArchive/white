@@ -181,7 +181,7 @@
 	if(user)
 		add_fingerprint(user)
 		if(msg)
-			to_chat(user, span_warning("Активирую [src]! [capitalize(DisplayTimeText(det_time))]!"))
+			to_chat(user, span_warning("Активирую барьерную гранату! Детонация через: <b>[capitalize(DisplayTimeText(det_time))]</b>!"))
 	if(shrapnel_type && shrapnel_radius)
 		shrapnel_initialized = TRUE
 		AddComponent(/datum/component/pellet_cloud, projectile_type=shrapnel_type, magnitude=shrapnel_radius)

@@ -176,12 +176,34 @@
 		/obj/item/ammo_box/magazine/m9mm/fire = 4,
 		/obj/item/grenade/exploration = 2,
 	)
-
+/*
 //Important stuff like research disks
 /obj/effect/spawner/lootdrop/ruinloot/important
 	loot = list(
 		"" = 4,
 		/obj/item/disk/tech_disk/research/random = 24,
+		/obj/item/alienartifact = 6,
+		/obj/item/gun/energy/alien = 1
+	)
+*/
+
+//Important stuff like research disks
+/obj/effect/spawner/lootdrop/ruinloot/important
+	loot = list(
+		/obj/item/disk/tech_disk/research/weaponry = 2,
+		/obj/item/disk/tech_disk/research/adv_weaponry = 2,
+		/obj/item/disk/tech_disk/research/explosive_weapons = 2,
+		/obj/item/disk/tech_disk/research/radioactive_weapons = 2,
+		/obj/item/disk/tech_disk/research/beam_weapons = 2,
+		/obj/item/disk/tech_disk/research/adv_beam_weapons = 2,
+		/obj/item/disk/tech_disk/research/exotic_ammo = 2,
+		/obj/item/disk/tech_disk/research/phazon = 2,
+		/obj/item/disk/tech_disk/research/cyber_implants = 2,
+		/obj/item/disk/tech_disk/research/adv_cyber_implants = 2,
+		/obj/item/disk/tech_disk/research/combat_cyber_implants = 2,
+		/obj/item/disk/tech_disk/research/syndicate_basic = 2,
+		/obj/item/disk/tech_disk/research/alien_bio_adv = 2,
+		/obj/item/disk/tech_disk/research/noneuclidic = 2,
 		/obj/item/alienartifact = 6,
 		/obj/item/gun/energy/alien = 1
 	)

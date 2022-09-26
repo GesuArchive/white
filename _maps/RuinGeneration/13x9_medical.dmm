@@ -248,7 +248,7 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "S" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "T" = (
 /obj/effect/turf_decal/tile/blue,

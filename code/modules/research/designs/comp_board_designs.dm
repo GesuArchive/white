@@ -25,7 +25,10 @@
 	desc = "Используется для доступа к различным камерам на станции."
 	id = "seccamera"
 	build_path = /obj/item/circuitboard/computer/security
-	category = list("Консоли")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	category = list("Консоли", "Оборудование СБ")
+	sub_category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/board/rdcamera
@@ -75,8 +78,8 @@
 	build_type = IMPRINTER | PROTOLATHE | MECHFAB
 	construction_time = 40
 	build_path = /obj/item/circuitboard/computer/med_data
-	category = list("Консоли", "Медицинское оборудование")
-	sub_category = list("Прочее")
+	category = list("Консоли", "Медицинское оборудование", "Оборудование СБ")
+	sub_category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/board/operating
@@ -119,7 +122,7 @@
 	build_path = /obj/item/circuitboard/computer/communications
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
-	category = list("Консоли", "Инженерное оборудование")
+	category = list("Консоли", "Инженерное оборудование", "Оборудование СБ")
 	sub_category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SECURITY				//Honestly should have a bridge techfab for this sometime.
 
@@ -130,8 +133,8 @@
 	build_type = IMPRINTER | PROTOLATHE | MECHFAB
 	construction_time = 40
 	build_path = /obj/item/circuitboard/computer/crew
-	category = list("Консоли", "Медицинское оборудование")
-	sub_category = list("Прочее")
+	category = list("Консоли", "Медицинское оборудование", "Оборудование СБ")
+	sub_category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/board/secdata
@@ -139,7 +142,10 @@
 	desc = "Используется для просмотра и редактирования записей о правонарушениях и личных дел персонала."
 	id = "secdata"
 	build_path = /obj/item/circuitboard/computer/secure_data
-	category = list("Консоли")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	category = list("Консоли", "Оборудование СБ")
+	sub_category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/board/atmosalerts
@@ -171,7 +177,7 @@
 	build_path = /obj/item/circuitboard/computer/robotics
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
-	category = list("Консоли", "Научное оборудование")
+	category = list("Консоли", "Научное оборудование", "Оборудование СБ")
 	sub_category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -210,7 +216,10 @@
 	desc = "Используется для управления отслеживающими имплантатами, имплантированным преступникам."
 	id = "prisonmanage"
 	build_path = /obj/item/circuitboard/computer/prisoner
-	category = list("Консоли")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	category = list("Консоли", "Оборудование СБ")
+	sub_category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/board/mechacontrol
@@ -220,7 +229,7 @@
 	build_path = /obj/item/circuitboard/computer/mecha_control
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
-	category = list("Консоли", "Научное оборудование")
+	category = list("Консоли", "Научное оборудование", "Оборудование СБ")
 	sub_category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -231,7 +240,7 @@
 	build_path = /obj/item/circuitboard/computer/mech_bay_power_console
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
-	category = list("Консоли", "Инженерное оборудование", "Научное оборудование")
+	category = list("Консоли", "Инженерное оборудование", "Научное оборудование", "Оборудование СБ")
 	sub_category = list("Производство")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
@@ -284,8 +293,8 @@
 	desc = "Используется для доступа к различным камерам на шахтерском аванпосте."
 	id = "mining"
 	build_path = /obj/item/circuitboard/computer/mining
-	category = list("Консоли", "Карго оборудование")
-	sub_category = list("Освещение и наблюдение")
+	category = list("Консоли", "Карго оборудование", "Оборудование СБ")
+	sub_category = list("Консоли")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SECURITY
@@ -380,7 +389,10 @@
 	desc = "Используется для доступа к различным камерам на станции. Продвинутая версия обладает более удобным интерфейсом."
 	id = "advanced_camera"
 	build_path = /obj/item/circuitboard/computer/advanced_camera
-	category = list("Консоли")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	category = list("Консоли", "Оборудование СБ")
+	sub_category = list("Консоли")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
 /datum/design/board/price_controller

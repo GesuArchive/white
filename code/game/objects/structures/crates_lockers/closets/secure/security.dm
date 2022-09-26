@@ -71,6 +71,7 @@
 	new /obj/item/gun/energy/e_gun/hos(src)
 	new /obj/item/pinpointer/nuke(src)
 	new /obj/item/circuitboard/machine/techfab/department/security(src)
+	new /obj/item/circuitboard/machine/mechfab/sb(src)
 	new /obj/item/storage/photo_album/hos(src)
 	new /obj/item/inspector(src)
 	new /obj/item/storage/box/firingpins/paywall(src)

@@ -40,16 +40,21 @@
 	glasses = /obj/item/clothing/glasses/sunglasses
 	belt = /obj/item/storage/belt/security/sobr
 	id = /obj/item/card/id/advanced/centcom
-	l_pocket = /obj/item/gun/energy/e_gun/mini
+	l_pocket = /obj/item/gun/ballistic/automatic/pistol
+	r_pocket = /obj/item/ammo_box/magazine/m9mm
 
 	implants = list(/obj/item/implant/sound_implant, /obj/item/implant/mindshield)
+	id_trim = /datum/id_trim/centcom/omon
 
 /datum/outfit/sobr/pre_equip(mob/living/carbon/human/H)
 	if (prob(10))
 		back = /obj/item/shield/riot/flash
 	else
 		back = /obj/item/storage/backpack
-		backpack_contents = list(/obj/item/storage/box/survival/engineer=1)
+		backpack_contents = list(
+			/obj/item/storage/box/survival/engineer=1,
+			/obj/item/ammo_box/c9mm,
+			)
 	if (prob(1))
 		r_hand = /obj/item/gun/ballistic/rocketlauncher/unrestricted //I'm just a SOBR with a rocket launcher
 		l_hand = /obj/item/ammo_casing/caseless/rocket/weak
@@ -72,6 +77,7 @@
 
 	uniform = /obj/item/clothing/under/rank/omon
 	suit = /obj/item/clothing/suit/armor/bulletproof/omon
+	suit_store = /obj/item/gun/ballistic/automatic/pistol/aps
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/fingerless
 	ears = /obj/item/radio/headset/headset_cent/alt
@@ -80,11 +86,15 @@
 	belt = /obj/item/storage/belt/military/army/sobr
 	id = /obj/item/card/id/advanced/centcom
 	back = /obj/item/storage/backpack/satchel/leather
-	box = /obj/item/storage/box/survival/engineer
-	backpack_contents = list(/obj/item/gun/ballistic/automatic/pistol/makarov =1,
-							)
-	l_pocket = /obj/item/restraints/handcuffs
+	backpack_contents = list(
+		/obj/item/gun/energy/disabler =1,
+		/obj/item/ammo_box/c9mm,
+		)
+	l_pocket = /obj/item/ammo_box/magazine/m9mm_aps
+	r_pocket = /obj/item/ammo_box/magazine/m9mm_aps
 	implants = list(/obj/item/implant/sound_implant, /obj/item/implant/mindshield)
+
+	id_trim = /datum/id_trim/centcom/omon/lieutenant
 
 /datum/outfit/sobr/leader/pre_equip(mob/living/carbon/human/H)
 
@@ -101,18 +111,13 @@
 /obj/item/storage/belt/military/army/sobr
 
 /obj/item/storage/belt/military/army/sobr/PopulateContents()
-	if(prob(30))
-		new /obj/item/ammo_box/magazine/m9mm(src)
-	if(prob(45))
-		new /obj/item/ammo_box/magazine/m9mm(src)
-	if(prob(60))
-		new /obj/item/ammo_box/magazine/m9mm(src)
-	if(prob(40))
-		new /obj/item/reagent_containers/hypospray/medipen/salacid(src)
-	if(prob(80))
-		new /obj/item/grenade/flashbang(src)
-	if(prob(30))
-		new /obj/item/grenade/syndieminibomb/concussion(src)
+	new /obj/item/restraints/handcuffs(src)
+	new /obj/item/reagent_containers/hypospray/medipen/salacid(src)
+	new /obj/item/grenade/flashbang(src)
+	new /obj/item/grenade/chem_grenade/teargas(src)
+	new /obj/item/grenade/barbed_wire(src)
+	new /obj/item/grenade/syndieminibomb/concussion(src)
+
 /obj/item/storage/belt/security/sobr
 
 /obj/item/storage/belt/security/sobr/PopulateContents()

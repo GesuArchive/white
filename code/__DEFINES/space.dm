@@ -1,1 +1,1 @@
-#define SPACE_SIGNAL_GPSTAG "Distant Signal"
+#define SPACE_SIGNAL_GPSTAG "Сигнал ближнего космоса"

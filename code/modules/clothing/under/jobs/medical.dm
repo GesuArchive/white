@@ -142,15 +142,16 @@
 	desc = "Он изготовлен из специального волокна, которое обеспечивает незначительную защиту от биологических опасностей."
 	icon_state = "brig_phys"
 	inhand_icon_state = "w_suit"
-	armor = list(MELEE = 10, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 50, RAD = 0, FIRE = 0, ACID = 0)
+	armor = list(MELEE = 10, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 50, RAD = 0, FIRE = 0, ACID = 50)
 	alt_covers_chest = TRUE
+	max_integrity = 500
+	limb_integrity = 100
 
 /obj/item/clothing/under/rank/medical/brigphys/skirt
 	name = "юбкомбинезон полевого медика"
 	desc = "Он изготовлен из специального волокна, которое обеспечивает незначительную защиту от биологических опасностей."
 	icon_state = "brig_phys_skirt"
 	inhand_icon_state = "w_suit"
-	body_parts_covered = CHEST|GROIN|ARMS
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	fitted = NO_FEMALE_UNIFORM
 	can_adjust = FALSE

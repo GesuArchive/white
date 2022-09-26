@@ -23,6 +23,9 @@ GLOBAL_LIST_EMPTY(GPS_list)
 	/// UI state of GPS, altering when it can be used.
 	var/datum/ui_state/state = null
 
+/datum/component/gps/item/off
+	tracking = FALSE
+
 /datum/component/gps/item/Initialize(_gpstag = "COM0", emp_proof = FALSE, state = null, overlay_state = "working")
 	. = ..()
 	if(. == COMPONENT_INCOMPATIBLE || !isitem(parent))
@@ -34,7 +37,8 @@ GLOBAL_LIST_EMPTY(GPS_list)
 
 	var/atom/A = parent
 	if(overlay_state)
-		A.add_overlay(overlay_state)
+		if(tracking)
+			A.add_overlay(overlay_state)
 	A.name = "[initial(A.name)] ([gpstag])"
 	RegisterSignal(parent, COMSIG_ITEM_ATTACK_SELF, .proc/interact)
 	if(!emp_proof)

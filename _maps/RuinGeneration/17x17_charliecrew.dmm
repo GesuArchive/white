@@ -4,18 +4,17 @@
 /area/ruin/unpowered)
 "aY" = (
 /obj/effect/decal/remains/human,
+/obj/structure/showcase/machinery/cloning_pod,
 /turf/open/floor/plasteel/showroomfloor,
 /area/ruin/unpowered)
 "bb" = (
-/obj/item/gun/energy/laser/retro/old{
-	pixel_x = -2;
-	pixel_y = -2
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel/showroomfloor,
+/obj/structure/table/reinforced,
+/obj/effect/spawner/lootdrop/crate_spawner,
+/turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "bs" = (
 /obj/machinery/door/airlock/highsecurity,
+/obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "bt" = (
@@ -38,6 +37,11 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/purple,
+/obj/structure/window/reinforced{
+	dir = 8;
+	pixel_x = -5
+	},
+/obj/machinery/iv_drip,
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "dV" = (
@@ -51,8 +55,9 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "fE" = (
-/obj/effect/mob_spawn/human/oldsec,
-/turf/open/floor/plasteel/showroomfloor,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/personal,
+/turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "fF" = (
 /obj/machinery/door/airlock/hatch,
@@ -71,11 +76,8 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "hp" = (
-/obj/item/gun/energy/laser/retro/old{
-	pixel_x = 2;
-	pixel_y = 2
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/showcase/horrific_experiment,
 /turf/open/floor/plasteel/showroomfloor,
 /area/ruin/unpowered)
 "hQ" = (
@@ -87,6 +89,10 @@
 	},
 /obj/effect/turf_decal/tile/purple,
 /obj/machinery/chem_heater,
+/obj/structure/window/reinforced{
+	dir = 1;
+	pixel_y = 5
+	},
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "iW" = (
@@ -101,13 +107,20 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
+"kA" = (
+/obj/structure/window/reinforced{
+	dir = 1;
+	pixel_y = 5
+	},
+/turf/open/floor/plasteel/white,
+/area/ruin/unpowered)
 "kC" = (
-/obj/effect/mob_spawn/human/oldsci,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/showcase/machinery/oldpod,
 /turf/open/floor/plasteel/showroomfloor,
 /area/ruin/unpowered)
 "lf" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "lk" = (
 /turf/closed/wall/r_wall,
@@ -115,17 +128,29 @@
 "lZ" = (
 /obj/structure/table/reinforced,
 /obj/item/paper/fluff/ruins/oldstation,
+/obj/item/storage/toolbox/syndicate,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"mh" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/reinforced,
+/obj/effect/spawner/lootdrop/costume,
+/obj/effect/spawner/lootdrop/gloves,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "mj" = (
-/obj/structure/table/reinforced,
 /obj/item/gun/energy/e_gun/old,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/safe,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "mW" = (
 /obj/machinery/rnd/production/circuit_imprinter,
 /obj/item/reagent_containers/dropper,
+/obj/structure/window/reinforced{
+	dir = 8;
+	pixel_x = -5
+	},
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "nX" = (
@@ -138,6 +163,15 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
 	},
+/obj/structure/window/reinforced{
+	dir = 8;
+	pixel_x = -5
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	pixel_y = 5
+	},
+/obj/structure/closet/crate/freezer/blood,
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "ps" = (
@@ -169,12 +203,17 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
+"vR" = (
+/obj/structure/closet/secure_closet/personal,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
 "wp" = (
 /turf/open/floor/carpet/red,
 /area/ruin/unpowered)
 "ww" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/showcase/machinery/cloning_pod,
 /turf/open/floor/plasteel/showroomfloor,
 /area/ruin/unpowered)
 "wJ" = (
@@ -211,6 +250,10 @@
 	name = "Robotics Operating Table"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/window/reinforced{
+	dir = 8;
+	pixel_x = -5
+	},
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "Au" = (
@@ -235,6 +278,13 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},
+/obj/structure/window/reinforced{
+	dir = 8;
+	pixel_x = -5
+	},
+/obj/structure/window/reinforced{
+	pixel_y = -5
+	},
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "Dy" = (
@@ -250,6 +300,9 @@
 /obj/effect/turf_decal/tile/purple{
 	dir = 8
 	},
+/obj/structure/window/reinforced{
+	pixel_y = -5
+	},
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "Em" = (
@@ -264,22 +317,39 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "Gu" = (
-/obj/effect/spawner/structure/window,
-/turf/open/floor/plating,
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
 /area/ruin/unpowered)
 "GX" = (
 /obj/structure/closet/crate,
 /obj/item/storage/backpack/old,
 /obj/item/storage/backpack/old,
+/obj/item/gun/energy/laser/retro,
 /turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"HT" = (
+/obj/effect/turf_decal/tile/purple{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/purple{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8;
+	pixel_x = -5
+	},
+/turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "Iw" = (
 /obj/machinery/the_singularitygen,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "JG" = (
-/obj/item/storage/toolbox/syndicate,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/showcase/machinery/cloning_pod,
 /turf/open/floor/plasteel/showroomfloor,
 /area/ruin/unpowered)
 "Ks" = (
@@ -291,7 +361,6 @@
 "KM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate,
-/obj/item/circular_saw,
 /obj/item/retractor,
 /obj/item/hemostat,
 /obj/item/scalpel{
@@ -300,6 +369,8 @@
 /obj/item/cautery{
 	pixel_x = 4
 	},
+/obj/item/clothing/neck/stethoscope,
+/obj/item/circular_saw,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "KT" = (
@@ -312,6 +383,10 @@
 /obj/item/pen,
 /turf/open/floor/carpet/red,
 /area/ruin/unpowered)
+"LZ" = (
+/obj/structure/closet/secure_closet/security/science,
+/turf/open/floor/carpet/red,
+/area/ruin/unpowered)
 "OX" = (
 /obj/machinery/computer{
 	dir = 4
@@ -321,26 +396,42 @@
 /area/ruin/unpowered)
 "Pd" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/gloves/color/fyellow/old,
-/obj/item/clothing/gloves/color/fyellow/old,
+/obj/item/clothing/gloves/color/yellow,
+/obj/item/clothing/gloves/color/yellow,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "Pw" = (
-/obj/structure/showcase/machinery/oldpod,
-/obj/effect/decal/cleanable/dirt,
+/obj/structure/showcase/machinery/cloning_pod,
 /turf/open/floor/plasteel/showroomfloor,
 /area/ruin/unpowered)
 "QB" = (
-/obj/effect/mob_spawn/human/oldeng,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel/showroomfloor,
+/obj/structure/window/reinforced{
+	pixel_y = -5
+	},
+/turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "Rr" = (
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
+"SG" = (
+/obj/structure/table/reinforced,
+/obj/effect/spawner/lootdrop/costume,
+/obj/effect/spawner/lootdrop/gloves,
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
 "Uh" = (
 /obj/machinery/rnd/destructive_analyzer,
+/obj/structure/window/reinforced{
+	dir = 8;
+	pixel_x = -5
+	},
 /turf/open/floor/plasteel/white,
+/area/ruin/unpowered)
+"UA" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/personal,
+/obj/item/gun/energy/laser/retro,
+/turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "Vu" = (
 /obj/structure/table/reinforced,
@@ -389,6 +480,10 @@
 /obj/item/tank/internals/anesthetic,
 /obj/item/clothing/mask/breath/medical,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/window/reinforced{
+	dir = 8;
+	pixel_x = -5
+	},
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 
@@ -413,13 +508,13 @@ lf
 "}
 (2,1,1) = {"
 lk
-yg
+dV
 dV
 kC
 iW
-bb
+hp
 aY
-yg
+Pw
 lk
 GX
 sU
@@ -427,15 +522,15 @@ sU
 wp
 wp
 wp
-wp
+LZ
 lf
 "}
 (3,1,1) = {"
 lk
-Pw
+iW
 bt
-Pw
-QB
+iW
+iW
 iW
 yg
 yg
@@ -451,15 +546,15 @@ lf
 "}
 (4,1,1) = {"
 lk
-yg
 dV
-fE
+dV
+dV
 iW
 ww
 hp
 JG
 lk
-uO
+fE
 uO
 uO
 Wh
@@ -478,7 +573,7 @@ Gu
 lk
 lk
 lk
-uO
+UA
 uO
 uO
 uO
@@ -488,14 +583,14 @@ uO
 lf
 "}
 (6,1,1) = {"
-lf
+lk
 wJ
 VC
 VC
 Vu
 OX
 Pd
-lf
+Gu
 Ks
 uO
 uO
@@ -507,14 +602,14 @@ sU
 lf
 "}
 (7,1,1) = {"
-lf
+lk
 Rr
 Rr
 Wt
 KT
 gZ
 Rr
-lf
+Gu
 lZ
 uO
 sU
@@ -526,52 +621,52 @@ sU
 lf
 "}
 (8,1,1) = {"
-lf
+lk
 KT
 Rr
 Rr
 KT
 Rr
 Rr
-lf
+Gu
 te
 uO
-sU
-sU
-sU
-uO
-sU
-sU
+vR
+vR
+bb
+mh
+bb
+SG
 lf
 "}
 (9,1,1) = {"
-lf
+lk
 mj
 KT
 kw
 uh
 Iw
 Wc
-lf
+lk
 lf
 fF
 lf
 lf
 lf
-lf
-lf
+Gu
+Gu
 lf
 lf
 "}
 (10,1,1) = {"
-lf
-lf
+lk
+lk
 bs
-lf
-lf
-lf
-lf
-lf
+lk
+Gu
+Gu
+lk
+lk
 sU
 sU
 sU
@@ -622,7 +717,7 @@ lf
 "}
 (13,1,1) = {"
 lf
-nX
+HT
 Uh
 mW
 Dg
@@ -644,10 +739,10 @@ lf
 aW
 td
 td
-aW
+QB
 sU
 sU
-aW
+kA
 td
 aW
 td

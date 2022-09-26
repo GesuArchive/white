@@ -142,7 +142,7 @@
 		if(JOB_STATION_ENGINEER)
 			O = new /datum/outfit/plasmaman/engineering
 
-		if(JOB_MECHANIC)
+		if(JOB_MECHANIC, JOB_SPECIALIST)
 			O = new /datum/outfit/plasmaman/engineering
 
 		if(JOB_ATMOSPHERIC_TECHNICIAN)

@@ -27,7 +27,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "S" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "W" = (
 /obj/effect/abstract/doorway_marker{

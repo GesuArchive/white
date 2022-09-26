@@ -190,6 +190,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = JOB_FIELD_MEDIC
 	icon_state = JOB_PARAMEDIC
 
+/obj/effect/landmark/start/specialist
+	name = JOB_SPECIALIST
+	icon_state = JOB_STATION_ENGINEER
+
 /obj/effect/landmark/start/paramedic
 	name = JOB_PARAMEDIC
 	icon_state = JOB_PARAMEDIC

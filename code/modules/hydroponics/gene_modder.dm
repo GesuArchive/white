@@ -1,6 +1,6 @@
 /obj/machinery/plantgenes
-	name = "plant DNA manipulator"
-	desc = "An advanced device designed to manipulate plant genetic makeup."
+	name = "манипулятор ДНК растений"
+	desc = "Позволяет работать с генетическим кодом растений для увеличения их потенциала."
 	icon = 'icons/obj/hydroponics/equipment.dmi'
 	icon_state = "dnamod"
 	density = TRUE

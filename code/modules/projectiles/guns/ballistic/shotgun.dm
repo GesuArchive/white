@@ -45,7 +45,7 @@
 	icon_state = "riotshotgun"
 	inhand_icon_state = "shotgun"
 	fire_delay = 8
-	mag_type = /obj/item/ammo_box/magazine/internal/shot/riot
+	mag_type = /obj/item/ammo_box/magazine/internal/shot/combat_buckshot
 	sawn_desc = "Пошли со мной, если хочешь жить."
 	can_be_sawn_off  = TRUE
 
@@ -61,7 +61,7 @@
 	icon_state = "cshotgun"
 	inhand_icon_state = "shotgun_combat"
 	fire_delay = 5
-	mag_type = /obj/item/ammo_box/magazine/internal/shot/com
+	mag_type = /obj/item/ammo_box/magazine/internal/shot/combat_bullet
 
 //Dual Feed Shotgun
 
@@ -111,7 +111,7 @@
 // Bulldog shotgun //
 
 /obj/item/gun/ballistic/shotgun/bulldog
-	name = "дробовик \"Bulldog\""
+	name = "дробовик \"Бульдог\""
 	desc = "Полуавтоматический дробовик с магнитной подачей патронов для боя на близких дистанциях по прозвищу «Бульдог». Совместим только со специализированными 8-зарядными барабанными магазинами."
 	icon_state = "bulldog"
 	inhand_icon_state = "bulldog"

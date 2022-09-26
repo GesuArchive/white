@@ -8,8 +8,8 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "o" = (
-/obj/effect/spawner/structure/window,
-/turf/open/floor/plating,
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
 /area/ruin/unpowered)
 "s" = (
 /turf/open/floor/plasteel,
@@ -44,7 +44,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "Y" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 
 (1,1,1) = {"

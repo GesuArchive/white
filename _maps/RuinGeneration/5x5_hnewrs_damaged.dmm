@@ -16,7 +16,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "M" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "P" = (
 /obj/effect/abstract/open_area_marker{

@@ -14,7 +14,7 @@
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "E" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "F" = (
 /turf/open/space/basic,

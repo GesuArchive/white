@@ -20,6 +20,8 @@
 	var/can_change_dmg_state = TRUE
 	///Whether we can open/close this barrricade and thus go over it
 	var/closed = FALSE
+	///Дополнительный щит
+	var/raise = FALSE
 	///Can this barricade type be wired
 	var/can_wire = FALSE
 	///is this barriade wired?
@@ -79,11 +81,12 @@
 	if(istype(mover, /obj/projectile))
 		if(!anchored)
 			return TRUE
-		var/obj/projectile/proj = mover
-		if(proj.firer && Adjacent(proj.firer))
-			return TRUE
-		if(prob(25))
-			return TRUE
+		if(!raise)
+			var/obj/projectile/proj = mover
+			if(proj.firer && Adjacent(proj.firer))
+				return TRUE
+			if(prob(25))
+				return TRUE
 		return FALSE
 
 	if((border_dir & dir) && !closed)
@@ -119,14 +122,14 @@
 		return FALSE
 
 	user.visible_message(span_notice("[user] начинает перекусывать колючую проволоку на [src]."),
-	span_notice("Вы начинаете перекусывать колючую проволоку на [src]."))
+	span_notice("Начинаю перекусывать колючую проволоку на [src]."))
 
 	if(!do_after(user, 2 SECONDS, src))
 		return TRUE
 
 	playsound(loc, 'sound/items/wirecutter.ogg', 25, TRUE)
 	user.visible_message(span_notice("[user] перекусил колючую проволоку на [src]."),
-	span_notice("Вы перекусили колючую проволоку на [src]."))
+	span_notice("Перекусываю колючую проволоку на [src]."))
 	modify_max_integrity(max_integrity - 50)
 	can_wire = TRUE
 	is_wired = FALSE
@@ -210,7 +213,7 @@
 	set src in oview(1)
 
 	if(anchored)
-		to_chat(usr, span_warning("Она прикручена к полу, вы не можете повернуть ее!"))
+		to_chat(usr, span_warning("Она прикручена к полу, у меня не выйдет повернуть ее!"))
 		return FALSE
 
 	setDir(turn(dir, 90))
@@ -221,7 +224,7 @@
 	set src in oview(1)
 
 	if(anchored)
-		to_chat(usr, span_warning("Она прикручена к полу, вы не можете повернуть ее!"))
+		to_chat(usr, span_warning("Она прикручена к полу, у меня не выйдет повернуть ее!"))
 		return FALSE
 
 	setDir(turn(dir, 270))
@@ -230,7 +233,7 @@
 /obj/structure/deployable_barricade/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
 	if(anchored)
-		to_chat(user, span_warning("Она прикручена к полу, вы не можете повернуть ее!"))
+		to_chat(user, span_warning("Она прикручена к полу, у меня не выйдет повернуть ее!"))
 		return FALSE
 
 	setDir(turn(dir, 270))
@@ -425,7 +428,7 @@
 	var/choice = show_radial_menu(user, src, cade_types, require_near = TRUE, tooltips = TRUE)
 
 	user.visible_message(span_notice("[user] начинает присоединять [choice] к [skloname(src.name, DATELNI, src.gender)]."),
-		span_notice("Вы начинаете присоединять [choice] к [skloname(src.name, DATELNI, src.gender)]."))
+		span_notice("Начинаю присоединять [choice] к [skloname(src.name, DATELNI, src.gender)]."))
 	if(!do_after(user, 2 SECONDS, src))
 		return FALSE
 
@@ -443,7 +446,7 @@
 	barricade_upgrade_type = choice
 
 	user.visible_message(span_notice("[user] присоединил [choice] к [skloname(src.name, DATELNI, src.gender)]."),
-		span_notice("Вы присоединили [choice] к [skloname(src.name, DATELNI, src.gender)]."))
+		span_notice("Присоединяю [choice] к [skloname(src.name, DATELNI, src.gender)]."))
 
 	playsound(loc, 'sound/items/screwdriver.ogg', 25, TRUE)
 	update_icon()
@@ -455,11 +458,11 @@
 		if(BARRICADE_METAL_FIRM)
 			to_chat(user, span_info("Защитная панель плотно привинчена на своем месте."))
 		if(BARRICADE_METAL_ANCHORED)
-			to_chat(user, span_info("Защитная панель снята, вы видите туго закрученные анкерные болты."))
+			to_chat(user, span_info("Защитная панель снята, под ней заметны туго закрученные анкерные болты."))
 		if(BARRICADE_METAL_LOOSE)
 			to_chat(user, span_info("Защитная панель снята, а анкерные болты расслаблены. Баррикаду можно разобрать."))
 
-	to_chat(user, span_info("Вы видите [barricade_upgrade_type ? "[barricade_upgrade_type] на этой баррикаде" : ", что эта баррикада не улучшена"]."))
+	to_chat(user, span_info("Вижу [barricade_upgrade_type ? "[barricade_upgrade_type] на этой баррикаде" : ", что эта баррикада не улучшена"]."))
 
 /obj/structure/deployable_barricade/metal/welder_act(mob/living/user, obj/item/I)
 
@@ -477,7 +480,7 @@
 		return TRUE
 
 	user.visible_message(span_notice("[user] начинает заваривать пробоины в [skloname(src.name, DATELNI, src.gender)]."),
-	span_notice("Вы начинаете заваривать пробоины в [skloname(src.name, DATELNI, src.gender)]."))
+	span_notice("Начинаю заваривать пробоины в [skloname(src.name, DATELNI, src.gender)]."))
 	playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
 
 	if(!do_after(user, 5 SECONDS, src))
@@ -491,7 +494,7 @@
 		return TRUE
 
 	user.visible_message(span_notice("[user] заварил пробоины в [skloname(src.name, DATELNI, src.gender)]."),
-	span_notice("Вы заварили пробоины в [skloname(src.name, DATELNI, src.gender)]."))
+	span_notice("Завариваю пробоины в [skloname(src.name, DATELNI, src.gender)]."))
 	repair_damage(150)
 	update_icon()
 	playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
@@ -507,7 +510,7 @@
 				return TRUE
 
 			user.visible_message(span_notice("[user] установил защитную панель [skloname(src.name, RODITELNI, src.gender)] на свое место."),
-			span_notice("Вы установили защитную панель [skloname(src.name, RODITELNI, src.gender)] на свое место."))
+			span_notice("Установливаю защитную панель [skloname(src.name, RODITELNI, src.gender)] на свое место."))
 			build_state = BARRICADE_METAL_FIRM
 			return TRUE
 
@@ -519,7 +522,7 @@
 				return TRUE
 
 			user.visible_message(span_notice("[user] снимает защитную панель с [skloname(src.name, RODITELNI, src.gender)]."),
-			span_notice("Вы сняли защитную панель с [skloname(src.name, RODITELNI, src.gender)], за ней видны анкерные болты."))
+			span_notice("Снимаю защитную панель с [skloname(src.name, RODITELNI, src.gender)], за ней видны анкерные болты."))
 			build_state = BARRICADE_METAL_ANCHORED
 			return TRUE
 
@@ -533,7 +536,7 @@
 				return TRUE
 
 			user.visible_message(span_notice("[user] расслабляет анкерные болты [skloname(src.name, RODITELNI, src.gender)]."),
-			span_notice("Вы расслабляете анкерные болты [skloname(src.name, RODITELNI, src.gender)]."))
+			span_notice("Расслабляю анкерные болты [skloname(src.name, RODITELNI, src.gender)]."))
 			build_state = BARRICADE_METAL_LOOSE
 			anchored = FALSE
 			modify_max_integrity(initial(max_integrity) * 0.5)
@@ -557,7 +560,7 @@
 				return TRUE
 
 			user.visible_message(span_notice("[user] затягивает анкерные болты [skloname(src.name, RODITELNI, src.gender)]."),
-			span_notice("Вы затягиваете анкерные болты [skloname(src.name, RODITELNI, src.gender)]."))
+			span_notice("Затягиваю анкерные болты [skloname(src.name, RODITELNI, src.gender)]."))
 			build_state = BARRICADE_METAL_ANCHORED
 			anchored = TRUE
 			modify_max_integrity(initial(max_integrity))
@@ -570,14 +573,14 @@
 		if(BARRICADE_METAL_LOOSE) //Anchor bolts loosened step. Apply crowbar to unseat the panel and take apart the whole thing. Apply wrench to resecure anchor bolts
 
 			user.visible_message(span_notice("[user] начинает разбирать [skloname(src.name, VINITELNI, src.gender)]."),
-			span_notice("Вы начинате разбирать [skloname(src.name, VINITELNI, src.gender)]."))
+			span_notice("Начинаю разбирать [skloname(src.name, VINITELNI, src.gender)]."))
 
 			playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
 			if(!do_after(user, 5 SECONDS, src))
 				return TRUE
 
 			user.visible_message(span_notice("[user] разбирает [skloname(src.name, VINITELNI, src.gender)]."),
-			span_notice("Вы разбираете [skloname(src.name, VINITELNI, src.gender)]."))
+			span_notice("Разбираю [skloname(src.name, VINITELNI, src.gender)]."))
 			playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
 			var/deconstructed = TRUE
 			deconstruct(deconstructed)
@@ -589,14 +592,14 @@
 				return TRUE
 
 			user.visible_message(span_notice("[user] начинает отсоединять бронепластины от [skloname(src.name, RODITELNI, src.gender)]."),
-			span_notice("Вы начинаете отсоединять бронепластины от [skloname(src.name, RODITELNI, src.gender)]."))
+			span_notice("Начинаю отсоединять бронепластины от [skloname(src.name, RODITELNI, src.gender)]."))
 
 			playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
 			if(!do_after(user, 5 SECONDS, src))
 				return TRUE
 
 			user.visible_message(span_notice("[user] отсоединяет бронепластины от [skloname(src.name, RODITELNI, src.gender)]."),
-			span_notice("Вы отсоединяете бронепластины от [skloname(src.name, RODITELNI, src.gender)]."))
+			span_notice("Отсоединяю бронепластины от [skloname(src.name, RODITELNI, src.gender)]."))
 			playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
 
 			switch(barricade_upgrade_type)
@@ -642,7 +645,7 @@
 	desc = "Прочнейшее защитное сооружение, заграждение может опускаться при необходимости. Ремонт производится при помощи сварочного аппарата."
 	icon_state = "plasteel_closed_0"
 	max_integrity = 500
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 100, "rad" = 0, "fire" = 80, "acid" = 40)
+	armor = list("melee" = 30, "bullet" = 30, "laser" = 30, "energy" = 0, "bomb" = 0, "bio" = 100, "rad" = 0, "fire" = 80, "acid" = 40)
 	stack_type = /obj/item/stack/sheet/plasteel
 	stack_amount = 5
 	destroyed_stack_amount = 2
@@ -665,7 +668,7 @@
 		if(BARRICADE_PLASTEEL_FIRM)
 			to_chat(user, span_info("Защитная панель плотно привинчена на своем месте."))
 		if(BARRICADE_PLASTEEL_ANCHORED)
-			to_chat(user, span_info("Защитная панель снята, вы видите туго закрученные анкерные болты."))
+			to_chat(user, span_info("Защитная панель снята, под ней находятся туго закрученные анкерные болты."))
 		if(BARRICADE_PLASTEEL_LOOSE)
 			to_chat(user, span_info("Защитная панель снята, а анкерные болты расслаблены. Баррикаду можно разобрать."))
 
@@ -714,7 +717,7 @@
 
 
 			user.visible_message(span_notice("[user] начинает заваривать пробоины в [skloname(src.name, DATELNI, src.gender)]."),
-			span_notice("Вы начинаете заваривать пробоины в [skloname(src.name, DATELNI, src.gender)]."))
+			span_notice("Начинаю заваривать пробоины в [skloname(src.name, DATELNI, src.gender)]."))
 			playsound(loc, 'sound/items/welder2.ogg', 25, 1)
 			busy = TRUE
 
@@ -724,7 +727,7 @@
 
 			busy = FALSE
 			user.visible_message(span_notice("[user] заварил пробоины в [skloname(src.name, DATELNI, src.gender)]."),
-			span_notice("Вы заварили пробоины в [skloname(src.name, DATELNI, src.gender)]."))
+			span_notice("Завариваю пробоины в [skloname(src.name, DATELNI, src.gender)]."))
 			repair_damage(150)
 			update_icon()
 			playsound(loc, 'sound/items/welder2.ogg', 25, 1)
@@ -745,7 +748,7 @@
 
 					build_state = BARRICADE_PLASTEEL_ANCHORED
 					user.visible_message(span_notice("[user] снимает защитную панель с [skloname(src.name, RODITELNI, src.gender)]."),
-					span_notice("Вы сняли защитную панель с [skloname(src.name, RODITELNI, src.gender)], за ней видны анкерные болты."))
+					span_notice("Снимаю защитную панель с [skloname(src.name, RODITELNI, src.gender)], за ней видны анкерные болты."))
 
 
 				if(I.tool_behaviour == TOOL_CROWBAR)
@@ -763,7 +766,7 @@
 			if(BARRICADE_PLASTEEL_ANCHORED) //Protection panel removed step. Screwdriver to put the panel back, wrench to unsecure the anchor bolts
 				if(I.tool_behaviour == TOOL_SCREWDRIVER)
 					user.visible_message(span_notice("[user] установил защитную панель [skloname(src.name, RODITELNI, src.gender)] на свое место."),
-					span_notice("Вы установили защитную панель [skloname(src.name, RODITELNI, src.gender)] на свое место."))
+					span_notice("Устанавляваю защитную панель [skloname(src.name, RODITELNI, src.gender)] на свое место."))
 					playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
 					if(!do_after(user, 5 SECONDS, src))
 						return TRUE
@@ -772,7 +775,7 @@
 
 				if(I.tool_behaviour == TOOL_WRENCH)
 					user.visible_message(span_notice("[user] расслабляет анкерные болты [skloname(src.name, RODITELNI, src.gender)]."),
-					span_notice("Вы расслабляете анкерные болты [skloname(src.name, RODITELNI, src.gender)]."))
+					span_notice("Расслабляю анкерные болты [skloname(src.name, RODITELNI, src.gender)]."))
 					playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
 					if(!do_after(user, 5 SECONDS, src))
 						return TRUE
@@ -791,7 +794,7 @@
 						return
 
 					user.visible_message(span_notice("[user] затягивает анкерные болты [skloname(src.name, RODITELNI, src.gender)]."),
-					span_notice("Вы затягиваете анкерные болты [skloname(src.name, RODITELNI, src.gender)]."))
+					span_notice("Затягиваю анкерные болты [skloname(src.name, RODITELNI, src.gender)]."))
 					playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
 					if(!do_after(user, 5 SECONDS, src))
 						return TRUE
@@ -803,7 +806,7 @@
 
 				if(I.tool_behaviour == TOOL_CROWBAR)
 					user.visible_message(span_notice("[user] начинает разбирать [skloname(src.name, VINITELNI, src.gender)]."),
-					span_notice("Вы начинаете разбирать [skloname(src.name, VINITELNI, src.gender)]."))
+					span_notice("Начинаю разбирать [skloname(src.name, VINITELNI, src.gender)]."))
 					playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
 					busy = TRUE
 
@@ -813,7 +816,7 @@
 
 					busy = FALSE
 					user.visible_message(span_notice("[user] разбирает [skloname(src.name, VINITELNI, src.gender)]."),
-					span_notice("Вы разбираете [skloname(src.name, VINITELNI, src.gender)]."))
+					span_notice("Разбираю [skloname(src.name, VINITELNI, src.gender)]."))
 					playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
 					var/deconstructed = TRUE
 					deconstruct(deconstructed)
@@ -825,7 +828,10 @@
 		return
 
 	if(do_after(user, 50, src))
-		toggle_open(null, user)
+		if(istype(src, /obj/structure/deployable_barricade/plasteel/rising))
+			toggle_raise(null, user)
+		else
+			toggle_open(null, user)
 
 /obj/structure/deployable_barricade/plasteel/proc/toggle_open(state, mob/living/user)
 	if(state == closed)
@@ -851,6 +857,18 @@
 		for(var/obj/structure/deployable_barricade/plasteel/cade in get_step(src, direction))
 			if(((dir & (NORTH|SOUTH) && get_dir(src, cade) & (EAST|WEST)) || (dir & (EAST|WEST) && get_dir(src, cade) & (NORTH|SOUTH))) && dir == cade.dir && cade.linked)
 				cade.toggle_open(closed)
+
+	update_icon()
+
+// Подъем полноростового щита
+/obj/structure/deployable_barricade/plasteel/proc/toggle_raise(state, mob/living/user)
+	if(state == raise)
+		return
+	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+	raise = !raise
+
+	user?.visible_message(span_notice("[user] [raise ? "поднимает" :"опускает"] дополнительный щит баррикады."),
+		span_notice("[raise ? "Поднимаю" :"Опускаю"] дополнительный щит баррикады."))
 
 	update_icon()
 
@@ -910,10 +928,10 @@
 	if(istype(I, /obj/item/shovel) && user.a_intent != INTENT_HARM)
 		var/obj/item/shovel/ET = I
 		user.visible_message(span_notice("[user] начинает разбирать [src]."),
-		span_notice("Вы начинаете разбирать [src]."))
+		span_notice("Начинаю разбирать [src]."))
 		if(do_after(user, ET.toolspeed, src))
 			user.visible_message(span_notice("[user] разбирает [src]."),
-			span_notice("Вы разбираете [src]."))
+			span_notice("Разбираю [src]."))
 			var/deconstructed = TRUE
 			deconstruct(deconstructed)
 		return TRUE
@@ -936,7 +954,7 @@
 
 		repair_damage(max_integrity * 0.2) //Each sandbag restores 20% of max health as 5 sandbags = 1 sandbag barricade.
 		user.visible_message(span_notice("[user] заменяет поврежденные мешки в [src], тем самым ремонтируя ее."),
-		span_notice("Вы заменили поврежденные мешки в [src], тем самым починив ее."))
+		span_notice("Заменяю поврежденные мешки в [src], тем самым починив ее."))
 		update_icon()
 	else ..()
 
@@ -948,19 +966,44 @@
 	w_class = WEIGHT_CLASS_SMALL //While this is small, normal 50 stacks of metal is NORMAL so this is a bit on the bad space to cade ratio
 	var/delay = 0 //Delay on deploying the thing
 	var/atom/movable/thing_to_deploy = null
+	var/atom/movable/side_thing_to_deploy = null
+	var/turf/step_left = null
+	var/turf/step_right = null
 
 /obj/item/quikdeploy/examine(mob/user)
 	. = ..()
 	to_chat(user, "Этот К.У.Р.С.К подготовлен для развертывания [thing_to_deploy.name].")
 
 /obj/item/quikdeploy/attack_self(mob/user)
-	to_chat(user, "<span class='warning'>Вы начинаете развертывание комплекса перед собой...")
-	if(!do_after(usr, delay, src))
-		to_chat(user, "<span class='warning'>Вы передумали.")
+	to_chat(user, "<span class='warning'>Начинаю развертывание комплекса перед собой...")
+	if(!do_after(user, delay, user))
+		to_chat(user, "<span class='warning'>Сейчас не время.")
 		return
 	if(can_place(user)) //can_place() handles sending the error and success messages to the user
+//  Размещение центра
 		var/obj/O = new thing_to_deploy(get_turf(user))
 		O.setDir(user.dir)
+//  Определение направления
+		if(user.dir == NORTH)
+			step_left = get_step(loc, WEST)
+			step_right = get_step(loc, EAST)
+		if(user.dir == EAST)
+			step_left = get_step(loc, NORTH)
+			step_right = get_step(loc, SOUTH)
+		if(user.dir == SOUTH)
+			step_left = get_step(loc, EAST)
+			step_right = get_step(loc, WEST)
+		if(user.dir == WEST)
+			step_left = get_step(loc, SOUTH)
+			step_right = get_step(loc, NORTH)
+//  Размещение боковых
+		if(!isclosedturf(step_left) && (!locate(/obj/structure/window || /obj/machinery/door/airlock || /obj/structure/deployable_barricade) in step_left.contents))
+			var/obj/O1 = new side_thing_to_deploy(step_left)
+			O1.setDir(user.dir)
+		if(!isclosedturf(step_right) && (!locate(/obj/structure/window || /obj/machinery/door/airlock || /obj/structure/deployable_barricade) in step_right.contents))
+			var/obj/O2 = new side_thing_to_deploy(step_right)
+			O2.setDir(user.dir)
+
 		playsound(loc, 'sound/items/ratchet.ogg', 25, TRUE)
 		qdel(src)
 
@@ -971,9 +1014,10 @@
 	return TRUE
 
 /obj/item/quikdeploy/cade
-	thing_to_deploy = /obj/structure/deployable_barricade/metal
+	thing_to_deploy = /obj/structure/deployable_barricade/plasteel/rising
+	side_thing_to_deploy = /obj/structure/deployable_barricade/plasteel/rising
 	icon_state = "metal"
-	delay = 0.5 SECONDS
+	delay = 2 SECONDS
 
 /obj/item/quikdeploy/cade/can_place(mob/user)
 	. = ..()
@@ -1000,9 +1044,33 @@
 			continue
 		to_chat(user, span_warning("Тут нет места для баррикады."))
 		return FALSE
-	to_chat(user, "<span class='notice'>Вы подготавливаете комплекс для развертывания.")
+	to_chat(user, "<span class='notice'>Подготавливаю комплекс для развертывания.")
 	return TRUE
 
 /obj/item/quikdeploy/cade/plasteel
-	thing_to_deploy = /obj/structure/deployable_barricade/plasteel
+	thing_to_deploy = /obj/structure/deployable_barricade/plasteel/reinforced
+	side_thing_to_deploy = /obj/structure/deployable_barricade/metal/reinforced
 	icon_state = "plasteel"
+
+/obj/structure/deployable_barricade/plasteel/reinforced
+	name = "военная складная баррикада"
+	desc = "Прочнейшее защитное сооружение, заграждение может опускаться при необходимости. Ремонт производится при помощи сварочного аппарата."
+	icon_state = "plasteel_closed_0"
+	max_integrity = 1000
+	armor = list("melee" = 50, "bullet" = 50, "laser" = 50, "energy" = 0, "bomb" = 50, "bio" = 100, "rad" = 0, "fire" = 100, "acid" = 40)
+
+/obj/structure/deployable_barricade/plasteel/rising
+	name = "военная раздвижная баррикада"
+	desc = "Прочнейшее защитное сооружение, при необходимости можно поднять дополнительну бронепластину для защиты в полный рост, стрельба при этом становится невозможной. Ремонт производится при помощи сварочного аппарата."
+	icon_state = "metal_0"
+	max_integrity = 1000
+	barricade_type = "rising"
+	density = TRUE
+	closed = FALSE
+	armor = list("melee" = 50, "bullet" = 50, "laser" = 50, "energy" = 0, "bomb" = 50, "bio" = 100, "rad" = 0, "fire" = 100, "acid" = 40)
+
+/obj/structure/deployable_barricade/metal/reinforced
+	name = "военная металлическая баррикада"
+	desc = "Прочнейшее защитное сооружение, при необходимости может быть укреплена дополнительными листами металла. Ремонт производится при помощи сварочного аппарата."
+	icon_state = "metal_0"
+	max_integrity = 1000

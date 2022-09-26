@@ -147,6 +147,44 @@
 					qdel(src)
 				return
 
+// 	Проклепанная стена
+
+		if(istype(S, /obj/item/stack/sheet/riveted_metal))
+			if(state == GIRDER_DISPLACED)
+				if(S.get_amount() < 2)
+					to_chat(user, span_warning("Для создания фальшивой проклепанной стены мне понадобится как минимум два листа проклепанного железа!"))
+					return
+				to_chat(user, span_notice("Начинаю строить фальшивую проклепанную стену..."))
+				if(do_after(user, 20*platingmodifier, target = src))
+					if(S.get_amount() < 2)
+						return
+					S.use(2)
+					to_chat(user, span_notice("Готово. Для открытия или закрытия прохода необходимо надавить на стену."))
+					var/obj/structure/falsewall/riveted_wall/F = new (loc)
+					transfer_fingerprints_to(F)
+					qdel(src)
+					return
+			else if(state == GIRDER_REINF)
+				to_chat(user, span_warning("Для завершения строительства укрепленной стены мне необходим лист пластали, обычное железо тут не подойдет."))
+				return
+			else
+				if(S.get_amount() < 2)
+					to_chat(user, span_warning("Для завершения строительства проклепанной стены мне понадобится как минимум два листа проклепанного железа!"))
+					return
+				to_chat(user, span_notice("Начинаю закреплять обшивку..."))
+				if (do_after(user, 40*platingmodifier, target = src))
+					if(S.get_amount() < 2)
+						return
+					S.use(2)
+					to_chat(user, span_notice("Закрепляю обшивку."))
+					var/turf/T = get_turf(src)
+					T.PlaceOnTop(/turf/closed/wall/riveted_wall)
+					transfer_fingerprints_to(T)
+					qdel(src)
+				return
+
+//	Пласталевая стена
+
 		if(istype(S, /obj/item/stack/sheet/plasteel))
 			if(state == GIRDER_DISPLACED)
 				if(S.get_amount() < 2)

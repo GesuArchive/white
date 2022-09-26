@@ -57,8 +57,8 @@
 		A.UpdateButtons()
 
 /obj/item/gun/ballistic/automatic/proto
-	name = "\improper Nanotrasen Saber SMG"
-	desc = "A prototype full-auto 9mm submachine gun, designated 'SABR'. Has a threaded barrel for suppressors."
+	name = "пистолет-пулемет Saber"
+	desc = "Прототип полноавтоматического 9-мм пистолета-пулемета, получившего обозначение \"Saber\". Имеет резьбу для глушителя."
 	icon_state = "saber"
 	burst_size = 1
 	actions_types = list()
@@ -78,8 +78,8 @@
 	pin = /obj/item/firing_pin
 
 /obj/item/gun/ballistic/automatic/c20r
-	name = "C-20r SMG"
-	desc = "Булл-пап пистолет-пулемет .45 калибра, известный как \"C-20r\". На прикладе имеется надпись 'Scarborough Arms - Per falcis, per pravitas'."
+	name = "пистолет-пулемет С-20р"
+	desc = "Булл-пап пистолет-пулемет .45 калибра, известный как \"C-20р\". На прикладе имеется надпись 'Scarborough Arms - Per falcis, per pravitas'."
 	icon_state = "c20r"
 	inhand_icon_state = "c20r"
 	selector_switch_icon = TRUE
@@ -107,8 +107,8 @@
 	update_icon()
 
 /obj/item/gun/ballistic/automatic/wt550
-	name = "автоматическая винтовка службы безопасности"
-	desc = "Устаревшее оружие личной обороны, именуемое как \"WT-550 Automatic Rifle\". Использует патроны 4.6x30mm калибра. На данный момент снято с вооружения."
+	name = "пистолет-пулемет ВТ-550"
+	desc = "Устаревшее оружие личной обороны, именуемое как \"Пистолет-Пулемет ВТ-550\". Использует патроны 4.6x30mm калибра. На данный момент снято с вооружения."
 	icon_state = "wt550"
 	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "arg"
@@ -129,7 +129,7 @@
 	AddComponent(/datum/component/automatic_fire, 0.3 SECONDS)
 
 /obj/item/gun/ballistic/automatic/plastikov
-	name = "\improper PP-95 SMG"
+	name = "пистолет-пулемет ПП-95"
 	desc = "Древняя модель 9-мм пистолета-пулемета, обновленная и сделанная максимально дешёвой. <b>Слишком</b> дешёвой."
 	icon_state = "plastikov"
 	inhand_icon_state = "plastikov"
@@ -143,7 +143,7 @@
 	fire_sound = 'sound/weapons/gun/smg/shot_alt.ogg'
 
 /obj/item/gun/ballistic/automatic/mini_uzi
-	name = "\improper Type U3 Uzi"
+	name = "пистолет-пулемет Uzi-U3"
 	desc = "Легкий пистолет-пулемёт, обладающий режимом стрельбы очередями, когда вы действительно хотите кого-то убить. Использует патроны калибра 9мм."
 	icon_state = "miniuzi"
 	mag_type = /obj/item/ammo_box/magazine/uzim9mm
@@ -154,8 +154,8 @@
 	rack_sound = 'sound/weapons/gun/pistol/slide_lock.ogg'
 
 /obj/item/gun/ballistic/automatic/m90
-	name = "карабин M-90gl"
-	desc = "Автоматический карабин 5.56 калибра, известный как 'M-90gl'. Имеет встроенный гранатомёт.\"Стрелять на ПКМ\"."
+	name = "пистолет-пулемет М-90гр"
+	desc = "Автоматический карабин 5.56 калибра, известный как 'М-90гр'. Имеет встроенный гранатомёт.\"Стрелять на ПКМ\"."
 	icon_state = "m90"
 	w_class = WEIGHT_CLASS_BULKY
 	inhand_icon_state = "m90"
@@ -214,7 +214,7 @@
 
 
 /obj/item/gun/ballistic/automatic/tommygun
-	name = "\improper пистолет-пулемёт Томпсона"
+	name = "пистолет-пулемёт Томпсона"
 	desc = "На основе классической \"Чикагской пишущей машинки\"."
 	icon_state = "tommygun"
 	inhand_icon_state = "shotgun"
@@ -371,7 +371,7 @@
 // Old Semi-Auto Rifle //
 
 /obj/item/gun/ballistic/automatic/surplus
-	name = "винтовка"
+	name = "самозарядная винтовка"
 	desc = "Одна из бесчисленных устаревших винтовок, которая до сих пор используется в качестве дешевого средства устрашения. Использует патроны калибра 10мм, а её громоздкая рама не позволяет стрелять лишь одной рукой."
 	icon_state = "surplus"
 	inhand_icon_state = "moistnugget"

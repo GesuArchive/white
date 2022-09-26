@@ -4,7 +4,7 @@
 /turf/open/floor/engine,
 /area/ruin/unpowered)
 "c" = (
-/turf/closed/wall,
+/turf/closed/wall/riveted_wall,
 /area/ruin/unpowered)
 "e" = (
 /obj/machinery/field/generator,
@@ -33,7 +33,11 @@
 /turf/open/floor/engine,
 /area/ruin/unpowered)
 "K" = (
-/obj/effect/spawner/structure/window,
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
+/area/ruin/unpowered)
+"L" = (
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "N" = (
@@ -131,7 +135,7 @@ N
 (6,1,1) = {"
 c
 c
-c
+L
 c
 T
 T
@@ -211,7 +215,7 @@ e
 G
 G
 G
-c
+L
 T
 T
 T
