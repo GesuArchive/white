@@ -706,6 +706,7 @@
 #include "code\datums\components\honkspam.dm"
 #include "code\datums\components\hot_ice.dm"
 #include "code\datums\components\igniter.dm"
+#include "code\datums\components\imprisoned.dm"
 #include "code\datums\components\infective.dm"
 #include "code\datums\components\itempicky.dm"
 #include "code\datums\components\jetpack.dm"

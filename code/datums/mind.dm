@@ -373,6 +373,9 @@
 	remove_wizard()
 	remove_cultist()
 	remove_rev()
+	remove_bloodsucker()
+	remove_vassal()
+	remove_servant_of_ratvar()
 
 /datum/mind/proc/equip_traitor(employer = "Синдикат", silent = FALSE, datum/antagonist/uplink_owner)
 	if(!current)

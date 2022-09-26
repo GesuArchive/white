@@ -1173,8 +1173,19 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/security/prison
 	name = "Тюрьма"
 	icon_state = "sec_prison"
-	mood_bonus = -0.5
-	mood_message = span_danger("Я здесь точно сгнию...\n")
+	mood_bonus = -2
+	mood_message = span_deadsay("Я здесь точно сгнию...\n")
+
+/area/security/prison/Entered(atom/movable/arrived, area/old_area)
+	. = ..()
+
+	if(!isliving(arrived))
+		return
+
+	if(istype(old_area, /area/security/prison))
+		return
+
+	arrived.AddComponent(/datum/component/imprisoned)
 
 /area/security/prison/toilet //radproof
 	name = "Тюрьма: Туалет"
