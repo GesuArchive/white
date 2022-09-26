@@ -43,6 +43,7 @@
 		to_chat(user, span_notice("Вкалываю [src] [skloname(M.name, DATELNI, M.gender)]."))
 		var/fraction = min(amount_per_transfer_from_this/reagents.total_volume, 1)
 
+		playsound(get_turf(src), 'sound/effects/stim_use.ogg', 80, TRUE)
 
 		if(M.reagents)
 			var/trans = 0
