@@ -20,7 +20,7 @@
 	objholder = text2path(target_path)
 	if(!ispath(objholder))
 		if(isnull(target_path) || target_path == FALSE || target_path == "")
-			if(tgui_alert(usr, "Are you sure you would like to display ALL of the atoms? This may freeze your client for a while.", "uuh", list("Yes", "No") ) == "No")
+			if(tgui_alert(usr, "Are you sure you would like to display ALL of the atoms? This may freeze your client for a while.", "uuh", list("Yes", "No") ) != "Yes")
 				tgui_alert(usr,"No path was selected")
 				return
 		objholder = pick_closest_path(target_path)
