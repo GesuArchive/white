@@ -12,7 +12,7 @@
 "c" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /obj/machinery/light/small{
 	dir = 1;
 	icon_state = "bulb"
@@ -68,7 +68,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/lootdrop/maintenance/two,
+/obj/effect/spawner/random/maintenance/two,
 /obj/item/toy/cards/deck/syndicate{
 	pixel_y = 6
 	},
@@ -86,7 +86,7 @@
 	pixel_y = 8
 	},
 /obj/item/stack/spacecash/c100,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/carpet/green,
 /area/template_noop)
 "n" = (

@@ -201,13 +201,8 @@
 "bm" = (
 /obj/structure/table/wood,
 /obj/effect/turf_decal/siding/wood,
-/obj/effect/spawner/lootdrop/donkpockets{
-	pixel_x = 4
-	},
-/obj/effect/spawner/lootdrop/donkpockets{
-	pixel_x = -2;
-	pixel_y = 4
-	},
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/effect/turf_decal/siding/blue/corner{
 	dir = 1
 	},
@@ -5206,7 +5201,7 @@
 /turf/open/floor/plasteel/dark,
 /area/medical/virology)
 "LI" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood,
 /area/medical/break_room)

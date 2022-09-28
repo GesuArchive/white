@@ -2,9 +2,9 @@
 "a" = (
 /obj/structure/rack,
 /obj/item/storage/toolbox/mechanical,
-/obj/effect/spawner/lootdrop/maintenance/two,
-/turf/open/floor/plating,
+/obj/effect/spawner/random/maintenance/two,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "c" = (
 /obj/structure/window/reinforced/spawner,
@@ -19,9 +19,9 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "h" = (
-/obj/effect/spawner/lootdrop/grille_or_trash,
-/turf/open/floor/plating,
+/obj/effect/spawner/random/trash/grille_or_waste,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "j" = (
 /obj/item/trash/plate,
@@ -32,12 +32,12 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "m" = (
-/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "n" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "q" = (
 /obj/structure/chair/office{
@@ -62,7 +62,7 @@
 	pixel_y = 4
 	},
 /obj/item/reagent_containers/food/drinks/soda_cans/space_up,
-/obj/effect/spawner/lootdrop/maintenance/two,
+/obj/effect/spawner/random/maintenance/two,
 /turf/open/floor/plating,
 /area/template_noop)
 "w" = (
@@ -82,7 +82,7 @@
 /obj/item/wirerod,
 /obj/structure/table/wood,
 /obj/item/storage/belt/utility,
-/obj/effect/spawner/lootdrop/gloves,
+/obj/effect/spawner/random/clothing/gloves,
 /turf/open/floor/carpet,
 /area/template_noop)
 "A" = (
@@ -95,13 +95,9 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "C" = (
-/obj/effect/spawner/lootdrop/maintenance/two,
-/turf/open/floor/plating,
+/obj/effect/spawner/random/maintenance/two,
 /obj/effect/mapping_helpers/broken_floor,
-/area/template_noop)
-"D" = (
 /turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "E" = (
 /obj/item/trash/can{
@@ -138,8 +134,8 @@
 /area/template_noop)
 "K" = (
 /obj/structure/grille/broken,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "L" = (
 /obj/structure/bed,
@@ -181,7 +177,7 @@
 /area/template_noop)
 "W" = (
 /obj/structure/closet/secure_closet/personal,
-/obj/effect/spawner/lootdrop/gambling,
+/obj/effect/spawner/random/entertainment/gambling,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "X" = (
@@ -189,10 +185,6 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/template_noop)
-"Y" = (
-/turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "Z" = (
 /turf/open/floor/plasteel,
@@ -209,7 +201,7 @@ a
 H
 c
 v
-Y
+n
 U
 "}
 (3,1,1) = {"
@@ -230,7 +222,7 @@ R
 T
 Q
 l
-D
+n
 m
 "}
 (6,1,1) = {"

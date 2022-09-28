@@ -27,9 +27,7 @@
 /turf/open/floor/plasteel/white,
 /area/centcom/scp)
 "bk" = (
-/obj/effect/spawner/randomarcade{
-	dir = 1
-	},
+/obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/plasteel/catwalk_floor,
 /area/centcom/scp)
 "bm" = (
@@ -336,7 +334,7 @@
 /turf/open/floor/plasteel/white,
 /area/centcom/scp)
 "kk" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/plasteel/catwalk_floor,
 /area/centcom/scp)
 "ks" = (
@@ -378,7 +376,7 @@
 /turf/open/floor/plasteel,
 /area/centcom/scp)
 "lT" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/plasteel/catwalk_floor,
 /area/centcom/scp)
 "mw" = (

@@ -3,7 +3,7 @@
 /turf/closed/wall,
 /area/ruin/unpowered)
 "ba" = (
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "bm" = (
@@ -266,7 +266,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "Ca" = (
-/obj/effect/spawner/lootdrop/glowstick,
+/obj/effect/spawner/random/decoration/glowstick,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "DW" = (
@@ -381,7 +381,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "Oa" = (
-/obj/effect/spawner/lootdrop/glowstick,
+/obj/effect/spawner/random/decoration/glowstick,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "Pb" = (
@@ -431,7 +431,7 @@
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "UR" = (
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /obj/structure/rack,
 /turf/open/floor/plating,
 /area/ruin/unpowered)

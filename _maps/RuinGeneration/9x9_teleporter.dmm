@@ -18,8 +18,8 @@
 "i" = (
 /obj/item/shard,
 /obj/item/electronics/apc,
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel,
 /area/ruin)
 "k" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -68,15 +68,15 @@
 /area/ruin)
 "D" = (
 /obj/item/stock_parts/cell,
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel,
 /area/ruin)
 "E" = (
 /turf/open/floor/mineral/plastitanium,
 /area/ruin)
 "G" = (
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel,
 /area/ruin)
 "H" = (
 /turf/open/floor/plasteel,
@@ -89,8 +89,8 @@
 "J" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/beacon,
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel,
 /area/ruin)
 "K" = (
 /obj/effect/decal/cleanable/blood/old,
@@ -133,7 +133,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ruin)
 "Z" = (
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin)
 

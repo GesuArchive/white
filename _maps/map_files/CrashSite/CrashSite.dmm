@@ -28,8 +28,8 @@
 /turf/open/floor/plasteel,
 /area/engineering/gravity_generator)
 "bl" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/engineering/gravity_generator)
 "bo" = (
 /obj/machinery/light/small{
@@ -45,8 +45,8 @@
 /turf/open/floor/plasteel,
 /area/engineering/gravity_generator)
 "bx" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/engineering/gravity_generator)
 "bA" = (
 /obj/effect/turf_decal/bot_white/left,
@@ -69,8 +69,8 @@
 /area/hallway/secondary/entry)
 "bW" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/engineering/gravity_generator)
 "bY" = (
 /turf/open/floor/plasteel,
@@ -493,7 +493,7 @@
 /turf/open/floor/plating,
 /area/cargo/storage)
 "hA" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /obj/machinery/light_switch{
 	pixel_y = 28
 	},
@@ -620,7 +620,7 @@
 "iT" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/eight,
+/obj/effect/spawner/random/maintenance/eight,
 /turf/open/floor/plasteel,
 /area/cargo/storage)
 "iW" = (
@@ -676,8 +676,8 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/science/research)
 "jC" = (
 /obj/structure/closet/emcloset/anchored,
@@ -880,7 +880,7 @@
 /turf/open/floor/plating,
 /area/construction/storage_wing)
 "lV" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
 "lW" = (
@@ -1543,8 +1543,8 @@
 /area/science/research)
 "ta" = (
 /obj/structure/closet/supplypod,
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/airless,
 /area/mine/unexplored)
 "ti" = (
 /obj/structure/table,
@@ -1814,8 +1814,8 @@
 	pixel_y = -10;
 	stored_files = list(/datum/computer_file/program/contract_uplink)
 	},
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/airless,
 /area/mine/unexplored)
 "xP" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -1981,8 +1981,8 @@
 /turf/open/floor/plating,
 /area/mine/lobby)
 "AN" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/science/research)
 "AS" = (
 /obj/structure/table/reinforced,
@@ -2038,7 +2038,7 @@
 /area/mine/lobby)
 "Bs" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/seven,
+/obj/effect/spawner/random/maintenance/seven,
 /turf/open/floor/plating,
 /area/engineering/storage_shared)
 "BB" = (
@@ -2115,8 +2115,8 @@
 /turf/open/floor/plating/airless,
 /area/mine/unexplored)
 "Cc" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/science/research)
 "Cj" = (
 /obj/structure/cable,
@@ -2307,8 +2307,8 @@
 /obj/effect/turf_decal/sand/plating,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/science/research)
 "EA" = (
 /obj/machinery/chem_master,
@@ -2448,7 +2448,7 @@
 /turf/open/floor/plasteel,
 /area/mine/lobby)
 "Gk" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/plasteel,
 /area/mine/lobby)
 "Gm" = (
@@ -2619,8 +2619,8 @@
 /turf/open/floor/plating/asteroid/airless,
 /area/mine/lobby)
 "Ic" = (
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/airless,
 /area/mine/unexplored)
 "Ih" = (
 /obj/structure/window/reinforced/spawner,
@@ -2786,16 +2786,12 @@
 "Jo" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/two,
+/obj/effect/spawner/random/maintenance/two,
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/cargo/storage)
-"Js" = (
-/turf/open/floor/plasteel/airless,
-/obj/effect/mapping_helpers/broken_floor,
-/area/mine/unexplored)
 "Jy" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
 	dir = 5
@@ -3284,8 +3280,8 @@
 	},
 /area/engineering/gravity_generator)
 "Ql" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/mine/unexplored)
 "Qr" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector{
@@ -45086,7 +45082,7 @@ ZV
 ZV
 ZV
 nw
-Js
+Ic
 nw
 eE
 ZV

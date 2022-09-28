@@ -46,8 +46,8 @@
 /area/template_noop)
 "i" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "j" = (
 /obj/effect/turf_decal/tile/red{
@@ -72,8 +72,8 @@
 "m" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/remains/xeno,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "n" = (
 /obj/effect/turf_decal/tile/red,
@@ -171,11 +171,6 @@
 	},
 /turf/open/floor/plating,
 /area/template_noop)
-"x" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
-/area/template_noop)
 "y" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red{
@@ -193,14 +188,14 @@
 /area/template_noop)
 "z" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "A" = (
 /obj/structure/table_frame,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "B" = (
 /obj/effect/decal/cleanable/blood/old,
@@ -229,7 +224,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "E" = (
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/template_noop)
 "F" = (
@@ -238,7 +233,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /obj/machinery/button/door{
 	id = "confine4";
 	name = "Confinement Lock 4";
@@ -279,7 +274,7 @@ i
 c
 b
 b
-x
+i
 "}
 (2,1,1) = {"
 b
@@ -289,7 +284,7 @@ h
 a
 b
 G
-x
+i
 b
 b
 "}
@@ -370,11 +365,11 @@ i
 e
 e
 o
-x
+i
 b
 H
 b
-x
+i
 b
 "}
 (10,1,1) = {"

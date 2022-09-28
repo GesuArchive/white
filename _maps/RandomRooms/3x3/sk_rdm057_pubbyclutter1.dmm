@@ -2,7 +2,7 @@
 "a" = (
 /obj/structure/table,
 /obj/item/wirecutters,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /obj/machinery/light/small{
 	brightness = 3;
 	dir = 8
@@ -11,8 +11,8 @@
 /area/template_noop)
 "c" = (
 /obj/structure/closet/emcloset,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "d" = (
 /obj/structure/chair/comfy/black{
@@ -26,7 +26,7 @@
 "f" = (
 /obj/structure/closet/crate/medical,
 /obj/item/stack/medical/gauze,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/template_noop)
 "g" = (

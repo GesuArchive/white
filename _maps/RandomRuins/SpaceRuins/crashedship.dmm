@@ -67,8 +67,8 @@
 "ar" = (
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door/airlock/titanium,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/awaymission/bmpship/aft)
 "as" = (
 /obj/structure/bed/roller,
@@ -302,8 +302,8 @@
 /turf/open/floor/plating/airless,
 /area/awaymission/bmpship/fore)
 "bu" = (
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/awaymission/bmpship/fore)
 "bv" = (
 /obj/effect/turf_decal/stripes/line,
@@ -825,7 +825,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
-/obj/effect/spawner/lootdrop/space/rareseed,
+/obj/effect/spawner/random/food_or_drink/seed_rare,
 /turf/open/floor/plasteel,
 /area/awaymission/bmpship/midship)
 "dg" = (
@@ -1065,7 +1065,7 @@
 /area/awaymission/bmpship/fore)
 "ee" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/space/fancytech,
+/obj/effect/spawner/random/exotic/technology,
 /turf/open/floor/carpet,
 /area/awaymission/bmpship/fore)
 "ef" = (
@@ -1263,7 +1263,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/effect/spawner/lootdrop/space/fancytech,
+/obj/effect/spawner/random/exotic/technology,
 /turf/open/floor/plasteel,
 /area/awaymission/bmpship/aft)
 "eS" = (
@@ -1334,8 +1334,8 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plasteel,
 /area/awaymission/bmpship/midship)
 "fg" = (
 /obj/structure/kitchenspike,
@@ -1419,16 +1419,12 @@
 /turf/open/floor/engine,
 /area/awaymission/bmpship/aft)
 "ft" = (
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/awaymission/bmpship/fore)
 "fu" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/awaymission/bmpship/fore)
-"fv" = (
-/turf/open/floor/plating/airless,
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bmpship/fore)
 "fw" = (
 /obj/structure/cable,
@@ -1443,8 +1439,8 @@
 /area/awaymission/bmpship/fore)
 "fy" = (
 /obj/structure/cable,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating/airless,
 /area/awaymission/bmpship/fore)
 "fA" = (
 /obj/item/kitchen/knife,
@@ -1480,19 +1476,15 @@
 	},
 /turf/open/floor/plasteel,
 /area/awaymission/bmpship/aft)
-"fI" = (
-/turf/open/floor/plating/airless,
-/obj/effect/mapping_helpers/broken_floor,
-/area/awaymission/bmpship/fore)
 "fJ" = (
 /obj/item/shard,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/awaymission/bmpship/fore)
 "fK" = (
 /obj/structure/chair/stool,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/awaymission/bmpship/fore)
 "fL" = (
 /obj/item/stack/cable_coil{
@@ -1521,16 +1513,16 @@
 	anchored = 1;
 	dir = 1
 	},
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating/airless,
 /area/awaymission/bmpship/fore)
 "fU" = (
 /obj/structure/frame/computer{
 	anchored = 1;
 	dir = 1
 	},
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/awaymission/bmpship/fore)
 "fV" = (
 /obj/machinery/light/small,
@@ -1541,12 +1533,8 @@
 /turf/open/floor/plasteel,
 /area/awaymission/bmpship/midship)
 "fW" = (
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/broken_floor,
-/area/awaymission/bmpship/midship)
-"fX" = (
 /turf/open/floor/plasteel,
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bmpship/midship)
 "fY" = (
 /obj/effect/mapping_helpers/airlock/locked,
@@ -1569,8 +1557,8 @@
 /area/awaymission/bmpship)
 "gc" = (
 /obj/item/multitool,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/awaymission/bmpship)
 "gd" = (
 /obj/machinery/door/airlock/titanium,
@@ -1629,8 +1617,8 @@
 /area/awaymission/bmpship/fore)
 "gn" = (
 /obj/structure/cable,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/awaymission/bmpship/fore)
 "go" = (
 /obj/machinery/light/small{
@@ -1655,8 +1643,8 @@
 /turf/open/floor/plating/asteroid/airless,
 /area/awaymission/bmpship/midship)
 "gt" = (
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/awaymission/bmpship/midship)
 "gv" = (
 /obj/item/wallframe/apc,
@@ -1673,7 +1661,7 @@
 /turf/open/floor/plating/airless,
 /area/awaymission/bmpship/midship)
 "gz" = (
-/obj/effect/spawner/randomarcade,
+/obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/plasteel,
 /area/awaymission/bmpship/aft)
 "gA" = (
@@ -1720,10 +1708,6 @@
 "gK" = (
 /turf/closed/mineral/random,
 /area/awaymission/bmpship/fore)
-"gL" = (
-/turf/open/floor/plating/airless,
-/obj/effect/mapping_helpers/broken_floor,
-/area/awaymission/bmpship/midship)
 "gM" = (
 /obj/structure/mecha_wreckage/ripley,
 /turf/open/floor/plating/airless,
@@ -1778,8 +1762,8 @@
 /turf/template_noop,
 /area/template_noop)
 "ha" = (
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating/airless,
 /area/awaymission/bmpship/midship)
 "hb" = (
 /obj/effect/decal/remains/human,
@@ -1809,10 +1793,6 @@
 	},
 /turf/open/floor/plasteel/cafeteria,
 /area/awaymission/bmpship/aft)
-"hg" = (
-/turf/open/floor/plating/airless,
-/obj/effect/mapping_helpers/broken_floor,
-/area/awaymission/bmpship/midship)
 "hh" = (
 /obj/item/clothing/suit/caution,
 /turf/open/floor/plating/airless,
@@ -1823,7 +1803,7 @@
 /area/awaymission/bmpship/midship)
 "hk" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/space/cashmoney,
+/obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/plasteel,
 /area/awaymission/bmpship/aft)
 "hl" = (
@@ -1891,7 +1871,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 4
 	},
-/obj/effect/spawner/lootdrop/space/rareseed,
+/obj/effect/spawner/random/food_or_drink/seed_rare,
 /turf/open/floor/plasteel,
 /area/awaymission/bmpship/midship)
 "EQ" = (
@@ -1906,7 +1886,7 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
-/obj/effect/spawner/lootdrop/space/rareseed,
+/obj/effect/spawner/random/food_or_drink/seed_rare,
 /turf/open/floor/plasteel,
 /area/awaymission/bmpship/midship)
 "Hy" = (
@@ -1943,8 +1923,8 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/awaymission/bmpship/midship)
 "Xc" = (
 /obj/structure/frame/computer{
@@ -2448,7 +2428,7 @@ bV
 bV
 aT
 fu
-fI
+ft
 fu
 aa
 aa
@@ -2498,7 +2478,7 @@ bV
 bV
 bV
 fc
-fv
+ft
 fJ
 cG
 hE
@@ -2653,7 +2633,7 @@ eT
 aT
 fy
 fL
-fv
+ft
 cG
 cG
 gH
@@ -2708,7 +2688,7 @@ fw
 gd
 gn
 gI
-fv
+ft
 cG
 gb
 gb
@@ -2758,8 +2738,8 @@ aT
 aT
 aT
 go
-fI
-fv
+ft
+ft
 cG
 gb
 gb
@@ -2963,7 +2943,7 @@ ce
 aq
 gr
 gI
-fv
+ft
 gK
 gb
 gb
@@ -3012,7 +2992,7 @@ dB
 ce
 ce
 aq
-fv
+ft
 gp
 gp
 gK
@@ -3214,7 +3194,7 @@ dg
 dg
 fA
 ej
-fX
+fW
 ge
 gb
 gb
@@ -3451,8 +3431,8 @@ aa
 aa
 am
 EQ
-gL
-hg
+gt
+gt
 ha
 at
 aq
@@ -3472,7 +3452,7 @@ dg
 ce
 fm
 at
-gL
+gt
 gs
 Mx
 Mx
@@ -3502,9 +3482,9 @@ aa
 aa
 ap
 aq
-hg
+gt
 at
-hg
+gt
 by
 aq
 ci
@@ -3576,7 +3556,7 @@ fm
 Kj
 at
 gs
-gL
+gt
 gs
 fm
 gb
@@ -3628,7 +3608,7 @@ at
 gs
 at
 at
-gL
+gt
 fm
 gb
 gb
@@ -3781,7 +3761,7 @@ QM
 at
 at
 at
-hg
+gt
 fm
 fS
 fS

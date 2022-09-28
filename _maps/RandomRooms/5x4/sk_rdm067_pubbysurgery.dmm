@@ -9,8 +9,8 @@
 	dir = 1;
 	light_color = "#ffc1c1"
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "c" = (
 /obj/machinery/iv_drip,
@@ -25,20 +25,20 @@
 	icon_state = "medium"
 	},
 /obj/item/circuitboard/computer/operating,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "e" = (
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/structure/chair,
 /obj/item/reagent_containers/blood/random,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "f" = (
-/obj/effect/spawner/lootdrop/organ_spawner,
-/turf/open/floor/plating,
+/obj/effect/spawner/random/medical/organs,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "g" = (
 /obj/structure/table/optable{
@@ -46,8 +46,8 @@
 	},
 /obj/item/surgical_drapes,
 /obj/item/clothing/mask/surgical,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "h" = (
 /obj/item/wrench,
@@ -55,8 +55,8 @@
 /area/template_noop)
 "i" = (
 /obj/item/reagent_containers/food/drinks/bottle/vodka,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "j" = (
 /obj/structure/bed,
@@ -79,8 +79,8 @@
 "n" = (
 /obj/structure/table/glass,
 /obj/item/hemostat,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "o" = (
 /obj/structure/table/glass,
@@ -91,15 +91,15 @@
 "p" = (
 /obj/structure/table/glass,
 /obj/item/weldingtool/mini,
-/obj/effect/spawner/lootdrop/maintenance,
-/turf/open/floor/plating,
+/obj/effect/spawner/random/maintenance,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "r" = (
-/obj/effect/spawner/lootdrop/organ_spawner,
+/obj/effect/spawner/random/medical/organs,
 /obj/structure/closet/crate,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 
 (1,1,1) = {"

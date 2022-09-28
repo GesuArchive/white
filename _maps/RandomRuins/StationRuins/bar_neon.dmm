@@ -214,7 +214,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/effect/spawner/lootdrop/gross_decal_spawner,
+/obj/effect/spawner/random/trash/mess,
 /turf/open/floor/plasteel,
 /area/service/kitchen)
 "aG" = (
@@ -252,9 +252,7 @@
 /turf/open/floor/plasteel/vaporwave,
 /area/service/theater)
 "aN" = (
-/obj/effect/spawner/randomarcade{
-	dir = 8
-	},
+/obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/plasteel/vaporwave,
 /area/service/theater)
 "aO" = (
@@ -283,7 +281,7 @@
 /turf/open/floor/wood,
 /area/service/bar)
 "aR" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/wood,
 /area/service/bar)
 "aS" = (
@@ -347,9 +345,7 @@
 /obj/machinery/status_display/evac{
 	pixel_x = 32
 	},
-/obj/effect/spawner/randomarcade{
-	dir = 8
-	},
+/obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/plasteel/vaporwave,
 /area/service/theater)
 "be" = (
@@ -863,7 +859,7 @@
 /area/service/kitchen)
 "cF" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/item/reagent_containers/glass/beaker,
 /turf/open/floor/plasteel/cafeteria,
 /area/service/kitchen)
@@ -1331,7 +1327,7 @@
 /area/service/kitchen)
 "Si" = (
 /obj/structure/table/wood/poker,
-/obj/effect/spawner/lootdrop/space/cashmoney,
+/obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/eighties,
 /area/service/bar)
 "Sy" = (

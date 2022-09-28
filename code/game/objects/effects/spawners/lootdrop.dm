@@ -340,14 +340,7 @@
 		/obj/effect/decal/remains/xeno = 49,
 		/obj/effect/spawner/xeno_egg_delivery = 1)
 
-/obj/effect/spawner/lootdrop/costume
-	name = "random costume spawner"
 
-/obj/effect/spawner/lootdrop/costume/Initialize(mapload)
-	loot = list()
-	for(var/path in subtypesof(/obj/effect/spawner/bundle/costume))
-		loot[path] = TRUE
-	. = ..()
 
 // Minor lootdrops follow
 
@@ -564,50 +557,6 @@
 				/obj/effect/spawner/bundle/costume/mafia/checkered = 2,
 				/obj/effect/spawner/bundle/costume/mafia/beige = 5
 				)
-
-//finds the probabilities of items spawning from a loot spawner's loot pool
-/obj/item/loot_table_maker
-	icon = 'icons/effects/landmarks_static.dmi'
-	icon_state = "random_loot"
-	var/spawner_to_test = /obj/effect/spawner/lootdrop/maintenance //what lootdrop spawner to use the loot pool of
-	var/loot_count = 180 //180 is about how much maint loot spawns per map as of 11/14/2019
-	//result outputs
-	var/list/spawned_table //list of all items "spawned" and how many
-	var/list/stat_table //list of all items "spawned" and their occurrance probability
-
-/obj/item/loot_table_maker/Initialize(mapload)
-	. = ..()
-	make_table()
-
-/obj/item/loot_table_maker/attack_self(mob/user)
-	to_chat(user, "Loot pool re-rolled.")
-	make_table()
-
-/obj/item/loot_table_maker/proc/make_table()
-	spawned_table = list()
-	stat_table = list()
-	var/obj/effect/spawner/lootdrop/spawner_to_table = new spawner_to_test
-	var/lootpool = spawner_to_table.loot
-	qdel(spawner_to_table)
-	for(var/i in 1 to loot_count)
-		var/loot_spawn = pick_loot(lootpool)
-		if(!(loot_spawn in spawned_table))
-			spawned_table[loot_spawn] = 1
-		else
-			spawned_table[loot_spawn] += 1
-	stat_table += spawned_table
-	for(var/item in stat_table)
-		stat_table[item] /= loot_count
-
-/obj/item/loot_table_maker/proc/pick_loot(lootpool) //selects path from loot table and returns it
-	var/lootspawn = pick_weight(lootpool)
-	while(islist(lootspawn))
-		lootspawn = pick_weight(lootspawn)
-	return lootspawn
-
-/obj/effect/spawner/lootdrop/space
-	name = "generic space ruin loot spawner"
-	lootcount = 1
 
 /// Space loot spawner. Randomlu picks 5 wads of space cash.
 /obj/effect/spawner/lootdrop/space/cashmoney

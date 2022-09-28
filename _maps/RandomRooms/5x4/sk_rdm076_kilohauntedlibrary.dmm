@@ -30,8 +30,8 @@
 	color = "#c45c57";
 	dir = 2
 	},
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/template_noop)
 "d" = (
 /obj/machinery/light/small{
@@ -52,8 +52,8 @@
 	icon_state = "sofacorner"
 	},
 /obj/effect/decal/cleanable/cobweb/cobweb2,
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/template_noop)
 "f" = (
 /obj/effect/turf_decal/tile/neutral,
@@ -91,8 +91,8 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/template_noop)
 "j" = (
 /obj/structure/chair/sofa/left{
@@ -101,8 +101,8 @@
 	icon_state = "sofaend_left"
 	},
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/template_noop)
 "k" = (
 /obj/structure/table/wood,
@@ -139,8 +139,8 @@
 /turf/open/floor/wood,
 /area/template_noop)
 "n" = (
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/template_noop)
 "o" = (
 /obj/structure/bookcase/random/fiction,
@@ -171,10 +171,6 @@
 /obj/item/pen,
 /turf/open/floor/wood,
 /area/template_noop)
-"t" = (
-/turf/open/floor/wood,
-/obj/effect/mapping_helpers/broken_floor,
-/area/template_noop)
 
 (1,1,1) = {"
 a
@@ -191,7 +187,7 @@ p
 (3,1,1) = {"
 c
 h
-t
+n
 g
 "}
 (4,1,1) = {"

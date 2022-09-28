@@ -82,12 +82,8 @@
 /turf/open/floor/plasteel/airless,
 /area/tcommsat/oldaisat)
 "ar" = (
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
-/area/tcommsat/oldaisat)
-"as" = (
 /turf/open/floor/plasteel/airless,
-/obj/effect/mapping_helpers/broken_floor,
 /area/tcommsat/oldaisat)
 "at" = (
 /obj/structure/lattice,
@@ -119,7 +115,7 @@
 /turf/template_noop,
 /area/template_noop)
 "ay" = (
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/plasteel/airless,
 /area/tcommsat/oldaisat)
 "az" = (
@@ -896,12 +892,12 @@
 /area/tcommsat/oldaisat)
 "jZ" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/space/fancytech,
+/obj/effect/spawner/random/exotic/technology,
 /turf/open/floor/plasteel/airless,
 /area/tcommsat/oldaisat)
 "AX" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/spawner/lootdrop/space/fancytool,
+/obj/effect/spawner/random/exotic/tool,
 /turf/open/floor/plasteel/airless/dark,
 /area/tcommsat/oldaisat)
 
@@ -2651,7 +2647,7 @@ ag
 cn
 az
 ar
-as
+ar
 ar
 az
 cD
@@ -2766,7 +2762,7 @@ cg
 bw
 ac
 ag
-as
+ar
 cs
 ar
 ag
@@ -3221,7 +3217,7 @@ aa
 ab
 ah
 ac
-as
+ar
 ar
 az
 aY
@@ -3281,7 +3277,7 @@ aa
 ac
 ab
 ac
-as
+ar
 ar
 aZ
 bj
@@ -3340,7 +3336,7 @@ aa
 ab
 ab
 ac
-as
+ar
 ar
 ba
 bk

@@ -74,7 +74,7 @@
 /turf/closed/wall,
 /area/hallway/primary/central/north)
 "ao" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/north)
 "ap" = (
@@ -107,7 +107,7 @@
 /turf/closed/wall/r_wall,
 /area/command/meeting_room)
 "at" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/north)
 "au" = (
@@ -431,7 +431,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/spawner/lootdrop/gross_decal_spawner,
+/obj/effect/spawner/random/trash/mess,
 /turf/open/floor/plating,
 /area/maintenance/central/secondary)
 "bw" = (
@@ -2323,7 +2323,7 @@
 /area/hallway/primary/central/south)
 "ha" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/maintenance/central/secondary)
 "hf" = (
@@ -2434,7 +2434,7 @@
 /area/maintenance/central/secondary)
 "hJ" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "hL" = (
@@ -2657,7 +2657,7 @@
 /turf/open/floor/plasteel,
 /area/command/heads_quarters/hop)
 "iQ" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/west)
 "je" = (
@@ -2703,7 +2703,7 @@
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central/north)
 "jI" = (
-/obj/effect/spawner/lootdrop/gross_decal_spawner,
+/obj/effect/spawner/random/trash/mess,
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
@@ -3010,7 +3010,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
-/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "lL" = (
@@ -3018,7 +3018,7 @@
 /turf/open/floor/plating,
 /area/maintenance/central)
 "md" = (
-/obj/effect/spawner/lootdrop/gross_decal_spawner,
+/obj/effect/spawner/random/trash/mess,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "mm" = (
@@ -3466,7 +3466,7 @@
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/gravity_generator)
 "xu" = (
-/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "xB" = (
@@ -3600,7 +3600,7 @@
 /turf/open/floor/plating,
 /area/maintenance/central)
 "Bv" = (
-/obj/effect/spawner/lootdrop/maint_drugs,
+/obj/effect/spawner/random/entertainment/drugs,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "BH" = (
@@ -3683,7 +3683,7 @@
 /area/hallway/primary/central/low_level_centre)
 "DR" = (
 /obj/machinery/light/small/directional/north,
-/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "DT" = (
@@ -4084,7 +4084,7 @@
 	},
 /obj/structure/table,
 /obj/item/book/manual/wiki/security_space_law,
-/obj/effect/spawner/lootdrop/space/cashmoney,
+/obj/effect/spawner/random/entertainment/money_large,
 /turf/open/floor/plasteel,
 /area/command/meeting_room)
 "Nf" = (
@@ -4659,7 +4659,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/south)
 "ZT" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/south)
 

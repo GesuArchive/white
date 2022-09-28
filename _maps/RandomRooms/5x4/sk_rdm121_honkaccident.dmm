@@ -5,31 +5,32 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "b" = (
+/obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006
 	},
-/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "c" = (
 /obj/item/grown/bananapeel,
+/obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006
 	},
-/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "d" = (
 /obj/structure/mecha_wreckage/honker,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
+	
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "e" = (
 /obj/effect/decal/cleanable/ash,
+/obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006
 	},
-/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "f" = (
 /obj/machinery/light{
@@ -48,10 +49,10 @@
 /obj/machinery/light/broken{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006
 	},
-/obj/effect/mapping_helpers/burnt_floor,
 /area/template_noop)
 "h" = (
 /obj/item/mecha_parts/mecha_equipment/weapon/honker,

@@ -108,15 +108,15 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/shuttle/escape)
 "eq" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/shuttle/escape)
 "ev" = (
 /obj/effect/turf_decal/trimline/green/filled/corner,
@@ -378,8 +378,8 @@
 	dir = 8
 	},
 /obj/structure/grille/broken,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/shuttle/escape)
 "lS" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
@@ -906,14 +906,6 @@
 	icon_state = "floorscorched1"
 	},
 /area/shuttle/escape)
-"Hi" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/structure/chair/comfy/shuttle{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
-/area/shuttle/escape)
 "Hq" = (
 /obj/structure/flora/rock/pile,
 /turf/open/floor/grass,
@@ -1108,8 +1100,8 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/shuttle/escape)
 "QO" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -1768,7 +1760,7 @@ HV
 Zd
 Yu
 Um
-Hi
+dT
 Jw
 gx
 gx

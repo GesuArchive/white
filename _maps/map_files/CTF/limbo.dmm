@@ -264,10 +264,6 @@
 	},
 /turf/open/floor/carpet/orange,
 /area/ctf)
-"mP" = (
-/obj/structure/barricade/security/ctf,
-/turf/open/floor/plasteel/cult,
-/area/ctf)
 "ng" = (
 /obj/effect/turf_decal/siding/yellow{
 	dir = 5
@@ -793,20 +789,6 @@
 	},
 /turf/open/floor/carpet/orange,
 /area/ctf)
-"GX" = (
-/obj/structure/barricade/security/ctf,
-/obj/effect/turf_decal/tile/yellow,
-/obj/effect/turf_decal/tile/yellow{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/yellow{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/yellow{
-	dir = 8
-	},
-/turf/open/floor/plasteel/cult,
-/area/ctf)
 "GZ" = (
 /obj/effect/portal/permanent{
 	icon_state = "portal1";
@@ -1154,20 +1136,6 @@
 "Xl" = (
 /turf/closed/indestructible/riveted/uranium,
 /area/ctf)
-"XC" = (
-/obj/structure/barricade/security/ctf,
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/turf/open/floor/plasteel/cult,
-/area/ctf)
 "Yl" = (
 /obj/effect/portal/permanent{
 	icon_state = "portal1";
@@ -1466,7 +1434,7 @@ vw
 Tw
 Tw
 Tw
-mP
+hh
 Tw
 Tw
 Xl
@@ -1532,9 +1500,9 @@ pz
 nB
 Tw
 Tw
-mP
 hh
-mP
+hh
+hh
 Tw
 Xl
 uh
@@ -1600,7 +1568,7 @@ qH
 Tw
 Tw
 Tw
-mP
+hh
 Tw
 Tw
 Xl
@@ -1801,7 +1769,7 @@ uh
 Xl
 Tw
 Tw
-mP
+hh
 Tw
 KY
 BK
@@ -2464,7 +2432,7 @@ ef
 ef
 Xl
 Tw
-mP
+hh
 Tw
 Tw
 iv
@@ -2478,7 +2446,7 @@ Bl
 Ly
 Tw
 Tw
-mP
+hh
 Tw
 Xl
 ef
@@ -2521,7 +2489,7 @@ ny
 ny
 ny
 ep
-XC
+ep
 ep
 ny
 Xl
@@ -2531,7 +2499,7 @@ uh
 uh
 Xl
 Tw
-mP
+hh
 Tw
 Tw
 jn
@@ -2545,7 +2513,7 @@ Bl
 cu
 Tw
 Tw
-mP
+hh
 Tw
 Xl
 uh
@@ -2555,7 +2523,7 @@ uh
 Xl
 sl
 Ga
-GX
+Ga
 Ga
 sl
 sl
@@ -2598,7 +2566,7 @@ ef
 ef
 Xl
 Tw
-mP
+hh
 Tw
 Tw
 iv
@@ -2612,7 +2580,7 @@ Bl
 Ly
 Tw
 Tw
-mP
+hh
 Tw
 Xl
 ef
@@ -3275,7 +3243,7 @@ BK
 BK
 YT
 Tw
-mP
+hh
 Tw
 Tw
 Xl
@@ -3476,7 +3444,7 @@ uh
 Xl
 Tw
 Tw
-mP
+hh
 Tw
 Tw
 Tw
@@ -3542,9 +3510,9 @@ uh
 uh
 Xl
 Tw
-mP
 hh
-mP
+hh
+hh
 Tw
 Tw
 Np
@@ -3610,7 +3578,7 @@ uh
 Xl
 Tw
 Tw
-mP
+hh
 Tw
 Tw
 Tw

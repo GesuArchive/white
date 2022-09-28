@@ -17,13 +17,13 @@
 "g" = (
 /obj/structure/window/reinforced/spawner/west,
 /obj/structure/closet/firecloset/full,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "i" = (
 /obj/structure/window/reinforced/spawner/east,
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/eight,
+/obj/effect/spawner/random/maintenance/eight,
 /turf/open/floor/plating,
 /area/template_noop)
 "k" = (
@@ -38,8 +38,8 @@
 /area/space)
 "m" = (
 /obj/structure/window/reinforced/spawner/north,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "n" = (
 /obj/machinery/light{
@@ -66,8 +66,8 @@
 /area/space)
 "z" = (
 /obj/structure/window/reinforced/spawner,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "B" = (
 /obj/structure/window/reinforced/spawner,
@@ -89,9 +89,9 @@
 "G" = (
 /obj/structure/window/reinforced/spawner/east,
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/five,
-/turf/open/floor/plating,
+/obj/effect/spawner/random/maintenance/five,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "H" = (
 /obj/structure/window/reinforced/spawner/north,
@@ -108,7 +108,7 @@
 "L" = (
 /obj/structure/window/reinforced/spawner/east,
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/three,
+/obj/effect/spawner/random/maintenance/three,
 /turf/open/floor/plating,
 /area/template_noop)
 "M" = (
@@ -125,8 +125,8 @@
 /obj/item/radio/intercom{
 	pixel_y = 26
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "Z" = (
 /obj/structure/window/reinforced/spawner/east,

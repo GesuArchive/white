@@ -34,8 +34,8 @@
 /obj/machinery/iv_drip{
 	name = "clothes rack"
 	},
-/obj/effect/spawner/lootdrop/costume,
-/obj/effect/spawner/lootdrop/costume,
+/obj/effect/spawner/random/clothing/costume,
+/obj/effect/spawner/random/clothing/costume,
 /turf/open/floor/circuit,
 /area/template_noop)
 "D" = (
@@ -53,8 +53,8 @@
 /obj/machinery/iv_drip{
 	name = "clothes rack"
 	},
-/obj/effect/spawner/lootdrop/costume,
-/obj/effect/spawner/lootdrop/costume,
+/obj/effect/spawner/random/clothing/costume,
+/obj/effect/spawner/random/clothing/costume,
 /turf/open/floor/circuit/red,
 /area/template_noop)
 

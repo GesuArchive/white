@@ -2691,7 +2691,7 @@
 	},
 /area/centcom/holding)
 "hN" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/indestructible/white,
 /area/centcom/control)
 "hO" = (
@@ -2796,7 +2796,7 @@
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "ic" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/indestructible/white,
 /area/centcom/control)
 "id" = (
@@ -2953,7 +2953,7 @@
 /turf/open/floor/plasteel/tg/sepia,
 /area/centcom/holding)
 "iC" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/plasteel/monofloor,
 /area/centcom/control)
 "iD" = (
@@ -3093,7 +3093,7 @@
 /turf/open/floor/plating,
 /area/syndicate_mothership)
 "iX" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/plasteel/monofloor,
 /area/centcom/control)
 "iY" = (
@@ -12193,7 +12193,7 @@
 "Ij" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/stripes/line,
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/tdome/tdomeobserve)
 "Il" = (
@@ -14584,7 +14584,7 @@
 "Oe" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/stripes/line,
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/tdome/tdomeobserve)
 "Of" = (
@@ -17683,7 +17683,7 @@
 /turf/open/floor/carpet/black,
 /area/centcom/holding)
 "Wz" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -17706,7 +17706,7 @@
 /turf/open/floor/plasteel/white,
 /area/wizard_station)
 "WD" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 8
@@ -17886,7 +17886,7 @@
 	},
 /area/centcom/control)
 "Xg" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -18464,7 +18464,7 @@
 /turf/open/floor/mineral/titanium/tiled,
 /area/syndicate_mothership/expansion_bioterrorism)
 "YM" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/trimline/neutral/line{
 	dir = 8

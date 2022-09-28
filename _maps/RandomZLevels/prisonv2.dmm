@@ -22,7 +22,7 @@
 /turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/prisonv2out)
 "ag" = (
-/obj/effect/spawner/lootdrop/snowdin/dungeonheavy,
+/obj/effect/spawner/random/exotic/antag_gear_strong,
 /obj/structure/closet/crate/wooden,
 /turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/prisonv2out)
@@ -276,7 +276,7 @@
 /turf/open/floor/grass,
 /area/prisonv2)
 "bd" = (
-/obj/effect/spawner/lootdrop/snowdin/dungeonmisc,
+/obj/effect/spawner/random/exotic/snow_gear,
 /obj/structure/closet/crate/wooden,
 /turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/prisonv2out)
@@ -1737,7 +1737,7 @@
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
 "fT" = (
-/obj/effect/spawner/lootdrop/snowdin/dungeonmid,
+/obj/effect/spawner/random/exotic/antag_gear,
 /obj/structure/closet/crate/wooden,
 /turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/prisonv2out)
@@ -1777,7 +1777,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/spawner/randomarcade,
+/obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
 "gc" = (
@@ -2153,7 +2153,7 @@
 /turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/prisonv2out)
 "hc" = (
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
 /obj/structure/closet/crate/wooden,
 /turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/prisonv2out)
@@ -2163,7 +2163,7 @@
 /turf/open/floor/trot,
 /area/prisonv2)
 "he" = (
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/prisonv2out)
 "hf" = (
@@ -2208,7 +2208,7 @@
 /turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/prisonv2out)
 "hp" = (
-/obj/effect/spawner/lootdrop/snowdin/dungeonheavy,
+/obj/effect/spawner/random/exotic/antag_gear_strong,
 /turf/open/floor/plating/asteroid/boxplanet/caves,
 /area/prisonv2out)
 "hq" = (
@@ -2236,7 +2236,7 @@
 /turf/open/floor/wood,
 /area/prisonv2out)
 "hw" = (
-/obj/effect/spawner/lootdrop/snowdin/dungeonheavy,
+/obj/effect/spawner/random/exotic/antag_gear_strong,
 /obj/structure/closet/crate/wooden,
 /turf/open/floor/wood,
 /area/prisonv2out)
@@ -2477,7 +2477,7 @@
 /area/prisonv2)
 "ip" = (
 /obj/machinery/door/airlock/prison/cell,
-/obj/effect/spawner/lootdrop/two_percent_xeno_egg_spawner,
+/obj/effect/spawner/random/medical/two_percent_xeno_egg_spawner,
 /turf/open/floor/trot,
 /area/prisonv2)
 "iq" = (
@@ -3390,7 +3390,7 @@
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
 "lb" = (
-/obj/effect/spawner/randomarcade,
+/obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/rospilovo/plitka,
 /area/prisonv2)
 "lc" = (

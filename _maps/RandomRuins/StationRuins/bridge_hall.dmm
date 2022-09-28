@@ -1245,7 +1245,7 @@
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central/east)
 "qu" = (
-/obj/effect/loot_site_spawner,
+/obj/effect/spawner/random/structure/crate,
 /obj/effect/turf_decal/bot,
 /obj/machinery/airalarm{
 	dir = 1;
@@ -1654,7 +1654,7 @@
 	},
 /obj/item/ai_module/reset/purge,
 /obj/structure/window/reinforced,
-/obj/effect/spawner/lootdrop/aimodule_harmful,
+/obj/effect/spawner/random/aimodule/harmful,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -2324,7 +2324,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/north)
 "Ee" = (
-/obj/effect/loot_site_spawner,
+/obj/effect/spawner/random/structure/crate,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/hallway/primary/central/south)
@@ -2338,7 +2338,7 @@
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
 "EQ" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/north)
@@ -2382,7 +2382,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/south)
 "Fm" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/west)
@@ -2439,8 +2439,8 @@
 	req_access_txt = "20"
 	},
 /obj/structure/window/reinforced,
-/obj/effect/spawner/lootdrop/aimodule_harmless,
-/obj/effect/spawner/lootdrop/aimodule_neutral,
+/obj/effect/spawner/random/aimodule/harmless,
+/obj/effect/spawner/random/aimodule/neutral,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -3440,7 +3440,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command)
 "SZ" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /obj/effect/turf_decal/bot,
 /obj/tacmap/directional/west,
 /turf/open/floor/plasteel/dark,

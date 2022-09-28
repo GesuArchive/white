@@ -414,11 +414,11 @@
 /area/cargo/exploration_prep)
 "gi" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/four,
+/obj/effect/spawner/random/maintenance/four,
 /turf/open/floor/plating/airless,
 /area/tcommsat/computer)
 "gu" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/construction)
 "gx" = (
@@ -667,7 +667,7 @@
 "iT" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/eight,
+/obj/effect/spawner/random/maintenance/eight,
 /turf/open/floor/plasteel,
 /area/cargo/storage)
 "iW" = (
@@ -1357,7 +1357,7 @@
 /area/mine/lobby)
 "qW" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/seven,
+/obj/effect/spawner/random/maintenance/seven,
 /turf/open/floor/plating,
 /area/engineering/storage_shared)
 "rf" = (
@@ -1404,7 +1404,7 @@
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
 "ru" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/construction)
 "rx" = (
@@ -1524,8 +1524,8 @@
 /area/construction/storage_wing)
 "ta" = (
 /obj/structure/closet/supplypod,
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/airless,
 /area/space)
 "tb" = (
 /obj/structure/table,
@@ -1815,8 +1815,8 @@
 	pixel_y = -10;
 	stored_files = list(/datum/computer_file/program/contract_uplink)
 	},
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/airless,
 /area/space)
 "xP" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -1961,9 +1961,7 @@
 /turf/open/floor/plasteel/dark,
 /area/science/research)
 "zK" = (
-/obj/effect/spawner/randomarcade{
-	dir = 4
-	},
+/obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/construction)
 "zP" = (
@@ -2567,7 +2565,7 @@
 /turf/open/floor/plasteel,
 /area/mine/lobby)
 "Gk" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/plasteel,
 /area/mine/lobby)
 "Gm" = (
@@ -2762,8 +2760,8 @@
 /turf/open/space/basic,
 /area/mine/lobby)
 "Ic" = (
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/airless,
 /area/space)
 "Ih" = (
 /obj/structure/lattice,
@@ -2940,16 +2938,12 @@
 "Jo" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/two,
+/obj/effect/spawner/random/maintenance/two,
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/cargo/storage)
-"Js" = (
-/turf/open/floor/plasteel/airless,
-/obj/effect/mapping_helpers/broken_floor,
-/area/space)
 "Jy" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
 	dir = 5
@@ -3531,8 +3525,8 @@
 	},
 /area/command/gateway)
 "Ql" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/command/gateway)
 "Qr" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector{
@@ -3872,7 +3866,7 @@
 /turf/open/floor/plating/asteroid/airless/cave,
 /area/mine/unexplored)
 "UU" = (
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/tcommsat/oldaisat)
 "UV" = (
@@ -45586,7 +45580,7 @@ Yc
 Yc
 Cw
 nw
-Js
+Ic
 nw
 eE
 Yc

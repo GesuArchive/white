@@ -12,7 +12,7 @@
 /area/ruin/unpowered)
 "h" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/armory_contraband,
+/obj/effect/spawner/random/contraband/armory,
 /obj/structure/sign/poster/random{
 	pixel_x = 32
 	},
@@ -27,7 +27,7 @@
 "o" = (
 /obj/structure/closet,
 /obj/item/stack/sheet/mineral/plasma/thirty,
-/obj/effect/spawner/lootdrop/maintenance/eight,
+/obj/effect/spawner/random/maintenance/eight,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "t" = (

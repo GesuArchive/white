@@ -9,7 +9,7 @@
 /area/ruin/unpowered)
 "bb" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "bs" = (
@@ -134,8 +134,8 @@
 "mh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced,
-/obj/effect/spawner/lootdrop/costume,
-/obj/effect/spawner/lootdrop/gloves,
+/obj/effect/spawner/random/clothing/costume,
+/obj/effect/spawner/random/clothing/gloves,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "mj" = (
@@ -415,8 +415,8 @@
 /area/ruin/unpowered)
 "SG" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/lootdrop/costume,
-/obj/effect/spawner/lootdrop/gloves,
+/obj/effect/spawner/random/clothing/costume,
+/obj/effect/spawner/random/clothing/gloves,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "Uh" = (

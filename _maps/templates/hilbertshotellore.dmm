@@ -360,10 +360,6 @@
 /obj/item/analyzer/hilbertsanalyzer,
 /turf/open/indestructible/hotelwood,
 /area/hilbertshotel)
-"bl" = (
-/obj/structure/table/reinforced,
-/turf/open/indestructible/hotelwood,
-/area/hilbertshotel)
 
 (1,1,1) = {"
 aa
@@ -443,7 +439,7 @@ aq
 aL
 ad
 aY
-bl
+aG
 ad
 aL
 aT

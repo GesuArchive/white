@@ -15,8 +15,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "f" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "g" = (
 /turf/closed/wall,
@@ -77,9 +77,9 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "q" = (
-/obj/effect/spawner/lootdrop/grille_or_trash,
-/turf/open/floor/plating,
+/obj/effect/spawner/random/trash/grille_or_waste,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "r" = (
 /obj/effect/landmark/event_spawn,
@@ -124,7 +124,7 @@
 /area/template_noop)
 "B" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/maintenance/two,
+/obj/effect/spawner/random/maintenance/two,
 /obj/structure/sign/poster/contraband/random{
 	pixel_x = 32
 	},
@@ -140,7 +140,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "E" = (
-/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/floor/plating,
 /area/template_noop)
 "F" = (
@@ -200,7 +200,7 @@
 "T" = (
 /obj/structure/closet/crate,
 /obj/item/storage/box,
-/obj/effect/spawner/lootdrop/maintenance/three,
+/obj/effect/spawner/random/maintenance/three,
 /turf/open/floor/plating,
 /area/template_noop)
 "U" = (
@@ -212,7 +212,7 @@
 	dir = 8
 	},
 /obj/structure/closet,
-/obj/effect/spawner/lootdrop/maintenance/eight,
+/obj/effect/spawner/random/maintenance/eight,
 /turf/open/floor/plating,
 /area/template_noop)
 "W" = (

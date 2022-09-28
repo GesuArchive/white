@@ -205,7 +205,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/effect/spawner/lootdrop/gross_decal_spawner,
+/obj/effect/spawner/random/trash/mess,
 /turf/open/floor/plasteel,
 /area/service/kitchen)
 "aD" = (
@@ -294,7 +294,7 @@
 /turf/open/floor/wood,
 /area/service/bar)
 "aO" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/wood,
 /area/service/bar)
 "aP" = (
@@ -996,7 +996,7 @@
 /area/service/kitchen)
 "cC" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/item/reagent_containers/glass/beaker,
 /turf/open/floor/plasteel/cafeteria,
 /area/service/kitchen)
@@ -1181,7 +1181,7 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/service/kitchen)
 "cU" = (
-/obj/effect/spawner/randomarcade,
+/obj/effect/spawner/random/entertainment/arcade,
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1

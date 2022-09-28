@@ -112,7 +112,7 @@
 /turf/closed/wall,
 /area/hallway/primary/central/north)
 "ao" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/north)
 "ap" = (
@@ -156,7 +156,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/north)
 "at" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/north)
 "au" = (
@@ -1397,7 +1397,7 @@
 /turf/open/floor/plasteel,
 /area/command/heads_quarters/hop)
 "de" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /obj/item/radio/intercom{
 	dir = 8;
 	pixel_x = -28
@@ -2050,11 +2050,11 @@
 /turf/open/floor/wood,
 /area/command/meeting_room)
 "hE" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/wood,
 /area/command/meeting_room)
 "hI" = (
-/obj/effect/spawner/randomarcade,
+/obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
 "hK" = (
@@ -2100,8 +2100,8 @@
 	req_access_txt = "20"
 	},
 /obj/structure/window/reinforced,
-/obj/effect/spawner/lootdrop/aimodule_harmless,
-/obj/effect/spawner/lootdrop/aimodule_neutral,
+/obj/effect/spawner/random/aimodule/harmless,
+/obj/effect/spawner/random/aimodule/neutral,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -2154,7 +2154,7 @@
 	},
 /obj/item/ai_module/reset/purge,
 /obj/structure/window/reinforced,
-/obj/effect/spawner/lootdrop/aimodule_harmful,
+/obj/effect/spawner/random/aimodule/harmful,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -2719,7 +2719,7 @@
 /turf/open/floor/plating,
 /area/hallway/primary/central/north)
 "mN" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/west)
 "nb" = (
@@ -4006,7 +4006,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/east)
 "qj" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -4718,7 +4718,7 @@
 /turf/template_noop,
 /area/commons/fitness/recreation)
 "Jt" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/south)
 "JP" = (

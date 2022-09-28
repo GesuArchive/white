@@ -44,8 +44,8 @@
 /area/awaymission/black_mesa/xen/nihilanth_hallway)
 "aaO" = (
 /obj/item/clothing/mask/gas,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/black_mesa/security_outpost)
 "aaS" = (
 /obj/structure/railing{
@@ -862,8 +862,8 @@
 	},
 /area/awaymission/black_mesa/hecu_zone_external_hall)
 "alV" = (
-/turf/open/floor/plasteel/monofloor,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/hecu_zone_external_hall)
 "amf" = (
 /obj/structure/lattice/catwalk,
@@ -1759,8 +1759,8 @@
 /obj/machinery/light/small/red/directional/north{
 	dir = 8
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/black_mesa/security_outpost)
 "ayH" = (
 /obj/machinery/light/cold,
@@ -1988,8 +1988,8 @@
 /obj/item/ammo_box/a357,
 /obj/item/ammo_box/a357/match,
 /obj/item/ammo_box/a357/match,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/black_mesa/security_outpost)
 "aBf" = (
 /obj/structure/railing/corner{
@@ -2387,8 +2387,8 @@
 /obj/item/reagent_containers/food/drinks/bottle/vodka{
 	pixel_x = 11
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/black_mesa/security_outpost)
 "aGB" = (
 /obj/structure/table,
@@ -3681,9 +3681,6 @@
 	},
 /turf/open/floor/plasteel/elevatorshaft,
 /area/awaymission/black_mesa/gas_emitter_chamber)
-"aXE" = (
-/turf/open/floor/plating/xen,
-/area/awaymission/black_mesa/xen/antag_token_nook)
 "aXH" = (
 /obj/effect/random_mob_placer/security_guard,
 /turf/open/floor/plasteel,
@@ -3750,8 +3747,8 @@
 "aYe" = (
 /obj/structure/rack,
 /obj/item/gun/ballistic/revolver/mateba,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/black_mesa/security_outpost)
 "aYf" = (
 /obj/effect/mob_spawn/human/engineer,
@@ -3813,8 +3810,8 @@
 /obj/item/clothing/shoes/combat,
 /obj/item/storage/belt/military,
 /obj/item/clothing/gloves/tackler/combat/insulated,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/black_mesa/security_outpost)
 "aYK" = (
 /turf/open/floor/plating/asteroid/snow,
@@ -6254,8 +6251,8 @@
 /area/awaymission/black_mesa/equipment_room)
 "gIr" = (
 /obj/effect/random_mob_placer/xen,
-/turf/open/floor/plasteel/monofloor,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/high_security_servers)
 "gIM" = (
 /obj/effect/turf_decal/stripes,
@@ -7078,8 +7075,8 @@
 /turf/closed/wall/r_wall,
 /area/awaymission/black_mesa/entrance_internal_hall)
 "iKp" = (
-/turf/open/floor/plasteel/monofloor,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/high_security_hallway)
 "iKG" = (
 /obj/structure/chair/office,
@@ -7744,8 +7741,8 @@
 "kkK" = (
 /obj/effect/mob_spawn/human/scientist,
 /obj/item/resonator/upgraded,
-/turf/open/floor/plasteel/monofloor,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/high_security_servers)
 "klO" = (
 /obj/effect/turf_decal/stripes,
@@ -8255,8 +8252,8 @@
 /turf/open/floor/circuit,
 /area/awaymission/black_mesa/lambda_teleporter)
 "lpg" = (
-/turf/open/floor/plasteel/monofloor,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/high_security_servers)
 "lpp" = (
 /obj/machinery/computer,
@@ -10372,11 +10369,6 @@
 /obj/effect/spawner/lootdrop/bioluminescent_plant,
 /turf/open/floor/plating/dirt/planet/xen,
 /area/awaymission/black_mesa/xen/freeman_puzzle)
-"qEs" = (
-/obj/structure/closet/crate/large,
-/obj/item/ammo_box/magazine/mp5,
-/turf/open/floor/plating,
-/area/awaymission/black_mesa/science_tunnel)
 "qEt" = (
 /obj/effect/turf_decal/stripes{
 	dir = 4
@@ -11154,8 +11146,8 @@
 /area/awaymission/black_mesa/deep_sci_medbay)
 "sfA" = (
 /obj/item/pickaxe/diamond,
-/turf/open/floor/plasteel/monofloor,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/high_security_hallway)
 "sfK" = (
 /obj/structure/table,
@@ -40286,7 +40278,7 @@ arz
 aoE
 aoE
 aFe
-aXE
+aac
 aoE
 aoE
 arz
@@ -40542,7 +40534,7 @@ aoE
 aoE
 aoE
 aHq
-aXE
+aac
 aWJ
 mmE
 aoE
@@ -40799,9 +40791,9 @@ aoE
 ajS
 azT
 awi
-aXE
+aac
 awi
-aXE
+aac
 aoE
 arz
 arz
@@ -41054,11 +41046,11 @@ ade
 ajS
 ajS
 ajS
-aXE
-aXE
+aac
+aac
 avX
-aXE
-aXE
+aac
+aac
 aoE
 arz
 arz
@@ -41311,10 +41303,10 @@ ade
 aoE
 aoE
 ajS
-aXE
-aXE
+aac
+aac
 awi
-aXE
+aac
 aHq
 aoE
 arz
@@ -41570,9 +41562,9 @@ aoE
 aoE
 aWJ
 aac
-aXE
+aac
 aFe
-aXE
+aac
 aoE
 arz
 arz
@@ -41828,7 +41820,7 @@ aoE
 aoE
 aoE
 azT
-aXE
+aac
 aoE
 aoE
 arz
@@ -67876,7 +67868,7 @@ ozz
 jJJ
 lwG
 pYd
-qEs
+pYd
 ozz
 ozz
 xEP

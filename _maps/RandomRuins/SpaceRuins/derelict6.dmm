@@ -16,8 +16,8 @@
 /area/template_noop)
 "ad" = (
 /obj/structure/girder,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/unpowered)
 "ae" = (
 /obj/item/stack/sheet/iron,
@@ -35,8 +35,8 @@
 /turf/open/floor/plasteel/airless,
 /area/ruin/unpowered)
 "ah" = (
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/unpowered)
 "ai" = (
 /turf/closed/wall,
@@ -50,8 +50,8 @@
 /area/template_noop)
 "ak" = (
 /obj/item/stack/rods,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/unpowered)
 "al" = (
 /obj/structure/fluff/broken_flooring{
@@ -73,17 +73,8 @@
 /area/ruin/unpowered)
 "ao" = (
 /obj/structure/closet/emcloset,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
-/area/ruin/unpowered)
-"ap" = (
 /turf/open/floor/plating/airless,
-/obj/effect/mapping_helpers/broken_floor,
-/area/ruin/unpowered)
-"aq" = (
-/obj/structure/girder,
-/turf/open/floor/plating/airless,
-/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/unpowered)
 "ar" = (
 /obj/structure/girder,
@@ -91,17 +82,12 @@
 /area/ruin/unpowered)
 "as" = (
 /obj/item/stack/sheet/iron,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/unpowered)
 "at" = (
 /obj/item/stack/rods,
 /turf/open/floor/plasteel/airless,
-/area/ruin/unpowered)
-"au" = (
-/obj/item/stack/sheet/iron,
-/turf/open/floor/plating/airless,
-/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/unpowered)
 "av" = (
 /obj/effect/decal/remains/human,
@@ -117,8 +103,8 @@
 /area/ruin/unpowered)
 "ay" = (
 /obj/item/stack/tile/plasteel,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/unpowered)
 "az" = (
 /obj/structure/fluff/broken_flooring{
@@ -136,11 +122,6 @@
 	},
 /turf/template_noop,
 /area/template_noop)
-"aB" = (
-/obj/item/stack/tile/plasteel,
-/turf/open/floor/plating/airless,
-/obj/effect/mapping_helpers/broken_floor,
-/area/ruin/unpowered)
 "aC" = (
 /obj/machinery/light/broken,
 /turf/open/floor/plasteel/airless,
@@ -151,8 +132,8 @@
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/unpowered)
 "aE" = (
 /obj/structure/door_assembly/door_assembly_mhatch{
@@ -229,8 +210,8 @@
 /obj/machinery/light/broken{
 	dir = 1
 	},
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/unpowered)
 "aQ" = (
 /obj/item/stack/tile/plasteel,
@@ -254,14 +235,14 @@
 "aU" = (
 /obj/structure/table/wood,
 /obj/item/shard,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/unpowered)
 "aV" = (
 /obj/structure/table/wood,
 /obj/item/trash/plate,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/unpowered)
 "aW" = (
 /obj/structure/table,
@@ -306,15 +287,6 @@
 	},
 /turf/open/floor/plasteel/airless,
 /area/ruin/unpowered)
-"be" = (
-/turf/open/floor/plating/airless,
-/obj/effect/mapping_helpers/broken_floor,
-/area/ruin/unpowered)
-"bg" = (
-/obj/item/stack/sheet/iron,
-/turf/open/floor/plating/airless,
-/obj/effect/mapping_helpers/broken_floor,
-/area/ruin/unpowered)
 "bh" = (
 /obj/machinery/light/broken{
 	dir = 8
@@ -325,8 +297,8 @@
 "bi" = (
 /obj/item/stack/sheet/iron,
 /obj/item/clothing/head/chefhat,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/unpowered)
 "bj" = (
 /obj/item/trash/plate,
@@ -335,18 +307,13 @@
 /area/ruin/unpowered)
 "bk" = (
 /obj/structure/table_frame/wood,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
-/area/ruin/unpowered)
-"bl" = (
-/obj/structure/girder,
 /turf/open/floor/plating/airless,
-/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/unpowered)
 "bm" = (
 /obj/item/chair,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/unpowered)
 "bo" = (
 /obj/item/stack/rods,
@@ -355,19 +322,14 @@
 "bp" = (
 /obj/item/stack/sheet/iron,
 /obj/structure/girder,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
-/area/ruin/unpowered)
-"bq" = (
-/obj/item/stack/tile/plasteel,
 /turf/open/floor/plating/airless,
-/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/unpowered)
 "br" = (
 /obj/structure/girder,
 /obj/item/stack/sheet/iron,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/unpowered)
 "bt" = (
 /obj/structure/fluff/broken_flooring{
@@ -556,11 +518,11 @@ aa
 aa
 aa
 ac
-ap
+ah
 aw
 ag
 ag
-be
+ah
 bH
 aa
 ac
@@ -584,14 +546,14 @@ ag
 ag
 ag
 ah
-be
-be
-be
-be
-be
-be
-be
-be
+ah
+ah
+ah
+ah
+ah
+ah
+ah
+ah
 bH
 aa
 aa
@@ -601,21 +563,21 @@ aa
 aa
 aa
 ac
-ap
-ap
+ah
+ah
 at
 bD
 ag
 ai
 ai
 ai
-aq
+ad
 ah
-bg
-bl
+as
+ad
 ah
 ay
-be
+ah
 ac
 aa
 "}
@@ -624,7 +586,7 @@ aa
 ac
 ac
 ac
-be
+ah
 ai
 aw
 ag
@@ -633,12 +595,12 @@ aE
 aH
 aQ
 aH
-ap
-ap
 ah
 ah
-be
-be
+ah
+ah
+ah
+ah
 aa
 aa
 "}
@@ -646,7 +608,7 @@ aa
 aa
 ac
 ac
-ap
+ah
 am
 ai
 ag
@@ -658,7 +620,7 @@ ai
 ai
 ai
 ai
-aq
+ad
 bp
 ah
 as
@@ -669,7 +631,7 @@ aa
 aa
 ac
 ac
-ap
+ah
 ah
 ai
 av
@@ -681,8 +643,8 @@ aR
 aW
 aW
 bh
-ap
-ap
+ah
+ah
 br
 ac
 ac
@@ -692,9 +654,9 @@ aa
 aa
 aa
 aa
-ap
 ah
-aq
+ah
+ad
 ag
 aw
 ag
@@ -704,9 +666,9 @@ aR
 aR
 aR
 bi
-ap
-bq
-bl
+ah
+ay
+ad
 ac
 ac
 aa
@@ -727,9 +689,9 @@ aR
 aR
 ba
 bj
-au
-ap
-aq
+as
+ah
+ad
 ac
 ac
 ab
@@ -819,8 +781,8 @@ aT
 ah
 aM
 aT
-au
-be
+as
+ah
 ai
 ac
 aa
@@ -829,8 +791,8 @@ aa
 (16,1,1) = {"
 aa
 ac
-ap
-ap
+ah
+ah
 ao
 ai
 ag
@@ -840,11 +802,11 @@ aG
 aO
 bI
 ac
-be
-ap
+ah
+ah
 ac
-au
-aq
+as
+ad
 aa
 aa
 aa
@@ -854,7 +816,7 @@ aa
 ac
 bx
 ak
-ap
+ah
 ai
 ag
 ag
@@ -862,8 +824,8 @@ ag
 ai
 aM
 aU
-aB
-ap
+ay
+ah
 bk
 bm
 az
@@ -876,19 +838,19 @@ aa
 aa
 aa
 ae
-ap
-ap
-aq
+ah
+ah
+ad
 ag
 ag
 aC
 ai
 aM
-ap
-ap
-ap
+ah
+ah
+ah
 ac
-ap
+ah
 ac
 aa
 aa
@@ -900,17 +862,17 @@ aa
 aa
 aa
 bz
-ap
+ah
 ai
 ag
 ag
 ag
 ai
 aP
-ap
+ah
 ac
-be
-ap
+ah
+ah
 aZ
 aa
 aa
@@ -923,16 +885,16 @@ aa
 aa
 aa
 ac
-ap
+ah
 ai
 ag
 ag
 ag
 ai
-ap
+ah
 aV
 aD
-ap
+ah
 ac
 ac
 aa
@@ -952,9 +914,9 @@ ag
 ag
 ag
 ai
-au
-ap
-ap
+as
+ah
+ah
 aY
 ac
 ac
@@ -970,14 +932,14 @@ aa
 aa
 aa
 ac
-ap
+ah
 aw
 at
 ag
 ai
 ai
 ai
-aq
+ad
 ac
 aa
 bo

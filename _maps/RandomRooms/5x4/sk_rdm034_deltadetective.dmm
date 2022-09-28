@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/template_noop)
 "b" = (
 /obj/structure/chair/office,
@@ -45,7 +45,7 @@
 	},
 /obj/item/folder/red,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/carpet/red,
 /area/template_noop)
 "h" = (
@@ -94,10 +94,6 @@
 /area/template_noop)
 "m" = (
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
-"n" = (
-/turf/open/floor/wood,
-/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "o" = (
 /obj/structure/rack,
@@ -156,7 +152,7 @@ r
 (4,1,1) = {"
 i
 i
-n
+a
 s
 "}
 (5,1,1) = {"

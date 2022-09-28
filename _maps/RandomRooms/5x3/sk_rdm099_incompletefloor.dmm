@@ -34,8 +34,8 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "g" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "h" = (
 /obj/effect/decal/cleanable/oil/slippery,

@@ -73,7 +73,7 @@
 /turf/open/floor/plasteel/grimy,
 /area/ruin/unpowered)
 "t" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "u" = (
@@ -81,7 +81,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "v" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "y" = (

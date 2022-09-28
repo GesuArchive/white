@@ -11,7 +11,7 @@
 /area/ruin/unpowered)
 "c" = (
 /obj/structure/table/glass,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 "d" = (
@@ -378,7 +378,7 @@
 	},
 /obj/effect/turf_decal/tile/yellow,
 /obj/structure/table/glass,
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
 /turf/open/floor/plasteel/white,
 /area/ruin/unpowered)
 

@@ -10,13 +10,13 @@
 /obj/machinery/light/broken{
 	dir = 1
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "d" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/three,
+/obj/effect/spawner/random/maintenance/three,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -35,14 +35,14 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "h" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "i" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/fueltank,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "k" = (
 /turf/open/floor/plasteel,
@@ -78,7 +78,7 @@
 "p" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/seven,
+/obj/effect/spawner/random/maintenance/seven,
 /turf/open/floor/plating,
 /area/template_noop)
 "q" = (
@@ -108,13 +108,13 @@
 /obj/machinery/light/built{
 	dir = 4
 	},
-/obj/effect/spawner/lootdrop/glowstick,
+/obj/effect/spawner/random/decoration/glowstick,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "w" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "x" = (
 /obj/machinery/conveyor{
@@ -139,7 +139,7 @@
 /area/template_noop)
 "A" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/template_noop)
 "B" = (
@@ -150,8 +150,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "C" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "D" = (
 /obj/machinery/light/broken{
@@ -168,7 +168,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/oil,
 /obj/effect/turf_decal/bot,
-/obj/effect/spawner/lootdrop/gloves,
+/obj/effect/spawner/random/clothing/gloves,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "G" = (
@@ -178,7 +178,7 @@
 "H" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/bot,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "I" = (
@@ -187,7 +187,7 @@
 /area/template_noop)
 "J" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/four,
+/obj/effect/spawner/random/maintenance/four,
 /turf/open/floor/plating,
 /area/template_noop)
 "K" = (
@@ -203,17 +203,13 @@
 "M" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/eight,
+/obj/effect/spawner/random/maintenance/eight,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "N" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/template_noop)
-"O" = (
-/turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "P" = (
 /obj/machinery/light/built,
@@ -225,7 +221,7 @@
 /area/template_noop)
 "S" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/six,
+/obj/effect/spawner/random/maintenance/six,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "T" = (
@@ -341,7 +337,7 @@ a
 C
 J
 f
-O
+C
 a
 "}
 (10,1,1) = {"

@@ -1,25 +1,21 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/airless,
 /area/template_noop)
 "b" = (
 /turf/open/floor/plating/airless,
 /area/template_noop)
 "c" = (
 /obj/item/paper/crumpled,
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/airless,
 /area/template_noop)
 "d" = (
 /obj/item/airlock_painter,
 /obj/structure/lattice,
 /obj/structure/closet,
 /turf/open/space/basic,
-/area/template_noop)
-"e" = (
-/turf/open/floor/plasteel/airless,
-/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "f" = (
 /obj/structure/lattice,
@@ -29,7 +25,7 @@
 (1,1,1) = {"
 a
 b
-e
+a
 "}
 (2,1,1) = {"
 b
@@ -39,5 +35,5 @@ f
 (3,1,1) = {"
 c
 a
-e
+a
 "}

@@ -139,7 +139,7 @@
 /turf/closed/wall,
 /area/hallway/primary/central/north)
 "aM" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /obj/tacmap/directional/west,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/north)
@@ -184,7 +184,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/north)
 "aW" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/north)
 "aX" = (
@@ -1833,7 +1833,7 @@
 /turf/open/floor/wood,
 /area/command/meeting_room)
 "eT" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/wood,
 /area/command/meeting_room)
 "eU" = (
@@ -1973,7 +1973,7 @@
 /turf/open/floor/wood,
 /area/command/meeting_room)
 "fn" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/wood,
 /area/command/meeting_room)
 "fo" = (
@@ -2005,9 +2005,7 @@
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)
 "fr" = (
-/obj/effect/spawner/randomarcade{
-	dir = 4
-	},
+/obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
 "fs" = (
@@ -2064,8 +2062,8 @@
 	req_access_txt = "20"
 	},
 /obj/structure/window/reinforced,
-/obj/effect/spawner/lootdrop/aimodule_harmless,
-/obj/effect/spawner/lootdrop/aimodule_neutral,
+/obj/effect/spawner/random/aimodule/harmless,
+/obj/effect/spawner/random/aimodule/neutral,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -2132,7 +2130,7 @@
 	},
 /obj/item/ai_module/reset/purge,
 /obj/structure/window/reinforced,
-/obj/effect/spawner/lootdrop/aimodule_harmful,
+/obj/effect/spawner/random/aimodule/harmful,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -2632,7 +2630,7 @@
 /turf/open/floor/plating,
 /area/maintenance/central)
 "gY" = (
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "gZ" = (
@@ -2834,7 +2832,7 @@
 /area/hallway/primary/central/west)
 "hw" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "hx" = (
@@ -4758,7 +4756,7 @@
 /turf/open/floor/wood,
 /area/command/meeting_room)
 "HF" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/south)
 "HG" = (
@@ -4773,7 +4771,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/south)
 "HU" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/west)
 "Iz" = (

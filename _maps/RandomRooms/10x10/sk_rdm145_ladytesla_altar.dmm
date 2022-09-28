@@ -7,7 +7,7 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "c" = (
-/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/floor/plating,
 /area/template_noop)
 "f" = (
@@ -20,29 +20,29 @@
 /obj/structure/sign/poster/contraband/random{
 	pixel_y = 32
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "i" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/template_noop)
 "j" = (
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/template_noop)
 "k" = (
 /obj/machinery/light/small,
 /turf/open/floor/plating,
 /area/template_noop)
 "l" = (
-/obj/effect/spawner/lootdrop/grille_or_trash,
-/turf/open/floor/plating,
+/obj/effect/spawner/random/trash/grille_or_waste,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "m" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "o" = (
 /obj/machinery/light/small{
@@ -105,7 +105,7 @@
 /area/template_noop)
 "z" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/maintenance/eight,
+/obj/effect/spawner/random/maintenance/eight,
 /turf/open/floor/plating,
 /area/template_noop)
 "A" = (
@@ -125,12 +125,8 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
-/area/template_noop)
-"D" = (
-/turf/open/floor/wood,
-/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "E" = (
 /obj/item/radio/intercom{
@@ -166,8 +162,8 @@
 /turf/open/floor/carpet/royalblue,
 /area/template_noop)
 "O" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "Q" = (
 /obj/machinery/light/small{
@@ -209,10 +205,6 @@
 	pixel_y = 7
 	},
 /turf/open/floor/carpet/royalblue,
-/area/template_noop)
-"X" = (
-/turf/open/floor/wood,
-/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "Z" = (
 /obj/structure/table/wood,
@@ -289,7 +281,7 @@ L
 J
 U
 L
-X
+j
 b
 a
 "}
@@ -311,7 +303,7 @@ p
 u
 w
 W
-D
+j
 Z
 p
 p

@@ -81,7 +81,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "l" = (
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "m" = (
@@ -176,7 +176,7 @@
 /area/template_noop)
 "t" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/maintenance/two,
+/obj/effect/spawner/random/maintenance/two,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "u" = (
@@ -350,12 +350,12 @@
 /area/template_noop)
 "S" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "T" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "U" = (

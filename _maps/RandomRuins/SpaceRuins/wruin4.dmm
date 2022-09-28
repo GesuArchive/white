@@ -17,7 +17,7 @@
 /area/ruin/space/has_grav/terrorship)
 "af" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/snowdin/dungeonheavy,
+/obj/effect/spawner/random/exotic/antag_gear_strong,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
@@ -27,7 +27,7 @@
 /area/ruin/space/has_grav/terrorship)
 "ai" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmid,
+/obj/effect/spawner/random/exotic/antag_gear,
 /obj/effect/turf_decal/bot,
 /obj/machinery/light{
 	dir = 1
@@ -75,7 +75,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "au" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "aw" = (
@@ -115,7 +115,7 @@
 /area/ruin/space/has_grav/terrorship)
 "aB" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
@@ -140,7 +140,7 @@
 /area/ruin/space/has_grav/terrorship)
 "aG" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmisc,
+/obj/effect/spawner/random/exotic/snow_gear,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
@@ -199,7 +199,7 @@
 /area/ruin/space/has_grav/terrorship)
 "aN" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmid,
+/obj/effect/spawner/random/exotic/antag_gear,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
@@ -403,7 +403,7 @@
 /area/ruin/space/has_grav/terrorship)
 "bD" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
 /obj/effect/turf_decal/bot,
 /obj/machinery/light{
 	dir = 4
@@ -593,12 +593,12 @@
 "cr" = (
 /obj/item/mecha_ammo/missiles_he,
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/gloves,
+/obj/effect/spawner/random/clothing/gloves,
 /turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "cs" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
 /obj/effect/turf_decal/bot,
 /obj/machinery/light,
 /turf/open/floor/plasteel/dark,
@@ -990,7 +990,7 @@
 "fh" = (
 /obj/item/mecha_ammo/clusterbang,
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/gloves,
+/obj/effect/spawner/random/clothing/gloves,
 /turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "fi" = (
@@ -1011,7 +1011,7 @@
 "fl" = (
 /obj/item/mecha_ammo/lmg,
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/gloves,
+/obj/effect/spawner/random/clothing/gloves,
 /turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "fm" = (
@@ -1061,7 +1061,7 @@
 "fx" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/toolbox/mechanical,
-/obj/effect/spawner/lootdrop/gloves,
+/obj/effect/spawner/random/clothing/gloves,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "fy" = (
@@ -1157,7 +1157,7 @@
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "jY" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "kc" = (
@@ -1251,7 +1251,7 @@
 "qk" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/toolbox/electrical,
-/obj/effect/spawner/lootdrop/gloves,
+/obj/effect/spawner/random/clothing/gloves,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "qK" = (
@@ -1577,7 +1577,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "Qz" = (

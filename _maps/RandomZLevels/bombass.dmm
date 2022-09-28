@@ -961,16 +961,11 @@
 /turf/closed/wall/rust,
 /area/awaymission/bombass)
 "dI" = (
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
+	
 	},
-/obj/effect/mapping_helpers/broken_floor,
-/area/awaymission/bombass)
-"dJ" = (
-/turf/open/floor/plating{
-	heat_capacity = 1e+006;
-	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bombass)
 "dK" = (
 /turf/open/floor/plating,
@@ -979,38 +974,33 @@
 /turf/open/floor/plating/partyhard,
 /area/awaymission/bombass/indoors)
 "dN" = (
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
+	
 	},
-/obj/effect/mapping_helpers/broken_floor,
-/area/awaymission/bombass/indoors)
-"dO" = (
-/turf/open/floor/plating{
-	heat_capacity = 1e+006;
-	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bombass/indoors)
 "dP" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/gloves,
+/obj/effect/spawner/random/clothing/gloves,
 /turf/open/floor/plating,
 /area/awaymission/bombass/indoors)
 "dQ" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/eight,
+/obj/effect/spawner/random/maintenance/eight,
+/obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006
 	},
-/obj/effect/mapping_helpers/burnt_floor,
 /area/awaymission/bombass/indoors)
 "dR" = (
+/obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006
 	},
-/obj/effect/mapping_helpers/burnt_floor,
 /area/awaymission/bombass/indoors)
 "dS" = (
-/obj/effect/spawner/lootdrop/snowdin/dungeonheavy,
+/obj/effect/spawner/random/exotic/antag_gear_strong,
 /turf/open/floor/plating/partyhard,
 /area/awaymission/bombass)
 "dU" = (
@@ -1046,17 +1036,17 @@
 /area/awaymission/bombass)
 "ed" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/minor/kittyears_or_rabbitears,
+/obj/effect/spawner/random/clothing/kittyears_or_rabbitears,
 /turf/open/floor/plating,
 /area/awaymission/bombass/indoors)
 "ee" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/minor/bowler_or_that,
+/obj/effect/spawner/random/clothing/bowler_or_that,
 /turf/open/floor/plating,
 /area/awaymission/bombass/indoors)
 "ef" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/snowdin/dungeonheavy,
+/obj/effect/spawner/random/exotic/antag_gear_strong,
 /turf/open/floor/plating,
 /area/awaymission/bombass/indoors)
 "eg" = (
@@ -1121,14 +1111,12 @@
 /area/awaymission/bombass)
 "eu" = (
 /obj/item/disk/design_disk/adv/cleric_mace,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
+	
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/bombass/indoors)
-"ev" = (
-/turf/open/floor/plating/partyhard,
-/area/awaymission/bombass)
 "ew" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4;
@@ -6466,7 +6454,7 @@ bg
 dL
 dH
 dL
-dO
+dN
 dK
 dK
 bg
@@ -7020,7 +7008,7 @@ bf
 bf
 bf
 bf
-ev
+bg
 bg
 bg
 bg
@@ -7248,7 +7236,7 @@ bg
 bg
 bg
 dK
-dJ
+dI
 UW
 UW
 dL
@@ -7598,12 +7586,12 @@ bg
 bg
 bg
 dH
-dO
+dN
 dR
-dO
+dN
 ed
 dH
-dO
+dN
 dL
 bg
 bg
@@ -8268,7 +8256,7 @@ bg
 bg
 bg
 bg
-ev
+bg
 bf
 bf
 bf

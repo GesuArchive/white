@@ -9,18 +9,18 @@
 /area/space/nearstation)
 "h" = (
 /obj/structure/girder,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/ruin/space/djstation)
 "k" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/ruin/space/djstation)
 "o" = (
 /obj/structure/table_frame,
 /obj/machinery/light/broken/directional/east,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/ruin/space/djstation)
 "B" = (
 /obj/structure/lattice,
@@ -60,22 +60,14 @@
 /obj/structure/barricade/wooden,
 /turf/template_noop,
 /area/template_noop)
-"S" = (
-/turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
-/area/ruin/space/djstation)
 "V" = (
 /obj/structure/lattice,
 /turf/template_noop,
 /area/space/nearstation)
-"W" = (
-/turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
-/area/ruin/space/djstation)
 "X" = (
 /obj/structure/girder,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/ruin/space/djstation)
 
 (1,1,1) = {"
@@ -108,7 +100,7 @@ a
 V
 V
 a
-W
+k
 a
 a
 a
@@ -130,7 +122,7 @@ a
 a
 a
 h
-W
+k
 V
 V
 V
@@ -144,7 +136,7 @@ a
 L
 o
 k
-S
+k
 X
 a
 e

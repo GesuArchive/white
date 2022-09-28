@@ -44,7 +44,7 @@
 /area/ruin/unpowered)
 "l" = (
 /obj/effect/turf_decal/delivery,
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "n" = (
@@ -60,7 +60,7 @@
 /turf/open/floor/mineral/titanium,
 /area/ruin/unpowered)
 "s" = (
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/mineral/titanium,
 /area/ruin/unpowered)
 "t" = (
@@ -86,12 +86,12 @@
 /turf/closed/wall/mineral/plastitanium,
 /area/ruin/unpowered)
 "w" = (
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "y" = (
 /obj/effect/turf_decal/delivery,
-/obj/effect/spawner/lootdrop/glowstick,
+/obj/effect/spawner/random/decoration/glowstick,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "B" = (
@@ -119,12 +119,12 @@
 /area/ruin/unpowered)
 "G" = (
 /obj/effect/turf_decal/delivery,
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "H" = (
 /obj/effect/turf_decal/bot,
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "I" = (

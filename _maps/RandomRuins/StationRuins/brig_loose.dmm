@@ -1106,8 +1106,8 @@
 /area/command/heads_quarters/hos)
 "cS" = (
 /obj/structure/closet/secure_closet/contraband/armory,
-/obj/effect/spawner/lootdrop/maintenance/three,
-/obj/effect/spawner/lootdrop/armory_contraband/metastation,
+/obj/effect/spawner/random/maintenance/three,
+/obj/effect/spawner/random/contraband/armory,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	dir = 8

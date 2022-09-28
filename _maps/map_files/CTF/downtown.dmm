@@ -240,8 +240,8 @@
 /obj/structure/sign/poster/random{
 	pixel_x = -32
 	},
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/ctf)
 "fw" = (
 /obj/effect/turf_decal/trimline/red/line{
@@ -411,8 +411,8 @@
 /obj/structure/table/wood{
 	resistance_flags = 64
 	},
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/ctf)
 "iy" = (
 /obj/effect/turf_decal/trimline/red/line{
@@ -442,8 +442,8 @@
 /turf/open/floor/plasteel/dark,
 /area/ctf)
 "iQ" = (
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/ctf)
 "iW" = (
 /obj/effect/turf_decal/stripes/line{
@@ -639,13 +639,6 @@
 /obj/effect/turf_decal/trimline/blue/line,
 /obj/effect/decal/cleanable/shreds,
 /turf/open/floor/plasteel,
-/area/ctf)
-"mf" = (
-/obj/effect/spawner/randomarcade{
-	dir = 4;
-	resistance_flags = 64
-	},
-/turf/open/floor/wood,
 /area/ctf)
 "mj" = (
 /turf/open/floor/plating/grass,
@@ -1214,10 +1207,7 @@
 /turf/open/floor/plasteel,
 /area/ctf)
 "yi" = (
-/obj/effect/spawner/randomarcade{
-	dir = 8;
-	resistance_flags = 64
-	},
+/obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/wood,
 /area/ctf)
 "yp" = (
@@ -1759,10 +1749,6 @@
 	},
 /turf/open/floor/plating,
 /area/ctf)
-"Ie" = (
-/turf/open/floor/wood,
-/obj/effect/mapping_helpers/broken_floor,
-/area/ctf)
 "Ig" = (
 /obj/effect/turf_decal/trimline/blue/line{
 	dir = 1
@@ -1881,20 +1867,6 @@
 /obj/effect/decal/cleanable/shreds,
 /turf/open/floor/plasteel/dark,
 /area/ctf)
-"JZ" = (
-/obj/structure/barricade/security/ctf,
-/obj/effect/turf_decal/tile/red,
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 8
-	},
-/turf/open/floor/plasteel,
-/area/ctf)
 "Kd" = (
 /obj/structure/flora/ausbushes/grassybush,
 /turf/open/floor/plating/grass,
@@ -1946,10 +1918,6 @@
 	resistance_flags = 64
 	},
 /turf/open/floor/plasteel,
-/area/ctf)
-"KN" = (
-/turf/open/floor/wood,
-/obj/effect/mapping_helpers/broken_floor,
 /area/ctf)
 "KV" = (
 /obj/effect/turf_decal/siding/white,
@@ -3645,9 +3613,9 @@ Ag
 BH
 td
 Bh
-mf
 yi
-mf
+yi
+yi
 yi
 QC
 oq
@@ -3797,9 +3765,9 @@ xs
 BH
 td
 Bh
-mf
 yi
-mf
+yi
+yi
 yi
 QC
 Lr
@@ -4142,7 +4110,7 @@ vX
 dO
 RU
 kx
-Ie
+iQ
 iv
 Lr
 Kh
@@ -4367,7 +4335,7 @@ BH
 BH
 xf
 Bx
-KN
+iQ
 ql
 ql
 fJ
@@ -5167,7 +5135,7 @@ Te
 td
 rQ
 vU
-JZ
+vU
 vU
 rQ
 KD

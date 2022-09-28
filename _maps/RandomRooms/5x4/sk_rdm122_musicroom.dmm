@@ -24,8 +24,8 @@
 	},
 /area/template_noop)
 "c" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "d" = (
 /obj/structure/table/wood,

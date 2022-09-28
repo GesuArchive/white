@@ -44,22 +44,17 @@
 /obj/structure/sign/poster/contraband/random{
 	pixel_x = 32
 	},
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/template_noop)
 "l" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/template_noop)
 "m" = (
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
-/area/template_noop)
-"n" = (
-/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
-/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "o" = (
 /obj/machinery/computer/slot_machine,
@@ -67,13 +62,13 @@
 /obj/structure/sign/poster/contraband/random{
 	pixel_x = 32
 	},
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/template_noop)
 "Z" = (
 /obj/structure/table/wood,
 /obj/item/toy/cards/deck,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/carpet/green,
 /area/template_noop)
 
@@ -99,7 +94,7 @@ c
 d
 c
 j
-n
+l
 "}
 (5,1,1) = {"
 j

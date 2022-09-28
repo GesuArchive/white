@@ -15,35 +15,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
-"b" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/spawner/randomarcade,
-/turf/open/floor/plasteel/dark,
-/area/template_noop)
-"c" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/spawner/randomarcade,
-/turf/open/floor/plasteel/dark,
-/area/template_noop)
 "d" = (
 /obj/structure/table/wood,
 /obj/item/coin/antagtoken,
@@ -64,10 +35,6 @@
 /area/template_noop)
 "f" = (
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
-"g" = (
-/obj/effect/spawner/randomarcade,
-/turf/open/floor/plating,
 /area/template_noop)
 "h" = (
 /obj/structure/table/wood,
@@ -276,9 +243,7 @@
 /area/template_noop)
 "y" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/randomarcade{
-	dir = 1
-	},
+/obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/plating,
 /area/template_noop)
 "z" = (
@@ -307,9 +272,7 @@
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "F" = (
-/obj/effect/spawner/randomarcade{
-	dir = 1
-	},
+/obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/plating,
 /area/template_noop)
 "X" = (
@@ -324,9 +287,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/effect/spawner/randomarcade{
-	dir = 1
-	},
+/obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 "Z" = (
@@ -340,9 +301,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/effect/spawner/randomarcade{
-	dir = 1
-	},
+/obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/plasteel/dark,
 /area/template_noop)
 
@@ -354,14 +313,14 @@ e
 w
 "}
 (2,1,1) = {"
-b
+Z
 l
 e
 u
 X
 "}
 (3,1,1) = {"
-c
+X
 m
 n
 l
@@ -389,7 +348,7 @@ e
 n
 "}
 (7,1,1) = {"
-g
+F
 n
 n
 l

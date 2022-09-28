@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "b" = (
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/airless,
 /area/ruin/unpowered)
 "c" = (
 /obj/structure/table,
@@ -71,10 +71,6 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/template_noop)
-"T" = (
-/turf/open/floor/plasteel/airless,
-/obj/effect/mapping_helpers/broken_floor,
-/area/ruin/unpowered)
 "X" = (
 /turf/open/floor/plating/airless,
 /area/ruin/unpowered)
@@ -177,7 +173,7 @@ q
 q
 Q
 X
-T
+b
 X
 g
 g
@@ -193,7 +189,7 @@ q
 q
 X
 X
-T
+b
 X
 g
 g

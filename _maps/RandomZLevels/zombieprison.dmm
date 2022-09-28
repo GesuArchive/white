@@ -899,7 +899,7 @@
 /area/awaymission/prison/rec)
 "ez" = (
 /mob/living/simple_animal/hostile/prison/zombieguard,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plasteel,
 /area/awaymission/prison)
 "eA" = (
@@ -932,7 +932,7 @@
 /turf/closed/indestructible/reinforced,
 /area/awaymission/prison)
 "eG" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/start)
 "eI" = (
@@ -996,7 +996,7 @@
 /turf/open/floor/plasteel,
 /area/awaymission/prison/hall)
 "eZ" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/med)
 "fa" = (
@@ -1064,7 +1064,7 @@
 /turf/open/floor/plasteel,
 /area/awaymission/prison)
 "fr" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/plasteel,
 /area/awaymission/prison)
 "ft" = (
@@ -1239,7 +1239,7 @@
 /area/awaymission/prison/cafe)
 "gc" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/lootdrop/maint_drugs,
+/obj/effect/spawner/random/entertainment/drugs,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/start)
 "gg" = (
@@ -1267,7 +1267,7 @@
 "gn" = (
 /obj/structure/closet/secure_closet/contraband/armory,
 /obj/item/implanter/storage,
-/obj/effect/spawner/lootdrop/maintenance/three,
+/obj/effect/spawner/random/maintenance/three,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/prison/guard)
 "gp" = (
@@ -1320,7 +1320,7 @@
 /area/awaymission/prison/solitary)
 "gC" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/lootdrop/armory_contraband,
+/obj/effect/spawner/random/contraband/armory,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/prison/secret)
 "gD" = (
@@ -1606,7 +1606,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/spawner/lootdrop/maintenance/two,
+/obj/effect/spawner/random/maintenance/two,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/start)
 "ir" = (
@@ -1742,8 +1742,8 @@
 /area/awaymission/prison)
 "je" = (
 /obj/structure/closet/secure_closet/chemical,
-/obj/effect/spawner/lootdrop/prison_contraband,
-/obj/effect/spawner/lootdrop/prison_contraband,
+/obj/effect/spawner/random/contraband/prison,
+/obj/effect/spawner/random/contraband/prison,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/med)
 "jf" = (
@@ -2329,7 +2329,7 @@
 /area/awaymission/prison)
 "mw" = (
 /obj/structure/closet/secure_closet/contraband/armory,
-/obj/effect/spawner/lootdrop/maintenance/three,
+/obj/effect/spawner/random/maintenance/three,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/prison/guard)
 "mA" = (
@@ -2373,7 +2373,7 @@
 /turf/open/floor/plasteel/dark,
 /area/awaymission/prison/guard)
 "mJ" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/start)
 "mL" = (
@@ -2444,7 +2444,7 @@
 /area/awaymission/prison/cella)
 "nd" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/item/food/cake/birthday,
 /turf/open/floor/wood,
 /area/awaymission/prison/cella)
@@ -2482,7 +2482,7 @@
 /area/awaymission/prison/guard)
 "np" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/three_course_meal,
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/start)
 "nq" = (
@@ -2507,9 +2507,9 @@
 /area/awaymission/prison/med)
 "ny" = (
 /obj/structure/closet/crate/trashcart/laundry,
-/obj/effect/spawner/lootdrop/prison_contraband,
-/obj/effect/spawner/lootdrop/prison_contraband,
-/obj/effect/spawner/lootdrop/prison_contraband,
+/obj/effect/spawner/random/contraband/prison,
+/obj/effect/spawner/random/contraband/prison,
+/obj/effect/spawner/random/contraband/prison,
 /turf/open/floor/plasteel/freezer,
 /area/awaymission/prison/med)
 "nA" = (
@@ -2648,7 +2648,7 @@
 /turf/open/floor/plasteel/dark,
 /area/awaymission/prison/guard)
 "ol" = (
-/obj/effect/spawner/lootdrop/food_packaging,
+/obj/effect/spawner/random/trash/food_packaging,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/carpet,
 /area/awaymission/prison/med)
@@ -2729,7 +2729,7 @@
 /area/awaymission/prison/secret)
 "oG" = (
 /mob/living/simple_animal/hostile/prison/zombieprisoner,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plasteel,
 /area/awaymission/prison)
 "oJ" = (
@@ -2761,7 +2761,7 @@
 /area/awaymission/prison/rec)
 "oO" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/item/food/chocolatebunny,
 /turf/open/floor/wood,
 /area/awaymission/prison/cella)
@@ -2830,7 +2830,7 @@
 /area/awaymission/prison/start)
 "pi" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/lootdrop/armory_contraband,
+/obj/effect/spawner/random/contraband/armory,
 /turf/open/indestructible/boss/air,
 /area/awaymission/prison/secret)
 "pk" = (
@@ -3173,7 +3173,7 @@
 /area/awaymission/prison/guard)
 "rm" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/lootdrop/space/languagebook,
+/obj/effect/spawner/random/exotic/languagebook,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/start)
 "rn" = (
@@ -3287,7 +3287,7 @@
 /area/awaymission/prison/guard)
 "rW" = (
 /obj/structure/closet/crate/trashcart/laundry,
-/obj/effect/spawner/lootdrop/prison_contraband,
+/obj/effect/spawner/random/contraband/prison,
 /turf/open/floor/plasteel/freezer,
 /area/awaymission/prison/med)
 "rX" = (
@@ -3382,10 +3382,10 @@
 /obj/structure/closet{
 	name = "Evidence Closet"
 	},
-/obj/effect/spawner/lootdrop/prison_contraband,
-/obj/effect/spawner/lootdrop/prison_contraband,
-/obj/effect/spawner/lootdrop/prison_contraband,
-/obj/effect/spawner/lootdrop/prison_contraband,
+/obj/effect/spawner/random/contraband/prison,
+/obj/effect/spawner/random/contraband/prison,
+/obj/effect/spawner/random/contraband/prison,
+/obj/effect/spawner/random/contraband/prison,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/start)
 "sH" = (
@@ -3677,8 +3677,8 @@
 /obj/structure/closet{
 	name = "Evidence Closet"
 	},
-/obj/effect/spawner/lootdrop/prison_contraband,
-/obj/effect/spawner/lootdrop/prison_contraband,
+/obj/effect/spawner/random/contraband/prison,
+/obj/effect/spawner/random/contraband/prison,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/start)
 "ug" = (
@@ -3815,7 +3815,7 @@
 /area/awaymission/prison/guard)
 "uO" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/spawner/lootdrop/prison_contraband,
+/obj/effect/spawner/random/contraband/prison,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/med)
 "uR" = (
@@ -3906,7 +3906,7 @@
 /obj/structure/closet{
 	name = "Evidence Closet"
 	},
-/obj/effect/spawner/lootdrop/maintenance/five,
+/obj/effect/spawner/random/maintenance/five,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/start)
 "va" = (
@@ -4180,11 +4180,8 @@
 /area/awaymission/prison/guard)
 "wN" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/donkpockets,
-/obj/effect/spawner/lootdrop/donkpockets{
-	pixel_x = 5;
-	pixel_y = 3
-	},
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /turf/open/floor/plasteel,
 /area/awaymission/prison)
 "wQ" = (
@@ -4416,7 +4413,7 @@
 /area/awaymission/prison/secret)
 "yn" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/item/food/pie/pumpkinpie,
 /turf/open/floor/wood,
 /area/awaymission/prison/cella)
@@ -4532,9 +4529,9 @@
 /obj/item/food/butter,
 /obj/item/food/butter,
 /obj/item/food/butter,
-/obj/effect/spawner/lootdrop/donkpockets,
-/obj/effect/spawner/lootdrop/donkpockets,
-/obj/effect/spawner/lootdrop/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /turf/open/floor/plasteel/cafeteria,
 /area/awaymission/prison/guard)
 "yP" = (
@@ -4596,7 +4593,7 @@
 /turf/open/floor/plasteel,
 /area/awaymission/prison/guard)
 "zc" = (
-/obj/effect/spawner/lootdrop/gross_decal_spawner,
+/obj/effect/spawner/random/trash/mess,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/start)
 "ze" = (
@@ -4604,7 +4601,7 @@
 /turf/open/floor/plasteel,
 /area/awaymission/prison/cella)
 "zf" = (
-/obj/effect/spawner/lootdrop/food_packaging,
+/obj/effect/spawner/random/trash/food_packaging,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/hall)
 "zg" = (
@@ -4908,7 +4905,7 @@
 /area/awaymission/prison/guard)
 "AZ" = (
 /obj/structure/closet/l3closet/scientist,
-/obj/effect/spawner/lootdrop/armory_contraband,
+/obj/effect/spawner/random/contraband/armory,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/prison/med)
 "Ba" = (
@@ -4935,7 +4932,7 @@
 /turf/open/floor/plasteel/dark,
 /area/awaymission/prison)
 "Bj" = (
-/obj/effect/spawner/lootdrop/gross_decal_spawner,
+/obj/effect/spawner/random/trash/mess,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/hall)
 "Bk" = (
@@ -5046,7 +5043,7 @@
 /turf/open/floor/plasteel,
 /area/awaymission/prison/med)
 "BO" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/med)
 "BS" = (
@@ -5302,8 +5299,8 @@
 /area/awaymission/prison/secret)
 "Dx" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/lootdrop/maint_drugs,
-/obj/effect/spawner/lootdrop/maint_drugs,
+/obj/effect/spawner/random/entertainment/drugs,
+/obj/effect/spawner/random/entertainment/drugs,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/start)
 "Dy" = (
@@ -5496,7 +5493,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/spawner/lootdrop/prison_contraband,
+/obj/effect/spawner/random/contraband/prison,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/start)
 "Ey" = (
@@ -5783,7 +5780,7 @@
 /area/awaymission/prison)
 "Gh" = (
 /obj/structure/closet/secure_closet,
-/obj/effect/spawner/lootdrop/space/fancytool/advmedicalonly,
+/obj/effect/spawner/random/medical/surgery_tool_advanced,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/prison/med)
 "Gj" = (
@@ -6013,7 +6010,7 @@
 "Hw" = (
 /obj/structure/table,
 /obj/machinery/microwave,
-/obj/effect/spawner/lootdrop/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /turf/open/floor/wood,
 /area/awaymission/prison/cella)
 "Hx" = (
@@ -6036,7 +6033,7 @@
 /area/awaymission/prison/secret)
 "HF" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/item/food/cake/vanilla_cake,
 /turf/open/floor/wood,
 /area/awaymission/prison/cella)
@@ -6054,7 +6051,7 @@
 /area/awaymission/prison)
 "HK" = (
 /obj/structure/table/wood,
-/obj/effect/spawner/lootdrop/three_course_meal,
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/carpet,
 /area/awaymission/prison/med)
@@ -6128,7 +6125,7 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/prison/secret)
 "Ij" = (
-/obj/effect/spawner/lootdrop/prison_contraband,
+/obj/effect/spawner/random/contraband/prison,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/cellb)
 "Ik" = (
@@ -6369,12 +6366,12 @@
 /obj/structure/closet{
 	name = "Evidence Closet"
 	},
-/obj/effect/spawner/lootdrop/prison_contraband,
-/obj/effect/spawner/lootdrop/prison_contraband,
-/obj/effect/spawner/lootdrop/prison_contraband,
-/obj/effect/spawner/lootdrop/prison_contraband,
-/obj/effect/spawner/lootdrop/prison_contraband,
-/obj/effect/spawner/lootdrop/prison_contraband,
+/obj/effect/spawner/random/contraband/prison,
+/obj/effect/spawner/random/contraband/prison,
+/obj/effect/spawner/random/contraband/prison,
+/obj/effect/spawner/random/contraband/prison,
+/obj/effect/spawner/random/contraband/prison,
+/obj/effect/spawner/random/contraband/prison,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/start)
 "Ju" = (
@@ -6501,7 +6498,7 @@
 /area/awaymission/prison/med)
 "JY" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/item/food/pie/applepie,
 /turf/open/floor/wood,
 /area/awaymission/prison/cella)
@@ -6720,10 +6717,7 @@
 /area/awaymission/prison)
 "Lc" = (
 /obj/structure/table/wood,
-/obj/effect/spawner/lootdrop/donkpockets{
-	pixel_x = 5;
-	pixel_y = 3
-	},
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/med)
 "Lh" = (
@@ -7093,7 +7087,7 @@
 /area/awaymission/prison/cellb)
 "Nv" = (
 /obj/structure/table/optable,
-/obj/effect/spawner/lootdrop/organ_spawner,
+/obj/effect/spawner/random/medical/organs,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/prison/med)
 "Nw" = (
@@ -7174,7 +7168,7 @@
 /turf/open/floor/plasteel/dark,
 /area/awaymission/prison/secret)
 "NW" = (
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/prison)
 "NY" = (
@@ -7257,7 +7251,7 @@
 /area/awaymission/prison/guard)
 "Ov" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/lootdrop/space/syndiecosmetic,
+/obj/effect/spawner/random/exotic/syndie,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/start)
 "Ow" = (
@@ -7280,7 +7274,7 @@
 	pixel_x = -6
 	},
 /obj/item/paper_bin,
-/obj/effect/spawner/lootdrop/armory_contraband,
+/obj/effect/spawner/random/contraband/armory,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/prison/death)
 "OA" = (
@@ -7610,7 +7604,7 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/prison/guard)
 "QC" = (
-/obj/effect/spawner/lootdrop/food_packaging,
+/obj/effect/spawner/random/trash/food_packaging,
 /turf/open/floor/carpet,
 /area/awaymission/prison/med)
 "QE" = (
@@ -7681,7 +7675,7 @@
 /turf/open/floor/carpet/royalblue,
 /area/awaymission/prison/cella)
 "Rd" = (
-/obj/effect/spawner/lootdrop/armory_contraband,
+/obj/effect/spawner/random/contraband/armory,
 /turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/prison/secret)
 "Re" = (
@@ -7898,7 +7892,7 @@
 /turf/open/floor/plasteel,
 /area/awaymission/prison/cella)
 "Sq" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/plasteel,
 /area/awaymission/prison)
 "Sr" = (
@@ -7949,8 +7943,8 @@
 /area/awaymission/prison/solitary)
 "SD" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/lootdrop/space/material,
-/obj/effect/spawner/lootdrop/space/material,
+/obj/effect/spawner/random/engineering/material_rare,
+/obj/effect/spawner/random/engineering/material_rare,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/start)
 "SE" = (
@@ -7965,7 +7959,7 @@
 /area/awaymission/prison/guard)
 "SG" = (
 /obj/structure/closet/secure_closet/medical2,
-/obj/effect/spawner/lootdrop/prison_contraband,
+/obj/effect/spawner/random/contraband/prison,
 /turf/open/floor/plasteel/freezer,
 /area/awaymission/prison/med)
 "SH" = (
@@ -8006,7 +8000,7 @@
 /obj/structure/closet{
 	name = "Evidence Closet"
 	},
-/obj/effect/spawner/lootdrop/maintenance/three,
+/obj/effect/spawner/random/maintenance/three,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/start)
 "SV" = (
@@ -8090,7 +8084,7 @@
 /area/awaymission/prison/guard)
 "Tk" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/item/food/pie/cherrypie,
 /turf/open/floor/wood,
 /area/awaymission/prison/cella)
@@ -8153,8 +8147,8 @@
 /area/awaymission/prison/guard)
 "TF" = (
 /obj/structure/closet/crate/trashcart/laundry,
-/obj/effect/spawner/lootdrop/prison_contraband,
-/obj/effect/spawner/lootdrop/prison_contraband,
+/obj/effect/spawner/random/contraband/prison,
+/obj/effect/spawner/random/contraband/prison,
 /turf/open/floor/plasteel/freezer,
 /area/awaymission/prison/med)
 "TH" = (
@@ -8251,7 +8245,7 @@
 /turf/open/floor/plasteel/dark,
 /area/awaymission/prison/cella)
 "Up" = (
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/cellb)
 "Uq" = (
@@ -8322,11 +8316,8 @@
 /area/awaymission/prison/med)
 "UQ" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/lootdrop/donkpockets,
-/obj/effect/spawner/lootdrop/donkpockets{
-	pixel_x = 5;
-	pixel_y = 3
-	},
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /turf/open/floor/plasteel/cafeteria,
 /area/awaymission/prison/cafe)
 "UR" = (
@@ -8447,11 +8438,11 @@
 /area/awaymission/prison/med)
 "Vx" = (
 /obj/structure/table/optable,
-/obj/effect/spawner/lootdrop/prison_contraband,
+/obj/effect/spawner/random/contraband/prison,
 /turf/open/floor/plasteel/freezer,
 /area/awaymission/prison/med)
 "VA" = (
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plasteel,
 /area/awaymission/prison)
 "VD" = (
@@ -8498,7 +8489,7 @@
 /area/awaymission/prison/med)
 "VN" = (
 /obj/structure/table/wood,
-/obj/effect/spawner/lootdrop/food_packaging,
+/obj/effect/spawner/random/trash/food_packaging,
 /turf/open/floor/carpet,
 /area/awaymission/prison/med)
 "VO" = (
@@ -8681,7 +8672,7 @@
 /area/awaymission/prison/cafe)
 "WD" = (
 /obj/structure/table/wood,
-/obj/effect/spawner/lootdrop/three_course_meal,
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
 /turf/open/floor/carpet,
 /area/awaymission/prison/med)
 "WE" = (
@@ -8707,7 +8698,7 @@
 "WQ" = (
 /obj/structure/bed,
 /obj/machinery/iv_drip,
-/obj/effect/spawner/lootdrop/prison_contraband,
+/obj/effect/spawner/random/contraband/prison,
 /turf/open/floor/plasteel/freezer,
 /area/awaymission/prison/med)
 "WR" = (
@@ -8802,9 +8793,9 @@
 /obj/item/reagent_containers/syringe/contraband/morphine,
 /obj/item/reagent_containers/syringe/contraband/morphine,
 /obj/item/reagent_containers/syringe/contraband/methamphetamine,
-/obj/effect/spawner/lootdrop/prison_contraband,
-/obj/effect/spawner/lootdrop/prison_contraband,
-/obj/effect/spawner/lootdrop/prison_contraband,
+/obj/effect/spawner/random/contraband/prison,
+/obj/effect/spawner/random/contraband/prison,
+/obj/effect/spawner/random/contraband/prison,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/med)
 "Xw" = (
@@ -8959,7 +8950,7 @@
 /area/awaymission/prison/cafe)
 "YB" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/item/food/chocolatebar,
 /turf/open/floor/wood,
 /area/awaymission/prison/cella)
@@ -8998,7 +8989,7 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/awaymission/prison/secret)
 "YL" = (
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/cella)
 "YM" = (
@@ -9115,7 +9106,7 @@
 /turf/open/floor/plating,
 /area/awaymission/prison)
 "Zs" = (
-/obj/effect/spawner/lootdrop/prison_contraband,
+/obj/effect/spawner/random/contraband/prison,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/prison/cellb)
 "Zt" = (
@@ -9145,12 +9136,12 @@
 /area/awaymission/prison/guard)
 "ZI" = (
 /obj/structure/bed,
-/obj/effect/spawner/lootdrop/prison_contraband,
+/obj/effect/spawner/random/contraband/prison,
 /turf/open/floor/plasteel,
 /area/awaymission/prison/med)
 "ZJ" = (
 /obj/structure/closet/secure_closet,
-/obj/effect/spawner/lootdrop/space/fancytool/raremedicalonly,
+/obj/effect/spawner/random/medical/surgery_tool_alien,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/prison/med)
 "ZL" = (

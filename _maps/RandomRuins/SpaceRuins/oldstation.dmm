@@ -505,10 +505,11 @@
 /area/ruin/space/has_grav/ancientstation/medbay)
 "br" = (
 /obj/effect/spawner/structure/window/hollow/reinforced,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
+	
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/space/has_grav/ancientstation/betastorage)
 "bs" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1035,8 +1036,8 @@
 /turf/closed/mineral/iron,
 /area/ruin/space/has_grav/ancientstation)
 "cL" = (
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/ancientstation/betastorage)
 "cM" = (
 /obj/effect/spawner/structure/window/hollow/reinforced/end{
@@ -2139,8 +2140,8 @@
 /area/ruin/space/has_grav/ancientstation/deltaai)
 "fA" = (
 /obj/machinery/portable_atmospherics/canister/air,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/ancientstation/betastorage)
 "fB" = (
 /obj/effect/spawner/structure/window/hollow/reinforced/end{
@@ -2327,9 +2328,9 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/ancientstation/mining)
 "gd" = (
-/obj/effect/spawner/lootdrop/maintenance,
-/turf/open/floor/plating/airless,
+/obj/effect/spawner/random/maintenance,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/ancientstation/betastorage)
 "ge" = (
 /obj/structure/alien/weeds,
@@ -2346,8 +2347,8 @@
 /area/ruin/space/has_grav/ancientstation/deltaai)
 "gf" = (
 /obj/structure/closet/crate/bin,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/ancientstation/atmo)
 "gg" = (
 /obj/effect/spawner/structure/window/hollow/reinforced/directional{
@@ -2491,8 +2492,8 @@
 /obj/structure/rack,
 /obj/item/tank/internals/emergency_oxygen,
 /obj/item/tank/internals/emergency_oxygen,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/ancientstation/betastorage)
 "gv" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2880,8 +2881,8 @@
 /area/ruin/space/has_grav/ancientstation/engi)
 "hw" = (
 /obj/structure/grille/broken,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/ancientstation/betacorridor)
 "hx" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3859,8 +3860,8 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/ancientstation/betastorage)
 "jl" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5028,8 +5029,8 @@
 /obj/item/shard{
 	icon_state = "medium"
 	},
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/ancientstation/medbay)
 "lX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
@@ -5891,8 +5892,8 @@
 /area/ruin/space/has_grav/ancientstation/deltacorridor)
 "nQ" = (
 /obj/item/stack/rods,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/ancientstation/betacorridor)
 "nR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -6379,8 +6380,8 @@
 "oV" = (
 /obj/item/stack/rods,
 /obj/effect/decal/cleanable/glass,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/ancientstation/betacorridor)
 "oW" = (
 /obj/item/shard{
@@ -6391,8 +6392,8 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/ancientstation/betacorridor)
 "oX" = (
 /obj/machinery/airalarm/all_access{
@@ -6404,18 +6405,13 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/ancientstation/deltacorridor)
-"oY" = (
-/obj/item/stack/rods,
-/turf/open/floor/plating/airless,
-/obj/effect/mapping_helpers/broken_floor,
-/area/ruin/space/has_grav/ancientstation/betacorridor)
 "oZ" = (
 /obj/item/shard{
 	icon_state = "small"
 	},
 /obj/effect/decal/cleanable/glass,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/ancientstation/betacorridor)
 "pa" = (
 /obj/item/stack/rods,
@@ -6764,7 +6760,7 @@
 /area/ruin/space/has_grav/ancientstation/engi)
 "xl" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/ancientstation)
 "xP" = (
@@ -6864,7 +6860,7 @@
 /turf/closed/mineral/plasma,
 /area/ruin/space/has_grav/ancientstation/betacorridor)
 "AF" = (
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/ancientstation/deltacorridor)
 "AK" = (
@@ -6938,9 +6934,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/ancientstation/deltacorridor)
-"DF" = (
-/turf/closed/wall/rust,
-/area/ruin/space/has_grav/ancientstation/betastorage)
 "DJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light_switch{
@@ -6990,7 +6983,7 @@
 /area/ruin/space/has_grav/ancientstation/betacorridor)
 "GG" = (
 /obj/structure/closet,
-/obj/effect/spawner/lootdrop/maintenance/three,
+/obj/effect/spawner/random/maintenance/three,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/ancientstation/deltacorridor)
 "GP" = (
@@ -7106,7 +7099,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/ancientstation)
 "Ky" = (
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/ancientstation/betastorage)
 "KF" = (
@@ -7131,8 +7124,8 @@
 /area/ruin/space/has_grav/ancientstation/proto)
 "KO" = (
 /obj/item/stack/rods,
-/turf/open/floor/plating/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/ancientstation/betastorage)
 "Le" = (
 /obj/machinery/door/airlock/science,
@@ -7515,7 +7508,7 @@
 /area/ruin/space/has_grav/ancientstation/atmo)
 "Ve" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/ancientstation/deltacorridor)
 "Vm" = (
@@ -7663,10 +7656,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/ancientstation/engi)
-"YN" = (
-/turf/open/floor/plating/airless,
-/obj/effect/mapping_helpers/broken_floor,
-/area/ruin/space/has_grav/ancientstation/betastorage)
 "Ze" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/open/floor/engine/n2,
@@ -8010,7 +7999,7 @@ qA
 oQ
 oS
 oV
-oY
+nQ
 BX
 pc
 nx
@@ -8096,15 +8085,15 @@ bJ
 aj
 cj
 bJ
-DF
+bG
 GU
 GU
 GU
 GU
 GU
 lX
-DF
-DF
+bG
+bG
 fi
 nH
 bJ
@@ -8198,8 +8187,8 @@ eg
 cL
 oC
 KO
-YN
-YN
+cL
+cL
 nE
 nG
 GU
@@ -8292,14 +8281,14 @@ ch
 np
 mV
 ch
-DF
+bG
 mf
-DF
-DF
+bG
+bG
 br
 bG
 GU
-DF
+bG
 GU
 aa
 aa

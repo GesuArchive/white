@@ -586,7 +586,7 @@
 /turf/open/floor/carpet,
 /area/command/heads_quarters/hop)
 "km" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/meeting_room/council)
@@ -1937,7 +1937,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/low_level_centre)
 "Ix" = (
-/obj/effect/loot_site_spawner,
+/obj/effect/spawner/random/structure/crate,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/maintenance/bottom_station_maints/north)
@@ -2160,7 +2160,7 @@
 /turf/open/floor/carpet,
 /area/command/heads_quarters/hop)
 "LU" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/meeting_room/council)
@@ -2515,7 +2515,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/low_level_centre)
 "RQ" = (
-/obj/effect/loot_site_spawner,
+/obj/effect/spawner/random/structure/crate,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
@@ -2599,7 +2599,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/low_level_centre)
 "Tm" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/low_level_centre)
@@ -2654,7 +2654,7 @@
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
 "Uj" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/low_level_centre)
@@ -3126,9 +3126,7 @@
 /turf/open/floor/carpet,
 /area/command/heads_quarters/hop)
 "Zv" = (
-/obj/effect/spawner/randomarcade{
-	dir = 8
-	},
+/obj/effect/spawner/random/entertainment/arcade,
 /obj/machinery/light{
 	dir = 4
 	},

@@ -19,8 +19,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "e" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "f" = (
 /obj/machinery/light/broken{
@@ -56,7 +56,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "m" = (
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/template_noop)
@@ -76,8 +76,8 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "q" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "r" = (
 /obj/structure/table,
@@ -94,8 +94,8 @@
 /area/template_noop)
 "t" = (
 /obj/effect/decal/cleanable/ash,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "u" = (
 /obj/structure/chair{
@@ -111,13 +111,13 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "w" = (
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plasteel,
 /area/template_noop)
 "x" = (
 /obj/item/paper/crumpled,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "y" = (
 /obj/structure/table,
@@ -130,7 +130,7 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "A" = (
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/template_noop)
 "B" = (
@@ -173,12 +173,8 @@
 	dir = 4;
 	icon_state = "tube-broken"
 	},
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
-/area/template_noop)
-"J" = (
-/turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "K" = (
 /obj/item/chair,
@@ -211,7 +207,7 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "Q" = (
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/built,
 /turf/open/floor/plasteel,
@@ -277,7 +273,7 @@ q
 x
 d
 k
-J
+e
 N
 b
 "}

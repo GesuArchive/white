@@ -57,7 +57,7 @@
 /area/template_noop)
 "hp" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /obj/item/radio/intercom{
 	pixel_y = 26
 	},
@@ -66,7 +66,7 @@
 "iC" = (
 /obj/structure/closet,
 /obj/structure/window/reinforced/tinted/frosted,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/template_noop)
 "kn" = (
@@ -132,8 +132,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "sw" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "sZ" = (
 /obj/structure/curtain,
@@ -158,8 +158,8 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "zY" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "AU" = (
 /obj/structure/table,
@@ -178,8 +178,8 @@
 /area/template_noop)
 "Ee" = (
 /obj/item/trash/popcorn,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "GN" = (
 /obj/structure/closet,
@@ -219,7 +219,7 @@
 /area/template_noop)
 "NR" = (
 /obj/structure/closet,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/template_noop)
 "Pf" = (
@@ -240,7 +240,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "QK" = (
-/obj/effect/spawner/lootdrop/glowstick,
+/obj/effect/spawner/random/decoration/glowstick,
 /turf/open/floor/plating,
 /area/template_noop)
 "TC" = (
@@ -254,26 +254,26 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "Uy" = (
 /obj/effect/decal/cleanable/glass,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "UJ" = (
 /obj/structure/closet,
 /obj/structure/sign/poster/contraband/random{
 	pixel_y = 32
 	},
-/obj/effect/spawner/lootdrop/maintenance/two,
+/obj/effect/spawner/random/maintenance/two,
 /turf/open/floor/plating,
 /area/template_noop)
 "UQ" = (
 /obj/structure/rack,
 /obj/item/storage/toolbox/emergency,
-/obj/effect/spawner/lootdrop/maintenance/three,
+/obj/effect/spawner/random/maintenance/three,
 /turf/open/floor/plating,
 /area/template_noop)
 "Vd" = (
@@ -296,7 +296,7 @@
 /area/template_noop)
 "Yy" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/template_noop)
 "YL" = (

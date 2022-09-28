@@ -429,8 +429,8 @@
 /turf/open/floor/plasteel,
 /area/awaymission/spacebattle/cruiser)
 "ca" = (
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel,
 /area/awaymission/spacebattle/cruiser)
 "cb" = (
 /obj/machinery/computer/pod{
@@ -468,18 +468,6 @@
 /mob/living/simple_animal/hostile/syndicate,
 /turf/open/floor/mineral/plastitanium/red,
 /area/awaymission/spacebattle/syndicate1)
-"cm" = (
-/turf/open/floor/plasteel,
-/obj/effect/mapping_helpers/broken_floor,
-/area/awaymission/spacebattle/cruiser)
-"cn" = (
-/turf/open/floor/plasteel,
-/obj/effect/mapping_helpers/broken_floor,
-/area/awaymission/spacebattle/cruiser)
-"cp" = (
-/turf/open/floor/plasteel,
-/obj/effect/mapping_helpers/broken_floor,
-/area/awaymission/spacebattle/cruiser)
 "cq" = (
 /obj/effect/mob_spawn/human/engineer{
 	mob_name = "Rosen Miller";
@@ -505,8 +493,8 @@
 "cw" = (
 /obj/item/ammo_casing/c10mm,
 /obj/item/ammo_casing/c10mm,
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel,
 /area/awaymission/spacebattle/cruiser)
 "cx" = (
 /obj/item/stack/sheet/iron,
@@ -581,10 +569,6 @@
 "cM" = (
 /obj/item/ammo_casing/c10mm,
 /turf/open/floor/plasteel,
-/area/awaymission/spacebattle/cruiser)
-"cN" = (
-/turf/open/floor/plasteel,
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/spacebattle/cruiser)
 "cO" = (
 /obj/effect/landmark/awaystart,
@@ -929,8 +913,8 @@
 	mob_name = "Clay Dawson";
 	name = "Clay Dawson"
 	},
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel,
 /area/awaymission/spacebattle/cruiser)
 "eb" = (
 /obj/effect/spawner/structure/window/hollow/reinforced/middle{
@@ -1440,8 +1424,8 @@
 /area/awaymission/spacebattle/cruiser)
 "fL" = (
 /obj/item/stack/sheet/iron,
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel,
 /area/awaymission/spacebattle/cruiser)
 "fM" = (
 /obj/item/ammo_casing/shotgun,
@@ -1998,11 +1982,6 @@
 /obj/item/instrument/violin,
 /turf/open/floor/wood,
 /area/awaymission/spacebattle/cruiser)
-"hF" = (
-/obj/item/stack/sheet/iron,
-/turf/open/floor/plasteel,
-/obj/effect/mapping_helpers/broken_floor,
-/area/awaymission/spacebattle/cruiser)
 "hI" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/plasteel/white,
@@ -2046,11 +2025,6 @@
 "hP" = (
 /obj/structure/rack,
 /turf/open/floor/engine,
-/area/awaymission/spacebattle/cruiser)
-"hQ" = (
-/obj/item/stack/sheet/iron,
-/turf/open/floor/plasteel,
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/spacebattle/cruiser)
 "hS" = (
 /obj/machinery/computer/shuttle_flight{
@@ -2201,8 +2175,8 @@
 "iu" = (
 /obj/effect/mob_spawn/human/syndicatesoldier,
 /obj/item/gun/ballistic/automatic/c20r,
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel,
 /area/awaymission/spacebattle/cruiser)
 "iv" = (
 /obj/structure/shuttle/engine/propulsion/burst/right{
@@ -2463,7 +2437,7 @@
 /area/awaymission/spacebattle/cruiser)
 "jE" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
 /area/awaymission/spacebattle/cruiser)
 "jF" = (
@@ -2486,12 +2460,12 @@
 /area/awaymission/spacebattle/cruiser)
 "jI" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/engine,
 /area/awaymission/spacebattle/cruiser)
 "jJ" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/armory_contraband,
+/obj/effect/spawner/random/contraband/armory,
 /turf/open/floor/plating,
 /area/awaymission/spacebattle/cruiser)
 "jK" = (
@@ -2520,8 +2494,8 @@
 /obj/item/ammo_casing/c10mm,
 /obj/item/ammo_casing/c10mm,
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel,
 /area/awaymission/spacebattle/cruiser)
 "jN" = (
 /obj/structure/closet/crate,
@@ -2598,7 +2572,7 @@
 /turf/open/floor/engine,
 /area/awaymission/spacebattle/cruiser)
 "ka" = (
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/plating,
 /area/awaymission/spacebattle/cruiser)
 "kb" = (
@@ -22465,7 +22439,7 @@ bM
 bM
 bM
 cc
-cp
+ca
 cc
 cr
 kl
@@ -22978,9 +22952,9 @@ bO
 bO
 bO
 ci
-cm
+ca
 cw
-cp
+ca
 cc
 cQ
 cc
@@ -23235,8 +23209,8 @@ hy
 bO
 bO
 ci
-cn
-cm
+ca
+ca
 cM
 cc
 cc
@@ -23494,7 +23468,7 @@ bO
 Wv
 bM
 cx
-cN
+ca
 cM
 cc
 cc
@@ -23749,9 +23723,9 @@ bM
 bM
 bM
 bM
-cp
+ca
 cc
-cN
+ca
 cc
 cc
 cr
@@ -25324,7 +25298,7 @@ cc
 cc
 cc
 cc
-cN
+ca
 cc
 cL
 bT
@@ -25582,8 +25556,8 @@ cc
 cc
 fm
 cM
-cN
-cN
+ca
+ca
 bT
 ab
 ab
@@ -25840,7 +25814,7 @@ cc
 cc
 cc
 iu
-cp
+ca
 bT
 ab
 ab
@@ -26095,9 +26069,9 @@ cc
 cc
 cc
 cc
-cp
-cN
-cN
+ca
+ca
+ca
 bT
 ab
 ab
@@ -33270,7 +33244,7 @@ cc
 cc
 cc
 cc
-cn
+ca
 cc
 cc
 cc
@@ -33527,8 +33501,8 @@ cc
 it
 cc
 fL
-cn
-cn
+ca
+ca
 cc
 cc
 cc
@@ -34041,7 +34015,7 @@ dU
 dU
 dU
 ex
-cp
+ca
 fL
 fc
 bT
@@ -34314,7 +34288,7 @@ gy
 gy
 gy
 bT
-cp
+ca
 cc
 bT
 cK
@@ -34557,7 +34531,7 @@ cc
 ez
 cc
 cc
-cp
+ca
 cd
 fq
 jO
@@ -34571,8 +34545,8 @@ gy
 gy
 gy
 cK
-cp
-cp
+ca
+ca
 bT
 cK
 cK
@@ -34814,10 +34788,10 @@ cc
 cc
 cc
 cQ
-cn
+ca
 hs
 jM
-cp
+ca
 cK
 gy
 gy
@@ -35068,12 +35042,12 @@ dB
 dV
 ei
 ei
-cn
-cm
-cm
-cn
+ca
+ca
+ca
+ca
 cK
-hF
+fL
 fM
 bT
 gy
@@ -35583,9 +35557,9 @@ dh
 dh
 bT
 eC
-cn
+ca
 fL
-cp
+ca
 jK
 fs
 fO
@@ -35599,7 +35573,7 @@ hq
 dh
 dh
 bT
-cp
+ca
 cc
 bT
 kV
@@ -35833,9 +35807,9 @@ ab
 ab
 bT
 cc
-cm
+ca
 cK
-cm
+ca
 cc
 cc
 bT
@@ -35854,9 +35828,9 @@ gZ
 bT
 cc
 cQ
-cn
+ca
 hs
-cn
+ca
 cc
 bT
 ab
@@ -36090,10 +36064,10 @@ ab
 ab
 bT
 fL
-cp
+ca
 hs
-cm
-hQ
+ca
+fL
 cc
 bT
 jy
@@ -36111,9 +36085,9 @@ gZ
 bT
 cc
 cc
-cp
+ca
 bT
-cn
+ca
 cc
 bT
 ab
@@ -36347,9 +36321,9 @@ ab
 ab
 bT
 cc
-cp
+ca
 hs
-hF
+fL
 cc
 cc
 bT
@@ -50739,7 +50713,7 @@ ab
 ab
 bT
 cc
-cm
+ca
 cc
 cc
 cc
@@ -50995,11 +50969,11 @@ ab
 ab
 ab
 bT
-cm
-cn
-cp
-cp
-cn
+ca
+ca
+ca
+ca
+ca
 cc
 dJ
 cc
@@ -51255,7 +51229,7 @@ bM
 bM
 bM
 bM
-cm
+ca
 it
 cc
 cc
@@ -51513,7 +51487,7 @@ bO
 dc
 Wv
 bM
-cp
+ca
 cc
 cc
 cQ
@@ -51769,9 +51743,9 @@ gJ
 bO
 bO
 dr
-cn
-cp
-cn
+ca
+ca
+ca
 cc
 jz
 cc
@@ -52541,8 +52515,8 @@ bM
 bM
 bM
 cc
-cn
-cp
+ca
+ca
 cQ
 cc
 cc
@@ -52795,7 +52769,7 @@ ab
 ab
 bT
 cc
-cN
+ca
 cc
 cc
 cc
@@ -53051,7 +53025,7 @@ ab
 ab
 ab
 bT
-cp
+ca
 cc
 cc
 dJ

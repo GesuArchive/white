@@ -34,8 +34,8 @@
 	pixel_y = 4
 	},
 /obj/item/newspaper,
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/template_noop)
 "d" = (
 /obj/effect/turf_decal/tile/neutral,

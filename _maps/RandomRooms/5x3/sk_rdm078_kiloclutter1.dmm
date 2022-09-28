@@ -29,8 +29,8 @@
 /area/template_noop)
 "c" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "d" = (
 /obj/effect/turf_decal/bot,
@@ -54,11 +54,6 @@
 	pixel_x = 32
 	},
 /turf/open/floor/plasteel/dark,
-/area/template_noop)
-"f" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "g" = (
 /obj/effect/decal/cleanable/blood/old,
@@ -99,7 +94,7 @@
 
 (1,1,1) = {"
 a
-f
+c
 h
 "}
 (2,1,1) = {"

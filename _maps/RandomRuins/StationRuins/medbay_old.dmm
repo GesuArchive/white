@@ -1870,7 +1870,7 @@
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/storage)
 "tn" = (
-/obj/effect/spawner/lootdrop/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/item/reagent_containers/spray/cleaner,
@@ -4680,7 +4680,7 @@
 /turf/open/floor/plasteel/white,
 /area/medical/medbay)
 "So" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/carpet/purple,
 /area/medical/break_room)
 "Sr" = (

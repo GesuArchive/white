@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "c" = (
-/obj/effect/spawner/lootdrop/mafia_outfit,
+/obj/effect/spawner/random/clothing/mafia_outfit,
 /obj/structure/closet/crate,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
@@ -24,7 +24,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "i" = (
-/obj/effect/spawner/lootdrop/maintenance/eight,
+/obj/effect/spawner/random/maintenance/eight,
 /obj/structure/closet/crate,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
@@ -96,8 +96,8 @@
 /area/ruin/unpowered)
 "z" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmid,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
+/obj/effect/spawner/random/exotic/antag_gear,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "C" = (
@@ -152,7 +152,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "X" = (
-/obj/effect/spawner/lootdrop/gloves,
+/obj/effect/spawner/random/clothing/gloves,
 /obj/structure/closet/crate,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)

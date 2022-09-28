@@ -189,8 +189,8 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/awaymission/snowdin/post/dorm)
 "aR" = (
 /obj/structure/bed,
@@ -277,8 +277,8 @@
 /obj/structure/sign/poster/contraband/kudzu{
 	pixel_y = 32
 	},
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/awaymission/snowdin/post/dorm)
 "bb" = (
 /obj/structure/bed,
@@ -327,8 +327,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 6
 	},
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/awaymission/snowdin/post/dorm)
 "bj" = (
 /obj/structure/table/wood,
@@ -380,8 +380,8 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/awaymission/snowdin/post/dorm)
 "bo" = (
 /obj/effect/decal/cleanable/dirt,
@@ -504,8 +504,8 @@
 	pixel_y = 5
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/awaymission/snowdin/post/dorm)
 "bB" = (
 /obj/structure/closet/cabinet,
@@ -690,8 +690,8 @@
 	id_tag = "snowdindormhydro2";
 	name = "Rachel Migro's Private Quarters"
 	},
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/awaymission/snowdin/post/dorm)
 "bU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
@@ -715,8 +715,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/research)
 "bW" = (
 /obj/machinery/door/firedoor,
@@ -952,8 +952,8 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/dorm)
 "cz" = (
 /obj/machinery/door/airlock/public/glass{
@@ -987,8 +987,8 @@
 /turf/open/floor/plasteel,
 /area/awaymission/snowdin/post/research)
 "cC" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/research)
 "cD" = (
 /obj/machinery/airalarm{
@@ -1017,7 +1017,7 @@
 /turf/open/floor/plasteel,
 /area/awaymission/snowdin/post/research)
 "cF" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -1294,8 +1294,8 @@
 	pixel_y = 5
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/dorm)
 "dc" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
@@ -1312,8 +1312,8 @@
 	pixel_x = 5;
 	pixel_y = -32
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/dorm)
 "dd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
@@ -1350,8 +1350,8 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/dorm)
 "dg" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
@@ -1432,7 +1432,7 @@
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/research)
 "dm" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -1467,8 +1467,8 @@
 /area/awaymission/snowdin/post/kitchen)
 "ds" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/kitchen)
 "dt" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
@@ -1667,15 +1667,15 @@
 "dV" = (
 /obj/effect/decal/cleanable/food/egg_smudge,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/kitchen)
 "dW" = (
 /obj/structure/table,
 /obj/machinery/reagentgrinder,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/kitchen)
 "dX" = (
 /turf/open/floor/plating/snowed/smoothed,
@@ -1769,8 +1769,8 @@
 	},
 /obj/effect/landmark/awaystart,
 /obj/item/bedsheet/red,
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/awaymission/snowdin/post/dorm)
 "ei" = (
 /obj/effect/baseturf_helper/asteroid/snow,
@@ -1950,8 +1950,8 @@
 /area/awaymission/snowdin/outside)
 "eF" = (
 /obj/structure/mineral_door/wood,
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/awaymission/snowdin/outside)
 "eG" = (
 /obj/structure/barricade/wooden,
@@ -2022,8 +2022,8 @@
 	dir = 6
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/dorm)
 "eS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
@@ -2064,8 +2064,8 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/awaymission/snowdin/post/dorm)
 "eV" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
@@ -2460,8 +2460,8 @@
 "fP" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/hydro)
 "fQ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
@@ -2544,15 +2544,15 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/awaymission/snowdin/outside)
 "ga" = (
 /obj/structure/table/wood,
 /obj/structure/fireaxecabinet{
 	pixel_y = -32
 	},
-/obj/effect/spawner/lootdrop/snowdin/dungeonmisc,
+/obj/effect/spawner/random/exotic/snow_gear,
 /turf/open/floor/wood,
 /area/awaymission/snowdin/outside)
 "gb" = (
@@ -2567,7 +2567,7 @@
 	},
 /area/awaymission/snowdin/cave/cavern)
 "gd" = (
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/engine/cult{
 	initial_gas_mix = "o2=0;n2=82;plasma=24;TEMP=120";
 	initial_temperature = 120
@@ -2578,7 +2578,7 @@
 /area/awaymission/snowdin/cave/cavern)
 "gf" = (
 /obj/structure/closet/crate/wooden,
-/obj/effect/spawner/lootdrop/snowdin/dungeonheavy,
+/obj/effect/spawner/random/exotic/antag_gear_strong,
 /turf/open/floor/engine/cult{
 	initial_gas_mix = "o2=0;n2=82;plasma=24;TEMP=120";
 	initial_temperature = 120
@@ -2783,8 +2783,8 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/awaymission/snowdin/post/messhall)
 "gC" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/messhall)
 "gD" = (
 /turf/open/floor/plating,
@@ -2810,8 +2810,8 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/hydro)
 "gG" = (
 /obj/machinery/hydroponics/constructable,
@@ -2845,8 +2845,8 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/hydro)
 "gM" = (
 /obj/item/stack/cable_coil{
@@ -3152,8 +3152,8 @@
 /turf/open/floor/plasteel,
 /area/awaymission/snowdin/post/hydro)
 "hx" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/hydro)
 "hy" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3162,8 +3162,8 @@
 /area/awaymission/snowdin/post/hydro)
 "hz" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/hydro)
 "hA" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
@@ -3394,8 +3394,8 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/hydro)
 "ic" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
@@ -3444,7 +3444,7 @@
 /area/awaymission/snowdin/cave)
 "il" = (
 /obj/structure/closet/crate/wooden,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmid,
+/obj/effect/spawner/random/exotic/antag_gear,
 /turf/open/floor/engine/cult{
 	initial_gas_mix = "o2=0;n2=82;plasma=24;TEMP=120";
 	initial_temperature = 120
@@ -3604,8 +3604,8 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post)
 "iw" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
@@ -3621,8 +3621,8 @@
 	pixel_y = 32
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post)
 "ix" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -3723,10 +3723,6 @@
 /area/awaymission/snowdin/post/hydro)
 "iJ" = (
 /turf/open/floor/plasteel,
-/area/awaymission/snowdin/post/hydro)
-"iK" = (
-/turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/snowdin/post/hydro)
 "iL" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
@@ -3843,8 +3839,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/garage)
 "iU" = (
 /obj/machinery/door/airlock/public/glass{
@@ -3977,8 +3973,8 @@
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/dorm)
 "jj" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/dorm)
 "jk" = (
 /obj/machinery/door/airlock/public/glass{
@@ -4012,8 +4008,8 @@
 	},
 /area/awaymission/snowdin/post)
 "jo" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post)
 "jp" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
@@ -4026,8 +4022,8 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post)
 "jq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
@@ -4176,8 +4172,8 @@
 /area/awaymission/snowdin/post/garage)
 "jF" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/garage)
 "jG" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4223,7 +4219,7 @@
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/garage)
 "jN" = (
-/obj/effect/spawner/lootdrop/snowdin/dungeonmisc,
+/obj/effect/spawner/random/exotic/snow_gear,
 /turf/open/floor/plating/asteroid/snow,
 /area/awaymission/snowdin/outside)
 "jO" = (
@@ -4292,8 +4288,8 @@
 /area/awaymission/snowdin/post)
 "jW" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post)
 "jX" = (
 /obj/effect/turf_decal/tile/neutral,
@@ -4330,18 +4326,14 @@
 	},
 /turf/open/floor/plasteel/cafeteria,
 /area/awaymission/snowdin/post/messhall)
-"kb" = (
-/turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
-/area/awaymission/snowdin/post/messhall)
 "kc" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
 	piping_layer = 4;
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/messhall)
 "kd" = (
 /obj/machinery/light{
@@ -4361,11 +4353,6 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/awaymission/snowdin/post/hydro)
-"kf" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/snowdin/post/hydro)
 "kg" = (
 /obj/machinery/holopad,
@@ -4392,8 +4379,8 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/garage)
 "kj" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4680,8 +4667,8 @@
 /area/awaymission/snowdin/post/messhall)
 "kP" = (
 /obj/item/trash/candy,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/messhall)
 "kQ" = (
 /obj/effect/turf_decal/tile/green{
@@ -4753,8 +4740,8 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/garage)
 "la" = (
 /obj/structure/filingcabinet,
@@ -5143,8 +5130,8 @@
 	dir = 9
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/hydro)
 "lH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
@@ -5176,8 +5163,8 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/hydro)
 "lL" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
@@ -5186,8 +5173,8 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/hydro)
 "lM" = (
 /obj/machinery/door/airlock/external/glass,
@@ -5267,7 +5254,7 @@
 /area/awaymission/snowdin/outside)
 "lT" = (
 /obj/structure/closet/crate/wooden,
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
 /turf/open/floor/engine/cult{
 	initial_gas_mix = "o2=0;n2=82;plasma=24;TEMP=120";
 	initial_temperature = 120
@@ -5479,24 +5466,24 @@
 "ms" = (
 /obj/machinery/hydroponics/constructable,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/hydro)
 "mt" = (
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/hydro)
 "mu" = (
 /obj/structure/cable,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/hydro)
 "mv" = (
 /obj/structure/sink{
 	dir = 8;
 	pixel_x = 11
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/hydro)
 "mw" = (
 /obj/structure/lattice/catwalk,
@@ -5586,8 +5573,8 @@
 	dir = 8;
 	pixel_x = -26
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post)
 "mI" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
@@ -5597,8 +5584,8 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post)
 "mJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
@@ -5734,15 +5721,15 @@
 	pixel_y = 5
 	},
 /obj/machinery/light/broken,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post)
 "nd" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post)
 "ne" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
@@ -5895,8 +5882,8 @@
 /area/awaymission/snowdin/post/engineering)
 "nq" = (
 /obj/structure/cable,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/engineering)
 "nr" = (
 /obj/machinery/power/apc{
@@ -5953,11 +5940,6 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/awaymission/snowdin/post/hydro)
-"nz" = (
-/obj/structure/cable,
-/turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/snowdin/post/hydro)
 "nA" = (
 /obj/structure/reagent_dispensers/watertank/high,
@@ -6779,8 +6761,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible{
 	dir = 8
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/engineering)
 "pw" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible{
@@ -6963,15 +6945,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible{
 	dir = 1
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/engineering)
 "pY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible{
 	dir = 8
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/engineering)
 "pZ" = (
 /obj/machinery/portable_atmospherics/scrubber,
@@ -7059,8 +7041,8 @@
 /turf/open/floor/plasteel/grimy,
 /area/awaymission/snowdin/post/cavern2)
 "ql" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/cavern2)
 "qm" = (
 /obj/structure/table,
@@ -7178,8 +7160,8 @@
 	dir = 10
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/engineering)
 "qB" = (
 /obj/structure/cable,
@@ -7302,8 +7284,8 @@
 	name = "Turbine Gas Release";
 	pixel_y = -24
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/engineering)
 "qT" = (
 /obj/effect/turf_decal/tile/yellow,
@@ -7369,8 +7351,8 @@
 	output_tag = "snowdin_toxins_out";
 	sensors = list("snowdin_toxins" = "Tank")
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/engineering)
 "qY" = (
 /obj/effect/turf_decal/tile/yellow,
@@ -7552,8 +7534,8 @@
 /area/awaymission/snowdin/post/cavern2)
 "ry" = (
 /obj/structure/cable,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/cavern2)
 "rz" = (
 /obj/structure/cable,
@@ -8245,7 +8227,7 @@
 /area/awaymission/snowdin/outside)
 "ts" = (
 /obj/structure/closet/crate/wooden,
-/obj/effect/spawner/lootdrop/snowdin/dungeonheavy,
+/obj/effect/spawner/random/exotic/antag_gear_strong,
 /turf/open/floor/plating/snowed/cavern,
 /area/awaymission/snowdin/cave/cavern)
 "tt" = (
@@ -8253,7 +8235,7 @@
 /turf/open/floor/plating/snowed/cavern,
 /area/awaymission/snowdin/cave/cavern)
 "tu" = (
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/plating/snowed/cavern,
 /area/awaymission/snowdin/cave/cavern)
 "tv" = (
@@ -8262,7 +8244,7 @@
 /area/awaymission/snowdin/cave/cavern)
 "tw" = (
 /obj/structure/closet/crate/wooden,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmid,
+/obj/effect/spawner/random/exotic/antag_gear,
 /turf/open/floor/plating/snowed/cavern,
 /area/awaymission/snowdin/cave/cavern)
 "tx" = (
@@ -8296,7 +8278,7 @@
 /area/awaymission/snowdin/outside)
 "tD" = (
 /obj/structure/closet/crate/wooden,
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
 /turf/open/floor/plating/snowed/cavern,
 /area/awaymission/snowdin/cave/cavern)
 "tE" = (
@@ -8332,7 +8314,7 @@
 /turf/open/floor/plating/ice/smooth,
 /area/awaymission/snowdin/outside)
 "tO" = (
-/obj/effect/spawner/lootdrop/snowdin/dungeonmid,
+/obj/effect/spawner/random/exotic/antag_gear,
 /turf/open/floor/plating/asteroid/snow/ice,
 /area/awaymission/snowdin/cave/cavern)
 "tP" = (
@@ -8394,8 +8376,8 @@
 /area/awaymission/snowdin/outside)
 "ub" = (
 /obj/structure/bed,
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/awaymission/snowdin/post/cavern1)
 "uc" = (
 /obj/structure/table/wood,
@@ -8413,8 +8395,8 @@
 	dir = 4
 	},
 /obj/structure/closet/cabinet,
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/awaymission/snowdin/post/cavern1)
 "ug" = (
 /obj/structure/table,
@@ -8424,7 +8406,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /obj/structure/cable,
 /obj/machinery/power/apc{
 	dir = 1;
@@ -8439,8 +8421,8 @@
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/cavern1)
 "uk" = (
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/awaymission/snowdin/post/cavern1)
 "ul" = (
 /turf/open/floor/plating,
@@ -8546,8 +8528,8 @@
 	},
 /area/awaymission/snowdin/post/cavern1)
 "uF" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/cavern1)
 "uG" = (
 /turf/open/floor/plasteel,
@@ -8578,8 +8560,8 @@
 /area/awaymission/snowdin/post/cavern1)
 "uM" = (
 /obj/structure/table,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/cavern1)
 "uN" = (
 /obj/structure/table,
@@ -8617,8 +8599,8 @@
 /area/awaymission/snowdin/post/cavern1)
 "uS" = (
 /mob/living/simple_animal/hostile/skeleton/plasmaminer,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/cavern1)
 "uU" = (
 /obj/item/chair,
@@ -9063,7 +9045,7 @@
 /area/awaymission/snowdin/cave)
 "wn" = (
 /obj/structure/closet/crate/wooden,
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
 /turf/open/floor/plating/asteroid/snow{
 	floor_variance = 0;
 	icon_state = "snow_dug";
@@ -9096,17 +9078,17 @@
 /area/awaymission/snowdin/cave)
 "wr" = (
 /obj/structure/closet/crate/wooden,
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
 /turf/open/floor/plating/asteroid/snow,
 /area/awaymission/snowdin/cave)
 "ws" = (
 /obj/structure/closet/crate/wooden,
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
 /turf/open/floor/plating/ice/smooth,
 /area/awaymission/snowdin/cave)
 "wt" = (
 /obj/structure/table/wood,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmisc,
+/obj/effect/spawner/random/exotic/snow_gear,
 /turf/open/floor/plating/asteroid/snow{
 	floor_variance = 0;
 	icon_state = "snow_dug";
@@ -9375,8 +9357,8 @@
 "xf" = (
 /obj/effect/turf_decal/stripes/corner,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_dock)
 "xg" = (
 /obj/effect/turf_decal/stripes/line,
@@ -9427,13 +9409,13 @@
 /obj/machinery/light/broken{
 	dir = 8
 	},
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_dock)
 "xr" = (
-/obj/effect/spawner/lootdrop/crate_spawner,
-/turf/open/floor/plating,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_dock)
 "xs" = (
 /obj/item/gun/energy/e_gun{
@@ -9467,7 +9449,7 @@
 /turf/open/floor/engine/cult,
 /area/awaymission/snowdin/post/mining_dock)
 "xx" = (
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -9481,8 +9463,8 @@
 /turf/open/floor/plasteel,
 /area/awaymission/snowdin/post/mining_dock)
 "xy" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_dock)
 "xz" = (
 /obj/machinery/door/firedoor,
@@ -9588,8 +9570,8 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_dock)
 "xK" = (
 /obj/docking_port/stationary{
@@ -9775,8 +9757,8 @@
 /obj/structure/closet/crate,
 /obj/item/relic,
 /obj/item/relic,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_dock)
 "yk" = (
 /obj/structure/closet/crate,
@@ -9915,8 +9897,8 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_dock)
 "yC" = (
 /obj/effect/turf_decal/stripes/line{
@@ -9938,8 +9920,8 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_dock)
 "yF" = (
 /obj/effect/turf_decal/weather/snow,
@@ -10369,8 +10351,8 @@
 /area/awaymission/snowdin/outside)
 "zP" = (
 /obj/structure/table/wood,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmisc,
-/obj/effect/spawner/lootdrop/snowdin/dungeonmisc,
+/obj/effect/spawner/random/exotic/snow_gear,
+/obj/effect/spawner/random/exotic/snow_gear,
 /turf/open/floor/wood,
 /area/awaymission/snowdin/igloo)
 "zQ" = (
@@ -10509,8 +10491,8 @@
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/minipost)
 "Ai" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/minipost)
 "Aj" = (
 /obj/effect/decal/cleanable/dirt,
@@ -10654,8 +10636,8 @@
 /area/awaymission/snowdin/outside)
 "AE" = (
 /obj/item/pen,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/minipost)
 "AF" = (
 /obj/structure/table,
@@ -10720,8 +10702,8 @@
 /area/awaymission/snowdin/post/minipost)
 "AN" = (
 /obj/item/key/atv,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/minipost)
 "AO" = (
 /obj/effect/turf_decal/tile/neutral,
@@ -10757,13 +10739,13 @@
 /area/awaymission/snowdin/cave)
 "AU" = (
 /obj/structure/table/wood,
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
 /turf/open/floor/wood,
 /area/awaymission/snowdin/igloo)
 "AV" = (
 /obj/structure/table/wood,
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
 /turf/open/floor/wood,
 /area/awaymission/snowdin/igloo)
 "AW" = (
@@ -10835,8 +10817,8 @@
 /area/awaymission/snowdin/post/minipost)
 "Bf" = (
 /obj/machinery/space_heater,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/minipost)
 "Bg" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -12157,8 +12139,8 @@
 /area/awaymission/snowdin/cave)
 "Er" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -12230,7 +12212,7 @@
 "Ex" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced,
-/obj/effect/spawner/lootdrop/snowdin/dungeonlite,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -13081,8 +13063,8 @@
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_main)
 "GR" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_main)
 "GS" = (
 /obj/structure/window/reinforced/fulltile/ice,
@@ -13116,8 +13098,8 @@
 /area/awaymission/snowdin/post/mining_main/robotics)
 "GX" = (
 /obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_main/robotics)
 "GY" = (
 /obj/effect/turf_decal/stripes/line,
@@ -13151,8 +13133,8 @@
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_main/mechbay)
 "Hf" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_main/mechbay)
 "Hg" = (
 /obj/effect/decal/cleanable/dirt,
@@ -13231,8 +13213,8 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_main/robotics)
 "Hu" = (
 /obj/machinery/holopad,
@@ -13250,13 +13232,13 @@
 /area/awaymission/snowdin/post/mining_main/robotics)
 "Hw" = (
 /obj/structure/cable,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_dock)
 "Hx" = (
 /obj/machinery/holopad,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_dock)
 "Hy" = (
 /obj/machinery/door/airlock/research/glass{
@@ -13288,8 +13270,8 @@
 /area/awaymission/snowdin/post/mining_dock)
 "HD" = (
 /obj/structure/table,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_main)
 "HE" = (
 /obj/structure/table,
@@ -13366,8 +13348,8 @@
 	dir = 4;
 	pixel_x = -23
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_main/mechbay)
 "HO" = (
 /obj/effect/turf_decal/stripes/line,
@@ -13380,8 +13362,8 @@
 /area/awaymission/snowdin/post/mining_main/mechbay)
 "HQ" = (
 /obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_main/mechbay)
 "HR" = (
 /obj/effect/turf_decal/stripes/corner{
@@ -13471,8 +13453,8 @@
 /area/awaymission/snowdin/post/mining_dock)
 "Ie" = (
 /obj/structure/barricade/sandbags,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_dock)
 "If" = (
 /obj/structure/sign/warning/nosmoking{
@@ -13644,8 +13626,8 @@
 /area/awaymission/snowdin/post/mining_main)
 "II" = (
 /obj/effect/decal/cleanable/oil,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_main)
 "IJ" = (
 /obj/structure/sign/warning/electricshock{
@@ -13743,8 +13725,8 @@
 /area/awaymission/snowdin/post/mining_main)
 "IY" = (
 /obj/machinery/light,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_main)
 "Jc" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -13845,7 +13827,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_dock)
 "Jp" = (
@@ -14460,8 +14442,8 @@
 /obj/structure/sign/warning/docking{
 	pixel_x = 32
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/mining_main)
 "KO" = (
 /obj/machinery/computer/shuttle_flight/snowdin/mining{
@@ -14576,7 +14558,7 @@
 /turf/open/floor/plasteel,
 /area/awaymission/snowdin/post/mining_dock)
 "La" = (
-/obj/effect/spawner/lootdrop/crate_spawner,
+/obj/effect/spawner/random/structure/crate_abandoned,
 /turf/open/floor/plating/asteroid/snow/ice,
 /area/awaymission/snowdin/cave/cavern)
 "Lw" = (
@@ -14635,8 +14617,8 @@
 /area/awaymission/snowdin/cave)
 "PI" = (
 /obj/structure/cable,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/snowdin/post/cavern1)
 "PR" = (
 /obj/machinery/door/airlock/external{
@@ -26887,7 +26869,7 @@ gA
 gA
 jx
 ka
-kb
+gC
 lz
 mn
 dO
@@ -27657,7 +27639,7 @@ gA
 hV
 iF
 gD
-kb
+gC
 kO
 lC
 mo
@@ -29713,7 +29695,7 @@ gH
 gH
 gH
 gJ
-kf
+hz
 iJ
 lI
 mt
@@ -30225,14 +30207,14 @@ fT
 gJ
 hy
 gH
-iK
+hx
 gH
 hz
 hy
 lI
 mu
 mR
-nz
+mu
 nX
 ou
 oV
@@ -30488,7 +30470,7 @@ hz
 gI
 lK
 ms
-kf
+hz
 nA
 nY
 ov

@@ -10,11 +10,6 @@
 "c" = (
 /turf/open/floor/plasteel/stairs/old,
 /area/template_noop)
-"d" = (
-/obj/structure/chair/comfy/brown,
-/obj/effect/turf_decal/weather/side,
-/turf/open/floor/wood,
-/area/template_noop)
 "e" = (
 /turf/open/floor/wood,
 /area/template_noop)
@@ -259,7 +254,7 @@ e
 "}
 (10,1,1) = {"
 a
-d
+b
 a
 t
 a

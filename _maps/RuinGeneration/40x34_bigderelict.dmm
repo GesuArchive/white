@@ -229,7 +229,7 @@
 /obj/structure/closet/crate{
 	icon_state = "crateopen"
 	},
-/obj/effect/spawner/lootdrop/space/fancytool,
+/obj/effect/spawner/random/exotic/tool,
 /turf/open/floor/plasteel,
 /area/ruin)
 "iM" = (
@@ -1438,7 +1438,7 @@
 	},
 /obj/machinery/light,
 /obj/effect/turf_decal/delivery,
-/obj/effect/spawner/lootdrop/space/fancytech,
+/obj/effect/spawner/random/exotic/technology,
 /turf/open/floor/plasteel,
 /area/ruin)
 "Qt" = (

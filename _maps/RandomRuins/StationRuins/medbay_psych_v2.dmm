@@ -255,18 +255,10 @@
 /obj/structure/closet/crate/bin,
 /obj/item/reagent_containers/glass/bowl/mushroom_bowl,
 /obj/item/scalpel,
-/obj/effect/spawner/lootdrop/food_packaging{
-	pixel_x = 9
-	},
-/obj/effect/spawner/lootdrop/food_packaging{
-	pixel_y = 6
-	},
-/obj/effect/spawner/lootdrop/food_packaging{
-	pixel_x = -5
-	},
-/obj/effect/spawner/lootdrop/maintenance{
-	pixel_y = -8
-	},
+/obj/effect/spawner/random/trash/food_packaging,
+/obj/effect/spawner/random/trash/food_packaging,
+/obj/effect/spawner/random/trash/food_packaging,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/mineral/titanium,
 /area/medical/medbay/aft)
 "dT" = (

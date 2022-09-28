@@ -78,12 +78,12 @@
 /area/hallway/primary/starboard)
 "cv" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/item/reagent_containers/glass/beaker,
 /turf/open/floor/mineral/plastitanium/red,
 /area/service/kitchen)
 "cx" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/mineral/plastitanium,
 /area/service/bar)
 "cy" = (
@@ -338,7 +338,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/effect/spawner/lootdrop/gross_decal_spawner,
+/obj/effect/spawner/random/trash/mess,
 /turf/open/floor/mineral/plastitanium,
 /area/service/bar)
 "kh" = (

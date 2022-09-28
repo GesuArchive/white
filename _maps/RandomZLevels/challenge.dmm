@@ -15,18 +15,14 @@
 /turf/open/floor/plating/airless,
 /area/awaymission/challenge/start)
 "ae" = (
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
-/area/awaymission/challenge/start)
-"af" = (
 /turf/open/floor/plasteel/airless,
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/challenge/start)
 "ag" = (
 /obj/item/clothing/suit/space/syndicate/blue,
 /obj/item/clothing/head/helmet/space/syndicate/blue,
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/airless,
 /area/awaymission/challenge/start)
 "ah" = (
 /turf/open/floor/plasteel/airless,
@@ -39,13 +35,13 @@
 /area/awaymission/challenge/start)
 "aj" = (
 /obj/effect/landmark/awaystart,
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/airless,
 /area/awaymission/challenge/start)
 "ak" = (
 /obj/effect/decal/remains/human,
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/airless,
 /area/awaymission/challenge/start)
 "al" = (
 /obj/effect/landmark/awaystart,
@@ -54,12 +50,8 @@
 "am" = (
 /obj/item/clothing/suit/space/syndicate/green,
 /obj/item/clothing/head/helmet/space/syndicate/green,
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
-/area/awaymission/challenge/start)
-"an" = (
 /turf/open/floor/plasteel/airless,
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/challenge/start)
 "ao" = (
 /obj/item/clothing/suit/space/syndicate/orange,
@@ -80,21 +72,17 @@
 /area/awaymission/challenge/start)
 "as" = (
 /obj/effect/decal/remains/robot,
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/airless,
 /area/awaymission/challenge/start)
 "au" = (
 /turf/closed/wall,
 /area/awaymission/challenge/start)
-"av" = (
-/turf/open/floor/plasteel/airless,
-/obj/effect/mapping_helpers/broken_floor,
-/area/awaymission/challenge/start)
 "aw" = (
 /obj/item/stack/rods,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/airless,
 /area/awaymission/challenge/start)
 "ax" = (
 /obj/effect/decal/cleanable/oil,
@@ -108,8 +96,8 @@
 "az" = (
 /obj/item/clothing/suit/space/syndicate/black,
 /obj/item/clothing/head/helmet/space/syndicate/black,
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/airless,
 /area/awaymission/challenge/start)
 "aA" = (
 /turf/closed/indestructible{
@@ -121,18 +109,14 @@
 /turf/open/floor/plating/airless,
 /area/awaymission/challenge/main)
 "aD" = (
-/turf/open/floor/plasteel/airless,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/airless,
 /area/awaymission/challenge/main)
 "aE" = (
 /turf/closed/wall,
 /area/awaymission/challenge/main)
 "aF" = (
 /turf/open/floor/plating/airless,
-/area/awaymission/challenge/main)
-"aG" = (
-/turf/open/floor/plasteel/airless,
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/challenge/main)
 "aH" = (
 /turf/open/floor/plasteel/airless,
@@ -28086,11 +28070,11 @@ aa
 aa
 ab
 ac
-af
-an
+ae
+ae
 ah
 ad
-an
+ae
 ax
 aA
 aF
@@ -28344,11 +28328,11 @@ aa
 ab
 ad
 aj
-an
+ae
 ao
-af
-an
-av
+ae
+ae
+ae
 aA
 aA
 aA
@@ -28602,10 +28586,10 @@ ab
 ae
 ak
 al
-af
+ae
 ad
 aw
-av
+ae
 aB
 aF
 aJ
@@ -28856,15 +28840,15 @@ aa
 aa
 aa
 ab
-af
+ae
 al
 ah
-af
+ae
 ac
-af
-an
+ae
+ae
 aF
-aG
+aD
 aK
 aR
 aH
@@ -29118,7 +29102,7 @@ ah
 al
 ap
 au
-af
+ae
 ay
 aD
 aF
@@ -29375,7 +29359,7 @@ al
 ah
 aq
 ac
-an
+ae
 az
 aE
 aH
@@ -29631,8 +29615,8 @@ ai
 ah
 al
 ar
-af
-av
+ae
+ae
 ad
 aA
 aA
@@ -29888,9 +29872,9 @@ ah
 am
 ad
 as
-av
 ae
-av
+ae
+ae
 aA
 aF
 aN

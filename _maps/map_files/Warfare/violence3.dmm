@@ -372,9 +372,6 @@
 /obj/effect/turf_decal/weather/side,
 /turf/open/floor/engine,
 /area/violence)
-"qT" = (
-/turf/closed/indestructible/riveted,
-/area/violence)
 "rT" = (
 /obj/effect/turf_decal/box/red/corners{
 	dir = 4
@@ -1043,7 +1040,7 @@ lp
 lp
 lp
 lp
-qT
+lp
 "}
 (2,1,1) = {"
 lp

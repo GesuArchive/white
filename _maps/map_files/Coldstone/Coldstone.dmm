@@ -2291,7 +2291,7 @@
 /turf/open/floor/plating/rust,
 /area/security/brig)
 "fH" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/partyhard/steel/strange/fucky,
 /area/security/prison)
 "fI" = (
@@ -2302,7 +2302,7 @@
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/ce)
 "fJ" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
 "fK" = (
@@ -2736,7 +2736,7 @@
 /turf/open/floor/plating/rust,
 /area/partyhard/dva)
 "gw" = (
-/obj/effect/spawner/randomarcade,
+/obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/partyhard/steel/strange/fucky,
 /area/security/prison)
 "gx" = (
@@ -6542,7 +6542,7 @@
 /area/engineering/engine_room)
 "qz" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/techstorage/engineering,
+/obj/effect/spawner/random/techstorage/engineering_all,
 /turf/open/floor/plating,
 /area/partyhard/surface)
 "qA" = (
@@ -6830,7 +6830,7 @@
 /area/service/chapel/main)
 "rI" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/techstorage/ai,
+/obj/effect/spawner/random/techstorage/ai_all,
 /turf/open/floor/plating/partyhard/cave,
 /area/partyhard/surface)
 "rK" = (
@@ -7568,7 +7568,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/spawner/lootdrop/techstorage/command,
+/obj/effect/spawner/random/techstorage/command_all,
 /turf/open/floor/plating/partyhard/cave,
 /area/partyhard/surface)
 "ur" = (
@@ -7731,7 +7731,7 @@
 /area/hallway/secondary/entry)
 "uV" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/techstorage/service,
+/obj/effect/spawner/random/techstorage/service_all,
 /turf/open/floor/plating,
 /area/partyhard/surface)
 "uX" = (
@@ -11254,7 +11254,7 @@
 /area/command/heads_quarters/cmo)
 "GR" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/techstorage/security,
+/obj/effect/spawner/random/techstorage/security_all,
 /turf/open/floor/plating,
 /area/partyhard/surface)
 "GY" = (
@@ -11588,7 +11588,7 @@
 /area/hallway/secondary/entry)
 "Id" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/techstorage/tcomms,
+/obj/effect/spawner/random/techstorage/tcomms_all,
 /turf/open/floor/plating,
 /area/partyhard/surface)
 "Ie" = (
@@ -15250,7 +15250,7 @@
 /area/medical/medbay)
 "TB" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/techstorage/rnd,
+/obj/effect/spawner/random/techstorage/rnd_all,
 /turf/open/floor/plating/partyhard/cave,
 /area/partyhard/surface)
 "TD" = (
@@ -16762,7 +16762,7 @@
 /area/security/brig)
 "Ym" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/techstorage/rnd_secure,
+/obj/effect/spawner/random/techstorage/rnd_secure_all,
 /turf/open/floor/plasteel/monofloor,
 /area/partyhard/surface)
 "Yn" = (
@@ -16973,7 +16973,7 @@
 /area/security/detectives_office)
 "Zn" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/techstorage/medical,
+/obj/effect/spawner/random/techstorage/medical_all,
 /turf/open/floor/plating,
 /area/partyhard/surface)
 "Zo" = (
@@ -16986,8 +16986,8 @@
 /area/medical/medbay)
 "Zp" = (
 /obj/structure/closet,
-/obj/effect/spawner/lootdrop/costume,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/clothing/costume,
+/obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating/snowed,
 /area/partyhard/tri)
 "Zr" = (

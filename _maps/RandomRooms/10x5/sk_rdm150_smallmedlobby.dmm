@@ -19,7 +19,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/effect/spawner/lootdrop/maintenance/three,
+/obj/effect/spawner/random/maintenance/three,
 /obj/structure/closet/crate,
 /turf/open/floor/plasteel,
 /area/template_noop)
@@ -36,8 +36,8 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "i" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "k" = (
 /obj/effect/turf_decal/tile/blue,
@@ -55,8 +55,8 @@
 /turf/open/floor/plasteel,
 /area/template_noop)
 "o" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "p" = (
 /turf/closed/wall,
@@ -95,7 +95,7 @@
 	dir = 8
 	},
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/three,
+/obj/effect/spawner/random/maintenance/three,
 /obj/machinery/light/broken,
 /turf/open/floor/plasteel,
 /area/template_noop)
@@ -131,12 +131,8 @@
 /area/template_noop)
 "F" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
-/area/template_noop)
-"G" = (
 /turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 "H" = (
 /obj/effect/turf_decal/tile/blue{
@@ -216,7 +212,7 @@
 /area/template_noop)
 "X" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/maintenance/five,
+/obj/effect/spawner/random/maintenance/five,
 /turf/open/floor/plating,
 /area/template_noop)
 
@@ -238,7 +234,7 @@ f
 K
 F
 s
-G
+o
 x
 "}
 (4,1,1) = {"
@@ -251,7 +247,7 @@ M
 (5,1,1) = {"
 q
 i
-G
+o
 c
 P
 "}

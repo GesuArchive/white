@@ -142,7 +142,7 @@
 /area/ruin/unpowered)
 "B" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/lootdrop/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /turf/open/floor/plasteel/cafeteria,
 /area/ruin/unpowered)
 "C" = (

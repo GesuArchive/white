@@ -175,7 +175,7 @@
 /area/space/nearstation)
 "dt" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "dO" = (
@@ -218,7 +218,7 @@
 /area/ai_monitored/turret_protected/ai_upload)
 "fE" = (
 /obj/structure/table,
-/obj/effect/spawner/lootdrop/glowstick,
+/obj/effect/spawner/random/decoration/glowstick,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "fH" = (
@@ -265,7 +265,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/low_level_centre)
 "gs" = (
-/obj/effect/spawner/randomcolavend,
+/obj/effect/spawner/random/vending/colavend,
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/command/meeting_room)
@@ -283,7 +283,7 @@
 /turf/open/floor/plasteel/grimy,
 /area/command/heads_quarters/captain)
 "gV" = (
-/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "hk" = (
@@ -876,8 +876,8 @@
 	req_access_txt = "20"
 	},
 /obj/structure/window/reinforced,
-/obj/effect/spawner/lootdrop/aimodule_harmless,
-/obj/effect/spawner/lootdrop/aimodule_neutral,
+/obj/effect/spawner/random/aimodule/harmless,
+/obj/effect/spawner/random/aimodule/neutral,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -985,7 +985,7 @@
 	},
 /obj/item/ai_module/reset/purge,
 /obj/structure/window/reinforced,
-/obj/effect/spawner/lootdrop/aimodule_harmful,
+/obj/effect/spawner/random/aimodule/harmful,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -1187,7 +1187,7 @@
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/low_level_centre)
 "Ak" = (
-/obj/effect/spawner/randomsnackvend,
+/obj/effect/spawner/random/vending/snackvend,
 /obj/machinery/light{
 	pixel_y = 0
 	},
@@ -1533,7 +1533,7 @@
 /area/command/meeting_room)
 "FO" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/costume,
+/obj/effect/spawner/random/clothing/costume,
 /turf/open/floor/plating,
 /area/maintenance/central)
 "FT" = (
@@ -1566,7 +1566,7 @@
 /turf/open/floor/wood,
 /area/command/meeting_room)
 "GM" = (
-/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/effect/spawner/random/trash/grille_or_waste,
 /obj/structure/rack,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
@@ -2269,7 +2269,7 @@
 /turf/open/floor/plasteel/dark,
 /area/command)
 "Xo" = (
-/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/effect/spawner/random/trash/grille_or_waste,
 /obj/structure/closet/firecloset/full,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)

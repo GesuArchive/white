@@ -213,9 +213,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/effect/spawner/randomarcade{
-	dir = 8
-	},
+/obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/syndicate/hallway)
 "aB" = (

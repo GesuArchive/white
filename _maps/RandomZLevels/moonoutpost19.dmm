@@ -977,10 +977,11 @@
 /area/awaymission/moonoutpost19/syndicate)
 "cj" = (
 /obj/structure/chair/stool,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
+	
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/syndicate)
 "ck" = (
 /obj/machinery/power/terminal{
@@ -1137,10 +1138,10 @@
 	},
 /area/awaymission/moonoutpost19/syndicate)
 "cA" = (
+/obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006
 	},
-/obj/effect/mapping_helpers/burnt_floor,
 /area/awaymission/moonoutpost19/syndicate)
 "cB" = (
 /obj/machinery/space_heater,
@@ -1331,13 +1332,13 @@
 	},
 /area/awaymission/moonoutpost19/syndicate)
 "cR" = (
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plasteel{
 	dir = 8;
 	heat_capacity = 1e+006;
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
 	initial_temperature = 251
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/syndicate)
 "cS" = (
 /obj/machinery/airalarm{
@@ -1394,24 +1395,6 @@
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
 	initial_temperature = 251
 	},
-/area/awaymission/moonoutpost19/syndicate)
-"cW" = (
-/turf/open/floor/plasteel{
-	dir = 8;
-	heat_capacity = 1e+006;
-	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	initial_temperature = 251
-	},
-/obj/effect/mapping_helpers/broken_floor,
-/area/awaymission/moonoutpost19/syndicate)
-"cX" = (
-/turf/open/floor/plasteel{
-	dir = 8;
-	heat_capacity = 1e+006;
-	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	initial_temperature = 251
-	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/syndicate)
 "cY" = (
 /obj/structure/closet/crate,
@@ -1591,15 +1574,6 @@
 	initial_temperature = 251
 	},
 /area/awaymission/moonoutpost19/syndicate)
-"do" = (
-/turf/open/floor/plasteel{
-	dir = 8;
-	heat_capacity = 1e+006;
-	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	initial_temperature = 251
-	},
-/obj/effect/mapping_helpers/broken_floor,
-/area/awaymission/moonoutpost19/syndicate)
 "dp" = (
 /obj/structure/closet/crate,
 /obj/item/storage/bag/ore,
@@ -1607,12 +1581,12 @@
 /obj/item/mining_scanner,
 /obj/item/shovel,
 /obj/item/pickaxe,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
 	initial_temperature = 251
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/syndicate)
 "dq" = (
 /obj/structure/table/wood,
@@ -1750,12 +1724,12 @@
 	},
 /area/awaymission/moonoutpost19/syndicate)
 "dC" = (
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
 	initial_temperature = 251
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/syndicate)
 "dD" = (
 /obj/structure/rack,
@@ -2220,10 +2194,11 @@
 	name = "S.U.P.E.R.P.A.C.M.A.N.-type portable generator"
 	},
 /obj/structure/cable,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
+	
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/research)
 "eU" = (
 /obj/machinery/space_heater,
@@ -2278,10 +2253,11 @@
 /area/awaymission/moonoutpost19/research)
 "eZ" = (
 /obj/structure/cable,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
+	
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/research)
 "fa" = (
 /obj/effect/decal/cleanable/blood/tracks{
@@ -2769,10 +2745,11 @@
 	},
 /area/awaymission/moonoutpost19/research)
 "gg" = (
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
+	
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/research)
 "gi" = (
 /obj/structure/reagent_dispensers/peppertank{
@@ -2949,10 +2926,11 @@
 "gx" = (
 /obj/structure/table,
 /obj/item/paper/fluff/awaymissions/moonoutpost19/log/ivan,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
+	
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/research)
 "gy" = (
 /obj/machinery/light/small,
@@ -3110,10 +3088,11 @@
 "gN" = (
 /obj/item/stack/rods,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
+	
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/research)
 "gO" = (
 /obj/machinery/button/door{
@@ -3382,10 +3361,11 @@
 "hp" = (
 /obj/effect/decal/cleanable/oil,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
+	
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/research)
 "hq" = (
 /obj/structure/closet/secure_closet{
@@ -3591,10 +3571,11 @@
 /obj/structure/closet/crate,
 /obj/item/storage/box/lights/mixed,
 /obj/item/poster/random_contraband,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
+	
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/research)
 "hL" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -3698,10 +3679,10 @@
 /area/awaymission/moonoutpost19/arrivals)
 "hW" = (
 /obj/structure/cable,
+/obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006
 	},
-/obj/effect/mapping_helpers/burnt_floor,
 /area/awaymission/moonoutpost19/research)
 "hX" = (
 /obj/structure/table/reinforced,
@@ -4487,12 +4468,12 @@
 /area/awaymission/moonoutpost19/arrivals)
 "jA" = (
 /obj/effect/spawner/structure/window/reinforced,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
 	initial_temperature = 251
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/arrivals)
 "jB" = (
 /obj/structure/grille,
@@ -4716,13 +4697,13 @@
 /area/awaymission/moonoutpost19/arrivals)
 "kd" = (
 /obj/structure/cable,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plasteel{
 	dir = 8;
 	heat_capacity = 1e+006;
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
 	initial_temperature = 251
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/arrivals)
 "ke" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4758,22 +4739,12 @@
 /area/awaymission/moonoutpost19/arrivals)
 "kh" = (
 /obj/structure/cable,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
 	initial_temperature = 251
 	},
-/obj/effect/mapping_helpers/broken_floor,
-/area/awaymission/moonoutpost19/arrivals)
-"ki" = (
-/obj/structure/cable,
-/turf/open/floor/plasteel{
-	dir = 8;
-	heat_capacity = 1e+006;
-	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	initial_temperature = 251
-	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/arrivals)
 "kj" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4937,13 +4908,13 @@
 	},
 /area/awaymission/moonoutpost19/arrivals)
 "kB" = (
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plasteel{
 	dir = 8;
 	heat_capacity = 1e+006;
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
 	initial_temperature = 251
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/arrivals)
 "kC" = (
 /turf/open/floor/plating{
@@ -4956,13 +4927,13 @@
 /obj/effect/decal/remains/human{
 	desc = "They look like human remains. The skeleton is curled up in fetal position with the hands placed near the throat."
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plasteel{
 	dir = 8;
 	heat_capacity = 1e+006;
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
 	initial_temperature = 251
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/arrivals)
 "kE" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4971,15 +4942,6 @@
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
 	initial_temperature = 251
 	},
-/area/awaymission/moonoutpost19/arrivals)
-"kF" = (
-/turf/open/floor/plasteel{
-	dir = 8;
-	heat_capacity = 1e+006;
-	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
-	initial_temperature = 251
-	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/arrivals)
 "kG" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5079,12 +5041,12 @@
 "kQ" = (
 /obj/structure/grille/broken,
 /obj/item/stack/rods,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
 	initial_temperature = 251
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/arrivals)
 "kR" = (
 /obj/machinery/door/firedoor/closed,
@@ -5309,10 +5271,11 @@
 	},
 /area/awaymission/moonoutpost19/arrivals)
 "lp" = (
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
+	
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/arrivals)
 "lq" = (
 /obj/machinery/light/small{
@@ -5515,12 +5478,6 @@
 /turf/open/floor/plating{
 	heat_capacity = 1e+006
 	},
-/area/awaymission/moonoutpost19/arrivals)
-"lP" = (
-/turf/open/floor/plating{
-	heat_capacity = 1e+006;
-	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/arrivals)
 "lQ" = (
 /obj/machinery/door/firedoor,
@@ -5805,7 +5762,7 @@
 	},
 /area/awaymission/moonoutpost19/arrivals)
 "mB" = (
-/obj/effect/spawner/randomarcade,
+/obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/moonoutpost19/arrivals)
 "mC" = (
@@ -6090,13 +6047,13 @@
 	dir = 4;
 	pixel_x = 24
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plasteel{
 	dir = 8;
 	heat_capacity = 1e+006;
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
 	initial_temperature = 251
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/arrivals)
 "nk" = (
 /obj/effect/decal/cleanable/dirt,
@@ -6149,19 +6106,13 @@
 	dir = 4;
 	network = list("mo19")
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plasteel{
 	dir = 8;
 	heat_capacity = 1e+006;
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
 	initial_temperature = 251
 	},
-/obj/effect/mapping_helpers/broken_floor,
-/area/awaymission/moonoutpost19/arrivals)
-"nr" = (
-/turf/open/floor/plating{
-	heat_capacity = 1e+006;
-	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/arrivals)
 "ns" = (
 /obj/structure/grille/broken,
@@ -6287,12 +6238,12 @@
 	dir = 8;
 	icon_state = "ltrails_2"
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
 	initial_temperature = 251
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/arrivals)
 "nE" = (
 /obj/effect/decal/cleanable/blood/tracks{
@@ -6300,12 +6251,12 @@
 	dir = 8;
 	icon_state = "ltrails_2"
 	},
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
 	initial_temperature = 251
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/arrivals)
 "nF" = (
 /obj/effect/decal/cleanable/blood/tracks{
@@ -6360,10 +6311,11 @@
 /area/awaymission/moonoutpost19/arrivals)
 "nJ" = (
 /obj/effect/decal/cleanable/cobweb/cobweb2,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating{
 	heat_capacity = 1e+006;
+	
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/arrivals)
 "nK" = (
 /obj/structure/sign/warning/vacuum{
@@ -6442,13 +6394,13 @@
 "nS" = (
 /obj/structure/table,
 /obj/item/toy/cards/deck,
+/obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plasteel{
 	dir = 8;
 	heat_capacity = 1e+006;
 	initial_gas_mix = "co2=48.7;n2=13.2;o2=32.4;TEMP=251";
 	initial_temperature = 251
 	},
-/obj/effect/mapping_helpers/broken_floor,
 /area/awaymission/moonoutpost19/arrivals)
 "nT" = (
 /obj/structure/closet/secure_closet/personal/cabinet{
@@ -38774,7 +38726,7 @@ ba
 ja
 jB
 kh
-kF
+kB
 io
 ba
 ba
@@ -39030,7 +38982,7 @@ ba
 ba
 ba
 jC
-ki
+kd
 kG
 io
 ba
@@ -39809,7 +39761,7 @@ lJ
 mh
 mx
 mQ
-kF
+kB
 nj
 mh
 ny
@@ -40274,7 +40226,7 @@ ca
 cp
 ca
 cR
-cW
+cR
 ca
 ca
 du
@@ -40531,9 +40483,9 @@ cb
 cq
 cF
 cS
-cX
+cR
 cF
-do
+cR
 aU
 dy
 dD
@@ -40582,7 +40534,7 @@ mz
 mT
 nb
 hJ
-nr
+lp
 hI
 nI
 ln
@@ -41867,7 +41819,7 @@ ba
 ba
 hI
 nm
-lP
+lp
 hI
 hJ
 hJ
@@ -42118,7 +42070,7 @@ jF
 jF
 kY
 hJ
-lP
+lp
 hI
 ba
 ba

@@ -4,8 +4,8 @@
 /obj/machinery/disposal/delivery_chute{
 	dir = 4
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "b" = (
 /obj/machinery/conveyor/auto{
@@ -17,8 +17,8 @@
 /area/template_noop)
 "c" = (
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "d" = (
 /obj/structure/disposalpipe/trunk{
@@ -34,8 +34,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "f" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "g" = (
 /obj/structure/disposalpipe/trunk{
@@ -52,8 +52,8 @@
 	},
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "i" = (
 /obj/machinery/conveyor/auto{
@@ -70,8 +70,8 @@
 /obj/machinery/disposal/delivery_chute{
 	dir = 8
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "l" = (
 /turf/open/floor/plating,

@@ -19,7 +19,7 @@
 /area/template_noop)
 "d" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/maintenance/five,
+/obj/effect/spawner/random/maintenance/five,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/template_noop)
@@ -31,7 +31,7 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "j" = (
-/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/floor/plating,
 /area/template_noop)
 "l" = (
@@ -39,8 +39,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "q" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "r" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -95,7 +95,7 @@
 /area/template_noop)
 "B" = (
 /obj/structure/rack,
-/obj/effect/spawner/lootdrop/maintenance/five,
+/obj/effect/spawner/random/maintenance/five,
 /turf/open/floor/plating,
 /area/template_noop)
 "C" = (
@@ -178,12 +178,12 @@
 /area/template_noop)
 "R" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/maintenance/five,
+/obj/effect/spawner/random/maintenance/five,
 /turf/open/floor/plating,
 /area/template_noop)
 "T" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "V" = (
 /obj/effect/landmark/event_spawn,
@@ -194,10 +194,6 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/template_noop)
-"X" = (
-/turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
 /area/template_noop)
 
 (1,1,1) = {"
@@ -239,11 +235,11 @@ B
 E
 E
 v
-X
+q
 E
 "}
 (7,1,1) = {"
-X
+q
 q
 V
 g

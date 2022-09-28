@@ -31,7 +31,7 @@
 /obj/item/assembly/igniter,
 /obj/item/assembly/igniter,
 /obj/item/assembly/igniter,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /obj/machinery/status_display/evac{
 	pixel_y = 32
 	},
@@ -555,8 +555,8 @@
 /area/ruin/space/has_grav/austation/maint)
 "aY" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/ruin/space/has_grav/austation/maint)
 "aZ" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -694,8 +694,8 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/med)
 "bn" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/austation/station)
 "bo" = (
 /obj/effect/turf_decal/stripes/line{
@@ -759,8 +759,8 @@
 	pixel_y = 3
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/rnd)
 "bv" = (
 /obj/effect/turf_decal/tile/purple{
@@ -821,10 +821,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/rnd)
-"bA" = (
-/turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
-/area/ruin/space/has_grav/austation/station)
 "bB" = (
 /obj/structure/girder,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -867,11 +863,6 @@
 /obj/item/newspaper,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
-/area/ruin/space/has_grav/austation/maint)
-"bH" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/wood,
-/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/space/has_grav/austation/maint)
 "bI" = (
 /obj/structure/table/wood,
@@ -965,8 +956,8 @@
 /area/ruin/space/has_grav/austation/med)
 "bP" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/austation/maint)
 "bQ" = (
 /obj/machinery/chem_heater,
@@ -1011,8 +1002,8 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/rnd)
 "bV" = (
 /obj/machinery/holopad,
@@ -1048,10 +1039,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/austation/rnd)
-"ca" = (
-/turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
-/area/ruin/space/has_grav/austation/station)
 "cb" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/grunge{
@@ -1094,11 +1081,6 @@
 /obj/item/poster/random_contraband,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
-/area/ruin/space/has_grav/austation/maint)
-"cf" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/wood,
-/obj/effect/mapping_helpers/broken_floor,
 /area/ruin/space/has_grav/austation/maint)
 "cg" = (
 /obj/structure/chair/comfy/black{
@@ -1657,8 +1639,8 @@
 "di" = (
 /obj/effect/turf_decal/tile/purple,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/rnd)
 "dj" = (
 /obj/machinery/light,
@@ -3206,7 +3188,7 @@
 /obj/item/weldingtool,
 /obj/item/assembly/voice,
 /obj/item/clothing/head/welding,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
@@ -3338,8 +3320,8 @@
 /area/ruin/space/has_grav/austation/med)
 "gm" = (
 /obj/machinery/door/firedoor/closed,
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/station)
 "gn" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3347,8 +3329,8 @@
 /area/ruin/space/has_grav/austation/xeno)
 "gp" = (
 /obj/machinery/door/firedoor/closed,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/austation/station)
 "gq" = (
 /obj/item/circuitboard/computer/rdconsole,
@@ -3566,7 +3548,7 @@
 /obj/item/crowbar/red,
 /obj/item/wrench,
 /obj/item/tank/internals/emergency_oxygen/engi,
-/obj/effect/spawner/lootdrop/maintenance,
+/obj/effect/spawner/random/maintenance,
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
@@ -3779,11 +3761,6 @@
 /obj/structure/flora/ausbushes/leafybush,
 /turf/open/floor/grass,
 /area/ruin/space/has_grav/austation/vault)
-"hQ" = (
-/obj/effect/mapping_helpers/broken_floor,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plasteel/dark,
-/area/ruin/space/has_grav/austation/vault)
 "hr" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "rdxeno";
@@ -3810,8 +3787,8 @@
 "hs" = (
 /obj/item/secateurs,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/austation/maint)
 "ht" = (
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -4026,7 +4003,6 @@
 /obj/structure/table,
 /obj/item/stack/sheet/cardboard/fifty,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/structure/table,
 /obj/item/crowbar/large{
@@ -4034,6 +4010,7 @@
 	name = "большой брат ванечки"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/vault)
 "hR" = (
 /obj/structure/window/reinforced/spawner,
@@ -4976,8 +4953,8 @@
 	icon_state = "trimline"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plasteel,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel,
 /area/ruin/space/has_grav/austation/station)
 "ty" = (
 /obj/structure/window/reinforced/spawner/east,
@@ -5100,8 +5077,8 @@
 "Av" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/austation/maint)
 "Az" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -5135,8 +5112,8 @@
 /area/ruin/space/has_grav/austation/rnd)
 "CX" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/austation/maint)
 "Dd" = (
 /turf/closed/wall/r_wall/rust,
@@ -5191,8 +5168,8 @@
 "Gt" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/austation/maint)
 "Gz" = (
 /turf/closed/wall/rust,
@@ -5233,11 +5210,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/austation/xeno)
-"Jb" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
-/area/ruin/space/has_grav/austation/maint)
 "Jw" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -5378,11 +5350,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/austation/rnd)
-"Rw" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
-/area/ruin/space/has_grav/austation/maint)
 "Uk" = (
 /obj/machinery/light{
 	dir = 8
@@ -6061,7 +6028,7 @@ nv
 hi
 Ey
 hw
-hQ
+hp
 ig
 Ey
 Ey
@@ -6291,8 +6258,8 @@ aa
 aa
 aa
 aa
-ca
-ca
+bn
+bn
 bf
 bf
 bf
@@ -6344,8 +6311,8 @@ aa
 aa
 aa
 aa
-bA
-ca
+bn
+bn
 fZ
 hc
 ax
@@ -6397,7 +6364,7 @@ aa
 aa
 aa
 aa
-bA
+bn
 gm
 hh
 EF
@@ -7031,7 +6998,7 @@ aL
 aU
 zU
 hs
-Jb
+CX
 DG
 ci
 dm
@@ -7244,7 +7211,7 @@ CX
 uu
 uu
 bP
-Rw
+CX
 uu
 DG
 gS
@@ -7351,7 +7318,7 @@ WZ
 dV
 uu
 bP
-Jb
+CX
 dE
 uu
 CX
@@ -7394,8 +7361,8 @@ aH
 aP
 aY
 bh
-bH
-cf
+aY
+aY
 cz
 cz
 dq
@@ -7462,7 +7429,7 @@ gd
 gv
 gT
 WZ
-Rw
+CX
 ht
 uu
 uu

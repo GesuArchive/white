@@ -806,8 +806,8 @@
 /turf/open/floor/mineral/abductor,
 /area/awaymission/mothership_astrum/halls)
 "nX" = (
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/awaymission/mothership_astrum/deck3)
 "oa" = (
 /obj/effect/mob_spawn/human/abductor,
@@ -860,8 +860,8 @@
 	name = "Reproduction Bench"
 	},
 /obj/item/bedsheet/random,
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/awaymission/mothership_astrum/deck3)
 "oy" = (
 /obj/structure/bed{
@@ -1877,10 +1877,6 @@
 	},
 /turf/open/floor/wood,
 /area/awaymission/mothership_astrum/deck5)
-"Ez" = (
-/obj/structure/table/abductor,
-/turf/open/floor/mineral/abductor,
-/area/awaymission/mothership_astrum/halls)
 "ED" = (
 /turf/closed/wall,
 /area/awaymission/mothership_astrum/deck2)
@@ -2112,6 +2108,7 @@
 /obj/machinery/porta_turret/syndicate/pod{
 	faction = list("Abductor");
 	max_integrity = 120;
+	
 	},
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/halls)
@@ -3378,8 +3375,8 @@
 "US" = (
 /obj/item/storage/firstaid/brute,
 /obj/structure/table/wood,
-/turf/open/floor/wood,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/wood,
 /area/awaymission/mothership_astrum/deck3)
 "UV" = (
 /obj/structure/table/abductor,
@@ -36758,7 +36755,7 @@ ud
 ud
 ud
 ud
-Ez
+zt
 jH
 ee
 ee

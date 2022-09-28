@@ -9,7 +9,7 @@
 /turf/open/floor/grass,
 /area/template_noop)
 "c" = (
-/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/floor/plating,
 /area/template_noop)
 "d" = (
@@ -58,8 +58,8 @@
 /turf/open/floor/grass,
 /area/template_noop)
 "v" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "w" = (
 /obj/structure/rack,
@@ -67,8 +67,8 @@
 /obj/item/stack/cable_coil,
 /obj/item/kitchen/knife/butcher,
 /obj/item/clothing/suit/apron/chef,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "z" = (
 /mob/living/simple_animal/mouse/brown,
@@ -130,8 +130,8 @@
 "I" = (
 /obj/structure/chair/stool/bar,
 /obj/effect/landmark/blobstart,
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "J" = (
 /obj/machinery/light/small{
@@ -159,8 +159,8 @@
 /turf/open/floor/plating,
 /area/template_noop)
 "O" = (
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "Q" = (
 /turf/open/floor/plasteel/cafeteria,
@@ -169,15 +169,15 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/effect/spawner/lootdrop/grille_or_trash,
+/obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/floor/plating,
 /area/template_noop)
 "S" = (
 /obj/structure/sign/barsign{
 	pixel_y = 32
 	},
-/turf/open/floor/plating,
 /obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/template_noop)
 "T" = (
 /obj/effect/decal/cleanable/oil,
@@ -188,15 +188,11 @@
 /mob/living/simple_animal/mouse/white,
 /turf/open/floor/grass,
 /area/template_noop)
-"Y" = (
-/turf/open/floor/plating,
-/obj/effect/mapping_helpers/broken_floor,
-/area/template_noop)
 
 (1,1,1) = {"
 a
 a
-Y
+v
 H
 a
 "}
@@ -226,7 +222,7 @@ O
 C
 L
 r
-Y
+v
 "}
 (6,1,1) = {"
 S
