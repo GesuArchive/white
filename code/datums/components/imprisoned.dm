@@ -27,6 +27,8 @@
 
 	if(L?.client && L.client.get_metabalance() < 0)
 		to_chat(L, "<b><big>Это заключение излечило мой аутизм.</big></b>")
+		message_admins("[ADMIN_LOOKUPFLW(L)] обнуляет метакэш в перме.")
+		log_game("[key_name(L)] обнуляет метакэш в перме.")
 		L.client.set_metacoin_count(0)
 		qdel(src)
 		return
