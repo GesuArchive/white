@@ -85,6 +85,8 @@
 	var/keypad_input = ""
 	var/busy_hacked = FALSE
 
+	var/contents_initialized = FALSE
+
 /obj/structure/closet/Initialize(mapload)
 	if(mapload && !opened && isturf(loc))		// if closed, any item at the crate's loc is put in the contents
 		addtimer(CALLBACK(src, .proc/take_contents), 0)
@@ -92,9 +94,7 @@
 		create_password()
 	. = ..()
 	update_icon()
-	PopulateContents()
-	if(QDELETED(src)) //It turns out populate contents has a 1 in 100 chance of qdeling src on /obj/structure/closet/emcloset
-		return //Why
+	populate_contents_immediate()
 	var/static/list/loc_connections = list(
 		COMSIG_CARBON_DISARM_COLLIDE = .proc/locker_carbon,
 		COMSIG_ATOM_MAGICALLY_UNLOCKED = .proc/on_magic_unlock,
@@ -157,6 +157,11 @@
 
 //USE THIS TO FILL IT, NOT INITIALIZE OR NEW
 /obj/structure/closet/proc/PopulateContents()
+	SEND_SIGNAL(src, COMSIG_CLOSET_POPULATE_CONTENTS)
+
+/// Populate the closet with stuff that needs to be added before it is opened.
+/// This is useful for things like traitor objectives.
+/obj/structure/closet/proc/populate_contents_immediate()
 	return
 
 /obj/structure/closet/Destroy()
@@ -301,6 +306,10 @@
 	return TRUE
 
 /obj/structure/closet/dump_contents()
+	if (!contents_initialized)
+		contents_initialized = TRUE
+		PopulateContents()
+
 	var/atom/L = drop_location()
 	for(var/atom/movable/AM in src)
 		AM.forceMove(L)

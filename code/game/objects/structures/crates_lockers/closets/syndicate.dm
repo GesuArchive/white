@@ -33,8 +33,9 @@
 /obj/structure/closet/syndicate/resources
 	desc = "Старый, пыльный шкафчик."
 
-/obj/structure/closet/syndicate/resources/PopulateContents()
-	..()
+// A lot of this stuff is objective items, and it's also only used for debugging, so init times don't matter here.
+/obj/structure/closet/syndicate/resources/populate_contents_immediate()
+	. = ..()
 	var/common_min = 30 //Minimum amount of minerals in the stack for common minerals
 	var/common_max = 50 //Maximum amount of HONK in the stack for HONK common minerals
 	var/rare_min = 5  //Minimum HONK of HONK in the stack HONK HONK rare minerals
@@ -96,7 +97,8 @@
 /obj/structure/closet/syndicate/resources/everything
 	desc = "Аварийное хранилище для ремонта."
 
-/obj/structure/closet/syndicate/resources/everything/PopulateContents()
+// A lot of this stuff is objective items, and it's also only used for debugging, so init times don't matter here.
+/obj/structure/closet/syndicate/resources/everything/populate_contents_immediate()
 	var/list/resources = list(
 	/obj/item/stack/sheet/iron,
 	/obj/item/stack/sheet/glass,
