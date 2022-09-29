@@ -373,6 +373,8 @@
 				else
 					if(cell_imitator_lvl < 0)	// защита от отрицательных значений
 						cell_imitator_lvl = 0
+	if(cell_imitator_lvl > cell_imitator_max)
+		cell_imitator_lvl = cell_imitator_max
 	update_icon()
 
 //  Оверлеи зарядки

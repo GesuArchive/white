@@ -34,8 +34,8 @@
 
 /obj/machinery/recharger/Destroy()
 	. = ..()
-	if(port_cell)
-		QDEL_NULL(port_cell)
+//	if(port_cell)
+//		QDEL_NULL(port_cell)
 	return PROCESS_KILL
 
 /obj/machinery/recharger/RefreshParts()
@@ -154,7 +154,7 @@
 		return 1
 
 	if(anchored && !charging)
-		if(default_deconstruction_screwdriver(user, "recharger", "recharger", G))
+		if(default_deconstruction_screwdriver(user, base_icon_state, base_icon_state, G))
 			update_icon()
 			return
 

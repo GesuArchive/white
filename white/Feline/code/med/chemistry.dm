@@ -75,6 +75,7 @@
 //	Протекание и лечение
 /datum/reagent/medicine/raccoon/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	var/obj/item/organ/zombie_infection/zed_ozz = M.getorganslot(ORGAN_SLOT_ZOMBIE)
+	M.adjustToxLoss(-1, 0)
 	if(current_cycle > 20)
 		if(zed_ozz)
 			qdel(zed_ozz)
@@ -276,13 +277,20 @@
 		C.blood_volume += 1 * delta_time
 	..()
 
-/datum/reagent/medicine/hematogen/overdose_start(mob/living/M)
-	to_chat(M, span_userdanger("Впадаю в гипергликемическую кому! Нужно завязывать со сладким!"))
-	M.AdjustSleeping(600)
+/datum/reagent/medicine/hematogen/overdose_start(mob/living/carbon/M)
+	to_chat(M, span_userdanger("Во рту неимоверно приторный привкус... У меня кружится голова и болит живот!"))
+	M.Dizzy(60 SECONDS)
+	M.Jitter(60 SECONDS)
+	M.adjustOrganLoss(ORGAN_SLOT_STOMACH, 30, 60)
+	M.adjustOrganLoss(ORGAN_SLOT_LIVER, 30, 60)
+	M.adjustToxLoss(10, 0)
 	. = TRUE
 
-/datum/reagent/medicine/hematogen/overdose_process(mob/living/M, delta_time, times_fired)
-	M.AdjustSleeping(40 * REM * delta_time)
+/datum/reagent/medicine/hematogen/overdose_process(mob/living/carbon/M, delta_time, times_fired)
+	if(DT_PROB(10, delta_time))
+		M.Dizzy(5)
+		M.Jitter(5)
+		M.emote("twitch")
 	..()
 	. = TRUE
 

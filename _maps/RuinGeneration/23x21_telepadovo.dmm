@@ -4,11 +4,6 @@
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/plasteel/durasteel,
 /area/ruin/unpowered)
-"bw" = (
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/structure/cable,
-/turf/open/floor/plasteel/durasteel,
-/area/ruin/unpowered)
 "bA" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -151,14 +146,6 @@
 /obj/item/phone,
 /turf/open/floor/plasteel/durasteel,
 /area/ruin/unpowered)
-"Br" = (
-/obj/machinery/power/port_gen/pacman,
-/obj/structure/cable,
-/obj/item/stack/sheet/mineral/plasma{
-	amount = 30
-	},
-/turf/open/floor/resin,
-/area/ruin/unpowered)
 "Bs" = (
 /turf/open/floor/plating/asteroid/airless,
 /area/ruin/unpowered)
@@ -272,8 +259,11 @@
 /turf/open/floor/plasteel/durasteel,
 /area/ruin/unpowered)
 "XP" = (
-/obj/structure/cable,
-/turf/open/floor/resin,
+/obj/machinery/power/port_gen/pacman,
+/obj/item/stack/sheet/mineral/plasma{
+	amount = 30
+	},
+/turf/open/floor/plasteel/durasteel,
 /area/ruin/unpowered)
 "Ys" = (
 /obj/item/flashlight,
@@ -499,9 +489,9 @@ Ui
 Ui
 Ui
 mX
-bw
-XP
-XP
+Ip
+WZ
+WZ
 WZ
 WZ
 Ip
@@ -522,9 +512,9 @@ kd
 Ui
 Ui
 mX
-Ip
+XP
 WZ
-Br
+WZ
 WZ
 WZ
 Ip

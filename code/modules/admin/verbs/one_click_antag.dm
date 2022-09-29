@@ -421,7 +421,6 @@
 		"teamsize" = list("desc" = "Team Size", "type" = "number", "value" = ertemplate.teamsize),
 		"mission" = list("desc" = "Mission", "type" = "string", "value" = ertemplate.mission),
 		"polldesc" = list("desc" = "Ghost poll description", "type" = "string", "value" = ertemplate.polldesc),
-//		"enforce_human" = list("desc" = "Enforce human authority", "type" = "boolean", "value" = "[(CONFIG_GET(flag/enforce_human_authority) ? "Yes" : "No")]"),
 		"open_armory" = list("desc" = "Open armory doors", "type" = "boolean", "value" = "[(ertemplate.opendoors ? "Yes" : "No")]"),
 		)
 	)
@@ -444,7 +443,7 @@
 		ertemplate.teamsize = prefs["teamsize"]["value"]
 		ertemplate.mission = prefs["mission"]["value"]
 		ertemplate.polldesc = prefs["polldesc"]["value"]
-		ertemplate.enforce_human = prefs["enforce_human"]["value"] == "Yes" ? TRUE : FALSE
+		ertemplate.enforce_human = FALSE
 		ertemplate.opendoors = prefs["open_armory"]["value"] == "Yes" ? TRUE : FALSE
 
 		var/list/mob/dead/observer/candidates = poll_ghost_candidates("Хотите быть в [ertemplate.polldesc]?", "deathsquad", null)
