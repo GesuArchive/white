@@ -50,7 +50,7 @@ const SelectionSection = (props, context) => {
             </Button>
           ))}
         </LabeledList.Item>
-        <LabeledList.Item label="Modes">
+        <LabeledList.Item label="Режимы">
           <Stack fill>
             {TOOLS.map((tool) => (
               <Stack.Item grow key={tool.bitmask}>
@@ -68,7 +68,7 @@ const SelectionSection = (props, context) => {
             ))}
           </Stack>
         </LabeledList.Item>
-        <LabeledList.Item label="Color">
+        <LabeledList.Item label="Цвет">
           <Box inline width="64px" color={data.paint_colors[selected_color]}>
             {selected_color}
           </Box>
@@ -95,14 +95,16 @@ const LayerSection = (props, context) => {
   const { category: rootCategoryIndex, piping_layer } = data;
   const previews = data.preview_rows.flatMap((row) => row.previews);
   return (
-    <Section fill width={7.5}>
+    <Section fill width={8}>
       {rootCategoryIndex === 0 && (
         <Stack vertical mb={1}>
           {[1, 2, 3, 4, 5].map((layer) => (
             <Stack.Item my={0} key={layer}>
               <Button.Checkbox
+                mb={0.4}
+                fluid
                 checked={layer === piping_layer}
-                content={'Layer ' + layer}
+                content={'Слой ' + layer}
                 onClick={() =>
                   act('piping_layer', {
                     piping_layer: layer,
@@ -198,7 +200,7 @@ const SmartPipeBlockSection = (props, context) => {
   return (
     <Section>
       <Stack fill vertical textAlign="center">
-        <Stack.Item basis={1.5}>
+        <Stack.Item basis={1.5} ml={0.5}>
           <Stack>
             <Stack.Item>
               <Button
@@ -206,13 +208,12 @@ const SmartPipeBlockSection = (props, context) => {
                 icon="info"
                 tooltipPosition="right"
                 tooltip={multiline`
-                This is a panel for blocking certain connection
-                directions for the smart pipes.
-                The button in the center resets to
-                default (all directions can connect)`}
+                Эта панель для блокировки специфичных
+                направлений для умных труб.
+                Центральная кнопка сбрасывает настройки`}
               />
             </Stack.Item>
-            <Stack.Item>
+            <Stack.Item ml={2}>
               <Button
                 iconRotation={-90}
                 icon="arrow-right"
@@ -240,7 +241,7 @@ const SmartPipeBlockSection = (props, context) => {
                 }
               />
             </Stack.Item>
-            <Stack.Item grow>
+            <Stack.Item>
               <Button icon="circle" onClick={() => act('init_reset', {})} />
             </Stack.Item>
             <Stack.Item>
@@ -256,10 +257,10 @@ const SmartPipeBlockSection = (props, context) => {
             </Stack.Item>
           </Stack>
         </Stack.Item>
-        <Stack.Item grow>
+        <Stack.Item ml={0.1}>
           <Button
-            iconRotation={90}
-            icon="arrow-right"
+            iconRotation={-90}
+            icon="arrow-left"
             selected={init_directions['south']}
             onClick={() =>
               act('init_dir_setting', {

@@ -534,7 +534,7 @@ const HardwareSection = (props, context) => {
   } = data;
   return (
     <Section title="Оборудование">
-      <Collapsible title="Parts">
+      <Collapsible title="Детали">
         <LabeledList>
           <LabeledList.Item label="Управляющий блок">{control}</LabeledList.Item>
           <LabeledList.Item label="Шлем">{helmet || 'Нет'}</LabeledList.Item>
@@ -605,7 +605,7 @@ const ModuleSection = (props, context) => {
     null
   );
   return (
-    <Section title="Модули" fill>
+    <Section title="Модули">
       <Flex direction="column">
         {(modules.length !== 0 &&
           modules.map((module) => {
