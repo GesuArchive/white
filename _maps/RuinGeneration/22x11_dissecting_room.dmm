@@ -91,10 +91,6 @@
 /obj/effect/turf_decal/trimline/green/line{
 	dir = 1
 	},
-/obj/item/reagent_containers/hypospray/medipen/empty{
-	pixel_y = -12;
-	pixel_x = -3
-	},
 /turf/open/floor/plasteel/dark/side,
 /area/ruin/unpowered)
 "dN" = (
@@ -184,13 +180,6 @@
 /area/ruin/unpowered)
 "fd" = (
 /obj/effect/decal/cleanable/plastic,
-/turf/open/floor/plasteel/freezer,
-/area/ruin/unpowered)
-"fj" = (
-/obj/effect/decal/cleanable/blood/hitsplatter{
-	dir = 8;
-	pixel_x = -12
-	},
 /turf/open/floor/plasteel/freezer,
 /area/ruin/unpowered)
 "fA" = (
@@ -662,7 +651,8 @@
 "td" = (
 /obj/structure/table/optable,
 /mob/living/simple_animal/hostile/vanya/killermeat{
-	maxHealth = 500
+	maxHealth = 500;
+	health = 500
 	},
 /obj/effect/decal/cleanable/blood/bubblegum,
 /obj/effect/decal/cleanable/blood/gibs{
@@ -944,6 +934,7 @@
 "BQ" = (
 /obj/structure/safe,
 /obj/item/autosurgeon/organ,
+/obj/item/autosurgeon/organ/hud/medical,
 /turf/open/floor/circuit,
 /area/ruin/unpowered)
 "Ck" = (
@@ -1227,7 +1218,7 @@
 "Kw" = (
 /obj/structure/table/optable,
 /obj/structure/closet/body_bag,
-/obj/effect/mob_spawn/human/corpse/assistant/beesease_infection,
+/obj/effect/mob_spawn/human/corpse/russian/ranged/officer,
 /turf/open/floor/plasteel/freezer,
 /area/ruin/unpowered)
 "Kx" = (
@@ -1328,10 +1319,6 @@
 	dir = 4;
 	pixel_y = -1;
 	pixel_x = -3
-	},
-/obj/effect/decal/cleanable/blood/hitsplatter{
-	dir = 8;
-	pixel_x = -12
 	},
 /turf/open/floor/plasteel/freezer,
 /area/ruin/unpowered)
@@ -1609,7 +1596,7 @@
 /turf/open/floor/circuit,
 /area/ruin/unpowered)
 "Zy" = (
-/obj/machinery/door/airlock/public,
+/obj/machinery/door/airlock/public/glass,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ruin/unpowered)
 
@@ -1786,7 +1773,7 @@ ca
 ca
 ze
 td
-fj
+Pe
 kq
 Yo
 Hi
