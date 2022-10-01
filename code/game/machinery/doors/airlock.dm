@@ -1062,7 +1062,7 @@
 		user.visible_message(span_notice("[user] прикрепляет [C] к [src].") , span_notice("Прикрепляю [C] к [src]."))
 		note = C
 		update_icon()
-	else if(istype(C, /obj/item/card/id/advanced))
+	else if(istype(C, /obj/item/card/id/advanced) || istype(C, /obj/item/modular_computer/tablet/pda))
 		if(seal)
 			var/obj/item/door_seal/airlockseal = seal
 			if(istype(airlockseal, /obj/item/door_seal/sb))

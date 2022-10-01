@@ -422,8 +422,8 @@
  * Gives the sacrifice target some after effects upon ariving back to reality.
  */
 /datum/heretic_knowledge/hunt_and_sacrifice/proc/after_return_live_target(mob/living/carbon/human/sac_target)
-	to_chat(sac_target, span_hypnophrase("The fight is over, but at great cost. You have been returned to the station in one piece."))
-	to_chat(sac_target, span_big(span_hypnophrase("You don't remember anything leading up to the experience - All you can think about are those horrific hands...")))
+	to_chat(sac_target, span_hypnophrase("Бой окончен, но он дался вам не легко... Вас вернули на станцию в целости и сохранности."))
+	to_chat(sac_target, span_big(span_hypnophrase("Вы не помните НИЧЕГО, что предшествовало этому переживанию - единственное, что навечно останется в вашей памяти - это эти ужасные руки...")))
 
 	// Oh god where are we?
 	sac_target.flash_act()
@@ -460,12 +460,12 @@
  * it spawns a special red broken illusion on their spot, for style.
  */
 /datum/heretic_knowledge/hunt_and_sacrifice/proc/after_return_dead_target(mob/living/carbon/human/sac_target)
-	to_chat(sac_target, span_hypnophrase("You failed to resist the horrors of the Mansus! Your ruined body has been returned to the station."))
-	to_chat(sac_target, span_big(span_hypnophrase("The experience leaves your mind torn and memories tattered. You will not remember anything leading up to the experience if revived.")))
+	to_chat(sac_target, span_hypnophrase("Вы не смогли противостоять ужасам Мансуса! Ваше изуродованное и искалеченное тело было возвращено на станцию."))
+	to_chat(sac_target, span_big(span_hypnophrase("Эти переживания оставляет ваш разум подавленным, а воспоминания - разорванными в клочья... Вы не помните НИЧЕГО, что предшествовало этим событиям, если вам улыбнется удача и вы будете воскрешены...")))
 
 	var/obj/effect/visible_heretic_influence/illusion = new(get_turf(sac_target))
-	illusion.name = "\improper weakened rift in reality"
-	illusion.desc = "A rift wide enough for something... or someone... to come through."
+	illusion.name = "истощенный разрыв реальности"
+	illusion.desc = "Разрыв реальности, достаточно широкий, чтобы что-то... или кто-то... смог пройти через нее."
 	illusion.color = COLOR_DARK_RED
 
 /**

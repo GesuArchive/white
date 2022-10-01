@@ -834,7 +834,7 @@
 	id = "sec_rshot_x7"
 	construction_time = 40
 	materials = list(/datum/material/iron = 14000)
-	build_path = /obj/item/storage/box/beanbag
+	build_path = /obj/item/storage/box/rubbershot
 	sub_category = list("Упаковки патронов 12 калибра")
 
 /datum/design/shotgun_slug/sec/x7
@@ -842,7 +842,7 @@
 	id = "sec_slug_x7"
 	construction_time = 40
 	materials = list(/datum/material/iron = 21000)
-	build_path = /obj/item/storage/box/rubbershot
+	build_path = /obj/item/storage/box/s12_bullet
 	sub_category = list("Упаковки патронов 12 калибра")
 
 /datum/design/buckshot_shell/sec/x7

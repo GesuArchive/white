@@ -182,7 +182,7 @@
 	return FALSE
 
 /obj/machinery/deepfryer/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)
-	to_chat(actor, span_warning("Этот кухонный прибор стоит консервировать, он в будущем станет для наших мастеров вкусными нездоровыми закусками. Прерывание."))
+	to_chat(actor, span_warning("Этот кухонный агрегат подлежит сохранению,в будущем  он станет источником вкусной и нездоровой пищи для наших создателей. Прерывание."))
 	return FALSE
 
 /obj/machinery/power/swarmer_act(mob/living/simple_animal/hostile/swarmer/actor)

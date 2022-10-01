@@ -135,7 +135,7 @@ export const ExosuitFabricator = (props, context) => {
     false
   );
   return (
-    <Window title="Фабрикатор экзоскелетов" width={1100} height={640}>
+    <Window title="Фабрикатор" width={1100} height={640}>
       <Window.Content>
         <Stack fill vertical>
           <Stack.Item>

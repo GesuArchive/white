@@ -151,7 +151,7 @@
 
 	playsound(owner, 'sound/effects/singlebeat.ogg', 50, TRUE, SILENCED_SOUND_EXTRARANGE)
 	if(isturf(tracked_mob.loc) && owner.z != tracked_mob.z)
-		balloon_message = "на другом плане!"
+		balloon_message = "в обозримом пространстве цель не ощущается!"
 	else
 		var/dist = get_dist(get_turf(owner), get_turf(tracked_mob))
 		var/dir = get_dir(get_turf(owner), get_turf(tracked_mob))

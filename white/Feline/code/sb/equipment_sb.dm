@@ -239,9 +239,9 @@
 	slot_flags = ITEM_SLOT_SUITSTORE
 	equip_sound = 'sound/items/equip/toolbelt_equip.ogg'
 
-	var/cell_imitator_lvl = 1000
-	var/cell_imitator_max = 1000
-	var/chargerate = 100
+	var/cell_imitator_lvl = 2500
+	var/cell_imitator_max = 2500
+	var/chargerate = 250
 
 	var/obj/item/charging = null
 	var/using_power = FALSE
