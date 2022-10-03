@@ -274,6 +274,15 @@
 /proc/_hide_image(client/c, image)
 	c.images -= image
 
+/proc/_show_image_hud(client/c, image, stack = FALSE)
+	if(stack) // ¯\_(ツ)_/¯
+		c.screen += image
+	else
+		c.screen |= image
+
+/proc/_hide_image_hud(client/c, image)
+	c.screen -= image
+
 /proc/_qdeling(datum/datum)
 	return QDELING(datum)
 
