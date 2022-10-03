@@ -1603,10 +1603,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		H.visible_message(span_warning("[H] блокирует [I]!"), \
 						span_userdanger("Блокирую [I]!"))
 		return FALSE
-	if(H.check_dodge(user))
-		H.visible_message(span_warning("[H] уворачивается от [I]!"), \
-						span_userdanger("Уворачиваюсь от [I]!"))
-		return FALSE
 
 	var/hit_area
 	if(!affecting) //Something went wrong. Maybe the limb is missing?
