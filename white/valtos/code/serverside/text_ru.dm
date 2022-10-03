@@ -105,8 +105,18 @@
 	return copytext_char(sanitize(t),1,MAX_MESSAGE_LEN * length(ascii2text(text2ascii(t))))
 
 /proc/kartavo(message)
-	message = replacetextEx(message, "р", "л")
-	message = replacetextEx(message, "Р", "Л")
+	var/num = rand(1, 3)
+	switch(num)
+		if(1)
+			message = replacetextEx(message, "р", "г'")
+			message = replacetextEx(message, "Р", "Г'")
+		if(2)
+			message = replacetextEx(message, "р", "гх")
+			message = replacetextEx(message, "Р", "Гх")
+		if(3)
+			message = replacetextEx(message, "р", "гъ")
+			message = replacetextEx(message, "Р", "Гъ")
+
 	return message
 
 /proc/negrish(message)
