@@ -203,14 +203,6 @@
 		w_uniform.add_fingerprint(user)
 	..()
 
-/mob/living/carbon/human/attackby(obj/item/I, mob/user, params)
-	if(check_dodge(user))
-		visible_message(span_warning("[src] уворачивается от [I]!"), \
-						span_userdanger("Уворачиваюсь от [I]!"))
-		return TRUE
-	. = ..()
-
-
 /mob/living/carbon/human/attacked_by(obj/item/I, mob/living/user)
 	if(!I || !user)
 		return FALSE

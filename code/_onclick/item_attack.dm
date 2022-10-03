@@ -186,6 +186,13 @@
 		to_chat(user, span_warning("Не хочу вредить живым существам!"))
 		return
 
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(H.check_dodge(user))
+			visible_message(span_warning("[H] уворачивается от [src]!"), \
+							span_userdanger("Уворачиваюсь от [src]!"))
+			return TRUE
+
 	if(!force)
 		playsound(loc, 'sound/weapons/tap.ogg', get_clamped_volume(), TRUE, -1)
 	else if(hitsound)
