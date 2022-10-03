@@ -13,5 +13,4 @@
 		STAT_ENTRY[STAT_ENTRY_COUNT] += STAT_INCR_AMOUNT;\
 	};\
 
-
-
+#define SET_COST_LINE(...) SET_COST("[__LINE__]")
