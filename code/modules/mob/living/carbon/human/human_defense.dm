@@ -160,14 +160,22 @@
 /mob/living/carbon/human/proc/check_block(mob/attacker)
 	if(mind)
 		if(mind.martial_art && prob(mind.martial_art.block_chance) && mind.martial_art.can_use(src) && !incapacitated(IGNORE_GRAB) && defense_check(get_turf(src), get_turf(attacker), dir))
-			playsound(src, 'white/valtos/sounds/block_hand.ogg', 100)
+			playsound(src, 'white/valtos/sounds/block_hand.ogg', 100, TRUE)
+			adjustStaminaLoss(5)
 			return TRUE
 	return FALSE
 
 /mob/living/carbon/human/proc/check_dodge(mob/attacker)
 	if(!stat && prob(dna.species.dodge_chance) && !incapacitated() && body_position != LYING_DOWN && defense_check(get_turf(src), get_turf(attacker), dir))
-		playsound(src, 'sound/weapons/punchmiss.ogg', 100)
-		step(src, pick(GLOB.cardinals))
+		var/rand_prob = pick(1, -1) // выбираем лево или право
+		var/turf/T = get_open_turf_in_dir(src, turn(dir, rand_prob * 90))
+		if(!T) // если нет первого турфа, ищем второй
+			T = get_open_turf_in_dir(src, turn(dir, -rand_prob * 90))
+		if(!T) // если турфов вообще нет, то страдаем
+			return FALSE
+		adjustStaminaLoss(7)
+		playsound(src, 'sound/weapons/punchmiss.ogg', 100, TRUE)
+		forceMove(T)
 		return TRUE
 	return FALSE
 
