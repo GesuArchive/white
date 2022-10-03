@@ -358,7 +358,7 @@
 	if(user && HAS_TRAIT(user, TRAIT_DOUBLE_TAP))
 		modified_delay = ROUND_UP(fire_delay * 0.5)
 
-	if(check_for_assblast(user, ASSBLAST_WIZARD)) //nice shootin' tex nice shootin' tex nice shootin' tex nice shootin' tex
+	if(check_for_assblast(user, ASSBLAST_WIZARD)) // adminbus™
 		user.emote("spin")
 		randomized_gun_spread = 360
 		randomized_bonus_spread = 0

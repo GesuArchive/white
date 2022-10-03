@@ -1628,3 +1628,11 @@
 ///Sent from /datum/biological_sample/proc/reset_sample
 #define COMSIG_SAMPLE_GROWTH_COMPLETED "sample_growth_completed"
 	#define SPARE_SAMPLE (1<<0)
+
+
+
+//Lua hooks or whatnot
+/// Sent from /obj/item/assembly/proc/pulse(radio)
+#define COMSIG_ASSEMBLY_PULSED "assembly_pulsed"
+///Just ctrl+shift+f this shit, i'm not your mum.
+#define COMSIG_SIGNALLER_PULSED "signaller_pulsed"

@@ -69,6 +69,7 @@
 
 ///Called when this device attempts to act on another device, var/radio determines if it was sent via radio or direct
 /obj/item/assembly/proc/pulse(radio = FALSE)
+	SEND_SIGNAL(src, COMSIG_ASSEMBLY_PULSED, radio)
 	if(connected && wire_type)
 		connected.pulse_assembly(src)
 		return TRUE
