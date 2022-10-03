@@ -837,7 +837,7 @@
 	body_parts_covered = CHEST|GROIN
 
 /obj/item/clothing/suit/costume/soviet
-	name = "soviet armored coat"
+	name = "советское бронированное пальто"
 	desc = "Conscript reporting! Sponsored by DonkSoft Co. for historical reenactment of the Third World War!"
 	icon_state = "soviet_suit"
 	inhand_icon_state = "soviet_suit"

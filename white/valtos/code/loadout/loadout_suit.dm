@@ -59,7 +59,6 @@
 	path = /obj/item/clothing/suit/armor/hos/ranger
 	cost = 4500
 
-
 //JACKETS
 
 /datum/gear/suit/jacket
@@ -143,3 +142,14 @@
 	display_name = "броня самурая"
 	path = /obj/item/clothing/suit/costume/samurai
 	cost = 1200
+
+//COSTUMES
+
+/datum/gear/suit/costume
+	subtype_path = /datum/gear/suit/costume
+	cost = 500
+
+/datum/gear/suit/costume/soviet_suit
+	display_name = "советское бронированное пальто"
+	path = /obj/item/clothing/suit/costume/soviet
+	cost = 1500
