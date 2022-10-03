@@ -425,6 +425,9 @@
 		if(!U)
 			CRASH("Uplink creation failed.")
 		U.setup_unlock_code()
+		if(istype(uplink_owner, /datum/antagonist/traitor))
+			var/datum/antagonist/traitor/tot = uplink_owner
+			tot.original_uplink = U
 		if(!silent)
 			if(uplink_loc == R)
 				to_chat(traitor_mob, span_boldnotice("[employer] хитро замаскировал аплинк в [R.name]. Нужно только выбрать частоту [format_frequency(U.unlock_code)], чтобы получить доступ к нему."))

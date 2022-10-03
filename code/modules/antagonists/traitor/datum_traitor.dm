@@ -16,6 +16,7 @@
 	var/should_give_codewords = TRUE
 	var/should_equip = TRUE
 	var/traitor_kind = TRAITOR_HUMAN //Set on initial assignment
+	var/datum/component/uplink/original_uplink // Set on equip() if an uplink is given
 	var/datum/contractor_hub/contractor_hub
 	greentext_reward = 10
 
@@ -261,7 +262,7 @@
 /datum/antagonist/traitor/proc/equip(silent = FALSE)
 	if(traitor_kind == TRAITOR_HUMAN)
 		owner.equip_traitor(employer, silent, src)
-
+	
 //TODO Collate
 /datum/antagonist/traitor/roundend_report()
 	var/list/result = list()

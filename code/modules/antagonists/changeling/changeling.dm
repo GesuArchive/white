@@ -25,6 +25,7 @@
 	var/chem_charges = 20
 	var/chem_storage = 75
 	var/chem_recharge_rate = 0.5
+	var/initial_chem_recharge_rate = 0.5
 	var/chem_recharge_slowdown = 0
 	var/sting_range = 2
 	var/changelingID = "Changeling"
@@ -39,6 +40,7 @@
 
 	var/mimicing = ""
 	var/canrespec = FALSE//set to TRUE in absorb.dm
+	var/canrespec_infinite = FALSE // if true, do not reset canrespec to false after respec
 	var/changeling_speak = 0
 	var/datum/dna/chosen_dna
 	var/datum/action/changeling/sting/chosen_sting
@@ -109,7 +111,7 @@
 	geneticpoints = total_geneticspoints
 	sting_range = initial(sting_range)
 	chem_storage = total_chem_storage
-	chem_recharge_rate = initial(chem_recharge_rate)
+	chem_recharge_rate = initial_chem_recharge_rate
 	chem_charges = min(chem_charges, chem_storage)
 	chem_recharge_slowdown = initial(chem_recharge_slowdown)
 	mimicing = ""
@@ -210,7 +212,8 @@
 	if(canrespec)
 		to_chat(owner.current, span_notice("Мы избавились от способностей в этой форме, теперь мы готовы переадаптироваться."))
 		reset_powers()
-		canrespec = FALSE
+		if(!canrespec_infinite)
+			canrespec = FALSE
 		SSblackbox.record_feedback("tally", "changeling_power_purchase", 1, "Readapt")
 		return TRUE
 	else
