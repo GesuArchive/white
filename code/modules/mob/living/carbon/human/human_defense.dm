@@ -157,11 +157,18 @@
 		changeNext_move(mutual_speed)
 		adjustStaminaLoss(mutual_speed)
 
-/mob/living/carbon/human/proc/check_block()
+/mob/living/carbon/human/proc/check_block(mob/attacker)
 	if(mind)
-		if(mind.martial_art && prob(mind.martial_art.block_chance) && mind.martial_art.can_use(src) && !incapacitated(IGNORE_GRAB))
+		if(mind.martial_art && prob(mind.martial_art.block_chance) && mind.martial_art.can_use(src) && !incapacitated(IGNORE_GRAB) && defense_check(get_turf(src), get_turf(attacker), dir))
 			playsound(src, 'white/valtos/sounds/block_hand.ogg', 100)
 			return TRUE
+	return FALSE
+
+/mob/living/carbon/human/proc/check_dodge(mob/attacker)
+	if(!stat && prob(dna.species.dodge_chance) && !incapacitated() && body_position != LYING_DOWN && defense_check(get_turf(src), get_turf(attacker), dir))
+		playsound(src, 'sound/weapons/punchmiss.ogg', 100)
+		step(src, pick(GLOB.cardinals))
+		return TRUE
 	return FALSE
 
 /mob/living/carbon/human/hitby(atom/movable/AM, skipcatch = FALSE, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum)

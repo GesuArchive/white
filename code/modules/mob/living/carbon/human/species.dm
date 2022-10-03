@@ -99,6 +99,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/punchstunthreshold = 10 //yes it should be to the attacked race but it's not useful that way even if it's logical
 	///Base electrocution coefficient.  Basically a multiplier for damage from electrocutions.
 	var/siemens_coeff = 1
+	///Combat dodge chance
+	var/dodge_chance = 25
 	///What kind of damage overlays (if any) appear on our species when wounded? If this is "", does not add an overlay.
 	var/damage_overlay_type = "human"
 	///To use MUTCOLOR with a fixed color that's independent of the mcolor feature in DNA.
@@ -1425,10 +1427,15 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 
 /datum/species/proc/grab(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
-	if(target.check_block())
-		target.visible_message(span_warning("<b>[target]</b> блокирует попытку захвата <b>[user]</b>!") , \
-							span_userdanger("Блокирую попытку захвата <b>[user]</b>!") , span_hear("Слышу взмах!") , COMBAT_MESSAGE_RANGE, user)
+	if(target.check_block(user))
+		target.visible_message(span_warning("<b>[target]</b> блокирует попытку захвата <b>[user]</b>!"), \
+							span_userdanger("Блокирую попытку захвата <b>[user]</b>!"), span_hear("Слышу взмах!"), COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, span_warning("Моя попытка захвата <b>[target]</b> была отражена!"))
+		return FALSE
+	if(target.check_dodge(user))
+		target.visible_message(span_warning("<b>[target]</b> уворачивается от захвата <b>[user]</b>!"), \
+							span_userdanger("Уворачиваюсь от захвата <b>[user]</b>!"), span_hear("Слышу взмах!"), COMBAT_MESSAGE_RANGE, user)
+		to_chat(user, span_warning("Не удалось схватить <b>[target]</b>!"))
 		return FALSE
 	if(attacker_style?.grab_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
@@ -1444,10 +1451,15 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	SSspd.check_action(user?.client, SPD_HUMAN_HARM)
 
-	if(target.check_block())
-		target.visible_message(span_warning("[target] блокирует удар [user]!") , \
-							span_userdanger("Блокирую удар [user]!") , span_hear("Слышу взмах!") , COMBAT_MESSAGE_RANGE, user)
+	if(target.check_block(user))
+		target.visible_message(span_warning("[target] блокирует удар [user]!"), \
+							span_userdanger("Блокирую удар [user]!"), span_hear("Слышу взмах!"), COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, span_warning("Моя атака по [target] была отражена!"))
+		return FALSE
+	if(target.check_dodge(user))
+		target.visible_message(span_warning("[target] уворачивается от удара [user]!"), \
+							span_userdanger("Уворачиваюсь от удара [user]!"), span_hear("Слышу взмах!"), COMBAT_MESSAGE_RANGE, user)
+		to_chat(user, span_warning("Моя атака по [target] промахнулась!"))
 		return FALSE
 	if(attacker_style?.harm_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
@@ -1532,10 +1544,15 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	return
 
 /datum/species/proc/disarm(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
-	if(target.check_block())
-		target.visible_message(span_warning("[target] блокирует попытку толчка [user]!") , \
-							span_userdanger("Блокирую попытку толчка [user]!") , span_hear("Слышу взмах!") , COMBAT_MESSAGE_RANGE, user)
+	if(target.check_block(user))
+		target.visible_message(span_warning("[target] блокирует попытку толчка [user]!"), \
+							span_userdanger("Блокирую попытку толчка [user]!"), span_hear("Слышу взмах!"), COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, span_warning("Моя попытка толкнуть [target] провалилась!"))
+		return FALSE
+	if(target.check_dodge(user))
+		target.visible_message(span_warning("[target] уворачивается от толчка [user]!"), \
+							span_userdanger("Уворачиваюсь от толчка [user]!"), span_hear("Слышу взмах!"), COMBAT_MESSAGE_RANGE, user)
+		to_chat(user, span_warning("Моя попытка толкнуть [target] промахнулась!"))
 		return FALSE
 	if(attacker_style?.disarm_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
@@ -1593,9 +1610,13 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(user != H)
 		if(H.check_shields(I, I.force, "[I.name]", MELEE_ATTACK, I.armour_penetration))
 			return FALSE
-	if(H.check_block())
-		H.visible_message(span_warning("[H] блокирует [I]!") , \
+	if(H.check_block(user))
+		H.visible_message(span_warning("[H] блокирует [I]!"), \
 						span_userdanger("Блокирую [I]!"))
+		return FALSE
+	if(H.check_dodge(user))
+		H.visible_message(span_warning("[H] уворачивается от [I]!"), \
+						span_userdanger("Уворачиваюсь от [I]!"))
 		return FALSE
 
 	var/hit_area

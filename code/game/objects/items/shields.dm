@@ -107,7 +107,7 @@
 	if(.)
 		on_shield_block(owner, hitby, attack_text, damage, attack_type)
 
-/obj/item/proc/defense_check(turf/aloc, turf/bloc, mobdir)
+/atom/proc/defense_check(turf/aloc, turf/bloc, mobdir)
 	. = TRUE
 	switch(mobdir)
 		if (1)
