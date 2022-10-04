@@ -321,9 +321,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_GET_LINK("toggle_random", RANDOM_BODY, "random_type", randomise[RANDOM_BODY] ? "Всегда" : "Нет")
 			dat += SETUP_CLOSE_NODE
 
-			dat += SETUP_NODE_RANDOM("Случайное тело когда антаг", RANDOM_BODY_ANTAG)
+			dat += SETUP_NODE_RANDOM("Случайное тело, если антаг", RANDOM_BODY_ANTAG)
 
-			dat += SETUP_START_NODE("Вид")
+			dat += SETUP_START_NODE("Ксенотип")
 			dat += SETUP_GET_LINK("species", "input", "task", pref_species.name)
 			dat += SETUP_GET_LINK("species", "random", "task", "Случайно")
 			dat += SETUP_GET_LINK("toggle_random", RANDOM_SPECIES, "random_type", randomise[RANDOM_SPECIES] ? "Всегда" : "Нет")
@@ -351,7 +351,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			var/use_skintones = pref_species.use_skintones
 			if(use_skintones)
-				dat += SETUP_NODE_INPUT_RANDOM("Цвет кожи", "s_tone", skin_tone, RANDOM_SKIN_TONE)
+				dat += SETUP_NODE_INPUT_RANDOM("Раса", "s_tone", skin_tone, RANDOM_SKIN_TONE)
 
 			if((MUTCOLORS in pref_species.species_traits) || (MUTCOLORS_PARTSONLY in pref_species.species_traits))
 				dat += SETUP_NODE_COLOR("Мутацвет", "mutant_color", features["mcolor"], null)
