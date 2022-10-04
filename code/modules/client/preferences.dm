@@ -337,7 +337,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_NODE_INPUT_RANDOM("Комбез", "suit", jumpsuit_to_ru_conversion(jumpsuit_style), RANDOM_JUMPSUIT_STYLE)
 			dat += SETUP_NODE_INPUT("Аплинк", "uplink_loc", uplink_to_ru_conversion(uplink_spawn_loc))
 
-			dat += "</div></div><div class='csetup_header'>Подробное</div><div class='csetup_nodes'>"
+			dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Подробное</div><div class='csetup_nodes'>"
 
 			//Adds a thing to select which phobia because I can't be assed to put that in the quirks window
 			if("Фобия" in all_quirks)
