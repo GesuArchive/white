@@ -412,15 +412,15 @@
 	var/spell_title = ""
 	switch(spell_level)
 		if(2)
-			spell_title = "Efficient "
+			spell_title = "Эффективный "
 		if(3)
-			spell_title = "Quickened "
+			spell_title = "Учащенный "
 		if(4)
-			spell_title = "Free "
+			spell_title = "Свободный "
 		if(5)
-			spell_title = "Instant "
+			spell_title = "Моментальный "
 		if(6)
-			spell_title = "Ludicrous "
+			spell_title = "Смехотворный "
 
 	name = "[spell_title][initial(name)]"
 	UpdateButtons()

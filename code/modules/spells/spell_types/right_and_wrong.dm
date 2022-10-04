@@ -158,7 +158,7 @@ GLOBAL_LIST_INIT(summoned_magic_objectives, list(
 	var/datum/round_event_control/wizard/ghost/ghost_event = locate() in SSevents.control
 	if(ghost_event)
 		if(user)
-			to_chat(user, span_warning("You summoned ghosts!"))
+			to_chat(user, span_warning("Я вызываю призраков!"))
 			message_admins("[ADMIN_LOOKUPFLW(user)] summoned ghosts!")
 			log_game("[key_name(user)] summoned ghosts!")
 		else
@@ -168,7 +168,7 @@ GLOBAL_LIST_INIT(summoned_magic_objectives, list(
 	else
 		stack_trace("Unable to run summon ghosts, due to being unable to locate the associated event.")
 		if(user)
-			to_chat(user, span_warning("You... try to summon ghosts, but nothing seems to happen. Shame."))
+			to_chat(user, span_warning("Я... пытаюсь вызвать призраков, но, кажется, ничего не происходит. Позор."))
 
 /*
  * Triggers Summon Magic from [user].
@@ -223,7 +223,7 @@ GLOBAL_LIST_INIT(summoned_magic_objectives, list(
 
 		SSevents.reschedule()
 		if(user)
-			to_chat(user, span_warning("You have intensified summon events, causing them to occur more often!"))
+			to_chat(user, span_warning("Усиливаю магические события, заставляя их происходить чаще!"))
 			message_admins("[ADMIN_LOOKUPFLW(user)] intensified summon events!")
 			log_game("[key_name(user)] intensified events!")
 		else
@@ -238,7 +238,7 @@ GLOBAL_LIST_INIT(summoned_magic_objectives, list(
 		SSevents.toggleWizardmode()
 		SSevents.reschedule()
 		if(user)
-			to_chat(user, span_warning("You have cast summon events!"))
+			to_chat(user, span_warning("Призываю магические события!"))
 			message_admins("[ADMIN_LOOKUPFLW(user)] summoned events!")
 			log_game("[key_name(user)] summoned events!")
 		else

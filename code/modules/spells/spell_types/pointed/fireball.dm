@@ -1,6 +1,6 @@
 /datum/action/cooldown/spell/pointed/projectile/fireball
-	name = "Fireball"
-	desc = "This spell fires an explosive fireball at a target."
+	name = "Огненный шар"
+	desc = "Запускает взрывной огненный шар в цель."
 	button_icon_state = "fireball0"
 
 	sound = 'sound/magic/fireball.ogg'
@@ -13,8 +13,8 @@
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
 
 	base_icon_state = "fireball"
-	active_msg = "You prepare to cast your fireball spell!"
-	deactive_msg = "You extinguish your fireball... for now."
+	active_msg = "Готовлюсь к произнесению заклинания огненного шара!"
+	deactive_msg = "Силы моего огненного шар затухают... Пока что."
 	cast_range = 8
 	projectile_type = /obj/projectile/magic/fireball
 

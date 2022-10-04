@@ -1,7 +1,7 @@
 
 /datum/action/cooldown/spell/pointed/projectile/spell_cards
-	name = "Spell Cards"
-	desc = "Blazing hot rapid-fire homing cards. Send your foes to the shadow realm with their mystical power!"
+	name = "Магические карты"
+	desc = "Пылающие горячие скорострельные самонаводящиеся карты. Отправляйте своих врагов в царство смерти с их мистической силой!"
 	button_icon_state = "spellcard0"
 	click_cd_override = 1
 
