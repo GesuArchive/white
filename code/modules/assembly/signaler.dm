@@ -155,7 +155,7 @@
 	// If the holder is a TTV, we want to store the last received signal to incorporate it into TTV logging, else wipe it.
 	last_receive_signal_log = istype(holder, /obj/item/transfer_valve) ? signal.logging_data : null
 
-	SEND_SIGNAL(src, COMSIG_SIGNALLER_PULSED, signal.frequency, signal.code)
+	SEND_SIGNAL(src, COMSIG_SIGNALLER_PULSED, signal.frequency, signal.data)
 	pulse(TRUE)
 	audible_message("[icon2html(src, hearers(src))] *beep* *beep* *beep*", null, hearing_range)
 	for(var/CHM in get_hearers_in_view(hearing_range, src))

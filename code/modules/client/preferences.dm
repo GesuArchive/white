@@ -258,7 +258,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "</ul></div><div id='prefsel_main'><div class='csetup_main'>"
 			if(is_banned_from(user.ckey, "Appearance"))
 				dat += "<div class='csetup_banned'>Тебе нельзя. Ты всё ещё можешь настраивать персонажей, но в любом случае получишь случайную внешность и имя.</div>"
-			dat += "<div class='csetup_content'><div class='csetup_header'>Имя</div>"
+			dat += "<div class='csetup_content'><div class='csetup_header'>Имя</div><div class='csetup_nodes'>"
 			dat += SETUP_START_NODE("Имя")
 			dat += SETUP_GET_LINK("name", "input", "task", real_name)
 			dat += SETUP_GET_LINK("name", "random", "task", "Случайное")
@@ -278,7 +278,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_NODE_SWITCH("Язык генератора имени", "name_lang", en_names ? "EN" : "RU")
 			dat += SETUP_NODE_RANDOM("Случайное имя, если антагонист", RANDOM_NAME_ANTAG)
 
-			dat += "<div class='csetup_header'>Тело</div>"
+			dat += "</div><div class='csetup_header'>Тело</div><div class='csetup_nodes'>"
 
 			if(!(AGENDER in pref_species.species_traits))
 				var/dispGender
@@ -308,12 +308,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if(user.client.get_exp_living(TRUE) >= PLAYTIME_HARDCORE_RANDOM)
 				dat += SETUP_NODE_RANDOM("Режим хардкора", RANDOM_HARDCORE)
 
-			dat += "<div class='csetup_header'>Должностное</div>"
+			dat += "</div><div class='csetup_content'><div class='csetup_header'>Должностное</div><div class='csetup_nodes'>"
 
 			dat += SETUP_NODE_INPUT("Дисплей ИИ", "ai_core_icon", preferred_ai_core_display)
 			dat += SETUP_NODE_INPUT("Отдел офицера", "sec_dept", prefered_security_department)
 
-			dat += "</div><div class='csetup_content'><div class='csetup_header'>Основное</div>"
+			dat += "</div><div class='csetup_content'><div class='csetup_header'>Основное</div><div class='csetup_nodes'>"
 
 			dat += SETUP_START_NODE("Тело")
 			dat += SETUP_GET_LINK("species", "input", "task", pref_species.name)
@@ -337,7 +337,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_NODE_INPUT_RANDOM("Комбез", "suit", jumpsuit_to_ru_conversion(jumpsuit_style), RANDOM_JUMPSUIT_STYLE)
 			dat += SETUP_NODE_INPUT("Аплинк", "uplink_loc", uplink_to_ru_conversion(uplink_spawn_loc))
 
-			dat += "<div class='csetup_header'>Подробное</div>"
+			dat += "</div><div class='csetup_header'>Подробное</div><div class='csetup_nodes'>"
 
 			//Adds a thing to select which phobia because I can't be assed to put that in the quirks window
 			if("Фобия" in all_quirks)
@@ -415,7 +415,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if(pref_species.mutant_bodyparts["ears"])
 				dat += SETUP_NODE_INPUT("Уши", "ears", features["ears"])
 
-			dat += "</div></div></div>"
+			dat += "</div></div></div></div>"
 
 		if(1)
 			var/list/type_blacklist = list()
@@ -432,13 +432,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			else
 				LAZYSETLEN(equipped_gear_by_character, 20)
 				LAZYADDASSOCLIST(equipped_gear_by_character, default_slot, null)
-			var/fcolor =  "#3366CC"
+			var/fcolor =  "#ffffff"
 			var/metabalance = user.client.get_metabalance()
 			dat += "<table align='center' width='100%' class='metamag'>"
 			dat += "<tr><td colspan=4 class='bal'><center>"
 			dat += "<b>Баланс: <img src='[SSassets.transport.get_asset_url("mc_32.gif")]' width=16 height=16 border=0>"
 			dat += "<font color='[fcolor]'>[metabalance]</font> метакэша.</b>"
-			dat += "<a href='?_src_=prefs;preference=gear;clear_loadout=1'>Снять всё</a></center></td></tr>"
+			dat += "<a href='?_src_=prefs;preference=gear;clear_loadout=1'>Снять все предметы</a></center></td></tr>"
 			dat += "<tr><td colspan=4><center><b>"
 
 
@@ -448,7 +448,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<a href='?_src_=prefs;preference=gear;select_category=Инвентарь'>Инвентарь</a>"
 
 			for(var/category in GLOB.loadout_categories)
-				dat += " |"
 				if(category == gear_tab)
 					dat += " <span class='linkOff'>[category]</span> "
 				else
@@ -470,7 +469,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 					dat += "<tr style='vertical-align:middle;' class='metaitem"
 					if(G.id in purchased_gear)
-						dat += " buyed'><td width=300>"
+						dat += " buyed'><td width=350>"
 						if(G.sort_category == "OOC")
 							dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.id]'>Купить ещё</a>"
 						else if(G.sort_category == "Роли")
@@ -478,7 +477,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						else
 							dat += "[G.get_base64_icon_html()]<a style='white-space:normal;' [ticked ? "class='linkOn' " : ""]href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[ticked ? "Экипировано" : "Экипировать"]</a>"
 					else
-						dat += "'><td width=300>"
+						dat += "'><td width=350>"
 						if(G.sort_category == "OOC" || G.sort_category == "Роли")
 							dat += "<a style='white-space:normal;' href='?_src_=prefs;preference=gear;purchase_gear=[G.id]'>Купить</a>"
 						else
@@ -500,25 +499,25 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						if(!G || category != G.sort_category)
 							continue
 						var/ticked = (G.id in equipped_gear_by_character[default_slot])
-						dat += "<a class='tooltip[ticked ? " linkOn" : ""]' style='padding: 10px 2px;' href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[G.get_base64_icon_html()]<span class='tooltiptext'>[G.display_name]</span></a>"
+						dat += "<a class='tooltip[ticked ? " linkOn" : ""]' href='?_src_=prefs;preference=gear;toggle_gear=[G.id]'>[G.get_base64_icon_html()]<span class='tooltiptext'>[G.display_name]</span></a>"
 					dat += "</td></tr>"
 			dat += "</table>"
 
 		if (2) // Game Preferences
 			dat += "<div class='csetup_main'>"
-			dat += "<div class='csetup_content'><div class='csetup_header'>Интерфейс</div>"
+			dat += "<div class='csetup_content'><div class='csetup_header'>Интерфейс</div><div class='csetup_nodes'>"
 			dat += SETUP_NODE_INPUT("Стиль", "ui", UI_style)
 			dat += SETUP_NODE_SWITCH("Окна в TGUI", "tgui_lock", tgui_lock ? "Основные" : "Все")
 			dat += SETUP_NODE_SWITCH("Стиль TGUI", "tgui_fancy", tgui_fancy ? "Красивый" : "Строгие рамки")
-			dat += "</div><div class='csetup_content'><div class='csetup_header'>Runechat</div>"
+			dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Runechat</div><div class='csetup_nodes'>"
 			dat += SETUP_NODE_SWITCH("Текст над головой", "chat_on_map", chat_on_map ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_INPUT("Максимальная длина", "max_chat_length", max_chat_length)
 			dat += SETUP_NODE_SWITCH("Текст не только у мобов", "see_chat_non_mob", see_chat_non_mob ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Эмоции над головой", "see_rc_emotes", see_rc_emotes ? "Вкл" : "Выкл")
-			dat += "</div><div class='csetup_content'><div class='csetup_header'>Управление</div>"
+			dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Управление</div><div class='csetup_nodes'>"
 			dat += SETUP_NODE_SWITCH("Кнопки действий", "action_buttons", buttons_locked ? "Не двигаются" : "Свободные")
 			dat += SETUP_NODE_SWITCH("Режим хоткеев", "hotkeys", hotkeys ? "Хоткеи" : "Ретро")
-			dat += "</div><div class='csetup_content'><div class='csetup_header'>Призрак</div>"
+			dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Призрак</div><div class='csetup_nodes'>"
 			dat += SETUP_NODE_SWITCH("Разговоры", "ghost_ears", (chat_toggles & CHAT_GHOSTEARS) ? "Все" : "Рядом")
 			dat += SETUP_NODE_SWITCH("Радиопереговоры", "ghost_radio", (chat_toggles & CHAT_GHOSTRADIO) ? "Все" : "Рядом")
 			dat += SETUP_NODE_SWITCH("Эмоуты", "ghost_sight", (chat_toggles & CHAT_GHOSTSIGHT) ? "Все" : "Рядом")
@@ -552,7 +551,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					button_name = GHOST_OTHERS_SIMPLE_NAME
 
 			dat += SETUP_NODE_INPUT("Призраки других", "ghostothers", button_name)
-			dat += "</div><div class='csetup_content'><div class='csetup_header'>Графика</div>"
+			dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Графика</div><div class='csetup_nodes'>"
 			dat += SETUP_NODE_SWITCH("Автокоррекция текста", "disabled_autocap", disabled_autocap ? "Выкл" : "Вкл")
 			dat += SETUP_NODE_SWITCH("Сообщения ID-карты", "income_pings", (chat_toggles & CHAT_BANKCARD) ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Избыточные сообщения", "chat_spam", (chat_toggles & CHAT_SPAM) ? "Вкл" : "Выкл")
@@ -616,13 +615,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if(CONFIG_GET(flag/preference_map_voting))
 					dat += SETUP_NODE_INPUT("Любимая карта", "preferred_map", p_map)
 
-			dat += "</div><div class='csetup_content'><div class='csetup_header'>Спецроли</div>"
+			dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Спецроли</div><div class='csetup_nodes'>"
 
 			if(user?.client?.get_metabalance() < 50)
 				dat += "<font color='#ff3333'><b>Отрицательная карма. Получение роли маловероятно.</b></font>"
 
 			if(is_banned_from(user.ckey, ROLE_SYNDICATE))
-				dat += "<font color='#ff7777'><b>Тебе нельзя быть антагами.</b></font>"
+				dat += "<font color='#fda2fa'><b>Тебе нельзя быть антагами.</b></font>"
 				src.be_special = list()
 
 			for (var/i in GLOB.special_roles)
@@ -642,10 +641,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						dat += SETUP_GET_LINK("be_special", i, "be_special_type", (i in be_special) ? "Да" : "Нет")
 						dat += SETUP_CLOSE_NODE
 			dat += SETUP_NODE_SWITCH("Посреди раунда", "allow_midround_antag", (toggles & MIDROUND_ANTAG) ? "Да" : "Нет")
-			dat += "</div></div>"
+			dat += "</div></div></div>"
 		if(3) //OOC Preferences
 			dat += "<div class='csetup_main'>"
-			dat += "<div class='csetup_content'><div class='csetup_header'>Настройки OOC</div>"
+			dat += "<div class='csetup_content'><div class='csetup_header'>Настройки OOC</div><div class='csetup_nodes'>"
 			dat += SETUP_NODE_SWITCH("Мигание окна", "winflash", windowflashing ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Слышать MIDIs", "hear_midis", (toggles & SOUND_MIDI) ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Слышать Лобби", "lobby_music", (toggles & SOUND_LOBBY) ? "Вкл" : "Выкл")
@@ -657,10 +656,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if(unlock_content || check_rights_for(user.client, R_ADMIN) || check_donations(user.client.ckey) >= 100)
 					dat += SETUP_NODE_COLOR("Цвет OOC", "ooccolor", ooccolor ? ooccolor : GLOB.normal_ooc_colour, null)
 
-			dat += "</div>"
+			dat += "</div></div>"
 
 			if(user.client.holder)
-				dat += "<div class='csetup_content'><div class='csetup_header'>Admin Settings</div>"
+				dat += "<div class='csetup_content'><div class='csetup_header'>Admin Settings</div><div class='csetup_nodes'>"
 				dat += SETUP_NODE_SWITCH("Adminhelp Sounds", "hear_adminhelps", (toggles & SOUND_ADMINHELP) ? "On" : "Off")
 				dat += SETUP_NODE_SWITCH("Prayer Sounds", "hear_prayers", (toggles & SOUND_PRAYERS) ? "On" : "Off")
 				dat += SETUP_NODE_SWITCH("Announce Sounds", "announce_login", (toggles & ANNOUNCE_LOGIN) ? "On" : "Off")
@@ -672,7 +671,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if(CONFIG_GET(flag/allow_admin_asaycolor))
 					dat += SETUP_NODE_COLOR("ASAY Color", "asaycolor", asaycolor ? asaycolor : "#FF4500", null)
 
-				dat += "</div><div class='csetup_content'><div class='csetup_header'>Deadmin</div>"
+				dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Deadmin</div><div class='csetup_nodes'>"
 
 				if(CONFIG_GET(flag/auto_deadmin_players))
 					dat += SETUP_NODE_SWITCH("Always Deadmin", "suck", "FORCED")
@@ -699,7 +698,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						else
 							dat += SETUP_NODE_SWITCH("As Silicon", "suck", "FORCED")
 
-				dat += "</div>"
+				dat += "</div></div>"
 			dat += "</div>"
 		if(4) // Custom keybindings
 			// Create an inverted list of keybindings -> key
@@ -716,11 +715,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += "<div class='csetup_main'>"
 
-			dat += "<div class='csetup_content'><div class='csetup_header'>Однокнопочное</div>"
-			dat += "<center><a href ='?_src_=prefs;preference=keybindings_reset'>Сбросить хоткеи</a></center></div>"
+			dat += "<div class='csetup_content'><div class='csetup_header'>Однокнопочное</div><div class='csetup_nodes'>"
+			dat += "<center><a href ='?_src_=prefs;preference=keybindings_reset'>Сбросить хоткеи</a></center></div></div>"
 
 			for (var/category in kb_categories)
-				dat += "<div class='csetup_content'><div class='csetup_header'>[category]</div>"
+				dat += "<div class='csetup_content'><div class='csetup_header'>[category]</div><div class='csetup_nodes'>"
 				for (var/i in kb_categories[category])
 					var/datum/keybinding/kb = i
 					if(!length(user_binds[kb.name]) || user_binds[kb.name][1] == "Unbound")
@@ -737,7 +736,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						if(length(user_binds[kb.name]) < MAX_KEYS_PER_KEYBIND)
 							dat += SETUP_GET_LINK("keybindings_capture", "[kb.name]", "keybinding", "Alt")
 						dat += SETUP_CLOSE_NODE
-				dat += "</div>"
+				dat += "</div></div>"
 			dat += "</div>"
 	dat += "</div>"
 
@@ -833,21 +832,21 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			var/ru_rank = ru_job_parse(job.title)
 			lastJob = job
 			if(is_banned_from(user.ckey, rank))
-				HTML += "<font color='#ff7777'>[ru_rank]</font></td><td><a href='?_src_=prefs;bancheck=[rank]'> БЛОК</a></td></tr>"
+				HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><a href='?_src_=prefs;bancheck=[rank]'> БЛОК</a></td></tr>"
 				continue
 			var/required_playtime_remaining = job.required_playtime_remaining(user.client)
 			if(required_playtime_remaining)
-				HTML += "<font color='#ff7777'>[ru_rank]</font></td><td><font color='#ff7777'> \[ [get_exp_format(required_playtime_remaining)] как [job.get_exp_req_type()] \] </font></td></tr>"
+				HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><font color='#fda2fa'> \[ [get_exp_format(required_playtime_remaining)] как [job.get_exp_req_type()] \] </font></td></tr>"
 				continue
 			if(job.metalocked && !(job.type in jobs_buyed))
-				HTML += "<font color='#ff7777'>[ru_rank]</font></td><td><font color='#ff7777'> \[ $$$ \] </font></td></tr>"
+				HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><font color='#fda2fa'> \[ $$$ \] </font></td></tr>"
 				continue
 			if(LAZYLEN(job.whitelisted) && !(user.ckey in job.whitelisted))
-				HTML += "<font color='#ff7777'>[ru_rank]</font></td><td><font color='#ff7777'> \[ SUB \] </font></td></tr>"
+				HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><font color='#fda2fa'> \[ SUB \] </font></td></tr>"
 				continue
 			if(!job.player_old_enough(user.client))
 				var/available_in_days = job.available_in_days(user.client)
-				HTML += "<font color='#ff7777'>[ru_rank]</font></td><td><font color='#ff7777'> \[ЧЕРЕЗ [(available_in_days)] ДНЕЙ\]</font></td></tr>"
+				HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><font color='#fda2fa'> \[ЧЕРЕЗ [(available_in_days)] ДНЕЙ\]</font></td></tr>"
 				continue
 			if((job_preferences[SSjob.overflow_role] == JP_LOW) && (rank != SSjob.overflow_role) && !is_banned_from(user.ckey, SSjob.overflow_role))
 				HTML += "<font color='#ff9955'>[ru_rank]</font></td><td></td></tr>"
@@ -882,7 +881,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					prefLowerLevel = 4
 				else
 					prefLevelLabel = "НИКОГДА"
-					prefLevelColor = "#ff7777"
+					prefLevelColor = "#fda2fa"
 					prefUpperLevel = 3
 					prefLowerLevel = 1
 
@@ -892,7 +891,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if(job_preferences[SSjob.overflow_role] == JP_LOW)
 					HTML += "<font color='#77ff77'>Да</font>"
 				else
-					HTML += "<font color='#ff7777'>Нет</font>"
+					HTML += "<font color='#fda2fa'>Нет</font>"
 				HTML += "</a></td></tr>"
 				continue
 
@@ -988,7 +987,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		dat += "<hr>"
 		dat += "<center><b>Текущие особенности:</b> [all_quirks.len ? all_quirks.Join(", ") : "Нету!"]</center>"
 		dat += "<center>[GetPositiveQuirkCount()] / [MAX_QUIRKS] максимальных позитивных качеств<br>\
-		<b>Баланс особенностей:</b> [GetQuirkBalance()]</center><br>"
+		<b>Баланс особенностей:</b> [GetQuirkBalance()]</center><div class='csetup_quirks'>"
 		for(var/V in SSquirks.quirks)
 			var/datum/quirk/T = SSquirks.quirks[V]
 			var/quirk_name = initial(T.name)
@@ -1014,16 +1013,16 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if(initial(T.value) != 0)
 				font_color = initial(T.value) > 0 ? "#AAFFAA" : "#FFAAAA"
 			if(quirk_conflict)
-				dat += "<font color='[font_color]'>[quirk_name]</font> - [initial(T.desc)] \
-				<font color='red'><b>ЗАБЛОКИРОВАНО: [lock_reason]</b></font><br>"
+				dat += "<div class='csetup_quirk'><font color='[font_color]'>[quirk_name]</font> - [initial(T.desc)] \
+				<div class='csetup_quirk_text'><font color='red'><b>ЗАБЛОКИРОВАНО: [lock_reason]</b></font></div></div>"
 			else
 				if(has_quirk)
-					dat += "<a href='?_src_=prefs;preference=trait;task=update;trait=[quirk_name]'>[has_quirk ? "Убрать" : "Взять"] ([quirk_cost] о.)</a> \
-					<b><font color='[font_color]'>[quirk_name]</font></b> - [initial(T.desc)]<br>"
+					dat += "<div class='csetup_quirk'><a href='?_src_=prefs;preference=trait;task=update;trait=[quirk_name]'>[has_quirk ? "Убрать" : "Взять"] ([quirk_cost] о.)</a> \
+					<div class='csetup_quirk_text'><b><font color='[font_color]'>[quirk_name]</font></b> - [initial(T.desc)]</div></div>"
 				else
-					dat += "<a href='?_src_=prefs;preference=trait;task=update;trait=[quirk_name]'>[has_quirk ? "Убрать" : "Взять"] ([quirk_cost] о.)</a> \
-					<font color='[font_color]'>[quirk_name]</font> - [initial(T.desc)]<br>"
-		dat += "<br><center><a href='?_src_=prefs;preference=trait;task=reset'>Сбросить особенности</a></center>"
+					dat += "<div class='csetup_quirk'><a href='?_src_=prefs;preference=trait;task=update;trait=[quirk_name]'>[has_quirk ? "Убрать" : "Взять"] ([quirk_cost] о.)</a> \
+					<div class='csetup_quirk_text'><font color='[font_color]'>[quirk_name]</font> - [initial(T.desc)]</div></div>"
+		dat += "</div><center><a href='?_src_=prefs;preference=trait;task=reset'>Сбросить особенности</a></center>"
 
 	var/datum/browser/popup = new(user, "mob_occupation", "<div align='center'>Настройка особенностей</div>", 900, 600) //no reason not to reuse the occupation window, as it's cleaner that way
 	popup.set_window_options("can_close=0")

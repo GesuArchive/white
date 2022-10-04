@@ -1,11 +1,10 @@
 body {
 	padding: 0;
 	margin: 0;
-	background-color: #090909;
+	background-color: #090009;
 	font-size: 12px;
-	color: #aaaaaa;
+	color: #aa88aa;
 	line-height: 170%;
-
 	scrollbar-face-color: #242424;
 	scrollbar-arrow-color: #242424;
 	scrollbar-track-color: #090909;
@@ -15,8 +14,8 @@ body {
 
 hr {
 	height: 0;
-	border: 1px solid #000;
-	border-bottom: 1px solid #151515;
+	border: 1px solid #404;
+	border-bottom: 1px solid #150015;
 }
 
 a,
@@ -26,15 +25,15 @@ a:visited,
 a:active,
 .linkOn,
 .linkOff {
-	color: #f4f4ff;
+	color: #f4a4ff;
 	font-weight: 100;
 	text-decoration: none;
-	background: #1a1a1a;
-	border-top: 1px solid rgba(44, 44, 44, 0.8);
-	border-left: 1px solid rgba(33, 33, 33, 0.8);
-	border-right: 1px solid rgba(33, 33, 33, 0.8);
-	border-bottom: 1px solid rgba(33, 33, 33, 0.8);
-	border-radius: 0.24em;
+	background: #3a103a;
+	border-top: 1px solid rgba(44, 11, 44, 0.8);
+	border-left: 1px solid rgba(33, 11, 33, 0.8);
+	border-right: 1px solid rgba(33, 11, 33, 0.8);
+	border-bottom: 1px solid rgba(33, 11, 33, 0.8);
+	/* border-radius: 0.24em; */
 	padding: 3px 6px 3px 6px;
 	line-height: 2;
 	margin: 0 2px 0 0;
@@ -42,9 +41,10 @@ a:active,
 }
 
 a:hover {
-	color: #000000;
-	background: #f4f4ff;
-	border-color: #f4f4ff;
+	color: #fff;
+	background: #101;
+	border-color: #101;
+	cursor: pointer;
 }
 
 a.white,
@@ -73,8 +73,8 @@ a.linkOn:active,
 a.linkOn:hover {
 	color: #000000;
 	font-weight: bold;
-	background: #f4f4ff;
-	border-color: #f4f4ff;
+	background: #f4ddff;
+	border-color: #f4ddff;
 }
 
 .linkOff,
@@ -113,7 +113,7 @@ ul {
 }
 
 li {
-	padding: 0 0 2px 0;
+	padding: 0 0 0px 0;
 }
 
 img,
@@ -157,8 +157,8 @@ h4 {
 .uiTitle {
 	clear: both;
 	padding: 4px 8px 6px 8px;
-	border-bottom: 1px solid #121212;
-	background: #050505;
+	border-bottom: 1px solid #221223;
+	background: #150515;
 	color: #f4f4ff;
 	font-size: 20px;
 	font-family: Tahoma, sans-serif;
@@ -437,18 +437,33 @@ ul.sparse {
 	vertical-align: middle;
 }
 
+.metamag {
+	padding: 4px;
+	border-spacing: 0;
+	overflow: hidden;
+}
+
+.metamag tbody {
+	outline: 1px #616 solid;
+}
+
+.metamag tr {background: #3a103a;}
+
+.metamag tr td {background: #3a103a;}
+
 .metamag .metaitem td {
-	background: #050505;
-	padding: 8px;
-	border-top: 1px solid #121212;
-	border-left: 1px solid #101010;
+	background: #150015;
+	color: #faf;
+	padding: 4px;
+	border-top: 1px solid #320032;
+	border-left: 1px solid #300030;
 }
 
 .metamag .buyed td {
-	background: #090909;
-	padding: 8px;
-	border-top: 1px solid #151515;
-	border-left: 1px solid #252525;
+	background: #090009;
+	padding: 4px;
+	border-top: 1px solid #250025;
+	border-left: 1px solid #250025;
 }
 
 .metamag .metaitem .metaprice {
@@ -459,12 +474,32 @@ ul.sparse {
 
 .metamag .metaitem img {
 	vertical-align: middle;
+	background: #202;
+	border: 1px solid #303;
+	height: 32px;
+	image-rendering: pixelated;
 }
 
 .metamag .bal {
-	font-size: 16px;
+	font-size: 24px;
 	vertical-align: middle;
+	background: #616;
+	margin: 1px;
 }
+
+.metamag a {height: 15px;font-size: 13px;padding: 6px;margin: 2px;display: inline-block;line-height: 1.1;}
+
+.metamag .linkOff {
+    color: #aaaaaa;
+    background: #240024;
+    border: none;
+    height: 22px;
+    display: inline-block;
+};
+
+.metamag .bal a {display: block;height: 32px;width: 256px;font-size: 16px;padding: 4px;margin: 4px;}
+
+.metamag .bal b {padding: 8px;display: block;color: #faf;text-shadow: 0px 2px 1px #000;}
 
 a.rs_butt:hover {
 	background: #000;
@@ -472,12 +507,15 @@ a.rs_butt:hover {
 
 .role_col {
 	padding: 1px;
-	background: #050505;
-	border: 1px solid #333333;
-	border-bottom: 3px solid #222222;
-	border-radius: 1px;
+	background: #150015;
+	border: 1px solid #330033;
+	border-radius: 4px;
 	margin: 0;
 }
+
+.role_col table tr {display: inline-table;width: 100%;border-right: 1px solid #303;}
+
+tr {}
 
 .titlescreen p a {
 	line-height: 2.5;
@@ -500,6 +538,16 @@ a.rs_butt:hover {
 	/* Position the tooltip */
 	position: absolute;
 	z-index: 1;
+}
+
+.metamag .tooltip {
+    padding: 0;
+    height: 32px;
+}
+
+.metamag .tooltip .icon {
+    background-color: unset;
+    border: none;
 }
 
 .tooltip:hover .tooltiptext {
@@ -547,38 +595,52 @@ a.rs_butt:hover {
 
 .csetup_header {
 	font-size: 24px;
+	color: #fff;
 	text-align: center;
 	font-weight: bold;
 	padding: 16px;
-	background: #000;
-	height: 24px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	transform: rotate(-90deg);
+	transform-origin: 0 0;
+	text-transform: uppercase;
+	letter-spacing: 3px;
 }
 
 .csetup_content {
 	flex: 30%;
 	max-width: 100%;
 	padding: 4px;
-	margin: 1px;
+	margin: 2px;
 	margin-right: 0;
-	margin-bottom: 0;
+	margin-bottom: 10px;
 	margin-top: 0;
 	background: #050505;
+	position: relative;
+	display: inline-block;
 }
 
 .csetup_character_node {
-	padding-bottom: 8px;
-	padding-top: 4px;
-	padding-left: 4px;
-	padding-right: 4px;
+	/* padding-bottom: 8px; */
+	/* padding-top: 4px; */
+	/* padding-left: 4px; */
+	/* padding-right: 4px; */
+	background: #160016;
 }
 
 .csetup_character_node:nth-child(2n+1) {
-	background: #090909;
+	background: #290029;
 }
 
 .csetup_character_label {
 	display: inline-block;
 	font-weight: bold;
+	color: #fff;
+	height: 32px;
+	line-height: 2.3;
+	margin-left: 6px;
+	display: inline-flex;
 }
 
 .csetup_character_label::after {
@@ -588,22 +650,33 @@ a.rs_butt:hover {
 .csetup_character_input {
 	display: inline-block;
 	float: right;
+	height: 32px;
 }
 
 .csetup_character_input span {
 	margin-right: 4px;
 }
 
+.csetup_character_input a {
+	height: 32px;
+	display: inline-flex;
+	padding: 0px 8px;
+	margin: 0px;
+	margin-left: 0px;
+	font-size: 13px;
+	border: none;
+}
+
 
 @media (max-width: 1200px) {
 	.csetup_content {
-		flex: 25%;
+		flex: 40%;
 	}
 }
 
 @media (max-width: 900px) {
 	.csetup_content {
-		flex: 33%;
+		flex: 50%;
 	}
 }
 
@@ -618,50 +691,77 @@ a.rs_butt:hover {
 #prefsel_menu {
 	width: 250px;
 	vertical-align: top;
-	background: #050505;
+	background: #050005;
 }
 
 #prefsel_menu ul {
-	padding: 8px;
+	padding: 0px;
+	background: #160016;
+	outline: 1px #616 solid;
 }
 
 #prefsel_menu ul a {
 	display: block;
 	padding: 4px;
 	margin: 0;
-	background-color: #151515;
+	background-color: #3a103a;
 	border: none;
-	border-right: 2px #fff solid;
+	border-right: 2px #f2f solid;
 	border-radius: 0;
 	cursor: pointer;
 	color: #ffffff;
 	font-size: 14px;
+	letter-spacing: 1px;
 }
 
 #prefsel_menu .linkOn {
-	background-color: #ffffff;
+	background-color: #ffddff;
 	color: #000000;
-	border-right: 2px #000 solid;
+	border-right: 2px #404 solid;
 }
 
 #prefsel_menu .linkOn:hover {
-	background-color: #000000;
+	background-color: #100010;
 	color: #ffffff;
-	border-right: 2px #fff solid;
+	border-right: 2px #f9f solid;
 }
 
 #prefsel_menu ul a:hover {
-	background-color: #252525;
+	background-color: #250025;
 }
 
 #prefsel {display: inline-flex;width: 100%;}
 
 .prefsel_menu_header {
 	font-size: 24px;
-	text-align: left;
+	text-align: center;
 	font-weight: bold;
-	border-bottom: #aaaaaa 2px solid;
+	color: #fdf;
+	background: #616;
 	text-shadow: 1px 0 0 #000000, -1px 0 0 #000000;
-	padding: 8px 8px 0 0;
-	margin: 0 8px;
+	padding: 8px 8px 6px 0;
+	margin: 4px 0 0 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	outline: 1px #616 solid;
+}
+
+.csetup_nodes {
+	border-left: 44px #616 solid;
+	outline: 1px #616 solid;
+	height: 100%;
+	background: #100010;
+	padding: 4px;
+}
+
+.csetup_quirks {
+	background: #101;
+}
+
+.csetup_quirks a {
+	width: 120px;
+	display: inline-block;
+}
+
+.csetup_quirk_text {
 }
