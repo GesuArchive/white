@@ -443,6 +443,10 @@
 	else
 		var/obj/item/implant/uplink/starting/I = new(traitor_mob)
 		I.implant(traitor_mob, null, silent = TRUE)
+		if(istype(uplink_owner, /datum/antagonist/traitor))
+			var/datum/antagonist/traitor/tot = uplink_owner
+			var/datum/component/uplink/U = I.GetComponent(/datum/component/uplink)
+			tot.original_uplink = U
 		if(!silent)
 			to_chat(traitor_mob, span_boldnotice("[employer] has cunningly implanted you with a Syndicate Uplink (although uplink implants cost valuable TC, so you will have slightly less). Simply trigger the uplink to access it."))
 		return I
