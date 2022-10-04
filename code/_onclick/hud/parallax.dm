@@ -370,8 +370,15 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	. = ..()
 	src.add_atom_colour(SSparallax.random_parallax_color, ADMIN_COLOUR_PRIORITY)
 
+GLOBAL_VAR_INIT(asteroids_randomed_number, rand(1, 5))
+
 /atom/movable/screen/parallax_layer/random/asteroids
-	icon_state = "asteroids"
+	icon_state = "asteroids_1"
+	blend_mode = BLEND_ADD
+
+/atom/movable/screen/parallax_layer/random/asteroids/Initialize(mapload, mob/owner)
+	icon_state = "asteroids_[GLOB.asteroids_randomed_number]"
+	. = ..()
 
 /atom/movable/screen/parallax_layer/planet
 	icon_state = "planet_lavaland"
@@ -414,12 +421,6 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	layer = 4
 	blend_mode = 3
 	color = "#ffff00"
-
-/atom/movable/screen/parallax_layer/asteroids
-	icon_state = "asteroids"
-	speed = 2.5
-	layer = 4
-	blend_mode = BLEND_ADD
 
 /atom/movable/screen/parallax_layer/ice_surface
 	icon_state = "ice_surface"
