@@ -596,9 +596,9 @@ tr {}
 .csetup_header {
 	font-size: 24px;
 	color: #fff;
-	text-align: center;
+	text-align: left;
 	font-weight: bold;
-	padding: 16px;
+	padding: 16px 0;
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -611,6 +611,7 @@ tr {}
 .csetup_content {
 	flex: 30%;
 	max-width: 100%;
+	min-height: 390px;
 	padding: 4px;
 	margin: 2px;
 	margin-right: 0;
@@ -754,14 +755,25 @@ tr {}
 	padding: 4px;
 }
 
+.csetup_quirk {
+    display: inline-flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    border-bottom: #22051f 1px solid;
+    border-top: #3a0e36 1px solid;
+}
+
 .csetup_quirks {
 	background: #101;
 }
 
 .csetup_quirks a {
-	width: 120px;
-	display: inline-block;
+	min-width: 120px;
+	min-height: 32px;
+	font-size: 14px;
+	display: inline-flex;
 }
 
-.csetup_quirk_text {
-}
+.csetup_quirk_text {font-size: 14px;padding-left: 4px;}

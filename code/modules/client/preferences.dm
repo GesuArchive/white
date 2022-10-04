@@ -278,7 +278,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_NODE_SWITCH("Язык генератора имени", "name_lang", en_names ? "EN" : "RU")
 			dat += SETUP_NODE_RANDOM("Случайное имя, если антагонист", RANDOM_NAME_ANTAG)
 
-			dat += "</div><div class='csetup_header'>Тело</div><div class='csetup_nodes'>"
+			dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Тело</div><div class='csetup_nodes'>"
 
 			if(!(AGENDER in pref_species.species_traits))
 				var/dispGender
@@ -308,12 +308,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if(user.client.get_exp_living(TRUE) >= PLAYTIME_HARDCORE_RANDOM)
 				dat += SETUP_NODE_RANDOM("Режим хардкора", RANDOM_HARDCORE)
 
-			dat += "</div><div class='csetup_content'><div class='csetup_header'>Должностное</div><div class='csetup_nodes'>"
+			dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Должностное</div><div class='csetup_nodes'>"
 
 			dat += SETUP_NODE_INPUT("Дисплей ИИ", "ai_core_icon", preferred_ai_core_display)
 			dat += SETUP_NODE_INPUT("Отдел офицера", "sec_dept", prefered_security_department)
 
-			dat += "</div><div class='csetup_content'><div class='csetup_header'>Основное</div><div class='csetup_nodes'>"
+			dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Основное</div><div class='csetup_nodes'>"
 
 			dat += SETUP_START_NODE("Тело")
 			dat += SETUP_GET_LINK("species", "input", "task", pref_species.name)
@@ -337,7 +337,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_NODE_INPUT_RANDOM("Комбез", "suit", jumpsuit_to_ru_conversion(jumpsuit_style), RANDOM_JUMPSUIT_STYLE)
 			dat += SETUP_NODE_INPUT("Аплинк", "uplink_loc", uplink_to_ru_conversion(uplink_spawn_loc))
 
-			dat += "</div><div class='csetup_header'>Подробное</div><div class='csetup_nodes'>"
+			dat += "</div></div><div class='csetup_header'>Подробное</div><div class='csetup_nodes'>"
 
 			//Adds a thing to select which phobia because I can't be assed to put that in the quirks window
 			if("Фобия" in all_quirks)
@@ -415,7 +415,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if(pref_species.mutant_bodyparts["ears"])
 				dat += SETUP_NODE_INPUT("Уши", "ears", features["ears"])
 
-			dat += "</div></div></div></div>"
+			dat += "</div></div></div></div></div>"
 
 		if(1)
 			var/list/type_blacklist = list()
