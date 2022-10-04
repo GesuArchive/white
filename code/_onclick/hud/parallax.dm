@@ -415,6 +415,12 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	blend_mode = 3
 	color = "#ffff00"
 
+/atom/movable/screen/parallax_layer/asteroids
+	icon_state = "asteroids"
+	speed = 2.5
+	layer = 4
+	blend_mode = BLEND_ADD
+
 /atom/movable/screen/parallax_layer/ice_surface
 	icon_state = "ice_surface"
 	speed = 4
