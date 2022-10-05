@@ -162,12 +162,16 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		// специальные портальные приколы
 		if(GLOB.violence_theme == "portal")
 			for(var/obj/structure/reflector/R as() in main_area)
+				if(!istype(R, /obj/structure/reflector))
+					continue
 				if(prob(25))
 					R.set_angle(rand(0, 360))
 			if(GLOB.violence_current_round >= 10)
 				GLOB.violence_time_limit = rand(20, 900)
 				if(prob(5))
 					for(var/turf/open/T as() in main_area)
+						if(!istype(T, /turf/open))
+							continue
 						T.ChangeTurf(pick(subtypesof(/turf/open)))
 		// проверяем, умерли ли все после открытия ворот
 		if(round_started_at + 30 SECONDS < world.time)
