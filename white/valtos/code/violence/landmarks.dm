@@ -40,6 +40,8 @@ GLOBAL_VAR(violence_landmark)
 			SSticker.login_music = sound('white/valtos/sounds/cd.ogg')
 		if("cyber")
 			SSticker.login_music = sound('white/valtos/sounds/hexgrips.ogg')
+		if("portal")
+			SSticker.login_music = sound('white/valtos/sounds/portalgrips.ogg')
 
 	for(var/client/C in GLOB.clients)
 		if(isnewplayer(C.mob))

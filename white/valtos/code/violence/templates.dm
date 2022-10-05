@@ -70,7 +70,7 @@
 	theme = "warfare"
 
 /datum/map_template/violence/koridorovo
-	name = "Коридорово"
+	name = "Коридоры"
 	description = "Город состоящий из коридоров. Кто это придумал?"
 	mappath = "_maps/map_files/Warfare/violence8.dmm"
 	weight = 5
@@ -104,3 +104,12 @@
 	min_players = 16
 	max_players = 64
 	theme = "std"
+
+/datum/map_template/violence/portalovo
+	name = "Портальная авантюра"
+	description = "Нанотрейзен хочет протестировать новую портальную технологию в бою. Что может пойти не так?"
+	mappath = "_maps/map_files/Warfare/violence12.dmm"
+	weight = 12
+	min_players = 16
+	max_players = 32
+	theme = "portal"

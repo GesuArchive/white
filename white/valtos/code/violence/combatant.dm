@@ -127,6 +127,13 @@
 				uniform = /obj/item/clothing/under/chronos
 				neck = /obj/item/clothing/neck/cape/chronos
 				head = /obj/item/clothing/head/beret/chronos
+		if("portal")
+			r_hand = /obj/item/gun/energy/wormhole_projector/core_inserted
+			if(GLOB.violence_current_round >= 2)
+				uniform = /obj/item/clothing/under/costume/maid
+				neck = /obj/item/clothing/neck/maid
+				head = /obj/item/clothing/head/maidheadband
+				gloves = /obj/item/clothing/gloves/maid
 	// something
 
 	if(GLOB.violence_friendlyfire)

@@ -2,6 +2,8 @@
 	name = "Голодек"
 	icon_state = "Holodeck"
 	static_lighting = TRUE
+	requires_power = FALSE
+	luminosity = 1
 	base_lighting_color = COLOR_WHITE
 	base_lighting_alpha = 255
 	flags_1 = NONE

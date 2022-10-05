@@ -115,6 +115,8 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		var/mob/dead/new_player/player = i
 		if(player.ready == PLAYER_READY_TO_PLAY)
 			player.ready = PLAYER_NOT_READY
+	// удаляем все спаунеры из мира, дополнительно
+	QDEL_LIST(GLOB.mob_spawners)
 	return TRUE
 
 /datum/game_mode/violence/post_setup()
@@ -157,6 +159,16 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 				var/datum/disease/D = new /datum/disease/heart_failure()
 				D.stage = 5
 				H.ForceContractDisease(D, FALSE, TRUE)
+		// специальные портальные приколы
+		if(GLOB.violence_theme == "portal")
+			for(var/obj/structure/reflector/R as() in main_area)
+				if(prob(25))
+					R.set_angle(rand(0, 360))
+			if(GLOB.violence_current_round >= 10)
+				GLOB.violence_time_limit = rand(20, 900)
+				if(prob(5))
+					for(var/turf/open/T as() in main_area)
+						T.ChangeTurf(pick(subtypesof(/turf/open)))
 		// проверяем, умерли ли все после открытия ворот
 		if(round_started_at + 30 SECONDS < world.time)
 			// заставляем людей произносить рандомные реплики
@@ -356,6 +368,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 					/obj/item/storage/backpack/satchel,
 					/obj/item/storage/backpack/duffelbag,
 					/obj/item/storage/backpack/satchel/leather,
+					/obj/item/gun/energy/wormhole_projector/core_inserted,
 				)
 				for(var/obj/item/I in saved_shit)
 					if(!I || (I.type in blacklisted_types))

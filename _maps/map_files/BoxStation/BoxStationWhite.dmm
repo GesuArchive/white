@@ -4653,8 +4653,14 @@
 /turf/open/floor/plasteel/dark,
 /area/cargo/meeting_room)
 "bel" = (
+/obj/structure/industrial_lift{
+	violent_landing = 0;
+	radial_travel = 0;
+	elevator_vertical_speed = 50;
+	warns_on_down_movement = 1
+	},
 /turf/open/openspace,
-/area/shuttle/turbolift/primary)
+/area/security/brig/upper)
 "bem" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
@@ -5498,9 +5504,8 @@
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/secondary/entry)
 "brJ" = (
-/obj/machinery/lazylift/master,
-/turf/open/indestructible/turbolift,
-/area/shuttle/turbolift/primary)
+/turf/open/floor/plasteel/elevatorshaft,
+/area/security/prison)
 "brX" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -14050,6 +14055,9 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/button/elevator/directional/north{
+	id = "sec_box"
+	},
 /turf/open/floor/plasteel/monofloor,
 /area/security/prison)
 "dSJ" = (
@@ -22698,6 +22706,9 @@
 /obj/effect/landmark/lift_id{
 	specific_lift_id = "sci_box"
 	},
+/obj/machinery/elevator_control_panel/directional/west{
+	linked_elevator_id = "sci_box"
+	},
 /turf/open/openspace,
 /area/science/lab)
 "gCN" = (
@@ -25124,7 +25135,7 @@
 	req_access_txt = "2"
 	},
 /turf/open/floor/plasteel/dark,
-/area/shuttle/turbolift/primary)
+/area/security/prison)
 "hpV" = (
 /obj/machinery/door/airlock/security/glass{
 	name = "Holding Area";
@@ -25536,8 +25547,8 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/open/indestructible/turbolift,
-/area/shuttle/turbolift/primary)
+/turf/open/floor/plasteel/elevatorshaft,
+/area/security/prison)
 "hwo" = (
 /obj/machinery/blackbox_recorder,
 /turf/open/floor/plasteel/dark/telecomms,
@@ -32203,8 +32214,14 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/industrial_lift{
+	violent_landing = 0;
+	radial_travel = 0;
+	elevator_vertical_speed = 50;
+	warns_on_down_movement = 1
+	},
 /turf/open/openspace,
-/area/shuttle/turbolift/primary)
+/area/security/brig/upper)
 "jFr" = (
 /obj/structure/closet/radiation,
 /turf/open/floor/plasteel,
@@ -38501,9 +38518,14 @@
 /turf/open/floor/engine,
 /area/commons/spacepod_docks)
 "lGX" = (
-/obj/machinery/lazylift_button,
-/turf/closed/wall/r_wall,
-/area/shuttle/turbolift/primary)
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/machinery/button/elevator/directional/north{
+	id = "sec_box"
+	},
+/turf/open/floor/plasteel,
+/area/security/brig/upper)
 "lHa" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -45394,8 +45416,14 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/industrial_lift{
+	violent_landing = 0;
+	radial_travel = 0;
+	elevator_vertical_speed = 50;
+	warns_on_down_movement = 1
+	},
 /turf/open/openspace,
-/area/shuttle/turbolift/primary)
+/area/security/brig/upper)
 "nPK" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -50155,11 +50183,17 @@
 /turf/open/floor/plasteel,
 /area/cargo/office)
 "pov" = (
-/obj/machinery/button/elevator/directional/north{
-	id = "sci_box"
+/obj/structure/industrial_lift{
+	violent_landing = 0;
+	radial_travel = 0;
+	elevator_vertical_speed = 50;
+	warns_on_down_movement = 1
 	},
-/turf/open/floor/plasteel/monofloor/white,
-/area/science/research/abandoned)
+/obj/effect/landmark/lift_id{
+	specific_lift_id = "sec_box"
+	},
+/turf/open/openspace,
+/area/security/brig/upper)
 "poE" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plating,
@@ -59050,8 +59084,8 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/open/indestructible/turbolift,
-/area/shuttle/turbolift/primary)
+/turf/open/floor/plasteel/elevatorshaft,
+/area/security/prison)
 "sfx" = (
 /obj/machinery/light{
 	dir = 1;
@@ -59922,6 +59956,10 @@
 "sve" = (
 /obj/structure/chair/sofa/corp/corner{
 	dir = 1
+	},
+/obj/machinery/airalarm{
+	dir = 1;
+	pixel_y = -23
 	},
 /turf/open/floor/carpet/purple,
 /area/science/breakroom)
@@ -61496,7 +61534,7 @@
 	req_access_txt = "2"
 	},
 /turf/open/floor/plasteel,
-/area/shuttle/turbolift/primary)
+/area/security/brig/upper)
 "sXG" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -65429,12 +65467,17 @@
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "umX" = (
-/obj/item/petri_dish/random{
-	pixel_y = 5
+/obj/structure/industrial_lift{
+	violent_landing = 0;
+	radial_travel = 0;
+	elevator_vertical_speed = 50;
+	warns_on_down_movement = 1
 	},
-/obj/structure/table,
-/turf/open/floor/plasteel,
-/area/maintenance/bottom_station_maints)
+/obj/machinery/elevator_control_panel/directional/north{
+	linked_elevator_id = "sec_box"
+	},
+/turf/open/openspace,
+/area/security/brig/upper)
 "una" = (
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/abandoned)
@@ -70979,9 +71022,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/aft)
-"vZo" = (
-/turf/closed/wall/r_wall,
-/area/shuttle/turbolift/primary)
 "vZq" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -5;
@@ -72998,10 +73038,6 @@
 /obj/structure/chair/sofa/corp/left{
 	dir = 1
 	},
-/obj/machinery/airalarm{
-	dir = 1;
-	pixel_y = -23
-	},
 /turf/open/floor/carpet/purple,
 /area/science/breakroom)
 "wHE" = (
@@ -74259,6 +74295,9 @@
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
+	},
+/obj/machinery/button/elevator/directional/north{
+	id = "sci_box"
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/science/research/abandoned)
@@ -75635,8 +75674,9 @@
 /turf/open/floor/plasteel,
 /area/security/prison)
 "xxf" = (
-/turf/open/indestructible/turbolift,
-/area/shuttle/turbolift/primary)
+/obj/item/trapdoor_remote/preloaded,
+/turf/open/openspace,
+/area/space)
 "xxn" = (
 /obj/effect/turf_decal/pool{
 	dir = 8
@@ -104634,11 +104674,11 @@ xXu
 yjz
 uRH
 dFB
-vZo
-vZo
-vZo
-vZo
-vZo
+uRH
+uRH
+uRH
+uRH
+uRH
 dMI
 gKT
 xjG
@@ -104891,11 +104931,11 @@ xXu
 yjz
 uRH
 dFB
-vZo
-xxf
+uRH
+brJ
 hwm
-xxf
-vZo
+brJ
+uRH
 etC
 gPK
 kzb
@@ -105148,10 +105188,10 @@ xXu
 yhR
 uRH
 dFB
-vZo
+uRH
 brJ
-xxf
-xxf
+brJ
+brJ
 hpU
 aHu
 gSH
@@ -105405,11 +105445,11 @@ xXu
 yjz
 uRH
 dFB
-vZo
-xxf
+uRH
+brJ
 sfw
-xxf
-lGX
+brJ
+uRH
 dSI
 hhi
 uRH
@@ -105662,11 +105702,11 @@ xXu
 yjz
 uRH
 aEF
-vZo
-vZo
-vZo
-vZo
-vZo
+uRH
+uRH
+uRH
+uRH
+uRH
 aLL
 hTc
 wOE
@@ -112412,7 +112452,7 @@ xRJ
 xRJ
 xRJ
 xRJ
-xRJ
+gqv
 xRJ
 xRJ
 xRJ
@@ -113432,13 +113472,13 @@ vWg
 sVe
 wDU
 tdj
-pEs
-pEs
-pEs
-pEs
-pEs
-pEs
-pEs
+xRJ
+xRJ
+xRJ
+eqV
+xRJ
+xRJ
+xRJ
 wDU
 wDU
 wDU
@@ -113689,13 +113729,13 @@ gIs
 hRL
 bVQ
 gyo
-pEs
-vvw
-svA
-whs
-sQm
-sQm
-pEs
+xRJ
+wDU
+wDU
+wDU
+wDU
+qNs
+xRJ
 wDU
 wDU
 wDU
@@ -113945,14 +113985,14 @@ aNo
 nnB
 rZp
 mkC
-mkC
-tNE
-jab
-eWQ
-eWQ
-eWQ
-vAK
-pEs
+gyo
+xRJ
+wDU
+wDU
+wDU
+wDU
+wDU
+xRJ
 wDU
 wDU
 wDU
@@ -114203,13 +114243,13 @@ ref
 sVe
 fiN
 oRc
-pEs
-wqP
-kQd
-rWi
-eIM
-yld
-pEs
+xRJ
+wDU
+wDU
+wDU
+wDU
+wDU
+xRJ
 wDU
 wDU
 wDU
@@ -114461,11 +114501,11 @@ sVe
 fiN
 xtf
 pEs
-cYr
-kQd
-rik
-eIM
-wwB
+pEs
+pEs
+pEs
+pEs
+pEs
 pEs
 wDU
 wDU
@@ -114718,11 +114758,11 @@ sVe
 wxN
 eqV
 pEs
-vkp
-kQd
-kQd
-kKk
-afR
+vvw
+svA
+whs
+sQm
+sQm
 pEs
 wDU
 wDU
@@ -114973,13 +115013,13 @@ bdo
 qzP
 sVe
 fiN
-xtf
-pEs
-pbx
-kQd
-kQd
-kQd
-nnH
+mkC
+tNE
+jab
+eWQ
+eWQ
+eWQ
+vAK
 pEs
 wDU
 wDU
@@ -115232,11 +115272,11 @@ sVe
 kEB
 oRc
 pEs
-pEs
-pEs
-rho
-pEs
-pEs
+wqP
+kQd
+rWi
+eIM
+yld
 pEs
 wDU
 wDU
@@ -115488,15 +115528,15 @@ sVe
 sVe
 rKF
 oRc
-xRJ
-ygI
-ygI
+pEs
+cYr
+kQd
+rik
+eIM
+wwB
+pEs
 wDU
-xRJ
-umX
-xRJ
-xRJ
-xRJ
+wDU
 wDU
 wDU
 xRJ
@@ -115745,15 +115785,15 @@ ajx
 xXf
 fiN
 oRc
-xRJ
-ygI
-ygI
+pEs
+vkp
+kQd
+kQd
+kKk
+afR
+pEs
 wDU
-xRJ
 wDU
-wDU
-bNP
-xRJ
 wDU
 wDU
 xRJ
@@ -116002,15 +116042,15 @@ lRK
 xXf
 uJn
 xtf
-gqv
+pEs
+pbx
+kQd
+kQd
+kQd
+nnH
+pEs
 wDU
 wDU
-wDU
-gqv
-wDU
-wDU
-wDU
-xRJ
 wDU
 wDU
 xRJ
@@ -116259,14 +116299,14 @@ iOx
 xXf
 fiN
 oRc
+pEs
+pEs
+pEs
+rho
+pEs
+pEs
+pEs
 xRJ
-ygI
-ygI
-ygI
-xRJ
-wDU
-wDU
-wDU
 xRJ
 wDU
 wDU
@@ -116521,9 +116561,9 @@ ygI
 ygI
 ygI
 xRJ
-xRJ
-gqv
-xRJ
+wDU
+wDU
+bNP
 xRJ
 wDU
 wDU
@@ -116775,12 +116815,12 @@ uyj
 ygI
 xRJ
 ygI
-xRJ
+ygI
 ygI
 xRJ
 wDU
 wDU
-bNP
+wDU
 xRJ
 wDU
 wDU
@@ -117287,17 +117327,17 @@ xNU
 xBj
 fiN
 uCb
-xRJ
+uxm
 ygI
 ygI
 ygI
 xRJ
-wDU
-wDU
-wDU
 xRJ
-ygI
-ygI
+gqv
+xRJ
+xRJ
+wDU
+wDU
 ygI
 ygI
 ygI
@@ -117546,15 +117586,15 @@ vCh
 mJu
 xRJ
 xRJ
-ygI
-ygI
 xRJ
+uxm
 xRJ
-gqv
+wDU
+wDU
+bNP
 xRJ
-xRJ
-xRJ
-xRJ
+wDU
+wDU
 ygI
 ygI
 ygI
@@ -117803,15 +117843,15 @@ xNU
 bVQ
 ujZ
 xRJ
-xRJ
+ygI
+ygI
 uxm
-xRJ
 wDU
 wDU
 wDU
+gqv
 wDU
-qNs
-xRJ
+wDU
 ygI
 ygI
 bXM
@@ -118062,12 +118102,12 @@ ujZ
 xRJ
 ygI
 ygI
-uxm
+xRJ
 wDU
 wDU
 wDU
-wDU
-wDU
+xRJ
+xRJ
 xRJ
 xRJ
 xRJ
@@ -118320,12 +118360,12 @@ xRJ
 ygI
 ygI
 xRJ
-wDU
-wDU
-wDU
-wDU
-wDU
 xRJ
+gqv
+xRJ
+xRJ
+ygI
+ygI
 ygI
 ygI
 ygI
@@ -118577,12 +118617,12 @@ xRJ
 ygI
 xRJ
 xRJ
-xRJ
-xRJ
-gqv
-xRJ
-xRJ
-xRJ
+ygI
+ygI
+ygI
+ygI
+ygI
+ygI
 ygI
 ygI
 ygI
@@ -125519,7 +125559,7 @@ tTS
 lLG
 jBe
 vGb
-pov
+hZk
 gDw
 hZk
 cBe
@@ -170170,11 +170210,11 @@ uJo
 okl
 jMA
 gtk
-vZo
-vZo
-vZo
-vZo
-vZo
+jMA
+jMA
+jMA
+jMA
+jMA
 pxa
 okw
 nsU
@@ -170427,11 +170467,11 @@ uJo
 okl
 jMA
 gtk
-vZo
+jMA
 bel
 jFj
 bel
-vZo
+jMA
 usu
 okw
 nsU
@@ -170684,9 +170724,9 @@ uJo
 okl
 jMA
 gtk
-vZo
-bel
-bel
+jMA
+umX
+pov
 bel
 sXv
 pxa
@@ -170941,12 +170981,12 @@ uJo
 okl
 jMA
 gtk
-vZo
+jMA
 bel
 nPJ
 bel
+jMA
 lGX
-pxa
 okw
 nsU
 cZf
@@ -171198,11 +171238,11 @@ wrE
 okl
 jMA
 gtk
-vZo
-vZo
-vZo
-vZo
-vZo
+jMA
+jMA
+jMA
+jMA
+jMA
 xfO
 xle
 cJu
@@ -176649,7 +176689,7 @@ cZf
 cZf
 cZf
 cZf
-cZf
+xxf
 cZf
 cZf
 cZf

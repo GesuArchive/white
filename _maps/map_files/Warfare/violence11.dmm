@@ -3,6 +3,12 @@
 /obj/effect/gibspawner/xeno,
 /turf/open/floor/dune/sandstone,
 /area/violence)
+"bl" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
+	},
+/turf/open/floor/dune/desert,
+/area/violence)
 "bT" = (
 /turf/open/floor/dune/desertrocks,
 /area/violence)
@@ -24,9 +30,21 @@
 /obj/structure/flora/desert/large_cactus,
 /turf/open/floor/dune/scorched_sand,
 /area/violence)
+"dW" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 1
+	},
+/turf/open/floor/dune/desert,
+/area/violence)
 "dY" = (
 /obj/structure/flora/desert/cactus,
 /turf/open/floor/dune/desert,
+/area/violence)
+"eu" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
+	},
+/turf/open/floor/dune/grass,
 /area/violence)
 "eC" = (
 /turf/open/floor/dune/scorched_sand,
@@ -35,6 +53,12 @@
 /obj/effect/landmark/start/combatant/red,
 /turf/open/floor/dune/desertrocks,
 /area/violence)
+"fd" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 4
+	},
+/turf/open/floor/dune/grass,
+/area/violence)
 "fe" = (
 /obj/structure/flora/desert/large_cactus,
 /turf/open/floor/dune/sandy,
@@ -42,6 +66,15 @@
 "ft" = (
 /obj/structure/flora/desert/large_cactus,
 /obj/effect/turf_decal/weather/side/corner,
+/turf/open/floor/dune,
+/area/violence)
+"fO" = (
+/obj/effect/turf_decal/weather/side/corner{
+	dir = 4
+	},
+/obj/structure/deployable_barricade/sandbags{
+	dir = 1
+	},
 /turf/open/floor/dune,
 /area/violence)
 "ii" = (
@@ -69,6 +102,12 @@
 	},
 /turf/open/floor/dune,
 /area/violence)
+"kX" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 1
+	},
+/turf/open/floor/dune,
+/area/violence)
 "ls" = (
 /obj/effect/baseturf_helper/dune,
 /turf/closed/indestructible/sandstone,
@@ -83,6 +122,10 @@
 	dir = 8
 	},
 /turf/open/floor/dune/desertrocks,
+/area/violence)
+"mf" = (
+/obj/structure/deployable_barricade/sandbags,
+/turf/open/floor/dune/sandstone,
 /area/violence)
 "mi" = (
 /obj/structure/flora/desert/large_cactus,
@@ -172,6 +215,12 @@
 	dir = 1
 	},
 /turf/open/floor/dune/desert,
+/area/violence)
+"wm" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 4
+	},
+/turf/open/floor/dune,
 /area/violence)
 "wE" = (
 /obj/effect/gibspawner/xeno,
@@ -283,6 +332,10 @@
 "Fi" = (
 /turf/open/floor/dune/sandy,
 /area/violence)
+"FG" = (
+/obj/structure/deployable_barricade/sandbags,
+/turf/open/floor/dune/sandy,
+/area/violence)
 "FT" = (
 /obj/effect/decal/cleanable/plasma,
 /turf/open/floor/dune/sandy,
@@ -336,6 +389,12 @@
 	},
 /turf/open/floor/dune,
 /area/violence)
+"LG" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 8
+	},
+/turf/open/floor/dune,
+/area/violence)
 "LX" = (
 /obj/effect/turf_decal/weather/side{
 	dir = 4
@@ -345,6 +404,10 @@
 "LZ" = (
 /obj/structure/flora/desert/cactus,
 /turf/open/floor/dune/scorched_sand,
+/area/violence)
+"Mk" = (
+/obj/structure/deployable_barricade/sandbags,
+/turf/open/floor/dune,
 /area/violence)
 "MV" = (
 /obj/effect/turf_decal/weather/side{
@@ -381,6 +444,12 @@
 	dir = 6
 	},
 /turf/open/floor/dune/desert,
+/area/violence)
+"Qj" = (
+/obj/structure/deployable_barricade/sandbags{
+	dir = 1
+	},
+/turf/open/floor/dune/scorched_sand,
 /area/violence)
 "Qw" = (
 /obj/item/binoculars,
@@ -458,6 +527,15 @@
 	dir = 9
 	},
 /turf/open/floor/dune/grass,
+/area/violence)
+"ZK" = (
+/obj/effect/turf_decal/weather/side{
+	dir = 1
+	},
+/obj/structure/deployable_barricade/sandbags{
+	dir = 1
+	},
+/turf/open/floor/dune,
 /area/violence)
 
 (1,1,1) = {"
@@ -602,7 +680,7 @@ mX
 mX
 mX
 mX
-mX
+Mk
 mX
 mX
 mX
@@ -664,7 +742,7 @@ mX
 mX
 mX
 mX
-mX
+Mk
 mX
 cy
 mX
@@ -726,7 +804,7 @@ mX
 mX
 mX
 mX
-mX
+Mk
 mX
 mX
 mX
@@ -788,7 +866,7 @@ mX
 mX
 mX
 mX
-mX
+Mk
 mX
 mX
 mX
@@ -850,7 +928,7 @@ mX
 mX
 mX
 mX
-mX
+Mk
 mX
 Dm
 mX
@@ -912,7 +990,7 @@ mX
 mX
 mX
 mX
-mX
+Mk
 mX
 mX
 mX
@@ -974,7 +1052,7 @@ mX
 mX
 Uo
 mX
-mX
+Mk
 mX
 mX
 mX
@@ -1036,7 +1114,7 @@ mX
 mX
 mX
 mX
-mX
+Mk
 mX
 mX
 mX
@@ -1311,11 +1389,11 @@ Oj
 mX
 mX
 mX
-Um
-Um
-Um
-Um
-Um
+fd
+fd
+fd
+fd
+fd
 Um
 Um
 mX
@@ -1362,7 +1440,7 @@ mX
 mX
 Pg
 TF
-Fi
+zv
 Fi
 Fi
 Fi
@@ -1424,7 +1502,7 @@ mX
 mX
 cy
 pl
-Fi
+zv
 Fi
 DM
 Fi
@@ -1486,7 +1564,7 @@ mX
 mX
 mX
 pl
-eC
+Qj
 Fi
 Fi
 Fi
@@ -1548,7 +1626,7 @@ mX
 mX
 Rq
 qz
-eC
+Qj
 Fi
 Fi
 Fi
@@ -1833,10 +1911,10 @@ Um
 mX
 mX
 mX
-mX
-mX
-DJ
-DJ
+LG
+LG
+bl
+bl
 DJ
 DJ
 Hv
@@ -2226,7 +2304,7 @@ DJ
 DJ
 DJ
 DJ
-DJ
+dW
 vL
 eC
 eC
@@ -2288,12 +2366,12 @@ DJ
 DJ
 DJ
 DJ
-DJ
+dW
 dB
 us
 eC
 eC
-uj
+mf
 uj
 uj
 uj
@@ -2355,7 +2433,7 @@ DJ
 dB
 us
 Fi
-uj
+mf
 uj
 lU
 uj
@@ -2926,10 +3004,10 @@ eC
 Fi
 yD
 mX
-mX
-mX
-mX
-mX
+wm
+wm
+wm
+wm
 mX
 mX
 Um
@@ -3011,12 +3089,12 @@ DJ
 mX
 mX
 mX
-Um
-Um
-Um
-Um
-mX
-mX
+eu
+eu
+eu
+eu
+LG
+LG
 mX
 mX
 mX
@@ -3155,7 +3233,7 @@ mX
 Rq
 At
 qz
-Fi
+FG
 Fi
 Fi
 Fi
@@ -3217,7 +3295,7 @@ cy
 pl
 Fi
 Fi
-Fi
+FG
 Fi
 FT
 Fi
@@ -3279,7 +3357,7 @@ Rq
 qz
 Fi
 Fi
-Fi
+FG
 Fi
 Fi
 Fi
@@ -3341,7 +3419,7 @@ pl
 Fi
 Fi
 Fi
-Fi
+FG
 Fi
 Fi
 Fi
@@ -3403,7 +3481,7 @@ qz
 Fi
 Fi
 Fi
-Fi
+FG
 Fi
 Fi
 Fi
@@ -3602,7 +3680,7 @@ mX
 mX
 mX
 mX
-pl
+ZK
 eC
 eC
 eC
@@ -3664,7 +3742,7 @@ mX
 mX
 mX
 mX
-pl
+ZK
 eC
 eC
 eC
@@ -3726,7 +3804,7 @@ mX
 mX
 Ec
 mX
-Pg
+fO
 mG
 TF
 eC
@@ -3788,7 +3866,7 @@ mX
 cy
 mX
 mX
-mX
+kX
 mX
 pl
 eC
@@ -3850,7 +3928,7 @@ mX
 mX
 mX
 mX
-mX
+kX
 mX
 pl
 eC
@@ -3912,7 +3990,7 @@ mX
 mX
 mX
 mX
-mX
+kX
 mX
 Pg
 TF
@@ -3974,7 +4052,7 @@ mX
 mX
 mX
 mX
-mX
+kX
 mX
 mX
 Pg

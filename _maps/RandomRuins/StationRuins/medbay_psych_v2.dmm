@@ -223,6 +223,7 @@
 /area/medical/medbay/central)
 "dw" = (
 /obj/machinery/holopad,
+/obj/effect/mapping_helpers/trapdoor_placer,
 /turf/open/floor/engine,
 /area/medical/medbay/lobby)
 "dy" = (
@@ -773,6 +774,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
+/obj/effect/mapping_helpers/trapdoor_placer,
 /turf/open/floor/engine,
 /area/medical/medbay/lobby)
 "jK" = (
@@ -1123,9 +1125,14 @@
 	pixel_x = -3;
 	pixel_y = -3
 	},
+/obj/item/trapdoor_remote/preloaded{
+	pixel_x = -4;
+	pixel_y = 10
+	},
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/lobby)
 "nZ" = (
+/obj/effect/mapping_helpers/trapdoor_placer,
 /turf/open/floor/engine,
 /area/medical/medbay/lobby)
 "oa" = (
@@ -1876,6 +1883,7 @@
 	dir = 8;
 	network = list("durka_domofon","ss13")
 	},
+/obj/effect/mapping_helpers/trapdoor_placer,
 /turf/open/floor/engine,
 /area/medical/medbay/lobby)
 "zT" = (
@@ -2125,6 +2133,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/trapdoor_placer,
 /turf/open/floor/engine,
 /area/medical/medbay/lobby)
 "Cr" = (
@@ -2188,6 +2197,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/trapdoor_placer,
 /turf/open/floor/engine,
 /area/medical/medbay/lobby)
 "Db" = (
@@ -2606,6 +2616,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/trapdoor_placer,
 /turf/open/floor/engine,
 /area/medical/medbay/lobby)
 "Jr" = (

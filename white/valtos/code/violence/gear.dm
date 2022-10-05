@@ -77,7 +77,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	name = "Ignis"
 	cost = 700
 	items = list(/obj/item/melee/energy/sword/ignis)
-	allowed_themes = list("std", "katana", "cyber")
+	allowed_themes = list("std", "katana", "portal")
 
 /datum/violence_gear/pistol
 	cat = "Пистолеты"
@@ -116,7 +116,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		/obj/item/gun/ballistic/automatic/pistol/deagle,
 		/obj/item/ammo_box/magazine/m50
 	)
-	allowed_themes = list("std", "warfare", "hotline")
+	allowed_themes = list("std", "warfare", "hotline", "cyber")
 
 /datum/violence_gear/pistol/golden_eagle
 	name = "FTU PDH-6G"
@@ -155,7 +155,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		/obj/item/gun/ballistic/automatic/mp5,
 		/obj/item/ammo_box/magazine/mp5
 	)
-	allowed_themes = list("std", "warfare", "hotline")
+	allowed_themes = list("std", "warfare", "hotline", "portal")
 
 /datum/violence_gear/rifle/assaultrifle
 	name = "Штурмовая винтовка"
@@ -240,7 +240,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	name = "УЧВ"
 	cost = 400
 	items = list(/obj/item/gun/energy/beam_rifle/violence)
-	allowed_themes = list("katana")
+	allowed_themes = list("katana", "portal")
 
 /datum/violence_gear/heavygun/hecate
 	name = "Hecate II"
@@ -342,7 +342,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	name = "Кевларовый щит"
 	cost = 300
 	items = list(/obj/item/shield/riot/kevlar)
-	allowed_themes = list("std", "warfare")
+	allowed_themes = list("std", "warfare", "cyber")
 
 /datum/violence_gear/misc
 	cat = "Различное"

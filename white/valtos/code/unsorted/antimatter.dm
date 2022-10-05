@@ -437,6 +437,7 @@
 /obj/machinery/am_shielding/Initialize(mapload)
 	. = ..()
 	addtimer(CALLBACK(src, .proc/controllerscan), 10)
+	AddElement(/datum/element/climbable)
 
 /obj/machinery/am_shielding/proc/overheat()
 	visible_message(span_danger("<b>[src]</b> тает!"))

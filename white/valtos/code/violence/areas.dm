@@ -108,6 +108,22 @@
 					S = 'white/valtos/sounds/tar4.ogg'
 				if(9 to 10)
 					S = 'white/valtos/sounds/tar5.ogg'
+		if("portal")
+			switch(GLOB.violence_current_round)
+				if(1)
+					S = 'white/valtos/sounds/por1.ogg'
+				if(2)
+					S = 'white/valtos/sounds/por2.ogg'
+				if(3)
+					S = 'white/valtos/sounds/por3.ogg'
+				if(4 to 5)
+					S = 'white/valtos/sounds/por4.ogg'
+				if(6 to 7)
+					S = 'white/valtos/sounds/por5.ogg'
+				if(8 to 9)
+					S = 'white/valtos/sounds/por6.ogg'
+				if(10)
+					S = 'white/valtos/sounds/por7.ogg'
 
 	if(S)
 		SEND_SOUND(L, sound(S, repeat = 1, wait = 0, volume = 10, channel = CHANNEL_VIOLENCE_MODE))
