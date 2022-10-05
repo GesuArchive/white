@@ -318,7 +318,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_START_NODE("Тело")
 			dat += SETUP_GET_LINK("species", "input", "task", pref_species.name)
 			dat += SETUP_GET_LINK("all", "random", "task", "Случайное")
-			dat += SETUP_GET_LINK("toggle_random", RANDOM_BODY, "random_type", randomise[RANDOM_BODY] ? "Всегда" : "Нет")
+			dat += SETUP_GET_LINK("toggle_random", RANDOM_BODY, "random_type", randomise[RANDOM_BODY] ? "🎲" : "🔒")
 			dat += SETUP_CLOSE_NODE
 
 			dat += SETUP_NODE_RANDOM("Случайное тело, если антаг", RANDOM_BODY_ANTAG)
@@ -326,7 +326,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_START_NODE("Ксенотип")
 			dat += SETUP_GET_LINK("species", "input", "task", pref_species.name)
 			dat += SETUP_GET_LINK("species", "random", "task", "Случайно")
-			dat += SETUP_GET_LINK("toggle_random", RANDOM_SPECIES, "random_type", randomise[RANDOM_SPECIES] ? "Всегда" : "Нет")
+			dat += SETUP_GET_LINK("toggle_random", RANDOM_SPECIES, "random_type", randomise[RANDOM_SPECIES] ? "🎲" : "🔒")
 			dat += SETUP_CLOSE_NODE
 
 			dat += SETUP_NODE_INPUT_RANDOM("Бельё", "underwear", underwear, RANDOM_UNDERWEAR)
@@ -509,14 +509,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_NODE_INPUT("Стиль", "ui", UI_style)
 			dat += SETUP_NODE_SWITCH("Окна в TGUI", "tgui_lock", tgui_lock ? "Основные" : "Все")
 			dat += SETUP_NODE_SWITCH("Стиль TGUI", "tgui_fancy", tgui_fancy ? "Красивый" : "Строгие рамки")
+			dat += SETUP_NODE_SWITCH("Кнопки действий", "action_buttons", buttons_locked ? "Не двигаются" : "Свободные")
+			dat += SETUP_NODE_SWITCH("Режим хоткеев", "hotkeys", hotkeys ? "Хоткеи" : "Ретро")
 			dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Runechat</div><div class='csetup_nodes'>"
 			dat += SETUP_NODE_SWITCH("Текст над головой", "chat_on_map", chat_on_map ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_INPUT("Максимальная длина", "max_chat_length", max_chat_length)
 			dat += SETUP_NODE_SWITCH("Текст не только у мобов", "see_chat_non_mob", see_chat_non_mob ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Эмоции над головой", "see_rc_emotes", see_rc_emotes ? "Вкл" : "Выкл")
-			dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Управление</div><div class='csetup_nodes'>"
-			dat += SETUP_NODE_SWITCH("Кнопки действий", "action_buttons", buttons_locked ? "Не двигаются" : "Свободные")
-			dat += SETUP_NODE_SWITCH("Режим хоткеев", "hotkeys", hotkeys ? "Хоткеи" : "Ретро")
 			dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Призрак</div><div class='csetup_nodes'>"
 			dat += SETUP_NODE_SWITCH("Разговоры", "ghost_ears", (chat_toggles & CHAT_GHOSTEARS) ? "Все" : "Рядом")
 			dat += SETUP_NODE_SWITCH("Радиопереговоры", "ghost_radio", (chat_toggles & CHAT_GHOSTRADIO) ? "Все" : "Рядом")
@@ -654,7 +653,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += SETUP_NODE_SWITCH("BYOND Membership Publicity", "publicity", (toggles & MEMBER_PUBLIC) ? "Public" : "Hidden")
 
 				if(unlock_content || check_rights_for(user.client, R_ADMIN) || check_donations(user.client.ckey) >= 100)
-					dat += SETUP_NODE_COLOR("Цвет OOC", "ooccolor", ooccolor ? ooccolor : GLOB.normal_ooc_colour, null)
+					dat += SETUP_NODE_COLOR("Цвет OOC", "ooccolor", replacetext(ooccolor ? ooccolor : GLOB.normal_ooc_colour, "#", ""), null)
 
 			dat += "</div></div>"
 
@@ -724,7 +723,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/datum/keybinding/kb = i
 					if(!length(user_binds[kb.name]) || user_binds[kb.name][1] == "Unbound")
 						dat += SETUP_START_NODE(kb.full_name)
-						dat += SETUP_GET_LINK("keybindings_capture", "[kb.name];old_key=["Unbound"]", "keybinding", "NO KEY")
+						dat += SETUP_GET_LINK("keybindings_capture", "[kb.name];old_key=["Unbound"]", "keybinding", "Ничего")
 						dat += SETUP_CLOSE_NODE
 					else
 						var/bound_key = user_binds[kb.name][1]

@@ -534,6 +534,10 @@
 	visible_contents = FALSE
 	base_build_path = /obj/machinery/smartfridge/disks
 
+/obj/machinery/smartfridge/disks/update_overlays()
+	. = ..()
+	. = list()
+
 /obj/machinery/smartfridge/disks/accept_check(obj/item/O)
 	if(istype(O, /obj/item/disk/))
 		return TRUE
