@@ -169,10 +169,13 @@
 	if(!stat && attacker && prob(dna.species.dodge_chance) && !incapacitated() && body_position != LYING_DOWN && defense_check(get_turf(src), get_turf(attacker), dir))
 		var/rand_prob = pick(1, -1) // выбираем лево или право
 		var/turf/T = get_open_turf_in_dir(src, turn(attacker.dir, rand_prob * 90))
-		if(!T || !T.CanPass(src, get_dir(T, src))) // если нет первого турфа, ищем второй
+		if(!T) // если нет первого турфа, ищем второй
 			T = get_open_turf_in_dir(src, turn(attacker.dir, -rand_prob * 90))
-		if(!T || !T.CanPass(src, get_dir(T, src))) // если турфов вообще нет, то страдаем
+		if(!T) // если турфов вообще нет, то страдаем
 			return FALSE
+		for(var/atom/A in T)
+			if(!A.CanPass(src, get_dir(A, src)))
+				return FALSE
 		adjustStaminaLoss(7)
 		playsound(src, 'sound/weapons/punchmiss.ogg', 100, TRUE)
 		forceMove(T)
