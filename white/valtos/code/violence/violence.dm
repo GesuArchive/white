@@ -161,11 +161,6 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 				H.ForceContractDisease(D, FALSE, TRUE)
 		// специальные портальные приколы
 		if(GLOB.violence_theme == "portal")
-			for(var/obj/structure/reflector/R as() in main_area)
-				if(!istype(R, /obj/structure/reflector))
-					continue
-				if(prob(25))
-					R.set_angle(rand(0, 360))
 			if(GLOB.violence_current_round >= 10)
 				GLOB.violence_time_limit = rand(20, 900)
 				if(prob(5))

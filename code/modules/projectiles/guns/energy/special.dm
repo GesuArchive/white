@@ -221,17 +221,27 @@
 		user.ignite_mob()
 		user.emote("agony")
 
+#define AMMO_SELECT_BLUE 1
+#define AMMO_SELECT_ORANGE 2
+
 /obj/item/gun/energy/wormhole_projector
 	name = "портальная пушка"
 	desc = "Проектор, который излучает квантовые блюспейс порталы. Требуется ядро блюспейс аномалии для функционирования."
 	ammo_type = list(/obj/item/ammo_casing/energy/wormhole, /obj/item/ammo_casing/energy/wormhole/orange)
+	can_select = FALSE // left-click for blue, right-click for orange.
 	w_class = WEIGHT_CLASS_NORMAL
 	inhand_icon_state = null
 	icon_state = "wormhole_projector"
+	base_icon_state = "wormhole_projector"
+	automatic_charge_overlays = FALSE
 	var/obj/effect/portal/p_blue
 	var/obj/effect/portal/p_orange
 	var/atmos_link = FALSE
 	var/firing_core = FALSE
+
+/obj/item/gun/energy/wormhole_projector/examine(mob/user)
+	. = ..()
+	. += span_notice("<b>ЛКМ</b> для стрельбы синими, <b><font color=orange>ПКМ</font></b> для стрельбы оранжевыми.")
 
 /obj/item/gun/energy/wormhole_projector/attackby(obj/item/C, mob/user)
 	if(istype(C, /obj/item/assembly/signaler/anomaly/bluespace))
@@ -251,7 +261,8 @@
 	to_chat(user, span_danger("Дисплей сообщает, 'НЕ УСТАНОВЛЕНО ЯДРО'."))
 
 /obj/item/gun/energy/wormhole_projector/update_icon_state()
-	icon_state = inhand_icon_state = "[initial(icon_state)][select]"
+	. = ..()
+	icon_state = inhand_icon_state = "[base_icon_state][select]"
 
 /obj/item/gun/energy/wormhole_projector/update_ammo_types()
 	. = ..()
@@ -263,11 +274,19 @@
 			if(istype(WH))
 				WH.gun = WEAKREF(src)
 
-/obj/item/gun/energy/wormhole_projector/process_chamber()
-	..()
-	select_fire()
+/obj/item/gun/energy/wormhole_projector/afterattack(atom/target, mob/living/user, flag, params)
+	if(select == AMMO_SELECT_ORANGE) //Last fired in right click mode. Switch to blue wormhole (left click).
+		select_fire()
+	return ..()
+
+/obj/item/gun/energy/wormhole_projector/afterattack_secondary(atom/target, mob/living/user, flag, params)
+	if(select == AMMO_SELECT_BLUE) //Last fired in left click mode. Switch to orange wormhole (right click).
+		select_fire()
+	fire_gun(target, user, flag, params)
+	return SECONDARY_ATTACK_CONTINUE_CHAIN
 
 /obj/item/gun/energy/wormhole_projector/proc/on_portal_destroy(obj/effect/portal/P)
+	SIGNAL_HANDLER
 	if(P == p_blue)
 		p_blue = null
 	else if(P == p_orange)
@@ -309,6 +328,9 @@
 
 /obj/item/gun/energy/wormhole_projector/core_inserted
 	firing_core = TRUE
+
+#undef AMMO_SELECT_BLUE
+#undef AMMO_SELECT_ORANGE
 
 /* 3d printer 'pseudo guns' for borgs */
 
