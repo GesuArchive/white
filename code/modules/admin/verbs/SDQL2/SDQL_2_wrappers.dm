@@ -292,6 +292,11 @@
 /proc/_qdestroying(datum/datum)
 	return QDESTROYING(datum)
 
+/proc/_range_turfs(turf/center, radius = 1)
+	RECT_TURFS(radius, radius, center)
+
+/proc/_rect_turfs(turf/center, width = 1, height = 1)
+	RECT_TURFS(width, height, center)
 
 /// Auxtools REALLY doesn't know how to handle filters as values;
 /// when passed as arguments to auxtools-called procs, they aren't simply treated as nulls -
