@@ -217,7 +217,7 @@
 	buildstackamount = 2
 	item_chair = null
 
-/obj/structure/chair/comfy/GetArmrest()
+/obj/structure/chair/comfy/arm/GetArmrest()
 	return mutable_appearance('white/pieceofcrap.dmi', "comfychair_armrest")
 
 /area/ruin/redroom
