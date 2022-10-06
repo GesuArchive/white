@@ -21,20 +21,22 @@
 	bullet_bounce_sound = null
 	vis_flags = VIS_INHERIT_ID	//when this be added to vis_contents of something it be associated with something on clicking, important for visualisation of turf in openspace and interraction with openspace that show you turf.
 
-/turf/open/space/basic/Initialize(mapload) // fast enough
+/turf/open/space/basic/New() //Do not convert to Initialize
 	SHOULD_CALL_PARENT(FALSE)
-	icon_state = SPACE_ICON_STATE(x, y, z)
-	if(!space_gas)
-		space_gas = new
-	air = space_gas
-	update_air_ref(0)
-	flags_1 |= INITIALIZED_1
-	return INITIALIZE_HINT_NORMAL
+	//This is used to optimize the map loader
+	return
 
 /**
  * Space Initialize
  *
- * Doesn't call parent, see [/atom/proc/Initialize]
+ * Doesn't call parent, see [/atom/proc/Initialize].
+ * When adding new stuff to /atom/Initialize, /turf/Initialize, etc
+ * don't just add it here unless space actually needs it.
+ *
+ * There is a lot of work that is intentionally not done because it is not currently used.
+ * This includes stuff like smoothing, blocking camera visibility, etc.
+ * If you are facing some odd bug with specifically space, check if it's something that was
+ * intentionally ommitted from this implementation.
  */
 /turf/open/space/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE)
@@ -58,6 +60,7 @@
 		// queueing compile, cloning appearance, etc etc etc that is not necessary here.
 		overlays += GLOB.fullbright_overlays[GET_TURF_PLANE_OFFSET(src) + 1]
 
+	if (!mapload)
 		if(SSmapping.max_plane_offset)
 			var/turf/T = SSmapping.get_turf_above(src)
 			if(T)
