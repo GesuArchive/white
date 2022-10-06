@@ -16,7 +16,6 @@
 	
 	if(saved_state[BM.holder.ckey])
 		state = saved_state[BM.holder.ckey]
-		return
 	
 	if(state)
 		state.call_function("bm_enable", BM.holder)
