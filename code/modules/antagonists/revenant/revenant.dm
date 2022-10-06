@@ -22,7 +22,7 @@
 	health = INFINITY //Revenants don't use health, they use essence instead
 	maxHealth = INFINITY
 	healable = FALSE
-	sight = SEE_SELF
+	sight = SEE_SELF | SEE_BLACKNESS
 	throwforce = 0
 
 	see_in_dark = 8

@@ -366,13 +366,14 @@
 			ND.sample_object.mouse_opacity = MOUSE_OPACITY_OPAQUE
 			ND.sample_object.screen_loc = "LEFT+[cx]:[screen_pixel_x],BOTTOM+[cy]:[screen_pixel_y]"
 			ND.sample_object.maptext = MAPTEXT("<font color='white'>[(ND.number > 1)? "[ND.number]" : ""]</font>")
-			ND.sample_object.plane = ABOVE_HUD_PLANE
+			SET_PLANE(ND.sample_object, ABOVE_HUD_PLANE, ND.sample_object)
 			cx++
 			if(cx - screen_start_x >= cols)
 				cx = screen_start_x
 				cy++
 				if(cy - screen_start_y >= rows)
 					break
+
 	else
 		var/atom/real_location = real_location()
 		for(var/obj/O in real_location)
@@ -381,7 +382,7 @@
 			O.mouse_opacity = MOUSE_OPACITY_OPAQUE //This is here so storage items that spawn with contents correctly have the "click around item to equip"
 			O.screen_loc = "LEFT+[cx]:[screen_pixel_x],BOTTOM+[cy]:[screen_pixel_y]"
 			O.maptext = ""
-			O.plane = ABOVE_HUD_PLANE
+			SET_PLANE(O, ABOVE_HUD_PLANE, O)
 			cx++
 			if(cx - screen_start_x >= cols)
 				cx = screen_start_x
@@ -458,6 +459,7 @@
 			continue
 		O.screen_loc = "LEFT+[cx],BOTTOM+[cy]"
 		O.plane = ABOVE_HUD_PLANE
+		SET_PLANE(O, ABOVE_HUD_PLANE, real_location)
 		cx++
 		if(cx > mx)
 			cx = tx

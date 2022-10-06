@@ -12,37 +12,37 @@
 		return
 	if(stat)
 		if(provide_feedback)
-			to_chat(src, span_warning("Нужно быть в сознании для этого!"))
+			to_chat(src, span_warning("You must be conscious to do this!"))
 		return
 	if(HAS_TRAIT(src, TRAIT_IMMOBILIZED))
 		if(provide_feedback)
-			to_chat(src, span_warning("Не могу сделать это в таком состоянии!"))
+			to_chat(src, span_warning("You currently can't move into the vent!"))
 		return
 	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
 		if(provide_feedback)
-			to_chat(src, span_warning("Не могу сделать это со связанными руками!"))
+			to_chat(src, span_warning("You need to be able to use your hands to ventcrawl!"))
 		return
 	if(has_buckled_mobs())
 		if(provide_feedback)
-			to_chat(src, span_warning("Не могу перемещаться по трубам с существами на мне!"))
+			to_chat(src, span_warning("You can't vent crawl with other creatures on you!"))
 		return
 	if(buckled)
 		if(provide_feedback)
-			to_chat(src, span_warning("Не могу перемещаться со стулом по трубам!"))
+			to_chat(src, span_warning("You can't vent crawl while buckled!"))
 		return
 	if(iscarbon(src) && required_nudity)
 		if(length(get_equipped_items(include_pockets = TRUE)) || get_num_held_items())
 			if(provide_feedback)
-				to_chat(src, span_warning("Не могу ползать по трубам с предметами!"))
+				to_chat(src, span_warning("You can't crawl around in the ventilation ducts with items!"))
 			return
 	if(ventcrawl_target.welded)
 		if(provide_feedback)
-			to_chat(src, span_warning("КАК..."))
+			to_chat(src, span_warning("You can't crawl around a welded vent!"))
 		return
 
 	if(!(vent_movement & VENTCRAWL_ENTRANCE_ALLOWED))
 		if(provide_feedback)
-			to_chat(src, span_warning("Сложно!"))
+			to_chat(src, span_warning("You can't enter this vent!"))
 		return
 
 	return TRUE
@@ -54,10 +54,10 @@
 
 	//Handle the exit here
 	if(HAS_TRAIT(src, TRAIT_MOVE_VENTCRAWLING) && istype(loc, /obj/machinery/atmospherics) && movement_type & VENTCRAWLING)
-		visible_message(span_notice("[capitalize(src.name)] начинает вылезать из системы вентиляции...") ,span_notice("Начинаю вылезать из системы вентиляции..."))
+		visible_message(span_notice("[src] begins climbing out from the ventilation system...") ,span_notice("You begin climbing out from the ventilation system..."))
 		if(!client)
 			return
-		visible_message(span_notice("[capitalize(src.name)] вылезает из вентиляционного отверстия!"),span_notice("Вылезаю из вентиляционного отверстия."))
+		visible_message(span_notice("[src] scrambles out from the ventilation ducts!"),span_notice("You scramble out from the ventilation ducts."))
 		forceMove(ventcrawl_target.loc)
 		REMOVE_TRAIT(src, TRAIT_MOVE_VENTCRAWLING, VENTCRAWLING_TRAIT)
 		update_pipe_vision()
@@ -67,21 +67,21 @@
 		var/datum/pipeline/vent_parent = ventcrawl_target.parents[1]
 		if(vent_parent && (vent_parent.members.len))
 			flick_overlay_static(image('icons/effects/vent_indicator.dmi', "arrow", ABOVE_MOB_LAYER, dir = get_dir(src.loc, ventcrawl_target.loc)), ventcrawl_target, 2 SECONDS)
-			visible_message(span_notice("[capitalize(src.name)] начинает проникать в систему вентиляции...") ,span_notice("Начинаю проникать в систему вентиляции..."))
+			visible_message(span_notice("[src] begins climbing into the ventilation system...") ,span_notice("You begin climbing into the ventilation system..."))
 			if(!do_after(src, 2.5 SECONDS, target = ventcrawl_target, extra_checks = CALLBACK(src, .proc/can_enter_vent, ventcrawl_target)))
 				return
 			if(!client)
 				return
 			flick_overlay_static(image('icons/effects/vent_indicator.dmi', "insert", ABOVE_MOB_LAYER), ventcrawl_target, 1 SECONDS)
-			visible_message(span_notice("[capitalize(src.name)] влезает в вентиляционное отверстие!"),span_notice("Влезаю в вентиляционное отверстие."))
+			visible_message(span_notice("[src] scrambles into the ventilation ducts!"),span_notice("You climb into the ventilation ducts."))
 			move_into_vent(ventcrawl_target)
 		else
-			to_chat(src, span_warning("Эта вентиляция не подключена к системе труб!"))
+			to_chat(src, span_warning("This ventilation duct is not connected to anything!"))
 
 /mob/living/simple_animal/slime/can_enter_vent(obj/machinery/atmospherics/components/ventcrawl_target, provide_feedback = TRUE)
 	if(buckled)
 		if(provide_feedback)
-			to_chat(src, span_warning("КАК..."))
+			to_chat(src, span_warning("You can't vent crawl while feeding!"))
 		return
 	return ..()
 
@@ -103,10 +103,6 @@
  * We move first and then call update. Dont flip this around
  */
 /mob/living/proc/update_pipe_vision(full_refresh = FALSE)
-	// We're gonna color the lighting plane to make it darker while ventcrawling, so things look nicer
-	var/atom/movable/screen/plane_master/lighting
-	if(hud_used)
-		lighting = hud_used?.plane_masters["[LIGHTING_PLANE]"]
 
 	// Take away all the pipe images if we're not doing anything with em
 	if(isnull(client) || !HAS_TRAIT(src, TRAIT_MOVE_VENTCRAWLING) || !istype(loc, /obj/machinery/atmospherics) || !(movement_type & VENTCRAWLING))
@@ -114,11 +110,19 @@
 			client.images -= current_image
 		pipes_shown.len = 0
 		pipetracker = null
-		lighting?.remove_atom_colour(TEMPORARY_COLOUR_PRIORITY, "#4d4d4d")
+		for(var/atom/movable/screen/plane_master/lighting in hud_used.get_true_plane_masters(LIGHTING_PLANE))
+			lighting.remove_atom_colour(TEMPORARY_COLOUR_PRIORITY, "#4d4d4d")
+		for(var/atom/movable/screen/plane_master/pipecrawl in hud_used.get_true_plane_masters(PIPECRAWL_IMAGES_PLANE))
+			pipecrawl.hide_plane(src)
 		return
 
+	// We're gonna color the lighting plane to make it darker while ventcrawling, so things look nicer
 	// This is a bit hacky but it makes the background darker, which has a nice effect
-	lighting?.add_atom_colour("#4d4d4d", TEMPORARY_COLOUR_PRIORITY)
+	for(var/atom/movable/screen/plane_master/lighting in hud_used.get_true_plane_masters(LIGHTING_PLANE))
+		lighting.add_atom_colour("#4d4d4d", TEMPORARY_COLOUR_PRIORITY)
+
+	for(var/atom/movable/screen/plane_master/pipecrawl in hud_used.get_true_plane_masters(PIPECRAWL_IMAGES_PLANE))
+		pipecrawl.unhide_plane(src)
 
 	var/obj/machinery/atmospherics/current_location = loc
 	var/list/our_pipenets = current_location.return_pipenets()
@@ -158,7 +162,8 @@
 			continue
 
 		if(!pipenet_part.pipe_vision_img)
+			var/turf/their_turf = get_turf(pipenet_part)
 			pipenet_part.pipe_vision_img = image(pipenet_part, pipenet_part.loc, dir = pipenet_part.dir)
-			pipenet_part.pipe_vision_img.plane = PIPECRAWL_IMAGES_PLANE
+			SET_PLANE(pipenet_part.pipe_vision_img, PIPECRAWL_IMAGES_PLANE, their_turf)
 		client.images += pipenet_part.pipe_vision_img
 		pipes_shown += pipenet_part.pipe_vision_img

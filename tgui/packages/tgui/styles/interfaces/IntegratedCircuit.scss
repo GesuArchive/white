@@ -53,3 +53,11 @@ $fg-map: colors.$fg-map !default;
     fill: $color-value !important;
   }
 }
+
+.ObjectComponent__Greyed_Content {
+  white-space: nowrap;
+  background-color: rgba(19, 19, 19, 0.5);
+
+  -ms-user-select: none;
+  user-select: none;
+}

@@ -162,12 +162,12 @@
 	brain = new(T, C)
 
 /datum/reagent/drug/grape_blast/on_mob_life(mob/living/carbon/H)
-	if(!H || !H.hud_used || !H.hud_used?.plane_masters)
+	if(!H || !H.hud_used)
 		return
 	if(prob(5))
 		H.emote(pick("twitch","drool","moan"))
 	var/high_message
-	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"])
+	var/list/screens = list(H.hud_used.get_plane_master(FLOOR_PLANE), H.hud_used.get_plane_master(GAME_PLANE), H.hud_used.get_plane_master(LIGHTING_PLANE))
 	switch(current_cycle)
 		if(1 to 20)
 			high_message = pick("Черт возьми, я так чертовски счастлив...", "Что, черт возьми, происходит?", "Где я?")
@@ -270,11 +270,10 @@
 	if(!HAS_TRAIT(C, TRAIT_DUMB))
 		C.derpspeech = 0
 	if(C && C.hud_used)
-		var/list/screens = list(C.hud_used.plane_masters["[FLOOR_PLANE]"], C.hud_used.plane_masters["[GAME_PLANE]"], C.hud_used.plane_masters["[LIGHTING_PLANE]"])
+		var/list/screens = list(C.hud_used.get_plane_master(FLOOR_PLANE), C.hud_used.get_plane_master(GAME_PLANE), C.hud_used.get_plane_master(LIGHTING_PLANE))
 		for(var/atom/movable/screen/plane_master/whole_screen in screens)
 			animate(whole_screen, transform = matrix(), time = 200, easing = ELASTIC_EASING)
 			addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 200) //reset filters
-			addtimer(CALLBACK(whole_screen, /atom/movable/screen/plane_master/.proc/backdrop, C), 201) //reset backdrop filters so they reappear
 			PlaySpook(C, 'white/valtos/sounds/honk_echo_distant.ogg', 0, FALSE)
 
 /obj/effect/hallucination/simple/druggy
@@ -332,11 +331,10 @@
 		C.hud_used.show_hud(HUD_STYLE_STANDARD)
 		C.Paralyze(95)
 		DIRECT_OUTPUT(C.client, sound(null))
-		var/list/screens = list(C.hud_used.plane_masters["[FLOOR_PLANE]"], C.hud_used.plane_masters["[GAME_PLANE]"], C.hud_used.plane_masters["[LIGHTING_PLANE]"])
+		var/list/screens = list(C.hud_used.get_plane_master(FLOOR_PLANE), C.hud_used.get_plane_master(GAME_PLANE), C.hud_used.get_plane_master(LIGHTING_PLANE))
 		for(var/atom/movable/screen/plane_master/whole_screen in screens)
 			animate(whole_screen, transform = matrix(), pixel_x = 0, pixel_y = 0, color = "#ffffff", time = 200, easing = ELASTIC_EASING)
 			addtimer(VARSET_CALLBACK(whole_screen, filters, list()), 200) //reset filters
-			addtimer(CALLBACK(whole_screen, /atom/movable/screen/plane_master/.proc/backdrop, C), 201) //reset backdrop filters so they reappear
 		to_chat(C, "<b><big>Неужели отпустило...</big></b>")
 
 		if(C.client && current_cycle > 100)
@@ -383,10 +381,10 @@
 	return
 
 /datum/reagent/drug/labebium/on_mob_life(mob/living/carbon/H)
-	if(!H || !H.hud_used || !H.hud_used?.plane_masters)
+	if(!H || !H.hud_used)
 		return
 	var/high_message
-	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"])
+	var/list/screens = list(H.hud_used.get_plane_master(FLOOR_PLANE), H.hud_used.get_plane_master(GAME_PLANE), H.hud_used.get_plane_master(LIGHTING_PLANE))
 	switch(current_trip)
 		if("ovoshi")
 			switch(current_cycle)
@@ -683,10 +681,10 @@
 	ADD_TRAIT(H, TRAIT_NOHARDCRIT, "speedrun")
 	ADD_TRAIT(H, TRAIT_NOCRITDAMAGE, "speedrun")
 
-	if(!H || !H.hud_used || !H.hud_used?.plane_masters)
+	if(!H || !H.hud_used)
 		return
 
-	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"])
+	var/list/screens = list(H.hud_used.get_plane_master(FLOOR_PLANE), H.hud_used.get_plane_master(GAME_PLANE), H.hud_used.get_plane_master(LIGHTING_PLANE))
 	for(var/atom/movable/screen/plane_master/whole_screen in screens)
 		whole_screen.add_filter("angular_blur", 1, angular_blur_filter(x = 0, y = 0, size = 1.5))
 		var/filter = whole_screen.get_filter("angular_blur")
@@ -706,10 +704,10 @@
 	REMOVE_TRAIT(H, TRAIT_NOHARDCRIT, "speedrun")
 	REMOVE_TRAIT(H, TRAIT_NOCRITDAMAGE, "speedrun")
 
-	if(!H || !H.hud_used || !H.hud_used?.plane_masters)
+	if(!H || !H.hud_used)
 		return
 
-	var/list/screens = list(H.hud_used.plane_masters["[FLOOR_PLANE]"], H.hud_used.plane_masters["[GAME_PLANE]"], H.hud_used.plane_masters["[LIGHTING_PLANE]"])
+	var/list/screens = list(H.hud_used.get_plane_master(FLOOR_PLANE), H.hud_used.get_plane_master(GAME_PLANE), H.hud_used.get_plane_master(LIGHTING_PLANE))
 	for(var/atom/movable/screen/plane_master/whole_screen in screens)
 		whole_screen.remove_filter("angular_blur")
 

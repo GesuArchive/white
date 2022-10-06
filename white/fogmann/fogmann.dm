@@ -214,25 +214,11 @@
 	icon_state = "armchair"
 	resistance_flags = FLAMMABLE
 	max_integrity = 70
-	var/mutable_appearance/armresttp
 	buildstackamount = 2
 	item_chair = null
 
-/obj/structure/chair/comfy/arm/Initialize(mapload)
-	armresttp = mutable_appearance('white/pieceofcrap.dmi', "comfychair_armrest")
-	armresttp.layer = ABOVE_MOB_LAYER
-	return ..()
-
-/obj/structure/chair/comfy/arm/Destroy()
-	QDEL_NULL(armresttp)
-	return ..()
-
-/obj/structure/chair/comfy/arm/post_buckle_mob(mob/living/M)
-	..()
-	if(has_buckled_mobs())
-		add_overlay(armresttp)
-	else
-		cut_overlay(armresttp)
+/obj/structure/chair/comfy/GetArmrest()
+	return mutable_appearance('white/pieceofcrap.dmi', "comfychair_armrest")
 
 /area/ruin/redroom
 	name = "The Red Room "

@@ -31,7 +31,7 @@
 	U.attached_accessory = src
 	forceMove(U)
 	layer = FLOAT_LAYER
-	plane = FLOAT_PLANE
+	SET_PLANE_IMPLICIT(src, FLOAT_PLANE)
 	if(minimize_when_attached)
 		transform *= 0.5	//halve the size so it doesn't overpower the under
 		pixel_x += 8
@@ -65,7 +65,7 @@
 		pixel_x -= 8
 		pixel_y += 8
 	layer = initial(layer)
-	plane = initial(plane)
+	SET_PLANE_IMPLICIT(src, initial(plane))
 	U.cut_overlays()
 	U.attached_accessory = null
 	U.accessory_overlay = null

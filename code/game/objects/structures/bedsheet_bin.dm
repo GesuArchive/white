@@ -42,13 +42,13 @@ LINEN BINS
 		return
 	if(layer == initial(layer))
 		layer = ABOVE_MOB_LAYER
-		plane = GAME_PLANE_UPPER
+		SET_PLANE_IMPLICIT(src, GAME_PLANE_UPPER)
 		to_chat(user, span_notice("Накрываю себя [src]."))
 		pixel_x = 0
 		pixel_y = 0
 	else
 		layer = initial(layer)
-		plane = initial(plane)
+		SET_PLANE_IMPLICIT(src, initial(plane))
 		to_chat(user, span_notice("Расстелаю [src] под собой."))
 	add_fingerprint(user)
 	return

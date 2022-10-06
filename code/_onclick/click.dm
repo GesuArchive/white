@@ -502,6 +502,16 @@
 	M.Scale(px/sx, py/sy)
 	transform = M
 
+/atom/movable/screen/click_catcher/Initialize(mapload)
+	. = ..()
+	RegisterSignal(SSmapping, COMSIG_PLANE_OFFSET_INCREASE, .proc/offset_increased)
+	offset_increased(SSmapping, 0, SSmapping.max_plane_offset)
+
+// Draw to the lowest plane level offered
+/atom/movable/screen/click_catcher/proc/offset_increased(datum/source, old_offset, new_offset)
+	SIGNAL_HANDLER
+	SET_PLANE_W_SCALAR(src, initial(plane), new_offset)
+
 /atom/movable/screen/click_catcher/Click(location, control, params)
 	var/list/modifiers = params2list(params)
 	if(LAZYACCESS(modifiers, MIDDLE_CLICK) && iscarbon(usr))
@@ -521,7 +531,7 @@
 	SEND_SIGNAL(src, COMSIG_MOUSE_SCROLL_ON, A, delta_x, delta_y, params)
 
 
-	
+
 
 /// MouseEnteredOn
 /mob/proc/MouseEnteredOn(atom/A, location, control, params)

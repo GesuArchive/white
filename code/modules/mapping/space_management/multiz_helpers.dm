@@ -50,3 +50,20 @@
 		holder = UP
 	dir |= holder
 	return dir
+
+/proc/get_lowest_turf(atom/ref)
+	var/turf/us = get_turf(ref)
+	var/next = SSmapping.get_turf_below(us)
+	while(next)
+		us = next
+		next = SSmapping.get_turf_below(us)
+	return us
+
+// I wish this was lisp
+/proc/get_highest_turf(atom/ref)
+	var/turf/us = get_turf(ref)
+	var/next = SSmapping.get_turf_above(us)
+	while(next)
+		us = next
+		next = SSmapping.get_turf_above(us)
+	return us

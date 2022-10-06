@@ -734,9 +734,9 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 		ghost_others = client.prefs?.ghost_others //A quick update just in case this setting was changed right before calling the proc
 
 	if (!ghostvision)
-		see_invisible = SEE_INVISIBLE_LIVING
+		set_invis_see(SEE_INVISIBLE_LIVING)
 	else
-		see_invisible = SEE_INVISIBLE_OBSERVER
+		set_invis_see(SEE_INVISIBLE_OBSERVER)
 
 
 	updateghostimages()
@@ -1020,7 +1020,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 	//Istype so we filter out points of interest that are not mobs
 	if(client && mob_eye && istype(mob_eye))
-		client.eye = mob_eye
+		client.set_eye(mob_eye)
 		if(mob_eye.hud_used)
 			client.screen = list()
 			LAZYINITLIST(mob_eye.observers)

@@ -1118,3 +1118,20 @@ GLOBAL_VAR_INIT(is_theme_applied, FALSE)
 				smooth_zlevel(i)
 
 	GLOB.is_theme_applied = which_theme
+
+/client/proc/debug_plane_masters()
+	set category = "Дбг"
+	set name = "Edit/Debug Planes"
+	set desc = "Edit and visualize plane masters and their connections (relays)"
+
+	edit_plane_masters()
+
+/client/proc/edit_plane_masters(mob/debug_on)
+	if(!holder)
+		return
+	if(debug_on)
+		holder.plane_debug.set_mirroring(TRUE)
+		holder.plane_debug.set_target(debug_on)
+	else
+		holder.plane_debug.set_mirroring(FALSE)
+	holder.plane_debug.ui_interact(mob)

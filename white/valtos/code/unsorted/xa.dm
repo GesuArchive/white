@@ -41,9 +41,9 @@
 
 /mob/living/simple_animal/xaxi/Life()
 	..()
-	if(!src || !client || !hud_used || !hud_used?.plane_masters)
+	if(!src || !client || !hud_used)
 		return
-	var/list/screens = list(hud_used.plane_masters["[FLOOR_PLANE]"], hud_used.plane_masters["[GAME_PLANE]"], hud_used.plane_masters["[LIGHTING_PLANE]"], hud_used.plane_masters["[CAMERA_STATIC_PLANE ]"], hud_used.plane_masters["[PLANE_SPACE_PARALLAX]"], hud_used.plane_masters["[PLANE_SPACE]"])
+	var/list/screens = list(hud_used.get_plane_master(FLOOR_PLANE), hud_used.get_plane_master(GAME_PLANE), hud_used.get_plane_master(LIGHTING_PLANE), hud_used.get_plane_master(CAMERA_STATIC_PLANE), hud_used.get_plane_master(PLANE_SPACE_PARALLAX), hud_used.get_plane_master(PLANE_SPACE))
 	if(prob(5))
 		blur_eyes(1)
 		SEND_SOUND(client, sound("white/valtos/sounds/halun/halun[rand(1,19)].ogg"))

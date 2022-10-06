@@ -26,7 +26,7 @@
 	if(T in turfs)
 		return
 	var/image/I = image('icons/turf/overlays.dmi', T, "greenOverlay")
-	I.plane = ABOVE_LIGHTING_PLANE
+	SET_PLANE(I, ABOVE_LIGHTING_PLANE, T)
 	images += I
 	holder.images += I
 	turfs += T

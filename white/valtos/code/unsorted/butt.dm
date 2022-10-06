@@ -12,8 +12,6 @@
 	return
 /atom/movable/butt_storage/blob_act()
 	return
-/atom/movable/butt_storage/on_changed_z_level(turf/old_turf, turf/new_turf)
-	return
 /atom/movable/butt_storage/movable/forceMove(atom/destination, no_tp=FALSE, harderforce = FALSE)
 	return
 

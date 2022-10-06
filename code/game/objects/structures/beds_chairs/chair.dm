@@ -125,10 +125,10 @@
 /obj/structure/chair/proc/handle_layer()
 	if(has_buckled_mobs() && dir == NORTH)
 		layer = ABOVE_MOB_LAYER
-		plane = GAME_PLANE_UPPER
+		SET_PLANE_IMPLICIT(src, GAME_PLANE_UPPER_FOV_HIDDEN)
 	else
 		layer = OBJ_LAYER
-		plane = GAME_PLANE
+		SET_PLANE_IMPLICIT(src, GAME_PLANE)
 
 /obj/structure/chair/post_buckle_mob(mob/living/M)
 	. = ..()
@@ -182,13 +182,25 @@
 	var/mutable_appearance/armrest
 
 /obj/structure/chair/comfy/Initialize(mapload)
-	armrest = GetArmrest()
-	armrest.layer = ABOVE_MOB_LAYER
-	armrest.plane = GAME_PLANE_UPPER
+	gen_armrest()
 	return ..()
 
+/obj/structure/chair/comfy/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents)
+	if(same_z_layer)
+		return ..()
+	cut_overlay(armrest)
+	QDEL_NULL(armrest)
+	gen_armrest()
+	return ..()
+
+/obj/structure/chair/comfy/proc/gen_armrest()
+	armrest = GetArmrest()
+	armrest.layer = ABOVE_MOB_LAYER
+	SET_PLANE_EXPLICIT(armrest, GAME_PLANE_UPPER, src)
+	update_armrest()
+
 /obj/structure/chair/comfy/proc/GetArmrest()
-	return mutable_appearance('icons/obj/chairs.dmi', "comfychair_armrest", plane = ABOVE_GAME_PLANE)
+	return mutable_appearance(icon, "[icon_state]_armrest")
 
 /obj/structure/chair/comfy/Destroy()
 	QDEL_NULL(armrest)
@@ -228,9 +240,6 @@
 	desc = "Удобное, безопасное сиденье. У него есть более крепко выглядящая система ремней, для более гладких полетов."
 	icon_state = "shuttle_chair"
 	buildstacktype = /obj/item/stack/sheet/mineral/titanium
-
-/obj/structure/chair/comfy/shuttle/GetArmrest()
-	return mutable_appearance('icons/obj/chairs.dmi', "shuttle_chair_armrest", plane = ABOVE_GAME_PLANE)
 
 /obj/structure/chair/comfy/shuttle/electrify_self(obj/item/assembly/shock_kit/input_shock_kit, mob/user, list/overlays_from_child_procs)
 	if(!overlays_from_child_procs)

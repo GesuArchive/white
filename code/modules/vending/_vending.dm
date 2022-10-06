@@ -280,7 +280,7 @@ IF YOU MODIFY THE PRODUCTS LIST OF A MACHINE, MAKE SURE TO UPDATE ITS RESUPPLY C
 		return
 
 	if(!(machine_stat & BROKEN) && powered())
-		. += mutable_appearance(icon, light_mask, 0, EMISSIVE_PLANE)
+		. += emissive_appearance(icon, light_mask, src)
 
 /obj/machinery/vending/obj_break(damage_flag)
 	. = ..()
@@ -636,7 +636,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 	visible_message(span_danger("[src] прыгает!"))
 	tilted = TRUE
 	layer = ABOVE_MOB_LAYER
-	plane = GAME_PLANE_UPPER
+	SET_PLANE_IMPLICIT(src, GAME_PLANE_UPPER)
 
 	var/crit_case
 	if(crit)
@@ -749,7 +749,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 
 	tilted = FALSE
 	layer = initial(layer)
-	plane = initial(plane)
+	SET_PLANE_IMPLICIT(src, initial(plane))
 
 	var/matrix/M = matrix()
 	M.Turn(0)
@@ -1200,9 +1200,6 @@ GLOBAL_LIST_EMPTY(vending_products)
  */
 /obj/machinery/vending/proc/canLoadItem(obj/item/I, mob/user)
 	return FALSE
-
-/obj/machinery/vending/on_changed_z_level(turf/old_turf, turf/new_turf)
-	return
 
 /obj/machinery/vending/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()

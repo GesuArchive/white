@@ -333,7 +333,7 @@
 			W.dropped(src)
 			if (W)
 				W.layer = initial(W.layer)
-				W.plane = initial(W.plane)
+				SET_PLANE_EXPLICIT(W, initial(W.plane), src)
 		changeNext_move(0)
 	if (legcuffed)
 		var/obj/item/W = legcuffed
@@ -346,7 +346,7 @@
 			W.dropped(src)
 			if (W)
 				W.layer = initial(W.layer)
-				W.plane = initial(W.plane)
+				SET_PLANE_EXPLICIT(W, initial(W.plane), src)
 		changeNext_move(0)
 	update_equipment_speed_mods() // In case cuffs ever change speed
 
@@ -556,20 +556,20 @@
 	if(!client)
 		return
 	if(stat == DEAD)
-		sight = (SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		set_sight(SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		see_in_dark = 8
 		see_invisible = SEE_INVISIBLE_OBSERVER
 		return
 
-	sight = initial(sight)
+	var/new_sight = initial(sight)
 	lighting_alpha = initial(lighting_alpha)
 	var/obj/item/organ/eyes/E = getorganslot(ORGAN_SLOT_EYES)
 	if(!E)
 		update_tint()
 	else
-		see_invisible = E.see_invisible
-		see_in_dark = E.see_in_dark
-		sight |= E.sight_flags
+		set_invis_see(E.see_invisible)
+		set_see_in_dark(E.see_in_dark)
+		new_sight |= E.sight_flags
 		if(!isnull(E.lighting_alpha))
 			lighting_alpha = E.lighting_alpha
 
@@ -580,33 +580,35 @@
 
 	if(glasses)
 		var/obj/item/clothing/glasses/G = glasses
-		sight |= G.vision_flags
-		see_in_dark = max(G.darkness_view, see_in_dark)
+		new_sight |= G.vision_flags
+		set_see_in_dark(max(G.darkness_view, see_in_dark))
 		if(G.invis_override)
-			see_invisible = G.invis_override
+			set_invis_see(G.invis_override)
 		else
-			see_invisible = min(G.invis_view, see_invisible)
+			set_invis_see(min(G.invis_view, see_invisible))
 		if(!isnull(G.lighting_alpha))
 			lighting_alpha = min(lighting_alpha, G.lighting_alpha)
 
 	if(HAS_TRAIT(src, TRAIT_TRUE_NIGHT_VISION))
 		lighting_alpha = min(lighting_alpha, LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE)
-		see_in_dark = max(see_in_dark, 8)
+		set_see_in_dark(max(see_in_dark, 8))
 
 	if(HAS_TRAIT(src, TRAIT_MESON_VISION))
-		sight |= SEE_TURFS
+		new_sight |= SEE_TURFS
 		lighting_alpha = min(lighting_alpha, LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE)
 
 	if(HAS_TRAIT(src, TRAIT_THERMAL_VISION))
-		sight |= (SEE_MOBS)
+		new_sight |= SEE_MOBS
 		lighting_alpha = min(lighting_alpha, LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE)
 
 	if(HAS_TRAIT(src, TRAIT_XRAY_VISION))
-		sight |= (SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		see_in_dark = max(see_in_dark, 8)
+		new_sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
+		set_see_in_dark(max(see_in_dark, 8))
 
 	if(see_override)
-		see_invisible = see_override
+		set_invis_see(see_override)
+
+	set_sight(new_sight)
 	. = ..()
 
 

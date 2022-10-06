@@ -142,7 +142,7 @@
 	movedelay = 1
 	density = FALSE
 	layer = ABOVE_ALL_MOB_LAYER
-	plane = GAME_PLANE_UPPER_FOV_HIDDEN
+	SET_PLANE(src, GAME_PLANE_UPPER_FOV_HIDDEN, launch_turf)
 	animate(src, alpha = 0, time = 8, easing = QUAD_EASING|EASE_IN, flags = ANIMATION_PARALLEL)
 	animate(src, pixel_z = 400, time = 10, easing = QUAD_EASING|EASE_IN, flags = ANIMATION_PARALLEL) //Animate our rising mech (just like pods hehe)
 	addtimer(CALLBACK(src, .proc/begin_landing, pilot), 2 SECONDS)
@@ -169,6 +169,7 @@
  * * pilot: mob that activated the skyfall ability
  */
 /obj/vehicle/sealed/mecha/combat/savannah_ivanov/proc/land(mob/living/pilot)
+	var/turf/landed_on = get_turf(src)
 	visible_message(span_danger("[src] приземляется сверху!"))
 	playsound(src, 'sound/effects/explosion1.ogg', 50, 1)
 	resistance_flags &= ~INDESTRUCTIBLE
@@ -177,12 +178,11 @@
 	movedelay = initial(movedelay)
 	density = TRUE
 	layer = initial(layer)
-	plane = initial(plane)
+	SET_PLANE_IMPLICIT(src, initial(plane))
 	skyfall_charge_level = 0
 	update_icon_state()
 	for(var/mob/living/shaken in range(7, src))
 		shake_camera(shaken, 5, 5)
-	var/turf/landed_on = get_turf(src)
 	for(var/thing in range(1, src))
 		if(isopenturf(thing))
 			var/turf/open/floor/crushed_tile = thing

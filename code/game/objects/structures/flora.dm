@@ -23,6 +23,15 @@
 	plane = ABOVE_GAME_PLANE
 	var/log_amount = 10
 
+/obj/structure/flora/tree/Initialize(mapload)
+	. = ..()
+
+	AddComponent(/datum/component/seethrough, get_seethrough_map())
+
+///Return a see_through_map, examples in seethrough.dm
+/obj/structure/flora/tree/proc/get_seethrough_map()
+	return SEE_THROUGH_MAP_DEFAULT
+
 /obj/structure/flora/tree/attackby(obj/item/W, mob/user, params)
 	if(log_amount && (!(flags_1 & NODECONSTRUCT_1)))
 		if(W.get_sharpness() && W.force > 0)
@@ -55,6 +64,9 @@
 	icon = 'icons/obj/flora/pinetrees.dmi'
 	icon_state = "pine_1"
 	var/list/icon_states = list("pine_1", "pine_2", "pine_3")
+
+/obj/structure/flora/tree/pine/get_seethrough_map()
+	return SEE_THROUGH_MAP_DEFAULT_TWO_TALL
 
 /obj/structure/flora/tree/pine/Initialize(mapload)
 	. = ..()
@@ -142,6 +154,9 @@
 	pixel_x = -48
 	pixel_y = -20
 
+/obj/structure/flora/tree/jungle/get_seethrough_map()
+	return SEE_THROUGH_MAP_THREE_X_THREE
+
 /obj/structure/flora/tree/jungle/Initialize(mapload)
 	icon_state = "[icon_state][rand(1, 6)]"
 	. = ..()
@@ -150,6 +165,9 @@
 	pixel_y = 0
 	pixel_x = -32
 	icon = 'icons/obj/flora/jungletreesmall.dmi'
+
+/obj/structure/flora/tree/jungle/small/get_seethrough_map()
+	return SEE_THROUGH_MAP_THREE_X_TWO
 
 //grass
 /obj/structure/flora/grass
@@ -330,22 +348,11 @@
 	var/trimmable = TRUE
 	var/static/list/random_plant_states
 
-/obj/item/kirbyplants/equipped(mob/living/user)
-	var/image/I = image(icon = 'icons/obj/flora/plants.dmi' , icon_state = src.icon_state, loc = user)
-	I.copy_overlays(src)
-	I.override = 1
-	add_alt_appearance(/datum/atom_hud/alternate_appearance/basic/everyone, "sneaking_mission", I)
-	I.layer = ABOVE_MOB_LAYER
-	..()
-
-/obj/item/kirbyplants/dropped(mob/living/user)
-	..()
-	user.remove_alt_appearance("sneaking_mission")
-
-/obj/item/kirbyplants/ComponentInitialize()
+/obj/item/kirbyplants/Initialize(mapload)
 	. = ..()
+	AddComponent(/datum/component/tactical)
 	AddComponent(/datum/component/two_handed, require_twohands=TRUE, force_unwielded=10, force_wielded=10)
-	AddComponent(/datum/component/beauty, 500)
+	AddElement(/datum/element/beauty, 500)
 
 /obj/item/kirbyplants/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
@@ -384,7 +391,6 @@
 			number = "[i]"
 		random_plant_states += "plant-[number]"
 	random_plant_states += "applebush"
-
 
 /obj/item/kirbyplants/dead
 	name = "любимое растение научного руководителя"

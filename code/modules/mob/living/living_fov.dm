@@ -109,7 +109,7 @@
 			continue
 		if(!fov_image) //Make the image once we found one recipient to receive it
 			fov_image = image(icon = 'icons/effects/fov/fov_effects.dmi', icon_state = icon_state, loc = anchor_point)
-			fov_image.plane = FULLSCREEN_PLANE
+			SET_PLANE(fov_image, HIGH_GAME_PLANE, anchor_point)
 			fov_image.layer = FOV_EFFECTS_LAYER
 			fov_image.dir = dir
 			fov_image.appearance_flags = RESET_COLOR | RESET_TRANSFORM

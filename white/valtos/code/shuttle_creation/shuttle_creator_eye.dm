@@ -13,7 +13,7 @@
 	setLoc(get_turf(source_turf))
 
 /mob/camera/ai_eye/remote/shuttle_creation/update_remote_sight(mob/living/user)
-	user.sight = BLIND|SEE_TURFS
+	user.sight = BLIND|SEE_TURFS|SEE_BLACKNESS
 	user.lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
 	user.sync_lighting_plane_alpha()
 	return TRUE

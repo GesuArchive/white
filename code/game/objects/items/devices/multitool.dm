@@ -103,7 +103,7 @@
 
 /obj/item/multitool/ai_detect/proc/show_hud(mob/user)
 	if(user && hud_type)
-		var/atom/movable/screen/plane_master/camera_static/PM = user.hud_used.plane_masters["[CAMERA_STATIC_PLANE]"]
+		var/atom/movable/screen/plane_master/camera_static/PM = user.hud_used.get_plane_master(CAMERA_STATIC_PLANE)
 		PM.alpha = 64
 		var/datum/atom_hud/H = GLOB.huds[hud_type]
 		if(!H.hud_users[user])
@@ -113,7 +113,7 @@
 
 /obj/item/multitool/ai_detect/proc/remove_hud(mob/user)
 	if(user && hud_type)
-		var/atom/movable/screen/plane_master/camera_static/PM = user.hud_used.plane_masters["[CAMERA_STATIC_PLANE]"]
+		var/atom/movable/screen/plane_master/camera_static/PM = user.hud_used.get_plane_master(CAMERA_STATIC_PLANE)
 		PM.alpha = 255
 		var/datum/atom_hud/H = GLOB.huds[hud_type]
 		H.hide_from(user)

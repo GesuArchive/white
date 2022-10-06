@@ -70,6 +70,13 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 	max_integrity = 300
 	armor = list(MELEE = 70, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 0, BIO = 0, RAD = 0, FIRE = 90, ACID = 90)
 
+/obj/machinery/requests_console/update_appearance(updates=ALL)
+	. = ..()
+	if(machine_stat & NOPOWER)
+		set_light(0)
+		return
+	set_light(1.4,0.7,"#34D352")//green light
+
 /obj/machinery/requests_console/directional/north
 	dir = SOUTH
 	pixel_y = 30
@@ -86,28 +93,22 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 	dir = EAST
 	pixel_x = -30
 
-/obj/machinery/requests_console/update_icon_state()
-	if(machine_stat & NOPOWER)
-		set_light(0)
+/obj/machinery/requests_console/update_overlays()
+	. = ..()
+	if(open || (machine_stat & NOPOWER))
+		return
+	var/screen_state
+	if(emergency || (newmessagepriority == REQ_EXTREME_MESSAGE_PRIORITY))
+		screen_state = "[base_icon_state]3"
+	else if(newmessagepriority == REQ_HIGH_MESSAGE_PRIORITY)
+		screen_state = "[base_icon_state]2"
+	else if(newmessagepriority == REQ_NORMAL_MESSAGE_PRIORITY)
+		screen_state = "[base_icon_state]1"
 	else
-		set_light(1.4,0.7,"#34D352")//green light
-	if(open)
-		if(!hackState)
-			icon_state="req_comp_open"
-		else
-			icon_state="req_comp_rewired"
-	else if(machine_stat & NOPOWER)
-		if(icon_state != "req_comp_off")
-			icon_state = "req_comp_off"
-	else
-		if(emergency || (newmessagepriority == REQ_EXTREME_MESSAGE_PRIORITY))
-			icon_state = "req_comp3"
-		else if(newmessagepriority == REQ_HIGH_MESSAGE_PRIORITY)
-			icon_state = "req_comp2"
-		else if(newmessagepriority == REQ_NORMAL_MESSAGE_PRIORITY)
-			icon_state = "req_comp1"
-		else
-			icon_state = "req_comp0"
+		screen_state = "[base_icon_state]0"
+
+	. += mutable_appearance(icon, screen_state)
+	. += emissive_appearance(icon, screen_state, src, alpha = src.alpha)
 
 /obj/machinery/requests_console/Initialize(mapload)
 	. = ..()

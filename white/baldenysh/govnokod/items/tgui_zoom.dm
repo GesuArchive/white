@@ -37,12 +37,6 @@
 	cam_screen.del_on_map_removal = FALSE
 	cam_screen.screen_loc = "[map_name]:1,1"
 
-	cam_plane_master = new
-	cam_plane_master.name = "plane_master"
-	cam_plane_master.assigned_map = map_name
-	cam_plane_master.del_on_map_removal = FALSE
-	cam_plane_master.screen_loc = "[map_name]:CENTER"
-
 	cam_background = new
 	cam_background.assigned_map = map_name
 	cam_background.del_on_map_removal = FALSE
@@ -50,7 +44,6 @@
 /obj/item/clothing/glasses/monocle/map/Destroy()
 	qdel(map_overlay)
 	qdel(cam_screen)
-	qdel(cam_plane_master)
 	qdel(cam_background)
 	return ..()
 
@@ -91,7 +84,6 @@
 	if(!ui)
 		user.client.register_map_obj(map_overlay)
 		user.client.register_map_obj(cam_screen)
-		user.client.register_map_obj(cam_plane_master)
 		user.client.register_map_obj(cam_background)
 
 		ui = new(user, src, "MapWindow", name)

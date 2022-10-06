@@ -227,7 +227,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 			if(M.client)
 				speech_bubble_recipients.Add(M.client)
 		var/image/I = image('icons/mob/talk.dmi', H, "default2", FLY_LAYER)
-		I.plane = ABOVE_GAME_PLANE
+		SET_PLANE(I, ABOVE_GAME_PLANE, H)
 		I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 		INVOKE_ASYNC(GLOBAL_PROC, /.proc/flick_overlay, I, speech_bubble_recipients, 30)
 

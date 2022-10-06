@@ -1,17 +1,3 @@
-GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdrop, new)
-
-/atom/movable/openspace_backdrop
-	name			= "openspace_backdrop"
-
-	anchored		= TRUE
-
-	icon = DEFAULT_FLOORS_ICON
-	icon_state = "black"
-	plane = OPENSPACE_BACKDROP_PLANE
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	vis_flags = VIS_INHERIT_ID
-	alpha = 0
-
 /turf/open/openspace
 	name = "открытое пространство"
 	desc = "Смотри под ноги!"
@@ -29,43 +15,14 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	var/can_cover_up = TRUE
 	var/can_build_on = TRUE
 
-/turf/open/openspace/fastload
-	plane = OPENSPACE_PLANE
-	layer = OPENSPACE_LAYER
-
-/turf/open/openspace/fastload/New()
-	return
-
-/turf/open/openspace/fastload/Initialize(mapload)
-	air = new
-	air.copy_from_turf(src)
-	update_air_ref(0)
-	var/turf/T = locate(x, y, z - 1)
-	if(T)
-		vis_contents += T
-	flags_1 |= INITIALIZED_1
-	directional_opacity = ALL_CARDINALS
-	vis_contents += GLOB.openspace_backdrop_one_for_all
-	return INITIALIZE_HINT_NORMAL
-
-/turf/open/openspace/fastload/airless
-	initial_gas_mix = AIRLESS_ATMOS
-
-/turf/open/openspace/fastload/planetmos
-	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-
-/turf/open/openspace/fastload/LateInitialize()
-	return
-
 /turf/open/openspace/Initialize(mapload) // handle plane and layer here so that they don't cover other obs/turfs in Dream Maker
 	. = ..()
-	vis_contents += GLOB.openspace_backdrop_one_for_all //Special grey square for projecting backdrop darkness filter on it.
 	RegisterSignal(src, COMSIG_ATOM_CREATED, .proc/on_atom_created)
 	return INITIALIZE_HINT_LATELOAD
 
 /turf/open/openspace/LateInitialize()
 	. = ..()
-	AddElement(/datum/element/turf_z_transparency, is_openspace = TRUE)
+	AddElement(/datum/element/turf_z_transparency)
 
 /turf/open/openspace/ChangeTurf(path, list/new_baseturfs, flags)
 	UnregisterSignal(src, COMSIG_ATOM_CREATED)

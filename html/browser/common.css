@@ -779,3 +779,8 @@ tr {}
 }
 
 .csetup_quirk_text {font-size: 14px;padding-left: 4px;}
+
+.wideimage {
+	width: 100%;
+	image-rendering: pixelated;
+}

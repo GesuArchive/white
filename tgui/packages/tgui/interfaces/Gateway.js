@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Box, Button, Icon, NoticeBox, ProgressBar, Section } from '../components';
+import { Box, Button, ByondUi, NoticeBox, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
 
 export const Gateway = () => {
@@ -20,6 +20,7 @@ const GatewayContent = (props, context) => {
     gateway_status = false,
     current_target = null,
     destinations = [],
+    gateway_mapkey,
   } = data;
   if (!gateway_present) {
     return (
@@ -34,7 +35,13 @@ const GatewayContent = (props, context) => {
   if (current_target) {
     return (
       <Section title={current_target.name}>
-        <Icon name="rainbow" size={4} color="green" />
+        <ByondUi
+          height="128px"
+          params={{
+            id: gateway_mapkey,
+            type: 'map',
+          }}
+        />
         <Button fluid onClick={() => act('deactivate')}>
           Деактивация
         </Button>

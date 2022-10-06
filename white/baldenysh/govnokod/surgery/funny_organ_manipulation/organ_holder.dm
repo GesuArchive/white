@@ -42,8 +42,6 @@
 	return
 /atom/movable/organ_holder/blob_act()
 	return
-/atom/movable/organ_holder/on_changed_z_level(turf/old_turf, turf/new_turf)
-	return
 /atom/movable/organ_holder/forceMove(atom/destination)
 	return
 

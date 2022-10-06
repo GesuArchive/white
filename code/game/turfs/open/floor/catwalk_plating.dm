@@ -20,7 +20,7 @@
 
 /turf/open/floor/plasteel/catwalk_floor/proc/update_turf_overlay()
 	var/image/I = image(icon, src, "catwalk_above", CATWALK_LAYER)
-	I.plane = FLOOR_PLANE
+	SET_PLANE_IMPLICIT(I, FLOOR_PLANE)
 	if(covered)
 		overlays += I
 	else

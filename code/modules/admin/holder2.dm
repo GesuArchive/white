@@ -31,6 +31,7 @@ GLOBAL_PROTECT(href_token)
 	var/datum/filter_editor/filteriffic
 	var/datum/particle_editor/particlic
 	var/datum/colorblind_tester/color_test = new
+	var/datum/plane_master_debug/plane_debug
 
 /datum/admins/New(datum/admin_rank/R, ckey, force_active = FALSE, protected)
 	if(IsAdminAdvancedProcCall())
@@ -61,6 +62,7 @@ GLOBAL_PROTECT(href_token)
 		activate()
 	else
 		deactivate()
+	plane_debug = new(src)
 
 /datum/admins/Destroy()
 	if(IsAdminAdvancedProcCall())
@@ -79,6 +81,7 @@ GLOBAL_PROTECT(href_token)
 	GLOB.deadmins -= target
 	GLOB.admin_datums[target] = src
 	deadmined = FALSE
+	QDEL_NULL(plane_debug)
 	if (GLOB.directory[target])
 		associate(GLOB.directory[target])	//find the client for a ckey if they are connected and associate them with us
 

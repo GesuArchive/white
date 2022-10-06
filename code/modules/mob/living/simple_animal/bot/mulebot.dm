@@ -501,7 +501,7 @@
 		load.forceMove(loc)
 		load.pixel_y = initial(load.pixel_y)
 		load.layer = initial(load.layer)
-		load.plane = initial(load.plane)
+		SET_PLANE_EXPLICIT(load, initial(load.plane), src)
 		load = null
 
 	if(dirn) //move the thing to the delivery point.

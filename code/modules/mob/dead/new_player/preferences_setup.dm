@@ -107,7 +107,7 @@
 		hardcore_survival_score += available_hardcore_quirks[picked_quirk]
 		available_hardcore_quirks -= picked_quirk
 
-/datum/preferences/proc/update_preview_icon()
+/datum/preferences/proc/get_preview_icon()
 	// Determine what job is marked as 'High' priority, and dress them up as such.
 	var/datum/job/previewJob
 	var/highest_pref = 0
@@ -119,11 +119,9 @@
 	if(previewJob)
 		// Silicons only need a very basic preview since there is no customization for them.
 		if(istype(previewJob,/datum/job/ai))
-			parent.show_character_previews(image('icons/mob/ai.dmi', icon_state = resolve_ai_icon(preferred_ai_core_display), dir = SOUTH))
-			return
+			return icon('icons/mob/ai.dmi', icon_state = resolve_ai_icon(preferred_ai_core_display), dir = SOUTH)
 		if(istype(previewJob,/datum/job/cyborg))
-			parent.show_character_previews(image('icons/mob/robots.dmi', icon_state = "robot", dir = SOUTH))
-			return
+			return icon('icons/mob/robots.dmi', icon_state = "robot", dir = SOUTH)
 
 	// Set up the dummy for its photoshoot
 	var/mob/living/carbon/human/dummy/mannequin = generate_or_wait_for_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
@@ -135,5 +133,11 @@
 		previewJob.equip_gear(mannequin, parent, TRUE)
 
 	COMPILE_OVERLAYS(mannequin)
-	parent.show_character_previews(new /mutable_appearance(mannequin))
 	unset_busy_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
+
+	var/icon/out_icon = icon('icons/effects/effects.dmi', "nothing")
+	for(var/D in GLOB.cardinals)
+		var/icon/partial = getFlatIcon(mannequin, defdir = D)
+		out_icon.Insert(partial, dir = D)
+
+	return out_icon

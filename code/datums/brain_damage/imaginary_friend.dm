@@ -62,7 +62,7 @@
 	desc = "Прекрасный, но ненастоящий друг."
 	see_in_dark = 0
 	lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
-	sight = NONE
+	sight = SEE_BLACKNESS
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	see_invisible = SEE_INVISIBLE_LIVING
 	invisibility = INVISIBILITY_OBSERVER
@@ -175,9 +175,11 @@
 	//speech bubble
 	if(owner.client)
 		var/mutable_appearance/MA = mutable_appearance('icons/mob/talk.dmi', src, "default[say_test(message)]", FLY_LAYER)
-		MA.plane = ABOVE_GAME_PLANE
+		SET_PLANE_EXPLICIT(MA, ABOVE_GAME_PLANE, src)
 		MA.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 		INVOKE_ASYNC(GLOBAL_PROC, /.proc/flick_overlay, MA, list(owner.client), 30)
+		LAZYADD(update_on_z, MA)
+		addtimer(CALLBACK(src, .proc/clear_saypopup, MA), 3.5 SECONDS)
 
 		if(owner?.client?.prefs.chat_on_map)
 			owner.create_chat_message(owner, raw_message = message)
@@ -188,6 +190,9 @@
 	for(var/mob/M in GLOB.dead_mob_list)
 		var/link = FOLLOW_LINK(M, owner)
 		to_chat(M, "[link] [dead_rendered]")
+
+/mob/camera/imaginary_friend/proc/clear_saypopup(image/say_popup)
+	LAZYREMOVE(update_on_z, say_popup)
 
 /mob/camera/imaginary_friend/Move(NewLoc, Dir = 0)
 	if(world.time < move_delay)

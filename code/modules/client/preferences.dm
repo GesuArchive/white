@@ -151,6 +151,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/hearted
 	///If we have a hearted commendations, we honor it every time the player loads preferences until this time has been passed
 	var/hearted_until
+
 	/// Agendered spessmen can choose whether to have a male or female bodytype
 	var/body_type
 	/// If we have persistent scars enabled
@@ -215,7 +216,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	if(slot_randomized)
 		load_character(default_slot) // Reloads the character slot. Prevents random features from overwriting the slot if saved.
 		slot_randomized = FALSE
-	update_preview_icon()
+
 	var/list/dat = list("<div id='prefsel'><div id='prefsel_menu'><div class='prefsel_menu_header'>Меню</div><ul>")
 
 	dat += "<li><a href='?_src_=prefs;preference=tab;tab=0' [current_tab == 0 ? "class='linkOn'" : ""]>Персонаж</a></li>"
@@ -279,6 +280,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += SETUP_NODE_RANDOM("Случайное имя, если антагонист", RANDOM_NAME_ANTAG)
 
 			dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Тело</div><div class='csetup_nodes'>"
+
+			dat += "<div class='csetup_character_node'>[icon2html(get_preview_icon(), parent, extra_classes = "wideimage")]</div>"
 
 			if(!(AGENDER in pref_species.species_traits))
 				var/dispGender
@@ -1044,13 +1047,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 /datum/preferences/proc/validate_quirks()
 	if(GetQuirkBalance() < 0)
 		all_quirks = list()
-
-/datum/preferences/Topic(href, href_list, hsrc)			//yeah, gotta do this I guess..
-	. = ..()
-	if(href_list["close"])
-		var/client/C = usr.client
-		if(C)
-			C.clear_character_previews()
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)
 	if(href_list["bancheck"])
@@ -1851,9 +1847,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if("ambientocclusion")
 					ambientocclusion = !ambientocclusion
-					if(parent?.screen && parent.screen.len)
-						var/atom/movable/screen/plane_master/game_world/plane_master = locate() in parent.screen
-						plane_master.backdrop(parent.mob)
+					for(var/atom/movable/screen/plane_master/rendering_plate/game_world/plane_master in parent.mob?.hud_used?.get_true_plane_masters(GAME_PLANE))
+						plane_master.show_to(parent.mob)
 
 				if("auto_fit_viewport")
 					auto_fit_viewport = !auto_fit_viewport

@@ -540,7 +540,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 			webhook_send_asay("Server", "[cheesy_message]")
 			//send2adminchat("Server", "[cheesy_message] (No admins online)")
-	QDEL_LIST_ASSOC_VAL(char_render_holders)
 	if(movingmob != null)
 		LAZYREMOVE(movingmob.client_mobs_in_contents, mob)
 		movingmob = null
@@ -981,6 +980,13 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 /client/proc/rescale_view(change, min, max)
 	view_size.setTo(clamp(change, min, max), clamp(change, min, max))
 
+/client/proc/set_eye(new_eye)
+	if(new_eye == eye)
+		return
+	var/atom/old_eye = eye
+	eye = new_eye
+	SEND_SIGNAL(src, COMSIG_CLIENT_SET_EYE, old_eye, new_eye)
+
 /**
  * Updates the keybinds for special keys
  *
@@ -1046,26 +1052,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 /client/proc/AnnouncePR(announcement)
 	if(prefs && prefs.chat_toggles & CHAT_PULLR)
 		to_chat(src, announcement)
-
-/client/proc/show_character_previews(mutable_appearance/MA)
-	var/pos = 0
-	for(var/D in GLOB.cardinals)
-		pos++
-		var/atom/movable/screen/O = LAZYACCESS(char_render_holders, "[D]")
-		if(!O)
-			O = new
-			LAZYSET(char_render_holders, "[D]", O)
-			screen |= O
-		O.appearance = MA
-		O.dir = D
-		O.screen_loc = "character_preview_map:0,[pos]"
-
-/client/proc/clear_character_previews()
-	for(var/index in char_render_holders)
-		var/atom/movable/screen/S = char_render_holders[index]
-		screen -= S
-		qdel(S)
-	char_render_holders = null
 
 ///Redirect proc that makes it easier to call the unlock achievement proc. Achievement type is the typepath to the award, user is the mob getting the award, and value is an optional variable used for leaderboard value increments
 /client/proc/give_award(achievement_type, mob/user, value = 1)

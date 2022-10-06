@@ -128,6 +128,7 @@
 
 		user.client.images -= to_remove
 		user.client.view_size.resetToDefault()
+		user.client.attempt_auto_fit_viewport()
 
 /obj/machinery/computer/shuttle_flight/proc/placeLandingSpot()
 	if(designating_target_loc || !current_user)
@@ -188,7 +189,7 @@
 		var/image/newI = image('icons/effects/alphacolors.dmi', the_eye.loc, "blue")
 		newI.loc = I.loc //It is highly unlikely that any landing spot including a null tile will get this far, but better safe than sorry.
 		newI.layer = ABOVE_OPEN_TURF_LAYER
-		newI.plane = ABOVE_GAME_PLANE
+		SET_PLANE(newI, ABOVE_GAME_PLANE, the_eye)
 		newI.mouse_opacity = 0
 		the_eye.placed_images += newI
 
@@ -316,7 +317,7 @@
 	console.checkLandingSpot()
 
 /mob/camera/ai_eye/remote/shuttle_docker/update_remote_sight(mob/living/user)
-	user.sight = BLIND|SEE_TURFS
+	user.set_sight(BLIND|SEE_TURFS)
 	user.lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
 	user.sync_lighting_plane_alpha()
 	return TRUE

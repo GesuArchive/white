@@ -18,6 +18,8 @@ GLOBAL_LIST_EMPTY(lifts)
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN
 	appearance_flags = PIXEL_SCALE|KEEP_TOGETHER //no TILE_BOUND since we're potentially multitile
 
+	blocks_emissive = NONE
+
 	///ID used to determine what lift types we can merge with
 	var/lift_id = BASIC_LIFT_ID
 

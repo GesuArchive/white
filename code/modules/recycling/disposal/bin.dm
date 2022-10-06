@@ -394,15 +394,15 @@ GLOBAL_LIST_EMPTY(disposal_bins)
 	//check for items in disposal - occupied light
 	if(contents.len > 0)
 		. += "dispover-full"
-		. += mutable_appearance(icon, "dispover-full", 0, EMISSIVE_PLANE, alpha)
+		. += emissive_appearance(icon, "dispover-full", src, alpha = src.alpha)
 
 	//charging and ready light
 	if(pressure_charging)
 		. += "dispover-charge"
-		. += mutable_appearance(icon, "dispover-charge-glow", 0, EMISSIVE_PLANE, alpha)
+		. += emissive_appearance(icon, "dispover-charge-glow", src, alpha = src.alpha)
 	else if(full_pressure)
 		. += "dispover-ready"
-		. += mutable_appearance(icon, "dispover-ready-glow", 0, EMISSIVE_PLANE, alpha)
+		. += emissive_appearance(icon, "dispover-ready-glow", src, alpha = src.alpha)
 
 /obj/machinery/disposal/bin/proc/do_flush()
 	set waitfor = FALSE
