@@ -783,4 +783,5 @@ tr {}
 .wideimage {
 	width: 100%;
 	image-rendering: pixelated;
+	-ms-interpolation-mode: nearest-neighbor;
 }

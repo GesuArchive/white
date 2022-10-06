@@ -134,10 +134,4 @@
 
 	COMPILE_OVERLAYS(mannequin)
 	unset_busy_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
-
-	var/icon/out_icon = icon('icons/effects/effects.dmi', "nothing")
-	for(var/D in GLOB.cardinals)
-		var/icon/partial = getFlatIcon(mannequin, defdir = D)
-		out_icon.Insert(partial, dir = D)
-
-	return out_icon
+	return getFlatIcon(mannequin, defdir = SOUTH)
