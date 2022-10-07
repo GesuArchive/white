@@ -31,7 +31,7 @@ SUBSYSTEM_DEF(icon_smooth)
 		else
 			can_fire = FALSE
 
-/datum/controller/subsystem/icon_smooth/Initialize(mapload)
+/datum/controller/subsystem/icon_smooth/Initialize()
 	smooth_zlevel(1, TRUE)
 	smooth_zlevel(2, TRUE)
 
@@ -55,7 +55,7 @@ SUBSYSTEM_DEF(icon_smooth)
 		var/turf/item_loc = movable_item.loc
 		item_loc.add_blueprints(movable_item)
 
-	return ..()
+	return SS_INIT_SUCCESS
 
 
 /datum/controller/subsystem/icon_smooth/proc/add_to_queue(atom/thing)

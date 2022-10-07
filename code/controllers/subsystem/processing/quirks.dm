@@ -18,7 +18,7 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 	///An assoc list of quirks that can be obtained as a hardcore character, and their hardcore value.
 	var/list/hardcore_quirks = list()
 
-/datum/controller/subsystem/processing/quirks/Initialize(timeofday)
+/datum/controller/subsystem/processing/quirks/Initialize()
 	if(!quirks.len)
 		SetupQuirks()
 
@@ -30,7 +30,7 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 							list("Clown Fan","Mime Fan"), \
 							list("Картавый"), \
 							list("Bad Touch", "Friendly"))
-	return ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/processing/quirks/proc/SetupQuirks()
 	// Sort by Positive, Negative, Neutral; and then by name

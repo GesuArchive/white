@@ -63,7 +63,7 @@ SUBSYSTEM_DEF(networks)
 	msg = "NET: QUEUE([packet_count]) FAILS([count_failed_packets]) BROADCAST([count_broadcasts_packets])"
 	return ..()
 
-/datum/controller/subsystem/networks/Initialize(mapload)
+/datum/controller/subsystem/networks/Initialize()
 	station_network.register_map_supremecy() // sigh
 	assign_areas_root_ids(GLOB.sortedAreas) // setup area names before Initialize
 	station_network.build_software_lists()
@@ -72,7 +72,7 @@ SUBSYSTEM_DEF(networks)
 	// At round start, fix the network_id's so the station root is on them
 	initialized = TRUE
 	// Now when the objects Initialize they will join the right network
-	return ..()
+	return SS_INIT_SUCCESS
 
 /*
  * Process incoming queued packet and return NAK/ACK signals

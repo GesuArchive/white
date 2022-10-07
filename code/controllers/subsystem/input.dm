@@ -9,14 +9,14 @@ SUBSYSTEM_DEF(input)
 
 	var/list/macro_set
 
-/datum/controller/subsystem/input/Initialize(mapload)
+/datum/controller/subsystem/input/Initialize()
 	setup_default_macro_sets()
 
 	initialized = TRUE
 
 	refresh_client_macro_sets()
 
-	return ..()
+	return SS_INIT_SUCCESS
 
 // This is for when macro sets are eventualy datumized
 /datum/controller/subsystem/input/proc/setup_default_macro_sets()

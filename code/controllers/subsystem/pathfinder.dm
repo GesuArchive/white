@@ -7,12 +7,12 @@ SUBSYSTEM_DEF(pathfinder)
 	var/static/space_type_cache
 	var/static/openspace_type_cache
 
-/datum/controller/subsystem/pathfinder/Initialize(mapload)
+/datum/controller/subsystem/pathfinder/Initialize()
 	space_type_cache = typecacheof(/turf/open/space)
 	openspace_type_cache = typecacheof(/turf/open/openspace)
 	mobs = new(10)
 	circuits = new(3)
-	return ..()
+	return SS_INIT_SUCCESS
 
 /datum/flowcache
 	var/lcount

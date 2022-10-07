@@ -14,10 +14,10 @@ SUBSYSTEM_DEF(adjacent_air)
 	. = ..("P:[length(queue)]")
 #endif
 
-/datum/controller/subsystem/adjacent_air/Initialize(mapload)
+/datum/controller/subsystem/adjacent_air/Initialize()
 	while(length(queue))
 		fire(mc_check = FALSE)
-	return ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/adjacent_air/fire(resumed = FALSE, mc_check = TRUE)
 	if(SSair.thread_running())

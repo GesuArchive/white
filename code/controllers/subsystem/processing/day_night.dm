@@ -20,11 +20,11 @@ SUBSYSTEM_DEF(day_night)
 	/// The amount of time we add every tick
 	var/tick_time = DAY_NIGHT_SUBSYSTEM_FIRE_INCREMENT
 
-/datum/controller/subsystem/day_night/Initialize(start_timeofday)
+/datum/controller/subsystem/day_night/Initialize()
 	current_hour = rand(0, 23) // We set the starting station time to something random.
 	load_day_night_controller()
 	update_controllers(current_hour)
-	return ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/day_night/fire(resumed)
 	tick_tock(tick_time)

@@ -10,8 +10,7 @@ PROCESSING_SUBSYSTEM_DEF(reagents)
 	///What time was it when we last ticked
 	var/previous_world_time = 0
 
-/datum/controller/subsystem/processing/reagents/Initialize(mapload)
-	. = ..()
+/datum/controller/subsystem/processing/reagents/Initialize()
 	//So our first step isn't insane
 	previous_world_time = world.time
 	///Blacklists these reagents from being added to the master list. the exact type only. Children are not blacklisted.
@@ -19,7 +18,7 @@ PROCESSING_SUBSYSTEM_DEF(reagents)
 	//Build GLOB lists - see holder.dm
 	build_chemical_reagent_list()
 	build_chemical_reactions_lists()
-	return
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/processing/reagents/fire(resumed = FALSE)
 	if (!resumed)

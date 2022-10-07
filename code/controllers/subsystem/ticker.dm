@@ -66,7 +66,7 @@ SUBSYSTEM_DEF(ticker)
 	var/emergency_reason
 	var/retrycap = 0
 
-/datum/controller/subsystem/ticker/Initialize(timeofday)
+/datum/controller/subsystem/ticker/Initialize()
 	load_mode()
 
 	load_mentors()
@@ -148,7 +148,7 @@ SUBSYSTEM_DEF(ticker)
 		gametime_offset = rand(0, 23) HOURS
 	else if(CONFIG_GET(flag/shift_time_realtime))
 		gametime_offset = world.timeofday
-	return ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/ticker/fire()
 	if(world.time > 30 MINUTES && !GLOB.cryopods_enabled)

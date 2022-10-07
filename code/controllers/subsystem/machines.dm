@@ -7,10 +7,10 @@ SUBSYSTEM_DEF(machines)
 	var/list/currentrun = list()
 	var/list/powernets = list()
 
-/datum/controller/subsystem/machines/Initialize(mapload)
+/datum/controller/subsystem/machines/Initialize()
 	makepowernets()
 	fire()
-	return ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/machines/proc/makepowernets()
 	for(var/datum/powernet/power_network as anything in powernets)

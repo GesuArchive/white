@@ -12,10 +12,10 @@ SUBSYSTEM_DEF(overlays)
 	queue = list()
 	stats = list()
 
-/datum/controller/subsystem/overlays/Initialize(mapload)
+/datum/controller/subsystem/overlays/Initialize()
 	initialized = TRUE
 	fire(mc_check = FALSE)
-	return ..()
+	return SS_INIT_SUCCESS
 
 
 /datum/controller/subsystem/overlays/stat_entry(msg)

@@ -23,9 +23,9 @@ SUBSYSTEM_DEF(sounds)
 	/// higher reserve position - decremented and incremented to reserve sound channels, anything above this is reserved. The channel at this index is the highest unreserved channel.
 	var/channel_reserve_high
 
-/datum/controller/subsystem/sounds/Initialize(mapload)
+/datum/controller/subsystem/sounds/Initialize()
 	setup_available_channels()
-	return ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/sounds/proc/setup_available_channels()
 	channel_list = list()

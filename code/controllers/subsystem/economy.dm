@@ -53,7 +53,7 @@ SUBSYSTEM_DEF(economy)
 	/// Number of mail items generated.
 	var/mail_waiting = 0
 
-/datum/controller/subsystem/economy/Initialize(timeofday)
+/datum/controller/subsystem/economy/Initialize()
 	//removes cargo from the split
 	var/budget_to_hand_out = round(budget_pool / department_accounts.len -1)
 	for(var/dep_id in department_accounts)
@@ -61,7 +61,7 @@ SUBSYSTEM_DEF(economy)
 			new /datum/bank_account/department(dep_id, 0)
 			continue
 		new /datum/bank_account/department(dep_id, budget_to_hand_out)
-	return ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/economy/Recover()
 	generated_accounts = SSeconomy.generated_accounts

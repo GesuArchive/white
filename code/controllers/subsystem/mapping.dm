@@ -89,7 +89,7 @@ SUBSYSTEM_DEF(mapping)
 		config = load_map_config(error_if_missing = FALSE)
 #endif
 
-/datum/controller/subsystem/mapping/Initialize(timeofday)
+/datum/controller/subsystem/mapping/Initialize()
 	HACK_LoadMapConfig()
 	if(initialized)
 		return
@@ -173,7 +173,7 @@ SUBSYSTEM_DEF(mapping)
 
 	// spawn yohei shuttle
 	spawn_type_shuttle(/datum/map_template/shuttle/yohei)
-	return ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/mapping/proc/calculate_default_z_level_gravities()
 	for(var/z_level in 1 to length(z_list))

@@ -18,14 +18,14 @@ SUBSYSTEM_DEF(blackbox)
 		"testmerged_prs" = 2,
 	) //associative list of any feedback variables that have had their format changed since creation and their current version, remember to update this
 
-/datum/controller/subsystem/blackbox/Initialize(mapload)
+/datum/controller/subsystem/blackbox/Initialize()
 	triggertime = world.time
 	record_feedback("amount", "random_seed", Master.random_seed)
 	record_feedback("amount", "dm_version", DM_VERSION)
 	record_feedback("amount", "dm_build", DM_BUILD)
 	record_feedback("amount", "byond_version", world.byond_version)
 	record_feedback("amount", "byond_build", world.byond_build)
-	. = ..()
+	return SS_INIT_SUCCESS
 
 //poll population
 /datum/controller/subsystem/blackbox/fire()

@@ -14,7 +14,7 @@ SUBSYSTEM_DEF(title)
 
 	var/list/title_screens = list()
 
-/datum/controller/subsystem/title/Initialize(mapload)
+/datum/controller/subsystem/title/Initialize()
 	if(file_path && icon)
 		return
 
@@ -35,7 +35,7 @@ SUBSYSTEM_DEF(title)
 
 	rotate_title_screen()
 
-	return ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/title/proc/rotate_title_screen()
 	if(length(title_screens))

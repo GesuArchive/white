@@ -11,9 +11,9 @@ SUBSYSTEM_DEF(skills)
 	///List of level names with index corresponding to skill level
 	var/list/level_names = list("Никто", "Новичок", "Подмастерье", "Опытный", "Эксперт", "Мастер", "Легенда") //List of skill level names. Note that indexes can be accessed like so: level_names[SKILL_LEVEL_NOVICE]
 
-/datum/controller/subsystem/skills/Initialize(timeofday)
+/datum/controller/subsystem/skills/Initialize()
 	InitializeSkills()
-	return ..()
+	return SS_INIT_SUCCESS
 
 ///Ran on initialize, populates the skills dictionary
 /datum/controller/subsystem/skills/proc/InitializeSkills(timeofday)

@@ -121,6 +121,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/load_circuit,
 	/client/proc/change_lobby_music,
 	/client/proc/cmd_admin_toggle_fov,
+	/client/proc/validate_puzzgrids,
 	/client/proc/force_say,
 	/client/proc/force_violence_map,
 	/client/proc/force_violence_mode,

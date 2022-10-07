@@ -36,7 +36,7 @@ SUBSYSTEM_DEF(id_access)
 	/// The roundstart generated code for the spare ID safe. This is given to the Captain on shift start. If there's no Captain, it's given to the HoP. If there's no HoP
 	var/spare_id_safe_code = ""
 
-/datum/controller/subsystem/id_access/Initialize(timeofday)
+/datum/controller/subsystem/id_access/Initialize()
 	// We use this because creating the trim singletons requires the config to be loaded.
 	SSmapping.HACK_LoadMapConfig()
 	setup_access_flags()
@@ -48,7 +48,7 @@ SUBSYSTEM_DEF(id_access)
 
 	spare_id_safe_code = "[rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
 
-	return ..()
+	return SS_INIT_SUCCESS
 
 /**
  * Called by [/datum/controller/subsystem/ticker/proc/setup]

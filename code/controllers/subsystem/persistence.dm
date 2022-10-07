@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(persistence)
 	var/list/obj/structure/sign/painting/painting_frames = list()
 	var/list/paintings = list()
 
-/datum/controller/subsystem/persistence/Initialize(mapload)
+/datum/controller/subsystem/persistence/Initialize()
 	LoadPoly()
 	LoadChiselMessages()
 	LoadTrophies()
@@ -34,7 +34,7 @@ SUBSYSTEM_DEF(persistence)
 	LoadRandomizedRecipes()
 
 	GLOB.explorer_drone_adventures = load_adventures()
-	return ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/persistence/proc/LoadPoly()
 	for(var/mob/living/simple_animal/parrot/poly/P in GLOB.alive_mob_list)

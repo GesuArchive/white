@@ -10,7 +10,7 @@ SUBSYSTEM_DEF(traumas)
 
 #define PHOBIA_FILE "phobia.json"
 
-/datum/controller/subsystem/traumas/Initialize(mapload)
+/datum/controller/subsystem/traumas/Initialize()
 	//phobia types is to pull from randomly for brain traumas, e.g. conspiracies is for special assignment only
 	phobia_types = sort_list(list(
 		"spiders",
@@ -454,7 +454,7 @@ SUBSYSTEM_DEF(traumas)
 		))
 	)
 
-	return ..()
+	return SS_INIT_SUCCESS
 
 ///Creates a regular expression to match against the given phobia
 ///Capture group 2 = the scary word

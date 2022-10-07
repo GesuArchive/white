@@ -52,7 +52,7 @@ SUBSYSTEM_DEF(research)
 
 	var/mining_multiplier = 1
 
-/datum/controller/subsystem/research/Initialize(mapload)
+/datum/controller/subsystem/research/Initialize()
 	point_types = TECHWEB_POINT_TYPE_LIST_ASSOCIATIVE_NAMES
 	initialize_all_techweb_designs()
 	initialize_all_techweb_nodes()
@@ -61,7 +61,7 @@ SUBSYSTEM_DEF(research)
 	autosort_categories()
 	error_design = new
 	error_node = new
-	return ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/research/fire()
 	var/list/bitcoins = list()
