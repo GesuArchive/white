@@ -19,6 +19,7 @@
 	ignored += typesof(/mob/living/silicon/robot/modules)
 	ignored += typesof(/mob/camera/ai_eye/remote/base_construction)
 	ignored += typesof(/mob/camera/ai_eye/remote/shuttle_docker)
+	ignored += typesof(/mob/camera/ai_eye/pic_in_pic)
 	for (var/mob_type in typesof(/mob) - ignored)
 		var/mob/mob_instance = allocate(mob_type)
 		if(!islist(mob_instance.faction))
