@@ -17,7 +17,7 @@ SUBSYSTEM_DEF(blackmarket)
 	/// Currently queued purchases.
 	var/list/queued_purchases 						= list()
 
-/datum/controller/subsystem/blackmarket/Initialize(timeofday)
+/datum/controller/subsystem/blackmarket/Initialize()
 	for(var/market in subtypesof(/datum/blackmarket_market))
 		markets[market] += new market
 

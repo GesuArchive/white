@@ -20,7 +20,7 @@ SUBSYSTEM_DEF(aspects)
 		var/datum/round_aspect/A = new item()
 		aspects[A] = A.weight
 
-	return ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/aspects/stat_entry(msg)
 	msg = "CA:[ca_name]"

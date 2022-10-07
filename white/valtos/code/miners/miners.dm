@@ -6,7 +6,7 @@ SUBSYSTEM_DEF(spm)
 	var/crypto = "BTC"
 
 /datum/controller/subsystem/spm/Initialize(mapload)
-	. = ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/spm/stat_entry(msg)
 	msg = "P:[miners.len]"
