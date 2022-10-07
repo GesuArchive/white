@@ -1607,7 +1607,7 @@
 /obj/structure/railing{
 	dir = 4
 	},
-/turf/open/openspace/fastload/planetmos,
+/turf/open/openspace,
 /area/boxplanet/surface)
 "bdu" = (
 /obj/structure/closet/emcloset,
@@ -4300,7 +4300,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/open/openspace/fastload/planetmos,
+/turf/open/openspace,
 /area/boxplanet/surface)
 "dnD" = (
 /obj/structure/cable,
@@ -5243,7 +5243,7 @@
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/open/openspace/fastload/planetmos,
+/turf/open/openspace,
 /area/boxplanet/surface)
 "eie" = (
 /obj/effect/turf_decal/trimline/yellow/line{
@@ -10297,7 +10297,7 @@
 /area/security/brig)
 "ibW" = (
 /obj/structure/lattice,
-/turf/open/openspace/fastload/planetmos,
+/turf/open/openspace,
 /area/boxplanet/surface)
 "icu" = (
 /obj/structure/cable,
@@ -10890,7 +10890,7 @@
 /area/hallway/secondary/exit/departure_lounge)
 "iAh" = (
 /obj/structure/lattice/catwalk,
-/turf/open/openspace/fastload/planetmos,
+/turf/open/openspace,
 /area/solars/starboard/aft)
 "iBm" = (
 /obj/effect/turf_decal/bot,
@@ -11765,7 +11765,7 @@
 "jnf" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/turf/open/openspace/fastload/planetmos,
+/turf/open/openspace,
 /area/solars/starboard/aft)
 "jnr" = (
 /obj/structure/cable,
@@ -15140,7 +15140,7 @@
 "lXl" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced,
-/turf/open/openspace/fastload/planetmos,
+/turf/open/openspace,
 /area/boxplanet/surface)
 "lXm" = (
 /obj/structure/closet/wardrobe/mixed,
@@ -17159,7 +17159,7 @@
 	roundstart_template = /datum/map_template/shuttle/arrival/box;
 	width = 7
 	},
-/turf/open/openspace/fastload/planetmos,
+/turf/open/openspace,
 /area/boxplanet/surface)
 "nEA" = (
 /obj/effect/turf_decal/trimline/purple/filled/corner{
@@ -22986,7 +22986,7 @@
 	name = "DeltaStation emergency evac bay";
 	width = 30
 	},
-/turf/open/openspace/fastload/planetmos,
+/turf/open/openspace,
 /area/boxplanet/surface)
 "snJ" = (
 /turf/open/space/openspace,
@@ -30580,7 +30580,7 @@
 	},
 /area/hallway/secondary/exit/departure_lounge)
 "xKW" = (
-/turf/open/openspace/fastload/planetmos,
+/turf/open/openspace,
 /area/boxplanet/surface)
 "xLa" = (
 /obj/structure/bookcase/random,
