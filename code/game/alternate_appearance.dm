@@ -28,7 +28,9 @@ GLOBAL_LIST_EMPTY(active_alternate_appearances)
 	appearance_key = key
 	hud_icons = list(appearance_key)
 	..()
+
 	GLOB.active_alternate_appearances += src
+
 	for(var/mob in GLOB.player_list)
 		if(mobShouldSee(mob))
 			show_to(mob)
@@ -70,12 +72,14 @@ GLOBAL_LIST_EMPTY(active_alternate_appearances)
 	..()
 	transfer_overlays = options & AA_MATCH_TARGET_OVERLAYS
 	image = I
+	target = I.loc
 	LAZYADD(target.update_on_z, image)
 	if(transfer_overlays)
 		I.copy_overlays(target)
 
 	add_atom_to_hud(target)
 	target.set_hud_image_active(appearance_key, exclusive_hud = src)
+
 	if((options & AA_TARGET_SEE_APPEARANCE) && ismob(target))
 		show_to(target)
 	if(add_ghost_version)
@@ -111,7 +115,7 @@ GLOBAL_LIST_EMPTY(active_alternate_appearances)
 	add_ghost_version = TRUE
 
 /datum/atom_hud/alternate_appearance/basic/everyone/mobShouldSee(mob/M)
-	return !isobserver(M)
+	return !isdead(M)
 
 /datum/atom_hud/alternate_appearance/basic/silicons
 
@@ -129,25 +133,25 @@ GLOBAL_LIST_EMPTY(active_alternate_appearances)
 /datum/atom_hud/alternate_appearance/basic/noncult
 
 /datum/atom_hud/alternate_appearance/basic/noncult/mobShouldSee(mob/M)
-	if(!iscultist(M))
+	if(!IS_CULTIST(M))
 		return TRUE
 	return FALSE
 
 /datum/atom_hud/alternate_appearance/basic/cult
 
 /datum/atom_hud/alternate_appearance/basic/cult/mobShouldSee(mob/M)
-	if(iscultist(M))
+	if(IS_CULTIST(M))
 		return TRUE
 	return FALSE
 
 /datum/atom_hud/alternate_appearance/basic/blessed_aware
 
 /datum/atom_hud/alternate_appearance/basic/blessed_aware/mobShouldSee(mob/M)
-	if(M.mind && (M.mind.assigned_role == JOB_CHAPLAIN))
+	if(M.mind?.holy_role)
 		return TRUE
 	if (istype(M, /mob/living/simple_animal/hostile/construct/wraith))
 		return TRUE
-	if(isrevenant(M) || iswizard(M))
+	if(isrevenant(M) || IS_WIZARD(M))
 		return TRUE
 	return FALSE
 
@@ -164,9 +168,3 @@ GLOBAL_LIST_EMPTY(active_alternate_appearances)
 	seer = M
 
 /datum/atom_hud/alternate_appearance/basic/food_demands
-
-/datum/atom_hud/alternate_appearance/basic/heretics
-	add_ghost_version = FALSE //just in case, to prevent infinite loops
-
-/datum/atom_hud/alternate_appearance/basic/everyone/mobShouldSee(mob/M)
-	return IS_HERETIC(M) || IS_HERETIC_MONSTER(M)

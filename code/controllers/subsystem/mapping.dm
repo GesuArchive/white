@@ -62,6 +62,9 @@ SUBSYSTEM_DEF(mapping)
 	var/space_levels_so_far = 0
 	var/near_space_levels_so_far = 0
 	var/list/z_list
+	///list of all z level indices that form multiz connections and whether theyre linked up or down.
+	///list of lists, inner lists are of the form: list("up or down link direction" = TRUE)
+	var/list/multiz_levels = list()
 	var/datum/space_level/transit
 	var/datum/space_level/empty_space
 	var/num_of_res_levels = 1
@@ -69,6 +72,13 @@ SUBSYSTEM_DEF(mapping)
 	var/adding_new_zlevel = FALSE
 
 	var/current_mining
+
+	///shows the default gravity value for each z level. recalculated when gravity generators change.
+	///associative list of the form: list("[z level num]" = max generator gravity in that z level OR the gravity level trait)
+	var/list/gravity_by_z_level = list()
+
+	/// list of traits and their associated z leves
+	var/list/z_trait_levels = list()
 
 //dlete dis once #39770 is resolved
 /datum/controller/subsystem/mapping/proc/HACK_LoadMapConfig()
@@ -159,10 +169,47 @@ SUBSYSTEM_DEF(mapping)
 	setup_map_transitions()
 	generate_station_area_list()
 	initialize_reserved_level(transit.z_value)
+	calculate_default_z_level_gravities()
 
 	// spawn yohei shuttle
 	spawn_type_shuttle(/datum/map_template/shuttle/yohei)
 	return ..()
+
+/datum/controller/subsystem/mapping/proc/calculate_default_z_level_gravities()
+	for(var/z_level in 1 to length(z_list))
+		calculate_z_level_gravity(z_level)
+
+/datum/controller/subsystem/mapping/proc/generate_z_level_linkages()
+	for(var/z_level in 1 to length(z_list))
+		generate_linkages_for_z_level(z_level)
+
+/datum/controller/subsystem/mapping/proc/generate_linkages_for_z_level(z_level)
+	if(!isnum(z_level) || z_level <= 0)
+		return FALSE
+
+	if(multiz_levels.len < z_level)
+		multiz_levels.len = z_level
+
+	var/linked_down = level_trait(z_level, ZTRAIT_DOWN)
+	var/linked_up = level_trait(z_level, ZTRAIT_UP)
+	multiz_levels[z_level] = list()
+	if(linked_down)
+		multiz_levels[z_level]["[DOWN]"] = TRUE
+	if(linked_up)
+		multiz_levels[z_level]["[UP]"] = TRUE
+
+/datum/controller/subsystem/mapping/proc/calculate_z_level_gravity(z_level_number)
+	if(!isnum(z_level_number) || z_level_number < 1)
+		return FALSE
+
+	var/max_gravity = 0
+
+	for(var/obj/machinery/gravity_generator/main/grav_gen as anything in GLOB.gravity_generators["[z_level_number]"])
+		max_gravity = max(grav_gen.setting, max_gravity)
+
+	max_gravity = max_gravity || level_trait(z_level_number, ZTRAIT_GRAVITY) || 0//just to make sure no nulls
+	gravity_by_z_level["[z_level_number]"] = max_gravity
+	return max_gravity
 
 /datum/controller/subsystem/mapping/proc/spawn_type_shuttle(datum/which_type = null)
 	if(!which_type)

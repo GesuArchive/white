@@ -18,6 +18,9 @@
 /turf/open/openspace/Initialize(mapload) // handle plane and layer here so that they don't cover other obs/turfs in Dream Maker
 	. = ..()
 	RegisterSignal(src, COMSIG_ATOM_CREATED, .proc/on_atom_created)
+	var/area/our_area = loc
+	if(istype(our_area, /area/space))
+		force_no_gravity = TRUE
 	return INITIALIZE_HINT_LATELOAD
 
 /turf/open/openspace/LateInitialize()
