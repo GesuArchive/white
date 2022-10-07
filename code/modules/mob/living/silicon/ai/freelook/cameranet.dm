@@ -48,6 +48,8 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 // If there is no chunk, it creates a new chunk and returns that.
 /datum/cameranet/proc/getCameraChunk(x, y, z)
 	var/turf/lowest = get_lowest_turf(locate(x, y, z))
+	if(!lowest)
+		lowest = locate(x, y, z)
 	x &= ~(CHUNK_SIZE - 1)
 	y &= ~(CHUNK_SIZE - 1)
 	var/key = "[x],[y],[lowest.z]"

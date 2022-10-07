@@ -11,6 +11,8 @@ SUBSYSTEM_DEF(parallax)
 	var/random_parallax_color
 	var/random_space
 
+/datum/controller/subsystem/parallax/Initialize()
+	return SS_INIT_SUCCESS
 
 //These are cached per client so needs to be done asap so people joining at roundstart do not miss these.
 /datum/controller/subsystem/parallax/PreInit()

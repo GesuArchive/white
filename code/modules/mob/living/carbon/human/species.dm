@@ -681,6 +681,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	H.apply_overlay(HAIR_LAYER)
 
 /datum/species/proc/make_gradient_overlay(file, icon, layer, datum/sprite_accessory/gradient, grad_color)
+	if(!gradient)
+		gradient = pick(GLOB.hair_gradients_list)
 	var/mutable_appearance/gradient_overlay = mutable_appearance(layer = -layer)
 	var/icon/temp = icon(gradient.icon, gradient.icon_state)
 	var/icon/temp_hair = icon(file, icon)

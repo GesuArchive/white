@@ -133,6 +133,8 @@
 	src.y = y
 	src.lower_z = lower_z
 	var/turf/upper_turf = get_highest_turf(locate(x, y, lower_z))
+	if(!upper_turf)
+		upper_turf = locate(x, y, lower_z)
 	src.upper_z = upper_turf.z
 
 	for(var/z_level in lower_z to upper_z)

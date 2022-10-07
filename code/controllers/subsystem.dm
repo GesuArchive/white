@@ -244,7 +244,7 @@
 /**
  * Used to initialize the subsystem. This is expected to be overriden by subtypes.
  */
-/datum/controller/subsystem/Initialize(start_timeofday)
+/datum/controller/subsystem/Initialize()
 	return SS_INIT_NONE
 
 /datum/controller/subsystem/stat_entry(msg)

@@ -412,7 +412,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 			chat_warning = TRUE
 
 	var/message = "[message_prefix] за [seconds]с!"
-	var/chat_message = chat_warning ? span_green(message) : span_greenannounce(message)
+	var/chat_message = chat_warning ? span_green(message) : span_red(message)
 
 	to_chat(world, chat_message)
 	log_world(message)

@@ -4,6 +4,9 @@ SUBSYSTEM_DEF(security_level)
 	/// Currently set security level
 	var/current_level = SEC_LEVEL_GREEN
 
+/datum/controller/subsystem/security_level/Initialize()
+	return SS_INIT_SUCCESS
+
 /**
  * Sets a new security level as our current level
  *
