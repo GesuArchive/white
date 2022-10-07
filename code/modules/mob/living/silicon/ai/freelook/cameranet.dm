@@ -74,7 +74,6 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 			var/x2 = min(world.maxx, eye.x + static_range) & ~(CHUNK_SIZE - 1)
 			var/y2 = min(world.maxy, eye.y + static_range) & ~(CHUNK_SIZE - 1)
 
-
 			for(var/x = x1; x <= x2; x += CHUNK_SIZE)
 				for(var/y = y1; y <= y2; y += CHUNK_SIZE)
 					visibleChunks |= getCameraChunk(x, y, eye.z)

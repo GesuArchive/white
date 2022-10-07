@@ -38,7 +38,7 @@
 		add_overlay(highlighted ? highlighted_background : standard_background)
 
 /atom/movable/screen/movable/pic_in_pic/ai/set_view_size(width, height, do_refresh = TRUE)
-	aiEye.static_visibility_range =	(round(max(width, height) / 2) + 1)
+	aiEye.static_visibility_range = (round(max(width, height) / 2) + 1)
 	if(ai)
 		ai.camera_visibility(aiEye)
 	..()
@@ -101,7 +101,7 @@
 	name = "ai_multicam_room"
 	icon_state = "ai_camera_room"
 	static_lighting = FALSE
-	base_lighting_color = COLOR_WHITE
+
 	base_lighting_alpha = 255
 	area_flags = NOTELEPORT | HIDDEN_AREA | UNIQUE_AREA
 	ambientsounds = null
@@ -141,9 +141,9 @@ GLOBAL_DATUM(ai_camera_room_landmark, /obj/effect/landmark/ai_multicam_room)
 	if(screen?.ai)
 		return screen.ai.client
 
-/mob/camera/ai_eye/pic_in_pic/setLoc(turf/T, force_update = FALSE)
-	if (T)
-		abstract_move(T)
+/mob/camera/ai_eye/pic_in_pic/setLoc(turf/destination, force_update = FALSE)
+	if (destination)
+		abstract_move(destination)
 	else
 		moveToNullspace()
 	if(screen?.ai)
@@ -178,14 +178,14 @@ GLOBAL_DATUM(ai_camera_room_landmark, /obj/effect/landmark/ai_multicam_room)
 			continue
 		cameras_telegraphed -= C
 		C.in_use_lights--
-		C.update_icon()
+		C.update_appearance()
 	for (var/V in add)
 		var/obj/machinery/camera/C = V
 		if(QDELETED(C))
 			continue
 		cameras_telegraphed |= C
 		C.in_use_lights++
-		C.update_icon()
+		C.update_appearance()
 
 /mob/camera/ai_eye/pic_in_pic/proc/disable_camera_telegraphing()
 	telegraph_cameras = FALSE
@@ -194,7 +194,7 @@ GLOBAL_DATUM(ai_camera_room_landmark, /obj/effect/landmark/ai_multicam_room)
 		if(QDELETED(C))
 			continue
 		C.in_use_lights--
-		C.update_icon()
+		C.update_appearance()
 	cameras_telegraphed.Cut()
 
 /mob/camera/ai_eye/pic_in_pic/Destroy()
