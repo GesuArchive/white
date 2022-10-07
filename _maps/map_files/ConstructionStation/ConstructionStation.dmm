@@ -1787,7 +1787,7 @@
 /area/science/xenobiology)
 "wW" = (
 /obj/effect/turf_decal/bot_white,
-/obj/machinery/gravity_generator/main/station,
+/obj/machinery/gravity_generator/main,
 /turf/open/floor/plasteel,
 /area/engineering/gravity_generator)
 "wZ" = (

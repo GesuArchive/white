@@ -44949,7 +44949,7 @@
 /turf/open/floor/plating,
 /area/maintenance/disposal/incinerator)
 "khw" = (
-/obj/machinery/gravity_generator/main/station,
+/obj/machinery/gravity_generator/main,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8

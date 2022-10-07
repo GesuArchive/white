@@ -2347,7 +2347,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/engineering/gravity_generator)
 "jw" = (
-/obj/machinery/gravity_generator/main/station,
+/obj/machinery/gravity_generator/main,
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
