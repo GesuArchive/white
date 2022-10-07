@@ -256,6 +256,7 @@
 		movable.currently_z_moving = currently_z_moving || CURRENTLY_Z_MOVING_GENERIC
 		movable.forceMove(target)
 		movable.set_currently_z_moving(FALSE, TRUE)
+
 	// This is run after ALL movables have been moved, so pulls don't get broken unless they are actually out of range.
 	if(z_move_flags & ZMOVE_CHECK_PULLS)
 		for(var/atom/movable/moved_mov as anything in moving_movs)
