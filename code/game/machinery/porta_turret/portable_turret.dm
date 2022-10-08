@@ -927,14 +927,15 @@ DEFINE_BITFIELD(turret_flags, list(
 	if (issilicon(user))
 		return attack_hand(user)
 
-	if ( get_dist(src, user) == 0 )		// trying to unlock the interface
+	if ( get_dist(src, user) == 1 )		// trying to unlock the interface
 		if (allowed(usr))
 			if(obj_flags & EMAGGED)
 				to_chat(user, span_warning("The turret control is unresponsive!"))
 				return
 
 			locked = !locked
-			to_chat(user, span_notice("You [ locked ? "lock" : "unlock"] the panel."))
+			to_chat(user, span_notice("[ locked ? "Блокирую" : "Разблокирую"] панель."))
+			return attack_hand(user)
 		else
 			to_chat(user, span_alert("Доступ запрещён."))
 

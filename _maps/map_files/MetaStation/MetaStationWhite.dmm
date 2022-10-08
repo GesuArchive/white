@@ -1675,7 +1675,6 @@
 /turf/open/floor/plasteel/dark,
 /area/security/main)
 "aex" = (
-/obj/structure/closet/secure_closet/security/sec,
 /obj/machinery/airalarm{
 	pixel_y = 28
 	},
@@ -1691,6 +1690,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/structure/closet/secure_closet/security/specialist,
 /turf/open/floor/plasteel/dark,
 /area/security/main)
 "aey" = (

@@ -75,11 +75,6 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/unpowered)
-"lS" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken2"
-	},
-/area/ruin/unpowered)
 "mE" = (
 /obj/item/kirbyplants/random,
 /obj/structure/extinguisher_cabinet{
@@ -193,9 +188,7 @@
 /obj/item/gun/ballistic/shotgun/fallout/cowboy,
 /obj/item/ammo_box/fallout/tube357,
 /obj/item/ammo_box/fallout/tube357,
-/turf/open/floor/wood{
-	icon_state = "wood-broken2"
-	},
+/turf/open/floor/wood,
 /area/ruin/unpowered)
 "sq" = (
 /obj/structure/chair/wood{
@@ -235,11 +228,6 @@
 	name = "Bar"
 	},
 /turf/open/floor/wood,
-/area/ruin/unpowered)
-"vn" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken6"
-	},
 /area/ruin/unpowered)
 "wI" = (
 /turf/open/floor/plasteel,
@@ -352,15 +340,6 @@
 	},
 /obj/structure/table/wood,
 /turf/open/floor/wood,
-/area/ruin/unpowered)
-"Ji" = (
-/obj/structure/chair/stool/bar,
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/turf/open/floor/wood{
-	icon_state = "wood-broken7"
-	},
 /area/ruin/unpowered)
 "Kp" = (
 /obj/structure/chair/sofa/left{
@@ -500,11 +479,6 @@
 	},
 /turf/open/floor/carpet/green,
 /area/ruin/unpowered)
-"Yp" = (
-/turf/open/floor/wood{
-	icon_state = "wood-broken4"
-	},
-/area/ruin/unpowered)
 
 (1,1,1) = {"
 VP
@@ -548,7 +522,7 @@ TC
 TC
 TC
 TC
-lS
+TC
 uM
 XC
 wI
@@ -558,7 +532,7 @@ wI
 VP
 TC
 TC
-Yp
+TC
 TC
 TC
 VP
@@ -581,7 +555,7 @@ VP
 (7,1,1) = {"
 VP
 qM
-Yp
+TC
 Lb
 zI
 sq
@@ -629,7 +603,7 @@ VP
 (11,1,1) = {"
 nB
 eu
-Ji
+eu
 eu
 eu
 eu
@@ -658,7 +632,7 @@ tb
 VL
 tD
 VV
-vn
+TC
 TC
 LP
 "}

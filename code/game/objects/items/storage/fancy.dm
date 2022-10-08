@@ -70,7 +70,7 @@
  */
 
 /obj/item/storage/fancy/donut_box
-	name = "коробка для пончиков"
+	name = "коробка с пончиками"
 	desc = "Ммм. Пончики."
 	icon = 'icons/obj/food/donuts.dmi'
 	icon_state = "donutbox_inner"
@@ -79,6 +79,14 @@
 	fancy_open = TRUE
 	appearance_flags = KEEP_TOGETHER|LONG_GLIDE
 	custom_premium_price = PAYCHECK_HARD * 1.75
+
+/obj/item/storage/fancy/donut_box/choco
+	name = "коробка с пончиками (шоколад)"
+	spawn_type = /obj/item/food/donut/choco
+
+/obj/item/storage/fancy/donut_box/caramel
+	name = "коробка с пончиками (карамель)"
+	spawn_type = /obj/item/food/donut/caramel
 
 /obj/item/storage/fancy/donut_box/ComponentInitialize()
 	. = ..()

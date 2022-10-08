@@ -99,7 +99,7 @@
 	template_names = list(
 		"Default Brig" = 10,
 		"Loose Brig" = 1,
-		"Armored Brig" = 4
+		"Armored Brig" = 3
 	)
 	icon_state = "brig_template"
 

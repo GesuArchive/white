@@ -1174,6 +1174,26 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Охрана: Офис"
 	icon_state = "security"
 
+/area/security/main/mechanic
+	name = "Охрана: Мастерская"
+	icon_state = "security_1"
+
+/area/security/main/lockers
+	name = "Охрана: Снаряжение"
+	icon_state = "security_2"
+
+/area/security/main/evidence
+	name = "Охрана: Хранилище"
+	icon_state = "security_3"
+
+/area/security/main/sb_med
+	name = "Охрана: Лазарет"
+	icon_state = "security_4"
+
+/area/security/main/angar
+	name = "Охрана: Ангар"
+	icon_state = "security_5"
+
 /area/security/brig
 	name = "Охрана: Бриг"
 	icon_state = "brig"
@@ -1253,7 +1273,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/security/warden
-	name = "Охрана: Надзор"
+	name = "Охрана: Надзиратель"
 	icon_state = "warden"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 

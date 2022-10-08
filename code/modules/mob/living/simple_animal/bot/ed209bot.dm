@@ -3,8 +3,8 @@
 	desc = "Робот-охранник. Он выглядит спокойным."
 	icon_state = "ed209"
 	density = TRUE
-	health = 100
-	maxHealth = 100
+	health = 200
+	maxHealth = 200
 	obj_damage = 60
 	environment_smash = ENVIRONMENT_SMASH_WALLS //Walls can't stop THE LAW
 	mob_size = MOB_SIZE_LARGE

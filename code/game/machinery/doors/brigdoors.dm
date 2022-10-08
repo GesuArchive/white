@@ -3,9 +3,9 @@
 #define FONT_STYLE "Small Fonts"
 #define MAX_TIMER 9000
 
-#define PRESET_SHORT 1200
-#define PRESET_MEDIUM 1800
-#define PRESET_LONG 3000
+#define PRESET_SHORT 3000
+#define PRESET_MEDIUM 6000
+#define PRESET_LONG 9000
 
 
 
