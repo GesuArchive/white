@@ -55,10 +55,17 @@
 
 /obj/item/gun/magic/Initialize(mapload)
 	. = ..()
+	RegisterSignal(src, COMSIG_ITEM_MAGICALLY_CHARGED, .proc/on_magic_charge)
+
 	charges = max_charges
 	chambered = new ammo_type(src)
 	if(can_charge)
 		START_PROCESSING(SSobj, src)
+
+/obj/item/gun/magic/proc/on_magic_charge(datum/source, datum/action/cooldown/spell/spell, mob/living/caster)
+	charges = max_charges
+	recharge_newshot()
+
 
 /obj/item/gun/magic/fire_sounds()
 	var/frequency_to_use = sin((90/max_charges) * charges)

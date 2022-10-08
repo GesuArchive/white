@@ -298,6 +298,9 @@
 /proc/_rect_turfs(turf/center, width = 1, height = 1)
 	return RECT_TURFS(width, height, center)
 
+/proc/_flick(i, obj/O)
+	flick(i, O)
+
 /// Auxtools REALLY doesn't know how to handle filters as values;
 /// when passed as arguments to auxtools-called procs, they aren't simply treated as nulls -
 /// they don't even count towards the length of args.

@@ -44,6 +44,21 @@
 	if(ratingdesc)
 		desc += " This one has a rating of [display_energy(maxcharge)], and you should not swallow it."
 	update_icon()
+	RegisterSignal(src, COMSIG_ITEM_MAGICALLY_CHARGED, .proc/on_magic_charge)
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/on_moved)
+	if(!istype(loc, /obj/item/storage) && !istype(loc, /turf))
+		RegisterSignal(loc, COMSIG_ITEM_MAGICALLY_CHARGED, .proc/on_magic_charge)
+	
+/obj/item/stock_parts/cell/proc/on_magic_charge(datum/source, datum/action/cooldown/spell/spell, mob/living/caster)
+	give(rand(6,25)*100)
+
+/obj/item/stock_parts/cell/proc/on_moved(datum/source, atom/old_loc, dir, forced, list/old_locs)
+	if(istype(old_loc, /turf))
+		return
+	UnregisterSignal(old_loc, COMSIG_ITEM_MAGICALLY_CHARGED)
+	if(!istype(loc, /obj/item/storage) && !istype(loc, /turf))
+		RegisterSignal(loc, COMSIG_ITEM_MAGICALLY_CHARGED, .proc/on_magic_charge)
+	
 
 /obj/item/stock_parts/cell/create_reagents(max_vol, flags)
 	. = ..()
