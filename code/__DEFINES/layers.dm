@@ -12,7 +12,7 @@
 #define PLANE_SPACE -25
 #define PLANE_SPACE_PARALLAX -20
 
-#define GRAVITY_PULSE_PLANE -11
+#define GRAVITY_PULSE_PLANE -12
 #define GRAVITY_PULSE_RENDER_TARGET "*GRAVPULSE_RENDER_TARGET"
 
 #define RENDER_PLANE_TRANSPARENT -9 //Transparent plane that shows openspace underneath the floor
@@ -65,6 +65,9 @@
 
 #define FULLSCREEN_PLANE 23
 
+///Visuals that represent sounds happening, and can be seen while blind.
+#define SOUND_EFFECT_VISUAL_PLANE 25
+
 ///--------------- FULLSCREEN RUNECHAT BUBBLES ------------
 
 ///Popup Chat Messages
@@ -97,7 +100,6 @@
 #define SPACE_LAYER 1.8
 
 //#define TURF_LAYER 2 //For easy recordkeeping; this is a byond define. Most floors (FLOOR_PLANE) and walls (GAME_PLANE) use this.
-#define OPENSPACE_LAYER 600 //Openspace layer over all turfs
 
 // GAME_PLANE layers
 #define CULT_OVERLAY_LAYER 2.01
@@ -182,6 +184,7 @@
 #define GASFIRE_LAYER 5.05
 #define RIPPLE_LAYER 5.1
 
+#define OPENSPACE_LAYER 600 //Openspace layer over all
 
 #define SINGULARITY_PLANE 10
 #define SINGULARITY_LAYER 1
@@ -214,12 +217,12 @@
 #define BLIND_LAYER 4
 #define CRIT_LAYER 5
 #define CURSE_LAYER 6
-#define FOV_EFFECTS_LAYER 10000 //Blindness effects are not layer 4, they lie to you
 
-///--------------- FULLSCREEN RUNECHAT BUBBLES ------------
+///--------------- SOUND EFFECT VISUALS ------------
 
 /// Bubble for typing indicators
-#define TYPING_LAYER 500
+#define TYPING_LAYER 1
+#define FOV_EFFECTS_LAYER 2 //Blindness effects are not layer 4, they lie to you
 
 #define RADIAL_BACKGROUND_LAYER 0
 ///1000 is an unimportant number, it's just to normalize copied layers

@@ -34,6 +34,8 @@
 	var/lighting_alpha
 	var/no_glasses
 	var/damaged	= FALSE	//damaged indicates that our eyes are undergoing some level of negative effect
+	/// Native FOV that will be applied if a config is enabled
+	var/native_fov = FOV_90_DEGREES
 
 /obj/item/organ/eyes/Insert(mob/living/carbon/M, special = FALSE, drop_if_replaced = FALSE, initialising)
 	. = ..()
@@ -52,6 +54,8 @@
 			eye_color_right = human_owner.eye_color_right
 		if(HAS_TRAIT(human_owner, TRAIT_NIGHT_VISION) && !lighting_alpha)
 			lighting_alpha = LIGHTING_PLANE_ALPHA_NV_TRAIT
+		if(CONFIG_GET(flag/native_fov) && native_fov)
+			human_owner.add_fov_trait(type, native_fov)
 	M.update_tint()
 	owner.update_sight()
 	if(M.has_dna() && ishuman(M))
@@ -89,6 +93,8 @@
 		if(eye_color_right)
 			human_owner.eye_color_right = old_eye_color_right
 		human_owner.regenerate_icons()
+		if(native_fov)
+			eye_owner.remove_fov_trait(type)
 	eye_owner.cure_blind(EYE_DAMAGE)
 	eye_owner.cure_nearsighted(EYE_DAMAGE)
 	eye_owner.set_blindness(0)
@@ -489,6 +495,10 @@
 /obj/item/organ/eyes/fly
 	name = "глаза мухи"
 	desc = "Эти глаза, кажется, смотрят в ответ независимо от того, с какой стороны вы смотрите на них."
+	eye_icon_state = "flyeyes"
+	icon_state = "eyeballs-fly"
+	flash_protect = FLASH_PROTECTION_HYPER_SENSITIVE
+	native_fov = NONE //flies can see all around themselves.
 
 /obj/item/organ/eyes/fly/Insert(mob/living/carbon/M, special = FALSE)
 	. = ..()
@@ -501,7 +511,7 @@
 /obj/item/organ/eyes/night_vision/maintenance_adapted
 	name = "adapted eyes"
 	desc = "These red eyes look like two foggy marbles. They give off a particularly worrying glow in the dark."
-	flash_protect = FLASH_PROTECTION_SENSITIVE
+	flash_protect = FLASH_PROTECTION_HYPER_SENSITIVE
 	eye_color_left = "f00"
 	eye_color_right = "f00"
 	icon_state = "adapted_eyes"

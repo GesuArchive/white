@@ -493,10 +493,10 @@
 	speech_args[SPEECH_MESSAGE] = new_message
 
 	if(question_found) // Prioritize questions
-		tonal_indicator = mutable_appearance('icons/mob/talk.dmi', "signlang1", TYPING_LAYER)
+		tonal_indicator = mutable_appearance('icons/mob/talk.dmi', "signlang1", TYPING_LAYER, src, SOUND_EFFECT_VISUAL_PLANE)
 		owner.visible_message(span_notice("[owner] опускает брови."))
 	else if(exclamation_found)
-		tonal_indicator = mutable_appearance('icons/mob/talk.dmi', "signlang2", TYPING_LAYER)
+		tonal_indicator = mutable_appearance('icons/mob/talk.dmi', "signlang2", TYPING_LAYER, src, SOUND_EFFECT_VISUAL_PLANE)
 		owner.visible_message(span_notice("[owner] поднимает брови."))
 	if(!isnull(tonal_indicator) && owner?.client.typing_indicators)
 		owner.add_overlay(tonal_indicator)

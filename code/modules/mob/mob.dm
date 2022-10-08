@@ -1300,6 +1300,10 @@
 /mob/proc/has_nightvision()
 	return HAS_TRAIT(src, TRAIT_NIGHT_VISION)
 
+/// Is this mob affected by nearsight
+/mob/proc/is_nearsighted()
+	return HAS_TRAIT(src, TRAIT_NEARSIGHT)
+
 /**
  * Checks if there is enough light where the mob is located
  *
