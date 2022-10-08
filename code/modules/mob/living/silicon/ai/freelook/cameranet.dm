@@ -48,8 +48,7 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 // If there is no chunk, it creates a new chunk and returns that.
 /datum/cameranet/proc/getCameraChunk(x, y, z)
 	var/turf/lowest = get_lowest_turf(locate(x, y, z))
-	if(!lowest)
-		lowest = locate(x, y, z)
+
 	x &= ~(CHUNK_SIZE - 1)
 	y &= ~(CHUNK_SIZE - 1)
 	var/key = "[x],[y],[lowest.z]"
@@ -71,8 +70,8 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 		if(eye.loc)
 			// 0xf = 15
 			var/static_range = eye.static_visibility_range
-			var/x1 = max(0, eye.x - static_range) & ~(CHUNK_SIZE - 1)
-			var/y1 = max(0, eye.y - static_range) & ~(CHUNK_SIZE - 1)
+			var/x1 = max(1, eye.x - static_range) & ~(CHUNK_SIZE - 1)
+			var/y1 = max(1, eye.y - static_range) & ~(CHUNK_SIZE - 1)
 			var/x2 = min(world.maxx, eye.x + static_range) & ~(CHUNK_SIZE - 1)
 			var/y2 = min(world.maxy, eye.y + static_range) & ~(CHUNK_SIZE - 1)
 
