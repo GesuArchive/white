@@ -387,11 +387,6 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/plane_master)
 	documentation = "Holds the areas themselves, which ends up meaning it holds any overlays/effects we apply to areas. NOT snow or rad storms, those go on above lighting"
 	plane = AREA_PLANE
 
-/atom/movable/screen/plane_master/singularity
-	name = "singularity plane"
-	documentation = "FUCK"
-	plane = SINGULARITY_PLANE
-
 /atom/movable/screen/plane_master/radtext
 	name = "radtext plane"
 	documentation = "FUCK YOU"

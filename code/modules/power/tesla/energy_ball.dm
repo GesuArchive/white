@@ -19,7 +19,7 @@
 	anchored = TRUE
 	appearance_flags = LONG_GLIDE
 	density = TRUE
-	plane = SINGULARITY_PLANE
+	plane = MASSIVE_OBJ_PLANE
 	layer = SINGULARITY_LAYER
 	light_range = 6
 	move_resist = INFINITY
