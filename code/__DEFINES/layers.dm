@@ -47,6 +47,8 @@
 ///Things that should render ignoring lighting
 #define ABOVE_LIGHTING_PLANE 12
 
+#define SINGULARITY_PLANE 13
+
 /// This plane masks out lighting to create an "emissive" effect, ie for glowing lights in otherwise dark areas.
 #define EMISSIVE_PLANE 14
 
@@ -95,6 +97,9 @@
 #define HIGHEST_EVER_PLANE RENDER_PLANE_MASTER
 /// The range unique planes can be in
 #define PLANE_RANGE (HIGHEST_EVER_PLANE - LOWEST_EVER_PLANE)
+
+#define SINGULARITY_LAYER 1
+#define ABOVE_SINGULARITY_LAYER 2
 
 // PLANE_SPACE layer(s)
 #define SPACE_LAYER 1.8
@@ -185,10 +190,6 @@
 #define RIPPLE_LAYER 5.1
 
 #define OPENSPACE_LAYER 600 //Openspace layer over all
-
-#define SINGULARITY_PLANE 10
-#define SINGULARITY_LAYER 1
-#define ABOVE_SINGULARITY_LAYER 2
 
 #define RAD_TEXT_PLANE 90
 
