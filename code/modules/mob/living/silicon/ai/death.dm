@@ -34,7 +34,7 @@
 	if(src.key)
 		for(var/each in GLOB.ai_status_displays) //change status
 			var/obj/machinery/status_display/ai/O = each
-			O.mode = 2
+			O.current_mode = 2
 			O.update()
 
 	if(istype(loc, /obj/item/aicard/aitater))
