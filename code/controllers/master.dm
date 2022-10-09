@@ -411,8 +411,8 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 			message_prefix = "Инициализация подсистемы [subsystem.name] с ошибками"
 			chat_warning = TRUE
 
-	var/message = "[message_prefix] за [seconds]с!"
-	var/chat_message = chat_warning ? span_green(message) : span_red(message)
+	var/message = "[message_prefix] за [seconds]с."
+	var/chat_message = chat_warning ? span_red(message) : span_green(message)
 
 	to_chat(world, chat_message)
 	log_world(message)
