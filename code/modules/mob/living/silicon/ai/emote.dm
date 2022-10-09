@@ -12,11 +12,8 @@
 	if(!.)
 		return
 	var/mob/living/silicon/ai/ai = user
-	var/turf/ai_turf = get_turf(ai)
 
 	for(var/obj/machinery/status_display/ai/ai_display as anything in GLOB.ai_status_displays)
-		var/turf/display_turf = get_turf(ai_display)
-
 		ai_display.emotion = emotion
 		ai_display.update()
 
