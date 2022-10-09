@@ -249,7 +249,7 @@
 	if(contents.len)
 		for(var/obj/item/I as() in contents)
 			var/rand_size = (istype(I, /obj/item/stock_parts/scanning_module/noneuclid) || istype(I, /obj/item/stock_parts/micro_laser/quadultra)) ? 2 : 5
-			var/mutable_appearance/part_overlay = mutable_appearance(I.icon, I.icon_state, layer = FLOAT_LAYER, plane = FLOAT_PLANE)
+			var/mutable_appearance/part_overlay = mutable_appearance(I.icon, I.icon_state, FLOAT_LAYER, src, plane = FLOAT_PLANE)
 			part_overlay.pixel_x = base_pixel_x + rand(-rand_size, rand_size)
 			part_overlay.pixel_y = base_pixel_y + rand(-rand_size, rand_size)
 			add_overlay(part_overlay)

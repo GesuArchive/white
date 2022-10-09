@@ -163,12 +163,11 @@
 
 /obj/machinery/deepcore/drill/update_overlays()
 	. = ..()
-	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 	//Cool beam of light ignores shadows.
 	if(active && deployed)
 		set_light(3, 1, "99FFFF")
-		SSvis_overlays.add_vis_overlay(src, icon, "mining_beam-particles", layer, plane, dir)
-		SSvis_overlays.add_vis_overlay(src, icon, "mining_beam-particles", layer, EMISSIVE_PLANE, dir)
+		. += mutable_appearance(icon, "mining_beam-particles", layer, src, plane, alpha)
+		. += emissive_appearance(icon, "mining_beam-particles", src)
 	else
 		set_light(0)
 

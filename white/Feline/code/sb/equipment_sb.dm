@@ -107,7 +107,7 @@
 	if(machine_stat & (NOPOWER|BROKEN) || !anchored)
 		return
 	if(panel_open)						// панель снята
-		. += mutable_appearance(icon, "[base_icon_state]-open", layer, plane, alpha)
+		. += mutable_appearance(icon, "[base_icon_state]-open", layer, src, plane, alpha)
 		return
 
 	if(port_cell)						// уровень батареи
@@ -128,8 +128,8 @@
 			if(85 to 100)
 				cell_percent = "7"
 
-		. += mutable_appearance(icon, "[base_icon_state]-charge-[cell_percent]", layer, plane, alpha)
-		. += mutable_appearance(icon, "[base_icon_state]-charge-[cell_percent]", 0, EMISSIVE_PLANE, alpha)
+		. += mutable_appearance(icon, "[base_icon_state]-charge-[cell_percent]", layer, src, plane, alpha)
+		. += emissive_appearance(icon, "[base_icon_state]-charge-[cell_percent]", src)
 
 		var/power_net
 		if(port_cell.percent() != 0)	// рабочая сеть
@@ -142,8 +142,8 @@
 					power_net = "net"
 		else
 			power_net = "dead"
-		. += mutable_appearance(icon, "[base_icon_state]-power-[power_net]", layer, plane, alpha)
-		. += mutable_appearance(icon, "[base_icon_state]-power-[power_net]", 0, EMISSIVE_PLANE, alpha)
+		. += mutable_appearance(icon, "[base_icon_state]-power-[power_net]", layer, src, plane, alpha)
+		. += emissive_appearance(icon, "[base_icon_state]-power-[power_net]", src)
 
 	if(charging)							// порт 1
 		if(port_cell.percent() != 0)
@@ -170,19 +170,19 @@
 					port_1_cell_percent = "6"
 				if(85 to 100)
 					port_1_cell_percent = "7"
-			. += mutable_appearance(icon, "[base_icon_state]-p1-cell-[port_1_cell_percent]", layer, plane, alpha)
-			. += mutable_appearance(icon, "[base_icon_state]-p1-cell-[port_1_cell_percent]", 0, EMISSIVE_PLANE, alpha)
+			. += mutable_appearance(icon, "[base_icon_state]-p1-cell-[port_1_cell_percent]", layer, src, plane, alpha)
+			. += emissive_appearance(icon, "[base_icon_state]-p1-cell-[port_1_cell_percent]", src)
 
 			if(using_power)						// в процессе
-				. += mutable_appearance(icon, "[base_icon_state]-p1-charging", layer, plane, alpha)
-				. += mutable_appearance(icon, "[base_icon_state]-p1-charging", 0, EMISSIVE_PLANE, alpha)
+				. += mutable_appearance(icon, "[base_icon_state]-p1-charging", layer, src, plane, alpha)
+				. += emissive_appearance(icon, "[base_icon_state]-p1-charging", src)
 			else								// завершен
-				. += mutable_appearance(icon, "[base_icon_state]-p1-full", layer, plane, alpha)
-				. += mutable_appearance(icon, "[base_icon_state]-p1-full", 0, EMISSIVE_PLANE, alpha)
+				. += mutable_appearance(icon, "[base_icon_state]-p1-full", layer, src, plane, alpha)
+				. += emissive_appearance(icon, "[base_icon_state]-p1-full", src)
 		else
 			if(!isarea(a) || a.power_equip == 0)	// питания нет, внутренняя батарея пуста
-				. += mutable_appearance(icon, "[base_icon_state]-p1-cell-fail", layer, plane, alpha)
-				. += mutable_appearance(icon, "[base_icon_state]-p1-cell-fail", 0, EMISSIVE_PLANE, alpha)
+				. += mutable_appearance(icon, "[base_icon_state]-p1-cell-fail", layer, src, plane, alpha)
+				. += emissive_appearance(icon, "[base_icon_state]-p1-cell-fail", src)
 
 
 	if(charging_port2)						// порт 2
@@ -210,19 +210,19 @@
 					port_2_cell_percent = "6"
 				if(85 to 100)
 					port_2_cell_percent = "7"
-			. += mutable_appearance(icon, "[base_icon_state]-p2-cell-[port_2_cell_percent]", layer, plane, alpha)
-			. += mutable_appearance(icon, "[base_icon_state]-p2-cell-[port_2_cell_percent]", 0, EMISSIVE_PLANE, alpha)
+			. += mutable_appearance(icon, "[base_icon_state]-p2-cell-[port_2_cell_percent]", layer, src, plane, alpha)
+			. += emissive_appearance(icon, "[base_icon_state]-p2-cell-[port_2_cell_percent]", src)
 
 			if(using_power2)					// в процессе
-				. += mutable_appearance(icon, "[base_icon_state]-p2-charging", layer, plane, alpha)
-				. += mutable_appearance(icon, "[base_icon_state]-p2-charging", 0, EMISSIVE_PLANE, alpha)
+				. += mutable_appearance(icon, "[base_icon_state]-p2-charging", layer, src, plane, alpha)
+				. += emissive_appearance(icon, "[base_icon_state]-p2-charging", src)
 			else								// завершен
-				. += mutable_appearance(icon, "[base_icon_state]-p2-full", layer, plane, alpha)
-				. += mutable_appearance(icon, "[base_icon_state]-p2-full", 0, EMISSIVE_PLANE, alpha)
+				. += mutable_appearance(icon, "[base_icon_state]-p2-full", layer, src, plane, alpha)
+				. += emissive_appearance(icon, "[base_icon_state]-p2-full", src)
 		else
 			if(!isarea(a) || a.power_equip == 0)	// питания нет, внутренняя батарея пуста
-				. += mutable_appearance(icon, "[base_icon_state]-p2-cell-fail", layer, plane, alpha)
-				. += mutable_appearance(icon, "[base_icon_state]-p2-cell-fail", 0, EMISSIVE_PLANE, alpha)
+				. += mutable_appearance(icon, "[base_icon_state]-p2-cell-fail", layer, src, plane, alpha)
+				. += emissive_appearance(icon, "[base_icon_state]-p2-cell-fail", src)
 
 
 //  Тактический наспинный зарядник
@@ -346,7 +346,7 @@
 			add_overlay(gun_overlay)
 
 //			var/overlay_state = holdable_weapons_list[I.type]
-//			. += mutable_appearance(icon, overlay_state, layer, plane, alpha)
+//			. += mutable_appearance(icon, overlay_state, layer, src, plane, alpha)
 //			icon_state = holdable_weapons_list[I.type]
 	else
 		charging = null
@@ -383,11 +383,11 @@
 
 	if(charging)
 		if(using_power)
-			. += mutable_appearance(icon, "toz-charge", layer, plane, alpha)
-			. += mutable_appearance(icon, "toz-charge", 0, EMISSIVE_PLANE, alpha)
+			. += mutable_appearance(icon, "toz-charge", layer, src, plane, alpha)
+			. += emissive_appearance(icon, "toz-charge", src)
 		else
-			. += mutable_appearance(icon, "toz-full", layer, plane, alpha)
-			. += mutable_appearance(icon, "toz-full", 0, EMISSIVE_PLANE, alpha)
+			. += mutable_appearance(icon, "toz-full", layer, src, plane, alpha)
+			. += emissive_appearance(icon, "toz-full", src)
 
 		var/w_cell_percent
 		var/obj/item/stock_parts/cell/C = charging.get_cell()
@@ -413,8 +413,8 @@
 			if(91 to 100)
 				w_cell_percent = "10"
 
-		. += mutable_appearance(icon, "toz-w_lvl-[w_cell_percent]", layer, plane, alpha)
-		. += mutable_appearance(icon, "toz-w_lvl-[w_cell_percent]", 0, EMISSIVE_PLANE, alpha)
+		. += mutable_appearance(icon, "toz-w_lvl-[w_cell_percent]", layer, src, plane, alpha)
+		. += emissive_appearance(icon, "toz-w_lvl-[w_cell_percent]", src)
 
 	var/cell_percent
 	switch(cell_imitator_lvl*100/cell_imitator_max)
@@ -433,8 +433,8 @@
 		if(85 to 100)
 			cell_percent = "7"
 
-	. += mutable_appearance(icon, "toz-c_lvl-[cell_percent]", layer, plane, alpha)
-	. += mutable_appearance(icon, "toz-c_lvl-[cell_percent]", 0, EMISSIVE_PLANE, alpha)
+	. += mutable_appearance(icon, "toz-c_lvl-[cell_percent]", layer, src, plane, alpha)
+	. += emissive_appearance(icon, "toz-c_lvl-[cell_percent]", src)
 
 //  Граната с колючей проволокой
 /obj/structure/barbed_wire

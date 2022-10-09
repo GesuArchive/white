@@ -96,7 +96,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/tacmap, 32)
 
 /obj/tacmap/update_overlays()
 	. = ..()
-	. += mutable_appearance(icon, "emissive", 0, EMISSIVE_PLANE)
+	. += emissive_appearance(icon, "emissive", src)
 
 /obj/tacmap/attack_ai(mob/user)
 	interact(user)
