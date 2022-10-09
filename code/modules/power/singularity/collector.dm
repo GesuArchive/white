@@ -210,12 +210,12 @@
 
 /obj/machinery/power/rad_collector/proc/eject()
 	locked = FALSE
-	var/obj/item/tank/internals/plasma/Z = src.loaded_tank
-	if (!Z)
+	var/obj/item/tank/internals/plasma/P = src.loaded_tank
+	if (!P)
 		return
-	Z.forceMove(drop_location())
-	Z.layer = initial(Z.layer)
-	SET_PLANE(Z, initial(Z.plane), drop_location())
+	P.forceMove(drop_location())
+	P.layer = initial(P.layer)
+	SET_PLANE(P, initial(P.plane), get_turf(src))
 	src.loaded_tank = null
 	if(active)
 		toggle_power()
@@ -225,7 +225,7 @@
 /obj/machinery/power/rad_collector/rad_act(pulse_strength)
 	. = ..()
 	if(loaded_tank && active && pulse_strength > RAD_COLLECTOR_EFFICIENCY)
-		stored_energy += (pulse_strength-RAD_COLLECTOR_EFFICIENCY)*RAD_COLLECTOR_COEFFICIENT
+		stored_energy += (pulse_strength - RAD_COLLECTOR_EFFICIENCY) * RAD_COLLECTOR_COEFFICIENT
 
 /obj/machinery/power/rad_collector/update_overlays()
 	. = ..()

@@ -585,6 +585,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool/bar, 0)
 	var/charge = 0
 	var/max_charge = 6
 	var/mode = "стансферы"
+
 /obj/machinery/painmachine/examine(mob/user)
 	. = ..()
 	.+= . += "<hr>Готова производить [mode], смена режима на <b>Alt-click</b>."

@@ -122,10 +122,6 @@
 		holder.pixel_y = I.Height() - world.icon_size
 		holder.icon_state = hud_icon
 
-/obj/item/changeling/dropped(mob/user, silent)
-	qdel(src)
-	
-
 /**
  * Returns cached flat icon of the ID, creates one if there is not one already cached
  */
