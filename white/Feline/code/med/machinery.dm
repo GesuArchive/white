@@ -79,7 +79,7 @@
 			playsound(src.loc, 'sound/weapons/saberoff.ogg', 50, TRUE)
 		handbeltsmod_active = FALSE
 		M.layer = initial(M.layer)	//	Возвращение отображения космонавтика к изначальным параметрам
-		SET_PLANE(M, initial(M.plane), get_turf(M))
+		SET_PLANE(M, initial(M.plane), M)
 		cut_overlay(handbeltsmod_active_overlay)
 
 // Активация ремней
@@ -106,7 +106,7 @@
 		log_combat(src, victim, "handcuffed", src.name)
 		playsound(src.loc, 'sound/weapons/saberon.ogg', 50, TRUE)
 		victim.layer = BELOW_MOB_LAYER
-		SET_PLANE(victim, GAME_PLANE, get_turf(victim))
+		SET_PLANE(victim, GAME_PLANE, victim)
 		add_overlay(handbeltsmod_active_overlay)
 		handbeltsmod_active = TRUE
 	else
@@ -115,7 +115,7 @@
 		playsound(src.loc, 'sound/weapons/saberoff.ogg', 50, TRUE)
 		handbeltsmod_active = FALSE
 		victim.layer = initial(victim.layer)	//	Возвращение отображения космонавтика к изначальным параметрам
-		SET_PLANE(victim, initial(victim.plane), get_turf(victim))
+		SET_PLANE(victim, initial(victim.plane), victim)
 		cut_overlay(handbeltsmod_active_overlay)
 
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN

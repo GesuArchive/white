@@ -274,7 +274,7 @@
 	I.pixel_x = 0
 	I.pixel_y = 0
 	var/image/img = image("icon"=I, "layer"=FLOAT_LAYER)
-	SET_PLANE(img, FLOAT_PLANE, get_turf(img))
+	SET_PLANE(img, FLOAT_PLANE, img)
 	I.pixel_x = xx
 	I.pixel_y = yy
 	add_overlay(img)

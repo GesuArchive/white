@@ -186,7 +186,7 @@
 			if(SOUTH)
 				layer = ABOVE_MOB_LAYER
 			if(NORTH)
-				SET_PLANE(src, GAME_PLANE_FOV_HIDDEN, get_turf(src))
+				SET_PLANE(src, GAME_PLANE_FOV_HIDDEN, src)
 				layer = MOB_LAYER
 			else
 				layer = initial(layer)
@@ -282,7 +282,7 @@
 	. = ..()
 	if(dir == NORTH)
 		pixel_y = 12
-		SET_PLANE(src, GAME_PLANE_FOV_HIDDEN, get_turf(src))
+		SET_PLANE(src, GAME_PLANE_FOV_HIDDEN, src)
 		layer = MOB_LAYER
 
 /*----------------------*/
@@ -845,10 +845,10 @@
 
 	if(!closed)
 		src.layer = ABOVE_MOB_LAYER		// Закрывает космонавтика
-		SET_PLANE(src, GAME_PLANE_UPPER, get_turf(src))
+		SET_PLANE(src, GAME_PLANE_UPPER, src)
 	else
 		src.layer = initial(src.layer)	//	Возвращение отображения к изначальным параметрам
-		SET_PLANE(src, initial(plane), get_turf(src))
+		SET_PLANE(src, initial(plane), src)
 
 	if(!linked)
 		update_icon()

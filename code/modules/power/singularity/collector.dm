@@ -215,7 +215,7 @@
 		return
 	P.forceMove(drop_location())
 	P.layer = initial(P.layer)
-	SET_PLANE(P, initial(P.plane), get_turf(src))
+	SET_PLANE(P, initial(P.plane), src)
 	src.loaded_tank = null
 	if(active)
 		toggle_power()

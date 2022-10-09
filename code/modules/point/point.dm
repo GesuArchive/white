@@ -35,7 +35,7 @@
 
 	var/mutable_appearance/pointed_atom_appearance = new(pointed_atom.appearance)
 	pointed_atom_appearance.blend_mode = BLEND_INSET_OVERLAY
-	SET_PLANE(pointed_atom_appearance, FLOAT_PLANE, get_turf(pointed_atom_appearance))
+	SET_PLANE(pointed_atom_appearance, FLOAT_PLANE, pointed_atom_appearance)
 	pointed_atom_appearance.layer = FLOAT_LAYER
 	pointed_atom_appearance.pixel_x = 0
 	pointed_atom_appearance.pixel_y = 0
