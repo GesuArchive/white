@@ -77,6 +77,33 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 		return
 	set_light(1.4,0.7,"#34D352")//green light
 
+/obj/machinery/requests_console/update_icon_state()
+	if(open)
+		icon_state = "[base_icon_state]_[hackState ? "rewired" : "open"]"
+		return ..()
+	icon_state = "[base_icon_state]_off"
+	return ..()
+
+/obj/machinery/requests_console/update_overlays()
+	. = ..()
+
+	if(open || (machine_stat & NOPOWER))
+		return
+
+	var/screen_state
+
+	if(emergency || (newmessagepriority == REQ_EXTREME_MESSAGE_PRIORITY))
+		screen_state = "[base_icon_state]3"
+	else if(newmessagepriority == REQ_HIGH_MESSAGE_PRIORITY)
+		screen_state = "[base_icon_state]2"
+	else if(newmessagepriority == REQ_NORMAL_MESSAGE_PRIORITY)
+		screen_state = "[base_icon_state]1"
+	else
+		screen_state = "[base_icon_state]0"
+
+	. += mutable_appearance(icon, screen_state)
+	. += emissive_appearance(icon, screen_state, src, alpha = src.alpha)
+
 /obj/machinery/requests_console/directional/north
 	dir = SOUTH
 	pixel_y = 30
@@ -192,10 +219,10 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 				for (var/obj/machinery/requests_console/Console in GLOB.allConsoles)
 					if (Console.department == department)
 						Console.newmessagepriority = REQ_NO_NEW_MESSAGE
-						Console.update_icon()
+						Console.update_appearance()
 
 				newmessagepriority = REQ_NO_NEW_MESSAGE
-				update_icon()
+				update_appearance()
 				var/messageComposite = ""
 				for(var/msg in messages) // This puts more recent messages at the *top*, where they belong.
 					messageComposite = "<div class='block'>[msg]</div>" + messageComposite
@@ -307,7 +334,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 			if(radio_freq)
 				Radio.set_frequency(radio_freq)
 				Radio.talk_into(src,"[emergency] должна срочно направиться в [department]!!",radio_freq)
-				update_icon()
+				update_appearance()
 				addtimer(CALLBACK(src, .proc/clear_emergency), 5 MINUTES)
 
 	if(href_list["send"] && message && to_department && priority)
@@ -370,7 +397,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 
 /obj/machinery/requests_console/proc/clear_emergency()
 	emergency = null
-	update_icon()
+	update_appearance()
 
 //from message_server.dm: Console.createmessage(data["sender"], data["send_dpt"], data["message"], data["verified"], data["stamped"], data["priority"], data["notify_freq"])
 /obj/machinery/requests_console/proc/createmessage(source, source_department, message, msgVerified, msgStamped, priority, radio_freq)
@@ -393,14 +420,14 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 		if(REQ_NORMAL_MESSAGE_PRIORITY)
 			if(newmessagepriority < REQ_NORMAL_MESSAGE_PRIORITY)
 				newmessagepriority = REQ_NORMAL_MESSAGE_PRIORITY
-				update_icon()
+				update_appearance()
 
 		if(REQ_HIGH_MESSAGE_PRIORITY)
 			header = "<span class='bad'>Высокий Приоритет</span><BR>[header]"
 			alert = "Приоритетное сообщение от [source][authentic]"
 			if(newmessagepriority < REQ_HIGH_MESSAGE_PRIORITY)
 				newmessagepriority = REQ_HIGH_MESSAGE_PRIORITY
-				update_icon()
+				update_appearance()
 
 		if(REQ_EXTREME_MESSAGE_PRIORITY)
 			header = "<span class='bad'>!!!Сверхвысокий Приоритет!!!</span><BR>[header]"
@@ -408,7 +435,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 			silenced = FALSE
 			if(newmessagepriority < REQ_EXTREME_MESSAGE_PRIORITY)
 				newmessagepriority = REQ_EXTREME_MESSAGE_PRIORITY
-				update_icon()
+				update_appearance()
 
 	messages += "[header][sending]"
 
@@ -428,7 +455,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 		else
 			to_chat(user, span_notice("Открываю панель обслуживания."))
 			open = TRUE
-		update_icon()
+		update_appearance()
 		return
 	if(O.tool_behaviour == TOOL_SCREWDRIVER)
 		if(open)
@@ -437,7 +464,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 				to_chat(user, span_notice("Модифицирую проводку."))
 			else
 				to_chat(user, span_notice("Возвращаю проводку на место."))
-			update_icon()
+			update_appearance()
 		else
 			to_chat(user, span_warning("Надо бы сначала открыть панель обслуживания!"))
 		return

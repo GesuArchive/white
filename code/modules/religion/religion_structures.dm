@@ -25,7 +25,8 @@
 	var/list/new_overlays = ..()
 	if(GLOB.religious_sect)
 		return new_overlays
-	new_overlays += "convertaltarcandle"
+	new_overlays += mutable_appearance(icon, "convertaltarcandle")
+	new_overlays += emissive_appearance(icon, "convertaltarcandle", alpha = src.alpha)
 	return new_overlays
 
 /obj/structure/altar_of_gods/attack_hand(mob/living/user, list/modifiers)

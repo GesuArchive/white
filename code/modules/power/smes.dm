@@ -214,18 +214,23 @@
 		return
 
 	if(outputting)
-		. += "smes-op1"
+		. += mutable_appearance(icon, "smes-op1")
+		. += emissive_appearance(icon, "smes-op1", alpha = src.alpha)
 	else
-		. += "smes-op0"
+		. += mutable_appearance(icon, "smes-op0")
+		. += emissive_appearance(icon, "smes-op0", alpha = src.alpha)
 
 	if(inputting)
-		. += "smes-oc1"
+		. += mutable_appearance(icon, "smes-oc1")
+		. += emissive_appearance(icon, "smes-oc1", alpha = src.alpha)
 	else if(input_attempt)
-		. += "smes-oc0"
+		. += mutable_appearance(icon, "smes-oc0")
+		. += emissive_appearance(icon, "smes-oc0", alpha = src.alpha)
 
 	var/clevel = chargedisplay()
 	if(clevel>0)
-		. += "smes-og[clevel]"
+		. += mutable_appearance(icon, "smes-og[clevel]")
+		. += emissive_appearance(icon, "smes-og[clevel]", alpha = src.alpha)
 
 
 /obj/machinery/power/smes/proc/chargedisplay()
