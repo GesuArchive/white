@@ -132,11 +132,11 @@
 		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
 		pixel_y = (dir & 3)? (dir == 1 ? -24 : 24) : 0
 
-	update_icon()
+	update_appearance()
 
 	alarm_manager = new(src)
 	my_area = get_area(src)
-	update_icon()
+	update_appearance()
 
 /obj/machinery/airalarm/Destroy()
 	if(my_area)
@@ -369,7 +369,7 @@
 			if(alarm_manager.clear_alarm(ALARM_ATMOS))
 				post_alert(0)
 			. = TRUE
-	update_icon()
+	update_appearance()
 
 
 /obj/machinery/airalarm/proc/reset(wire)
@@ -377,7 +377,7 @@
 		if(WIRE_POWER)
 			if(!wires.is_cut(WIRE_POWER))
 				shorted = FALSE
-				update_icon()
+				update_appearance()
 		if(WIRE_AI)
 			if(!wires.is_cut(WIRE_AI))
 				aidisabled = FALSE
@@ -540,26 +540,35 @@
 /obj/machinery/airalarm/update_icon_state()
 	if(panel_open)
 		switch(buildstage)
-			if(2)
+			if(AIRALARM_BUILD_COMPLETE)
 				icon_state = "alarmx"
-			if(1)
+			if(AIRALARM_BUILD_NO_WIRES)
 				icon_state = "alarm_b2"
-			if(0)
+			if(AIRALARM_BUILD_NO_CIRCUIT)
 				icon_state = "alarm_b1"
-		return
+		return ..()
 
-	if((machine_stat & (NOPOWER|BROKEN)) || shorted)
-		icon_state = "alarmp"
+	icon_state = "alarmp"
+	return ..()
+
+/obj/machinery/airalarm/update_overlays()
+	. = ..()
+
+	if(panel_open || (machine_stat & (NOPOWER|BROKEN)) || shorted)
 		return
 
 	var/area/our_area = get_area(src)
+	var/state
 	switch(max(danger_level, !!our_area.active_alarms[ALARM_ATMOS]))
 		if(0)
-			icon_state = "alarm0"
+			state = "alarm0"
 		if(1)
-			icon_state = "alarm2" //yes, alarm2 is yellow alarm
+			state = "alarm2" //yes, alarm2 is yellow alarm
 		if(2)
-			icon_state = "alarm1"
+			state = "alarm1"
+
+	. += mutable_appearance(icon, state)
+	. += emissive_appearance(icon, state, src, alpha = src.alpha)
 
 /**
  * main proc for throwing a shitfit if the air isnt right.
@@ -634,7 +643,7 @@
 	if(did_anything_happen) //if something actually changed
 		post_alert(new_area_danger_level)
 
-	update_icon()
+	update_appearance()
 
 /obj/machinery/airalarm/attackby(obj/item/W, mob/user, params)
 	switch(buildstage)
@@ -644,13 +653,13 @@
 				to_chat(user, span_notice("Откусываю последние провода."))
 				new /obj/item/stack/cable_coil(loc, 5)
 				buildstage = 1
-				update_icon()
+				update_appearance()
 				return
 			else if(W.tool_behaviour == TOOL_SCREWDRIVER)  // Opening that Air Alarm up.
 				W.play_tool_sound(src)
 				panel_open = !panel_open
 				to_chat(user, span_notice("Провода теперь [panel_open ? "открыты" : "закрыты"]."))
-				update_icon()
+				update_appearance()
 				return
 			else if(W.GetID())// trying to unlock the interface with an ID card
 				togglelock(user)
@@ -669,7 +678,7 @@
 						new /obj/item/electronics/airalarm( src.loc )
 						playsound(src.loc, 'sound/items/deconstruct.ogg', 50, TRUE)
 						buildstage = 0
-						update_icon()
+						update_appearance()
 				return
 
 			if(istype(W, /obj/item/stack/cable_coil))
@@ -690,14 +699,14 @@
 						shorted = 0
 						post_alert(0)
 						buildstage = 2
-						update_icon()
+						update_appearance()
 				return
 		if(0)
 			if(istype(W, /obj/item/electronics/airalarm))
 				if(user.temporarilyRemoveItemFromInventory(W))
 					to_chat(user, span_notice("Вставляю плату."))
 					buildstage = 1
-					update_icon()
+					update_appearance()
 					qdel(W)
 				return
 
@@ -708,7 +717,7 @@
 				user.visible_message(span_notice("[user] адаптирует плату и вставляет её в [src].") , \
 				span_notice("Адаптирую плату и вставляю её внутрь."))
 				buildstage = 1
-				update_icon()
+				update_appearance()
 				return
 
 			if(W.tool_behaviour == TOOL_WRENCH)
@@ -731,7 +740,7 @@
 			user.visible_message(span_notice("[user] адаптирует плату и вставляет её в [src].") , \
 			span_notice("Адаптирую плату и вставляю её внутрь."))
 			buildstage = 1
-			update_icon()
+			update_appearance()
 			return TRUE
 	return FALSE
 

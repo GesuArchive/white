@@ -96,7 +96,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/tacmap, 32)
 
 /obj/tacmap/update_overlays()
 	. = ..()
-	. += emissive_appearance(icon, "emissive", src)
+	if(LAZYLEN(viewers))
+		. += emissive_appearance(icon, "emissive", src)
 
 /obj/tacmap/attack_ai(mob/user)
 	interact(user)
@@ -118,10 +119,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/tacmap, 32)
 	S.draw_map(user.x, user.y, user.z)
 	START_PROCESSING(SSobj, src)
 	icon_state = "active"
+	update_appearance()
 
 /obj/tacmap/process(delta_time)
 	if(!LAZYLEN(viewers))
 		icon_state = "off"
+		update_appearance()
 		return PROCESS_KILL
 	for(var/mob/user in viewers)
 		if(get_dist(src, user) > 1)
