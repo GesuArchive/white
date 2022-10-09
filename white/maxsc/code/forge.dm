@@ -121,7 +121,7 @@
 		if(count < 7)
 			part.set_density(TRUE)
 		else
-			part.plane = ABOVE_GAME_PLANE
+			SET_PLANE(part, ABOVE_GAME_PLANE, T)
 		part.main_part = src
 		parts += part
 

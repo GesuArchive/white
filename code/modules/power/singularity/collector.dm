@@ -215,7 +215,7 @@
 		return
 	Z.forceMove(drop_location())
 	Z.layer = initial(Z.layer)
-	Z.plane = initial(Z.plane)
+	SET_PLANE(Z, initial(Z.plane), drop_location())
 	src.loaded_tank = null
 	if(active)
 		toggle_power()

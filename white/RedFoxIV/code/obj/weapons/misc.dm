@@ -797,7 +797,7 @@
 	user.visible_message(span_warning("<b>[user]</b> дёргает рубильник! ПРЕДСТАВЛЕНИЕ НАЧИНАЕТСЯ!"))
 	is_turned = TRUE
 	icon_state = "switch-on"
-	SStitle.splash_turf.plane = GAME_PLANE_FOV_HIDDEN
+	SET_PLANE(SStitle.splash_turf, GAME_PLANE_FOV_HIDDEN, SStitle.splash_turf)
 	SStitle.splash_turf.mouse_opacity = 0
 	SStitle.splash_turf.blend_mode = 3
 	playsound(src.loc, 'white/valtos/sounds/leveron.ogg', 50, TRUE)
@@ -807,7 +807,7 @@
 		playsound(src.loc, 'white/valtos/sounds/leveroff.ogg', 90, TRUE)
 		var/turf/T = get_turf(src)
 		T.visible_message(span_notice("<b>[src]</b> возвращается на место!"))
-		SStitle.splash_turf.plane = SPLASHSCREEN_PLANE
+		SET_PLANE(SStitle.splash_turf, SPLASHSCREEN_PLANE, SStitle.splash_turf)
 		SStitle.splash_turf.mouse_opacity = 1
 		SStitle.splash_turf.blend_mode = 0
 

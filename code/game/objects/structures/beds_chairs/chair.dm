@@ -592,10 +592,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool/bar, 0)
 /obj/machinery/painmachine/proc/handle_layer()
 	if(has_buckled_mobs() && dir == NORTH)
 		layer = ABOVE_MOB_LAYER
-		plane = ABOVE_GAME_PLANE
+		SET_PLANE(src, ABOVE_GAME_PLANE, get_turf(src))
 	else
 		layer = OBJ_LAYER
-		plane = GAME_PLANE
+		SET_PLANE(src, GAME_PLANE, get_turf(src))
 
 /obj/machinery/painmachine/post_buckle_mob(mob/living/M)
 	. = ..()

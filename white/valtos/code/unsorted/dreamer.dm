@@ -150,8 +150,7 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 
 		turf_img.alpha = rand(200, 255)
 		turf_img.copy_overlays(T)
-		turf_img.plane = turf_plane ? turf_plane : T.plane
-
+		SET_PLANE(turf_img, turf_plane ? turf_plane : T.plane, T)
 		var/matrix/M = matrix()
 		M.Translate(0, rand(-animation_intensity, animation_intensity))
 
