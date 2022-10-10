@@ -79,10 +79,6 @@
 		damaged = TRUE
 		if(console)
 			console.say("Тревога! Обнаружена пробоина в корпусе!")
-		if (length(GLOB.announcement_systems))
-			var/obj/machinery/announcement_system/announcer = pick(GLOB.announcement_systems)
-			if(!QDELETED(announcer))
-				announcer.announce("ARRIVALS_BROKEN", channels = list())
 		if(mode != SHUTTLE_CALL)
 			sound_played = FALSE
 			mode = SHUTTLE_IDLE

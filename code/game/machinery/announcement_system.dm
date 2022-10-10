@@ -85,8 +85,6 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 		message = CompileText(newhead, user, rank)
 	else if(message_type == "CRYOSTORAGE")
 		message = "[user][rank ? ", [ru_job_parse(rank)]" : ""] уходит в криосон."
-	else if(message_type == "ARRIVALS_BROKEN")
-		message = "Шаттл прибытия был поврежден. Пристыковка для ремонта..."
 
 	if(world.time - SSticker.round_start_time > 10)
 		for(var/mob/M in GLOB.player_list)
