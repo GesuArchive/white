@@ -1,7 +1,7 @@
 /**********************Lazarus Injector**********************/
 /obj/item/lazarus_injector
-	name = "lazarus injector"
-	desc = "An injector with a cocktail of nanomachines and chemicals, this device can seemingly raise animals from the dead, making them become friendly to the user. Unfortunately, the process is useless on higher forms of life and incredibly costly, so these were hidden in storage until an executive thought they'd be great motivation for some of their employees."
+	name = "инъектор Лазаря"
+	desc = "Инъектор с коктейлем из наномашин и химических веществ. Он может воскрешать животных из мертвых, заставляя их становиться дружелюбными по отношению к пользователю. К сожалению, этот процесс бесполезен для высших форм жизни и невероятно дорог, поэтому эти инъекторы лежали на складе, пока один из руководителей не решил, что они станут отличной мотивацией для некоторых сотрудников."
 	icon = 'icons/obj/syringe.dmi'
 	icon_state = "lazarus_hypo"
 	inhand_icon_state = "hypo"

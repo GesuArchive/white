@@ -376,7 +376,7 @@
 	..()
 
 /obj/item/borg/upgrade/modkit/cooldown/minebot
-	name = "уменьшение времени перезарядки для шахтёрского робота"
+	name = "дрон: ускорение перезарядки"
 	desc = "Уменьшает время восстановления кинетического ускорителя. Только для использования в шахтёрском минироботе."
 	icon_state = "door_electronics"
 	icon = 'icons/obj/module.dmi'
@@ -459,7 +459,7 @@
 
 //Minebot passthrough
 /obj/item/borg/upgrade/modkit/minebot_passthrough
-	name = "игнорирование шахтёрского робота"
+	name = "игнорирование шахтёрского дрона"
 	desc = "Позволяет кинетическому ускорителю вести огонь без риска повреждения шахтёрских минироботов."
 	cost = 0
 
@@ -587,8 +587,8 @@
 //Cosmetic
 
 /obj/item/borg/upgrade/modkit/chassis_mod
-	name = "супер шасси"
-	desc = "Делает ваш КА желтым. Все удовольствие в том, чтобы иметь более мощный КА, но не иметь более мощного КА."
+	name = "супер корпус"
+	desc = "Делает ваш КУ желтым. Все удовольствие в том, чтобы иметь более мощный КУ, но не иметь более мощного КУ."
 	cost = 0
 	denied_type = /obj/item/borg/upgrade/modkit/chassis_mod
 	var/chassis_icon = "kineticgun_u"
@@ -606,13 +606,13 @@
 	..()
 
 /obj/item/borg/upgrade/modkit/chassis_mod/orange
-	name = "гипер шасси"
-	desc = "Делает ваш КА оранжевым. Все удовольствие от взрывных взрывов без взрывных взрывов."
+	name = "гипер корпус"
+	desc = "Делает ваш КУ оранжевым. Все удовольствие от взрывных взрывов без взрывных взрывов."
 	chassis_icon = "kineticgun_h"
 	chassis_name = "hyper-kinetic accelerator"
 
 /obj/item/borg/upgrade/modkit/tracer
-	name = "белые трассирующие болты"
+	name = "белые трассеры"
 	desc = "Заставляет кинетические ускорители иметь белый след трассировки и взрыв."
 	cost = 0
 	denied_type = /obj/item/borg/upgrade/modkit/tracer
@@ -623,7 +623,7 @@
 	K.color = bolt_color
 
 /obj/item/borg/upgrade/modkit/tracer/adjustable
-	name = "регулируемые болты"
+	name = "регулируемые трассеры"
 	desc = "Приводит к тому, что у болтов кинетического ускорителя есть след регулируемого цвета и взрыв. Используйте в руке, чтобы изменить цвет."
 
 /obj/item/borg/upgrade/modkit/tracer/adjustable/attack_self(mob/user)

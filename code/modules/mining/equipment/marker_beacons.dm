@@ -15,9 +15,9 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 "Fuchsia" = LIGHT_COLOR_PINK)))
 
 /obj/item/stack/marker_beacon
-	name = "marker beacon"
-	singular_name = "marker beacon"
-	desc = "Prism-brand path illumination devices. Used by miners to mark paths and warn of danger."
+	name = "маркерный маячок"
+	singular_name = "маркерный маячок"
+	desc = "Маркерный маячок марки \"Prism\". Используются шахтерами для обозначения путей и предупреждения об опасности."
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "marker"
 	merge_type = /obj/item/stack/marker_beacon
@@ -39,21 +39,21 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 
 /obj/item/stack/marker_beacon/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>Use in-hand to place a [singular_name].\n"+\
-	"ПКМ to select a color. Current color is [picked_color].</span>"
+	. += "<hr><span class='notice'>Используй в руке, чтобы установить [singular_name].\n"+\
+	"ПКМ для выбора цвета. Текущий цвет - [picked_color].</span>"
 
 /obj/item/stack/marker_beacon/update_icon_state()
 	icon_state = "[initial(icon_state)][lowertext(picked_color)]"
 
 /obj/item/stack/marker_beacon/attack_self(mob/user)
 	if(!isturf(user.loc))
-		to_chat(user, span_warning("You need more space to place a [singular_name] here."))
+		to_chat(user, span_warning("Нужно больше места, чтобы установить [singular_name] здесь."))
 		return
 	if(locate(/obj/structure/marker_beacon) in user.loc)
-		to_chat(user, span_warning("There is already a [singular_name] here."))
+		to_chat(user, span_warning("Здесь уже установлен [singular_name]."))
 		return
 	if(use(1))
-		to_chat(user, span_notice("You activate and anchor [amount ? "a":"the"] [singular_name] in place."))
+		to_chat(user, span_notice("Я установил и закрепил [singular_name] на место."))
 		playsound(user, 'sound/machines/click.ogg', 50, TRUE)
 		var/obj/structure/marker_beacon/M = new(user.loc, picked_color)
 		transfer_fingerprints_to(M)
@@ -61,7 +61,7 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 /obj/item/stack/marker_beacon/AltClick(mob/living/user)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
 		return
-	var/input_color = tgui_input_list(user, "Choose a color.", "Beacon Color", GLOB.marker_beacon_colors)
+	var/input_color = tgui_input_list(user, "Выбор цвета.", "Цвет маяка", GLOB.marker_beacon_colors)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
 		return
 	if(input_color)
@@ -69,8 +69,8 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 		update_icon()
 
 /obj/structure/marker_beacon
-	name = "marker beacon"
-	desc = "A Prism-brand path illumination device. It is anchored in place and glowing steadily."
+	name = "маркерный маячок"
+	desc = "Маркерный маячок марки \"Prism\". Он закреплен на месте и светится ровным светом."
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "marker"
 	layer = BELOW_OPEN_DOOR_LAYER
@@ -98,7 +98,7 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 
 /obj/structure/marker_beacon/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='notice'>ПКМ to select a color. Current color is [picked_color].</span>"
+	. += "<hr><span class='notice'>ПКМ для выбора цвета. Текущий цвет - [picked_color].</span>"
 
 /obj/structure/marker_beacon/update_icon()
 	while(!picked_color || !GLOB.marker_beacon_colors[picked_color])
@@ -110,7 +110,7 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 	. = ..()
 	if(.)
 		return
-	to_chat(user, span_notice("You start picking [src] up..."))
+	to_chat(user, span_notice("Начинаю подбирать [src]..."))
 	if(do_after(user, remove_speed, target = src))
 		var/obj/item/stack/marker_beacon/M = new(loc)
 		M.picked_color = picked_color
@@ -123,7 +123,7 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 /obj/structure/marker_beacon/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/stack/marker_beacon))
 		var/obj/item/stack/marker_beacon/M = I
-		to_chat(user, span_notice("You start picking [src] up..."))
+		to_chat(user, span_notice("Начинаю подбирать [src]..."))
 		if(do_after(user, remove_speed, target = src) && M.amount + 1 <= M.max_amount)
 			M.add(1)
 			playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
@@ -131,8 +131,8 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 			return
 	if(istype(I, /obj/item/light_eater))
 		var/obj/effect/decal/cleanable/ash/A = new /obj/effect/decal/cleanable/ash(drop_location())
-		A.desc += "\nLooks like this used to be <b>[src.name]</b> some time ago."
-		visible_message(span_danger("[capitalize(src.name)] is disintegrated by [I]!"))
+		A.desc += "\nВыглядит так, что раньше это использовалось как <b>[src.name]</b>."
+		visible_message(span_danger("[capitalize(src.name)] дезинтегрирован [I]!"))
 		playsound(src, 'sound/items/welder.ogg', 50, TRUE)
 		qdel(src)
 		return
@@ -142,7 +142,7 @@ GLOBAL_LIST_INIT(marker_beacon_colors, sort_list(list(
 	..()
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
 		return
-	var/input_color = tgui_input_list(user, "Choose a color.", "Beacon Color", GLOB.marker_beacon_colors)
+	var/input_color = tgui_input_list(user, "Выбор цвета.", "Цвет маяка", GLOB.marker_beacon_colors)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE))
 		return
 	if(input_color)

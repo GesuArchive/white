@@ -10,8 +10,8 @@
 
 //Survival Capsule
 /obj/item/survivalcapsule
-	name = "bluespace shelter capsule"
-	desc = "An emergency shelter stored within a pocket of bluespace."
+	name = "блюспейс капсула-убежище"
+	desc = "Аварийное убежище, находящееся внутри блюспейся."
 	icon_state = "capsule"
 	icon = 'icons/obj/mining.dmi'
 	w_class = WEIGHT_CLASS_TINY
@@ -72,12 +72,12 @@
 //Non-default pods
 
 /obj/item/survivalcapsule/luxury
-	name = "luxury bluespace shelter capsule"
+	name = "роскошная капсула-убежище"
 	desc = "An exorbitantly expensive luxury suite stored within a pocket of bluespace."
 	template_id = "shelter_beta"
 
 /obj/item/survivalcapsule/luxuryelite
-	name = "luxury elite bar capsule"
+	name = "элитная капсула-бар класса люкс"
 	desc = "A luxury bar in a capsule. Bartender required and not included."
 	template_id = "shelter_charlie"
 

@@ -1,9 +1,9 @@
 /*********************Hivelord stabilizer****************/
 /obj/item/hivelordstabilizer
-	name = "stabilizing serum"
+	name = "стабилизирующая сыворотка"
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle19"
-	desc = "Inject certain types of monster organs with this stabilizer to preserve their healing powers indefinitely."
+	desc = "Предотвращает разложение органов монстров."
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/hivelordstabilizer/afterattack(obj/item/organ/M, mob/user, proximity)
@@ -12,11 +12,11 @@
 		return
 	var/obj/item/organ/regenerative_core/C = M
 	if(!istype(C, /obj/item/organ/regenerative_core))
-		to_chat(user, span_warning("The stabilizer only works on certain types of monster organs, generally regenerative in nature."))
+		to_chat(user, span_warning("Стабилизатор действует только на определенные типы органов монстров, как правило, регенеративного характера."))
 		return
 
 	C.preserved()
-	to_chat(user, span_notice("You inject the [M] with the stabilizer. It will no longer go inert."))
+	to_chat(user, span_notice("Ввожу стабилизатор в [M]. Теперь он не будет разлагаться."))
 	qdel(src)
 
 /************************Hivelord core*******************/

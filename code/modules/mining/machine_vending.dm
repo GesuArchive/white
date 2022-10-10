@@ -121,69 +121,69 @@
 
 	icon_deny = "mining-deny"
 	prize_list = list( //if you add something to this, please, for the love of god, sort it by price/type. use tabs and not spaces.
-		new /datum/data/vendor_equipment("1 Marker Beacon",				/obj/item/stack/marker_beacon,										10),
-		new /datum/data/vendor_equipment("10 Marker Beacons",			/obj/item/stack/marker_beacon/ten,									100),
-		new /datum/data/vendor_equipment("30 Marker Beacons",			/obj/item/stack/marker_beacon/thirty,								300),
-		new /datum/data/vendor_equipment("Whiskey",						/obj/item/reagent_containers/food/drinks/bottle/whiskey,			100),
-		new /datum/data/vendor_equipment("Absinthe",					/obj/item/reagent_containers/food/drinks/bottle/absinthe/premium,	100),
-		new /datum/data/vendor_equipment("Bubblegum Gum Packet",		/obj/item/storage/box/gum/bubblegum,								100),
-		new /datum/data/vendor_equipment("Cigar",						/obj/item/clothing/mask/cigarette/cigar/havana,						150),
-		new /datum/data/vendor_equipment("Soap",						/obj/item/soap/nanotrasen,											200),
-		new /datum/data/vendor_equipment("ИРП-4",						/obj/item/storage/mre,												215),
-		new /datum/data/vendor_equipment("ИРП-6",						/obj/item/storage/mre/protein,										235),
-		new /datum/data/vendor_equipment("ИРП-47",						/obj/item/storage/mre/vegan,										290),
-		new /datum/data/vendor_equipment("Laser Pointer",				/obj/item/laser_pointer,											300),
-		new /datum/data/vendor_equipment("Alien Toy",					/obj/item/clothing/mask/facehugger/toy,								300),
-		new /datum/data/vendor_equipment("Stabilizing Serum",			/obj/item/hivelordstabilizer,										400),
-		new /datum/data/vendor_equipment("Fulton Beacon",				/obj/item/fulton_core,												400),
-		new /datum/data/vendor_equipment("Shelter Capsule",				/obj/item/survivalcapsule,											400),
-		new /datum/data/vendor_equipment("Mining Charge",				/obj/item/grenade/c4/miningcharge,									500),
-		new /datum/data/vendor_equipment("GAR Meson Scanners",			/obj/item/clothing/glasses/meson/gar,								500),
-		new /datum/data/vendor_equipment("Explorer's Webbing",			/obj/item/storage/belt/mining,										500),
-		new /datum/data/vendor_equipment("Point Transfer Card",			/obj/item/card/mining_point_card,									500),
-		new /datum/data/vendor_equipment("Survival Medipen",			/obj/item/reagent_containers/hypospray/medipen/survival,			500),
-		new /datum/data/vendor_equipment("Brute First-Aid Kit",			/obj/item/storage/firstaid/brute,									600),
-		new /datum/data/vendor_equipment("Tracking Implant Kit", 		/obj/item/storage/box/minertracker,									600),
-		new /datum/data/vendor_equipment("Jaunter",						/obj/item/wormhole_jaunter,											750),
-		new /datum/data/vendor_equipment("Kinetic Crusher",				/obj/item/kinetic_crusher,											750),
-		new /datum/data/vendor_equipment("Kinetic Accelerator",			/obj/item/gun/energy/kinetic_accelerator,							750),
-		new /datum/data/vendor_equipment("Advanced Scanner",			/obj/item/t_scanner/adv_mining_scanner,								800),
-		new /datum/data/vendor_equipment("Deepcore Pointer",			/obj/item/pinpointer/deepcore,										200),		// WS edit - Deepcore
-		new /datum/data/vendor_equipment("Advanced Pointer",			/obj/item/pinpointer/deepcore/advanced,								800),		// WS edit - Deepcore
-		new /datum/data/vendor_equipment("Drill Deployment Capsule",	/obj/item/deepcorecapsule,											2000),		// WS edit - Deepcore
-		new /datum/data/vendor_equipment("Resonator",					/obj/item/resonator,												800),
-		new /datum/data/vendor_equipment("Luxury Medipen",				/obj/item/reagent_containers/hypospray/medipen/survival/luxury,		1000),
-		new /datum/data/vendor_equipment("Fulton Pack",					/obj/item/extraction_pack,											1000),
-		new /datum/data/vendor_equipment("Lazarus Injector",			/obj/item/lazarus_injector,											1000),
-		new /datum/data/vendor_equipment("Silver Pickaxe",				/obj/item/pickaxe/silver,											1000),
-		new /datum/data/vendor_equipment("Mining Conscription Kit",		/obj/item/storage/backpack/duffelbag/mining_conscript,				1500),
-		new /datum/data/vendor_equipment("Jetpack Upgrade",				/obj/item/tank/jetpack/suit,										2000),
-		new /datum/data/vendor_equipment("Улучшенные ремни сумок",		/obj/item/duffel_anti_slow,											2000),
-		new /datum/data/vendor_equipment("Имплант биомонитора",			/obj/item/autosurgeon/organ/biomonitor,								2000),
-		new /datum/data/vendor_equipment("Space Cash",					/obj/item/stack/spacecash/c1000,									2000),
-		new /datum/data/vendor_equipment("Mining Hardsuit",				/obj/item/clothing/suit/space/hardsuit/mining,						2000),
-		new /datum/data/vendor_equipment("Diamond Pickaxe",				/obj/item/pickaxe/diamond,											2000),
-		new /datum/data/vendor_equipment("Super Resonator",				/obj/item/resonator/upgraded,										2500),
-		new /datum/data/vendor_equipment("Jump Boots",					/obj/item/clothing/shoes/bhop,										2500),
-		new /datum/data/vendor_equipment("Mining MODsuit", 				/obj/item/mod/control/pre_equipped/mining, 							3000),
-		new /datum/data/vendor_equipment("Luxury Shelter Capsule",		/obj/item/survivalcapsule/luxury,									3000),
-		new /datum/data/vendor_equipment("Super Kinetic Accelerator",	/obj/item/gun/energy/kinetic_accelerator/super_kinetic_accelerator,	4000),
-		new /datum/data/vendor_equipment("Luxury Bar Capsule",			/obj/item/survivalcapsule/luxuryelite,								10000),
-		new /datum/data/vendor_equipment("Nanotrasen Minebot",			/mob/living/simple_animal/hostile/mining_drone,						800),
-		new /datum/data/vendor_equipment("Minebot Melee Upgrade",		/obj/item/mine_bot_upgrade,											400),
-		new /datum/data/vendor_equipment("Minebot Armor Upgrade",		/obj/item/mine_bot_upgrade/health,									400),
-		new /datum/data/vendor_equipment("Minebot Cooldown Upgrade",	/obj/item/borg/upgrade/modkit/cooldown/minebot,						600),
-		new /datum/data/vendor_equipment("Minebot AI Upgrade",			/obj/item/slimepotion/slime/sentience/mining,						1000),
-		new /datum/data/vendor_equipment("KA Minebot Passthrough",		/obj/item/borg/upgrade/modkit/minebot_passthrough,					100),
-		new /datum/data/vendor_equipment("KA White Tracer Rounds",		/obj/item/borg/upgrade/modkit/tracer,								100),
-		new /datum/data/vendor_equipment("KA Adjustable Tracer Rounds",	/obj/item/borg/upgrade/modkit/tracer/adjustable,					150),
-		new /datum/data/vendor_equipment("KA Super Chassis",			/obj/item/borg/upgrade/modkit/chassis_mod,							250),
-		new /datum/data/vendor_equipment("KA Hyper Chassis",			/obj/item/borg/upgrade/modkit/chassis_mod/orange,					300),
-		new /datum/data/vendor_equipment("KA Range Increase",			/obj/item/borg/upgrade/modkit/range,								1000),
-		new /datum/data/vendor_equipment("KA Damage Increase",			/obj/item/borg/upgrade/modkit/damage,								1000),
-		new /datum/data/vendor_equipment("KA Cooldown Decrease",		/obj/item/borg/upgrade/modkit/cooldown,								1000),
-		new /datum/data/vendor_equipment("KA Hardness Increase",		/obj/item/borg/upgrade/modkit/hardness,								1200),
-		new /datum/data/vendor_equipment("KA AoE Damage",				/obj/item/borg/upgrade/modkit/aoe/mobs,								2000)
+		new /datum/data/vendor_equipment("1 Маркерный маячок",								/obj/item/stack/marker_beacon,										10),
+		new /datum/data/vendor_equipment("10 Маркерных маячков",							/obj/item/stack/marker_beacon/ten,									100),
+		new /datum/data/vendor_equipment("30 Маркерных маячков",							/obj/item/stack/marker_beacon/thirty,								300),
+		new /datum/data/vendor_equipment("Виски",											/obj/item/reagent_containers/food/drinks/bottle/whiskey,			100),
+		new /datum/data/vendor_equipment("Абсент",											/obj/item/reagent_containers/food/drinks/bottle/absinthe/premium,	100),
+		new /datum/data/vendor_equipment("Упаковка жевательной резинки",					/obj/item/storage/box/gum/bubblegum,								100),
+		new /datum/data/vendor_equipment("Сигара",											/obj/item/clothing/mask/cigarette/cigar/havana,						150),
+		new /datum/data/vendor_equipment("Мыло",											/obj/item/soap/nanotrasen,											200),
+		new /datum/data/vendor_equipment("ИРП-4",											/obj/item/storage/mre,												215),
+		new /datum/data/vendor_equipment("ИРП-6",											/obj/item/storage/mre/protein,										235),
+		new /datum/data/vendor_equipment("ИРП-47",											/obj/item/storage/mre/vegan,										290),
+		new /datum/data/vendor_equipment("Лазерная указка",									/obj/item/laser_pointer,											300),
+		new /datum/data/vendor_equipment("Игрушечный лицехват",								/obj/item/clothing/mask/facehugger/toy,								300),
+		new /datum/data/vendor_equipment("Стабилизирующая сыворотка",						/obj/item/hivelordstabilizer,										400),
+		new /datum/data/vendor_equipment("Маяк Фултона",									/obj/item/fulton_core,												400),
+		new /datum/data/vendor_equipment("Блюспейс капсула-убежище",						/obj/item/survivalcapsule,											400),
+		new /datum/data/vendor_equipment("Шахтёрский заряд",								/obj/item/grenade/c4/miningcharge,									500),
+		new /datum/data/vendor_equipment("GAR мезоны",										/obj/item/clothing/glasses/meson/gar,								500),
+		new /datum/data/vendor_equipment("Разгрузка исследователя",							/obj/item/storage/belt/mining,										500),
+		new /datum/data/vendor_equipment("Карта для перевода очков",						/obj/item/card/mining_point_card,									500),
+		new /datum/data/vendor_equipment("Чрезвычайный медипен",							/obj/item/reagent_containers/hypospray/medipen/survival,			500),
+		new /datum/data/vendor_equipment("Аптечка для физических ран",						/obj/item/storage/firstaid/brute,									600),
+		new /datum/data/vendor_equipment("Комплект отслеживающих имплантов",				/obj/item/storage/box/minertracker,									600),
+		new /datum/data/vendor_equipment("Генератор Червоточин",							/obj/item/wormhole_jaunter,											750),
+		new /datum/data/vendor_equipment("Прото-кинетический крашер",						/obj/item/kinetic_crusher,											750),
+		new /datum/data/vendor_equipment("Протокинетический ускоритель",					/obj/item/gun/energy/kinetic_accelerator,							750),
+		new /datum/data/vendor_equipment("продвинутый автоматический шахтёрский сканер",	/obj/item/t_scanner/adv_mining_scanner,								800),
+		new /datum/data/vendor_equipment("Глубинный пинпоинтер",							/obj/item/pinpointer/deepcore,										200),		// WS edit - Deepcore
+		new /datum/data/vendor_equipment("Продвинутый пинпоинтер",							/obj/item/pinpointer/deepcore/advanced,								800),		// WS edit - Deepcore
+		new /datum/data/vendor_equipment("Капсула бура глубинного погружения",				/obj/item/deepcorecapsule,											2000),		// WS edit - Deepcore
+		new /datum/data/vendor_equipment("Резонатор",										/obj/item/resonator,												800),
+		new /datum/data/vendor_equipment("Элитный медипен",									/obj/item/reagent_containers/hypospray/medipen/survival/luxury,		1000),
+		new /datum/data/vendor_equipment("Фултон пак",										/obj/item/extraction_pack,											1000),
+		new /datum/data/vendor_equipment("Инъектор Лазаря",									/obj/item/lazarus_injector,											1000),
+		new /datum/data/vendor_equipment("Посеребренная кирка",								/obj/item/pickaxe/silver,											1000),
+		new /datum/data/vendor_equipment("Комлпект шахтёра",								/obj/item/storage/backpack/duffelbag/mining_conscript,				1500),
+		new /datum/data/vendor_equipment("Улучшение джетпака",								/obj/item/tank/jetpack/suit,										2000),
+		new /datum/data/vendor_equipment("Улучшенные ремни сумок",							/obj/item/duffel_anti_slow,											2000),
+		new /datum/data/vendor_equipment("Имплант биомонитора",								/obj/item/autosurgeon/organ/biomonitor,								2000),
+		new /datum/data/vendor_equipment("Космоденьги",										/obj/item/stack/spacecash/c1000,									2000),
+		new /datum/data/vendor_equipment("Шахтёрский скафандр",								/obj/item/clothing/suit/space/hardsuit/mining,						2000),
+		new /datum/data/vendor_equipment("Кирка с алмазным наконечником",					/obj/item/pickaxe/diamond,											2000),
+		new /datum/data/vendor_equipment("Продвинутый резонатор",							/obj/item/resonator/upgraded,										2500),
+		new /datum/data/vendor_equipment("Прыжковые ботинки",								/obj/item/clothing/shoes/bhop,										2500),
+		new /datum/data/vendor_equipment("Шахтёрский МОД скафандр", 						/obj/item/mod/control/pre_equipped/mining, 							3000),
+		new /datum/data/vendor_equipment("Роскошная капсула-убежище",						/obj/item/survivalcapsule/luxury,									3000),
+		new /datum/data/vendor_equipment("Супер протокинетический ускоритель",				/obj/item/gun/energy/kinetic_accelerator/super_kinetic_accelerator,	4000),
+		new /datum/data/vendor_equipment("Элитная капсула-бар класса люкс",					/obj/item/survivalcapsule/luxuryelite,								10000),
+		new /datum/data/vendor_equipment("Шахтерский дрон",									/mob/living/simple_animal/hostile/mining_drone,						800),
+		new /datum/data/vendor_equipment("Дрон: Улучшение ближнего боя",					/obj/item/mine_bot_upgrade,											400),
+		new /datum/data/vendor_equipment("Дрон: Улучшение здоровья",						/obj/item/mine_bot_upgrade/health,									400),
+		new /datum/data/vendor_equipment("Дрон: Ускорение перезарядки",						/obj/item/borg/upgrade/modkit/cooldown/minebot,						600),
+		new /datum/data/vendor_equipment("Дрон: Улучшение ИИ",								/obj/item/slimepotion/slime/sentience/mining,						1000),
+		new /datum/data/vendor_equipment("КУ Игнорирование шахтерских дронов",				/obj/item/borg/upgrade/modkit/minebot_passthrough,					100),
+		new /datum/data/vendor_equipment("КУ Белые трассеры",								/obj/item/borg/upgrade/modkit/tracer,								100),
+		new /datum/data/vendor_equipment("КУ Настраиваемые трассеры",						/obj/item/borg/upgrade/modkit/tracer/adjustable,					150),
+		new /datum/data/vendor_equipment("КУ Супер корпус",									/obj/item/borg/upgrade/modkit/chassis_mod,							250),
+		new /datum/data/vendor_equipment("КУ Гипер корпус",									/obj/item/borg/upgrade/modkit/chassis_mod/orange,					300),
+		new /datum/data/vendor_equipment("КУ Увеличение дальнобойности",					/obj/item/borg/upgrade/modkit/range,								1000),
+		new /datum/data/vendor_equipment("КУ Увеличение урона",								/obj/item/borg/upgrade/modkit/damage,								1000),
+		new /datum/data/vendor_equipment("КУ Ускорение перезарядки",						/obj/item/borg/upgrade/modkit/cooldown,								1000),
+		new /datum/data/vendor_equipment("КУ Улучшение бронебойности",						/obj/item/borg/upgrade/modkit/hardness,								1200),
+		new /datum/data/vendor_equipment("КУ Наступательный взрыв",							/obj/item/borg/upgrade/modkit/aoe/mobs,								2000)
 	)
 /datum/data/vendor_equipment
 	var/equipment_name = "generic"
@@ -202,36 +202,43 @@
 	return ..()
 
 /obj/machinery/vendor/proc/RedeemVoucher(obj/item/mining_voucher/voucher, mob/redeemer)
-	var/items = list("Asteroid Miner Kit", "Survival Capsule and Explorer's Webbing", "Resonator Kit", "Minebot Kit", "Extraction and Rescue Kit", "Crusher Kit", "Mining Conscription Kit")
+	var/items = list(
+		"Комплект для добычи астероидов",
+		"Спасательная капсула и разгрузка исследователя",
+		"Комплект резонатора",
+		"Шахтерский дрон",
+		"Набор для эвакуации и спасения",
+		"Коплект Крашера",
+		"Комплект шахтера-призывника")
 
-	var/selection = tgui_input_list(redeemer, "Pick your equipment", "Mining Voucher Redemption", sort_list(items))
+	var/selection = tgui_input_list(redeemer, "Выбери снаряжение", "Погашение шахтерского ваучера", sort_list(items))
 	if(!selection || !Adjacent(redeemer) || QDELETED(voucher) || voucher.loc != redeemer)
 		return
 	var/drop_location = drop_location()
 	switch(selection)
-		if("Asteroid Miner Kit")
+		if("Комплект для добычи астероидов")
 			new /obj/item/clothing/suit/space/hardsuit/mining(drop_location)
 			new /obj/item/tank/internals/oxygen(drop_location)
 			new /obj/item/gps/mining(drop_location)
 			new /obj/item/wormhole_jaunter(drop_location)
-		if("Survival Capsule and Explorer's Webbing")
+		if("Спасательная капсула и разгрузка исследователя")
 			new /obj/item/storage/belt/mining/vendor(drop_location)
-		if("Resonator Kit")
+		if("Комплект резонатора")
 			new /obj/item/extinguisher/mini(drop_location)
 			new /obj/item/resonator(drop_location)
-		if("Minebot Kit")
+		if("Шахтерский дрон")
 			new /mob/living/simple_animal/hostile/mining_drone(drop_location)
 			new /obj/item/weldingtool/hugetank(drop_location)
 			new /obj/item/clothing/head/welding(drop_location)
 			new /obj/item/borg/upgrade/modkit/minebot_passthrough(drop_location)
-		if("Extraction and Rescue Kit")
+		if("Набор для эвакуации и спасения")
 			new /obj/item/extraction_pack(drop_location)
 			new /obj/item/fulton_core(drop_location)
 			new /obj/item/stack/marker_beacon/thirty(drop_location)
-		if("Crusher Kit")
+		if("Комплект Крашера")
 			new /obj/item/extinguisher/mini(drop_location)
 			new /obj/item/kinetic_crusher(drop_location)
-		if("Mining Conscription Kit")
+		if("Комплект шахтера-призывника")
 			new /obj/item/storage/backpack/duffelbag/mining_conscript(drop_location)
 
 	SSblackbox.record_feedback("tally", "mining_voucher_redeemed", 1, selection)
@@ -240,23 +247,23 @@
 /****************Golem Point Vendor**************************/
 
 /obj/machinery/vendor/golem
-	name = "golem ship equipment vendor"
+	name = "торговый автомат големов"
 	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "mining"
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/mining_equipment_vendor/golem
 
 /obj/machinery/vendor/golem/Initialize(mapload)
-	desc += "\nIt seems a few selections have been added."
+	desc += "\nКажется, было добавлено несколько вариантов."
 	prize_list += list(
-		new /datum/data/vendor_equipment("Extra Id",       				/obj/item/card/id/advanced/mining, 				           		250),
-		new /datum/data/vendor_equipment("Science Goggles",       		/obj/item/clothing/glasses/science,								250),
-		new /datum/data/vendor_equipment("Monkey Cube",					/obj/item/food/monkeycube,        								300),
-		new /datum/data/vendor_equipment("Toolbelt",					/obj/item/storage/belt/utility,	    							350),
-		new /datum/data/vendor_equipment("Royal Cape of the Liberator", /obj/item/bedsheet/rd/royal_cape, 								500),
-		new /datum/data/vendor_equipment("Grey Slime Extract",			/obj/item/slime_extract/grey,									1000),
-		new /datum/data/vendor_equipment("Modification Kit",    		/obj/item/borg/upgrade/modkit/trigger_guard,					1700),
-		new /datum/data/vendor_equipment("The Liberator's Legacy",  	/obj/item/storage/box/rndboards,								2000)
+		new /datum/data/vendor_equipment("Допольнительная ID-карта",       				/obj/item/card/id/advanced/mining, 				           		250),
+		new /datum/data/vendor_equipment("Научные очки",       		/obj/item/clothing/glasses/science,								250),
+		new /datum/data/vendor_equipment("Обезьяний кубик",					/obj/item/food/monkeycube,        								300),
+		new /datum/data/vendor_equipment("Пояс для инструментов",					/obj/item/storage/belt/utility,	    							350),
+		new /datum/data/vendor_equipment("Королевский Плащ Освободителя", /obj/item/bedsheet/rd/royal_cape, 								500),
+		new /datum/data/vendor_equipment("Экстракт серой слизи",			/obj/item/slime_extract/grey,									1000),
+		new /datum/data/vendor_equipment("Модифицированный курок",    		/obj/item/borg/upgrade/modkit/trigger_guard,					1700),
+		new /datum/data/vendor_equipment("Наследие освободителя",  	/obj/item/storage/box/rndboards,								2000)
 		)
 	return ..()
 
@@ -265,7 +272,7 @@
 /**********************Mining Equipment Voucher**********************/
 
 /obj/item/mining_voucher
-	name = "Шахтерский Ваучер"
+	name = "шахтерский ваучер"
 	desc = "Талончик, который вы можете обменять на согласованные с ЦК наборы снаряжения. Для использования вставьте его в приемник шахтерского торгового автомата."
 	icon = 'white/Feline/icons/voucher_duffelbag.dmi'
 	icon_state = "mining_voucher"
@@ -274,8 +281,8 @@
 /**********************Mining Point Card**********************/
 
 /obj/item/card/mining_point_card
-	name = "mining points card"
-	desc = "A small card preloaded with mining points. Swipe your ID card over it to transfer the points, then discard."
+	name = "карта очков шахтёра"
+	desc = "Небольшая карточка, на которую начислены очки. Проведите по ней ID-картой, чтобы перевести очки, а затем выбросьте."
 	icon_state = "data_1"
 	var/points = 500
 
@@ -295,8 +302,8 @@
 	to_chat(user, span_alert("There's [points] point\s on the card."))
 
 /obj/item/storage/backpack/duffelbag/mining_conscript
-	name = "mining conscription kit"
-	desc = "A kit containing everything a crewmember needs to support a shaft miner in the field."
+	name = "набор шахтера-призывника"
+	desc = "Комплект, содержащий все необходимое для поддержки шахтера в полевых условиях."
 
 /obj/item/storage/backpack/duffelbag/mining_conscript/PopulateContents()
 	new /obj/item/clothing/glasses/meson(src)

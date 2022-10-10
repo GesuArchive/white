@@ -239,8 +239,8 @@
 	qdel(src)
 
 /obj/item/pinpointer/deepcore
-	name = "deep core pinpointer"
-	desc = "A handheld dowsing utility for locating material deep beneath the surface."
+	name = "глубинный пинпоинтер"
+	desc = "Ручной прибор для поиска ресурсов глубоко под поверхностью."
 	icon = 'white/valtos/icons/objects.dmi'
 	icon_state = "miningpinpointing"
 	custom_price = 300
@@ -278,7 +278,7 @@
 	return located_vein
 
 /obj/item/pinpointer/deepcore/advanced
-	name = "advanced deep core pinpointer"
+	name = "Продвинутый глубинный пинпоинтер"
 	desc = "A sophisticated dowsing utility for locating specific materials at any depth."
 	icon_state = "miningadvpinpointing"
 	custom_price = 600

@@ -3,7 +3,7 @@
 #define MINEDRONE_ATTACK 2
 
 /mob/living/simple_animal/hostile/mining_drone
-	name = "\improper Nanotrasen minebot"
+	name = "шахтерский дрон"
 	desc = "The instructions printed on the side read: This is a small robot used to support miners, can be set to search and collect loose ore, or to help fend off wildlife."
 	gender = NEUTER
 	icon = 'icons/mob/aibots.dmi'
@@ -265,8 +265,8 @@
 //Melee
 
 /obj/item/mine_bot_upgrade
-	name = "minebot melee upgrade"
-	desc = "A minebot upgrade."
+	name = "дрон: Улучшение ближнего боя"
+	desc = "Улучшение шахтерского дрона."
 	icon_state = "door_electronics"
 	icon = 'icons/obj/module.dmi'
 
@@ -278,7 +278,7 @@
 
 /obj/item/mine_bot_upgrade/proc/upgrade_bot(mob/living/simple_animal/hostile/mining_drone/M, mob/user)
 	if(M.melee_damage_upper != initial(M.melee_damage_upper))
-		to_chat(user, span_warning("[capitalize(src.name)] already has a combat upgrade installed!"))
+		to_chat(user, span_warning("[capitalize(src.name)] уже получил улучшение ближнего боя!"))
 		return
 	M.melee_damage_lower += 7
 	M.melee_damage_upper += 7
@@ -287,11 +287,11 @@
 //Health
 
 /obj/item/mine_bot_upgrade/health
-	name = "minebot armor upgrade"
+	name = "дрон: Улучшение здоровья"
 
 /obj/item/mine_bot_upgrade/health/upgrade_bot(mob/living/simple_animal/hostile/mining_drone/M, mob/user)
 	if(M.maxHealth != initial(M.maxHealth))
-		to_chat(user, span_warning("[capitalize(src.name)] already has reinforced armor!"))
+		to_chat(user, span_warning("[capitalize(src.name)] уже получил улучшение здоровья!"))
 		return
 	M.maxHealth += 45
 	M.updatehealth()
@@ -300,8 +300,8 @@
 //AI
 
 /obj/item/slimepotion/slime/sentience/mining
-	name = "minebot AI upgrade"
-	desc = "Can be used to grant sentience to minebots. It's incompatible with minebot armor and melee upgrades, and will override them."
+	name = "дрон: Улучшение ИИ"
+	desc = "Может использоваться для наделения шахтерских дронов разумом. Несовместим с улучшениями здоровья и ближнего боя и отменяет их."
 	icon_state = "door_electronics"
 	icon = 'icons/obj/module.dmi'
 	sentience_type = SENTIENCE_MINEBOT
