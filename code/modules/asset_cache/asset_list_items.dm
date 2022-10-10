@@ -225,6 +225,7 @@
 		"clownking" = 'icons/ui_icons/Achievements/Misc/clownking.png',
 		"clownthanks" = 'icons/ui_icons/Achievements/Misc/clownthanks.png',
 		"rule8" = 'icons/ui_icons/Achievements/Misc/rule8.png',
+		"popierdolilo" = 'icons/ui_icons/Achievements/Misc/popierdolilo.png',
 		"snail" = 'icons/ui_icons/Achievements/Misc/snail.png',
 		"ascension" = 'icons/ui_icons/Achievements/Misc/ascension.png',
 		"ashascend" = 'icons/ui_icons/Achievements/Misc/ashascend.png',
