@@ -13,15 +13,15 @@
 	density = 1
 	opacity = 0
 	dir = NORTH // always points north because why not
-	bound_width = 32
-	bound_height = 32
+	bound_width = 64
+	bound_height = 64
 	animate_movement = NO_STEPS // we do our own gliding here
 
 	anchored = TRUE
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF // it floats above lava or something, I dunno
 
 	max_integrity = 50
-	integrity_failure = 0.1
+	integrity_failure = 50
 
 	var/list/equipment = list()
 	var/list/equipment_slot_limits = list(
@@ -65,12 +65,14 @@
 
 	var/lights = 0
 	var/lights_power = 6
-	var/static/list/icon_light_color = list("pod_civ" = COLOR_WHITE, \
-									 "pod_mil" = "#BBF093", \
-									 "pod_synd" = COLOR_RED, \
-									 "pod_gold" = COLOR_WHITE, \
-									 "pod_black" = "#3B8FE5", \
-									 "pod_industrial" = "#CCCC00")
+	var/static/list/icon_light_color = list(
+		"pod_civ" = COLOR_WHITE, \
+		"pod_mil" = "#BBF093", \
+		"pod_synd" = COLOR_RED, \
+		"pod_gold" = COLOR_WHITE, \
+		"pod_black" = "#3B8FE5", \
+		"pod_industrial" = "#CCCC00"
+	)
 
 	var/bump_impulse = 0.6
 	var/bounce_factor = 0.2 // how much of our velocity to keep on collision
@@ -83,10 +85,6 @@
 	cabin_air = new
 	cabin_air.set_temperature(T20C)
 	cabin_air.set_volume(200)
-	/*cabin_air.assert_gas(GAS_O2)
-	cabin_air.assert_gas(GAS_N2)
-	cabin_air.gases[GAS_O2][MOLES] = ONE_ATMOSPHERE*O2STANDARD*cabin_air.volume/(R_IDEAL_GAS_EQUATION*cabin_air.temperature)
-	cabin_air.gases[GAS_N2][MOLES] = ONE_ATMOSPHERE*N2STANDARD*cabin_air.volume/(R_IDEAL_GAS_EQUATION*cabin_air.temperature)*/
 
 /obj/spacepod/Destroy()
 	GLOB.spacepods_list -= src
@@ -196,11 +194,6 @@
 					span_warning("You manage to keep [user] out of [src]!"))
 
 	if(!hatch_open)
-		//if(cargo_hold.storage_slots > 0)
-		//	if(!locked)
-		//		cargo_hold.open(user)
-		//	else
-		//		to_chat(user, span_notice("The storage compartment is locked"))
 		return ..()
 	var/list/items = list(cell, internal_tank)
 	items += equipment
@@ -243,40 +236,14 @@
 		pod_armor = null
 		update_icon()
 
-/*
-/obj/spacepod/proc/InterceptClickOn(mob/user, params, atom/target)
-	var/list/params_list = params2list(params)
-	if(target == src || istype(target, /atom/movable/screen) || (target && (target in user.get_all_contents())) || user != pilot || params_list["shift"] || params_list["alt"])
-		return FALSE
-	if(weapon && params_list["ctrl"])
-		weapon.fire_weapons(target)
-	else
-		if(pilot?.client && !pilot.incapacitated())
-			var/list/sl_list = splittext(params_list["screen-loc"],",")
-			var/list/sl_x_list = splittext(sl_list[1], ":")
-			var/list/sl_y_list = splittext(sl_list[2], ":")
-			var/list/view_list = isnum(pilot.client.view) ? list("[pilot.client.view*2+1]","[pilot.client.view*2+1]") : splittext(pilot.client.view, "x")
-			var/dx = text2num(sl_x_list[1]) + (text2num(sl_x_list[2]) / world.icon_size) - 1 - text2num(view_list[1]) / 2
-			var/dy = text2num(sl_y_list[1]) + (text2num(sl_y_list[2]) / world.icon_size) - 1 - text2num(view_list[2]) / 2
-			if(sqrt(dx*dx+dy*dy) > 1)
-				desired_angle = 90 - ATAN2(dx, dy)
-			else
-				desired_angle = null
-		else
-			return FALSE
-	return TRUE
-*/
-
 /obj/spacepod/proc/on_mouse_moved(mob/user, object, location, control, params)
 	SIGNAL_HANDLER
 	var/list/modifiers = params2list(params)
-	if(object == src || /*istype(object, /atom/movable/screen) ||*/ (object && (object in user.get_all_contents())) || user != pilot/* || modifiers["shift"] || modifiers["alt"]*/)
+	if(object == src || (object && (object in user.get_all_contents())) || user != pilot)
 		return
 	if(weapon && modifiers["ctrl"])
 		INVOKE_ASYNC(src, .proc/async_fire_weapons_at, object)
-		//weapon.fire_weapons(object)
 	else
-		//desired_angle = get_angle(src, object)
 		var/list/sl_list = splittext(modifiers["screen-loc"],",")
 		var/list/sl_x_list = splittext(sl_list[1], ":")
 		var/list/sl_y_list = splittext(sl_list[2], ":")
@@ -298,6 +265,7 @@
 
 /obj/spacepod/return_air()
 	return cabin_air
+
 /obj/spacepod/remove_air(amount)
 	return cabin_air.remove(amount)
 
@@ -669,7 +637,6 @@
 		return FALSE
 	if(!pilot && allow_pilot)
 		pilot = M
-		//M.click_intercept = src
 		RegisterSignal(M, COMSIG_MOB_CLIENT_MOUSE_MOVE, .proc/on_mouse_moved)
 		addverbs(M)
 		ADD_TRAIT(M, TRAIT_HANDS_BLOCKED, VEHICLE_TRAIT)
@@ -695,8 +662,6 @@
 		if(M.client)
 			M.client.view_size.resetToDefault()
 		UnregisterSignal(M, COMSIG_MOB_CLIENT_MOUSE_MOVE)
-		//if(M.click_intercept == src)
-		//	M.click_intercept = null
 		desired_angle = null // since there's no pilot there's no one aiming it.
 	else if(M in passengers)
 		passengers -= M

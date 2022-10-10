@@ -1,5 +1,5 @@
 /obj/spacepod/process(time)
-	//time /= 2 // fuck off with your deciseconds
+	time /= 10 // fuck off with your deciseconds // uh oh
 
 	if(world.time > last_slowprocess + 15)
 		last_slowprocess = world.time
@@ -9,7 +9,6 @@
 	var/last_offset_y = offset_y
 	var/last_angle = angle
 	var/desired_angular_velocity = 0
-
 	if(isnum(desired_angle))
 		// do some finagling to make sure that our angles end up rotating the short way
 		while(angle > desired_angle + 180)
@@ -49,7 +48,7 @@
 				if(velocity_mag > 5 && prob(velocity_mag * 4) && istype(T, /turf/open/floor))
 					var/turf/open/floor/TF = T
 					TF.make_plating() // pull up some floor tiles. Stop going so fast, ree.
-					take_damage(3, BRUTE, "melee", FALSE)
+					take_damage(3, BRUTE, MELEE, FALSE)
 			var/datum/gas_mixture/env = T.return_air()
 			if(env)
 				var/pressure = env.return_pressure()
@@ -203,17 +202,16 @@
 		dir = angle2dir(angle)
 
 	transform = mat_from
-	pixel_x = base_pixel_x + last_offset_x*32
-	pixel_y = base_pixel_y + last_offset_y*32
-	animate(src, transform=mat_to, pixel_x = base_pixel_x + offset_x*32, pixel_y = base_pixel_y + offset_y*32, time = time*10, flags=ANIMATION_END_NOW)
-	var/list/possible_smooth_viewers = contents | src | get_all_orbiters()
-	for(var/mob/M in possible_smooth_viewers)
+	pixel_x = last_offset_x*32
+	pixel_y = last_offset_y*32
+	animate(src, transform=mat_to, pixel_x = offset_x*32, pixel_y = offset_y*32, time = time SECONDS, flags=ANIMATION_END_NOW)
+	for(var/mob/living/M in contents)
 		var/client/C = M.client
 		if(!C)
 			continue
 		C.pixel_x = last_offset_x*32
 		C.pixel_y = last_offset_y*32
-		animate(C, pixel_x = offset_x*32, pixel_y = offset_y*32, time = time*10, flags=ANIMATION_END_NOW)
+		animate(C, pixel_x = offset_x*32, pixel_y = offset_y*32, time = time SECONDS, flags=ANIMATION_END_NOW)
 	user_thrust_dir = 0
 	update_icon()
 
