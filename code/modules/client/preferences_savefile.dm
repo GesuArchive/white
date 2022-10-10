@@ -109,7 +109,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 /datum/preferences/proc/announce_conflict(list/notadded)
 	to_chat(parent, "<span class='userdanger'>Конфликт хоткеев!\n\
 	Появились новые функции, которые могут пересекаться с текущими хоткеями. Перепроверь настройки на всякий.\n\
-	<a href='?_src_=prefs;preference=tab;tab=4'>Ну или можешь нажать сюда, чтобы перейти сразу к настройкам.</a></span>")
+	<a href='?_src_=prefs;preference=tab;tab=4'>Ну или можешь нажать сюда, чтобы перейти сразу к настройкам. \
+	<font size=+4>ДА-ДА, ЭТО ТЕБЕ НАПИСАНО, ЖМИ НА МЕНЯ!</font></a></span>")
 	for(var/item in notadded)
 		var/datum/keybinding/conflicted = item
 		to_chat(parent, "<span class='userdanger'>[conflicted.category]: [conflicted.full_name] требует обновления")
