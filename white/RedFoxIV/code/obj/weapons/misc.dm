@@ -797,9 +797,7 @@
 	user.visible_message(span_warning("<b>[user]</b> дёргает рубильник! ПРЕДСТАВЛЕНИЕ НАЧИНАЕТСЯ!"))
 	is_turned = TRUE
 	icon_state = "switch-on"
-	SET_PLANE(SStitle.splash_turf, GAME_PLANE_FOV_HIDDEN, SStitle.splash_turf)
-	SStitle.splash_turf.mouse_opacity = 0
-	SStitle.splash_turf.blend_mode = 3
+	SStitle.splash_turf.invisibility = 101
 	playsound(src.loc, 'white/valtos/sounds/leveron.ogg', 50, TRUE)
 	spawn(180 SECONDS)
 		icon_state = "switch-off"
@@ -807,9 +805,7 @@
 		playsound(src.loc, 'white/valtos/sounds/leveroff.ogg', 90, TRUE)
 		var/turf/T = get_turf(src)
 		T.visible_message(span_notice("<b>[src]</b> возвращается на место!"))
-		SET_PLANE(SStitle.splash_turf, SPLASHSCREEN_PLANE, SStitle.splash_turf)
-		SStitle.splash_turf.mouse_opacity = 1
-		SStitle.splash_turf.blend_mode = 0
+		SStitle.splash_turf.invisibility = 26
 
 //stolen from CTF code
 /obj/effect/mob_spawn/human/donate/artist/process(delta_time)
