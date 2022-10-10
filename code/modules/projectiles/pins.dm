@@ -235,9 +235,9 @@
 	forceMove(gun)
 	gun.pin = src
 	if(multi_payment)
-		gun.desc += span_notice(" Этот [gun.name] имеет стоимость за выстрел [payment_amount] cr.[( payment_amount > 1 ) ? "s" : ""].")
+		gun.desc += span_notice("\nЭтот [gun.name] имеет стоимость за выстрел [payment_amount] кр.")
 		return
-	gun.desc += span_notice(" Этот [gun.name] премиальный доступ за [payment_amount] cr.[( payment_amount > 1 ) ? "s" : ""].")
+	gun.desc += span_notice("\nЭтот [gun.name] премиальный доступ за [payment_amount] кр.")
 	return
 
 
