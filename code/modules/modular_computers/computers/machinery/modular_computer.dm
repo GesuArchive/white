@@ -73,16 +73,16 @@
 	. = ..()
 	if(!cpu?.enabled)
 		if (!(machine_stat & NOPOWER) && (cpu?.use_power()))
-			. += mutable_appearance(icon, screen_icon_screensaver)
+			. += mutable_appearance(icon, screen_icon_screensaver, src)
 			. += emissive_appearance(icon, screen_icon_screensaver, alpha = src.alpha)
 	else
-		. += mutable_appearance(icon, (cpu.active_program?.program_icon_state || screen_icon_state_menu))
+		. += mutable_appearance(icon, (cpu.active_program?.program_icon_state || screen_icon_state_menu), src)
 		. += emissive_appearance(icon, (cpu.active_program?.program_icon_state || screen_icon_state_menu), alpha = src.alpha)
 
 	if(cpu && cpu.get_integrity() <= cpu.integrity_failure * cpu.max_integrity)
-		. += mutable_appearance(icon, "bsod")
+		. += mutable_appearance(icon, "bsod", src)
 		. += emissive_appearance(icon, "bsod", alpha = src.alpha)
-		. += mutable_appearance(icon, "broken")
+		. += mutable_appearance(icon, "broken", src)
 		. += emissive_appearance(icon, "broken", alpha = src.alpha)
 
 /// Eats the "source" arg because update_icon actually expects args now.

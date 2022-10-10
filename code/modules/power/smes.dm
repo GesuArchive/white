@@ -214,23 +214,23 @@
 		return
 
 	if(outputting)
-		. += mutable_appearance(icon, "smes-op1")
-		. += emissive_appearance(icon, "smes-op1", alpha = src.alpha)
+		. += mutable_appearance(icon, "smes-op1", src)
+		. += emissive_appearance(icon, "smes-op1", src, alpha = src.alpha)
 	else
-		. += mutable_appearance(icon, "smes-op0")
-		. += emissive_appearance(icon, "smes-op0", alpha = src.alpha)
+		. += mutable_appearance(icon, "smes-op0", src)
+		. += emissive_appearance(icon, "smes-op0", src, alpha = src.alpha)
 
 	if(inputting)
-		. += mutable_appearance(icon, "smes-oc1")
-		. += emissive_appearance(icon, "smes-oc1", alpha = src.alpha)
+		. += mutable_appearance(icon, "smes-oc1", src)
+		. += emissive_appearance(icon, "smes-oc1", src, alpha = src.alpha)
 	else if(input_attempt)
-		. += mutable_appearance(icon, "smes-oc0")
-		. += emissive_appearance(icon, "smes-oc0", alpha = src.alpha)
+		. += mutable_appearance(icon, "smes-oc0", src)
+		. += emissive_appearance(icon, "smes-oc0", src, alpha = src.alpha)
 
 	var/clevel = chargedisplay()
 	if(clevel>0)
-		. += mutable_appearance(icon, "smes-og[clevel]")
-		. += emissive_appearance(icon, "smes-og[clevel]", alpha = src.alpha)
+		. += mutable_appearance(icon, "smes-og[clevel]", src)
+		. += emissive_appearance(icon, "smes-og[clevel]", src, alpha = src.alpha)
 
 
 /obj/machinery/power/smes/proc/chargedisplay()

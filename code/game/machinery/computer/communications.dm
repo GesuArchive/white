@@ -358,6 +358,11 @@
 				return
 			post_status("alert", picture)
 			playsound(src, "terminal_type", 50, FALSE)
+		if ("setStatusTime")
+			if (!authenticated(usr))
+				return
+			post_status("time")
+			playsound(src, "terminal_type", 50, FALSE)
 		if ("toggleAuthentication")
 			// Log out if we're logged in
 			if (authorize_name)

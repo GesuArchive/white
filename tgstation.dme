@@ -669,7 +669,6 @@
 #include "code\datums\components\aura_healing.dm"
 #include "code\datums\components\bakeable.dm"
 #include "code\datums\components\bane.dm"
-#include "code\datums\components\beauty.dm"
 #include "code\datums\components\beetlejuice.dm"
 #include "code\datums\components\bloodysoles.dm"
 #include "code\datums\components\butchering.dm"

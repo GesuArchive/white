@@ -59,7 +59,7 @@
 /obj/machinery/light_switch/update_overlays()
 	. = ..()
 	if(!(machine_stat & NOPOWER))
-		. += mutable_appearance(icon, "[base_icon_state]-glow[area.lightswitch]")
+		. += mutable_appearance(icon, "[base_icon_state]-glow[area.lightswitch]", src)
 		. += emissive_appearance(icon, "[base_icon_state]-glow[area.lightswitch]", src, alpha = src.alpha)
 
 /obj/machinery/light_switch/examine(mob/user)

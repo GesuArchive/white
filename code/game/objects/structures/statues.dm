@@ -20,7 +20,7 @@
 /obj/structure/statue/Initialize(mapload)
 	. = ..()
 	AddElement(art_type, impressiveness)
-	AddComponent(/datum/component/beauty, impressiveness * 75)
+	AddComponent(/datum/element/beauty, impressiveness * 75)
 	AddComponent(/datum/component/simple_rotation, ROTATION_ALTCLICK | ROTATION_CLOCKWISE, CALLBACK(src, .proc/can_user_rotate), CALLBACK(src, .proc/can_be_rotated), null)
 
 /obj/structure/statue/proc/can_be_rotated(mob/user)

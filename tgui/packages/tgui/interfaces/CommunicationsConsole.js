@@ -250,6 +250,12 @@ const PageChangingStatus = (props, context) => {
               content="Эвакуация"
               onClick={() => act('setStatusPicture', { picture: 'shuttle' })}
             />
+
+            <Button
+              icon="time"
+              content="Время"
+              onClick={() => act('setStatusTime')}
+            />
           </Flex.Item>
         </Flex>
       </Section>

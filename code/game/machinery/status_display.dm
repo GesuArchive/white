@@ -185,6 +185,9 @@ GLOBAL_VAR_INIT(display_font_color, pick("#09f", "#f90", "#5f5", "#fff", "#f55",
 		// No power, no processing.
 		update_appearance()
 
+	if(current_mode == SD_TIME)
+		return set_messages("ВРЕМЯ", SSday_night.get_twentyfourhour_timestamp())
+
 	return PROCESS_KILL
 
 /// Update the display and, if necessary, re-enable processing.
@@ -310,7 +313,7 @@ GLOBAL_VAR_INIT(display_font_color, pick("#09f", "#f90", "#5f5", "#fff", "#f55",
 		var/ascii = text2ascii(text, text_idx)
 		if(!(ascii in 0x20 to 0x7E))
 			// So we can't possibly runtime, even though the input should be in range already.
-			width += 3
+			width += 2
 			continue
 		width += char_widths[ascii - 0x1F]
 
@@ -517,6 +520,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/ai, 32)
 	if(machine_stat & NOPOWER)
 		update_appearance()
 		return PROCESS_KILL
+
+	if(current_mode == SD_TIME)
+		return set_messages("ВРЕМЯ", SSday_night.get_twentyfourhour_timestamp())
 
 	set_picture(emotion_map[emotion])
 	return PROCESS_KILL

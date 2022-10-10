@@ -69,7 +69,7 @@
 		name = "плакат - [name]"
 		desc = "Большой кусок плотной печатной бумаги. [desc]"
 
-	AddComponent(/datum/component/beauty, 300)
+	AddComponent(/datum/element/beauty, 300)
 
 /obj/structure/sign/poster/proc/randomise(base_type)
 	var/list/poster_types = subtypesof(base_type)
