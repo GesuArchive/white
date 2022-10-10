@@ -389,6 +389,10 @@
 
 
 
+/obj/machinery/recharger/portable/update_overlays()
+	. = ..()
+	. += mutable_appearance(icon, "[base_icon_state]-open", layer, src, plane, alpha)
+
 /obj/item/portable_recharger
 	name = "портативная зарядная станция"
 	desc = "Портативная зарядная станция для энергетического оружия. Оборудована двумя портами. Запитывается от станционной сети, использует батаерю в качестве резервного источника энергии. Для использования по назначению разложить в любом удобном месте."
@@ -600,7 +604,7 @@
 			add_overlay(gun_overlay)
 
 //			var/overlay_state = holdable_weapons_list[I.type]
-//			. += mutable_appearance(icon, overlay_state, layer, plane, alpha)
+//			. += mutable_appearance(icon, overlay_state, layer, src, plane, alpha)
 //			icon_state = holdable_weapons_list[I.type]
 	else
 		charging = null
@@ -637,11 +641,11 @@
 
 	if(charging)
 		if(using_power)
-			. += mutable_appearance(icon, "toz-charge", layer, plane, alpha)
-			. += mutable_appearance(icon, "toz-charge", 0, EMISSIVE_PLANE, alpha)
+			. += mutable_appearance(icon, "toz-charge", layer, src, plane, alpha)
+			. += emissive_appearance(icon, "toz-charge", src)
 		else
-			. += mutable_appearance(icon, "toz-full", layer, plane, alpha)
-			. += mutable_appearance(icon, "toz-full", 0, EMISSIVE_PLANE, alpha)
+			. += mutable_appearance(icon, "toz-full", layer, src, plane, alpha)
+			. += emissive_appearance(icon, "toz-full", src)
 
 		var/w_cell_percent
 		var/obj/item/stock_parts/cell/C = charging.get_cell()
@@ -667,8 +671,8 @@
 			if(91 to 100)
 				w_cell_percent = "10"
 
-		. += mutable_appearance(icon, "toz-w_lvl-[w_cell_percent]", layer, plane, alpha)
-		. += mutable_appearance(icon, "toz-w_lvl-[w_cell_percent]", 0, EMISSIVE_PLANE, alpha)
+		. += mutable_appearance(icon, "toz-w_lvl-[w_cell_percent]", layer, src, plane, alpha)
+		. += emissive_appearance(icon, "toz-w_lvl-[w_cell_percent]", src)
 
 	var/cell_percent
 	switch(cell_imitator_lvl*100/cell_imitator_max)
@@ -687,5 +691,5 @@
 		if(85 to 100)
 			cell_percent = "7"
 
-	. += mutable_appearance(icon, "toz-c_lvl-[cell_percent]", layer, plane, alpha)
-	. += mutable_appearance(icon, "toz-c_lvl-[cell_percent]", 0, EMISSIVE_PLANE, alpha)
+	. += mutable_appearance(icon, "toz-c_lvl-[cell_percent]", layer, src, plane, alpha)
+	. += emissive_appearance(icon, "toz-c_lvl-[cell_percent]", src)
