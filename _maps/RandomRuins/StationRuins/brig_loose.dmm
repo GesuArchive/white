@@ -971,10 +971,10 @@
 /turf/open/floor/plasteel,
 /area/security/main/evidence)
 "em" = (
-/obj/item/recharger_item{
+/obj/machinery/portable_recharger{
 	pixel_y = 9
 	},
-/obj/item/recharger_item,
+/obj/machinery/portable_recharger,
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 8
 	},

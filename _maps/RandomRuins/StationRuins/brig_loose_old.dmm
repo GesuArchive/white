@@ -3464,10 +3464,10 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/rack,
-/obj/item/recharger_item{
+/obj/machinery/portable_recharger{
 	pixel_y = 5
 	},
-/obj/item/recharger_item{
+/obj/machinery/portable_recharger{
 	pixel_y = -5
 	},
 /turf/open/floor/plasteel/dark,

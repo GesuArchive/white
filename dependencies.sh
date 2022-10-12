@@ -18,7 +18,7 @@ export NODE_VERSION_PRECISE=14.16.1
 export SPACEMAN_DMM_VERSION=suite-1.7.2
 
 # Auxmos git tag
-export AUXMOS_VERSION=FUCK1
+export AUXMOS_VERSION=v2.1.0
 
 # Python version for mapmerge and other tools
 export PYTHON_VERSION=3.7.9
