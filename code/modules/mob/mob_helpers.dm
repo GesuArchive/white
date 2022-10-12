@@ -78,9 +78,10 @@
 /proc/slur(phrase)
 	var/output = ""
 
-	for(var/i = 1; i <= length(phrase); i++)
+	for(var/i = 1; i <= length(phrase))
 		var/a_letter = text2ascii(phrase, i)
 		var/letter = ascii2text(a_letter)
+		i += length(letter)
 		if(prob(33))
 			if(lowertext(letter)=="о")	letter="у"
 			if(lowertext(letter)=="ы")	letter="i"
@@ -107,9 +108,10 @@
 /proc/cultslur(phrase)
 	var/output = ""
 
-	for(var/i = 1; i <= length(phrase); i++)
+	for(var/i = 1; i <= length(phrase))
 		var/a_letter = text2ascii(phrase, i)
 		var/letter = ascii2text(a_letter)
+		i += length(letter)
 		if(prob(33))
 			if(lowertext(letter)=="о")	letter="о"
 			if(lowertext(letter)=="ы")	letter="i"
@@ -204,7 +206,7 @@
 	while(p <= n)
 		var/n_letter
 		var/n_mod = rand(1,4)
-		if(p+n_mod>n+1)
+		if(p + n_mod > n + 1)
 			n_letter = ascii2text(text2ascii(te, p))
 		else
 			for (var/i = 0, i <= n_mod, i++)
@@ -217,8 +219,8 @@
 		else
 			n_letter = text("[n_letter]")
 		t = text("[t][n_letter]")
-		p=p+n_mod
-	return copytext_char(sanitize(t),1,MAX_MESSAGE_LEN * length(ascii2text(text2ascii(t))))
+		p = p + n_mod
+	return copytext_char(sanitize(replacetext_char(t, "�", "")),1,MAX_MESSAGE_LEN * length(ascii2text(text2ascii(t))))
 
 #define TILES_PER_SECOND 0.7
 ///Shake the camera of the person viewing the mob SO REAL!

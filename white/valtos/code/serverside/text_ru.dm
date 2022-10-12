@@ -102,7 +102,7 @@
 					else
 						t += text("[ascii2text(a)]-[ascii2text(a)]")
 		t += ascii2text(a)
-	return copytext_char(sanitize(t),1,MAX_MESSAGE_LEN * length(ascii2text(text2ascii(t))))
+	return copytext_char(sanitize(replacetext_char(t, "�", "")),1,MAX_MESSAGE_LEN * length(ascii2text(text2ascii(t))))
 
 /proc/kartavo(message)
 	var/num = rand(1, 3)
