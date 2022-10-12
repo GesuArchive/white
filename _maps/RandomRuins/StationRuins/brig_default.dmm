@@ -973,10 +973,10 @@
 /area/security/main/evidence)
 "em" = (
 /obj/structure/table/reinforced,
-/obj/machinery/portable_recharger{
+/obj/item/portable_recharger{
 	pixel_y = 9
 	},
-/obj/machinery/portable_recharger,
+/obj/item/portable_recharger,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/security/main/mechanic)
 "en" = (

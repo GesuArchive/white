@@ -1177,10 +1177,10 @@
 /area/security/main/evidence)
 "em" = (
 /obj/structure/table/reinforced,
-/obj/machinery/portable_recharger{
+/obj/item/portable_recharger{
 	pixel_y = 9
 	},
-/obj/machinery/portable_recharger{
+/obj/item/portable_recharger{
 	layer = 3.01
 	},
 /turf/open/floor/engine,

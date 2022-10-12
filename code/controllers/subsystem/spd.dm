@@ -1,7 +1,7 @@
 SUBSYSTEM_DEF(spd)
 	name = "СПД"
 	init_order = INIT_ORDER_SPD
-	flags = SS_NO_FIRE
+	flags = SS_NO_INIT | SS_NO_FIRE
 	priority = FIRE_PRIORITY_SPD
 	var/list/checked_flags = list()
 

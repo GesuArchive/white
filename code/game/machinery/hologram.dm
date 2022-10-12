@@ -530,8 +530,8 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(machine_stat & (NOPOWER|BROKEN))
 		return
 
-	. += mutable_appearance(icon, "holopadglow")
-	. += emissive_appearance(icon, "holopadglow", alpha = src.alpha)
+	. += mutable_appearance(icon, "holopadglow", src)
+	. += emissive_appearance(icon, "holopadglow", src, alpha = src.alpha)
 
 /obj/machinery/holopad/proc/set_holo(mob/living/user, obj/effect/overlay/holo_pad_hologram/h)
 	LAZYSET(masters, user, h)
