@@ -74,16 +74,16 @@
 	if(!cpu?.enabled)
 		if (!(machine_stat & NOPOWER) && (cpu?.use_power()))
 			. += mutable_appearance(icon, screen_icon_screensaver, src)
-			. += emissive_appearance(icon, screen_icon_screensaver, alpha = src.alpha)
+			. += emissive_appearance(icon, screen_icon_screensaver, src, alpha = src.alpha)
 	else
 		. += mutable_appearance(icon, (cpu.active_program?.program_icon_state || screen_icon_state_menu), src)
 		. += emissive_appearance(icon, (cpu.active_program?.program_icon_state || screen_icon_state_menu), alpha = src.alpha)
 
 	if(cpu && cpu.get_integrity() <= cpu.integrity_failure * cpu.max_integrity)
 		. += mutable_appearance(icon, "bsod", src)
-		. += emissive_appearance(icon, "bsod", alpha = src.alpha)
+		. += emissive_appearance(icon, "bsod", src, alpha = src.alpha)
 		. += mutable_appearance(icon, "broken", src)
-		. += emissive_appearance(icon, "broken", alpha = src.alpha)
+		. += emissive_appearance(icon, "broken", src, alpha = src.alpha)
 
 /// Eats the "source" arg because update_icon actually expects args now.
 /obj/machinery/modular_computer/proc/relay_icon_update(datum/source, updates, updated)
