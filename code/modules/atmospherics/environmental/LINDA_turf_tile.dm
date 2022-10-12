@@ -27,7 +27,10 @@
 
 	var/list/atmos_overlay_types //gas IDs of current active gas overlays
 
-/turf/open/Initialize(mapload)
+/turf/proc/should_conduct_to_space()
+	return get_z_base_turf() == /turf/open/space
+
+/turf/open/Initialize()
 	if(!blocks_air)
 		air = new(2500,src)
 		air.copy_from_turf(src)
@@ -53,7 +56,6 @@
 		SSair.deferred_airs += list(list(giver, air, moles / giver.total_moles()))
 	else
 		giver.transfer_to(air, moles)
-		update_visuals()
 	return TRUE
 
 /turf/open/assume_air_ratio(datum/gas_mixture/giver, ratio)
@@ -63,7 +65,6 @@
 		SSair.deferred_airs += list(list(giver, air, ratio))
 	else
 		giver.transfer_ratio_to(air, ratio)
-		update_visuals()
 	return TRUE
 
 /turf/open/transfer_air(datum/gas_mixture/taker, moles)
@@ -73,7 +74,6 @@
 		SSair.deferred_airs += list(list(air, taker, moles / air.total_moles()))
 	else
 		air.transfer_to(taker, moles)
-		update_visuals()
 	return TRUE
 
 /turf/open/transfer_air_ratio(datum/gas_mixture/taker, ratio)
@@ -83,19 +83,16 @@
 		SSair.deferred_airs += list(list(air, taker, ratio))
 	else
 		air.transfer_ratio_to(taker, ratio)
-		update_visuals()
 	return TRUE
 
 /turf/open/remove_air(amount)
 	var/datum/gas_mixture/ours = return_air()
 	var/datum/gas_mixture/removed = ours.remove(amount)
-	update_visuals()
 	return removed
 
 /turf/open/remove_air_ratio(ratio)
 	var/datum/gas_mixture/ours = return_air()
 	var/datum/gas_mixture/removed = ours.remove_ratio(ratio)
-	update_visuals()
 	return removed
 
 /turf/open/proc/copy_air_with_tile(turf/open/T)
@@ -123,10 +120,6 @@
 	if(return_temperature() > heat_capacity)
 		to_be_destroyed = TRUE
 
-/turf/open/temperature_expose(datum/gas_mixture/air, exposed_temperature)
-	. = ..()
-	SEND_SIGNAL(src, COMSIG_TURF_EXPOSE, air, exposed_temperature)
-	check_atmos_process(src, air, exposed_temperature) //Manually do this to avoid needing to use elements, don't want 200 second atom init times
 
 /turf/open/proc/eg_reset_cooldowns()
 /turf/open/proc/eg_garbage_collect()
@@ -196,6 +189,10 @@
 
 /turf/open/proc/equalize_pressure_in_zone(cyclenum)
 /turf/open/proc/consider_firelocks(turf/T2)
+	for(var/obj/machinery/door/firedoor/FD in T2)
+		FD.emergency_pressure_stop()
+	for(var/obj/machinery/door/firedoor/FD in src)
+		FD.emergency_pressure_stop()
 
 /turf/proc/handle_decompression_floor_rip()
 /turf/open/floor/handle_decompression_floor_rip(sum)
@@ -236,19 +233,15 @@
 			M.experience_pressure_difference(pressure_difference * multiplier, pressure_direction, 0, pressure_specific_target)
 	if(pressure_difference > 100)
 		new /obj/effect/temp_visual/dir_setting/space_wind(src, pressure_direction, clamp(round(sqrt(pressure_difference) * 2), 10, 255))
-		//if(pressure_difference > 400)
-		//	playsound(src, 'white/valtos/sounds/depressurize.ogg', 50)
 
 /atom/movable/var/pressure_resistance = 10
 /atom/movable/var/last_high_pressure_movement_air_cycle = 0
 
 /atom/movable/proc/experience_pressure_difference(pressure_difference, direction, pressure_resistance_prob_delta = 0, throw_target)
-	set waitfor = FALSE
-	if(SEND_SIGNAL(src, COMSIG_ATOM_PRE_PRESSURE_PUSH) & COMSIG_ATOM_BLOCKS_PRESSURE)
-		return
 	var/const/PROBABILITY_OFFSET = 40
 	var/const/PROBABILITY_BASE_PRECENT = 10
 	var/max_force = sqrt(pressure_difference)*(MOVE_FORCE_DEFAULT / 5)
+	set waitfor = 0
 	var/move_prob = 100
 	if (pressure_resistance > 0)
 		move_prob = (pressure_difference/pressure_resistance*PROBABILITY_BASE_PRECENT)-PROBABILITY_OFFSET

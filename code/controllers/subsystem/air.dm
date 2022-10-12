@@ -376,7 +376,6 @@ SUBSYSTEM_DEF(air)
 		if(MC_TICK_CHECK)
 			return
 
-
 /datum/controller/subsystem/air/proc/process_high_pressure_delta(resumed = FALSE)
 	while (high_pressure_delta.len)
 		var/turf/open/T = high_pressure_delta[high_pressure_delta.len]
@@ -390,41 +389,10 @@ SUBSYSTEM_DEF(air)
 /datum/controller/subsystem/air/proc/process_turf_equalize(resumed = FALSE)
 	if(process_turf_equalize_auxtools(resumed,MC_TICK_REMAINING_MS))
 		pause()
-	/*
-	//cache for sanic speed
-	var/fire_count = times_fired
-	if (!resumed)
-		src.currentrun = active_turfs.Copy()
-	//cache for sanic speed (lists are references anyways)
-	var/list/currentrun = src.currentrun
-	while(currentrun.len)
-		var/turf/open/T = currentrun[currentrun.len]
-		currentrun.len--
-		if (T)
-			T.equalize_pressure_in_zone(fire_count)
-			//equalize_pressure_in_zone(T, fire_count)
-		if (MC_TICK_CHECK)
-			return
-	*/
 
 /datum/controller/subsystem/air/proc/process_turfs(resumed = FALSE)
 	if(process_turfs_auxtools(resumed,MC_TICK_REMAINING_MS))
 		pause()
-	/*
-	//cache for sanic speed
-	var/fire_count = times_fired
-	if (!resumed)
-		src.currentrun = active_turfs.Copy()
-	//cache for sanic speed (lists are references anyways)
-	var/list/currentrun = src.currentrun
-	while(currentrun.len)
-		var/turf/open/T = currentrun[currentrun.len]
-		currentrun.len--
-		if (T)
-			T.process_cell(fire_count)
-		if (MC_TICK_CHECK)
-			return
-	*/
 
 /datum/controller/subsystem/air/proc/process_excited_groups(resumed = FALSE)
 	if(process_excited_groups_auxtools(resumed,MC_TICK_REMAINING_MS))
@@ -455,18 +423,10 @@ SUBSYSTEM_DEF(air)
 	map_loading = FALSE
 
 /datum/controller/subsystem/air/proc/pause_z(z_level)
-	LAZYADD(paused_z_levels, z_level)
-	var/list/turfs_to_disable = block(locate(1, 1, z_level), locate(world.maxx, world.maxy, z_level))
-	for(var/turf/T as anything in turfs_to_disable)
-		T.ImmediateDisableAdjacency(FALSE)
-		CHECK_TICK
+	can_fire = FALSE
 
 /datum/controller/subsystem/air/proc/unpause_z(z_level)
-	var/list/turfs_to_reinit = block(locate(1, 1, z_level), locate(world.maxx, world.maxy, z_level))
-	for(var/turf/T as anything in turfs_to_reinit)
-		T.Initalize_Atmos()
-		CHECK_TICK
-	LAZYREMOVE(paused_z_levels, z_level)
+	can_fire = TRUE
 
 /datum/controller/subsystem/air/proc/setup_allturfs()
 	var/list/turfs_to_init = block(locate(1, 1, 1), locate(world.maxx, world.maxy, world.maxz))

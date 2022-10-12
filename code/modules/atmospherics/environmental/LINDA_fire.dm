@@ -1,9 +1,5 @@
-
-
 /atom/proc/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	return null
-
-
 
 /turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	return
@@ -12,9 +8,11 @@
 	if(!air)
 		return
 
-	if (air.get_oxidation_power(exposed_temperature) < 0.5)
+	if (air.get_moles(GAS_O2) < 0.5)
 		return
-	var/has_fuel = air.get_moles(GAS_PLASMA) > 0.5 || air.get_moles(GAS_TRITIUM) > 0.5 || air.get_fuel_amount(exposed_temperature) > 0.5
+
+	var/has_fuel = air.get_moles(GAS_PLASMA) > 0.5 || air.get_moles(GAS_TRITIUM) > 0.5 || air.get_moles(GAS_HYDROGEN) > 0.5
+
 	if(active_hotspot)
 		if(soh)
 			if(has_fuel)
@@ -42,10 +40,9 @@
 
 	var/volume = 125
 	var/temperature = FIRE_MINIMUM_TEMPERATURE_TO_EXIST
+	var/just_spawned = TRUE
 	var/bypassing = FALSE
 	var/visual_update_tick = 0
-	var/first_cycle = TRUE
-
 
 /obj/effect/hotspot/Initialize(mapload, starting_volume, starting_temperature)
 	. = ..()
@@ -56,7 +53,6 @@
 		temperature = starting_temperature
 	perform_exposure()
 	setDir(pick(GLOB.cardinals))
-	air_update_turf()
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = .proc/on_entered,
 	)
@@ -70,9 +66,7 @@
 
 	location.active_hotspot = src
 
-	bypassing = !first_cycle && volume > CELL_VOLUME*0.95 || location.air.return_temperature() > FUSION_TEMPERATURE_THRESHOLD
-	if(first_cycle)
-		first_cycle = FALSE
+	bypassing = !just_spawned && (volume > CELL_VOLUME*0.95)
 
 	if(bypassing)
 		volume = location.air.reaction_results["fire"]*FIRE_GROWTH_RATE
@@ -141,7 +135,7 @@
 		add_overlay(fusion_overlay)
 		add_overlay(rainbow_overlay)
 
-	set_light_color(rgb(LERP(250, heat_r, greyscale_fire), LERP(160, heat_g, greyscale_fire), LERP(25, heat_b, greyscale_fire)))
+	set_light(l_color = rgb(LERP(250,heat_r,greyscale_fire),LERP(160,heat_g,greyscale_fire),LERP(25,heat_b,greyscale_fire)))
 
 	heat_r /= 255
 	heat_g /= 255
@@ -150,8 +144,12 @@
 	color = list(LERP(0.3, 1, 1-greyscale_fire) * heat_r,0.3 * heat_g * greyscale_fire,0.3 * heat_b * greyscale_fire, 0.59 * heat_r * greyscale_fire,LERP(0.59, 1, 1-greyscale_fire) * heat_g,0.59 * heat_b * greyscale_fire, 0.11 * heat_r * greyscale_fire,0.11 * heat_g * greyscale_fire,LERP(0.11, 1, 1-greyscale_fire) * heat_b, 0,0,0)
 	alpha = heat_a
 
-#define INSUFFICIENT(path) (location.air.get_moles(path) < 0.5)
+#define INSUFFICIENT(id) (location.air.get_moles(id) < 0.5)
 /obj/effect/hotspot/process()
+	if(just_spawned)
+		just_spawned = FALSE
+		return
+
 	var/turf/open/location = loc
 	if(!istype(location))
 		qdel(src)
@@ -162,7 +160,9 @@
 	if((temperature < FIRE_MINIMUM_TEMPERATURE_TO_EXIST) || (volume <= 1))
 		qdel(src)
 		return
-	if(!location.air || location.air.get_oxidation_power() < 0.5 || (INSUFFICIENT(GAS_PLASMA) && INSUFFICIENT(GAS_TRITIUM) && location.air.get_fuel_amount() < 0.5))
+
+	//Not enough / nothing to burn
+	if(!location.air || (INSUFFICIENT(GAS_PLASMA) && INSUFFICIENT(GAS_TRITIUM)) && INSUFFICIENT(GAS_HYDROGEN) || INSUFFICIENT(GAS_O2))
 		qdel(src)
 		return
 
