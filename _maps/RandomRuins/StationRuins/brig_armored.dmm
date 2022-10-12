@@ -3781,7 +3781,6 @@
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "qL" = (
-/obj/structure/table/wood,
 /obj/machinery/requests_console{
 	announcementConsole = 1;
 	department = "Head of Security's Desk";
@@ -3789,13 +3788,20 @@
 	name = "Head of Security RC";
 	pixel_y = 30
 	},
-/obj/machinery/computer/med_data/laptop,
 /obj/item/storage/secure/safe/hos{
 	pixel_x = 36;
 	pixel_y = 28
 	},
 /obj/machinery/camera{
 	c_tag = "Head of Security's Office"
+	},
+/obj/structure/table/wood/fancy/black,
+/obj/item/computer_hardware/hard_drive/portable/security{
+	pixel_y = 4;
+	layer = 3.01
+	},
+/obj/item/computer_hardware/hard_drive/portable/security{
+	pixel_x = 4
 	},
 /turf/open/floor/engine,
 /area/command/heads_quarters/hos)
@@ -4216,7 +4222,7 @@
 /turf/open/floor/engine,
 /area/security/main/lockers)
 "ur" = (
-/obj/machinery/computer/prisoner/management,
+/obj/machinery/modular_computer/console/preset/id,
 /turf/open/floor/engine,
 /area/command/heads_quarters/hos)
 "uS" = (

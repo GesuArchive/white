@@ -682,6 +682,9 @@
 "gt" = (
 /turf/template_noop,
 /area/template_noop)
+"gx" = (
+/turf/closed/wall/r_wall,
+/area/maintenance/aft)
 "gz" = (
 /obj/machinery/holopad,
 /turf/open/floor/plasteel/monofloor/white,
@@ -1572,6 +1575,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
+"pA" = (
+/turf/closed/wall/r_wall,
+/area/medical/surgery)
 "pB" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
@@ -1739,6 +1745,9 @@
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay)
+"rB" = (
+/turf/closed/wall/r_wall,
+/area/medical/morgue)
 "rD" = (
 /obj/structure/chair,
 /obj/machinery/airalarm{
@@ -3144,7 +3153,7 @@
 	name = "Chemistry Shutter Control";
 	pixel_x = -24;
 	pixel_y = -6;
-	req_one_access_txt = "69"
+	req_one_access_txt = "5"
 	},
 /turf/open/floor/plasteel/monofloor/white,
 /area/medical/medbay)
@@ -3402,7 +3411,7 @@
 /turf/open/floor/plating,
 /area/medical/medbay)
 "GI" = (
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/medical/break_room)
 "GL" = (
 /obj/structure/disposalpipe/junction{
@@ -4726,6 +4735,9 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/lobby)
+"Sz" = (
+/turf/closed/wall/r_wall,
+/area/medical/medbay)
 "SK" = (
 /obj/machinery/computer/operating{
 	dir = 1
@@ -5545,18 +5557,18 @@ Zz
 Zz
 Ji
 Ji
-CB
+Sz
 oy
-jf
-jf
-jf
-jf
-jf
-jf
+pA
+pA
+pA
+pA
+pA
+pA
 cO
-jf
-jf
-jf
+pA
+pA
+pA
 gt
 gt
 gt
@@ -5598,7 +5610,7 @@ SL
 dm
 xz
 Cl
-jf
+pA
 gt
 gt
 gt
@@ -5640,7 +5652,7 @@ Cn
 Wv
 KW
 pg
-jf
+pA
 gt
 gt
 gt
@@ -5682,7 +5694,7 @@ Rf
 Ij
 eA
 Mc
-jf
+pA
 gt
 gt
 gt
@@ -5724,7 +5736,7 @@ Cn
 Sa
 Cn
 Mu
-jf
+pA
 gt
 gt
 gt
@@ -5766,7 +5778,7 @@ Rk
 HT
 aI
 XN
-jf
+pA
 gt
 gt
 gt
@@ -5808,7 +5820,7 @@ jf
 hf
 jf
 jf
-jf
+pA
 gt
 gt
 gt
@@ -5850,7 +5862,7 @@ Fh
 wi
 SY
 rE
-UB
+rJ
 gt
 gt
 gt
@@ -5892,7 +5904,7 @@ qR
 fD
 WX
 GN
-UB
+rJ
 gt
 gt
 gt
@@ -5934,7 +5946,7 @@ be
 Vd
 Pc
 FC
-UB
+rJ
 gt
 gt
 gt
@@ -6332,7 +6344,7 @@ gt
 gt
 "}
 (20,1,1) = {"
-Bp
+rB
 dA
 BE
 BE
@@ -6374,7 +6386,7 @@ gt
 gt
 "}
 (21,1,1) = {"
-Bp
+rB
 yo
 yo
 yo
@@ -6416,7 +6428,7 @@ gt
 gt
 "}
 (22,1,1) = {"
-Bp
+rB
 yo
 yo
 Ie
@@ -6500,7 +6512,7 @@ gt
 gt
 "}
 (24,1,1) = {"
-Bp
+rB
 yo
 BE
 BE
@@ -6542,7 +6554,7 @@ gt
 gt
 "}
 (25,1,1) = {"
-Bp
+rB
 Jc
 Pn
 Pn
@@ -6584,7 +6596,7 @@ HZ
 HZ
 "}
 (26,1,1) = {"
-Bp
+rB
 IL
 BT
 kD
@@ -6626,11 +6638,11 @@ PB
 HZ
 "}
 (27,1,1) = {"
-Bp
-Bp
-Bp
-Bp
-Bp
+rB
+rB
+rB
+rB
+rB
 Ww
 Bc
 Fw
@@ -6858,7 +6870,7 @@ gt
 HZ
 vD
 vD
-HZ
+gx
 xu
 GI
 GI

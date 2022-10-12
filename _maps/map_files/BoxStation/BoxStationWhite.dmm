@@ -1077,9 +1077,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/machinery/cryopod{
 	dir = 8
 	},
@@ -1273,6 +1270,9 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/commons/cryopods)
 "arn" = (
@@ -1376,6 +1376,9 @@
 /obj/item/radio/intercom/directional/east,
 /obj/machinery/cryopod{
 	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/commons/cryopods)
@@ -2871,6 +2874,12 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"aHd" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/commons/cryopods)
 "aHp" = (
 /obj/machinery/door/firedoor/heavy,
 /turf/open/floor/plasteel/monofloor,
@@ -15133,20 +15142,14 @@
 /turf/open/floor/plasteel,
 /area/engineering/atmos)
 "emn" = (
-/obj/structure/rospilovo/bochka/red{
-	pixel_x = 4;
-	pixel_y = 19
+/obj/machinery/cryopod{
+	dir = 4
 	},
-/obj/structure/rospilovo/bochka/red{
-	pixel_x = 8;
-	pixel_y = 8
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
 	},
-/obj/structure/rospilovo/bochka/red{
-	pixel_x = -5;
-	pixel_y = -4
-	},
-/turf/open/floor/carpet,
-/area/maintenance/bottom_station_maints/north)
+/turf/open/floor/plasteel/monofloor/dark,
+/area/commons/cryopods)
 "emu" = (
 /obj/docking_port/stationary{
 	dheight = 4;
@@ -19501,13 +19504,9 @@
 /turf/closed/wall,
 /area/maintenance/bottom_station_maints)
 "fBn" = (
-/obj/machinery/airalarm{
-	dir = 4;
-	pixel_x = -23
-	},
-/obj/effect/mapping_helpers/broken_floor,
-/turf/open/floor/wood,
-/area/commons/fitness/kachalka)
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints/north)
 "fBw" = (
 /obj/machinery/firealarm{
 	pixel_y = 27
@@ -25810,16 +25809,7 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "hBy" = (
-/obj/structure/rospilovo/clocks{
-	pixel_y = 37
-	},
-/obj/structure/rospilovo/plita{
-	pixel_y = 9
-	},
-/obj/item/reagent_containers/glass/beaker/meta{
-	pixel_x = 7;
-	pixel_y = -7
-	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet,
 /area/maintenance/bottom_station_maints/north)
 "hBA" = (
@@ -48031,6 +48021,10 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/cargo/exploration_prep)
+"oGy" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/carpet,
+/area/maintenance/bottom_station_maints/north)
 "oGM" = (
 /obj/structure/chair/wood{
 	dir = 1
@@ -54224,6 +54218,20 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/starboard/medbay)
+"qCk" = (
+/obj/structure/rospilovo/clocks{
+	pixel_y = 37
+	},
+/obj/structure/rospilovo/plita{
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/glass/beaker/meta{
+	pixel_x = 7;
+	pixel_y = -7
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet,
+/area/maintenance/bottom_station_maints/north)
 "qCt" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -60693,6 +60701,29 @@
 /obj/structure/closet/secure_closet/medical2,
 /turf/open/floor/plasteel/monofloor,
 /area/science/xenobiology)
+"sIv" = (
+/obj/machinery/cryopod{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plasteel/monofloor/dark,
+/area/commons/cryopods)
+"sIx" = (
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = 4;
+	pixel_y = 19
+	},
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/structure/rospilovo/bochka/red{
+	pixel_x = -5;
+	pixel_y = -4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet,
+/area/maintenance/bottom_station_maints/north)
 "sIy" = (
 /obj/structure/sign/poster/contraband/space_cube{
 	pixel_x = 31
@@ -72101,6 +72132,8 @@
 /turf/open/floor/plasteel/dark,
 /area/engineering/atmospherics_engine)
 "wsZ" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/airalarm/directional/west,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -77689,6 +77722,18 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"ygq" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/cryopod{
+	dir = 8
+	},
+/turf/open/floor/plasteel/monofloor/dark,
+/area/commons/cryopods)
 "ygC" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -111815,7 +111860,7 @@ trb
 uRH
 yjz
 yjz
-yhR
+lsY
 lsY
 lsY
 lsY
@@ -112072,10 +112117,10 @@ ssb
 uRH
 yhR
 yhR
-yhR
 jsj
 iKS
 hEh
+emn
 aqq
 apx
 arl
@@ -112329,9 +112374,9 @@ uRH
 uRH
 qSy
 yjz
-yhR
 lsY
 lcN
+anZ
 anZ
 apu
 arj
@@ -112586,10 +112631,10 @@ xXu
 xXu
 yjz
 yjz
-yhR
 jsj
 dNd
 anD
+sIv
 aoI
 thd
 arn
@@ -112843,10 +112888,10 @@ tOc
 tOc
 tOc
 yjz
-yhR
 jsj
 dNd
 apx
+aHd
 nba
 rNP
 asr
@@ -113089,20 +113134,20 @@ byE
 yhR
 yjz
 yjz
-yjz
 yhR
 yjz
-yhR
-yhR
 yjz
+yhR
+yhR
+tOc
 tOc
 xJf
 xJf
-tOc
 tOc
 tOc
 lsY
 aoK
+asq
 asq
 aqp
 mDt
@@ -113346,7 +113391,6 @@ xXu
 xXu
 yjz
 yjz
-yjz
 yhR
 tOc
 tOc
@@ -113355,11 +113399,12 @@ tOc
 tOc
 chR
 chR
+chR
 wsZ
-fBn
 chR
 lsY
 aoL
+ygq
 apy
 aqq
 whN
@@ -113604,7 +113649,6 @@ xXu
 yhR
 yhR
 yhR
-yhR
 tOc
 aov
 aLL
@@ -113615,6 +113659,7 @@ wov
 wov
 jox
 avt
+lsY
 lsY
 lsY
 lsY
@@ -113860,7 +113905,6 @@ yhR
 xXu
 yjz
 yjz
-yjz
 yhR
 atf
 jlU
@@ -113873,6 +113917,7 @@ gza
 iCj
 lGX
 mBA
+oAi
 oAi
 win
 wdf
@@ -114117,7 +114162,6 @@ yjz
 xXu
 yjz
 yjz
-yjz
 yhR
 sRc
 iSc
@@ -114130,6 +114174,7 @@ pch
 wlp
 usu
 llk
+cjI
 cjI
 cjI
 aqr
@@ -114375,7 +114420,6 @@ xXu
 yhR
 yhR
 yhR
-yhR
 tOc
 jxf
 yjN
@@ -114387,6 +114431,7 @@ gza
 nxY
 nND
 tOc
+wNw
 wNw
 wNw
 wNw
@@ -114631,7 +114676,6 @@ yjz
 xXu
 yjz
 yjz
-yjz
 yhR
 sRc
 sTH
@@ -114644,6 +114688,7 @@ gza
 bVe
 chR
 tOc
+wUs
 tkj
 wUs
 brY
@@ -114888,7 +114933,6 @@ yjz
 xXu
 yjz
 yjz
-yjz
 yhR
 atf
 vxx
@@ -114901,6 +114945,7 @@ kOI
 pov
 nyN
 tOc
+wUs
 wUs
 wUs
 wUs
@@ -115146,7 +115191,6 @@ xXu
 yhR
 yhR
 yhR
-yhR
 tOc
 hcz
 fHw
@@ -115158,6 +115202,7 @@ cuy
 ath
 dDd
 tOc
+wUs
 wUs
 wUs
 wUs
@@ -115402,7 +115447,6 @@ yjz
 xXu
 yjz
 yjz
-yjz
 yhR
 tOc
 tOc
@@ -115415,6 +115459,7 @@ tOc
 tOc
 tOc
 tOc
+wsl
 wsl
 pCI
 bjq
@@ -115659,7 +115704,6 @@ yjz
 xXu
 yjz
 yjz
-yjz
 yhR
 yjz
 yjz
@@ -115673,6 +115717,7 @@ yjz
 yhR
 wsl
 kLX
+oGy
 wEO
 bmP
 uBj
@@ -115916,7 +115961,6 @@ yjz
 xXu
 yjz
 yjz
-yjz
 yhR
 yjz
 yjz
@@ -115930,6 +115974,7 @@ yjz
 yhR
 wsl
 eCA
+oGy
 qZn
 nbZ
 bNr
@@ -116174,8 +116219,7 @@ xXu
 xXu
 xXu
 xXu
-xXu
-xXu
+yjz
 xXu
 xXu
 xXu
@@ -116187,6 +116231,7 @@ yhR
 yhR
 wsl
 gUy
+fBn
 qlN
 kdV
 vKX
@@ -116430,7 +116475,6 @@ yjz
 yhR
 yjz
 yjz
-yjz
 yhR
 yjz
 yjz
@@ -116444,6 +116488,7 @@ xXu
 yhR
 wsl
 iuz
+fBn
 bel
 vKX
 kJo
@@ -116687,7 +116732,6 @@ yjz
 yhR
 yjz
 yjz
-yjz
 yhR
 yjz
 yjz
@@ -116700,6 +116744,7 @@ xXu
 xXu
 yhR
 wsl
+qCk
 hBy
 tal
 nbZ
@@ -116944,7 +116989,6 @@ yjz
 yjz
 yjz
 yjz
-yjz
 yhR
 yjz
 yjz
@@ -116957,7 +117001,8 @@ yjz
 yjz
 yhR
 wsl
-emn
+sIx
+hBy
 rdD
 lWl
 irk
@@ -117205,7 +117250,6 @@ yjz
 yjz
 yjz
 yjz
-yjz
 yhR
 yjz
 yjz
@@ -117213,6 +117257,7 @@ xXu
 yjz
 yjz
 yhR
+wsl
 wsl
 wsl
 wsl

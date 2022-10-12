@@ -876,6 +876,9 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/central)
+"eY" = (
+/turf/closed/wall/r_wall,
+/area/maintenance/aft)
 "fe" = (
 /obj/structure/bodycontainer/morgue,
 /obj/effect/decal/cleanable/dirt,
@@ -1482,7 +1485,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/medical/medbay/aft)
 "jJ" = (
 /turf/open/floor/plasteel/monofloor/dark,
@@ -1823,7 +1826,7 @@
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
 	name = "Chemistry Maintenance";
-	req_access_txt = "33"
+	req_access_txt = "5"
 	},
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
@@ -2029,6 +2032,9 @@
 /obj/machinery/door/poddoor/preopen,
 /turf/open/floor/plating,
 /area/medical/pharmacy)
+"op" = (
+/turf/closed/wall/r_wall,
+/area/medical/morgue)
 "oG" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
@@ -2292,14 +2298,14 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 1
 	},
-/obj/machinery/door/airlock/medical/glass{
-	name = "Chemistry Lab";
-	req_access_txt = "33"
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/medical{
+	name = "Ward";
+	req_access_txt = "5"
+	},
 /turf/open/floor/plasteel,
 /area/medical/chemistry)
 "qw" = (
@@ -4635,6 +4641,9 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/aft)
+"GQ" = (
+/turf/closed/wall/r_wall,
+/area/medical/break_room)
 "GR" = (
 /obj/machinery/smartfridge/chemistry,
 /turf/closed/wall,
@@ -5690,6 +5699,9 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/medical/virology)
+"Pu" = (
+/turf/closed/wall/r_wall,
+/area/medical/medbay/zone2)
 "Pv" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -5988,7 +6000,7 @@
 /area/medical/medbay/zone2)
 "RC" = (
 /obj/effect/decal/cleanable/cobweb/cobweb2,
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/medical/psychology)
 "RD" = (
 /obj/structure/disposalpipe/segment{
@@ -6092,7 +6104,7 @@
 	name = "Chemistry Shutter Control";
 	pixel_x = -24;
 	pixel_y = -6;
-	req_one_access_txt = "69"
+	req_one_access_txt = "5"
 	},
 /obj/machinery/light_switch/directional/north,
 /turf/open/floor/plasteel/white,
@@ -7883,11 +7895,11 @@ jz
 rQ
 vL
 CQ
-Fp
+AW
 RC
-Fp
-Fp
-Fp
+AW
+AW
+AW
 Bu
 Bu
 Bu
@@ -8155,7 +8167,7 @@ Bu
 Bu
 "}
 (24,1,1) = {"
-RV
+op
 RV
 RV
 RV
@@ -8197,7 +8209,7 @@ Bu
 Bu
 "}
 (25,1,1) = {"
-RV
+op
 dj
 jJ
 fe
@@ -8239,7 +8251,7 @@ qS
 qS
 "}
 (26,1,1) = {"
-RV
+op
 hA
 HT
 Gy
@@ -8281,8 +8293,8 @@ ko
 qS
 "}
 (27,1,1) = {"
-RV
-RV
+op
+op
 XI
 ZE
 zS
@@ -8324,7 +8336,7 @@ gf
 "}
 (28,1,1) = {"
 Bu
-RV
+op
 VV
 vg
 vg
@@ -8408,7 +8420,7 @@ qS
 "}
 (30,1,1) = {"
 Bu
-RV
+op
 XO
 Sc
 hb
@@ -8450,13 +8462,13 @@ Bu
 "}
 (31,1,1) = {"
 Bu
-RV
-RV
-RV
-RV
-RV
+op
+op
+op
+op
+op
 bY
-zM
+Pu
 HY
 Qi
 WC
@@ -8468,7 +8480,7 @@ va
 va
 va
 va
-kl
+va
 rm
 Zb
 bL
@@ -8498,26 +8510,26 @@ Bu
 Bu
 Bu
 Bu
-zM
-zM
-zM
-zM
-zM
+Pu
+Pu
+Pu
+Pu
+Pu
 lO
 jH
-qS
+eY
 Bu
 Bu
 Bu
 Bu
-qS
-Su
-Su
-Su
+eY
+GQ
+GQ
+GQ
 ho
-Su
-Su
-Su
+GQ
+GQ
+GQ
 Qf
 Qf
 Qf

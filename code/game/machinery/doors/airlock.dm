@@ -572,7 +572,13 @@
 		. += get_airlock_overlay(get_note_state(frame_state), note_overlay_file, src, em_block = TRUE)
 
 	if(frame_state == AIRLOCK_FRAME_CLOSED && seal)
-		. += get_airlock_overlay("sealed", overlays_file, src, em_block = TRUE)
+		if(istype(seal, /obj/item/door_seal/sb))
+			if(seal_sb_block)
+				. += get_airlock_overlay("seal_locked", 'white/Feline/icons/door_seal.dmi', src, em_block = TRUE)
+			else
+				. += get_airlock_overlay("seal_open", 'white/Feline/icons/door_seal.dmi', src, em_block = TRUE)
+		else
+			. += get_airlock_overlay("sealed", overlays_file, src, em_block = TRUE)
 
 	if(hasPower() && unres_sides)
 		for(var/heading in list(NORTH,SOUTH,EAST,WEST))

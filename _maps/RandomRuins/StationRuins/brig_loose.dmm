@@ -3325,7 +3325,6 @@
 	name = "Head of Security RC";
 	pixel_y = 30
 	},
-/obj/machinery/computer/med_data/laptop,
 /obj/item/storage/secure/safe/hos{
 	pixel_x = 36;
 	pixel_y = 28
@@ -3334,6 +3333,13 @@
 	c_tag = "Head of Security's Office"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/computer_hardware/hard_drive/portable/security{
+	pixel_x = 4
+	},
+/obj/item/computer_hardware/hard_drive/portable/security{
+	pixel_y = 4;
+	layer = 3.01
+	},
 /turf/open/floor/plasteel/monofloor,
 /area/command/heads_quarters/hos)
 "qU" = (
@@ -3705,8 +3711,8 @@
 /turf/open/floor/plasteel,
 /area/security/main/mechanic)
 "ur" = (
-/obj/machinery/computer/prisoner/management,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/modular_computer/console/preset/id,
 /turf/open/floor/plasteel/monofloor,
 /area/command/heads_quarters/hos)
 "uz" = (
