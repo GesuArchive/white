@@ -53,7 +53,7 @@
 
 	// We make the assumption that the space plane will never be blacklisted, as an optimization
 	if(SSmapping.max_plane_offset)
-		plane = PLANE_SPACE - (PLANE_RANGE * SSmapping.z_level_to_plane_offset[z])
+		plane = PLANE_SPACE - (PLANE_RANGE * SSmapping.z_level_to_plane_offset?[z])
 
 	var/area/our_area = loc
 	if(!our_area.area_has_base_lighting && always_lit) //Only provide your own lighting if the area doesn't for you

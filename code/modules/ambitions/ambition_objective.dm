@@ -14,11 +14,11 @@
 
 	//Шанс выпадения общей амбиции или амбиции отдела
 	if(prob(chance_generic_ambition))
-		result = pick_list_weight("ambitions/generic.json", "Common")
+		result = pick_list_weighted("ambitions/generic.json", "Common")
 	else
 		result = get_job_departament_ambition()
 		if (!result)
-			result = pick_list_weight("ambitions/generic.json", "Common")
+			result = pick_list_weighted("ambitions/generic.json", "Common")
 
 	return ambition_code(result)
 
@@ -33,18 +33,18 @@
 	//Проверяем работы не в позициях и вынесенные в отдельный файл
 	switch(owner.assigned_role)
 		if(JOB_LAWYER)
-			return pick_list_weight("ambitions/law.json", job)
+			return pick_list_weighted("ambitions/law.json", job)
 
 		if(JOB_CENTCOM_OFFICIAL)
-			return pick_list_weight("ambitions/representative.json", job)
+			return pick_list_weighted("ambitions/representative.json", job)
 
 	//Сначала выдаем амбиции силиконам, чтобы они не получили общих амбиций
 	if(owner.assigned_role in GLOB.nonhuman_positions)
-		return pick_list_weight("ambitions/nonhuman.json", owner.assigned_role)
+		return pick_list_weighted("ambitions/nonhuman.json", owner.assigned_role)
 
 	//Проверяем работы вынесенные в позиции
 	if(owner.assigned_role in (GLOB.service_positions + GLOB.scum_positions))
-		return pick_list_weight("ambitions/generic.json", job)
+		return pick_list_weighted("ambitions/generic.json", job)
 
 	if(owner.assigned_role in GLOB.command_positions)
 		//шанс получить за главу работу одного из своих отделов
@@ -53,46 +53,48 @@
 				if(JOB_HEAD_OF_PERSONNEL)
 					if (prob(50))
 						job = pick(GLOB.service_positions)
-						result = pick_list_weight("ambitions/support.json", job)
+						result = pick_list_weighted("ambitions/support.json", job)
 					else
 						job = pick(GLOB.supply_positions)
-						result = pick_list_weight("ambitions/supply.json", job)
+						result = pick_list_weighted("ambitions/supply.json", job)
 				if(JOB_HEAD_OF_SECURITY)
 					job = pick(GLOB.security_positions)
-					result = pick_list_weight("ambitions/security.json", job)
+					result = pick_list_weighted("ambitions/security.json", job)
 				if(JOB_CHIEF_ENGINEER)
 					job = pick(GLOB.engineering_positions)
-					result = pick_list_weight("ambitions/engineering.json", job)
+					result = pick_list_weighted("ambitions/engineering.json", job)
 				if(JOB_RESEARCH_DIRECTOR)
 					job = pick(GLOB.science_positions)
-					result = pick_list_weight("ambitions/science.json", job)
+					result = pick_list_weighted("ambitions/science.json", job)
 				if(JOB_CHIEF_MEDICAL_OFFICER)
 					job = pick(GLOB.medical_positions)
-					result = pick_list_weight("ambitions/medical.json", job)
+					result = pick_list_weighted("ambitions/medical.json", job)
 		if (!result)
-			result = pick_list_weight("ambitions/command.json", job)
+			result = pick_list_weighted("ambitions/command.json", job)
 		return result
 
 	if(owner.assigned_role in (GLOB.service_positions))
-		return pick_list_weight("ambitions/support.json", job)
+		return pick_list_weighted("ambitions/support.json", job)
 
 	if(owner.assigned_role in GLOB.engineering_positions)
-		return pick_list_weight("ambitions/engineering.json", job)
+		return pick_list_weighted("ambitions/engineering.json", job)
 
 	if(owner.assigned_role in GLOB.medical_positions)
-		return pick_list_weight("ambitions/medical.json", job)
+		return pick_list_weighted("ambitions/medical.json", job)
 
 	if(owner.assigned_role in GLOB.science_positions)
-		return pick_list_weight("ambitions/science.json", job)
+		return pick_list_weighted("ambitions/science.json", job)
 
 	if(owner.assigned_role in GLOB.supply_positions)
-		return pick_list_weight("ambitions/supply.json", job)
+		if(owner.assigned_role == JOB_HUNTER)
+			return pick_list_weighted("ambitions/supply.json", "Common")
+		return pick_list_weighted("ambitions/supply.json", job)
 
 	if(owner.assigned_role in (GLOB.security_positions))
 		if(owner.assigned_role == JOB_FIELD_MEDIC && (prob(chance_other_departament_ambition)))	//шанс что бригмедик возьмёт амбицию мед. отдела.
 			job = pick(GLOB.medical_positions)
-			return pick_list_weight("ambitions/medical.json", job)
-		return pick_list_weight("ambitions/security.json", job)
+			return pick_list_weighted("ambitions/medical.json", job)
+		return pick_list_weighted("ambitions/security.json", job)
 
 	return result
 
@@ -125,11 +127,11 @@
 	if (list_for_pick == "random_crew")
 		return random_player()
 
-	var/picked = pick_list_weight("ambitions/randoms.json", list_for_pick)
+	var/picked = pick_list_weighted("ambitions/randoms.json", list_for_pick)
 
 	//избавляемся от повтора
 	while(picked in choose_list)
-		picked = pick_list_weight("ambitions/randoms.json", list_for_pick)
+		picked = pick_list_weighted("ambitions/randoms.json", list_for_pick)
 
 	return picked
 

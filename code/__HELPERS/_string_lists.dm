@@ -2,7 +2,6 @@
 #define pick_list_weighted(FILE, KEY) (pick_weight(strings(FILE, KEY)))
 #define pick_list_replacements(FILE, KEY) (strings_replacement(FILE, KEY))
 #define json_load(FILE) (json_decode(file2text(FILE)))
-#define pick_list_weight(FILE, KEY) (pick_weight(strings(FILE, KEY)))
 
 GLOBAL_LIST(string_cache)
 GLOBAL_VAR(string_filename_current_key)
