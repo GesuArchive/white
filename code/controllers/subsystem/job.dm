@@ -538,9 +538,9 @@ SUBSYSTEM_DEF(job)
 			if(!SendToLateJoin(living_mob))
 				living_mob.move_to_error_room()
 
-
 	if(living_mob.mind)
 		living_mob.mind.assigned_role = rank
+		living_mob.mind.assign_random_ambition()
 
 	to_chat(M, "\n<big><b>Я - [ru_job_parse(rank)], [gvorno()].</b></big>\n")
 	if(job)
