@@ -57,13 +57,25 @@
 		//make the sensor mode favor higher levels, except coords.
 		sensor_mode = pick(SENSOR_OFF, SENSOR_LIVING, SENSOR_LIVING, SENSOR_VITALS, SENSOR_VITALS, SENSOR_VITALS, SENSOR_COORDS, SENSOR_COORDS)
 
-/obj/item/clothing/under/emp_act()
+/obj/item/clothing/under/emp_act(severity)
 	. = ..()
+	if(. & EMP_PROTECT_SELF)
+		return
 	if(has_sensor > NO_SENSORS)
-		sensor_mode = pick(SENSOR_OFF, SENSOR_OFF, SENSOR_OFF, SENSOR_LIVING, SENSOR_LIVING, SENSOR_VITALS, SENSOR_VITALS, SENSOR_COORDS)
-		if(ismob(loc))
-			var/mob/M = loc
-			to_chat(M,span_warning("Датчики на [src] быстро меняются!"))
+		if(severity <= EMP_HEAVY)
+			has_sensor = BROKEN_SENSORS
+			if(ismob(loc))
+				var/mob/M = loc
+				to_chat(M,span_warning("Датчики [src] перегорают!"))
+		else
+			sensor_mode = pick(SENSOR_OFF, SENSOR_OFF, SENSOR_OFF, SENSOR_LIVING, SENSOR_LIVING, SENSOR_VITALS, SENSOR_VITALS, SENSOR_COORDS)
+			if(ismob(loc))
+				var/mob/M = loc
+				to_chat(M,span_warning("Датчики [src] быстро меняются!"))
+		if(ishuman(loc))
+			var/mob/living/carbon/human/ooman = loc
+			if(ooman.w_uniform == src)
+				ooman.update_suit_sensors()
 
 /obj/item/clothing/under/equipped(mob/user, slot)
 	..()
