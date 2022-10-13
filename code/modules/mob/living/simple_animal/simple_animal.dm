@@ -612,7 +612,7 @@
 
 	set_invis_see(initial(see_invisible))
 	set_see_in_dark(initial(see_in_dark))
-
+	set_sight(initial(sight))
 	if(client.eye != src)
 		var/atom/A = client.eye
 		if(A.update_remote_sight(src)) //returns 1 if we override all other sight updates.
