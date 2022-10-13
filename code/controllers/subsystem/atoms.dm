@@ -9,7 +9,7 @@ SUBSYSTEM_DEF(atoms)
 	flags = SS_NO_FIRE
 
 	var/old_initialized
-	/// A count of how many initalize changes we've made. We want to prevent old_initialize being overriden by some other value, breaking init code
+	/// Is initialized currently changed if yes then this is TRUE otherwise false here so we can prevent old_initialize being overriden by some other value, breaking init code
 	var/initialized_changed = 0
 
 	var/list/late_loaders = list()
@@ -177,14 +177,13 @@ SUBSYSTEM_DEF(atoms)
 	if(!initialized_changed)
 		old_initialized = initialized
 		initialized = value
+		initialized_changed = TRUE // who cares how often this gets called important is only that we don't overwrite old_initialize
 	else
 		stack_trace("We started maploading while we were already maploading. You doing something odd?")
-	initialized_changed += 1
 
 /datum/controller/subsystem/atoms/proc/clear_tracked_initalize()
-	initialized_changed -= 1
-	if(!initialized_changed)
-		initialized = old_initialized
+	initialized_changed = FALSE
+	initialized = old_initialized
 
 /datum/controller/subsystem/atoms/Recover()
 	initialized = SSatoms.initialized
