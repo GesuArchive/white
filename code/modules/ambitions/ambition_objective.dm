@@ -44,7 +44,7 @@
 
 	//Проверяем работы вынесенные в позиции
 	if(owner.assigned_role in (GLOB.service_positions + GLOB.scum_positions))
-		return pick_list_weighted("ambitions/generic.json", job)
+		return pick_list_weighted("ambitions/generic.json", "Common")
 
 	if(owner.assigned_role in GLOB.command_positions)
 		//шанс получить за главу работу одного из своих отделов
