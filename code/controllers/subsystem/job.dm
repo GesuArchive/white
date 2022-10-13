@@ -538,9 +538,11 @@ SUBSYSTEM_DEF(job)
 			if(!SendToLateJoin(living_mob))
 				living_mob.move_to_error_room()
 
+	var/ambition_text
+
 	if(living_mob.mind)
 		living_mob.mind.assigned_role = rank
-		living_mob.mind.assign_random_ambition()
+		ambition_text = living_mob.mind.assign_random_ambition()
 
 	to_chat(M, "\n<big><b>Я - [ru_job_parse(rank)], [gvorno()].</b></big>\n")
 	if(job)
@@ -572,6 +574,9 @@ SUBSYSTEM_DEF(job)
 		living_mob.add_memory("Мой номер аккаунта: [wageslave.account_id].")
 	if(job && living_mob)
 		job.after_spawn(living_mob, M, joined_late) // note: this happens before the mob has a key! M will always have a client, H might not.
+
+	if(ambition_text)
+		to_chat(M, span_info(ambition_text))
 
 	return living_mob
 
