@@ -5,7 +5,7 @@
 	var/chance_generic_ambition = 40	//шанс выпадения ОБЩЕЙ амбиции
 	var/chance_other_departament_ambition = 30	//шанс выпадения амбиции чужого департамента
 
-/datum/ambition_objective/New(var/datum/mind/new_owner)
+/datum/ambition_objective/New(datum/mind/new_owner)
 	owner = new_owner
 	owner.ambition_objectives += src
 
@@ -98,7 +98,7 @@
 
 	return result
 
-/datum/ambition_objective/proc/ambition_code(var/text)
+/datum/ambition_objective/proc/ambition_code(text)
 	var/list/choose_list = list()		//список повторов рандома у амбиции !(Приготовлю сегодня ПИВО и ПИВО)
 
 	var/list/random_codes = list(
@@ -123,7 +123,7 @@
 	return uppertext(copytext_char(text, 1, 2)) + copytext_char(text, 2)	//переводим первым символ в верхний регистр
 
 //выдача рандома, проверка на повторы
-/datum/ambition_objective/proc/random_choose(var/list_for_pick, var/list/choose_list)
+/datum/ambition_objective/proc/random_choose(list_for_pick, list/choose_list)
 	if (list_for_pick == "random_crew")
 		return random_player()
 
