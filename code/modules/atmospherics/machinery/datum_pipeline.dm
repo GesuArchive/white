@@ -229,18 +229,4 @@
 				var/obj/machinery/atmospherics/components/unary/portables_connector/C = atmosmch
 				if(C.connected_device)
 					GL += C.connected_device.air_contents
-
-	var/datum/gas_mixture/total_gas_mixture = new(0)
-	var/total_volume = 0
-
-	for(var/i in GL)
-		var/datum/gas_mixture/G = i
-		total_gas_mixture.merge(G)
-		total_volume += G.return_volume()
-
-	if(total_volume > 0)
-		//Update individual gas_mixtures by volume ratio
-		for(var/i in GL)
-			var/datum/gas_mixture/G = i
-			G.copy_from(total_gas_mixture)
-			G.multiply(G.return_volume()/total_volume)
+	equalize_all_gases_in_list(GL)
