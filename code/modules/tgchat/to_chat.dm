@@ -34,7 +34,7 @@
 	var/message_blob = TGUI_CREATE_MESSAGE("chat/message", message)
 	var/message_html = message_to_html(message)
 
-	if(!(type in list(MESSAGE_TYPE_ADMINPM, MESSAGE_TYPE_ADMINCHAT, MESSAGE_TYPE_ADMINLOG, MESSAGE_TYPE_DEBUG)))
+	if(!(type in list(MESSAGE_TYPE_ADMINPM, MESSAGE_TYPE_ADMINCHAT, MESSAGE_TYPE_ADMINLOG)))
 		SSdemo.write_chat(target, message)
 
 	if(islist(target))
@@ -91,4 +91,4 @@
 	if(text) message["text"] = text
 	if(html) message["html"] = html
 	if(avoid_highlighting) message["avoidHighlighting"] = avoid_highlighting
-	SSchat.queue(target, message)
+	SSchat.queue(target, message, type)
