@@ -58,7 +58,7 @@
 	else
 		if(user)
 			user.put_in_hands(battery)
-			to_chat(user, span_notice("You detach \the [battery] from \the [src]."))
+			to_chat(user, span_notice("You detach <b>[battery]</b> from <b>[src]</b>."))
 		else if(holder)
 			battery.forceMove(get_turf(holder))
 		return TRUE

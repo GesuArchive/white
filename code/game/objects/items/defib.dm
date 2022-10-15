@@ -529,7 +529,7 @@
 		var/turf/T = get_turf(defib)
 		playsound(src, 'sound/machines/defib_charge.ogg', 50, FALSE)
 		if(req_defib)
-			T.audible_message(span_warning("\The [defib] lets out an urgent beep and lets out a steadily rising hum..."))
+			T.audible_message(span_warning("<b>[capitalize(defib)]</b> lets out an urgent beep and lets out a steadily rising hum..."))
 		else
 			user.audible_message(span_warning("[capitalize(src.name)] let out an urgent beep."))
 		if(do_after(user, 1.5 SECONDS, H)) //Takes longer due to overcharging

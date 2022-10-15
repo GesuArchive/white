@@ -59,7 +59,7 @@
 		deactivate(user)
 	else
 		if(animation_playing)
-			to_chat(user, span_notice("<b>[src.name]</b> is recharging."))
+			to_chat(user, span_notice("<b>[capitalize(src)]</b> is recharging."))
 			return
 		animation_playing = TRUE
 		to_chat(user, span_notice("You activate <b>[src.name]</b>."))

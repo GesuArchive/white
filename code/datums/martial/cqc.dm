@@ -175,7 +175,7 @@
 	var/obj/item/I = null
 	if(check_streak(A,D))
 		return TRUE
-	log_combat(A, D, "disarmed (CQC)", "[I ? " grabbing \the [I]" : ""]")
+	log_combat(A, D, "disarmed (CQC)", "[I ? " grabbing <b>[I]</b>" : ""]")
 	if(restraining_mob && A.pulling == restraining_mob)
 		log_combat(A, D, "knocked out (Chokehold)(CQC)")
 		D.visible_message(span_danger("[A] хватает [D] за шею!"), \

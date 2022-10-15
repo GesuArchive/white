@@ -821,7 +821,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	//Nothing left: dust the body, drop the items (if they're flammable they'll burn on their own)
 	chest.cremation_progress += rand(1 * delta_time, 2.5 * delta_time)
 	if(chest.cremation_progress >= 100)
-		visible_message(span_warning("<b>[src]</b> обращается в пепел!"))
+		visible_message(span_warning("<b>[capitalize(src)]</b> обращается в пепел!"))
 		dust(TRUE, TRUE)
 
 ////////////////

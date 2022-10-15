@@ -152,7 +152,7 @@
 			to_chat(user, span_warning("Нужно держать в руках <b>[src.name]</b>, чтобы приделать [S.name]!"))
 			return
 		if(suppressed)
-			to_chat(user, span_warning("<b>[src.name]</b> уже имеет глушитель!"))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> уже имеет глушитель!"))
 			return
 		if(user.transferItemToLoc(A, src))
 			to_chat(user, span_notice("Ты прикрутил [S.name] к <b>[src.name]</b>."))

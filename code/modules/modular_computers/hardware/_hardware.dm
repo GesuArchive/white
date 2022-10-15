@@ -50,7 +50,7 @@
 	if(istype(I, /obj/item/stack/cable_coil))
 		var/obj/item/stack/S = I
 		if(obj_integrity == max_integrity)
-			to_chat(user, span_warning("<b>[src.name]</b>, кажется, не требуется починка."))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b>, кажется, не требуется починка."))
 			return 1
 		if(S.use(1))
 			to_chat(user, span_notice("Ты починил <b>[src.name]</b> с небольшой долей [I]."))

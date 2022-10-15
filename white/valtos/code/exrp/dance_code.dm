@@ -3,7 +3,7 @@
 	if(!(prob(dancing / dancing_tolerance * 65)))
 		return
 
-	visible_message(span_purple("<b>[src]</b> [pick("стонет", "стонет в наслаждении")]."))
+	visible_message(span_purple("<b>[capitalize(src)]</b> [pick("стонет", "стонет в наслаждении")]."))
 
 	var/temp_age = 0
 
@@ -98,7 +98,7 @@
 		else
 			playsound(loc, "white/valtos/sounds/love/shot9.ogg", 90, 1, 0)
 
-	visible_message(span_purple("<b>[src]</b> [message]."))
+	visible_message(span_purple("<b>[capitalize(src)]</b> [message]."))
 
 	SSblackbox.record_feedback("amount", "dances", 1)
 

@@ -360,7 +360,7 @@
 		return TRUE
 
 	else
-		to_chat(user, span_warning("\The [W] прилипает к рукам, я не могу поместить его в [src.name]!"))
+		to_chat(user, span_warning("<b>[capitalize(W)]</b> прилипает к рукам, я не могу поместить его в [src.name]!"))
 
 	return
 

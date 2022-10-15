@@ -131,9 +131,9 @@
 		dat += "<div class='statusDisplay'>Are you sure you want to [operation] "
 		switch(operation)
 			if("remove")
-				dat += "<span class='highlight'>[target.get_name()]</span> gene from \the <span class='highlight'>[seed]</span>?<br>"
+				dat += "<span class='highlight'>[target.get_name()]</span> gene from <span class='highlight'>[seed]</span>?<br>"
 			if("extract")
-				dat += "<span class='highlight'>[target.get_name()]</span> gene from \the <span class='highlight'>[seed]</span>?<br>"
+				dat += "<span class='highlight'>[target.get_name()]</span> gene from <span class='highlight'>[seed]</span>?<br>"
 				dat += span_bad("The sample will be destroyed in process!")
 				if(istype(target, /datum/plant_gene/core))
 					var/datum/plant_gene/core/gene = target
@@ -173,7 +173,7 @@
 			if("replace")
 				dat += "<span class='highlight'>[target.get_name()]</span> gene with <span class='highlight'>[disk.gene.get_name()]</span>?<br>"
 			if("insert")
-				dat += "<span class='highlight'>[disk.gene.get_name()]</span> gene into \the <span class='highlight'>[seed]</span>?<br>"
+				dat += "<span class='highlight'>[disk.gene.get_name()]</span> gene into <span class='highlight'>[seed]</span>?<br>"
 		dat += "</div><div class='line'><a href='?src=[REF(src)];gene=[REF(target)];op=[operation]'>Confirm</a> "
 		dat += "<a href='?src=[REF(src)];abort=1'>Abort</a></div>"
 		popup.set_content(dat)

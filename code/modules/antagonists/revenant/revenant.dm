@@ -176,7 +176,7 @@
 	if(!message)
 		return
 	src.log_talk(message, LOG_SAY)
-	var/rendered = span_revennotice("<b>[src]</b> says, \"[message]\"")
+	var/rendered = span_revennotice("<b>[capitalize(src)]</b> says, \"[message]\"")
 	for(var/mob/M in GLOB.mob_list)
 		if(isrevenant(M))
 			to_chat(M, rendered)

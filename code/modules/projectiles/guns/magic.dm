@@ -95,7 +95,7 @@
 
 
 /obj/item/gun/magic/shoot_with_empty_chamber(mob/living/user as mob|obj)
-	to_chat(user, span_warning("<b>[name]</b> тихо свистит."))
+	to_chat(user, span_warning("<b>[capitalize(name)]</b> тихо свистит."))
 
 /obj/item/gun/magic/suicide_act(mob/user)
 	user.visible_message(span_suicide("[user] is twisting [src] above [user.ru_ego()] head, releasing a magical blast! It looks like [user.p_theyre()] trying to commit suicide!"))

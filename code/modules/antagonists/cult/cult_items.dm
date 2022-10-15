@@ -580,12 +580,12 @@
 
 /obj/item/cult_shift/attack_self(mob/user)
 	if(!uses || !iscarbon(user))
-		to_chat(user, span_warning("<b>[src.name]</b> is dull and unmoving in your hands."))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> is dull and unmoving in your hands."))
 		return
 	if(!iscultist(user))
 		user.dropItemToGround(src, TRUE)
 		step(src, pick(GLOB.alldirs))
-		to_chat(user, span_warning("<b>[src.name]</b> flickers out of your hands, your connection to this dimension is too strong!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> flickers out of your hands, your connection to this dimension is too strong!"))
 		return
 
 	var/mob/living/carbon/C = user
@@ -663,7 +663,7 @@
 
 	else
 		..()
-		to_chat(user, span_warning("<b>[src.name]</b> can only transport items!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> can only transport items!"))
 
 
 /obj/item/melee/cultblade/halberd
@@ -1016,7 +1016,7 @@
 			H.faction = list("cult")
 			H.GiveTarget(owner)
 			H.move_to_delay = owner.cached_multiplicative_slowdown
-			to_chat(owner, span_danger("<b>[src] betrays you!</b>"))
+			to_chat(owner, span_danger("<b>[capitalize(src)] betrays you!</b>"))
 		return FALSE
 
 /obj/item/shield/mirror/proc/readd()

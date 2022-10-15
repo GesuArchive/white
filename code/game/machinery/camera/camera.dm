@@ -479,7 +479,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 			visible_message(span_danger("[user] [change_msg] [src]!"))
 			add_hiddenprint(user)
 		else
-			visible_message(span_danger("<b>[src.name]</b> [change_msg]!"))
+			visible_message(span_danger("<b>[capitalize(src)]</b> [change_msg]!"))
 
 		playsound(src, 'sound/items/wirecutter.ogg', 100, TRUE)
 	update_icon() //update Initialize() if you remove this.

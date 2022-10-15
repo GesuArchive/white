@@ -652,7 +652,7 @@
 
 /obj/item/relic/proc/do_explode(mob/user)
 	if(loc == user)
-		visible_message(span_notice("<b>[src.name]</b>'s top opens, releasing a powerful blast!"))
+		visible_message(span_notice("<b>[capitalize(src)]</b>'s top opens, releasing a powerful blast!"))
 		explosion(src, heavy_impact_range = rand(1,5), light_impact_range = rand(1,5), flame_range = 2, flash_range = rand(1,5), adminlog = TRUE)
 		warn_admins(user, "Explosion")
 		qdel(src) //Comment this line to produce a light grenade (the bomb that keeps on exploding when used)!!

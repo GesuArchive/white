@@ -316,7 +316,7 @@
 	if(!did_the_thing)
 		return
 	to_chat(user, span_userdanger("Может быть, я дам тебе пиццу, может быть, я сломаю тебе руку..")) //makes the reference more obvious
-	user.visible_message(span_warning("<b>[src.name]</b> ломает руку [user]!") , span_warning("<b>[src.name]</b> ломает мою руку!"))
+	user.visible_message(span_warning("<b>[capitalize(src)]</b> ломает руку [user]!") , span_warning("<b>[capitalize(src)]</b> ломает мою руку!"))
 	playsound(user, "desecration", 50, TRUE, -1)
 
 /obj/item/food/proc/i_kill_you(obj/item/I, mob/living/user)

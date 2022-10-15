@@ -86,7 +86,7 @@
 		if(mover.pulledby == allowed_mob)
 			return TRUE
 		if(prob(50))
-			to_chat(mover, span_danger("You get stuck in \the [src] for a moment."))
+			to_chat(mover, span_danger("You get stuck in <b>[src]</b> for a moment."))
 			return FALSE
 	else if(istype(mover, /obj/projectile))
 		return prob(30)
@@ -364,7 +364,7 @@
 			var/target_atom = pick(nearby)
 			SSmove_manager.move_to(src, target_atom)
 			if(prob(40))
-				src.visible_message(span_notice("\The [src] skitters[pick(" away"," around","")]."))
+				src.visible_message(span_notice("<b>[capitalize(src)]</b> skitters[pick(" away"," around","")]."))
 	else if(prob(10))
 		//ventcrawl!
 		for(var/obj/machinery/atmospherics/components/unary/vent_pump/v in view(7,src))

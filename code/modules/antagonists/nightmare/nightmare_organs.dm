@@ -64,7 +64,7 @@
 /obj/item/organ/heart/nightmare/Remove(mob/living/carbon/M, special = FALSE)
 	respawn_progress = 0
 	if(blade && special != HEART_SPECIAL_SHADOWIFY)
-		M.visible_message(span_warning("\The [blade] распадается!"))
+		M.visible_message(span_warning("<b>[capitalize(blade)]</b> распадается!"))
 		QDEL_NULL(blade)
 	return ..()
 

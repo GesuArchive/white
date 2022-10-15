@@ -740,7 +740,7 @@
 			return
 		var/list/combined_msg = list()
 
-		visible_message(span_notice("<b>[src]</b> осматривает себя.") , null)
+		visible_message(span_notice("<b>[capitalize(src)]</b> осматривает себя.") , null)
 
 		var/list/missing = list(BODY_ZONE_HEAD, BODY_ZONE_CHEST, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 

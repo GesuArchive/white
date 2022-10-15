@@ -39,7 +39,7 @@
 					imp = null
 					update_icon()
 				else
-					to_chat(user, span_warning("<b>[src]</b> проваливает попытку ЧИПИЗАЦИИ <b>[M]</b>."))
+					to_chat(user, span_warning("<b>[capitalize(src)]</b> проваливает попытку ЧИПИЗАЦИИ <b>[M]</b>."))
 
 /obj/item/implanter/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/pen))

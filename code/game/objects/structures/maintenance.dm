@@ -105,7 +105,7 @@ at the cost of risking a vicious bite.**/
 		to_chat(user, span_warning("There is already something inside [src]."))
 		return
 	if(!user.transferItemToLoc(I, src))
-		to_chat(user, span_warning("\The [I] is stuck to your hand, you cannot put it in [src]!"))
+		to_chat(user, span_warning("<b>[capitalize(I)]</b> is stuck to your hand, you cannot put it in [src]!"))
 		return
 	hidden_item = I
 	to_chat(user, span_notice("You hide [I] inside the basin."))

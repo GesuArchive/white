@@ -247,7 +247,7 @@
 
 	var/raw_msg = message
 	if(visible_message_flags & EMOTE_MESSAGE)
-		message = span_emote("<b>[src]</b> [message]")
+		message = span_emote("<b>[capitalize(src)]</b> [message]")
 
 	for(var/mob/M in hearers)
 		if(!M.client)
@@ -302,7 +302,7 @@
 		hearers -= src
 	var/raw_msg = message
 	if(audible_message_flags & EMOTE_MESSAGE)
-		message = span_emote("<b>[src]</b> [message]")
+		message = span_emote("<b>[capitalize(src)]</b> [message]")
 	for(var/mob/M in hearers)
 		if(audible_message_flags & EMOTE_MESSAGE && runechat_prefs_check(M, audible_message_flags) && M.can_hear())
 			M.create_chat_message(src, raw_message = raw_msg, runechat_flags = audible_message_flags)

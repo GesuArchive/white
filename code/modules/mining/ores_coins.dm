@@ -143,7 +143,7 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	C.adjust_blurriness(6)
 	C.adjustStaminaLoss(15)//the pain from your eyes burning does stamina damage
 	C.add_confusion(5)
-	to_chat(C, span_userdanger("<b>[src.name]</b> gets into your eyes! The pain, it burns!"))
+	to_chat(C, span_userdanger("<b>[capitalize(src)]</b> gets into your eyes! The pain, it burns!"))
 	qdel(src)
 
 /obj/item/stack/ore/glass/ex_act(severity, target)
@@ -412,13 +412,13 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 /obj/item/coin/proc/manual_suicide(mob/living/user)
 	var/index = sideslist.Find(coinflip)
 	if (index==2)//tails
-		user.visible_message(span_suicide("<b>[src.name]</b> lands on [coinflip]! [user] promptly falls over, dead!"))
+		user.visible_message(span_suicide("<b>[capitalize(src)]</b> lands on [coinflip]! [user] promptly falls over, dead!"))
 		user.adjustOxyLoss(200)
 		user.death(0)
 		user.set_suicide(TRUE)
 		user.suicide_log()
 	else
-		user.visible_message(span_suicide("<b>[src.name]</b> lands on [coinflip]! [user] keeps on living!"))
+		user.visible_message(span_suicide("<b>[capitalize(src)]</b> lands on [coinflip]! [user] keeps on living!"))
 
 /obj/item/coin/examine(mob/user)
 	. = ..()

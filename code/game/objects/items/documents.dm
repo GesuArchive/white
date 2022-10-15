@@ -92,8 +92,8 @@
 /obj/item/report/examine(mob/user)
 	. = ..()
 	if(scanned_area?.name)
-		. += span_notice("\The [src] contains data on [scanned_area.name].")
+		. += span_notice("<b>[capitalize(src)]</b> contains data on [scanned_area.name].")
 	else if(scanned_area)
-		. += span_notice("\The [src] contains data on a vague area on station, you should throw it away.")
+		. += span_notice("<b>[capitalize(src)]</b> contains data on a vague area on station, you should throw it away.")
 	else
 		. += span_notice("Wait a minute, this thing's blank! You should throw it away.")

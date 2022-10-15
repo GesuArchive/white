@@ -64,7 +64,7 @@
 	wielded = FALSE
 
 /obj/item/toy/cards/deck/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] is slitting [user.p_their()] wrists with \the [src]! It looks like their luck ran out!"))
+	user.visible_message(span_suicide("[user] is slitting [user.p_their()] wrists with <b>[src]</b>! It looks like their luck ran out!"))
 	playsound(src, 'sound/items/cardshuffle.ogg', 50, TRUE)
 	return BRUTELOSS
 

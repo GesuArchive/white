@@ -56,7 +56,7 @@
 		var/obj/structure/spider/cocoon/C = user.loc
 		if(!istype(C))
 			return FALSE
-		C.visible_message(span_warning("<b>[src]</b> дёргается и начинает разваливаться!"))
+		C.visible_message(span_warning("<b>[capitalize(src)]</b> дёргается и начинает разваливаться!"))
 		to_chat(user, span_warning("Мы выделяем кислотные ферменты из нашей кожи и начинаем плавить кокон..."))
 		addtimer(CALLBACK(src, .proc/dissolve_cocoon, user, C), 25) //Very short because it's just webs
 		used = TRUE

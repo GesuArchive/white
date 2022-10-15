@@ -77,8 +77,8 @@
 		if(prob(15) && iscarbon(target))
 			var/mob/living/carbon/C = target
 			C.Paralyze(40)
-			C.visible_message(span_danger("<b>[src.name]</b> knocks down [C]!") , \
-					span_userdanger("<b>[src.name]</b> knocks you down!"))
+			C.visible_message(span_danger("<b>[capitalize(src)]</b> knocks down [C]!") , \
+					span_userdanger("<b>[capitalize(src)]</b> knocks you down!"))
 
 /mob/living/simple_animal/hostile/mimic/crate/proc/trigger()
 	if(!attempt_open)
@@ -186,8 +186,8 @@ GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/ca
 	if(knockdown_people && . && prob(15) && iscarbon(target))
 		var/mob/living/carbon/C = target
 		C.Paralyze(40)
-		C.visible_message(span_danger("<b>[src.name]</b> knocks down [C]!") , \
-				span_userdanger("<b>[src.name]</b> knocks you down!"))
+		C.visible_message(span_danger("<b>[capitalize(src)]</b> knocks down [C]!") , \
+				span_userdanger("<b>[capitalize(src)]</b> knocks you down!"))
 
 /mob/living/simple_animal/hostile/mimic/copy/machine
 	speak = list(

@@ -247,7 +247,7 @@
 
 /obj/item/clothing/accessory/medal/plasma/atmos_expose(datum/gas_mixture/air, exposed_temperature)
 	atmos_spawn_air("plasma=20;TEMP=[exposed_temperature]")
-	visible_message(span_danger("<b>[src.name]</b> загорается!") , span_userdanger("Моя <b>[src.name]</b> начинает гореть!"))
+	visible_message(span_danger("<b>[capitalize(src)]</b> загорается!") , span_userdanger("Моя <b>[src.name]</b> начинает гореть!"))
 	qdel(src)
 
 /obj/item/clothing/accessory/medal/plasma/nobel_science

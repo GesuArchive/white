@@ -70,7 +70,7 @@
 			return
 		else
 			if(!connect_to_network())
-				to_chat(user, span_warning("<b>[src.name]</b> must be placed over an exposed, powered cable node!"))
+				to_chat(user, span_warning("<b>[capitalize(src)]</b> must be placed over an exposed, powered cable node!"))
 				return
 			set_anchored(TRUE)
 			to_chat(user, span_notice("You bolt <b>[src.name]</b> to the floor and attach it to the cable."))

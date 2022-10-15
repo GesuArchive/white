@@ -60,7 +60,7 @@
 		icon_state = "water_fools"
 
 /obj/structure/reagent_dispensers/proc/boom()
-	visible_message(span_danger("<b>[src.name]</b> разрывается!"))
+	visible_message(span_danger("<b>[capitalize(src)]</b> разрывается!"))
 	chem_splash(loc, 5, list(reagents))
 	qdel(src)
 

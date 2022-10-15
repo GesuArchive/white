@@ -396,7 +396,7 @@
 		table_shatter(M)
 
 /obj/structure/table/glass/proc/table_shatter(mob/living/L)
-	visible_message(span_warning("<b>[src]</b> ломается!") ,
+	visible_message(span_warning("<b>[capitalize(src)]</b> ломается!") ,
 		span_danger("Слышу звук ломающегося стекла."))
 	var/turf/T = get_turf(src)
 	playsound(T, "shatter", 50, TRUE)

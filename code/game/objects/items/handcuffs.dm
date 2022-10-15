@@ -370,13 +370,13 @@
  */
 /obj/item/restraints/legcuffs/bola/proc/ensnare(mob/living/carbon/C)
 	if(!C.legcuffed && C.num_legs >= 2)
-		visible_message(span_danger("<b>[src.name]</b> ловит ножки [C]!"))
+		visible_message(span_danger("<b>[capitalize(src)]</b> ловит ножки [C]!"))
 		C.legcuffed = src
 		forceMove(C)
 		C.update_equipment_speed_mods()
 		C.update_inv_legcuffed()
 		SSblackbox.record_feedback("tally", "handcuffs", 1, type)
-		to_chat(C, span_userdanger("<b>[src.name]</b> ловит мои ножки!"))
+		to_chat(C, span_userdanger("<b>[capitalize(src)]</b> ловит мои ножки!"))
 		C.Knockdown(knockdown)
 		playsound(src, 'sound/effects/snap.ogg', 50, TRUE)
 

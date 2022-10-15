@@ -73,7 +73,7 @@
 		stasis_enabled = !stasis_enabled
 		stasis_can_toggle = world.time + STASIS_TOGGLE_COOLDOWN
 		playsound(src, 'sound/machines/click.ogg', 60, TRUE)
-		user.visible_message(span_notice("<b>[src.name]</b> [stasis_enabled ? "включается" : "выключается"].") , \
+		user.visible_message(span_notice("<b>[capitalize(src)]</b> [stasis_enabled ? "включается" : "выключается"].") , \
 					span_notice("[stasis_enabled ? "Включаю" : "Выключаю"] <b>[src.name]</b>.") , \
 					span_hear("Слышу звук [stasis_enabled ? "включения" : "выключения"] машины."))
 		play_power_sound()

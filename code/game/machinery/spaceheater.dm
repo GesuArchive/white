@@ -324,7 +324,7 @@
 		cell = item
 		item.add_fingerprint(usr)
 
-		user.visible_message(span_notice("\The [user] inserts a power cell into [src].") , span_notice("You insert the power cell into [src]."))
+		user.visible_message(span_notice("<b>[capitalize(user)]</b> inserts a power cell into [src].") , span_notice("You insert the power cell into [src]."))
 		SStgui.update_uis(src)
 	//reagent containers
 	if(is_reagent_container(item) && !(item.item_flags & ABSTRACT) && item.is_open_container())

@@ -91,7 +91,7 @@
 	if(!istype(next) || !istype(current))
 		return //not happening.
 	if(!turf_check(next, current))
-		to_chat(user, span_warning("\The [movable_parent] can not go onto [next]!"))
+		to_chat(user, span_warning("<b>[capitalize(movable_parent)]</b> can not go onto [next]!"))
 		return
 	if(!Process_Spacemove(direction) || !isturf(movable_parent.loc))
 		return

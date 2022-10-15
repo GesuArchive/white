@@ -283,8 +283,8 @@
 
 	if(AM.pulledby)
 		if(!supress_message)
-			AM.visible_message(span_danger("<b>[src]</b> оттягивает <b>[AM]</b> у <b>[AM.pulledby]</b>.") , \
-							span_danger("<b>[src]</b> оттягивает меня из захвата <b>[AM.pulledby]</b>.") , null, null, src)
+			AM.visible_message(span_danger("<b>[capitalize(src)]</b> оттягивает <b>[AM]</b> у <b>[AM.pulledby]</b>.") , \
+							span_danger("<b>[capitalize(src)]</b> оттягивает меня из захвата <b>[AM.pulledby]</b>.") , null, null, src)
 			to_chat(src, span_notice("Оттягиваю <b>[AM]</b> из захвата <b>[AM.pulledby]</b>!"))
 		log_combat(AM, AM.pulledby, "pulled from", src)
 		AM.pulledby.stop_pulling() //an object can't be pulled by two mobs at once.
@@ -1028,17 +1028,17 @@
 		var/resist_chance = BASE_GRAB_RESIST_CHANCE /// see defines/combat.dm, this should be baseline 60%
 		resist_chance = (resist_chance/altered_grab_state) ///Resist chance divided by the value imparted by your grab state. It isn't until you reach neckgrab that you gain a penalty to escaping a grab.
 		if(prob(resist_chance))
-			visible_message(span_danger("<b>[src]</b> вырывается из захвата <b>[pulledby]</b>!") , \
+			visible_message(span_danger("<b>[capitalize(src)]</b> вырывается из захвата <b>[pulledby]</b>!") , \
 							span_danger("Вырываюсь из захвата <b>[pulledby]</b>!") , null, null, pulledby)
-			to_chat(pulledby, span_warning("<b>[src]</b> вырывается из моего захвата!"))
+			to_chat(pulledby, span_warning("<b>[capitalize(src)]</b> вырывается из моего захвата!"))
 			log_combat(pulledby, src, "broke grab")
 			pulledby.stop_pulling()
 			return FALSE
 		else
 			adjustStaminaLoss(rand(15,20))//failure to escape still imparts a pretty serious penalty
-			visible_message(span_danger("<b>[src]</b> пытается вырваться из захвата <b>[pulledby]</b>!") , \
+			visible_message(span_danger("<b>[capitalize(src)]</b> пытается вырваться из захвата <b>[pulledby]</b>!") , \
 							span_warning("Пытаюсь вырваться из захвата <b>[pulledby]</b>!") , null, null, pulledby)
-			to_chat(pulledby, span_danger("<b>[src]</b> пытается вырваться из моего захвата!"))
+			to_chat(pulledby, span_danger("<b>[capitalize(src)]</b> пытается вырваться из моего захвата!"))
 		if(moving_resist && client) //we resisted by trying to move
 			client.move_delay = world.time + 40
 	else
@@ -1102,8 +1102,8 @@
 	if(!what.canStrip(who))
 		to_chat(src, span_warning("Не получается снять <b>[what.name]</b>, похоже оно приделано намертво!"))
 		return
-	who.visible_message(span_warning("<b>[src]</b> пытается снять <b>[what.name]</b> с <b>[who]</b>.") , \
-					span_userdanger("<b>[src]</b> пытается снять с меня <b>[what.name]</b>.") , null, null, src)
+	who.visible_message(span_warning("<b>[capitalize(src)]</b> пытается снять <b>[what.name]</b> с <b>[who]</b>.") , \
+					span_userdanger("<b>[capitalize(src)]</b> пытается снять с меня <b>[what.name]</b>.") , null, null, src)
 	to_chat(src, span_danger("Пытаюсь снять <b>[what.name]</b> с <b>[who]</b>..."))
 	log_message("[key_name(who)] is being stripped of [what] by [key_name(src)]", LOG_ATTACK, color="red")
 	who.log_message("[key_name(who)] is being stripped of [what] by [key_name(src)]", LOG_VICTIM, color="red", log_globally = FALSE)
@@ -1144,11 +1144,11 @@
 		if(istype(what,/obj/item/clothing))
 			var/obj/item/clothing/c = what
 			if(c.clothing_flags & DANGEROUS_OBJECT)
-				who.visible_message(span_danger("<b>[src]</b> пытается надеть <b>[what]</b> на <b>[who]</b>.") , \
-							span_userdanger("<b>[src]</b> пытается надеть <b>[what]</b> на меня.") , null, null, src)
+				who.visible_message(span_danger("<b>[capitalize(src)]</b> пытается надеть <b>[what]</b> на <b>[who]</b>.") , \
+							span_userdanger("<b>[capitalize(src)]</b> пытается надеть <b>[what]</b> на меня.") , null, null, src)
 			else
-				who.visible_message(span_notice("<b>[src]</b> пытается надеть <b>[what]</b> на <b>[who]</b>.") , \
-							span_notice("<b>[src]</b> пытается надеть <b>[what]</b> на меня.") , null, null, src)
+				who.visible_message(span_notice("<b>[capitalize(src)]</b> пытается надеть <b>[what]</b> на <b>[who]</b>.") , \
+							span_notice("<b>[capitalize(src)]</b> пытается надеть <b>[what]</b> на меня.") , null, null, src)
 		to_chat(src, span_notice("Пытаюсь надеть <b>[what]</b> на <b>[who]</b>..."))
 		log_message("[key_name(who)] is having [what] put on them by [key_name(src)]", LOG_ATTACK, color="red")
 		who.log_message("[key_name(who)] is having [what] put on them by [key_name(src)]", LOG_VICTIM, color="red", log_globally=FALSE)
@@ -1553,7 +1553,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 		to_chat(user, span_warning("Нет свободных рук!"))
 		return FALSE
 	if(buckled)
-		to_chat(user, span_warning("<b>[src]</b> прикован к чему-то!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> прикован к чему-то!"))
 		return FALSE
 	user.visible_message(span_warning("<b>[user]</b> начинает подбирать <b>[src]</b>!") , \
 					span_danger("Начинаю подбирать <b>[src]</b>...") , null, null, src)

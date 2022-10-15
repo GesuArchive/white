@@ -115,7 +115,7 @@
 				to_chat(user, span_warning("The cistern is full!"))
 				return
 			if(!user.transferItemToLoc(I, src))
-				to_chat(user, span_warning("\The [I] is stuck to your hand, you cannot put it in the cistern!"))
+				to_chat(user, span_warning("<b>[capitalize(I)]</b> is stuck to your hand, you cannot put it in the cistern!"))
 				return
 			w_items += I.w_class
 			to_chat(user, span_notice("You carefully place [I] into the cistern."))
@@ -400,7 +400,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink, (-14))
 	if(is_reagent_container(O))
 		var/obj/item/reagent_containers/RG = O
 		if(reagents.total_volume <= 0)
-			to_chat(user, span_notice("\The [src] is dry."))
+			to_chat(user, span_notice("<b>[capitalize(src)]</b> is dry."))
 			return FALSE
 		if(RG.is_refillable())
 			if(!RG.reagents.holder_full())
@@ -408,7 +408,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink, (-14))
 				begin_reclamation()
 				to_chat(user, span_notice("You fill [RG] from [src]."))
 				return TRUE
-			to_chat(user, span_notice("\The [RG] is full."))
+			to_chat(user, span_notice("<b>[capitalize(RG)]</b> is full."))
 			return FALSE
 
 	if(istype(O, /obj/item/melee/baton))
@@ -425,7 +425,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink, (-14))
 
 	if(istype(O, /obj/item/mop))
 		if(reagents.total_volume <= 0)
-			to_chat(user, span_notice("<b>[src.name]</b> is dry."))
+			to_chat(user, span_notice("<b>[capitalize(src)]</b> is dry."))
 			return FALSE
 		reagents.trans_to(O, 5, transfered_by = user)
 		begin_reclamation()
@@ -642,7 +642,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sink/kitchen, (-16))
 				container.reagents.add_reagent(dispensedreagent, min(container.volume - container.reagents.total_volume, container.amount_per_transfer_from_this))
 				to_chat(user, span_notice("You fill [container] from [src]."))
 				return TRUE
-			to_chat(user, span_notice("\The [container] is full."))
+			to_chat(user, span_notice("<b>[capitalize(container)]</b> is full."))
 			return FALSE
 
 	if(istype(O, /obj/item/melee/baton))

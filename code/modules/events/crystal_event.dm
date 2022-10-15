@@ -383,7 +383,7 @@ This section is for the destabilized SM
 			return
 		var/obj/item/crystal_stabilizer/injector = W
 		if(!injector.filled)
-			to_chat(user, span_notice("\The [W] is empty!"))
+			to_chat(user, span_notice("<b>[capitalize(W)]</b> is empty!"))
 			return
 		to_chat(user, span_notice("You carefully begin injecting <b>[src.name]</b> with [W]... take care not to move until all the steps are finished!"))
 		if(!W.use_tool(src, user, 1 SECONDS, volume = 100))
@@ -417,7 +417,7 @@ This section is for the destabilized SM
 	var/mob/living/user = movable_atom
 	if(isnull(user.mind))
 		return
-	movable_atom.visible_message(span_danger("\The [movable_atom] slams into <b>[src.name]</b> inducing a resonance... [movable_atom.ru_ego()] body starts to glow and burst into flames before flashing into dust!") ,\
+	movable_atom.visible_message(span_danger("<b>[capitalize(movable_atom)]</b> slams into <b>[src.name]</b> inducing a resonance... [movable_atom.ru_ego()] body starts to glow and burst into flames before flashing into dust!") ,\
 	span_userdanger("You slam into <b>[src.name]</b> as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"") ,\
 	span_hear("You hear an unearthly noise as a wave of heat washes over you."))
 	playsound(get_turf(src), 'sound/effects/supermatter.ogg', 50, TRUE)

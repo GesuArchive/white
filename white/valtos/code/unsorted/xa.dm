@@ -89,7 +89,7 @@
 	roleplay_progress++
 
 	to_chat(src, span_notice("Прогресс отыгрыша ролевой ролеплейной игры: \[[roleplay_progress]/100\]"))
-	visible_message("<b>[src.name]</b> [pick("мило булькает", "машет хвостиком", "улыбается", "радостно смотрит куда-то")].", null, null)
+	visible_message("<b>[capitalize(src)]</b> [pick("мило булькает", "машет хвостиком", "улыбается", "радостно смотрит куда-то")].", null, null)
 
 	remove_verb(src, /mob/living/simple_animal/xaxi/verb/roleplay)
 

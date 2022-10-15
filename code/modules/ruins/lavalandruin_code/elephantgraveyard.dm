@@ -99,7 +99,7 @@
 				RG.reagents.add_reagent(dispensedreagent, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
 				to_chat(user, span_notice("You fill [RG] from [src]."))
 				return TRUE
-			to_chat(user, span_notice("\The [RG] is full."))
+			to_chat(user, span_notice("<b>[capitalize(RG)]</b> is full."))
 			return FALSE
 	if(user.a_intent != INTENT_HARM)
 		to_chat(user, span_notice("You won't have any luck getting [O] out if you drop it in the oil."))

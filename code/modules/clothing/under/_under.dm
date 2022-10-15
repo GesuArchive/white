@@ -132,7 +132,7 @@
 		var/obj/item/clothing/accessory/A = I
 		if(attached_accessory)
 			if(user)
-				to_chat(user, span_warning("<b>[src.name]</b> уже что-то имеет."))
+				to_chat(user, span_warning("<b>[capitalize(src)]</b> уже что-то имеет."))
 			return
 		else
 

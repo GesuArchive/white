@@ -48,18 +48,18 @@
 		if(W.w_class >= WEIGHT_CLASS_SMALL) // Anything equal to or larger than small won't work
 			return
 		if(inserted_item)
-			to_chat(user, span_warning("There is already \a [inserted_item] in \the [src]!"))
+			to_chat(user, span_warning("There is already \a [inserted_item] in <b>[src]</b>!"))
 		else
 			if(!user.transferItemToLoc(W, src))
 				return
-			to_chat(user, span_notice("You insert \the [W] into \the [src]."))
+			to_chat(user, span_notice("You insert <b>[W]</b> into <b>[src]</b>."))
 			inserted_item = W
 			playsound(src, 'sound/machines/pda_button1.ogg', 50, TRUE)
 
 	if(istype(W, /obj/item/paper))
 		var/obj/item/paper/paper = W
 
-		to_chat(user, span_notice("You scan \the [W] into \the [src]."))
+		to_chat(user, span_notice("You scan <b>[W]</b> into <b>[src]</b>."))
 		note = paper.info
 
 /obj/item/modular_computer/tablet/AltClick(mob/user)

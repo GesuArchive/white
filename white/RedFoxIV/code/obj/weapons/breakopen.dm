@@ -158,7 +158,7 @@
 	if(!saw.get_sharpness() || (!is_type_in_typecache(saw, GLOB.gun_saw_types) && saw.tool_behaviour != TOOL_SAW)) //needs to be sharp. Otherwise turned off eswords can cut this.
 		return
 	if(sawn_off)
-		to_chat(user, span_warning("<b>[src.name]</b> уже обрезан!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> уже обрезан!"))
 		return
 	if(bayonet)
 		to_chat(user, span_warning("Не могу отпилить <b>[src.name]</b> с прикрепленным [bayonet]!"))
@@ -168,7 +168,7 @@
 
 	//if there's any live ammo inside the gun, makes it go off
 	if(blow_up(user))
-		user.visible_message(span_danger("<b>[src.name]</b> отлетает!") , span_danger("<b>[src.name]</b> отлетает в мое лицо!"))
+		user.visible_message(span_danger("<b>[capitalize(src)]</b> отлетает!") , span_danger("<b>[capitalize(src)]</b> отлетает в мое лицо!"))
 		return
 
 	if(do_after(user, 30, target = src))

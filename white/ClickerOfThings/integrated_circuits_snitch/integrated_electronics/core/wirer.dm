@@ -20,7 +20,7 @@
 
 /obj/item/integrated_electronics/wirer/proc/wire(var/datum/integrated_io/io, mob/user)
 	if(!io.holder.assembly)
-		to_chat(user, span_warning("\The [io.holder] needs to be secured inside an assembly first."))
+		to_chat(user, span_warning("<b>[capitalize(io.holder)]</b> needs to be secured inside an assembly first."))
 		return
 	switch(mode)
 		if(WIRE)
@@ -66,13 +66,13 @@
 			if(selected_io in io.linked)
 				selected_io.disconnect_pin(io)
 				to_chat(user, "<span class='notice'>You disconnect [selected_io.holder] [selected_io.name] from \
-				\the [io.holder] [io.name].</span>")
+				<b>[io.holder]</b> [io.name].</span>")
 				selected_io.holder.interact(user) // This is to update the UI.
 				selected_io = null
 				mode = UNWIRE
 				update_icon()
 			else
-				to_chat(user, "<span class='warning'>\The [selected_io.holder] [selected_io.name] and [io.holder] \
+				to_chat(user, "<span class='warning'><b>[capitalize(selected_io.holder)]</b> [selected_io.name] and [io.holder] \
 				[io.name] are not connected.</span>")
 				return
 

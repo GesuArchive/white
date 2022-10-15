@@ -187,7 +187,7 @@
 	update_icon()
 
 	playsound(loc, 'sound/effects/pai_boot.ogg', 50, TRUE, -1)
-	audible_message("<b>[src.name]</b> plays a cheerful startup noise!")
+	audible_message("<b>[capitalize(src)]</b> plays a cheerful startup noise!")
 
 /obj/item/paicard/proc/alertUpdate()
 	if(!COOLDOWN_FINISHED(src, alert_cooldown))

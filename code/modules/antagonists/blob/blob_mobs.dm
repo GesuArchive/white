@@ -203,7 +203,7 @@
 	visible_message(span_warning("Тело [H.name] внезапно восстаёт из мёртвых!"))
 	if(!key)
 		if(!no_ghost)
-			notify_ghosts("<b>[src.name]</b> был создан в [get_area(src)].", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Зомби массы создан")
+			notify_ghosts("<b>[capitalize(src)]</b> был создан в [get_area(src)].", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, header = "Зомби массы создан")
 
 /mob/living/simple_animal/hostile/blob/blobspore/death(gibbed)
 	// On death, create a small smoke of harmful gas (s-Acid)

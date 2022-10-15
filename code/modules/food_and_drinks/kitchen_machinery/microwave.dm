@@ -158,7 +158,7 @@
 		return TRUE
 
 	if(dirty == 100) // The microwave is all dirty so can't be used!
-		to_chat(user, span_warning("<b>[src.name]</b> is dirty!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> is dirty!"))
 		return TRUE
 
 	if(istype(O, /obj/item/storage/bag/tray))
@@ -168,7 +168,7 @@
 			if(!IS_EDIBLE(S))
 				continue
 			if(ingredients.len >= max_n_of_items)
-				to_chat(user, span_warning("<b>[src.name]</b> is full, you can't put anything in!"))
+				to_chat(user, span_warning("<b>[capitalize(src)]</b> is full, you can't put anything in!"))
 				return TRUE
 			if(SEND_SIGNAL(T, COMSIG_TRY_STORAGE_TAKE, S, src))
 				loaded++
@@ -179,10 +179,10 @@
 
 	if(O.w_class <= WEIGHT_CLASS_NORMAL && !istype(O, /obj/item/storage) && user.a_intent == INTENT_HELP)
 		if(ingredients.len >= max_n_of_items)
-			to_chat(user, span_warning("<b>[src.name]</b> is full, you can't put anything in!"))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> is full, you can't put anything in!"))
 			return TRUE
 		if(!user.transferItemToLoc(O, src))
-			to_chat(user, span_warning("\The [O] is stuck to your hand!"))
+			to_chat(user, span_warning("<b>[capitalize(O)]</b> is stuck to your hand!"))
 			return FALSE
 
 		ingredients += O
@@ -207,7 +207,7 @@
 		if(isAI(user))
 			examine(user)
 		else
-			to_chat(user, span_warning("<b>[src.name]</b> is empty."))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> is empty."))
 		return
 
 	var/choice = show_radial_menu(user, src, isAI(user) ? ai_radial_options : radial_options, require_near = !issilicon(user))
@@ -257,7 +257,7 @@
 	start()
 
 /obj/machinery/microwave/proc/wzhzhzh()
-	visible_message(span_notice("<b>[src.name]</b> turns on.") , null, span_hear("You hear a microwave humming."))
+	visible_message(span_notice("<b>[capitalize(src)]</b> turns on.") , null, span_hear("You hear a microwave humming."))
 	operating = TRUE
 
 	set_light(1.5)
@@ -359,7 +359,7 @@
 	loop(MICROWAVE_NORMAL, 10)
 
 /obj/machinery/microwave/proc/muck_finish()
-	visible_message(span_warning("<b>[src.name]</b> gets covered in muck!"))
+	visible_message(span_warning("<b>[capitalize(src)]</b> gets covered in muck!"))
 
 	dirty = 100
 	dirty_anim_playing = FALSE

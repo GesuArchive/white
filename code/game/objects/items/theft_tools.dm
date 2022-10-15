@@ -138,7 +138,7 @@
 	if(istype(W, /obj/item/hemostat/supermatter))
 		var/obj/item/hemostat/supermatter/tongs = W
 		if (tongs.sliver)
-			to_chat(user, span_warning("\The [tongs] is already holding a supermatter sliver!"))
+			to_chat(user, span_warning("<b>[capitalize(tongs)]</b> is already holding a supermatter sliver!"))
 			return FALSE
 		forceMove(tongs)
 		tongs.sliver = src
@@ -266,7 +266,7 @@
 /obj/item/hemostat/supermatter/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum) // no instakill supermatter javelins
 	if(sliver)
 		sliver.forceMove(loc)
-		visible_message(span_notice("\The [sliver] falls out of <b>[src.name]</b> as it hits the ground."))
+		visible_message(span_notice("<b>[capitalize(sliver)]</b> falls out of <b>[src.name]</b> as it hits the ground."))
 		sliver = null
 		update_icon()
 	return ..()

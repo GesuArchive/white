@@ -34,7 +34,7 @@
 		if(!tank)
 			var/obj/item/tank/internals/IT = W
 			if(IT.volume <= 3)
-				to_chat(user, span_warning("\The [IT] is too small for <b>[src.name]</b>."))
+				to_chat(user, span_warning("<b>[capitalize(IT)]</b> is too small for <b>[src.name]</b>."))
 				return
 			updateTank(W, 0, user)
 	else if(W.tool_behaviour == TOOL_WRENCH)
@@ -54,7 +54,7 @@
 /obj/item/melee/powerfist/proc/updateTank(obj/item/tank/internals/thetank, removing = 0, mob/living/carbon/human/user)
 	if(removing)
 		if(!tank)
-			to_chat(user, span_notice("<b>[src.name]</b> не имеет баллона."))
+			to_chat(user, span_notice("<b>[capitalize(src)]</b> не имеет баллона."))
 			return
 		to_chat(user, span_notice("Открепляю [thetank] от <b>[src.name]</b>."))
 		tank.forceMove(get_turf(user))
@@ -62,7 +62,7 @@
 		tank = null
 	if(!removing)
 		if(tank)
-			to_chat(user, span_warning("<b>[src.name]</b> уже имеет баллон."))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> уже имеет баллон."))
 			return
 		if(!user.transferItemToLoc(thetank, src))
 			return
@@ -72,7 +72,7 @@
 
 /obj/item/melee/powerfist/attack(mob/living/target, mob/living/user)
 	if(!tank)
-		to_chat(user, span_warning("<b>[src.name]</b> не может работать без источника газа!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> не может работать без источника газа!"))
 		return
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, span_warning("Не хочу вредить живым существам!"))
@@ -84,7 +84,7 @@
 	T.assume_air(gasused)
 	T.air_update_turf()
 	if(!gasused)
-		to_chat(user, span_warning("<b>[src.name]</b>'s tank is empty!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b>'s tank is empty!"))
 		target.apply_damage((force / 5), BRUTE)
 		playsound(loc, 'sound/weapons/punch1.ogg', 50, TRUE)
 		target.visible_message(span_danger("[user] силовой кулак издает тупой стук от удара [user.ru_who()] по [user.p_es()] [target.name]!") , \

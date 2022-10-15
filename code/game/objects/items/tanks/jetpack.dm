@@ -214,7 +214,7 @@
 
 /obj/item/tank/jetpack/suit/cycle(mob/user)
 	if(!istype(loc, /obj/item/clothing/suit/space/hardsuit))
-		to_chat(user, span_warning("<b>[src.name]</b> must be connected to a hardsuit!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> must be connected to a hardsuit!"))
 		return
 
 	var/mob/living/carbon/human/H = user

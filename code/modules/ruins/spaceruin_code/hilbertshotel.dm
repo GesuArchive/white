@@ -45,7 +45,7 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	promptAndCheckIn(user, user)
 
 /obj/item/hilbertshotel/attack_tk(mob/user)
-	to_chat(user, span_notice("\The [src] actively rejects your mind as the bluespace energies surrounding it disrupt your telekinesis."))
+	to_chat(user, span_notice("<b>[capitalize(src)]</b> actively rejects your mind as the bluespace energies surrounding it disrupt your telekinesis."))
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /obj/item/hilbertshotel/proc/promptAndCheckIn(mob/user, mob/target)
@@ -55,7 +55,7 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	if(user == target)
 		chosenRoomNumber = input(target, "What number room will you be checking into?", "Room Number") as null|num
 	else
-		chosenRoomNumber = input(target, "[user] is inviting you to enter \the [src]. What number room will you be checking into?", "Room Number") as null|num
+		chosenRoomNumber = input(target, "[user] is inviting you to enter <b>[src]</b>. What number room will you be checking into?", "Room Number") as null|num
 
 	if(!chosenRoomNumber)
 		return
@@ -68,18 +68,18 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 
 	// Orb is not adjacent to the target. No teleporties.
 	if(!src.Adjacent(target))
-		to_chat(target, span_warning("You too far away from \the [src] to enter it!"))
+		to_chat(target, span_warning("You too far away from <b>[src]</b> to enter it!"))
 
 	// If the target is incapacitated after selecting a room, they're not allowed to teleport.
 	if(target.incapacitated())
-		to_chat(target, span_warning("You aren't able to activate \the [src] anymore!"))
+		to_chat(target, span_warning("You aren't able to activate <b>[src]</b> anymore!"))
 
 	// Has the user thrown it away or otherwise disposed of it such that it's no longer in their hands or in some storage connected to them?
 	if(!(get_atom_on_turf(src, /mob) == user))
 		if(user == target)
-			to_chat(user, span_warning("\The [src] is no longer in your possession!"))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> is no longer in your possession!"))
 		else
-			to_chat(target, span_warning("\The [src] is no longer in the possession of [user]!"))
+			to_chat(target, span_warning("<b>[capitalize(src)]</b> is no longer in the possession of [user]!"))
 		return
 
 	// If the player is using it on themselves, we've got some logic to deal with.
@@ -88,10 +88,10 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 		// The item should be on the user or in the user's inventory somewhere.
 		// However, if they're not holding it, it may be in a pocket? In a backpack? Who knows! Still, they can't just drop it to the floor anymore...
 		if(!user.get_held_index_of_item(src))
-			to_chat(user, span_warning("You try to drop \the [src], but it's too late! It's no longer in your hands! Prepare for unforeseen consequences..."))
+			to_chat(user, span_warning("You try to drop <b>[src]</b>, but it's too late! It's no longer in your hands! Prepare for unforeseen consequences..."))
 		// Okay, so they HAVE to be holding it here, because it's in their hand from the above check. Try to drop the item and if it fails, oh dear...
 		else if(!user.dropItemToGround(src))
-			to_chat(user, span_warning("You can't seem to drop \the [src]! It must be stuck to your hand somehow! Prepare for unforeseen consequences..."))
+			to_chat(user, span_warning("You can't seem to drop <b>[src]</b>! It must be stuck to your hand somehow! Prepare for unforeseen consequences..."))
 
 	if(!storageTurf) //Blame subsystems for not allowing this to be in Initialize
 		if(!GLOB.hhStorageTurf)
@@ -379,7 +379,7 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	// Turns out giving anyone who grabs a Hilbert's Hotel a free, complementary warp whistle is probably bad.
 	// Let's gib the last person to have selected a room number in it.
 	if(unforeseen_consequences)
-		to_chat(unforeseen_consequences, span_warning("\The [H] starts to resonate. Forcing it to enter itself induces a bluespace paradox, violently tearing your body apart."))
+		to_chat(unforeseen_consequences, span_warning("<b>[capitalize(H)]</b> starts to resonate. Forcing it to enter itself induces a bluespace paradox, violently tearing your body apart."))
 		unforeseen_consequences.gib()
 
 	var/turf/targetturf = find_safe_turf()

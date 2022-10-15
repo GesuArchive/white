@@ -123,7 +123,7 @@
 		return
 	if(ishuman(target) && user.zone_selected == BODY_ZONE_PRECISE_MOUTH) //washing that potty mouth of yours
 		var/mob/living/carbon/human/human_user = user
-		user.visible_message(span_warning("\the [user] washes [target] mouth out with [src.name]!") , span_notice("You wash [target] mouth out with [src.name]!")) //washes mouth out with soap sounds better than 'the soap' here			if(user.zone_selected == "mouth")
+		user.visible_message(span_warning("<b>[capitalize(user)]</b> washes [target] mouth out with [src.name]!") , span_notice("You wash [target] mouth out with [src.name]!")) //washes mouth out with soap sounds better than 'the soap' here			if(user.zone_selected == "mouth")
 		if(human_user.lip_style)
 			user.mind?.adjust_experience(/datum/skill/cleaning, CLEAN_SKILL_GENERIC_WASH_XP)
 			human_user.lip_style = null //removes lipstick

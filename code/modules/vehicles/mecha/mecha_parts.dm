@@ -11,7 +11,7 @@
 
 /obj/item/mecha_parts/proc/try_attach_part(mob/user, obj/vehicle/sealed/mecha/M, attach_right = FALSE) //For attaching parts to a finished mech
 	if(!user.transferItemToLoc(src, M))
-		to_chat(user, span_warning("<b>[src.name]</b> решила застрять в моей руке, не могу прикрепить к [M]!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> решила застрять в моей руке, не могу прикрепить к [M]!"))
 		return FALSE
 	user.visible_message(span_notice("[user] прикрепляет [src] к [M].") , span_notice("Прикрепляю [src] к [M]."))
 	return TRUE

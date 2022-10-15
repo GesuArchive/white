@@ -29,7 +29,7 @@
 		to_chat(user, span_warning("Оно уже горит!"))
 		return FALSE
 	if(!fuel_added)
-		to_chat(user, span_warning("<b>[src.name]</b> требует немного топлива для розжига!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> требует немного топлива для розжига!"))
 		return FALSE
 	var/msg = O.ignition_effect(src, user)
 	if(msg)

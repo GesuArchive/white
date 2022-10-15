@@ -54,7 +54,7 @@
 	obj_flags |= EMAGGED
 	if(tickets.len)
 		for(var/obj/item/ticket_machine_ticket/ticket in tickets)
-			ticket.audible_message(span_notice("\the [ticket] disperses!"))
+			ticket.audible_message(span_notice("<b>[capitalize(ticket)]</b> disperses!"))
 			qdel(ticket)
 		tickets.Cut()
 	update_icon()
@@ -67,14 +67,14 @@
 	if(current_number > ticket_number)
 		return
 	if(current_number && !(obj_flags & EMAGGED) && tickets[current_number])
-		tickets[current_number].audible_message(span_notice("\the [tickets[current_number]] disperses!"))
+		tickets[current_number].audible_message(span_notice("<b>[capitalize(tickets[current_number])]</b> disperses!"))
 		qdel(tickets[current_number])
 	if(current_number < ticket_number)
 		current_number ++ //Increment the one we're serving.
 		playsound(src, 'sound/misc/announce_dig.ogg', 50, FALSE)
 		say("Now serving ticket #[current_number]!")
 		if(!(obj_flags & EMAGGED) && tickets[current_number])
-			tickets[current_number].audible_message(span_notice("\the [tickets[current_number]] vibrates!"))
+			tickets[current_number].audible_message(span_notice("<b>[capitalize(tickets[current_number])]</b> vibrates!"))
 		update_icon() //Update our icon here rather than when they take a ticket to show the current ticket number being served
 
 /obj/machinery/button/ticket_machine
@@ -169,7 +169,7 @@
 			current_number = 0
 			if(tickets.len)
 				for(var/obj/item/ticket_machine_ticket/ticket in tickets)
-					ticket.audible_message(span_notice("\the [ticket] disperses!"))
+					ticket.audible_message(span_notice("<b>[capitalize(ticket)]</b> disperses!"))
 					qdel(ticket)
 				tickets.Cut()
 			max_number = initial(max_number)

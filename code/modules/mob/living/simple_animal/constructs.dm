@@ -105,7 +105,7 @@
 			adjustHealth(-5)
 			if(src != user)
 				Beam(user, icon_state="sendbeam", time = 4)
-				user.visible_message(span_danger("[user] repairs some of \the <b>[src]'s</b> dents."), \
+				user.visible_message(span_danger("[user] repairs some of <b>[src]'s</b> dents."), \
 						   span_cult("You repair some of <b>[src]'s</b> dents, leaving <b>[src]</b> at <b>[health]/[maxHealth]</b> health."))
 			else
 				user.visible_message(span_danger("[user] repairs some of [p_their()] own dents."), \

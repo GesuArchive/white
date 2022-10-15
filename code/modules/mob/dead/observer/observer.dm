@@ -811,7 +811,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 /mob/dead/observer/pointed(atom/A as mob|obj|turf in view(client.view, src))
 	if(!..())
 		return FALSE
-	usr.visible_message(span_deadsay("<b>[src]</b> показывает на [skloname(A.name, VINITELNI, A.gender)]."))
+	usr.visible_message(span_deadsay("<b>[capitalize(src)]</b> показывает на [skloname(A.name, VINITELNI, A.gender)]."))
 	return TRUE
 
 /mob/dead/observer/verb/view_manifest()

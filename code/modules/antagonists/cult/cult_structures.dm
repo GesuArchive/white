@@ -58,7 +58,7 @@
 			M.changeNext_move(CLICK_CD_MELEE)
 			obj_integrity = min(max_integrity, obj_integrity + 5)
 			Beam(M, icon_state="sendbeam", time=4)
-			M.visible_message(span_danger("[M] repairs \the <b>[src]</b>.") , \
+			M.visible_message(span_danger("[M] repairs <b>[src]</b>.") , \
 				span_cult("You repair <b>[src]</b>, leaving [ru_who()] at <b>[round(obj_integrity * 100 / max_integrity)]%</b> stability."))
 		else
 			to_chat(M, span_cult("You cannot repair [src], as [p_theyre()] undamaged!"))

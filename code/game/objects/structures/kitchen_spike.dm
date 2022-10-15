@@ -12,11 +12,11 @@
 /obj/structure/kitchenspike_frame/welder_act(mob/living/user, obj/item/tool)
 	if(!tool.tool_start_check(user, amount = 0))
 		return FALSE
-	to_chat(user, span_notice("You begin cutting \the [src] apart..."))
+	to_chat(user, span_notice("You begin cutting <b>[src]</b> apart..."))
 	if(!tool.use_tool(src, user, 5 SECONDS, volume = 50))
 		return TRUE
-	visible_message(span_notice("[user] slices apart \the [src]."),
-		span_notice("You cut \the [src] apart with \the [tool]."),
+	visible_message(span_notice("[user] slices apart <b>[src]</b>."),
+		span_notice("You cut <b>[src]</b> apart with <b>[tool]</b>."),
 		span_hear("You hear welding."))
 	new /obj/item/stack/sheet/iron(loc, MEATSPIKE_IRONROD_REQUIREMENT)
 	qdel(src)

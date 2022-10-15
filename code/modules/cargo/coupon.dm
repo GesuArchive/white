@@ -34,7 +34,7 @@
 	if(!istype(O, /obj/machinery/computer/cargo))
 		return ..()
 	if(discount_pct_off == COUPON_OMEN)
-		to_chat(user, span_warning("\The [O] подтверждает купон как подлинный, но отказывается принять его ..."))
+		to_chat(user, span_warning("<b>[capitalize(O)]</b> подтверждает купон как подлинный, но отказывается принять его ..."))
 		O.say("Выпуск купона уже в процессе ...")
 		return
 

@@ -447,11 +447,11 @@
 // Returns true if the circuit made it inside.
 /obj/item/electronic_assembly/proc/try_add_component(obj/item/integrated_circuit_old/IC, mob/user)
 	if(!opened)
-		to_chat(user, span_warning("<b>[src.name]</b>'s hatch is closed, you can't put anything inside."))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b>'s hatch is closed, you can't put anything inside."))
 		return FALSE
 
 	if(IC.w_class > w_class)
-		to_chat(user, span_warning("\The [IC] is way too big to fit into <b>[src.name]</b>."))
+		to_chat(user, span_warning("<b>[capitalize(IC)]</b> is way too big to fit into <b>[src.name]</b>."))
 		return FALSE
 
 	var/total_part_size = return_total_size()

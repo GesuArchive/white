@@ -8,7 +8,7 @@
 		return
 
 	if(!ismonkey(src)&&!ishuman(src) || isalien(src) || src.stat || usr.stat || !src.client)
-		to_chat(usr,span_warning("<b>[src.name]</b> не может что-то сейчас брать."))
+		to_chat(usr,span_warning("<b>[capitalize(src)]</b> не может что-то сейчас брать."))
 		return
 
 	var/obj/item/I = usr.get_active_held_item()
@@ -53,7 +53,7 @@
 
 			if(!put_in_hands(I))
 				to_chat(src,span_warning("Не удалось взять <b>[I]</b>, так что <b>[usr]</b> сдаётся!"))
-				to_chat(usr,span_warning("<b>[src]</b> не может взять <b>[I]</b>!"))
+				to_chat(usr,span_warning("<b>[capitalize(src)]</b> не может взять <b>[I]</b>!"))
 				return
 
 			src.visible_message(span_notice("<b>[usr]</b> передаёт <b>[I]</b> <b>[src]</b>."))

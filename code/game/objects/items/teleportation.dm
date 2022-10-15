@@ -137,7 +137,7 @@
 /obj/item/hand_tele/proc/try_dispel_portal(atom/target, mob/user)
 	if(is_parent_of_portal(target))
 		qdel(target)
-		to_chat(user, span_notice("You dispel [target] with \the [src]!"))
+		to_chat(user, span_notice("You dispel [target] with <b>[src]</b>!"))
 		return TRUE
 	return FALSE
 

@@ -406,7 +406,7 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 		silo_link = !silo_link
 		to_chat(user, span_notice("You change <b>[src.name]</b>'s storage link state: [silo_link ? "ON" : "OFF"]."))
 	else
-		to_chat(user, span_warning("<b>[src.name]</b> doesn't have remote storage connection."))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> doesn't have remote storage connection."))
 
 /obj/item/construction/rcd/proc/get_airlock_image(airlock_type)
 	var/obj/machinery/door/airlock/proto = airlock_type

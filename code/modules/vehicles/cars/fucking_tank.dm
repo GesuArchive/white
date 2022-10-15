@@ -26,7 +26,7 @@
 
 	if(ishuman(A))
 		var/mob/living/carbon/human/rammed = A
-		visible_message(span_danger("<b>[src]</b> давит <b>[A]</b>!"))
+		visible_message(span_danger("<b>[capitalize(src)]</b> давит <b>[A]</b>!"))
 		rammed.gib()
 		return ..()
 

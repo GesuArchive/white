@@ -107,7 +107,7 @@
 /obj/machinery/power/rad_collector/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/tank/internals/plasma))
 		if(!anchored)
-			to_chat(user, span_warning("<b>[src]</b> должен быть прикручен к полу!"))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> должен быть прикручен к полу!"))
 			return TRUE
 		if(loaded_tank)
 			to_chat(user, span_warning("Здесь уже есть бак!"))
@@ -167,13 +167,13 @@
 
 /obj/machinery/power/rad_collector/multitool_act(mob/living/user, obj/item/I)
 	if(!is_station_level(z) && !SSresearch.science_tech)
-		to_chat(user, span_warning("<b>[src]</b> не подключен к исследовательской сети!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> не подключен к исследовательской сети!"))
 		return TRUE
 	if(locked)
-		to_chat(user, span_warning("<b>[src]</b> заблокирован!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> заблокирован!"))
 		return TRUE
 	if(active)
-		to_chat(user, span_warning("<b>[src]</b> на данный момент работает и производит [bitcoinmining ? "исследовательские очки":"энергию"]."))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> на данный момент работает и производит [bitcoinmining ? "исследовательские очки":"энергию"]."))
 		return TRUE
 	bitcoinmining = !bitcoinmining
 	to_chat(user, span_warning("[bitcoinmining ? "Включаю":"Выключаю"] сбор исследовательских очков у <b>[src]</b>."))

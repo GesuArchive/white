@@ -599,17 +599,17 @@ GENE SCANNER
 		playsound(src, 'sound/machines/ping.ogg', 50, FALSE)
 		var/list/encouragements = list("briefly displays a happy face, gazing emptily at you", "briefly displays a spinning cartoon heart", "displays an encouraging message about eating healthy and exercising", \
 				"reminds you that everyone is doing their best", "displays a message wishing you well", "displays a sincere thank-you for your interest in first-aid", "formally absolves you of all your sins")
-		to_chat(user, span_notice("<b>[src.name]</b> makes a happy ping and [pick(encouragements)]!"))
+		to_chat(user, span_notice("<b>[capitalize(src)]</b> makes a happy ping and [pick(encouragements)]!"))
 		next_encouragement = world.time + 10 SECONDS
 		greedy = FALSE
 	else if(!greedy)
-		to_chat(user, span_warning("<b>[src.name]</b> displays an eerily high-definition frowny face, chastizing you for asking it for too much encouragement."))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> displays an eerily high-definition frowny face, chastizing you for asking it for too much encouragement."))
 		greedy = TRUE
 	else
 		playsound(src, 'white/valtos/sounds/error1.ogg', 50, FALSE)
 		if(isliving(user))
 			var/mob/living/L = user
-			to_chat(L, span_warning("<b>[src.name]</b> makes a disappointed buzz and pricks your finger for being greedy. Ow!"))
+			to_chat(L, span_warning("<b>[capitalize(src)]</b> makes a disappointed buzz and pricks your finger for being greedy. Ow!"))
 			L.adjustBruteLoss(4)
 			L.dropItemToGround(src)
 
@@ -619,7 +619,7 @@ GENE SCANNER
 
 	if(!istype(patient))
 		playsound(src, 'white/valtos/sounds/error1.ogg', 30, TRUE)
-		to_chat(user, span_notice("<b>[src.name]</b> makes a sad buzz and briefly displays a frowny face, indicating it can't scan [patient]."))
+		to_chat(user, span_notice("<b>[capitalize(src)]</b> makes a sad buzz and briefly displays a frowny face, indicating it can't scan [patient]."))
 		return
 
 	woundscan(user, patient, src)

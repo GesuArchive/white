@@ -252,7 +252,7 @@
 	if(!prob(40))
 		return
 	var/atom/play_from = owner || src
-	var/stomach_text = owner ? "\the [owner]'s stomach" : "\the [src]"
+	var/stomach_text = owner ? "<b>[capitalize(owner)]</b>'s stomach" : "<b>[capitalize(src)]</b>"
 	if(prob(25))
 		play_from.audible_message(span_warning("You hear something rumbling inside [stomach_text]..."), \
 			span_warning("You hear something rumbling."), 4,\

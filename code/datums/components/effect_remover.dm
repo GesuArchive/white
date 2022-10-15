@@ -73,8 +73,8 @@
 	if(success_forcesay)
 		user.say(success_forcesay, forced = item_parent.name)
 	if(success_feedback)
-		var/real_feedback = replacetext(success_feedback, "%THEEFFECT", "\the [target]")
-		real_feedback = replacetext(real_feedback, "%THEWEAPON", "\the [item_parent]")
+		var/real_feedback = replacetext(success_feedback, "%THEEFFECT", "[target]")
+		real_feedback = replacetext(real_feedback, "%THEWEAPON", "[item_parent]")
 		to_chat(user, span_notice(real_feedback))
 	on_clear_callback?.Invoke(target, user)
 

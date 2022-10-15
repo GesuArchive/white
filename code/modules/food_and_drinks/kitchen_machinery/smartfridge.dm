@@ -86,7 +86,7 @@
 	if(!machine_stat)
 
 		if(contents.len >= max_n_of_items)
-			to_chat(user, span_warning("<b>[src.name]</b> is full!"))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> is full!"))
 			return FALSE
 
 		if(accept_check(O))
@@ -125,7 +125,7 @@
 				return FALSE
 
 	if(user.a_intent != INTENT_HARM)
-		to_chat(user, span_warning("<b>[src.name]</b> smartly refuses [O]."))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> smartly refuses [O]."))
 		updateUsrDialog()
 		return FALSE
 	else
@@ -142,7 +142,7 @@
 	if(ismob(O.loc))
 		var/mob/M = O.loc
 		if(!M.transferItemToLoc(O, src))
-			to_chat(usr, span_warning("\the [O] is stuck to your hand, you cannot put it in <b>[src.name]</b>!"))
+			to_chat(usr, span_warning("<b>[capitalize(O)]</b> is stuck to your hand, you cannot put it in <b>[src.name]</b>!"))
 			return FALSE
 		else
 			return TRUE

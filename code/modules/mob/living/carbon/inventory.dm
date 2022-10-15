@@ -223,7 +223,7 @@
 	if(offered_item.on_offered(src)) // see if the item interrupts with its own behavior
 		return
 
-	visible_message(span_notice("<b>[src.name]</b> хочет дать <b>[offered_item.name].</b>") , \
+	visible_message(span_notice("<b>[capitalize(src)]</b> хочет дать <b>[offered_item.name].</b>") , \
 					span_notice("Хочу дать <b>[offered_item.name]</b>.") , null, 2)
 
 	apply_status_effect(STATUS_EFFECT_OFFERING, offered_item, null, offered)
@@ -256,6 +256,6 @@
 	if(!offerer.temporarilyRemoveItemFromInventory(I))
 		visible_message(span_notice("<b>[offerer.name]</b> пытается дать <b>[I.name]</b>, но похоже оно приклеено к его руке..."))
 		return
-	visible_message(span_notice("<b>[src]</b> берёт [I.name] у <b>[offerer.name]</b>.") , \
+	visible_message(span_notice("<b>[capitalize(src)]</b> берёт [I.name] у <b>[offerer.name]</b>.") , \
 					span_notice("Беру [I.name] у <b>[offerer.name]</b>."))
 	put_in_hands(I)

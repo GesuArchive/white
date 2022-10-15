@@ -163,7 +163,7 @@
  **/
 /obj/machinery/seed_extractor/proc/add_seed(obj/item/seeds/O)
 	if(contents.len >= 999)
-		to_chat(usr, span_notice("<b>[src.name]</b> is full."))
+		to_chat(usr, span_notice("<b>[capitalize(src)]</b> is full."))
 		return FALSE
 
 	var/datum/component/storage/STR = O.loc.GetComponent(/datum/component/storage)

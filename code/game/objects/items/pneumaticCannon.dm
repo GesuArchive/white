@@ -77,7 +77,7 @@
 		if(!tank)
 			var/obj/item/tank/internals/IT = W
 			if(IT.volume <= 3)
-				to_chat(user, span_warning("\The [IT] is too small for <b>[src.name]</b>."))
+				to_chat(user, span_warning("<b>[capitalize(IT)]</b> is too small for <b>[src.name]</b>."))
 				return
 			updateTank(W, 0, user)
 	else if(W.type == type)
@@ -95,7 +95,7 @@
 		if(tank)
 			updateTank(tank, 1, user)
 	else if(loadedWeightClass >= maxWeightClass)
-		to_chat(user, span_warning("<b>[src.name]</b> can't hold any more items!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> can't hold any more items!"))
 	else if(isitem(W))
 		var/obj/item/IW = W
 		load_item(IW, user)
@@ -109,11 +109,11 @@
 		return
 	if((loadedWeightClass + I.w_class) > maxWeightClass)	//Only make messages if there's a user
 		if(user)
-			to_chat(user, span_warning("\The [I] won't fit into <b>[src.name]</b>!"))
+			to_chat(user, span_warning("<b>[capitalize(I)]</b> won't fit into <b>[src.name]</b>!"))
 		return FALSE
 	if(I.w_class > w_class)
 		if(user)
-			to_chat(user, span_warning("\The [I] is too large to fit into <b>[src.name]</b>!"))
+			to_chat(user, span_warning("<b>[capitalize(I)]</b> is too large to fit into <b>[src.name]</b>!"))
 		return FALSE
 	return TRUE
 
@@ -148,16 +148,16 @@
 	if(!can_trigger_gun(user))
 		return
 	if(!loadedItems || !loadedWeightClass)
-		to_chat(user, span_warning("<b>[src.name]</b> has nothing loaded."))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> has nothing loaded."))
 		return
 	if(!tank && checktank)
-		to_chat(user, span_warning("<b>[src.name]</b> can't fire without a source of gas."))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> can't fire without a source of gas."))
 		return
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, span_warning("You can't bring yourself to fire <b>[src.name]</b>! You don't want to risk harming anyone...")  )
 		return
 	if(tank && !tank.air_contents.remove(gasPerThrow * pressureSetting))
-		to_chat(user, span_warning("<b>[src.name]</b> lets out a weak hiss and doesn't react!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> lets out a weak hiss and doesn't react!"))
 		return
 	if(HAS_TRAIT(user, TRAIT_CLUMSY) && prob(75) && clumsyCheck && iscarbon(user))
 		var/mob/living/carbon/C = user
@@ -250,7 +250,7 @@
 		tank = null
 	if(!removing)
 		if(tank)
-			to_chat(user, span_warning("<b>[src.name]</b> already has a tank."))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> already has a tank."))
 			return
 		if(!user.transferItemToLoc(thetank, src))
 			return

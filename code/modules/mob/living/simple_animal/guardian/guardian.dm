@@ -218,7 +218,7 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 			return
 		else
 			to_chat(src, span_holoparasite("You moved out of range, and were pulled back! You can only move [range] meters from [summoner.real_name]!"))
-			visible_message(span_danger("<b>[src.name]</b> jumps back to its user."))
+			visible_message(span_danger("<b>[capitalize(src)]</b> jumps back to its user."))
 			if(istype(summoner.loc, /obj/effect))
 				Recall(TRUE)
 			else

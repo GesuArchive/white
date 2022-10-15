@@ -107,16 +107,16 @@
 	if(..())
 		return TRUE
 	if(toggle_secure())
-		to_chat(user, span_notice("<b>[src.name]</b> is ready!"))
+		to_chat(user, span_notice("<b>[capitalize(src)]</b> is ready!"))
 	else
-		to_chat(user, span_notice("<b>[src.name]</b> can now be attached!"))
+		to_chat(user, span_notice("<b>[capitalize(src)]</b> can now be attached!"))
 	add_fingerprint(user)
 	return TRUE
 
 /obj/item/assembly/examine(mob/user)
 	. = ..()
 	. += "<hr>"
-	. += span_notice("<b>[src.name]</b> [secured? "is secured and ready to be used!" : "can be attached to other things."]")
+	. += span_notice("<b>[capitalize(src)]</b> [secured? "is secured and ready to be used!" : "can be attached to other things."]")
 
 /obj/item/assembly/attack_self(mob/user)
 	if(!user)

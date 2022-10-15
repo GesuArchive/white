@@ -31,7 +31,7 @@
 /obj/item/megaphone/proc/handle_speech(mob/living/carbon/user, list/speech_args)
 	if (user.get_active_held_item() == src)
 		if(spamcheck > world.time)
-			to_chat(user, span_warning("<b>[src.name]</b> needs to recharge!"))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> needs to recharge!"))
 		else
 			playsound(loc, 'sound/items/megaphone.ogg', 100, FALSE, TRUE)
 			spamcheck = world.time + 50

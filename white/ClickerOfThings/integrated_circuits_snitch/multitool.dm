@@ -16,7 +16,7 @@
 
 /obj/item/multitool/proc/wire(var/datum/integrated_io/io, mob/user)
 	if(!io.holder.assembly)
-		to_chat(user, span_warning("\The [io.holder] needs to be secured inside an assembly first."))
+		to_chat(user, span_warning("<b>[capitalize(io.holder)]</b> needs to be secured inside an assembly first."))
 		return
 
 	if(selected_io)
@@ -38,7 +38,7 @@
 
 	else
 		selected_io = io
-		to_chat(user, span_notice("You link \the multitool to [selected_io.holder] [selected_io.name] data channel."))
+		to_chat(user, span_notice("You link multitool to [selected_io.holder] [selected_io.name] data channel."))
 
 	update_icon()
 

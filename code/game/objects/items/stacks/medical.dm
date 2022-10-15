@@ -85,7 +85,7 @@
 		to_chat(user, span_warning("А у <b>[C]</b> совсем отсутствует <b>[ru_exam_parse_zone(parse_zone(user.zone_selected))]</b>!"))
 		return FALSE
 	if(affecting.status != BODYPART_ORGANIC) //Limb must be organic to be healed - RR
-		to_chat(user,  span_warning("<b>[src]</b> не будет работать на механической конечности!"))
+		to_chat(user,  span_warning("<b>[capitalize(src)]</b> не будет работать на механической конечности!"))
 		return FALSE
 	if(affecting.brute_dam && brute || affecting.burn_dam && burn)
 		user.visible_message(span_green("<b>[user]</b> применяет <b>[skloname]</b> на <b>[ru_parse_zone(affecting.name)] [C]</b>.") , span_green("Применяю <b>[skloname]</b> на <b>[ru_parse_zone(affecting.name)] [C]</b>."))

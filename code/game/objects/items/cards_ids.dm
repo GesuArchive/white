@@ -1037,7 +1037,7 @@
 	// to sneakily steal their accesses by swiping our agent ID card near them. As a result, we
 	// return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN to cancel any part of the following the attack chain.
 	if(istype(target, /mob/living/carbon/human))
-		to_chat(user, span_notice("You covertly start to scan [target] with \the [src], hoping to pick up a wireless ID card signal..."))
+		to_chat(user, span_notice("You covertly start to scan [target] with <b>[src]</b>, hoping to pick up a wireless ID card signal..."))
 
 		if(!do_mob(user, target, 2 SECONDS))
 			to_chat(user, span_notice("The scan was interrupted."))
@@ -1052,7 +1052,7 @@
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 		var/selected_id = pick(target_id_cards)
-		to_chat(user, span_notice("You successfully sync your [src] with \the [selected_id]."))
+		to_chat(user, span_notice("You successfully sync your [src] with <b>[selected_id]</b>."))
 		theft_target = WEAKREF(selected_id)
 		ui_interact(user)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
@@ -1074,7 +1074,7 @@
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 		var/selected_id = pick(target_id_cards)
-		to_chat(user, span_notice("You successfully sync your [src] with \the [selected_id]."))
+		to_chat(user, span_notice("You successfully sync your [src] with <b>[selected_id]</b>."))
 		theft_target = WEAKREF(selected_id)
 		ui_interact(user)
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
@@ -1265,7 +1265,7 @@
 				assignment = initial(assignment)
 				SSid_access.remove_trim_from_chameleon_card(src)
 				REMOVE_TRAIT(src, TRAIT_MAGNETIC_ID_CARD, CHAMELEON_ITEM_TRAIT)
-				log_game("[key_name(user)] has reset \the [initial(name)] named \"[src]\" to default.")
+				log_game("[key_name(user)] has reset <b>[initial(name)]</b> named \"[src]\" to default.")
 				update_label()
 				update_icon()
 				forged = FALSE

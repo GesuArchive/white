@@ -39,7 +39,7 @@
 		return
 	COOLDOWN_START(src, picket_sign_cooldown, 5 SECONDS)
 	if(label)
-		user.manual_emote("waves around \the \"[label]\" sign.")
+		user.manual_emote("waves around \"[label]\" sign.")
 	else
 		user.manual_emote("waves around a blank sign.")
 	var/direction = prob(50) ? -1 : 1

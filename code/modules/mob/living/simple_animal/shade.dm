@@ -61,7 +61,7 @@
 		if(health < maxHealth)
 			adjustHealth(-25)
 			Beam(user,icon_state="sendbeam", time = 4)
-			user.visible_message(span_danger("[user] heals \the <b>[src]</b>."), \
+			user.visible_message(span_danger("[user] heals <b>[src]</b>."), \
 					   span_cult("You heal <b>[src]</b>, leaving <b>[src]</b> at <b>[health]/[maxHealth]</b> health."))
 		else
 			to_chat(user, span_cult("You cannot heal <b>[src]</b>, as [p_theyre()] unharmed!"))

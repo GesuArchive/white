@@ -69,8 +69,8 @@
 		var/mob/living/carbon/C = target
 		if(prob(15))
 			C.Paralyze(60)
-			C.visible_message(span_danger("<b>[src.name]</b> knocks down [C]!") , \
-					span_userdanger("<b>[src.name]</b> knocks you down!"))
+			C.visible_message(span_danger("<b>[capitalize(src)]</b> knocks down [C]!") , \
+					span_userdanger("<b>[capitalize(src)]</b> knocks you down!"))
 
 /mob/living/simple_animal/hostile/tree/add_cell_sample()
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_PINE, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 5)

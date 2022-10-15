@@ -103,7 +103,7 @@
 	for(var/mob/M in GLOB.player_list)
 		var/area/mob_area = get_area(M)
 		if(istype(mob_area, game_area))
-			to_chat(M, span_userdanger("\The [initial(name)] упал!"))
+			to_chat(M, span_userdanger("<b>[capitalize(initial(name))]</b> упал!"))
 	anchored = TRUE
 
 

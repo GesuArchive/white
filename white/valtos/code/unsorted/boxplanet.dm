@@ -349,4 +349,4 @@
 		is_turned = FALSE
 		playsound(src.loc, 'white/valtos/sounds/leveroff.ogg', 90, TRUE)
 		var/turf/T = get_turf(src)
-		T.visible_message(span_notice("<b>[src]</b> возвращается на место!"))
+		T.visible_message(span_notice("<b>[capitalize(src)]</b> возвращается на место!"))

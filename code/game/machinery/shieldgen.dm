@@ -220,7 +220,7 @@
 			W.play_tool_sound(src, 100)
 			to_chat(user, span_notice("You unsecure <b>[src.name]</b> from the floor!"))
 			if(active)
-				to_chat(user, span_notice("<b>[src.name]</b> shuts off!"))
+				to_chat(user, span_notice("<b>[capitalize(src)]</b> shuts off!"))
 				shields_down()
 			set_anchored(FALSE)
 
@@ -410,13 +410,13 @@
 	if(.)
 		return
 	if(!anchored)
-		to_chat(user, span_warning("<b>[src.name]</b> needs to be firmly secured to the floor first!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> needs to be firmly secured to the floor first!"))
 		return
 	if(locked && !issilicon(user))
 		to_chat(user, span_warning("The controls are locked!"))
 		return
 	if(!powernet)
-		to_chat(user, span_warning("<b>[src.name]</b> needs to be powered by a wire!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> needs to be powered by a wire!"))
 		return
 
 	if(active)
@@ -463,7 +463,7 @@
 		needs_power = TRUE
 		setDir(get_dir(gen_primary, gen_secondary))
 	for(var/mob/living/L in get_turf(src))
-		visible_message(span_danger("<b>[src.name]</b> is suddenly occupying the same space as [L]!"))
+		visible_message(span_danger("<b>[capitalize(src)]</b> is suddenly occupying the same space as [L]!"))
 		L.gib()
 	RegisterSignal(src, COMSIG_ATOM_SINGULARITY_TRY_MOVE, .proc/block_singularity)
 

@@ -156,7 +156,7 @@
 	user.transferItemToLoc(O,src)
 	installed_brain = O
 	can_be_asked_input = FALSE
-	to_chat(user, span_notice("You gently place \the man-machine interface inside the tank."))
+	to_chat(user, span_notice("You gently place man-machine interface inside the tank."))
 	to_chat(O, span_notice("You are slowly being placed inside the man-machine-interface tank."))
 	O.brainmob.remote_control=src
 	set_pin_data(IC_OUTPUT, 1, O)

@@ -758,7 +758,7 @@
 		else if(!silent)
 			to_chat(user, span_alert("Доступ запрещён."))
 	else if(secure && broken)
-		to_chat(user, span_warning("<b>[src.name]</b> сломан!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> сломан!"))
 
 /obj/structure/closet/emag_act(mob/user)
 	if(secure && !broken)

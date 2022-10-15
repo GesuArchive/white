@@ -87,7 +87,7 @@ no power level overlay is currently in the overlays list.
 
 				add_fingerprint(user)
 	else
-		to_chat(user, span_warning("<b>[src]</b> должен быть надёжно закреплён на полу!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> должен быть надёжно закреплён на полу!"))
 
 /obj/machinery/field/generator/set_anchored(anchorvalue)
 	. = ..()
@@ -105,7 +105,7 @@ no power level overlay is currently in the overlays list.
 
 	else if(state == FG_WELDED)
 		if(!silent)
-			to_chat(user, span_warning("<b>[src]</b> приварен к полу намертво!"))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> приварен к полу намертво!"))
 		return FAILED_UNFASTEN
 
 	return ..()
@@ -118,12 +118,12 @@ no power level overlay is currently in the overlays list.
 /obj/machinery/field/generator/welder_act(mob/living/user, obj/item/I)
 	. = ..()
 	if(active)
-		to_chat(user, span_warning("<b>[src]</b> должен быть выключен!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> должен быть выключен!"))
 		return TRUE
 
 	switch(state)
 		if(FG_UNSECURED)
-			to_chat(user, span_warning("<b>[src]</b> должен быть прикручен к полу!"))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> должен быть прикручен к полу!"))
 
 		if(FG_SECURED)
 			if(!I.tool_start_check(user, amount=0))

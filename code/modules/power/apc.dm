@@ -666,7 +666,7 @@
 		var/obj/item/electroadaptive_pseudocircuit/P = W
 		if(!has_electronics)
 			if(machine_stat & BROKEN)
-				to_chat(user, span_warning("<b>[src]</b>'s frame is too damaged to support a circuit."))
+				to_chat(user, span_warning("<b>[capitalize(src)]</b>'s frame is too damaged to support a circuit."))
 				return
 			if(!P.adapt_circuit(user, 50))
 				return
@@ -688,7 +688,7 @@
 			span_warning("Your [P.name] whirrs with strain as you create a weak power cell and place it into <b>[src]</b>!"))
 			update_appearance()
 		else
-			to_chat(user, span_warning("<b>[src]</b> has both electronics and a cell."))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> has both electronics and a cell."))
 			return
 	else if (istype(W, /obj/item/wallframe/apc) && opened)
 		if (!(machine_stat & BROKEN || opened==APC_COVER_REMOVED || obj_integrity < max_integrity)) // There is nothing to repair
@@ -726,7 +726,7 @@
 	if(the_rcd.upgrade & RCD_UPGRADE_SIMPLE_CIRCUITS)
 		if(!has_electronics)
 			if(machine_stat & BROKEN)
-				to_chat(user, span_warning("<b>[src]</b>'s frame is too damaged to support a circuit."))
+				to_chat(user, span_warning("<b>[capitalize(src)]</b>'s frame is too damaged to support a circuit."))
 				return FALSE
 			return list("mode" = RCD_UPGRADE_SIMPLE_CIRCUITS, "delay" = 20, "cost" = 1)
 		else if(!cell)
@@ -735,7 +735,7 @@
 				return FALSE
 			return list("mode" = RCD_UPGRADE_SIMPLE_CIRCUITS, "delay" = 50, "cost" = 10) //16 for a wall
 		else
-			to_chat(user, span_warning("<b>[src]</b> has both electronics and a cell."))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> has both electronics and a cell."))
 			return FALSE
 	return FALSE
 
@@ -744,7 +744,7 @@
 		if(RCD_UPGRADE_SIMPLE_CIRCUITS)
 			if(!has_electronics)
 				if(machine_stat & BROKEN)
-					to_chat(user, span_warning("<b>[src]</b>'s frame is too damaged to support a circuit."))
+					to_chat(user, span_warning("<b>[capitalize(src)]</b>'s frame is too damaged to support a circuit."))
 					return
 				user.visible_message(span_notice("[user] создаёт специальную плату и вставляет в <b>[src]</b>.") , \
 				span_notice("You adapt a power control board and click it into place in <b>[src]</b>'s guts."))
@@ -764,7 +764,7 @@
 				update_appearance()
 				return TRUE
 			else
-				to_chat(user, span_warning("<b>[src]</b> has both electronics and a cell."))
+				to_chat(user, span_warning("<b>[capitalize(src)]</b> has both electronics and a cell."))
 				return FALSE
 	return FALSE
 
@@ -795,7 +795,7 @@
 
 /obj/machinery/power/apc/proc/toggle_nightshift_lights(mob/living/user)
 	if(last_nightshift_switch > world.time - 100) //~10 seconds between each toggle to prevent spamming
-		to_chat(usr, span_warning("<b>[src]</b>'s night lighting circuit breaker is still cycling!"))
+		to_chat(usr, span_warning("<b>[capitalize(src)]</b>'s night lighting circuit breaker is still cycling!"))
 		return
 	last_nightshift_switch = world.time
 	set_nightshift(!nightshift_lights)
@@ -1002,7 +1002,7 @@
 			)                                                            \
 		)
 			if(!loud)
-				to_chat(user, span_danger("\The <b>[src]</b> has eee disabled!"))
+				to_chat(user, span_danger("<b>[capitalize(src)]</b> has eee disabled!"))
 			return FALSE
 	return TRUE
 

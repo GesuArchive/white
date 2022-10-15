@@ -926,17 +926,17 @@
 		carrydelay = 4 SECONDS
 		skills_space = " быстро"
 
-	visible_message(span_notice("<b>[src]</b> начинает[skills_space] поднимать <b>[target]</b> на свою спину...") ,
+	visible_message(span_notice("<b>[capitalize(src)]</b> начинает[skills_space] поднимать <b>[target]</b> на свою спину...") ,
 	//Joe Medic starts quickly/expertly lifting Grey Tider onto their back..
 	span_notice("[carrydelay < 3.5 SECONDS ? "Используя наночипы в своих перчатках начинаю" : "Начинаю"][skills_space] поднимать [target] на свою спину[carrydelay == 4 SECONDS ? ", пока мне помогают наночипы в моих перчатках..." : "..."]"))
 	//(Using your gloves' nanochips, you/You) ( /quickly/expertly) start to lift Grey Tider onto your back(, while assisted by the nanochips in your gloves../...)
 	if(!do_after(src, carrydelay, target))
-		visible_message(span_warning("<b>[src]</b> проваливает попытку поднять <b>[target]</b>!"))
+		visible_message(span_warning("<b>[capitalize(src)]</b> проваливает попытку поднять <b>[target]</b>!"))
 		return
 
 	//Second check to make sure they're still valid to be carried
 	if(!can_be_firemanned(target) || incapacitated(IGNORE_GRAB) || target.buckled)
-		visible_message(span_warning("<b>[src]</b> проваливает попытку поднять <b>[target]</b>!"))
+		visible_message(span_warning("<b>[capitalize(src)]</b> проваливает попытку поднять <b>[target]</b>!"))
 		return
 
 	if(target.loc != loc)

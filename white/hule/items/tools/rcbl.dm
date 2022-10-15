@@ -63,7 +63,7 @@
 		return
 
 	if (matter < 1)
-		to_chat(user, span_warning("<b>[src.name]</b> doesn't have enough matter left."))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> doesn't have enough matter left."))
 		return
 
 	to_chat(user, span_notice("Constructing conveyor belt..."))

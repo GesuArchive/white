@@ -68,7 +68,7 @@
 			if(isturf(T) && !T.intact)
 				attached = locate() in T
 				if(!attached)
-					to_chat(user, span_warning("<b>[src.name]</b> must be placed over an exposed, powered cable node!"))
+					to_chat(user, span_warning("<b>[capitalize(src)]</b> must be placed over an exposed, powered cable node!"))
 				else
 					set_mode(CLAMPED_OFF)
 					user.visible_message( \
@@ -76,7 +76,7 @@
 						span_notice("You bolt <b>[src.name]</b> into the floor and connect it to the cable.") ,
 						span_hear("You hear some wires being connected to something."))
 			else
-				to_chat(user, span_warning("<b>[src.name]</b> must be placed over an exposed, powered cable node!"))
+				to_chat(user, span_warning("<b>[capitalize(src)]</b> must be placed over an exposed, powered cable node!"))
 		else
 			set_mode(DISCONNECTED)
 			user.visible_message( \

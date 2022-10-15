@@ -111,7 +111,7 @@
 		storedpart.icon = style_list_icons[choice]
 		eject_part(user)
 	else
-		to_chat(user, span_warning("<b>[src.name]</b> пустой!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> пустой!"))
 
 /**
  * Checks if we are allowed to interact with a radial menu

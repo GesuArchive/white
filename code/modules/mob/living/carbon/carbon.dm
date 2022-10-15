@@ -120,7 +120,7 @@
 			take_bodypart_damage(10 + 5 * extra_speed, check_armor = TRUE, wound_bonus = extra_speed * 5)
 			victim.Paralyze(2 SECONDS)
 			Paralyze(2 SECONDS)
-			visible_message(span_danger("<b>[src]</b> врезается в <b>[victim]</b>[extra_speed ? "со всей силы" : ""], роняя обоих на пол!") ,\
+			visible_message(span_danger("<b>[capitalize(src)]</b> врезается в <b>[victim]</b>[extra_speed ? "со всей силы" : ""], роняя обоих на пол!") ,\
 				span_userdanger("Жестко врезаюсь в <b>[victim]</b>[extra_speed ? " со всей дури" : ""]!"))
 		playsound(src,'sound/weapons/punch1.ogg',50,TRUE)
 
@@ -192,7 +192,7 @@
 			power_throw++
 		if(pulling && grab_state >= GRAB_NECK)
 			power_throw++
-		visible_message(span_danger("<b>[src]</b> кидает <b>[thrown_thing.name]</b>[power_throw ? " невероятно сильно!" : "."]") , \
+		visible_message(span_danger("<b>[capitalize(src)]</b> кидает <b>[thrown_thing.name]</b>[power_throw ? " невероятно сильно!" : "."]") , \
 						span_danger("Кидаю <b>[thrown_thing.name]</b>[power_throw ? " невероятно сильно!" : "."]"))
 		playsound(get_turf(src), 'white/valtos/sounds/throw.wav', 50, TRUE)
 		log_message("has thrown [thrown_thing] [power_throw ? "really hard" : ""]", LOG_ATTACK)

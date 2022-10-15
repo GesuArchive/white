@@ -197,16 +197,16 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 	if(id_card1 || id_card2)
 		if(id_card1 && id_card2)
-			. += "\The [src] is displaying [id_card1] and [id_card2]."
+			. += "<b>[capitalize(src)]</b> is displaying [id_card1] and [id_card2]."
 			var/list/id_icons = list()
 			id_icons += id_card1.get_id_examine_strings(user)
 			id_icons += id_card2.get_id_examine_strings(user)
 			. += id_icons.Join(" ")
 		else if(id_card1)
-			. += "\The [src] is displaying [id_card1]."
+			. += "<b>[capitalize(src)]</b> is displaying [id_card1]."
 			. += id_card1.get_id_examine_strings(user)
 		else
-			. += "\The [src] is displaying [id_card2]."
+			. += "<b>[capitalize(src)]</b> is displaying [id_card2]."
 			. += id_card2.get_id_examine_strings(user)
 
 /obj/item/modular_computer/RemoveID()
@@ -521,7 +521,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		CRASH("tried to open program that does not belong to this computer")
 
 	if(!program || !istype(program)) // Program not found or it's not executable program.
-		to_chat(user, span_danger("<b>[src.name]</b>'s экран показывает предупреждение \"I/O ОШИБКА — невозможно запустить программу\"."))
+		to_chat(user, span_danger("<b>[capitalize(src)]</b>'s экран показывает предупреждение \"I/O ОШИБКА — невозможно запустить программу\"."))
 		return FALSE
 
 	if(!program.is_supported_by_hardware(hardware_flag, 1, user))
@@ -540,11 +540,11 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	var/obj/item/computer_hardware/processor_unit/PU = all_components[MC_CPU]
 
 	if(idle_threads.len > PU.max_idle_programs)
-		to_chat(user, span_danger("<b>[src.name]</b> отображает ошибку \"Достигнута максимальная загрузка процессора. Невозможно запустить другую программу.\"."))
+		to_chat(user, span_danger("<b>[capitalize(src)]</b> отображает ошибку \"Достигнута максимальная загрузка процессора. Невозможно запустить другую программу.\"."))
 		return FALSE
 
 	if(program.requires_ntnet && !get_ntnet_status(program.requires_ntnet_feature)) // The program requires NTNet connection, but we are not connected to NTNet.
-		to_chat(user, span_danger("<b>[src.name]</b>'s экран отображает \"Невозможно подсоединиться к NTNet. Попробуйте заново. Если проблема не исчезнет, обратитесь к системному администратору.\" предупреждение."))
+		to_chat(user, span_danger("<b>[capitalize(src)]</b>'s экран отображает \"Невозможно подсоединиться к NTNet. Попробуйте заново. Если проблема не исчезнет, обратитесь к системному администратору.\" предупреждение."))
 		return FALSE
 
 	if(program.on_start(user))
@@ -579,7 +579,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	if(looping_sound)
 		soundloop.stop()
 	if(loud)
-		physical.visible_message(span_notice("<b>[src.name]</b> выключается."))
+		physical.visible_message(span_notice("<b>[capitalize(src)]</b> выключается."))
 	enabled = 0
 	update_icon()
 
@@ -651,7 +651,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 			return
 		pai = W
 		pai.slotted = TRUE
-		to_chat(user, span_notice("You slot \the [W] into [src]."))
+		to_chat(user, span_notice("You slot <b>[W]</b> into [src]."))
 		return
 
 	// Scan a photo.
@@ -681,14 +681,14 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 			to_chat(user, span_warning("Извлеките все компоненты из <b>[src.name]</b> перед его разборкой."))
 			return
 		new /obj/item/stack/sheet/iron( get_turf(src.loc), steel_sheet_cost )
-		physical.visible_message(span_notice("<b>[src.name]</b> разобран [user]."))
+		physical.visible_message(span_notice("<b>[capitalize(src)]</b> разобран [user]."))
 		relay_qdel()
 		qdel(src)
 		return
 
 	if(W.tool_behaviour == TOOL_WELDER)
 		if(obj_integrity == max_integrity)
-			to_chat(user, span_warning("<b>[src.name]</b> не требуется ремонт."))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> не требуется ремонт."))
 			return
 
 		if(!W.tool_start_check(user, amount=1))

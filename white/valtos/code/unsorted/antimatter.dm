@@ -316,10 +316,10 @@
 	active = !active
 	if(active)
 		update_use_power(ACTIVE_POWER_USE)
-		visible_message("<b>[src.name]</b> запускается.")
+		visible_message("<b>[capitalize(src)]</b> запускается.")
 	else
 		update_use_power(IDLE_POWER_USE)
-		visible_message("<b>[src.name]</b> выключается.")
+		visible_message("<b>[capitalize(src)]</b> выключается.")
 	update_icon()
 	return
 
@@ -440,12 +440,12 @@
 	AddElement(/datum/element/climbable)
 
 /obj/machinery/am_shielding/proc/overheat()
-	visible_message(span_danger("<b>[src]</b> тает!"))
+	visible_message(span_danger("<b>[capitalize(src)]</b> тает!"))
 	new /obj/effect/hotspot(loc)
 	qdel(src)
 
 /obj/machinery/am_shielding/proc/collapse()
-	visible_message(span_notice("<b>[src]</b> схлопывается обратно в контейнер!"))
+	visible_message(span_notice("<b>[capitalize(src)]</b> схлопывается обратно в контейнер!"))
 	new /obj/item/am_shielding_container(drop_location())
 	qdel(src)
 

@@ -44,5 +44,5 @@
 	if(. && prob(12) && iscarbon(target))
 		var/mob/living/carbon/C = target
 		C.Paralyze(60)
-		C.visible_message(span_danger("<b>[src.name]</b> knocks down [C]!") , \
-				span_userdanger("<b>[src.name]</b> knocks you down!"))
+		C.visible_message(span_danger("<b>[capitalize(src)]</b> knocks down [C]!") , \
+				span_userdanger("<b>[capitalize(src)]</b> knocks you down!"))

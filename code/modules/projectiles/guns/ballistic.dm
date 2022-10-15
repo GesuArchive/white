@@ -345,7 +345,7 @@
 			to_chat(user, span_warning("Нужно держать в руках <b>[src.name]</b>, чтобы приделать [S.name]!"))
 			return
 		if(suppressed)
-			to_chat(user, span_warning("<b>[src.name]</b> уже имеет глушитель!"))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> уже имеет глушитель!"))
 			return
 		if(user.transferItemToLoc(A, src))
 			to_chat(user, span_notice("Прикручиваю [S.name] к <b>[src.name]</b>."))
@@ -449,7 +449,7 @@
 			playsound(user, eject_sound, eject_sound_volume, eject_sound_vary)
 			update_icon()
 		else
-			to_chat(user, span_warning("<b>[src.name]</b> пуст!"))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> пуст!"))
 		return
 	if(bolt_type == BOLT_TYPE_LOCKING && bolt_locked)
 		drop_bolt(user)
@@ -531,7 +531,7 @@ GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
 	if(!saw.get_sharpness() || (!is_type_in_typecache(saw, GLOB.gun_saw_types) && saw.tool_behaviour != TOOL_SAW)) //needs to be sharp. Otherwise turned off eswords can cut this.
 		return
 	if(sawn_off)
-		to_chat(user, span_warning("<b>[src.name]</b> уже обрезан!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> уже обрезан!"))
 		return
 	if(bayonet)
 		to_chat(user, span_warning("Не могу отпилить <b>[src.name]</b> с прикрепленным [bayonet]!"))
@@ -541,7 +541,7 @@ GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
 
 	//if there's any live ammo inside the gun, makes it go off
 	if(blow_up(user))
-		user.visible_message(span_danger("<b>[src.name]</b> отлетает!") , span_danger("<b>[src.name]</b> отлетает в мое лицо!"))
+		user.visible_message(span_danger("<b>[capitalize(src)]</b> отлетает!") , span_danger("<b>[capitalize(src)]</b> отлетает в мое лицо!"))
 		return
 
 	if(do_after(user, 30, target = src))

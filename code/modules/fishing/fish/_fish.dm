@@ -212,7 +212,7 @@
 			status = FISH_DEAD
 			STOP_PROCESSING(SSobj, src)
 			stop_flopping()
-			var/message = span_notice("\The [name] dies.")
+			var/message = span_notice("<b>[capitalize(name)]</b> dies.")
 			if(istype(loc,/obj/structure/aquarium))
 				loc.visible_message(message)
 			else

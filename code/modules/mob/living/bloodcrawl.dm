@@ -57,7 +57,7 @@
 	else
 		victim.forceMove(src)
 		victim.emote("agony")
-		visible_message(span_warning("<b>[src] drags [victim] into the pool of blood!</b>") , null, span_notice("You hear a splash."))
+		visible_message(span_warning("<b>[capitalize(src)] drags [victim] into the pool of blood!</b>") , null, span_notice("You hear a splash."))
 		kidnapped = TRUE
 
 	if(kidnapped)

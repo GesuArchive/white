@@ -178,7 +178,7 @@
 			if(open)
 				to_chat(user, span_warning("Нужно закрутить панель обратно для этого."))
 			else
-				to_chat(user, span_notice("<b>[src.name]</b> не признаёт моего превосходства."))
+				to_chat(user, span_notice("<b>[capitalize(src)]</b> не признаёт моего превосходства."))
 	else if(istype(W, /obj/item/kitchen/knife) && user.a_intent != INTENT_HARM)
 		to_chat(user, span_notice("Начинаю прикреплять [W] к <b>[src.name]</b>..."))
 		if(do_after(user, 25, target = src))

@@ -24,7 +24,7 @@
 			bash_cooldown = world.time
 	else if(W.tool_behaviour == TOOL_WELDER)
 		if (obj_integrity >= max_integrity)
-			to_chat(user, span_warning("<b>[src.name]</b> уже в превосходном состоянии."))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> уже в превосходном состоянии."))
 		if(!W.use_tool(src, user, 40, volume=50, amount=2))
 			return
 		obj_integrity = max_integrity

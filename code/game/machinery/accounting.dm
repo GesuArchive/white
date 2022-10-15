@@ -23,7 +23,7 @@
 			to_chat(user, span_warning("[capitalize(src.name)] already has a bank account!"))
 			return
 		if(!anchored || !user.transferItemToLoc(I,src))
-			to_chat(user, span_warning("<b>[src.name]</b> blinks red as you try to insert the ID Card!"))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> blinks red as you try to insert the ID Card!"))
 			return
 		inserted_id = new_id
 		RegisterSignal(inserted_id, COMSIG_PARENT_QDELETING, .proc/remove_card)

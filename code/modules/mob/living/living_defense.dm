@@ -367,7 +367,7 @@
 	else
 		adjustStaminaLoss(shock_damage)
 	visible_message(
-		span_danger("<b>[src]</b> ловит разряд тока от <b>[source]</b>!") , \
+		span_danger("<b>[capitalize(src)]</b> ловит разряд тока от <b>[source]</b>!") , \
 		span_userdanger("Меня ударило током! <b>ЭТО ОЧЕНЬ БОЛЬНО!</b>") , \
 		span_italics("Слышу щёлканье электрических разрядов.")  \
 	)

@@ -123,5 +123,5 @@
 					var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
 					s.set_up(3, TRUE, D)
 					s.start()
-					D.visible_message(span_danger("\the [D] self-destructs!"))
+					D.visible_message(span_danger("<b>[capitalize(D)]</b> self-destructs!"))
 					D.gib()

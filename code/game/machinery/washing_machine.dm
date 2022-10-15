@@ -368,7 +368,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 			return TRUE
 
 		if(!user.transferItemToLoc(W, src))
-			to_chat(user, span_warning("\The [W] is stuck to your hand, you cannot put it in the washing machine!"))
+			to_chat(user, span_warning("<b>[capitalize(W)]</b> is stuck to your hand, you cannot put it in the washing machine!"))
 			return TRUE
 		if(W.dye_color)
 			color_source = W

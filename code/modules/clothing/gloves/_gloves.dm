@@ -23,7 +23,7 @@
 		return TRUE
 
 /obj/item/clothing/gloves/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("<b>[src.name]</b> заставляют руки [user] схватить его за [user.ru_ego()] шею! Выглядит так, будто перчатки одержимы!"))
+	user.visible_message(span_suicide("<b>[capitalize(src)]</b> заставляют руки [user] схватить его за [user.ru_ego()] шею! Выглядит так, будто перчатки одержимы!"))
 	return OXYLOSS
 
 /obj/item/clothing/gloves/worn_overlays(mutable_appearance/standing, isinhands = TRUE, icon_file)

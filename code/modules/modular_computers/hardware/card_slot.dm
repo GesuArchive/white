@@ -76,7 +76,7 @@
 		I.forceMove(src)
 
 	stored_card = I
-	to_chat(user, span_notice("You insert \the [I] into \the [expansion_hw ? "secondary":"primary"] [src]."))
+	to_chat(user, span_notice("You insert <b>[I]</b> into <b>[expansion_hw ? "secondary":"primary"]</b> [src]."))
 	playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 	holder.update_appearance()
 
@@ -95,7 +95,7 @@
 
 /obj/item/computer_hardware/card_slot/try_eject(mob/living/user = null, forced = FALSE)
 	if(!stored_card)
-		to_chat(user, span_warning("There are no cards in \the [src]."))
+		to_chat(user, span_warning("There are no cards in <b>[src]</b>."))
 		return FALSE
 
 	if(user && !issilicon(user) && in_range(src, user))

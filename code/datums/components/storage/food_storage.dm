@@ -56,19 +56,19 @@
 		return
 
 	if(inserted_item.w_class > minimum_weight_class)
-		to_chat(user, span_warning("\The [inserted_item.name] won't fit in \the [parent]."))
+		to_chat(user, span_warning("<b>[capitalize(inserted_item.name)]</b> won't fit in <b>[parent]</b>."))
 		return
 
 	if(!QDELETED(stored_item))
-		to_chat(user, span_warning("There's something in \the [parent]."))
+		to_chat(user, span_warning("There's something in <b>[parent]</b>."))
 		return
 
 	if(HAS_TRAIT(inserted_item, TRAIT_NODROP))
-		to_chat(user, span_warning("\the [inserted_item] is stuck to your hand, you can't put into \the [parent]!"))
+		to_chat(user, span_warning("<b>[capitalize(inserted_item)]</b> is stuck to your hand, you can't put into <b>[parent]</b>!"))
 		return
 
-	user.visible_message(span_notice("[user.name] begins inserting [inserted_item.name] into \the [parent]."), \
-					span_notice("You start to insert the [inserted_item.name] into \the [parent]."))
+	user.visible_message(span_notice("[user.name] begins inserting [inserted_item.name] into <b>[parent]</b>."), \
+					span_notice("You start to insert the [inserted_item.name] into <b>[parent]</b>."))
 
 	INVOKE_ASYNC(src, .proc/insert_item, inserted_item, user)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
@@ -93,8 +93,8 @@
 	if(!food.can_interact(user))
 		return
 
-	user.visible_message(span_notice("[user.name] begins tearing at \the [parent]."), \
-					span_notice("You start to rip into \the [parent]."))
+	user.visible_message(span_notice("[user.name] begins tearing at <b>[parent]</b>."), \
+					span_notice("You start to rip into <b>[parent]</b>."))
 
 	INVOKE_ASYNC(src, .proc/begin_remove_item, user)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
@@ -108,7 +108,7 @@
 /datum/component/food_storage/proc/insert_item(obj/item/inserted_item, mob/user)
 	if(do_after(user, 1.5 SECONDS, target = parent))
 		var/atom/food = parent
-		to_chat(user, span_notice("You slip [inserted_item.name] inside \the [parent]."))
+		to_chat(user, span_notice("You slip [inserted_item.name] inside <b>[parent]</b>."))
 		inserted_item.forceMove(food)
 		user.log_message("[key_name(user)] inserted [inserted_item] into [parent] at [AREACOORD(user)]", LOG_ATTACK)
 		food.add_fingerprint(user)
@@ -130,11 +130,11 @@
  */
 /datum/component/food_storage/proc/remove_item(mob/user)
 	if(user.put_in_hands(stored_item))
-		user.visible_message(span_warning("[user.name] slowly pulls [stored_item.name] out of \the [parent]."), \
-							span_warning("You slowly pull [stored_item.name] out of \the [parent]."))
+		user.visible_message(span_warning("[user.name] slowly pulls [stored_item.name] out of <b>[parent]</b>."), \
+							span_warning("You slowly pull [stored_item.name] out of <b>[parent]</b>."))
 	else
 		stored_item.dropped()
-		stored_item.visible_message(span_warning("[stored_item.name] falls out of \the [parent]."))
+		stored_item.visible_message(span_warning("[stored_item.name] falls out of <b>[parent]</b>."))
 
 	update_stored_item()
 
@@ -165,7 +165,7 @@
 
 	if(prob(good_chance_of_discovery)) //finding the item, without biting it
 		discovered = TRUE
-		to_chat(target, span_warning("It feels like there's something in \the [parent]...!"))
+		to_chat(target, span_warning("It feels like there's something in <b>[parent]</b>...!"))
 
 	else if(prob(bad_chance_of_discovery)) //finding the item, BY biting it
 		user.log_message("[key_name(user)] just fed [key_name(target)] a/an [stored_item] which was hidden in [parent] at [AREACOORD(target)]", LOG_ATTACK)

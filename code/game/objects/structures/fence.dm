@@ -72,19 +72,19 @@
 			to_chat(user, span_warning("This fence has too much cut out of it already!"))
 			return
 
-		user.visible_message(span_danger("\The [user] starts cutting through \the [src] with \the [W]."),\
-		span_danger("You start cutting through \the [src] with \the [W]."))
+		user.visible_message(span_danger("<b>[capitalize(user)]</b> starts cutting through <b>[src]</b> with <b>[W]</b>."),\
+		span_danger("You start cutting through <b>[src]</b> with <b>[W]</b>."))
 
 		if(do_after(user, CUT_TIME*W.toolspeed, target = src))
 			if(current_stage == hole_size)
 				switch(++hole_size)
 					if(MEDIUM_HOLE)
-						visible_message(span_notice("\The [user] cuts into \the [src] some more."))
+						visible_message(span_notice("<b>[capitalize(user)]</b> cuts into <b>[src]</b> some more."))
 						to_chat(user, span_info("You could probably fit yourself through that hole now. Although climbing through would be much faster if you made it even bigger."))
 						AddElement(/datum/element/climbable)
 					if(LARGE_HOLE)
-						visible_message(span_notice("\The [user] completely cuts through \the [src]."))
-						to_chat(user, span_info("The hole in \the [src] is now big enough to walk through."))
+						visible_message(span_notice("<b>[capitalize(user)]</b> completely cuts through <b>[src]</b>."))
+						to_chat(user, span_info("The hole in <b>[src]</b> is now big enough to walk through."))
 						RemoveElement(/datum/element/climbable)
 
 				update_cut_status()

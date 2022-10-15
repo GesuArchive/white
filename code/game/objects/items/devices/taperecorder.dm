@@ -256,10 +256,10 @@
 
 /obj/item/taperecorder/attack_self(mob/user)
 	if(!mytape)
-		to_chat(user, span_notice("\The [src] is empty."))
+		to_chat(user, span_notice("<b>[capitalize(src)]</b> is empty."))
 		return
 	if(mytape.unspooled)
-		to_chat(user, span_warning("\The tape inside \the [src] is broken!"))
+		to_chat(user, span_warning("Tape inside <b>[src]</b> is broken!"))
 		return
 
 	update_available_icons()
@@ -380,7 +380,7 @@
 				if(loc != user)
 					return
 				tapeflip()
-				to_chat(user, span_notice("You turn \the [src] over."))
+				to_chat(user, span_notice("You turn <b>[src]</b> over."))
 				playsound(src, 'sound/items/taperecorder/tape_flip.ogg', 70, FALSE)
 			if("Unwind tape")
 				if(loc != user)

@@ -218,7 +218,7 @@
 		//Any other type of pinpointer can make it throw up.
 		if(COOLDOWN_FINISHED(src, next_spew_tick))
 			I.forceMove(loc)
-			visible_message(span_warning("\The [src] smartly rejects [I]."))
+			visible_message(span_warning("<b>[capitalize(src)]</b> smartly rejects [I]."))
 			say("BLEURRRRGH!")
 			I.throw_at(user, 2, 3)
 			COOLDOWN_START(src, next_spew_tick, COOLDOWN_SPEW)

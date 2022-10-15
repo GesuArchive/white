@@ -154,10 +154,10 @@
 /obj/machinery/power/emitter/interact(mob/user)
 	add_fingerprint(user)
 	if(!welded)
-		to_chat(user, span_warning("<b>[src]</b> должен быть надёжно закреплён!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> должен быть надёжно закреплён!"))
 		return FALSE
 	if(!powernet)
-		to_chat(user, span_warning("<b>[src]</b> не подключен к проводу!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> не подключен к проводу!"))
 		return FALSE
 	if(locked || !allow_switch_interact)
 		to_chat(user, span_warning("The controls are locked!"))
@@ -262,7 +262,7 @@
 
 	else if(welded)
 		if(!silent)
-			to_chat(user, span_warning("<b>[src]</b> приварен к полу!"))
+			to_chat(user, span_warning("<b>[capitalize(src)]</b> приварен к полу!"))
 		return FAILED_UNFASTEN
 
 	return ..()
@@ -293,7 +293,7 @@
 		return TRUE
 
 	if(!anchored)
-		to_chat(user, span_warning("<b>[src]</b> должен быть прикручен к полу!"))
+		to_chat(user, span_warning("<b>[capitalize(src)]</b> должен быть прикручен к полу!"))
 		return TRUE
 	if(!item.tool_start_check(user, amount=0))
 		return TRUE

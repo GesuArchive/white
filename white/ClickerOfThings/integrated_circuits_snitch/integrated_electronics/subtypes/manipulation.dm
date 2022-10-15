@@ -206,7 +206,7 @@
 		if(attached_grenade)
 			to_chat(user, span_warning("There is already a grenade attached!"))
 		else if(user.transferItemToLoc(G,src))
-			user.visible_message(span_warning("\The [user] attaches \a [G] to <b>[src.name]</b>!") , span_notice("You attach [G] to <b>[src.name]</b>."))
+			user.visible_message(span_warning("<b>[capitalize(user)]</b> attaches \a [G] to <b>[src.name]</b>!") , span_notice("You attach [G] to <b>[src.name]</b>."))
 			attach_grenade(G)
 			G.forceMove(src)
 	else
@@ -214,7 +214,7 @@
 
 /obj/item/integrated_circuit_old/manipulation/grenade/attack_self(var/mob/user)
 	if(attached_grenade)
-		user.visible_message(span_warning("\The [user] removes \an [attached_grenade] from <b>[src.name]</b>!") , span_notice("You remove [attached_grenade] from <b>[src.name]</b>."))
+		user.visible_message(span_warning("<b>[capitalize(user)]</b> removes \an [attached_grenade] from <b>[src.name]</b>!") , span_notice("You remove [attached_grenade] from <b>[src.name]</b>."))
 		user.put_in_hands(attached_grenade)
 		detach_grenade()
 	else

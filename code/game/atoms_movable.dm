@@ -401,8 +401,8 @@
 		var/mob/M = AM
 		log_combat(src, M, "grabbed", addition="passive grab")
 		if(!supress_message)
-			M.visible_message(span_warning("<b>[src]</b> хватает <b>[M]</b>.") , \
-				span_danger("<b>[src]</b> хватает меня."))
+			M.visible_message(span_warning("<b>[capitalize(src)]</b> хватает <b>[M]</b>.") , \
+				span_danger("<b>[capitalize(src)]</b> хватает меня."))
 	return TRUE
 
 /atom/movable/proc/stop_pulling()
