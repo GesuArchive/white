@@ -1,3 +1,16 @@
+/datum/getrev
+	var/commit  // git rev-parse HEAD
+
+/datum/getrev/New()
+	var/list/head_log = world.file2list(".git/logs/HEAD", "\n")
+	for(var/line = head_log.len, line>=1, line--)
+		if(head_log[line])
+			var/list/last_entry = splittext(head_log[line], " ")
+			if(last_entry.len < 2)
+				continue
+			commit = last_entry[2]
+			break
+
 /client/verb/showrevinfo()
 	set name = "📘 Информация о сервере"
 	set desc = "Check the current server code revision"

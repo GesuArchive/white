@@ -33,6 +33,10 @@
 	if(avoid_highlighting) message["avoidHighlighting"] = avoid_highlighting
 	var/message_blob = TGUI_CREATE_MESSAGE("chat/message", message)
 	var/message_html = message_to_html(message)
+
+	if(!(type in list(MESSAGE_TYPE_ADMINPM, MESSAGE_TYPE_ADMINCHAT, MESSAGE_TYPE_ADMINLOG, MESSAGE_TYPE_DEBUG)))
+		SSdemo.write_chat(target, message)
+
 	if(islist(target))
 		for(var/_target in target)
 			var/client/client = CLIENT_FROM_VAR(_target)
