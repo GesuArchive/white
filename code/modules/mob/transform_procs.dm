@@ -289,8 +289,9 @@
 	var/mobpath = tgui_input_list(usr, "Which type of mob should [src] turn into?", "Choose a type", sort_list(mobtypes, /proc/cmp_typepaths_asc))
 
 	if(!safe_animal(mobpath))
-		to_chat(usr, span_danger("Извините, но данный тип мода сейчас недоступен."))
-		return
+		var/hurr = tgui_alert(usr, "[mobpath] is defined as unsafe. See /mob/proc/safe_animal() for details.", "Are you sure?", list("i don't care", "cancel"))
+		if(hurr != "i don't care")
+			return
 
 	if(notransform)
 		return
@@ -323,8 +324,9 @@
 	var/mobpath = tgui_input_list(usr, "Which type of mob should [src] turn into?", "Choose a type", sort_list(mobtypes, /proc/cmp_typepaths_asc))
 
 	if(!safe_animal(mobpath))
-		to_chat(usr, span_danger(">Извините, но данный тип мода сейчас недоступен."))
-		return
+		var/hurr = tgui_alert(usr, "[mobpath] is defined as unsafe. See /mob/proc/safe_animal() for details.", "Are you sure?", list("i don't care", "cancel"))
+		if(hurr != "i don't care")
+			return
 
 	var/mob/new_mob = new mobpath(src.loc)
 
@@ -341,7 +343,7 @@
  * This also gives a place to explain -why- players shouldn't be turn into certain mobs and hopefully someone can fix them.
  */
 /mob/proc/safe_animal(MP)
-
+	
 //Bad mobs! - Remember to add a comment explaining what's wrong with the mob
 	if(!MP)
 		return FALSE	//Sanity, this should never happen.
