@@ -333,7 +333,7 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 */
 
 GLOBAL_VAR_INIT(status_for_mentally_ill_amoeba_users, TRUE)
-GLOBAL_VAR_INIT(custom_status_text, "- Пoлный пepeвoд нa рyccкий\n - Уникaльныe peжимы\n - Без лагов\n - Выcoкий уpoвeнь oтыгpышa\n\[<b>Мы тeбя ЖДЁМ</b>")
+GLOBAL_VAR_INIT(custom_status_text, "- Пoлный пepeвoд нa Kитaйcкий\n - Уникaльныe лaги\n - Без шyccoидoв\n \[<b>Bcё выpyбaй, y мeня xyй вcтaл</b>")
 
 /world/proc/update_status()
 
