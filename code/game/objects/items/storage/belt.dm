@@ -302,7 +302,7 @@
 /obj/item/storage/belt/security/Initialize()
 	. = ..()
 	atom_storage.max_slots = 5
-	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
 	atom_storage.set_holdable(list(
 		/obj/item/melee/baton,
 		/obj/item/melee/classic_baton,
