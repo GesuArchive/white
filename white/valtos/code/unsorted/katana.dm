@@ -207,7 +207,7 @@
 	new /obj/item/katana(src)
 	update_icon()
 
-/obj/item/storage/belt/sheath/ComponentInitialize()
+/obj/item/storage/belt/sheath/Initialize()
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
 	atom_storage.max_slots = 1

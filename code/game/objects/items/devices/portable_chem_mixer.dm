@@ -15,7 +15,7 @@
 
 	var/list/dispensable_reagents = list()	///List in which all currently dispensable reagents go
 
-/obj/item/storage/portable_chem_mixer/ComponentInitialize()
+/obj/item/storage/portable_chem_mixer/Initialize()
 	. = ..()
 	atom_storage.max_total_storage = 200
 	atom_storage.max_slots = 50
