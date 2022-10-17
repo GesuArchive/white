@@ -212,7 +212,7 @@
 		if(HAS_TRAIT(H, TRAIT_PACIFISM))
 			H.visible_message(span_notice("[H] насмехается над [src.name], провоцируя его на погоню!") , \
 				span_notice("Насмехаюсь над [src.name], провоцируя его на погоню!") , span_hear("Слышу, как кто-то насмехается надо мной!") , DEFAULT_MESSAGE_RANGE, H)
-			speak("Пацифистский отморозок <b>[H]</b> насмехается надо мной в [get_area(src)].", radio_channel)
+			speak("Пацифистский отморозок [H] насмехается надо мной в [get_area(src)].", radio_channel)
 
 			// Interrupt the attack chain. We've already handled this scenario for pacifists.
 			return
@@ -315,7 +315,7 @@
 	log_combat(src,C,"stunned")
 	if(declare_arrests)
 		var/area/location = get_area(src)
-		speak("[arrest_type ? "Задерживаю" : "Арест"] преступника <b>[C]</b> уровня [threat] в [location].", radio_channel)
+		speak("[arrest_type ? "Задерживаю" : "Арест"] преступника [C] уровня [threat] в [location].", radio_channel)
 	C.visible_message(span_danger("<b>[capitalize(src.name)]</b> бьёт шокером <b>[C]</b>!") ,\
 							span_userdanger("[capitalize(src.name)] бьёт меня шокером!"))
 
