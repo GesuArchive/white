@@ -402,10 +402,6 @@ GLOBAL_LIST_EMPTY(map_model_default)
 			if(variables_start)//if there's any variable
 				member_string = copytext(member_string, variables_start + length(member_string[variables_start]), -length(copytext_char(member_string, -1))) //removing the last '}'
 				fields = readlist(member_string, ";")
-				for(var/I in fields)
-					var/value = fields[I]
-					if(istext(value))
-						fields[I] = apply_text_macros(value)
 
 			//then fill the members_attributes list with the corresponding variables
 			members_attributes[index++] = fields

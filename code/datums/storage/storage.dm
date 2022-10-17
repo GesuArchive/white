@@ -51,7 +51,7 @@
 	var/emp_shielded
 
 	/// you put things *in* a bag, but *on* a plate
-	var/insert_preposition = "in"
+	var/insert_preposition = "в"
 
 	/// don't show any chat messages regarding inserting items
 	var/silent = FALSE
@@ -134,12 +134,15 @@
 /datum/storage/Destroy()
 	parent = null
 	real_location = null
-	boxes = null
-	closer = null
 
 	for(var/mob/person in is_using)
 		if(person.active_storage == src)
 			person.active_storage = null
+			person.client?.screen -= boxes
+			person.client?.screen -= closer
+
+	QDEL_NULL(boxes)
+	QDEL_NULL(closer)
 
 	is_using.Cut()
 
@@ -214,7 +217,7 @@
 		handle_show_valid_items(source, user)
 
 /datum/storage/proc/handle_show_valid_items(datum/source, user)
-	to_chat(user, span_notice("[source] can hold: [can_hold_description]"))
+	to_chat(user, span_notice("[source] может хранить: [can_hold_description]"))
 
 /// Almost 100% of the time the lists passed into set_holdable are reused for each instance of the component
 /// Just fucking cache it 4head
@@ -251,7 +254,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	for(var/valid_type in can_hold_list)
 		var/obj/item/valid_item = valid_type
-		desc += "\a [initial(valid_item.name)]"
+		desc += "[initial(valid_item.name)]"
 
 	return "\n\t[span_notice("[desc.Join("\n\t")]")]"
 
@@ -311,12 +314,12 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	if(to_insert.w_class > max_specific_storage && !is_type_in_typecache(to_insert, exception_hold))
 		if(messages)
-			to_chat(user, span_warning("\The [to_insert] is too big for \the [resolve_parent]!"))
+			to_chat(user, span_warning("<b>[capitalize(to_insert)]</b> слишком большой для <b>[resolve_parent]</b>!"))
 		return FALSE
 
 	if(resolve_location.contents.len >= max_slots)
 		if(messages)
-			to_chat(user, span_warning("\The [to_insert] can't fit into \the [resolve_parent]! Make some space!"))
+			to_chat(user, span_warning("<b>[capitalize(to_insert)]</b> не помещается в <b>[resolve_parent]</b>! Всё забито!"))
 		return FALSE
 
 	var/total_weight = to_insert.w_class
@@ -326,32 +329,32 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	if(total_weight > max_total_storage)
 		if(messages)
-			to_chat(user, span_warning("\The [to_insert] can't fit into \the [resolve_parent]! Make some space!"))
+			to_chat(user, span_warning("<b>[capitalize(to_insert)]</b> не помещается в <b>[resolve_parent]</b>! Всё забито!"))
 		return FALSE
 
 	if(length(can_hold))
 		if(!is_type_in_typecache(to_insert, can_hold))
 			if(messages)
-				to_chat(user, span_warning("\The [resolve_parent] cannot hold \the [to_insert]!"))
+				to_chat(user, span_warning("<b>[capitalize(resolve_parent)]</b> не хочет <b>[to_insert]</b>!"))
 			return FALSE
 
 	if(is_type_in_typecache(to_insert, cant_hold) || HAS_TRAIT(to_insert, TRAIT_NO_STORAGE_INSERT) || (can_hold_trait && !HAS_TRAIT(to_insert, can_hold_trait)))
 		if(messages)
-			to_chat(user, span_warning("\The [resolve_parent] cannot hold \the [to_insert]!"))
+			to_chat(user, span_warning("<b>[capitalize(resolve_parent)]</b> не хочет <b>[to_insert]</b>!"))
 		return FALSE
 
 	var/datum/storage/biggerfish = resolve_parent.loc.atom_storage // this is valid if the container our resolve_parent is being held in is a storage item
 
 	if(biggerfish && biggerfish.max_specific_storage < max_specific_storage)
 		if(messages)
-			to_chat(user, span_warning("[to_insert] can't fit in [resolve_parent] while [resolve_parent.loc] is in the way!"))
+			to_chat(user, span_warning("<b>[capitalize(to_insert)]</b> не помещается в <b>[resolve_parent]</b>, [resolve_parent.loc] мешает!"))
 		return FALSE
 
 	if(istype(resolve_parent))
 		var/datum/storage/item_storage = to_insert.atom_storage
 		if((to_insert.w_class >= resolve_parent.w_class) && item_storage && !allow_big_nesting)
 			if(messages)
-				to_chat(user, span_warning("[resolve_parent] cannot hold [to_insert] as it's a storage item of the same size!"))
+				to_chat(user, span_warning("<b>[capitalize(resolve_parent)]</b> не хочет <b>[to_insert]</b>, так как они одинакового размера!"))
 			return FALSE
 
 	return TRUE
@@ -460,14 +463,14 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(rustle_sound)
 		playsound(resolve_parent, SFX_RUSTLE, 50, TRUE, -5)
 
-	to_chat(user, span_notice("You put [thing] [insert_preposition]to [resolve_parent]."))
+	to_chat(user, span_notice("Кладу <b>[thing]</b> [insert_preposition] <b>[resolve_parent]</b>."))
 
 	for(var/mob/viewing in oviewers(user, null))
 		if(in_range(user, viewing))
-			viewing.show_message(span_notice("[user] puts [thing] [insert_preposition]to [resolve_parent]."), MSG_VISUAL)
+			viewing.show_message(span_notice("<b>[user]</b> кладёт <b>[thing]</b> [insert_preposition] <b>[resolve_parent]</b>."), MSG_VISUAL)
 			return
 		if(thing && thing.w_class >= 3)
-			viewing.show_message(span_notice("[user] puts [thing] [insert_preposition]to [resolve_parent]."), MSG_VISUAL)
+			viewing.show_message(span_notice("<b>[user]</b> кладёт <b>[thing]</b> [insert_preposition] <b>[resolve_parent]</b>."), MSG_VISUAL)
 			return
 
 /**
@@ -660,7 +663,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	var/amount = length(turf_things)
 	if(!amount)
-		to_chat(user, span_warning("You failed to pick up anything with [resolve_parent]!"))
+		to_chat(user, span_warning("Не вышло собрать что-то используя [resolve_parent]!"))
 		return
 
 	var/datum/progressbar/progress = new(user, amount, thing.loc)
@@ -670,7 +673,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		stoplag(1)
 
 	progress.end_progress()
-	to_chat(user, span_notice("You put everything you could [insert_preposition]to [resolve_parent]."))
+	to_chat(user, span_notice("Собираю всё что могу [insert_preposition] [resolve_parent]."))
 
 /// Signal handler for whenever we drag the storage somewhere.
 /datum/storage/proc/mousedrop_onto(datum/source, atom/over_object, mob/user)
@@ -893,7 +896,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		return
 
 	if(!toshow.CanReach(resolve_parent))
-		resolve_parent.balloon_alert(toshow, "can't reach!")
+		resolve_parent.balloon_alert(toshow, "не достаю!")
 		return FALSE
 
 	if(!isliving(toshow) || toshow.incapacitated())
@@ -901,7 +904,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	if(locked)
 		if(!silent)
-			to_chat(toshow, span_warning("[pick("Ka-chunk!", "Ka-chink!", "Plunk!", "Glorf!")] \The [resolve_parent] appears to be locked!"))
+			to_chat(toshow, span_warning("[pick("Ка-чунк!", "Ка-чинк!", "Плюньк!", "Глорф!")] <b>[capitalize(resolve_parent)]</b> заблокирован!"))
 		return FALSE
 
 	if(!quickdraw || toshow.get_active_held_item())
@@ -925,7 +928,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	INVOKE_ASYNC(src, .proc/put_in_hands_async, toshow, to_remove)
 
 	if(!silent)
-		toshow.visible_message(span_warning("[toshow] draws [to_remove] from [resolve_parent]!"), span_notice("You draw [to_remove] from [resolve_parent]."))
+		toshow.visible_message(span_warning("[toshow] вытягивает [to_remove] из [resolve_parent]!"), span_notice("Тяну [to_remove] из [resolve_parent]."))
 
 	return TRUE
 
@@ -933,7 +936,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 /datum/storage/proc/put_in_hands_async(mob/toshow, obj/item/toremove)
 	if(!toshow.put_in_hands(toremove))
 		if(!silent)
-			to_chat(toshow, span_notice("You fumble for [toremove] and it falls on the floor."))
+			to_chat(toshow, span_notice("Пытаюсь достать [toremove], но случайно роняю его на пол."))
 		return TRUE
 
 /// Signal handler for whenever a mob walks away with us, close if they can't reach us.
@@ -1047,11 +1050,11 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	collection_mode = (collection_mode+1)%3
 	switch(collection_mode)
 		if(COLLECT_SAME)
-			to_chat(user, span_notice("[resolve_parent] now picks up all items of a single type at once."))
+			to_chat(user, span_notice("<b>[capitalize(resolve_parent)]</b> теперь собирает все предметы одного типа разом."))
 		if(COLLECT_EVERYTHING)
-			to_chat(user, span_notice("[resolve_parent] now picks up all items in a tile at once."))
+			to_chat(user, span_notice("<b>[capitalize(resolve_parent)]</b> теперь собирает все предметы разом."))
 		if(COLLECT_ONE)
-			to_chat(user, span_notice("[resolve_parent] now picks up one item at a time."))
+			to_chat(user, span_notice("<b>[capitalize(resolve_parent)]</b> теперь собирает только один предмет."))
 
 /// Gives a spiffy animation to our parent to represent opening and closing.
 /datum/storage/proc/animate_parent()
