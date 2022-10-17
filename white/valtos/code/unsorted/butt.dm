@@ -174,7 +174,7 @@
 				if(!atom_storage)
 					return FALSE
 				user.visible_message(span_warning("[user] начинает прятать [I] в [user == src ? "свою задницу" : "задницу [src]"].") , span_warning("Начинаю прятать [I] в [user == src ? "свою задницу" : "задницу [src]"]."))
-				if(atom_storage.attempt_insert(B, I, user, override = TRUE))
+				if(atom_storage.attempt_insert(I, user, override = TRUE))
 					user.visible_message(span_warning("[user] прячет [I] внутри [user == src ? "своей задницы" : "задницы [src]"].") , span_warning("Прячу [I] внутри [user == src ? "своей задницы" : "задницы [src]"]."))
 				return TRUE
 	return FALSE

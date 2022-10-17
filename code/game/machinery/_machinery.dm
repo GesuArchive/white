@@ -869,7 +869,7 @@
 								if(W.atom_storage.attempt_remove(B, src))
 									component_parts += B
 									B.forceMove(src)
-							W.atom_storage.attempt_insert(W, A, user, TRUE)
+							W.atom_storage.attempt_insert(A, user, TRUE)
 							component_parts -= A
 							to_chat(user, span_notice("[capitalize(A.name)] заменен на [B.name]."))
 							shouldplaysound = 1 //Only play the sound when parts are actually replaced!

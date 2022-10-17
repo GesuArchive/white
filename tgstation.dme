@@ -207,6 +207,7 @@
 #include "code\__DEFINES\dcs\signals\signals_proxmonitor.dm"
 #include "code\__DEFINES\dcs\signals\signals_screentips.dm"
 #include "code\__DEFINES\dcs\signals\signals_spell.dm"
+#include "code\__DEFINES\dcs\signals\signals_storage.dm"
 #include "code\__DEFINES\dcs\signals\signals_turf.dm"
 #include "code\__DEFINES\dcs\signals\signals_atom\signals_atom_mouse.dm"
 #include "code\__DEFINES\dcs\signals\signals_mob\signals_mob_carbon.dm"

@@ -32,7 +32,7 @@ Reproductive extracts:
 		return
 	if(length(contents) >= feedAmount) //if for some reason the contents are full, but it didnt digest, attempt to digest again
 		to_chat(user, span_warning("[src] appears to be full but is not digesting! Maybe poking it stimulated it to digest."))
-		slime_storage?.processCubes(src, user)
+		slime_storage?.processCubes(user)
 		return
 	if(istype(O, /obj/item/storage/bag/bio))
 		var/list/inserted = list()
@@ -40,10 +40,17 @@ Reproductive extracts:
 		if(inserted.len)
 			to_chat(user, span_notice("You feed [length(inserted)] Monkey Cube[p_s()] to [src], and it pulses gently."))
 			playsound(src, 'sound/items/eatfood.ogg', 20, TRUE)
-			slime_storage?.processCubes(src, user)
+			slime_storage?.processCubes(user)
 		else
 			to_chat(user, span_warning("There are no monkey cubes in the bio bag!"))
-	return
+	else if(istype(O, /obj/item/food/monkeycube))
+		if(atom_storage?.attempt_insert(O, user, override = TRUE, force = TRUE))
+			to_chat(user, span_notice("You feed 1 Monkey Cube to [src], and it pulses gently."))
+			slime_storage?.processCubes(user)
+			playsound(src, 'sound/items/eatfood.ogg', 20, TRUE)
+			return
+		else
+			to_chat(user, span_notice("The [src] rejects the Monkey Cube!")) //in case it fails to insert for whatever reason you get feedback
 
 /obj/item/slimecross/reproductive/grey
 	extract_type = /obj/item/slime_extract/grey

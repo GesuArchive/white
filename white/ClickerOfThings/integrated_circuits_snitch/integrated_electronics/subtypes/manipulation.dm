@@ -723,7 +723,7 @@
 			if(!atom_storage)
 				return
 
-			atom_storage.attackby(src, target_obj)
+			atom_storage.on_attackby(src, target_obj)
 
 		else
 			if(!atom_storage)
