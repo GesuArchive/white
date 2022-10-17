@@ -71,9 +71,6 @@
 	/// internal_organs_slot must ALWAYS be ordered in the same way as organ_process_order
 	/// Otherwise life processing breaks down
 	sortTim(owner.internal_organs_slot, /proc/cmp_organ_slot_asc)
-	//вайтокостыль
-	if(!istype(loc, /atom/movable/organ_holder))
-		moveToNullspace()
 	RegisterSignal(owner, COMSIG_PARENT_EXAMINE, .proc/on_owner_examine)
 	for(var/datum/action/action as anything in actions)
 		action.Grant(reciever)

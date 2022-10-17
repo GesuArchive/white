@@ -8,11 +8,10 @@
 	force = 12
 	throwforce = 12
 
-/obj/item/storage/briefcase/surgery/ComponentInitialize()
+/obj/item/storage/briefcase/surgery/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 22
-	STR.max_items = 14
+	atom_storage.max_total_storage = 22
+	atom_storage.max_slots = 14
 
 /obj/item/storage/briefcase/surgery/PopulateContents()
 	new /obj/item/scalpel(src)

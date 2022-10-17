@@ -237,12 +237,12 @@
 	inhand_icon_state = ""
 	w_class = WEIGHT_CLASS_TINY
 	pshoom_or_beepboopblorpzingshadashwoosh = 'sound/items/screwdriver.ogg'
-	component_type = /datum/component/storage/concrete/rped/x10
 	var/ripsound = 'white/valtos/sounds/rip1.ogg'
 	var/item_type = null
 
-/datum/component/storage/concrete/rped/x10
-	max_items = 10
+/obj/item/storage/part_replacer/stock_parts_box_x10/Initialize(mapload)
+	. = ..()
+	atom_storage.max_slots = 10
 
 /obj/item/storage/part_replacer/stock_parts_box_x10/Initialize(mapload)
 	. = ..()

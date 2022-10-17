@@ -14,7 +14,6 @@
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_SUITSTORE
 	equip_sound = 'sound/items/equip/toolbelt_equip.ogg'
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/tactical
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen)
 	var/static/list/holdable_weapons_list = list(
 		/obj/item/kinetic_crusher = "crusher",
@@ -48,26 +47,24 @@
 		/obj/item/gun/energy/pulse/pistol = "pistol",
 	)
 
+/obj/item/tank/internals/tactical/Initialize(mapload)
+	. = ..()
+	create_storage(type = /datum/storage/pockets/tactical)
+
 //Наполнение баллона воздухом (стандарт)
 /obj/item/tank/internals/tactical/populate_gas()
 	air_contents.set_moles(GAS_O2, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 
 //Параметры кармана
-/datum/component/storage/concrete/pockets/tactical
-	max_items = 1
-	max_w_class = WEIGHT_CLASS_BULKY
+/datum/storage/pockets/tactical
+	max_slots = 1
+	max_specific_storage = WEIGHT_CLASS_BULKY
 	rustle_sound = FALSE
 	attack_hand_interact = TRUE
 
-//Загрузка кармана
-/obj/item/tank/internals/tactical/Initialize(mapload)
-	. = ..()
-	if(ispath(pocket_storage_component_path))
-		LoadComponent(pocket_storage_component_path)
-
 //Тип хранимого
-/datum/component/storage/concrete/pockets/tactical/Initialize(mapload)
+/datum/storage/pockets/tactical/New(atom/parent, max_slots, max_specific_storage, max_total_storage, numerical_stacking, allow_quick_gather, allow_quick_empty, collection_mode, attack_hand_interact)
 	. = ..()
 	set_holdable(list(
 		/obj/item/gun/ballistic,

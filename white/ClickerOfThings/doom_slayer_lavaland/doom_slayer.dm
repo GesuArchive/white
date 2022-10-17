@@ -124,12 +124,11 @@ VAZHNOE (ili ne osobo) PRIMECHANIE/\/\/\
 	name = "Doom Slayer backpack"
 	desc = "Praetor backpack that holds bullets for shotgun."
 
-/obj/item/storage/backpack/doom_slayer/ComponentInitialize()
+/obj/item/storage/backpack/doom_slayer/Initialize()
 	. = ..()
-	GET_COMPONENT(STR, /datum/component/storage)
-	STR.max_w_class = WEIGHT_CLASS_GIGANTIC
-	STR.max_items = 600
-	STR.can_hold = typecacheof(list(
+	atom_storage.max_specific_storage = WEIGHT_CLASS_GIGANTIC
+	atom_storage.max_slots = 600
+	atom_storage.can_hold = typecacheof(list(
 		/obj/item/storage/box/lethalshot
 	))
 

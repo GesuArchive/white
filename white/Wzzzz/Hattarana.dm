@@ -85,13 +85,12 @@
 	icon_state = "tailcoat"
 	armor = list("melee" = 20, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 20, "acid" = 15)
 	inhand_icon_state = "tailcoat"
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets
 
-/datum/component/storage/concrete/pockets/tailcoat/Initialize(mapload)
+/obj/item/clothing/suit/armor/vest/leather/tailcoat/Initialize(mapload)
 	. = ..()
-	max_items = 2
-	max_combined_w_class = 5
-	max_w_class = WEIGHT_CLASS_NORMAL
+	atom_storage.max_slots = 2
+	atom_storage.max_total_storage = 5
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 
 /obj/item/clothing/suit/armor/vest/leather/tailcoat/black
 	icon_state = "tailcoatb"
@@ -106,13 +105,12 @@
 	icon_state = "machetebelt"
 	inhand_icon_state = "machetebelt"
 
-/obj/item/storage/belt/machete/ComponentInitialize()
+/obj/item/storage/belt/machete/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 1
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_combined_w_class = 4
-	STR.set_holdable(list(/obj/item/kitchen/knife/butcher/machete))
+	atom_storage.max_slots = 1
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+	atom_storage.max_total_storage = 4
+	atom_storage.set_holdable(list(/obj/item/kitchen/knife/butcher/machete))
 
 /obj/item/clothing/under/victorian
 	icon = 'white/Wzzzz/clothing/uniforms.dmi'

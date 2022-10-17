@@ -13,7 +13,6 @@ Reproductive extracts:
 	var/cooldown = 3 SECONDS
 	var/feedAmount = 3
 	var/last_produce = 0
-	var/datum/component/storage/concrete/extract_inventory/slimeStorage
 
 /obj/item/slimecross/reproductive/examine()
 	. = ..()
@@ -21,30 +20,30 @@ Reproductive extracts:
 
 /obj/item/slimecross/reproductive/Initialize(mapload)
 	. = ..()
-	slimeStorage = AddComponent(/datum/component/storage/concrete/extract_inventory)
+	create_storage(type = /datum/storage/extract_inventory)
 
 /obj/item/slimecross/reproductive/attackby(obj/item/O, mob/user)
+	var/datum/storage/extract_inventory/slime_storage = atom_storage
+	if(!istype(slime_storage))
+		return
+
 	if((last_produce + cooldown) > world.time)
 		to_chat(user, span_warning("[capitalize(src.name)] is still digesting!"))
 		return
 	if(length(contents) >= feedAmount) //if for some reason the contents are full, but it didnt digest, attempt to digest again
 		to_chat(user, span_warning("[src] appears to be full but is not digesting! Maybe poking it stimulated it to digest."))
-		slimeStorage.processCubes(src, user)
+		slime_storage?.processCubes(src, user)
 		return
 	if(istype(O, /obj/item/storage/bag/bio))
 		var/list/inserted = list()
-		SEND_SIGNAL(O, COMSIG_TRY_STORAGE_TAKE_TYPE, /obj/item/food/monkeycube, src, feedAmount - length(contents), TRUE, FALSE, user, inserted)
+		O.atom_storage.remove_type(/obj/item/food/monkeycube, src, feedAmount - length(contents), TRUE, FALSE, user, inserted)
 		if(inserted.len)
 			to_chat(user, span_notice("You feed [length(inserted)] Monkey Cube[p_s()] to [src], and it pulses gently."))
 			playsound(src, 'sound/items/eatfood.ogg', 20, TRUE)
-			slimeStorage.processCubes(src, user)
+			slime_storage?.processCubes(src, user)
 		else
 			to_chat(user, span_warning("There are no monkey cubes in the bio bag!"))
 	return
-
-/obj/item/slimecross/reproductive/Destroy()
-	slimeStorage = null
-	return ..()
 
 /obj/item/slimecross/reproductive/grey
 	extract_type = /obj/item/slime_extract/grey

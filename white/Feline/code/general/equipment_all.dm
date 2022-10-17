@@ -498,7 +498,6 @@
 	worn_icon = 'white/Feline/icons/engi_back.dmi'
 	worn_icon_state = "specialist"
 	inhand_icon_state = "hazard"
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/mechanicus
 	full_armor_flag = TRUE
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -527,6 +526,10 @@
 		/obj/item/tactical_recharger,
 	)
 	armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 70, BIO = 30, RAD = 90, FIRE = 90, ACID = 30, WOUND = 20)
+
+/obj/item/clothing/suit/armor/vest/specialist/Initialize(mapload)
+	. = ..()
+	create_storage(type = /datum/storage/pockets/mechanicus)
 
 /obj/item/clothing/suit/armor/vest/specialist/empty
 	loaded = FALSE
@@ -573,8 +576,6 @@
 //Загрузка кармана
 /obj/item/clothing/suit/armor/vest/specialist/Initialize(mapload)
 	. = ..()
-	if(ispath(pocket_storage_component_path))
-		LoadComponent(pocket_storage_component_path)
 
 	if(loaded)
 		new /obj/item/screwdriver(src)
@@ -823,15 +824,13 @@
 	max_integrity = 300
 	equip_sound = 'sound/items/equip/toolbelt_equip.ogg'
 
-/obj/item/storage/belt/shotgun/ComponentInitialize()
+/obj/item/storage/belt/shotgun/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 7
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.pocket_belt = TRUE
-	STR.rustle_sound = FALSE
-	STR.max_combined_w_class = 14
-	STR.set_holdable(list(
+	atom_storage.max_slots = 7
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+	atom_storage.rustle_sound = FALSE
+	atom_storage.max_total_storage = 14
+	atom_storage.set_holdable(list(
 		/obj/item/ammo_casing/shotgun
 		))
 
@@ -915,18 +914,20 @@
 	resistance_flags = FIRE_PROOF
 	slot_flags = ITEM_SLOT_OCLOTHING | ITEM_SLOT_BELT
 	custom_premium_price = PAYCHECK_MEDIUM * 2
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/mechanicus
 	var/datum/action/item_action/open_storage/op
 	var/slot_belt = FALSE
 	custom_premium_price = PAYCHECK_HARD * 5
+
+/obj/item/clothing/suit/mechanicus/Initialize(mapload)
+	. = ..()
+	create_storage(type = /datum/storage/pockets/mechanicus)
 
 /datum/action/item_action/open_storage
 	name = "Достать инструменты"
 
 /obj/item/clothing/suit/mechanicus/ui_action_click(mob/user, action)
 	if(istype(action, op))
-		var/mob/living/carbon/human/H = user
-		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SHOW, H)
+		atom_storage?.show_contents(user)
 	else
 		..()
 
@@ -999,10 +1000,10 @@
 	return ..()
 
 //Параметры кармана
-/datum/component/storage/concrete/pockets/mechanicus
-	max_items = 8
+/datum/storage/pockets/mechanicus
+	max_slots = 8
 	screen_max_columns = 8
-	max_w_class = WEIGHT_CLASS_NORMAL
+	max_specific_storage = WEIGHT_CLASS_NORMAL
 	rustle_sound = FALSE
 	attack_hand_interact = TRUE
 
@@ -1010,8 +1011,6 @@
 /obj/item/clothing/suit/mechanicus/Initialize(mapload)
 	. = ..()
 	op = new(src)
-	if(ispath(pocket_storage_component_path))
-		LoadComponent(pocket_storage_component_path)
 
 	new /obj/item/screwdriver(src)
 	new /obj/item/wrench(src)
@@ -1024,7 +1023,7 @@
 	update_appearance()
 
 //Тип хранимого
-/datum/component/storage/concrete/pockets/mechanicus/Initialize(mapload)
+/datum/storage/pockets/mechanicus/New(atom/parent, max_slots, max_specific_storage, max_total_storage, numerical_stacking, allow_quick_gather, allow_quick_empty, collection_mode, attack_hand_interact)
 	. = ..()
 	set_holdable(list(
 		/obj/item/crowbar,

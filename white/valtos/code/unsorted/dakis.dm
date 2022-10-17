@@ -16,12 +16,11 @@
 	var/spam_flag = 0
 	var/cooldowntime = 20
 
-/obj/item/storage/daki/ComponentInitialize()
+/obj/item/storage/daki/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 21
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_items = 3
+	atom_storage.max_total_storage = 21
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+	atom_storage.max_slots = 3
 
 /obj/item/storage/daki/attack_self(mob/living/user)
 	var/body_choice

@@ -12,7 +12,9 @@
 /obj/structure/statue/amogus/Initialize(mapload)
 	. = ..()
 	transform *= 2
-	LoadComponent(/datum/component/storage/concrete/pockets/butt/bluebutt)
+	atom_storage.max_slots = 4
+	atom_storage.max_total_storage = WEIGHT_CLASS_NORMAL
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 	if(prob(30))
 		var/list/butt_loot = list(
 				/obj/item/gun/ballistic/automatic/pistol/deagle,
@@ -38,7 +40,6 @@
 	. = ..()
 	if(user.zone_selected == BODY_ZONE_PRECISE_GROIN && user.a_intent == INTENT_GRAB && iscarbon(user))
 		var/mob/living/carbon/c_user = user
-		var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 		user.visible_message(span_notice("[user] сует руку в попу [src].") , \
 			span_notice("Начинаю шариться между булками у [src]..."))
 		if(do_after(c_user, 7 SECONDS))
@@ -50,14 +51,14 @@
 					which_hand = BODY_ZONE_R_ARM
 				var/obj/item/bodypart/hand = c_user.get_bodypart(which_hand)
 				hand.dismember()
-				if (user.active_storage == STR)
-					user.active_storage.close(user)
+				if (user.active_storage == atom_storage)
+					user.active_storage.hide_contents(user)
 				hand.forceMove(src)
 				return TRUE
 			if (user.active_storage)
-				user.active_storage.close(user)
-			STR.orient2hud(user)
-			STR.show_to(user)
+				user.active_storage.hide_contents(user)
+			atom_storage.orient_to_hud(user)
+			atom_storage.show_contents(user)
 			return TRUE
 
 

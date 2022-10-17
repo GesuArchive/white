@@ -10,11 +10,21 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	w_class = WEIGHT_CLASS_HUGE
-	component_type = /datum/component/storage/concrete/rped
 	var/works_from_distance = FALSE
 	var/pshoom_or_beepboopblorpzingshadashwoosh = 'sound/items/rped.ogg'
 	var/alt_sound = null
 	slot_flags = ITEM_SLOT_BELT
+
+/obj/item/storage/part_replacer/Initialize()
+	. = ..()
+
+	atom_storage.allow_quick_empty = TRUE
+	atom_storage.allow_quick_gather = TRUE
+	atom_storage.max_slots = 50
+	atom_storage.max_total_storage = 100
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+	atom_storage.numerical_stacking = TRUE
+	atom_storage.set_holdable(list(/obj/item/stock_parts), null)
 
 /obj/item/storage/part_replacer/pre_attack(obj/machinery/T, mob/living/user, params)
 	if(!istype(T) || !T.component_parts)
@@ -50,10 +60,13 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 	works_from_distance = TRUE
 	pshoom_or_beepboopblorpzingshadashwoosh = 'sound/items/pshoom.ogg'
 	alt_sound = 'sound/items/pshoom_2.ogg'
-	component_type = /datum/component/storage/concrete/bluespace/rped
 
 /obj/item/storage/part_replacer/bluespace/Initialize(mapload)
 	. = ..()
+
+	atom_storage.max_slots = 400
+	atom_storage.max_total_storage = 800
+	atom_storage.max_specific_storage = WEIGHT_CLASS_GIGANTIC
 
 	RegisterSignal(src, COMSIG_ATOM_ENTERED, .proc/on_part_entered)
 
@@ -153,11 +166,11 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 	inhand_icon_state = "RPED"
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
-	component_type = /datum/component/storage/concrete/rped/cyborg
 
-/datum/component/storage/concrete/rped/cyborg
-	max_items = 150
-	max_combined_w_class = 300
+/obj/item/storage/part_replacer/cyborg/Initialize(mapload)
+	. = ..()
+	atom_storage.max_slots = 150
+	atom_storage.max_total_storage = 300
 
 /proc/cmp_rped_sort(obj/item/A, obj/item/B)
 	return B.get_part_rating() - A.get_part_rating()

@@ -24,8 +24,12 @@
 	armor = list(MELEE = 25, BULLET = 25, LASER = 25, ENERGY = 25, BOMB = 50, BIO = 90, RAD = 0, FIRE = 70, ACID = 50)
 	strip_delay = 40
 	resistance_flags = NONE
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
 	lace_time = 12 SECONDS
+
+/obj/item/clothing/shoes/combat/Initialize(mapload)
+	. = ..()
+
+	create_storage(type = /datum/storage/pockets/shoes)
 
 /obj/item/clothing/shoes/combat/sneakboots
 	name = "скрытные ботинки"
@@ -101,13 +105,13 @@
 	icon_state = "clown"
 	inhand_icon_state = "clown_shoes"
 	slowdown = SHOES_SLOWDOWN+1
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes/clown
 	var/enabled_waddle = TRUE
 	lace_time = 20 SECONDS // how the hell do these laces even work??
 	species_exception = list(/datum/species/golem/bananium)
 
 /obj/item/clothing/shoes/clown_shoes/Initialize(mapload)
 	. = ..()
+	create_storage(type = /datum/storage/pockets/shoes/clown)
 	LoadComponent(/datum/component/squeak, list('sound/effects/clownstep1.ogg'=1,'sound/effects/clownstep2.ogg'=1), 50, 0, 0, 0, 0, 20, 0) //die off quick please
 	AddElement(/datum/element/swabable, CELL_LINE_TABLE_CLOWN, CELL_VIRUS_TABLE_GENERIC, rand(2,3), 0)
 
@@ -154,8 +158,12 @@
 	equip_delay_other = 50
 	resistance_flags = NONE
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 90, FIRE = 0, ACID = 0)
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
 	can_be_tied = FALSE
+
+/obj/item/clothing/shoes/jackboots/Initialize(mapload)
+	. = ..()
+
+	create_storage(type = /datum/storage/pockets/shoes)
 
 /obj/item/clothing/shoes/jackboots/fast
 	slowdown = -1
@@ -173,8 +181,12 @@
 	min_cold_protection_temperature = SHOES_MIN_TEMP_PROTECT
 	heat_protection = FEET|LEGS
 	max_heat_protection_temperature = SHOES_MAX_TEMP_PROTECT
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
 	lace_time = 8 SECONDS
+
+/obj/item/clothing/shoes/winterboots/Initialize(mapload)
+	. = ..()
+
+	create_storage(type = /datum/storage/pockets/shoes)
 
 /obj/item/clothing/shoes/winterboots/ice_boots
 	name = "ботинки ледохода"
@@ -193,9 +205,13 @@
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 80, FIRE = 0, ACID = 0)
 	strip_delay = 20
 	equip_delay_other = 40
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
 	lace_time = 8 SECONDS
 	species_exception = list(/datum/species/golem/uranium)
+
+/obj/item/clothing/shoes/workboots/Initialize(mapload)
+	. = ..()
+
+	create_storage(type = /datum/storage/pockets/shoes)
 
 /obj/item/clothing/shoes/workboots/mining
 	name = "шахтёрские ботинки"
@@ -251,8 +267,12 @@
 	desc = "Пара костюмированных ботинок, сделанных по мотивам птичьих когтей."
 	icon_state = "griffinboots"
 	inhand_icon_state = "griffinboots"
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
 	lace_time = 8 SECONDS
+
+/obj/item/clothing/shoes/griffin/Initialize(mapload)
+	. = ..()
+
+	create_storage(type = /datum/storage/pockets/shoes)
 
 /obj/item/clothing/shoes/bhop
 	name = "прыжковые ботинки"
@@ -260,7 +280,6 @@
 	icon_state = "jetboots"
 	inhand_icon_state = "jetboots"
 	resistance_flags = FIRE_PROOF
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
 	actions_types = list(/datum/action/item_action/bhop)
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 90, FIRE = 0, ACID = 0)
 	strip_delay = 30
@@ -268,6 +287,11 @@
 	var/jumpspeed = 3
 	var/recharging_rate = 60 //default 6 seconds between each dash
 	var/recharging_time = 0 //time until next dash
+
+/obj/item/clothing/shoes/bhop/Initialize(mapload)
+	. = ..()
+
+	create_storage(type = /datum/storage/pockets/shoes)
 
 /obj/item/clothing/shoes/bhop/ui_action_click(mob/user, action)
 	if(!isliving(user))
@@ -437,15 +461,18 @@
 	desc = "Древние военные ботинки."
 	icon_state = "rus_shoes"
 	inhand_icon_state = "rus_shoes"
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
 	lace_time = 8 SECONDS
+
+/obj/item/clothing/shoes/russian/Initialize(mapload)
+	. = ..()
+
+	create_storage(type = /datum/storage/pockets/shoes)
 
 /obj/item/clothing/shoes/cowboy
 	name = "ковбойские ботинки"
 	desc = "Небольшая наклейка дает вам знать, что они были проверены на наличие змей. Неясно, как давно проводилась проверка..."
 	icon_state = "cowboy_brown"
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 90, FIRE = 0, ACID = 0)
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
 	custom_price = PAYCHECK_EASY
 	var/list/occupants = list()
 	var/max_occupants = 4
@@ -453,6 +480,9 @@
 
 /obj/item/clothing/shoes/cowboy/Initialize(mapload)
 	. = ..()
+
+	create_storage(type = /datum/storage/pockets/shoes)
+
 	if(prob(2))
 		var/mob/living/simple_animal/hostile/retaliate/poison/snake/bootsnake = new/mob/living/simple_animal/hostile/retaliate/poison/snake(src)
 		occupants += bootsnake

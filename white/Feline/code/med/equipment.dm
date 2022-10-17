@@ -89,15 +89,13 @@
 	icon = 'white/Feline/icons/med_items.dmi'
 	icon_state = "pill_bottle_big"
 
-/obj/item/storage/pill_bottle/big/ComponentInitialize()
+/obj/item/storage/pill_bottle/big/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.allow_quick_gather = TRUE
-	STR.click_gather = TRUE
-	STR.display_numerical_stacking = TRUE
-	STR.max_items = 20
-	STR.max_combined_w_class = 40
-	STR.set_holdable(list(/obj/item/reagent_containers/pill, /obj/item/dice))
+	atom_storage.allow_quick_gather = TRUE
+	atom_storage.numerical_stacking = TRUE
+	atom_storage.max_slots = 20
+	atom_storage.max_total_storage = 40
+	atom_storage.set_holdable(list(/obj/item/reagent_containers/pill, /obj/item/dice))
 
 
 // Пенал для медипенов
@@ -112,14 +110,12 @@
 	max_integrity = 300
 	equip_sound = 'sound/items/equip/toolbelt_equip.ogg'
 
-/obj/item/storage/belt/medipenal/ComponentInitialize()
+/obj/item/storage/belt/medipenal/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 5
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.pocket_belt = TRUE
-	STR.max_combined_w_class = 10
-	STR.set_holdable(list(
+	atom_storage.max_slots = 5
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+	atom_storage.max_total_storage = 10
+	atom_storage.set_holdable(list(
 		/obj/item/reagent_containers/hypospray/medipen,
 		/obj/item/reagent_containers/syringe
 		))

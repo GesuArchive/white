@@ -20,7 +20,6 @@
 		return COMPONENT_INCOMPATIBLE
 
 	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, .proc/explodable_attack)
-	RegisterSignal(parent, COMSIG_TRY_STORAGE_INSERT, .proc/explodable_insert_item)
 	RegisterSignal(parent, COMSIG_ATOM_EX_ACT, .proc/detonate)
 	if(ismovable(parent))
 		RegisterSignal(parent, COMSIG_MOVABLE_IMPACT, .proc/explodable_impact)
@@ -30,7 +29,9 @@
 			RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, .proc/on_equip)
 			RegisterSignal(parent, COMSIG_ITEM_DROPPED, .proc/on_drop)
 
-
+	var/atom/atom_parent = parent
+	if(atom_parent.atom_storage)
+		RegisterSignal(parent, COMSIG_ATOM_ENTERED, .proc/explodable_insert_item)
 
 	if(devastation_range_override)
 		devastation_range = devastation_range_override
@@ -44,8 +45,11 @@
 		flash_range = flash_range_override
 	always_delete = _always_delete
 
-/datum/component/explodable/proc/explodable_insert_item(datum/source, obj/item/I, mob/M, silent = FALSE, force = FALSE)
+/datum/component/explodable/proc/explodable_insert_item(datum/source, obj/item/I)
 	SIGNAL_HANDLER
+
+	if(!(I.item_flags & IN_STORAGE))
+		return
 
 	check_if_detonate(I)
 

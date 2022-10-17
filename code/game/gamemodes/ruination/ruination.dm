@@ -376,7 +376,7 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 	else
 		to_chat(H, span_userdanger("Мне подкинули маяк в [where]. При активации двигателей они выдадут своё местоположение."))
 		if(where == "сумку")
-			SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
+			H.back.atom_storage.show_contents(H)
 
 /datum/antagonist/traitor/ruiner/apply_innate_effects(mob/living/mob_override)
 	add_team_hud(mob_override || owner.current)

@@ -27,12 +27,11 @@
 	var/active = FALSE
 	var/list/stored_items = list()
 
-/obj/item/storage/desertcape/ComponentInitialize()
+/obj/item/storage/desertcape/Initialize()
 	. = ..()
-	GET_COMPONENT(STR, /datum/component/storage)
-	STR.max_combined_w_class = 21
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_items = 21
+	atom_storage.max_total_storage = 21
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+	atom_storage.max_slots = 21
 
 /obj/item/storage/desertcape/ui_action_click(mob/living/carbon/user, action)
 	if(!isliving(user))

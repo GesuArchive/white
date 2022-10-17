@@ -363,20 +363,22 @@
 		if(equip_to_slot_if_possible(thing, slot_type))
 			update_inv_hands()
 		return
-	if(!SEND_SIGNAL(equipped_item, COMSIG_CONTAINS_STORAGE)) // not a storage item
+	var/datum/storage/storage = equipped_item.atom_storage
+	if(!storage)
 		if(!thing)
 			equipped_item.attack_hand(src)
 		else
 			to_chat(src, span_warning("Не помещается!"))
 		return
 	if(thing) // put thing in storage item
-		if(!SEND_SIGNAL(equipped_item, COMSIG_TRY_STORAGE_INSERT, thing, src))
+		if(!equipped_item.atom_storage?.attempt_insert(equipped_item, thing, src))
 			to_chat(src, span_warning("Не помещается!"))
 		return
-	if(!equipped_item.contents.len) // nothing to take out
+	var/atom/real_location = storage.real_location?.resolve()
+	if(!real_location.contents.len) // nothing to take out
 		to_chat(src, span_warning("Пусто!"))
 		return
-	var/obj/item/stored = equipped_item.contents[equipped_item.contents.len]
+	var/obj/item/stored = real_location.contents[real_location.contents.len]
 	if(!stored || stored.on_found(src))
 		return
 	stored.attack_hand(src) // take out thing from item in storage slot

@@ -185,7 +185,7 @@
 		return
 	if(where == "in your backpack")
 		var/mob/living/carbon/human/H = quirk_holder
-		SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
+		H.back.atom_storage.show_contents(H)
 
 	to_chat(quirk_holder, span_notice("У вас с собой указатель [where], который поможет мне найти путь в какой-либо отсек. Нажми в руке, чтобы активировать."))
 

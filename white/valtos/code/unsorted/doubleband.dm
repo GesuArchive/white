@@ -6,13 +6,12 @@
 	icon_state = "bandolier_double"
 	worn_icon_state = "bandolier_double"
 
-/obj/item/storage/belt/bandolier/double/ComponentInitialize()
+/obj/item/storage/belt/bandolier/double/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 36
-	STR.max_combined_w_class = 36
-	STR.display_numerical_stacking = TRUE
-	STR.set_holdable(list(
+	atom_storage.max_slots = 36
+	atom_storage.max_total_storage = 36
+	atom_storage.numerical_stacking = TRUE
+	atom_storage.set_holdable(list(
 		/obj/item/ammo_casing/shotgun
 		))
 

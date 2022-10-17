@@ -14,18 +14,16 @@
 
 /obj/item/storage/mre/PopulateContents()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 6
-	STR.max_w_class = WEIGHT_CLASS_SMALL
-	STR.allow_quick_empty = FALSE
-	STR.rustle_sound = FALSE
-	STR.locked = TRUE
+	atom_storage.max_slots = 6
+	atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL
+	atom_storage.allow_quick_empty = FALSE
+	atom_storage.rustle_sound = FALSE
+	atom_storage.locked = TRUE
 	for(var/i in meal_contents)
 		new i(src)
 
 /obj/item/storage/mre/update_icon()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(!STR.locked)
+	if(!atom_storage.locked)
 		icon_state = "[initial(icon_state)]1"
 	. = ..()
 
@@ -34,10 +32,9 @@
 	. = ..()
 
 /obj/item/storage/mre/proc/open(mob/user)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR.locked)
+	if(atom_storage.locked)
 		playsound(get_turf(src), open_sound, 50, TRUE)
-		STR.locked = FALSE
+		atom_storage.locked = FALSE
 		to_chat(user, span_notice("Вскрываю упаковку. Приятный запах начинает исходить из неё."))
 		update_icon()
 
@@ -91,15 +88,13 @@
 
 /obj/item/storage/mrebag/PopulateContents()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 1
-	STR.max_w_class = WEIGHT_CLASS_SMALL
-	STR.locked = TRUE
+	atom_storage.max_slots = 1
+	atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL
+	atom_storage.locked = TRUE
 	generate_main_meal()
 
 /obj/item/storage/mrebag/update_icon()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(!STR.locked)
+	if(!atom_storage.locked)
 		icon_state = "[initial(icon_state)]1"
 	. = ..()
 
@@ -108,10 +103,9 @@
 	. = ..()
 
 /obj/item/storage/mrebag/proc/open(mob/user)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR.locked)
+	if(atom_storage.locked)
 		playsound(get_turf(src), open_sound, 50, TRUE)
-		STR.locked = FALSE
+		atom_storage.locked = FALSE
 		to_chat(user, span_notice("Вскрываю упаковку. Приятный запах начинает исходить из неё."))
 		update_icon()
 
@@ -122,11 +116,10 @@
 	open_sound = 'white/valtos/sounds/rip1.ogg'
 
 /obj/item/storage/mrebag/dessert/PopulateContents()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 1
-	STR.max_w_class = WEIGHT_CLASS_SMALL
-	STR.allow_quick_empty = FALSE
-	STR.rustle_sound = FALSE
-	STR.locked = TRUE
+	atom_storage.max_slots = 1
+	atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL
+	atom_storage.allow_quick_empty = FALSE
+	atom_storage.rustle_sound = FALSE
+	atom_storage.locked = TRUE
 	var/obj/item/picked_content = pick(subtypesof(/obj/item/food/donut))
 	new picked_content(src)

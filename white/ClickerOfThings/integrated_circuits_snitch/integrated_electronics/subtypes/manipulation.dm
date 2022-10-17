@@ -720,21 +720,19 @@
 			if(!container || !istype(container,/obj/item/storage) || !Adjacent(container))
 				return
 
-			var/datum/component/storage/STR = container.GetComponent(/datum/component/storage)
-			if(!STR)
+			if(!atom_storage)
 				return
 
-			STR.attackby(src, target_obj)
+			atom_storage.attackby(src, target_obj)
 
 		else
-			var/datum/component/storage/STR = target_obj.loc.GetComponent(/datum/component/storage)
-			if(!STR)
+			if(!atom_storage)
 				return
 
 			if(!container || !istype(container,/obj/item/storage) || !Adjacent(container))
-				STR.remove_from_storage(target_obj,drop_location())
+				atom_storage.attempt_remove(target_obj,drop_location())
 			else
-				STR.remove_from_storage(target_obj,container)
+				atom_storage.attempt_remove(target_obj,container)
 
 // Renamer circuit. Renames the assembly it is in. Useful in cooperation with telecomms-based circuits.
 /obj/item/integrated_circuit_old/manipulation/renamer

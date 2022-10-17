@@ -712,7 +712,7 @@ GLOBAL_LIST_EMPTY(emergency_storages)
 
 /obj/item/storage/pod/attack_hand(mob/user)
 	if (can_interact(user))
-		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SHOW, user)
+		atom_storage?.show_contents(user)
 		return TRUE
 	return FALSE
 

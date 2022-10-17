@@ -224,7 +224,11 @@
 	icon_state = "fedora"
 	inhand_icon_state = "fedora"
 	desc = "Действительно классная шляпа, если ты бандит. Действительно хромая шляпа, если ты нет."
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/small/fedora
+
+/obj/item/clothing/head/fedora/Initialize(mapload)
+	. = ..()
+
+	create_storage(type = /datum/storage/pockets/small/fedora)
 
 /obj/item/clothing/head/fedora/white
 	name = "белая федора"
@@ -485,13 +489,21 @@
 	name = "белый арахчын"
 	desc = "Внеочередной способ показать свою преданность Аллаху."
 	icon_state = "taqiyahwhite"
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/small
+
+/obj/item/clothing/head/taqiyahwhite/Initialize(mapload)
+	. = ..()
+
+	create_storage(type = /datum/storage/pockets/small)
 
 /obj/item/clothing/head/taqiyahred
 	name = "красный арахчын"
 	desc = "Внеочередной способ показать свою преданность Аллаху."
 	icon_state = "taqiyahred"
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/small
+
+/obj/item/clothing/head/taqiyahred/Initialize(mapload)
+	. = ..()
+
+	create_storage(type = /datum/storage/pockets/small)
 
 /obj/item/clothing/head/shrine_wig
 	name = "парик святой девы"

@@ -105,14 +105,12 @@
 /obj/item/storage/belt/specialist/empty
 	loaded = FALSE
 
-/obj/item/storage/belt/specialist/ComponentInitialize()
+/obj/item/storage/belt/specialist/Initialize()
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 5
-	STR.max_w_class = WEIGHT_CLASS_BULKY
-//	STR.silent = TRUE
-	STR.set_holdable(list(
+	atom_storage.max_slots = 5
+	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
+	atom_storage.set_holdable(list(
 		/obj/item/gun/ballistic/automatic/pistol,
 		/obj/item/gun/ballistic/revolver,
 		/obj/item/gun/energy/e_gun/mini,

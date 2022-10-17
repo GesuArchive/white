@@ -88,7 +88,7 @@
 /datum/quirk/brainproblems/post_add()
 	if(where == LOCATION_BACKPACK)
 		var/mob/living/carbon/human/H = quirk_holder
-		SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
+		H.back.atom_storage.show_contents(H)
 
 	to_chat(quirk_holder, span_boldnotice("У вас имеется пачка маннитола [where], которая будет помогать вам остаться в живых. Не стоит слишком сильно надеяться на него!"))
 
@@ -234,7 +234,7 @@
 /datum/quirk/family_heirloom/post_add()
 	if(where == LOCATION_BACKPACK)
 		var/mob/living/carbon/human/H = quirk_holder
-		SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
+		H.back.atom_storage.show_contents(H)
 
 	to_chat(quirk_holder, span_boldnotice("Дорогая для вас реликвия [heirloom.name] [where], передавалась из поколения в поколение. Хранить в безопасности!"))
 
@@ -617,7 +617,7 @@
 /datum/quirk/junkie/post_add()
 	if(where_drug == LOCATION_BACKPACK || where_accessory == LOCATION_BACKPACK)
 		var/mob/living/carbon/human/H = quirk_holder
-		SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
+		H.back.atom_storage.show_contents(H)
 
 /datum/quirk/junkie/remove()
 	if(quirk_holder && reagent_instance)

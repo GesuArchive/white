@@ -21,21 +21,17 @@
 	resistance_flags = NONE
 	max_integrity = 300
 
-/obj/item/storage/backpack/ComponentInitialize()
+/obj/item/storage/backpack/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 21
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_items = 21
+	create_storage(max_slots = 21, max_total_storage = 21)
 
 /*
  * Backpack Types
  */
 
-/obj/item/storage/backpack/old/ComponentInitialize()
+/obj/item/storage/backpack/old/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 12
+	atom_storage.max_total_storage = 12
 
 /obj/item/bag_of_holding_inert
 	name = "инертная блюспейс сумка"
@@ -71,14 +67,11 @@
 	resistance_flags = FIRE_PROOF
 	item_flags = NO_MAT_REDEMPTION
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 60, ACID = 50)
-	component_type = /datum/component/storage/concrete/bluespace/bag_of_holding
 
-/obj/item/storage/backpack/holding/ComponentInitialize()
+/obj/item/storage/backpack/holding/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.allow_big_nesting = TRUE
-	STR.max_w_class = WEIGHT_CLASS_GIGANTIC
-	STR.max_combined_w_class = 35
+	create_storage(max_specific_storage = WEIGHT_CLASS_GIGANTIC, max_total_storage = 35, max_slots = 30, type = /datum/storage/bag_of_holding)
+	atom_storage.allow_big_nesting = TRUE
 
 /obj/item/storage/backpack/holding/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] is jumping into [src]! It looks like [user.p_theyre()] trying to commit suicide."))
@@ -99,11 +92,10 @@
 	. = ..()
 	regenerate_presents()
 
-/obj/item/storage/backpack/santabag/ComponentInitialize()
+/obj/item/storage/backpack/santabag/Initialize(mapload)
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_combined_w_class = 60
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+	atom_storage.max_total_storage = 60
 
 /obj/item/storage/backpack/santabag/suicide_act(mob/user)
 	user.visible_message(span_suicide("[user] places [src] over [user.ru_ego()] head and pulls it tight! It looks like [user.ru_who()] [user.p_are()]n't in the Christmas spirit..."))
@@ -112,17 +104,14 @@
 /obj/item/storage/backpack/santabag/proc/regenerate_presents()
 	addtimer(CALLBACK(src, .proc/regenerate_presents), 30 SECONDS)
 
-	var/mob/M = get(loc, /mob)
-	if(!istype(M))
+	var/mob/user = get(loc, /mob)
+	if(!istype(user))
 		return
-	if(M.mind && HAS_TRAIT(M.mind, TRAIT_CANNOT_OPEN_PRESENTS))
-		var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	if(user.mind && HAS_TRAIT(user.mind, TRAIT_CANNOT_OPEN_PRESENTS))
 		var/turf/floor = get_turf(src)
-		var/obj/item/I = new /obj/item/a_gift/anything(floor)
-		if(STR.can_be_inserted(I, stop_messages=TRUE))
-			STR.handle_item_insertion(I, prevent_warning=TRUE)
-		else
-			qdel(I)
+		var/obj/item/thing = new /obj/item/a_gift/anything(floor)
+		if(!atom_storage.attempt_insert(src, thing, user, override = TRUE))
+			qdel(thing)
 
 
 /obj/item/storage/backpack/cultpack
@@ -330,11 +319,10 @@
 	. = ..()
 	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE, INVISIBILITY_OBSERVER, use_anchor = TRUE)
 
-/obj/item/storage/backpack/satchel/flat/ComponentInitialize()
+/obj/item/storage/backpack/satchel/flat/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 15
-	STR.set_holdable(null, list(/obj/item/storage/backpack/satchel/flat)) //muh recursive backpacks)
+	atom_storage.max_total_storage = 15
+	atom_storage.set_holdable(cant_hold_list = list(/obj/item/storage/backpack/satchel/flat)) //muh recursive backpacks)
 
 /obj/item/storage/backpack/satchel/flat/PopulateContents()
 	var/datum/supply_pack/costumes_toys/randomised/contraband/C = new
@@ -361,10 +349,9 @@
 	slowdown = 1
 	var/static/mutable_appearance/duffel_anti_slow_overlay = mutable_appearance('white/Feline/icons/duffel_anti_slow.dmi', "duffel_overlay")
 
-/obj/item/storage/backpack/duffelbag/ComponentInitialize()
+/obj/item/storage/backpack/duffelbag/Initialize(mapload)
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 30
+	atom_storage.max_total_storage = 30
 
 ////	Модернизация дюфелей	////
 
@@ -419,56 +406,10 @@
 	inhand_icon_state = "duffel-curse"
 	slowdown = 1.3
 	max_integrity = 100
-	///counts time passed since it ate food
-	var/hunger = 0
 
 /obj/item/storage/backpack/duffelbag/cursed/Initialize(mapload)
 	. = ..()
-	START_PROCESSING(SSobj,src)
-	ADD_TRAIT(src, TRAIT_NODROP, "duffelbag")
-
-/obj/item/storage/backpack/duffelbag/cursed/process()
-	///don't process if it's somehow on the floor
-	if(!iscarbon(src.loc))
-		return
-	var/mob/living/carbon/user = src.loc
-	///check hp
-	if(obj_integrity < 0)
-		user.dropItemToGround(src, TRUE)
-		var/datum/component/storage/ST = GetComponent(/datum/component/storage)
-		ST.do_quick_empty()
-		var/turf/T = get_turf(user)
-		playsound(T, 'sound/effects/splat.ogg', 50, TRUE)
-		new /obj/effect/decal/cleanable/vomit(T)
-		qdel(src)
-	hunger++
-	///check hunger
-	if((hunger > 50) && prob(20))
-		for(var/obj/item/I in contents)
-			if(IS_EDIBLE(I))
-				var/obj/item/food/F = I
-				F.forceMove(user.loc)
-				playsound(src, 'sound/items/eatfood.ogg', 20, TRUE)
-				///poisoned food damages it
-				if(F.reagents.has_reagent(/datum/reagent/toxin))
-					to_chat(user, span_warning("The [name] grumbles!"))
-					obj_integrity -= 20
-				else
-					to_chat(user, span_notice("The [name] eats your [F]!"))
-				qdel(F)
-				hunger = 0
-				return
-		///no food found: it bites you and loses some hp
-		var/affecting = user.get_bodypart(BODY_ZONE_CHEST)
-		user.apply_damage(40, BRUTE, affecting)
-		hunger = 5
-		playsound(src, 'sound/items/eatfood.ogg', 20, TRUE)
-		to_chat(user, span_warning("The [name] eats your back!"))
-		obj_integrity -= 15
-
-/obj/item/storage/backpack/duffelbag/cursed/Destroy()
-	. = ..()
-	STOP_PROCESSING(SSobj,src)
+	AddComponent(/datum/component/curse_of_hunger, add_dropdel = TRUE)
 
 /obj/item/storage/backpack/duffelbag/captain
 	name = "капитанский вещмешок"
@@ -567,10 +508,9 @@
 	slowdown = 0
 	resistance_flags = FIRE_PROOF
 
-/obj/item/storage/backpack/duffelbag/syndie/ComponentInitialize()
+/obj/item/storage/backpack/duffelbag/syndie/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.silent = TRUE
+	atom_storage.silent = TRUE
 
 /obj/item/storage/backpack/duffelbag/syndie/hitman
 	desc = "Большая сумка для хранения лишних вещей. Сзади логотип Nanotrasen."
@@ -725,11 +665,10 @@
 	new /obj/item/grenade/syndieminibomb(src)
 
 // For ClownOps.
-/obj/item/storage/backpack/duffelbag/clown/syndie/ComponentInitialize()
+/obj/item/storage/backpack/duffelbag/clown/syndie/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	slowdown = 0
-	STR.silent = TRUE
+	atom_storage.silent = TRUE
 
 /obj/item/storage/backpack/duffelbag/clown/syndie/PopulateContents()
 	new /obj/item/modular_computer/tablet/pda/clown(src)

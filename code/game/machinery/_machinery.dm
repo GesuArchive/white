@@ -866,10 +866,10 @@
 								var/obj/item/stack/SN = new SB.merge_type(null,used_amt)
 								component_parts += SN
 							else
-								if(SEND_SIGNAL(W, COMSIG_TRY_STORAGE_TAKE, B, src))
+								if(W.atom_storage.attempt_remove(B, src))
 									component_parts += B
 									B.forceMove(src)
-							SEND_SIGNAL(W, COMSIG_TRY_STORAGE_INSERT, A, null, null, TRUE)
+							W.atom_storage.attempt_insert(W, A, user, TRUE)
 							component_parts -= A
 							to_chat(user, span_notice("[capitalize(A.name)] заменен на [B.name]."))
 							shouldplaysound = 1 //Only play the sound when parts are actually replaced!

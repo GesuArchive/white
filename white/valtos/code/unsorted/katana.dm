@@ -20,13 +20,13 @@
 	///are we using our cryo mode?
 	var/turned_on = FALSE
 
-/obj/item/melee/sabre/security/on_exit_storage(datum/component/storage/concrete/S)
-	var/obj/item/storage/belt/sheath/B = S.real_location()
+/obj/item/melee/sabre/security/on_exit_storage(datum/storage/S)
+	var/obj/item/storage/belt/sheath/B = S.real_location?.resolve()
 	if(istype(B))
 		playsound(B, 'sound/items/unsheath.ogg', 25, TRUE)
 
-/obj/item/melee/sabre/security/on_enter_storage(datum/component/storage/concrete/S)
-	var/obj/item/storage/belt/sheath/B = S.real_location()
+/obj/item/melee/sabre/security/on_enter_storage(datum/storage/S)
+	var/obj/item/storage/belt/sheath/B = S.real_location?.resolve()
 	if(istype(B))
 		playsound(B, 'sound/items/sheath.ogg', 25, TRUE)
 
@@ -180,13 +180,13 @@
 	armour_penetration = 40
 	preload_cell_type = /obj/item/stock_parts/cell/high/plus
 
-/obj/item/katana/on_exit_storage(datum/component/storage/concrete/S)
-	var/obj/item/storage/belt/sheath/B = S.real_location()
+/obj/item/katana/on_exit_storage(datum/storage/S)
+	var/obj/item/storage/belt/sheath/B = S.real_location?.resolve()
 	if(istype(B))
 		playsound(B, 'sound/items/unsheath.ogg', 25, TRUE)
 
-/obj/item/katana/on_enter_storage(datum/component/storage/concrete/S)
-	var/obj/item/storage/belt/sheath/B = S.real_location()
+/obj/item/katana/on_enter_storage(datum/storage/S)
+	var/obj/item/storage/belt/sheath/B = S.real_location?.resolve()
 	if(istype(B))
 		playsound(B, 'sound/items/sheath.ogg', 25, TRUE)
 
@@ -210,12 +210,11 @@
 /obj/item/storage/belt/sheath/ComponentInitialize()
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 1
-	STR.rustle_sound = FALSE
-	STR.quickdraw = TRUE
-	STR.max_w_class = WEIGHT_CLASS_BULKY
-	STR.set_holdable(list(
+	atom_storage.max_slots = 1
+	atom_storage.rustle_sound = FALSE
+	atom_storage.quickdraw = TRUE
+	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
+	atom_storage.set_holdable(list(
 		/obj/item/melee/sabre/security,
 		/obj/item/katana
 		))

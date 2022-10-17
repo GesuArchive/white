@@ -77,9 +77,14 @@
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	armor = list(MELEE = 25, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 40, BIO = 10, RAD = 10, FIRE = 50, ACID = 50)
 	hoodtype = /obj/item/clothing/head/hooded/yohei
-	pocket_storage_component_path = /datum/component/storage/concrete/pockets/big
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/toy, /obj/item/storage/fancy/cigarettes, /obj/item/lighter, /obj/item/gun, /obj/item/pickaxe, /obj/item/cat_hook, /obj/item/storage/belt)
 	var/blessed = FALSE
+
+/obj/item/clothing/suit/hooded/yohei/Initialize(mapload)
+	. = ..()
+	atom_storage.max_slots = 3
+	atom_storage.max_total_storage = 5
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 
 /obj/item/clothing/suit/hooded/yohei/ToggleHood()
 	. = ..()

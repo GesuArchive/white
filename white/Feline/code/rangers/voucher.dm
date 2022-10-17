@@ -212,13 +212,13 @@
 	sparks = null
 	. = ..()
 
-/obj/item/melee/sabre/proton_cutter/on_exit_storage(datum/component/storage/concrete/S)		//	Выхватывание из ножен, звуки
-	var/obj/item/storage/belt/avangard_belt/B = S.real_location()
+/obj/item/melee/sabre/proton_cutter/on_exit_storage(datum/storage/S)		//	Выхватывание из ножен, звуки
+	var/obj/item/storage/belt/avangard_belt/B = S.real_location?.resolve()
 	if(istype(B))
 		playsound(B, 'sound/items/unsheath.ogg', 25, TRUE)
 
-/obj/item/melee/sabre/proton_cutter/on_enter_storage(datum/component/storage/concrete/S)
-	var/obj/item/storage/belt/avangard_belt/B = S.real_location()
+/obj/item/melee/sabre/proton_cutter/on_enter_storage(datum/storage/S)
+	var/obj/item/storage/belt/avangard_belt/B = S.real_location?.resolve()
 	if(istype(B))
 		playsound(B, 'sound/items/sheath.ogg', 25, TRUE)
 		if(amplification)
@@ -395,14 +395,13 @@
 	else ..()
 	return
 
-/obj/item/storage/belt/avangard_belt/ComponentInitialize()
+/obj/item/storage/belt/avangard_belt/Initialize()
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 5
-	STR.max_w_class = WEIGHT_CLASS_BULKY
-	STR.silent = TRUE
-	STR.set_holdable(list(
+	atom_storage.max_slots = 5
+	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
+	atom_storage.silent = TRUE
+	atom_storage.set_holdable(list(
 		/obj/item/melee/sabre/proton_cutter,
 		/obj/item/melee/classic_baton,
 		/obj/item/melee/baton/loaded/german,

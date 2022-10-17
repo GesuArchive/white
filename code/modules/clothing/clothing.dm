@@ -38,8 +38,6 @@
 	/// Trait modification, lazylist of traits to add/take away, on equipment/drop in the correct slot
 	var/list/clothing_traits
 
-	var/pocket_storage_component_path
-
 	//These allow head/mask items to dynamically alter the user's hair
 	// and facial hair, checking hair_extensions.dmi and facialhair_extensions.dmi
 	// for a state matching hair_state+dynamic_hair_suffix
@@ -66,8 +64,6 @@
 	if((clothing_flags & VOICEBOX_TOGGLABLE))
 		actions_types += /datum/action/item_action/toggle_voice_box
 	. = ..()
-	if(ispath(pocket_storage_component_path))
-		LoadComponent(pocket_storage_component_path)
 	if(can_be_bloody && ((body_parts_covered & FEET) || (flags_inv & HIDESHOES)))
 		LoadComponent(/datum/component/bloodysoles)
 	if(!icon_state)
@@ -299,20 +295,19 @@
 			if(30 to 59)
 				. += span_smallnotice(span_danger("[capitalize(zone_name)] [src.name] немного порвана."))
 
-	var/datum/component/storage/pockets = GetComponent(/datum/component/storage)
-	if(pockets)
+	if(atom_storage)
 		var/list/how_cool_are_your_threads = list("<hr><span class='notice'>")
-		if(pockets.attack_hand_interact)
+		if(atom_storage.attack_hand_interact)
 			how_cool_are_your_threads += "[capitalize(src.name)] показывает хранилище при клике.\n"
 		else
 			how_cool_are_your_threads += "[capitalize(src.name)] показывает хранилище при перетягивании на себя.\n"
-		if (pockets.can_hold?.len) // If pocket type can hold anything, vs only specific items
-			how_cool_are_your_threads += "[capitalize(src.name)] может хранить [pockets.max_items] <a href='?src=[REF(src)];show_valid_pocket_items=1'>предметов</a>.\n"
+		if (atom_storage.can_hold?.len) // If pocket type can hold anything, vs only specific items
+			how_cool_are_your_threads += "[capitalize(src.name)] может хранить [atom_storage.max_slots] <a href='?src=[REF(src)];show_valid_pocket_items=1'>предметов</a>.\n"
 		else
-			how_cool_are_your_threads += "[capitalize(src.name)] может хранить [pockets.max_items] [weight_class_to_text(pockets.max_w_class)] размера или меньше.\n"
-		if(pockets.quickdraw)
+			how_cool_are_your_threads += "[capitalize(src.name)] может хранить [atom_storage.max_slots] [weight_class_to_text(atom_storage.max_specific_storage)] размера или меньше.\n"
+		if(atom_storage.quickdraw)
 			how_cool_are_your_threads += "Могу быстро вытащить предмет из [src] используя ПКМ.\n"
-		if(pockets.silent)
+		if(atom_storage.silent)
 			how_cool_are_your_threads += "Добавление или изъятие предметов из [src] не издаёт шума.\n"
 		how_cool_are_your_threads += "</span>"
 		. += how_cool_are_your_threads.Join()

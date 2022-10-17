@@ -11,16 +11,14 @@
 		/obj/item/stack/teeth/replacement = 32)
 	generate_items_inside(items_inside,src)
 
-/obj/item/storage/box/teeth_box_32/ComponentInitialize()
+/obj/item/storage/box/teeth_box_32/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.allow_quick_gather = TRUE
-	STR.click_gather = TRUE
-	STR.display_numerical_stacking = TRUE
-	STR.max_items = 3
-	STR.max_combined_w_class = 100
-	STR.max_w_class = WEIGHT_CLASS_HUGE
-	STR.set_holdable(list(/obj/item/stack/teeth))
+	atom_storage.allow_quick_gather = TRUE
+	atom_storage.numerical_stacking = TRUE
+	atom_storage.max_slots = 3
+	atom_storage.max_total_storage = 100
+	atom_storage.max_specific_storage = WEIGHT_CLASS_HUGE
+	atom_storage.set_holdable(list(/obj/item/stack/teeth))
 
 // 	Импланты
 

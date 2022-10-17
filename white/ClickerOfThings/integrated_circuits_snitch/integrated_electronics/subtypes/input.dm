@@ -996,8 +996,7 @@
 		return FALSE
 	var/ignore_bags = get_pin_data(IC_INPUT, 1)
 	if(ignore_bags)
-		var/datum/component/storage/STR = A.GetComponent(/datum/component/storage)
-		if(STR)
+		if(atom_storage)
 			return FALSE
 	set_pin_data(IC_OUTPUT, 1, WEAKREF(A))
 	push_data()

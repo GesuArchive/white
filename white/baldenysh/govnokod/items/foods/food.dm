@@ -23,10 +23,9 @@
 	icon_state = "plasticbox"
 	illustration = null
 
-/obj/item/storage/box/lcubes/ComponentInitialize()
+/obj/item/storage/box/lcubes/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.set_holdable(list(/obj/item/food/lcube))
+	atom_storage.set_holdable(list(/obj/item/food/lcube))
 
 /obj/item/storage/box/lcubes/PopulateContents()
     for(var/i in 1 to 6)

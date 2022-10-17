@@ -25,18 +25,17 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	desc = "This shouldn't exist. If it does, create an issue report."
 
-/obj/item/storage/secure/ComponentInitialize()
+/obj/item/storage/secure/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_w_class = WEIGHT_CLASS_SMALL
-	STR.max_combined_w_class = 14
+	atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL
+	atom_storage.max_total_storage = 14
 
 /obj/item/storage/secure/examine(mob/user)
 	. = ..()
 	. += "<hr>The service panel is currently <b>[open ? "unscrewed" : "screwed shut"]</b>."
 
 /obj/item/storage/secure/attackby(obj/item/W, mob/user, params)
-	if(can_hack_open && SEND_SIGNAL(src, COMSIG_IS_STORAGE_LOCKED))
+	if(can_hack_open && atom_storage.locked)
 		if (W.tool_behaviour == TOOL_SCREWDRIVER)
 			if (W.use_tool(src, user, 20))
 				open = !open
@@ -66,7 +65,7 @@
 	return ..()
 
 /obj/item/storage/secure/attack_self(mob/user)
-	var/locked = SEND_SIGNAL(src, COMSIG_IS_STORAGE_LOCKED)
+	var/locked = atom_storage.locked
 	user.set_machine(src)
 	var/dat = text("<TT><B>[]</B><BR>\n\nБлокировка: []",src, (locked ? "ЗАБЛОКИРОВАНО" : "РАЗБЛОКИРОВАНО"))
 	var/message = "Code"
@@ -93,7 +92,7 @@
 				l_code = code
 				l_set = TRUE
 			else if ((code == l_code) && l_set)
-				SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, FALSE)
+				atom_storage.locked = TRUE
 				cut_overlays()
 				add_overlay(icon_opened)
 				code = null
@@ -101,10 +100,10 @@
 				code = "ERROR"
 		else
 			if ((href_list["type"] == "R") && (!l_setshort))
-				SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, TRUE)
+				atom_storage.locked = FALSE
 				cut_overlays()
 				code = null
-				SEND_SIGNAL(src, COMSIG_TRY_STORAGE_HIDE_FROM, usr)
+				atom_storage.hide_contents(usr)
 			else
 				code += text("[]", sanitize_text(href_list["type"]))
 				if (length(code) > 5)
@@ -139,11 +138,10 @@
 	new /obj/item/paper(src)
 	new /obj/item/pen(src)
 
-/obj/item/storage/secure/briefcase/ComponentInitialize()
+/obj/item/storage/secure/briefcase/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 21
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
+	atom_storage.max_total_storage = 21
+	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 
 //Syndie variant of Secure Briefcase. Contains space cash, slightly more robust.
 /obj/item/storage/secure/briefcase/syndie
@@ -188,11 +186,10 @@
 	dir = EAST
 	pixel_x = -32
 
-/obj/item/storage/secure/safe/ComponentInitialize()
+/obj/item/storage/secure/safe/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.set_holdable(null, list(/obj/item/storage/secure/briefcase))
-	STR.max_w_class = 8						//??
+	atom_storage.set_holdable(cant_hold_list = list(/obj/item/storage/secure/briefcase))
+	atom_storage.max_specific_storage = WEIGHT_CLASS_GIGANTIC				//??
 
 /obj/item/storage/secure/safe/PopulateContents()
 	new /obj/item/paper(src)
@@ -231,7 +228,7 @@ There appears to be a small amount of surface corrosion. It doesn't look like it
 
 	l_code = SSid_access.spare_id_safe_code
 	l_set = TRUE
-	SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SET_LOCKSTATE, TRUE)
+	atom_storage.locked = TRUE
 
 /obj/item/storage/secure/safe/caps_spare/PopulateContents()
 	new /obj/item/card/id/advanced/gold/captains_spare(src)

@@ -245,7 +245,7 @@
 	if(!anchored || current_size >= STAGE_FIVE)
 		step_towards(src,S)
 
-/obj/get_dumping_location(datum/component/storage/source,mob/user)
+/obj/get_dumping_location(datum/storage/source, mob/user)
 	return get_turf(src)
 
 /obj/proc/check_uplink_validity()

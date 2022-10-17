@@ -98,15 +98,14 @@
 				set_anchored(FALSE)
 
 		if(BOOKCASE_FINISHED)
-			var/datum/component/storage/STR = I.GetComponent(/datum/component/storage)
 			if(isbook(I))
 				if(!user.transferItemToLoc(I, src))
 					return
 				update_icon()
-			else if(STR)
+			else if(atom_storage)
 				for(var/obj/item/T in I.contents)
 					if(istype(T, /obj/item/book) || istype(T, /obj/item/spellbook))
-						STR.remove_from_storage(T, src)
+						atom_storage.attempt_remove(T, src)
 				to_chat(user, span_notice("Кладу [I.name] в <b>[src.name]</b>."))
 				update_icon()
 			else if(istype(I, /obj/item/pen))

@@ -7,20 +7,20 @@
 
 /datum/round_event/wizard/rpgloot/start()
 	var/upgrade_scroll_chance = 0
-	for(var/obj/item/I in world)
+	for(var/obj/item/fantasy_item in world)
 		CHECK_TICK
 
-		if(!(I.flags_1 & INITIALIZED_1) || QDELETED(I))
+		if(!(fantasy_item.flags_1 & INITIALIZED_1) || QDELETED(fantasy_item))
 			continue
 
-		I.AddComponent(/datum/component/fantasy)
+		fantasy_item.AddComponent(/datum/component/fantasy)
 
-		if(istype(I, /obj/item/storage))
-			var/obj/item/storage/S = I
-			var/datum/component/storage/STR = S.GetComponent(/datum/component/storage)
-			if(prob(upgrade_scroll_chance) && S.contents.len < STR.max_items && !S.invisibility)
-				var/obj/item/upgradescroll/scroll = new(get_turf(S))
-				SEND_SIGNAL(S, COMSIG_TRY_STORAGE_INSERT, scroll, null, TRUE, TRUE)
+		if(istype(fantasy_item, /obj/item/storage))
+			var/obj/item/storage/storage_item = fantasy_item
+			var/datum/storage/storage_component = storage_item.atom_storage
+			if(prob(upgrade_scroll_chance) && storage_item.contents.len < storage_component.max_slots && !storage_item.invisibility)
+				var/obj/item/upgradescroll/scroll = new(get_turf(storage_item))
+				storage_item.atom_storage?.attempt_insert(storage_item, scroll, null, TRUE)
 				upgrade_scroll_chance = max(0,upgrade_scroll_chance-100)
 				if(isturf(scroll.loc))
 					qdel(scroll)

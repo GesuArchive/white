@@ -231,11 +231,10 @@
 	var/recharge_time = 100
 	var/charged = TRUE
 
-/obj/item/storage/belt/hippie/hockey/ComponentInitialize()
+/obj/item/storage/belt/hippie/hockey/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 2
-	STR.can_hold = typecacheof(list(/obj/item/holopuck))
+	atom_storage.max_slots = 2
+	atom_storage.can_hold = typecacheof(list(/obj/item/holopuck))
 
 /obj/item/storage/belt/hippie/hockey/equipped(mob/user, slot)
 	. = ..()

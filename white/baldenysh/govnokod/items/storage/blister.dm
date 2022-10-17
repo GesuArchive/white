@@ -13,19 +13,16 @@
 	var/list/populate_pill_types = list()
 	var/list/pill_positions = list()
 
-/obj/item/storage/blister/ComponentInitialize()
+/obj/item/storage/blister/Initialize()
 	. = ..()
 
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = pill_positions.len
-	STR.set_holdable(list(/obj/item/reagent_containers/pill))
-	STR.allow_quick_empty = FALSE
-	STR.quickdraw = TRUE
+	atom_storage.max_slots = pill_positions.len
+	atom_storage.set_holdable(list(/obj/item/reagent_containers/pill))
+	atom_storage.allow_quick_empty = FALSE
+	atom_storage.quickdraw = TRUE
 
 /obj/item/storage/blister/PopulateContents()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-
-	for(var/i = 1 to STR.max_items)
+	for(var/i = 1 to atom_storage.max_slots)
 		var/obj/item/reagent_containers/pill/new_pill
 		for(var/pill_type in populate_pill_types)
 			if(populate_pill_types[pill_type] > 0)
@@ -44,8 +41,8 @@
 		pill_positions[i]["overlays"] = overlays
 		add_overlay(overlays)
 
-	STR.max_items = 0
-	STR.set_holdable(list())
+	atom_storage.max_slots = 0
+	atom_storage.set_holdable(list())
 
 /obj/item/storage/blister/Exited(atom/movable/thing, atom/newLoc) //кудато сюда крутой звук ебнуть надо но ево у меня нет
 	..()

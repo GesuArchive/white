@@ -51,7 +51,6 @@
 
 	/obj/item/storage/belt/mining/large/ComponentInitialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 10
 	STR.max_w_class = WEIGHT_CLASS_BULKY
 	STR.max_combined_w_class = 20
@@ -112,12 +111,12 @@
 		final_block_chance = 0 //Don't bring a sword to a gunfight
 	return ..()
 
-/obj/item/melee/marines/on_exit_storage(datum/component/storage/concrete/S)
+/obj/item/melee/marines/on_exit_storage(datum/storage/concrete/S)
 	var/obj/item/storage/belt/sabre/B = S.real_location()
 	if(istype(B))
 		playsound(B, 'sound/items/unsheath.ogg', 25, TRUE)
 
-/obj/item/melee/marines/on_enter_storage(datum/component/storage/concrete/S)
+/obj/item/melee/marines/on_enter_storage(datum/storage/concrete/S)
 	var/obj/item/storage/belt/sabre/B = S.real_location()
 	if(istype(B))
 		playsound(B, 'sound/items/sheath.ogg', 25, TRUE)
@@ -164,30 +163,3 @@
 		user.adjustBruteLoss(200)
 		user.death(FALSE)
 	REMOVE_TRAIT(src, TRAIT_NODROP, SABRE_SUICIDE_TRAIT)
-
-pocket_storage_component_path = /datum/component/storage/concrete/pockets/helmet
-
-
-
-desc = "To cut everything."
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

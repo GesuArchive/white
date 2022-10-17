@@ -113,12 +113,11 @@
 /obj/item/storage/belt/chameleon/bomb/PopulateContents()
 	new /obj/item/transfer_valve(src)
 
-/obj/item/storage/belt/chameleon/bomb/ComponentInitialize()
+/obj/item/storage/belt/chameleon/bomb/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 2
-	STR.max_w_class = WEIGHT_CLASS_BULKY
-	STR.set_holdable(list(
+	atom_storage.max_slots = 2
+	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
+	atom_storage.set_holdable(list(
 		/obj/item/transfer_valve,
 		/obj/item/assembly_holder
 		))
