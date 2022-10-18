@@ -164,6 +164,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/favorite_outfits = list()
 
 	var/iconsent = FALSE
+	var/he_knows = FALSE
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -212,6 +213,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!user || !user.client)
 		return
+	if(!user.client.prefs.iconsent)
+		user.client << browse(file2text('html/newcomer.html'), "window=newcomer;size=665x525;border=0;can_minimize=0;can_close=0;can_resize=0")
+		to_chat(user.client, span_notice("Необходимо дать согласие, перед тем как вступить в игру."))
+		return FALSE
+
 	if(!MC_RUNNING())
 		to_chat(user, span_info("Сервер всё ещё инициализируется. Подождите..."))
 		return

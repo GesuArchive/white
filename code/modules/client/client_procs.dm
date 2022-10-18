@@ -1213,19 +1213,27 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	switch(lowertext(what_the_dog_say))
 		if("я готов")
 			passed = TRUE
+		if("я не готов")
+			to_chat(src, span_danger("Тогда уходи."))
+			qdel(src)
+			return
 		if("сдохни фурфаг")
 			passed = TRUE
 			bonus = TRUE
+		if("разведи костёр здесь")
+			SEND_SOUND(src, pick(RANDOM_DREAMER_SOUNDS))
+			return
 
 	if(!passed)
-		to_chat(src, span_info("Ответ неверный."))
+		to_chat(src, span_danger("Ответ неверный."))
 		return
 
 	if(bonus)
-		to_chat(src, span_info("Ответ верный. Приятной игры!"))
+		to_chat(src, span_notice("Ответ верный. Приятной игры!"))
+		prefs.he_knows = TRUE
 		inc_metabalance(mob, 250, FALSE)
 	else
-		to_chat(src, span_info("Ответ принят. Приятной игры!"))
+		to_chat(src, span_notice("Ответ принят. Приятной игры!"))
 
 	prefs.iconsent = TRUE
 	prefs.save_preferences()

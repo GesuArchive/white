@@ -193,6 +193,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	READ_FILE(S["btvolume_max"], btvolume_max)
 	READ_FILE(S["disabled_autocap"], disabled_autocap)
 	READ_FILE(S["iconsent"], iconsent)
+	READ_FILE(S["he_knows"], he_knows)
 
 	READ_FILE(S["purchased_gear"], purchased_gear)
 	READ_FILE(S["equipped_gear_by_character"], equipped_gear_by_character)
@@ -254,6 +255,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	fullscreen		= sanitize_integer(fullscreen, 0, 1, initial(fullscreen))
 	disabled_autocap	= sanitize_integer(disabled_autocap, 0, 1, initial(disabled_autocap))
 	iconsent		= sanitize_integer(iconsent, FALSE, TRUE, initial(iconsent))
+	he_knows		= sanitize_integer(he_knows, FALSE, TRUE, initial(he_knows))
 	pixel_size		= sanitize_float(pixel_size, PIXEL_SCALING_AUTO, PIXEL_SCALING_3X, 0.5, initial(pixel_size))
 	scaling_method  = sanitize_text(scaling_method, initial(scaling_method))
 	ghost_form		= sanitize_inlist(ghost_form, GLOB.ghost_forms, initial(ghost_form))
@@ -352,6 +354,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["hearted_until"], (hearted_until > world.realtime ? hearted_until : null))
 	WRITE_FILE(S["disabled_autocap"], disabled_autocap)
 	WRITE_FILE(S["iconsent"], iconsent)
+	WRITE_FILE(S["he_knows"], he_knows)
 	WRITE_FILE(S["ice_cream_time"], ice_cream_time)
 	WRITE_FILE(S["ice_cream"], ice_cream)
 	WRITE_FILE(S["favorite_outfits"], favorite_outfits)
