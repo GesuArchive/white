@@ -177,7 +177,7 @@ GLOBAL_VAR(restart_counter)
 	start_log(GLOB.world_mechcomp_log)
 	start_log(GLOB.world_exrp_log)
 
-	GLOB.changelog_hash = md5("data/changelog.json") //for telling if the changelog has changed recently
+	GLOB.changelog_hash = md5(file2text("data/changelog.json")) //for telling if the changelog has changed recently
 	if(fexists(GLOB.config_error_log))
 		fcopy(GLOB.config_error_log, "[GLOB.log_directory]/config_error.log")
 		fdel(GLOB.config_error_log)
