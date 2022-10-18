@@ -95,3 +95,28 @@
 	animate(flashed_client, color = animate_color, time = flash_time)
 
 #define RANDOM_COLOUR (rgb(rand(0,255),rand(0,255),rand(0,255)))
+
+/proc/hsv2rgb(hue, sat, val)
+	val *= 255
+	if(sat <= 0)
+		return rgb(val, val, val)
+	hue %= 360
+	hue /= 60
+	var/i = round(hue)
+	var/f = hue - i
+	var/p = val * (1 - sat)
+	var/q = val * (1 - sat * f)
+	var/t = val * (1 - sat * (1 - f))
+	switch(i)
+		if(0)
+			return rgb(val, t, p)
+		if(1)
+			return rgb(q, val, p)
+		if(2)
+			return rgb(p, val, t)
+		if(3)
+			return rgb(p, q, val)
+		if(4)
+			return rgb(t, p, val)
+		else
+			return rgb(val, p, q)
