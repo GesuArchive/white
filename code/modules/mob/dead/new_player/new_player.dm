@@ -51,6 +51,11 @@
 	if(client.interviewee)
 		return FALSE
 
+	if(!client.prefs.iconsent)
+		src << browse(file2text('html/newcomer.html'), "window=newcomer;size=665x525;border=0;can_minimize=0;can_close=0;titlebar=0;can_resize=0")
+		to_chat(src, span_notice("Необходимо дать согласие, перед тем как вступить в игру."))
+		return FALSE
+
 	if(href_list["violence"] && GLOB.violence_mode_activated)
 		if(href_list["violence"] == "joinmefucker")
 			var/datum/violence_player/VP = GLOB.violence_players?[ckey]
@@ -124,6 +129,11 @@
 /mob/dead/new_player/proc/make_me_an_observer(force_observe=FALSE)
 	if(QDELETED(src) || !src.client)
 		ready = PLAYER_NOT_READY
+		return FALSE
+
+	if(!client.prefs.iconsent)
+		src << browse(file2text('html/newcomer.html'), "window=newcomer;size=665x525;border=0;can_minimize=0;can_close=0;titlebar=0;can_resize=0")
+		to_chat(src, span_notice("Необходимо дать согласие, перед тем как вступить в игру."))
 		return FALSE
 
 	var/less_input_message

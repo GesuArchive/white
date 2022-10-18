@@ -159,6 +159,12 @@
 	if(!.)
 		return
 	var/mob/dead/new_player/new_player = hud.mymob
+
+	if(!new_player.client.prefs.iconsent)
+		new_player.client << browse(file2text('html/newcomer.html'), "window=newcomer;size=665x525;border=0;can_minimize=0;can_close=0;titlebar=0;can_resize=0")
+		to_chat(new_player.client, span_notice("Необходимо дать согласие, перед тем как вступить в игру."))
+		return FALSE
+
 	ready = !ready
 	if(ready)
 		new_player.ready = PLAYER_READY_TO_PLAY

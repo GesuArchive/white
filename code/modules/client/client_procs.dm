@@ -127,6 +127,9 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	switch(href_list["action"])
 		if("openLink")
 			src << link(href_list["link"])
+		if("iconsent")
+			iconsent()
+			return
 	if (hsrc)
 		var/datum/real_src = hsrc
 		if(QDELETED(real_src))
@@ -485,6 +488,9 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	Master.UpdateTickRate()
 
+	if(!prefs?.iconsent)
+		src << browse(file2text('html/newcomer.html'), "window=newcomer;size=665x525;border=0;can_minimize=0;can_close=0;titlebar=0;can_resize=0")
+
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CLIENT_CONNECT, src)
 	fully_created = TRUE
 
@@ -815,7 +821,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	var/url = winget(src, null, "url")
 	//special javascript to make them reconnect under a new window.
 	src << browse({"<a id='link' href="byond://[url]?token=[token]">byond://[url]?token=[token]</a><script type="text/javascript">document.getElementById("link").click();window.location="byond://winset?command=.quit"</script>"}, "border=0;titlebar=0;size=1x1;window=redirect")
-	to_chat(src, {"<a href="byond://[url]?token=[token]">Тебя должно переподключить автоматически. Если это не так, то нажми на меня.</a>"})
+	to_chat(src, {"<a href="byond://[url]?token=[token]"><font size=+4>Нажми на это сообщение.</font></a>"})
 
 /client/proc/note_randomizer_user()
 	add_system_note("CID-Error", "Detected as using a cid randomizer.")
@@ -1192,3 +1198,36 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	var/mob/dead/observer/observer = mob
 	observer.ManualFollow(target)
+
+/client/proc/iconsent()
+	if(prefs.iconsent)
+		return
+
+	var/what_the_dog_say = input(src, "Напиши \"я готов\" для подтверждения.", "Проверим!") as text|null
+	if(isnull(what_the_dog_say))
+		return
+
+	var/passed = FALSE
+	var/bonus = FALSE
+
+	switch(lowertext(what_the_dog_say))
+		if("я готов")
+			passed = TRUE
+		if("сдохни фурфаг")
+			passed = TRUE
+			bonus = TRUE
+
+	if(!passed)
+		to_chat(src, span_info("Ответ неверный."))
+		return
+
+	if(bonus)
+		to_chat(src, span_info("Ответ верный. Приятной игры!"))
+		inc_metabalance(mob, 250, FALSE)
+	else
+		to_chat(src, span_info("Ответ принят. Приятной игры!"))
+
+	prefs.iconsent = TRUE
+	prefs.save_preferences()
+
+	src << browse(null, "window=newcomer")

@@ -163,6 +163,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	///What outfit typepaths we've favorited in the SelectEquipment menu
 	var/list/favorite_outfits = list()
 
+	var/iconsent = FALSE
+
 /datum/preferences/New(client/C)
 	parent = C
 
