@@ -1238,4 +1238,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	prefs.iconsent = TRUE
 	prefs.save_preferences()
 
+	playtitlemusic()
+
 	src << browse(null, "window=newcomer")
