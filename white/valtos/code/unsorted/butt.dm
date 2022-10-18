@@ -1,20 +1,3 @@
-/atom/movable/butt_storage
-	name = "задницевый костыль"
-	desc = "при встрече сообщите кодерасту"
-/atom/movable/butt_storage/Initialize(mapload, source)
-	. = ..()
-	verbs.Cut()
-/atom/movable/butt_storage/ex_act(severity)
-	return FALSE
-/atom/movable/butt_storage/singularity_act()
-	return
-/atom/movable/butt_storage/singularity_pull()
-	return
-/atom/movable/butt_storage/blob_act()
-	return
-/atom/movable/butt_storage/movable/forceMove(atom/destination, no_tp=FALSE, harderforce = FALSE)
-	return
-
 /obj/item/organ/butt
 	name = "задница"
 	desc = "невероятно драгоценная часть тела"
@@ -32,14 +15,15 @@
 	body_parts_covered = HEAD
 	slot_flags = ITEM_SLOT_HEAD
 	var/loose = 0
-	var/atom/movable/butt_storage/storage_handler
 
 /obj/item/organ/butt/Initialize(mapload)
 	. = ..()
+	create_storage(
+		max_slots = 2,
+		max_total_storage = WEIGHT_CLASS_NORMAL,
+		max_specific_storage = WEIGHT_CLASS_SMALL
+	)
 	atom_storage.silent = TRUE
-	atom_storage.max_slots = 2
-	atom_storage.max_total_storage = WEIGHT_CLASS_NORMAL
-	atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL
 
 /obj/item/organ/butt/xeno //XENOMORPH BUTTS ARE BEST BUTTS yes i agree
 	name = "задница ксеноса"
@@ -66,33 +50,18 @@
 	atom_storage.max_total_storage = WEIGHT_CLASS_NORMAL
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 
-/obj/item/organ/butt/Insert(mob/living/carbon/C, special = 0, drop_if_replaced = TRUE)
-	. = ..()
-	storage_handler = new(C)
-
-/obj/item/organ/butt/Remove(mob/living/carbon/M, special = 0)
-/*
-	var/turf/T = get_turf(M)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		var/list/STR_contents = STR.contents()
-		for(var/i in STR_contents)
-			var/obj/item/I = i
-			STR.remove_from_storage(I, T)
-
-	qdel(storage_handler)
-	//var/datum/component/storage/STR = storage_handler.GetComponent(pocket_storage_component_path)
-	//STR.Destroy()
-	. = ..()
-
 /obj/item/organ/butt/on_life()
+	. = ..()
 	if(atom_storage)
-		for(var/obj/item/I in atom_storage)
+		var/list/items_inside = list()
+		atom_storage.return_inv(items_inside, FALSE)
+		for(var/obj/item/I in items_inside)
 			if(I.get_sharpness())
 				owner.bleed(4)
-*/
-/obj/item/organ/butt/attackby(var/obj/item/W, mob/user as mob, params) // copypasting bot manufucturing process, im a lazy fuck
+				if(prob(25))
+					to_chat(owner, span_danger("Что-то режет меня изнутри!"))
 
+/obj/item/organ/butt/attackby(var/obj/item/W, mob/user as mob, params) // copypasting bot manufucturing process, im a lazy fuck
 	if(istype(W, /obj/item/bodypart/l_arm/robot) || istype(W, /obj/item/bodypart/r_arm/robot))
 		if(istype(src, /obj/item/organ/butt/bluebutt)) //nobody sprited a blue butt buttbot
 			to_chat(user, span_warning("Не получится!"))
@@ -108,52 +77,48 @@
 		to_chat(user, span_notice("Добавлю руку к жопе... Ммм?"))
 		user.dropItemToGround(src)
 		qdel(src)
+	else
+		return ..()
 
 /obj/item/organ/butt/throw_impact(atom/hit_atom)
-	..()
+	. = ..()
 	playsound(src, 'white/valtos/sounds/poo2.ogg', 50, 1, 5)
 
 ///////////////////////////////////////////////////////////////mob stuff
 
-/mob/living/carbon/proc/regeneratebutt()
-	if(!getorganslot("butt"))
-		if(ishuman(src) || ismonkey(src))
-			var/obj/item/organ/butt/B = new()
-			B.Insert(src)
-		if(isalien(src))
-			var/obj/item/organ/butt/xeno/X = new()
-			X.Insert(src)
-
 /mob/living/carbon/human/proc/checkbuttinspect(mob/living/carbon/user)
-	if(user.zone_selected == "groin")
-		var/obj/item/organ/butt/B = getorgan(/obj/item/organ/butt)
-		if(!B)
-			to_chat(user, span_warning("А задница-то отсутствует!"))
-			return
-		if(!w_uniform)
-			if(B && atom_storage)
-				user.visible_message(span_warning("[user] начинает инспектировать [user == src ? "свою задницу" : "задницу [src]"]!") , span_warning("Начинаю инспектировать [user == src ? "свою задницу" : "задницу [src]"]!"))
-				if(do_mob(user, src, 40))
-					user.visible_message(span_warning("[user] инспектирует [user == src ? "свою задницу" : "задницу [src]"]!") , span_warning("Инспектирую [user == src ? "свою задницу" : "задницу [src]"]!"))
-					if (user.active_storage)
-						user.active_storage.hide_contents(user)
-					atom_storage.orient_to_hud(user)
-					return TRUE
-				else
-					user.visible_message(span_warning("[user] проваливает попытку инспекции [user == src ? "своей задницы" : "задницы [src]"]!") , span_warning("Не вышло проинспектировать [user == src ? "свою задницу" : "задницу [src]"]!"))
-					return TRUE
-			else
-				to_chat(user, span_warning("Задницы нет!"))
-				return TRUE
+	if(user.zone_selected != BODY_ZONE_PRECISE_GROIN)
+		return FALSE
+
+	var/obj/item/organ/butt/butt_organ = getorgan(/obj/item/organ/butt)
+	if(!butt_organ)
+		to_chat(user, span_warning("А задница-то отсутствует!"))
+		return TRUE
+
+	if(w_uniform)
+		if(user == src)
+			user.visible_message(span_warning("[user] хватает себя за зад!"), span_warning("Хватаю себя за зад!"))
+			to_chat(user,  span_warning("Надо бы снять одежду сперва!"))
 		else
-			if(user == src)
-				user.visible_message(span_warning("[user] хватает себя за зад!") , span_warning("Хватаю себя за зад!"))
-				to_chat(user,  span_warning("Надо бы снять одежду сперва!"))
-			else
-				user.visible_message(span_warning("[user] хватает [src] за задницу!") , span_warning("Хватаю задницу [src]!"))
-				to_chat(user, span_warning("Надо бы снять с [src] одежду!"))
-				to_chat(src, span_userdanger("Мой зад кто-то схватил!"))
+			user.visible_message(span_warning("[user] хватает [src] за задницу!"), span_warning("Хватаю задницу [src]!"))
+			to_chat(user, span_warning("Надо бы снять с [src] одежду!"))
+			to_chat(src, span_userdanger("Мой зад кто-то схватил!"))
+		return TRUE
+
+	if(butt_organ && butt_organ.atom_storage)
+		user.visible_message(span_warning("[user] начинает инспектировать [user == src ? "свою задницу" : "задницу [src]"]!"), span_warning("Начинаю инспектировать [user == src ? "свою задницу" : "задницу [src]"]!"))
+		if(do_mob(user, src, 40))
+			user.visible_message(span_warning("[user] инспектирует [user == src ? "свою задницу" : "задницу [src]"]!"), span_warning("Инспектирую [user == src ? "свою задницу" : "задницу [src]"]!"))
+			if (user.active_storage)
+				user.active_storage.hide_contents(user)
+			butt_organ.atom_storage.orient_to_hud(user)
 			return TRUE
+		else
+			user.visible_message(span_warning("[user] проваливает попытку инспекции [user == src ? "своей задницы" : "задницы [src]"]!"), span_warning("Не вышло проинспектировать [user == src ? "свою задницу" : "задницу [src]"]!"))
+			return TRUE
+	else
+		to_chat(user, span_warning("Задницы нет!"))
+		return TRUE
 
 /mob/living/carbon/human/grabbedby(mob/living/user, supress_message = FALSE)
 	if (checkbuttinspect(user))
@@ -161,40 +126,32 @@
 	return ..()
 
 /mob/living/carbon/proc/checkbuttinsert(obj/item/I, mob/living/carbon/user)
-	if(user.zone_selected == "groin")
-		if(user.a_intent == INTENT_GRAB)
-			var/mob/living/carbon/human/buttowner = src
-			if(!istype(buttowner))
-				return FALSE
-			if(buttowner.w_uniform)
-				to_chat(user, span_danger("Надо бы снять одежду сперва!"))
-				return FALSE
-			var/obj/item/organ/butt/B = buttowner.getorgan(/obj/item/organ/butt)
-			if(B)
-				if(!atom_storage)
-					return FALSE
-				user.visible_message(span_warning("[user] начинает прятать [I] в [user == src ? "свою задницу" : "задницу [src]"].") , span_warning("Начинаю прятать [I] в [user == src ? "свою задницу" : "задницу [src]"]."))
-				if(atom_storage.attempt_insert(I, user, override = TRUE))
-					user.visible_message(span_warning("[user] прячет [I] внутри [user == src ? "своей задницы" : "задницы [src]"].") , span_warning("Прячу [I] внутри [user == src ? "своей задницы" : "задницы [src]"]."))
-				return TRUE
-	return FALSE
+	if(user.zone_selected != BODY_ZONE_PRECISE_GROIN)
+		return FALSE
+
+	if(user.a_intent != INTENT_GRAB)
+		return FALSE
+
+	var/mob/living/carbon/human/butt_owner = src
+	if(!istype(butt_owner))
+		return TRUE
+
+	if(butt_owner.w_uniform)
+		to_chat(user, span_danger("Надо бы снять одежду сперва!"))
+		return TRUE
+
+	var/obj/item/organ/butt/butt_organ = butt_owner.getorgan(/obj/item/organ/butt)
+	if(!butt_organ?.atom_storage)
+		return TRUE
+
+	user.visible_message(span_warning("[user] начинает прятать [I] в [user == src ? "свою задницу" : "задницу [src]"]."), span_warning("Начинаю прятать [I] в [user == src ? "свою задницу" : "задницу [src]"]."))
+
+	if(butt_organ.atom_storage.attempt_insert(I, user, override = TRUE))
+		user.visible_message(span_warning("[user] прячет [I] внутри [user == src ? "своей задницы" : "задницы [src]"]."), span_warning("Прячу [I] внутри [user == src ? "своей задницы" : "задницы [src]"]."))
+
+	return TRUE
 
 ///////////////////////////////////////////////////////////////////other
-
-/obj/item/clothing/proc/checkbuttuniform(mob/user)
-	var/obj/item/organ/butt/B = user.getorgan(/obj/item/organ/butt)
-	if(B)
-		if(atom_storage)
-			atom_storage.close_all()
-
-/atom/get_all_contents(ignore_flag_1)
-	. = ..()
-	if (istype(src, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = src
-		var/obj/item/organ/butt/B = H.getorgan(/obj/item/organ/butt)
-
-		if (B)
-			. += B.contents
 
 /mob/living/simple_animal/bot/buttbot
 	name = "жопобот"
@@ -232,8 +189,8 @@
 	s.set_up(3, 1, src)
 	s.start()
 
-	// new /obj/effect/decal/cleanable/blood/oil(loc)
-	..() //qdels us and removes us from processing objects
+
+	. = ..()
 
 /mob/living/simple_animal/bot/buttbot/handle_automated_action()
 	if (!..())
