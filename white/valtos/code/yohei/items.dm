@@ -82,6 +82,7 @@
 
 /obj/item/clothing/suit/hooded/yohei/Initialize(mapload)
 	. = ..()
+	create_storage(type = /datum/storage/pockets)
 	atom_storage.max_slots = 3
 	atom_storage.max_total_storage = 5
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
