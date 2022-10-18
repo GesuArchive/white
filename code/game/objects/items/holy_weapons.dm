@@ -145,6 +145,7 @@
 /obj/item/clothing/head/helmet/chaplain/witchunter_hat
 	name = "шляпа Охотника на Ведьм"
 	desc = "Эта изношенная шляпа часто применялась в свое время."
+	icon_state = "witchhunterhat"
 	inhand_icon_state = "witchhunterhat"
 	flags_cover = HEADCOVERSEYES
 	flags_inv = null
