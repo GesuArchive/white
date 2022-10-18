@@ -17,4 +17,4 @@
 
 	// lummoxjr said that is not a bug - http://www.byond.com/forum/post/2827227
 	// so
-	return replacetext(message["html"] || message["text"], "The ", "")
+	return replacetext(message["html"], "the ", "") || replacetext(message["text"], "the ", "")
