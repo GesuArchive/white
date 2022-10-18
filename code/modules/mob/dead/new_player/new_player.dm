@@ -52,7 +52,7 @@
 		return FALSE
 
 	if(!client.prefs.iconsent)
-		src << browse(file2text('html/newcomer.html'), "window=newcomer;size=665x525;border=0;can_minimize=0;can_close=0;titlebar=0;can_resize=0")
+		src << browse(file2text('html/newcomer.html'), "window=newcomer;size=665x525;border=0;can_minimize=0;can_close=0;can_resize=0")
 		to_chat(src, span_notice("Необходимо дать согласие, перед тем как вступить в игру."))
 		return FALSE
 
@@ -132,7 +132,7 @@
 		return FALSE
 
 	if(!client.prefs.iconsent)
-		src << browse(file2text('html/newcomer.html'), "window=newcomer;size=665x525;border=0;can_minimize=0;can_close=0;titlebar=0;can_resize=0")
+		src << browse(file2text('html/newcomer.html'), "window=newcomer;size=665x525;border=0;can_minimize=0;can_close=0;can_resize=0")
 		to_chat(src, span_notice("Необходимо дать согласие, перед тем как вступить в игру."))
 		return FALSE
 

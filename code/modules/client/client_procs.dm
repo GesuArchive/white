@@ -489,7 +489,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	Master.UpdateTickRate()
 
 	if(!prefs?.iconsent)
-		src << browse(file2text('html/newcomer.html'), "window=newcomer;size=665x525;border=0;can_minimize=0;can_close=0;titlebar=0;can_resize=0")
+		src << browse(file2text('html/newcomer.html'), "window=newcomer;size=665x525;border=0;can_minimize=0;can_close=0;can_resize=0")
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CLIENT_CONNECT, src)
 	fully_created = TRUE
