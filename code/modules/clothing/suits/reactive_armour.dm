@@ -71,7 +71,7 @@
 	add_fingerprint(user)
 
 /obj/item/clothing/suit/armor/reactive/hit_reaction(owner, hitby, attack_text, final_block_chance, damage, attack_type)
-	if(!active || !prob(final_block_chance))
+	if(!active || !prob(hit_reaction_chance))
 		return FALSE
 	if(world.time < reactivearmor_cooldown)
 		cooldown_activation(owner)
