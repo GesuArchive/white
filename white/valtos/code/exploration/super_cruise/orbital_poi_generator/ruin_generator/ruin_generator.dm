@@ -275,6 +275,7 @@
 			else
 				message_admins("Why the fuck is this thing [door_pos] have a direction of [placed_room_entrances[door_pos]]??? TELL ME!!!!")
 				valid = FALSE
+/*	Пожарные двери пока не нужны
 		if(valid)
 			new /obj/machinery/door/airlock/hatch(T)
 			switch(placed_room_entrances[door_pos])
@@ -288,6 +289,7 @@
 					var/obj/machinery/door/firedoor/border_only/b2 = new(T)
 					b1.setDir(EAST)
 					b2.setDir(WEST)
+*/
 
 	//Repopulate areas
 	repopulate_sorted_areas()

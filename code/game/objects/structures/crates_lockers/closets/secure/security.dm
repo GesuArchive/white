@@ -184,7 +184,7 @@
 
 /obj/structure/closet/secure_closet/injection
 	name = "летальные инъекции"
-	req_access = list(ACCESS_HOS)
+	req_access = list(ACCESS_ARMORY)
 
 /obj/structure/closet/secure_closet/injection/PopulateContents()
 	..()

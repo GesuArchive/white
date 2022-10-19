@@ -3029,7 +3029,6 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/structure/closet/secure_closet/medical1,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
 	},
@@ -3037,6 +3036,12 @@
 	dir = 8
 	},
 /obj/structure/extinguisher_cabinet/directional/east,
+/obj/item/reagent_containers/glass/bottle/cyanide,
+/obj/structure/closet/secure_closet/medical1{
+	req_one_access_txt = "5;63";
+	req_access = null;
+	req_access_txt = null
+	},
 /obj/item/reagent_containers/glass/bottle/cyanide,
 /turf/open/floor/plasteel/dark/side{
 	dir = 4

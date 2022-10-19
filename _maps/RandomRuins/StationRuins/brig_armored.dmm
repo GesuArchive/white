@@ -3312,7 +3312,11 @@
 	dir = 8
 	},
 /obj/structure/extinguisher_cabinet/directional/east,
-/obj/structure/closet/secure_closet/medical1,
+/obj/structure/closet/secure_closet/medical1{
+	req_one_access_txt = "5;63";
+	req_access = null;
+	req_access_txt = null
+	},
 /obj/item/reagent_containers/glass/bottle/toxin,
 /obj/item/reagent_containers/glass/bottle/toxin,
 /obj/item/reagent_containers/glass/bottle/cyanide,

@@ -2927,7 +2927,6 @@
 /turf/open/floor/plasteel,
 /area/security/brig)
 "kU" = (
-/obj/structure/closet/secure_closet/medical1,
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
@@ -2937,6 +2936,12 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/structure/closet/secure_closet/medical1{
+	req_one_access_txt = "5;63";
+	req_access = null;
+	req_access_txt = null
+	},
+/obj/item/reagent_containers/glass/bottle/cyanide,
 /turf/open/floor/plasteel/white,
 /area/security/main/sb_med)
 "le" = (
