@@ -111,7 +111,7 @@
 			user.visible_message(span_warning("[user] инспектирует [user == src ? "свою задницу" : "задницу [src]"]!"), span_warning("Инспектирую [user == src ? "свою задницу" : "задницу [src]"]!"))
 			if (user.active_storage)
 				user.active_storage.hide_contents(user)
-			butt_organ.atom_storage.orient_to_hud(user)
+			butt_organ.atom_storage.show_contents(user)
 			return TRUE
 		else
 			user.visible_message(span_warning("[user] проваливает попытку инспекции [user == src ? "своей задницы" : "задницы [src]"]!"), span_warning("Не вышло проинспектировать [user == src ? "свою задницу" : "задницу [src]"]!"))

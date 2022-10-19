@@ -344,12 +344,12 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(length(can_hold))
 		if(!is_type_in_typecache(to_insert, can_hold))
 			if(messages && user)
-				to_chat(user, span_warning("\The [resolve_parent] cannot hold \the [to_insert]!"))
+				to_chat(user, span_warning("<b>[capitalize(resolve_parent)]</b> не может хранить <b>[to_insert]</b>!"))
 			return FALSE
 
 	if(is_type_in_typecache(to_insert, cant_hold) || HAS_TRAIT(to_insert, TRAIT_NO_STORAGE_INSERT) || (can_hold_trait && !HAS_TRAIT(to_insert, can_hold_trait)))
 		if(messages && user)
-			to_chat(user, span_warning("\The [resolve_parent] cannot hold \the [to_insert]!"))
+			to_chat(user, span_warning("<b>[capitalize(resolve_parent)]</b> не может хранить <b>[to_insert]</b>!"))
 		return FALSE
 
 	if(HAS_TRAIT(to_insert, TRAIT_NODROP))
@@ -357,7 +357,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 			to_chat(user, span_warning("<b>[capitalize(to_insert)]</b> прилип к руке!"))
 		return FALSE
 
-	var/datum/storage/biggerfish = resolve_parent.loc.atom_storage // this is valid if the container our resolve_parent is being held in is a storage item
+	var/datum/storage/biggerfish = resolve_parent.loc?.atom_storage // this is valid if the container our resolve_parent is being held in is a storage item
 
 	if(biggerfish && biggerfish.max_specific_storage < max_specific_storage)
 		if(messages && user)
