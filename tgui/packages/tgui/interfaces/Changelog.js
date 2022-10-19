@@ -22,13 +22,13 @@ const changelogIcons = {
 };
 
 export const Changelog = (props, context) => {
-  const { act, data } = useBackend(context);
-  const { all_changelog } = data;
+  const { data } = useBackend(context);
+  const all_changelog = Object.values(data.all_changelog).reverse();
   return (
     <Window title="Список изменений" theme="hackerman" width={400} height={700}>
       <Window.Content scrollable>
-        {all_changelog.reverse().map((entry) => {
-          let splitted_clog = entry.content.split('\n');
+        {all_changelog.map((entry) => {
+          const splitted_clog = entry.content.split('\n');
           return (
             <Section
               title={
@@ -40,7 +40,7 @@ export const Changelog = (props, context) => {
               }
               key={entry.timestamp}>
               {splitted_clog.map((es) => {
-                let clog_icon =
+                const clog_icon =
                   es.substring(0, 1) in changelogIcons
                     ? changelogIcons[es.substring(0, 1)].type
                     : null;
