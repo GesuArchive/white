@@ -23,6 +23,7 @@
 		max_total_storage = WEIGHT_CLASS_NORMAL,
 		max_specific_storage = WEIGHT_CLASS_SMALL
 	)
+	atom_storage.allow_big_nesting = TRUE
 	atom_storage.silent = TRUE
 
 /obj/item/organ/butt/xeno //XENOMORPH BUTTS ARE BEST BUTTS yes i agree
