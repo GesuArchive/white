@@ -183,9 +183,6 @@
 		if(ghost.client.prefs?.chat_toggles & CHAT_GHOSTRADIO)
 			receive |= ghost
 
-	if(SSdemo.dummy_observer)
-		receive |= SSdemo.dummy_observer
-
 	// Render the message and have everybody hear it.
 	// Always call this on the virtualspeaker to avoid issues.
 	var/spans = data["spans"]

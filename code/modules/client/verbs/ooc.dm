@@ -112,7 +112,6 @@ GLOBAL_LIST_INIT(boosty_subs, list("nikitauou"))
 					to_chat(C, "<font color='[GLOB.OOC_COLOR]'><b><span class='prefix'>[tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]</span></b></font>")
 				else
 					to_chat(C, span_ooc(span_prefix("[tagmsg]:</span> <EM>[keyname]:</EM> <span class='message linkify'>[msg]")))
-	to_chat(SSdemo, raw_msg)
 	if(isnewplayer(mob))
 		webhook_send_lobby(key, raw_msg)
 	else

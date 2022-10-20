@@ -244,8 +244,6 @@
 		if(C.prefs.chat_toggles & CHAT_OOC) // ooc ignore
 			to_chat(C, "<font color='[GLOB.OOC_COLOR]'><span class='ooc'><span class='prefix'>Discord -> OOC:</span> <EM>[input["ckey"]]:</EM> <span class='message linkify'>[input["ooc"]]</span></span></font>")
 
-	to_chat(SSdemo, "[span_prefix("Discord -> OOC: [input["ckey"]]")] " + input["ooc"])
-
 /datum/world_topic/ahelp
 	keyword = "adminhelp"
 	require_comms_key = TRUE

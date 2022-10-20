@@ -728,6 +728,8 @@
 
 		else if(new_turf && !old_turf)
 			SSspatial_grid.enter_cell(src, new_turf)
+
+	SSdemo.mark_dirty(src)
 	return TRUE
 
 
