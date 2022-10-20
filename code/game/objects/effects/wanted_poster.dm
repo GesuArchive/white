@@ -65,6 +65,7 @@
 	the_icon.Insert(icon('icons/obj/contraband.dmi', "poster_ripped"), "poster_ripped")
 
 	icon = the_icon
+	SSdemo.embed_resource(icon)
 
 /*
 	This proc will write "WANTED" or MISSING" at the top of the poster.

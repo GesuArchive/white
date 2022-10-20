@@ -518,7 +518,6 @@
 /obj/machinery/door/firedoor/update_icon_state()
 	. = ..()
 	icon_state = "[base_icon_state]_[density ? "closed" : "open"]"
-	SSdemo.mark_dirty(src)
 
 /obj/machinery/door/firedoor/update_overlays()
 	. = ..()
