@@ -90,7 +90,7 @@ SUBSYSTEM_DEF(demo)
 	embed_list = null
 	chat_list = null
 
-	return ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/demo/fire()
 	if(demo_started)
