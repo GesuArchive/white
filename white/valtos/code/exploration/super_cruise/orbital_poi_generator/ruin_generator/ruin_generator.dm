@@ -47,7 +47,7 @@
 		generator_settings = pick_weight(generator_settings_cache)
 
 	//We need doors
-	var/list/placed_room_entrances = list()
+	//var/list/placed_room_entrances = list()
 	var/list/placed_hallway_entrances = list()
 
 	var/list/room_connections = list()			//Assoc list of door connection coords, [x]_[y] = dir
@@ -228,7 +228,7 @@
 						message_admins("Trying to put a room connection at a hallway connection")
 					else
 						room_connections["[world_x]_[world_y]"] = ruin_part.connection_points[point] / 16
-						placed_room_entrances["[world_x]_[world_y]"] = ruin_part.connection_points[point] / 16
+						//placed_room_entrances["[world_x]_[world_y]"] = ruin_part.connection_points[point] / 16
 				else
 					if(room_connections.Find("[world_x]_[world_y]"))
 						message_admins("Trying to put a hallway connection at a room connection")
@@ -261,9 +261,9 @@
 			hallway_connections["[center_x]_[center_y]"] = SOUTH
 
 	//Lets place doors
-	for(var/door_pos in placed_room_entrances)
+/*	for(var/door_pos in placed_room_entrances)
 		var/splitextdoor = splittext(door_pos, "_")
-/*		var/turf/T = locate(text2num(splitextdoor[1]), text2num(splitextdoor[2]), center_z)
+		var/turf/T = locate(text2num(splitextdoor[1]), text2num(splitextdoor[2]), center_z)
 		var/valid = isopenturf(T)
 		switch(placed_room_entrances[door_pos])
 			if(EAST, WEST)
