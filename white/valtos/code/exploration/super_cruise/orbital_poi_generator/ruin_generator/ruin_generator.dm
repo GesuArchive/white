@@ -264,7 +264,7 @@
 	for(var/door_pos in placed_room_entrances)
 		var/splitextdoor = splittext(door_pos, "_")
 		var/turf/T = locate(text2num(splitextdoor[1]), text2num(splitextdoor[2]), center_z)
-		//var/valid = isopenturf(T)
+/*		var/valid = isopenturf(T)
 		switch(placed_room_entrances[door_pos])
 			if(EAST, WEST)
 				if(isopenturf(locate(text2num(splitextdoor[1]), text2num(splitextdoor[2]) + 1, center_z)) || isopenturf(locate(text2num(splitextdoor[1]), text2num(splitextdoor[2]) - 1, center_z)))
@@ -275,7 +275,7 @@
 			else
 				message_admins("Why the fuck is this thing [door_pos] have a direction of [placed_room_entrances[door_pos]]??? TELL ME!!!!")
 				valid = FALSE
-/*	Пожарные двери пока не нужны
+	Пожарные двери пока не нужны
 		if(valid)
 			new /obj/machinery/door/airlock/hatch(T)
 			switch(placed_room_entrances[door_pos])
