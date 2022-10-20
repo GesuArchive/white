@@ -263,8 +263,8 @@
 	//Lets place doors
 	for(var/door_pos in placed_room_entrances)
 		var/splitextdoor = splittext(door_pos, "_")
-		var/turf/T = locate(text2num(splitextdoor[1]), text2num(splitextdoor[2]), center_z)
-/*		var/valid = isopenturf(T)
+/*		var/turf/T = locate(text2num(splitextdoor[1]), text2num(splitextdoor[2]), center_z)
+		var/valid = isopenturf(T)
 		switch(placed_room_entrances[door_pos])
 			if(EAST, WEST)
 				if(isopenturf(locate(text2num(splitextdoor[1]), text2num(splitextdoor[2]) + 1, center_z)) || isopenturf(locate(text2num(splitextdoor[1]), text2num(splitextdoor[2]) - 1, center_z)))
