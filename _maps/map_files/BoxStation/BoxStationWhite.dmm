@@ -75635,10 +75635,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/security/prison)
-"xxf" = (
-/obj/item/trapdoor_remote/preloaded,
-/turf/open/openspace,
-/area/space)
 "xxn" = (
 /obj/effect/turf_decal/pool{
 	dir = 8
@@ -176659,7 +176655,7 @@ cZf
 cZf
 cZf
 cZf
-xxf
+cZf
 cZf
 cZf
 cZf
