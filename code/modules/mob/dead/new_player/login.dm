@@ -13,8 +13,9 @@
 	if(!. || !client)
 		return FALSE
 
-	spawn(-1)
-		client.crawler_sanity_check()
+	if(!GLOB.violence_mode_activated) // we don't care about fuckers in this mode
+		spawn(-1)
+			client.crawler_sanity_check()
 
 	var/motd = global.config.motd
 	if(motd && !GLOB.violence_mode_activated)

@@ -59,7 +59,7 @@
 	if(href_list["violence"] && GLOB.violence_mode_activated)
 		if(href_list["violence"] == "joinmefucker")
 			var/datum/violence_player/VP = GLOB.violence_players?[ckey]
-			if(VP?.role_name)
+			if(VP?.role_name && GLOB.violence_playmode != VIOLENCE_PLAYMODE_TAG)
 				usr << browse(null, "window=violence")
 				AttemptLateSpawn(VP.role_name)
 			else

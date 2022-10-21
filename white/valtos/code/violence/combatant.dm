@@ -26,6 +26,7 @@
 
 /datum/antagonist/combatant/red/on_gain()
 	. = ..()
+	GLOB.violence_blue_team -= owner
 	GLOB.violence_red_team |= owner
 	var/datum/team/T = GLOB.violence_red_datum
 	if(T)
@@ -40,6 +41,7 @@
 
 /datum/antagonist/combatant/blue/on_gain()
 	. = ..()
+	GLOB.violence_red_team -= owner
 	GLOB.violence_blue_team |= owner
 	var/datum/team/T = GLOB.violence_blue_datum
 	if(T)
@@ -102,7 +104,6 @@
 	belt = null
 	ears = /obj/item/radio/headset
 	box = null
-	implants = list(/obj/item/implant/explosive/disintegrate)
 	var/team = "white"
 
 /datum/outfit/job/combantant/red
@@ -121,6 +122,10 @@
 
 /datum/outfit/job/combantant/pre_equip(mob/living/carbon/human/H)
 	..()
+
+	if(GLOB.violence_playmode != VIOLENCE_PLAYMODE_TAG)
+		implants = list(/obj/item/implant/explosive/disintegrate)
+
 	switch(GLOB.violence_theme)
 		if("katana")
 			if(GLOB.violence_current_round >= 6) // no chronos before

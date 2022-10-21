@@ -89,13 +89,13 @@
 				if(1 to 2)
 					S = 'white/valtos/sounds/cyberjockey.ogg'
 				if(3 to 4)
-					S = 'white/valtos/sounds/hex2.ogg'
+					S = 'white/valtos/sounds/hn1.ogg'
 				if(5 to 6)
-					S = 'white/valtos/sounds/hex3.ogg'
+					S = 'white/valtos/sounds/hn2.ogg'
 				if(7 to 8)
-					S = 'white/valtos/sounds/hex4.ogg'
+					S = 'white/valtos/sounds/hn3.ogg'
 				if(9 to 10)
-					S = 'white/valtos/sounds/hex5.ogg'
+					S = 'white/valtos/sounds/hn4.ogg'
 		if("warfare")
 			switch(GLOB.violence_current_round)
 				if(1 to 2)

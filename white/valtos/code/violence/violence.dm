@@ -123,7 +123,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	..()
 	// выбираем рандом, если не зафоршен режим
 	if(!GLOB.violence_playmode)
-		GLOB.violence_playmode = pick(list(VIOLENCE_PLAYMODE_TEAMFIGHT, VIOLENCE_PLAYMODE_BOMBDEF))
+		GLOB.violence_playmode = pick(list(VIOLENCE_PLAYMODE_TEAMFIGHT, VIOLENCE_PLAYMODE_BOMBDEF, VIOLENCE_PLAYMODE_TAG))
 	to_chat(world, leader_brass("Был выбран режим [GLOB.violence_playmode]!"))
 	// выключаем рандомные ивенты наверняка
 	CONFIG_SET(flag/allow_random_events, FALSE)
@@ -264,6 +264,30 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 
 	to_chat(dead?.lastattackermob, span_boldnotice("[rightkill ? "+[payout]" : "-[payout]"]₽"))
 
+	if(GLOB.violence_playmode == VIOLENCE_PLAYMODE_TAG && rightkill && dead?.mind && ishuman(dead))
+		var/mob/living/carbon/human/H = dead
+		var/obj/item/card/id/new_card
+		qdel(H.wear_id)
+		var/obj/item/radio/R = H.ears
+		switch(vp_killer.team)
+			if("red")
+				new_card = new /obj/item/card/id/red
+				R.set_frequency(FREQ_CTF_RED)
+				SSid_access.apply_trim_to_card(new_card, /datum/id_trim/combatant/red)
+				dead.mind.remove_antag_datum(/datum/antagonist/combatant/blue)
+				dead.mind.add_antag_datum(/datum/antagonist/combatant/red)
+				H.faction = list("combatant_red")
+			if("blue")
+				new_card = new /obj/item/card/id/blue
+				R.set_frequency(FREQ_CTF_BLUE)
+				SSid_access.apply_trim_to_card(new_card, /datum/id_trim/combatant/blue)
+				dead.mind.remove_antag_datum(/datum/antagonist/combatant/red)
+				dead.mind.add_antag_datum(/datum/antagonist/combatant/blue)
+				H.faction = list("combatant_blue")
+		H.revive(TRUE)
+		H.equip_to_slot_or_del(new_card, ITEM_SLOT_ID)
+		new_card.update_label()
+		H.sec_hud_set_ID()
 
 /datum/game_mode/violence/proc/update_timer()
 	GLOB.violence_time_limit -= 2 SECONDS
@@ -483,7 +507,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	set category = "Дбг"
 	set name = "Violence Mode"
 
-	var/list/modelist = list(VIOLENCE_PLAYMODE_TEAMFIGHT, VIOLENCE_PLAYMODE_BOMBDEF)
+	var/list/modelist = list(VIOLENCE_PLAYMODE_TEAMFIGHT, VIOLENCE_PLAYMODE_BOMBDEF, VIOLENCE_PLAYMODE_TAG)
 
 	var/chosen_mode = tgui_input_list(usr, "Modes?", "Cum Fuck Fuck Fuck Fuck", modelist)
 
