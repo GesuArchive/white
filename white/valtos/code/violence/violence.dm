@@ -261,15 +261,6 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		var/obj/item/radio/R = H.ears
 		switch(vp_dead.team)
 			if("red")
-				vp_dead.team = "red"
-				new_card = new /obj/item/card/id/red
-				R.set_frequency(FREQ_CTF_RED)
-				SSid_access.apply_trim_to_card(new_card, /datum/id_trim/combatant/red)
-				dead.mind.remove_antag_datum(/datum/antagonist/combatant/blue)
-				dead.mind.add_antag_datum(/datum/antagonist/combatant/red)
-				H.faction = list("combatant_red")
-				H.w_uniform?.set_greyscale("#eb0c07")
-			if("blue")
 				vp_dead.team = "blue"
 				new_card = new /obj/item/card/id/blue
 				R.set_frequency(FREQ_CTF_BLUE)
@@ -278,6 +269,15 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 				dead.mind.add_antag_datum(/datum/antagonist/combatant/blue)
 				H.faction = list("combatant_blue")
 				H.w_uniform?.set_greyscale("#52aecc")
+			if("blue")
+				vp_dead.team = "red"
+				new_card = new /obj/item/card/id/red
+				R.set_frequency(FREQ_CTF_RED)
+				SSid_access.apply_trim_to_card(new_card, /datum/id_trim/combatant/red)
+				dead.mind.remove_antag_datum(/datum/antagonist/combatant/blue)
+				dead.mind.add_antag_datum(/datum/antagonist/combatant/red)
+				H.faction = list("combatant_red")
+				H.w_uniform?.set_greyscale("#eb0c07")
 		H.revive(TRUE)
 		H.equip_to_slot_or_del(new_card, ITEM_SLOT_ID)
 		new_card.update_label()
