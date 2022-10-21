@@ -537,8 +537,8 @@
 		H.update_sight()
 
 /obj/item/clothing/glasses/osi
-	name = "O.S.I. Sunglasses"
-	desc = "There's no such thing as good news! Just bad news and... weird news.."
+	name = "солнцезащитные очки O.S.I."
+	desc = "У нас вообще нет хороших новостей! Только плохие... и ужасные.."
 	icon_state = "osi_glasses"
 	inhand_icon_state = "osi_glasses"
 
