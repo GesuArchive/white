@@ -85,6 +85,12 @@
 	path = /obj/item/clothing/glasses/eyepatch
 	cost = 100
 
+/datum/gear/accessory/osi
+	display_name = "Очки O.S.I."
+	slot = ITEM_SLOT_EYES
+	path = /obj/item/clothing/glasses/osi
+	cost = 150
+
 /datum/gear/accessory/monocle
 	display_name = "Монокль"
 	slot = ITEM_SLOT_EYES
