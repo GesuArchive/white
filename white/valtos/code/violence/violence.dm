@@ -244,14 +244,6 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 
 	vp_dead.deaths++
 
-	switch(vp_dead.team)
-		if("red")
-			GLOB.violence_red_team -= dead.mind
-			to_chat(world, span_red("[LAZYLEN(GLOB.violence_red_team)]/[last_reds]"))
-		if("blue")
-			GLOB.violence_blue_team -= dead.mind
-			to_chat(world, span_blue("[LAZYLEN(GLOB.violence_blue_team)]/[last_blues]"))
-
 	var/datum/violence_player/vp_killer = vp_get_player(dead?.lastattackermob?.ckey)
 
 	if(!vp_killer)
@@ -262,14 +254,12 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	vp_killer.money += rightkill ? payout : -payout
 	vp_killer.kills += rightkill ? 1 : -1
 
-	to_chat(dead?.lastattackermob, span_boldnotice("[rightkill ? "+[payout]" : "-[payout]"]₽"))
-
-	if(GLOB.violence_playmode == VIOLENCE_PLAYMODE_TAG && rightkill && dead?.mind && ishuman(dead))
+	if(GLOB.violence_playmode == VIOLENCE_PLAYMODE_TAG && dead?.mind && ishuman(dead))
 		var/mob/living/carbon/human/H = dead
 		var/obj/item/card/id/new_card
 		qdel(H.wear_id)
 		var/obj/item/radio/R = H.ears
-		switch(vp_killer.team)
+		switch(vp_dead.team)
 			if("red")
 				vp_dead.team = "red"
 				new_card = new /obj/item/card/id/red
@@ -292,6 +282,17 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		H.equip_to_slot_or_del(new_card, ITEM_SLOT_ID)
 		new_card.update_label()
 		H.sec_hud_set_ID()
+		to_chat(world, leader_brass("Красные: [LAZYLEN(GLOB.violence_red_team)] | Синие: [LAZYLEN(GLOB.violence_blue_team)]"))
+	else
+		switch(vp_dead.team)
+			if("red")
+				GLOB.violence_red_team -= dead.mind
+				to_chat(world, span_red("[LAZYLEN(GLOB.violence_red_team)]/[last_reds]"))
+			if("blue")
+				GLOB.violence_blue_team -= dead.mind
+				to_chat(world, span_blue("[LAZYLEN(GLOB.violence_blue_team)]/[last_blues]"))
+
+	to_chat(dead?.lastattackermob, span_boldnotice("[rightkill ? "+[payout]" : "-[payout]"]₽"))
 
 /datum/game_mode/violence/proc/update_timer()
 	GLOB.violence_time_limit -= 2 SECONDS
