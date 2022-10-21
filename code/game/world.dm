@@ -240,6 +240,7 @@ GLOBAL_VAR(restart_counter)
 	qdel(src)	//shut it down
 
 /world/Reboot(reason = 0, fast_track = FALSE)
+	var/rid = GLOB.round_id
 	if (reason || fast_track) //special reboot, do none of the normal stuff
 		if (usr)
 			log_admin("[key_name(usr)] Has requested an immediate world restart via client side debugging tools")
@@ -258,7 +259,7 @@ GLOBAL_VAR(restart_counter)
 
 	shutdown_logging() // Past this point, no logging procs can be used, at risk of data loss.
 	if(CONFIG_GET(flag/this_shit_is_stable))
-		shelleo("python3 /home/ubuntu/tenebrae/prod/server_white/data/parser.py [GLOB.round_id] &")
+		shelleo("python3 /home/ubuntu/tenebrae/prod/server_white/data/parser.py [rid] &")
 		shelleo("curl -X POST http://localhost:3636/hard-reboot-white")
 	AUXTOOLS_SHUTDOWN(AUXMOS)
 	AUXTOOLS_FULL_SHUTDOWN(AUXLUA)
