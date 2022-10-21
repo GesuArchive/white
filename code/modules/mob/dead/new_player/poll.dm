@@ -372,7 +372,8 @@
 	if(vote_success)
 		if(!vote_id)
 			poll.poll_votes++
-		inc_metabalance(usr, 100, reason="ГОЛОС ОТДАН. Спасибо!")
+		if(!poll.allow_revoting)
+			inc_metabalance(usr, 100, reason="ГОЛОС ОТДАН. Спасибо!")
 
 /**
  * Processes vote form data and saves results to the database for an option type poll.

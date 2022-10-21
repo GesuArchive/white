@@ -64,12 +64,24 @@
 	if(ann)
 		to_chat(src, "<span class='rose bold'>Новый баланс: [mc_count] метакэша!</span>")
 
+GLOBAL_LIST_INIT(metadenied_users, list(
+	"daultus", // 22
+	"nikuor", // 93
+	"podvox1", // 255
+	"kostyaron", // 727
+	"acetraineres", // 182
+	"crunchrach", // 1853
+))
+
 /proc/inc_metabalance(mob/M, mc_count, ann = TRUE, reason = null)
 	if(IsAdminAdvancedProcCall())
 		return
 
 	if(!M.client || mc_count == 0)
 		return
+
+	if(M.client.ckey in GLOB.metadenied_users)
+		mc_count = mc_count >= 0 ? 1 : -1
 
 	var/datum/db_query/query_inc_metacoins = SSdbcore.NewQuery(
 		"UPDATE player SET metacoins = metacoins + :mc_count WHERE ckey = :ckey",
