@@ -51,6 +51,10 @@
 	. = ..()
 	icon_state = "green[rand(1, 6)]"
 
+/turf/open/floor/dz/trippy_green
+	name = "ПОЛ"
+	icon_state = "green8"
+
 /turf/open/floor/dz/cyber
 	name = "си-пол"
 	icon_state = "c_floor"
@@ -123,7 +127,7 @@
 /turf/closed/dz/normal/cyber/ice/red/melt_ice(mob/living/user)
 	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и покрывается ссадинами!"), \
 					span_userdanger("Уничтожаю <b>[src]</b> и... УХ БЛЯ!"))
-	user.adjustBruteLoss(5)
+	user.adjustBruteLoss(15)
 	. = ..()
 
 /turf/closed/dz/normal/cyber/ice/yellow
@@ -133,7 +137,7 @@
 /turf/closed/dz/normal/cyber/ice/yellow/melt_ice(mob/living/user)
 	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и загорается!"), \
 					span_userdanger("Уничтожаю <b>[src]</b> и... ЗАГОРАЮСЬ!"))
-	user.adjust_fire_stacks(1)
+	user.adjust_fire_stacks(2)
 	user.ignite_mob()
 	. = ..()
 
@@ -144,7 +148,7 @@
 /turf/closed/dz/normal/cyber/ice/green/melt_ice(mob/living/user)
 	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и покрывается кислотой!"), \
 					span_userdanger("Уничтожаю <b>[src]</b> и... КИСЛОТА-А-А!"))
-	user.acid_act(25, 10)
+	user.acid_act(100, 200)
 	. = ..()
 
 /turf/closed/dz/normal/cyber/ice/black
@@ -154,7 +158,7 @@
 /turf/closed/dz/normal/cyber/ice/black/melt_ice(mob/living/user)
 	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и засыпает!"), \
 					span_userdanger("Уничтожаю <b>[src]</b> и засыпаю..."))
-	user.AdjustSleeping(1 SECONDS)
+	user.AdjustSleeping(3 SECONDS)
 	. = ..()
 
 /turf/closed/dz/normal/cyber/ice/blue
@@ -164,13 +168,29 @@
 
 /turf/closed/dz/normal/cyber/ice/blue/Initialize(mapload)
 	. = ..()
-	if(!length(things))
-		things = subtypesof(/obj/item)
+	if(length(things))
+		return
+	// this is predictable random shit
+	switch(rand(1, 100))
+		if(1 to 10)
+			things = subtypesof(/obj/item/gun)
+		if (11 to 20)
+			things = subtypesof(/obj/item/melee)
+		if (21 to 30)
+			things = subtypesof(/obj/item/clothing)
+		if (31 to 40)
+			things = subtypesof(/obj/item/reagent_containers)
+		if (41 to 50)
+			things = subtypesof(/obj/item/book)
+		if(51 to 60)
+			things = subtypesof(/obj/item/mod/control/pre_equipped)
+		if(61 to 100)
+			things = subtypesof(/obj/item/food)
 
 /turf/closed/dz/normal/cyber/ice/blue/melt_ice(mob/living/user)
 	var/obj/item/found_something = null
 
-	if(prob(30) && length(things))
+	if(prob(65) && length(things))
 		var/obj/item/thingy = pick(things)
 		found_something = new thingy(src)
 
@@ -507,3 +527,24 @@
 			set_light(1)
 			add_overlay("deck-[cur_deck]")
 			playsound(get_turf(src), I.usesound, 60)
+
+/obj/effect/temp_visual/dz_effects
+	name = "???"
+	icon = 'white/valtos/icons/dz-031.dmi'
+	icon_state = "node"
+	plane = POINT_PLANE
+	duration = 10
+	randomdir = FALSE
+
+/obj/effect/temp_visual/dz_effects/arrow_red
+	icon_state = "arrow_red"
+
+/obj/effect/temp_visual/dz_effects/arrow_green
+	icon_state = "arrow_green"
+
+/obj/effect/temp_visual/dz_effects/top
+	icon_state = "arrow_top"
+
+/obj/effect/temp_visual/dz_effects/attention
+	duration = 30
+	icon_state = "attention"

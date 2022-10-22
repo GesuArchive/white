@@ -574,7 +574,9 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 		qdel(src)
 		return PROCESS_KILL
 	current_time--
-	floor.maptext = MAPTEXT_REALLYBIG_COLOR("[current_time]", "#d10404")
+	//floor.maptext = MAPTEXT_REALLYBIG_COLOR("[current_time]", "#d10404")
+	if(current_time == 3)
+		new /obj/effect/temp_visual/dz_effects/attention(floor)
 	if(current_time >= 0)
 		return
 	current_time = timer

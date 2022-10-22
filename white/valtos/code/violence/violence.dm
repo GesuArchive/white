@@ -159,15 +159,20 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 				var/datum/disease/D = new /datum/disease/heart_failure()
 				D.stage = 5
 				H.ForceContractDisease(D, FALSE, TRUE)
-		// специальные портальные приколы
-		if(GLOB.violence_theme == "portal")
-			if(GLOB.violence_current_round >= 10)
-				GLOB.violence_time_limit = rand(20, 900)
-				if(prob(5))
+		// специальные тематические приколы
+		switch(GLOB.violence_theme)
+			if("portal")
+				if(GLOB.violence_current_round >= 10)
+					GLOB.violence_time_limit = rand(20, 900)
 					for(var/turf/open/T as() in main_area)
-						if(!istype(T, /turf/open))
+						if(prob(95) || !istype(T, /turf/open))
 							continue
 						T.ChangeTurf(pick(subtypesof(/turf/open)))
+			if("cyber")
+				for(var/turf/open/T as() in main_area)
+					if(prob(95) || !istype(T, /turf/open))
+						continue
+					new /obj/effect/attack_spike(T)
 		// проверяем, умерли ли все после открытия ворот
 		if(round_started_at + 30 SECONDS < world.time)
 			// заставляем людей произносить рандомные реплики
@@ -282,6 +287,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		H.equip_to_slot_or_del(new_card, ITEM_SLOT_ID)
 		new_card.update_label()
 		H.sec_hud_set_ID()
+		H.update_clothing(ITEM_SLOT_ICLOTHING)
 		to_chat(world, leader_brass("Красные: [LAZYLEN(GLOB.violence_red_team)] | Синие: [LAZYLEN(GLOB.violence_blue_team)]"))
 	else
 		switch(vp_dead.team)

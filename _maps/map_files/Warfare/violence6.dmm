@@ -1,4 +1,8 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bi" = (
+/obj/lab_monitor,
+/turf/closed/dz/normal,
+/area/violence)
 "cC" = (
 /turf/closed/dz/normal/cyber/ice,
 /area/violence)
@@ -6,7 +10,7 @@
 /obj/effect/turf_decal/box/red/corners{
 	dir = 1
 	},
-/turf/open/floor/dz/cyber,
+/turf/open/floor/dz/green,
 /area/violence)
 "dG" = (
 /turf/closed/dz/normal/cyber/ice/red,
@@ -33,9 +37,7 @@
 /area/violence)
 "jk" = (
 /obj/effect/turf_decal/box/red/corners,
-/turf/open/floor/rospilovo/cyber{
-	icon_state = "bfloor-3"
-	},
+/turf/open/floor/dz/green,
 /area/violence)
 "jo" = (
 /obj/structure/sign/dz/end,
@@ -74,10 +76,9 @@
 "oE" = (
 /obj/effect/landmark/bomb_plant_location,
 /obj/effect/turf_decal/box/red,
-/turf/open/floor/dz/hot_plates,
+/turf/open/floor/dz/trippy_green,
 /area/violence)
 "sq" = (
-/obj/effect/landmark/start/combatant/red,
 /turf/closed/dz/normal/cyber/ice/blue,
 /area/violence)
 "sR" = (
@@ -106,6 +107,12 @@
 "CQ" = (
 /turf/closed/dz/normal/cyber,
 /area/violence)
+"GZ" = (
+/obj/lab_monitor{
+	what_pic = "survive"
+	},
+/turf/closed/dz/normal/cyber,
+/area/violence)
 "Hy" = (
 /turf/closed/dz/normal,
 /area/violence)
@@ -113,7 +120,7 @@
 /obj/effect/turf_decal/box/red/corners{
 	dir = 4
 	},
-/turf/open/floor/dz/cyber,
+/turf/open/floor/dz/green,
 /area/violence)
 "Js" = (
 /turf/open/floor/rospilovo/cyber{
@@ -121,12 +128,10 @@
 	},
 /area/violence)
 "Jt" = (
-/obj/effect/landmark/start/combatant/blue,
-/turf/closed/dz/normal/cyber/ice/blue,
-/area/violence)
-"Jv" = (
-/obj/effect/mapping_helpers/turf_rotation,
-/turf/open/floor/dz/cyber,
+/obj/lab_monitor{
+	what_pic = "survive"
+	},
+/turf/closed/dz/normal,
 /area/violence)
 "JA" = (
 /obj/structure/sign/poster/random,
@@ -146,9 +151,7 @@
 /obj/effect/turf_decal/box/red/corners{
 	dir = 8
 	},
-/turf/open/floor/rospilovo/cyber{
-	icon_state = "bfloor-3"
-	},
+/turf/open/floor/dz/green,
 /area/violence)
 "Op" = (
 /obj/machinery/door/poddoor/multi_tile/three_tile_ver{
@@ -172,6 +175,10 @@
 	icon_state = "bfloor-3"
 	},
 /area/violence)
+"Ss" = (
+/obj/lab_monitor,
+/turf/closed/dz/normal/cyber,
+/area/violence)
 "TI" = (
 /turf/closed/dz/normal/cyber/ice/black,
 /area/violence)
@@ -184,6 +191,9 @@
 "VO" = (
 /obj/structure/sign/dz/middle,
 /turf/closed/dz/normal/cyber,
+/area/violence)
+"ZH" = (
+/turf/open/floor/dz/green,
 /area/violence)
 
 (1,1,1) = {"
@@ -489,13 +499,13 @@ cC
 cC
 cC
 cC
-Hy
+Jt
 Js
 Js
 Hy
 Js
 JA
-CQ
+Ss
 xw
 CQ
 CQ
@@ -533,17 +543,17 @@ cC
 TI
 Js
 Js
-Hy
+Js
 Js
 dG
-CQ
+TI
 xw
 cC
 cC
 cC
 cC
 cC
-cC
+GZ
 xw
 dG
 xw
@@ -574,10 +584,10 @@ cC
 TI
 Js
 Js
-Hy
+Js
 Js
 dG
-CQ
+TI
 xw
 cC
 cC
@@ -612,10 +622,10 @@ cC
 cC
 cC
 cC
-Hy
+Jt
 Js
 Js
-Hy
+Js
 Js
 dG
 TI
@@ -656,10 +666,10 @@ cC
 Hy
 Js
 Js
-Hy
+Js
 Js
 dG
-CQ
+TI
 xw
 cC
 cC
@@ -697,17 +707,17 @@ Hy
 Hy
 Js
 Js
-Hy
+Js
 Js
 dG
-CQ
+TI
 xw
 cC
 cC
 cC
 cC
 cC
-cC
+GZ
 xw
 dG
 xw
@@ -726,7 +736,7 @@ PD
 PD
 PD
 hY
-Hy
+Jt
 Js
 Js
 Js
@@ -739,7 +749,7 @@ zU
 Js
 TI
 ff
-Js
+ZH
 JA
 CQ
 xw
@@ -780,7 +790,7 @@ zU
 Js
 TI
 jk
-Js
+ZH
 IU
 TI
 xw
@@ -789,7 +799,7 @@ zU
 zU
 zU
 zU
-Jv
+zU
 xw
 xw
 xw
@@ -820,9 +830,9 @@ zU
 zU
 Js
 TI
-Js
+ZH
 oE
-xw
+ZH
 TI
 xw
 zU
@@ -830,14 +840,14 @@ zU
 zU
 zU
 zU
-Jv
+zU
 xw
 xw
 xw
 xw
 Li
 Li
-Jt
+sq
 Li
 Li
 VO
@@ -862,7 +872,7 @@ zU
 Js
 TI
 Nb
-xw
+ZH
 dr
 TI
 xw
@@ -871,7 +881,7 @@ zU
 zU
 zU
 zU
-Jv
+zU
 xw
 xw
 xw
@@ -903,7 +913,7 @@ Hy
 Js
 Hy
 ff
-xw
+ZH
 JA
 TI
 xw
@@ -912,11 +922,11 @@ zU
 zU
 zU
 zU
-Jv
+zU
 xw
 xw
 xw
-CQ
+GZ
 zB
 Li
 Li
@@ -935,17 +945,17 @@ Hy
 Js
 dG
 Js
-cC
+Jt
 cC
 cC
 cC
 cC
 cC
 Js
-Hy
+TI
 dG
 xw
-CQ
+xw
 xw
 xw
 CQ
@@ -983,10 +993,10 @@ cC
 cC
 cC
 Js
-Hy
+TI
 dG
 xw
-CQ
+xw
 xw
 xw
 CQ
@@ -1027,10 +1037,10 @@ Js
 TI
 dG
 xw
-CQ
 xw
 xw
-CQ
+xw
+GZ
 cC
 cC
 cC
@@ -1065,10 +1075,10 @@ cC
 cC
 cC
 Js
-Hy
+TI
 dG
 xw
-CQ
+xw
 xw
 xw
 TI
@@ -1099,17 +1109,17 @@ Hy
 Js
 dG
 Js
-cC
+Jt
 cC
 cC
 cC
 cC
 cC
 Js
-Hy
+TI
 dG
 xw
-CQ
+xw
 xw
 xw
 TI
@@ -1147,13 +1157,13 @@ Hy
 Hy
 Hy
 Js
-Hy
+bi
 ff
 xw
 CQ
 xw
 xw
-CQ
+GZ
 cC
 cC
 cC
