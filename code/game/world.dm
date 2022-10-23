@@ -415,5 +415,6 @@ GLOBAL_VAR_INIT(custom_status_text, "- Пoлный пepeвoд нa Kитaйcки�
 
 var/list/extra_resources = list(\
 	'html/ibmvga9.ttf', \ // "PxPlus IBM VGA9"
-	'html/rvnc.ttf') // "Retroville NC"
+	'html/rvnc.ttf', \ // "Retroville NC"
+)
 
