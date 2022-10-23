@@ -413,4 +413,7 @@ GLOBAL_VAR_INIT(custom_status_text, "- Пoлный пepeвoд нa Kитaйcки�
 
 /world/proc/refresh_atmos_grid()
 
-var/list/extra_resources = list('html/ibmvga9.ttf', 'html/rvnc.ttf')
+var/list/extra_resources = list(\
+	'html/ibmvga9.ttf', \ // "PxPlus IBM VGA9"
+	'html/rvnc.ttf' \ // "Retroville NC"
+)
