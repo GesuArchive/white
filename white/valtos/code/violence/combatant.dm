@@ -123,7 +123,8 @@
 /datum/outfit/job/combantant/pre_equip(mob/living/carbon/human/H)
 	..()
 
-	ADD_TRAIT(H, TRAIT_CORPSELOCKED, "violence")
+	if(GLOB.violence_playmode == VIOLENCE_PLAYMODE_TAG)
+		ADD_TRAIT(H, TRAIT_CORPSELOCKED, "violence")
 
 	if(GLOB.violence_playmode != VIOLENCE_PLAYMODE_TAG)
 		implants = list(/obj/item/implant/explosive/disintegrate)

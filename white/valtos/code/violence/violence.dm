@@ -152,7 +152,11 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 			qdel(H)
 		// добейте выживших и сбежавших
 		for(var/mob/living/carbon/human/H in GLOB.human_list)
-			if(H.stat != DEAD && H.health <= 0 || !(get_turf(H) in main_area))
+			if(H.stat != DEAD && H.health <= 0)
+				if(!(get_turf(H) in main_area))
+					REMOVE_TRAIT(H, TRAIT_CORPSELOCKED, "violence")
+					H.dust()
+					continue
 				if(isandroid(H) || isIPC(H) || GLOB.violence_playmode == VIOLENCE_PLAYMODE_TAG)
 					H.death()
 					continue
@@ -247,16 +251,6 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 
 	vp_dead.deaths++
 
-	var/datum/violence_player/vp_killer = vp_get_player(dead?.lastattackermob?.ckey)
-
-	if(!vp_killer)
-		return
-
-	var/rightkill = vp_dead.team != vp_killer.team
-
-	vp_killer.money += rightkill ? payout : -payout
-	vp_killer.kills += rightkill ? 1 : -1
-
 	if(!dead?.mind || !ishuman(dead))
 		return
 
@@ -298,6 +292,16 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 			if("blue")
 				GLOB.violence_blue_team -= dead.mind
 				to_chat(world, span_blue("[LAZYLEN(GLOB.violence_blue_team)]/[last_blues]"))
+
+	var/datum/violence_player/vp_killer = vp_get_player(dead?.lastattackermob?.ckey)
+
+	if(!vp_killer)
+		return
+
+	var/rightkill = vp_dead.team != vp_killer.team
+
+	vp_killer.money += rightkill ? payout : -payout
+	vp_killer.kills += rightkill ? 1 : -1
 
 	to_chat(dead?.lastattackermob, span_boldnotice("[rightkill ? "+[payout]" : "-[payout]"]₽"))
 
