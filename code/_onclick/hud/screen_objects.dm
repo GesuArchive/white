@@ -217,7 +217,10 @@
 				. += blocked_overlay
 
 	if(held_index == hud.mymob.active_hand_index)
-		. += "hand_active"
+		if(hud.mymob?.client?.prefs?.UI_style in list("Trasen-Knox", "Syndiekats"))
+			. += (held_index % 2) ? "lhandactive" : "rhandactive"
+		else
+			. += "hand_active"
 
 
 /atom/movable/screen/inventory/hand/Click(location, control, params)
