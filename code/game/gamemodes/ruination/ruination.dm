@@ -9,7 +9,7 @@
 GLOBAL_LIST_EMPTY(pulse_engines)
 GLOBAL_VAR_INIT(station_orbit_height, HEIGHT_OPTIMAL)
 GLOBAL_VAR_INIT(station_orbit_speed, 0)
-GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
+GLOBAL_VAR_INIT(forced_parallax_type, 1)
 
 /datum/game_mode/ruination
 	name = "ruination"
@@ -200,21 +200,21 @@ GLOBAL_VAR_INIT(station_orbit_parallax_type, 1)
 			var/datum/hud/H = M?.hud_used
 			H?.station_height?.update_height()
 
-	var/cur_height = GLOB.station_orbit_parallax_type
+	var/cur_height = GLOB.forced_parallax_type
 
 	switch(GLOB.station_orbit_height)
 		if(HEIGHT_OPTIMAL to INFINITY)
-			GLOB.station_orbit_parallax_type = 0
+			GLOB.forced_parallax_type = 0
 		if(HEIGHT_DANGER to HEIGHT_OPTIMAL)
-			GLOB.station_orbit_parallax_type = 2
+			GLOB.forced_parallax_type = 2
 		if(HEIGHT_CRITICAL to HEIGHT_DANGER)
-			GLOB.station_orbit_parallax_type = 3
+			GLOB.forced_parallax_type = 3
 		if(HEIGHT_DEADEND to HEIGHT_CRITICAL)
-			GLOB.station_orbit_parallax_type = 4
+			GLOB.forced_parallax_type = 4
 		if(HEIGHT_CRASH to HEIGHT_DEADEND)
-			GLOB.station_orbit_parallax_type = 5
+			GLOB.forced_parallax_type = 5
 
-	if(cur_height != GLOB.station_orbit_parallax_type)
+	if(cur_height != GLOB.forced_parallax_type)
 		for(var/m in GLOB.player_list)
 			if(ismob(m) && !isnewplayer(m))
 				var/mob/M = m

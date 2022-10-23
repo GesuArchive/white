@@ -9,17 +9,17 @@
 
 	C.parallax_layers_cached = list()
 
-	if(HAS_TRAIT(viewmob, TRAIT_HACKER))
+	if(HAS_TRAIT(viewmob, TRAIT_HACKER) || GLOB.forced_parallax_type == 100)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/cyberspess(null, screenmob)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/mazespace(null, screenmob)
-	else if(HAS_TRAIT(viewmob, TRAIT_DREAMER))
+	else if(HAS_TRAIT(viewmob, TRAIT_DREAMER) || GLOB.forced_parallax_type == 101)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/shizospace(null, screenmob)
-	else if(GLOB.station_orbit_parallax_type == 3)
+	else if(GLOB.forced_parallax_type == 3)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/ice_surface(null, screenmob)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/clouds(null, screenmob)
-	else if(GLOB.station_orbit_parallax_type == 4)
+	else if(GLOB.forced_parallax_type == 4)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/fucking(null, screenmob)
-	else if(GLOB.station_orbit_parallax_type == 5)
+	else if(GLOB.forced_parallax_type == 5)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/ice_surface(null, screenmob)
 	else
 		C.parallax_layers_cached += new SSparallax.random_space(null, screenmob)

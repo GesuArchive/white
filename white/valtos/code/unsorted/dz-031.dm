@@ -23,25 +23,9 @@
 	vis_flags = VIS_INHERIT_ID
 	blocks_air = FALSE
 
-/turf/open/floor/dz/normal/Initialize(mapload)
-	SHOULD_CALL_PARENT(FALSE)
-	vis_contents.Cut()
-	visibilityChanged()
-
-	if(flags_1 & INITIALIZED_1)
-		stack_trace("Warning: [src]([type]) initialized multiple times!")
-	flags_1 |= INITIALIZED_1
-
-	ComponentInitialize()
-
-	if(!blocks_air)
-		air = new
-		air.copy_from_turf(src)
-		update_air_ref(0)
-
-	SSvis_overlays.add_vis_overlay(src, icon, "fucked", plane = PLANE_SPACE)
-
-	return INITIALIZE_HINT_NORMAL
+/turf/open/floor/dz/normal/LateInitialize()
+	. = ..()
+	AddElement(/datum/element/turf_z_transparency)
 
 /turf/open/floor/dz/green
 	name = "пол"
@@ -58,6 +42,10 @@
 /turf/open/floor/dz/cyber
 	name = "си-пол"
 	icon_state = "c_floor"
+
+/turf/open/floor/dz/cyber/LateInitialize()
+	. = ..()
+	AddElement(/datum/element/turf_z_transparency)
 
 /turf/open/floor/dz/pre_exit
 	name = "зона выхода"

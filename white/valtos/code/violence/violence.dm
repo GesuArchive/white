@@ -39,13 +39,15 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	var/losestreak_reds = 0
 	var/losestreak_blues = 0
 
-	// выплата в каждом раунде
+	// выплата в каждом раунде и за убийство
 	var/payout = 50
 
 	announce_span = "danger"
 	announce_text = "Резня!"
 
 /datum/game_mode/violence/pre_setup()
+	// ускоряем тикер вдвое, экспериментально
+	SSticker.wait = 1 SECONDS
 	// ставим тематическую заставку
 	var/icon/great_title_icon = icon(pick('white/valtos/icons/violence/violence1.jpg', 'white/valtos/icons/violence/violence2.jpg'))
 	SStitle.icon = great_title_icon
@@ -94,11 +96,11 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		EXP_TYPE_COMBATANT_RED = list("titles" = GLOB.combatant_red_positions),
 		EXP_TYPE_COMBATANT_BLUE = list("titles" = GLOB.combatant_blue_positions)
 	)
-	// удаляем все спаунеры из мира
-	QDEL_LIST(GLOB.mob_spawners)
 	// удаляем все CTF из мира
 	for(var/obj/machinery/capture_the_flag/CTF in GLOB.machines)
 		qdel(CTF)
+	// выставляем особый параллакс
+	GLOB.forced_parallax_type = 100
 	// маркируем все текущие атомы, чтобы чистильщик их не удалил
 	for(var/atom/A in main_area)
 		A.flags_1 |= KEEP_ON_ARENA_1
@@ -116,7 +118,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		if(player.ready == PLAYER_READY_TO_PLAY)
 			player.ready = PLAYER_NOT_READY
 	// удаляем все спаунеры из мира, дополнительно
-	QDEL_LIST(GLOB.mob_spawners)
+	QDEL_LIST_ASSOC(GLOB.mob_spawners)
 	return TRUE
 
 /datum/game_mode/violence/post_setup()
@@ -170,14 +172,14 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 						T.ChangeTurf(pick(subtypesof(/turf/open)))
 			if("cyber")
 				for(var/turf/open/T as() in main_area)
-					if(prob(95) || !istype(T, /turf/open))
+					if(prob(98) || !istype(T, /turf/open))
 						continue
 					new /obj/effect/attack_spike(T)
 		// проверяем, умерли ли все после открытия ворот
 		if(round_started_at + 30 SECONDS < world.time)
 			// заставляем людей произносить рандомные реплики
 			for(var/mob/living/carbon/human/H in main_area)
-				if(prob(3) && H.stat == CONSCIOUS)
+				if(prob(2) && H.stat == CONSCIOUS)
 					random_speech(H)
 			// обновляем таймер
 			update_timer()
@@ -259,7 +261,10 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	vp_killer.money += rightkill ? payout : -payout
 	vp_killer.kills += rightkill ? 1 : -1
 
-	if(GLOB.violence_playmode == VIOLENCE_PLAYMODE_TAG && dead?.mind && ishuman(dead))
+	if(!dead?.mind || !ishuman(dead))
+		return
+
+	if(GLOB.violence_playmode == VIOLENCE_PLAYMODE_TAG)
 		var/mob/living/carbon/human/H = dead
 		var/obj/item/card/id/new_card
 		qdel(H.wear_id)
@@ -301,7 +306,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	to_chat(dead?.lastattackermob, span_boldnotice("[rightkill ? "+[payout]" : "-[payout]"]₽"))
 
 /datum/game_mode/violence/proc/update_timer()
-	GLOB.violence_time_limit -= 2 SECONDS
+	GLOB.violence_time_limit -= 1 SECONDS
 	GLOB.violence_time_limit = max(0, GLOB.violence_time_limit)
 	var/formatted_time = time2text(GLOB.violence_time_limit, "mm:ss")
 	for(var/mob/M in GLOB.player_list)
@@ -326,27 +331,33 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 			losestreak_blues = 0
 			losestreak_reds++
 	spawn(3 SECONDS)
+		sortTim(GLOB.violence_players, /proc/cmp_violence_players, TRUE)
 		play_sound_to_everyone('white/valtos/sounds/gong.ogg')
 		var/list/stats_reds = list()
 		var/list/stats_blues = list()
 		var/list/stats = list()
 		stats += "<table><tr><td>Игрок</td><td>Убийств</td><td>Смертей</td></tr>"
-		for(var/key in sortTim(GLOB.violence_players, /proc/cmp_violence_players))
-			var/datum/violence_player/VP = GLOB.violence_players[key]
-			// раздаём деньги бомжам
-			VP.money += payout * GLOB.violence_current_round
-			VP.money += VP.team == "red" ? losestreak_reds * payout : losestreak_blues * payout
-			if(VP.team == "red")
-				stats_reds += "<tr><td><b class='red'>[key]</b></td><td>[VP.kills]</td><td>[VP.deaths]</td></tr>"
-			else if (VP.team == "blue")
-				stats_blues += "<tr><td><b class='blue'>[key]</b></td><td>[VP.kills]</td><td>[VP.deaths]</td></tr>"
-		LAZYADD(stats, stats_reds)
-		LAZYADD(stats, stats_blues)
+		if(GLOB.violence_playmode != VIOLENCE_PLAYMODE_TAG)
+			for(var/key in GLOB.violence_players)
+				var/datum/violence_player/VP = GLOB.violence_players[key]
+				// раздаём деньги бомжам
+				VP.money += payout * GLOB.violence_current_round
+				VP.money += VP.team == "red" ? losestreak_reds * payout : losestreak_blues * payout
+				if(VP.team == "red")
+					stats_reds += "<tr><td><b class='red'>[key]</b></td><td>[VP.kills]</td><td>[VP.deaths]</td></tr>"
+				else if (VP.team == "blue")
+					stats_blues += "<tr><td><b class='blue'>[key]</b></td><td>[VP.kills]</td><td>[VP.deaths]</td></tr>"
+			LAZYADD(stats, stats_reds)
+			LAZYADD(stats, stats_blues)
+		else
+			for(var/key in GLOB.violence_players)
+				LAZYADD(stats, "<tr><td><b>[key]</b></td><td>[VP.kills]</td><td>[VP.deaths]</td></tr>")
 		stats += "</table>"
 		to_chat(world, span_info(stats.Join()))
 		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round]/[VIOLENCE_FINAL_ROUND-1] ЗАВЕРШЁН!"))
-		to_chat(world, leader_brass("ПОБЕДА [winner]! <b class='red'>[wins_reds]</b>/<b class='blue'>[wins_blues]</b>"))
-		to_chat(world, leader_brass("Выдано [payout * GLOB.violence_current_round]₽ победителям и [(payout * GLOB.violence_current_round) + (winner != "КРАСНЫХ" ? losestreak_reds * payout : losestreak_blues * payout)]₽ проигравшим!"))
+		if(GLOB.violence_playmode != VIOLENCE_PLAYMODE_TAG)
+			to_chat(world, leader_brass("ПОБЕДА [winner]! <b class='red'>[wins_reds]</b>/<b class='blue'>[wins_blues]</b>"))
+			to_chat(world, leader_brass("Выдано [payout * GLOB.violence_current_round]₽ победителям и [(payout * GLOB.violence_current_round) + (winner != "КРАСНЫХ" ? losestreak_reds * payout : losestreak_blues * payout)]₽ проигравшим!"))
 	play_sound_to_everyone('white/valtos/sounds/crowd_win.ogg')
 	spawn(10 SECONDS)
 		new_round()
