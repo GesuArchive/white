@@ -269,7 +269,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 			if("red")
 				vp_dead.team = "blue"
 				new_card = new /obj/item/card/id/blue
-				R.set_frequency(FREQ_CTF_BLUE)
+				R?.set_frequency(FREQ_CTF_BLUE)
 				SSid_access.apply_trim_to_card(new_card, /datum/id_trim/combatant/blue)
 				dead.mind.remove_antag_datum(/datum/antagonist/combatant/red)
 				dead.mind.add_antag_datum(/datum/antagonist/combatant/blue)
@@ -278,7 +278,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 			if("blue")
 				vp_dead.team = "red"
 				new_card = new /obj/item/card/id/red
-				R.set_frequency(FREQ_CTF_RED)
+				R?.set_frequency(FREQ_CTF_RED)
 				SSid_access.apply_trim_to_card(new_card, /datum/id_trim/combatant/red)
 				dead.mind.remove_antag_datum(/datum/antagonist/combatant/blue)
 				dead.mind.add_antag_datum(/datum/antagonist/combatant/red)

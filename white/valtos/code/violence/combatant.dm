@@ -150,19 +150,21 @@
 
 /datum/outfit/job/combantant/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/obj/item/card/id/W = H.wear_id
-	W.registered_name = H.real_name
-	W.update_label()
+	if(W)
+		W.registered_name = H.real_name
+		W.update_label()
 	var/obj/item/radio/R = H.ears
-	switch(team)
-		if("red")
-			R.set_frequency(FREQ_CTF_RED)
-			SSid_access.apply_trim_to_card(W, /datum/id_trim/combatant/red)
-		if("blue")
-			R.set_frequency(FREQ_CTF_BLUE)
-			SSid_access.apply_trim_to_card(W, /datum/id_trim/combatant/blue)
-	R.AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
-	R.freqlock = TRUE
-	R.independent = TRUE
+	if(R)
+		switch(team)
+			if("red")
+				R.set_frequency(FREQ_CTF_RED)
+				SSid_access.apply_trim_to_card(W, /datum/id_trim/combatant/red)
+			if("blue")
+				R.set_frequency(FREQ_CTF_BLUE)
+				SSid_access.apply_trim_to_card(W, /datum/id_trim/combatant/blue)
+		R.AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+		R.freqlock = TRUE
+		R.independent = TRUE
 	H.sec_hud_set_ID()
 	// экипируем штуки спустя секунду, чтобы некоторый стаф не падал в нуллспейс случайно
 	spawn(1 SECONDS)
