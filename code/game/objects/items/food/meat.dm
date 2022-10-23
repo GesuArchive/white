@@ -633,6 +633,7 @@
 	var/subjectname = ""
 	var/subjectjob = null
 	w_class = WEIGHT_CLASS_SMALL
+	drop_sound = 'sound/effects/flesh_drop.wav'
 
 /obj/item/food/meat/slab
 	name = "мясо"
