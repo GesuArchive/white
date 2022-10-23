@@ -101,6 +101,11 @@
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
+/obj/structure/closet/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
+	. = ..()
+	if(has_gravity())
+		playsound(src, pick('sound/effects/drag1.ogg', 'sound/effects/drag2.ogg'), 60, TRUE)
+
 /obj/structure/closet/proc/create_password()
 	var/pass = ""
 	for(var/i in 1 to 3)
