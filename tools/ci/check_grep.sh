@@ -137,7 +137,7 @@ if grep -Pzo '"\w+" = \(\n[^)]*?/area/.+?,\n[^)]*?/area/.+?\)' _maps/**/*.dmm; t
     echo "ERROR: Multiple areas detected on the same tile! Please choose only one area!"
     st=1
 fi;
-if grep -P '^/*var/' code/**/*.dm; then
+if grep -P '^/*var/(?!list/extra_resources)' code/**/*.dm; then
     echo "ERROR: Unmanaged global var use detected in code, please use the helpers."
     st=1
 fi;
