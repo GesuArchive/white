@@ -351,6 +351,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 			LAZYADD(stats, stats_blues)
 		else
 			for(var/key in GLOB.violence_players)
+				var/datum/violence_player/VP = GLOB.violence_players[key]
 				LAZYADD(stats, "<tr><td><b>[key]</b></td><td>[VP.kills]</td><td>[VP.deaths]</td></tr>")
 		stats += "</table>"
 		to_chat(world, span_info(stats.Join()))
