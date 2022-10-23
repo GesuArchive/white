@@ -22,8 +22,6 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 
 	// активен ли раунд
 	var/round_active = FALSE
-	// когда был начат раунд
-	var/round_started_at = 0
 	// основная зона, которая отслеживается
 	var/area/main_area
 
@@ -172,44 +170,42 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 						T.ChangeTurf(pick(subtypesof(/turf/open)))
 			if("cyber")
 				for(var/turf/open/T as() in main_area)
-					if(prob(98) || !istype(T, /turf/open))
+					if(prob(99) || !istype(T, /turf/open))
 						continue
 					new /obj/effect/attack_spike(T)
-		// проверяем, умерли ли все после открытия ворот
-		if(round_started_at + 30 SECONDS < world.time)
-			// заставляем людей произносить рандомные реплики
-			for(var/mob/living/carbon/human/H in main_area)
-				if(prob(2) && H.stat == CONSCIOUS)
-					random_speech(H)
-			// обновляем таймер
-			update_timer()
-			if(GLOB.violence_playmode == VIOLENCE_PLAYMODE_BOMBDEF)
-				if(GLOB.violence_bomb_detonated)
-					end_round("КРАСНЫХ")
-					return
-				if(GLOB.violence_bomb_planted && !GLOB.violence_bomb_active)
-					end_round("СИНИХ")
-					return
-				if(GLOB.violence_bomb_active)
-					return
-			if(GLOB.violence_time_limit <= 0)
-				if(GLOB.violence_bomb_planted && GLOB.violence_blue_team.len)
-					return
-				if(GLOB.violence_playmode == VIOLENCE_PLAYMODE_BOMBDEF)
-					end_round("СИНИХ")
-					return
-				if(GLOB.violence_red_team.len < GLOB.violence_blue_team.len)
-					end_round("СИНИХ")
-					return
-				if(GLOB.violence_red_team.len > GLOB.violence_blue_team.len)
-					end_round("КРАСНЫХ")
-					return
-			if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len)
-				end_round("СИНИХ")
-			if(GLOB.violence_blue_team.len == 0 && GLOB.violence_red_team.len)
+		// заставляем людей произносить рандомные реплики
+		for(var/mob/living/carbon/human/H in main_area)
+			if(prob(2) && H.stat == CONSCIOUS)
+				random_speech(H)
+		// обновляем таймер
+		update_timer()
+		if(GLOB.violence_playmode == VIOLENCE_PLAYMODE_BOMBDEF)
+			if(GLOB.violence_bomb_detonated)
 				end_round("КРАСНЫХ")
-			if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len == 0)
-				end_round()
+				return
+			if(GLOB.violence_bomb_planted && !GLOB.violence_bomb_active)
+				end_round("СИНИХ")
+				return
+			if(GLOB.violence_bomb_active)
+				return
+		if(GLOB.violence_time_limit <= 0)
+			if(GLOB.violence_bomb_planted && GLOB.violence_blue_team.len)
+				return
+			if(GLOB.violence_playmode == VIOLENCE_PLAYMODE_BOMBDEF)
+				end_round("СИНИХ")
+				return
+			if(GLOB.violence_red_team.len < GLOB.violence_blue_team.len)
+				end_round("СИНИХ")
+				return
+			if(GLOB.violence_red_team.len > GLOB.violence_blue_team.len)
+				end_round("КРАСНЫХ")
+				return
+		if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len)
+			end_round("СИНИХ")
+		if(GLOB.violence_blue_team.len == 0 && GLOB.violence_red_team.len)
+			end_round("КРАСНЫХ")
+		if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len == 0)
+			end_round()
 
 /datum/game_mode/violence/proc/random_speech(mob/living/carbon/human/H)
 	var/is_heavy = FALSE
@@ -432,15 +428,13 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		SSjob.ResetOccupations("Violence")
 		SSjob.SetJobPositions(/datum/job/combantant/red, 999, 999, TRUE)
 		SSjob.SetJobPositions(/datum/job/combantant/blue, 999, 999, TRUE)
-		// активируем раунд
-		round_active = TRUE
-		// метим время начала
-		round_started_at = world.time
 		// оповещаем игроков
 		to_chat(world, leader_brass("РАУНД [GLOB.violence_current_round]!"))
 		play_sound_to_everyone('white/valtos/sounds/horn.ogg')
 		// открываем шаттерсы через время
 		spawn(30 SECONDS)
+			// активируем раунд
+			round_active = TRUE
 			if(GLOB.violence_playmode == VIOLENCE_PLAYMODE_BOMBDEF)
 				var/datum/mind/terr_mind = pick(GLOB.violence_red_team)
 				var/mob/living/carbon/human/terrorist = terr_mind.current
