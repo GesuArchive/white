@@ -1,6 +1,6 @@
 /obj/item/clothing/suit/armor/vest/hecu
-	name = "plate carrier system"
-	desc = "A modular armor vest with inserted plates and armor elements that provide decent protection against most types of damage. Despite its modularity, however, you can't remove any of its pieces."
+	name = "боевой модульный жилет"
+	desc = "Модульный бронежилет со вставными пластинами и элементами брони, которые обеспечивают достойную защиту от большинства видов повреждений. Однако, несмотря на его модульность, что-то вытащить из него не получится."
 	icon_state = "combat_vest"
 	inhand_icon_state = "armoralt"
 	blood_overlay_type = "armor"
@@ -14,8 +14,8 @@
 	)
 
 /obj/item/clothing/head/helmet/hecu
-	name = "combat helmet"
-	desc = "A (previously) common helmet design meant to protect its user's head from impacts."
+	name = "боевой модульный шлем"
+	desc = "Распространенная конструкция шлема, предназначенная для защиты головы."
 	icon_state = "combat_helmet"
 	icon = 'white/valtos/icons/black_mesa/hecucloth.dmi'
 	worn_icon = 'white/valtos/icons/black_mesa/hecumob.dmi'
@@ -27,8 +27,8 @@
 	)
 
 /obj/item/clothing/suit/armor/bulletproof/hecu
-	name = "ceramic vest"
-	desc = "Vest made from some brittle and highly conductive, yet incredibly impact- and shock-resistant material. Might be of best use against bullets and explosives."
+	name = "керамический жилет"
+	desc = "Жилет изготовлен из какого-то хрупкого, но невероятно ударопрочного материала. Лучше всего защищает от пуль и взрывов."
 	icon_state = "ceramic_vest"
 	icon = 'white/valtos/icons/black_mesa/hecucloth.dmi'
 	worn_icon = 'white/valtos/icons/black_mesa/hecumob.dmi'
@@ -40,8 +40,8 @@
 	)
 
 /obj/item/clothing/head/helmet/alt/hecu
-	name = "ceramic helmet"
-	desc = "Helmet made from some brittle and highly conductive, yet incredibly impact- and shock-resistant material. Might be of best use against bullets and explosives."
+	name = "керамический шлем"
+	desc = "Шлем изготовлен из какого-то хрупкого, но невероятно ударопрочного материала. Лучше всего защищает от пуль и взрывов."
 	icon_state = "ceramic_helmet"
 	icon = 'white/valtos/icons/black_mesa/hecucloth.dmi'
 	worn_icon = 'white/valtos/icons/black_mesa/hecumob.dmi'

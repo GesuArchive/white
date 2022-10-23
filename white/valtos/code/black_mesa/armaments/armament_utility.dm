@@ -15,8 +15,8 @@
 	cost = 1
 
 /datum/armament_entry/hecu/utility/advanced_tools
-	name = "Powertoolbelt"
-	description = "Tool belt full of power-ful tools."
+	name = "пояс старшего электрика"
+	description = "Хранит инструменты, классно смотрится."
 	item_type = /obj/item/storage/belt/utility/full/engi
 	max_purchase = 1
 	cost = 4
@@ -47,8 +47,8 @@
 	cost = 1
 
 /datum/armament_entry/hecu/utility/jammer
-	name = "Radio Jammer"
-	description = "When activated, this cell powered device will block all outgoing radio communication."
+	name = "глушилка"
+	description = "Заглушает радиопереговоры."
 	item_type = /obj/item/jammer
 	max_purchase = 1
 	cost = 4

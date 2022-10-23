@@ -1,10 +1,10 @@
 /obj/projectile/bullet/a556/weak
-	name = "surplus 5.56mm bullet"
+	name = "устаревшая пуля калибра 5.56мм"
 	damage = 25
 	armour_penetration = 10
 	wound_bonus = -40
 
 /obj/item/ammo_casing/a556/weak
-	name = "5.56mm surplus bullet casing"
-	desc = "A 5.56mm surplus bullet casing."
+	name = "устаревший патрон калибра 5.56мм"
+	desc = "Обычный патрон калибра 5.56мм. Используется в различных винтовках."
 	projectile_type = /obj/projectile/bullet/a556/weak

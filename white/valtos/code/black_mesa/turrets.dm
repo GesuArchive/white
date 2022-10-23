@@ -16,14 +16,14 @@
 	return
 
 /obj/machinery/porta_turret/black_mesa/heavy
-	name = "Heavy Defence Turret"
+	name = "оборонительная туррель"
 	max_integrity = 200
 	lethal_projectile = /obj/projectile/beam/laser/heavylaser
 	lethal_projectile_sound = 'sound/weapons/lasercannonfire.ogg'
 
 /obj/machinery/deployable_turret/hmg/mesa
-	name = "heavy machine gun turret"
-	desc = "A heavy calibre machine gun commonly used by marine forces, famed for it's ability to give people on the recieving end more holes than normal."
+	name = "башня пулемёта"
+	desc = "Создаёт несколько лишних отверстий."
 	icon_state = "hmg"
 	max_integrity = 250
 	projectile_type = /obj/projectile/bullet/manned_turret/hmg/mesa
@@ -37,8 +37,8 @@
 	spawned_on_undeploy = /obj/item/deployable_turret_folded/mesa
 
 /obj/item/deployable_turret_folded/mesa
-	name = "folded heavy machine gun"
-	desc = "A folded and unloaded heavy machine gun, ready to be deployed and used."
+	name = "сложенная башня пулемёта"
+	desc = "Создаёт несколько лишних отверстий. Сейчас он сложен и готов к развёртыванию."
 	icon = 'icons/obj/turrets.dmi'
 	icon_state = "folded_hmg"
 	max_integrity = 250
@@ -54,16 +54,16 @@
 	damage = 35
 
 /obj/item/storage/toolbox/emergency/turret/mesa
-	name = "USMC stationary defense deployment system"
-	desc = "You feel a strange urge to hit this with a wrench."
+	name = "система развертывания стационарной обороны ВМС США"
+	desc = "Так и хочется ударить гаечным ключом по этой штуке."
 
 /obj/item/storage/toolbox/emergency/turret/mesa/PopulateContents()
 	return null
 
 /obj/item/storage/toolbox/emergency/turret/mesa/attackby(obj/item/I, mob/living/user, params)
 	if(I.tool_behaviour == TOOL_WRENCH && user.a_intent == INTENT_HARM)
-		user.visible_message(span_danger("[user] bashes [src] with [I]!"), \
-			span_danger("You bash [src] with [I]!"), null, COMBAT_MESSAGE_RANGE)
+		user.visible_message(span_danger("[user] бьёт по [src] с помощью [I]!"), \
+			span_danger("Бью по [src] с помощью [I]!"), null, COMBAT_MESSAGE_RANGE)
 		playsound(src, "sound/items/drill_use.ogg", 80, TRUE, -1)
 		var/obj/machinery/porta_turret/syndicate/pod/toolbox/mesa/turret = new(get_turf(loc))
 		turret.faction = list(FACTION_HECU)

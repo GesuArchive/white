@@ -5,8 +5,8 @@
 	volume = 100
 
 /obj/effect/bump_teleporter/lambda
-	name = "\improper Lambda Teleporter"
-	desc = "A super powerful teleporter capable of transporting you across dimensions."
+	name = "большой телепорт"
+	desc = "Супер мощный телепортер, способный телепортировать через измерения."
 	icon = 'icons/obj/tesla_engine/energy_ball.dmi'
 	icon_state = "energy_ball"
 	pixel_x = -32

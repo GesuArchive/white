@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/blackmesa/xen/bullsquid
-	name = "bullsquid"
-	desc = "Some highly aggressive alien creature. Thrives in toxic environments."
+	name = "Буллсквид"
+	desc = "Быкокальмар. Плюётся кислотой."
 	icon = 'white/valtos/icons/black_mesa/mobs.dmi'
 	icon_state = "bullsquid"
 	icon_living = "bullsquid"
@@ -9,8 +9,8 @@
 	mob_biotypes = list(MOB_ORGANIC, MOB_BEAST)
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 	speak_chance = 1
-	speak_emote = list("growls")
-	emote_taunt = list("growls", "snarls", "grumbles")
+	speak_emote = list("рычит")
+	emote_taunt = list("рычит", "трясёт щупальцами", "урчит")
 	taunt_chance = 100
 	turns_per_move = 7
 	maxHealth = 110
@@ -35,7 +35,7 @@
 	)
 
 /obj/projectile/bullsquid
-	name = "nasty ball of ooze"
+	name = "слизь"
 	icon_state = "neurotoxin"
 	damage = 5
 	damage_type = BURN

@@ -11,8 +11,8 @@
  * @author Gandalf2k15
  */
 /obj/machinery/armament_station
-	name = "Armament Outfitting Station"
-	desc = "A versatile station for equipping your weapons."
+	name = "станция оснащения вооружением"
+	desc = "Универсальная станция для оснащения ваших друзей оружием."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "liberationstation"
 	density = TRUE
@@ -34,8 +34,8 @@
  * To be used with the armaments vendor.
  */
 /obj/item/armament_points_card
-	name = "armament points card"
-	desc = "A points card that can be used at an Armaments Station or Armaments Dealer."
+	name = "карта очков вооружения"
+	desc = "Карта очков, которую можно использовать на Оружейной станции или у торговца оружием."
 	icon = 'white/valtos/icons/black_mesa/armaments.dmi'
 	icon_state = "armament_card"
 	/// How many points does this card have to use at the vendor?
@@ -67,9 +67,9 @@
 	if(istype(attacking_item, /obj/item/armament_points_card))
 		var/obj/item/armament_points_card/attacking_card = attacking_item
 		if(!attacking_card.points)
-			to_chat(user, span_warning("No points left on [attacking_card]!"))
+			to_chat(user, span_warning("[attacking_card] показывает ноль очков!"))
 			return
-		var/points_to_transfer = clamp(tgui_input_number(user, "How many points do you want to transfer?", "Transfer Points", 1, attacking_card.points, 1), 0, attacking_card.points)
+		var/points_to_transfer = clamp(tgui_input_number(user, "Сколько перевести?", "Передать очки", 1, attacking_card.points, 1), 0, attacking_card.points)
 
 		if(!points_to_transfer)
 			return
@@ -80,4 +80,4 @@
 		if(attacking_card.use_points(points_to_transfer))
 			points += points_to_transfer
 			update_maptext()
-			to_chat(user, span_notice("You transfer [points_to_transfer] onto [src]!"))
+			to_chat(user, span_notice("Успешно передаю [points_to_transfer] очков [src]!"))

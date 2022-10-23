@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/blackmesa/xen/headcrab
-	name = "headcrab"
-	desc = "Don't let it latch onto your hea-... hey, that's kinda cool."
+	name = "хедкраб"
+	desc = "Краб, который прыгает тебе на голову и делает тебя ещё одним безмозглым."
 	icon = 'white/valtos/icons/black_mesa/mobs.dmi'
 	icon_state = "headcrab"
 	icon_living = "headcrab"
@@ -8,9 +8,9 @@
 	icon_gib = null
 	mob_biotypes = list(MOB_ORGANIC, MOB_BEAST)
 	speak_chance = 1
-	speak_emote = list("growls")
+	speak_emote = list("скрежетает по полу")
 	speed = 1
-	emote_taunt = list("growls", "snarls", "grumbles")
+	emote_taunt = list("прыгает на месте", "стучит по полу", "издаёт визг")
 	ranged_message = "jumps"
 	taunt_chance = 100
 	turns_per_move = 7
@@ -76,7 +76,7 @@
 		return
 	var/mob/living/carbon/human/human_to_dunk = hit_atom
 	if(!human_to_dunk.get_item_by_slot(ITEM_SLOT_HEAD) && prob(50) && zombify(human_to_dunk))
-		to_chat(human_to_dunk, span_userdanger("[src] latches onto your head as it pierces your skull, instantly killing you!"))
+		to_chat(human_to_dunk, span_userdanger("[src] проламывает мою голову, мгновенно убивая!"))
 		human_to_dunk.death(FALSE)
 
 /mob/living/simple_animal/hostile/blackmesa/xen/headcrab/proc/zombify(mob/living/carbon/human/zombified_human)
@@ -88,8 +88,8 @@
 		maxHealth += zombie_suit.armor.melee //That zombie's got armor, I want armor!
 	maxHealth += 40
 	health = maxHealth
-	name = "zombie"
-	desc = "A shambling corpse animated by a headcrab!"
+	name = "зомби"
+	desc = "Неуклюжий труп, оживленный хедкрабом!"
 	mob_biotypes |= MOB_HUMANOID
 	melee_damage_lower += 8
 	melee_damage_upper += 11
@@ -106,7 +106,7 @@
 	zombified_human.forceMove(src)
 	oldguy = zombified_human
 	update_appearance()
-	visible_message(span_warning("The corpse of [zombified_human.name] suddenly rises!"))
+	visible_message(span_warning("Труп [zombified_human.name] внезапно встаёт!"))
 	return TRUE
 
 /mob/living/simple_animal/hostile/blackmesa/xen/headcrab/Destroy()

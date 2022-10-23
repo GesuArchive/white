@@ -1,14 +1,14 @@
 /obj/item/minespawner/explosive
-	name = "deactivated explosive landmine"
-	desc = "When activated, will deploy into a highly explosive mine after 3 seconds passes, perfect for lazy marines looking to cover their fortifications with no effort."
+	name = "наземная мина"
+	desc = "При активации через 3 секунды активируется, идеально подходит прикрыть то, что надо защитить."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "uglymine"
 
 	mine_type = /obj/effect/mine/explosive
 
 /obj/item/storage/box/nri_survival_pack
-	name = "NRI survival pack"
-	desc = "A box filled with useful emergency items, supplied by the NRI."
+	name = "аптечка первой помощи"
+	desc = "Аптечка, наполненная полезными предметами первой необходимости, предоставленная институтом Номара для выживания в агрессивной среде."
 	icon_state = "survival_pack"
 	icon = 'white/valtos/icons/black_mesa/survival_pack.dmi'
 	illustration = null
@@ -23,8 +23,8 @@
 	new /obj/item/storage/pill_bottle/multiver(src)
 
 /obj/item/storage/box/rations
-	name = "box of rations"
-	desc = "A box containing ration packs!"
+	name = "набор МРП"
+	desc = "Коробка с пайками!"
 
 /obj/item/storage/box/rations/PopulateContents()
 	new /obj/item/food/rationpack(src)

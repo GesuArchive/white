@@ -38,8 +38,8 @@
 #define HEV_NOTIFICATIONS list(HEV_NOTIFICATION_TEXT_AND_VOICE, HEV_NOTIFICATION_TEXT, HEV_NOTIFICATION_VOICE, HEV_NOTIFICATION_OFF)
 
 /obj/item/clothing/head/helmet/space/hev_suit
-	name = "hazardous environment suit helmet"
-	desc = "The Mark IV HEV suit helmet."
+	name = "защитный костюм HEV"
+	desc = "Шлем Марк IV для защитного костюма."
 	icon = 'white/valtos/icons/black_mesa/hats.dmi'
 	worn_icon = 'white/valtos/icons/black_mesa/head.dmi'
 	icon_state = "hev"
@@ -54,8 +54,8 @@
 	slowdown = 0
 
 /obj/item/clothing/suit/space/hev_suit
-	name = "hazardous environment suit"
-	desc = "The Mark IV HEV suit protects the user from a number of hazardous environments and has in build ballistic protection."
+	name = "защитный костюм HEV"
+	desc = "Данный костюм Марк IV защищает пользователя от ряда опасных сред и имеет встроенную баллистическую защиту."
 	icon = 'white/valtos/icons/black_mesa/suits.dmi'
 	worn_icon = 'white/valtos/icons/black_mesa/suit.dmi'
 	icon_state = "hev"
@@ -203,14 +203,14 @@
 	return ..()
 
 /datum/action/item_action/hev_toggle
-	name = "Toggle HEV Suit"
+	name = "переключить костюм"
 	button_icon = 'white/valtos/icons/black_mesa/toggles.dmi'
 	background_icon_state = "bg_hl"
 	icon_icon = 'white/valtos/icons/black_mesa/toggles.dmi'
 	button_icon_state = "system_off"
 
 /datum/action/item_action/hev_toggle_notifs
-	name = "Toggle HEV Suit Notifications"
+	name = "переключить уведомления костюма"
 	button_icon = 'white/valtos/icons/black_mesa/toggles.dmi'
 	background_icon_state = "bg_hl"
 	icon_icon = 'white/valtos/icons/black_mesa/toggles.dmi'
@@ -218,12 +218,12 @@
 
 /datum/action/item_action/hev_toggle_notifs/Trigger(trigger_flags)
 	var/obj/item/clothing/suit/space/hev_suit/my_suit = target
-	var/new_setting = tgui_input_list(my_suit.current_user, "Please select your notification settings.", "HEV Notification Settings", HEV_NOTIFICATIONS)
+	var/new_setting = tgui_input_list(my_suit.current_user, "Выберите тип уведомлений.", "Настройки HEV", HEV_NOTIFICATIONS)
 
 	if(!new_setting)
 		new_setting = HEV_NOTIFICATION_TEXT_AND_VOICE
 
-	to_chat(my_suit.current_user, span_notice("[my_suit] notification mode is now [new_setting]."))
+	to_chat(my_suit.current_user, span_notice("Уведомления [my_suit] теперь [new_setting]."))
 
 	my_suit.send_notifications = new_setting
 
@@ -300,7 +300,7 @@
 		return FALSE
 
 	if(activating || activated)
-		send_message("ERROR - SYSTEM [activating ? "ALREADY ACTIVATING" : "ALREADY ACTIVATED"]", HEV_COLOR_RED)
+		send_message("ОШИБКА - СИСТЕМА [activating ? "ВКЛЮЧАЕТСЯ" : "ВКЛЮЧЕНА"]", HEV_COLOR_RED)
 		return FALSE
 
 	var/power_test = item_use_power(10, TRUE)
@@ -308,25 +308,25 @@
 		var/failure_reason
 		switch(power_test)
 			if(COMPONENT_NO_CELL)
-				failure_reason = "NO CELL INSERTED"
+				failure_reason = "БАТАРЕЯ НЕ ОБНАРУЖЕНА"
 			if(COMPONENT_NO_CHARGE)
-				failure_reason = "NO CELL CHARGE"
+				failure_reason = "ЗАРЯД БАТАРЕИ НА НУЛЕ"
 			else
-				failure_reason = "GENERIC FAILURE"
-		send_message("ERROR - POWER SYSTEMS FAILURE - [failure_reason]", HEV_COLOR_RED)
+				failure_reason = "ОШИБКА БАТАРЕИ"
+		send_message("ОШИБКА - СБОЙ ПИТАНИЯ - [failure_reason]", HEV_COLOR_RED)
 		return FALSE
 
 	var/obj/item/clothing/head/helmet/space/hev_suit/helmet = current_user.head
 
 	if(!helmet || !istype(helmet))
-		send_message("ERROR - SUIT HELMET NOT PRESENT", HEV_COLOR_RED)
+		send_message("ОШИБКА - ШЛЕМ НЕ ОБНАРУЖЕН", HEV_COLOR_RED)
 		return FALSE
 
 	current_helmet = helmet
 
 	ADD_TRAIT(current_helmet, TRAIT_NODROP, "hev_trait")
 
-	send_message("ACTIVATING SYSTEMS")
+	send_message("АКТИВАЦИЯ СИСТЕМЫ")
 	activating = TRUE
 
 	if(first_use && !GLOB.violence_mode_activated)
@@ -336,13 +336,13 @@
 
 	playsound(src, logon_sound, 50)
 
-	send_message("ESTABLISHING HELMET LINK...")
-	send_message("...ESTABLISHED", HEV_COLOR_GREEN)
+	send_message("ПОДКЛЮЧЕНИЕ К ШЛЕМУ...")
+	send_message("...ШЛЕМ ПОДКЛЮЧЁН", HEV_COLOR_GREEN)
 
-	send_message("CALIBRATING FIT ADJUSTMENTS...")
-	send_message("...CALIBRATED", HEV_COLOR_GREEN)
+	send_message("КАЛИБРОВКА МУСКУЛЬНЫХ УСИЛИТЕЛЕЙ...")
+	send_message("...КАЛИБРОВКА УСПЕШНА", HEV_COLOR_GREEN)
 
-	send_message("CALIBRATING REACTIVE ARMOR SYSTEMS...")
+	send_message("КАЛИБРОВКА УДАРОСТОЙКОЙ БРОНИ...")
 	timer_id = addtimer(CALLBACK(src, .proc/powerarmor), 10 SECONDS, TIMER_STOPPABLE)
 
 /obj/item/clothing/suit/space/hev_suit/proc/use_hev_power(amount)
@@ -351,12 +351,12 @@
 		var/failure_reason
 		switch(power_test)
 			if(COMPONENT_NO_CELL)
-				failure_reason = "NO CELL INSERTED"
+				failure_reason = "БАТАРЕЯ НЕ УСТАНОВЛЕНА"
 			if(COMPONENT_NO_CHARGE)
-				failure_reason = "NO CELL CHARGE"
+				failure_reason = "ЗАРЯД БАТАРЕИ НА НУЛЕ"
 			else
-				failure_reason = "GENERIC FAILURE"
-		send_message("ERROR - POWER SYSTEMS FAILURE - [failure_reason]", HEV_COLOR_RED)
+				failure_reason = "СБОЙ БАТАРЕИ"
+		send_message("ОШИБКА - СБОЙ ПИТАНИЯ - [failure_reason]", HEV_COLOR_RED)
 		deactivate()
 		return FALSE
 	announce_battery()
@@ -433,8 +433,8 @@
 	user_old_oxyloss = current_user.getOxyLoss()
 	RegisterSignal(current_user, COMSIG_MOB_RUN_ARMOR, .proc/process_hit)
 	playsound(src, armor_sound, 50)
-	send_message("...CALIBRATED", HEV_COLOR_GREEN)
-	send_message("CALIBRATING ATMOSPHERIC CONTAMINANT SENSORS...")
+	send_message("...ПРОИЗВЕДЕНА", HEV_COLOR_GREEN)
+	send_message("ДАТЧИК АТМОСФЕРНОГО ЗАГРЯЗНЕНИЯ...")
 	timer_id = addtimer(CALLBACK(src, .proc/atmospherics), 4 SECONDS, TIMER_STOPPABLE)
 
 /obj/item/clothing/suit/space/hev_suit/proc/process_hit()
@@ -489,16 +489,16 @@
 /obj/item/clothing/suit/space/hev_suit/proc/atmospherics()
 	var/obj/item/tank/internals/tank = current_user.get_item_by_slot(ITEM_SLOT_SUITSTORE)
 	if(!tank || !istype(tank))
-		send_message("...FAILURE, NO TANK DETECTED", HEV_COLOR_RED)
-		send_message("CALIBRATING VITALSIGN MONITORING SYSTEMS...")
+		send_message("...ОШИБКА, НЕ ОБНАРУЖЕН КИСЛОРОДНЫЙ БАЛЛОН", HEV_COLOR_RED)
+		send_message("БИОМОНИТОРИНГ ЗДОРОВЬЯ...")
 		timer_id = addtimer(CALLBACK(src, .proc/vitalsigns), 4 SECONDS, TIMER_STOPPABLE)
 		return
 	current_internals_tank = tank
 	ADD_TRAIT(current_internals_tank, TRAIT_NODROP, "hev_trait")
-	to_chat(current_user, span_notice("You hear a click as [current_internals_tank] is secured to your suit."))
+	to_chat(current_user, span_notice("Слышу щелчок как [current_internals_tank] закрепляется в костюме."))
 	playsound(src, atmospherics_sound, 50)
-	send_message("...CALIBRATED", HEV_COLOR_GREEN)
-	send_message("CALIBRATING VITALSIGN MONITORING SYSTEMS...")
+	send_message("...ОТКАЛИБРОВАН", HEV_COLOR_GREEN)
+	send_message("БИОМОНИТОРИНГ ЗДОРОВЬЯ...")
 	timer_id = addtimer(CALLBACK(src, .proc/vitalsigns), 4 SECONDS, TIMER_STOPPABLE)
 
 
@@ -511,15 +511,15 @@
 /obj/item/clothing/suit/space/hev_suit/proc/vitalsigns()
 	RegisterSignal(current_user, COMSIG_MOB_STATCHANGE, .proc/stat_changed)
 	playsound(src, vitalsigns_sound, 50)
-	send_message("...CALIBRATED", HEV_COLOR_GREEN)
-	send_message("CALIBRATING AUTOMATIC MEDICAL SYSTEMS...")
+	send_message("...АКТИВИРОВАН", HEV_COLOR_GREEN)
+	send_message("СИСТЕМА ЖИЗНЕОБЕСПЕЧЕНИЯ...")
 	timer_id = addtimer(CALLBACK(src, .proc/medical_systems), 3 SECONDS, TIMER_STOPPABLE)
 
 /obj/item/clothing/suit/space/hev_suit/proc/stat_changed(datum/source, new_stat)
 	SIGNAL_HANDLER
 	if(new_stat == DEAD)
 		playsound(src, 'white/valtos/sounds/black_mesa/hev/flatline.ogg', 40)
-		internal_radio.talk_into(src, "WARNING! USER [uppertext(current_user.real_name)] VITALSIGNS HAVE FLATLINED, CURRENT POSITION: [loc.x], [loc.y], [loc.z]!", radio_channel)
+		internal_radio.talk_into(src, "ВНИМАНИЕ! ПОЛЬЗОВАТЕЛЬ [uppertext(current_user.real_name)] МЁРТВ. МЕСТОПОЛОЖЕНИЕ ПОЛЬЗОВАТЕЛЯ: [loc.x], [loc.y], [loc.z]!", radio_channel)
 		deactivate()
 
 /obj/item/clothing/suit/space/hev_suit/proc/medical_systems()
@@ -527,8 +527,8 @@
 	RegisterSignal(current_user, COMSIG_ATOM_ACID_ACT, .proc/process_acid)
 	START_PROCESSING(SSobj, src)
 	playsound(src, automedic_sound, 50)
-	send_message("...CALIBRATED", HEV_COLOR_GREEN)
-	send_message("CALIBRATING DEFENSIVE WEAPON SELECTION SYSTEMS...")
+	send_message("...ВКЛЮЧЕНА", HEV_COLOR_GREEN)
+	send_message("СИСТЕМА ЖИЗНЕОБЕСПЕЧЕНИЯ...")
 	timer_id = addtimer(CALLBACK(src, .proc/weaponselect), 3 SECONDS, TIMER_STOPPABLE)
 
 /obj/item/clothing/suit/space/hev_suit/process(delta_time)
@@ -552,7 +552,7 @@
 
 	if(diseased)
 		send_hev_sound(biohazard_sound)
-		send_message("DISEASE CURED", HEV_COLOR_BLUE)
+		send_message("БОЛЕЗНЬ ИЗЛЕЧЕНА", HEV_COLOR_BLUE)
 
 	handle_tank()
 
@@ -565,7 +565,7 @@
 	if(current_user.all_wounds)
 		var/datum/wound/wound2fix = current_user.all_wounds[1]
 		wound2fix.remove_wound()
-		send_message("WOUND TREATED", HEV_COLOR_BLUE)
+		send_message("ТРАВМА ОБРАБОТАНА", HEV_COLOR_BLUE)
 
 	if(world.time <= healing_current_cooldown)
 		return
@@ -586,7 +586,7 @@
 		if(use_hev_power(HEV_POWERUSE_HEAL))
 			current_user.adjustOxyLoss(-HEV_HEAL_AMOUNT)
 			healing_current_cooldown = world.time + health_static_cooldown
-			send_message("ADRENALINE ADMINISTERED", HEV_COLOR_BLUE)
+			send_message("АДРЕНАЛИН ВВЕДЁН", HEV_COLOR_BLUE)
 			send_hev_sound(morphine_sound)
 		return
 
@@ -594,7 +594,7 @@
 		if(use_hev_power(HEV_POWERUSE_HEAL))
 			current_user.adjustBruteLoss(-HEV_HEAL_AMOUNT)
 			healing_current_cooldown = world.time + health_static_cooldown
-			send_message("BRUTE MEDICAL ATTENTION ADMINISTERED", HEV_COLOR_BLUE)
+			send_message("ПРОТИВОТРАВМИРУЮЩЕЕ ВЕЩЕСТВО ВВЕДЕНО", HEV_COLOR_BLUE)
 			send_hev_sound(wound_sound)
 		return
 
@@ -602,7 +602,7 @@
 		if(use_hev_power(HEV_POWERUSE_HEAL))
 			current_user.adjustFireLoss(-HEV_HEAL_AMOUNT)
 			healing_current_cooldown = world.time + health_static_cooldown
-			send_message("BURN MEDICAL ATTENTION ADMINISTERED", HEV_COLOR_BLUE)
+			send_message("ПРОТИВООЖОГОВОЕ ВЕЩЕСТВО ВВЕДЕНО", HEV_COLOR_BLUE)
 			send_hev_sound(wound_sound)
 		return
 
@@ -610,7 +610,7 @@
 		if(use_hev_power(HEV_POWERUSE_HEAL))
 			current_user.adjustToxLoss(-HEV_HEAL_AMOUNT)
 			healing_current_cooldown = world.time + health_static_cooldown
-			send_message("TOXIN MEDICAL ATTENTION ADMINISTERED", HEV_COLOR_BLUE)
+			send_message("ПРОТИВОТОКСИННОЕ ВЕЩЕСТВО ВВЕДЕНО", HEV_COLOR_BLUE)
 			send_hev_sound(antitoxin_sound)
 		return
 
@@ -618,7 +618,7 @@
 		if(use_hev_power(HEV_POWERUSE_HEAL))
 			current_user.adjustCloneLoss(-HEV_HEAL_AMOUNT)
 			healing_current_cooldown = world.time + health_static_cooldown
-			send_message("MEDICAL ATTENTION ADMINISTERED", HEV_COLOR_BLUE)
+			send_message("ПРОТИВОРАЗЛАГАЕМОЕ ВЕЩЕСТВО ВВЕДЕНО", HEV_COLOR_BLUE)
 			send_hev_sound(antidote_sound)
 		return
 
@@ -678,27 +678,27 @@
 /obj/item/clothing/suit/space/hev_suit/proc/weaponselect()
 	ADD_TRAIT(current_user, list(TRAIT_GUNFLIP,TRAIT_GUN_NATURAL), "hev_trait")
 	playsound(src, weaponselect_sound, 50)
-	send_message("...CALIBRATED", HEV_COLOR_GREEN)
-	send_message("CALIBRATING MUNITION LEVEL MONITORING SYSTEMS...")
+	send_message("...ВКЛЮЧЕНА", HEV_COLOR_GREEN)
+	send_message("УРОВЕНЬ КОЛИЧЕСТВА БОЕПРИПАСОВ...")
 	timer_id = addtimer(CALLBACK(src, .proc/munitions_monitoring), 4 SECONDS, TIMER_STOPPABLE)
 
 /obj/item/clothing/suit/space/hev_suit/proc/munitions_monitoring()
 	//Crickets, not sure what to make this do!
 	playsound(src, munitions_sound, 50)
-	send_message("...CALIBRATED", HEV_COLOR_GREEN)
-	send_message("CALIBRATING COMMUNICATIONS SYSTEMS...")
+	send_message("...ВКЛЮЧЕН", HEV_COLOR_GREEN)
+	send_message("ПЕРЕГОВОРНОЕ УСТРОИСТВО...")
 	timer_id = addtimer(CALLBACK(src, .proc/comms_system), 4 SECONDS, TIMER_STOPPABLE)
 
 /obj/item/clothing/suit/space/hev_suit/proc/comms_system()
 
 	playsound(src, communications_sound, 50)
-	send_message("...CALIBRATED", HEV_COLOR_GREEN)
+	send_message("...ВКЛЮЧЕНО", HEV_COLOR_GREEN)
 	timer_id = addtimer(CALLBACK(src, .proc/finished), 4 SECONDS, TIMER_STOPPABLE)
 
 /obj/item/clothing/suit/space/hev_suit/proc/finished()
-	to_chat(current_user, span_notice("You feel [src] seal around your body, locking it in place!"))
+	to_chat(current_user, span_notice("[src] прочно закрепляется на моём теле!"))
 	ADD_TRAIT(src, TRAIT_NODROP, "hev_trait")
-	send_message("ALL SYSTEMS ONLINE, WELCOME [uppertext(current_user.real_name)]", HEV_COLOR_GREEN)
+	send_message("БЕЗОПАСНОГО ВАМ ДНЯ", HEV_COLOR_GREEN)
 	playsound(src, safe_day_sound, 50)
 	activated = TRUE
 	activating = FALSE
@@ -737,7 +737,7 @@
 	if(current_internals_tank)
 		REMOVE_TRAIT(current_internals_tank, TRAIT_NODROP, "hev_trait")
 	if(current_user)
-		send_message("SYSTEMS DEACTIVATED", HEV_COLOR_RED)
+		send_message("СИСТЕМА ДЕАКТИВИРОВАНА", HEV_COLOR_RED)
 		REMOVE_TRAIT(current_user, list(TRAIT_GUNFLIP,TRAIT_GUN_NATURAL), "hev_trait")
 		UnregisterSignal(current_user, list(
 			COMSIG_ATOM_ACID_ACT,
@@ -756,8 +756,8 @@
 
 
 /obj/item/clothing/head/helmet/space/hev_suit/pcv
-	name = "powered combat helmet"
-	desc = "A deprecated combat helmet developed during the early 21th century in Sol-3, with protections rated level III-A. Contains attachment points for AN/PVS night vision goggles."
+	name = "энергетический боевой шлем"
+	desc = "Устаревший боевой шлем, разработанный в начале 21 века в Соил-3 третьего класса защиты. Содержит точки крепления для очков ночного видения AN/PVS."
 	icon = 'white/valtos/icons/black_mesa/hecucloth.dmi'
 	worn_icon = 'white/valtos/icons/black_mesa/hecumob.dmi'
 	icon_state = "hecu_helm"
@@ -781,8 +781,8 @@
 	)
 
 /obj/item/clothing/suit/space/hev_suit/pcv
-	name = "powered combat vest"
-	desc = "An electrically charged piece of body armor, the power stiffens the suit's fibers to provide a layer of resilient armor in response to trauma received from kinetic force.  It's fitted with a geiger counter, tactical radio, a heads up display and a combat cocktail injector that allows the user to function normally even after serious injury. The concentration of mass in the lower rear side from the onboard computer makes your ass feel heavy."
+	name = "энергетический боевой жилет"
+	desc = "Электрический боевой бронижилет, энергия придаёт жёсткость энерговолокну, создавая слой упругой брони в ответ на урон, полученный от кинетической силы. Онащен счетчиком Гейгера, тактической рацией, визором и инъектором боевого коктейля, который позволяет пользователю нормально функционировать даже после серьезной травмы. Концентрация бронепластин в нижней части задней панели от бортового компьютера заставляет шоколадный глаз чувствовать непробиваемым."
 	icon = 'white/valtos/icons/black_mesa/hecucloth.dmi'
 	worn_icon = 'white/valtos/icons/black_mesa/hecumob.dmi'
 	icon_state = "hecu_vest"

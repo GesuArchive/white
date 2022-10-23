@@ -1,7 +1,7 @@
 
 /obj/structure/shockplant
-	name = "electrical plant"
-	desc = "It glows with a warm buzz."
+	name = "пилон"
+	desc = "Жужжит."
 	icon = 'white/valtos/icons/black_mesa/plants.dmi'
 	icon_state = "electric_plant"
 	density = TRUE

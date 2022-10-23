@@ -8,8 +8,8 @@
 
 
 /mob/living/simple_animal/hostile/blackmesa/xen/headcrab_zombie/gordon_freeman
-	name = "\improper Gordon Freeman"
-	desc = "Gordon Freeman in the flesh. Or in the zombified form, it seems."
+	name = "Гордон Фримен"
+	desc = "Гордон Фримен собственной персоной. Немного зомби."
 	icon_state = "gordon_freeman"
 	speed = -2
 	environment_smash = ENVIRONMENT_SMASH_RWALLS
@@ -41,27 +41,27 @@
 	RegisterSignal(mob_to_register, COMSIG_PARENT_QDELETING, .proc/mob_died)
 
 /obj/machinery/door/keycard/xen/freeman_boss_entry
-	name = "entry door"
-	desc = "Complete the puzzle to open this door."
+	name = "дверь"
+	desc = "Похоже надо что-то решить что-бы открыть."
 	icon = 'white/valtos/icons/black_mesa/xen_door.dmi'
 	icon_state = "resin"
 	puzzle_id = "freeman_entry"
 
 /obj/item/keycard/freeman_boss_entry
-	name = "entry keycard"
+	name = "ключ-карта"
 	color = "#1100ff"
 	puzzle_id = "freeman_entry"
 
 /obj/machinery/door/keycard/xen/freeman_boss_exit
-	name = "exit door"
-	desc = "You must defeat him."
+	name = "выход"
+	desc = "Ты должен победить его."
 	icon = 'white/valtos/icons/black_mesa/xen_door.dmi'
 	icon_state = "resin"
 	puzzle_id = "freeman_exit"
 
 /obj/item/keycard/freeman_boss_exit
-	name = "\improper Freeman's ID card"
-	desc = "How could you do it? HOW?!!"
+	name = "ИД карта Фримена"
+	desc = "Как ты мог это сделать? КАК!!"
 	color = "#fffb00"
 	puzzle_id = "freeman_exit"
 
@@ -78,7 +78,7 @@
 	return TRUE
 
 /datum/outfit/gordon_freeman
-	name = "Gordon Freeman"
+	name = "Гордон Фримен"
 	uniform = /obj/item/clothing/under/rank/rnd/scientist
 	head = /obj/item/clothing/head/helmet/space/hev_suit
 	ears = /obj/item/radio/headset/headset_cent/commander
@@ -108,7 +108,7 @@
 
 /datum/id_trim/gordon_freeman
 	trim_state = "trim_scientist"
-	assignment = "Theoretical Physicist"
+	assignment = "Физик-теоретик"
 
 /datum/id_trim/gordon_freeman/New()
 	. = ..()

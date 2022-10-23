@@ -24,8 +24,8 @@
 	return ..()
 
 /obj/structure/xen_pylon
-	name = "shield plant"
-	desc = "It seems to be some kind of force field generator."
+	name = "пилон"
+	desc = "Похоже на генератор поля."
 	icon = 'white/valtos/icons/black_mesa/plants.dmi'
 	icon_state = "crystal_pylon"
 	max_integrity = 70

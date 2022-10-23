@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/blackmesa/xen/vortigaunt
-	name = "vortigaunt"
-	desc = "There is no distance between us. No false veils of time or space may intervene."
+	name = "вортигонт"
+	desc = "Рабочий Зена, он выглядит растерянно. Имеет третью руку на животе."
 	icon = 'white/valtos/icons/black_mesa/mobs.dmi'
 	icon_state = "vortigaunt"
 	icon_living = "vortigaunt"
@@ -10,9 +10,9 @@
 	faction = list(FACTION_STATION, "neutral")
 	mob_biotypes = list(MOB_ORGANIC, MOB_BEAST)
 	speak_chance = 1
-	speak_emote = list("galungs")
+	speak_emote = list("колдует")
 	speed = 1
-	emote_taunt = list("galalungas", "galungas", "gungs")
+	emote_taunt = list("колдует", "говорит на непонятном языке", "заклинает")
 	projectiletype = /obj/projectile/beam/emitter
 	projectilesound = 'white/valtos/sounds/black_mesa/mobs/vortigaunt/attack_shoot4.ogg'
 	ranged_cooldown_time = 5 SECONDS
@@ -58,7 +58,7 @@
 	AddComponent(/datum/component/follow, follow_sounds, follow_sounds, follow_distance, follow_speed)
 
 /mob/living/simple_animal/hostile/blackmesa/xen/vortigaunt/slave
-	name = "slave vortigaunt"
-	desc = "Bound by the shackles of a sinister force. He does not want to hurt you."
+	name = "вортигонт"
+	desc = "Раб Зена. Он тебя не будет трогать, ему надо работать."
 	icon_state = "vortigaunt_slave"
 	faction = list(FACTION_XEN)

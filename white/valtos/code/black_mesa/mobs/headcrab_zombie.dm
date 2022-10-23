@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/blackmesa/xen/headcrab_zombie
-	name = "headcrab zombie"
-	desc = "This unlucky person has had a headcrab latch onto their head. Ouch."
+	name = "зомби"
+	desc = "У него на голове краб. Ой, хедкраб."
 	icon = 'white/valtos/icons/black_mesa/mobs.dmi'
 	icon_state = "zombie"
 	icon_living = "zombie"
@@ -9,9 +9,9 @@
 	icon_gib = null
 	icon_dead = "zombie_dead"
 	speak_chance = 1
-	speak_emote = list("growls")
+	speak_emote = list("воет")
 	speed = 1
-	emote_taunt = list("growls", "snarls", "grumbles")
+	emote_taunt = list("воет", "орёт", "танцует")
 	taunt_chance = 100
 	melee_damage_lower = 21
 	melee_damage_upper = 21
@@ -32,23 +32,23 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/blackmesa/xen/headcrab_zombie/scientist
-	name = "zombified scientist"
-	desc = "Even after death, I still have to wear this horrible tie!"
+	name = "зомби"
+	desc = "Похоже он и не понял что случилось тут."
 	icon_state = "scientist_zombie"
 	icon_living = "scientist_zombie"
 
 
 /mob/living/simple_animal/hostile/blackmesa/xen/headcrab_zombie/guard
-	name = "zombified guard"
-	desc = "About that brain I owed ya!"
+	name = "зомби"
+	desc = "Теперь не охраняет учёных."
 	icon_state = "security_zombie"
 	icon_living = "security_zombie"
 	maxHealth = 140 // Armor!
 	health = 140
 
 /mob/living/simple_animal/hostile/blackmesa/xen/headcrab_zombie/hev
-	name = "zombified hazardous environment specialist"
-	desc = "User death... surpassed."
+	name = "зомби"
+	desc = "Облачён в оранжевый костюм, можно услышать иногда звук исходящий из его костюма."
 	icon_state = "hev_zombie"
 	icon_living = "hev_zombie"
 	maxHealth = 250

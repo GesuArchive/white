@@ -1,7 +1,7 @@
 ///////////////////HECU
 /mob/living/simple_animal/hostile/blackmesa/hecu
-	name = "HECU Grunt"
-	desc = "I didn't sign on for this shit. Monsters, sure, but civilians? Who ordered this operation anyway?"
+	name = "Пехотинец HECU"
+	desc = "Пришли спасать рабочих комплекса! Или нет."
 	icon = 'white/valtos/icons/black_mesa/mobs.dmi'
 	icon_state = "hecu_melee"
 	icon_living = "hecu_melee"
@@ -66,8 +66,8 @@
 	loot = list(/obj/effect/gibspawner/human, /obj/effect/spawner/lootdrop/hecu_smg)
 
 /mob/living/simple_animal/hostile/blackmesa/sec
-	name = "Security Guard"
-	desc = "About that beer I owe'd ya!"
+	name = "охранник"
+	desc = "Он должен тебе пиво! Имеет в наличии пистолет."
 	icon = 'white/valtos/icons/black_mesa/mobs.dmi'
 	icon_state = "security_guard_melee"
 	icon_living = "security_guard_melee"
@@ -161,8 +161,8 @@
 	rapid_melee = 1
 
 /mob/living/simple_animal/hostile/blackmesa/blackops
-	name = "black operative"
-	desc = "Why do we always have to clean up a mess the grunts can't handle?"
+	name = "оперативник"
+	desc = "Пришли с теми же целями что и военные."
 	icon = 'white/valtos/icons/black_mesa/mobs.dmi'
 	icon_state = "blackops"
 	icon_living = "blackops"

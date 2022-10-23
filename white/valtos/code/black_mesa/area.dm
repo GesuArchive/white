@@ -2,340 +2,340 @@
 // THE AWAY DIRECTOR WILL USE THESE, DO NOT DUPLICATE AN AREA FAR APART FROM ANOTHER SECTION.
 
 /area/awaymission/black_mesa
-	name = "Black Mesa Inside"
+	name = "Чёрная Меза: Здание"
 
 /area/awaymission/black_mesa/entrance
-	name = "Black Mesa Entrance"
+	name = "Чёрная Меза: Вход"
 	icon_state = "awaycontent1"
 
 /area/awaymission/black_mesa/servers
-	name = "Black Mesa Server Room"
+	name = "Чёрная Меза: Серверная"
 	icon_state = "awaycontent2"
 
 /area/awaymission/black_mesa/entrance_lobby
-	name = "Black Mesa Lobby"
+	name = "Чёрная Меза: Холл"
 	icon_state = "awaycontent3"
 
 /area/awaymission/black_mesa/entrance_tunnel
-	name = "Black Mesa Entrance Tunnels"
+	name = "Чёрная Меза: Туннель"
 	icon_state = "awaycontent4"
 
 /area/awaymission/black_mesa/offices
-	name = "Black Mesa Offices"
+	name = "Чёрная Меза: Офис"
 	icon_state = "awaycontent5"
 
 /area/awaymission/black_mesa/equipment_room
-	name = "Black Mesa Equipment Room"
+	name = "Чёрная Меза: Раздевалка"
 	icon_state = "awaycontent6"
 
 /area/awaymission/black_mesa/genetics
-	name = "Black Mesa Genetics"
+	name = "Чёрная Меза: Генетика"
 	icon_state = "awaycontent7"
 
 /area/awaymission/black_mesa/entrance_hall
-	name = "Black Mesa Entrance Hallway"
+	name = "Чёрная Меза: Коридор"
 	icon_state = "awaycontent8"
 
 /area/awaymission/black_mesa/scientist_hall
-	name = "Black Mesa Science Hallway"
+	name = "Чёрная Меза: Коридор лаборатории"
 	icon_state = "awaycontent9"
 
 /area/awaymission/black_mesa/science_labs
-	name = "Black Mesa Science Laboratories"
+	name = "Чёрная Меза: лаборатория"
 	icon_state = "awaycontent10"
 
 /area/awaymission/black_mesa/resonant_chamber
-	name = "Black Mesa Resonant Chamber"
+	name = "Чёрная Меза: Резонансная камера"
 	icon_state = "awaycontent11"
 
 /area/awaymission/black_mesa/science_tunnel
-	name = "Black Mesa Science Lab Tunnels"
+	name = "Чёрная Меза: Туннели лаборатории"
 	icon_state = "awaycontent12"
 
 /area/awaymission/black_mesa/science_internal
-	name = "Black Mesa Science Lab Internal"
+	name = "Чёрная Меза: Научная лаборатория"
 	icon_state = "awaycontent13"
 
 /area/awaymission/black_mesa/science_decon_room
-	name = "Black Mesa Science Deconstruction Room"
+	name = "Чёрная Меза: Лаборатория деструктивного анализа"
 	icon_state = "awaycontent14"
 
 /area/awaymission/black_mesa/entrance_large_office
-	name = "Black Mesa Entrance Large Office"
+	name = "Чёрная Меза: Большой офис"
 	icon_state = "awaycontent15"
 
 /area/awaymission/black_mesa/entrance_internal_hall
-	name = "Black Mesa Entrance Internal Halls"
+	name = "Чёрная Меза: Коридор комнаты экипировки"
 	icon_state = "awaycontent16"
 
 /area/awaymission/black_mesa/genetics_sec
-	name = "Black Mesa Genetics Checkpoint"
+	name = "Чёрная Меза: КПП генетики"
 	icon_state = "awaycontent17"
 
 /area/awaymission/black_mesa/genetics_elevator
-	name = "Black Mesa Genetics Elevator"
+	name = "Чёрная Меза: Лифт генетики"
 	icon_state = "awaycontent18"
 
 /area/awaymission/black_mesa/cryo_room
-	name = "Black Mesa Cryogenics Room"
+	name = "Чёрная Меза: Лаборатория криогенеза"
 	icon_state = "awaycontent19"
 
 /area/awaymission/black_mesa/cryo_hallway
-	name = "Black Mesa Cryogenics Hallway"
+	name = "Чёрная Меза: Коридор криокамерной"
 	icon_state = "awaycontent20"
 
 /area/awaymission/black_mesa/cryo_storage
-	name = "Black Mesa Cryogenics Storage"
+	name = "Чёрная Меза: хранилище лаборатории криогенеза"
 	icon_state = "awaycontent21"
 
 /area/awaymission/black_mesa/gas_emitter_chamber
-	name = "Black Mesa Gas Testing Chamber"
+	name = "Чёрная Меза: Лаборатория газов"
 	icon_state = "awaycontent22"
 
 /area/awaymission/black_mesa/tram_room
-	name = "Black Mesa Tram Room"
+	name = "Чёрная Меза: Станция монорельса"
 	icon_state = "awaycontent23"
 
 /area/awaymission/black_mesa/security_outpost
-	name = "Black Mesa Security Outpost"
+	name = "Чёрная Меза: пост охранны"
 	icon_state = "awaycontent24"
 
 /area/awaymission/black_mesa/tram_tunnel
-	name = "Black Mesa Tram Room Tunnels"
+	name = "Чёрная Меза: технический туннель монорельса"
 	icon_state = "awaycontent25"
 
 /area/awaymission/black_mesa/employee_dorm_room
-	name = "Black Mesa Employee Dorms"
+	name = "Чёрная Меза: Общий зал"
 	icon_state = "awaycontent26"
 
 /area/awaymission/black_mesa/dorm_computers
-	name = "Black Mesa Dorm Office Room"
+	name = "Чёрная Меза: офис"
 	icon_state = "awaycontent27"
 
 /area/awaymission/black_mesa/dorm_tunnel
-	name = "Black Mesa Dorm Tunnels"
+	name = "Чёрная Меза: тех-туннели офиса"
 	icon_state = "awaycontent28"
 
 /area/awaymission/black_mesa/deep_sci_storage
-	name = "Black Mesa Deep Science Storage"
+	name = "Чёрная Меза: секретный отдел - научное хранилище"
 	icon_state = "awaycontent29"
 
 /area/awaymission/black_mesa/to_cryo_room
-	name = "Black Mesa Intrim Cryogenics Hallway" //look i couldn't think of anything better
+	name = "Чёрная Меза: секретный отдел - коридор" //look i couldn't think of anything better
 	icon_state = "awaycontent1"
 
 /area/awaymission/black_mesa/deep_sci_hall
-	name = "Black Mesa Deep Science Hallway"
+	name = "Чёрная Меза: секретный отдел - научный холл"
 	icon_state = "awaycontent2"
 
 /area/awaymission/black_mesa/deep_sci_medbay
-	name = "Black Mesa Deep Science Medbay"
+	name = "Чёрная Меза: секретный отдел - медблок"
 	icon_state = "awaycontent3"
 
 /area/awaymission/black_mesa/deep_sci_feesh
-	name = "Black Mesa Deep Science Fishtank"
+	name = "Чёрная Меза: секретный отдел - аквариум"
 	icon_state = "awaycontent4"
 
 /area/awaymission/black_mesa/deep_sci_turret
-	name = "Black Mesa Deep Science Turret Room"
+	name = "Чёрная Меза: лабаратория лазеров"
 	icon_state = "awaycontent5"
 
 /area/awaymission/black_mesa/high_security_hallway
-	name = "Black Mesa High-Security Hallway"
+	name = "Чёрная Меза: закрытый отдел - коридор"
 	icon_state = "awaycontent6"
 
 /area/awaymission/black_mesa/high_security_emitter
-	name = "Black Mesa High-Security Emitter Room"
+	name = "Чёрная Меза: закрытый отдел - полигон ускорителя"
 	icon_state = "awaycontent7"
 
 /area/awaymission/black_mesa/high_security_armory
-	name = "Black Mesa High-Security Armory"
+	name = "Чёрная Меза: закрытый отдел - оружейная"
 	icon_state = "awaycontent8"
 
 /area/awaymission/black_mesa/high_security_surgery
-	name = "Black Mesa High-Security Surgery Theatre"
+	name = "Чёрная Меза: закрытый отдел - анатомический театр"
 	icon_state = "awaycontent9"
 
 /area/awaymission/black_mesa/hecu_zone_external_hall
-	name = "Black Mesa HECU Territory External Hall"
+	name = "Чёрная Меза: зона HECU - Коридор"
 	icon_state = "awaycontent10"
 
 /area/awaymission/black_mesa/hecu_zone_bathroom
-	name = "Black Mesa HECU Territory Bathroom"
+	name = "Чёрная Меза: зона HECU - Туалет"
 	icon_state = "awaycontent11"
 
 /area/awaymission/black_mesa/hecu_zone_test_chambers
-	name = "Black Mesa HECU Territory Testing Chambers"
+	name = "Чёрная Меза: зона HECU - Камеры сдерживания"
 	icon_state = "awaycontent12"
 
 /area/awaymission/black_mesa/hecu_zone_tunnel
-	name = "Black Mesa HECU Territory Tunnel"
+	name = "Чёрная Меза: зона HECU - тех-туннели"
 	icon_state = "awaycontent13"
 
 /area/awaymission/black_mesa/hecu_zone_atrium
-	name = "Black Mesa HECU Territory Atrium"
+	name = "Чёрная Меза: зона HECU - Атриум"
 	icon_state = "awaycontent14"
 
 /area/awaymission/black_mesa/hecu_zone_camp
-	name = "Black Mesa HECU Camp"
+	name = "Чёрная Меза: зона HECU - Лагерь"
 	icon_state = "awaycontent15"
 
 /area/awaymission/black_mesa/hecu_zone_towards_facility
-	name = "Black Mesa HECU North Zone"
+	name = "Чёрная Меза: зона HECU - Каньон"
 	icon_state = "awaycontent16"
 
 /area/awaymission/black_mesa/deep_sci_chem
-	name = "Black Mesa Deep Science Chemistry"
+	name = "Чёрная Меза: секретный отдел - химия"
 	icon_state = "awaycontent17"
 
 /area/awaymission/black_mesa/high_security_sec_point
-	name = "Black Mesa High-Security Checkpoint"
+	name = "Чёрная Меза: закрытый отдел - КПП"
 	icon_state = "awaycontent18"
 
 /area/awaymission/black_mesa/high_security_servers
-	name = "Black Mesa High-Security Server Room"
+	name = "Чёрная Меза: закрытый отдел - серверная"
 	icon_state = "awaycontent19"
 
 /area/awaymission/black_mesa/hecu_zone_external_sec
-	name = "Black Mesa HECU Territory Hall Checkpoint"
+	name = "Чёрная Меза: зона HECU - КПП"
 	icon_state = "awaycontent20"
 
 /area/awaymission/black_mesa/hecu_zone_external_cavein
-	name = "Black Mesa HECU Territory Cave-in"
+	name = "Чёрная Меза: зона HECU - Пещеры"
 	icon_state = "awaycontent21"
 
 /area/awaymission/black_mesa/black_ops_entrance
-	name = "Black Mesa Spec-OP Entrance"
+	name = "Чёрная Меза: База спецназа - блокпост"
 	icon_state = "awaycontent22"
 
 /area/awaymission/black_mesa/black_ops_bus
-	name = "Black Mesa Spec-OP Bus Stop"
+	name = "Чёрная Меза: База спецназа - гараж"
 	icon_state = "awaycontent23"
 
 /area/awaymission/black_mesa/black_ops_eng_storage
-	name = "Black Mesa Spec-OP Engineering Storage"
+	name = "Чёрная Меза: База спецназа - инженерное хранилище"
 	icon_state = "awaycontent24"
 
 /area/awaymission/black_mesa/black_ops_downstairs_atrium
-	name = "Black Mesa Spec-OP Underground Atrium"
+	name = "Чёрная Меза: База спецназа - ангар"
 	icon_state = "awaycontent26"
 
 /area/awaymission/black_mesa/black_ops_hall
-	name = "Black Mesa Spec-OP Hallway"
+	name = "Чёрная Меза: База спецназа - Коридор"
 	icon_state = "awaycontent27"
 
 /area/awaymission/black_mesa/black_ops_button
-	name = "Black Mesa Spec-OP Button Room"
+	name = "Чёрная Меза: База спецназа - Западная серверная"
 	icon_state = "awaycontent28"
 
 /area/awaymission/black_mesa/black_ops_server
-	name = "Black Mesa Spec-OP Server Room"
+	name = "Чёрная Меза: База спецназа - Восточная серверная"
 	icon_state = "awaycontent29"
 
 /area/awaymission/black_mesa/black_ops_turret_blockade
-	name = "Black Mesa Spec-OP Turret Hallway"
+	name = "Чёрная Меза: База спецназа - Коридор с туррелями"
 	icon_state = "awaycontent1"
 
 /area/awaymission/black_mesa/black_ops_science_room
-	name = "Black Mesa Spec-OP Science Room"
+	name = "Чёрная Меза: База спецназа - Отдел разработки"
 	icon_state = "awaycontent2"
 
 /area/awaymission/black_mesa/black_ops_armory
-	name = "Black Mesa Spec-OP Armory"
+	name = "Чёрная Меза: База спецназа - оружейная"
 	icon_state = "awaycontent3"
 
 /area/awaymission/black_mesa/black_ops_hallway_two
-	name = "Black Mesa Spec-OP Back Hallway"
+	name = "Чёрная Меза: База спецназа - нижний Коридор"
 	icon_state = "awaycontent4"
 
 /area/awaymission/black_mesa/lambda_hallway
-	name = "Black Mesa Lambda Hallway"
+	name = "Чёрная Меза: Лямбда комплекс - Коридор"
 	icon_state = "awaycontent5"
 
 /area/awaymission/black_mesa/lambda_teleporter
-	name = "Black Mesa Lambda Teleporter"
+	name = "Чёрная Меза: Лямбда комплекс - телепорт"
 	icon_state = "awaycontent6"
 
 /area/awaymission/black_mesa/outside
-	name = "Black Mesa Outside"
+	name = "Чёрная Меза: Снаружи"
 	static_lighting = FALSE
 	lighting
 
 /area/awaymission/black_mesa/xen
-	name = "Black Mesa Xen"
+	name = "Зен"
 
 /area/awaymission/black_mesa/xen/entering_zone
-	name = "Black Mesa Xen Entrance"
+	name = "Зен: вход"
 	icon_state = "awaycontent1"
 
 /area/awaymission/black_mesa/xen/lost_camp
-	name = "Black Mesa Xen Lost Camp"
+	name = "Зен: лагерь"
 	icon_state = "awaycontent2"
 
 /area/awaymission/black_mesa/xen/lost_camp_hallway
-	name = "Black Mesa Xen Lost Camp Hallway"
+	name = "Зен: лагерь - Коридор"
 	icon_state = "awaycontent3"
 
 /area/awaymission/black_mesa/xen/vortigaunt_village
-	name = "Black Mesa Xen Vortigaunt Village One"
+	name = "Зен: деревня вортигонтов"
 	icon_state = "awaycontent4"
 
 /area/awaymission/black_mesa/xen/mp5_outpost
-	name = "Black Mesa Xen MP5 Outpost"
+	name = "Зен: Забытая пещера"
 	icon_state = "awaycontent5"
 
 /area/awaymission/black_mesa/xen/village_hallway
-	name = "Black Mesa Xen Village Hallway"
+	name = "Зен: Деревня - Коридор"
 	icon_state = "awaycontent6"
 
 /area/awaymission/black_mesa/xen/acid_lake
-	name = "Black Mesa Xen Acid Lake"
+	name = "Зен: кислотное озеро"
 	icon_state = "awaycontent7"
 
 /area/awaymission/black_mesa/xen/acid_lake_building
-	name = "Black Mesa Xen Acid Lake Building"
+	name = "Зен: кислотное озеро - постройки"
 	icon_state = "awaycontent8"
 
 /area/awaymission/black_mesa/xen/acid_lake_hallway
-	name = "Black Mesa Xen Acid Lake Hallway"
+	name = "Зен: кислотное озеро - Коридор"
 	icon_state = "awaycontent9"
 
 /area/awaymission/black_mesa/xen/freeman_puzzle
-	name = "Black Mesa Xen Freeman Puzzle Room"
+	name = "Зен: Головоломка"
 	icon_state = "awaycontent10"
 
 /area/awaymission/black_mesa/xen/freeman_arena
-	name = "Black Mesa Xen Freeman Chamber"
+	name = "Зен: Последнее пристанище Фримена"
 	icon_state = "awaycontent11"
 
 /area/awaymission/black_mesa/xen/freeman_hallway
-	name = "Black Mesa Xen Freeman Hallway"
+	name = "Зен: Коридор"
 	icon_state = "awaycontent12"
 
 /area/awaymission/black_mesa/xen/hev_supply_nook
-	name = "Black Mesa Xen HEV Supply Nest"
+	name = "Зен: Доставка HEV"
 	icon_state = "awaycontent13"
 
 /area/awaymission/black_mesa/xen/vortigaunt_village_nihilanth
-	name = "Black Mesa Xen Vortigaunt Village Two"
+	name = "Зен: Дальняя деревня вортигонтов"
 	icon_state = "awaycontent14"
 
 /area/awaymission/black_mesa/xen/antag_token_nook
-	name = "Black Mesa Xen Antag Token Nook"
+	name = "Зен: Южная пещера"
 	icon_state = "awaycontent15"
 
 /area/awaymission/black_mesa/xen/crowbar_nook
-	name = "Black Mesa Xen Crowbar Nook"
+	name = "Зен: Северная пещера"
 	icon_state = "awaycontent16"
 
 /area/awaymission/black_mesa/xen/nihilanth_computer
-	name = "Black Mesa Xen Computer Room"
+	name = "Зен: Управление"
 	icon_state = "awaycontent17"
 
 /area/awaymission/black_mesa/xen/nihilanth_hallway
-	name = "Black Mesa Xen Nihilanth Hallway"
+	name = "Зен: коридор Нихиланта"
 	icon_state = "awaycontent18"
 
 /area/awaymission/black_mesa/xen/nihilanth_arena
-	name = "Black Mesa Xen Nihilanth Chamber"
+	name = "Зен: Нихилант"
 	icon_state = "awaycontent19"

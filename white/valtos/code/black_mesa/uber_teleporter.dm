@@ -1,6 +1,6 @@
 /obj/item/uber_teleporter
-	name = "\improper Nihilanth's Divinity"
-	desc = "It glows harshly, the power of a portal wielding monster lays within."
+	name = "его владения"
+	desc = "Внутри нахдится ужасное чудовище которое владеет этим порталом."
 	icon = 'white/valtos/icons/black_mesa/plants.dmi'
 	icon_state = "crystal_pylon"
 
@@ -25,7 +25,7 @@
 				possible_turfs += iterating_turf
 
 	if(!LAZYLEN(possible_turfs))
-		to_chat(user, span_warning("The spell matrix was unable to locate a suitable teleport destination for an unknown reason. Sorry."))
+		to_chat(user, span_warning("Матрица заклинаний не смогла найти подходящее место для телепортации по неизвестной причине. Извините."))
 		return
 
 	if(user.buckled)

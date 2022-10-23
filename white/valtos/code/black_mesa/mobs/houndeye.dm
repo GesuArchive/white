@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/blackmesa/xen/houndeye
-	name = "houndeye"
-	desc = "Some highly aggressive alien creature. Thrives in toxic environments."
+	name = "хаундай"
+	desc = "Гончеглаз. Береги уши!"
 	icon = 'white/valtos/icons/black_mesa/mobs.dmi'
 	icon_state = "houndeye"
 	icon_living = "houndeye"
@@ -9,9 +9,9 @@
 	mob_biotypes = list(MOB_ORGANIC, MOB_BEAST)
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 	speak_chance = 1
-	speak_emote = list("growls")
+	speak_emote = list("визжит")
 	speed = 1
-	emote_taunt = list("growls", "snarls", "grumbles")
+	emote_taunt = list("визжит", "смотрит в одну точку", "гавкает")
 	taunt_chance = 100
 	turns_per_move = 7
 	maxHealth = 100

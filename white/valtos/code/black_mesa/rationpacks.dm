@@ -1,6 +1,6 @@
 /obj/item/food/mre_course
-	name = "undefined MRE course"
-	desc = "Something you shouldn't see. But it's edible."
+	name = "странный сухпаёк"
+	desc = "Прямиком из кодербуса."
 	icon = 'white/valtos/icons/black_mesa/courses.dmi'
 	icon_state = "main_course"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 20)
@@ -9,77 +9,77 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/mre_course/main
-	name = "MRE main course"
-	desc = "Main course of the ancient military ration designed for ground troops. This one is NOTHING."
+	name = "ИРП: Основное блюдо"
+	desc = "Основной военный рацион, предназначенный для сухопутных войск. Этот содержит клубнику, шоколад и ваниллин."
 	tastes = list("strawberry" = 1, "vanilla" = 1, "chocolate" = 1)
 
 /obj/item/food/mre_course/main/beans
-	name = "MRE main course - Pork and Beans"
-	desc = "Main course of the ancient military ration designed for ground troops. This one is pork and beans covered in some tomato sauce."
+	name = "ИРП: Основное блюдо - фасоль и свинина"
+	desc = "Основной военный рацион, предназначенный для сухопутных войск. Этот содержит свинину с фасолью, политую томатным соусом."
 	tastes = list("beans" = 1, "pork" = 1, "tomato sauce" = 1)
 	foodtypes = MEAT | VEGETABLES
 
 /obj/item/food/mre_course/main/macaroni
-	name = "MRE main course - Macaroni and Cheese"
-	desc = "Main course of the ancient military ration designed for ground troops. This one is preboiled macaroni covered in some federal reserve cheese."
+	name = "ИРП: Основное блюдо - макароны с сыром"
+	desc = "Основной военный рацион, предназначенный для сухопутных войск. Этот содержит предварительно отваренные макароны, покрытые сыром."
 	tastes = list("cold macaroni" = 1, "bland cheese" = 1)
 	foodtypes = DAIRY | GRAIN
 
 /obj/item/food/mre_course/main/rice
-	name = "MRE main course - Rice and Beef"
-	desc = "Main course of the ancient military ration designed for ground troops. This one is rice with beef, covered in gravy."
+	name = "ИРП: Основное блюдо - говядина с рисом"
+	desc = "Основной военный рацион, предназначенный для сухопутных войск. Этот содержит содержит рис с говядиной, политый соусом."
 	tastes = list("dense rice" = 1, "bits of beef" = 1, "gravy" = 1)
 	foodtypes = GRAIN | MEAT
 
 /obj/item/food/mre_course/side
-	name = "MRE side course"
-	desc = "Side course of the ancient military ration designed for ground troops. This one is NOTHING."
+	name = "ИРП: Второе блюдо"
+	desc = "Второстепенный военный рацион, предназначенный для сухопутных войск. Этот содержит воздух."
 	icon_state = "side_dish"
 
 /obj/item/food/mre_course/side/bread
-	name = "MRE side course - Cornbread"
-	desc = "Side course of the ancient military ration designed for ground troops. This one is cornbread."
+	name = "ИРП: Второе блюдо - кукурузный хлеб"
+	desc = "Второстепенный военный рацион, предназначенный для сухопутных войск. Этот содержит кукурузный хлеб."
 	tastes = list("cornbread" = 1)
 	foodtypes = GRAIN
 
 /obj/item/food/mre_course/side/pie
-	name = "MRE side course - Meat Pie"
-	desc = "Side course of the ancient military ration designed for ground troops. This one is some meat pie."
+	name = "ИРП: Второе блюдо - мясной пирог"
+	desc = "Второстепенный военный рацион, предназначенный для сухопутных войск. Этот содержит мясной пирог."
 	tastes = list("pie dough" = 1, "ground meat" = 1, "Texas" = 1)
 	foodtypes = MEAT | GRAIN
 
 /obj/item/food/mre_course/side/chicken
-	name = "MRE side course - Sweet 'n Sour Chicken"
-	desc = "Side course of the ancient military ration designed for ground troops. This one is some undefined chicken-looking meat covered in cheap reddish sauce."
+	name = "ИРП: Второе блюдо - курица с соусом"
+	desc = "Второстепенный военный рацион, предназначенный для сухопутных войск. Этот содержит какое-то неопределенно похожее на курицу мясо, покрытое соусом."
 	tastes = list("bits of chicken meat" = 1, "sweet and sour sauce" = 1, "salt" = 1)
 	foodtypes = MEAT | FRIED
 
 /obj/item/food/mre_course/dessert
-	name = "MRE dessert"
-	desc = "Dessert of the ancient military ration designed for ground troops. This one is NOTHING."
+	name = "ИРП: Десерт"
+	desc = "Десертный военный рацион, предназначенный для сухопутных войск. Этот содержит воздух."
 	icon_state = "dessert"
 
 /obj/item/food/mre_course/dessert/cookie
-	name = "MRE dessert - Cookie"
-	desc = "Dessert of the ancient military ration designed for ground troops. This one is a big dry cookie."
+	name = "ИРП: Десерт - печенье"
+	desc = "Десертный военный рацион, предназначенный для сухопутных войск. Этот содержит большое печенье."
 	tastes = list("dryness" = 1, "hard cookie" = 1, "chocolate chip" = 1)
 	foodtypes = GRAIN | SUGAR
 
 /obj/item/food/mre_course/dessert/cake
-	name = "MRE dessert - Apple Pie"
-	desc = "Dessert of the ancient military ration designed for ground troops. This one is an amorphous apple pie."
+	name = "ИРП: Десерт - яблочный пирог"
+	desc = "Десертный военный рацион, предназначенный для сухопутных войск. Этот содержит яблочный пирог."
 	tastes = list("apple" = 1, "moist cake" = 1, "sugar" = 1)
 	foodtypes = GRAIN | SUGAR | FRUIT
 
 /obj/item/food/mre_course/dessert/chocolate
-	name = "MRE dessert - Dark Chocolate"
-	desc = "Dessert of the ancient military ration designed for ground troops. This one is a dark bar of chocolate."
+	name = "ИРП: Десерт - тёмный шоколад"
+	desc = "Десертный военный рацион, предназначенный для сухопутных войск. Этот содержит тёмный шоколад."
 	tastes = list("vanilla" = 1, "artificial chocolate" = 1, "chemicals" = 1)
 	foodtypes = JUNKFOOD | SUGAR
 
 /obj/item/storage/box/hecu_rations
-	name = "Meal, Ready-to-Eat"
-	desc = "A box containing a few rations and some chewing gum, for keeping a starving crayon-eater going."
+	name = "упаковка с ИРП"
+	desc = "Содержит в себе сухпайки на случай если вы проголодались во время военной операции."
 	icon = 'white/valtos/icons/black_mesa/mre_hecu.dmi'
 	icon_state = "mre_package"
 	illustration = null

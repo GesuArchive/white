@@ -1,13 +1,13 @@
 /obj/effect/mob_spawn/human/black_mesa
-	name = "Research Facility Science Team"
+	name = "Учёный Чёрной Мезы"
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper_s"
 	density = TRUE
 	roundstart = FALSE
 	death = FALSE
 	outfit = /datum/outfit/science_team
-	short_desc = "You are a scientist in a top secret government facility. You blacked out. Now, you have woken up to the horrors that lay within."
-	flavour_text = "You are a scientist in a top secret government facility. You blacked out. Now, you have woken up to the horrors that lay within."
+	short_desc = "Ты учёный на сверхсекретном правительственном объекте."
+	flavour_text = "Ты учёный на сверхсекретном правительственном объекте. После долгого сна ты пришёл в себя и не понимаешь что происходит."
 
 /obj/effect/mob_spawn/human/black_mesa/special(mob/living/carbon/human/spawned_human)
 	. = ..()
@@ -29,14 +29,14 @@
 	equipped_human.faction |= FACTION_BLACKMESA
 
 /datum/id_trim/science_team
-	assignment = "Science Team Scientist"
+	assignment = "Учёный Чёрной Мезы"
 	trim_state = "trim_scientist"
 	access = list(ACCESS_RND)
 
 /obj/effect/mob_spawn/human/black_mesa/guard
-	name = "Research Facility Security Guard"
+	name = "Охранник Чёрной Мезы"
 	outfit = /datum/outfit/security_guard
-	short_desc = "You are a security guard in a top secret government facility. You blacked out. Now, you have woken up to the horrors that lay within. DO NOT TRY TO EXPLORE THE LEVEL. STAY AROUND YOUR AREA."
+	short_desc = "Вы охранник на сверхсекретном правительственном объекте. После долгого сна ты пришёл в себя не понимая что происходит. Не стоит в одиночку исследовать комплекс. Охраняй учёных."
 
 /obj/effect/mob_spawn/human/black_mesa/guard/special(mob/living/carbon/human/spawned_human)
 	. = ..()
@@ -44,11 +44,11 @@
 	spawned_human.remove_language(/datum/language/common)
 
 /obj/item/clothing/under/rank/security
-	name = "security guard uniform"
-	desc = "About that beer I owe'd ya!"
+	name = "униформа охраны"
+	desc = "Напоминает о том что ты должен пиво."
 
 /datum/outfit/security_guard
-	name = "Security Guard"
+	name = "Охранник Чёрной Мезы"
 	uniform = /obj/item/clothing/under/rank/security
 	head = /obj/item/clothing/head/helmet/blueshirt
 	gloves = /obj/item/clothing/gloves/color/black
@@ -64,15 +64,15 @@
 	equipped_human.faction |= FACTION_BLACKMESA
 
 /datum/id_trim/security_guard
-	assignment = "Security Guard"
+	assignment = "Охранник Чёрной Мезы"
 	trim_state = "trim_securityofficer"
 	access = list(ACCESS_BRIG, ACCESS_SECURITY, ACCESS_AWAY_SEC)
 
 /obj/effect/mob_spawn/human/black_mesa/hecu
-	name = "HECU"
+	name = "Солдат HECU"
 	outfit = /datum/outfit/hecu
-	short_desc = "You are an elite tactical squad deployed into the research facility to contain the infestation."
-	flavour_text = "You and four other marines have been selected for a guard duty near one of the Black Mesa's entrances. You haven't heard much from the north-west post, except for the sounds of gunshots, and their radios went silent. On top of that, your escape helicopter was shot down mid-flight, and another one won't arrive so soon; with your machinegunner being shot down with a precise headshot by something, or SOMEONE. You are likely on your own, at least for now."
+	short_desc = "Ты - боец элитного тактического отряда, развернутый в исследовательском центре для сдерживания заражения."
+	flavour_text = "Ты и еще четверо удачливых солдат были выбраны для несения караульной службы возле одного из входов в Черную Мезу. В северо-западном лагере были слышны выстрелы, после чего они перестали выходить на связь. Вдобавок ко всему, ваш спасательный вертолет был сбит в полете, помощь задерживается; пулемётчик был убит в голову неизвестно откуда и неизвестно как. Скорее всего, ты сам по себе, по крайней мере сейчас."
 
 /obj/effect/mob_spawn/human/black_mesa/hecu/special(mob/living/carbon/human/spawned_human)
 	. = ..()
@@ -80,8 +80,8 @@
 	spawned_human.grant_language(/datum/language/uncommon, TRUE, TRUE, LANGUAGE_MIND)
 
 /obj/item/clothing/under/rank/security/officer/hecu
-	name = "urban camouflage BDU"
-	desc = "A baggy military camouflage uniform with an ERDL pattern. The range of whites and greys proves useful in urban environments."
+	name = "городской тактический камуфляж"
+	desc = "Мешковатая военная камуфляжная форма с нашивкой ERDL. Ассортимент белых и серых оттенков полезен в городских условиях."
 	icon = 'white/valtos/icons/black_mesa/uniforms.dmi'
 	worn_icon = 'white/valtos/icons/black_mesa/uniform.dmi'
 	icon_state = "hecu_uniform"
@@ -89,7 +89,7 @@
 	unique_reskin = null
 
 /obj/item/storage/backpack/ert/odst/hecu
-	name = "hecu backpack"
+	name = "военный рюкзак"
 	icon = 'white/valtos/icons/black_mesa/hecucloth.dmi'
 	worn_icon = 'white/valtos/icons/black_mesa/hecumob.dmi'
 	icon_state = "hecu_pack"
@@ -100,7 +100,7 @@
 	)
 
 /obj/item/storage/belt/military/assault/hecu
-	name = "hecu warbelt"
+	name = "пояс военных HECU"
 	icon = 'white/valtos/icons/black_mesa/hecucloth.dmi'
 	worn_icon = 'white/valtos/icons/black_mesa/hecumob.dmi'
 	icon_state = "hecu_belt"
@@ -111,7 +111,7 @@
 	)
 
 /datum/outfit/hecu
-	name = "HECU Grunt"
+	name = "Солдат HECU"
 	uniform = /obj/item/clothing/under/rank/security/officer/hecu
 	mask = /obj/item/clothing/mask/gas/heavy/m40
 	gloves = /obj/item/clothing/gloves/combat
@@ -136,15 +136,15 @@
 	equipped_human.faction |= FACTION_HECU
 
 /datum/id_trim/hecu
-	assignment = "HECU Marine"
+	assignment = "Морпех HECU"
 	trim_state = "trim_securityofficer"
 	access = list(ACCESS_BRIG, ACCESS_SECURITY, ACCESS_AWAY_SEC)
 
 /obj/effect/mob_spawn/human/black_mesa/hecu/leader
-	name = "HECU Squad Leader"
+	name = "Лидер отряда HECU"
 	outfit = /datum/outfit/hecu/leader
-	short_desc = "You are an elite tactical squad's leader deployed into the research facility to contain the infestation."
-	flavour_text = "You and four other marines have been selected for a guard duty near one of the Black Mesa's entrances. Due to the lack of any real briefing, and your briefing officer's death during the landing, you have no clue as to what your objective is, so you and your group have set up a camp here. You haven't heard much from the north-west post, except for the sounds of gunshots, and their radios went silent. On top of that, your escape helicopter was shot down mid-flight, and another one won't arrive so soon; with your machinegunner being shot down with a precise headshot by something, or SOMEONE. You are likely on your own, at least for now."
+	short_desc = "Ты - лидер элитного тактического отряда, направленного в исследовательский центр для сдерживания заражения."
+	flavour_text = "Ты и еще четверо удачливых солдат были выбраны для несения караульной службы возле одного из входов в Черную Мезу. Из-за отсутствия какого-либо реального инструктажа и смерти вашего инструктора во время посадки, ты не знаешь о том, какова ваша задача, так что твой быстро собраный отряд решил разбить лагерь здесь. В северо-западном лагере были слышны выстрелы, после чего они перестали выходить на связь. Вдобавок ко всему, ваш спасательный вертолет был сбит в полете, помощь задерживается; пулемётчик был убит в голову неизвестно откуда и неизвестно как. Скорее всего, ты сам по себе, по крайней мере сейчас."
 
 /obj/effect/mob_spawn/human/black_mesa/hecu/leader/special(mob/living/carbon/human/spawned_human)
 	. = ..()
@@ -154,7 +154,7 @@
 	spawned_human.remove_language(/datum/language/common)
 
 /datum/outfit/hecu/leader
-	name = "HECU Captain"
+	name = "Капитан HECU"
 	uniform = /obj/item/clothing/under/rank/security/officer/hecu
 	head = /obj/item/clothing/head/beret/sec
 	mask = /obj/item/clothing/mask/gas/heavy/m40
@@ -181,6 +181,6 @@
 	equipped_human.faction |= FACTION_HECU
 
 /datum/id_trim/hecu_leader
-	assignment = "HECU Captain"
+	assignment = "Капитан HECU"
 	trim_state = "trim_securityofficer"
 	access = list(ACCESS_BRIG, ACCESS_SECURITY, ACCESS_AWAY_SEC)

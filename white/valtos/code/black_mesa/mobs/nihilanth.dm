@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/blackmesa/xen/nihilanth
-	name = "nihilanth"
-	desc = "Holy shit."
+	name = "нихилант"
+	desc = "Пиздец."
 	icon = 'white/valtos/icons/black_mesa/nihilanth.dmi'
 	icon_state = "nihilanth"
 	icon_living = "nihilanth"
@@ -36,7 +36,7 @@
 	amount = 50
 
 /obj/projectile/nihilanth
-	name = "portal energy"
+	name = "портальная энергия"
 	icon_state = "seedling"
 	damage = 20
 	damage_type = BURN
@@ -69,7 +69,7 @@
 	addtimer(CALLBACK(src, .proc/endgame_shit),  30 SECONDS)
 
 /mob/living/simple_animal/hostile/blackmesa/xen/nihilanth/proc/endgame_shit()
-	to_chat(world, span_danger("You feel as though a powerful force has been defeated..."))
+	to_chat(world, span_danger("Чувствую будто что-то могущественное было уничтожено..."))
 	if(prob(60))
 		var/datum/round_event_control/resonance_cascade/event_to_start = new()
 		event_to_start.runEvent()

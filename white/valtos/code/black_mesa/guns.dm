@@ -1,6 +1,6 @@
 /obj/item/gun/ballistic/automatic/laser/marksman // Cheap replacement for a gauss rifle.
-	name = "designated marksman rifle"
-	desc = "A special laser beam sniper rifle designed by a certain now defunct research facility."
+	name = "специальная лазерная винтовка"
+	desc = "Специальная снайперская винтовка с лазерным лучом, разработанная неким ныне несуществующим исследовательским центром."
 	icon_state = "ctfmarksman"
 	inhand_icon_state = "ctfmarksman"
 	auto_fire = FALSE
@@ -26,15 +26,15 @@
 	AddElement(/datum/element/delete_on_drop)
 
 /obj/projectile/beam/marksman
-	name = "laser beam"
+	name = "лазерный луч"
 	damage = 70
 	armour_penetration = 30
 	hitscan = TRUE
 	icon_state = "gaussstrong"
 
 /obj/item/gun/ballistic/automatic/mp5
-	name = "\improper MP5"
-	desc = "An old SMG, this one is chambered in 9mm, a very common and powerful cartridge. It has Heckler & Koch etched above the magazine well."
+	name = "MP5"
+	desc = "Устаревшая модель пистолета-пулемёта, имеет распространенный и мощный патрон патрон 9 мм. На корпусе можно заметить гравировку \"Хеклер и Кох\"."
 	icon = 'white/valtos/icons/black_mesa/gunsgalore_guns40x32.dmi'
 	lefthand_file = 'white/valtos/icons/black_mesa/gunsgalore_lefthand.dmi'
 	righthand_file ='white/valtos/icons/black_mesa/gunsgalore_righthand.dmi'
@@ -61,8 +61,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/ammo_box/magazine/mp5
-	name = "MP5 magazine (9mm)"
-	desc = "Magazines taking 9mm ammunition; it fits in the MP5."
+	name = "магазин пистолета-пулемёта"
+	desc = "Магазин с 9-миллиметровыми патронами; сам магазин предназначен для MP5."
 	icon = 'white/valtos/icons/black_mesa/gunsgalore_items.dmi'
 	icon_state = "mp5"
 	ammo_type = /obj/item/ammo_casing/c9mm

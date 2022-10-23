@@ -54,13 +54,13 @@
 	if(following)
 		if(follow_sounds)
 			playsound(parent_mob, pick(follow_sounds), 100)
-		INVOKE_ASYNC(parent_mob, /atom/movable.proc/say, "Following you!")
+		INVOKE_ASYNC(parent_mob, /atom/movable.proc/say, "Следую!")
 		parent_mob.Goto(living_user, follow_speed, follow_distance)
 	else
 		if(unfollow_sounds)
 			playsound(parent_mob, pick(unfollow_sounds), 100)
-		INVOKE_ASYNC(parent_mob, /atom/movable.proc/say, "No longer following!")
+		INVOKE_ASYNC(parent_mob, /atom/movable.proc/say, "Пока побуду тут.")
 		parent_mob.LoseTarget()
 
 /datum/component/follow/proc/on_examine(datum/source, mob/examiner, list/examine_text)
-	examine_text += "Alt-click to make them follow you!"
+	examine_text += "Alt-click заставит идти за собой!"
