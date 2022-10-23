@@ -23,6 +23,10 @@
 	vis_flags = VIS_INHERIT_ID
 	blocks_air = FALSE
 
+/turf/open/floor/dz/normal/Initialize(mapload)
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
 /turf/open/floor/dz/normal/LateInitialize()
 	. = ..()
 	AddElement(/datum/element/turf_z_transparency)
@@ -42,6 +46,10 @@
 /turf/open/floor/dz/cyber
 	name = "си-пол"
 	icon_state = "c_floor"
+
+/turf/open/floor/dz/cyber/Initialize(mapload)
+	..()
+	return INITIALIZE_HINT_LATELOAD
 
 /turf/open/floor/dz/cyber/LateInitialize()
 	. = ..()
@@ -152,7 +160,7 @@
 /turf/closed/dz/normal/cyber/ice/blue
 	name = "синий лёд"
 	color = "#4684B3"
-	var/static/list/things = list()
+	var/list/things = list()
 
 /turf/closed/dz/normal/cyber/ice/blue/Initialize(mapload)
 	. = ..()
