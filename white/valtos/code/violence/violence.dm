@@ -254,6 +254,17 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	if(!dead?.mind || !ishuman(dead))
 		return
 
+	var/datum/violence_player/vp_killer = vp_get_player(dead?.lastattackermob?.ckey)
+
+	if(vp_killer)
+
+		var/rightkill = vp_dead.team != vp_killer.team
+
+		vp_killer.money += rightkill ? payout : -payout
+		vp_killer.kills += rightkill ? 1 : -1
+
+		to_chat(dead?.lastattackermob, span_boldnotice("[rightkill ? "+[payout]" : "-[payout]"]₽"))
+
 	if(GLOB.violence_playmode == VIOLENCE_PLAYMODE_TAG)
 		var/mob/living/carbon/human/H = dead
 		var/obj/item/card/id/new_card
@@ -292,18 +303,6 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 			if("blue")
 				GLOB.violence_blue_team -= dead.mind
 				to_chat(world, span_blue("[LAZYLEN(GLOB.violence_blue_team)]/[last_blues]"))
-
-	var/datum/violence_player/vp_killer = vp_get_player(dead?.lastattackermob?.ckey)
-
-	if(!vp_killer)
-		return
-
-	var/rightkill = vp_dead.team != vp_killer.team
-
-	vp_killer.money += rightkill ? payout : -payout
-	vp_killer.kills += rightkill ? 1 : -1
-
-	to_chat(dead?.lastattackermob, span_boldnotice("[rightkill ? "+[payout]" : "-[payout]"]₽"))
 
 /datum/game_mode/violence/proc/update_timer()
 	GLOB.violence_time_limit -= 1 SECONDS
