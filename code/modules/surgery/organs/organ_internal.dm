@@ -1,6 +1,7 @@
 /obj/item/organ
 	name = "орган"
 	icon = 'icons/obj/surgery.dmi'
+	drop_sound = 'sound/effects/flesh_drop.wav'
 	var/mob/living/carbon/owner = null
 	var/status = ORGAN_ORGANIC
 	w_class = WEIGHT_CLASS_SMALL
