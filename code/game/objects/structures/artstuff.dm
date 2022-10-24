@@ -171,9 +171,6 @@
 	generate_proper_overlay()
 	try_rename(user)
 
-	if(user.client)
-		inc_metabalance(user, METACOIN_ART_REWARD, reason="Новая картина!")
-
 /obj/item/canvas/proc/patron(mob/user)
 	if(!finalized || !isliving(user))
 		return

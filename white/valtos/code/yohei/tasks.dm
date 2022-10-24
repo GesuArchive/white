@@ -39,14 +39,14 @@
 
 /datum/yohei_task/kill
 	desc = "Убить цель."
-	prize = 50
+	prize = 10
 	var/mob/living/target
 	can_autocomplete = TRUE
 
 /datum/yohei_task/kill/generate_task()
 	target = find_target()
 	desc = "Убить [target.real_name]."
-	prize = max(rand(prize - 30, prize + 30), 1)
+	prize = max(rand(prize - 5, prize + 5), 1)
 	to_chat(target, span_userdanger("Кто-то хочет мне навредить..."))
 
 /datum/yohei_task/kill/check_task(autocheck)
@@ -56,14 +56,14 @@
 
 /datum/yohei_task/capture
 	desc = "Захватить цель."
-	prize = 200
+	prize = 20
 	var/mob/living/target
 	can_autocomplete = TRUE // not neccecary successfully complete
 
 /datum/yohei_task/capture/generate_task()
 	target = find_target()
 	desc = "Захватить [target.real_name] и доставить живьём в логово."
-	prize = max(rand(prize - 100, prize + 200), 1)
+	prize = max(rand(prize - 10, prize + 20), 1)
 
 /datum/yohei_task/capture/check_task(autocheck)
 	if(target && target.stat != DEAD && !autocheck) // you WILL press the screen to confirm it
