@@ -328,8 +328,6 @@
 	if(ismopable(A))
 		icon_state = "cleanbot-c"
 		mode = BOT_CLEANING
-
-		var/turf/T = get_turf(A)
 		. = ..()
 		target = null
 		mode = BOT_IDLE

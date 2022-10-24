@@ -174,7 +174,7 @@
 
 	//speech bubble
 	if(owner.client)
-		var/image/bubble = mutable_appearance('icons/mob/effects/talk.dmi', src, "default[say_test(message)]", FLY_LAYER)
+		var/image/bubble = mutable_appearance('icons/mob/talk.dmi', src, "default[say_test(message)]", FLY_LAYER)
 		SET_PLANE_EXPLICIT(bubble, ABOVE_GAME_PLANE, src)
 		bubble.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 		INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, bubble, list(owner.client), 30)
