@@ -325,6 +325,9 @@ SUBSYSTEM_DEF(ticker)
 	SSdbcore.SetRoundStart()
 
 	to_chat(world, span_notice("Приветствуем вас на <B>[station_name()]</B>, приятного пребывания!"))
+
+	// two separate sounds
+	SEND_SOUND(world, sound('sound/ai/sheptun.ogg'))
 	SEND_SOUND(world, sound(SSstation.announcer.get_rand_welcome_sound()))
 
 	current_state = GAME_STATE_PLAYING

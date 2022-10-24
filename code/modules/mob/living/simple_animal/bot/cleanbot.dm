@@ -1,3 +1,6 @@
+
+#define CLEANBOT_CLEANING_TIME (1 SECONDS)
+
 //Cleanbot
 /mob/living/simple_animal/bot/cleanbot
 	name = "Клинбот"

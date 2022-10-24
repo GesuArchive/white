@@ -52,13 +52,28 @@
 					'sound/ambience/white/ambi6.ogg',\
 					'sound/ambience/white/ambi7.ogg',\
 					'sound/ambience/white/ambi8.ogg',\
-					'sound/ambience/white/ambi9.ogg')
+					'sound/ambience/white/ambi9.ogg',\
+					'sound/ambience/white/ambi10.ogg',\
+					'sound/ambience/white/ambi11.ogg',\
+					'sound/ambience/white/ambi12.ogg',\
+					'sound/ambience/white/ambi13.ogg',\
+					'sound/ambience/white/ambi14.ogg',\
+					'sound/ambience/white/ambi15.ogg',\
+					'sound/ambience/white/ambi16.ogg',\
+					'sound/ambience/white/ambi17.ogg',\
+					'sound/ambience/white/ambi18.ogg',\
+					'sound/ambience/white/ambi19.ogg',\
+					'sound/ambience/white/ambi20.ogg',\
+					'sound/ambience/white/ambi21.ogg')
 
 #define HOLY list('sound/ambience/white/ambichurch1.ogg')
 
 #define HIGHSEC list('sound/ambience/white/ambidanger1.ogg',\
 					'sound/ambience/white/ambidanger2.ogg',\
-					'sound/ambience/white/ambidanger3.ogg')
+					'sound/ambience/white/ambidanger3.ogg',\
+					'sound/ambience/white/ambidanger4.ogg',\
+					'sound/ambience/white/ambidanger5.ogg',\
+					'sound/ambience/white/ambidanger6.ogg')
 
 #define RUINS list('sound/ambience/white/ambidanger1.ogg',\
 				'sound/ambience/white/ambidanger2.ogg',\
@@ -146,7 +161,8 @@
 						'sound/ambience/ambigen11.ogg',\
 						'sound/ambience/ambigen12.ogg',\
 						'sound/ambience/ambigen14.ogg',\
-						'sound/ambience/ambigen15.ogg')
+						'sound/ambience/ambigen15.ogg',\
+						'sound/ambience/ambigen16.ogg')
 
 #define TURBOLIFT list('white/jhnazar/sound/effects/lift/elevatormusic.ogg',\
 						'white/jhnazar/sound/effects/turbolift/elevatormusic1.ogg',\
