@@ -20,7 +20,7 @@
 /atom/movable/screen/movable/action_button/Initialize(mapload)
 	. = ..()
 	var/matrix/M = matrix()
-	M.Scale(0.5, 0.5)
+	M.Scale(0.75, 0.75)
 	transform = M
 
 /atom/movable/screen/movable/action_button/Destroy()
@@ -93,7 +93,7 @@
 		openToolTip(usr, src, params, title = name, content = desc, theme = actiontooltipstyle, special = "smol")
 
 /atom/movable/screen/movable/action_button/MouseExited(location, control, params)
-	animate(src, time = 1, transform = matrix().Scale(0.5, 0.5))
+	animate(src, time = 1, transform = matrix().Scale(0.75, 0.75))
 	layer = initial(layer)
 	closeToolTip(usr)
 	return ..()

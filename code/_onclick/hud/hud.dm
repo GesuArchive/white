@@ -603,7 +603,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		row = max_rows
 		number = row * column_max
 
-	return "WEST:[(18 * (number - column_max * row))],NORTH:-[18 * row]"
+	return "WEST:[(24 * (number - column_max * row))],NORTH:-[24 * row]"
 
 /datum/action_group/proc/check_against_view()
 	var/owner_view = owner?.mymob?.client?.view
