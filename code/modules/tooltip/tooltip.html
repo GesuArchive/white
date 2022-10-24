@@ -118,6 +118,10 @@
 				//Some reset stuff to avoid fringe issues with sizing
 				window.location = 'byond://winset?id='+tooltip.control+';anchor1=0,0;size=999x999';
 
+				if (tooltip.special === "smol") {
+					tooltip.tileSize = 16;
+				}
+
 				//Get the real icon size according to the client view
 				//FYI, this bit is even more borrowed from goon, our widescreen broke tooltips so I took a look at how they do it
 				//To improve our code. Thanks gooncoders, very cool
@@ -194,11 +198,6 @@
 							}
 						}
 					}
-				}
-
-				//Handle special cases (for fuck sake)
-				if (tooltip.special !== 'none') {
-					//Put yo special cases here
 				}
 
 				//Clamp values

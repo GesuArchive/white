@@ -87,12 +87,14 @@
 
 /atom/movable/screen/movable/action_button/MouseEntered(location, control, params)
 	. = ..()
-	animate(src, time = 3, transform = initial(transform))
+	animate(src, time = 2, transform = initial(transform))
+	layer = MOB_LAYER
 	if(!QDELETED(src))
-		openToolTip(usr, src, params, title = name, content = desc, theme = actiontooltipstyle)
+		openToolTip(usr, src, params, title = name, content = desc, theme = actiontooltipstyle, special = "smol")
 
 /atom/movable/screen/movable/action_button/MouseExited(location, control, params)
-	animate(src, time = 2, transform = matrix().Scale(0.5, 0.5))
+	animate(src, time = 1, transform = matrix().Scale(0.5, 0.5))
+	layer = initial(layer)
 	closeToolTip(usr)
 	return ..()
 
