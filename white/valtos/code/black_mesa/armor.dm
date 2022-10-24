@@ -1,5 +1,5 @@
 /obj/item/clothing/suit/armor/vest/hecu
-	name = "боевой модульный жилет"
+	name = "модульный бронежилет"
 	desc = "Модульный бронежилет со вставными пластинами и элементами брони, которые обеспечивают достойную защиту от большинства видов повреждений. Однако, несмотря на его модульность, что-то вытащить из него не получится."
 	icon_state = "combat_vest"
 	inhand_icon_state = "armoralt"
@@ -14,7 +14,7 @@
 	)
 
 /obj/item/clothing/head/helmet/hecu
-	name = "боевой модульный шлем"
+	name = "модульный бронешлем"
 	desc = "Распространенная конструкция шлема, предназначенная для защиты головы."
 	icon_state = "combat_helmet"
 	icon = 'white/valtos/icons/black_mesa/hecucloth.dmi'

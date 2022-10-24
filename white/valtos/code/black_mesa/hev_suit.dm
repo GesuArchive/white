@@ -610,7 +610,7 @@
 		if(use_hev_power(HEV_POWERUSE_HEAL))
 			current_user.adjustToxLoss(-HEV_HEAL_AMOUNT)
 			healing_current_cooldown = world.time + health_static_cooldown
-			send_message("ПРОТИВОТОКСИННОЕ ВЕЩЕСТВО ВВЕДЕНО", HEV_COLOR_BLUE)
+			send_message("АНТИТОКСИН ВВЕДЁН", HEV_COLOR_BLUE)
 			send_hev_sound(antitoxin_sound)
 		return
 
@@ -618,7 +618,7 @@
 		if(use_hev_power(HEV_POWERUSE_HEAL))
 			current_user.adjustCloneLoss(-HEV_HEAL_AMOUNT)
 			healing_current_cooldown = world.time + health_static_cooldown
-			send_message("ПРОТИВОРАЗЛАГАЕМОЕ ВЕЩЕСТВО ВВЕДЕНО", HEV_COLOR_BLUE)
+			send_message("КЛЕТОЧНЫЙ СТАБИЛИЗАТОР ВВЕДЁН", HEV_COLOR_BLUE)
 			send_hev_sound(antidote_sound)
 		return
 

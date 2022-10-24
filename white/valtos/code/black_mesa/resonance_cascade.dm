@@ -8,7 +8,7 @@
 	set waitfor = 0
 	sound_to_playing_players('white/valtos/sounds/black_mesa/tc_12_portalsuck.ogg')
 	sleep(40)
-	priority_announce("ОБЩАЯ ТРЕВОГА: обнаружен пространственно-временной каскад; приближается массивный межпространственный разлом!", "Межпространственный разлом", ANNOUNCER_ANIMES)
+	priority_announce("ВНИМАНИЕ: обнаружен пространственно-временной каскад; приближается массивный межпространственный разлом!", "Межпространственный разлом", ANNOUNCER_ANIMES)
 	sleep(20)
 	sound_to_playing_players('white/valtos/sounds/black_mesa/tc_13_teleport.ogg')
 

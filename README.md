@@ -40,10 +40,10 @@
 
 [<img src="https://i.imgur.com/7iYrb2J.png" alt="Wiki" width="150" align="left">](https://wiki.station13.ru)
 **Ваш путеводитель по вселенной Space Station 13.**<br>Практически всегда актуальна.
-
+<!--
 [<img src="https://i.imgur.com/dUdgAL5.png" alt="Forum" width="150" align="left">](https://forum.station13.ru)
 **Наш форум. Скопление живых трупов и заблудших душ.**<br> Лучшее место для свободных дискуссий на любые темы.
-
+-->
 [<img src="https://i.imgur.com/lOHdByt.png" alt="Discord" width="150" align="left">](https://discord.gg/2WAsvv5B5v)
 **Наш Discord-сервер.**<br>Общение космонавтов. Основная конференция посвящённая White Dream SS13.
 
