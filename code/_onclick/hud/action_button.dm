@@ -19,7 +19,9 @@
 
 /atom/movable/screen/movable/action_button/Initialize(mapload)
 	. = ..()
-	transform.Scale(0.5, 0.5)
+	var/matrix/M = matrix()
+	M.Scale(0.5, 0.5)
+	transform = M
 
 /atom/movable/screen/movable/action_button/Destroy()
 	if(our_hud)
