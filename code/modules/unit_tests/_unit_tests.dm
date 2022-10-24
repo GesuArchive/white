@@ -96,6 +96,7 @@
 #include "outfit_sanity.dm"
 #include "paintings.dm"
 #include "pills.dm"
+#include "plane_double_transform.dm"
 #include "plane_dupe_detector.dm"
 #include "plantgrowth_tests.dm"
 #include "projectiles.dm"

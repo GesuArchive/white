@@ -100,7 +100,7 @@
 
 /mob/living/simple_animal/bot/cleanbot/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/cleaner, 0.1 SECONDS)
+	AddComponent(/datum/component/cleaner, CLEANBOT_CLEANING_TIME, on_cleaned_callback = CALLBACK(src, /atom/.proc/update_appearance, UPDATE_ICON))
 
 	chosen_name = name
 	get_targets()
@@ -215,10 +215,10 @@
 
 			for(var/mob/living/carbon/victim in loc)
 				if(victim != target)
-					UnarmedAttack(victim) // Acid spray
+					UnarmedAttack(victim, proximity_flag = TRUE) // Acid spray
 
 			if(prob(15)) // Wets floors and spawns foam randomly
-				UnarmedAttack(src)
+				UnarmedAttack(src, proximity_flag = TRUE)
 
 	else if(prob(5))
 		audible_message("[src.name] издает возбужденный писк!") //шруман, не сжимай
@@ -262,7 +262,7 @@
 
 		if(loc == get_turf(target))
 			if(!(check_bot(target) && prob(50)))	//Target is not defined at the parent. 50% chance to still try and clean so we dont get stuck on the last blood drop.
-				UnarmedAttack(target)	//Rather than check at every step of the way, let's check before we do an action, so we can rescan before the other bot.
+				UnarmedAttack(target, proximity_flag = TRUE)	//Rather than check at every step of the way, let's check before we do an action, so we can rescan before the other bot.
 				if(QDELETED(target)) //We done here.
 					target = null
 					mode = BOT_IDLE
@@ -319,7 +319,7 @@
 
 	target_types = typecacheof(target_types)
 
-/mob/living/simple_animal/bot/cleanbot/UnarmedAttack(atom/A)
+/mob/living/simple_animal/bot/cleanbot/UnarmedAttack(atom/A, proximity_flag)
 	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
 		return
 	if(ismopable(A))
@@ -327,7 +327,7 @@
 		mode = BOT_CLEANING
 
 		var/turf/T = get_turf(A)
-		start_cleaning(src, T, src)
+		. = ..()
 		target = null
 		mode = BOT_IDLE
 		icon_state = "cleanbot[on]"
@@ -365,9 +365,6 @@
 			else
 				visible_message(span_danger("[capitalize(src.name)] бурно жужжит, прежде чем выпустить шлейф пены!"))
 				new /obj/effect/particle_effect/fluid/foam(loc)
-
-	else
-		..()
 
 /mob/living/simple_animal/bot/cleanbot/explode()
 	on = FALSE

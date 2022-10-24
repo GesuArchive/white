@@ -151,3 +151,20 @@
 	if(use_scale)
 		return ..(source, new_offset, source.should_use_scale())
 	return ..()
+
+/// Hudless group. Exists for testing
+/datum/plane_master_group/hudless
+	var/mob/our_mob
+
+/datum/plane_master_group/hudless/Destroy()
+	. = ..()
+	our_mob = null
+
+/datum/plane_master_group/hudless/hide_hud()
+	for(var/thing in plane_masters)
+		var/atom/movable/screen/plane_master/plane = plane_masters[thing]
+		plane.hide_from(our_mob)
+
+/// This is mostly a proc so it can be overriden by popups, since they have unique behavior they want to do
+/datum/plane_master_group/hudless/show_plane(atom/movable/screen/plane_master/plane)
+	plane.show_to(our_mob)

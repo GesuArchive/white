@@ -21,13 +21,22 @@
 
 /obj/item/mop/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/cleaner, mopspeed, on_cleaned_callback=CALLBACK(src, .proc/apply_reagents))
+	AddComponent(/datum/component/cleaner, mopspeed, pre_clean_callback=CALLBACK(src, .proc/should_clean), on_cleaned_callback=CALLBACK(src, .proc/apply_reagents))
 	create_reagents(mopcap)
 	GLOB.janitor_devices += src
 
 /obj/item/mop/Destroy(force)
 	GLOB.janitor_devices -= src
 	return ..()
+
+///Checks whether or not we should clean.
+/obj/item/mop/proc/should_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)
+	if(istype(atom_to_clean, /obj/item/reagent_containers/glass/bucket) || istype(atom_to_clean, /obj/structure/janitorialcart))
+		return DO_NOT_CLEAN
+	if(reagents.total_volume < 0.1)
+		to_chat(cleaner, span_warning("Швабра сухая"))
+		return DO_NOT_CLEAN
+	return reagents.has_chemical_flag(REAGENT_CLEANS, 1)
 
 /**
  * Applies reagents to the cleaned floor and removes them from the mop.
@@ -41,27 +50,8 @@
 	reagents.expose(cleaned_turf, TOUCH, 10) //Needed for proper floor wetting.
 	var/val2remove = 1
 	if(cleaner?.mind)
-		val2remove = round(cleaner.mind.get_skill_modifier(/datum/skill/cleaning, SKILL_SPEED_MODIFIER),0.1)
+		val2remove = round(cleaner.mind.get_skill_modifier(/datum/skill/cleaning, SKILL_SPEED_MODIFIER), 0.1)
 	reagents.remove_any(val2remove)			//reaction() doesn't use up the reagents
-
-
-/obj/item/mop/afterattack(atom/A, mob/user, proximity)
-	. = ..()
-	if(!proximity)
-		return
-
-	if(reagents.total_volume < 0.1)
-		to_chat(user, span_warning("Швабра сухая!"))
-		return
-
-	var/turf/T = get_turf(A)
-
-	if(istype(A, /obj/item/reagent_containers/glass/bucket) || istype(A, /obj/structure/janitorialcart))
-		return
-
-	if(T)
-		var/should_clean = reagents.has_chemical_flag(REAGENT_CLEANS, 1)
-		start_cleaning(src, T, user, clean_target = should_clean)
 
 /obj/effect/attackby(obj/item/weapon, mob/user, params)
 	if(SEND_SIGNAL(weapon, COMSIG_ITEM_ATTACK_EFFECT, src, user, params) & COMPONENT_NO_AFTERATTACK)
