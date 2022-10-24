@@ -76,6 +76,11 @@
 		ui = new(user, src, "CameraConsole", name)
 		ui.open()
 
+/obj/machinery/computer/security/ui_assets(mob/user)
+	return list(
+		get_asset_datum(/datum/asset/simple/wdmap)
+	)
+
 /obj/machinery/computer/security/ui_status(mob/user)
 	if(!in_range(user, src) && !isobserver(user))
 		return UI_CLOSE
@@ -101,6 +106,9 @@
 		var/obj/machinery/camera/C = cameras[i]
 		data["cameras"] += list(list(
 			name = C.c_tag,
+			x = C.x,
+			y = C.y,
+			z = C.z
 		))
 
 	return data

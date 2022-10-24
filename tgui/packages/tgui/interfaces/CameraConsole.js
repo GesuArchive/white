@@ -3,7 +3,7 @@ import { flow } from 'common/fp';
 import { classes } from 'common/react';
 import { createSearch } from 'common/string';
 import { useBackend, useLocalState } from '../backend';
-import { Button, ByondUi, Flex, Input, Section } from '../components';
+import { Button, ByondUi, Flex, Input, Section, Box, Tabs, Icon, WdMap } from '../components';
 import { Window } from '../layouts';
 
 /**
@@ -38,6 +38,44 @@ export const selectCameras = (cameras, searchText = '') => {
 };
 
 export const CameraConsole = (props, context) => {
+  const [tabIndex, setTabIndex] = useLocalState(context, 'tabIndex', 0);
+  const decideTab = index => {
+    switch (index) {
+      case 0:
+        return <CameraConsoleNewMapContent />;
+      case 1:
+        return <CameraConsoleOldMapContent />;
+      default:
+        return "WE SHOULDN'T BE HERE!";
+    }
+  };
+
+  return (
+    <Window width={1100} height={600}>
+      <Window.Content>
+        <Box fillPositionedParent overflow="hidden">
+          <Tabs className="CameraConsole__header">
+            <Tabs.Tab
+              key="Map"
+              selected={0 === tabIndex}
+              onClick={() => setTabIndex(0)}>
+              <Icon name="map-marked-alt" /> Карта
+            </Tabs.Tab>
+            <Tabs.Tab
+              key="List"
+              selected={1 === tabIndex}
+              onClick={() => setTabIndex(1)}>
+              <Icon name="table" /> Список
+            </Tabs.Tab>
+          </Tabs>
+          {decideTab(tabIndex)}
+        </Box>
+      </Window.Content>
+    </Window>
+  );
+};
+
+export const CameraConsoleNewMapContent = (props, context) => {
   const { act, data } = useBackend(context);
   const { mapRef, activeCamera } = data;
   const cameras = selectCameras(data.cameras);
@@ -46,7 +84,74 @@ export const CameraConsole = (props, context) => {
     activeCamera
   );
   return (
-    <Window width={870} height={708}>
+    <Box>
+      <div className="CameraConsole__left CameraConsole__left_long">
+        <Window.Content>
+          <WdMap>
+            {cameras.map(cm => (
+              <WdMap.WdButton
+                activeCamera={activeCamera}
+                key={cm.ref}
+                x={cm.x}
+                y={cm.y}
+                context={context}
+                icon="circle"
+                tooltip={cm.name}
+                name={cm.name}
+                color={"#0000ff"}
+                status={cm.status}
+              />
+            ))}
+          </WdMap>
+        </Window.Content>
+      </div>
+      <div className="CameraConsole__right CameraConsole__right_short">
+        <div className="CameraConsole__toolbar">
+          <b>Камера: </b>
+          {(activeCamera && activeCamera.name) || '—'}
+        </div>
+        <div className="CameraConsole__toolbarRight">
+          <Button
+            icon="chevron-left"
+            disabled={!prevCameraName}
+            onClick={() =>
+              act('switch_camera', {
+                name: prevCameraName,
+              })
+            }
+          />
+          <Button
+            icon="chevron-right"
+            disabled={!nextCameraName}
+            onClick={() =>
+              act('switch_camera', {
+                name: nextCameraName,
+              })
+            }
+          />
+        </div>
+        <ByondUi
+          className="CameraConsole__map"
+          params={{
+            id: mapRef,
+            type: 'map',
+          }}
+        />
+      </div>
+    </Box>
+  );
+};
+
+export const CameraConsoleOldMapContent = (props, context) => {
+  const { act, data } = useBackend(context);
+  const { mapRef, activeCamera } = data;
+  const cameras = selectCameras(data.cameras);
+  const [prevCameraName, nextCameraName] = prevNextCamera(
+    cameras,
+    activeCamera
+  );
+  return (
+    <Box>
       <div className="CameraConsole__left">
         <Window.Content scrollable>
           <CameraConsoleContent />
@@ -85,7 +190,7 @@ export const CameraConsole = (props, context) => {
           }}
         />
       </div>
-    </Window>
+    </Box>
   );
 };
 

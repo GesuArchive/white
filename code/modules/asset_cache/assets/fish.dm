@@ -1,5 +1,6 @@
 /datum/asset/spritesheet/fish
 	name = "fish"
+
 /datum/asset/spritesheet/fish/create_spritesheets()
 	for (var/path in subtypesof(/obj/item/fish))
 		var/obj/item/fish/fish_type = path
