@@ -78,27 +78,21 @@
 #define ui_skill_menu "RIGHT-4:22,BOTTOM:5"
 
 //Upper-middle right (alerts)
-#define ui_alert1 "RIGHT-1:28,CENTER+5:27"
-#define ui_alert2 "RIGHT-1:28,CENTER+4:25"
-#define ui_alert3 "RIGHT-1:28,CENTER+3:23"
-#define ui_alert4 "RIGHT-1:28,CENTER+2:21"
-#define ui_alert5 "RIGHT-1:28,CENTER+1:19"
-
-//Upper left (action buttons)
-#define ui_action_palette "WEST+0:23,NORTH-1:5"
-#define ui_action_palette_offset(north_offset) ("WEST+0:23,NORTH-[1+north_offset]:5")
-
-#define ui_palette_scroll "WEST+1:8,NORTH-6:28"
-#define ui_palette_scroll_offset(north_offset) ("WEST+1:8,NORTH-[6+north_offset]:28")
+#define ui_alert1 "RIGHT-1:28,CENTER+7"
+#define ui_alert2 "RIGHT-1:28,CENTER+6"
+#define ui_alert3 "RIGHT-1:28,CENTER+5"
+#define ui_alert4 "RIGHT-1:28,CENTER+4"
+#define ui_alert5 "RIGHT-1:28,CENTER+3"
+#define ui_alert6 "RIGHT-1:28,CENTER+2"
 
 //Middle right (status indicators)
 #define ui_healthdoll "RIGHT-1:28,CENTER-2:13"
 #define ui_stamina "RIGHT-1:28,CENTER-2:13"
-#define ui_health "RIGHT-1:28,CENTER-1:15"
-#define ui_internal "RIGHT-1:28,CENTER-3:10"
-#define ui_mood "RIGHT-1:28,CENTER:17"
-#define ui_spacesuit "RIGHT-1:28,CENTER-3:10"
-#define ui_fixeye "RIGHT-1:28,CENTER-4:24"
+#define ui_health "RIGHT-1:28,CENTER-1:18"
+#define ui_blob_health "RIGHT-1:28,CENTER-3:10"
+#define ui_mood "RIGHT-1:26,CENTER:17"
+#define ui_spacesuit "RIGHT-1:28,CENTER-3:24"
+#define ui_fixeye "RIGHT-1:28,CENTER-3"
 #define ui_relative_temp "RIGHT-1:24,CENTER+1:24"
 
 //Pop-up inventory
@@ -232,8 +226,6 @@
 #define SCRN_OBJ_FLOATING "floating"
 /// In the list of buttons stored at the top of the screen
 #define SCRN_OBJ_IN_LIST "list"
-/// In the collapseable palette
-#define SCRN_OBJ_IN_PALETTE "palette"
 
 ///Inserted first in the list
 #define SCRN_OBJ_INSERT_FIRST "first"
