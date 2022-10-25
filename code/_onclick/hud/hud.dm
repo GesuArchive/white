@@ -506,17 +506,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 /datum/hud/proc/update_our_owner()
 	listed_actions.update_landing()
 
-/// Ensures all of our buttons are properly within the bounds of our client's view, moves them if they're not
-/datum/hud/proc/view_audit_buttons()
-	var/our_view = mymob?.client?.view
-	if(!our_view)
-		return
-	listed_actions.check_against_view()
-	for(var/atom/movable/screen/movable/action_button/floating_button as anything in floating_actions)
-		var/list/current_offsets = screen_loc_to_offset(floating_button.screen_loc)
-		// We set the view arg here, so the output will be properly hemm'd in by our new view
-		floating_button.screen_loc = offset_to_screen_loc(current_offsets[1], current_offsets[2], view = our_view)
-
 /// Generates and fills new action groups with our mob's current actions
 /datum/hud/proc/build_action_groups()
 	listed_actions = new(src)
@@ -604,30 +593,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		number = row * column_max
 
 	return "WEST:[(26 * (number - column_max * row))],NORTH:-[26 * row]"
-
-/datum/action_group/proc/check_against_view()
-	var/owner_view = owner?.mymob?.client?.view
-	if(!owner_view)
-		return
-	// Unlikey as it is, we may have been changed. Want to start from our target position and fail down
-	column_max = 16
-	// Convert our viewer's view var into a workable offset
-	var/list/view_size = view_to_pixels(owner_view)
-
-	// We're primarially concerned about width here, if someone makes us 1x2000 I wish them a swift and watery death
-	var/furthest_screen_loc = ButtonNumberToScreenCoords(column_max - 1)
-	var/list/offsets = screen_loc_to_offset(furthest_screen_loc, owner_view)
-	if(offsets[1] > world.icon_size && offsets[1] < view_size[1] && offsets[2] > world.icon_size && offsets[2] < view_size[2]) // We're all good
-		return
-
-	for(column_max in column_max - 1 to 1 step -1) // Yes I could do this by unwrapping ButtonNumberToScreenCoords, but I don't feel like it
-		var/tested_screen_loc = ButtonNumberToScreenCoords(column_max)
-		offsets = screen_loc_to_offset(tested_screen_loc, owner_view)
-		// We've found a valid max length, pack it in
-		if(offsets[1] > world.icon_size && offsets[1] < view_size[1] && offsets[2] > world.icon_size && offsets[2] < view_size[2])
-			break
-	// Use our newly resized column max
-	refresh_actions()
 
 /// Returns the amount of objects we're storing at the moment
 /datum/action_group/proc/size()

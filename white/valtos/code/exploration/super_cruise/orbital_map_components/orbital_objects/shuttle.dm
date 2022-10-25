@@ -173,6 +173,7 @@
 	shuttle_port_id = dock.id
 	port = dock
 	stealth = dock.hidden
+	velocity_multiplier = dock.velocity_multiplier
 	SSorbits.assoc_shuttles[shuttle_port_id] = src
 
 /datum/orbital_object/shuttle/proc/commence_docking(datum/orbital_object/z_linked/docking, forced = FALSE)

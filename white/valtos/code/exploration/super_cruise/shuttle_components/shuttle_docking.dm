@@ -65,6 +65,8 @@
 			var/x_off = T.x - origin.x
 			var/y_off = T.y - origin.y
 			I.loc = locate(origin.x + x_off, origin.y + y_off, origin.z) //we have to set this after creating the image because it might be null, and images created in nullspace are immutable.
+			I.layer = ABOVE_NORMAL_TURF_LAYER
+			SET_PLANE(I, ABOVE_GAME_PLANE, T)
 			I.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 			the_eye.placement_images[I] = list(x_off, y_off)
 
@@ -92,7 +94,7 @@
 		user.client.images += to_add
 		user.client.view_size.setTo(view_range)
 
-/obj/machinery/computer/shuttle_flight/remove_eye_control(mob/user)
+/obj/machinery/computer/shuttle_flight/remove_eye_control(mob/living/user)
 	if(!user)
 		return
 	for(var/V in actions)
@@ -106,13 +108,11 @@
 		user.reset_perspective(null)
 		if(eyeobj.visible_icon && user.client)
 			user.client.images -= eyeobj.user_image
-
 		user.client.view_size.unsupress()
 		user.client.attempt_auto_fit_viewport()
 
 	eyeobj.eye_user = null
 	user.remote_control = null
-
 	current_user = null
 	user.unset_machine()
 
@@ -125,10 +125,7 @@
 		to_remove += the_eye.placed_images
 		if(!shuttleObject.stealth)
 			to_remove += SSshuttle.hidden_shuttle_turf_images
-
 		user.client.images -= to_remove
-		user.client.view_size.resetToDefault()
-		user.client.attempt_auto_fit_viewport()
 
 /obj/machinery/computer/shuttle_flight/proc/placeLandingSpot()
 	if(designating_target_loc || !current_user)
@@ -189,7 +186,7 @@
 		var/image/newI = image('icons/effects/alphacolors.dmi', the_eye.loc, "blue")
 		newI.loc = I.loc //It is highly unlikely that any landing spot including a null tile will get this far, but better safe than sorry.
 		newI.layer = ABOVE_OPEN_TURF_LAYER
-		SET_PLANE(newI, ABOVE_GAME_PLANE, the_eye)
+		SET_PLANE_EXPLICIT(newI, ABOVE_GAME_PLANE, V)
 		newI.mouse_opacity = 0
 		the_eye.placed_images += newI
 

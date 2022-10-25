@@ -33,14 +33,6 @@
 	default = string
 	apply()
 
-/datum/view_data/proc/afterViewChange()
-	if(isZooming())
-		assertFormat()
-	else
-		resetFormat()
-	var/datum/hud/our_hud = chief?.mob?.hud_used
-	our_hud.view_audit_buttons() // Make sure our hud's buttons are in our new size
-
 /datum/view_data/proc/safeApplyFormat()
 	if(isZooming())
 		assertFormat()
@@ -107,7 +99,7 @@
 
 /datum/view_data/proc/apply()
 	chief?.change_view(getView())
-	afterViewChange()
+	safeApplyFormat()
 
 /datum/view_data/proc/supress()
 	is_suppressed = TRUE

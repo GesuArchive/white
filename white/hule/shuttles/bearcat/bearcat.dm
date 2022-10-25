@@ -101,6 +101,7 @@
 	port_direction = SOUTH
 	movement_force = list("KNOCKDOWN" = 10, "THROW" = 20)
 	engine_coeff = 30
+	velocity_multiplier = 0.1
 
 /obj/docking_port/stationary/bearcat
 	name = "CSV Bearcat Away"

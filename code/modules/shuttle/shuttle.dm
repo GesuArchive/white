@@ -365,6 +365,8 @@
 	var/can_move_docking_ports = FALSE
 	var/list/hidden_turfs = list()
 
+	var/velocity_multiplier = 1.5
+
 	var/shuttle_object_type = /datum/orbital_object/shuttle
 
 /obj/docking_port/mobile/register(replace = FALSE)
