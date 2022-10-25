@@ -603,14 +603,14 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		row = max_rows
 		number = row * column_max
 
-	return "WEST:[(24 * (number - column_max * row))],NORTH:-[24 * row]"
+	return "WEST:[(26 * (number - column_max * row))],NORTH:-[26 * row]"
 
 /datum/action_group/proc/check_against_view()
 	var/owner_view = owner?.mymob?.client?.view
 	if(!owner_view)
 		return
 	// Unlikey as it is, we may have been changed. Want to start from our target position and fail down
-	column_max = initial(column_max)
+	column_max = 16
 	// Convert our viewer's view var into a workable offset
 	var/list/view_size = view_to_pixels(owner_view)
 
@@ -661,6 +661,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	refresh_actions()
 
 /datum/action_group/listed
-	column_max = 20
+	column_max = 16
 	location = SCRN_OBJ_IN_LIST
 
