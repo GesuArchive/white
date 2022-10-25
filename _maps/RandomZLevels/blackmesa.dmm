@@ -168,9 +168,8 @@
 /area/awaymission/black_mesa/to_cryo_room)
 "acx" = (
 /obj/item/pickaxe,
-/turf/open/floor/plating{
-	icon_state = "titanium_dam1"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/black_mesa/cryo_room)
 "acE" = (
 /obj/structure/table,
@@ -564,6 +563,7 @@
 /turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/tram_room)
 "ahv" = (
+/obj/machinery/door/airlock/maintenance,
 /obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/cryo_room)
@@ -619,9 +619,7 @@
 "ahW" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/effect/mapping_helpers/airlock/locked,
-/turf/open/floor/plasteel/monofloor{
-	icon_state = "floorscorched2"
-	},
+/turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/tram_room)
 "aic" = (
 /obj/structure/closet/crate/large,
@@ -857,9 +855,8 @@
 /area/awaymission/black_mesa/gas_emitter_chamber)
 "alG" = (
 /obj/effect/mob_spawn/human/scientist,
-/turf/open/floor/plasteel/monofloor{
-	icon_state = "floorscorched2"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/hecu_zone_external_hall)
 "alV" = (
 /obj/effect/mapping_helpers/broken_floor,
@@ -973,9 +970,8 @@
 /area/awaymission/black_mesa/xen/nihilanth_hallway)
 "ann" = (
 /obj/effect/gibspawner/human/bodypartless,
-/turf/open/floor/plating{
-	icon_state = "titanium_dam1"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/black_mesa/cryo_room)
 "ant" = (
 /obj/machinery/door/poddoor/preopen,
@@ -1563,9 +1559,8 @@
 /turf/open/floor/bamboo,
 /area/awaymission/black_mesa/xen/vortigaunt_village_nihilanth)
 "avx" = (
-/turf/open/floor/plasteel/monofloor{
-	icon_state = "floorscorched2"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/tram_room)
 "avB" = (
 /obj/machinery/portable_atmospherics/canister/nitryl,
@@ -1976,9 +1971,8 @@
 "aBd" = (
 /obj/machinery/light/cold,
 /obj/effect/gibspawner/human/bodypartless,
-/turf/open/floor/plasteel/monofloor{
-	icon_state = "floorscorched2"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/tram_room)
 "aBe" = (
 /obj/structure/rack,
@@ -2490,9 +2484,8 @@
 /turf/open/floor/plating/xen,
 /area/awaymission/black_mesa/xen/antag_token_nook)
 "aHt" = (
-/turf/open/floor/plating{
-	icon_state = "titanium_dam2"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/black_mesa/cryo_room)
 "aHv" = (
 /obj/effect/turf_decal/stripes,
@@ -2608,9 +2601,8 @@
 /area/awaymission/black_mesa/entrance_lobby)
 "aJd" = (
 /obj/effect/mob_spawn/human/scientist,
-/turf/open/floor/plating{
-	icon_state = "titanium_dam1"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/black_mesa/cryo_room)
 "aJl" = (
 /obj/structure/spacevine/xen/thick,
@@ -2738,11 +2730,6 @@
 /obj/structure/alien/weeds/xen,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/black_mesa/entrance_lobby)
-"aKP" = (
-/turf/open/floor/plating{
-	icon_state = "titanium_dam1"
-	},
-/area/awaymission/black_mesa/cryo_room)
 "aKS" = (
 /obj/structure/table,
 /obj/item/radio/intercom,
@@ -3321,9 +3308,8 @@
 /obj/structure/railing{
 	dir = 1
 	},
-/turf/open/floor/plasteel/monofloor{
-	icon_state = "floorscorched2"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/tram_room)
 "aSL" = (
 /obj/structure/rack,
@@ -3848,11 +3834,10 @@
 /turf/open/floor/plating/xen,
 /area/awaymission/black_mesa/xen/freeman_hallway)
 "aYY" = (
-/obj/effect/mob_spawn/human/scientist,
-/turf/open/floor/plating{
-	icon_state = "titanium_dam2"
-	},
-/area/awaymission/black_mesa/cryo_room)
+/obj/machinery/door/airlock/wood/glass,
+/obj/effect/mapping_helpers/airlock/locked,
+/turf/open/floor/plasteel/monofloor,
+/area/awaymission/black_mesa/employee_dorm_room)
 "aZd" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/open/floor/plasteel/monofloor,
@@ -6803,9 +6788,8 @@
 /area/awaymission/black_mesa/high_security_servers)
 "idt" = (
 /obj/effect/gibspawner/human/bodypartless,
-/turf/open/floor/plating{
-	icon_state = "titanium_dam1"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/black_mesa/employee_dorm_room)
 "idC" = (
 /obj/machinery/light/cold/directional/east,
@@ -7498,6 +7482,7 @@
 /area/awaymission/black_mesa/science_labs)
 "jEM" = (
 /obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/door/airlock/wood/glass,
 /turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/employee_dorm_room)
 "jHm" = (
@@ -9357,9 +9342,8 @@
 /turf/closed/wall/r_wall,
 /area/awaymission/black_mesa/dorm_computers)
 "oeY" = (
-/turf/open/floor/plasteel/monofloor{
-	icon_state = "floorscorched2"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/employee_dorm_room)
 "ofE" = (
 /obj/effect/random_mob_placer/blackops,
@@ -10951,9 +10935,8 @@
 /area/awaymission/black_mesa/xen/acid_lake)
 "rJj" = (
 /obj/item/ammo_box/a357,
-/turf/open/floor/plating{
-	icon_state = "titanium_dam1"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/black_mesa/employee_dorm_room)
 "rJt" = (
 /obj/structure/spacevine/xen/thick,
@@ -12807,9 +12790,8 @@
 /turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/deep_sci_medbay)
 "vWu" = (
-/turf/open/floor/plating{
-	icon_state = "titanium_dam1"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
 /area/awaymission/black_mesa/employee_dorm_room)
 "vXf" = (
 /obj/structure/lattice/catwalk,
@@ -36831,7 +36813,7 @@ qGz
 qGz
 aQz
 aQz
-raX
+aYY
 jEM
 aQz
 aQz
@@ -58972,9 +58954,9 @@ arz
 arz
 aNo
 ayB
-aKP
+aHt
 aHa
-aYY
+aJd
 aHt
 ayB
 aNo
@@ -59487,7 +59469,7 @@ ayB
 ayB
 ayB
 ayB
-aWg
+ahv
 ahv
 ayB
 ayB

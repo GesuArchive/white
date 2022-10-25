@@ -18,8 +18,14 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 
 	var/mob/M = AM
 
-	if(!M?.hud_used?.weather?.particles)
-		M.hud_used.weather.particles = new /particles/rain/sideways
+	if(M?.hud_used)
+		var/datum/hud/mobhud = M.hud_used
+		if(!mobhud.weather)
+			mobhud.weather = new /atom/movable/screen()
+			mobhud.weather.screen_loc = "CENTER"
+			mobhud.weather.hud = src
+			mobhud.screenoverlays += mobhud.weather
+			mobhud.weather.particles = new /particles/rain/sideways
 
 	if(!ishuman(M))
 		return

@@ -12,11 +12,6 @@
 /obj/structure/destructible/cult/pylon,
 /turf/open/floor/engine/cult,
 /area/awaymission/wildwest/vault)
-"ae" = (
-/turf/open/floor/plating{
-	icon_state = "cultdamage5"
-	},
-/area/awaymission/wildwest/vault)
 "af" = (
 /mob/living/simple_animal/hostile/faithless,
 /turf/open/floor/engine/cult,
@@ -32,16 +27,6 @@
 /obj/item/gun/ballistic/automatic/pistol,
 /turf/open/floor/wood,
 /area/awaymission/wildwest/mines)
-"aj" = (
-/turf/open/floor/plating{
-	icon_state = "cultdamage3"
-	},
-/area/awaymission/wildwest/vault)
-"ak" = (
-/turf/open/floor/plating{
-	icon_state = "cultdamage6"
-	},
-/area/awaymission/wildwest/vault)
 "al" = (
 /obj/effect/gateway,
 /turf/open/floor/engine/cult,
@@ -92,11 +77,6 @@
 "aB" = (
 /obj/structure/destructible/cult/pylon,
 /turf/open/floor/circuit/off,
-/area/awaymission/wildwest/vault)
-"aC" = (
-/turf/open/floor/plating{
-	icon_state = "cultdamage2"
-	},
 /area/awaymission/wildwest/vault)
 "aD" = (
 /turf/open/floor/carpet,
@@ -33097,7 +33077,7 @@ ac
 ac
 ac
 ac
-aj
+ac
 ac
 ac
 ac
@@ -34127,7 +34107,7 @@ ac
 ac
 ac
 ac
-ak
+ac
 ac
 ac
 ac
@@ -34644,7 +34624,7 @@ ac
 ac
 ac
 ac
-ae
+ac
 ac
 ac
 af
@@ -34905,10 +34885,10 @@ ac
 ac
 ac
 ac
-aj
 ac
 ac
-ak
+ac
+ac
 ac
 ac
 ac
@@ -35409,7 +35389,7 @@ ac
 ac
 ac
 ac
-ae
+ac
 ac
 ac
 ac
@@ -35676,13 +35656,13 @@ ac
 ac
 ac
 ac
-ak
 ac
 ac
 ac
 ac
 ac
-aj
+ac
+ac
 ac
 ac
 ac
@@ -36457,7 +36437,7 @@ ac
 ac
 ac
 ac
-ak
+ac
 ac
 af
 ac
@@ -36696,7 +36676,7 @@ ac
 ac
 ac
 ac
-ae
+ac
 ac
 ac
 ac
@@ -36957,7 +36937,7 @@ ac
 ac
 ac
 ac
-ak
+ac
 ac
 ac
 af
@@ -36966,12 +36946,12 @@ ac
 ac
 ac
 ac
-ae
 ac
 ac
 ac
 ac
-aj
+ac
+ac
 ac
 ac
 ac
@@ -37219,7 +37199,7 @@ ac
 ac
 ac
 ac
-ak
+ac
 ac
 ac
 ac
@@ -38255,7 +38235,7 @@ ac
 ac
 ac
 ac
-aj
+ac
 ac
 ac
 ac
@@ -38270,7 +38250,7 @@ aD
 aD
 aD
 ac
-aj
+ac
 ac
 ac
 ac
@@ -38494,7 +38474,6 @@ ab
 ac
 ac
 ac
-aj
 ac
 ac
 ac
@@ -38503,12 +38482,13 @@ ac
 ac
 ac
 ac
-ae
 ac
 ac
 ac
 ac
-aj
+ac
+ac
+ac
 ac
 ac
 ac
@@ -38770,7 +38750,7 @@ ac
 ac
 ac
 ac
-ak
+ac
 ac
 ac
 ac
@@ -39287,7 +39267,7 @@ ac
 af
 ac
 ac
-aj
+ac
 ac
 ac
 ac
@@ -39531,7 +39511,7 @@ ac
 ag
 ac
 ac
-aj
+ac
 ac
 ag
 ac
@@ -40565,7 +40545,7 @@ ac
 ac
 ac
 ac
-aC
+ac
 ac
 ac
 ac
@@ -41081,7 +41061,7 @@ ac
 ac
 ac
 ac
-ak
+ac
 ac
 ac
 ac
@@ -42118,7 +42098,7 @@ ac
 ac
 ac
 ac
-ak
+ac
 ac
 ac
 ac
@@ -42869,7 +42849,7 @@ ac
 ac
 ag
 ag
-aj
+ac
 ac
 ag
 af
@@ -43379,7 +43359,7 @@ aa
 ab
 ac
 ac
-aj
+ac
 ac
 ag
 ag
@@ -43404,7 +43384,7 @@ ac
 ac
 ac
 ac
-ak
+ac
 ac
 ac
 ac
@@ -44690,7 +44670,7 @@ ac
 ac
 ac
 ac
-ae
+ac
 ac
 ac
 ac
@@ -44952,7 +44932,7 @@ ac
 ac
 ac
 ac
-ak
+ac
 ac
 ac
 ac
@@ -45438,7 +45418,7 @@ ac
 ac
 ag
 ag
-aj
+ac
 ab
 ab
 ag
@@ -45470,7 +45450,7 @@ ac
 ac
 ac
 ac
-ak
+ac
 ac
 ac
 ac
@@ -45723,7 +45703,7 @@ ac
 ac
 ac
 ac
-ak
+ac
 ac
 ac
 ac
@@ -46748,7 +46728,7 @@ ac
 ac
 ac
 ac
-ak
+ac
 ac
 ac
 ac
@@ -47268,7 +47248,7 @@ ac
 ac
 ac
 ac
-ak
+ac
 ac
 ac
 ac
@@ -47779,7 +47759,7 @@ ac
 ac
 ac
 ac
-ae
+ac
 ac
 ac
 ac
