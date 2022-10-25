@@ -296,7 +296,7 @@
 			if("Server Restart (Kill and restart DD)")
 				to_chat(world, "Жесткая перезагрузка мира - [init_by]")
 				if(CONFIG_GET(flag/this_shit_is_stable))
-					world.shelleo("curl -X POST http://localhost:3636/hard-reboot-white?rid=[GLOB.round_id]")
+					world.shelleo("curl -X POST http://localhost:3636/hard-reboot-white/rid=[GLOB.round_id]")
 
 /datum/admins/proc/end_round()
 	set category = "Срв"
