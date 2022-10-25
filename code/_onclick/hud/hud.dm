@@ -592,7 +592,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		row = max_rows
 		number = row * column_max
 
-	return "WEST:[(26 * (number - column_max * row))],NORTH:-[26 * row]"
+	return "WEST:[(32 * (number - column_max * row))],NORTH:-[32 * row]"
 
 /// Returns the amount of objects we're storing at the moment
 /datum/action_group/proc/size()

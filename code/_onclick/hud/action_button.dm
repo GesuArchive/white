@@ -17,12 +17,6 @@
 	/// God I hate how dragging works
 	var/datum/weakref/last_hovored_ref
 
-/atom/movable/screen/movable/action_button/Initialize(mapload)
-	. = ..()
-	var/matrix/M = matrix()
-	M.Scale(0.75, 0.75)
-	transform = M
-
 /atom/movable/screen/movable/action_button/Destroy()
 	if(our_hud)
 		var/mob/viewer = our_hud.mymob
@@ -87,14 +81,10 @@
 
 /atom/movable/screen/movable/action_button/MouseEntered(location, control, params)
 	. = ..()
-	animate(src, time = 2, transform = initial(transform))
-	layer = MOB_LAYER
 	if(!QDELETED(src))
-		openToolTip(usr, src, params, title = name, content = desc, theme = actiontooltipstyle, special = "smol")
+		openToolTip(usr, src, params, title = name, content = desc, theme = actiontooltipstyle)
 
 /atom/movable/screen/movable/action_button/MouseExited(location, control, params)
-	animate(src, time = 1, transform = matrix().Scale(0.75, 0.75))
-	layer = initial(layer)
 	closeToolTip(usr)
 	return ..()
 
