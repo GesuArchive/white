@@ -124,15 +124,18 @@
 	assignedrole = "CSV Bearcat Crew"
 	flavour_text = "<font size=3>You are a member of CSV Bearcat crew."
 
+/obj/effect/mob_spawn/human/bearcatcrew/special(mob/living/carbon/human/H)
+	. = ..()
+	if(H?.wear_id)
+		var/obj/item/card/id/icard = H.wear_id
+		icard.add_wildcards(list(ACCESS_AWAY_GENERIC1, ACCESS_AWAY_SEC), mode=FORCE_ADD_ALL)
+
 /obj/effect/mob_spawn/human/bearcatcrew/eng
 	mob_name = "an engineer"
 	uniform = /obj/item/clothing/under/rank/engineering/engineer
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	id = /obj/item/card/id
 	gloves = /obj/item/clothing/gloves/color/yellow
-
-/obj/effect/mob_spawn/human/bearcat/eng/Destroy()
-	return ..()
 
 /obj/effect/mob_spawn/human/bearcatcrew/atmos
 	mob_name = "an atmostech"
@@ -141,14 +144,8 @@
 	id = /obj/item/card/id
 	gloves = /obj/item/clothing/gloves/color/black
 
-/obj/effect/mob_spawn/human/bearcat/atmos/Destroy()
-	return ..()
-
 /obj/effect/mob_spawn/human/bearcatcrew/pilot
 	mob_name = "a pilot"
 	uniform = /obj/item/clothing/under/syndicate/camo
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	id = /obj/item/card/id
-
-/obj/effect/mob_spawn/human/bearcat/pilot/Destroy()
-	return ..()
