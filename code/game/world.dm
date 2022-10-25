@@ -259,8 +259,7 @@ GLOBAL_VAR(restart_counter)
 
 	shutdown_logging() // Past this point, no logging procs can be used, at risk of data loss.
 	if(CONFIG_GET(flag/this_shit_is_stable))
-		shelleo("python3 /home/ubuntu/tenebrae/prod/server_white/data/parser.py [rid] &")
-		shelleo("curl -X POST http://localhost:3636/hard-reboot-white")
+		shelleo("curl -X POST http://localhost:3636/hard-reboot-white?rid=[rid]")
 	AUXTOOLS_SHUTDOWN(AUXMOS)
 	AUXTOOLS_FULL_SHUTDOWN(AUXLUA)
 	..()
