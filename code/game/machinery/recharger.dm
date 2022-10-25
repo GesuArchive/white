@@ -138,7 +138,7 @@
 	if(charging)
 		var/obj/item/stock_parts/cell/C = charging.get_cell()
 		if(C)
-			
+
 			if(C.charge < C.maxcharge) // not fully charged
 				use_power(2 * C.chargerate * recharge_coeff * delta_time, FALSE)
 				C.give(C.chargerate * recharge_coeff * delta_time / 2)
@@ -187,17 +187,17 @@
 	if(machine_stat & (BROKEN) || !powered() || !anchored)
 		return
 	if(panel_open)
-		. += mutable_appearance(icon, "[base_icon_state]-open", layer, src, plane, alpha)
+		. += mutable_appearance(icon, "[base_icon_state]-open", layer)
 		return
 
 	if(!charging)
-		. += mutable_appearance(icon, "[base_icon_state]-empty", layer, plane, alpha)
-		. += mutable_appearance(icon, "[base_icon_state]-empty", 0, EMISSIVE_PLANE, alpha)
+		. += mutable_appearance(icon, "[base_icon_state]-empty", layer)
+		. += emissive_appearance(icon, "[base_icon_state]-empty", src, alpha = src.alpha)
 		return
 	if(using_power)
-		. += mutable_appearance(icon, "[base_icon_state]-charging", layer, plane, alpha)
-		. += mutable_appearance(icon, "[base_icon_state]-charging", 0, EMISSIVE_PLANE, alpha)
+		. += mutable_appearance(icon, "[base_icon_state]-charging", layer)
+		. += emissive_appearance(icon, "[base_icon_state]-charging", src, alpha = src.alpha)
 		return
 
-	. += mutable_appearance(icon, "[base_icon_state]-full", layer, plane, alpha)
-	. += mutable_appearance(icon, "[base_icon_state]-full", 0, EMISSIVE_PLANE, alpha)
+	. += mutable_appearance(icon, "[base_icon_state]-full", layer)
+	. += emissive_appearance(icon, "[base_icon_state]-full", src, alpha = src.alpha)
