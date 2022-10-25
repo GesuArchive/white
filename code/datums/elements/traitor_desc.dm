@@ -65,8 +65,7 @@
 			action_message = "Ломаю лопасти вентиляторов. Посмотрим насколько системы с пассивной системой охлаждения эффективны."
 			reward = 5
 
-			for(var/obj/machinery/rnd/server/S in SSresearch.servers)
-				S.current_temp = pick(228, 666)
+			SSresearch.mining_multiplier *= 0.5
 
 	user.visible_message(span_danger("[user] ковыряется в [target].") ,\
 		span_rose(action_message))

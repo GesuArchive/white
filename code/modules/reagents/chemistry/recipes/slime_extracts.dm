@@ -209,8 +209,7 @@
 	if(holder?.my_atom)
 		var/turf/open/T = get_turf(holder.my_atom)
 		if(istype(T))
-			var/datum/gas/gastype = GAS_N2
-			T.atmos_spawn_air("[initial(gastype.id)]=50;TEMP=2.7")
+			T.atmos_spawn_air("n2=50;TEMP=2.7")
 
 /datum/chemical_reaction/slime/slimefireproof
 	required_reagents = list(/datum/reagent/water = 1)

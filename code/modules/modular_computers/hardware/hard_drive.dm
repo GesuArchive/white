@@ -1,5 +1,5 @@
 /obj/item/computer_hardware/hard_drive
-	name = "Привод жесткого диска"
+	name = "привод жесткого диска"
 	desc = "Небольшой жесткий диск для использования в базовых компьютерах, где требуется энергоэффективность."
 	power_usage = 25
 	icon_state = "harddisk_mini"
@@ -148,7 +148,7 @@
 	return null
 
 /obj/item/computer_hardware/hard_drive/advanced
-	name = "Усовершенствованный привод жёсткого диска"
+	name = "усовершенствованный привод жёсткого диска"
 	desc = "Гибридный жёсткий диск для использования в компьютерах более высокого класса, где требуется баланс между энергоэффективностью и ёмкостью."
 	max_capacity = 256
 	power_usage = 50 // Hybrid, medium capacity and medium power storage
@@ -156,7 +156,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/computer_hardware/hard_drive/super
-	name = "Суперпривод жёсткого диска"
+	name = "суперпривод жёсткого диска"
 	desc = "Жёсткий диск большой емкости, используемый для кластерного хранения, где ёмкость важнее энергоэффективности."
 	max_capacity = 512
 	power_usage = 100 // High-capacity but uses lots of power, shortening battery life. Best used with APC link.
@@ -164,7 +164,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/computer_hardware/hard_drive/cluster
-	name = "Кластерный привод жёсткого диска"
+	name = "кластерный привод жёсткого диска"
 	desc = "Большой кластер хранения, состоящий из нескольких жёстких дисков для использования в выделенных системах хранения."
 	power_usage = 500
 	max_capacity = 2048
@@ -221,7 +221,7 @@
 	store_file(new/datum/computer_file/program/radar/fission360) //I am legitimately afraid if I don't do this, Ops players will think they just don't get a pinpointer anymore.
 
 /obj/item/computer_hardware/hard_drive/micro
-	name = "Микротвердотельный накопитель"
+	name = "микротвердотельный накопитель"
 	desc = "Высокоэффективный SSD-чип для портативных устройств."
 	power_usage = 2
 	max_capacity = 32

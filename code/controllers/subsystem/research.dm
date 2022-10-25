@@ -35,6 +35,9 @@ SUBSYSTEM_DEF(research)
 	var/last_income
 	//^^^^^^^^ ALL OF THESE ARE PER SECOND! ^^^^^^^^
 
+	/// A list of all master servers. If none of these have a source code HDD, research point generation is lowered.
+	var/list/obj/machinery/rnd/server/master/master_servers = list()
+
 	//Aiming for 1.5 hours to max R&D
 	//[88nodes * 5000points/node] / [1.5hr * 90min/hr * 60s/min]
 	//Around 450000 points max???

@@ -197,3 +197,42 @@
 		pipe_color = paint_color
 		update_node_icon()
 	return paintable
+
+/**
+ * Disconnects all nodes from ourselves, remove us from the node's nodes.
+ * Nullify our parent pipenet
+ */
+/obj/machinery/atmospherics/components/proc/disconnect_nodes()
+	for(var/i in 1 to device_type)
+		var/obj/machinery/atmospherics/node = nodes[i]
+		if(node)
+			if(src in node.nodes) //Only if it's actually connected. On-pipe version would is one-sided.
+				node.disconnect(src)
+			nodes[i] = null
+		if(parents[i])
+			nullifyPipenet(parents[i])
+
+/**
+ * Connects all nodes to ourselves, add us to the node's nodes.
+ * Calls atmos_init() on the node and on us.
+ */
+/obj/machinery/atmospherics/components/proc/connect_nodes()
+	atmosinit()
+	for(var/i in 1 to device_type)
+		var/obj/machinery/atmospherics/node = nodes[i]
+		if(node)
+			node.atmosinit()
+			node.addMember(src)
+	SSair.add_to_rebuild_queue(src)
+
+/**
+ * Easy way to toggle nodes connection and disconnection.
+ *
+ * Arguments:
+ * * disconnect - if TRUE, disconnects all nodes. If FALSE, connects all nodes.
+ */
+/obj/machinery/atmospherics/components/proc/change_nodes_connection(disconnect)
+	if(disconnect)
+		disconnect_nodes()
+		return
+	connect_nodes()
