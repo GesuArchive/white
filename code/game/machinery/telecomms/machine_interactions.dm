@@ -56,7 +56,7 @@
 	data["multitool"] = heldmultitool
 
 	if(heldmultitool)
-		data["multibuff"] = heldmultitool.buffer
+		data["multibuff"] = heldmultitool.buffer.name
 
 	data["toggled"] = toggled
 	data["id"] = id
