@@ -1369,11 +1369,6 @@
 	},
 /turf/open/floor/plating/airless,
 /area/ruin/space/derelict/singularity_engine)
-"gz" = (
-/turf/open/floor/plasteel/airless{
-	icon_state = "floorscorched2"
-	},
-/area/ruin/space/derelict/hallway/primary)
 "gA" = (
 /obj/machinery/light/small,
 /turf/open/floor/plasteel/airless,
@@ -1387,9 +1382,8 @@
 /turf/open/floor/plasteel/airless,
 /area/ruin/space/derelict/bridge/access)
 "gC" = (
-/turf/open/floor/plasteel/airless{
-	icon_state = "floorscorched2"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/unpowered/no_grav)
 "gD" = (
 /obj/effect/mapping_helpers/broken_floor,
@@ -1408,11 +1402,6 @@
 "gG" = (
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered/no_grav)
-"gH" = (
-/turf/open/floor/plasteel/airless{
-	icon_state = "floorscorched1"
-	},
 /area/ruin/unpowered/no_grav)
 "gJ" = (
 /obj/structure/grille/broken,
@@ -1541,9 +1530,8 @@
 /turf/template_noop,
 /area/ruin/space/derelict/singularity_engine)
 "hp" = (
-/turf/open/floor/plasteel/airless{
-	icon_state = "floorscorched2"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/space/derelict/arrival)
 "hq" = (
 /turf/open/floor/plating/airless,
@@ -2229,14 +2217,12 @@
 /area/ruin/space/derelict/hallway/primary)
 "jX" = (
 /obj/structure/cable,
-/turf/open/floor/plasteel/airless{
-	icon_state = "floorscorched1"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/space/derelict/hallway/primary)
 "jY" = (
-/turf/open/floor/plasteel/airless{
-	icon_state = "floorscorched1"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/space/derelict/hallway/primary)
 "jZ" = (
 /obj/machinery/light/small{
@@ -2295,9 +2281,8 @@
 /area/ruin/space/derelict/medical/chapel)
 "km" = (
 /obj/item/stack/cable_coil/cut,
-/turf/open/floor/plasteel/airless{
-	icon_state = "floorscorched1"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/space/derelict/hallway/primary)
 "ko" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on,
@@ -2530,7 +2515,7 @@
 "lq" = (
 /obj/structure/table,
 /obj/item/reagent_containers/glass/beaker{
-	list_reagents = list(/datum/reagent/toxin/acid = 50)
+	list_reagents = list(/datum/reagent/toxin/acid=50)
 	},
 /obj/item/paper/crumpled/bloody/ruins/thederelict/unfinished,
 /obj/item/pen,
@@ -2747,11 +2732,6 @@
 	},
 /turf/open/floor/plating/airless,
 /area/ruin/space/derelict/atmospherics)
-"mk" = (
-/turf/open/floor/plasteel/airless{
-	icon_state = "floorscorched1"
-	},
-/area/ruin/space/derelict/atmospherics)
 "ml" = (
 /obj/structure/window/fulltile,
 /turf/open/floor/plating/airless,
@@ -2777,10 +2757,8 @@
 /turf/open/floor/plasteel/airless,
 /area/ruin/space/derelict/atmospherics)
 "mq" = (
-/turf/open/floor/plasteel{
-	icon_state = "damaged2";
-	initial_gas_mix = "TEMP=2.7"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/ruin/space/derelict/atmospherics)
 "mt" = (
 /obj/structure/window/fulltile,
@@ -3420,9 +3398,8 @@
 /turf/open/floor/plasteel/airless,
 /area/ruin/space/derelict/bridge/ai_upload)
 "IA" = (
-/turf/open/floor/plasteel/airless{
-	icon_state = "floorscorched2"
-	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating/airless,
 /area/template_noop)
 "Kf" = (
 /obj/item/paper/fluff/ruins/thederelict/vaultraider,
@@ -4013,7 +3990,7 @@ ij
 hS
 jL
 gD
-gH
+gC
 ay
 aa
 aa
@@ -8091,7 +8068,7 @@ pZ
 lO
 ES
 VV
-mk
+mq
 mq
 mp
 lt
@@ -9646,17 +9623,17 @@ fx
 fR
 gb
 gm
-gz
+jY
 fZ
 gL
 gL
 go
 fZ
-gz
+jY
 gm
 gm
 fZ
-gz
+jY
 go
 go
 jr
@@ -9878,12 +9855,12 @@ fZ
 gm
 gm
 fZ
-gz
-gz
+jY
+jY
 gL
-gz
-gz
-gz
+jY
+jY
+jY
 go
 js
 gL
@@ -9992,7 +9969,7 @@ go
 hb
 fZ
 fZ
-gz
+jY
 gk
 gk
 gk
@@ -10104,7 +10081,7 @@ gM
 go
 go
 fZ
-gz
+jY
 gm
 gk
 ia
@@ -10217,8 +10194,8 @@ gN
 go
 fZ
 fZ
-gz
-gz
+jY
+jY
 gk
 IA
 ia
@@ -10443,7 +10420,7 @@ gO
 fZ
 fZ
 fZ
-gz
+jY
 gL
 gk
 ia
@@ -12133,7 +12110,7 @@ ay
 ay
 ay
 ay
-gH
+gC
 gD
 gV
 hf

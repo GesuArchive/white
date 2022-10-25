@@ -476,6 +476,14 @@
 	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
+/datum/design/board/tank_compressor
+	name = "Tank Compressor Board"
+	desc = "The circuit board for a tank compressor"
+	id = "tank_compressor"
+	build_path = /obj/item/circuitboard/machine/tank_compressor
+	category = list("Исследовательское оборудование")
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
+
 /datum/design/board/microwave
 	name = "Микроволновка"
 	desc = "Готовит и варит штуки."

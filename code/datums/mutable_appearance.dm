@@ -29,7 +29,7 @@
 		if(!isnull(offset_const))
 			plane = GET_NEW_PLANE(plane, offset_const)
 		// That, or you need to pass in some non null object to reference
-		else if(!isatom(offset_spokesman))
+		else if(isatom(offset_spokesman))
 			// Note, we are ok with null turfs, that's not an error condition we'll just default to 0, the error would be
 			// Not passing ANYTHING in, key difference
 			var/turf/our_turf = get_turf(offset_spokesman)
