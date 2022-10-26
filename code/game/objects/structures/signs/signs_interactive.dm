@@ -19,7 +19,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/calendar, 32)
 
 /obj/structure/sign/calendar/examine(mob/user)
 	. = ..()
-	. += span_info("<hr>Текущая дата: [time2text(world.realtime, "DDD, MMM DD")], [GLOB.year_integer+540].")
+	. += span_info("<hr>Текущая дата: [time2text(world.realtime, "DD/MM")]/[GLOB.year_integer+540].")
 	if(SSevents.holidays)
 		. += span_info("<hr>Праздники:")
 		for(var/holidayname in SSevents.holidays)
@@ -34,7 +34,7 @@ GLOBAL_LIST_EMPTY(map_delamination_counters)
 /obj/structure/sign/delamination_counter
 	name = "счетчик расслоений"
 	sign_change_name = "Счётчик Расслоений - Для суперматерии"
-	desc = "Счётчик показывает сколько дней прошло с момента последнего случая расслоения кристалла."
+	desc = "Счётчик показывает сколько смен прошло с момента последнего случая расслоения кристалла."
 	icon_state = "days_since_explosion"
 	is_editable = TRUE
 	var/since_last = 0
@@ -70,7 +70,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/delamination_counter, 32)
 
 /obj/structure/sign/delamination_counter/examine(mob/user)
 	. = ..()
-	. += span_info("<hr>[since_last] без происшествий.")
+	. += span_info("<hr>[since_last] смен без происшествий.")
 	switch (since_last)
 		if (0)
 			. += span_info("\nЕсли ты не заметил.")

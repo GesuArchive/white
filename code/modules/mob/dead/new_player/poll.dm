@@ -374,6 +374,8 @@
 			poll.poll_votes++
 		if(!poll.allow_revoting)
 			inc_metabalance(usr, 100, reason="ГОЛОС ОТДАН. Спасибо!")
+		else
+			to_chat(usr, span_info("ГОЛОС ОТДАН. Спасибо!"))
 
 /**
  * Processes vote form data and saves results to the database for an option type poll.
