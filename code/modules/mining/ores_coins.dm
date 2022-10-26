@@ -272,7 +272,7 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 
 /obj/item/gibtonite/attackby(obj/item/I, mob/user, params)
 	if(!wires && istype(I, /obj/item/assembly/igniter))
-		user.visible_message(span_notice("[user] attaches [I] to [src]."), span_notice("You attach [I] to [src]."))
+		user.visible_message(span_notice("[user] лепит [I] на [src]."), span_notice("Прикрепляю [I] к [src]."))
 		wires = new /datum/wires/explosive/gibtonite(src)
 		attacher = key_name(user)
 		qdel(I)
@@ -292,7 +292,7 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 			primed = FALSE
 			if(det_timer)
 				deltimer(det_timer)
-			user.visible_message(span_notice("The chain reaction stopped! ...The ore's quality looks diminished."), span_notice("You stopped the chain reaction. ...The ore's quality looks diminished."))
+			user.visible_message(span_notice("[user] останаливает реакцию! Качество руды такое себе."), span_notice("Реакция остановлена. Качество руды такое себе."))
 			icon_state = "Gibtonite ore"
 			quality = GIBTONITE_QUALITY_LOW
 			return
@@ -330,7 +330,7 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 			log_game(bomb_message)
 			GLOB.bombers += bomb_message
 		else
-			user.visible_message(span_warning("[user] strikes <b>[src.name]</b>, causing a chain reaction!") , span_danger("You strike <b>[src.name]</b>, causing a chain reaction."))
+			user.visible_message(span_warning("[user] лупит <b>[src.name]</b>, вызывая цепную реакцию!"), span_danger("Луплю <b>[src.name]</b>, вызывая цепную реакцию."))
 			log_bomber(user, "has primed a", src, "for detonation", notify_admins)
 		det_timer = addtimer(CALLBACK(src, .proc/detonate, notify_admins), det_time, TIMER_STOPPABLE)
 
