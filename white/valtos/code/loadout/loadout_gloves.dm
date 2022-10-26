@@ -6,27 +6,27 @@
 /datum/gear/gloves/box_red
 	display_name = "Боксёрские перчатки, красные"
 	path = /obj/item/clothing/gloves/boxing
-	cost = 100
+	cost = 50
 
 /datum/gear/gloves/box_blue
 	display_name = "Боксёрские перчатки, синие"
 	path = /obj/item/clothing/gloves/boxing/blue
-	cost = 100
+	cost = 50
 
 /datum/gear/gloves/box_yellow
 	display_name = "Боксёрские перчатки, жёлтые"
 	path = /obj/item/clothing/gloves/boxing/yellow
-	cost = 100
+	cost = 50
 
 /datum/gear/gloves/box_green
 	display_name = "Боксёрские перчатки, зелёные"
 	path = /obj/item/clothing/gloves/boxing/green
-	cost = 100
+	cost = 50
 
 /datum/gear/gloves/fingerless
 	display_name = "Беспалые перчатки"
 	path = /obj/item/clothing/gloves/fingerless
-	cost = 500
+	cost = 75
 
 /datum/gear/gloves/insulated
 	display_name = "Изоляшки"

@@ -57,13 +57,13 @@
 /datum/gear/suit/karabakh
 	display_name = "куртка рейнджера Карабаха"
 	path = /obj/item/clothing/suit/armor/hos/ranger
-	cost = 4500
+	cost = 450
 
 //JACKETS
 
 /datum/gear/suit/jacket
 	subtype_path = /datum/gear/suit/jacket
-	cost = 120
+	cost = 90
 
 /datum/gear/suit/jacket/bomber
 	display_name = "куртка бомбер"
@@ -141,7 +141,7 @@
 /datum/gear/suit/samurai
 	display_name = "броня самурая"
 	path = /obj/item/clothing/suit/costume/samurai
-	cost = 1200
+	cost = 400
 
 //COSTUMES
 

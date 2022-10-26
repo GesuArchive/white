@@ -262,7 +262,7 @@
 /datum/gear/uniform/sharovari
 	display_name = "шаровары"
 	path = /obj/item/clothing/under/costume/sharovari
-	cost = 5000
+	cost = 500
 /datum/gear/uniform/wizgirl
 	display_name = "костюм волшебницы"
 	path = /obj/item/clothing/under/costume/wizgirl
@@ -271,7 +271,7 @@
 /datum/gear/uniform/kimono
 	display_name = "кимоно"
 	path = /obj/item/clothing/under/costume/kimono
-	cost = 900
+	cost = 300
 
 /datum/gear/uniform/kimono/dark
 	display_name = "тёмное кимоно"
@@ -288,16 +288,16 @@
 /datum/gear/uniform/kamishimo
 	display_name = "камишимо"
 	path = /obj/item/clothing/under/costume/kamishimo
-	cost = 750
+	cost = 450
 
 /datum/gear/uniform/bathrobe
 	display_name = "халат"
 	path = /obj/item/clothing/under/costume/bathrobe
-	cost = 600
+	cost = 300
 
 //
 
 /datum/gear/uniform/chronos
 	display_name = "Военный костюм Новой Мекки"
 	path = /obj/item/clothing/under/chronos
-	cost = 7500
+	cost = 650

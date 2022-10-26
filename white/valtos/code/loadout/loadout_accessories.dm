@@ -77,7 +77,7 @@
 /datum/gear/accessory/necklace
 	display_name = "Цепочка, золотая"
 	path = /obj/item/clothing/neck/necklace/dope
-	cost = 900
+	cost = 300
 
 /datum/gear/accessory/eyepatch
 	display_name = "Повязка на глаз"
@@ -126,10 +126,10 @@
 /datum/gear/accessory/cosmetics/lipstick/random
 	display_name = "Помада, мультицвет"
 	path = /obj/item/lipstick/random
-	cost = 575
+	cost = 75
 
 /datum/gear/accessory/cape/chronos
 	display_name = "Военный плащ Новой Мекки"
 	path = /obj/item/clothing/neck/cape/chronos
 	slot = ITEM_SLOT_NECK
-	cost = 7500
+	cost = 850

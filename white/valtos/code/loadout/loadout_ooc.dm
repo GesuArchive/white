@@ -5,7 +5,7 @@
 	display_name = "Ещё один слот персонажа"
 	sort_category = "OOC"
 	description = "Дополнительный слот. Что тут ещё сказать, а? Максимум 20 слотов."
-	cost = 1000
+	cost = 250
 
 /datum/gear/ooc/char_slot/purchase(client/C)
 	C?.prefs?.max_slots += 1
@@ -16,7 +16,7 @@
 	display_name = "Выбрать аспект"
 	sort_category = "OOC"
 	description = "Заставляет запуститься любой аспект на ваш выбор. Доступно только перед началом раунда, когда сервер прогрузился, но ещё в лобби."
-	cost = 1000
+	cost = 150
 
 /datum/gear/ooc/force_aspect/purchase(client/C)
 	if(IsAdminAdvancedProcCall())
