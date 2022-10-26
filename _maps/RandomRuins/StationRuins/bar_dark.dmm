@@ -72,7 +72,7 @@
 /turf/open/floor/wood,
 /area/service/bar)
 "ai" = (
-/obj/structure/sign/plaques/deempisi{
+/obj/structure/sign/picture_frame/portrait{
 	pixel_y = 25
 	},
 /obj/structure/ladder,

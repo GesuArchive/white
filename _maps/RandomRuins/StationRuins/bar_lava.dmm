@@ -418,7 +418,7 @@
 /area/hallway/primary/starboard)
 "mi" = (
 /obj/structure/table/wood,
-/obj/structure/sign/plaques/deempisi{
+/obj/structure/sign/picture_frame/portrait{
 	pixel_x = -28;
 	pixel_y = -4
 	},

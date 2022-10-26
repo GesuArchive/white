@@ -9999,6 +9999,7 @@
 /area/commons/dorms/seven)
 "cAz" = (
 /obj/structure/filingcabinet,
+/obj/structure/sign/calendar/directional/east,
 /turf/open/floor/wood/parquet,
 /area/service/library)
 "cAF" = (
@@ -11937,6 +11938,7 @@
 	dir = 4
 	},
 /obj/machinery/chem_seller/engineering,
+/obj/structure/sign/delamination_counter/directional/north,
 /turf/open/floor/plasteel,
 /area/engineering/main)
 "dfO" = (
@@ -13737,6 +13739,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/structure/sign/clock/directional/south,
 /turf/open/floor/plasteel,
 /area/commons/dorms)
 "dNN" = (
@@ -14975,6 +14978,7 @@
 "eiI" = (
 /obj/structure/table/wood,
 /obj/item/taperecorder,
+/obj/structure/sign/clock/directional/south,
 /turf/open/floor/wood,
 /area/lawoffice)
 "eja" = (
@@ -18702,6 +18706,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/structure/sign/calendar/directional/south,
 /turf/open/floor/plasteel,
 /area/commons/dorms)
 "fph" = (
@@ -22902,6 +22907,7 @@
 	pixel_x = -2;
 	pixel_y = -1
 	},
+/obj/structure/sign/calendar/directional/north,
 /turf/open/floor/plasteel/monofloor,
 /area/science/lab)
 "gGj" = (
@@ -25374,6 +25380,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/structure/sign/clock/directional/west,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/cargo/exploration_dock)
 "hvQ" = (
@@ -28423,7 +28430,7 @@
 	pixel_x = 4;
 	pixel_y = 10
 	},
-/obj/structure/sign/flags/soviet{
+/obj/structure/sign/flag/soviet{
 	pixel_y = 32
 	},
 /turf/open/floor/plating,
@@ -39851,6 +39858,7 @@
 	dir = 1
 	},
 /obj/structure/closet/radiation,
+/obj/structure/sign/warning/securearea,
 /turf/open/floor/plasteel,
 /area/engineering/main)
 "mfp" = (
@@ -39870,6 +39878,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/structure/sign/calendar/directional/north,
 /turf/open/floor/plasteel/white,
 /area/command/heads_quarters/ce)
 "mfM" = (
@@ -39963,9 +39972,9 @@
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
 "mgR" = (
-/obj/structure/sign/warning/securearea,
-/turf/closed/wall/r_wall,
-/area/engineering/main)
+/obj/structure/sign/calendar/directional/north,
+/turf/open/floor/wood,
+/area/commons/vacant_room/office)
 "mhd" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/layer_manifold/visible,
@@ -46997,6 +47006,7 @@
 /area/service/bar)
 "osk" = (
 /obj/machinery/seed_extractor,
+/obj/structure/sign/calendar/directional/north,
 /turf/open/floor/plasteel,
 /area/service/hydroponics/garden)
 "oso" = (
@@ -48855,6 +48865,7 @@
 	},
 /obj/structure/bed,
 /obj/item/bedsheet/qm,
+/obj/structure/sign/calendar/directional/north,
 /turf/open/floor/plasteel,
 /area/cargo/qm)
 "oUv" = (
@@ -50486,6 +50497,12 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/science/robotics/lab)
+"pvw" = (
+/obj/structure/shipping_container/kosmologistika,
+/turf/open/floor/plating/rust{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/space/nearstation)
 "pvE" = (
 /obj/machinery/light{
 	dir = 1;
@@ -51869,6 +51886,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
+/obj/structure/sign/calendar/directional/north,
 /turf/open/floor/wood,
 /area/service/bar)
 "pUf" = (
@@ -54087,6 +54105,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
+/obj/structure/sign/flag/nanotrasen/directional/north,
 /turf/open/floor/plasteel,
 /area/commons/storage/primary)
 "qzK" = (
@@ -65898,6 +65917,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/sign/calendar/directional/west,
 /turf/open/floor/plasteel/dark,
 /area/cargo/office)
 "uvE" = (
@@ -71810,7 +71830,7 @@
 	},
 /area/hallway/secondary/entry/south)
 "woB" = (
-/obj/structure/sign/plaques/deempisi{
+/obj/structure/sign/picture_frame/portrait{
 	pixel_y = 25
 	},
 /obj/effect/turf_decal/siding/wood{
@@ -72834,6 +72854,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/structure/sign/clock/directional/west,
 /turf/open/floor/plasteel/dark,
 /area/service/bar)
 "wFu" = (
@@ -74230,6 +74251,7 @@
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 1
 	},
+/obj/structure/sign/clock/directional/west,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/cargo/office)
 "xac" = (
@@ -76870,6 +76892,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/autoname,
+/obj/structure/sign/calendar/directional/north,
 /turf/open/floor/plasteel,
 /area/service/hydroponics)
 "xQO" = (
@@ -77700,6 +77723,7 @@
 /obj/machinery/cryopod{
 	dir = 8
 	},
+/obj/structure/sign/calendar/directional/east,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/commons/cryopods)
 "ygC" = (
@@ -77715,6 +77739,7 @@
 "ygH" = (
 /obj/structure/table/wood,
 /obj/machinery/fax,
+/obj/structure/sign/calendar/directional/north,
 /turf/open/floor/engine/cult,
 /area/service/library/upper)
 "ygI" = (
@@ -77832,6 +77857,7 @@
 	pixel_y = 0
 	},
 /obj/structure/aquarium,
+/obj/structure/sign/calendar/directional/north,
 /turf/open/floor/wood,
 /area/commons/fitness/recreation)
 "yji" = (
@@ -158375,7 +158401,7 @@ oEE
 qnZ
 jBF
 wGR
-lSc
+mgR
 lSc
 lSc
 vzD
@@ -162171,7 +162197,7 @@ okl
 okl
 ugX
 sVG
-sVG
+pvw
 sVG
 qvP
 qJq
@@ -174623,7 +174649,7 @@ cpO
 cpO
 xMN
 gDm
-mgR
+hRS
 dfy
 xuQ
 usV

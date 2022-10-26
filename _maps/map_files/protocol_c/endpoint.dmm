@@ -466,6 +466,10 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/mineral/plastitanium,
 /area/syndicate_mothership)
+"bq" = (
+/obj/structure/sign/flag/ua/directional/north,
+/turf/open/floor/plasteel,
+/area/tdome/arena)
 "br" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
@@ -669,6 +673,10 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/wood/tile,
 /area/centcom/holding)
+"bT" = (
+/obj/structure/sign/flag/terragov/directional/north,
+/turf/open/floor/plasteel,
+/area/tdome/arena)
 "bU" = (
 /turf/open/floor/plasteel/tg/sepia,
 /area/centcom/holding)
@@ -2779,6 +2787,10 @@
 	dir = 1
 	},
 /area/centcom/holding)
+"hY" = (
+/obj/structure/sign/flag,
+/turf/closed/indestructible/rock/snow,
+/area/syndicate_mothership)
 "hZ" = (
 /obj/structure/weightmachine/weightlifter,
 /turf/open/floor/mineral/titanium,
@@ -3712,6 +3724,10 @@
 /obj/machinery/door/airlock/external,
 /turf/open/floor/plating,
 /area/syndicate_mothership)
+"kJ" = (
+/obj/structure/sign/flag/mothic/directional/north,
+/turf/open/floor/plasteel,
+/area/tdome/arena)
 "kK" = (
 /obj/effect/turf_decal/weather/side{
 	dir = 4
@@ -4064,6 +4080,11 @@
 	},
 /turf/open/indestructible/white,
 /area/centcom/control)
+"lD" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/sign/flag/che/directional/north,
+/turf/open/floor/plasteel,
+/area/tdome/arena)
 "lE" = (
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 4
@@ -4994,6 +5015,10 @@
 	},
 /turf/open/floor/plasteel/tg/small,
 /area/centcom/circus)
+"oj" = (
+/obj/structure/sign/flag/ssc/directional/north,
+/turf/open/floor/plasteel,
+/area/tdome/arena)
 "ok" = (
 /obj/item/kirbyplants{
 	icon_state = "plant-21"
@@ -5791,7 +5816,6 @@
 /area/centcom/holding)
 "qv" = (
 /obj/machinery/light/cold/directional/west,
-/obj/structure/closet/crate/cardboard,
 /turf/open/floor/plating,
 /area/syndicate_mothership)
 "qw" = (
@@ -6217,6 +6241,10 @@
 	baseturfs = /turf/open/floor/plating/asteroid
 	},
 /area/centcom/circus)
+"rx" = (
+/obj/structure/sign/flag/russia/directional/north,
+/turf/open/floor/plasteel,
+/area/tdome/arena)
 "rz" = (
 /obj/machinery/vending/mechcomp{
 	contraband = list();
@@ -6441,6 +6469,11 @@
 /obj/effect/landmark/start/nukeop,
 /turf/open/floor/wood/tile,
 /area/syndicate_mothership/elite_squad)
+"sc" = (
+/obj/effect/turf_decal/bot,
+/obj/structure/sign/flag/kazakh/directional/north,
+/turf/open/floor/plasteel,
+/area/tdome/arena)
 "sd" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
 	dir = 10
@@ -6855,6 +6888,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/hidden/layer5,
 /turf/open/floor/plasteel/tg,
 /area/syndicate_mothership)
+"tl" = (
+/obj/structure/sign/flag/nanotrasen/directional/north,
+/turf/open/floor/plasteel,
+/area/tdome/arena)
 "tm" = (
 /obj/structure/filingcabinet/security,
 /obj/effect/turf_decal/tile/neutral{
@@ -7544,6 +7581,10 @@
 	},
 /obj/effect/turf_decal/siding/red,
 /turf/open/floor/plasteel/tg/dark/textured_large,
+/area/syndicate_mothership)
+"vm" = (
+/obj/structure/closet/crate/cardboard,
+/turf/open/floor/plating,
 /area/syndicate_mothership)
 "vn" = (
 /obj/item/gun/energy/ionrifle,
@@ -10890,6 +10931,7 @@
 /obj/machinery/camera/autoname/directional/east{
 	network = list("nukie")
 	},
+/obj/structure/shipping_container/donk_co,
 /turf/open/floor/plating,
 /area/syndicate_mothership)
 "Ek" = (
@@ -11847,6 +11889,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"Hd" = (
+/obj/structure/shipping_container/gorlex,
+/turf/open/floor/plating,
+/area/syndicate_mothership)
 "Hf" = (
 /obj/machinery/recharger{
 	pixel_y = 4
@@ -13899,6 +13945,10 @@
 "Mj" = (
 /turf/open/floor/plasteel,
 /area/centcom/supplypod/loading/four)
+"Mk" = (
+/obj/structure/sign/flag/soviet/directional/north,
+/turf/open/floor/plasteel,
+/area/tdome/arena)
 "Ml" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -15158,6 +15208,10 @@
 /obj/machinery/light/cold/directional/east,
 /turf/open/floor/plasteel/catwalk_floor,
 /area/syndicate_mothership)
+"Pu" = (
+/obj/structure/shipping_container/gorlex/red,
+/turf/open/floor/plating,
+/area/syndicate_mothership)
 "Pv" = (
 /obj/structure/rack,
 /obj/machinery/light/cold/directional/west,
@@ -15435,6 +15489,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/tdome/tdomeadmin)
+"Qf" = (
+/obj/structure/shipping_container/donk_co,
+/turf/open/floor/plating,
+/area/syndicate_mothership)
 "Qg" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/closet/crate/bin,
@@ -16363,11 +16421,10 @@
 /turf/open/floor/plasteel/tg/small,
 /area/centcom/circus)
 "Sx" = (
-/obj/vehicle/sealed/car/fucking_tank{
-	dir = 1
-	},
-/turf/open/floor/plasteel/monofloor/dark,
-/area/centcom/control)
+/obj/effect/turf_decal/bot,
+/obj/structure/shipping_container/nanotrasen,
+/turf/open/floor/engine,
+/area/centcom/supplypod/pod_storage)
 "Sy" = (
 /obj/item/kirbyplants{
 	icon_state = "plant-21"
@@ -16696,6 +16753,10 @@
 /obj/structure/flora/ausbushes/rospilovo/ywflowers,
 /turf/open/floor/grass,
 /area/centcom/brief)
+"TC" = (
+/obj/structure/sign/flag/mars/directional/north,
+/turf/open/floor/plasteel,
+/area/tdome/arena)
 "TD" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -16874,6 +16935,10 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
 /area/tdome/tdomeobserve)
+"Ua" = (
+/obj/structure/sign/flag/tizira/directional/north,
+/turf/open/floor/plasteel,
+/area/tdome/arena)
 "Ub" = (
 /obj/effect/turf_decal/trimline/neutral/line,
 /turf/open/floor/plasteel,
@@ -24632,7 +24697,7 @@ Co
 Co
 "}
 (23,1,1) = {"
-aV
+hY
 xq
 zY
 aV
@@ -24836,7 +24901,7 @@ GE
 OE
 DN
 DN
-Sx
+DN
 DN
 DN
 UY
@@ -28193,7 +28258,7 @@ Yo
 Yo
 TU
 Nk
-Nk
+Sx
 Nk
 Ph
 Co
@@ -30078,7 +30143,7 @@ qm
 qm
 qm
 vb
-qY
+vm
 qv
 Ej
 mQ
@@ -30592,7 +30657,7 @@ qm
 qm
 qm
 vb
-qY
+Pu
 qY
 qY
 mQ
@@ -31107,7 +31172,7 @@ qm
 qm
 vb
 qY
-qY
+Hd
 qY
 vq
 nj
@@ -32649,7 +32714,7 @@ qm
 qm
 vb
 qY
-qY
+Qf
 qY
 Xj
 QA
@@ -36435,7 +36500,7 @@ hs
 Fs
 hs
 DR
-hU
+sc
 KN
 KN
 KN
@@ -36692,7 +36757,7 @@ Vj
 Fs
 JS
 DR
-VM
+TC
 yr
 yr
 yr
@@ -36949,7 +37014,7 @@ hs
 Fs
 hs
 DR
-VM
+kJ
 Rh
 Rh
 Rh
@@ -37206,7 +37271,7 @@ hs
 Fs
 hs
 DR
-VM
+tl
 Rh
 Rh
 Rh
@@ -37463,7 +37528,7 @@ hs
 Fs
 hs
 DR
-VM
+rx
 Rh
 Rh
 cE
@@ -37720,7 +37785,7 @@ Qv
 Fs
 hs
 DR
-VM
+Mk
 Rh
 Rh
 qb
@@ -37977,7 +38042,7 @@ hs
 Fs
 hs
 DR
-VM
+oj
 Rh
 Rh
 cE
@@ -38234,7 +38299,7 @@ hs
 Fs
 hs
 DR
-VM
+bT
 Rh
 Rh
 Rh
@@ -38491,7 +38556,7 @@ hs
 Fs
 hs
 DR
-VM
+Ua
 Rh
 Rh
 Rh
@@ -38748,7 +38813,7 @@ Vj
 Fs
 JS
 DR
-VM
+bq
 jl
 jl
 jl
@@ -39005,7 +39070,7 @@ Mt
 Fs
 hs
 DR
-hU
+lD
 KN
 KN
 KN

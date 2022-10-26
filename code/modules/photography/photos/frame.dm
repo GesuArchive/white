@@ -3,7 +3,7 @@
 /obj/item/wallframe/picture
 	name = "рамка картины"
 	desc = "Лучший способ показать всем лучшие смертельные ловушки."
-	icon = 'icons/obj/decals.dmi'
+	icon = 'icons/obj/signs.dmi'
 	custom_materials = list(/datum/material/wood = 2000)
 	flags_1 = 0
 	icon_state = "frame-overlay"
@@ -63,7 +63,7 @@
 /obj/structure/sign/picture_frame
 	name = "фоторамка"
 	desc = "Заставляет ржать после каждого просмотра."
-	icon = 'icons/obj/decals.dmi'
+	icon = 'icons/obj/signs.dmi'
 	icon_state = "frame-overlay"
 	custom_materials = list(/datum/material/wood = 2000)
 	var/obj/item/photo/framed
@@ -184,3 +184,61 @@ FRAME_DEFINE(centcom)
 
 /obj/structure/sign/picture_frame/showroom/four
 	persistence_id = "frame_showroom4"
+
+/// This used to be a plaque portrait of a monkey. Now it's been revamped into something more.
+/obj/structure/sign/picture_frame/portrait
+	icon_state = "frame-monkey"
+	can_decon = FALSE
+	var/portrait_name
+	var/portrait_state
+	var/portrait_desc
+
+/obj/structure/sign/picture_frame/portrait/Initialize(mapload)
+	. = ..()
+	switch(rand(1,4))
+		if(1) // Deempisi
+			name = "Mr. Deempisi portrait"
+			icon_state = "frame-monkey"
+			desc = "Under the portrait a plaque reads: 'While the meat grinder may not have spared you, fear not. Not one part of you has gone to waste... You were delicious.'"
+		if(2) // A fruit
+			name = "picture of a fruit"
+			icon_state = "frame-fruit"
+			desc = "<i>Ceci n'est pas une orange.</i>"
+		if(3) // Rat
+			name = "Tom portrait"
+			desc = "Jerry the cat is still not amused."
+			icon_state = "frame-rat"
+		if(4) // Ratvar
+			name = "portrait of the imprisoned god"
+			desc = "Under the portrait a plaque reads: 'In loving memory of Ratvar, ancient powerful entity and rival of Nar'Sie, \
+				ultimately struck down by NT bluespace artillery at the hands of Outpost 17 crew. Rust in peace.'" // common core lore.
+			icon_state = "frame-ratvar"
+	portrait_name = name
+	portrait_state = icon_state
+	portrait_desc = desc
+
+/obj/structure/sign/picture_frame/portrait/update_name(updates)
+	if(framed)
+		name = initial(name)
+	else
+		name = portrait_name
+	return ..()
+
+/obj/structure/sign/picture_frame/portrait/update_icon_state(updates)
+	. = ..()
+	if(framed)
+		icon_state = "frame-overlay"
+	else
+		icon_state = portrait_state
+
+/obj/structure/sign/picture_frame/portrait/update_desc(updates)
+	. = ..()
+	if(framed)
+		desc = "Every time you look it makes you laugh."
+	else
+		desc = portrait_desc
+
+/obj/structure/sign/picture_frame/portrait/examine_more(mob/user)
+	. = ..()
+	if(!framed)
+		. += span_notice("<hr>The frame and the picture are glued together, but you guess you could slip a photo between the two.")

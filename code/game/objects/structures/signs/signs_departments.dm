@@ -92,7 +92,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/science/alt, 32)
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/xenobio, 32)
 
 /obj/structure/sign/departments/nanites
-	name = "\improper Nanite Lab sign"
+	name = "Nanite Lab sign"
 	sign_change_name = "Department - Science: Nanites"
 	desc = "A sign labelling an area where testing and development of nanites is performed."
 	icon_state = "nanites"
@@ -103,7 +103,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/rndserver, 32)
 ///////SERVICE
 
 /obj/structure/sign/departments/botany
-	name = "\improper Botany sign"
+	name = "Botany sign"
 	sign_change_name = "Department - Botany"
 	desc = "A sign labelling an area as a place where plants are grown."
 	icon_state = "hydro1"
@@ -112,7 +112,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/rndserver, 32)
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/botany, 32)
 
 /obj/structure/sign/departments/custodian
-	name = "\improper Janitor sign"
+	name = "Janitor sign"
 	sign_change_name = "Department - Janitor"
 	desc = "A sign labelling an area where the janitor works."
 	icon_state = "custodian"
@@ -121,7 +121,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/botany, 32)
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/custodian, 32)
 
 /obj/structure/sign/departments/holy
-	name = "\improper Chapel sign"
+	name = "Chapel sign"
 	sign_change_name = "Department - Chapel"
 	desc = "A sign labelling a religious area."
 	icon_state = "holy"
@@ -130,7 +130,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/custodian, 32)
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/holy, 32)
 
 /obj/structure/sign/departments/lawyer
-	name = "\improper Legal Department sign"
+	name = "Legal Department sign"
 	sign_change_name = "Department - Legal"
 	desc = "A sign labelling an area where the Lawyers work, apply here for arrivals shuttle whiplash settlement."
 	icon_state = "lawyer"
@@ -141,7 +141,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/lawyer, 32)
 ///////SUPPLY
 
 /obj/structure/sign/departments/cargo
-	name = "\improper Cargo sign"
+	name = "Cargo sign"
 	sign_change_name = "Department - Cargo"
 	desc = "A sign labelling an area where cargo ships dock."
 	icon_state = "cargo"
@@ -152,7 +152,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/cargo, 32)
 ///////SECURITY
 
 /obj/structure/sign/departments/security
-	name = "\improper Security sign"
+	name = "Security sign"
 	sign_change_name = "Department - Security"
 	desc = "A sign labelling an area where the law is law."
 	icon_state = "security"
@@ -163,7 +163,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/security, 32)
 ////MISC LOCATIONS
 
 /obj/structure/sign/departments/restroom
-	name = "\improper Restroom sign"
+	name = "Restroom sign"
 	sign_change_name = "Location - Restroom"
 	desc = "A sign labelling a restroom."
 	icon_state = "restroom"
@@ -172,7 +172,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/security, 32)
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/restroom, 32)
 
 /obj/structure/sign/departments/mait
-	name = "\improper Maintenance Tunnel sign"
+	name = "Maintenance Tunnel sign"
 	sign_change_name = "Location - Maintenance"
 	desc = "A sign labelling an area where the departments of the station are linked together."
 	icon_state = "mait1"
@@ -181,7 +181,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/restroom, 32)
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/maint, 32)
 
 /obj/structure/sign/departments/mait/alt
-	name = "\improper Maintenance Tunnel sign"
+	name = "Maintenance Tunnel sign"
 	sign_change_name = "Location - Maintenance Alt"
 	desc = "A sign labelling an area where the departments of the station are linked together."
 	icon_state = "mait2"
@@ -190,7 +190,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/maint, 32)
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/maint/alt, 32)
 
 /obj/structure/sign/departments/evac
-	name = "\improper Evacuation sign"
+	name = "Evacuation sign"
 	sign_change_name = "Location - Evacuation"
 	desc = "A sign labelling an area where evacuation procedures take place."
 	icon_state = "evac"
@@ -199,7 +199,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/maint/alt, 32)
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/evac, 32)
 
 /obj/structure/sign/departments/drop
-	name = "\improper Drop Pods sign"
+	name = "Drop Pods sign"
 	sign_change_name = "Location - Drop Pods"
 	desc = "A sign labelling an area where drop pod loading procedures take place."
 	icon_state = "drop"
@@ -208,7 +208,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/evac, 32)
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/drop, 32)
 
 /obj/structure/sign/departments/court
-	name = "\improper Courtroom sign"
+	name = "Courtroom sign"
 	sign_change_name = "Location - Courtroom"
 	desc = "A sign labelling the courtroom, where the ever sacred Space Law is upheld."
 	icon_state = "court"
@@ -216,50 +216,39 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/drop, 32)
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/court, 32)
 
-/obj/structure/sign/flags
-	icon = 'white/valtos/icons/flags.dmi'
+/obj/structure/sign/departments/telecomms
+	name = "Telecommunications sign"
+	sign_change_name = "Location - Telecommunications"
+	desc = "A sign labelling an area where the station's radio and NTnet servers are stored."
+	icon_state = "telecomms"
 
-/obj/structure/sign/flags/che
-	name = "Флаг Чечни"
-	sign_change_name = "Флаг - Чечня"
-	desc = "Круто!"
-	icon_state = "flag_chechen"
-	is_editable = TRUE
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/telecomms, 32)
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flags/che, 32)
+/obj/structure/sign/departments/telecomms/alt
+	icon_state = "telecomms2"
 
-/obj/structure/sign/flags/soviet
-	name = "Флаг Совка"
-	sign_change_name = "Флаг - Совок"
-	desc = "+15 социальный рейтинг!"
-	icon_state = "flag_soviet"
-	is_editable = TRUE
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/telecomms/alt, 32)
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flags/soviet, 32)
+/obj/structure/sign/departments/aiupload
+	name = "AI Upload sign"
+	sign_change_name = "Location - AI Upload"
+	desc = "A sign labelling an area where laws are uploaded to the station's AI and cyborgs."
+	icon_state = "aiupload"
 
-/obj/structure/sign/flags/russia
-	name = "Флаг России"
-	sign_change_name = "Флаг - Россия"
-	desc = "Выебет вас!"
-	icon_state = "flag_russia"
-	is_editable = TRUE
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/aiupload, 32)
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flags/russia, 32)
+/obj/structure/sign/departments/aisat
+	name = "AI Satellite sign"
+	sign_change_name = "Location - AI Satellite"
+	desc = "A sign labelling the AI's heavily-fortified satellite."
+	icon_state = "aisat"
 
-/obj/structure/sign/flags/kazakh
-	name = "Флаг Казахстана"
-	sign_change_name = "Флаг - Казахстан"
-	desc = "Жумайсынба!"
-	icon_state = "flag_kazakh"
-	is_editable = TRUE
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/aisat, 32)
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flags/kazakh, 32)
+/obj/structure/sign/departments/vault
+	name = "Vault sign"
+	sign_change_name = "Location - Vault"
+	desc = "A sign labelling a saferoom where the station's resources and self-destruct are secured."
+	icon_state = "vault"
 
-/obj/structure/sign/flags/ua
-	name = "Флаг Украины"
-	sign_change_name = "Флаг - Украина"
-	desc = "Героям Слава!"
-	icon_state = "flag_ua"
-	is_editable = TRUE
-
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/flags/ua, 32)
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/departments/vault, 32)

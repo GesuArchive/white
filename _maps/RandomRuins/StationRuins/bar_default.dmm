@@ -551,7 +551,7 @@
 /area/service/bar)
 "by" = (
 /obj/machinery/disposal/bin,
-/obj/structure/sign/plaques/deempisi{
+/obj/structure/sign/picture_frame/portrait{
 	pixel_x = -28;
 	pixel_y = -4
 	},

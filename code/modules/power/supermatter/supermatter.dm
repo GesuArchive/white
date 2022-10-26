@@ -531,6 +531,9 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		var/datum/round_event_control/crystal_invasion/crystals = new/datum/round_event_control/crystal_invasion
 		crystals.runEvent()
 		return //No boom for me sir
+	SSpersistence.rounds_since_engine_exploded = ROUNDCOUNT_ENGINE_JUST_EXPLODED
+	for (var/obj/structure/sign/delamination_counter/sign as anything in GLOB.map_delamination_counters)
+		sign.update_count(ROUNDCOUNT_ENGINE_JUST_EXPLODED)
 	//Dear mappers, balance the sm max explosion radius to 17.5, 37, 39, 41
 	explosion(src, devastation_range = explosion_power * max(gasmix_power_ratio, 0.205) * 0.5 , heavy_impact_range = explosion_power * max(gasmix_power_ratio, 0.205) + 2, light_impact_range = explosion_power * max(gasmix_power_ratio, 0.205) + 4 , flash_range = explosion_power * max(gasmix_power_ratio, 0.205) + 6, adminlog = TRUE, ignorecap = TRUE)
 	qdel(src)
