@@ -80,7 +80,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 		message_size = 0
 
 	//Message
-	var/messagepart = " <span class='message chat_step_[message_size]'>[lang_treat(speaker, message_language, raw_message, spans, message_mods)]</span></span>"
+	var/messagepart = " <span class='message chat_step_[message_size]'>[say_emphasis(lang_treat(speaker, message_language, raw_message, spans, message_mods))]</span></span>"
 
 	var/languageicon = ""
 	var/datum/language/D = GLOB.language_datum_instances[message_language]
