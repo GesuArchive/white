@@ -104,12 +104,6 @@
 	for(var/V in eyeobj.visibleCameraChunks)
 		var/datum/camerachunk/C = V
 		C.remove(eyeobj)
-	if(user.client)
-		user.reset_perspective(null)
-		if(eyeobj.visible_icon && user.client)
-			user.client.images -= eyeobj.user_image
-		user.client.view_size.unsupress()
-		user.client.attempt_auto_fit_viewport()
 
 	eyeobj.eye_user = null
 	user.remote_control = null
@@ -126,6 +120,12 @@
 		if(!shuttleObject.stealth)
 			to_remove += SSshuttle.hidden_shuttle_turf_images
 		user.client.images -= to_remove
+		user.reset_perspective(null)
+		if(eyeobj.visible_icon && user.client)
+			user.client.images -= eyeobj.user_image
+		user.client.view_size.unsupress()
+		user.client.view_size.resetToDefault()
+		user.client.attempt_auto_fit_viewport()
 
 /obj/machinery/computer/shuttle_flight/proc/placeLandingSpot()
 	if(designating_target_loc || !current_user)
