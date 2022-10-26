@@ -259,7 +259,7 @@ GLOBAL_VAR(restart_counter)
 
 	shutdown_logging() // Past this point, no logging procs can be used, at risk of data loss.
 	if(CONFIG_GET(flag/this_shit_is_stable))
-		shelleo("curl -X POST http://localhost:3636/hard-reboot-white/rid=[rid]")
+		shelleo("curl -X POST http://localhost:3636/hard-reboot-white/[rid]")
 	AUXTOOLS_SHUTDOWN(AUXMOS)
 	AUXTOOLS_FULL_SHUTDOWN(AUXLUA)
 	..()
