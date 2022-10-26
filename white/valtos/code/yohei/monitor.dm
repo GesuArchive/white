@@ -117,7 +117,7 @@
 	switch(tgui_alert(user, "Ты правда хочешь сменить эту задачу? За это будет наложен штраф!", "Сменить задачу", list("Да", "Нет")))
 		if("Да")
 			internal_radio.talk_into(src, "Задание отменено [skloname(user.real_name, TVORITELNI, user.gender)]. На подтвердившего отмену наложен штраф. Получение следующего задания...", FREQ_YOHEI)
-			inc_metabalance(user, rand(-150, -50), reason = "Отмена задания.")
+			inc_metabalance(user, rand(-15, -5), reason = "Отмена задания.")
 			QDEL_NULL(current_task)
 			return
 		if("Нет")

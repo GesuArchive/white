@@ -58,7 +58,7 @@
 				for(var/mob/living/carbon/human/H in GLOB.joined_player_list)
 					var/turf/T = get_turf(H)
 					if(is_station_level(T.z))
-						inc_metabalance(H, -100, reason="Капитан погиб. Нам всем конец!")
+						inc_metabalance(H, -10, reason="Капитан погиб. Нам всем конец!")
 						spawn(1 SECONDS)
 							explosion(H, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 3)
 			return

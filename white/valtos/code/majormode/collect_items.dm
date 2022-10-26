@@ -80,7 +80,7 @@
 		D.adjust_money(500000)
 	for(var/mob/M in GLOB.joined_player_list)
 		if(isliving(M) && M.client && is_station_level(M.z))
-			inc_metabalance(M, 250, reason="Задание выполнено!")
+			inc_metabalance(M, 150, reason="Задание выполнено!")
 	priority_announce("Задание успешно выполнено, на счёт снабжения была переведена награда в размере 500000 кредитов. Можете вернуться к своим основным обязанностям.", "Центральное Командование", 'sound/ai/announcer/alert.ogg')
 	return TRUE
 
