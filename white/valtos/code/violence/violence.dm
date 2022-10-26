@@ -193,22 +193,22 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 			if(GLOB.violence_bomb_active)
 				return
 		if(GLOB.violence_time_limit <= 0)
-			if(GLOB.violence_bomb_planted && GLOB.violence_blue_team.len)
+			if(GLOB.violence_bomb_planted && LAZYLEN(GLOB.violence_blue_team))
 				return
 			if(GLOB.violence_playmode == VIOLENCE_PLAYMODE_BOMBDEF)
 				end_round("СИНИХ")
 				return
-			if(GLOB.violence_red_team.len < GLOB.violence_blue_team.len)
+			if(LAZYLEN(GLOB.violence_red_team) < LAZYLEN(GLOB.violence_blue_team))
 				end_round("СИНИХ")
 				return
-			if(GLOB.violence_red_team.len > GLOB.violence_blue_team.len)
+			if(LAZYLEN(GLOB.violence_red_team) > LAZYLEN(GLOB.violence_blue_team))
 				end_round("КРАСНЫХ")
 				return
-		if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len)
+		if(LAZYLEN(GLOB.violence_red_team) == 0 && LAZYLEN(GLOB.violence_blue_team))
 			end_round("СИНИХ")
-		if(GLOB.violence_blue_team.len == 0 && GLOB.violence_red_team.len)
+		if(LAZYLEN(GLOB.violence_blue_team) == 0 && LAZYLEN(GLOB.violence_red_team))
 			end_round("КРАСНЫХ")
-		if(GLOB.violence_red_team.len == 0 && GLOB.violence_blue_team.len == 0)
+		if(LAZYLEN(GLOB.violence_red_team) == 0 && LAZYLEN(GLOB.violence_blue_team) == 0)
 			end_round()
 
 /datum/game_mode/violence/proc/random_speech(mob/living/carbon/human/H)

@@ -26,8 +26,8 @@
 
 /datum/antagonist/combatant/red/on_gain()
 	. = ..()
-	GLOB.violence_blue_team -= owner
-	GLOB.violence_red_team |= owner
+	LAZYREMOVE(GLOB.violence_blue_team, owner)
+	LAZYOR(GLOB.violence_red_team, owner)
 	var/datum/team/T = GLOB.violence_red_datum
 	if(T)
 		T.add_member(owner)
@@ -41,8 +41,8 @@
 
 /datum/antagonist/combatant/blue/on_gain()
 	. = ..()
-	GLOB.violence_red_team -= owner
-	GLOB.violence_blue_team |= owner
+	LAZYREMOVE(GLOB.violence_red_team, owner)
+	LAZYOR(GLOB.violence_blue_team, owner)
 	var/datum/team/T = GLOB.violence_blue_datum
 	if(T)
 		T.add_member(owner)
