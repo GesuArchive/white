@@ -198,6 +198,8 @@
 	icon_state = "stomach-p" //Welp. At least it's more unique in functionaliy.
 	desc = "Кристаллический орган, хранящий электрический заряд эфирных существ."
 	var/crystal_charge = ETHEREAL_CHARGE_FULL
+	///used to keep ethereals from spam draining power sources
+	var/drain_time = 0
 
 /obj/item/organ/stomach/ethereal/on_life(delta_time, times_fired)
 	..()

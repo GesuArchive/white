@@ -2390,18 +2390,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/mine/laborcamp/security)
-"hU" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/turf/open/floor/plasteel,
-/area/mine/production)
 "ia" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -21431,7 +21419,7 @@ ds
 dK
 ia
 bP
-hU
+eE
 bP
 dU
 br

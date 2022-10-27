@@ -348,7 +348,7 @@
 
 	if(!mapload) //sync up nightshift lighting for player made lights
 		var/area/our_area = get_area(src)
-		var/obj/machinery/power/apc/temp_apc = our_area.get_apc()
+		var/obj/machinery/power/apc/temp_apc = our_area.apc
 		nightshift_enabled = temp_apc?.nightshift_lights
 
 	if(start_with_cell && !no_emergency)
@@ -725,56 +725,58 @@
 		to_chat(user, span_warning("Внутри нет лампочки!"))
 		return
 
-	// make it burn hands unless you're wearing heat insulated gloves or have the RESISTHEAT/RESISTHEATHANDS traits
-	if(on)
-		var/prot = 0
-		var/mob/living/carbon/human/H = user
+	if(!on)
+		to_chat(user, span_notice("Вытаскиваю [fitting]."))
+		// create a light tube/bulb item and put it in the user's hand
+		drop_light_tube(user)
+		return
 
-		if(istype(H))
-			var/datum/species/ethereal/eth_species = H.dna?.species
-			if(istype(eth_species))
-				var/datum/species/ethereal/E = H.dna.species
-				if(E.drain_time > world.time)
-					return
-				to_chat(H, span_notice("Начинаю заряжать себя используя лампочку."))
-				E.drain_time = world.time + LIGHT_DRAIN_TIME
-				if(do_after(user, LIGHT_DRAIN_TIME, target = src))
-					var/obj/item/organ/stomach/ethereal/stomach = H.getorganslot(ORGAN_SLOT_STOMACH)
-					if(istype(stomach))
-						to_chat(H, span_notice("Получаю немного энергии от лампочки."))
-						stomach.adjust_charge(LIGHT_POWER_GAIN)
-					else
-						to_chat(H, span_warning("Не вышло получить энергию от лампочки!"))
+	var/protection_amount = 0
+	var/mob/living/carbon/human/electrician = user
+
+	if(istype(electrician))
+		var/obj/item/organ/stomach/maybe_stomach = electrician.getorganslot(ORGAN_SLOT_STOMACH)
+		if(istype(maybe_stomach, /obj/item/organ/stomach/ethereal))
+			var/obj/item/organ/stomach/ethereal/stomach = maybe_stomach
+			if(stomach.drain_time > world.time)
 				return
+			to_chat(electrician, span_notice("Начинаю получать энергию из [fitting] прямо в своё тело."))
+			stomach.drain_time = world.time + LIGHT_DRAIN_TIME
+			while(do_after(user, LIGHT_DRAIN_TIME, target = src))
+				stomach.drain_time = world.time + LIGHT_DRAIN_TIME
+				if(istype(stomach))
+					to_chat(electrician, span_notice("Получаю немного энергии от [fitting]."))
+					stomach.adjust_charge(LIGHT_POWER_GAIN)
+				else
+					to_chat(electrician, span_warning("Не вышло получить энергию от [fitting]!"))
+			return
 
-			if(H.gloves)
-				var/obj/item/clothing/gloves/G = H.gloves
-				if(G.max_heat_protection_temperature)
-					prot = (G.max_heat_protection_temperature > 360)
-		else
-			prot = 1
-
-		if(prot > 0 || HAS_TRAIT(user, TRAIT_RESISTHEAT) || HAS_TRAIT(user, TRAIT_RESISTHEATHANDS))
-			to_chat(user, span_notice("Извлекаю лампочку."))
-		else if(istype(user) && user.dna.check_mutation(TK))
-			to_chat(user, span_notice("Телекинетически извлекаю лампочку."))
-		else
-			var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
-			if(affecting?.receive_damage( 0, 5 ))			// 5 burn damage
-				H.update_damage_overlays()
-			if(HAS_TRAIT(user, TRAIT_LIGHTBULB_REMOVER))
-				to_chat(user, span_notice("Ощущаю дикую боль в руке, но меня это не останавливает."))
-				if(!do_after(user, 5 SECONDS, target = src))
-					return
-				if(affecting?.receive_damage( 0, 10 ))		// 10 more burn damage
-					H.update_damage_overlays()
-				to_chat(user, span_notice("Мне удалось вытащить лампочку, правда они разбилась в процессе."))
-				break_light_tube()
-			else
-				to_chat(user, span_warning("Пытаюсь вытащить лампочку, но она слишком горячая!"))
-				return
+		if(electrician.gloves)
+			var/obj/item/clothing/gloves/electrician_gloves = electrician.gloves
+			if(electrician_gloves.max_heat_protection_temperature)
+				protection_amount = (electrician_gloves.max_heat_protection_temperature > 360)
 	else
-		to_chat(user, span_notice("Вытаскиваю лампочку."))
+		protection_amount = 1
+
+	if(protection_amount > 0 || HAS_TRAIT(user, TRAIT_RESISTHEAT) || HAS_TRAIT(user, TRAIT_RESISTHEATHANDS))
+		to_chat(user, span_notice("Извлекаю лампочку."))
+	else if(istype(user) && user.dna.check_mutation(TK))
+		to_chat(user, span_notice("Телекинетически извлекаю лампочку."))
+	else
+		var/obj/item/bodypart/affecting = electrician.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
+		if(affecting?.receive_damage( 0, 5 ))			// 5 burn damage
+			electrician.update_damage_overlays()
+		if(HAS_TRAIT(user, TRAIT_LIGHTBULB_REMOVER))
+			to_chat(user, span_notice("Ощущаю дикую боль в руке, но меня это не останавливает."))
+			if(!do_after(user, 5 SECONDS, target = src))
+				return
+			if(affecting?.receive_damage( 0, 10 ))		// 10 more burn damage
+				electrician.update_damage_overlays()
+			to_chat(user, span_notice("Мне удалось вытащить лампочку, правда они разбилась в процессе."))
+			break_light_tube()
+		else
+			to_chat(user, span_warning("Пытаюсь вытащить лампочку, но она слишком горячая!"))
+			return
 	// create a light tube/bulb item and put it in the user's hand
 	drop_light_tube(user)
 

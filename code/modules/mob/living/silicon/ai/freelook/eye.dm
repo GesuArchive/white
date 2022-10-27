@@ -207,7 +207,7 @@
 	all_eyes += eyeobj
 	eyeobj.ai = src
 	eyeobj.setLoc(loc)
-	eyeobj.name = "[name] (AI Eye)"
+	eyeobj.name = "[name] (око ИИ)"
 	eyeobj.real_name = eyeobj.name
 	set_eyeobj_visible(TRUE)
 

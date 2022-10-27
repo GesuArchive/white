@@ -2,16 +2,18 @@ import { map, sortBy } from 'common/collections';
 import { flow } from 'common/fp';
 import { pureComponentHooks } from 'common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Dimmer, Flex, Icon, Table, Tabs } from '../components';
+import { Box, Button, Dimmer, Icon, Table, Tabs, Stack, Section } from '../components';
 import { Window } from '../layouts';
 import { AreaCharge, powerRank } from './PowerMonitor';
 
 export const ApcControl = (props, context) => {
   const { data } = useBackend(context);
   return (
-    <Window title="Контроллер энергии" width={600} height={500}>
-      {data.authenticated === 1 && <ApcLoggedIn />}
-      {data.authenticated === 0 && <ApcLoggedOut />}
+    <Window title="Контроллер энергии" width={550} height={500}>
+      <Window.Content>
+        {data.authenticated === 1 && <ApcLoggedIn />}
+        {data.authenticated === 0 && <ApcLoggedOut />}
+      </Window.Content>
     </Window>
   );
 };
@@ -21,14 +23,15 @@ const ApcLoggedOut = (props, context) => {
   const { emagged } = data;
   const text = emagged === 1 ? 'Открыть' : 'Войти';
   return (
-    <Window.Content>
+    <Section>
       <Button
-        fluid
+        icon="sign-in-alt"
         color={emagged === 1 ? '' : 'good'}
         content={text}
+        fluid
         onClick={() => act('log-in')}
       />
-    </Window.Content>
+    </Section>
   );
 };
 
@@ -37,7 +40,7 @@ const ApcLoggedIn = (props, context) => {
   const { restoring } = data;
   const [tabIndex, setTabIndex] = useLocalState(context, 'tab-index', 1);
   return (
-    <>
+    <Box>
       <Tabs>
         <Tabs.Tab
           selected={tabIndex === 1}
@@ -63,23 +66,27 @@ const ApcLoggedIn = (props, context) => {
         </Dimmer>
       )}
       {tabIndex === 1 && (
-        <>
-          <ControlPanel />
-          <Box fillPositionedParent top="53px">
-            <Window.Content scrollable>
+        <Stack vertical>
+          <Stack.Item>
+            <Section>
+              <ControlPanel />
+            </Section>
+          </Stack.Item>
+          <Stack.Item>
+            <Section scrollable>
               <ApcControlScene />
-            </Window.Content>
-          </Box>
-        </>
+            </Section>
+          </Stack.Item>
+        </Stack>
       )}
       {tabIndex === 2 && (
-        <Box fillPositionedParent top="20px">
-          <Window.Content scrollable>
+        <Section scrollable>
+          <Box height={34}>
             <LogPanel />
-          </Window.Content>
-        </Box>
+          </Box>
+        </Section>
       )}
-    </>
+    </Box>
   );
 };
 
@@ -89,11 +96,11 @@ const ControlPanel = (props, context) => {
   const [sortByField, setSortByField] = useLocalState(
     context,
     'sortByField',
-    null
+    'name'
   );
   return (
-    <Flex>
-      <Flex.Item>
+    <Stack justify="space-between">
+      <Stack.Item>
         <Box inline mr={2} color="label">
           Сортировка:
         </Box>
@@ -112,16 +119,14 @@ const ControlPanel = (props, context) => {
           content="Потребление"
           onClick={() => setSortByField(sortByField !== 'draw' && 'draw')}
         />
-      </Flex.Item>
-      <Flex.Item grow={1} />
-      <Flex.Item>
+      </Stack.Item>
+      <Stack.Item grow={1} />
+      <Stack.Item>
         {emagged === 1 && (
           <>
             <Button
               color={logging === 1 ? 'bad' : 'good'}
-              content={
-                logging === 1 ? 'Остановить запись' : 'Продолжить запись'
-              }
+              content={logging === 1 ? 'Остановить запись' : 'Продолжить запись'}
               onClick={() => act('toggle-logs')}
             />
             <Button
@@ -130,16 +135,21 @@ const ControlPanel = (props, context) => {
             />
           </>
         )}
-        <Button color="bad" content="Выйти" onClick={() => act('log-out')} />
-      </Flex.Item>
-    </Flex>
+        <Button
+          icon="sign-out-alt"
+          color="bad"
+          content="Выйти"
+          onClick={() => act('log-out')}
+        />
+      </Stack.Item>
+    </Stack>
   );
 };
 
 const ApcControlScene = (props, context) => {
   const { data, act } = useBackend(context);
 
-  const [sortByField] = useLocalState(context, 'sortByField', null);
+  const [sortByField] = useLocalState(context, 'sortByField', 'name');
 
   const apcs = flow([
     map((apc, i) => ({
@@ -156,78 +166,80 @@ const ApcControlScene = (props, context) => {
       ),
   ])(data.apcs);
   return (
-    <Table>
-      <Table.Row header>
-        <Table.Cell>On/Off</Table.Cell>
-        <Table.Cell>Area</Table.Cell>
-        <Table.Cell collapsing>Charge</Table.Cell>
-        <Table.Cell collapsing textAlign="right">
-          Draw
-        </Table.Cell>
-        <Table.Cell collapsing title="Оборудование">
-          Eqp
-        </Table.Cell>
-        <Table.Cell collapsing title="Освещение">
-          Lgt
-        </Table.Cell>
-        <Table.Cell collapsing title="Окружение">
-          Env
-        </Table.Cell>
-      </Table.Row>
-      {apcs.map((apc, i) => (
-        <tr key={apc.id} className="Table__row  candystripe">
-          <td>
-            <Button
-              icon={apc.operating ? 'power-off' : 'times'}
-              color={apc.operating ? 'good' : 'bad'}
-              onClick={() =>
-                act('breaker', {
-                  ref: apc.ref,
-                })
-              }
-            />
-          </td>
-          <td>
-            <Button
-              onClick={() =>
-                act('access-apc', {
-                  ref: apc.ref,
-                })
-              }>
-              {apc.name}
-            </Button>
-          </td>
-          <td className="Table__cell text-right text-nowrap">
-            <AreaCharge charging={apc.charging} charge={apc.charge} />
-          </td>
-          <td className="Table__cell text-right text-nowrap">{apc.load}</td>
-          <td className="Table__cell text-center text-nowrap">
-            <AreaStatusColorButton
-              target="equipment"
-              status={apc.eqp}
-              apc={apc}
-              act={act}
-            />
-          </td>
-          <td className="Table__cell text-center text-nowrap">
-            <AreaStatusColorButton
-              target="lighting"
-              status={apc.lgt}
-              apc={apc}
-              act={act}
-            />
-          </td>
-          <td className="Table__cell text-center text-nowrap">
-            <AreaStatusColorButton
-              target="environ"
-              status={apc.env}
-              apc={apc}
-              act={act}
-            />
-          </td>
-        </tr>
-      ))}
-    </Table>
+    <Box height={30}>
+      <Table>
+        <Table.Row header>
+          <Table.Cell>Вкл/Выкл</Table.Cell>
+          <Table.Cell>Зона</Table.Cell>
+          <Table.Cell collapsing>Заряд</Table.Cell>
+          <Table.Cell collapsing textAlign="right">
+            Потребление
+          </Table.Cell>
+          <Table.Cell collapsing title="Оборудование">
+            Обр
+          </Table.Cell>
+          <Table.Cell collapsing title="Освещение">
+            Свт
+          </Table.Cell>
+          <Table.Cell collapsing title="Окружение">
+            Окр
+          </Table.Cell>
+        </Table.Row>
+        {apcs.map((apc, i) => (
+          <tr key={apc.id} className="Table__row  candystripe">
+            <td>
+              <Button
+                icon={apc.operating ? 'power-off' : 'times'}
+                color={apc.operating ? 'good' : 'bad'}
+                onClick={() =>
+                  act('breaker', {
+                    ref: apc.ref,
+                  })
+                }
+              />
+            </td>
+            <td>
+              <Button
+                onClick={() =>
+                  act('access-apc', {
+                    ref: apc.ref,
+                  })
+                }>
+                {apc.name}
+              </Button>
+            </td>
+            <td className="Table__cell text-right text-nowrap">
+              <AreaCharge charging={apc.charging} charge={apc.charge} />
+            </td>
+            <td className="Table__cell text-right text-nowrap">{apc.load}</td>
+            <td className="Table__cell text-center text-nowrap">
+              <AreaStatusColorButton
+                target="equipment"
+                status={apc.eqp}
+                apc={apc}
+                act={act}
+              />
+            </td>
+            <td className="Table__cell text-center text-nowrap">
+              <AreaStatusColorButton
+                target="lighting"
+                status={apc.lgt}
+                apc={apc}
+                act={act}
+              />
+            </td>
+            <td className="Table__cell text-center text-nowrap">
+              <AreaStatusColorButton
+                target="environ"
+                status={apc.env}
+                apc={apc}
+                act={act}
+              />
+            </td>
+          </tr>
+        ))}
+      </Table>
+    </Box>
   );
 };
 

@@ -874,7 +874,7 @@ G&@@@@@@@@@#5@@@@@&PBP555555555PGGBP&@&&@@@@@@&&&&&&&&@&#BGB&@@@@@@@@@@@#GPPPPPP
 	..()
 	if(oldname != real_name)
 		if(eyeobj)
-			eyeobj.name = "[newname] (AI Eye)"
+			eyeobj.name = "[newname] (око ИИ)"
 			modularInterface?.saved_identification = real_name
 
 		// Notify Cyborgs

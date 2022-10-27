@@ -48,7 +48,7 @@
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/on_moved)
 	if(!istype(loc, /obj/item/storage) && !istype(loc, /turf))
 		RegisterSignal(loc, COMSIG_ITEM_MAGICALLY_CHARGED, .proc/on_magic_charge)
-	
+
 /obj/item/stock_parts/cell/proc/on_magic_charge(datum/source, datum/action/cooldown/spell/spell, mob/living/caster)
 	give(rand(6,25)*100)
 
@@ -58,7 +58,7 @@
 	UnregisterSignal(old_loc, COMSIG_ITEM_MAGICALLY_CHARGED)
 	if(!istype(loc, /obj/item/storage) && !istype(loc, /turf))
 		RegisterSignal(loc, COMSIG_ITEM_MAGICALLY_CHARGED, .proc/on_magic_charge)
-	
+
 
 /obj/item/stock_parts/cell/create_reagents(max_vol, flags)
 	. = ..()
@@ -171,32 +171,34 @@
 					corrupt()
 
 /obj/item/stock_parts/cell/attack_self(mob/user)
-	if(isethereal(user))
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		var/datum/species/ethereal/E = H.dna.species
-		var/charge_limit = ETHEREAL_CHARGE_DANGEROUS - CELL_POWER_GAIN
-		if(E.drain_time > world.time)
-			return
-		if(charge < CELL_POWER_DRAIN)
-			to_chat(H, span_warning("[capitalize(src.name)] doesn't have enough power!"))
-			return
-		var/obj/item/organ/stomach/ethereal/stomach = H.getorganslot(ORGAN_SLOT_STOMACH)
-		if(stomach.crystal_charge > charge_limit)
-			to_chat(H, span_warning("Your charge is full!"))
-			return
-		to_chat(H, span_notice("You begin clumsily channeling power from [src] into your body."))
-		E.drain_time = world.time + CELL_DRAIN_TIME
-		if(do_after(user, CELL_DRAIN_TIME, target = src))
-			if((charge < CELL_POWER_DRAIN) || (stomach.crystal_charge > charge_limit))
-				return
-			if(istype(stomach))
-				to_chat(H, span_notice("You receive some charge from [src], wasting some in the process."))
-				stomach.adjust_charge(CELL_POWER_GAIN)
-				charge -= CELL_POWER_DRAIN //you waste way more than you receive, so that ethereals cant just steal one cell and forget about hunger
-			else
-				to_chat(H, span_warning("You can't receive charge from [src]!"))
-		return
+		var/obj/item/organ/stomach/maybe_stomach = H.getorganslot(ORGAN_SLOT_STOMACH)
 
+		if(istype(maybe_stomach, /obj/item/organ/stomach/ethereal))
+
+			var/charge_limit = ETHEREAL_CHARGE_DANGEROUS - CELL_POWER_GAIN
+			var/obj/item/organ/stomach/ethereal/stomach = maybe_stomach
+			if((stomach.drain_time > world.time) || !stomach)
+				return
+			if(charge < CELL_POWER_DRAIN)
+				to_chat(H, span_warning("[src] doesn't have enough power!"))
+				return
+			if(stomach.crystal_charge > charge_limit)
+				to_chat(H, span_warning("Your charge is full!"))
+				return
+			to_chat(H, span_notice("You begin clumsily channeling power from [src] into your body."))
+			stomach.drain_time = world.time + CELL_DRAIN_TIME
+			if(do_after(user, CELL_DRAIN_TIME, target = src))
+				if((charge < CELL_POWER_DRAIN) || (stomach.crystal_charge > charge_limit))
+					return
+				if(istype(stomach))
+					to_chat(H, span_notice("You receive some charge from [src], wasting some in the process."))
+					stomach.adjust_charge(CELL_POWER_GAIN)
+					charge -= CELL_POWER_DRAIN //you waste way more than you receive, so that ethereals cant just steal one cell and forget about hunger
+				else
+					to_chat(H, span_warning("You can't receive charge from [src]!"))
+			return
 
 /obj/item/stock_parts/cell/blob_act(obj/structure/blob/B)
 	SSexplosions.high_mov_atom += src

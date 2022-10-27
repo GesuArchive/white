@@ -1131,7 +1131,7 @@
 	else
 		occupier.parent = malf
 	malf.shunted = 1
-	occupier.eyeobj.name = "[occupier.name] (AI Eye)"
+	occupier.eyeobj.name = "[occupier.name] (око ИИ)"
 	if(malf.parent)
 		qdel(malf)
 	var/datum/action/innate/core_return/CR = new
