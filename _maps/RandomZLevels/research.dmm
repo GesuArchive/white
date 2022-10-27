@@ -760,7 +760,7 @@
 /turf/open/floor/plasteel/dark,
 /area/awaymission/research/interior/gateway)
 "cb" = (
-/obj/machinery/power/apc/highcap/fifteen_k{
+/obj/machinery/power/apc/highcap/ten_k{
 	dir = 4;
 	name = "Gateway APC";
 	pixel_x = 25
@@ -2365,7 +2365,7 @@
 /turf/open/floor/plasteel/dark,
 /area/awaymission/research/interior/secure)
 "fy" = (
-/obj/machinery/power/apc/highcap/fifteen_k{
+/obj/machinery/power/apc/highcap/ten_k{
 	dir = 4;
 	name = "Vault APC";
 	pixel_x = 25

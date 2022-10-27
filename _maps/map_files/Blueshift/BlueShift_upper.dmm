@@ -40786,7 +40786,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/hidden/layer2{
 	dir = 1
 	},
-/obj/machinery/power/apc/highcap/fifteen_k{
+/obj/machinery/power/apc/highcap/ten_k{
 	areastring = /area/hallway/primary/upper;
 	dir = 1;
 	pixel_y = 25

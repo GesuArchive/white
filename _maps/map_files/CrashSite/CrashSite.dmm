@@ -2632,7 +2632,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/asteroid/airless,
-/area/mine/eva)
+/area/mine/lobby)
 "Is" = (
 /obj/machinery/suit_storage_unit/mining/eva,
 /obj/effect/turf_decal/tile/brown{
@@ -2643,7 +2643,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "Iu" = (
 /obj/machinery/door/airlock/command,
 /obj/machinery/door/firedoor/border_only{
@@ -2673,7 +2673,7 @@
 	pixel_y = 28
 	},
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "IF" = (
 /obj/machinery/suit_storage_unit/mining/eva,
 /obj/effect/turf_decal/tile/brown{
@@ -2683,7 +2683,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "IK" = (
 /obj/structure/table,
 /obj/item/pickaxe,
@@ -2708,7 +2708,7 @@
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "IR" = (
 /obj/structure/table,
 /obj/item/gun/energy/kinetic_accelerator,
@@ -2718,19 +2718,9 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 4
 	},
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
 /turf/open/floor/plasteel,
-/area/mine/eva)
-"IT" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/turf_decal/sand/plating,
-/obj/effect/turf_decal/sand,
-/turf/open/floor/plating/airless,
-/area/mine/eva)
+/area/mine/lobby)
 "IV" = (
 /obj/machinery/blackbox_recorder,
 /turf/open/floor/plasteel/dark,
@@ -2780,9 +2770,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/mine/lobby)
-"Jl" = (
-/turf/closed/wall/rust,
-/area/mine/eva)
 "Jo" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate,
@@ -2909,30 +2896,6 @@
 /obj/machinery/light/broken,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
-"Kg" = (
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/machinery/door/airlock/mining/glass,
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/plasteel,
-/area/mine/eva)
 "Kj" = (
 /obj/machinery/firealarm{
 	pixel_y = 24
@@ -2947,7 +2910,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "Ko" = (
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
@@ -2971,7 +2934,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "Ky" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 1;
@@ -2981,14 +2944,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/science/research)
-"KB" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/plasteel,
-/area/mine/eva)
 "KH" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/structure/cable,
@@ -2997,7 +2952,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "KM" = (
 /obj/machinery/rnd/server,
 /turf/open/floor/plasteel/dark,
@@ -3014,7 +2969,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "Lm" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
@@ -3022,7 +2977,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "Lu" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/turf_decal/sand,
@@ -3030,7 +2985,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/mine/eva)
+/area/mine/lobby)
 "LK" = (
 /obj/structure/sign/directions/engineering{
 	desc = "A sign that shows there are doors here. There are doors everywhere!";
@@ -3040,14 +2995,14 @@
 	},
 /obj/effect/turf_decal/sand,
 /turf/open/floor/plating,
-/area/mine/eva)
+/area/mine/lobby)
 "LL" = (
 /obj/effect/turf_decal/sand,
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/mine/eva)
+/area/mine/lobby)
 "Mg" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/turf_decal/sand,
@@ -3056,7 +3011,7 @@
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
-/area/mine/eva)
+/area/mine/lobby)
 "Mm" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
@@ -3097,7 +3052,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/asteroid/airless,
-/area/mine/eva)
+/area/mine/lobby)
 "Nc" = (
 /obj/structure/ore_box,
 /turf/open/floor/plating/asteroid/airless/cave,
@@ -3122,7 +3077,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "Nh" = (
 /obj/structure/ore_box,
 /obj/effect/turf_decal/tile/brown{
@@ -3132,7 +3087,7 @@
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "Nz" = (
 /turf/open/floor/plating,
 /area/cargo/storage)
@@ -3151,7 +3106,7 @@
 	},
 /obj/effect/turf_decal/tile/brown,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "NY" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
@@ -3175,7 +3130,7 @@
 /obj/effect/turf_decal/tile/brown,
 /obj/machinery/light,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "Ov" = (
 /obj/structure/table,
 /obj/item/flashlight/seclite{
@@ -3194,7 +3149,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "OD" = (
 /turf/open/floor/plasteel,
 /area/mine/unexplored)
@@ -3775,9 +3730,6 @@
 "ZV" = (
 /turf/closed/mineral/random,
 /area/mine/unexplored)
-"ZW" = (
-/turf/closed/wall,
-/area/mine/eva)
 "ZY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
@@ -56584,9 +56536,9 @@ TW
 TW
 TW
 Al
-ZW
-Kg
-Jl
+nW
+JH
+pN
 Al
 Ja
 ZV
@@ -56841,9 +56793,9 @@ TW
 TW
 TW
 Al
-ZW
+nW
 Kj
-Jl
+pN
 Al
 Ja
 Ja
@@ -57097,11 +57049,11 @@ TW
 TW
 TW
 TW
-ZW
-ZW
+nW
+nW
 Ko
-ZW
-ZW
+nW
+nW
 Ja
 Ja
 ZV
@@ -57354,11 +57306,11 @@ TW
 TW
 TW
 TW
-Jl
+pN
 Is
-KB
+JE
 Nd
-ZW
+nW
 Ja
 Ja
 ZV
@@ -57611,11 +57563,11 @@ TW
 TW
 TW
 TW
-Jl
+pN
 IE
 KH
 Nh
-ZW
+nW
 Ja
 Ja
 ZV
@@ -57868,11 +57820,11 @@ TW
 TW
 TW
 TW
-Jl
+pN
 IF
 KZ
 NO
-Jl
+pN
 Ja
 Ja
 ZV
@@ -58125,11 +58077,11 @@ TW
 TW
 TW
 Ja
-Jl
+pN
 IK
 KZ
 On
-Jl
+pN
 Ja
 Ja
 ZV
@@ -58382,11 +58334,11 @@ TW
 TW
 TW
 Ja
-ZW
+nW
 IR
 Lm
 Ov
-Jl
+pN
 Ja
 Ja
 ZV
@@ -58639,11 +58591,11 @@ TW
 cX
 cX
 Ja
-ZW
-ZW
+nW
+nW
 Lu
-ZW
-Jl
+nW
+pN
 Ja
 Ja
 ZV
@@ -58897,9 +58849,9 @@ cX
 cX
 Ja
 Ja
-ZW
+nW
 LK
-Jl
+pN
 Ja
 Ja
 Ja
@@ -59154,9 +59106,9 @@ cX
 cX
 cX
 Ja
-Jl
+pN
 LL
-Jl
+pN
 Ja
 Ja
 ZV
@@ -59411,9 +59363,9 @@ cX
 cX
 cX
 cX
-Jl
+pN
 Mg
-ZW
+nW
 ZV
 Ja
 ZV
@@ -59668,9 +59620,9 @@ ZV
 cX
 cX
 cX
-IT
+zD
 Al
-IT
+zD
 ZV
 ZV
 ZV

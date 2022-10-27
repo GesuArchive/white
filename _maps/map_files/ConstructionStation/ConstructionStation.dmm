@@ -81,7 +81,7 @@
 /area/space/nearstation)
 "bd" = (
 /turf/open/space/basic,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "bg" = (
 /obj/machinery/door/airlock/engineering,
 /obj/machinery/door/firedoor,
@@ -120,7 +120,7 @@
 "bv" = (
 /obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/plating,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "bw" = (
 /obj/structure/table,
 /obj/item/stack/sheet/iron/fifty,
@@ -175,7 +175,7 @@
 "cx" = (
 /obj/item/stack/cable_coil/cut,
 /turf/open/floor/plasteel/dark/telecomms,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "cz" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 8
@@ -590,7 +590,7 @@
 "is" = (
 /obj/structure/frame/machine,
 /turf/open/floor/circuit/green/telecomms,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "iw" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -1511,7 +1511,7 @@
 "sU" = (
 /obj/item/stock_parts/subspace/crystal,
 /turf/open/floor/circuit/green/telecomms,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "sV" = (
 /obj/machinery/door/airlock/engineering,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
@@ -1710,7 +1710,7 @@
 "vQ" = (
 /obj/item/stock_parts/subspace/treatment,
 /turf/open/space/basic,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "wf" = (
 /obj/effect/turf_decal/delivery,
 /obj/structure/window/reinforced/spawner/east,
@@ -1867,7 +1867,7 @@
 "yo" = (
 /obj/item/stock_parts/subspace/filter,
 /turf/open/floor/plating,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "yr" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate,
@@ -1937,7 +1937,7 @@
 "zo" = (
 /obj/item/circuitboard/machine/telecomms/server,
 /turf/open/floor/circuit/green/telecomms,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "zs" = (
 /obj/structure/sign/poster/contraband/free_drone{
 	pixel_y = 32
@@ -2056,7 +2056,7 @@
 "AQ" = (
 /obj/item/multitool,
 /turf/open/floor/circuit/green/telecomms,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "AS" = (
 /turf/open/floor/plasteel,
 /area/science/research)
@@ -2374,7 +2374,7 @@
 "Ea" = (
 /obj/item/stock_parts/micro_laser,
 /turf/open/floor/plating,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "Eh" = (
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
@@ -2597,7 +2597,7 @@
 /area/mine/lobby)
 "GK" = (
 /turf/closed/wall,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "GO" = (
 /obj/machinery/suit_storage_unit,
 /turf/open/floor/plating,
@@ -2779,7 +2779,7 @@
 	dir = 4
 	},
 /turf/open/space/basic,
-/area/mine/eva)
+/area/mine/lobby)
 "Ir" = (
 /obj/machinery/atmospherics/components/unary/tank/air{
 	dir = 1
@@ -2796,7 +2796,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "Iu" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/plating,
@@ -2813,7 +2813,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "IF" = (
 /obj/machinery/suit_storage_unit/mining/eva,
 /obj/effect/turf_decal/tile/brown{
@@ -2823,7 +2823,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "IK" = (
 /obj/structure/table,
 /obj/item/pickaxe,
@@ -2848,7 +2848,7 @@
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "IL" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/toolbox/mechanical{
@@ -2870,18 +2870,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/mine/eva)
-"IT" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/turf_decal/sand/plating,
-/obj/effect/turf_decal/sand,
-/turf/open/floor/plating/airless,
-/area/mine/eva)
+/area/mine/lobby)
 "IV" = (
 /obj/machinery/door/airlock/science/glass,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
@@ -3053,25 +3043,6 @@
 "Kd" = (
 /turf/open/floor/mineral/titanium/tiled,
 /area/hallway/secondary/entry)
-"Kg" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/mining/glass,
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/plasteel,
-/area/mine/eva)
 "Kj" = (
 /obj/machinery/firealarm{
 	pixel_y = 24
@@ -3086,7 +3057,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "Ko" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/mining/glass,
@@ -3105,7 +3076,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "Kp" = (
 /obj/machinery/airalarm{
 	dir = 1;
@@ -3131,14 +3102,6 @@
 /obj/effect/turf_decal/stripes/end,
 /turf/open/floor/plasteel,
 /area/science/research)
-"KB" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/structure/cable,
-/turf/open/floor/plasteel,
-/area/mine/eva)
 "KH" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
@@ -3147,7 +3110,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "KJ" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
@@ -3172,7 +3135,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "Lm" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
 	dir = 9
@@ -3180,7 +3143,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "Lo" = (
 /obj/machinery/light,
 /obj/structure/cable,
@@ -3193,7 +3156,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/mine/eva)
+/area/mine/lobby)
 "LD" = (
 /turf/open/floor/plating,
 /area/science/research)
@@ -3210,14 +3173,14 @@
 	},
 /obj/effect/turf_decal/sand,
 /turf/open/floor/plating,
-/area/mine/eva)
+/area/mine/lobby)
 "LL" = (
 /obj/effect/turf_decal/sand,
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/mine/eva)
+/area/mine/lobby)
 "Mg" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/turf_decal/sand,
@@ -3226,7 +3189,7 @@
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
-/area/mine/eva)
+/area/mine/lobby)
 "Mm" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
@@ -3266,7 +3229,7 @@
 "MO" = (
 /obj/structure/frame,
 /turf/open/floor/circuit/green/telecomms,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "MZ" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced/spawner/north,
@@ -3274,7 +3237,7 @@
 	dir = 4
 	},
 /turf/open/space/basic,
-/area/mine/eva)
+/area/mine/lobby)
 "Nc" = (
 /obj/structure/ore_box,
 /turf/open/floor/plating/asteroid/airless/cave,
@@ -3299,7 +3262,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "Nh" = (
 /obj/structure/ore_box,
 /obj/effect/turf_decal/tile/brown{
@@ -3309,7 +3272,7 @@
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "Nz" = (
 /turf/open/floor/plating,
 /area/cargo/storage)
@@ -3334,7 +3297,7 @@
 	},
 /obj/effect/turf_decal/tile/brown,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "NY" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
@@ -3360,7 +3323,7 @@
 /obj/effect/turf_decal/tile/brown,
 /obj/machinery/light,
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "Or" = (
 /turf/closed/mineral/random,
 /area/command/gateway)
@@ -3382,7 +3345,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/mine/eva)
+/area/mine/lobby)
 "Ow" = (
 /obj/machinery/door/airlock/command/glass,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
@@ -3472,7 +3435,7 @@
 /obj/item/stock_parts/subspace/filter,
 /obj/item/stock_parts/subspace/filter,
 /turf/open/floor/plasteel/dark/telecomms,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "Py" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/closed/wall,
@@ -3480,7 +3443,7 @@
 "PB" = (
 /obj/item/circuitboard/machine/telecomms/broadcaster,
 /turf/open/space/basic,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "PE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /turf/closed/wall,
@@ -3537,7 +3500,7 @@
 "QD" = (
 /obj/item/circuitboard/machine/telecomms/processor,
 /turf/open/floor/circuit/green/telecomms,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "QH" = (
 /obj/machinery/door/airlock/external,
 /obj/structure/fans/tiny,
@@ -3676,7 +3639,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "Sk" = (
 /obj/machinery/door/poddoor{
 	id = "QMLoaddoor2";
@@ -3705,7 +3668,7 @@
 "Sx" = (
 /obj/item/stock_parts/subspace/filter,
 /turf/open/floor/circuit/green/telecomms,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "Sz" = (
 /mob/living/simple_animal/hostile/asteroid/hivelord,
 /turf/open/floor/plating/asteroid/airless/cave,
@@ -3762,7 +3725,7 @@
 "Tw" = (
 /obj/item/circuitboard/machine/telecomms/receiver,
 /turf/open/floor/circuit/green/telecomms,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "TF" = (
 /obj/machinery/light{
 	dir = 8
@@ -3868,7 +3831,7 @@
 "UU" = (
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "UV" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/item/mop,
@@ -4003,7 +3966,7 @@
 /area/science/xenobiology)
 "WD" = (
 /turf/open/floor/plating,
-/area/tcommsat/oldaisat)
+/area/tcommsat/server)
 "WJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
@@ -4273,9 +4236,6 @@
 "ZV" = (
 /turf/open/floor/plating/asteroid/airless,
 /area/mine/unexplored)
-"ZW" = (
-/turf/closed/wall,
-/area/mine/eva)
 "ZY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2{
@@ -57082,9 +57042,9 @@ TI
 TW
 TW
 Al
-ZW
-Kg
-ZW
+nW
+JH
+nW
 Al
 Ja
 HT
@@ -57339,9 +57299,9 @@ TI
 TW
 TW
 Al
-ZW
+nW
 Kj
-ZW
+nW
 Al
 Ja
 Ja
@@ -57595,11 +57555,11 @@ TW
 TI
 TI
 TI
-ZW
-ZW
+nW
+nW
 Ko
-ZW
-ZW
+nW
+nW
 Ja
 Ja
 HT
@@ -57852,11 +57812,11 @@ TW
 TI
 TW
 ZV
-ZW
+nW
 Is
-KB
+JE
 Nd
-ZW
+nW
 Ja
 Ja
 HT
@@ -58109,11 +58069,11 @@ TW
 TI
 TW
 ZV
-ZW
+nW
 IE
 KH
 Nh
-ZW
+nW
 Ja
 Ja
 HT
@@ -58366,11 +58326,11 @@ TW
 TI
 ZV
 ZV
-ZW
+nW
 IF
 KZ
 NO
-ZW
+nW
 Ja
 Ja
 HT
@@ -58623,11 +58583,11 @@ TW
 TI
 ZV
 Ja
-ZW
+nW
 IK
 KZ
 On
-ZW
+nW
 Ja
 Ja
 HT
@@ -58880,11 +58840,11 @@ ZV
 ZV
 ZV
 Ja
-ZW
+nW
 IR
 Lm
 Ov
-ZW
+nW
 Ja
 Ja
 HT
@@ -59137,11 +59097,11 @@ ZV
 jx
 jx
 Ja
-ZW
-ZW
+nW
+nW
 Lu
-ZW
-ZW
+nW
+nW
 Ja
 Ja
 HT
@@ -59395,9 +59355,9 @@ jx
 jx
 Ja
 Ja
-ZW
+nW
 LK
-ZW
+nW
 Ja
 Ja
 Ja
@@ -59652,9 +59612,9 @@ jx
 jx
 jx
 Ja
-ZW
+nW
 LL
-ZW
+nW
 Ja
 Ja
 HT
@@ -59909,9 +59869,9 @@ jx
 jx
 jx
 jx
-ZW
+nW
 Mg
-ZW
+nW
 HT
 Ja
 HT
@@ -60166,9 +60126,9 @@ HT
 jx
 jx
 jx
-IT
+zD
 Al
-IT
+zD
 HT
 HT
 HT

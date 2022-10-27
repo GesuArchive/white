@@ -22803,7 +22803,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/highcap/fifteen_k{
+/obj/machinery/power/apc/highcap/ten_k{
 	areastring = /area/hallway/primary/central;
 	cell_type = /obj/item/stock_parts/cell/bluespace;
 	dir = 4;
@@ -38488,7 +38488,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/highcap/fifteen_k{
+/obj/machinery/power/apc/highcap/ten_k{
 	areastring = /area/engineering/gravity_generator;
 	dir = 1;
 	pixel_y = 25
@@ -43224,7 +43224,7 @@
 /area/maintenance/central/secondary)
 "rwf" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/highcap/fifteen_k{
+/obj/machinery/power/apc/highcap/ten_k{
 	areastring = /area/engineering/engine_smes;
 	dir = 1;
 	pixel_y = 25
@@ -52157,7 +52157,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc/highcap/fifteen_k{
+/obj/machinery/power/apc/highcap/ten_k{
 	areastring = /area/engineering/main;
 	dir = 1;
 	pixel_y = 25

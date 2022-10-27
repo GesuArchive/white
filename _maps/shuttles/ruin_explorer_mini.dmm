@@ -22,7 +22,7 @@
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/explorer_mini)
 "f" = (
-/obj/machinery/power/apc/highcap/fifteen_k{
+/obj/machinery/power/apc/highcap/ten_k{
 	dir = 1;
 	name = "Auto-Explorer Mini APC";
 	pixel_x = 0;
