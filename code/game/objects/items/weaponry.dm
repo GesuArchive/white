@@ -905,6 +905,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 
 	var/ct = 0
 	for(var/mob/living/M in get_hearers_in_view(7, get_turf(user)))
+		if(M == user)
+			continue
 		ct++
 		addtimer(CALLBACK(src, .proc/fast_attack, user, M), ct)
 
