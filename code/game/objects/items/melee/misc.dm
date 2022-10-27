@@ -44,7 +44,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	force = 20
 	throwforce = 10
-	hitsound = 'sound/weapons/knife_flesh1.wav'
+	hitsound = 'sound/weapons/stab1.ogg'
 	attack_verb_continuous = list("атакует", "разрезает", "колет", "режет", "рвет", "разрывает", "нарезает")
 	attack_verb_simple = list("атакует", "разрезает", "колет", "режет", "рвет", "разрывает", "нарезает")
 	sharpness = SHARP_EDGED

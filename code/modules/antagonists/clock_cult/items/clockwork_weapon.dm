@@ -11,7 +11,7 @@
 	throw_speed = 4
 	armour_penetration = 10
 	custom_materials = list(/datum/material/iron=1150, /datum/material/gold=2750)
-	hitsound = 'sound/weapons/knife_flesh1.wav'
+	hitsound = 'sound/weapons/stab1.ogg'
 	attack_verb_simple = list("атакует", "тычет", "накалывает", "рвёт", "насаживает")
 	sharpness = SHARP_EDGED
 	max_integrity = 200

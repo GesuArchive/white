@@ -210,7 +210,7 @@
 	cardgame_desc = "подозрительная карточная игра"
 	icon_state = "deck_syndicate_full"
 	deckstyle = "syndicate"
-	hitsound = 'sound/weapons/knife_flesh1.wav'
+	hitsound = 'sound/weapons/stab1.ogg'
 	force = 5
 	throwforce = 10
 	attack_verb_continuous = list("атакует", "режет", "нарезает", "рубит", "режет")

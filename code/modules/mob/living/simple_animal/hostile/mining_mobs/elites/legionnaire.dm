@@ -31,7 +31,7 @@
 	melee_damage_upper = 35
 	attack_verb_continuous = "дёргает своими руками задевая"
 	attack_verb_simple = "дёргает своими руками задевая"
-	attack_sound = 'sound/weapons/knife_flesh2.wav'
+	attack_sound = 'sound/weapons/stab2.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	throw_message = "doesn't affect the sturdiness of"
 	speed = 1

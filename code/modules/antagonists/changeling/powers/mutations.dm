@@ -159,7 +159,7 @@
 	throwforce = 0 //Just to be on the safe side
 	throw_range = 0
 	throw_speed = 0
-	hitsound = 'sound/weapons/knife_flesh1.wav'
+	hitsound = 'sound/weapons/stab1.ogg'
 	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
 	sharpness = SHARP_EDGED

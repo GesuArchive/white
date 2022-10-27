@@ -19,7 +19,7 @@
 	custom_materials = list(/datum/material/iron=75)
 	attack_verb_continuous = list("втыкает")
 	attack_verb_simple = list("втыкает")
-	hitsound = 'sound/weapons/knife_flesh1.wav'
+	hitsound = 'sound/weapons/stab1.ogg'
 	usesound = list('sound/items/screwdriver.ogg', 'sound/items/screwdriver2.ogg')
 	tool_behaviour = TOOL_SCREWDRIVER
 	toolspeed = 1

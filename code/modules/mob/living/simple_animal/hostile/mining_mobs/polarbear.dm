@@ -19,7 +19,7 @@
 	melee_damage_upper = 25
 	attack_verb_continuous = "разрывает"
 	attack_verb_simple = "разрывает"
-	attack_sound = 'sound/weapons/knife_flesh2.wav'
+	attack_sound = 'sound/weapons/stab2.ogg'
 	attack_vis_effect = ATTACK_EFFECT_CLAW
 	vision_range = 2 // don't aggro unless you basically antagonize it, though they will kill you worse than a goliath will
 	aggro_vision_range = 9

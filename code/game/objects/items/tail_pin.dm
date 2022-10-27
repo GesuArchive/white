@@ -8,7 +8,7 @@
 	throw_speed = 1
 	embedding = EMBED_HARMLESS
 	custom_materials = list(/datum/material/iron=1000)
-	hitsound = 'sound/weapons/knife_flesh1.wav'
+	hitsound = 'sound/weapons/stab1.ogg'
 	attack_verb_continuous = list("pokes", "jabs", "pins the tail on")
 	attack_verb_simple = list("poke", "jab")
 	sharpness = SHARP_POINTY

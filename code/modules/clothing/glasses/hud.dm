@@ -160,7 +160,7 @@
 	throw_speed = 4
 	attack_verb_continuous = list("режет")
 	attack_verb_simple = list("режет")
-	hitsound = 'sound/weapons/knife_flesh1.wav'
+	hitsound = 'sound/weapons/stab1.ogg'
 	sharpness = SHARP_EDGED
 
 /obj/item/clothing/glasses/hud/security/sunglasses/gars/supergars

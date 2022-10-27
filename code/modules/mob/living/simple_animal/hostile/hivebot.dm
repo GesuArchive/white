@@ -18,7 +18,7 @@
 	melee_damage_upper = 3
 	attack_verb_continuous = "разрывает когтями"
 	attack_verb_simple = "разрывает когтями"
-	attack_sound = 'sound/weapons/knife_flesh2.wav'
+	attack_sound = 'sound/weapons/stab2.ogg'
 	attack_vis_effect = ATTACK_EFFECT_CLAW
 	projectilesound = 'sound/weapons/gun/pistol/shot.ogg'
 	projectiletype = /obj/projectile/hivebotbullet

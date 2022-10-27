@@ -360,7 +360,7 @@
 	righthand_file = 'icons/mob/inhands/64x64_righthand.dmi'
 	attack_verb_continuous = list("chops", "slices", "cuts", "reaps")
 	attack_verb_simple = list("chop", "slice", "cut", "reap")
-	hitsound = 'sound/weapons/knife_flesh1.wav'
+	hitsound = 'sound/weapons/stab1.ogg'
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	force = 20
@@ -553,7 +553,7 @@
 	SpinAnimation(5)
 	addtimer(CALLBACK(src, .proc/reset_spin), 1 SECONDS)
 	visible_message(span_danger("[src] slashes [attacked_atom]!"), span_notice("You slash [attacked_atom]!"))
-	playsound(src, 'sound/weapons/knife_flesh2.wav', 50, TRUE)
+	playsound(src, 'sound/weapons/stab2.ogg', 50, TRUE)
 	do_attack_animation(attacked_atom, ATTACK_EFFECT_SLASH)
 
 /obj/item/soulscythe/proc/charge_target(atom/attacked_atom)
@@ -822,7 +822,7 @@
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	slot_flags = ITEM_SLOT_BELT
-	hitsound = 'sound/weapons/knife_flesh1.wav'
+	hitsound = 'sound/weapons/stab1.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	sharpness = SHARP_EDGED
 	/// Whether the saw is open or not

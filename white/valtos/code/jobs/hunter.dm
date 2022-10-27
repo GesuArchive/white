@@ -91,7 +91,7 @@
 	throwforce = 12
 	armour_penetration = 10
 	pickup_sound = 'white/valtos/sounds/brasssneath1.ogg'
-	hitsound = 'sound/weapons/knife_flesh1.wav'
+	hitsound = 'sound/weapons/stab1.ogg'
 	attack_verb_continuous = list("бьёт", "тычет")
 	attack_verb_simple = list("бьёт", "тычет")
 	w_class = WEIGHT_CLASS_NORMAL

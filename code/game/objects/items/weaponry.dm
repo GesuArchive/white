@@ -43,7 +43,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	force = 2
 	throwforce = 1
 	w_class = WEIGHT_CLASS_NORMAL
-	hitsound = 'sound/weapons/knife_flesh1.wav'
+	hitsound = 'sound/weapons/stab1.ogg'
 	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
 
@@ -59,7 +59,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	inhand_icon_state = "claymore"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	hitsound = 'sound/weapons/knife_flesh1.wav'
+	hitsound = 'sound/weapons/stab1.ogg'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	force = 40
@@ -254,7 +254,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	force = 60
 	throwforce = 10
 	w_class = WEIGHT_CLASS_HUGE
-	hitsound = 'sound/weapons/knife_flesh1.wav'
+	hitsound = 'sound/weapons/stab1.ogg'
 	block_sounds = list('white/valtos/sounds/block_sword.ogg')
 	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
@@ -389,7 +389,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		throwforce_on = 23, \
 		throw_speed_on = throw_speed, \
 		sharpness_on = SHARP_EDGED, \
-		hitsound_on = 'sound/weapons/knife_flesh2.wav', \
+		hitsound_on = 'sound/weapons/stab2.ogg', \
 		w_class_on = WEIGHT_CLASS_NORMAL, \
 		attack_verb_continuous_on = list("slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts"), \
 		attack_verb_simple_on = list("slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut"))
@@ -858,9 +858,10 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	actions_types = list(/datum/action/item_action/area_attack)
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
-	hitsound = 'sound/weapons/knife_flesh1.wav'
+	hitsound = 'sound/weapons/stab1.ogg'
 	block_sounds = list('white/valtos/sounds/block_sword.ogg')
 	var/wielded = FALSE // track wielded status on item
+	var/max_area_cd = 60 SECONDS
 	COOLDOWN_DECLARE(area_attack_cd)
 
 /obj/item/vibro_weapon/Initialize(mapload)
@@ -899,7 +900,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	if(!istype(user) || user.incapacitated())
 		return
 
-	COOLDOWN_START(src, area_attack_cd, 60 SECONDS)
+	COOLDOWN_START(src, area_attack_cd, max_area_cd)
 
 	AddElement(/datum/element/phantom, user, 1 SECONDS)
 
@@ -907,17 +908,18 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	for(var/mob/living/M in get_hearers_in_view(7, get_turf(user)))
 		if(M == user)
 			continue
-		ct++
+		ct += 1.5
 		addtimer(CALLBACK(src, .proc/fast_attack, user, M), ct)
 
 /obj/item/vibro_weapon/proc/fast_attack(mob/user, mob/living/target)
 	var/turf/user_turf = get_turf(user)
-	user_turf.Beam(target, icon_state="1-full", time = 2 SECONDS)
 	playsound(user_turf, 'sound/weapons/effects/vs.ogg', 100, TRUE)
 	var/turf/near_turf = pick(get_adjacent_open_turfs(target))
+	user_turf.Beam(near_turf, icon_state="1-full", time = 2 SECONDS)
 	if(near_turf)
 		user.forceMove(near_turf)
-	target.attacked_by(src, user)
+	user.setDir(get_dir(user, target))
+	attack(target, user)
 
 /obj/item/vibro_weapon/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(wielded)
@@ -938,6 +940,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	force = 100
 	throwforce = 200
 	wound_bonus = 250
+	max_area_cd = 0
 
 /obj/item/melee/moonlight_greatsword
 	name = "moonlight greatsword"
@@ -953,7 +956,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	sharpness = SHARP_EDGED
 	force = 14
 	throwforce = 12
-	hitsound = 'sound/weapons/knife_flesh1.wav'
+	hitsound = 'sound/weapons/stab1.ogg'
 	block_sounds = list('white/valtos/sounds/block_sword.ogg')
 	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")

@@ -308,7 +308,7 @@
 	custom_materials = list(/datum/material/iron=75)
 	attack_verb_continuous = list("stabs")
 	attack_verb_simple = list("stab")
-	hitsound = 'sound/weapons/knife_flesh1.wav'
+	hitsound = 'sound/weapons/stab1.ogg'
 	usesound = list('sound/items/screwdriver.ogg', 'sound/items/screwdriver2.ogg')
 	drop_sound = 'sound/items/handling/screwdriver_drop.ogg'
 	pickup_sound =  'sound/items/handling/screwdriver_pickup.ogg'

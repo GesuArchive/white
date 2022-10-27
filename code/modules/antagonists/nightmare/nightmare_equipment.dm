@@ -13,7 +13,7 @@
 	item_flags = ABSTRACT | DROPDEL | ACID_PROOF
 	w_class = WEIGHT_CLASS_HUGE
 	sharpness = SHARP_EDGED
-	hitsound = 'sound/weapons/knife_flesh1.wav'
+	hitsound = 'sound/weapons/stab1.ogg'
 	wound_bonus = -30
 	bare_wound_bonus = 20
 

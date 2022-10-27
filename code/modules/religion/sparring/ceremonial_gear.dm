@@ -12,7 +12,7 @@
 	greyscale_config_inhand_right = /datum/greyscale_config/ceremonial_blade_righthand
 	greyscale_colors = "#FFFFFF"
 
-	hitsound = 'sound/weapons/knife_flesh1.wav'
+	hitsound = 'sound/weapons/stab1.ogg'
 	custom_materials = list(/datum/material/iron = 12000)  //Defaults to an Iron blade.
 	force = 2 //20
 	throwforce = 1 //10

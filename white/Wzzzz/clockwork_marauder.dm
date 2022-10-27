@@ -9,7 +9,7 @@
 	obj_damage = 40
 	melee_damage_lower = 12
 	melee_damage_upper = 12
-	attack_sound = 'sound/weapons/knife_flesh2.wav'
+	attack_sound = 'sound/weapons/stab2.ogg'
 	weather_immunities = list("lava")
 	movement_type = FLYING
 	light_range = 2

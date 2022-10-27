@@ -213,7 +213,7 @@
 	retreat_distance = 2 //AI wraiths will move in and out of combat
 	attack_verb_continuous = "slashes"
 	attack_verb_simple = "slash"
-	attack_sound = 'sound/weapons/knife_flesh2.wav'
+	attack_sound = 'sound/weapons/stab2.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	construct_spells = list(
 		/datum/action/cooldown/spell/jaunt/ethereal_jaunt/shift,
@@ -409,7 +409,7 @@
 	melee_damage_upper = 20
 	attack_verb_continuous = "butchers"
 	attack_verb_simple = "butcher"
-	attack_sound = 'sound/weapons/knife_flesh2.wav'
+	attack_sound = 'sound/weapons/stab2.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	construct_spells = list(
 		/datum/action/cooldown/spell/aoe/area_conversion,
