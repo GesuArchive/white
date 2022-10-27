@@ -161,6 +161,8 @@
 	for(var/m in GLOB.player_list)
 		if(ismob(m) && !isnewplayer(m))
 			var/mob/M = m
+			if(channel == CHANNEL_RUINATION_OST && M?.client && !(M.client.prefs.toggles & SOUND_COPYRIGHTED))
+				return
 			M.playsound_local(M, null, volume, vary, frequency, null, channel, pressure_affected, S)
 
 /mob/proc/stop_sound_channel(chan)

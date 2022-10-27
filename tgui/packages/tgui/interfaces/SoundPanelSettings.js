@@ -8,6 +8,7 @@ export const SoundPanelSettings = (props, context) => {
     adminhelp,
     midi,
     ambience,
+    copyrighted,
     lobby,
     instruments,
     ship_ambience,
@@ -61,6 +62,13 @@ export const SoundPanelSettings = (props, context) => {
             content="Музыкальный автомат"
             fluid
             onClick={() => act('jukebox')}
+          />
+          <Button
+            icon={copyrighted ? 'volume-up' : 'volume-mute'}
+            color={copyrighted ? 'green' : 'transparent'}
+            content="Копирайтовые треки"
+            fluid
+            onClick={() => act('copyrighted')}
           />
           <Button
             icon={ambience ? 'volume-up' : 'volume-mute'}

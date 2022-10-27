@@ -99,6 +99,7 @@
 	data["adminhelp"] 		= C.prefs.toggles & SOUND_ADMINHELP
 	data["midi"] 			= C.prefs.toggles & SOUND_MIDI
 	data["ambience"] 		= C.prefs.toggles & SOUND_AMBIENCE
+	data["copyrighted"] 	= C.prefs.toggles & SOUND_COPYRIGHTED
 	data["lobby"] 			= C.prefs.toggles & SOUND_LOBBY
 	data["instruments"] 	= C.prefs.toggles & SOUND_INSTRUMENTS
 	data["ship_ambience"] 	= C.prefs.toggles & SOUND_SHIP_AMBIENCE
@@ -136,6 +137,10 @@
 			usr.stop_sound_channel(CHANNEL_AMBIENCE)
 			usr.stop_sound_channel(CHANNEL_BUZZ)
 			usr.client.update_ambience_pref()
+		if("copyrighted")
+			C.prefs.w_toggles ^= SOUND_COPYRIGHTED
+			usr.stop_sound_channel(CHANNEL_VIOLENCE_MODE)
+			usr.stop_sound_channel(CHANNEL_RUINATION_OST)
 		if("lobby")
 			C.prefs.toggles ^= SOUND_LOBBY
 			usr.stop_sound_channel(CHANNEL_LOBBYMUSIC)

@@ -25,9 +25,12 @@
 	if(!L.ckey)
 		return
 
-	var/S
-
 	L?.hud_used?.update_parallax_pref(L)
+
+	if(L?.client && !(L.client.prefs.toggles & SOUND_COPYRIGHTED))
+		return
+
+	var/S
 
 	switch(GLOB.violence_theme)
 		if("std")
