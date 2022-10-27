@@ -99,7 +99,7 @@
 	data["adminhelp"] 		= C.prefs.toggles & SOUND_ADMINHELP
 	data["midi"] 			= C.prefs.toggles & SOUND_MIDI
 	data["ambience"] 		= C.prefs.toggles & SOUND_AMBIENCE
-	data["copyrighted"] 	= C.prefs.toggles & SOUND_COPYRIGHTED
+	data["copyrighted"] 	= C.prefs.w_toggles & SOUND_COPYRIGHTED
 	data["lobby"] 			= C.prefs.toggles & SOUND_LOBBY
 	data["instruments"] 	= C.prefs.toggles & SOUND_INSTRUMENTS
 	data["ship_ambience"] 	= C.prefs.toggles & SOUND_SHIP_AMBIENCE
