@@ -115,7 +115,7 @@
 	righthand_file = 'icons/mob/inhands/antag/bs_rightinhand.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 	/// Embedding
 	sharpness = SHARP_EDGED
 	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 20, "embedded_fall_chance" = 10)

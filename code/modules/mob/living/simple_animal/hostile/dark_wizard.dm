@@ -19,7 +19,7 @@
 	attack_verb_continuous = "унижает"
 	a_intent = INTENT_HARM
 	speak_emote = list("поёт")
-	attack_sound = 'sound/weapons/bladeslice.ogg'
+	attack_sound = 'sound/weapons/knife_flesh2.wav'
 	aggro_vision_range = 9
 	turns_per_move = 5
 	gold_core_spawnable = HOSTILE_SPAWN

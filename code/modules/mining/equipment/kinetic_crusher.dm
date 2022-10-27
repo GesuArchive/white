@@ -14,7 +14,7 @@
 	throw_speed = 4
 	armour_penetration = 10
 	custom_materials = list(/datum/material/iron=1150, /datum/material/glass=2075)
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 	attack_verb_continuous = list("размазывает", "уничтожает", "разрубает", "рубит", "ударяет")
 	attack_verb_simple = list("размазывает", "уничтожает", "разрубает", "рубит", "ударяет")
 	sharpness = SHARP_EDGED

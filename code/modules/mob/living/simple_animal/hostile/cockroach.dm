@@ -101,7 +101,7 @@
 	melee_damage_upper = 20
 	obj_damage = 20
 	gold_core_spawnable = HOSTILE_SPAWN
-	attack_sound = 'sound/weapons/bladeslice.ogg'
+	attack_sound = 'sound/weapons/knife_flesh2.wav'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	faction = list("hostile")
 	sharpness = SHARP_POINTY

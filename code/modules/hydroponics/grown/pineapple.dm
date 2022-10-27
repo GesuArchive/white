@@ -22,7 +22,7 @@
 	icon_state = "pineapple"
 	force = 4
 	throwforce = 8
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 	attack_verb_continuous = list("жалит", "ананасит")
 	attack_verb_simple = list("жалит", "ананасит")
 	throw_speed = 1

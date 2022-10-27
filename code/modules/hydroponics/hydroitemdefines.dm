@@ -284,7 +284,7 @@
 	custom_materials = list(/datum/material/iron=50)
 	attack_verb_continuous = list("разрубает", "разрыхляет", "режет", "культивирует")
 	attack_verb_simple = list("разрубает", "разрыхляет", "режет", "культивирует")
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 
 /obj/item/cultivator/suicide_act(mob/user)
 	user.visible_message(span_suicide("[user] чешет [user.ru_ego()] спину насколько сильно может [user.ru_who()] ,используя, <b>[src.name]</b>! Кажется, [user.p_theyre()] пытается покончить с собой!"))
@@ -337,7 +337,7 @@
 	custom_materials = list(/datum/material/iron = 15000)
 	attack_verb_continuous = list("рубит", "кромсает", "режет")
 	attack_verb_simple = list("рубит", "кромсает", "режет")
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 	sharpness = SHARP_EDGED
 
 /obj/item/hatchet/Initialize(mapload)
@@ -346,7 +346,7 @@
 
 /obj/item/hatchet/suicide_act(mob/user)
 	user.visible_message(span_suicide("[user] рубит [user.ru_na()]себя [src]! Кажется, [user.p_theyre()] он хочет покончить с собой!"))
-	playsound(src, 'sound/weapons/bladeslice.ogg', 50, TRUE, -1)
+	playsound(src, 'sound/weapons/knife_flesh2.wav', 50, TRUE, -1)
 	return (BRUTELOSS)
 
 /obj/item/hatchet/wooden
@@ -371,7 +371,7 @@
 	slot_flags = ITEM_SLOT_BACK
 	attack_verb_continuous = list("рубит", "нарезает", "режет", "разрывает")
 	attack_verb_simple = list("рубит", "нарезает", "режет", "разрывает")
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 	var/swiping = FALSE
 
 /obj/item/scythe/Initialize(mapload)
@@ -420,7 +420,7 @@
 	custom_materials = list(/datum/material/iron=4000)
 	attack_verb_continuous = list("slashes", "slices", "cuts", "claws")
 	attack_verb_simple = list("slash", "slice", "cut", "claw")
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 
 /obj/item/geneshears
 	name = "Ботаногенетические ножницы"
@@ -440,7 +440,7 @@
 	custom_materials = list(/datum/material/iron=4000, /datum/material/uranium=1500, /datum/material/gold=500)
 	attack_verb_continuous = list("slashes", "slices", "cuts")
 	attack_verb_simple = list("slash", "slice", "cut")
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 
 
 // *************************************

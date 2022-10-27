@@ -5,7 +5,7 @@
 	icon_state = "saw"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'//fix that later
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'//that too
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 	force = 10//
 	toolspeed = 1.25
 	throwforce = 5//

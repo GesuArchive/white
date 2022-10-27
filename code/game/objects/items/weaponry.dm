@@ -43,7 +43,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	force = 2
 	throwforce = 1
 	w_class = WEIGHT_CLASS_NORMAL
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
 
@@ -59,7 +59,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	inhand_icon_state = "claymore"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	force = 40
@@ -254,7 +254,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	force = 60
 	throwforce = 10
 	w_class = WEIGHT_CLASS_HUGE
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 	block_sounds = list('white/valtos/sounds/block_sword.ogg')
 	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
@@ -389,7 +389,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		throwforce_on = 23, \
 		throw_speed_on = throw_speed, \
 		sharpness_on = SHARP_EDGED, \
-		hitsound_on = 'sound/weapons/bladeslice.ogg', \
+		hitsound_on = 'sound/weapons/knife_flesh2.wav', \
 		w_class_on = WEIGHT_CLASS_NORMAL, \
 		attack_verb_continuous_on = list("slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts"), \
 		attack_verb_simple_on = list("slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut"))
@@ -844,21 +844,24 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	icon_state = "hfrequency0"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	name = "vibro sword"
-	desc = "A potent weapon capable of cutting through nearly anything. Wielding it in two hands will allow you to deflect gunfire."
+	name = "вибромеч"
+	desc = "Мощное оружие, способное прорезать практически все. Держа его двумя руками, вы сможете отражать выстрелы."
 	armour_penetration = 100
 	block_chance = 40
-	force = 20
+	force = 15
 	throwforce = 20
+	wound_bonus = 40
 	throw_speed = 4
 	sharpness = SHARP_EDGED
-	attack_verb_continuous = list("cuts", "slices", "dices")
-	attack_verb_simple = list("cut", "slice", "dice")
+	attack_verb_continuous = list("режет", "рубит", "разрубает")
+	attack_verb_simple = list("режет", "рубит", "разрубает")
+	actions_types = list(/datum/action/item_action/area_attack)
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 	block_sounds = list('white/valtos/sounds/block_sword.ogg')
 	var/wielded = FALSE // track wielded status on item
+	COOLDOWN_DECLARE(area_attack_cd)
 
 /obj/item/vibro_weapon/Initialize(mapload)
 	. = ..()
@@ -885,19 +888,54 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 /obj/item/vibro_weapon/update_icon_state()
 	icon_state = "hfrequency0"
 
+/datum/action/item_action/area_attack
+	name = "Нарезать капусту!"
+
+/obj/item/vibro_weapon/ui_action_click(mob/user, action)
+	if(!COOLDOWN_FINISHED(src, area_attack_cd))
+		to_chat(user, span_warning("Ещё [DisplayTimeText(COOLDOWN_TIMELEFT(src, area_attack_cd))]."))
+		return
+
+	if(!istype(user) || user.incapacitated())
+		return
+
+	COOLDOWN_START(src, area_attack_cd, 60 SECONDS)
+
+	AddElement(/datum/element/phantom, user, 1 SECONDS)
+
+	var/ct = 0
+	for(var/mob/living/M in get_hearers_in_view(7, get_turf(user)))
+		ct++
+		addtimer(CALLBACK(src, .proc/fast_attack, user, M), ct)
+
+/obj/item/vibro_weapon/proc/fast_attack(mob/user, mob/living/target)
+	var/turf/user_turf = get_turf(user)
+	user_turf.Beam(target, icon_state="1-full", time = 2 SECONDS)
+	playsound(user_turf, 'sound/weapons/effects/vs.ogg', 100, TRUE)
+	var/turf/near_turf = pick(get_adjacent_open_turfs(target))
+	if(near_turf)
+		user.forceMove(near_turf)
+	target.attacked_by(src, user)
+
 /obj/item/vibro_weapon/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(wielded)
 		final_block_chance *= 2
 	if(wielded || attack_type != PROJECTILE_ATTACK)
 		if(prob(final_block_chance))
 			if(attack_type == PROJECTILE_ATTACK)
-				owner.visible_message(span_danger("[owner] deflects [attack_text] with [src]!"))
+				owner.visible_message(span_danger("[owner] отражает [attack_text] используя [src]!"))
 				playsound(src, pick('sound/weapons/bulletflyby.ogg', 'sound/weapons/bulletflyby2.ogg', 'sound/weapons/bulletflyby3.ogg'), 75, TRUE)
 				return TRUE
 			else
-				owner.visible_message(span_danger("[owner] parries [attack_text] with [src]!"))
+				owner.visible_message(span_danger("[owner] парирует [attack_text] используя [src]!"))
 				return TRUE
 	return FALSE
+
+/obj/item/vibro_weapon/butcher
+	block_chance = 100
+	force = 100
+	throwforce = 200
+	wound_bonus = 250
 
 /obj/item/melee/moonlight_greatsword
 	name = "moonlight greatsword"
@@ -913,7 +951,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	sharpness = SHARP_EDGED
 	force = 14
 	throwforce = 12
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 	block_sounds = list('white/valtos/sounds/block_sword.ogg')
 	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")

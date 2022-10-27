@@ -21,7 +21,7 @@
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 0, CLONE = 0, STAMINA = 0, OXY = 0)
 
 	attack_verb_simple = "рубит"
-	attack_sound = 'sound/weapons/bladeslice.ogg'
+	attack_sound = 'sound/weapons/knife_flesh2.wav'
 	chat_color = "#CAA25B"
 	speech_span = SPAN_ROBOT
 	obj_damage = 80

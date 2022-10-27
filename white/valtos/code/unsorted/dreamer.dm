@@ -280,7 +280,7 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 		else
 			bg_sound = 'white/valtos/sounds/burgerking.ogg'
 			update_bg_sound()
-			AddComponent(/datum/element/phantom, our_dreamer)
+			AddElement(/datum/element/phantom, our_dreamer)
 			prob_variability = 100
 			animation_intensity = 25
 			animation_speed = 3.75

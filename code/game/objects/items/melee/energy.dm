@@ -119,7 +119,7 @@
 	icon_state = "axe"
 	lefthand_file = 'icons/mob/inhands/weapons/axes_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/axes_righthand.dmi'
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 	attack_verb_continuous = list("атакует", "рубит", "рассекает", "рвет", "разрывает", "нарезает")
 	attack_verb_simple = list("атакует", "рубит", "рассекает", "рвет", "разрывает", "нарезает")
 	force = 40

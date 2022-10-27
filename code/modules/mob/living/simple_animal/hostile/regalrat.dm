@@ -26,7 +26,7 @@
 	melee_damage_upper = 15
 	attack_verb_continuous = "режет"
 	attack_verb_simple = "режет"
-	attack_sound = 'sound/weapons/bladeslice.ogg'
+	attack_sound = 'sound/weapons/knife_flesh2.wav'
 	attack_vis_effect = ATTACK_EFFECT_CLAW
 	unique_name = TRUE
 	faction = list("rat")

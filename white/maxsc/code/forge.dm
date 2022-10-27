@@ -171,7 +171,7 @@
 	slot_flags = ITEM_SLOT_BELT
 	attack_verb_continuous = list("slashes", "cuts")
 	attack_verb_simple = list("slash", "cut")
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 
 /obj/item/melee/forge/mace
 	name = "булава"
@@ -190,7 +190,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	attack_verb_continuous = list("stabs", "cuts")
 	attack_verb_simple = list("stab", "cut")
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 
 /obj/item/melee/forge/dagger/afterattack(atom/target, mob/user, proximity)
 	. = ..()

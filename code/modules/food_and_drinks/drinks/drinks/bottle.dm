@@ -140,7 +140,7 @@
 	throw_range = 5
 	w_class = WEIGHT_CLASS_TINY
 	inhand_icon_state = "beer"
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 	attack_verb_continuous = list("втыкает", "рубит", "атакует")
 	attack_verb_simple = list("втыкает", "рубит", "атакует")
 	sharpness = SHARP_EDGED

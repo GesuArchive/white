@@ -41,7 +41,7 @@
 	righthand_file = 'icons/mob/inhands/weapons/plants_righthand.dmi'
 	damtype = BURN
 	force = 15
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/weapons/knife_flesh1.wav'
 	throwforce = 5
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 1

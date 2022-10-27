@@ -122,7 +122,7 @@
 	loot = list(/obj/effect/gibspawner/generic, /obj/effect/spawner/lootdrop/astrum/sciloot)
 	attack_verb_continuous = "slashes"
 	attack_verb_simple = "slash"
-	attack_sound = 'sound/weapons/bladeslice.ogg'
+	attack_sound = 'sound/weapons/knife_flesh2.wav'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	status_flags = 0
 	var/projectile_deflect_chance = 0
