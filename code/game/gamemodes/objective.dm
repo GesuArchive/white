@@ -772,9 +772,11 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 			var/mob/M = owner.current			//Yeah if you get morphed and you eat a quantum tech disk with the RD's latest backup good on you soldier.
 			if(ishuman(M))
 				var/mob/living/carbon/human/H = M
-				if(H && (H.stat != DEAD) && istype(H.wear_suit, /obj/item/clothing/suit/space/space_ninja))
-					var/obj/item/clothing/suit/space/space_ninja/S = H.wear_suit
-					S.stored_research.copy_research_to(checking)
+				var/obj/item/mod/control/mod = H.back
+				if(H && (H.stat != DEAD) && mod)
+					var/obj/item/mod/module/hacker/hacker_module = locate(/obj/item/mod/module/hacker) in mod.modules
+					if(hacker_module)
+						hacker_module.stored_research.copy_research_to(checking)
 			var/list/otherwise = M.get_all_contents()
 			for(var/obj/item/disk/tech_disk/TD in otherwise)
 				TD.stored_research.copy_research_to(checking)

@@ -127,6 +127,8 @@
 	var/communication_console_hack_success = FALSE
 	/// How many times the module has been used to force open doors.
 	var/door_hack_counter = 0
+	///Used for the research objective (see antagonist file)
+	var/datum/techweb/stored_research
 
 /obj/item/mod/module/hacker/on_suit_activation()
 	RegisterSignal(mod.wearer, COMSIG_HUMAN_EARLY_UNARMED_ATTACK, .proc/hack)
