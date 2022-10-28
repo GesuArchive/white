@@ -2,7 +2,7 @@ import { clamp } from 'common/math';
 import { pureComponentHooks } from 'common/react';
 import { Component } from 'inferno';
 
-const FPS = 20;
+const FPS = 40;
 
 /**
  * Reduces screen offset to a single number based on the matrix provided.

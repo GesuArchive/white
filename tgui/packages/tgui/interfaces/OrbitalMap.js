@@ -13,6 +13,9 @@ export const OrbitalMap = (props, context) => {
     damage_alert = false,
     shuttleName = '',
     interdictionTime = 0,
+    designatorInserted = false,
+    designatorId = null,
+    shuttleId = null,
   } = data;
   const [zoomScale, setZoomScale] = useLocalState(context, 'zoomScale', 0.125);
   const [xOffset, setXOffset] = useLocalState(context, 'xOffset', 0);
@@ -47,7 +50,7 @@ export const OrbitalMap = (props, context) => {
   }
 
   return (
-    <Window width={1102} height={720} overflowY="hidden">
+    <Window width={1130} height={760} overflowY="hidden">
       <Window.Content overflowY="hidden">
         <div class="OrbitalMap__radar OrbitalMap__crutch" id="radar">
           {interdictionTime ? (
@@ -135,6 +138,29 @@ export const OrbitalMap = (props, context) => {
                 <NoticeBox color="red">Не обнаружен шаттл.</NoticeBox>
               )}
             </Section>
+            {
+              !!designatorInserted
+              && (designatorId ? !shuttleId : shuttleId) && (
+                <>
+                  <Divider />
+                  <Section title="Привязка" >
+                    {
+                      designatorId
+                        ? (
+                          <Button
+                            content="Загрузить ссылку на шаттл"
+                            onClick={() => act('updateLinkedId')} />
+                        )
+                        : (
+                          <Button
+                            content="Выгрузить ссылку на шаттл"
+                            onClick={() => act('updateDesignatorId')} />
+                        )
+                    }
+                  </Section>
+                </>
+              )
+            }
           </Box>
         </div>
       </Window.Content>
