@@ -94,13 +94,14 @@ SUBSYSTEM_DEF(zclear)
 			if(!living_levels["[level.z_value]"] && mob_levels["[level.z_value]"] && !announced_zombie_levels["[level.z_value]"])
 				//Zombie level detected.
 				announced_zombie_levels["[level.z_value]"] = TRUE
-				if(level.orbital_body)
-					priority_announce("Датчики дальнего действия NanoTrasen показали, что все разумные формы жизни находящиеся в приоритетной точке [level.orbital_body.name] более не подают признаков жизни. Командованию рекомендуется организовать спасательную операцию для извлечения тел. В связи с характером угрозы в этом месте, сотрудникам службы безопасности, вооруженным смертоносным оружием, рекомендуется сопровождать спасательную команду.", "Сенсоры дальнего обнаружения NanoTrasen")
+				var/datum/orbital_object/linked_object = SSorbits.assoc_z_levels["[level.z_value]"]
+				if(linked_object)
+					priority_announce("Датчики дальнего действия NanoTrasen показали, что все разумные формы жизни находящиеся в приоритетной точке [linked_object.name] более не подают признаков жизни. Командованию рекомендуется организовать спасательную операцию для извлечения тел. В связи с характером угрозы в этом месте, сотрудникам службы безопасности, вооруженным смертоносным оружием, рекомендуется сопровождать спасательную команду.", "Сенсоры дальнего обнаружения NanoTrasen")
 			continue
 		//Level is free, do the wiping thing.
 		LAZYREMOVE(autowipe, level)
 		//Reset orbital body.
-		QDEL_NULL(level.orbital_body)
+		QDEL_NULL(SSorbits.assoc_z_levels["[level.z_value]"])
 		//Continue tracking after
 		wipe_z_level(level.z_value, TRUE)
 

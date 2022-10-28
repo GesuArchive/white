@@ -93,7 +93,6 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	blueprint_data = null
 
 	var/list/old_baseturfs = baseturfs
-	var/old_type = type
 
 	var/list/post_change_callbacks = list()
 	SEND_SIGNAL(src, COMSIG_TURF_CHANGE, path, new_baseturfs, flags, post_change_callbacks)
@@ -117,15 +116,15 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		callback.InvokeAsync(W)
 
 	if(new_baseturfs)
-		W.baseturfs = baseturfs_string_list(new_baseturfs, W)
+		W.baseturfs = new_baseturfs
 	else
-		W.baseturfs = baseturfs_string_list(old_baseturfs, W) //Just to be safe
+		W.baseturfs = old_baseturfs
 
 	W.explosion_id = old_exi
 	W.explosion_level = old_exl
 
 	if(!(flags & CHANGETURF_DEFER_CHANGE))
-		W.AfterChange(flags, old_type)
+		W.AfterChange(flags)
 
 	W.blueprint_data = old_bp
 	W.rcd_memory = old_rcd_memory
@@ -231,7 +230,8 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 			assemble_baseturfs(fake_turf_type)
 			if(!length(baseturfs))
 				baseturfs = list(baseturfs)
-			baseturfs = baseturfs_string_list((baseturfs - (baseturfs & GLOB.blacklisted_automated_baseturfs)) + old_baseturfs, src)
+			baseturfs -= baseturfs & GLOB.blacklisted_automated_baseturfs
+			baseturfs += old_baseturfs
 			return
 		else if(!length(new_baseturfs))
 			new_baseturfs = list(new_baseturfs, fake_turf_type)
@@ -239,7 +239,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 			new_baseturfs += fake_turf_type
 	if(!length(baseturfs))
 		baseturfs = list(baseturfs)
-	baseturfs = baseturfs_string_list(new_baseturfs + baseturfs, src)
+	baseturfs.Insert(1, new_baseturfs)
 
 // Make a new turf and put it on top
 // The args behave identical to PlaceOnBottom except they go on top
@@ -249,7 +249,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	var/area/turf_area = loc
 	if(new_baseturfs && !length(new_baseturfs))
 		new_baseturfs = list(new_baseturfs)
-	flags = turf_area.PlaceOnTopReact(new_baseturfs, fake_turf_type, flags) // A hook so areas can modify the incoming args
+	flags = turf_area.PlaceOnTopReact(src, new_baseturfs, fake_turf_type, flags) // A hook so areas can modify the incoming args
 
 	var/turf/newT
 	if(flags & CHANGETURF_SKIP) // We haven't been initialized
@@ -267,25 +267,25 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 			newT.assemble_baseturfs(initial(fake_turf_type.baseturfs)) // The baseturfs list is created like roundstart
 			if(!length(newT.baseturfs))
 				newT.baseturfs = list(baseturfs)
-			// The old baseturfs are put underneath, and we sort out the unwanted ones
-			newT.baseturfs = baseturfs_string_list(old_baseturfs + (newT.baseturfs - GLOB.blacklisted_automated_baseturfs), newT)
+			newT.baseturfs -= GLOB.blacklisted_automated_baseturfs
+			newT.baseturfs.Insert(1, old_baseturfs) // The old baseturfs are put underneath
 			return newT
 		if(!length(baseturfs))
 			baseturfs = list(baseturfs)
 		if(!istype(src, /turf/closed))
-			new_baseturfs = list(type) + new_baseturfs
-		baseturfs = baseturfs_string_list(baseturfs + new_baseturfs, src)
+			baseturfs += type
+		baseturfs += new_baseturfs
 		return ChangeTurf(fake_turf_type, null, flags)
 	if(!length(baseturfs))
 		baseturfs = list(baseturfs)
 	if(!istype(src, /turf/closed))
-		baseturfs = baseturfs_string_list(baseturfs + type, src)
+		baseturfs += type
 	var/turf/change_type
 	if(length(new_baseturfs))
 		change_type = new_baseturfs[new_baseturfs.len]
 		new_baseturfs.len--
 		if(new_baseturfs.len)
-			baseturfs = baseturfs_string_list(baseturfs + new_baseturfs, src)
+			baseturfs += new_baseturfs
 	else
 		change_type = new_baseturfs
 	return ChangeTurf(change_type, null, flags)
@@ -310,9 +310,8 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 			new_baseturfs += target_baseturfs
 
 	var/turf/newT = copytarget.copyTurf(src, copy_air)
-	newT.baseturfs = baseturfs_string_list(new_baseturfs, newT)
+	newT.baseturfs = new_baseturfs
 	return newT
-
 
 //If you modify this function, ensure it works correctly with lateloaded map templates.
 /turf/proc/AfterChange(flags) //called after a turf has been replaced in ChangeTurf()

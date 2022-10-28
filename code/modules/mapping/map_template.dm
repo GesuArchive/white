@@ -142,7 +142,7 @@
 
 	return level
 
-/datum/map_template/proc/load(turf/T, centered = FALSE, init_atmos = TRUE)
+/datum/map_template/proc/load(turf/T, centered = FALSE, init_atmos = TRUE, finalize = TRUE)
 	if(centered)
 		T = locate(T.x - round(width/2) , T.y - round(height/2) , T.z)
 	if(!T)
@@ -178,13 +178,16 @@
 		repopulate_sorted_areas()
 
 	//initialize things that are normally initialized after map load
-	initTemplateBounds(bounds, init_atmos)
+	//If this is a superfunction call, we don't want to initialize atoms here, let the subfunction handle that
+	if(finalize)
+		//initialize things that are normally initialized after map load
+		initTemplateBounds(bounds, init_atmos)
 
-	if(has_ceiling)
-		var/affected_turfs = get_affected_turfs(T, FALSE)
-		generate_ceiling(affected_turfs)
+		if(has_ceiling)
+			var/affected_turfs = get_affected_turfs(T, FALSE)
+			generate_ceiling(affected_turfs)
 
-	log_game("[name] loaded at [T.x],[T.y],[T.z]")
+		log_game("[name] loaded at [T.x],[T.y],[T.z]")
 	return bounds
 
 /datum/map_template/proc/generate_ceiling(affected_turfs)

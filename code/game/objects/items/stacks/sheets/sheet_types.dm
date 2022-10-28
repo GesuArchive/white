@@ -194,6 +194,8 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
 	new/datum/stack_recipe("ядро ИИ", /obj/structure/ai_core, 4, time = 50, one_per_turf = TRUE), \
 	new/datum/stack_recipe("сборка бомбы", /obj/machinery/syndicatebomb/empty, 10, time = 50), \
 	new/datum/stack_recipe("баррикада", /obj/structure/deployable_barricade/plasteel, 5, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("покрытие дока", /obj/item/stack/tile/dock, 1, 4, 20), \
+	new/datum/stack_recipe("покрытие драйдока", /obj/item/stack/tile/drydock, 2, 4, 20), \
 	null, \
 	new /datum/stack_recipe_list("Бронешлюзы", list( \
 		new/datum/stack_recipe("Каркас укрепленного шлюза", /obj/structure/door_assembly/door_assembly_highsecurity, 4, time = 50, one_per_turf = 1, on_floor = 1), \

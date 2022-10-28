@@ -8,7 +8,6 @@
 	var/list/river_nodes = list()
 	var/num_spawned = 0
 	var/list/possible_locs = block(locate(min_x, min_y, target_z), locate(max_x, max_y, target_z))
-	new_baseturfs = baseturfs_string_list(new_baseturfs, pick(possible_locs))
 	while(num_spawned < nodes && possible_locs.len)
 		var/turf/T = pick(possible_locs)
 		var/area/A = get_area(T)
@@ -26,9 +25,7 @@
 		W.connected = TRUE
 		// Workaround around ChangeTurf that's safe because of when this proc is called
 		var/turf/cur_turf = get_turf(W)
-		cur_turf = new turf_type(cur_turf)
-		if(new_baseturfs)
-			cur_turf.baseturfs = new_baseturfs
+		cur_turf.ChangeTurf(turf_type, new_baseturfs, CHANGETURF_IGNORE_AIR)
 		var/turf/target_turf = get_turf(pick(river_nodes - W))
 		if(!target_turf)
 			break
@@ -57,10 +54,7 @@
 				cur_turf = get_step(cur_turf, cur_dir)
 				continue
 			else
-				// Workaround around ChangeTurf that's safe because of when this proc is called
-				var/turf/river_turf = new turf_type(cur_turf)
-				if(new_baseturfs)
-					river_turf.baseturfs = new_baseturfs
+				var/turf/river_turf = cur_turf.ChangeTurf(turf_type, new_baseturfs, CHANGETURF_IGNORE_AIR)
 				river_turf.Spread(25, 11, whitelist_area)
 
 	for(var/WP in river_nodes)

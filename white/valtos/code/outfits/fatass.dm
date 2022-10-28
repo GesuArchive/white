@@ -31,6 +31,6 @@
 	ADD_TRAIT(H, TRAIT_STUNIMMUNE, "fuck_you")
 	H.status_flags |= GODMODE
 
-	AddElement(/datum/element/phantom, H, 0.5 SECONDS)
+	H.AddElement(/datum/element/phantom, 0.5 SECONDS)
 
 	..()

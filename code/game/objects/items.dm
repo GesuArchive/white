@@ -937,19 +937,19 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	var/theme = lowertext(usr.client?.prefs?.UI_style)
 	if(!outline_color) //if we weren't provided with a color, take the theme's color
 		switch(theme) //yeah it kinda has to be this way
-			if("midnight" || "cyberspess")
+			if("midnight", "cyberspess")
 				outline_color = COLOR_THEME_MIDNIGHT
-			if("plasmafire" || "tetramon")
+			if("plasmafire", "tetramon")
 				outline_color = COLOR_THEME_PLASMAFIRE
-			if("retro" || "bassboosted")
+			if("retro", "bassboosted")
 				outline_color = COLOR_THEME_RETRO //just as garish as the rest of this theme
 			if("slimecore")
 				outline_color = COLOR_THEME_SLIMECORE
-			if("operative" || "rexide")
+			if("operative", "rexide")
 				outline_color = COLOR_THEME_OPERATIVE
-			if("clockwork" || "glory")
+			if("clockwork", "glory")
 				outline_color = COLOR_THEME_CLOCKWORK //if you want free gbp go fix the fact that clockwork's tooltip css is glass'
-			if("glass" || "oxide")
+			if("glass", "oxide")
 				outline_color = COLOR_THEME_GLASS
 			else //this should never happen, hopefully
 				outline_color = COLOR_WHITE

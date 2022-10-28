@@ -377,7 +377,7 @@
 					if(current_user)
 						to_chat(usr, span_warning("Кто-то уже стыкуется."))
 						return
-					view_range = max(mobile_port.width, mobile_port.height) + 4
+					view_range = max(mobile_port.width, mobile_port.height, mobile_port.dwidth, mobile_port.dheight) * 0.5 - 4
 					give_eye_control(usr)
 					eyeobj.forceMove(locate(world.maxx * 0.5, world.maxy * 0.5, shuttleObject.docking_target.linked_z_level[1].z_value))
 					return
@@ -428,6 +428,9 @@
 			return
 	var/obj/docking_port/mobile/mobile_port = SSshuttle.getShuttle(shuttleId)
 	if(!mobile_port)
+		return
+	if(!mobile_port.canMove())
+		say("Круиз: Невозможно двигаться.")
 		return
 	if(mobile_port.mode == SHUTTLE_RECHARGING)
 		say("Круиз: Двигатели остывают.")

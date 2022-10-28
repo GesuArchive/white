@@ -28,5 +28,6 @@
 	"[scss]": {
 		"editor.rulers": [80]
 	},
-	"Lua.diagnostics.enable": false
+	"Lua.diagnostics.enable": false,
+	"dreammaker.debugServerDll": "debug_server.dll"
 }

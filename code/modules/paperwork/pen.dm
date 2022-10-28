@@ -138,11 +138,12 @@
 			switch(degrees % 10)
 				if(1)
 					degreeStr = "градус"
-				if(2 || 3 || 4 )
+				if(2 to 4)
 					degreeStr = "градуса"
-				else degreeStr = "градусов"
+				else
+					degreeStr = "градусов"
 
-		to_chat(user, span_notice("Я повернул ручку на [degrees] [degreeStr]."))
+		to_chat(user, span_notice("Поворачиваю ручку на [degrees] [degreeStr]."))
 		SEND_SIGNAL(src, COMSIG_PEN_ROTATED, deg, user)
 
 /obj/item/pen/attack(mob/living/M, mob/user,stealth)

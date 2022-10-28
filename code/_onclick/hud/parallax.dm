@@ -74,11 +74,7 @@
 	if(!C)
 		return FALSE
 	// Default to HIGH
-	var/parallax_selection = PARALLAX_HIGH
-	if(C?.prefs)
-		parallax_selection = C.prefs.parallax
-		if (!parallax_selection)
-			parallax_selection = PARALLAX_HIGH
+	var/parallax_selection = C?.prefs.parallax || PARALLAX_HIGH
 
 	switch(parallax_selection)
 		if (PARALLAX_INSANE)
@@ -374,6 +370,7 @@ GLOBAL_VAR_INIT(asteroids_randomed_number, rand(1, 5))
 /atom/movable/screen/parallax_layer/random/asteroids
 	icon_state = "asteroids_1"
 	blend_mode = BLEND_ADD
+	layer = 4
 
 /atom/movable/screen/parallax_layer/random/asteroids/Initialize(mapload, mob/owner)
 	icon_state = "asteroids_[GLOB.asteroids_randomed_number]"

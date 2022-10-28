@@ -64,7 +64,7 @@
 	var/list/options = params2list(possible_destinations)
 	var/obj/docking_port/mobile/M = SSshuttle.getShuttle(shuttleId)
 	data["type"] = shuttleId == "colony_drop" ? "base" : "shuttle"
-	data["docked_location"] = M ? M.get_status_text_tgui() : "Unknown"
+	data["docked_location"] = M ? M.docked : "Unknown"
 	data["locations"] = list()
 	data["locked"] = FALSE
 	data["timer_str"] = M ? M.getTimerStr() : "00:00"
@@ -106,7 +106,7 @@
 		else
 			data["status"] = "In Transit"
 	for(var/obj/docking_port/stationary/S in SSshuttle.stationary)
-		if(!options.Find(S.port_destinations))
+		if(!options.Find(S.id))
 			continue
 		if(!M.check_dock(S, silent = TRUE))
 			continue
@@ -234,14 +234,12 @@
 
 	var/obj/docking_port/stationary/landing_zone = new /obj/docking_port/stationary(T)
 	landing_zone.id = "colony_drop([REF(src)])"
-	landing_zone.port_destinations = "colony_drop([REF(src)])"
 	landing_zone.name = "Landing Zone ([T.x], [T.y])"
 	landing_zone.dwidth = base_dock.dwidth
 	landing_zone.dheight = base_dock.dheight
 	landing_zone.width = base_dock.width
 	landing_zone.height = base_dock.height
 	landing_zone.setDir(base_dock.dir)
-	landing_zone.area_type = A.type
 
 	possible_destinations += "[landing_zone.id];"
 
@@ -312,6 +310,12 @@
 	width = 9
 	height = 9
 
+/obj/docking_port/mobile/auxiliary_base/Initialize(mapload)
+	. = ..()
+	for(var/area/A in shuttle_areas)
+		for(var/turf/T in A.contents)
+			underlying_turf_area[T] = GLOB.areas_by_type[/area/construction/mining/aux_base]
+
 /obj/docking_port/mobile/auxiliary_base/takeoff(list/old_turfs, list/new_turfs, list/moved_atoms, rotation, movement_direction, old_dock, area/underlying_old_area)
 	for(var/i in new_turfs)
 		var/turf/place = i
@@ -326,7 +330,6 @@
 	dwidth = 3
 	width = 7
 	height = 5
-	area_type = /area/construction/mining/aux_base
 
 /obj/structure/mining_shuttle_beacon
 	name = "mining shuttle beacon"
@@ -375,18 +378,14 @@
 		var/obj/docking_port/stationary/SM = S //SM is declared outside so it can be checked for null
 		if(SM.id == "mining_home" || SM.id == "mining_away")
 
-			var/area/A = get_area(landing_spot)
-
 			Mport = new(landing_spot)
 			Mport.id = "landing_zone_dock"
-			Mport.port_destinations = "landing_zone_dock"
 			Mport.name = "auxiliary base landing site"
 			Mport.dwidth = SM.dwidth
 			Mport.dheight = SM.dheight
 			Mport.width = SM.width
 			Mport.height = SM.height
 			Mport.setDir(dir)
-			Mport.area_type = A.type
 
 			break
 	if(!Mport)

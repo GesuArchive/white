@@ -902,7 +902,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 
 	COOLDOWN_START(src, area_attack_cd, max_area_cd)
 
-	AddElement(/datum/element/phantom, user, 1 SECONDS)
+	user.AddElement(/datum/element/phantom, 1 SECONDS)
 
 	var/ct = 0
 	for(var/mob/living/M in get_hearers_in_view(7, get_turf(user)))

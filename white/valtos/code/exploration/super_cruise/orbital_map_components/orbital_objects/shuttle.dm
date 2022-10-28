@@ -45,6 +45,7 @@
 	var/cheating_autopilot = FALSE
 
 /datum/orbital_object/shuttle/Destroy()
+	var/z_level = port?.z
 	port = null
 	can_dock_with = null
 	docking_target = null
@@ -52,6 +53,8 @@
 	shuttleTarget = null
 	. = ..()
 	SSorbits.assoc_shuttles.Remove(shuttle_port_id)
+	if(z_level)
+		SSorbits.assoc_z_levels.Remove("[z_level]")
 
 //Dont fly into the sun idiot.
 /datum/orbital_object/shuttle/explode()
@@ -175,6 +178,7 @@
 	stealth = dock.hidden
 	velocity_multiplier = dock.velocity_multiplier
 	SSorbits.assoc_shuttles[shuttle_port_id] = src
+	SSorbits.assoc_z_levels["[dock.virtual_z]"] = src
 
 /datum/orbital_object/shuttle/proc/commence_docking(datum/orbital_object/z_linked/docking, forced = FALSE)
 	//Check for valid docks on z-level

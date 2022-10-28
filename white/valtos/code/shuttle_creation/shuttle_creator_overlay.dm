@@ -12,9 +12,8 @@
 	holder.images += images
 
 /datum/shuttle_creator_overlay_holder/proc/remove_client()
-	if(holder)
-		holder.images -= images
-		holder = null
+	holder.images -= images
+	holder = null
 
 /datum/shuttle_creator_overlay_holder/proc/clear_highlights()
 	if(holder)
@@ -22,25 +21,25 @@
 	images.Cut()
 	turfs.Cut()
 
-/datum/shuttle_creator_overlay_holder/proc/create_hightlight(turf/T)
+/datum/shuttle_creator_overlay_holder/proc/create_hightlight(turf/T, blue = FALSE)
 	if(T in turfs)
 		return
-	var/image/I = image('icons/turf/overlays.dmi', T, "greenOverlay")
-	SET_PLANE(I, ABOVE_LIGHTING_PLANE, T)
+	var/image/I = image('icons/turf/overlays.dmi', T, blue ? "blueOverlay" : "greenOverlay")
+	I.plane = ABOVE_LIGHTING_PLANE
 	images += I
-	holder.images += I
+	holder?.images += I
 	turfs += T
 
 /datum/shuttle_creator_overlay_holder/proc/remove_hightlight(turf/T)
 	if(!(T in turfs))
 		return
 	turfs -= T
-	holder.images -= images
+	holder?.images -= images
 	for(var/image/I in images)
 		if(get_turf(I) != T)
 			continue
 		images -= I
-	holder.images += images
+	holder?.images += images
 
 /datum/shuttle_creator_overlay_holder/proc/highlight_area(list/turfs)
 	for(var/turf/T in turfs)
