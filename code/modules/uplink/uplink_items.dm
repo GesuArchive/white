@@ -2062,7 +2062,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	name = "Токсин клоуна-апостола"
 	desc = "Этот шприц превратит пользователя в нечто очень красивое, но смертельно опасное."
 	cost = 20
-	item = /obj/item/reagent_containers/syringe/apostletoxin
+	item = /obj/item/reagent_containers/hypospray/medipen/apostletoxin
 	restricted_roles = list(JOB_CLOWN)
 
 /datum/uplink_item/role_restricted/clownpin

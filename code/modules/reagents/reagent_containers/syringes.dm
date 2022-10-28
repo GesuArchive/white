@@ -261,11 +261,23 @@
 	volume = 1
 	list_reagents = list(/datum/reagent/gluttonytoxin = 1)
 
+/*
 /obj/item/reagent_containers/syringe/apostletoxin
 	name = "Вознесение"
 	desc = "Скользкий, сладкий шприц. Интересно, что будет если вколоть его в себя? Или в ДРУГИХ?"
 	amount_per_transfer_from_this = 1
 	volume = 1
+	list_reagents = list(/datum/reagent/apostletoxin = 1)
+*/
+
+//	Медипен Хонкоматери
+/obj/item/reagent_containers/hypospray/medipen/apostletoxin
+	name = "Вознесение"
+	desc = "Скользкий, сладкий шприц. Интересно, что будет если вколоть его в себя? Или в ДРУГИХ?"
+	icon = 'icons/obj/syringe.dmi'
+	icon_state = "gorillapen"
+	inhand_icon_state = "tbpen"
+	reagent_flags = null
 	list_reagents = list(/datum/reagent/apostletoxin = 1)
 
 /obj/item/reagent_containers/syringe/bluespace
