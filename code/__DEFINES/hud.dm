@@ -78,12 +78,11 @@
 #define ui_skill_menu "RIGHT-4:22,BOTTOM:5"
 
 //Upper-middle right (alerts)
-#define ui_alert1 "RIGHT-1:28,CENTER+7:-4"
-#define ui_alert2 "RIGHT-1:28,CENTER+6:-4"
-#define ui_alert3 "RIGHT-1:28,CENTER+5:-4"
-#define ui_alert4 "RIGHT-1:28,CENTER+4:-4"
-#define ui_alert5 "RIGHT-1:28,CENTER+3:-4"
-#define ui_alert6 "RIGHT-1:28,CENTER+2:-4"
+#define ui_alert1 "RIGHT-1:28,CENTER+6:-4"
+#define ui_alert2 "RIGHT-1:28,CENTER+5:-4"
+#define ui_alert3 "RIGHT-1:28,CENTER+4:-4"
+#define ui_alert4 "RIGHT-1:28,CENTER+3:-4"
+#define ui_alert5 "RIGHT-1:28,CENTER+2:-4"
 
 //Middle right (status indicators)
 #define ui_healthdoll "RIGHT-1:28,CENTER-2:13"
