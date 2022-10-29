@@ -15,9 +15,9 @@ GLOBAL_PROTECT(supercruise_debug_verbs)
 	if(!check_rights(R_DEBUG))
 		return
 
-	remove_verb(/client/proc/enable_supercruise_verbs)
-	add_verb(/client/proc/disable_supercruise_verbs)
-	add_verb(GLOB.supercruise_debug_verbs)
+	remove_verb(usr, /client/proc/enable_supercruise_verbs)
+	add_verb(usr, /client/proc/disable_supercruise_verbs)
+	add_verb(usr, GLOB.supercruise_debug_verbs)
 
 /client/proc/disable_supercruise_verbs()
 	set category = "Дбг"
@@ -26,9 +26,9 @@ GLOBAL_PROTECT(supercruise_debug_verbs)
 	if(!check_rights(R_DEBUG))
 		return
 
-	add_verb(/client/proc/enable_supercruise_verbs)
-	remove_verb(/client/proc/disable_supercruise_verbs)
-	remove_verb(GLOB.supercruise_debug_verbs)
+	add_verb(usr, /client/proc/enable_supercruise_verbs)
+	remove_verb(usr, /client/proc/disable_supercruise_verbs)
+	remove_verb(usr, GLOB.supercruise_debug_verbs)
 
 /client/proc/give_ship_ai()
 	set category = "Exploration Debug"
