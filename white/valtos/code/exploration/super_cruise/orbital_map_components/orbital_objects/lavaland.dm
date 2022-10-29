@@ -12,7 +12,7 @@
 	//If you manage to go fast enough, you can crash
 	min_collision_velocity = 100
 
-/datum/orbital_object/z_linked/lavaland/New()
-	. = ..()
+/datum/orbital_object/z_linked/lavaland/post_map_setup()
+	//Orbit around ozon
 	var/datum/orbital_map/linked_map = SSorbits.orbital_maps[orbital_map_index]
 	set_orbitting_around_body(linked_map.center, 1800)
