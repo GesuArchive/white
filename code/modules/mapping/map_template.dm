@@ -23,7 +23,7 @@
 	var/turf/ceiling_turf = /turf/open/floor/plating
 	var/list/ceiling_baseturfs = list()
 
-/datum/map_template/New(path = null, rename = null, cache = FALSE)
+/datum/map_template/New(path = null, rename = null, cache = FALSE, admin_load = FALSE)
 	if(path)
 		mappath = path
 	if(mappath)

@@ -59,10 +59,13 @@
 		to_chat(src, span_warning("Filename must end in '.dmm': [map]"))
 		return
 	var/datum/map_template/M
+	var/type
 	switch(tgui_alert(usr, "What kind of map is this?", "Map type", list("Normal", "Shuttle", "Cancel")))
 		if("Normal")
+			type = "Normal"
 			M = new /datum/map_template(map, "[map]", TRUE)
 		if("Shuttle")
+			type = "Shuttle"
 			M = new /datum/map_template/shuttle(map, "[map]", TRUE)
 		else
 			return
@@ -84,6 +87,12 @@
 			tgui_alert(usr, "The map failed validation and cannot be loaded.", "Map Errors", list("Oh Darn"))
 			return
 
-	SSmapping.map_templates[M.name] = M
+	switch(type)
+		if("Normal")
+			SSmapping.map_templates[M.name] = M
+		if("Shuttle")
+			var/datum/map_template/shuttle/S = M
+			SSmapping.shuttle_templates[S.shuttle_id] = S
+
 	message_admins(span_adminnotice("[key_name_admin(src)] has uploaded a map template '[map]' ([M.width]x[M.height])[report_link]."))
 	to_chat(src, span_notice("Map template '[map]' ready to place ([M.width]x[M.height])"))
