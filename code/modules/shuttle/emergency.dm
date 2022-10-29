@@ -574,7 +574,7 @@
 
 /obj/docking_port/mobile/pod/request(obj/docking_port/stationary/S)
 	var/obj/machinery/computer/shuttle_flight/C = getControlConsole()
-	if(!istype(C, /obj/machinery/computer/shuttle_flight/pod))
+	if(!istype(C, /obj/machinery/computer/shuttle_flight/pod) || !istype(S, /obj/docking_port/stationary/transit))
 		return ..()
 	if(SSsecurity_level.current_level >= SEC_LEVEL_RED || (C && (C.obj_flags & EMAGGED)))
 		if(launch_status == UNLAUNCHED)
@@ -611,9 +611,16 @@
 	to_chat(user, span_warning("Сжигаю систему проверки уровня тревоги и активирую радар."))
 
 /obj/machinery/computer/shuttle_flight/pod/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
-	if(port)
-		shuttleId = port.id
-		shuttlePortId = "[shuttleId]_custom"
+	. = ..()
+	if(recall_docking_port_id == initial(recall_docking_port_id) || override)
+		recall_docking_port_id = "pod_lavaland[idnum]"
+		valid_docks = list("pod_lavaland[idnum]")
+
+/obj/machinery/computer/shuttle_flight/pod/launch_shuttle()
+	var/datum/orbital_object/shuttle/launched_shuttle = ..()
+	if(launched_shuttle && (obj_flags & EMAGGED))
+		launched_shuttle.force_crash = TRUE
+	return launched_shuttle
 
 /obj/docking_port/stationary/random
 	name = "эвакуационный челнок"
