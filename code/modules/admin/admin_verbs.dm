@@ -169,6 +169,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/cmd_admin_delete,
 	/client/proc/cmd_debug_del_all_wrapper,
 	/client/proc/enable_debug_verbs,
+	/client/proc/enable_supercruise_verbs,
 	/client/proc/callproc,
 	/client/proc/callproc_datum,
 	/client/proc/test_movable_UI,
@@ -299,6 +300,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_debug_mob_lists,
 	/client/proc/cmd_debug_del_all_wrapper,
 	/client/proc/enable_debug_verbs,
+	/client/proc/enable_supercruise_verbs,
 	/proc/possess,
 	/proc/release,
 	/client/proc/reload_admins,
@@ -371,6 +373,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		GLOB.admin_verbs_debug_mapping,
 		GLOB.admin_verbs_sdql,
 		/client/proc/disable_debug_verbs,
+		/client/proc/disable_supercruise_verbs,
 		/client/proc/readmin
 		))
 

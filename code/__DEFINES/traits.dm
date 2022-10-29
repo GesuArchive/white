@@ -349,6 +349,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_BLOODSHOT_EYES "bloodshot_eyes"
 /// This mob should never close UI even if it doesn't have a client
 #define TRAIT_PRESERVE_UI_WITHOUT_CLIENT "preserve_ui_without_client"
+#define HOSTAGE_REVIVED_TRAIT "hostage_revived_trait"
 /// Lets the mob use flight potions
 #define TRAIT_CAN_USE_FLIGHT_POTION "can_use_flight_potion"
 /// This mob overrides certian SSlag_switch measures with this special trait
@@ -819,3 +820,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// This mob heals from cult pylons.
 #define TRAIT_HEALS_FROM_CULT_PYLONS "heals_from_cult_pylons"
+
+//Traits applied to the mind
+/// This mob is considered dead for the sake of objectives
+#define MIND_TRAIT_OBJECTIVE_DEAD "mind_trait_objective_dead"

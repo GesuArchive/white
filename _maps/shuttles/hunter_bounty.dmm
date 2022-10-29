@@ -17,8 +17,8 @@
 /turf/open/floor/plating,
 /area/shuttle/hunter)
 "e" = (
-/obj/structure/shuttle/engine/propulsion{
-	dir = 8
+/obj/machinery/shuttle/engine/ion{
+	dir = 4
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/hunter)
@@ -78,18 +78,20 @@
 /turf/open/floor/pod/light,
 /area/shuttle/hunter)
 "q" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 8
-	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 4
+	},
+/obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/shuttle/hunter)
 "r" = (
 /obj/machinery/computer/launchpad{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/pod/dark,
 /area/shuttle/hunter)
 "s" = (
@@ -141,6 +143,7 @@
 /area/shuttle/hunter)
 "B" = (
 /obj/machinery/launchpad,
+/obj/structure/cable,
 /turf/open/floor/pod/dark,
 /area/shuttle/hunter)
 "C" = (
@@ -160,6 +163,7 @@
 /area/shuttle/hunter)
 "F" = (
 /obj/machinery/power/smes,
+/obj/structure/cable,
 /turf/open/floor/pod/dark,
 /area/shuttle/hunter)
 "G" = (
@@ -170,6 +174,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
+/obj/structure/cable,
 /turf/open/floor/pod/dark,
 /area/shuttle/hunter)
 "I" = (
@@ -199,11 +204,12 @@
 	width = 17
 	},
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/independant;
 	dheight = 3;
 	dwidth = 3;
 	height = 13;
 	id = "huntership";
-	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0);
+	movement_force = list("KNOCKDOWN"=0,"THROW"=0);
 	name = "hunter shuttle";
 	rechargeTime = 1800;
 	width = 15
@@ -217,11 +223,24 @@
 	},
 /turf/open/floor/pod/light,
 /area/shuttle/hunter)
+"N" = (
+/obj/structure/cable,
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/hunter)
 "P" = (
 /obj/structure/fluff/empty_sleeper{
 	dir = 1
 	},
 /turf/open/floor/pod/light,
+/area/shuttle/hunter)
+"Q" = (
+/obj/structure/curtain/bounty,
+/obj/structure/cable,
+/turf/open/floor/pod/dark,
+/area/shuttle/hunter)
+"R" = (
+/obj/structure/cable,
+/turf/open/floor/pod/dark,
 /area/shuttle/hunter)
 "U" = (
 /obj/machinery/suit_storage_unit/standard_unit{
@@ -229,6 +248,20 @@
 	},
 /obj/machinery/light/directional/south,
 /turf/open/floor/pod/light,
+/area/shuttle/hunter)
+"V" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/pod/dark,
+/area/shuttle/hunter)
+"W" = (
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/pod/dark,
 /area/shuttle/hunter)
 "Y" = (
 /obj/structure/table,
@@ -304,13 +337,13 @@ b
 b
 b
 q
-b
-b
+N
+N
 r
 B
 F
-b
-b
+N
+N
 q
 b
 b
@@ -323,7 +356,7 @@ b
 b
 s
 C
-G
+W
 b
 b
 g
@@ -353,7 +386,7 @@ b
 b
 u
 u
-u
+Q
 b
 b
 i
@@ -368,7 +401,7 @@ b
 m
 v
 I
-I
+R
 K
 b
 i
@@ -382,8 +415,8 @@ i
 k
 n
 w
-x
-I
+G
+R
 U
 b
 i
@@ -398,7 +431,7 @@ b
 J
 x
 E
-I
+R
 K
 b
 a
@@ -413,7 +446,7 @@ b
 o
 y
 I
-I
+R
 K
 b
 a
@@ -428,7 +461,7 @@ i
 b
 u
 u
-u
+Q
 b
 i
 a
@@ -443,7 +476,7 @@ i
 p
 I
 I
-I
+R
 P
 i
 a
@@ -458,7 +491,7 @@ i
 Z
 z
 I
-z
+V
 M
 i
 a
@@ -473,7 +506,7 @@ b
 i
 A
 Y
-I
+R
 i
 b
 a

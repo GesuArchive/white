@@ -54,12 +54,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/shuttle/caravan/syndicate3)
-"dZ" = (
-/obj/structure/shuttle/engine/propulsion/burst{
-	dir = 8
-	},
-/turf/open/floor/plating/airless,
-/area/shuttle/caravan/syndicate3)
 "gl" = (
 /obj/machinery/door/airlock/hatch{
 	id_tag = "caravansyndicate3_bolt_port";
@@ -68,6 +62,7 @@
 	req_access_txt = "150"
 	},
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/syndicate/gorlex;
 	dir = 2;
 	dwidth = 6;
 	height = 7;
@@ -116,12 +111,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/pod/dark,
-/area/shuttle/caravan/syndicate3)
-"mJ" = (
-/obj/structure/shuttle/engine/propulsion/burst/left{
-	dir = 8
-	},
-/turf/open/floor/plating/airless,
 /area/shuttle/caravan/syndicate3)
 "ns" = (
 /obj/structure/table/reinforced,
@@ -245,18 +234,19 @@
 /turf/open/floor/plasteel/dark,
 /area/shuttle/caravan/syndicate3)
 "vQ" = (
-/obj/structure/shuttle/engine/propulsion/burst/right{
-	dir = 8
+/obj/machinery/shuttle/engine/ion{
+	dir = 4
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/caravan/syndicate3)
 "wH" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 8
-	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 4
+	},
+/obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/shuttle/caravan/syndicate3)
 "xC" = (
@@ -617,10 +607,10 @@
 
 (1,1,1) = {"
 Jv
-mJ
-dZ
-dZ
-dZ
+vQ
+vQ
+vQ
+vQ
 vQ
 Jv
 "}

@@ -21,6 +21,7 @@
 	width = 7
 	},
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/independant;
 	dir = 4;
 	dwidth = 3;
 	height = 12;
@@ -102,8 +103,8 @@
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/hunter)
 "hB" = (
-/obj/structure/shuttle/engine/propulsion{
-	dir = 8
+/obj/machinery/shuttle/engine/ion{
+	dir = 4
 	},
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/hunter)
@@ -124,6 +125,12 @@
 	dir = 8
 	},
 /turf/open/floor/mineral/titanium/blue,
+/area/shuttle/hunter)
+"om" = (
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 4
+	},
+/turf/closed/wall/mineral/titanium,
 /area/shuttle/hunter)
 "rR" = (
 /obj/machinery/door/airlock/titanium,
@@ -194,13 +201,13 @@ ku
 hB
 "}
 (5,1,1) = {"
-ku
+om
 ku
 aa
 RO
 av
 ku
-ku
+om
 "}
 (6,1,1) = {"
 Pq
@@ -239,13 +246,13 @@ ku
 hB
 "}
 (10,1,1) = {"
-ku
+om
 ku
 RO
 Rz
 Tn
 ku
-ku
+om
 "}
 (11,1,1) = {"
 Pq

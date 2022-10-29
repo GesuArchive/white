@@ -189,3 +189,6 @@
 	var/list/fov_traits
 	/// Последние температурные ощущения
 	var/last_temp_status = "normal"
+
+	var/ice_cream_mob_time = 0
+	var/ice_cream_mob = FALSE

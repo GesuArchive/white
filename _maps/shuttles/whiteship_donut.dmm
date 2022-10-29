@@ -12,6 +12,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/door/airlock/external/glass,
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/independant;
 	dir = 2;
 	dwidth = 8;
 	height = 17;
@@ -69,15 +70,7 @@
 /turf/template_noop,
 /area/shuttle/abandoned)
 "am" = (
-/obj/structure/shuttle/engine/propulsion/right{
-	dir = 1
-	},
-/turf/open/floor/plating/airless,
-/area/shuttle/abandoned)
-"an" = (
-/obj/structure/shuttle/engine/propulsion/left{
-	dir = 1
-	},
+/obj/machinery/shuttle/engine/ion,
 /turf/open/floor/plating/airless,
 /area/shuttle/abandoned)
 "ao" = (
@@ -95,10 +88,8 @@
 /turf/template_noop,
 /area/shuttle/abandoned)
 "ar" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 1
-	},
 /obj/structure/window/reinforced,
+/obj/machinery/power/engine_capacitor_bank,
 /turf/open/floor/plating/airless,
 /area/shuttle/abandoned)
 "as" = (
@@ -300,10 +291,12 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/abandoned)
 "aX" = (
-/obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced{
 	dir = 1;
 	layer = 2.9
+	},
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 1
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/abandoned)
@@ -359,12 +352,10 @@
 	},
 /turf/open/floor/plasteel/airless,
 /area/shuttle/abandoned)
-"be" = (
-/obj/structure/shuttle/engine/propulsion/left,
-/turf/open/floor/plating/airless,
-/area/shuttle/abandoned)
 "bf" = (
-/obj/structure/shuttle/engine/propulsion/right,
+/obj/machinery/shuttle/engine/ion{
+	dir = 1
+	},
 /turf/open/floor/plating/airless,
 /area/shuttle/abandoned)
 "bg" = (
@@ -599,7 +590,7 @@ aL
 aR
 ab
 aX
-be
+bf
 aa
 aa
 "}
@@ -608,7 +599,7 @@ aa
 aa
 aa
 aa
-an
+am
 ar
 ac
 ak
@@ -819,7 +810,7 @@ aN
 aT
 ab
 aX
-be
+bf
 aa
 aa
 "}

@@ -178,7 +178,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/captain,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/effect/mob_spawn/human/bearcat/pilot,
+/obj/effect/mob_spawn/human/bearcatcrew/pilot,
 /turf/open/floor/wood,
 /area/shuttle/bearcat/captain)
 "aB" = (
@@ -1123,7 +1123,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/mob_spawn/human/bearcat,
+/obj/effect/mob_spawn/human/bearcatcrew,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/cargo)
 "dA" = (
@@ -1445,7 +1445,7 @@
 /turf/open/floor/plating,
 /area/shuttle/bearcat/engineering)
 "ez" = (
-/obj/effect/mob_spawn/human/bearcat,
+/obj/effect/mob_spawn/human/bearcatcrew,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/cargo)
 "eA" = (
@@ -1472,16 +1472,12 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/effect/mob_spawn/human/bearcat/eng,
+/obj/effect/mob_spawn/human/bearcatcrew/atmos,
 /turf/open/floor/plating,
 /area/shuttle/bearcat/engines)
 "eD" = (
 /turf/closed/wall/r_wall,
 /area/shuttle/bearcat/maint2)
-"eE" = (
-/obj/effect/mob_spawn/human/bearcat/atmos,
-/turf/open/floor/plating,
-/area/shuttle/bearcat/engines)
 "eF" = (
 /turf/open/floor/plating,
 /area/shuttle/bearcat/maint2)
@@ -1936,7 +1932,7 @@
 /turf/open/floor/plating,
 /area/shuttle/bearcat/captain)
 "kE" = (
-/obj/effect/mob_spawn/human/bearcat/eng,
+/obj/effect/mob_spawn/human/bearcatcrew/eng,
 /turf/open/floor/plating,
 /area/shuttle/bearcat/engines)
 "ol" = (
@@ -2624,7 +2620,7 @@ fJ
 eY
 kE
 dh
-eE
+dh
 dE
 ge
 "}
@@ -2670,7 +2666,7 @@ fD
 eY
 eC
 dh
-eE
+dh
 dE
 ge
 "}
@@ -2716,7 +2712,7 @@ fL
 eY
 kE
 dh
-eE
+dh
 dE
 ge
 "}

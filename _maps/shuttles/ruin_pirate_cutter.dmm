@@ -75,6 +75,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/caravan/pirate)
 "fL" = (
@@ -206,12 +207,6 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/shuttle/caravan/pirate)
-"jU" = (
-/obj/structure/shuttle/engine/propulsion/burst{
-	dir = 8
-	},
-/turf/open/floor/plating/airless,
 /area/shuttle/caravan/pirate)
 "kl" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
@@ -605,6 +600,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/caravan/pirate)
 "yu" = (
@@ -809,12 +805,13 @@
 /turf/open/floor/plasteel/dark,
 /area/shuttle/caravan/pirate)
 "HD" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 8
-	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 4
+	},
+/obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/shuttle/caravan/pirate)
 "HO" = (
@@ -845,7 +842,7 @@
 	dwidth = 14;
 	height = 13;
 	id = "caravanpirate";
-	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0);
+	movement_force = list("KNOCKDOWN"=0,"THROW"=0);
 	name = "Pirate Cutter";
 	port_direction = 8;
 	preferred_direction = 4;
@@ -892,8 +889,8 @@
 /turf/open/floor/plasteel/dark,
 /area/shuttle/caravan/pirate)
 "Nx" = (
-/obj/structure/shuttle/engine/propulsion/burst/right{
-	dir = 8
+/obj/machinery/shuttle/engine/ion{
+	dir = 4
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/caravan/pirate)
@@ -915,10 +912,12 @@
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/shuttle/caravan/pirate)
 "Pn" = (
-/obj/structure/shuttle/engine/propulsion/burst/left{
-	dir = 8
+/obj/machinery/light/small{
+	dir = 4
 	},
-/turf/open/floor/plating/airless,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/obj/structure/cable,
+/turf/open/floor/plating,
 /area/shuttle/caravan/pirate)
 "Rq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
@@ -1075,12 +1074,12 @@
 Jv
 Jv
 Jv
-Pn
-jU
+Nx
+Nx
 Nx
 Jv
-Pn
-jU
+Nx
+Nx
 Nx
 Jv
 Jv
@@ -1121,7 +1120,7 @@ Jv
 af
 Gh
 kY
-vW
+Pn
 fh
 Cb
 hI

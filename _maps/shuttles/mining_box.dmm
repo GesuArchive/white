@@ -38,6 +38,7 @@
 	name = "Mining Shuttle Airlock"
 	},
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/station;
 	dir = 8;
 	dwidth = 3;
 	height = 5;
@@ -47,6 +48,7 @@
 	width = 7
 	},
 /obj/structure/fans/tiny,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/mining)
 "i" = (
@@ -54,31 +56,47 @@
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "j" = (
-/obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced{
 	dir = 1;
 	layer = 2.9
 	},
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 1
 	},
+/obj/structure/cable,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/open/floor/plating,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
 /area/shuttle/mining)
 "k" = (
 /obj/structure/ore_box,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "l" = (
-/obj/structure/shuttle/engine/propulsion/burst,
+/obj/machinery/shuttle/engine/ion/burst{
+	dir = 1
+	},
 /turf/open/floor/plating/airless,
+/area/shuttle/mining)
+"A" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "Q" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/mining)
+"V" = (
+/obj/structure/cable,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/mining)
 
@@ -104,8 +122,8 @@ a
 b
 d
 Q
-e
-f
+V
+A
 j
 l
 "}
@@ -113,7 +131,7 @@ l
 a
 c
 e
-e
+V
 f
 k
 a

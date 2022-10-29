@@ -209,12 +209,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining/large)
-"x" = (
-/obj/effect/turf_decal/box/corners{
-	dir = 8
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/mining/large)
 "y" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/ore_box,
@@ -231,6 +225,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining/large)
 "A" = (
@@ -257,8 +252,11 @@
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/mining/large)
 "D" = (
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 1
+	},
+/obj/structure/cable,
 /obj/effect/spawner/structure/window/shuttle,
-/obj/structure/shuttle/engine/heater,
 /turf/open/floor/plating,
 /area/shuttle/mining/large)
 "E" = (
@@ -267,8 +265,10 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining/large)
 "F" = (
-/obj/structure/shuttle/engine/propulsion,
-/turf/open/floor/plating/airless,
+/obj/machinery/shuttle/engine/ion{
+	dir = 1
+	},
+/turf/open/floor/plating,
 /area/shuttle/mining/large)
 "G" = (
 /obj/structure/rack,
@@ -279,6 +279,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/mining/large)
 "H" = (
@@ -340,6 +341,7 @@
 	dir = 1
 	},
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/station;
 	dwidth = 3;
 	height = 10;
 	id = "mining";
@@ -376,7 +378,7 @@ f
 l
 r
 t
-x
+B
 G
 D
 F

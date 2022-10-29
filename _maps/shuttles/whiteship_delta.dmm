@@ -18,13 +18,14 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/independant;
 	callTime = 250;
 	dir = 2;
 	dwidth = 11;
 	height = 17;
 	id = "whiteship";
 	launch_status = 0;
-	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0);
+	movement_force = list("KNOCKDOWN"=0,"THROW"=0);
 	name = "NT Frigate";
 	port_direction = 8;
 	preferred_direction = 4;
@@ -252,8 +253,8 @@
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/abandoned/bar)
 "ay" = (
-/obj/structure/shuttle/engine/propulsion/left{
-	dir = 8
+/obj/machinery/shuttle/engine/ion{
+	dir = 4
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/abandoned/engine)
@@ -261,9 +262,10 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/shuttle/engine/heater{
-	dir = 8
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/shuttle/abandoned/engine)
 "aA" = (
@@ -377,12 +379,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/shuttle/abandoned/bar)
-"aM" = (
-/obj/structure/shuttle/engine/propulsion/right{
-	dir = 8
-	},
-/turf/open/floor/plating/airless,
-/area/shuttle/abandoned/engine)
 "aN" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -963,6 +959,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "bQ" = (
@@ -1405,6 +1402,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/space_heater,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "cC" = (
@@ -2367,12 +2365,12 @@ aa
 aa
 ah
 ay
-aM
+ay
 ah
 aa
 ah
 ay
-aM
+ay
 ah
 aa
 aa
@@ -2383,7 +2381,7 @@ aa
 aa
 ah
 ay
-aM
+ay
 ai
 az
 az
@@ -2394,7 +2392,7 @@ az
 az
 ai
 ay
-aM
+ay
 ah
 aa
 "}

@@ -16,13 +16,14 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/independant;
 	callTime = 250;
 	dir = 2;
 	dwidth = 11;
 	height = 17;
 	id = "whiteship";
 	launch_status = 0;
-	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0);
+	movement_force = list("KNOCKDOWN"=0,"THROW"=0);
 	name = "Hospital Ship";
 	port_direction = 8;
 	preferred_direction = 4;
@@ -150,9 +151,10 @@
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/abandoned/engine)
 "as" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 8
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 4
 	},
+/obj/structure/cable,
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/abandoned/engine)
 "at" = (
@@ -372,6 +374,7 @@
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/turf_decal/bot,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "aG" = (
@@ -582,6 +585,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 6
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "aU" = (
@@ -605,12 +609,14 @@
 	pixel_y = -24
 	},
 /obj/machinery/light/small/built,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "aW" = (
 /obj/machinery/meter,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "aX" = (
@@ -621,6 +627,7 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering"
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "aY" = (
@@ -717,12 +724,14 @@
 "bg" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/closet/emcloset/anchored,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "bh" = (
 /obj/machinery/light/small/built{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "bi" = (
@@ -730,10 +739,12 @@
 	pixel_y = -32
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "bj" = (
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "bk" = (
@@ -741,6 +752,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "bl" = (
@@ -757,6 +769,7 @@
 	dir = 4
 	},
 /obj/structure/fans/tiny,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "bn" = (
@@ -764,6 +777,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 9
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "bo" = (
@@ -775,6 +789,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "bp" = (
@@ -797,6 +812,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/bot,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "br" = (
@@ -1350,6 +1366,7 @@
 /area/shuttle/abandoned/bridge)
 "cp" = (
 /obj/machinery/light/small,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "cq" = (
@@ -1357,6 +1374,7 @@
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "cr" = (
@@ -2002,28 +2020,16 @@
 /turf/open/floor/plasteel,
 /area/shuttle/abandoned/bridge)
 "hV" = (
-/obj/structure/shuttle/engine/propulsion/right{
-	dir = 8
+/obj/machinery/shuttle/engine/ion{
+	dir = 4
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/abandoned/engine)
 "vk" = (
-/obj/structure/shuttle/engine/propulsion/left{
-	dir = 8
+/obj/machinery/shuttle/engine/ion{
+	dir = 4
 	},
 /turf/closed/wall/mineral/titanium,
-/area/shuttle/abandoned/engine)
-"JU" = (
-/obj/structure/shuttle/engine/propulsion/right{
-	dir = 8
-	},
-/turf/closed/wall/mineral/titanium,
-/area/shuttle/abandoned/engine)
-"Tw" = (
-/obj/structure/shuttle/engine/propulsion/left{
-	dir = 8
-	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/abandoned/engine)
 
 (1,1,1) = {"
@@ -2036,8 +2042,8 @@ aa
 vk
 hV
 aa
-Tw
-JU
+hV
+vk
 aa
 aa
 aa
@@ -2166,11 +2172,11 @@ aa
 aa
 aa
 at
-bl
+cB
 at
 aa
 at
-bl
+cB
 at
 aa
 aa
@@ -2183,7 +2189,7 @@ aa
 aa
 aa
 aa
-ar
+vk
 at
 bm
 at
@@ -2191,7 +2197,7 @@ aa
 at
 bm
 at
-ar
+vk
 aa
 aa
 aa
@@ -2239,7 +2245,7 @@ aa
 aa
 aa
 aa
-ar
+vk
 at
 bl
 aV

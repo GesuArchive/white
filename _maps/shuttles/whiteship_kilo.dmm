@@ -29,6 +29,7 @@
 	dir = 4
 	},
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/independant;
 	callTime = 250;
 	can_move_docking_ports = 1;
 	dir = 8;
@@ -36,7 +37,7 @@
 	height = 17;
 	id = "whiteship";
 	launch_status = 0;
-	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0);
+	movement_force = list("KNOCKDOWN"=0,"THROW"=0);
 	name = "Salvage Ship";
 	port_direction = 8;
 	preferred_direction = 4;
@@ -496,11 +497,11 @@
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "aQ" = (
-/obj/structure/shuttle/engine/propulsion/left{
-	dir = 4
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
+	},
+/obj/machinery/shuttle/engine/ion{
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
@@ -940,7 +941,7 @@
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
 "bC" = (
-/obj/structure/shuttle/engine/large{
+/obj/machinery/shuttle/engine/advanced/large{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -1341,10 +1342,10 @@
 /turf/open/floor/plating,
 /area/shuttle/abandoned/crew)
 "ct" = (
-/obj/structure/shuttle/engine/large{
+/obj/effect/turf_decal/stripes/corner,
+/obj/machinery/shuttle/engine/advanced/large{
 	dir = 4
 	},
-/obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/crew)
 "cu" = (
@@ -1511,6 +1512,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/effect/decal/cleanable/blood/old,
+/obj/structure/cable,
 /turf/open/floor/plasteel/showroomfloor,
 /area/shuttle/abandoned/crew)
 "cI" = (
@@ -1522,25 +1524,28 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/airlock/locked,
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/abandoned/crew)
 "cJ" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/wood,
 /area/shuttle/abandoned/crew)
 "cK" = (
 /obj/structure/bed,
 /obj/item/bedsheet/captain,
+/obj/structure/cable,
 /turf/open/floor/wood,
 /area/shuttle/abandoned/crew)
 "cL" = (
-/obj/structure/shuttle/engine/propulsion/left{
-	dir = 4
-	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
+	},
+/obj/machinery/shuttle/engine/ion{
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/shuttle/abandoned/crew)
@@ -1841,6 +1846,45 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/abandoned/cargo)
+"gh" = (
+/obj/effect/spawner/structure/window/shuttle,
+/obj/machinery/door/poddoor{
+	id = "whiteship_windows";
+	name = "Exterior Window Blast door"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/shuttle/abandoned/crew)
+"hl" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/shuttle/abandoned/engine)
+"ty" = (
+/obj/structure/cable,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/abandoned/engine)
+"Ov" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/shuttle/abandoned/crew)
 
 (1,1,1) = {"
 aa
@@ -2191,13 +2235,13 @@ aa
 aa
 aa
 at
-at
+ty
 au
 au
 bM
 bK
 cs
-cs
+gh
 bK
 aa
 aa
@@ -2209,13 +2253,13 @@ aa
 aa
 aa
 av
-aP
+hl
 aP
 aP
 bN
 cc
 cc
-cc
+Ov
 bN
 aa
 aa

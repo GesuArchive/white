@@ -1090,3 +1090,39 @@
 	category = list("Спейсподы и шаттлостроение")
 	sub_category = list("шаттлостроение")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/board/shuttle/engine/ion
+	name = "Machine Design (Ion Thruster Board)"
+	desc = "The circuit board for an ion thruster, a weak but electric driven engine."
+	id = "engine_ion"
+	build_path = /obj/item/circuitboard/machine/shuttle/engine/ion
+	category = list("Спейсподы и шаттлостроение")
+	sub_category = list("шаттлостроение")
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/board/shuttle/engine/ion/burst
+	name = "Machine Design (Ion Burst Thruster Board)"
+	desc = "The circuit board for an ion burst thruster, a powerful but temporary thrust booster."
+	id = "engine_ion_burst"
+	build_path = /obj/item/circuitboard/machine/shuttle/engine/ion/burst
+	category = list("Спейсподы и шаттлостроение")
+	sub_category = list("шаттлостроение")
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/board/shuttle/engine/charger
+	name = "Machine Design (Ion Thruster Capacitor Bank Board)"
+	desc = "The circuit board for an engine capacitor bank."
+	id = "engine_capacitors"
+	build_path = /obj/item/circuitboard/machine/shuttle/capacitor_bank
+	category = list("Спейсподы и шаттлостроение")
+	sub_category = list("шаттлостроение")
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/board/plasma_refiner
+	name = "Machine Design (Plasma Refiner Board)"
+	desc = "The circuit board for a plasma refiner."
+	id = "plasma_refiner"
+	build_path = /obj/item/circuitboard/machine/plasma_refiner
+	category = list("Спейсподы и шаттлостроение")
+	sub_category = list("шаттлостроение")
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE

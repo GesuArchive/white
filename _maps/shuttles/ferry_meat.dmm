@@ -3,7 +3,7 @@
 /turf/template_noop,
 /area/template_noop)
 "b" = (
-/obj/structure/shuttle/engine/propulsion{
+/obj/machinery/shuttle/engine/void{
 	dir = 4
 	},
 /turf/closed/wall/mineral/titanium,
@@ -105,6 +105,7 @@
 "q" = (
 /obj/machinery/door/airlock/titanium,
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/nanotrasen/central_command;
 	dir = 8;
 	dwidth = 2;
 	height = 12;

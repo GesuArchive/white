@@ -11,6 +11,7 @@
 	name = "Shuttle Airlock"
 	},
 /obj/docking_port/mobile/pod{
+	faction_type = /datum/faction/station;
 	height = 6;
 	id = "podunit";
 	name = "Cпасательная капсула (юнит)";
@@ -37,8 +38,16 @@
 "y" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/pod_1)
+"z" = (
+/obj/machinery/power/engine_capacitor_bank/escape_pod{
+	dir = 1
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/pod_1)
 "B" = (
-/obj/structure/shuttle/engine/propulsion/burst,
+/obj/machinery/shuttle/engine/ion/burst{
+	dir = 1
+	},
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/pod_1)
 "D" = (
@@ -92,7 +101,7 @@ y
 y
 y
 r
-y
+z
 B
 "}
 (2,1,1) = {"
@@ -116,6 +125,6 @@ y
 y
 y
 r
-y
+z
 B
 "}

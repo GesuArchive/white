@@ -63971,7 +63971,6 @@
 /obj/machinery/camera/preset/toxins/num1{
 	dir = 8
 	},
-/turf/open/indestructible/baseturfs_ded,
 /area/science/test_area)
 "tPY" = (
 /obj/structure/table/glass,

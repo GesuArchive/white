@@ -113,6 +113,7 @@
 /obj/structure/railing,
 /obj/structure/fans/tiny/invisible,
 /obj/docking_port/mobile/yohei{
+	faction_type = /datum/faction/independant;
 	dwidth = 4;
 	height = 5;
 	width = 9
@@ -204,8 +205,8 @@
 	},
 /area/shuttle/yohei)
 "om" = (
-/obj/structure/shuttle/engine/large,
 /obj/effect/turf_decal/stripes/full,
+/obj/machinery/shuttle/engine/advanced/large,
 /turf/open/floor/engine,
 /area/shuttle/yohei)
 "on" = (

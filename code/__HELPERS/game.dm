@@ -70,9 +70,9 @@
 /proc/considered_alive(datum/mind/M, enforce_human = TRUE)
 	if(M?.current)
 		if(enforce_human)
-			return M.current.stat != DEAD && !issilicon(M.current) && !isbrain(M.current)
+			return M.current.stat != DEAD && !HAS_TRAIT(M, MIND_TRAIT_OBJECTIVE_DEAD) && !issilicon(M.current) && !isbrain(M.current)
 		else if(isliving(M.current))
-			return M.current.stat != DEAD
+			return M.current.stat != DEAD && !HAS_TRAIT(M, MIND_TRAIT_OBJECTIVE_DEAD)
 	return FALSE
 
 /**

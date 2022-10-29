@@ -129,6 +129,12 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/assault_pod)
+"I" = (
+/obj/machinery/shuttle/engine/void{
+	dir = 8
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/assault_pod)
 "L" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
@@ -151,16 +157,32 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/shuttle/assault_pod)
+"U" = (
+/obj/machinery/shuttle/engine/void{
+	dir = 1
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/assault_pod)
 "V" = (
 /turf/template_noop,
 /area/template_noop)
+"X" = (
+/obj/machinery/shuttle/engine/void,
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/assault_pod)
+"Z" = (
+/obj/machinery/shuttle/engine/void{
+	dir = 4
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/assault_pod)
 
 (1,1,1) = {"
 V
 b
-d
+Z
 t
-d
+Z
 b
 V
 "}
@@ -174,13 +196,13 @@ d
 b
 "}
 (3,1,1) = {"
-d
+X
 c
 j
 f
 w
 F
-d
+U
 "}
 (4,1,1) = {"
 R
@@ -192,13 +214,13 @@ a
 e
 "}
 (5,1,1) = {"
-d
+X
 H
 O
 A
 E
 z
-d
+U
 "}
 (6,1,1) = {"
 b
@@ -212,9 +234,9 @@ b
 (7,1,1) = {"
 V
 b
-d
+I
 t
-d
+I
 b
 V
 "}

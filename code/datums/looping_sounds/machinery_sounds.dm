@@ -171,3 +171,17 @@
 	volume = 20
 	falloff_distance = 2
 	falloff_exponent = 5
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/looping_sound/shuttle_crash
+	mid_sounds = list('sound/machines/engine_alert1.ogg'=1)
+	mid_length = 30
+	volume = 70
+	extra_range = 4
+
+/datum/looping_sound/shuttle_collision_alarm
+	mid_sounds = list('sound/effects/collision_alert.ogg'=1)
+	mid_length = 30
+	volume = 70
+	extra_range = 4

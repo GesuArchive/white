@@ -1,13 +1,20 @@
+#define REWARD_MONEY "MONEY"
+
 /datum/orbital_objective
+	//Static variables
+	var/static/objective_num = 0
+
+	//Type dependant
 	var/name = "Null Objective"
-	var/datum/orbital_object/z_linked/beacon/ruin/linked_beacon
-	var/payout = 0
-	var/completed = FALSE
 	var/min_payout = 0
 	var/max_payout = 0
+	var/weight = 0
+
+	//Instance dependent
+	var/payout = 0
+	var/completed = FALSE
 	var/id = 0
 	var/station_name
-	var/static/objective_num = 0
 
 /datum/orbital_objective/New()
 	. = ..()
@@ -17,30 +24,28 @@
 /datum/orbital_objective/proc/on_assign(obj/machinery/computer/objective/objective_computer)
 	return
 
-/datum/orbital_objective/proc/generate_objective_stuff(turf/chosen_turf)
-	return
-
 /datum/orbital_objective/proc/check_failed()
 	return TRUE
 
 /datum/orbital_objective/proc/get_text()
 	return ""
 
+/datum/orbital_objective/proc/announce()
+	return
+
 /datum/orbital_objective/proc/generate_payout()
 	payout = rand(min_payout, max_payout)
 
 /datum/orbital_objective/proc/generate_attached_beacon()
-	linked_beacon = new
-	linked_beacon.name = "(ЗАДАНИЕ) [linked_beacon.name]"
-	linked_beacon.linked_objective = src
+	return
 
 /datum/orbital_objective/proc/remove_objective()
 	QDEL_NULL(SSorbits.current_objective)
 
 /datum/orbital_objective/proc/complete_objective()
+	if (SSorbits.current_objective == src)
+		SSorbits.current_objective = null
 	if(completed)
-		//Delete
-		QDEL_NULL(SSorbits.current_objective)
 		return
 	completed = TRUE
 	//Handle payout
@@ -63,13 +68,5 @@
 			A.bank_card_talk("Было получено [goyam] кредитов за содействие выполнению поручений NanoTrasen.")
 			A.adjust_money(goyam)
 	GLOB.exploration_points += payout / 2
-/*
-	for(var/I in SSjob.occupations)		Не пойму как отыскать все рейнджерские ID
-		var/datum/job/J = I
-		if(istype(J, /datum/job/exploration))
-			var/obj/item/card/id/ID = J.get_idcard()
-			if(ID)
-				ID.exploration_points += payout / 2
-*/
-	//Delete
-	QDEL_NULL(SSorbits.current_objective)
+	//Objective completed
+	SSorbits.completed_objectives += src

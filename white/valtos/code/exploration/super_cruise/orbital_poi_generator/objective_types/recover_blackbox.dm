@@ -1,4 +1,4 @@
-/datum/orbital_objective/recover_blackbox
+/datum/orbital_objective/ruin/recover_blackbox
 	name = "Спасение чёрного ящика"
 	var/generated = FALSE
 	//The blackbox required to recover.
@@ -6,18 +6,19 @@
 	//Relatively easy mission.
 	min_payout = 10 * CARGO_CRATE_VALUE
 	max_payout = 50 * CARGO_CRATE_VALUE
+	weight = 4
 
-/datum/orbital_objective/recover_blackbox/generate_objective_stuff(turf/chosen_turf)
+/datum/orbital_objective/ruin/recover_blackbox/generate_objective_stuff(turf/chosen_turf)
 	generated = TRUE
 	linked_blackbox = new(chosen_turf)
 	linked_blackbox.setup_recover(src)
 
-/datum/orbital_objective/recover_blackbox/get_text()
+/datum/orbital_objective/ruin/recover_blackbox/get_text()
 	. = "Аванпост [station_name] недавно погрузился во тьму и больше оттуда не поступало сигналов. Отправьтесь туда и найдите чёрный ящик, вознаграждение в [payout] кредитов окупит затраты."
 	if(linked_beacon)
 		. += " Станция находится в точке [linked_beacon.name]. Успехов."
 
-/datum/orbital_objective/recover_blackbox/check_failed()
+/datum/orbital_objective/ruin/recover_blackbox/check_failed()
 	if(!QDELETED(linked_blackbox) || !generated)
 		return FALSE
 	return TRUE
@@ -45,7 +46,7 @@
 
 /datum/component/recoverable
 	var/recovered = FALSE
-	var/datum/orbital_objective/recover_blackbox/linked_obj
+	var/datum/orbital_objective/ruin/recover_blackbox/linked_obj
 
 /datum/component/recoverable/Initialize(_linked_obj)
 	if(!ismovable(parent))

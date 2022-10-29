@@ -44,6 +44,7 @@
 	name = "Lavaland Shuttle Airlock"
 	},
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/station;
 	dir = 8;
 	dwidth = 3;
 	height = 5;
@@ -62,7 +63,6 @@
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "j" = (
-/obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced{
 	dir = 1;
 	layer = 2.9
@@ -73,6 +73,10 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 1
+	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/mining)
 "k" = (
@@ -81,8 +85,18 @@
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "l" = (
-/obj/structure/shuttle/engine/propulsion/burst,
+/obj/machinery/shuttle/engine/ion{
+	dir = 1
+	},
 /turf/open/floor/plating/airless,
+/area/shuttle/mining)
+"t" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot,
+/obj/structure/cable,
+/turf/open/floor/mineral/titanium/blue,
 /area/shuttle/mining)
 "O" = (
 /obj/structure/cable,
@@ -118,7 +132,7 @@ b
 d
 Q
 O
-f
+t
 j
 l
 "}

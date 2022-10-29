@@ -93,7 +93,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/syndicate/bridge)
 "am" = (
-/obj/machinery/computer/crew/syndie{
+/obj/machinery/computer/locator{
 	dir = 4
 	},
 /obj/effect/turf_decal/bot,
@@ -950,6 +950,7 @@
 	req_access_txt = "150"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/syndicate/medical)
 "bW" = (
@@ -1108,6 +1109,7 @@
 	pixel_y = 4
 	},
 /obj/item/storage/firstaid/fire,
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/syndicate/medical)
 "ck" = (
@@ -1236,9 +1238,11 @@
 /turf/open/floor/plating,
 /area/shuttle/syndicate/medical)
 "cy" = (
-/obj/structure/shuttle/engine/propulsion,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/shuttle/engine/ion/burst{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -1272,10 +1276,10 @@
 /turf/closed/wall/r_wall/syndicate,
 /area/shuttle/syndicate/medical)
 "cD" = (
-/obj/structure/shuttle/engine/large,
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
+/obj/machinery/shuttle/engine/advanced/large,
 /turf/open/floor/plating,
 /area/shuttle/syndicate/hallway)
 "cE" = (
@@ -1296,8 +1300,8 @@
 /turf/open/floor/plating,
 /area/shuttle/syndicate/armory)
 "cI" = (
-/obj/structure/shuttle/engine/large,
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/shuttle/engine/advanced/large,
 /turf/open/floor/plating,
 /area/shuttle/syndicate/hallway)
 "cJ" = (
@@ -1313,7 +1317,7 @@
 /turf/closed/wall/r_wall/syndicate,
 /area/shuttle/syndicate/armory)
 "cL" = (
-/obj/structure/shuttle/engine/large,
+/obj/machinery/shuttle/engine/advanced/large,
 /turf/open/floor/plating,
 /area/shuttle/syndicate/medical)
 "cM" = (
@@ -1327,9 +1331,11 @@
 /turf/open/floor/plating,
 /area/shuttle/syndicate/hallway)
 "cO" = (
-/obj/structure/shuttle/engine/propulsion,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/shuttle/engine/ion/burst{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -1351,7 +1357,7 @@
 /turf/open/floor/plating,
 /area/shuttle/syndicate/armory)
 "cS" = (
-/obj/structure/shuttle/engine/large,
+/obj/machinery/shuttle/engine/advanced/large,
 /turf/open/floor/plating,
 /area/shuttle/syndicate/armory)
 "cT" = (
@@ -1385,13 +1391,14 @@
 	name = "Infiltrator Starboard Hatch"
 	},
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/syndicate/gorlex;
 	dheight = 1;
 	dir = 8;
 	dwidth = 12;
 	height = 17;
 	hidden = 1;
 	id = "syndicate";
-	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0);
+	movement_force = list("KNOCKDOWN"=0,"THROW"=0);
 	name = "syndicate infiltrator";
 	port_direction = 4;
 	width = 23
@@ -1627,6 +1634,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/syndicate/medical)
 "ds" = (
@@ -1765,6 +1773,7 @@
 	},
 /obj/effect/turf_decal/box,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
 /turf/open/floor/pod/dark,
 /area/shuttle/syndicate/medical)
 "dE" = (
@@ -1772,6 +1781,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/old,
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/syndicate/medical)
 "dF" = (
@@ -1901,6 +1911,7 @@
 "dO" = (
 /obj/structure/closet/syndicate/personal,
 /obj/effect/turf_decal/bot,
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/syndicate/armory)
 "dP" = (
@@ -1952,6 +1963,7 @@
 	pixel_x = -24
 	},
 /obj/effect/turf_decal/stripes/line,
+/obj/structure/cable,
 /turf/open/floor/pod/dark,
 /area/shuttle/syndicate/medical)
 "dU" = (
@@ -2015,6 +2027,7 @@
 /obj/machinery/status_display/evac{
 	pixel_x = 32
 	},
+/obj/structure/cable,
 /turf/open/floor/pod/dark,
 /area/shuttle/syndicate/armory)
 "ea" = (
@@ -2038,6 +2051,7 @@
 /obj/structure/sign/warning/nosmoking{
 	pixel_x = 28
 	},
+/obj/structure/cable,
 /turf/open/floor/pod/dark,
 /area/shuttle/syndicate/armory)
 "ec" = (
@@ -2277,11 +2291,26 @@
 	dir = 8;
 	pixel_x = 26
 	},
+/obj/structure/cable,
 /turf/open/floor/pod/dark,
 /area/shuttle/syndicate/armory)
 "ev" = (
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/shuttle/syndicate/hallway)
+"NA" = (
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/closed/wall/r_wall/syndicate,
+/area/shuttle/syndicate/medical)
+"Vk" = (
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/closed/wall/r_wall/syndicate,
+/area/shuttle/syndicate/armory)
 
 (1,1,1) = {"
 ad
@@ -2371,7 +2400,7 @@ bL
 dz
 dD
 dT
-bn
+NA
 cy
 ad
 "}
@@ -2462,7 +2491,7 @@ ce
 bP
 dA
 cj
-bn
+NA
 cy
 ad
 ad
@@ -2600,7 +2629,7 @@ ce
 ed
 el
 dO
-cG
+Vk
 cO
 ad
 ad
@@ -2693,7 +2722,7 @@ eh
 dZ
 eb
 eu
-cG
+Vk
 cO
 ad
 "}

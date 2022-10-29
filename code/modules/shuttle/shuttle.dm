@@ -43,6 +43,9 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 	//The shuttle docked here/dock we're parked at.
 	var/obj/docking_port/docked
 
+/obj/docking_port/get_save_vars()
+	return list("pixel_x", "pixel_y", "dir", "name", "req_access", "req_access_txt", "piping_layer", "color", "icon_state", "pipe_color", "amount", "width", "height", "dwidth", "dheight")
+
 	//these objects are indestructible
 /obj/docking_port/Destroy(force)
 	// unless you assert that you know what you're doing. Horrible things
@@ -362,10 +365,21 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 
 	var/shuttle_object_type = /datum/orbital_object/shuttle
 
+	/// If true, will assign the ID on load
 	var/dynamic_id = FALSE
+
+	/// If True will cause an explosion upon landing
+	var/crash_landing = FALSE
+
+	/// What faction type should we use
+	var/faction_type = /datum/faction/independant
+
+	/// If true, the shuttle will be deleted upon landing
+	var/delete_on_land = FALSE
 
 /obj/docking_port/mobile/proc/register()
 	SSshuttle.mobile |= src
+	SSorbits.register_shuttle(id, faction_type)
 
 /obj/docking_port/mobile/Destroy(force)
 	if(force)
@@ -377,6 +391,7 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 		towed_shuttles = null
 		underlying_turf_area = null
 		remove_ripples()
+		SSorbits.remove_shuttle(id)
 	. = ..()
 
 /obj/docking_port/mobile/is_in_shuttle_bounds(atom/A)
@@ -566,7 +581,7 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 			var/obj/machinery/computer/shuttle_flight/flight_computer = locate() in curT
 			if(!flight_computer)
 				continue
-			flight_computer.shuttleId = "[id]"
+			flight_computer.set_shuttle_id("[id]")
 			flight_computer.shuttlePortId = "[id]_custom"
 
 	//Find open dock here and set it as ours
@@ -674,6 +689,8 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 
 	if(mode == SHUTTLE_IGNITING && destination == S)
 		return TRUE
+
+	log_shuttle_movement("Shuttle [S.name] ([S.id]) was requested to move from [S] at [COORD(S)] to [destination] at [COORD(destination)]. Usr: [key_name_admin(usr)]")
 
 	switch(mode)
 		if(SHUTTLE_CALL)
@@ -787,6 +804,13 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 
 /obj/docking_port/mobile/proc/remove_ripples()
 	QDEL_LIST(ripples)
+
+/obj/docking_port/mobile/proc/explode()
+	crash_landing = FALSE
+	for(var/turf/T as() in return_turfs())
+		if(prob(30) && !isspaceturf(T))
+			//Explode around landing time
+			explosion(T, 0, 0, 3, 5, FALSE)
 
 /obj/docking_port/mobile/proc/ripple_area(obj/docking_port/stationary/S1)
 	var/list/L0 = return_ordered_turfs(x, y, z, dir)

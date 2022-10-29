@@ -3,7 +3,7 @@
 /turf/template_noop,
 /area/template_noop)
 "ab" = (
-/obj/structure/shuttle/engine/propulsion/left{
+/obj/machinery/shuttle/engine/void{
 	dir = 4
 	},
 /turf/open/floor/plating/airless,
@@ -155,6 +155,7 @@
 "aO" = (
 /obj/machinery/door/airlock/titanium,
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/nanotrasen/central_command;
 	dir = 8;
 	dwidth = 8;
 	height = 27;
@@ -273,7 +274,9 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/transport)
 "bj" = (
-/obj/structure/shuttle/engine/propulsion/right,
+/obj/machinery/shuttle/engine/void{
+	dir = 1
+	},
 /turf/open/floor/plating/airless,
 /area/shuttle/transport)
 

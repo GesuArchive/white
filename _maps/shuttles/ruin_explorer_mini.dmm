@@ -3,8 +3,8 @@
 /turf/template_noop,
 /area/template_noop)
 "b" = (
-/obj/structure/shuttle/engine/propulsion/burst{
-	dir = 8
+/obj/machinery/shuttle/engine/ion{
+	dir = 4
 	},
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/explorer_mini)
@@ -86,6 +86,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/explorer_mini)
 "o" = (
@@ -105,6 +106,18 @@
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/explorer_mini)
+"s" = (
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/explorer_mini)
+"J" = (
+/obj/effect/spawner/structure/window/shuttle,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/shuttle/explorer_mini)
 
 (1,1,1) = {"
 b
@@ -114,18 +127,18 @@ c
 b
 "}
 (2,1,1) = {"
-c
+s
 f
 m
 o
-c
+s
 "}
 (3,1,1) = {"
 d
 l
 n
 n
-d
+J
 "}
 (4,1,1) = {"
 e

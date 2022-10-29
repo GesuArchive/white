@@ -3,7 +3,9 @@
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/abandoned/engine)
 "ab" = (
-/obj/structure/shuttle/engine/large,
+/obj/machinery/shuttle/engine/advanced/large{
+	dir = 1
+	},
 /turf/open/floor/plating/airless,
 /area/shuttle/abandoned/engine)
 "ac" = (
@@ -13,6 +15,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/external/glass,
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/independant;
 	dir = 2;
 	dwidth = 6;
 	height = 41;

@@ -73,8 +73,9 @@
 /obj/machinery/computer/shuttle_flight/proc/give_eye_control(mob/user)
 	if(!isliving(user))
 		return
-	if(!eyeobj)
-		CreateEye()
+	if(eyeobj)
+		qdel(eyeobj) //Custom shuttles can be modified, this needs to be updated to catch for that.
+	CreateEye()
 	GrantActions(user)
 	current_user = user
 	eyeobj.eye_user = user
@@ -171,6 +172,7 @@
 		my_port.width = bounds[3]
 		my_port.height = bounds[4]
 		my_port.hidden = shuttle_port.hidden
+		my_port.delete_after = TRUE
 	my_port.setDir(the_eye.dir)
 	my_port.forceMove(locate(eyeobj.x, eyeobj.y, eyeobj.z))
 
@@ -193,11 +195,10 @@
 	switch(SSshuttle.moveShuttle(shuttleId, shuttlePortId, 1))
 		if(0)
 			remove_eye_control(usr)
-			QDEL_NULL(shuttleObject)
 			//Hold the shuttle in the docking position until ready.
 			M.setTimer(INFINITY)
 			say("Ожидайте...")
-			INVOKE_ASYNC(src, .proc/unfreeze_shuttle, M, SSmapping.get_level(eyeobj.z))
+			shuttleObject.begin_dethrottle(M.z)
 		if(1)
 			to_chat(usr, span_warning("Неправильный шаттл запрошен."))
 		else
@@ -298,7 +299,7 @@
 
 /obj/machinery/computer/shuttle_flight/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
 	if(port && (shuttleId == initial(shuttleId) || override))
-		shuttleId = port.id
+		set_shuttle_id(port.id)
 		shuttlePortId = "[shuttleId]_custom"
 
 /mob/camera/ai_eye/remote/shuttle_docker
@@ -311,13 +312,16 @@
 	src.origin = origin
 	return ..()
 
-/mob/camera/ai_eye/remote/shuttle_docker/setLoc(T, force_update = FALSE)
-	..()
+/mob/camera/ai_eye/remote/shuttle_docker/can_z_move(direction, turf/start, turf/destination, z_move_flags, mob/living/rider)
+	return TRUE
+
+/mob/camera/ai_eye/remote/shuttle_docker/setLoc(destination, force_update = FALSE)
+	. = ..()
 	var/obj/machinery/computer/shuttle_flight/console = origin
 	console.checkLandingSpot()
 
 /mob/camera/ai_eye/remote/shuttle_docker/update_remote_sight(mob/living/user)
-	user.set_sight(BLIND|SEE_TURFS)
+	user.sight = BLIND|SEE_TURFS
 	user.lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
 	user.sync_lighting_plane_alpha()
 	return TRUE
@@ -388,4 +392,3 @@
 			C.clear_fullscreen("flash", 3)
 	else
 		playsound(console, 'sound/machines/terminal_prompt_deny.ogg', 25, 0)
-

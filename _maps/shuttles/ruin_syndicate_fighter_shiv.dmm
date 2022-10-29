@@ -40,6 +40,13 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/caravan/syndicate1)
+"qU" = (
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/caravan/syndicate1)
 "uW" = (
 /obj/machinery/button/door{
 	id = "caravansyndicate1_bolt";
@@ -50,6 +57,7 @@
 	specialfunctions = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/caravan/syndicate1)
 "vD" = (
@@ -82,6 +90,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/syndicate/gorlex;
 	callTime = 50;
 	dir = 4;
 	dwidth = 4;
@@ -100,9 +109,13 @@
 "Jv" = (
 /turf/template_noop,
 /area/template_noop)
+"Ut" = (
+/obj/structure/cable,
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/caravan/syndicate1)
 "YP" = (
-/obj/structure/shuttle/engine/propulsion/burst{
-	dir = 8
+/obj/machinery/shuttle/engine/ion{
+	dir = 4
 	},
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/caravan/syndicate1)
@@ -124,23 +137,23 @@ Jv
 (2,1,1) = {"
 Jv
 YP
-fp
+qU
 uW
 aA
 vK
-fp
+qU
 YP
 Jv
 "}
 (3,1,1) = {"
 YX
-fp
-fp
+qU
+Ut
 fp
 qx
 fp
-fp
-fp
+Ut
+qU
 YX
 "}
 (4,1,1) = {"

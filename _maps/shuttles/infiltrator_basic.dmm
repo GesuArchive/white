@@ -35,7 +35,7 @@
 /turf/open/floor/plasteel/dark,
 /area/shuttle/syndicate/bridge)
 "ah" = (
-/obj/machinery/computer/crew/syndie,
+/obj/machinery/computer/locator,
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/syndicate/bridge)
@@ -445,6 +445,7 @@
 	req_access_txt = "150"
 	},
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/syndicate/gorlex;
 	dheight = 1;
 	dir = 8;
 	dwidth = 12;
@@ -553,6 +554,7 @@
 /obj/machinery/door/window{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/circuit/red,
 /area/shuttle/syndicate/hallway)
 "bq" = (
@@ -740,18 +742,21 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/syndicate/medical)
 "bI" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/syndicate/medical)
 "bJ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/syndicate/medical)
 "bK" = (
@@ -761,12 +766,14 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/syndicate/medical)
 "bL" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/syndicate/hallway)
 "bM" = (
@@ -776,18 +783,21 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/syndicate/armory)
 "bN" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/syndicate/armory)
 "bO" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/syndicate/armory)
 "bP" = (
@@ -807,6 +817,7 @@
 /obj/structure/closet/syndicate/personal,
 /obj/effect/turf_decal/bot_white,
 /obj/item/storage/box/zipties,
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/syndicate/armory)
 "bR" = (
@@ -851,6 +862,7 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/syndicate/armory)
 "bY" = (
@@ -877,6 +889,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/syndicate/medical)
 "ca" = (
@@ -969,6 +982,11 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/machinery/power/port_gen/pacman{
+	anchored = 1
+	},
+/obj/structure/cable,
+/obj/item/wrench,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/syndicate/armory)
 "ch" = (
@@ -993,6 +1011,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/syndicate/armory)
 "cj" = (
@@ -1052,6 +1071,10 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/machinery/power/smes{
+	charge = 5e+006
+	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/syndicate/armory)
 "co" = (
@@ -1074,6 +1097,7 @@
 /obj/structure/table/optable,
 /obj/item/surgical_drapes,
 /obj/effect/turf_decal/bot_white,
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/syndicate/medical)
 "cq" = (
@@ -1093,11 +1117,14 @@
 /turf/open/floor/plasteel/dark,
 /area/shuttle/syndicate/medical)
 "cr" = (
-/obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 1
+	},
+/obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/hallway)
 "cs" = (
@@ -1111,66 +1138,103 @@
 /turf/open/floor/circuit/red,
 /area/shuttle/syndicate/armory)
 "cu" = (
-/obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 1
+	},
+/obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/medical)
 "cv" = (
-/obj/structure/shuttle/engine/propulsion/left,
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/shuttle/engine/ion/burst{
+	dir = 1
+	},
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/hallway)
 "cw" = (
-/obj/structure/shuttle/engine/propulsion,
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating/airless,
-/area/shuttle/syndicate/hallway)
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/shuttle/syndicate/armory)
 "cx" = (
-/obj/structure/shuttle/engine/propulsion/right,
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating/airless,
-/area/shuttle/syndicate/hallway)
+/obj/machinery/recharge_station,
+/obj/structure/cable,
+/turf/open/floor/circuit/red,
+/area/shuttle/syndicate/armory)
 "cy" = (
-/obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 1
+	},
+/obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/armory)
 "cz" = (
-/obj/structure/shuttle/engine/propulsion/left,
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/shuttle/engine/ion/burst{
+	dir = 1
+	},
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/medical)
 "cA" = (
-/obj/structure/shuttle/engine/propulsion,
 /obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating/airless,
-/area/shuttle/syndicate/medical)
+/obj/structure/cable,
+/turf/open/floor/mineral/plastitanium/red,
+/area/shuttle/syndicate/hallway)
 "cB" = (
-/obj/structure/shuttle/engine/propulsion/right,
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating/airless,
-/area/shuttle/syndicate/medical)
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel/dark,
+/area/shuttle/syndicate/armory)
 "cE" = (
-/obj/structure/shuttle/engine/propulsion/left,
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/shuttle/engine/ion/burst{
+	dir = 1
+	},
 /turf/open/floor/plating/airless,
 /area/shuttle/syndicate/armory)
 "cF" = (
-/obj/structure/shuttle/engine/propulsion,
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating/airless,
-/area/shuttle/syndicate/armory)
-"cG" = (
-/obj/structure/shuttle/engine/propulsion/right,
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/plating/airless,
-/area/shuttle/syndicate/armory)
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel/dark,
+/area/shuttle/syndicate/hallway)
 "dp" = (
 /obj/machinery/porta_turret/syndicate/shuttle{
 	dir = 10
@@ -1274,7 +1338,7 @@ bZ
 bH
 cp
 cu
-cA
+cz
 "}
 (4,1,1) = {"
 aa
@@ -1299,7 +1363,7 @@ ca
 ck
 cq
 cu
-cB
+cz
 "}
 (5,1,1) = {"
 ab
@@ -1419,11 +1483,11 @@ aD
 aD
 aD
 bL
-bU
-az
+cA
+cF
 bo
 cr
-cw
+cv
 aa
 "}
 (10,1,1) = {"
@@ -1448,7 +1512,7 @@ bU
 az
 cl
 cr
-cx
+cv
 aa
 "}
 (11,1,1) = {"
@@ -1546,7 +1610,7 @@ bG
 bO
 bW
 cg
-bP
+cB
 cs
 cy
 cE
@@ -1568,13 +1632,13 @@ bi
 bm
 bA
 bG
-bP
+cB
 bP
 ch
-bP
+cw
 ct
 cy
-cF
+cE
 "}
 (16,1,1) = {"
 aa
@@ -1597,9 +1661,9 @@ bQ
 bX
 ci
 cn
-cs
+cx
 cy
-cG
+cE
 "}
 (17,1,1) = {"
 aa

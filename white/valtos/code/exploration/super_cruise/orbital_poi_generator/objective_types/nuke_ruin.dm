@@ -1,4 +1,4 @@
-/datum/orbital_objective/nuclear_bomb
+/datum/orbital_objective/ruin/nuclear_bomb
 	name = "Ядерное Правосудие"
 	var/generated = FALSE
 	//The blackbox required to recover.
@@ -7,26 +7,27 @@
 	//Relatively easy mission.
 	min_payout = 40 * CARGO_CRATE_VALUE
 	max_payout = 20 * CARGO_CRATE_VALUE
+	weight = 1
 
-/datum/orbital_objective/nuclear_bomb/generate_objective_stuff(turf/chosen_turf)
+/datum/orbital_objective/ruin/nuclear_bomb/generate_objective_stuff(turf/chosen_turf)
 	generated = TRUE
 	nuclear_disk = new(chosen_turf)
 	nuclear_bomb.target_z = chosen_turf.z
 	nuclear_bomb.linked_objective = src
 
-/datum/orbital_objective/nuclear_bomb/get_text()
+/datum/orbital_objective/ruin/nuclear_bomb/get_text()
 	. = "Аванпост [station_name] требует немедленного уничтожения, так как хранит в себе информацию, которая не должна попасть в руки прессы. Добудьте диск ядерной аутентификации на аванпосте и взорвите там бомбу, которую мы доставили на ваш мостик."
 	if(linked_beacon)
 		. += " Станция находится в локации [linked_beacon.name]. Успехов."
 
-/datum/orbital_objective/nuclear_bomb/on_assign(obj/machinery/computer/objective/objective_computer)
+/datum/orbital_objective/ruin/nuclear_bomb/on_assign(obj/machinery/computer/objective/objective_computer)
 	var/area/A = GLOB.areas_by_type[/area/cargo/exploration_mission]
 	var/turf/open/T = pick(A.get_unobstructed_turfs())
 	if(!T)
 		T = locate() in shuffle(A.contents)
 	nuclear_bomb = new /obj/machinery/nuclearbomb/decomission(T)
 
-/datum/orbital_objective/nuclear_bomb/check_failed()
+/datum/orbital_objective/ruin/nuclear_bomb/check_failed()
 	if((!QDELETED(nuclear_bomb) && !QDELETED(nuclear_disk) && !QDELETED(linked_beacon)) || !generated)
 		return FALSE
 	return TRUE
@@ -50,7 +51,7 @@
 /obj/machinery/nuclearbomb/decomission
 	desc = "Термоядерная бомба для уничтожения станций. Использует старую версию дисков ядерной аутентификации."
 	proper_bomb = FALSE
-	var/datum/orbital_objective/nuclear_bomb/linked_objective
+	var/datum/orbital_objective/ruin/nuclear_bomb/linked_objective
 	var/target_z
 
 	var/obj/item/radio/radio	//	Говорящая бомба!

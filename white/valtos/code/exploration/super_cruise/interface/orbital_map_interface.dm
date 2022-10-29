@@ -41,5 +41,6 @@
 
 	//Show the correct map to the user
 	var/datum/orbital_map/showing_map = SSorbits.orbital_maps[open_orbital_map]
+
 	//Return default orbital map data
 	return SSorbits.get_orbital_map_base_data(showing_map, user_ref, TRUE, null)

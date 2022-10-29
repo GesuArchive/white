@@ -15,6 +15,7 @@
 /obj/item/stack/sheet/mineral/silver{
 	amount = 25
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/airless/dark,
 /area/shuttle/caravan/freighter1)
 "aP" = (
@@ -81,6 +82,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
 /turf/open/floor/plasteel/airless,
 /area/shuttle/caravan/freighter1)
 "cx" = (
@@ -121,6 +123,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/machinery/meter,
+/obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/shuttle/caravan/freighter1)
 "fD" = (
@@ -242,12 +245,13 @@
 /turf/open/floor/plating,
 /area/shuttle/caravan/freighter1)
 "mo" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 8
-	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 4
+	},
+/obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/shuttle/caravan/freighter1)
 "mw" = (
@@ -304,6 +308,7 @@
 /turf/open/floor/plasteel/airless/dark,
 /area/shuttle/caravan/freighter1)
 "oS" = (
+/obj/structure/cable,
 /turf/open/floor/plasteel/airless/dark,
 /area/shuttle/caravan/freighter1)
 "pR" = (
@@ -443,11 +448,12 @@
 	dir = 8
 	},
 /mob/living/simple_animal/hostile/syndicate/ranged/smg/space,
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark/airless,
 /area/shuttle/caravan/freighter1)
 "vt" = (
-/obj/structure/shuttle/engine/propulsion/burst{
-	dir = 8
+/obj/machinery/shuttle/engine/ion{
+	dir = 4
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/caravan/freighter1)
@@ -508,9 +514,7 @@
 /area/shuttle/caravan/freighter1)
 "Ax" = (
 /obj/item/stack/sheet/iron/fifty,
-/turf/open/floor/plasteel/airless{
-	icon_state = "floorscorched2"
-	},
+/turf/open/floor/plasteel/airless,
 /area/shuttle/caravan/freighter1)
 "AM" = (
 /obj/machinery/door/firedoor,
@@ -593,9 +597,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
-/turf/open/floor/plasteel/airless{
-	icon_state = "floorscorched1"
-	},
+/turf/open/floor/plasteel/airless,
 /area/shuttle/caravan/freighter1)
 "Dt" = (
 /obj/effect/decal/cleanable/dirt,
@@ -762,16 +764,15 @@
 	initial_gas_mix = "TEMP=2.7"
 	},
 /area/shuttle/caravan/freighter1)
-"KC" = (
-/obj/structure/shuttle/engine/propulsion/burst/right{
-	dir = 8
-	},
-/turf/open/floor/plating/airless,
-/area/shuttle/caravan/freighter1)
 "KX" = (
-/obj/structure/shuttle/engine/propulsion/burst/left{
-	dir = 8
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
+	dir = 4
 	},
+/obj/machinery/door/airlock/engineering{
+	name = "Engine Room"
+	},
+/obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/shuttle/caravan/freighter1)
 "LK" = (
@@ -928,6 +929,7 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
 /turf/open/floor/plasteel/airless,
 /area/shuttle/caravan/freighter1)
 "Qs" = (
@@ -1013,6 +1015,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/effect/mapping_helpers/broken_floor,
+/obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/shuttle/caravan/freighter1)
 "VD" = (
@@ -1022,12 +1025,13 @@
 	id_tag = "caravantrade1_bolt"
 	},
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/independant;
 	callTime = 250;
 	dir = 2;
 	dwidth = 5;
 	height = 11;
 	id = "caravantrade1";
-	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0);
+	movement_force = list("KNOCKDOWN"=0,"THROW"=0);
 	name = "Small Freighter";
 	port_direction = 8;
 	preferred_direction = 4;
@@ -1142,6 +1146,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark/airless,
 /area/shuttle/caravan/freighter1)
 "ZZ" = (
@@ -1160,11 +1165,11 @@
 
 (1,1,1) = {"
 Jv
-KX
 vt
 vt
 vt
-KC
+vt
+vt
 Fv
 Jv
 Jv
@@ -1179,9 +1184,9 @@ mo
 mo
 mo
 El
-KX
 vt
-KC
+vt
+vt
 Jv
 "}
 (3,1,1) = {"
@@ -1216,7 +1221,7 @@ BN
 El
 El
 El
-BN
+KX
 El
 DQ
 oS

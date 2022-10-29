@@ -16,6 +16,7 @@
 	pixel_y = -5
 	},
 /obj/effect/turf_decal/bot,
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer)
 "i" = (
@@ -23,12 +24,16 @@
 	dir = 4
 	},
 /obj/machinery/light/small/directional/south,
+/obj/structure/cable,
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/freelancer)
 "l" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
-/obj/structure/shuttle/engine/heater,
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 1
+	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/freelancer)
 "m" = (
@@ -40,6 +45,7 @@
 	dir = 4
 	},
 /obj/machinery/light_switch/directional/west,
+/obj/structure/cable,
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/freelancer)
 "n" = (
@@ -69,6 +75,7 @@
 /obj/item/multitool,
 /obj/item/gun/energy/e_gun/old,
 /obj/machinery/newscaster/directional/east,
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer)
 "x" = (
@@ -116,7 +123,9 @@
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/freelancer)
 "K" = (
-/obj/structure/shuttle/engine/propulsion,
+/obj/machinery/shuttle/engine/ion/burst{
+	dir = 1
+	},
 /turf/open/floor/plating/airless,
 /area/shuttle/freelancer)
 "O" = (

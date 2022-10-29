@@ -5,7 +5,6 @@
 	render_mode = RENDER_MODE_SHUTTLE
 	priority = -1
 	//Target of the meteor
-	var/referencedOrbitalObjectVarName = "target"
 	var/datum/orbital_object/target
 	var/list/meteor_types
 	var/start_tick
@@ -19,28 +18,29 @@
 	. = ..()
 	start_tick = world.time
 	end_tick = world.time + 10 MINUTES
-	radius = rand(5, 15)
+	radius = rand(10, 50)
 
 /datum/orbital_object/meteor/Destroy()
-	target.UnregisterReference(src)
-	meteor_types = null
+	target = null
 	. = ..()
+
+/datum/orbital_object/meteor/explode()
+	qdel(src)
 
 /datum/orbital_object/meteor/process()
 	. = ..()
 	if(!QDELETED(target))
-		end_x = target.position.x
-		end_y = target.position.y
+		end_x = target.position.GetX()
+		end_y = target.position.GetY()
 	var/current_tick = world.time
 	var/tick_proportion = min((current_tick - start_tick) / (end_tick - start_tick), 1)
 	//stop when reached the target
 	if(tick_proportion == 1)
-		velocity.x = 0
-		velocity.y = 0
+		velocity.Set(0, 0)
 	var/current_x = (end_x * tick_proportion) + (start_x * (1 - tick_proportion))
 	var/current_y = (end_y * tick_proportion) + (start_y * (1 - tick_proportion))
 	MOVE_ORBITAL_BODY(src, current_x, current_y)
-	if(abs(position.x) > 10000 || abs(position.y) > 10000)
+	if(abs(position.GetX()) > 10000 || abs(position.GetY()) > 10000)
 		qdel(src)
 
 /datum/orbital_object/meteor/collision(datum/orbital_object/other)

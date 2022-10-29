@@ -16,6 +16,7 @@
 /area/shuttle/freelancer/cabine)
 "bA" = (
 /obj/effect/turf_decal/bot,
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/cargo)
 "ci" = (
@@ -118,6 +119,7 @@
 "gH" = (
 /obj/structure/frame/machine,
 /obj/effect/turf_decal/bot,
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/rnd)
 "gM" = (
@@ -169,7 +171,9 @@
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/passengers)
 "jZ" = (
-/obj/structure/shuttle/engine/propulsion,
+/obj/machinery/shuttle/engine/ion/burst{
+	dir = 1
+	},
 /turf/open/floor/plating/airless,
 /area/shuttle/freelancer/rnd)
 "kb" = (
@@ -270,7 +274,10 @@
 "nC" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
-/obj/structure/shuttle/engine/heater,
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 1
+	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/freelancer/cargo)
 "nF" = (
@@ -617,6 +624,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/titanium/purple,
 /area/shuttle/freelancer/rnd)
 "Gz" = (
@@ -764,7 +772,10 @@
 "Ne" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
-/obj/structure/shuttle/engine/heater,
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 1
+	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/freelancer/rnd)
 "Ns" = (
@@ -941,7 +952,9 @@
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/passengers)
 "Xi" = (
-/obj/structure/shuttle/engine/propulsion,
+/obj/machinery/shuttle/engine/ion/burst{
+	dir = 1
+	},
 /turf/open/floor/plating/airless,
 /area/shuttle/freelancer/cargo)
 "XG" = (
@@ -949,6 +962,7 @@
 /obj/structure/closet/crate,
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/cargo)
 "XH" = (

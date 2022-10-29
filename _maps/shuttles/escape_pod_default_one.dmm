@@ -1,4 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"y" = (
+/obj/machinery/power/engine_capacitor_bank/escape_pod{
+	dir = 1
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/pod_1)
 "B" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/pod_1)
@@ -19,6 +25,7 @@
 	name = "Escape Pod Airlock"
 	},
 /obj/docking_port/mobile/pod{
+	faction_type = /datum/faction/station;
 	name = "Cпасательная капсула #1";
 	port_direction = 2
 	},
@@ -45,14 +52,16 @@
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/pod_1)
 "Z" = (
-/obj/structure/shuttle/engine/propulsion/burst,
+/obj/machinery/shuttle/engine/ion/burst{
+	dir = 1
+	},
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/pod_1)
 
 (1,1,1) = {"
 B
 B
-B
+y
 Z
 "}
 (2,1,1) = {"
@@ -64,6 +73,6 @@ N
 (3,1,1) = {"
 B
 B
-B
+y
 Z
 "}

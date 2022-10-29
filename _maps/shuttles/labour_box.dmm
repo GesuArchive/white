@@ -46,6 +46,7 @@
 	pixel_x = 30;
 	pixel_y = 30
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/labor)
 "i" = (
@@ -54,6 +55,7 @@
 	req_access_txt = "2"
 	},
 /obj/structure/fans/tiny,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/labor)
 "j" = (
@@ -68,6 +70,7 @@
 	input_dir = 2;
 	output_dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/labor)
 "l" = (
@@ -84,6 +87,7 @@
 	machinedir = 1;
 	pixel_x = 30
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/labor)
 "o" = (
@@ -94,6 +98,7 @@
 	id = "gulagshuttleflasher";
 	pixel_x = 25
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/labor)
 "p" = (
@@ -106,6 +111,7 @@
 	name = "Labor Shuttle Airlock"
 	},
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/station;
 	dir = 8;
 	dwidth = 2;
 	height = 5;
@@ -115,19 +121,29 @@
 	width = 9
 	},
 /obj/structure/fans/tiny,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/labor)
 "r" = (
-/obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced{
 	dir = 1;
 	layer = 2.9
 	},
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 1
+	},
+/obj/structure/cable,
 /turf/open/floor/plating/airless,
 /area/shuttle/labor)
 "s" = (
-/obj/structure/shuttle/engine/propulsion,
+/obj/machinery/shuttle/engine/ion/burst{
+	dir = 1
+	},
 /turf/open/floor/plating/airless,
+/area/shuttle/labor)
+"Y" = (
+/obj/structure/cable,
+/turf/open/floor/mineral/titanium,
 /area/shuttle/labor)
 
 (1,1,1) = {"
@@ -170,7 +186,7 @@ h
 k
 n
 o
-l
+Y
 r
 s
 "}

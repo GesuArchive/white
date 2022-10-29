@@ -8,6 +8,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/bridge_pipe/purple/visible,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/pirate)
 "aA" = (
@@ -80,7 +81,9 @@
 /turf/open/floor/plating,
 /area/shuttle/pirate)
 "eK" = (
-/obj/structure/shuttle/engine/router,
+/obj/machinery/atmospherics/components/unary/shuttle/engine_heater{
+	dir = 4
+	},
 /turf/open/floor/plating/airless,
 /area/shuttle/pirate)
 "eU" = (
@@ -126,6 +129,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/bridge_pipe/purple/visible{
+	dir = 4
+	},
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "iY" = (
@@ -148,11 +154,12 @@
 	width = 26
 	},
 /obj/docking_port/mobile/pirate{
+	faction_type = /datum/faction/pirates;
 	dir = 4;
 	dwidth = 13;
 	height = 3;
 	launch_status = 0;
-	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0);
+	movement_force = list("KNOCKDOWN"=0,"THROW"=0);
 	name = "Silverscale Cruiser";
 	preferred_direction = 4;
 	width = 26
@@ -311,11 +318,11 @@
 /turf/open/floor/carpet/royalblack,
 /area/shuttle/pirate)
 "vw" = (
-/obj/structure/shuttle/engine/propulsion{
-	dir = 8
-	},
 /obj/effect/turf_decal/trimline/yellow/warning{
 	dir = 10
+	},
+/obj/machinery/shuttle/engine/plasma{
+	dir = 4
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/pirate)
@@ -427,10 +434,10 @@
 /area/shuttle/pirate)
 "AE" = (
 /obj/effect/spawner/structure/window/shuttle,
-/obj/structure/shuttle/engine/heater{
-	dir = 8
+/obj/machinery/atmospherics/components/unary/shuttle/engine_heater{
+	dir = 4
 	},
-/turf/open/space/basic,
+/turf/open/floor/plating/airless,
 /area/shuttle/pirate)
 "AR" = (
 /obj/structure/toilet{
@@ -455,11 +462,11 @@
 /turf/open/floor/carpet/royalblack,
 /area/shuttle/pirate)
 "BO" = (
-/obj/structure/shuttle/engine/propulsion{
-	dir = 8
-	},
 /obj/effect/turf_decal/trimline/yellow/warning{
 	dir = 9
+	},
+/obj/machinery/shuttle/engine/plasma{
+	dir = 4
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/pirate)
@@ -555,6 +562,7 @@
 /obj/machinery/computer/piratepad_control{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "Jc" = (
@@ -591,6 +599,12 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/shuttle/pirate)
+"KR" = (
+/obj/machinery/atmospherics/components/unary/portables_connector/visible,
+/obj/machinery/portable_atmospherics/canister/toxins,
+/obj/effect/mapping_helpers/auto_wrench,
+/turf/open/floor/pod/dark,
+/area/shuttle/pirate)
 "Lk" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -609,8 +623,8 @@
 /turf/open/floor/plasteel/dark,
 /area/shuttle/pirate)
 "Mu" = (
-/obj/structure/shuttle/engine/propulsion{
-	dir = 8
+/obj/machinery/shuttle/engine/plasma{
+	dir = 4
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/pirate)
@@ -671,6 +685,7 @@
 "OT" = (
 /obj/machinery/door/airlock/silver,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "Pg" = (
@@ -680,6 +695,9 @@
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "Qm" = (
+/obj/machinery/atmospherics/components/unary/plasma_refiner{
+	dir = 1
+	},
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "QI" = (
@@ -804,13 +822,17 @@
 /turf/open/floor/plasteel/dark,
 /area/shuttle/pirate)
 "UJ" = (
-/obj/structure/shuttle/engine/propulsion{
-	dir = 8
-	},
 /obj/effect/turf_decal/trimline/yellow/warning{
 	dir = 8
 	},
+/obj/machinery/shuttle/engine/plasma{
+	dir = 4
+	},
 /turf/open/floor/plating/airless,
+/area/shuttle/pirate)
+"Vd" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
+/turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "Vw" = (
 /obj/structure/table,
@@ -818,14 +840,20 @@
 /turf/open/floor/plasteel/dark,
 /area/shuttle/pirate)
 "Ww" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 8
-	},
-/turf/open/floor/plating/airless,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
+/turf/closed/wall/mineral/titanium,
 /area/shuttle/pirate)
 "Wy" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/pod/dark,
+/area/shuttle/pirate)
+"WX" = (
+/obj/effect/spawner/structure/window/shuttle,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "silverbridge"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
+/turf/open/floor/plating,
 /area/shuttle/pirate)
 "Xw" = (
 /obj/structure/table/glass,
@@ -936,13 +964,13 @@ AE
 rB
 jQ
 rB
-Ww
-Ww
-Ww
 eK
-Ww
-Ww
-Ww
+eK
+eK
+eK
+eK
+eK
+eK
 rB
 zN
 rB
@@ -951,26 +979,26 @@ je
 "}
 (4,1,1) = {"
 pk
-rB
+Ww
 rB
 de
 rB
-HD
-HD
-HD
-rB
-HD
-HD
-HD
+WX
+WX
+WX
+Ww
+WX
+WX
+WX
 rB
 zQ
 rB
-rB
+Ww
 TV
 "}
 (5,1,1) = {"
-rB
-rB
+Ww
+Ww
 Su
 Si
 rB
@@ -984,11 +1012,11 @@ xR
 rB
 Si
 QI
-rB
-rB
+Ww
+Ww
 "}
 (6,1,1) = {"
-rB
+Ww
 CP
 Lk
 Si
@@ -1004,45 +1032,45 @@ cH
 Si
 wa
 ko
-rB
+Ww
 "}
 (7,1,1) = {"
-rB
+Ww
 QU
 Pg
 qA
 rB
 RY
-Qm
+Ox
+KR
+Vd
 Qm
 Ox
-Qm
-Qm
 RY
 rB
 xe
 wa
 Wy
-rB
+Ww
 "}
 (8,1,1) = {"
-rB
-rB
+Ww
+Ww
 au
-rB
-rB
-rB
+Ww
+Ww
+Ww
 OT
-rB
-rB
-rB
+Ww
+Ww
+Ww
 OT
-rB
-rB
-rB
+Ww
+Ww
+Ww
 au
-rB
-rB
+Ww
+Ww
 "}
 (9,1,1) = {"
 HD

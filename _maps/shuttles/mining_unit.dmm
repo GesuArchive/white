@@ -25,6 +25,7 @@
 /area/shuttle/mining)
 "r" = (
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/station;
 	dir = 8;
 	dwidth = 2;
 	height = 6;
@@ -37,12 +38,17 @@
 /obj/machinery/door/airlock/shuttle{
 	name = "Mining Shuttle Airlock"
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining)
 "u" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/mining)
+"w" = (
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining)
 "A" = (
@@ -52,6 +58,13 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining)
+"C" = (
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/mining)
 "O" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/emergency,
@@ -59,8 +72,8 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining)
 "Q" = (
-/obj/structure/shuttle/engine/propulsion{
-	dir = 4
+/obj/machinery/shuttle/engine/ion/burst{
+	dir = 8
 	},
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/mining)
@@ -111,6 +124,7 @@
 /obj/structure/sign/warning/fire{
 	pixel_x = 32
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining)
 "Y" = (
@@ -119,6 +133,7 @@
 	pixel_x = 32
 	},
 /obj/effect/turf_decal/box,
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/mining)
 
@@ -151,11 +166,11 @@ h
 V
 "}
 (5,1,1) = {"
-p
+C
 Y
-d
+w
 W
-p
+C
 "}
 (6,1,1) = {"
 Q

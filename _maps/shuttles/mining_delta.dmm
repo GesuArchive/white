@@ -81,6 +81,7 @@
 	dir = 4
 	},
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/station;
 	dir = 4;
 	dwidth = 3;
 	height = 5;
@@ -113,12 +114,14 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/shuttle/mining)
 "l" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/shuttle/mining)
 "m" = (
@@ -135,6 +138,7 @@
 	dir = 8
 	},
 /obj/structure/fans/tiny,
+/obj/structure/cable,
 /turf/open/floor/plasteel/white,
 /area/shuttle/mining)
 "n" = (
@@ -156,6 +160,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/shuttle/mining)
 "p" = (
@@ -255,7 +260,6 @@
 /turf/open/floor/plasteel,
 /area/shuttle/mining)
 "r" = (
-/obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -266,6 +270,10 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/stripes/line,
+/obj/structure/cable,
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 1
+	},
 /turf/open/floor/plating/airless,
 /area/shuttle/mining)
 "s" = (
@@ -278,12 +286,14 @@
 /turf/open/floor/plasteel,
 /area/shuttle/mining)
 "t" = (
-/obj/structure/shuttle/engine/propulsion/burst,
 /obj/structure/window/reinforced{
 	dir = 1;
 	layer = 2.9
 	},
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/shuttle/engine/ion{
+	dir = 1
+	},
 /turf/open/floor/plating/airless,
 /area/shuttle/mining)
 

@@ -177,8 +177,8 @@
 "aA" = (
 /obj/structure/bed,
 /obj/item/bedsheet/captain,
-/obj/effect/mob_spawn/human/skeleton,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/effect/mob_spawn/human/bearcatcrew/pilot,
 /turf/open/floor/wood,
 /area/shuttle/bearcat/captain)
 "aB" = (
@@ -769,7 +769,7 @@
 /area/shuttle/bearcat/saloon)
 "cs" = (
 /obj/machinery/vending/cigarette{
-	products = list(/obj/item/storage/fancy/cigarettes/cigpack_syndicate = 7, /obj/item/storage/fancy/cigarettes/cigpack_uplift = 3, /obj/item/storage/fancy/cigarettes/cigpack_robust = 2, /obj/item/storage/fancy/cigarettes/cigpack_carp = 3, /obj/item/storage/fancy/cigarettes/cigpack_midori = 1, /obj/item/storage/box/matches = 10, /obj/item/lighter/greyscale = 4, /obj/item/storage/fancy/rollingpapers = 5)
+	products = list(/obj/item/storage/fancy/cigarettes/cigpack_syndicate=7,/obj/item/storage/fancy/cigarettes/cigpack_uplift=3,/obj/item/storage/fancy/cigarettes/cigpack_robust=2,/obj/item/storage/fancy/cigarettes/cigpack_carp=3,/obj/item/storage/fancy/cigarettes/cigpack_midori=1,/obj/item/storage/box/matches=10,/obj/item/lighter/greyscale=4,/obj/item/storage/fancy/rollingpapers=5)
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -1093,6 +1093,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/effect/mob_spawn/human/bearcatcrew,
 /turf/open/floor/plasteel,
 /area/shuttle/bearcat/cargo)
 "dA" = (
@@ -1911,6 +1912,21 @@
 	},
 /turf/template_noop,
 /area/shuttle/bearcat/engineering)
+"Fr" = (
+/obj/effect/mob_spawn/human/bearcatcrew,
+/turf/open/floor/plasteel,
+/area/shuttle/bearcat/cargo)
+"OT" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/mob_spawn/human/bearcatcrew/atmos,
+/turf/open/floor/plating,
+/area/shuttle/bearcat/engines)
+"Vj" = (
+/obj/effect/mob_spawn/human/bearcatcrew/eng,
+/turf/open/floor/plating,
+/area/shuttle/bearcat/engines)
 
 (1,1,1) = {"
 aa
@@ -2491,8 +2507,8 @@ cM
 db
 dn
 dz
-db
-db
+Fr
+Fr
 eb
 el
 dn
@@ -2550,7 +2566,7 @@ fj
 eP
 fJ
 eY
-dh
+Vj
 dh
 dh
 dE
@@ -2596,7 +2612,7 @@ fx
 fx
 fD
 eY
-di
+OT
 dh
 dh
 dE
@@ -2642,7 +2658,7 @@ fl
 fz
 fL
 eY
-dh
+Vj
 dh
 dh
 dE

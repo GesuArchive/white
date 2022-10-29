@@ -415,6 +415,7 @@ GLOBAL_LIST_INIT(pda_styles, sort_list(list(MONO, VT, ORBITRON, SHARE)))
 #define BONE_SCAR_FILE "wounds/bone_scar_desc.json"
 #define SCAR_LOC_FILE "wounds/scar_loc.json"
 #define EXODRONE_FILE "exodrone.json"
+#define EXPLORATION_FLAVOUR "exploration.json"
 /// File location for ninja lines
 #define NINJA_FILE "ninja.json"
 

@@ -360,11 +360,13 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/mining/large)
 "y" = (
 /obj/machinery/light/small,
 /obj/effect/turf_decal/box/white/corners,
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/mining/large)
 "z" = (
@@ -403,6 +405,7 @@
 /obj/item/crowbar/red,
 /obj/item/wrench,
 /obj/item/flashlight,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/mining/large)
 "D" = (
@@ -431,12 +434,14 @@
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/mining/large)
 "G" = (
-/obj/structure/shuttle/engine/heater,
-/obj/structure/window/reinforced{
-	dir = 1;
-	layer = 2.9
+/obj/structure/window/reinforced/survival_pod{
+	dir = 1
 	},
-/turf/open/floor/plating/airless,
+/obj/machinery/power/engine_capacitor_bank{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
 /area/shuttle/mining/large)
 "H" = (
 /obj/structure/sign/warning/vacuum/external{
@@ -446,8 +451,10 @@
 /turf/open/floor/plating,
 /area/shuttle/mining/large)
 "I" = (
-/obj/structure/shuttle/engine/propulsion,
-/turf/open/floor/plating/airless,
+/obj/machinery/shuttle/engine/ion/burst{
+	dir = 1
+	},
+/turf/open/floor/plating,
 /area/shuttle/mining/large)
 "J" = (
 /obj/machinery/door/airlock/external{
@@ -457,6 +464,7 @@
 	dir = 1
 	},
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/station;
 	dwidth = 3;
 	height = 10;
 	id = "mining";

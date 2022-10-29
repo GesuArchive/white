@@ -11,6 +11,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/docking_port/mobile{
+	faction_type = /datum/faction/independant;
 	dir = 2;
 	dwidth = 8;
 	height = 16;
@@ -24,9 +25,7 @@
 /turf/open/floor/plating,
 /area/shuttle/abandoned)
 "ad" = (
-/obj/structure/shuttle/engine/propulsion{
-	dir = 1
-	},
+/obj/machinery/shuttle/engine/ion,
 /turf/open/floor/plating/airless,
 /area/shuttle/abandoned)
 "ae" = (
@@ -59,10 +58,8 @@
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/abandoned)
 "aj" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 1
-	},
 /obj/structure/window/reinforced,
+/obj/machinery/power/engine_capacitor_bank,
 /turf/open/floor/plating/airless,
 /area/shuttle/abandoned)
 "ak" = (
