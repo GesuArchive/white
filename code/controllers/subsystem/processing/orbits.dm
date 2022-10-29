@@ -224,9 +224,6 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 			if(!initial(objective.weight))
 				continue
 			valid_objectives[objective] = initial(objective.weight)
-	if(!length(possible_objectives))
-		priority_announce("Priority station objective received - Details transmitted to all available objective consoles. \
-			[GLOB.station_name] will have funds distributed upon objective completion.", "Central Command Report", SSstation.announcer.get_rand_report_sound())
 	var/chosen = pick_weight(valid_objectives)
 	if(!chosen)
 		return
