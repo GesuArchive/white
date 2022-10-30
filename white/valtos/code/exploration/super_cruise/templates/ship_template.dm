@@ -7,7 +7,7 @@
 	var/weight = 0
 
 ///Place put returns the port
-/datum/map_template/shuttle/supercruise/proc/place_port(turf/T, centered, register=TRUE, positionX, positionY)
+/datum/map_template/shuttle/proc/place_port(turf/T, centered, register=TRUE, positionX, positionY)
 	var/list/coords = load(T, centered, register)
 	if(!coords)
 		return

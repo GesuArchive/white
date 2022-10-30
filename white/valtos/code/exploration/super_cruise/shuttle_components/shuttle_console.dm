@@ -217,6 +217,9 @@
 		shuttle_data
 	)
 
+	if(!shuttle_data)
+		return data
+
 	//Shuttle communications
 	data += shuttle_data.comms.get_ui_data()
 
@@ -537,15 +540,6 @@
 					for(var/type in banned_types)
 						if(istype(O, type))
 							return TRUE
-
-/obj/machinery/computer/shuttle_flight/proc/unfreeze_shuttle(obj/docking_port/mobile/shuttle_dock, datum/space_level/target_spacelevel)
-	var/start_time = world.time
-	UNTIL((!target_spacelevel.generating) || world.time > start_time + 3 MINUTES)
-	if(target_spacelevel.generating)
-		target_spacelevel.generating = FALSE
-		message_admins("CAUTION: SHUTTLE [shuttleId] REACHED THE GENERATION TIMEOUT OF 3 MINUTES. THE ASSIGNED Z-LEVEL IS STILL MARKED AS GENERATING, BUT WE ARE DOCKING ANYWAY.")
-		log_mapping("CAUTION: SHUTTLE [shuttleId] REACHED THE GENERATION TIMEOUT OF 3 MINUTES. THE ASSIGNED Z-LEVEL IS STILL MARKED AS GENERATING, BUT WE ARE DOCKING ANYWAY.")
-	shuttle_dock.setTimer(20)
 
 /obj/machinery/computer/shuttle_flight/emag_act(mob/user)
 	if(obj_flags & EMAGGED)

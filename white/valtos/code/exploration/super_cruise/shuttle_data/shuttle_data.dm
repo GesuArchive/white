@@ -66,10 +66,11 @@
 	//Get the docking port
 	var/obj/docking_port/mobile/attached_port = SSshuttle.getShuttle(port_id)
 	shuttle_name = attached_port.name
-	calculate_initial_stats()
-	//Create the communications manager for that shuttle
-	comms = new /datum/orbital_comms_manager(port_id, shuttle_name)
-	SSorbits.register_communication_manager(comms)
+	spawn(5 SECONDS) // фикс года
+		calculate_initial_stats()
+		//Create the communications manager for that shuttle
+		comms = new /datum/orbital_comms_manager(port_id, shuttle_name)
+		SSorbits.register_communication_manager(comms)
 
 /datum/shuttle_data/Destroy(force, ...)
 	unregister_turfs()
@@ -145,7 +146,7 @@
 		if(!isspaceturf(T))
 			mass ++
 		RegisterSignal(T, COMSIG_TURF_CHANGE, .proc/shuttle_turf_changed)
-		RegisterSignal(T, COMSIG_TURF_ON_SHUTTLE_MOVE, .proc/shuttle_turf_moved)
+		RegisterSignal(T, COMSIG_TURF_AFTER_SHUTTLE_MOVE, .proc/shuttle_turf_moved)
 		registered_turfs += T
 		//Register these turfs too!
 		if(!iswallturf(T) && !isfloorturf(T))
@@ -171,7 +172,7 @@
 /datum/shuttle_data/proc/unregister_turfs()
 	for(var/T in registered_turfs)
 		UnregisterSignal(T, COMSIG_TURF_CHANGE)
-		UnregisterSignal(T, COMSIG_TURF_ON_SHUTTLE_MOVE)
+		UnregisterSignal(T, COMSIG_TURF_AFTER_SHUTTLE_MOVE)
 	mass = 5
 	registered_turfs.Cut()
 
@@ -274,11 +275,11 @@
 /datum/shuttle_data/proc/shuttle_turf_moved(datum/source, turf/newturf)
 	///We are no longer caring about this turf, find out where we went to
 	UnregisterSignal(source, COMSIG_TURF_CHANGE, .proc/shuttle_turf_changed)
-	UnregisterSignal(source, COMSIG_TURF_ON_SHUTTLE_MOVE, .proc/shuttle_turf_moved)
+	UnregisterSignal(source, COMSIG_TURF_AFTER_SHUTTLE_MOVE, .proc/shuttle_turf_moved)
 	registered_turfs -= source
 	///Relocate
 	RegisterSignal(newturf, COMSIG_TURF_CHANGE, .proc/shuttle_turf_changed)
-	RegisterSignal(newturf, COMSIG_TURF_ON_SHUTTLE_MOVE, .proc/shuttle_turf_moved)
+	RegisterSignal(newturf, COMSIG_TURF_AFTER_SHUTTLE_MOVE, .proc/shuttle_turf_moved)
 	registered_turfs += newturf
 
 //====================

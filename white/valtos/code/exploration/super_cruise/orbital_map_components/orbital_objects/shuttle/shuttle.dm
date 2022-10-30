@@ -65,7 +65,6 @@
 	. = ..()
 
 /datum/orbital_object/shuttle/Destroy()
-	var/z_level = port?.z
 	if(shuttle_data)
 		UnregisterSignal(shuttle_data, COMSIG_PARENT_QDELETING)
 		//Disable autopilot
@@ -86,8 +85,6 @@
 	UnregisterSignal(src, COMSIG_SPACE_LEVEL_GENERATED)
 	. = ..()
 	SSorbits.assoc_shuttles.Remove(shuttle_port_id)
-	if(z_level)
-		SSorbits.assoc_z_levels.Remove("[z_level]")
 
 /datum/orbital_object/shuttle/is_distress()
 	return SSorbits.assoc_distress_beacons["[port?.virtual_z]"]

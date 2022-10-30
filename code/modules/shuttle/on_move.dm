@@ -91,6 +91,7 @@ All ShuttleMove procs go here
 	//Dealing with the turf we left behind
 	oldT.TransferComponents(src)
 	SSexplosions.wipe_turf(src)
+	SEND_SIGNAL(oldT, COMSIG_TURF_AFTER_SHUTTLE_MOVE, src)
 
 	var/area/shuttle/A = loc
 	var/obj/docking_port/mobile/top_shuttle = A?.mobile_port
