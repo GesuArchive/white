@@ -16,7 +16,6 @@
 /area/shuttle/freelancer/cabine)
 "bA" = (
 /obj/effect/turf_decal/bot,
-/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/cargo)
 "ci" = (
@@ -32,6 +31,10 @@
 /obj/item/storage/backpack/duffelbag/med/surgery,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/freelancer/med)
+"cH" = (
+/obj/machinery/shuttle_weapon/point_defense,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/freelancer/cargo)
 "cJ" = (
 /obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line{
@@ -100,6 +103,13 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/cabine)
+"eH" = (
+/obj/structure/grille,
+/obj/structure/cable,
+/obj/structure/window/shuttle,
+/obj/structure/shuttle/engine/heater,
+/turf/open/floor/plating,
+/area/shuttle/freelancer/rnd)
 "eJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -119,7 +129,6 @@
 "gH" = (
 /obj/structure/frame/machine,
 /obj/effect/turf_decal/bot,
-/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/rnd)
 "gM" = (
@@ -137,11 +146,14 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/cabine)
 "iK" = (
 /obj/machinery/power/smes,
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/cabine)
 "iW" = (
@@ -204,7 +216,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/effect/turf_decal/stripes/corner,
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/cabine)
 "kh" = (
@@ -382,6 +394,12 @@
 	},
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer)
+"pX" = (
+/obj/machinery/shuttle_weapon/point_defense{
+	dir = 1
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/freelancer/cabine)
 "qc" = (
 /obj/structure/closet/crate{
 	name = "emergency supplies crate"
@@ -427,10 +445,11 @@
 	locked = 0
 	},
 /obj/machinery/light/directional/south,
-/obj/effect/turf_decal/stripes/line{
-	dir = 6
+/obj/machinery/computer/locator{
+	dir = 1
 	},
-/turf/open/floor/mineral/titanium/white,
+/obj/effect/turf_decal/delivery,
+/turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/cabine)
 "to" = (
 /obj/structure/cable,
@@ -510,6 +529,13 @@
 	},
 /turf/open/floor/plasteel/airless/solarpanel,
 /area/shuttle/freelancer)
+"xn" = (
+/obj/structure/grille,
+/obj/structure/cable,
+/obj/structure/window/shuttle,
+/obj/structure/shuttle/engine/heater,
+/turf/open/floor/plating,
+/area/shuttle/freelancer/cargo)
 "yr" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate,
@@ -624,7 +650,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
-/obj/structure/cable,
 /turf/open/floor/mineral/titanium/purple,
 /area/shuttle/freelancer/rnd)
 "Gz" = (
@@ -810,12 +835,20 @@
 "OH" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/freelancer/rnd)
+"OZ" = (
+/obj/machinery/shuttle_weapon/point_defense,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/freelancer/rnd)
 "Pi" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/airalarm/directional/west{
 	locked = 0
 	},
 /turf/open/floor/mineral/plastitanium,
+/area/shuttle/freelancer/rnd)
+"Ps" = (
+/obj/machinery/shuttle/engine/advanced,
+/turf/open/floor/plating/airless,
 /area/shuttle/freelancer/rnd)
 "Pw" = (
 /obj/structure/window/shuttle,
@@ -833,6 +866,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/cabine)
 "Ql" = (
@@ -856,6 +890,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
+/obj/structure/cable,
 /turf/open/floor/mineral/titanium/yellow,
 /area/shuttle/freelancer/cargo)
 "Tl" = (
@@ -919,9 +954,13 @@
 	},
 /turf/open/floor/mineral/titanium/purple,
 /area/shuttle/freelancer/rnd)
+"Wm" = (
+/obj/machinery/shuttle/engine/advanced,
+/turf/open/floor/plating/airless,
+/area/shuttle/freelancer/cargo)
 "Wz" = (
 /obj/effect/turf_decal/delivery,
-/obj/machinery/modular_computer/console/preset/civilian,
+/obj/machinery/computer/weapons,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/cabine)
 "WV" = (
@@ -962,7 +1001,6 @@
 /obj/structure/closet/crate,
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
-/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/cargo)
 "XH" = (
@@ -973,11 +1011,11 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/rnd)
 "YM" = (
-/obj/machinery/power/solar_control{
-	dir = 8
-	},
 /obj/effect/turf_decal/delivery,
 /obj/structure/cable,
+/obj/machinery/power/solar_control{
+	dir = 1
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/cabine)
 "Za" = (
@@ -992,7 +1030,7 @@
 
 (1,1,1) = {"
 CP
-qw
+pX
 qw
 qw
 qw
@@ -1009,7 +1047,7 @@ TW
 Cn
 Cn
 TW
-TW
+cH
 CP
 "}
 (2,1,1) = {"
@@ -1031,8 +1069,8 @@ yr
 pp
 bA
 XG
-nC
-Xi
+xn
+Wm
 "}
 (3,1,1) = {"
 kX
@@ -1102,7 +1140,7 @@ Xi
 "}
 (6,1,1) = {"
 CP
-qw
+pX
 qw
 qw
 aw
@@ -1185,8 +1223,8 @@ XH
 Ui
 gH
 gH
-Ne
-jZ
+eH
+Ps
 "}
 (10,1,1) = {"
 CP
@@ -1207,6 +1245,6 @@ Ew
 Ew
 Ew
 OH
-OH
+OZ
 CP
 "}

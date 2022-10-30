@@ -314,12 +314,15 @@
 /obj/effect/turf_decal/box/white/corners{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/mining/large)
 "t" = (
 /obj/effect/turf_decal/box/white/corners{
 	dir = 4
 	},
+/obj/structure/ore_box,
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/mining/large)
 "u" = (
@@ -336,6 +339,7 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/mining/large)
 "v" = (
@@ -345,6 +349,7 @@
 /obj/machinery/camera/autoname{
 	start_active = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/mining/large)
 "w" = (
@@ -352,7 +357,13 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/ore_box,
+/obj/machinery/power/apc/highcap{
+	dir = 4;
+	locked = 0;
+	name = "Mining Shuttle APC";
+	pixel_x = 25
+	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/mining/large)
 "x" = (
@@ -366,30 +377,20 @@
 "y" = (
 /obj/machinery/light/small,
 /obj/effect/turf_decal/box/white/corners,
-/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/mining/large)
 "z" = (
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/neutral{
+/obj/machinery/power/terminal{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/stripes/white/line,
 /obj/structure/cable,
-/turf/open/floor/plasteel/dark,
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/mining/large)
 "A" = (
 /obj/machinery/light/small,
 /obj/effect/turf_decal/box/white/corners{
 	dir = 8
 	},
-/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/mining/large)
 "B" = (
@@ -417,17 +418,12 @@
 /turf/open/floor/plating,
 /area/shuttle/mining/large)
 "E" = (
-/obj/machinery/power/apc/highcap{
-	dir = 4;
-	locked = 0;
-	name = "Mining Shuttle APC";
-	pixel_x = 25
-	},
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
+/obj/machinery/power/smes,
 /turf/open/floor/plating,
 /area/shuttle/mining/large)
 "F" = (
@@ -451,7 +447,7 @@
 /turf/open/floor/plating,
 /area/shuttle/mining/large)
 "I" = (
-/obj/machinery/shuttle/engine/ion/burst{
+/obj/machinery/shuttle/engine/ion{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -519,7 +515,7 @@ h
 n
 r
 u
-z
+n
 D
 H
 J
@@ -532,7 +528,7 @@ o
 k
 v
 A
-k
+z
 k
 k
 "}
