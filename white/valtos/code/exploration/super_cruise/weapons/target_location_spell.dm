@@ -15,20 +15,23 @@
 	panel = ""
 	ranged_mousepointer = 'icons/effects/mouse_pointers/cult_target.dmi'
 	spell_requirements = NONE
-	cast_range = 255 // hz
 	var/obj/machinery/computer/weapons/linked_console
 
 /datum/action/cooldown/spell/pointed/set_weapon_target/InterceptClickOn(mob/living/caller, params, atom/target)
 	if(!linked_console)
 		to_chat(caller, "<span class='warning'>No linked console.</span>")
+		unset_click_ability(caller)
 		return FALSE
 	if(..())
+		unset_click_ability(caller)
 		return FALSE
 	if(!linked_console.can_interact(caller))
 		to_chat(caller, "<span class='warning'>You are too far away!</span>")
+		unset_click_ability(caller)
 		return FALSE
 	var/turf/T = get_turf(target)
 	if(!T)
+		unset_click_ability(caller)
 		return FALSE
 	to_chat(caller, "<span class='notice'>Weapon targetted.</span>")
 	if(prob(2))
@@ -37,4 +40,12 @@
 	caller.log_message("fired [weapon ? "[weapon] " : ""] at [AREACOORD(T)]", LOG_ATTACK, color="purple")
 	log_shuttle_attack("fired [weapon ? "[weapon] " : ""] at [AREACOORD(T)]")
 	linked_console.on_target_location(T)
+	unset_click_ability(caller)
 	return TRUE
+
+/datum/action/cooldown/spell/pointed/set_weapon_target/unset_click_ability(mob/on_who, refund_cooldown = TRUE)
+	. = ..()
+	if(!.)
+		return
+
+	qdel(src)
