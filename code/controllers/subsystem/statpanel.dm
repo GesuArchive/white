@@ -1,5 +1,5 @@
 SUBSYSTEM_DEF(statpanels)
-	name = "Статус-панель"
+	name = "Stat panels"
 	wait = 4
 	init_order = INIT_ORDER_STATPANELS
 	init_stage = INITSTAGE_EARLY

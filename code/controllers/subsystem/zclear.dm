@@ -6,7 +6,7 @@ GLOBAL_LIST_EMPTY(zclear_atoms)
 GLOBAL_LIST_EMPTY(zclear_blockers)
 
 SUBSYSTEM_DEF(zclear)
-	name = "Аннигилятор"
+	name = "ZClear"
 	wait = 1
 
 	flags = SS_NO_INIT

@@ -3,7 +3,7 @@ This subsystem mostly exists to populate and manage the skill singletons.
 */
 
 SUBSYSTEM_DEF(skills)
-	name = "Навыки"
+	name = "Skills"
 	flags = SS_NO_FIRE
 	init_order = INIT_ORDER_SKILLS
 	///Dictionary of skill.type || skill ref

@@ -1,5 +1,5 @@
 SUBSYSTEM_DEF(demo)
-	name = "Повторы"
+	name = "Demos"
 	wait = 1
 	flags = SS_TICKER | SS_BACKGROUND
 	init_order = INIT_ORDER_DEMO

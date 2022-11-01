@@ -1,5 +1,5 @@
 SUBSYSTEM_DEF(radio)
-	name = "Радио"
+	name = "Radio"
 	flags = SS_NO_FIRE|SS_NO_INIT
 
 	var/list/datum/radio_frequency/frequencies = list()

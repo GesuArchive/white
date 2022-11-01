@@ -1,5 +1,5 @@
 SUBSYSTEM_DEF(mapping)
-	name = "Картография"
+	name = "Mapping"
 	init_order = INIT_ORDER_MAPPING
 	flags = SS_NO_FIRE
 

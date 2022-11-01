@@ -1,5 +1,5 @@
 SUBSYSTEM_DEF(vote)
-	name = "Голосование"
+	name = "Vote"
 	wait = 10
 
 	flags = SS_KEEP_TIMING|SS_NO_INIT

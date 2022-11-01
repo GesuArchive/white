@@ -1,5 +1,5 @@
 SUBSYSTEM_DEF(security_level)
-	name = "Уровень безопасности"
+	name = "Security level"
 	flags = SS_NO_FIRE
 	/// Currently set security level
 	var/current_level = SEC_LEVEL_GREEN

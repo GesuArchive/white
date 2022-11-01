@@ -8,7 +8,7 @@
 GLOBAL_VAR_INIT(disable_fucking_station_shit_please, FALSE)
 
 SUBSYSTEM_DEF(eventmaster)
-	name = "! Ивентовод"
+	name = "Eventmaster"
 	wait = 5 SECONDS
 	flags = SS_NO_INIT
 	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME

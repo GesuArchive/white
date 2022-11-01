@@ -1,5 +1,5 @@
 SUBSYSTEM_DEF(title)
-	name = "Заставки"
+	name = "Title Screen"
 	flags = SS_BACKGROUND
 	wait = 90 SECONDS
 	init_order = INIT_ORDER_TITLE

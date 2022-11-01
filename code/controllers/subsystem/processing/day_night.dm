@@ -8,7 +8,7 @@
  */
 
 SUBSYSTEM_DEF(day_night)
-	name = "Цикл Дня и Ночи"
+	name = "Day-night cycle"
 	wait = 6 SECONDS // Every 6 seconds, the clock moves forward 1 minutes
 	init_order = INIT_ORDER_DAY_NIGHT
 	/// The current hour

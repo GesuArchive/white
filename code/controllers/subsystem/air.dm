@@ -1,5 +1,5 @@
 SUBSYSTEM_DEF(air)
-	name = "Гипер-Атмос"
+	name = "Atmospherics"
 	init_order = INIT_ORDER_AIR
 	priority = FIRE_PRIORITY_AIR
 	wait = 0.5 SECONDS

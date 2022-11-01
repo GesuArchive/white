@@ -1,5 +1,5 @@
 SUBSYSTEM_DEF(traumas)
-	name = "Травмы"
+	name = "Traumas"
 	flags = SS_NO_FIRE
 	var/list/phobia_types
 	var/list/phobia_regexes
