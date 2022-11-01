@@ -1,6 +1,6 @@
 /obj/machinery/nuclearbomb
 	name = "термоядерная бомба"
-	desc = "Я стал смертью разрушителем миров..."
+	desc = "Пожалуй, тебе не стоит задерживаться рядом с этой хренью, чтобы проверить, взведена ли она."
 	icon = 'icons/obj/machines/nuke.dmi'
 	icon_state = "nuclearbomb_base"
 	anchored = FALSE
@@ -56,13 +56,13 @@
 	if(IS_DREAMER(user))
 		. += span_danger("ТОЧКА ВЫХОДА. СЮДА НУЖНО ВВЕСТИ СУММУ ВСЕХ ЧИСЕЛ!")
 	if(exploding)
-		. += span_danger("It is in the process of exploding. Perhaps reviewing your affairs is in order.")
+		. += span_danger("Бомба в процессе взрыва. Возможно, вам следует подумать над оформлением завещания.")
 	if(timing)
-		. += span_danger("There are [get_time_left()] seconds until detonation.")
+		. += span_danger("До взрыва осталось [get_time_left()] [getnoun(get_time_left(), "секунда", "секунды", "секунд")].")
 
 /obj/machinery/nuclearbomb/selfdestruct
-	name = "station self-destruct terminal"
-	desc = "For when it all gets too much to bear. Do not taunt."
+	name = "терминал самоуничтожения станции"
+	desc = "Когда жизнь скучна и везде непруха. Не лезь, взорвёт."
 	icon = 'icons/obj/machines/nuke_terminal.dmi'
 	icon_state = "nuclearbomb_base"
 	anchored = TRUE //stops it being moved
@@ -86,7 +86,7 @@
 
 /obj/machinery/nuclearbomb/proc/disk_check(obj/item/disk/nuclear/D)
 	if(D.fake)
-		say("Authentication failure; disk not recognised.")
+		say("Ошибка авторизации; диск не распознан. [prob(33) ? "Попробуйте вставить диск другой стороной.":]")
 		return FALSE
 	else
 		return TRUE
@@ -324,18 +324,25 @@
 	switch(action)
 		if("eject_disk")
 			if(auth && auth.loc == src)
-				playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
-				playsound(src, 'sound/machines/nuke/general_beep.ogg', 50, FALSE)
-				auth.forceMove(get_turf(src))
-				auth = null
-				. = TRUE
-			else
-				var/obj/item/I = usr.is_holding_item_of_type(/obj/item/disk/nuclear)
-				if(I && disk_check(I) && usr.transferItemToLoc(I, src))
+				if(timing)
+					say("Ошибка доступа, диск не может быть извлечён до окончания обратного отсчёта.")
+				else
 					playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
 					playsound(src, 'sound/machines/nuke/general_beep.ogg', 50, FALSE)
-					auth = I
+					auth.forceMove(get_turf(src))
+					auth = null
 					. = TRUE
+			else
+				var/obj/item/I = usr.is_holding_item_of_type(/obj/item/disk/nuclear)
+				if(I && disk_check(I))
+					if(timing)
+						say("Ошибка доступа, диск не может быть извлечён до окончания обратного отсчёта.")
+					else
+						playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
+						playsound(src, 'sound/machines/nuke/general_beep.ogg', 50, FALSE)
+						usr.transferItemToLoc(I, src)
+						auth = I
+						. = TRUE
 			update_ui_mode()
 		if("keypad")
 			if(auth)
@@ -660,7 +667,7 @@ This is here to make the tiles around the station mininuke change when it's arme
 
 /obj/item/disk/nuclear
 	name = "диск ядерной аутентификации"
-	desc = "Лучше сохраните это в безопасности."
+	desc = "Лучше хранить это в безопасности."
 	icon_state = "nucleardisk"
 	max_integrity = 250
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 30, BIO = 0, RAD = 0, FIRE = 100, ACID = 100)
@@ -724,14 +731,14 @@ This is here to make the tiles around the station mininuke change when it's arme
 		return
 
 	if(isobserver(user) || HAS_TRAIT(user, TRAIT_DISK_VERIFIER) || (user.mind && HAS_TRAIT(user.mind, TRAIT_DISK_VERIFIER)))
-		. += "<hr><span class='warning'>The serial numbers on [src] are incorrect.</span>"
+		. += "<hr><span class='warning'>Там, где должен быть серийный номер, написано \"CALL 1-800-FUCK-NT FOR REFUNDS\". Блять?</span>"
 
 /*
  * You can't accidentally eat the nuke disk, bro
  */
 /obj/item/disk/nuclear/on_accidental_consumption(mob/living/carbon/M, mob/living/carbon/user, obj/item/source_item, discover_after = TRUE)
-	M.visible_message(span_warning("[M] looks like [M.p_theyve()] just bitten into something important.") , \
-						span_warning("Wait, is this the nuke disk?"))
+	M.visible_message(span_warning("[M] выглядит, будто вкусил что-то очень важное.") , \
+						span_warning("Погодите, это что, диск ядерной аутентификации?"))
 
 	return discover_after
 
@@ -739,11 +746,11 @@ This is here to make the tiles around the station mininuke change when it's arme
 	if(istype(I, /obj/item/claymore/highlander) && !fake)
 		var/obj/item/claymore/highlander/H = I
 		if(H.nuke_disk)
-			to_chat(user, span_notice("Wait... what?"))
+			to_chat(user, span_notice("Блять?"))
 			qdel(H.nuke_disk)
 			H.nuke_disk = null
 			return
-		user.visible_message(span_warning("[user] captures [src]!") , span_userdanger("You've got the disk! Defend it with your life!"))
+		user.visible_message(span_warning("[user] заполучил [src]!") , span_userdanger("Диск у тебя! Защити его любой ценой!"))
 		forceMove(H)
 		H.nuke_disk = src
 		return TRUE
@@ -752,20 +759,23 @@ This is here to make the tiles around the station mininuke change when it's arme
 /obj/item/disk/nuclear/suicide_act(mob/user)
 	user.visible_message(span_suicide("[user] is going delta! It looks like [user.p_theyre()] trying to commit suicide!"))
 	playsound(src, 'sound/machines/alarm.ogg', 50, -1, TRUE)
-	for(var/i in 1 to 100)
+	for(var/i in 1 to 140)
 		addtimer(CALLBACK(user, /atom/proc/add_atom_colour, (i % 2)? "#00FF00" : "#FF0000", ADMIN_COLOUR_PRIORITY), i)
-	addtimer(CALLBACK(src, .proc/manual_suicide, user), 101)
+	addtimer(CALLBACK(src, .proc/manual_suicide, user), 141)
 	return MANUAL_SUICIDE
 
 /obj/item/disk/nuclear/proc/manual_suicide(mob/living/user)
 	user.remove_atom_colour(ADMIN_COLOUR_PRIORITY)
-	user.visible_message(span_suicide("[user] is destroyed by the nuclear blast!"))
-	user.adjustOxyLoss(200)
-	user.death(0)
+	user.visible_message(span_suicide("[user] уничтожен ядрёным взрывом!"))
+	user.unequip_everything()
+	var/turf/T = get_turf(user)
+	explosion(T, -1, -1, -1, -1, -1, FALSE, explosion_cause = user)
+	T.break_tile()
+	user.gib(TRUE, TRUE, FALSE)
 
 /obj/item/disk/nuclear/fake
 	fake = TRUE
 
 /obj/item/disk/nuclear/fake/obvious
-	name = "cheap plastic imitation of the nuclear authentication disk"
-	desc = "How anyone could mistake this for the real thing is beyond you."
+	name = "дешёвая пластиковая реплика диска ядерной аутентификации"
+	desc = "У вас в голове не укладывается, как кто-то может принять это за реальный диск. Слегка отдаёт сыром."

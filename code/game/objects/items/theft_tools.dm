@@ -5,8 +5,8 @@
 
 //the nuke core - objective item
 /obj/item/nuke_core
-	name = "plutonium core"
-	desc = "Extremely radioactive. Wear goggles."
+	name = "плутониевое ядро"
+	desc = "<i><b>Крайне</b></i> радиоактивен. Не забудьте надеть защитные очки."
 	icon = 'icons/obj/nuke_tools.dmi'
 	icon_state = "plutonium_core"
 	inhand_icon_state = "plutoniumcore"
@@ -36,13 +36,14 @@
 		radiation_pulse(src, 400, 2)
 
 /obj/item/nuke_core/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] is rubbing [src] against [user.ru_na()]self! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] трёт [src] об себя! Похоже, [user.ru_who()] пытается совершить суицид!"))
+	user.AddComponent(/datum/component/radioactive, 15, src)
 	return (TOXLOSS)
 
 //nuke core box, for carrying the core
 /obj/item/nuke_core_container
-	name = "nuke core container"
-	desc = "Solid container for radioactive objects."
+	name = "контейнер для плутониевого ядра"
+	desc = "Тяжёлый контейнер для безопасного хранения радиоактивных объектов. Безопасность 1945-го уровня!"
 	icon = 'icons/obj/nuke_tools.dmi'
 	icon_state = "core_container_empty"
 	inhand_icon_state = "tile"
@@ -60,7 +61,7 @@
 	ncore.forceMove(src)
 	core = ncore
 	icon_state = "core_container_loaded"
-	to_chat(user, span_warning("Container is sealing..."))
+	to_chat(user, span_warning("Контейнер закрывается..."))
 	addtimer(CALLBACK(src, .proc/seal), 50)
 	return TRUE
 
@@ -70,12 +71,12 @@
 		icon_state = "core_container_sealed"
 		playsound(src, 'sound/items/deconstruct.ogg', 60, TRUE)
 		if(ismob(loc))
-			to_chat(loc, span_warning("[capitalize(src.name)] is permanently sealed, [core] radiation is contained."))
+			to_chat(loc, span_warning("[capitalize(src.name)] закрыт, радиация ядра больше не помеха. Извлечь ядро вне специализированной лаборатории невозможно."))
 
 /obj/item/nuke_core_container/attackby(obj/item/nuke_core/core, mob/user)
 	if(istype(core))
 		if(!user.temporarilyRemoveItemFromInventory(core))
-			to_chat(user, span_warning("The [core] is stuck to your hand!"))
+			to_chat(user, span_warning("[core] прилипло к моей руке! Блять!"))
 			return
 		else
 			load(core, user)
@@ -84,8 +85,7 @@
 
 //snowflake screwdriver, works as a key to start nuke theft, traitor only
 /obj/item/screwdriver/nuke
-	name = "screwdriver"
-	desc = "A screwdriver with an ultra thin tip that's carefully designed to boost screwing speed."
+	desc = "Отвёртка, созданная с использование технологии Ultra-Thin™, обеспечивающая большую скорость откручивания-закручивания, по сравнению со стандартной. Среди нешарящих олухов распространено мнение, что это всего-лишь маркетинговый ход и Ultra-Thin™ отвёртка ничем не лучше обычной."
 	icon = 'icons/obj/nuke_tools.dmi'
 	icon_state = "screwdriver_nuke"
 	inhand_icon_state = "screwdriver_nuke"
@@ -93,33 +93,35 @@
 	random_color = FALSE
 
 /obj/item/paper/guides/antag/nuke_instructions
-	info = "How to break into a Nanotrasen self-destruct terminal and remove its plutonium core:<br>\
+	info = "<center>Как вломиться в терминал самоуничтожения станции и украсть плутониевое ядро: Мануал для чайников.</center><br><br>\
 	<ul>\
-	<li>Use a screwdriver with a very thin tip (provided) to unscrew the terminal's front panel</li>\
-	<li>Dislodge and remove the front panel with a crowbar</li>\
-	<li>Cut the inner metal plate with a welding tool</li>\
-	<li>Pry off the inner plate with a crowbar to expose the radioactive core</li>\
-	<li>Use the core container to remove the plutonium core; the container will take some time to seal</li>\
-	<li>???</li>\
+	<li>1. Воспользуйтесь отвёрткой, построенной по технологии Ultra-Thin™ (в комплекте), чтобы открутить переднюю панель техобслуживания терминала.</li>\
+	<li>2. Отсоедините переднюю панель терминала при помощи монтировки.</li>\
+	<li>3. Разрежьте внутреннюю защитную панель сварочным аппаратом.</li>\
+	<li>4. Оголите плутониевое ядро, осторожно выломав внутреннюю защитную панель.</li>\
+	<li>5. Воспользуйтесь контейнером для плутониевого ядра (в комплекте), чтобы вытащить ядро; На закрытие контейнера уйдёт некоторое время.</li>\
+	<li>6. ???</li>\
+	<li>7. <i>Вы восхитительны!</i></li>\
 	</ul>"
 
 // STEALING SUPERMATTER
 
 /obj/item/paper/guides/antag/supermatter_sliver
-	info = "How to safely extract a supermatter sliver:<br>\
+	info = "<center>Как безопасно получить осколок суперматерии: Мануал для чайников.</center>:<br><br>\
 	<ul>\
-	<li>Approach an active supermatter crystal with radiation shielded personal protective equipment. DO NOT MAKE PHYSICAL CONTACT.</li>\
-	<li>Use a supermatter scalpel (provided) to slice off a sliver of the crystal.</li>\
-	<li>Use supermatter extraction tongs (also provided) to safely pick up the sliver you sliced off.</li>\
-	<li>Physical contact of any object with the sliver will dust the object, as well as yourself.</li>\
-	<li>Use the tongs to place the sliver into the provided container, which will take some time to seal.</li>\
-	<li>Get the hell out before the crystal delaminates.</li>\
-	<li>???</li>\
+	<li>1. Подойдите к кристаллу суперматерии в защитном противорадиационном костюме. <i>НЕ ПРИКАСАЙТЕСЬ К КРИСТАЛЛУ СВОИМ ТЕЛОМ ИЛИ ОДЕЖДОЙ.</i></li>\
+	<li>3. Воспользуйтесь специальным скальпелем (в комплекте), чтобы отделить осколок суперматерии от основного кристалла. <i>НЕ ПРИКАСАЙТЕСЬ К КРИСТАЛЛУ СВОИМ ТЕЛОМ ИЛИ ОДЕЖДОЙ.</i></li>\
+	<li>4. Воспользуйтесь специальными щипцами (в комплекте), чтобы безопасно подобрать осколок. <i>НЕ ПРИКАСАЙТЕСЬ К КРИСТАЛЛУ СВОИМ ТЕЛОМ ИЛИ ОДЕЖДОЙ.</i></li>\
+	<li>5. <i><b><font size=+1>НЕ ПРИКАСАЙТЕСЬ К КРИСТАЛЛУ СВОИМ ТЕЛОМ ИЛИ ОДЕЖДОЙ.</font></b></i></li>\
+	<li>6. Щипцами аккуратно уложите осколок суперматерии в защитный контейнер; На закрытие контейнера уйдёт некоторое время. <i>НЕ ПРИКАСАЙТЕСЬ К КРИСТАЛЛУ СВОИМ ТЕЛОМ ИЛИ ОДЕЖДОЙ.</i></li>\
+	<li>7. Ретируйтесь как можно скорее, пока основной кристалл суперматерии не взорвался. <i>НЕ ПРИКАСАЙТЕСЬ К КРИСТАЛЛУ СВОИМ ТЕЛОМ ИЛИ ОДЕЖДОЙ.</i></li>\
+	<li>8. ???</li>\
+	<li>9. <i>Вы восхитительны!</i> <font size=-2>Всё ещё не прикасайтесь к кристаллу своим телом или одеждой.</font></li>\
 	</ul>"
 
 /obj/item/nuke_core/supermatter_sliver
-	name = "supermatter sliver"
-	desc = "A tiny, highly volatile sliver of a supermatter crystal. Do not handle without protection!"
+	name = "осколок суперматерии"
+	desc = "Мелкий, но крайне опасный кристалл суперматерии. Без радиационной защиты не подходить!"
 	icon_state = "supermatter_sliver"
 	inhand_icon_state = "supermattersliver"
 	pulseicon = "supermatter_sliver_pulse"
@@ -138,16 +140,16 @@
 	if(istype(W, /obj/item/hemostat/supermatter))
 		var/obj/item/hemostat/supermatter/tongs = W
 		if (tongs.sliver)
-			to_chat(user, span_warning("<b>[capitalize(tongs)]</b> is already holding a supermatter sliver!"))
+			to_chat(user, span_warning("Уже держу в своих щипцах осколок суперматерии!"))
 			return FALSE
 		forceMove(tongs)
 		tongs.sliver = src
 		tongs.update_icon()
-		to_chat(user, span_notice("You carefully pick up [src] with [tongs]."))
+		to_chat(user, span_notice("Осторожно подбираю [src] щипцами."))
 	else if(istype(W, /obj/item/scalpel/supermatter) || istype(W, /obj/item/nuke_core_container/supermatter/)) // we don't want it to dust
 		return
 	else
-		to_chat(user, span_notice("As it touches <b>[src.name]</b>, both <b>[src.name]</b> and [W] burst into dust!"))
+		to_chat(user, span_notice("Как только кристалл касается [W], они оба обращаются в пыль!"))
 		radiation_pulse(user, 100)
 		playsound(src, 'sound/effects/supermatter.ogg', 50, TRUE)
 		qdel(W)
@@ -179,16 +181,16 @@
 	..()
 	if(!isliving(user) || user.status_flags & GODMODE) //try to keep this in sync with supermatter's consume fail conditions
 		return FALSE
-	user.visible_message(span_danger("[user] reaches out and tries to pick up [src]. [user.ru_ego()] body starts to glow and bursts into flames before flashing into dust!") ,\
-			span_userdanger("You reach for [src] with your hands. That was dumb.") ,\
-			span_hear("Everything suddenly goes silent."))
+	user.visible_message(span_danger("[user] пытается подобрать кристалл своими руками, как вдруг [user.ru_ego()] тело начинает светиться, прежде чем обратиться в облако пыли") ,\
+			span_userdanger("Попытался подобрать осколок кристалла своими руками. Это был интересный опыт.") ,\
+			span_hear("Вас внезапно окутывает абсолютная тишина."))
 	radiation_pulse(user, 500, 2)
 	playsound(src, 'sound/effects/supermatter.ogg', 50, TRUE)
 	user.dust()
 
 /obj/item/nuke_core_container/supermatter
-	name = "supermatter bin"
-	desc = "A tiny receptacle that releases an inert hyper-noblium mix upon sealing, allowing a sliver of a supermatter crystal to be safely stored."
+	name = "контейнер для осколка суперматерии"
+	desc = "Крошечный стабилизационный контейнер, использующий инертную смесь хайпер-ноблиума для безопасного хранения суперматерии."
 	var/obj/item/nuke_core/supermatter_sliver/sliver
 
 /obj/item/nuke_core_container/supermatter/Destroy()
@@ -203,7 +205,7 @@
 	T.sliver = null
 	T.icon_state = "supermatter_tongs"
 	icon_state = "core_container_loaded"
-	to_chat(user, span_warning("Container is sealing..."))
+	to_chat(user, span_warning("Контейнер закрывается..."))
 	addtimer(CALLBACK(src, .proc/seal), 50)
 	return TRUE
 
@@ -213,7 +215,7 @@
 		icon_state = "core_container_sealed"
 		playsound(src, 'sound/items/Deconstruct.ogg', 60, TRUE)
 		if(ismob(loc))
-			to_chat(loc, span_warning("[capitalize(src.name)] is permanently sealed, [sliver] is safely contained."))
+			to_chat(loc, span_warning("[capitalize(src.name)] закрыт, вам больше не грозит опасность \"интересного опыта\". Извлечь осколок вне специализированной лаборатории невозможно."))
 
 /obj/item/nuke_core_container/supermatter/attackby(obj/item/hemostat/supermatter/tongs, mob/user)
 	if(istype(tongs))
