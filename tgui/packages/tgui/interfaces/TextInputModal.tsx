@@ -1,7 +1,7 @@
 import { Loader } from './common/Loader';
 import { InputButtons, Validator } from './common/InputButtons';
 import { useBackend, useLocalState } from '../backend';
-import { KEY_ENTER, KEY_ESCAPE } from '../../common/keycodes';
+import { KEY_SHIFT, KEY_ENTER, KEY_ESCAPE } from '../../common/keycodes';
 import { Box, Input, Section, Stack, TextArea } from '../components';
 import { Window } from '../layouts';
 
@@ -27,6 +27,11 @@ export const TextInputModal = (_, context) => {
     'inputIsValid',
     { isValid: !!placeholder, error: null }
   );
+  const [isShiftDown, setShiftDown] = useLocalState<boolean>(
+	context,
+	'isShiftDown',
+	false
+  )
   const onType = (value: string) => {
     setInputIsValid(validateInput(value, max_length));
     setInput(value);
@@ -34,18 +39,29 @@ export const TextInputModal = (_, context) => {
   // Dynamically changes the window height based on the message.
   const windowHeight =
     125 + Math.ceil(message.length / 3) + (multiline ? 75 : 0);
-
+  let shiftDown:boolean = true;
+  
   return (
-    <Window title={title} width={325} height={windowHeight}>
+    <Window title={title} width={325} height={windowHeight} shiftDown={false}>
       {timeout && <Loader value={timeout} />}
       <Window.Content
+	    ass = {true}
         onKeyDown={(event) => {
           const keyCode = window.event ? event.which : event.keyCode;
-          if (keyCode === KEY_ENTER) {
+          if (keyCode === KEY_SHIFT) {
+            setShiftDown(true);
+          }
+          if (keyCode === KEY_ENTER && !(isShiftDown && multiline)) {
             act('submit', { entry: input });
           }
           if (keyCode === KEY_ESCAPE) {
             act('cancel');
+          }
+        }}
+        onKeyUp={(event) => {
+          const keyCode = window.event ? event.which : event.keyCode;
+          if (keyCode === KEY_SHIFT) {
+            setShiftDown(false);
           }
         }}>
         <Section fill>
