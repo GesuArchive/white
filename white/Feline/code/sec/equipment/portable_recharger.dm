@@ -525,7 +525,7 @@
 	cell = new cell_type(src)
 	create_storage(type = /datum/storage/pockets/tactical)
 	update_icon()
-	update_appearance()	
+	update_appearance()
 
 ////////////////////////////////////////////////////
 /datum/storage/pockets/tactical
@@ -551,7 +551,7 @@
 		return ..()
 
 	if(held_weapon)
-		var/obj/item/I = contents[1]
+		//var/obj/item/I = contents[1]
 		user.visible_message(span_notice("[user] достаёт из тактического зарядника [skloname(held_weapon.name, VINITELNI)]."), span_notice("Достаю из тактического зарядника [skloname(held_weapon.name, VINITELNI)]."))
 		user.put_in_hands(held_weapon)
 		held_weapon = null
@@ -569,7 +569,7 @@
 		to_chat(user, span_alert("У меня не получается зарядить [skloname(W.name, VINITELNI)] на бегу!"))
 
 /obj/item/tactical_recharger/attackby_secondary(obj/item/gun/energy/W, mob/user, params)
-	
+
 	if(!istype(W))
 		return ..()
 
@@ -593,11 +593,11 @@
 	if(world.time < last_use + cooldown)
 		to_chat(user, span_alert("Конденсаторы тактического зарядника всё ещё остывают!"))
 		return
-	
-	var/was_running = user.m_intent == MOVE_INTENT_RUN 
+
+	var/was_running = user.m_intent == MOVE_INTENT_RUN
 	if(was_running)
 		user.toggle_move_intent()
-	
+
 	if(do_after(user, 30, src, IGNORE_USER_LOC_CHANGE & IGNORE_TARGET_LOC_CHANGE & IGNORE_SLOWDOWNS, extra_checks = CALLBACK(src, .proc/run_check, user, W)))
 		var/target_draw = (target_cell.maxcharge-target_cell.charge) * 2.5
 		var/actual_draw = min(cell.charge,  target_draw)
