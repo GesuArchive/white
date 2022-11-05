@@ -86,7 +86,7 @@
 
 /obj/machinery/nuclearbomb/proc/disk_check(obj/item/disk/nuclear/D)
 	if(D.fake)
-		say("Ошибка авторизации; диск не распознан. [prob(33) ? "Попробуйте вставить диск другой стороной.":]")
+		say("Ошибка авторизации; диск не распознан. [prob(33) ? "Попробуйте вставить диск другой стороной.":""]")
 		return FALSE
 	else
 		return TRUE
