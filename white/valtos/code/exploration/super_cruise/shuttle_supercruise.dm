@@ -8,8 +8,8 @@
 	var/datum/orbital_vector/spawn_velocity = new()
 	var/datum/orbital_object/orbital_body = SSorbits.assoc_z_levels["[get_virtual_z_level()]"]
 	if(!orbital_body)
-		message_admins("Error: Shuttle is entering supercruise from a bad location. Shuttle: [name]")
-		log_runtime("Error: Shuttle is entering supercruise from a bad location. Shuttle: [name]")
+		message_admins("Error: Shuttle is entering supercruise from a bad location. Z-Level: [get_virtual_z_level()], Shuttle: [name]")
+		log_runtime("Error: Shuttle is entering supercruise from a bad location. Z-Level: [get_virtual_z_level()], Shuttle: [name]")
 		var/datum/orbital_map/default_map = SSorbits.orbital_maps[PRIMARY_ORBITAL_MAP]
 		orbital_body = default_map.center
 	spawn_position.Set(orbital_body.position.GetX() + orbital_body.velocity.GetX(), orbital_body.position.GetY() + orbital_body.velocity.GetY())

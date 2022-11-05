@@ -33,6 +33,8 @@
 	var/current_ship_integrity
 	///The amount of integrity currently remaining before the ship explodes
 	var/integrity_remaining
+	///The count of integrity failure checks
+	var/integrity_failure_checks = 0
 	///Is the shuttle doomed to explode?
 	var/reactor_critical = FALSE
 	///How much damage can the ship sustain before exploding?
@@ -66,11 +68,11 @@
 	//Get the docking port
 	var/obj/docking_port/mobile/attached_port = SSshuttle.getShuttle(port_id)
 	shuttle_name = attached_port.name
-	spawn(5 SECONDS) // фикс года
-		calculate_initial_stats()
-		//Create the communications manager for that shuttle
-		comms = new /datum/orbital_comms_manager(port_id, shuttle_name)
-		SSorbits.register_communication_manager(comms)
+	//spawn(5 SECONDS) // фикс года
+	calculate_initial_stats()
+	//Create the communications manager for that shuttle
+	comms = new /datum/orbital_comms_manager(port_id, shuttle_name)
+	SSorbits.register_communication_manager(comms)
 
 /datum/shuttle_data/Destroy(force, ...)
 	unregister_turfs()
@@ -186,29 +188,34 @@
 	integrity_remaining = current_ship_integrity - (max_ship_integrity * critical_proportion)
 	log_shuttle("Shuttle [shuttle_name] ([port_id]) now has [current_ship_integrity]/[max_ship_integrity] integrity ([integrity_remaining] until destruction.)")
 	//Calculate destruction
-	if(integrity_remaining <= 0)
-		var/obj/docking_port/mobile/M = SSshuttle.getShuttle(port_id)
-		message_admins("Shuttle [shuttle_name] ([port_id]) has been destroyed at [ADMIN_FLW(M)]")
-		log_shuttle_attack("Shuttle [shuttle_name] ([port_id]) has been destroyed at [COORD(M)]")
-		//You are dead
-		reactor_critical = TRUE
-		current_ship_integrity = 0
-		integrity_remaining = 0
-		unregister_turfs()
-		//Unregister all turfs
-		for(var/area/A in M.shuttle_areas)
-			for(var/obj/machinery/light/L in A)
-				L.emergency_mode = TRUE
-				L.update()
-		//Play an alarm to anyone / any observers on the shuttle
-		for(var/client/C as() in GLOB.clients)
-			var/mob/client_mob = C.mob
-			var/area/shuttle/A = get_area(client_mob)
-			if(istype(A) && A.mobile_port == M)
-				SEND_SOUND(C, 'sound/machines/alarm.ogg')
-				to_chat(C, "<span class='danger'>Кажется реактор сейчас рванёт...</span>")
-		//Cause the big boom
-		addtimer(CALLBACK(src, .proc/destroy_ship, M), 140)
+	if(integrity_remaining > 0)
+		integrity_failure_checks = 0
+		return
+	if(integrity_failure_checks < 5)
+		integrity_failure_checks++
+		return
+	var/obj/docking_port/mobile/M = SSshuttle.getShuttle(port_id)
+	message_admins("Shuttle [shuttle_name] ([port_id]) has been destroyed at [ADMIN_FLW(M)]")
+	log_shuttle_attack("Shuttle [shuttle_name] ([port_id]) has been destroyed at [COORD(M)]")
+	//You are dead
+	reactor_critical = TRUE
+	current_ship_integrity = 0
+	integrity_remaining = 0
+	unregister_turfs()
+	//Unregister all turfs
+	for(var/area/A in M.shuttle_areas)
+		for(var/obj/machinery/light/L in A)
+			L.emergency_mode = TRUE
+			L.update()
+	//Play an alarm to anyone / any observers on the shuttle
+	for(var/client/C as() in GLOB.clients)
+		var/mob/client_mob = C.mob
+		var/area/shuttle/A = get_area(client_mob)
+		if(istype(A) && A.mobile_port == M)
+			SEND_SOUND(C, 'sound/machines/alarm.ogg')
+			to_chat(C, "<span class='danger'>Кажется реактор сейчас рванёт...</span>")
+	//Cause the big boom
+	addtimer(CALLBACK(src, .proc/destroy_ship, M), 140)
 
 /datum/shuttle_data/proc/destroy_ship(obj/docking_port/mobile/M)
 	set waitfor = FALSE
