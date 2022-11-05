@@ -66,7 +66,7 @@
 /obj/item/storage/proc/get_types_to_preload()
 	return
 
-/obj/item/storage/on_object_saved(var/depth = 0)
+/obj/item/storage/on_object_saved(depth = 0)
 	if(depth >= 10)
 		return ""
 	var/dat = ""

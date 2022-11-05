@@ -205,7 +205,7 @@ GLOBAL_LIST_EMPTY(silo_access_logs)
 	. = ..()
 	. += "<hr><span class='notice'>[capitalize(src.name)] can be linked to techfabs, circuit printers and protolathes with a multitool.</span>"
 
-/obj/machinery/ore_silo/on_object_saved(var/depth = 0)
+/obj/machinery/ore_silo/on_object_saved(depth = 0)
 	if(depth >= 10)
 		return ""
 	var/dat

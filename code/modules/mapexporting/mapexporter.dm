@@ -130,7 +130,7 @@ GLOBAL_LIST_INIT(save_file_chars, list(
 	return "[header][contents]"
 
 //Sorts maps in terms of their positions, so scrambled / odd shaped maps can be saved
-/proc/sort_map(var/list/map, minx, miny, maxx, maxy)
+/proc/sort_map(list/map, minx, miny, maxx, maxy)
 	var/width = maxx - minx + 1
 	var/height = maxy - miny + 1
 	var/allTurfs = new/list(width, height)
@@ -139,7 +139,7 @@ GLOBAL_LIST_INIT(save_file_chars, list(
 	return allTurfs
 
 //vars_to_save = list() to save all vars
-/proc/generate_tgm_metadata(var/atom/O, var/list/vars_to_save = list("pixel_x", "pixel_y", "dir", "name", "req_access", "req_access_txt", "piping_layer", "color", "icon_state", "pipe_color", "amount"))
+/proc/generate_tgm_metadata(atom/O, list/vars_to_save = list("pixel_x", "pixel_y", "dir", "name", "req_access", "req_access_txt", "piping_layer", "color", "icon_state", "pipe_color", "amount"))
 	var/dat = ""
 	var/data_to_add = list()
 	for(var/V in O.vars)

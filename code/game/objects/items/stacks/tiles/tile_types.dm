@@ -1117,6 +1117,7 @@
 	icon_state = "tile_dock"
 	mats_per_unit = list(/datum/material/iron = 500, /datum/material/plasma = 500)
 	turf_type = /turf/open/floor/dock
+	merge_type = /obj/item/stack/tile/dock
 
 /obj/item/stack/tile/drydock
 	name = "dry dock tile"
@@ -1125,3 +1126,4 @@
 	icon_state = "tile_drydock"
 	mats_per_unit = list(/datum/material/iron = 1000, /datum/material/plasma = 1000)
 	turf_type = /turf/open/floor/dock/drydock
+	merge_type = /obj/item/stack/tile/dock/drydock
