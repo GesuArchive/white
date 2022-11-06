@@ -157,19 +157,21 @@ GLOBAL_DATUM_INIT(keycard_events, /datum/events, new)
 
 GLOBAL_VAR_INIT(emergency_access, FALSE)
 /proc/make_maint_all_access()
-	for(var/area/maintenance/A in world)
-		for(var/obj/machinery/door/airlock/D in A)
-			D.emergency = TRUE
-			D.update_icon(0)
+	for(var/area/maintenance/A in GLOB.areas)
+		for(var/turf/in_area as anything in A.get_contained_turfs())
+			for(var/obj/machinery/door/airlock/D in in_area)
+				D.emergency = TRUE
+				D.update_icon(ALL, 0)
 	minor_announce("Были сняты ограничения доступа на технические тоннели и внешние шлюзы.", "Внимание! Объявлена чрезвычайная ситуация на всей станции!",1)
 	GLOB.emergency_access = TRUE
 	SSblackbox.record_feedback("nested tally", "keycard_auths", 1, list("emergency maintenance access", "enabled"))
 
 /proc/revoke_maint_all_access()
-	for(var/area/maintenance/A in world)
-		for(var/obj/machinery/door/airlock/D in A)
-			D.emergency = FALSE
-			D.update_icon(0)
+	for(var/area/maintenance/A in GLOB.areas)
+		for(var/turf/in_area as anything in A.get_contained_turfs())
+			for(var/obj/machinery/door/airlock/D in in_area)
+				D.emergency = FALSE
+				D.update_icon(ALL, 0)
 	minor_announce("Восстановлены ограничения доступа в зоны обслуживания.", "Внимание! Аварийная ситуация на всей станции отменена!")
 	GLOB.emergency_access = FALSE
 	SSblackbox.record_feedback("nested tally", "keycard_auths", 1, list("emergency maintenance access", "disabled"))

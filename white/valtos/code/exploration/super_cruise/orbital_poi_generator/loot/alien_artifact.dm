@@ -64,9 +64,6 @@
 	. = ..()
 	mood_message = span_warning("[scramble_message_replace_chars("###### ### #### ###### #######", 100)]!")
 
-/area/tear_in_reality/get_virtual_z(turf/T)
-	return REALITY_TEAR_VIRTUAL_Z
-
 //===================
 // Raw artifact datum
 //===================

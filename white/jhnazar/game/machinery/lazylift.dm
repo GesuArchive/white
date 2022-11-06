@@ -265,7 +265,7 @@ That's it, ok bye!
 	if(!what)
 		what = pick('white/jhnazar/sound/effects/turbolift/elevatormusic.ogg','white/jhnazar/sound/effects/lift/elevatormusic.ogg', 'white/jhnazar/sound/effects/lift/GeorgeForse-rick.ogg', 'white/jhnazar/sound/effects/lift/tchaikovsky.ogg')
 	var/area/ours = get_area(src)
-	for(var/area/affected in GLOB.sortedAreas)
+	for(var/area/affected in GLOB.areas)
 		if(istype(affected, ours.type))
 			affected.looping_ambience = what
 

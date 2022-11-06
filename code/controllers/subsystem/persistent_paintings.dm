@@ -74,6 +74,7 @@
 	creation_round_id = json_data["creation_round_id"]
 	tags = json_data["tags"]
 	patron_ckey = json_data["patron_ckey"]
+	patron_name = json_data["patron_name"]
 	credit_value = json_data["credit_value"]
 	width = json_data["width"]
 	height = json_data["height"]
@@ -99,9 +100,6 @@
 	new_data["frame_type"] = frame_type
 	return new_data
 
-/// Only returns paintings with 23x23 or 24x24 sizes fitting AI display icon.
-#define PAINTINGS_FILTER_AI_PORTRAIT 1
-
 SUBSYSTEM_DEF(persistent_paintings)
 	name = "Persistent Paintings"
 	init_order = INIT_ORDER_PERSISTENT_PAINTINGS
@@ -109,6 +107,8 @@ SUBSYSTEM_DEF(persistent_paintings)
 
 	/// A list of painting frames that this controls
 	var/list/obj/structure/sign/painting/painting_frames = list()
+	/// Hashes of paintings deleted this round
+	var/list/deleted_paintings_md5s = list()
 
 	/// A list of /datum/paintings saved or ready to be saved this round.
 	var/list/paintings = list()
@@ -144,18 +144,39 @@ SUBSYSTEM_DEF(persistent_paintings)
 
 	return SS_INIT_SUCCESS
 
-/// Generates painting data ready to be consumed by ui
-/datum/controller/subsystem/persistent_paintings/proc/painting_ui_data(filter=NONE,admin=FALSE)
+/**
+ * Generates painting data ready to be consumed by ui.
+ * Args:
+ * * filter: a bitfield argument is used to filter out paintings that don't match certain requisites.
+ * * admin : whether all the json data of the painting is added to the return value or only the more IC details
+ * * search_text : text to search for if the PAINTINGS_FILTER_SEARCH_TITLE or PAINTINGS_FILTER_SEARCH_CREATOR filters are enabled.
+ */
+/datum/controller/subsystem/persistent_paintings/proc/painting_ui_data(filter=NONE, admin=FALSE, search_text)
 	. = list()
+	var/searching = filter & (PAINTINGS_FILTER_SEARCH_TITLE|PAINTINGS_FILTER_SEARCH_CREATOR) && search_text
 	for(var/datum/painting/painting as anything in paintings)
 		if(filter & PAINTINGS_FILTER_AI_PORTRAIT && ((painting.width != 24 && painting.width != 23) || (painting.height != 24 && painting.height != 23)))
 			continue
+		if(searching)
+			var/haystack_text = ""
+			if(filter & PAINTINGS_FILTER_SEARCH_TITLE)
+				haystack_text = painting.title
+			else if(filter & PAINTINGS_FILTER_SEARCH_CREATOR)
+				haystack_text = painting.creator_name
+			if(!findtext(haystack_text, search_text))
+				continue
 		if(admin)
 			var/list/pdata = painting.to_json()
 			pdata["ref"] = REF(painting)
 			. += list(pdata)
 		else
-			. += list(list("title" = painting.title,"md5" = painting.md5,"ref" = REF(painting)))
+			. += list(list(
+				"title" = painting.title,
+				"creator" = painting.creator_name,
+				"md5" = painting.md5,
+				"ref" = REF(painting),
+				"ratio" = painting.width/painting.height,
+				))
 
 /// Returns paintings with given tag.
 /datum/controller/subsystem/persistent_paintings/proc/get_paintings_with_tag(tag_name)
@@ -260,11 +281,25 @@ SUBSYSTEM_DEF(persistent_paintings)
 /// Saves all currently tracked painting data to file
 /datum/controller/subsystem/persistent_paintings/proc/save_to_file()
 	var/json_file = file("data/paintings.json")
-	fdel(json_file)
-	var/list/all_data = list("version" = PAINTINGS_DATA_FORMAT_VERSION)
+
+	var/list/collated_data = list()
+	if(fexists(json_file))
+		var/list/old_data = json_decode(file2text(json_file))
+		for(var/list/painting_data as anything in old_data["paintings"])
+			collated_data[painting_data["md5"]] = painting_data
+
 	var/list/painting_data = list()
 	for(var/datum/painting/painting as anything in paintings)
-		painting_data += list(painting.to_json())
+		collated_data[painting.md5] = painting.to_json() //Current data has priority over old data
+
+	// Remove deleted paintings from the list
+	collated_data -= deleted_paintings_md5s
+
+	// Flatten the resulting list
+	for(var/key in collated_data)
+		painting_data += list(collated_data[key])
+
+	var/list/all_data = list("version" = PAINTINGS_DATA_FORMAT_VERSION)
 	all_data["paintings"] = painting_data
 	var/payload = json_encode(all_data)
 	fdel(json_file)
@@ -277,4 +312,3 @@ SUBSYSTEM_DEF(persistent_paintings)
 #undef PATRONAGE_AMAZING_FRAME
 #undef PATRONAGE_SUPERB_FRAME
 #undef PATRONAGE_LEGENDARY_FRAME
-

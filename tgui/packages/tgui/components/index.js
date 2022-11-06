@@ -36,6 +36,7 @@ export { OrbitalMapComponent } from './OrbitalMapComponent';
 export { OrbitalMapSvg } from './OrbitalMapSvg';
 export { ProgressBar } from './ProgressBar';
 export { Popper } from './Popper';
+export { RestrictedInput } from './RestrictedInput';
 export { RoundGauge } from './RoundGauge';
 export { Section } from './Section';
 export { Slider } from './Slider';

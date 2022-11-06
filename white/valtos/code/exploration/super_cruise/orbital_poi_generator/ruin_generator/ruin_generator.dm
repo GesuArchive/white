@@ -292,7 +292,7 @@
 */
 
 	//Repopulate areas
-	repopulate_sorted_areas()
+	require_area_resort()
 
 	//Fill with shit
 	var/list/floortrash = generator_settings.get_floortrash()

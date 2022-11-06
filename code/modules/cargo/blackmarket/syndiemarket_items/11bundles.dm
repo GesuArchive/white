@@ -73,20 +73,6 @@
 	price_max = BLACKMARKET_CRATE_VALUE * 50000
 	availability_prob = 25
 
-/datum/blackmarket_item/sbundles/contract_kit
-	name = "Contract Kit"
-	desc = "The Syndicate have offered you the chance to become a contractor, take on kidnapping contracts for TC and cash payouts. Upon purchase, \
-			you'll be granted your own contract uplink embedded within the supplied tablet computer. Additionally, you'll be granted \
-			standard contractor gear to help with your mission - comes supplied with the tablet, specialised space suit, chameleon jumpsuit and mask, \
-			agent card, specialised contractor baton, and three randomly selected low cost items. Can include otherwise unobtainable items."
-	item = /obj/item/storage/box/syndicate/contract_kit
-	stock_min = 1
-	stock_max = 1
-
-	price_min = BLACKMARKET_CRATE_VALUE * 25000
-	price_max = BLACKMARKET_CRATE_VALUE * 50000
-	availability_prob = 5
-
 /datum/blackmarket_item/sbundles/bundle_a
 	name = "Syndi-kit Tactical"
 	desc = "Syndicate Bundles, also known as Syndi-Kits, are specialized groups of items that arrive in a plain box. \

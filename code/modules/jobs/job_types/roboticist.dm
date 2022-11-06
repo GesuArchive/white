@@ -20,7 +20,6 @@
 	mail_goodies = list(
 		/obj/item/storage/box/flashes = 20,
 		/obj/item/stack/sheet/iron/twenty = 15,
-		/obj/item/modular_computer/tablet/preset/advanced = 5
 	)
 
 	departments_list = list(

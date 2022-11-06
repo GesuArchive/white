@@ -65,7 +65,7 @@ SUBSYSTEM_DEF(networks)
 
 /datum/controller/subsystem/networks/Initialize()
 	station_network.register_map_supremecy() // sigh
-	assign_areas_root_ids(GLOB.sortedAreas) // setup area names before Initialize
+	assign_areas_root_ids(get_sorted_areas()) // setup area names before Initialize
 	station_network.build_software_lists()
 	syndie_network.build_software_lists()
 
@@ -199,7 +199,7 @@ SUBSYSTEM_DEF(networks)
 	return FALSE
 
 /datum/controller/subsystem/networks/proc/log_data_transfer( datum/netdata/data)
-	logs += "[SSday_night.get_twentyfourhour_timestamp()] - [data.generate_netlog()]"
+	logs += "[station_time_timestamp()] - [data.generate_netlog()]"
 	if(logs.len > setting_maxlogcount)
 		logs = logs.Copy(logs.len - setting_maxlogcount, 0)
 
@@ -215,10 +215,10 @@ SUBSYSTEM_DEF(networks)
  * * network - optional, It can be a ntnet or just the text equivalent
  * * hardware_id = optional, text, will look it up and return with the parent.name as well
  */
-/datum/controller/subsystem/networks/proc/add_log(log_string, network = null , hardware_id = null)
+/datum/controller/subsystem/networks/proc/add_log(log_string, network = null)
 	set waitfor = FALSE // so process keeps running
 	var/list/log_text = list()
-	log_text += "\[[SSday_night.get_twentyfourhour_timestamp()]\]"
+	log_text += "\[[station_time_timestamp()]\]"
 	if(network)
 		var/datum/ntnet/net = network
 		if(!istype(net))
@@ -228,15 +228,7 @@ SUBSYSTEM_DEF(networks)
 		else // bad network?
 			log_text += "{[network] *BAD*}"
 
-	if(hardware_id)
-		var/datum/component/ntnet_interface/conn = interfaces_by_hardware_id[hardware_id]
-		if(conn)
-			log_text += " ([hardware_id])[conn.parent]"
-		else
-			log_text += " ([hardware_id])*BAD ID*"
-	else
-		log_text += "*SYSTEM*"
-	log_text += " - "
+	log_text += "*SYSTEM* - "
 	log_text += log_string
 	log_string = log_text.Join()
 

@@ -188,7 +188,7 @@
 						if (!landingzone)
 							WARNING("[src] не удалось найти на станции комнату КМа / Склада (он же Карго), и поэтому он установил зону посадки снабжения для области, в которой он находится.")
 							landingzone = get_area(src)
-						for(var/turf/open/floor/T in landingzone.contents)//uses default landing zone
+						for(var/turf/open/floor/T in landingzone.get_contained_turfs())//uses default landing zone
 							if(T.is_blocked_turf())
 								continue
 							LAZYADD(empty_turfs, T)
@@ -207,7 +207,7 @@
 			else
 				if(SO.pack.get_cost() * (0.72*MAX_EMAG_ROCKETS) <= points_to_check) // bulk discount :^)
 					landingzone = GLOB.areas_by_type[pick(GLOB.the_station_areas)]  //override default landing zone
-					for(var/turf/open/floor/T in landingzone.contents)
+					for(var/turf/open/floor/T in landingzone.get_contained_turfs())
 						if(T.is_blocked_turf())
 							continue
 						LAZYADD(empty_turfs, T)

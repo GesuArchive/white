@@ -563,9 +563,9 @@
 /area/commons/dorms)
 "aon" = (
 /obj/structure/table/glass,
-/obj/item/computer_hardware/hard_drive/portable/chemistry,
-/obj/item/computer_hardware/hard_drive/portable/medical,
-/obj/item/computer_hardware/hard_drive/portable/medical,
+/obj/item/computer_disk/chemistry,
+/obj/item/computer_disk/medical,
+/obj/item/computer_disk/medical,
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
@@ -4877,7 +4877,7 @@
 /area/security/brig)
 "dPC" = (
 /obj/structure/table/wood,
-/obj/item/paicard,
+/obj/item/pai_card,
 /turf/open/floor/wood,
 /area/icemoon/surface/outdoors)
 "dPZ" = (
@@ -8660,9 +8660,9 @@
 /area/hallway/primary/aft)
 "gSK" = (
 /obj/structure/table/reinforced,
-/obj/item/computer_hardware/hard_drive/portable/engineering,
-/obj/item/computer_hardware/hard_drive/portable/engineering,
-/obj/item/computer_hardware/hard_drive/portable/engineering,
+/obj/item/computer_disk/engineering,
+/obj/item/computer_disk/engineering,
+/obj/item/computer_disk/engineering,
 /obj/item/reagent_containers/pill/patch/aiuri,
 /obj/machinery/airalarm/directional/east,
 /turf/open/floor/plasteel/dark/side,
@@ -9329,9 +9329,9 @@
 "hoc" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/yellow,
-/obj/item/computer_hardware/hard_drive/portable/atmos,
-/obj/item/computer_hardware/hard_drive/portable/atmos,
-/obj/item/computer_hardware/hard_drive/portable/atmos,
+/obj/item/computer_disk/atmos,
+/obj/item/computer_disk/atmos,
+/obj/item/computer_disk/atmos,
 /obj/item/stamp/ce,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/ce)
@@ -9968,9 +9968,9 @@
 "hNE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced,
-/obj/item/computer_hardware/hard_drive/portable/quartermaster,
-/obj/item/computer_hardware/hard_drive/portable/quartermaster,
-/obj/item/computer_hardware/hard_drive/portable/quartermaster,
+/obj/item/computer_disk/quartermaster,
+/obj/item/computer_disk/quartermaster,
+/obj/item/computer_disk/quartermaster,
 /obj/item/gps/mining,
 /obj/machinery/camera/autoname,
 /turf/open/floor/carpet/black,
@@ -12736,7 +12736,7 @@
 /area/service/bar/atrium)
 "kcw" = (
 /obj/structure/table,
-/obj/item/paicard,
+/obj/item/pai_card,
 /obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/dark,
 /area/science/research)
@@ -18506,7 +18506,7 @@
 /area/command)
 "oKd" = (
 /obj/structure/table,
-/obj/item/paicard,
+/obj/item/pai_card,
 /obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/dark,
 /area/commons/dorms)
@@ -23264,7 +23264,7 @@
 /area/security/detectives_office)
 "syY" = (
 /obj/structure/table/wood,
-/obj/item/paicard,
+/obj/item/pai_card,
 /turf/open/floor/wood,
 /area/command)
 "sAa" = (
@@ -25504,7 +25504,7 @@
 /area/tcommsat/server)
 "ujT" = (
 /obj/structure/table,
-/obj/item/paicard,
+/obj/item/pai_card,
 /obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/starboard)
@@ -26473,7 +26473,7 @@
 /area/science/research)
 "uST" = (
 /obj/structure/table,
-/obj/item/paicard,
+/obj/item/pai_card,
 /obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/exit/departure_lounge)
@@ -28487,7 +28487,7 @@
 /area/cargo/storage)
 "wqf" = (
 /obj/structure/table,
-/obj/item/paicard,
+/obj/item/pai_card,
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/entry)
 "wqg" = (
@@ -29318,7 +29318,7 @@
 /area/hallway/secondary/exit/departure_lounge)
 "wRv" = (
 /obj/structure/rack,
-/obj/item/paicard,
+/obj/item/pai_card,
 /obj/item/storage/firstaid,
 /obj/item/storage/firstaid,
 /obj/item/healthanalyzer,

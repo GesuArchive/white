@@ -4631,9 +4631,9 @@
 /area/medical/chemistry)
 "beB" = (
 /obj/structure/table/glass,
-/obj/item/computer_hardware/hard_drive/portable/medical,
-/obj/item/computer_hardware/hard_drive/portable/medical,
-/obj/item/computer_hardware/hard_drive/portable/chemistry,
+/obj/item/computer_disk/medical,
+/obj/item/computer_disk/medical,
+/obj/item/computer_disk/chemistry,
 /obj/machinery/light_switch/directional/north,
 /obj/machinery/light/directional/north,
 /turf/open/floor/plasteel/white,
@@ -6722,7 +6722,7 @@
 /area/maintenance/department/science)
 "bHC" = (
 /obj/structure/table/wood/fancy/purple,
-/obj/item/paicard,
+/obj/item/pai_card,
 /turf/open/floor/carpet/purple,
 /area/command/heads_quarters/rd)
 "bHD" = (
@@ -28573,7 +28573,7 @@
 /area/commons/dorms)
 "khP" = (
 /obj/structure/table/wood,
-/obj/item/paicard,
+/obj/item/pai_card,
 /obj/structure/noticeboard/directional/west,
 /turf/open/floor/wood,
 /area/command/meeting_room/council)
@@ -33969,7 +33969,7 @@
 /area/science/xenobiology)
 "mhw" = (
 /obj/structure/table,
-/obj/item/paicard{
+/obj/item/pai_card{
 	pixel_x = 6;
 	pixel_y = 3
 	},
@@ -49231,7 +49231,7 @@
 	pixel_x = -2;
 	pixel_y = 6
 	},
-/obj/item/paicard,
+/obj/item/pai_card,
 /obj/effect/turf_decal/tile/purple{
 	dir = 8
 	},
@@ -61892,7 +61892,7 @@
 /area/maintenance/solars/starboard/fore)
 "wYE" = (
 /obj/structure/table,
-/obj/item/paicard,
+/obj/item/pai_card,
 /turf/open/floor/glass,
 /area/commons/dorms)
 "wYO" = (

@@ -273,10 +273,10 @@
 	can_be_asked_input = TRUE
 	demands_object_input = TRUE
 
-	var/obj/item/paicard/installed_pai
+	var/obj/item/pai_card/installed_pai
 
-/obj/item/integrated_circuit_old/input/pAI_connector/attackby(var/obj/item/paicard/O, var/mob/user)
-	if(!istype(O,/obj/item/paicard))
+/obj/item/integrated_circuit_old/input/pAI_connector/attackby(var/obj/item/pai_card/O, var/mob/user)
+	if(!istype(O,/obj/item/pai_card))
 		to_chat(user,span_warning("You can't put that inside."))
 		return
 	if(installed_pai)

@@ -409,14 +409,12 @@
 			B.bank_cards += C
 		H.sec_hud_set_ID()
 
-	var/obj/item/modular_computer/tablet/pda/PDA = H.get_item_by_slot(pda_slot)
-	if(istype(PDA))
-		PDA.saved_identification = C.registered_name
-		PDA.saved_job = C.assignment
+	var/obj/item/modular_computer/tablet/pda/pda = H.get_item_by_slot(pda_slot)
 
-		var/obj/item/computer_hardware/identifier/id = PDA.all_components[MC_IDENTIFY]
-		if(id)
-			id.UpdateDisplay()
+	if(istype(pda))
+		pda.saved_identification = H.real_name
+		pda.saved_job = J.title
+		pda.UpdateDisplay()
 
 	if(H.client?.prefs.playtime_reward_cloak)
 		neck = /obj/item/clothing/neck/cloak/skill_reward/playing

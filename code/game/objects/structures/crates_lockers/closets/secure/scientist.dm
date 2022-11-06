@@ -12,7 +12,7 @@
 	new /obj/item/clothing/head/bio_hood/scientist(src)
 	new /obj/item/clothing/suit/toggle/labcoat(src)
 	new /obj/item/gun/energy/e_gun/mini(src)
-	new /obj/item/computer_hardware/hard_drive/portable/command/rd(src)
+	new /obj/item/computer_disk/command/rd(src)
 	new /obj/item/radio/headset/heads/rd(src)
 	new /obj/item/megaphone/command(src)
 	new /obj/item/storage/lockbox/medal/sci(src)

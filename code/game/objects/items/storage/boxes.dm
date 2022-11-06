@@ -588,7 +588,7 @@
 
 /obj/item/storage/box/seccarts/PopulateContents()
 	for(var/i in 1 to 6)
-		new /obj/item/computer_hardware/hard_drive/portable/security(src)
+		new /obj/item/computer_disk/security(src)
 
 /obj/item/storage/box/firingpins
 	name = "ящик штатных бойков"
@@ -1162,7 +1162,6 @@
 	var/static/items_inside = list(
 		/obj/item/flashlight/emp/debug=1,\
 		/obj/item/modular_computer/tablet/pda=1,\
-		/obj/item/modular_computer/tablet/preset/advanced=1,\
 		/obj/item/geiger_counter=1,\
 		/obj/item/construction/rcd/combat/admin=1,\
 		/obj/item/pipe_dispenser=1,\

@@ -191,7 +191,7 @@
 	if(integrity_remaining > 0)
 		integrity_failure_checks = 0
 		return
-	if(integrity_failure_checks < 5)
+	if(integrity_failure_checks < 1)
 		integrity_failure_checks++
 		return
 	var/obj/docking_port/mobile/M = SSshuttle.getShuttle(port_id)

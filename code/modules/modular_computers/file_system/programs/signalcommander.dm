@@ -15,6 +15,14 @@
 	/// Radio connection datum used by signalers.
 	var/datum/radio_frequency/radio_connection
 
+/datum/computer_file/program/signal_commander/on_start(mob/living/user)
+	. = ..()
+	set_frequency(signal_frequency)
+
+/datum/computer_file/program/signal_commander/kill_program(forced)
+	. = ..()
+	SSradio.remove_object(computer, signal_frequency)
+
 /datum/computer_file/program/signal_commander/ui_data(mob/user)
 	var/list/data = get_header_data()
 	data["frequency"] = signal_frequency
@@ -29,16 +37,11 @@
 		return
 	switch(action)
 		if("signal")
-			if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_SIGNALLER_SEND))
-				to_chat(usr, span_warning("[filename] все еще перезаряжается..."))
-				return
-			TIMER_COOLDOWN_START(src, COOLDOWN_SIGNALLER_SEND, 1 SECONDS)
 			INVOKE_ASYNC(src, .proc/signal)
 			. = TRUE
 		if("freq")
-			signal_frequency = unformat_frequency(params["freq"])
-			signal_frequency = sanitize_frequency(signal_frequency, TRUE)
-			set_frequency(signal_frequency)
+			var/new_signal_frequency = sanitize_frequency(unformat_frequency(params["freq"]), TRUE)
+			set_frequency(new_signal_frequency)
 			. = TRUE
 		if("code")
 			signal_code = text2num(params["code"])

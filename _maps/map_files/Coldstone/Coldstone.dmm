@@ -7195,10 +7195,10 @@
 /area/service/hydroponics)
 "tj" = (
 /obj/structure/table/reinforced,
-/obj/item/computer_hardware/hard_drive/portable/engineering,
-/obj/item/computer_hardware/hard_drive/portable/engineering,
-/obj/item/computer_hardware/hard_drive/portable/engineering,
-/obj/item/computer_hardware/hard_drive/portable/atmos,
+/obj/item/computer_disk/engineering,
+/obj/item/computer_disk/engineering,
+/obj/item/computer_disk/engineering,
+/obj/item/computer_disk/atmos,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/ce)
 "tk" = (
@@ -8692,8 +8692,8 @@
 /obj/structure/table,
 /obj/structure/table/glass,
 /obj/machinery/recharger,
-/obj/item/computer_hardware/hard_drive/portable/chemistry,
-/obj/item/computer_hardware/hard_drive/portable/medical,
+/obj/item/computer_disk/chemistry,
+/obj/item/computer_disk/medical,
 /obj/item/clothing/neck/stethoscope{
 	pixel_y = 5
 	},
@@ -8961,7 +8961,7 @@
 /area/cargo/office)
 "zs" = (
 /obj/structure/table,
-/obj/item/paicard,
+/obj/item/pai_card,
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
 	},
@@ -13172,9 +13172,9 @@
 /area/service/chapel/main)
 "Nb" = (
 /obj/structure/table,
-/obj/item/computer_hardware/hard_drive/portable/ordnance,
-/obj/item/computer_hardware/hard_drive/portable/ordnance,
-/obj/item/computer_hardware/hard_drive/portable/ordnance,
+/obj/item/computer_disk/ordnance,
+/obj/item/computer_disk/ordnance,
+/obj/item/computer_disk/ordnance,
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/rd)
 "Nc" = (
@@ -15984,7 +15984,7 @@
 /area/medical/medbay)
 "VZ" = (
 /obj/structure/table,
-/obj/item/paicard,
+/obj/item/pai_card,
 /obj/item/taperecorder{
 	pixel_x = -3;
 	pixel_y = 2

@@ -4521,7 +4521,7 @@
 /area/hallway/secondary/service)
 "aFU" = (
 /obj/structure/table/wood,
-/obj/item/paicard,
+/obj/item/pai_card,
 /turf/open/floor/plasteel/grimy,
 /area/hallway/secondary/service)
 "aFV" = (
@@ -31099,7 +31099,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/item/healthanalyzer,
 /obj/item/healthanalyzer,
-/obj/item/paicard,
+/obj/item/pai_card,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
 /area/science/robotics/lab)
@@ -40428,9 +40428,9 @@
 /area/engineering/atmos)
 "eVw" = (
 /obj/structure/table/reinforced,
-/obj/item/computer_hardware/hard_drive/portable/quartermaster,
-/obj/item/computer_hardware/hard_drive/portable/quartermaster,
-/obj/item/computer_hardware/hard_drive/portable/quartermaster,
+/obj/item/computer_disk/quartermaster,
+/obj/item/computer_disk/quartermaster,
+/obj/item/computer_disk/quartermaster,
 /obj/item/gps/mining,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -50909,9 +50909,9 @@
 "hYe" = (
 /obj/structure/table/glass,
 /obj/item/folder/blue,
-/obj/item/computer_hardware/hard_drive/portable/medical,
-/obj/item/computer_hardware/hard_drive/portable/medical,
-/obj/item/computer_hardware/hard_drive/portable/chemistry,
+/obj/item/computer_disk/medical,
+/obj/item/computer_disk/medical,
+/obj/item/computer_disk/chemistry,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
@@ -67990,7 +67990,7 @@
 /area/service/hydroponics)
 "mDs" = (
 /obj/structure/table,
-/obj/item/paicard,
+/obj/item/pai_card,
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -72527,7 +72527,7 @@
 /area/engineering/storage/tech)
 "nLa" = (
 /obj/structure/table/wood,
-/obj/item/paicard,
+/obj/item/pai_card,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
@@ -75589,9 +75589,9 @@
 "oyd" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/yellow,
-/obj/item/computer_hardware/hard_drive/portable/atmos,
-/obj/item/computer_hardware/hard_drive/portable/atmos,
-/obj/item/computer_hardware/hard_drive/portable/atmos,
+/obj/item/computer_disk/atmos,
+/obj/item/computer_disk/atmos,
+/obj/item/computer_disk/atmos,
 /obj/item/stamp/ce,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -76659,7 +76659,7 @@
 /obj/item/pen,
 /obj/machinery/light/directional/south,
 /obj/machinery/status_display/evac/directional/south,
-/obj/item/paicard,
+/obj/item/pai_card,
 /turf/open/floor/wood,
 /area/commons/dorms)
 "oKG" = (
@@ -80820,9 +80820,9 @@
 /area/service/abandoned_gambling_den)
 "pSK" = (
 /obj/structure/table/reinforced,
-/obj/item/computer_hardware/hard_drive/portable/engineering,
-/obj/item/computer_hardware/hard_drive/portable/engineering,
-/obj/item/computer_hardware/hard_drive/portable/engineering,
+/obj/item/computer_disk/engineering,
+/obj/item/computer_disk/engineering,
+/obj/item/computer_disk/engineering,
 /obj/item/reagent_containers/pill/patch/aiuri,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -82704,7 +82704,7 @@
 "qrS" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/paicard,
+/obj/item/pai_card,
 /turf/open/floor/carpet,
 /area/service/library/abandoned)
 "qsh" = (
@@ -84873,7 +84873,7 @@
 /obj/structure/table/reinforced,
 /obj/item/wrench,
 /obj/item/crowbar,
-/obj/item/paicard,
+/obj/item/pai_card,
 /obj/effect/turf_decal/bot,
 /obj/machinery/newscaster/directional/south,
 /turf/open/floor/plasteel,
@@ -87306,7 +87306,7 @@
 /area/maintenance/starboard/aft)
 "rAp" = (
 /obj/structure/table/wood,
-/obj/item/paicard,
+/obj/item/pai_card,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -87480,7 +87480,7 @@
 /area/service/library/abandoned)
 "rDv" = (
 /obj/structure/table/wood,
-/obj/item/paicard,
+/obj/item/pai_card,
 /turf/open/floor/wood,
 /area/command/meeting_room/council)
 "rDG" = (
@@ -92150,9 +92150,9 @@
 /area/cargo/miningoffice)
 "sNs" = (
 /obj/structure/table,
-/obj/item/computer_hardware/hard_drive/portable/ordnance,
-/obj/item/computer_hardware/hard_drive/portable/ordnance,
-/obj/item/computer_hardware/hard_drive/portable/ordnance,
+/obj/item/computer_disk/ordnance,
+/obj/item/computer_disk/ordnance,
+/obj/item/computer_disk/ordnance,
 /obj/machinery/camera{
 	c_tag = "Science - Research Director's Office";
 	dir = 8;
@@ -96589,7 +96589,7 @@
 "tUR" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/white,
-/obj/item/paicard,
+/obj/item/pai_card,
 /obj/effect/turf_decal/bot,
 /obj/machinery/airalarm/directional/west,
 /obj/structure/extinguisher_cabinet/directional/north,
@@ -99786,7 +99786,7 @@
 /area/service/abandoned_gambling_den)
 "uOP" = (
 /obj/structure/table/wood,
-/obj/item/paicard,
+/obj/item/pai_card,
 /turf/open/floor/plasteel/grimy,
 /area/command/corporate_showroom)
 "uOU" = (
@@ -107193,7 +107193,7 @@
 /area/maintenance/port)
 "wSb" = (
 /obj/structure/table/wood,
-/obj/item/paicard,
+/obj/item/pai_card,
 /turf/open/floor/plasteel/grimy,
 /area/commons/vacant_room/office)
 "wSu" = (
@@ -109314,7 +109314,7 @@
 "xvp" = (
 /obj/structure/table,
 /obj/item/folder/white,
-/obj/item/paicard,
+/obj/item/pai_card,
 /obj/effect/turf_decal/tile/purple{
 	dir = 1
 	},

@@ -6,9 +6,9 @@
 	program_icon_state = "smmon_0"
 	extended_desc = "Система Мониторинга Целостности Кристаллов, подключается к специальным сенсорам на кристаллах антиматерии и передает информацию о их состоянии."
 	requires_ntnet = TRUE
-	transfer_access = ACCESS_CONSTRUCTION
+	transfer_access = list(ACCESS_CONSTRUCTION)
 	size = 5
-	tgui_id = "NtosSupermatterMonitor"
+	tgui_id = "NtosSupermatter"
 	program_icon = "radiation"
 	alert_able = TRUE
 	var/last_status = SUPERMATTER_INACTIVE

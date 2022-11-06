@@ -130,7 +130,7 @@
 	if(!bounds)
 		return FALSE
 
-	repopulate_sorted_areas()
+	require_area_resort()
 
 	SSair.unpause_z(level.z_value)
 
@@ -175,7 +175,7 @@
 		return
 
 	if(!SSmapping.loading_ruins) //Will be done manually during mapping ss init
-		repopulate_sorted_areas()
+		require_area_resort()
 
 	//initialize things that are normally initialized after map load
 	//If this is a superfunction call, we don't want to initialize atoms here, let the subfunction handle that

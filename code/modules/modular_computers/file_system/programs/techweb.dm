@@ -1,16 +1,19 @@
 /datum/computer_file/program/science
 	filename = "experi_track"
 	filedesc = "Центр Исследований Нанотрейзен"
+	category = PROGRAM_CATEGORY_SCI
 	program_icon_state = "research"
 	extended_desc = "Позволяет подключиться к серверам научного отдела для помощи в исследованиях."
 	requires_ntnet = TRUE
 	size = 10
 	tgui_id = "NtosTechweb"
 	program_icon = "atom"
-	required_access = ACCESS_HEADS
-	transfer_access = ACCESS_RD
+	required_access = list(ACCESS_HEADS, ACCESS_RESEARCH)
+	transfer_access = list(ACCESS_RESEARCH)
 	/// Reference to global science techweb
 	var/datum/techweb/stored_research
+	/// Access needed to lock/unlock the console
+	var/lock_access = ACCESS_RESEARCH
 	/// Determines if the console is locked, and consequently if actions can be performed with it
 	var/locked = FALSE
 	/// Used for compressing data sent to the UI via static_data as payload size is of concern
@@ -197,6 +200,8 @@
 			var/logname = "Неизвестный"
 			if(isAI(user))
 				logname = "AI: [user.name]"
+			if(iscyborg(user))
+				logname = "Cyborg: [user.name]"
 			if(iscarbon(user))
 				var/obj/item/card/id/idcard = user.get_active_held_item()
 				if(istype(idcard))
@@ -208,7 +213,7 @@
 					var/obj/item/card/id/id_card_of_human_user = worn.GetID()
 					if(istype(id_card_of_human_user))
 						logname = "User: [id_card_of_human_user.registered_name]"
-			stored_research.research_logs = list(list(tech_node.display_name, price["Основные Исследования"], logname, "[get_area(src)] ([computer.x],[computer.y],[computer.z])"))
+			stored_research.research_logs += list(list(tech_node.display_name, price["Основные Исследования"], logname, "[get_area(src)] ([computer.x],[computer.y],[computer.z])"))
 			return TRUE
 		else
 			computer.say("Сбой процесса исследования: Внутренняя ошибка базы данных!")

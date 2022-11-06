@@ -22,7 +22,7 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/glass = 500, /datum/material/iron = 500)
-	build_path = /obj/item/paicard
+	build_path = /obj/item/pai_card
 	category = list("Электроника", "Инженерное снаряжение", "Научное снаряжение", "Карго снаряжение", "Снаряжение СБ")
 	sub_category = list("Экипировка")
 

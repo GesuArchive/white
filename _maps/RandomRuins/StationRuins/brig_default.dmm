@@ -3458,11 +3458,11 @@
 	c_tag = "Head of Security's Office"
 	},
 /obj/structure/table/wood,
-/obj/item/computer_hardware/hard_drive/portable/security{
+/obj/item/computer_disk/security{
 	pixel_y = 4;
 	layer = 3.01
 	},
-/obj/item/computer_hardware/hard_drive/portable/security{
+/obj/item/computer_disk/security{
 	pixel_x = 4
 	},
 /turf/open/floor/plasteel/dark,

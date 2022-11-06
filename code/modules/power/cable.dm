@@ -454,6 +454,11 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	name = "[how_many_things] кабеля"
 	desc = "[how_many_things] изолированного силового кабеля."
 
+/obj/item/stack/cable_coil/proc/set_cable_color(new_color)
+	color = GLOB.cable_colors[new_color]
+	cable_color = new_color
+	update_appearance(UPDATE_ICON)
+
 /obj/item/stack/cable_coil/suicide_act(mob/user)
 	if(locate(/obj/structure/chair/stool) in get_turf(user))
 		user.visible_message(span_suicide("[user] is making a noose with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))

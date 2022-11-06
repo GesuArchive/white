@@ -10,7 +10,7 @@
 		return SSorbits.assoc_z_levels["[current_turf.z]"]
 
 /atom/proc/get_orbital_distance(atom/target)
-	if (get_virtual_z_level() == target.get_virtual_z_level())
+	if (z == target.z)
 		return get_dist(src, target)
 	var/datum/orbital_object/our_object = get_orbital_loc()
 	var/datum/orbital_object/their_object = target.get_orbital_loc()

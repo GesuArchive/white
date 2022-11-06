@@ -254,7 +254,7 @@
 			if(timer < world.time)
 				continue
 			var/obj/docking_port/port = SSshuttle.getShuttle(interdicted_id)
-			if(port && port.get_virtual_z_level() == our_port.get_virtual_z_level())
+			if(port && port.z == our_port.z)
 				data["interdictedShuttles"] += list(list(
 					"shuttleName" = port.name,
 					"x" = port.x - our_port.x,

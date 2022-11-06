@@ -1,5 +1,11 @@
 #define MIDNIGHT_ROLLOVER		864000	//number of deciseconds in a day
 
+/// Define that just has the current in-universe year for use in whatever context you might want to display that in. (For example, 2022 -> 2562 given a 540 year offset)
+#define CURRENT_STATION_YEAR (GLOB.year_integer + STATION_YEAR_OFFSET)
+
+/// In-universe, SS13 is set 540 years in the future from the real-world day, hence this number for determining the year-offset for the in-game year.
+#define STATION_YEAR_OFFSET 540
+
 #define JANUARY		1
 #define FEBRUARY	2
 #define MARCH		3

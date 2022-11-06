@@ -8,19 +8,11 @@
 	name = "камера ИИ"
 	flash_enabled = FALSE
 
-/obj/item/camera/siliconcam/proc/toggle_camera_mode(mob/user)
-	if(in_camera_mode)
-		camera_mode_off(user)
-	else
-		camera_mode_on(user)
-
-/obj/item/camera/siliconcam/proc/camera_mode_off(mob/user)
-	in_camera_mode = FALSE
-	to_chat(user, "<B>Режим камеры деактивирован!</B>")
-
-/obj/item/camera/siliconcam/proc/camera_mode_on(mob/user)
-	in_camera_mode = TRUE
-	to_chat(user, "<B>Режим камеры активирован!</B>")
+/obj/item/camera/siliconcam/proc/toggle_camera_mode(mob/user, sound = TRUE)
+	in_camera_mode = !in_camera_mode
+	if(sound)
+		playsound(src, 'sound/items/wirecutter.ogg', 50, TRUE)
+	to_chat(user, span_notice("Режим камеры: [in_camera_mode ? "Активен" : "Не активен"]."))
 
 /obj/item/camera/siliconcam/proc/selectpicture(mob/user)
 	var/list/nametemp = list()

@@ -3372,8 +3372,8 @@
 /area/awaymission/moonoutpost19/research)
 "hr" = (
 /obj/structure/table,
-/obj/item/computer_hardware/hard_drive/portable/ordnance,
-/obj/item/computer_hardware/hard_drive/portable/ordnance,
+/obj/item/computer_disk/ordnance,
+/obj/item/computer_disk/ordnance,
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
@@ -3739,7 +3739,7 @@
 /area/awaymission/moonoutpost19/research)
 "ic" = (
 /obj/structure/rack,
-/obj/item/paicard{
+/obj/item/pai_card{
 	pixel_x = 4
 	},
 /obj/effect/turf_decal/stripes/line{

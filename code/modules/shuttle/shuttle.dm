@@ -594,8 +594,7 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 	initial_engines = count_engines()
 	current_engines = initial_engines
 
-	virtual_z = get_new_virtual_z()
-	current_z = virtual_z
+	current_z = src.z
 
 	#ifdef DOCKING_PORT_HIGHLIGHT
 	highlight("#0f0")
@@ -766,7 +765,9 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 		for(var/obj/docking_port/mobile/bottom_shuttle as() in all_towed_shuttles)
 			if(bottom_shuttle.underlying_turf_area[oldT])
 				var/area/underlying_area = bottom_shuttle.underlying_turf_area[oldT]
+				old_area.turfs_to_uncontain += oldT
 				underlying_area.contents += oldT
+				underlying_area.contained_turfs += oldT
 				oldT.transfer_area_lighting(old_area, underlying_area)
 				oldT.empty(FALSE)
 				break
@@ -1101,7 +1102,7 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 		for(var/mob/M as() in SSmobs.clients_by_zlevel[z])
 			var/dist_far = get_dist(M, distant_source)
 			//Cannot hear shuttles from other shuttles
-			if(M.get_virtual_z_level() != get_virtual_z_level())
+			if(M.z != z)
 				continue
 			if(dist_far <= long_range && dist_far > range)
 				M.playsound_local(distant_source, selected_sound, 100)

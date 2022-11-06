@@ -27,7 +27,7 @@
 	else
 		..()
 
-/mob/living/carbon/alien/humanoid/royal/queen/tamed/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE)
+/mob/living/carbon/alien/humanoid/royal/queen/tamed/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk = FALSE)
 	if(incapacitated() || !(mobility_flags & MOBILITY_STAND) )
 		to_chat(src, span_warning("Не могу сделать это сейчас!"))
 		return FALSE

@@ -3,7 +3,6 @@
 	filedesc = "Программный центр НТ"
 	program_icon_state = "generic"
 	extended_desc = "Эта программа позволяет загружать вам программное обеспечение с серверов НТ."
-	unsendable = TRUE
 	undeletable = TRUE
 	size = 4
 	requires_ntnet = TRUE
@@ -18,14 +17,13 @@
 	var/download_completion = FALSE //GQ of downloaded data.
 	var/download_netspeed = 0
 	var/downloaderror = ""
-	var/obj/item/modular_computer/my_computer = null
 	var/emagged = FALSE
 	var/list/main_repo
 	var/list/antag_repo
 	var/list/show_categories = list(
 		PROGRAM_CATEGORY_CREW,
 		PROGRAM_CATEGORY_ENGI,
-		PROGRAM_CATEGORY_ROBO,
+		PROGRAM_CATEGORY_SCI,
 		PROGRAM_CATEGORY_SUPL,
 		PROGRAM_CATEGORY_MISC,
 	)
@@ -55,9 +53,7 @@
 	if(PRG.available_on_syndinet && !emagged)
 		return FALSE
 
-	var/obj/item/computer_hardware/hard_drive/hard_drive = computer.all_components[MC_HDD]
-
-	if(!computer || !hard_drive || !hard_drive.can_store_file(PRG))
+	if(!computer || !computer.can_store_file(PRG))
 		return FALSE
 
 	ui_header = "downloader_running.gif"
@@ -66,7 +62,7 @@
 		generate_network_log("Начинаю загрузку файлов [PRG.filename].[PRG.filetype] с серверов НТ.")
 		hacked_download = FALSE
 	else if(PRG in antag_repo)
-		generate_network_log("Начинаю загрузку **ДАННЫЕ УДАЛЕНЫ**.[PRG.filetype] с неустановленных серверов.")
+		generate_network_log("Начинаю загрузку **ЗАШИФРОВАНО**.[PRG.filetype] с неустановленных серверов.")
 		hacked_download = TRUE
 	else
 		generate_network_log("Начинаю загрузку файлов [PRG.filename].[PRG.filetype] с неустановленных серверов.")
@@ -77,7 +73,7 @@
 /datum/computer_file/program/ntnetdownload/proc/abort_file_download()
 	if(!downloaded_file)
 		return
-	generate_network_log("Ошибка: загрузка файлов с [hacked_download ? "**ДАННЫЕ УДАЛЕНЫ**" : "[downloaded_file.filename].[downloaded_file.filetype]"] прекращена.")
+	generate_network_log("Ошибка: загрузка файлов с [hacked_download ? "**ЗАШИФРОВАНО**" : "[downloaded_file.filename].[downloaded_file.filetype]"] прекращена.")
 	downloaded_file = null
 	download_completion = FALSE
 	ui_header = "downloader_finished.gif"
@@ -85,16 +81,15 @@
 /datum/computer_file/program/ntnetdownload/proc/complete_file_download()
 	if(!downloaded_file)
 		return
-	generate_network_log("Загрузка файлов с [hacked_download ? "**ДАННЫЕ УДАЛЕНЫ**" : "[downloaded_file.filename].[downloaded_file.filetype]"] завершена.")
-	var/obj/item/computer_hardware/hard_drive/hard_drive = computer.all_components[MC_HDD]
-	if(!computer || !hard_drive || !hard_drive.store_file(downloaded_file))
+	generate_network_log("Загрузка файлов с [hacked_download ? "**ЗАШИФРОВАНО**" : "[downloaded_file.filename].[downloaded_file.filetype]"].")
+	if(!computer || !computer.store_file(downloaded_file))
 		// The download failed
 		downloaderror = "I/O ERROR - Unable to save file. Check whether you have enough free space on your hard drive and whether your hard drive is properly connected. If the issue persists contact your system administrator for assistance."
 	downloaded_file = null
 	download_completion = FALSE
 	ui_header = "downloader_finished.gif"
 
-/datum/computer_file/program/ntnetdownload/process_tick()
+/datum/computer_file/program/ntnetdownload/process_tick(delta_time)
 	if(!downloaded_file)
 		return
 	if(download_completion >= downloaded_file.size)
@@ -130,9 +125,7 @@
 	return FALSE
 
 /datum/computer_file/program/ntnetdownload/ui_data(mob/user)
-	my_computer = computer
-
-	if(!istype(my_computer))
+	if(!istype(computer))
 		return
 	var/obj/item/computer_hardware/card_slot/card_slot = computer.all_components[MC_CARD]
 	var/list/access = card_slot?.GetAccess()
@@ -150,29 +143,27 @@
 		data["downloadspeed"] = download_netspeed
 		data["downloadcompletion"] = round(download_completion, 0.1)
 
-	var/obj/item/computer_hardware/hard_drive/hard_drive = my_computer.all_components[MC_HDD]
-	data["disk_size"] = hard_drive.max_capacity
-	data["disk_used"] = hard_drive.used_capacity
+	data["disk_size"] = computer.max_capacity
+	data["disk_used"] = computer.used_capacity
 	data["emagged"] = emagged
 
 	var/list/repo = antag_repo | main_repo
 	var/list/program_categories = list()
 
-	for(var/I in repo)
-		var/datum/computer_file/program/P = I
-		if(!(P.category in program_categories))
-			program_categories.Add(P.category)
+	for(var/datum/computer_file/program/programs as anything in repo)
+		if(!(programs.category in program_categories))
+			program_categories.Add(programs.category)
 		data["programs"] += list(list(
-			"icon" = P.program_icon,
-			"filename" = P.filename,
-			"filedesc" = P.filedesc,
-			"fileinfo" = P.extended_desc,
-			"category" = P.category,
-			"installed" = !!hard_drive.find_file_by_name(P.filename),
-			"compatible" = check_compatibility(P),
-			"size" = P.size,
-			"access" = emagged && P.available_on_syndinet ? TRUE : P.can_run(user,transfer = 1, access = access),
-			"verifiedsource" = P.available_on_ntnet,
+			"icon" = programs.program_icon,
+			"filename" = programs.filename,
+			"filedesc" = programs.filedesc,
+			"fileinfo" = programs.extended_desc,
+			"category" = programs.category,
+			"installed" = !!computer.find_file_by_name(programs.filename),
+			"compatible" = check_compatibility(programs),
+			"size" = programs.size,
+			"access" = emagged && programs.available_on_syndinet ? TRUE : programs.can_run(user,transfer = 1, access = access),
+			"verifiedsource" = programs.available_on_ntnet,
 		))
 
 	data["categories"] = show_categories & program_categories

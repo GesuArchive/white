@@ -16,6 +16,9 @@
 	ranged_mousepointer = 'icons/effects/mouse_pointers/cult_target.dmi'
 	spell_requirements = NONE
 	var/obj/machinery/computer/weapons/linked_console
+	cast_range = 255
+	active_msg = "Готовлю орудие"
+	deactive_msg = "Деактивирую орудие"
 
 /datum/action/cooldown/spell/pointed/set_weapon_target/InterceptClickOn(mob/living/caller, params, atom/target)
 	if(!linked_console)

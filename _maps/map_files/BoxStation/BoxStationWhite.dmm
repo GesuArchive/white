@@ -18126,7 +18126,7 @@
 	},
 /obj/structure/cable,
 /obj/structure/table,
-/obj/item/paicard,
+/obj/item/pai_card,
 /obj/item/taperecorder{
 	pixel_x = -3;
 	pixel_y = 2
@@ -35120,10 +35120,10 @@
 /area/maintenance/port/fore)
 "kDn" = (
 /obj/structure/table/reinforced,
-/obj/item/computer_hardware/hard_drive/portable/engineering,
-/obj/item/computer_hardware/hard_drive/portable/engineering,
-/obj/item/computer_hardware/hard_drive/portable/engineering,
-/obj/item/computer_hardware/hard_drive/portable/atmos,
+/obj/item/computer_disk/engineering,
+/obj/item/computer_disk/engineering,
+/obj/item/computer_disk/engineering,
+/obj/item/computer_disk/atmos,
 /obj/structure/disposalpipe/segment{
 	dir = 9
 	},
@@ -45503,7 +45503,7 @@
 /area/maintenance/port/aft)
 "nSv" = (
 /obj/structure/table/wood,
-/obj/item/paicard,
+/obj/item/pai_card,
 /turf/open/floor/plasteel/monofloor,
 /area/commons/dorms)
 "nSF" = (
@@ -48640,9 +48640,9 @@
 /obj/effect/turf_decal/tile/brown,
 /obj/structure/table,
 /obj/item/clipboard,
-/obj/item/computer_hardware/hard_drive/portable/quartermaster,
-/obj/item/computer_hardware/hard_drive/portable/quartermaster,
-/obj/item/computer_hardware/hard_drive/portable/quartermaster,
+/obj/item/computer_disk/quartermaster,
+/obj/item/computer_disk/quartermaster,
+/obj/item/computer_disk/quartermaster,
 /obj/item/coin/silver,
 /obj/effect/turf_decal/tile/brown{
 	dir = 8
@@ -50205,15 +50205,15 @@
 	pixel_y = 7
 	},
 /obj/item/pen,
-/obj/item/computer_hardware/hard_drive/portable/ordnance{
+/obj/item/computer_disk/ordnance{
 	pixel_x = -18;
 	pixel_y = -3
 	},
-/obj/item/computer_hardware/hard_drive/portable/ordnance{
+/obj/item/computer_disk/ordnance{
 	pixel_x = -14;
 	pixel_y = 6
 	},
-/obj/item/computer_hardware/hard_drive/portable/ordnance{
+/obj/item/computer_disk/ordnance{
 	pixel_x = -11
 	},
 /turf/open/floor/plasteel/cafeteria,

@@ -6,6 +6,8 @@
 // These are signals which can be listened to by any component on any parent
 // start global signals with "!", this used to be necessary but now it's just a formatting choice
 
+/// called after a successful area creation by a mob: (area/created_area, area/old_area, mob/creator)
+#define COMSIG_AREA_CREATED "!mob_created_area"
 ///from base of datum/controller/subsystem/mapping/proc/add_new_zlevel(): (list/args)
 #define COMSIG_GLOB_NEW_Z "!new_z"
 /// called after a successful var edit somewhere in the world: (list/args)
@@ -1634,3 +1636,20 @@
 //Lua hooks or whatnot
 ///Just ctrl+shift+f this shit, i'm not your mum.
 #define COMSIG_SIGNALLER_PULSED "signaller_pulsed"
+
+///From /obj/effect/rune/convert/do_sacrifice() : (list/invokers)
+#define COMSIG_LIVING_CULT_SACRIFICED "living_cult_sacrificed"
+	/// Return to stop the sac from occurring
+	#define STOP_SACRIFICE (1<<0)
+	/// Don't send a message for sacrificing this thing, we have our own
+	#define SILENCE_SACRIFICE_MESSAGE (1<<1)
+
+// Modular computer's file signals. Tells the program datum something is going on.
+/// From /obj/item/modular_computer/proc/store_file: ()
+#define COMSIG_MODULAR_COMPUTER_FILE_ADDING "comsig_modular_computer_file_adding"
+/// From /obj/item/modular_computer/proc/store_file: ()
+#define COMSIG_MODULAR_COMPUTER_FILE_ADDED "comsig_modular_computer_file_adding"
+/// From /obj/item/modular_computer/proc/remove_file: ()
+#define COMSIG_MODULAR_COMPUTER_FILE_DELETING "comsig_modular_computer_file_deleting"
+/// From /obj/item/modular_computer/proc/store_file: ()
+#define COMSIG_MODULAR_COMPUTER_FILE_DELETED "comsig_modular_computer_file_adding"

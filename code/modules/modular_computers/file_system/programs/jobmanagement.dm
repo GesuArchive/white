@@ -7,24 +7,26 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 	category = PROGRAM_CATEGORY_CREW
 	program_icon_state = "id"
 	extended_desc = "Программа менеджемнта рабочих мест с возможностью выбора приоритета среди доступных вакансий."
-	transfer_access = ACCESS_HEADS
+	transfer_access = list(ACCESS_HEADS)
 	requires_ntnet = TRUE
 	size = 4
 	tgui_id = "NtosJobManager"
 	program_icon = "address-book"
 
 	var/change_position_cooldown = 30
-	//Jobs you cannot open new positions for
+	///Jobs blacklisted from having their slots edited.
 	var/list/blacklisted = list(
-		JOB_AI,
-		JOB_ASSISTANT,
-		JOB_CYBORG,
 		JOB_CAPTAIN,
 		JOB_HEAD_OF_PERSONNEL,
 		JOB_HEAD_OF_SECURITY,
-		JOB_CHIEF_ENGINEER,
 		JOB_RESEARCH_DIRECTOR,
-		JOB_CHIEF_MEDICAL_OFFICER)
+		JOB_CHIEF_ENGINEER,
+		JOB_CHIEF_MEDICAL_OFFICER,
+		JOB_QUARTERMASTER,
+		JOB_AI,
+		JOB_CYBORG,
+		JOB_ASSISTANT,
+	)
 
 	//The scaling factor of max total positions in relation to the total amount of people on board the station in %
 	var/max_relative_positions = 30 //30%: Seems reasonable, limit of 6 @ 20 players
@@ -39,9 +41,10 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 
 
 /datum/computer_file/program/job_management/proc/can_edit_job(datum/job/job)
-	if(!job/* || !(job.job_flags & JOB_CREW_MEMBER)*/ || (job.title in blacklisted))
+	if(!job || (job.title in blacklisted))
 		return FALSE
 	return TRUE
+
 
 /datum/computer_file/program/job_management/proc/can_open_job(datum/job/job)
 	if(!can_edit_job(job))
@@ -84,7 +87,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 				GLOB.time_last_changed_position = world.time / 10
 			j.total_positions++
 			opened_positions[edit_job_target]++
-			log_game("[key_name(usr)] opened a [j.title] job position, for a total of [j.total_positions] open job slots.")
+			log_job_debug("[key_name(usr)] opened a [j.title] job position, for a total of [j.total_positions] open job slots.")
 			playsound(computer, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 			return TRUE
 		if("PRG_close_job")
@@ -97,7 +100,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 				GLOB.time_last_changed_position = world.time / 10
 			j.total_positions--
 			opened_positions[edit_job_target]--
-			log_game("[key_name(usr)] closed a [j.title] job position, leaving [j.total_positions] open job slots.")
+			log_job_debug("[key_name(usr)] closed a [j.title] job position, leaving [j.total_positions] open job slots.")
 			playsound(computer, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 			return TRUE
 		if("PRG_priority")

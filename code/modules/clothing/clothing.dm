@@ -118,7 +118,7 @@
 		qdel(src)
 
 /obj/item/clothing/attack(mob/attacker, mob/user, def_zone)
-	if(user.a_intent != INTENT_HARM && ismoth(attacker))
+	if(user.a_intent != INTENT_HARM && ismoth(attacker) && !ispickedupmob(src))
 		if (isnull(moth_snack))
 			moth_snack = new
 			moth_snack.name = name

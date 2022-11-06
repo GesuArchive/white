@@ -74,23 +74,23 @@
 /mob/living/silicon/proc/create_modularInterface()
 	if(!modularInterface)
 		modularInterface = new /obj/item/modular_computer/tablet/integrated(src)
+	if(istype(src, /mob/living/silicon/ai))
+		modularInterface.saved_job = JOB_AI
+	if(istype(src, /mob/living/silicon/pai))
+		modularInterface.saved_job = "pAI Messenger"
 	modularInterface.layer = ABOVE_HUD_PLANE
 	SET_PLANE_EXPLICIT(modularInterface, ABOVE_HUD_PLANE, src)
 	modularInterface.saved_identification = real_name || name
-	if(istype(src, /mob/living/silicon/robot))
-		modularInterface.saved_job = JOB_CYBORG
-		modularInterface.install_component(new /obj/item/computer_hardware/hard_drive/small/integrated/borg)
-	if(istype(src, /mob/living/silicon/ai))
-		modularInterface.saved_job = JOB_AI
-		modularInterface.install_component(new /obj/item/computer_hardware/hard_drive/small/integrated)
-	if(istype(src, /mob/living/silicon/pai))
-		modularInterface.saved_job = "pAI Messenger"
-		modularInterface.install_component(new /obj/item/computer_hardware/hard_drive/small/integrated)
+
+/mob/living/silicon/robot/create_modularInterface()
+	if(!modularInterface)
+		modularInterface = new /obj/item/modular_computer/tablet/integrated/cyborg(src)
+		modularInterface.saved_job = "Cyborg"
+	return ..()
 
 /mob/living/silicon/robot/modules/syndicate/create_modularInterface()
 	if(!modularInterface)
 		modularInterface = new /obj/item/modular_computer/tablet/integrated/syndicate(src)
-		modularInterface.saved_identification = real_name
 		modularInterface.saved_job = JOB_CYBORG
 	return ..()
 
@@ -469,7 +469,7 @@
 	if(!modularInterface)
 		stack_trace("Silicon [src] ( [type] ) was somehow missing their integrated tablet. Please make a bug report.")
 		create_modularInterface()
-	var/mob/living/silicon/robot/robo = modularInterface.borgo
+	var/mob/living/silicon/robot/robo = modularInterface.silicon_owner
 	if(istype(robo))
 		modularInterface.borglog += "[SSday_night.get_twentyfourhour_timestamp()] - [string]"
 	var/datum/computer_file/program/robotact/program = modularInterface.get_robotact()

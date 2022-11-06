@@ -290,6 +290,11 @@ structure_check() searches for nearby cultist structures required for the invoca
 			to_chat(M, "<span class='cult italic'>[sacrificial] is too greatly linked to the world! You need three acolytes!</span>")
 		log_game("Offer rune failed - not enough acolytes and target is living or sac target")
 		return FALSE
+
+	var/signal_result = SEND_SIGNAL(sacrificial, COMSIG_LIVING_CULT_SACRIFICED, invokers)
+	if(signal_result & STOP_SACRIFICE)
+		return FALSE
+
 	if(sacrificial.mind)
 		GLOB.sacrificed += sacrificial.mind
 		for(var/datum/objective/sacrifice/sac_objective in C.cult_team.objectives)

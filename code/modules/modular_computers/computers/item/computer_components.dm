@@ -50,7 +50,7 @@
 	yeet.on_remove(src, user)
 	if(enabled && !use_power())
 		shutdown_computer()
-	update_icon()
+	update_appearance()
 	return TRUE
 
 /// This isn't the "uninstall fully" proc, it just makes the computer lose all its references to the component
@@ -68,11 +68,4 @@
 		var/obj/component = all_components[i]
 		if(component.name == name)
 			return component
-	return null
-
-/obj/item/modular_computer/proc/find_hardware_by_type(typepath)
-	for(var/i in all_components)
-		var/obj/O = all_components[i]
-		if(istype(O, typepath))
-			return O
 	return null

@@ -11,6 +11,7 @@
 
 	hardware_flag = PROGRAM_LAPTOP
 	max_hardware_size = 2
+	max_idle_programs = 3
 	w_class = WEIGHT_CLASS_NORMAL
 	max_bays = 4
 
@@ -61,11 +62,9 @@
 
 /obj/item/modular_computer/laptop/MouseDrop(obj/over_object, src_location, over_location)
 	. = ..()
-	/* там и так аттак_селф у родителя вызываеца блядь
 	if(over_object == usr || over_object == src)
 		try_toggle_open(usr)
 		return
-	*/
 	if(istype(over_object, /atom/movable/screen/inventory/hand))
 		var/atom/movable/screen/inventory/hand/H = over_object
 		var/mob/M = usr
@@ -88,13 +87,16 @@
 		return
 	if(!isturf(loc) && !ismob(loc)) // No opening it in backpack.
 		return
-	if(!user.canUseTopic(src, BE_CLOSE))
+	if(!user.canUseTopic(src, be_close = TRUE))
 		return
 
 	toggle_open(user)
 
 
 /obj/item/modular_computer/laptop/AltClick(mob/user)
+	. = ..()
+	if(!can_interact(user))
+		return
 	if(screen_on) // Close it.
 		try_toggle_open(user)
 	else
@@ -112,7 +114,7 @@
 
 	screen_on = !screen_on
 	display_overlays = screen_on
-	update_icon()
+	update_appearance()
 
 
 

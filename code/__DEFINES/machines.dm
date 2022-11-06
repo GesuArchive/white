@@ -60,8 +60,6 @@
 
 //Modular computer part defines
 #define MC_CPU "CPU"
-#define MC_HDD "HDD"
-#define MC_SDD "SDD"
 #define MC_CARD "CARD"
 #define MC_CARD2 "CARD2"
 #define MC_CART "CART"
@@ -103,6 +101,7 @@
 #define PROGRAM_CATEGORY_ENGI "Engineering"
 #define PROGRAM_CATEGORY_ROBO "Robotics"
 #define PROGRAM_CATEGORY_SUPL "Supply"
+#define PROGRAM_CATEGORY_SCI  "Science"
 #define PROGRAM_CATEGORY_MISC "Other"
 
 #define FIREDOOR_OPEN 1
@@ -110,6 +109,21 @@
 
 #define DETOMATIX_RESIST_MINOR 1
 #define DETOMATIX_RESIST_MAJOR 2
+
+// NTNet connection signals
+///When you're away from the station/mining base and not on a console, you can't access the internet
+#define NTNET_NO_SIGNAL 0
+///Low signal, so away from the station, but still connected
+#define NTNET_LOW_SIGNAL 1
+///On station, good signal
+#define NTNET_GOOD_SIGNAL 2
+///Using a Computer, ethernet-connected.
+#define NTNET_ETHERNET_SIGNAL 3
+
+/// The default ringtone of the Messenger app.
+#define MESSENGER_RINGTONE_DEFAULT "beep"
+/// The maximum length of the ringtone of the Messenger app.
+#define MESSENGER_RINGTONE_MAX_LENGTH 20
 
 // These are used by supermatter and supermatter monitor program, mostly for UI updating purposes. Higher should always be worse!
 #define SUPERMATTER_ERROR -1		// Unknown status, shouldn't happen but just in case.

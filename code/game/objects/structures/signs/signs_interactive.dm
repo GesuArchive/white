@@ -19,7 +19,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/calendar, 32)
 
 /obj/structure/sign/calendar/examine(mob/user)
 	. = ..()
-	. += span_info("<hr>Текущая дата: [time2text(world.realtime, "DD/MM")]/[GLOB.year_integer+540].")
+	. += span_info("<hr>Текущая дата: [time2text(world.realtime, "DD/MM")]/[CURRENT_STATION_YEAR].")
 	if(SSevents.holidays)
 		. += span_info("<hr>Праздники:")
 		for(var/holidayname in SSevents.holidays)

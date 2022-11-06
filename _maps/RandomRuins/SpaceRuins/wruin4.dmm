@@ -908,7 +908,7 @@
 	dir = 1
 	},
 /obj/structure/table,
-/obj/item/paicard,
+/obj/item/pai_card,
 /obj/machinery/light{
 	dir = 8
 	},

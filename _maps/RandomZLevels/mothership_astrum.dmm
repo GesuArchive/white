@@ -1812,7 +1812,7 @@
 /area/awaymission/mothership_astrum/halls)
 "DD" = (
 /obj/structure/table/abductor,
-/obj/item/paicard,
+/obj/item/pai_card,
 /turf/open/floor/plating/abductor,
 /area/awaymission/mothership_astrum/halls)
 "DE" = (
@@ -2108,7 +2108,7 @@
 /obj/machinery/porta_turret/syndicate/pod{
 	faction = list("Abductor");
 	max_integrity = 120;
-	
+
 	},
 /turf/open/floor/plating/abductor2,
 /area/awaymission/mothership_astrum/halls)

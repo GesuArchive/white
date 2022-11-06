@@ -28,42 +28,56 @@
 			M.playsound_local(M, 'sound/ambience/aurora_caelus.ogg', 20, FALSE, pressure_affected = FALSE)
 
 /datum/round_event/aurora_caelus/start()
-	for(var/area in GLOB.sortedAreas)
-		var/area/A = area
-		if(A.area_flags & AREA_USES_STARLIGHT)
-			for(var/turf/open/space/S in A)
-				S.set_light(S.light_range * 3, S.light_power * 0.5)
-			for(var/turf/open/openspace/S in A)
-				S.set_light(S.light_range * 3, S.light_power * 0.5)
+	for(var/area/affected_area as anything in GLOB.areas)
+		if(affected_area.area_flags & AREA_USES_STARLIGHT)
+			for(var/turf/open/space/spess in affected_area.get_contained_turfs())
+				spess.set_light(spess.light_range * 3, spess.light_power * 0.5)
+		if(istype(affected_area, /area/service/kitchen))
+			for(var/turf/open/kitchen in affected_area.get_contained_turfs())
+				kitchen.set_light(1, 0.75)
+			if(!prob(1) && !(SSevents.holidays && SSevents.holidays[APRIL_FOOLS]))
+				continue
+			var/obj/machinery/oven/roast_ruiner = locate() in affected_area
+			if(roast_ruiner)
+				roast_ruiner.balloon_alert_to_viewers("oh egads!")
+				var/turf/ruined_roast = get_turf(roast_ruiner)
+				ruined_roast.atmos_spawn_air("plasma=100;TEMP=1000")
+				message_admins("Aurora Caelus event caused an oven to ignite at [ADMIN_VERBOSEJMP(ruined_roast)].")
+				log_game("Aurora Caelus event caused an oven to ignite at [loc_name(ruined_roast)].")
+			for(var/mob/living/carbon/human/seymour as anything in GLOB.human_list)
+				if(seymour.mind && istype(seymour.mind.assigned_role, /datum/job/cook))
+					seymour.say("My roast is ruined!!!", forced = "ruined roast")
+					seymour.emote("scream")
 
 /datum/round_event/aurora_caelus/tick()
 	if(activeFor % 5 == 0)
 		aurora_progress++
 		var/aurora_color = aurora_colors[aurora_progress]
-		for(var/area in GLOB.sortedAreas)
-			var/area/A = area
-			if(A.area_flags & AREA_USES_STARLIGHT)
-				for(var/turf/open/space/S in A)
-					S.set_light(l_color = aurora_color)
-				for(var/turf/open/openspace/S in A)
-					S.set_light(l_color = aurora_color)
+		for(var/area/affected_area as anything in GLOB.areas)
+			if(affected_area.area_flags & AREA_USES_STARLIGHT)
+				for(var/turf/open/space/spess in affected_area.get_contained_turfs())
+					spess.set_light(l_color = aurora_color)
+			if(istype(affected_area, /area/service/kitchen))
+				for(var/turf/open/kitchen_floor in affected_area.get_contained_turfs())
+					kitchen_floor.set_light(l_color = aurora_color)
 
 /datum/round_event/aurora_caelus/end()
-	for(var/area in GLOB.sortedAreas)
-		var/area/A = area
-		if(A.area_flags & AREA_USES_STARLIGHT)
-			for(var/turf/open/space/S in A)
-				fade_to_black(S)
-			for(var/turf/open/openspace/S in A)
-				fade_to_black(S)
+	for(var/area in GLOB.areas)
+		var/area/affected_area = area
+		if(affected_area.area_flags & AREA_USES_STARLIGHT)
+			for(var/turf/open/space/spess in affected_area.get_contained_turfs())
+				fade_to_black(spess)
+		if(istype(affected_area, /area/service/kitchen))
+			for(var/turf/open/superturfentent in affected_area.get_contained_turfs())
+				fade_to_black(superturfentent)
 	priority_announce("Событие, связанное с полярным сиянием, заканчивается. Звездный свет постепенно возвращается в нормальное состояние. Возвращайтесь на свое рабочее место и продолжайте работать в обычном режиме. Приятной смены [station_name()] и спасибо, что посмотрели с нами.",
 	sound = 'sound/misc/notice2.ogg',
 	sender_override = "Отдел метеорологии NanoTrasen")
 
-/datum/round_event/aurora_caelus/proc/fade_to_black(turf/open/space/S)
+/datum/round_event/aurora_caelus/proc/fade_to_black(turf/open/space/spess)
 	set waitfor = FALSE
-	var/new_light = initial(S.light_range)
-	while(S.light_range > new_light)
-		S.set_light(S.light_range - 0.2)
-		sleep(30)
-	S.set_light(new_light, initial(S.light_power), initial(S.light_color))
+	var/new_light = initial(spess.light_range)
+	while(spess.light_range > new_light)
+		spess.set_light(spess.light_range - 0.2)
+		sleep(3 SECONDS)
+	spess.set_light(new_light, initial(spess.light_power), initial(spess.light_color))

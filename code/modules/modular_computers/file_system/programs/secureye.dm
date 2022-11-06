@@ -8,18 +8,20 @@
 	program_icon_state = "generic"
 	extended_desc = "Эта программа позволяет доступ к камерам Сб по сети."
 	requires_ntnet = TRUE
-	transfer_access = ACCESS_SECURITY
+	transfer_access = list(ACCESS_SECURITY)
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	size = 5
 	tgui_id = "NtosSecurEye"
 	program_icon = "eye"
 
 	var/list/network = list("ss13")
-	var/obj/machinery/camera/active_camera
+	/// Weakref to the active camera
+	var/datum/weakref/camera_ref
 	/// The turf where the camera was last updated.
 	var/turf/last_camera_turf
 	var/list/concurrent_users = list()
 
+	// Stuff needed to render the map
 	var/atom/movable/screen/map_view/cam_screen
 	var/atom/movable/screen/background/cam_background
 
@@ -63,10 +65,17 @@
 		user.client.register_map_obj(cam_background)
 		return ..()
 
+/datum/computer_file/program/secureye/ui_status(mob/user)
+	. = ..()
+	if(. == UI_DISABLED)
+		return UI_CLOSE
+	return .
+
 /datum/computer_file/program/secureye/ui_data()
 	var/list/data = get_header_data()
 	data["network"] = network
 	data["activeCamera"] = null
+	var/obj/machinery/camera/active_camera = camera_ref?.resolve()
 	if(active_camera)
 		data["activeCamera"] = list(
 			name = active_camera.c_tag,
@@ -93,11 +102,11 @@
 		return
 
 	if(action == "switch_camera")
-		var/c_tag = params["name"]
+		var/c_tag = format_text(params["name"])
 		var/list/cameras = get_available_cameras()
 		var/obj/machinery/camera/selected_camera = cameras[c_tag]
-		active_camera = selected_camera
-		playsound(src, get_sfx("terminal_type"), 25, FALSE)
+		camera_ref = WEAKREF(selected_camera)
+		playsound(src, get_sfx(SFX_TERMINAL_TYPE), 25, FALSE)
 
 		if(!selected_camera)
 			return TRUE
@@ -116,10 +125,11 @@
 	cam_screen.hide_from(user)
 	// Turn off the console
 	if(length(concurrent_users) == 0 && is_living)
-		active_camera = null
+		camera_ref = null
 		playsound(src, 'sound/machines/terminal_off.ogg', 25, FALSE)
 
 /datum/computer_file/program/secureye/proc/update_active_camera_screen()
+	var/obj/machinery/camera/active_camera = camera_ref?.resolve()
 	// Show static if can't use the camera
 	if(!active_camera?.can_use())
 		show_camera_static()

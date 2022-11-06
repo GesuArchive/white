@@ -646,7 +646,7 @@ What a mess.*/
 				var/counter = 1
 				while(active2.fields[text("com_[]", counter)])
 					counter++
-				active2.fields[text("com_[]", counter)] = text("Сделано [] ([]) в [] []/[]<BR>[]", src.authenticated, src.rank, SSday_night.get_twentyfourhour_timestamp(), time2text(world.realtime, "DD/MM"), GLOB.year_integer+540, t1)
+				active2.fields[text("com_[]", counter)] = text("Сделано [] ([]) в [] []/[]<BR>[]", src.authenticated, src.rank, SSday_night.get_twentyfourhour_timestamp(), time2text(world.realtime, "DD/MM"), CURRENT_STATION_YEAR, t1)
 
 			if("Delete Record (ALL)")
 				if(active1)

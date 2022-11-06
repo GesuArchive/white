@@ -6,7 +6,7 @@
 		to_chat(src, "Only administrators may use this command.")
 		return
 
-	var/area/A = tgui_input_list(usr, "Area to jump to", "Jump to Area", GLOB.sortedAreas)
+	var/area/A = tgui_input_list(usr, "Area to jump to", "Jump to Area", get_sorted_areas())
 
 	if(!A)
 		return
@@ -164,7 +164,7 @@
 	if(!src.holder)
 		to_chat(src, "Only administrators may use this command.")
 		return
-	var/area/A = tgui_input_list(usr, "Pick an area.", "Pick an area", GLOB.sortedAreas|null)
+	var/area/A = tgui_input_list(usr, "Pick an area.", "Pick an area", get_sorted_areas())
 	if(A && istype(A))
 		var/list/turfs = get_area_turfs(A)
 		if(length(turfs) && M.forceMove(pick(turfs)))

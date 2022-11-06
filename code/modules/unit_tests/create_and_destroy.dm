@@ -1,8 +1,9 @@
 ///Delete one of every type, sleep a while, then check to see if anything has gone fucky
 /datum/unit_test/create_and_destroy
 	//You absolutely must run last
-	priority = TEST_DEL_WORLD
+	priority = TEST_CREATE_AND_DESTROY
 
+GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 /datum/unit_test/create_and_destroy/Run()
 	//We'll spawn everything here
 	var/turf/spawn_at = run_loc_floor_bottom_left
@@ -21,13 +22,17 @@
 		/obj/effect/mob_spawn,
 		//Template type
 		/obj/structure/holosign/robot_seat,
-		//Say it with me now, type template
-		/obj/effect/mapping_helpers/component_injector,
-		//template type
-		/obj/effect/mapping_helpers/trait_injector,
 		//Singleton
 		/mob/dview,
+		//Template type
+		/obj/item/bodypart,
+		//This is meant to fail extremely loud every single time it occurs in any environment in any context, and it falsely alarms when this unit test iterates it. Let's not spawn it in.
+		/obj/merge_conflict_marker,
+		//briefcase launchpads erroring
+		/obj/machinery/launchpad/briefcase,
 	)
+	//Say it with me now, type template
+	ignore += typesof(/obj/effect/mapping_helpers)
 	//This turf existing is an error in and of itself
 	ignore += typesof(/turf/baseturf_skipover)
 	ignore += typesof(/turf/baseturf_bottom)
@@ -37,25 +42,22 @@
 	ignore += typesof(/obj/item/modular_computer/processor)
 	//Very finiky, blacklisting to make things easier
 	ignore += typesof(/obj/item/poster/wanted)
-	//We can't pass a mind into this
-	ignore += typesof(/obj/item/phylactery)
 	//This expects a seed, we can't pass it
 	ignore += typesof(/obj/item/food/grown)
-	//Nothing to hallucinate if there's nothing to hallicinate
-	ignore += typesof(/obj/effect/hallucination)
+	//Needs clients / mobs to observe it to exist. Also includes hallucinations.
+	ignore += typesof(/obj/effect/client_image_holder)
+	//Same to above. Needs a client / mob / hallucination to observe it to exist.
+	ignore += typesof(/obj/projectile/hallucination)
+	ignore += typesof(/obj/item/hallucinated)
 	//These want fried food to take on the shape of, we can't pass that in
 	ignore += typesof(/obj/item/food/deepfryholder)
 	//Can't pass in a thing to glow
 	ignore += typesof(/obj/effect/abstract/eye_lighting)
-	//It wants a lot more context then we have
-	ignore += typesof(/obj/effect/buildmode_line)
 	//We don't have a pod
 	ignore += typesof(/obj/effect/pod_landingzone_effect)
 	ignore += typesof(/obj/effect/pod_landingzone)
-	//We don't have a disease to pass in
-	ignore += typesof(/obj/effect/mapping_helpers/component_injector/infective)
-	//There's no shapeshift to hold
-	ignore += typesof(/obj/shapeshift_holder)
+	//We have a baseturf limit of 10, adding more than 10 baseturf helpers will kill CI, so here's a future edge case to fix.
+	ignore += typesof(/obj/effect/baseturf_helper)
 	//No tauma to pass in
 	ignore += typesof(/mob/camera/imaginary_friend)
 	//No pod to gondola
@@ -88,14 +90,19 @@
 	ignore += typesof(/obj/structure/alien/resin/flower_bud)
 	//Needs a linked mecha
 	ignore += typesof(/obj/effect/skyfall_landingzone)
-	//Leads to errors as a consequence of the logic behind moving back to a tile that's moving you somewhere else
-	ignore += typesof(/obj/effect/mapping_helpers/component_injector/areabound)
 	//Expects a mob to holderize, we have nothing to give
 	ignore += typesof(/obj/item/clothing/head/mob_holder)
+	//Needs cards passed into the initilazation args
+	ignore += typesof(/obj/item/toy/cards/cardhand)
+	//Needs a holodeck area linked to it which is not guarenteed to exist and technically is supposed to have a 1:1 relationship with computer anyway.
+	ignore += typesof(/obj/machinery/computer/holodeck)
+	//runtimes if not paired with a landmark
+	ignore += typesof(/obj/structure/industrial_lift)
 
 	var/list/cached_contents = spawn_at.contents.Copy()
 	var/baseturf_count = length(spawn_at.baseturfs)
 
+	GLOB.running_create_and_destroy = TRUE
 	for(var/type_path in typesof(/atom/movable, /turf) - ignore) //No areas please
 		if(ispath(type_path, /turf))
 			spawn_at.ChangeTurf(type_path, /turf/baseturf_skipover)
@@ -120,6 +127,7 @@
 			for(var/atom/to_kill in to_del)
 				qdel(to_kill)
 
+	GLOB.running_create_and_destroy = FALSE
 	//Hell code, we're bound to have ended the round somehow so let's stop if from ending while we work
 	SSticker.delay_end = TRUE
 	//Prevent the garbage subsystem from harddeling anything, if only to save time
@@ -148,7 +156,7 @@
 			garbage_queue_processed = TRUE
 			break
 
-		if(world.time > start_time + time_needed + 8 MINUTES)
+		if(world.time > start_time + time_needed + 30 MINUTES) //If this gets us gitbanned I'm going to laugh so hard
 			TEST_FAIL("Something has gone horribly wrong, the garbage queue has been processing for well over 30 minutes. What the hell did you do")
 			break
 

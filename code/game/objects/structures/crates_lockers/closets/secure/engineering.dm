@@ -10,7 +10,7 @@
 	new /obj/item/key/forklift/engineering(src)
 	new /obj/item/gun/energy/e_gun/mini(src)
 	new /obj/item/tank/jetpack/suit(src)
-	new /obj/item/computer_hardware/hard_drive/portable/command/ce(src)
+	new /obj/item/computer_disk/command/ce(src)
 	new /obj/item/radio/headset/heads/ce(src)
 	new /obj/item/megaphone/command(src)
 	new /obj/item/holosign_creator/engineering(src)

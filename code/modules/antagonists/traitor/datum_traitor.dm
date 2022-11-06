@@ -17,7 +17,6 @@
 	var/should_equip = TRUE
 	var/traitor_kind = TRAITOR_HUMAN //Set on initial assignment
 	var/datum/component/uplink/original_uplink // Set on equip() if an uplink is given
-	var/datum/contractor_hub/contractor_hub
 	greentext_reward = 10
 
 /datum/antagonist/traitor/on_gain()
@@ -262,7 +261,7 @@
 /datum/antagonist/traitor/proc/equip(silent = FALSE)
 	if(traitor_kind == TRAITOR_HUMAN)
 		owner.equip_traitor(employer, silent, src)
-	
+
 //TODO Collate
 /datum/antagonist/traitor/roundend_report()
 	var/list/result = list()
@@ -303,9 +302,6 @@
 
 	var/special_role_text = capitalize(name)
 
-	if (contractor_hub)
-		result += contractor_round_end()
-
 	if(traitorwin)
 		result += span_greentext("[special_role_text] успешен!")
 	else
@@ -313,41 +309,6 @@
 		SEND_SOUND(owner.current, sound('sound/ambience/ambifailure.ogg'))
 
 	return result.Join("<br>")
-
-/// Proc detailing contract kit buys/completed contracts/additional info
-/datum/antagonist/traitor/proc/contractor_round_end()
-	var/result = ""
-	var/total_spent_rep = 0
-
-	var/completed_contracts = contractor_hub.contracts_completed
-	var/tc_total = contractor_hub.contract_TC_payed_out + contractor_hub.contract_TC_to_redeem
-
-	var/contractor_item_icons = "" // Icons of purchases
-	var/contractor_support_unit = "" // Set if they had a support unit - and shows appended to their contracts completed
-
-	/// Get all the icons/total cost for all our items bought
-	for (var/datum/contractor_item/contractor_purchase in contractor_hub.purchased_items)
-		contractor_item_icons += span_tooltip_container("\[ <i class=\"fas [contractor_purchase.item_icon]\"></i><span class='tooltip_hover'><b>[contractor_purchase.name] - [contractor_purchase.cost] Rep</b><br><br>[contractor_purchase.desc]</span> \]")
-
-		total_spent_rep += contractor_purchase.cost
-
-		/// Special case for reinforcements, we want to show their ckey and name on round end.
-		if (istype(contractor_purchase, /datum/contractor_item/contractor_partner))
-			var/datum/contractor_item/contractor_partner/partner = contractor_purchase
-			contractor_support_unit += "<br><b>[partner.partner_mind.key]</b> играл в роли <b>[partner.partner_mind.current.name]</b> помощника наёмника."
-
-	if (contractor_hub.purchased_items.len)
-		result += "<br>(использовано [total_spent_rep] Реп) "
-		result += contractor_item_icons
-	result += "<br>"
-	if (completed_contracts > 0)
-		var/pluralCheck = "контракт"
-		if (completed_contracts > 1)
-			pluralCheck = "контрактов"
-
-		result += "Completed <span class='greentext'>[completed_contracts]</span> [pluralCheck] из <span class='greentext'>[tc_total] ТК</span>![contractor_support_unit]<br>"
-
-	return result
 
 /datum/antagonist/traitor/roundend_report_footer()
 	var/phrases = jointext(GLOB.syndicate_code_phrase, ", ")

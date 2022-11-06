@@ -15,6 +15,9 @@
 	var/key_len = 0
 	var/list/grid_models = list()
 	var/list/gridSets = list()
+	/// List of area types we've loaded AS A PART OF THIS MAP
+	/// We do this to allow non unique areas, so we'll only load one per map
+	var/list/area/loaded_areas = list()
 
 	var/list/modelCache
 
@@ -47,10 +50,10 @@
 /// - `no_changeturf`: When true, [/turf/proc/AfterChange] won't be called on loaded turfs
 /// - `x_lower`, `x_upper`, `y_lower`, `y_upper`: Coordinates (relative to the map) to crop to (Optional).
 /// - `placeOnTop`: Whether to use [/turf/proc/PlaceOnTop] rather than [/turf/proc/ChangeTurf] (Optional).
-/proc/load_map(dmm_file as file, x_offset as num, y_offset as num, z_offset as num, cropMap as num, measureOnly as num, no_changeturf as num, x_lower = -INFINITY as num, x_upper = INFINITY as num, y_lower = -INFINITY as num, y_upper = INFINITY as num, placeOnTop = FALSE as num)
+/proc/load_map(dmm_file as file, x_offset as num, y_offset as num, z_offset as num, cropMap as num, measureOnly as num, no_changeturf as num, x_lower = -INFINITY as num, x_upper = INFINITY as num, y_lower = -INFINITY as num, y_upper = INFINITY as num, placeOnTop = FALSE as num, new_z)
 	var/datum/parsed_map/parsed = new(dmm_file, x_lower, x_upper, y_lower, y_upper, measureOnly)
 	if(parsed.bounds && !measureOnly)
-		parsed.load(x_offset, y_offset, z_offset, cropMap, no_changeturf, x_lower, x_upper, y_lower, y_upper, placeOnTop)
+		parsed.load(x_offset, y_offset, z_offset, cropMap, no_changeturf, x_lower, x_upper, y_lower, y_upper, placeOnTop, new_z = new_z)
 	return parsed
 
 /// Parse a map, possibly cropping it.
@@ -154,10 +157,10 @@
 	src.key_len = key_len
 
 /// Load the parsed map into the world. See [/proc/load_map] for arguments.
-/datum/parsed_map/proc/load(x_offset, y_offset, z_offset, cropMap, no_changeturf, x_lower, x_upper, y_lower, y_upper, placeOnTop, whitelist = FALSE)
+/datum/parsed_map/proc/load(x_offset, y_offset, z_offset, cropMap, no_changeturf, x_lower, x_upper, y_lower, y_upper, placeOnTop, whitelist = FALSE, new_z)
 	//How I wish for RAII
 	Master.StartLoadingMap()
-	. = _load_impl(x_offset, y_offset, z_offset, cropMap, no_changeturf, x_lower, x_upper, y_lower, y_upper, placeOnTop)
+	. = _load_impl(x_offset, y_offset, z_offset, cropMap, no_changeturf, x_lower, x_upper, y_lower, y_upper, placeOnTop, new_z)
 	Master.StopLoadingMap()
 
 
@@ -168,7 +171,7 @@
 		SSatoms.map_loader_begin(); \
 	}
 // Do not call except via load() above.
-/datum/parsed_map/proc/_load_impl(x_offset = 1, y_offset = 1, z_offset = world.maxz + 1, cropMap = FALSE, no_changeturf = FALSE, x_lower = -INFINITY, x_upper = INFINITY, y_lower = -INFINITY, y_upper = INFINITY, placeOnTop = FALSE)
+/datum/parsed_map/proc/_load_impl(x_offset = 1, y_offset = 1, z_offset = world.maxz + 1, cropMap = FALSE, no_changeturf = FALSE, x_lower = -INFINITY, x_upper = INFINITY, y_lower = -INFINITY, y_upper = INFINITY, placeOnTop = FALSE, new_z = FALSE)
 	PRIVATE_PROC(TRUE)
 	var/list/modelCache = build_cache(no_changeturf)
 	var/space_key = modelCache[SPACE_KEY]
@@ -285,7 +288,7 @@
 				if(!cache)
 					SSatoms.map_loader_stop()
 					CRASH("Undefined model key in DMM: [line]")
-				build_coordinate(cache, locate(true_xcrd, ycrd, zcrd), no_afterchange, placeOnTop)
+				build_coordinate(cache, locate(true_xcrd, ycrd, zcrd), no_afterchange, placeOnTop, new_z)
 
 				// only bother with bounds that actually exist
 				if(!first_found)
@@ -317,7 +320,7 @@
 					if(!cache)
 						SSatoms.map_loader_stop()
 						CRASH("Undefined model key in DMM: [model_key]")
-					build_coordinate(cache, locate(xcrd, ycrd, zcrd), no_afterchange, placeOnTop)
+					build_coordinate(cache, locate(xcrd, ycrd, zcrd), no_afterchange, placeOnTop, new_z)
 
 					// only bother with bounds that actually exist
 					if(!first_found)
@@ -343,6 +346,10 @@
 		for(var/turf/T as anything in block(locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]), locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ])))
 			//we do this after we load everything in. if we don't; we'll have weird atmos bugs regarding atmos adjacent turfs
 			T.AfterChange(CHANGETURF_IGNORE_AIR)
+
+	if(new_z)
+		for(var/z_index in bounds[MAP_MINZ] to bounds[MAP_MAXZ])
+			SSmapping.build_area_turfs(z_index)
 
 	if(has_expanded_world_maxx || has_expanded_world_maxy)
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPANDED_WORLD_BOUNDS, has_expanded_world_maxx, has_expanded_world_maxy)
@@ -370,7 +377,7 @@ GLOBAL_LIST_EMPTY(map_model_default)
 		// This is safe because dmm strings will never actually newline
 		// So we can parse things just fine
 		var/list/entries = splittext(model, ",\n")
-		//will contain all members (paths) in model (in our example : /turf/unsimulated/wall and /area/mine/explored)
+		//will contain all members (paths) in model (in our example : /turf/unsimulated/wall)
 		var/list/members = new /list(length(entries))
 		//will contain lists filled with corresponding variables, if any (in our example : list(icon_state = "rock") and list())
 		//member attributes are rarish, so we could lazyinit this
@@ -430,7 +437,7 @@ GLOBAL_LIST_EMPTY(map_model_default)
 
 		.[model_key] = list(members, members_attributes)
 
-/datum/parsed_map/proc/build_coordinate(list/model, turf/crds, no_changeturf as num, placeOnTop as num)
+/datum/parsed_map/proc/build_coordinate(list/model, turf/crds, no_changeturf as num, placeOnTop as num, new_z)
 	// If we don't have a turf, nothing we will do next will actually acomplish anything, so just go back
 	// Note, this would actually drop area vvs in the tile, but like, why tho
 	if(!crds)
@@ -441,7 +448,6 @@ GLOBAL_LIST_EMPTY(map_model_default)
 
 	// We use static lists here because it's cheaper then passing them around
 	var/static/list/default_list = GLOB.map_model_default
-	var/static/list/area_cache = GLOB.areas_by_type
 	////////////////
 	//Instanciation
 	////////////////
@@ -452,26 +458,34 @@ GLOBAL_LIST_EMPTY(map_model_default)
 	//The next part of the code assumes there's ALWAYS an /area AND a /turf on a given tile
 	//first instance the /area and remove it from the members list
 	index = members.len
-	var/atom/instance
 	if(members[index] != /area/template_noop)
+		var/area/area_instance
 		if(members_attributes[index] != default_list)
 			world.preloader_setup(members_attributes[index], members[index])//preloader for assigning  set variables on atom creation
-		instance = area_cache[members[index]]
-		if (!instance)
-			// Done here because it's cheaper then doing it in the outside check
+		area_instance = loaded_areas[members[index]]
+		if(!area_instance)
 			var/area_type = members[index]
-			instance = new area_type(null)
-			if(!instance)
-				CRASH("[area_type] failed to be new'd, what'd you do?")
-			area_cache[area_type] = instance
+			// If this parsed map doesn't have that area already, we check the global cache
+			area_instance = GLOB.areas_by_type[area_type]
+			// If the global list DOESN'T have this area it's either not a unique area, or it just hasn't been created yet
+			if (!area_instance)
+				area_instance = new area_type(null)
+				if(!area_instance)
+					CRASH("[area_type] failed to be new'd, what'd you do?")
+			loaded_areas[area_type] = area_instance
 
-		instance.contents.Add(crds)
+		if(!new_z)
+			var/area/old_area = crds.loc
+			old_area.turfs_to_uncontain += crds
+			area_instance.contained_turfs.Add(crds)
+		area_instance.contents.Add(crds)
 
 		if(GLOB.use_preloader)
-			world.preloader_load(instance)
+			world.preloader_load(area_instance)
 
 	// Index right before /area is /turf
 	index--
+	var/atom/instance
 	//then instance the /turf
 	//NOTE: this used to place any turfs before the last "underneath" it using .appearance and underlays
 	//We don't actually use this, and all it did was cost cpu, so we don't do this anymore

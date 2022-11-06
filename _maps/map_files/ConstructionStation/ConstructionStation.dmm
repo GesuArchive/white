@@ -1810,7 +1810,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/secondary/construction)
 "xO" = (
-/obj/item/computer_hardware/hard_drive/portable{
+/obj/item/computer_disk{
 	pixel_x = 8;
 	pixel_y = -10;
 	stored_files = list(/datum/computer_file/program/contract_uplink)

@@ -159,7 +159,6 @@
 	//Human specific stuff.
 	var/mob_species = null		//Set to make them a mutant race such as lizard or skeleton. Uses the datum typepath instead of the ID.
 	var/datum/outfit/outfit = /datum/outfit	//If this is a path, it will be instanced in Initialize()
-	var/disable_pda = TRUE
 	var/disable_sensors = TRUE
 	assignedrole = "Ghost Role"
 
@@ -227,11 +226,6 @@
 			if(!isnum(T))
 				outfit.vars[slot] = T
 		H.equipOutfit(outfit)
-		if(disable_pda)
-			// We don't want corpse PDAs to show up in the messenger list.
-			var/obj/item/modular_computer/tablet/pda/PDA = locate(/obj/item/modular_computer/tablet/pda) in H
-			if(PDA)
-				PDA.invisible = TRUE
 		if(disable_sensors)
 			// Using crew monitors to find corpses while creative makes finding certain ruins too easy.
 			var/obj/item/clothing/under/C = H.w_uniform

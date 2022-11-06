@@ -262,3 +262,19 @@ GLOBAL_LIST_INIT(admiral_messages, list("Do you know how expensive these station
 GLOBAL_LIST_EMPTY(ipc_screens_list)
 GLOBAL_LIST_EMPTY(ipc_antennas_list)
 GLOBAL_LIST_INIT(junkmail_messages, world.file2list("strings/junkmail.txt"))
+
+// All valid inputs to status display post_status
+GLOBAL_LIST_INIT(status_display_approved_pictures, list(
+	"blank",
+	"shuttle",
+	"default",
+	"biohazard",
+	"lockdown",
+	"redalert",
+))
+
+// Members of status_display_approved_pictures that are actually states and not alert values
+GLOBAL_LIST_INIT(status_display_state_pictures, list(
+	"blank",
+	"shuttle",
+))

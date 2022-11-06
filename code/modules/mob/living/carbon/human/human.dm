@@ -364,7 +364,7 @@
 				var/counter = 1
 				while(R.fields[text("com_[]", counter)])
 					counter++
-				R.fields[text("com_[]", counter)] = text("Сделано [] в [] []/[]<BR>[]", allowed_access, SSday_night.get_twentyfourhour_timestamp(), time2text(world.realtime, "DD/MM"), GLOB.year_integer+540, t1)
+				R.fields[text("com_[]", counter)] = text("Сделано [] в [] []/[]<BR>[]", allowed_access, SSday_night.get_twentyfourhour_timestamp(), time2text(world.realtime, "DD/MM"), CURRENT_STATION_YEAR, t1)
 				to_chat(usr, span_notice("Успешно добавили комментарий."))
 				return
 

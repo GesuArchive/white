@@ -9,9 +9,9 @@ import { Component, createRef, InfernoNode, RefObject } from 'inferno';
 import { addScrollableNode, removeScrollableNode } from '../events';
 import { BoxProps, computeBoxClassName, computeBoxProps } from './Box';
 
-interface SectionProps extends BoxProps {
+type SectionProps = BoxProps & {
   className?: string;
-  title?: string;
+  title?: InfernoNode;
   buttons?: InfernoNode;
   fill?: boolean;
   fitted?: boolean;
@@ -21,23 +21,32 @@ interface SectionProps extends BoxProps {
   level?: boolean;
   /** @deprecated Please use `scrollable` property */
   overflowY?: any;
-}
+  /** @member Allows external control of scrolling. */
+  scrollableRef?: RefObject<HTMLDivElement>;
+  /** @member Callback function for the `scroll` event */
+  onScroll?: (this: GlobalEventHandlers, ev: Event) => any;
+};
 
 export class Section extends Component<SectionProps> {
   scrollableRef: RefObject<HTMLDivElement>;
   scrollable: boolean;
+  onScroll?: (this: GlobalEventHandlers, ev: Event) => any;
   scrollableHorizontal: boolean;
 
   constructor(props) {
     super(props);
-    this.scrollableRef = createRef();
+    this.scrollableRef = props.scrollableRef || createRef();
     this.scrollable = props.scrollable;
+    this.onScroll = props.onScroll;
     this.scrollableHorizontal = props.scrollableHorizontal;
   }
 
   componentDidMount() {
     if (this.scrollable || this.scrollableHorizontal) {
       addScrollableNode(this.scrollableRef.current);
+      if (this.onScroll && this.scrollableRef.current) {
+        this.scrollableRef.current.onscroll = this.onScroll;
+      }
     }
   }
 

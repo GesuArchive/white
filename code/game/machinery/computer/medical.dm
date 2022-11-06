@@ -470,7 +470,7 @@
 				var/counter = 1
 				while(active2.fields[text("com_[]", counter)])
 					counter++
-				active2.fields[text("com_[]", counter)] = text("Сделано [] ([]) в [] []/[]<BR>[]", authenticated, rank, SSday_night.get_twentyfourhour_timestamp(), time2text(world.realtime, "DD/MM"), GLOB.year_integer+540, t1)
+				active2.fields[text("com_[]", counter)] = text("Сделано [] ([]) в [] []/[]<BR>[]", authenticated, rank, SSday_night.get_twentyfourhour_timestamp(), time2text(world.realtime, "DD/MM"), CURRENT_STATION_YEAR, t1)
 
 			else if(href_list["del_c"])
 				if((istype(active2, /datum/data/record) && active2.fields[text("com_[]", href_list["del_c"])]))

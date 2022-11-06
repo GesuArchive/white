@@ -101,7 +101,7 @@ GLOBAL_LIST_EMPTY(GPS_list)
 	//Enable beacon
 	var/turf/current_location = get_turf(parent)
 	if(current_location)
-		var/virtual_location = current_location.get_virtual_z_level()
+		var/virtual_location = current_location.z
 		if(!SSorbits.assoc_distress_beacons.Find("[virtual_location]"))
 			SSorbits.assoc_distress_beacons["[virtual_location]"] = 0
 		SSorbits.assoc_distress_beacons["[virtual_location]"] ++
@@ -117,7 +117,7 @@ GLOBAL_LIST_EMPTY(GPS_list)
 	//Disable the beacon
 	var/turf/current_location = get_turf(parent)
 	if(current_location)
-		var/virtual_location = current_location.get_virtual_z_level()
+		var/virtual_location = current_location.z
 		if(SSorbits.assoc_distress_beacons.Find("[virtual_location]"))
 			SSorbits.assoc_distress_beacons["[virtual_location]"] --
 	//Stop processing
@@ -125,7 +125,7 @@ GLOBAL_LIST_EMPTY(GPS_list)
 
 /datum/component/gps/item/process(delta_time)
 	var/turf/current_location = get_turf(parent)
-	var/new_virtual_z = current_location.get_virtual_z_level()
+	var/new_virtual_z = current_location.z
 	if(new_virtual_z == distress_virtual_z)
 		return
 	if(distress_virtual_z)

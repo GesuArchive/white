@@ -59,7 +59,7 @@
 	for(var/obj/docking_port/mobile/M in shuttle_port.get_all_towed_shuttles())
 		for(var/area/A in M.shuttle_areas)
 			for(var/turf/T in A)
-				if(T.get_virtual_z_level() != origin.get_virtual_z_level())
+				if(T.z != origin.z)
 					continue
 				var/image/I = image('icons/effects/alphacolors.dmi', origin, "red")
 				var/x_off = T.x - origin.x

@@ -5,7 +5,6 @@
 	ui_header = "borg_mon.gif" //DEBUG -- new icon before PR
 	program_icon_state = "radarntos"
 	requires_ntnet = TRUE
-	transfer_access = null
 	available_on_ntnet = FALSE
 	usage_flags = PROGRAM_LAPTOP | PROGRAM_TABLET
 	size = 5
@@ -16,7 +15,7 @@
 	var/atom/selected
 	///Used to store when the next scan is available. Updated by the scan() proc.
 	var/next_scan = 0
-	///Used to keep track of the last value program_icon_state was set to, to prevent constant unnecessary update_icon() calls
+	///Used to keep track of the last value program_icon_state was set to, to prevent constant unnecessary update_appearance() calls
 	var/last_icon_state = ""
 	///Used by the tgui interface, themed NT or Syndicate.
 	var/arrowstyle = "ntosradarpointer.png"
@@ -175,7 +174,7 @@
 	if(!trackable(signal))
 		program_icon_state = "[initial(program_icon_state)]lost"
 		if(last_icon_state != program_icon_state)
-			computer.update_icon()
+			computer.update_appearance()
 			last_icon_state = program_icon_state
 		return
 
@@ -193,12 +192,12 @@
 			program_icon_state = "[initial(program_icon_state)]far"
 
 	if(last_icon_state != program_icon_state)
-		computer.update_icon()
+		computer.update_appearance()
 		last_icon_state = program_icon_state
 	computer.setDir(get_dir(here_turf, target_turf))
 
 //We can use process_tick to restart fast processing, since the computer will be running this constantly either way.
-/datum/computer_file/program/radar/process_tick()
+/datum/computer_file/program/radar/process_tick(delta_time)
 	if(computer.active_program == src)
 		START_PROCESSING(SSfastprocess, src)
 
@@ -212,7 +211,7 @@
 	filedesc = "Лайфлайн"
 	extended_desc = "Эта программа позволяет отыскать членов экипажа, отслеживая их датчики жизни на одежде с помощью радара."
 	requires_ntnet = TRUE
-	transfer_access = ACCESS_MEDICAL
+	transfer_access = list(ACCESS_MEDICAL)
 	available_on_ntnet = TRUE
 	program_icon = "heartbeat"
 

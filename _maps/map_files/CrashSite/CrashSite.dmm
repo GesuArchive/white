@@ -1809,7 +1809,7 @@
 /turf/open/floor/plasteel/dark,
 /area/science/research)
 "xO" = (
-/obj/item/computer_hardware/hard_drive/portable{
+/obj/item/computer_disk{
 	pixel_x = 8;
 	pixel_y = -10;
 	stored_files = list(/datum/computer_file/program/contract_uplink)

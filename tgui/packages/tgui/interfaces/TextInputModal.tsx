@@ -31,7 +31,7 @@ export const TextInputModal = (_, context) => {
 	context,
 	'isShiftDown',
 	false
-  )
+  );
   const onType = (value: string) => {
     setInputIsValid(validateInput(value, max_length));
     setInput(value);
@@ -40,12 +40,12 @@ export const TextInputModal = (_, context) => {
   const windowHeight =
     125 + Math.ceil(message.length / 3) + (multiline ? 75 : 0);
   let shiftDown:boolean = true;
-  
+
   return (
     <Window title={title} width={325} height={windowHeight} shiftDown={false}>
       {timeout && <Loader value={timeout} />}
       <Window.Content
-	    ass = {true}
+	    ass
         onKeyDown={(event) => {
           const keyCode = window.event ? event.which : event.keyCode;
           if (keyCode === KEY_SHIFT) {
