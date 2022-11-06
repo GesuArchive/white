@@ -5252,7 +5252,8 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/vending/coffee,
+/obj/machinery/coffeemaker,
+/obj/structure/table/wood,
 /turf/open/floor/carpet/purple,
 /area/science/breakroom)
 "bnp" = (
@@ -67585,6 +67586,18 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/department/medical/morgue)
+"uUU" = (
+/obj/structure/table,
+/obj/machinery/coffeemaker{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/item/storage/fancy/coffee_cart_rack{
+	pixel_x = 13;
+	pixel_y = 7
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/service/kitchen)
 "uUX" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -68073,6 +68086,10 @@
 /obj/structure/table/wood,
 /obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/effect/spawner/random/food_or_drink/donkpockets,
+/obj/item/storage/fancy/coffee_cart_rack{
+	pixel_x = 11;
+	pixel_y = 13
+	},
 /turf/open/floor/carpet/purple,
 /area/science/breakroom)
 "vds" = (
@@ -114970,7 +114987,7 @@ vnW
 roj
 iTU
 sVe
-gTG
+uUU
 fJE
 bdo
 fJE

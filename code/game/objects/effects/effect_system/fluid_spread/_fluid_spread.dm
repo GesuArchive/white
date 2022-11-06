@@ -118,7 +118,8 @@
 	/// The amount of smoke to produce.
 	var/amount = 10
 
-/datum/effect_system/fluid_spread/set_up(range = 1, amount = DIAMOND_AREA(range), atom/location, ...)
+/datum/effect_system/fluid_spread/set_up(range = 1, amount = DIAMOND_AREA(range), atom/holder, atom/location, ...)
+	src.holder = holder
 	src.location = get_turf(location)
 	src.amount = amount
 

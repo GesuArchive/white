@@ -22,7 +22,7 @@
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = .proc/on_entered,
 	)
-	AddElement(/datum/element/connect_loc, src, loc_connections)
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/effect/powerup/proc/on_entered(datum/source, atom/movable/movable_atom)
 	SIGNAL_HANDLER
@@ -116,7 +116,7 @@
 	. = ..()
 	if(!.)
 		return
-	target.apply_status_effect(STATUS_EFFECT_LIGHTNINGORB)
+	target.apply_status_effect(/datum/status_effect/lightningorb)
 
 /obj/effect/powerup/mayhem
 	name = "Orb of Mayhem"
@@ -127,4 +127,4 @@
 	. = ..()
 	if(!.)
 		return
-	target.apply_status_effect(STATUS_EFFECT_MAYHEM)
+	target.apply_status_effect(/datum/status_effect/mayhem)

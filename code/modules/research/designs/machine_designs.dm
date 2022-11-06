@@ -1058,6 +1058,17 @@
 	construction_time = 40
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
+/datum/design/board/coffeemaker
+	name = "Coffeemaker Board"
+	desc = "The circuit board for a coffeemaker."
+	id = "coffeemaker"
+	build_path = /obj/item/circuitboard/machine/coffeemaker
+	category = list(
+		"Различное оборудование"
+	)
+	sub_category = list("Машины")
+	departmental_flags = DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SCIENCE
+
 /datum/design/board/shuttle/engine/plasma
 	name = "Плазменный двигатель"
 	desc = "Двигатель, который сжигает плазму, хранящуюся в располагающемся рядом предзажигателе плазменного двигателя."
