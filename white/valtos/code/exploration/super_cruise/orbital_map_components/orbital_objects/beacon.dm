@@ -31,7 +31,7 @@
 //====================
 // Asteroids
 //====================
-
+/*
 /datum/orbital_object/z_linked/beacon/ruin/asteroid
 	name = "Астероид"
 	render_mode = RENDER_MODE_DEFAULT
@@ -39,7 +39,7 @@
 	//Don't go too fast over these :^)
 	min_collision_velocity = 30
 
-/datum/orbital_object/z_linked/beacon/ruinasteroid/New()
+/datum/orbital_object/z_linked/beacon/ruin/asteroid/New()
 	. = ..()
 	radius = rand(40, 160)
 
@@ -54,7 +54,7 @@
 	//Pack closely together to make an asteriod belt.
 	var/datum/orbital_map/linked_map = SSorbits.orbital_maps[orbital_map_index]
 	set_orbitting_around_body(linked_map.center, 3000 + 20 * rand(-50, 50))
-
+*/
 //====================
 // Regular Ruin Z-levels
 //====================

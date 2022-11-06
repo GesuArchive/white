@@ -127,8 +127,8 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 	for(var/i in 1 to initial_objective_beacons)
 		new /datum/orbital_object/z_linked/beacon/ruin()
 	//Create asteroid belt
-	for(var/i in 1 to initial_asteroids)
-		new /datum/orbital_object/z_linked/beacon/ruin/asteroid()
+	//for(var/i in 1 to initial_asteroids)
+	//	new /datum/orbital_object/z_linked/beacon/ruin/asteroid()
 
 /datum/controller/subsystem/processing/orbits/fire(resumed)
 	if(resumed)
