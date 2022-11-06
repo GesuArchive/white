@@ -31,7 +31,6 @@
 		old_area.contents -= T
 		old_area.turfs_to_uncontain += T
 		asteroid_area.contents += T
-		asteroid_area.contained_turfs += T
 		T.transfer_area_lighting(T.loc, asteroid_area)
 		//Check if we are closed or not (Cave generation)
 		var/closed = text2num(generated_string[world.maxx * (T.y - 1) + T.x])
