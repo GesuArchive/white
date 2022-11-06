@@ -27794,7 +27794,7 @@
 	brightness = 3;
 	dir = 8
 	},
-/obj/item/modular_computer/tablet/preset/cheap,
+/obj/item/modular_computer/tablet,
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "ijn" = (
@@ -35385,7 +35385,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/obj/item/modular_computer/tablet/preset/cheap,
+/obj/item/modular_computer/tablet,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "kGF" = (
@@ -63498,7 +63498,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/structure/table,
-/obj/item/modular_computer/tablet/preset/advanced,
+/obj/item/modular_computer/tablet,
 /turf/open/floor/plasteel,
 /area/maintenance/department/electrical)
 "tHd" = (

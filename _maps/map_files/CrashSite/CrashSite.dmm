@@ -1812,7 +1812,6 @@
 /obj/item/computer_disk{
 	pixel_x = 8;
 	pixel_y = -10;
-	stored_files = list(/datum/computer_file/program/contract_uplink)
 	},
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plasteel/airless,

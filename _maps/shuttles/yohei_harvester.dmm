@@ -23,7 +23,7 @@
 /area/shuttle/yohei)
 "bK" = (
 /obj/structure/table/abductor,
-/obj/item/modular_computer/tablet/preset/cheap{
+/obj/item/modular_computer/tablet{
 	pixel_y = 19
 	},
 /obj/item/integrated_circuit_printer/upgraded{

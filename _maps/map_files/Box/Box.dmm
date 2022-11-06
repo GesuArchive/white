@@ -622,7 +622,7 @@
 "kG" = (
 /obj/structure/cable,
 /obj/effect/landmark/observer_start,
-/obj/item/modular_computer/tablet/preset/cheap,
+/obj/item/modular_computer/tablet,
 /obj/item/stack/spacecash/c10000,
 /turf/open/floor/plasteel,
 /area/command)
@@ -640,7 +640,7 @@
 /area/command)
 "lb" = (
 /obj/structure/cable,
-/obj/item/modular_computer/tablet/preset/cheap,
+/obj/item/modular_computer/tablet,
 /obj/item/stack/spacecash/c10000,
 /turf/open/floor/plasteel,
 /area/medical)
@@ -1218,7 +1218,7 @@
 /area/science)
 "ua" = (
 /obj/structure/cable,
-/obj/item/modular_computer/tablet/preset/cheap,
+/obj/item/modular_computer/tablet,
 /obj/item/stack/spacecash/c10000,
 /turf/open/floor/plasteel,
 /area/security)
@@ -1267,7 +1267,7 @@
 /area/engineering/main)
 "vz" = (
 /obj/structure/cable,
-/obj/item/modular_computer/tablet/preset/cheap,
+/obj/item/modular_computer/tablet,
 /obj/item/stack/spacecash/c10000,
 /turf/open/floor/plasteel,
 /area/engineering/main)
@@ -1510,7 +1510,7 @@
 /area/cargo)
 "AY" = (
 /obj/structure/cable,
-/obj/item/modular_computer/tablet/preset/cheap,
+/obj/item/modular_computer/tablet,
 /obj/item/stack/spacecash/c10000,
 /turf/open/floor/plasteel,
 /area/science)
@@ -2115,7 +2115,7 @@
 /area/science)
 "Nc" = (
 /obj/structure/cable,
-/obj/item/modular_computer/tablet/preset/cheap,
+/obj/item/modular_computer/tablet,
 /obj/item/stack/spacecash/c10000,
 /obj/item/stack/spacecash/c10000,
 /obj/item/stack/spacecash/c10000,
@@ -2275,7 +2275,7 @@
 /area/medical)
 "Pm" = (
 /obj/structure/cable,
-/obj/item/modular_computer/tablet/preset/cheap,
+/obj/item/modular_computer/tablet,
 /obj/item/stack/spacecash/c10000,
 /turf/open/floor/plasteel,
 /area/service/cafeteria)

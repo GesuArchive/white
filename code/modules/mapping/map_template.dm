@@ -123,9 +123,9 @@
 	var/x = round((world.maxx - width) * 0.5) + 1
 	var/y = round((world.maxy - height) * 0.5) + 1
 
-	var/datum/space_level/level = SSmapping.add_new_zlevel(name, level_traits, orbital_body_type = orbital_body_type)
+	var/datum/space_level/level = SSmapping.add_new_zlevel(name, level_traits, orbital_body_type = orbital_body_type, contain_turfs = FALSE)
 	SSair.pause_z(level.z_value)
-	var/datum/parsed_map/parsed = load_map(file(mappath), x, y, level.z_value, no_changeturf=(SSatoms.initialized == INITIALIZATION_INSSATOMS), placeOnTop=should_place_on_top)
+	var/datum/parsed_map/parsed = load_map(file(mappath), x, y, level.z_value, no_changeturf=(SSatoms.initialized == INITIALIZATION_INSSATOMS), placeOnTop=should_place_on_top, new_z = TRUE)
 	var/list/bounds = parsed.bounds
 	if(!bounds)
 		return FALSE

@@ -36,7 +36,7 @@
 /area/template_noop)
 "f" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/modular_computer/tablet/preset/cheap{
+/obj/item/modular_computer/tablet{
 	pixel_x = 10;
 	pixel_y = 7
 	},

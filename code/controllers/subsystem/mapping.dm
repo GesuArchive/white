@@ -375,7 +375,7 @@ Used by the AI doomsday and the self-destruct nuke.
 	var/i = 0
 	var/list/datum/space_level/space_levels = list()
 	for (var/level in traits)
-		space_levels += add_new_zlevel("[name][i ? " [i + 1]" : ""]", level)
+		space_levels += add_new_zlevel("[name][i ? " [i + 1]" : ""]", level, contain_turfs = FALSE)
 		++i
 	//Shared orbital body
 	var/datum/orbital_object/z_linked/orbital_body = new orbital_body_type()
@@ -385,7 +385,7 @@ Used by the AI doomsday and the self-destruct nuke.
 
 	// load the maps
 	for(var/datum/parsed_map/pm as() in parsed_maps)
-		if(!pm.load(1, 1, start_z + parsed_maps[pm], no_changeturf = TRUE))
+		if(!pm.load(1, 1, start_z + parsed_maps[pm], no_changeturf = TRUE, new_z = TRUE))
 			errorList |= pm.original_path
 
 	if(!silent)
@@ -449,7 +449,7 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 
 /datum/controller/subsystem/mapping/proc/generate_station_area_list()
 	var/list/station_areas_blacklist = typecacheof(list(/area/space, /area/mine, /area/ruin, /area/asteroid/nearstation))
-	for(var/area/A in world)
+	for(var/area/A in GLOB.areas)
 		if (is_type_in_typecache(A, station_areas_blacklist))
 			continue
 		if (!A.contents.len || !(A.area_flags & UNIQUE_AREA))
@@ -462,7 +462,7 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 		log_world("ERROR: Station areas list failed to generate!")
 
 /datum/controller/subsystem/mapping/proc/run_map_generation()
-	for(var/area/A in world)
+	for(var/area/A as anything in GLOB.areas)
 		A.RunGeneration()
 
 /datum/controller/subsystem/mapping/proc/run_map_generation_in_z(desired_z_level)
@@ -754,7 +754,7 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 
 /// Takes a z level datum, and tells the mapping subsystem to manage it
 /// Also handles things like plane offset generation, and other things that happen on a z level to z level basis
-/datum/controller/subsystem/mapping/proc/manage_z_level(datum/space_level/new_z)
+/datum/controller/subsystem/mapping/proc/manage_z_level(datum/space_level/new_z, filled_with_space, contain_turfs = TRUE)
 	// First, add the z
 	z_list += new_z
 
@@ -772,6 +772,9 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 	var/below_offset = new_z.traits[ZTRAIT_DOWN]
 	if(below_offset)
 		update_plane_tracking(new_z)
+
+	if(contain_turfs)
+		build_area_turfs(z_value, filled_with_space)
 
 	// And finally, misc global generation
 

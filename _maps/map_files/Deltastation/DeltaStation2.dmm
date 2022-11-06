@@ -26541,7 +26541,7 @@
 "dkT" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
-/obj/item/modular_computer/tablet/preset/cheap,
+/obj/item/modular_computer/tablet,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "dkX" = (
