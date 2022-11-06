@@ -254,6 +254,7 @@
 	base_lighting_alpha = 255
 	has_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
+	area_flags = UNIQUE_AREA | NOTELEPORT
 
 /area/ctf/control_room
 	name = "Захват флага: Комната управления A"

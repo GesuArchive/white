@@ -17,7 +17,7 @@
 		var/list/features = default_map_traits[I]
 		//All default levels are assumed to be phobos at this stage, since there is only 1.
 		var/datum/space_level/S = new(I, features[DL_NAME], features[DL_TRAITS], orbital_body_type = /datum/orbital_object/z_linked/phobos)
-		manage_z_level(S)
+		manage_z_level(S, filled_with_space = FALSE)
 	generate_z_level_linkages() // Default Zs don't use add_new_zlevel() so they don't automatically generate z-linkages.
 
 /datum/controller/subsystem/mapping/proc/add_new_zlevel(name, traits = list(), z_type = /datum/space_level, orbital_body_type, contain_turfs = TRUE)
