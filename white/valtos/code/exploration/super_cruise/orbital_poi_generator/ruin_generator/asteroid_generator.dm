@@ -18,7 +18,7 @@
 	var/list/high_value_turfs = list()
 	var/generated_string = rustg_cnoise_generate("45", "20", "4", "3", "[world.maxx]", "[world.maxy]") //Generate the raw CA data
 
-	var/static/area/asteroid_area = new /area/asteroid/generated()
+	var/area/asteroid_area = new /area/asteroid/generated()
 	for(var/turf/open/space/T in block(locate(1, 1, center_z), locate(world.maxx, world.maxy, center_z)))
 		if(!T)
 			continue
