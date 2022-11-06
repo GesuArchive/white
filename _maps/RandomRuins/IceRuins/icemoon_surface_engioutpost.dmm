@@ -149,9 +149,6 @@
 /turf/open/floor/plating/snowed/icemoon,
 /area/icemoon/surface/outdoors)
 "aI" = (
-/obj/item/modular_computer/tablet/pda/engineering{
-	note = "To-do: Check on singularity status. Get a pint at eat. Nag the research manager for RCDs."
-	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors)
 "aJ" = (
@@ -564,9 +561,6 @@
 /turf/open/floor/plasteel/icemoon,
 /area/icemoon/surface/outdoors)
 "bI" = (
-/obj/item/modular_computer/tablet/pda/clear{
-	note = "Chief's asked me to check on the machinery inside PDA. He's also worried about Build, but i'm sure Harry'll handle the construction. I just need to work on Internals. Fuck i'm hungry"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
 	dir = 8;
 	icon_state = "pipe11-2"
