@@ -700,10 +700,8 @@ SUBSYSTEM_DEF(shuttle)
 	if(existing_shuttle && replace)
 		existing_shuttle.jumpToNullSpace()
 
-	preview_shuttle.register(replace)
 	var/list/force_memory = preview_shuttle.movement_force
 	preview_shuttle.movement_force = list("KNOCKDOWN" = 3, "THROW" = 0)
-	preview_shuttle.mode = SHUTTLE_PREARRIVAL//No idle shuttle moving. Transit dock get removed if shuttle moves too long.
 	preview_shuttle.initiate_docking(dest_dock)
 	preview_shuttle.movement_force = force_memory
 
@@ -715,6 +713,8 @@ SUBSYSTEM_DEF(shuttle)
 	preview_shuttle.mode = mode
 
 	preview_shuttle.register(replace)
+
+	preview_shuttle.reset_air()
 
 	// TODO indicate to the user that success happened, rather than just
 	// blanking the modification tab

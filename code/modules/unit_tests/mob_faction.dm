@@ -19,6 +19,7 @@
 	ignored += typesof(/mob/living/silicon/robot/modules)
 	ignored += typesof(/mob/living/silicon/ai)
 	ignored += typesof(/mob/camera/ai_eye)
+	ignored += typesof(/mob/living/simple_animal/hostile/bloodsucker)
 	for (var/mob_type in typesof(/mob) - ignored)
 		var/mob/mob_instance = allocate(mob_type)
 		if(!islist(mob_instance.faction))

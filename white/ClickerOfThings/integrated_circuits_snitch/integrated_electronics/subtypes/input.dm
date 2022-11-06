@@ -834,8 +834,11 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	action_flags = IC_ACTION_LONG_RANGE
 	power_draw_per_use = 50
-	network_id = NETWORK_TABLETS
 	var/address
+
+/obj/item/integrated_circuit_old/input/ntnet_packet/Initialize(mapload)
+	. = ..()
+	init_network_id(NETWORK_TABLETS)
 
 /obj/item/integrated_circuit_old/input/ntnet_packet/Initialize(mapload)
 	. = ..()

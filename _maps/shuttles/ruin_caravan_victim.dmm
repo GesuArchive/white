@@ -937,9 +937,9 @@
 	dir = 4
 	},
 /obj/machinery/power/apc{
-	dir = 4;
+	dir = 8;
 	name = "Small Freighter APC";
-	pixel_x = 24;
+	pixel_x = 25;
 	start_charge = 0
 	},
 /obj/effect/decal/cleanable/dirt,
