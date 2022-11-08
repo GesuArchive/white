@@ -970,10 +970,10 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		addtimer(CALLBACK(src, .proc/fast_attack, user, M), ct)
 
 /obj/item/vibro_weapon/proc/fast_attack(mob/user, mob/living/target)
-	var/mob/last_target_mob = previous_target?.resolve()
-	playsound(last_target_mob, 'sound/weapons/effects/vs.ogg', 100, TRUE)
+	var/atom/last_target_atom = previous_target?.resolve()
+	playsound(last_target_atom, 'sound/weapons/effects/vs.ogg', 100, TRUE)
 	var/turf/near_turf = pick(get_adjacent_open_turfs(target))
-	last_target_mob?.Beam(target, icon_state="1-full", time = 2 SECONDS, beam_color = slash_color)
+	last_target_atom?.Beam(target, icon_state="1-full", time = 2 SECONDS, beam_color = slash_color)
 	if(near_turf)
 		user.forceMove(near_turf)
 	user.setDir(get_dir(user, target))
