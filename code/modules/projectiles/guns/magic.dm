@@ -62,6 +62,8 @@
 	if(can_charge)
 		START_PROCESSING(SSobj, src)
 
+	RegisterSignal(src, COMSIG_ITEM_RECHARGED, .proc/instant_recharge)
+
 /obj/item/gun/magic/proc/on_magic_charge(datum/source, datum/action/cooldown/spell/spell, mob/living/caster)
 	charges = max_charges
 	recharge_newshot()
@@ -107,3 +109,9 @@
 	switch(var_name)
 		if(NAMEOF(src, charges))
 			recharge_newshot()
+
+/obj/item/gun/magic/proc/instant_recharge()
+	SIGNAL_HANDLER
+	charges = max_charges
+	recharge_newshot()
+	update_appearance()

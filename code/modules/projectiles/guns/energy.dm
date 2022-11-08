@@ -95,7 +95,7 @@
 	if(selfcharge)
 		START_PROCESSING(SSobj, src)
 	update_icon()
-	//RegisterSignal(src, COMSIG_ITEM_RECHARGED, .proc/instant_recharge)
+	RegisterSignal(src, COMSIG_ITEM_RECHARGED, .proc/instant_recharge)
 
 /obj/item/gun/energy/add_weapon_description()
 	AddElement(/datum/element/weapon_description, attached_proc = .proc/add_notes_energy)
@@ -330,3 +330,10 @@
 			cell.use(E.e_cost)
 			. = span_danger("[user] непринужденно зажигает [A.loc == user ? "[user.ru_ego()] [A.name]" : A] при помощи [src]. Вот блин.")
 
+/obj/item/gun/energy/proc/instant_recharge()
+	SIGNAL_HANDLER
+	if(!cell)
+		return
+	cell.charge = cell.maxcharge
+	recharge_newshot(no_cyborg_drain = TRUE)
+	update_appearance()

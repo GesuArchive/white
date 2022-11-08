@@ -857,12 +857,20 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	attack_verb_simple = list("режет", "рубит", "разрубает")
 	actions_types = list(/datum/action/item_action/area_attack)
 	w_class = WEIGHT_CLASS_BULKY
-	slot_flags = ITEM_SLOT_BACK
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
 	hitsound = 'sound/weapons/stab1.ogg'
 	block_sounds = list('white/valtos/sounds/block_sword.ogg')
 	var/wielded = FALSE // track wielded status on item
 	var/max_area_cd = 60 SECONDS
 	COOLDOWN_DECLARE(area_attack_cd)
+	/// The color of the slash we create
+	var/slash_color = COLOR_BLUE
+	/// Previous x position of where we clicked on the target's icon
+	var/previous_x
+	/// Previous y position of where we clicked on the target's icon
+	var/previous_y
+	/// The previous target we attacked
+	var/datum/weakref/previous_target
 
 /obj/item/vibro_weapon/Initialize(mapload)
 	. = ..()
@@ -873,6 +881,56 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	. = ..()
 	AddComponent(/datum/component/butchering, 20, 105)
 	AddComponent(/datum/component/two_handed, force_multiplier=2, icon_wielded="hfrequency1")
+
+/obj/item/vibro_weapon/attack(mob/living/target, mob/living/user, params)
+	if(!wielded)
+		return ..()
+	slash(target, user, params)
+
+/obj/item/vibro_weapon/attack_obj(atom/target, mob/living/user, params)
+	if(wielded)
+		return
+	return ..()
+
+/obj/item/vibro_weapon/afterattack(atom/target, mob/user, proximity_flag, params)
+	if(!wielded)
+		return ..()
+	if(!proximity_flag || !(isclosedturf(target) || isitem(target) || ismachinery(target) || isstructure(target) || isvehicle(target)))
+		return
+	slash(target, user, params)
+
+/obj/item/vibro_weapon/proc/slash(atom/target, mob/living/user, params)
+	user.do_attack_animation(target, "nothing")
+	var/list/modifiers = params2list(params)
+	var/damage_mod = 1
+	var/x_slashed = text2num(modifiers[ICON_X]) || world.icon_size/2 //in case we arent called by a client
+	var/y_slashed = text2num(modifiers[ICON_Y]) || world.icon_size/2 //in case we arent called by a client
+	new /obj/effect/temp_visual/slash(get_turf(target), target, x_slashed, y_slashed, slash_color)
+	if(target == previous_target?.resolve()) //if the same target, we calculate a damage multiplier if you swing your mouse around
+		var/x_mod = previous_x - x_slashed
+		var/y_mod = previous_y - y_slashed
+		damage_mod = max(1, round((sqrt(x_mod ** 2 + y_mod ** 2) / 10), 0.1))
+	previous_target = WEAKREF(target)
+	previous_x = x_slashed
+	previous_y = y_slashed
+	playsound(src, hitsound, 100, vary = TRUE)
+	if(isliving(target))
+		var/mob/living/living_target = target
+		living_target.apply_damage(force * damage_mod, BRUTE, sharpness = SHARP_EDGED, wound_bonus = wound_bonus, bare_wound_bonus = bare_wound_bonus, def_zone = user.zone_selected)
+		log_combat(user, living_target, "slashed", src)
+		if(living_target.stat == DEAD && prob(force * damage_mod*0.5))
+			living_target.visible_message(span_danger("[living_target] разлетается на куски мяса!"), blind_message = span_hear("Слышу как разрывается плоть!"))
+			living_target.gib()
+			log_combat(user, living_target, "gibbed", src)
+	else if(isobj(target))
+		var/obj/obj_target = target
+		obj_target.take_damage(force * damage_mod * 3, BRUTE, MELEE, FALSE, null, 50)
+	else if(iswallturf(target) && prob(force * damage_mod*0.5))
+		var/turf/closed/wall/wall_target = target
+		wall_target.dismantle_wall()
+	else if(ismineralturf(target) && prob(force * damage_mod))
+		var/turf/closed/mineral/mineral_target = target
+		mineral_target.gets_drilled()
 
 /// triggered on wield of two handed item
 /obj/item/vibro_weapon/proc/on_wield(obj/item/source, mob/user)
@@ -912,10 +970,10 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		addtimer(CALLBACK(src, .proc/fast_attack, user, M), ct)
 
 /obj/item/vibro_weapon/proc/fast_attack(mob/user, mob/living/target)
-	var/turf/user_turf = get_turf(user)
-	playsound(user_turf, 'sound/weapons/effects/vs.ogg', 100, TRUE)
+	var/mob/last_target_mob = previous_target?.resolve()
+	playsound(last_target_mob, 'sound/weapons/effects/vs.ogg', 100, TRUE)
 	var/turf/near_turf = pick(get_adjacent_open_turfs(target))
-	user_turf.Beam(near_turf, icon_state="1-full", time = 2 SECONDS)
+	last_target_mob?.Beam(target, icon_state="1-full", time = 2 SECONDS, beam_color = slash_color)
 	if(near_turf)
 		user.forceMove(near_turf)
 	user.setDir(get_dir(user, target))
@@ -935,12 +993,37 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 				return TRUE
 	return FALSE
 
+/obj/effect/temp_visual/slash
+	icon_state = "highfreq_slash"
+	alpha = 150
+	duration = 0.5 SECONDS
+	layer = ABOVE_ALL_MOB_LAYER
+	plane = ABOVE_GAME_PLANE
+
+/obj/effect/temp_visual/slash/Initialize(mapload, atom/target, x_slashed, y_slashed, slash_color)
+	. = ..()
+	if(!target)
+		return
+	var/matrix/new_transform = matrix()
+	new_transform.Turn(rand(1, 360)) // Random slash angle
+	var/datum/decompose_matrix/decomp = target.transform.decompose()
+	new_transform.Translate((x_slashed - world.icon_size/2) * decomp.scale_x, (y_slashed - world.icon_size/2) * decomp.scale_y) // Move to where we clicked
+	//Follow target's transform while ignoring scaling
+	new_transform.Turn(decomp.rotation)
+	new_transform.Translate(decomp.shift_x, decomp.shift_y)
+	new_transform.Translate(target.pixel_x, target.pixel_y) // Follow target's pixel offsets
+	transform = new_transform
+	//Double the scale of the matrix by doubling the 2x2 part without touching the translation part
+	var/matrix/scaled_transform = new_transform + matrix(new_transform.a, new_transform.b, 0, new_transform.d, new_transform.e, 0)
+	animate(src, duration*0.5, color = slash_color, transform = scaled_transform, alpha = 255)
+
 /obj/item/vibro_weapon/butcher
 	block_chance = 100
 	force = 100
 	throwforce = 200
 	wound_bonus = 250
 	max_area_cd = 0
+	slash_color = COLOR_VIOLET
 
 /obj/item/melee/moonlight_greatsword
 	name = "moonlight greatsword"

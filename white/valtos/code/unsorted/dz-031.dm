@@ -88,6 +88,13 @@
 	if(prob(0.1))
 		icon_state = "c_wall2"
 		density = 0
+	else
+		dir = pick(GLOB.cardinals)
+	return INITIALIZE_HINT_LATELOAD
+
+/turf/closed/dz/normal/cyber/LateInitialize()
+	. = ..()
+	AddElement(/datum/element/turf_z_transparency)
 
 /turf/closed/dz/normal/cyber/ice
 	name = "лёд"
@@ -543,4 +550,4 @@
 
 /obj/effect/temp_visual/dz_effects/attention
 	duration = 30
-	icon_state = "attention"
+	icon_state = "danger"

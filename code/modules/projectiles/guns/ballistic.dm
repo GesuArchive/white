@@ -108,7 +108,7 @@
 	else
 		chamber_round(replace_new_round = TRUE)
 	update_icon()
-	//RegisterSignal(src, COMSIG_ITEM_RECHARGED, .proc/instant_reload)
+	RegisterSignal(src, COMSIG_ITEM_RECHARGED, .proc/instant_reload)
 
 /obj/item/gun/ballistic/make_jamming()
 	AddElement(/datum/element/jamming, 0.5)
@@ -580,3 +580,14 @@ GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
 /obj/item/suppressor/specialoffer
 	name = "дешевый глушитель"
 	desc = "Ощущается китайской подделкой, но может накручиваться на различные виды оружия."
+
+/obj/item/gun/ballistic/proc/instant_reload()
+	SIGNAL_HANDLER
+	if(magazine)
+		magazine.top_off()
+	else
+		if(!mag_type)
+			return
+		magazine = new mag_type(src)
+	chamber_round()
+	update_appearance()

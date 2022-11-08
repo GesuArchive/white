@@ -8,7 +8,8 @@
 	glasses = /obj/item/clothing/glasses/thermal/eyepatch
 	ears = /obj/item/radio/headset/headset_cent/commander
 	mask = /obj/item/clothing/mask/cigarette/cigar/havana
-	belt = /obj/item/gun/ballistic/automatic/fallout/railgun
+	belt = /obj/item/vibro_weapon/butcher
+	suit_store = /obj/item/gun/ballistic/automatic/fallout/railgun
 	r_pocket = /obj/item/lighter
 	back = /obj/item/storage/backpack/satchel/leather
 	id = /obj/item/card/id/advanced/centcom
