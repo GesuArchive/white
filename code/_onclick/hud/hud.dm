@@ -304,6 +304,8 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 				screenmob.client.screen += hotkeybuttons
 			if(infodisplay.len)
 				screenmob.client.screen += infodisplay
+			if(screenoverlays.len)
+				screenmob.client.screen += screenoverlays
 
 			if(action_intent)
 				action_intent.screen_loc = initial(action_intent.screen_loc) //Restore intent selection to the original position
@@ -318,6 +320,8 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 				screenmob.client.screen -= hotkeybuttons
 			if(infodisplay.len)
 				screenmob.client.screen += infodisplay
+			if(screenoverlays.len)
+				screenmob.client.screen += screenoverlays
 
 			//These ones are a part of 'static_inventory', 'toggleable_inventory' or 'hotkeybuttons' but we want them to stay
 			for(var/h in hand_slots)
@@ -338,6 +342,8 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 				screenmob.client.screen -= hotkeybuttons
 			if(infodisplay.len)
 				screenmob.client.screen -= infodisplay
+			if(screenoverlays.len) // no way
+				screenmob.client.screen += screenoverlays
 
 	hud_version = display_hud_version
 	persistent_inventory_update(screenmob)
