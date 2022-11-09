@@ -23,7 +23,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 		if(!mobhud.weather)
 			mobhud.weather = new /atom/movable/screen()
 			mobhud.weather.screen_loc = "CENTER"
-			mobhud.weather.hud = src
+			mobhud.weather.hud = mobhud
 			mobhud.screenoverlays += mobhud.weather
 			mobhud.weather.particles = new /particles/rain/sideways
 

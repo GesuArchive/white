@@ -172,12 +172,15 @@ GLOBAL_LIST_EMPTY(pillars_by_z)
 
 /datum/element/turf_z_transparency
 	element_flags = ELEMENT_DETACH
+	var/ignore_closed_turf_shit = FALSE
 
 ///This proc sets up the signals to handle updating viscontents when turfs above/below update. Handle plane and layer here too so that they don't cover other obs/turfs in Dream Maker
-/datum/element/turf_z_transparency/Attach(datum/target, mapload)
+/datum/element/turf_z_transparency/Attach(datum/target, mapload, _ignore_closed_turf_shit = FALSE)
 	. = ..()
 	if(!isturf(target))
 		return ELEMENT_INCOMPATIBLE
+
+	ignore_closed_turf_shit = _ignore_closed_turf_shit
 
 	var/turf/our_turf = target
 
@@ -218,7 +221,7 @@ GLOBAL_LIST_EMPTY(pillars_by_z)
 	// similarly, if you rip this out, rework diagonal closed turfs to work with this system
 	// it will make them look significantly nicer, and should let you tie into their logic more easily
 	// Just please don't break behavior yeah? thanks, I love you <3
-	if(isclosedturf(our_turf)) //Show girders below closed turfs
+	if(isclosedturf(our_turf) && !ignore_closed_turf_shit) //Show girders below closed turfs
 		var/mutable_appearance/girder_underlay = mutable_appearance('icons/obj/structures.dmi', "girder", layer = TURF_LAYER-0.01)
 		girder_underlay.appearance_flags = RESET_ALPHA | RESET_COLOR
 		our_turf.underlays += girder_underlay
@@ -239,7 +242,7 @@ GLOBAL_LIST_EMPTY(pillars_by_z)
 	else
 		our_turf.underlays -= get_baseturf_underlay(our_turf)
 
-	if(isclosedturf(our_turf)) //Show girders below closed turfs
+	if(isclosedturf(our_turf) && !ignore_closed_turf_shit) //Show girders below closed turfs
 		var/mutable_appearance/girder_underlay = mutable_appearance('icons/obj/structures.dmi', "girder", layer = TURF_LAYER-0.01)
 		girder_underlay.appearance_flags = RESET_ALPHA | RESET_COLOR
 		our_turf.underlays -= girder_underlay

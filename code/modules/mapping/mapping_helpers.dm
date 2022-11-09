@@ -600,7 +600,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 	invisibility = INVISIBILITY_MAXIMUM
 	var/timer = 15
 	var/current_time = null
-	var/current_turf_type = /turf/open/lava
+	var/current_turf_type = /turf/open/water/xen_acid
 
 /obj/effect/mapping_helpers/turf_rotation/Initialize(mapload)
 	.=..()

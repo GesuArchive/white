@@ -94,7 +94,7 @@
 
 /turf/closed/dz/normal/cyber/LateInitialize()
 	. = ..()
-	AddElement(/datum/element/turf_z_transparency)
+	AddElement(/datum/element/turf_z_transparency, _ignore_closed_turf_shit = TRUE)
 
 /turf/closed/dz/normal/cyber/ice
 	name = "лёд"
@@ -289,27 +289,34 @@
 
 /obj/effect/attack_spike/Initialize(mapload)
 	. = ..()
-	spawn(10)
-		icon_state = "spike_hole"
-		spawn(10)
-			icon_state = "spike_strike"
-			var/latched = FALSE
-			for(var/mob/living/L in loc)
-				visible_message(span_danger("Стержень жёстко пробивает тушку <b>[L]</b>!"))
-				L.adjustBruteLoss(50)
-				var/turf/T = get_turf(src)
-				new /obj/effect/decal/cleanable/blood(T)
-				playsound(T, 'sound/effects/wounds/pierce3.ogg', 50, 1)
-				latched = TRUE
-			spawn(10)
-				if(latched)
-					icon_state = "spike_bloody_retract"
-				else
-					icon_state = "spike_retract"
-				spawn(5)
-					icon_state = "spike_hole"
-					spawn(5)
-						qdel(src)
+	INVOKE_ASYNC(src, .proc/do_attack_sequence)
+
+/obj/effect/attack_spike/proc/do_attack_sequence()
+	sleep(10)
+	icon_state = "spike_hole"
+
+	sleep(10)
+	flick("spike_strike", src)
+	var/latched = FALSE
+	for(var/mob/living/L in loc)
+		visible_message(span_danger("Стержень жёстко пробивает тушку <b>[L]</b>!"))
+		L.apply_damage_type(50, BRUTE)
+		var/turf/T = get_turf(src)
+		new /obj/effect/decal/cleanable/blood(T)
+		playsound(T, 'sound/effects/wounds/pierce3.ogg', 50, 1)
+		latched = TRUE
+
+	sleep(2.2)
+	if(latched)
+		flick("spike_bloody_retract", src)
+	else
+		flick("spike_retract", src)
+
+	sleep(5)
+	icon_state = "spike_hole"
+
+	sleep(5)
+	qdel(src)
 
 /obj/machinery/door/veryblastdoor
 	name = "сверхкрепкий шлюз"

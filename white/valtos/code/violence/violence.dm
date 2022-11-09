@@ -176,7 +176,10 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 				for(var/turf/open/T as() in main_area)
 					if(prob(99) || !istype(T, /turf/open))
 						continue
-					new /obj/effect/attack_spike(T)
+					if(prob(10))
+						new /obj/effect/powerup/health/violence(T)
+					else
+						new /obj/effect/attack_spike(T)
 		// заставляем людей произносить рандомные реплики
 		for(var/mob/living/carbon/human/H in main_area)
 			if(prob(2) && H.stat == CONSCIOUS)

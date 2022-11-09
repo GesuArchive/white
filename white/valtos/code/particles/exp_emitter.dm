@@ -224,9 +224,40 @@
 
 /obj/effect/particle_mist
 	particles = new/particles/mist
-	var/static/list/particles/z_particles
 	layer = FLY_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/effect/particle_mist/client_attach
 	screen_loc = "CENTER"
+
+/particles/cyberspace_zero_one
+	icon = 'white/valtos/icons/dz-031.dmi'
+	icon_state = "zero_one"
+	width = 256
+	height = 256
+	count = 50
+	spawning = 5
+	lifespan = 25
+	fade = 12
+	fadein = 12
+	position = generator("box", list(-100,-100,0), list(100,100,0))
+	velocity = generator("num", 2, -2)
+	friction = 0.1
+
+/obj/effect/particle_cyberspess
+	particles = new /particles/cyberspace_zero_one
+	layer = FLY_LAYER
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/particles/dust
+	color = "#5f5f5f"
+	width = 128
+	height = 128
+	count = 100
+	spawning = 1
+	lifespan = 25
+	fade = 12
+	fadein = 12
+	position = generator("box", list(-64,-64,0), list(64,64,0))
+	drift = generator("num", 0.1, -0.1)
+	friction = 0.1

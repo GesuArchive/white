@@ -82,6 +82,11 @@
 	icon_state = "duffel-med"
 	full_heal = TRUE
 
+/obj/effect/powerup/health/violence
+	icon_state = "firstaid"
+	heal_amount = 25
+	respawn_time = null
+
 /obj/effect/powerup/ammo
 	name = "ammo pickup"
 	desc = "You like revenge, right? Everybody likes revenge! Well, let's go get some!"

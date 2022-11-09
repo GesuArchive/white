@@ -64,10 +64,6 @@
 /obj/structure/table/abductor,
 /turf/open/floor/plasteel/tg/smooth_large,
 /area/shuttle/yohei)
-"em" = (
-/obj/machinery/telecomms/relay/preset/yohei,
-/turf/open/floor/plasteel/tg/dark/smooth_large,
-/area/shuttle/yohei)
 "eA" = (
 /obj/effect/turf_decal/siding/wideplating/dark{
 	dir = 9
@@ -878,7 +874,7 @@ sg
 Fb
 zL
 Fb
-em
+Fb
 Fb
 sg
 Bq

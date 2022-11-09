@@ -75,13 +75,14 @@
 
 /obj/machinery/telecomms/relay/preset/ruskie
 	id = "Ruskie Relay"
-	hide = 1
+	hide = TRUE
 	toggled = FALSE
 	autolinkers = list("r_relay")
 
 /obj/machinery/telecomms/relay/preset/yohei
 	id = "Реле Йохеев"
 	autolinkers = list("y_relay")
+	hide = TRUE
 
 //Generic preset relay
 /obj/machinery/telecomms/relay/preset/auto
@@ -94,7 +95,7 @@
 
 /obj/machinery/telecomms/relay/preset/reebe
 	id = "Hierophant Relay"
-	hide = 1
+	hide = TRUE
 	autolinkers = list("h_relay")
 	icon = 'icons/obj/clockwork_objects.dmi'
 	icon_state = "relay"

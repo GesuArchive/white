@@ -156,6 +156,7 @@
 /obj/item/encryptionkey/headset_yohei
 	name = "ключ шифрования Йохеев"
 	icon_state = "cap_cypherkey"
+	independent = TRUE
 	channels = list(RADIO_CHANNEL_YOHEI = 1)
 
 /obj/item/encryptionkey/headset_cent

@@ -1,4 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aO" = (
+/obj/effect/landmark/start/combatant/blue,
+/obj/effect/particle_cyberspess,
+/turf/open/floor/dz/cyber,
+/area/violence)
 "cC" = (
 /turf/closed/dz/normal/cyber/ice,
 /area/violence)
@@ -45,6 +50,7 @@
 "oE" = (
 /obj/effect/landmark/bomb_plant_location,
 /obj/effect/turf_decal/box/red,
+/obj/effect/particle_cyberspess,
 /turf/open/floor/dz/trippy_green,
 /area/violence)
 "sq" = (
@@ -95,6 +101,11 @@
 /obj/structure/sign/poster/random,
 /turf/closed/dz/normal/cyber,
 /area/violence)
+"JJ" = (
+/obj/effect/landmark/start/combatant/red,
+/obj/effect/particle_cyberspess,
+/turf/open/floor/dz/cyber,
+/area/violence)
 "Kt" = (
 /turf/closed/dz/normal/cyber/ice/green,
 /area/violence)
@@ -117,6 +128,10 @@
 /area/violence)
 "TI" = (
 /turf/closed/dz/normal/cyber/ice/black,
+/area/violence)
+"UD" = (
+/obj/effect/particle_cyberspess,
+/turf/open/floor/dz/cyber,
 /area/violence)
 "VO" = (
 /obj/structure/sign/dz/middle,
@@ -184,7 +199,7 @@ Lr
 Lr
 Lr
 Lr
-xw
+TI
 Lr
 CQ
 zU
@@ -258,6 +273,7 @@ zU
 zU
 TI
 xw
+UD
 xw
 xw
 xw
@@ -265,8 +281,7 @@ xw
 xw
 xw
 xw
-xw
-xw
+UD
 xw
 CQ
 zU
@@ -319,7 +334,7 @@ zU
 CQ
 xw
 xw
-xw
+UD
 xw
 xw
 xw
@@ -348,7 +363,7 @@ CQ
 CQ
 CQ
 CQ
-xw
+TI
 CQ
 CQ
 zU
@@ -667,22 +682,22 @@ sq
 sq
 sq
 GZ
-xw
-xw
-xw
+dG
+dG
+dG
 GZ
 cC
 cC
 cC
 cC
 CQ
-xw
+TI
 CQ
 JA
 TI
 JA
 CQ
-xw
+TI
 CQ
 cC
 cC
@@ -690,7 +705,7 @@ cC
 cC
 GZ
 Js
-dG
+Js
 Js
 CQ
 Li
@@ -745,7 +760,7 @@ sR
 VO
 sq
 sq
-sq
+JJ
 sq
 sq
 xw
@@ -777,7 +792,7 @@ xw
 xw
 Li
 Li
-Li
+aO
 Li
 Li
 VO
@@ -832,7 +847,7 @@ sq
 sq
 CQ
 Js
-dG
+Js
 Js
 GZ
 cC
@@ -840,22 +855,22 @@ cC
 cC
 cC
 CQ
-xw
+TI
 CQ
 JA
 TI
 JA
 CQ
-xw
+TI
 CQ
 cC
 cC
 cC
 cC
 GZ
-xw
-xw
-xw
+dG
+dG
+dG
 GZ
 Li
 Li
@@ -1203,7 +1218,7 @@ CQ
 xw
 xw
 xw
-xw
+UD
 xw
 xw
 CQ
@@ -1256,6 +1271,7 @@ zU
 zU
 CQ
 xw
+UD
 xw
 xw
 xw
@@ -1263,8 +1279,7 @@ xw
 xw
 xw
 xw
-xw
-xw
+UD
 xw
 TI
 zU
@@ -1338,7 +1353,7 @@ zU
 zU
 CQ
 Lr
-xw
+TI
 Lr
 Lr
 Lr
