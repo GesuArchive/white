@@ -8,12 +8,6 @@
 		to_chat(user, span_notice("You clear the wired connection from the multitool."))
 	update_icon()
 
-/obj/item/multitool/update_icon()
-	if(selected_io)
-		icon_state = "multitool_red"
-	else
-		icon_state = "multitool"
-
 /obj/item/multitool/proc/wire(var/datum/integrated_io/io, mob/user)
 	if(!io.holder.assembly)
 		to_chat(user, span_warning("<b>[capitalize(io.holder)]</b> needs to be secured inside an assembly first."))
@@ -57,9 +51,3 @@
 		[io1.name] and the [io2.holder.displayed_name] [io2.name].</span>")
 		io1.holder.interact(user) // This is to update the UI.
 		update_icon()
-
-/obj/item/multitool/ai_detect/update_icon()
-	if(selected_io)
-		icon_state = "multitool_red"
-	else
-		icon_state = "[initial(icon_state)][detect_state]"
