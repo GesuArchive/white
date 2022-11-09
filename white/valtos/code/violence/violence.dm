@@ -116,7 +116,8 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		if(player.ready == PLAYER_READY_TO_PLAY)
 			player.ready = PLAYER_NOT_READY
 	// удаляем все спаунеры из мира, дополнительно
-	QDEL_LIST_ASSOC(GLOB.mob_spawners)
+	for(var/list/spawner in GLOB.mob_spawners)
+		QDEL_LIST_ASSOC(spawner)
 	return TRUE
 
 /datum/game_mode/violence/post_setup()
