@@ -7,9 +7,6 @@
  *
  */
 
-
-
-
 /obj/item/multitool
 	name = "мультитул"
 	desc = "Используется для прозвона проводов и подачи импульсов на них. Не рекомендуется врачами."
@@ -32,6 +29,10 @@
 	usesound = 'sound/weapons/empty.ogg'
 	var/obj/machinery/buffer // simple machine buffer for device linkage
 	var/mode = 0
+
+/obj/item/multitool/Initialize(mapload)
+	. = ..()
+	update_icon()
 
 /obj/item/multitool/examine(mob/user)
 	. = ..()
