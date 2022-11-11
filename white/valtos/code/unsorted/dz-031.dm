@@ -214,6 +214,7 @@ GLOBAL_LIST_EMPTY(hacked_ice)
 	desc = "Удивительно, что у тебя есть время на рассматривание этого."
 	icon = 'white/valtos/icons/dz-031.dmi'
 	icon_state = "dz1"
+	plane = GAME_PLANE_UPPER
 
 /obj/structure/sign/dz/middle
 	icon_state = "dz2"
@@ -268,7 +269,7 @@ GLOBAL_LIST_EMPTY(hacked_ice)
 	icon = 'white/valtos/icons/dz-031.dmi'
 	icon_state = "monitor"
 	flags_1 = INDESTRUCTIBLE
-	plane = GAME_PLANE
+	plane = GAME_PLANE_UPPER
 	anchored = TRUE
 	var/what_pic = "anonist"
 
