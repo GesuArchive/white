@@ -448,5 +448,6 @@ GLOBAL_VAR_INIT(asteroids_randomed_number, rand(1, 5))
 
 /atom/movable/screen/parallax_layer/mazespace
 	icon_state = "mazespace"
+	blend_mode = 4
 	speed = 16
 	layer = 2
