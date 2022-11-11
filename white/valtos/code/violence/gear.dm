@@ -116,7 +116,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 		/obj/item/gun/ballistic/automatic/pistol/deagle,
 		/obj/item/ammo_box/magazine/m50
 	)
-	allowed_themes = list("std", "warfare", "hotline", "cyber")
+	allowed_themes = list("std", "warfare", "hotline")
 
 /datum/violence_gear/pistol/golden_eagle
 	name = "FTU PDH-6G"
@@ -342,7 +342,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	name = "Кевларовый щит"
 	cost = 300
 	items = list(/obj/item/shield/riot/kevlar)
-	allowed_themes = list("std", "warfare", "cyber")
+	allowed_themes = list("std", "warfare")
 
 /datum/violence_gear/misc
 	cat = "Различное"
@@ -351,12 +351,13 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	name = "Жгут"
 	cost = 25
 	items = list(/obj/item/stack/medical/suture/medicated)
-	allowed_themes = list("std", "warfare", "hotline")
+	allowed_themes = list("std", "warfare", "hotline", "katana", "portal")
 
 /datum/violence_gear/misc/sunglasses
 	name = "Солнцезащитные"
 	cost = 35
 	items = list(/obj/item/clothing/glasses/sunglasses)
+	allowed_themes = list("std", "warfare", "hotline", "katana", "portal")
 
 /datum/violence_gear/misc/wirecutters
 	name = "Кусачки"
@@ -379,6 +380,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	name = "Термалы"
 	cost = 1000
 	items = list(/obj/item/clothing/glasses/hud/toggle/thermal)
+	allowed_themes = list("std", "warfare", "hotline", "katana")
 
 /datum/violence_gear/ammo
 	cat = "Аммуниция"
@@ -460,3 +462,54 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 	cost = 700
 	items = list(/obj/item/ammo_box/magazine/r40)
 	allowed_themes = list("katana")
+
+/datum/violence_gear/random
+	cat = "Случайное"
+
+/datum/violence_gear/random/food
+	name = "ЕДА"
+	cost = 50
+	items = /obj/item/food
+	allowed_themes = list("cyber")
+
+/datum/violence_gear/random/clothing
+	name = "ОДЕЖДА"
+	cost = 100
+	items = /obj/item/clothing
+	allowed_themes = list("cyber")
+
+/datum/violence_gear/random/book
+	name = "КНИГА"
+	cost = 150
+	items = /obj/item/book
+	allowed_themes = list("cyber")
+
+/datum/violence_gear/random/reagent_containers
+	name = "РЕАГЕНТ"
+	cost = 200
+	items = /obj/item/reagent_containers
+	allowed_themes = list("cyber")
+
+/datum/violence_gear/random/shield
+	name = "ЩИТ"
+	cost = 400
+	items = /obj/item/shield
+	allowed_themes = list("cyber")
+
+/datum/violence_gear/random/melee
+	name = "БЛИЖНИЙ БОЙ"
+	cost = 600
+	items = /obj/item/melee
+	allowed_themes = list("cyber")
+
+/datum/violence_gear/random/gun
+	name = "ДАЛЬНИЙ БОЙ"
+	cost = 900
+	items = /obj/item/gun
+	allowed_themes = list("cyber")
+
+/datum/violence_gear/random/mod
+	name = "MOD"
+	cost = 1250
+	items = /obj/item/mod/control/pre_equipped
+	allowed_themes = list("cyber")

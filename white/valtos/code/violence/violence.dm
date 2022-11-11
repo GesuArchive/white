@@ -175,9 +175,9 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 						T.ChangeTurf(pick(subtypesof(/turf/open)))
 			if("cyber")
 				for(var/turf/open/T as() in main_area)
-					if(prob(99) || !istype(T, /turf/open))
+					if(prob(99.5) || !istype(T, /turf/open))
 						continue
-					if(prob(10))
+					if(prob(2.5))
 						new /obj/effect/powerup/health/violence(T)
 					else
 						new /obj/effect/attack_spike(T)
@@ -428,6 +428,13 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 			var/mob/dead/new_player/NP = new()
 			NP.ckey = M.ckey
 			qdel(M)
+	// если сейчас киберспейс, то нам нужно отрегенерировать лёд
+	if(GLOB.violence_theme == "cyber")
+		for(var/obj/effect/dz/ice/ICE in GLOB.hacked_ice)
+			var/turf/T = get_turf(ICE)
+			T.ChangeTurf(ICE.old_type)
+		// на всякий случай принудительно очищаем список. Бьёнд умеет шутить и его шутки весьма подлые
+		LAZYCLEARLIST(GLOB.hacked_ice)
 	// вызов очистки
 	clean_arena()
 	spawn(10 SECONDS)

@@ -86,9 +86,10 @@
 /turf/closed/dz/normal/cyber/Initialize(mapload)
 	. = ..()
 	if(prob(0.1))
-		icon_state = "c_wall2"
+		icon_state = "c_wall3"
 		density = 0
-	else
+	else if(prob(1))
+		icon_state = "c_wall2"
 		dir = pick(GLOB.cardinals)
 	return INITIALIZE_HINT_LATELOAD
 
@@ -99,6 +100,7 @@
 /turf/closed/dz/normal/cyber/ice
 	name = "лёд"
 	icon_state = "ice"
+	var/money_to_adjust = 0
 
 /turf/closed/dz/normal/cyber/ice/attack_hand(mob/user)
 	. = ..()
@@ -113,19 +115,30 @@
 /turf/closed/dz/normal/cyber/ice/proc/melt_ice(mob/living/user)
 	playsound(src, 'white/valtos/sounds/rapidslice.ogg', 60, TRUE)
 
+	var/obj/effect/dz/ice/IC = new /obj/effect/dz/ice(src)
+	IC.old_type = type
+	IC.color = color
+
 	var/turf/T = ChangeTurf(/turf/open/floor/dz/cyber)
 
-	spawn(60 SECONDS)
-		if(!T)
-			return
-		if(prob(15))
-			T.ChangeTurf(pick(subtypesof(/turf/closed/dz/normal/cyber/ice)))
-		else
-			T.ChangeTurf(/turf/closed/dz/normal/cyber/ice/blue)
+	if(!T)
+		return
+
+	if(!money_to_adjust)
+		return
+
+	// прост даём или забираем бабло игрока
+	var/datum/violence_player/VP = vp_get_player(user?.ckey)
+	if(!VP)
+		return
+
+	VP.money += money_to_adjust
+	to_chat(user, span_boldnotice("[money_to_adjust > 0 ? "+[money_to_adjust]" : "-[money_to_adjust]"]₽"))
 
 /turf/closed/dz/normal/cyber/ice/red
 	name = "красный лёд"
 	color = "#B34646"
+	money_to_adjust = -25
 
 /turf/closed/dz/normal/cyber/ice/red/melt_ice(mob/living/user)
 	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и покрывается ссадинами!"), \
@@ -136,6 +149,7 @@
 /turf/closed/dz/normal/cyber/ice/yellow
 	name = "жёлтый лёд"
 	color = "#AEA341"
+	money_to_adjust = -25
 
 /turf/closed/dz/normal/cyber/ice/yellow/melt_ice(mob/living/user)
 	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и загорается!"), \
@@ -147,6 +161,7 @@
 /turf/closed/dz/normal/cyber/ice/green
 	name = "зелёный лёд"
 	color = "#55AC3F"
+	money_to_adjust = -25
 
 /turf/closed/dz/normal/cyber/ice/green/melt_ice(mob/living/user)
 	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и покрывается кислотой!"), \
@@ -157,6 +172,7 @@
 /turf/closed/dz/normal/cyber/ice/black
 	name = "чёрный лёд"
 	color = "#222222"
+	money_to_adjust = -25
 
 /turf/closed/dz/normal/cyber/ice/black/melt_ice(mob/living/user)
 	visible_message(span_warning("<b>[user]</b> уничтожает <b>[src]</b> и засыпает!"), \
@@ -167,39 +183,29 @@
 /turf/closed/dz/normal/cyber/ice/blue
 	name = "синий лёд"
 	color = "#4684B3"
-	var/list/things = list()
+	money_to_adjust = 25
 
-/turf/closed/dz/normal/cyber/ice/blue/Initialize(mapload)
+/obj/effect/dz
+	density = FALSE
+	anchored = TRUE
+	invisibility = INVISIBILITY_OBSERVER
+	alpha = 100
+	resistance_flags = INDESTRUCTIBLE
+
+GLOBAL_LIST_EMPTY(hacked_ice)
+
+/obj/effect/dz/ice
+	name = "взломанный лёд"
+	icon_state = "ice"
+	icon = 'white/valtos/icons/dz-031.dmi'
+	var/old_type = null
+
+/obj/effect/dz/ice/Initialize(mapload)
 	. = ..()
-	if(length(things))
-		return
-	// this is predictable random shit
-	switch(rand(1, 100))
-		if(1 to 10)
-			things = subtypesof(/obj/item/gun)
-		if (11 to 20)
-			things = subtypesof(/obj/item/melee)
-		if (21 to 30)
-			things = subtypesof(/obj/item/clothing)
-		if (31 to 40)
-			things = subtypesof(/obj/item/reagent_containers)
-		if (41 to 50)
-			things = subtypesof(/obj/item/book)
-		if(51 to 60)
-			things = subtypesof(/obj/item/mod/control/pre_equipped)
-		if(61 to 100)
-			things = subtypesof(/obj/item/food)
+	GLOB.hacked_ice += src
 
-/turf/closed/dz/normal/cyber/ice/blue/melt_ice(mob/living/user)
-	var/obj/item/found_something = null
-
-	if(prob(65) && length(things))
-		var/obj/item/thingy = pick(things)
-		found_something = new thingy(src)
-
-	visible_message(span_notice("<b>[user]</b> уничтожает <b>[src]</b>[found_something ? " и находит внутри <b>[found_something]</b>" : ""]."), \
-					span_notice("Уничтожаю <b>[src]</b>[found_something ? " и нахожу внутри <b>[found_something]</b>" : ""]."))
-
+/obj/effect/dz/ice/Destroy(force)
+	GLOB.hacked_ice -= src
 	. = ..()
 
 /turf/closed/dz/lab

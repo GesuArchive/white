@@ -232,7 +232,7 @@
 
 /particles/cyberspace_zero_one
 	icon = 'white/valtos/icons/dz-031.dmi'
-	icon_state = "zero_one"
+	icon_state = list("zero" = 1, "one" = 1)
 	width = 256
 	height = 256
 	count = 50
