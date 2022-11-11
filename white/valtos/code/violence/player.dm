@@ -12,8 +12,11 @@ GLOBAL_LIST_EMPTY(violence_players)
 /datum/violence_player/proc/equip_everything(mob/living/carbon/human/H)
 	var/list/full_of_items = list()
 	for(var/datum/violence_gear/VG as anything in loadout_items)
-		for(var/item in VG.items)
-			LAZYADD(full_of_items, item)
+		if(!islist(VG.items)) // lil trick, that we can pay
+			LAZYADD(full_of_items, VG.items)
+		else
+			for(var/item in VG.items)
+				LAZYADD(full_of_items, item)
 	LAZYADD(full_of_items, saved_items)
 	for(var/item in full_of_items)
 		var/obj/item/O = new item(get_turf(H))
