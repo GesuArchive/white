@@ -119,21 +119,14 @@
 	IC.old_type = type
 	IC.color = color
 
-	var/turf/T = ChangeTurf(/turf/open/floor/dz/cyber)
+	if(money_to_adjust)
+		// прост даём или забираем бабло игрока
+		var/datum/violence_player/VP = vp_get_player(user?.ckey)
+		if(VP)
+			VP.money += money_to_adjust
+			to_chat(user, span_boldnotice("[money_to_adjust > 0 ? "+[money_to_adjust]" : "-[money_to_adjust]"]₽"))
 
-	if(!T)
-		return
-
-	if(!money_to_adjust)
-		return
-
-	// прост даём или забираем бабло игрока
-	var/datum/violence_player/VP = vp_get_player(user?.ckey)
-	if(!VP)
-		return
-
-	VP.money += money_to_adjust
-	to_chat(user, span_boldnotice("[money_to_adjust > 0 ? "+[money_to_adjust]" : "-[money_to_adjust]"]₽"))
+	ChangeTurf(/turf/open/floor/dz/cyber)
 
 /turf/closed/dz/normal/cyber/ice/red
 	name = "красный лёд"
