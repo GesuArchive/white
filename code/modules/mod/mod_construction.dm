@@ -1,10 +1,10 @@
 /obj/item/mod/construction
-	desc = "Часть, используемая в конструкции MOD-Скафандра."
+	desc = "Часть, используемая в конструкции МОД-Скафандра."
 	icon = 'icons/obj/clothing/modsuit/mod_construction.dmi'
 	inhand_icon_state = "rack_parts"
 
 /obj/item/mod/construction/helmet
-	name = "шлем MOD-Скафандра"
+	name = "шлем МОД-Скафандра"
 	icon_state = "helmet"
 
 /obj/item/mod/construction/helmet/examine(mob/user)
@@ -12,7 +12,7 @@
 	. += span_notice("При внимательном осмотре становятся заметны порты подключения к каркасу...")
 
 /obj/item/mod/construction/chestplate
-	name = "нагрудник MOD-Скафандра"
+	name = "нагрудник МОД-Скафандра"
 	icon_state = "chestplate"
 
 /obj/item/mod/construction/chestplate/examine(mob/user)
@@ -20,7 +20,7 @@
 	. += span_notice("При внимательном осмотре становятся заметны порты подключения к каркасу...")
 
 /obj/item/mod/construction/gauntlets
-	name = "перчатки MOD-Скафандра"
+	name = "перчатки МОД-Скафандра"
 	icon_state = "gauntlets"
 
 /obj/item/mod/construction/gauntlets/examine(mob/user)
@@ -28,7 +28,7 @@
 	. += span_notice("При внимательном осмотре становятся заметны порты подключения к каркасу...")
 
 /obj/item/mod/construction/boots
-	name = "ботинки MOD-Скафандра"
+	name = "ботинки МОД-Скафандра"
 	icon_state = "boots"
 
 /obj/item/mod/construction/boots/examine(mob/user)
@@ -36,7 +36,7 @@
 	. += span_notice("При внимательном осмотре становятся заметны порты подключения к каркасу...")
 
 /obj/item/mod/construction/broken_core
-	name = "сломанное MOD ядро"
+	name = "сломанное МОД ядро"
 	icon_state = "mod-core"
 	desc = "Внутренний источник питания для Модульного Устройства Внешней защиты. На первый взгляд оно сломано, хотя..."
 
@@ -52,15 +52,15 @@
 	qdel(src)
 
 /obj/item/mod/construction/plating
-	name = "MOD внешняя обшивка"
-	desc = "Внешняя обшивка используется для отделки блока управления MOD."
+	name = "МОД внешняя обшивка"
+	desc = "Внешняя обшивка используется для отделки блока управления МОД-Скафандра."
 	icon_state = "standard-plating"
 	var/datum/mod_theme/theme = /datum/mod_theme
 
 /obj/item/mod/construction/plating/Initialize(mapload)
 	. = ..()
 	var/datum/mod_theme/used_theme = GLOB.mod_themes[theme]
-	name = "MOD [used_theme.ru_name] внешняя обшивка"
+	name = "МОД [used_theme.ru_name] внешняя обшивка"
 	desc = "[desc] [used_theme.desc]"
 	icon_state = "[used_theme.default_skin]-plating"
 
@@ -90,9 +90,9 @@
 #define SCREWED_ASSEMBLY_STEP "screwed_assembly"
 
 /obj/item/mod/construction/shell
-	name = "Каркас MOD-Скафандра"
+	name = "Каркас МОД-Скафандра"
 	icon_state = "mod-construction_start"
-	desc = "Несущая рама для крепления остальных частей MOD-Скафандра. В центре заметен порт для крепления ядра."
+	desc = "Несущая рама для крепления остальных частей МОД-Скафандра. В центре заметен порт для крепления ядра."
 	var/obj/item/core
 	var/obj/item/helmet
 	var/obj/item/chestplate

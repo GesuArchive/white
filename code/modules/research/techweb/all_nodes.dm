@@ -209,8 +209,8 @@
 /datum/techweb_node/mod_basic
 	id = "mod"
 	starting_node = TRUE
-	display_name = "Basic Modular Suits"
-	description = "Specialized back mounted power suits with various different modules."
+	display_name = "Базовые модульные скафандры"
+	description = "Специализированные защитные скафандры с возможность глубокой настройки."
 	design_ids = list(
 		"mod_boots",
 		"mod_chestplate",
@@ -1957,8 +1957,8 @@
 
 /datum/techweb_node/mod_advanced
 	id = "mod_advanced"
-	display_name = "Advanced Modular Suits"
-	description = "More advanced modules, to improve modular suits."
+	display_name = "Продвинутые модульные скафандры"
+	description = "Больше продвинутых модулей для совершествования скафандров."
 	prereq_ids = list("robotics")
 	design_ids = list(
 		"mod_visor_diaghud",
@@ -1972,8 +1972,8 @@
 
 /datum/techweb_node/mod_engineering
 	id = "mod_engineering"
-	display_name = "Engineering Modular Suits"
-	description = "Engineering suits, for powered engineers."
+	display_name = "Инженерные модульные скафандры"
+	description = "Инженерные скафандры для снаряжения инженеров."
 	prereq_ids = list("mod_advanced", "engineering")
 	design_ids = list(
 		"mod_plating_engineering",
@@ -1988,8 +1988,8 @@
 
 /datum/techweb_node/mod_advanced_engineering
 	id = "mod_advanced_engineering"
-	display_name = "Advanced Engineering Modular Suits"
-	description = "Advanced Engineering suits, for advanced powered engineers."
+	display_name = "Продвинутые инженерные модульные скафандры"
+	description = "Продвинутые инженерные скафандры для снаряжения продвинутых инженеров."
 	prereq_ids = list("mod_engineering", "adv_engi")
 	design_ids = list(
 		"mod_plating_atmospheric",
@@ -2002,8 +2002,8 @@
 
 /datum/techweb_node/mod_medical
 	id = "mod_medical"
-	display_name = "Medical Modular Suits"
-	description = "Medical suits for quick rescue purposes."
+	display_name = "Медицинские модульные скафандры"
+	description = "Медицинские модульные скафандры для проведения спасательных операциях во враждебной среде."
 	prereq_ids = list("mod_advanced", "biotech")
 	design_ids = list(
 		"mod_plating_medical",
@@ -2018,8 +2018,8 @@
 
 /datum/techweb_node/mod_security
 	id = "mod_security"
-	display_name = "Security Modular Suits"
-	description = "Security suits for space crime handling."
+	display_name = "Модульные скафандры безопасности"
+	description = "Скафандры службы безопасности для поимки преступных мразей вне уюта стационарной атмосферы."
 	prereq_ids = list("mod_advanced", "sec_basic")
 	design_ids = list(
 		"mod_plating_security",
@@ -2035,8 +2035,8 @@
 
 /datum/techweb_node/mod_entertainment
 	id = "mod_entertainment"
-	display_name = "Entertainment Modular Suits"
-	description = "Powered suits for protection against low-humor environments."
+	display_name = "Клоунские модульные скафандры"
+	description = "Усиленные скафандры для защиты против низко-юморного окружения."
 	prereq_ids = list("mod_advanced", "clown")
 	design_ids = list(
 		"mod_plating_cosmohonk",
@@ -2048,8 +2048,8 @@
 
 /datum/techweb_node/mod_anomaly
 	id = "mod_anomaly"
-	display_name = "Anomalock Modular Suits"
-	description = "Modules for modular suits that require anomaly cores to function."
+	display_name = "Применение аномалий в модульных скафандрах"
+	description = "Модули использующие ядра аномалий для функционировании."
 	prereq_ids = list("mod_advanced", "anomaly_research")
 	design_ids = list(
 		"mod_antigrav",
@@ -2059,8 +2059,8 @@
 
 /datum/techweb_node/mod_anomaly_engi
 	id = "mod_anomaly_engi"
-	display_name = "Engineering Anomalock Modular Suits"
-	description = "Advanced modules for modular suits, using anomaly cores to become even better engineers."
+	display_name = "Применение аномалий в инженерных модульных скафандров"
+	description = "Продвинутые модули скафандров, использующие ядра аномалий чтобый стать полезными для инженеров."
 	prereq_ids = list("mod_advanced_engineering", "mod_anomaly")
 	design_ids = list(
 		"mod_kinesis",

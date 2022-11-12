@@ -442,7 +442,7 @@
 
 ///Plasma Stabilizer - Prevents plasmamen from igniting in the suit
 /obj/item/mod/module/plasma_stabilizer
-	name = "MOD модуль стабилизации плазмы"
+	name = "модуль стабилизации плазмы"
 	desc = "Система атмоформации, преобразующая внутреннюю среду внутри костюма из кислорода в плазму,\
 		предотвращающая возгорание носителя. \
 		Плазмастекло предотвращает ионизацию плазмы "
@@ -562,7 +562,7 @@
 
 ///Sign Language Translator - allows people to sign over comms using the modsuit's gloves.
 /obj/item/mod/module/signlang_radio
-	name = "MOD модуль перевода языка жестов"
+	name = "модуль перевода языка жестов"
 	desc = "Модуль добавляет датчики движения в перчатки скафандра, \
 		которые работают с низко-волновыми суб-световыми передатчиками, \
 		конвертируя жесты в голос по аудисвязи."
