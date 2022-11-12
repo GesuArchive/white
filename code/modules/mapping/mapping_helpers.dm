@@ -10,6 +10,8 @@
 	var/list/baseturf_to_replace
 	var/baseturf
 
+	plane = POINT_PLANE
+
 /obj/effect/baseturf_helper/Initialize(mapload)
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
@@ -95,7 +97,6 @@
 	..()
 	return late ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_QDEL
 
-
 //airlock helpers
 /obj/effect/mapping_helpers/airlock
 	layer = DOOR_HELPER_LAYER
@@ -106,6 +107,12 @@
 	if(!mapload)
 		log_mapping("[src] spawned outside of mapload!")
 		return
+
+	var/obj/machinery/door/airlock/airlock = locate(/obj/machinery/door/airlock) in loc
+	if(!airlock)
+		log_mapping("[src] failed to find an airlock at [AREACOORD(src)]")
+	else
+		payload(airlock)
 
 /obj/effect/mapping_helpers/airlock/LateInitialize()
 	. = ..()
@@ -158,17 +165,6 @@
 	else
 		airlock.cyclelinkeddir = dir
 
-
-/obj/effect/mapping_helpers/airlock/locked
-	name = "airlock lock helper"
-	icon_state = "airlock_locked_helper"
-
-/obj/effect/mapping_helpers/airlock/locked/payload(obj/machinery/door/airlock/airlock)
-	if(airlock.locked)
-		log_mapping("[src] at [AREACOORD(src)] tried to bolt [airlock] but it's already locked!")
-	else
-		airlock.locked = TRUE
-
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi
 	name = "airlock multi-cyclelink helper"
 	icon_state = "airlock_multicyclelink_helper"
@@ -181,6 +177,16 @@
 		log_mapping("[src] at [AREACOORD(src)] doesn't have a cycle_id to assign to [airlock]!")
 	else
 		airlock.closeOtherId = cycle_id
+
+/obj/effect/mapping_helpers/airlock/locked
+	name = "airlock lock helper"
+	icon_state = "airlock_locked_helper"
+
+/obj/effect/mapping_helpers/airlock/locked/payload(obj/machinery/door/airlock/airlock)
+	if(airlock.locked)
+		log_mapping("[src] at [AREACOORD(src)] tried to bolt [airlock] but it's already locked!")
+	else
+		airlock.locked = TRUE
 
 /obj/effect/mapping_helpers/airlock/unres
 	name = "airlock unrestricted side helper"
@@ -416,12 +422,14 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 	if(note_path && !istype(note_path, /obj/item/paper)) //don't put non-paper in the paper slot thank you
 		log_mapping("[src] at [x],[y] had an improper note_path path, could not place paper note.")
 		qdel(src)
+		return
 	if(locate(/obj/machinery/door/airlock) in turf)
 		var/obj/machinery/door/airlock/found_airlock = locate(/obj/machinery/door/airlock) in turf
 		if(note_path)
 			found_airlock.note = note_path
-			found_airlock.update_icon()
+			found_airlock.update_appearance()
 			qdel(src)
+			return
 		if(note_info)
 			var/obj/item/paper/paper = new /obj/item/paper(src)
 			if(note_name)
@@ -431,8 +439,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 			paper.forceMove(found_airlock)
 			found_airlock.update_icon()
 			qdel(src)
+			return
 		log_mapping("[src] at [x],[y] had no note_path or note_info, cannot place paper note.")
 		qdel(src)
+		return
 	log_mapping("[src] at [x],[y] could not find an airlock on current turf, cannot place paper note.")
 	qdel(src)
 
@@ -568,6 +578,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 	icon = 'icons/turf/damaged.dmi'
 	icon_state = "damaged1"
 	late = TRUE
+	layer = ABOVE_NORMAL_TURF_LAYER
 
 /obj/effect/mapping_helpers/broken_floor/Initialize(mapload)
 	.=..()
@@ -583,6 +594,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 	icon = 'icons/turf/damaged.dmi'
 	icon_state = "floorscorched1"
 	late = TRUE
+	layer = ABOVE_NORMAL_TURF_LAYER
 
 /obj/effect/mapping_helpers/burnt_floor/Initialize(mapload)
 	.=..()
