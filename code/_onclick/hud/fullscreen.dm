@@ -152,7 +152,12 @@
 /atom/movable/screen/fullscreen/pain
 	icon = 'icons/hud/screen_gen.dmi'
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
-	icon_state = "painflash"
+	icon_state = "pain"
+
+/atom/movable/screen/fullscreen/death
+	icon = 'icons/hud/screen_gen.dmi'
+	screen_loc = "WEST,SOUTH to EAST,NORTH"
+	icon_state = "death"
 
 /atom/movable/screen/fullscreen/high
 	icon = 'icons/hud/screen_gen.dmi'
