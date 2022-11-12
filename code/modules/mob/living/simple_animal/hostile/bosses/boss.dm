@@ -10,7 +10,7 @@
 	var/list/boss_abilities = list() //list of /datum/action/boss
 	var/datum/boss_active_timed_battle/atb
 	var/point_regen_delay = 1
-
+	var/mid_ability = FALSE //in case you want to check to see if a boss in the middle of an abiltiy (i.e to prevent them from triggering another ability)
 
 /mob/living/simple_animal/hostile/boss/Initialize(mapload)
 	. = ..()

@@ -1,0 +1,3633 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ae" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 4
+	},
+/obj/machinery/light/red/directional/east,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"aq" = (
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"aw" = (
+/obj/structure/curtain,
+/obj/machinery/shower{
+	dir = 1;
+	pixel_y = -16
+	},
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"ay" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/hatch{
+	name = "Research Wing"
+	},
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter)
+"aB" = (
+/obj/effect/decal/cleanable/blood/old,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"aH" = (
+/obj/machinery/porta_turret/syndicate/pod{
+	max_integrity = 120
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"aZ" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/firedoor/closed,
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"bc" = (
+/obj/machinery/computer/security{
+	network = list("cavesscipost")
+	},
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"be" = (
+/obj/machinery/power/rtg/lavaland,
+/obj/structure/cable,
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/box,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"bf" = (
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/tile/red/half/contrasted,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"bq" = (
+/obj/structure/window/reinforced/spawner,
+/obj/structure/table_frame,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/dark{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"bu" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/purple/anticorner/contrasted,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter)
+"bG" = (
+/obj/machinery/door/firedoor/closed,
+/obj/structure/table/reinforced,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"bH" = (
+/obj/item/chair,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"cb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/obj/machinery/camera/directional/north{
+	c_tag = "South External Airlock";
+	network = list("cavesscipost")
+	},
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter)
+"cd" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"cx" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/rods,
+/obj/item/stack/tile/plasteel,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"cK" = (
+/obj/machinery/power/apc/auto_name/directional/north{
+	cell_type = /obj/item/stock_parts/cell/high/empty
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"cS" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/table,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"cY" = (
+/obj/item/kitchen/knife/butcher,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"cZ" = (
+/obj/structure/cable,
+/turf/closed/wall/r_wall,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"dc" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/turf/open/floor/plasteel/catwalk_floor{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/template_noop)
+"dd" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"dI" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/obj/structure/chair/office{
+	dir = 8
+	},
+/turf/open/floor/plasteel/cafeteria{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"dM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/porta_turret/syndicate/pod{
+	max_integrity = 120
+	},
+/obj/effect/turf_decal/bot,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"dR" = (
+/obj/structure/dresser,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/structure/sign/clock/directional/east,
+/turf/open/floor/carpet/purple,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"dU" = (
+/obj/structure/lattice,
+/turf/open/chasm/lavaland,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"dZ" = (
+/obj/structure/table,
+/obj/structure/window/reinforced/spawner,
+/turf/open/floor/plasteel/dark{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"ex" = (
+/obj/structure/closet/l3closet/janitor,
+/obj/machinery/airalarm/directional/west,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"ez" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"eC" = (
+/obj/structure/table,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"eJ" = (
+/turf/closed/wall/r_wall,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"eM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 4
+	},
+/obj/machinery/firealarm/directional/east,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"eS" = (
+/obj/machinery/light/directional/east,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"eT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"fd" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/turf/open/floor/carpet,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"fu" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/extinguisher_cabinet/directional/east,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"fE" = (
+/obj/structure/chair/stool/directional/west,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"fG" = (
+/turf/closed/indestructible/riveted,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"fO" = (
+/turf/closed/indestructible/riveted,
+/area/template_noop)
+"gt" = (
+/obj/structure/chair/office/light{
+	dir = 8
+	},
+/obj/item/folder/blue,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"gy" = (
+/obj/structure/closet/secure_closet{
+	icon_state = "sec";
+	name = "security officer's locker";
+	req_access_txt = "away_sec"
+	},
+/obj/item/melee/baton/loaded,
+/obj/item/flashlight/seclite,
+/obj/item/gun/energy/kinetic_accelerator,
+/obj/item/clothing/head/helmet,
+/obj/item/clothing/suit/armor/vest/alt,
+/obj/effect/turf_decal/tile/red/anticorner/contrasted{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"gD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/door_assembly,
+/obj/item/shard,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"gF" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"gM" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"gP" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/item/chair,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"gT" = (
+/obj/structure/filingcabinet,
+/obj/item/paper/fluff/awaymissions/caves/researchfluff,
+/obj/item/paper/fluff/awaymissions/caves/researchfluff,
+/obj/item/paper/fluff/awaymissions/caves/researchfluff,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"gW" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/extinguisher_cabinet/directional/east,
+/obj/machinery/door/firedoor/closed,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 4
+	},
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"gY" = (
+/obj/structure/janitorialcart{
+	dir = 4
+	},
+/obj/item/mop,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"hb" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plasteel/dark{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"hf" = (
+/turf/closed/wall,
+/area/awaymission/caves/second_outpost/researchcenter/maint)
+"hm" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"hp" = (
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"hs" = (
+/obj/structure/dresser,
+/obj/machinery/button/door/directional/north{
+	id = "CavesPostCabin4";
+	name = "Door Bolt Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/turf/open/floor/carpet,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"hC" = (
+/obj/machinery/shower{
+	pixel_y = 24
+	},
+/obj/structure/curtain,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"hE" = (
+/turf/template_noop,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"hI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"hP" = (
+/obj/machinery/washing_machine,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"hX" = (
+/obj/machinery/door/airlock{
+	id_tag = "CavesPostCabin4";
+	name = "Cabin 4"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"ie" = (
+/obj/machinery/button/door/directional/north{
+	id = "CavesPostCabinRD";
+	name = "Door Bolt Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/obj/structure/table/wood,
+/turf/open/floor/carpet/purple,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"ij" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"iB" = (
+/obj/structure/chair/office{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"iG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/apc/auto_name/directional/north{
+	areastring = /area/awaymission/caves/second_outpost/researchcenter/work
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"iX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/departments/science/alt/directional/south,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter)
+"jb" = (
+/turf/closed/wall/r_wall,
+/area/awaymission/caves/second_outpost/researchcenter)
+"jd" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "cavesrdshutter";
+	name = "Emergency Lockdown Shutters"
+	},
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"je" = (
+/obj/structure/girder,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"kn" = (
+/obj/structure/filingcabinet,
+/obj/item/paper/fluff/awaymissions/caves/researchfluff,
+/obj/item/paper/fluff/awaymissions/caves/researchfluff,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/plasteel/dark{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"kp" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/rods,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"kr" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"ks" = (
+/turf/closed/mineral/volcanic/lava_land_surface/hard,
+/area/template_noop)
+"ku" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"kG" = (
+/obj/structure/table,
+/obj/item/paper_bin,
+/obj/item/pen,
+/obj/structure/sign/calendar/directional/north,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"lN" = (
+/obj/machinery/washing_machine,
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"lU" = (
+/obj/structure/table/reinforced,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red/anticorner/contrasted,
+/obj/item/card/id/away/caves/sec,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"mc" = (
+/obj/structure/curtain,
+/obj/machinery/shower{
+	dir = 1
+	},
+/obj/structure/fluff{
+	desc = "What, you think the water just magically soaks into the metallic flooring?";
+	icon = 'icons/obj/lavaland/survival_pod.dmi';
+	icon_state = "fan_tiny";
+	name = "shower drain"
+	},
+/obj/item/soap/deluxe,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"mg" = (
+/obj/structure/barricade/sandbags,
+/obj/effect/turf_decal/tile/purple/anticorner/contrasted{
+	dir = 4
+	},
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter)
+"mo" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"mr" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"mI" = (
+/obj/structure/bed{
+	dir = 8
+	},
+/obj/item/bedsheet/purple,
+/obj/structure/sign/clock/directional/south,
+/turf/open/floor/carpet,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"mK" = (
+/obj/structure/spawner/lavaland/goliath,
+/turf/open/indestructible/necropolis,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"mL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/tile/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"mQ" = (
+/mob/living/simple_animal/hostile/asteroid/goliath/beast,
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"mR" = (
+/obj/structure/table/wood,
+/obj/structure/sign/calendar/directional/north,
+/turf/open/floor/carpet/purple,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"mW" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Life Support Access"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/layer_manifold{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"mY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/purple,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter)
+"nt" = (
+/obj/item/stack/sheet/iron,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/indestructible/necropolis,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"nu" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"nB" = (
+/obj/machinery/computer/terminal/caves/research{
+	dir = 4
+	},
+/obj/structure/sign/poster/official/pda_ad{
+	pixel_x = -32
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plasteel/dark{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"nC" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/obj/structure/table,
+/obj/structure/sign/clock/directional/south,
+/turf/open/floor/plasteel/cafeteria{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"nL" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"nN" = (
+/turf/open/chasm/lavaland,
+/area/awaymission/caves/second_outpost/researchcenter)
+"nQ" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/machinery/firealarm/directional/west,
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"oi" = (
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/obj/machinery/airalarm/directional/east,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"os" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"oK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"oO" = (
+/obj/structure/sink/kitchen{
+	desc = "A sink used for washing one's hands and face.";
+	name = "old sink";
+	pixel_y = 28
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"pt" = (
+/turf/template_noop,
+/area/template_noop)
+"pK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/clipboard,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"pT" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/obj/machinery/camera/directional/north{
+	c_tag = "Site Director's Office";
+	network = list("cavesscipost")
+	},
+/obj/machinery/button/door{
+	id = "cavesrdshutter";
+	name = "Lockdown Toggle";
+	pixel_x = -24;
+	pixel_y = -4;
+	req_access_txt = "200"
+	},
+/obj/structure/extinguisher_cabinet/directional/north,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/plasteel/cafeteria{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"pZ" = (
+/obj/structure/table,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 1
+	},
+/obj/structure/sign/calendar/directional/north,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"qa" = (
+/obj/structure/chair/office/light{
+	dir = 8
+	},
+/obj/item/clipboard,
+/obj/item/folder/red{
+	pixel_x = 5
+	},
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"qb" = (
+/obj/structure/table,
+/obj/item/folder,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/directional/north,
+/obj/structure/sign/calendar/directional/north,
+/turf/open/floor/plasteel/dark{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"qm" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"qt" = (
+/obj/item/analyzer,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plasteel/dark{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"qy" = (
+/obj/structure/reagent_dispensers/cooking_oil,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"qA" = (
+/obj/structure/rack,
+/obj/item/storage/belt/janitor/full,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"qG" = (
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"qN" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/structure/closet/emcloset,
+/obj/effect/turf_decal/bot,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter)
+"qT" = (
+/obj/effect/turf_decal/tile/purple{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"ro" = (
+/obj/structure/lattice,
+/turf/open/chasm/lavaland,
+/area/awaymission/caves/second_outpost/researchcenter)
+"rG" = (
+/obj/structure/bed{
+	dir = 8
+	},
+/obj/item/bedsheet,
+/obj/structure/sign/clock/directional/south,
+/turf/open/floor/carpet{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"rH" = (
+/obj/structure/dresser,
+/obj/machinery/button/door/directional/north{
+	id = "CavesPostCabin3";
+	name = "Door Bolt Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/turf/open/floor/carpet,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"rT" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/airalarm/directional/north,
+/obj/effect/turf_decal/tile/red/anticorner/contrasted{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"rW" = (
+/obj/structure/kitchenspike,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"si" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter)
+"sk" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"so" = (
+/obj/machinery/computer/terminal/caves/research3{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"sQ" = (
+/obj/structure/table,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/pen,
+/turf/open/floor/plasteel/dark{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"tn" = (
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/purple/fourcorners,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"tK" = (
+/obj/effect/spawner/structure/window,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"vc" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/firedoor/closed,
+/obj/item/sharpener,
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"vG" = (
+/obj/machinery/light/red/directional/west,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"vH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"vR" = (
+/obj/machinery/power/rtg/lavaland,
+/obj/structure/cable,
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/box,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"wa" = (
+/obj/structure/cable,
+/obj/structure/extinguisher_cabinet/directional/west,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"wc" = (
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"wm" = (
+/obj/structure/table,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"wo" = (
+/obj/structure/girder/reinforced,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"wZ" = (
+/turf/open/indestructible/necropolis,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"xQ" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel/cafeteria{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"yb" = (
+/obj/structure/fluff{
+	desc = "What, you think the water just magically soaks into the metallic flooring?";
+	icon = 'icons/obj/lavaland/survival_pod.dmi';
+	icon_state = "fan_tiny";
+	name = "shower drain"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"yg" = (
+/obj/structure/girder/reinforced,
+/obj/item/stack/sheet/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"yy" = (
+/obj/structure/kitchenspike,
+/obj/machinery/airalarm/directional/east,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"yA" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"yZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/obj/machinery/camera/directional/south{
+	c_tag = "North External Airlock";
+	network = list("cavesscipost")
+	},
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter)
+"zd" = (
+/obj/machinery/door/airlock{
+	id_tag = "CavesPostCabinRD";
+	name = "Site Director's Cabin"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/purple,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"ze" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plasteel/cafeteria{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"zk" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/shower{
+	dir = 1
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter)
+"zs" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"zF" = (
+/obj/effect/decal/cleanable/blood/old,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"zH" = (
+/mob/living/simple_animal/hostile/retaliate/goat{
+	name = "Kev"
+	},
+/obj/effect/decal/cleanable/blood/old,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"zL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/purple/anticorner/contrasted{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter)
+"zT" = (
+/obj/structure/window/reinforced/spawner,
+/obj/structure/table_frame,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plasteel/dark{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"zY" = (
+/obj/structure/table,
+/obj/structure/window/reinforced/spawner,
+/obj/item/papercutter,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"zZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/sandbags,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/purple/half/contrasted,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter)
+"Ao" = (
+/obj/machinery/door/airlock{
+	name = "Unisex Showers"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"AE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plasteel/catwalk_floor{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/template_noop)
+"AI" = (
+/turf/closed/wall,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"AP" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"Bi" = (
+/obj/structure/table/reinforced,
+/obj/structure/sign/clock/directional/north,
+/obj/effect/turf_decal/tile/red/anticorner/contrasted{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"Bk" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/railing/corner,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"BD" = (
+/obj/machinery/button/door/directional/north{
+	id = "CavesPostSDPrivate";
+	name = "Door Bolt Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/obj/machinery/light/small/directional/west,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"BF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"BP" = (
+/obj/item/stack/sheet/iron,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/carpet{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"BS" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/purple,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Ca" = (
+/turf/open/indestructible/necropolis,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"Ce" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/purple{
+	dir = 4
+	},
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Cg" = (
+/obj/structure/table,
+/obj/structure/window/reinforced/spawner,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"Cz" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/structure/chair,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/structure/cable,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"CE" = (
+/obj/effect/turf_decal/stripes/box,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/disposaloutlet{
+	dir = 4
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/open/floor/plating/lowpressure,
+/area/template_noop)
+"CJ" = (
+/obj/structure/table,
+/obj/structure/sign/poster/official/periodic_table{
+	pixel_y = 32
+	},
+/obj/item/pen/fourcolor,
+/obj/item/assembly/signaler/anomaly/vortex,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plasteel/dark{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"CN" = (
+/obj/effect/decal/cleanable/blood/old,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"CP" = (
+/obj/structure/chair/wood{
+	dir = 1
+	},
+/turf/open/floor/carpet/purple,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"CU" = (
+/turf/closed/indestructible/riveted,
+/area/awaymission/caves/second_outpost/researchcenter)
+"CY" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_access_txt = "201"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/maint)
+"De" = (
+/obj/structure/filingcabinet,
+/obj/item/paper/fluff/awaymissions/caves/floralguide,
+/obj/item/paper/fluff/awaymissions/caves/researchfluff,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"Dw" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/directional/north,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/freezer{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"DD" = (
+/obj/machinery/gibber,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"DI" = (
+/obj/item/chair,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 1
+	},
+/obj/machinery/light/red/directional/north,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"DO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/layer_manifold,
+/turf/open/floor/plasteel/catwalk_floor{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/template_noop)
+"DV" = (
+/obj/machinery/door/airlock/security/glass{
+	name = "Security Office"
+	},
+/obj/structure/cable,
+/obj/machinery/door/firedoor/closed,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"Eg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"Em" = (
+/obj/structure/railing,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"Es" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"Ey" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/purple,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"Ez" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"EA" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Storage"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"EF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/structure/closet/emcloset,
+/obj/effect/turf_decal/bot,
+/obj/machinery/airalarm/directional/south,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter)
+"EI" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = 11
+	},
+/obj/structure/mirror/directional/east,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"EK" = (
+/obj/structure/girder,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"EM" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"EY" = (
+/obj/structure/sign/departments/science/alt/directional/north,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter)
+"Fe" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"Ff" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Storage"
+	},
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"Fr" = (
+/obj/structure/sign/poster/official/nanomichi_ad{
+	pixel_x = 32
+	},
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"Ft" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/obj/structure/table,
+/obj/item/pai_card,
+/turf/open/floor/plasteel/cafeteria{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"Fu" = (
+/obj/structure/table,
+/obj/machinery/microwave,
+/obj/machinery/airalarm/directional/east,
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"Fw" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"FB" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/item/clothing/suit/armor/reactive/stealth,
+/turf/open/floor/plasteel/cafeteria{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"FC" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/east,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"FD" = (
+/obj/machinery/computer/terminal/caves/research4{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"FS" = (
+/obj/vehicle/ridden/janicart,
+/obj/structure/sign/poster/official/cleanliness{
+	pixel_y = 32
+	},
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"Gg" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/machinery/button/door/directional/south{
+	id = "CavesPostPrivateToilet2";
+	name = "Door Bolt Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Gk" = (
+/obj/structure/table,
+/obj/structure/window/reinforced/spawner,
+/obj/item/reagent_containers/food/drinks/coffee,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"Gw" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = -12
+	},
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"GM" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"GS" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"Ha" = (
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/machinery/camera/directional/south{
+	c_tag = "Freezer";
+	network = list("cavesscipost")
+	},
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"Hh" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"Hn" = (
+/obj/structure/table,
+/obj/item/card/id/away/caves/sci,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"Hq" = (
+/turf/closed/wall,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"Hu" = (
+/obj/structure/lattice,
+/turf/open/chasm/lavaland,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"HU" = (
+/obj/structure/table,
+/obj/structure/sign/poster/official/fruit_bowl{
+	pixel_y = 32
+	},
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"HV" = (
+/obj/structure/chair{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 1
+	},
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"HZ" = (
+/obj/structure/lattice,
+/turf/open/chasm/lavaland,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Ih" = (
+/turf/closed/wall/r_wall,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"Ij" = (
+/obj/machinery/door/airlock{
+	id_tag = "CavesPostCabin3";
+	name = "Cabin 3"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"In" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/firedoor/closed,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Io" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/obj/structure/sign/poster/official/state_laws{
+	pixel_y = 32
+	},
+/obj/structure/table,
+/obj/item/card/id/away/caves/site_director,
+/turf/open/floor/plasteel/cafeteria{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"Iv" = (
+/obj/machinery/door/airlock/research/glass{
+	name = "Research Divison"
+	},
+/obj/machinery/door/firedoor/closed,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"IG" = (
+/obj/structure/table,
+/obj/machinery/microwave,
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"IU" = (
+/obj/structure/chair/office/light{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/dark{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"Jd" = (
+/obj/machinery/door/airlock{
+	id_tag = "CavesPostSDPrivate";
+	name = "Private Restroom"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet/purple,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Jp" = (
+/obj/machinery/door/airlock{
+	id_tag = "CavesPostPrivateToilet2";
+	name = "Private Stall"
+	},
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Jz" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"JE" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/obj/structure/table,
+/obj/item/folder/white,
+/obj/item/stamp/rd,
+/turf/open/floor/plasteel/cafeteria{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"JI" = (
+/obj/machinery/power/smes/engineering,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"JY" = (
+/obj/structure/table_frame,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 1
+	},
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Kb" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/airalarm/directional/west,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Kc" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"Kp" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plasteel/catwalk_floor,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"Kx" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"KC" = (
+/obj/machinery/door/firedoor/closed,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"KH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"KY" = (
+/obj/structure/girder/reinforced,
+/obj/item/stack/sheet/plasteel,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"Le" = (
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"Lf" = (
+/turf/closed/wall,
+/area/awaymission/caves/second_outpost/researchcenter)
+"Lt" = (
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Lu" = (
+/obj/machinery/vending/coffee,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter)
+"Lz" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"LQ" = (
+/obj/structure/table_frame,
+/obj/item/screwdriver,
+/obj/item/stack/sheet/plasteel,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/rods,
+/turf/open/floor/plasteel/dark{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"LS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter)
+"LU" = (
+/obj/machinery/door/airlock{
+	id_tag = "CavesPostCabin1";
+	name = "Cabin 1"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"LY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"ME" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/machinery/button/door/directional/south{
+	id = "CavesPostPrivateToilet1";
+	name = "Door Bolt Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"MH" = (
+/turf/open/chasm/lavaland,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"MV" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Na" = (
+/obj/structure/chair/office/light{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/folder/yellow{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"Nb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/chair/stool,
+/obj/item/flashlight/lamp,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Nd" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/spawner/lavaland/goliath,
+/turf/open/indestructible/necropolis,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Nr" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/directional/north{
+	c_tag = "Dorm Area";
+	network = list("cavesscipost")
+	},
+/turf/open/indestructible/necropolis,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Nt" = (
+/turf/open/chasm/lavaland,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"Nu" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/turf/open/floor/plasteel/cafeteria{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"ND" = (
+/obj/machinery/oven,
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"NG" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/carpet,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"NH" = (
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Or" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Ox" = (
+/obj/machinery/turretid{
+	control_area = /area/awaymission/caves/second_outpost/researchcenter;
+	icon_state = "control_stun";
+	name = "AI Chamber turret control";
+	pixel_x = 3;
+	pixel_y = 23
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/red/half/contrasted{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"OM" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"OO" = (
+/obj/structure/table,
+/obj/machinery/reagentgrinder{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/structure/sign/clock/directional/north,
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"Pj" = (
+/obj/machinery/chem_master/condimaster{
+	name = "CondiMaster Neo"
+	},
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"Pt" = (
+/obj/machinery/door/airlock/public{
+	name = "Kitchen"
+	},
+/obj/machinery/door/firedoor/closed,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"PV" = (
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"PY" = (
+/turf/closed/wall/r_wall,
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"PZ" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/airalarm/directional/east,
+/turf/open/floor/plasteel/cafeteria{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"Qn" = (
+/obj/item/folder/red{
+	pixel_x = 5
+	},
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"Qq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/wood,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/carpet{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Qu" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/maint)
+"Qx" = (
+/obj/machinery/door/airlock/public{
+	name = "Mess Hall"
+	},
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/door/firedoor/closed,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"Qy" = (
+/obj/machinery/door/airlock{
+	id_tag = "CavesPostPrivateToilet1";
+	name = "Private Stall"
+	},
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"QO" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter)
+"Rk" = (
+/obj/machinery/computer/terminal/caves/research2{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"Ry" = (
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"RB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"RG" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/firedoor/closed,
+/obj/item/kitchen/rollingpin,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"Sh" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/plasteel/cafeteria{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"Si" = (
+/obj/structure/bed/double,
+/obj/item/bedsheet/rd/double{
+	name = "site director's bedsheet"
+	},
+/turf/open/floor/carpet/purple,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Sk" = (
+/turf/open/floor/carpet/purple,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Sm" = (
+/obj/structure/girder,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"Sw" = (
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"SB" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/obj/machinery/computer/terminal/caves/research5,
+/obj/structure/sign/calendar/directional/north,
+/turf/open/floor/plasteel/cafeteria{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"SH" = (
+/turf/open/chasm/lavaland,
+/area/template_noop)
+"SM" = (
+/obj/effect/turf_decal/stripes/box,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/passive_vent{
+	dir = 1
+	},
+/turf/open/floor/plating/lowpressure,
+/area/template_noop)
+"SQ" = (
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"Th" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/rods,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Tx" = (
+/obj/modular_map_connector,
+/turf/template_noop,
+/area/template_noop)
+"Ty" = (
+/obj/item/stack/sheet/plasteel,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"TK" = (
+/turf/open/floor/plating/asteroid/basalt/lava_land_surface,
+/area/template_noop)
+"TL" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/carpet,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"TS" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/purple{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"Ua" = (
+/turf/closed/wall/r_wall,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Ue" = (
+/obj/structure/table,
+/obj/item/folder/blue,
+/obj/item/pen/fourcolor,
+/obj/structure/sign/calendar/directional/north,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"Ui" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/firealarm/directional/north,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"UA" = (
+/turf/closed/wall,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"UB" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/obj/machinery/firealarm/directional/south,
+/turf/open/floor/plasteel/cafeteria{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"UC" = (
+/obj/structure/girder,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/sheet/iron,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"UR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/shower{
+	pixel_y = 16
+	},
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plasteel/dark,
+/area/awaymission/caves/second_outpost/researchcenter)
+"Vb" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/research/glass{
+	name = "Site Director's Office"
+	},
+/obj/structure/cable,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "cavesrdshutter";
+	name = "Emergency Lockdown Shutters"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel/cafeteria{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"Vh" = (
+/obj/structure/dresser,
+/obj/machinery/button/door/directional/north{
+	id = "CavesPostCabin1";
+	name = "Door Bolt Control";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/turf/open/floor/carpet,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"VA" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel/cafeteria{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"VD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/red/directional/south,
+/obj/machinery/camera/directional/south{
+	c_tag = "Research Wing Offices";
+	network = list("cavesscipost")
+	},
+/obj/structure/sign/clock/directional/south,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter)
+"VJ" = (
+/obj/item/aicard,
+/obj/item/clothing/under/rank/rnd/research_director,
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet{
+	icon_state = "rd";
+	name = "site director's locker";
+	req_access_txt = "away_science"
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"VK" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"VS" = (
+/obj/item/soap,
+/obj/item/bikehorn/rubberducky,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Wk" = (
+/obj/machinery/door/airlock/research/glass{
+	name = "Research Divison"
+	},
+/obj/machinery/door/firedoor/closed,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"Wv" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/turf/open/floor/plasteel/cafeteria{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"WB" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"WC" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/purple/half/contrasted,
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"WK" = (
+/turf/closed/wall/r_wall,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"WX" = (
+/obj/machinery/door/airlock/external/glass{
+	name = "Mining External Airlock"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plasteel/catwalk_floor,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"Xf" = (
+/turf/open/chasm/lavaland,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Xr" = (
+/obj/machinery/vending/dinnerware,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"Xy" = (
+/obj/structure/filingcabinet,
+/obj/item/paper/fluff/awaymissions/caves/researchfluff,
+/obj/item/paper/fluff/awaymissions/caves/seismic_log,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"XL" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/carpet/purple,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"YC" = (
+/obj/machinery/deepfryer,
+/obj/machinery/light/red/directional/north,
+/obj/machinery/camera/directional/north{
+	c_tag = "Kitchen Prep Area";
+	network = list("cavesscipost")
+	},
+/turf/open/floor/plasteel/checker{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"YF" = (
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/item/chair,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/red/directional/east,
+/obj/structure/sign/clock/directional/east,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"YH" = (
+/obj/structure/girder/reinforced,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/work)
+"YI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/red/directional/north,
+/turf/open/indestructible/necropolis,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"YS" = (
+/turf/open/lava/smooth/weak,
+/area/awaymission/caves/second_outpost/researchcenter/engineering)
+"Zk" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/indestructible/necropolis,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"Zm" = (
+/obj/machinery/door/firedoor/closed,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"Zo" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp,
+/turf/open/floor/carpet/purple,
+/area/awaymission/caves/second_outpost/researchcenter/dorm)
+"ZD" = (
+/obj/machinery/door/airlock/public{
+	name = "Mess Hall"
+	},
+/obj/effect/turf_decal/tile/bar/opposingcorners,
+/obj/machinery/door/firedoor/closed,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"ZF" = (
+/obj/machinery/door/airlock{
+	name = "Freezer"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel/freezer,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"ZG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/turf/open/floor/plasteel/catwalk_floor{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/template_noop)
+"ZJ" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/light/red/directional/east,
+/turf/open/floor/plasteel/cafeteria{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter/sitedirector)
+"ZO" = (
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 4
+	},
+/obj/machinery/firealarm/directional/east,
+/turf/open/floor/plasteel,
+/area/awaymission/caves/second_outpost/researchcenter)
+"ZP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stack/rods,
+/obj/item/stack/tile/plasteel,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/awaymission/caves/second_outpost/researchcenter/messhall)
+"ZQ" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/purple/half/contrasted{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plasteel{
+	initial_gas_mix = "o2=14;n2=30;TEMP=293.15"
+	},
+/area/awaymission/caves/second_outpost/researchcenter)
+
+(1,1,1) = {"
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+fO
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+"}
+(2,1,1) = {"
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+fO
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+fG
+Ih
+Ih
+Ih
+Ih
+fO
+ks
+ks
+ks
+ks
+ks
+ks
+fO
+"}
+(3,1,1) = {"
+pt
+pt
+pt
+pt
+pt
+pt
+fO
+fO
+fO
+fO
+fO
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+fG
+aq
+Hh
+EM
+Ih
+Ih
+Ih
+ks
+TK
+TK
+TK
+ks
+fO
+"}
+(4,1,1) = {"
+pt
+pt
+pt
+pt
+pt
+pt
+fO
+jb
+jb
+jb
+CU
+pt
+pt
+pt
+pt
+pt
+Tx
+pt
+pt
+pt
+pt
+pt
+hE
+fG
+aq
+Kc
+Fw
+WX
+Kp
+WX
+AE
+ZG
+DO
+SM
+ks
+fO
+"}
+(5,1,1) = {"
+pt
+pt
+pt
+pt
+pt
+pt
+fO
+jb
+rT
+vG
+gy
+CU
+UR
+si
+CU
+ex
+gY
+Gw
+qA
+CU
+si
+zk
+CU
+SQ
+dd
+Bk
+be
+cZ
+Ih
+Ih
+TK
+dc
+TK
+ks
+ks
+fO
+"}
+(6,1,1) = {"
+pt
+pt
+pt
+pt
+pt
+pt
+fO
+jb
+bc
+iB
+bf
+CU
+EY
+yZ
+CU
+cK
+PV
+Sw
+wm
+CU
+cb
+iX
+CU
+JI
+nu
+Em
+YS
+cZ
+TK
+TK
+TK
+CE
+SH
+SH
+ks
+fO
+"}
+(7,1,1) = {"
+pt
+pt
+pt
+fO
+fO
+fO
+fO
+jb
+Bi
+Ox
+lU
+CU
+qN
+QO
+CU
+FS
+PV
+Sw
+eC
+CU
+QO
+EF
+CU
+FC
+yA
+oi
+vR
+cZ
+TK
+TK
+TK
+SH
+SH
+SH
+ks
+fO
+"}
+(8,1,1) = {"
+pt
+pt
+pt
+fO
+WK
+WK
+WK
+jb
+kr
+DV
+kr
+CU
+CU
+ay
+CU
+Lf
+EA
+Ff
+Lf
+CU
+ay
+CU
+CU
+Ua
+mW
+Ua
+Ua
+Ua
+UA
+UA
+TK
+SH
+SH
+SH
+ks
+fO
+"}
+(9,1,1) = {"
+pt
+pt
+pt
+fO
+WK
+qb
+nB
+dZ
+dM
+LS
+ZQ
+Wk
+os
+ez
+os
+wa
+qm
+TS
+hm
+hm
+Es
+AP
+KC
+MV
+oK
+HZ
+UA
+NG
+mI
+UA
+TK
+SH
+SH
+SH
+ks
+fO
+"}
+(10,1,1) = {"
+pt
+pt
+pt
+fO
+WK
+sQ
+Na
+zT
+zL
+Eg
+cx
+Iv
+wc
+wc
+ZO
+wc
+qT
+Ey
+wc
+wc
+wc
+wc
+Zm
+Ce
+Or
+HZ
+LU
+fE
+TL
+UA
+TK
+SH
+SH
+ks
+ks
+fO
+"}
+(11,1,1) = {"
+pt
+pt
+pt
+fO
+YH
+Xy
+pK
+zs
+BF
+ro
+nN
+yg
+AI
+AI
+AI
+aH
+qG
+WC
+aH
+AI
+AI
+AI
+AI
+Ui
+KH
+HZ
+UA
+Vh
+fd
+UA
+UA
+UA
+UA
+UA
+fO
+fO
+"}
+(12,1,1) = {"
+pt
+pt
+pt
+fO
+dU
+dU
+dU
+dU
+nN
+nN
+nN
+MH
+Hu
+Hu
+Sm
+tK
+ZD
+Qx
+tK
+AI
+Cz
+cS
+AI
+DI
+Th
+HZ
+UA
+UA
+UA
+UA
+ME
+UA
+Gg
+UA
+fO
+pt
+"}
+(13,1,1) = {"
+pt
+pt
+pt
+fO
+YH
+LQ
+Rk
+Nt
+nN
+nN
+ro
+MH
+MH
+MH
+MH
+Ez
+ku
+LY
+mr
+nQ
+VK
+gP
+AI
+JY
+Xf
+Xf
+UA
+Qq
+rG
+UA
+Qy
+UA
+Jp
+UA
+fO
+pt
+"}
+(14,1,1) = {"
+pt
+pt
+pt
+fO
+WK
+CJ
+IU
+bq
+kp
+nN
+ro
+MH
+MH
+MH
+MH
+Hu
+Hu
+MH
+MH
+MH
+ZP
+ku
+EK
+Jz
+Xf
+Xf
+gD
+Nb
+BP
+UA
+Dw
+Jz
+OM
+UA
+fO
+pt
+"}
+(15,1,1) = {"
+pt
+pt
+pt
+fO
+WK
+kn
+hb
+qt
+mL
+nN
+BF
+KY
+wo
+Ty
+Hu
+Hu
+Hu
+Hu
+MH
+MH
+Hu
+MH
+MH
+wZ
+Xf
+Xf
+HZ
+Jz
+Jz
+je
+Jz
+Xf
+HZ
+UA
+fO
+pt
+"}
+(16,1,1) = {"
+pt
+pt
+pt
+fO
+WK
+Hq
+Hq
+Hq
+RB
+ro
+BF
+Lu
+eJ
+YF
+ku
+fu
+Ez
+Ez
+nL
+MH
+MH
+Ca
+wZ
+wZ
+wZ
+Xf
+Xf
+Xf
+HZ
+HZ
+Xf
+Xf
+Xf
+UA
+fO
+pt
+"}
+(17,1,1) = {"
+pt
+pt
+pt
+fO
+WK
+Ue
+so
+Gk
+mL
+ro
+VD
+eJ
+eJ
+AI
+Pt
+AI
+aZ
+RG
+bG
+vc
+AI
+UA
+je
+nt
+wZ
+wZ
+In
+OM
+Jz
+Jz
+Th
+hP
+UA
+ks
+fO
+pt
+"}
+(18,1,1) = {"
+pt
+pt
+pt
+fO
+WK
+Hn
+qa
+Cg
+BF
+ro
+sk
+CY
+Qu
+AI
+oO
+gF
+zF
+mQ
+hp
+Ry
+UC
+Qu
+CY
+Zk
+mK
+Zk
+gW
+eM
+hI
+ae
+NH
+lN
+UA
+ks
+fO
+pt
+"}
+(19,1,1) = {"
+pt
+pt
+pt
+fO
+WK
+gT
+Fr
+Le
+BF
+ro
+BF
+jb
+Qu
+AI
+YC
+cY
+zF
+CN
+Lz
+vH
+Ez
+Qu
+UA
+Nr
+wZ
+Zk
+UA
+UA
+UA
+UA
+Ao
+UA
+UA
+UA
+fO
+pt
+"}
+(20,1,1) = {"
+pt
+pt
+pt
+fO
+WK
+Hq
+Hq
+Hq
+iG
+ro
+mL
+jb
+Qu
+AI
+OO
+Pj
+gF
+IG
+Fu
+ND
+AI
+Qu
+UA
+eT
+wZ
+Jz
+UA
+NG
+mI
+UA
+GM
+Kb
+gM
+UA
+fO
+pt
+"}
+(21,1,1) = {"
+pt
+pt
+pt
+fO
+WK
+kG
+FD
+zY
+mL
+BF
+BF
+jb
+Qu
+AI
+AI
+AI
+ZF
+AI
+AI
+AI
+AI
+Qu
+UA
+bH
+Zk
+cd
+Ij
+fE
+TL
+UA
+hC
+VS
+aw
+UA
+fO
+pt
+"}
+(22,1,1) = {"
+pt
+pt
+pt
+fO
+WK
+HU
+gt
+Cg
+sk
+mY
+bu
+jb
+Qu
+Qu
+AI
+WB
+GS
+qy
+Ha
+AI
+Qu
+Qu
+UA
+pZ
+ij
+Zk
+UA
+rH
+fd
+UA
+hC
+yb
+aw
+UA
+fO
+pt
+"}
+(23,1,1) = {"
+pt
+pt
+pt
+fO
+WK
+De
+Qn
+Le
+mg
+zZ
+aH
+jb
+Qu
+Qu
+AI
+zH
+aB
+Kx
+Fe
+AI
+Qu
+Qu
+UA
+HV
+Zk
+Zk
+UA
+UA
+UA
+UA
+hC
+eS
+aw
+UA
+fO
+pt
+"}
+(24,1,1) = {"
+pt
+pt
+pt
+fO
+WK
+WK
+PY
+PY
+jd
+Vb
+jd
+PY
+Qu
+Qu
+AI
+DD
+yy
+rW
+Xr
+AI
+Qu
+Qu
+UA
+YI
+Zk
+wZ
+UA
+NG
+mI
+UA
+UA
+UA
+UA
+UA
+fO
+pt
+"}
+(25,1,1) = {"
+pt
+pt
+pt
+fO
+fO
+fO
+PY
+pT
+VA
+xQ
+UB
+PY
+PY
+Qu
+AI
+AI
+AI
+AI
+AI
+AI
+Qu
+UA
+UA
+wZ
+Nd
+wZ
+hX
+fE
+TL
+UA
+fO
+fO
+fO
+fO
+fO
+pt
+"}
+(26,1,1) = {"
+pt
+pt
+pt
+pt
+pt
+fO
+PY
+Io
+JE
+xQ
+Ft
+nC
+PY
+Qu
+Qu
+Qu
+Qu
+Qu
+Qu
+Qu
+Qu
+UA
+tn
+Lt
+wZ
+wZ
+UA
+hs
+fd
+UA
+fO
+pt
+pt
+pt
+pt
+pt
+"}
+(27,1,1) = {"
+pt
+pt
+pt
+pt
+pt
+fO
+PY
+SB
+dI
+FB
+ze
+Sh
+PY
+hf
+hf
+hf
+hf
+hf
+hf
+hf
+hf
+UA
+UA
+UA
+zd
+UA
+UA
+UA
+UA
+UA
+fO
+pt
+pt
+pt
+pt
+pt
+"}
+(28,1,1) = {"
+pt
+pt
+pt
+pt
+pt
+fO
+PY
+Wv
+PZ
+ZJ
+Nu
+VJ
+PY
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+UA
+ie
+XL
+BS
+Sk
+UA
+BD
+mo
+UA
+fO
+pt
+pt
+pt
+pt
+pt
+"}
+(29,1,1) = {"
+pt
+pt
+pt
+pt
+pt
+fO
+PY
+PY
+PY
+PY
+PY
+PY
+PY
+fO
+pt
+pt
+pt
+pt
+pt
+pt
+fO
+UA
+mR
+CP
+BS
+BS
+Jd
+EI
+mc
+UA
+fO
+pt
+pt
+pt
+pt
+pt
+"}
+(30,1,1) = {"
+pt
+pt
+pt
+pt
+pt
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+pt
+pt
+pt
+pt
+pt
+pt
+fO
+UA
+Zo
+Sk
+dR
+Si
+UA
+UA
+UA
+UA
+fO
+pt
+pt
+pt
+pt
+pt
+"}
+(31,1,1) = {"
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+fO
+UA
+UA
+UA
+UA
+UA
+UA
+fO
+fO
+fO
+fO
+pt
+pt
+pt
+pt
+pt
+"}
+(32,1,1) = {"
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+fO
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+"}
+(33,1,1) = {"
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+"}

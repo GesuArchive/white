@@ -1,0 +1,1748 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ao" = (
+/obj/modular_map_connector,
+/turf/template_noop,
+/area/template_noop)
+"aq" = (
+/turf/open/floor/plating/beach/water,
+/area/template_noop)
+"aJ" = (
+/turf/template_noop,
+/area/template_noop)
+"aL" = (
+/turf/open/floor/plating/beach/coastline_t{
+	dir = 10
+	},
+/area/template_noop)
+"aO" = (
+/obj/effect/light_emitter{
+	name = "outdoor light";
+	set_cap = 3;
+	set_luminosity = 6
+	},
+/turf/open/floor/plating/beach/sand,
+/area/template_noop)
+"cu" = (
+/turf/open/floor/plating/beach/coastline_t{
+	dir = 9
+	},
+/area/template_noop)
+"cz" = (
+/obj/structure/fluff{
+	desc = "A humanoid figure shrouded by erratic static.";
+	icon = 'icons/effects/effects.dmi';
+	icon_state = "static";
+	name = "humanoid figure";
+	dir = 8
+	},
+/turf/open/floor/wood/large,
+/area/template_noop)
+"da" = (
+/turf/open/floor/plating/beach/coastline_b{
+	dir = 1
+	},
+/area/template_noop)
+"fa" = (
+/obj/effect/overlay/palmtree_r,
+/obj/item/toy/seashell{
+	pixel_y = -5
+	},
+/turf/open/floor/plating/beach/sand,
+/area/template_noop)
+"fk" = (
+/obj/structure/fluff/beach_umbrella,
+/turf/open/floor/plating/beach/coastline_t{
+	dir = 9
+	},
+/area/template_noop)
+"ga" = (
+/obj/item/book/fish_catalog,
+/turf/open/floor/plating/beach/coastline_t{
+	dir = 6
+	},
+/area/template_noop)
+"gt" = (
+/turf/open/floor/plating/beach/coastline_t/sandwater_inner,
+/area/template_noop)
+"hl" = (
+/obj/structure/fans/tiny/invisible,
+/turf/template_noop,
+/area/template_noop)
+"iT" = (
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/carpet,
+/area/template_noop)
+"ja" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/decal/remains/human,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/wood,
+/area/template_noop)
+"jt" = (
+/turf/open/floor/plating/beach/coastline_b{
+	dir = 8
+	},
+/area/template_noop)
+"jN" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/fluff{
+	desc = "A humanoid figure shrouded by erratic static.";
+	icon = 'icons/effects/effects.dmi';
+	icon_state = "static";
+	name = "humanoid figure"
+	},
+/turf/open/floor/wood,
+/area/template_noop)
+"ki" = (
+/obj/machinery/light/directional/north,
+/obj/effect/decal/cleanable/cobweb,
+/turf/open/floor/wood/large,
+/area/template_noop)
+"lF" = (
+/obj/effect/turf_decal/siding/wood,
+/mob/living/simple_animal/hostile/illusion{
+	multiply_chance = 25;
+	health = 25;
+	name = "architect";
+	desc = "I don't think you're supposed to be here."
+	},
+/turf/open/floor/wood,
+/area/template_noop)
+"lG" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/light_emitter{
+	name = "outdoor light";
+	set_cap = 3;
+	set_luminosity = 6
+	},
+/turf/open/floor/wood,
+/area/template_noop)
+"mk" = (
+/turf/open/floor/plating/beach/coastline_t{
+	dir = 6
+	},
+/area/template_noop)
+"mV" = (
+/obj/structure/chair/office{
+	dir = 1
+	},
+/turf/open/floor/wood/large,
+/area/template_noop)
+"ou" = (
+/obj/structure/table/wood,
+/turf/open/floor/wood/large,
+/area/template_noop)
+"pA" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/template_noop)
+"rd" = (
+/turf/open/floor/plating/beach/coastline_b{
+	dir = 5
+	},
+/area/template_noop)
+"rK" = (
+/mob/living/simple_animal/crab,
+/turf/open/floor/plating/beach/sand,
+/area/template_noop)
+"sv" = (
+/obj/structure/bookcase/random/nonfiction,
+/turf/open/floor/wood/large,
+/area/template_noop)
+"tr" = (
+/turf/open/floor/plating/beach/coastline_t/sandwater_inner{
+	dir = 1
+	},
+/area/template_noop)
+"ug" = (
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/wood,
+/area/template_noop)
+"ux" = (
+/obj/structure/fluff{
+	desc = "A humanoid figure shrouded by erratic static.";
+	icon = 'icons/effects/effects.dmi';
+	icon_state = "static";
+	name = "humanoid figure"
+	},
+/obj/effect/light_emitter{
+	name = "outdoor light";
+	set_cap = 3;
+	set_luminosity = 6
+	},
+/turf/open/floor/plating/beach/sand,
+/area/template_noop)
+"wd" = (
+/obj/structure/fans/tiny/invisible,
+/obj/structure/fluff{
+	deconstructible = 0;
+	density = 1;
+	desc = "this is cursed dawg fr fr";
+	icon_state = null;
+	name = "people blocker"
+	},
+/turf/template_noop,
+/area/template_noop)
+"xe" = (
+/obj/effect/light_emitter{
+	name = "outdoor light";
+	set_cap = 3;
+	set_luminosity = 6
+	},
+/turf/open/floor/plating/beach/coastline_t{
+	dir = 9
+	},
+/area/template_noop)
+"xj" = (
+/obj/item/toy/seashell,
+/mob/living/simple_animal/parrot,
+/turf/open/floor/plating/beach/sand,
+/area/template_noop)
+"yz" = (
+/mob/living/simple_animal/crab/coffee,
+/turf/open/floor/plating/beach/sand,
+/area/template_noop)
+"zp" = (
+/turf/open/floor/plating/beach/coastline_t{
+	dir = 1
+	},
+/area/template_noop)
+"zK" = (
+/turf/open/floor/plating/beach/coastline_b,
+/area/template_noop)
+"Ag" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/mob/living/simple_animal/hostile/illusion{
+	multiply_chance = 25;
+	health = 25;
+	name = "architect";
+	desc = "I don't think you're supposed to be here."
+	},
+/turf/open/floor/wood,
+/area/template_noop)
+"AD" = (
+/obj/item/storage/fish_case/random/freshwater,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/template_noop)
+"AL" = (
+/obj/machinery/door/morgue{
+	name = "Private Study";
+	req_access_txt = "37"
+	},
+/turf/open/floor/engine/cult,
+/area/template_noop)
+"Bn" = (
+/obj/item/toy/beach_ball,
+/turf/open/floor/plating/beach/coastline_t{
+	dir = 1
+	},
+/area/template_noop)
+"Bs" = (
+/turf/open/floor/plating/beach/coastline_t{
+	dir = 4
+	},
+/area/template_noop)
+"Dn" = (
+/obj/machinery/light/directional/south,
+/turf/open/floor/wood/large,
+/area/template_noop)
+"DH" = (
+/obj/structure/table/wood,
+/obj/machinery/computer/libraryconsole,
+/turf/open/floor/wood/large,
+/area/template_noop)
+"DN" = (
+/turf/open/floor/wood,
+/area/template_noop)
+"DZ" = (
+/obj/structure/bookcase/random/fiction,
+/turf/open/floor/wood/large,
+/area/template_noop)
+"EK" = (
+/turf/open/floor/plating/beach/coastline_b{
+	dir = 10
+	},
+/area/template_noop)
+"GN" = (
+/obj/item/clothing/shoes/sandal,
+/turf/open/floor/plating/beach/coastline_t{
+	dir = 10
+	},
+/area/template_noop)
+"GP" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/carpet,
+/area/template_noop)
+"Hv" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/turf/open/floor/wood/large,
+/area/template_noop)
+"Ie" = (
+/obj/structure/fluff{
+	desc = "A humanoid figure shrouded by erratic static.";
+	icon = 'icons/effects/effects.dmi';
+	icon_state = "static";
+	name = "humanoid figure"
+	},
+/turf/open/floor/wood/large,
+/area/template_noop)
+"Ig" = (
+/turf/open/floor/wood/large,
+/area/template_noop)
+"Ix" = (
+/turf/open/floor/plating/beach/coastline_t{
+	dir = 8
+	},
+/area/template_noop)
+"KA" = (
+/turf/open/floor/plating/beach/coastline_b{
+	dir = 9
+	},
+/area/template_noop)
+"Ln" = (
+/obj/effect/light_emitter{
+	name = "outdoor light";
+	set_cap = 3;
+	set_luminosity = 6
+	},
+/turf/open/floor/plating/beach/water,
+/area/template_noop)
+"LR" = (
+/turf/open/floor/plating/beach/coastline_t/sandwater_inner{
+	dir = 4
+	},
+/area/template_noop)
+"Mp" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/fluff{
+	desc = "You're not sure if walking into this is a great idea...";
+	icon = 'icons/effects/eldritch.dmi';
+	icon_state = "pierced_illusion";
+	name = "fluxating rift"
+	},
+/obj/effect/bump_teleporter{
+	id_target = "riftexit";
+	name = "rift end"
+	},
+/turf/open/floor/carpet,
+/area/template_noop)
+"MJ" = (
+/obj/structure/fans/tiny/invisible,
+/mob/living/simple_animal/hostile/illusion{
+	multiply_chance = 25;
+	health = 25
+	},
+/turf/template_noop,
+/area/template_noop)
+"ML" = (
+/turf/open/floor/plating/beach/coastline_t/sandwater_inner{
+	dir = 8
+	},
+/area/template_noop)
+"Nl" = (
+/obj/effect/overlay/palmtree_l,
+/obj/effect/overlay/coconut,
+/turf/open/floor/plating/beach/sand,
+/area/template_noop)
+"NV" = (
+/turf/open/floor/plating/beach/coastline_t{
+	dir = 5
+	},
+/area/template_noop)
+"PM" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/wood,
+/area/template_noop)
+"RE" = (
+/turf/open/floor/engine/cult,
+/area/template_noop)
+"SL" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/wood,
+/area/template_noop)
+"Tn" = (
+/obj/effect/overlay/palmtree_l,
+/obj/item/toy/seashell{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/turf/open/floor/plating/beach/sand,
+/area/template_noop)
+"TQ" = (
+/turf/open/floor/plating/beach/coastline_b{
+	dir = 4
+	},
+/area/template_noop)
+"TS" = (
+/obj/effect/light_emitter{
+	name = "outdoor light";
+	set_cap = 3;
+	set_luminosity = 6
+	},
+/turf/open/floor/plating/beach/coastline_t{
+	dir = 4
+	},
+/area/template_noop)
+"TU" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/light_emitter{
+	name = "outdoor light";
+	set_cap = 3;
+	set_luminosity = 6
+	},
+/turf/open/floor/wood,
+/area/template_noop)
+"UU" = (
+/turf/open/floor/plating/beach/coastline_t,
+/area/template_noop)
+"Vd" = (
+/turf/open/floor/plating/beach/sand,
+/area/template_noop)
+"Vk" = (
+/turf/closed/wall,
+/area/template_noop)
+"WJ" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/turf/open/floor/plating/beach/coastline_t{
+	dir = 1
+	},
+/area/template_noop)
+"Xr" = (
+/obj/effect/bump_teleporter{
+	id = "riftenter";
+	name = "rift start"
+	},
+/turf/open/floor/plating/beach/sand,
+/area/template_noop)
+"XR" = (
+/obj/effect/overlay/palmtree_l,
+/obj/item/toy/seashell{
+	pixel_x = -7;
+	pixel_y = 5
+	},
+/obj/effect/overlay/coconut,
+/turf/open/floor/plating/beach/sand,
+/area/template_noop)
+"YI" = (
+/obj/effect/light_emitter{
+	name = "outdoor light";
+	set_cap = 3;
+	set_luminosity = 6
+	},
+/turf/open/floor/plating/beach/coastline_t/sandwater_inner,
+/area/template_noop)
+"ZA" = (
+/turf/open/floor/plating/beach/coastline_b{
+	dir = 6
+	},
+/area/template_noop)
+
+(1,1,1) = {"
+aJ
+aJ
+hl
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+ao
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(2,1,1) = {"
+aJ
+hl
+aq
+hl
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(3,1,1) = {"
+aJ
+hl
+aq
+hl
+aJ
+aJ
+aJ
+aJ
+wd
+aJ
+wd
+aq
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(4,1,1) = {"
+hl
+aq
+Ln
+aq
+hl
+aJ
+aJ
+wd
+aq
+wd
+wd
+aq
+aq
+wd
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(5,1,1) = {"
+hl
+aq
+aq
+hl
+aJ
+wd
+wd
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(6,1,1) = {"
+hl
+aq
+hl
+aJ
+wd
+aq
+aq
+aq
+jt
+jt
+jt
+jt
+jt
+jt
+aq
+aq
+wd
+aJ
+aJ
+aJ
+aJ
+"}
+(7,1,1) = {"
+aJ
+hl
+aJ
+aJ
+aJ
+wd
+aq
+da
+xe
+Ix
+Ix
+Ix
+Ix
+aL
+rd
+jt
+aq
+wd
+aJ
+aJ
+aJ
+"}
+(8,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+aJ
+wd
+aq
+da
+zp
+Vd
+Vd
+Vd
+fa
+ML
+Ix
+aL
+zK
+wd
+aJ
+aJ
+aJ
+"}
+(9,1,1) = {"
+hl
+hl
+aJ
+aJ
+aJ
+wd
+aq
+da
+zp
+Vd
+Xr
+Vd
+Vd
+Vd
+Vd
+UU
+zK
+aq
+wd
+aJ
+aJ
+"}
+(10,1,1) = {"
+aq
+aq
+hl
+aJ
+aJ
+wd
+aq
+da
+zp
+Vd
+Tn
+rK
+Vd
+Vd
+Vd
+UU
+zK
+aq
+wd
+aJ
+aJ
+"}
+(11,1,1) = {"
+aq
+aq
+aq
+hl
+aJ
+wd
+aq
+da
+NV
+tr
+Vd
+Vd
+gt
+Bs
+TS
+mk
+zK
+aq
+wd
+aJ
+aJ
+"}
+(12,1,1) = {"
+jt
+jt
+jt
+aq
+hl
+wd
+aq
+aq
+EK
+NV
+Bs
+Bs
+mk
+KA
+TQ
+TQ
+aq
+wd
+aJ
+aJ
+aJ
+"}
+(13,1,1) = {"
+Ix
+Ix
+aL
+zK
+hl
+aJ
+wd
+aq
+aq
+TQ
+TQ
+TQ
+TQ
+aq
+wd
+wd
+wd
+aJ
+aJ
+aJ
+aJ
+"}
+(14,1,1) = {"
+Vd
+Nl
+UU
+zK
+hl
+aJ
+aJ
+wd
+aq
+aq
+aq
+aq
+aq
+aq
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(15,1,1) = {"
+rK
+ux
+UU
+zK
+aq
+hl
+aJ
+aJ
+wd
+aq
+aq
+wd
+wd
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(16,1,1) = {"
+Bs
+Bs
+mk
+zK
+aq
+hl
+aJ
+aJ
+aJ
+wd
+Ln
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(17,1,1) = {"
+TQ
+TQ
+TQ
+aq
+hl
+aJ
+aJ
+aJ
+aJ
+wd
+aq
+aq
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(18,1,1) = {"
+aq
+aq
+hl
+hl
+aJ
+aJ
+aJ
+wd
+wd
+aq
+aq
+aq
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(19,1,1) = {"
+aq
+hl
+aJ
+aJ
+aJ
+aJ
+wd
+aq
+aq
+jt
+jt
+jt
+aq
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(20,1,1) = {"
+hl
+aJ
+aJ
+aJ
+aJ
+aJ
+wd
+aq
+ZA
+cu
+Ix
+aL
+zK
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(21,1,1) = {"
+aq
+hl
+aJ
+aJ
+aJ
+wd
+aq
+da
+cu
+LR
+Vd
+UU
+zK
+wd
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(22,1,1) = {"
+aq
+aq
+hl
+aJ
+wd
+aq
+aq
+da
+Bn
+xj
+YI
+mk
+zK
+aq
+aq
+wd
+wd
+wd
+aJ
+aJ
+aJ
+"}
+(23,1,1) = {"
+Ln
+aq
+aq
+hl
+aJ
+wd
+aq
+da
+NV
+tr
+UU
+KA
+aq
+aq
+aq
+jt
+jt
+aq
+wd
+aJ
+aJ
+"}
+(24,1,1) = {"
+aq
+aq
+hl
+aJ
+aJ
+aJ
+wd
+aq
+EK
+NV
+mk
+aq
+aq
+aq
+ZA
+cu
+aL
+rd
+jt
+wd
+aJ
+"}
+(25,1,1) = {"
+hl
+hl
+aJ
+aJ
+aJ
+aJ
+wd
+aq
+aq
+TQ
+TQ
+aq
+aq
+da
+cu
+LR
+ML
+Ix
+aL
+zK
+wd
+"}
+(26,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+wd
+wd
+wd
+wd
+wd
+aq
+da
+zp
+aO
+yz
+Vd
+UU
+zK
+wd
+"}
+(27,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+wd
+da
+zp
+Vd
+XR
+Vd
+UU
+zK
+wd
+"}
+(28,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+wd
+wd
+aJ
+wd
+da
+NV
+tr
+Vd
+gt
+mk
+zK
+wd
+"}
+(29,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+wd
+aq
+aq
+wd
+wd
+aq
+EK
+NV
+Bs
+mk
+KA
+aq
+wd
+"}
+(30,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+wd
+wd
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+TQ
+TQ
+TQ
+aq
+wd
+aJ
+"}
+(31,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+aJ
+wd
+aq
+aq
+jt
+jt
+jt
+aq
+Ln
+aq
+wd
+wd
+wd
+wd
+wd
+aJ
+aJ
+"}
+(32,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+aJ
+wd
+aq
+da
+fk
+Ix
+GN
+zK
+aq
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(33,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+aJ
+wd
+aq
+da
+WJ
+gt
+ga
+zK
+aq
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(34,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+aJ
+wd
+aq
+da
+zp
+UU
+KA
+aq
+aq
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(35,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+aJ
+wd
+aq
+da
+AD
+ug
+zK
+aq
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(36,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+aJ
+wd
+aq
+aq
+lG
+ug
+aq
+aq
+wd
+aJ
+aJ
+hl
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(37,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+wd
+aq
+pA
+lF
+wd
+wd
+aJ
+aJ
+hl
+aq
+hl
+aJ
+aJ
+aJ
+aJ
+"}
+(38,1,1) = {"
+aJ
+aJ
+hl
+hl
+aJ
+aJ
+aJ
+wd
+pA
+ug
+wd
+aJ
+aJ
+hl
+aq
+aq
+aq
+hl
+aJ
+aJ
+aJ
+"}
+(39,1,1) = {"
+aJ
+hl
+aq
+aq
+hl
+aJ
+aJ
+wd
+Ag
+PM
+wd
+aJ
+hl
+aq
+aq
+aq
+aq
+aq
+hl
+aJ
+aJ
+"}
+(40,1,1) = {"
+hl
+aq
+Ln
+aq
+aq
+hl
+aJ
+wd
+pA
+ja
+wd
+hl
+aJ
+hl
+aq
+Ln
+aq
+aq
+hl
+aJ
+aJ
+"}
+(41,1,1) = {"
+aJ
+hl
+aq
+aq
+hl
+aJ
+aJ
+wd
+SL
+wd
+hl
+ug
+hl
+aJ
+hl
+aq
+aq
+hl
+aJ
+aJ
+aJ
+"}
+(42,1,1) = {"
+aJ
+aJ
+hl
+aq
+hl
+aJ
+aJ
+wd
+pA
+wd
+hl
+jN
+hl
+aJ
+aJ
+hl
+hl
+aJ
+aJ
+aJ
+aJ
+"}
+(43,1,1) = {"
+aJ
+aJ
+aJ
+hl
+aJ
+hl
+aJ
+wd
+Ag
+TU
+wd
+hl
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(44,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+hl
+pA
+hl
+aJ
+wd
+ug
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(45,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+hl
+pA
+hl
+aJ
+wd
+ug
+wd
+hl
+hl
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(46,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+aJ
+hl
+aJ
+wd
+DN
+ug
+wd
+Ig
+Ig
+hl
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(47,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+wd
+Ig
+wd
+aJ
+Ig
+Ig
+MJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(48,1,1) = {"
+aJ
+aJ
+hl
+hl
+aJ
+aJ
+wd
+wd
+Ig
+wd
+wd
+wd
+wd
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(49,1,1) = {"
+aJ
+hl
+Ig
+Ig
+hl
+wd
+Vk
+Ig
+Ig
+GP
+iT
+Ig
+ou
+Ig
+wd
+wd
+aJ
+hl
+aJ
+aJ
+aJ
+"}
+(50,1,1) = {"
+aJ
+aJ
+hl
+hl
+hl
+wd
+Vk
+DZ
+DZ
+GP
+iT
+Ig
+ou
+Dn
+Vk
+RE
+wd
+Ie
+hl
+aJ
+aJ
+"}
+(51,1,1) = {"
+aJ
+hl
+Ig
+Ig
+Ig
+wd
+Vk
+ki
+Ig
+GP
+Mp
+Ig
+DH
+mV
+AL
+RE
+wd
+hl
+aJ
+aJ
+aJ
+"}
+(52,1,1) = {"
+aJ
+aJ
+hl
+hl
+hl
+wd
+Vk
+sv
+sv
+GP
+iT
+Ig
+Hv
+Ig
+wd
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(53,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+hl
+hl
+wd
+wd
+wd
+Ig
+Ig
+wd
+wd
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(54,1,1) = {"
+aJ
+aJ
+aJ
+hl
+Ig
+Ig
+hl
+Ig
+Ig
+wd
+wd
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(55,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+hl
+hl
+hl
+Ig
+cz
+hl
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}
+(56,1,1) = {"
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+hl
+hl
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+"}

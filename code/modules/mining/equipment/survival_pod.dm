@@ -319,3 +319,11 @@
 	inhand_icon_state = initial(I.inhand_icon_state)
 //	lefthand_file = initial(I.lefthand_file) // кривая хуйня не работае
 //	righthand_file = initial(I.righthand_file)
+
+/obj/structure/fans/tiny/shield
+	name = "shuttle bay shield"
+	desc = "An tenuously thin energy shield only capable of holding in air, but not solid objects or people."
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "shield-old" // We should probably get these their own icon at some point
+	light_color = "#6496FA"
+	light_range = 4

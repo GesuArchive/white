@@ -67,6 +67,9 @@
 #define SPAN_CLOWN "clown"
 #define SPAN_SINGING "singing"
 #define SPAN_TAPE_RECORDER "tape_recorder"
+#define SPAN_HELIUM "small"
+#define SPAN_BRASS "brass"
+#define SPAN_RATVAR "ratvar"
 
 //bitflag #defines for return value of the radio() proc.
 #define ITALICS			(1<<0)

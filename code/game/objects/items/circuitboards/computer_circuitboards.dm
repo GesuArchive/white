@@ -344,6 +344,10 @@
 	name = "Управление трамваем"
 	build_path = /obj/machinery/computer/tram_controls
 
+/obj/item/circuitboard/computer/terminal
+	name = "Terminal"
+	build_path = /obj/machinery/computer/terminal
+
 //Medical
 
 /obj/item/circuitboard/computer/crew

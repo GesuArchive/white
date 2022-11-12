@@ -1,0 +1,104 @@
+{
+	"directory": "_maps/RandomZLevels/modular_maps/caves/",
+	"rooms": {
+	  "caves_lvl2bridge1": {
+		"modules": [
+		  "caves_lvl2bridge1_broken.dmm",
+		  "caves_lvl2bridge1_unbroken.dmm"
+		]
+	  },
+	  "caves_lvl2bridge2": {
+		"modules": [
+		  "caves_lvl2bridge2_broken.dmm",
+		  "caves_lvl2bridge2_unbroken.dmm"
+		]
+	  },
+	  "caves_lvl2bridge3": {
+		"modules": [
+		  "caves_lvl2bridge3_broken.dmm",
+		  "caves_lvl2bridge3_unbroken.dmm"
+		]
+	  },
+	  "caves_lvl2encounter1": {
+		"modules": [
+		  "caves_lvl2encounter1_a.dmm",
+		  "caves_lvl2encounter1_b.dmm",
+		  "caves_lvl2encounter1_c.dmm"
+		]
+	  },
+	  "caves_lvl2encounter2": {
+		"modules": [
+		  "caves_lvl2encounter2_a.dmm",
+		  "caves_lvl2encounter2_b.dmm",
+		  "caves_lvl2encounter2_c.dmm"
+		]
+	  },
+	  "caves_lvl2encounter3": {
+		"modules": [
+		  "caves_lvl2encounter3_a.dmm",
+		  "caves_lvl2encounter3_b.dmm",
+		  "caves_lvl2encounter3_c.dmm"
+		]
+	  },
+	  "caves_lvl2encounter4": {
+		"modules": [
+		  "caves_lvl2encounter4_a.dmm",
+		  "caves_lvl2encounter4_b.dmm",
+		  "caves_lvl2encounter4_c.dmm"
+		]
+	  },
+	  "caves_lvl2researchpost": {
+		"modules": [
+		  "caves_lvl2researchpost_a.dmm",
+		  "caves_lvl2researchpost_b.dmm",
+		  "caves_lvl2researchpost_c.dmm"
+		]
+	  },
+	  "caves_lvl2tunnelbridge": {
+		"modules": [
+		  "caves_lvl2tunnelbridge_broken.dmm",
+		  "caves_lvl2tunnelbridge_unbroken.dmm"
+		]
+	  },
+	  "caves_lvl3segment1": {
+		"modules": [
+		  "caves_lvl3segment1_a.dmm",
+		  "caves_lvl3segment1_b.dmm"
+		]
+	  },
+	  "caves_lvl3segment2": {
+		"modules": [
+		  "caves_lvl3segment2_a.dmm",
+		  "caves_lvl3segment2_c.dmm"
+		]
+	  },
+	  "caves_lvl3segment3": {
+		"modules": [
+		  "caves_lvl3segment3_b.dmm",
+		  "caves_lvl3segment3_b.dmm",
+		  "caves_lvl3segment3_b.dmm"
+		]
+	  },
+	  "caves_lvl3tear": {
+		"modules": [
+		  "caves_lvl3tear_a.dmm",
+		  "caves_lvl3tear_b.dmm",
+		  "caves_lvl3tear_c.dmm"
+		]
+	  },
+	  "caves_lvl4": {
+		"modules": [
+		  "caves_lvl4_b.dmm",
+		  "caves_lvl4_b.dmm",
+		  "caves_lvl4_b.dmm"
+		]
+	  },
+	  "caves_lvl4bossarena": {
+		"modules": [
+		  "caves_lvl4bossarena_a.dmm",
+		  "caves_lvl4bossarena_b.dmm",
+		  "caves_lvl4bossarena_c.dmm"
+		]
+	  }
+	}
+  }

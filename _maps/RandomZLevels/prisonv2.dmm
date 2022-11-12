@@ -2713,16 +2713,16 @@
 /turf/open/floor/grass,
 /area/prisonv2)
 "jd" = (
-/turf/open/floor/vault,
+/turf/open/floor/plasteel/rockvault,
 /area/prisonv2)
 "je" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/cable,
-/turf/open/floor/vault,
+/turf/open/floor/plasteel/rockvault,
 /area/prisonv2)
 "jf" = (
 /obj/effect/turf_decal/stripes/line,
-/turf/open/floor/vault,
+/turf/open/floor/plasteel/rockvault,
 /area/prisonv2)
 "jg" = (
 /obj/effect/mob_spawn/human/prison/mehanik,
@@ -2772,7 +2772,7 @@
 	dir = 6;
 	icon_state = "trubas"
 	},
-/turf/open/floor/vault,
+/turf/open/floor/plasteel/rockvault,
 /area/prisonv2)
 "jq" = (
 /obj/structure/cable,
@@ -2785,7 +2785,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/turf/open/floor/vault,
+/turf/open/floor/plasteel/rockvault,
 /area/prisonv2)
 "jt" = (
 /obj/structure/table,
@@ -2858,7 +2858,7 @@
 	dir = 4;
 	icon_state = "trubas"
 	},
-/turf/open/floor/vault,
+/turf/open/floor/plasteel/rockvault,
 /area/prisonv2)
 "jE" = (
 /obj/machinery/power/port_gen/pacman/coal{
@@ -2939,7 +2939,7 @@
 	dir = 4;
 	icon_state = "trubas"
 	},
-/turf/open/floor/vault,
+/turf/open/floor/plasteel/rockvault,
 /area/prisonv2)
 "jQ" = (
 /obj/item/stack/sheet/mineral/coal,
@@ -2950,7 +2950,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/vault,
+/turf/open/floor/plasteel/rockvault,
 /area/prisonv2)
 "jR" = (
 /obj/item/stack/sheet/mineral/coal,
@@ -2962,7 +2962,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/floor/vault,
+/turf/open/floor/plasteel/rockvault,
 /area/prisonv2)
 "jS" = (
 /obj/structure/table,

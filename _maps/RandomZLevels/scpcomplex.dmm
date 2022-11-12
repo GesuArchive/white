@@ -294,7 +294,7 @@
 	},
 /obj/effect/turf_decal/stripes/red/line,
 /obj/structure/cable,
-/turf/open/floor/vault,
+/turf/open/floor/plasteel/rockvault,
 /area/centcom/scp)
 "jk" = (
 /obj/effect/turf_decal/tile/neutral,
@@ -673,7 +673,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/turf/open/floor/vault,
+/turf/open/floor/plasteel/rockvault,
 /area/centcom/scp)
 "CG" = (
 /obj/structure/chair{
@@ -757,7 +757,7 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/scp)
 "ED" = (
-/obj/item/reagent_containers/glass/bottle/romerol{
+/obj/item/reagent_containers/food/drinks/bottle/romerol{
 	pixel_x = 1;
 	pixel_y = 7
 	},
@@ -1309,7 +1309,7 @@
 	},
 /obj/effect/turf_decal/stripes/red/line,
 /obj/structure/cable,
-/turf/open/floor/vault,
+/turf/open/floor/plasteel/rockvault,
 /area/centcom/scp)
 "ZW" = (
 /obj/effect/turf_decal/tile/neutral,
