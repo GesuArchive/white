@@ -1313,16 +1313,17 @@
 	return mob_location.get_lumcount() > light_amount
 
 /// Can this mob read (is literate and not blind)
-/mob/proc/can_read(obj/O)
-	if(is_blind())
-		to_chat(src, span_warning("Пытаюсь прочитать [O], но ничего не вижу!"))
+/mob/proc/can_read(atom/viewed_atom, reading_check_flags = (READING_CHECK_LITERACY|READING_CHECK_LIGHT), silent = FALSE)
+	if((reading_check_flags & READING_CHECK_LITERACY) && !is_literate())
+		if(!silent)
+			to_chat(src, span_warning("Пытаюсь прочитать [viewed_atom], но внезапно понимаю, что не умею читать."))
 		return FALSE
-	if(!is_literate())
-		to_chat(src, span_notice("Пытаюсь прочитать [O], но внезапно понимаю, что не умею читать."))
+
+	if((reading_check_flags & READING_CHECK_LIGHT) && !has_light_nearby() && !has_nightvision())
+		if(!silent)
+			to_chat(src, span_warning("Слишком темно для чтения!"))
 		return FALSE
-	if(!has_light_nearby() && !HAS_TRAIT(src, TRAIT_NIGHT_VISION))
-		to_chat(src, span_warning("Слишком темно для чтения!"))
-		return FALSE
+
 	return TRUE
 
 /**
