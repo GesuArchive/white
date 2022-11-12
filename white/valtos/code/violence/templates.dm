@@ -109,7 +109,16 @@
 	name = "Портальная авантюра"
 	description = "Нанотрейзен хочет протестировать новую портальную технологию в бою. Что может пойти не так?"
 	mappath = "_maps/map_files/Warfare/violence12.dmm"
-	weight = 12
+	weight = 8
 	min_players = 16
 	max_players = 32
 	theme = "portal"
+
+/datum/map_template/violence/cyberwarfare
+	name = "Кибербойня"
+	description = "Киберпространство расширено. Кто выживет в этой бессмысленной схватке?"
+	mappath = "_maps/map_files/Warfare/violence13.dmm"
+	weight = 15
+	min_players = 16
+	max_players = 32
+	theme = "cyber"
