@@ -42,7 +42,7 @@
 		RegisterSignal(parent, COMSIG_IMPLANT_IMPLANTING, .proc/implanting)
 		RegisterSignal(parent, COMSIG_IMPLANT_OTHER, .proc/old_implant)
 		RegisterSignal(parent, COMSIG_IMPLANT_EXISTING_UPLINK, .proc/new_implant)
-	else if(istype(parent, /obj/item/modular_computer/tablet/pda))
+	else if(istype(parent, /obj/item/modular_computer/tablet))
 		RegisterSignal(parent, COMSIG_TABLET_CHANGE_ID, .proc/new_ringtone)
 		RegisterSignal(parent, COMSIG_TABLET_CHECK_DETONATE, .proc/check_detonate)
 	else if(istype(parent, /obj/item/radio))
@@ -206,6 +206,8 @@
 				MakePurchase(usr, I)
 				return TRUE
 		if("lock")
+			if(!lockable)
+				return TRUE
 			active = FALSE
 			locked = TRUE
 			telecrystals += hidden_crystals

@@ -57,7 +57,7 @@
 /obj/item/modular_computer/tablet/attack_self(mob/user)
 	// bypass literacy checks to access syndicate uplink
 	var/datum/component/uplink/hidden_uplink = GetComponent(/datum/component/uplink)
-	if(hidden_uplink?.owner)
+	if(hidden_uplink?.owner && !user?.is_literate())
 		if(hidden_uplink.owner != user.key)
 			return ..()
 
