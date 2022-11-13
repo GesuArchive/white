@@ -1322,15 +1322,15 @@
 	name = "DNA injector - (Insulated)"
 	},
 /obj/item/dnainjector/timed{
-	add_mutations = list(/datum/mutation/human/temperature_adaptation);
-	name = "DNA injector - (Temperature Adaptation)"
+	add_mutations = list(/datum/mutation/human/space_adaptation);
+	name = "DNA injector - (Space Adaptation)"
 	},
 /obj/item/dnainjector/timed{
 	add_mutations = list(/datum/mutation/human/thermal);
 	name = "DNA injector - (Thermal Vision)"
 	},
 /obj/item/dnainjector/timed{
-	add_mutations = list(/datum/mutation/human/xray);
+	add_mutations = list(/datum/mutation/human/thermal/x_ray);
 	name = "DNA injector - (Xray Vision)"
 	},
 /turf/open/floor/plasteel/monofloor,
