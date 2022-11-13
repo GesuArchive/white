@@ -1965,7 +1965,7 @@
 /area/awaymission/mothership_astrum/deck2)
 "Fu" = (
 /obj/structure/table/wood/fancy,
-/obj/item/reagent_containers/food/drinks/bottle/ethanol{
+/obj/item/reagent_containers/glass/bottle/ethanol{
 	name = "Delicious Alcohol"
 	},
 /turf/open/floor/wood,
@@ -2603,7 +2603,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/item/reagent_containers/food/drinks/bottle/ethanol{
+/obj/item/reagent_containers/glass/bottle/ethanol{
 	name = "Delicious Alcohol"
 	},
 /turf/open/floor/plasteel,
@@ -2951,7 +2951,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
-/obj/item/reagent_containers/food/drinks/bottle/ethanol{
+/obj/item/reagent_containers/glass/bottle/ethanol{
 	name = "Delicious Alcohol"
 	},
 /turf/open/floor/plasteel,
@@ -2963,7 +2963,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/line,
-/obj/item/reagent_containers/food/drinks/bottle/ethanol{
+/obj/item/reagent_containers/glass/bottle/ethanol{
 	name = "Delicious Alcohol"
 	},
 /turf/open/floor/plasteel,

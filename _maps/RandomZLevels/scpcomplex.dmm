@@ -757,7 +757,7 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/scp)
 "ED" = (
-/obj/item/reagent_containers/food/drinks/bottle/romerol{
+/obj/item/reagent_containers/glass/bottle/romerol{
 	pixel_x = 1;
 	pixel_y = 7
 	},
