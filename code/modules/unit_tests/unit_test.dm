@@ -38,21 +38,22 @@ GLOBAL_LIST_EMPTY(unit_test_mapping_logs)
 	var/list/allocated
 	var/list/fail_reasons
 
-	var/static/datum/turf_reservation/turf_reservation
+	var/static/datum/space_level/reservation
 
 /proc/cmp_unit_test_priority(datum/unit_test/a, datum/unit_test/b)
 	return initial(a.priority) - initial(b.priority)
 
 /datum/unit_test/New()
-	if (isnull(turf_reservation))
-		turf_reservation = SSmapping.RequestBlockReservation(5, 5)
-
-	for (var/turf/reserved_turf in turf_reservation.reserved_turfs)
-		reserved_turf.ChangeTurf(test_turf_type)
+	if (isnull(reservation))
+		var/datum/map_template/unit_tests/template = new
+		reservation = template.load_new_z()
 
 	allocated = new
-	run_loc_floor_bottom_left = locate(turf_reservation.bottom_left_coords[1], turf_reservation.bottom_left_coords[2], turf_reservation.bottom_left_coords[3])
-	run_loc_floor_top_right = locate(turf_reservation.top_right_coords[1], turf_reservation.top_right_coords[2], turf_reservation.top_right_coords[3])
+	run_loc_floor_bottom_left = get_turf(locate(/obj/effect/landmark/unit_test_bottom_left) in GLOB.landmarks_list)
+	run_loc_floor_top_right = get_turf(locate(/obj/effect/landmark/unit_test_top_right) in GLOB.landmarks_list)
+
+	TEST_ASSERT(isfloorturf(run_loc_floor_bottom_left), "run_loc_floor_bottom_left was not a floor ([run_loc_floor_bottom_left])")
+	TEST_ASSERT(isfloorturf(run_loc_floor_top_right), "run_loc_floor_top_right was not a floor ([run_loc_floor_top_right])")
 
 /datum/unit_test/Destroy()
 	// clear the test area
@@ -152,3 +153,7 @@ GLOBAL_LIST_EMPTY(unit_test_mapping_logs)
 	SSticker.force_ending = TRUE
 	//We have to call this manually because del_text can preceed us, and SSticker doesn't fire in the post game
 	SSticker.standard_reboot()
+
+/datum/map_template/unit_tests
+	name = "Unit Tests Zone"
+	mappath = "_maps/templates/unit_tests.dmm"
