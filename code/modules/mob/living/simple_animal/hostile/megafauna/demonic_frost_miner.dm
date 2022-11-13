@@ -7,8 +7,8 @@ Difficulty: Extremely Hard
 */
 
 /mob/living/simple_animal/hostile/megafauna/demonic_frost_miner
-	name = "demonic-frost miner"
-	desc = "An extremely well-geared miner, driven crazy or possessed by the demonic forces here, either way a terrifying enemy."
+	name = "одержимый морозный шахтёр"
+	desc = "Тяжеловооружённый шахтёр. Сошедший с ума или одержимый демонами, но тем не менее он остаётся опасным врагом."
 	health = 1500
 	maxHealth = 1500
 	icon_state = "demonic_miner"
@@ -38,7 +38,7 @@ Difficulty: Extremely Hard
 	achievement_type = /datum/award/achievement/boss/demonic_miner_kill
 	crusher_achievement_type = /datum/award/achievement/boss/demonic_miner_crusher
 	score_achievement_type = /datum/award/score/demonic_miner_score
-	death_message = "falls to the ground, decaying into plasma particles."
+	death_message = "падает на землю, рассыпаясь на чистицы плазмы."
 	deathsound = "bodyfall"
 	footstep_type = FOOTSTEP_MOB_HEAVY
 	/// If the demonic frost miner is in its enraged state
@@ -146,7 +146,7 @@ Difficulty: Extremely Hard
 
 /mob/living/simple_animal/hostile/megafauna/demonic_frost_miner/ex_act(severity, target)
 	adjustBruteLoss(-30 * severity)
-	visible_message(span_danger("[src] absorbs the explosion!"), span_userdanger("You absorb the explosion!"))
+	visible_message(span_danger("[src] поглощает взрыв!"), span_userdanger("Сдерживаю ударную волну!"))
 
 /mob/living/simple_animal/hostile/megafauna/demonic_frost_miner/Goto(target, delay, minimum_distance)
 	if(enraging)
@@ -246,8 +246,8 @@ Difficulty: Extremely Hard
 	qdel(src)
 
 /obj/item/clothing/shoes/winterboots/ice_boots/ice_trail
-	name = "cursed ice hiking boots"
-	desc = "A pair of winter boots contractually made by a devil, they cannot be taken off once put on."
+	name = "Проклятые обледеневшие ботинки"
+	desc = "Пара зимних ботинок, сделанных по контракту с дьяволом, их нельзя снять, только надеть."
 	actions_types = list(/datum/action/item_action/toggle)
 	var/on = FALSE
 	var/change_turf = /turf/open/floor/plating/ice/icemoon
@@ -286,8 +286,8 @@ Difficulty: Extremely Hard
 	addtimer(CALLBACK(T, /turf.proc/ChangeTurf, reset_turf, null, CHANGETURF_INHERIT_AIR), duration, TIMER_OVERRIDE|TIMER_UNIQUE)
 
 /obj/item/pickaxe/drill/jackhammer/demonic
-	name = "demonic jackhammer"
-	desc = "Cracks rocks at an inhuman speed, as well as being enhanced for combat purposes."
+	name = "демонический крушитель"
+	desc = "Раскалывает камни с нечеловеческой скоростью, а также усилен для боевых целей."
 	toolspeed = 0
 
 /obj/item/pickaxe/drill/jackhammer/demonic/Initialize(mapload)
@@ -301,13 +301,13 @@ Difficulty: Extremely Hard
 	. = ..()
 
 /obj/item/crusher_trophy/ice_block_talisman
-	name = "ice block talisman"
-	desc = "A glowing trinket that a demonic miner had on him, it seems he couldn't utilize it for whatever reason."
+	name = "талисман льда"
+	desc = "Светящийся медальон, который был при шахтёре, но по какой-то причине он не мог его использовать."
 	icon_state = "ice_trap_talisman"
 	denied_type = /obj/item/crusher_trophy/ice_block_talisman
 
 /obj/item/crusher_trophy/ice_block_talisman/effect_desc()
-	return "mark detonation to freeze a creature in a block of ice for a period, preventing them from moving"
+	return "Детонация метки замораживает цель в глыбе льда на время, не позволяя ему двигаться"
 
 /obj/item/crusher_trophy/ice_block_talisman/on_mark_detonation(mob/living/target, mob/living/user)
 	target.apply_status_effect(/datum/status_effect/ice_block_talisman)
@@ -321,8 +321,8 @@ Difficulty: Extremely Hard
 	var/icon/cube
 
 /atom/movable/screen/alert/status_effect/ice_block_talisman
-	name = "Frozen Solid"
-	desc = "You're frozen inside an ice cube, and cannot move!"
+	name = "Метка льда"
+	desc = "Меня заморозили во льду! Я не могу двинуться!"
 	icon_state = "frozen"
 
 /datum/status_effect/ice_block_talisman/on_apply()

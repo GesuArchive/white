@@ -19,8 +19,8 @@ Difficulty: Medium
 */
 
 /mob/living/simple_animal/hostile/megafauna/blood_drunk_miner
-	name = "blood-drunk miner"
-	desc = "A miner destined to wander forever, engaged in an endless hunt."
+	name = "кровожадный шахтёр"
+	desc = "Шахтер, обреченный на вечные скитания, проклятый на бесконечную охоту..."
 	health = 900
 	maxHealth = 900
 	icon_state = "miner"
@@ -48,7 +48,7 @@ Difficulty: Medium
 	score_achievement_type = /datum/award/score/blood_miner_score
 	var/obj/item/melee/cleaving_saw/miner/miner_saw
 	var/guidance = FALSE
-	death_message = "falls to the ground, decaying into glowing particles."
+	death_message = "падает на землю, рассыпаясь на светящиеся частицы."
 	deathsound = "bodyfall"
 	footstep_type = FOOTSTEP_MOB_HEAVY
 	move_force = MOVE_FORCE_NORMAL //Miner beeing able to just move structures like bolted doors and glass looks kinda strange

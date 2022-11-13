@@ -35,8 +35,8 @@ Difficulty: Hard
 */
 
 /mob/living/simple_animal/hostile/megafauna/hierophant
-	name = "hierophant"
-	desc = "A massive metal club that hangs in the air as though waiting. It'll make you dance to its beat."
+	name = "иерофант"
+	desc = "Неизвестное инопланетное существо, чем-то напоминающее средневекового короля."
 	health = 2500
 	maxHealth = 2500
 	attack_verb_continuous = "бьёт"

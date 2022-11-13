@@ -21,8 +21,8 @@
  * Intended Difficulty: Very Hard
  */
 /mob/living/simple_animal/hostile/megafauna/colossus
-	name = "colossus"
-	desc = "A monstrous creature protected by heavy shielding."
+	name = "колосс"
+	desc = "Монструозное создание, обладающее тяжёлой защитой."
 	health = 2500
 	maxHealth = 2500
 	attack_verb_continuous = "судит"
@@ -172,7 +172,7 @@
 	return ..()
 
 /obj/projectile/colossus
-	name ="death bolt"
+	name ="болт смерти"
 	icon_state= "chronobolt"
 	damage = 25
 	armour_penetration = 100
@@ -203,8 +203,8 @@
 #define ACTIVATE_MAGIC "magic"
 
 /obj/machinery/anomalous_crystal
-	name = "anomalous crystal"
-	desc = "A strange chunk of crystal, being in the presence of it fills you with equal parts excitement and dread."
+	name = "аномальный кристалл"
+	desc = "Странный кристалл, в его присутствии ваша душа наполняется волнением и ужасом."
 	var/observer_desc = "Anomalous crystals have descriptions that only observers can see. But this one hasn't been changed from the default."
 	icon = 'icons/obj/lavaland/artefacts.dmi'
 	icon_state = "anomaly_crystal"
@@ -453,8 +453,8 @@
 			attack_ghost(ghost)
 
 /mob/living/simple_animal/hostile/lightgeist
-	name = "lightgeist"
-	desc = "This small floating creature is a completely unknown form of life... being near it fills you with a sense of tranquility."
+	name = "Частица света"
+	desc = "Это маленькое плавающее в воздухе существо - совершенно неизвестная форма жизни... нахождение рядом с ним наполняет вас спокойствием."
 	icon_state = "lightgeist"
 	icon_living = "lightgeist"
 	icon_dead = "butterfly_dead"

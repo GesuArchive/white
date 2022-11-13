@@ -41,8 +41,8 @@ GLOBAL_LIST_INIT(AISwarmerCapsByType, list(/mob/living/simple_animal/hostile/swa
 
 
 /mob/living/simple_animal/hostile/megafauna/swarmer_swarm_beacon
-	name = "swarmer beacon"
-	desc = "That name is a bit of a mouthful, but stop paying attention to your mouth they're eating everything!"
+	name = "маяк роевиков"
+	desc = "Чужеродное устройство, занимающееся постоянной репликацией дронов, единственная цель которых это сбор ресурсов, в бесконечных объемах, любой ценой."
 	icon = 'icons/mob/swarmer.dmi'
 	icon_state = "swarmer_console"
 	health = 750

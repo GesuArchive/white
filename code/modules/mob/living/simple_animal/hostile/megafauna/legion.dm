@@ -22,13 +22,13 @@
 #define LEGION_SMALL 1
 
 /mob/living/simple_animal/hostile/megafauna/legion
-	name = "Legion"
+	name = "Легион"
 	health = 700
 	maxHealth = 700
 	icon_state = "mega_legion"
 	icon_living = "mega_legion"
 	health_doll_icon = "mega_legion"
-	desc = "One of many."
+	desc = "Один из многих."
 	icon = 'icons/mob/lavaland/96x96megafauna.dmi'
 	attack_verb_continuous = "кусает"
 	attack_verb_simple = "кусает"
@@ -258,8 +258,8 @@
 
 ///A basic turret that shoots at nearby mobs. Intended to be used for the legion megafauna.
 /obj/structure/legionturret
-	name = "\improper Legion sentinel"
-	desc = "The eye pierces your soul."
+	name = "Страж легиона"
+	desc = "Его взгляд прознает саму душу."
 	icon = 'icons/mob/lavaland/lavaland_monsters.dmi'
 	icon_state = "legion_turret"
 	light_power = 0.5
