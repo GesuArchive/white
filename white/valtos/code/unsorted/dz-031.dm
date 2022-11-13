@@ -124,7 +124,7 @@
 		var/datum/violence_player/VP = vp_get_player(user?.ckey)
 		if(VP)
 			VP.money += money_to_adjust
-			to_chat(user, span_boldnotice("[money_to_adjust > 0 ? "+[money_to_adjust]" : "-[money_to_adjust]"]₽"))
+			to_chat(user, span_boldnotice("[money_to_adjust > 0 ? "+[money_to_adjust]" : "[money_to_adjust]"]₽"))
 
 	ChangeTurf(/turf/open/floor/dz/cyber)
 

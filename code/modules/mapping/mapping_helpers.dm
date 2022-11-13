@@ -627,7 +627,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 	//floor.maptext = MAPTEXT_REALLYBIG_COLOR("[current_time]", "#d10404")
 	if(current_time == 3)
 		new /obj/effect/temp_visual/dz_effects/attention(floor)
-	if(current_time >= 0)
+	if(current_time >= 1)
 		return
 	current_time = timer
 	var/old_turf_type = floor.type

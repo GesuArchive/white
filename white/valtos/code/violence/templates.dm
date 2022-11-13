@@ -1,9 +1,14 @@
 
 /datum/map_template/violence
+	// описание карты
 	var/description = ""
+	// вес карты. Больше - выше шанс, что эта карта будет выбрана
 	var/weight = 0
+	// минимальное число игроков ОНЛАЙН
 	var/min_players = 0
+	// максимальное число игроков ОНЛАЙН
 	var/max_players = 0
+	// тема карты, должна быть существующая, иначе всё сломается
 	var/theme = "std"
 
 /datum/map_template/violence/default
