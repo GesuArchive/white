@@ -185,6 +185,7 @@
 	var/suit_store = -1
 
 	var/hairstyle
+	var/haircolor
 	var/facial_hairstyle
 	var/skin_tone
 
@@ -209,6 +210,8 @@
 		H.hairstyle = hairstyle
 	else
 		H.hairstyle = random_hairstyle(H.gender)
+	if(haircolor)
+		H.hair_color = haircolor
 	if(facial_hairstyle)
 		H.facial_hairstyle = facial_hairstyle
 	else
