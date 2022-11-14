@@ -89,7 +89,7 @@
 #include "holidays.dm"
 #include "keybinding_init.dm"
 #include "machine_disassembly.dm"
-//#include "mapping.dm" // something wrong
+#include "mapping.dm"
 #include "modsuit.dm"
 #include "medical_wounds.dm"
 #include "merge_type.dm"

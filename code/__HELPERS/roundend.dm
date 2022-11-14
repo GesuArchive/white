@@ -335,19 +335,15 @@
 	SSblackbox.Seal()
 
 	sleep(50)
-	ready_for_reboot = TRUE
 	standard_reboot()
 
 /datum/controller/subsystem/ticker/proc/standard_reboot()
-	if(ready_for_reboot)
-		if(mode.station_was_nuked)
-			Reboot("Станция уничтожена Ядерной бомбой.", "nuke")
-		else if (GLOB.violence_mode_activated)
-			Reboot("КОНЕЦ!", "proper completion", 3 SECONDS)
-		else
-			Reboot("Конец раунда.", "proper completion")
+	if(mode.station_was_nuked)
+		Reboot("Станция уничтожена Ядерной бомбой.", "nuke")
+	else if (GLOB.violence_mode_activated)
+		Reboot("КОНЕЦ!", "proper completion", 3 SECONDS)
 	else
-		CRASH("Attempted standard reboot without ticker roundend completion")
+		Reboot("Конец раунда.", "proper completion")
 
 //Common part of the report
 /datum/controller/subsystem/ticker/proc/build_roundend_report()

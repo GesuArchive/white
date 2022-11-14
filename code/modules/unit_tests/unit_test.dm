@@ -21,15 +21,11 @@ GLOBAL_LIST_EMPTY(unit_test_mapping_logs)
 	//Bit of metadata for the future maybe
 	var/list/procs_tested
 
-	/// The bottom left turf of the testing zone
+	/// The bottom left floor turf of the testing zone
 	var/turf/run_loc_floor_bottom_left
 
-	/// The top right turf of the testing zone
+	/// The top right floor turf of the testing zone
 	var/turf/run_loc_floor_top_right
-
-	/// The type of turf to allocate for the testing zone
-	var/test_turf_type = /turf/open/floor/plasteel
-
 	///The priority of the test, the larger it is the later it fires
 	var/priority = TEST_DEFAULT
 	//internal shit
@@ -56,6 +52,7 @@ GLOBAL_LIST_EMPTY(unit_test_mapping_logs)
 	TEST_ASSERT(isfloorturf(run_loc_floor_top_right), "run_loc_floor_top_right was not a floor ([run_loc_floor_top_right])")
 
 /datum/unit_test/Destroy()
+	QDEL_LIST(allocated)
 	// clear the test area
 	for (var/turf/turf in block(locate(1, 1, run_loc_floor_bottom_left.z), locate(world.maxx, world.maxy, run_loc_floor_bottom_left.z)))
 		for (var/content in turf.contents)
@@ -79,23 +76,16 @@ GLOBAL_LIST_EMPTY(unit_test_mapping_logs)
 /// Instances allocated through this proc will be destroyed when the test is over
 /datum/unit_test/proc/allocate(type, ...)
 	var/list/arguments = args.Copy(2)
-	if(ispath(type, /atom))
-		if (!arguments.len)
-			arguments = list(run_loc_floor_bottom_left)
-		else if (arguments[1] == null)
-			arguments[1] = run_loc_floor_bottom_left
-	var/instance
-	// Byond will throw an index out of bounds if arguments is empty in that arglist call. Sigh
-	if(length(arguments))
-		instance = new type(arglist(arguments))
-	else
-		instance = new type()
+	if (!arguments.len)
+		arguments = list(run_loc_floor_bottom_left)
+	else if (arguments[1] == null)
+		arguments[1] = run_loc_floor_bottom_left
+	var/instance = new type(arglist(arguments))
 	allocated += instance
 	return instance
 
 /proc/RunUnitTest(test_path, list/test_results)
 	var/datum/unit_test/test = new test_path
-	CHECK_TICK
 
 	GLOB.current_test = test
 	var/duration = REALTIMEOFDAY
@@ -110,16 +100,25 @@ GLOBAL_LIST_EMPTY(unit_test_mapping_logs)
 		"[test.succeeded ? TEST_OUTPUT_GREEN("PASS") : TEST_OUTPUT_RED("FAIL")]: [test_path] [duration / 10]s",
 	)
 	var/list/fail_reasons = test.fail_reasons
+	var/map_name = SSmapping.config.map_name
+
 	for(var/reasonID in 1 to LAZYLEN(fail_reasons))
 		var/text = fail_reasons[reasonID][1]
 		var/file = fail_reasons[reasonID][2]
 		var/line = fail_reasons[reasonID][3]
 
-		/// Github action annotation.
-		log_world("::error file=[file],line=[line],title=[test_path]::[text]")
+		// Github action annotation.
+		// See https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions
+
+		// Need to escape the text to properly support newlines.
+		var/annotation_text = replacetext(text, "%", "%25")
+		annotation_text = replacetext(annotation_text, "\n", "%0A")
+
+		log_world("::error file=[file],line=[line],title=[map_name]: [test_path]::[annotation_text]")
 
 		// Normal log message
 		log_entry += "\tREASON #[reasonID]: [text] at [file]:[line]"
+
 	var/message = log_entry.Join("\n")
 	log_test(message)
 
@@ -131,11 +130,13 @@ GLOBAL_LIST_EMPTY(unit_test_mapping_logs)
 	CHECK_TICK
 
 	var/list/tests_to_run = subtypesof(/datum/unit_test)
+	var/list/focused_tests = list()
 	for (var/_test_to_run in tests_to_run)
 		var/datum/unit_test/test_to_run = _test_to_run
 		if (initial(test_to_run.focus))
-			tests_to_run = list(test_to_run)
-			break
+			focused_tests += test_to_run
+	if(length(focused_tests))
+		tests_to_run = focused_tests
 
 	tests_to_run = sortTim(tests_to_run, /proc/cmp_unit_test_priority)
 
@@ -149,7 +150,6 @@ GLOBAL_LIST_EMPTY(unit_test_mapping_logs)
 	fdel(file_name)
 	file(file_name) << json_encode(test_results)
 
-	SSticker.ready_for_reboot = TRUE
 	SSticker.force_ending = TRUE
 	//We have to call this manually because del_text can preceed us, and SSticker doesn't fire in the post game
 	SSticker.standard_reboot()
