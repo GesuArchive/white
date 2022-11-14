@@ -365,7 +365,9 @@
 					T.MakeSlippery(TURF_WET_WATER, min_wet_time = 20 SECONDS, wet_time_to_add = 15 SECONDS)
 			else
 				visible_message(span_danger("[capitalize(src.name)] бурно жужжит, прежде чем выпустить шлейф пены!"))
-				new /obj/effect/particle_effect/fluid/foam(loc)
+				var/datum/effect_system/fluid_spread/foam/foam = new
+				foam.set_up(2, location = loc)
+				foam.start()
 
 /mob/living/simple_animal/bot/cleanbot/explode()
 	on = FALSE

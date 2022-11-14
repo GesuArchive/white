@@ -57,7 +57,9 @@
 	visible_message(span_boldannounce("[capitalize(src.name)] взрывается и разбрызгивает вокруг пену!"))
 	do_sparks(3, TRUE, src)
 	on = FALSE
-	new /obj/effect/particle_effect/fluid/foam(loc)
+	var/datum/effect_system/fluid_spread/foam/foam = new
+	foam.set_up(2, location = loc)
+	foam.start()
 
 	..()
 
