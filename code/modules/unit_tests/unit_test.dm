@@ -1,14 +1,9 @@
 /*
-
 Usage:
 Override /Run() to run your test code
-
 Call TEST_FAIL() to fail the test (You should specify a reason)
-
 You may use /New() and /Destroy() for setup/teardown respectively
-
 You can use the run_loc_floor_bottom_left and run_loc_floor_top_right to get turfs for testing
-
 */
 
 GLOBAL_DATUM(current_test, /datum/unit_test)
@@ -76,13 +71,29 @@ GLOBAL_LIST_EMPTY(unit_test_mapping_logs)
 /// Instances allocated through this proc will be destroyed when the test is over
 /datum/unit_test/proc/allocate(type, ...)
 	var/list/arguments = args.Copy(2)
-	if (!arguments.len)
-		arguments = list(run_loc_floor_bottom_left)
-	else if (arguments[1] == null)
-		arguments[1] = run_loc_floor_bottom_left
-	var/instance = new type(arglist(arguments))
+	if(ispath(type, /atom))
+		if (!arguments.len)
+			arguments = list(run_loc_floor_bottom_left)
+		else if (arguments[1] == null)
+			arguments[1] = run_loc_floor_bottom_left
+	var/instance
+	// Byond will throw an index out of bounds if arguments is empty in that arglist call. Sigh
+	if(length(arguments))
+		instance = new type(arglist(arguments))
+	else
+		instance = new type()
 	allocated += instance
 	return instance
+
+/// Logs a test message. Will use GitHub action syntax found at https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions
+/datum/unit_test/proc/log_for_test(text, priority, file, line)
+	var/map_name = SSmapping.config.map_name
+
+	// Need to escape the text to properly support newlines.
+	var/annotation_text = replacetext(text, "%", "%25")
+	annotation_text = replacetext(annotation_text, "\n", "%0A")
+
+	log_world("::[priority] file=[file],line=[line],title=[map_name]: [type]::[annotation_text]")
 
 /proc/RunUnitTest(test_path, list/test_results)
 	var/datum/unit_test/test = new test_path
@@ -90,37 +101,37 @@ GLOBAL_LIST_EMPTY(unit_test_mapping_logs)
 	GLOB.current_test = test
 	var/duration = REALTIMEOFDAY
 
+	log_world("::group::[test_path]")
 	test.Run()
 
 	duration = REALTIMEOFDAY - duration
 	GLOB.current_test = null
 	GLOB.failed_any_test |= !test.succeeded
 
-	var/list/log_entry = list(
-		"[test.succeeded ? TEST_OUTPUT_GREEN("PASS") : TEST_OUTPUT_RED("FAIL")]: [test_path] [duration / 10]s",
-	)
+	var/list/log_entry = list()
 	var/list/fail_reasons = test.fail_reasons
-	var/map_name = SSmapping.config.map_name
 
 	for(var/reasonID in 1 to LAZYLEN(fail_reasons))
 		var/text = fail_reasons[reasonID][1]
 		var/file = fail_reasons[reasonID][2]
 		var/line = fail_reasons[reasonID][3]
 
-		// Github action annotation.
-		// See https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions
-
-		// Need to escape the text to properly support newlines.
-		var/annotation_text = replacetext(text, "%", "%25")
-		annotation_text = replacetext(annotation_text, "\n", "%0A")
-
-		log_world("::error file=[file],line=[line],title=[map_name]: [test_path]::[annotation_text]")
+		test.log_for_test(text, "error", file, line)
 
 		// Normal log message
-		log_entry += "\tREASON #[reasonID]: [text] at [file]:[line]"
+		log_entry += "\tFAILURE #[reasonID]: [text] at [file]:[line]"
 
 	var/message = log_entry.Join("\n")
 	log_test(message)
+
+	var/test_output_desc = "[test_path] [duration / 10]s"
+	if (test.succeeded)
+		log_world("[TEST_OUTPUT_GREEN("PASS")] [test_output_desc]")
+
+	log_world("::endgroup::")
+
+	if (!test.succeeded)
+		log_world("::error::[TEST_OUTPUT_RED("FAIL")] [test_output_desc]")
 
 	test_results[test_path] = list("status" = test.succeeded ? UNIT_TEST_PASSED : UNIT_TEST_FAILED, "message" = message, "name" = test_path)
 
