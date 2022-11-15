@@ -486,8 +486,8 @@
 	var/splat_location = get_turf(target)
 	var/smoke_amount = round(sqrt(G.seed.potency * 0.1), 1)
 	S.attach(splat_location)
-	S.set_up(smoke_amount, carry = G.reagents, location = splat_location)
-	S.start()
+	S.set_up(smoke_amount, holder = G, carry = G.reagents, location = splat_location)
+	S.start(log = TRUE)
 	G.reagents.clear_reagents()
 
 /datum/plant_gene/trait/fire_resistance // Lavaland

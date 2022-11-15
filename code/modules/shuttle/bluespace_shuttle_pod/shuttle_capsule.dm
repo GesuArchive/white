@@ -82,7 +82,7 @@
 				M.docked = S
 				S.docked = M
 		var/datum/effect_system/fluid_spread/smoke/smoke = new
-		smoke.set_up(0, location = get_turf(src))
+		smoke.set_up(0, holder = src, location = get_turf(src))
 		smoke.start()
 		qdel(src)
 

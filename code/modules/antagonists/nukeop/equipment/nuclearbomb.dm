@@ -601,8 +601,8 @@
 	R.add_reagent(/datum/reagent/consumable/ethanol/beer, 100)
 
 	var/datum/effect_system/fluid_spread/foam/foam = new
-	foam.set_up(200, location = get_turf(src), carry = R)
-	foam.start()
+	foam.set_up(200, holder = src, location = get_turf(src), carry = R)
+	foam.start(log = TRUE)
 	disarm()
 
 /obj/machinery/nuclearbomb/beer/proc/stationwide_foam()

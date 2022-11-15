@@ -96,7 +96,7 @@
 	user.say(";FFFFFFFFFFFFFFFFUUUUUUUDGE!!", forced="soap suicide")
 	user.visible_message(span_suicide("[user] lifts [src] to [user.ru_ego()] mouth and gnaws on it furiously, producing a thick froth! [user.ru_who(TRUE)]'ll never get that BB gun now!"))
 	var/datum/effect_system/fluid_spread/foam/foam = new
-	foam.set_up(1, location = user.loc)
+	foam.set_up(1, holder = src, location = user.loc)
 	foam.start()
 	return (TOXLOSS)
 

@@ -377,8 +377,8 @@
 	if(!force_range)
 		force_range = (sum_volume/6) + 3
 	if(invert_reagents.reagent_list)
-		smoke.set_up(force_range, location = holder.my_atom, carry = invert_reagents)
-		smoke.start()
+		smoke.set_up(force_range, holder = holder.my_atom, location = holder.my_atom, carry = invert_reagents)
+		smoke.start(log = TRUE)
 	holder.my_atom.audible_message("The [holder.my_atom] suddenly explodes, launching the aerosolized reagents into the air!")
 	if(clear_reactants)
 		clear_reactants(holder)
@@ -398,8 +398,8 @@
 	if(!force_range)
 		force_range = (sum_volume/6) + 3
 	if(reagents.reagent_list)
-		smoke.set_up(force_range, location = holder.my_atom, carry = reagents)
-		smoke.start()
+		smoke.set_up(force_range, holder = holder.my_atom, location = holder.my_atom, carry = reagents)
+		smoke.start(log = TRUE)
 	holder.my_atom.audible_message("The [holder.my_atom] suddenly explodes, launching the aerosolized reagents into the air!")
 	if(clear_reactants)
 		clear_reactants(holder)

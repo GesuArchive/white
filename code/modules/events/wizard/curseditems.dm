@@ -56,5 +56,5 @@
 
 	for(var/mob/living/carbon/human/H in GLOB.alive_mob_list)
 		var/datum/effect_system/fluid_spread/smoke/smoke = new
-		smoke.set_up(0, location = H.loc)
+		smoke.set_up(0, holder = src, location = H.loc)
 		smoke.start()

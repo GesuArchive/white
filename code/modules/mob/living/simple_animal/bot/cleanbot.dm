@@ -366,7 +366,7 @@
 			else
 				visible_message(span_danger("[capitalize(src.name)] бурно жужжит, прежде чем выпустить шлейф пены!"))
 				var/datum/effect_system/fluid_spread/foam/foam = new
-				foam.set_up(2, location = loc)
+				foam.set_up(2, holder = src, location = loc)
 				foam.start()
 
 /mob/living/simple_animal/bot/cleanbot/explode()

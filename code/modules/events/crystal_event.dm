@@ -700,7 +700,7 @@ This section is for the crystal monsters variations
 		create_reagents(3)
 		reagents.add_reagent(/datum/reagent/toxin/lexorin, 4)
 		S.attach(loc)
-		S.set_up(death_cloud_size, carry = reagents, location = loc, silent = TRUE)
+		S.set_up(death_cloud_size, holder = src, carry = reagents, location = loc, silent = TRUE)
 		S.start()
 	return ..()
 

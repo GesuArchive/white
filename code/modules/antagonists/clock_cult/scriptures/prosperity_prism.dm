@@ -40,7 +40,7 @@
 		var/datum/effect_system/fluid_spread/smoke/chem/S = new
 		var/turf_location = get_turf(src)
 		S.attach(turf_location)
-		S.set_up(3, carry = holder, location = turf_location)
+		S.set_up(3, holder = src, carry = holder, location = turf_location)
 		S.start()
 	QDEL_NULL(holder)
 	. = ..()

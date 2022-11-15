@@ -286,7 +286,7 @@
 /mob/living/simple_animal/bot/firebot/atmos_expose(datum/gas_mixture/air, exposed_temperature)
 	if(COOLDOWN_FINISHED(src, foam_cooldown))
 		var/datum/effect_system/fluid_spread/foam/firefighting/foam = new
-		foam.set_up(3, location = loc)
+		foam.set_up(3, holder = src, location = loc)
 		foam.start()
 		COOLDOWN_START(src, foam_cooldown, FOAM_INTERVAL)
 

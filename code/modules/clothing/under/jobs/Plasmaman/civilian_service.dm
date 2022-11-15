@@ -81,5 +81,5 @@
 			var/datum/effect_system/fluid_spread/foam/foam = new
 			var/datum/reagents/foamreagent = new /datum/reagents(15)
 			foamreagent.add_reagent(/datum/reagent/lube, 15)
-			foam.set_up(4, location = loc, carry = foamreagent)
+			foam.set_up(4, holder = src, location = loc, carry = foamreagent)
 			foam.start() //Truly terrifying.

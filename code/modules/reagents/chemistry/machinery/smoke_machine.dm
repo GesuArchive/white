@@ -90,7 +90,7 @@
 	if(on && !smoke_test)
 		update_icon()
 		var/datum/effect_system/fluid_spread/smoke/chem/smoke_machine/smoke = new()
-		smoke.set_up(setting * 3, location = location, carry = reagents, efficiency = efficiency)
+		smoke.set_up(setting * 3, holder = src, location = location, carry = reagents, efficiency = efficiency)
 		smoke.start()
 		use_power(active_power_usage)
 

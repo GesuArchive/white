@@ -30,7 +30,7 @@
 			for(var/obj/structure/signpost/salvation/S in orange(7))
 				S.invisibility = 0
 				var/datum/effect_system/fluid_spread/smoke/smoke = new
-				smoke.set_up(1, location = S.loc)
+				smoke.set_up(1, holder = src, location = S.loc)
 				smoke.start()
 				break
 		if(1)

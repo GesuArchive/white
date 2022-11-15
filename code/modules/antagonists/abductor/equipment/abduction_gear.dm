@@ -639,7 +639,7 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 	user.visible_message(span_danger("[user] [name] breaks in a discharge of energy!") , \
 							span_userdanger("[user] [name] breaks in a discharge of energy!"))
 	var/datum/effect_system/spark_spread/S = new
-	S.set_up(4,0,user.loc)
+	S.set_up(4, 0, user.loc)
 	S.start()
 	. = ..()
 

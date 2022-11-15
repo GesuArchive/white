@@ -71,7 +71,7 @@
 		var/datum/effect_system/fluid_spread/foam/foam = new
 		var/datum/reagents/foamreagent = new /datum/reagents(25)
 		foamreagent.add_reagent(/datum/reagent/lube, 25)
-		foam.set_up(4, location = loc, carry = foamreagent)
+		foam.set_up(4, holder = src, location = loc, carry = foamreagent)
 		foam.start()
 
 /obj/vehicle/sealed/car/clowncar/attacked_by(obj/item/I, mob/living/user)
@@ -158,7 +158,7 @@
 			funnychems.my_atom = src
 			funnychems.add_reagent(/datum/reagent/consumable/superlaughter, 50)
 			var/datum/effect_system/fluid_spread/smoke/chem/smoke = new()
-			smoke.set_up(4, location = src, carry = funnychems)
+			smoke.set_up(4, holder = src, location = src, carry = funnychems)
 			smoke.attach(src)
 			smoke.start()
 		if(5)

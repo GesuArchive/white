@@ -48,7 +48,7 @@
 	var/area/thearea = GLOB.teleportlocs[A]
 
 	var/datum/effect_system/fluid_spread/smoke/smoke = new
-	smoke.set_up(2, location = user.loc)
+	smoke.set_up(2, holder = src, location = user.loc)
 	smoke.attach(user)
 	smoke.start()
 	var/list/L = list()

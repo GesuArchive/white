@@ -32,7 +32,7 @@
 
 	for(var/mob/living/carbon/human/H in GLOB.alive_mob_list)
 		var/datum/effect_system/fluid_spread/smoke/smoke = new
-		smoke.set_up(0, location = H.loc)
+		smoke.set_up(0, holder = src, location = H.loc)
 		smoke.start()
 
 //---//
@@ -66,7 +66,7 @@
 
 	for(var/mob/living/carbon/human/H in GLOB.alive_mob_list)
 		var/datum/effect_system/fluid_spread/smoke/smoke = new
-		smoke.set_up(0, location = H.loc)
+		smoke.set_up(0, holder = src, location = H.loc)
 		smoke.start()
 
 //---//
@@ -103,5 +103,5 @@
 
 	for(var/mob/living/carbon/human/alive_human in GLOB.alive_mob_list)
 		var/datum/effect_system/fluid_spread/smoke/smoke = new()
-		smoke.set_up(0, location = alive_human.loc)
+		smoke.set_up(0, holder = src, location = alive_human.loc)
 		smoke.start()

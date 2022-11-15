@@ -58,7 +58,7 @@
 	do_sparks(3, TRUE, src)
 	on = FALSE
 	var/datum/effect_system/fluid_spread/foam/foam = new
-	foam.set_up(2, location = loc)
+	foam.set_up(2, holder = src, location = loc)
 	foam.start()
 
 	..()

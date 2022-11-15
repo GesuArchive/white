@@ -36,7 +36,7 @@
 		to_chat(user, span_warning("[capitalize(src.name)] на перезарядке, осталось <b>[COOLDOWN_TIMELEFT(src, foam_cooldown)]</b>!"))
 		return
 	var/datum/effect_system/fluid_spread/foam/foam = new
-	foam.set_up(4, location = loc)
+	foam.set_up(4, holder = src, location = loc)
 	foam.start()
 	uses--
 	to_chat(user, span_notice("Активирую [src.name]. Внутри осталось <b>[uses]</b> зарядов."))

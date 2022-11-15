@@ -38,15 +38,12 @@
 
 /obj/effect/particle_effect/fluid/foam/Initialize(mapload)
 	. = ..()
+	if(slippery_foam)
+		AddComponent(/datum/component/slippery, 100)
 	create_reagents(1000, REAGENT_HOLDER_INSTANT_REACT)
 	playsound(src, 'sound/effects/bubbles2.ogg', 80, TRUE, -3)
 	AddElement(/datum/element/atmos_sensitive, mapload)
 	SSfoam.start_processing(src)
-
-/obj/effect/particle_effect/fluid/foam/ComponentInitialize()
-	. = ..()
-	if(slippery_foam)
-		AddComponent(/datum/component/slippery, 100)
 
 /obj/effect/particle_effect/fluid/foam/Destroy()
 	SSfoam.stop_processing(src)
@@ -75,7 +72,9 @@
 		return null
 
 	var/atom/location = loc
-	return (!allow_duplicate_results && (locate(result_type) in location)) || (new result_type(location))
+	var/atom/movable/result = (!allow_duplicate_results && (locate(result_type) in location)) || (new result_type(location))
+	transfer_fingerprints_to(result)
+	return result
 
 /obj/effect/particle_effect/fluid/foam/process(delta_time)
 	var/ds_delta_time = delta_time SECONDS
@@ -173,13 +172,13 @@
 	QDEL_NULL(chemholder)
 	return ..()
 
-/datum/effect_system/fluid_spread/foam/set_up(range = 1, amount = DIAMOND_AREA(range), atom/location = null, datum/reagents/carry = null, result_type = null)
+/datum/effect_system/fluid_spread/foam/set_up(range = 1, amount = DIAMOND_AREA(range), atom/holder, atom/location = null, datum/reagents/carry = null, result_type = null)
 	. = ..()
 	carry?.copy_to(chemholder, carry.total_volume)
 	if(!isnull(result_type))
 		src.result_type = result_type
 
-/datum/effect_system/fluid_spread/foam/start()
+/datum/effect_system/fluid_spread/foam/start(log = FALSE)
 	var/obj/effect/particle_effect/fluid/foam/foam = new effect_type(location, new /datum/fluid_group(amount))
 	var/foamcolor = mix_color_from_reagents(chemholder.reagent_list)
 	if(reagent_scale > 1) // Make room in case we were created by a particularly stuffed payload.
@@ -188,6 +187,8 @@
 	foam.add_atom_colour(foamcolor, FIXED_COLOUR_PRIORITY)
 	if(!isnull(result_type))
 		foam.result_type = result_type
+	if (log)
+		help_out_the_admins(foam, holder, location)
 	SSfoam.queue_spread(foam)
 
 
@@ -280,6 +281,7 @@
 	name = "металлопена"
 	gender = PLURAL
 	max_integrity = 20
+	can_atmos_pass = ATMOS_PASS_DENSITY
 	obj_flags = CAN_BE_HIT | BLOCK_Z_IN_DOWN | BLOCK_Z_IN_UP
 	///Var used to prevent spamming of the construction sound
 	var/next_beep = 0
