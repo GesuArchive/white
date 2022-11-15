@@ -694,16 +694,6 @@ This section is for the crystal monsters variations
 	pull_force = MOVE_FORCE_WEAK
 	var/death_cloud_size = 2
 
-/mob/living/simple_animal/hostile/crystal_monster/minion/Destroy()
-	if(isturf(loc))
-		var/datum/effect_system/fluid_spread/smoke/chem/S = new
-		create_reagents(3)
-		reagents.add_reagent(/datum/reagent/toxin/lexorin, 4)
-		S.attach(loc)
-		S.set_up(death_cloud_size, holder = src, carry = reagents, location = loc, silent = TRUE)
-		S.start()
-	return ..()
-
 /mob/living/simple_animal/hostile/crystal_monster/thug
 	name = "crystal thug"
 	desc = "A monster made of crystals similar to the Supermatter ones."

@@ -557,7 +557,7 @@
 			S.attach(location)
 			playsound(location, 'sound/effects/smoke.ogg', 50, 1, -3)
 			if(S)
-				S.set_up(reagents, smoke_radius, src, location, silent = notified)
+				S.set_up(smoke_radius, holder = src, location = location, carry = reagents, silent = notified)
 				if(!notified)
 					notified = TRUE
 				S.start(log = TRUE)
