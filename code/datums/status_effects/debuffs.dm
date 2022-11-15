@@ -207,7 +207,7 @@
 		var/delta = world.time - last_dead_time
 		var/new_timeofdeath = owner.timeofdeath + delta
 		owner.timeofdeath = new_timeofdeath
-		owner.tod = SSday_night.get_twentyfourhour_timestamp()
+		owner.tod = station_time_timestamp()
 		last_dead_time = null
 	if(owner.stat == DEAD)
 		last_dead_time = world.time

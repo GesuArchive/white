@@ -72,7 +72,7 @@
 	set_stat(DEAD)
 	unset_machine()
 	timeofdeath = world.time
-	tod = SSday_night.get_twentyfourhour_timestamp()
+	tod = station_time_timestamp()
 	var/turf/T = get_turf(src)
 	if(mind && mind.name && mind.active && !istype(T.loc, /area/ctf))
 		var/suicided = FALSE

@@ -8,9 +8,6 @@
 	///the turf that our light is applied to
 	var/turf/affected_turf
 
-	/// Area which gets linked to a lighting object to make it consider the luminosity from the day/night blending from the area. Yes this isn't ideal, but applying luminosity up to 2 (from both sources) on the turf is not ideal either
-	var/area/day_night_area
-
 // Global list of lighting underlays, indexed by z level
 GLOBAL_LIST_EMPTY(default_lighting_underlays_by_z)
 
@@ -49,7 +46,6 @@ GLOBAL_LIST_EMPTY(default_lighting_underlays_by_z)
 		affected_turf.luminosity = 1
 		affected_turf.underlays -= current_underlay
 	affected_turf = null
-	day_night_area = null
 	return ..()
 
 /datum/lighting_object/proc/update()
@@ -84,10 +80,6 @@ GLOBAL_LIST_EMPTY(default_lighting_underlays_by_z)
 	// This number is mostly arbitrary.
 	var/set_luminosity = max > 1e-6
 	#endif
-
-	// Respect daynight blending from an area for luminosity here.
-	if(day_night_area && day_night_area.luminosity)
-		set_luminosity = 1
 
 	var/mutable_appearance/current_underlay = src.current_underlay
 	affected_turf.underlays -= current_underlay

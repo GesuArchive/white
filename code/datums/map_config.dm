@@ -33,8 +33,6 @@
 
 	/// Dictionary of job sub-typepath to template changes dictionary
 	var/job_changes = list()
-	/// What day/night controller should we add when this map is loaded? if any.
-	var/day_night_controller
 
 /proc/load_map_config(filename = "data/next_map.json", default_to_box, delete_after, error_if_missing = TRUE)
 	var/datum/map_config/config = new
@@ -146,13 +144,6 @@
 			log_world("map_config \"job_changes\" field is missing or invalid!")
 			return
 		job_changes = json["job_changes"]
-
-	if("day_night_controller" in json)
-		var/path = text2path(json["day_night_controller"])
-		if(!ispath(path, /datum/day_night_controller))
-			stack_trace("Invalid path in mapping config for day_night_controller!")
-		else
-			day_night_controller = path
 
 	defaulted = FALSE
 	return TRUE

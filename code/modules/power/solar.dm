@@ -67,21 +67,10 @@
 	Make(S)
 	connect_to_network()
 	RegisterSignal(SSsun, COMSIG_SUN_MOVED, .proc/queue_update_solar_exposure)
-	var/level_controller = SSday_night.get_controller(z)
-	if(level_controller)
-		RegisterSignal(level_controller, COMSIG_DAY_NIGHT_CONTROLLER_LIGHT_UPDATE, .proc/update_day_night_exposure)
 
 /obj/machinery/power/solar/Destroy()
 	unset_control() //remove from control computer
 	return ..()
-
-/obj/machinery/power/solar/proc/update_day_night_exposure(datum/source, light_color, light_alpha)
-	SIGNAL_HANDLER
-
-	if(light_alpha < SOLAR_ALPHA_MINIMUM_TO_GENERATE_POWER)
-		light_level_too_low = TRUE
-	else
-		light_level_too_low = FALSE
 
 /obj/machinery/power/solar/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents)
 	. = ..()

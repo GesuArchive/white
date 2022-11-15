@@ -192,8 +192,6 @@
 #define RAD_TEXT_PLANE 90
 
 //---------- LIGHTING -------------
-///Area appearances for the day night lighting effect
-#define DAY_NIGHT_LIGHTING_LAYER 100
 
 #define LIGHTING_PRIMARY_LAYER 15	//The layer for the main lights of the station
 #define LIGHTING_PRIMARY_DIMMER_LAYER 15.1	//The layer that dims the main lights of the station

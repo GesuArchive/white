@@ -466,7 +466,7 @@
 		emote("deathgasp")
 	ADD_TRAIT(src, TRAIT_FAKEDEATH, source)
 	ADD_TRAIT(src, TRAIT_DEATHCOMA, source)
-	tod = SSday_night.get_twentyfourhour_timestamp()
+	tod = station_time_timestamp()
 
 
 ///Unignores all slowdowns that lack the IGNORE_NOSLOW flag.

@@ -414,7 +414,7 @@ GLOBAL_LIST_EMPTY(req_console_ckey_departments)
 	var/authentic = (msgVerified || msgStamped) && " (Подтверждено)"
 	var/alert = "Сообщение от [source][authentic]"
 	var/silenced = silent
-	var/header = "<b>От:</b> [linkedsender] Получено: [SSday_night.get_twentyfourhour_timestamp()]<BR>"
+	var/header = "<b>От:</b> [linkedsender] Получено: [station_time_timestamp()]<BR>"
 
 	switch(priority)
 		if(REQ_NORMAL_MESSAGE_PRIORITY)

@@ -52,7 +52,7 @@
 			to_chat(user, span_warning("В доступе отказано."))
 
 /obj/machinery/computer/price_controller/proc/log_self(msg)
-	selflog += "\[[SSday_night.get_twentyfourhour_timestamp()]\] [msg]"
+	selflog += "\[[station_time_timestamp()]\] [msg]"
 
 /obj/machinery/computer/price_controller/proc/clear_logs()
 	selflog = list()

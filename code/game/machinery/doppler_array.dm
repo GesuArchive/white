@@ -148,7 +148,7 @@
 
 	var/datum/data/tachyon_record/R = new /datum/data/tachyon_record()
 	R.name = "Журнал #[record_number]"
-	R.timestamp = SSday_night.get_twentyfourhour_timestamp()
+	R.timestamp = station_time_timestamp()
 	R.coordinates = "[epicenter.x], [epicenter.y]"
 	R.displacement = took
 	R.factual_radius["epicenter_radius"] = devastation_range

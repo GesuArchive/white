@@ -17,7 +17,7 @@
 	var/mob/living/carbon/human/ninja = affecting
 	var/list/info_list = list()
 	info_list += "<span class='info'>Статус SpiderOS: [s_initialized ? "Initialized" : "Disabled"]</span>\n"
-	info_list += "<span class='info'>Текущее время: [SSday_night.get_twentyfourhour_timestamp()]</span>\n"
+	info_list += "<span class='info'>Текущее время: [station_time_timestamp()]</span>\n"
 	//Ninja status
 	info_list += "<span class='info'>Отпечатки пальцев: [md5(ninja.dna.unique_identity)]</span>\n"
 	info_list += "<span class='info'>Уникальная идентичность: [ninja.dna.unique_enzymes]</span>\n"

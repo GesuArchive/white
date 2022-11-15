@@ -186,7 +186,7 @@ GLOBAL_VAR_INIT(display_font_color, pick("#09f", "#f90", "#5f5", "#fff", "#f55",
 		update_appearance()
 
 	if(current_mode == SD_TIME)
-		return set_messages("ВРЕМЯ", SSday_night.get_twentyfourhour_timestamp())
+		return set_messages("ВРЕМЯ", station_time_timestamp())
 
 	return PROCESS_KILL
 
@@ -370,7 +370,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/evac, 32)
 			return display_shuttle_status(SSshuttle.emergency)
 
 		if(SD_TIME)
-			return set_messages("ВРЕМЯ", SSday_night.get_twentyfourhour_timestamp())
+			return set_messages("ВРЕМЯ", station_time_timestamp())
 
 		if(SD_MESSAGE)
 			return PROCESS_KILL
@@ -386,7 +386,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/evac, 32)
 			update_appearance()
 		if("time")
 			current_mode = SD_TIME
-			set_messages("ВРЕМЯ", SSday_night.get_twentyfourhour_timestamp())
+			set_messages("ВРЕМЯ", station_time_timestamp())
 		if("shuttle")
 			current_mode = SD_EMERGENCY
 			set_messages("", "")
@@ -522,7 +522,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/ai, 32)
 		return PROCESS_KILL
 
 	if(current_mode == SD_TIME)
-		return set_messages("ВРЕМЯ", SSday_night.get_twentyfourhour_timestamp())
+		return set_messages("ВРЕМЯ", station_time_timestamp())
 
 	set_picture(emotion_map[emotion])
 	return PROCESS_KILL

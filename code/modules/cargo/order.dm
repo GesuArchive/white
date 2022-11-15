@@ -52,7 +52,7 @@
 	P.info += "<h2>Запрос товаров для [station_name()]</h2>"
 	P.info += "<hr/>"
 	P.info += "Запрос #[id]<br/>"
-	P.info += "Время заказа: [SSday_night.get_twentyfourhour_timestamp()]<br/>"
+	P.info += "Время заказа: [station_time_timestamp()]<br/>"
 	P.info += "Товар: [pack.name]<br/>"
 	P.info += "Ограничения: [SSid_access.get_access_desc(pack.access)]<br/>"
 	P.info += "Заказчик: [orderer]<br/>"

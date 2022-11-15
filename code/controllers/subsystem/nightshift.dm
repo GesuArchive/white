@@ -28,7 +28,8 @@ SUBSYSTEM_DEF(nightshift)
 /datum/controller/subsystem/nightshift/proc/check_nightshift()
 	var/emergency = SSsecurity_level.current_level >= SEC_LEVEL_RED
 	var/announcing = TRUE
-	var/night_time = SSday_night.check_specific_timeframe(nightshift_start_time, nightshift_end_time)
+	var/time = station_time()
+	var/night_time = (time < nightshift_end_time) || (time > nightshift_start_time)
 	if(high_security_mode != emergency)
 		high_security_mode = emergency
 		if(night_time)

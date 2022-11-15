@@ -153,7 +153,7 @@
 #define INIT_ORDER_TCG				55
 #define INIT_ORDER_REAGENTS 		55 //HAS to be before mapping - mapping creates objects, which creates reagents, which relies on lists made in this subsystem
 #define INIT_ORDER_MAPPING			50
-#define INIT_ORDER_DAY_NIGHT 		49 // Networking and atoms require this
+#define INIT_ORDER_EARLY_ASSETS		48
 #define INIT_ORDER_TIMETRACK		47
 #define INIT_ORDER_NETWORKS			45
 #define INIT_ORDER_SPATIAL_GRID 	43
@@ -219,6 +219,7 @@
 #define FIRE_PRIORITY_INSTRUMENTS	80
 #define FIRE_PRIORITY_EXPLOSIONS	96
 #define FIRE_PRIORITY_MOBS			100
+#define FIRE_PRIORITY_ASSETS 		105
 #define FIRE_PRIORITY_TGUI			110
 #define FIRE_PRIORITY_TICKER		200
 #define FIRE_PRIORITY_ATMOS_ADJACENCY	300
