@@ -502,6 +502,15 @@
 	spillable = TRUE
 	isGlass = FALSE
 
+/obj/item/reagent_containers/food/drinks/sillycup/attack(mob/target, mob/user, def_zone)
+	if(!target)
+		return
+
+	if(user.a_intent != INTENT_HARM)
+		return ..()
+
+	SplashReagents(target)
+
 /obj/item/reagent_containers/food/drinks/sillycup/update_icon_state()
 	. = ..()
 	icon_state = reagents.total_volume ? "water_cup" : "water_cup_e"
