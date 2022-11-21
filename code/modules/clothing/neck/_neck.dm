@@ -165,6 +165,7 @@
 	name = "стетоскоп"
 	desc = "Устаревший медицинский аппарат для прослушивания звуков человеческого тела. Это также заставляет вас выглядеть так, как будто вы знаете, что делаете."
 	icon_state = "stethoscope"
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/neck/stethoscope/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] puts <b>[src.name]</b> to [user.ru_ego()] chest! It looks like [user.ru_who()] won't hear much!"))

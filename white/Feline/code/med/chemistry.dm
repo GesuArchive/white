@@ -238,7 +238,6 @@
 	color = "#410ea6"
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
 	taste_description = "пустота"
-	overdose_threshold = 15
 	ph = 10
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	var/static/mutable_appearance/space_overlay = mutable_appearance('icons/effects/genetics.dmi', "fire2", -MUTATIONS_LAYER)
@@ -247,15 +246,25 @@
 	. = ..()
 	M.add_overlay(space_overlay)
 	ADD_TRAIT(M, TRAIT_RESISTLOWPRESSURE, name)
+	ADD_TRAIT(M, TRAIT_RESISTHIGHPRESSURE, name)
 	ADD_TRAIT(M, TRAIT_RESISTCOLD, name)
-	to_chat(M, span_notice(pick("Чувствую себя, немного озябшим")))
+	ADD_TRAIT(M, TRAIT_RESISTHEAT, name)
+	ADD_TRAIT(M, TRAIT_NOFIRE, name)
+	ADD_TRAIT(M, TRAIT_NOBREATH, name)
+	ADD_TRAIT(M, TRAIT_RADIMMUNE, name)
+	to_chat(M, span_notice(pick("Тело окутывается тонкой, прозрачной мембраной...")))
 
 /datum/reagent/medicine/space_stab/on_mob_end_metabolize(mob/living/M, amount)
 	. = ..()
 	M.cut_overlay(space_overlay)
 	REMOVE_TRAIT(M, TRAIT_RESISTLOWPRESSURE, name)
+	REMOVE_TRAIT(M, TRAIT_RESISTHIGHPRESSURE, name)
 	REMOVE_TRAIT(M, TRAIT_RESISTCOLD, name)
-	to_chat(M, span_warning("Холод ушел"))
+	REMOVE_TRAIT(M, TRAIT_RESISTHEAT, name)
+	REMOVE_TRAIT(M, TRAIT_NOFIRE, name)
+	REMOVE_TRAIT(M, TRAIT_NOBREATH, name)
+	REMOVE_TRAIT(M, TRAIT_RADIMMUNE, name)
+	to_chat(M, span_warning("Мембрана истощилась..."))
 
 // 	Восстановление крови
 

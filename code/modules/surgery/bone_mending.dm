@@ -60,6 +60,7 @@
 			span_notice("[user] успешно восстановил костную структуру в [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)] используя [tool]!") ,
 			span_notice("[user] успешно восстановил костную структуру в [ru_gde_zone(parse_zone(user.zone_selected))] [skloname(target.name, RODITELNI, target.gender)]!"))
 		log_combat(user, target, "лечит трещину", addition="INTENT: [uppertext(user.a_intent)]")
+		target.cure_all_traumas(TRAUMA_RESILIENCE_WOUND)
 		qdel(surgery.operated_wound)
 	else
 		to_chat(user, span_warning("[target] не имеет травм!"))
@@ -132,6 +133,7 @@
 			span_notice("[user] успешно восстановил костную структуру в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)] при помощи [tool]!") ,
 			span_notice("[user] успешно восстановил костную структуру в [parse_zone(user.zone_selected)] [skloname(target.name, RODITELNI, target.gender)]!"))
 		log_combat(user, target, "лечит перелом", addition="INTENT: [uppertext(user.a_intent)]")
+		target.cure_all_traumas(TRAUMA_RESILIENCE_WOUND)
 		qdel(surgery.operated_wound)
 	else
 		to_chat(user, span_warning("[target] не имеет травм!"))

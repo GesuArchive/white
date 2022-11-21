@@ -295,6 +295,11 @@
 /obj/effect/turf_decal/stripes/end{
 	dir = 4
 	},
+/obj/effect/light_emitter{
+	light_range = 3;
+	set_cap = 1;
+	set_luminosity = 4
+	},
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/arrival)
 "Q" = (
@@ -324,6 +329,11 @@
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/arrival)
 "Y" = (
+/obj/effect/light_emitter{
+	light_range = 3;
+	set_cap = 1;
+	set_luminosity = 4
+	},
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/arrival)
 "Z" = (

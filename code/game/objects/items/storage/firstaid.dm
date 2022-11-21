@@ -64,7 +64,7 @@
 /obj/item/storage/firstaid/medical/Initialize()
 	. = ..()
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL //holds the same equipment as a medibelt
-	atom_storage.max_slots = 12
+	atom_storage.max_slots = 14
 	atom_storage.max_total_storage = 24
 	atom_storage.set_holdable(list(
 		/obj/item/healthanalyzer,
@@ -345,6 +345,9 @@
 /obj/item/storage/pill_bottle/Initialize()
 	. = ..()
 	atom_storage.allow_quick_gather = TRUE
+	atom_storage.numerical_stacking = TRUE
+	atom_storage.max_slots = 10
+	atom_storage.max_total_storage = 20
 	atom_storage.set_holdable(list(/obj/item/reagent_containers/pill))
 
 /obj/item/storage/pill_bottle/suicide_act(mob/user)

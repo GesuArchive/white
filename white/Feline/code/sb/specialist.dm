@@ -88,7 +88,7 @@
 	new /obj/item/flasher_portable_item(src)
 	new /obj/item/quikdeploy/cade/plasteel(src)
 	new /obj/item/quikdeploy/cade/plasteel(src)
-	new /obj/item/portable_recharger(src)
+	new /obj/item/recharger_item(src)
 
 // Сумка специалиста
 /obj/item/storage/belt/specialist
@@ -108,7 +108,9 @@
 /obj/item/storage/belt/specialist/Initialize()
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
-	atom_storage.max_slots = 5
+	atom_storage.max_slots = 8
+	atom_storage.screen_max_columns = 8
+	atom_storage.max_total_storage = 24
 	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
 	atom_storage.set_holdable(list(
 		/obj/item/gun/ballistic/automatic/pistol,
@@ -125,15 +127,19 @@
 		/obj/item/flasher_portable_item,
 		/obj/item/quikdeploy,
 		/obj/item/restraints,
+		/obj/item/assembly/flash
 		))
 
 /obj/item/storage/belt/specialist/PopulateContents()
 	if(loaded)
 		new /obj/item/door_seal/sb(src)
+		new /obj/item/door_seal/sb(src)
 		new /obj/item/flasher_portable_item(src)
 		new /obj/item/quikdeploy/cade/plasteel(src)
 		new /obj/item/restraints/legcuffs/beartrap(src)
 		new /obj/item/grenade/barrier(src)
+		new /obj/item/grenade/flashbang(src)
+		new /obj/item/assembly/flash(src)
 		update_appearance()
 
 // 	Одежда

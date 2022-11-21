@@ -55,10 +55,10 @@
 	dir = 8
 	},
 /obj/structure/rack,
-/obj/item/portable_recharger{
+/obj/item/recharger_item{
 	pixel_y = 5
 	},
-/obj/item/portable_recharger{
+/obj/item/recharger_item{
 	pixel_y = -5
 	},
 /turf/open/floor/engine,

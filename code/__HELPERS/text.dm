@@ -1315,6 +1315,8 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 		return "Химсестра"
 	else if (job == JOB_FIELD_MEDIC)
 		return "Полевой Серпент"
+	else if (job == JOB_SPECIALIST)
+		return "Боевой Мортус"
 	else if (job == JOB_RESEARCH_DIRECTOR)
 		return "Инквизитор"
 	else if (job == JOB_SCIENTIST)

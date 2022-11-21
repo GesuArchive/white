@@ -29,8 +29,9 @@
  * from completing their objective and recover invaluable data.
  */
 /obj/item/blackbox/objective
-	name = "повреждённый чёрный ящик"
-	w_class = WEIGHT_CLASS_BULKY
+	name = "компактный черный ящик"
+	desc = "Высокозащищенное устройство записи данных с криптошифрованием. Теоретически способно пережить даже атомный взрыв. Данный образец вмещает меньше данных, однако он так же меньше по размерам чем станционная модель."
+	w_class = WEIGHT_CLASS_NORMAL
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
 /obj/item/blackbox/objective/ComponentInitialize()

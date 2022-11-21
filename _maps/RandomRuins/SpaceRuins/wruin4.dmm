@@ -27,11 +27,11 @@
 /area/ruin/space/has_grav/terrorship)
 "ai" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/random/exotic/antag_gear,
 /obj/effect/turf_decal/bot,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/spawner/random/exotic/snow_gear,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "aj" = (
@@ -145,57 +145,152 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "aH" = (
-/obj/structure/table/reinforced,
-/obj/effect/turf_decal/stripes/full,
 /obj/structure/window/reinforced{
-	dir = 4
+	dir = 1;
+	layer = 2.9
 	},
-/obj/item/gun/ballistic/automatic/ak47,
-/obj/item/ammo_box/magazine/ak47mag,
-/obj/item/ammo_box/magazine/ak47mag,
-/obj/item/ammo_box/magazine/ak47mag,
-/turf/open/floor/plasteel/dark,
-/area/ruin/space/has_grav/terrorship)
-"aI" = (
-/obj/structure/table/reinforced,
-/obj/effect/turf_decal/stripes/full,
+/obj/structure/window/reinforced{
+	dir = 4;
+	layer = 2.9
+	},
+/obj/effect/turf_decal/delivery,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/machinery/door/window/eastleft{
+	dir = 2
 	},
-/obj/item/shield/riot,
-/obj/item/shield/riot,
-/obj/item/shield/riot,
-/obj/item/pickaxe,
-/turf/open/floor/plasteel/dark,
+/obj/item/storage/toolbox/ammo/wt550{
+	pixel_y = 2
+	},
+/obj/item/storage/toolbox/ammo/wt550{
+	pixel_y = -4;
+	layer = 3.01
+	},
+/obj/item/gun/ballistic/automatic/wt550{
+	pixel_y = 4;
+	layer = 3.02
+	},
+/obj/item/gun/ballistic/automatic/wt550{
+	layer = 3.03
+	},
+/obj/structure/rack{
+	color = "#999999"
+	},
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/terrorship)
+"aI" = (
+/obj/item/gun/energy/laser{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/gun/energy/laser{
+	layer = 3.01
+	},
+/obj/item/gun/energy/laser{
+	pixel_x = 3;
+	pixel_y = -3;
+	layer = 3.02
+	},
+/obj/structure/window/reinforced{
+	dir = 1;
+	layer = 2.9
+	},
+/obj/effect/turf_decal/delivery,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/rack{
+	color = "#999999"
+	},
+/obj/machinery/door/window/eastleft{
+	dir = 2
+	},
+/obj/structure/window/reinforced{
+	dir = 4;
+	layer = 2.9
+	},
+/turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "aK" = (
 /obj/machinery/dna_scannernew,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "aL" = (
-/obj/structure/table/reinforced,
-/obj/effect/turf_decal/stripes/full,
+/obj/structure/rack{
+	color = "#999999"
+	},
+/obj/effect/turf_decal/delivery,
+/obj/item/clothing/head/helmet{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/clothing/head/helmet{
+	pixel_x = -6;
+	pixel_y = 2
+	},
+/obj/item/clothing/head/helmet{
+	pixel_x = -6;
+	pixel_y = -2
+	},
+/obj/item/clothing/head/helmet{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/clothing/head/helmet{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/clothing/head/helmet{
+	pixel_x = 6;
+	pixel_y = -2
+	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/machinery/door/window/eastleft{
+	dir = 2
 	},
-/obj/item/katana,
-/turf/open/floor/plasteel/dark,
+/obj/structure/window/reinforced{
+	dir = 4;
+	layer = 2.9
+	},
+/turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "aM" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
+/obj/item/clothing/suit/armor/vest{
+	pixel_x = -5;
+	pixel_y = 6
+	},
+/obj/item/clothing/suit/armor/vest{
+	pixel_x = -5
+	},
+/obj/item/clothing/suit/armor/vest{
+	pixel_y = 6
+	},
+/obj/item/clothing/suit/armor/vest,
+/obj/item/clothing/suit/armor/vest{
+	pixel_x = 5;
+	pixel_y = 6
+	},
+/obj/item/clothing/suit/armor/vest{
+	pixel_x = 5
+	},
+/obj/effect/turf_decal/delivery,
+/obj/structure/rack{
+	color = "#999999"
+	},
+/obj/structure/window/reinforced{
+	dir = 4;
+	layer = 2.9
 	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/kirbyplants/random,
-/turf/open/floor/plasteel/dark,
+/obj/machinery/door/window/eastleft{
+	dir = 2
+	},
+/turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "aN" = (
 /obj/structure/closet/crate,
@@ -216,6 +311,12 @@
 /obj/item/kirbyplants/random,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
@@ -429,8 +530,9 @@
 /area/ruin/space/has_grav/terrorship)
 "bI" = (
 /obj/structure/table,
-/obj/item/valentine,
-/obj/item/storage/part_replacer/bluespace/tier4,
+/obj/item/recharger_item{
+	pixel_y = 9
+	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "bL" = (
@@ -930,6 +1032,7 @@
 "el" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/item/melee/baseball_bat/ablative,
+/obj/item/shield/riot/kevlar,
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/terrorship)
 "em" = (
@@ -1211,6 +1314,12 @@
 /obj/item/pizzabox/infinite,
 /turf/open/floor/plasteel/cafeteria,
 /area/ruin/space/has_grav/terrorship)
+"nH" = (
+/obj/structure/closet/crate,
+/obj/effect/turf_decal/bot,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
 "nN" = (
 /turf/open/floor/engine/airless,
 /area/ruin/space/has_grav/terrorship)
@@ -1410,6 +1519,16 @@
 	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
+"Da" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4;
+	icon_state = "warningline"
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
 "DF" = (
 /obj/machinery/porta_turret/syndicate,
 /obj/effect/turf_decal/tile/neutral{
@@ -1434,6 +1553,13 @@
 /area/ruin/space/has_grav/terrorship)
 "EA" = (
 /obj/item/stack/cable_coil,
+/turf/open/floor/engine,
+/area/ruin/space/has_grav/terrorship)
+"EJ" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/toolbox/electrical,
+/obj/effect/spawner/random/clothing/gloves,
+/obj/item/storage/part_replacer/bluespace/tier4,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "ET" = (
@@ -1467,7 +1593,6 @@
 /area/ruin/space/has_grav/terrorship)
 "Gd" = (
 /obj/structure/table/wood/fancy/royalblack,
-/obj/item/melee/beesword,
 /obj/item/storage/backpack/duffelbag/syndie/c4,
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/terrorship)
@@ -1475,6 +1600,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark,
 /mob/living/simple_animal/hostile/syndicate/civilian,
 /turf/open/floor/engine,
+/area/ruin/space/has_grav/terrorship)
+"Gz" = (
+/obj/structure/closet/crate,
+/obj/effect/turf_decal/bot,
+/obj/effect/spawner/random/exotic/snow_gear,
+/turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "HI" = (
 /obj/effect/turf_decal/stripes/corner{
@@ -1508,6 +1639,22 @@
 	},
 /obj/machinery/vending/engineering,
 /turf/open/floor/engine,
+/area/ruin/space/has_grav/terrorship)
+"Jc" = (
+/obj/structure/table/reinforced,
+/obj/item/full_armor_upgrade{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/full_armor_upgrade{
+	pixel_y = 3;
+	layer = 3.01
+	},
+/obj/item/full_armor_upgrade{
+	pixel_x = 6;
+	layer = 3.02
+	},
+/turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/terrorship)
 "Jv" = (
 /obj/machinery/light{
@@ -1594,8 +1741,7 @@
 /area/ruin/space/has_grav/terrorship)
 "SC" = (
 /obj/structure/table/wood/fancy/royalblack,
-/obj/item/melee/chainofcommand/tailwhip/kitty,
-/obj/item/storage/belt/utility/full,
+/obj/item/tactical_recharger,
 /turf/open/floor/carpet/red,
 /area/ruin/space/has_grav/terrorship)
 "SD" = (
@@ -2236,7 +2382,7 @@ ri
 aF
 dj
 qk
-qk
+EJ
 IN
 xD
 fx
@@ -3403,7 +3549,7 @@ fJ
 fJ
 fJ
 ac
-af
+Gz
 ad
 ad
 an
@@ -3671,7 +3817,7 @@ fJ
 fJ
 fJ
 ac
-aB
+Gz
 ad
 ad
 an
@@ -3738,7 +3884,7 @@ fJ
 fJ
 fJ
 ac
-af
+nH
 ad
 ad
 an
@@ -3872,7 +4018,7 @@ fJ
 fJ
 fJ
 ac
-af
+Gz
 ad
 ad
 ad
@@ -4049,7 +4195,7 @@ SM
 ad
 kQ
 zS
-ba
+Jc
 Xy
 ac
 ac
@@ -4345,7 +4491,7 @@ fJ
 fJ
 ac
 aM
-aY
+as
 ad
 ad
 ad
@@ -4412,7 +4558,7 @@ fJ
 fJ
 ac
 aQ
-eZ
+Da
 eZ
 eZ
 eZ

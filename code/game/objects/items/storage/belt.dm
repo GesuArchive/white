@@ -54,6 +54,7 @@
 /obj/item/storage/belt/utility/Initialize(mapload)
 	. = ..()
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+	atom_storage.max_slots = 8
 	atom_storage.max_total_storage = 21
 	atom_storage.set_holdable(list(
 		/obj/item/multitool/tricorder,
@@ -229,6 +230,7 @@
 	. = ..()
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 	atom_storage.max_total_storage = 21
+	atom_storage.max_slots = 8
 	atom_storage.set_holdable(list(
 		/obj/item/healthanalyzer,
 		/obj/item/dnainjector,
@@ -301,7 +303,7 @@
 
 /obj/item/storage/belt/security/Initialize()
 	. = ..()
-	atom_storage.max_slots = 5
+	atom_storage.max_slots = 6
 	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
 	atom_storage.set_holdable(list(
 		/obj/item/melee/baton,
@@ -342,7 +344,7 @@
 
 /obj/item/storage/belt/security/webbing/Initialize(mapload)
 	. = ..()
-	atom_storage.max_slots = 6
+	atom_storage.max_slots = 8
 
 /obj/item/storage/belt/mining
 	name = "разгрузка исследователя"
@@ -354,9 +356,9 @@
 
 /obj/item/storage/belt/mining/Initialize()
 	. = ..()
-	atom_storage.max_slots = 6
+	atom_storage.max_slots = 14
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
-	atom_storage.max_total_storage = 20
+	atom_storage.max_total_storage = 28
 	atom_storage.set_holdable(list(
 		/obj/item/crowbar,
 		/obj/item/screwdriver,
@@ -662,7 +664,8 @@
 
 /obj/item/storage/belt/janitor/Initialize()
 	. = ..()
-	atom_storage.max_slots = 6
+	atom_storage.max_slots = 8
+	atom_storage.max_total_storage = 21
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL // Set to this so the  light replacer can fit.
 	atom_storage.set_holdable(list(
 		/obj/item/grenade/chem_grenade,

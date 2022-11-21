@@ -399,6 +399,7 @@
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
 	atom_storage.max_slots = 5
+	atom_storage.max_total_storage = 30
 	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
 	atom_storage.silent = TRUE
 	atom_storage.set_holdable(list(
