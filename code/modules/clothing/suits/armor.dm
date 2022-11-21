@@ -323,18 +323,22 @@
 	desc = "Зловеще выглядящий жилет из усовершенствованной брони, надетый на черно-красную огнезащитную куртку. Золотой воротник и плечи означают, что это принадлежит высокопоставленному чиновнику синдиката."
 	icon_state = "syndievest"
 
-/obj/item/clothing/suit/toggle/captains_parade
-	name = "парадная куртка капитана"
-	desc = "Когда бронежилет недостаточно моден."
+/obj/item/clothing/suit/armor/vest/capcarapace/captains_parade
+	name = "парадный китель капитана"
+	desc = "Мужской военный китель новой аристократии."
 	icon_state = "capformal"
 	inhand_icon_state = "capspacesuit"
-	body_parts_covered = CHEST|GROIN|ARMS
-	armor = list(MELEE = 50, BULLET = 40, LASER = 50, ENERGY = 50, BOMB = 25, BIO = 0, RAD = 0, FIRE = 100, ACID = 90, WOUND = 10)
-	togglename = "buttons"
+	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	full_armor_flag	= TRUE
+	dog_fashion = null
+	disassembly_flag = FALSE
 
-/obj/item/clothing/suit/toggle/captains_parade/Initialize(mapload)
-	. = ..()
-	allowed = GLOB.security_wintercoat_allowed
+/obj/item/clothing/suit/armor/vest/capcarapace/captains_parade/female
+	name = "парадное платье капитана"
+	desc = "Элегантное платье с броневым подбоем для новой аристократии."
+	icon_state = "capformal_t"
 
 /obj/item/clothing/suit/armor/riot
 	name = "костюм анти-бунт"
@@ -555,18 +559,23 @@
 	. = ..()
 	allowed = GLOB.security_wintercoat_allowed
 
-/obj/item/clothing/suit/toggle/armor/hos/hos_formal
-	name = "парадное пальто Начальника Охраны"
-	desc = "Когда бронежилет недостаточно модный."
+/obj/item/clothing/suit/armor/vest/hos_formal
+	name = "парадный китель Начальника Охраны"
+	desc = "Мужской военный китель новой аристократии."
 	icon_state = "hosformal"
 	inhand_icon_state = "hostrench"
-	body_parts_covered = CHEST|GROIN|ARMS
 	armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 40, BOMB = 25, BIO = 0, RAD = 0, FIRE = 70, ACID = 90, WOUND = 10)
-	togglename = "buttons"
+	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	full_armor_flag	= TRUE
+	dog_fashion = null
+	disassembly_flag = FALSE
 
-/obj/item/clothing/suit/toggle/armor/hos/hos_formal/Initialize(mapload)
-	. = ..()
-	allowed = GLOB.security_wintercoat_allowed
+/obj/item/clothing/suit/armor/vest/hos_formal/female
+	name = "парадное платье Начальника Охраны"
+	desc = "Элегантное платье с броневым подбоем для новой аристократии."
+	icon_state = "hosformal_t"
 
 /obj/item/clothing/suit/armor/vest/hop
 	name = "пальто главы персонала"

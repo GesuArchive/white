@@ -709,6 +709,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/mine/laborcamp)
+"cd" = (
+/obj/machinery/door/airlock/external{
+	name = "Lavaland Shuttle Airlock"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plasteel,
+/area/mine/living_quarters)
 "cf" = (
 /obj/machinery/camera{
 	c_tag = "Labor Camp External North";
@@ -3082,6 +3089,15 @@
 	},
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"mh" = (
+/obj/effect/turf_decal/tile/brown{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/mine/living_quarters)
 "mk" = (
 /obj/structure/stone_tile/block/cracked{
 	dir = 8
@@ -3611,11 +3627,12 @@
 "pz" = (
 /obj/effect/turf_decal/tile/brown,
 /obj/effect/turf_decal/tile/brown{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/brown{
 	dir = 4
 	},
+/turf/open/floor/plasteel,
+/area/mine/living_quarters)
+"pQ" = (
+/obj/effect/turf_decal/stripes,
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
 "pR" = (
@@ -3741,6 +3758,10 @@
 /obj/effect/turf_decal/tile/brown,
 /turf/open/floor/plasteel,
 /area/mine/production)
+"so" = (
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/plasteel,
+/area/mine/living_quarters)
 "sq" = (
 /obj/structure/sink/kitchen{
 	desc = "A sink used for washing one's hands and face. It looks rusty and home-made";
@@ -3795,6 +3816,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/mine/laborcamp/security)
+"sM" = (
+/obj/machinery/door/airlock/glass,
+/turf/open/floor/plasteel,
+/area/mine/living_quarters)
 "sY" = (
 /obj/machinery/vending/security{
 	onstation_override = 1
@@ -4025,6 +4050,12 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/mine/laborcamp)
+"yl" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/mine/living_quarters)
 "yr" = (
 /turf/closed/wall/r_wall,
 /area/mine/laborcamp)
@@ -5402,6 +5433,18 @@
 	},
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
+"YF" = (
+/obj/structure/fans/tiny,
+/obj/machinery/door/poddoor/shutters{
+	id = "ex_lava"
+	},
+/obj/machinery/button/door{
+	id = "ex_lava";
+	req_access_txt = "49";
+	pixel_x = 32
+	},
+/turf/open/floor/plasteel,
+/area/mine/living_quarters)
 "YG" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -5488,6 +5531,17 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/mine/laborcamp)
+"Zv" = (
+/obj/docking_port/stationary{
+	dir = 2;
+	dwidth = 5;
+	height = 7;
+	id = "exploration_away";
+	name = "NT SS13: Док Рейнджеров Лаваленда";
+	width = 13
+	},
+/turf/open/floor/plating/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "ZD" = (
 /turf/open/floor/plasteel,
 /area/mine/laborcamp)
@@ -5512,6 +5566,13 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/mine/laborcamp)
+"ZP" = (
+/obj/structure/fans/tiny,
+/obj/machinery/door/poddoor/shutters{
+	id = "ex_lava"
+	},
+/turf/open/floor/plasteel,
+/area/mine/living_quarters)
 
 (1,1,1) = {"
 aa
@@ -11923,12 +11984,12 @@ cR
 ab
 ab
 ab
+ab
 aj
 aj
-aj
-aj
-aj
-aj
+ab
+ab
+ab
 aj
 aj
 aj
@@ -12179,13 +12240,13 @@ dZ
 cR
 ab
 ab
-aj
-aj
-aj
-aj
-aj
-aj
-aj
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aj
 aj
 aj
@@ -12434,16 +12495,16 @@ cM
 cR
 oL
 cR
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aj
 aj
 aj
@@ -12691,16 +12752,16 @@ kO
 eL
 Pl
 cR
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aj
 aj
 aj
@@ -12948,16 +13009,16 @@ dZ
 dZ
 dZ
 cR
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
+cR
+cM
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aj
 aj
 aj
@@ -13204,17 +13265,17 @@ fy
 fy
 dZ
 SJ
-cR
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
+dZ
+so
+cM
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aj
 aj
 aj
@@ -13461,18 +13522,18 @@ fy
 fy
 dZ
 dZ
-cR
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
+dZ
+pQ
+ZP
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aj
 aj
 aj
@@ -13718,20 +13779,20 @@ dZ
 dZ
 dZ
 pz
-cM
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
+Nt
+pQ
+YF
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aj
 aj
 aj
@@ -13975,17 +14036,17 @@ cR
 cR
 cM
 cM
+mh
+yl
 cM
 ab
 ab
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
+ab
+ab
+ab
+ab
+ab
+ab
 aj
 aj
 aj
@@ -14226,6 +14287,14 @@ ee
 YA
 dZ
 GJ
+cR
+ab
+ab
+ab
+ab
+cR
+dZ
+dZ
 cM
 ab
 ab
@@ -14234,14 +14303,6 @@ ab
 ab
 ab
 ab
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
 aj
 aj
 aj
@@ -14483,22 +14544,22 @@ dZ
 EG
 fp
 GN
-cM
+cR
 aj
 aj
 aj
 ab
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
+cR
+dZ
+dZ
+cd
+Zv
+ab
+ab
+ab
+ab
+ab
+ab
 aj
 aj
 aj
@@ -14740,22 +14801,22 @@ ea
 YA
 dZ
 GJ
-cM
+cR
 ab
 aj
 aj
 aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
+cR
+dZ
+dZ
+cM
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aj
 aj
 aj
@@ -15003,17 +15064,17 @@ cR
 cR
 cM
 cM
+sM
 cM
 cM
-cM
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aj
 aj
 aj
@@ -15263,14 +15324,14 @@ dZ
 dZ
 dZ
 cR
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aj
 aj
 aj
@@ -15521,12 +15582,12 @@ HO
 fp
 cR
 ab
-aj
-aj
-aj
-aj
-aj
-aj
+ab
+ab
+ab
+ab
+ab
+ab
 aj
 aj
 aj
@@ -15781,7 +15842,7 @@ ai
 ab
 ab
 ab
-aj
+ab
 aj
 aj
 aj

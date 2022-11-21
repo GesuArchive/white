@@ -59,8 +59,8 @@
 		icon_state = "blackbox"
 
 /obj/item/blackbox
-	name = "\proper the blackbox"
-	desc = "A strange relic, capable of recording data on extradimensional vertices. It lives inside the blackbox recorder for safe keeping."
+	name = "черный ящик"
+	desc = "Высокозащищенное устройство записи данных с криптошифрованием. Теоретически способно пережить даже атомный взрыв."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "blackcube"
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'

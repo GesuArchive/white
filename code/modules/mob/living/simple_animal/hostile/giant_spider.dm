@@ -132,7 +132,7 @@
  */
 /mob/living/simple_animal/hostile/giant_spider/hunter
 	name = "паук охотник"
-	desc = "Самый распространный вид космичесских пауков, это быстрый и весьма ядовитый паразит с фиолетовыми глазами."
+	desc = "Самый распространный вид космических пауков, это быстрый и весьма ядовитый паразит с фиолетовыми глазами."
 	icon_state = "hunter"
 	icon_living = "hunter"
 	icon_dead = "hunter_dead"

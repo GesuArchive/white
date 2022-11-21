@@ -210,8 +210,8 @@
 
 //Starts in the briefcase. Don't spawn this directly, or it will runtime when closing.
 /obj/machinery/launchpad/briefcase
-	name = "briefcase launchpad"
-	desc = "A portable bluespace pad able to thrust matter through bluespace, teleporting it to or from nearby locations. Controlled via remote."
+	name = "чемоданчик с телепадом"
+	desc = "Портативное устройство, предназначенное для перемещения в небольшом радиусе через блюспейс. Управляется с помощью пульта дистанционного управления."
 	icon_state = "blpad-idle"
 	icon_teleport = "blpad-beam"
 	anchored = FALSE
@@ -304,8 +304,8 @@
 		return ..()
 
 /obj/item/launchpad_remote
-	name = "folder"
-	desc = "A folder."
+	name = "папка для бумаг"
+	desc = "Самая обычная папка."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "folder"
 	w_class = WEIGHT_CLASS_SMALL
@@ -320,7 +320,7 @@
 /obj/item/launchpad_remote/attack_self(mob/user)
 	. = ..()
 	ui_interact(user)
-	to_chat(user, span_notice("[src] projects a display onto your retina."))
+	to_chat(user, span_notice("[src] проецирует дисплей прямо мне на сетчатку."))
 
 
 /obj/item/launchpad_remote/ui_state(mob/user)

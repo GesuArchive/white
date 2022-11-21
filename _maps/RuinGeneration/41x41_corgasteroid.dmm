@@ -229,7 +229,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/structure/transit_tube/station/reverse{
+/obj/structure/transit_tube/station/dispenser/reverse{
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
@@ -763,6 +763,10 @@
 /obj/effect/turf_decal/caution/stand_clear,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
+"Uk" = (
+/obj/structure/window/reinforced/spawner,
+/turf/open/space/basic,
+/area/space)
 "UB" = (
 /obj/effect/turf_decal/caution/stand_clear{
 	dir = 4
@@ -778,12 +782,9 @@
 /obj/structure/window/reinforced/spawner{
 	dir = 1
 	},
-/obj/structure/transit_tube/station/reverse/flipped{
-	dir = 1
-	},
 /obj/effect/turf_decal/delivery,
-/obj/structure/transit_tube_pod{
-	dir = 4
+/obj/structure/transit_tube/station/dispenser/reverse/flipped{
+	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
@@ -864,10 +865,10 @@ vZ
 vZ
 vZ
 vZ
-vZ
-vZ
-vZ
-vZ
+Uk
+IX
+RT
+VF
 "}
 (2,1,1) = {"
 vZ
@@ -908,8 +909,8 @@ vZ
 vZ
 Pk
 mE
-IX
-RT
+Ai
+If
 VF
 "}
 (3,1,1) = {"

@@ -467,12 +467,12 @@
 /area/security/main/angar)
 "cG" = (
 /obj/structure/closet/secure_closet/contraband/armory,
-/obj/effect/spawner/random/maintenance/three,
 /obj/effect/spawner/random/contraband/armory,
 /obj/machinery/light{
 	dir = 8
 	},
 /obj/structure/extinguisher_cabinet/directional/west,
+/obj/effect/spawner/random/contraband/armory,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/security/armory)
 "cH" = (
@@ -973,10 +973,10 @@
 /area/security/main/evidence)
 "em" = (
 /obj/structure/table/reinforced,
-/obj/item/portable_recharger{
+/obj/item/recharger_item{
 	pixel_y = 9
 	},
-/obj/item/portable_recharger,
+/obj/item/recharger_item,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/security/main/mechanic)
 "en" = (
@@ -1158,10 +1158,6 @@
 	pixel_y = 8;
 	pixel_x = 4
 	},
-/obj/item/storage/toolbox/drone{
-	pixel_y = 1;
-	layer = 3.01
-	},
 /obj/machinery/airalarm{
 	pixel_y = 23
 	},
@@ -1171,6 +1167,10 @@
 	},
 /obj/machinery/camera/autoname{
 	start_active = 1
+	},
+/obj/item/storage/toolbox/mechanical{
+	layer = 3.01;
+	pixel_y = 1
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/security/main/mechanic)
@@ -3597,12 +3597,13 @@
 	pixel_y = 3;
 	layer = 3.01
 	},
-/obj/item/storage/toolbox/drone{
-	pixel_y = 1
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/item/radio/intercom/directional/south,
+/obj/item/storage/toolbox/mechanical{
+	layer = 3.01;
+	pixel_y = 1
+	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/security/main/evidence)
 "sy" = (
@@ -5728,6 +5729,14 @@
 /area/security/main/sb_med)
 "ZS" = (
 /obj/structure/table/reinforced,
+/obj/item/clothing/suit/armor/riot{
+	pixel_x = -7;
+	pixel_y = 2
+	},
+/obj/item/clothing/suit/armor/riot{
+	pixel_x = 7;
+	pixel_y = 2
+	},
 /obj/item/clothing/suit/armor/riot{
 	pixel_x = -7;
 	pixel_y = 2

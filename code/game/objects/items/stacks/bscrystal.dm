@@ -61,6 +61,10 @@
 	grind_results = list(/datum/reagent/bluespace = 10, /datum/reagent/silicon = 20)
 	merge_type = /obj/item/stack/ore/bluespace_crystal/artificial
 
+/obj/item/stack/ore/bluespace_crystal/artificial/Initialize()
+	. = ..()
+	custom_materials = list(/datum/material/bluespace = MINERAL_MATERIAL_AMOUNT)
+
 //Polycrystals, aka stacks
 /obj/item/stack/sheet/bluespace_crystal
 	name = "блюспейс поликристаллы"

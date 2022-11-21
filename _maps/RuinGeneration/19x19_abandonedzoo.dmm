@@ -2,11 +2,6 @@
 "aa" = (
 /turf/template_noop,
 /area/template_noop)
-"ab" = (
-/obj/machinery/power/shieldwallgen/anchored,
-/obj/structure/cable,
-/turf/open/floor/plating/airless,
-/area/ruin/unpowered)
 "ac" = (
 /obj/effect/spawner/structure/window/reinforced/derelict,
 /turf/open/floor/circuit,
@@ -130,7 +125,6 @@
 	name = "Bio Containment";
 	req_one_access_txt = "47"
 	},
-/obj/structure/cable,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -146,7 +140,6 @@
 /area/ruin/unpowered)
 "aE" = (
 /obj/machinery/power/shieldwallgen/anchored,
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "aG" = (
@@ -169,7 +162,6 @@
 /turf/template_noop,
 /area/template_noop)
 "aL" = (
-/obj/structure/cable,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -185,7 +177,6 @@
 "aN" = (
 /obj/structure/table/reinforced,
 /obj/item/folder,
-/obj/item/gps/spaceruin,
 /turf/open/floor/plasteel/dark/side,
 /area/ruin/unpowered)
 "aO" = (
@@ -220,7 +211,6 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/cable,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -234,17 +224,9 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "aS" = (
-/obj/machinery/power/apc/unlocked{
-	dir = 8;
-	environ = 0;
-	lighting = 0;
-	name = "Worn-out APC";
-	pixel_x = -25
-	},
 /obj/structure/rack,
 /obj/item/melee/baton/cattleprod,
 /obj/effect/spawner/random/maintenance,
-/obj/structure/cable,
 /turf/open/floor/plasteel/dark/side,
 /area/ruin/unpowered)
 "aT" = (
@@ -307,7 +289,6 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/cable,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -336,35 +317,17 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
-"bd" = (
-/obj/machinery/power/terminal,
-/obj/effect/turf_decal/tile/green{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/green,
-/obj/effect/turf_decal/tile/green{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/green{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/open/floor/plasteel/dark,
-/area/ruin/unpowered)
 "be" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/structure/cable,
 /turf/open/floor/plasteel/dark/side,
 /area/ruin/unpowered)
 "bf" = (
-/obj/structure/cable,
-/obj/machinery/power/smes/engineering,
+/obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plasteel/dark/side,
 /area/ruin/unpowered)
 "bg" = (
-/obj/structure/reagent_dispensers/watertank,
 /obj/machinery/light,
-/obj/structure/cable,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/plasteel/dark/side,
 /area/ruin/unpowered)
 "bh" = (
@@ -421,13 +384,7 @@
 /obj/machinery/microwave,
 /turf/open/floor/plasteel/dark/side,
 /area/ruin/unpowered)
-"bs" = (
-/obj/structure/cable,
-/obj/machinery/power/shieldwallgen/anchored,
-/turf/open/floor/plating,
-/area/ruin/unpowered)
 "bt" = (
-/obj/structure/cable,
 /obj/machinery/power/shieldwallgen/anchored,
 /turf/open/floor/plating/airless,
 /area/ruin/unpowered)
@@ -561,7 +518,6 @@
 /area/ruin/unpowered)
 "bN" = (
 /obj/structure/grille/broken,
-/obj/item/stack/cable_coil/cut,
 /obj/item/shard{
 	icon_state = "small"
 	},
@@ -632,7 +588,6 @@
 	pixel_y = -4
 	},
 /obj/item/wirecutters,
-/obj/structure/cable,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
@@ -645,42 +600,11 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/unpowered)
-"wF" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Bio-Research Station"
-	},
-/obj/effect/turf_decal/tile/green{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/green,
-/obj/effect/turf_decal/tile/green{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/green{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/open/floor/plasteel/dark,
-/area/ruin/unpowered)
 "Bb" = (
 /obj/structure/alien/weeds,
 /obj/structure/alien/weeds/node,
 /mob/living/simple_animal/hostile/alien/drone,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered)
-"Ck" = (
-/obj/effect/turf_decal/tile/green{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/green,
-/obj/effect/turf_decal/tile/green{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/green{
-	dir = 8
-	},
-/obj/structure/cable,
-/turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "GF" = (
 /obj/structure/alien/weeds,
@@ -706,24 +630,24 @@
 /area/ruin/unpowered)
 
 (1,1,1) = {"
-ab
+bt
 ac
 ac
 ac
 ac
-ab
+bt
 aa
 aa
 aa
 aa
 aa
 aa
-ab
+bt
 ac
 ac
 ac
 ac
-ab
+bt
 aa
 "}
 (2,1,1) = {"
@@ -778,7 +702,7 @@ ac
 at
 at
 bb
-wF
+bb
 at
 at
 ac
@@ -798,8 +722,8 @@ ar
 ac
 at
 aS
-Ck
-Ck
+ay
+ay
 be
 at
 ac
@@ -811,7 +735,7 @@ ac
 aa
 "}
 (6,1,1) = {"
-ab
+bt
 ac
 ac
 ac
@@ -820,7 +744,7 @@ aE
 at
 aT
 ay
-bd
+ay
 bf
 at
 aE
@@ -828,7 +752,7 @@ ac
 ac
 ac
 ac
-ab
+bt
 aa
 "}
 (7,1,1) = {"
@@ -841,7 +765,7 @@ at
 at
 aU
 ay
-Ck
+ay
 bg
 at
 at
@@ -862,7 +786,7 @@ aG
 aN
 aV
 ay
-Ck
+ay
 bh
 bm
 bp
@@ -883,7 +807,7 @@ ay
 aO
 ay
 ay
-Ck
+ay
 ay
 ay
 ay
@@ -904,7 +828,7 @@ ay
 ay
 ay
 ay
-Ck
+ay
 ay
 ay
 ay
@@ -925,7 +849,7 @@ aI
 aP
 aW
 ay
-Ck
+ay
 bi
 bn
 br
@@ -946,7 +870,7 @@ at
 at
 aX
 ay
-Ck
+ay
 bj
 at
 at
@@ -958,7 +882,7 @@ aa
 aa
 "}
 (13,1,1) = {"
-ab
+bt
 ac
 ac
 ac
@@ -967,10 +891,10 @@ aE
 at
 aY
 ay
-Ck
+ay
 bk
 at
-bs
+aE
 ac
 ac
 ac
@@ -988,7 +912,7 @@ ac
 at
 aZ
 ay
-Ck
+ay
 bl
 at
 ac
@@ -1009,7 +933,7 @@ ac
 at
 at
 bb
-wF
+bb
 at
 at
 ac
@@ -1063,12 +987,12 @@ bP
 aa
 "}
 (18,1,1) = {"
-ab
+bt
 ac
 ac
 ac
 ac
-ab
+bt
 aa
 aa
 aa

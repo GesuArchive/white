@@ -909,7 +909,6 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/hotel/workroom)
 "dk" = (
@@ -1034,7 +1033,6 @@
 /area/ruin/space/has_grav/hotel/workroom)
 "dB" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/obj/structure/cable,
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/hotel/workroom)
 "dC" = (
@@ -1132,14 +1130,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
 	dir = 5
 	},
-/obj/structure/cable,
-/turf/open/floor/plasteel/white,
-/area/ruin/space/has_grav/hotel/workroom)
-"dY" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden{
-	dir = 4
-	},
-/obj/structure/cable,
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/hotel/workroom)
 "ea" = (
@@ -1240,13 +1230,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/hotel/workroom)
-"eq" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/plasteel/white,
-/area/ruin/space/has_grav/hotel/workroom)
 "er" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 8
@@ -1292,14 +1275,6 @@
 /area/ruin/space/has_grav/hotel/workroom)
 "ez" = (
 /obj/structure/closet/crate/bin,
-/turf/open/floor/plasteel/white,
-/area/ruin/space/has_grav/hotel/workroom)
-"eA" = (
-/obj/machinery/power/apc/highcap/five_k{
-	name = "Laundry APC";
-	pixel_y = -25
-	},
-/obj/structure/cable,
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/hotel/workroom)
 "eB" = (
@@ -7100,7 +7075,7 @@ ca
 cp
 cy
 cS
-cS
+cW
 dj
 dB
 dB
@@ -7243,7 +7218,7 @@ cL
 cF
 di
 dD
-dY
+ea
 ep
 ez
 di
@@ -7313,9 +7288,9 @@ cL
 cF
 di
 dE
-dY
-eq
-eA
+ea
+ep
+dV
 di
 eS
 fm

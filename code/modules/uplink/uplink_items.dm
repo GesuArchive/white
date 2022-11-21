@@ -1461,7 +1461,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	purchasable_from = UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS
 
 /datum/uplink_item/device_tools/briefcase_launchpad
-	name = "Чемоданчик с лаунчпадом"
+	name = "Чемоданчик с телепадом"
 	desc = "Кейс, содержащий пусковую установку, устройство, способное телепортировать предметы и людей к целям, расположенным на расстоянии до восьми метров от кейса. \
 			Также в портфель входит пульт дистанционного управления, замаскированный под обычную папку. Прикоснитесь пультом к портфелю, чтобы связать его."
 	surplus = 0

@@ -971,10 +971,10 @@
 /turf/open/floor/plasteel,
 /area/security/main/evidence)
 "em" = (
-/obj/item/portable_recharger{
+/obj/item/recharger_item{
 	pixel_y = 9
 	},
-/obj/item/portable_recharger,
+/obj/item/recharger_item,
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 8
 	},
@@ -1151,10 +1151,6 @@
 	pixel_y = 8;
 	pixel_x = 4
 	},
-/obj/item/storage/toolbox/drone{
-	pixel_y = 1;
-	layer = 3.01
-	},
 /obj/machinery/airalarm{
 	pixel_y = 23
 	},
@@ -1171,6 +1167,10 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
+/obj/item/storage/toolbox/mechanical{
+	layer = 3.01;
+	pixel_y = 1
+	},
 /turf/open/floor/plasteel/monofloor,
 /area/security/main/mechanic)
 "eL" = (
@@ -3259,10 +3259,11 @@
 	pixel_y = 23
 	},
 /obj/structure/rack,
-/obj/item/storage/toolbox/drone{
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/toolbox/mechanical{
+	layer = 3.01;
 	pixel_y = 1
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/main/evidence)
 "pS" = (

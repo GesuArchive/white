@@ -1,5 +1,5 @@
 /obj/item/retractor
-	name = "ретрактор"
+	name = "расширитель"
 	desc = "Позволяет получить оперативный простор в зоне проведения операции."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "retractor"

@@ -10,6 +10,7 @@
 	cooldown_reduction_per_rank = 2.5 SECONDS
 
 	invocation_type = INVOCATION_NONE
+	spell_requirements = NONE
 
 	smoke_type = /datum/effect_system/fluid_spread/smoke/bad
 	smoke_amt = 4
