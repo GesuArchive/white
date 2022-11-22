@@ -26,7 +26,7 @@
 	rpg_title_ru = "Путешественник"
 
 	// пока так
-	whitelisted = list("nikitauou", "valtosss")
+	whitelisted = list("nikitauou", "aldodonkar", "valtosss")
 
 /datum/outfit/job/freelancer
 	name = JOB_FREELANCER
