@@ -166,6 +166,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/iconsent = FALSE
 	var/he_knows = FALSE
 
+	/// Multiz Parallax option
+	var/multiz_parallax = FALSE
+
+	/// Multiz Performance option
+	var/multiz_performance = -1
+
+
 /datum/preferences/New(client/C)
 	parent = C
 
@@ -580,6 +587,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					button_name = "High"
 
 			dat += SETUP_NODE_SWITCH("Параллакс", "parallaxdown", button_name)
+			dat += SETUP_NODE_SWITCH("Эффект глубины", "multiz_parallax", multiz_parallax ? "Вкл" : "Выкл")
+			dat += SETUP_NODE_SWITCH("Ограничение глубины", "multiz_performance", multiz_performance == -1 ? "Выкл" : multiz_performance)
 			dat += SETUP_NODE_SWITCH("Тени", "ambientocclusion", ambientocclusion ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Подстройка экрана", "auto_fit_viewport", auto_fit_viewport ? "Авто" : "Вручную")
 			dat += SETUP_NODE_SWITCH("Полный экран", "fullscreen", fullscreen ? "Вкл" : "Выкл")
@@ -1868,6 +1877,30 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("fullscreen")
 					fullscreen = !fullscreen
 					parent.ToggleFullscreen()
+
+				if("multiz_parallax")
+					multiz_parallax = !multiz_parallax
+
+					var/datum/hud/my_hud = parent?.mob?.hud_used
+
+					if(!my_hud)
+						return
+
+					for(var/group_key as anything in my_hud.master_groups)
+						var/datum/plane_master_group/group = my_hud.master_groups[group_key]
+						group.transform_lower_turfs(my_hud, my_hud.current_plane_offset)
+
+				if("multiz_performance")
+					multiz_performance = WRAP(multiz_performance + 1, MULTIZ_PERFORMANCE_DISABLE, MAX_EXPECTED_Z_DEPTH)
+
+					var/datum/hud/my_hud = parent?.mob?.hud_used
+
+					if(!my_hud)
+						return
+
+					for(var/group_key as anything in my_hud.master_groups)
+						var/datum/plane_master_group/group = my_hud.master_groups[group_key]
+						group.transform_lower_turfs(my_hud, my_hud.current_plane_offset)
 
 				if("tooltip_no_context")
 					w_toggles ^= TOOLTIP_NO_CONTEXT

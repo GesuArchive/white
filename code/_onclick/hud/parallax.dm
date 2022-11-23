@@ -5,7 +5,12 @@
 	if(SSmapping.level_trait(screenmob.z, ZTRAIT_NOPARALLAX))
 		return FALSE
 	if (!apply_parallax_pref(viewmob)) //don't want shit computers to crash when specing someone with insane parallax, so use the viewer's pref
+		for(var/atom/movable/screen/plane_master/parallax in get_true_plane_masters(PLANE_SPACE_PARALLAX))
+			parallax.hide_plane(screenmob)
 		return
+
+	for(var/atom/movable/screen/plane_master/parallax in get_true_plane_masters(PLANE_SPACE_PARALLAX))
+		parallax.unhide_plane(screenmob)
 
 	C.parallax_layers_cached = list()
 
@@ -66,6 +71,14 @@
 
 /datum/hud/proc/apply_parallax_pref(mob/viewmob)
 	var/mob/screenmob = viewmob || mymob
+
+	if(SSmapping.level_trait(screenmob.z, ZTRAIT_NOPARALLAX))
+		for(var/atom/movable/screen/plane_master/white_space in get_true_plane_masters(PLANE_SPACE))
+			white_space.hide_plane(screenmob)
+		return FALSE
+
+	for(var/atom/movable/screen/plane_master/white_space in get_true_plane_masters(PLANE_SPACE))
+		white_space.unhide_plane(screenmob)
 
 	if (SSlag_switch.measures[DISABLE_PARALLAX] && !HAS_TRAIT(viewmob, TRAIT_BYPASS_MEASURES))
 		return FALSE
