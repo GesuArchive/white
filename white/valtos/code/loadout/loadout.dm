@@ -106,7 +106,7 @@
 				if(!put_in_hands(B))
 					return // box could not be placed in players hands.  I don't know what to do here...
 			//Now, B represents a container we can insert W into.
-			if(!atom_storage.attempt_insert(W, usr, override = TRUE))
+			if(!B?.atom_storage?.attempt_insert(W, usr, override = TRUE))
 				qdel(B)
 			return B
 
