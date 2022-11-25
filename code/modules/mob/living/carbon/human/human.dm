@@ -32,9 +32,6 @@
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-	if(client?.prefs?.combat_style)
-		combat_style = client.prefs.combat_style
-
 	if(check_for_assblast(src, ASSBLAST_PACIFIST))
 		ADD_TRAIT(src, TRAIT_PACIFISM, "cocu")
 

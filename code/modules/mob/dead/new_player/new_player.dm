@@ -296,6 +296,7 @@
 
 		humanc.increment_scar_slot()
 		humanc.load_persistent_scars()
+		humanc.combat_style = client?.prefs?.combat_style ? client.prefs.combat_style : "Продвинутый"
 
 		if(GLOB.curse_of_madness_triggered)
 			give_madness(humanc, GLOB.curse_of_madness_triggered)
