@@ -46,12 +46,16 @@
 
 /datum/job/freelancer/override_latejoin_spawn(mob/living/carbon/human/H)
 	if(SSmapping.spawn_type_shuttle(/datum/map_template/shuttle/freelancer/medium))
-		for(var/_sloc in GLOB.start_landmarks_list)
-			var/obj/effect/landmark/start/sloc = _sloc
-			if(sloc.name != JOB_FREELANCER)
-				continue
-			H.forceMove(get_turf(sloc))
+		H.forceMove(get_spawnpoint())
 	return TRUE
+
+/datum/job/freelancer/proc/get_spawnpoint()
+	for(var/_sloc in GLOB.start_landmarks_list)
+		var/obj/effect/landmark/start/sloc = _sloc
+		if(sloc.name != JOB_FREELANCER)
+			continue
+		return get_turf(sloc)
+	return null
 
 /datum/outfit/job/freelancer/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	return
