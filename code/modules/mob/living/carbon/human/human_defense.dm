@@ -166,7 +166,7 @@
 	return FALSE
 
 /mob/living/carbon/human/proc/check_dodge(mob/attacker)
-	if(!stat && attacker && prob(dna.species.dodge_chance) && !incapacitated() && body_position != LYING_DOWN && defense_check(get_turf(src), get_turf(attacker), dir))
+	if(!stat && attacker && prob(PERCENT((health + dna.species.dodge_chance) / maxHealth * 4)) && !incapacitated() && body_position != LYING_DOWN && defense_check(get_turf(src), get_turf(attacker), dir))
 		var/rand_prob = pick(1, -1) // выбираем лево или право
 		var/turf/T = get_open_turf_in_dir(src, turn(attacker.dir, rand_prob * 90))
 		if(!T) // если нет первого турфа, ищем второй

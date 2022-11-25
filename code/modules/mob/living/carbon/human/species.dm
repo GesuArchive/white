@@ -100,7 +100,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	///Base electrocution coefficient.  Basically a multiplier for damage from electrocutions.
 	var/siemens_coeff = 1
 	///Combat dodge chance
-	var/dodge_chance = 25
+	var/dodge_chance = 33
 	///What kind of damage overlays (if any) appear on our species when wounded? If this is "", does not add an overlay.
 	var/damage_overlay_type = "human"
 	///To use MUTCOLOR with a fixed color that's independent of the mcolor feature in DNA.
