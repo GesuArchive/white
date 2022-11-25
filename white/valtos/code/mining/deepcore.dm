@@ -147,6 +147,7 @@
 	layer = initial(layer)
 
 /obj/machinery/deepcore/drill/update_icon_state()
+	. = ..()
 	if(deployed)
 		if(machine_stat & BROKEN)
 			icon_state = "deep_core_drill-deployed-broken"
@@ -480,6 +481,7 @@
 		eject_materials(TRUE)
 
 /obj/machinery/deepcore/hopper/update_icon_state()
+	. = ..()
 	if(powered(power_channel) && anchored)
 		if(active)
 			icon_state = "hopper_on"

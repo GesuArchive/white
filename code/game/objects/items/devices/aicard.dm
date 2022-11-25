@@ -41,6 +41,7 @@
 	update_icon() //Whatever happened, update the card's state (icon, name) to match.
 
 /obj/item/aicard/update_icon_state()
+	. = ..()
 	if(!AI)
 		name = initial(name)
 		icon_state = initial(icon_state)

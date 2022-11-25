@@ -42,6 +42,7 @@
 
 /obj/item/singularityhammer/update_icon_state()
 	. = ..()
+	. = ..()
 	icon_state = "singularity_hammer0"
 
 /obj/item/singularityhammer/proc/recharge()
@@ -116,6 +117,7 @@
 	wielded = FALSE
 
 /obj/item/mjollnir/update_icon_state()
+	. = ..()
 	icon_state = "mjollnir0"
 
 /obj/item/mjollnir/proc/shock(mob/living/target)

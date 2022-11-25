@@ -37,6 +37,7 @@
 	var/atom/movable/warp_effect/warp
 
 /obj/machinery/mineral/bluespace_miner/update_icon_state()
+	. = ..()
 	if(panel_open)
 		icon_state = "bsm_t"
 	else if(!powered())

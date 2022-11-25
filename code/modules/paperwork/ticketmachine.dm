@@ -136,6 +136,7 @@
 	addtimer(VARSET_CALLBACK(src, cooldown, FALSE), 10)
 
 /obj/machinery/ticket_machine/update_icon()
+	. = ..()
 	switch(ticket_number) //Gives you an idea of how many tickets are left
 		if(0 to 49)
 			icon_state = "ticketmachine_100"

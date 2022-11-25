@@ -30,6 +30,7 @@
 		stop()
 
 /obj/item/hourglass/update_icon_state()
+	. = ..()
 	if(timing_id)
 		icon_state = "hourglass_active"
 	else

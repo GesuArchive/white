@@ -87,6 +87,7 @@
 	heal_amount = 5
 
 /mob/living/simple_animal/bot/medbot/update_icon()
+	. = ..()
 	cut_overlays()
 	if(skin)
 		add_overlay("medskin_[skin]")

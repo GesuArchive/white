@@ -96,6 +96,7 @@
 		sense()
 
 /obj/item/assembly/prox_sensor/update_icon()
+	. = ..()
 	cut_overlays()
 	attached_overlays = list()
 	if(timing)

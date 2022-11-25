@@ -62,6 +62,7 @@
 	return TRUE
 
 /obj/item/assembly/signaler/update_icon()
+	. = ..()
 	if(holder)
 		holder.update_icon()
 	return

@@ -168,6 +168,7 @@
 	return discover_after
 
 /obj/item/reagent_containers/syringe/update_icon_state()
+	. = ..()
 	var/rounded_vol = get_rounded_vol()
 	icon_state = "[rounded_vol]"
 	inhand_icon_state = "syringe_[rounded_vol]"

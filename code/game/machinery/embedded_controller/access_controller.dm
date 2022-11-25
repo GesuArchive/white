@@ -86,6 +86,7 @@
 	update_icon()
 
 /obj/machinery/door_buttons/access_button/update_icon_state()
+	. = ..()
 	if(machine_stat & NOPOWER)
 		icon_state = "access_button_off"
 	else
@@ -247,6 +248,7 @@
 			exteriorAirlock = A
 
 /obj/machinery/door_buttons/airlock_controller/update_icon_state()
+	. = ..()
 	if(machine_stat & NOPOWER)
 		icon_state = "access_control_off"
 		return

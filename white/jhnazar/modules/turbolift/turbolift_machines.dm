@@ -112,6 +112,7 @@ GLOBAL_LIST_EMPTY(turbolifts)
 			flick("closing", src)
 
 /obj/machinery/door/airlock/turbolift/update_icon()
+	. = ..()
 	cut_overlays()
 	if(density)
 		if(locked)

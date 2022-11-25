@@ -71,6 +71,7 @@
 	update_icon()
 
 /obj/structure/fermenting_barrel/update_icon_state()
+	. = ..()
 	if(open)
 		icon_state = "barrel_open"
 	else

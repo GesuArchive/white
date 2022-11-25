@@ -63,6 +63,7 @@
 		to_chat(user, span_warning("Вам нужен бананиум чтобы включить прототипные ботинки!"))
 
 /obj/item/clothing/shoes/clown_shoes/banana_shoes/update_icon_state()
+	. = ..()
 	if(on)
 		icon_state = "clown_prototype_on"
 	else

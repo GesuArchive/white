@@ -488,6 +488,7 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 	update_icon()
 
 /obj/item/melee/baton/abductor/update_icon_state()
+	. = ..()
 	switch(mode)
 		if(BATON_STUN)
 			icon_state = "wonderprodStun"

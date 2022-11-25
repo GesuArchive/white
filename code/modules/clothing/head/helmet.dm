@@ -198,6 +198,7 @@
 	can_flashlight = TRUE
 
 /obj/item/clothing/head/helmet/riot/update_icon_state()
+	. = ..()
 	var/state = "[initial(icon_state)]"
 	if(up)
 		state += "up"
@@ -497,6 +498,7 @@
 	. += span_boldnotice("\nПеред применением устройства проконсультируйтесь с вашим главным врачом.")
 
 /obj/item/clothing/head/helmet/monkey_sentience/update_icon_state()
+	. = ..()
 	icon_state = "[initial(icon_state)][light_colors][magnification ? "up" : ""]"
 
 /obj/item/clothing/head/helmet/monkey_sentience/equipped(mob/user, slot)
@@ -573,6 +575,7 @@
 	AddElement(/datum/element/update_icon_updates_onmob)
 
 /obj/item/clothing/head/helmet/update_icon_state()
+	. = ..()
 	var/state = "[initial(icon_state)]"
 	if(attached_light)
 		if(attached_light.on)

@@ -333,6 +333,7 @@
 	update_icon()
 
 /mob/living/simple_animal/bot/atmosbot/update_icon()
+	. = ..()
 	if(action == ATMOSBOT_VENT_AIR && emagged == 2)
 		icon_state = "atmosbot[on][on?"_5":""]"
 		return

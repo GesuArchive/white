@@ -42,6 +42,7 @@
 		key_for_dreamer = null
 
 /obj/item/organ/heart/update_icon_state()
+	. = ..()
 	if(beating)
 		icon_state = "[icon_base]-on"
 	else

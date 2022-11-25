@@ -76,6 +76,7 @@
 		time = saved_time
 
 /obj/item/assembly/timer/update_icon()
+	. = ..()
 	cut_overlays()
 	attached_overlays = list()
 	if(timing)

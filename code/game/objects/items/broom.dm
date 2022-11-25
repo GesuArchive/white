@@ -27,6 +27,7 @@
 	AddComponent(/datum/component/two_handed, force_unwielded=8, force_wielded=12, icon_wielded="broom1")
 
 /obj/item/pushbroom/update_icon_state()
+	. = ..()
 	icon_state = "broom0"
 
 /**

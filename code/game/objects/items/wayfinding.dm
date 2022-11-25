@@ -71,6 +71,7 @@
 		START_PROCESSING(SSmachines, src)
 
 /obj/machinery/pinpointer_dispenser/update_icon_state()
+	. = ..()
 	if(machine_stat & BROKEN)
 		set_light(0)
 	else if(powered())

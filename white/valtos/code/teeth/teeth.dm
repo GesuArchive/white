@@ -10,6 +10,7 @@
 	merge_type = /obj/item/stack/teeth
 
 /obj/item/stack/teeth/update_icon_state()
+	. = ..()
 	switch(amount)
 		if(1)
 			icon_state = initial(icon_state)

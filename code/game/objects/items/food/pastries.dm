@@ -833,6 +833,7 @@
 	update_icon()
 
 /obj/item/food/pancakes/update_icon()
+	. = ..()
 	if(contents.len)
 		name = "стопка блинчиков"
 	else

@@ -15,6 +15,7 @@
 	var/obj/projectile/projectile_type = /obj/projectile/bullet/cannonball
 
 /obj/item/stack/cannonball/update_icon_state()
+	. = ..()
 	if(amount == 1)
 		icon_state = "[initial(icon_state)]"
 	else

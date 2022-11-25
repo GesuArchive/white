@@ -37,6 +37,7 @@
 	update_icon()
 
 /obj/item/clothing/head/hardhat/update_icon_state()
+	. = ..()
 	icon_state = inhand_icon_state = "hardhat[on]_[hat_type]"
 
 /obj/item/clothing/head/hardhat/proc/turn_on(mob/user)

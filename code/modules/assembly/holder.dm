@@ -46,6 +46,7 @@
 	A.on_attach()
 
 /obj/item/assembly_holder/update_icon()
+	. = ..()
 	cut_overlays()
 	if(a_left)
 		add_overlay("[a_left.icon_state]_left")

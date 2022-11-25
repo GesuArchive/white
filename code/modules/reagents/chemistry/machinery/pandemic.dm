@@ -128,6 +128,7 @@
 	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
 
 /obj/machinery/computer/pandemic/update_icon_state()
+	. = ..()
 	if(machine_stat & BROKEN)
 		icon_state = (beaker ? "pandemic1_b" : "pandemic0_b")
 	else

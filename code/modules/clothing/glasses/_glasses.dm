@@ -372,6 +372,7 @@
 	..()
 
 /obj/item/clothing/glasses/blindfold/white/update_icon(mob/living/carbon/human/user)
+	. = ..()
 	if(ishuman(user) && !colored_before)
 		add_atom_colour("#[user.eye_color_left]", FIXED_COLOUR_PRIORITY)
 		colored_before = TRUE

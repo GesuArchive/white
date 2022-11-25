@@ -287,6 +287,7 @@
 	caesar = TRUE
 
 /obj/machinery/autodoc/update_icon()
+	. = ..()
 	cut_overlays()
 	add_overlay(top_overlay)
 	if(!(machine_stat & (NOPOWER|BROKEN)))

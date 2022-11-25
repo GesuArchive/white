@@ -120,6 +120,7 @@
 	update_icon()
 
 /obj/item/organ/regenerative_core/update_icon_state()
+	. = ..()
 	if (inert)
 		icon_state = "legion_soul_inert"
 	if (preserved)

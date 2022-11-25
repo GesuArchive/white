@@ -35,6 +35,7 @@
 		new spawn_type(src)
 
 /obj/item/storage/fancy/update_icon_state()
+	. = ..()
 	if(fancy_open)
 		icon_state = "[icon_type]box[contents.len]"
 	else
@@ -104,6 +105,7 @@
 	update_icon()
 
 /obj/item/storage/fancy/donut_box/update_icon_state()
+	. = ..()
 	if(fancy_open)
 		icon_state = "donutbox_inner"
 	else
@@ -226,6 +228,7 @@
 		. += span_notice("\nНа обратной стороне упаковки есть купон! Можно оторвать его, когда содержимое пачки станет пустым.")
 
 /obj/item/storage/fancy/cigarettes/update_icon_state()
+	. = ..()
 	if(fancy_open || !contents.len)
 		if(!contents.len)
 			icon_state = "[initial(icon_state)]_empty"
@@ -352,6 +355,7 @@
 
 ///Overrides to do nothing because fancy boxes are fucking insane.
 /obj/item/storage/fancy/rollingpapers/update_icon_state()
+	. = ..()
 	return
 
 /obj/item/storage/fancy/rollingpapers/update_overlays()
@@ -379,6 +383,7 @@
 	atom_storage.set_holdable(list(/obj/item/clothing/mask/cigarette/cigar))
 
 /obj/item/storage/fancy/cigarettes/cigars/update_icon_state()
+	. = ..()
 	if(fancy_open)
 		icon_state = "[initial(icon_state)]_open"
 	else

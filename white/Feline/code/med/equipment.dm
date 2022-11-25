@@ -121,6 +121,7 @@
 		))
 
 /obj/item/storage/belt/medipenal/update_icon_state()
+	. = ..()
 	icon_state = initial(icon_state)
 	worn_icon_state = initial(worn_icon_state)
 	if(length(contents))

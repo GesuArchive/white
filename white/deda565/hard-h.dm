@@ -155,6 +155,7 @@
 	wielded = FALSE
 
 /obj/item/hockeystick/update_icon_state()
+	. = ..()
 	icon_state = "hockeystick[wielded]"
 	return
 

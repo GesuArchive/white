@@ -903,6 +903,7 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 		..()
 
 /obj/item/construction/rld/update_icon_state()
+	. = ..()
 	icon_state = "rld-[round(matter/matter_divisor)]"
 
 /obj/item/construction/rld/attack_self(mob/user)

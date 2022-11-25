@@ -210,6 +210,7 @@
 	to_chat(user,span_notice("[capitalize(src.name)] prints out the voting tally."))
 
 /obj/structure/votebox/update_icon_state()
+	. = ..()
 	icon_state = "votebox_[voting_active ? "active" : "maint"]"
 
 #undef VOTE_TEXT_LIMIT

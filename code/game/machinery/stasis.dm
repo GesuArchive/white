@@ -90,6 +90,7 @@
 	return stasis_enabled && is_operational
 
 /obj/machinery/stasis/update_icon_state()
+	. = ..()
 	if(machine_stat & BROKEN)
 		icon_state = "stasis_broken"
 		return

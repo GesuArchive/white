@@ -9,6 +9,7 @@
 	var/resource_delay = 0
 
 /obj/structure/blob/special/resource/update_icon()
+	. = ..()
 	cut_overlays()
 	color = null
 	var/mutable_appearance/blob_overlay = mutable_appearance(icon, "strongpulse")

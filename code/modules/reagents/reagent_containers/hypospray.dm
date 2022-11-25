@@ -83,6 +83,7 @@
 	list_reagents = list(/datum/reagent/medicine/adminordrazine/quantum_heal = 80, /datum/reagent/medicine/synaptizine = 20)
 
 /obj/item/reagent_containers/hypospray/combat/nanites/update_icon_state()
+	. = ..()
 	if(reagents.total_volume > 0)
 		icon_state = initial(icon_state)
 	else
@@ -133,6 +134,7 @@
 		inject(user, user)
 
 /obj/item/reagent_containers/hypospray/medipen/update_icon_state()
+	. = ..()
 	if(reagents.total_volume > 0)
 		icon_state = initial(icon_state)
 	else
@@ -212,6 +214,7 @@
 	list_reagents = list(/datum/reagent/vaccine/fungal_tb = 20)
 
 /obj/item/reagent_containers/hypospray/medipen/tuberculosiscure/update_icon_state()
+	. = ..()
 	if(reagents.total_volume >= volume)
 		icon_state = initial(icon_state)
 	else if (reagents.total_volume > 0)

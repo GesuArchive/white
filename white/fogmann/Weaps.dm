@@ -33,6 +33,7 @@
 	AddElement(/datum/element/update_icon_updates_onmob)
 
 /obj/item/gun/ballistic/automatic/HK416/update_icon_state()
+	. = ..()
 	inhand_icon_state = "[initial(icon_state)][magazine ? "":"_e"]"
 
 //hk416

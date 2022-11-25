@@ -323,6 +323,7 @@
 	return FALSE
 
 /obj/machinery/roulette/update_icon(payout, color, rolled_number, is_winner = FALSE)
+	. = ..()
 	cut_overlays()
 
 	if(machine_stat & MAINT)

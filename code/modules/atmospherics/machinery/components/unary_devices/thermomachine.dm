@@ -75,6 +75,7 @@
 		max_temperature = T20C + (base_heating * calculated_laser_rating) //573.15K with T1 stock parts
 
 /obj/machinery/atmospherics/components/unary/thermomachine/update_icon()
+	. = ..()
 	cut_overlays()
 
 	if(panel_open)

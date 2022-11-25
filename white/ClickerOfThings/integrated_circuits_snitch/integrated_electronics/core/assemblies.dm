@@ -421,6 +421,7 @@
 	return FALSE
 
 /obj/item/electronic_assembly/update_icon()
+	. = ..()
 	if(opened)
 		icon_state = initial(icon_state) + "-open"
 	else

@@ -49,6 +49,7 @@
 	update_icon()
 
 /obj/structure/grille/update_icon()
+	. = ..()
 	if(QDELETED(src))
 		return
 	for(var/i = 0; i < 5; i++)

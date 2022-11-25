@@ -51,6 +51,7 @@
 	reset_chem_buttons()
 
 /obj/machinery/sleeper/update_icon()
+	. = ..()
 	if(state_open)
 		icon_state = "[initial(icon_state)]-open"
 	else

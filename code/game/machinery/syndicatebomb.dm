@@ -102,6 +102,7 @@
 	. += {"<hr>A digital display on it reads "[seconds_remaining()]"."}
 
 /obj/machinery/syndicatebomb/update_icon_state()
+	. = ..()
 	icon_state = "[initial(icon_state)][active ? "-active" : "-inactive"][open_panel ? "-wires" : ""]"
 
 /obj/machinery/syndicatebomb/proc/seconds_remaining()

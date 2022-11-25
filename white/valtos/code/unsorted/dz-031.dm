@@ -352,6 +352,7 @@ GLOBAL_LIST_EMPTY(hacked_ice)
 			playsound(src, 'white/valtos/sounds/dz/verydoor.ogg', 40, TRUE)
 
 /obj/machinery/door/veryblastdoor/update_icon_state()
+	. = ..()
 	if(density)
 		icon_state = "veryblastdoor[pos]_closed"
 	else

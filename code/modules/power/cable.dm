@@ -121,6 +121,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 ///////////////////////////////////
 
 /obj/structure/cable/update_icon_state()
+	. = ..()
 	if(!linked_dirs)
 		icon_state = "l[cable_layer]-noconnection"
 	else
@@ -435,6 +436,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	. += "</br><b>Ctrl+Клик</b> для смены слоя."
 
 /obj/item/stack/cable_coil/update_icon_state()
+	. = ..()
 	if(novariants)
 		return
 
@@ -653,6 +655,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	color = "white"
 
 /obj/structure/cable/multilayer/update_icon_state()
+	. = ..()
 	return
 
 /obj/structure/cable/multilayer/update_icon()

@@ -403,6 +403,7 @@
 	qdel(src)
 
 /obj/spacepod/update_icon()
+	. = ..()
 	cut_overlays()
 	if(construction_state != SPACEPOD_ARMOR_WELDED)
 		icon = 'white/valtos/icons/spacepods/goon/construction_2x2.dmi'

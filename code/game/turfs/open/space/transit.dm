@@ -117,6 +117,7 @@
 	transform = turn(matrix(), get_transit_angle(src))
 
 /turf/open/space/transit/update_icon_state()
+	. = ..()
 	icon_state = "speedspace_ns_[get_transit_state(src)]"
 
 /proc/get_transit_state(turf/T)

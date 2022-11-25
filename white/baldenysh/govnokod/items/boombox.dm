@@ -35,6 +35,7 @@
 	src.vis_contents += effect
 
 /obj/item/boombox/update_icon()
+	. = ..()
 	if(playing)
 		icon_state = "[initial(icon_state)]_active"
 	else

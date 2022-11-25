@@ -18,6 +18,7 @@
 	. += "<hr><span class='notice'>Внутри осталось <b>[uses]</b> зарядов.</span>"
 
 /obj/machinery/ai_slipper/update_icon_state()
+	. = ..()
 	if(machine_stat & BROKEN)
 		return
 	if((machine_stat & NOPOWER) || !COOLDOWN_FINISHED(src, foam_cooldown) || !uses)

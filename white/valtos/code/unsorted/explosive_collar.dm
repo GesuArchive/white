@@ -30,6 +30,7 @@
 	activate()
 
 /obj/item/clothing/neck/explosive_collar/update_icon()
+	. = ..()
 	icon_state = primed ? "bombcollaron" : "bombcollaroff"
 	worn_icon_state = primed ? "bombcollaron" : "bombcollaroff"
 

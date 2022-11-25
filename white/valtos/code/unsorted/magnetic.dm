@@ -38,6 +38,7 @@
 	maxmagpower = t
 
 /obj/machinery/magnetic_concentrator/update_icon_state()
+	. = ..()
 	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 	luminosity = 0
 	if(magpower > 1)

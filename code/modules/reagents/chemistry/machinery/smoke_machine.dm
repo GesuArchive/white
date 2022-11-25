@@ -44,6 +44,7 @@
 
 
 /obj/machinery/smoke_machine/update_icon_state()
+	. = ..()
 	if((!is_operational) || (!on) || (reagents.total_volume == 0))
 		if (panel_open)
 			icon_state = "smoke0-o"

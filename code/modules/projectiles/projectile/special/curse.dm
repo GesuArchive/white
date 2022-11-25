@@ -28,6 +28,7 @@
 	return ..()
 
 /obj/projectile/curse_hand/update_icon_state()
+	. = ..()
 	icon_state = "[initial(icon_state)][handedness]"
 
 /obj/projectile/curse_hand/fire(setAngle)

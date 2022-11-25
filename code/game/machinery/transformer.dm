@@ -37,6 +37,7 @@
 	. = ..()
 
 /obj/machinery/transformer/update_icon_state()
+	. = ..()
 	if(machine_stat & (BROKEN|NOPOWER) || cooldown == 1)
 		icon_state = "separator-AO0"
 	else

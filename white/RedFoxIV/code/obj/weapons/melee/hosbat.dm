@@ -228,6 +228,7 @@
 
 //зачем нахуй? почему тгшники обязательно должны жрать говно?..
 /obj/item/melee/baseball_bat/hos/hammer/update_icon_state()
+	. = ..()
 	icon_state = "hammer"
 
 /obj/item/melee/baseball_bat/hos/hammer/attack(mob/living/target, mob/living/user)

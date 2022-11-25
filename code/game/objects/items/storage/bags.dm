@@ -53,6 +53,7 @@
 	return (TOXLOSS)
 
 /obj/item/storage/bag/trash/update_icon_state()
+	. = ..()
 	switch(contents.len)
 		if(20 to INFINITY)
 			icon_state = "[initial(icon_state)]3"
@@ -506,6 +507,7 @@
 	update_icon()
 
 /obj/item/storage/bag/pissbox/update_icon_state()
+	. = ..()
 	switch(contents.len)
 		if(1 to INFINITY)
 			icon_state = "[initial(icon_state)]1"

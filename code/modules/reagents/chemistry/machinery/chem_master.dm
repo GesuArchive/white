@@ -96,6 +96,7 @@
 		bottle = null
 
 /obj/machinery/chem_master/update_icon_state()
+	. = ..()
 	if(beaker)
 		icon_state = "mixer1"
 	else

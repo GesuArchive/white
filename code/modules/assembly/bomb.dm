@@ -20,6 +20,7 @@
 	return bombtank.examine(user)
 
 /obj/item/onetankbomb/update_icon_state()
+	. = ..()
 	if(bombtank)
 		icon = bombtank.icon
 		icon_state = bombtank.icon_state

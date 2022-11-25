@@ -84,6 +84,7 @@
 	. += span_notice("\nПоследнее обнаруженное количество радиации было [last_tick_amount]")
 
 /obj/item/geiger_counter/update_icon_state()
+	. = ..()
 	if(!scanning)
 		icon_state = "geiger_off"
 	else if(obj_flags & EMAGGED)

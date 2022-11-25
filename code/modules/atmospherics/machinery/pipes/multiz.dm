@@ -33,6 +33,7 @@
 	initialize_directions = dir
 
 /obj/machinery/atmospherics/pipe/multiz/update_icon()
+	. = ..()
 	cut_overlays()
 	pipe.color = front_node ? front_node.pipe_color : rgb(255, 255, 255)
 	pipe.icon_state = "pipe-[piping_layer]"

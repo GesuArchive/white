@@ -159,6 +159,7 @@
 
 
 /obj/machinery/organdoc/update_icon()
+	. = ..()
 	overlays.Cut()
 	if(!state_open)
 		if(processing)

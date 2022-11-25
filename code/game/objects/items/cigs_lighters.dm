@@ -663,6 +663,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	. += create_lighter_overlay()
 
 /obj/item/lighter/update_icon_state()
+	. = ..()
 	icon_state = "[initial(icon_state)][lit ? "-on" : ""]"
 
 /obj/item/lighter/proc/create_lighter_overlay()

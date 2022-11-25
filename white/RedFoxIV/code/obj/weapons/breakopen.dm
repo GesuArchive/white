@@ -51,7 +51,9 @@
 	var/can_fire_all_rounds_at_once = FALSE
 	///for how many deciseconds to sleep between shots when shooting all rounds at once (see can_fire_all_rounds_at_once)
 	var/sleep_time = 1
+
 /obj/item/gun/breakopen/update_icon_state()
+	. = ..()
 	icon_state = "[initial(icon_state)][sawn_off ? "_sawn":""][open ? "_open" : ""]"
 
 /obj/item/gun/breakopen/handle_atom_del(atom/A)

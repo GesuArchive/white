@@ -93,6 +93,7 @@
 	toggle = TRUE
 
 /obj/item/transfer_valve/update_icon()
+	. = ..()
 	cut_overlays()
 
 	if(!tank_one && !tank_two && !attached_device)

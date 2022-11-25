@@ -289,6 +289,7 @@
 		return FALSE
 
 /obj/singularity/update_icon(stage)
+	. = ..()
 	switch(stage)
 		if(STAGE_ONE)
 			icon = 'icons/obj/singularity.dmi'

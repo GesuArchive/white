@@ -57,6 +57,7 @@
 		update_icon()
 
 /obj/machinery/chem_heater/update_icon_state()
+	. = ..()
 	if(beaker)
 		icon_state = "mixer1b"
 	else

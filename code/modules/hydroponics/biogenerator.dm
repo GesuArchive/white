@@ -61,6 +61,7 @@
 		. += "<hr><span class='notice'>Дисплей: Productivity at <b>[productivity*100]%</b>.<br>Matter consumption reduced by <b>[(efficiency*25)-25]</b>%.<br>Machine can hold up to <b>[max_items]</b> pieces of produce.</span>"
 
 /obj/machinery/biogenerator/update_icon_state()
+	. = ..()
 	if(panel_open)
 		icon_state = "biogen-empty-o"
 	else if(!src.beaker)

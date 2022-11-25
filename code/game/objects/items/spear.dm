@@ -32,6 +32,7 @@
 	update_icon()
 
 /obj/item/spear/update_icon_state()
+	. = ..()
 	icon_state = "[icon_prefix]0"
 
 /obj/item/spear/suicide_act(mob/living/carbon/user)
@@ -78,6 +79,7 @@
 	wielded = FALSE
 
 /obj/item/spear/explosive/update_icon_state()
+	. = ..()
 	icon_state = "spearbomb0"
 
 /obj/item/spear/explosive/proc/set_explosive(obj/item/grenade/G)
@@ -178,6 +180,7 @@
 	AddComponent(/datum/component/two_handed, force_unwielded=12, force_wielded=20, icon_wielded="bone_spear1")
 
 /obj/item/spear/bonespear/update_icon_state()
+	. = ..()
 	icon_state = "bone_spear0"
 
 /*

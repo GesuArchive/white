@@ -20,6 +20,7 @@
 	return ..()
 
 /obj/machinery/aug_manipulator/update_icon_state()
+	. = ..()
 	if(machine_stat & BROKEN)
 		icon_state = "[initial_icon_state]-broken"
 		return

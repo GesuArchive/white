@@ -165,6 +165,7 @@
 
 
 /obj/structure/bookcase/update_icon_state()
+	. = ..()
 	if(state == BOOKCASE_UNANCHORED || state == BOOKCASE_ANCHORED)
 		icon_state = "bookempty"
 		return

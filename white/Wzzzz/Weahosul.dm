@@ -90,6 +90,7 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction98/empty
 
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/update_icon(var/add_scope = FALSE)
+	. = ..()
 	if (bolt_locked == FALSE)
 		icon_state = "kar98k_open"
 		inhand_icon_state = "kar98k_open"
@@ -126,6 +127,7 @@
 	AddComponent(/datum/component/scope, range_modifier = 2.5)
 
 /obj/item/gun/ballistic/rifle/boltaction/kar98k/scope/update_icon(var/add_scope = FALSE)
+	. = ..()
 	if (bolt_locked == FALSE)
 		icon_state = "kar98k_scope_open"
 		inhand_icon_state = "kar98k_scope_open"

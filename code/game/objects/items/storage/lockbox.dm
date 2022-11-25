@@ -127,6 +127,7 @@
 		new /obj/item/clothing/accessory/medal/conduct(src)
 
 /obj/item/storage/lockbox/medal/update_icon_state()
+	. = ..()
 	if(atom_storage.locked)
 		icon_state = "medalbox+l"
 	else

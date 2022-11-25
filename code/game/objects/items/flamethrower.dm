@@ -58,6 +58,7 @@
 
 
 /obj/item/flamethrower/update_icon_state()
+	. = ..()
 	inhand_icon_state = "flamethrower_[lit]"
 
 /obj/item/flamethrower/update_overlays()

@@ -322,6 +322,7 @@
 	atom_storage.set_holdable(list(/obj/item/gun/energy/dueling))
 
 /obj/item/storage/lockbox/dueling/update_icon_state()
+	. = ..()
 	if(atom_storage?.locked)
 		icon_state = "medalbox+l"
 	else

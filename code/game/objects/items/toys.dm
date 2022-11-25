@@ -106,6 +106,7 @@
 		qdel(src)
 
 /obj/item/toy/waterballoon/update_icon_state()
+	. = ..()
 	if(src.reagents.total_volume >= 1)
 		icon_state = "waterballoon"
 		inhand_icon_state = "balloon"
@@ -306,6 +307,7 @@
 	var/amount_left = 7
 
 /obj/item/toy/ammo/gun/update_icon_state()
+	. = ..()
 	icon_state = "357OLD-[amount_left]"
 
 /obj/item/toy/ammo/gun/examine(mob/user)
@@ -1162,6 +1164,7 @@
 	update_appearance()
 
 /obj/item/toy/eldritch_book/update_icon_state()
+	. = ..()
 	icon_state = book_open ? "book_open" : "book"
 	return ..()
 

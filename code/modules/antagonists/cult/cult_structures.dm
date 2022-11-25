@@ -72,6 +72,7 @@
 	update_icon()
 
 /obj/structure/destructible/cult/update_icon_state()
+	. = ..()
 	icon_state = "[initial(icon_state)][anchored ? null : "_off"]"
 
 /obj/structure/destructible/cult/attackby(obj/I, mob/user, params)

@@ -14,6 +14,7 @@
 	var/inflamed
 
 /obj/item/organ/appendix/update_icon()
+	. = ..()
 	if(inflamed)
 		icon_state = "appendixinflamed"
 		name = "воспаленный аппендикс"

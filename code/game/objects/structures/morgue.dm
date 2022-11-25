@@ -46,6 +46,7 @@ GLOBAL_LIST_EMPTY(bodycontainers) //Let them act as spawnpoints for revenants an
 	update_icon()
 
 /obj/structure/bodycontainer/update_icon()
+	. = ..()
 	return
 
 /obj/structure/bodycontainer/relaymove(mob/living/user, direction)
@@ -176,6 +177,7 @@ GLOBAL_LIST_EMPTY(bodycontainers) //Let them act as spawnpoints for revenants an
 	to_chat(user, span_notice("[beeper ? "Включаю" : "Выключаю"] систему оповещений."))
 
 /obj/structure/bodycontainer/morgue/update_icon()
+	. = ..()
 	if (!connected || connected.loc != src) // Open or tray is gone.
 		icon_state = "morgue0"
 	else
@@ -241,6 +243,7 @@ GLOBAL_LIST_EMPTY(crematoriums)
 	id = "[port.id]_[id]"
 
 /obj/structure/bodycontainer/crematorium/update_icon()
+	. = ..()
 	if(!connected || connected.loc != src)
 		icon_state = "crema0"
 	else

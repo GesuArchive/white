@@ -17,6 +17,7 @@ Arrow&bow
 	//container_type = TRANSPARENT
 
 /obj/item/reagent_containers/syringe/arrow/update_icon()
+	. = ..()
 	cut_overlays()
 
 /obj/projectile/bullet/dart/syringe/bow//Arrow

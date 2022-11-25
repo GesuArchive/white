@@ -197,6 +197,7 @@
 	wielded = FALSE
 
 /obj/item/staff/bostaff/update_icon_state()
+	. = ..()
 	icon_state = "bostaff0"
 
 /obj/item/staff/bostaff/attack(mob/target, mob/living/user)

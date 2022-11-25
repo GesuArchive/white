@@ -145,6 +145,7 @@ DEFINE_BITFIELD(turret_flags, list(
 			begin_processing()
 
 /obj/machinery/porta_turret/update_icon_state()
+	. = ..()
 	if(!anchored)
 		icon_state = "turretCover"
 		return
@@ -1015,6 +1016,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	update_icon()
 
 /obj/machinery/turretid/update_icon_state()
+	. = ..()
 	if(machine_stat & NOPOWER)
 		icon_state = "control_off"
 	else if (enabled)

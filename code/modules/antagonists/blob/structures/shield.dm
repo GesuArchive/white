@@ -27,6 +27,7 @@
 		air_update_turf(atmosblock)
 
 /obj/structure/blob/shield/update_icon()
+	. = ..()
 	cut_overlays()
 	color = null
 	var/mutable_appearance/blob_overlay = mutable_appearance(icon, "strongpulse")

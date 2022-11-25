@@ -32,6 +32,7 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	update_icon()
 
 /obj/machinery/announcement_system/update_icon_state()
+	. = ..()
 	if(is_operational)
 		icon_state = (panel_open ? "AAS_On_Open" : "AAS_On")
 	else

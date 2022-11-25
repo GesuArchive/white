@@ -497,6 +497,7 @@
 	update_icon()
 
 /obj/item/flashlight/glowstick/update_icon()
+	. = ..()
 	inhand_icon_state = "glowstick"
 	cut_overlays()
 	if(fuel <= 0)

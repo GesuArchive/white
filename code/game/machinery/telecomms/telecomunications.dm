@@ -137,6 +137,7 @@ GLOBAL_LIST_EMPTY(telecomms_list)
 
 
 /obj/machinery/telecomms/update_icon_state()
+	. = ..()
 	if(on)
 		if(panel_open)
 			icon_state = "[initial(icon_state)]_o"

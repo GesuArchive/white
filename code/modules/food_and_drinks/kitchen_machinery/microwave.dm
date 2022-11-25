@@ -87,6 +87,7 @@
 		span_notice("- Скорость готовки ускорена на <b>[(efficiency - 1) * 25]%</b>.")
 
 /obj/machinery/microwave/update_icon_state()
+	. = ..()
 	if(broken)
 		icon_state = "mwb"
 	else if(dirty_anim_playing)

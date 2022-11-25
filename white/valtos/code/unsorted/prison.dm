@@ -167,6 +167,7 @@
 	canSmoothWith = list(SMOOTH_GROUP_WALLS)
 
 /obj/structure/curtain/prison/update_icon()
+	. = ..()
 	if(!open)
 		icon_state = "closed"
 		layer = WALL_OBJ_LAYER
@@ -286,6 +287,7 @@
 	max_integrity = 1200
 
 /obj/machinery/door/poddoor/shutters/prison/update_icon()
+	. = ..()
 	if(density)
 		playsound(src, 'white/valtos/sounds/prison/close.ogg', 20, 1)
 		icon_state = "closed"

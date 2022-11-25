@@ -688,6 +688,7 @@
 	icon_state = ""
 
 /atom/movable/screen/combo/update_icon_state(streak = "", time = 2 SECONDS)
+	. = ..()
 	reset_icons()
 	if (timerid)
 		deltimer(timerid)

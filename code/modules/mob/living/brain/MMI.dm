@@ -32,6 +32,7 @@
 	return ..()
 
 /obj/item/mmi/update_icon_state()
+	. = ..()
 	if(!brain)
 		icon_state = "mmi_off"
 	else if(istype(brain, /obj/item/organ/brain/alien))

@@ -206,6 +206,7 @@
 		QUEUE_SMOOTH(src)
 
 /turf/closed/wall/r_wall/update_icon_state()
+	. = ..()
 	if(d_state != INTACT)
 		icon_state = "r_wall-[d_state]"
 	else

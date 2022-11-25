@@ -32,6 +32,7 @@
 	return ..()
 
 /obj/machinery/power/generator/update_icon()
+	. = ..()
 	cut_overlays()
 	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 

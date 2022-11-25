@@ -109,6 +109,7 @@
 		QUEUE_SMOOTH(src)
 
 /turf/closed/wall/riveted_wall/update_icon_state()
+	. = ..()
 	if(d_state != RIVET_FULL)
 		icon_state = "riv_wall-[d_state]"
 	else

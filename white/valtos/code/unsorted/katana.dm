@@ -69,6 +69,7 @@
 			playsound(src, "zap", 75, TRUE, -1)
 
 /obj/item/melee/sabre/security/update_icon_state()
+	. = ..()
 	if(turned_on)
 		icon_state = "[initial(icon_state)]_active"
 		inhand_icon_state = "[initial(inhand_icon_state)]_active"
@@ -220,6 +221,7 @@
 		))
 
 /obj/item/storage/belt/sheath/update_icon_state()
+	. = ..()
 	icon_state = "security_katana_sheath"
 	inhand_icon_state = "security_katana_sheath"
 	worn_icon_state = "security_katana_sheath"

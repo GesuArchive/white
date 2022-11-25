@@ -56,6 +56,7 @@
 	AddElement(/datum/element/tool_flash, light_range)
 
 /obj/item/weldingtool/update_icon_state()
+	. = ..()
 	if(welding)
 		inhand_icon_state = "[initial(inhand_icon_state)]1"
 	else

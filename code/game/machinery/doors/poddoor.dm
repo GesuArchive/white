@@ -335,6 +335,7 @@
 			playsound(src, 'sound/machines/blastdoor.ogg', 30, TRUE)
 
 /obj/machinery/door/poddoor/update_icon_state()
+	. = ..()
 	if(deconstruction == BLASTDOOR_FINISHED)
 		if(density)
 			icon_state = "closed"

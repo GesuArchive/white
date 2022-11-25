@@ -29,6 +29,7 @@
 	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/machinery/power/treadmill/update_icon()
+	. = ..()
 	icon_state = speed ? "conveyor1" : "conveyor0"
 
 /obj/machinery/power/treadmill/proc/on_entered(datum/source, atom/movable/AM)
@@ -180,6 +181,7 @@
 	. += "<hr>Дисплей:<div style='text-align: center'>[line1]<br>[line2]</div>"
 
 /obj/machinery/treadmill_monitor/update_icon()
+	. = ..()
 	overlays.Cut()
 	if(machine_stat & NOPOWER || !total_joules || !on)
 		line1 = ""

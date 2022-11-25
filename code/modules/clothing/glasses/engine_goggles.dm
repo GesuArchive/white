@@ -162,6 +162,7 @@
 				flick_overlay(connection_images[smart][dir2text(direction)], list(user.client), 1.5 SECONDS)
 
 /obj/item/clothing/glasses/meson/engine/update_icon_state()
+	. = ..()
 	switch(mode)
 		if(MODE_TRAY)
 			icon_state = "trayson-t-ray"

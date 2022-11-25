@@ -56,6 +56,7 @@
 		. += "<hr>Внутри нет батарейки."
 
 /obj/machinery/electrolyzer/update_icon_state()
+	. = ..()
 	icon_state = "electrolyzer-[on ? "[mode]" : "off"]"
 
 /obj/machinery/electrolyzer/update_overlays()

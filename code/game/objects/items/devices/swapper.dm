@@ -21,6 +21,7 @@
 	return ..()
 
 /obj/item/swapper/update_icon_state()
+	. = ..()
 	if(linked_swapper)
 		icon_state = "swapper-linked"
 	else

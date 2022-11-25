@@ -64,6 +64,7 @@
 	return ..()
 
 /obj/machinery/door/window/update_icon_state()
+	. = ..()
 	if(density)
 		icon_state = base_state
 	else

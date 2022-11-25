@@ -52,6 +52,7 @@
 	geyser.reagents.trans_to(src, pump_power * delta_time)
 
 /obj/machinery/plumbing/liquid_pump/update_icon_state()
+	. = ..()
 	if(geyser)
 		icon_state = initial(icon_state) + "-on"
 	else if(panel_open)

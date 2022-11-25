@@ -35,6 +35,7 @@
 
 
 /obj/item/papercutter/update_icon_state()
+	. = ..()
 	icon_state = (storedcutter ? "[initial(icon_state)]-cutter" : "[initial(icon_state)]")
 
 /obj/item/papercutter/update_overlays()

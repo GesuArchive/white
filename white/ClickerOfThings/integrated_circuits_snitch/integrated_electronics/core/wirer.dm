@@ -16,6 +16,7 @@
 	var/mode = WIRE
 
 /obj/item/integrated_electronics/wirer/update_icon()
+	. = ..()
 	icon_state = "wirer-[mode]"
 
 /obj/item/integrated_electronics/wirer/proc/wire(var/datum/integrated_io/io, mob/user)

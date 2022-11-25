@@ -38,6 +38,7 @@
 	wielded = FALSE
 
 /obj/item/pitchfork/update_icon_state()
+	. = ..()
 	icon_state = "pitchfork0"
 
 /obj/item/pitchfork/demonic

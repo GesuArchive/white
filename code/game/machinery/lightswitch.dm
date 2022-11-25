@@ -46,6 +46,7 @@
 	update_icon()
 
 /obj/machinery/light_switch/update_icon_state()
+	. = ..()
 	luminosity = 0
 	if(machine_stat & NOPOWER)
 		icon_state = "light-p"

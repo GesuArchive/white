@@ -72,6 +72,7 @@
 	return wielded * sharpness
 
 /obj/item/dualsaber/update_icon_state()
+	. = ..()
 	if(wielded)
 		icon_state = "dualsaber[saber_color][wielded]"
 	else

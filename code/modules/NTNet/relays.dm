@@ -58,6 +58,7 @@
 
 
 /obj/machinery/ntnet_relay/update_icon_state()
+	. = ..()
 	if(is_operational)
 		icon_state = "bus"
 	else

@@ -176,6 +176,7 @@
 	return
 
 /obj/machinery/rnd/bepis/update_icon_state()
+	. = ..()
 	if(panel_open == TRUE)
 		icon_state = "chamber_open"
 		return

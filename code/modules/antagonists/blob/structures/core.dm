@@ -33,6 +33,7 @@
 	return "Собственно, ядро. Главный руководящий центр всей этой штуки."
 
 /obj/structure/blob/special/core/update_icon()
+	. = ..()
 	cut_overlays()
 	color = null
 	var/mutable_appearance/blob_overlay = mutable_appearance(icon, "corepulse")

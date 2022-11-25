@@ -24,6 +24,7 @@
 	time_per_sheet = 60
 
 /obj/machinery/power/port_gen/pacman/biogen/update_icon_state()
+	. = ..()
 	icon_state = "[base_icon]_[active ? "g" : "0"]"
 
 /obj/item/circuitboard/machine/pacman/biogen

@@ -179,6 +179,7 @@
 		return NUKE_OFF_UNLOCKED
 
 /obj/machinery/nuclearbomb/update_icon_state()
+	. = ..()
 	if(deconstruction_state != NUKESTATE_INTACT)
 		icon_state = "nuclearbomb_base"
 		return

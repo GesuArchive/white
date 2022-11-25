@@ -375,6 +375,7 @@
 	update_icon()
 
 /obj/item/shield/riot/flash/update_icon_state()
+	. = ..()
 	if(!embedded_flash || embedded_flash.burnt_out)
 		icon_state = "flashshield_burned"
 		inhand_icon_state = "flashshield_burned"

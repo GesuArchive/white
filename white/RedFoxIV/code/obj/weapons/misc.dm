@@ -428,6 +428,7 @@
 	return TRUE
 
 /obj/machinery/chem_seller/update_icon_state()
+	. = ..()
 	icon_state = "[!powered() ? icon_nopower : initial(icon_state)]"
 
 /obj/machinery/chem_seller/update_overlays()

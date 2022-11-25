@@ -10,6 +10,7 @@
 	max_spores = BLOB_FACTORY_MAX_SPORES
 
 /obj/structure/blob/special/factory/update_icon()
+	. = ..()
 	cut_overlays()
 	color = null
 	var/mutable_appearance/blob_overlay = mutable_appearance(icon, "pulse")

@@ -652,6 +652,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool/bar, 0)
 	return occupant_typecache ? is_type_in_typecache(am, occupant_typecache) : iscarbon(am)
 
 /obj/machinery/painmachine/update_icon_state()
+	. = ..()
 	switch(charge)
 		if(0)
 			icon_state = "[initial(icon_state)]"

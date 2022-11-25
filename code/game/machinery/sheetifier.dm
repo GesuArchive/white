@@ -21,6 +21,7 @@
 	. += on_overlay
 
 /obj/machinery/sheetifier/update_icon_state()
+	. = ..()
 	icon_state = "base_machine[busy_processing ? "_processing" : ""]"
 
 /obj/machinery/sheetifier/proc/CanInsertMaterials()

@@ -57,6 +57,7 @@
 	return secured
 
 /obj/item/assembly/infra/update_icon()
+	. = ..()
 	cut_overlays()
 	attached_overlays = list()
 	if(on)

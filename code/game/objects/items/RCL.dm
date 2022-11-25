@@ -114,6 +114,7 @@
 	return ..()
 
 /obj/item/rcl/update_icon_state()
+	. = ..()
 	if(!loaded)
 		icon_state = "rcl-0"
 		inhand_icon_state = "rcl-0"
@@ -336,6 +337,7 @@
 	ghetto = TRUE
 
 /obj/item/rcl/ghetto/update_icon_state()
+	. = ..()
 	if(!loaded)
 		icon_state = "rclg-0"
 		inhand_icon_state = "rclg-0"

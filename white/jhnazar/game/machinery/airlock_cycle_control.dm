@@ -145,6 +145,7 @@
 				airlock.bolt()
 
 /obj/machinery/advanced_airlock_controller/update_icon(use_hash = FALSE)
+	. = ..()
 	var/turf/location = get_turf(src)
 	if(!location)
 		return

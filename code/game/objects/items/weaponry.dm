@@ -945,6 +945,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	wielded = FALSE
 
 /obj/item/vibro_weapon/update_icon_state()
+	. = ..()
 	icon_state = "hfrequency0"
 
 /datum/action/item_action/area_attack

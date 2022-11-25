@@ -114,6 +114,7 @@ By design, d1 is the smallest direction and d2 is the highest
 ///////////////////////////////////
 
 /obj/structure/pipe_cleaner/update_icon()
+	. = ..()
 	icon_state = "[d1]-[d2]"
 	add_atom_colour(color, FIXED_COLOUR_PRIORITY)
 
@@ -253,6 +254,7 @@ By design, d1 is the smallest direction and d2 is the highest
 ///////////////////////////////////
 
 /obj/item/stack/pipe_cleaner_coil/update_icon()
+	. = ..()
 	icon_state = "[initial(inhand_icon_state)][amount < 3 ? amount : ""]"
 	name = "pipe cleaner [amount < 3 ? "piece" : "coil"]"
 	add_atom_colour(color, FIXED_COLOUR_PRIORITY)

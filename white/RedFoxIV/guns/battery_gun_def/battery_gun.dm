@@ -84,6 +84,7 @@
 	update_icon()
 
 /obj/item/gun/energy/cellgun/update_icon(force_update)
+	. = ..()
 	if(QDELETED(src))
 		return
 	//..() //не дай бог это всё сломает нахуй

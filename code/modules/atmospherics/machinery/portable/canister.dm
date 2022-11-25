@@ -357,6 +357,7 @@
 	air_contents.set_moles(GAS_N2, (N2STANDARD * maximum_pressure * filled) * air_contents.return_volume() / (R_IDEAL_GAS_EQUATION * air_contents.return_temperature()))
 
 /obj/machinery/portable_atmospherics/canister/update_icon_state()
+	. = ..()
 	if(machine_stat & BROKEN)
 		icon_state = "[base_icon_state]-1"
 

@@ -293,6 +293,7 @@
 	AddElement(/datum/element/atmos_sensitive)
 
 /obj/structure/alien/egg/update_icon_state()
+	. = ..()
 	switch(status)
 		if(GROWING)
 			icon_state = "[base_icon]_growing"

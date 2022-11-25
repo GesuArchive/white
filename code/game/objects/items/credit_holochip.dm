@@ -23,6 +23,7 @@
 	return credits
 
 /obj/item/holochip/update_icon()
+	. = ..()
 	name = "\improper голочип с [credits] кредитами"
 	var/rounded_credits = credits
 	switch(credits)

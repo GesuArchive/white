@@ -227,6 +227,7 @@
 
 
 /obj/machinery/power/am_control_unit/update_icon()
+	. = ..()
 	if(active)
 		icon_state = "control_on"
 	else icon_state = "control"
@@ -515,6 +516,7 @@
 
 
 /obj/machinery/am_shielding/update_icon()
+	. = ..()
 	dirs = 0
 	coredirs = 0
 	cut_overlays()

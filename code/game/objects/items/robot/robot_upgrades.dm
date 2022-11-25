@@ -346,6 +346,7 @@
 
 
 /obj/item/borg/upgrade/selfrepair/update_icon_state()
+	. = ..()
 	if(toggle_action)
 		icon_state = "selfrepair_[on ? "on" : "off"]"
 	else

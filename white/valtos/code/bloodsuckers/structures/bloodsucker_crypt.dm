@@ -592,6 +592,7 @@
 #undef MEATLIMIT
 
 /obj/structure/bloodsucker/vassalrack/update_icon()
+	. = ..()
 	cut_overlays()
 	if(bigmeat > 0)
 		add_overlay("bigmeat_[bigmeat]")

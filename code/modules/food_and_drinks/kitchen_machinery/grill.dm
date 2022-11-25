@@ -25,6 +25,7 @@
 	return ..()
 
 /obj/machinery/grill/update_icon_state()
+	. = ..()
 	if(grilled_item)
 		icon_state = "grill"
 	else if(grill_fuel > 0)

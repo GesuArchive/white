@@ -43,6 +43,7 @@
 	add_overlay("med")
 
 /obj/machinery/mecha_part_fabricator/med/update_icon_state()
+	. = ..()
 	if(powered())
 		icon_state = initial(icon_state)
 	else
@@ -84,6 +85,7 @@
 	add_overlay("engi")
 
 /obj/machinery/mecha_part_fabricator/engi/update_icon_state()
+	. = ..()
 	if(powered())
 		icon_state = initial(icon_state)
 	else
@@ -125,6 +127,7 @@
 	add_overlay("sci")
 
 /obj/machinery/mecha_part_fabricator/sci/update_icon_state()
+	. = ..()
 	if(powered())
 		icon_state = initial(icon_state)
 	else
@@ -160,6 +163,7 @@
 	add_overlay("cargo")
 
 /obj/machinery/mecha_part_fabricator/cargo/update_icon_state()
+	. = ..()
 	if(powered())
 		icon_state = initial(icon_state)
 	else
@@ -196,6 +200,7 @@
 	add_overlay("sb")
 
 /obj/machinery/mecha_part_fabricator/sb/update_icon_state()
+	. = ..()
 	if(powered())
 		icon_state = initial(icon_state)
 	else

@@ -81,6 +81,7 @@
 
 
 /obj/item/minigunpack/update_icon_state()
+	. = ..()
 	if(armed)
 		icon_state = "notholstered"
 	else

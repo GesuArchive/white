@@ -24,6 +24,7 @@
 	return "Быстро расширяется и сохраняет жизнь местной фауне."
 
 /obj/structure/blob/special/node/update_icon()
+	. = ..()
 	cut_overlays()
 	color = null
 	var/mutable_appearance/blob_overlay = mutable_appearance(icon, "nodepulse")
