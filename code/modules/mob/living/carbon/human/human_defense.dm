@@ -162,7 +162,7 @@
 	return FALSE
 
 /mob/living/carbon/human/proc/check_dodge(mob/attacker)
-	if(!stat && attacker && prob(PERCENT((health + dna.species.dodge_chance) / maxHealth * 4)) && !incapacitated() && body_position != LYING_DOWN && defense_check(get_turf(src), get_turf(attacker), dir))
+	if(!stat && attacker && prob(PERCENT((health + dna.species.dodge_chance) / (maxHealth * 4))) && !incapacitated() && body_position != LYING_DOWN && defense_check(get_turf(src), get_turf(attacker), dir))
 		var/rand_prob = pick(1, -1) // выбираем лево или право
 		var/turf/T = get_open_turf_in_dir(src, turn(attacker.dir, rand_prob * 90))
 		if(!T) // если нет первого турфа, ищем второй
@@ -172,11 +172,16 @@
 		for(var/atom/A in T)
 			if(!A.CanPass(src, get_dir(A, src)))
 				return FALSE
-		adjustStaminaLoss(7)
+		adjustStaminaLoss(rand(10, 20))
 		playsound(src, 'sound/weapons/punchmiss.ogg', 100, TRUE)
 		forceMove(T)
 		return TRUE
 	return FALSE
+
+/mob/living/carbon/human/can_be_pulled(user, grab_state, force)
+	if(check_dodge(user))
+		return FALSE
+	return ..()
 
 /mob/living/carbon/human/hitby(atom/movable/AM, skipcatch = FALSE, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum)
 	if(dna?.species)

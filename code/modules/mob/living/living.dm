@@ -1463,9 +1463,8 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 						"[C] резко отскакивает от [skloname(name, VINITELNI, gender)]!")]</span>")
 	C.Paralyze(40)
 
-/mob/living/can_be_pulled()
+/mob/living/can_be_pulled(user, grab_state, force)
 	return ..() && !(buckled?.buckle_prevents_pull)
-
 
 /// Called when mob changes from a standing position into a prone while lacking the ability to stand up at the moment.
 /mob/living/proc/on_fall()
