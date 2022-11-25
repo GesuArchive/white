@@ -867,7 +867,7 @@
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/cabine)
 "Ql" = (
-/obj/machinery/suit_storage_unit/industrial,
+/obj/machinery/suit_storage_unit/industrial/prototype,
 /obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/passengers)

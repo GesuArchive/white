@@ -26,7 +26,7 @@ If ever any of these procs are useful for non-shuttles, rename it to proc/rotate
 			pixel_y = (oldPX*(-1))
 
 /************************************Base /atom/movable proc************************************/
-
+/*
 /atom/movable/shuttleRotate(rotation, params)
 	. = ..()
 	//rotate the physical bounds and offsets for multitile atoms too. Owerride base "rotate the pixel offsets" for multitile atoms.
@@ -38,7 +38,7 @@ If ever any of these procs are useful for non-shuttles, rename it to proc/rotate
 		pixel_y = dir & (NORTH|WEST) ? -bound_width+world.icon_size : 0
 		bound_x = pixel_x
 		bound_y = pixel_y
-
+*/
 /************************************Turf rotate procs************************************/
 
 /turf/closed/mineral/shuttleRotate(rotation, params)

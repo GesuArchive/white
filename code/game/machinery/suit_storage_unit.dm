@@ -60,6 +60,9 @@
 /obj/machinery/suit_storage_unit/industrial/loader
 	mod_type = /obj/item/mod/control/pre_equipped/loader
 
+/obj/machinery/suit_storage_unit/industrial/prototype
+	mod_type = /obj/item/mod/control/pre_equipped/prototype
+
 /obj/machinery/suit_storage_unit/standard_unit
 	suit_type = /obj/item/clothing/suit/space/eva
 	helmet_type = /obj/item/clothing/head/helmet/space/eva
@@ -506,7 +509,7 @@
 	if(suit && istype(suit))
 		cell = suit.cell
 	if(mod)
-		cell = mod.get_cell()
+		cell = mod.get_charge_source()
 	if(!cell || cell.charge == cell.maxcharge)
 		return
 
