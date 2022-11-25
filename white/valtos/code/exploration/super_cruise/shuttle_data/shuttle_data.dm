@@ -68,8 +68,8 @@
 	//Get the docking port
 	var/obj/docking_port/mobile/attached_port = SSshuttle.getShuttle(port_id)
 	shuttle_name = attached_port.name
-	//spawn(5 SECONDS) // фикс года
-	calculate_initial_stats()
+	spawn(5 SECONDS) // фикс года
+		calculate_initial_stats()
 	//Create the communications manager for that shuttle
 	comms = new /datum/orbital_comms_manager(port_id, shuttle_name)
 	SSorbits.register_communication_manager(comms)
