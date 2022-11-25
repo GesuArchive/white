@@ -268,6 +268,9 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/cargo)
+"mN" = (
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/freelancer/cargo)
 "ng" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -546,6 +549,10 @@
 	locked = 0
 	},
 /turf/open/floor/mineral/plastitanium,
+/area/shuttle/freelancer/cargo)
+"yN" = (
+/obj/structure/sign/warning/fire,
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/freelancer/cargo)
 "Aa" = (
 /obj/effect/turf_decal/delivery,
@@ -964,7 +971,8 @@
 	width = 20;
 	height = 10;
 	dir = 4;
-	port_direction = 4
+	port_direction = 8;
+	preferred_direction = 2
 	},
 /turf/open/floor/plating,
 /area/shuttle/freelancer/passengers)
@@ -983,10 +991,10 @@
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/freelancer/passengers)
 "Xi" = (
-/obj/machinery/shuttle/engine/ion/burst{
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/shuttle/engine/ion{
 	dir = 1
 	},
-/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating/airless,
 /area/shuttle/freelancer/cargo)
 "XG" = (
@@ -1105,7 +1113,7 @@ tw
 to
 Be
 HY
-CV
+yN
 nC
 Xi
 "}
@@ -1147,7 +1155,7 @@ NR
 EE
 TW
 TW
-TW
+mN
 Ee
 Op
 nC
