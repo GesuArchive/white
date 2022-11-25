@@ -143,9 +143,17 @@
 	return FALSE
 
 /mob/living/carbon/human/proc/try_counterattack(atom/AM, obj/item/I)
+	if(combat_style == COMBAT_STYLE_CLASSIC)
+		return
+
 	if(next_move > world.time || !AM?.loc || !I || !isliving(AM.loc) || !(I in held_items))
 		return
+
 	var/mob/living/L = AM.loc
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		if(H.combat_style == COMBAT_STYLE_CLASSIC)
+			return
 	if(!L?.stat && mind)
 		I.attack(L, src)
 		var/mutual_speed = mind.get_skill_modifier(/datum/skill/parry, SKILL_SPEED_MODIFIER)
@@ -154,6 +162,9 @@
 		adjustStaminaLoss(mutual_speed)
 
 /mob/living/carbon/human/proc/check_block(mob/attacker)
+	if(combat_style == COMBAT_STYLE_CLASSIC)
+		return FALSE
+
 	if(mind)
 		if(mind.martial_art && prob(mind.martial_art.block_chance) && mind.martial_art.can_use(src) && !incapacitated(IGNORE_GRAB) && defense_check(get_turf(src), get_turf(attacker), dir))
 			playsound(src, 'white/valtos/sounds/block_hand.ogg', 100, TRUE)
@@ -162,6 +173,14 @@
 	return FALSE
 
 /mob/living/carbon/human/proc/check_dodge(mob/attacker)
+	if(combat_style == COMBAT_STYLE_CLASSIC)
+		return FALSE
+
+	if(ishuman(attacker))
+		var/mob/living/carbon/human/H = attacker
+		if(H.combat_style == COMBAT_STYLE_CLASSIC)
+			return FALSE
+
 	if(!stat && attacker && prob(PERCENT((health + dna.species.dodge_chance) / (maxHealth * 4))) && !incapacitated() && body_position != LYING_DOWN && defense_check(get_turf(src), get_turf(attacker), dir))
 		var/rand_prob = pick(1, -1) // выбираем лево или право
 		var/turf/T = get_open_turf_in_dir(src, turn(attacker.dir, rand_prob * 90))
