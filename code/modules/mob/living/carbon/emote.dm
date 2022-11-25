@@ -164,3 +164,16 @@
 		qdel(N)
 		to_chat(user, span_warning("Пока не могу шлёпать."))
 
+/datum/emote/living/carbon/snap
+	key = "snap"
+	key_third_person = "щёлкает"
+	message = "щёлкает пальцами."
+	message_param = "щелкает пальцами в сторону %t."
+	emote_type = EMOTE_AUDIBLE
+	hands_use_check = TRUE
+	muzzle_ignore = TRUE
+
+/datum/emote/living/carbon/snap/get_sound(mob/living/user)
+	if(ishuman(user))
+		return pick('sound/misc/fingersnap1.ogg', 'sound/misc/fingersnap2.ogg')
+	return null
