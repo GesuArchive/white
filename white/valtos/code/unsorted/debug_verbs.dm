@@ -1,6 +1,6 @@
 /client/proc/commit_warcrime()
 	set name = " ? Commit Warcrime"
-	set category = "Дбг"
+	set category = "Дбг.Ивент"
 
 	if(!check_rights(R_SECURED))
 		return
@@ -17,7 +17,7 @@
 
 /client/proc/uncommit_warcrime()
 	set name = " ? UnCommit Warcrime"
-	set category = "Дбг"
+	set category = "Дбг.Ивент"
 
 	if(!check_rights(R_SECURED))
 		return
@@ -34,7 +34,7 @@
 
 /client/proc/raspidoars()
 	set name = " ? Raspidoars"
-	set category = "Дбг"
+	set category = "Дбг.Ивент"
 
 	if(!check_rights(R_SECURED))
 		return
@@ -63,7 +63,7 @@
 
 /client/proc/kaboom()
 	set name = " ? Ka-Boom"
-	set category = "Дбг"
+	set category = "Дбг.Ивент"
 
 	if(!check_rights(R_SECURED))
 		return
@@ -94,7 +94,7 @@
 
 /client/proc/smooth_fucking_z_level()
 	set name = " ? Smooth Z-Level"
-	set category = "Дбг"
+	set category = "Дбг.Маппинг"
 
 	if(!check_rights(R_SECURED))
 		return
@@ -108,7 +108,7 @@
 
 /client/proc/get_tacmap_for_test()
 	set name = " ? Generate TacMap"
-	set category = "Дбг"
+	set category = "Дбг.Маппинг"
 
 	if(!check_rights(R_SECURED))
 		return
@@ -130,7 +130,7 @@
 
 /client/proc/toggle_major_mode()
 	set name = " ? Переключить ММ (тест)"
-	set category = "Дбг"
+	set category = "Дбг.Ивент"
 
 	if(!check_rights(R_SECURED))
 		return

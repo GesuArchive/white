@@ -217,6 +217,8 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/toggle_cdn,
 	/client/proc/load_circuit,
 	/client/proc/open_lua_editor,
+	/datum/admins/proc/fixcorruption,
+	/datum/admins/proc/reset_all_air,
 	)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, /proc/possess, /proc/release))
 GLOBAL_PROTECT(admin_verbs_possess)
@@ -642,7 +644,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Drop Dynamic Bomb") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/get_dynex_range()
-	set category = "Дбг"
+	set category = "Дбг.Бомбы"
 	set name = "Get DynEx Range"
 	set desc = "Get the estimated range of a bomb, using explosive power."
 
@@ -653,7 +655,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	to_chat(usr, "Estimated Explosive Range: (Devastation: [round(range*0.25)], Heavy: [round(range*0.5)], Light: [round(range)])")
 
 /client/proc/get_dynex_power()
-	set category = "Дбг"
+	set category = "Дбг.Бомбы"
 	set name = "Get DynEx Power"
 	set desc = "Get the estimated required power of a bomb, to reach a specific range."
 
@@ -664,7 +666,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	to_chat(usr, "Estimated Explosive Power: [power]")
 
 /client/proc/set_dynex_scale()
-	set category = "Дбг"
+	set category = "Дбг.Бомбы"
 	set name = "Set DynEx Scale"
 	set desc = "Set the scale multiplier of dynex explosions. The default is 0.5."
 
@@ -677,14 +679,14 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/atmos_control()
 	set name = "Atmos Control Panel"
-	set category = "Дбг"
+	set category = "Дбг.Атмос"
 	if(!check_rights(R_DEBUG))
 		return
 	SSair.ui_interact(mob)
 
 /client/proc/reload_cards()
 	set name = "Reload Cards"
-	set category = "Дбг"
+	set category = "Дбг.ТЦГ"
 	if(!check_rights(R_DEBUG))
 		return
 	if(!SStrading_card_game.loaded)
@@ -694,7 +696,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/validate_cards()
 	set name = "Validate Cards"
-	set category = "Дбг"
+	set category = "Дбг.ТЦГ"
 	if(!check_rights(R_DEBUG))
 		return
 	if(!SStrading_card_game.loaded)
@@ -707,7 +709,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/test_cardpack_distribution()
 	set name = "Test Cardpack Distribution"
-	set category = "Дбг"
+	set category = "Дбг.ТЦГ"
 	if(!check_rights(R_DEBUG))
 		return
 	if(!SStrading_card_game.loaded)
@@ -721,7 +723,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/print_cards()
 	set name = "Print Cards"
-	set category = "Дбг"
+	set category = "Дбг.ТЦГ"
 	printAllCards()
 
 /client/proc/give_spell(mob/spell_recipient in GLOB.mob_list)
@@ -901,7 +903,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/populate_world(amount = 50 as num)
 	set name = "Populate World"
-	set category = "Дбг"
+	set category = "Дбг.Маппинг"
 	set desc = "(\"Amount of mobs to create\") Populate the world with test mobs."
 
 	if (amount > 0)
@@ -947,7 +949,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/debugstatpanel()
 	set name = "Debug Stat Panel"
-	set category = "Дбг"
+	set category = "Дбг.Интерфейс"
 
 	src.stat_panel.send_message("create_debug")
 

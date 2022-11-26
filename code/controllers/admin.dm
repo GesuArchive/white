@@ -47,7 +47,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/statclick)
 
 // Debug verbs.
 /client/proc/restart_controller(controller in list("Master", "Failsafe"))
-	set category = "Дбг"
+	set category = "Дбг.Мусор"
 	set name = "Restart Controller"
 	set desc = "Restart one of the various periodic loop controllers for the game (be careful!)"
 
@@ -64,7 +64,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/statclick)
 	message_admins("Admin [key_name_admin(usr)] has restarted the [controller] controller.")
 
 /client/proc/nullify_garbage_list()
-	set category = "Дбг"
+	set category = "Дбг.Мусор"
 	set name = "Nullify Garbage List"
 	set desc = "Pizdos"
 

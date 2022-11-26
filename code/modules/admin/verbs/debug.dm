@@ -27,7 +27,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 */
 
 /client/proc/Cell()
-	set category = "Дбг"
+	set category = "Дбг.Атмос"
 	set name = "Air Status in Location"
 	if(!mob)
 		return
@@ -119,7 +119,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 
 //TODO: merge the vievars version into this or something maybe mayhaps
 /client/proc/cmd_debug_del_all_wrapper()
-	set category = "Дбг"
+	set category = "Дбг.Мусор"
 	set name = "Del-All"
 
 	var/msg = input(src, null, "Del-All") as text|null
@@ -150,7 +150,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 
 
 /client/proc/cmd_debug_make_powernets()
-	set category = "Дбг"
+	set category = "Дбг.Маппинг"
 	set name = "Make Powernets"
 	SSmachines.makepowernets()
 	log_admin("[key_name(src)] has remade the powernet. makepowernets() called.")
@@ -536,7 +536,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 
 /client/proc/startSinglo()
 
-	set category = "Дбг"
+	set category = "Дбг.Маппинг"
 	set name = "Start Singularity"
 	set desc = "Sets up the singularity and all machines to get power flowing through the station"
 
@@ -591,7 +591,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			SMES.input_attempt = 1
 
 /client/proc/cmd_debug_mob_lists()
-	set category = "Дбг"
+	set category = "Дбг.Мусор"
 	set name = "Debug Mob Lists"
 	set desc = "For when you just gotta know"
 
@@ -612,7 +612,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			to_chat(usr, jointext(GLOB.joined_player_list,","))
 
 /client/proc/cmd_display_del_log()
-	set category = "Дбг"
+	set category = "Дбг.Мусор"
 	set name = "Display del() Log"
 	set desc = "Display del's log of everything that's passed through it."
 
@@ -641,21 +641,21 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	usr << browse(dellog.Join(), "window=dellog")
 
 /client/proc/cmd_display_overlay_log()
-	set category = "Дбг"
+	set category = "Дбг.Мусор"
 	set name = "Display overlay Log"
 	set desc = "Display SSoverlays log of everything that's passed through it."
 
 	render_stats(SSoverlays.stats, src)
 
 /client/proc/cmd_display_init_log()
-	set category = "Дбг"
+	set category = "Дбг.Мусор"
 	set name = "Display Initialize() Log"
 	set desc = "Displays a list of things that didn't handle Initialize() properly"
 
 	usr << browse(replacetext(SSatoms.InitLog(), "\n", "<br>"), "window=initlog")
 
 /client/proc/debug_huds_wrapper()
-	set category = "Дбг"
+	set category = "Дбг.Интерфейс"
 	set name = "Debug HUDs"
 	set desc = "Debug the data or antag HUDs"
 
@@ -664,7 +664,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		debug_huds(msg)
 
 /client/proc/open_colorblind_test()
-	set category = "Дбг"
+	set category = "Дбг.Интерфейс"
 	set name = "Colorblind Testing"
 	set desc = "Change your view to a budget version of colorblindness to test for usability"
 
@@ -680,7 +680,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	debug_variables(GLOB.huds[i])
 
 /client/proc/jump_to_ruin()
-	set category = "Дбг"
+	set category = "Дбг.Маппинг"
 	set name = "Jump to Ruin"
 	set desc = "Displays a list of all placed ruins to teleport to."
 	if(!holder)
@@ -712,7 +712,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		to_chat(usr, span_italics("[template.description]"))
 
 /client/proc/place_ruin()
-	set category = "Дбг"
+	set category = "Дбг.Маппинг"
 	set name = "Spawn Ruin"
 	set desc = "Attempt to randomly place a specific ruin."
 	if (!holder)
@@ -765,7 +765,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		to_chat(src, span_warning("Failed to place [template.name]."))
 
 /client/proc/generate_ruin()
-	set category = "Дбг"
+	set category = "Дбг.Маппинг"
 	set name = "Generate Ruin"
 	set desc = "Randomly generate a space ruin."
 	if (!holder)
@@ -786,7 +786,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 		log_admin("[key_name(src)] randomly generated a space ruin at [COORD(mob)].")
 
 /client/proc/clear_dynamic_transit()
-	set category = "Дбг"
+	set category = "Дбг.Маппинг"
 	set name = "Clear Dynamic Turf Reservations"
 	set desc = "Deallocates all reserved space, restoring it to round start conditions."
 	if(!holder)
@@ -824,7 +824,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	GLOB.error_cache.show_to(src)
 
 /client/proc/pump_random_event()
-	set category = "Дбг"
+	set category = "Дбг.Ивент"
 	set name = "Pump Random Event"
 	set desc = "Schedules the event subsystem to fire a new random event immediately. Some events may fire without notification."
 	if(!holder)
@@ -885,7 +885,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 
 /// A debug verb to check the sources of currently running timers
 /client/proc/check_timer_sources()
-	set category = "Дбг"
+	set category = "Дбг.Мусор"
 	set name = "Check Timer Sources"
 	set desc = "Checks the sources of the running timers"
 	if (!check_rights(R_DEBUG))
@@ -1025,7 +1025,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 GLOBAL_VAR_INIT(is_theme_applied, FALSE)
 
 /client/proc/change_server_theme()
-	set category = "Дбг"
+	set category = "Дбг.Маппинг"
 	set name = "Change Server Theme"
 	set desc = "Oh god why..."
 	if(!holder)
@@ -1086,7 +1086,7 @@ GLOBAL_VAR_INIT(is_theme_applied, FALSE)
 	GLOB.is_theme_applied = which_theme
 
 /client/proc/debug_plane_masters()
-	set category = "Дбг"
+	set category = "Дбг.Интерфейс"
 	set name = "Edit/Debug Planes"
 	set desc = "Edit and visualize plane masters and their connections (relays)"
 

@@ -143,7 +143,7 @@
 
 /client/proc/debugNatureMapGenerator()
 	set name = "Test Nature Map Generator"
-	set category = "Дбг"
+	set category = "Дбг.Маппинг"
 
 	var/datum/map_generator/nature/N = new()
 	var/startInput = tgui_input_text(usr,"Start turf of Map, (X;Y;Z)", "Map Gen Settings", "1;1;1")

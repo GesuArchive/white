@@ -1,5 +1,5 @@
 /client/proc/air_status(turf/target)
-	set category = "Дбг"
+	set category = "Дбг.Атмос"
 	set name = "Display Air Status"
 
 	if(!isturf(target))
@@ -37,7 +37,7 @@
 	return
 
 /client/proc/radio_report()
-	set category = "Дбг"
+	set category = "Дбг.Маппинг"
 	set name = "Radio report"
 
 	var/output = "<b>Radio Report</b><hr>"

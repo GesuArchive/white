@@ -191,7 +191,7 @@ SUBSYSTEM_DEF(eventmaster)
 
 /client/proc/force_evenmaster_rules()
 	set name = "? Force Eventmaster Rules"
-	set category = "Дбг"
+	set category = "Дбг.Ивент"
 
 	if(!holder || !check_rights(R_DEBUG))
 		return

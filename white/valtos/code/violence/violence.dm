@@ -516,7 +516,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	usr << browse(dat, "window=violence;size=1050x690")
 
 /client/proc/force_violence_map()
-	set category = "Дбг"
+	set category = "Адм.Насилие"
 	set name = "Violence Map"
 
 	var/list/maplist = list()
@@ -535,7 +535,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	message_admins("[key_name_admin(src)] устанавливает карту [chosen_map] для насилия.")
 
 /client/proc/force_violence_mode()
-	set category = "Дбг"
+	set category = "Адм.Насилие"
 	set name = "Violence Mode"
 
 	var/list/modelist = list(VIOLENCE_PLAYMODE_TEAMFIGHT, VIOLENCE_PLAYMODE_BOMBDEF, VIOLENCE_PLAYMODE_TAG)
@@ -551,7 +551,7 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	message_admins("[key_name_admin(src)] выбирает режим [chosen_mode] для насилия.")
 
 /client/proc/violence_friendlyfire()
-	set category = "Дбг"
+	set category = "Адм.Насилие"
 	set name = "Violence Friendlyfire"
 
 	GLOB.violence_friendlyfire = !GLOB.violence_friendlyfire

@@ -278,7 +278,7 @@
 /// Locked behind a verb because it's fairly slow and memory intensive.
 /client/proc/validate_puzzgrids()
 	set name = "Validate Puzzgrid Config"
-	set category = "Дбг"
+	set category = "Дбг.Маппинг"
 
 	var/line_number = 0
 
