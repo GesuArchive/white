@@ -126,7 +126,6 @@ SUBSYSTEM_DEF(air)
 	SSair.can_fire = 1
 
 /datum/admins/proc/reset_all_air()
-	. = ..()
 	set category = "Дбг.Атмос"
 	set name="Reset All Air"
 
