@@ -89,4 +89,4 @@
 	///human specific screwyhuds from hallucinations (define key (bodypart) to int value (severity)) - see /datum/hallucination/fake_health_doll
 	var/hal_screwydoll
 
-	var/combat_style = COMBAT_STYLE_ADVANCED
+	var/combat_style = COMBAT_STYLE_CLASSIC
