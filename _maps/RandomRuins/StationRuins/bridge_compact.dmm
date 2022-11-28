@@ -344,9 +344,6 @@
 	location = "CHW"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -4494,6 +4491,12 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/hallway/primary/central/low_level_centre)
+"Ws" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central/north)
 "Wt" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4{
@@ -4781,7 +4784,7 @@ ab
 ab
 ab
 ab
-yf
+Ws
 KX
 yf
 wu
