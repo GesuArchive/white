@@ -64,8 +64,8 @@
 	collision_warning = new(src,  FALSE)
 
 /obj/machinery/computer/shuttle_flight/proc/set_shuttle_id(new_id, stack_depth = 0)
-	if (stack_depth > 5)
-		CRASH("Failed to set shuttle ID after 5 attempts, shuttle does still not exist. Old ID: [shuttleId]; New ID: [new_id]; Registered: [registered]; ")
+	if (stack_depth > 30) // fucking
+		CRASH("Failed to set shuttle ID after 30 attempts, shuttle does still not exist. Old ID: [shuttleId]; New ID: [new_id]; Registered: [registered]; ")
 	//Unregister if we need
 	if (registered)
 		if (shuttleObject)

@@ -1053,6 +1053,9 @@
 	name = "Mining Dock";
 	req_access_txt = "48"
 	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/cargo/storage)
 "cT" = (
@@ -1395,9 +1398,6 @@
 /turf/open/floor/plasteel,
 /area/science/research)
 "dR" = (
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 8
-	},
 /obj/machinery/door/airlock/external{
 	name = "Supply Dock Airlock";
 	req_access_txt = "31"

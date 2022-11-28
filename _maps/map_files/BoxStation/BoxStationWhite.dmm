@@ -35563,7 +35563,6 @@
 	},
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/obj/effect/mapping_helpers/airlock/access/any/science/xenobio,
 /turf/open/floor/plating,
 /area/science/cytology)
 "kIJ" = (
@@ -37039,6 +37038,9 @@
 /obj/machinery/light{
 	dir = 1;
 	pixel_y = 0
+	},
+/obj/machinery/airalarm{
+	pixel_y = 23
 	},
 /turf/open/floor/plasteel,
 /area/cargo/office)

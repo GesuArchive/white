@@ -38,9 +38,6 @@
 	r_pocket = /obj/item/kitchen/knife/combat
 	l_pocket = /obj/item/gps
 
-	suit_store = /obj/item/tank/internals/tactical
-	internals_slot = ITEM_SLOT_SUITSTORE
-
 	id_trim = /datum/id_trim/job/freelancer
 
 /datum/job/freelancer/override_latejoin_spawn(mob/living/carbon/human/H)
