@@ -481,6 +481,11 @@
 ///Called when a movable is teleported from `do_teleport()`: (destination, channel)
 #define COMSIG_MOVABLE_TELEPORTED "movable_teleported"
 
+/// Sent from /obj/item/radio/talk_into(): (obj/item/radio/used_radio)
+#define COMSIG_MOVABLE_USING_RADIO "movable_radio"
+	/// Return to prevent the movable from talking into the radio.
+	#define COMPONENT_CANNOT_USE_RADIO (1<<0)
+
 // /mob signals
 
 ///from base of /mob/Login(): ()

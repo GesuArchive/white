@@ -465,6 +465,7 @@
 	signer.bubble_icon = "signlang"
 	ADD_TRAIT(signer, TRAIT_SIGN_LANG, "tongue")
 	REMOVE_TRAIT(signer, TRAIT_MUTE, "tongue")
+	RegisterSignal(signer, COMSIG_MOVABLE_USING_RADIO, .proc/on_use_radio)
 
 /obj/item/organ/tongue/tied/Remove(mob/living/carbon/speaker, special = 0)
 	..()
@@ -475,6 +476,7 @@
 	speaker.verb_yell = initial(speaker.verb_yell)
 	speaker.bubble_icon = initial(speaker.bubble_icon)
 	REMOVE_TRAIT(speaker, TRAIT_SIGN_LANG, "tongue") //People who are Ahealed get "cured" of their sign language-having ways. If I knew how to make the tied tongue persist through aheals, I'd do that.
+	UnregisterSignal(speaker, COMSIG_MOVABLE_USING_RADIO)
 
 /obj/item/organ/tongue/tied/handle_speech(datum/source, list/speech_args)
 	// The message we send instead of our normal one
@@ -509,3 +511,10 @@
 		return
 	owner.cut_overlay(tonal_indicator)
 	tonal_indicator = null
+
+/// Signal proc for [COMSIG_MOVABLE_USING_RADIO] that disallows us from speaking on comms if we don't have the special trait
+/// Being unable to sign, or having our message be starred out, is handled by the above two signal procs.
+/obj/item/organ/tongue/tied/proc/on_use_radio(atom/movable/source, obj/item/radio/radio)
+	SIGNAL_HANDLER
+
+	return HAS_TRAIT(source, TRAIT_CAN_SIGN_ON_COMMS) ? NONE : COMPONENT_CANNOT_USE_RADIO
