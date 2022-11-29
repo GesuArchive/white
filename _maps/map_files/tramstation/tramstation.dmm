@@ -9358,7 +9358,7 @@
 	dwidth = 11;
 	height = 22;
 	name = "SS13: Auxiliary Dock, Station-Port";
-	shuttle_id = "whiteship_home";
+	id = "whiteship_home";
 	width = 35
 	},
 /turf/open/space/openspace,
@@ -17449,8 +17449,8 @@
 	dwidth = 2;
 	height = 5;
 	name = "fore bay 1";
-	roundstart_template = /datum/map_template/shuttle/labour/generic;
-	shuttle_id = "laborcamp_home";
+	roundstart_template = /datum/map_template/shuttle/labour/box;
+	id = "laborcamp_home";
 	width = 9
 	},
 /turf/open/floor/plating/asteroid/airless,
@@ -21521,7 +21521,7 @@
 	height = 15;
 	name = "arrivals";
 	roundstart_template = /datum/map_template/shuttle/arrival/box;
-	shuttle_id = "arrival_stationary";
+	id = "arrival_stationary";
 	width = 7
 	},
 /turf/open/space/openspace,
@@ -31802,7 +31802,7 @@
 /obj/docking_port/stationary/random{
 	dir = 4;
 	name = "lavaland";
-	shuttle_id = "pod_lavaland"
+	id = "pod_lavaland"
 	},
 /turf/open/floor/plating/asteroid/airless,
 /area/mine/explored)
@@ -32236,7 +32236,7 @@
 /obj/docking_port/stationary/random{
 	dir = 8;
 	name = "lavaland";
-	shuttle_id = "pod_lavaland"
+	id = "pod_lavaland"
 	},
 /turf/open/space/openspace,
 /area/space)
@@ -38022,7 +38022,7 @@
 	dwidth = 2;
 	height = 13;
 	name = "port bay 2";
-	shuttle_id = "ferry_home";
+	id = "ferry_home";
 	width = 5
 	},
 /turf/open/space/openspace,
@@ -43412,7 +43412,7 @@
 	dwidth = 5;
 	height = 7;
 	name = "Cargo Bay";
-	shuttle_id = "cargo_home";
+	id = "cargo_home";
 	width = 12
 	},
 /turf/open/floor/plating/asteroid/airless,
@@ -55610,9 +55610,7 @@
 /area/hallway/secondary/service)
 "tGI" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/computer/turbine_computer{
-	mapping_id = "main_turbine"
-	},
+/obj/machinery/computer/turbine_computer,
 /obj/structure/cable/layer1,
 /turf/open/floor/plasteel,
 /area/maintenance/disposal/incinerator)
@@ -61421,7 +61419,7 @@
 	dwidth = 12;
 	height = 18;
 	name = "Tramstation emergency evac bay";
-	shuttle_id = "emergency_home";
+	id = "emergency_home";
 	width = 32
 	},
 /turf/open/space/openspace,

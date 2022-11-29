@@ -3005,15 +3005,6 @@
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/maintenance/fore/upper)
-"aAM" = (
-/obj/machinery/atmospherics/pipe/smart/simple/supply/visible/layer4{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden{
-	dir = 8
-	},
-/turf/open/floor/plasteel,
-/area/maintenance/fore/upper)
 "aBp" = (
 /obj/structure/railing/corner,
 /obj/effect/turf_decal/stripes,
@@ -24269,10 +24260,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/command/heads_quarters/rd)
-"iwR" = (
-/obj/machinery/atmospherics/components/binary/pump/layer4,
-/turf/open/floor/plasteel,
-/area/maintenance/fore/upper)
 "iwS" = (
 /turf/open/floor/plasteel/dark/side{
 	dir = 5
@@ -38254,13 +38241,11 @@
 /area/command/heads_quarters/captain)
 "nMY" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer4{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /turf/open/floor/plasteel/dark,
 /area/maintenance/fore/upper)
 "nNg" = (
@@ -53316,7 +53301,6 @@
 /obj/machinery/atmospherics/components/binary/pump/layer2{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/layer_manifold/supply/visible,
 /turf/open/floor/plasteel,
 /area/maintenance/fore/upper)
 "tFL" = (
@@ -62338,7 +62322,6 @@
 /obj/machinery/atmospherics/components/binary/pump/layer4{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/simple/supply/visible/layer4,
 /turf/open/floor/plasteel,
 /area/maintenance/fore/upper)
 "xap" = (
@@ -89296,8 +89279,8 @@ frj
 iyi
 tFu
 xaa
-iwR
-aAM
+kLH
+wOl
 upU
 kLH
 wOl

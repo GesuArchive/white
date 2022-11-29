@@ -5464,6 +5464,13 @@
 /obj/effect/turf_decal/delivery/red,
 /turf/open/floor/carpet/black,
 /area/cargo/storage)
+"eud" = (
+/obj/effect/turf_decal/trimline/yellow/line,
+/obj/machinery/atmospherics/pipe/smart/simple/supply/visible{
+	dir = 10
+	},
+/turf/open/floor/plasteel/dark,
+/area/engineering/atmos)
 "euG" = (
 /obj/effect/turf_decal/trimline/green/line{
 	dir = 10
@@ -11373,7 +11380,7 @@
 /turf/open/floor/plasteel/white/corner,
 /area/medical/surgery/room_b)
 "iUT" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible{
+/obj/machinery/atmospherics/pipe/smart/simple/supply/visible{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -18522,6 +18529,13 @@
 	},
 /turf/open/floor/plasteel,
 /area/commons/dorms)
+"oKz" = (
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/supply/visible,
+/turf/open/floor/plasteel,
+/area/engineering/atmos)
 "oKS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -19063,7 +19077,7 @@
 /turf/open/floor/plasteel/dark,
 /area/command/gateway)
 "pis" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
 	dir = 9
 	},
 /turf/open/floor/plasteel,
@@ -21914,10 +21928,8 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible{
+/obj/machinery/atmospherics/pipe/smart/simple/supply/visible,
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -22735,8 +22747,8 @@
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible{
-	dir = 4
+/obj/machinery/atmospherics/pipe/smart/simple/supply/visible{
+	dir = 5
 	},
 /turf/open/floor/plasteel/dark,
 /area/engineering/atmos)
@@ -23712,9 +23724,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/simple/supply/visible,
 /turf/open/floor/plasteel/dark/side,
 /area/engineering/atmos)
 "sTs" = (
@@ -25473,7 +25483,7 @@
 /area/science/server)
 "uju" = (
 /obj/effect/turf_decal/trimline/yellow/line,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible{
+/obj/machinery/atmospherics/pipe/smart/simple/supply/visible{
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
@@ -25975,8 +25985,8 @@
 /area/security/prison)
 "uBW" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible{
-	dir = 9
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
+	dir = 6
 	},
 /turf/open/floor/plasteel,
 /area/engineering/atmos)
@@ -29973,8 +29983,8 @@
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible{
-	dir = 4
+/obj/machinery/atmospherics/pipe/smart/simple/supply/visible{
+	dir = 10
 	},
 /turf/open/floor/plasteel,
 /area/engineering/atmos)
@@ -461045,7 +461055,7 @@ aAK
 uMf
 xpC
 rvP
-xpC
+oKz
 sTn
 scD
 wgo
@@ -462846,7 +462856,7 @@ sbS
 fcQ
 vmL
 lBD
-uju
+eud
 eDu
 qva
 tvj
