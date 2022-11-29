@@ -10029,9 +10029,7 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard)
 "gvX" = (
-/obj/machinery/portable_atmospherics/canister/miasma{
-	gas_type = /datum/gas/oxygen
-	},
+/turf/open/space/basic,
 /turf/open/floor/engine/vacuum,
 /area/engineering/atmos)
 "gwm" = (
@@ -11750,11 +11748,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/obj/machinery/power/apc/highcap/ten_k{
-	areastring = /area/engineering/atmos;
-	dir = 1;
-	pixel_y = 25
-	},
+/obj/machinery/power/apc/ten_k/directional/north,
 /turf/open/floor/plasteel/dark/corner{
 	dir = 1
 	},
@@ -20272,7 +20266,6 @@
 /area/maintenance/port)
 "oEM" = (
 /obj/effect/landmark/event_spawn,
-/obj/machinery/airalarm,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
 	},
@@ -20282,6 +20275,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/airalarm/directional/south,
 /turf/open/floor/plasteel,
 /area/engineering/atmos)
 "oFk" = (
@@ -24171,7 +24165,7 @@
 	height = 5;
 	id = "mining_home";
 	name = "mining shuttle bay";
-	roundstart_template = /datum/map_template/shuttle/mining;
+	roundstart_template = /datum/map_template/shuttle/mining/box;
 	width = 7
 	},
 /turf/open/floor/plating,
@@ -30900,12 +30894,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/maintenance/aft)
-"xmK" = (
-/obj/machinery/atmospherics/pipe/bridge_pipe/scrubbers/visible{
-	dir = 4
-	},
-/turf/open/floor/plasteel/dark,
-/area/maintenance/disposal/incinerator)
 "xnk" = (
 /obj/machinery/light,
 /obj/machinery/camera{
@@ -68673,7 +68661,7 @@ oZF
 fBn
 wnO
 pUr
-xmK
+dGu
 dGu
 ePX
 ygk

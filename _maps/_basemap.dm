@@ -11,7 +11,6 @@
 		#include "map_files\Blueshift\BlueShift_middle.dmm"
 		#include "map_files\Blueshift\BlueShift_upper.dmm"
 		#include "map_files\Box\Box.dmm"
-		#include "map_files\Coldstone\Coldstone.dmm"
 		#include "map_files\ConstructionStation\ConstructionStation.dmm"
 		#include "map_files\CrashSite\CrashSite.dmm"
 		#include "map_files\Dawn\dawn.dmm"

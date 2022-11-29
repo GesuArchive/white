@@ -6980,9 +6980,7 @@
 /turf/open/floor/plasteel,
 /area/commons/dorms)
 "fIm" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
 /turf/open/floor/plasteel/dark,
 /area/engineering/atmos)
 "fIt" = (
@@ -7993,9 +7991,9 @@
 /turf/open/floor/plasteel,
 /area/service/bar/atrium)
 "gti" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 8
+/obj/machinery/atmospherics/pipe/smart/simple/green/visible,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
+	dir = 4
 	},
 /turf/open/floor/plasteel/dark/side,
 /area/engineering/atmos)
@@ -12115,8 +12113,8 @@
 /obj/item/storage/belt/utility,
 /obj/item/t_scanner,
 /obj/item/t_scanner,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 8
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
+	dir = 4
 	},
 /turf/open/floor/plasteel/dark/side,
 /area/engineering/atmos)
@@ -13393,9 +13391,9 @@
 /obj/item/weldingtool,
 /obj/item/clothing/head/welding,
 /obj/item/clothing/head/welding,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 8
+/obj/machinery/atmospherics/pipe/smart/simple/green/visible,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
+	dir = 4
 	},
 /turf/open/floor/plasteel/dark/side,
 /area/engineering/atmos)
@@ -13451,8 +13449,8 @@
 "kJz" = (
 /obj/effect/turf_decal/delivery,
 /obj/item/kirbyplants/random,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 8
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
+	dir = 4
 	},
 /turf/open/floor/plasteel/dark/side,
 /area/engineering/atmos)
@@ -14643,8 +14641,8 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/item/flashlight,
 /obj/item/flashlight,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 8
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
+	dir = 4
 	},
 /turf/open/floor/plasteel/dark/side,
 /area/engineering/atmos)
@@ -15168,7 +15166,7 @@
 "lXW" = (
 /obj/item/beacon,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible{
+/obj/machinery/atmospherics/pipe/smart/simple/green/visible{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
@@ -17936,8 +17934,8 @@
 "olt" = (
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/delivery,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 8
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
+	dir = 4
 	},
 /turf/open/floor/plasteel/dark/side,
 /area/engineering/atmos)
@@ -20668,9 +20666,8 @@
 /turf/open/floor/plasteel/dark,
 /area/security/prison)
 "qBf" = (
-/obj/effect/landmark/start/atmospheric_technician,
 /obj/effect/turf_decal/trimline/yellow/line,
-/obj/machinery/atmospherics/pipe/bridge_pipe/cyan/visible,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
 /turf/open/floor/plasteel/dark,
 /area/engineering/atmos)
 "qBl" = (
@@ -22947,6 +22944,10 @@
 /obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/dark,
 /area/medical/medbay/central)
+"sln" = (
+/obj/machinery/atmospherics/pipe/smart/simple/green/visible,
+/turf/open/floor/plasteel,
+/area/engineering/atmos)
 "slF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible{
 	dir = 1
@@ -23297,8 +23298,8 @@
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
 "sAq" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 8
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
+	dir = 10
 	},
 /turf/open/floor/plasteel/dark/side,
 /area/engineering/atmos)
@@ -23721,10 +23722,10 @@
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/smart/simple/supply/visible,
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
+	dir = 4
+	},
 /turf/open/floor/plasteel/dark/side,
 /area/engineering/atmos)
 "sTs" = (
@@ -29812,6 +29813,12 @@
 	},
 /turf/open/floor/plating/rust,
 /area/boxplanet/surface)
+"xhW" = (
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
+	dir = 6
+	},
+/turf/open/floor/plasteel/dark/side,
+/area/engineering/atmos)
 "xij" = (
 /obj/structure/window/reinforced,
 /turf/open/floor/plasteel,
@@ -29840,6 +29847,13 @@
 /obj/effect/turf_decal/trimline/red/filled/corner,
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
+"xjN" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/simple/green/visible{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/engineering/atmos)
 "xjO" = (
 /obj/machinery/door/window/brigdoor{
 	dir = 4;
@@ -30008,8 +30022,8 @@
 /obj/item/clothing/gloves/color/black,
 /obj/item/clothing/glasses/meson/engine/tray,
 /obj/item/clothing/glasses/meson/engine/tray,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible{
-	dir = 8
+/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
+	dir = 4
 	},
 /turf/open/floor/plasteel/dark/side,
 /area/engineering/atmos)
@@ -460799,7 +460813,7 @@ uIr
 iUT
 uBW
 pis
-sAq
+xhW
 fIm
 jnd
 qva
@@ -461312,7 +461326,7 @@ tBH
 nji
 vmL
 fFi
-lHG
+sln
 gti
 hjb
 mjQ
@@ -461568,7 +461582,7 @@ gpn
 tBH
 vEH
 vmL
-sdy
+xjN
 vmL
 kJz
 uju
@@ -461825,7 +461839,7 @@ qxA
 kdJ
 eEW
 vmL
-sdy
+xjN
 vmL
 uLt
 snM
@@ -462340,7 +462354,7 @@ oSt
 oSS
 kAY
 wiK
-lHG
+sln
 kGS
 hjb
 qxA
@@ -463626,7 +463640,7 @@ ugD
 das
 ygt
 vmL
-nsy
+jYO
 tgp
 bul
 ndI

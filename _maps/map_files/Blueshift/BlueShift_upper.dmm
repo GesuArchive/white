@@ -12504,9 +12504,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
-	dir = 4
-	},
 /turf/open/floor/plasteel/white,
 /area/commons/toilet/restrooms)
 "dOi" = (
@@ -20574,9 +20571,6 @@
 /obj/machinery/light/small/directional/east,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
-	dir = 4
 	},
 /turf/open/floor/plasteel/white,
 /area/commons/toilet/restrooms)

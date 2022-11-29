@@ -243,7 +243,7 @@ GLOBAL_VAR_INIT(forced_parallax_type, 1)
 			SSticker.mode.station_was_nuked = TRUE
 		result = 1
 		Cinematic(CINEMATIC_RUINERS_WIN, world, CALLBACK(SSticker, /datum/controller/subsystem/ticker/proc/station_explosion_detonation, src))
-		SSmapping.changemap(config.maplist["Coldstone"])
+		SSmapping.changemap(config.maplist["Crash Site"])
 	else if ((started_at + win_time) < world.time)
 		result = 2
 	if(result)
