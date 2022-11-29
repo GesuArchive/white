@@ -3411,7 +3411,6 @@
 	network = list("ss13","prison")
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/plasteel{
 	dir = 1
 	},
@@ -7193,8 +7192,8 @@
 "egN" = (
 /obj/item/kirbyplants/random,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plasteel/dark/side{
 	dir = 9
 	},
@@ -16174,7 +16173,6 @@
 /area/security/processing)
 "lsq" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name,
 /obj/machinery/camera{
 	c_tag = "Security - Lower Hallway";
 	dir = 8
@@ -16185,6 +16183,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/plasteel,
 /area/security/prison/visit)
 "ltP" = (
@@ -26192,7 +26191,7 @@
 /obj/item/wrench,
 /obj/item/storage/toolbox/mechanical,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/plasteel,
 /area/engineering/atmospherics_engine)
 "tzy" = (
@@ -30308,7 +30307,6 @@
 /area/engineering/atmos)
 "wOT" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name,
 /obj/machinery/camera{
 	c_tag = "Atmospherics - Gear Room";
 	dir = 1;
@@ -30316,7 +30314,7 @@
 	},
 /obj/machinery/light/small,
 /obj/machinery/light_switch/directional/south,
-/obj/item/radio/intercom/directional/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/plasteel,
 /area/engineering/atmos/upper)
 "wPy" = (

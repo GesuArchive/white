@@ -2,7 +2,7 @@
 "aaa" = (
 /obj/structure/chair/office,
 /turf/open/floor/plasteel/grimy,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "aaj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -396,7 +396,7 @@
 /obj/structure/cable,
 /obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/grimy,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "aka" = (
 /obj/effect/turf_decal/trimline/yellow/line{
 	dir = 9
@@ -1103,7 +1103,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "aJW" = (
 /turf/open/floor/plating/dirt/jungle/dark,
 /area/icemoon/surface/outdoors)
@@ -3184,7 +3184,7 @@
 	},
 /obj/item/kirbyplants/random,
 /turf/open/floor/plasteel/dark,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "csV" = (
 /turf/closed/wall/r_wall,
 /area/medical/surgery/room_b)
@@ -3862,7 +3862,7 @@
 /obj/item/pen,
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/plasteel/grimy,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "cUY" = (
 /obj/structure/chair/comfy/black{
 	dir = 4
@@ -4116,6 +4116,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
 /turf/open/floor/plasteel/dark,
 /area/engineering/atmos)
+"dfP" = (
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server/upper)
 "dfT" = (
 /obj/machinery/light{
 	dir = 8
@@ -6630,7 +6633,7 @@
 "fwf" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/plasteel/grimy,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "fwm" = (
 /obj/machinery/door/airlock/security/glass{
 	id_tag = "permaouter";
@@ -8137,7 +8140,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark/telecomms,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "gzv" = (
 /obj/effect/turf_decal/trimline/green/line,
 /obj/effect/turf_decal/tile/bar{
@@ -9672,7 +9675,7 @@
 "hCq" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "hCF" = (
 /turf/open/floor/plasteel/stairs/right,
 /area/hallway/secondary/command)
@@ -10082,7 +10085,7 @@
 	pixel_y = 5
 	},
 /turf/open/floor/plasteel/dark,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "hRq" = (
 /obj/effect/landmark/start/roboticist,
 /turf/open/floor/plasteel/dark,
@@ -10189,7 +10192,6 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/noslip,
 /area/hallway/secondary/command)
@@ -10205,7 +10207,7 @@
 /obj/structure/table/wood,
 /obj/item/storage/box/donkpockets,
 /turf/open/floor/plasteel/dark,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "hXD" = (
 /obj/item/beacon,
 /turf/open/floor/plasteel,
@@ -10214,7 +10216,7 @@
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/beer{
 	desc = "Whatever it is, it reeks of foul, putrid froth.";
-	list_reagents = list(/datum/reagent/consumable/ethanol/bacchus_blessing = 15);
+	list_reagents = list(/datum/reagent/consumable/ethanol/bacchus_blessing=15);
 	name = "Delta-Down";
 	pixel_x = 5;
 	pixel_y = 5
@@ -11186,7 +11188,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/grimy,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "iNi" = (
 /obj/machinery/libraryscanner,
 /obj/effect/turf_decal/delivery/red,
@@ -11230,7 +11232,7 @@
 	pixel_x = 6
 	},
 /turf/open/floor/plasteel/dark,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "iOT" = (
 /turf/open/floor/engine/hull/reinforced{
 	initial_gas_mix = "o2=22;n2=82;TEMP=180"
@@ -11621,7 +11623,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/grimy,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "jgI" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -12525,7 +12527,7 @@
 /obj/item/folder/red,
 /obj/item/pen,
 /turf/open/floor/plasteel/dark,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "jRr" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/grass/jungle/b,
@@ -14623,7 +14625,7 @@
 "lBw" = (
 /obj/machinery/light,
 /turf/open/floor/plasteel/dark/telecomms,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "lBD" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
@@ -15255,7 +15257,7 @@
 /area/command/gateway)
 "maq" = (
 /turf/closed/wall/r_wall,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "maS" = (
 /obj/effect/landmark/start/security_officer,
 /obj/effect/turf_decal/tile/red,
@@ -16836,7 +16838,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "nrs" = (
 /obj/effect/turf_decal/trimline/red/filled/line,
 /turf/open/floor/plasteel,
@@ -16882,7 +16884,7 @@
 /area/security/prison)
 "ntq" = (
 /turf/open/floor/plasteel/grimy,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "ntt" = (
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/wood,
@@ -17419,7 +17421,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "nPd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible{
 	dir = 8
@@ -17545,7 +17547,7 @@
 /obj/item/kirbyplants/random,
 /obj/structure/cable,
 /turf/open/floor/plasteel/grimy,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "nVg" = (
 /obj/effect/spawner/random/structure/crate,
 /obj/effect/turf_decal/bot,
@@ -18602,7 +18604,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/plasteel/grimy,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "oPp" = (
 /obj/structure/table/wood,
 /obj/item/clipboard,
@@ -19109,7 +19111,7 @@
 "pkR" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer/on,
 /turf/open/floor/plasteel/dark,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "pkS" = (
 /turf/closed/indestructible/black,
 /area/boxplanet/surface)
@@ -19205,7 +19207,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/grimy,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "ptI" = (
 /obj/machinery/atmospherics/pipe/multiz,
 /obj/effect/turf_decal/trimline/yellow/line{
@@ -21532,7 +21534,7 @@
 	name = "server vent"
 	},
 /turf/open/floor/plasteel/dark/telecomms,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "rhL" = (
 /obj/structure/table/reinforced,
 /obj/item/holosign_creator/robot_seat/bar,
@@ -23488,7 +23490,7 @@
 	},
 /obj/structure/filingcabinet/medical,
 /turf/open/floor/plasteel/dark,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "sJG" = (
 /obj/structure/chair/pew/left{
 	dir = 8
@@ -24662,7 +24664,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/grimy,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "tEE" = (
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai)
@@ -25488,7 +25490,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/plasteel/grimy,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "ujJ" = (
 /obj/machinery/atmospherics/pipe/multiz,
 /obj/effect/turf_decal/trimline/yellow/line{
@@ -25501,7 +25503,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark/telecomms,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "ujT" = (
 /obj/structure/table,
 /obj/item/pai_card,
@@ -28523,7 +28525,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel/grimy,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "wqp" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -29744,7 +29746,7 @@
 	dir = 5
 	},
 /turf/open/floor/plasteel/grimy,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "xgD" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -29985,7 +29987,7 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /turf/open/floor/plasteel/dark,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "xqn" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
@@ -30969,7 +30971,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
 /turf/open/floor/plasteel/dark/telecomms,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "ydd" = (
 /obj/item/storage/cans/sixbeer,
 /turf/open/floor/engine/hull{
@@ -30999,7 +31001,7 @@
 	pressure_checks = 0
 	},
 /turf/open/floor/plasteel/dark/telecomms,
-/area/tcommsat/server)
+/area/tcommsat/server/upper)
 "ydM" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating/icemoon,
@@ -591351,7 +591353,7 @@ ntq
 iML
 sJl
 ujO
-mbQ
+dfP
 maq
 xKW
 xKW

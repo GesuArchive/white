@@ -61375,15 +61375,6 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
-"iFV" = (
-/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
-	dir = 4
-	},
-/turf/open/floor/plasteel,
-/area/engineering/atmos)
 "iGj" = (
 /obj/structure/table,
 /obj/item/implanter{
@@ -67029,12 +67020,6 @@
 	c_tag = "Science Toxins Launch 2";
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 10
-	},
 /turf/open/floor/plasteel/white,
 /area/science/mixing)
 "ndM" = (
@@ -69848,12 +69833,6 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 9
-	},
 /turf/open/floor/plasteel/dark,
 /area/science/mixing)
 "pgX" = (
@@ -71843,8 +71822,6 @@
 /turf/open/floor/plating,
 /area/engineering/atmos)
 "qAs" = (
-/obj/machinery/power/apc/auto_name/directional/north,
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 6
 	},
@@ -75164,7 +75141,6 @@
 	name = "Toxins Lab Maintenance";
 	req_access_txt = "8"
 	},
-/obj/structure/cable,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
@@ -125585,7 +125561,7 @@ bUF
 bCi
 bXo
 bMj
-iFV
+ure
 cVJ
 ccQ
 bza

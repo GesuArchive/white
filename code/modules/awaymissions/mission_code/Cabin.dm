@@ -170,7 +170,6 @@
 
 /area/awaymission/snowy/Initialize(mapload)
 	. = ..()
-	RunGeneration()
 	icon = 'white/valtos/icons/cliffs.dmi'
 	icon_state = "snow_storm"
 	layer = OPENSPACE_LAYER

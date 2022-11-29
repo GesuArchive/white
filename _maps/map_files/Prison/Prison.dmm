@@ -822,7 +822,6 @@
 /turf/open/floor/carpet/royalblue,
 /area/command/heads_quarters/captain)
 "kg" = (
-/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/machinery/light/directional/west,
 /turf/open/floor/resin,
@@ -2419,7 +2418,6 @@
 /turf/open/floor/plasteel/dark,
 /area/engineering/main)
 "Cm" = (
-/obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
 /obj/machinery/light/directional/south,
 /turf/open/floor/resin,
@@ -2433,11 +2431,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/cargo/office)
-"Cw" = (
-/obj/machinery/power/apc/auto_name/directional/east,
-/obj/structure/cable,
-/turf/open/floor/resin,
-/area/security/prison/safe)
 "CB" = (
 /obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/plasteel/white,
@@ -18251,7 +18244,7 @@ LS
 LS
 LS
 Ol
-Cw
+jB
 Kr
 Yp
 sx

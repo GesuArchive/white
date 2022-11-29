@@ -377,7 +377,6 @@
 
 /area/partyhard/surface/Initialize(mapload)
 	. = ..()
-	RunGeneration()
 	spawn(2 MINUTES)
 		icon = 'white/valtos/icons/cliffs.dmi'
 		icon_state = "snow_storm"

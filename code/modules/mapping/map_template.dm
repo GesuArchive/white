@@ -132,13 +132,13 @@
 
 	require_area_resort()
 
-	SSair.unpause_z(level.z_value)
-
 	//initialize things that are normally initialized after map load
 	initTemplateBounds(bounds)
 	smooth_zlevel(world.maxz)
 
 	log_game("Z-level [name] ([mappath]) loaded at [x],[y],[world.maxz]")
+
+	SSair.unpause_z(level.z_value)
 
 	return level
 
