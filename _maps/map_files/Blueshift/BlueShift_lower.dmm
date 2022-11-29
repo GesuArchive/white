@@ -10029,7 +10029,6 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard)
 "gvX" = (
-/turf/open/space/basic,
 /turf/open/floor/engine/vacuum,
 /area/engineering/atmos)
 "gwm" = (
