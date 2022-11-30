@@ -6622,17 +6622,14 @@
 /turf/open/floor/plasteel/dark,
 /area/engineering/atmospherics_engine)
 "dGu" = (
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
 /turf/open/floor/plasteel/dark,
 /area/maintenance/disposal/incinerator)
 "dGL" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
 	dir = 4
 	},
-/obj/machinery/meter,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel,
 /area/maintenance/disposal/incinerator)
 "dGT" = (
 /obj/structure/grille,
@@ -8534,6 +8531,13 @@
 /obj/effect/turf_decal/tile/brown,
 /turf/open/floor/plasteel,
 /area/cargo/storage)
+"fip" = (
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
+	dir = 6
+	},
+/obj/machinery/meter,
+/turf/closed/wall/r_wall,
+/area/maintenance/disposal/incinerator)
 "fiE" = (
 /obj/structure/railing,
 /obj/machinery/light/small/broken/directional/north,
@@ -9338,6 +9342,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/engineering/atmos)
+"fUl" = (
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
+	dir = 9
+	},
+/turf/open/floor/plasteel/dark,
+/area/maintenance/disposal/incinerator)
 "fUW" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
@@ -9638,8 +9648,11 @@
 /turf/open/floor/plasteel,
 /area/maintenance/port)
 "ges" = (
-/turf/open/floor/engine/vacuum,
-/area/engineering/atmos)
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
+	dir = 6
+	},
+/turf/open/floor/plasteel/dark,
+/area/maintenance/disposal/incinerator)
 "gey" = (
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
 	dir = 5
@@ -14909,9 +14922,6 @@
 /turf/open/floor/plasteel,
 /area/security/brig/upper)
 "kxp" = (
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 4
-	},
 /obj/machinery/atmospherics/components/binary/pump{
 	name = "Extraction"
 	},
@@ -17338,9 +17348,6 @@
 /turf/open/floor/plasteel,
 /area/engineering/engine_room)
 "mtC" = (
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 6
-	},
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel/dark,
@@ -21567,9 +21574,6 @@
 /turf/open/floor/plasteel,
 /area/engineering/atmos)
 "pEF" = (
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 5
-	},
 /obj/machinery/camera{
 	c_tag = "Atmospherics - Incinerator";
 	dir = 4;
@@ -61988,9 +61992,9 @@ ifh
 taS
 ifh
 xDl
-ges
 gvX
-ges
+gvX
+gvX
 xDl
 rrW
 sHY
@@ -62245,9 +62249,9 @@ ifh
 aIm
 ifh
 xDl
-ges
+gvX
 hCq
-ges
+gvX
 xDl
 ybD
 xDl
@@ -63037,9 +63041,9 @@ uKm
 otM
 kFd
 xDl
-ges
-ges
-ges
+gvX
+gvX
+gvX
 bzX
 xJs
 xJs
@@ -63552,7 +63556,7 @@ yjq
 hqn
 iJB
 nmm
-ges
+gvX
 nmm
 bzX
 xJs
@@ -65608,7 +65612,7 @@ cHc
 kHt
 iJB
 nmm
-ges
+gvX
 nmm
 xHt
 xJs
@@ -65865,7 +65869,7 @@ qid
 cqk
 cqk
 xEY
-ges
+gvX
 lVD
 xHt
 xJs
@@ -66121,9 +66125,9 @@ bzV
 oVV
 iiC
 cqk
-ges
-ges
-ges
+gvX
+gvX
+gvX
 xHt
 xJs
 xJs
@@ -66603,8 +66607,8 @@ eBE
 fbV
 xtZ
 dbm
-ges
-ges
+gvX
+gvX
 xDl
 txR
 aGD
@@ -66861,7 +66865,7 @@ kQB
 iJB
 mWC
 qmn
-ges
+gvX
 xDl
 xuH
 gNx
@@ -67118,7 +67122,7 @@ qse
 fZn
 hVB
 qgr
-ges
+gvX
 xDl
 xuH
 tyc
@@ -68660,10 +68664,10 @@ oZF
 fBn
 wnO
 pUr
+ges
 dGu
 dGu
-ePX
-ygk
+fyH
 xGx
 ygk
 dXp
@@ -68920,7 +68924,7 @@ coh
 owU
 kxp
 vwU
-ygk
+dGL
 gQZ
 ygk
 uPl
@@ -69175,9 +69179,9 @@ ooK
 jGN
 cWm
 jVm
-dGL
 ePX
-ygk
+ePX
+dGL
 ygk
 ygk
 xCZ
@@ -69432,9 +69436,9 @@ poy
 odt
 stZ
 odt
-csO
-ePX
-ePX
+fip
+dGu
+fUl
 iyE
 ePX
 ePX

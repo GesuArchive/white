@@ -14481,7 +14481,7 @@
 	pixel_x = 20
 	},
 /obj/machinery/door/window{
-	atom_integrity = 300;
+	obj_integrity = 300;
 	base_state = "rightsecure";
 	dir = 1;
 	icon_state = "rightsecure";

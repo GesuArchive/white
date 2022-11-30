@@ -10161,9 +10161,11 @@
 /turf/open/floor/plasteel,
 /area/cargo/storage)
 "hUF" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/camera/autoname{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 9
 	},
 /turf/open/floor/plasteel,
 /area/engineering/break_room)
@@ -18527,13 +18529,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/commons/dorms)
-"oKz" = (
-/obj/effect/turf_decal/trimline/yellow/line{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/simple/supply/visible,
-/turf/open/floor/plasteel,
-/area/engineering/atmos)
 "oKS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -19076,7 +19071,7 @@
 /area/command/gateway)
 "pis" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 9
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/engineering/atmos)
@@ -21925,9 +21920,8 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/simple/supply/visible,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 4
+	dir = 5
 	},
 /turf/open/floor/plasteel,
 /area/engineering/atmos)
@@ -23785,8 +23779,8 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard)
 "sUX" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 6
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 10
 	},
 /turf/open/floor/plasteel,
 /area/engineering/break_room)
@@ -25985,9 +25979,11 @@
 /turf/open/floor/plasteel,
 /area/security/prison)
 "uBW" = (
-/obj/structure/cable,
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 8
+	},
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 6
+	dir = 10
 	},
 /turf/open/floor/plasteel,
 /area/engineering/atmos)
@@ -460553,9 +460549,9 @@ ndI
 dvm
 mPI
 ndI
-tRj
-wNz
 xJs
+wNz
+tRj
 ndI
 ndI
 ndI
@@ -460810,9 +460806,9 @@ fph
 dfv
 qxA
 uIr
-iUT
-uBW
 pis
+iYw
+iUT
 xhW
 fIm
 jnd
@@ -461067,9 +461063,9 @@ jpd
 nhu
 aAK
 uMf
-xpC
+uBW
 rvP
-oKz
+xpC
 sTn
 scD
 wgo
