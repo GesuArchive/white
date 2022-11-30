@@ -133,7 +133,7 @@
 /area/shuttle/syndicate_scout)
 "hR" = (
 /obj/effect/landmark/exploration_weapon_spawner{
-	dir = 4
+	dir = 1
 	},
 /turf/closed/wall/r_wall/syndicate,
 /area/shuttle/syndicate_scout)
@@ -1059,12 +1059,6 @@
 /obj/item/stack/sheet/iron/twenty,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/syndicate_scout)
-"SK" = (
-/obj/effect/landmark/exploration_weapon_spawner{
-	dir = 8
-	},
-/turf/closed/wall/r_wall/syndicate,
-/area/shuttle/syndicate_scout)
 "SR" = (
 /obj/structure/bed/pod,
 /obj/item/bedsheet/black,
@@ -1285,7 +1279,7 @@ wk
 wk
 wk
 wk
-SK
+hR
 wk
 wk
 wk
@@ -1689,7 +1683,7 @@ WF
 WF
 Wr
 wk
-SK
+hR
 wk
 wk
 wk

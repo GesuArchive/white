@@ -216,7 +216,9 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/pirate)
 "kU" = (
-/obj/machinery/light/floor,
+/obj/machinery/light/floor{
+	dir = 4
+	},
 /turf/open/floor/plasteel/dark,
 /area/shuttle/pirate)
 "lk" = (
@@ -497,7 +499,9 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
-/obj/machinery/light/floor,
+/obj/machinery/light/floor{
+	dir = 8
+	},
 /turf/open/floor/plasteel/dark,
 /area/shuttle/pirate)
 "DX" = (
@@ -593,6 +597,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/carpet/royalblack,
 /area/shuttle/pirate)
+"Kn" = (
+/obj/machinery/computer/weapons{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/shuttle/pirate)
 "Kq" = (
 /obj/machinery/light{
 	dir = 8
@@ -604,6 +614,12 @@
 /obj/machinery/portable_atmospherics/canister/toxins,
 /obj/effect/mapping_helpers/auto_wrench,
 /turf/open/floor/pod/dark,
+/area/shuttle/pirate)
+"KS" = (
+/obj/effect/landmark/exploration_weapon_spawner{
+	dir = 4
+	},
+/turf/closed/wall/mineral/titanium,
 /area/shuttle/pirate)
 "Lk" = (
 /obj/machinery/power/terminal{
@@ -1175,7 +1191,7 @@ rB
 rB
 HD
 HD
-Mo
+Kn
 fj
 nh
 HD
@@ -1400,7 +1416,7 @@ je
 je
 je
 je
-rB
+KS
 je
 je
 je
@@ -1408,7 +1424,7 @@ je
 je
 je
 je
-rB
+KS
 je
 je
 je

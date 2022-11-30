@@ -2,6 +2,8 @@
 
 /obj/machinery/shuttle_weapon/point_defense
 	name = "Hades MKI Chaincannon"
+	icon_state = "chaincannon_on"
+	base_icon_state = "chaincannon"
 	projectile_type = /obj/projectile/bullet/shuttle/ballistic/point_defense
 	cooldown = 80
 	innaccuracy = 2
@@ -15,6 +17,8 @@
 
 /obj/machinery/shuttle_weapon/point_defense/upgraded
 	name = "Hades MKII Chaincannon"
+	icon_state = "chaincannon_mk2_on"
+	base_icon_state = "chaincannon_mk2"
 	cooldown = 140
 	innaccuracy = 3
 	shots = 14
@@ -28,6 +32,8 @@
 
 /obj/machinery/shuttle_weapon/scatter
 	name = "Ares Scattershot"
+	icon_state = "scatter_on"
+	base_icon_state = "scatter"
 	projectile_type = /obj/projectile/bullet/shuttle/ballistic/point_defense
 	cooldown = 90
 	simultaneous_shots = 8
@@ -45,6 +51,8 @@
 /obj/machinery/shuttle_weapon/railgun
 	name = "Zeus MKI Railgun"
 	icon = 'icons/obj/supercruise/supercruise_weapons_long.dmi'
+	icon_state = "railgun_on"
+	base_icon_state = "railgun"
 	projectile_type = /obj/projectile/bullet/shuttle/ballistic/guass
 	cooldown = 160
 	innaccuracy = 1
@@ -62,6 +70,8 @@
 
 /obj/machinery/shuttle_weapon/railgun/anti_crew
 	name = "Zeus MKII Anti-Personnel Railgun"
+	icon_state = "railgun_mk2_on"
+	base_icon_state = "railgun_mk2"
 	projectile_type = /obj/projectile/bullet/shuttle/ballistic/guass/uranium
 	cooldown = 180
 	innaccuracy = 2

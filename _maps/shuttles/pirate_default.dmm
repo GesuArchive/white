@@ -522,6 +522,9 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
+/obj/machinery/computer/weapons{
+	dir = 4
+	},
 /turf/open/floor/plasteel/dark,
 /area/shuttle/pirate)
 "be" = (
@@ -1080,6 +1083,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/shuttle/pirate)
+"ob" = (
+/obj/effect/landmark/exploration_weapon_spawner{
+	dir = 1
+	},
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/pirate)
 "vB" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -1248,7 +1257,7 @@ af
 af
 af
 fW
-aj
+ob
 aj
 aj
 aj
@@ -1536,7 +1545,7 @@ af
 af
 af
 fW
-aj
+ob
 aj
 aj
 aj

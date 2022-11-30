@@ -400,6 +400,12 @@
 /obj/item/clothing/glasses/sunglasses,
 /turf/open/floor/plasteel/tg/smooth_large,
 /area/shuttle/yohei)
+"Cb" = (
+/obj/effect/landmark/exploration_weapon_spawner{
+	dir = 1
+	},
+/turf/closed/indestructible/iridium,
+/area/shuttle/yohei)
 "Cu" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/plasteel/tg/dark/smooth_large,
@@ -421,7 +427,7 @@
 /turf/open/floor/plasteel/tg/smooth_large,
 /area/shuttle/yohei)
 "GI" = (
-/obj/machinery/computer/message_monitor,
+/obj/machinery/computer/weapons,
 /turf/open/floor/plasteel/tg/smooth_large,
 /area/shuttle/yohei)
 "GY" = (
@@ -615,7 +621,9 @@
 	},
 /area/shuttle/yohei)
 "Uk" = (
-/obj/structure/filingcabinet/security,
+/obj/machinery/computer/message_monitor{
+	dir = 8
+	},
 /turf/open/floor/plasteel/tg/smooth_large,
 /area/shuttle/yohei)
 "UK" = (
@@ -661,7 +669,7 @@
 
 (1,1,1) = {"
 on
-sg
+Cb
 sg
 sg
 sg
@@ -811,7 +819,7 @@ jH
 "}
 (7,1,1) = {"
 on
-sg
+Cb
 sg
 sg
 sg
@@ -961,7 +969,7 @@ iW
 "}
 (13,1,1) = {"
 on
-sg
+Cb
 sg
 sg
 sg

@@ -267,7 +267,7 @@
 /area/shuttle)
 "Bo" = (
 /obj/effect/landmark/exploration_weapon_spawner{
-	dir = 4
+	dir = 1
 	},
 /turf/closed/wall/rust,
 /area/shuttle)
@@ -330,7 +330,7 @@
 /area/shuttle)
 "Gw" = (
 /obj/effect/landmark/exploration_weapon_spawner{
-	dir = 8
+	dir = 1
 	},
 /turf/closed/wall,
 /area/shuttle)
@@ -462,9 +462,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb,
-/obj/structure/sign/poster/contraband/random{
-	pixel_x = -32
-	},
 /obj/structure/closet/emcloset/anchored,
 /turf/open/floor/plating,
 /area/shuttle)
@@ -555,8 +552,8 @@ RJ
 RJ
 RJ
 RJ
-Gw
 oQ
+Gw
 Cs
 Cs
 jj
@@ -746,8 +743,8 @@ Ji
 Ji
 Ji
 mm
-Bo
 jj
+Bo
 sH
 NH
 EY

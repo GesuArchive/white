@@ -425,6 +425,12 @@
 /obj/structure/cable,
 /turf/open/floor/wood/airless,
 /area/shuttle/pirate/flying_dutchman)
+"pT" = (
+/obj/effect/landmark/exploration_weapon_spawner{
+	dir = 1
+	},
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/shuttle/pirate/flying_dutchman)
 "rd" = (
 /obj/effect/turf_decal/siding/wood/corner,
 /obj/effect/turf_decal/siding/wood/corner{
@@ -706,6 +712,12 @@
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/cable,
 /turf/open/floor/wood/airless,
+/area/shuttle/pirate/flying_dutchman)
+"ER" = (
+/obj/machinery/computer/weapons{
+	dir = 1
+	},
+/turf/open/floor/carpet/royalblack/airless,
 /area/shuttle/pirate/flying_dutchman)
 "EU" = (
 /obj/machinery/shuttle_scrambler,
@@ -1259,7 +1271,7 @@ ZL
 ZZ
 rN
 WR
-WR
+pT
 WR
 WR
 WR
@@ -1408,7 +1420,7 @@ WR
 WR
 Ms
 WQ
-bO
+ER
 WR
 "}
 (14,1,1) = {"

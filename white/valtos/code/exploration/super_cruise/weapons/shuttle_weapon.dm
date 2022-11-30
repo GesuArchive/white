@@ -5,8 +5,9 @@
 /obj/machinery/shuttle_weapon
 	name = "Mounted Emplacement"
 	desc = "A weapon system mounted onto a shuttle system. Use a wrench to rotate."
-	icon = 'icons/obj/turrets.dmi'
-	icon_state = "syndie_lethal"
+	icon = 'icons/obj/supercruise/supercruise_weapons_long.dmi'
+	icon_state = "railgun_off"
+	base_icon_state = "railgun"
 	anchored = TRUE
 	var/projectile_type = /obj/projectile/bullet/shuttle/beam/laser
 	var/flight_time = 10
@@ -23,7 +24,7 @@
 	var/innaccuracy = 1		//The range that things will hit, if it doesn't get a perfect hit
 
 	var/turf/target_turf
-	var/next_shot_world_time = 0
+	COOLDOWN_DECLARE(next_shot_world_time)
 
 	//For weapons that are side mounted (None after new sprites, but support is still here.)
 	var/side = WEAPON_SIDE_LEFT
@@ -47,7 +48,7 @@
 	. = ..()
 	weapon_id = "[LAZYLEN(SSorbits.shuttle_weapons)]"
 	SSorbits.shuttle_weapons[weapon_id] = src
-	set_directional_offset(ndir || dir, TRUE)
+	set_directional_offset(ndir || dir)
 	//Check our area
 	var/area/shuttle/current_area = get_area(src)
 	if(istype(current_area) && current_area.mobile_port)
@@ -61,45 +62,55 @@
 /obj/machinery/shuttle_weapon/setDir(newdir)
 	. = ..()
 	//Shuttle rotations handle the pixel_x changes, and this shouldn't be rotatable, unless rotated from a shuttle
-	set_directional_offset(newdir, FALSE)
+	set_directional_offset(newdir)
 
 /obj/machinery/shuttle_weapon/obj_break(damage_flag)
 	. = ..()
 	qdel(src)
 
-/obj/machinery/shuttle_weapon/proc/set_directional_offset(newdir, update_pixel = FALSE)
-	var/offset_value = directional_offset * side
+/obj/machinery/shuttle_weapon/proc/set_directional_offset(newdir)
 	offset_turf_x = 0
 	offset_turf_y = 0
 	if(!fire_from_source)
 		return
 	switch(newdir)
-		if(1)
-			if(update_pixel)
-				pixel_x = offset_value
+		if(NORTH)
+			pixel_y = 0
+			pixel_x = 0
 			offset_turf_x = side
-		if(2)
-			if(update_pixel)
-				pixel_x = -offset_value
+			transform = initial(transform)
+		if(SOUTH)
+			pixel_y = -40
+			pixel_x = 0
 			offset_turf_x = -side
-		if(4)
-			if(update_pixel)
-				pixel_y = -offset_value
+			var/matrix/M = matrix()
+			M.Turn(180)
+			transform = M
+		if(EAST)
+			pixel_y = -16
+			pixel_x = -20
 			offset_turf_y = -side
-		if(8)
-			if(update_pixel)
-				pixel_y = offset_value
+			var/matrix/M = matrix()
+			M.Turn(-90)
+			transform = M
+		if(WEST)
+			pixel_y = -16
+			pixel_x = 20
 			offset_turf_y = side
+			var/matrix/M = matrix()
+			M.Turn(90)
+			transform = M
 
 /obj/machinery/shuttle_weapon/proc/fire(atom/target, shots_left = shots, forced = FALSE)
 	if(!target)
 		if(!target_turf)
 			return
 		target = target_turf
-	if(world.time < next_shot_world_time && !forced)
+	if(!COOLDOWN_FINISHED(src, next_shot_world_time) && !forced)
+		update_appearance()
 		return FALSE
 	if(!forced)
-		next_shot_world_time = world.time + cooldown
+		COOLDOWN_START(src, next_shot_world_time, cooldown)
 	var/turf/current_target_turf = get_turf(target)
 	var/missed = FALSE
 	if(!prob(hit_chance))
@@ -124,6 +135,11 @@
 	qdel(P)
 	//Spawn the projectile to come in FTL style
 	fire_projectile_towards(target, projectile_type = projectile_type, missed = missed)
+	update_appearance()
 
 /obj/machinery/shuttle_weapon/wrench_act(mob/living/user, obj/item/I)
 	setDir(turn(dir, 90))
+
+/obj/machinery/shuttle_weapon/update_icon_state()
+	. = ..()
+	icon_state = "[base_icon_state]_[COOLDOWN_FINISHED(src, next_shot_world_time) ? "on" : "off"]"

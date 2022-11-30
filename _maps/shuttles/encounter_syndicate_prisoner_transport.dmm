@@ -308,12 +308,6 @@
 /obj/machinery/light,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/syndicate_scout)
-"vi" = (
-/obj/effect/landmark/exploration_weapon_spawner{
-	dir = 8
-	},
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/shuttle/syndicate_scout)
 "wg" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/bot_white,
@@ -459,9 +453,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/syndicate_scout)
 "DM" = (
-/obj/effect/landmark/exploration_weapon_spawner{
-	dir = 4
-	},
+/obj/effect/landmark/exploration_weapon_spawner,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/shuttle/syndicate_scout)
 "EM" = (
@@ -1041,7 +1033,7 @@ Ro
 "}
 (9,1,1) = {"
 CZ
-vi
+DM
 CZ
 wg
 Vt
