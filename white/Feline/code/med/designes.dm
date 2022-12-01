@@ -222,10 +222,22 @@
 	name = "Большая баночка для таблеток"
 	desc = "Вмещает в себя много пилюлек и таблеток."
 	id = "pill_bottle_big"
-	build_type = AUTOLATHE | MECHFAB
+	build_type = MECHFAB
 	construction_time = 30
 	materials = list(/datum/material/plastic = 40, /datum/material/glass = 200)
 	build_path = /obj/item/storage/pill_bottle/big
+	category = list("initial", "Медицина", "Фармацевтика")
+	sub_category = list("Прочее")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
+/datum/design/pill_bottle_ultra
+	name = "Таблетница"
+	desc = "Вмещает в себя очень много пилюлек и таблеток."
+	id = "pill_bottle_ultra"
+	build_type = MECHFAB
+	construction_time = 30
+	materials = list(/datum/material/plastic = 1000, /datum/material/glass = 500)
+	build_path = /obj/item/storage/pill_bottle/ultra
 	category = list("initial", "Медицина", "Фармацевтика")
 	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
@@ -319,7 +331,7 @@
 
 /datum/design/surgery/healing/toxin_2
 	name = "Фильтрация лимфы (токсины, Экспертное)"
-	surgery = /datum/surgery/toxin_healing/toxin/upgraded/femto
+	surgery = /datum/surgery/toxin_healing/toxin/femto
 	id = "surgery_toxin_heal_toxin_upgrade_femto"
 
 /datum/design/surgery/nanite_extraction

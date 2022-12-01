@@ -434,6 +434,10 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_KNOW_CYBORG_WIRES "know_cyborg_wires"
 #define TRAIT_KNOW_ENGI_WIRES "know_engi_wires"
 #define TRAIT_ENTRAILS_READER "entrails_reader"
+#define TRAIT_KNOW_MED_SURGERY_T1 "know_med_surgery_t1"
+#define TRAIT_KNOW_MED_SURGERY_T2 "know_med_surgery_t2"
+#define TRAIT_KNOW_MED_SURGERY_T3 "know_med_surgery_t3"
+#define TRAIT_SKILLCHIP_ADAPTER "skillchip_adapter"
 
 ///Movement type traits for movables. See elements/movetype_handler.dm
 #define TRAIT_MOVE_GROUND "move_ground"

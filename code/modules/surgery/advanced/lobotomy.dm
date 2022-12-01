@@ -14,8 +14,16 @@
 	requires_bodypart_type = 0
 
 /datum/surgery/advanced/lobotomy/can_start(mob/user, mob/living/carbon/target)
-	if(!..())
-		return FALSE
+
+	// Скилчип хирурга Т2 Т3
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
+		var/obj/item/organ/brain/B = target.getorganslot(ORGAN_SLOT_BRAIN)
+		if(!B)
+			return FALSE
+		return TRUE
+	else
+		if(!..())
+			return FALSE
 	var/obj/item/organ/brain/B = target.getorganslot(ORGAN_SLOT_BRAIN)
 	if(!B)
 		return FALSE

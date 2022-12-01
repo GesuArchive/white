@@ -39,7 +39,7 @@
 	belt = /obj/item/defibrillator/compact/loaded/yohei
 	uniform = /obj/item/clothing/under/syndicate/yohei/blue
 
-	backpack_contents = list(/obj/item/pamk = 1, /obj/item/storage/firstaid/medical = 1, /obj/item/optable = 1, /obj/item/armament_points_card/yohei = 1)
+	backpack_contents = list(/obj/item/pamk = 1, /obj/item/storage/firstaid/medical/surg = 1, /obj/item/optable = 1, /obj/item/armament_points_card/yohei = 1)
 
 /datum/outfit/yohei/combatant
 	name = "Йохей: Боевик"

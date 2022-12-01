@@ -61,7 +61,7 @@
 	grind_results = list(/datum/reagent/bluespace = 10, /datum/reagent/silicon = 20)
 	merge_type = /obj/item/stack/ore/bluespace_crystal/artificial
 
-/obj/item/stack/ore/bluespace_crystal/artificial/Initialize()
+/obj/item/stack/ore/bluespace_crystal/artificial/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	custom_materials = list(/datum/material/bluespace = MINERAL_MATERIAL_AMOUNT)
 

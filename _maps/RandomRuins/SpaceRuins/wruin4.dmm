@@ -578,8 +578,8 @@
 	},
 /area/ruin/space/has_grav/terrorship)
 "bS" = (
-/obj/machinery/suit_storage_unit/syndicate,
 /obj/effect/turf_decal/stripes/full,
+/obj/machinery/suit_storage_unit/standard_unit,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "bT" = (

@@ -395,17 +395,31 @@
 	activate_message = span_notice("Your mind is filled with plant arrangments.")
 	deactivate_message = span_notice("You can't remember what a hedge looks like anymore.")
 
-/obj/item/skillchip/useless_adapter
-	name = "Skillchip adapter"
-	skill_name = "Useless adapter"
-	skill_description = "Allows you to insert another skillchip into this adapter after it has been inserted into your brain..."
+/obj/item/skillchip/adapter
+	name = "адаптер скилчипов"
+	skill_name = "Адаптер скилчипов"
+	skill_description = "Специальный адаптер устанавливаемый в височной доле мозга, позволяющий мгновенно подключать через него другие скилчипы без необходимости в машинной имплантации."
 	skill_icon = "plug"
-	activate_message = span_notice("You can now activate another chip through this adapter, but you're not sure why you did this...")
-	deactivate_message = span_notice("You no longer have the useless skillchip adapter.")
+	activate_message = span_notice("В виске появилось некое ощущение пустоты и ожидания новой информации.")
+	deactivate_message = span_notice("Что-то пропало, но я не могу понять что...")
 	skillchip_flags = SKILLCHIP_ALLOWS_MULTIPLE
-	// Literally does nothing.
+	auto_traits = list(TRAIT_SKILLCHIP_ADAPTER)
 	complexity = 0
 	slot_use = 0
+
+/obj/item/skillchip/attack(mob/living/carbon/human/M, mob/living/carbon/human/user)
+	. = ..()
+	if(istype(src, /obj/item/skillchip/adapter))
+		to_chat(user, span_warning("Невозможно установить адаптер в слот другого адаптера!"))
+		return
+	if(HAS_TRAIT(M, TRAIT_SKILLCHIP_ADAPTER))
+		to_chat(user, span_notice("Устанавливаю [src] в слот адаптера."))
+		M.implant_skillchip(src)
+		playsound(M, 'white/Feline/sounds/fleshka.ogg', 100, FALSE, 2)
+		var/activate_msg = src.try_activate_skillchip(FALSE, FALSE)
+		if(activate_msg)
+			to_chat(user, span_alert("[src] нельзя активировать. [activate_msg]"))
+		REMOVE_TRAIT(M, TRAIT_SKILLCHIP_ADAPTER, SKILLCHIP_TRAIT)
 
 /obj/item/skillchip/light_remover
 	name = "N16H7M4R3 skillchip"

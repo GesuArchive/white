@@ -31,7 +31,7 @@
 	/// List of skillchip items, their location should be this brain.
 	var/list/obj/item/skillchip/skillchips
 	/// Maximum skillchip complexity we can support before they stop working. Do not reference this var directly and instead call get_max_skillchip_complexity()
-	var/max_skillchip_complexity = 3
+	var/max_skillchip_complexity = 6
 	/// Maximum skillchip slots available. Do not reference this var directly and instead call get_max_skillchip_slots()
 	var/max_skillchip_slots = 5
 

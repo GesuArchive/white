@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/hypospray
-	name = "hypospray"
-	desc = "The DeForest Medical Corporation hypospray is a sterile, air-needle autoinjector for rapid administration of drugs to patients."
+	name = "гипоспрей"
+	desc = "Гипоспрей от компании Де-Форест - это стерильный автоинжектор с пневмо-иглой для быстрого введения лекарств пациентам."
 	icon = 'icons/obj/syringe.dmi'
 	inhand_icon_state = "hypo"
 	worn_icon_state = "hypo"
@@ -65,8 +65,8 @@
 //combat
 
 /obj/item/reagent_containers/hypospray/combat
-	name = "combat stimulant injector"
-	desc = "A modified air-needle autoinjector, used by support operatives to quickly heal injuries in combat."
+	name = "боевой гипоспрей"
+	desc = "Модифицированный автоматический инжектор с пневмо-иглой, используемый оперативниками поддержки для быстрого заживления ран в бою."
 	amount_per_transfer_from_this = 10
 	inhand_icon_state = "combat_hypo"
 	icon_state = "combat_hypo"
@@ -75,8 +75,8 @@
 	list_reagents = list(/datum/reagent/medicine/epinephrine = 30, /datum/reagent/medicine/omnizine = 30, /datum/reagent/medicine/leporazine = 15, /datum/reagent/medicine/atropine = 15)
 
 /obj/item/reagent_containers/hypospray/combat/nanites
-	name = "experimental combat stimulant injector"
-	desc = "A modified air-needle autoinjector for use in combat situations. Prefilled with experimental medical nanites and a stimulant for rapid healing and a combat boost."
+	name = "экспериментальный гипоспрей"
+	desc = "Модифицированный автоматический инжектор с пневмо-иглой для использования в боевых ситуациях. Предварительно заполненный экспериментальными медицинскими нанитами и стимулятором для быстрого заживления и усиления боевых качеств."
 	inhand_icon_state = "nanite_hypo"
 	icon_state = "nanite_hypo"
 	volume = 100
@@ -90,12 +90,12 @@
 		icon_state = "[initial(icon_state)]0"
 
 /obj/item/reagent_containers/hypospray/combat/heresypurge
-	name = "holy water piercing injector"
-	desc = "A modified air-needle autoinjector for use in combat situations. Prefilled with 5 doses of a holy water and pacifier mixture. Not for use on your teammates."
+	name = "освященный гипоспрей"
+	desc = "Модифицированный автоматический инжектор с пневмо-иглой для использования в боевых ситуациях. Предварительно наполните 10 дозами смеси святой воды и седативов. Используется для подавления одержимых."
 	inhand_icon_state = "holy_hypo"
 	icon_state = "holy_hypo"
-	volume = 250
-	list_reagents = list(/datum/reagent/water/holywater = 150, /datum/reagent/peaceborg/tire = 50, /datum/reagent/peaceborg/confuse = 50)
+	volume = 500
+	list_reagents = list(/datum/reagent/water/holywater = 300, /datum/reagent/peaceborg/tire = 100, /datum/reagent/peaceborg/confuse = 100)
 	amount_per_transfer_from_this = 50
 
 //MediPens
@@ -117,6 +117,8 @@
 	custom_price = PAYCHECK_MEDIUM
 	custom_premium_price = PAYCHECK_HARD
 	var/empty_start = FALSE
+	var/reagent1_vol = 10
+	var/reagent2_vol = 0
 
 /obj/item/reagent_containers/hypospray/medipen/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins to choke on <b>[src.name]</b>! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -148,8 +150,8 @@
 		. += "<hr><span class='notice'>Медипен уже использован.</span>"
 
 /obj/item/reagent_containers/hypospray/medipen/stimpack //goliath kiting
-	name = "stimpack medipen"
-	desc = "A rapid way to stimulate your body's adrenaline, allowing for freer movement in restrictive armor."
+	name = "медипен со стимулятором"
+	desc = "Быстрый способ стимулировать выработку адреналина в вашем организме, позволяя более свободно передвигаться в тяжелой броне."
 	icon_state = "stimpen"
 	inhand_icon_state = "stimpen"
 	volume = 20
@@ -157,12 +159,12 @@
 	list_reagents = list(/datum/reagent/medicine/ephedrine = 10, /datum/reagent/consumable/coffee = 10)
 
 /obj/item/reagent_containers/hypospray/medipen/stimpack/traitor
-	desc = "A modified stimulants autoinjector for use in combat situations. Has a mild healing effect."
+	desc = "Модифицированный автоинъектор со стимулятором для использования в боевых ситуациях. Оказывает мягкое заживляющее действие."
 	list_reagents = list(/datum/reagent/medicine/stimulants = 10, /datum/reagent/medicine/omnizine = 10)
 
 /obj/item/reagent_containers/hypospray/medipen/stimulants
-	name = "stimulant medipen"
-	desc = "Contains a very large amount of an incredibly powerful stimulant, vastly increasing your movement speed and reducing stuns by a very large amount for around five minutes. Do not take if pregnant."
+	name = "медипен с экспериментальным стимулятором"
+	desc = "Содержит очень большое количество невероятно мощного стимулятора, значительно увеличивающего скорость ваших движений и уменьшающего оглушение на очень большую величину примерно на пять минут. Не рекомендуется при, беременности."
 	icon_state = "syndipen"
 	inhand_icon_state = "tbpen"
 	volume = 50
@@ -205,8 +207,8 @@
 	list_reagents = list(/datum/reagent/medicine/salbutamol = 10)
 
 /obj/item/reagent_containers/hypospray/medipen/tuberculosiscure
-	name = "BVAK autoinjector"
-	desc = "Bio Virus Antidote Kit autoinjector. Has a two use system for yourself, and someone else. Inject when infected."
+	name = "вакцина от грибкового туберкулеза"
+	desc = "Автоматический инжектор набора биовирусных противоядий. Содержит два заряда. Вводите при заражении."
 	icon_state = "tbpen"
 	inhand_icon_state = "tbpen"
 	volume = 20
@@ -223,7 +225,7 @@
 		icon_state = "[initial(icon_state)]0"
 
 /obj/item/reagent_containers/hypospray/medipen/survival
-	name = "Чрезвычайный медипен"
+	name = "чрезвычайный медипен"
 	desc = "Содержит обширный комплекс лекарственных веществ для быстрого восстановления на поле боя. Изначально разрабатывался для военно-космических сил и в связи с технологическими особенностями быстрый ввод препаратов возможен только при пониженом давлении. В противном случае будет введена только половинная доза."
 	icon_state = "stimpen"
 	inhand_icon_state = "stimpen"
@@ -262,18 +264,20 @@
 	desc = "Быстро стабилизирует пациента, находящегося в критическом состоянии!"
 	icon_state = "atropen"
 	inhand_icon_state = "atropen"
-	list_reagents = list(/datum/reagent/medicine/atropine = 10)
+	volume = 15
+	amount_per_transfer_from_this = 15
+	list_reagents = list(/datum/reagent/medicine/atropine = 10, /datum/reagent/toxin/formaldehyde = 3, /datum/reagent/medicine/coagulant = 2)
 
 /obj/item/reagent_containers/hypospray/medipen/snail
-	name = "snail shot"
-	desc = "All-purpose snail medicine! Do not use on non-snails!"
+	name = "Агент-У"
+	desc = "Универсальное улиточное лекарство! Не используйте на не-улитках!"
 	icon_state = "snail"
 	inhand_icon_state = "snail"
 	list_reagents = list(/datum/reagent/snail = 10)
 
 /obj/item/reagent_containers/hypospray/medipen/magillitis
-	name = "experimental autoinjector"
-	desc = "A custom-frame needle injector with a small single-use reservoir, containing an experimental serum. Unlike the more common medipen frame, it cannot pierce through protective armor or hardsuits, nor can the chemical inside be extracted."
+	name = "геномодифицирующий медипен"
+	desc = "Изготовленный на заказ инжектор с небольшим одноразовым резервуаром, содержащим экспериментальную сыворотку. В отличие от большинства медипенов, она не может пробить защитную броню или скафандры, а также не позволяет извлечь химическое вещество находящееся внутри."
 	icon_state = "gorillapen"
 	inhand_icon_state = "gorillapen"
 	volume = 5
@@ -293,14 +297,14 @@
 	name = "аварийный медипен"
 	desc = "По составу схож с классическим адреналиновым медипеном, однако содержит больше останавливающего кровь коагулянта и антибиотиков, но не содержит консервант препятствующий разложению."
 	icon_state = "firstaid"
-	volume = 15
-	amount_per_transfer_from_this = 15
-	list_reagents = list(/datum/reagent/medicine/epinephrine = 12, /datum/reagent/medicine/coagulant = 2.5, /datum/reagent/medicine/spaceacillin = 0.5)
+	volume = 25
+	amount_per_transfer_from_this = 25
+	list_reagents = list(/datum/reagent/medicine/epinephrine = 15, /datum/reagent/medicine/coagulant = 5, /datum/reagent/medicine/spaceacillin = 5)
 
 /obj/item/reagent_containers/hypospray/medipen/blood_loss
 	name = "крововосстанавливающий медипен"
 	desc = "По составу схож с классическим адреналиновым медипеном, однако часть адреналина заменена на большее количество останавливающего кровь коагулянта и веществ стимулярующих выработку крови, но не содержит консервант препятствующий разложению."
 	icon_state = "hypovolemic"
-	volume = 15
-	amount_per_transfer_from_this = 15
-	list_reagents = list(/datum/reagent/medicine/epinephrine = 5, /datum/reagent/medicine/coagulant = 2.5, /datum/reagent/iron = 3.5, /datum/reagent/medicine/salglu_solution = 4)
+	volume = 25
+	amount_per_transfer_from_this = 25
+	list_reagents = list(/datum/reagent/medicine/epinephrine = 5, /datum/reagent/medicine/coagulant = 2.5, /datum/reagent/iron = 2.5, /datum/reagent/medicine/salglu_solution = 15)

@@ -16,9 +16,18 @@
 	requires_tech = TRUE
 
 /datum/surgery/nanite_extraction/can_start(mob/user, mob/living/carbon/target)
+	// Скилчип хирурга Т1 Т2 Т3
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
+		if(HAS_TRAIT(target, TRAIT_HUSK))
+			return FALSE
+		return TRUE
+	else
+		return ..()
+/*
 	if(HAS_TRAIT(target, TRAIT_HUSK)) //You can filter the blood of a dead person just not husked
 		return FALSE
 	return ..()
+*/
 
 /datum/surgery_step/nanite_extraction
 	name = "Фильтрация нанитов в крови"

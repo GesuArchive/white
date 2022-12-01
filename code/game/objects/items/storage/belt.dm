@@ -1,3 +1,7 @@
+#define BANDOLIER_MONO "mono"
+#define BANDOLIER_DOUBLE "double"
+#define BANDOLIER_TRIPLE "triple"
+
 /obj/item/storage/belt
 	name = "пояс"
 	desc = "Может хранить любые предметы маленького размера."
@@ -55,6 +59,7 @@
 	. = ..()
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 	atom_storage.max_slots = 8
+	atom_storage.screen_max_columns = 8
 	atom_storage.max_total_storage = 21
 	atom_storage.set_holdable(list(
 		/obj/item/multitool/tricorder,
@@ -231,6 +236,7 @@
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 	atom_storage.max_total_storage = 21
 	atom_storage.max_slots = 8
+	atom_storage.screen_max_columns = 8
 	atom_storage.set_holdable(list(
 		/obj/item/healthanalyzer,
 		/obj/item/dnainjector,
@@ -345,6 +351,7 @@
 /obj/item/storage/belt/security/webbing/Initialize(mapload)
 	. = ..()
 	atom_storage.max_slots = 8
+	atom_storage.screen_max_columns = 8
 
 /obj/item/storage/belt/mining
 	name = "разгрузка исследователя"
@@ -356,9 +363,10 @@
 
 /obj/item/storage/belt/mining/Initialize()
 	. = ..()
-	atom_storage.max_slots = 14
+	atom_storage.max_slots = 16
+	atom_storage.screen_max_columns = 8
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
-	atom_storage.max_total_storage = 28
+	atom_storage.max_total_storage = 48
 	atom_storage.set_holdable(list(
 		/obj/item/crowbar,
 		/obj/item/screwdriver,
@@ -664,7 +672,8 @@
 
 /obj/item/storage/belt/janitor/Initialize()
 	. = ..()
-	atom_storage.max_slots = 8
+	atom_storage.max_slots = 12
+	atom_storage.screen_max_columns = 8
 	atom_storage.max_total_storage = 21
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL // Set to this so the  light replacer can fit.
 	atom_storage.set_holdable(list(
@@ -680,7 +689,17 @@
 		/obj/item/melee/flyswatter,
 		/obj/item/assembly/mousetrap,
 		/obj/item/paint/paint_remover,
-		/obj/item/pushbroom
+		/obj/item/pushbroom,
+		/obj/item/restraints,
+		/obj/item/crowbar,
+		/obj/item/screwdriver,
+		/obj/item/weldingtool,
+		/obj/item/wirecutters,
+		/obj/item/wrench,
+		/obj/item/multitool,
+		/obj/item/stack/cable_coil,
+		/obj/item/analyzer,
+		/obj/item/extinguisher/mini,
 		))
 
 /obj/item/storage/belt/janitor/full/PopulateContents()
@@ -696,6 +715,7 @@
 	icon_state = "bandolier"
 	inhand_icon_state = "bandolier"
 	worn_icon_state = "bandolier"
+	var/multibelt = BANDOLIER_MONO
 
 /obj/item/storage/belt/bandolier/Initialize()
 	. = ..()
@@ -707,8 +727,8 @@
 		))
 
 /obj/item/storage/belt/fannypack
-	name = "Барсетка"
-	desc = "Эй! Это не косметичка - это мужская сумка!."
+	name = "барсетка"
+	desc = "Эй! Это не косметичка - это мужская сумка!"
 	icon_state = "fannypack_leather"
 	inhand_icon_state = "fannypack_leather"
 	worn_icon_state = "fannypack_leather"
@@ -721,61 +741,61 @@
 	atom_storage.max_specific_storage = WEIGHT_CLASS_SMALL
 
 /obj/item/storage/belt/fannypack/black
-	name = "чёрная поясная сумка"
+	name = "чёрная барсетка"
 	icon_state = "fannypack_black"
 	inhand_icon_state = "fannypack_black"
 	worn_icon_state = "fannypack_black"
 
 /obj/item/storage/belt/fannypack/red
-	name = "красная поясная сумка"
+	name = "красная барсетка"
 	icon_state = "fannypack_red"
 	inhand_icon_state = "fannypack_red"
 	worn_icon_state = "fannypack_red"
 
 /obj/item/storage/belt/fannypack/purple
-	name = "фиолетовая поясная сумка"
+	name = "фиолетовая барсетка"
 	icon_state = "fannypack_purple"
 	inhand_icon_state = "fannypack_purple"
 	worn_icon_state = "fannypack_purple"
 
 /obj/item/storage/belt/fannypack/blue
-	name = "синяя поясная сумка"
+	name = "синяя барсетка"
 	icon_state = "fannypack_blue"
 	inhand_icon_state = "fannypack_blue"
 	worn_icon_state = "fannypack_blue"
 
 /obj/item/storage/belt/fannypack/orange
-	name = "оранжевая поясная сумка"
+	name = "оранжевая барсетка"
 	icon_state = "fannypack_orange"
 	inhand_icon_state = "fannypack_orange"
 	worn_icon_state = "fannypack_orange"
 
 /obj/item/storage/belt/fannypack/white
-	name = "белая поясная сумка"
+	name = "белая барсетка"
 	icon_state = "fannypack_white"
 	inhand_icon_state = "fannypack_white"
 	worn_icon_state = "fannypack_white"
 
 /obj/item/storage/belt/fannypack/green
-	name = "зелёная поясная сумка"
+	name = "зелёная барсетка"
 	icon_state = "fannypack_green"
 	inhand_icon_state = "fannypack_green"
 	worn_icon_state = "fannypack_green"
 
 /obj/item/storage/belt/fannypack/pink
-	name = "розовая поясная сумка"
+	name = "розовая барсетка"
 	icon_state = "fannypack_pink"
 	inhand_icon_state = "fannypack_pink"
 	worn_icon_state = "fannypack_pink"
 
 /obj/item/storage/belt/fannypack/cyan
-	name = "голубая поясная сумка"
+	name = "голубая барсетка"
 	icon_state = "fannypack_cyan"
 	inhand_icon_state = "fannypack_cyan"
 	worn_icon_state = "fannypack_cyan"
 
 /obj/item/storage/belt/fannypack/yellow
-	name = "жёлтая поясная сумка"
+	name = "жёлтая барсетка"
 	icon_state = "fannypack_yellow"
 	inhand_icon_state = "fannypack_yellow"
 	worn_icon_state = "fannypack_yellow"
@@ -849,8 +869,8 @@
 	update_appearance()
 
 /obj/item/storage/belt/plant
-	name = "botanical belt"
-	desc = "A belt used to hold most hydroponics supplies. Suprisingly, not green."
+	name = "ботанический пояс"
+	desc = "Пояс, используемый для хранения большинства принадлежностей для гидропоники. Удивительно, но не зеленый."
 	icon_state = "plantbelt"
 	inhand_icon_state = "plantbelt"
 	worn_icon_state = "plantbelt"

@@ -116,9 +116,9 @@
 		/obj/item/implanter,
 		/obj/item/pinpointer/crew,
 		/obj/item/holosign_creator/medical,
-		/obj/item/stack/sticky_tape, //surgical tape
-		/obj/item/pamk, //	Для йохеев медиков, они спавнятся с такой аптечкой а убрать туда 4 своих ПАМКа не могут
-		/obj/item/storage/belt/medipenal	//	Медипенал
+		/obj/item/stack/sticky_tape,
+		/obj/item/pamk,
+		/obj/item/storage/belt/medipenal
 		))
 
 /obj/item/storage/firstaid/medical/PopulateContents()
@@ -134,6 +134,29 @@
 		/obj/item/scalpel = 1,
 		/obj/item/hemostat = 1,
 		/obj/item/cautery = 1)
+	generate_items_inside(items_inside,src)
+
+/obj/item/storage/firstaid/medical/surg
+	name = "укладка хирурга"
+	desc = "Компактный набор самых необходимых медицинских инструментов для неотложного хирургического вмешательства в полевых условиях."
+
+/obj/item/storage/firstaid/medical/surg/PopulateContents()
+	if(empty)
+		return
+	var/static/items_inside = list(
+		/obj/item/stack/medical/gauze/twelve = 1,
+		/obj/item/stack/medical/suture/medicated = 2,
+		/obj/item/stack/medical/mesh/advanced = 1,
+		/obj/item/reagent_containers/hypospray/medipen = 1,
+		/obj/item/surgical_drapes = 1,
+		/obj/item/scalpel = 1,
+		/obj/item/hemostat = 1,
+		/obj/item/retractor = 1,
+		/obj/item/circular_saw = 1,
+		/obj/item/bonesetter = 1,
+		/obj/item/blood_filter = 1,
+		/obj/item/cautery = 1,
+		/obj/item/healthanalyzer/range = 1)
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/firstaid/ancient
@@ -225,7 +248,7 @@
 	var/static/items_inside = list(
 		/obj/item/reagent_containers/syringe/convermol = 3,
 		/obj/item/reagent_containers/hypospray/medipen/salbutamol = 1,
-		/obj/item/reagent_containers/hypospray/medipen = 1,
+		/obj/item/reagent_containers/hypospray/medipen/blood_loss = 2,
 		/obj/item/storage/pill_bottle/iron = 1)
 	generate_items_inside(items_inside,src)
 
@@ -346,6 +369,7 @@
 	. = ..()
 	atom_storage.allow_quick_gather = TRUE
 	atom_storage.numerical_stacking = TRUE
+	atom_storage.screen_max_columns = 8
 	atom_storage.max_slots = 10
 	atom_storage.max_total_storage = 20
 	atom_storage.set_holdable(list(/obj/item/reagent_containers/pill))
@@ -356,7 +380,7 @@
 
 /obj/item/storage/pill_bottle/multiver
 	name = "баночка с таблетками мультивера"
-	desc = "Выводит из крови химические вещества и нейтрализует токсины. Эффективность растет по мере того, как увеличвается количество нейтрализуемых вещество. Вызывает средние повреждения легких. Разбавлена гранибиталури."
+	desc = "Выводит из крови химические вещества и нейтрализует токсины. Эффективность растет по мере того, как увеличвается количество нейтрализуемых вещество. Вызывает средние повреждения легких."
 	icon_state = "pill_bottle_multiver"
 
 /obj/item/storage/pill_bottle/multiver/PopulateContents()

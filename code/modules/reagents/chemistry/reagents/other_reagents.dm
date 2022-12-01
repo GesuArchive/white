@@ -1405,9 +1405,9 @@
 		exposed_mob.ForceContractDisease(new /datum/disease/tuberculosis(), FALSE, TRUE)
 
 /datum/reagent/snail
-	name = "Агент-С"
+	name = "Агент-У"
 	enname = "Agent-S"
-	description = "Virological agent that infects the subject with Gastrolosis."
+	description = "Вирусологический агент, который заражает субъекта гастроптозом."
 	color = "#003300" // rgb(0, 51, 0)
 	taste_description = "жижа"
 	penetrates_skin = NONE

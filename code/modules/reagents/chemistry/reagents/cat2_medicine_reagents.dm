@@ -94,13 +94,16 @@
 /datum/reagent/medicine/c2/libital //messes with your liber
 	name = "Либитал"
 	enname = "Libital"
-	description = "Применяется при лечении легких травм, негативно сказывается на печени. Разбавлен Гранбиталури."
+	description = "Применяется при лечении легких травм, негативно сказывается на печени."
 	color = "#ECEC8D" // rgb: 236 236 141
 	ph = 8.2
 	taste_description = "горький с оттенком алкоголя"
 	reagent_state = SOLID
 	impure_chem = /datum/reagent/impurity/libitoil
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/medicine/c2/libital/pure
+	purity = 1
 
 /datum/reagent/medicine/c2/libital/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjustOrganLoss(ORGAN_SLOT_LIVER, 0.3 * REM * delta_time)
@@ -170,6 +173,9 @@
 	var/spammer = 0
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
+/datum/reagent/medicine/c2/lenturi/pure
+	purity = 1
+
 /datum/reagent/medicine/c2/lenturi/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjustFireLoss(-3 * REM * normalise_creation_purity())
 	M.adjustOrganLoss(ORGAN_SLOT_STOMACH, 0.4 * REM * delta_time)
@@ -187,6 +193,9 @@
 	var/resetting_probability = 0 //same with this? Old legacy vars that should be removed?
 	var/message_cd = 0
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/medicine/c2/aiuri/pure
+	purity = 1
 
 /datum/reagent/medicine/c2/aiuri/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjustFireLoss(-2 * REM * normalise_creation_purity())
@@ -246,7 +255,7 @@
 /datum/reagent/medicine/c2/convermol
 	name = "Конвермол"
 	enname = "Convermol"
-	description = "Restores oxygen deprivation while producing a lesser amount of toxic byproducts. Both scale with exposure to the drug and current amount of oxygen deprivation. Overdose causes toxic byproducts regardless of oxygen deprivation."
+	description = "Ликвидирует кислородное голодание, однако травмирует легкие."
 	reagent_state = LIQUID
 	color = "#FF6464"
 	overdose_threshold = 35 // at least 2 full syringes +some, this stuff is nasty if left in for long
@@ -256,13 +265,11 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/medicine/c2/convermol/on_mob_life(mob/living/carbon/human/M, delta_time, times_fired)
-	var/oxycalc = 2.5 * REM * current_cycle
-	if(!overdosed)
-		oxycalc = min(oxycalc, M.getOxyLoss() + 0.5) //if NOT overdosing, we lower our toxdamage to only the damage we actually healed with a minimum of 0.1*current_cycle. IE if we only heal 10 oxygen damage but we COULD have healed 20, we will only take toxdamage for the 10. We would take the toxdamage for the extra 10 if we were overdosing.
-	M.adjustOxyLoss(-oxycalc * normalise_creation_purity(), 0)
-	M.adjustToxLoss(oxycalc / CONVERMOL_RATIO, 0)
-	if(DT_PROB(current_cycle / 2, delta_time) && M.losebreath)
-		M.losebreath--
+	M.adjustOxyLoss(-3 * REM * delta_time, 0)
+	if(M.losebreath >= 4)
+		M.losebreath -= 1.5 * REM * delta_time
+
+	M.adjustOrganLoss(ORGAN_SLOT_LUNGS, 0.75, 60)
 	..()
 	return TRUE
 

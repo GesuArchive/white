@@ -835,7 +835,10 @@
 // Clown survival box
 /obj/item/storage/box/hug/survival/PopulateContents()
 	new /obj/item/clothing/mask/breath/cheap(src)
+	new /obj/item/tank/internals/emergency_oxygen(src)
 	new /obj/item/reagent_containers/hypospray/medipen(src)
+	new /obj/item/reagent_containers/food/drinks/waterbottle/large(src)
+	new /obj/item/emergency_shield(src)
 
 	if(!isplasmaman(loc))
 		new /obj/item/tank/internals/emergency_oxygen(src)
@@ -1311,16 +1314,27 @@
 	desc = "Содержит запасные чипы для всех научных работ."
 
 /obj/item/storage/box/skillchips/science/PopulateContents()
-	new/obj/item/skillchip/job/roboticist(src)
-	new/obj/item/skillchip/job/roboticist(src)
+	new /obj/item/skillchip/job/roboticist(src)
+	new /obj/item/skillchip/job/roboticist(src)
+	new /obj/item/skillchip/job/roboticist(src)
 
 /obj/item/storage/box/skillchips/engineering
 	name = "Коробка с чипами инженерных навыков"
 	desc = "Содержит запасные чипы для всех технических навыков."
 
 /obj/item/storage/box/skillchips/engineering/PopulateContents()
-	new/obj/item/skillchip/job/engineer(src)
-	new/obj/item/skillchip/job/engineer(src)
+	new /obj/item/skillchip/job/engineer(src)
+	new /obj/item/skillchip/job/engineer(src)
+	new /obj/item/skillchip/job/engineer(src)
+
+/obj/item/storage/box/skillchips/medic
+	name = "Коробка с чипами медицинских навыков"
+	desc = "Содержит запасные чипы для хирургических операций."
+
+/obj/item/storage/box/skillchips/medic/PopulateContents()
+	new /obj/item/skillchip/job/medic/advanced(src)
+	new /obj/item/skillchip/job/medic/advanced(src)
+	new /obj/item/skillchip/job/medic/advanced(src)
 
 /obj/item/storage/box/swab
 	name = "коробка микробиологических ватных дисков"

@@ -85,7 +85,7 @@
 /obj/item/reagent_containers/hypospray/medipen/raccoon
 	name = "Раккун-2"
 	desc = "Подавляет опухоль Ромерола и излечивает от Зомби-вируса, однако оказывает тяжелейшее угнетающее воздействие на организм."
-	icon = 'white/Feline/icons/syringe_zed.dmi'
+	icon = 'white/Feline/icons/medipens.dmi'
 	icon_state = "raccoon"
 	inhand_icon_state = "tbpen"
 	reagent_flags = null
@@ -125,7 +125,7 @@
 /obj/item/reagent_containers/hypospray/medipen/nostromo
 	name = "Ностромо-7"
 	desc = "Вытравливает эмбриона чужого из организма концентрированными щелочными соединениями, однако оказывает тяжелейшее угнетающее воздействие на организм."
-	icon = 'white/Feline/icons/syringe_zed.dmi'
+	icon = 'white/Feline/icons/medipens.dmi'
 	icon_state = "Nostromo"
 	inhand_icon_state = "tbpen"
 	reagent_flags = null
@@ -144,7 +144,7 @@
 /obj/item/reagent_containers/hypospray/medipen/sputnik_lite
 	name = "Спутник Лайт"
 	desc = "Нейтрализует известные виды космических ксенопаразитов, оказывает менее губительное воздействие на организм в отличии от аналогов. Применять строго по назначению."
-	icon = 'white/Feline/icons/syringe_zed.dmi'
+	icon = 'white/Feline/icons/medipens.dmi'
 	icon_state = "sputnik_lite"
 	inhand_icon_state = "tbpen"
 	reagent_flags = null
@@ -199,9 +199,6 @@
 /obj/item/reagent_containers/pill/saver/vip
 	name = "завалявшаяся в кармане таблетка"
 	desc = "Таблетка которую вам выдали в самом начале этой смены, кажется там что то говорили про принимать при угрозе заражения, но большую часть инструктажа вы как всегда проспали..."
-	icon_state = "pill13"
-	list_reagents = list(/datum/reagent/medicine/saver = 4)
-	rename_with_volume = TRUE
 
 /obj/item/storage/pill_bottle/saver
 	name = "баночка с таблетками спасателя"
@@ -313,11 +310,39 @@
 
 /obj/item/reagent_containers/hypospray/medipen/blood_boost
 	name = "гемолитический медипен"
-	desc = "Крупный медипен содержащий в себе средства для остановки кровотечений и серьезной стимуляции выработки крови."
-	icon = 'white/Feline/icons/syringe_blood_boost.dmi'
+	desc = "Крупный медипен содержащий в себе средства для остановки кровотечений и серьезной стимуляции выработки крови. Содержит Гематоген и Физраствор."
+	icon = 'white/Feline/icons/medipens.dmi'
 	icon_state = "blood_boost"
 	volume = 60
 	custom_price = PAYCHECK_HARD * 3
 	custom_premium_price = PAYCHECK_HARD * 3
 	amount_per_transfer_from_this = 60
+	reagent1_vol = 25
+	reagent2_vol = 25
 	list_reagents = list(/datum/reagent/medicine/epinephrine = 5, /datum/reagent/medicine/coagulant = 5, /datum/reagent/medicine/hematogen = 25, /datum/reagent/medicine/salglu_solution = 25)
+
+/obj/item/reagent_containers/hypospray/medipen/super_brute
+	name = "продвинутый антитравматический медипен"
+	desc = "Крупный медипен содержащий в себе средства для быстрой регенерации физических ран. Содержит Либитал и Салициловую Кислоту."
+	icon = 'white/Feline/icons/medipens.dmi'
+	icon_state = "super_brute"
+	volume = 30
+	custom_price = PAYCHECK_HARD * 3
+	custom_premium_price = PAYCHECK_HARD * 3
+	amount_per_transfer_from_this = 30
+	reagent1_vol = 15
+	reagent2_vol = 15
+	list_reagents = list(/datum/reagent/medicine/c2/libital/pure = 15, /datum/reagent/medicine/sal_acid = 15)
+
+/obj/item/reagent_containers/hypospray/medipen/super_burn
+	name = "продвинутый антиожоговый медипен"
+	desc = "Крупный медипен содержащий в себе средства для быстрой регенерации ожоговых ран. Содержит Лентури и Оксандролон."
+	icon = 'white/Feline/icons/medipens.dmi'
+	icon_state = "super_burn"
+	volume = 30
+	custom_price = PAYCHECK_HARD * 3
+	custom_premium_price = PAYCHECK_HARD * 3
+	amount_per_transfer_from_this = 30
+	reagent1_vol = 15
+	reagent2_vol = 15
+	list_reagents = list(/datum/reagent/medicine/c2/lenturi/pure = 15, /datum/reagent/medicine/oxandrolone = 15)

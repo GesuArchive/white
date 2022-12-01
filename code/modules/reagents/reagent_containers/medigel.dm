@@ -80,14 +80,14 @@
 	desc = "Аппликатор спроектированный для быстрого и точечного нанесения лекарственного состава в виде аэрозоля. Содержит Либитал - вещество для лечения физических повреждений. Наносит небольшой урон печени. Разбавлен Гранибиталирином."
 	icon_state = "brutegel"
 	current_skin = "brutegel"
-	list_reagents = list(/datum/reagent/medicine/c2/libital = 24, /datum/reagent/medicine/granibitaluri = 36)
+	list_reagents = list(/datum/reagent/medicine/c2/libital/pure = 30, /datum/reagent/medicine/granibitaluri = 30)
 
 /obj/item/reagent_containers/medigel/aiuri
 	name = "Медицинский аэрозоль (Лентури)"
 	desc = "Аппликатор спроектированный для быстрого и точечного нанесения лекарственного состава в виде аэрозоля. Содержит Лентури - вещество для лечения ожоговых повреждений. Наносит небольшой урон желудку. Разбавлен Гранибиталирином."
 	icon_state = "burngel"
 	current_skin = "burngel"
-	list_reagents = list(/datum/reagent/medicine/c2/lenturi = 24, /datum/reagent/medicine/granibitaluri = 36)
+	list_reagents = list(/datum/reagent/medicine/c2/lenturi/pure = 30, /datum/reagent/medicine/granibitaluri = 30)
 
 /obj/item/reagent_containers/medigel/synthflesh
 	name = "Медицинский аэрозоль (Синтеплоть)"

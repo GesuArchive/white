@@ -103,29 +103,79 @@
 	target.take_bodypart_damage(urdamageamt_brute, urdamageamt_burn, wound_bonus=CANT_WOUND)
 	return FALSE
 
+/datum/surgery/healing/proc/overwrite(mob/user, mob/living/patient)
+	. = TRUE	// Если есть чип - ДА
+	if(isanimal(patient))	// Отбраковка по условиям
+		var/mob/living/simple_animal/critter = patient
+		if(!critter.healable)
+			return FALSE
+	if(!(patient.mob_biotypes & (MOB_ORGANIC|MOB_HUMANOID)))
+		return FALSE
+	// Перезапись от операционного компьютера
+	var/turf/T = get_turf(patient)
+	var/obj/machinery/computer/operating/opcomputer
+	var/obj/structure/table/optable/table = locate(/obj/structure/table/optable, T)
+	if(table?.computer)
+		opcomputer = table.computer
+	else
+		var/obj/machinery/stasis/the_stasis_bed = locate(/obj/machinery/stasis, T)
+		if(the_stasis_bed?.op_computer)
+			opcomputer = the_stasis_bed.op_computer
+	if(opcomputer)
+		if(opcomputer.machine_stat & (NOPOWER|BROKEN))
+			return FALSE
+		if(replaced_by in opcomputer.advanced_surgeries)
+			return FALSE
+		if(type in opcomputer.advanced_surgeries)
+			return TRUE
+
 /***************************BRUTE***************************/
 /datum/surgery/healing/brute
 	name = "Лечение Ран (Ушибов)"
 
 /datum/surgery/healing/brute/basic
 	name = "Лечение Ран (Ушибов, Базовое)"
+	desc = "Хирургическая операция которая оказывает базовую медицинскую помощь при физических ранах. Лечение немного более эффективно при серьезных травмах."
 	replaced_by = /datum/surgery/healing/brute/upgraded
 	healing_step_type = /datum/surgery_step/heal/brute/basic
-	desc = "Хирургическая операция которая оказывает базовую медицинскую помощь при физических ранах. Лечение немного более эффективно при серьезных травмах."
+
+/datum/surgery/healing/brute/basic/can_start(mob/user, mob/living/carbon/target)
+	// Не показывать если есть скилчип хирурга Т1,Т2,Т3
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
+		return FALSE
+	else
+		return ..()
 
 /datum/surgery/healing/brute/upgraded
 	name = "Лечение Ран (Ушибов, Продвинутое)"
-	replaced_by = /datum/surgery/healing/brute/upgraded/femto
+	desc = "Хирургическая операция которая оказывает продвинутую медицинскую помощь при физических ранах. Лечение более эффективно при серьезных травмах."
+	replaced_by = /datum/surgery/healing/brute/femto
 	requires_tech = TRUE
 	healing_step_type = /datum/surgery_step/heal/brute/upgraded
-	desc = "Хирургическая операция которая оказывает продвинутую медицинскую помощь при физических ранах. Лечение более эффективно при серьезных травмах."
 
-/datum/surgery/healing/brute/upgraded/femto
+/datum/surgery/healing/brute/upgraded/can_start(mob/user, mob/living/patient)
+	// Не показывать если есть скилчип хирурга Т2,Т3
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
+		return FALSE
+	// Скилчип хирурга Т1
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1))
+		return overwrite(user, patient)
+	else
+		. = ..()
+
+/datum/surgery/healing/brute/femto
 	name = "Лечение Ран (Ушибов, Экспертное)"
-	replaced_by = /datum/surgery/healing/combo/upgraded/femto
+	desc = "Хирургическая операция которая оказывает экспертную медицинскую помощь при физических ранах. Лечение намного более эффективно при серьезных травмах."
+	replaced_by = /datum/surgery/healing/combo/femto
 	requires_tech = TRUE
 	healing_step_type = /datum/surgery_step/heal/brute/upgraded/femto
-	desc = "Хирургическая операция которая оказывает экспертную медицинскую помощь при физических ранах. Лечение намного более эффективно при серьезных травмах."
+
+/datum/surgery/healing/brute/femto/can_start(mob/user, mob/living/patient)
+	// Скилчип хирурга Т2 Т3
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
+		return overwrite(user, patient)
+	else
+		. = ..()
 
 /********************BRUTE STEPS********************/
 /datum/surgery_step/heal/brute/basic
@@ -147,23 +197,47 @@
 
 /datum/surgery/healing/burn/basic
 	name = "Лечение Ран (Ожогов, Базовое)"
+	desc = "Хирургическая операция которая оказывает базовую медицинскую помощь при ожоговых ранах. Лечение немного более эффективно при серьезных травмах."
 	replaced_by = /datum/surgery/healing/burn/upgraded
 	healing_step_type = /datum/surgery_step/heal/burn/basic
-	desc = "Хирургическая операция которая оказывает базовую медицинскую помощь при ожоговых ранах. Лечение немного более эффективно при серьезных травмах."
+
+/datum/surgery/healing/burn/basic/can_start(mob/user, mob/living/carbon/target)
+	// Не показывать если есть скилчип хирурга Т1,Т2,Т3
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
+		return FALSE
+	else
+		return ..()
 
 /datum/surgery/healing/burn/upgraded
 	name = "Лечение Ран (Ожогов, Продвинутое)"
-	replaced_by = /datum/surgery/healing/burn/upgraded/femto
+	desc = "Хирургическая операция которая оказывает продвинутую медицинскую помощь при ожоговых ранах. Лечение более эффективно при серьезных травмах."
+	replaced_by = /datum/surgery/healing/burn/femto
 	requires_tech = TRUE
 	healing_step_type = /datum/surgery_step/heal/burn/upgraded
-	desc = "Хирургическая операция которая оказывает продвинутую медицинскую помощь при ожоговых ранах. Лечение более эффективно при серьезных травмах."
 
-/datum/surgery/healing/burn/upgraded/femto
+/datum/surgery/healing/burn/upgraded/can_start(mob/user, mob/living/patient)
+	// Не показывать если есть скилчип хирурга Т2,Т3
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
+		return FALSE
+	// Скилчип хирурга Т1
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1))
+		return overwrite(user, patient)
+	else
+		. = ..()
+
+/datum/surgery/healing/burn/femto
 	name = "Лечение Ран (Ожогов, Экспертное)"
-	replaced_by = /datum/surgery/healing/combo/upgraded/femto
+	desc = "Хирургическая операция которая оказывает экспертную медицинскую помощь при ожоговых ранах. Лечение намного более эффективно при серьезных травмах."
+	replaced_by = /datum/surgery/healing/combo/femto
 	requires_tech = TRUE
 	healing_step_type = /datum/surgery_step/heal/burn/upgraded/femto
-	desc = "Хирургическая операция которая оказывает экспертную медицинскую помощь при ожоговых ранах. Лечение намного более эффективно при серьезных травмах."
+
+/datum/surgery/healing/burn/femto/can_start(mob/user, mob/living/patient)
+	// Скилчип хирурга Т2 Т3
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
+		return overwrite(user, patient)
+	else
+		. = ..()
 
 /********************BURN STEPS********************/
 /datum/surgery_step/heal/burn/basic
@@ -183,25 +257,107 @@
 /datum/surgery/healing/combo
 
 
-/datum/surgery/healing/combo
+/datum/surgery/healing/combo/basic
 	name = "Лечение Ран (Смешанных, Основное)"
+	desc = "Хирургическая операция которая оказывает базовую медицинскую помощь при смешанных физических и ожоговых ранах. Лечение немного более эффективно при серьезных травмах."
 	replaced_by = /datum/surgery/healing/combo/upgraded
 	requires_tech = TRUE
 	healing_step_type = /datum/surgery_step/heal/combo
-	desc = "Хирургическая операция которая оказывает базовую медицинскую помощь при смешанных физических и ожоговых ранах. Лечение немного более эффективно при серьезных травмах."
+
+/datum/surgery/healing/combo/basic/can_start(mob/user, mob/living/patient)
+	// Не показывать если есть скилчип хирурга Т3
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
+		return FALSE
+	// Скилчип хирурга Т2
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2))
+		return overwrite(user, patient)
+	else
+		. = ..()
 
 /datum/surgery/healing/combo/upgraded
 	name = "Лечение Ран (Смешанных, Продвинутое)"
-	replaced_by = /datum/surgery/healing/combo/upgraded/femto
-	healing_step_type = /datum/surgery_step/heal/combo/upgraded
 	desc = "Хирургическая операция которая оказывает продвинутую медицинскую помощь при смешанных физических и ожоговых ранах. Лечение более эффективно при серьезных травмах."
+	replaced_by = /datum/surgery/healing/combo/femto
+	requires_tech = TRUE
+	healing_step_type = /datum/surgery_step/heal/combo/upgraded
 
+/datum/surgery/healing/combo/upgraded/can_start(mob/user, mob/living/patient)
+	// Скилчип хирурга Т3
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
+		return overwrite(user, patient)
+	else
+		. = ..()
 
-/datum/surgery/healing/combo/upgraded/femto //no real reason to type it like this except consistency, don't worry you're not missing anything
+/datum/surgery/healing/combo/femto //no real reason to type it like this except consistency, don't worry you're not missing anything
 	name = "Лечение Ран (Смешанных, Экспертное)"
-	replaced_by = null
-	healing_step_type = /datum/surgery_step/heal/combo/upgraded/femto
 	desc = "Хирургическая операция которая оказывает экспертную медицинскую помощь при смешанных физических и ожоговых ранах. Лечение намного более эффективно при серьезных травмах."
+	replaced_by = null
+	requires_tech = TRUE
+	healing_step_type = /datum/surgery_step/heal/combo/upgraded/femto
+
+/datum/surgery/healing/combo/femto/can_start(mob/user, mob/living/patient) //FALSE to not show in list
+	. = TRUE
+	if(replaced_by == /datum/surgery)
+		return FALSE
+
+	// True surgeons (like abductor scientists) need no instructions
+	if(HAS_TRAIT(user, TRAIT_SURGEON) || HAS_TRAIT(user.mind, TRAIT_SURGEON))
+		if(replaced_by) // only show top-level surgeries
+			return FALSE
+		else
+			return TRUE
+
+	if(!requires_tech && !replaced_by)
+		return TRUE
+
+	if(requires_tech)
+		. = FALSE
+
+	if(iscyborg(user))
+		var/mob/living/silicon/robot/R = user
+		var/obj/item/surgical_processor/SP = locate() in R.module.modules
+		if(SP) //no early return for !SP since we want to check optable should this not exist.
+			if(replaced_by in SP.advanced_surgeries)
+				return FALSE
+			if(type in SP.advanced_surgeries)
+				return TRUE
+
+	for(var/obj/item/modular_computer/modcomp in user.held_items | range(1, patient))
+		if(!modcomp.screen_on)
+			continue
+		var/datum/computer_file/program/surgmaster/SM = modcomp.active_program
+		if(SM && istype(SM))
+			return SM.can_start_surgery(patient, type, replaced_by)
+
+	var/turf/T = get_turf(patient)
+
+	//Get the relevant operating computer
+	var/obj/machinery/computer/operating/opcomputer
+	var/obj/structure/table/optable/table = locate(/obj/structure/table/optable, T)
+	if(table?.computer)
+		opcomputer = table.computer
+	else
+		var/obj/machinery/stasis/the_stasis_bed = locate(/obj/machinery/stasis, T)
+		if(the_stasis_bed?.op_computer)
+			opcomputer = the_stasis_bed.op_computer
+
+	if(!opcomputer)
+		if(requires_op)
+			return FALSE
+	if(opcomputer)
+		if(opcomputer.machine_stat & (NOPOWER|BROKEN))
+			return FALSE
+		if(replaced_by in opcomputer.advanced_surgeries)
+			return FALSE
+		if(type in opcomputer.advanced_surgeries)
+			return TRUE
+
+	if(isanimal(patient))
+		var/mob/living/simple_animal/critter = patient
+		if(!critter.healable)
+			return FALSE
+	if(!(patient.mob_biotypes & (MOB_ORGANIC|MOB_HUMANOID)))
+		return FALSE
 
 /********************COMBO STEPS********************/
 /datum/surgery_step/heal/combo

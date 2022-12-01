@@ -62,6 +62,23 @@
 	hud.show_to(H)
 	ADD_TRAIT(H, TRAIT_DIAGNOSTIC_HUD, ORGAN_TRAIT)
 
+/obj/item/storage/bag/garment/specialist
+	name = "сумка для одежды специалиста"
+
+/obj/item/storage/bag/garment/specialist/PopulateContents()
+	new /obj/item/clothing/suit/armor/vest(src)
+	new /obj/item/clothing/head/helmet/sec(src)
+	new /obj/item/clothing/under/rank/engineering/specialist(src)
+	new /obj/item/clothing/under/rank/engineering/specialist/skirt(src)
+	new /obj/item/clothing/suit/armor/vest/specialist/empty(src)
+	new /obj/item/clothing/head/helmet/specialist(src)
+	new /obj/item/storage/belt/specialist/empty(src)
+	new /obj/item/clothing/shoes/jackboots/sec(src)
+	new /obj/item/radio/headset/headset_eng_sec(src)
+	new /obj/item/radio/headset/headset_eng_sec/alt(src)
+	new /obj/item/radio/headset/headset_sec(src)
+	new /obj/item/radio/headset/headset_sec/alt(src)
+
 // Шкаф Специалиста
 /obj/structure/closet/secure_closet/security/specialist
 	name = "шкаф специалиста"
@@ -70,15 +87,10 @@
 	icon_state = "specialist"
 
 /obj/structure/closet/secure_closet/security/specialist/PopulateContents()
-	..()
-	new /obj/item/clothing/under/rank/engineering/specialist(src)
-	new /obj/item/clothing/under/rank/engineering/specialist/skirt(src)
-	new /obj/item/clothing/suit/armor/vest/specialist/empty(src)
-	new /obj/item/clothing/head/helmet/specialist(src)
-	new /obj/item/radio/headset/headset_eng_sec(src)
-	new /obj/item/radio/headset/headset_eng_sec/alt(src)
+	new /obj/item/storage/bag/garment/specialist(src)
+	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
+	new /obj/item/flashlight/seclite(src)
 	new /obj/item/storage/belt/security/full(src)
-	new /obj/item/storage/belt/specialist/empty(src)
 	new /obj/item/storage/box/barbed_wire(src)
 	new /obj/item/restraints/legcuffs/beartrap(src)
 	new /obj/item/restraints/legcuffs/beartrap(src)

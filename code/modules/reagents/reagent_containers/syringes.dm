@@ -208,13 +208,13 @@
 
 /obj/item/reagent_containers/syringe/multiver
 	name = "шприц (мультивер)"
-	desc = "Cодержит <b>мультивер</b>. Разбавлен с гранибитаралом."
-	list_reagents = list(/datum/reagent/medicine/c2/multiver = 6, /datum/reagent/medicine/granibitaluri = 9)
+	desc = "Cодержит <b>мультивер</b>."
+	list_reagents = list(/datum/reagent/medicine/c2/multiver = 15)
 
 /obj/item/reagent_containers/syringe/convermol
 	name = "шприц (конвермол)"
-	desc = "Cодержит <b>конвермол</b>. Разбавлен с гранибитаралом."
-	list_reagents = list(/datum/reagent/medicine/c2/convermol = 6, /datum/reagent/medicine/granibitaluri = 9)
+	desc = "Cодержит <b>конвермол</b>."
+	list_reagents = list(/datum/reagent/medicine/c2/convermol = 15)
 
 /obj/item/reagent_containers/syringe/antiviral
 	name = "шприц (космоцилин)"

@@ -436,6 +436,7 @@
 		"ph_meter",
 		"gloves_polymer",
 		"ivlmodif",
+		"pill_bottle_ultra",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
 	required_experiments = list(/datum/experiment/dissection/nonhuman)

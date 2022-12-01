@@ -42,6 +42,26 @@
 								/obj/item/lighter/greyscale
 								)
 
+/datum/outfit/schoolshooter/typefire
+	name = "Schoolshooter Fire"
+
+	mask = /obj/item/clothing/mask/breath
+	gloves = /obj/item/clothing/gloves/color/plasmaman
+	uniform = /obj/item/clothing/under/plasmaman
+	head = /obj/item/clothing/head/helmet/space/plasmaman/security/head_of_security/terrorist
+	r_pocket = /obj/item/tank/internals/plasmaman/belt/full
+
+	l_hand = /obj/item/gun/ballistic/shotgun/fallout/huntingshot/columbine/fire
+	backpack_contents = list(
+								/obj/item/storage/box/survival,
+								/obj/item/grenade/iedcasing = 3,
+								/obj/item/storage/box/battle_incendiary = 4,
+								/obj/item/storage/belt/bandolier,
+								/obj/item/crowbar/power/syndicate,
+								/obj/item/storage/fancy/cigarettes/cigpack_syndicate,
+								/obj/item/lighter/greyscale
+								)
+
 /*	А нужен ли третий тип скулшутера? У меня идея получше, но надо разобраться, как срать в динамик.
 /datum/outfit/schoolshooter/typethree
 	name = "Schoolshooter SKS"
@@ -176,8 +196,17 @@
 
 	spawned_mobs += list(first, second)
 
-	first.equipOutfit(/datum/outfit/schoolshooter/typeone)
-	second.equipOutfit(/datum/outfit/schoolshooter/typetwo)
+	if(isplasmaman(first))
+		first.equipOutfit(/datum/outfit/schoolshooter/typefire)
+		first.internal = first.get_item_for_held_index(2)
+	else
+		first.equipOutfit(/datum/outfit/schoolshooter/typeone)
+
+	if(isplasmaman(second))
+		second.equipOutfit(/datum/outfit/schoolshooter/typefire)
+		second.internal = second.get_item_for_held_index(2)
+	else
+		second.equipOutfit(/datum/outfit/schoolshooter/typeone)
 
 	var/obj/structure/closet/supplypod/extractionpod/terrorist_pod = new()
 	terrorist_pod.bluespace = FALSE
@@ -229,6 +258,10 @@ datum/dynamic_ruleset/midround/from_ghosts/schoolshooters/execute()
 
 /obj/item/gun/ballistic/shotgun/fallout/huntingshot/columbine //Девятизарядный дробовик с ОХУЕННЫМ ЗВУКОМ.
 	force = 12
+
+/obj/item/gun/ballistic/shotgun/fallout/huntingshot/columbine/fire
+	name = "\"зажигалка\""
+	mag_type = /obj/item/ammo_box/magazine/internal/shot/huntingshot/fire
 
 // /obj/item/ammo_box/a762/sks
 //	max_ammo = 10

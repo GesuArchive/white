@@ -67,6 +67,7 @@
 	new /obj/item/reagent_containers/medigel/sterilizine(src)
 	new /obj/item/reagent_containers/medigel/libital(src)
 	new /obj/item/storage/belt/medipenal/rangers(src)
+	new /obj/item/skillchip/job/medic/advanced(src)
 
 
 
@@ -90,7 +91,7 @@
 		/obj/item/bonesetter = 1,
 		/obj/item/blood_filter = 1,
 		/obj/item/cautery = 1,
-		/obj/item/healthanalyzer = 1)
+		/obj/item/healthanalyzer/range = 1)
 	generate_items_inside(items_inside,src)
 
 //Инженерный Набор
@@ -116,6 +117,7 @@
 	new /obj/item/holosign_creator/atmos(src)
 	new /obj/item/sbeacondrop/exploration(src)
 	new /obj/item/research_disk_pinpointer(src)
+	new /obj/item/skillchip/job/engineer(src)
 
 /obj/item/storage/box/demolition
 	name = "боеукладка разрушителя"

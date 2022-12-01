@@ -98,6 +98,7 @@ GENE SCANNER
 	var/scanmode = SCANMODE_HEALTH
 	var/advanced = FALSE
 	custom_price = PAYCHECK_HARD
+	var/works_from_distance = FALSE
 
 /obj/item/healthanalyzer/Initialize(mapload)
 	. = ..()
@@ -553,11 +554,41 @@ GENE SCANNER
 	mode = !mode
 	to_chat(usr, mode == SCANNER_VERBOSE ? "The scanner now shows specific limb damage." : "The scanner no longer shows limb damage.")
 
+/obj/item/healthanalyzer/range
+	name = "дистанционный анализатор здоровья"
+	desc = "Ручной медицинский сканер для определения жизненных показателей пациента на расстоянии."
+	icon_state = "health_range"
+	works_from_distance = TRUE
+	custom_premium_price = PAYCHECK_HARD * 2
+
+/*
+/obj/item/healthanalyzer/pre_attack(mob/living/M, mob/living/carbon/human/user, params)
+	if(!istype(M))
+		return ..()
+	if(user.Adjacent(M)) // no TK upgrading.
+		if(works_from_distance)
+			user.Beam(M, icon_state = "med_scan", time = 5)
+		attack(M, user)
+		return TRUE
+	return ..()
+*/
+
+/obj/item/healthanalyzer/afterattack(mob/living/M, mob/living/carbon/human/user, adjacent, params)
+	if(adjacent || !istype(M))
+		return ..()
+	if(works_from_distance)
+		M.Beam(user, icon_state = "med_scan", time = 5)
+		attack(M, user)
+		playsound(src, 'white/Feline/sounds/pip.ogg', 25, FALSE, 2)
+		return
+	return ..()
+
 /obj/item/healthanalyzer/advanced
 	name = "продвинутый анализатор здоровья"
-	icon_state = "health_adv"
 	desc = "Ручной медицинский сканер для определения жизненных показателей пациента с более высокой точностью."
+	icon_state = "health_adv"
 	advanced = TRUE
+	works_from_distance = TRUE
 
 /// Displays wounds with extended information on their status vs medscanners
 /proc/woundscan(mob/user, mob/living/carbon/patient, obj/item/healthanalyzer/wound/scanner)

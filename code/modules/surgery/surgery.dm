@@ -95,12 +95,13 @@
 	if(!opcomputer)
 		if(requires_op)
 			return FALSE
-	if(opcomputer.machine_stat & (NOPOWER|BROKEN))
-		return FALSE
-	if(replaced_by in opcomputer.advanced_surgeries)
-		return FALSE
-	if(type in opcomputer.advanced_surgeries)
-		return TRUE
+	if(opcomputer)
+		if(opcomputer.machine_stat & (NOPOWER|BROKEN))
+			return FALSE
+		if(replaced_by in opcomputer.advanced_surgeries)
+			return FALSE
+		if(type in opcomputer.advanced_surgeries)
+			return TRUE
 
 /datum/surgery/proc/next_step(mob/user, intent)
 	if(location != user.zone_selected)
@@ -144,6 +145,12 @@
 
 	var/obj/structure/table/optable/operating_table = locate(/obj/structure/table/optable, patient_turf)
 	var/obj/machinery/computer/operating/operating_computer = operating_table?.computer
+	if(operating_table?.computer)
+		operating_computer = operating_table.computer
+	else
+		var/obj/machinery/stasis/the_stasis_bed = locate(/obj/machinery/stasis, patient_turf)
+		if(the_stasis_bed?.op_computer)
+			operating_computer = the_stasis_bed.op_computer
 
 	if (isnull(operating_computer))
 		return null

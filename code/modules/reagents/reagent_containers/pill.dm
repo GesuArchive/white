@@ -128,13 +128,13 @@
 
 /obj/item/reagent_containers/pill/multiver
 	name = "таблетка мультивера"
-	desc = "Выводит из крови химические вещества и нейтрализует токсины. Эффективность растет по мере того, как увеличвается количество нейтрализуемых вещество. Вызывает средние повреждения легких. Разбавлена гранибиталури."
+	desc = "Выводит из крови химические вещества и нейтрализует токсины. Эффективность растет по мере того, как увеличвается количество нейтрализуемых вещество. Вызывает средние повреждения легких."
 	icon_state = "pill17"
-	list_reagents = list(/datum/reagent/medicine/c2/multiver = 5, /datum/reagent/medicine/granibitaluri = 5)
+	list_reagents = list(/datum/reagent/medicine/c2/multiver = 5)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/epinephrine
-	name = "таблетка адреналин"
+	name = "таблетка адреналина"
 	desc = "Стабилизирует пациентов находящихся в критическом состоянии, нейтрализует удушье и мобилизует организм к восстановлению при тяжелых повреждениях. Очень незначительно повышает скорость и стойкость к оглушению. Передозировка вызывает слабость и повреждение токсинами."
 	icon_state = "pill5"
 	list_reagents = list(/datum/reagent/medicine/epinephrine = 15)
@@ -162,15 +162,36 @@
 /obj/item/reagent_containers/pill/salicylic
 	name = "таблетка салициловой кислоты"
 	desc = "Чрезвычайно эффективно заживляет сильные ушибы и раны, однако эффект заметно ослабевает при незначительных травмах. Передозировка вызывает образование новых опухолей и кровоподтеков."
-	icon_state = "pill9"
-	list_reagents = list(/datum/reagent/medicine/sal_acid = 24)
+	icon_state = "pill9a"
+	list_reagents = list(/datum/reagent/medicine/sal_acid = 10)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/oxandrolone
 	name = "таблетка оскандролона"
 	desc = "Чрезвычайно эффективно заживляет сильные ожоги и воспаления, однако эффект заметно ослабевает при незначительных травмах. Передозировка вызывает аллергическую реакцию с образованием новых ожогов."
-	icon_state = "pill11"
-	list_reagents = list(/datum/reagent/medicine/oxandrolone = 24)
+	icon_state = "pill15"
+	list_reagents = list(/datum/reagent/medicine/oxandrolone = 10)
+	rename_with_volume = TRUE
+
+/obj/item/reagent_containers/pill/libital
+	name = "таблетка либитала"
+	desc = "Применяется при лечении легких травм, негативно сказывается на печени."
+	icon_state = "pill9"
+	list_reagents = list(/datum/reagent/medicine/c2/libital/pure = 10)
+	rename_with_volume = TRUE
+
+/obj/item/reagent_containers/pill/lenturi
+	name = "таблетка лентури"
+	desc = "Применяется при лечении легких ожогов, негативно сказывается на желудке. Вызывает переутомление."
+	icon_state = "pill7"
+	list_reagents = list(/datum/reagent/medicine/c2/lenturi/pure = 10)
+	rename_with_volume = TRUE
+
+/obj/item/reagent_containers/pill/spaceacillin
+	name = "таблетка космоцилина"
+	desc = "Космоцилин предотвращает распространение болезней и инфекции у пациента, которыми он в настоящее время заражен. Также уменьшает инфекцию при серьезных ожогах."
+	icon_state = "pill7"
+	list_reagents = list(/datum/reagent/medicine/spaceacillin = 30)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/insulin

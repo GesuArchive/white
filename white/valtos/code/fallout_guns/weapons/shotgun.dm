@@ -148,6 +148,9 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
 	max_ammo = 8
 
+/obj/item/ammo_box/magazine/internal/shot/huntingshot/fire
+	ammo_type = /obj/item/ammo_casing/shotgun/incendiary
+
 //Loaders
 /obj/item/ammo_box/fallout/tube4570
 	name = ".45-70 speed loader tube"

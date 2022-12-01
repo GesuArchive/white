@@ -12,6 +12,13 @@
 	var/forge_charges = 0
 	var/list/placed_objects = list()
 
+	var/list/allowed = list(
+		/obj/item/gun/energy/kinetic_accelerator,
+		/obj/item/gun/energy/plasmacutter/adv,
+		/obj/item/magmite,
+		/obj/item/gibtonite
+		)
+
 /obj/structure/world_anvil/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/element/climbable)
@@ -29,6 +36,9 @@
 	. += "<hr>Она может выдать ещё [forge_charges] заряд[forge_charges != 1 ? "" : "ов"]."
 
 /obj/structure/world_anvil/attackby(obj/item/I, mob/living/user, params)
+	if(!(LAZYFIND(allowed, I.type)))
+		to_chat(user, span_danger("Нет смысла помещать это на наковальню!"))
+		return
 	if(istype(I,/obj/item/gibtonite))
 		var/obj/item/gibtonite/placed_ore = I
 		forge_charges = forge_charges + placed_ore.quality

@@ -1373,14 +1373,6 @@
 /obj/machinery/light/small,
 /turf/open/floor/plasteel/airless,
 /area/ruin/space/derelict/hallway/primary)
-"gB" = (
-/obj/machinery/power/apc{
-	name = "Worn-out APC";
-	pixel_y = -25
-	},
-/obj/structure/cable,
-/turf/open/floor/plasteel/airless,
-/area/ruin/space/derelict/bridge/access)
 "gC" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating/airless,
@@ -10639,8 +10631,8 @@ cF
 fK
 fT
 fT
-fT
-gB
+fx
+fx
 cs
 cs
 ZB

@@ -97,6 +97,58 @@
 	atom_storage.max_total_storage = 40
 	atom_storage.set_holdable(list(/obj/item/reagent_containers/pill, /obj/item/dice))
 
+/obj/item/storage/pill_bottle/ultra
+	name = "таблетница"
+	desc = "Вмещает в себя очень много пилюлек и таблеток."
+	icon = 'white/Feline/icons/med_items.dmi'
+	icon_state = "pill_box"
+
+/obj/item/storage/pill_bottle/ultra/Initialize()
+	. = ..()
+	atom_storage.allow_quick_gather = TRUE
+	atom_storage.numerical_stacking = TRUE
+	atom_storage.max_slots = 50
+	atom_storage.max_total_storage = 100
+	atom_storage.set_holdable(list(/obj/item/reagent_containers/pill))
+
+/obj/item/storage/pill_bottle/ultra/full	//	Врач
+	desc = "Хранит обширный набор таблеток на все случаи жизни."
+
+/obj/item/storage/pill_bottle/ultra/full/PopulateContents()
+	new /obj/item/reagent_containers/pill/epinephrine(src)
+	new /obj/item/reagent_containers/pill/epinephrine(src)
+	new /obj/item/reagent_containers/pill/lenturi(src)
+	new /obj/item/reagent_containers/pill/lenturi(src)
+	new /obj/item/reagent_containers/pill/libital(src)
+	new /obj/item/reagent_containers/pill/libital(src)
+	new /obj/item/reagent_containers/pill/probital(src)
+	new /obj/item/reagent_containers/pill/probital(src)
+	new /obj/item/reagent_containers/pill/multiver(src)
+	new /obj/item/reagent_containers/pill/multiver(src)
+	new /obj/item/reagent_containers/pill/penacid(src)
+	new /obj/item/reagent_containers/pill/penacid(src)
+	new /obj/item/reagent_containers/pill/salicylic(src)
+	new /obj/item/reagent_containers/pill/salicylic(src)
+	new /obj/item/reagent_containers/pill/oxandrolone(src)
+	new /obj/item/reagent_containers/pill/oxandrolone(src)
+	new /obj/item/reagent_containers/pill/salbutamol(src)
+	new /obj/item/reagent_containers/pill/salbutamol(src)
+	new /obj/item/reagent_containers/pill/hematogen(src)
+	new /obj/item/reagent_containers/pill/hematogen(src)
+	new /obj/item/reagent_containers/pill/sens(src)
+	new /obj/item/reagent_containers/pill/sens(src)
+	new /obj/item/reagent_containers/pill/potassiodide(src)
+	new /obj/item/reagent_containers/pill/potassiodide(src)
+	new /obj/item/reagent_containers/pill/mannitol(src)
+	new /obj/item/reagent_containers/pill/mannitol(src)
+	new /obj/item/reagent_containers/pill/neurine(src)
+	new /obj/item/reagent_containers/pill/neurine(src)
+	new /obj/item/reagent_containers/pill/psicodine(src)
+	new /obj/item/reagent_containers/pill/psicodine(src)
+	new /obj/item/reagent_containers/pill/spaceacillin(src)
+	new /obj/item/reagent_containers/pill/spaceacillin(src)
+	new /obj/item/reagent_containers/pill/mutadone(src)
+	new /obj/item/reagent_containers/pill/mutadone(src)
 
 // Пенал для медипенов
 
@@ -138,8 +190,8 @@
 /obj/item/storage/belt/medipenal/field_med	//	Полевой медик
 
 /obj/item/storage/belt/medipenal/field_med/PopulateContents()
-	new /obj/item/reagent_containers/hypospray/medipen/salacid(src)
-	new /obj/item/reagent_containers/hypospray/medipen/salacid(src)
+	new /obj/item/reagent_containers/hypospray/medipen/super_brute(src)
+	new /obj/item/reagent_containers/hypospray/medipen/super_brute(src)
 	new /obj/item/reagent_containers/hypospray/medipen/oxandrolone(src)
 	new /obj/item/reagent_containers/hypospray/medipen/penacid(src)
 
@@ -425,7 +477,7 @@
 
 // 	Лечение
 
-/obj/item/solnce/attack(mob/living/M, mob/user)
+/obj/item/solnce/attack(mob/living/carbon/human/M, mob/user)
 	. = ..()
 	if(model_type == TYPE_SUN)
 		to_chat(user, span_warning("Для начала работы, необходимо выбрать систему и установить расходные элементы."))
@@ -476,6 +528,8 @@
 					for(var/thing in limb.wounds)
 						var/datum/wound/W = thing
 						W.remove_wound()
+						if(istype(limb, /obj/item/bodypart/head))
+							M.cure_all_traumas(TRAUMA_RESILIENCE_WOUND)
 					to_chat(user, span_notice("Успешно исправили все переломы и вывихи в этой конечности."))
 				else
 					to_chat(user, span_warning("Уровень заряда критический, необходима перезарядка."))

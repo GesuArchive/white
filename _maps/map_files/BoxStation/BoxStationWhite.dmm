@@ -340,6 +340,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/light_switch/directional/west,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/service/chapel/main)
 "afx" = (
@@ -11632,7 +11633,6 @@
 /turf/open/floor/engine/plasma,
 /area/engineering/atmos/upper)
 "daF" = (
-/obj/machinery/light_switch/directional/north,
 /obj/item/kirbyplants{
 	icon_state = "plant-21"
 	},
@@ -22292,7 +22292,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/light_switch/directional/west,
 /turf/open/floor/carpet,
 /area/service/library/upper)
 "gvm" = (
@@ -25389,6 +25388,7 @@
 	dir = 1;
 	pixel_y = 0
 	},
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/plasteel/dark,
 /area/service/chapel/main)
 "htS" = (
@@ -29965,15 +29965,9 @@
 /turf/open/floor/wood,
 /area/commons/fitness/kachalka)
 "iSj" = (
-/obj/structure/chair/comfy/black{
-	dir = 8
-	},
-/obj/machinery/light_switch/directional/south,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/turf/open/floor/wood,
-/area/service/library/upper)
+/obj/machinery/light_switch/directional/north,
+/turf/open/floor/plasteel/dark,
+/area/service/chapel/main)
 "iSs" = (
 /obj/machinery/camera{
 	c_tag = "Arrivals Bay 3 & 4";
@@ -35661,8 +35655,7 @@
 "kID" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	dir = 4;
-	req_access_txt = "12"
+	dir = 4
 	},
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
@@ -35697,9 +35690,6 @@
 "kJm" = (
 /obj/structure/table/wood,
 /obj/machinery/computer/bookmanagement,
-/obj/machinery/light_switch{
-	pixel_y = 28
-	},
 /turf/open/floor/wood,
 /area/service/library/upper)
 "kJo" = (
@@ -37278,9 +37268,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/light_switch/directional/west{
-	pixel_x = -23
-	},
 /turf/open/floor/carpet,
 /area/service/library)
 "ljU" = (
@@ -38515,6 +38502,7 @@
 	dir = 1
 	},
 /obj/machinery/power/apc/auto_name/directional/west,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/primary/starboard/low_level_service)
 "lEz" = (
@@ -46534,6 +46522,7 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 9
 	},
+/obj/machinery/portable_atmospherics/canister/toxins,
 /turf/open/floor/plasteel/dark,
 /area/maintenance/port/aft)
 "ogm" = (
@@ -50972,6 +50961,7 @@
 /obj/effect/turf_decal/trimline/brown/filled/arrow_cw{
 	dir = 8
 	},
+/obj/machinery/portable_atmospherics/canister/toxins,
 /turf/open/floor/plasteel/dark,
 /area/maintenance/port/aft)
 "pzt" = (
@@ -53551,7 +53541,6 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
 "qod" = (
-/obj/machinery/light_switch/directional/north,
 /obj/structure/displaycase/trophy,
 /turf/open/floor/wood/parquet,
 /area/service/library)
@@ -54391,9 +54380,6 @@
 	dir = 1;
 	pixel_y = 0
 	},
-/obj/machinery/light_switch{
-	pixel_y = 28
-	},
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
@@ -54910,6 +54896,7 @@
 	dir = 1
 	},
 /obj/machinery/light,
+/obj/machinery/airalarm/directional/south,
 /turf/open/floor/plasteel/dark,
 /area/cargo/office)
 "qJq" = (
@@ -64607,10 +64594,6 @@
 /turf/open/floor/plating,
 /area/maintenance/solars/port/aft)
 "tWE" = (
-/obj/machinery/light_switch{
-	pixel_x = 8;
-	pixel_y = 28
-	},
 /obj/machinery/camera/autoname,
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/crate,
@@ -67292,6 +67275,8 @@
 /obj/item/wrench,
 /obj/item/wirecutters,
 /obj/item/screwdriver,
+/obj/item/storage/box/chemheater,
+/obj/item/storage/box/chemdisp,
 /obj/item/storage/box/lights/tubes,
 /turf/open/floor/plasteel/white,
 /area/science/cytology)
@@ -73709,7 +73694,6 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
-/obj/machinery/light_switch/directional/north,
 /obj/effect/turf_decal/siding/wood/corner,
 /turf/open/floor/wood,
 /area/service/library/artgallery)
@@ -76258,6 +76242,9 @@
 "xCH" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/techstorage/medical_all,
+/obj/item/storage/box/chemmaster,
+/obj/item/storage/box/chemheater,
+/obj/item/storage/box/chemdisp,
 /turf/open/floor/plating,
 /area/engineering/storage/tech)
 "xCI" = (
@@ -126028,7 +126015,7 @@ yjz
 lPO
 lPO
 xFK
-xUF
+iSj
 xUF
 rQg
 xUF
@@ -189011,7 +188998,7 @@ uaS
 liQ
 mhx
 jPh
-iSj
+eGQ
 sSW
 jyv
 cpk

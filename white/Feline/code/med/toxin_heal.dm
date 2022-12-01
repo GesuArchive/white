@@ -72,20 +72,84 @@
 	toxin_healing_step_type = /datum/surgery_step/toxin_heal/toxin/basic
 	desc = "Позволяет поверхностно промыть лимфатическую систему, что скажется на снижении уровня токсинов в организме. Эффект более заметен при высоких уровнях отравления."
 
+/datum/surgery/toxin_healing/toxin/basic/can_start(mob/user, mob/living/carbon/target)
+	// Не показывать если есть скилчип хирурга Т1,Т2,Т3
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
+		return FALSE
+	else
+		return ..()
+
 /datum/surgery/toxin_healing/toxin/upgraded
 	name = "Фильтрация Лимфы (Токсины, Продвинутое)"
-	replaced_by = /datum/surgery/toxin_healing/toxin/upgraded/femto
+	replaced_by = /datum/surgery/toxin_healing/toxin/femto
 	requires_tech = TRUE
 	toxin_healing_step_type = /datum/surgery_step/toxin_heal/toxin/upgraded
 	desc = "Позволяет хорошо промыть лимфатическую систему, что скажется на снижении уровня токсинов в организме. Эффект намного более заметен при высоких уровнях отравления."
 
-/datum/surgery/toxin_healing/toxin/upgraded/femto
+/datum/surgery/toxin_healing/toxin/upgraded/can_start(mob/user, mob/living/carbon/target)
+	// Скилчип хирурга Т1
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1))
+		. = TRUE	// Если есть чип - ДА
+
+		if(HAS_TRAIT(target, TRAIT_HUSK)) //не работает на хасков
+			return FALSE
+		// Перезапись от операционного компьютера
+		var/turf/T = get_turf(target)
+		var/obj/machinery/computer/operating/opcomputer
+		var/obj/structure/table/optable/table = locate(/obj/structure/table/optable, T)
+		if(table?.computer)
+			opcomputer = table.computer
+		else
+			var/obj/machinery/stasis/the_stasis_bed = locate(/obj/machinery/stasis, T)
+			if(the_stasis_bed?.op_computer)
+				opcomputer = the_stasis_bed.op_computer
+		if(opcomputer)
+			if(opcomputer.machine_stat & (NOPOWER|BROKEN))
+				return FALSE
+			if(replaced_by in opcomputer.advanced_surgeries)
+				return FALSE
+			if(type in opcomputer.advanced_surgeries)
+				return TRUE
+
+	else
+		return ..()
+
+//datum/surgery/toxin_healing/toxin/upgraded/femto
+/datum/surgery/toxin_healing/toxin/femto
 	name = "Фильтрация Лимфы (Токсины, Экспертное)"
 //	replaced_by = /datum/surgery/healing/combo/upgraded/femto
 	replaced_by = null
 	requires_tech = TRUE
 	toxin_healing_step_type = /datum/surgery_step/toxin_heal/toxin/upgraded/femto
 	desc = "Позволяет профессионально промыть лимфатическую систему, что скажется на снижении уровня токсинов в организме. Эффект максимально заметен при высоких уровнях отравления."
+
+/datum/surgery/toxin_healing/toxin/femto/can_start(mob/user, mob/living/carbon/target)
+	// Скилчип хирурга Т2 Т3
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
+		. = TRUE	// Если есть чип - ДА
+
+		if(HAS_TRAIT(target, TRAIT_HUSK)) //не работает на хасков
+			return FALSE
+		// Перезапись от операционного компьютера
+		var/turf/T = get_turf(target)
+		var/obj/machinery/computer/operating/opcomputer
+		var/obj/structure/table/optable/table = locate(/obj/structure/table/optable, T)
+		if(table?.computer)
+			opcomputer = table.computer
+		else
+			var/obj/machinery/stasis/the_stasis_bed = locate(/obj/machinery/stasis, T)
+			if(the_stasis_bed?.op_computer)
+				opcomputer = the_stasis_bed.op_computer
+		if(opcomputer)
+			if(opcomputer.machine_stat & (NOPOWER|BROKEN))
+				return FALSE
+			if(replaced_by in opcomputer.advanced_surgeries)
+				return FALSE
+			if(type in opcomputer.advanced_surgeries)
+				return TRUE
+
+	else
+		return ..()
 
 //Шаги
 /datum/surgery_step/toxin_heal/toxin/basic

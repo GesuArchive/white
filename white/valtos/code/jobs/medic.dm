@@ -33,7 +33,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/armor/vest/fieldmedic
 	suit_store = /obj/item/gun/energy/disabler
-	backpack_contents = list(/obj/item/storage/firstaid/medical/field_surgery = 1, /obj/item/optable = 1, /obj/item/modular_computer/laptop/preset/medical = 1, /obj/item/storage/pill_bottle/soldier = 1)
+	backpack_contents = list(/obj/item/storage/firstaid/medical/field_surgery = 1, /obj/item/optable = 1, /obj/item/storage/pill_bottle/soldier = 1)
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med
@@ -46,7 +46,7 @@
 
 	implants = list(/obj/item/implant/mindshield)
 
-	skillchips = list(/obj/item/skillchip/entrails_reader)
+	skillchips = list(/obj/item/skillchip/entrails_reader, /obj/item/skillchip/job/medic/super)
 
 	chameleon_extras = /obj/item/gun/syringe
 

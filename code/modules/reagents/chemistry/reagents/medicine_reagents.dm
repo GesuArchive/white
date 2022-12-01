@@ -178,7 +178,11 @@
 		M.adjustCloneLoss(-power * REM * delta_time, 0)
 		for(var/i in M.all_wounds)
 			var/datum/wound/iter_wound = i
-			iter_wound.on_xadone(power * REAGENTS_EFFECT_MULTIPLIER * delta_time)
+//			iter_wound.on_xadone(power * REAGENTS_EFFECT_MULTIPLIER * delta_time)
+			iter_wound.cryo_progress += power * REAGENTS_EFFECT_MULTIPLIER * delta_time
+			if(iter_wound.cryo_progress > 33 * iter_wound.severity)
+				M.cure_all_traumas(TRAUMA_RESILIENCE_WOUND)
+				qdel(i)
 		REMOVE_TRAIT(M, TRAIT_DISFIGURED, TRAIT_GENERIC) //fixes common causes for disfiguration
 		. = TRUE
 	metabolization_rate = REAGENTS_METABOLISM * (0.00001 * (M.bodytemperature ** 2) + 0.5)
@@ -277,9 +281,9 @@
 		patient.visible_message(span_nicegreen("Тело [patient] быстро впитывает влагу из окружающей среды, принимая более здоровый вид."))
 
 /datum/reagent/medicine/spaceacillin
-	name = "Космоацилин"
+	name = "Космоцилин"
 	enname = "Spaceacillin"
-	description = "Spaceacillin will prevent a patient from conventionally spreading any diseases they are currently infected with. Also reduces infection in serious burns."
+	description = "Космоцилин предотвращает распространение болезней и инфекции у пациента, которыми он в настоящее время заражен. Также уменьшает инфекцию при серьезных ожогах."
 	color = "#E1F2E6"
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM
 	ph = 8.1
@@ -905,7 +909,7 @@
 	purity = REAGENT_STANDARD_PURITY
 	impure_chem = /datum/reagent/impurity/mannitol
 	inverse_chem_val = 0.45
-	impure_chem = /datum/reagent/impurity/mannitol
+	inverse_chem = /datum/reagent/impurity/mannitol
 
 /datum/reagent/medicine/mannitol/on_mob_life(mob/living/carbon/owner, delta_time, times_fired)
 	owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, -2 * REM * delta_time * normalise_creation_purity())

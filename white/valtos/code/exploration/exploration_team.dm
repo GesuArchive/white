@@ -52,6 +52,7 @@
 
 	id_trim = /datum/id_trim/job/exploration
 	implants = list(/obj/item/implant/mindshield)
+	skillchips = list(/obj/item/skillchip/adapter)
 
 	chameleon_extras = /obj/item/gun/energy/e_gun/mini/exploration
 

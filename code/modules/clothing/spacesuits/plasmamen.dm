@@ -154,6 +154,13 @@
 	inhand_icon_state = "hos_envirohelm"
 	armor = list(MELEE = 20, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 100, RAD = 0, FIRE = 100, ACID = 75, WOUND = 10)
 
+/obj/item/clothing/head/helmet/space/plasmaman/security/head_of_security/terrorist
+	name = "шлем \"зажигалки\""
+	desc = "Эксклюзивный шлем для настоящего горячего парня."
+	icon_state = "hos_envirohelm"
+	inhand_icon_state = "hos_envirohelm"
+	armor = list(MELEE = 25, BULLET = 20, LASER = 20,ENERGY = 20, BOMB = 10, BIO = 100, RAD = 0, FIRE = 100, ACID = 75, WOUND = 10)
+
 /obj/item/clothing/head/helmet/space/plasmaman/prisoner
 	name = "prisoner's plasma envirosuit helmet"
 	desc = "A plasmaman containment helmet for prisoners."

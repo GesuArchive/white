@@ -5236,6 +5236,7 @@
 	dir = 5;
 	start_active = 1
 	},
+/obj/machinery/medipen_refiller,
 /turf/open/floor/plasteel/white,
 /area/medical/chemistry)
 "LY" = (
@@ -5463,10 +5464,6 @@
 /obj/machinery/power/apc/auto_name/directional/west{
 	pixel_y = 2
 	},
-/obj/machinery/light_switch/directional/west{
-	pixel_y = -10;
-	pixel_x = -23
-	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/white,
 /area/medical/storage)
@@ -5544,9 +5541,6 @@
 	dir = 5
 	},
 /obj/structure/cable,
-/obj/machinery/light_switch/directional/north{
-	pixel_x = -6
-	},
 /turf/open/floor/wood,
 /area/medical/break_room)
 "Oq" = (

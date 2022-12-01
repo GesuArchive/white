@@ -6,7 +6,6 @@
 /obj/structure/closet/cardboard,
 /obj/item/trash/popcorn,
 /obj/effect/decal/cleanable/shreds,
-/obj/item/toy/cards/singlecard,
 /obj/effect/spawner/random/maintenance/seven,
 /obj/item/cigbutt,
 /turf/open/floor/plating,

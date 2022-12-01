@@ -110,7 +110,7 @@
 	icon_state = "firstaid"
 	loot = list(
 		/obj/item/storage/firstaid/emergency,
-		/obj/item/storage/firstaid/medical,
+		/obj/item/storage/firstaid/medical/surg,
 		/obj/item/storage/firstaid/advanced,
 	)
 
