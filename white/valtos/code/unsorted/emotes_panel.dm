@@ -2,13 +2,13 @@
 	var/atom/movable/screen/using
 
 	using = new /atom/movable/screen/emote_button()
-	using.icon = ui_style
 	using.screen_loc = UI_EMOTES
 	using.hud = src
 	infodisplay += using
 
 /atom/movable/screen/emote_button
 	name = "Действия"
+	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "emotes"
 	var/cooldown = 0
 

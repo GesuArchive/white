@@ -41,15 +41,18 @@
 
 /datum/view_data/proc/assertFormat()//T-Pose
 	winset(chief, "mapwindow.map", "zoom=0")
+	winset(chief, "mapwindow.hud", "zoom=0")
 	zoom = 0
 
 /datum/view_data/proc/resetFormat()//Cuck
 	zoom = chief?.prefs.pixel_size
 	winset(chief, "mapwindow.map", "zoom=[zoom]")
+	winset(chief, "mapwindow.hud", "zoom=[zoom]")
 	chief?.attempt_auto_fit_viewport() // If you change zoom mode, fit the viewport
 
 /datum/view_data/proc/setZoomMode()
 	winset(chief, "mapwindow.map", "zoom-mode=[chief?.prefs.scaling_method]")
+	winset(chief, "mapwindow.hud", "zoom-mode=[chief?.prefs.scaling_method]")
 
 /datum/view_data/proc/isZooming()
 	return (width || height)

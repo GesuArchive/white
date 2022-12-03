@@ -55,13 +55,13 @@
 	description = "<span class='nicegreen'>ДА! ДА!! ДА!!!</span>\n"
 	mood_change = 1000
 	timeout = 0.5 MINUTES
-	special_screen_obj = "mood_happiness_good"
+	special_screen_obj = "mood_happy"
 
 /datum/mood_event/happiness_drug_bad_od
 	description = "<span class='boldwarning'>НЕТ! НЕТ!! НЕТ!!!</span>\n"
 	mood_change = -20000
 	timeout = 0.5 MINUTES
-	special_screen_obj = "mood_happiness_bad"
+	special_screen_obj = "mood_joker"
 
 /datum/mood_event/narcotic_medium
 	description = "<span class='nicegreen'>Это приятное оцепенение...</span>\n"

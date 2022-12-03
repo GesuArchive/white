@@ -696,11 +696,11 @@
 			if(..()) //not dead
 				switch(hal_screwyhud)
 					if(SCREWYHUD_CRIT)
-						hud_used.healths.icon_state = "health6"
+						hud_used.healths.icon_state = "nh14"
 					if(SCREWYHUD_DEAD)
-						hud_used.healths.icon_state = "health7"
+						hud_used.healths.icon_state = "nh15"
 					if(SCREWYHUD_HEALTHY)
-						hud_used.healths.icon_state = "health0"
+						hud_used.healths.icon_state = "nh0"
 		if(hud_used.healthdoll)
 			hud_used.healthdoll.cut_overlays()
 			if(stat != DEAD)

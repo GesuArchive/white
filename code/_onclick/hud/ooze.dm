@@ -3,7 +3,6 @@
 	. = ..()
 
 	zone_select = new /atom/movable/screen/zone_sel()
-	zone_select.icon = ui_style
 	zone_select.hud = src
 	zone_select.update_icon()
 	static_inventory += zone_select

@@ -172,46 +172,46 @@
 	infodisplay += healths
 
 	using = new /atom/movable/screen/blob/blob_help()
-	using.screen_loc = "WEST:6,NORTH:-3"
+	using.screen_loc = "hud:LEFT,TOP"
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/jump_to_node()
-	using.screen_loc = ui_inventory
+	using.screen_loc = "hud:LEFT,BOTTOM"
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/jump_to_core()
-	using.screen_loc = ui_zonesel
+	using.screen_loc = "hud:LEFT,TOP-2"
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/blobbernaut()
-	using.screen_loc = ui_belt
+	using.screen_loc = "hud:LEFT,TOP-3"
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/resource_blob()
-	using.screen_loc = ui_back
+	using.screen_loc = "hud:LEFT,TOP-4"
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/node_blob()
-	using.screen_loc = ui_hand_position(2)
+	using.screen_loc = "hud:LEFT,TOP-5"
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/factory_blob()
-	using.screen_loc = ui_hand_position(1)
+	using.screen_loc = "hud:LEFT,TOP-6"
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/readapt_strain()
-	using.screen_loc = ui_storage1
+	using.screen_loc = "hud:LEFT,TOP-8"
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/relocate_core()
-	using.screen_loc = ui_storage2
+	using.screen_loc = "hud:LEFT,TOP-9"
 	using.hud = src
 	static_inventory += using

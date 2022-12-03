@@ -83,17 +83,19 @@
 	var/atom/movable/screen/using
 	var/atom/movable/screen/inventory/inv_box
 
+	var/atom/movable/screen/button_bg
+	var/atom/movable/screen/free_bg
+	var/atom/movable/screen/button_bg_health
+	var/atom/movable/screen/button_bg_big
+
 	using = new/atom/movable/screen/language_menu
-	using.icon = ui_style
 	using.hud = src
 	static_inventory += using
 
 	using = new/atom/movable/screen/skills
-	using.icon = ui_style
 	static_inventory += using
 
 	using = new /atom/movable/screen/area_creator
-	using.icon = ui_style
 	using.hud = src
 	static_inventory += using
 
@@ -103,15 +105,13 @@
 	static_inventory += action_intent
 
 	using = new /atom/movable/screen/mov_intent
-	using.icon = ui_style
 	using.icon_state = (mymob.m_intent == MOVE_INTENT_RUN ? "running" : "walking")
 	using.screen_loc = ui_movi
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/drop()
-	using.icon = ui_style
-	using.screen_loc = ui_drop_throw
+	using.screen_loc = UI_DROP
 	using.hud = src
 	static_inventory += using
 
@@ -213,8 +213,7 @@
 	static_inventory += inv_box
 
 	using = new /atom/movable/screen/resist()
-	using.icon = ui_style
-	using.screen_loc = ui_above_intent
+	using.screen_loc = UI_RESIST
 	using.hud = src
 	hotkeybuttons += using
 
@@ -286,14 +285,12 @@
 	static_inventory += inv_box
 
 	throw_icon = new /atom/movable/screen/throw_catch()
-	throw_icon.icon = ui_style
-	throw_icon.screen_loc = ui_drop_throw
+	throw_icon.screen_loc = UI_THROW
 	throw_icon.hud = src
 	hotkeybuttons += throw_icon
 
 	rest_icon = new /atom/movable/screen/rest()
-	rest_icon.icon = ui_style
-	rest_icon.screen_loc = ui_above_movement
+	rest_icon.screen_loc = UI_REST
 	rest_icon.hud = src
 	static_inventory += rest_icon
 
@@ -314,9 +311,8 @@
 	infodisplay += stamina
 
 	pull_icon = new /atom/movable/screen/pull()
-	pull_icon.icon = ui_style
 	pull_icon.update_icon()
-	pull_icon.screen_loc = ui_above_intent
+	pull_icon.screen_loc = UI_PULL
 	pull_icon.hud = src
 	static_inventory += pull_icon
 
@@ -337,7 +333,6 @@
 	infodisplay += sunlight_display
 
 	zone_select =  new /atom/movable/screen/zone_sel()
-	zone_select.icon = ui_style
 	zone_select.hud = src
 	zone_select.update_icon()
 	static_inventory += zone_select
@@ -354,6 +349,24 @@
 			inv.hud = src
 			inv_slots[TOBITSHIFT(inv.slot_id) + 1] = inv
 			inv.update_icon()
+
+	button_bg = new /atom/movable/screen/side_button_bg()
+	button_bg.hud = src
+	infodisplay += button_bg
+
+	button_bg_health = new /atom/movable/screen/side_button_bg()
+	button_bg_health.screen_loc = ui_healthdoll
+	button_bg_health.hud = src
+	infodisplay += button_bg_health
+
+	free_bg = new /atom/movable/screen/side_button_bg()
+	free_bg.screen_loc = ui_relative_temp
+	free_bg.hud = src
+	infodisplay += free_bg
+
+	button_bg_big = new /atom/movable/screen/side_button_bg/high()
+	button_bg_big.hud = src
+	infodisplay += button_bg_big
 
 	if(owner)
 		add_emote_panel(owner)

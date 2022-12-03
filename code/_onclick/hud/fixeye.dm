@@ -1,5 +1,6 @@
 /atom/movable/screen/fixeye
 	name = "Смотреть в одну сторону"
+	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "fixeye"
 	base_icon_state = "fixeye"
 	screen_loc = ui_fixeye

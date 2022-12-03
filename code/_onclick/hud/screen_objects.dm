@@ -76,9 +76,9 @@
 
 /atom/movable/screen/skills
 	name = "навыки"
-	icon = 'icons/hud/screen_midnight.dmi'
+	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "skills"
-	screen_loc = ui_skill_menu
+	screen_loc = UI_SKILLS
 
 /atom/movable/screen/skills/Click()
 	if(ishuman(usr))
@@ -87,15 +87,15 @@
 
 /atom/movable/screen/craft
 	name = "создание предметов"
-	icon = 'icons/hud/screen_midnight.dmi'
+	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "craft"
-	screen_loc = ui_crafting
+	screen_loc = UI_BOXCRAFT
 
 /atom/movable/screen/area_creator
 	name = "новая зона"
-	icon = 'icons/hud/screen_midnight.dmi'
+	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "area_edit"
-	screen_loc = ui_building
+	screen_loc = UI_BOXAREA
 
 /atom/movable/screen/area_creator/Click()
 	if(usr.incapacitated() || (isobserver(usr) && !isAdminGhostAI(usr)))
@@ -108,9 +108,9 @@
 
 /atom/movable/screen/language_menu
 	name = "языки"
-	icon = 'icons/hud/screen_midnight.dmi'
+	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "talk_wheel"
-	screen_loc = ui_language_menu
+	screen_loc = UI_BOXLANG
 
 /atom/movable/screen/language_menu/Click()
 	var/mob/M = usr
@@ -260,7 +260,7 @@
 
 /atom/movable/screen/drop
 	name = "бросить"
-	icon = 'icons/hud/screen_midnight.dmi'
+	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "act_drop"
 	plane = HUD_PLANE
 
@@ -270,6 +270,7 @@
 
 /atom/movable/screen/act_intent
 	name = "взаимодействие"
+	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "help"
 	screen_loc = ui_acti
 
@@ -281,13 +282,13 @@
 		var/_x = text2num(params2list(params)["icon-x"])
 		var/_y = text2num(params2list(params)["icon-y"])
 
-		if(_x<=16 && _y<=16)
+		if(_x<=16 && _y<=15)
 			usr.a_intent_change(INTENT_HARM)
 
 		else if(_x<=16 && _y>=17)
 			usr.a_intent_change(INTENT_HELP)
 
-		else if(_x>=17 && _y<=16)
+		else if(_x>=17 && _y<=15)
 			usr.a_intent_change(INTENT_GRAB)
 
 		else if(_x>=17 && _y>=17)
@@ -297,7 +298,7 @@
 
 /atom/movable/screen/act_intent/alien
 	icon = 'icons/hud/screen_alien.dmi'
-	screen_loc = ui_movi
+	screen_loc = ui_acti
 
 /atom/movable/screen/act_intent/robot
 	icon = 'icons/hud/screen_cyborg.dmi'
@@ -307,10 +308,11 @@
 	name = "Состояние батареи костюма"
 	icon_state = "spacesuit_0"
 	screen_loc = ui_spacesuit
+	blend_mode = BLEND_ADD
 
 /atom/movable/screen/mov_intent
 	name = "бег/шаг"
-	icon = 'icons/hud/screen_midnight.dmi'
+	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "running"
 
 /atom/movable/screen/mov_intent/Click()
@@ -333,7 +335,7 @@
 
 /atom/movable/screen/pull
 	name = "перестать тащить"
-	icon = 'icons/hud/screen_midnight.dmi'
+	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "pull"
 	base_icon_state = "pull"
 
@@ -348,7 +350,7 @@
 
 /atom/movable/screen/resist
 	name = "сопротивляться"
-	icon = 'icons/hud/screen_midnight.dmi'
+	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "act_resist"
 	plane = HUD_PLANE
 
@@ -359,7 +361,7 @@
 
 /atom/movable/screen/rest
 	name = "лежать"
-	icon = 'icons/hud/screen_midnight.dmi'
+	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "act_rest"
 	base_icon_state = "act_rest"
 	plane = HUD_PLANE
@@ -406,7 +408,7 @@
 
 /atom/movable/screen/throw_catch
 	name = "кидать/ловить"
-	icon = 'icons/hud/screen_midnight.dmi'
+	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "act_throw_off"
 
 /atom/movable/screen/throw_catch/Click()
@@ -416,9 +418,10 @@
 
 /atom/movable/screen/zone_sel
 	name = "целевая зона"
+	icon = 'icons/hud/neoscreen64.dmi'
 	icon_state = "zone_sel"
 	screen_loc = ui_zonesel
-	var/overlay_icon = 'icons/hud/screen_gen.dmi'
+	var/overlay_icon = 'icons/hud/neoscreen64.dmi'
 	var/static/list/hover_overlays_cache = list()
 	var/hovering
 
@@ -462,9 +465,10 @@
 	vis_contents += overlay_object
 
 /obj/effect/overlay/zone_sel
-	icon = 'icons/hud/screen_gen.dmi'
+	icon = 'icons/hud/neoscreen64.dmi'
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	alpha = 128
+	alpha = 255
+	blend_mode = BLEND_ADD
 	anchored = TRUE
 	plane = ABOVE_HUD_PLANE
 
@@ -475,39 +479,32 @@
 
 /atom/movable/screen/zone_sel/proc/get_zone_at(icon_x, icon_y)
 	switch(icon_y)
-		if(1 to 9) //Legs
+		if(1 to 26) //Legs
 			switch(icon_x)
-				if(10 to 15)
+				if(8 to 15)
 					return BODY_ZONE_R_LEG
-				if(17 to 22)
+				if(18 to 25)
 					return BODY_ZONE_L_LEG
-		if(10 to 13) //Hands and groin
+		if(26 to 32) //Groin
 			switch(icon_x)
-				if(8 to 11)
-					return BODY_ZONE_R_ARM
-				if(12 to 20)
+				if(10 to 23)
 					return BODY_ZONE_PRECISE_GROIN
-				if(21 to 24)
-					return BODY_ZONE_L_ARM
-		if(14 to 22) //Chest and arms to shoulders
+		if(32 to 54) //Chest and arms to shoulders
 			switch(icon_x)
-				if(8 to 11)
+				if(3 to 11)
 					return BODY_ZONE_R_ARM
-				if(12 to 20)
+				if(9 to 24)
 					return BODY_ZONE_CHEST
-				if(21 to 24)
+				if(22 to 30)
 					return BODY_ZONE_L_ARM
-		if(23 to 30) //Head, but we need to check for eye or mouth
-			if(icon_x in 12 to 20)
+		if(54 to 63) //Head, but we need to check for eye or mouth
+			if(icon_x in 13 to 20)
 				switch(icon_y)
-					if(23 to 24)
-						if(icon_x in 15 to 17)
+					if(55 to 56)
+						if(icon_x in 16 to 17)
 							return BODY_ZONE_PRECISE_MOUTH
-					if(26) //Eyeline, eyes are on 15 and 17
-						if(icon_x in 14 to 18)
-							return BODY_ZONE_PRECISE_EYES
-					if(25 to 27)
-						if(icon_x in 15 to 17)
+					if(59 to 60) //Eyeline, eyes are on 15 and 17
+						if(icon_x in 14 to 19)
 							return BODY_ZONE_PRECISE_EYES
 				return BODY_ZONE_HEAD
 
@@ -525,14 +522,15 @@
 	. = ..()
 	if(!hud?.mymob)
 		return
-	. += mutable_appearance(overlay_icon, "[hud.mymob.zone_selected]")
+	. += mutable_appearance(overlay_icon, "[hud.mymob.zone_selected]", alpha = 125)
 
 /atom/movable/screen/zone_sel/alien
-	icon = 'icons/hud/screen_alien.dmi'
-	overlay_icon = 'icons/hud/screen_alien.dmi'
+	icon = 'icons/hud/neoscreen64_alien.dmi'
+	//overlay_icon = 'icons/hud/neoscreen64_alien.dmi'
 
 /atom/movable/screen/zone_sel/robot
-	icon = 'icons/hud/screen_cyborg.dmi'
+	icon = 'icons/hud/neoscreen64_borg.dmi'
+	overlay_icon = 'icons/hud/neoscreen64_borg.dmi'
 
 /atom/movable/screen/flash
 	name = "flash"
@@ -554,7 +552,10 @@
 
 /atom/movable/screen/healths
 	name = "здоровье"
-	icon_state = "health0"
+	icon = 'icons/hud/neoscreen64.dmi'
+	layer = HUD_ABOVE_BG_LAYER
+	icon_state = "nh0"
+	blend_mode = BLEND_ADD
 	screen_loc = ui_health
 
 /atom/movable/screen/healths/alien
@@ -611,8 +612,10 @@
 
 /atom/movable/screen/mood
 	name = "настроение"
+	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "mood5"
 	screen_loc = ui_mood
+	blend_mode = BLEND_ADD
 
 /atom/movable/screen/mood/attack_tk()
 	return
@@ -668,8 +671,11 @@
 		parent.component_click(src, params)
 
 /atom/movable/screen/stamina
-	name = "Выносливость"
-	icon_state = "stamina0"
+	name = "выносливость"
+	icon = 'icons/hud/neoscreen64.dmi'
+	layer = HUD_ABOVE_BG_LAYER
+	icon_state = "ns0"
+	blend_mode = BLEND_ADD
 	screen_loc = ui_stamina
 
 
@@ -706,3 +712,26 @@
 /atom/movable/screen/weather
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	screen_loc = "CENTER"
+
+/atom/movable/screen/side_background
+	icon = 'icons/hud/side.png'
+	layer = HUD_BACKGROUND_LAYER
+	screen_loc = "hud:LEFT,SOUTH"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/atom/movable/screen/side_background/thing
+	icon = 'icons/hud/sider.png'
+	screen_loc = "RIGHT,SOUTH"
+
+/atom/movable/screen/side_button_bg
+	icon = 'icons/hud/neoscreen.dmi'
+	icon_state = "neobg"
+	layer = HUD_BUTTON_BG_LAYER
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	screen_loc = "hud:LEFT,TOP-6"
+
+/atom/movable/screen/side_button_bg/high
+	icon = 'icons/hud/neoscreen64.dmi'
+	icon_state = "neomisc"
+	layer = HUD_BUTTON_HIGH_BG_LAYER
+	screen_loc = "hud:LEFT,TOP-7"

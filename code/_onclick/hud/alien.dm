@@ -68,29 +68,30 @@
 	static_inventory += using
 
 	using = new /atom/movable/screen/drop()
-	using.icon = ui_style
-	using.screen_loc = ui_drop_throw
+	using.screen_loc = UI_DROP
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/resist()
-	using.icon = ui_style
-	using.screen_loc = ui_above_movement
+	using.screen_loc = UI_RESIST
 	using.hud = src
 	hotkeybuttons += using
 
 	throw_icon = new /atom/movable/screen/throw_catch()
-	throw_icon.icon = ui_style
-	throw_icon.screen_loc = ui_drop_throw
+	throw_icon.screen_loc = UI_THROW
 	throw_icon.hud = src
 	hotkeybuttons += throw_icon
 
 	pull_icon = new /atom/movable/screen/pull()
-	pull_icon.icon = ui_style
 	pull_icon.update_icon()
-	pull_icon.screen_loc = ui_above_movement
+	pull_icon.screen_loc = UI_PULL
 	pull_icon.hud = src
 	static_inventory += pull_icon
+
+	rest_icon = new /atom/movable/screen/rest()
+	rest_icon.screen_loc = UI_REST
+	rest_icon.hud = src
+	static_inventory += rest_icon
 
 //begin indicators
 

@@ -96,6 +96,7 @@
 	name = "Alert"
 	desc = "Something seems to have gone wrong with this alert, so report this bug please"
 	mouse_opacity = MOUSE_OPACITY_ICON
+	blend_mode = BLEND_ADD
 	var/timeout = 0 //If set to a number, this alert will clear itself after that many deciseconds
 	var/severity = 0
 	var/alerttooltipstyle = ""
@@ -104,7 +105,7 @@
 
 	/// Boolean. If TRUE, the Click() proc will attempt to Click() on the master first if there is a master.
 	var/click_master = TRUE
-
+/*
 /atom/movable/screen/alert/MouseEntered(location,control,params)
 	. = ..()
 	if(!QDELETED(src))
@@ -113,7 +114,7 @@
 
 /atom/movable/screen/alert/MouseExited()
 	closeToolTip(usr)
-
+*/
 
 //Gas alerts
 /atom/movable/screen/alert/not_enough_oxy
@@ -846,9 +847,7 @@
 			if(3)
 				. = ui_alert3
 			if(4)
-				. = ui_alert4
-			if(5)
-				. = ui_alert5 // Right now there's 5 slots
+				. = ui_alert4 // Right now there's 4 slots
 			else
 				. = ""
 		alert.screen_loc = .

@@ -77,6 +77,10 @@
 
 //-------------------- HUD ---------------------
 //HUD layer defines
+#define HUD_BACKGROUND_LAYER 1
+#define HUD_BUTTON_BG_LAYER 2
+#define HUD_BUTTON_HIGH_BG_LAYER 3
+#define HUD_ABOVE_BG_LAYER 4
 #define HUD_PLANE 40
 #define ABOVE_HUD_PLANE 41
 

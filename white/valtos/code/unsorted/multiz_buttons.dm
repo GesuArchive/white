@@ -2,23 +2,29 @@
 	var/atom/movable/screen/using
 
 	using = new /atom/movable/screen/multiz_up_button()
-	using.icon = ui_style
 	using.screen_loc = UI_MULTIZ_UP
+	if(isAI(owner))
+		using.screen_loc = UI_MULTIZ_UP_AI
 	using.hud = src
 	infodisplay += using
 
 	using = new /atom/movable/screen/multiz_down_button()
-	using.icon = ui_style
 	using.screen_loc = UI_MULTIZ_DOWN
+	if(isobserver(owner))
+		using.screen_loc = UI_MULTIZ_DOWN_OBSERVER
+	else if(isAI(owner))
+		using.screen_loc = UI_MULTIZ_DOWN_AI
 	using.hud = src
 	infodisplay += using
 
 /atom/movable/screen/multiz_up_button
 	name = "Вверх"
+	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "multiz_up"
 
 /atom/movable/screen/multiz_down_button
 	name = "Вниз"
+	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "multiz_down"
 
 /atom/movable/screen/multiz_up_button/Click()

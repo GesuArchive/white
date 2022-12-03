@@ -127,8 +127,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		timelimit?.hud = src
 		infodisplay += timelimit
 
-	add_multiz_buttons(owner)
-
 	for(var/mytype in subtypesof(/atom/movable/plane_master_controller))
 		var/atom/movable/plane_master_controller/controller_instance = new mytype(null, src)
 		plane_master_controllers[controller_instance.name] = controller_instance
@@ -141,6 +139,21 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	RegisterSignal(mymob, COMSIG_MOB_LOGOUT, .proc/clear_client)
 	RegisterSignal(mymob, COMSIG_MOB_SIGHT_CHANGE, .proc/update_sightflags)
 	update_sightflags(mymob, mymob.sight, NONE)
+
+	if(!isnewplayer(mymob))
+
+		add_multiz_buttons(owner)
+
+		var/atom/movable/screen/side_background
+		var/atom/movable/screen/side_background_thing
+
+		side_background = new /atom/movable/screen/side_background()
+		side_background.hud = src
+		infodisplay += side_background
+
+		side_background_thing = new /atom/movable/screen/side_background/thing()
+		side_background_thing.hud = src
+		infodisplay += side_background_thing
 
 /datum/hud/proc/client_refresh(datum/source)
 	RegisterSignal(mymob.client, COMSIG_CLIENT_SET_EYE, .proc/on_eye_change)
@@ -361,6 +374,8 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 			show_hud(hud_version, M)
 	else if (viewmob.hud_used)
 		viewmob.hud_used.plane_masters_update()
+
+	INVOKE_ASYNC(screenmob.client, /client/.proc/set_hud_bar_visible)
 
 	SEND_SIGNAL(screenmob, COMSIG_MOB_HUD_REFRESHED, src)
 	return TRUE

@@ -77,6 +77,8 @@
 	var/mob/living/silicon/robot/robit = mymob
 	var/atom/movable/screen/using
 
+	var/atom/movable/screen/button_bg
+
 	using = new/atom/movable/screen/language_menu
 	using.screen_loc = ui_borg_language_menu
 	static_inventory += using

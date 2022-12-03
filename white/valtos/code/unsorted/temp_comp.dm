@@ -190,6 +190,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 	icon = 'white/valtos/icons/temp_hud.dmi'
 	icon_state = "temp_5"
 	screen_loc = ui_relative_temp
+	blend_mode = BLEND_ADD
 
 /datum/component/realtemp/proc/hud_click(datum/source, location, control, params, mob/user)
 	SIGNAL_HANDLER

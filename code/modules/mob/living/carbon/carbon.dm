@@ -737,51 +737,50 @@
 
 /mob/living/carbon/update_health_hud(shown_health_amount)
 	if(!client || !hud_used)
-		return
-	if(hud_used.healths)
-		if(stat != DEAD)
-			. = 1
-			if(shown_health_amount == null)
-				shown_health_amount = health
-			if(shown_health_amount >= maxHealth)
-				hud_used.healths.icon_state = "health0"
-			else if(shown_health_amount > maxHealth*0.8)
-				hud_used.healths.icon_state = "health1"
-			else if(shown_health_amount > maxHealth*0.6)
-				hud_used.healths.icon_state = "health2"
-			else if(shown_health_amount > maxHealth*0.4)
-				hud_used.healths.icon_state = "health3"
-			else if(shown_health_amount > maxHealth*0.2)
-				hud_used.healths.icon_state = "health4"
-			else if(shown_health_amount > 0)
-				hud_used.healths.icon_state = "health5"
-			else
-				hud_used.healths.icon_state = "health6"
-		else
-			hud_used.healths.icon_state = "health7"
+		return FALSE
+
+	if(!hud_used.healths)
+		return FALSE
+
+	if(stat == DEAD)
+		hud_used.healths.icon_state = "nh15"
+		return TRUE
+
+	if(shown_health_amount == null)
+		shown_health_amount = health
+
+	if(shown_health_amount >= maxHealth)
+		hud_used.healths.icon_state = "nh0"
+		return TRUE
+
+	if(shown_health_amount <= 0)
+		hud_used.healths.icon_state = "nh14"
+		return TRUE
+
+	hud_used.healths.icon_state = "nh[13 - round(shown_health_amount / (maxHealth / 13))]"
+	return TRUE
 
 /mob/living/carbon/update_stamina_hud(shown_stamina_amount)
 	if(!client || !hud_used?.stamina)
-		return
+		return FALSE
+
 	if(stat == DEAD || IsStun() || IsParalyzed() || IsImmobilized() || IsKnockdown() || IsFrozen())
-		hud_used.stamina.icon_state = "stamina6"
-	else
-		if(shown_stamina_amount == null)
-			shown_stamina_amount = health - getStaminaLoss() - crit_threshold
-		if(shown_stamina_amount >= health)
-			hud_used.stamina.icon_state = "stamina0"
-		else if(shown_stamina_amount > health*0.8)
-			hud_used.stamina.icon_state = "stamina1"
-		else if(shown_stamina_amount > health*0.6)
-			hud_used.stamina.icon_state = "stamina2"
-		else if(shown_stamina_amount > health*0.4)
-			hud_used.stamina.icon_state = "stamina3"
-		else if(shown_stamina_amount > health*0.2)
-			hud_used.stamina.icon_state = "stamina4"
-		else if(shown_stamina_amount > 0)
-			hud_used.stamina.icon_state = "stamina5"
-		else
-			hud_used.stamina.icon_state = "stamina6"
+		hud_used.stamina.icon_state = "ns14"
+		return TRUE
+
+	if(shown_stamina_amount == null)
+		shown_stamina_amount = health - getStaminaLoss() - crit_threshold
+
+	if(shown_stamina_amount >= health)
+		hud_used.stamina.icon_state = "ns0"
+		return TRUE
+
+	if(shown_stamina_amount <= 0)
+		hud_used.stamina.icon_state = "ns14"
+		return TRUE
+
+	hud_used.stamina.icon_state = "ns[13 - round(shown_stamina_amount / (health / 13))]"
+	return TRUE
 
 /mob/living/carbon/proc/update_spacesuit_hud_icon(cell_state = "empty")
 	if(hud_used?.spacesuit)

@@ -12,7 +12,7 @@
 #define INVOKATION_SPOKEN 2
 #define INVOKATION_SHOUT 3
 
-#define DEFAULT_CLOCKSCRIPTS "6:-29,4:-2"
+#define DEFAULT_CLOCKSCRIPTS "LEFT+3:13,BOTTOM:5"
 
 //scripture types
 #define SPELLTYPE_ABSTRACT "Абстрактное"

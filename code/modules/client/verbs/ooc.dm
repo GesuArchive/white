@@ -389,7 +389,8 @@ GLOBAL_LIST_INIT(boosty_subs, list("nikitauou", "aldodonkar"))
 
 	// Fetch aspect ratio
 	var/view_size = getviewsize(view)
-	var/aspect_ratio = view_size[1] / view_size[2]
+	var/view_width = view_size[1] + !isnewplayer(mob)
+	var/aspect_ratio = view_width / view_size[2]
 
 	// Calculate desired pixel width using window size and aspect ratio
 	var/list/sizes = params2list(winget(src, "mainwindow.split;mapwindow", "size"))
@@ -408,9 +409,8 @@ GLOBAL_LIST_INIT(boosty_subs, list("nikitauou", "aldodonkar"))
 
 	var/desired_width = 0
 	if(zoom_value)
-		desired_width = round(view_size[1] * zoom_value * world.icon_size)
+		desired_width = round(view_width * zoom_value * world.icon_size)
 	else
-
 		// Looks like we expect mapwindow.size to be "ixj" where i and j are numbers.
 		// If we don't get our expected 2 outputs, let's give some useful error info.
 		if(length(map_size) != 2)
@@ -429,7 +429,7 @@ GLOBAL_LIST_INIT(boosty_subs, list("nikitauou", "aldodonkar"))
 	desired_width = min(desired_width, split_width - 300)
 
 	// Calculate and apply a best estimate
-	// +4 pixels are for the width of the splitter's handle
+	// +8 pixels are for the width of the splitter's handle
 	var/pct = 100 * (desired_width + 4) / split_width
 	if(prefs.w_toggles & SCREEN_HORIZ_INV)
 		winset(src, "mainwindow.split", "splitter=[-pct + 100]")
@@ -445,6 +445,7 @@ GLOBAL_LIST_INIT(boosty_subs, list("nikitauou", "aldodonkar"))
 
 		if (got_width == desired_width)
 			// success
+			set_hud_bar_visible()
 			return
 		else if (isnull(delta))
 			// calculate a probable delta value based on the difference
@@ -458,6 +459,8 @@ GLOBAL_LIST_INIT(boosty_subs, list("nikitauou", "aldodonkar"))
 			winset(src, "mainwindow.split", "splitter=[-pct + 100]")
 		else
 			winset(src, "mainwindow.split", "splitter=[pct]")
+
+	set_hud_bar_visible()
 
 /// Attempt to automatically fit the viewport, assuming the user wants it
 /client/proc/attempt_auto_fit_viewport()

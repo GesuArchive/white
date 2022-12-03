@@ -4,13 +4,11 @@
 	var/atom/movable/screen/using
 
 	using = new /atom/movable/screen/drop()
-	using.icon = ui_style
 	using.screen_loc = ui_drone_drop
 	using.hud = src
 	static_inventory += using
 
 	pull_icon = new /atom/movable/screen/pull()
-	pull_icon.icon = ui_style
 	pull_icon.update_icon()
 	pull_icon.screen_loc = ui_drone_pull
 	pull_icon.hud = src
@@ -45,13 +43,11 @@
 
 
 	zone_select = new /atom/movable/screen/zone_sel()
-	zone_select.icon = ui_style
 	zone_select.hud = src
 	zone_select.update_icon()
 	static_inventory += zone_select
 
 	using = new /atom/movable/screen/area_creator
-	using.icon = ui_style
 	using.hud = src
 	static_inventory += using
 
