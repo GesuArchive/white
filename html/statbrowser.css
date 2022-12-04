@@ -89,7 +89,7 @@ li a:hover:not(.active) {
 
 .button-container {
 	display: inline-flex;
-	flex-wrap: wrap-reverse;
+	flex-wrap: nowrap;
 	flex-direction: row;
 	align-items: flex-start;
 	overflow-x: hidden;
@@ -112,6 +112,7 @@ li a:hover:not(.active) {
 	transition-duration: 0.25s;
 	order: 3;
 	min-width: 0px;
+	flex: 1;
 }
 
 .dark button {
@@ -263,6 +264,13 @@ img {
 	-ms-interpolation-mode: nearest-neighbor;
 	image-rendering: pixelated;
 	border-bottom: 1px solid #343434;
+}
+
+@media only screen and (min-width: 520px) {
+	img {
+		width: 48px;
+		object-fit: cover;
+	}
 }
 
 .interview_panel_controls, .interview_panel_stats {
