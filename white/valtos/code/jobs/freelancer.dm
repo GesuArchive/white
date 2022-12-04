@@ -40,10 +40,10 @@
 
 	id_trim = /datum/id_trim/job/freelancer
 
-/datum/job/freelancer/override_latejoin_spawn(mob/living/carbon/human/H)
+/datum/job/freelancer/after_spawn(mob/living/H, mob/M, latejoin = FALSE)
+	. = ..()
 	if(SSmapping.spawn_type_shuttle(/datum/map_template/shuttle/freelancer/medium))
 		H.forceMove(get_spawnpoint())
-	return TRUE
 
 /datum/job/freelancer/proc/get_spawnpoint()
 	for(var/_sloc in GLOB.start_landmarks_list)
