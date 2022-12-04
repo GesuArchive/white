@@ -76,21 +76,21 @@
 	static_inventory += using
 
 	using = new /atom/movable/screen/swarmer/replicate()
-	using.screen_loc = ui_zonesel
+	using.screen_loc = UI_ZONESEL
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/swarmer/repair_self()
-	using.screen_loc = ui_storage1
+	using.screen_loc = UI_STORAGE1
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/swarmer/toggle_light()
-	using.screen_loc = ui_back
+	using.screen_loc = UI_BACK
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/swarmer/contact_swarmers()
-	using.screen_loc = ui_inventory
+	using.screen_loc = UI_INVENTORY
 	using.hud = src
 	static_inventory += using

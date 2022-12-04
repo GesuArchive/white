@@ -176,7 +176,7 @@ Check the gun_hud.dmi for all available icons you can use.
 	name = "счётчик"
 	icon = 'white/valtos/icons/gun_hud.dmi'
 	icon_state = "backing"
-	screen_loc = ui_ammocounter
+	screen_loc = UI_AMMOCOUNTER
 	invisibility = INVISIBILITY_ABSTRACT
 
 	///This is the color assigned to the OTH backing, numbers and indicator.

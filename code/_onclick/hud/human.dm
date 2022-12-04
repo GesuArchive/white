@@ -39,7 +39,7 @@
 
 /atom/movable/screen/ling/sting
 	name = "жало"
-	screen_loc = ui_lingstingdisplay
+	screen_loc = UI_LINGSTINGDISPLAY
 
 /atom/movable/screen/ling/sting/Click()
 	if(isobserver(usr))
@@ -50,7 +50,7 @@
 /atom/movable/screen/ling/chems
 	name = "химикаты"
 	icon_state = "power_display"
-	screen_loc = ui_lingchemdisplay
+	screen_loc = UI_LINGCHEMDISPLAY
 
 /atom/movable/screen/bloodsucker
 	icon = 'icons/mob/actions/actions_bloodsucker.dmi'
@@ -65,17 +65,17 @@
 /atom/movable/screen/bloodsucker/blood_counter
 	name = "Blood Consumed"
 	icon_state = "blood_display"
-	screen_loc = ui_blood_display
+	screen_loc = UI_BLOOD_DISPLAY
 
 /atom/movable/screen/bloodsucker/rank_counter
 	name = "Bloodsucker Rank"
 	icon_state = "rank"
-	screen_loc = ui_vamprank_display
+	screen_loc = UI_VAMPRANK_DISPLAY
 
 /atom/movable/screen/bloodsucker/sunlight_counter
 	name = "Solar Flare Timer"
 	icon_state = "sunlight_night"
-	screen_loc = ui_sunlight_display
+	screen_loc = UI_SUNLIGHT_DISPLAY
 
 /datum/hud/human/New(mob/living/carbon/human/owner)
 	..()
@@ -106,7 +106,7 @@
 
 	using = new /atom/movable/screen/mov_intent
 	using.icon_state = (mymob.m_intent == MOVE_INTENT_RUN ? "running" : "walking")
-	using.screen_loc = ui_movi
+	using.screen_loc = UI_MOVI
 	using.hud = src
 	static_inventory += using
 
@@ -120,7 +120,7 @@
 	inv_box.icon = ui_style
 	inv_box.slot_id = ITEM_SLOT_ICLOTHING
 	inv_box.icon_state = "uniform"
-	inv_box.screen_loc = ui_iclothing
+	inv_box.screen_loc = UI_ICLOTHING
 	inv_box.hud = src
 	toggleable_inventory += inv_box
 
@@ -129,7 +129,7 @@
 	inv_box.icon = ui_style
 	inv_box.slot_id = ITEM_SLOT_OCLOTHING
 	inv_box.icon_state = "suit"
-	inv_box.screen_loc = ui_oclothing
+	inv_box.screen_loc = UI_OCLOTHING
 	inv_box.hud = src
 	toggleable_inventory += inv_box
 
@@ -153,7 +153,7 @@
 	inv_box.name = "ID"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "id"
-	inv_box.screen_loc = ui_id
+	inv_box.screen_loc = UI_ID
 	inv_box.slot_id = ITEM_SLOT_ID
 	inv_box.hud = src
 	static_inventory += inv_box
@@ -162,7 +162,7 @@
 	inv_box.name = "маска"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "mask"
-	inv_box.screen_loc = ui_mask
+	inv_box.screen_loc = UI_MASK
 	inv_box.slot_id = ITEM_SLOT_MASK
 	inv_box.hud = src
 	toggleable_inventory += inv_box
@@ -171,7 +171,7 @@
 	inv_box.name = "шея"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "neck"
-	inv_box.screen_loc = ui_neck
+	inv_box.screen_loc = UI_NECK
 	inv_box.slot_id = ITEM_SLOT_NECK
 	inv_box.hud = src
 	toggleable_inventory += inv_box
@@ -180,7 +180,7 @@
 	inv_box.name = "спина"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "back"
-	inv_box.screen_loc = ui_back
+	inv_box.screen_loc = UI_BACK
 	inv_box.slot_id = ITEM_SLOT_BACK
 	inv_box.hud = src
 	static_inventory += inv_box
@@ -189,7 +189,7 @@
 	inv_box.name = "левый карман"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "pocket"
-	inv_box.screen_loc = ui_storage1
+	inv_box.screen_loc = UI_STORAGE1
 	inv_box.slot_id = ITEM_SLOT_LPOCKET
 	inv_box.hud = src
 	static_inventory += inv_box
@@ -198,7 +198,7 @@
 	inv_box.name = "правый карман"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "pocket"
-	inv_box.screen_loc = ui_storage2
+	inv_box.screen_loc = UI_STORAGE2
 	inv_box.slot_id = ITEM_SLOT_RPOCKET
 	inv_box.hud = src
 	static_inventory += inv_box
@@ -207,7 +207,7 @@
 	inv_box.name = "хранилище костюма"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "suit_storage"
-	inv_box.screen_loc = ui_sstore1
+	inv_box.screen_loc = UI_SSTORE1
 	inv_box.slot_id = ITEM_SLOT_SUITSTORE
 	inv_box.hud = src
 	static_inventory += inv_box
@@ -219,7 +219,7 @@
 
 	using = new /atom/movable/screen/human/toggle()
 	using.icon = ui_style
-	using.screen_loc = ui_inventory
+	using.screen_loc = UI_INVENTORY
 	using.hud = src
 	static_inventory += using
 
@@ -233,7 +233,7 @@
 	inv_box.name = "перчатки"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "gloves"
-	inv_box.screen_loc = ui_gloves
+	inv_box.screen_loc = UI_GLOVES
 	inv_box.slot_id = ITEM_SLOT_GLOVES
 	inv_box.hud = src
 	toggleable_inventory += inv_box
@@ -242,7 +242,7 @@
 	inv_box.name = "глаза"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "glasses"
-	inv_box.screen_loc = ui_glasses
+	inv_box.screen_loc = UI_GLASSES
 	inv_box.slot_id = ITEM_SLOT_EYES
 	inv_box.hud = src
 	toggleable_inventory += inv_box
@@ -251,7 +251,7 @@
 	inv_box.name = "уши"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "ears"
-	inv_box.screen_loc = ui_ears
+	inv_box.screen_loc = UI_EARS
 	inv_box.slot_id = ITEM_SLOT_EARS
 	inv_box.hud = src
 	toggleable_inventory += inv_box
@@ -260,7 +260,7 @@
 	inv_box.name = "голова"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "head"
-	inv_box.screen_loc = ui_head
+	inv_box.screen_loc = UI_HEAD
 	inv_box.slot_id = ITEM_SLOT_HEAD
 	inv_box.hud = src
 	toggleable_inventory += inv_box
@@ -269,7 +269,7 @@
 	inv_box.name = "обувь"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "shoes"
-	inv_box.screen_loc = ui_shoes
+	inv_box.screen_loc = UI_SHOES
 	inv_box.slot_id = ITEM_SLOT_FEET
 	inv_box.hud = src
 	toggleable_inventory += inv_box
@@ -279,7 +279,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "belt"
 //	inv_box.icon_full = "template_small"
-	inv_box.screen_loc = ui_belt
+	inv_box.screen_loc = UI_BELT
 	inv_box.slot_id = ITEM_SLOT_BELT
 	inv_box.hud = src
 	static_inventory += inv_box
@@ -355,12 +355,12 @@
 	infodisplay += button_bg
 
 	button_bg_health = new /atom/movable/screen/side_button_bg()
-	button_bg_health.screen_loc = ui_healthdoll
+	button_bg_health.screen_loc = UI_HEALTHDOLL
 	button_bg_health.hud = src
 	infodisplay += button_bg_health
 
 	free_bg = new /atom/movable/screen/side_button_bg()
-	free_bg.screen_loc = ui_relative_temp
+	free_bg.screen_loc = UI_RELATIVE_TEMP
 	free_bg.hud = src
 	infodisplay += free_bg
 
@@ -396,31 +396,31 @@
 
 	if(screenmob.hud_used.inventory_shown && screenmob.hud_used.hud_shown)
 		if(H.shoes)
-			H.shoes.screen_loc = ui_shoes
+			H.shoes.screen_loc = UI_SHOES
 			screenmob.client.screen += H.shoes
 		if(H.gloves)
-			H.gloves.screen_loc = ui_gloves
+			H.gloves.screen_loc = UI_GLOVES
 			screenmob.client.screen += H.gloves
 		if(H.ears)
-			H.ears.screen_loc = ui_ears
+			H.ears.screen_loc = UI_EARS
 			screenmob.client.screen += H.ears
 		if(H.glasses)
-			H.glasses.screen_loc = ui_glasses
+			H.glasses.screen_loc = UI_GLASSES
 			screenmob.client.screen += H.glasses
 		if(H.w_uniform)
-			H.w_uniform.screen_loc = ui_iclothing
+			H.w_uniform.screen_loc = UI_ICLOTHING
 			screenmob.client.screen += H.w_uniform
 		if(H.wear_suit)
-			H.wear_suit.screen_loc = ui_oclothing
+			H.wear_suit.screen_loc = UI_OCLOTHING
 			screenmob.client.screen += H.wear_suit
 		if(H.wear_mask)
-			H.wear_mask.screen_loc = ui_mask
+			H.wear_mask.screen_loc = UI_MASK
 			screenmob.client.screen += H.wear_mask
 		if(H.wear_neck)
-			H.wear_neck.screen_loc = ui_neck
+			H.wear_neck.screen_loc = UI_NECK
 			screenmob.client.screen += H.wear_neck
 		if(H.head)
-			H.head.screen_loc = ui_head
+			H.head.screen_loc = UI_HEAD
 			screenmob.client.screen += H.head
 	else
 		if(H.shoes)		screenmob.client.screen -= H.shoes
@@ -446,22 +446,22 @@
 	if(screenmob.hud_used)
 		if(screenmob.hud_used.hud_shown)
 			if(H.s_store)
-				H.s_store.screen_loc = ui_sstore1
+				H.s_store.screen_loc = UI_SSTORE1
 				screenmob.client.screen += H.s_store
 			if(H.wear_id)
-				H.wear_id.screen_loc = ui_id
+				H.wear_id.screen_loc = UI_ID
 				screenmob.client.screen += H.wear_id
 			if(H.belt)
-				H.belt.screen_loc = ui_belt
+				H.belt.screen_loc = UI_BELT
 				screenmob.client.screen += H.belt
 			if(H.back)
-				H.back.screen_loc = ui_back
+				H.back.screen_loc = UI_BACK
 				screenmob.client.screen += H.back
 			if(H.l_store)
-				H.l_store.screen_loc = ui_storage1
+				H.l_store.screen_loc = UI_STORAGE1
 				screenmob.client.screen += H.l_store
 			if(H.r_store)
-				H.r_store.screen_loc = ui_storage2
+				H.r_store.screen_loc = UI_STORAGE2
 				screenmob.client.screen += H.r_store
 		else
 			if(H.s_store)

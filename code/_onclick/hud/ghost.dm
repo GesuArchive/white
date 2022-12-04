@@ -78,36 +78,36 @@
 	var/atom/movable/screen/using
 
 	using = new /atom/movable/screen/ghost/jumptomob()
-	using.screen_loc = ui_ghost_jumptomob
+	using.screen_loc = UI_GHOST_JUMPTOMOB
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/ghost/orbit()
-	using.screen_loc = ui_ghost_orbit
+	using.screen_loc = UI_GHOST_ORBIT
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/ghost/reenter_corpse()
-	using.screen_loc = ui_ghost_reenter_corpse
+	using.screen_loc = UI_GHOST_REENTER_CORPSE
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/ghost/teleport()
-	using.screen_loc = ui_ghost_teleport
+	using.screen_loc = UI_GHOST_TELEPORT
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/ghost/spawners()
-	using.screen_loc = ui_ghost_spawners
+	using.screen_loc = UI_GHOST_SPAWNERS
 	static_inventory += using
 
 	using = new /atom/movable/screen/ghost/pai()
-	using.screen_loc = ui_ghost_pai
+	using.screen_loc = UI_GHOST_PAI
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/ghost/minigames_menu()
-	using.screen_loc = ui_ghost_minigames
+	using.screen_loc = UI_GHOST_MINIGAMES
 	using.hud = src
 	static_inventory += using
 

@@ -3,7 +3,7 @@
 	desc = "Shows the current level of hostility the space police is planning to rain down on you. Better be careful."
 	icon = 'icons/obj/gang/wanted_160x32.dmi'
 	icon_state = "wanted_0"
-	screen_loc = ui_wanted_lvl
+	screen_loc = UI_WANTED_LVL
 	/// Wanted level, affects the hud icon. Level 0 is default, and the level 0 icon is blank, so in case of no families gamemode (and thus no wanted level), this HUD element will never appear.
 	var/level = 0
 	/// Boolean, have the cops arrived? If so, the icon stops changing and remains the same.

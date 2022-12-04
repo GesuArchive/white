@@ -7,7 +7,7 @@
 
 	pull_icon = new /atom/movable/screen/pull()
 	pull_icon.update_icon()
-	pull_icon.screen_loc = ui_living_pull
+	pull_icon.screen_loc = UI_LIVING_PULL
 	pull_icon.hud = src
 	static_inventory += pull_icon
 
@@ -26,17 +26,17 @@
 	static_inventory += using
 
 	using = new owner.toggle_button_type()
-	using.screen_loc = ui_storage1
+	using.screen_loc = UI_STORAGE1
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/guardian/toggle_light()
-	using.screen_loc = ui_inventory
+	using.screen_loc = UI_INVENTORY
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/guardian/communicate()
-	using.screen_loc = ui_back
+	using.screen_loc = UI_BACK
 	using.hud = src
 	static_inventory += using
 
@@ -50,27 +50,27 @@
 		inv_box.name = "internal storage"
 		inv_box.icon = ui_style
 		inv_box.icon_state = "suit_storage"
-		inv_box.screen_loc = ui_id
+		inv_box.screen_loc = UI_ID
 		inv_box.slot_id = ITEM_SLOT_DEX_STORAGE
 		inv_box.hud = src
 		static_inventory += inv_box
 
 		using = new /atom/movable/screen/guardian/communicate()
-		using.screen_loc = ui_sstore1
+		using.screen_loc = UI_SSTORE1
 		using.hud = src
 		static_inventory += using
 
 	else
 
 		using = new /atom/movable/screen/guardian/communicate()
-		using.screen_loc = ui_id
+		using.screen_loc = UI_ID
 		using.hud = src
 		static_inventory += using
 
 	pull_icon = new /atom/movable/screen/pull()
 	pull_icon.icon = 'icons/hud/guardian.dmi'
 	pull_icon.update_icon()
-	pull_icon.screen_loc = ui_living_pull
+	pull_icon.screen_loc = UI_LIVING_PULL
 	pull_icon.hud = src
 	static_inventory += pull_icon
 
@@ -79,22 +79,22 @@
 	infodisplay += healths
 
 	using = new /atom/movable/screen/guardian/manifest()
-	using.screen_loc = ui_belt
+	using.screen_loc = UI_BELT
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/guardian/recall()
-	using.screen_loc = ui_back
+	using.screen_loc = UI_BACK
 	using.hud = src
 	static_inventory += using
 
 	using = new owner.toggle_button_type()
-	using.screen_loc = ui_storage2
+	using.screen_loc = UI_STORAGE2
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/guardian/toggle_light()
-	using.screen_loc = ui_inventory
+	using.screen_loc = UI_INVENTORY
 	using.hud = src
 	static_inventory += using
 
@@ -106,7 +106,7 @@
 
 		if(hud_shown)
 			if(D.internal_storage)
-				D.internal_storage.screen_loc = ui_id
+				D.internal_storage.screen_loc = UI_ID
 				D.client.screen += D.internal_storage
 		else
 			if(D.internal_storage)

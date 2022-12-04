@@ -6,7 +6,7 @@
 
 	pull_icon = new /atom/movable/screen/pull()
 	pull_icon.update_icon()
-	pull_icon.screen_loc = ui_living_pull
+	pull_icon.screen_loc = UI_LIVING_PULL
 	pull_icon.hud = src
 	static_inventory += pull_icon
 

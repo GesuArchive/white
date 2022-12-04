@@ -118,7 +118,7 @@
 	H.open_language_menu(usr)
 
 /atom/movable/screen/language_menu/ghost
-	screen_loc = ui_ghost_language_menu
+	screen_loc = UI_GHOST_LANGUAGE_MENU
 
 /atom/movable/screen/inventory
 	/// The identifier for the slot. It has nothing to do with ID cards.
@@ -272,7 +272,7 @@
 	name = "взаимодействие"
 	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "help"
-	screen_loc = ui_acti
+	screen_loc = UI_ACTI
 
 /atom/movable/screen/act_intent/Click(location, control, params)
 	usr.a_intent_change(INTENT_HOTKEY_RIGHT)
@@ -298,16 +298,16 @@
 
 /atom/movable/screen/act_intent/alien
 	icon = 'icons/hud/screen_alien.dmi'
-	screen_loc = ui_acti
+	screen_loc = UI_ACTI
 
 /atom/movable/screen/act_intent/robot
 	icon = 'icons/hud/screen_cyborg.dmi'
-	screen_loc = ui_borg_intents
+	screen_loc = UI_BORG_INTENTS
 
 /atom/movable/screen/spacesuit
 	name = "Состояние батареи костюма"
 	icon_state = "spacesuit_0"
-	screen_loc = ui_spacesuit
+	screen_loc = UI_SPACESUIT
 	blend_mode = BLEND_ADD
 
 /atom/movable/screen/mov_intent
@@ -420,7 +420,7 @@
 	name = "целевая зона"
 	icon = 'icons/hud/neoscreen64.dmi'
 	icon_state = "zone_sel"
-	screen_loc = ui_zonesel
+	screen_loc = UI_ZONESEL
 	var/overlay_icon = 'icons/hud/neoscreen64.dmi'
 	var/static/list/hover_overlays_cache = list()
 	var/hovering
@@ -556,27 +556,27 @@
 	layer = HUD_ABOVE_BG_LAYER
 	icon_state = "nh0"
 	blend_mode = BLEND_ADD
-	screen_loc = ui_health
+	screen_loc = UI_HEALTH
 
 /atom/movable/screen/healths/alien
 	icon = 'icons/hud/screen_alien.dmi'
-	screen_loc = ui_alien_health
+	screen_loc = UI_ALIEN_HEALTH
 
 /atom/movable/screen/healths/robot
 	icon = 'icons/hud/screen_cyborg.dmi'
-	screen_loc = ui_borg_health
+	screen_loc = UI_BORG_HEALTH
 
 /atom/movable/screen/healths/blob
 	name = "масса"
 	icon_state = "block"
-	screen_loc = ui_blob_health
+	screen_loc = UI_BLOB_HEALTH
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /atom/movable/screen/healths/blob/overmind
 	name = "ядро"
 	icon = 'icons/hud/blob.dmi'
 	icon_state = "corehealth"
-	screen_loc = ui_blobbernaut_overmind_health
+	screen_loc = UI_BLOBBERNAUT_OVERMIND_HEALTH
 
 /atom/movable/screen/healths/guardian
 	name = "мастер"
@@ -593,12 +593,12 @@
 /atom/movable/screen/healths/construct
 	icon = 'icons/hud/screen_construct.dmi'
 	icon_state = "artificer_health0"
-	screen_loc = ui_construct_health
+	screen_loc = UI_CONSTRUCT_HEALTH
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /atom/movable/screen/healthdoll
 	name = "тело"
-	screen_loc = ui_healthdoll
+	screen_loc = UI_HEALTHDOLL
 
 /atom/movable/screen/healthdoll/Click()
 	if (iscarbon(usr))
@@ -607,14 +607,14 @@
 
 /atom/movable/screen/healthdoll/living
 	icon_state = "fullhealth0"
-	screen_loc = ui_living_healthdoll
+	screen_loc = UI_LIVING_HEALTHDOLL
 	var/filtered = FALSE //so we don't repeatedly create the mask of the mob every update
 
 /atom/movable/screen/mood
 	name = "настроение"
 	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "mood5"
-	screen_loc = ui_mood
+	screen_loc = UI_MOOD
 	blend_mode = BLEND_ADD
 
 /atom/movable/screen/mood/attack_tk()
@@ -676,13 +676,13 @@
 	layer = HUD_ABOVE_BG_LAYER
 	icon_state = "ns0"
 	blend_mode = BLEND_ADD
-	screen_loc = ui_stamina
+	screen_loc = UI_STAMINA
 
 
 /atom/movable/screen/combo
 	icon_state = ""
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	screen_loc = ui_combo
+	screen_loc = UI_COMBO
 	var/timerid
 
 /atom/movable/screen/combo/proc/clear_streak()

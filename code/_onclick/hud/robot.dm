@@ -78,12 +78,12 @@
 	var/atom/movable/screen/using
 
 	using = new/atom/movable/screen/language_menu
-	using.screen_loc = ui_borg_language_menu
+	using.screen_loc = UI_BORG_LANGUAGE_MENU
 	static_inventory += using
 
 //Radio
 	using = new /atom/movable/screen/robot/radio()
-	using.screen_loc = ui_borg_radio
+	using.screen_loc = UI_BORG_RADIO
 	using.hud = src
 	static_inventory += using
 
@@ -91,28 +91,28 @@
 	if(!robit.inv1)
 		robit.inv1 = new /atom/movable/screen/robot/module1()
 
-	robit.inv1.screen_loc = ui_inv1
+	robit.inv1.screen_loc = UI_INV1
 	robit.inv1.hud = src
 	static_inventory += robit.inv1
 
 	if(!robit.inv2)
 		robit.inv2 = new /atom/movable/screen/robot/module2()
 
-	robit.inv2.screen_loc = ui_inv2
+	robit.inv2.screen_loc = UI_INV2
 	robit.inv2.hud = src
 	static_inventory += robit.inv2
 
 	if(!robit.inv3)
 		robit.inv3 = new /atom/movable/screen/robot/module3()
 
-	robit.inv3.screen_loc = ui_inv3
+	robit.inv3.screen_loc = UI_INV3
 	robit.inv3.hud = src
 	static_inventory += robit.inv3
 
 //End of module select
 
 	using = new /atom/movable/screen/robot/lamp()
-	using.screen_loc = ui_borg_lamp
+	using.screen_loc = UI_BORG_LAMP
 	using.hud = src
 	static_inventory += using
 	robit.lampButton = using
@@ -121,13 +121,13 @@
 
 //Photography stuff
 	using = new /atom/movable/screen/ai/image_take()
-	using.screen_loc = ui_borg_camera
+	using.screen_loc = UI_BORG_CAMERA
 	using.hud = src
 	static_inventory += using
 
 //Borg Integrated Tablet
 	using = new /atom/movable/screen/robot/modpc()
-	using.screen_loc = ui_borg_tablet
+	using.screen_loc = UI_BORG_TABLET
 	using.hud = src
 	static_inventory += using
 	robit.interfaceButton = using
@@ -140,7 +140,7 @@
 
 //Alerts
 	using = new /atom/movable/screen/robot/alerts()
-	using.screen_loc = ui_borg_alerts
+	using.screen_loc = UI_BORG_ALERTS
 	using.hud = src
 	static_inventory += using
 
@@ -157,18 +157,18 @@
 
 //Installed Module
 	robit.hands = new /atom/movable/screen/robot/module()
-	robit.hands.screen_loc = ui_borg_module
+	robit.hands.screen_loc = UI_BORG_MODULE
 	robit.hands.hud = src
 	static_inventory += robit.hands
 
 //Store
 	module_store_icon = new /atom/movable/screen/robot/store()
-	module_store_icon.screen_loc = ui_borg_store
+	module_store_icon.screen_loc = UI_BORG_STORE
 	module_store_icon.hud = src
 
 	pull_icon = new /atom/movable/screen/pull()
 	pull_icon.icon = 'icons/hud/screen_cyborg.dmi'
-	pull_icon.screen_loc = ui_borg_pull
+	pull_icon.screen_loc = UI_BORG_PULL
 	pull_icon.hud = src
 	pull_icon.update_icon()
 	hotkeybuttons += pull_icon
@@ -261,11 +261,11 @@
 				if(I)
 					switch(i)
 						if(BORG_CHOOSE_MODULE_ONE)
-							I.screen_loc = ui_inv1
+							I.screen_loc = UI_INV1
 						if(BORG_CHOOSE_MODULE_TWO)
-							I.screen_loc = ui_inv2
+							I.screen_loc = UI_INV2
 						if(BORG_CHOOSE_MODULE_THREE)
-							I.screen_loc = ui_inv3
+							I.screen_loc = UI_INV3
 						else
 							return
 					screenmob.client.screen += I

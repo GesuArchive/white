@@ -161,7 +161,7 @@
 	blobpwrdisplay = new /atom/movable/screen()
 	blobpwrdisplay.name = "ресурсы"
 	blobpwrdisplay.icon_state = "block"
-	blobpwrdisplay.screen_loc = ui_health
+	blobpwrdisplay.screen_loc = UI_BLOB_RESOURCES
 	blobpwrdisplay.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	SET_PLANE_EXPLICIT(blobpwrdisplay, ABOVE_HUD_PLANE, owner)
 	blobpwrdisplay.hud = src
@@ -172,46 +172,46 @@
 	infodisplay += healths
 
 	using = new /atom/movable/screen/blob/blob_help()
-	using.screen_loc = "hud:LEFT,TOP"
+	using.screen_loc = UI_BLOB_HELP
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/jump_to_node()
-	using.screen_loc = "hud:LEFT,BOTTOM"
+	using.screen_loc = UI_BLOB_JUMP_TO_NODE
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/jump_to_core()
-	using.screen_loc = "hud:LEFT,TOP-2"
+	using.screen_loc = UI_BLOB_JUMP_TO_CORE
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/blobbernaut()
-	using.screen_loc = "hud:LEFT,TOP-3"
+	using.screen_loc = UI_BLOB_BLOBBERNAUT
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/resource_blob()
-	using.screen_loc = "hud:LEFT,TOP-4"
+	using.screen_loc = UI_BLOB_RESOURCE
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/node_blob()
-	using.screen_loc = "hud:LEFT,TOP-5"
+	using.screen_loc = UI_BLOB_NODE
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/factory_blob()
-	using.screen_loc = "hud:LEFT,TOP-6"
+	using.screen_loc = UI_BLOB_FACTORY
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/readapt_strain()
-	using.screen_loc = "hud:LEFT,TOP-8"
+	using.screen_loc = UI_BLOB_READAPT
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/blob/relocate_core()
-	using.screen_loc = "hud:LEFT,TOP-9"
+	using.screen_loc = UI_BLOB_RELOCATE
 	using.hud = src
 	static_inventory += using

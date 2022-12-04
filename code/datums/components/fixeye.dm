@@ -6,7 +6,7 @@
 	var/atom/movable/screen/fixeye/hud_icon
 
 //Does stuff
-/datum/component/fixeye/Initialize(hud_loc = ui_fixeye)
+/datum/component/fixeye/Initialize(hud_loc = UI_FIXEYE)
 	if(!isliving(parent))
 		return COMPONENT_INCOMPATIBLE
 	src.hud_loc = hud_loc

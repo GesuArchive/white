@@ -181,57 +181,57 @@
 
 // Software menu
 	using = new /atom/movable/screen/pai/software
-	using.screen_loc = ui_pai_software
+	using.screen_loc = UI_PAI_SOFTWARE
 	static_inventory += using
 
 // Holoform
 	using = new /atom/movable/screen/pai/shell
-	using.screen_loc = ui_pai_shell
+	using.screen_loc = UI_PAI_SHELL
 	static_inventory += using
 
 // Chassis Select Menu
 	using = new /atom/movable/screen/pai/chassis
-	using.screen_loc = ui_pai_chassis
+	using.screen_loc = UI_PAI_CHASSIS
 	static_inventory += using
 
 // Rest
 	using = new /atom/movable/screen/pai/rest
-	using.screen_loc = ui_pai_rest
+	using.screen_loc = UI_PAI_REST
 	static_inventory += using
 
 // Integrated Light
 	using = new /atom/movable/screen/pai/light
-	using.screen_loc = ui_pai_light
+	using.screen_loc = UI_PAI_LIGHT
 	static_inventory += using
 
 // Newscaster
 	using = new /atom/movable/screen/pai/newscaster
-	using.screen_loc = ui_pai_newscaster
+	using.screen_loc = UI_PAI_NEWSCASTER
 	static_inventory += using
 
 // Language menu
 	using = new /atom/movable/screen/language_menu
-	using.screen_loc = ui_pai_language_menu
+	using.screen_loc = UI_PAI_LANGUAGE_MENU
 	static_inventory += using
 
 // Host Monitor
 	using = new /atom/movable/screen/pai/host_monitor()
-	using.screen_loc = ui_pai_host_monitor
+	using.screen_loc = UI_PAI_HOST_MONITOR
 	static_inventory += using
 
 // Crew Manifest
 	using = new /atom/movable/screen/pai/crew_manifest()
-	using.screen_loc = ui_pai_crew_manifest
+	using.screen_loc = UI_PAI_CREW_MANIFEST
 	static_inventory += using
 
 // Laws
 	using = new /atom/movable/screen/pai/state_laws()
-	using.screen_loc = ui_pai_state_laws
+	using.screen_loc = UI_PAI_STATE_LAWS
 	static_inventory += using
 
 // Modular Interface
 	using = new /atom/movable/screen/pai/modpc()
-	using.screen_loc = ui_pai_mod_int
+	using.screen_loc = UI_PAI_MOD_INT
 	static_inventory += using
 	mypai.pda_button = using
 	var/atom/movable/screen/pai/modpc/tablet_button = using
@@ -239,22 +239,22 @@
 
 // Internal GPS
 	using = new /atom/movable/screen/pai/internal_gps()
-	using.screen_loc = ui_pai_internal_gps
+	using.screen_loc = UI_PAI_INTERNAL_GPS
 	static_inventory += using
 
 // Take image
 	using = new /atom/movable/screen/pai/image_take()
-	using.screen_loc = ui_pai_take_picture
+	using.screen_loc = UI_PAI_TAKE_PICTURE
 	static_inventory += using
 
 // View images
 	using = new /atom/movable/screen/pai/image_view()
-	using.screen_loc = ui_pai_view_images
+	using.screen_loc = UI_PAI_VIEW_IMAGES
 	static_inventory += using
 
 // Radio
 	using = new /atom/movable/screen/pai/radio()
-	using.screen_loc = ui_pai_radio
+	using.screen_loc = UI_PAI_RADIO
 	static_inventory += using
 
 	update_software_buttons()

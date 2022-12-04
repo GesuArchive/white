@@ -22,12 +22,12 @@
 	pull_icon = new /atom/movable/screen/pull()
 	pull_icon.icon = 'icons/hud/screen_alien.dmi'
 	pull_icon.update_icon()
-	pull_icon.screen_loc = ui_above_movement
+	pull_icon.screen_loc = UI_ABOVE_MOVEMENT
 	pull_icon.hud = src
 	hotkeybuttons += pull_icon
 
 	using = new/atom/movable/screen/language_menu
-	using.screen_loc = ui_alien_language_menu
+	using.screen_loc = UI_ALIEN_LANGUAGE_MENU
 	using.hud = src
 	static_inventory += using
 

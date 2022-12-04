@@ -52,6 +52,3 @@
 /// Whether we have succesfully hidden out blood level
 #define BLOODSUCKER_HIDE_BLOOD "hide_blood_volume"
 
-#define ui_sunlight_display "LEFT:6,CENTER-0:0"  // 6 pixels to the right, zero tiles & 5 pixels DOWN.
-#define ui_blood_display "LEFT:6,CENTER-1:0"  	  // 1 tile down
-#define ui_vamprank_display "LEFT:6,CENTER-2:-5"   // 2 tiles down

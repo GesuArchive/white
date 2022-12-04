@@ -83,6 +83,7 @@
 #include "code\__DEFINES\footsteps.dm"
 #include "code\__DEFINES\fov.dm"
 #include "code\__DEFINES\hud.dm"
+#include "code\__DEFINES\hud_retro.dm"
 #include "code\__DEFINES\icon_smoothing.dm"
 #include "code\__DEFINES\id_cards.dm"
 #include "code\__DEFINES\important_recursive_contents.dm"

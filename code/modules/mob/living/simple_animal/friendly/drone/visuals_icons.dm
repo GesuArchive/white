@@ -59,7 +59,7 @@
 
 /mob/living/simple_animal/drone/proc/update_inv_internal_storage()
 	if(internal_storage && client && hud_used?.hud_shown)
-		internal_storage.screen_loc = ui_drone_storage
+		internal_storage.screen_loc = UI_DRONE_STORAGE
 		client.screen += internal_storage
 
 
@@ -68,7 +68,7 @@
 
 	if(head)
 		if(client && hud_used?.hud_shown)
-			head.screen_loc = ui_drone_head
+			head.screen_loc = UI_DRONE_HEAD
 			client.screen += head
 		var/used_head_icon = 'icons/mob/clothing/head.dmi'
 		if(istype(head, /obj/item/clothing/mask))

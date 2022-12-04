@@ -3,7 +3,7 @@
 	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "fixeye"
 	base_icon_state = "fixeye"
-	screen_loc = ui_fixeye
+	screen_loc = UI_FIXEYE
 	var/fixed_eye = FALSE
 
 /atom/movable/screen/fixeye/Click(location, control, params)

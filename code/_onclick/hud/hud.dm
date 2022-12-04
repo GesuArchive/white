@@ -345,7 +345,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 					screenmob.client.screen += hand
 			if(action_intent)
 				screenmob.client.screen += action_intent //we want the intent switcher visible
-				action_intent.screen_loc = ui_acti_alt //move this to the alternative position, where zone_select usually is.
+				action_intent.screen_loc = UI_ACTI_ALT //move this to the alternative position, where zone_select usually is.
 
 		if(HUD_STYLE_NOHUD) //No HUD
 			hud_shown = FALSE //Governs behavior of other procs

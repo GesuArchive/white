@@ -13,13 +13,13 @@
 /atom/movable/screen/alien/plasma_display
 	name = "plasma stored"
 	icon_state = "power_display"
-	screen_loc = ui_alienplasmadisplay
+	screen_loc = UI_ALIENPLASMADISPLAY
 
 /atom/movable/screen/alien/alien_queen_finder
 	name = "queen sense"
 	desc = "Allows you to sense the general direction of your Queen."
 	icon_state = "queen_finder"
-	screen_loc = ui_alien_queen_finder
+	screen_loc = UI_ALIEN_QUEEN_FINDER
 
 /datum/hud/alien
 	ui_style = 'icons/hud/screen_alien.dmi'
@@ -59,11 +59,11 @@
 	if(isalienhunter(mymob))
 		var/mob/living/carbon/alien/humanoid/hunter/H = mymob
 		H.leap_icon = new /atom/movable/screen/alien/leap()
-		H.leap_icon.screen_loc = ui_alien_storage_r
+		H.leap_icon.screen_loc = UI_ALIEN_STORAGE_R
 		static_inventory += H.leap_icon
 
 	using = new/atom/movable/screen/language_menu
-	using.screen_loc = ui_alien_language_menu
+	using.screen_loc = UI_ALIEN_LANGUAGE_MENU
 	using.hud = src
 	static_inventory += using
 

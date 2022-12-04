@@ -15,4 +15,4 @@
 	icon = 'icons/hud/screen_alien.dmi'
 	icon_state = "power_display"
 	name = "nutrition"
-	screen_loc = ui_alienplasmadisplay
+	screen_loc = UI_ALIENPLASMADISPLAY

@@ -181,73 +181,73 @@
 
 // Language menu
 	using = new /atom/movable/screen/language_menu
-	using.screen_loc = ui_ai_language_menu
+	using.screen_loc = UI_AI_LANGUAGE_MENU
 	using.hud = src
 	static_inventory += using
 
 //AI core
 	using = new /atom/movable/screen/ai/aicore()
-	using.screen_loc = ui_ai_core
+	using.screen_loc = UI_AI_CORE
 	using.hud = src
 	static_inventory += using
 
 //Camera list
 	using = new /atom/movable/screen/ai/camera_list()
-	using.screen_loc = ui_ai_camera_list
+	using.screen_loc = UI_AI_CAMERA_LIST
 	using.hud = src
 	static_inventory += using
 
 //Track
 	using = new /atom/movable/screen/ai/camera_track()
-	using.screen_loc = ui_ai_track_with_camera
+	using.screen_loc = UI_AI_TRACK_WITH_CAMERA
 	using.hud = src
 	static_inventory += using
 
 //Camera light
 	using = new /atom/movable/screen/ai/camera_light()
-	using.screen_loc = ui_ai_camera_light
+	using.screen_loc = UI_AI_CAMERA_LIGHT
 	using.hud = src
 	static_inventory += using
 
 //Crew Monitoring
 	using = new /atom/movable/screen/ai/crew_monitor()
-	using.screen_loc = ui_ai_crew_monitor
+	using.screen_loc = UI_AI_CREW_MONITOR
 	using.hud = src
 	static_inventory += using
 
 //Crew Manifest
 	using = new /atom/movable/screen/ai/crew_manifest()
-	using.screen_loc = ui_ai_crew_manifest
+	using.screen_loc = UI_AI_CREW_MANIFEST
 	using.hud = src
 	static_inventory += using
 
 //Alerts
 	using = new /atom/movable/screen/ai/alerts()
-	using.screen_loc = ui_ai_alerts
+	using.screen_loc = UI_AI_ALERTS
 	using.hud = src
 	static_inventory += using
 
 //Announcement
 	using = new /atom/movable/screen/ai/announcement()
-	using.screen_loc = ui_ai_announcement
+	using.screen_loc = UI_AI_ANNOUNCEMENT
 	using.hud = src
 	static_inventory += using
 
 //Shuttle
 	using = new /atom/movable/screen/ai/call_shuttle()
-	using.screen_loc = ui_ai_shuttle
+	using.screen_loc = UI_AI_SHUTTLE
 	using.hud = src
 	static_inventory += using
 
 //Laws
 	using = new /atom/movable/screen/ai/state_laws()
-	using.screen_loc = ui_ai_state_laws
+	using.screen_loc = UI_AI_STATE_LAWS
 	using.hud = src
 	static_inventory += using
 
 // Modular Interface
 	using = new /atom/movable/screen/ai/modpc()
-	using.screen_loc = ui_ai_mod_int
+	using.screen_loc = UI_AI_MOD_INT
 	using.hud = src
 	static_inventory += using
 	myai.interfaceButton = using
@@ -256,30 +256,30 @@
 
 //Take image
 	using = new /atom/movable/screen/ai/image_take()
-	using.screen_loc = ui_ai_take_picture
+	using.screen_loc = UI_AI_TAKE_PICTURE
 	using.hud = src
 	static_inventory += using
 
 //View images
 	using = new /atom/movable/screen/ai/image_view()
-	using.screen_loc = ui_ai_view_images
+	using.screen_loc = UI_AI_VIEW_IMAGES
 	using.hud = src
 	static_inventory += using
 
 //Medical/Security sensors
 	using = new /atom/movable/screen/ai/sensors()
-	using.screen_loc = ui_ai_sensor
+	using.screen_loc = UI_AI_SENSOR
 	using.hud = src
 	static_inventory += using
 
 //Multicamera mode
 	using = new /atom/movable/screen/ai/multicam()
-	using.screen_loc = ui_ai_multicam
+	using.screen_loc = UI_AI_MULTICAM
 	using.hud = src
 	static_inventory += using
 
 //Add multicamera camera
 	using = new /atom/movable/screen/ai/add_multicam()
-	using.screen_loc = ui_ai_add_multicam
+	using.screen_loc = UI_AI_ADD_MULTICAM
 	using.hud = src
 	static_inventory += using

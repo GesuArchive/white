@@ -295,7 +295,7 @@ GLOBAL_VAR_INIT(forced_parallax_type, 1)
 
 /atom/movable/screen/station_height_bg
 	icon = 'white/valtos/icons/graph.png'
-	screen_loc = ui_station_height
+	screen_loc = UI_STATION_HEIGHT
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /atom/proc/flicker_animation(anim_len = 50)

@@ -54,7 +54,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 		owner = parent
 
 		screen_obj = new /atom/movable/screen/relative_temp()
-		screen_obj.screen_loc = ui_relative_temp
+		screen_obj.screen_loc = UI_RELATIVE_TEMP
 		screen_obj.hud = src
 		owner.hud_used.infodisplay += screen_obj
 
@@ -189,7 +189,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 	name = "температура тела"
 	icon = 'white/valtos/icons/temp_hud.dmi'
 	icon_state = "temp_5"
-	screen_loc = ui_relative_temp
+	screen_loc = UI_RELATIVE_TEMP
 	blend_mode = BLEND_ADD
 
 /datum/component/realtemp/proc/hud_click(datum/source, location, control, params, mob/user)
