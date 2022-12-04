@@ -32,17 +32,21 @@
 	name = JOB_FREELANCER
 	jobtype = /datum/job/freelancer
 
-	mask = /obj/item/clothing/mask/breath
-	glasses = /obj/item/clothing/glasses/sunglasses
+	glasses = /obj/item/clothing/glasses/hud/health/sunglasses
 
 	r_pocket = /obj/item/kitchen/knife/combat
 	l_pocket = /obj/item/gps
 
 	id_trim = /datum/id_trim/job/freelancer
 
+/datum/job/freelancer/override_latejoin_spawn(mob/living/carbon/human/H)
+	if(SSmapping.spawn_type_shuttle(/datum/map_template/shuttle/freelancer/medium))
+		H.forceMove(get_spawnpoint())
+	return TRUE
+
 /datum/job/freelancer/after_spawn(mob/living/H, mob/M, latejoin = FALSE)
 	. = ..()
-	if(SSmapping.spawn_type_shuttle(/datum/map_template/shuttle/freelancer/medium))
+	if(!latejoin && SSmapping.spawn_type_shuttle(/datum/map_template/shuttle/freelancer/medium))
 		H.forceMove(get_spawnpoint())
 
 /datum/job/freelancer/proc/get_spawnpoint()
