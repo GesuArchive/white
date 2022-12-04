@@ -476,6 +476,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/pirate)
+"CG" = (
+/obj/effect/landmark/exploration_weapon_spawner/left{
+	dir = 4
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/pirate)
 "CH" = (
 /obj/structure/chair/sofa/corp/left{
 	dir = 1
@@ -616,7 +622,7 @@
 /turf/open/floor/pod/dark,
 /area/shuttle/pirate)
 "KS" = (
-/obj/effect/landmark/exploration_weapon_spawner{
+/obj/effect/landmark/exploration_weapon_spawner/right{
 	dir = 4
 	},
 /turf/closed/wall/mineral/titanium,
@@ -1397,7 +1403,7 @@ je
 je
 je
 je
-rB
+CG
 je
 je
 je
@@ -1405,7 +1411,7 @@ je
 je
 je
 je
-rB
+KS
 je
 je
 je
@@ -1416,7 +1422,7 @@ je
 je
 je
 je
-KS
+rB
 je
 je
 je
@@ -1424,7 +1430,7 @@ je
 je
 je
 je
-KS
+rB
 je
 je
 je

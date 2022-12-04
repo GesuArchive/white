@@ -68,6 +68,12 @@
 	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
+"g" = (
+/obj/effect/landmark/exploration_weapon_spawner/right{
+	dir = 1
+	},
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/exploration)
 "h" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -318,7 +324,7 @@
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
 "B" = (
-/obj/effect/landmark/exploration_weapon_spawner{
+/obj/effect/landmark/exploration_weapon_spawner/left{
 	dir = 1
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
@@ -612,7 +618,7 @@ l
 R
 R
 z
-B
+g
 z
 z
 z

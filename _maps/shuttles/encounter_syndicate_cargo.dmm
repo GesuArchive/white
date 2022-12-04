@@ -12,6 +12,12 @@
 /obj/machinery/portable_atmospherics/canister/toxins,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/syndicate_scout)
+"aY" = (
+/obj/effect/landmark/exploration_weapon_spawner/right{
+	dir = 1
+	},
+/turf/closed/wall/r_wall/syndicate,
+/area/shuttle/syndicate_scout)
 "bg" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 1
@@ -132,7 +138,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/syndicate_scout)
 "hR" = (
-/obj/effect/landmark/exploration_weapon_spawner{
+/obj/effect/landmark/exploration_weapon_spawner/left{
 	dir = 1
 	},
 /turf/closed/wall/r_wall/syndicate,
@@ -1535,7 +1541,7 @@ WF
 WF
 Ty
 wk
-hR
+aY
 wk
 wk
 wk
@@ -1945,7 +1951,7 @@ wk
 wk
 wk
 wk
-hR
+aY
 wk
 wk
 wk

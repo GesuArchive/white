@@ -9,6 +9,7 @@
 	name = "ship weapon spawner up"
 	icon = 'icons/effects/mapping_arrows.dmi'
 	icon_state = "blue_up"
+	var/side_to_spawn = WEAPON_SIDE_NONE
 
 /obj/effect/landmark/exploration_weapon_spawner/Initialize()
 	. = ..()
@@ -25,5 +26,14 @@
 
 /obj/effect/landmark/exploration_weapon_spawner/proc/spawn_weapon(weapon_type)
 	var/obj/machinery/shuttle_weapon/spawned_weapon = new weapon_type(get_turf(src))
+	spawned_weapon.side = side_to_spawn
 	spawned_weapon.dir = dir
 	spawned_weapon.set_directional_offset(dir)
+
+/obj/effect/landmark/exploration_weapon_spawner/left
+	name = "ship weapon spawner left"
+	side_to_spawn = WEAPON_SIDE_LEFT
+
+/obj/effect/landmark/exploration_weapon_spawner/right
+	name = "ship weapon spawner right"
+	side_to_spawn = WEAPON_SIDE_RIGHT

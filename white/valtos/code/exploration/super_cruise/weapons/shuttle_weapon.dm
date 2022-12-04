@@ -27,7 +27,7 @@
 	COOLDOWN_DECLARE(next_shot_world_time)
 
 	//For weapons that are side mounted (None after new sprites, but support is still here.)
-	var/side = WEAPON_SIDE_LEFT
+	var/side = WEAPON_SIDE_NONE
 	var/fire_from_source = TRUE
 	var/directional_offset = 0
 	var/offset_turf_x = 0
@@ -75,31 +75,80 @@
 		return
 	switch(newdir)
 		if(NORTH)
-			pixel_y = 0
-			pixel_x = 0
-			offset_turf_x = side
-			transform = initial(transform)
+			if(side == WEAPON_SIDE_LEFT)
+				pixel_x = -27
+				pixel_y = 0
+				var/matrix/M = matrix()
+				M.Scale(-1, 1)
+				transform = M
+			else if (side == WEAPON_SIDE_RIGHT)
+				pixel_x = 27
+				pixel_y = 0
+				transform = initial(transform)
+			else
+				pixel_x = 0
+				pixel_y = 0
+				transform = initial(transform)
 		if(SOUTH)
-			pixel_y = -40
-			pixel_x = 0
-			offset_turf_x = -side
-			var/matrix/M = matrix()
-			M.Turn(180)
-			transform = M
+			if(side == WEAPON_SIDE_LEFT)
+				pixel_x = -27
+				pixel_y = -40
+				var/matrix/M = matrix()
+				M.Turn(180)
+				transform = M
+			else if (side == WEAPON_SIDE_RIGHT)
+				pixel_x = 27
+				pixel_y = -40
+				var/matrix/M = matrix()
+				M.Turn(180)
+				M.Scale(-1, 1)
+				transform = M
+			else
+				pixel_x = 0
+				pixel_y = -40
+				var/matrix/M = matrix()
+				M.Turn(180)
+				transform = M
 		if(EAST)
-			pixel_y = -16
-			pixel_x = -20
-			offset_turf_y = -side
-			var/matrix/M = matrix()
-			M.Turn(-90)
-			transform = M
+			if(side == WEAPON_SIDE_LEFT)
+				pixel_x = -20
+				pixel_y = 7
+				var/matrix/M = matrix()
+				M.Turn(-90)
+				transform = M
+			else if (side == WEAPON_SIDE_RIGHT)
+				pixel_x = -20
+				pixel_y = -46
+				var/matrix/M = matrix()
+				M.Turn(-90)
+				M.Scale(1, -1)
+				transform = M
+			else
+				pixel_x = -16
+				pixel_y = -20
+				var/matrix/M = matrix()
+				M.Turn(-90)
+				transform = M
 		if(WEST)
-			pixel_y = -16
-			pixel_x = 20
-			offset_turf_y = side
-			var/matrix/M = matrix()
-			M.Turn(90)
-			transform = M
+			if(side == WEAPON_SIDE_LEFT)
+				pixel_x = 20
+				pixel_y = -46
+				var/matrix/M = matrix()
+				M.Turn(90)
+				transform = M
+			else if (side == WEAPON_SIDE_RIGHT)
+				pixel_x = 20
+				pixel_y = 7
+				var/matrix/M = matrix()
+				M.Turn(90)
+				M.Scale(1, -1)
+				transform = M
+			else
+				pixel_x = 20
+				pixel_y = -16
+				var/matrix/M = matrix()
+				M.Turn(90)
+				transform = M
 
 /obj/machinery/shuttle_weapon/proc/fire(atom/target, shots_left = shots, forced = FALSE)
 	if(!target)

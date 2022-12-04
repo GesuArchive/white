@@ -377,6 +377,12 @@
 	},
 /turf/open/floor/carpet/blue/airless,
 /area/shuttle/pirate/flying_dutchman)
+"jh" = (
+/obj/effect/landmark/exploration_weapon_spawner/right{
+	dir = 1
+	},
+/turf/closed/wall/mineral/wood/nonmetal,
+/area/shuttle/pirate/flying_dutchman)
 "km" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
@@ -426,7 +432,7 @@
 /turf/open/floor/wood/airless,
 /area/shuttle/pirate/flying_dutchman)
 "pT" = (
-/obj/effect/landmark/exploration_weapon_spawner{
+/obj/effect/landmark/exploration_weapon_spawner/left{
 	dir = 1
 	},
 /turf/closed/wall/mineral/wood/nonmetal,
@@ -1434,7 +1440,7 @@ LD
 WR
 vi
 WR
-WR
+jh
 WR
 WR
 Gt

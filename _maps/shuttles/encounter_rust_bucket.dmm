@@ -266,10 +266,10 @@
 /turf/open/floor/plasteel,
 /area/shuttle)
 "Bo" = (
-/obj/effect/landmark/exploration_weapon_spawner{
+/obj/effect/landmark/exploration_weapon_spawner/left{
 	dir = 1
 	},
-/turf/closed/wall/rust,
+/turf/closed/wall,
 /area/shuttle)
 "Cs" = (
 /obj/machinery/door/airlock/external,
@@ -329,10 +329,10 @@
 /turf/open/floor/plating,
 /area/shuttle)
 "Gw" = (
-/obj/effect/landmark/exploration_weapon_spawner{
+/obj/effect/landmark/exploration_weapon_spawner/right{
 	dir = 1
 	},
-/turf/closed/wall,
+/turf/closed/wall/rust,
 /area/shuttle)
 "GN" = (
 /obj/effect/spawner/structure/window/hollow/reinforced/directional{
@@ -552,8 +552,8 @@ RJ
 RJ
 RJ
 RJ
+Bo
 oQ
-Gw
 Cs
 Cs
 jj
@@ -743,8 +743,8 @@ Ji
 Ji
 Ji
 mm
+Gw
 jj
-Bo
 sH
 NH
 EY

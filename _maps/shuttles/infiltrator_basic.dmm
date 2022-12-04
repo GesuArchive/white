@@ -336,7 +336,7 @@
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/shuttle/syndicate/medical)
 "aL" = (
-/obj/effect/landmark/exploration_weapon_spawner{
+/obj/effect/landmark/exploration_weapon_spawner/left{
 	dir = 1
 	},
 /turf/closed/wall/r_wall/syndicate,
@@ -1264,7 +1264,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/syndicate/hallway)
 "lr" = (
-/obj/effect/landmark/exploration_weapon_spawner{
+/obj/effect/landmark/exploration_weapon_spawner/right{
 	dir = 1
 	},
 /turf/closed/wall/r_wall/syndicate,
@@ -1407,8 +1407,8 @@ aa
 aa
 aa
 aa
-ax
 aL
+ax
 AW
 aR
 aR
@@ -1707,8 +1707,8 @@ aa
 aa
 aa
 aa
-aB
 lr
+aB
 aQ
 aT
 aT

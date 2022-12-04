@@ -401,7 +401,7 @@
 /turf/open/floor/plasteel/tg/smooth_large,
 /area/shuttle/yohei)
 "Cb" = (
-/obj/effect/landmark/exploration_weapon_spawner{
+/obj/effect/landmark/exploration_weapon_spawner/left{
 	dir = 1
 	},
 /turf/closed/indestructible/iridium,
