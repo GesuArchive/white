@@ -2,7 +2,7 @@ GLOBAL_VAR_INIT(OOC_COLOR, null)//If this is null, use the CSS for OOC. Otherwis
 GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД ЕБУТ", "оникс" = "говно", "опух" = "говнище", "валтос" = "мяу"))
 GLOBAL_LIST_INIT(alko_list, list("zarri", "maxsc", "nfogmann", "unitazik", "sranklin"))
-GLOBAL_LIST_INIT(boosty_subs, list("nikitauou", "aldodonkar"))
+GLOBAL_LIST_INIT(boosty_subs, list("nikitauou", "aldodonkar", "trora"))
 
 /client/verb/ooc(msg as text)
 	set name = "OOC" //Gave this shit a shorter name so you only have to time out "ooc" rather than "ooc message" to use it --NeoFite
