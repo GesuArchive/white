@@ -146,6 +146,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		if(mymob?.client?.prefs?.retro_hud)
 			retro_hud = TRUE
 			add_multiz_buttons(owner)
+			INVOKE_ASYNC(mymob?.client, .client/verb/fit_viewport)
 			return
 
 		add_multiz_buttons(owner)
