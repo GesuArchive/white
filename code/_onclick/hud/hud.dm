@@ -112,6 +112,11 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		// will fall back to the default if any of these are null
 		ui_style = ui_style2icon(owner?.client?.prefs?.UI_style)
 
+	if(mymob?.client?.prefs?.retro_hud)
+		retro_hud = TRUE
+		INVOKE_ASYNC(mymob?.client, .client/proc/set_hud_bar_visible, TRUE)
+		INVOKE_ASYNC(mymob?.client, .client/verb/fit_viewport)
+
 	hand_slots = list()
 
 	var/datum/plane_master_group/main/main_group = new(PLANE_GROUP_MAIN)
@@ -141,14 +146,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	RegisterSignal(mymob, COMSIG_MOB_SIGHT_CHANGE, .proc/update_sightflags)
 	update_sightflags(mymob, mymob.sight, NONE)
 
-	if(!isnewplayer(mymob))
-
-		if(mymob?.client?.prefs?.retro_hud)
-			retro_hud = TRUE
-			add_multiz_buttons(owner)
-			INVOKE_ASYNC(mymob?.client, .client/proc/set_hud_bar_visible, TRUE)
-			INVOKE_ASYNC(mymob?.client, .client/verb/fit_viewport)
-			return
+	if(!isnewplayer(mymob) && !retro_hud)
 
 		add_multiz_buttons(owner)
 
