@@ -4,11 +4,13 @@
 	var/atom/movable/screen/using
 
 	using = new /atom/movable/screen/drop()
+	using.icon = retro_hud ? ui_style : using.icon
 	using.screen_loc = UI_DRONE_DROP
 	using.hud = src
 	static_inventory += using
 
 	pull_icon = new /atom/movable/screen/pull()
+	pull_icon.icon = retro_hud ? ui_style : using.icon
 	pull_icon.update_icon()
 	pull_icon.screen_loc = UI_DRONE_PULL
 	pull_icon.hud = src
@@ -37,17 +39,25 @@
 		else
 			action_intent = new /atom/movable/screen/act_intent
 			action_intent.icon = ui_style
+		action_intent.icon = retro_hud ? 'icons/hud/screen_gen.dmi' : action_intent.icon
+		action_intent.screen_loc = retro_hud ? UI_ACTI_RETRO : UI_ACTI
 		action_intent.icon_state = mymob.a_intent
 		action_intent.hud = src
 		static_inventory += action_intent
 
 
 	zone_select = new /atom/movable/screen/zone_sel()
+	zone_select.retro_hud = retro_hud
+	zone_select.icon = retro_hud ? ui_style : zone_select.icon
+	zone_select.overlay_icon = retro_hud ? 'icons/hud/screen_gen.dmi' : zone_select.icon
+	zone_select.screen_loc = retro_hud ? UI_ZONESEL_RETRO : UI_ZONESEL
 	zone_select.hud = src
 	zone_select.update_icon()
 	static_inventory += zone_select
 
 	using = new /atom/movable/screen/area_creator
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_BOXAREA_RETRO : UI_BOXAREA
 	using.hud = src
 	static_inventory += using
 

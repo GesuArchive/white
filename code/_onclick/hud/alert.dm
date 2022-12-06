@@ -841,13 +841,13 @@
 			alert.icon = ui_style
 		switch(i)
 			if(1)
-				. = UI_ALERT1
+				. = retro_hud ? UI_ALERT1_RETRO : UI_ALERT1
 			if(2)
-				. = UI_ALERT2
+				. = retro_hud ? UI_ALERT2_RETRO : UI_ALERT2
 			if(3)
-				. = UI_ALERT3
+				. = retro_hud ? UI_ALERT3_RETRO : UI_ALERT3
 			if(4)
-				. = UI_ALERT4 // Right now there's 4 slots
+				. = retro_hud ? UI_ALERT4_RETRO : UI_ALERT4 // Right now there's 4 slots
 			else
 				. = ""
 		alert.screen_loc = .

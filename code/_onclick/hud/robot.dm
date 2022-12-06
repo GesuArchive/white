@@ -78,12 +78,13 @@
 	var/atom/movable/screen/using
 
 	using = new/atom/movable/screen/language_menu
-	using.screen_loc = UI_BORG_LANGUAGE_MENU
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_BORG_LANGUAGE_MENU_RETRO : UI_BORG_LANGUAGE_MENU
 	static_inventory += using
 
 //Radio
 	using = new /atom/movable/screen/robot/radio()
-	using.screen_loc = UI_BORG_RADIO
+	using.screen_loc = retro_hud ? UI_BORG_RADIO_RETRO : UI_BORG_RADIO
 	using.hud = src
 	static_inventory += using
 
@@ -112,7 +113,7 @@
 //End of module select
 
 	using = new /atom/movable/screen/robot/lamp()
-	using.screen_loc = UI_BORG_LAMP
+	using.screen_loc = retro_hud ? UI_BORG_LAMP_RETRO : UI_BORG_LAMP
 	using.hud = src
 	static_inventory += using
 	robit.lampButton = using
@@ -121,13 +122,13 @@
 
 //Photography stuff
 	using = new /atom/movable/screen/ai/image_take()
-	using.screen_loc = UI_BORG_CAMERA
+	using.screen_loc = retro_hud ? UI_BORG_CAMERA_RETRO : UI_BORG_CAMERA
 	using.hud = src
 	static_inventory += using
 
 //Borg Integrated Tablet
 	using = new /atom/movable/screen/robot/modpc()
-	using.screen_loc = UI_BORG_TABLET
+	using.screen_loc = retro_hud ? UI_BORG_TABLET_RETRO : UI_BORG_TABLET
 	using.hud = src
 	static_inventory += using
 	robit.interfaceButton = using
@@ -140,18 +141,20 @@
 
 //Alerts
 	using = new /atom/movable/screen/robot/alerts()
-	using.screen_loc = UI_BORG_ALERTS
+	using.screen_loc = retro_hud ? UI_BORG_ALERTS_RETRO : UI_BORG_ALERTS
 	using.hud = src
 	static_inventory += using
 
 //Intent
 	action_intent = new /atom/movable/screen/act_intent/robot()
+	action_intent.screen_loc = retro_hud ? UI_BORG_INTENTS_RETRO : UI_BORG_INTENTS
 	action_intent.icon_state = mymob.a_intent
 	action_intent.hud = src
 	static_inventory += action_intent
 
 //Health
 	healths = new /atom/movable/screen/healths/robot()
+	healths.screen_loc = retro_hud ? UI_BORG_HEALTH_RETRO : UI_BORG_HEALTH
 	healths.hud = src
 	infodisplay += healths
 
@@ -168,13 +171,17 @@
 
 	pull_icon = new /atom/movable/screen/pull()
 	pull_icon.icon = 'icons/hud/screen_cyborg.dmi'
-	pull_icon.screen_loc = UI_BORG_PULL
+	pull_icon.screen_loc = retro_hud ? UI_BORG_PULL_RETRO : UI_BORG_PULL
 	pull_icon.hud = src
 	pull_icon.update_icon()
 	hotkeybuttons += pull_icon
 
 
 	zone_select = new /atom/movable/screen/zone_sel/robot()
+	zone_select.retro_hud = retro_hud
+	zone_select.icon = retro_hud ? 'icons/hud/screen_cyborg.dmi' : zone_select.icon
+	zone_select.overlay_icon = retro_hud ? 'icons/hud/screen_gen.dmi' : zone_select.icon
+	zone_select.screen_loc = retro_hud ? UI_ZONESEL_RETRO : UI_ZONESEL
 	zone_select.hud = src
 	zone_select.update_icon()
 	static_inventory += zone_select

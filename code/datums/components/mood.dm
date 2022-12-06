@@ -331,6 +331,8 @@
 	var/datum/hud/hud = owner.hud_used
 	screen_obj = new
 	screen_obj.color = "#4b96c4"
+	screen_obj.icon = hud.retro_hud ? 'icons/hud/screen_gen.dmi' : screen_obj.icon
+	screen_obj.screen_loc = hud.retro_hud ? UI_MOOD_RETRO : UI_MOOD
 	hud.infodisplay += screen_obj
 	RegisterSignal(hud, COMSIG_PARENT_QDELETING, .proc/unmodify_hud)
 	RegisterSignal(screen_obj, COMSIG_CLICK, .proc/hud_click)

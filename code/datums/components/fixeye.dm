@@ -47,6 +47,9 @@
 	hud_icon.hud = source.hud_used
 	hud_icon.screen_loc = hud_loc
 	source.hud_used?.fixeye = hud_icon
+	hud_icon?.screen_loc = source.hud_used?.retro_hud ? UI_FIXEYE_RETRO : UI_FIXEYE
+	if(source.hud_used?.retro_hud)
+		hud_icon?.icon = 'icons/hud/screen_gen.dmi'
 	source.hud_used?.infodisplay += hud_icon
 	hud_icon.update_appearance()
 	source.client?.screen |= hud_icon

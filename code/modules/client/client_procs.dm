@@ -1246,11 +1246,15 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 #define HUD_WIDTH 1
 
-/client/proc/set_hud_bar_visible()
+/client/proc/set_hud_bar_visible(should_we_hide_bar)
+	var/list/screen_size = splittext(winget(src, "mapwindow", "size"), "x")
+	if(should_we_hide_bar)
+		winset(src, "mapwindow.map","size=[screen_size[1]]x[screen_size[2]],anchor2=100,100")
+		winset(src, "mapwindow.hud","pos=0,0;size=0x0,anchor1=0,0")
+		return
 
 	var/view_width = getviewsize(view)[1]
 	var/full_width = view_width + HUD_WIDTH
-	var/list/screen_size = splittext(winget(src, "mapwindow", "size"), "x")
 	var/screen_width = text2num(screen_size[1])
 	var/tile_width = screen_width / full_width
 	var/hud_width  = HUD_WIDTH * tile_width
@@ -1258,10 +1262,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	var/mapWidth = screen_width - text2num(hud_width)
 	var/mapAnchor  = "[100-(100 * HUD_WIDTH * tile_width / screen_width)],100"
 
-	if(isnewplayer(mob))
-		winset(src, "mapwindow.map","size=[screen_size[1]]x[screen_size[2]],anchor2=100,100")
-		winset(src, "mapwindow.hud","pos=0,0;size=0x0,anchor1=0,0")
-		return
 	winset(src, "mapwindow.map","size=[mapWidth]x[screen_size[2]],anchor2=[mapAnchor]")
 	winset(src, "mapwindow.hud","pos=[mapWidth],0;size=[hud_width]x[screen_size[2]],anchor1=[mapAnchor]")
 

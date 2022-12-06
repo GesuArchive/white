@@ -181,57 +181,58 @@
 
 // Software menu
 	using = new /atom/movable/screen/pai/software
-	using.screen_loc = UI_PAI_SOFTWARE
+	using.screen_loc = retro_hud ? UI_PAI_SOFTWARE_RETRO : UI_PAI_SOFTWARE
 	static_inventory += using
 
 // Holoform
 	using = new /atom/movable/screen/pai/shell
-	using.screen_loc = UI_PAI_SHELL
+	using.screen_loc = retro_hud ? UI_PAI_SHELL_RETRO : UI_PAI_SHELL
 	static_inventory += using
 
 // Chassis Select Menu
 	using = new /atom/movable/screen/pai/chassis
-	using.screen_loc = UI_PAI_CHASSIS
+	using.screen_loc = retro_hud ? UI_PAI_CHASSIS_RETRO : UI_PAI_CHASSIS
 	static_inventory += using
 
 // Rest
 	using = new /atom/movable/screen/pai/rest
-	using.screen_loc = UI_PAI_REST
+	using.screen_loc = retro_hud ? UI_PAI_REST_RETRO : UI_PAI_REST
 	static_inventory += using
 
 // Integrated Light
 	using = new /atom/movable/screen/pai/light
-	using.screen_loc = UI_PAI_LIGHT
+	using.screen_loc = retro_hud ? UI_PAI_LIGHT_RETRO : UI_PAI_LIGHT
 	static_inventory += using
 
 // Newscaster
 	using = new /atom/movable/screen/pai/newscaster
-	using.screen_loc = UI_PAI_NEWSCASTER
+	using.screen_loc = retro_hud ? UI_PAI_NEWSCASTER_RETRO : UI_PAI_NEWSCASTER
 	static_inventory += using
 
 // Language menu
 	using = new /atom/movable/screen/language_menu
-	using.screen_loc = UI_PAI_LANGUAGE_MENU
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_PAI_LANGUAGE_MENU_RETRO : UI_PAI_LANGUAGE_MENU
 	static_inventory += using
 
 // Host Monitor
 	using = new /atom/movable/screen/pai/host_monitor()
-	using.screen_loc = UI_PAI_HOST_MONITOR
+	using.screen_loc = retro_hud ? UI_PAI_HOST_MONITOR_RETRO : UI_PAI_HOST_MONITOR
 	static_inventory += using
 
 // Crew Manifest
 	using = new /atom/movable/screen/pai/crew_manifest()
-	using.screen_loc = UI_PAI_CREW_MANIFEST
+	using.screen_loc = retro_hud ? UI_PAI_CREW_MANIFEST_RETRO : UI_PAI_CREW_MANIFEST
 	static_inventory += using
 
 // Laws
 	using = new /atom/movable/screen/pai/state_laws()
-	using.screen_loc = UI_PAI_STATE_LAWS
+	using.screen_loc = retro_hud ? UI_PAI_STATE_LAWS_RETRO : UI_PAI_STATE_LAWS
 	static_inventory += using
 
 // Modular Interface
 	using = new /atom/movable/screen/pai/modpc()
-	using.screen_loc = UI_PAI_MOD_INT
+	using.screen_loc = retro_hud ? UI_PAI_MOD_INT_RETRO : UI_PAI_MOD_INT
 	static_inventory += using
 	mypai.pda_button = using
 	var/atom/movable/screen/pai/modpc/tablet_button = using
@@ -239,22 +240,22 @@
 
 // Internal GPS
 	using = new /atom/movable/screen/pai/internal_gps()
-	using.screen_loc = UI_PAI_INTERNAL_GPS
+	using.screen_loc = retro_hud ? UI_PAI_INTERNAL_GPS_RETRO : UI_PAI_INTERNAL_GPS
 	static_inventory += using
 
 // Take image
 	using = new /atom/movable/screen/pai/image_take()
-	using.screen_loc = UI_PAI_TAKE_PICTURE
+	using.screen_loc = retro_hud ? UI_PAI_TAKE_PICTURE_RETRO : UI_PAI_TAKE_PICTURE
 	static_inventory += using
 
 // View images
 	using = new /atom/movable/screen/pai/image_view()
-	using.screen_loc = UI_PAI_VIEW_IMAGES
+	using.screen_loc = retro_hud ? UI_PAI_VIEW_IMAGES_RETRO : UI_PAI_VIEW_IMAGES
 	static_inventory += using
 
 // Radio
 	using = new /atom/movable/screen/pai/radio()
-	using.screen_loc = UI_PAI_RADIO
+	using.screen_loc = retro_hud ? UI_PAI_RADIO_RETRO : UI_PAI_RADIO
 	static_inventory += using
 
 	update_software_buttons()

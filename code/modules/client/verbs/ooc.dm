@@ -387,9 +387,11 @@ GLOBAL_LIST_INIT(boosty_subs, list("nikitauou", "aldodonkar", "trora"))
 	set category = "Особенное"
 	set desc = "Fit the width of the map window to match the viewport"
 
+	var/should_we_hide_bar = (isnewplayer(mob) || prefs?.retro_hud)
+
 	// Fetch aspect ratio
 	var/view_size = getviewsize(view)
-	var/view_width = view_size[1] + !isnewplayer(mob)
+	var/view_width = view_size[1] + !should_we_hide_bar
 	var/aspect_ratio = view_width / view_size[2]
 
 	// Calculate desired pixel width using window size and aspect ratio
@@ -445,7 +447,7 @@ GLOBAL_LIST_INIT(boosty_subs, list("nikitauou", "aldodonkar", "trora"))
 
 		if (got_width == desired_width)
 			// success
-			set_hud_bar_visible()
+			set_hud_bar_visible(should_we_hide_bar)
 			return
 		else if (isnull(delta))
 			// calculate a probable delta value based on the difference
@@ -460,7 +462,7 @@ GLOBAL_LIST_INIT(boosty_subs, list("nikitauou", "aldodonkar", "trora"))
 		else
 			winset(src, "mainwindow.split", "splitter=[pct]")
 
-	set_hud_bar_visible()
+	set_hud_bar_visible(should_we_hide_bar)
 
 /// Attempt to automatically fit the viewport, assuming the user wants it
 /client/proc/attempt_auto_fit_viewport()

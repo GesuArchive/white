@@ -78,40 +78,42 @@
 	var/atom/movable/screen/using
 
 	using = new /atom/movable/screen/ghost/jumptomob()
-	using.screen_loc = UI_GHOST_JUMPTOMOB
+	using.screen_loc = retro_hud ? UI_GHOST_JUMPTOMOB_RETRO : UI_GHOST_JUMPTOMOB
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/ghost/orbit()
-	using.screen_loc = UI_GHOST_ORBIT
+	using.screen_loc = retro_hud ? UI_GHOST_ORBIT_RETRO : UI_GHOST_ORBIT
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/ghost/reenter_corpse()
-	using.screen_loc = UI_GHOST_REENTER_CORPSE
+	using.screen_loc = retro_hud ? UI_GHOST_REENTER_CORPSE_RETRO : UI_GHOST_REENTER_CORPSE
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/ghost/teleport()
-	using.screen_loc = UI_GHOST_TELEPORT
+	using.screen_loc = retro_hud ? UI_GHOST_TELEPORT_RETRO : UI_GHOST_TELEPORT
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/ghost/spawners()
-	using.screen_loc = UI_GHOST_SPAWNERS
+	using.screen_loc = retro_hud ? UI_GHOST_SPAWNERS_RETRO : UI_GHOST_SPAWNERS
 	static_inventory += using
 
 	using = new /atom/movable/screen/ghost/pai()
-	using.screen_loc = UI_GHOST_PAI
+	using.screen_loc = retro_hud ? UI_GHOST_PAI_RETRO : UI_GHOST_PAI
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/ghost/minigames_menu()
-	using.screen_loc = UI_GHOST_MINIGAMES
+	using.screen_loc = retro_hud ? UI_GHOST_MINIGAMES_RETRO : UI_GHOST_MINIGAMES
 	using.hud = src
 	static_inventory += using
 
-	using = new /atom/movable/screen/language_menu/ghost
+	using = new /atom/movable/screen/language_menu()
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_GHOST_LANGUAGE_MENU_RETRO : UI_GHOST_LANGUAGE_MENU
 	using.icon = ui_style
 	using.hud = src
 	static_inventory += using

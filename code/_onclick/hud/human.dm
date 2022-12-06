@@ -89,29 +89,39 @@
 	var/atom/movable/screen/button_bg_big
 
 	using = new/atom/movable/screen/language_menu
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_BOXLANG_RETRO : UI_BOXLANG
 	using.hud = src
 	static_inventory += using
 
-	using = new/atom/movable/screen/skills
+	using = new /atom/movable/screen/skills
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_SKILLS_RETRO : UI_SKILLS
 	static_inventory += using
 
 	using = new /atom/movable/screen/area_creator
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_BOXAREA_RETRO : UI_BOXAREA
 	using.hud = src
 	static_inventory += using
 
 	action_intent = new /atom/movable/screen/act_intent/segmented
+	action_intent.icon = retro_hud ? 'icons/hud/screen_gen.dmi' : action_intent.icon
+	action_intent.screen_loc = retro_hud ? UI_ACTI_RETRO : UI_ACTI
 	action_intent.icon_state = mymob.a_intent
 	action_intent.hud = src
 	static_inventory += action_intent
 
 	using = new /atom/movable/screen/mov_intent
+	using.icon = retro_hud ? ui_style : using.icon
 	using.icon_state = (mymob.m_intent == MOVE_INTENT_RUN ? "running" : "walking")
-	using.screen_loc = UI_MOVI
+	using.screen_loc = retro_hud ? UI_MOVI_RETRO : UI_MOVI
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/drop()
-	using.screen_loc = UI_DROP
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_DROP_RETRO : UI_DROP
 	using.hud = src
 	static_inventory += using
 
@@ -213,7 +223,8 @@
 	static_inventory += inv_box
 
 	using = new /atom/movable/screen/resist()
-	using.screen_loc = UI_RESIST
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_RESIST_RETRO : UI_RESIST
 	using.hud = src
 	hotkeybuttons += using
 
@@ -285,34 +296,43 @@
 	static_inventory += inv_box
 
 	throw_icon = new /atom/movable/screen/throw_catch()
-	throw_icon.screen_loc = UI_THROW
+	throw_icon.icon = retro_hud ? ui_style : throw_icon.icon
+	throw_icon.screen_loc = retro_hud ? UI_THROW_RETRO : UI_THROW
 	throw_icon.hud = src
 	hotkeybuttons += throw_icon
 
 	rest_icon = new /atom/movable/screen/rest()
-	rest_icon.screen_loc = UI_REST
+	rest_icon.icon = retro_hud ? ui_style : rest_icon.icon
+	rest_icon.screen_loc = retro_hud ? UI_REST_RETRO : UI_REST
 	rest_icon.hud = src
 	static_inventory += rest_icon
 
-	spacesuit = new /atom/movable/screen/spacesuit
+	spacesuit = new /atom/movable/screen/spacesuit()
+	spacesuit.screen_loc = retro_hud ? UI_SPACESUIT_RETRO : UI_SPACESUIT
 	spacesuit.hud = src
 	infodisplay += spacesuit
 
 	healths = new /atom/movable/screen/healths()
+	healths.icon = retro_hud ? 'icons/hud/screen_gen.dmi' : healths.icon
+	healths.screen_loc = retro_hud ? UI_HEALTH_RETRO : UI_HEALTH
 	healths.hud = src
 	infodisplay += healths
 
 	healthdoll = new /atom/movable/screen/healthdoll()
+	healthdoll.screen_loc = retro_hud ? UI_HEALTHDOLL_RETRO : UI_HEALTHDOLL
 	healthdoll.hud = src
 	infodisplay += healthdoll
 
 	stamina = new /atom/movable/screen/stamina()
+	stamina.icon = retro_hud ? 'icons/hud/screen_gen.dmi' : stamina.icon
+	stamina.screen_loc = retro_hud ? UI_STAMINA_RETRO : UI_STAMINA
 	stamina.hud = src
 	infodisplay += stamina
 
 	pull_icon = new /atom/movable/screen/pull()
+	pull_icon.icon = retro_hud ? ui_style : pull_icon.icon
 	pull_icon.update_icon()
-	pull_icon.screen_loc = UI_PULL
+	pull_icon.screen_loc = retro_hud ? UI_PULL_RETRO : UI_PULL
 	pull_icon.hud = src
 	static_inventory += pull_icon
 
@@ -333,6 +353,10 @@
 	infodisplay += sunlight_display
 
 	zone_select =  new /atom/movable/screen/zone_sel()
+	zone_select.retro_hud = retro_hud
+	zone_select.icon = retro_hud ? ui_style : zone_select.icon
+	zone_select.overlay_icon = retro_hud ? 'icons/hud/screen_gen.dmi' : zone_select.icon
+	zone_select.screen_loc = retro_hud ? UI_ZONESEL_RETRO : UI_ZONESEL
 	zone_select.hud = src
 	zone_select.update_icon()
 	static_inventory += zone_select
@@ -350,23 +374,25 @@
 			inv_slots[TOBITSHIFT(inv.slot_id) + 1] = inv
 			inv.update_icon()
 
-	button_bg = new /atom/movable/screen/side_button_bg()
-	button_bg.hud = src
-	infodisplay += button_bg
+	if(!retro_hud)
 
-	button_bg_health = new /atom/movable/screen/side_button_bg()
-	button_bg_health.screen_loc = UI_HEALTHDOLL
-	button_bg_health.hud = src
-	infodisplay += button_bg_health
+		button_bg = new /atom/movable/screen/side_button_bg()
+		button_bg.hud = src
+		infodisplay += button_bg
 
-	free_bg = new /atom/movable/screen/side_button_bg()
-	free_bg.screen_loc = UI_RELATIVE_TEMP
-	free_bg.hud = src
-	infodisplay += free_bg
+		button_bg_health = new /atom/movable/screen/side_button_bg()
+		button_bg_health.screen_loc = retro_hud ? UI_HEALTHDOLL_RETRO : UI_HEALTHDOLL
+		button_bg_health.hud = src
+		infodisplay += button_bg_health
 
-	button_bg_big = new /atom/movable/screen/side_button_bg/high()
-	button_bg_big.hud = src
-	infodisplay += button_bg_big
+		free_bg = new /atom/movable/screen/side_button_bg()
+		free_bg.screen_loc = retro_hud ? UI_RELATIVE_TEMP_RETRO : UI_RELATIVE_TEMP
+		free_bg.hud = src
+		infodisplay += free_bg
+
+		button_bg_big = new /atom/movable/screen/side_button_bg/high()
+		button_bg_big.hud = src
+		infodisplay += button_bg_big
 
 	if(owner)
 		add_emote_panel(owner)

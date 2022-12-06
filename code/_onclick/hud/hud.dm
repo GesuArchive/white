@@ -55,7 +55,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/atom/movable/screen/fixeye/fixeye
 
 	var/atom/movable/screen/action_intent
-	var/atom/movable/screen/zone_select
+	var/atom/movable/screen/zone_sel/zone_select
 	var/atom/movable/screen/pull_icon
 	var/atom/movable/screen/rest_icon
 	var/atom/movable/screen/throw_icon
@@ -103,6 +103,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/atom/movable/screen/station_height_bg/station_height_bg
 	// subtypes can override this to force a specific UI style
 	var/ui_style
+	var/retro_hud = FALSE
 
 /datum/hud/New(mob/owner)
 	mymob = owner
@@ -141,6 +142,11 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	update_sightflags(mymob, mymob.sight, NONE)
 
 	if(!isnewplayer(mymob))
+
+		if(mymob?.client?.prefs?.retro_hud)
+			retro_hud = TRUE
+			add_multiz_buttons(owner)
+			return
 
 		add_multiz_buttons(owner)
 
@@ -322,9 +328,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 			if(screenoverlays.len)
 				screenmob.client.screen += screenoverlays
 
-			if(action_intent)
-				action_intent.screen_loc = initial(action_intent.screen_loc) //Restore intent selection to the original position
-
 		if(HUD_STYLE_REDUCED) //Reduced HUD
 			hud_shown = FALSE //Governs behavior of other procs
 			if(static_inventory.len)
@@ -343,9 +346,6 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 				var/atom/movable/screen/hand = hand_slots[h]
 				if(hand)
 					screenmob.client.screen += hand
-			if(action_intent)
-				screenmob.client.screen += action_intent //we want the intent switcher visible
-				action_intent.screen_loc = UI_ACTI_ALT //move this to the alternative position, where zone_select usually is.
 
 		if(HUD_STYLE_NOHUD) //No HUD
 			hud_shown = FALSE //Governs behavior of other procs

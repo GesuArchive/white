@@ -2,7 +2,8 @@
 	var/atom/movable/screen/using
 
 	using = new /atom/movable/screen/emote_button()
-	using.screen_loc = UI_EMOTES
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_EMOTES_RETRO : UI_EMOTES
 	using.hud = src
 	infodisplay += using
 

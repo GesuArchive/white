@@ -42,6 +42,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/ice_cream_time = 10 MINUTES
 	var/ice_cream = TRUE
 
+	var/retro_hud = FALSE
+
 	// Custom Keybindings
 	var/list/key_bindings = list()
 
@@ -528,6 +530,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<div class='csetup_main'>"
 			dat += "<div class='csetup_content'><div class='csetup_header'>Интерфейс</div><div class='csetup_nodes'>"
 			dat += SETUP_NODE_INPUT("Стиль", "ui", UI_style)
+			dat += SETUP_NODE_SWITCH("Старый интерфейс", "retro_hud", retro_hud ? "Вкл" : "Выкл")
 			dat += SETUP_NODE_SWITCH("Окна в TGUI", "tgui_lock", tgui_lock ? "Основные" : "Все")
 			dat += SETUP_NODE_SWITCH("Стиль TGUI", "tgui_fancy", tgui_fancy ? "Красивый" : "Строгие рамки")
 			dat += SETUP_NODE_SWITCH("Кнопки действий", "action_buttons", buttons_locked ? "Не двигаются" : "Свободные")
@@ -1754,6 +1757,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if("ice_cream")
 					ice_cream = !ice_cream
+
+				if("retro_hud")
+					retro_hud = !retro_hud
 
 				if("action_buttons")
 					buttons_locked = !buttons_locked

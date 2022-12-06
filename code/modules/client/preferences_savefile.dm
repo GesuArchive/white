@@ -211,6 +211,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	//favorite outfits
 	READ_FILE(S["favorite_outfits"], favorite_outfits)
 
+	READ_FILE(S["retro_hud"], retro_hud)
+
 	var/list/parsed_favs = list()
 	for(var/typetext in favorite_outfits)
 		var/datum/outfit/path = text2path(typetext)
@@ -242,6 +244,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	max_chat_length = sanitize_integer(max_chat_length, 1, CHAT_MESSAGE_MAX_LENGTH, initial(max_chat_length))
 	see_chat_non_mob	= sanitize_integer(see_chat_non_mob, FALSE, TRUE, initial(see_chat_non_mob))
 	see_rc_emotes	= sanitize_integer(see_rc_emotes, FALSE, TRUE, initial(see_rc_emotes))
+	retro_hud 		= sanitize_integer(retro_hud, FALSE, TRUE, initial(retro_hud))
 	ice_cream_time	= sanitize_integer(ice_cream_time, 0, 60 MINUTES, 10 MINUTES)
 	ice_cream		= sanitize_integer(ice_cream, FALSE, TRUE, initial(ice_cream))
 	broadcast_login_logout = sanitize_integer(broadcast_login_logout, FALSE, TRUE, initial(broadcast_login_logout))
@@ -370,6 +373,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["ice_cream_time"], ice_cream_time)
 	WRITE_FILE(S["ice_cream"], ice_cream)
 	WRITE_FILE(S["favorite_outfits"], favorite_outfits)
+	WRITE_FILE(S["retro_hud"], retro_hud)
 	return TRUE
 
 /datum/preferences/proc/load_character(slot)

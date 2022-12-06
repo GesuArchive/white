@@ -6,12 +6,14 @@
 	var/atom/movable/screen/using
 
 	using = new /atom/movable/screen/act_intent/alien()
+	using.screen_loc = retro_hud ? UI_ACTI_RETRO : UI_ACTI
 	using.icon_state = mymob.a_intent
 	using.hud = src
 	static_inventory += using
 	action_intent = using
 
 	healths = new /atom/movable/screen/healths/alien()
+	healths.screen_loc = retro_hud ? UI_ALIEN_HEALTH_RETRO : UI_ALIEN_HEALTH
 	healths.hud = src
 	infodisplay += healths
 
@@ -27,11 +29,16 @@
 	hotkeybuttons += pull_icon
 
 	using = new/atom/movable/screen/language_menu
-	using.screen_loc = UI_ALIEN_LANGUAGE_MENU
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_ALIEN_LANGUAGE_MENU_RETRO : UI_ALIEN_LANGUAGE_MENU
 	using.hud = src
 	static_inventory += using
 
 	zone_select = new /atom/movable/screen/zone_sel/alien()
+	zone_select.retro_hud = retro_hud
+	zone_select.icon = retro_hud ? 'icons/hud/screen_alien.dmi' : zone_select.icon
+	zone_select.overlay_icon = retro_hud ? 'icons/hud/screen_alien.dmi' : zone_select.icon
+	zone_select.screen_loc = retro_hud ? UI_ZONESEL_RETRO : UI_ZONESEL
 	zone_select.hud = src
 	zone_select.update_icon()
 	static_inventory += zone_select

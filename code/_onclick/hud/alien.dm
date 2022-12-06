@@ -51,6 +51,7 @@
 	static_inventory += using
 
 	using = new /atom/movable/screen/act_intent/alien()
+	using.screen_loc = retro_hud ? UI_ACTI_RETRO : UI_ACTI
 	using.icon_state = mymob.a_intent
 	using.hud = src
 	static_inventory += using
@@ -63,33 +64,39 @@
 		static_inventory += H.leap_icon
 
 	using = new/atom/movable/screen/language_menu
-	using.screen_loc = UI_ALIEN_LANGUAGE_MENU
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_ALIEN_LANGUAGE_MENU_RETRO : UI_ALIEN_LANGUAGE_MENU
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/drop()
-	using.screen_loc = UI_DROP
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_DROP_RETRO : UI_DROP
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/resist()
-	using.screen_loc = UI_RESIST
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_RESIST_RETRO : UI_RESIST
 	using.hud = src
 	hotkeybuttons += using
 
 	throw_icon = new /atom/movable/screen/throw_catch()
-	throw_icon.screen_loc = UI_THROW
+	using.icon = retro_hud ? ui_style : using.icon
+	throw_icon.screen_loc = retro_hud ? UI_THROW_RETRO : UI_THROW
 	throw_icon.hud = src
 	hotkeybuttons += throw_icon
 
 	pull_icon = new /atom/movable/screen/pull()
+	using.icon = retro_hud ? ui_style : using.icon
 	pull_icon.update_icon()
-	pull_icon.screen_loc = UI_PULL
+	pull_icon.screen_loc = retro_hud ? UI_PULL_RETRO : UI_PULL
 	pull_icon.hud = src
 	static_inventory += pull_icon
 
 	rest_icon = new /atom/movable/screen/rest()
-	rest_icon.screen_loc = UI_REST
+	using.icon = retro_hud ? ui_style : using.icon
+	rest_icon.screen_loc = retro_hud ? UI_REST_RETRO : UI_REST
 	rest_icon.hud = src
 	static_inventory += rest_icon
 
@@ -109,6 +116,10 @@
 		infodisplay += alien_queen_finder
 
 	zone_select = new /atom/movable/screen/zone_sel/alien()
+	zone_select.retro_hud = retro_hud
+	zone_select.icon = retro_hud ? 'icons/hud/screen_alien.dmi' : zone_select.icon
+	zone_select.overlay_icon = retro_hud ? 'icons/hud/screen_alien.dmi' : zone_select.icon
+	zone_select.screen_loc = retro_hud ? UI_ZONESEL_RETRO : UI_ZONESEL
 	zone_select.hud = src
 	zone_select.update_icon()
 	static_inventory += zone_select
