@@ -112,8 +112,13 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		// will fall back to the default if any of these are null
 		ui_style = ui_style2icon(owner?.client?.prefs?.UI_style)
 
-	if(mymob?.client?.prefs?.retro_hud)
+	if(mymob?.client?.prefs?.retro_hud) // ебал костылём
 		retro_hud = TRUE
+
+		add_multiz_buttons(owner)
+
+		winset(mymob?.client, "mainwindow.split", "splitter=50")
+
 		INVOKE_ASYNC(mymob?.client, .client/proc/set_hud_bar_visible, TRUE)
 		INVOKE_ASYNC(mymob?.client, .client/verb/fit_viewport)
 
