@@ -60,7 +60,7 @@
 	if(isalienhunter(mymob))
 		var/mob/living/carbon/alien/humanoid/hunter/H = mymob
 		H.leap_icon = new /atom/movable/screen/alien/leap()
-		H.leap_icon.screen_loc = UI_ALIEN_STORAGE_R
+		H.leap_icon.screen_loc = retro_hud ? UI_ALIEN_STORAGE_R_RETRO: UI_ALIEN_STORAGE_R
 		static_inventory += H.leap_icon
 
 	using = new/atom/movable/screen/language_menu
@@ -82,23 +82,23 @@
 	hotkeybuttons += using
 
 	throw_icon = new /atom/movable/screen/throw_catch()
-	using.icon = retro_hud ? ui_style : using.icon
+	throw_icon.icon = retro_hud ? ui_style : using.icon
 	throw_icon.screen_loc = retro_hud ? UI_THROW_RETRO : UI_THROW
 	throw_icon.hud = src
 	hotkeybuttons += throw_icon
 
 	pull_icon = new /atom/movable/screen/pull()
-	using.icon = retro_hud ? ui_style : using.icon
+	pull_icon.icon = retro_hud ? ui_style : using.icon
 	pull_icon.update_icon()
 	pull_icon.screen_loc = retro_hud ? UI_PULL_RETRO : UI_PULL
 	pull_icon.hud = src
 	static_inventory += pull_icon
 
-	rest_icon = new /atom/movable/screen/rest()
-	using.icon = retro_hud ? ui_style : using.icon
-	rest_icon.screen_loc = retro_hud ? UI_REST_RETRO : UI_REST
-	rest_icon.hud = src
-	static_inventory += rest_icon
+	if(!retro_hud)
+		rest_icon = new /atom/movable/screen/rest()
+		rest_icon.screen_loc = UI_REST
+		rest_icon.hud = src
+		static_inventory += rest_icon
 
 //begin indicators
 

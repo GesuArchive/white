@@ -181,7 +181,7 @@
 
 // Language menu
 	using = new /atom/movable/screen/language_menu
-	using.icon = retro_hud ? ui_style : using.icon
+	//using.icon = retro_hud ? ui_style : using.icon
 	using.screen_loc = UI_AI_LANGUAGE_MENU
 	using.hud = src
 	static_inventory += using
