@@ -450,6 +450,7 @@
 	var/obj/effect/overlay/zone_sel/overlay_object = hover_overlays_cache["[choice][retro_hud]"]
 	if(!overlay_object)
 		overlay_object = new
+		overlay_object.icon = overlay_icon
 		overlay_object.icon_state = "[choice]"
 		hover_overlays_cache["[choice][retro_hud]"] = overlay_object
 	vis_contents += overlay_object
