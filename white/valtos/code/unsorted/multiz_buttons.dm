@@ -11,6 +11,7 @@
 
 	using = new /atom/movable/screen/multiz_down_button()
 	using.screen_loc = retro_hud ? UI_MULTIZ_DOWN_RETRO : UI_MULTIZ_DOWN
+	using.icon = retro_hud ? ui_style : using.icon
 	if(isobserver(owner))
 		using.screen_loc = retro_hud ? UI_MULTIZ_DOWN_OBSERVER_RETRO : UI_MULTIZ_DOWN_OBSERVER
 	else if(isAI(owner))
