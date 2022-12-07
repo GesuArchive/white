@@ -117,7 +117,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 		add_multiz_buttons(owner)
 
-		winset(mymob?.client, "mainwindow.split", "splitter=50")
+		winset(mymob?.client, "mainwindow.split", "splitter=99")
 
 		INVOKE_ASYNC(mymob?.client, .client/proc/set_hud_bar_visible, TRUE)
 		INVOKE_ASYNC(mymob?.client, .client/verb/fit_viewport)
