@@ -443,15 +443,15 @@
 
 	if(hovering == choice)
 		return
-	vis_contents -= hover_overlays_cache[hovering]
+	vis_contents -= hover_overlays_cache["[hovering][retro_hud]"]
 	hovering = choice
 
 	// Don't need to account for turf cause we're on the hud babyyy
-	var/obj/effect/overlay/zone_sel/overlay_object = hover_overlays_cache[choice]
+	var/obj/effect/overlay/zone_sel/overlay_object = hover_overlays_cache["[choice][retro_hud]"]
 	if(!overlay_object)
 		overlay_object = new
 		overlay_object.icon_state = "[choice]"
-		hover_overlays_cache[choice] = overlay_object
+		hover_overlays_cache["[choice][retro_hud]"] = overlay_object
 	vis_contents += overlay_object
 
 /obj/effect/overlay/zone_sel
@@ -464,7 +464,7 @@
 
 /atom/movable/screen/zone_sel/MouseExited(location, control, params)
 	if(!isobserver(usr) && hovering)
-		vis_contents -= hover_overlays_cache[hovering]
+		vis_contents -= hover_overlays_cache["[hovering][retro_hud]"]
 		hovering = null
 
 /atom/movable/screen/zone_sel/proc/get_zone_at(icon_x, icon_y)
