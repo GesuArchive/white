@@ -2,9 +2,30 @@
 	name = "IPC" //inherited from the real species, for health scanners and things
 	id = "ipc"
 	say_mod = "бип-бупает" //inherited from a user's real species
-	sexes = 0
-	species_traits = list(NOTRANSSTING, NOBLOOD, TRAIT_EASYDISMEMBER, NOEYESPRITES) //all of these + whatever we inherit from the real species
-	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER, TRAIT_VIRUSIMMUNE, TRAIT_NOLIMBDISABLE, TRAIT_NOHUNGER, TRAIT_NOBREATH, TRAIT_RADIMMUNE, TRAIT_LIMBATTACHMENT, TRAIT_CAN_STRIP, TRAIT_NOHYDRATION, TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTCOLD, TRAIT_RESISTHEAT, TRAIT_RESISTHIGHPRESSURE, TRAIT_TOXIMMUNE, TRAIT_LIMBATTACHMENT, TRAIT_PIERCEIMMUNE)
+	sexes = FALSE
+	species_traits = list(
+		NOTRANSSTING,
+		NOBLOOD,
+		TRAIT_EASYDISMEMBER,
+		NOEYESPRITES
+	) //all of these + whatever we inherit from the real species
+	inherent_traits = list(
+		TRAIT_ADVANCEDTOOLUSER,
+		TRAIT_VIRUSIMMUNE,
+		TRAIT_NOMETABOLISM,
+		TRAIT_NOLIMBDISABLE,
+		TRAIT_TOXIMMUNE,
+		TRAIT_RESISTCOLD,
+		TRAIT_GENELESS,
+		TRAIT_NOHUNGER,
+		TRAIT_NOBREATH,
+		TRAIT_RESISTLOWPRESSURE,
+		TRAIT_RADIMMUNE,
+		TRAIT_LIMBATTACHMENT,
+		TRAIT_CAN_STRIP,
+		TRAIT_NOHYDRATION,
+		TRAIT_PIERCEIMMUNE
+	)
 	inherent_biotypes = MOB_ROBOTIC|MOB_HUMANOID
 	meat = null
 	exotic_blood = /datum/reagent/fuel/oil
@@ -22,44 +43,27 @@
 	mutantears = /obj/item/organ/ears/cybernetic
 	mutantliver = /obj/item/organ/liver/cybernetic
 	mutantstomach = /obj/item/organ/stomach/cybernetic
-	changesource_flags = MIRROR_BADMIN | WABBAJACK
+	species_language_holder = /datum/language_holder/synthetic
+	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
 
 	var/datum/action/innate/monitor_change/screen
 
+/datum/species/ipc/on_species_gain(mob/living/carbon/C)
+	. = ..()
+	for(var/X in C.bodyparts)
+		var/obj/item/bodypart/O = X
+		O.change_bodypart_status(BODYPART_ROBOTIC, FALSE, TRUE)
+
+	C.set_safe_hunger_level()
+
+/datum/species/ipc/on_species_loss(mob/living/carbon/C)
+	. = ..()
+	for(var/X in C.bodyparts)
+		var/obj/item/bodypart/O = X
+		O.change_bodypart_status(BODYPART_ORGANIC,FALSE, TRUE)
+
 /datum/species/ipc/military/check_roundstart_eligible()
 	return FALSE //yes
-
-/datum/species/ipc/spec_attacked_by(obj/item/I, mob/living/user, obj/item/bodypart/affecting, intent, mob/living/carbon/human/H)
-    if(I.tool_behaviour == TOOL_WELDER && intent != INTENT_HARM)
-        if (!I.tool_start_check(user, amount=0))
-            return
-        else
-            to_chat(user, span_notice("Начинаю чинить[H == user ? " свою" : ""] [affecting.name]..."))
-            if(I.use_tool(src, user, 0, volume=40))
-                if(H == user)
-                    H.adjustBruteLoss(-3)
-                else
-                    H.adjustBruteLoss(-10)
-                H.updatehealth()
-                H.add_fingerprint(user)
-                H.visible_message(span_notice("[user] чинит [H == user ? "неряшливо " : ""]некоторые повреждения на [affecting.name]."))
-        return
-    else if(istype(I, /obj/item/stack/cable_coil))
-        to_chat(user, span_notice("Начинаю чинить[H == user ? " свою" : ""] [affecting.name]..."))
-        if(do_after(user, 30, target = H))
-            var/obj/item/stack/cable_coil/C = I
-            C.use(1)
-            if(H == user)
-                H.adjustFireLoss(-2)
-                H.adjustToxLoss(-2)
-            else
-                H.adjustFireLoss(-10)
-                H.adjustToxLoss(-10)
-            H.updatehealth()
-            H.visible_message(span_notice("[user] чинит [H == user ? "неряшливо " : ""]обгоревшие части на [affecting.name]."))
-        return
-    else
-        return ..()
 
 /datum/species/ipc/random_name(gender,unique,lastname, en_lang)
 	if(unique)

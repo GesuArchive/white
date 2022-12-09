@@ -221,9 +221,6 @@
 
 /datum/reagent/water/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)//Splashing people with water can help put them out!
 	. = ..()
-	if(isandroid(exposed_mob) || isIPC(exposed_mob))
-		exposed_mob.electrocute_act(rand(10, 15), "Воды на микросхемах", 1, SHOCK_NOGLOVES)
-		playsound(exposed_mob, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	if(methods & TOUCH)
 		exposed_mob.extinguish_mob() // extinguish removes all fire stacks
 
