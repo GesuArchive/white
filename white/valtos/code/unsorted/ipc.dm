@@ -35,8 +35,6 @@
 	burnmod = 1.75
 	heatmod = 1.6
 	brutemod = 1.3
-	var/list/initial_species_traits //for getting these values back for assume_disguise()
-	var/list/initial_inherent_traits
 	mutantbrain = /obj/item/organ/brain // should be normal human brain
 	mutanttongue = /obj/item/organ/tongue/robot
 	mutanteyes = /obj/item/organ/eyes/robotic
@@ -52,7 +50,7 @@
 	. = ..()
 	for(var/X in C.bodyparts)
 		var/obj/item/bodypart/O = X
-		O.change_bodypart_status(BODYPART_ROBOTIC, FALSE, TRUE)
+		O.change_bodypart_status(BODYPART_ROBOTIC, FALSE, FALSE)
 
 	C.set_safe_hunger_level()
 
@@ -60,10 +58,7 @@
 	. = ..()
 	for(var/X in C.bodyparts)
 		var/obj/item/bodypart/O = X
-		O.change_bodypart_status(BODYPART_ORGANIC,FALSE, TRUE)
-
-/datum/species/ipc/military/check_roundstart_eligible()
-	return FALSE //yes
+		O.change_bodypart_status(BODYPART_ORGANIC,FALSE, FALSE)
 
 /datum/species/ipc/random_name(gender,unique,lastname, en_lang)
 	if(unique)
@@ -75,14 +70,6 @@
 		randname += " [lastname]"
 
 	return randname
-
-/datum/species/ipc/military
-	name = "Military IPC"
-	id = "military_synth"
-	armor = 25
-	punchdamagelow = 10
-	punchdamagehigh = 19
-	punchstunthreshold = 14 //about 50% chance to stun
 
 /datum/species/ipc/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H)
 	if(chem.type == /datum/reagent/medicine/c2/synthflesh)
