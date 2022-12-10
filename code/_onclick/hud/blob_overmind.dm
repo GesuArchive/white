@@ -155,7 +155,7 @@
 		B.relocate_core()
 
 /datum/hud/blob_overmind/New(mob/owner)
-	retro_hud = TRUE // go fuck
+	retro_hud = FALSE // go fuck
 	..()
 	var/atom/movable/screen/using
 

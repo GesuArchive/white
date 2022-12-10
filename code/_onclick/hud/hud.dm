@@ -114,15 +114,8 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 	if(mymob?.client?.prefs?.retro_hud) // ебал костылём
 		retro_hud = TRUE
-
 		add_multiz_buttons(owner)
-
-		//winset(mymob?.client, "mainwindow.split", "splitter=99")
-		//INVOKE_ASYNC(mymob?.client, .client/proc/set_hud_bar_visible, TRUE)
-		spawn(5 SECONDS)
-			INVOKE_ASYNC(mymob?.client, .client/verb/fit_viewport)
-		spawn(10 SECONDS)
-			INVOKE_ASYNC(mymob?.client, .client/verb/fit_viewport)
+		INVOKE_ASYNC(mymob?.client, .client/verb/fit_viewport)
 
 	hand_slots = list()
 
@@ -382,7 +375,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	else if (viewmob.hud_used)
 		viewmob.hud_used.plane_masters_update()
 
-	INVOKE_ASYNC(screenmob.client, /client/.proc/set_hud_bar_visible, retro_hud)
+	INVOKE_ASYNC(screenmob.client, /client/.proc/set_hud_bar_visible, retro_hud || isnewplayer(screenmob))
 
 	SEND_SIGNAL(screenmob, COMSIG_MOB_HUD_REFRESHED, src)
 	return TRUE
