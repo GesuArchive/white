@@ -382,7 +382,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	else if (viewmob.hud_used)
 		viewmob.hud_used.plane_masters_update()
 
-	INVOKE_ASYNC(screenmob.client, /client/.proc/set_hud_bar_visible)
+	INVOKE_ASYNC(screenmob.client, /client/.proc/set_hud_bar_visible, retro_hud)
 
 	SEND_SIGNAL(screenmob, COMSIG_MOB_HUD_REFRESHED, src)
 	return TRUE
