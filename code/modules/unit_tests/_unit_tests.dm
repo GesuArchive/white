@@ -86,7 +86,7 @@
 #include "component_tests.dm"
 #include "connect_loc.dm"
 #include "confusion.dm"
-//#include "create_and_destroy.dm"
+#include "create_and_destroy.dm"
 #include "designs.dm"
 #include "dynamic_ruleset_sanity.dm"
 #include "emoting.dm"

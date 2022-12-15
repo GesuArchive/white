@@ -26,8 +26,6 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		/mob/dview,
 		//Template type
 		/obj/item/bodypart,
-		//This is meant to fail extremely loud every single time it occurs in any environment in any context, and it falsely alarms when this unit test iterates it. Let's not spawn it in.
-		/obj/merge_conflict_marker,
 		//briefcase launchpads erroring
 		/obj/machinery/launchpad/briefcase,
 	)
@@ -44,13 +42,8 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	ignore += typesof(/obj/item/poster/wanted)
 	//This expects a seed, we can't pass it
 	ignore += typesof(/obj/item/food/grown)
-	//Needs clients / mobs to observe it to exist. Also includes hallucinations.
-	ignore += typesof(/obj/effect/client_image_holder)
 	//Same to above. Needs a client / mob / hallucination to observe it to exist.
 	ignore += typesof(/obj/projectile/hallucination)
-	ignore += typesof(/obj/item/hallucinated)
-	//These want fried food to take on the shape of, we can't pass that in
-	ignore += typesof(/obj/item/food/deepfryholder)
 	//Can't pass in a thing to glow
 	ignore += typesof(/obj/effect/abstract/eye_lighting)
 	//We don't have a pod
@@ -73,7 +66,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	//See above
 	ignore += typesof(/obj/effect/timestop)
 	//Invoke async in init, skippppp
-	ignore += typesof(/mob/living/silicon/robot/model)
+	ignore += typesof(/mob/living/silicon/robot/modules)
 	//This lad also sleeps
 	ignore += typesof(/obj/item/hilbertshotel)
 	//this boi spawns turf changing stuff, and it stacks and causes pain. Let's just not
