@@ -66720,8 +66720,6 @@
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /turf/open/floor/plating,
 /area/security/processing)
-"xGA" = (
-/turf/closed/wall)
 "xGX" = (
 /obj/effect/turf_decal/siding/thinplating/corner{
 	dir = 8
@@ -117020,7 +117018,7 @@ wrw
 auX
 mQW
 uUo
-xGA
+wQP
 wZm
 wZm
 wZm
@@ -117277,7 +117275,7 @@ qXU
 wQP
 wQP
 qXU
-xGA
+wQP
 wZm
 wZm
 wZm

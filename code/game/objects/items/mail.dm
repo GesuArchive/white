@@ -228,6 +228,8 @@
 	for(var/mob/living/carbon/human/alive in GLOB.player_list)
 		if(alive.stat != DEAD)
 			mail_recipients += alive
+	if(!LAZYLEN(mail_recipients))
+		return
 	for(var/iterator in 1 to storage_capacity)
 		var/obj/item/mail/new_mail
 		if(prob(FULL_CRATE_LETTER_ODDS))
