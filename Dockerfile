@@ -31,9 +31,9 @@ RUN . ./dependencies.sh \
     && cd .. \
     && rm -rf byond byond.zip
 
-# build = byond + tgstation compiled and deployed to /deploy
+# build = byond + white compiled and deployed to /deploy
 FROM byond AS build
-WORKDIR /tgstation
+WORKDIR /white
 
 RUN apt-get install -y --no-install-recommends \
         curl
@@ -83,7 +83,7 @@ COPY --from=auxmos /build/target/i686-unknown-linux-gnu/release/libauxmos.so /dm
 
 # final = byond + runtime deps + rust_g + build
 FROM byond
-WORKDIR /tgstation
+WORKDIR /white
 
 RUN apt-get install -y --no-install-recommends \
         libssl1.0.0:i386 \
@@ -92,6 +92,6 @@ RUN apt-get install -y --no-install-recommends \
 COPY --from=build /deploy ./
 COPY --from=rust_g /rust_g/target/i686-unknown-linux-gnu/release/librust_g.so ./librust_g.so
 
-VOLUME [ "/tgstation/config", "/tgstation/data" ]
-ENTRYPOINT [ "DreamDaemon", "tgstation.dmb", "-port", "1337", "-trusted", "-close", "-verbose" ]
+VOLUME [ "/white/config", "/white/data" ]
+ENTRYPOINT [ "DreamDaemon", "white.dmb", "-port", "1337", "-trusted", "-close", "-verbose" ]
 EXPOSE 1337

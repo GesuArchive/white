@@ -22,7 +22,7 @@ if [ -d ".git" ]; then
   cp -r .git/logs/* $1/.git/logs/
 fi
 
-cp tgstation.dmb tgstation.rsc $1/
+cp white.dmb white.rsc $1/
 #cp libdemo-writer.so $1/
 cp -r _maps/* $1/_maps/
 cp -r icons/runtime/* $1/icons/runtime/

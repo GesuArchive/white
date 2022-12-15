@@ -9,14 +9,14 @@ $include lua.txt
 
 # You can use the @ character at the beginning of a config option to lock it from being edited in-game
 # Example usage:
-# @SERVERNAME tgstation
+# @SERVERNAME white
 # Which sets the SERVERNAME, and disallows admins from being able to change it using View Variables.
 # @LOG_TWITTER 0
 # Which explicitly disables LOG_TWITTER, as well as locking it.
 # There are various options which are hard-locked for security reasons.
 
-## Server name: This appears at the top of the screen in-game and in the BYOND hub. Uncomment and replace 'tgstation' with the name of your choice.
-SERVERNAME tgstation
+## Server name: This appears at the top of the screen in-game and in the BYOND hub. Uncomment and replace 'white' with the name of your choice.
+SERVERNAME white
 
 SERVERTYPE Fuck
 
@@ -245,7 +245,7 @@ WIKIURL https://wiki.station13.ru
 RULESURL https://discord.gg/tSaNvvG
 
 ## Github address
-GITHUBURL https://github.com/daxsc/YTgstation/
+GITHUBURL https://github.com/frosty-dev/white
 
 ## Round specific stats address
 ## Link to round specific parsed logs; IE statbus. It is appended with the RoundID automatically by ticker/Reboot()
