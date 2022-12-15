@@ -5,13 +5,13 @@ OOC_DURING_ROUND
 LOOC_DURING_ROUND
 ASPECTS
 EMOJIS
-RUN_DELAY 1.6
+RUN_DELAY 2
 WALK_DELAY 4
 MULTIPLICATIVE_MOVESPEED /mob/living/simple_animal 0
 HUMANS_NEED_SURNAMES
 REOPEN_ROUNDSTART_SUICIDE_ROLES
 REOPEN_ROUNDSTART_SUICIDE_ROLES_COMMAND_POSITIONS
-REOPEN_ROUNDSTART_SUICIDE_ROLES_DELAY 480
+REOPEN_ROUNDSTART_SUICIDE_ROLES_DELAY 240
 REOPEN_ROUNDSTART_SUICIDE_ROLES_COMMAND_REPORT
 ALERT_GREEN Все угрозы для жизни персонала ликвидированы. Сотрудникам службы безопасности нельзя открыто носить оружие, права на неприкосновенность частной жизни действуют в полную силу.
 ALERT_BLUE_UPTO Получена информация о возможной вражеской активности на станции. Сотрудники службы безопасности имеют право открыто носить оружие и проводить произвольные обыски.
@@ -19,101 +19,18 @@ ALERT_BLUE_DOWNTO Прямая угроза станции устранена. �
 ALERT_RED_UPTO Возникла серьезная угроза жизни персонала. Сотрудникам службы безопасности разрешено ходить с оружием наизготовку, а также расширен доступ во все отделы. Произвольные обыски персонала разрешены и настоятельно рекомендуются.
 ALERT_RED_DOWNTO Механизм самоуничтожения станции деактивирован, но все еще существует серьезная угроза жизни персонала. Сотрудникам службы безопасности разрешено ходить с оружием наизготовку, а также расширен доступ во все отделы. Произвольные обыски персонала разрешены и настоятельно рекомендуются.
 ALERT_DELTA Запущен механизм самоуничтожения станции. Персонал обязан подчиняться всем инструкциям и распоряжениям со стороны руководительского состава. Любое нарушение подобного приказа может караться смертью. Это не учения.
-PROBABILITY TRAITOR 5
-PROBABILITY TRAITORBRO 2
-PROBABILITY TRAITORCHAN 4
-PROBABILITY INTERNAL_AFFAIRS 3
-PROBABILITY NUCLEAR 2
-PROBABILITY REVOLUTION 2
-PROBABILITY CULT 2
-PROBABILITY CHANGELING 2
-PROBABILITY WIZARD 4
-PROBABILITY MONKEY 0
-PROBABILITY METEOR 0
-PROBABILITY EXTENDED 0
-PROBABILITY SECRET_EXTENDED 0
-PROBABILITY CLOWNOPS 0
-PROBABILITY SANDBOX 0
-REPEATED_MODE_ADJUST 45 30 10
-CONTINUOUS TRAITOR
-CONTINUOUS TRAITORBRO
-CONTINUOUS TRAITORCHAN
-CONTINUOUS INTERNAL_AFFAIRS
-#CONTINUOUS NUCLEAR
-#CONTINUOUS REVOLUTION
-CONTINUOUS CULT
-CONTINUOUS CHANGELING
-CONTINUOUS WIZARD
-#CONTINUOUS MONKEY
-CONTINUOUS METEOR
-CONTINUOUS EXTENDED
-CONTINUOUS SECRET_EXTENDED
-MIDROUND_ANTAG TRAITOR
-#MIDROUND_ANTAG TRAITORBRO
-MIDROUND_ANTAG TRAITORCHAN
-MIDROUND_ANTAG INTERNAL_AFFAIRS
-#MIDROUND_ANTAG  NUCLEAR
-#MIDROUND_ANTAG  REVOLUTION
-MIDROUND_ANTAG CULT
-MIDROUND_ANTAG CHANGELING
-MIDROUND_ANTAG WIZARD
-#MIDROUND_ANTAG  MONKEY
-MIN_POP TRAITOR 0
-MAX_POP TRAITOR -1
-MIN_POP TRAITORBRO 10
-MAX_POP TRAITORBRO -1
-MIN_POP TRAITORCHAN 10
-MAX_POP TRAITORCHAN -1
-MIN_POP NUCLEAR 15
-MAX_POP NUCLEAR -1
-MIN_POP REVOLUTION 16
-MAX_POP REVOLUTION -1
-MIN_POP CULT 17
-MAX_POP CULT -1
-MIN_POP CHANGELING 15
-MAX_POP CHANGELING -1
-MIN_POP WIZARD 10
-MAX_POP WIZARD -1
-MIN_POP WARRIORS 10
-MAX_POP WARRIORS -1
-MIN_POP FAMILIES 10
-MAX_POP FAMILIES -1
-#MIN_POP MONKEY 25
-#MAX_POP MONKEY -1
-#MIN_POP METEOR 0
-#MAX_POP METEOR -1
-MIN_POP EXTENDED 0
-MAX_POP EXTENDED 30
-SHUTTLE_REFUEL_DELAY 12000
-TRAITOR_SCALING_COEFF 6
-BROTHER_SCALING_COEFF 6
-CHANGELING_SCALING_COEFF 6
-SECURITY_SCALING_COEFF 8
-TRAITOR_OBJECTIVES_AMOUNT 2
-BROTHER_OBJECTIVES_AMOUNT 2
-PROTECT_ROLES_FROM_ANTAGONIST
-#PROTECT_ASSISTANT_FROM_ANTAGONIST
-ENFORCE_HUMAN_AUTHORITY
-ALLOW_LATEJOIN_ANTAGONISTS
-USE_ANTAG_REP
-ANTAG_REP_MAXIMUM 500
-DEFAULT_ANTAG_TICKETS 100
-MAX_TICKETS_PER_ROLL 100
-SHOW_GAME_TYPE_ODDS
-#DISABLE_WAROPS
-DYNAMIC_CONFIG_ENABLED
 ALLOW_RANDOM_EVENTS
 EVENTS_MIN_TIME_MUL 1
 EVENTS_MIN_PLAYERS_MUL 1
 ALLOW_AI
 ALLOW_AI_MULTICAM
-#DISABLE_SECBORG
+DISABLE_SECBORG
 #DISABLE_PEACEBORG
 #VIRTUAL_REALITY
 #ROUNDSTART_AWAY
-GATEWAY_DELAY 18000
-MINIMAL_ACCESS_THRESHOLD 20
-JOBS_HAVE_MINIMAL_ACCESS
+GATEWAY_DELAY 0
+#MINIMAL_ACCESS_THRESHOLD 20
+#JOBS_HAVE_MINIMAL_ACCESS
 ASSISTANTS_HAVE_MAINT_ACCESS
 SECURITY_HAS_MAINT_ACCESS
 EVERYONE_HAS_MAINT_ACCESS
@@ -123,30 +40,30 @@ NEAR_DEATH_EXPERIENCE
 #SILENT_AI
 #SILENT_BORG
 #SANDBOX_AUTOCLOSE
-DEFAULT_LAWS 1
+DEFAULT_LAWS 3
 RANDOM_LAWS asimov
 RANDOM_LAWS asimovpp
 RANDOM_LAWS paladin
 RANDOM_LAWS robocop
 RANDOM_LAWS corporate
-#RANDOM_LAWS hippocratic
-#RANDOM_LAWS maintain
-#RANDOM_LAWS drone
-#RANDOM_LAWS liveandletlive
-#RANDOM_LAWS peacekeeper
-#RANDOM_LAWS reporter
-#RANDOM_LAWS hulkamania
-#RANDOM_LAWS syndie
-#RANDOM_LAWS ninja
-#RANDOM_LAWS antimov
-#RANDOM_LAWS thermodynamic
-#RANDOM_LAWS buildawall
+RANDOM_LAWS hippocratic
+RANDOM_LAWS maintain
+RANDOM_LAWS drone
+RANDOM_LAWS liveandletlive
+RANDOM_LAWS peacekeeper
+RANDOM_LAWS reporter
+RANDOM_LAWS hulkamania
+RANDOM_LAWS syndie
+RANDOM_LAWS ninja
+RANDOM_LAWS antimov
+RANDOM_LAWS thermodynamic
+RANDOM_LAWS buildawall
 LAW_WEIGHT custom,0
-LAW_WEIGHT asimov,32
-LAW_WEIGHT asimovpp,12
-LAW_WEIGHT paladin,12
-LAW_WEIGHT robocop,12
-LAW_WEIGHT corporate,12
+LAW_WEIGHT asimov,64
+LAW_WEIGHT asimovpp,24
+LAW_WEIGHT paladin,24
+LAW_WEIGHT robocop,24
+LAW_WEIGHT corporate,24
 LAW_WEIGHT hippocratic,3
 LAW_WEIGHT maintain,4
 LAW_WEIGHT drone,3
@@ -162,13 +79,14 @@ LAW_WEIGHT buildawall,0
 SILICON_MAX_LAW_AMOUNT 12
 #MAX_LAW_LEN 1024
 ROUNDSTART_RACES human
-ROUNDSTART_RACES lizard
-ROUNDSTART_RACES fly
-ROUNDSTART_RACES moth
-ROUNDSTART_RACES plasmaman
-ROUNDSTART_RACES felinid
+#ROUNDSTART_RACES fly
+#ROUNDSTART_RACES moth
+#ROUNDSTART_RACES plasmaman
+#ROUNDSTART_RACES ethereal
+#ROUNDSTART_RACES pigman
+#ROUNDSTART_RACES lizard
+#ROUNDSTART_RACES felinid
 #ROUNDSTART_RACES shadow
-ROUNDSTART_RACES ethereal
 #ROUNDSTART_RACES jelly
 #ROUNDSTART_RACES golem
 #ROUNDSTART_RACES adamantine
@@ -187,14 +105,10 @@ ROUNDSTART_RACES ethereal
 #ROUNDSTART_RACES military_synth
 #ROUNDSTART_RACES agent
 #ROUNDSTART_RACES athena
-#ROUNDSTART_NO_HARD_CHECK felinid
-ROUNDSTART_NO_HARD_CHECK athena_s
-ROUNDSTART_NO_HARD_CHECK aandroid
-ROUNDSTART_NO_HARD_CHECK oni
-ROUNDSTART_NO_HARD_CHECK synthman
+ENFORCE_HUMAN_AUTHORITY
 JOIN_WITH_MUTANT_HUMANS
 OVERFLOW_JOB Assistant
-OVERFLOW_CAP -1
+OVERFLOW_CAP 3
 STARLIGHT
 GREY_ASSISTANTS
 MIDROUND_ANTAG_TIME_CHECK 120
@@ -212,7 +126,7 @@ ARRIVALS_SHUTTLE_DOCK_WINDOW 55
 #ARRIVALS_SHUTTLE_REQUIRE_UNDOCKED
 #ARRIVALS_SHUTTLE_REQUIRE_SAFE_LATEJOIN
 MICE_ROUNDSTART 10
-#EMERGENCY_SHUTTLE_AUTOCALL_THRESHOLD 0.2
+EMERGENCY_SHUTTLE_AUTOCALL_THRESHOLD 0.5
 IC_PRINTING
 ROUNDSTART_TRAITS
 #DISABLE_HUMAN_MOOD

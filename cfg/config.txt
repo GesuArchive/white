@@ -116,7 +116,7 @@ LOG_PRAYER
 LOG_LAW
 
 ## log mechcomp actions
-LOG_MECHCOMP	
+LOG_MECHCOMP
 
 
 ## log crew manifest to seperate file
@@ -268,10 +268,6 @@ ALLOW_HOLIDAYS
 ## Uncomment to show the names of the admin sending a pm from IRC instead of showing as a stealthmin.
 #SHOW_IRC_NAME
 
-## Defines the ticklimit for subsystem initialization (In percents of a byond tick). Lower makes world start smoother. Higher makes it faster.
-##This is currently a testing optimized setting. A good value for production would be 98.
-TICK_LIMIT_MC_INIT 500
-
 ##Defines the ticklag for the world. Ticklag is the amount of time between game ticks (aka byond ticks) (in 1/10ths of a second).
 ##	This also controls the client network update rate, as well as the default client fps
 TICKLAG 0.5
@@ -333,9 +329,6 @@ NOTIFY_NEW_PLAYER_ACCOUNT_AGE 1
 
 ##Name of the place to send people rejected by the bunker
 #PANIC_SERVER_NAME [Put the name here]
-
-## Uncomment to have the changelog file automatically open when a user connects and hasn't seen the latest changelog
-AGGRESSIVE_CHANGELOG
 
 ## Comment this out if you've used the mass conversion sql proc for notes or want to stop converting notes
 AUTOCONVERT_NOTES
