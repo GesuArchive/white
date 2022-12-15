@@ -1,0 +1,398 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bC" = (
+/obj/structure/chair/sofa/left,
+/turf/open/floor/carpet/red,
+/area/template_noop)
+"cg" = (
+/obj/structure/closet/firecloset/full,
+/turf/open/floor/plating,
+/area/template_noop)
+"cQ" = (
+/obj/item/trash/can/food/peaches/maint,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/carpet/red,
+/area/template_noop)
+"dn" = (
+/obj/structure/chair/sofa,
+/turf/open/floor/carpet/red,
+/area/template_noop)
+"fI" = (
+/turf/open/floor/plasteel/cafeteria,
+/area/template_noop)
+"iQ" = (
+/obj/effect/landmark/blobstart,
+/turf/open/floor/wood,
+/area/template_noop)
+"ja" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/wood,
+/area/template_noop)
+"kq" = (
+/obj/effect/decal/cleanable/oil{
+	icon_state = "floor5"
+	},
+/obj/structure/grille/broken,
+/turf/open/floor/plating,
+/area/template_noop)
+"kG" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/maintenance/eight,
+/turf/open/floor/plating,
+/area/template_noop)
+"le" = (
+/obj/structure/rack,
+/obj/item/storage/toolbox/mechanical,
+/turf/open/floor/plating,
+/area/template_noop)
+"lW" = (
+/obj/effect/decal/cleanable/oil,
+/turf/open/floor/plating,
+/area/template_noop)
+"mv" = (
+/obj/item/stack/cable_coil/cut,
+/turf/open/floor/plating,
+/area/template_noop)
+"ng" = (
+/obj/structure/chair/stool/bar,
+/turf/open/floor/plating,
+/area/template_noop)
+"qG" = (
+/obj/machinery/vending/autodrobe,
+/turf/open/floor/wood,
+/area/template_noop)
+"ri" = (
+/obj/effect/spawner/random/trash/grille_or_waste,
+/turf/open/floor/plating,
+/area/template_noop)
+"rV" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/drinkingglass/shotglass{
+	pixel_x = -8;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/shotglass{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/template_noop)
+"sm" = (
+/obj/structure/mirror{
+	pixel_y = 26
+	},
+/turf/open/floor/carpet,
+/area/template_noop)
+"sU" = (
+/turf/open/floor/wood,
+/area/template_noop)
+"tl" = (
+/obj/structure/chair/sofa/right{
+	dir = 1
+	},
+/turf/open/floor/carpet/red,
+/area/template_noop)
+"tz" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/template_noop)
+"vn" = (
+/obj/structure/table,
+/obj/machinery/chem_dispenser/drinks,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/template_noop)
+"vt" = (
+/obj/structure/window/reinforced/tinted/frosted{
+	dir = 4
+	},
+/obj/structure/table/wood,
+/obj/effect/spawner/random/decoration/glowstick,
+/turf/open/floor/carpet,
+/area/template_noop)
+"vu" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/template_noop)
+"wf" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/open/floor/plating,
+/area/template_noop)
+"wF" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/drinkingglass/shotglass{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/template_noop)
+"wR" = (
+/obj/machinery/vending/boozeomat,
+/obj/structure/window/reinforced/spawner/west,
+/turf/open/floor/plating,
+/area/template_noop)
+"xA" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/template_noop)
+"xS" = (
+/obj/item/trash/popcorn,
+/turf/open/floor/plating,
+/area/template_noop)
+"yn" = (
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/template_noop)
+"CR" = (
+/obj/structure/chair/sofa/right,
+/turf/open/floor/carpet/red,
+/area/template_noop)
+"EY" = (
+/turf/open/floor/carpet/red,
+/area/template_noop)
+"Fp" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/open/floor/plating,
+/area/template_noop)
+"Fx" = (
+/obj/structure/chair/stool/bar,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/plating,
+/area/template_noop)
+"FA" = (
+/obj/structure/table,
+/obj/machinery/chem_dispenser/drinks/beer,
+/turf/open/floor/plasteel/cafeteria,
+/area/template_noop)
+"FD" = (
+/obj/structure/table_frame/wood,
+/obj/item/stack/sheet/mineral/wood,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/template_noop)
+"Gx" = (
+/obj/structure/grille,
+/turf/open/floor/plating,
+/area/template_noop)
+"HM" = (
+/obj/effect/decal/cleanable/insectguts,
+/turf/open/floor/plating,
+/area/template_noop)
+"HW" = (
+/obj/structure/closet/crate/trashcart,
+/obj/structure/window/reinforced/spawner/west,
+/obj/structure/grille/broken,
+/turf/open/floor/plating,
+/area/template_noop)
+"IN" = (
+/turf/open/floor/plating,
+/area/template_noop)
+"Jg" = (
+/obj/structure/chair/sofa/left{
+	dir = 1
+	},
+/turf/open/floor/carpet/red,
+/area/template_noop)
+"Lp" = (
+/obj/structure/table/wood,
+/obj/structure/window/reinforced/spawner/west,
+/obj/effect/spawner/random/entertainment/gambling,
+/turf/open/floor/plasteel/cafeteria,
+/area/template_noop)
+"Lt" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/template_noop)
+"Me" = (
+/obj/structure/grille/broken,
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/template_noop)
+"Mw" = (
+/obj/effect/landmark/event_spawn,
+/turf/open/floor/wood,
+/area/template_noop)
+"OM" = (
+/obj/item/trash/boritos,
+/turf/open/floor/carpet/red,
+/area/template_noop)
+"PE" = (
+/turf/closed/wall,
+/area/template_noop)
+"PP" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plating,
+/area/template_noop)
+"PX" = (
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/plating,
+/area/template_noop)
+"Qg" = (
+/obj/structure/window/reinforced/tinted/frosted{
+	dir = 4
+	},
+/obj/structure/chair/stool/bar,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/sign/poster/contraband/syndicate_recruitment{
+	pixel_x = 4;
+	pixel_y = 33
+	},
+/turf/open/floor/carpet,
+/area/template_noop)
+"QG" = (
+/obj/machinery/door/airlock/wood,
+/turf/open/floor/plating,
+/area/template_noop)
+"TR" = (
+/obj/structure/closet,
+/obj/item/storage/toolbox/mechanical,
+/obj/effect/spawner/random/maintenance/three,
+/obj/effect/spawner/random/clothing/gloves,
+/turf/open/floor/carpet,
+/area/template_noop)
+"Un" = (
+/obj/structure/chair/sofa{
+	dir = 1
+	},
+/turf/open/floor/carpet/red,
+/area/template_noop)
+"Zs" = (
+/obj/effect/spawner/random/structure/crate_abandoned,
+/turf/open/floor/plating,
+/area/template_noop)
+
+(1,1,1) = {"
+Fp
+IN
+xA
+kq
+IN
+IN
+IN
+lW
+IN
+IN
+"}
+(2,1,1) = {"
+ri
+IN
+PE
+PE
+vu
+vu
+PE
+PE
+HW
+yn
+"}
+(3,1,1) = {"
+IN
+HM
+PE
+qG
+sU
+ja
+CR
+cQ
+Jg
+IN
+"}
+(4,1,1) = {"
+Me
+Gx
+PE
+tz
+iQ
+sU
+dn
+EY
+Un
+lW
+"}
+(5,1,1) = {"
+Lt
+kG
+vu
+sU
+Mw
+sU
+bC
+OM
+tl
+IN
+"}
+(6,1,1) = {"
+mv
+le
+vu
+sU
+sU
+sU
+IN
+IN
+IN
+xS
+"}
+(7,1,1) = {"
+IN
+wf
+PE
+QG
+PE
+PE
+wR
+Lp
+rV
+ng
+"}
+(8,1,1) = {"
+IN
+cg
+PE
+sm
+TR
+PE
+vn
+IN
+wF
+Fx
+"}
+(9,1,1) = {"
+IN
+Zs
+PE
+Qg
+vt
+PE
+FA
+fI
+FD
+ng
+"}
+(10,1,1) = {"
+IN
+IN
+Me
+IN
+IN
+PP
+IN
+yn
+PX
+IN
+"}

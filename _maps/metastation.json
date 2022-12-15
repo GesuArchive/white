@@ -1,8 +1,8 @@
 {
 	"version": 1,
-	"map_name": "MetaStation",
-	"map_path": "map_files/MetaStation",
-	"map_file": "MetaStationWhite.dmm",
+	"map_name": "Meta",
+	"map_path": "stations",
+	"map_file": "meta.dmm",
 	"shuttles": {
 		"cargo": "cargo_box",
 		"ferry": "ferry_fancy",

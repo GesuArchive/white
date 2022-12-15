@@ -5,7 +5,6 @@ $include dbconfig.txt
 $include comms.txt
 $include antag_rep.txt
 $include resources.txt
-$include interviews.txt
 $include lua.txt
 
 # You can use the @ character at the beginning of a config option to lock it from being edited in-game
@@ -347,10 +346,6 @@ NOTIFY_NEW_PLAYER_ACCOUNT_AGE 1
 #PANIC_BUNKER
 
 #PANIC_BUNKER_CAP 75
-
-## Uncomment to enable the interview system for players who are below the living hour requirement instead of explicitly blocking them from the server
-## Note this requires the PANIC_BUNKER to be enabled to do anything.
-#PANIC_BUNKER_INTERVIEW
 
 ## If a player connects during a bunker with less then or this amount of living time (Minutes), we deny the connection
 PANIC_BUNKER_LIVING 90

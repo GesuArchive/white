@@ -211,8 +211,6 @@
 	var/next_move_dir_sub
 
 	var/datum/lobbyscreen/lobbyscreen_image = null
-	/// If the client is currently under the restrictions of the interview system
-	var/interviewee = FALSE
 	// Ambients
 	var/played = FALSE
 

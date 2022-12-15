@@ -1,7 +1,7 @@
 {
 	"version": 1,
     "map_name": "Dawn",
-    "map_path": "map_files/Dawn",
+    "map_path": "stations",
     "map_file": "dawn.dmm",
     "shuttles": {
 	    "cargo": "cargo_box",

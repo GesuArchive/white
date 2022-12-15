@@ -243,9 +243,6 @@ AI MODULES
 	var/targName = stripped_input(user, "Введите закон", "Ввод", laws[1], CONFIG_GET(number/max_law_len))
 	if(!targName)
 		return
-	if(CHAT_FILTER_CHECK(targName))
-		to_chat(user, span_warning("ОШИБКА! Некорректный текст!")) // AI LAW 2 SAY U W U WITHOUT THE SPACES
-		return
 	laws[1] = targName
 	..()
 
@@ -450,9 +447,6 @@ AI MODULES
 	var/targName = stripped_input(user, "Введите закон.", "Ввод", laws[1], CONFIG_GET(number/max_law_len))
 	if(!targName)
 		return
-	if(CHAT_FILTER_CHECK(targName))
-		to_chat(user, span_warning("ОШИБКА! Некорректный текст!"))
-		return
 	laws[1] = targName
 	..()
 
@@ -471,9 +465,6 @@ AI MODULES
 /obj/item/ai_module/syndicate/attack_self(mob/user)
 	var/targName = stripped_input(user, "Введите закон.", "Ввод", laws[1], CONFIG_GET(number/max_law_len))
 	if(!targName)
-		return
-	if(CHAT_FILTER_CHECK(targName)) // not even the syndicate can uwu
-		to_chat(user, span_warning("ОШИБКА! Некорректный текст!"))
 		return
 	laws[1] = targName
 	..()

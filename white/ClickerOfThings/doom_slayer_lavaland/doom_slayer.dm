@@ -1,7 +1,7 @@
 /*
 VAZHNOE (ili ne osobo) PRIMECHANIE\/\/\/
 ***
-File s kartoy nahoditsya po pyti _maps/RandomRuins/LavaRuins/doom_slayer_lavaland.dmm
+File s kartoy nahoditsya po pyti _maps/r_ruins/lavaland/doom_slayer_lavaland.dmm
 ***
 VAZHNOE (ili ne osobo) PRIMECHANIE/\/\/\
 */

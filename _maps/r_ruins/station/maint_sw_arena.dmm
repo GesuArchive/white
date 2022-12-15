@@ -1,0 +1,412 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"b" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access_txt = "12"
+	},
+/obj/effect/mapping_helpers/airlock/abandoned,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"c" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"e" = (
+/obj/structure/table/wood,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/item/clothing/under/victorian/reddress,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"h" = (
+/obj/structure/barricade/wooden{
+	name = "wooden barricade (CLOSED)"
+	},
+/obj/machinery/door/airlock/maintenance{
+	dir = 8;
+	req_access_txt = "12"
+	},
+/obj/effect/mapping_helpers/airlock/abandoned,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"i" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"k" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	name = "Incinerator Access";
+	req_access_txt = "12"
+	},
+/obj/effect/mapping_helpers/airlock/abandoned,
+/obj/structure/barricade/wooden{
+	name = "wooden barricade (CLOSED)"
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"m" = (
+/obj/structure/chair/sofa/right,
+/turf/open/floor/partyhard/wood/long,
+/area/maintenance/port/aft)
+"n" = (
+/obj/item/clothing/under/victorian/vest,
+/obj/item/melee/baseball_bat/ablative,
+/turf/open/floor/resin,
+/area/maintenance/port/aft)
+"p" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/resin,
+/area/maintenance/port/aft)
+"q" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/structure/railing,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"s" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"t" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/railing,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"w" = (
+/obj/structure/barricade/wooden{
+	name = "wooden barricade (CLOSED)"
+	},
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_access_txt = "12"
+	},
+/obj/effect/mapping_helpers/airlock/abandoned,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"x" = (
+/turf/template_noop,
+/area/template_noop)
+"y" = (
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"z" = (
+/turf/open/floor/resin,
+/area/maintenance/port/aft)
+"A" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"B" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"C" = (
+/obj/effect/turf_decal/trimline/neutral/line{
+	dir = 9;
+	icon_state = "trimline"
+	},
+/turf/open/floor/resin,
+/area/maintenance/port/aft)
+"D" = (
+/obj/effect/turf_decal/trimline/neutral/line{
+	dir = 1;
+	icon_state = "trimline"
+	},
+/turf/open/floor/resin,
+/area/maintenance/port/aft)
+"E" = (
+/obj/effect/turf_decal/trimline/neutral/line{
+	dir = 5;
+	icon_state = "trimline"
+	},
+/turf/open/floor/resin,
+/area/maintenance/port/aft)
+"F" = (
+/obj/effect/turf_decal/trimline/neutral/line{
+	dir = 8;
+	icon_state = "trimline"
+	},
+/turf/open/floor/resin,
+/area/maintenance/port/aft)
+"G" = (
+/obj/effect/turf_decal/trimline/neutral/line{
+	dir = 4;
+	icon_state = "trimline"
+	},
+/turf/open/floor/resin,
+/area/maintenance/port/aft)
+"H" = (
+/obj/effect/turf_decal/trimline/neutral/line{
+	dir = 10;
+	icon_state = "trimline"
+	},
+/turf/open/floor/resin,
+/area/maintenance/port/aft)
+"I" = (
+/obj/effect/turf_decal/trimline/neutral/line,
+/turf/open/floor/resin,
+/area/maintenance/port/aft)
+"J" = (
+/obj/effect/turf_decal/trimline/neutral/line{
+	dir = 6;
+	icon_state = "trimline"
+	},
+/turf/open/floor/resin,
+/area/maintenance/port/aft)
+"K" = (
+/obj/effect/decal/cleanable/blood/gibs,
+/obj/item/clothing/under/victorian/vest,
+/obj/item/melee/baseball_bat/ablative,
+/turf/open/floor/resin,
+/area/maintenance/port/aft)
+"L" = (
+/obj/structure/table/wood,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/item/clothing/under/victorian/blackdress,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"M" = (
+/obj/item/clothing/under/victorian/blred,
+/obj/item/melee/baseball_bat/ablative,
+/turf/open/floor/resin,
+/area/maintenance/port/aft)
+"N" = (
+/obj/structure/chair/sofa,
+/turf/open/floor/partyhard/wood/long,
+/area/maintenance/port/aft)
+"O" = (
+/obj/structure/chair/sofa/left,
+/turf/open/floor/partyhard/wood/long,
+/area/maintenance/port/aft)
+"P" = (
+/obj/structure/chair/sofa/left{
+	dir = 1;
+	icon_state = "sofaend_left"
+	},
+/turf/open/floor/partyhard/wood/long,
+/area/maintenance/port/aft)
+"T" = (
+/obj/structure/chair/sofa{
+	dir = 1;
+	icon_state = "sofamiddle"
+	},
+/turf/open/floor/partyhard/wood/long,
+/area/maintenance/port/aft)
+"U" = (
+/obj/structure/chair/sofa/right{
+	dir = 1;
+	icon_state = "sofaend_right"
+	},
+/turf/open/floor/partyhard/wood/long,
+/area/maintenance/port/aft)
+"V" = (
+/obj/structure/sign/warning/nosmoking{
+	pixel_x = -28
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
+"W" = (
+/turf/closed/wall,
+/area/maintenance/port/aft)
+
+(1,1,1) = {"
+W
+W
+W
+W
+W
+k
+W
+W
+c
+W
+W
+W
+W
+W
+"}
+(2,1,1) = {"
+W
+y
+V
+y
+y
+y
+W
+x
+x
+x
+x
+x
+x
+c
+"}
+(3,1,1) = {"
+W
+y
+W
+W
+W
+W
+W
+i
+i
+i
+i
+s
+x
+c
+"}
+(4,1,1) = {"
+b
+y
+W
+m
+z
+z
+p
+z
+z
+z
+P
+t
+x
+c
+"}
+(5,1,1) = {"
+W
+y
+W
+N
+z
+C
+F
+F
+H
+z
+T
+t
+x
+c
+"}
+(6,1,1) = {"
+W
+y
+W
+N
+z
+D
+n
+M
+I
+z
+T
+t
+x
+c
+"}
+(7,1,1) = {"
+W
+y
+W
+N
+z
+D
+K
+M
+I
+z
+T
+t
+x
+c
+"}
+(8,1,1) = {"
+c
+y
+W
+N
+z
+E
+G
+G
+J
+z
+T
+t
+x
+c
+"}
+(9,1,1) = {"
+c
+y
+W
+O
+z
+z
+z
+z
+z
+z
+U
+t
+x
+W
+"}
+(10,1,1) = {"
+c
+y
+W
+e
+A
+B
+A
+A
+A
+A
+L
+q
+x
+W
+"}
+(11,1,1) = {"
+W
+y
+W
+W
+W
+W
+w
+h
+W
+W
+W
+W
+W
+W
+"}

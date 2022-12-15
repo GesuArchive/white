@@ -97,21 +97,11 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	return new_msg
 
 /mob/living/say(message, bubble_type,list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
-	var/ic_blocked = FALSE
-	if(client && !forced && CHAT_FILTER_CHECK(message))
-		//The filter doesn't act on the sanitized message, but the raw message.
-		ic_blocked = TRUE
-
 	if(sanitize)
 		message = trim(copytext_char(sanitize(message), 1, MAX_MESSAGE_LEN))
 	if(!message || message == "")
 		return
 
-	if(ic_blocked)
-		//The filter warning message shows the sanitized message though.
-		to_chat(src, span_warning("Хочу сказать <span replaceRegex='show_filtered_ic_chat'>\"[message]\"</span>, но у меня ничего не выходит."))
-		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, lowertext(config.ic_filter_regex.match))
-		return
 	var/list/message_mods = list()
 	var/original_message = message
 	message = get_message_mods(message, message_mods)

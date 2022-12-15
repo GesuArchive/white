@@ -1,8 +1,8 @@
 {
 	"version": 1,
-	"map_name": "Delta Station",
-	"map_path": "map_files/Deltastation",
-	"map_file": "DeltaStation2.dmm",
+	"map_name": "Delta",
+	"map_path": "stations",
+	"map_file": "delta.dmm",
 	"shuttles": {
 		"emergency": "emergency_delta",
 		"ferry": "ferry_fancy",

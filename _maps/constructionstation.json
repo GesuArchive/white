@@ -1,14 +1,14 @@
 {
 	"version": 1,
-    "map_name": "Construction Station",
-    "map_path": "map_files/ConstructionStation",
-    "map_file": "ConstructionStation.dmm",
-    "shuttles": {
-	    "cargo": "cargo_box",
-	    "ferry": "ferry_fancy",
-	    "whiteship": "whiteship_box",
-	    "emergency": "emergency_box"
-    },
+	"map_name": "Construction",
+	"map_path": "stations",
+	"map_file": "construction.dmm",
+	"shuttles": {
+		"cargo": "cargo_box",
+		"ferry": "ferry_fancy",
+		"whiteship": "whiteship_box",
+		"emergency": "emergency_box"
+	},
 	"space_ruin_levels": 0,
 	"space_empty_levels": 0,
 	"minetype": "none",

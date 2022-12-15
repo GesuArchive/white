@@ -1,7 +1,7 @@
 /datum/map_template/ruin_part
 	keep_cached_map = TRUE
 	var/file_name = ""
-	var/typegen = "RuinGeneration"
+	var/typegen = "deepspace"
 	//Weight of the ruin part.
 	var/weight = 0
 	//Positions of the connection points.

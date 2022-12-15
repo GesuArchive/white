@@ -1,6 +1,6 @@
 
 /datum/map_template/ruin/station
-	prefix = "_maps/RandomRuins/StationRuins/"
+	prefix = "_maps/r_ruins/station/"
 	cost = 0
 
 /datum/map_template/ruin/station/brig

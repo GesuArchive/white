@@ -1,20 +1,16 @@
 {
 	"version": 1,
 	"map_name": "Blueshift",
-	"map_path": "map_files/Blueshift",
-	"map_file": [
-		"BlueShift_lower.dmm",
-		"BlueShift_middle.dmm",
-		"BlueShift_upper.dmm"
-	],
+	"map_path": "stations",
+	"map_file": "blueshift.dmm",
 	"space_ruin_levels": 0,
 	"space_empty_levels": 0,
-    "shuttles": {
-	    "cargo": "cargo_box",
-	    "ferry": "ferry_fancy",
-	    "whiteship": "whiteship_meta",
-	    "emergency": "emergency_meta"
-    },
+	"shuttles": {
+		"cargo": "cargo_box",
+		"ferry": "ferry_fancy",
+		"whiteship": "whiteship_meta",
+		"emergency": "emergency_meta"
+	},
 	"traits": [
 		{
 			"Up": 1,

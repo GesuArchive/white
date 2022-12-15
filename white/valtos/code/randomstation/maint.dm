@@ -4,7 +4,7 @@
 // 3x3 maints
 
 /datum/map_template/ruin/maint/rdm3x3
-	prefix = "_maps/RandomRooms/3x3/"
+	prefix = "_maps/r_rooms/3x3/"
 
 /datum/map_template/ruin/maint/rdm3x3/storage
 	id = "rdm_3x3_9storage"
@@ -234,7 +234,7 @@
 // 3x5 maints
 
 /datum/map_template/ruin/maint/rdm3x5
-	prefix = "_maps/RandomRooms/3x5/"
+	prefix = "_maps/r_rooms/3x5/"
 
 /datum/map_template/ruin/maint/rdm3x5/boxkitchen
 	id = "rdm_3x5_boxkitchen"
@@ -334,7 +334,7 @@
 // 5x3 maints
 
 /datum/map_template/ruin/maint/rdm5x3
-	prefix = "_maps/RandomRooms/5x3/"
+	prefix = "_maps/r_rooms/5x3/"
 
 /datum/map_template/ruin/maint/rdm5x3/boxclutter1
 	id = "rdm_5x3_boxclutter1"
@@ -439,7 +439,7 @@
 // 5x4 maints
 
 /datum/map_template/ruin/maint/rdm5x4
-	prefix = "_maps/RandomRooms/5x4/"
+	prefix = "_maps/r_rooms/5x4/"
 
 /datum/map_template/ruin/maint/rdm5x4/boxbar
 	id = "rdm_5x4_boxbar"
@@ -569,7 +569,7 @@
 // 10x5 maints
 
 /datum/map_template/ruin/maint/rdm10x5
-	prefix = "_maps/RandomRooms/10x5/"
+	prefix = "_maps/r_rooms/10x5/"
 
 /datum/map_template/ruin/maint/rdm10x5/barbershop
 	id = "rdm_10x5_barbershop"
@@ -684,7 +684,7 @@
 // 10x10 maints
 
 /datum/map_template/ruin/maint/rdm10x10
-	prefix = "_maps/RandomRooms/10x10/"
+	prefix = "_maps/r_rooms/10x10/"
 
 /datum/map_template/ruin/maint/rdm10x10/deltalibrary
 	id = "rdm_10x10_deltalibrary"

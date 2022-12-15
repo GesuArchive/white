@@ -1,0 +1,64 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"c" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/template_noop)
+"d" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/template_noop)
+"g" = (
+/turf/closed/wall/riveted_wall,
+/area/ruin/unpowered)
+"j" = (
+/turf/template_noop,
+/area/template_noop)
+"C" = (
+/obj/effect/spawner/structure/window/reinforced/derelict,
+/turf/open/floor/circuit,
+/area/ruin/unpowered)
+"P" = (
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+"Q" = (
+/obj/effect/abstract/open_area_marker{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/ruin/unpowered)
+
+(1,1,1) = {"
+g
+g
+g
+c
+j
+"}
+(2,1,1) = {"
+P
+P
+C
+c
+d
+"}
+(3,1,1) = {"
+Q
+P
+C
+j
+j
+"}
+(4,1,1) = {"
+P
+P
+C
+c
+d
+"}
+(5,1,1) = {"
+g
+g
+g
+c
+j
+"}

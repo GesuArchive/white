@@ -30,11 +30,6 @@
 
 			var/new_name = stripped_input(usr,"What would you like to name this mob?","Input a name",M.real_name,MAX_NAME_LEN)
 
-			// If the new name is something that would be restricted by IC chat filters,
-			// give the admin a warning but allow them to do it anyway if they want.
-			if(CHAT_FILTER_CHECK(new_name) && tgui_alert(usr, "Your selected name contains words restricted by IC chat filters. Confirm this new name?", "IC Chat Filter Conflict", list("Confirm", "Cancel")) == "Cancel")
-				return
-
 			if( !new_name || !M )
 				return
 

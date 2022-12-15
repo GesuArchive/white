@@ -1,7 +1,7 @@
 // Hey! Listen! Update \config\iceruinblacklist.txt with your new ruins!
 
 /datum/map_template/ruin/icemoon
-	prefix = "_maps/RandomRuins/IceRuins/"
+	prefix = "_maps/r_ruins/icemoon/"
 	allow_duplicates = FALSE
 	cost = 5
 
@@ -35,7 +35,7 @@
 	name = "Фонтан-Холл"
 	id = "fountain"
 	description = "The fountain has a warning on the side. DANGER: May have undeclared side effects that only become obvious when implemented."
-	prefix = "_maps/RandomRuins/AnywhereRuins/"
+	prefix = "_maps/r_ruins/anywhere/"
 	suffix = "fountain_hall.dmm"
 
 // above and below ground together
@@ -113,5 +113,5 @@
 	id = "golem-ship"
 	description = "Lumbering humanoids, made out of precious metals, move inside this ship. They frequently leave to mine more minerals, which they somehow turn into more of them. \
 	Seem very intent on research and individual liberty, and also geology-based naming?"
-	prefix = "_maps/RandomRuins/AnywhereRuins/"
+	prefix = "_maps/r_ruins/anywhere/"
 	suffix = "golem_ship.dmm"

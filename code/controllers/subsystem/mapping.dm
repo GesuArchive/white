@@ -428,7 +428,7 @@ Used by the AI doomsday and the self-destruct nuke.
 		add_new_zlevel("Near Space [near_space_levels_so_far]", ZTRAITS_NEAR_SPACE, orbital_body_type = null)
 
 	if(config.minetype == "lavaland")
-		LoadGroup(FailedZs, "Lavaland", "map_files/Mining", "Lavaland.dmm", default_traits = ZTRAITS_LAVALAND, orbital_body_type = /datum/orbital_object/z_linked/lavaland)
+		LoadGroup(FailedZs, "Lavaland", "mining", "lavaland.dmm", default_traits = ZTRAITS_LAVALAND, orbital_body_type = /datum/orbital_object/z_linked/lavaland)
 	else if (!isnull(config.minetype) && config.minetype != "none")
 		INIT_ANNOUNCE("WARNING: An unknown minetype '[config.minetype]' was set! This is being ignored! Update the maploader code!")
 #endif

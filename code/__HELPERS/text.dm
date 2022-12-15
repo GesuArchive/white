@@ -45,9 +45,6 @@
 
 ///returns nothing with an alert instead of the message if it contains something in the ic filter, and sanitizes normally if the name is fine. It returns nothing so it backs out of the input the same way as if you had entered nothing.
 /proc/sanitize_name(t,allow_numbers=FALSE)
-	if(CHAT_FILTER_CHECK(t))
-		tgui_alert(usr, "You cannot set a name that contains a word prohibited in IC chat!")
-		return ""
 	var/r = reject_bad_name(t,allow_numbers=allow_numbers,strict=TRUE)
 	if(!r)
 		tgui_alert(usr, "Invalid name.")
@@ -246,10 +243,6 @@
 	for(var/bad_name in list("space","floor","wall","r-wall","monkey","неизвестный","inactive ai"))	//prevents these common metagamey names
 		if(cmptext(t_out,bad_name))
 			return	//(not case sensitive)
-
-	// Protects against names containing IC chat prohibited words.
-	if(CHAT_FILTER_CHECK(t_out))
-		return
 
 	return t_out
 

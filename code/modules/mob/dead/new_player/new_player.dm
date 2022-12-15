@@ -48,9 +48,6 @@
 	if(!client)
 		return
 
-	if(client.interviewee)
-		return FALSE
-
 	if(!client.prefs.iconsent)
 		src << browse(file2text('html/newcomer.html'), "window=newcomer;size=665x525;border=0;can_minimize=0;can_close=0;can_resize=0")
 		to_chat(src, span_notice("Необходимо дать согласие, перед тем как вступить в игру."))
@@ -497,31 +494,6 @@
 
 		return FALSE //This is the only case someone should actually be completely blocked from antag rolling as well
 	return TRUE
-
-/**
- * Prepares a client for the interview system, and provides them with a new interview
- *
- * This proc will both prepare the user by removing all verbs from them, as well as
- * giving them the interview form and forcing it to appear.
- */
-/mob/dead/new_player/proc/register_for_interview()
-	// First we detain them by removing all the verbs they have on client
-	for (var/v in client.verbs)
-		var/procpath/verb_path = v
-		remove_verb(client, verb_path)
-
-	// Then remove those on their mob as well
-	for (var/v in verbs)
-		var/procpath/verb_path = v
-		remove_verb(src, verb_path)
-
-	// Then we create the interview form and show it to the client
-	var/datum/interview/I = GLOB.interviews.interview_for_client(client)
-	if (I)
-		I.ui_interact(src)
-
-	// Add verb for re-opening the interview panel, and re-init the verbs for the stat panel
-	add_verb(src, /mob/dead/new_player/proc/open_interview)
 
 /mob/dead/new_player/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
 	client.ooc(message)

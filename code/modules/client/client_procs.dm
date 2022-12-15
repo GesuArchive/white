@@ -231,7 +231,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	set_right_click_menu_mode(TRUE)
 
 	GLOB.ahelp_tickets.ClientLogin(src)
-	GLOB.interviews.client_login(src)
 	GLOB.requests.client_login(src)
 	var/connecting_admin = FALSE //because de-admined admins connecting should be treated like admins.
 	//Admin Authorisation
@@ -455,8 +454,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(!tooltips)
 		tooltips = new /datum/tooltip(src)
 
-	if (!interviewee)
-		initialize_menus()
+	initialize_menus()
 
 	if(prefs.w_toggles & TOOLTIP_USER_RETRO)
 		winset(src, "mainwindow", "is-maximized=false")
@@ -520,7 +518,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	GLOB.directory -= ckey
 	log_access("Logout: [key_name(src)]")
 	GLOB.ahelp_tickets.ClientLogout(src)
-	GLOB.interviews.client_logout(src)
 	GLOB.requests.client_logout(src)
 	SSserver_maint.UpdateHubStatus()
 	if(credits)
@@ -595,7 +592,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		var/living_recs = CONFIG_GET(number/panic_bunker_living)
 		//Relies on pref existing, but this proc is only called after that occurs, so we're fine.
 		var/minutes = get_exp_living(pure_numeric = TRUE)
-		if(minutes <= living_recs && !CONFIG_GET(flag/panic_bunker_interview))
+		if(minutes <= living_recs)
 			var/reject_message = "PBv2: [key] перенаправлен по причине: [minutes]/[living_recs]."
 			log_access(reject_message)
 			message_admins(span_adminnotice("[reject_message]"))
@@ -921,8 +918,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	..()
 
 /client/proc/add_verbs_from_config()
-	if (interviewee)
-		return
 	if(CONFIG_GET(flag/see_own_notes))
 		add_verb(src, /client/proc/self_notes)
 	if(CONFIG_GET(flag/use_exp_tracking))

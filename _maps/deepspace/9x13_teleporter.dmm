@@ -1,0 +1,216 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"b" = (
+/obj/effect/mapping_helpers/broken_floor,
+/turf/open/floor/plasteel/airless,
+/area/ruin/unpowered)
+"c" = (
+/obj/structure/table,
+/obj/item/stock_parts/cell/bluespace,
+/turf/open/floor/plasteel/airless,
+/area/ruin/unpowered)
+"e" = (
+/obj/machinery/computer/teleporter{
+	dir = 4
+	},
+/turf/open/floor/plasteel/airless,
+/area/ruin/unpowered)
+"g" = (
+/turf/open/floor/plasteel/airless,
+/area/ruin/unpowered)
+"k" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/multitool/abductor,
+/turf/open/floor/plating/airless,
+/area/ruin/unpowered)
+"l" = (
+/obj/item/stack/ore/bluespace_crystal,
+/turf/open/floor/plating/airless,
+/area/ruin/unpowered)
+"q" = (
+/turf/template_noop,
+/area/template_noop)
+"r" = (
+/obj/structure/table,
+/obj/item/cargo_teleporter,
+/turf/open/floor/plasteel/airless,
+/area/ruin/unpowered)
+"y" = (
+/obj/machinery/teleport/station,
+/turf/open/floor/plasteel/airless,
+/area/ruin/unpowered)
+"z" = (
+/obj/machinery/door/airlock/vault,
+/obj/effect/mapping_helpers/airlock/locked,
+/turf/open/floor/plasteel/airless,
+/area/ruin/unpowered)
+"B" = (
+/obj/structure/table,
+/obj/item/hand_tele,
+/turf/open/floor/plasteel/airless,
+/area/ruin/unpowered)
+"I" = (
+/obj/machinery/teleport/hub,
+/turf/open/floor/plasteel/airless,
+/area/ruin/unpowered)
+"L" = (
+/obj/effect/abstract/doorway_marker{
+	dir = 8
+	},
+/turf/open/floor/plasteel/airless,
+/area/ruin/unpowered)
+"N" = (
+/obj/structure/table,
+/obj/item/beacon,
+/turf/open/floor/plating/airless,
+/area/ruin/unpowered)
+"P" = (
+/turf/closed/wall/r_wall,
+/area/ruin/unpowered)
+"Q" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/template_noop)
+"X" = (
+/turf/open/floor/plating/airless,
+/area/ruin/unpowered)
+"Z" = (
+/obj/item/stack/ore/bluespace_crystal,
+/turf/open/floor/plasteel/airless,
+/area/ruin/unpowered)
+
+(1,1,1) = {"
+q
+q
+q
+q
+q
+P
+L
+P
+q
+q
+q
+q
+q
+"}
+(2,1,1) = {"
+q
+q
+q
+Q
+q
+P
+g
+P
+q
+Q
+q
+q
+q
+"}
+(3,1,1) = {"
+q
+q
+q
+P
+P
+P
+z
+P
+P
+P
+q
+q
+q
+"}
+(4,1,1) = {"
+q
+q
+P
+P
+c
+b
+X
+g
+g
+X
+l
+q
+q
+"}
+(5,1,1) = {"
+q
+Q
+P
+B
+g
+g
+g
+g
+g
+g
+X
+Q
+q
+"}
+(6,1,1) = {"
+q
+q
+P
+r
+g
+e
+y
+I
+g
+N
+P
+q
+q
+"}
+(7,1,1) = {"
+q
+Q
+X
+b
+X
+g
+g
+Z
+g
+k
+P
+Q
+q
+"}
+(8,1,1) = {"
+q
+q
+X
+X
+b
+X
+g
+g
+g
+P
+P
+q
+q
+"}
+(9,1,1) = {"
+q
+q
+q
+l
+X
+P
+P
+P
+P
+P
+q
+q
+q
+"}

@@ -1,0 +1,630 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/lattice,
+/turf/open/floor/plating/asteroid/no_generation,
+/area/template_noop)
+"b" = (
+/obj/structure/particle_accelerator/particle_emitter/left,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin)
+"c" = (
+/turf/open/floor/plasteel,
+/area/ruin)
+"d" = (
+/obj/effect/abstract/open_area_marker{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/ruin)
+"f" = (
+/obj/machinery/field/generator/anchored,
+/turf/open/floor/plating/no_generation,
+/area/template_noop)
+"g" = (
+/turf/closed/wall/riveted_wall,
+/area/ruin)
+"j" = (
+/obj/structure/sign/warning/radiation{
+	pixel_y = 32
+	},
+/turf/open/floor/plasteel,
+/area/ruin)
+"l" = (
+/obj/machinery/the_singularitygen,
+/turf/open/floor/plating/no_generation,
+/area/template_noop)
+"m" = (
+/obj/machinery/power/emitter/welded{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/ruin)
+"n" = (
+/obj/machinery/power/emitter/welded{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/ruin)
+"o" = (
+/obj/machinery/power/rad_collector,
+/turf/open/floor/plating/no_generation,
+/area/template_noop)
+"p" = (
+/obj/machinery/power/rad_collector,
+/turf/open/floor/plasteel,
+/area/ruin)
+"q" = (
+/obj/structure/sign/warning/radiation{
+	pixel_y = -32
+	},
+/turf/open/floor/plasteel,
+/area/ruin)
+"s" = (
+/obj/structure/particle_accelerator/power_box,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin)
+"v" = (
+/turf/open/floor/plasteel/durasteel,
+/area/ruin)
+"x" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/plasteel,
+/area/ruin)
+"z" = (
+/obj/structure/closet/radiation,
+/turf/open/floor/plasteel,
+/area/ruin)
+"A" = (
+/obj/effect/abstract/open_area_marker,
+/turf/open/floor/plasteel,
+/area/ruin)
+"C" = (
+/turf/closed/wall/r_wall,
+/area/ruin)
+"D" = (
+/obj/structure/particle_accelerator/end_cap,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin)
+"E" = (
+/obj/machinery/computer,
+/turf/open/floor/plasteel,
+/area/ruin)
+"F" = (
+/obj/effect/abstract/open_area_marker{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/ruin)
+"G" = (
+/obj/effect/abstract/open_area_marker{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/ruin)
+"J" = (
+/obj/structure/particle_accelerator/particle_emitter/center,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin)
+"M" = (
+/turf/open/floor/plating/asteroid/no_generation,
+/area/template_noop)
+"N" = (
+/obj/effect/decal/fakelattice,
+/turf/open/floor/plating/asteroid/no_generation,
+/area/template_noop)
+"P" = (
+/obj/machinery/door/airlock/engineering,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin)
+"Q" = (
+/obj/structure/particle_accelerator/particle_emitter/right,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin)
+"R" = (
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
+/turf/open/floor/plating,
+/area/ruin)
+"S" = (
+/turf/open/floor/plating/no_generation,
+/area/template_noop)
+"T" = (
+/obj/structure/particle_accelerator/fuel_chamber,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin)
+"U" = (
+/obj/machinery/particle_accelerator/control_box,
+/turf/open/floor/plasteel/durasteel,
+/area/ruin)
+"W" = (
+/obj/structure/chair/office{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/ruin)
+"X" = (
+/turf/template_noop,
+/area/template_noop)
+
+(1,1,1) = {"
+X
+X
+X
+X
+X
+g
+g
+g
+g
+c
+G
+c
+g
+g
+g
+g
+X
+X
+X
+X
+X
+"}
+(2,1,1) = {"
+X
+X
+g
+g
+g
+g
+z
+c
+c
+c
+c
+c
+c
+c
+z
+g
+g
+g
+g
+X
+X
+"}
+(3,1,1) = {"
+X
+g
+g
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+g
+g
+X
+"}
+(4,1,1) = {"
+X
+g
+j
+c
+c
+c
+c
+c
+p
+c
+c
+c
+c
+c
+c
+c
+c
+c
+q
+g
+X
+"}
+(5,1,1) = {"
+X
+g
+c
+c
+c
+c
+c
+c
+n
+c
+c
+p
+n
+c
+c
+c
+c
+c
+c
+g
+X
+"}
+(6,1,1) = {"
+g
+g
+c
+c
+c
+C
+C
+C
+R
+R
+R
+R
+R
+R
+C
+C
+c
+c
+c
+g
+g
+"}
+(7,1,1) = {"
+g
+c
+c
+c
+c
+P
+v
+P
+M
+N
+M
+N
+M
+N
+M
+C
+x
+c
+c
+c
+g
+"}
+(8,1,1) = {"
+g
+c
+c
+c
+c
+C
+C
+C
+N
+o
+o
+o
+N
+o
+N
+R
+E
+c
+c
+c
+g
+"}
+(9,1,1) = {"
+g
+c
+c
+v
+v
+v
+v
+R
+f
+a
+M
+a
+f
+N
+M
+R
+E
+W
+c
+c
+g
+"}
+(10,1,1) = {"
+c
+c
+v
+v
+U
+v
+b
+R
+a
+S
+S
+S
+a
+o
+N
+R
+E
+c
+c
+c
+c
+"}
+(11,1,1) = {"
+d
+c
+v
+D
+T
+s
+J
+R
+M
+S
+l
+S
+M
+S
+M
+C
+x
+c
+c
+c
+A
+"}
+(12,1,1) = {"
+c
+c
+v
+v
+v
+v
+Q
+R
+a
+S
+S
+S
+a
+o
+N
+R
+E
+c
+c
+c
+c
+"}
+(13,1,1) = {"
+g
+c
+c
+v
+v
+v
+v
+R
+f
+a
+M
+a
+f
+N
+M
+R
+E
+W
+c
+c
+g
+"}
+(14,1,1) = {"
+g
+c
+c
+c
+c
+C
+C
+C
+N
+o
+o
+o
+N
+o
+N
+R
+E
+c
+c
+c
+g
+"}
+(15,1,1) = {"
+g
+c
+c
+c
+c
+P
+v
+P
+M
+N
+M
+N
+M
+N
+M
+C
+x
+c
+c
+c
+g
+"}
+(16,1,1) = {"
+g
+g
+c
+c
+c
+C
+C
+C
+R
+R
+R
+R
+R
+R
+C
+C
+c
+c
+c
+g
+g
+"}
+(17,1,1) = {"
+X
+g
+c
+c
+c
+c
+c
+c
+m
+c
+c
+p
+m
+c
+c
+c
+c
+c
+c
+g
+X
+"}
+(18,1,1) = {"
+X
+g
+j
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+q
+g
+X
+"}
+(19,1,1) = {"
+X
+g
+g
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+g
+g
+X
+"}
+(20,1,1) = {"
+X
+X
+g
+g
+g
+g
+z
+c
+c
+c
+c
+c
+c
+c
+z
+g
+g
+g
+g
+X
+X
+"}
+(21,1,1) = {"
+X
+X
+X
+X
+X
+g
+g
+g
+g
+c
+F
+c
+g
+g
+g
+g
+X
+X
+X
+X
+X
+"}
