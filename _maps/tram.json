@@ -1,6 +1,6 @@
 {
 	"version": 1,
-	"map_name": "Tramstation",
+	"map_name": "Tram",
 	"map_path": "stations",
 	"map_file": "tram.dmm",
 	"shuttles": {
