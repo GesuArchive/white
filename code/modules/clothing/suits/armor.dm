@@ -559,6 +559,15 @@
 	. = ..()
 	allowed = GLOB.security_wintercoat_allowed
 
+/obj/item/clothing/suit/toggle/armor/vest/centcom_formal/specops
+	name = "тактическое пальто"
+	icon_state = "centcom_so"
+	inhand_icon_state = "centcom"
+	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 100, RAD = 100, FIRE = 100, ACID = 100)
+	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+
 /obj/item/clothing/suit/armor/vest/hos_formal
 	name = "парадный китель Начальника Охраны"
 	desc = "Мужской военный китель новой аристократии."

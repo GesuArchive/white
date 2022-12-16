@@ -1,18 +1,19 @@
 /datum/outfit/centcom/spec_ops_v2
 	name = "Офицер Спецназа V2"
 
-	uniform = /obj/item/clothing/under/rank/centcom/officer
-	suit = /obj/item/clothing/suit/toggle/armor/vest/centcom_formal
+	head = /obj/item/clothing/head/beret/centcom_formal/specops
+	uniform = /obj/item/clothing/under/rank/centcom/military
+	suit = /obj/item/clothing/suit/toggle/armor/vest/centcom_formal/specops
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	glasses = /obj/item/clothing/glasses/thermal/eyepatch
 	ears = /obj/item/radio/headset/headset_cent/commander
 	mask = /obj/item/clothing/mask/cigarette/cigar/havana
-	belt = /obj/item/vibro_weapon/butcher
 	suit_store = /obj/item/gun/ballistic/automatic/fallout/railgun
-	r_pocket = /obj/item/lighter
-	back = /obj/item/storage/backpack/satchel/leather
-	id = /obj/item/card/id/advanced/centcom
+	l_pocket = /obj/item/grenade/antigravity/heavy
+	r_pocket = /obj/item/grenade/antigravity/heavy
+	back = /obj/item/vibro_weapon/butcher
+	id = /obj/item/card/id/advanced/black/deathsquad
 	id_trim = /datum/id_trim/centcom/specops_officer
 
 /datum/outfit/centcom/spec_ops_v2/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

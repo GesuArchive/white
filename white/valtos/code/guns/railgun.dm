@@ -1,11 +1,11 @@
 /obj/item/gun/ballistic/automatic/fallout/railgun
 	name = "Бластер Б-7 \"Козырь\""
-	desc = "Высокоточное оружие, которое используется в основном на фронте. Одного выстрела достаточно, чтобы распилить станцию напополам."
+	desc = "Высокоточное оружие, которое используется в зоне специальной военной операции. Одного выстрела достаточно, чтобы распилить станцию напополам."
 	icon_state = "railgun"
 	inhand_icon_state = "railgun"
 	mag_type = /obj/item/ammo_box/magazine/fallout/railgun
 	fire_sound_volume = 60
-	fire_sound = 'white/valtos/sounds/fallout/gunsounds/tribeam/tribeam1.ogg'
+	fire_sound = 'white/valtos/sounds/fallout/american180.ogg'
 	dry_fire_sound = 'white/valtos/sounds/ebutt.ogg'
 	load_sound = 'white/valtos/sounds/ebutt.ogg'
 	load_empty_sound = 'white/valtos/sounds/ebutt.ogg'
@@ -17,9 +17,9 @@
 	can_suppress = FALSE
 	burst_size = 1
 	fire_delay = 1
-	extra_damage = 0
-	extra_penetration = 0
-	force = 0
+	extra_damage = 9
+	extra_penetration = 4
+	force = 15
 	spread = 0
 	recoil = 0
 	actions_types = null
@@ -45,9 +45,9 @@
 			var/datum/component/automatic_fire_funny/D = GetComponent(/datum/component/automatic_fire_funny)
 			D.autofire_shot_delay = 0.01
 		else
-			extra_damage = 0
-			extra_penetration = 0
-			force = 0
+			extra_damage = 9
+			extra_penetration = 4
+			force = 15
 			var/datum/component/automatic_fire_funny/D = GetComponent(/datum/component/automatic_fire_funny)
 			D.autofire_shot_delay = 1
 
@@ -72,7 +72,7 @@
 	speed = 0.4
 	damage = 1
 	damage_type = BURN
-	range = 150
+	range = 25
 	projectile_piercing = PASSALL
 	impact_type = /obj/effect/projectile/impact/heavy_laser
 

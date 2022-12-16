@@ -390,6 +390,11 @@
 	armor = list(MELEE = 80, BULLET = 80, LASER = 50, ENERGY = 50, BOMB = 100, BIO = 100, RAD = 90, FIRE = 100, ACID = 90, WOUND = 10)
 	strip_delay = 10 SECONDS
 
+/obj/item/clothing/head/beret/centcom_formal/specops
+	name = "тактический берет"
+	greyscale_colors = "#282828#FF8121"
+	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 100, RAD = 100, FIRE = 100, ACID = 100)
+
 #undef DRILL_DEFAULT
 #undef DRILL_SHOUTING
 #undef DRILL_YELLING
