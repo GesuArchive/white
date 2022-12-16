@@ -561,6 +561,8 @@
 
 /obj/item/clothing/suit/toggle/armor/vest/centcom_formal/specops
 	name = "тактическое пальто"
+	icon = 'icons/obj/clothing/suits/armor.dmi'
+	worn_icon = 'icons/mob/clothing/suits/armor.dmi'
 	icon_state = "centcom_so"
 	inhand_icon_state = "centcom"
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
