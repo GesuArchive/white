@@ -734,6 +734,9 @@
 	if(user.ckey in round_banned_ckeys)
 		to_chat(user, span_warning("А хуй тебе!"))
 		return
+	if(GLOB.violence_mode_activated)
+		to_chat(user, span_warning("Ахтунг! Нельзя!"))
+		return FALSE
 	if(from_lobby)
 		if(!radial_based)
 			var/ghost_role = tgui_alert(usr, "Хочешь попробовать себя в роли артиста? После гибели ты будешь возвращён обратно в лобби.", ,list("Да", "Нет"))
@@ -753,7 +756,7 @@
 	spawned_mobs += L
 	spawned_mobs[L] = L.ckey
 	if(from_lobby)
-		RegisterSignal(L, COMSIG_LIVING_BEFORE_DUSTED, .proc/send_back_to_lobby)
+		RegisterSignal(L, COMSIG_LIVING_STATUS_UNCONSCIOUS, .proc/send_back_to_lobby)
 
 /obj/effect/mob_spawn/human/donate/artist/proc/send_back_to_lobby(datum/source)
 	SIGNAL_HANDLER
@@ -819,7 +822,6 @@
 		if(HAS_TRAIT(artist, TRAIT_CRITICAL_CONDITION) || artist.stat == DEAD || !artist.key)
 			spawned_mobs.Remove(artist)
 			artist.alpha = 0 //because dust animation does not hide the body while playing, which look really fuckiing weird
-			SEND_SIGNAL(artist, COMSIG_LIVING_BEFORE_DUSTED)
 			artist.dust(drop_items = TRUE)
 			continue
 

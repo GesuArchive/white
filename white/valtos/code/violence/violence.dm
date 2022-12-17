@@ -47,7 +47,8 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	// ускоряем тикер вдвое, экспериментально
 	SSticker.wait = 1 SECONDS
 	// ставим тематическую заставку
-	var/icon/great_title_icon = icon(pick('white/valtos/icons/violence/violence1.jpg', 'white/valtos/icons/violence/violence2.jpg'))
+	var/icon/great_title_icon = icon(pick('white/valtos/icons/violence/violence1.jpg', 'white/valtos/icons/violence/violence2.jpg', 'white/valtos/icons/violence/violence3.jpg'))
+	SStitle.autorotate = FALSE
 	SStitle.icon = great_title_icon
 	SStitle.splash_turf.icon = great_title_icon
 	// создаём команды
@@ -322,8 +323,8 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 	GLOB.violence_bomb_active = FALSE
 	GLOB.violence_bomb_planted = FALSE
 	GLOB.violence_time_limit = 3 MINUTES
-	SSjob.SetJobPositions(/datum/job/combantant/red, 0, 0, TRUE)
-	SSjob.SetJobPositions(/datum/job/combantant/blue, 0, 0, TRUE)
+	SSjob.SetJobPositions(/datum/job/combantant/red, 999, 999, TRUE)
+	SSjob.SetJobPositions(/datum/job/combantant/blue, 999, 999, TRUE)
 	switch(winner)
 		if("КРАСНЫХ")
 			wins_reds++

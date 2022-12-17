@@ -482,42 +482,42 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/random/clothing
 	name = "ОДЕЖДА"
-	cost = 75
+	cost = 50
 	random_type = /obj/item/clothing
 	allowed_themes = list("cyber")
 
 /datum/violence_gear/random/book
 	name = "КНИГА"
-	cost = 100
+	cost = 75
 	random_type = /obj/item/book
 	allowed_themes = list("cyber")
 
 /datum/violence_gear/random/reagent_containers
 	name = "РЕАГЕНТ"
-	cost = 150
+	cost = 100
 	random_type = /obj/item/reagent_containers
 	allowed_themes = list("cyber")
 
 /datum/violence_gear/random/shield
 	name = "ЩИТ"
-	cost = 300
+	cost = 150
 	random_type = /obj/item/shield
 	allowed_themes = list("cyber")
 
 /datum/violence_gear/random/melee
 	name = "БЛИЖНИЙ БОЙ"
-	cost = 400
+	cost = 200
 	random_type = /obj/item/melee
 	allowed_themes = list("cyber")
 
 /datum/violence_gear/random/gun
 	name = "ДАЛЬНИЙ БОЙ"
-	cost = 600
+	cost = 400
 	random_type = /obj/item/gun
 	allowed_themes = list("cyber")
 
 /datum/violence_gear/random/mod
 	name = "MOD"
-	cost = 950
+	cost = 600
 	random_type = /obj/item/mod/control/pre_equipped
 	allowed_themes = list("cyber")
