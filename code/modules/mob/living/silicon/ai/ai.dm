@@ -422,6 +422,46 @@ G&@@@@@@@@@#5@@@@@&PBP555555555PGGBP&@&&@@@@@@&&&&&&&&@&#BGB&@@@@@@@@@@@#GPPPPPP
 	to_chat(src, "<b>You are now [is_anchored ? "" : "un"]anchored.</b>")
 	// the message in the [] will change depending whether or not the AI is anchored
 
+/mob/living/silicon/ai/proc/ai_mob_to_structure()
+	disconnect_shell()
+	ShutOffDoomsdayDevice()
+	var/obj/structure/ai_core/deactivated/ai_core = new(get_turf(src), /* skip_mmi_creation = */ TRUE)
+	if(!make_mmi_drop_and_transfer(ai_core.brain, the_core = ai_core))
+		return FALSE
+	qdel(src)
+	return TRUE
+
+/mob/living/silicon/ai/proc/make_mmi_drop_and_transfer(obj/item/mmi/the_mmi, the_core)
+	var/mmi_type
+	//if(posibrain_inside)
+	//	mmi_type = new/obj/item/mmi/posibrain(src, /* autoping = */ FALSE)
+	//else
+	mmi_type = new/obj/item/mmi(src)
+	if(hack_software)
+		new/obj/item/malf_upgrade(get_turf(src))
+	the_mmi = mmi_type
+	the_mmi.brain = new /obj/item/organ/brain(the_mmi)
+	the_mmi.brain.organ_flags |= ORGAN_FROZEN
+	the_mmi.brain.name = "мозг [real_name]"
+	the_mmi.name = "[initial(the_mmi.name)]: [real_name]"
+	the_mmi.set_brainmob(new /mob/living/brain(the_mmi))
+	the_mmi.brainmob.name = src.real_name
+	the_mmi.brainmob.real_name = src.real_name
+	the_mmi.brainmob.container = the_mmi
+	the_mmi.brainmob.set_suicide(suiciding)
+	the_mmi.brain.suicided = suiciding
+	if(the_core)
+		var/obj/structure/ai_core/core = the_core
+		core.brain = the_mmi
+		the_mmi.forceMove(the_core)
+	else
+		the_mmi.forceMove(get_turf(src))
+	if(the_mmi.brainmob.stat == DEAD && !suiciding)
+		the_mmi.brainmob.set_stat(CONSCIOUS)
+	if(mind)
+		mind.transfer_to(the_mmi.brainmob)
+	the_mmi.update_appearance()
+	return TRUE
 
 /mob/living/silicon/ai/Topic(href, href_list)
 	..()
