@@ -26976,6 +26976,8 @@
 "hRv" = (
 /obj/structure/table,
 /obj/item/kitchen/fork/plastic,
+/obj/item/food/omelette,
+/obj/item/food/omelette,
 /turf/open/floor/plasteel/monofloor,
 /area/security/prison)
 "hRL" = (
@@ -40633,6 +40635,8 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/red,
+/obj/item/food/omelette,
+/obj/item/food/omelette,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "moA" = (
@@ -45532,6 +45536,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/security/processing)
 "nQg" = (
@@ -51107,6 +51112,10 @@
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
+"pCT" = (
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/security/processing)
 "pDn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -57030,6 +57039,16 @@
 	},
 /turf/open/floor/plasteel,
 /area/service/hydroponics)
+"rrg" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel/monofloor,
+/area/security/processing)
 "rrn" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
@@ -57947,6 +57966,13 @@
 /obj/effect/spawner/random/maintenance/three,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
+"rIs" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/security/processing)
 "rIt" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -59611,6 +59637,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 5
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/security/processing)
 "skS" = (
@@ -62683,6 +62710,7 @@
 	shuttledocked = 1
 	},
 /obj/structure/fans/tiny,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/security/processing)
 "tnW" = (
@@ -64319,6 +64347,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Labor Camp Shuttle Airlock"
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/security/processing)
 "tRJ" = (
@@ -75499,6 +75528,11 @@
 	},
 /obj/machinery/atmospherics/pipe/layer_manifold/supply/visible{
 	dir = 4
+	},
+/obj/machinery/camera{
+	c_tag = "Incinerator";
+	name = "atmospherics camera";
+	network = list("ss13","engine")
 	},
 /turf/open/floor/engine,
 /area/maintenance/disposal/incinerator)
@@ -167379,7 +167413,7 @@ gsa
 iKl
 jUe
 iKl
-gsa
+pCT
 iKl
 okl
 okl
@@ -167893,7 +167927,7 @@ soM
 roh
 kvz
 sbm
-soM
+rIs
 bwR
 kvz
 nAQ
@@ -168407,7 +168441,7 @@ mOm
 lgQ
 vDw
 nPY
-vOz
+rrg
 xcJ
 kvz
 uAw

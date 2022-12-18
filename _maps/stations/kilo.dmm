@@ -6399,9 +6399,9 @@
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
 	},
-/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /obj/structure/fans/tiny,
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/cargo/miningoffice)
 "aFO" = (
@@ -22263,6 +22263,7 @@
 	dir = 4
 	},
 /obj/structure/fans/tiny,
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/maintenance/port/aft)
 "cqT" = (
@@ -53074,10 +53075,10 @@
 "nhj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
-/obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/cargo/miningoffice)
 "nhB" = (

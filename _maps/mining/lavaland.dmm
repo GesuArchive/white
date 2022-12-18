@@ -755,6 +755,7 @@
 	opacity = 0
 	},
 /obj/structure/fans/tiny,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/mine/production)
 "cl" = (
@@ -1767,6 +1768,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
 "fc" = (
@@ -3546,6 +3548,7 @@
 /obj/machinery/door/airlock/external{
 	name = "Lavaland Shuttle Airlock"
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
 "oO" = (
@@ -3738,6 +3741,16 @@
 /obj/machinery/recharge_station,
 /turf/open/floor/plasteel,
 /area/mine/mechbay)
+"rS" = (
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/mine/production)
 "rX" = (
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -4163,6 +4176,7 @@
 /obj/machinery/door/airlock/glass,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
 "AB" = (
@@ -4253,6 +4267,7 @@
 	name = "Labor Camp Shuttle Prisoner Airlock"
 	},
 /obj/structure/fans/tiny,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/mine/laborcamp)
 "Bt" = (
@@ -4868,6 +4883,7 @@
 /obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
 "Pp" = (
@@ -5261,6 +5277,7 @@
 	name = "Lavaland Shuttle Airlock"
 	},
 /obj/structure/fans/tiny,
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
 "UV" = (
@@ -5320,6 +5337,16 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/white,
+/area/mine/living_quarters)
+"VF" = (
+/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/plasteel,
 /area/mine/living_quarters)
 "VP" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -5387,6 +5414,7 @@
 	name = "Mining Shuttle Airlock";
 	opacity = 0
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/mine/production)
 "WO" = (
@@ -5404,6 +5432,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
 "Yd" = (
@@ -12236,7 +12265,7 @@ ab
 ab
 yU
 cR
-dZ
+TC
 cR
 ab
 ab
@@ -13003,11 +13032,11 @@ fP
 ek
 cM
 fa
-dZ
-dZ
-dZ
-dZ
-dZ
+TC
+TC
+TC
+TC
+TC
 cR
 cR
 cM
@@ -13257,7 +13286,7 @@ dx
 cQ
 ea
 fP
-kv
+VF
 Aw
 fb
 Xx
@@ -19929,7 +19958,7 @@ aj
 WO
 ab
 br
-bP
+Rx
 br
 ab
 aj
@@ -20443,7 +20472,7 @@ ps
 bn
 br
 bO
-ax
+rS
 NS
 br
 bq
@@ -20700,7 +20729,7 @@ Gh
 bn
 bC
 Lu
-bP
+Rx
 cl
 cH
 cO
