@@ -96,7 +96,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	nutriment_factor = 1 * REAGENTS_METABOLISM
 	boozepwr = 25
 	taste_description = "моча"
-	glass_name = "стакан пива"
+	glass_name = "пиво"
 	glass_desc = "Освежающая пинта пива."
 	ph = 4
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -117,7 +117,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	description = "Алкогольный напиток, который варили с дневних времен еще на старой земле. Этот сорт отличается меньшим количеством калорий и алкоголя."
 	boozepwr = 5 //Space Europeans hate it
 	taste_description = "стекломойка"
-	glass_name = "стакан светлого пива"
+	glass_name = "светлое пиво"
 	glass_desc = "Освежающая пинта водянистого светлого пива."
 	ph = 5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -129,7 +129,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	description = "Алкогольный напиток, который варили с дневних времен еще на старой земле. Этот сорт сильнее обычного, крайне дешевый и крайне ужасный."
 	boozepwr = 35
 	taste_description = "сладкое кукурузное пиво с нотками черного гетто"
-	glass_name = "стакан солодового ликера"
+	glass_name = "солодовый ликер"
 	glass_desc = "Освежающая пинта солодового ликера."
 	ph = 4.8
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -141,7 +141,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	color = "#A8E61D"
 	taste_description = "зелёная моча"
 	glass_icon_state = "greenbeerglass"
-	glass_name = "стакан зеленого пива"
+	glass_name = "зеленое пиво"
 	glass_desc = "Освежающая пинта зеленого пива. Праздничная!"
 	ph = 6
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -162,7 +162,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 45
 	glass_icon_state = "kahluaglass"
-	glass_name = "Стакан кофейного ликера"
+	glass_name = "кофейный ликер"
 	glass_desc = "БЛЯ ЭТА ШТУКА ВЫГЛЯДИТ КРЕПКО!"
 	shot_glass_icon_state = "shotglasscream"
 	ph = 6
@@ -180,13 +180,13 @@ All effects don't start immediately, but rather get worse over time; the rate is
 /datum/reagent/consumable/ethanol/whiskey
 	name = "Виски"
 	enname = "Whiskey"
-	description = "A superb and well-aged single-malt whiskey. Damn."
+	description = "Превосходный и хорошо выдержанный односолодовый виски."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 75
 	taste_description = "меласса"
 	glass_icon_state = "whiskeyglass"
-	glass_name = "стакан whiskey"
-	glass_desc = "The silky, smokey whiskey goodness inside the glass makes the drink look very classy."
+	glass_name = "виски"
+	glass_desc = "Шелковистый, дымчатый вкус виски в стакане придает напитку очень стильный вид."
 	shot_glass_icon_state = "shotglassbrown"
 	ph = 4.5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -194,19 +194,20 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/whiskey/kong
 	name = "Конг"
-	description = "Makes You Go Ape!&#174;"
+	description = "Заставляет вас сойти с ума!&#174;"
 	color = "#332100" // rgb: 51, 33, 0
 	taste_description = "хватка гигантской обезьяны"
-	glass_name = "стакан Kong"
-	glass_desc = "Makes You Go Ape!&#174;"
+	glass_name = "Конг"
+	glass_desc = "Заставляет вас сойти с ума!&#174;"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
 /datum/reagent/consumable/ethanol/whiskey/candycorn
 	name = "конфетно-кукурузный ликер"
-	description = "Like they drank in 2D speakeasies."
+	description = "Такой же, как во времена сухого закона."
 	color = "#ccb800" // rgb: 204, 184, 0
 	taste_description = "блинный сироп"
-	glass_name = "стакан candy corn liquor"
-	glass_desc = "Good for your Imagination."
+	glass_name = "конфетно-кукурузный ликер"
+	glass_desc = "Полезен для вашего воображения."
 	var/hal_amt = 4
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -217,7 +218,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/thirteenloko
 	name = "Локо Тринадцать"
-	description = "A potent mixture of caffeine and alcohol."
+	description = "Мощная смесь кофе и алкоголя."
 	color = "#102000" // rgb: 16, 32, 0
 	nutriment_factor = 1 * REAGENTS_METABOLISM
 	boozepwr = 80
@@ -225,8 +226,8 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	overdose_threshold = 60
 	taste_description = "дрожь и смерть"
 	glass_icon_state = "thirteen_loko_glass"
-	glass_name = "стакан Thirteen Loko"
-	glass_desc = "This is a glass of Thirteen Loko, it appears to be of the highest quality. The drink, not the glass."
+	glass_name = "Локо Тринадцать"
+	glass_desc = "Это бокал Тринадцати Локо, похоже, он самого высокого качества. Напиток, а не стакан."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/thirteenloko/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -280,13 +281,13 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/vodka
 	name = "Водка"
-	description = "Number one drink AND fueling choice for Russians worldwide."
+	description = "Напиток и топливо номер один для русских по всему миру."
 	color = "#0064C8" // rgb: 0, 100, 200
 	boozepwr = 65
 	taste_description = "зерновой спирт"
 	glass_icon_state = "ginvodkaglass"
-	glass_name = "стакан vodka"
-	glass_desc = "The glass contain wodka. Xynta."
+	glass_name = "водка"
+	glass_desc = "Только рюмка водки на столе."
 	shot_glass_icon_state = "shotglassclear"
 	ph = 8.1
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_CLEANS //Very high proof
@@ -297,14 +298,14 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/bilk
 	name = "Билк"
-	description = "This appears to be beer mixed with milk. Disgusting."
+	description = "Похоже, это пиво, смешанное с молоком. Отвратительно."
 	color = "#895C4C" // rgb: 137, 92, 76
 	nutriment_factor = 2 * REAGENTS_METABOLISM
 	boozepwr = 15
 	taste_description = "отчаяние и лактат"
 	glass_icon_state = "glass_brown"
-	glass_name = "стакан bilk"
-	glass_desc = "A brew of milk and beer. For those alcoholics who fear osteoporosis."
+	glass_name = "Билк"
+	glass_desc = "Варево из молока и пива. Для тех алкоголиков, которые боятся остеопороза."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/bilk/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -314,15 +315,15 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	return ..() || .
 
 /datum/reagent/consumable/ethanol/threemileisland
-	name = "Холодный тай Three Mile Island"
+	name = "Три мили от берега"
 	description = "Made for a woman, strong enough for a man."
 	color = "#666340" // rgb: 102, 99, 64
 	boozepwr = 10
 	quality = DRINK_FANTASTIC
 	taste_description = "сухость"
 	glass_icon_state = "threemileislandglass"
-	glass_name = "Three Mile Island Ice Tea"
-	glass_desc = "A glass of this is sure to prevent a meltdown."
+	glass_name = "Три мили от берега"
+	glass_desc = "Стакан этого напитка обязательно предотвратит срыв."
 	ph = 3.5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -332,39 +333,39 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/gin
 	name = "Джин"
-	description = "It's gin. In space. I say, good sir."
+	description = "Это не просто джин. Это космический джин!"
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 45
 	taste_description = "алкогольная рождественская елка"
 	glass_icon_state = "ginvodkaglass"
-	glass_name = "стакан gin"
-	glass_desc = "A crystal clear glass of Griffeater gin."
+	glass_name = "джин"
+	glass_desc = "Бокал кристально прозрачного джина."
 	ph = 6.9
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/rum
 	name = "Ром"
-	description = "Yohoho and all that."
+	description = "Йо-хо-хо, так сказать."
 	special_sound = 'white/valtos/sounds/drink/rum.ogg'
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 60
 	taste_description = "колючие ириски"
 	glass_icon_state = "rumglass"
-	glass_name = "стакан rum"
-	glass_desc = "Now you want to Pray for a pirate suit, don't you?"
+	glass_name = "ром"
+	glass_desc = "Теперь вы хотите купить костюм пирата, не так ли?"
 	shot_glass_icon_state = "shotglassbrown"
 	ph = 6.5
 
 /datum/reagent/consumable/ethanol/tequila
 	name = "Текила"
-	description = "A strong and mildly flavoured, Mexican produced spirit. Feeling thirsty, hombre?"
+	description = "Крепкий и мягкий по вкусу спиртной напиток мексиканского производства. Хочешь выпить, приятель?"
 	special_sound = 'white/valtos/sounds/drink/tequila.ogg'
 	color = "#FFFF91" // rgb: 255, 255, 145
 	boozepwr = 70
 	taste_description = "растворитель"
 	glass_icon_state = "tequilaglass"
-	glass_name = "стакан tequila"
-	glass_desc = "Now all that's missing is the weird colored shades!"
+	glass_name = "текила"
+	glass_desc = "Не хватает чего-то красочного!"
 	shot_glass_icon_state = "shotglassgold"
 	ph = 4
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -372,26 +373,26 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/vermouth
 	name = "Вермут"
-	description = "You suddenly feel a craving for a martini..."
+	description = "Вам вдруг захотелось выпить мартини..."
 	color = "#91FF91" // rgb: 145, 255, 145
 	boozepwr = 45
 	taste_description = "сухой алкоголь"
 	glass_icon_state = "vermouthglass"
-	glass_name = "стакан vermouth"
-	glass_desc = "You wonder why you're even drinking this straight."
+	glass_name = "вермут"
+	glass_desc = "Удивительно, как это вообще можно пить неразбавленным."
 	shot_glass_icon_state = "shotglassclear"
 	ph = 3.25
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/wine
 	name = "Вино"
-	description = "A premium alcoholic beverage made from distilled grape juice."
+	description = "Алкоголь высшего качества, изготовленный из дистиллированного виноградного сока."
 	color = "#7E4043" // rgb: 126, 64, 67
 	boozepwr = 35
 	taste_description = "горькая сладость"
 	glass_icon_state = "wineglass"
-	glass_name = "стакан wine"
-	glass_desc = "A very classy looking drink."
+	glass_name = "вино"
+	glass_desc = "Очень элегантно выглядящий напиток."
 	shot_glass_icon_state = "shotglassred"
 	ph = 3.45
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -410,8 +411,8 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	return ..()
 
 /datum/reagent/consumable/ethanol/lizardwine
-	name = "Ящерное Вино"
-	description = "An alcoholic beverage from Space China, made by infusing lizard tails in ethanol."
+	name = "Вино из ящериц"
+	description = "Алкогольный напиток из космического Китая, изготовленный путем настаивания хвостов ящериц в этаноле."
 	color = "#7E4043" // rgb: 126, 64, 67
 	boozepwr = 45
 	quality = DRINK_FANTASTIC
@@ -421,50 +422,50 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/grappa
 	name = "Граппа"
-	description = "A fine Italian brandy, for when regular wine just isn't alcoholic enough for you."
+	description = "Прекрасный итальянский бренди, когда обычное вино недостаточно крепкое для вас."
 	color = "#F8EBF1"
 	boozepwr = 60
 	taste_description = "классная горькая сладость"
 	glass_icon_state = "grappa"
-	glass_name = "стакан grappa"
-	glass_desc = "A fine drink originally made to prevent waste by using the leftovers from winemaking."
+	glass_name = "Граппа"
+	glass_desc = "Изысканный напиток, изначально созданный для уменьшения отходов производства путем использования остатков виноделия."
 	ph = 3.5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/amaretto
 	name = "Амаретто"
-	description = "A gentle drink that carries a sweet aroma."
+	description = "Нежный напиток со сладким ароматом."
 	color = "#E17600"
 	boozepwr = 25
 	taste_description = "fruity and nutty sweetness"
 	glass_icon_state = "amarettoglass"
-	glass_name = "стакан amaretto"
-	glass_desc = "A sweet and syrupy looking drink."
+	glass_name = "Амаретто"
+	glass_desc = "Нежный напиток, похожий на сироп, со вкусом миндаля и абрикосов."
 	shot_glass_icon_state = "shotglassgold"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/cognac
 	name = "Коньяк"
-	description = "A sweet and strongly alcoholic drink, made after numerous distillations and years of maturing. Classy as fornication."
+	description = "Сладкий и сильноалкогольный напиток, изготовленный после многочисленных дистилляций и многолетней выдержки."
 	color = "#AB3C05" // rgb: 171, 60, 5
 	boozepwr = 75
 	taste_description = "ирландская злость"
 	glass_icon_state = "cognacglass"
-	glass_name = "стакан cognac"
-	glass_desc = "Damn, you feel like some kind of French aristocrat just by holding this."
+	glass_name = "коньяк"
+	glass_desc = "Черт возьми, вы чувствуете себя французским аристократом, просто держа его в руках."
 	shot_glass_icon_state = "shotglassbrown"
 	ph = 3.5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/absinthe
 	name = "Абсент"
-	description = "A powerful alcoholic drink. Rumored to cause hallucinations but does not."
+	description = "Крепкий алкогольный напиток. По слухам, вызывает галлюцинации, но это не так."
 	color = rgb(10, 206, 0)
 	boozepwr = 80 //Very strong even by default
 	taste_description = "смерть и солодка"
 	glass_icon_state = "absinthe"
-	glass_name = "стакан absinthe"
-	glass_desc = "It's as strong as it smells."
+	glass_name = "абсент"
+	glass_desc = "Вкус такой же крепкий, как и запах."
 	shot_glass_icon_state = "shotglassgreen"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -475,13 +476,13 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/hooch
 	name = "Хуч"
-	description = "Either someone's failure at cocktail making or attempt in alcohol production. In any case, do you really want to drink that?"
+	description = "Либо чья-то неудача в приготовлении коктейля, либо попытка производства алкоголя. В любом случае, вы действительно хотите это выпить?"
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 100
 	taste_description = "чистая отставка"
 	glass_icon_state = "glass_brown2"
-	glass_name = "Hooch"
-	glass_desc = "You've really hit rock bottom now... your liver packed its bags and left last night."
+	glass_name = "Хуч"
+	glass_desc = "Вы действительно достигли дна... Ваша печень собрала свои вещи и ушла вчера вечером."
 	addiction_types = list(/datum/addiction/alcohol = 5, /datum/addiction/maintenance_drugs = 2)
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -494,26 +495,26 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/ale
 	name = "Эль"
-	description = "A dark alcoholic beverage made with malted barley and yeast."
+	description = "Темный алкогольный напиток, приготовленный из ячменного солода и дрожжей."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 65
 	taste_description = "сытный ячменный эль"
 	glass_icon_state = "aleglass"
-	glass_name = "стакан ale"
-	glass_desc = "A freezing pint of delicious Ale."
+	glass_name = "эль"
+	glass_desc = "Пинта восхитительного эля"
 	ph = 4.5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/goldschlager
 	name = "Гольдшпигер"
-	description = "100 proof cinnamon schnapps, made for alcoholic teen girls on spring break."
+	description = "Шнапс с корицей 100% пробы, созданный для алкоголиков-подростков на весенних каникулах."
 	color = "#FFFF91" // rgb: 255, 255, 145
 	boozepwr = 25
 	quality = DRINK_VERYGOOD
 	taste_description = "горящая корица"
 	glass_icon_state = "goldschlagerglass"
-	glass_name = "стакан goldschlager"
-	glass_desc = "100% proof that teen girls will drink anything with gold in it."
+	glass_name = "Гольдшпигер"
+	glass_desc = "100% доказательство того, что девочки-подростки будут пить все, что содержит золото."
 	shot_glass_icon_state = "shotglassgold"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -556,13 +557,13 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/patron
 	name = "Текила «Патрон»"
-	description = "Tequila with silver in it, a favorite of alcoholic women in the club scene."
+	description = "Текила с серебром, обожаемая девушками с низкой социальной ответственностью."
 	color = "#585840" // rgb: 88, 88, 64
 	boozepwr = 60
 	quality = DRINK_VERYGOOD
 	taste_description = "дорогой металл"
 	glass_icon_state = "patronglass"
-	glass_name = "стакан patron"
+	glass_name = "Текила «Патрон»"
 	glass_desc = "Drinking patron in the bar, with all the subpar ladies."
 	shot_glass_icon_state = "shotglassclear"
 	ph = 4.5
@@ -570,42 +571,42 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_price = DRINK_PRICE_HIGH
 
 /datum/reagent/consumable/ethanol/gintonic
-	name = "Джин Тоник"
-	description = "An all time classic, mild cocktail."
+	name = "Джин-тоник"
+	description = "Классический коктейль на все времена."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 25
 	quality = DRINK_NICE
 	taste_description = "мягкий и терпкий"
 	glass_icon_state = "gintonicglass"
-	glass_name = "Gin and Tonic"
-	glass_desc = "A mild but still great cocktail. Drink up, like a true Englishman."
+	glass_name = "Джин-тоник"
+	glass_desc = "Мягкий, но все же отличный коктейль. Пейте, как истинный англичанин."
 	ph = 3
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/rum_coke
-	name = "Ром с Колой"
-	description = "Rum, mixed with cola."
+	name = "Ром с колой"
+	description = "Ром, смешанный с колой."
 	taste_description = "кола"
 	boozepwr = 40
 	quality = DRINK_NICE
 	color = "#3E1B00"
 	glass_icon_state = "whiskeycolaglass"
-	glass_name = "Rum and Coke"
-	glass_desc = "The classic go-to of space-fratboys."
+	glass_name = "Ром с колой"
+	glass_desc = "Классический напиток посвящения космо-пиратов."
 	ph = 4
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/cuba_libre
 	name = "Куба Либре"
-	description = "Viva la Revolucion! Viva Cuba Libre!"
+	description = "Да здравствует революция! Да здравствует свободная Куба!"
 	special_sound = 'white/valtos/sounds/drink/cuba.ogg'
 	color = "#3E1B00" // rgb: 62, 27, 0
 	boozepwr = 50
 	quality = DRINK_GOOD
 	taste_description = "освежающий брак цитрусовых и рома"
 	glass_icon_state = "cubalibreglass"
-	glass_name = "Cuba Libre"
-	glass_desc = "A classic mix of rum, cola, and lime. A favorite of revolutionaries everywhere!"
+	glass_name = "Куба Либре"
+	glass_desc = "Классическая смесь рома, колы и лайма. Любимый напиток всех революционеров!"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/cuba_libre/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -618,64 +619,64 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	return ..() || .
 
 /datum/reagent/consumable/ethanol/whiskey_cola
-	name = "Виски Кола"
-	description = "Whiskey, mixed with cola. Surprisingly refreshing."
+	name = "Виски кола"
+	description = "Виски, смешанное с колой. Удивительно освежает."
 	color = "#3E1B00" // rgb: 62, 27, 0
 	boozepwr = 70
 	quality = DRINK_NICE
 	taste_description = "кола"
 	glass_icon_state = "whiskeycolaglass"
-	glass_name = "whiskey cola"
-	glass_desc = "An innocent-looking mixture of cola and whiskey. Delicious."
+	glass_name = "Виски кола"
+	glass_desc = "Невинная на вид смесь колы и виски. Вкусно."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 
 /datum/reagent/consumable/ethanol/martini
 	name = "Классический Мартини"
-	description = "Vermouth with Gin. Not quite how 007 enjoyed it, but still delicious."
+	description = "Вермут с джином. Не совсем то, что любил агент 007, но все равно вкусно."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 60
 	quality = DRINK_NICE
 	taste_description = "сухой класс"
 	glass_icon_state = "martiniglass"
-	glass_name = "Classic Martini"
-	glass_desc = "Damn, the bartender even stirred it, not shook it."
+	glass_name = "классический Мартини"
+	glass_desc = "Черт, а бармен красавчик! Перемешал, но не встряхивал."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/vodkamartini
-	name = "Мартини с Водкой"
-	description = "Vodka with Gin. Not quite how 007 enjoyed it, but still delicious."
+	name = "Мартини с водкой"
+	description = "Водка с джином. Не совсем то, что любил агент 007, но все равно вкусно."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 65
 	quality = DRINK_NICE
 	taste_description = "встряхивают, не перемешивают"
 	glass_icon_state = "martiniglass"
-	glass_name = "Vodka martini"
-	glass_desc ="A bastardisation of the classic martini. Still great."
+	glass_name = "мартини с водкой"
+	glass_desc = "Ублюдочная версия классического мартини, но все равно вкусно."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/white_russian
 	name = "Белый Русский"
-	description = "That's just, like, your opinion, man..."
+	description = "Это всего лишь твое мнение..."
 	color = "#A68340" // rgb: 166, 131, 64
 	boozepwr = 50
 	quality = DRINK_GOOD
 	taste_description = "горький крем"
 	glass_icon_state = "whiterussianglass"
-	glass_name = "White Russian"
-	glass_desc = "A very nice looking drink. But that's just, like, your opinion, man."
+	glass_name = "Белый Русский"
+	glass_desc = "Очень красивый напиток. Но это только твое мнение, чувак."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/screwdrivercocktail
 	name = "Отвертка"
-	description = "Vodka, mixed with plain ol' orange juice. The result is surprisingly delicious."
+	description = "Водка, смешанная с обычным апельсиновым соком. Результат удивительно хорош."
 	color = "#A68310" // rgb: 166, 131, 16
 	boozepwr = 55
 	quality = DRINK_NICE
 	taste_description = "апельсины"
 	glass_icon_state = "screwdriverglass"
-	glass_name = "Screwdriver"
-	glass_desc = "A simple, yet superb mixture of Vodka and orange juice. Just the thing for the tired engineer."
+	glass_name = "Отвертка"
+	glass_desc = "Простая, но превосходная смесь водки и апельсинового сока. Как раз то, что нужно уставшему инженеру."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/screwdrivercocktail/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -687,25 +688,25 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/booger
 	name = "Бугер"
-	description = "Ewww..."
+	description = "Фууу..."
 	color = "#8CFF8C" // rgb: 140, 255, 140
 	boozepwr = 45
 	taste_description = "сладкий и сливочный"
 	glass_icon_state = "booger"
-	glass_name = "Booger"
-	glass_desc = "Ewww..."
+	glass_name = "Бугер"
+	glass_desc = "Фууу..."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/bloody_mary
 	name = "Кровавая Мэри"
-	description = "A strange yet pleasurable mixture made of vodka, tomato and lime juice. Or at least you THINK the red stuff is tomato juice."
+	description = "Странная, но приятная смесь из водки, томата и сока лайма. По крайней мере, вам КАЖЕТСЯ что красное вещество - это томатный сок."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 55
 	quality = DRINK_GOOD
 	taste_description = "помидоры с ноткой лайма"
 	glass_icon_state = "bloodymaryglass"
-	glass_name = "Bloody Mary"
-	glass_desc = "Tomato juice, mixed with Vodka and a li'l bit of lime. Tastes like liquid murder."
+	glass_name = "Кровавая Мэри"
+	glass_desc = "Томатный сок, смешанный с водкой и небольшим количеством лайма."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/bloody_mary/on_mob_life(mob/living/carbon/C, delta_time, times_fired)
@@ -715,15 +716,15 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/brave_bull
 	name = "Храбрый Бык"
-	description = "It's just as effective as Dutch-Courage!"
+	description = "Один глоток даёт заряд бравады на целую смену."
 	special_sound = 'white/valtos/sounds/drink/bull.ogg'
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 60
 	quality = DRINK_NICE
 	taste_description = "алкогольная храбрость"
 	glass_icon_state = "bravebullglass"
-	glass_name = "Brave Bull"
-	glass_desc = "Tequila and Coffee liqueur, brought together in a mouthwatering mixture. Drink up."
+	glass_name = "Храбрый Бык"
+	glass_desc = "Текила и кофейный ликер, соединенные в аппетитную смесь. Зацени."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	var/tough_text
 	glass_price = DRINK_PRICE_EASY
@@ -741,15 +742,15 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/tequila_sunrise
 	name = "Текила Санрайз"
-	description = "Tequila, Grenadine, and Orange Juice."
+	description = "Текила, гренадин и апельсиновый сок."
 	special_sound = 'white/valtos/sounds/drink/tequila_sunrise.ogg'
 	color = "#FFE48C" // rgb: 255, 228, 140
 	boozepwr = 45
 	quality = DRINK_GOOD
 	taste_description = "апельсины с оттенком граната"
 	glass_icon_state = "tequilasunriseglass"
-	glass_name = "tequila Sunrise"
-	glass_desc = "Oh great, now you feel nostalgic about sunrises back on Terra..."
+	glass_name = "Текила Санрайз"
+	glass_desc = "Класс, теперь вы ностальгируете по восходам солнца на Земле..."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	var/obj/effect/light_holder
 	glass_price = DRINK_PRICE_MEDIUM
@@ -771,15 +772,15 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	QDEL_NULL(light_holder)
 
 /datum/reagent/consumable/ethanol/toxins_special
-	name = "Особые Токсины"
-	description = "This thing is ON FIRE! CALL THE DAMN SHUTTLE!"
+	name = "Бомбление"
+	description = "ПОЖАР! ВЗРЫВОТЕХНИКИ СНОВА ГОРЯТ!! ВЫЗОВИТЕ СРАНЫЙ ШАТЛ!!!"
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 25
 	quality = DRINK_VERYGOOD
 	taste_description = "пряные токсины"
 	glass_icon_state = "toxinsspecialglass"
-	glass_name = "Toxins Special"
-	glass_desc = "Whoah, this thing is on FIRE!"
+	glass_name = "Бомбление"
+	glass_desc = "Вау, оно горит!"
 	shot_glass_icon_state = "toxinsspecialglass"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -788,8 +789,8 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	return ..()
 
 /datum/reagent/consumable/ethanol/beepsky_smash
-	name = "Громящий Бипски"
-	description = "Drink this and prepare for the LAW."
+	name = "Удар Бипски"
+	description = "Выпейте это и приготовьтесь к ПРАВОСУДИЮ."
 	special_sound = 'white/valtos/sounds/drink/criminal.ogg'
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 60 //THE FIST OF THE LAW IS STRONG AND HARD
@@ -797,8 +798,8 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
 	taste_description = "СПРАВЕДЛИВОСТЬ"
 	glass_icon_state = "beepskysmashglass"
-	glass_name = "Beepsky Smash"
-	glass_desc = "Heavy, hot and strong. Just like the Iron fist of the LAW."
+	glass_name = "Удар Бипски"
+	glass_desc = "Тяжелый, горячий и сильный. Прямо как железный кулак ПРАВОСУДИЯ."
 	overdose_threshold = 40
 	var/datum/brain_trauma/special/beepsky/B
 	ph = 2
@@ -839,29 +840,29 @@ All effects don't start immediately, but rather get worse over time; the rate is
 		M.gain_trauma(/datum/brain_trauma/mild/phobia/security, TRAUMA_RESILIENCE_BASIC)
 
 /datum/reagent/consumable/ethanol/irish_cream
-	name = "Ирландский Крем"
-	description = "Whiskey-imbued cream, what else would you expect from the Irish?"
+	name = "Айриш Крим"
+	description = "Сливки с виски - что еще можно ожидать от ирландцев?"
 	special_sound = 'white/valtos/sounds/drink/irish_coffee.ogg'
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 50
 	quality = DRINK_NICE
 	taste_description = "сливочный спирт"
 	glass_icon_state = "irishcreamglass"
-	glass_name = "Irish Cream"
-	glass_desc = "It's cream, mixed with whiskey. What else would you expect from the Irish?"
+	glass_name = "Айриш Крим"
+	glass_desc = "Это сливки, смешанные с виски. Что еще можно ожидать от ирландцев?"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/manly_dorf
 	name = "Мужественный Дорф"
-	description = "Beer and Ale, brought together in a delicious mix. Intended for true men only."
+	description = "Пиво и эль, собранные вместе в восхитительный микс. Только для настоящих мужчин."
 	special_sound = 'white/valtos/sounds/drink/df.ogg'
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 100 //For the manly only
 	quality = DRINK_NICE
 	taste_description = "волосы на груди и подбородке"
 	glass_icon_state = "manlydorfglass"
-	glass_name = "The Manly Dorf"
-	glass_desc = "A manly concoction made from Ale and Beer. Intended for true men only."
+	glass_name = "Мужественный Дорф"
+	glass_desc = "Коктейль из эля и пива. Только для настоящих мужчин."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	var/dorf_mode
 
@@ -880,41 +881,41 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	return ..()
 
 /datum/reagent/consumable/ethanol/longislandicedtea
-	name = "Холодный Чай «Long Island»"
-	description = "The liquor cabinet, brought together in a delicious mix. Intended for middle-aged alcoholic women only."
+	name = "Лонг-Айленд айс ти"
+	description = "Восхитительная смесь водки, джина, текилы и куба либре. Предназначен только для женщин-алкоголиков бальзаковского возраста."
 	special_sound = 'white/valtos/sounds/drink/long_island.ogg'
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 35
 	quality = DRINK_VERYGOOD
-	taste_description = "смесь колы и алкоголя"
+	taste_description = "смесь алкоголя"
 	glass_icon_state = "longislandicedteaglass"
-	glass_name = "Long Island Iced Tea"
-	glass_desc = "The liquor cabinet, brought together in a delicious mix. Intended for middle-aged alcoholic women only."
+	glass_name = "Лонг-Айленд айс ти"
+	glass_desc = "Восхитительная смесь водки, джина, текилы и куба либре. Предназначен только для женщин-алкоголиков бальзаковского возраста."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 
 /datum/reagent/consumable/ethanol/moonshine
-	name = "Самогон"
-	description = "You've really hit rock bottom now... your liver packed its bags and left last night."
+	name = "Лунный свет"
+	description = "Вы действительно достигли дна... Ваша печень собрала свои вещи и ушла вчера вечером."
 	special_sound = 'white/valtos/sounds/drink/moonshine.ogg'
 	color = "#AAAAAA77" // rgb: 170, 170, 170, 77 (alpha) (like water)
 	boozepwr = 95
 	taste_description = "горечь"
 	glass_icon_state = "glass_clear"
-	glass_name = "Moonshine"
-	glass_desc = "You've really hit rock bottom now... your liver packed its bags and left last night."
+	glass_name = "Лунный свет"
+	glass_desc = "Вы действительно достигли дна... Ваша печень собрала свои вещи и ушла вчера вечером."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/b52
 	name = "Б-52"
-	description = "Coffee, Irish Cream, and cognac. You will get bombed."
+	description = "Кофе, айриш крим и коньяк. Тебя просто разорвёт."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 85
 	quality = DRINK_GOOD
 	taste_description = "злой и ирландский"
 	glass_icon_state = "b52glass"
-	glass_name = "B-52"
-	glass_desc = "Kahlua, Irish Cream, and cognac. You will get bombed."
+	glass_name = "Б-52"
+	glass_desc = "Кофе, айриш крим и коньяк. Тебя просто разорвёт."
 	shot_glass_icon_state = "b52glass"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_EASY
@@ -923,97 +924,94 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	playsound(M, 'white/valtos/sounds/nuclearexplosion.ogg', 100, FALSE)
 
 /datum/reagent/consumable/ethanol/irishcoffee
-	name = "Ирландский Кофе"
-	description = "Coffee, and alcohol. More fun than a Mimosa to drink in the morning."
+	name = "Ирландский кофе"
+	description = "Кофе и алкоголь. Веселее, чем пить \"Мимозу\" по утрам."
 	special_sound = 'white/valtos/sounds/drink/irish_coffee.ogg'
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 35
 	quality = DRINK_NICE
 	taste_description = "сдаться за день"
 	glass_icon_state = "irishcoffeeglass"
-	glass_name = "Irish Coffee"
-	glass_desc = "Coffee and alcohol. More fun than a Mimosa to drink in the morning."
+	glass_name = "Ирландский Кофе"
+	glass_desc = "Кофе и алкоголь. Веселее, чем пить \"Мимозу\" по утрам."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/margarita
 	name = "Маргарита"
-	description = "On the rocks with salt on the rim. Arriba~!"
+	description = "На камнях с солью по краю. Арриба~!"
 	color = "#8CFF8C" // rgb: 140, 255, 140
 	boozepwr = 35
 	quality = DRINK_NICE
 	taste_description = "сухой и соленый"
 	glass_icon_state = "margaritaglass"
-	glass_name = "Margarita"
-	glass_desc = "On the rocks with salt on the rim. Arriba~!"
+	glass_name = "Маргарита"
+	glass_desc = "На камнях с солью по краю. Арриба~!"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_MEDIUM
 
 /datum/reagent/consumable/ethanol/black_russian
-	name = "Черный Русский"
-	description = "For the lactose-intolerant. Still as classy as a White Russian."
+	name = "Черный русский"
+	description = "Для людей с непереносимостью лактозы. По-прежнему стильный, как белый русский."
 	color = "#360000" // rgb: 54, 0, 0
 	boozepwr = 70
 	quality = DRINK_NICE
 	taste_description = "горечь"
 	glass_icon_state = "blackrussianglass"
-	glass_name = "Black Russian"
-	glass_desc = "For the lactose-intolerant. Still as classy as a White Russian."
+	glass_name = "Черный русский"
+	glass_desc = "Для людей с непереносимостью лактозы. По-прежнему стильный, как белый русский."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-
 
 /datum/reagent/consumable/ethanol/manhattan
 	name = "Манхэттен"
-	description = "The Detective's undercover drink of choice. He never could stomach gin..."
+	description = "Любимый напиток детектива под прикрытием. Он никогда не мог переварить джин..."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 30
 	quality = DRINK_NICE
 	taste_description = "легкая сухость"
 	glass_icon_state = "manhattanglass"
-	glass_name = "Manhattan"
-	glass_desc = "The Detective's undercover drink of choice. He never could stomach gin..."
+	glass_name = "Манхэттен"
+	glass_desc = "Любимый напиток детектива под прикрытием. Он никогда не мог переварить джин..."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_EASY
 
-
 /datum/reagent/consumable/ethanol/manhattan_proj
 	name = "Проект Манхэттен"
-	description = "A scientist's drink of choice, for pondering ways to blow up the station."
+	description = "Любимый напиток ученых, мечтающих как взорвать станцию."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 45
 	quality = DRINK_VERYGOOD
 	taste_description = "смерть, разрушитель миров"
 	glass_icon_state = "proj_manhattanglass"
-	glass_name = "Manhattan Project"
-	glass_desc = "A scientist's drink of choice, for thinking how to blow up the station."
+	glass_name = "Проект Манхэттен"
+	glass_desc = "Любимый напиток ученых, мечтающих как взорвать станцию."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-
 
 /datum/reagent/consumable/ethanol/manhattan_proj/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.set_drugginess(30 * REM * delta_time)
 	return ..()
 
 /datum/reagent/consumable/ethanol/whiskeysoda
-	name = "Виски с Содовой"
-	description = "For the more refined griffon."
+	name = "Виски с содовой"
+	description = "Идеально освежает."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 70
 	quality = DRINK_NICE
 	taste_description = "сода"
 	glass_icon_state = "whiskeysodaglass2"
-	glass_name = "whiskey soda"
-	glass_desc = "Ultimate refreshment."
+	glass_name = "Виски с содовой"
+	glass_desc = "Идеально освежает."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/antifreeze
 	name = "Антифриз"
-	description = "The ultimate refreshment. Not what it sounds like."
+	description = "Идеально освежает. Внешний вид может обмануть."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 35
 	quality = DRINK_NICE
 	taste_description = "моча Джека Фроста"
 	glass_icon_state = "antifreeze"
-	glass_name = "Anti-freeze"
-	glass_desc = "The ultimate refreshment."
+	glass_name = "Антифриз"
+	glass_desc = "Идеально освежает."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/antifreeze/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -1022,14 +1020,14 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/barefoot
 	name = "Босоножка"
-	description = "Barefoot and pregnant."
+	description = "Босая и беременная."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 45
 	quality = DRINK_VERYGOOD
 	taste_description = "сливочные ягоды"
 	glass_icon_state = "b&p"
-	glass_name = "Barefoot"
-	glass_desc = "Barefoot and pregnant."
+	glass_name = "Босоножка"
+	glass_desc = "Босая и беременная."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/barefoot/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -1042,101 +1040,101 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/snowwhite
 	name = "Белоснежка"
-	description = "A cold refreshment."
+	description = "Холодная свежесть."
 	color = "#FFFFFF" // rgb: 255, 255, 255
 	boozepwr = 35
 	quality = DRINK_NICE
 	taste_description = "освежающий холод"
 	glass_icon_state = "snowwhite"
-	glass_name = "Snow White"
-	glass_desc = "A cold refreshment."
+	glass_name = "Белоснежка"
+	glass_desc = "Холодная свежесть."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/demonsblood //Prevents the imbiber from being dragged into a pool of blood by a slaughter demon.
-	name = "Кровь Демона"
-	description = "AHHHH!!!!"
+	name = "Кровь демона"
+	description = "ААААА!!!!"
 	color = "#820000" // rgb: 130, 0, 0
 	boozepwr = 75
 	quality = DRINK_VERYGOOD
 	taste_description = "сладкое железо"
 	glass_icon_state = "demonsblood"
-	glass_name = "Demons Blood"
-	glass_desc = "Just looking at this thing makes the hair at the back of your neck stand up."
+	glass_name = "Кровь демона"
+	glass_desc = "От одного взгляда на этот коктейль волосы на затылке встают дыбом.."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/devilskiss //If eaten by a slaughter demon, the demon will regret it.
-	name = "Поцелуй Дьявола"
-	description = "Creepy time!"
+	name = "Поцелуй дьявола"
+	description = "Жуть!"
 	color = "#A68310" // rgb: 166, 131, 16
 	boozepwr = 70
 	quality = DRINK_VERYGOOD
 	taste_description = "горькое железо"
 	glass_icon_state = "devilskiss"
-	glass_name = "Devils Kiss"
-	glass_desc = "Creepy time!"
+	glass_name = "Поцелуй дьявола"
+	glass_desc = "Жуть!"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/vodkatonic
-	name = "Водка с Тоником"
-	description = "For when a gin and tonic isn't Russian enough."
+	name = "Водка с тоником"
+	description = "Для тех случаев, когда джин с тоником не достаточно по-русски."
 	color = "#0064C8" // rgb: 0, 100, 200
 	boozepwr = 70
 	quality = DRINK_NICE
 	taste_description = "терпкая горечь"
 	glass_icon_state = "vodkatonicglass"
-	glass_name = "vodka and tonic"
-	glass_desc = "For when a gin and tonic isn't Russian enough."
+	glass_name = "Водка с тоником"
+	glass_desc = "Для тех случаев, когда джин с тоником не достаточно по-русски."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 
 /datum/reagent/consumable/ethanol/ginfizz
-	name = "Джин Физ"
-	description = "Refreshingly lemony, deliciously dry."
+	name = "Джин физ"
+	description = "Освежающе лимонный, восхитительно сухой."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 45
 	quality = DRINK_GOOD
 	taste_description = "сухой, терпкий лимон"
 	glass_icon_state = "ginfizzglass"
-	glass_name = "gin fizz"
-	glass_desc = "Refreshingly lemony, deliciously dry."
+	glass_name = "Джин физ"
+	glass_desc = "Освежающе лимонный, восхитительно сухой."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 
 /datum/reagent/consumable/ethanol/bahama_mama
-	name = "Багана Мама"
-	description = "A tropical cocktail with a complex blend of flavors."
+	name = "Багама мама"
+	description = "Тропический коктейль со сложным сочетанием вкусов."
 	special_sound = 'white/valtos/sounds/drink/bahama_mama.ogg'
 	color = "#FF7F3B" // rgb: 255, 127, 59
 	boozepwr = 35
 	quality = DRINK_GOOD
 	taste_description = "ананас, кокос и кофе"
 	glass_icon_state = "bahama_mama"
-	glass_name = "Bahama Mama"
-	glass_desc = "A tropical cocktail with a complex blend of flavors."
+	glass_name = "Багама мама"
+	glass_desc = "Тропический коктейль со сложным сочетанием вкусов."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/singulo
-	name = "Singulo"
-	description = "A blue-space beverage!"
+	name = "Сингуло"
+	description = "Блюспейс коктейль!"
 	color = "#2E6671" // rgb: 46, 102, 113
 	boozepwr = 35
 	quality = DRINK_VERYGOOD
 	taste_description = "концентрированное вещество"
 	glass_icon_state = "singulo"
-	glass_name = "Singulo"
-	glass_desc = "A blue-space beverage."
+	glass_name = "Сингуло"
+	glass_desc = "Блюспейс коктейль!"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/sbiten
 	name = "Сбитень"
-	description = "A spicy Vodka! Might be a little hot for the little guys!"
+	description = "Водка с перцом! Не обожгись!"
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 70
 	quality = DRINK_GOOD
 	taste_description = "горячий и пряный"
 	glass_icon_state = "sbitenglass"
-	glass_name = "Sbiten"
-	glass_desc = "A spicy mix of Vodka and Spice. Very hot."
+	glass_name = "Сбитеньб"
+	glass_desc = "Пряная смесь водки и перца."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/sbiten/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -1144,39 +1142,39 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	return ..()
 
 /datum/reagent/consumable/ethanol/red_mead
-	name = "Красный Мёд"
-	description = "The true Viking drink! Even though it has a strange red color."
+	name = "Красная медовуха"
+	description = "Настоящий напиток викингов! Несмотря его странный цвет."
 	color = "#C73C00" // rgb: 199, 60, 0
 	boozepwr = 31 //Red drinks are stronger
 	quality = DRINK_GOOD
 	taste_description = "сладкий и соленый алкоголь"
 	glass_icon_state = "red_meadglass"
-	glass_name = "Red Mead"
-	glass_desc = "A true Viking's beverage, made with the blood of their enemies."
+	glass_name = "Красная медовуха"
+	glass_desc = "Настоящий напиток викингов, приготовленный из крови их врагов."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/mead
 	name = "Медовуха"
-	description = "A Viking drink, though a cheap one."
+	description = "Напиток викингов, хоть и дешевый, но любимый."
 	color = "#664300" // rgb: 102, 67, 0
 	nutriment_factor = 1 * REAGENTS_METABOLISM
 	boozepwr = 30
 	quality = DRINK_NICE
 	taste_description = "сладкий, сладкий алкоголь"
 	glass_icon_state = "meadglass"
-	glass_name = "Mead"
-	glass_desc = "A drink from Valhalla."
+	glass_name = "Медовуха"
+	glass_desc = "Напиток из Вальхаллы."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/iced_beer
-	name = "Охлажденное Пиво"
-	description = "A beer which is so cold the air around it freezes."
+	name = "Ледяное пиво"
+	description = "Настолько холодное пиво, что воздух вокруг замерзает."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 15
 	taste_description = "освежающая прохлада"
 	glass_icon_state = "iced_beerglass"
-	glass_name = "iced beer"
-	glass_desc = "A beer so frosty, the air around it freezes."
+	glass_name = "ледяное пиво"
+	glass_desc = "Настолько холодное пиво, что воздух вокруг замерзает."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/iced_beer/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -1185,89 +1183,89 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/grog
 	name = "Грог"
-	description = "Watered-down rum, Nanotrasen approves!"
+	description = "Разбавленный водой ром, НаноТрейзен одобряет!"
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 1 //Basically nothing
 	taste_description = "плохое оправдание для алкоголя"
 	glass_icon_state = "grogglass"
-	glass_name = "Grog"
-	glass_desc = "A fine and cepa drink for Space."
+	glass_name = "Грог"
+	glass_desc = "Прекрасный напиток для космоса."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 
 /datum/reagent/consumable/ethanol/aloe
 	name = "Алоэ"
-	description = "So very, very, very good."
+	description = "Очень, очень, очень хорош."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 35
 	quality = DRINK_VERYGOOD
 	taste_description = "сладкий и сливочный"
 	glass_icon_state = "aloe"
-	glass_name = "Aloe"
-	glass_desc = "Very, very, very good."
+	glass_name = "Алоэ"
+	glass_desc = "Очень, очень, очень хорош."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	//somewhat annoying mix
 	glass_price = DRINK_PRICE_MEDIUM
 
 /datum/reagent/consumable/ethanol/andalusia
 	name = "Андалузия"
-	description = "A nice, strangely named drink."
+	description = "Приятный напиток со странным названием."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 40
 	quality = DRINK_GOOD
 	taste_description = "лимоны"
 	glass_icon_state = "andalusia"
-	glass_name = "Andalusia"
-	glass_desc = "A nice, strangely named drink."
+	glass_name = "Андалузия"
+	glass_desc = "Приятный напиток со странным названием"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/alliescocktail
-	name = "Коктейль Союзники"
-	description = "A drink made from your allies. Not as sweet as those made from your enemies."
+	name = "Коктейль союзников"
+	description = "Напиток, приготовленный вашими союзниками. Не так сладок, как напиток, приготовленный из ваших врагов."
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 45
 	quality = DRINK_NICE
 	taste_description = "горький, но свободный"
 	glass_icon_state = "alliescocktail"
-	glass_name = "Allies cocktail"
-	glass_desc = "A drink made from your allies."
+	glass_name = "Коктейль союзников"
+	glass_desc = "От товарищей по борьбе."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/acid_spit
-	name = "Кислотный Плевок"
-	description = "A drink for the daring, can be deadly if incorrectly prepared!"
+	name = "Кислотный плевок"
+	description = "Напиток для смелых. При неправильном приготовлении может оказаться смертельно опасным!"
 	special_sound = 'white/valtos/sounds/drink/airlock_alien_prying.ogg'
 	color = "#365000" // rgb: 54, 80, 0
 	boozepwr = 70
 	quality = DRINK_VERYGOOD
 	taste_description = "желудочная кислота"
 	glass_icon_state = "acidspitglass"
-	glass_name = "Acid Spit"
-	glass_desc = "A drink from Nanotrasen. Made from live aliens."
+	glass_name = "Кислотный плевок"
+	glass_desc = "Фирменный напиток NanoTrasen."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/amasec
 	name = "Амасек"
-	description = "Official drink of the Nanotrasen Gun-Club!"
+	description = "Официальный напиток оружейного клуба \"НаноТрейзен\"!"
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 35
 	quality = DRINK_GOOD
 	taste_description = "темный и металлический"
 	glass_icon_state = "amasecglass"
-	glass_name = "Amasec"
-	glass_desc = "Always handy before COMBAT!!!"
+	glass_name = "Амасек"
+	glass_desc = "Всегда под рукой перед БОЕМ!!!"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/changelingsting
-	name = "Жало Генокрада"
-	description = "You take a tiny sip and feel a burning sensation..."
+	name = "Жало генокрада"
+	description = "Вы делаете маленький глоток и чувствуете жжение...."
 	color = "#2E6671" // rgb: 46, 102, 113
 	boozepwr = 50
 	quality = DRINK_GOOD
 	taste_description = "мой мозг выходит из носа"
 	glass_icon_state = "changelingsting"
-	glass_name = "Changeling Sting"
-	glass_desc = "A stingy drink."
+	glass_name = "Жало генокрада"
+	glass_desc = "Жгучий коктейль."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/changelingsting/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -1279,28 +1277,28 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	return ..()
 
 /datum/reagent/consumable/ethanol/irishcarbomb
-	name = "Ирландская Автомобильная Бомба"
-	description = "Mmm, tastes like the free Irish state."
+	name = "Ирландская Автомобильная бомба"
+	description = "Ммм, на вкус как свободное ирландское государство."
 	special_sound = 'white/valtos/sounds/drink/irish_coffee.ogg'
 	color = "#2E6671" // rgb: 46, 102, 113
 	boozepwr = 25
 	quality = DRINK_GOOD
 	taste_description = "вкусный гнев"
 	glass_icon_state = "irishcarbomb"
-	glass_name = "Irish Car Bomb"
-	glass_desc = "An Irish car bomb."
+	glass_name = "Ирландская Автомобильная бомба."
+	glass_desc = "Ирландская Автомобильная бомба."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/syndicatebomb
-	name = "Синдикатская Бомба"
-	description = "Tastes like terrorism!"
+	name = "Бомба Синдиката"
+	description = "На вкус как терроризм!"
 	color = "#2E6671" // rgb: 46, 102, 113
 	boozepwr = 90
 	quality = DRINK_GOOD
 	taste_description = "очищенный антагонизм"
 	glass_icon_state = "syndicatebomb"
-	glass_name = "Syndicate Bomb"
-	glass_desc = "A syndicate bomb."
+	glass_name = "Бомба Синдиката"
+	glass_desc = "Для настоящих агентов."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/syndicatebomb/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -1309,46 +1307,46 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	return ..()
 
 /datum/reagent/consumable/ethanol/hiveminderaser
-	name = "Стиратель Коллективного Разума"
-	description = "A vessel of pure flavor."
+	name = "Стиратель улья"
+	description = "Сосуд чистого вкуса."
 	color = "#FF80FC" // rgb: 255, 128, 252
 	boozepwr = 40
 	quality = DRINK_GOOD
 	taste_description = "экстрасенсорные ссылки"
 	glass_icon_state = "hiveminderaser"
-	glass_name = "Hivemind Eraser"
-	glass_desc = "For when even mindshields can't save you."
+	glass_name = "Стиратель улья"
+	glass_desc = "Для тех случаев, когда даже щиты разума не могут вас спасти."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/erikasurprise
 	name = "Сюрприз Эрики"
-	description = "The surprise is, it's green!"
+	description = "Это сюрпиз! И он зеленый!"
 	special_sound = 'white/valtos/sounds/drink/erika.ogg'
 	color = "#2E6671" // rgb: 46, 102, 113
 	boozepwr = 35
 	quality = DRINK_VERYGOOD
 	taste_description = "терпкость и бананы"
 	glass_icon_state = "erikasurprise"
-	glass_name = "Erika Surprise"
-	glass_desc = "The surprise is, it's green!"
+	glass_name = "Сюрприз Эрики"
+	glass_desc = "Это сюрприз! И он зеленый!"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/driestmartini
-	name = "Самый Сухой Мартини"
-	description = "Only for the experienced. You think you see sand floating in the glass."
+	name = "Сухой Мартини"
+	description = "Только для бывалых. Вам кажется, что вы видите песок, плавающий в бокале."
 	nutriment_factor = 1 * REAGENTS_METABOLISM
 	color = "#2E6671" // rgb: 46, 102, 113
 	boozepwr = 65
 	quality = DRINK_GOOD
 	taste_description = "пляж"
 	glass_icon_state = "driestmartiniglass"
-	glass_name = "Driest Martini"
-	glass_desc = "Only for the experienced. You think you see sand floating in the glass."
+	glass_name = "Сухой Мартини"
+	glass_desc = "Только для бывалых. Вам кажется, что вы видите песок, плавающий в бокале."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/bananahonk
 	name = "Банановый Хонк"
-	description = "A drink from Clown Heaven."
+	description = "Напиток из клоунского рая."
 	special_sound = 'white/valtos/sounds/drink/bikehorn.ogg'
 	nutriment_factor = 1 * REAGENTS_METABOLISM
 	color = "#FFFF91" // rgb: 255, 255, 140
@@ -1356,8 +1354,8 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	quality = DRINK_GOOD
 	taste_description = "плохая шутка"
 	glass_icon_state = "bananahonkglass"
-	glass_name = "Banana Honk"
-	glass_desc = "A drink from Clown Heaven."
+	glass_name = "Банановый хонк"
+	glass_desc = "Напиток из клоунского рая."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/bananahonk/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -1369,15 +1367,15 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/silencer
 	name = "Глушитель"
-	description = "A drink from Mime Heaven."
+	description = "Напиток из Рая для Мимов."
 	nutriment_factor = 2 * REAGENTS_METABOLISM
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 59 //Proof that clowns are better than mimes right here
 	quality = DRINK_GOOD
 	taste_description = "ластик"
 	glass_icon_state = "silencerglass"
-	glass_name = "Silencer"
-	glass_desc = "A drink from Mime Heaven."
+	glass_name = "Глушитель"
+	glass_desc = "Напиток из Рая для Мимов."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/silencer/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -1388,15 +1386,15 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	return ..() || .
 
 /datum/reagent/consumable/ethanol/drunkenblumpkin
-	name = "Туалетный Отсос"
-	description = "A weird mix of whiskey and blumpkin juice."
+	name = "Пьяный тупица"
+	description = "Странная смесь виски и сока бюспейс тыквы."
 	color = "#1EA0FF" // rgb: 102, 67, 0
 	boozepwr = 50
 	quality = DRINK_VERYGOOD
 	taste_description = "патока и глоток воды в бассейне"
 	glass_icon_state = "drunkenblumpkin"
-	glass_name = "Drunken Blumpkin"
-	glass_desc = "A drink for the drunks."
+	glass_name = "Пьяный тупица"
+	glass_desc = "Выпивка для пьяниц."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/whiskey_sour //Requested since we had whiskey cola and soda but not sour.
@@ -1412,31 +1410,30 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/hcider
 	name = "Крепкий Сидр"
-	description = "Apple juice, for adults."
+	description = "Яблочный сок для взрослых."
+	special_sound = 'white/nocringe/sounds/drink/hcider.ogg'
 	color = "#CD6839"
 	nutriment_factor = 1 * REAGENTS_METABOLISM
 	boozepwr = 25
 	taste_description = "сезон, который <i>выпадает</i> между летом и зимой"
 	glass_icon_state = "whiskeyglass"
-	glass_name = "hard cider"
-	glass_desc = "Tastes like autumn... no wait, fall!"
+	glass_name = "крепкий сидр"
+	glass_desc = "Что такое осень - это небо."
 	shot_glass_icon_state = "shotglassbrown"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-
 /datum/reagent/consumable/ethanol/fetching_fizz //A reference to one of my favorite games of all time. Pulls nearby ores to the imbiber!
 	name = "Приход"
-	description = "Whiskey sour/iron/uranium mixture resulting in a highly magnetic slurry. Mild alcohol content." //Requires no alcohol to make but has alcohol anyway because ~magic~
+	description = "Смесь кислого виски с железом и ураном, в результате чего образуется высокомагнитная суспензия." //Requires no alcohol to make but has alcohol anyway because ~magic~
 	color = rgb(255, 91, 15)
 	boozepwr = 10
 	quality = DRINK_VERYGOOD
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM
 	taste_description = "заряженный металл" // the same as teslium, honk honk.
 	glass_icon_state = "fetching_fizz"
-	glass_name = "Fetching Fizz"
-	glass_desc = "Induces magnetism in the imbiber. Started as a barroom prank but evolved to become popular with miners and scrappers. Metallic aftertaste."
+	glass_name = "Приход"
+	glass_desc = "Вызывает магнетизм у выпившего. Коктейль появился как шутка в баре, но потом стал популярным среди шахтеров. Имеет металлическое послевкусие."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-
 
 /datum/reagent/consumable/ethanol/fetching_fizz/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	for(var/obj/item/stack/ore/O in orange(3, M))
@@ -1446,15 +1443,15 @@ All effects don't start immediately, but rather get worse over time; the rate is
 //Another reference. Heals those in critical condition extremely quickly.
 /datum/reagent/consumable/ethanol/hearty_punch
 	name = "Сердечный Пунш"
-	description = "Brave bull/syndicate bomb/absinthe mixture resulting in an energizing beverage. Mild alcohol content."
+	description = "Смесь Храброго Быка, Бомбы Синдиката и абсента, в результате чего получается возбуждающий напиток."
 	color = rgb(140, 0, 0)
 	boozepwr = 90
 	quality = DRINK_VERYGOOD
 	metabolization_rate = 0.4 * REAGENTS_METABOLISM
 	taste_description = "бравада перед лицом катастрофы"
 	glass_icon_state = "hearty_punch"
-	glass_name = "Hearty Punch"
-	glass_desc = "Aromatic beverage served piping hot. According to folk tales it can almost wake the dead."
+	glass_name = "Сердечный Пунш"
+	glass_desc = "Ароматный напиток, который подается горячим. Согласно народным преданиям, он может разбудить даже мертвого."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/hearty_punch/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -1468,29 +1465,27 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	return ..() || .
 
 /datum/reagent/consumable/ethanol/bacchus_blessing //An EXTREMELY powerful drink. Smashed in seconds, dead in minutes.
-	name = "Благословление Диониса"
-	description = "Unidentifiable mixture. Unmeasurably high alcohol content."
+	name = "Бахус"
+	description = "Неидентифицируемая смесь. Неизмеримо высокое содержание алкоголя."
 	color = rgb(51, 19, 3) //Sickly brown
 	boozepwr = 300 //I warned you
 	taste_description = "кирпичная стена"
 	glass_icon_state = "glass_brown2"
-	glass_name = "Bacchus' Blessing"
-	glass_desc = "You didn't think it was possible for a liquid to be so utterly revolting. Are you sure about this...?"
+	glass_name = "Бахус"
+	glass_desc = "Вы не думали, что жидкость может быть настолько отвратительной...?"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-
-
 
 /datum/reagent/consumable/ethanol/atomicbomb
 	name = "Атомная Бомба"
-	description = "Nuclear proliferation never tasted so good."
+	description = "Ядерное оружие никогда не было таким вкусным."
 	special_sound = 'white/valtos/sounds/drink/atomic_bomb.ogg'
 	color = "#666300" // rgb: 102, 99, 0
 	boozepwr = 0 //custom drunk effect
 	quality = DRINK_FANTASTIC
 	taste_description = "бомба"
 	glass_icon_state = "atomicbombglass"
-	glass_name = "Atomic Bomb"
-	glass_desc = "Nanotrasen cannot take legal responsibility for your actions after imbibing."
+	glass_name = "Атомная Бомба"
+	glass_desc = "НаноТрейзен не может взять на себя юридическую ответственность за ваши действия после употребления этого коктейля."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_HIGH
 
@@ -1514,15 +1509,15 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/gargle_blaster
 	name = "Пангалактический ополаскиватель"
-	description = "Whoah, this stuff looks volatile!"
+	description = "Вау, эта штука выглядит нестабильной."
 	special_sound = 'white/valtos/sounds/drink/enter_galactic.ogg'
 	color = "#664300" // rgb: 102, 67, 0
 	boozepwr = 0 //custom drunk effect
 	quality = DRINK_GOOD
 	taste_description = "мои мозги разбиты лимоном, обернутым вокруг золотого кирпича"
 	glass_icon_state = "gargleblasterglass"
-	glass_name = "Pan-Galactic Gargle Blaster"
-	glass_desc = "Like having your brain smashed out by a slice of lemon wrapped around a large gold brick."
+	glass_name = "Пангалактический ополаскиватель"
+	glass_desc = "Как если бы тебе выбили мозг долькой лимона, обернутой вокруг большого золотого кирпича."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/gargle_blaster/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -1544,15 +1539,15 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/neurotoxin
 	name = "Нейротоксин"
-	description = "A strong neurotoxin that puts the subject into a death-like state."
+	description = "Сильный нейротоксин, который вводит субъекта в состояние, подобное смерти."
 	color = "#2E2E61" // rgb: 46, 46, 97
 	boozepwr = 50
 	quality = DRINK_VERYGOOD
 	taste_description = "онемение"
 	metabolization_rate = 1 * REAGENTS_METABOLISM
 	glass_icon_state = "neurotoxinglass"
-	glass_name = "Neurotoxin"
-	glass_desc = "A drink that is guaranteed to knock you silly."
+	glass_name = "Нейротоксин"
+	glass_desc = "Напиток, который гарантированно собьет вас с толку."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/neurotoxin/proc/pickt()
@@ -1591,7 +1586,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/hippies_delight
 	name = "Услада Хиппи"
-	description = "You just don't get it maaaan."
+	description = "Ты просто не догоняешь, чуваааак."
 	color = "#664300" // rgb: 102, 67, 0
 	nutriment_factor = 0
 	boozepwr = 0 //custom drunk effect
@@ -1599,8 +1594,8 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	metabolization_rate = 0.2 * REAGENTS_METABOLISM
 	taste_description = "дать миру шанс"
 	glass_icon_state = "hippiesdelightglass"
-	glass_name = "Hippie's Delight"
-	glass_desc = "A drink enjoyed by people during the 1960's."
+	glass_name = "Услада Хиппи"
+	glass_desc = "Напиток, которым наслаждались люди в 1960-е годы."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/hippies_delight/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -1637,28 +1632,28 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/eggnog
 	name = "Гоголь-Моголь"
-	description = "For enjoying the most wonderful time of the year."
+	description = "Для наслаждения самым замечательным временем года."
 	color = "#fcfdc6" // rgb: 252, 253, 198
 	nutriment_factor = 2 * REAGENTS_METABOLISM
 	boozepwr = 1
 	quality = DRINK_VERYGOOD
 	taste_description = "заварной крем и алкоголь"
 	glass_icon_state = "glass_yellow"
-	glass_name = "eggnog"
-	glass_desc = "For enjoying the most wonderful time of the year."
+	glass_name = "Гоголь-Моголь"
+	glass_desc = "Для наслаждения самым замечательным временем года."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 
 /datum/reagent/consumable/ethanol/narsour
 	name = "Нар'Кис"
-	description = "Side effects include self-mutilation and hoarding plasteel."
+	description = "Побочные эффекты включают самобичевание и накопительство пластали."
 	color = RUNE_COLOR_DARKRED
 	boozepwr = 10
 	quality = DRINK_FANTASTIC
 	taste_description = "кровь"
 	glass_icon_state = "narsour"
-	glass_name = "Nar'Sour"
-	glass_desc = "A new hit cocktail inspired by THE ARM Breweries will have you shouting Fuu ma'jin in no time!"
+	glass_name = "Нар'Кис"
+	glass_desc = "Новый хитовый коктейль, вдохновленный пивоварней РУКА, заставит вас кричать Fuu ma'jin в мгновение ока!"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/narsour/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -1668,58 +1663,58 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/triple_sec
 	name = "Трипл Сек"
-	description = "A sweet and vibrant orange liqueur."
+	description = "Сладкий и яркий на вкус апельсиновый ликер."
 	color = "#ffcc66"
 	boozepwr = 30
 	taste_description = "теплый цветочный апельсиновый вкус, напоминающий воздушный океан и летний карибский ветер"
 	glass_icon_state = "glass_orange"
-	glass_name = "Triple Sec"
-	glass_desc = "A glass of straight Triple Sec."
+	glass_name = "Трипл Сек"
+	glass_desc = "Стакан натурального Трипл Сек."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/creme_de_menthe
-	name = "Мятный Ликер"
-	description = "A minty liqueur excellent for refreshing, cool drinks."
+	name = "Мятный ликер"
+	description = "Мятный ликер отлично подходит для освежающих, прохладных напитков."
 	color = "#00cc00"
 	boozepwr = 20
 	taste_description = "мятный, прохладный и бодрящий всплеск холодной воды"
 	glass_icon_state = "glass_green"
-	glass_name = "Creme de Menthe"
-	glass_desc = "You can almost feel the first breath of spring just looking at it."
+	glass_name = "Мятный ликер"
+	glass_desc = "Глядя на него, можно почувствовать первое дыхание весны."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/creme_de_cacao
 	name = "Шоколадный ликер"
-	description = "A chocolatey liqueur excellent for adding dessert notes to beverages and bribing sororities."
+	description = "Шоколадный ликер отлично подходит для придания десертных нот напиткам и подкупа женских обществ."
 	color = "#996633"
 	boozepwr = 20
 	taste_description = "гладкий и ароматный намек конфет, кружащихся в укусе алкоголя"
 	glass_icon_state = "glass_brown"
-	glass_name = "Creme de Cacao"
-	glass_desc = "A million hazing lawsuits and alcohol poisonings have started with this humble ingredient."
+	glass_name = "Шоколадный ликер"
+	glass_desc = "Миллион судебных исков о дедовщине и отравлениях алкоголем начались с этого скромного коктейля."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/creme_de_coconut
 	name = "Кокосовый ликер"
-	description = "A coconut liqueur for smooth, creamy, tropical drinks."
+	description = "Кокосовый ликер для мягких, сливочных, тропических напитков."
 	color = "#F7F0D0"
 	boozepwr = 20
 	taste_description = "сладкий молочный вкус с нотами поджаренного сахара"
 	glass_icon_state = "glass_white"
-	glass_name = "Creme de Coconut"
-	glass_desc = "An unintimidating glass of coconut liqueur."
+	glass_name = "Кокосовый ликер"
+	glass_desc = "Неотразимый бокал кокосового ликера."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/quadruple_sec
 	name = "Квадрипл Сек"
-	description = "Kicks just as hard as licking the power cell on a baton, but tastier."
+	description = "Прекрасен, как облизывание батарейки станбатона."
 	color = "#cc0000"
 	boozepwr = 35
 	quality = DRINK_GOOD
 	taste_description = "бодрящая горькая свежесть, которая наполняет ваше существо; ни один враг станции не останется незамеченным в этот день"
 	glass_icon_state = "quadruple_sec"
-	glass_name = "Quadruple Sec"
-	glass_desc = "An intimidating and lawful beverage dares you to violate the law and make its day. Still can't drink it on duty, though."
+	glass_name = "Квадрипл Сек"
+	glass_desc = "Выпив, вы чувствуете себя как супер-секурити, который может пройти через стену и убить всех врагов станции."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/quadruple_sec/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -1733,14 +1728,14 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/quintuple_sec
 	name = "Квантипл Сек"
-	description = "Law, Order, Alcohol, and Police Brutality distilled into one single elixir of JUSTICE."
+	description = "Закон, порядок, алкоголь и полицейское "
 	color = "#ff3300"
 	boozepwr = 55
 	quality = DRINK_FANTASTIC
 	taste_description = "ЗАКОН"
 	glass_icon_state = "quintuple_sec"
-	glass_name = "Quintuple Sec"
-	glass_desc = "Now you are become law, destroyer of clowns."
+	glass_name = "Квантипл Сек"
+	glass_desc = "Теперь \"ТЫ\" закон, уничтожитель клоунов."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/quintuple_sec/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -1757,39 +1752,39 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/grasshopper
 	name = "Кузнечик"
-	description = "A fresh and sweet dessert shooter. Difficult to look manly while drinking this."
+	description = "Свежий и сладкий десертный шутер. Трудно выглядеть мужественным, когда пьешь это."
 	color = "#00ff00"
 	boozepwr = 25
 	quality = DRINK_GOOD
 	taste_description = "шоколад и мята танцуют вокруг моего рта"
 	glass_icon_state = "grasshopper"
-	glass_name = "Grasshopper"
-	glass_desc = "You weren't aware edible beverages could be that green."
+	glass_name = "Кузнечик"
+	glass_desc = "Вы не знали, что коктейли могут быть такими зелеными."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/stinger
 	name = "Стингер"
-	description = "A snappy way to end the day."
+	description = "Отличный способ закончить день."
 	color = "#ccff99"
 	boozepwr = 25
 	quality = DRINK_NICE
 	taste_description = "пощечина в лучшем виде"
 	glass_icon_state = "stinger"
-	glass_name = "Stinger"
-	glass_desc = "You wonder what would happen if you pointed this at a heat source..."
+	glass_name = "Стингер"
+	glass_desc = "Интересно, что произойдет, если направить его на источник тепла..."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/bastion_bourbon
 	name = "Бурбон «Бастион»"
-	description = "Soothing hot herbal brew with restorative properties. Hints of citrus and berry flavors."
+	description = "Успокаивающий горячий травяной напиток с восстанавливающими свойствами."
 	color = "#00FFFF"
 	boozepwr = 30
 	quality = DRINK_FANTASTIC
 	taste_description = "горячий травяной напиток с фруктовым оттенком"
 	metabolization_rate = 2 * REAGENTS_METABOLISM //0.8u per tick
 	glass_icon_state = "bastion_bourbon"
-	glass_name = "Bastion Bourbon"
-	glass_desc = "If you're feeling low, count on the buttery flavor of our own bastion bourbon."
+	glass_name = "Бурбон «Бастион»"
+	glass_desc = "Если вы чувствуете себя неважно, положитесь на маслянистый вкус нашего собственного бурбона \"Бастион\"."
 	shot_glass_icon_state = "shotglassgreen"
 	ph = 4
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -1820,15 +1815,15 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	..()
 
 /datum/reagent/consumable/ethanol/squirt_cider
-	name = "Брызгающий Сидр"
-	description = "Fermented squirt extract with a nose of stale bread and ocean water. Whatever a squirt is."
+	name = "Сидровый сквирт"
+	description = "Забродивший экстракт сквирта с ароматом черствого хлеба и океанской воды. Что бы это ни было."
 	color = "#FF0000"
 	boozepwr = 40
 	taste_description = "черствый хлеб с послевкусием послевкусия"
 	nutriment_factor = 2 * REAGENTS_METABOLISM
 	glass_icon_state = "squirt_cider"
-	glass_name = "Squirt Cider"
-	glass_desc = "Squirt cider will toughen you right up. Too bad about the musty aftertaste."
+	glass_name = "Сидровый сквирт"
+	glass_desc = "Этот сидр сделает вас крепче. Жаль, что послевкусие не очень"
 	shot_glass_icon_state = "shotglassgreen"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
@@ -1839,20 +1834,20 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/fringe_weaver
 	name = "Бон Развязон"
-	description = "Bubbly, classy, and undoubtedly strong - a Glitch City classic."
+	description = "Пузырчатый, стильный и, несомненно, сильный - классика Глитч Сити."
 	special_sound = 'white/valtos/sounds/drink/va-lchalla.ogg'
 	color = "#FFEAC4"
 	boozepwr = 90 //classy hooch, essentially, but lower pwr to make up for slightly easier access
 	quality = DRINK_GOOD
 	taste_description = "этиловый спирт с оттенком сахара"
 	glass_icon_state = "fringe_weaver"
-	glass_name = "Fringe Weaver"
-	glass_desc = "It's a wonder it doesn't spill out of the glass."
+	glass_name = "Бон Развязон"
+	glass_desc = "Удивительно, что он не выливается из стакана."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/sugar_rush
-	name = "Сахарный Прилив"
-	description = "Sweet, light, and fruity - as girly as it gets."
+	name = "Сладкий форсаж"
+	description = "Сладкий, легкий и фруктовый - девчачий."
 	special_sound = 'white/valtos/sounds/drink/va-lchalla.ogg'
 	color = "#FF226C"
 	boozepwr = 10
@@ -1860,8 +1855,8 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	taste_description = "ваши артерии засоряются сахаром"
 	nutriment_factor = 2 * REAGENTS_METABOLISM
 	glass_icon_state = "sugar_rush"
-	glass_name = "Sugar Rush"
-	glass_desc = "If you can't mix a Sugar Rush, you can't tend bar."
+	glass_name = "Сладкий форсаж"
+	glass_desc = "Если ты не можешь сделать \"Сладкий форсаж\", то ты не можешь называть себя барменом."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/sugar_rush/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -1871,15 +1866,15 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/crevice_spike
 	name = "Спазм Кишок"
-	description = "Sour, bitter, and smashingly sobering."
+	description = "Кислый, горький и отлично отрезвляющий."
 	special_sound = 'white/valtos/sounds/drink/va-lchalla.ogg'
 	color = "#5BD231"
 	boozepwr = -10 //sobers you up - ideally, one would drink to get hit with brute damage now to avoid alcohol problems later
 	quality = DRINK_VERYGOOD
 	taste_description = "горький спайк с кислым послевкусием"
 	glass_icon_state = "crevice_spike"
-	glass_name = "Crevice Spike"
-	glass_desc = "It'll either knock the drunkenness out of you or knock you out cold. Both, probably."
+	glass_name = "Спазм Кишок"
+	glass_desc = "Он либо отрезвит тебя, либо окончательно вырубит. Скорее всего, и то, и другое."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/crevice_spike/on_mob_metabolize(mob/living/L) //damage only applies when drink first enters system and won't again until drink metabolizes out
@@ -1887,26 +1882,26 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/sake
 	name = "Сакэ"
-	description = "A sweet rice wine of questionable legality and extreme potency."
+	description = "Сладкое рисовое вино сомнительной легальности и чрезвычайно сильного действия."
 	color = "#DDDDDD"
 	boozepwr = 70
 	taste_description = "сладкое рисовое вино"
 	glass_icon_state = "sakecup"
-	glass_name = "cup of sake"
-	glass_desc = "A traditional cup of sake."
+	glass_name = "Сакэ"
+	glass_desc = "Чашка традиционного сакэ."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_STOCK
 
 /datum/reagent/consumable/ethanol/peppermint_patty
-	name = "Пепперминт Пэтти"
-	description = "This lightly alcoholic drink combines the benefits of menthol and cocoa."
+	name = "Мятная Пэтти"
+	description = "Этот слабоалкогольный напиток сочетает в себе полезные свойства ментола и какао."
 	color = "#45ca7a"
 	taste_description = "мята и шоколад"
 	boozepwr = 25
 	quality = DRINK_GOOD
 	glass_icon_state = "peppermint_patty"
-	glass_name = "Peppermint Patty"
-	glass_desc = "A boozy minty hot cocoa that warms your belly on a cold night."
+	glass_name = "Мятная Пэтти"
+	glass_desc = "Пьянящее мятное горячее какао, которое согреет ваш живот в холодную ночь."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/peppermint_patty/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -1916,15 +1911,15 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/alexander
 	name = "Александр"
-	description = "Named after a Greek hero, this mix is said to embolden a user's shield as if they were in a phalanx."
+	description = "Названная в честь греческого героя, эта смесь, как говорят, укрепляет щит пользователя, как будто он находится в фаланге."
 	special_sound = 'white/valtos/sounds/drink/alexander.ogg'
 	color = "#F5E9D3"
 	boozepwr = 50
 	quality = DRINK_GOOD
 	taste_description = "горький, сливочный какао"
 	glass_icon_state = "alexander"
-	glass_name = "Alexander"
-	glass_desc = "A creamy, indulgent delight that is stronger than it seems."
+	glass_name = "Александр"
+	glass_desc = "Сливочное, снисходительное наслаждение, которое крепче, чем кажется."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	var/obj/item/shield/mighty_shield
 
@@ -1949,40 +1944,40 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	..()
 
 /datum/reagent/consumable/ethanol/amaretto_alexander
-	name = "Александр с Амаретто"
-	description = "A weaker version of the Alexander, what it lacks in strength it makes up for in flavor."
+	name = "Александр Амаретто"
+	description = "Более слабая версия Александра, но то, чего ей не хватает в силе, она восполняет во вкусе."
 	color = "#DBD5AE"
 	boozepwr = 35
 	quality = DRINK_VERYGOOD
 	taste_description = "sweet, creamy cacao"
 	glass_icon_state = "alexanderam"
-	glass_name = "Amaretto Alexander"
-	glass_desc = "A creamy, indulgent delight that is in fact as gentle as it seems."
+	glass_name = "Александр Амаретто"
+	glass_desc = "Сливочное, снисходительное наслаждение, которое на самом деле такое нежно, каким кажется."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/sidecar
 	name = "Сайдкар"
-	description = "The one ride you'll gladly give up the wheel for."
+	description = "Единственная поездка, ради которой вы с радостью отдадите руль."
 	color = "#FFC55B"
 	boozepwr = 45
 	quality = DRINK_GOOD
 	taste_description = "вкусная свобода"
 	glass_icon_state = "sidecar"
-	glass_name = "Sidecar"
-	glass_desc = "The one ride you'll gladly give up the wheel for."
+	glass_name = "Сайдкар"
+	glass_desc = "Единственная поездка, ради которой вы с радостью отдадите руль."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_MEDIUM
 
 /datum/reagent/consumable/ethanol/between_the_sheets
 	name = "Между Простынями"
-	description = "A provocatively named classic. Funny enough, doctors recommend drinking it before taking a nap."
+	description = "Классика с провокационным названием. Забавно, но врачи рекомендуют пить его перед сном."
 	color = "#F4C35A"
 	boozepwr = 55
 	quality = DRINK_GOOD
 	taste_description = "обольщение"
 	glass_icon_state = "between_the_sheets"
-	glass_name = "Between the Sheets"
-	glass_desc = "The only drink that comes with a label reminding you of Nanotrasen's zero-tolerance promiscuity policy."
+	glass_name = "Между Простынями"
+	glass_desc = "Единственный напиток, который поставляется с этикеткой, напоминающей вам о политике нетерпимости к беспорядочным половым связям компании НаноТрейзен."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_MEDIUM
 
@@ -2001,49 +1996,49 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/kamikaze
 	name = "Камикадзе"
-	description = "Divinely windy."
+	description = "Божественный ветер."
 	color = "#EEF191"
 	boozepwr = 60
 	quality = DRINK_GOOD
 	taste_description = "божественная ветренность"
 	glass_icon_state = "kamikaze"
-	glass_name = "Kamikaze"
-	glass_desc = "Divinely windy."
+	glass_name = "Камикадзе"
+	glass_desc = "Божественный ветер."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/mojito
 	name = "Мохито"
-	description = "A drink that looks as refreshing as it tastes."
+	description = "Один только вид этого напитка освежает вас."
 	color = "#DFFAD9"
 	boozepwr = 30
 	quality = DRINK_GOOD
 	taste_description = "освежающая мята"
 	glass_icon_state = "mojito"
-	glass_name = "Mojito"
-	glass_desc = "A drink that looks as refreshing as it tastes."
+	glass_name = "Мохито"
+	glass_desc = "Один только вид этого напитка освежает вас."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_MEDIUM
 
 /datum/reagent/consumable/ethanol/moscow_mule
 	name = "Московский Мул"
-	description = "A chilly drink that reminds you of the Derelict."
+	description = "Прохладительный напиток, напоминающий вам о Дереликте."
 	color = "#EEF1AA"
 	boozepwr = 30
 	quality = DRINK_GOOD
 	taste_description = "освежающая пряность"
 	glass_icon_state = "moscow_mule"
-	glass_name = "Moscow Mule"
-	glass_desc = "A chilly drink that reminds you of the Derelict."
+	glass_name = "Московский Мул"
+	glass_desc = "Прохладительный напиток, напоминающий вам о Дереликте."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/fernet
 	name = "Фернет"
-	description = "An incredibly bitter herbal liqueur used as a digestif."
+	description = "Невероятно горький травяной ликер, используемый в качестве дижестива."
 	color = "#1B2E24" // rgb: 27, 46, 36
 	boozepwr = 80
 	taste_description = "полная горечь"
-	glass_name = "стакан fernet"
-	glass_desc = "A glass of pure Fernet. Only an absolute madman would drink this alone." //Hi Kevum
+	glass_name = "Фернет"
+	glass_desc = "Бокал чистого Фернета. Только абсолютный безумец будет пить его в одиночку." //Hi Kevum
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/fernet/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -2055,14 +2050,14 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/fernet_cola
 	name = "Фернет с Колой"
-	description = "A very popular and bittersweet digestif, ideal after a heavy meal. Best served on a sawed-off cola bottle as per tradition."
+	description = "Очень популярный и горько-сладкий дижестив. Идеально подавать после плотного обеда."
 	color = "#390600" // rgb: 57, 6,
 	boozepwr = 25
 	quality = DRINK_NICE
 	taste_description = "сладкое облегчение"
 	glass_icon_state = "godlyblend"
-	glass_name = "стакан fernet cola"
-	glass_desc = "A sawed-off cola bottle filled with Fernet Cola. Nothing better after eating like a lardass."
+	glass_name = "Фернет с Колой"
+	glass_desc = "Бутылка из-под колы, наполненная Фернет Колой. Лучший напиток после еды."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/fernet_cola/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -2075,14 +2070,14 @@ All effects don't start immediately, but rather get worse over time; the rate is
 /datum/reagent/consumable/ethanol/fanciulli
 
 	name = "Фанциулли"
-	description = "What if the Manhattan cocktail ACTUALLY used a bitter herb liquour? Helps you sober up." //also causes a bit of stamina damage to symbolize the afterdrink lazyness
+	description = "Что если бы в коктейле \"Манхэттен\" ДЕЙСТВИТЕЛЬНО использовался ликер из горьких трав? Помогает протрезветь." //also causes a bit of stamina damage to symbolize the afterdrink lazyness
 	color = "#CA933F" // rgb: 202, 147, 63
 	boozepwr = -10
 	quality = DRINK_NICE
 	taste_description = "сладкая отрезвляющая смесь"
 	glass_icon_state = "fanciulli"
-	glass_name = "стакан fanciulli"
-	glass_desc = "A glass of Fanciulli. It's just Manhattan with Fernet."
+	glass_name = "Фанциулли"
+	glass_desc = "Бокал \"Фансиулли\". Это просто Манхэттен с Фернетом."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_HIGH
 
@@ -2100,14 +2095,14 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/branca_menta
 	name = "Бранка Мента"
-	description = "A refreshing mixture of bitter Fernet with mint creme liquour."
+	description = "Освежающая смесь горького Фернета с мятным кремовым ликером."
 	color = "#4B5746" // rgb: 75, 87, 70
 	boozepwr = 35
 	quality = DRINK_GOOD
 	taste_description = "горькая свежесть"
 	glass_icon_state= "minted_fernet"
-	glass_name = "стакан branca menta"
-	glass_desc = "A glass of Branca Menta, perfect for those lazy and hot Sunday summer afternoons." //Get lazy literally by drinking this
+	glass_name = "Бранка Мента"
+	glass_desc = "Бокал \"Бранка Мента\", идеально подходящий для жарких летних воскресных полдников." //Get lazy literally by drinking this
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_MEDIUM
 
@@ -2124,15 +2119,15 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/blank_paper
 	name = "Чистый Лист"
-	description = "A bubbling glass of blank paper. Just looking at it makes you feel fresh."
+	description = "Бокал пузырящейся белой жидкости. При одном взгляде на него вы почувствуете свежесть."
 	nutriment_factor = 1 * REAGENTS_METABOLISM
 	color = "#DCDCDC" // rgb: 220, 220, 220
 	boozepwr = 20
 	quality = DRINK_GOOD
 	taste_description = "возможность пузырения"
 	glass_icon_state = "blank_paper"
-	glass_name = "стакан blank paper"
-	glass_desc = "A fizzy cocktail for those looking to start fresh."
+	glass_name = "Чистый Лист"
+	glass_desc = "Шипучий коктейль для тех, кто хочет начать жизнь с чистого листа."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/blank_paper/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -2245,30 +2240,28 @@ All effects don't start immediately, but rather get worse over time; the rate is
 		flavor += english_list(secondary_tastes)
 	taste_description = flavor
 
-
 /datum/reagent/consumable/ethanol/champagne //How the hell did we not have champagne already!?
 	name = "Шампанское"
-	description = "A sparkling wine known for its ability to strike fast and hard."
+	description = "Игристое вино, известное своей способностью наносить быстрые и сильные удары по вашей печени."
 	color = "#ffffc1"
 	boozepwr = 40
 	taste_description = "благоприятные случаи и плохие решения"
 	glass_icon_state = "champagne_glass"
-	glass_name = "Champagne"
-	glass_desc = "The flute clearly displays the slowly rising bubbles."
+	glass_name = "Шампанское"
+	glass_desc = "На стекле четко видны медленно поднимающиеся пузырьки."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_EASY
 
-
 /datum/reagent/consumable/ethanol/wizz_fizz
 	name = "Виз Физ"
-	description = "A magical potion, fizzy and wild! However the taste, you will find, is quite mild."
+	description = "Волшебное зелье, шипучее и дикое! Однако вкус, как вы заметите, довольно мягкий."
 	color = "#4235d0" //Just pretend that the triple-sec was blue curacao.
 	boozepwr = 50
 	quality = DRINK_GOOD
 	taste_description = "дружба! Это ведь магия"
 	glass_icon_state = "wizz_fizz"
-	glass_name = "Wizz Fizz"
-	glass_desc = "The glass bubbles and froths with an almost magical intensity."
+	glass_name = "Виз Физ"
+	glass_desc = "Жидкость в бокале пузырится и пенится с почти магической интенсивностью."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/wizz_fizz/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -2281,14 +2274,14 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/bug_spray
 	name = "Спрей от Насекомых"
-	description = "A harsh, acrid, bitter drink, for those who need something to brace themselves."
+	description = "Резкий, едкий, горький напиток, для тех, кому нужно что-то для укрепления сил."
 	color = "#33ff33"
 	boozepwr = 50
 	quality = DRINK_GOOD
 	taste_description = "боль десяти тысяч убитых комаров"
 	glass_icon_state = "bug_spray"
-	glass_name = "Bug Spray"
-	glass_desc = "Your eyes begin to water as the sting of alcohol reaches them."
+	glass_name = "Спрей от Насекомых"
+	glass_desc = "Ваши глаза начинают слезиться, когда до них доходит жгучий запах алкоголя."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/bug_spray/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -2298,45 +2291,43 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	return ..()
 
 /datum/reagent/consumable/ethanol/bug_spray/on_mob_metabolize(mob/living/carbon/M)
-
 	if(ismoth(M) || isflyperson(M))
 		M.emote("agony")
 	return ..()
 
-
 /datum/reagent/consumable/ethanol/applejack
 	name = "Эплджек"
-	description = "The perfect beverage for when you feel the need to horse around."
+	description = "Идеальный напиток для тех случаев, когда вы хотите побузить."
 	color = "#ff6633"
 	boozepwr = 20
 	taste_description = "честный день работы в саду"
 	glass_icon_state = "applejack_glass"
-	glass_name = "Applejack"
-	glass_desc = "You feel like you could drink this all neight."
+	glass_name = "Эплджек"
+	glass_desc = "Вы чувствуете, что могли бы пить его всю ночь."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/jack_rose
 	name = "Джек Роуз"
-	description = "A light cocktail perfect for sipping with a slice of pie."
+	description = "Легкий коктейль, который идеально подходит для потягивания с кусочком пирога."
 	color = "#ff6633"
 	boozepwr = 15
 	quality = DRINK_NICE
 	taste_description = "кисло-сладкий кусочек яблока"
 	glass_icon_state = "jack_rose"
-	glass_name = "Jack Rose"
-	glass_desc = "Enough of these, and you really will start to suppose your toeses are roses."
+	glass_name = "Джек Роуз"
+	glass_desc = "Если выпить достаточно, то вам будет казаться, что ваши пальцы стали розами."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/turbo
 	name = "Турбо"
-	description = "A turbulent cocktail associated with outlaw hoverbike racing. Not for the faint of heart."
+	description = "Бурный коктейль, связянный с незаконными гонками на ховербайках. Не для слабонервных."
 	color = "#e94c3a"
 	boozepwr = 85
 	quality = DRINK_VERYGOOD
 	taste_description = "дух вне закона"
 	glass_icon_state = "turbo"
-	glass_name = "Turbo"
-	glass_desc = "A turbulent cocktail for outlaw hoverbikers."
+	glass_name = "Турбо"
+	glass_desc = "Бурный коктейль для ховербайкеров-преступников."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/turbo/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -2347,14 +2338,14 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/old_timer
 	name = "Старый Таймер"
-	description = "An archaic potation enjoyed by old coots of all ages."
+	description = "Архаичный напиток, которым наслаждаются старики всех возрастов."
 	color = "#996835"
 	boozepwr = 35
 	quality = DRINK_NICE
 	taste_description = "более простые времена"
 	glass_icon_state = "old_timer"
-	glass_name = "Old Timer"
-	glass_desc = "WARNING! May cause premature aging!"
+	glass_name = "Старый Таймер"
+	glass_desc = "ВНИМАНИЕ! Может вызвать преждевременное старение!"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/old_timer/on_mob_life(mob/living/carbon/human/metabolizer, delta_time, times_fired)
@@ -2378,14 +2369,14 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/rubberneck
 	name = "Зевака"
-	description = "A quality rubberneck should not contain any gross natural ingredients."
+	description = "Качественный коктейль \"Зевака\" не должен содержать натуральных ингредиентов."
 	color = "#ffe65b"
 	boozepwr = 60
 	quality = DRINK_GOOD
 	taste_description = "искусственная фруктовость"
 	glass_icon_state = "rubberneck"
-	glass_name = "Rubberneck"
-	glass_desc = "A popular drink amongst those adhering to an all synthetic diet."
+	glass_name = "Зевака"
+	glass_desc = "Популярный напиток среди тех, кто придерживается полностью синтетической диеты."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/rubberneck/on_mob_metabolize(mob/living/L)
@@ -2398,26 +2389,26 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/duplex
 	name = "Дуплекс"
-	description = "An inseparable combination of two fruity drinks."
+	description = "Неразрывное сочетание двух фруктовых напитков."
 	color = "#50e5cf"
 	boozepwr = 25
 	quality = DRINK_NICE
 	taste_description = "зелёные яблоки и голубая малина"
 	glass_icon_state = "duplex"
-	glass_name = "Duplex"
-	glass_desc = "To imbibe one component separately from the other is consider a great faux pas."
+	glass_name = "Дуплекс"
+	glass_desc = "Употребление одного ингредиента отдельно от другого считается большой оплошностью."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/trappist
 	name = "Траппистское пиво"
-	description = "A strong dark ale brewed by space-monks."
+	description = "Крепкий темный эль, предпочитаемый космическими монахами."
 	color = "#390c00"
 	boozepwr = 40
 	quality = DRINK_VERYGOOD
 	taste_description = "сушеные сливы и солод"
 	glass_icon_state = "trappistglass"
-	glass_name = "Trappist Beer"
-	glass_desc = "boozy Catholicism in a glass."
+	glass_name = "Траппистское пиво"
+	glass_desc = "Пьяное католичество в бокале."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/trappist/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -2428,14 +2419,14 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	return ..()
 
 /datum/reagent/consumable/ethanol/blazaam
-	name = "Блазам"
-	description = "A strange drink that few people seem to remember existing. Doubles as a Berenstain remover."
+	name = "Блазаам"
+	description = "Странный напиток, о существовании которого мало кто помнит."
 	boozepwr = 70
 	quality = DRINK_FANTASTIC
 	taste_description = "альтернативные реалии"
 	glass_icon_state = "blazaamglass"
-	glass_name = "Blazaam"
-	glass_desc = "The glass seems to be sliding between realities. Doubles as a Berenstain remover."
+	glass_name = "Блазаам"
+	glass_desc = "Кажется, что стекло переливается отражениями различных реальностей."
 	var/stored_teleports = 0
 
 /datum/reagent/consumable/ethanol/blazaam/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -2452,25 +2443,25 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 
 /datum/reagent/consumable/ethanol/planet_cracker
-	name = "Планетный Шелкун"
-	description = "This jubilant drink celebrates humanity's triumph over the alien menace. May be offensive to non-human crewmembers."
+	name = "Планетарный потрошитель"
+	description = "Этот ликующий напиток празднует победу человечества над инопланетной угрозой. Может быть оскорбительным для нечеловеческих членов экипажа."
 	boozepwr = 50
 	quality = DRINK_FANTASTIC
 	taste_description = "торжество с оттенком горечи"
 	glass_icon_state = "planet_cracker"
-	glass_name = "Planet Cracker"
-	glass_desc = "Although historians believe the drink was originally created to commemorate the end of an important conflict in man's past, its origins have largely been forgotten and it is today seen more as a general symbol of human supremacy."
+	glass_name = "Планетарный потрошитель"
+	glass_desc = "Хотя историки считают, что изначально напиток был создан в честь окончания важного конфликта в прошлом человечества, его происхождение в значительной степени забыто, и сегодня он воспринимается скорее как общий символ человеческого превосходства."
 
 /datum/reagent/consumable/ethanol/mauna_loa
-	name = "Mauna Loa"
-	description = "Extremely hot; not for the faint of heart!"
+	name = "Мауна-Лоа"
+	description = "Чрезвычайно горячий. Не для слабонервных!"
 	boozepwr = 40
 	color = "#fe8308" // 254, 131, 8
 	quality = DRINK_FANTASTIC
 	taste_description = "огненный, с послевкусием сгоревшей плоти"
 	glass_icon_state = "mauna_loa"
-	glass_name = "Mauna Loa"
-	glass_desc = "Lavaland in a drink... mug... volcano... thing."
+	glass_name = "Мауна-Лоа"
+	glass_desc = "Лаваленд в кружке... вулкан... вещь."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/mauna_loa/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -2483,38 +2474,38 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/painkiller
 	name = "Обезбол"
-	description = "Dulls your pain. Your emotional pain, that is."
+	description = "Притупляет вашу боль. Вашу эмоциональную боль, то есть."
 	boozepwr = 20
 	color = "#EAD677"
 	quality = DRINK_NICE
 	taste_description = "сладкая терпкость"
 	glass_icon_state = "painkiller"
-	glass_name = "Painkiller"
-	glass_desc = "A combination of tropical juices and rum. Surely this will make you feel better."
+	glass_name = "Обезбол"
+	glass_desc = "Сочетание сока тропических фруктов и рома. Несомненно, это поможет вам чувствовать себя лучше."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/pina_colada
 	name = "Пина Колада"
-	description = "A fresh pineapple drink with coconut rum. Yum."
+	description = "Напиток из свежего ананаса с кокосовым ромом. Очень вкусно."
 	special_sound = 'white/valtos/sounds/drink/pina_colada.ogg'
 	boozepwr = 40
 	color = "#FFF1B2"
 	quality = DRINK_FANTASTIC
 	taste_description = "ананас, кокос и океан"
 	glass_icon_state = "pina_colada"
-	glass_name = "Pina Colada"
-	glass_desc = "If you like pina coladas, and getting caught in the rain... well, you'll like this drink."
+	glass_name = "Пина Колада"
+	glass_desc = "Если вы любите пина-коладу и попадать под дождь... что ж, вам понравится этот напиток.."
 
 
 /datum/reagent/consumable/ethanol/pruno // pruno mix is in drink_reagents
-	name = "пруно"
+	name = "Пруно"
 	color = "#E78108"
-	description = "Fermented prison wine made from fruit, sugar, and despair. Security loves to confiscate this, which is the only kind thing Security has ever done."
+	description = "Перебродившее тюремное вино, сделанное из фруктов, сахара и отчаяния. Служба безопасности любит его конфисковывать, и это единственное доброе дело, которое она когда-либо делала."
 	boozepwr = 85
 	taste_description = "мои вкусовые рецепторы индивидуально отшлифованы"
 	glass_icon_state = "glass_orange"
-	glass_name = "стакан pruno"
-	glass_desc = "Fermented prison wine made from fruit, sugar, and despair. Security loves to confiscate this, which is the only kind thing Security has ever done."
+	glass_name = "Пруно"
+	glass_desc = "Перебродившее тюремное вино, сделанное из фруктов, сахара и отчаяния. Служба безопасности любит его конфисковывать, и это единственное доброе дело, которое она когда-либо делала."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/pruno/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -2523,27 +2514,28 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/ginger_amaretto
 	name = "Джинджер Амаретто"
-	description = "A delightfully simple cocktail that pleases the senses."
+	description = "Восхитительно простой коктейль, вкус которого вас порадует."
 	boozepwr = 30
 	color = "#EFB42A"
 	quality = DRINK_GOOD
-	taste_description = "sweetness followed by a soft sourness and warmth"
+	taste_description = "сладость, за которой следует мягкая кислинка и теплота"
 	glass_icon_state = "gingeramaretto"
-	glass_name = "Ginger Amaretto"
-	glass_desc = "The sprig of rosemary adds a nice aroma to the drink, and isn't just to be pretentious afterall!"
+	glass_name = "Джинджер Амаретто"
+	glass_desc = "Веточка розмарина придает напитку приятный аромат!"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/godfather
 	name = "Крестный Отец"
-	description = "A rough cocktail with illegal connections."
+	//translate description to russian
+	description = "Коктейл, который вам не стоит пить, если вы не хотите, чтобы вас нашли."
 	special_sound = 'white/valtos/sounds/drink/godfather.ogg'
 	boozepwr = 50
 	color = "#E68F00"
 	quality = DRINK_GOOD
 	taste_description = "a delightful softened punch"
 	glass_icon_state = "godfather"
-	glass_name = "Godfather"
-	glass_desc = "A classic from old Italy and enjoyed by gangsters, pray the orange peel doesnt end up in your mouth."
+	glass_name = "Крестный Отец"
+	glass_desc = "Классика старой Италии, которой наслаждались гангстеры. Молитесь, чтобы апельсиновая корка не попала вам в рот."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_MEDIUM
 
@@ -2560,145 +2552,146 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/godmother
 	name = "Крестная Мать"
-	description = "A twist on a classic, liked more by mature women."
+	description = "Возвращение к классике, который больше нравится зрелым женщинам."
 	boozepwr = 50
 	color = "#E68F00"
 	quality = DRINK_GOOD
 	taste_description = "sweetness and a zesty twist"
 	glass_icon_state = "godmother"
-	glass_name = "Godmother"
-	glass_desc = "A lovely fresh smelling cocktail, a true Sicilian delight."
+	glass_name = "Крестная Мать"
+	glass_desc = "Прекрасный коктейль, настоящее сицилийское наслаждение."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 //Moth Drinks
 /datum/reagent/consumable/ethanol/curacao
-	name = "Curaçao"
-	description = "Made with laraha oranges, for an aromatic finish."
+	name = "Кюрасао"
+	description = "Изготовлен с добавлением апельсинов сорта лараха для придания аромата."
+	special_sound = 'white/nocringe/sounds/drink/curacao.ogg'
 	boozepwr = 30
 	color = "#1a5fa1"
 	quality = DRINK_NICE
 	taste_description = "blue orange"
 	glass_icon_state = "curacao"
-	glass_name = "стакан curaçao"
-	glass_desc = "It's blue, da ba dee."
+	glass_name = "Кюрасао"
+	glass_desc = "Айм блю дабу ди дабу дай"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/navy_rum //IN THE NAVY
-	name = "Navy Rum"
-	description = "Rum as the finest sailors drink."
+	name = "Ром ВМФ"
+	description = "Ром - лучший напиток моряков."
 	boozepwr = 90 //the finest sailors are often drunk
 	color = "#d8e8f0"
 	quality = DRINK_NICE
 	taste_description = "a life on the waves"
 	glass_icon_state = "ginvodkaglass"
-	glass_name = "стакан navy rum"
-	glass_desc = "Splice the mainbrace, and God save the King."
+	glass_name = "ром ВМФ"
+	glass_desc = "Разрубите грот-балку, и Боже, храни короля."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/bitters //why do they call them bitters, anyway? they're more spicy than anything else
-	name = "Andromeda Bitters"
-	description = "A bartender's best friend, often used to lend a delicate spiciness to any drink. Produced in New Trinidad, now and forever."
+	name = "Андромеда Биттерс"
+	description = "Лучший друг бармена, часто используется для придания деликатной остроты любому напитку. Производится в Новом Тринидаде, отныне и навсегда."
 	boozepwr = 70
 	color = "#1c0000"
 	quality = DRINK_NICE
-	taste_description = "spiced alcohol"
+	taste_description = "пряный алкоголь"
 	glass_icon_state = "bitters"
-	glass_name = "стакан bitters"
-	glass_desc = "Typically you'd want to mix this with something- but you do you."
+	glass_name = "Андромеда Биттерс"
+	glass_desc = "Обычно вы хотите смешать это с чем нибудь - так вы и поступаете."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/admiralty //navy rum, vermouth, fernet
-	name = "Admiralty"
-	description = "A refined, bitter drink made with navy rum, vermouth and fernet."
+	name = "Адмиралтейство"
+	description = "Изысканный, горький напиток, приготовленный из флотского рома, вермута и фернета."
 	boozepwr = 100
 	color = "#1F0001"
 	quality = DRINK_VERYGOOD
-	taste_description = "haughty arrogance"
+	taste_description = "надменное высокомерие"
 	glass_icon_state = "admiralty"
-	glass_name = "Admiralty"
-	glass_desc = "Hail to the Admiral, for he brings fair tidings, and rum too."
+	glass_name = "Адмиралтейство"
+	glass_desc = "Слава адмиралу, ибо он принес честные вести и ром."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/long_haul //Rum, Curacao, Sugar, dash of bitters, lengthened with soda water
-	name = "Long Haul"
-	description = "A favourite amongst freighter pilots, unscrupulous smugglers, and nerf herders."
+	name = "Длинный путь"
+	description = "Любимец пилотов грузовых кораблей и недобросовестных контрабандистов."
 	boozepwr = 35
 	color = "#003153"
 	quality = DRINK_VERYGOOD
 	taste_description = "companionship"
 	glass_icon_state = "long_haul"
-	glass_name = "Long Haul"
-	glass_desc = "A perfect companion for a lonely long haul flight."
+	glass_name = "Длинный путь"
+	glass_desc = "Идеальный компаньон для одинокого дальнего перелета."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/long_john_silver //navy rum, bitters, lemonade
-	name = "Long John Silver"
-	description = "A long drink of navy rum, bitters, and lemonade. Particularly popular aboard the Mothic Fleet as it's light on ration credits and heavy on flavour."
+	name = "Лонг Джон Сильвер"
+	description = "Лонг дринк из флотского рома, горького и лимонада. Особенно популярен на борту мольского флота, так как не требует больших затрат на рационы и обладает богатым вкусом."
 	boozepwr = 50
 	color = "#c4b35c"
 	quality = DRINK_VERYGOOD
-	taste_description = "rum and spices"
+	taste_description = "ром и специи"
 	glass_icon_state = "long_john_silver"
-	glass_name = "Long John Silver"
-	glass_desc = "Named for a famous pirate, who may or may not have been fictional. But hey, why let the truth get in the way of a good yarn?" //Chopper Reid says "How the fuck are ya?"
+	glass_name = "Лонг Джон Сильвер"
+	glass_desc = "Назван в честь знаменитого пирата, который мог быть вымышленным, а мог и не быть. Но зачем мешать правду с правдой?" //Chopper Reid says "How the fuck are ya?"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/tropical_storm //dark rum, pineapple juice, triple citrus, curacao
-	name = "Tropical Storm"
-	description = "A taste of the Caribbean in one glass."
+	name = "Тропический шторм"
+	description = "Вкус Карибского моря в одном бокале."
 	boozepwr = 40
 	color = "#00bfa3"
 	quality = DRINK_VERYGOOD
-	taste_description = "the tropics"
+	taste_description = "тропики"
 	glass_icon_state = "tropical_storm"
-	glass_name = "Tropical Storm"
-	glass_desc = "Less destructive than the real thing."
+	glass_name = "Тропический шторм"
+	glass_desc = "Менее разрушительный, чем настоящий."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/dark_and_stormy //rum and ginger beer- simple and classic
-	name = "Dark and Stormy"
-	description = "A classic drink arriving to thunderous applause." //thank you, thank you, I'll be here forever
+	name = "Дарк энд Сторми"
+	description = "Классический напиток, прибывающий под гром аплодисментов." //thank you, thank you, I'll be here forever
 	boozepwr = 50
 	color = "#8c5046"
 	quality = DRINK_GOOD
-	taste_description = "ginger and rum"
+	taste_description = "имбирь и ром"
 	glass_icon_state = "dark_and_stormy"
-	glass_name = "Dark and Stormy"
-	glass_desc = "Thunder and lightning, very very frightening."
+	glass_name = "Дарк энд Сторми"
+	glass_desc = "Гром и молния, очень страшно."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/salt_and_swell //navy rum, tochtause syrup, egg whites, dash of saline-glucose solution
-	name = "Salt and Swell"
-	description = "A bracing sour with an interesting salty taste."
+	name = "Солт энд Свелл"
+	description = "Бодрящая кислинка с интересным соленым вкусом."
 	boozepwr = 60
 	color = "#b4abd0"
 	quality = DRINK_FANTASTIC
-	taste_description = "salt and spice"
+	taste_description = "соль и специи"
 	glass_icon_state = "salt_and_swell"
-	glass_name = "Salt and Swell"
-	glass_desc = "Ah, I do like to be beside the seaside."
+	glass_name = "Солт энд Свелл"
+	glass_desc = "Ах, я люблю бывать на берегу моря."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/tiltaellen //yoghurt, salt, vinegar
-	name = "Tiltällen"
-	description = "A lightly fermented yoghurt drink with salt and a light dash of vinegar. Has a distinct sour cheesy flavour."
+	name = "Тильталлен"
+	description = "Слегка ферментированный йогуртовый напиток с добавлением соли и небольшого количества уксуса. Имеет выраженный кисловато-сырный вкус."
 	boozepwr = 10
 	color = "#F4EFE2"
 	quality = DRINK_NICE
-	taste_description = "sour cheesy yoghurt"
+	taste_description = "Кислый сырный йогурт"
 	glass_icon_state = "tiltaellen"
-	glass_name = "стакан tiltällen"
-	glass_desc = "Eww... it's curdled."
+	glass_name = "Тильталлен"
+	glass_desc = "Фу... оно свернулось."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ethanol/tich_toch
-	name = "Tich Toch"
-	description = "A mix of Tiltällen, Töchtaüse Syrup, and vodka. It's not exactly to everyones' tastes."
+	name = "Тич Точ"
+	description = "Смесь тильталлена, сиропа \"Тохтаузе\" и водки. Не всем по вкусу."
 	boozepwr = 75
 	color = "#b4abd0"
 	quality = DRINK_VERYGOOD
-	taste_description = "spicy sour cheesy yoghurt"
+	taste_description = "острый кислый сырный йогурт"
 	glass_icon_state = "tich_toch"
-	glass_name = "Tich Toch"
-	glass_desc = "Oh god."
+	glass_name = "Тич Точ"
+	glass_desc = "Боже."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED

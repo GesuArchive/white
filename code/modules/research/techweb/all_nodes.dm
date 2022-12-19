@@ -481,6 +481,7 @@
 		"reagentgrinder",
 		"dish_drive",
 		"fat_sucker",
+		"oven",
 		"griddle",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 4000)
