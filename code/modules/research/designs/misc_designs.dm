@@ -847,7 +847,7 @@
 /////////////////////////////////////////
 
 /datum/design/coffeepot
-	name = "Coffeepot"
+	name = "Кофейник"
 	id = "coffeepot"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/glass = 500, /datum/material/plastic = 500)
@@ -858,7 +858,7 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/coffeepot_bluespace
-	name = "Bluespace Coffeepot"
+	name = "Блюспейс кофейник"
 	id = "bluespace_coffeepot"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = 1000, /datum/material/plastic = 500, /datum/material/bluespace = 500)
@@ -869,7 +869,7 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/coffee_cartridge
-	name = "Blank Coffee Cartridge"
+	name = "Пустой картридж для кофеварки"
 	id = "coffee_cartridge"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/plastic = 1000)

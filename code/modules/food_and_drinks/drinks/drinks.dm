@@ -296,8 +296,8 @@
 	custom_price = PAYCHECK_ASSISTANT * 1.2
 
 /obj/item/reagent_containers/food/drinks/mug/nanotrasen
-	name = "Nanotrasen mug"
-	desc = "A mug to display your corporate pride."
+	name = "кружка для кофе от НаноТрейзен"
+	desc = "Кружка для демонстрации вашей корпоративной гордости."
 	icon_state = "mug_nt_empty"
 
 /obj/item/reagent_containers/food/drinks/mug/nanotrasen/update_icon_state()
@@ -305,8 +305,8 @@
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/coffee_cup
-	name = "coffee cup"
-	desc = "A heat-formed plastic coffee cup. Can theoretically be used for other hot drinks, if you're feeling adventurous."
+	name = "стаканчик для кофе"
+	desc = "Пластиковый стаканчик для кофе. Теоретически может быть использован для других горячих напитков."
 	icon_state = "coffee_cup_e"
 	possible_transfer_amounts = list(10)
 	volume = 30

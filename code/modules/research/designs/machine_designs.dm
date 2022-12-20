@@ -1059,8 +1059,8 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/coffeemaker
-	name = "Coffeemaker Board"
-	desc = "The circuit board for a coffeemaker."
+	name = "Кофеварка"
+	desc = "Плата для кофеварки."
 	id = "coffeemaker"
 	build_path = /obj/item/circuitboard/machine/coffeemaker
 	category = list(

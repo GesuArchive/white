@@ -1,6 +1,6 @@
 /obj/machinery/coffeemaker
-	name = "coffeemaker"
-	desc = "A Modello 3 Coffeemaker that brews coffee and holds it at the perfect temperature of 176 fahrenheit. Made by Piccionaia Home Appliances."
+	name = "кофеварка"
+	desc = "Кофеварка Modello 3, которая варит кофе и поддерживает его идеальную температуру 176 градусов по Фаренгейту. Изготовлена компанией Piccionaia Home Appliances."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "coffeemaker_nopot_nocart"
 	base_icon_state = "coffeemaker"
@@ -65,55 +65,55 @@
 /obj/machinery/coffeemaker/examine(mob/user)
 	. = ..()
 	if(!in_range(user, src) && !issilicon(user) && !isobserver(user))
-		. += span_warning("You're too far away to examine [src]'s contents and display!")
+		. += "<hr>[span_warning("Слишком далеко, чтобы рассмотреть кофеварку!")]"
 		return
 
 	if(brewing)
-		. += span_warning("\The [src] is brewing.")
+		. += "<hr>[span_warning("[capitalize(src)] работает.")]"
 		return
 
 	if(panel_open)
-		. += span_notice("[src]'s maintenance hatch is open!")
+		. += span_notice("Техническая панель кофеварки открыта!")
 		return
 
 	if(coffeepot || cartridge)
-		. += span_notice("\The [src] contains:")
+		. += "<hr>[span_notice("Внутри кофеварки:")]"
 		if(coffeepot)
-			. += span_notice("- \A [coffeepot].")
+			. += span_notice("\n- [coffeepot].")
 		if(cartridge)
-			. += span_notice("- \A [cartridge].")
+			. += span_notice("\n- [cartridge].")
 
 	if(!(machine_stat & (NOPOWER|BROKEN)))
-		. += "[span_notice("The status display reads:")]\n"+\
-		span_notice("- Brewing coffee at <b>[speed*100]%</b>.")
+		. += "<hr>[span_notice("На дисплее отображается:")]\n"+\
+		span_notice("- Варка кофе со скоростью <b>[speed*100]%</b>.")
 		if(coffeepot)
 			for(var/datum/reagent/consumable/cawfee as anything in coffeepot.reagents.reagent_list)
-				. += span_notice("- [cawfee.volume] units of coffee in pot.")
+				. += span_notice("\n- [cawfee.volume] юнитов кофе в кофейнике.")
 		if(cartridge)
 			if(cartridge.charges < 1)
-				. += span_notice("- grounds cartridge is empty.")
+				. += span_notice("\n- картридж пуст.")
 			else
-				. += span_notice("- grounds cartridge has [cartridge.charges] charges remaining.")
+				. += span_notice("\n- картриджа хватит, чтобы сварить кофе еще [cartridge.charges] раз.")
 
 	if (coffee_cups >= 1)
-		. += span_notice("There [coffee_cups == 1 ? "is" : "are"] [coffee_cups] coffee cup[coffee_cups != 1 && "s"] left.")
+		. += span_notice("\nЧашек для кофе - [coffee_cups]")
 	else
-		. += span_notice("There are no cups left.")
+		. += span_notice("\nЧашки для кофе закончились.")
 
 	if (sugar_packs >= 1)
-		. += span_notice("There [sugar_packs == 1 ? "is" : "are"] [sugar_packs] packet[sugar_packs != 1 && "s"] of sugar left.")
+		. += span_notice("\nУпаковок сахара - [sugar_packs]")
 	else
-		. += span_notice("There is no sugar left.")
+		. += span_notice("\nСахар закончился.")
 
 	if (sweetener_packs >= 1)
-		. += span_notice("There [sweetener_packs == 1 ? "is" : "are"] [sweetener_packs] packet[sweetener_packs != 1 && "s"] of sweetener left.")
+		. += span_notice("\nУпаковок сахарозаменителя - [sweetener_packs]")
 	else
-		. += span_notice("There is no sweetener left.")
+		. += span_notice("\nСахарозаменитель закончился.")
 
 	if (creamer_packs > 1)
-		. += span_notice("There [creamer_packs == 1 ? "is" : "are"] [creamer_packs] packet[creamer_packs != 1 && "s"] of creamer left.")
+		. += span_notice("\nУпаковок сливок - [creamer_packs]")
 	else
-		. += span_notice("There is no creamer left.")
+		. += span_notice("\nСливки закончились.")
 
 /obj/machinery/coffeemaker/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
@@ -186,7 +186,7 @@
 		if(!user.transferItemToLoc(new_pot, src))
 			return TRUE
 		replace_pot(user, new_pot)
-		balloon_alert(user, "added pot")
+		balloon_alert(user, "устанавливаю кофейник.")
 		update_appearance()
 		return TRUE //no afterattack
 
@@ -196,7 +196,7 @@
 		if(!user.transferItemToLoc(new_cartridge, src))
 			return TRUE
 		replace_cartridge(user, new_cartridge)
-		balloon_alert(user, "added cartridge")
+		balloon_alert(user, "устанавливаю картридж.")
 		update_appearance()
 		return TRUE //no afterattack
 
@@ -209,30 +209,30 @@
 	var/list/options = list()
 
 	if(coffeepot)
-		options["Eject Pot"] = radial_eject_pot
+		options["Достать кофейник"] = radial_eject_pot
 
 	if(cartridge)
-		options["Eject Cartridge"] = radial_eject_cartridge
+		options["Достать картридж"] = radial_eject_cartridge
 
 	if(coffeepot && cartridge && cartridge.charges > 0)
-		options["Brew"] = radial_brew
+		options["Сварить"] = radial_brew
 
 	if(coffee_cups > 0)
-		options["Take Cup"] = radial_take_cup
+		options["Взять чашку"] = radial_take_cup
 
 	if(sugar_packs > 0)
-		options["Take Sugar"] = radial_take_sugar
+		options["Взять сахар"] = radial_take_sugar
 
 	if(sweetener_packs > 0)
-		options["Take Sweetener"] = radial_take_sweetener
+		options["Взять сахарозаменитель"] = radial_take_sweetener
 
 	if(creamer_packs > 0)
-		options["Take Creamer"] = radial_take_creamer
+		options["Взять сливки"] = radial_take_creamer
 
 	if(isAI(user))
 		if(machine_stat & NOPOWER)
 			return
-		options["Examine"] = radial_examine
+		options["Осмотреть"] = radial_examine
 
 	var/choice
 
@@ -248,21 +248,21 @@
 		return
 
 	switch(choice)
-		if("Brew")
+		if("Сварить")
 			brew(user)
-		if("Eject Pot")
+		if("Достать кофейник")
 			eject_pot(user)
-		if("Eject Cartridge")
+		if("Достать картридж")
 			eject_cartridge(user)
-		if("Examine")
+		if("Осмотреть")
 			examine(user)
-		if("Take Cup")
+		if("Взять чашку")
 			take_cup(user)
-		if("Take Sugar")
+		if("Взять сахар")
 			take_sugar(user)
-		if("Take Sweetener")
+		if("Взять сахарозаменитель")
 			take_sweetener(user)
-		if("Take Creamer")
+		if("Взять сливки")
 			take_creamer(user)
 
 /obj/machinery/coffeemaker/proc/eject_pot(mob/user)
@@ -275,36 +275,36 @@
 
 /obj/machinery/coffeemaker/proc/take_cup(mob/user)
 	if(!coffee_cups) //shouldn't happen, but we all know how stuff manages to break
-		balloon_alert("no cups left!")
+		balloon_alert("чашки закончились!")
 		return
-	balloon_alert_to_viewers("took cup")
+	balloon_alert_to_viewers("берет чашку.")
 	var/obj/item/reagent_containers/food/drinks/coffee_cup/new_cup = new(get_turf(src))
 	user.put_in_hands(new_cup)
 	coffee_cups--
 
 /obj/machinery/coffeemaker/proc/take_sugar(mob/user)
 	if(!sugar_packs)
-		balloon_alert("no sugar left!")
+		balloon_alert("сахар закончился!")
 		return
-	balloon_alert_to_viewers("took sugar packet")
+	balloon_alert_to_viewers("берет пакетик сахара.")
 	var/obj/item/reagent_containers/food/condiment/pack/sugar/new_pack = new(get_turf(src))
 	user.put_in_hands(new_pack)
 	sugar_packs--
 
 /obj/machinery/coffeemaker/proc/take_sweetener(mob/user)
 	if(!sweetener_packs)
-		balloon_alert("no sweetener left!")
+		balloon_alert("сахарозаменитель закончился!")
 		return
-	balloon_alert_to_viewers("took sweetener packet")
+	balloon_alert_to_viewers("берет пакетик сахарозаменителя.")
 	var/obj/item/reagent_containers/food/condiment/pack/astrotame/new_pack = new(get_turf(src))
 	user.put_in_hands(new_pack)
 	sweetener_packs--
 
 /obj/machinery/coffeemaker/proc/take_creamer(mob/user)
 	if(!creamer_packs)
-		balloon_alert("no creamer left!")
+		balloon_alert("сливки закончились!")
 		return
-	balloon_alert_to_viewers("took creamer packet")
+	balloon_alert_to_viewers("берет пакетик сливок.")
 	var/obj/item/reagent_containers/food/condiment/pack/creamer/new_pack = new(get_turf(src))
 	user.put_in_hands(new_pack)
 	creamer_packs--
@@ -338,8 +338,8 @@
 
 //Coffee Cartridges: like toner, but for your coffee!
 /obj/item/coffee_cartridge
-	name = "coffeemaker cartridge- Caffè Generico"
-	desc = "A coffee cartridge manufactured by Piccionaia Coffee, for use with the Modello 3 system."
+	name = "картридж для кофеварки - Caffè Generico"
+	desc = "Картридж для кофеварки производства Piccionaia Coffee, для использования в системе Modello 3."
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "cartridge_basic"
 	var/charges = 4
@@ -348,13 +348,13 @@
 /obj/item/coffee_cartridge/examine(mob/user)
 	. = ..()
 	if(charges)
-		. += span_warning("The cartridge has [charges] portions of grounds remaining.")
+		. += span_warning("\nКартриджа хватит, чтобы сварить кофе еще [charges] раз.")
 	else
-		. += span_warning("The cartridge has no unspent grounds remaining.")
+		. += span_warning("\nВ картридже закончилась основа для кофе!")
 
 /obj/item/coffee_cartridge/fancy
-	name = "coffeemaker cartridge - Caffè Fantasioso"
-	desc = "A fancy coffee cartridge manufactured by Piccionaia Coffee, for use with the Modello 3 system."
+	name = "картридж для кофемашины - Caffè Fantasioso"
+	desc = "Изысканный картридж для кофеварки производства Piccionaia Coffee, для использования в системе Modello 3."
 	icon_state = "cartridge_blend"
 
 //Here's the joke before I get 50 issue reports: they're all the same, and that's intentional
@@ -363,40 +363,40 @@
 	var/coffee_type = pick("blend", "blue_mountain", "kilimanjaro", "mocha")
 	switch(coffee_type)
 		if("blend")
-			name = "coffeemaker cartridge - Miscela di Piccione"
+			name = "картридж для кофеварки - Miscela di Piccione"
 			icon_state = "cartridge_blend"
 		if("blue_mountain")
-			name = "coffeemaker cartridge - Montagna Blu"
+			name = "картридж для кофеварки - Montagna Blu"
 			icon_state = "cartridge_blue_mtn"
 		if("kilimanjaro")
-			name = "coffeemaker cartridge - Kilimangiaro"
+			name = "картридж для кофеварки - Kilimangiaro"
 			icon_state = "cartridge_kilimanjaro"
 		if("mocha")
-			name = "coffeemaker cartridge - Moka Arabica"
+			name = "картридж для кофеварки - Moka Arabica"
 			icon_state = "cartridge_mocha"
 
 /obj/item/coffee_cartridge/decaf
-	name = "coffeemaker cartridge - Caffè Decaffeinato"
-	desc = "A decaf coffee cartridge manufactured by Piccionaia Coffee, for use with the Modello 3 system."
+	name = "картридж для кофеварки - Caffè Decaffeinato"
+	desc = "Декофеинизированный картридж для кофеварки производства Piccionaia Coffee, для использования в системе Modello 3."
 	icon_state = "cartridge_decaf"
 
 // no you can't just squeeze the juice bag into a glass!
 /obj/item/coffee_cartridge/bootleg
-	name = "coffeemaker cartridge - Botany Blend"
-	desc = "A jury-rigged coffee cartridge. Should work with a Modello 3 system, though it might void the warranty."
+	name = "картридж для кофеварки - Botany Blend"
+	desc = "Картридж для кофеварки, созданный при наблюдении жюри. Для использования в системе Modello 3, хотя это может привести к потере гарантии."
 	icon_state = "cartridge_bootleg"
 
 // blank cartridge for crafting's sake, can be made at the service lathe
 /obj/item/blank_coffee_cartridge
-	name = "blank coffee cartridge"
-	desc = "A blank coffee cartridge, ready to be filled with coffee paste."
+	name = "пустой картридж для кофеварки"
+	desc = "Пустой картридж для кофеварки, готовый к заполнению."
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "cartridge_blank"
 
 //now, how do you store coffee carts? well, in a rack, of course!
 /obj/item/storage/fancy/coffee_cart_rack
-	name = "coffeemaker cartridge rack"
-	desc = "A small rack for storing coffeemaker cartridges."
+	name = "подставка для картриджей кофеварки"
+	desc = "Небольшая подставка для картриджей кофеварки. Может содержать до четырех картриджей."
 	icon = 'icons/obj/food/containers.dmi'
 	icon_state = "coffee_cartrack4"
 	base_icon_state = "coffee_cartrack"

@@ -35,7 +35,7 @@
 			icon_state = icon_empty
 
 /obj/item/reagent_containers/food/condiment/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] пытается eat the entire [src]! It looks like [user.ru_who()] forgot how food works!"))
+	user.visible_message(span_suicide("[user] пытается съесть [src]! Похоже, [user.ru_who()] забыл, что такое еда!"))
 	return OXYLOSS
 
 /obj/item/reagent_containers/food/condiment/attack(mob/M, mob/user, def_zone)
@@ -97,15 +97,15 @@
 		playsound(get_turf(user), pick(WATER_FLOW_MINI), 50, TRUE)
 
 /obj/item/reagent_containers/food/condiment/enzyme
-	name = "universal enzyme"
-	desc = "Used in cooking various dishes."
+	name = "универсальный фермент"
+	desc = "Используется при приготовлении различных блюд."
 	icon_state = "enzyme"
 	list_reagents = list(/datum/reagent/consumable/enzyme = 50)
 	fill_icon_thresholds = null
 
 /obj/item/reagent_containers/food/condiment/sugar
-	name = "sugar sack"
-	desc = "Tasty spacey sugar!"
+	name = "пакетик сахара"
+	desc = "Вкусный космический сахар!"
 	icon_state = "sugar"
 	inhand_icon_state = "carton"
 	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
@@ -114,8 +114,8 @@
 	fill_icon_thresholds = null
 
 /obj/item/reagent_containers/food/condiment/saltshaker		//Separate from above since it's a small shaker rather then
-	name = "salt shaker"											//	a large one.
-	desc = "Salt. From space oceans, presumably."
+	name = "солонка"											//	a large one.
+	desc = "Соль. Из космических океанов, предположительно."
 	icon_state = "saltshakersmall"
 	icon_empty = "emptyshaker"
 	inhand_icon_state = ""
@@ -126,12 +126,12 @@
 	fill_icon_thresholds = null
 
 /obj/item/reagent_containers/food/condiment/saltshaker/suicide_act(mob/user)
-	user.visible_message(span_suicide("[user] begins to swap forms with the salt shaker! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] принимает форму солонки! Похоже, [user.p_theyre()] пытается совершить суицид!"))
 	var/newname = "[name]"
 	name = "[user.name]"
 	user.name = newname
 	user.real_name = newname
-	desc = "Salt. From dead crew, presumably."
+	desc = "Cоль. Предположительно из мёртвых членов экипажа."
 	return (TOXLOSS)
 
 /obj/item/reagent_containers/food/condiment/saltshaker/afterattack(obj/target, mob/living/user, proximity)
@@ -140,16 +140,16 @@
 		return
 	if(isturf(target))
 		if(!reagents.has_reagent(/datum/reagent/consumable/salt, 2))
-			to_chat(user, span_warning("You don't have enough salt to make a pile!"))
+			to_chat(user, span_warning("У меня не хватит соли, чтобы сделать кучку!"))
 			return
-		user.visible_message(span_notice("[user] shakes some salt onto [target].") , span_notice("You shake some salt onto [target]."))
+		user.visible_message(span_notice("[user] посыпает солью [target].") , span_notice("Посыпаю солью [target]."))
 		reagents.remove_reagent(/datum/reagent/consumable/salt, 2)
 		new/obj/effect/decal/cleanable/food/salt(target)
 		return
 
 /obj/item/reagent_containers/food/condiment/peppermill
-	name = "pepper mill"
-	desc = "Often used to flavor food or make people sneeze."
+	name = "перечница"
+	desc = "Используется для придания блюду перчинки."
 	icon_state = "peppermillsmall"
 	icon_empty = "emptyshaker"
 	inhand_icon_state = ""
@@ -160,8 +160,8 @@
 	fill_icon_thresholds = null
 
 /obj/item/reagent_containers/food/condiment/milk
-	name = "space milk"
-	desc = "It's milk. White and nutritious goodness!"
+	name = "космическое молоко"
+	desc = "Это молоко."
 	icon_state = "milk"
 	inhand_icon_state = "carton"
 	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
@@ -170,8 +170,8 @@
 	fill_icon_thresholds = null
 
 /obj/item/reagent_containers/food/condiment/flour
-	name = "flour sack"
-	desc = "A big bag of flour. Good for baking!"
+	name = "Мука"
+	desc = "Хорошо подходит для выпечки!"
 	icon_state = "flour"
 	inhand_icon_state = "carton"
 	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
@@ -180,8 +180,8 @@
 	fill_icon_thresholds = null
 
 /obj/item/reagent_containers/food/condiment/soymilk
-	name = "soy milk"
-	desc = "It's soy milk. White and nutritious goodness!"
+	name = "соевое молоко"
+	desc = "Это соевое молоко."
 	icon_state = "soymilk"
 	inhand_icon_state = "carton"
 	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
@@ -190,8 +190,8 @@
 	fill_icon_thresholds = null
 
 /obj/item/reagent_containers/food/condiment/rice
-	name = "rice sack"
-	desc = "A big bag of rice. Good for cooking!"
+	name = "рис"
+	desc = "Мешок риса."
 	icon_state = "rice"
 	inhand_icon_state = "carton"
 	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
@@ -200,8 +200,8 @@
 	fill_icon_thresholds = null
 
 /obj/item/reagent_containers/food/condiment/cornmeal
-	name = "cornmeal box"
-	desc = "A big box of cornmeal. Great for southern style cooking."
+	name = "кукурузная мука"
+	desc = "Отлично подходит для приготовления блюд южан."
 	icon_state = "cornmeal"
 	inhand_icon_state = "carton"
 	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
@@ -210,47 +210,39 @@
 	fill_icon_thresholds = null
 
 /obj/item/reagent_containers/food/condiment/soysauce
-	name = "soy sauce"
-	desc = "A salty soy-based flavoring."
+	name = "соевый соус"
+	desc = "Соленый соус на основе сои."
 	icon_state = "soysauce"
 	list_reagents = list(/datum/reagent/consumable/soysauce = 50)
 	fill_icon_thresholds = null
 
 /obj/item/reagent_containers/food/condiment/mayonnaise
-	name = "mayonnaise"
-	desc = "An oily condiment made from egg yolks."
+	name = "майонез"
+	desc = "Соус из яичных желтков."
 	icon_state = "mayonnaise"
 	list_reagents = list(/datum/reagent/consumable/mayonnaise = 50)
 	fill_icon_thresholds = null
 
 /obj/item/reagent_containers/food/condiment/yoghurt
-	name = "yoghurt carton"
-	desc = "Creamy and smooth."
+	name = "йогурт"
+	desc = "Без ГМО. Изготовлен из натурального молока."
 	icon_state = "yoghurt"
 	list_reagents = list(/datum/reagent/consumable/yoghurt = 50)
 	fill_icon_thresholds = null
 
 /obj/item/reagent_containers/food/condiment/vinegar
-	name = "vinegar"
-	desc = "Perfect for chips, if you're feeling Space British."
+	name = "уксус"
+	desc = "Идеально подходит для чипсов, если вы чувствуете себя космическим британцем."
 	icon_state = "vinegar"
 	list_reagents = list(/datum/reagent/consumable/vinegar = 50)
 	fill_icon_thresholds = null
 
 /obj/item/reagent_containers/food/condiment/quality_oil
-	name = "quality oil"
-	desc = "For the fancy chef inside everyone."
+	name = "оливковое масло"
+	desc = "Только для модных поваров."
 	icon_state = "oliveoil"
 	list_reagents = list(/datum/reagent/consumable/quality_oil = 50)
 	fill_icon_thresholds = null
-
-/obj/item/reagent_containers/food/condiment/yoghurt
-	name = "yoghurt carton"
-	desc = "Creamy and smooth."
-	icon_state = "yoghurt"
-	list_reagents = list(/datum/reagent/consumable/yoghurt = 50)
-	fill_icon_thresholds = null
-
 
 //Food packs. To easily apply deadly toxi... delicious sauces to your food!
 
@@ -354,11 +346,11 @@
 	list_reagents = list(/datum/reagent/consumable/bbqsauce = 10)
 
 /obj/item/reagent_containers/food/condiment/pack/creamer
-	name = "creamer pack"
+	name = "сливки"
 	originalname = "creamer"
 	list_reagents = list(/datum/reagent/consumable/creamer = 5)
 
 /obj/item/reagent_containers/food/condiment/pack/sugar
-	name = "sugar pack"
+	name = "сахар"
 	originalname = "sugar"
 	list_reagents = list(/datum/reagent/consumable/sugar = 5)

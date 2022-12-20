@@ -36,7 +36,7 @@ GLOBAL_LIST_EMPTY(monkey_recyclers)
 /obj/machinery/monkey_recycler/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += "<hr><span class='notice'>Дисплей: Producing <b>[cube_production]</b> cubes for every monkey inserted.</span>"
+		. += "<hr><span class='notice'>Дисплей: Производит <b>[cube_production]</b> кубов за каждую мартышку.</span>"
 
 /obj/machinery/monkey_recycler/attackby(obj/item/O, mob/user, params)
 	if(default_deconstruction_screwdriver(user, "grinder_open", "grinder", O))
@@ -67,35 +67,35 @@ GLOBAL_LIST_EMPTY(monkey_recyclers)
 	if(!istype(target))
 		return
 	if(target.stat == CONSCIOUS)
-		to_chat(user, span_warning("The monkey is struggling far too much to put it in the recycler."))
+		to_chat(user, span_warning("Мартышка слишком сильно борется, чтобы положить её в переработчик."))
 		return
 	if(target.buckled || target.has_buckled_mobs())
-		to_chat(user, span_warning("The monkey is attached to something."))
+		to_chat(user, span_warning("Мартышка прикреплена к чему-то."))
 		return
 	qdel(target)
-	to_chat(user, span_notice("You stuff the monkey into the machine."))
+	to_chat(user, span_notice("Запихиваю мартышку в переработчик."))
 	playsound(src.loc, 'sound/machines/juicer.ogg', 50, TRUE)
 	var/offset = prob(50) ? -2 : 2
 	animate(src, pixel_x = pixel_x + offset, time = 0.2, loop = 200) //start shaking
 	use_power(active_power_usage)
 	stored_matter += cube_production
 	addtimer(VARSET_CALLBACK(src, pixel_x, base_pixel_x))
-	addtimer(CALLBACK(GLOBAL_PROC, /proc/to_chat, user, span_notice("The machine now has [stored_matter] monkey\s worth of material stored.")))
+	addtimer(CALLBACK(GLOBAL_PROC, /proc/to_chat, user, span_notice("Теперь в переработчике [stored_matter] обезьяньих кубиков.")))
 
 /obj/machinery/monkey_recycler/interact(mob/user)
 	if(stored_matter >= 1)
-		to_chat(user, span_notice("The machine hisses loudly as it condenses the ground monkey meat. After a moment, it dispenses a brand new monkey cube."))
+		to_chat(user, span_notice("Машина громко шипит, перерабатывая обезьянье мясо. Через мгновение она выдает новый обезьяний кубик."))
 		playsound(src.loc, 'sound/machines/hiss.ogg', 50, TRUE)
 		for(var/i in 1 to FLOOR(stored_matter, 1))
 			new /obj/item/food/monkeycube(src.loc)
 			stored_matter--
-		to_chat(user, span_notice("The machine's display flashes that it has [stored_matter] monkeys worth of material left."))
+		to_chat(user, span_notice("На дисплее мигает сообщение, что в переработчике осталось [stored_matter] обезьяних кубиков."))
 	else
-		to_chat(user, span_danger("The machine needs at least 1 monkey worth of material to produce a monkey cube. It currently has [stored_matter]."))
+		to_chat(user, span_danger("Переработчику необходима хотя бы 1 мартышка, чтобы произвести новый куб. В нем сейчас [stored_matter]."))
 
 /obj/machinery/monkey_recycler/multitool_act(mob/living/user, obj/item/multitool/I)
 	. = ..()
 	if(istype(I))
-		to_chat(user, span_notice("You log [src] in the multitool's buffer."))
+		to_chat(user, span_notice("Записываю [src] в буфер мультитула."))
 		I.buffer = src
 		return TRUE

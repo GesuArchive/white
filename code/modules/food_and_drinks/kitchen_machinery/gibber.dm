@@ -31,10 +31,10 @@
 /obj/machinery/gibber/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += "<hr><span class='notice'>Дисплей: Outputting <b>[meat_produced]</b> meat slab(s) after <b>[gibtime*0.1]</b> seconds of processing.</span>"
+		. += "<hr>[span_notice("Дисплей: Обработка мяса займет <b>[gibtime*0.1]</b> секунд.")]"
 		for(var/obj/item/stock_parts/manipulator/M in component_parts)
 			if(M.rating >= 2)
-				. += "<hr><span class='notice'>Gibber has been upgraded to process inorganic materials.</span>"
+				. += "<hr>[span_notice("Мясорубка была улучшена для обработки неорганики.")]"
 
 /obj/machinery/gibber/update_overlays()
 	. = ..()
@@ -65,36 +65,36 @@
 	if(machine_stat & (NOPOWER|BROKEN))
 		return
 	if(operating)
-		to_chat(user, span_danger("It's locked and running."))
+		to_chat(user, span_danger("Заблокирована во время работы!"))
 		return
 
 	if(!anchored)
-		to_chat(user, span_warning("[capitalize(src.name)] cannot be used unless bolted to the ground!"))
+		to_chat(user, span_warning("[capitalize(src.name)] не может быть использована, пока не прикручена к полу!"))
 		return
 
 	if(user.pulling && user.a_intent == INTENT_GRAB && isliving(user.pulling))
 		var/mob/living/L = user.pulling
 		if(!iscarbon(L))
-			to_chat(user, span_warning("This item is not suitable for the gibber!"))
+			to_chat(user, span_warning("Этот предмет не может быть обработан!"))
 			return
 		var/mob/living/carbon/C = L
 		if(C.buckled ||C.has_buckled_mobs())
-			to_chat(user, span_warning("[C] is attached to something!"))
+			to_chat(user, span_warning("[C] привязан к чему-то!"))
 			return
 
 		if(!ignore_clothing)
 			for(var/obj/item/I in C.held_items + C.get_equipped_items())
 				if(!HAS_TRAIT(I, TRAIT_NODROP))
-					to_chat(user, span_warning("Subject may not have abiotic items on!"))
+					to_chat(user, span_warning("На [C] есть что-то, что не может быть обработано!"))
 					return
 
-		user.visible_message(span_danger("[user] starts to put [C] into the gibber!"))
+		user.visible_message(span_danger("[user] суёт [C] в мясорубку!"))
 
 		add_fingerprint(user)
 
 		if(do_after(user, gibtime, target = src))
 			if(C && user.pulling == C && !C.buckled && !C.has_buckled_mobs() && !occupant)
-				user.visible_message(span_danger("[user] stuffs [C] into the gibber!"))
+				user.visible_message(span_danger("[user] засунул [C] в мясорубку!"))
 				C.forceMove(src)
 				set_occupant(C)
 				update_icon()
@@ -135,11 +135,11 @@
 	if(operating)
 		return
 	if(!occupant)
-		audible_message(span_hear("You hear a loud metallic grinding sound."))
+		audible_message(span_hear("Слышу громкий металлический скрежет."))
 		return
 
 	use_power(active_power_usage)
-	audible_message(span_hear("You hear a loud squelchy grinding sound."))
+	audible_message(span_hear("Слышу громкое хлюпанье."))
 	playsound(loc, 'sound/machines/juicer.ogg', 50, TRUE)
 	operating = TRUE
 	update_icon()

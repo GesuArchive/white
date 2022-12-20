@@ -5,13 +5,13 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/reagent/consumable/orangejuice
-	name = "Апельсиновый Сок"
-	description = "Both delicious AND rich in Vitamin C, what more do you need?"
+	name = "Апельсиновый сок"
+	description = "Обладает отличным вкусом и богат витамином C, что еще нужно для счастья?"
 	color = "#E78108" // rgb: 231, 129, 8
 	taste_description = "апельсины"
 	glass_icon_state = "glass_orange"
-	glass_name = "стакан orange juice"
-	glass_desc = "Vitamins! Yay!"
+	glass_name = "апельсиновый сок"
+	glass_desc = "Витамины! Ура!"
 	ph = 3.3
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
@@ -23,13 +23,13 @@
 	..()
 
 /datum/reagent/consumable/tomatojuice
-	name = "Томатный Сок"
-	description = "Tomatoes made into juice. What a waste of big, juicy tomatoes, huh?"
+	name = "Томатный сок"
+	description = "Из томатов делают сок. Какая трата больших, сочных томатов, а?"
 	color = "#731008" // rgb: 115, 16, 8
 	taste_description = "томаты"
 	glass_icon_state = "glass_red"
-	glass_name = "стакан tomato juice"
-	glass_desc = "Are you sure this is tomato juice?"
+	glass_name = "томатный сок"
+	glass_desc = "А вы точно уверены, что это томатный сок?"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
@@ -40,13 +40,13 @@
 	..()
 
 /datum/reagent/consumable/limejuice
-	name = "Сок Лайма"
+	name = "Сок лайма"
 	description = "The sweet-sour juice of limes."
 	color = "#365E30" // rgb: 54, 94, 48
 	taste_description = "невыносимая кислинка"
 	glass_icon_state = "glass_green"
-	glass_name = "стакан lime juice"
-	glass_desc = "A glass of sweet-sour lime juice."
+	glass_name = "сок лайма"
+	glass_desc = "Стакан кисло-сладкого сока лайма."
 	ph = 2.2
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
@@ -58,13 +58,13 @@
 	..()
 
 /datum/reagent/consumable/carrotjuice
-	name = "Морковный Сок"
-	description = "It is just like a carrot but without crunching."
+	name = "Морковный сок"
+	description = "Это как морковь, но без привычного хруста."
 	color = "#973800" // rgb: 151, 56, 0
 	taste_description = "морковки"
 	glass_icon_state = "carrotjuice"
-	glass_name = "стакан  carrot juice"
-	glass_desc = "It's just like a carrot but without crunching."
+	glass_name = "морковный сок"
+	glass_desc = "Это как морковь, но без привычного хруста."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
@@ -83,32 +83,32 @@
 	return
 
 /datum/reagent/consumable/berryjuice
-	name = "Сок Ягод"
-	description = "A delicious blend of several different kinds of berries."
+	name = "Ягодный сок"
+	description = "Восхитительный микс нескольких сортов ягод."
 	color = "#863333" // rgb: 134, 51, 51
 	taste_description = "ягоды"
 	glass_icon_state = "berryjuice"
-	glass_name = "стакан berry juice"
-	glass_desc = "Berry juice. Or maybe it's jam. Who cares?"
+	glass_name = "ягодный сок"
+	glass_desc = "Ягодный сок. А может, это джем. Какая разница?"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/applejuice
-	name = "Яблочный Сок"
-	description = "The sweet juice of an apple, fit for all ages."
+	name = "Яблочный сок"
+	description = "Сладкий яблочный сок, подходящий для всех возрастов."
 	color = "#ECFF56" // rgb: 236, 255, 86
 	taste_description = "яблоки"
 	ph = 3.2 // ~ 2.7 -> 3.7
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/poisonberryjuice
-	name = "Сок Ядовитых Ягод"
-	description = "A tasty juice blended from various kinds of very deadly and toxic berries."
+	name = "Ядовитый ягодный сок"
+	description = "Вкусный сок, приготовленный из нескольких видов смертоносных и ядовитых ягод."
 	color = "#863353" // rgb: 134, 51, 83
 	taste_description = "ягоды"
 	glass_icon_state = "poisonberryjuice"
-	glass_name = "стакан berry juice"
-	glass_desc = "Berry juice. Or maybe it's poison. Who cares?"
+	glass_name = "ягодный сок"
+	glass_desc = "Ягодный сок. А может, это яд. Кому какое дело?"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
@@ -118,36 +118,36 @@
 	..()
 
 /datum/reagent/consumable/watermelonjuice
-	name = "Арбуз"
-	description = "Delicious juice made from watermelon."
+	name = "Арбузный сок"
+	description = "Восхитительный сок из арбузов."
 	color = "#863333" // rgb: 134, 51, 51
 	taste_description = "сочный арбуз"
 	glass_icon_state = "glass_red"
-	glass_name = "стакан watermelon juice"
-	glass_desc = "A glass of watermelon juice."
+	glass_name = "арбузный сок"
+	glass_desc = "Стакан арбузного сока."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/consumable/lemonjuice
-	name = "Лимонный Сок"
-	description = "This juice is VERY sour."
+	name = "Лимонный сок"
+	description = "Этот сок ОЧЕНЬ кислый."
 	color = "#863333" // rgb: 175, 175, 0
 	taste_description = "кислотность"
 	glass_icon_state  = "lemonglass"
-	glass_name = "стакан lemon juice"
-	glass_desc = "Sour..."
+	glass_name = "лимонный сок"
+	glass_desc = "Кисло..."
 	ph = 2
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/banana
-	name = "Банановый Сок"
-	description = "The raw essence of a banana. HONK"
+	name = "Банановый сок"
+	description = "Чистейший экстракт банана. ХОНК!"
 	color = "#863333" // rgb: 175, 175, 0
 	taste_description = "банан"
 	glass_icon_state = "banana"
-	glass_name = "стакан banana juice"
-	glass_desc = "The raw essence of a banana. HONK."
+	glass_name = "банановый сок"
+	glass_desc = "Чистейший экстракт банана. ХОНК!"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
@@ -160,11 +160,11 @@
 
 /datum/reagent/consumable/nothing
 	name = "Ничего"
-	description = "Absolutely nothing."
+	description = "Абсолютное ничто."
 	taste_description = "ничего"
 	glass_icon_state = "nothing"
 	glass_name = "nothing"
-	glass_desc = "Absolutely nothing."
+	glass_desc = "Абсолютное ничто."
 	shot_glass_icon_state = "shotglass"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
@@ -178,7 +178,7 @@
 
 /datum/reagent/consumable/laughter
 	name = "Хохотач"
-	description = "Some say that this is the best medicine, but recent studies have proven that to be untrue."
+	description = "Некоторые говорят, что это лучшее лекарство, но последние исследования доказали, что это неправда."
 	metabolization_rate = INFINITY
 	color = "#FF4DD2"
 	taste_description = "ржака"
@@ -191,8 +191,8 @@
 	..()
 
 /datum/reagent/consumable/superlaughter
-	name = "Полный Хохотач"
-	description = "Funny until you're the one laughing."
+	name = "Полный хохотач"
+	description = "Забавно до тех пор, пока ты не начнешь понимать, что ты не можешь остановиться."
 	metabolization_rate = 1.5 * REAGENTS_METABOLISM
 	color = "#FF4DD2"
 	taste_description = "ржака"
@@ -207,20 +207,20 @@
 	..()
 
 /datum/reagent/consumable/potato_juice
-	name = "Картофельный Сок"
-	description = "Juice of the potato. Bleh."
+	name = "Картофельный сок"
+	description = "Сок из картофеля. Фу."
 	nutriment_factor = 2 * REAGENTS_METABOLISM
 	color = "#302000" // rgb: 48, 32, 0
 	taste_description = "ирландская грусть"
 	glass_icon_state = "glass_brown"
-	glass_name = "стакан potato juice"
-	glass_desc = "Bleh..."
+	glass_name = "картофельный сок"
+	glass_desc = "Фу..."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/grapejuice
-	name = "Виноградный Сок"
-	description = "The juice of a bunch of grapes. Guaranteed non-alcoholic."
+	name = "Виноградный сок"
+	description = "Сок из виноградной грозди. Гарантированно безалкогольный."
 	color = "#290029" // dark purple
 	taste_description = "виноградная сода"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -228,12 +228,12 @@
 
 /datum/reagent/consumable/milk
 	name = "Молоко"
-	description = "An opaque white liquid produced by the mammary glands of mammals."
+	description = "Непрозрачная белая жидкость, вырабатываемая молочными железами млекопитающих."
 	color = "#DFDFDF" // rgb: 223, 223, 223
 	taste_description = "молоко"
 	glass_icon_state = "glass_white"
-	glass_name = "стакан milk"
-	glass_desc = "White and nutritious goodness!"
+	glass_name = "молоко"
+	glass_desc = "Белая и питательная вкуснятина." //(?) Пейте дети молоко, будете здоровы!
 	ph = 6.5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
@@ -255,13 +255,13 @@
 	..()
 
 /datum/reagent/consumable/soymilk
-	name = "Соевое Молоко"
-	description = "An opaque white liquid made from soybeans."
+	name = "Соевое молоко"
+	description = "Непрозрачная белая жидкость из соевых бобов."
 	color = "#DFDFC7" // rgb: 223, 223, 199
 	taste_description = "соевое молоко"
 	glass_icon_state = "glass_white"
-	glass_name = "стакан soy milk"
-	glass_desc = "White and nutritious soy goodness!"
+	glass_name = "соевое молоко"
+	glass_desc = "Не так хорошо, как обычное молоко, но пить можно."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
@@ -273,12 +273,12 @@
 
 /datum/reagent/consumable/cream
 	name = "Сливки"
-	description = "The fatty, still liquid part of milk. Why don't you mix this with sum scotch, eh?"
+	description = "Жирные сливки, изготовленные из натурального молока. Почему бы тебе не смешать это со скотчем, а?"
 	color = "#DFD7AF" // rgb: 223, 215, 175
 	taste_description = "сливочное молоко"
 	glass_icon_state  = "glass_white"
-	glass_name = "стакан cream"
-	glass_desc = "Ewwww..."
+	glass_name = "сливки"
+	glass_desc = "Не содержит ГМО."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
@@ -290,14 +290,14 @@
 
 /datum/reagent/consumable/coffee
 	name = "Кофе"
-	description = "Coffee is a brewed drink prepared from roasted seeds, commonly called coffee beans, of the coffee plant."
+	description = "Кофе - это напиток, приготовленный из обжаренных кофейных зерен."
 	color = "#482000" // rgb: 72, 32, 0
 	nutriment_factor = 0
 	overdose_threshold = 80
 	taste_description = "горечь"
 	glass_icon_state = "glass_brown"
-	glass_name = "стакан coffee"
-	glass_desc = "Don't drop it, or you'll send scalding liquid and glass shards everywhere."
+	glass_name = "кофе"
+	glass_desc = "Не уроните его, иначе вы обожжетесь!"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_STOCK
 	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
@@ -319,13 +319,13 @@
 
 /datum/reagent/consumable/tea
 	name = "Чай"
-	description = "Tasty black tea, it has antioxidants, it's good for you!"
+	description = "Вкусный черный чай, в нем есть антиоксиданты, он полезен для здоровья!"
 	color = "#101000" // rgb: 16, 16, 0
 	nutriment_factor = 0
 	taste_description = "пирог и черный чай"
 	glass_icon_state = "teaglass"
-	glass_name = "стакан tea"
-	glass_desc = "Drinking it from here would not seem right."
+	glass_name = "чай"
+	glass_desc = "Пить его из стакана кажется неправильным."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_STOCK
 	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
@@ -343,27 +343,27 @@
 
 /datum/reagent/consumable/lemonade
 	name = "Лимонад"
-	description = "Sweet, tangy lemonade. Good for the soul."
+	description = "Сладкий, терпкий лимонад."
 	color = "#FFE978"
 	quality = DRINK_NICE
 	taste_description = "солнце и лето"
 	glass_icon_state = "lemonpitcher"
-	glass_name = "pitcher of lemonade"
-	glass_desc = "This drink leaves you feeling nostalgic for some reason."
+	glass_name = "лимонад"
+	glass_desc = "Этот напиток почему-то вызывает воспоминания о детстве."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_EASY
 	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
 /datum/reagent/consumable/tea/arnold_palmer
 	name = "Арнольд Палмер"
-	description = "Encourages the patient to go golfing."
+	description = "Поощряет пациента к игре в гольф."
 	color = "#FFB766"
 	quality = DRINK_NICE
 	nutriment_factor = 2
 	taste_description = "горький чай"
 	glass_icon_state = "arnold_palmer"
-	glass_name = "Arnold Palmer"
-	glass_desc = "You feel like taking a few golf swings after a few swigs of this."
+	glass_name = "Арнольд Палмер"
+	glass_desc = "После нескольких глотков вы начинаете вспоминать о своем любимом спорте."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/tea/arnold_palmer/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -373,14 +373,14 @@
 	. = TRUE
 
 /datum/reagent/consumable/icecoffee
-	name = "Холодный Кофе"
-	description = "Coffee and ice, refreshing and cool."
+	name = "Кофе со льдом"
+	description = "Кофе со льдом, бодрит и охлаждает."
 	color = "#102838" // rgb: 16, 40, 56
 	nutriment_factor = 0
 	taste_description = "горький холод"
 	glass_icon_state = "icedcoffeeglass"
-	glass_name = "iced coffee"
-	glass_desc = "A drink to perk you up and refresh you!"
+	glass_name = "кофе со льдом"
+	glass_desc = "Напиток, который взбодрит и охладит вас!"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
@@ -394,14 +394,14 @@
 	. = TRUE
 
 /datum/reagent/consumable/hot_ice_coffee
-	name = "Горячий Кофе со льдом"
-	description = "Coffee with pulsing ice shards"
+	name = "Кофе с горячим льдом"
+	description = "Кофе с горячими осколками льда."
 	color = "#102838" // rgb: 16, 40, 56
 	nutriment_factor = 0
 	taste_description = "горечь и намёк на дым"
 	glass_icon_state = "hoticecoffee"
-	glass_name = "hot ice coffee"
-	glass_desc = "A sharp drink, this can't have come cheap"
+	glass_name = "кофе с горячим льдом"
+	glass_desc = "Буквально острый!"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
@@ -416,14 +416,14 @@
 	. = TRUE
 
 /datum/reagent/consumable/icetea
-	name = "Холодный Чай"
-	description = "No relation to a certain rap artist/actor."
+	name = "Чай со льдом"
+	description = "Не имеет отношения к определенному рэп исполнителю."
 	color = "#104038" // rgb: 16, 64, 56
 	nutriment_factor = 0
 	taste_description = "сладкий чай"
 	glass_icon_state = "icedteaglass"
-	glass_name = "iced tea"
-	glass_desc = "All natural, antioxidant-rich flavour sensation."
+	glass_name = "чай со льдом"
+	glass_desc = "Натуральный, богатый антиоксидантами аромат."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
@@ -438,13 +438,13 @@
 	. = TRUE
 
 /datum/reagent/consumable/space_cola
-	name = "Кола"
-	description = "A refreshing beverage."
+	name = "Космо-Кола"
+	description = "Освежающий напиток."
 	color = "#100800" // rgb: 16, 8, 0
 	taste_description = "кола"
 	glass_icon_state  = "spacecola"
-	glass_name = "стакан Space Cola"
-	glass_desc = "A glass of refreshing Space Cola."
+	glass_name = "Космо-Кола"
+	glass_desc = "Стакан освежающей колы."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
@@ -454,15 +454,15 @@
 	..()
 
 /datum/reagent/consumable/nuka_cola
-	name = "Нюка Кола"
-	description = "Cola, cola never changes."
+	name = "Нюка-Кола"
+	description = "Кола. Кола никогда не меняется."
 	special_sound = 'white/valtos/sounds/drink/fallout_3.ogg'
 	color = "#100800" // rgb: 16, 8, 0
 	quality = DRINK_VERYGOOD
 	taste_description = "будущее"
 	glass_icon_state = "nuka_colaglass"
-	glass_name = "стакан Nuka Cola"
-	glass_desc = "Don't cry, Don't raise your eye, It's only nuclear wasteland."
+	glass_name = "Нюка-Кола"
+	glass_desc = "Не плачь, не поднимай голову. Это всего лишь ядерная пустошь."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
@@ -486,13 +486,13 @@
 
 /datum/reagent/consumable/grey_bull
 	name = "Grey Bull"
-	description = "Grey Bull, it gives you gloves!"
+	description = "Grey Bull заземляет!"
 	color = "#EEFF00" // rgb: 238, 255, 0
 	quality = DRINK_VERYGOOD
 	taste_description = "газированное масло"
 	glass_icon_state = "grey_bull_glass"
-	glass_name = "стакан Grey Bull"
-	glass_desc = "Surprisingly it isn't grey."
+	glass_name = "Grey Bull"
+	glass_desc = "Удивительно, но он не серый."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
@@ -514,12 +514,12 @@
 
 /datum/reagent/consumable/spacemountainwind
 	name = "Солнечный Ветер"
-	description = "Blows right through you like a space wind."
+	description = "Бодрящий напиток, который вдохновляет на новые открытия."
 	color = "#102000" // rgb: 16, 32, 0
 	taste_description = "сладкая цитрусовая сода"
 	glass_icon_state = "Space_mountain_wind_glass"
-	glass_name = "стакан Space Mountain Wind"
-	glass_desc = "Space Mountain Wind. As you know, there are no mountains in space, only wind."
+	glass_name = "Солнечнй Ветер"
+	glass_desc = "Космический горный ветер. Как вы знаете, в космосе нет гор, есть только ветер."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
@@ -533,12 +533,12 @@
 
 /datum/reagent/consumable/dr_gibb
 	name = "Dr. Gibb"
-	description = "A delicious blend of 42 different flavours."
+	description = "Восхитительная смесь из 42 различных вкусов."
 	color = "#102000" // rgb: 16, 32, 0
 	taste_description = "вишневая сода" // FALSE ADVERTISING
 	glass_icon_state = "dr_gibb_glass"
-	glass_name = "стакан Dr. Gibb"
-	glass_desc = "Dr. Gibb. Not as dangerous as the glass_name might imply."
+	glass_name = "Dr. Gibb"
+	glass_desc = "Dr. Gibb. Не так опасен, как может показаться из названия."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
@@ -549,15 +549,14 @@
 
 /datum/reagent/consumable/space_up
 	name = "На Взлёт!"
-	description = "Tastes like a hull breach in your mouth."
+	description = "Вкус напоминает разгерму, как это?"
 	color = "#00FF00" // rgb: 0, 255, 0
 	taste_description = "вишневая сода"
 	glass_icon_state = "space-up_glass"
 	glass_name = "стакан Space-Up"
-	glass_desc = "Space-up. It helps you keep your cool."
+	glass_desc = "На Взлёт! Помогает сохранять хладнокровие."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
-
 
 /datum/reagent/consumable/space_up/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjust_bodytemperature(-8 * REM * TEMPERATURE_DAMAGE_COEFFICIENT * delta_time, M.get_body_temp_normal())
@@ -565,29 +564,27 @@
 
 /datum/reagent/consumable/lemon_lime
 	name = "Лаймон-Флеш"
-	description = "A tangy substance made of 0.5% natural citrus!"
+	description = "Терпкий напиток, состоящик из 0.5% натурального лайма!"
 	color = "#8CFF00" // rgb: 135, 255, 0
 	taste_description = "острый лайм и лимонная сода"
 	glass_icon_state = "lemonlime"
-	glass_name = "стакан lemon-lime"
-	glass_desc = "You're pretty certain a real fruit has never actually touched this."
+	glass_name = "Лаймон-Флеш"
+	glass_desc = "Вы уверены, что тут лайм?"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
-
 
 /datum/reagent/consumable/lemon_lime/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjust_bodytemperature(-8 * REM * TEMPERATURE_DAMAGE_COEFFICIENT * delta_time, M.get_body_temp_normal())
 	..()
 
-
 /datum/reagent/consumable/pwr_game
 	name = "PWR Game"
-	description = "The only drink with the PWR that true gamers crave."
+	description = "Единственный напиток с PWR, которого жаждут настоящие геймеры."
 	color = "#9385bf" // rgb: 58, 52, 75
 	taste_description = "сладкий и соленый запах"
 	glass_icon_state = "pwrggame"
-	glass_name = "стакан Pwr Game"
-	glass_desc = "Goes well with a Vlad's salad."
+	glass_name = "PWR Game"
+	glass_desc = "Я буду устанавливать сейчас все игры!"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/pwr_game/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
@@ -604,13 +601,13 @@
 	..()
 
 /datum/reagent/consumable/shamblers
-	name = "Shambler's Juice"
-	description = "~Shake me up some of that Shambler's Juice!~"
+	name = "Сок Тьманника" //Darkest Dungeon
+	description = "~Взболтай мне немного сока Тьманника!~"
 	color = "#f00060" // rgb: 94, 0, 38
 	taste_description = "газированная металлическая сода"
 	glass_icon_state = "shamblerjuice"
-	glass_name = "стакан Shambler's juice"
-	glass_desc = "Mmm mm, shambly."
+	glass_name = "сок Тьманника"
+	glass_desc = "Ммм, тьма!"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
@@ -619,16 +616,15 @@
 	..()
 
 /datum/reagent/consumable/sodawater
-	name = "Газированная Вода"
-	description = "A can of club soda. Why not make a scotch and soda?"
+	name = "Газированная вода"
+	description = "Банка содовой, почему бы не смешать ее со скотчем?"
 	color = "#619494" // rgb: 97, 148, 148
 	taste_description = "газировка"
 	glass_icon_state = "glass_clearcarb"
-	glass_name = "стакан soda water"
-	glass_desc = "Soda water. Why not make a scotch and soda?"
+	glass_name = "газированная вода"
+	glass_desc = "Содовая. Почему бы не смешать ее со скотчем?"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
-
 
 	// A variety of nutrients are dissolved in club soda, without sugar.
 	// These nutrients include carbon, oxygen, hydrogen, phosphorous, potassium, sulfur and sodium, all of which are needed for healthy plant growth.
@@ -645,13 +641,13 @@
 	..()
 
 /datum/reagent/consumable/tonic
-	name = "Тонизирующая Вода"
-	description = "It tastes strange but at least the quinine keeps the Space Malaria at bay."
+	name = "Тонизирующая вода"
+	description = "Вкус странный, но, по крайней мере, хинин держит космическую малярию на расстоянии."
 	color = "#0064C8" // rgb: 0, 100, 200
 	taste_description = "терпкий и свежий"
 	glass_icon_state = "glass_clearcarb"
-	glass_name = "стакан tonic water"
-	glass_desc = "Quinine tastes funny, but at least it'll keep that Space Malaria away."
+	glass_name = "тонизирующая вода"
+	glass_desc = "У хинина странноватый вкус, но, по крайней мере, он убережет от космической малярии."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
@@ -665,13 +661,13 @@
 
 /datum/reagent/consumable/monkey_energy
 	name = "Monkey Energy"
-	description = "The only drink that will make you unleash the ape."
+	description = "Дайте волю примату внутри вас!"
 	color = "#f39b03" // rgb: 243, 155, 3
 	overdose_threshold = 60
 	taste_description = "барбекю и ностальгия"
 	glass_icon_state = "monkey_energy_glass"
-	glass_name = "стакан Monkey Energy"
-	glass_desc = "You can unleash the ape, but without the pop of the can?"
+	glass_name = "Monkey Energy"
+	glass_desc = "Дайте волю примату внутри вас!"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
@@ -699,13 +695,13 @@
 
 /datum/reagent/consumable/ice
 	name = "Лед"
-	description = "Frozen water, your dentist wouldn't like you chewing this."
+	description = "Замороженная вода, вашему стоматологу не понравится, если вы будете ее жевать."
 	reagent_state = SOLID
 	color = "#619494" // rgb: 97, 148, 148
 	taste_description = "лёд"
 	glass_icon_state = "iceglass"
-	glass_name = "стакан ice"
-	glass_desc = "Generally, you're supposed to put something else in there too..."
+	glass_name = "лед"
+	glass_desc = "Как правило, вы должны смешать его с чем-то еще..."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/ice/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
@@ -713,14 +709,14 @@
 	..()
 
 /datum/reagent/consumable/soy_latte
-	name = "Соевое Латте"
-	description = "A nice and tasty beverage while you are reading your hippie books."
+	name = "Соевое латте"
+	description = "Приятный и вкусный напиток, то что нужно, пока вы читаете свои хиппи-книги."
 	color = "#664300" // rgb: 102, 67, 0
 	quality = DRINK_NICE
 	taste_description = "сливочное кофе"
 	glass_icon_state = "soy_latte"
-	glass_name = "soy latte"
-	glass_desc = "A nice and refreshing beverage while you're reading."
+	glass_name = "соевое латте"
+	glass_desc = "Приятный и освежающий напиток, то что нужно, пока вы читаете."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_EASY
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
@@ -738,13 +734,13 @@
 
 /datum/reagent/consumable/cafe_latte
 	name = "Латте"
-	description = "A nice, strong and tasty beverage while you are reading."
+	description = "Хороший, крепкий и освежающий напиток, идеален под хорошую книгу."
 	color = "#664300" // rgb: 102, 67, 0
 	quality = DRINK_NICE
 	taste_description = "горький крем"
 	glass_icon_state = "cafe_latte"
-	glass_name = "cafe latte"
-	glass_desc = "A nice, strong and refreshing beverage while you're reading."
+	glass_name = "латте"
+	glass_desc = "Хороший, крепкий и освежающий напиток, идеален под хорошую книгу."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_EASY
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
@@ -761,14 +757,14 @@
 	. = TRUE
 
 /datum/reagent/consumable/doctor_delight
-	name = "Докторский Восторг"
-	description = "A gulp a day keeps the Medibot away! A mixture of juices that heals most damage types fairly quickly at the cost of hunger."
+	name = "Восторг врача"
+	description = "Смесь соков, которая довольно быстро исцеляет большинство типов повреждений."
 	color = "#FF8CFF" // rgb: 255, 140, 255
 	quality = DRINK_VERYGOOD
 	taste_description = "домашний фрукт"
 	glass_icon_state = "doctorsdelightglass"
-	glass_name = "Doctor's Delight"
-	glass_desc = "The space doctor's favorite. Guaranteed to restore bodily injury; side effects include cravings and hunger."
+	glass_name = "Восторг врача"
+	glass_desc = "Любимец медиков, вкусный и полезный напиток, который восстанавливает большинство видов повреждений, но при этом заставляет вас чувствовать голод."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_HIGH
 
@@ -786,69 +782,69 @@
 	. = TRUE
 
 /datum/reagent/consumable/cherryshake
-	name = "Вишневый шейк"
-	description = "A cherry flavored milkshake."
+	name = "Вишневый молочный коктейль"
+	description = "Молочный коктейль со вкусом вишни."
 	color = "#FFB6C1"
 	quality = DRINK_VERYGOOD
 	nutriment_factor = 4 * REAGENTS_METABOLISM
 	taste_description = "сливочная вишня"
 	glass_icon_state = "cherryshake"
-	glass_name = "cherry shake"
-	glass_desc = "A cherry flavored milkshake."
+	glass_name = "вишневый молочный коктейль"
+	glass_desc = "Молочный коктейль со вкусом вишни."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	glass_price = DRINK_PRICE_MEDIUM
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/bluecherryshake
-	name = "Шейк с синей вишней"
-	description = "An exotic milkshake."
+	name = "Молочный коктейль с синей вишней"
+	description = "Экзотический молочный коктейль с синей вишней."
 	color = "#00F1FF"
 	quality = DRINK_VERYGOOD
 	nutriment_factor = 4 * REAGENTS_METABOLISM
 	taste_description = "сливочно-голубая вишня"
 	glass_icon_state = "bluecherryshake"
-	glass_name = "синий cherry shake"
-	glass_desc = "An exotic blue milkshake."
+	glass_name = "молочный коктейль с синей вишней"
+	glass_desc = "Экзотический молочный коктейль с синей вишней."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/pumpkin_latte
-	name = "Тыквенное Латте"
-	description = "A mix of pumpkin juice and coffee."
+	name = "Тыквенное латте"
+	description = "Смесь тыквенного сока и кофе."
 	color = "#F4A460"
 	quality = DRINK_VERYGOOD
 	nutriment_factor = 3 * REAGENTS_METABOLISM
 	taste_description = "сливочная тыква"
 	glass_icon_state = "pumpkin_latte"
-	glass_name = "pumpkin latte"
-	glass_desc = "A mix of coffee and pumpkin juice."
+	glass_name = "тыквенное латте"
+	glass_desc = "Смесь тыквенного сока и кофе."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/gibbfloats
 	name = "Хороший Пловец"
-	description = "Ice cream on top of a Dr. Gibb glass."
+	description = "Dr. Gibb со сливочным мороженым."
 	color = "#B22222"
 	quality = DRINK_NICE
 	nutriment_factor = 3 * REAGENTS_METABOLISM
 	taste_description = "сливочная вишня"
 	glass_icon_state = "gibbfloats"
-	glass_name = "Gibbfloat"
-	glass_desc = "Dr. Gibb with ice cream on top."
+	glass_name = "Хороший Пловец"
+	glass_desc = "Dr. Gibb со сливочным мороженым."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/pumpkinjuice
-	name = "Тыквенный Сок"
-	description = "Juiced from real pumpkin."
+	name = "Тыквенный сок"
+	description = "Сок из тыквы."
 	color = "#FFA500"
 	taste_description = "тыква"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/blumpkinjuice
-	name = "Синетыквенный Сок"
-	description = "Juiced from real blumpkin."
+	name = "Синетыквенный сок"
+	description = "Сок из синей тыквы."
 	color = "#00BFFF"
 	taste_description = "глоток воды в бассейне"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -856,23 +852,23 @@
 
 /datum/reagent/consumable/triple_citrus
 	name = "Тройной Цитрус"
-	description = "A solution."
+	description = "Прекрасная смесь цитрусовых."
 	color = "#EEFF00"
 	quality = DRINK_NICE
 	taste_description = "крайняя горечь"
 	glass_icon_state = "triplecitrus" //needs own sprite mine are trash //your sprite is great tho
-	glass_name = "стакан triple citrus"
-	glass_desc = "A mixture of citrus juices. Tangy, yet smooth."
+	glass_name = "Тройной Цитрус"
+	glass_desc = "Смесь цитрусовых соков. Терпкая, но мягкая."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_SALTY
 
 /datum/reagent/consumable/grape_soda
-	name = "Виноградная Газировка"
-	description = "Beloved by children and teetotalers."
+	name = "Виноградная газировка"
+	description = "Её любят дети и бывшие алкоголики."
 	color = "#E6CDFF"
 	taste_description = "виноградная сода"
-	glass_name = "стакан grape juice"
-	glass_desc = "It's grape (soda)!"
+	glass_name = "виноградная газировка"
+	glass_desc = "Это виноградная газировка!"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
@@ -881,8 +877,8 @@
 	..()
 
 /datum/reagent/consumable/milk/chocolate_milk
-	name = "Шоколадное Молоко"
-	description = "Milk for cool kids."
+	name = "Шоколадное молоко"
+	description = "Молоко для крутых ребят."
 	color = "#7D4E29"
 	quality = DRINK_NICE
 	taste_description = "шоколадное молоко"
@@ -890,14 +886,14 @@
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/hot_coco
-	name = "Горячее Какао"
-	description = "Made with love! And coco beans."
+	name = "Горячее какао"
+	description = "Сделано с любовью!"
 	nutriment_factor = 3 * REAGENTS_METABOLISM
 	color = "#403010" // rgb: 64, 48, 16
 	taste_description = "сливочный шоколад"
 	glass_icon_state  = "chocolateglass"
-	glass_name = "стакан hot coco"
-	glass_desc = "A favorite winter drink to warm you up."
+	glass_name = "горячее какао"
+	glass_desc = "Лучший напиток для зимних вечеров."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
@@ -912,12 +908,12 @@
 
 /datum/reagent/consumable/menthol
 	name = "Ментол"
-	description = "Alleviates coughing symptoms one might have."
+	description = "Облегчает симптомы кашля."
 	color = "#80AF9C"
 	taste_description = "мята"
 	glass_icon_state = "glass_green"
-	glass_name = "стакан menthol"
-	glass_desc = "Tastes naturally minty, and imparts a very mild numbing sensation."
+	glass_name = "Ментол"
+	glass_desc = "Вкус натуральной мяты, вызывает легкое онемение."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
@@ -927,51 +923,51 @@
 
 /datum/reagent/consumable/grenadine
 	name = "Гренадин"
-	description = "Not cherry flavored!"
+	description = "Не со вкусом вишни!"
 	color = "#EA1D26"
 	taste_description = "сладкие гранаты"
-	glass_name = "стакан grenadine"
-	glass_desc = "Delicious flavored syrup."
+	glass_name = "Гренадин"
+	glass_desc = "Вкуснейший сироп для коктейлей."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/parsnipjuice
-	name = "Сок Пастернака"
-	description = "Why..."
+	name = "Сок пастернака"
+	description = "Зачем..."
 	color = "#FFA500"
 	taste_description = "пастернак"
-	glass_name = "стакан parsnip juice"
+	glass_name = "сок пастернака"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/pineapplejuice
-	name = "Ананасовый Сок"
-	description = "Tart, tropical, and hotly debated."
+	name = "Ананасовый сок"
+	description = "Терпкий, тропический и горячо обсуждаемый."
 	special_sound = 'white/valtos/sounds/drink/pineapple_apple_pen.ogg'
 	color = "#F7D435"
 	taste_description = "ананас"
-	glass_name = "стакан pineapple juice"
-	glass_desc = "Tart, tropical, and hotly debated."
+	glass_name = "ананасовый сок"
+	glass_desc = "Все мы знаем, для чего вы его пьете."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/peachjuice //Intended to be extremely rare due to being the limiting ingredients in the blazaam drink
-	name = "Персиковый Сок"
-	description = "Just peachy."
+	name = "Персиковый сок"
+	description = "Просто персиковый сок."
 	color = "#E78108"
 	taste_description = "персики"
-	glass_name = "стакан peach juice"
+	glass_name = "персиковый сок"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
 /datum/reagent/consumable/cream_soda
-	name = "Крем Сода"
-	description = "A classic space-American vanilla flavored soft drink."
+	name = "Крем-сода"
+	description = "Класичесский для космо-Америки напиток с ванильными нотками."
 	color = "#dcb137"
 	quality = DRINK_VERYGOOD
 	taste_description = "шипучая ваниль"
 	glass_icon_state = "cream_soda"
-	glass_name = "Cream Soda"
-	glass_desc = "A classic space-American vanilla flavored soft drink."
+	glass_name = "Крем-сода"
+	glass_desc = "Класичесский для космо-Америки напиток с ванильными нотками."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
@@ -980,13 +976,13 @@
 	..()
 
 /datum/reagent/consumable/sol_dry
-	name = "Sol Dry"
-	description = "A soothing, mellow drink made from ginger."
+	name = "Меркурий"	//wiki - Меркурий
+	description = "Успокаивающий, мягкий напиток, приготовленный из имбиря."
 	color = "#f7d26a"
 	quality = DRINK_NICE
 	taste_description = "сладкая имбирная специя"
-	glass_name = "Sol Dry"
-	glass_desc = "A soothing, mellow drink made from ginger."
+	glass_name = "Меркурий"
+	glass_desc = "Успокаивающий, мягкий напиток, приготовленный из имбиря."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
@@ -996,13 +992,13 @@
 
 /datum/reagent/consumable/red_queen
 	name = "Красная Королева"
-	description = "DRINK ME."
+	description = "ВЫПЕЙ МЕНЯ."
 	color = "#e6ddc3"
 	quality = DRINK_GOOD
 	taste_description = "чудо"
 	glass_icon_state = "red_queen"
-	glass_name = "Red Queen"
-	glass_desc = "DRINK ME."
+	glass_name = "Красная Королева"
+	glass_desc = "ВЫПЕЙ МЕНЯ."
 	var/current_size = RESIZE_DEFAULT_SIZE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
@@ -1029,33 +1025,33 @@
 /datum/reagent/consumable/bungojuice
 	name = "Сок Бунго"
 	color = "#F9E43D"
-	description = "Exotic! You feel like you are on vacation already."
+	description = "Экзотично! Вы уже чувствуете себя, как в отпуске."
 	taste_description = "сочный бунго"
 	glass_icon_state = "glass_yellow"
-	glass_name = "стакан bungo juice"
-	glass_desc = "Exotic! You feel like you are on vacation already."
+	glass_name = "сок Бунго"
+	glass_desc = "Экзотично! Вы уже чувствуете себя, как в отпуске."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/prunomix
-	name = "пруно смесь"
+	name = "Пруно"
 	color = "#E78108"
-	description = "Fruit, sugar, yeast, and water pulped together into a pungent slurry."
+	description = "Фрукты, сахар, дрожжи и вода, измельченные в едкую суспензию."
 	taste_description = "мусор"
 	glass_icon_state = "glass_orange"
-	glass_name = "стакан pruno mixture"
-	glass_desc = "Fruit, sugar, yeast, and water pulped together into a pungent slurry."
+	glass_name = "Пруно"
+	glass_desc = "Фрукты, сахар, дрожжи и вода, измельченные в едкую суспензию."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
 
 /datum/reagent/consumable/aloejuice
-	name = "Сок Алоэ"
+	name = "Сок алоэ"
 	color = "#A3C48B"
-	description = "A healthy and refreshing juice."
+	description = "Полезный и освежающий сок."
 	taste_description = "овощи"
 	glass_icon_state = "glass_yellow"
-	glass_name = "стакан aloe juice"
-	glass_desc = "A healthy and refreshing juice."
+	glass_name = "сок алоэ"
+	glass_desc = "Полезный и освежающий сок."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_MEDIUM
 
@@ -1067,13 +1063,13 @@
 
 /datum/reagent/consumable/lean
 	name = "Лин"
-	description = "The drank that makes you go wheezy."
+	description = "Выпивка, заставляющая вас хрипеть."
 	color = "#DE55ED"
 	quality = DRINK_NICE
 	taste_description = "фиолетовый намек на опиоид."
 	glass_icon_state = "lean"
-	glass_name = "Lean"
-	glass_desc = "A drink that makes your life less miserable."
+	glass_name = "Лин"
+	glass_desc = "Напиток, который делает вашу жизнь менее несчастной."
 	addiction_types = list(/datum/addiction/opiods = 6)
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	hydration_factor = DRINK_HYDRATION_FACTOR_LOW
@@ -1089,38 +1085,38 @@
 
 //Moth Stuff
 /datum/reagent/consumable/toechtauese_juice
-	name = "Töchtaüse Juice"
-	description = "An unpleasant juice made from töchtaüse berries. Best made into a syrup, unless you enjoy pain."
+	name = "Сок Тёхтаузе"
+	description = "Неприятный сок из ягод тёхтаузе. Лучше всего приготовить из него сироп, если вам не нравится боль."
 	color = "#554862"
 	nutriment_factor = 0
-	taste_description = "fiery itchy pain"
+	taste_description = "жгучая зудящая боль"
 	glass_icon_state = "toechtauese_syrup"
-	glass_name = "стакан töchtaüse juice"
-	glass_desc = "Raw, unadulterated töchtaüse juice. One swig will fill you with regrets."
+	glass_name = "сок Тёхтаузе"
+	glass_desc = "Свежевыжатый сок тёхтаузе. Один глоток заставит вас сожалеть."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/toechtauese_syrup
-	name = "Töchtaüse Syrup"
-	description = "A harsh spicy and bitter syrup, made from töchtaüse berries. Useful as an ingredient, both for food and cocktails."
+	name = "Сироп Тёхтаузе"
+	description = "Резко пряный и горький сироп, приготовленный из ягод тёхтаузе. Не рекомендуется употреблять в чистом виде."
 	color = "#554862"
 	nutriment_factor = 0
 	taste_description = "sugar, spice, and nothing nice"
 	glass_icon_state = "toechtauese_syrup"
-	glass_name = "стакан töchtaüse syrup"
-	glass_desc = "Not for drinking on its own."
+	glass_name = "сироп Тёхтаузе"
+	glass_desc = "Не рекомендуется употреблять в чистом виде."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/rootbeer
-	name = "root beer"
-	description = "A delightfully bubbly root beer, filled with so much sugar that it can actually speed up the user's trigger finger."
+	name = "Рутбир"
+	description = "Восхитительный напиток, в котором так много сахара, что он может заставить вас дважды нажимать на курок."
 	color = "#181008" // rgb: 24, 16, 8
 	quality = DRINK_VERYGOOD
 	nutriment_factor = 10 * REAGENTS_METABOLISM
 	metabolization_rate = 2 * REAGENTS_METABOLISM
-	taste_description = "a monstrous sugar rush"
+	taste_description = "чудовищный сахарный передоз"
 	glass_icon_state = "spacecola"
-	glass_name = "glass of root beer"
-	glass_desc = "A glass of highly potent, incredibly sugary root beer."
+	glass_name = "Рутбир"
+	glass_desc = "Стакан сильнодействующего, невероятно сладкого рутбира."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	/// If we activated the effect
 	var/effect_enabled = FALSE
@@ -1128,14 +1124,14 @@
 /datum/reagent/consumable/rootbeer/on_mob_end_metabolize(mob/living/L)
 	REMOVE_TRAIT(L, TRAIT_DOUBLE_TAP, type)
 	if(current_cycle > 10)
-		to_chat(L, span_warning("You feel kinda tired as your sugar rush wears off..."))
+		to_chat(L, span_warning("Чувствую некоторую усталость, когда тремор слегка отпускает..."))
 		L.adjustStaminaLoss(min(80, current_cycle * 3))
 		L.drowsyness += current_cycle
 	..()
 
 /datum/reagent/consumable/rootbeer/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(current_cycle >= 3 && !effect_enabled) // takes a few seconds for the bonus to kick in to prevent microdosing
-		to_chat(M, span_notice("You feel your trigger finger getting itchy..."))
+		to_chat(M, span_notice("Кажется, у меня чешутся пальцы."))
 		ADD_TRAIT(M, TRAIT_DOUBLE_TAP, type)
 		effect_enabled = TRUE
 

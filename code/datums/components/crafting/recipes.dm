@@ -1412,7 +1412,7 @@
 	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/coffee_cartridge
-	name = "Bootleg Coffee Cartridge"
+	name = "Картридж Бутлег-кофе"
 	result = /obj/item/coffee_cartridge/bootleg
 	time = 2 SECONDS
 	reqs = list(

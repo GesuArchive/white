@@ -35,7 +35,7 @@
 		),
 
 		list(
-			"name" = "Причендалы",
+			"name" = "Причиндалы",
 			"icon" = "glasses",
 			"products" = list(
 				/obj/item/clothing/accessory/waistcoat = 4,

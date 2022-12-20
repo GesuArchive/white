@@ -188,31 +188,31 @@
 	contains = list(/obj/item/bait_can/worm/premium)
 
 /datum/supply_pack/goody/coffee_mug
-	name = "Coffee Mug"
-	desc = "A bog standard coffee mug, for drinking coffee."
+	name = "Чашка для кофе"
+	desc = "Стандартная кофейная чашка."
 	cost = PAYCHECK_ASSISTANT
 	contains = list(/obj/item/reagent_containers/food/drinks/mug)
 
 /datum/supply_pack/goody/nt_mug
-	name = "Nanotrasen Coffee Mug"
-	desc = "A blue mug bearing the logo of your corporate masters. Usually given out at inductions or events, we'll send one out special for a nominal fee."
+	name = "Кружка для кофе от НаноТрейзен"
+	desc = "Синяя кружка с логотипом НТ. Обычно выдается при вступлении в должность или на мероприятиях, но мы отправим вам ее за символическую плату."
 	cost = PAYCHECK_ASSISTANT
 	contains = list(/obj/item/reagent_containers/food/drinks/mug/nanotrasen)
 
 /datum/supply_pack/goody/coffee_cartridge
-	name = "Coffee Cartridge"
-	desc = "A basic cartridge for a coffeemaker. Makes 4 pots."
+	name = "Картридж для кофе"
+	desc = "Базовый картридж для кофеварки. Хватит на 4 полных кофейника."
 	cost = PAYCHECK_ASSISTANT
 	contains = list(/obj/item/coffee_cartridge)
 
 /datum/supply_pack/goody/coffee_cartridge_fancy
-	name = "Fancy Coffee Cartridge"
-	desc = "A fancy cartridge for a coffeemaker. Makes 4 pots."
+	name = "Модный картридж для кофе"
+	desc = "Дорогой картридж для кофеварки. Хватит на 4 полных кофейника."
 	cost = PAYCHECK_ASSISTANT
 	contains = list(/obj/item/coffee_cartridge/fancy)
 
 /datum/supply_pack/goody/coffeepot
-	name = "Coffeepot"
-	desc = "A standard-sized coffeepot, for use with a coffeemaker."
+	name = "Кофейник"
+	desc = "Кофейник стандартного размера для использования в кофеварке."
 	cost = PAYCHECK_ASSISTANT
 	contains = list(/obj/item/reagent_containers/glass/coffeepot)

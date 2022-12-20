@@ -1,6 +1,6 @@
 /obj/item/plate
-	name = "plate"
-	desc = "Holds food, powerful. Good for morale when you're not eating your spaghetti off of a desk."
+	name = "тарелка"
+	desc = "На неё можно положить еду. Хорошо подходит для поднятия настроения, ведь вам не приходится есть с пола."
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "plate"
 	w_class = WEIGHT_CLASS_BULKY //No backpack.
@@ -16,10 +16,10 @@
 
 /obj/item/plate/attackby(obj/item/I, mob/user, params)
 	if(!IS_EDIBLE(I))
-		to_chat(user, span_notice("[src] is made for food, and food alone!"))
+		to_chat(user, span_notice("[src] для еды и только для еды!"))
 		return
 	if(contents.len >= max_items)
-		to_chat(user, span_notice("[src] can't fit more items!"))
+		to_chat(user, span_notice("[src] полная!"))
 		return
 	var/list/modifiers = params2list(params)
 	//Center the icon where the user clicked.
@@ -28,7 +28,7 @@
 	if(user.transferItemToLoc(I, src, silent = FALSE))
 		I.pixel_x = clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -max_x_offset, max_x_offset)
 		I.pixel_y = min(text2num(LAZYACCESS(modifiers, ICON_Y)) + placement_offset, max_height_offset)
-		to_chat(user, span_notice("You place [I] on [src]."))
+		to_chat(user, span_notice("Положил [I] на [src]."))
 		AddToPlate(I, user)
 	else
 		return ..()

@@ -419,16 +419,16 @@
 
 //Coffeepots: for reference, a standard cup is 30u, to allow 20u for sugar/sweetener/milk/creamer
 /obj/item/reagent_containers/glass/coffeepot
-	name = "coffeepot"
-	desc = "A large pot for dispensing that ambrosia of corporate life known to mortals only as coffee. Contains 4 standard cups."
+	name = "кофейник"
+	desc = "Большой кофейник для раздачи амброзии офисной жизни, известной смертным как кофе. Хватит на 4 стандартные чашки."
 	volume = 120
 	icon_state = "coffeepot"
 	fill_icon_state = "coffeepot"
 	fill_icon_thresholds = list(0, 1, 40, 80, 120)
 
 /obj/item/reagent_containers/glass/coffeepot/bluespace
-	name = "bluespace coffeepot"
-	desc = "The most advanced coffeepot the eggheads could cook up: sleek design; graduated lines; connection to a pocket dimension for coffee containment; yep, it's got it all. Contains 8 standard cups."
+	name = "блюспейс кофейник"
+	desc = "Самый передовой кофейник, который могли придумать ученые: современный дизайн; градуированные линии; отдельное измерение для хранения кофе; да, вот такой он. Хватит на 8 стандартных чашек."
 	volume = 240
 	icon_state = "coffeepot_bluespace"
 	fill_icon_thresholds = list(0)
