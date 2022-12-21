@@ -304,7 +304,7 @@
 		if(prob(pain*0.5))
 			INVOKE_ASYNC(owner, /mob.proc/emote, "agony")
 		if(pain > 10)
-			owner.crippling_shock(pain, body_zone)
+			owner.crippling_shock(body_zone, pain)
 			owner.flash_pain(4)
 		else if (pain > 5)
 			owner.flash_pain(3)

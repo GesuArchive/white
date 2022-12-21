@@ -1401,11 +1401,11 @@
 	/// Alpha of the first composite layer
 	var/starting_alpha = 64
 	/// How many total layers we get, each new layer halving the previous layer's alpha
-	var/intensity = 3
+	var/intensity = 6
 	/// How much we are allowed to vary in x
-	var/variation_x = 32
+	var/variation_x = 16
 	/// How much we are allowed to vary in y
-	var/variation_y = 32
+	var/variation_y = 16
 	/// Render relay plate we get our render_source from
 	var/atom/movable/screen/plane_master/rendering_plate/source_plate
 	/// Render relay plate we are actually messing with
@@ -1433,8 +1433,8 @@
 /datum/status_effect/incapacitating/headrape/on_apply()
 	. = ..()
 	tinnitus = new(owner, TRUE, TRUE, TRUE)
-	if(owner?.hud_used?.get_plane_master(RENDER_PLANE_GAME_WORLD) && owner.hud_used.get_plane_master(RENDER_PLANE_GAME))
-		source_plate = owner.hud_used.get_plane_master(RENDER_PLANE_GAME_WORLD)
+	if(owner?.hud_used?.get_plane_master(RENDER_PLANE_MASTER) && owner.hud_used.get_plane_master(RENDER_PLANE_GAME))
+		source_plate = owner.hud_used.get_plane_master(RENDER_PLANE_MASTER)
 		filter_plate = owner.hud_used.get_plane_master(RENDER_PLANE_GAME)
 		black_filter_params = layering_filter(render_source = source_plate.render_target, \
 											blend_mode = BLEND_OVERLAY, \

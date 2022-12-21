@@ -1537,9 +1537,9 @@
 		return
 	if(HAS_TRAIT_FROM(src, TRAIT_LOOKING_INTO_DISTANCE, "verb"))
 		unperform_zoom(A, params)
-	else if((get_dist(src, A) <= world.view))
+	else
 		perform_zoom(A, params)
-		to_chat(src, span_notice("Смотрю в даль."))
+		visible_message(span_notice("<b>[src]</b> смотрит в даль."), span_notice("Смотрю в даль."))
 
 /mob/proc/perform_zoom(atom/A, params, silent = FALSE)
 	if(!client)

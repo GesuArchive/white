@@ -770,7 +770,7 @@
 	shock_penalty = 0
 	shock_penalty_timer = null
 
-/mob/living/carbon/proc/crippling_shock(body_zone = BODY_ZONE_CHEST)
+/mob/living/carbon/proc/crippling_shock(body_zone = BODY_ZONE_CHEST, amount = 8 SECONDS)
 	//Try not to stack too much
 	if((world.time - last_crippling_shock) <= 1 SECONDS)
 		return
@@ -782,7 +782,7 @@
 	switch(body_zone)
 		if(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_EYES)
 			drop_all_held_items()
-			HeadRape(8 SECONDS)
+			HeadRape(amount)
 		if(BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_R_ARM)
 			var/obj/item/held_item = get_item_for_held_index(RIGHT_HANDS)
 			if(held_item)
