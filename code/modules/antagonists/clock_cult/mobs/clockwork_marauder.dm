@@ -21,7 +21,7 @@
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 0, CLONE = 0, STAMINA = 0, OXY = 0)
 
 	attack_verb_simple = "рубит"
-	attack_sound = 'sound/weapons/stab2.ogg'
+	attack_sound = 'sound/weapons/sword_kill_slash_02.ogg'
 	chat_color = "#CAA25B"
 	speech_span = SPAN_ROBOT
 	obj_damage = 80

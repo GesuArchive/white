@@ -171,7 +171,7 @@
 	slot_flags = ITEM_SLOT_BELT
 	attack_verb_continuous = list("slashes", "cuts")
 	attack_verb_simple = list("slash", "cut")
-	hitsound = 'sound/weapons/stab1.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 
 /obj/item/melee/forge/mace
 	name = "булава"

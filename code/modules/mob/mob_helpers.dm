@@ -618,3 +618,18 @@
 	if(!istype(player, /client))
 		return
 	return player
+
+/mob/proc/flash_pain(power)
+	overlay_fullscreen("pain", /atom/movable/screen/fullscreen/pain, power)
+	var/clear_after = 1
+	switch(power)
+		if(1)
+			clear_after = 3
+		if(2)
+			clear_after = 5
+		if(3)
+			clear_after = 15
+		if(4)
+			clear_after = 35
+
+	clear_fullscreen("pain", clear_after)

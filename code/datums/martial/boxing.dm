@@ -32,7 +32,7 @@
 	var/obj/item/bodypart/affecting = D.get_bodypart(ran_zone(A.zone_selected))
 	var/armor_block = D.run_armor_check(affecting, MELEE)
 
-	playsound(D.loc, species.attack_sound, 25, TRUE, -1)
+	playsound(D.loc, pick(species.attack_sound), 25, TRUE, -1)
 
 	D.visible_message(span_danger("[A] [atk_verb] [D]!") , \
 			span_userdanger("[A] [atk_verb] меня!") , span_hear("Слышу как что-то сильно бьёт по плоти!") , COMBAT_MESSAGE_RANGE, A)

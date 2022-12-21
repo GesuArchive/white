@@ -313,7 +313,7 @@
 	update_icon()
 	pipe_vision_img = image(src, loc, dir = dir)
 	SET_PLANE_EXPLICIT(pipe_vision_img, ABOVE_HUD_PLANE, src)
-	playsound(loc, 'sound/weapons/stab2.ogg', 100, TRUE)
+	playsound(loc, 'sound/weapons/sword_kill_slash_02.ogg', 100, TRUE)
 
 /obj/machinery/atmospherics/components/unary/vent_pump/high_volume
 	name = "мощная вентиляция"

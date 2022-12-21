@@ -33,8 +33,8 @@
 /atom/movable/screen/lobby/round_info/proc/update_info()
 	SIGNAL_HANDLER
 
-	var/generated_maptext = MAPTEXT_REALLYBIG_COLOR("Место действия: <b>[SSmapping.config?.map_name || "Загрузка..."]</b></br>", "#9842cd")
-	generated_maptext += MAPTEXT_REALLYBIG_COLOR("Номер события: <b>[GLOB.round_id ? GLOB.round_id : "NULL"]</b></br>", "#bc1ee0")
+	var/generated_maptext = MAPTEXT_REALLYBIG_COLOR("Место действия: <b>[SSmapping.config?.map_name || "Загрузка..."]</b></br>", "#cd8c42")
+	generated_maptext += MAPTEXT_REALLYBIG_COLOR("Номер события: <b>[GLOB.round_id ? GLOB.round_id : "NULL"]</b></br>", "#e0921e")
 	if(!SSticker.HasRoundStarted())
 		var/time_remaining = SSticker.GetTimeLeft()
 		if(time_remaining > 0)
@@ -43,10 +43,10 @@
 			time_remaining = "ОТЛОЖЕНО"
 		else
 			time_remaining = "СЕЙЧАС"
-		generated_maptext += MAPTEXT_REALLYBIG_COLOR("До начала: <b>[time_remaining]</b></br>", "#c625cf")
-		generated_maptext += MAPTEXT_REALLYBIG_COLOR("Готовы: <b>[SSticker.totalPlayersReady]/[LAZYLEN(GLOB.clients) + GLOB.whitelist.len]</b></br></br>", "#d60aaa")
+		generated_maptext += MAPTEXT_REALLYBIG_COLOR("До начала: <b>[time_remaining]</b></br>", "#cf9625")
+		generated_maptext += MAPTEXT_REALLYBIG_COLOR("Готовы: <b>[SSticker.totalPlayersReady]/[LAZYLEN(GLOB.clients) + GLOB.whitelist.len]</b></br></br>", "#d6b10a")
 	else
-		generated_maptext += MAPTEXT_REALLYBIG_COLOR("В действии: <b>[LAZYLEN(GLOB.joined_player_list)] человек</b></br></br>", "#ac3cc2")
+		generated_maptext += MAPTEXT_REALLYBIG_COLOR("В действии: <b>[LAZYLEN(GLOB.joined_player_list)] человек</b></br></br>", "#c2b23c")
 	generated_maptext += MAPTEXT_REALLYBIG_COLOR("Режим: <b>[SSticker.hide_mode ? "СЕКРЕТ" : "[capitalize(GLOB.master_mode)]"]</b>", "#ff4444")
 	maptext = generated_maptext
 
@@ -60,7 +60,7 @@
 
 /atom/movable/screen/lobby/button/New(loc, ...)
 	. = ..()
-	add_filter("lobby", 1, drop_shadow_filter(0, 0, 12, 5, "#300030"))
+	add_filter("lobby", 1, drop_shadow_filter(0, 0, 12, 5, "#303030"))
 
 /atom/movable/screen/lobby/button/Click(location, control, params)
 	if(owner != REF(usr))

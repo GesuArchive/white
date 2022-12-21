@@ -32,7 +32,7 @@
 	sharpness = SHARP_EDGED
 	attack_verb_continuous = "разрывает когтями"
 	attack_verb_simple = "разрывает когтями"
-	attack_sound = 'sound/weapons/stab2.ogg'
+	attack_sound = 'sound/weapons/sword_kill_slash_02.ogg'
 	attack_vis_effect = ATTACK_EFFECT_CLAW
 	friendly_verb_continuous = "bear hugs"
 	friendly_verb_simple = "bear hug"

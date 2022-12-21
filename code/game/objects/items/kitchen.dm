@@ -90,7 +90,7 @@
 	force = 10
 	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 10
-	hitsound = 'sound/weapons/stab1.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	throw_speed = 3
 	throw_range = 6
 	custom_materials = list(/datum/material/iron=12000)

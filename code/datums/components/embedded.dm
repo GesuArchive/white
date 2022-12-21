@@ -92,7 +92,7 @@
 	var/damage = weapon.throwforce
 	if(harmful)
 		victim.throw_alert("embeddedobject", /atom/movable/screen/alert/embeddedobject)
-		playsound(victim,'sound/weapons/stab2.ogg', 40)
+		playsound(victim,'sound/weapons/sword_kill_slash_02.ogg', 40)
 		weapon.add_mob_blood(victim)//it embedded itself in you, of course it's bloody!
 		damage += weapon.w_class * impact_pain_mult
 		SEND_SIGNAL(victim, COMSIG_ADD_MOOD_EVENT, "embedded", /datum/mood_event/embedded)

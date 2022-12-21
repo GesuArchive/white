@@ -79,11 +79,16 @@
 	..()
 	return
 
+/datum/reagent/medicine/c2/helbital/overdose_start(mob/living/M)
+	. = ..()
+	M.HeadRape(4 SECONDS)
+
 /datum/reagent/medicine/c2/helbital/overdose_process(mob/living/carbon/M, delta_time, times_fired)
 	if(!helbent)
 		M.apply_necropolis_curse(CURSE_WASTING | CURSE_BLINDING)
 		helbent = TRUE
 	..()
+	M.HeadRape(4 SECONDS)
 	return TRUE
 
 /datum/reagent/medicine/c2/helbital/on_mob_delete(mob/living/L)

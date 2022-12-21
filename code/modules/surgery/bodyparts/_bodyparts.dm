@@ -299,6 +299,20 @@
 		var/datum/wound/iter_wound = i
 		iter_wound.receive_damage(wounding_type, wounding_dmg, wound_bonus)
 
+	var/pain = min((0.7 * brute) + (0.8 * burn), max_damage - get_damage(TRUE))
+	if(owner && pain)
+		if(prob(pain*0.5))
+			INVOKE_ASYNC(owner, /mob.proc/emote, "agony")
+		if(pain > 10)
+			owner.crippling_shock(pain, body_zone)
+			owner.flash_pain(4)
+		else if (pain > 5)
+			owner.flash_pain(3)
+		else if (pain > 3)
+			owner.flash_pain(2)
+		else
+			owner.flash_pain(1)
+
 	/*
 	// END WOUND HANDLING
 	*/

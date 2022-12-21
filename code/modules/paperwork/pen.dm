@@ -30,6 +30,7 @@
 	var/font = PEN_FONT
 	embedding = list()
 	sharpness = SHARP_POINTY
+	hitsound = 'sound/weapons/stab1.ogg'
 
 /obj/item/pen/suicide_act(mob/user)
 	user.visible_message(span_suicide("[user] is scribbling numbers all over [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit sudoku..."))

@@ -43,7 +43,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	force = 2
 	throwforce = 1
 	w_class = WEIGHT_CLASS_NORMAL
-	hitsound = 'sound/weapons/stab1.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
 
@@ -59,7 +59,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	inhand_icon_state = "claymore"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	hitsound = 'sound/weapons/stab1.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	force = 40
@@ -68,7 +68,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	attack_verb_continuous = list("атакует", "рубит", "втыкает", "прорезает", "кромсает", "подрезает", "нарезает", "режет")
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "прорезает", "кромсает", "подрезает", "нарезает", "режет")
 	block_chance = 50
-	block_sounds = list('white/valtos/sounds/block_sword.ogg')
+	block_sounds = list('sound/weapons/sword_p1.ogg', 'sound/weapons/sword_p2.ogg', 'sound/weapons/sword_p3.ogg')
 	sharpness = SHARP_EDGED
 	max_integrity = 200
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 50)
@@ -254,8 +254,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	force = 60
 	throwforce = 10
 	w_class = WEIGHT_CLASS_HUGE
-	hitsound = 'sound/weapons/stab1.ogg'
-	block_sounds = list('white/valtos/sounds/block_sword.ogg')
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
+	block_sounds = list('sound/weapons/sword_p1.ogg', 'sound/weapons/sword_p2.ogg', 'sound/weapons/sword_p3.ogg')
 	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
 	block_chance = 50
@@ -342,6 +342,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 
 	w_class = WEIGHT_CLASS_SMALL
 	sharpness = SHARP_POINTY
+	hitsound = 'sound/weapons/stab1.ogg'
 	custom_materials = list(/datum/material/iron=500, /datum/material/glass=500)
 	resistance_flags = FIRE_PROOF
 
@@ -389,7 +390,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		throwforce_on = 23, \
 		throw_speed_on = throw_speed, \
 		sharpness_on = SHARP_EDGED, \
-		hitsound_on = 'sound/weapons/stab2.ogg', \
+		hitsound_on = 'sound/weapons/sword_kill_slash_02.ogg', \
 		w_class_on = WEIGHT_CLASS_NORMAL, \
 		attack_verb_continuous_on = list("slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts"), \
 		attack_verb_simple_on = list("slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut"))
@@ -858,8 +859,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	actions_types = list(/datum/action/item_action/area_attack)
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_BELT
-	hitsound = 'sound/weapons/stab1.ogg'
-	block_sounds = list('white/valtos/sounds/block_sword.ogg')
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
+	block_sounds = list('sound/weapons/sword_p1.ogg', 'sound/weapons/sword_p2.ogg', 'sound/weapons/sword_p3.ogg')
 	var/wielded = FALSE // track wielded status on item
 	var/max_area_cd = 60 SECONDS
 	COOLDOWN_DECLARE(area_attack_cd)
@@ -1040,8 +1041,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	sharpness = SHARP_EDGED
 	force = 14
 	throwforce = 12
-	hitsound = 'sound/weapons/stab1.ogg'
-	block_sounds = list('white/valtos/sounds/block_sword.ogg')
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
+	block_sounds = list('sound/weapons/sword_p1.ogg', 'sound/weapons/sword_p2.ogg', 'sound/weapons/sword_p3.ogg')
 	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 

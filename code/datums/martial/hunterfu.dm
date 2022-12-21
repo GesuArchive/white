@@ -65,7 +65,7 @@
 		span_hear("Слышу звук разрывающейся плоти!"),
 	)
 	to_chat(A, span_danger("You stab [D] viciously!"))
-	playsound(get_turf(A), 'sound/weapons/stab2.ogg', 50, TRUE, -1)
+	playsound(get_turf(A), 'sound/weapons/sword_kill_slash_02.ogg', 50, TRUE, -1)
 	log_combat(A, D, "stakestabbed (Hunter-Fu)")
 	var/stake_damagehigh = A.dna.species.punchdamagehigh * 1.5 + 10	//25 damage
 	if(!D.mind)

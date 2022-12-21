@@ -210,8 +210,7 @@
 	if(target.stat > UNCONSCIOUS)
 		return
 
-	target.overlay_fullscreen("pain", /atom/movable/screen/fullscreen/pain, 1)
-	addtimer(CALLBACK(target, /mob/.proc/clear_fullscreen, "pain", 6), 1)
+	target.flash_pain(4)
 	to_chat(target, span_warning(pain_message))
 
 	if(prob(35))

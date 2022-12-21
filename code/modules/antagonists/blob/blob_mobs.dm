@@ -122,7 +122,7 @@
 	obj_damage = 0
 	attack_verb_continuous = "бьёт"
 	attack_verb_simple = "бьёт"
-	attack_sound = 'sound/weapons/genhit1.ogg'
+	attack_sound = 'sound/weapons/genhit1.wav'
 	del_on_death = TRUE
 	death_message = "взрывается!"
 	gold_core_spawnable = NO_SPAWN //gold slime cores should only spawn the independent subtype

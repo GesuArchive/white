@@ -70,7 +70,7 @@
 		D.visible_message(span_danger("[A] лупит по голове [D], принуждая отрубиться!"), \
 						span_userdanger("[A] лупит меня по голове!"), span_hear("Слышу звук разрывающейся плоти!"), null, A)
 		to_chat(A, span_danger("Луплю [D], принуждая отрубиться!"))
-		playsound(get_turf(A), 'sound/weapons/genhit1.ogg', 50, TRUE, -1)
+		playsound(get_turf(A), 'sound/weapons/genhit1.wav', 50, TRUE, -1)
 		D.SetSleeping(30 SECONDS)
 		D.adjustOrganLoss(ORGAN_SLOT_BRAIN, 15, 150)
 		. = TRUE

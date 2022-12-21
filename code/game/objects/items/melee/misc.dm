@@ -44,7 +44,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	force = 20
 	throwforce = 10
-	hitsound = 'sound/weapons/stab1.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	attack_verb_continuous = list("атакует", "разрезает", "колет", "режет", "рвет", "разрывает", "нарезает")
 	attack_verb_simple = list("атакует", "разрезает", "колет", "режет", "рвет", "разрывает", "нарезает")
 	sharpness = SHARP_EDGED
@@ -71,7 +71,7 @@
 	attack_verb_continuous = list("разрезает", "нарезает")
 	attack_verb_simple = list("разрезает", "нарезает")
 	hitsound = 'sound/weapons/rapierhit.ogg'
-	block_sounds = list('white/valtos/sounds/block_sword.ogg')
+	block_sounds = list('sound/weapons/sword_p1.ogg', 'sound/weapons/sword_p2.ogg', 'sound/weapons/sword_p3.ogg')
 	custom_materials = list(/datum/material/iron = 1000)
 	wound_bonus = 30
 	bare_wound_bonus = 55
@@ -157,7 +157,7 @@
 	attack_verb_continuous = list("slashes", "stings", "prickles", "pokes")
 	attack_verb_simple = list("slash", "sting", "prickle", "poke")
 	hitsound = 'sound/weapons/rapierhit.ogg'
-	block_sounds = list('white/valtos/sounds/block_sword.ogg')
+	block_sounds = list('sound/weapons/sword_p1.ogg', 'sound/weapons/sword_p2.ogg', 'sound/weapons/sword_p3.ogg')
 
 /obj/item/melee/beesword/afterattack(atom/target, mob/user, proximity)
 	. = ..()

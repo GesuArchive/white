@@ -36,7 +36,7 @@ Slimecrossing Weapons
 		damtype = pick(BRUTE, BURN, TOX, OXY, CLONE)
 	switch(damtype)
 		if(BRUTE)
-			hitsound = 'sound/weapons/stab1.ogg'
+			hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 			attack_verb_continuous = string_list(list("режет","рубит","кромсает"))
 			attack_verb_simple = string_list(list("режет","рубит","кромсает"))
 		if(BURN)

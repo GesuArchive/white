@@ -20,7 +20,7 @@
 
 	attack_verb_continuous = "бьет"
 	attack_verb_simple = "бьет"
-	attack_sound = 'sound/weapons/stab2.ogg'
+	attack_sound = 'sound/weapons/sword_kill_slash_02.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	faction = list("ratvar")
 	deathsound = 'sound/magic/clockwork/anima_fragment_death.ogg'

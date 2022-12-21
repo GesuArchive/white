@@ -103,9 +103,13 @@
 	. = ..()
 	if(!.)
 		return
-	remove_filter("AO")
+	remove_filter(list("AO", "black", "red", "green", "blue"))
 	if(istype(mymob) && mymob.client?.prefs?.ambientocclusion)
 		add_filter("AO", 1, drop_shadow_filter(x = 0, y = -2, size = 4, color = "#04080FAA"))
+	add_filter("black", 1, layering_filter(render_source = RENDER_PLANE_GAME_WORLD, color = "#000000"))
+	add_filter("red", 2, layering_filter(render_source = RENDER_PLANE_GAME_WORLD, color = "#FF000001", x = 1, y = 1))
+	add_filter("green", 3, layering_filter(render_source = RENDER_PLANE_GAME_WORLD, color = "#00FF0001", x = 0, y = 0))
+	add_filter("blue", 4, layering_filter(render_source = RENDER_PLANE_GAME_WORLD, color = "#0000FF01", x = -1, y = -1))
 
 ///Contains all lighting objects
 /atom/movable/screen/plane_master/rendering_plate/lighting

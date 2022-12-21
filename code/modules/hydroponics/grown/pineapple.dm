@@ -22,7 +22,7 @@
 	icon_state = "pineapple"
 	force = 4
 	throwforce = 8
-	hitsound = 'sound/weapons/stab1.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	attack_verb_continuous = list("жалит", "ананасит")
 	attack_verb_simple = list("жалит", "ананасит")
 	throw_speed = 1

@@ -18,6 +18,7 @@
 	reagent_flags = TRANSPARENT
 	custom_price = PAYCHECK_EASY * 0.5
 	sharpness = SHARP_POINTY
+	hitsound = 'sound/weapons/stab1.ogg'
 
 /obj/item/reagent_containers/syringe/Initialize(mapload)
 	. = ..()

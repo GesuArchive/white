@@ -55,6 +55,7 @@
 	)
 	w_class = WEIGHT_CLASS_SMALL
 	sharpness = SHARP_POINTY
+	hitsound = 'sound/weapons/stab1.ogg'
 	custom_materials = list(/datum/material/biomass = 500)
 	/// What mob "fired" our tongue
 	var/datum/weakref/fired_by_ref

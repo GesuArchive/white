@@ -256,7 +256,7 @@
 	var/hulk_verb = pick("ломает","крушит")
 	if(check_shields(user, 15, "the [hulk_verb]ing"))
 		return
-	playsound(loc, user.dna.species.attack_sound, 25, TRUE, -1)
+	playsound(loc, pick(user.dna.species.attack_sound), 25, TRUE, -1)
 	visible_message(span_danger("<b>[user]</b> [hulk_verb] <b>[src]</b>!") , \
 					span_userdanger("<b>[user]</b> [hulk_verb] <b>[src]</b>!") , span_hear("Слышу как что-то сильно бьёт по плоти!") , null, user)
 	to_chat(user, span_danger("Мой удар [hulk_verb] <b>[src]</b>!"))

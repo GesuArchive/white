@@ -111,3 +111,11 @@
 	var/can_be_shoved_into = FALSE
 
 	COOLDOWN_DECLARE(bleeding_message_cd)
+
+	// ~INJURY PENALTIES
+	/// Timer for injury penalty, should reset if we take more damage
+	var/shock_penalty_timer = null
+	/// How much our injury penalty currently affects our DX and IQ
+	var/shock_penalty = 0
+	/// Last time we got a major wound (crippling shock)
+	var/last_crippling_shock = 0

@@ -264,7 +264,7 @@
 	else
 		to_chat(usr, span_userdanger("Something strikes you from behind! It hurts like hell and feel like a blunt weapon, but nothing is there..."))
 		gamer.take_bodypart_damage(30)
-		playsound(game, 'sound/weapons/genhit2.ogg', 100, TRUE)
+		playsound(game, 'sound/weapons/genhit2.wav', 100, TRUE)
 
 /datum/orion_event/illness
 	name = "Space Illness"

@@ -80,7 +80,7 @@
 	loot = list(/obj/effect/gibspawner/human)
 	attack_verb_continuous = "режет"
 	attack_verb_simple = "режет"
-	attack_sound = 'sound/weapons/stab2.ogg'
+	attack_sound = 'sound/weapons/sword_kill_slash_02.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	status_flags = 0
 	var/projectile_deflect_chance = 0
@@ -302,7 +302,7 @@
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	attack_verb_continuous = "режет"
 	attack_verb_simple = "режет"
-	attack_sound = 'sound/weapons/stab2.ogg'
+	attack_sound = 'sound/weapons/sword_kill_slash_02.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	faction = list(ROLE_SYNDICATE)
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)

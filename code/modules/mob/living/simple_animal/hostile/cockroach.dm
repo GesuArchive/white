@@ -101,7 +101,7 @@
 	melee_damage_upper = 20
 	obj_damage = 20
 	gold_core_spawnable = HOSTILE_SPAWN
-	attack_sound = 'sound/weapons/stab2.ogg'
+	attack_sound = 'sound/weapons/stab1.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	faction = list("hostile")
 	sharpness = SHARP_POINTY

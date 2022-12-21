@@ -793,8 +793,8 @@
 	w_class = WEIGHT_CLASS_HUGE
 	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
-	hitsound = 'sound/weapons/stab1.ogg'
-	block_sounds = list('white/valtos/sounds/block_sword.ogg')
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
+	block_sounds = list('sound/weapons/sword_p1.ogg', 'sound/weapons/sword_p2.ogg', 'sound/weapons/sword_p3.ogg')
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | FREEZE_PROOF
 	var/shattered = FALSE
 	var/drew_blood = FALSE
@@ -883,7 +883,7 @@
 	user.visible_message(span_warning("[user] strikes [target] with [src]'s hilt!"),
 		span_notice("You hilt strike [target]!"))
 	to_chat(target, span_userdanger("You've been struck by [user]!"))
-	playsound(src, 'sound/weapons/genhit3.ogg', 50, TRUE)
+	playsound(src, 'sound/weapons/genhit3.wav', 50, TRUE)
 	RegisterSignal(target, COMSIG_MOVABLE_IMPACT, .proc/strike_throw_impact)
 	var/atom/throw_target = get_edge_target_turf(target, user.dir)
 	target.throw_at(throw_target, 5, 3, user, FALSE, gentle = TRUE)
@@ -908,7 +908,7 @@
 /obj/item/cursed_katana/proc/slice(mob/living/target, mob/user)
 	user.visible_message(span_warning("[user] does a wide slice!"),
 		span_notice("You do a wide slice!"))
-	playsound(src, 'sound/weapons/stab2.ogg', 50, TRUE)
+	playsound(src, 'sound/weapons/sword_kill_slash_02.ogg', 50, TRUE)
 	var/turf/user_turf = get_turf(user)
 	var/dir_to_target = get_dir(user_turf, get_turf(target))
 	var/static/list/cursed_katana_slice_angles = list(0, -45, 45, -90, 90) //so that the animation animates towards the target clicked and not towards a side target

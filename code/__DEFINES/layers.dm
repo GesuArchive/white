@@ -89,9 +89,8 @@
 
 //-------------------- Rendering ---------------------
 #define RENDER_PLANE_GAME 100
-#define RENDER_PLANE_ABOVE_GAME 101
-#define RENDER_PLANE_NON_GAME 102
-#define RENDER_PLANE_MASTER 103
+#define RENDER_PLANE_NON_GAME 101
+#define RENDER_PLANE_MASTER 102
 
 // Lummox I swear to god I will find you
 // NOTE! You can only ever have planes greater then -10000, if you add too many with large offsets you will brick multiz

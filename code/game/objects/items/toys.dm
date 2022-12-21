@@ -487,7 +487,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb_continuous = list("атакует", "режет", "втыкает", "рубит")
 	attack_verb_simple = list("атакует", "режет", "втыкает", "рубит")
-	hitsound = 'sound/weapons/stab1.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 
 /*
  * Snap pops

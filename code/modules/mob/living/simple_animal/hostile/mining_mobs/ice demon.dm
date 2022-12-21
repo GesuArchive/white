@@ -25,7 +25,7 @@
 	melee_damage_upper = 15
 	attack_verb_continuous = "режет"
 	attack_verb_simple = "режет"
-	attack_sound = 'sound/weapons/stab2.ogg'
+	attack_sound = 'sound/weapons/sword_kill_slash_02.ogg'
 	attack_vis_effect = ATTACK_EFFECT_SLASH
 	vision_range = 9
 	aggro_vision_range = 9

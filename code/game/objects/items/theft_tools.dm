@@ -231,7 +231,7 @@
 	icon_state = "supermatter_scalpel"
 	toolspeed = 0.5
 	damtype = BURN
-	usesound = 'sound/weapons/stab2.ogg'
+	usesound = 'sound/weapons/sword_kill_slash_02.ogg'
 	var/usesLeft
 
 /obj/item/scalpel/supermatter/Initialize(mapload)

@@ -125,7 +125,7 @@
 	throw_speed = 4
 	attack_verb_continuous = list("режет")
 	attack_verb_simple = list("режет")
-	hitsound = 'sound/weapons/stab1.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	sharpness = SHARP_EDGED
 
 /obj/item/clothing/glasses/meson/prescription
@@ -224,7 +224,7 @@
 	throw_speed = 4
 	attack_verb_continuous = list("режет")
 	attack_verb_simple = list("режет")
-	hitsound = 'sound/weapons/stab1.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	sharpness = SHARP_EDGED
 	glass_colour_type = /datum/client_colour/glass_colour/lightgreen
 
@@ -282,7 +282,7 @@
 	throw_speed = 4
 	attack_verb_continuous = list("режет")
 	attack_verb_simple = list("режет")
-	hitsound = 'sound/weapons/stab1.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	sharpness = SHARP_EDGED
 
 /obj/item/clothing/glasses/sunglasses/garb/supergarb
@@ -303,7 +303,7 @@
 	throw_speed = 4
 	attack_verb_continuous = list("режет")
 	attack_verb_simple = list("режет")
-	hitsound = 'sound/weapons/stab1.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	sharpness = SHARP_EDGED
 	glass_colour_type = /datum/client_colour/glass_colour/orange
 

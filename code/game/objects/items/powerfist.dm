@@ -103,7 +103,7 @@
 		span_userdanger("Вскрикиваю от боли, когда [user] удар отбрасывает меня назад!"))
 	new /obj/effect/temp_visual/kinetic_blast(target.loc)
 	playsound(loc, 'sound/weapons/resonator_blast.ogg', 50, TRUE)
-	playsound(loc, 'sound/weapons/genhit2.ogg', 50, TRUE)
+	playsound(loc, 'sound/weapons/genhit2.wav', 50, TRUE)
 
 	var/atom/throw_target = get_edge_target_turf(target, get_dir(src, get_step_away(target, src)))
 

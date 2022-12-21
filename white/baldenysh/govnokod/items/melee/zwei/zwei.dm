@@ -24,7 +24,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	force = 5
 	throwforce = 15
-	hitsound = 'sound/weapons/stab1.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрубает", "кромсает", "разрывает", "нарезает", "режет")
 	block_chance = 30
 	sharpness = SHARP_EDGED

@@ -150,8 +150,15 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/attack_verb = "бьёт"
 	/// The visual effect of the attack.
 	var/attack_effect = ATTACK_EFFECT_PUNCH
-	var/sound/attack_sound = 'sound/weapons/punch1.ogg'
+	var/sound/attack_sound = list(
+		'sound/weapons/punch1.ogg',
+		'sound/weapons/punch2.ogg',
+		'sound/weapons/punch3.ogg',
+		'sound/weapons/punch4.ogg'
+	)
 	var/sound/miss_sound = 'sound/weapons/punchmiss.ogg'
+
+	var/sound/kick_sound = 'sound/weapons/kick.wav'
 
 	///What gas does this species breathe? Used by suffocation screen alerts, most of actual gas breathing is handled by mutantlungs. See [life.dm][code/modules/mob/living/carbon/human/life.dm]
 	var/breathid = "o2"
@@ -1496,7 +1503,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		var/armor_block = target.run_armor_check(affecting, MELEE)
 
-		playsound(target.loc, user.dna.species.attack_sound, 25, TRUE, -1)
+		if(atk_effect == ATTACK_EFFECT_KICK)
+			playsound(target.loc, user.dna.species.kick_sound, 25, TRUE, -1)
+		else
+			playsound(target.loc, pick(user.dna.species.attack_sound), 25, TRUE, -1)
 
 		if(target == user)
 			to_chat(user, span_danger("Бью себя!"))
@@ -1650,6 +1660,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 							H.visible_message(span_danger("[H] беспорядочно шатается!") , \
 											span_userdanger("Вам пришло письмо-о-о!"))
 							H.set_confusion(max(H.get_confusion(), 20))
+							H.crippling_shock(BODY_ZONE_HEAD)
 							H.adjust_blurriness(I.force)
 							H.dizziness += (I.force) //Анкон идет нахуй, пусть шатает экран.
 						if(prob(5)) //Балансим шанс получить травму от двойного шанса на нокаут. (Дефолт=10)

@@ -6,7 +6,7 @@
 	anchored = TRUE
 	layer = WALL_OBJ_LAYER
 	plane = GAME_PLANE_UPPER
-	var/list/hit_sounds = list('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg',\
+	var/list/hit_sounds = list('sound/weapons/genhit1.wav', 'sound/weapons/genhit2.wav', 'sound/weapons/genhit3.wav',\
 	'sound/weapons/punch1.ogg', 'sound/weapons/punch2.ogg', 'sound/weapons/punch3.ogg', 'sound/weapons/punch4.ogg')
 
 /obj/structure/punching_bag/attack_hand(mob/user as mob)

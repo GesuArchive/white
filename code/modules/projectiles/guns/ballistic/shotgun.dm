@@ -255,7 +255,7 @@
 	force = 16 //it has a hook on it
 	attack_verb_continuous = list("slashes", "hooks", "stabs")
 	attack_verb_simple = list("slash", "hook", "stab")
-	hitsound = 'sound/weapons/stab1.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	//our hook gun!
 	var/obj/item/gun/magic/hook/bounty/hook
 	var/toggled = FALSE

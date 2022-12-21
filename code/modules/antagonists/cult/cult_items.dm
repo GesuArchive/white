@@ -64,8 +64,8 @@
 	block_chance = 50 // now it's officially a cult esword
 	wound_bonus = -50
 	bare_wound_bonus = 20
-	hitsound = 'sound/weapons/stab1.ogg'
-	block_sounds = list('white/valtos/sounds/block_sword.ogg')
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
+	block_sounds = list('sound/weapons/sword_p1.ogg', 'sound/weapons/sword_p2.ogg', 'sound/weapons/sword_p3.ogg')
 	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрубает", "нарезает", "культирует")
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрубает", "нарезает", "культирует")
 
@@ -130,8 +130,8 @@
 	attack_verb_simple = list("разрубает", "рубит", "кромсает", "уничтожает", "разрывает", "нарезает", "режет")
 	icon_state = "cultbastard"
 	inhand_icon_state = "cultbastard"
-	hitsound = 'sound/weapons/stab1.ogg'
-	block_sounds = list('white/valtos/sounds/block_sword.ogg')
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
+	block_sounds = list('sound/weapons/sword_p1.ogg', 'sound/weapons/sword_p2.ogg', 'sound/weapons/sword_p3.ogg')
 	lefthand_file = 'icons/mob/inhands/64x64_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/64x64_righthand.dmi'
 	inhand_x_dimension = 64
@@ -683,7 +683,7 @@
 	attack_verb_continuous = list("атакует", "протыкает", "втыкает", "кромсает", "насаживает")
 	attack_verb_simple = list("атакует", "протыкает", "втыкает", "кромсает", "насаживает")
 	sharpness = SHARP_EDGED
-	hitsound = 'sound/weapons/stab1.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	var/datum/action/innate/cult/halberd/halberd_act
 	var/wielded = FALSE // track wielded status on item
 

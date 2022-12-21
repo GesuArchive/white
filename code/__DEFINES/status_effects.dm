@@ -182,3 +182,6 @@
 // Stasis helpers
 
 #define IS_IN_STASIS(mob) (mob.has_status_effect(STATUS_EFFECT_STASIS))
+
+/// The affected mob gets a very annoying screen effect
+#define STATUS_EFFECT_HEADRAPE /datum/status_effect/incapacitating/headrape

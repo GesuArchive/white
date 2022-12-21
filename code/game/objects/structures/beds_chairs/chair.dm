@@ -419,7 +419,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool/bar, 0)
 	name = "бамбуковый стул"
 	icon_state = "bamboo_stool"
 	inhand_icon_state = "stool_bamboo"
-	hitsound = 'sound/weapons/genhit1.ogg'
+	hitsound = 'sound/weapons/genhit1.wav'
 	origin_type = /obj/structure/chair/stool/bamboo
 	break_chance = 50	//Submissive and breakable unlike the chad iron stool
 
@@ -440,7 +440,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool/bar, 0)
 	inhand_icon_state = "woodenchair"
 	resistance_flags = FLAMMABLE
 	max_integrity = 70
-	hitsound = 'sound/weapons/genhit1.ogg'
+	hitsound = 'sound/weapons/genhit1.wav'
 	origin_type = /obj/structure/chair/wood
 	custom_materials = null
 	break_chance = 50

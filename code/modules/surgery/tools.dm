@@ -171,7 +171,7 @@
 	custom_materials = list(/datum/material/iron=4000, /datum/material/glass=1000)
 	attack_verb_continuous = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
 	attack_verb_simple = list("атакует", "рубит", "втыкает", "разрезает", "кромсает", "разрывает", "нарезает", "режет")
-	hitsound = 'sound/weapons/stab1.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_SCALPEL
 	toolspeed = 1
@@ -465,7 +465,7 @@
 		amputation_speed_mod = 1
 
 	if(do_after(user,  toolspeed * 150 * amputation_speed_mod, target = patient))
-		playsound(get_turf(patient), 'sound/weapons/stab2.ogg', 250, TRUE)
+		playsound(get_turf(patient), 'sound/weapons/sword_kill_slash_02.ogg', 250, TRUE)
 		if(user.zone_selected == BODY_ZONE_PRECISE_GROIN) //OwO
 			tail_snip_candidate.Remove(patient)
 			tail_snip_candidate.forceMove(get_turf(patient))
@@ -480,7 +480,7 @@
 		if(thing.body_part == CHEST)
 			continue
 		addtimer(CALLBACK(thing, /obj/item/bodypart/.proc/dismember), timer)
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, user, 'sound/weapons/stab2.ogg', 70), timer)
+		addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, user, 'sound/weapons/sword_kill_slash_02.ogg', 70), timer)
 		timer += 1 SECONDS
 	sleep(timer)
 	return BRUTELOSS

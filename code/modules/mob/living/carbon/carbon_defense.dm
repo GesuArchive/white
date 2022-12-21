@@ -137,7 +137,6 @@
 		to_chat(user, span_danger("[attack_message_attacker]"))
 	return TRUE
 
-
 /mob/living/carbon/attack_drone(mob/living/simple_animal/drone/user)
 	return //so we don't call the carbon's attack_hand().
 
@@ -755,3 +754,53 @@
 	return TRUE
 
 #undef SHAKE_ANIMATION_OFFSET
+
+/mob/living/carbon/proc/update_shock_penalty(incoming = 0, duration = 5 SECONDS)
+	//use remove_shock_penalty() you idiot
+	if(!incoming || !duration)
+		return
+	if(shock_penalty_timer)
+		deltimer(shock_penalty_timer)
+		shock_penalty_timer = null
+	//pick the bigger value between what we already are suffering and the incoming modification
+	shock_penalty = max(incoming, shock_penalty)
+	shock_penalty_timer = addtimer(CALLBACK(src, .proc/remove_shock_penalty), duration, TIMER_STOPPABLE)
+
+/mob/living/carbon/proc/remove_shock_penalty()
+	shock_penalty = 0
+	shock_penalty_timer = null
+
+/mob/living/carbon/proc/crippling_shock(body_zone = BODY_ZONE_CHEST)
+	//Try not to stack too much
+	if((world.time - last_crippling_shock) <= 1 SECONDS)
+		return
+	var/modifier = 0
+	switch(body_zone)
+		if(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_EYES)
+			modifier -= 10
+	var/vomiting = FALSE
+	switch(body_zone)
+		if(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_EYES)
+			drop_all_held_items()
+			HeadRape(8 SECONDS)
+		if(BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_R_ARM)
+			var/obj/item/held_item = get_item_for_held_index(RIGHT_HANDS)
+			if(held_item)
+				//if it's an offhand, drop the main item
+				if(istype(held_item, /obj/item/offhand))
+					held_item = get_item_for_held_index(LEFT_HANDS)
+				dropItemToGround(held_item)
+		if(BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_L_ARM)
+			var/obj/item/held_item = get_item_for_held_index(LEFT_HANDS)
+			if(held_item)
+				//if it's an offhand, drop the main item
+				if(istype(held_item, /obj/item/offhand))
+					held_item = get_item_for_held_index(RIGHT_HANDS)
+				dropItemToGround(held_item)
+		if(BODY_ZONE_CHEST)
+			vomiting = prob(50)
+	Knockdown(4 SECONDS)
+	if(vomiting)
+		//vomit without blood
+		vomit(10, FALSE, FALSE)
+	last_crippling_shock = world.time

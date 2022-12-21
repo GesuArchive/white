@@ -115,7 +115,7 @@
 	righthand_file = 'icons/mob/inhands/antag/bs_rightinhand.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
-	hitsound = 'sound/weapons/stab1.ogg'
+	hitsound = 'sound/weapons/sword_kill_slash_01.ogg'
 	/// Embedding
 	sharpness = SHARP_EDGED
 	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 20, "embedded_fall_chance" = 10)
@@ -192,6 +192,7 @@
 	icon_state = "ducky"
 	hitsound = 'sound/items/bikehorn.ogg'
 	sharpness = SHARP_POINTY //torture ducky
+	hitsound = 'sound/weapons/stab1.ogg'
 
 /obj/item/stake/ducky/Initialize(mapload)
 	. = ..()
