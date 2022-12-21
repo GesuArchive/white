@@ -551,7 +551,7 @@
 	. = ..()
 	if(!hud?.mymob)
 		return
-	. += mutable_appearance(overlay_icon, "[hud.mymob.zone_selected]", alpha = 125)
+	. += mutable_appearance(overlay_icon, "[hud.mymob.zone_selected]", alpha = 225)
 
 /atom/movable/screen/zone_sel/alien
 	icon = 'icons/hud/neoscreen64_alien.dmi'
