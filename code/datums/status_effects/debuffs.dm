@@ -1434,8 +1434,8 @@
 	. = ..()
 	tinnitus = new(owner, TRUE, TRUE, TRUE)
 	if(owner?.hud_used?.get_plane_master(RENDER_PLANE_MASTER) && owner.hud_used.get_plane_master(RENDER_PLANE_GAME))
-		source_plate = owner.hud_used.get_plane_master(RENDER_PLANE_MASTER)
-		filter_plate = owner.hud_used.get_plane_master(RENDER_PLANE_GAME)
+		source_plate = owner.hud_used.get_plane_master(RENDER_PLANE_GAME)
+		filter_plate = owner.hud_used.get_plane_master(RENDER_PLANE_MASTER)
 		black_filter_params = layering_filter(render_source = source_plate.render_target, \
 											blend_mode = BLEND_OVERLAY, \
 											x = 0, \
