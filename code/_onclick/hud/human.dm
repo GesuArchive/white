@@ -83,10 +83,6 @@
 	var/atom/movable/screen/using
 	var/atom/movable/screen/inventory/inv_box
 
-	var/atom/movable/screen/button_bg
-	var/atom/movable/screen/button_bg_health
-	var/atom/movable/screen/button_bg_big
-
 	using = new/atom/movable/screen/language_menu
 	using.icon = retro_hud ? ui_style : using.icon
 	using.screen_loc = retro_hud ? UI_BOXLANG_RETRO : UI_BOXLANG
@@ -374,6 +370,10 @@
 			inv.update_icon()
 
 	if(!retro_hud)
+
+		var/atom/movable/screen/button_bg
+		var/atom/movable/screen/button_bg_health
+		var/atom/movable/screen/button_bg_big
 
 		button_bg = new /atom/movable/screen/side_button_bg()
 		button_bg.hud = src
