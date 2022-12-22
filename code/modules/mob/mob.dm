@@ -1589,7 +1589,7 @@
 	if(!GLOB.changelog_tgui)
 		GLOB.changelog_tgui = new /datum/changelog(src)
 
-	if(client.prefs.lastchangelog != GLOB.changelog_hash)
+	if(GLOB.changelog_hash && client.prefs.lastchangelog != GLOB.changelog_hash)
 		client.prefs.lastchangelog = GLOB.changelog_hash
 		client.prefs.save_preferences()
 

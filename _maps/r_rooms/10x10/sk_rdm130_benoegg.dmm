@@ -12,18 +12,12 @@
 /obj/structure/alien/resin/wall,
 /turf/open/floor/plating,
 /area/template_noop)
-"d" = (
-/obj/structure/alien/weeds,
-/obj/effect/mob_spawn/human/corpse/damaged/chilly,
-/turf/open/floor/plating,
-/area/template_noop)
 "e" = (
 /turf/open/floor/plating,
 /area/template_noop)
 "f" = (
 /obj/structure/alien/weeds,
 /obj/structure/bed/nest,
-/obj/effect/mob_spawn/human/corpse/damaged/chilly,
 /turf/open/floor/plating,
 /area/template_noop)
 "g" = (
@@ -69,7 +63,6 @@
 /obj/structure/alien/weeds,
 /obj/structure/bed/nest,
 /obj/item/flamethrower,
-/obj/effect/mob_spawn/human/corpse/damaged/chilly,
 /turf/open/floor/plating,
 /area/template_noop)
 "s" = (
@@ -148,7 +141,7 @@ a
 h
 a
 a
-d
+a
 g
 e
 "}
