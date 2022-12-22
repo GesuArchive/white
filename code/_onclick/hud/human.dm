@@ -84,7 +84,6 @@
 	var/atom/movable/screen/inventory/inv_box
 
 	var/atom/movable/screen/button_bg
-	var/atom/movable/screen/free_bg
 	var/atom/movable/screen/button_bg_health
 	var/atom/movable/screen/button_bg_big
 
@@ -384,11 +383,6 @@
 		button_bg_health.screen_loc = retro_hud ? UI_HEALTHDOLL_RETRO : UI_HEALTHDOLL
 		button_bg_health.hud = src
 		infodisplay += button_bg_health
-
-		free_bg = new /atom/movable/screen/side_button_bg()
-		free_bg.screen_loc = retro_hud ? UI_RELATIVE_TEMP_RETRO : UI_RELATIVE_TEMP
-		free_bg.hud = src
-		infodisplay += free_bg
 
 		button_bg_big = new /atom/movable/screen/side_button_bg/high()
 		button_bg_big.hud = src

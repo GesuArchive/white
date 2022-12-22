@@ -47,6 +47,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 	var/mob/living/carbon/human/owner
 	var/body_temp_alt = 50
 	var/atom/movable/screen/relative_temp/screen_obj
+	var/atom/movable/screen/free_bg
 	var/list/text_temp_sources = list()
 
 /datum/component/realtemp/Initialize(mapload)
@@ -54,9 +55,14 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 		owner = parent
 
 		screen_obj = new /atom/movable/screen/relative_temp()
-		screen_obj.screen_loc = UI_RELATIVE_TEMP
+		screen_obj.screen_loc = owner.hud_used.retro_hud ? UI_RELATIVE_TEMP_RETRO : UI_RELATIVE_TEMP
 		screen_obj.hud = src
 		owner.hud_used.infodisplay += screen_obj
+
+		free_bg = new /atom/movable/screen/side_button_bg()
+		free_bg.screen_loc = owner.hud_used.retro_hud ? UI_RELATIVE_TEMP_RETRO : UI_RELATIVE_TEMP
+		free_bg.hud = src
+		owner.hud_used.infodisplay += free_bg
 
 		var/datum/hud/hud = owner.hud_used
 		hud.show_hud(hud.hud_version)
@@ -71,6 +77,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 	if(hud?.infodisplay)
 		hud.infodisplay -= screen_obj
 	QDEL_NULL(screen_obj)
+	QDEL_NULL(free_bg)
 
 	STOP_PROCESSING(SSrealtemp, src)
 	owner = null
