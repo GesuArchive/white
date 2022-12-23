@@ -87,7 +87,7 @@
 					S = 'white/valtos/sounds/kat9.ogg'
 				if(10)
 					S = 'white/valtos/sounds/kat10.ogg'
-		if(VIOLENCE_THEME_STD)
+		if(VIOLENCE_THEME_CYBER)
 			switch(SSviolence.current_round)
 				if(1 to 2)
 					S = 'white/valtos/sounds/cyberjockey.ogg'

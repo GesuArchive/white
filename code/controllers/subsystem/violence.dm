@@ -2,7 +2,8 @@ SUBSYSTEM_DEF(violence)
 	name = "Violence"
 	wait = 1 SECONDS
 
-	flags = SS_NO_FIRE | SS_NO_INIT
+	flags = SS_NO_INIT
+	can_fire = FALSE
 
 	runlevels = RUNLEVEL_SETUP | RUNLEVEL_GAME | RUNLEVEL_POSTGAME
 
@@ -280,7 +281,7 @@ SUBSYSTEM_DEF(violence)
 					if(prob(95) || !istype(T, /turf/open))
 						continue
 					T.ChangeTurf(pick(subtypesof(/turf/open)))
-		if(VIOLENCE_THEME_STD)
+		if(VIOLENCE_THEME_CYBER)
 			for(var/turf/open/T as() in main_area)
 				if(prob(99.5) || !istype(T, /turf/open))
 					continue
@@ -486,7 +487,7 @@ SUBSYSTEM_DEF(violence)
 			NP.ckey = M.ckey
 			qdel(M)
 	// если сейчас киберспейс, то нам нужно отрегенерировать лёд
-	if(theme == VIOLENCE_THEME_STD)
+	if(theme == VIOLENCE_THEME_CYBER)
 		for(var/obj/effect/dz/ice/ICE in GLOB.hacked_ice)
 			var/turf/T = get_turf(ICE)
 			T.ChangeTurf(ICE.old_type)

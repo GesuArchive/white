@@ -38,7 +38,7 @@ GLOBAL_VAR(violence_landmark)
 			SSticker.login_music = sound('white/valtos/sounds/katmenu.ogg')
 		if(VIOLENCE_THEME_WARFARE)
 			SSticker.login_music = sound('white/valtos/sounds/cd.ogg')
-		if(VIOLENCE_THEME_STD)
+		if(VIOLENCE_THEME_CYBER)
 			SSviolence.special_theme_process = TRUE
 			SSticker.login_music = sound('white/valtos/sounds/hexgrips.ogg')
 		if(VIOLENCE_THEME_PORTAL)

@@ -63,7 +63,7 @@
 	weight = 6
 	min_players = 0
 	max_players = 16
-	theme = VIOLENCE_THEME_STD
+	theme = VIOLENCE_THEME_CYBER
 
 /datum/map_template/violence/trahov
 	name = "Краков"
@@ -126,4 +126,4 @@
 	weight = 15
 	min_players = 16
 	max_players = 32
-	theme = VIOLENCE_THEME_STD
+	theme = VIOLENCE_THEME_CYBER
