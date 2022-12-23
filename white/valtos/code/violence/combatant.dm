@@ -22,13 +22,13 @@
 	antag_hud_name = "hog-red-2"
 
 /datum/antagonist/combatant/red/get_team()
-	return GLOB.violence_red_datum
+	return SSviolence.red_team_datum
 
 /datum/antagonist/combatant/red/on_gain()
 	. = ..()
-	LAZYREMOVE(GLOB.violence_blue_team, owner)
-	LAZYOR(GLOB.violence_red_team, owner)
-	var/datum/team/T = GLOB.violence_red_datum
+	LAZYREMOVE(SSviolence.blue_team, owner)
+	LAZYOR(SSviolence.red_team, owner)
+	var/datum/team/T = SSviolence.red_team_datum
 	if(T)
 		T.add_member(owner)
 
@@ -37,13 +37,13 @@
 	antag_hud_name = "hog-blue-2"
 
 /datum/antagonist/combatant/blue/get_team()
-	return GLOB.violence_blue_datum
+	return SSviolence.blue_team_datum
 
 /datum/antagonist/combatant/blue/on_gain()
 	. = ..()
-	LAZYREMOVE(GLOB.violence_red_team, owner)
-	LAZYOR(GLOB.violence_blue_team, owner)
-	var/datum/team/T = GLOB.violence_blue_datum
+	LAZYREMOVE(SSviolence.red_team, owner)
+	LAZYOR(SSviolence.blue_team, owner)
+	var/datum/team/T = SSviolence.blue_team_datum
 	if(T)
 		T.add_member(owner)
 
@@ -123,28 +123,28 @@
 /datum/outfit/job/combantant/pre_equip(mob/living/carbon/human/H)
 	..()
 
-	if(GLOB.violence_playmode == VIOLENCE_PLAYMODE_TAG)
+	if(SSviolence.playmode == VIOLENCE_PLAYMODE_TAG)
 		ADD_TRAIT(H, TRAIT_CORPSELOCKED, "violence")
 
-	if(GLOB.violence_playmode != VIOLENCE_PLAYMODE_TAG)
+	if(SSviolence.playmode != VIOLENCE_PLAYMODE_TAG)
 		implants = list(/obj/item/implant/explosive/disintegrate)
 
-	switch(GLOB.violence_theme)
-		if("katana")
-			if(GLOB.violence_current_round >= 6) // no chronos before
+	switch(SSviolence.theme)
+		if(VIOLENCE_THEME_KATANA)
+			if(SSviolence.current_round >= 6) // no chronos before
 				uniform = /obj/item/clothing/under/chronos
 				neck = /obj/item/clothing/neck/cape/chronos
 				head = /obj/item/clothing/head/beret/chronos
-		if("portal")
+		if(VIOLENCE_THEME_PORTAL)
 			r_hand = /obj/item/gun/energy/wormhole_projector/core_inserted
-			if(GLOB.violence_current_round >= 2)
+			if(SSviolence.current_round >= 2)
 				uniform = /obj/item/clothing/under/costume/maid
 				neck = /obj/item/clothing/neck/maid
 				head = /obj/item/clothing/head/maidheadband
 				gloves = /obj/item/clothing/gloves/maid
 	// something
 
-	if(GLOB.violence_friendlyfire)
+	if(SSviolence.friendlyfire)
 		return
 
 	RegisterSignal(H, COMSIG_MOB_EQUIPPED_ITEM, .proc/factionee_projectiles)
@@ -169,8 +169,8 @@
 	H.sec_hud_set_ID()
 	// экипируем штуки спустя секунду, чтобы некоторый стаф не падал в нуллспейс случайно
 	spawn(1 SECONDS)
-		if(GLOB.violence_players[H?.ckey])
-			var/datum/violence_player/VP = GLOB.violence_players[H.ckey]
+		if(SSviolence.players[H?.ckey])
+			var/datum/violence_player/VP = SSviolence.players[H.ckey]
 			VP.equip_everything(H)
 			VP.team = team
 	// запрет на снятие ID и униформы

@@ -164,7 +164,7 @@
 	//// новый год 2022
 
 /datum/job/proc/equip_gear(mob/living/H, client/our_client, only_view = TRUE)
-	if(GLOB.violence_mode_activated)
+	if(SSviolence.active)
 		return
 	var/mob/living/carbon/human/human = H
 	var/list/gear_leftovers = list()

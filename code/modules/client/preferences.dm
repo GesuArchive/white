@@ -1155,7 +1155,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	if(href_list["preference"] == "gear")
 		if(href_list["purchase_gear"])
 			var/datum/gear/TG = GLOB.gear_datums[href_list["purchase_gear"]]
-			if(GLOB.violence_mode_activated)
+			if(SSviolence.active)
 				to_chat(user, span_warning("В этом раунде операции с метакэшем запрещены. Ожидайте новый раунд."))
 			else if(TG.cost < user.client.get_metabalance())
 				if(TG.purchase(user.client))

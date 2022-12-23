@@ -329,7 +329,7 @@
 	send_message("АКТИВАЦИЯ СИСТЕМЫ")
 	activating = TRUE
 
-	if(first_use && !GLOB.violence_mode_activated)
+	if(first_use && !SSviolence.active)
 		var/sound/song = sound(activation_song, volume = 50)
 		SEND_SOUND(current_user, song)
 		first_use = FALSE

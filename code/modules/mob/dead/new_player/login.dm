@@ -13,19 +13,19 @@
 	if(!. || !client)
 		return FALSE
 
-	if(!GLOB.violence_mode_activated) // we don't care about fuckers in this mode
+	if(!SSviolence.active) // we don't care about fuckers in this mode
 		spawn(-1)
 			client.crawler_sanity_check()
 
 	var/motd = global.config.motd
-	if(motd && !GLOB.violence_mode_activated)
+	if(motd && !SSviolence.active)
 		to_chat(src, "<div class=\"motd\">[motd]</div>")
 
 	var/version = global.config.current_version_string
-	if(version && !GLOB.violence_mode_activated)
+	if(version && !SSviolence.active)
 		to_chat(src, span_nzcrentr("[version]"))
 
-	if(GLOB.changelog_json && !GLOB.violence_mode_activated)
+	if(GLOB.changelog_json && !SSviolence.active)
 		to_chat(src, span_nzcrentr("-- <a href='byond://winset?command=view-changelog'>Список изменений</a> --"))
 
 	if(GLOB.admin_notice)

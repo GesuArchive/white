@@ -128,7 +128,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		tooltip?.screen_loc = "BOTTOM+2,LEFT"
 	infodisplay += tooltip
 
-	if(GLOB.violence_mode_activated)
+	if(SSviolence.active)
 		timelimit = new /atom/movable/screen/timelimit()
 		timelimit?.hud = src
 		infodisplay += timelimit

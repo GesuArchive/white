@@ -163,7 +163,7 @@
 		"Гости" = GLOB.scum_positions
 	)
 	var/list/heads = GLOB.command_positions
-	if(GLOB.violence_mode_activated)
+	if(SSviolence.active)
 		manifest_out = list(
 			"Красные",
 			"Синие"

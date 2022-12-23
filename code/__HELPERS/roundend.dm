@@ -340,7 +340,7 @@
 /datum/controller/subsystem/ticker/proc/standard_reboot()
 	if(mode.station_was_nuked)
 		Reboot("Станция уничтожена Ядерной бомбой.", "nuke")
-	else if (GLOB.violence_mode_activated)
+	else if (SSviolence.active)
 		Reboot("КОНЕЦ!", "proper completion", 3 SECONDS)
 	else
 		Reboot("Конец раунда.", "proper completion")

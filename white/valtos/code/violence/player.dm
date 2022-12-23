@@ -1,5 +1,3 @@
-GLOBAL_LIST_EMPTY(violence_players)
-
 /datum/violence_player
 	// деньги игрока, может быть отрицательное значение
 	var/money = 0
@@ -40,7 +38,7 @@ GLOBAL_LIST_EMPTY(violence_players)
 /proc/vp_get_player(suggested_ckey)
 	if(!suggested_ckey)
 		return null
-	var/datum/violence_player/VP = GLOB.violence_players?[suggested_ckey]
+	var/datum/violence_player/VP = SSviolence.players?[suggested_ckey]
 	if(!VP)
-		VP = GLOB.violence_players[suggested_ckey] = new /datum/violence_player
+		VP = SSviolence.players[suggested_ckey] = new /datum/violence_player
 	return VP

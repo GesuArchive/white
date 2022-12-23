@@ -32,9 +32,9 @@
 
 	var/S
 
-	switch(GLOB.violence_theme)
-		if("std")
-			switch(GLOB.violence_current_round)
+	switch(SSviolence.theme)
+		if(VIOLENCE_THEME_STD)
+			switch(SSviolence.current_round)
 				if(1 to 2)
 					S = 'white/valtos/sounds/battle_small.ogg'
 				if(3 to 5)
@@ -43,8 +43,8 @@
 					S = 'white/valtos/sounds/battle_hi.ogg'
 				if(9 to 10)
 					S = 'white/valtos/sounds/battle_fuck.ogg'
-		if("hotline")
-			switch(GLOB.violence_current_round)
+		if(VIOLENCE_THEME_HOTLINE)
+			switch(SSviolence.current_round)
 				if(1)
 					S = 'white/valtos/sounds/hotline1.ogg'
 				if(2)
@@ -65,8 +65,8 @@
 					S = 'white/valtos/sounds/hotline9.ogg'
 				if(10)
 					S = 'white/valtos/sounds/hotline10.ogg'
-		if("katana")
-			switch(GLOB.violence_current_round)
+		if(VIOLENCE_THEME_KATANA)
+			switch(SSviolence.current_round)
 				if(1)
 					S = 'white/valtos/sounds/kat1.ogg'
 				if(2)
@@ -87,8 +87,8 @@
 					S = 'white/valtos/sounds/kat9.ogg'
 				if(10)
 					S = 'white/valtos/sounds/kat10.ogg'
-		if("cyber")
-			switch(GLOB.violence_current_round)
+		if(VIOLENCE_THEME_STD)
+			switch(SSviolence.current_round)
 				if(1 to 2)
 					S = 'white/valtos/sounds/cyberjockey.ogg'
 				if(3 to 4)
@@ -99,8 +99,8 @@
 					S = 'white/valtos/sounds/hn3.ogg'
 				if(9 to 10)
 					S = 'white/valtos/sounds/hn4.ogg'
-		if("warfare")
-			switch(GLOB.violence_current_round)
+		if(VIOLENCE_THEME_WARFARE)
+			switch(SSviolence.current_round)
 				if(1 to 2)
 					S = 'white/valtos/sounds/tar1.ogg'
 				if(3 to 4)
@@ -111,8 +111,8 @@
 					S = 'white/valtos/sounds/tar4.ogg'
 				if(9 to 10)
 					S = 'white/valtos/sounds/tar5.ogg'
-		if("portal")
-			switch(GLOB.violence_current_round)
+		if(VIOLENCE_THEME_PORTAL)
+			switch(SSviolence.current_round)
 				if(1)
 					S = 'white/valtos/sounds/por1.ogg'
 				if(2)

@@ -223,7 +223,7 @@
 			SSticker.queued_players += new_player
 			to_chat(new_player, span_notice("Тебя добавили в очередь для захода в игру. Твой номер в очереди: [SSticker.queued_players.len]."))
 		return
-	if(GLOB.violence_mode_activated)
+	if(SSviolence.active)
 		new_player.violence_choices()
 		return
 	else if(!GLOB.is_tournament_rules)

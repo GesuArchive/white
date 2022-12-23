@@ -44,7 +44,7 @@
 
 //ATTACK GHOST IGNORING PARENT RETURN VALUE
 /obj/effect/mob_spawn/attack_ghost(mob/user)
-	if(!loc || !ghost_usable || GLOB.violence_mode_activated)
+	if(!loc || !ghost_usable || SSviolence.active)
 		return FALSE
 	if(!bypass_roundstart && !SSticker.HasRoundStarted())
 		return FALSE

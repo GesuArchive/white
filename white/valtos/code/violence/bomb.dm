@@ -1,7 +1,3 @@
-GLOBAL_VAR_INIT(violence_bomb_active, FALSE)
-GLOBAL_VAR_INIT(violence_bomb_planted, FALSE)
-GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
-
 /obj/item/terroristsc4
 	name = "БОМБА"
 	desc = "Модифицированный заряд C-4, который смешно пиликает."
@@ -25,7 +21,7 @@ GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 		to_chat(user, span_notice("Это не входит в рамки специальной операции."))
 		return
 	var/found = FALSE
-	for(var/atom/A in GLOB.violence_bomb_locations)
+	for(var/atom/A in SSviolence.bomb_locations)
 		var/turf/T1 = get_turf(A)
 		var/turf/T2 = get_turf(user)
 		if(get_dist(T1, T2) <= 2)
@@ -49,12 +45,12 @@ GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 
 	to_chat(world, leader_brass("Бомба установлена! Время до взрыва: [det_time] секунд."))
 
-	if(GLOB.violence_players[user?.ckey])
-		var/datum/violence_player/VP = GLOB.violence_players[user.ckey]
+	if(SSviolence.players[user?.ckey])
+		var/datum/violence_player/VP = SSviolence.players[user.ckey]
 		VP.money += 30
 		to_chat(user, span_boldnotice("+30₽ за установку бомбы!"))
 
-	GLOB.violence_time_limit = 30 SECONDS
+	SSviolence.time_limit = 30 SECONDS
 
 	forceMove(get_turf(user))
 
@@ -62,8 +58,8 @@ GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 
 	anchored = TRUE
 
-	GLOB.violence_bomb_active = TRUE
-	GLOB.violence_bomb_planted = TRUE
+	SSviolence.bomb_active = TRUE
+	SSviolence.bomb_planted = TRUE
 
 	spawn(4 SECONDS)
 		play_sound_to_everyone('white/valtos/sounds/bcountdown.ogg', 100, CHANNEL_NASHEED)
@@ -71,7 +67,7 @@ GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 	addtimer(CALLBACK(src, .proc/detonate), det_time SECONDS)
 
 /obj/item/terroristsc4/attack_hand(mob/user)
-	if(!GLOB.violence_bomb_planted)
+	if(!SSviolence.bomb_planted)
 		return ..()
 	var/datum/antagonist/combatant/comb = user.mind.has_antag_datum(/datum/antagonist/combatant/blue)
 	if(!comb)
@@ -79,16 +75,16 @@ GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 	playsound(get_turf(user), 'white/valtos/sounds/c4_disarm.ogg', 100)
 	if(do_after(user, 10 SECONDS, target = src))
 		to_chat(world, leader_brass("Бомба обезврежена [user]!"))
-		GLOB.violence_bomb_active = FALSE
+		SSviolence.bomb_active = FALSE
 		play_sound_to_everyone(null, 0, CHANNEL_NASHEED)
-		if(GLOB.violence_players[user?.ckey])
-			var/datum/violence_player/VP = GLOB.violence_players[user.ckey]
+		if(SSviolence.players[user?.ckey])
+			var/datum/violence_player/VP = SSviolence.players[user.ckey]
 			VP.money += 30
 			to_chat(user, span_boldnotice("+30₽ за обезвреживание бомбы!"))
 		qdel(src)
 
 /obj/item/terroristsc4/attackby(obj/item/I, mob/user, params)
-	if(!GLOB.violence_bomb_planted)
+	if(!SSviolence.bomb_planted)
 		return ..()
 	var/datum/antagonist/combatant/comb = user.mind.has_antag_datum(/datum/antagonist/combatant/blue)
 	if(!comb)
@@ -102,10 +98,10 @@ GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 
 	if(do_after(user, defuse_time, target = src))
 		to_chat(world, leader_brass("Бомба обезврежена [user]!"))
-		GLOB.violence_bomb_active = FALSE
+		SSviolence.bomb_active = FALSE
 		play_sound_to_everyone(null, 0, CHANNEL_NASHEED)
-		if(GLOB.violence_players[user?.ckey])
-			var/datum/violence_player/VP = GLOB.violence_players[user.ckey]
+		if(SSviolence.players[user?.ckey])
+			var/datum/violence_player/VP = SSviolence.players[user.ckey]
 			VP.money += 30
 			to_chat(user, span_boldnotice("+30₽ за обезвреживание бомбы!"))
 		qdel(src)
@@ -115,7 +111,7 @@ GLOBAL_VAR_INIT(violence_bomb_detonated, FALSE)
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			H.gib()
-	GLOB.violence_bomb_detonated = TRUE
+	SSviolence.bomb_detonated = TRUE
 	explosion(src, light_impact_range = 3, flame_range = 14, flash_range = 14)
 	explosion(get_turf(src), 0, 0, 0, 0)
 	to_chat(world, leader_brass("Бомба взорвана!"))

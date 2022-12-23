@@ -515,10 +515,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 
 /obj/effect/landmark/bomb_plant_location/New()
 	..()
-	GLOB.violence_bomb_locations += src
+	SSviolence.bomb_locations += src
 
 /obj/effect/landmark/bomb_plant_location/Destroy()
-	GLOB.violence_bomb_locations -= src
+	SSviolence.bomb_locations -= src
 	return ..()
 
 /// Marks the bottom left of the testing zone.

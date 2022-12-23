@@ -9,7 +9,7 @@
 	// максимальное число игроков ОНЛАЙН
 	var/max_players = 0
 	// тема карты, должна быть существующая, иначе всё сломается
-	var/theme = "std"
+	var/theme = VIOLENCE_THEME_STD
 
 /datum/map_template/violence/default
 	name = "Карак"
@@ -18,7 +18,7 @@
 	weight = 5
 	min_players = 0
 	max_players = 24
-	theme = "std"
+	theme = VIOLENCE_THEME_STD
 
 /datum/map_template/violence/chinatown
 	name = "Чайнатаун"
@@ -27,7 +27,7 @@
 	weight = 6
 	min_players = 0
 	max_players = 16
-	theme = "katana"
+	theme = VIOLENCE_THEME_KATANA
 
 /datum/map_template/violence/centralpolygon
 	name = "Тренировочный Центр"
@@ -36,7 +36,7 @@
 	weight = 4
 	min_players = 24
 	max_players = 64
-	theme = "warfare"
+	theme = VIOLENCE_THEME_WARFARE
 
 /datum/map_template/violence/de_dust2
 	name = "de_dust2"
@@ -45,7 +45,7 @@
 	weight = 2
 	min_players = 24
 	max_players = 64
-	theme = "warfare"
+	theme = VIOLENCE_THEME_WARFARE
 
 /datum/map_template/violence/dunes
 	name = "Дюны"
@@ -54,7 +54,7 @@
 	weight = 6
 	min_players = 0
 	max_players = 16
-	theme = "std"
+	theme = VIOLENCE_THEME_STD
 
 /datum/map_template/violence/cyberspess
 	name = "Киберпространство"
@@ -63,7 +63,7 @@
 	weight = 6
 	min_players = 0
 	max_players = 16
-	theme = "cyber"
+	theme = VIOLENCE_THEME_STD
 
 /datum/map_template/violence/trahov
 	name = "Краков"
@@ -72,7 +72,7 @@
 	weight = 4
 	min_players = 16
 	max_players = 64
-	theme = "warfare"
+	theme = VIOLENCE_THEME_WARFARE
 
 /datum/map_template/violence/koridorovo
 	name = "Коридоры"
@@ -81,7 +81,7 @@
 	weight = 5
 	min_players = 24
 	max_players = 64
-	theme = "hotline"
+	theme = VIOLENCE_THEME_HOTLINE
 
 /datum/map_template/violence/okinawa
 	name = "Окинава"
@@ -90,7 +90,7 @@
 	weight = 8
 	min_players = 12
 	max_players = 32
-	theme = "katana"
+	theme = VIOLENCE_THEME_KATANA
 
 /datum/map_template/violence/pool
 	name = "Бассейн"
@@ -99,7 +99,7 @@
 	weight = 6
 	min_players = 0
 	max_players = 16
-	theme = "std"
+	theme = VIOLENCE_THEME_STD
 
 /datum/map_template/violence/desert
 	name = "Пустыня"
@@ -108,7 +108,7 @@
 	weight = 9
 	min_players = 16
 	max_players = 64
-	theme = "std"
+	theme = VIOLENCE_THEME_STD
 
 /datum/map_template/violence/portalovo
 	name = "Портальная авантюра"
@@ -117,7 +117,7 @@
 	weight = 8
 	min_players = 16
 	max_players = 32
-	theme = "portal"
+	theme = VIOLENCE_THEME_PORTAL
 
 /datum/map_template/violence/cyberwarfare
 	name = "Кибербойня"
@@ -126,4 +126,4 @@
 	weight = 15
 	min_players = 16
 	max_players = 32
-	theme = "cyber"
+	theme = VIOLENCE_THEME_STD

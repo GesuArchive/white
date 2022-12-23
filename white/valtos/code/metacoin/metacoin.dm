@@ -71,7 +71,7 @@
 	if(!M.client || mc_count == 0)
 		return
 
-	if(GLOB.violence_mode_activated)
+	if(SSviolence.active)
 		return
 
 	var/datum/db_query/query_inc_metacoins = SSdbcore.NewQuery(

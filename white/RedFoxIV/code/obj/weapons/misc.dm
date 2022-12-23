@@ -734,7 +734,7 @@
 	if(user.ckey in round_banned_ckeys)
 		to_chat(user, span_warning("А хуй тебе!"))
 		return
-	if(GLOB.violence_mode_activated)
+	if(SSviolence.active)
 		to_chat(user, span_warning("Ахтунг! Нельзя!"))
 		return FALSE
 	if(from_lobby)
