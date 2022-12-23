@@ -13,9 +13,6 @@
 
 	outfit = /datum/outfit/job/security
 
-	skills = list(/datum/skill/ranged = SKILL_EXP_JOURNEYMAN, /datum/skill/parry = SKILL_EXP_JOURNEYMAN)
-	minimal_skills = list(/datum/skill/ranged = SKILL_EXP_JOURNEYMAN, /datum/skill/parry = SKILL_EXP_JOURNEYMAN)
-
 	paycheck = PAYCHECK_HARD
 	paycheck_department = ACCOUNT_SEC
 

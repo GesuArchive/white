@@ -48,9 +48,6 @@
 /obj/item/target/bullet_act(obj/projectile/P)
 	if(istype(P, /obj/projectile/bullet/reusable)) // If it's a foam dart, don't bother with any of this other shit
 		return P.on_hit(src, 0)
-	if(P.firer && ishuman(P.firer))
-		var/mob/living/carbon/human/H = P.firer
-		H.mind.adjust_experience(/datum/skill/ranged, 10)
 	var/p_x = P.p_x + pick(0,0,0,0,0,-1,1) // really ugly way of coding "sometimes offset P.p_x!"
 	var/p_y = P.p_y + pick(0,0,0,0,0,-1,1)
 	var/decaltype = DECALTYPE_SCORCH

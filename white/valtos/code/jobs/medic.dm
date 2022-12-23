@@ -7,8 +7,8 @@
 
 	outfit = /datum/outfit/job/field_medic
 
-	skills = list(/datum/skill/surgery = SKILL_EXP_EXPERT, /datum/skill/ranged = SKILL_EXP_JOURNEYMAN)
-	minimal_skills = list(/datum/skill/surgery = SKILL_EXP_EXPERT, /datum/skill/ranged = SKILL_EXP_JOURNEYMAN)
+	skills = list(/datum/skill/surgery = SKILL_EXP_EXPERT)
+	minimal_skills = list(/datum/skill/surgery = SKILL_EXP_EXPERT)
 
 	paycheck = PAYCHECK_HARD
 	metalocked = TRUE

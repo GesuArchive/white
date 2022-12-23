@@ -381,7 +381,6 @@ SUBSYSTEM_DEF(ticker)
 
 		iter_human.increment_scar_slot()
 		iter_human.load_persistent_scars()
-		iter_human.combat_style = iter_human?.client?.prefs?.combat_style ? iter_human.client.prefs.combat_style : "Продвинутый"
 
 		if(!iter_human.hardcore_survival_score)
 			continue

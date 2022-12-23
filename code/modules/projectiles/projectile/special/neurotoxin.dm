@@ -6,7 +6,6 @@
 	nodamage = FALSE
 	knockdown = 100
 	stamina = 60
-	nomiss = TRUE
 	flag = BIO
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/neurotoxin
 

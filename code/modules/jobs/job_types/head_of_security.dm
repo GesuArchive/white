@@ -16,9 +16,6 @@
 
 	outfit = /datum/outfit/job/hos
 
-	skills = list(/datum/skill/ranged = SKILL_EXP_MASTER, /datum/skill/parry = SKILL_EXP_MASTER)
-	minimal_skills = list(/datum/skill/ranged = SKILL_EXP_EXPERT, /datum/skill/parry = SKILL_EXP_MASTER)
-
 	mind_traits = list(TRAIT_DONUT_LOVER)
 	liver_traits = list(TRAIT_LAW_ENFORCEMENT_METABOLISM, TRAIT_ROYAL_METABOLISM)
 

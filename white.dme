@@ -1079,8 +1079,6 @@
 #include "code\datums\skills\gaming.dm"
 #include "code\datums\skills\holy.dm"
 #include "code\datums\skills\mining.dm"
-#include "code\datums\skills\parry.dm"
-#include "code\datums\skills\ranged.dm"
 #include "code\datums\skills\surgery.dm"
 #include "code\datums\station_traits\_station_trait.dm"
 #include "code\datums\station_traits\negative_traits.dm"

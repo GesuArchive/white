@@ -16,9 +16,6 @@
 
 	outfit = /datum/outfit/job/hop
 
-	skills = list(/datum/skill/ranged = SKILL_EXP_APPRENTICE)
-	minimal_skills = list(/datum/skill/ranged = SKILL_EXP_APPRENTICE)
-
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_SRV
 	bounty_types = CIV_JOB_RANDOM

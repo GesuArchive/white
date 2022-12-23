@@ -301,7 +301,7 @@
 
 	var/pain = min((0.7 * brute) + (0.8 * burn), max_damage - get_damage(TRUE))
 	if(owner && pain)
-		if(prob(pain*0.5))
+		if(prob(pain * 0.5))
 			INVOKE_ASYNC(owner, /mob.proc/emote, "agony")
 			owner.crippling_shock(body_zone, pain)
 		if(pain > 10)

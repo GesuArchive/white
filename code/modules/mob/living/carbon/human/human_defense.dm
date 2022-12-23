@@ -119,9 +119,6 @@
 		if(!istype(I, /obj/item/clothing))
 			var/final_block_chance = I.block_chance - (clamp((armour_penetration - I.armour_penetration)/2,0,100)) + block_chance_modifier //So armour piercing blades can still be parried by other blades, for example
 			if(I.hit_reaction(src, AM, attack_text, final_block_chance, damage, attack_type))
-				if(attack_type == MELEE_ATTACK && a_intent == INTENT_HARM)
-					spawn(5)
-						try_counterattack(AM, I)
 				playsound(get_turf(src), pick(I.block_sounds), 100, TRUE)
 				return TRUE
 	if(wear_suit)
@@ -142,65 +139,13 @@
 			return TRUE
 	return FALSE
 
-/mob/living/carbon/human/proc/try_counterattack(atom/AM, obj/item/I)
-	if(combat_style == COMBAT_STYLE_CLASSIC)
-		return
-
-	if(next_move > world.time || !AM?.loc || !I || !isliving(AM.loc) || !(I in held_items))
-		return
-
-	var/mob/living/L = AM.loc
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		if(H.combat_style == COMBAT_STYLE_CLASSIC)
-			return
-	if(!L?.stat && mind)
-		I.attack(L, src)
-		var/mutual_speed = mind.get_skill_modifier(/datum/skill/parry, SKILL_SPEED_MODIFIER)
-		mind.adjust_experience(/datum/skill/parry, 50)
-		changeNext_move(mutual_speed)
-		adjustStaminaLoss(mutual_speed)
-
 /mob/living/carbon/human/proc/check_block(mob/attacker)
-	if(combat_style == COMBAT_STYLE_CLASSIC)
-		return FALSE
-
 	if(mind)
 		if(mind.martial_art && prob(mind.martial_art.block_chance) && mind.martial_art.can_use(src) && !incapacitated(IGNORE_GRAB) && defense_check(get_turf(src), get_turf(attacker), dir))
 			playsound(src, 'white/valtos/sounds/block_hand.ogg', 100, TRUE)
 			adjustStaminaLoss(5)
 			return TRUE
 	return FALSE
-
-/mob/living/carbon/human/proc/check_dodge(mob/attacker)
-	if(combat_style == COMBAT_STYLE_CLASSIC)
-		return FALSE
-
-	if(ishuman(attacker))
-		var/mob/living/carbon/human/H = attacker
-		if(H.combat_style == COMBAT_STYLE_CLASSIC)
-			return FALSE
-
-	if(!stat && attacker && prob(PERCENT((health + dna.species.dodge_chance) / (maxHealth * 4))) && !incapacitated() && body_position != LYING_DOWN && defense_check(get_turf(src), get_turf(attacker), dir))
-		var/rand_prob = pick(1, -1) // выбираем лево или право
-		var/turf/T = get_open_turf_in_dir(src, turn(attacker.dir, rand_prob * 90))
-		if(!T) // если нет первого турфа, ищем второй
-			T = get_open_turf_in_dir(src, turn(attacker.dir, -rand_prob * 90))
-		if(!T) // если турфов вообще нет, то страдаем
-			return FALSE
-		for(var/atom/A in T)
-			if(!A.CanPass(src, get_dir(A, src)))
-				return FALSE
-		adjustStaminaLoss(rand(10, 20))
-		playsound(src, 'sound/weapons/punchmiss.ogg', 100, TRUE)
-		forceMove(T)
-		return TRUE
-	return FALSE
-
-/mob/living/carbon/human/can_be_pulled(user, grab_state, force)
-	if(check_dodge(user))
-		return FALSE
-	return ..()
 
 /mob/living/carbon/human/hitby(atom/movable/AM, skipcatch = FALSE, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum)
 	if(dna?.species)

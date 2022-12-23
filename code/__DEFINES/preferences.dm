@@ -141,6 +141,3 @@
 #define W_TOGGLES_DEFAULT (SOUND_JUKEBOX|SOUND_COPYRIGHTED)
 //recommened client FPS
 #define RECOMMENDED_FPS 60
-
-#define COMBAT_STYLE_CLASSIC "Классический"
-#define COMBAT_STYLE_ADVANCED "Продвинутый"

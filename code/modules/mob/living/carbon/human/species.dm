@@ -99,8 +99,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/punchstunthreshold = 10 //yes it should be to the attacked race but it's not useful that way even if it's logical
 	///Base electrocution coefficient.  Basically a multiplier for damage from electrocutions.
 	var/siemens_coeff = 1
-	///Combat dodge chance
-	var/dodge_chance = 33
 	///What kind of damage overlays (if any) appear on our species when wounded? If this is "", does not add an overlay.
 	var/damage_overlay_type = "human"
 	///To use MUTCOLOR with a fixed color that's independent of the mcolor feature in DNA.
@@ -1441,11 +1439,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 							span_userdanger("Блокирую попытку захвата <b>[user]</b>!"), span_hear("Слышу взмах!"), COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, span_warning("Моя попытка захвата <b>[target]</b> была отражена!"))
 		return FALSE
-	if(target.check_dodge(user))
-		target.visible_message(span_warning("<b>[target]</b> уворачивается от захвата <b>[user]</b>!"), \
-							span_userdanger("Уворачиваюсь от захвата <b>[user]</b>!"), span_hear("Слышу взмах!"), COMBAT_MESSAGE_RANGE, user)
-		to_chat(user, span_warning("Не удалось схватить <b>[target]</b>!"))
-		return FALSE
 	if(attacker_style?.grab_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
 	else
@@ -1464,11 +1457,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		target.visible_message(span_warning("[target] блокирует удар [user]!"), \
 							span_userdanger("Блокирую удар [user]!"), span_hear("Слышу взмах!"), COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, span_warning("Моя атака по [target] была отражена!"))
-		return FALSE
-	if(target.check_dodge(user))
-		target.visible_message(span_warning("[target] уворачивается от удара [user]!"), \
-							span_userdanger("Уворачиваюсь от удара [user]!"), span_hear("Слышу взмах!"), COMBAT_MESSAGE_RANGE, user)
-		to_chat(user, span_warning("Моя атака по [target] промахнулась!"))
 		return FALSE
 	if(attacker_style?.harm_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE
@@ -1549,11 +1537,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		target.visible_message(span_warning("[target] блокирует попытку толчка [user]!"), \
 							span_userdanger("Блокирую попытку толчка [user]!"), span_hear("Слышу взмах!"), COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, span_warning("Моя попытка толкнуть [target] провалилась!"))
-		return FALSE
-	if(target.check_dodge(user))
-		target.visible_message(span_warning("[target] уворачивается от толчка [user]!"), \
-							span_userdanger("Уворачиваюсь от толчка [user]!"), span_hear("Слышу взмах!"), COMBAT_MESSAGE_RANGE, user)
-		to_chat(user, span_warning("Моя попытка толкнуть [target] промахнулась!"))
 		return FALSE
 	if(attacker_style?.disarm_act(user,target) == MARTIAL_ATTACK_SUCCESS)
 		return TRUE

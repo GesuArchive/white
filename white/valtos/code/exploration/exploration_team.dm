@@ -10,8 +10,8 @@
 
 	outfit = /datum/outfit/job/exploration
 
-	skills = list(/datum/skill/ranged = SKILL_EXP_EXPERT, /datum/skill/surgery = SKILL_EXP_JOURNEYMAN, /datum/skill/parry = SKILL_EXP_APPRENTICE)
-	minimal_skills = list(/datum/skill/ranged = SKILL_EXP_JOURNEYMAN, /datum/skill/surgery = SKILL_EXP_APPRENTICE, /datum/skill/parry = SKILL_EXP_APPRENTICE)
+	skills = list(/datum/skill/surgery = SKILL_EXP_JOURNEYMAN)
+	minimal_skills = list(/datum/skill/surgery = SKILL_EXP_APPRENTICE)
 
 	departments_list = list(
 		/datum/job_department/cargo,

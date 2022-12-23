@@ -144,7 +144,6 @@
 	light_color = LIGHT_COLOR_GREEN
 	wound_bonus = -40
 	bare_wound_bonus = 70
-	nomiss = TRUE
 
 /obj/projectile/beam/emitter/singularity_pull()
 	return //don't want the emitters to miss
@@ -213,7 +212,6 @@
 	damage_type = BURN
 	impact_effect_type = /obj/effect/temp_visual/impact_effect/purple_laser
 	light_color = LIGHT_COLOR_PURPLE
-	nomiss = TRUE
 
 /obj/projectile/beam/instakill/blue
 	icon_state = "blue_laser"

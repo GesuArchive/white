@@ -21,7 +21,6 @@
 	dismemberment = 100
 	embedding = null
 	shrapnel_type = null
-	nomiss = TRUE //А что вы хотели, 84 мм!
 
 /obj/projectile/bullet/a84mm/on_hit(atom/target, blocked = FALSE)
 	..()
@@ -44,7 +43,6 @@
 	ricochets_max = 0 //it's a MISSILE
 	embedding = null
 	shrapnel_type = null
-	nomiss = TRUE //А что вы хотели, 84 мм!
 
 /obj/projectile/bullet/a84mm_he/on_hit(atom/target, blocked=0)
 	..()
@@ -63,7 +61,6 @@
 	ricochets_max = 0 //it's a MISSILE
 	embedding = null
 	shrapnel_type = null
-	nomiss = TRUE //А что вы хотели, 84 мм!
 
 /obj/projectile/bullet/a84mm_weak/on_hit(atom/target, blocked=0)
 	..()
@@ -82,7 +79,6 @@
 	ricochets_max = 0 //it's a MISSILE
 	embedding = null
 	shrapnel_type = null
-	nomiss = TRUE //А что вы хотели, 84 мм!
 	var/sturdy = list(
 	/turf/closed,
 	/obj/vehicle/sealed/mecha,

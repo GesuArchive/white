@@ -92,8 +92,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/randomise = list(RANDOM_UNDERWEAR = TRUE, RANDOM_UNDERWEAR_COLOR = TRUE, RANDOM_UNDERSHIRT = TRUE, RANDOM_SOCKS = TRUE, RANDOM_BACKPACK = TRUE, RANDOM_JUMPSUIT_STYLE = TRUE, RANDOM_HAIRSTYLE = TRUE, RANDOM_HAIR_COLOR = TRUE, RANDOM_FACIAL_HAIRSTYLE = TRUE, RANDOM_FACIAL_HAIR_COLOR = TRUE, RANDOM_SKIN_TONE = TRUE, RANDOM_EYE_COLOR = TRUE)
 	var/phobia = "spiders"
 
-	var/combat_style = COMBAT_STYLE_ADVANCED
-
 	var/list/custom_names = list()
 	var/preferred_ai_core_display = "Blue"
 	var/prefered_security_department = SEC_DEPT_RANDOM
@@ -332,7 +330,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Должностное</div><div class='csetup_nodes'>"
 
-			dat += SETUP_NODE_INPUT("Стиль боя", "combat_style", combat_style)
 			dat += SETUP_NODE_INPUT("Дисплей ИИ", "ai_core_icon", preferred_ai_core_display)
 			dat += SETUP_NODE_INPUT("Отдел офицера", "sec_dept", prefered_security_department)
 
@@ -1587,13 +1584,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/ai_core_icon = tgui_input_list(user, "Choose your preferred AI core display screen:", "AI Core Display Screen Selection", GLOB.ai_core_display_screens - "Portrait")
 					if(ai_core_icon)
 						preferred_ai_core_display = ai_core_icon
-
-				if("combat_style")
-					if(combat_style == COMBAT_STYLE_CLASSIC)
-						combat_style = COMBAT_STYLE_ADVANCED
-					else
-						combat_style = COMBAT_STYLE_CLASSIC
-						to_chat(user, span_userdanger("Выбран классический стиль боя. От твоих атак невозможно увернуться, но и по тебе также легко попасть."))
 
 				if("sec_dept")
 					var/department = tgui_input_list(user, "Choose your preferred security department:", "Security Departments", GLOB.security_depts_prefs)

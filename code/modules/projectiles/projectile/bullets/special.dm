@@ -12,7 +12,6 @@
 	range = 200
 	embedding = null
 	shrapnel_type = null
-	nomiss = TRUE //Honk
 
 /obj/projectile/bullet/honker/Initialize(mapload)
 	. = ..()
