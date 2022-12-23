@@ -55,7 +55,7 @@
 		amt += teeth.amount
 	return amt
 
-/proc/punchouttooth(var/mob/living/carbon/human/target, var/mob/living/carbon/human/user, var/strength, var/obj/Q)
+/proc/punchouttooth(mob/living/carbon/human/target, mob/living/carbon/human/user, strength, obj/Q)
 	if(istype(Q, /obj/item/bodypart/head) && prob(strength * (user.zone_selected == "mouth" ? 3 : 1))) //MUCH higher chance to knock out teeth if you aim for mouth
 		var/obj/item/bodypart/head/U = Q
 		if(U.knock_out_teeth(get_dir(user, target), round(rand(28, 38) * ((strength*2)/100))))
@@ -76,7 +76,7 @@
 	message = prob(intensity) ? replacetext_char(message, "Ч", "фф") : message
 	return message
 
-/obj/item/proc/tearoutteeth(var/mob/living/carbon/C, var/mob/living/user)
+/obj/item/proc/tearoutteeth(mob/living/carbon/C, mob/living/user)
 	if(ishuman(C) && user.zone_selected == "mouth")
 		var/mob/living/carbon/human/H = C
 		var/obj/item/bodypart/head/O = locate() in H.bodyparts
