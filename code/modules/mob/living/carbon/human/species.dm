@@ -1660,7 +1660,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 							H.visible_message(span_danger("[H] беспорядочно шатается!") , \
 											span_userdanger("Вам пришло письмо-о-о!"))
 							H.set_confusion(max(H.get_confusion(), 20))
-							H.crippling_shock(BODY_ZONE_HEAD, I.force SECONDS)
+							H.crippling_shock(BODY_ZONE_HEAD, I.force)
 							H.adjust_blurriness(I.force)
 							H.dizziness += (I.force) //Анкон идет нахуй, пусть шатает экран.
 						if(prob(5)) //Балансим шанс получить травму от двойного шанса на нокаут. (Дефолт=10)

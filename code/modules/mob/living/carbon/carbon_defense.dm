@@ -774,10 +774,12 @@
 	//Try not to stack too much
 	if((world.time - last_crippling_shock) <= 1 SECONDS)
 		return
+
 	var/modifier = 0
 	switch(body_zone)
 		if(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_EYES)
 			modifier -= 10
+
 	var/vomiting = FALSE
 	switch(body_zone)
 		if(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_EYES)
@@ -799,8 +801,10 @@
 				dropItemToGround(held_item)
 		if(BODY_ZONE_CHEST)
 			vomiting = prob(50)
-	Knockdown(4 SECONDS)
+
+	Knockdown(amount * 0.5)
 	if(vomiting)
 		//vomit without blood
-		vomit(10, FALSE, FALSE)
+		vomit(amount, FALSE, FALSE)
+
 	last_crippling_shock = world.time
