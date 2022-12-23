@@ -108,6 +108,8 @@ GLOBAL_LIST_EMPTY(violence_bomb_locations)
 		var/mob/dead/new_player/player = i
 		if(player.ready == PLAYER_READY_TO_PLAY)
 			player.ready = PLAYER_NOT_READY
+	// 2x урон всегда
+	CONFIG_SET(number/damage_multiplier, 2)
 	return TRUE
 
 /datum/game_mode/violence/can_start()
