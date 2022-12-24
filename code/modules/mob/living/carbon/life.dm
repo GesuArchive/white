@@ -444,28 +444,31 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 	//Dizziness
 	if(dizziness)
-		spawn(0) // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-			var/client/C = client
+		if(client)
 			var/pixel_x_diff = 0
 			var/pixel_y_diff = 0
-			var/amp_x
-			var/amp_y
-			var/saved_dizz = dizziness
-			if(C)
-				var/amplitude = dizziness*(sin(dizziness * world.time) + 1) // This shit is annoying at high strength
-				amp_x = amplitude * sin(saved_dizz * world.time)
-				amp_y = amplitude * cos(saved_dizz * world.time)
-				pixel_x_diff += amp_x
-				pixel_y_diff += amp_y
-				animate(C, C.pixel_x = C.pixel_x + amp_x, C.pixel_y = C.pixel_y + amp_y, time = 3, easing = SINE_EASING)
-				sleep(3)
-				amp_x = amplitude * sin(saved_dizz * world.time)
-				amp_y = amplitude * cos(saved_dizz * world.time)
-				pixel_x_diff += amp_x
-				pixel_y_diff += amp_y
-				animate(C, C.pixel_x = C.pixel_x + amp_x, C.pixel_y = C.pixel_y + amp_y, time = 3, easing = SINE_EASING)
-				sleep(3)
-				animate(C, C.pixel_x = C.pixel_x - pixel_x_diff, C.pixel_y = C.pixel_y - pixel_y_diff, time = 3, easing = SINE_EASING)
+
+			var/amplitude = dizziness * (sin(dizziness * world.time) + 1)
+
+			var/list/view_range_list = getviewsize(client.view)
+			var/view_range = view_range_list[1]
+			var/amp_x = clamp(amplitude * sin(dizziness * world.time), -view_range, view_range)
+			var/amp_y = clamp(amplitude * cos(dizziness * world.time), -view_range, view_range)
+
+			pixel_x_diff += amp_x
+			pixel_y_diff += amp_y
+
+			animate(src.client, pixel_x = pixel_x + amp_x, pixel_y = pixel_y + amp_y, time = 3, easing = JUMP_EASING | EASE_OUT, flags = ANIMATION_RELATIVE)
+
+			amp_x = amplitude * sin(dizziness * (world.time + 3))
+			amp_y = amplitude * cos(dizziness * (world.time + 3))
+
+			pixel_x_diff += amp_x
+			pixel_y_diff += amp_y
+
+			animate(pixel_x = pixel_x + amp_x, pixel_y = pixel_y + amp_y, time = 3, easing = JUMP_EASING | EASE_OUT, flags = ANIMATION_RELATIVE)
+
+			animate(pixel_x = -pixel_x_diff, pixel_y = -pixel_y_diff, time = 3, easing = JUMP_EASING | EASE_OUT, flags = ANIMATION_RELATIVE)
 		dizziness = max(dizziness - (restingpwr * delta_time), 0)
 
 	if(drowsyness)
