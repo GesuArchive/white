@@ -447,37 +447,29 @@ All effects don't start immediately, but rather get worse over time; the rate is
 		var/client/C = client
 		var/pixel_x_diff = 0
 		var/pixel_y_diff = 0
-		var/temp
+		var/amp
 		var/saved_dizz = dizziness
 		if(C)
 			var/oldsrc = src
 			var/amplitude = dizziness*(sin(dizziness * world.time) + 1) // This shit is annoying at high strength
 			src = null
 			spawn(0) // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-				if(C)
-					temp = amplitude * sin(saved_dizz * world.time)
-					pixel_x_diff += temp
-					C.pixel_x += temp
-					temp = amplitude * cos(saved_dizz * world.time)
-					pixel_y_diff += temp
-					C.pixel_y += temp
-					sleep(3)
-					if(C)
-						temp = amplitude * sin(saved_dizz * world.time)
-						pixel_x_diff += temp
-						C.pixel_x += temp
-						temp = amplitude * cos(saved_dizz * world.time)
-						pixel_y_diff += temp
-						C.pixel_y += temp
-					sleep(3)
-					if(C)
-						C.pixel_x -= pixel_x_diff
-						C.pixel_y -= pixel_y_diff
+				amp = amplitude * sin(saved_dizz * world.time)
+				pixel_x_diff += amp
+				pixel_y_diff += amp
+				animate(C, pixel_x = pixel_x + amp, pixel_y = pixel_y + amp, time = 3, easing = SINE_EASING)
+				sleep(3)
+				amp = amplitude * sin(saved_dizz * world.time)
+				pixel_x_diff += amp
+				pixel_y_diff += amp
+				animate(C, pixel_x = pixel_x + amp, pixel_y = pixel_y + amp, time = 3, easing = SINE_EASING)
+				sleep(3)
+				animate(C, pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, time = 3, easing = SINE_EASING)
 			src = oldsrc
 		dizziness = max(dizziness - (restingpwr * delta_time), 0)
 
 	if(drowsyness)
-		drowsyness = max(drowsyness - (restingpwr * delta_time), 0)
+		adjust_drowsyness(-1 * restingpwr * delta_time)
 		blur_eyes(1 * delta_time)
 		if(DT_PROB(2.5, delta_time))
 			AdjustSleeping(10 SECONDS)

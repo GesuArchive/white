@@ -19,6 +19,19 @@
 /mob/proc/set_dizziness(amount)
 	dizziness = max(amount, 0)
 
+/**
+* Set drowsyness of a mob to passed value
+*/
+/mob/proc/set_drowsyness(amount)
+	drowsyness = max(amount, 0)
+
+/**
+ * Adds passed value to the drowsyness of a mob
+ */
+/mob/proc/adjust_drowsyness(amount)
+	drowsyness = max(drowsyness + amount, 0)
+
+
 ///Blind a mobs eyes by amount
 /mob/proc/blind_eyes(amount)
 	adjust_blindness(amount)

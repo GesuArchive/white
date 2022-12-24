@@ -1401,11 +1401,11 @@
 	/// Alpha of the first composite layer
 	var/starting_alpha = 64
 	/// How many total layers we get, each new layer halving the previous layer's alpha
-	var/intensity = 6
+	var/intensity = 3
 	/// How much we are allowed to vary in x
-	var/variation_x = 16
+	var/variation_x = 32
 	/// How much we are allowed to vary in y
-	var/variation_y = 16
+	var/variation_y = 32
 	/// Render relay plate we get our render_source from
 	var/atom/movable/screen/plane_master/rendering_plate/source_plate
 	/// Render relay plate we are actually messing with
