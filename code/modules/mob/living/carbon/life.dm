@@ -444,28 +444,31 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 	//Dizziness
 	if(dizziness)
-		var/client/C = client
-		var/pixel_x_diff = 0
-		var/pixel_y_diff = 0
-		var/amp
-		var/saved_dizz = dizziness
-		if(C)
-			var/oldsrc = src
-			var/amplitude = dizziness*(sin(dizziness * world.time) + 1) // This shit is annoying at high strength
-			src = null
-			spawn(0) // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-				amp = amplitude * sin(saved_dizz * world.time)
-				pixel_x_diff += amp
-				pixel_y_diff += amp
-				animate(C, pixel_x = pixel_x + amp, pixel_y = pixel_y + amp, time = 3, easing = SINE_EASING)
+		spawn(0) // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			var/client/C = client
+			var/pixel_x_diff = 0
+			var/pixel_y_diff = 0
+			var/amp_x
+			var/amp_y
+			var/saved_dizz = dizziness
+			if(C)
+				var/oldsrc = src
+				var/amplitude = dizziness*(sin(dizziness * world.time) + 1) // This shit is annoying at high strength
+				src = null
+				amp_x = amplitude * sin(saved_dizz * world.time)
+				amp_y = amplitude * cos(saved_dizz * world.time)
+				pixel_x_diff += amp_x
+				pixel_y_diff += amp_y
+				animate(C, pixel_x = pixel_x + amp_x, pixel_y = pixel_y + amp_y, time = 3, easing = SINE_EASING)
 				sleep(3)
-				amp = amplitude * sin(saved_dizz * world.time)
-				pixel_x_diff += amp
-				pixel_y_diff += amp
-				animate(C, pixel_x = pixel_x + amp, pixel_y = pixel_y + amp, time = 3, easing = SINE_EASING)
+				amp_x = amplitude * sin(saved_dizz * world.time)
+				amp_y = amplitude * cos(saved_dizz * world.time)
+				pixel_x_diff += amp_x
+				pixel_y_diff += amp_y
+				animate(C, pixel_x = pixel_x + amp_x, pixel_y = pixel_y + amp_y, time = 3, easing = SINE_EASING)
 				sleep(3)
 				animate(C, pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, time = 3, easing = SINE_EASING)
-			src = oldsrc
+				src = oldsrc
 		dizziness = max(dizziness - (restingpwr * delta_time), 0)
 
 	if(drowsyness)
