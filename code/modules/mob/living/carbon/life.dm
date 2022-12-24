@@ -452,9 +452,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 			var/amp_y
 			var/saved_dizz = dizziness
 			if(C)
-				var/oldsrc = src
 				var/amplitude = dizziness*(sin(dizziness * world.time) + 1) // This shit is annoying at high strength
-				src = null
 				amp_x = amplitude * sin(saved_dizz * world.time)
 				amp_y = amplitude * cos(saved_dizz * world.time)
 				pixel_x_diff += amp_x
@@ -468,7 +466,6 @@ All effects don't start immediately, but rather get worse over time; the rate is
 				animate(C, C.pixel_x = C.pixel_x + amp_x, C.pixel_y = C.pixel_y + amp_y, time = 3, easing = SINE_EASING)
 				sleep(3)
 				animate(C, C.pixel_x = C.pixel_x - pixel_x_diff, C.pixel_y = C.pixel_y - pixel_y_diff, time = 3, easing = SINE_EASING)
-				src = oldsrc
 		dizziness = max(dizziness - (restingpwr * delta_time), 0)
 
 	if(drowsyness)
