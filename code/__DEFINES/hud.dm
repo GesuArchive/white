@@ -66,10 +66,10 @@
 
 //Lower right, persistent menu
 #define UI_ABOVE_MOVEMENT "RIGHT-2:26,BOTTOM+1:7"
-#define UI_PULL 		 "hud:LEFT,BOTTOM+1:26"
-#define UI_REST 		 "hud:LEFT,BOTTOM+1:19"
-#define UI_RESIST 		 "hud:LEFT,BOTTOM+1:12"
-#define UI_THROW 		 "hud:LEFT,BOTTOM+1:5"
+#define UI_PULL 		 "hud:LEFT,BOTTOM+1:30"
+#define UI_REST 		 "hud:LEFT,BOTTOM+1:22"
+#define UI_RESIST 		 "hud:LEFT,BOTTOM+1:14"
+#define UI_THROW 		 "hud:LEFT,BOTTOM+1:6"
 #define UI_DROP 		 "hud:LEFT,BOTTOM+1:-2"
 #define UI_MOVI 		 "hud:LEFT,TOP-9:16"
 #define UI_ACTI 		 "hud:LEFT,BOTTOM"
