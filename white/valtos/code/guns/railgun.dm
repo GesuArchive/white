@@ -26,6 +26,10 @@
 	var/fatality_mode = FALSE
 	legacy_icon_handler = FALSE
 
+/obj/item/gun/ballistic/automatic/fallout/railgun/reset_semicd()
+	. = ..()
+	playsound(src, 'sound/machines/eject.ogg', 25, TRUE)
+
 /obj/item/gun/ballistic/automatic/fallout/railgun/make_jamming()
 	return
 

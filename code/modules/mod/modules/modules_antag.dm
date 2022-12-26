@@ -312,10 +312,10 @@
 		blind_message = span_hear("Слышу звук накапливаемой энергии."))
 	playsound(src, 'sound/items/modsuit/loader_charge.ogg', 75, TRUE)
 	balloon_alert(mod.wearer, "Накапливаю заряд...")
-	animate(mod.wearer, 0.3 SECONDS, pixel_z = 16, flags = ANIMATION_RELATIVE|SINE_EASING|EASE_OUT)
+	animate(mod.wearer, 0.3 SECONDS, pixel_z = 16, flags = ANIMATION_RELATIVE, easing = SINE_EASING|EASE_OUT)
 	addtimer(CALLBACK(mod.wearer, /atom.proc/SpinAnimation, 3, 2), 0.3 SECONDS)
 	if(!do_after(mod.wearer, 1 SECONDS, target = mod))
-		animate(mod.wearer, 0.2 SECONDS, pixel_z = -16, flags = ANIMATION_RELATIVE|SINE_EASING|EASE_IN)
+		animate(mod.wearer, 0.2 SECONDS, pixel_z = -16, flags = ANIMATION_RELATIVE, easing = SINE_EASING|EASE_OUT)
 		return
 	animate(mod.wearer)
 	drain_power(use_power_cost)
@@ -329,7 +329,7 @@
 	if(!user)
 		return
 	user.transform = user.transform.Turn(angle)
-	animate(user, 0.2 SECONDS, pixel_z = -16, flags = ANIMATION_RELATIVE|SINE_EASING|EASE_IN)
+	animate(user, 0.2 SECONDS, pixel_z = -16, flags = ANIMATION_RELATIVE, easing = SINE_EASING|EASE_OUT)
 
 /obj/item/mod/module/power_kick/proc/on_throw_impact(mob/living/source, obj/target, datum/thrownthing/thrownthing)
 	SIGNAL_HANDLER
