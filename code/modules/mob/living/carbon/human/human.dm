@@ -74,6 +74,8 @@
 	sec_hud_set_ID()
 	sec_hud_set_implants()
 	sec_hud_set_security_status()
+	// Церебралы
+	psih_hud_set_status()
 	//...fan gear
 	fan_hud_set_fandom()
 	//...and display them.

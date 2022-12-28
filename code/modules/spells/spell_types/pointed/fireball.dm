@@ -14,7 +14,7 @@
 
 	base_icon_state = "fireball"
 	active_msg = "Готовлюсь к произнесению заклинания огненного шара!"
-	deactive_msg = "Силы моего огненного шар затухают... Пока что."
+	deactive_msg = "Пламя моего огненного шара затухает... На время..."
 	cast_range = 8
 	projectile_type = /obj/projectile/magic/fireball
 

@@ -3,7 +3,7 @@
 	copy_type = /datum/disease/advance
 
 /datum/disease/advance/cold/New()
-	name = "Cold"
+	name = "Риновирус"
 	symptoms = list(new/datum/symptom/sneeze)
 	..()
 

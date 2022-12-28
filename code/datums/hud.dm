@@ -19,6 +19,7 @@ GLOBAL_LIST_INIT(huds, list(
 	DATA_HUD_AI_DETECT = new/datum/atom_hud/ai_detector(),
 	DATA_HUD_HACKER = new/datum/atom_hud/hacker(),
 	DATA_HUD_FAN = new/datum/atom_hud/data/human/fan_hud(),
+	DATA_HUD_PSIH = new/datum/atom_hud/data/human/psih_hud(),
 ))
 
 /datum/atom_hud

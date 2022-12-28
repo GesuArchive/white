@@ -199,6 +199,9 @@
 	if(HAS_TRAIT(C, TRAIT_MINDSHIELD))
 		return FALSE
 	brainwash(C, objective)
+	if(istype(C, /mob/living/carbon))
+		var/mob/living/carbon/t = C
+		t.gain_trauma(/datum/brain_trauma/surg_hypnosis)
 	user.log_message("has brainwashed [key_name(C)] with the objective '[objective]' using <b>[src]</b>", LOG_ATTACK)
 	C.log_message("has been brainwashed with the objective '[objective]' by [key_name(user)] using <b>[src]</b>", LOG_VICTIM, log_globally = FALSE)
 	message_admins("[ADMIN_LOOKUPFLW(user)] brainwashed [key_name_admin(C)] with objective '[objective]'.")

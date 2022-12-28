@@ -141,7 +141,7 @@
 
 /datum/surgery/healing/brute/basic/can_start(mob/user, mob/living/carbon/target)
 	// Не показывать если есть скилчип хирурга Т1,Т2,Т3
-	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user, TRAIT_KNOW_VIR_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_VIR_SURGERY_T1) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
 		return FALSE
 	else
 		return ..()
@@ -158,7 +158,7 @@
 	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
 		return FALSE
 	// Скилчип хирурга Т1
-	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1))
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user, TRAIT_KNOW_VIR_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_VIR_SURGERY_T1))
 		return overwrite(user, patient)
 	else
 		. = ..()
@@ -203,7 +203,7 @@
 
 /datum/surgery/healing/burn/basic/can_start(mob/user, mob/living/carbon/target)
 	// Не показывать если есть скилчип хирурга Т1,Т2,Т3
-	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user, TRAIT_KNOW_VIR_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_VIR_SURGERY_T1) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
 		return FALSE
 	else
 		return ..()
@@ -220,7 +220,7 @@
 	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
 		return FALSE
 	// Скилчип хирурга Т1
-	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1))
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user, TRAIT_KNOW_VIR_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_VIR_SURGERY_T1))
 		return overwrite(user, patient)
 	else
 		. = ..()

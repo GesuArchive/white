@@ -23,10 +23,14 @@
 
 
 /obj/structure/frame/machine
-	name = "machine frame"
+	name = "рама машины"
 	var/list/components = null
 	var/list/req_components = null
 	var/list/req_component_names = null // user-friendly names of components
+
+/obj/structure/frame/machine/wired
+	state = 2
+	icon_state = "box_1"
 
 /obj/structure/frame/machine/examine(user)
 	. = ..()

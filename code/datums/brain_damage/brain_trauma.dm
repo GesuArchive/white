@@ -37,6 +37,7 @@
 	to_chat(owner, gain_text)
 	RegisterSignal(owner, COMSIG_MOB_SAY, .proc/handle_speech)
 	RegisterSignal(owner, COMSIG_MOVABLE_HEAR, .proc/handle_hearing)
+	owner.psih_hud_set_status()
 
 //Called when removed from a mob
 /datum/brain_trauma/proc/on_lose(silent)
@@ -44,6 +45,7 @@
 		to_chat(owner, lose_text)
 	UnregisterSignal(owner, COMSIG_MOB_SAY)
 	UnregisterSignal(owner, COMSIG_MOVABLE_HEAR)
+	owner.psih_hud_set_status()
 
 //Called when hearing a spoken message
 /datum/brain_trauma/proc/handle_hearing(datum/source, list/hearing_args)

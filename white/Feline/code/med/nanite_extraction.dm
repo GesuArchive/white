@@ -23,11 +23,6 @@
 		return TRUE
 	else
 		return ..()
-/*
-	if(HAS_TRAIT(target, TRAIT_HUSK)) //You can filter the blood of a dead person just not husked
-		return FALSE
-	return ..()
-*/
 
 /datum/surgery_step/nanite_extraction
 	name = "Фильтрация нанитов в крови"

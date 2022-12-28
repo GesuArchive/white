@@ -150,13 +150,13 @@
 //Lower quantity mannitol pills (50u pills heal 250 brain damage, 5u pills heal 25)
 /obj/item/reagent_containers/pill/mannitol/braintumor
 	desc = "Используется для лечения симптомов при опухолях головного мозга."
-	list_reagents = list(/datum/reagent/medicine/mannitol = 5)
+	list_reagents = list(/datum/reagent/medicine/mannitol = 10)
 
 /obj/item/reagent_containers/pill/mutadone
 	name = "таблетка мутадона"
 	desc = "Устраняет генетические мутации и стабилизирует структуру ДНК."
 	icon_state = "pill20"
-	list_reagents = list(/datum/reagent/medicine/mutadone = 50)
+	list_reagents = list(/datum/reagent/medicine/mutadone = 10)
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/salicylic
@@ -234,14 +234,14 @@
 /obj/item/reagent_containers/pill/happinesspsych
 	name = "таблетка стабилизатора настроения"
 	desc = "Используется для временного облегчения тревоги и депрессии, принимать только по назначению врача."
-	list_reagents = list(/datum/reagent/drug/happiness = 5)
+	list_reagents = list(/datum/reagent/drug/happiness = 10)
 	icon_state = "pill10"
 	rename_with_volume = TRUE
 
 /obj/item/reagent_containers/pill/paxpsych
 	name = "таблетка седативов"
 	desc = "Используется для временного подавления агрессивного, гомицидального или суицидального поведения у пациентов."
-	list_reagents = list(/datum/reagent/pax = 5)
+	list_reagents = list(/datum/reagent/pax = 10)
 	icon_state = "pill12"
 	rename_with_volume = TRUE
 

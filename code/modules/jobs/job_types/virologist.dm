@@ -51,4 +51,6 @@
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 	box = /obj/item/storage/box/survival/medical
 
+	skillchips = list(/obj/item/skillchip/job/medic/virusolog)
+
 	id_trim = /datum/id_trim/job/virologist

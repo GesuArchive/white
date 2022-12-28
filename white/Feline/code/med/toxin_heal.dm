@@ -74,7 +74,7 @@
 
 /datum/surgery/toxin_healing/toxin/basic/can_start(mob/user, mob/living/carbon/target)
 	// Не показывать если есть скилчип хирурга Т1,Т2,Т3
-	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user, TRAIT_KNOW_VIR_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_VIR_SURGERY_T1) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T2) || HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T3) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T3))
 		return FALSE
 	else
 		return ..()
@@ -88,7 +88,7 @@
 
 /datum/surgery/toxin_healing/toxin/upgraded/can_start(mob/user, mob/living/carbon/target)
 	// Скилчип хирурга Т1
-	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1))
+	if(HAS_TRAIT(user, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_MED_SURGERY_T1) || HAS_TRAIT(user, TRAIT_KNOW_VIR_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_VIR_SURGERY_T1))
 		. = TRUE	// Если есть чип - ДА
 
 		if(HAS_TRAIT(target, TRAIT_HUSK)) //не работает на хасков

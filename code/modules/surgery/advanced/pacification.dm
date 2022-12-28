@@ -22,12 +22,6 @@
 		return TRUE
 	else
 		. = ..()
-/*
-	. = ..()
-	var/obj/item/organ/brain/B = target.getorganslot(ORGAN_SLOT_BRAIN)
-	if(!B)
-		return FALSE
-*/
 
 /datum/surgery_step/pacify
 	name = "перепрограммировать мозг"

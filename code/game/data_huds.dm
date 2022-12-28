@@ -52,6 +52,9 @@
 /datum/atom_hud/data/human/fan_hud
 	hud_icons = list(FAN_HUD)
 
+/datum/atom_hud/data/human/psih_hud
+	hud_icons = list(PSIH_HUD)
+
 /datum/atom_hud/data/diagnostic
 
 /datum/atom_hud/data/diagnostic/basic
@@ -192,7 +195,13 @@ Medical HUD! Basic mode needs suit sensors on.
 	var/icon/I = icon(icon, icon_state, dir)
 	var/virus_threat = check_virus()
 	holder.pixel_y = I.Height() - world.icon_size
-	if(HAS_TRAIT(src, TRAIT_XENO_HOST))
+
+	var/obj/item/organ/zombie_infection/infection
+	infection = getorganslot(ORGAN_SLOT_ZOMBIE)
+	if(infection)
+		holder.icon_state = "hudzed"
+
+	else if(HAS_TRAIT(src, TRAIT_XENO_HOST))
 		holder.icon_state = "hudxeno"
 	else if(stat == DEAD || (HAS_TRAIT(src, TRAIT_FAKEDEATH)))
 		if((key || get_ghost(FALSE, TRUE)) && (can_defib() & DEFIB_REVIVABLE_STATES))
@@ -218,6 +227,69 @@ Medical HUD! Basic mode needs suit sensors on.
 			if(null)
 				holder.icon_state = "hudhealthy"
 
+
+/***********************************************
+ХУДы Психолога - Определяют церебралы
+************************************************/
+
+//  Проверка церебралов
+/mob/living/carbon/proc/check_cerebrals()
+	var/psychosis
+	var/psychosis_max
+	var/obj/item/organ/brain/B = getorganslot(ORGAN_SLOT_BRAIN)
+
+	if(mind?.has_antag_datum(/datum/antagonist/brainwashed))
+		psychosis = 15
+		return psychosis
+
+	for(var/i in B.traumas)
+		var/datum/brain_trauma/trauma = i
+
+		if(istype(trauma, /datum/brain_trauma/special/obsessed))
+			psychosis = 14
+		else if(istype(trauma, /datum/brain_trauma/severe/pacifism))
+			psychosis = 13
+		else
+			switch(trauma.resilience)
+				if(TRAUMA_RESILIENCE_BASIC)
+					psychosis = 1
+				if(TRAUMA_RESILIENCE_WOUND)
+					psychosis = 2
+				if(TRAUMA_RESILIENCE_SURGERY)
+					psychosis = 2
+				if(TRAUMA_RESILIENCE_LOBOTOMY)
+					psychosis = 3
+				if(TRAUMA_RESILIENCE_ABSOLUTE)
+					psychosis = 4
+		if(psychosis >= psychosis_max)
+			psychosis_max = psychosis
+	return psychosis_max
+
+/mob/living/carbon/proc/psih_hud_set_status()
+	var/image/holder = hud_list[PSIH_HUD]
+	var/icon/I = icon(icon, icon_state, dir)
+	var/cerebral_threat = check_cerebrals()
+	holder.pixel_y = I.Height() - world.icon_size
+	holder.icon = 'white/Feline/icons/psih.dmi'
+	holder.icon_state = "hud_psih_no"
+	if(cerebral_threat)
+		switch(cerebral_threat)
+			if(1)
+				holder.icon_state = "hud_psih_1"
+			if(2)
+				holder.icon_state = "hud_psih_2"
+			if(3)
+				holder.icon_state = "hud_psih_3"
+			if(4)
+				holder.icon_state = "hud_psih_4"
+			if(13)
+				holder.icon_state = "hud_psih_13"
+			if(14)
+				holder.icon_state = "hud_psih_14"
+			if(15)
+				holder.icon_state = "hud_psih_15"
+			if(null)
+				holder.icon_state = "hud_psih_no"
 
 /***********************************************
 FAN HUDs! For identifying other fans on-sight.

@@ -21,7 +21,7 @@
 
 	var/list/modes = list(MODE_NONE = MODE_MESON, MODE_MESON = MODE_TRAY, MODE_TRAY = MODE_RAD, MODE_RAD = MODE_NONE)
 	var/mode = MODE_NONE
-	var/range = 1
+	var/range = 4
 	var/list/connection_images = list()
 
 /obj/item/clothing/glasses/meson/engine/Initialize(mapload)
@@ -186,7 +186,7 @@
 	icon_state = "trayson-t-ray"
 	inhand_icon_state = "trayson-t-ray"
 	desc = "Используется инженерным персоналом для наблюдения за объектами под полом, такими как кабели и трубы."
-	range = 2
+	range = 5
 
 	modes = list(MODE_NONE = MODE_TRAY, MODE_TRAY = MODE_PIPE_CONNECTABLE, MODE_PIPE_CONNECTABLE = MODE_NONE)
 

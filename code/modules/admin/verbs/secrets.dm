@@ -209,7 +209,7 @@
 					SSnightshift.update_nightshift(FALSE, TRUE)
 		if("moveferry")
 			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Send CentCom Ferry"))
-			if(!SSshuttle.toggleShuttle("ferry","ferry_home","ferry_away"))
+			if(!SSshuttle.toggleShuttle("ferry","ferry_home","ferry_escape","ferry_away"))
 				message_admins("[key_name_admin(holder)] moved the CentCom ferry")
 				log_admin("[key_name(holder)] moved the CentCom ferry")
 		if("togglearrivals")

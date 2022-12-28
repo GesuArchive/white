@@ -518,10 +518,8 @@
 	pixel_x = -5;
 	pixel_y = 30
 	},
-/obj/machinery/shower{
-	dir = 8
-	},
 /obj/effect/turf_decal/tile/purple,
+/obj/machinery/shower/directional/west,
 /turf/open/floor/plasteel,
 /area/mine/eva)
 "bL" = (
@@ -5020,15 +5018,13 @@
 /turf/open/floor/plasteel,
 /area/mine/production)
 "RE" = (
-/obj/machinery/shower{
-	dir = 8
-	},
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 30
 	},
 /obj/effect/turf_decal/tile/purple{
 	dir = 8
 	},
+/obj/machinery/shower/directional/west,
 /turf/open/floor/plasteel,
 /area/mine/production)
 "RL" = (

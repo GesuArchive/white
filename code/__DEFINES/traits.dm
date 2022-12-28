@@ -280,6 +280,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_UNSTABLE "unstable"
 #define TRAIT_OIL_FRIED "oil_fried"
 #define TRAIT_MEDICAL_HUD "med_hud"
+#define TRAIT_PSIH_HUD "psih_hud"
 #define TRAIT_SECURITY_HUD "sec_hud"
 /// for something granting you a diagnostic hud
 #define TRAIT_DIAGNOSTIC_HUD "diag_hud"
@@ -439,6 +440,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_KNOW_MED_SURGERY_T1 "know_med_surgery_t1"
 #define TRAIT_KNOW_MED_SURGERY_T2 "know_med_surgery_t2"
 #define TRAIT_KNOW_MED_SURGERY_T3 "know_med_surgery_t3"
+#define TRAIT_KNOW_VIR_SURGERY_T1 "know_vir_surgery_t1"
 #define TRAIT_SKILLCHIP_ADAPTER "skillchip_adapter"
 
 ///Movement type traits for movables. See elements/movetype_handler.dm

@@ -51,6 +51,7 @@
 		span_notice("[user] завершил операцию на мозге [target]."))
 	to_chat(target, span_userdanger("Что-то заполняет ваш разум, принуждая вас... подчиниться!"))
 	brainwash(target, objective)
+	target.gain_trauma(/datum/brain_trauma/surg_hypnosis)
 	user.log_message("has brainwashed [key_name(target)] with the objective '[objective]' using brainwashing surgery.", LOG_ATTACK)
 	target.log_message("has been brainwashed with the objective '[objective]' by [key_name(user)] using brainwashing surgery.", LOG_VICTIM, log_globally=FALSE)
 	message_admins("[ADMIN_LOOKUPFLW(user)] surgically brainwashed [ADMIN_LOOKUPFLW(target)] with the objective '[objective]'.")

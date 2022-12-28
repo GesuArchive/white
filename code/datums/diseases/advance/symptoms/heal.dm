@@ -230,7 +230,7 @@
 	var/stabilize = FALSE
 	var/active_coma = FALSE //to prevent multiple coma procs
 	threshold_descs = list(
-		"Скрытность 2" = "Хозяин, кажется, умирает при впадении в кому.",
+		"Скрытность 2" = "Носитель имитирует смерть при впадении в кому.",
 		"Сопротивление 4" = "Вирус также стабилизирует хозяина, пока он находится в критическом состоянии.",
 		"Скорость 7" = "Увеличивает скорость исцеления.",
 	)
@@ -266,13 +266,11 @@
 	if(HAS_TRAIT(M, TRAIT_DEATHCOMA))
 		return power
 	if(M.IsSleeping())
-		return power * 0.25 //Voluntary unconsciousness yields lower healing.
+		return power * 0.5 //Voluntary unconsciousness yields lower healing.
 	switch(M.stat)
-		if(UNCONSCIOUS, HARD_CRIT)
+		if(UNCONSCIOUS, HARD_CRIT, SOFT_CRIT)
 			return power * 0.9
-		if(SOFT_CRIT)
-			return power * 0.5
-	if(M.getBruteLoss() + M.getFireLoss() >= 70 && !active_coma)
+	if(M.getBruteLoss() + M.getFireLoss() >= 120 && !active_coma)
 		to_chat(M, span_warning("Пора спать..."))
 		active_coma = TRUE
 		addtimer(CALLBACK(src, .proc/coma, M), 60)
@@ -342,13 +340,13 @@
 		M.adjust_fire_stacks(min(absorption_coeff, -M.fire_stacks))
 		. += power
 	if(M.reagents.has_reagent(/datum/reagent/water/holywater, needs_metabolizing = FALSE))
-		M.reagents.remove_reagent(/datum/reagent/water/holywater, 0.5 * absorption_coeff)
+//		M.reagents.remove_reagent(/datum/reagent/water/holywater, 0.5 * absorption_coeff)
 		. += power * 0.75
 	else if(M.reagents.has_reagent(/datum/reagent/water, needs_metabolizing = FALSE))
-		M.reagents.remove_reagent(/datum/reagent/water, 0.5 * absorption_coeff)
+//		M.reagents.remove_reagent(/datum/reagent/water, 0.5 * absorption_coeff)
 		. += power * 0.5
 	else if(M.hydration)
-		M.hydration -= 0.5 * absorption_coeff
+//		M.hydration -= 0.5 * absorption_coeff
 		. += power * 0.25
 
 /datum/symptom/heal/water/Heal(mob/living/carbon/M, datum/disease/advance/A, actual_power)
@@ -441,7 +439,7 @@
 
 /datum/symptom/heal/radiation
 	name = "Радиоактивный резонанс"
-	desc = "Вирус использует радиацию, чтобы исправить повреждения, вызванные мутациями ДНК."
+	desc = "Вирус использует радиацию, чтобы вывести токсины."
 	stealth = -1
 	resistance = -2
 	stage_speed = 2

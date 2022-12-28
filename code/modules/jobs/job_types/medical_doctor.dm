@@ -52,7 +52,7 @@
 	suit =  /obj/item/clothing/suit/toggle/labcoat
 	l_hand = /obj/item/storage/firstaid/medical/surg
 	suit_store = /obj/item/flashlight/pen
-	r_pocket = /obj/item/storage/pill_bottle/ultra/full
+	r_pocket = /obj/item/storage/pill_bottle/ultra/doc
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med

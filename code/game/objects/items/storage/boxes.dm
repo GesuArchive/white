@@ -619,6 +619,17 @@
 		new /obj/item/firing_pin/tag/red(src)
 		new /obj/item/firing_pin/tag/blue(src)
 
+/obj/item/storage/box/flare
+	name = "коробка с осветительным инвентарем"
+	desc = "коробка с сигнальными шашками и фонариком."
+	icon_state = "secbox"
+
+/obj/item/storage/box/flare/PopulateContents()
+	for(var/i in 1 to 5)
+		new /obj/item/flashlight/flare(src)
+	new /obj/item/flashlight/seclite(src)
+	new /obj/item/flashlight/seclite(src)
+
 /obj/item/storage/box/handcuffs
 	name = "коробка запасных наручников"
 	desc = "коробка запасных наручников."

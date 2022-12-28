@@ -101,7 +101,7 @@
 	name = "таблетница"
 	desc = "Вмещает в себя очень много пилюлек и таблеток."
 	icon = 'white/Feline/icons/med_items.dmi'
-	icon_state = "pill_box"
+	icon_state = "pill_box_green"
 
 /obj/item/storage/pill_bottle/ultra/Initialize()
 	. = ..()
@@ -111,10 +111,11 @@
 	atom_storage.max_total_storage = 100
 	atom_storage.set_holdable(list(/obj/item/reagent_containers/pill))
 
-/obj/item/storage/pill_bottle/ultra/full	//	Врач
+/obj/item/storage/pill_bottle/ultra/doc	//	Врач
 	desc = "Хранит обширный набор таблеток на все случаи жизни."
+	icon_state = "pill_box_blue"
 
-/obj/item/storage/pill_bottle/ultra/full/PopulateContents()
+/obj/item/storage/pill_bottle/ultra/doc/PopulateContents()
 	new /obj/item/reagent_containers/pill/epinephrine(src)
 	new /obj/item/reagent_containers/pill/epinephrine(src)
 	new /obj/item/reagent_containers/pill/lenturi(src)
@@ -149,6 +150,26 @@
 	new /obj/item/reagent_containers/pill/spaceacillin(src)
 	new /obj/item/reagent_containers/pill/mutadone(src)
 	new /obj/item/reagent_containers/pill/mutadone(src)
+
+/obj/item/storage/pill_bottle/ultra/psih	//	Психолог
+	desc = "Содержит стандартный набор психотропных веществ."
+	icon_state = "pill_box_purple"
+
+/obj/item/storage/pill_bottle/ultra/psih/PopulateContents()
+	for(var/i in 1 to 6)
+		new /obj/item/reagent_containers/pill/neurine(src)
+	for(var/i in 1 to 6)
+		new /obj/item/reagent_containers/pill/psicodine(src)
+	for(var/i in 1 to 6)
+		new /obj/item/reagent_containers/pill/mannitol(src)
+	for(var/i in 1 to 6)
+		new /obj/item/reagent_containers/pill/paxpsych(src)
+	for(var/i in 1 to 6)
+		new /obj/item/reagent_containers/pill/happinesspsych(src)
+	for(var/i in 1 to 6)
+		new /obj/item/reagent_containers/pill/lsdpsych(src)
+	for(var/i in 1 to 6)
+		new /obj/item/reagent_containers/pill/labebium(src)
 
 // Пенал для медипенов
 
@@ -178,6 +199,15 @@
 	worn_icon_state = initial(worn_icon_state)
 	if(length(contents))
 		icon_state = "penal[length(contents)]"
+
+/obj/item/storage/belt/medipenal/attack_hand(mob/user, list/modifiers)
+	if(loc == user)
+		if((user.get_item_by_slot(ITEM_SLOT_BELT) == src) || (user.get_item_by_slot(ITEM_SLOT_LPOCKET) == src) || (user.get_item_by_slot(ITEM_SLOT_RPOCKET) == src))
+			if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, TRUE))
+				return
+			atom_storage?.show_contents(user)
+	else ..()
+	return
 
 /obj/item/storage/belt/medipenal/rangers	//	Рейнджер медик
 

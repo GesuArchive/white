@@ -53,3 +53,11 @@
 
 /datum/brain_trauma/hypnosis/handle_hearing(datum/source, list/hearing_args)
 	hearing_args[HEARING_RAW_MESSAGE] = target_phrase.Replace_char(hearing_args[HEARING_RAW_MESSAGE], span_hypnophrase("$1"))
+
+/datum/brain_trauma/surg_hypnosis
+	name = "Внушённая подмена понятий"
+	desc = "Подсознание пациента полностью захвачено определенным приказом. Он будет следовать ему несмотря ни на что."
+	scan_desc = "<b>внушенной подмены понятий</b>"
+	gain_text = ""
+	lose_text = ""
+	resilience = TRAUMA_RESILIENCE_SURGERY

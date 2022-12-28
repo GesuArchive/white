@@ -10,13 +10,26 @@
 
 	target_mobtypes = list(/mob/living/carbon/human)
 	possible_locs = list(BODY_ZONE_CHEST)
-
+/*
 /datum/surgery/advanced/viral_bonding/can_start(mob/user, mob/living/carbon/target)
 	if(!..())
 		return FALSE
 	if(!LAZYLEN(target.diseases))
 		return FALSE
 	return TRUE
+*/
+
+/datum/surgery/advanced/viral_bonding/can_start(mob/user, mob/living/carbon/target)
+
+	// Скилчип вирусолога Т1
+	if(!LAZYLEN(target.diseases))
+		return FALSE
+	if(HAS_TRAIT(user, TRAIT_KNOW_VIR_SURGERY_T1) || HAS_TRAIT(user.mind, TRAIT_KNOW_VIR_SURGERY_T1))
+		return TRUE
+	else
+		if(!..())
+			return FALSE
+		return TRUE
 
 /datum/surgery_step/viral_bond
 	name = "вирусное сплетение"
