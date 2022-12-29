@@ -28,12 +28,12 @@
 		LAZYREMOVE(shielded_stack, last_shielded_movable)
 	else
 		LAZYADD(shielded_stack, movable_to_shield)
-	RegisterSignal(movable_to_shield, COMSIG_ATOM_EXITED, .proc/on_exited)
-	RegisterSignal(movable_to_shield, COMSIG_MOVABLE_MOVED, .proc/on_shielded_moved)
-	RegisterSignal(movable_to_shield, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, .proc/on_shielded_glide_size_update)
-	RegisterSignal(movable_to_shield, COMSIG_PARENT_ATTACKBY, .proc/on_shielded_attackby)
-	RegisterSignal(movable_to_shield, COMSIG_ATOM_BULLET_ACT, .proc/on_shielded_bullet_act)
-	RegisterSignal(movable_to_shield, COMSIG_ATOM_HITBY, .proc/on_shielded_hitby)
+	RegisterSignal(movable_to_shield, COMSIG_ATOM_EXITED, PROC_REF(on_exited))
+	RegisterSignal(movable_to_shield, COMSIG_MOVABLE_MOVED, PROC_REF(on_shielded_moved))
+	RegisterSignal(movable_to_shield, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, PROC_REF(on_shielded_glide_size_update))
+	RegisterSignal(movable_to_shield, COMSIG_PARENT_ATTACKBY, PROC_REF(on_shielded_attackby))
+	RegisterSignal(movable_to_shield, COMSIG_ATOM_BULLET_ACT, PROC_REF(on_shielded_bullet_act))
+	RegisterSignal(movable_to_shield, COMSIG_ATOM_HITBY, PROC_REF(on_shielded_hitby))
 	on_shielded_moved()
 
 ////////////////////////////////////////////////////////////////////////перемещение/анимация
@@ -105,7 +105,7 @@
 	var/obj/structure/rs_plate/hit_plate = find_hit_plate(dir2angle(get_dir(shielded_source, user)))
 	if(!hit_plate)
 		return
-	INVOKE_ASYNC(hit_plate, /atom.proc/attackby, I, user, params)
+	INVOKE_ASYNC(hit_plate, TYPE_PROC_REF(/atom, attackby), I, user, params)
 	return COMPONENT_NO_AFTERATTACK
 
 /datum/component/rotating_shield/proc/on_shielded_bullet_act(datum/source, obj/projectile/P, def_zone)

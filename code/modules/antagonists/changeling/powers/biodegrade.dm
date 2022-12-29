@@ -20,7 +20,7 @@
 		user.visible_message(span_warning("<b>[user]</b> изрыгает шар кислоты на <b>[O]</b>!") , \
 			span_warning("Мы изрыгаем кислотную слизь на наши наручники!"))
 
-		addtimer(CALLBACK(src, .proc/dissolve_handcuffs, user, O), 30)
+		addtimer(CALLBACK(src, PROC_REF(dissolve_handcuffs), user, O), 30)
 		used = TRUE
 
 	if(user.legcuffed)
@@ -30,7 +30,7 @@
 		user.visible_message(span_warning("<b>[user]</b> изрыгает шар кислоты на <b>[O]</b>!") , \
 			span_warning("Мы изрыгаем кислотную слизь на наши стяжки!"))
 
-		addtimer(CALLBACK(src, .proc/dissolve_legcuffs, user, O), 30)
+		addtimer(CALLBACK(src, PROC_REF(dissolve_legcuffs), user, O), 30)
 		used = TRUE
 
 	if(user.wear_suit && user.wear_suit.breakouttime && !used)
@@ -39,7 +39,7 @@
 			return FALSE
 		user.visible_message(span_warning("<b>[user]</b> изрыгает шар кислоты на <b>[S]</b>!") , \
 			span_warning("Мы изрыгаем кислотную слизь на нашу смирительную рубашку!"))
-		addtimer(CALLBACK(src, .proc/dissolve_straightjacket, user, S), 30)
+		addtimer(CALLBACK(src, PROC_REF(dissolve_straightjacket), user, S), 30)
 		used = TRUE
 
 
@@ -49,7 +49,7 @@
 			return FALSE
 		C.visible_message(span_warning("Петли <b>[C]</b> вдруг начинают таять и бегать!"))
 		to_chat(user, span_warning("Мы изрыгаем кислотную смесь внутри <b>[C]</b>!"))
-		addtimer(CALLBACK(src, .proc/open_closet, user, C), 70)
+		addtimer(CALLBACK(src, PROC_REF(open_closet), user, C), 70)
 		used = TRUE
 
 	if(istype(user.loc, /obj/structure/spider/cocoon) && !used)
@@ -58,7 +58,7 @@
 			return FALSE
 		C.visible_message(span_warning("<b>[capitalize(src)]</b> дёргается и начинает разваливаться!"))
 		to_chat(user, span_warning("Мы выделяем кислотные ферменты из нашей кожи и начинаем плавить кокон..."))
-		addtimer(CALLBACK(src, .proc/dissolve_cocoon, user, C), 25) //Very short because it's just webs
+		addtimer(CALLBACK(src, PROC_REF(dissolve_cocoon), user, C), 25) //Very short because it's just webs
 		used = TRUE
 	..()
 	return used

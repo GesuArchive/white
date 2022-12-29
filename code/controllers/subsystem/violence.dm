@@ -196,7 +196,7 @@ SUBSYSTEM_DEF(violence)
 		new_round()
 	message_admins(span_nezbere("VM: New round preparing in background!"))
 	// регистрируем сигнал о смерти
-	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, .proc/someone_has_died)
+	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, PROC_REF(someone_has_died))
 	message_admins(span_nezbere("VM: Death signal registered!"))
 	message_admins(span_nezbere("VM: Init complete!"))
 
@@ -411,7 +411,7 @@ SUBSYSTEM_DEF(violence)
 			losestreak_blues = 0
 			losestreak_reds++
 	spawn(3 SECONDS)
-		sortTim(players, /proc/cmp_violence_players, TRUE)
+		sortTim(players, GLOBAL_PROC_REF(cmp_violence_players), TRUE)
 		play_sound_to_everyone('white/valtos/sounds/gong.ogg')
 		var/list/stats_reds = list()
 		var/list/stats_blues = list()

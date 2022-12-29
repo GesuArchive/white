@@ -212,7 +212,7 @@ That's it, ok bye!
 			continue
 		else
 			platform += T
-	addtimer(CALLBACK(src, .proc/acquire_destinations), 10 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(acquire_destinations)), 10 SECONDS)
 	setup()
 
 /obj/machinery/lazylift/proc/acquire_destinations()

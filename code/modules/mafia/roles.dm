@@ -352,7 +352,7 @@
 	SIGNAL_HANDLER
 
 	if(current_target)
-		RegisterSignal(current_target,COMSIG_MAFIA_CAN_PERFORM_ACTION, .proc/prevent_action)
+		RegisterSignal(current_target,COMSIG_MAFIA_CAN_PERFORM_ACTION, PROC_REF(prevent_action))
 
 /datum/mafia_role/lawyer/proc/release(datum/mafia_controller/game)
 	SIGNAL_HANDLER

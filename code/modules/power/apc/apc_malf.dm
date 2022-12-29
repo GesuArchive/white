@@ -19,7 +19,7 @@
 		return
 	to_chat(malf, span_notice("Начинаю переписывать системы энергощитка. Это займёт некоторое время и практически всю свободную память."))
 	malf.malfhack = src
-	malf.malfhacking = addtimer(CALLBACK(malf, /mob/living/silicon/ai/.proc/malfhacked, src), 600, TIMER_STOPPABLE)
+	malf.malfhacking = addtimer(CALLBACK(malf, TYPE_PROC_REF(/mob/living/silicon/ai, malfhacked), src), 600, TIMER_STOPPABLE)
 
 	var/atom/movable/screen/alert/hackingapc/hacking_apc
 	hacking_apc = malf.throw_alert("hackingapc", /atom/movable/screen/alert/hackingapc)

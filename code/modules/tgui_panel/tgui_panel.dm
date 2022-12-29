@@ -16,7 +16,7 @@
 /datum/tgui_panel/New(client/client, id)
 	src.client = client
 	window = new(client, id)
-	window.subscribe(src, .proc/on_message)
+	window.subscribe(src, PROC_REF(on_message))
 
 /datum/tgui_panel/Del()
 	window.unsubscribe(src)
@@ -55,7 +55,7 @@
 	asset_tgui.send(src.client)
 	// Other setup
 	request_telemetry()
-	addtimer(CALLBACK(src, .proc/on_initialize_timed_out), 5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(on_initialize_timed_out)), 5 SECONDS)
 
 /**
  * private

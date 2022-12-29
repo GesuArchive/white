@@ -18,7 +18,7 @@
 	var/mob/living/simple_animal/hostile/megafauna/target = pick(mflist)
 	target_megafauna_type = target.type
 	explanation_text += " Подвид: \"[uppertext(target.name)]\""
-	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, .proc/check_target_death)
+	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, PROC_REF(check_target_death))
 
 /datum/objective/slay/proc/check_target_death(datum/source, mob/living/dead, gibbed)
 	SIGNAL_HANDLER

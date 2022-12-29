@@ -227,7 +227,7 @@
 	SEND_SIGNAL(src, COMSIG_MECHCOMP_ADD_CONFIG, "Fine tuning", "finetune")
 
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/pad_triggered,
+		COMSIG_ATOM_ENTERED = PROC_REF(pad_triggered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
@@ -290,7 +290,7 @@
 //and active flag should not be set to FALSE untill all of the messages were sent.
 //This is probably not good and stuff regarting active-inactive states should be rewritten to be more flexible.
 /obj/item/mechcomp/delay/proc/incoming(var/datum/mechcompMessage/msg)
-	addtimer(CALLBACK(src, .proc/sendmessage, msg), delay, TIMER_STOPPABLE | TIMER_DELETE_ME)
+	addtimer(CALLBACK(src, PROC_REF(sendmessage), msg), delay, TIMER_STOPPABLE | TIMER_DELETE_ME)
 	active = TRUE
 	update_icon()
 
@@ -322,7 +322,7 @@
 
 /obj/item/mechcomp/grav_accelerator/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/simple_rotation, ROTATION_ALTCLICK | ROTATION_CLOCKWISE, CALLBACK(src, .proc/can_user_rotate),CALLBACK(src, .proc/can_be_rotated),null)
+	AddComponent(/datum/component/simple_rotation, ROTATION_ALTCLICK | ROTATION_CLOCKWISE, CALLBACK(src, PROC_REF(can_user_rotate)),CALLBACK(src, PROC_REF(can_be_rotated)),null)
 
 /obj/item/mechcomp/grav_accelerator/Initialize(mapload)
 	. = ..()
@@ -470,7 +470,7 @@
 		src.transform = matrix()
 		src.transform = turn(src.transform, new_angle)
 		angle = SIMPLIFY_DEGREES(new_angle)
-		addtimer(src, CALLBACK(src, .proc/debugrotate, angle+1), 1)
+		addtimer(src, CALLBACK(src, PROC_REF(debugrotate), angle+1), 1)
 
 /obj/item/mechcomp/egunholder/AltClick(mob/user)
 	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE, !iscyborg(user)))
@@ -815,7 +815,7 @@
 			active = FALSE
 
 /obj/item/mechcomp/timer/proc/start_ticking()
-	timer_id = addtimer(CALLBACK(src, .proc/fire), time, TIMER_STOPPABLE | TIMER_LOOP | TIMER_DELETE_ME)
+	timer_id = addtimer(CALLBACK(src, PROC_REF(fire)), time, TIMER_STOPPABLE | TIMER_LOOP | TIMER_DELETE_ME)
 
 /obj/item/mechcomp/timer/proc/fire()
 	if(active) //just in case...

@@ -69,7 +69,7 @@ PROCESSING_SUBSYSTEM_DEF(realtemp)
 
 		START_PROCESSING(SSrealtemp, src)
 
-		RegisterSignal(screen_obj, COMSIG_CLICK, .proc/hud_click)
+		RegisterSignal(screen_obj, COMSIG_CLICK, PROC_REF(hud_click))
 
 /datum/component/realtemp/Destroy()
 

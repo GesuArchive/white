@@ -111,8 +111,8 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 	SEND_SOUND(our_dreamer, sound(bg_sound, repeat = TRUE, wait = 0, volume = 5, channel = CHANNEL_BUZZ))
 
 /datum/component/dreamer/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_MOB_SAY, .proc/handle_speech)
-	RegisterSignal(parent, COMSIG_MOB_LOGIN, .proc/make_weirds)
+	RegisterSignal(parent, COMSIG_MOB_SAY, PROC_REF(handle_speech))
+	RegisterSignal(parent, COMSIG_MOB_LOGIN, PROC_REF(make_weirds))
 	ADD_TRAIT(parent, TRAIT_STUNRESISTANCE, "dreamer")
 	ADD_TRAIT(parent, TRAIT_SLEEPIMMUNE,    "dreamer")
 	return
@@ -162,7 +162,7 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 		fuckfloorlist += turf_img
 
 		if(our_dreamer?.client)
-			addtimer(CALLBACK(GLOBAL_PROC, .proc/remove_image_from_client, turf_img, our_dreamer.client), ttd * 2, TIMER_STOPPABLE)
+			addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(remove_image_from_client), turf_img, our_dreamer.client), ttd * 2, TIMER_STOPPABLE)
 
 	our_dreamer.setStaminaLoss(0)
 	our_dreamer.setOxyLoss(0)
@@ -376,7 +376,7 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 
 		var/image/speech_overlay = image('icons/mob/talk.dmi', A, "default2", FLY_LAYER)
 		spawn(rand(10, 50))
-			INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, speech_overlay, list(our_dreamer?.client), 30)
+			INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(flick_overlay), speech_overlay, list(our_dreamer?.client), 30)
 			our_dreamer.Hear(what_we_should_say, A, our_dreamer.get_random_understood_language(), what_we_should_say)
 
 	if(prob(23))

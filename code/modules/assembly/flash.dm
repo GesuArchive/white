@@ -52,7 +52,7 @@
 	if(flash)
 		add_overlay(flashing_overlay)
 		attached_overlays += flashing_overlay
-		addtimer(CALLBACK(src, /atom/.proc/update_icon), 5)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 5)
 	if(holder)
 		holder.update_icon()
 
@@ -111,7 +111,7 @@
 	last_trigger = world.time
 	playsound(src, 'sound/weapons/flash.ogg', 100, TRUE)
 	set_light_on(TRUE)
-	addtimer(CALLBACK(src, .proc/flash_end), FLASH_LIGHT_DURATION, TIMER_OVERRIDE|TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(flash_end)), FLASH_LIGHT_DURATION, TIMER_OVERRIDE|TIMER_UNIQUE)
 	times_used++
 	flash_recharge()
 	update_icon(TRUE)
@@ -334,7 +334,7 @@
 		to_chat(real_arm.owner, span_warning("Your photon projector implant overheats and deactivates!"))
 		real_arm.Retract()
 	overheat = TRUE
-	addtimer(CALLBACK(src, .proc/cooldown), flashcd * 2)
+	addtimer(CALLBACK(src, PROC_REF(cooldown)), flashcd * 2)
 
 /obj/item/assembly/flash/armimplant/try_use_flash(mob/user = null)
 	if(overheat)
@@ -343,7 +343,7 @@
 			to_chat(real_arm.owner, span_warning("Your photon projector is running too hot to be used again so quickly!"))
 		return FALSE
 	overheat = TRUE
-	addtimer(CALLBACK(src, .proc/cooldown), flashcd)
+	addtimer(CALLBACK(src, PROC_REF(cooldown)), flashcd)
 	playsound(src, 'sound/weapons/flash.ogg', 100, TRUE)
 	update_icon(1)
 	return TRUE

@@ -25,10 +25,10 @@
 		return
 	else if(option == "Я")
 		hierophant_message("[user] хочет выбрать себя Преосвященством. Взаимодействовуйте с [src] для отмены.", span="<span=large_brass>")
-		vote_timer = addtimer(CALLBACK(src, .proc/vote_succeed, user), 600, TIMER_STOPPABLE)
+		vote_timer = addtimer(CALLBACK(src, PROC_REF(vote_succeed), user), 600, TIMER_STOPPABLE)
 	else if(option == "Призрак")
 		hierophant_message("[user] хочет призрак в качестве Преосвященства. Взаимодействовуйте с [src] для отмены.")
-		vote_timer = addtimer(CALLBACK(src, .proc/vote_succeed), 600, TIMER_STOPPABLE)
+		vote_timer = addtimer(CALLBACK(src, PROC_REF(vote_succeed)), 600, TIMER_STOPPABLE)
 	vote_active = TRUE
 
 /obj/structure/destructible/clockwork/eminence_beacon/proc/vote_succeed(mob/eminence)

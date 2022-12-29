@@ -49,7 +49,7 @@
 
 	new /obj/effect/singularity_creation(loc)
 
-	addtimer(CALLBACK(src, .proc/make_visible), 62)
+	addtimer(CALLBACK(src, PROC_REF(make_visible)), 62)
 
 	energy = starting_energy
 
@@ -59,7 +59,7 @@
 
 	var/datum/component/singularity/new_component = AddComponent(
 		/datum/component/singularity, \
-		consume_callback = CALLBACK(src, .proc/consume), \
+		consume_callback = CALLBACK(src, PROC_REF(consume)), \
 	)
 
 	singularity_component = WEAKREF(new_component)
@@ -101,7 +101,7 @@
 /obj/singularity/proc/be_free()
 	var/datum/component/singularity/new_component = AddComponent(
 		/datum/component/singularity, \
-		consume_callback = CALLBACK(src, .proc/consume), \
+		consume_callback = CALLBACK(src, PROC_REF(consume)), \
 	)
 
 	singularity_component = WEAKREF(new_component)
@@ -134,7 +134,7 @@
 		rip_u.dismember(BURN) //nice try jedi
 		qdel(rip_u)
 		return
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/carbon_tk_part_two, jedi), 0.1 SECONDS)
+	addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(carbon_tk_part_two), jedi), 0.1 SECONDS)
 
 
 /obj/singularity/proc/carbon_tk_part_two(mob/living/carbon/jedi)
@@ -151,7 +151,7 @@
 			rip_u.dismember(BURN)
 			qdel(rip_u)
 		return
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/carbon_tk_part_three, jedi), 0.1 SECONDS)
+	addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(carbon_tk_part_three), jedi), 0.1 SECONDS)
 
 
 /obj/singularity/proc/carbon_tk_part_three(mob/living/carbon/jedi)
@@ -491,7 +491,7 @@
 	return gain
 
 /obj/singularity/deadchat_plays(mode = ANARCHY_MODE, cooldown = 6 SECONDS)
-	. = AddComponent(/datum/component/deadchat_control/cardinal_movement, mode, list(), cooldown, CALLBACK(src, .proc/stop_deadchat_plays))
+	. = AddComponent(/datum/component/deadchat_control/cardinal_movement, mode, list(), cooldown, CALLBACK(src, PROC_REF(stop_deadchat_plays)))
 
 	if(. == COMPONENT_INCOMPATIBLE)
 		return

@@ -15,10 +15,10 @@
 	return ..()
 
 /datum/component/scope/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/on_move)
-	RegisterSignal(parent, COMSIG_ITEM_AFTERATTACK_SECONDARY, .proc/on_secondary_afterattack)
-	RegisterSignal(parent, COMSIG_GUN_TRY_FIRE, .proc/on_gun_fire)
-	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, .proc/on_examine)
+	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
+	RegisterSignal(parent, COMSIG_ITEM_AFTERATTACK_SECONDARY, PROC_REF(on_secondary_afterattack))
+	RegisterSignal(parent, COMSIG_GUN_TRY_FIRE, PROC_REF(on_gun_fire))
+	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 
 /datum/component/scope/UnregisterFromParent()
 	UnregisterSignal(parent, list(
@@ -117,7 +117,7 @@
 	tracker.RegisterSignal(user, COMSIG_MOVABLE_MOVED, /atom/movable/screen/fullscreen/scope.proc/on_move)
 	tracker.RegisterSignal(user, COMSIG_VIEWDATA_UPDATE, /atom/movable/screen/fullscreen/scope.proc/on_viewdata_update)
 	tracker.calculate_params()
-	RegisterSignal(user, COMSIG_MOB_SWAP_HANDS, .proc/stop_zooming)
+	RegisterSignal(user, COMSIG_MOB_SWAP_HANDS, PROC_REF(stop_zooming))
 	START_PROCESSING(SSprojectiles, src)
 
 /**

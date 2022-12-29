@@ -44,7 +44,7 @@
 		var/datum/species/species = human_holder.dna.species
 		species.liked_food &= ~MEAT
 		species.disliked_food |= MEAT
-	RegisterSignal(human_holder, COMSIG_SPECIES_GAIN, .proc/on_species_gain)
+	RegisterSignal(human_holder, COMSIG_SPECIES_GAIN, PROC_REF(on_species_gain))
 
 /datum/quirk/vegetarian/proc/on_species_gain(datum/source, datum/species/new_species, datum/species/old_species)
 	new_species.liked_food &= ~MEAT
@@ -82,7 +82,7 @@
 	if(human_holder?.dna?.species)
 		var/datum/species/species = human_holder.dna.species
 		species.liked_food |= PINEAPPLE
-	RegisterSignal(human_holder, COMSIG_SPECIES_GAIN, .proc/on_species_gain)
+	RegisterSignal(human_holder, COMSIG_SPECIES_GAIN, PROC_REF(on_species_gain))
 
 /datum/quirk/pineapple_liker/proc/on_species_gain(datum/source, datum/species/new_species, datum/species/old_species)
 	SIGNAL_HANDLER
@@ -108,7 +108,7 @@
 	if(human_holder?.dna?.species)
 		var/datum/species/species = human_holder.dna.species
 		species.disliked_food |= PINEAPPLE
-	RegisterSignal(human_holder, COMSIG_SPECIES_GAIN, .proc/on_species_gain)
+	RegisterSignal(human_holder, COMSIG_SPECIES_GAIN, PROC_REF(on_species_gain))
 
 /datum/quirk/pineapple_hater/proc/on_species_gain(datum/source, datum/species/new_species, datum/species/old_species)
 	new_species.disliked_food |= PINEAPPLE
@@ -135,7 +135,7 @@
 		var/liked = species.liked_food
 		species.liked_food = species.disliked_food
 		species.disliked_food = liked
-	RegisterSignal(human_holder, COMSIG_SPECIES_GAIN, .proc/on_species_gain)
+	RegisterSignal(human_holder, COMSIG_SPECIES_GAIN, PROC_REF(on_species_gain))
 
 /datum/quirk/deviant_tastes/proc/on_species_gain(datum/source, datum/species/new_species, datum/species/old_species)
 	var/liked = new_species.liked_food
@@ -233,8 +233,8 @@
 	old_hair = H.hairstyle
 	H.hairstyle = "Bald"
 	H.update_hair()
-	RegisterSignal(H, COMSIG_CARBON_EQUIP_HAT, .proc/equip_hat)
-	RegisterSignal(H, COMSIG_CARBON_UNEQUIP_HAT, .proc/unequip_hat)
+	RegisterSignal(H, COMSIG_CARBON_EQUIP_HAT, PROC_REF(equip_hat))
+	RegisterSignal(H, COMSIG_CARBON_UNEQUIP_HAT, PROC_REF(unequip_hat))
 
 /datum/quirk/bald/remove()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -370,7 +370,7 @@
 	human_holder.eye_color_heterochromatic = TRUE
 	human_holder.eye_color_right = color
 	// We set override to TRUE as link to holder will be called whenever the preference is applied, given this quirk exists on the mob
-	RegisterSignal(human_holder, COMSIG_CARBON_LOSE_ORGAN, .proc/check_eye_removal, override=TRUE)
+	RegisterSignal(human_holder, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(check_eye_removal), override=TRUE)
 
 	var/obj/item/organ/eyes/eyes_of_the_holder = quirk_holder.getorgan(/obj/item/organ/eyes)
 	if(!eyes_of_the_holder)

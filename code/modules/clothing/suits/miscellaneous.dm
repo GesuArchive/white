@@ -380,7 +380,7 @@
 	if(!straight_user)
 		straight_user = user
 
-	RegisterSignal(straight_user, COMSIG_MOVABLE_MOVED, .proc/check_trip)
+	RegisterSignal(straight_user, COMSIG_MOVABLE_MOVED, PROC_REF(check_trip))
 
 /obj/item/clothing/suit/straight_jacket/dropped()
 	. = ..()

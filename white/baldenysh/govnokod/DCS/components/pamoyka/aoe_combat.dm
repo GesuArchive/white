@@ -8,7 +8,7 @@
 		qdel(src)
 
 /datum/component/aoe_melee/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_ITEM_AFTERATTACK, .proc/start_attack)
+	RegisterSignal(parent, COMSIG_ITEM_AFTERATTACK, PROC_REF(start_attack))
 
 /datum/component/aoe_melee/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_ITEM_AFTERATTACK)

@@ -50,7 +50,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 			continue
 		hearing_movable.Hear(rendered, src, message_language, message, , spans, message_mods)
 
-	INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, image('icons/mob/talk.dmi', src, "machine[say_test(message)]",MOB_LAYER+1), hearers_in_view, 30)
+	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(flick_overlay), image('icons/mob/talk.dmi', src, "machine[say_test(message)]",MOB_LAYER+1), hearers_in_view, 30)
 
 /atom/movable/proc/compose_message(atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, list/spans, list/message_mods = list(), face_name = FALSE)
 	//This proc uses text() because it is faster than appending strings. Thanks BYOND.

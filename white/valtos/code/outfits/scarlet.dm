@@ -54,7 +54,7 @@
 		if(src && user && ishuman(user))
 			var/mob/living/carbon/human/H = user
 			if(H.wear_suit == src)
-				INVOKE_ASYNC(src, .proc/bootSequence, user)
+				INVOKE_ASYNC(src, PROC_REF(bootSequence), user)
 
 /obj/item/clothing/suit/space/x031/proc/bootSequence(mob/living/carbon/human/H)
 	H.Paralyze(200)

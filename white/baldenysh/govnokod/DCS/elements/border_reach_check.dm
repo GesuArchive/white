@@ -15,11 +15,11 @@
 	blocker_interact = should_blocker_interact
 	if(tools_signals_override)
 		tools_signals = tools_signals_override
-	RegisterSignal(target, COMSIG_ATOM_ATTACK_HAND, .proc/on_attack_hand)
-	RegisterSignal(target, COMSIG_ATOM_ATTACK_PAW, .proc/on_attack_paw)
-	RegisterSignal(target, COMSIG_PARENT_ATTACKBY, .proc/on_attackby)
+	RegisterSignal(target, COMSIG_ATOM_ATTACK_HAND, PROC_REF(on_attack_hand))
+	RegisterSignal(target, COMSIG_ATOM_ATTACK_PAW, PROC_REF(on_attack_paw))
+	RegisterSignal(target, COMSIG_PARENT_ATTACKBY, PROC_REF(on_attackby))
 	for(var/tool_type in tools_signals)
-		RegisterSignal(target, COMSIG_ATOM_TOOL_ACT(tool_type), .proc/on_tool_act)
+		RegisterSignal(target, COMSIG_ATOM_TOOL_ACT(tool_type), PROC_REF(on_tool_act))
 	return ..()
 
 /datum/element/border_reach_check/Detach(atom/source)
@@ -34,7 +34,7 @@
 	if(!blocker)
 		return
 	if(blocker_interact)
-		INVOKE_ASYNC(blocker, /atom.proc/attack_hand, user)
+		INVOKE_ASYNC(blocker, TYPE_PROC_REF(/atom, attack_hand), user)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /datum/element/border_reach_check/proc/on_attack_paw(atom/source, mob/user)
@@ -43,7 +43,7 @@
 	if(!blocker)
 		return
 	if(blocker_interact)
-		INVOKE_ASYNC(blocker, /atom.proc/attack_paw, user)
+		INVOKE_ASYNC(blocker, TYPE_PROC_REF(/atom, attack_paw), user)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /datum/element/border_reach_check/proc/on_attackby(atom/source, obj/item/W, mob/user, params)
@@ -52,7 +52,7 @@
 	if(!blocker)
 		return
 	if(blocker_interact)
-		INVOKE_ASYNC(blocker, /atom.proc/attackby, W, user, params)
+		INVOKE_ASYNC(blocker, TYPE_PROC_REF(/atom, attackby), W, user, params)
 	return COMPONENT_NO_AFTERATTACK
 
 /datum/element/border_reach_check/proc/on_tool_act(atom/source, mob/living/user, obj/item/I, tool_type)
@@ -61,7 +61,7 @@
 	if(!blocker)
 		return
 	if(blocker_interact)
-		INVOKE_ASYNC(blocker, /atom.proc/tool_act, user, I, tool_type)
+		INVOKE_ASYNC(blocker, TYPE_PROC_REF(/atom, tool_act), user, I, tool_type)
 	return COMPONENT_BLOCK_TOOL_ATTACK
 
 /datum/element/border_reach_check/proc/get_reach_blocker(atom/border_atom, mob/user)
@@ -69,7 +69,7 @@
 	if(!(checking_dir & border_atom.dir))
 		return
 	checking_dir = REVERSE_DIR(checking_dir)
-	for(var/obj/blocker in sort_list(border_atom.loc.contents, /proc/cmp_atom_layer_dsc))
+	for(var/obj/blocker in sort_list(border_atom.loc.contents, GLOBAL_PROC_REF(cmp_atom_layer_dsc)))
 		if(blocker == border_atom)
 			continue
 		if(!blocker.CanPass(user, checking_dir))

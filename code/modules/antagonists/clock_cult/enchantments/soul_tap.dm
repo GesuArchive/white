@@ -3,7 +3,7 @@
 
 /datum/component/enchantment/soul_tap/apply_effect(obj/item/target)
 	examine_description = "Он был благословлен силой вырывать энергию из души цели и исцелять владельца, когда цель поражена."
-	RegisterSignal(target, COMSIG_ITEM_ATTACK, .proc/tap_soul)
+	RegisterSignal(target, COMSIG_ITEM_ATTACK, PROC_REF(tap_soul))
 
 /datum/component/enchantment/soul_tap/proc/tap_soul(datum/source, mob/living/target, mob/living/user)
 	if(!istype(target) || target.stat != CONSCIOUS)

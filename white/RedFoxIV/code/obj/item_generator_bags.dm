@@ -74,7 +74,7 @@
 		return
 	charges--
 	if(self_charge)
-		timer = addtimer(CALLBACK(src, .proc/recharge), recharge_time, TIMER_UNIQUE | TIMER_STOPPABLE | TIMER_LOOP)
+		timer = addtimer(CALLBACK(src, PROC_REF(recharge)), recharge_time, TIMER_UNIQUE | TIMER_STOPPABLE | TIMER_LOOP)
 		//TIMER_UNIQUE will keep only one timer active and does not allow overriding the timer
 		//TIMER_STOPPABLE so we can deltimer() it
 		//TIMER_LOOP so the loop is handled by the timer subsystem instead of just creating a timer after timer

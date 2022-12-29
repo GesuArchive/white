@@ -95,7 +95,7 @@
 
 /obj/item/food/grown/MakeLeaveTrash()
 	if(trash_type)
-		AddElement(/datum/element/food_trash, trash_type, FOOD_TRASH_OPENABLE, /obj/item/food/grown/.proc/generate_trash)
+		AddElement(/datum/element/food_trash, trash_type, FOOD_TRASH_OPENABLE, TYPE_PROC_REF(/obj/item/food/grown, generate_trash))
 	return
 
 /// Callback proc for bonus behavior for generating trash of grown food. Used by [/datum/element/food_trash].
@@ -164,7 +164,7 @@
 			reagents.expose(A)
 	else
 		visible_message(span_warning("[capitalize(src.name)] сжимается и разжимается вместе с содержимым внутри."))
-		addtimer(CALLBACK(src, .proc/squashreact), 20)
+		addtimer(CALLBACK(src, PROC_REF(squashreact)), 20)
 		reagents.expose(T)
 		for(var/A in T)
 			reagents.expose(A)

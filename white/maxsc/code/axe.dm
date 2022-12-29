@@ -21,7 +21,7 @@
 
 /obj/item/paxe/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
+	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
 
 /obj/item/paxe/ComponentInitialize()
 	. = ..()
@@ -56,7 +56,7 @@
 
 /obj/item/paxee/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
+	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
 
 /obj/item/paxee/ComponentInitialize()
 	. = ..()
@@ -77,7 +77,7 @@
 		to_chat(user, span_warning("Выдохся."))
 		block_chance = 15
 		armour_penetration = 10
-		addtimer(CALLBACK(src, .proc/Recharge), recharge_time)
+		addtimer(CALLBACK(src, PROC_REF(Recharge)), recharge_time)
 
 /obj/item/paxee/proc/Recharge()
 	if(!charged)

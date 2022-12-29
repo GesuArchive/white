@@ -47,9 +47,9 @@
 	registered_shuttle_data = located_shuttle
 
 	//On destroy, complete the objective
-	RegisterSignal(M, COMSIG_PARENT_QDELETING, /datum/orbital_objective.proc/complete_objective)
-	RegisterSignal(located_shuttle, COMSIG_PARENT_QDELETING, /datum/orbital_objective.proc/complete_objective)
-	RegisterSignal(located_shuttle, COMSIG_SHUTTLE_NPC_INCAPACITATED, /datum/orbital_objective.proc/complete_objective)
+	RegisterSignal(M, COMSIG_PARENT_QDELETING, TYPE_PROC_REF(/datum/orbital_objective, complete_objective))
+	RegisterSignal(located_shuttle, COMSIG_PARENT_QDELETING, TYPE_PROC_REF(/datum/orbital_objective, complete_objective))
+	RegisterSignal(located_shuttle, COMSIG_SHUTTLE_NPC_INCAPACITATED, TYPE_PROC_REF(/datum/orbital_objective, complete_objective))
 
 /datum/orbital_objective/destroy_ship/complete_objective()
 	UnregisterSignal(registered_port, COMSIG_PARENT_QDELETING)

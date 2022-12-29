@@ -7,7 +7,7 @@
 		return COMPONENT_INCOMPATIBLE
 
 /datum/component/mecha_weapon_ripper/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_MOB_CLICKON, .proc/checkRip)
+	RegisterSignal(parent, COMSIG_MOB_CLICKON, PROC_REF(checkRip))
 
 /datum/component/mecha_weapon_ripper/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_MOB_CLICKON)
@@ -41,7 +41,7 @@
 	if(ripping)
 		return (COMSIG_MOB_CANCEL_CLICKON)
 
-	INVOKE_ASYNC(src, .proc/doRip, user, A, ripping_target)
+	INVOKE_ASYNC(src, PROC_REF(doRip), user, A, ripping_target)
 
 	return (COMSIG_MOB_CANCEL_CLICKON)
 

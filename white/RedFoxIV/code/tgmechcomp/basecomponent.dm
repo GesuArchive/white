@@ -190,7 +190,7 @@
 	active = TRUE
 	if(active_icon_state && visual)
 		update_icon_state(active_icon_state)
-	addtimer(CALLBACK(src, .proc/_deactivate), time)
+	addtimer(CALLBACK(src, PROC_REF(_deactivate)), time)
 
 ///internal, for callback stuff.
 /obj/item/mechcomp/proc/_deactivate()

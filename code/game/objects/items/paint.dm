@@ -72,7 +72,7 @@
 		"yellow" = image(icon = src.icon, icon_state = "paint_yellow"),
 		"gray" = image(icon = src.icon, icon_state = "paint_gray")
 		)
-	var/picked_color = show_radial_menu(user, src, possible_colors, custom_check = CALLBACK(src, .proc/check_menu, user), radius = 38, require_near = TRUE)
+	var/picked_color = show_radial_menu(user, src, possible_colors, custom_check = CALLBACK(src, PROC_REF(check_menu), user), radius = 38, require_near = TRUE)
 	switch(picked_color)
 		if("black")
 			paint_color = COLOR_ALMOST_BLACK

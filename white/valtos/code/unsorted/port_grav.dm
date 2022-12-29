@@ -9,7 +9,7 @@
 	..()
 	user.visible_message(span_notice("[user] активирует [src.name].") , span_notice("Активирую [src.name]."))
 	playsound(src, 'sound/machines/terminal_alert.ogg', 50)
-	addtimer(CALLBACK(src, .proc/make_gravity), 30)
+	addtimer(CALLBACK(src, PROC_REF(make_gravity)), 30)
 
 /obj/item/graviton_beacon/proc/make_gravity()
 	var/viable = FALSE

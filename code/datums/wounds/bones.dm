@@ -34,14 +34,14 @@
 */
 /datum/wound/blunt/wound_injury(datum/wound/old_wound = null, attack_direction = null)
 	// hook into gaining/losing gauze so crit bone wounds can re-enable/disable depending if they're slung or not
-	RegisterSignal(limb, list(COMSIG_BODYPART_GAUZED, COMSIG_BODYPART_GAUZE_DESTROYED), .proc/update_inefficiencies)
+	RegisterSignal(limb, list(COMSIG_BODYPART_GAUZED, COMSIG_BODYPART_GAUZE_DESTROYED), PROC_REF(update_inefficiencies))
 
 	if(limb.body_zone == BODY_ZONE_HEAD && brain_trauma_group)
 		processes = TRUE
 		active_trauma = victim.gain_trauma_type(brain_trauma_group, TRAUMA_RESILIENCE_WOUND)
 		next_trauma_cycle = world.time + (rand(100-WOUND_BONE_HEAD_TIME_VARIANCE, 100+WOUND_BONE_HEAD_TIME_VARIANCE) * 0.01 * trauma_cycle_cooldown)
 
-	RegisterSignal(victim, COMSIG_HUMAN_EARLY_UNARMED_ATTACK, .proc/attack_with_hurt_hand)
+	RegisterSignal(victim, COMSIG_HUMAN_EARLY_UNARMED_ATTACK, PROC_REF(attack_with_hurt_hand))
 	if(limb.held_index && victim.get_item_for_held_index(limb.held_index) && (disabling || prob(30 * severity)))
 		var/obj/item/I = victim.get_item_for_held_index(limb.held_index)
 		if(istype(I, /obj/item/offhand))
@@ -108,7 +108,7 @@
 		else
 			victim.visible_message(span_smalldanger("<b>[victim]</b> слабо бьёт <b>[target]</b> своей сломаной рукой, отскакивая в приступе боли!"), \
 			span_userdanger("Перелом в моей [ru_gde_zone(limb.name)] загорается от невыносимой боли, когда я пытаюсь ударить <b>[target]</b>!"), vision_distance=COMBAT_MESSAGE_RANGE)
-			INVOKE_ASYNC(victim, /mob.proc/emote, "agony")
+			INVOKE_ASYNC(victim, TYPE_PROC_REF(/mob, emote), "agony")
 			victim.Stun(0.5 SECONDS)
 			limb.receive_damage(brute=rand(3,7))
 			return COMPONENT_CANCEL_ATTACK_CHAIN
@@ -219,7 +219,7 @@
 
 /datum/wound/blunt/moderate/wound_injury(datum/wound/old_wound, attack_direction = null)
 	. = ..()
-	RegisterSignal(victim, COMSIG_LIVING_DOORCRUSHED, .proc/door_crush)
+	RegisterSignal(victim, COMSIG_LIVING_DOORCRUSHED, PROC_REF(door_crush))
 
 /// Getting smushed in an airlock/firelock is a last-ditch attempt to try relocating your limb
 /datum/wound/blunt/moderate/proc/door_crush()
@@ -248,7 +248,7 @@
 /datum/wound/blunt/moderate/proc/chiropractice(mob/living/carbon/human/user)
 	var/time = base_treat_time
 
-	if(!do_after(user, time, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
+	if(!do_after(user, time, target=victim, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
 		return
 
 	if(prob(65))
@@ -267,7 +267,7 @@
 /datum/wound/blunt/moderate/proc/malpractice(mob/living/carbon/human/user)
 	var/time = base_treat_time
 
-	if(!do_after(user, time, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
+	if(!do_after(user, time, target=victim, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
 		return
 
 	if(prob(65))
@@ -288,7 +288,7 @@
 	else
 		user.visible_message(span_smalldanger("<b>[user]</b> начинает вправлять [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I]."), span_notice("Начинаю вправлять [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I]..."))
 
-	if(!do_after(user, base_treat_time * (user == victim ? 1.5 : 1), target = victim, extra_checks=CALLBACK(src, .proc/still_exists)))
+	if(!do_after(user, base_treat_time * (user == victim ? 1.5 : 1), target = victim, extra_checks=CALLBACK(src, PROC_REF(still_exists))))
 		return
 
 	if(victim == user)
@@ -368,7 +368,7 @@
 
 	user.visible_message(span_smalldanger("<b>[user]</b> начинает примеенять [I] на [ru_parse_zone(limb.name)] <b>[victim]</b>..."), span_warning("Начинаю применять [I] на [ru_parse_zone(limb.name)] [user == victim ? " " : "<b>[victim]</b> "], игнорируя предупреждение на этикетке..."))
 
-	if(!do_after(user, base_treat_time * 1.5 * (user == victim ? 1.5 : 1), target = victim, extra_checks=CALLBACK(src, .proc/still_exists)))
+	if(!do_after(user, base_treat_time * 1.5 * (user == victim ? 1.5 : 1), target = victim, extra_checks=CALLBACK(src, PROC_REF(still_exists))))
 		return
 
 	I.use(1)
@@ -410,7 +410,7 @@
 
 	user.visible_message(span_smalldanger("<b>[user]</b> начинает применять [I] на [ru_parse_zone(limb.name)] <b>[victim]</b>..."), span_warning("Начинаю применять [I] на [ru_parse_zone(limb.name)] [user == victim ? " " : "<b>[victim]</b> "]..."))
 
-	if(!do_after(user, base_treat_time * (user == victim ? 1.5 : 1), target = victim, extra_checks=CALLBACK(src, .proc/still_exists)))
+	if(!do_after(user, base_treat_time * (user == victim ? 1.5 : 1), target = victim, extra_checks=CALLBACK(src, PROC_REF(still_exists))))
 		return
 
 	if(victim == user)

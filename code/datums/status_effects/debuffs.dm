@@ -141,8 +141,8 @@
 	if(!HAS_TRAIT(owner, TRAIT_SLEEPIMMUNE))
 		ADD_TRAIT(owner, TRAIT_KNOCKEDOUT, TRAIT_STATUS_EFFECT(id))
 		tick_interval = -1
-	RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_SLEEPIMMUNE), .proc/on_owner_insomniac)
-	RegisterSignal(owner, SIGNAL_REMOVETRAIT(TRAIT_SLEEPIMMUNE), .proc/on_owner_sleepy)
+	RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_SLEEPIMMUNE), PROC_REF(on_owner_insomniac))
+	RegisterSignal(owner, SIGNAL_REMOVETRAIT(TRAIT_SLEEPIMMUNE), PROC_REF(on_owner_sleepy))
 
 /datum/status_effect/incapacitating/sleeping/on_remove()
 	UnregisterSignal(owner, list(SIGNAL_ADDTRAIT(TRAIT_SLEEPIMMUNE), SIGNAL_REMOVETRAIT(TRAIT_SLEEPIMMUNE)))
@@ -428,7 +428,7 @@
 
 /datum/status_effect/eldritch/on_apply()
 	if(owner.mob_size >= MOB_SIZE_HUMAN)
-		RegisterSignal(owner, COMSIG_ATOM_UPDATE_OVERLAYS, .proc/update_owner_underlay)
+		RegisterSignal(owner, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(update_owner_underlay))
 		owner.update_icon(UPDATE_OVERLAYS)
 		return TRUE
 	return FALSE
@@ -545,9 +545,9 @@
 
 /datum/status_effect/eldritch/blade/on_apply()
 	. = ..()
-	RegisterSignal(owner, COMSIG_MOVABLE_PRE_THROW, .proc/on_pre_throw)
-	RegisterSignal(owner, COMSIG_MOVABLE_TELEPORTED, .proc/on_teleport)
-	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, .proc/on_move)
+	RegisterSignal(owner, COMSIG_MOVABLE_PRE_THROW, PROC_REF(on_pre_throw))
+	RegisterSignal(owner, COMSIG_MOVABLE_TELEPORTED, PROC_REF(on_teleport))
+	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
 
 /datum/status_effect/eldritch/blade/on_remove()
 	UnregisterSignal(owner, list(
@@ -822,7 +822,7 @@
 /datum/status_effect/trance/on_apply()
 	if(!iscarbon(owner))
 		return FALSE
-	RegisterSignal(owner, COMSIG_MOVABLE_HEAR, .proc/hypnotize)
+	RegisterSignal(owner, COMSIG_MOVABLE_HEAR, PROC_REF(hypnotize))
 	ADD_TRAIT(owner, TRAIT_MUTE, "trance")
 	owner.add_client_colour(/datum/client_colour/monochrome/trance)
 	owner.visible_message("[stun ? span_warning("[owner] стоит смирно и пялится на точку в далеке.")  : ""]", \
@@ -873,7 +873,7 @@
 /datum/status_effect/hypertrance/on_apply()
 	if(!iscarbon(owner))
 		return FALSE
-	RegisterSignal(owner, COMSIG_MOVABLE_HEAR, .proc/repeat_shit)
+	RegisterSignal(owner, COMSIG_MOVABLE_HEAR, PROC_REF(repeat_shit))
 	return TRUE
 
 /datum/status_effect/hypertrance/on_remove()
@@ -1213,7 +1213,7 @@
 /datum/status_effect/ants/on_remove()
 	ants_remaining = 0
 	to_chat(owner, span_notice("All of the ants are off of your body!"))
-	UnregisterSignal(owner, COMSIG_COMPONENT_CLEAN_ACT, .proc/ants_washed)
+	UnregisterSignal(owner, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(ants_washed))
 	. = ..()
 
 /datum/status_effect/ants/proc/ants_washed()
@@ -1318,7 +1318,7 @@
 
 	var/mob/living/carbon/human/human_target = owner
 
-	RegisterSignal(human_target, COMSIG_LIVING_DEATH, .proc/remove_ghoul_status)
+	RegisterSignal(human_target, COMSIG_LIVING_DEATH, PROC_REF(remove_ghoul_status))
 	human_target.revive(full_heal = TRUE, admin_revive = TRUE)
 
 	if(new_max_health)
@@ -1419,7 +1419,7 @@
 
 /datum/status_effect/incapacitating/headrape/Destroy()
 	if(!QDELETED(filter_plate))
-		INVOKE_ASYNC(src, .proc/end_animation)
+		INVOKE_ASYNC(src, PROC_REF(end_animation))
 		QDEL_IN(tinnitus, 4 SECONDS)
 	else
 		qdel(tinnitus)
@@ -1454,12 +1454,12 @@
 			var/list/filter_params = filters_handled[filter_name]
 			filter_plate.add_filter(filter_name, STARTING_FILTER_PRIORITY+1-filter_index, filter_params)
 	if(!QDELETED(filter_plate))
-		INVOKE_ASYNC(src, .proc/perform_animation)
+		INVOKE_ASYNC(src, PROC_REF(perform_animation))
 
 /datum/status_effect/incapacitating/headrape/tick()
 	. = ..()
 	if(!QDELETED(filter_plate))
-		INVOKE_ASYNC(src, .proc/perform_animation)
+		INVOKE_ASYNC(src, PROC_REF(perform_animation))
 
 /datum/status_effect/incapacitating/headrape/proc/perform_animation()
 	for(var/filter_name in filters_handled)

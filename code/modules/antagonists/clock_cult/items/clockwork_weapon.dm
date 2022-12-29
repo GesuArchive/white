@@ -123,7 +123,7 @@
 
 	target.emp_act(EMP_LIGHT)
 	new /obj/effect/temp_visual/emp/pulse(target.loc)
-	addtimer(CALLBACK(src, .proc/send_message, user), 30 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(send_message), user), 30 SECONDS)
 	to_chat(user, span_brass("Попадаю по [target] мощным электромагнитным импульсом!"))
 	playsound(user, 'sound/magic/lightningshock.ogg', 40)
 
@@ -138,7 +138,7 @@
 	var/obj/vehicle/sealed/mecha/target = O
 	target.emp_act(EMP_HEAVY)
 	new /obj/effect/temp_visual/emp/pulse(target.loc)
-	addtimer(CALLBACK(src, .proc/send_message, user), 20 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(send_message), user), 20 SECONDS)
 	to_chat(user, span_brass("Попадаю по [target] мощным электромагнитным импульсом!"))
 	playsound(user, 'sound/magic/lightningshock.ogg', 40)
 

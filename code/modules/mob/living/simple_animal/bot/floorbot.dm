@@ -262,7 +262,7 @@
 				else
 					F.ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 				audible_message(span_danger("[capitalize(src.name)] издает возбужденный писк.")) //шруман не сжимай
-				addtimer(CALLBACK(src, .proc/go_idle), 0.5 SECONDS)
+				addtimer(CALLBACK(src, PROC_REF(go_idle)), 0.5 SECONDS)
 			path = list()
 			return
 		if(path.len == 0)

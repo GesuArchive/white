@@ -193,7 +193,7 @@
 		for(var/t in RANGE_TURFS(1, source))
 			new /obj/effect/temp_visual/hierophant/blast/visual(t, user, TRUE)
 		for(var/mob/living/L in range(1, source))
-			INVOKE_ASYNC(src, .proc/teleport_mob, source, L, T, user)
+			INVOKE_ASYNC(src, PROC_REF(teleport_mob), source, L, T, user)
 		sleep(6) //at this point the blasts detonate
 		if(beacon)
 			beacon.icon_state = "hierophant_tele_off"
@@ -305,11 +305,11 @@
 /obj/item/clothing/head/helmet/space/hardsuit/hostile_environment/Initialize(mapload)
 	. = ..()
 	update_appearance()
-	AddComponent(/datum/component/butchering, 5, 150, null, null, null, TRUE, CALLBACK(src, .proc/consume))
+	AddComponent(/datum/component/butchering, 5, 150, null, null, null, TRUE, CALLBACK(src, PROC_REF(consume)))
 
 /obj/item/clothing/head/helmet/space/hardsuit/hostile_environment/equipped(mob/user, slot, initial = FALSE)
 	. = ..()
-	RegisterSignal(user, COMSIG_HUMAN_EARLY_UNARMED_ATTACK, .proc/butcher_target)
+	RegisterSignal(user, COMSIG_HUMAN_EARLY_UNARMED_ATTACK, PROC_REF(butcher_target))
 	var/datum/component/butchering/butchering = GetComponent(/datum/component/butchering)
 	butchering.butchering_enabled = TRUE
 	to_chat(user, span_notice("You feel a bloodlust. You can now butcher corpses with your bare arms."))
@@ -384,10 +384,10 @@
 /obj/item/soulscythe/Initialize(mapload)
 	. = ..()
 	soul = new(src)
-	RegisterSignal(soul, COMSIG_LIVING_RESIST, .proc/on_resist)
-	RegisterSignal(soul, COMSIG_MOB_ATTACK_RANGED, .proc/on_attack)
-	RegisterSignal(soul, COMSIG_MOB_ATTACK_RANGED_SECONDARY, .proc/on_secondary_attack)
-	RegisterSignal(src, COMSIG_OBJ_INTEGRITY_CHANGED, .proc/on_integrity_change)
+	RegisterSignal(soul, COMSIG_LIVING_RESIST, PROC_REF(on_resist))
+	RegisterSignal(soul, COMSIG_MOB_ATTACK_RANGED, PROC_REF(on_attack))
+	RegisterSignal(soul, COMSIG_MOB_ATTACK_RANGED_SECONDARY, PROC_REF(on_secondary_attack))
+	RegisterSignal(src, COMSIG_OBJ_INTEGRITY_CHANGED, PROC_REF(on_integrity_change))
 
 /obj/item/soulscythe/examine(mob/user)
 	. = ..()
@@ -488,7 +488,7 @@
 
 	if(isturf(loc))
 		return
-	INVOKE_ASYNC(src, .proc/break_out)
+	INVOKE_ASYNC(src, PROC_REF(break_out))
 
 /obj/item/soulscythe/proc/break_out()
 	if(!use_blood(10))
@@ -514,16 +514,16 @@
 	if(!COOLDOWN_FINISHED(src, attack_cooldown) || !isturf(loc))
 		return
 	if(get_dist(source, attacked_atom) > 1)
-		INVOKE_ASYNC(src, .proc/shoot_target, attacked_atom)
+		INVOKE_ASYNC(src, PROC_REF(shoot_target), attacked_atom)
 	else
-		INVOKE_ASYNC(src, .proc/slash_target, attacked_atom)
+		INVOKE_ASYNC(src, PROC_REF(slash_target), attacked_atom)
 
 /obj/item/soulscythe/proc/on_secondary_attack(mob/living/source, atom/attacked_atom, modifiers)
 	SIGNAL_HANDLER
 
 	if(!COOLDOWN_FINISHED(src, attack_cooldown) || !isturf(loc))
 		return
-	INVOKE_ASYNC(src, .proc/charge_target, attacked_atom)
+	INVOKE_ASYNC(src, PROC_REF(charge_target), attacked_atom)
 
 /obj/item/soulscythe/proc/shoot_target(atom/attacked_atom)
 	if(!use_blood(15))
@@ -551,7 +551,7 @@
 	COOLDOWN_START(src, attack_cooldown, 1 SECONDS)
 	animate(src)
 	SpinAnimation(5)
-	addtimer(CALLBACK(src, .proc/reset_spin), 1 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(reset_spin)), 1 SECONDS)
 	visible_message(span_danger("[src] slashes [attacked_atom]!"), span_notice("You slash [attacked_atom]!"))
 	playsound(src, 'sound/weapons/sword_kill_slash_02.ogg', 50, TRUE)
 	do_attack_animation(attacked_atom, ATTACK_EFFECT_SLASH)
@@ -851,7 +851,7 @@
 		w_class_on = w_class, \
 		attack_verb_continuous_on = list("cleaves", "swipes", "slashes", "chops"), \
 		attack_verb_simple_on = list("cleave", "swipe", "slash", "chop"))
-	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
+	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 
 /obj/item/melee/cleaving_saw/examine(mob/user)
 	. = ..()
@@ -1018,9 +1018,9 @@
 	targeted_turfs += target_turf
 	balloon_alert(user, "you aim at [target_turf]...")
 	new /obj/effect/temp_visual/telegraphing/thunderbolt(target_turf)
-	addtimer(CALLBACK(src, .proc/throw_thunderbolt, target_turf, power_boosted), 1.5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(throw_thunderbolt), target_turf, power_boosted), 1.5 SECONDS)
 	thunder_charges--
-	addtimer(CALLBACK(src, .proc/recharge), thunder_charge_time)
+	addtimer(CALLBACK(src, PROC_REF(recharge)), thunder_charge_time)
 	log_game("[key_name(user)] fired the staff of storms at [AREACOORD(target_turf)].")
 
 /obj/item/storm_staff/proc/recharge(mob/user)

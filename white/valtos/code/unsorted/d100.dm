@@ -48,7 +48,7 @@
 	if(md5(user.ckey) == "8a29e75ce047b728e6cab02481723a7f")
 		. = 101
 
-	addtimer(CALLBACK(src, .proc/effect, user, .), 1 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(effect), user, .), 1 SECONDS)
 	COOLDOWN_START(src, roll_cd, 2.5 SECONDS)
 
 /obj/item/dice/d100/fate/equipped(mob/user, slot)
@@ -66,9 +66,9 @@
 				var/obj/item/bodypart/limb = _limb
 				if (limb.body_part == HEAD || limb.body_part == CHEST)
 					continue
-				addtimer(CALLBACK(limb, /obj/item/bodypart/.proc/dismember), timer)
-				addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, user, 'sound/effects/cartoon_pop.ogg', 70), timer)
-				addtimer(CALLBACK(user, /mob/living/.proc/spin, 4, 1), timer - 0.4 SECONDS)
+				addtimer(CALLBACK(limb, TYPE_PROC_REF(/obj/item/bodypart, dismember)), timer)
+				addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(playsound), user, 'sound/effects/cartoon_pop.ogg', 70), timer)
+				addtimer(CALLBACK(user, TYPE_PROC_REF(/mob/living, spin), 4, 1), timer - 0.4 SECONDS)
 				timer += 5
 			user.unequip_everything()
 			var/obj/item/clothing/mm = new /obj/item/clothing/neck/necklace/memento_mori(get_turf(user))
@@ -145,9 +145,9 @@
 					var/obj/item/bodypart/limb = _limb
 					if (limb.body_part == HEAD || limb.body_part == CHEST)
 						continue
-					addtimer(CALLBACK(limb, /obj/item/bodypart/.proc/dismember), timer)
-					addtimer(CALLBACK(GLOBAL_PROC, .proc/playsound, user, 'sound/effects/cartoon_pop.ogg', 70), timer)
-					addtimer(CALLBACK(user, /mob/living/.proc/spin, 4, 1), timer - 0.4 SECONDS)
+					addtimer(CALLBACK(limb, TYPE_PROC_REF(/obj/item/bodypart, dismember)), timer)
+					addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(playsound), user, 'sound/effects/cartoon_pop.ogg', 70), timer)
+					addtimer(CALLBACK(user, TYPE_PROC_REF(/mob/living, spin), 4, 1), timer - 0.4 SECONDS)
 					timer += 5
 				ADD_TRAIT(user, TRAIT_EMOTEMUTE, "d100")
 		if(10)
@@ -162,7 +162,7 @@
 				var/obj/item/bodypart/limb = _limb
 				if (limb.body_part != LEG_LEFT && limb.body_part != LEG_RIGHT)
 					continue
-				addtimer(CALLBACK(limb, /obj/item/bodypart/.proc/dismember), 5)
+				addtimer(CALLBACK(limb, TYPE_PROC_REF(/obj/item/bodypart, dismember)), 5)
 			user.mind.remove_all_antag_datums()
 			var/obj/vehicle/ridden/wheelchair/wheels = new (get_turf(user))
 			wheels.buckle_mob(user)
@@ -555,7 +555,7 @@
 				var/obj/item/stack/telecrystal/TC = new(get_turf(user))
 				TC.amount = ROUND_UP(multiplier / 5)
 				user.equip_or_collect(TC)
-			SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, .proc/minor_announce, "Капитан [user.real_name] на палубе!"))
+			SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, PROC_REF(minor_announce), "Капитан [user.real_name] на палубе!"))
 		if(91)
 			for(var/type in subtypesof(/obj/item/antag_spawner/nuke_ops/borg_tele))
 				new type(get_turf(user))

@@ -268,7 +268,7 @@
 
 /obj/item/civ_bounty_beacon/attack_self()
 	loc.visible_message(span_warning("[capitalize(src.name)] начинает громко пищать!"))
-	addtimer(CALLBACK(src, .proc/launch_payload), 1 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(launch_payload)), 1 SECONDS)
 
 /obj/item/civ_bounty_beacon/proc/launch_payload()
 	playsound(src, "zap", 80, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)

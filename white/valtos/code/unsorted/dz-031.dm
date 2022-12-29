@@ -289,7 +289,7 @@ GLOBAL_LIST_EMPTY(hacked_ice)
 
 /obj/effect/attack_spike/Initialize(mapload)
 	. = ..()
-	INVOKE_ASYNC(src, .proc/do_attack_sequence)
+	INVOKE_ASYNC(src, PROC_REF(do_attack_sequence))
 
 /obj/effect/attack_spike/proc/do_attack_sequence()
 	sleep(10)

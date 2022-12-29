@@ -108,7 +108,7 @@
 
 /obj/item/energylance/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
+	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 
 /obj/item/energylance/ComponentInitialize()
 	. = ..()

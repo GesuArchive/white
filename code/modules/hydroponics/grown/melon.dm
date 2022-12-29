@@ -77,7 +77,7 @@
 		bite_consumption = bite_consumption, \
 		microwaved_type = microwaved_type, \
 		junkiness = junkiness, \
-		check_liked = CALLBACK(src, .proc/check_holyness))
+		check_liked = CALLBACK(src, PROC_REF(check_holyness)))
 
 /*
  * Callback to be used with the edible component.
@@ -99,7 +99,7 @@
 	var/uses = 1
 	if(seed)
 		uses = round(seed.potency / 20)
-	AddComponent(/datum/component/anti_magic, TRUE, TRUE, FALSE, ITEM_SLOT_HANDS, uses, TRUE, CALLBACK(src, .proc/block_magic), CALLBACK(src, .proc/expire)) //deliver us from evil o melon god
+	AddComponent(/datum/component/anti_magic, TRUE, TRUE, FALSE, ITEM_SLOT_HANDS, uses, TRUE, CALLBACK(src, PROC_REF(block_magic)), CALLBACK(src, PROC_REF(expire))) //deliver us from evil o melon god
 
 /obj/item/food/grown/holymelon/proc/block_magic(mob/user, major)
 	if(major)

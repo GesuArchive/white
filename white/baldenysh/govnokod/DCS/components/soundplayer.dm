@@ -30,8 +30,8 @@
 	. = ..()
 
 /datum/component/soundplayer/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/update_sounds)
-	RegisterSignal(parent, COMSIG_RIDDEN_DRIVER_MOVE, .proc/update_sounds)
+	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(update_sounds))
+	RegisterSignal(parent, COMSIG_RIDDEN_DRIVER_MOVE, PROC_REF(update_sounds))
 
 /datum/component/soundplayer/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
@@ -44,8 +44,8 @@
 	else
 		UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
 		UnregisterSignal(parent, COMSIG_RIDDEN_DRIVER_MOVE)
-	RegisterSignal(A, COMSIG_MOVABLE_MOVED, .proc/update_sounds)
-	RegisterSignal(A, COMSIG_RIDDEN_DRIVER_MOVE, .proc/update_sounds)
+	RegisterSignal(A, COMSIG_MOVABLE_MOVED, PROC_REF(update_sounds))
+	RegisterSignal(A, COMSIG_RIDDEN_DRIVER_MOVE, PROC_REF(update_sounds))
 
 /datum/component/soundplayer/process()
 	if(!active || !current_player_sound)
@@ -61,12 +61,12 @@
 			continue
 		var/datum/component/soundplayer_listener/SPL = listening_mob.AddComponent(/datum/component/soundplayer_listener, src)
 		listener_comps += SPL
-		INVOKE_ASYNC(SPL, /datum/component/soundplayer_listener.proc/update_sound)
+		INVOKE_ASYNC(SPL, TYPE_PROC_REF(/datum/component/soundplayer_listener, update_sound))
 
 /datum/component/soundplayer/proc/update_sounds()
 	SIGNAL_HANDLER
 	for(var/datum/component/soundplayer_listener/SPL in listener_comps)
-		INVOKE_ASYNC(SPL, /datum/component/soundplayer_listener.proc/update_sound)
+		INVOKE_ASYNC(SPL, TYPE_PROC_REF(/datum/component/soundplayer_listener, update_sound))
 
 /datum/component/soundplayer/proc/stop_sounds()
 	active = FALSE
@@ -118,10 +118,10 @@
 	. = ..()
 
 /datum/component/soundplayer_listener/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, .proc/update_sound)
-	RegisterSignal(myplayer.parent, COMSIG_MOVABLE_MOVED, .proc/update_sound)
-	RegisterSignal(parent, COMSIG_RIDDEN_DRIVER_MOVE, .proc/update_sound)
-	RegisterSignal(parent, COMSIG_MOB_LOGOUT, .proc/qdel_check)
+	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(update_sound))
+	RegisterSignal(myplayer.parent, COMSIG_MOVABLE_MOVED, PROC_REF(update_sound))
+	RegisterSignal(parent, COMSIG_RIDDEN_DRIVER_MOVE, PROC_REF(update_sound))
+	RegisterSignal(parent, COMSIG_MOB_LOGOUT, PROC_REF(qdel_check))
 
 /datum/component/soundplayer_listener/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)

@@ -74,8 +74,8 @@
 	random_shots.Grant(src)
 	shotgun_blast.Grant(src)
 	dir_shots.Grant(src)
-	RegisterSignal(src, COMSIG_MOB_ABILITY_STARTED, .proc/start_attack)
-	RegisterSignal(src, COMSIG_MOB_ABILITY_FINISHED, .proc/finished_attack)
+	RegisterSignal(src, COMSIG_MOB_ABILITY_STARTED, PROC_REF(start_attack))
+	RegisterSignal(src, COMSIG_MOB_ABILITY_FINISHED, PROC_REF(finished_attack))
 
 /mob/living/simple_animal/hostile/megafauna/colossus/Destroy()
 	QDEL_NULL(spiral_shots)

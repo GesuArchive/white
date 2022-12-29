@@ -8,7 +8,7 @@
 /mob/living/carbon/Logout()
 	. = ..()
 	if(ice_cream_mob && !isbrain(src))
-		addtimer(CALLBACK(src, .proc/ice_cream_check), ice_cream_mob_time)
+		addtimer(CALLBACK(src, PROC_REF(ice_cream_check)), ice_cream_mob_time)
 
 /mob/living/carbon/proc/ice_cream_check()
 	if(!src || client || stat == DEAD || isjellyperson(src))

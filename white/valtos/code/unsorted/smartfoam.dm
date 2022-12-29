@@ -32,7 +32,7 @@
 	smf.arm_grenade()
 	uses--
 	power_change()
-	addtimer(CALLBACK(src, .proc/power_change), cooldown_time)
+	addtimer(CALLBACK(src, PROC_REF(power_change)), cooldown_time)
 
 /obj/machinery/ai_slipper/smartfoam/interact(mob/user)
 	if(!allowed(user))

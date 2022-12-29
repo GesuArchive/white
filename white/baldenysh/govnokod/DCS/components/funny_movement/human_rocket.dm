@@ -8,8 +8,8 @@
 /datum/component/human_rocket/RegisterWithParent()
 	mymovement = parent.AddComponent(/datum/component/funny_movement)
 	mymovement.maxthrust_forward = 4
-	//RegisterSignal(parent, COMSIG_MOB_CLICKON, .proc/on_click)
-	RegisterSignal(parent, COMSIG_MOB_CLIENT_MOUSE_MOVE, .proc/on_mouse_moved)
+	//RegisterSignal(parent, COMSIG_MOB_CLICKON, PROC_REF(on_click))
+	RegisterSignal(parent, COMSIG_MOB_CLIENT_MOUSE_MOVE, PROC_REF(on_mouse_moved))
 
 /datum/component/human_rocket/UnregisterFromParent()
 	qdel(mymovement)
@@ -74,8 +74,8 @@
 /datum/component/human_rocket/tank_controls/RegisterWithParent()
 	mymovement = parent.AddComponent(/datum/component/funny_movement)
 	mymovement.maxthrust_forward = 4
-	RegisterSignal(mymovement, COMSIG_FUNNY_MOVEMENT_PROCESSING_START, .proc/premove)
-	RegisterSignal(mymovement, COMSIG_FUNNY_MOVEMENT_PROCESSING_FINISH, .proc/Moved)
+	RegisterSignal(mymovement, COMSIG_FUNNY_MOVEMENT_PROCESSING_START, PROC_REF(premove))
+	RegisterSignal(mymovement, COMSIG_FUNNY_MOVEMENT_PROCESSING_FINISH, PROC_REF(Moved))
 
 /datum/component/human_rocket/tank_controls/UnregisterFromParent()
 	UnregisterSignal(mymovement, COMSIG_FUNNY_MOVEMENT_PROCESSING_START)

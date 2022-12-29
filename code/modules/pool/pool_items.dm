@@ -47,7 +47,7 @@
 /obj/item/pool/pool_noodle/attack(mob/target, mob/living/carbon/human/user)
 	. = ..()
 	if(prob(50))
-		INVOKE_ASYNC(src, .proc/jedi_spin, user)
+		INVOKE_ASYNC(src, PROC_REF(jedi_spin), user)
 
 /obj/item/pool/pool_noodle/proc/jedi_spin(mob/living/user) //rip complex code, but this fucked up blocking
 	user.emote("flip")

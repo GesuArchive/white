@@ -63,7 +63,7 @@
 	movement.icon_dir_num = 1
 	movement.maxthrust_forward = -thru
 	movement.maxthrust_backward = -thru + 1
-	RegisterSignal(movement, COMSIG_FUNNY_MOVEMENT_PROCESSING_FINISH, .proc/funny_movement_moved)
+	RegisterSignal(movement, COMSIG_FUNNY_MOVEMENT_PROCESSING_FINISH, PROC_REF(funny_movement_moved))
 
 /obj/vehicle/sealed/fonser/proc/funny_movement_moved()
 	SIGNAL_HANDLER

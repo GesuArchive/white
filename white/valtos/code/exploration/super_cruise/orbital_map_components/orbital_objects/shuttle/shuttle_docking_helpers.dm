@@ -188,11 +188,11 @@
 	crash_time = world.time
 	is_docking = TRUE
 	if(is_crashing)
-		INVOKE_ASYNC(src, .proc/do_warning)
+		INVOKE_ASYNC(src, PROC_REF(do_warning))
 		force_crash = FALSE
 	var/datum/space_level/space_level = SSmapping.get_level(target_z)
-	timer_id = addtimer(CALLBACK(src, .proc/unfreeze_shuttle), 3 MINUTES, TIMER_STOPPABLE)
-	RegisterSignal(space_level, COMSIG_SPACE_LEVEL_GENERATED, .proc/unfreeze_shuttle)
+	timer_id = addtimer(CALLBACK(src, PROC_REF(unfreeze_shuttle)), 3 MINUTES, TIMER_STOPPABLE)
+	RegisterSignal(space_level, COMSIG_SPACE_LEVEL_GENERATED, PROC_REF(unfreeze_shuttle))
 	//Check if its already generated afterwards due to asynchronous behaviours
 	if(!space_level.generating)
 		unfreeze_shuttle(space_level)

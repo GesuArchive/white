@@ -24,13 +24,13 @@
 		synthesizing = TRUE
 		to_chat(owner, span_notice("Чуство голода немного притупилось..."))
 		owner.adjust_nutrition(25 * delta_time)
-		addtimer(CALLBACK(src, .proc/synth_cool), 50)
+		addtimer(CALLBACK(src, PROC_REF(synth_cool)), 50)
 
 	if(owner.hydration <= hydration_threshold)
 		synthesizing = TRUE
 		to_chat(owner, span_notice("Жажда мучает не так сильно..."))
 		owner.hydration = owner.hydration + 20
-		addtimer(CALLBACK(src, .proc/synth_cool), 50)
+		addtimer(CALLBACK(src, PROC_REF(synth_cool)), 50)
 
 /obj/item/organ/cyberimp/chest/nutriment/proc/synth_cool()
 	synthesizing = FALSE
@@ -67,7 +67,7 @@
 	if(reviving)
 		switch(owner.stat)
 			if(UNCONSCIOUS, HARD_CRIT)
-				addtimer(CALLBACK(src, .proc/heal), 3 SECONDS)
+				addtimer(CALLBACK(src, PROC_REF(heal)), 3 SECONDS)
 			else
 				COOLDOWN_START(src, reviver_cooldown, revive_cost)
 				reviving = FALSE
@@ -113,7 +113,7 @@
 		if(H.stat != DEAD && prob(50 / severity) && H.can_heartattack())
 			H.set_heartattack(TRUE)
 			to_chat(H, span_userdanger("Чувствую ужасную боль в груди!"))
-			addtimer(CALLBACK(src, .proc/undo_heart_attack), 600 / severity)
+			addtimer(CALLBACK(src, PROC_REF(undo_heart_attack)), 600 / severity)
 
 /obj/item/organ/cyberimp/chest/reviver/proc/undo_heart_attack()
 	var/mob/living/carbon/human/H = owner
@@ -161,9 +161,9 @@
 		if(allow_thrust(0.01))
 			on = TRUE
 			ion_trail.start()
-			RegisterSignal(owner, COMSIG_MOVABLE_MOVED, .proc/move_react)
+			RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(move_react))
 			owner.add_movespeed_modifier(/datum/movespeed_modifier/jetpack/cybernetic)
-			RegisterSignal(owner, COMSIG_MOVABLE_PRE_MOVE, .proc/pre_move_react)
+			RegisterSignal(owner, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(pre_move_react))
 			if(!silent)
 				to_chat(owner, span_notice("Включаю маневровый набор."))
 	else

@@ -17,7 +17,7 @@
 
 	. = ..()
 
-	RegisterSignal(target, COMSIG_ATOM_GET_EXAMINE_NAME, .proc/get_examine_name, TRUE)
+	RegisterSignal(target, COMSIG_ATOM_GET_EXAMINE_NAME, PROC_REF(get_examine_name), TRUE)
 
 /datum/element/glitch/Detach(atom/source)
 	var/atom/master = source

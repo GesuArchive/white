@@ -62,7 +62,7 @@
 			set_occupant(null)
 			return
 		to_chat(occupant, span_notice("Вхожу в [src.name]."))
-		addtimer(CALLBACK(src, .proc/start_extracting), 20, TIMER_OVERRIDE|TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(start_extracting)), 20, TIMER_OVERRIDE|TIMER_UNIQUE)
 		update_icon()
 
 /obj/machinery/fat_sucker/open_machine(mob/user)

@@ -9,10 +9,10 @@
 		return COMPONENT_INCOMPATIBLE
 
 /datum/component/jammed/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_GUN_TRY_FIRE, .proc/on_gun_fired)
-	RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND_SECONDARY, .proc/try_fix)
-	RegisterSignal(parent, COMSIG_ITEM_ATTACK_SELF_SECONDARY, .proc/try_fix)
-	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, .proc/on_examine)
+	RegisterSignal(parent, COMSIG_GUN_TRY_FIRE, PROC_REF(on_gun_fired))
+	RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND_SECONDARY, PROC_REF(try_fix))
+	RegisterSignal(parent, COMSIG_ITEM_ATTACK_SELF_SECONDARY, PROC_REF(try_fix))
+	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 
 /datum/component/jammed/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_GUN_TRY_FIRE)
@@ -28,12 +28,12 @@
 
 /datum/component/jammed/proc/on_gun_fired(obj/item/gun/source, mob/living/user, atom/target)
 	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, .proc/jammed_fire, source, user)
+	INVOKE_ASYNC(src, PROC_REF(jammed_fire), source, user)
 	return COMPONENT_CANCEL_GUN_FIRE
 
 /datum/component/jammed/proc/try_fix(obj/item/gun/source, mob/user, list/modifiers)
 	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, .proc/start_fixing, source, user)
+	INVOKE_ASYNC(src, PROC_REF(start_fixing), source, user)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /datum/component/jammed/proc/jammed_fire(obj/item/gun/source, mob/user)

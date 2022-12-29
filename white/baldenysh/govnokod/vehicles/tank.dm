@@ -21,7 +21,7 @@
 	movement.icon_dir_num = 4
 	movement.maxthrust_forward = 5
 	movement.maxthrust_backward = 4
-	RegisterSignal(movement, COMSIG_FUNNY_MOVEMENT_PROCESSING_FINISH, .proc/funny_movement_moved)
+	RegisterSignal(movement, COMSIG_FUNNY_MOVEMENT_PROCESSING_FINISH, PROC_REF(funny_movement_moved))
 
 /obj/vehicle/sealed/tank/proc/funny_movement_moved()
 	SIGNAL_HANDLER

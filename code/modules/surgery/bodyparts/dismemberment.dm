@@ -20,7 +20,7 @@
 			C.visible_message(span_danger("<B>[capitalize(src.name)] отлетает от [C]!</B>"))
 		else
 			C.visible_message(span_danger("<B>[capitalize(src.name)] [C] разлетается на кусочки!</B>"))
-	INVOKE_ASYNC(C, /mob.proc/emote, "agony")
+	INVOKE_ASYNC(C, TYPE_PROC_REF(/mob, emote), "agony")
 	SEND_SIGNAL(C, COMSIG_ADD_MOOD_EVENT, "dismembered", /datum/mood_event/dismembered)
 
 	drop_limb()

@@ -319,7 +319,7 @@
 	if(!action)
 		return FALSE
 	SStgui.close_uis(src)
-	INVOKE_ASYNC(src, .proc/search, usr, action)
+	INVOKE_ASYNC(src, PROC_REF(search), usr, action)
 
 // Flavortext stuff
 /obj/item/book/kindred/proc/search(mob/reader, clan)

@@ -346,7 +346,7 @@
 			to_chat(user, span_warning("Ожидаю, пока он решат, присоединяться к нам или нет!"))
 			return FALSE
 		if(!(possible_crusader in sect.possible_crusaders))
-			INVOKE_ASYNC(sect, /datum/religion_sect/honorbound.proc/invite_crusader, possible_crusader)
+			INVOKE_ASYNC(sect, TYPE_PROC_REF(/datum/religion_sect/honorbound, invite_crusader), possible_crusader)
 			to_chat(user, span_notice("Ему уже была предоставлена возможность подумать о присоединении к крестовому походу. Нужно подождать, пока он решит."))
 			return FALSE
 		new_crusader = possible_crusader

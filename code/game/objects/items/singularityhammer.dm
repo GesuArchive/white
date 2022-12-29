@@ -21,8 +21,8 @@
 
 /obj/item/singularityhammer/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
-	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)
+	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
+	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, PROC_REF(on_unwield))
 
 /obj/item/singularityhammer/ComponentInitialize()
 	. = ..()
@@ -82,7 +82,7 @@
 			playsound(user, 'sound/weapons/marauder.ogg', 50, TRUE)
 			var/turf/target = get_turf(A)
 			vortex(target,user)
-			addtimer(CALLBACK(src, .proc/recharge), 100)
+			addtimer(CALLBACK(src, PROC_REF(recharge)), 100)
 
 /obj/item/mjollnir
 	name = "Мьёльнир"
@@ -101,8 +101,8 @@
 
 /obj/item/mjollnir/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
-	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)
+	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
+	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, PROC_REF(on_unwield))
 
 /obj/item/mjollnir/ComponentInitialize()
 	. = ..()

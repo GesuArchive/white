@@ -11,9 +11,9 @@
 	if(!isitem(target) && !isprojectile(target))
 		return ELEMENT_INCOMPATIBLE
 	if(isitem(target))
-		RegisterSignal(target, COMSIG_MOVABLE_IMPACT_ZONE, .proc/onHit)
+		RegisterSignal(target, COMSIG_MOVABLE_IMPACT_ZONE, PROC_REF(onHit))
 	else
-		RegisterSignal(target, COMSIG_PROJECTILE_SELF_ON_HIT, .proc/onHitProj)
+		RegisterSignal(target, COMSIG_PROJECTILE_SELF_ON_HIT, PROC_REF(onHitProj))
 	throw_range = range
 	throw_force = force
 	crit_only = critonly
@@ -44,9 +44,9 @@
 	if(crit_only && !C.stat && !(C.health - additional_dmg*2 <= 0)) //эта хуйня с допдамагом ни в какую не хочет работать, криво считает почему-то
 		return
 	var/move_target = get_ranged_target_turf(C, dir, 5)
-	RegisterSignal(C, COMSIG_MOVABLE_IMPACT, .proc/impale)
+	RegisterSignal(C, COMSIG_MOVABLE_IMPACT, PROC_REF(impale))
 	C.throw_at(move_target, throw_range, 5, spin=FALSE, force = throw_force)
-	addtimer(CALLBACK(src, .proc/unreg_throw, C), 3 SECONDS) //ну а хули, такие же смешные костыли и в генетических мутациях есть
+	addtimer(CALLBACK(src, PROC_REF(unreg_throw), C), 3 SECONDS) //ну а хули, такие же смешные костыли и в генетических мутациях есть
 
 /datum/element/impaling/proc/unreg_throw(atom/thrown)
 	UnregisterSignal(thrown, COMSIG_MOVABLE_IMPACT)

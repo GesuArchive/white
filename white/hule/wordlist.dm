@@ -58,7 +58,7 @@ GLOBAL_VAR_INIT(apply_execution_protocol, FALSE)
 				tongue.Remove(H, special = TRUE)
 				playsound(get_turf(H), 'white/valtos/sounds/gibpart.ogg', 80, TRUE)
 
-		INVOKE_ASYNC(L, /mob.proc/emote, "agony")
+		INVOKE_ASYNC(L, TYPE_PROC_REF(/mob, emote), "agony")
 		to_chat(src, span_userdanger("... [uppertext(for_what)] ..."))
 	else if(client.bad_word_counter == 1)
 		to_chat(src, span_boldnotice("...Возможно, мне не стоит говорить такие \"смешные\" слова, как \"[uppertext(for_what)]\"..."))
@@ -95,5 +95,5 @@ GLOBAL_LIST_INIT(ic_autocorrect, list(
 	//"гп" = "глава персонала", "врио" = "заместитель",
 	//"гсб" = "хос хуесос",
 	"шатл" = "шаттл"
-	
+
 ))

@@ -59,7 +59,7 @@
 		user.throw_at(target, distance, speed, spin = FALSE, diagonals_first = TRUE)
 		user.Knockdown(10)
 		user.spin(10,1)
-		addtimer(CALLBACK(src, .proc/dash_end), 11)
+		addtimer(CALLBACK(src, PROC_REF(dash_end)), 11)
 		user.adjustStaminaLoss(staminarequired)
 
 

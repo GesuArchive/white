@@ -94,6 +94,9 @@ export const reloadByondCache = async (bundleDir) => {
       './*.+(bundle|chunk|hot-update).*'
     );
     try {
+      // Plant a dummy browser window file, we'll be using this to avoid world topic. For byond 515.
+      fs.closeSync(fs.openSync(cacheDir + '/dummy', 'w'));
+
       for (let file of garbage) {
         fs.unlinkSync(file);
       }

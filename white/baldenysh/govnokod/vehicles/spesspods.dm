@@ -82,7 +82,7 @@
 	SP.playing_volume = 100
 	SP.active = TRUE
 
-	INVOKE_ASYNC(src, .proc/load_funny_text)
+	INVOKE_ASYNC(src, PROC_REF(load_funny_text))
 
 /obj/item/spacepod_equipment/weaponry/missile_rack
 	name = "\improper SRM-8 spacepod missile rack"

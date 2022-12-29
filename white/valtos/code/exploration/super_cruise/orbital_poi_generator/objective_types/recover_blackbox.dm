@@ -53,7 +53,7 @@
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
 	linked_obj = _linked_obj
-	RegisterSignal(parent, COMSIG_ITEM_ATTACK_SELF, .proc/attack_self)
+	RegisterSignal(parent, COMSIG_ITEM_ATTACK_SELF, PROC_REF(attack_self))
 
 /datum/component/recoverable/proc/attack_self(mob/user)
 	SIGNAL_HANDLER
@@ -61,7 +61,7 @@
 	var/turf/T = get_turf(parent)
 	var/area/A = T.loc
 	if(istype(A, /area/cargo/exploration_mission) && is_station_level(T.z))
-		INVOKE_ASYNC(src, .proc/initiate_recovery)
+		INVOKE_ASYNC(src, PROC_REF(initiate_recovery))
 	else
 		pA.say("Чёрный ящик должен быть активирован в специальной зоне доставки рейнджеров.")
 

@@ -200,7 +200,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 		return
 	busy = TRUE
 	update_icon()
-	addtimer(CALLBACK(src, .proc/wash_cycle), 60)
+	addtimer(CALLBACK(src, PROC_REF(wash_cycle)), 60)
 	playsound(get_turf(src), 'white/valtos/sounds/wm.ogg', 80, TRUE)
 	START_PROCESSING(SSfastprocess, src)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN

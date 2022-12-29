@@ -17,9 +17,9 @@
 	if(arm_delay)
 		armed = FALSE
 		icon_state = "uglymine-inactive"
-		addtimer(CALLBACK(src, .proc/now_armed), arm_delay)
+		addtimer(CALLBACK(src, PROC_REF(now_armed)), arm_delay)
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
@@ -48,7 +48,7 @@
 	if(AM.movement_type & FLYING)
 		return
 
-	INVOKE_ASYNC(src, .proc/triggermine, AM)
+	INVOKE_ASYNC(src, PROC_REF(triggermine), AM)
 
 /obj/effect/mine/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir)
 	. = ..()
@@ -172,7 +172,7 @@
 		return
 	to_chat(victim, "<span class='reallybig redtext'>RIP AND TEAR</span>")
 
-	INVOKE_ASYNC(src, .proc/blood_delusion, victim)
+	INVOKE_ASYNC(src, PROC_REF(blood_delusion), victim)
 
 	chainsaw = new(victim.loc)
 	victim.log_message("entered a blood frenzy", LOG_ATTACK)
@@ -187,7 +187,7 @@
 	var/datum/client_colour/colour = victim.add_client_colour(/datum/client_colour/bloodlust)
 	QDEL_IN(colour, 11)
 	doomslayer = victim
-	RegisterSignal(src, COMSIG_PARENT_QDELETING, .proc/end_blood_frenzy)
+	RegisterSignal(src, COMSIG_PARENT_QDELETING, PROC_REF(end_blood_frenzy))
 	QDEL_IN(WEAKREF(src), duration)
 
 /obj/effect/mine/pickup/bloodbath/proc/end_blood_frenzy()
@@ -285,7 +285,7 @@
 	playsound(src, 'sound/weapons/armbomb.ogg', 70, TRUE)
 	to_chat(user, span_warning("You arm <b>[src]</b>, causing it to shake! It will deploy in 3 seconds."))
 	active = TRUE
-	addtimer(CALLBACK(src, .proc/deploy_mine), 3 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(deploy_mine)), 3 SECONDS)
 
 /// Deploys the mine and deletes itself
 /obj/item/minespawner/proc/deploy_mine()

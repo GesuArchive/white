@@ -38,7 +38,7 @@
 /datum/job/captain/announce(mob/living/carbon/human/H, announce_captaincy = TRUE)
 	..()
 	if(announce_captaincy)
-		SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, .proc/minor_announce, "Капитан [H.real_name] на палубе!"))
+		SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, PROC_REF(minor_announce), "Капитан [H.real_name] на палубе!"))
 
 /datum/outfit/job/captain
 	name = JOB_CAPTAIN

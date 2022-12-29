@@ -10,8 +10,8 @@
 		return ELEMENT_INCOMPATIBLE
 	src.desc = _desc
 	src.sabotage_target = _sabotage_target
-	RegisterSignal(target, COMSIG_PARENT_EXAMINE, .proc/on_examine)
-	RegisterSignal(target, COMSIG_ATOM_ATTACK_HAND_SECONDARY, .proc/on_secondary)
+	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
+	RegisterSignal(target, COMSIG_ATOM_ATTACK_HAND_SECONDARY, PROC_REF(on_secondary))
 
 /datum/element/traitor_desc/Detach(datum/target)
 	. = ..()

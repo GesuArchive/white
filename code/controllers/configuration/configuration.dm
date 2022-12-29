@@ -415,7 +415,7 @@ Example config:
 
 //Message admins when you can.
 /datum/controller/configuration/proc/DelayedMessageAdmins(text)
-	addtimer(CALLBACK(GLOBAL_PROC, /proc/message_admins, text), 0)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(message_admins), text), 0)
 
 /datum/controller/configuration/proc/load_version_info()
 	var/list/info_file = world.file2list("data/gitsum.txt")

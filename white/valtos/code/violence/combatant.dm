@@ -147,7 +147,7 @@
 	if(SSviolence.friendlyfire)
 		return
 
-	RegisterSignal(H, COMSIG_MOB_EQUIPPED_ITEM, .proc/factionee_projectiles)
+	RegisterSignal(H, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(factionee_projectiles))
 
 /datum/outfit/job/combantant/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/obj/item/card/id/W = H.wear_id

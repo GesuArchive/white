@@ -49,7 +49,7 @@
 		if(user.transferItemToLoc(I, src))
 			vis_contents += I
 			placed_objects += I
-			RegisterSignal(I, COMSIG_MOVABLE_MOVED, .proc/ItemMoved, TRUE)
+			RegisterSignal(I, COMSIG_MOVABLE_MOVED, PROC_REF(ItemMoved), TRUE)
 
 /obj/structure/world_anvil/proc/ItemMoved(obj/item/I, atom/OldLoc, Dir, Forced)
 	SIGNAL_HANDLER

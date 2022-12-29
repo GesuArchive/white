@@ -60,7 +60,7 @@
 		else
 			cell = new preload_cell_type(src)
 	update_icon()
-	RegisterSignal(src, COMSIG_PARENT_ATTACKBY, .proc/convert)
+	RegisterSignal(src, COMSIG_PARENT_ATTACKBY, PROC_REF(convert))
 
 
 /obj/item/melee/baton/Destroy()
@@ -241,7 +241,7 @@
 		L.stuttering = max(8, L.stuttering)
 
 	SEND_SIGNAL(L, COMSIG_LIVING_MINOR_SHOCK)
-	addtimer(CALLBACK(src, .proc/apply_stun_effect_end, L), apply_stun_delay)
+	addtimer(CALLBACK(src, PROC_REF(apply_stun_effect_end), L), apply_stun_delay)
 
 	if(user)
 		L.visible_message(span_danger("<b>[user]</b> оглушает <b>[skloname(L.name, VINITELNI, L.gender)]</b> <b>электрошоковой дубинкой</b>!") , \

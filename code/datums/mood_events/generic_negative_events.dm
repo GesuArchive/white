@@ -95,7 +95,7 @@
 	if(isfelinid(owner))
 		var/mob/living/carbon/human/H = owner
 		H.dna.species.start_wagging_tail(H)
-		addtimer(CALLBACK(H.dna.species, /datum/species.proc/stop_wagging_tail, H), 30)
+		addtimer(CALLBACK(H.dna.species, TYPE_PROC_REF(/datum/species, stop_wagging_tail), H), 30)
 		description =  "<span class='nicegreen'>Со мной хотят поиграться на столе!</span>\n"
 		mood_change = 2
 

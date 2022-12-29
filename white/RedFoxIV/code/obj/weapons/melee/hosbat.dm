@@ -69,7 +69,7 @@
 		display_names[initial(item.name)] = item
 		bat_icons += list(initial(item.name) = image(icon = initial(item.icon), icon_state = initial(item.icon_state)))
 	bat_icons = sort_list(bat_icons)
-	var/choice = show_radial_menu(user, src , bat_icons, custom_check = CALLBACK(src, .proc/check_menu, user), radius = 42, require_near = TRUE)
+	var/choice = show_radial_menu(user, src , bat_icons, custom_check = CALLBACK(src, PROC_REF(check_menu), user), radius = 42, require_near = TRUE)
 	if(!choice || !check_menu(user))
 		return
 
@@ -245,8 +245,8 @@
 						//<stolen from fireaxe code>
 /obj/item/melee/baseball_bat/hos/hammer/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
-	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)
+	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
+	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, PROC_REF(on_unwield))
 
 
 /// triggered on wield of two handed item
@@ -279,4 +279,4 @@
 		to_chat(target, "<span notice='userdanger'>[pick("Врата прорвало!", "Не могу перестать СРАТЬ!")]</span>")
 		target.Immobilize(20)
 		for(var/i = 1, i< rand(4,10),i++)
-			addtimer(CALLBACK(target, /mob/.proc/emote, "poo"), 12*i)
+			addtimer(CALLBACK(target, TYPE_PROC_REF(/mob, emote), "poo"), 12*i)

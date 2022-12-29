@@ -16,7 +16,7 @@
 		return COMPONENT_INCOMPATIBLE
 
 /datum/component/glooed/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_COMPONENT_CLEAN_ACT, .proc/ungloo)
+	RegisterSignal(parent, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(ungloo))
 
 /datum/component/glooed/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_COMPONENT_CLEAN_ACT)

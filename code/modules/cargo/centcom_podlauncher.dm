@@ -337,7 +337,7 @@
 			var/shrapnelInput
 			var/search = tgui_input_text(usr, "Input typepath of projectile you're looking for or leave the bar empty to show all projectiles.")
 			if(isnull(search) || search == "")
-				shrapnelInput = tgui_input_list(usr, "Please enter the type of pellet cloud you'd like to create on landing (Can be any projectile!)", "Projectile Typepath", sort_list(subtypesof(/obj/projectile), /proc/cmp_typepaths_asc))
+				shrapnelInput = tgui_input_list(usr, "Please enter the type of pellet cloud you'd like to create on landing (Can be any projectile!)", "Projectile Typepath", sort_list(subtypesof(/obj/projectile), GLOBAL_PROC_REF(cmp_typepaths_asc)))
 			else
 				shrapnelInput = pick_closest_path(search, matches = get_fancy_list_of_projectile_types())
 			if (isnull(shrapnelInput))

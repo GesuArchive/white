@@ -79,7 +79,7 @@
 			anchored = TRUE
 			playsound(src, 'sound/machines/windowdoor.ogg', 50)
 			flick("deep_core_drill-deploy", src)
-			addtimer(CALLBACK(src, .proc/Deploy), 14)
+			addtimer(CALLBACK(src, PROC_REF(Deploy)), 14)
 			to_chat(user, span_notice("[capitalize(src.name)] обнаруживает [O.name] и начинает работу..."))
 			return TRUE
 		else
@@ -93,7 +93,7 @@
 	else
 		playsound(src, 'sound/machines/windowdoor.ogg', 50)
 		flick("deep_core_drill-undeploy", src)
-		addtimer(CALLBACK(src, .proc/Undeploy), 13)
+		addtimer(CALLBACK(src, PROC_REF(Undeploy)), 13)
 
 /obj/machinery/deepcore/drill/process(delta_time)
 	if(machine_stat & BROKEN || isnull(active_vein) || isnull(target_hopper) )
@@ -228,7 +228,7 @@
 
 /obj/item/deepcorecapsule/attack_self()
 	loc.visible_message(span_warning("[capitalize(src.name)] begins to shake. Stand back!"))
-	addtimer(CALLBACK(src, .proc/Deploy), 50)
+	addtimer(CALLBACK(src, PROC_REF(Deploy)), 50)
 
 /obj/item/deepcorecapsule/proc/Deploy()
 	if(QDELETED(src) || !to_deploy)

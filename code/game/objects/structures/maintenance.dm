@@ -145,7 +145,7 @@ at the cost of risking a vicious bite.**/
 		"Change Color" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_recolor"),
 		"Create Artefact" = image(icon = 'icons/hud/radial.dmi', icon_state = "radial_create")
 	)
-	var/altar_result = show_radial_menu(user, src, altar_options, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
+	var/altar_result = show_radial_menu(user, src, altar_options, custom_check = CALLBACK(src, PROC_REF(check_menu), user), require_near = TRUE, tooltips = TRUE)
 	switch(altar_result)
 		if("Change Color")
 			var/chosen_color = input(usr, "", "Choose Color", pants_color) as color|null
@@ -187,7 +187,7 @@ at the cost of risking a vicious bite.**/
 	update_icon()
 	visible_message("<span class='warning'>[src] starts creating something...</span>")
 	playsound(src, 'sound/magic/pantsaltar.ogg', 60)
-	addtimer(CALLBACK(src, .proc/pants_stagetwo), ALTAR_TIME)
+	addtimer(CALLBACK(src, PROC_REF(pants_stagetwo)), ALTAR_TIME)
 
 /obj/structure/destructible/cult/pants_altar/proc/pants_stagetwo()
 	status = ALTAR_STAGETWO
@@ -196,7 +196,7 @@ at the cost of risking a vicious bite.**/
 	for(var/mob/living/mob in viewers(7, src))
 		mob.blur_eyes(10)
 		mob.add_confusion(10)
-	addtimer(CALLBACK(src, .proc/pants_stagethree), ALTAR_TIME)
+	addtimer(CALLBACK(src, PROC_REF(pants_stagethree)), ALTAR_TIME)
 
 /obj/structure/destructible/cult/pants_altar/proc/pants_stagethree()
 	status = ALTAR_STAGETHREE
@@ -204,7 +204,7 @@ at the cost of risking a vicious bite.**/
 	visible_message("<span class='warning'>You start feeling horrible...</span>")
 	for(var/mob/living/mob in viewers(7, src))
 		mob.set_dizziness(200)
-	addtimer(CALLBACK(src, .proc/pants_create), ALTAR_TIME)
+	addtimer(CALLBACK(src, PROC_REF(pants_create)), ALTAR_TIME)
 
 /obj/structure/destructible/cult/pants_altar/proc/pants_create()
 	status = ALTAR_INACTIVE
@@ -215,7 +215,7 @@ at the cost of risking a vicious bite.**/
 	var/obj/item/clothing/under/pants/altar/pants = new(get_turf(src))
 	pants.add_atom_colour(pants_color, ADMIN_COLOUR_PRIORITY)
 	COOLDOWN_START(src, use_cooldown, use_cooldown_duration)
-	addtimer(CALLBACK(src, /atom.proc/update_icon), 1 MINUTES + 0.1 SECONDS)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 1 MINUTES + 0.1 SECONDS)
 	update_icon()
 
 /obj/item/clothing/under/pants/altar

@@ -78,19 +78,19 @@ GLOBAL_VAR_INIT(nasheed_playing, FALSE)
 					SEND_SOUND(M, nasheed)
 					nasheed.volume = 100
 			GLOB.nasheed_playing = TRUE
-			addtimer(CALLBACK(src, .proc/nasheed_end), EXECUTE_INFIDEL)
+			addtimer(CALLBACK(src, PROC_REF(nasheed_end)), EXECUTE_INFIDEL)
 		if(do_after(user,EXECUTE_INFIDEL, target = target))
 			log_admin("[key_name(user)] казнил [key_name(target)] при помощи [src]")
 			message_admins("[key_name(user)] казнил [key_name(target)] при помощи [src]")
 			infidel_head.dismember()
 			priority_announce("[user] казнил [target] во имя [execution_faction]!","Сообщение от [execution_faction]!", 'sound/misc/notice1.ogg')
 			executing = FALSE
-			addtimer(CALLBACK(src, .proc/recharge_execute), EXECUTE_COOLDOWN)
+			addtimer(CALLBACK(src, PROC_REF(recharge_execute)), EXECUTE_COOLDOWN)
 		else
 			priority_announce("[user] не смог казнить [target] и принёс позор [execution_faction]!","Сообщение от [execution_faction]!", 'sound/misc/compiler-failure.ogg')
 			executing = FALSE
 			nasheed_end()
-			addtimer(CALLBACK(src, .proc/recharge_execute), EXECUTE_COOLDOWN)
+			addtimer(CALLBACK(src, PROC_REF(recharge_execute)), EXECUTE_COOLDOWN)
 
 
 /obj/item/melee/execution_sword/proc/nasheed_end()

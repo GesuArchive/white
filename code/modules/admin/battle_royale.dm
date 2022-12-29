@@ -362,7 +362,7 @@ GLOBAL_DATUM(battle_royale, /datum/battle_royale_controller)
 	to_chat(world, span_boldannounce("ВНИМАНИЕ: ЕСЛИ ВЫ ПОКИНЕТЕ СТАНЦИЮ, ТО НЕМЕДЛЕННО ПО<b>ГИБ</b>НЕТЕ!"))
 	to_chat(world, span_boldannounce("[players.len] игроков осталось..."))
 	//Start processing our world events
-	addtimer(CALLBACK(src, .proc/end_grace), 300)
+	addtimer(CALLBACK(src, PROC_REF(end_grace)), 300)
 	generate_basic_loot(150)
 
 /datum/battle_royale_controller/proc/end_grace()
@@ -422,7 +422,7 @@ GLOBAL_DATUM(battle_royale, /datum/battle_royale_controller)
 /obj/effect/death_wall/Initialize(mapload)
 	. = ..()
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 

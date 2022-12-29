@@ -19,8 +19,8 @@
 
 /obj/item/pushbroom/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
-	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)
+	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
+	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, PROC_REF(on_unwield))
 
 /obj/item/pushbroom/ComponentInitialize()
 	. = ..()
@@ -41,7 +41,7 @@
 	SIGNAL_HANDLER
 
 	to_chat(user, span_notice("Хватаю [src.name] обеими руками и готовлюсь толкать МУСОР."))
-	RegisterSignal(user, COMSIG_MOVABLE_PRE_MOVE, .proc/sweep)
+	RegisterSignal(user, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(sweep))
 
 /**
  * Handles unregistering the sweep proc when the broom is unwielded

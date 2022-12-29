@@ -96,7 +96,7 @@
 	effect_act_descs = list("брошенный")
 
 /datum/artifact_effect/throwchaos/register_signals(source)
-	RegisterSignal(source, COMSIG_MOVABLE_POST_THROW, .proc/throw_thing_randomly)
+	RegisterSignal(source, COMSIG_MOVABLE_POST_THROW, PROC_REF(throw_thing_randomly))
 
 /datum/artifact_effect/throwchaos/proc/throw_thing_randomly(datum/source, datum/thrownthing, spin)
 	SIGNAL_HANDLER
@@ -132,7 +132,7 @@
 	effect_act_descs = list("осмотренный")
 
 /datum/artifact_effect/inducespasm/register_signals(source)
-	RegisterSignal(source, COMSIG_PARENT_EXAMINE, .proc/do_effect)
+	RegisterSignal(source, COMSIG_PARENT_EXAMINE, PROC_REF(do_effect))
 
 /datum/artifact_effect/inducespasm/proc/do_effect(datum/source, mob/observer, list/examine_text)
 	SIGNAL_HANDLER
@@ -187,7 +187,7 @@
 	effect_act_descs = list("использованный")
 
 /datum/artifact_effect/gravity_well/register_signals(source)
-	RegisterSignal(source, COMSIG_ITEM_ATTACK_SELF, .proc/suck)
+	RegisterSignal(source, COMSIG_ITEM_ATTACK_SELF, PROC_REF(suck))
 
 /datum/artifact_effect/gravity_well/proc/suck(datum/source, mob/warper)
 	SIGNAL_HANDLER
@@ -273,7 +273,7 @@
 
 /datum/artifact_effect/reality_destabilizer/proc/destabilize(atom/movable/AM)
 	//Banish to the void
-	addtimer(CALLBACK(src, .proc/restabilize, AM, get_turf(AM)), rand(10 SECONDS, 90 SECONDS))
+	addtimer(CALLBACK(src, PROC_REF(restabilize), AM, get_turf(AM)), rand(10 SECONDS, 90 SECONDS))
 
 	if(GLOB.destabilization_spawns.len == 0)
 		for(var/i in 1 to rand(3, 9))
@@ -314,7 +314,7 @@
 	effect_act_descs = list("использованный")
 
 /datum/artifact_effect/warp/register_signals(source)
-	RegisterSignal(source, COMSIG_ITEM_ATTACK_SELF, .proc/teleport)
+	RegisterSignal(source, COMSIG_ITEM_ATTACK_SELF, PROC_REF(teleport))
 
 /datum/artifact_effect/warp/proc/teleport(datum/source, mob/warper)
 	SIGNAL_HANDLER
@@ -335,7 +335,7 @@
 	effect_act_descs = list("поднятый")
 
 /datum/artifact_effect/curse/register_signals(source)
-	RegisterSignal(source, COMSIG_ITEM_PICKUP, .proc/curse)
+	RegisterSignal(source, COMSIG_ITEM_PICKUP, PROC_REF(curse))
 
 /datum/artifact_effect/curse/proc/curse(datum/source, mob/taker)
 	SIGNAL_HANDLER
@@ -435,7 +435,7 @@
 	cooldown = rand(5 MINUTES, 15 MINUTES)
 
 /datum/artifact_effect/insanity_pulse/register_signals(source)
-	RegisterSignal(source, COMSIG_ITEM_ATTACK_SELF, .proc/pulse)
+	RegisterSignal(source, COMSIG_ITEM_ATTACK_SELF, PROC_REF(pulse))
 
 /datum/artifact_effect/insanity_pulse/proc/pulse(datum/source, mob/living/pulser)
 	SIGNAL_HANDLER
@@ -456,7 +456,7 @@
 	pulser.blind_eyes(300)
 	pulser.Stun(100)
 	pulser.hallucination = 500
-	INVOKE_ASYNC(src, .proc/do_pulse, T)
+	INVOKE_ASYNC(src, PROC_REF(do_pulse), T)
 
 /datum/artifact_effect/insanity_pulse/proc/do_pulse(turf/T)
 	var/xrange = 50

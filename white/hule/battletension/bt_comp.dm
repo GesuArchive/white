@@ -26,8 +26,8 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 		return COMPONENT_INCOMPATIBLE
 
 /datum/component/battletension/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_ATOM_BULLET_ACT, .proc/bulletact_react)
-	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, .proc/attackby_react)
+	RegisterSignal(parent, COMSIG_ATOM_BULLET_ACT, PROC_REF(bulletact_react))
+	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, PROC_REF(attackby_react))
 
 /datum/component/battletension/UnregisterFromParent()
 	UnregisterSignal(parent, list(	COMSIG_ATOM_BULLET_ACT,

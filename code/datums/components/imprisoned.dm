@@ -6,7 +6,7 @@
 /datum/component/imprisoned/Initialize(mapload)
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
-	timerid = addtimer(CALLBACK(src, .proc/clean_reputation), 30 MINUTES, TIMER_STOPPABLE)
+	timerid = addtimer(CALLBACK(src, PROC_REF(clean_reputation)), 30 MINUTES, TIMER_STOPPABLE)
 	move_tracker = new(parent, CALLBACK(src,.proc/check_area))
 
 /datum/component/imprisoned/proc/check_area()

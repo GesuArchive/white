@@ -30,14 +30,14 @@
 	mode = new /datum/buildmode_mode/basic(src)
 	holder = c
 	buttons = list()
-	li_cb = CALLBACK(src, .proc/post_login)
+	li_cb = CALLBACK(src, PROC_REF(post_login))
 	holder.player_details.post_login_callbacks += li_cb
 	holder.show_popup_menus = FALSE
 	create_buttons()
 	holder.screen += buttons
 	holder.click_intercept = src
 	mode.enter_mode(src)
-	RegisterSignal(holder, COMSIG_MOUSE_SCROLL_ON, .proc/MouseWheelRotate)
+	RegisterSignal(holder, COMSIG_MOUSE_SCROLL_ON, PROC_REF(MouseWheelRotate))
 
 
 /datum/buildmode/proc/MouseWheelRotate(source, atom/A, delta_x, delta_y, params)

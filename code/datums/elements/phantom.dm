@@ -9,7 +9,7 @@
 	if(!isatom(target))
 		return COMPONENT_INCOMPATIBLE
 	ghost_timer = _ghost_timer
-	RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/create_phantom)
+	RegisterSignal(target, COMSIG_MOVABLE_MOVED, PROC_REF(create_phantom))
 
 /datum/element/phantom/Detach(datum/source)
 	. = ..()

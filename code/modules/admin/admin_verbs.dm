@@ -128,9 +128,9 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/violence_friendlyfire,
 	))
 GLOBAL_PROTECT(admin_verbs_fun)
-GLOBAL_LIST_INIT(admin_verbs_spawn, list(/datum/admins/proc/spawn_atom, /datum/admins/proc/podspawn_atom,
-										/datum/admins/proc/spawn_cargo, /datum/admins/proc/spawn_objasmob,
-										/client/proc/respawn_character, /datum/admins/proc/beaker_panel))
+GLOBAL_LIST_INIT(admin_verbs_spawn, list(/datum/admins/proc/spawn_atom, TYPE_PROC_REF(/datum/admins, podspawn_atom),
+										/datum/admins/proc/spawn_cargo, TYPE_PROC_REF(/datum/admins, spawn_objasmob),
+										/client/proc/respawn_character, TYPE_PROC_REF(/datum/admins, beaker_panel)))
 GLOBAL_PROTECT(admin_verbs_spawn)
 GLOBAL_LIST_INIT(admin_verbs_server, world.AVerbsServer())
 GLOBAL_PROTECT(admin_verbs_server)
@@ -219,7 +219,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/datum/admins/proc/fixcorruption,
 	/datum/admins/proc/reset_all_air,
 	)
-GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, /proc/possess, /proc/release))
+GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, GLOBAL_PROC_REF(possess), GLOBAL_PROC_REF(release)))
 GLOBAL_PROTECT(admin_verbs_possess)
 GLOBAL_LIST_INIT(admin_verbs_permissions, list(/client/proc/edit_admin_permissions, /client/proc/manage_lists, /client/proc/add_bug_down, /client/proc/change_server_theme))
 GLOBAL_PROTECT(admin_verbs_permissions)
@@ -806,7 +806,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	if(!istype(T))
 		to_chat(src, span_notice("You can only give a disease to a mob of type /mob/living."))
 		return
-	var/datum/disease/D = tgui_input_list(usr, "Choose the disease to give to that guy", "ACHOO", sort_list(SSdisease.diseases, /proc/cmp_typepaths_asc))
+	var/datum/disease/D = tgui_input_list(usr, "Choose the disease to give to that guy", "ACHOO", sort_list(SSdisease.diseases, GLOBAL_PROC_REF(cmp_typepaths_asc)))
 	if(!D)
 		return
 	T.ForceContractDisease(new D, FALSE, TRUE)
@@ -970,7 +970,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 	var/mob/living/marked_mob = holder.marked_datum
 
-	var/ability_type = tgui_input_list(usr, "Choose an ability", "Ability", sort_list(subtypesof(/datum/action/cooldown/mob_cooldown), /proc/cmp_typepaths_asc))
+	var/ability_type = tgui_input_list(usr, "Choose an ability", "Ability", sort_list(subtypesof(/datum/action/cooldown/mob_cooldown), GLOBAL_PROC_REF(cmp_typepaths_asc)))
 	if(!ability_type)
 		return
 

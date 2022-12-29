@@ -219,7 +219,7 @@
 	var/list/radial_options = list()
 	for(var/frame_name in possible_frames)
 		radial_options[frame_name] = image(icon, "[icon_state]frame_[frame_name]")
-	var/result = show_radial_menu(user, loc, radial_options, radius = 60, custom_check = CALLBACK(src, .proc/can_select_frame, user), tooltips = TRUE)
+	var/result = show_radial_menu(user, loc, radial_options, radius = 60, custom_check = CALLBACK(src, PROC_REF(can_select_frame), user), tooltips = TRUE)
 	if(!result)
 		return
 	painting_metadata.frame_type = result

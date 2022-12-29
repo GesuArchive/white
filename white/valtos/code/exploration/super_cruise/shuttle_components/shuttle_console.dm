@@ -58,7 +58,7 @@
 	else
 		var/static/i = 0
 		shuttlePortId = "unlinked_shuttle_console_[i++]"
-	RegisterSignal(SSorbits, COMSIG_ORBITAL_BODY_CREATED, .proc/register_shuttle_object)
+	RegisterSignal(SSorbits, COMSIG_ORBITAL_BODY_CREATED, PROC_REF(register_shuttle_object))
 	//Setup the looping sound
 	emergency_alarm = new(src,  FALSE)
 	collision_warning = new(src,  FALSE)
@@ -83,10 +83,10 @@
 	var/datum/shuttle_data/new_shuttle = SSorbits.get_shuttle_data(shuttleId)
 	if (new_shuttle)
 		register_shuttle_object(null, SSorbits.assoc_shuttles[shuttleId])
-		RegisterSignal(new_shuttle.comms, COMSIG_COMMUNICATION_RECEIEVED, .proc/message_recieved)
+		RegisterSignal(new_shuttle.comms, COMSIG_COMMUNICATION_RECEIEVED, PROC_REF(message_recieved))
 		registered = TRUE
 	else
-		addtimer(CALLBACK(src, .proc/set_shuttle_id, new_id, stack_depth + 1), 5 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(set_shuttle_id), new_id, stack_depth + 1), 5 SECONDS)
 
 /obj/machinery/computer/shuttle_flight/Destroy()
 	. = ..()
@@ -121,9 +121,9 @@
 		return
 	emergency_alarm?.stop()
 	shuttleObject = body
-	RegisterSignal(shuttleObject, COMSIG_PARENT_QDELETING, .proc/unregister_shuttle_object)
-	RegisterSignal(shuttleObject, COMSIG_ORBITAL_BODY_MESSAGE, .proc/on_shuttle_messaged)
-	RegisterSignal(shuttleObject, COMSIG_SHUTTLE_TOGGLE_COLLISION_ALERT, .proc/set_collision_warning_system)
+	RegisterSignal(shuttleObject, COMSIG_PARENT_QDELETING, PROC_REF(unregister_shuttle_object))
+	RegisterSignal(shuttleObject, COMSIG_ORBITAL_BODY_MESSAGE, PROC_REF(on_shuttle_messaged))
+	RegisterSignal(shuttleObject, COMSIG_SHUTTLE_TOGGLE_COLLISION_ALERT, PROC_REF(set_collision_warning_system))
 
 /obj/machinery/computer/shuttle_flight/proc/unregister_shuttle_object(datum/source, force)
 	UnregisterSignal(shuttleObject, COMSIG_PARENT_QDELETING)

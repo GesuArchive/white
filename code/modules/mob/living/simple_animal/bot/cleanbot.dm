@@ -103,7 +103,7 @@
 
 /mob/living/simple_animal/bot/cleanbot/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/cleaner, CLEANBOT_CLEANING_TIME, on_cleaned_callback = CALLBACK(src, /atom/.proc/update_appearance, UPDATE_ICON))
+	AddComponent(/datum/component/cleaner, CLEANBOT_CLEANING_TIME, on_cleaned_callback = CALLBACK(src, TYPE_PROC_REF(/atom, update_appearance), UPDATE_ICON))
 
 	chosen_name = name
 	get_targets()
@@ -118,7 +118,7 @@
 	prefixes = list(command, security, engineering)
 	suffixes = list(research, medical, legal)
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 	GLOB.janitor_devices += src

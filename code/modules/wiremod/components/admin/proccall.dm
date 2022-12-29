@@ -71,7 +71,7 @@
 	if(called_on != GLOBAL_PROC && !hascall(called_on, to_invoke))
 		return
 
-	INVOKE_ASYNC(src, .proc/do_proccall, called_on, to_invoke, params)
+	INVOKE_ASYNC(src, PROC_REF(do_proccall), called_on, to_invoke, params)
 
 /obj/item/circuit_component/proccall/proc/do_proccall(called_on, to_invoke, params)
 	var/result = HandleUserlessProcCall(parent.get_creator(), called_on, to_invoke, params)

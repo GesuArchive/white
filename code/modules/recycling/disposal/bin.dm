@@ -42,7 +42,7 @@ GLOBAL_VAR_INIT(disposals_are_hungry, FALSE)
 
 	air_contents = new /datum/gas_mixture()
 	//gas.volume = 1.05 * CELLSTANDARD
-	RegisterSignal(src, COMSIG_STORAGE_DUMP_CONTENT, .proc/on_storage_dump)
+	RegisterSignal(src, COMSIG_STORAGE_DUMP_CONTENT, PROC_REF(on_storage_dump))
 	update_icon()
 
 	return INITIALIZE_HINT_LATELOAD //we need turfs to have air
@@ -596,7 +596,7 @@ GLOBAL_LIST_EMPTY(disposal_bins)
 /obj/machinery/disposal/mechcomp/proc/activate_for(time)
 	cooldown = TRUE
 	update_icon()
-	addtimer(CALLBACK(src, .proc/_deactivate), time)
+	addtimer(CALLBACK(src, PROC_REF(_deactivate)), time)
 
 /obj/machinery/disposal/mechcomp/proc/_deactivate()
 	cooldown = FALSE

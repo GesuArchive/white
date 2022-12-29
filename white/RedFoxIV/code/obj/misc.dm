@@ -60,7 +60,7 @@
 	bonjour.current_player_sound.status |= SOUND_STREAM
 	bonjour.set_channel(open_sound_channel_for_boombox())
 	bonjour.active = TRUE
-	addtimer(CALLBACK(src, .proc/stop), sound_length)
+	addtimer(CALLBACK(src, PROC_REF(stop)), sound_length)
 
 
 
@@ -92,7 +92,7 @@
 	current_channel = open_sound_channel_for_tts()
 	START_PROCESSING(SSprocessing, src)
 	playing = TRUE
-	addtimer(CALLBACK(src, .proc/stop), sound_length)
+	addtimer(CALLBACK(src, PROC_REF(stop)), sound_length)
 	return TRUE
 
 /datum/sound_player/proc/stop()

@@ -13,7 +13,7 @@ SUBSYSTEM_DEF(killcounter)
 
 
 /datum/controller/subsystem/killcounter/Initialize(mapload)
-	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, .proc/on_mob_death)
+	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_DEATH, PROC_REF(on_mob_death))
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/killcounter/proc/on_mob_death(datum/source, mob/living/dead, gibbed)

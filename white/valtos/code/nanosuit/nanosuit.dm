@@ -517,7 +517,7 @@
 	Wearer.apply_effects(paralyze = 300, stun = 300, jitter = 120)
 	toggle_mode(NANO_NONE, TRUE)
 	shutdown = TRUE
-	addtimer(CALLBACK(src, .proc/emp_assaulttwo), 25)
+	addtimer(CALLBACK(src, PROC_REF(emp_assaulttwo)), 25)
 
 
 /obj/item/clothing/suit/space/hardsuit/nano/proc/emp_assaulttwo()
@@ -527,7 +527,7 @@
 	helmet.display_visor_message("Смена режима: базовое поддержание работы костюма.")
 	sleep(25)
 	helmet.display_visor_message("Система жизнеобеспечения. Ошибка!")
-	addtimer(CALLBACK(src, .proc/emp_assaultthree), 35)
+	addtimer(CALLBACK(src, PROC_REF(emp_assaultthree)), 35)
 
 
 /obj/item/clothing/suit/space/hardsuit/nano/proc/emp_assaultthree()
@@ -688,13 +688,13 @@
 		Wearer.equipOutfit(outfit)
 		ADD_TRAIT(Wearer, TRAIT_NODISMEMBER, "Nanosuit")
 		ADD_TRAIT(Wearer, TRAIT_NEVER_WOUNDED, "Nanosuit")
-		RegisterSignal(Wearer, list(COMSIG_MOB_ITEM_ATTACK,COMSIG_MOB_ITEM_AFTERATTACK,COMSIG_MOB_THROW,COMSIG_MOB_ATTACK_HAND), .proc/kill_cloak,TRUE)
+		RegisterSignal(Wearer, list(COMSIG_MOB_ITEM_ATTACK,COMSIG_MOB_ITEM_AFTERATTACK,COMSIG_MOB_THROW,COMSIG_MOB_ATTACK_HAND), PROC_REF(kill_cloak),TRUE)
 		if(is_station_level(T.z))
 			priority_announce("[user] использовал[user.ru_a()] запрещённый нанокостюм в [A.name]!", "Экстренное сообщение!", sound('white/valtos/sounds/nanosuitengage.ogg'))
 		log_game("[user] has engaged [src]")
 		if(help_verb)
 			Wearer.verbs += help_verb
-		INVOKE_ASYNC(src, .proc/bootSequence)
+		INVOKE_ASYNC(src, PROC_REF(bootSequence))
 	..()
 
 /obj/item/clothing/suit/space/hardsuit/nano/dropped()
@@ -1020,7 +1020,7 @@
 				set_nano_energy(15)
 				Wearer.filters = null
 				animate(Wearer, alpha = 255, time = stealth_cloak_out)
-				addtimer(CALLBACK(src, .proc/resume_cloak),CLICK_CD_RANGE,TIMER_UNIQUE|TIMER_OVERRIDE)
+				addtimer(CALLBACK(src, PROC_REF(resume_cloak)),CLICK_CD_RANGE,TIMER_UNIQUE|TIMER_OVERRIDE)
 				return
 		set_nano_energy(cell.charge,NANO_CHARGE_DELAY)
 
@@ -1150,7 +1150,7 @@
 	"cloak" = image(icon = 'white/valtos/icons/nanosuit/actions_nanosuit.dmi', icon_state = "cloak_menu"),
 	"strength" = image(icon = 'white/valtos/icons/nanosuit/actions_nanosuit.dmi', icon_state = "strength_menu")
 	)
-	var/choice = show_radial_menu(user,user, choices, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE)
+	var/choice = show_radial_menu(user,user, choices, custom_check = CALLBACK(src, PROC_REF(check_menu), user), require_near = TRUE)
 	if(!check_menu(user))
 		return
 	switch(choice)

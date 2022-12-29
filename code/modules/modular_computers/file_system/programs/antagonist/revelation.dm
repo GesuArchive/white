@@ -22,7 +22,7 @@
 		if(istype(computer, /obj/item/modular_computer/tablet/integrated)) //If this is a borg's integrated tablet
 			var/obj/item/modular_computer/tablet/integrated/modularInterface = computer
 			to_chat(modularInterface.silicon_owner, span_userdanger("ОБНАРУЖЕНА ЧИСТКА СИСТЕМЫ/"))
-			addtimer(CALLBACK(modularInterface.silicon_owner, /mob/living/silicon/robot/.proc/death), 2 SECONDS, TIMER_UNIQUE)
+			addtimer(CALLBACK(modularInterface.silicon_owner, TYPE_PROC_REF(/mob/living/silicon/robot, death)), 2 SECONDS, TIMER_UNIQUE)
 			return
 
 		computer.visible_message(span_notice("[computer] экран ярко мерцает, и слышно громкое жужжание электричества."))

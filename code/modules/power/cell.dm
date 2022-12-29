@@ -44,10 +44,10 @@
 	if(ratingdesc)
 		desc += " This one has a rating of [display_energy(maxcharge)], and you should not swallow it."
 	update_icon()
-	RegisterSignal(src, COMSIG_ITEM_MAGICALLY_CHARGED, .proc/on_magic_charge)
-	RegisterSignal(src, COMSIG_MOVABLE_MOVED, .proc/on_moved)
+	RegisterSignal(src, COMSIG_ITEM_MAGICALLY_CHARGED, PROC_REF(on_magic_charge))
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(on_moved))
 	if(!istype(loc, /obj/item/storage) && !istype(loc, /turf))
-		RegisterSignal(loc, COMSIG_ITEM_MAGICALLY_CHARGED, .proc/on_magic_charge)
+		RegisterSignal(loc, COMSIG_ITEM_MAGICALLY_CHARGED, PROC_REF(on_magic_charge))
 
 /obj/item/stock_parts/cell/proc/on_magic_charge(datum/source, datum/action/cooldown/spell/spell, mob/living/caster)
 	give(rand(6,25)*100)
@@ -57,13 +57,13 @@
 		return
 	UnregisterSignal(old_loc, COMSIG_ITEM_MAGICALLY_CHARGED)
 	if(!istype(loc, /obj/item/storage) && !istype(loc, /turf))
-		RegisterSignal(loc, COMSIG_ITEM_MAGICALLY_CHARGED, .proc/on_magic_charge)
+		RegisterSignal(loc, COMSIG_ITEM_MAGICALLY_CHARGED, PROC_REF(on_magic_charge))
 
 
 /obj/item/stock_parts/cell/create_reagents(max_vol, flags)
 	. = ..()
-	RegisterSignal(reagents, list(COMSIG_REAGENTS_NEW_REAGENT, COMSIG_REAGENTS_ADD_REAGENT, COMSIG_REAGENTS_DEL_REAGENT, COMSIG_REAGENTS_REM_REAGENT), .proc/on_reagent_change)
-	RegisterSignal(reagents, COMSIG_PARENT_QDELETING, .proc/on_reagents_del)
+	RegisterSignal(reagents, list(COMSIG_REAGENTS_NEW_REAGENT, COMSIG_REAGENTS_ADD_REAGENT, COMSIG_REAGENTS_DEL_REAGENT, COMSIG_REAGENTS_REM_REAGENT), PROC_REF(on_reagent_change))
+	RegisterSignal(reagents, COMSIG_PARENT_QDELETING, PROC_REF(on_reagents_del))
 
 /// Handles properly detaching signal hooks.
 /obj/item/stock_parts/cell/proc/on_reagents_del(datum/reagents/reagents)

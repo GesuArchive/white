@@ -404,7 +404,7 @@
 		if(t && get_dist(t, T) == 11)
 			new /obj/effect/temp_visual/sansarena(t, src)
 	if(get_dist(src, T) >= 11)
-		INVOKE_ASYNC(src, .proc/teleport, T)
+		INVOKE_ASYNC(src, PROC_REF(teleport), T)
 
 /obj/effect/temp_visual/sansarena
 	name = "костяная стена"
@@ -502,7 +502,7 @@
 	if(ismineralturf(loc)) //drill mineral turfs
 		var/turf/closed/mineral/M = loc
 		M.gets_drilled(caster)
-	INVOKE_ASYNC(src, .proc/cumblast)
+	INVOKE_ASYNC(src, PROC_REF(cumblast))
 
 /obj/effect/temp_visual/hierophant/blast/sans/proc/cumblast()
 	var/turf/T = get_turf(src)

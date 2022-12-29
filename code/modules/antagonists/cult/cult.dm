@@ -168,7 +168,7 @@
 	. = ..()
 	.["Dagger"] = CALLBACK(src,.proc/admin_give_dagger)
 	.["Dagger and Metal"] = CALLBACK(src,.proc/admin_give_metal)
-	.["Remove Dagger and Metal"] = CALLBACK(src, .proc/admin_take_all)
+	.["Remove Dagger and Metal"] = CALLBACK(src, PROC_REF(admin_take_all))
 
 /datum/antagonist/cult/proc/admin_give_dagger(mob/admin)
 	if(!equip_cultist(metal=FALSE))
@@ -274,7 +274,7 @@
 			if(B.current)
 				SEND_SOUND(B.current, sound('sound/hallucinations/i_see_you2.ogg'))
 				to_chat(B.current, span_cultlarge("The veil weakens as your cult grows, your eyes begin to glow..."))
-				addtimer(CALLBACK(src, .proc/rise, B.current), 200)
+				addtimer(CALLBACK(src, PROC_REF(rise), B.current), 200)
 		cult_risen = TRUE
 
 	if(ratio > CULT_ASCENDENT && !cult_ascendent)
@@ -282,7 +282,7 @@
 			if(B.current)
 				SEND_SOUND(B.current, sound('sound/hallucinations/im_here1.ogg'))
 				to_chat(B.current, span_cultlarge("Your cult is ascendent and the red harvest approaches - you cannot hide your true nature for much longer!!"))
-				addtimer(CALLBACK(src, .proc/ascend, B.current), 200)
+				addtimer(CALLBACK(src, PROC_REF(ascend), B.current), 200)
 		cult_ascendent = TRUE
 
 
@@ -440,7 +440,7 @@
 		return FALSE
 
 	blood_target = new_target
-	RegisterSignal(blood_target, COMSIG_PARENT_QDELETING, .proc/unset_blood_target_and_timer)
+	RegisterSignal(blood_target, COMSIG_PARENT_QDELETING, PROC_REF(unset_blood_target_and_timer))
 	var/area/target_area = get_area(new_target)
 
 	blood_target_image = image('icons/effects/mouse_pointers/cult_target.dmi', new_target, "glow", ABOVE_MOB_LAYER)
@@ -458,7 +458,7 @@
 		SEND_SOUND(cultist.current, sound(pick('sound/hallucinations/over_here2.ogg','sound/hallucinations/over_here3.ogg'), 0, 1, 75))
 		cultist.current.client.images += blood_target_image
 
-	blood_target_reset_timer = addtimer(CALLBACK(src, .proc/unset_blood_target), duration, TIMER_STOPPABLE)
+	blood_target_reset_timer = addtimer(CALLBACK(src, PROC_REF(unset_blood_target)), duration, TIMER_STOPPABLE)
 	return TRUE
 
 /// Unsets out blood target, clearing the images from all the cultists.

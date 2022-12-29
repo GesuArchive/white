@@ -42,7 +42,7 @@
 			initial_reagents = food_reagents,\
 			foodtypes = RAW | MEAT | GROSS,\
 			volume = reagent_vol,\
-			after_eat = CALLBACK(src, .proc/OnEatFrom))
+			after_eat = CALLBACK(src, PROC_REF(OnEatFrom)))
 
 /*
  * Insert the organ into the select mob.
@@ -71,8 +71,8 @@
 	reciever.internal_organs_slot[slot] = src
 	/// internal_organs_slot must ALWAYS be ordered in the same way as organ_process_order
 	/// Otherwise life processing breaks down
-	sortTim(owner.internal_organs_slot, /proc/cmp_organ_slot_asc)
-	RegisterSignal(owner, COMSIG_PARENT_EXAMINE, .proc/on_owner_examine)
+	sortTim(owner.internal_organs_slot, GLOBAL_PROC_REF(cmp_organ_slot_asc))
+	RegisterSignal(owner, COMSIG_PARENT_EXAMINE, PROC_REF(on_owner_examine))
 	for(var/datum/action/action as anything in actions)
 		action.Grant(reciever)
 	STOP_PROCESSING(SSobj, src)

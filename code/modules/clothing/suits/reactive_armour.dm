@@ -199,7 +199,7 @@
 	owner.alpha = 0
 	in_stealth = TRUE
 	owner.visible_message(span_danger("[capitalize(attack_text)] проходит [owner] в грудь!")) //We pretend to be hit, since blocking it would stop the message otherwise
-	addtimer(CALLBACK(src, .proc/end_stealth, owner), stealth_time)
+	addtimer(CALLBACK(src, PROC_REF(end_stealth), owner), stealth_time)
 	reactivearmor_cooldown = world.time + reactivearmor_cooldown_duration
 	return TRUE
 

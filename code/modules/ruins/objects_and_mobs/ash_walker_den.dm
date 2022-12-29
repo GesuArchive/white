@@ -64,7 +64,7 @@
 					deadmind = H.get_ghost(FALSE, TRUE)
 				to_chat(deadmind, "Ваше тело вернулось в гнездо. Вас создают заново, и вы скоро проснетесь. </br><b>Ваши воспоминания останутся с вами, в отличии от поглощаемой гнездом души.</b>")
 				SEND_SOUND(deadmind, sound('sound/magic/enter_blood.ogg',volume=100))
-				addtimer(CALLBACK(src, .proc/remake_walker, H.mind, H.real_name), 20 SECONDS)
+				addtimer(CALLBACK(src, PROC_REF(remake_walker), H.mind, H.real_name), 20 SECONDS)
 				new /obj/effect/gibspawner/generic(get_turf(H))
 				qdel(H)
 				return

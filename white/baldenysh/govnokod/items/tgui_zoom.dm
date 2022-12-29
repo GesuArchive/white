@@ -21,7 +21,7 @@
 
 /obj/item/clothing/glasses/monocle/map/Initialize(mapload)
 	. = ..()
-	tracker = new /datum/movement_detector(src, CALLBACK(src, .proc/update_view))
+	tracker = new /datum/movement_detector(src, CALLBACK(src, PROC_REF(update_view)))
 
 	map_name = "monocle_[REF(src)]_map"
 

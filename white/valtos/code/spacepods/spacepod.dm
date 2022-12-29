@@ -242,7 +242,7 @@
 	if(object == src || (object && (object in user.get_all_contents())) || user != pilot)
 		return
 	if(weapon && modifiers["ctrl"])
-		INVOKE_ASYNC(src, .proc/async_fire_weapons_at, object)
+		INVOKE_ASYNC(src, PROC_REF(async_fire_weapons_at), object)
 	else
 		var/list/sl_list = splittext(modifiers["screen-loc"],",")
 		var/list/sl_x_list = splittext(sl_list[1], ":")
@@ -638,7 +638,7 @@
 		return FALSE
 	if(!pilot && allow_pilot)
 		pilot = M
-		RegisterSignal(M, COMSIG_MOB_CLIENT_MOUSE_MOVE, .proc/on_mouse_moved)
+		RegisterSignal(M, COMSIG_MOB_CLIENT_MOUSE_MOVE, PROC_REF(on_mouse_moved))
 		addverbs(M)
 		ADD_TRAIT(M, TRAIT_HANDS_BLOCKED, VEHICLE_TRAIT)
 		if(M.client)

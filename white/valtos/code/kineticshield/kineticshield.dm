@@ -54,9 +54,9 @@
 		playsound(loc, 'sound/magic/charge.ogg', 50, TRUE)
 		ison = !ison
 		if(ison)
-			RegisterSignal(user, COMSIG_ATOM_UPDATE_OVERLAYS, .proc/on_update_overlays)
-			RegisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS,  .proc/on_shields)
-			RegisterSignal(user, COMSIG_GUN_FIRED, 		  	  .proc/on_gun_fired)
+			RegisterSignal(user, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(on_update_overlays))
+			RegisterSignal(user, COMSIG_HUMAN_CHECK_SHIELDS,  PROC_REF(on_shields))
+			RegisterSignal(user, COMSIG_GUN_FIRED, 		  	  PROC_REF(on_gun_fired))
 			START_PROCESSING(SSobj, src)
 			for(var/obj/item/kinetic_shield/KS in user.contents)
 				if(KS != src && KS.ison == TRUE)

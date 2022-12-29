@@ -56,10 +56,10 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	RegisterSignal(M, COMSIG_MOUSE_SCROLL_ON, .proc/on_scroll_wheel)
-	RegisterSignal(M, COMSIG_MOB_CLICKON, .proc/on_click)
-	RegisterSignal(M, COMSIG_MOUSE_ENTERED_ON, .proc/on_mouse_entered)
-	RegisterSignal(M, COMSIG_MOB_SAY, .proc/fortnite_check)
+	RegisterSignal(M, COMSIG_MOUSE_SCROLL_ON, PROC_REF(on_scroll_wheel))
+	RegisterSignal(M, COMSIG_MOB_CLICKON, PROC_REF(on_click))
+	RegisterSignal(M, COMSIG_MOUSE_ENTERED_ON, PROC_REF(on_mouse_entered))
+	RegisterSignal(M, COMSIG_MOB_SAY, PROC_REF(fortnite_check))
 	var/datum/forklift_module/new_module = new starting_module_path
 	new_module.my_forklift = src
 	selected_modules[M] = new_module

@@ -68,7 +68,7 @@
 
 /datum/job/ai/announce(mob/living/silicon/ai/AI)
 	. = ..()
-	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, .proc/minor_announce, "[AI] был загружен в пустое ядро искусственного интеллекта из блюспейс сети: [AREACOORD(AI)]."))
+	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, PROC_REF(minor_announce), "[AI] был загружен в пустое ядро искусственного интеллекта из блюспейс сети: [AREACOORD(AI)]."))
 
 /datum/job/ai/config_check()
 	return CONFIG_GET(flag/allow_ai)

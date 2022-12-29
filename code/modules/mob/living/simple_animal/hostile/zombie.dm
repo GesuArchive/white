@@ -30,7 +30,7 @@
 /mob/living/simple_animal/hostile/zombie/Initialize(mapload)
 	. = ..()
 	zombiejob = pick(list(JOB_ASSISTANT, JOB_COOK, JOB_BOTANIST, JOB_MEDICAL_DOCTOR, JOB_BOMJ, JOB_LAWYER, JOB_JANITOR, JOB_CARGO_TECHNICIAN))
-	INVOKE_ASYNC(src, .proc/setup_visuals)
+	INVOKE_ASYNC(src, PROC_REF(setup_visuals))
 
 
 

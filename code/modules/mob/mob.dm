@@ -526,8 +526,8 @@
 		if(isnull(client.recent_examines[A]) || client.recent_examines[A] < world.time)
 			result = A.examine(src)
 			client.recent_examines[A] = world.time + EXAMINE_MORE_TIME // set the value to when the examine cooldown ends
-			RegisterSignal(A, COMSIG_PARENT_QDELETING, .proc/clear_from_recent_examines, override=TRUE) // to flush the value if deleted early
-			addtimer(CALLBACK(src, .proc/clear_from_recent_examines, A), EXAMINE_MORE_TIME)
+			RegisterSignal(A, COMSIG_PARENT_QDELETING, PROC_REF(clear_from_recent_examines), override=TRUE) // to flush the value if deleted early
+			addtimer(CALLBACK(src, PROC_REF(clear_from_recent_examines), A), EXAMINE_MORE_TIME)
 			handle_eye_contact(A)
 		else
 			result = A.examine_more(src)
@@ -620,11 +620,11 @@
 	// check to see if their face is blocked or, if not, a signal blocks it
 	if(examined_mob.is_face_visible() && SEND_SIGNAL(src, COMSIG_MOB_EYECONTACT, examined_mob, TRUE) != COMSIG_BLOCK_EYECONTACT)
 		var/msg = span_smallnotice("[capitalize(examined_mob.name)] смотрит прямо на меня.")
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, src, msg), 3) // so the examine signal has time to fire and this will print after
+		addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(to_chat), src, msg), 3) // so the examine signal has time to fire and this will print after
 
 	if(is_face_visible() && SEND_SIGNAL(examined_mob, COMSIG_MOB_EYECONTACT, src, FALSE) != COMSIG_BLOCK_EYECONTACT)
 		var/msg = span_smallnotice("[capitalize(src.name)] смотрит прямо на меня.")
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, examined_mob, msg), 3)
+		addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(to_chat), examined_mob, msg), 3)
 
 /**
  * Called by using Activate Held Object with an empty hand/limb
@@ -1501,7 +1501,7 @@
 		UnregisterSignal(active_storage, COMSIG_PARENT_QDELETING)
 	active_storage = new_active_storage
 	if(active_storage)
-		RegisterSignal(active_storage, COMSIG_PARENT_QDELETING, .proc/active_storage_deleted)
+		RegisterSignal(active_storage, COMSIG_PARENT_QDELETING, PROC_REF(active_storage_deleted))
 
 /mob/proc/active_storage_deleted(datum/source)
 	SIGNAL_HANDLER
@@ -1548,7 +1548,7 @@
 	SEND_SIGNAL(src, COMSIG_FIXEYE_UNLOCK)
 	SEND_SIGNAL(src, COMSIG_FIXEYE_ENABLE, TRUE, TRUE)
 	SEND_SIGNAL(src, COMSIG_FIXEYE_LOCK)
-	RegisterSignal(src, COMSIG_MOB_LOGOUT, .proc/kill_zoom, override = TRUE)
+	RegisterSignal(src, COMSIG_MOB_LOGOUT, PROC_REF(kill_zoom), override = TRUE)
 	//var/distance = min(get_dist(src, A), 7)
 	var/distance = 7
 	var/direction = get_approx_dir(get_angle(src, A))
@@ -1578,7 +1578,7 @@
 /mob/proc/kill_zoom(mob/living/source)
 	SIGNAL_HANDLER
 
-	INVOKE_ASYNC(src, .proc/unperform_zoom)
+	INVOKE_ASYNC(src, PROC_REF(unperform_zoom))
 
 /mob/verb/view_changelog()
 	set hidden = TRUE

@@ -66,7 +66,7 @@
 	play_sound_to_everyone('white/valtos/sounds/black_mesa/mobs/nihilanth/nihilanth_death01.ogg')
 	new /obj/effect/singularity_creation(loc)
 	message_admins("[src] has been defeated, a spacetime cascade might occur in 30 seconds.")
-	addtimer(CALLBACK(src, .proc/endgame_shit),  30 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(endgame_shit)),  30 SECONDS)
 
 /mob/living/simple_animal/hostile/blackmesa/xen/nihilanth/proc/endgame_shit()
 	to_chat(world, span_danger("Чувствую будто что-то могущественное было уничтожено..."))

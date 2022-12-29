@@ -105,7 +105,7 @@
 		return
 
 	var/old_len = authorized.len
-	addtimer(CALLBACK(src, .proc/clear_recent_action, user), SHUTTLE_CONSOLE_ACTION_DELAY)
+	addtimer(CALLBACK(src, PROC_REF(clear_recent_action), user), SHUTTLE_CONSOLE_ACTION_DELAY)
 
 	switch(action)
 		if("authorize")
@@ -506,7 +506,7 @@
 				setTimer(SSshuttle.emergencyEscapeTime * engine_coeff)
 				priority_announce("Эвакуационный шаттл покинул станцию. Осталось [timeLeft(600)] минуты до прибытия в доки Центрального Командования.", null, null, "Priority")
 				webhook_send_roundstatus("shuttle left")
-				INVOKE_ASYNC(SSticker, /datum/controller/subsystem/ticker.proc/poll_hearts)
+				INVOKE_ASYNC(SSticker, TYPE_PROC_REF(/datum/controller/subsystem/ticker, poll_hearts))
 				SSmapping.mapvote() //If no map vote has been run yet, start one.
 
 		if(SHUTTLE_STRANDED, SHUTTLE_DISABLED)

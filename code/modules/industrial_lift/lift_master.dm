@@ -68,7 +68,7 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 
 	new_lift_platform.lift_master_datum = src
 	LAZYADD(lift_platforms, new_lift_platform)
-	RegisterSignal(new_lift_platform, COMSIG_PARENT_QDELETING, .proc/remove_lift_platforms)
+	RegisterSignal(new_lift_platform, COMSIG_PARENT_QDELETING, PROC_REF(remove_lift_platforms))
 
 	check_for_landmarks(new_lift_platform)
 
@@ -346,10 +346,10 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 	playsound(prime_lift, 'sound/mecha/hydraulic.ogg', 25, vary = TRUE, frequency = clamp(hydraulic_sfx_duration / lift_move_duration, 0.33, 3))
 
 	// Move the lift after a timer
-	addtimer(CALLBACK(src, .proc/move_lift_vertically, direction, user), lift_move_duration, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(move_lift_vertically), direction, user), lift_move_duration, TIMER_UNIQUE)
 	// Open doors after the set duration if supplied
 	if(isnum(door_duration))
-		addtimer(CALLBACK(src, .proc/open_lift_doors_callback), door_duration, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(open_lift_doors_callback)), door_duration, TIMER_UNIQUE)
 
 	// Here on we only care about lifts going DOWN
 	if(direction != DOWN)
@@ -409,7 +409,7 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 		user = user,
 	)
 
-	addtimer(CALLBACK(src, .proc/set_controls, LIFT_PLATFORM_UNLOCKED), lift_move_duration * 1.5)
+	addtimer(CALLBACK(src, PROC_REF(set_controls), LIFT_PLATFORM_UNLOCKED), lift_move_duration * 1.5)
 	return TRUE
 
 /**
@@ -468,7 +468,7 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 		if(QDELETED(src) || QDELETED(prime_lift))
 			return
 
-	addtimer(CALLBACK(src, .proc/open_lift_doors_callback), 2 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(open_lift_doors_callback)), 2 SECONDS)
 	set_controls(LIFT_PLATFORM_UNLOCKED)
 	return TRUE
 

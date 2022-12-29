@@ -31,9 +31,9 @@
 		follow_distance = _follow_distance
 	if(_follow_speed)
 		follow_speed = _follow_speed
-	RegisterSignal(parent, COMSIG_HOSTILE_MOB_LOST_TARGET, .proc/lost_target)
-	RegisterSignal(parent, COMSIG_CLICK_ALT, .proc/toggle_follow)
-	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, .proc/on_examine)
+	RegisterSignal(parent, COMSIG_HOSTILE_MOB_LOST_TARGET, PROC_REF(lost_target))
+	RegisterSignal(parent, COMSIG_CLICK_ALT, PROC_REF(toggle_follow))
+	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 	parent_mob = parent
 
 /datum/component/follow/Destroy(force, silent)

@@ -26,7 +26,7 @@
 		for(var/turf/target_tile as anything in RANGE_TURFS(aoe_radius, boss))
 			if(!(locate(/obj/effect/clockmaster_aoe_warning) in target_tile) && !(locate(/mob/living/simple_animal/hostile/boss/clockmaster/phase_two) in target_tile))
 				new /obj/effect/clockmaster_aoe_warning(target_tile)
-			addtimer(CALLBACK(src, .proc/BlastEm), 4 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(BlastEm)), 4 SECONDS)
 
 /datum/action/boss/brain_blast/proc/BlastEm()
 	var/mob/living/simple_animal/armored_individual = boss
@@ -54,7 +54,7 @@
 
 /obj/effect/clockmaster_aoe_warning/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, .proc/DeleteMe), 4 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(DeleteMe)), 4 SECONDS)
 
 /obj/effect/clockmaster_aoe_warning/proc/DeleteMe()
 	Destroy(src)
@@ -88,11 +88,11 @@
 		boss.point_at(chosen_target)
 		boss.say("im bout to run ur ass over boy")
 		boss.mid_ability = TRUE
-		addtimer(CALLBACK(src, .proc/tackle_that_mfer), 2 SECONDS) //give the victim a moment to recognize they're about to be slammed before we slam
+		addtimer(CALLBACK(src, PROC_REF(tackle_that_mfer)), 2 SECONDS) //give the victim a moment to recognize they're about to be slammed before we slam
 
 /datum/action/boss/spinning_bronze/proc/tackle_that_mfer()
 	playsound(boss, 'sound/weapons/sonic_jackhammer.ogg', 50, TRUE)
-	boss.throw_at(chosen_target, 7, 1.1, src, FALSE, FALSE, CALLBACK(GLOBAL_PROC, .proc/playsound, boss, 'sound/effects/meteorimpact.ogg', 50, TRUE, 2), INFINITY)
+	boss.throw_at(chosen_target, 7, 1.1, src, FALSE, FALSE, CALLBACK(GLOBAL_PROC, PROC_REF(playsound), boss, 'sound/effects/meteorimpact.ogg', 50, TRUE, 2), INFINITY)
 	sleep(4 SECONDS)
 	boss.mid_ability = FALSE
 
@@ -127,7 +127,7 @@
 		for(var/obj/effect/landmark/clockworkmarauder_spawn/spawner in GLOB.landmarks_list)
 			if(spawner.id == id)
 				var/atom/marauder = new /mob/living/simple_animal/hostile/clockwork/marauder/weak(get_turf(spawner))
-				RegisterSignal(marauder, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH), .proc/lost_marauder)
+				RegisterSignal(marauder, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH), PROC_REF(lost_marauder))
 				active_marauders = 8
 	else
 		boss.atb.refund(boss_cost)

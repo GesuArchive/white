@@ -136,7 +136,7 @@
 	var/obj/structure/closet/supplypod/pod = make_pod()
 	new /obj/effect/pod_landingzone(LZ, pod, crate)
 
-	addtimer(CALLBACK(src, .proc/start_rain), rand(60, 240) SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(start_rain)), rand(60, 240) SECONDS)
 
 /datum/round_aspect/rainy_shift/proc/make_pod()
 	var/obj/structure/closet/supplypod/S = new

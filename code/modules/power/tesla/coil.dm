@@ -85,7 +85,7 @@
 		//don't lose arc power when it's not connected to anything
 		//please place tesla coils all around the station to maximize effectiveness
 		obj_flags |= BEING_SHOCKED
-		addtimer(CALLBACK(src, .proc/reset_shocked), 1 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(reset_shocked)), 1 SECONDS)
 		zap_buckle_check(power)
 		if(zap_flags & ZAP_GENERATES_POWER) //I don't want no tesla revolver making 8GW you hear
 			return power / 2
@@ -133,7 +133,7 @@
 			D.adjust_money(min(power_produced, 3))
 		if(istype(linked_techweb))
 			linked_techweb.add_point_list(list(TECHWEB_POINT_TYPE_DEFAULT = min(power_produced, 12))) // x4 coils with a pulse per second or so = ~720/m point bonus for R&D
-		addtimer(CALLBACK(src, .proc/reset_shocked), 10)
+		addtimer(CALLBACK(src, PROC_REF(reset_shocked)), 10)
 		zap_buckle_check(power)
 		playsound(src.loc, 'sound/magic/lightningshock.ogg', 100, TRUE, extrarange = 5)
 		return power_produced

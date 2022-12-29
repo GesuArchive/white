@@ -938,7 +938,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!holder)
 		return
 
-	var/weather_type = tgui_input_list(usr, "Choose a weather", "Weather", sort_list(subtypesof(/datum/weather), /proc/cmp_typepaths_asc))
+	var/weather_type = tgui_input_list(usr, "Choose a weather", "Weather", sort_list(subtypesof(/datum/weather), GLOBAL_PROC_REF(cmp_typepaths_asc)))
 	if(!weather_type)
 		return
 

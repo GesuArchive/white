@@ -63,7 +63,7 @@ It's like a regular ol' straight pipe, but you can turn it on and off.
 
 	playsound(src, 'white/valtos/sounds/valve.ogg', 25, FALSE, SHORT_RANGE_SOUND_EXTRARANGE)
 
-	addtimer(CALLBACK(src, .proc/finish_interact), 10)
+	addtimer(CALLBACK(src, PROC_REF(finish_interact)), 10)
 
 /**
  * Called by iteract() after a 1 second timer, calls toggle(), allows another interaction with the component.
@@ -117,7 +117,7 @@ It's like a regular ol' straight pipe, but you can turn it on and off.
 	. = ..()
 	if(istype(shell, /obj/machinery/atmospherics/components/binary/valve/digital))
 		attached_valve = shell
-		RegisterSignal(attached_valve, COMSIG_VALVE_SET_OPEN, .proc/handle_valve_toggled)
+		RegisterSignal(attached_valve, COMSIG_VALVE_SET_OPEN, PROC_REF(handle_valve_toggled))
 
 /obj/item/circuit_component/digital_valve/unregister_usb_parent(atom/movable/shell)
 	UnregisterSignal(attached_valve, COMSIG_VALVE_SET_OPEN)

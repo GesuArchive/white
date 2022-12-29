@@ -16,7 +16,7 @@ GLOBAL_REAL_VAR(list/__auxtools_initialized)
 	}\
 	if (!__auxtools_initialized[LIB] != AUXTOOLS_FULL_INIT) {\
 		if (fexists(LIB)) {\
-			var/string = call(LIB,"auxtools_init")();\
+			var/string = LIBCALL(LIB,"auxtools_init")();\
 			if(findtext(string, "SUCCESS")) {\
 				__auxtools_initialized[LIB] = AUXTOOLS_FULL_INIT;\
 			} else {\
@@ -29,12 +29,12 @@ GLOBAL_REAL_VAR(list/__auxtools_initialized)
 
 #define AUXTOOLS_SHUTDOWN(LIB)\
 	if (__auxtools_initialized[LIB] && fexists(LIB)){\
-		call(LIB,"auxtools_shutdown")();\
+		LIBCALL(LIB,"auxtools_shutdown")();\
 		__auxtools_initialized[LIB] = FALSE;\
 	}\
 
 #define AUXTOOLS_FULL_SHUTDOWN(LIB)\
 	if (__auxtools_initialized[LIB] && fexists(LIB)){\
-		call(LIB,"auxtools_full_shutdown")();\
+		LIBCALL(LIB,"auxtools_full_shutdown")();\
 		__auxtools_initialized[LIB] = FALSE;\
 	}\

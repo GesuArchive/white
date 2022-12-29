@@ -55,14 +55,14 @@
 
 /obj/item/gun/magic/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_ITEM_MAGICALLY_CHARGED, .proc/on_magic_charge)
+	RegisterSignal(src, COMSIG_ITEM_MAGICALLY_CHARGED, PROC_REF(on_magic_charge))
 
 	charges = max_charges
 	chambered = new ammo_type(src)
 	if(can_charge)
 		START_PROCESSING(SSobj, src)
 
-	RegisterSignal(src, COMSIG_ITEM_RECHARGED, .proc/instant_recharge)
+	RegisterSignal(src, COMSIG_ITEM_RECHARGED, PROC_REF(instant_recharge))
 
 /obj/item/gun/magic/proc/on_magic_charge(datum/source, datum/action/cooldown/spell/spell, mob/living/caster)
 	charges = max_charges

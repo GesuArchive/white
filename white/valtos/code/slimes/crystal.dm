@@ -383,7 +383,7 @@
 
 	animate(src, transform = M, time = 60 SECONDS)
 
-	addtimer(CALLBACK(src, .proc/stage_growth), 60 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(stage_growth)), 60 SECONDS)
 
 /obj/structure/cerulean_slime_crystal/Destroy()
 	if(stage > 1)

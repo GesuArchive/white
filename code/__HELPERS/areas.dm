@@ -151,7 +151,7 @@ GLOBAL_LIST_INIT(typecache_powerfailure_safe_areas, typecacheof(/area/engineerin
 /// Returns a sorted version of GLOB.areas, by name
 /proc/get_sorted_areas()
 	if(!GLOB.sortedAreas)
-		GLOB.sortedAreas = sortTim(GLOB.areas.Copy(), /proc/cmp_name_asc)
+		GLOB.sortedAreas = sortTim(GLOB.areas.Copy(), GLOBAL_PROC_REF(cmp_name_asc))
 	return GLOB.sortedAreas
 
 //Takes: Area type as a text string from a variable.

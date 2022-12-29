@@ -571,7 +571,7 @@ GLOBAL_VAR_INIT(is_cargo_sabotaged, FALSE)
 /datum/objective/limited/update_explanation_text()
 	..()
 	explanation_text = "Выполнить все задания за [DisplayTimeText(time_to_do/2)]."
-	timerid = addtimer(CALLBACK(src, .proc/kill_agents), time_to_do * 2)
+	timerid = addtimer(CALLBACK(src, PROC_REF(kill_agents)), time_to_do * 2)
 
 	var/list/datum/mind/owners = get_owners()
 	for(var/datum/mind/M in owners)

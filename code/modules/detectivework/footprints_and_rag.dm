@@ -13,7 +13,7 @@
 
 /obj/item/reagent_containers/glass/rag/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/cleaner, 3 SECONDS, pre_clean_callback=CALLBACK(src, .proc/should_clean))
+	AddComponent(/datum/component/cleaner, 3 SECONDS, pre_clean_callback=CALLBACK(src, PROC_REF(should_clean)))
 
 /obj/item/reagent_containers/glass/rag/suicide_act(mob/user)
 	user.visible_message(span_suicide("[user] is smothering [user.ru_na()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))

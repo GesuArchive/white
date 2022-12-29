@@ -200,7 +200,7 @@
 
 /datum/nanite_program/defib/on_trigger(comm_message)
 	host_mob.notify_ghost_cloning("Мое сердце было запущено благодаря нанитам! Необходимо срочно вернуться в тело!")
-	addtimer(CALLBACK(src, .proc/zap), 50)
+	addtimer(CALLBACK(src, PROC_REF(zap)), 50)
 
 /datum/nanite_program/defib/proc/check_revivable()
 	if(!iscarbon(host_mob)) //nonstandard biology

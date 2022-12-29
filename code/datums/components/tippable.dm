@@ -37,7 +37,7 @@
 	src.post_untipped_callback = post_untipped_callback
 
 /datum/component/tippable/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND_SECONDARY, .proc/interact_with_tippable)
+	RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND_SECONDARY, PROC_REF(interact_with_tippable))
 
 /datum/component/tippable/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_ATOM_ATTACK_HAND_SECONDARY)
@@ -67,9 +67,9 @@
 		return
 
 	if(is_tipped)
-		INVOKE_ASYNC(src, .proc/try_untip, source, user)
+		INVOKE_ASYNC(src, PROC_REF(try_untip), source, user)
 	else
-		INVOKE_ASYNC(src, .proc/try_tip, source, user)
+		INVOKE_ASYNC(src, PROC_REF(try_tip), source, user)
 
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
@@ -127,7 +127,7 @@
 	else if(self_right_time <= 0)
 		right_self(tipped_mob)
 	else
-		addtimer(CALLBACK(src, .proc/right_self, tipped_mob), self_right_time)
+		addtimer(CALLBACK(src, PROC_REF(right_self), tipped_mob), self_right_time)
 
 /*
  * Try to untip a mob that has been tipped.

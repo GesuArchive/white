@@ -447,7 +447,7 @@
 	var/mob/living/simple_animal/hostile/bloodsucker/werewolf/A = owner
 	A.environment_smash = ENVIRONMENT_SMASH_RWALLS
 	A.obj_damage *= 3
-	addtimer(CALLBACK(src, .proc/DeactivatePower), 10 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(DeactivatePower)), 10 SECONDS)
 
 /datum/action/bloodsucker/gangrel/rabidism/ContinueActive()
 	return TRUE

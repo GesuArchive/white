@@ -93,7 +93,7 @@
 		for(var/obj/structure/clockwork_vent/nearby_vent in urange(16, boss))
 			nearby_vent.VentEnable()
 			vents_active = TRUE
-			addtimer(CALLBACK(src, .proc/vent_disabled), 15 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(vent_disabled)), 15 SECONDS)
 
 /datum/action/boss/steam_traps/proc/vent_disabled()
 	vents_active = FALSE
@@ -114,14 +114,14 @@
 /obj/structure/clockwork_vent/Initialize(mapload)
 	. = ..()
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/clockwork_vent/proc/VentEnable()
 	active = TRUE
 	icon_state = "vent_on"
-	addtimer(CALLBACK(src, .proc/VentDisable), 15 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(VentDisable)), 15 SECONDS)
 
 /obj/structure/clockwork_vent/proc/on_entered(datum/source, atom/movable/AM)
 	SIGNAL_HANDLER
@@ -167,7 +167,7 @@
 		for(var/i in 1 to 4)
 			var/mob/living/target = boss
 			var/atom/active_cogscarab = new /mob/living/simple_animal/hostile/clockwork/cogscarab(get_step(target,pick_n_take(directions)))
-			RegisterSignal(active_cogscarab, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH), .proc/lost_cogscarab)
+			RegisterSignal(active_cogscarab, list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH), PROC_REF(lost_cogscarab))
 			summoned_cogscarabs++
 	else
 		boss.atb.refund(boss_cost)

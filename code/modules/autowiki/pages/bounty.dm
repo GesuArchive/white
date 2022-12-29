@@ -4,7 +4,7 @@
 /datum/autowiki/bounty/generate()
 	var/output = ""
 
-	for (var/bounty_type in sort_list(subtypesof(/datum/bounty), /proc/cmp_typepaths_asc))
+	for (var/bounty_type in sort_list(subtypesof(/datum/bounty), GLOBAL_PROC_REF(cmp_typepaths_asc)))
 		var/datum/bounty/bounty = new bounty_type(src)
 
 		if(!bounty?.name)

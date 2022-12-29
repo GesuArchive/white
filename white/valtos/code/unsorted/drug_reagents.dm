@@ -248,7 +248,7 @@
 						H.visible_message(span_warning("[H] хватается за свою грудь и похоже это конец!"))
 					H.adjustStaminaLoss(80)
 				if(prob(3))
-					addtimer(CALLBACK(src, .proc/end_bad_trip, H), 30)
+					addtimer(CALLBACK(src, PROC_REF(end_bad_trip), H), 30)
 
 	if(prob(5))
 		to_chat(H, "<i>Слышу свои собственные мысли... <b>[high_message]</i></b>")
@@ -502,7 +502,7 @@
 	animate(src, color = color_matrix_rotate_hue(rand(0, 360)), time = 200, easing = CIRCULAR_EASING)
 	QDEL_IN(src, rand(40, 200))
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 

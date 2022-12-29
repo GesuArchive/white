@@ -98,7 +98,7 @@
 			busy = TRUE
 			add_overlay("active")
 			playsound(src, 'sound/effects/spray.ogg', 30, TRUE, -6)
-			addtimer(CALLBACK(src, .proc/refill, P, user), 20)
+			addtimer(CALLBACK(src, PROC_REF(refill), P, user), 20)
 			qdel(P)
 			return
 		to_chat(user, span_danger("Внимание! В машине недостаточно реагентов или они не соответствуют данному медипену."))

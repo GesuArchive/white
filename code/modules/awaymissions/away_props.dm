@@ -65,7 +65,7 @@
 
 /obj/structure/pitgrate/Initialize(mapload)
 	. = ..()
-	RegisterSignal(SSdcs,COMSIG_GLOB_BUTTON_PRESSED, .proc/OnButtonPressed)
+	RegisterSignal(SSdcs,COMSIG_GLOB_BUTTON_PRESSED, PROC_REF(OnButtonPressed))
 	if(hidden)
 		update_openspace()
 
@@ -73,7 +73,7 @@
 	SIGNAL_HANDLER
 
 	if(button.id == id) //No range checks because this is admin abuse mostly.
-		INVOKE_ASYNC(src, .proc/toggle)
+		INVOKE_ASYNC(src, PROC_REF(toggle))
 
 /obj/structure/pitgrate/proc/update_openspace()
 	var/turf/open/openspace/T = get_turf(src)

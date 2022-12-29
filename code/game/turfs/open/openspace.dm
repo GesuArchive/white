@@ -17,7 +17,7 @@
 
 /turf/open/openspace/Initialize(mapload) // handle plane and layer here so that they don't cover other obs/turfs in Dream Maker
 	. = ..()
-	RegisterSignal(src, COMSIG_ATOM_CREATED, .proc/on_atom_created)
+	RegisterSignal(src, COMSIG_ATOM_CREATED, PROC_REF(on_atom_created))
 	var/area/our_area = loc
 	if(istype(our_area, /area/space))
 		force_no_gravity = TRUE
@@ -56,7 +56,7 @@
 	SIGNAL_HANDLER
 	if(ismovable(created_atom))
 		//Drop it only when it's finished initializing, not before.
-		addtimer(CALLBACK(src, .proc/zfall_if_on_turf, created_atom), 0 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(zfall_if_on_turf), created_atom), 0 SECONDS)
 
 /turf/open/openspace/proc/zfall_if_on_turf(atom/movable/movable)
 	if(QDELETED(movable) || movable.loc != src)

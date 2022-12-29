@@ -44,7 +44,7 @@
 	. = ..()
 	var/datum/action/cooldown/spell/jaunt/bloodcrawl/slaughter_demon/crawl = new(src)
 	crawl.Grant(src)
-	RegisterSignal(src, list(COMSIG_MOB_ENTER_JAUNT, COMSIG_MOB_AFTER_EXIT_JAUNT), .proc/on_crawl)
+	RegisterSignal(src, list(COMSIG_MOB_ENTER_JAUNT, COMSIG_MOB_AFTER_EXIT_JAUNT), PROC_REF(on_crawl))
 
 /// Whenever we enter or exit blood crawl, reset our bonus and hitstreaks.
 /mob/living/simple_animal/hostile/imp/slaughter/proc/on_crawl(datum/source)
@@ -53,7 +53,7 @@
 	// Grant us a speed boost if we're on the mortal plane
 	if(isturf(loc))
 		add_movespeed_modifier(/datum/movespeed_modifier/slaughter)
-		addtimer(CALLBACK(src, .proc/remove_movespeed_modifier, /datum/movespeed_modifier/slaughter), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+		addtimer(CALLBACK(src, PROC_REF(remove_movespeed_modifier), /datum/movespeed_modifier/slaughter), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 	// Reset our streaks
 	current_hitstreak = 0
@@ -147,7 +147,7 @@
 /mob/living/simple_animal/hostile/imp/slaughter/phasein()
 	. = ..()
 	add_movespeed_modifier(/datum/movespeed_modifier/slaughter)
-	addtimer(CALLBACK(src, .proc/remove_movespeed_modifier, /datum/movespeed_modifier/slaughter), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+	addtimer(CALLBACK(src, PROC_REF(remove_movespeed_modifier), /datum/movespeed_modifier/slaughter), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 //The loot from killing a slaughter demon - can be consumed to allow the user to blood crawl
 /obj/item/organ/heart/demon
@@ -272,7 +272,7 @@
 /mob/living/simple_animal/hostile/imp/slaughter/laughter/bloodcrawl_swallow(mob/living/victim)
 	// Keep their corpse so rescue is possible
 	consumed_mobs += victim
-	RegisterSignal(victim, COMSIG_MOB_STATCHANGE, .proc/on_victim_statchange)
+	RegisterSignal(victim, COMSIG_MOB_STATCHANGE, PROC_REF(on_victim_statchange))
 
 /* Handle signal from a consumed mob changing stat.
  *

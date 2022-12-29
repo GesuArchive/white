@@ -33,7 +33,7 @@
 		attack_verb_continuous_on = list("разрывает", "выпаривает", "пробивает", "прорубает", "пилит", "протыкает", "уничтожает"), \
 		attack_verb_simple_on = list("разрывает", "выпаривает", "пробивает", "прорубает", "пилит", "протыкает", "уничтожает"), \
 		w_class_on = active_w_class)
-	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
+	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 
 /obj/item/melee/energy/sword/ignis/on_transform(obj/item/source, mob/user, active)
 	. = ..()

@@ -10,7 +10,7 @@
 	if(!isliving(target))
 		return ELEMENT_INCOMPATIBLE
 
-	RegisterSignal(target, COMSIG_MOVABLE_BUMP, .proc/Bump)
+	RegisterSignal(target, COMSIG_MOVABLE_BUMP, PROC_REF(Bump))
 
 /datum/element/skittish/Detach(datum/target)
 	UnregisterSignal(target, COMSIG_MOVABLE_BUMP)
@@ -44,7 +44,7 @@
 		scooby.set_resting(TRUE, silent = TRUE)
 
 	scooby.forceMove(closet_turf)
-	INVOKE_ASYNC(src, .proc/async_shit, closet, scooby, target)
+	INVOKE_ASYNC(src, PROC_REF(async_shit), closet, scooby, target)
 
 /datum/element/skittish/proc/async_shit(obj/structure/closet/closet, mob/living/scooby, atom/target)
 	var/turf/closet_turf = get_turf(closet)

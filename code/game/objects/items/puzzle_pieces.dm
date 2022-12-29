@@ -94,12 +94,12 @@
 
 /obj/machinery/door/keycard/light/Initialize(mapload)
 	. = ..()
-	RegisterSignal(SSdcs, COMSIG_GLOB_LIGHT_MECHANISM_COMPLETED, .proc/check_mechanism)
+	RegisterSignal(SSdcs, COMSIG_GLOB_LIGHT_MECHANISM_COMPLETED, PROC_REF(check_mechanism))
 
 /obj/machinery/door/keycard/light/proc/check_mechanism(datum/source, try_id)
 	SIGNAL_HANDLER
 
-	INVOKE_ASYNC(src, .proc/try_puzzle_open, try_id)
+	INVOKE_ASYNC(src, PROC_REF(try_puzzle_open), try_id)
 
 /obj/machinery/door/keycard/proc/try_puzzle_open(try_id)
 	if(puzzle_id && puzzle_id != try_id)
@@ -146,7 +146,7 @@
 /obj/item/pressure_plate/hologrid/Initialize(mapload)
 	. = ..()
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 	AddElement(/datum/element/undertile, tile_overlay = tile_overlay) //we remove use_anchor here, so it ALWAYS stays anchored

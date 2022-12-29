@@ -6,7 +6,7 @@
 	. = ..()
 	if(!isitem(target))
 		return ELEMENT_INCOMPATIBLE
-	RegisterSignal(target, COMSIG_ITEM_ATTACK, .proc/initiate_surgery_moment)
+	RegisterSignal(target, COMSIG_ITEM_ATTACK, PROC_REF(initiate_surgery_moment))
 
 /datum/element/surgery_initiator/Detach(datum/source)
 	UnregisterSignal(source, COMSIG_ITEM_ATTACK)
@@ -17,7 +17,7 @@
 	SIGNAL_HANDLER
 	if(!isliving(target))
 		return
-	INVOKE_ASYNC(src, .proc/do_initiate_surgery_moment, source, target, user)
+	INVOKE_ASYNC(src, PROC_REF(do_initiate_surgery_moment), source, target, user)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /datum/element/surgery_initiator/proc/do_initiate_surgery_moment(datum/source, atom/target, mob/user)

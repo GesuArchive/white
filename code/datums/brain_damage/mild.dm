@@ -178,8 +178,8 @@
 			to_chat(owner, "<span notice='warning'>[pick("У меня приступ кашля!", "Не могу перестать кашлять!")]</span>")
 			owner.Immobilize(20)
 			owner.emote("cough")
-			addtimer(CALLBACK(owner, /mob/.proc/emote, "cough"), 6)
-			addtimer(CALLBACK(owner, /mob/.proc/emote, "cough"), 12)
+			addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob, emote), "cough"), 6)
+			addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob, emote), "cough"), 12)
 		owner.emote("cough")
 	..()
 

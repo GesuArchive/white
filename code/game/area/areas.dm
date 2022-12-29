@@ -483,7 +483,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 					if(found.file == S.file)
 						soundLen = found.len
 
-				addtimer(CALLBACK(src, /area/.proc/reset_ambience_played, C), soundLen * 10)
+				addtimer(CALLBACK(src, TYPE_PROC_REF(/area, reset_ambience_played), C), soundLen * 10)
 
 /area/proc/reset_ambience_played(client/C)
 	C?.played = FALSE

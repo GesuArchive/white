@@ -160,7 +160,7 @@
  */
 /obj/item/food/grown/tomato/killer/proc/begin_awaken(awaken_time)
 	awakening = TRUE
-	addtimer(CALLBACK(src, .proc/awaken), awaken_time)
+	addtimer(CALLBACK(src, PROC_REF(awaken)), awaken_time)
 
 /*
  * Actually awaken the killer tomato, spawning the killer tomato mob.

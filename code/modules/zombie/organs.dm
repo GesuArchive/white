@@ -65,7 +65,7 @@
 		Какая разница... я хочу есть... Я ХОЧУ ЖРАТЬ!</span>")
 	var/revive_time = rand(revive_time_min, revive_time_max)
 	var/flags = TIMER_STOPPABLE
-	timer_id = addtimer(CALLBACK(src, .proc/zombify), revive_time, flags)
+	timer_id = addtimer(CALLBACK(src, PROC_REF(zombify)), revive_time, flags)
 
 /obj/item/organ/zombie_infection/proc/zombify()
 	timer_id = null

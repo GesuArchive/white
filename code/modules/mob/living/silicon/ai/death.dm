@@ -4,7 +4,7 @@
 
 	if(!gibbed)
 		// Will update all AI status displays with a blue screen of death
-		INVOKE_ASYNC(src, .proc/emote, "bsod")
+		INVOKE_ASYNC(src, PROC_REF(emote), "bsod")
 
 	. = ..()
 
@@ -38,7 +38,7 @@
 		make_mmi_drop_and_transfer()
 
 	if(explosive)
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/explosion, loc, 3, 6, 12, 15), 1 SECONDS)
+		addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(explosion), loc, 3, 6, 12, 15), 1 SECONDS)
 
 	if(src.key)
 		for(var/each in GLOB.ai_status_displays) //change status

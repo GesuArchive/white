@@ -141,28 +141,28 @@
 
 /datum/component/mechanics_holder/RegisterWithParent()
 	//все эти ебучие сигналы почему-то были в виде LIST(COMSIG_SIGNAL_BLA_BLA_BLA) и я не ебу, почему.
-	RegisterSignal(parent, COMSIG_MECHCOMP_ADD_INPUT, .proc/addInput)
-	RegisterSignal(parent, _COMSIG_MECHCOMP_RECEIVE_MSG, .proc/fireInput)
-	RegisterSignal(parent, COMSIG_MECHCOMP_TRANSMIT_SIGNAL, .proc/fireOutSignal)
-	RegisterSignal(parent, COMSIG_MECHCOMP_TRANSMIT_MSG, .proc/fireOutgoing)
-	RegisterSignal(parent, COMSIG_MECHCOMP_TRANSMIT_DEFAULT_MSG, .proc/fireDefault) //Only use this when also using COMSIG_MECHCOMP_ALLOW_MANUAL_SIGNAL
-	RegisterSignal(parent, _COMSIG_MECHCOMP_RM_INCOMING, .proc/removeIncoming)
-	RegisterSignal(parent, _COMSIG_MECHCOMP_RM_OUTGOING, .proc/removeOutgoing)
-	RegisterSignal(parent, COMSIG_MECHCOMP_RM_ALL_CONNECTIONS, .proc/WipeConnections)
-	RegisterSignal(parent, _COMSIG_MECHCOMP_GET_OUTGOING, .proc/getOutgoing)
-	RegisterSignal(parent, _COMSIG_MECHCOMP_GET_INCOMING, .proc/getIncoming)
+	RegisterSignal(parent, COMSIG_MECHCOMP_ADD_INPUT, PROC_REF(addInput))
+	RegisterSignal(parent, _COMSIG_MECHCOMP_RECEIVE_MSG, PROC_REF(fireInput))
+	RegisterSignal(parent, COMSIG_MECHCOMP_TRANSMIT_SIGNAL, PROC_REF(fireOutSignal))
+	RegisterSignal(parent, COMSIG_MECHCOMP_TRANSMIT_MSG, PROC_REF(fireOutgoing))
+	RegisterSignal(parent, COMSIG_MECHCOMP_TRANSMIT_DEFAULT_MSG, PROC_REF(fireDefault)) //Only use this when also using COMSIG_MECHCOMP_ALLOW_MANUAL_SIGNAL
+	RegisterSignal(parent, _COMSIG_MECHCOMP_RM_INCOMING, PROC_REF(removeIncoming))
+	RegisterSignal(parent, _COMSIG_MECHCOMP_RM_OUTGOING, PROC_REF(removeOutgoing))
+	RegisterSignal(parent, COMSIG_MECHCOMP_RM_ALL_CONNECTIONS, PROC_REF(WipeConnections))
+	RegisterSignal(parent, _COMSIG_MECHCOMP_GET_OUTGOING, PROC_REF(getOutgoing))
+	RegisterSignal(parent, _COMSIG_MECHCOMP_GET_INCOMING, PROC_REF(getIncoming))
 
 	//zloebuchiy kostil
-	RegisterSignal(parent, COMSIG_MOUSEDROP_ONTO, .proc/dropm)
-	RegisterSignal(parent, _COMSIG_MECHCOMP_DROPCONNECT, .proc/dropConnect)
-	RegisterSignal(parent, _COMSIG_MECHCOMP_LINK, .proc/link_devices)
-	RegisterSignal(parent, COMSIG_MECHCOMP_ADD_CONFIG, .proc/addConfig)
-	RegisterSignal(parent, COMSIG_MECHCOMP_ALLOW_MANUAL_SIGNAL, .proc/allowManualSingalSetting) //Only use this when also using COMSIG_MECHCOMP_TRANSMIT_DEFAULT_MSG
+	RegisterSignal(parent, COMSIG_MOUSEDROP_ONTO, PROC_REF(dropm))
+	RegisterSignal(parent, _COMSIG_MECHCOMP_DROPCONNECT, PROC_REF(dropConnect))
+	RegisterSignal(parent, _COMSIG_MECHCOMP_LINK, PROC_REF(link_devices))
+	RegisterSignal(parent, COMSIG_MECHCOMP_ADD_CONFIG, PROC_REF(addConfig))
+	RegisterSignal(parent, COMSIG_MECHCOMP_ALLOW_MANUAL_SIGNAL, PROC_REF(allowManualSingalSetting)) //Only use this when also using COMSIG_MECHCOMP_TRANSMIT_DEFAULT_MSG
 
-	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, .proc/attackby)
-	RegisterSignal(parent, _COMSIG_MECHCOMP_COMPATIBLE, .proc/compatible)//Better that checking GetComponent()?
+	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, PROC_REF(attackby))
+	RegisterSignal(parent, _COMSIG_MECHCOMP_COMPATIBLE, PROC_REF(compatible))//Better that checking GetComponent()?
 
-	RegisterSignal(parent, COMSIG_MECHCOMP_ASSBLAST, .proc/assblast)
+	RegisterSignal(parent, COMSIG_MECHCOMP_ASSBLAST, PROC_REF(assblast))
 
 	return  //No need to ..()
 

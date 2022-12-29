@@ -5,7 +5,7 @@
 	examine_description = "Он был благословлен силой огня и будет поджигать пораженные им цели."
 	target.w_class = WEIGHT_CLASS_TINY
 	target.damtype = BURN
-	RegisterSignal(target, COMSIG_ITEM_ATTACK, .proc/burn_target)
+	RegisterSignal(target, COMSIG_ITEM_ATTACK, PROC_REF(burn_target))
 
 /datum/component/enchantment/burn/proc/burn_target(datum/source, atom/movable/target, mob/living/user)
 	if(!isliving(target))

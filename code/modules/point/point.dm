@@ -58,7 +58,7 @@
 
 	add_overlay(thought_bubble)
 	LAZYADD(update_overlays_on_z, thought_bubble)
-	addtimer(CALLBACK(src, .proc/clear_point_bubble, thought_bubble), POINT_TIME)
+	addtimer(CALLBACK(src, PROC_REF(clear_point_bubble), thought_bubble), POINT_TIME)
 
 /atom/movable/proc/clear_point_bubble(mutable_appearance/thought_bubble)
 	LAZYREMOVE(update_overlays_on_z, thought_bubble)

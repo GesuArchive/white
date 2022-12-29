@@ -94,15 +94,15 @@
 	minimum_distance = 0
 	set_varspeed(0)
 	charging = TRUE
-	addtimer(CALLBACK(src, .proc/reset_charge), 60)
+	addtimer(CALLBACK(src, PROC_REF(reset_charge)), 60)
 	var/mob/living/L = target
 	if(!istype(L) || L.stat != DEAD) //I know, weird syntax, but it just works.
-		addtimer(CALLBACK(src, .proc/throw_thyself), 20)
+		addtimer(CALLBACK(src, PROC_REF(throw_thyself)), 20)
 
 ///This is the proc that actually does the throwing. Charge only adds a timer for this.
 /mob/living/simple_animal/hostile/megafauna/legionold/proc/throw_thyself()
 	playsound(src, 'sound/weapons/sonic_jackhammer.ogg', 50, TRUE)
-	throw_at(target, 7, 1.1, src, FALSE, FALSE, CALLBACK(GLOBAL_PROC, .proc/playsound, src, 'sound/effects/meteorimpact.ogg', 50 * size, TRUE, 2), INFINITY)
+	throw_at(target, 7, 1.1, src, FALSE, FALSE, CALLBACK(GLOBAL_PROC, PROC_REF(playsound), src, 'sound/effects/meteorimpact.ogg', 50 * size, TRUE, 2), INFINITY)
 
 ///Deals some extra damage on throw impact.
 /mob/living/simple_animal/hostile/megafauna/legionold/throw_impact(mob/living/hit_atom, datum/thrownthing/throwingdatum)

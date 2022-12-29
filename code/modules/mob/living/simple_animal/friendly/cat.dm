@@ -125,7 +125,7 @@
 
 /mob/living/simple_animal/pet/cat/kitten/Initialize(_gender=null)
 	. = ..(null)
-	addtimer(CALLBACK(src, .proc/grow), 2.5 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(grow)), 2.5 MINUTES)
 	name = gender == FEMALE ? "Киса":"Котик"
 
 /mob/living/simple_animal/pet/cat/kitten/proc/grow()

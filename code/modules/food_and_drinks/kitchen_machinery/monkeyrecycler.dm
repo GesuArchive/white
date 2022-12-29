@@ -80,7 +80,7 @@ GLOBAL_LIST_EMPTY(monkey_recyclers)
 	use_power(active_power_usage)
 	stored_matter += cube_production
 	addtimer(VARSET_CALLBACK(src, pixel_x, base_pixel_x))
-	addtimer(CALLBACK(GLOBAL_PROC, /proc/to_chat, user, span_notice("Теперь в переработчике [stored_matter] обезьяньих кубиков.")))
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), user, span_notice("Теперь в переработчике [stored_matter] обезьяньих кубиков.")))
 
 /obj/machinery/monkey_recycler/interact(mob/user)
 	if(stored_matter >= 1)

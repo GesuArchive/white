@@ -41,7 +41,7 @@
 	to_chat(user, span_notice("Поток теплой и успокаивающей воды струится между вашими пальцами. Вскоре после этого фонтан иссыхает."))
 	user.reagents.add_reagent(/datum/reagent/medicine/omnizine/godblood,20)
 	update_icon()
-	addtimer(CALLBACK(src, /atom/.proc/update_icon), time_between_uses)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), time_between_uses)
 
 
 /obj/structure/healingfountain/update_icon_state()

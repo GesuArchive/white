@@ -19,8 +19,8 @@
 /datum/component/bounty/Initialize(_bounty_size)
 	bounty_size = _bounty_size
 	if(isliving(parent))
-		RegisterSignal(parent, COMSIG_PARENT_EXAMINE, .proc/bounty_examine)
-		RegisterSignal(parent, COMSIG_LIVING_DEATH, .proc/bounty_death)
+		RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(bounty_examine))
+		RegisterSignal(parent, COMSIG_LIVING_DEATH, PROC_REF(bounty_death))
 	else
 		return COMPONENT_INCOMPATIBLE
 

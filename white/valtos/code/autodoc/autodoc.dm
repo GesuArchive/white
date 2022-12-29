@@ -110,7 +110,7 @@
 						target_surgery = S
 						return
 		if("start")
-			INVOKE_ASYNC(src, .proc/surgery_time, usr)
+			INVOKE_ASYNC(src, PROC_REF(surgery_time), usr)
 
 /obj/machinery/autodoc/Destroy()
 	if(active_surgery)

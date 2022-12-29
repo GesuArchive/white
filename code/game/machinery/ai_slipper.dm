@@ -43,4 +43,4 @@
 	to_chat(user, span_notice("Активирую [src.name]. Внутри осталось <b>[uses]</b> зарядов."))
 	COOLDOWN_START(src, foam_cooldown,cooldown_time)
 	power_change()
-	addtimer(CALLBACK(src, .proc/power_change), cooldown_time)
+	addtimer(CALLBACK(src, PROC_REF(power_change)), cooldown_time)

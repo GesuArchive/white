@@ -381,12 +381,12 @@
 
 					if(INTENT_GRAB)
 						C.visible_message(span_danger("<b>[L]</b> утягивает щупальце <b>[H]</b>!") ,span_userdanger("Щупальце хватает меня и тянет к <b>[H]</b>!"))
-						C.throw_at(get_step_towards(H,C), 8, 2, H, TRUE, TRUE, callback=CALLBACK(src, .proc/tentacle_grab, H, C))
+						C.throw_at(get_step_towards(H,C), 8, 2, H, TRUE, TRUE, callback=CALLBACK(src, PROC_REF(tentacle_grab), H, C))
 						return BULLET_ACT_HIT
 
 					if(INTENT_HARM)
 						C.visible_message(span_danger("<b>[L]</b> быстро улетает в сторону <b>[H]</b> под силой щупальца!") ,span_userdanger("Щупальце хватает меня и бросает к <b>[H]</b>!"))
-						C.throw_at(get_step_towards(H,C), 8, 2, H, TRUE, TRUE, callback=CALLBACK(src, .proc/tentacle_stab, H, C))
+						C.throw_at(get_step_towards(H,C), 8, 2, H, TRUE, TRUE, callback=CALLBACK(src, PROC_REF(tentacle_stab), H, C))
 						return BULLET_ACT_HIT
 			else
 				L.visible_message(span_danger("<b>[L]</b> утягивает щупальце <b>[H]</b>!") ,span_userdanger("Щупальце хватает меня и тянет к <b>[H]</b>!"))

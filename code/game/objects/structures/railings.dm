@@ -35,11 +35,11 @@
 
 	if(density && flags_1 & ON_BORDER_1) // blocks normal movement from and to the direction it's facing.
 		var/static/list/loc_connections = list(
-			COMSIG_ATOM_EXIT = .proc/on_exit,
+			COMSIG_ATOM_EXIT = PROC_REF(on_exit),
 		)
 		AddComponent(/datum/component/connect_loc_behalf, src, loc_connections)
 
-	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE | ROTATION_COUNTERCLOCKWISE | ROTATION_VERBS ,null,CALLBACK(src, .proc/can_be_rotated),CALLBACK(src,.proc/after_rotation))
+	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE | ROTATION_COUNTERCLOCKWISE | ROTATION_VERBS ,null,CALLBACK(src, PROC_REF(can_be_rotated)),CALLBACK(src,.proc/after_rotation))
 
 /obj/structure/railing/attackby(obj/item/I, mob/living/user, params)
 	..()
@@ -78,7 +78,7 @@
 	if(flags_1&NODECONSTRUCT_1)
 		return
 	to_chat(user, span_notice("Начинаю [anchored ? "откреплять перила":"прикреплять перила"]..."))
-	if(I.use_tool(src, user, volume = 75, extra_checks = CALLBACK(src, .proc/check_anchored, anchored)))
+	if(I.use_tool(src, user, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_anchored), anchored)))
 		set_anchored(!anchored)
 		to_chat(user, span_notice("[anchored ? "Прикручиваю перила к полу":"Откручиваю перила от пола"]."))
 	return TRUE

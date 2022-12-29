@@ -421,7 +421,7 @@
 		throw_speed_on = active_throw_speed, \
 		hitsound_on = hitsound, \
 		clumsy_check = !can_clumsy_use)
-	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
+	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 
 /obj/item/shield/energy/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	return FALSE
@@ -494,7 +494,7 @@
 		w_class_on = WEIGHT_CLASS_BULKY, \
 		attack_verb_continuous_on = list("вмазывает", "ударяет", "проламывает", "бьет"), \
 		attack_verb_simple_on = list("вмазывает", "ударяет", "проламывает", "бьет"))
-	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
+	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 
 /obj/item/shield/riot/tele/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(extended)

@@ -99,7 +99,7 @@
 
 /datum/station_trait/cargorilla/New()
 	. = ..()
-	RegisterSignal(SSatoms, COMSIG_SUBSYSTEM_POST_INITIALIZE, .proc/replace_cargo)
+	RegisterSignal(SSatoms, COMSIG_SUBSYSTEM_POST_INITIALIZE, PROC_REF(replace_cargo))
 
 /// Replace some cargo equipment and 'personnel' with a gorilla.
 /datum/station_trait/cargorilla/proc/replace_cargo(datum/source)
@@ -113,7 +113,7 @@
 	cargorilla.name = cargo_sloth.name
 	// We do a poll on roundstart, don't let ghosts in early
 	cargorilla.being_polled_for = TRUE
-	INVOKE_ASYNC(src, .proc/make_id_for_gorilla)
+	INVOKE_ASYNC(src, PROC_REF(make_id_for_gorilla))
 
 	// hm our sloth looks funny today
 	qdel(cargo_sloth)
@@ -134,7 +134,7 @@
 	if(!cargorilla)
 		return
 
-	addtimer(CALLBACK(src, .proc/get_ghost_for_gorilla, cargorilla), 12 SECONDS) // give ghosts a bit of time to funnel in
+	addtimer(CALLBACK(src, PROC_REF(get_ghost_for_gorilla), cargorilla), 12 SECONDS) // give ghosts a bit of time to funnel in
 	cargorilla = null
 
 /// Get us a ghost for the gorilla.

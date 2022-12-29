@@ -15,15 +15,15 @@
 	if(!iscarbon(new_pawn))
 		return AI_CONTROLLER_INCOMPATIBLE
 	var/mob/living/living_pawn = new_pawn
-	RegisterSignal(new_pawn, COMSIG_MOVABLE_MOVED, .proc/on_moved)
+	RegisterSignal(new_pawn, COMSIG_MOVABLE_MOVED, PROC_REF(on_moved))
 
-	RegisterSignal(new_pawn, COMSIG_PARENT_ATTACKBY, .proc/on_attackby)
-	RegisterSignal(new_pawn, COMSIG_ATOM_BULLET_ACT, .proc/on_bullet_act)
-	RegisterSignal(new_pawn, COMSIG_ATOM_HITBY, .proc/on_hitby)
-	RegisterSignal(new_pawn, COMSIG_LIVING_START_PULL, .proc/on_startpulling)
-	RegisterSignal(new_pawn, TDROID_SIMPLE_AGRESSION_SIGNALS, .proc/on_simple_agression)
+	RegisterSignal(new_pawn, COMSIG_PARENT_ATTACKBY, PROC_REF(on_attackby))
+	RegisterSignal(new_pawn, COMSIG_ATOM_BULLET_ACT, PROC_REF(on_bullet_act))
+	RegisterSignal(new_pawn, COMSIG_ATOM_HITBY, PROC_REF(on_hitby))
+	RegisterSignal(new_pawn, COMSIG_LIVING_START_PULL, PROC_REF(on_startpulling))
+	RegisterSignal(new_pawn, TDROID_SIMPLE_AGRESSION_SIGNALS, PROC_REF(on_simple_agression))
 
-	RegisterSignal(new_pawn, COMSIG_MOB_MOVESPEED_UPDATED, .proc/update_movespeed)
+	RegisterSignal(new_pawn, COMSIG_MOB_MOVESPEED_UPDATED, PROC_REF(update_movespeed))
 
 	movement_delay = living_pawn.cached_multiplicative_slowdown
 
@@ -126,14 +126,14 @@
 	if(blackboard[BB_TDROID_COMMANDER])
 		UnregisterCommander()
 	blackboard[BB_TDROID_COMMANDER] = commander
-	RegisterSignal(commander, COMSIG_MOB_POINTED, .proc/on_commander_pointed)
-	RegisterSignal(commander, COMSIG_MOVABLE_MOVED, .proc/on_commander_moved)
+	RegisterSignal(commander, COMSIG_MOB_POINTED, PROC_REF(on_commander_pointed))
+	RegisterSignal(commander, COMSIG_MOVABLE_MOVED, PROC_REF(on_commander_moved))
 
-	RegisterSignal(commander, COMSIG_PARENT_ATTACKBY, .proc/on_attackby)
-	RegisterSignal(commander, COMSIG_ATOM_BULLET_ACT, .proc/on_bullet_act)
-	RegisterSignal(commander, COMSIG_ATOM_HITBY, .proc/on_hitby)
-	RegisterSignal(commander, COMSIG_LIVING_START_PULL, .proc/on_startpulling)
-	RegisterSignal(commander, TDROID_SIMPLE_AGRESSION_SIGNALS, .proc/on_simple_agression)
+	RegisterSignal(commander, COMSIG_PARENT_ATTACKBY, PROC_REF(on_attackby))
+	RegisterSignal(commander, COMSIG_ATOM_BULLET_ACT, PROC_REF(on_bullet_act))
+	RegisterSignal(commander, COMSIG_ATOM_HITBY, PROC_REF(on_hitby))
+	RegisterSignal(commander, COMSIG_LIVING_START_PULL, PROC_REF(on_startpulling))
+	RegisterSignal(commander, TDROID_SIMPLE_AGRESSION_SIGNALS, PROC_REF(on_simple_agression))
 
 /datum/ai_controller/tdroid/proc/UnregisterCommander()
 	var/mob/living/commander = blackboard[BB_TDROID_COMMANDER]

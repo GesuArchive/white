@@ -27,7 +27,7 @@
 
 	new /obj/effect/pod_landingzone(T, extraction_pod)
 
-	RegisterSignal(extraction_pod, COMSIG_ATOM_ENTERED, .proc/enter_check)
+	RegisterSignal(extraction_pod, COMSIG_ATOM_ENTERED, PROC_REF(enter_check))
 
 	extraction_pod.stay_after_drop = TRUE
 	extraction_pod.reversing = TRUE

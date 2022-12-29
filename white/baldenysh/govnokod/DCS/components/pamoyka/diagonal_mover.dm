@@ -7,8 +7,8 @@
 		return COMPONENT_INCOMPATIBLE
 
 /datum/component/diagonal_mover/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_MOVABLE_PRE_MOVE, .proc/update_locations)
-	RegisterSignal(parent, "movable_moved_fucking_4real_now", .proc/check_for_diagonal)
+	RegisterSignal(parent, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(update_locations))
+	RegisterSignal(parent, "movable_moved_fucking_4real_now", PROC_REF(check_for_diagonal))
 
 /datum/component/diagonal_mover/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_MOVABLE_PRE_MOVE)

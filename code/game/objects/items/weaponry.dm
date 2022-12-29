@@ -875,8 +875,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 
 /obj/item/vibro_weapon/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
-	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)
+	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
+	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, PROC_REF(on_unwield))
 
 /obj/item/vibro_weapon/ComponentInitialize()
 	. = ..()
@@ -969,7 +969,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 		if(M == user)
 			continue
 		ct += 1.5
-		addtimer(CALLBACK(src, .proc/fast_attack, user, M), ct)
+		addtimer(CALLBACK(src, PROC_REF(fast_attack), user, M), ct)
 
 /obj/item/vibro_weapon/proc/fast_attack(mob/user, mob/living/target)
 	var/atom/last_target_atom = previous_target?.resolve()

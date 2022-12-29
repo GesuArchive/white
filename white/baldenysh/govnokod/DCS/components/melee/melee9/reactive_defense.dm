@@ -8,7 +8,7 @@
 
 /datum/component/reactive_defense/RegisterWithParent()
 	if(iscarbon(parent))
-		RegisterSignal(parent, COMSIG_HUMAN_DISARM_HIT, .proc/onDisarm)
+		RegisterSignal(parent, COMSIG_HUMAN_DISARM_HIT, PROC_REF(onDisarm))
 
 /datum/component/reactive_defense/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_HUMAN_DISARM_HIT)

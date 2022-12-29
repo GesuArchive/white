@@ -41,7 +41,7 @@
 
 /obj/vehicle/sealed/car/fucking_tank/auto_assign_occupant_flags(mob/M)
 	. = ..()
-	RegisterSignal(M, COMSIG_MOB_CLICKON, .proc/fire_cannon_at)
+	RegisterSignal(M, COMSIG_MOB_CLICKON, PROC_REF(fire_cannon_at))
 
 // ЧЕ ЭТО БЛЯ
 /obj/vehicle/sealed/car/fucking_tank/vehicle_move(direction)

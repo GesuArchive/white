@@ -8,7 +8,7 @@
 		return COMPONENT_INCOMPATIBLE
 
 /datum/component/mecha_weapon_shooter/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_MOB_CLICKON, .proc/checkShoot)
+	RegisterSignal(parent, COMSIG_MOB_CLICKON, PROC_REF(checkShoot))
 
 /datum/component/mecha_weapon_shooter/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_MOB_CLICKON)
@@ -33,7 +33,7 @@
 	if(aiming)
 		return
 
-	INVOKE_ASYNC(src, .proc/doShoot, user, A, user.get_active_held_item())
+	INVOKE_ASYNC(src, PROC_REF(doShoot), user, A, user.get_active_held_item())
 
 	return (COMSIG_MOB_CANCEL_CLICKON)
 

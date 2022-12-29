@@ -97,7 +97,7 @@
 	icon_state = "barb_wire_grenade_active"
 	active = TRUE
 	SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time, delayoverride)
-	addtimer(CALLBACK(src, .proc/detonate), isnull(delayoverride)? det_time : delayoverride)
+	addtimer(CALLBACK(src, PROC_REF(detonate)), isnull(delayoverride)? det_time : delayoverride)
 
 /obj/item/grenade/barbed_wire/detonate(mob/living/lanced_by)
 	. = ..()

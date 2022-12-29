@@ -61,11 +61,11 @@
 
 	//TODO OMINOUS MACHINE SOUNDS
 	set_busy(TRUE, "Инициация протокола ввода нанитов...", "[initial(icon_state)]_raising")
-	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Анализ биоструктуры носителя...", "[initial(icon_state)]_active"),20)
-	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Подготовка нанитов...", "[initial(icon_state)]_active"),40)
-	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Ввод нанитов...", "[initial(icon_state)]_active"),70)
-	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Активация нанитов...", "[initial(icon_state)]_falling"),110)
-	addtimer(CALLBACK(src, .proc/complete_injection, locked_state),130)
+	addtimer(CALLBACK(src, PROC_REF(set_busy), TRUE, "Анализ биоструктуры носителя...", "[initial(icon_state)]_active"),20)
+	addtimer(CALLBACK(src, PROC_REF(set_busy), TRUE, "Подготовка нанитов...", "[initial(icon_state)]_active"),40)
+	addtimer(CALLBACK(src, PROC_REF(set_busy), TRUE, "Ввод нанитов...", "[initial(icon_state)]_active"),70)
+	addtimer(CALLBACK(src, PROC_REF(set_busy), TRUE, "Активация нанитов...", "[initial(icon_state)]_falling"),110)
+	addtimer(CALLBACK(src, PROC_REF(complete_injection), locked_state),130)
 	use_power(active_power_usage)
 
 /obj/machinery/nanite_chamber/proc/complete_injection(locked_state)
@@ -89,11 +89,11 @@
 
 	//TODO OMINOUS MACHINE SOUNDS
 	set_busy(TRUE, "Инициация протокола извлечения нанитов...", "[initial(icon_state)]_raising")
-	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Анализ биоструктуры носителя...", "[initial(icon_state)]_active"),20)
-	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Трассировка нанитов...", "[initial(icon_state)]_active"),40)
-	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Запуск последовательности самоуничтожения...", "[initial(icon_state)]_active"),70)
-	addtimer(CALLBACK(src, .proc/set_busy, TRUE, "Промывка кровеносной системы...", "[initial(icon_state)]_falling"),110)
-	addtimer(CALLBACK(src, .proc/complete_removal, locked_state),130)
+	addtimer(CALLBACK(src, PROC_REF(set_busy), TRUE, "Анализ биоструктуры носителя...", "[initial(icon_state)]_active"),20)
+	addtimer(CALLBACK(src, PROC_REF(set_busy), TRUE, "Трассировка нанитов...", "[initial(icon_state)]_active"),40)
+	addtimer(CALLBACK(src, PROC_REF(set_busy), TRUE, "Запуск последовательности самоуничтожения...", "[initial(icon_state)]_active"),70)
+	addtimer(CALLBACK(src, PROC_REF(set_busy), TRUE, "Промывка кровеносной системы...", "[initial(icon_state)]_falling"),110)
+	addtimer(CALLBACK(src, PROC_REF(complete_removal), locked_state),130)
 
 /obj/machinery/nanite_chamber/proc/complete_removal(locked_state)
 	//TODO MACHINE DING

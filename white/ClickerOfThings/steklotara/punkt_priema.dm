@@ -25,7 +25,7 @@
 		playsound(src, 'sound/machines/chime.ogg', 100, 0)
 		say("Бутылка обнаружена! Подождите...")
 		processing = TRUE
-		addtimer(CALLBACK(src, .proc/drop_money, btl), bottle_process_time)
+		addtimer(CALLBACK(src, PROC_REF(drop_money), btl), bottle_process_time)
 	else
 		return ..()
 

@@ -714,7 +714,7 @@
 /obj/effect/mob_spawn/human/donate/artist/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
-	RegisterSignal(src, COMSIG_CLICK, .proc/get_from_lobby)
+	RegisterSignal(src, COMSIG_CLICK, PROC_REF(get_from_lobby))
 
 /obj/effect/mob_spawn/human/donate/artist/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -756,7 +756,7 @@
 	spawned_mobs += L
 	spawned_mobs[L] = L.ckey
 	if(from_lobby)
-		RegisterSignal(L, COMSIG_LIVING_STATUS_UNCONSCIOUS, .proc/send_back_to_lobby)
+		RegisterSignal(L, COMSIG_LIVING_STATUS_UNCONSCIOUS, PROC_REF(send_back_to_lobby))
 
 /obj/effect/mob_spawn/human/donate/artist/proc/send_back_to_lobby(datum/source)
 	SIGNAL_HANDLER
@@ -999,7 +999,7 @@
 	spawn_user(user, bet)
 	to_chat(user, span_noticealien("Создано предложение о дуэли. Если никто не откликнется за 30 секунд, дуэль будет отменена и вам вернут деньги."))
 	notify_ghosts("[user.name] приглашает всех желающих поучавствовать в дуэли на [bet] метакэша. <a href=?src=[REF(src)];ass=1>(Click to play)</a>", source = src, action = NOTIFY_ORBIT, flashwindow = FALSE, ignore_key = POLL_IGNORE_SPLITPERSONALITY)
-	timeout_timer = addtimer(CALLBACK(src, .proc/timeout), 30 SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
+	timeout_timer = addtimer(CALLBACK(src, PROC_REF(timeout)), 30 SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
 
 /obj/effect/duel_controller/Topic(href, href_list)
 	. = ..()
@@ -1052,7 +1052,7 @@
 	announce_timer(span_userdanger("3..."), 3 SECONDS)
 	announce_timer(span_userdanger("2..."), 2 SECONDS)
 	announce_timer(span_userdanger("1..."), 1 SECONDS)
-	timeout_timer = addtimer(CALLBACK(src, .proc/timeout), duel_timelimit SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
+	timeout_timer = addtimer(CALLBACK(src, PROC_REF(timeout)), duel_timelimit SECONDS, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
 	START_PROCESSING(SSfastprocess, src)
 
 /obj/effect/duel_controller/proc/timeout()
@@ -1075,9 +1075,9 @@
 
 /obj/effect/duel_controller/proc/announce_timer(msg, time, in_before_duel_timeout = TRUE)
 	if(in_before_duel_timeout)
-		announcement_timers += addtimer(CALLBACK(src, .proc/announce, msg), duel_timelimit SECONDS - time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
+		announcement_timers += addtimer(CALLBACK(src, PROC_REF(announce), msg), duel_timelimit SECONDS - time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
 	else
-		announcement_timers += addtimer(CALLBACK(src, .proc/announce, msg), time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
+		announcement_timers += addtimer(CALLBACK(src, PROC_REF(announce), msg), time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_DELETE_ME)
 
 
 /obj/effect/duel_controller/proc/finish_duel(state = DUEL_FINISH, first_lost = FALSE, second_lost = FALSE)
@@ -1316,7 +1316,7 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 		log_admin_private("[usr.ckey] granted \"[svin]\" punishment to [asskey]. ")
 		message_admins("[usr.ckey] granted \"[svin]\" punishment to [asskey]. ")
 	if(asskey_blasts.len)
-		sort_list(asskey_blasts, /proc/cmp_text_asc)
+		sort_list(asskey_blasts, GLOBAL_PROC_REF(cmp_text_asc))
 		GLOB.assblasted_people[asskey] = jointext(asskey_blasts,"|")
 	else
 		GLOB.assblasted_people.Remove(asskey)
@@ -1479,7 +1479,7 @@ GLOBAL_LIST_EMPTY(assblasted_people)
 	//to_chat(L, span_clown("oh boy"))
 	L.next_move_adjust += -750
 	//commando = L
-	//RegisterSignal(L, COMSIG_CLICK, .proc/reset_clickcd)
+	//RegisterSignal(L, COMSIG_CLICK, PROC_REF(reset_clickcd))
 
 
 /datum/reagent/drug/soldier/on_mob_end_metabolize(mob/living/L)

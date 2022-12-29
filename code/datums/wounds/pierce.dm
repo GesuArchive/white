@@ -103,7 +103,7 @@
 /datum/wound/pierce/proc/suture(obj/item/stack/medical/suture/I, mob/user)
 	var/self_penalty_mult = (user == victim ? 1.4 : 1)
 	user.visible_message(span_notice("<b>[user]</b> начинает зашивать [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I.name]...") , span_notice("Начинаю зашивать [ru_parse_zone(limb.name)] [user == victim ? "" : "<b>[victim]</b> "]используя [I.name]..."))
-	if(!do_after(user, base_treat_time * self_penalty_mult, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
+	if(!do_after(user, base_treat_time * self_penalty_mult, target=victim, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
 		return
 	user.visible_message(span_green("<b>[user]</b> успешно замедляет кровотечение <b>[victim]</b>.") , span_green("Успешно зашиваю некоторые кровотечения на [ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"]."))
 	var/blood_sutured = I.stop_bleeding / self_penalty_mult
@@ -122,7 +122,7 @@
 	var/self_penalty_mult = (user == victim ? 1.5 : 1) // 50% longer and less effective if you do it to yourself
 
 	user.visible_message(span_smalldanger("<b>[user]</b> начинает прижигать [ru_parse_zone(limb.name)] <b>[victim]</b> используя [I.name]..."), span_danger("Начинаю прижигать [ru_parse_zone(limb.name)] [user == victim ? "" : "<b>[victim]</b> "]используя [I.name]..."))
-	if(!do_after(user, base_treat_time * self_penalty_mult * improv_penalty_mult, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
+	if(!do_after(user, base_treat_time * self_penalty_mult * improv_penalty_mult, target=victim, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
 		return
 
 	user.visible_message(span_green("<b>[user]</b> успешно прижигает некоторые кровотечения <b>[victim]</b>.") , span_green("Успешно прижигаю некоторые кровотечения на [ru_gde_zone(limb.name)][user == victim ? "" : " <b>[victim]</b>"]."))

@@ -10,7 +10,7 @@
 
 	GLOB.carbon_list += src
 	if(!mapload)  //I don't want no gas leaks on my space ruin you hear?
-		RegisterSignal(src, COMSIG_LIVING_DEATH, .proc/attach_rot)
+		RegisterSignal(src, COMSIG_LIVING_DEATH, PROC_REF(attach_rot))
 
 	AddComponent(/datum/component/tts)
 
@@ -1064,7 +1064,7 @@
 		for(var/i in artpaths)
 			var/datum/martial_art/M = i
 			artnames[initial(M.name)] = M
-		var/result = tgui_input_list(usr, "Choose the martial art to teach", "JUDO CHOP", sort_list(artnames, /proc/cmp_typepaths_asc))
+		var/result = tgui_input_list(usr, "Choose the martial art to teach", "JUDO CHOP", sort_list(artnames, GLOBAL_PROC_REF(cmp_typepaths_asc)))
 		if(!usr)
 			return
 		if(QDELETED(src))
@@ -1080,7 +1080,7 @@
 		if(!check_rights(NONE))
 			return
 		var/list/traumas = subtypesof(/datum/brain_trauma)
-		var/result = tgui_input_list(usr, "Choose the brain trauma to apply", "Traumatize", sort_list(traumas, /proc/cmp_typepaths_asc))
+		var/result = tgui_input_list(usr, "Choose the brain trauma to apply", "Traumatize", sort_list(traumas, GLOBAL_PROC_REF(cmp_typepaths_asc)))
 		if(!usr)
 			return
 		if(QDELETED(src))
@@ -1102,7 +1102,7 @@
 		if(!check_rights(NONE))
 			return
 		var/list/hallucinations = subtypesof(/datum/hallucination)
-		var/result = tgui_input_list(usr, "Choose the hallucination to apply", "Send Hallucination", sort_list(hallucinations, /proc/cmp_typepaths_asc))
+		var/result = tgui_input_list(usr, "Choose the hallucination to apply", "Send Hallucination", sort_list(hallucinations, GLOBAL_PROC_REF(cmp_typepaths_asc)))
 		if(!usr)
 			return
 		if(QDELETED(src))

@@ -19,7 +19,7 @@
 
 /datum/component/clockwork_trap/pressure_sensor/Initialize(mapload)
 	. = ..()
-	RegisterSignal(parent, COMSIG_ATOM_ENTERED, .proc/on_entered)
+	RegisterSignal(parent, COMSIG_ATOM_ENTERED, PROC_REF(on_entered))
 
 /datum/component/clockwork_trap/pressure_sensor/proc/on_entered(datum/source, atom/movable/AM)
 	SIGNAL_HANDLER

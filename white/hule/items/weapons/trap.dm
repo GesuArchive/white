@@ -15,7 +15,7 @@
 /obj/structure/tripwire/Initialize(mapload)
 	. = ..()
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/check_cbt,
+		COMSIG_ATOM_ENTERED = PROC_REF(check_cbt),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 

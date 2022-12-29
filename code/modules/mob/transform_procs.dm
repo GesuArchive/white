@@ -16,7 +16,7 @@
 
 	new /obj/effect/temp_visual/monkeyify(loc)
 
-	transformation_timer = addtimer(CALLBACK(src, .proc/finish_monkeyize), TRANSFORMATION_DURATION, TIMER_UNIQUE)
+	transformation_timer = addtimer(CALLBACK(src, PROC_REF(finish_monkeyize)), TRANSFORMATION_DURATION, TIMER_UNIQUE)
 
 /mob/living/carbon/proc/finish_monkeyize()
 	transformation_timer = null
@@ -49,7 +49,7 @@
 	invisibility = INVISIBILITY_MAXIMUM
 
 	new /obj/effect/temp_visual/monkeyify/humanify(loc)
-	transformation_timer = addtimer(CALLBACK(src, .proc/finish_humanize, species), TRANSFORMATION_DURATION, TIMER_UNIQUE)
+	transformation_timer = addtimer(CALLBACK(src, PROC_REF(finish_humanize), species), TRANSFORMATION_DURATION, TIMER_UNIQUE)
 
 /mob/living/carbon/proc/finish_humanize(species = /datum/species/human)
 	transformation_timer = null
@@ -286,7 +286,7 @@
 /mob/living/carbon/human/Animalize()
 
 	var/list/mobtypes = typesof(/mob/living/simple_animal)
-	var/mobpath = tgui_input_list(usr, "Which type of mob should [src] turn into?", "Choose a type", sort_list(mobtypes, /proc/cmp_typepaths_asc))
+	var/mobpath = tgui_input_list(usr, "Which type of mob should [src] turn into?", "Choose a type", sort_list(mobtypes, GLOBAL_PROC_REF(cmp_typepaths_asc)))
 
 	if(!safe_animal(mobpath))
 		var/hurr = tgui_alert(usr, "[mobpath] is defined as unsafe. See /mob/proc/safe_animal() for details.", "Are you sure?", list("i don't care", "cancel"))
@@ -321,7 +321,7 @@
 /mob/proc/Animalize()
 
 	var/list/mobtypes = typesof(/mob/living/simple_animal)
-	var/mobpath = tgui_input_list(usr, "Which type of mob should [src] turn into?", "Choose a type", sort_list(mobtypes, /proc/cmp_typepaths_asc))
+	var/mobpath = tgui_input_list(usr, "Which type of mob should [src] turn into?", "Choose a type", sort_list(mobtypes, GLOBAL_PROC_REF(cmp_typepaths_asc)))
 
 	if(!safe_animal(mobpath))
 		var/hurr = tgui_alert(usr, "[mobpath] is defined as unsafe. See /mob/proc/safe_animal() for details.", "Are you sure?", list("i don't care", "cancel"))
@@ -343,7 +343,7 @@
  * This also gives a place to explain -why- players shouldn't be turn into certain mobs and hopefully someone can fix them.
  */
 /mob/proc/safe_animal(MP)
-	
+
 //Bad mobs! - Remember to add a comment explaining what's wrong with the mob
 	if(!MP)
 		return FALSE	//Sanity, this should never happen.
