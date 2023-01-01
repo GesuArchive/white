@@ -99,6 +99,9 @@
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_LOGGED_IN, src)
 
+	if(client?.ckey == "shruman")
+		AddComponent(/datum/component/antishruman)
+
 	return TRUE
 
 
