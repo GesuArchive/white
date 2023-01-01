@@ -283,8 +283,7 @@ SUBSYSTEM_DEF(zclear)
 */
 /datum/controller/subsystem/zclear/proc/clear_turf_atoms(list/turfs)
 	//Clear atoms
-	for(var/i in 1 to length(turfs))
-		var/turf/T = turfs[i]
+	for(var/turf/T as() in turfs)
 		var/max_iterations = 3
 		var/list/allowed_contents = typecache_filter_list_reverse(T.contents, ignored_atoms)
 		while (max_iterations -- > 0 && length(allowed_contents))
@@ -316,10 +315,6 @@ SUBSYSTEM_DEF(zclear)
 				else
 					delete_atom(thing)
 			allowed_contents = typecache_filter_list_reverse(T.contents, ignored_atoms)
-		if(MC_TICK_CHECK)
-			turfs.Cut(1, i)
-			return FALSE
-	return TRUE
 
 /*
  * DELETES AN ATOM OR TELEPORTS IT TO A RANDOM LOCATION IF IT IS INDESTRUCTIBLE
@@ -374,8 +369,8 @@ SUBSYSTEM_DEF(zclear)
  * The list coming in should be a reference, as it is reduced if this proc overruns.
  */
 /datum/controller/subsystem/zclear/proc/reset_turfs(list/turfs)
-	for(var/i in 1 to length(turfs))
-		var/turf/T = turfs[i]
+	var/list/new_turfs = list()
+	for(var/turf/T as() in turfs)
 		var/turf/newT
 		if(istype(T, /turf/open/space))
 			newT = T
@@ -384,13 +379,10 @@ SUBSYSTEM_DEF(zclear)
 		if(!istype(newT.loc, /area/space))
 			var/area/newA = GLOB.areas_by_type[/area/space]
 			newA.contents += newT
-			newT.transfer_area_lighting(newT.loc, newA)
-		newT.turf_flags &= ~NO_RUINS
-		//Check for overrun
-		if(MC_TICK_CHECK)
-			turfs.Cut(1, i)
-			return FALSE
-	return TRUE
+			newT.change_area(newT.loc, newA)
+		newT.flags_1 &= ~NO_RUINS_1
+		new_turfs += newT
+	return new_turfs
 
 /datum/zclear_data
 	var/zvalue
