@@ -381,7 +381,10 @@ SUBSYSTEM_DEF(zclear)
 			newA.contents += newT
 			newT.transfer_area_lighting(newT.loc, newA)
 		newT.turf_flags &= ~NO_RUINS
-		new_turfs += newT
+		//Check for overrun
+		if(MC_TICK_CHECK)
+			turfs.Cut(1, i)
+			return FALSE
 	return TRUE
 
 /datum/zclear_data
