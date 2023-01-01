@@ -119,6 +119,18 @@
 		GAS_O2 = MINIMUM_MOLE_COUNT
 	)
 
+/proc/fire_expose(turf/open/location, datum/gas_mixture/air, temperature)
+	if(istype(location) && temperature > FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
+		location.hotspot_expose(temperature, CELL_VOLUME)
+		for(var/I in location)
+			var/atom/movable/item = I
+			item.temperature_expose(air, temperature, CELL_VOLUME)
+		location.temperature_expose(air, temperature, CELL_VOLUME)
+
+/proc/radiation_burn(turf/open/location, energy_released)
+	if(istype(location) && prob(10))
+		radiation_pulse(location, energy_released/TRITIUM_BURN_RADIOACTIVITY_FACTOR)
+
 /datum/gas_reaction/tritfire/react(datum/gas_mixture/air, datum/holder)
 	var/energy_released = 0
 	var/old_heat_capacity = air.heat_capacity()

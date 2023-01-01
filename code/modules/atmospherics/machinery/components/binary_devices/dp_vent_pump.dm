@@ -80,6 +80,8 @@
 				air_update_turf()
 
 				var/datum/pipeline/parent1 = parents[1]
+				if(!parent1)
+					return
 				parent1.update = TRUE
 
 	else //external -> output
