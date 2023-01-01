@@ -55,7 +55,7 @@
 	var/obj/item/multitool/heldmultitool = get_multitool(user)
 	data["multitool"] = heldmultitool
 
-	if(heldmultitool)
+	if(heldmultitool?.buffer)
 		data["multibuff"] = heldmultitool.buffer.name
 
 	data["toggled"] = toggled
