@@ -369,8 +369,8 @@ SUBSYSTEM_DEF(zclear)
  * The list coming in should be a reference, as it is reduced if this proc overruns.
  */
 /datum/controller/subsystem/zclear/proc/reset_turfs(list/turfs)
-	var/list/new_turfs = list()
-	for(var/turf/T as() in turfs)
+	for(var/i in 1 to length(turfs))
+		var/turf/T = turfs[i]
 		var/turf/newT
 		if(istype(T, /turf/open/space))
 			newT = T
@@ -379,10 +379,10 @@ SUBSYSTEM_DEF(zclear)
 		if(!istype(newT.loc, /area/space))
 			var/area/newA = GLOB.areas_by_type[/area/space]
 			newA.contents += newT
-			newT.change_area(newT.loc, newA)
-		newT.flags_1 &= ~NO_RUINS_1
+			newT.transfer_area_lighting(newT.loc, newA)
+		newT.turf_flags &= ~NO_RUINS
 		new_turfs += newT
-	return new_turfs
+	return TRUE
 
 /datum/zclear_data
 	var/zvalue
