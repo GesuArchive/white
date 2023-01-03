@@ -26,7 +26,7 @@
 	jobtype = /datum/job/doctor/field_medic
 
 	head = /obj/item/clothing/head/helmet/field_med/beret
-	belt = /obj/item/defibrillator/compact/loaded
+	belt = /obj/item/defibrillator/compact/fieldmed/loaded
 	ears = /obj/item/radio/headset/headset_medsec/alt
 	uniform = /obj/item/clothing/under/rank/medical/brigphys
 	gloves = /obj/item/clothing/gloves/color/latex/nitrile/polymer
