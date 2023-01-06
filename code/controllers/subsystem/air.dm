@@ -490,6 +490,8 @@ SUBSYSTEM_DEF(air)
 /datum/controller/subsystem/air/proc/turf_process_time()
 /datum/controller/subsystem/air/proc/heat_process_time()
 
+/datum/controller/subsystem/air/proc/equalize_turfs_auxtools()
+
 /datum/controller/subsystem/air/StartLoadingMap()
 	map_loading = TRUE
 
