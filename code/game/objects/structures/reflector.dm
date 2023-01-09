@@ -48,7 +48,7 @@
 	if(can_rotate)
 		rotation_angle = new_angle
 		if(deflector_overlay)
-			cut_overlay(deflector_overlay)
+			cut_overlay(overlays)
 			deflector_overlay.transform = turn(matrix(), new_angle)
 			add_overlay(deflector_overlay)
 
