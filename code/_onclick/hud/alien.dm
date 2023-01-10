@@ -32,21 +32,21 @@
 //equippable shit
 
 //hands
-	build_hand_slots()
+	build_hand_slots(TRUE)
 
 //begin buttons
 
 	using = new /atom/movable/screen/swap_hand()
 	using.icon = ui_style
 	using.icon_state = "swap_1"
-	using.screen_loc = ui_swaphand_position(owner,1)
+	using.screen_loc = ui_swaphand_position(owner, 1, TRUE)
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/swap_hand()
 	using.icon = ui_style
 	using.icon_state = "swap_2"
-	using.screen_loc = ui_swaphand_position(owner,2)
+	using.screen_loc = ui_swaphand_position(owner, 2, TRUE)
 	using.hud = src
 	static_inventory += using
 
@@ -71,32 +71,32 @@
 
 	using = new /atom/movable/screen/drop()
 	using.icon = retro_hud ? ui_style : using.icon
-	using.screen_loc = retro_hud ? UI_DROP_RETRO : UI_DROP
+	using.screen_loc = retro_hud ? UI_DROP_RETRO : UI_DROP_ALIEN
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/resist()
 	using.icon = retro_hud ? ui_style : using.icon
-	using.screen_loc = retro_hud ? UI_RESIST_RETRO : UI_RESIST
+	using.screen_loc = retro_hud ? UI_RESIST_RETRO : UI_RESIST_ALIEN
 	using.hud = src
 	hotkeybuttons += using
 
 	throw_icon = new /atom/movable/screen/throw_catch()
 	throw_icon.icon = retro_hud ? ui_style : using.icon
-	throw_icon.screen_loc = retro_hud ? UI_THROW_RETRO : UI_THROW
+	throw_icon.screen_loc = retro_hud ? UI_THROW_RETRO : UI_THROW_ALIEN
 	throw_icon.hud = src
 	hotkeybuttons += throw_icon
 
 	pull_icon = new /atom/movable/screen/pull()
 	pull_icon.icon = retro_hud ? ui_style : using.icon
 	pull_icon.update_icon()
-	pull_icon.screen_loc = retro_hud ? UI_PULL_RETRO : UI_PULL
+	pull_icon.screen_loc = retro_hud ? UI_PULL_RETRO : UI_PULL_ALIEN
 	pull_icon.hud = src
 	static_inventory += pull_icon
 
 	if(!retro_hud)
 		rest_icon = new /atom/movable/screen/rest()
-		rest_icon.screen_loc = UI_REST
+		rest_icon.screen_loc = UI_REST_ALIEN
 		rest_icon.hud = src
 		static_inventory += rest_icon
 
@@ -136,7 +136,7 @@
 	var/mob/living/carbon/alien/humanoid/H = mymob
 	if(hud_version != HUD_STYLE_NOHUD)
 		for(var/obj/item/I in H.held_items)
-			I.screen_loc = ui_hand_position(H.get_held_index_of_item(I))
+			I.screen_loc = ui_hand_position(H.get_held_index_of_item(I), TRUE)
 			H.client.screen += I
 	else
 		for(var/obj/item/I in H.held_items)

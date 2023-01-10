@@ -498,7 +498,7 @@
 #define MAX_SAFE_BYOND_ICON_SCALE_TILES (MAX_SAFE_BYOND_ICON_SCALE_PX / world.icon_size)
 #define MAX_SAFE_BYOND_ICON_SCALE_PX (33 * 32) //Not using world.icon_size on purpose.
 
-/atom/movable/screen/click_catcher/proc/UpdateGreed(view_size_x = 15, view_size_y = 15)
+/atom/movable/screen/click_catcher/proc/UpdateGreed(view_size_x = 15, view_size_y = 15, special_hud = FALSE)
 	var/icon/newicon = icon('icons/hud/screen_gen.dmi', "catcher")
 	var/ox = min(MAX_SAFE_BYOND_ICON_SCALE_TILES, view_size_x)
 	var/oy = min(MAX_SAFE_BYOND_ICON_SCALE_TILES, view_size_y)
@@ -508,7 +508,13 @@
 	var/sy = min(MAX_SAFE_BYOND_ICON_SCALE_PX, py)
 	newicon.Scale(sx, sy)
 	icon = newicon
-	screen_loc = "CENTER-[(ox-1)*0.5],CENTER-[(oy-1)*0.5]"
+	if(special_hud)
+		if(special_hud == 2)
+			screen_loc = "bottom:LEFT,CENTER"
+		else
+			screen_loc = "hud:LEFT,CENTER"
+	else
+		screen_loc = "CENTER-[(ox-1)*0.5],CENTER-[(oy-1)*0.5]"
 	var/matrix/M = new
 	M.Scale(px/sx, py/sy)
 	transform = M

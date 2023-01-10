@@ -3,19 +3,25 @@
 
 	using = new /atom/movable/screen/multiz_up_button()
 	using.screen_loc = retro_hud ? UI_MULTIZ_UP_RETRO : UI_MULTIZ_UP
-	using.icon = retro_hud ? ui_style : using.icon
+	using.icon = retro_hud ? ui_style2icon(ui_style) : using.icon
+	if(isobserver(owner))
+		using.screen_loc = retro_hud ? UI_MULTIZ_UP_RETRO : UI_MULTIZ_UP_OBSERVER
 	if(isAI(owner))
 		using.screen_loc = UI_MULTIZ_UP_AI
+	else if(ishuman(owner))
+		using.screen_loc = retro_hud ? UI_MULTIZ_UP_RETRO : UI_MULTIZ_UP_HUMAN
 	using.hud = src
 	infodisplay += using
 
 	using = new /atom/movable/screen/multiz_down_button()
 	using.screen_loc = retro_hud ? UI_MULTIZ_DOWN_RETRO : UI_MULTIZ_DOWN
-	using.icon = retro_hud ? ui_style : using.icon
+	using.icon = retro_hud ? ui_style2icon(ui_style) : using.icon
 	if(isobserver(owner))
 		using.screen_loc = retro_hud ? UI_MULTIZ_DOWN_OBSERVER_RETRO : UI_MULTIZ_DOWN_OBSERVER
 	else if(isAI(owner))
 		using.screen_loc = UI_MULTIZ_DOWN_AI
+	else if(ishuman(owner))
+		using.screen_loc = retro_hud ? UI_MULTIZ_DOWN_RETRO : UI_MULTIZ_DOWN_HUMAN
 	using.hud = src
 	infodisplay += using
 

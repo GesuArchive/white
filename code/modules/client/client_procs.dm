@@ -1045,12 +1045,18 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 /client/proc/generate_clickcatcher()
 	if(!void)
 		void = new()
+		void_right = new()
+		void_bottom = new()
 		screen += void
+		screen += void_right
+		screen += void_bottom
 
 /client/proc/apply_clickcatcher()
 	generate_clickcatcher()
 	var/list/actualview = getviewsize(view)
 	void.UpdateGreed(actualview[1],actualview[2])
+	void_right.UpdateGreed(1, actualview[2], TRUE)
+	void_bottom.UpdateGreed(actualview[1], 1, 2)
 
 /client/proc/AnnouncePR(announcement)
 	if(prefs && prefs.chat_toggles & CHAT_PULLR)
@@ -1239,25 +1245,50 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	src << browse(null, "window=newcomer")
 
-#define HUD_WIDTH 1
-
-/client/proc/set_hud_bar_visible(should_we_hide_bar)
+// я ебал этот код блять
+/client/proc/set_hud_bar_visible(shown_bars)
 	var/list/screen_size = splittext(winget(src, "mapwindow", "size"), "x")
-	if(should_we_hide_bar)
-		winset(src, "mapwindow.map","size=[screen_size[1]]x[screen_size[2]],anchor2=100,100")
-		winset(src, "mapwindow.hud","pos=0,0;size=0x0,anchor1=0,0")
+	winset(src, "mapwindow.map","size=[screen_size[1]]x[screen_size[2]];anchor2=100,100")
+	winset(src, "mapwindow.bottom","pos=0,0;size=0x0;anchor1=0,0;is-visible=false")
+	winset(src, "mapwindow.hud","pos=0,0;size=0x0;anchor1=0,0;is-visible=false")
+
+	if(isnull(shown_bars))
 		return
 
 	var/view_width = getviewsize(view)[1]
-	var/full_width = view_width + HUD_WIDTH
+	var/view_height = getviewsize(view)[2]
+
+	var/full_width = view_width + ((shown_bars & NEOHUD_RIGHT) ? 1 : 0)
+	var/full_height = view_height + ((shown_bars & NEOHUD_BOTTOM) ? 1 : 0)
+
 	var/screen_width = text2num(screen_size[1])
+	var/screen_height = text2num(screen_size[2])
+
 	var/tile_width = screen_width / full_width
-	var/hud_width  = HUD_WIDTH * tile_width
+	var/tile_height = screen_height / full_height
 
-	var/mapWidth = screen_width - text2num(hud_width)
-	var/mapAnchor  = "[100-(100 * HUD_WIDTH * tile_width / screen_width)],100"
+	var/map_width = screen_width - (((shown_bars & NEOHUD_RIGHT) ? 1 : 0) * tile_width)
+	var/map_height = screen_height - (((shown_bars & NEOHUD_BOTTOM) ? 1 : 0) * tile_height)
 
-	winset(src, "mapwindow.map","size=[mapWidth]x[screen_size[2]],anchor2=[mapAnchor]")
-	winset(src, "mapwindow.hud","pos=[mapWidth],0;size=[hud_width]x[screen_size[2]],anchor1=[mapAnchor]")
+	var/mapAnchor_x  = "[100-(100 * ((shown_bars & NEOHUD_RIGHT) ? 1 : 0) * tile_width / screen_width)]"
+	var/mapAnchor_y  = "[100-(100 * ((shown_bars & NEOHUD_BOTTOM) ? 1 : 0) * tile_height / screen_height)]"
 
-#undef HUD_WIDTH
+	winset(src, "mapwindow.map","size=[map_width]x[map_height];anchor2=[mapAnchor_x],[mapAnchor_y]")
+
+	if((shown_bars & NEOHUD_BOTTOM))
+		winset(src, "mapwindow.bottom","pos=0,[map_height];size=[map_width]x[tile_height];anchor1=0,100;is-visible=true")
+
+	if((shown_bars & NEOHUD_RIGHT))
+		winset(src, "mapwindow.hud","pos=[map_width],0;size=[tile_width]x[screen_size[2]];anchor1=[mapAnchor_x],100;is-visible=true")
+
+/client/proc/debug_winset()
+	set name = "Winset Debug"
+	set category = "Дбг"
+
+	if(!holder ||!check_rights(R_SECURED))
+		return
+
+	var/winsel = tgui_input_text(src, "WINDOW", "?")
+	var/parsel = tgui_input_text(src, "PARAMS", "?")
+
+	winset(src, winsel, parsel)

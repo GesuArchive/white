@@ -66,31 +66,31 @@
 	var/atom/movable/screen/using
 
 	using = new /atom/movable/screen/swarmer/fabricate_trap()
-	using.screen_loc = ui_hand_position(2)
+	using.screen_loc = ui_hand_position(2, TRUE)
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/swarmer/barricade()
-	using.screen_loc = ui_hand_position(1)
+	using.screen_loc = ui_hand_position(1, TRUE)
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/swarmer/replicate()
-	using.screen_loc = UI_ZONESEL
+	using.screen_loc = retro_hud ? UI_ZONESEL_RETRO : UI_ZONESEL
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/swarmer/repair_self()
-	using.screen_loc = UI_STORAGE1
+	using.screen_loc = retro_hud ? UI_STORAGE1_RETRO : UI_STORAGE1
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/swarmer/toggle_light()
-	using.screen_loc = UI_BACK
+	using.screen_loc = retro_hud ? UI_BACK_RETRO : UI_BACK
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/swarmer/contact_swarmers()
-	using.screen_loc = UI_INVENTORY
+	using.screen_loc = retro_hud ? UI_INVENTORY_RETRO : UI_INVENTORY
 	using.hud = src
 	static_inventory += using

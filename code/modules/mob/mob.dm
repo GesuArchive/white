@@ -772,6 +772,8 @@
 		return
 	client.screen.Cut()
 	client.screen += client.void
+	client.screen += client.void_right
+	client.screen += client.void_bottom
 	if(!client)
 		log_game("[key_name(usr)] AM failed due to disconnect.")
 		return

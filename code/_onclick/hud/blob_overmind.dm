@@ -156,6 +156,7 @@
 
 /datum/hud/blob_overmind/New(mob/owner)
 	retro_hud = FALSE // go fuck
+	INVOKE_ASYNC(owner?.client, .client/verb/fit_viewport)
 	..()
 	var/atom/movable/screen/using
 

@@ -181,14 +181,20 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	for(var/custom_name_id in GLOB.preferences_custom_names)
 		custom_names[custom_name_id] = get_default_name(custom_name_id)
 
-	UI_style = GLOB.available_ui_styles[1]
+	if(retro_hud)
+		UI_style = GLOB.available_ui_styles[1]
+	else
+		UI_style = GLOB.available_ui_styles["Neoscreen"]
+
 	if(istype(C))
 		if(!is_guest_key(C.key))
 			load_path(C.ckey)
+
 	var/loaded_preferences_successfully = load_preferences()
 	if(loaded_preferences_successfully)
 		if(load_character())
 			return
+
 	//we couldn't load character data so just randomize the character appearance + name
 	random_character()		//let's create a random character then - rather than a fat, bald and naked man.
 	key_bindings = deep_copy_list(GLOB.hotkey_keybinding_list_by_key) // give them default keybinds and update their movement keys
@@ -196,6 +202,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	real_name = pref_species.random_name(gender, 1, en_lang = en_names)
 	if(!loaded_preferences_successfully)
 		save_preferences()
+
 	save_character()		//let's save this new random character so it doesn't keep generating new ones.
 	menuoptions = list()
 	return
@@ -1616,6 +1623,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if("ui")
 					var/pickedui = tgui_input_list(user, "Choose your UI style.", "Character Preference", sort_list(GLOB.available_ui_styles), UI_style)
+					if(!retro_hud)
+						pickedui = "Neoscreen"
+					else if (retro_hud && pickedui == "Neoscreen")
+						pickedui = "Oxide"
+
 					if(pickedui)
 						UI_style = pickedui
 						if (parent && parent.mob && parent.mob.hud_used)
@@ -1638,6 +1650,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if ("widescreenwidth")
 					var/desiredwidth = input(user, "Какую ширину выберем от до 15-19?", "ВЫБОР", widescreenwidth)  as null|num
+					if(!retro_hud)
+						desiredwidth = 19
+
 					if (!isnull(desiredwidth))
 						widescreenwidth = sanitize_integer(desiredwidth, 15, 19, widescreenwidth)
 						user.client.view_size.setDefault("[widescreenwidth]x15")
@@ -1750,6 +1765,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if("retro_hud")
 					retro_hud = !retro_hud
+					if(!retro_hud)
+						user.client.view_size.setDefault("19x15")
+						UI_style = "Neoscreen"
+						if (parent && parent.mob && parent.mob.hud_used)
+							parent.mob.hud_used.update_ui_style(ui_style2icon(UI_style))
+					parent.fit_viewport()
+					to_chat(user, span_notice("Стиль изменится только после смены тела."))
 
 				if("action_buttons")
 					buttons_locked = !buttons_locked

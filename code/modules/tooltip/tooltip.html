@@ -86,6 +86,9 @@
 		.syndikats .wrap {border-color: #13121b;}
 		.syndikats .content {color: #b01232; border-color: #13121b; background-color: #282831;}
 
+		.neoscreen .wrap {border: 1px solid #FFA800;}
+		.neoscreen .content {color: #FFA800; border-color: #222222; background-color: #222222;}
+
 	</style>
 </head>
 <body>
@@ -118,10 +121,6 @@
 				//Some reset stuff to avoid fringe issues with sizing
 				window.location = 'byond://winset?id='+tooltip.control+';anchor1=0,0;size=999x999';
 
-				if (tooltip.special === "smol") {
-					tooltip.tileSize = 16;
-				}
-
 				//Get the real icon size according to the client view
 				//FYI, this bit is even more borrowed from goon, our widescreen broke tooltips so I took a look at how they do it
 				//To improve our code. Thanks gooncoders, very cool
@@ -139,21 +138,29 @@
 
 				//alert(realIconSize + ' | ' +tooltip.tileSize + ' | ' + resizeRatio); //DEBUG
 
-				//Parse out the tile and cursor locations from params (e.g. "icon-x=32;icon-y=29;screen-loc=3:10,15:29")
+				const parameters = new Object();
+
+				//Parse out the contents of params (e.g. "icon-x=32;icon-y=29;screen-loc=3:10,15:29")
+				//It is worth noting that params is not always ordered in the same way. We therefore need to write the code
+				//To load their values in independantly of their order
 				var paramsA = tooltip.params.cursor.split(';');
-				if (paramsA.length < 3) {return false;} //Sometimes screen-loc is never sent ahaha fuck you byond
+				for (var i = 0; i < paramsA.length; i++) {
+					var entry = paramsA[i];
+					var nameAndValue = entry.split("=");
+					parameters[nameAndValue[0]] = nameAndValue[1];
+				}
+
+				//Sometimes screen-loc is never sent ahaha fuck you byond
+				if (!parameters["icon-x"] || !parameters["icon-y"] || !parameters["screen-loc"]) {
+					return false;
+				}
 				//icon-x
-				var iconX = paramsA[0];
-				iconX = iconX.split('=');
-				iconX = parseInt(iconX[1]);
+				var iconX = parseInt(parameters["icon-x"]);
 				//icon-y
-				var iconY = paramsA[1];
-				iconY = iconY.split('=');
-				iconY = parseInt(iconY[1]);
+				var iconY = parseInt(parameters["icon-y"]);
 				//screen-loc
-				var screenLoc = paramsA[2];
-				screenLoc = screenLoc.split('=');
-				screenLoc = screenLoc[1].split(',');
+				var screenLoc = parameters["screen-loc"];
+				screenLoc = screenLoc.split(',');
 				if (screenLoc.length < 2) {return false;}
 				var left = screenLoc[0];
 				var top = screenLoc[1];
@@ -239,14 +246,13 @@
 					tooltip.hide();
 				});
 			},
-			update: function(params, client_vw , clien_vh , text, theme, special) {
+			update: function(params, client_vw , clien_vh , text, theme) {
 				//Assign our global object
 				tooltip.params = $.parseJSON(params);
 				tooltip.client_view_w = parseInt(client_vw);
 				tooltip.client_view_h = parseInt(clien_vh);
 				tooltip.text = text;
 				tooltip.theme = theme;
-				tooltip.special = special;
 
 				//Go get the map details
 				window.location = 'byond://winget?callback=tooltip.updateCallback;id=mapwindow.map;property=size,view-size';

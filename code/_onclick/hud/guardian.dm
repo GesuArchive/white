@@ -18,27 +18,27 @@
 	infodisplay += healths
 
 	using = new /atom/movable/screen/guardian/manifest()
-	using.screen_loc = ui_hand_position(2)
+	using.screen_loc = ui_hand_position(2, TRUE)
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/guardian/recall()
-	using.screen_loc = ui_hand_position(1)
+	using.screen_loc = ui_hand_position(1, TRUE)
 	using.hud = src
 	static_inventory += using
 
 	using = new owner.toggle_button_type()
-	using.screen_loc = UI_STORAGE1
+	using.screen_loc = retro_hud ? UI_STORAGE1_RETRO : UI_STORAGE1
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/guardian/toggle_light()
-	using.screen_loc = UI_INVENTORY
+	using.screen_loc = retro_hud ? UI_INVENTORY_RETRO : UI_INVENTORY
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/guardian/communicate()
-	using.screen_loc = UI_BACK
+	using.screen_loc = retro_hud ? UI_BACK_RETRO : UI_BACK
 	using.hud = src
 	static_inventory += using
 
@@ -52,20 +52,20 @@
 		inv_box.name = "internal storage"
 		inv_box.icon = ui_style
 		inv_box.icon_state = "suit_storage"
-		inv_box.screen_loc = UI_ID
+		inv_box.screen_loc = retro_hud ? UI_ID_RETRO : UI_ID
 		inv_box.slot_id = ITEM_SLOT_DEX_STORAGE
 		inv_box.hud = src
 		static_inventory += inv_box
 
 		using = new /atom/movable/screen/guardian/communicate()
-		using.screen_loc = UI_SSTORE1
+		using.screen_loc = retro_hud ? UI_SSTORE1_RETRO : UI_SSTORE1
 		using.hud = src
 		static_inventory += using
 
 	else
 
 		using = new /atom/movable/screen/guardian/communicate()
-		using.screen_loc = UI_ID
+		using.screen_loc = retro_hud ? UI_ID_RETRO : UI_ID
 		using.hud = src
 		static_inventory += using
 
@@ -82,22 +82,22 @@
 	infodisplay += healths
 
 	using = new /atom/movable/screen/guardian/manifest()
-	using.screen_loc = UI_BELT
+	using.screen_loc = retro_hud ? UI_BELT_RETRO : UI_BELT
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/guardian/recall()
-	using.screen_loc = UI_BACK
+	using.screen_loc = retro_hud ? UI_BACK_RETRO : UI_BACK
 	using.hud = src
 	static_inventory += using
 
 	using = new owner.toggle_button_type()
-	using.screen_loc = UI_STORAGE2
+	using.screen_loc = retro_hud ? UI_STORAGE2_RETRO : UI_STORAGE2
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/guardian/toggle_light()
-	using.screen_loc = UI_INVENTORY
+	using.screen_loc = retro_hud ? UI_INVENTORY_RETRO : UI_INVENTORY
 	using.hud = src
 	static_inventory += using
 

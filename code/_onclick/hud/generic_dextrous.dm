@@ -16,19 +16,19 @@
 	pull_icon.hud = src
 	static_inventory += pull_icon
 
-	build_hand_slots()
+	build_hand_slots(TRUE)
 
 	using = new /atom/movable/screen/swap_hand()
 	using.icon = ui_style
 	using.icon_state = "swap_1_m"
-	using.screen_loc = ui_swaphand_position(owner,1)
+	using.screen_loc = ui_swaphand_position(owner, 1, TRUE)
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/swap_hand()
 	using.icon = ui_style
 	using.icon_state = "swap_2"
-	using.screen_loc = ui_swaphand_position(owner,2)
+	using.screen_loc = ui_swaphand_position(owner, 2, TRUE)
 	using.hud = src
 	static_inventory += using
 
@@ -75,7 +75,7 @@
 	var/mob/living/D = mymob
 	if(hud_version != HUD_STYLE_NOHUD)
 		for(var/obj/item/I in D.held_items)
-			I.screen_loc = ui_hand_position(D.get_held_index_of_item(I))
+			I.screen_loc = ui_hand_position(D.get_held_index_of_item(I), TRUE)
 			D.client.screen += I
 	else
 		for(var/obj/item/I in D.held_items)

@@ -125,7 +125,7 @@
 	inv_box.icon = ui_style
 	inv_box.slot_id = ITEM_SLOT_ICLOTHING
 	inv_box.icon_state = "uniform"
-	inv_box.screen_loc = UI_ICLOTHING
+	inv_box.screen_loc = retro_hud ? UI_ICLOTHING_RETRO : UI_ICLOTHING
 	inv_box.hud = src
 	toggleable_inventory += inv_box
 
@@ -134,23 +134,23 @@
 	inv_box.icon = ui_style
 	inv_box.slot_id = ITEM_SLOT_OCLOTHING
 	inv_box.icon_state = "suit"
-	inv_box.screen_loc = UI_OCLOTHING
+	inv_box.screen_loc = retro_hud ? UI_OCLOTHING_RETRO : UI_OCLOTHING
 	inv_box.hud = src
 	toggleable_inventory += inv_box
 
-	build_hand_slots()
+	build_hand_slots(retro_hud)
 
 	using = new /atom/movable/screen/swap_hand()
 	using.icon = ui_style
 	using.icon_state = "swap_1"
-	using.screen_loc = ui_swaphand_position(owner,1)
+	using.screen_loc = ui_swaphand_position(owner, 1, retro_hud)
 	using.hud = src
 	static_inventory += using
 
 	using = new /atom/movable/screen/swap_hand()
 	using.icon = ui_style
 	using.icon_state = "swap_2"
-	using.screen_loc = ui_swaphand_position(owner,2)
+	using.screen_loc = ui_swaphand_position(owner, 2, retro_hud)
 	using.hud = src
 	static_inventory += using
 
@@ -158,7 +158,7 @@
 	inv_box.name = "ID"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "id"
-	inv_box.screen_loc = UI_ID
+	inv_box.screen_loc = retro_hud ? UI_ID_RETRO : UI_ID
 	inv_box.slot_id = ITEM_SLOT_ID
 	inv_box.hud = src
 	static_inventory += inv_box
@@ -167,7 +167,7 @@
 	inv_box.name = "маска"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "mask"
-	inv_box.screen_loc = UI_MASK
+	inv_box.screen_loc = retro_hud ? UI_MASK_RETRO : UI_MASK
 	inv_box.slot_id = ITEM_SLOT_MASK
 	inv_box.hud = src
 	toggleable_inventory += inv_box
@@ -176,7 +176,7 @@
 	inv_box.name = "шея"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "neck"
-	inv_box.screen_loc = UI_NECK
+	inv_box.screen_loc = retro_hud ? UI_NECK_RETRO : UI_NECK
 	inv_box.slot_id = ITEM_SLOT_NECK
 	inv_box.hud = src
 	toggleable_inventory += inv_box
@@ -185,7 +185,7 @@
 	inv_box.name = "спина"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "back"
-	inv_box.screen_loc = UI_BACK
+	inv_box.screen_loc = retro_hud ? UI_BACK_RETRO : UI_BACK
 	inv_box.slot_id = ITEM_SLOT_BACK
 	inv_box.hud = src
 	static_inventory += inv_box
@@ -194,7 +194,7 @@
 	inv_box.name = "левый карман"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "pocket"
-	inv_box.screen_loc = UI_STORAGE1
+	inv_box.screen_loc = retro_hud ? UI_STORAGE1_RETRO : UI_STORAGE1
 	inv_box.slot_id = ITEM_SLOT_LPOCKET
 	inv_box.hud = src
 	static_inventory += inv_box
@@ -203,7 +203,7 @@
 	inv_box.name = "правый карман"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "pocket"
-	inv_box.screen_loc = UI_STORAGE2
+	inv_box.screen_loc = retro_hud ? UI_STORAGE2_RETRO : UI_STORAGE2
 	inv_box.slot_id = ITEM_SLOT_RPOCKET
 	inv_box.hud = src
 	static_inventory += inv_box
@@ -212,7 +212,7 @@
 	inv_box.name = "хранилище костюма"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "suit_storage"
-	inv_box.screen_loc = UI_SSTORE1
+	inv_box.screen_loc = retro_hud ? UI_SSTORE1_RETRO : UI_SSTORE1
 	inv_box.slot_id = ITEM_SLOT_SUITSTORE
 	inv_box.hud = src
 	static_inventory += inv_box
@@ -223,15 +223,16 @@
 	using.hud = src
 	hotkeybuttons += using
 
-	using = new /atom/movable/screen/human/toggle()
-	using.icon = ui_style
-	using.screen_loc = UI_INVENTORY
-	using.hud = src
-	static_inventory += using
+	if(retro_hud)
+		using = new /atom/movable/screen/human/toggle()
+		using.icon = ui_style
+		using.screen_loc = UI_INVENTORY_RETRO
+		using.hud = src
+		static_inventory += using
 
 	using = new /atom/movable/screen/human/equip()
 	using.icon = ui_style
-	using.screen_loc = ui_equip_position(mymob)
+	using.screen_loc = ui_equip_position(mymob, retro_hud)
 	using.hud = src
 	static_inventory += using
 
@@ -239,7 +240,7 @@
 	inv_box.name = "перчатки"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "gloves"
-	inv_box.screen_loc = UI_GLOVES
+	inv_box.screen_loc = retro_hud ? UI_GLOVES_RETRO : UI_GLOVES
 	inv_box.slot_id = ITEM_SLOT_GLOVES
 	inv_box.hud = src
 	toggleable_inventory += inv_box
@@ -248,7 +249,7 @@
 	inv_box.name = "глаза"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "glasses"
-	inv_box.screen_loc = UI_GLASSES
+	inv_box.screen_loc = retro_hud ? UI_GLASSES_RETRO : UI_GLASSES
 	inv_box.slot_id = ITEM_SLOT_EYES
 	inv_box.hud = src
 	toggleable_inventory += inv_box
@@ -257,7 +258,7 @@
 	inv_box.name = "уши"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "ears"
-	inv_box.screen_loc = UI_EARS
+	inv_box.screen_loc = retro_hud ? UI_EARS_RETRO : UI_EARS
 	inv_box.slot_id = ITEM_SLOT_EARS
 	inv_box.hud = src
 	toggleable_inventory += inv_box
@@ -266,7 +267,7 @@
 	inv_box.name = "голова"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "head"
-	inv_box.screen_loc = UI_HEAD
+	inv_box.screen_loc = retro_hud ? UI_HEAD_RETRO : UI_HEAD
 	inv_box.slot_id = ITEM_SLOT_HEAD
 	inv_box.hud = src
 	toggleable_inventory += inv_box
@@ -275,7 +276,7 @@
 	inv_box.name = "обувь"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "shoes"
-	inv_box.screen_loc = UI_SHOES
+	inv_box.screen_loc = retro_hud ? UI_SHOES_RETRO : UI_SHOES
 	inv_box.slot_id = ITEM_SLOT_FEET
 	inv_box.hud = src
 	toggleable_inventory += inv_box
@@ -285,7 +286,7 @@
 	inv_box.icon = ui_style
 	inv_box.icon_state = "belt"
 //	inv_box.icon_full = "template_small"
-	inv_box.screen_loc = UI_BELT
+	inv_box.screen_loc = retro_hud ? UI_BELT_RETRO : UI_BELT
 	inv_box.slot_id = ITEM_SLOT_BELT
 	inv_box.hud = src
 	static_inventory += inv_box
@@ -303,6 +304,7 @@
 	static_inventory += rest_icon
 
 	spacesuit = new /atom/movable/screen/spacesuit()
+	spacesuit.icon = retro_hud ? ui_style : spacesuit.icon
 	spacesuit.screen_loc = retro_hud ? UI_SPACESUIT_RETRO : UI_SPACESUIT
 	spacesuit.hud = src
 	infodisplay += spacesuit
@@ -357,6 +359,10 @@
 	static_inventory += zone_select
 
 	combo_display = new /atom/movable/screen/combo()
+	combo_display.icon = retro_hud ? combo_display.icon : ui_style
+	combo_display.icon_state = retro_hud ? "" : "combo_bg"
+	combo_display.screen_loc = retro_hud ? UI_COMBO_RETRO : UI_COMBO
+	combo_display.retro_hud = retro_hud
 	infodisplay += combo_display
 
 	ammo_counter = new /atom/movable/screen/ammo_counter()
@@ -416,31 +422,31 @@
 
 	if(screenmob.hud_used.inventory_shown && screenmob.hud_used.hud_shown)
 		if(H.shoes)
-			H.shoes.screen_loc = UI_SHOES
+			H.shoes.screen_loc = retro_hud ? UI_SHOES_RETRO : UI_SHOES
 			screenmob.client.screen += H.shoes
 		if(H.gloves)
-			H.gloves.screen_loc = UI_GLOVES
+			H.gloves.screen_loc = retro_hud ? UI_GLOVES_RETRO : UI_GLOVES
 			screenmob.client.screen += H.gloves
 		if(H.ears)
-			H.ears.screen_loc = UI_EARS
+			H.ears.screen_loc = retro_hud ? UI_EARS_RETRO : UI_EARS
 			screenmob.client.screen += H.ears
 		if(H.glasses)
-			H.glasses.screen_loc = UI_GLASSES
+			H.glasses.screen_loc = retro_hud ? UI_GLASSES_RETRO : UI_GLASSES
 			screenmob.client.screen += H.glasses
 		if(H.w_uniform)
-			H.w_uniform.screen_loc = UI_ICLOTHING
+			H.w_uniform.screen_loc = retro_hud ? UI_ICLOTHING_RETRO : UI_ICLOTHING
 			screenmob.client.screen += H.w_uniform
 		if(H.wear_suit)
-			H.wear_suit.screen_loc = UI_OCLOTHING
+			H.wear_suit.screen_loc = retro_hud ? UI_OCLOTHING_RETRO : UI_OCLOTHING
 			screenmob.client.screen += H.wear_suit
 		if(H.wear_mask)
-			H.wear_mask.screen_loc = UI_MASK
+			H.wear_mask.screen_loc = retro_hud ? UI_MASK_RETRO : UI_MASK
 			screenmob.client.screen += H.wear_mask
 		if(H.wear_neck)
-			H.wear_neck.screen_loc = UI_NECK
+			H.wear_neck.screen_loc = retro_hud ? UI_NECK_RETRO : UI_NECK
 			screenmob.client.screen += H.wear_neck
 		if(H.head)
-			H.head.screen_loc = UI_HEAD
+			H.head.screen_loc = retro_hud ? UI_HEAD_RETRO : UI_HEAD
 			screenmob.client.screen += H.head
 	else
 		if(H.shoes)		screenmob.client.screen -= H.shoes
@@ -466,22 +472,22 @@
 	if(screenmob.hud_used)
 		if(screenmob.hud_used.hud_shown)
 			if(H.s_store)
-				H.s_store.screen_loc = UI_SSTORE1
+				H.s_store.screen_loc = retro_hud ? UI_SSTORE1_RETRO : UI_SSTORE1
 				screenmob.client.screen += H.s_store
 			if(H.wear_id)
-				H.wear_id.screen_loc = UI_ID
+				H.wear_id.screen_loc = retro_hud ? UI_ID_RETRO : UI_ID
 				screenmob.client.screen += H.wear_id
 			if(H.belt)
-				H.belt.screen_loc = UI_BELT
+				H.belt.screen_loc = retro_hud ? UI_BELT_RETRO : UI_BELT
 				screenmob.client.screen += H.belt
 			if(H.back)
-				H.back.screen_loc = UI_BACK
+				H.back.screen_loc = retro_hud ? UI_BACK_RETRO : UI_BACK
 				screenmob.client.screen += H.back
 			if(H.l_store)
-				H.l_store.screen_loc = UI_STORAGE1
+				H.l_store.screen_loc = retro_hud ? UI_STORAGE1_RETRO : UI_STORAGE1
 				screenmob.client.screen += H.l_store
 			if(H.r_store)
-				H.r_store.screen_loc = UI_STORAGE2
+				H.r_store.screen_loc = retro_hud ? UI_STORAGE2_RETRO : UI_STORAGE2
 				screenmob.client.screen += H.r_store
 		else
 			if(H.s_store)
@@ -499,7 +505,7 @@
 
 	if(hud_version != HUD_STYLE_NOHUD)
 		for(var/obj/item/I in H.held_items)
-			I.screen_loc = ui_hand_position(H.get_held_index_of_item(I))
+			I.screen_loc = ui_hand_position(H.get_held_index_of_item(I), retro_hud)
 			screenmob.client.screen += I
 	else
 		for(var/obj/item/I in H.held_items)

@@ -330,7 +330,7 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 
 		if(client && hud_used && hud_used.hud_version != HUD_STYLE_NOHUD)
 			SET_PLANE_EXPLICIT(r_hand, ABOVE_HUD_PLANE, src)
-			r_hand.screen_loc = ui_hand_position(get_held_index_of_item(r_hand))
+			r_hand.screen_loc = ui_hand_position(get_held_index_of_item(r_hand), TRUE)
 			client.screen |= r_hand
 
 	if(l_hand)
@@ -338,7 +338,7 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 
 		if(client && hud_used && hud_used.hud_version != HUD_STYLE_NOHUD)
 			SET_PLANE_EXPLICIT(l_hand, ABOVE_HUD_PLANE, src)
-			l_hand.screen_loc = ui_hand_position(get_held_index_of_item(l_hand))
+			l_hand.screen_loc = ui_hand_position(get_held_index_of_item(l_hand), TRUE)
 			client.screen |= l_hand
 
 	if(hands_overlays.len)

@@ -4,6 +4,8 @@
 	using = new /atom/movable/screen/emote_button()
 	using.icon = retro_hud ? ui_style : using.icon
 	using.screen_loc = retro_hud ? UI_EMOTES_RETRO : UI_EMOTES
+	if(ishuman(owner))
+		using.screen_loc = retro_hud ? UI_EMOTES_RETRO : UI_EMOTES_HUMAN
 	using.hud = src
 	infodisplay += using
 

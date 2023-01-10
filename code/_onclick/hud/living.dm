@@ -12,6 +12,10 @@
 	static_inventory += pull_icon
 
 	combo_display = new /atom/movable/screen/combo()
+	combo_display.icon = retro_hud ? combo_display.icon : ui_style
+	combo_display.icon_state = retro_hud ? "" : "combo_bg"
+	combo_display.screen_loc = retro_hud ? UI_COMBO_RETRO : UI_COMBO
+	combo_display.retro_hud = retro_hud
 	infodisplay += combo_display
 
 	//mob health doll! assumes whatever sprite the mob is

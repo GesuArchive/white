@@ -36,7 +36,7 @@
 
 		if(client && hud_used && hud_used.hud_version != HUD_STYLE_NOHUD)
 			SET_PLANE_EXPLICIT(r_hand, ABOVE_HUD_PLANE, src)
-			r_hand.screen_loc = ui_hand_position(get_held_index_of_item(r_hand))
+			r_hand.screen_loc = ui_hand_position(get_held_index_of_item(r_hand), hud_used?.retro_hud)
 			client.screen |= r_hand
 
 	if(l_hand)
@@ -48,7 +48,7 @@
 
 		if(client && hud_used && hud_used.hud_version != HUD_STYLE_NOHUD)
 			SET_PLANE_EXPLICIT(l_hand, ABOVE_HUD_PLANE, src)
-			l_hand.screen_loc = ui_hand_position(get_held_index_of_item(l_hand))
+			l_hand.screen_loc = ui_hand_position(get_held_index_of_item(l_hand), hud_used?.retro_hud)
 			client.screen |= l_hand
 
 

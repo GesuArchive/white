@@ -671,7 +671,7 @@
 	for(var/obj/item/I in held_items)
 		var/index = get_held_index_of_item(I)
 		SET_PLANE(I, ABOVE_HUD_PLANE, our_turf)
-		I.screen_loc = ui_hand_position(index)
+		I.screen_loc = ui_hand_position(index, hud_used?.retro_hud)
 		client.screen |= I
 
 //ANIMAL RIDING

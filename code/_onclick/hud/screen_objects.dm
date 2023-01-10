@@ -296,8 +296,8 @@
 
 /atom/movable/screen/spacesuit
 	name = "Состояние батареи костюма"
+	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "spacesuit_0"
-	blend_mode = BLEND_ADD
 
 /atom/movable/screen/mov_intent
 	name = "бег/шаг"
@@ -713,29 +713,38 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	screen_loc = UI_COMBO
 	var/timerid
+	var/retro_hud = FALSE
 
 /atom/movable/screen/combo/proc/clear_streak()
-	animate(src, alpha = 0, 2 SECONDS, SINE_EASING)
+	if(retro_hud)
+		animate(src, alpha = 0, 2 SECONDS, SINE_EASING)
 	timerid = addtimer(CALLBACK(src, PROC_REF(reset_icons)), 2 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
 
 /atom/movable/screen/combo/proc/reset_icons()
 	cut_overlays()
-	icon_state = ""
+	if(retro_hud)
+		icon_state = ""
 
 /atom/movable/screen/combo/update_icon_state(streak = "", time = 2 SECONDS)
 	. = ..()
 	reset_icons()
 	if (timerid)
 		deltimer(timerid)
-	alpha = 255
+	if(retro_hud)
+		alpha = 255
 	if (!streak)
 		return
 	timerid = addtimer(CALLBACK(src, PROC_REF(clear_streak)), time, TIMER_UNIQUE | TIMER_STOPPABLE)
-	icon_state = "blank"
+	if(retro_hud)
+		icon_state = "blank"
 	for (var/i = 1; i <= length(streak); ++i)
 		var/intent_text = copytext(streak, i, i + 1)
 		var/image/intent_icon = image(icon,src,"combo_[intent_text]")
-		intent_icon.pixel_x = 6 * (i - 1) - 8 * length(streak)
+		if(!retro_hud)
+			intent_icon.pixel_x = 6 * (i - 1)
+			intent_icon.pixel_y = 2
+		else
+			intent_icon.pixel_x = 6 * (i - 1) - 6 * length(streak)
 		add_overlay(intent_icon)
 
 /atom/movable/screen/weather
@@ -748,6 +757,12 @@
 	screen_loc = "hud:LEFT,SOUTH"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
+/atom/movable/screen/bottom_background
+	icon = 'icons/hud/btm.png'
+	layer = HUD_BACKGROUND_LAYER
+	screen_loc = "bottom:LEFT,SOUTH"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
 /atom/movable/screen/side_background/thing
 	icon = 'icons/hud/sider.png'
 	screen_loc = "RIGHT,SOUTH"
@@ -757,10 +772,10 @@
 	icon_state = "neobg"
 	layer = HUD_BUTTON_BG_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	screen_loc = "hud:LEFT,TOP-6"
+	screen_loc = "hud:LEFT,TOP-7"
 
 /atom/movable/screen/side_button_bg/high
 	icon = 'icons/hud/neoscreen64.dmi'
 	icon_state = "neomisc"
 	layer = HUD_BUTTON_HIGH_BG_LAYER
-	screen_loc = "hud:LEFT,TOP-7"
+	screen_loc = "hud:LEFT,TOP-8"

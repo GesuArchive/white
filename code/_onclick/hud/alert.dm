@@ -96,7 +96,6 @@
 	name = "Alert"
 	desc = "Something seems to have gone wrong with this alert, so report this bug please"
 	mouse_opacity = MOUSE_OPACITY_ICON
-	blend_mode = BLEND_ADD
 	var/timeout = 0 //If set to a number, this alert will clear itself after that many deciseconds
 	var/severity = 0
 	var/alerttooltipstyle = ""
@@ -105,7 +104,7 @@
 
 	/// Boolean. If TRUE, the Click() proc will attempt to Click() on the master first if there is a master.
 	var/click_master = TRUE
-/*
+
 /atom/movable/screen/alert/MouseEntered(location,control,params)
 	. = ..()
 	if(!QDELETED(src))
@@ -114,7 +113,6 @@
 
 /atom/movable/screen/alert/MouseExited()
 	closeToolTip(usr)
-*/
 
 //Gas alerts
 /atom/movable/screen/alert/not_enough_oxy
@@ -839,15 +837,20 @@
 		var/atom/movable/screen/alert/alert = alerts[alerts[i]]
 		if(alert.icon_state == "template")
 			alert.icon = ui_style
+		var/display_on_screen = retro_hud
+		if(isAI(viewmob) || isovermind(viewmob))
+			display_on_screen = TRUE
 		switch(i)
 			if(1)
-				. = retro_hud ? UI_ALERT1_RETRO : UI_ALERT1
+				. = display_on_screen ? UI_ALERT1_RETRO : UI_ALERT1
 			if(2)
-				. = retro_hud ? UI_ALERT2_RETRO : UI_ALERT2
+				. = display_on_screen ? UI_ALERT2_RETRO : UI_ALERT2
 			if(3)
-				. = retro_hud ? UI_ALERT3_RETRO : UI_ALERT3
+				. = display_on_screen ? UI_ALERT3_RETRO : UI_ALERT3
 			if(4)
-				. = retro_hud ? UI_ALERT4_RETRO : UI_ALERT4 // Right now there's 4 slots
+				. = display_on_screen ? UI_ALERT4_RETRO : UI_ALERT4
+			if(5)
+				. = display_on_screen ? UI_ALERT4_RETRO : UI_ALERT5 // Right now there's 5 slots
 			else
 				. = ""
 		alert.screen_loc = .

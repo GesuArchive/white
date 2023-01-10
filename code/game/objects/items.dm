@@ -939,7 +939,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		switch(theme) //yeah it kinda has to be this way
 			if("midnight", "cyberspess")
 				outline_color = COLOR_THEME_MIDNIGHT
-			if("plasmafire", "tetramon")
+			if("plasmafire", "tetramon", "neoscreen")
 				outline_color = COLOR_THEME_PLASMAFIRE
 			if("retro", "bassboosted")
 				outline_color = COLOR_THEME_RETRO //just as garish as the rest of this theme

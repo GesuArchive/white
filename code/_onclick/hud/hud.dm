@@ -20,7 +20,8 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	"Clockwork" = 'icons/hud/screen_clockwork.dmi',
 	"Glass" = 'icons/hud/screen_glass.dmi',
 	"Trasen-Knox" = 'icons/hud/screen_trasenknox.dmi',
-	"Syndiekats" = 'icons/hud/screen_syndiekats.dmi'
+	"Syndiekats" = 'icons/hud/screen_syndiekats.dmi',
+	"Neoscreen" = 'icons/hud/neoscreen.dmi'
 ))
 
 /proc/ui_style2icon(ui_style)
@@ -108,14 +109,14 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 /datum/hud/New(mob/owner)
 	mymob = owner
 
-	if (!ui_style)
-		// will fall back to the default if any of these are null
-		ui_style = ui_style2icon(owner?.client?.prefs?.UI_style)
-
-	if(mymob?.client?.prefs?.retro_hud) // ебал костылём
+	if(mymob?.client?.prefs?.retro_hud && !isovermind(owner)) // ебал костылём
 		retro_hud = TRUE
 		add_multiz_buttons(owner)
 		INVOKE_ASYNC(mymob?.client, .client/verb/fit_viewport)
+
+	if (!ui_style)
+		// will fall back to the default if any of these are null
+		ui_style = ui_style2icon(owner?.client?.prefs?.UI_style)
 
 	hand_slots = list()
 
@@ -152,10 +153,15 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 		var/atom/movable/screen/side_background
 		var/atom/movable/screen/side_background_thing
+		var/atom/movable/screen/bottom_background
 
 		side_background = new /atom/movable/screen/side_background()
 		side_background.hud = src
 		infodisplay += side_background
+
+		bottom_background = new /atom/movable/screen/bottom_background()
+		bottom_background.hud = src
+		infodisplay += bottom_background
 
 		side_background_thing = new /atom/movable/screen/side_background/thing()
 		side_background_thing.hud = src
@@ -313,6 +319,9 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		display_hud_version = hud_version + 1
 	if(display_hud_version > HUD_VERSIONS) //If the requested version number is greater than the available versions, reset back to the first version
 		display_hud_version = 1
+	if(!retro_hud)
+		screenmob.hud_used.inventory_shown = TRUE
+		display_hud_version = HUD_STYLE_STANDARD
 
 	switch(display_hud_version)
 		if(HUD_STYLE_STANDARD) //Default HUD
@@ -375,7 +384,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	else if (viewmob.hud_used)
 		viewmob.hud_used.plane_masters_update()
 
-	INVOKE_ASYNC(screenmob.client, TYPE_PROC_REF(/client, set_hud_bar_visible), retro_hud || isnewplayer(screenmob))
+	INVOKE_ASYNC(screenmob?.client, .client/verb/fit_viewport)
 
 	SEND_SIGNAL(screenmob, COMSIG_MOB_HUD_REFRESHED, src)
 	return TRUE
@@ -411,12 +420,15 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	if (initial(ui_style) || ui_style == new_ui_style)
 		return
 
+	if(!retro_hud)
+		new_ui_style = GLOB.available_ui_styles["Neoscreen"]
+
 	for(var/atom/item in static_inventory + toggleable_inventory + hotkeybuttons + infodisplay + screenoverlays + inv_slots)
 		if (item.icon == ui_style)
 			item.icon = new_ui_style
 
 	ui_style = new_ui_style
-	build_hand_slots()
+	build_hand_slots(TRUE)
 
 //Triggered when F12 is pressed (Unless someone changed something in the DMF)
 /mob/verb/button_pressed_F12()
@@ -433,7 +445,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 //(re)builds the hand ui slots, throwing away old ones
 //not really worth jugglying existing ones so we just scrap+rebuild
 //9/10 this is only called once per mob and only for 2 hands
-/datum/hud/proc/build_hand_slots()
+/datum/hud/proc/build_hand_slots(not_bottom = FALSE)
 	for(var/h in hand_slots)
 		var/atom/movable/screen/inventory/hand/H = hand_slots[h]
 		if(H)
@@ -445,7 +457,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		hand_box.name = mymob.get_held_index_name(i)
 		hand_box.icon = ui_style
 		hand_box.icon_state = "hand_[mymob.held_index_to_dir(i)]"
-		hand_box.screen_loc = ui_hand_position(i)
+		hand_box.screen_loc = ui_hand_position(i, not_bottom)
 		hand_box.held_index = i
 		hand_slots["[i]"] = hand_box
 		hand_box.hud = src
@@ -454,10 +466,10 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 	var/i = 1
 	for(var/atom/movable/screen/swap_hand/SH in static_inventory)
-		SH.screen_loc = ui_swaphand_position(mymob,!(i % 2) ? 2: 1)
+		SH.screen_loc = ui_swaphand_position(mymob, !(i % 2) ? 2 : 1, not_bottom)
 		i++
 	for(var/atom/movable/screen/human/equip/E in static_inventory)
-		E.screen_loc = ui_equip_position(mymob)
+		E.screen_loc = ui_equip_position(mymob, not_bottom)
 
 	if(ismob(mymob) && mymob.hud_used == src)
 		show_hud(hud_version)

@@ -1227,8 +1227,8 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	halitem = new
 	var/obj/item/l_hand = target.get_item_for_held_index(1)
 	var/obj/item/r_hand = target.get_item_for_held_index(2)
-	var/l = ui_hand_position(target.get_held_index_of_item(l_hand))
-	var/r = ui_hand_position(target.get_held_index_of_item(r_hand))
+	var/l = ui_hand_position(target.get_held_index_of_item(l_hand), C?.hud_used?.retro_hud)
+	var/r = ui_hand_position(target.get_held_index_of_item(r_hand), C?.hud_used?.retro_hud)
 	var/list/slots_free = list(l,r)
 	if(l_hand)
 		slots_free -= l
@@ -1237,11 +1237,11 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
 		if(!H.belt)
-			slots_free += UI_BELT
+			slots_free += C?.hud_used?.retro_hud ? UI_BELT_RETRO : UI_BELT
 		if(!H.l_store)
-			slots_free += UI_STORAGE1
+			slots_free += C?.hud_used?.retro_hud ? UI_STORAGE1_RETRO : UI_STORAGE1
 		if(!H.r_store)
-			slots_free += UI_STORAGE2
+			slots_free += C?.hud_used?.retro_hud ? UI_STORAGE2_RETRO : UI_STORAGE2
 	if(slots_free.len)
 		halitem.screen_loc = pick(slots_free)
 		halitem.plane = ABOVE_HUD_PLANE
