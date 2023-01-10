@@ -366,6 +366,7 @@
 	infodisplay += combo_display
 
 	ammo_counter = new /atom/movable/screen/ammo_counter()
+	ammo_counter.screen_loc = retro_hud ? UI_AMMOCOUNTER_RETRO : UI_AMMOCOUNTER
 	ammo_counter.hud = src
 	infodisplay += ammo_counter
 
