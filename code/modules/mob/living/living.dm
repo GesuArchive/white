@@ -2127,3 +2127,10 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 			span_userdanger("You're thrown violently into [lattice], smashing through it and punching straight through!"))
 		apply_damage(rand(5,10), BRUTE, BODY_ZONE_CHEST)
 		lattice.deconstruct(FALSE)
+
+/mob/living/changeNext_move(num)
+	. = ..()
+	if(!hud_used?.retro_hud && hud_used?.equip_hud)
+		hud_used.equip_hud.last_user_move = world.time
+		hud_used.equip_hud.target_time = next_move
+		START_PROCESSING(SShuds, hud_used.equip_hud)

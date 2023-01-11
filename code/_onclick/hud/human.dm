@@ -25,13 +25,27 @@
 
 /atom/movable/screen/human/equip
 	name = "экипировать"
+	base_icon_state = "nextmove"
 	icon_state = "act_equip"
+	var/last_user_move = 0
+	var/target_time = 0
 
 /atom/movable/screen/human/equip/Click()
 	if(ismecha(usr.loc)) // stops inventory actions in a mech
 		return TRUE
 	var/mob/living/carbon/human/H = usr
 	H.quick_equip()
+
+/atom/movable/screen/human/equip/process(delta_time)
+	update_icon_state(UPDATE_ICON_STATE)
+	if(world.time >= target_time)
+		icon_state = "act_equip"
+		return PROCESS_KILL
+
+/atom/movable/screen/human/equip/update_icon_state()
+	. = ..()
+	var/completion = clamp(FLOOR(20 - (((target_time - world.time) / (target_time - last_user_move)) * 20), 1), 1, 20)
+	icon_state = "[base_icon_state]_[completion]"
 
 /atom/movable/screen/ling
 	icon = 'icons/hud/screen_changeling.dmi'
@@ -230,11 +244,11 @@
 		using.hud = src
 		static_inventory += using
 
-	using = new /atom/movable/screen/human/equip()
-	using.icon = ui_style
-	using.screen_loc = ui_equip_position(mymob, retro_hud)
-	using.hud = src
-	static_inventory += using
+	equip_hud = new /atom/movable/screen/human/equip()
+	equip_hud.icon = ui_style
+	equip_hud.screen_loc = ui_equip_position(mymob, retro_hud)
+	equip_hud.hud = src
+	static_inventory += equip_hud
 
 	inv_box = new /atom/movable/screen/inventory()
 	inv_box.name = "перчатки"
