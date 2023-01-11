@@ -1245,7 +1245,11 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	src << browse(null, "window=newcomer")
 
-// я ебал этот код блять
+/*
+	Пропорции худа в полной комплектации: 640x512
+	Пропорции правой части худа:		  32x512
+	Пропорации нижней части худа:		  608x32
+*/
 /client/proc/set_hud_bar_visible(shown_bars)
 	var/list/screen_size = splittext(winget(src, "mapwindow", "size"), "x")
 	winset(src, "mapwindow.map","size=[screen_size[1]]x[screen_size[2]];anchor2=100,100")
