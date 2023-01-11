@@ -8436,7 +8436,7 @@
 	dir = 8;
 	dwidth = 1;
 	height = 4;
-	id = "pod_4_away";
+	id = "pod3_away";
 	name = "NT CentCom: Recovery field #4";
 	width = 3
 	},
@@ -8756,7 +8756,7 @@
 	dir = 4;
 	dwidth = 1;
 	height = 4;
-	id = "pod_2_away";
+	id = "pod4_away";
 	name = "NT CentCom: Recovery field #2";
 	width = 3
 	},
@@ -9043,7 +9043,7 @@
 	dir = 8;
 	dwidth = 1;
 	height = 4;
-	id = "pod_3_away";
+	id = "pod2_away";
 	name = "NT CentCom: Recovery field #3";
 	width = 3
 	},

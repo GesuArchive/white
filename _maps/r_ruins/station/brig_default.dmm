@@ -2857,9 +2857,9 @@
 /area/maintenance/department/security/brig)
 "jo" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/docking_port/stationary/random/icemoon{
+/obj/docking_port/stationary/random{
 	dir = 4;
-	id = "pod_3_lavaland";
+	id = "pod3_lavaland";
 	name = "lavaland"
 	},
 /turf/open/floor/plating,

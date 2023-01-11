@@ -567,7 +567,7 @@
 /area/ai_monitored/turret_protected/aisat_interior)
 "acy" = (
 /obj/docking_port/stationary/random{
-	id = "pod_lavaland3";
+	id = "pod_lavaland";
 	name = "lavaland"
 	},
 /turf/open/space,
@@ -19375,7 +19375,7 @@
 "ccg" = (
 /obj/docking_port/stationary/random{
 	dir = 8;
-	id = "pod_lavaland2";
+	id = "pod2_lavaland";
 	name = "lavaland"
 	},
 /turf/open/space,
@@ -25139,7 +25139,7 @@
 "cGA" = (
 /obj/docking_port/stationary/random{
 	dir = 2;
-	id = "pod_lavaland1";
+	id = "pod3_lavaland";
 	name = "lavaland"
 	},
 /turf/open/space,
@@ -26050,7 +26050,7 @@
 "cOd" = (
 /obj/docking_port/stationary/random{
 	dir = 4;
-	id = "pod_lavaland4";
+	id = "pod4_lavaland";
 	name = "lavaland"
 	},
 /turf/open/space,

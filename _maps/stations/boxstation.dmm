@@ -13745,9 +13745,9 @@
 /area/security/courtroom)
 "dFu" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/docking_port/stationary/random/icemoon{
+/obj/docking_port/stationary/random{
 	dir = 2;
-	id = "pod_4_lavaland";
+	id = "pod4_lavaland";
 	name = "lavaland"
 	},
 /turf/open/floor/plating,
@@ -16924,9 +16924,9 @@
 /area/maintenance/starboard/aft)
 "eBn" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/docking_port/stationary/random/icemoon{
+/obj/docking_port/stationary/random{
 	dir = 8;
-	id = "pod_2_lavaland";
+	id = "pod2_lavaland";
 	name = "lavaland"
 	},
 /turf/open/floor/plating,
@@ -51207,7 +51207,7 @@
 /area/ai_monitored/storage/eva)
 "oRO" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/docking_port/stationary/random/icemoon{
+/obj/docking_port/stationary/random{
 	dir = 8;
 	id = "pod_lavaland";
 	name = "lavaland"

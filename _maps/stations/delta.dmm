@@ -64,7 +64,7 @@
 /area/space/nearstation)
 "aat" = (
 /obj/docking_port/stationary/random{
-	id = "pod_2_lavaland";
+	id = "pod2_lavaland";
 	name = "lavaland"
 	},
 /turf/open/space,
@@ -7088,7 +7088,7 @@
 "bbz" = (
 /obj/docking_port/stationary/random{
 	dir = 4;
-	id = "pod_4_lavaland";
+	id = "pod4_lavaland";
 	name = "lavaland"
 	},
 /turf/open/space,
