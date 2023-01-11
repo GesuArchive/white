@@ -13,6 +13,7 @@
 	. = ..()
 	hud = _hud
 	update_view()
+	add_filter("shadow", 1, drop_shadow_filter(0, 0, 4, 0, "#000000"))
 
 /atom/movable/screen/tooltip/proc/update_view(datum/source)
 	SIGNAL_HANDLER
