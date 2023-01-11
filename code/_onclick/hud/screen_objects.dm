@@ -87,7 +87,7 @@
 	var/mob/M = usr
 	if(!M?.hud_used?.retro_hud)
 		flick("[icon_state]_pressed", src)
-		SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/craft
 	name = "создание предметов"
@@ -99,7 +99,7 @@
 	var/mob/M = usr
 	if(!M?.hud_used?.retro_hud)
 		flick("[icon_state]_pressed", src)
-		SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/area_creator
 	name = "новая зона"
@@ -110,7 +110,7 @@
 	var/mob/M = usr
 	if(!M?.hud_used?.retro_hud)
 		flick("[icon_state]_pressed", src)
-		SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 	if(usr.incapacitated() || (isobserver(usr) && !isAdminGhostAI(usr)))
 		return TRUE
@@ -131,7 +131,7 @@
 	H.open_language_menu(usr)
 	if(!M?.hud_used?.retro_hud)
 		flick("[icon_state]_pressed", src)
-		SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/inventory
 	/// The identifier for the slot. It has nothing to do with ID cards.
@@ -283,7 +283,7 @@
 		var/mob/M = usr
 		if(!M?.hud_used?.retro_hud)
 			flick("act_drop0", src)
-		SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/act_intent
 	name = "взаимодействие"
@@ -330,7 +330,7 @@
 
 /atom/movable/screen/mov_intent/Click()
 	toggle(usr)
-	SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
+	SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/mov_intent/update_icon_state()
 	switch(hud?.mymob?.m_intent)
@@ -357,7 +357,7 @@
 	if(isobserver(usr))
 		return
 	usr.stop_pulling()
-	SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
+	SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/pull/update_icon_state()
 	icon_state = "[base_icon_state][hud?.mymob?.pulling ? null : 0]"
@@ -375,7 +375,7 @@
 		L.resist()
 		if(!L?.hud_used?.retro_hud)
 			flick("act_resist0", src)
-		SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/rest
 	name = "лежать"
@@ -388,7 +388,7 @@
 	if(isliving(usr))
 		var/mob/living/L = usr
 		L.toggle_resting()
-		SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/rest/update_icon_state()
 	var/mob/living/user = hud?.mymob
@@ -434,6 +434,7 @@
 	if(iscarbon(usr))
 		var/mob/living/carbon/C = usr
 		C.toggle_throw_mode()
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 50))
 
 /atom/movable/screen/zone_sel
 	name = "целевая зона"

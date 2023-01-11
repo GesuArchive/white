@@ -20,7 +20,7 @@
 	var/mob/M = usr
 	if(!M?.hud_used?.retro_hud)
 		flick("[icon_state]_pressed", src)
-		SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/emote_button/MouseEntered()
 	. = ..()
