@@ -10,6 +10,7 @@
 	. = ..()
 	if(hud && usr == hud.mymob)
 		SEND_SIGNAL(hud.mymob, COMSIG_FIXEYE_TOGGLE)
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
 
 /atom/movable/screen/fixeye/update_name(updates)
 	. = ..()

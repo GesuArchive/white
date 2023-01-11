@@ -37,6 +37,14 @@
 
 /atom/movable/screen/multiz_up_button/Click()
 	usr.up()
+	var/mob/M = usr
+	if(!M?.hud_used?.retro_hud)
+		flick("[icon_state]_pressed", src)
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
 
 /atom/movable/screen/multiz_down_button/Click()
 	usr.down()
+	var/mob/M = usr
+	if(!M?.hud_used?.retro_hud)
+		flick("[icon_state]_pressed", src)
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg'))

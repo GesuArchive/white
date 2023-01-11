@@ -84,10 +84,22 @@
 		var/mob/living/carbon/human/H = usr
 		H.mind.print_levels(H)
 
+	var/mob/M = usr
+	if(!M?.hud_used?.retro_hud)
+		flick("[icon_state]_pressed", src)
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
+
 /atom/movable/screen/craft
 	name = "создание предметов"
 	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "craft"
+
+/atom/movable/screen/craft/Click()
+	. = ..()
+	var/mob/M = usr
+	if(!M?.hud_used?.retro_hud)
+		flick("[icon_state]_pressed", src)
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
 
 /atom/movable/screen/area_creator
 	name = "новая зона"
@@ -95,6 +107,11 @@
 	icon_state = "area_edit"
 
 /atom/movable/screen/area_creator/Click()
+	var/mob/M = usr
+	if(!M?.hud_used?.retro_hud)
+		flick("[icon_state]_pressed", src)
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
+
 	if(usr.incapacitated() || (isobserver(usr) && !isAdminGhostAI(usr)))
 		return TRUE
 	var/area/A = get_area(usr)
@@ -112,6 +129,9 @@
 	var/mob/M = usr
 	var/datum/language_holder/H = M.get_language_holder()
 	H.open_language_menu(usr)
+	if(!M?.hud_used?.retro_hud)
+		flick("[icon_state]_pressed", src)
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
 
 /atom/movable/screen/inventory
 	/// The identifier for the slot. It has nothing to do with ID cards.
@@ -260,6 +280,10 @@
 /atom/movable/screen/drop/Click()
 	if(usr.stat == CONSCIOUS)
 		usr.dropItemToGround(usr.get_active_held_item())
+		var/mob/M = usr
+		if(!M?.hud_used?.retro_hud)
+			flick("act_drop0", src)
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
 
 /atom/movable/screen/act_intent
 	name = "взаимодействие"
@@ -306,6 +330,7 @@
 
 /atom/movable/screen/mov_intent/Click()
 	toggle(usr)
+	SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
 
 /atom/movable/screen/mov_intent/update_icon_state()
 	switch(hud?.mymob?.m_intent)
@@ -332,6 +357,7 @@
 	if(isobserver(usr))
 		return
 	usr.stop_pulling()
+	SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
 
 /atom/movable/screen/pull/update_icon_state()
 	icon_state = "[base_icon_state][hud?.mymob?.pulling ? null : 0]"
@@ -347,6 +373,9 @@
 	if(isliving(usr))
 		var/mob/living/L = usr
 		L.resist()
+		if(!L?.hud_used?.retro_hud)
+			flick("act_resist0", src)
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
 
 /atom/movable/screen/rest
 	name = "лежать"
@@ -359,6 +388,7 @@
 	if(isliving(usr))
 		var/mob/living/L = usr
 		L.toggle_resting()
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg'))
 
 /atom/movable/screen/rest/update_icon_state()
 	var/mob/living/user = hud?.mymob
