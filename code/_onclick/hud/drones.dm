@@ -3,21 +3,19 @@
 	var/atom/movable/screen/inventory/inv_box
 
 	inv_box = new /atom/movable/screen/inventory()
-	inv_box.name = "internal storage"
+	inv_box.name = "внутреннее хранилище"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "suit_storage"
-//	inv_box.icon_full = "template"
-	inv_box.screen_loc = UI_DRONE_STORAGE
+	inv_box.screen_loc = retro_hud ? UI_DRONE_STORAGE_RETRO : UI_DRONE_STORAGE
 	inv_box.slot_id = ITEM_SLOT_DEX_STORAGE
 	inv_box.hud = src
 	static_inventory += inv_box
 
 	inv_box = new /atom/movable/screen/inventory()
-	inv_box.name = "head/mask"
+	inv_box.name = "шапка/маска"
 	inv_box.icon = ui_style
 	inv_box.icon_state = "mask"
-//	inv_box.icon_full = "template"
-	inv_box.screen_loc = UI_DRONE_HEAD
+	inv_box.screen_loc = retro_hud ? UI_DRONE_HEAD_RETRO : UI_DRONE_HEAD
 	inv_box.slot_id = ITEM_SLOT_HEAD
 	inv_box.hud = src
 	static_inventory += inv_box
@@ -36,10 +34,10 @@
 
 	if(hud_shown)
 		if(D.internal_storage)
-			D.internal_storage.screen_loc = UI_DRONE_STORAGE
+			D.internal_storage.screen_loc = retro_hud ? UI_DRONE_STORAGE_RETRO : UI_DRONE_STORAGE
 			D.client.screen += D.internal_storage
 		if(D.head)
-			D.head.screen_loc = UI_DRONE_HEAD
+			D.head.screen_loc = retro_hud ? UI_DRONE_HEAD_RETRO : UI_DRONE_HEAD
 			D.client.screen += D.head
 	else
 		if(D.internal_storage)
