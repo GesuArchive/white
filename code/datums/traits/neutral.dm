@@ -238,6 +238,8 @@
 
 /datum/quirk/bald/remove()
 	var/mob/living/carbon/human/H = quirk_holder
+	if(!H)
+		return
 	H.hairstyle = old_hair
 	H.update_hair()
 	UnregisterSignal(H, list(COMSIG_CARBON_EQUIP_HAT, COMSIG_CARBON_UNEQUIP_HAT))

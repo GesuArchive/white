@@ -233,7 +233,8 @@
 			// Using crew monitors to find corpses while creative makes finding certain ruins too easy.
 			var/obj/item/clothing/under/C = H.w_uniform
 			if(istype(C))
-				C.sensor_mode = NO_SENSORS
+				C.has_sensor = NO_SENSORS
+				C.sensor_mode = SENSOR_OFF
 
 	var/obj/item/card/id/W = H.wear_id
 	if(W)

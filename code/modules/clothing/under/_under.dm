@@ -12,7 +12,7 @@
 	var/fitted = FEMALE_UNIFORM_FULL // For use in alternate clothing styles for women
 	var/has_sensor = HAS_SENSORS // For the crew computer
 	var/random_sensor = TRUE
-	var/sensor_mode = NO_SENSORS
+	var/sensor_mode = SENSOR_OFF
 	var/can_adjust = TRUE
 	var/adjusted = NORMAL_STYLE
 	var/alt_covers_chest = FALSE // for adjusted/rolled-down jumpsuits, FALSE = exposes chest and arms, TRUE = exposes arms only
@@ -118,7 +118,7 @@
 
 /mob/living/carbon/human/proc/update_sensor_list()
 	var/obj/item/clothing/under/U = w_uniform
-	if(istype(U) && U.has_sensor > 0 && U.sensor_mode)
+	if(istype(U) && U.has_sensor > NO_SENSORS && U.sensor_mode)
 		GLOB.suit_sensors_list |= src
 	else
 		GLOB.suit_sensors_list -= src

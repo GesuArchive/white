@@ -127,7 +127,7 @@ SUBSYSTEM_DEF(title)
 	winset(user, "pdec", "pos=10,60")
 	update_lobby()
 	spawn(13 SECONDS)
-		if(user)
+		if(user?.client)
 			winset(user, "pdec", "is-visible=true;pos=10,60")
 		SStitle.update_lobby()
 

@@ -242,6 +242,9 @@ Medical HUD! Basic mode needs suit sensors on.
 		psychosis = 15
 		return psychosis
 
+	if(!B)
+		return 1
+
 	for(var/i in B.traumas)
 		var/datum/brain_trauma/trauma = i
 

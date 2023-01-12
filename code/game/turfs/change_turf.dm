@@ -182,7 +182,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		update_air_ref(planetary_atmos ? 1 : 2)
 		QDEL_NULL(stashed_air)
 	else
-		if(ispath(path,/turf/closed))
+		if(ispath(path, /turf/closed) || ispath(path, /turf/cordon))
 			flags |= CHANGETURF_RECALC_ADJACENT
 			update_air_ref(-1)
 			. = ..()

@@ -84,5 +84,5 @@
 	var/show_char_recip = !target.is_mentor() && CONFIG_GET(flag/mentors_mobname_only)
 	for(var/it in GLOB.mentors)
 		var/client/mentor = it
-		if(mentor.key!=key && mentor.key!=target.key)	//check client/X is an Mentor and isn't the sender or recipient
+		if(mentor && target && mentor.key != key && mentor.key != target.key)	//check client/X is an Mentor and isn't the sender or recipient
 			to_chat(mentor, span_mentor("ЗНАТОК: [key_name_mentor(src, mentor, 0, 0, show_char_sender)]-&gt;[key_name_mentor(target, mentor, 0, 0, show_char_recip)]: [msg]"))

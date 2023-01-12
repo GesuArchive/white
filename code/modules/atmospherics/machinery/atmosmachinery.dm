@@ -343,11 +343,11 @@
 	add_fingerprint(user)
 
 	var/unsafe_wrenching = FALSE
-	var/internal_pressure = int_air.return_pressure()-env_air.return_pressure()
+	var/internal_pressure = int_air?.return_pressure() - env_air?.return_pressure()
 
 	to_chat(user, span_notice("Начинаю откручивать [src.name]..."))
 
-	if (internal_pressure > 2*ONE_ATMOSPHERE)
+	if (internal_pressure > 2 * ONE_ATMOSPHERE)
 		to_chat(user, span_warning("Начинаю откручивать [src.name], попутно ощущая сильный поток воздуха... может стоит ПЕРЕДУМАТЬ?"))
 		unsafe_wrenching = TRUE //Oh dear oh dear
 
