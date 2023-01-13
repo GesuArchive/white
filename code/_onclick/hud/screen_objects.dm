@@ -357,6 +357,9 @@
 	if(isobserver(usr))
 		return
 	usr.stop_pulling()
+	var/mob/M = usr
+	if(!M?.hud_used?.retro_hud)
+		flick("[base_icon_state]", src)
 	SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/pull/update_icon_state()
@@ -434,7 +437,7 @@
 	if(iscarbon(usr))
 		var/mob/living/carbon/C = usr
 		C.toggle_throw_mode()
-		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 50))
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/zone_sel
 	name = "целевая зона"
