@@ -10,6 +10,14 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints/north)
+"bo" = (
+/obj/effect/spawner/random/structure/crate,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
+"bw" = (
+/obj/structure/lattice/catwalk,
+/turf/open/space/basic,
+/area/space/nearstation)
 "gf" = (
 /obj/structure/closet/crate/solarpanel_small,
 /turf/open/floor/plating,
@@ -26,6 +34,10 @@
 /obj/structure/grille,
 /turf/open/space/basic,
 /area/space/nearstation)
+"kA" = (
+/obj/effect/spawner/random/trash/mess,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "lr" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -44,8 +56,41 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/cargo/meeting_room)
+"nT" = (
+/obj/effect/spawner/random/trash/mess,
+/obj/effect/spawner/random/trash/garbage,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "oH" = (
 /obj/structure/closet/emcloset/anchored,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
+"oW" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
+"qx" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
+"rg" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central/low_level_eva)
+"sR" = (
+/obj/effect/spawner/random/trash/food_packaging,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
+"tZ" = (
+/obj/effect/spawner/random/trash/garbage,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
+"wm" = (
+/obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "xZ" = (
@@ -56,12 +101,29 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
+"zC" = (
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central/low_level_eva)
+"BO" = (
+/turf/closed/wall,
+/area/maintenance/bottom_station_maints)
 "BR" = (
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
 "DF" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/bottom_station_maints)
+"HY" = (
+/obj/structure/lattice,
+/obj/structure/grille/broken,
+/turf/open/space/basic,
+/area/space/nearstation)
+"IV" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/hallway/primary/central/low_level_eva)
 "LP" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
@@ -73,12 +135,35 @@
 "Pc" = (
 /turf/closed/wall/r_wall,
 /area/cargo/meeting_room)
+"Rw" = (
+/turf/closed/wall/r_wall,
+/area/hallway/primary/central/low_level_eva)
+"TL" = (
+/obj/structure/table,
+/obj/effect/spawner/random/food_or_drink/refreshing_beverage{
+	pixel_y = 3
+	},
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "UY" = (
 /turf/open/floor/plating,
 /area/cargo/meeting_room)
 "Ws" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/bottom_station_maints/north)
+"WP" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_access_txt = "12"
+	},
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
+"Xh" = (
+/obj/structure/table,
+/obj/effect/spawner/random/maintenance,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "YS" = (
 /turf/open/space/basic,
 /area/space)
@@ -86,6 +171,10 @@
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space/nearstation)
+"Zt" = (
+/obj/effect/turf_decal/tile/neutral,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central/low_level_eva)
 
 (1,1,1) = {"
 ab
@@ -473,8 +562,8 @@ ab
 ab
 ab
 ab
-ab
-ab
+rg
+IV
 YS
 YS
 YS
@@ -484,10 +573,10 @@ YS
 YS
 YS
 jH
-YS
-YS
-YS
+HY
 Zl
+YS
+HY
 jH
 jH
 jH
@@ -511,8 +600,8 @@ ab
 ab
 ab
 ab
-ab
-ab
+zC
+IV
 YS
 YS
 YS
@@ -549,8 +638,8 @@ ab
 ab
 ab
 ab
-ab
-ab
+Zt
+IV
 YS
 YS
 YS
@@ -588,7 +677,7 @@ ab
 ab
 ab
 ab
-ab
+Rw
 YS
 YS
 YS
@@ -652,7 +741,7 @@ Zl
 Zl
 Zl
 YS
-YS
+Zl
 YS
 YS
 ab
@@ -690,7 +779,7 @@ YS
 YS
 Zl
 YS
-YS
+Zl
 YS
 YS
 ab
@@ -728,9 +817,9 @@ YS
 YS
 Zl
 YS
-YS
-YS
-YS
+DF
+qx
+qx
 ab
 "}
 (18,1,1) = {"
@@ -761,14 +850,14 @@ Zl
 Zl
 YS
 YS
-YS
-YS
-YS
 Zl
-YS
-YS
-YS
-YS
+Zl
+Zl
+Zl
+DF
+DF
+Xh
+Xh
 ab
 "}
 (19,1,1) = {"
@@ -803,10 +892,10 @@ YS
 YS
 YS
 Zl
-YS
-YS
-YS
-YS
+qx
+BR
+BR
+BR
 ab
 "}
 (20,1,1) = {"
@@ -841,10 +930,10 @@ YS
 YS
 YS
 Zl
-YS
-YS
-YS
-YS
+qx
+oW
+BR
+BR
 ab
 "}
 (21,1,1) = {"
@@ -877,12 +966,12 @@ YS
 YS
 YS
 YS
+YS
 Zl
-Zl
-Zl
-Zl
-Zl
-Zl
+qx
+TL
+BR
+BR
 ab
 "}
 (22,1,1) = {"
@@ -902,25 +991,25 @@ YS
 YS
 YS
 Zl
-YS
-YS
-YS
-YS
-YS
-YS
+Zl
+Zl
 Zl
 YS
 YS
-YS
-YS
-YS
-YS
-YS
+Zl
+Zl
+Zl
+Zl
+Zl
 Zl
 YS
-YS
-YS
-YS
+Zl
+Zl
+Zl
+DF
+DF
+Xh
+Xh
 ab
 "}
 (23,1,1) = {"
@@ -956,9 +1045,9 @@ YS
 YS
 Zl
 YS
-YS
-YS
-YS
+DF
+qx
+qx
 ab
 "}
 (24,1,1) = {"
@@ -994,9 +1083,9 @@ YS
 YS
 Zl
 YS
-YS
-YS
-YS
+Zl
+bw
+bw
 ab
 "}
 (25,1,1) = {"
@@ -1033,8 +1122,8 @@ Zl
 Zl
 Zl
 Zl
-Zl
-Zl
+bw
+bw
 ab
 "}
 (26,1,1) = {"
@@ -1070,7 +1159,7 @@ YS
 YS
 Zl
 YS
-YS
+Zl
 DF
 xZ
 ab
@@ -1217,14 +1306,14 @@ YS
 YS
 YS
 YS
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+YS
+DF
+DF
+qx
+qx
+DF
+DF
+WP
 ab
 "}
 (31,1,1) = {"
@@ -1255,14 +1344,14 @@ YS
 YS
 YS
 YS
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+DF
+DF
+Xh
+tZ
+tZ
+wm
+tZ
+BR
 ab
 "}
 (32,1,1) = {"
@@ -1293,14 +1382,14 @@ Zl
 Zl
 Zl
 Zl
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+DF
+Xh
+sR
+BR
+BR
+wm
+BR
+BR
 ab
 "}
 (33,1,1) = {"
@@ -1331,14 +1420,14 @@ YS
 YS
 YS
 YS
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+qx
+BR
+BR
+BR
+BR
+BR
+BR
+BR
 ab
 "}
 (34,1,1) = {"
@@ -1369,14 +1458,14 @@ YS
 YS
 YS
 YS
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+qx
+kA
+BR
+tZ
+BR
+wm
+wm
+wm
 ab
 "}
 (35,1,1) = {"
@@ -1407,14 +1496,14 @@ YS
 YS
 YS
 YS
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+qx
+sR
+BR
+BR
+BR
+wm
+tZ
+tZ
 ab
 "}
 (36,1,1) = {"
@@ -1445,14 +1534,14 @@ YS
 YS
 YS
 YS
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+DF
+Xh
+nT
+wm
+BR
+wm
+tZ
+bo
 ab
 "}
 (37,1,1) = {"
@@ -1475,21 +1564,21 @@ Ws
 Ws
 Ws
 Ws
-Ws
-Ws
-Ws
-Ws
+lr
+lr
 lr
 Ws
+lr
+lr
+lr
 Ws
-Ws
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+DF
+BO
+BO
+BO
+WP
+BO
+BO
+BO
 ab
 "}

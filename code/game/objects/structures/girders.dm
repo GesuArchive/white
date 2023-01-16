@@ -16,9 +16,9 @@
 	. = ..()
 	. += "<hr>"
 	switch(state)
-		if(GIRDER_REINF)
+		if(GIRDER_REINF || GIRDER_PLAST)
 			. += span_notice("Ребра жесткости <b>закреплены</b> винтами на своем месте.")
-		if(GIRDER_REINF_STRUTS)
+		if(GIRDER_REINF_STRUTS || GIRDER_PLAST_STRUTS)
 			. += span_notice("Ребра жесткости <i>откручены</i> и могут быть <b>перекушены</b> для демонтажа.")
 		if(GIRDER_NORMAL)
 			if(can_displace)
@@ -26,7 +26,7 @@
 		if(GIRDER_DISPLACED)
 			. += span_notice("Анкерные <i>болты откручены</i> от пола, вся конструкция удерживается вместе парой <b>винтов</b>.")
 		if(GIRDER_DISASSEMBLED)
-			. += span_notice("[capitalize(src.name)] Ошибка! Сделайте скриншот и отправьте его в трудности перевода!")
+			. += span_notice("[capitalize(src.name)] Ошибка! Сообщите о ней разработчикам!")
 		if(GIRDER_TRAM)
 			. += span_notice("[capitalize(src.name)] используется для трамвая. Можно разобрать отвёрткой!")
 
@@ -191,7 +191,7 @@
 					to_chat(user, span_warning("Для создания фальшстены мне понадобится как минимум два листа пластали!"))
 					return
 				to_chat(user, span_notice("Начинаю строить фальшивую укрепленную стену..."))
-				if(do_after(user, 20, target = src))
+				if(do_after(user, 40, target = src))
 					if(S.get_amount() < 2)
 						return
 					S.use(2)
@@ -217,6 +217,9 @@
 			else
 				if(S.get_amount() < 1)
 					return
+				if(state == GIRDER_PLAST)
+					to_chat(user, span_warning("Невозможно закрепить пласталевую обшивку на пластитановых ребрах жесткости!"))
+					return
 				to_chat(user, span_notice("Начинаю устанавливать ребра жесткости..."))
 				if(do_after(user, 60*platingmodifier, target = src))
 					if(S.get_amount() < 1)
@@ -224,6 +227,54 @@
 					S.use(1)
 					to_chat(user, span_notice("Устанавливаю ребра жесткости."))
 					var/obj/structure/girder/reinforced/R = new (loc)
+					transfer_fingerprints_to(R)
+					qdel(src)
+				return
+
+//	Пластитановая стена
+
+		if(istype(S, /obj/item/stack/sheet/mineral/plastitanium))
+			if(state == GIRDER_DISPLACED)
+				if(S.get_amount() < 2)
+					to_chat(user, span_warning("Для создания фальшстены мне понадобится как минимум два листа пластали!"))
+					return
+				to_chat(user, span_notice("Начинаю строить фальшивую укрепленную стену..."))
+				if(do_after(user, 60, target = src))
+					if(S.get_amount() < 2)
+						return
+					S.use(2)
+					to_chat(user, span_notice("Готово. Для открытия или закрытия прохода необходимо надавить на стену."))
+					var/obj/structure/falsewall/plastitanium/FW = new (loc)
+					transfer_fingerprints_to(FW)
+					qdel(src)
+					return
+			else if(state == GIRDER_PLAST)
+				if(S.get_amount() < 1)
+					return
+				to_chat(user, span_notice("Начинаю закреплять бронелисты..."))
+				if(do_after(user, 60*platingmodifier, target = src))
+					if(S.get_amount() < 1)
+						return
+					S.use(1)
+					to_chat(user, span_notice("Закрепляю бронелисты."))
+					var/turf/T = get_turf(src)
+					T.PlaceOnTop(/turf/closed/wall/r_wall/syndicate)
+					transfer_fingerprints_to(T)
+					qdel(src)
+				return
+			else
+				if(S.get_amount() < 1)
+					return
+				if(state == GIRDER_REINF)
+					to_chat(user, span_warning("Невозможно закрепить пластитановую обшивку на пласталевых ребрах жесткости!"))
+					return
+				to_chat(user, span_notice("Начинаю устанавливать ребра жесткости..."))
+				if(do_after(user, 60*platingmodifier, target = src))
+					if(S.get_amount() < 1)
+						return
+					S.use(1)
+					to_chat(user, span_notice("Устанавливаю ребра жесткости."))
+					var/obj/structure/girder/plastitanium/R = new (loc)
 					transfer_fingerprints_to(R)
 					qdel(src)
 				return
@@ -334,6 +385,24 @@
 			state = GIRDER_REINF
 		return TRUE
 
+	else if(state == GIRDER_PLAST)
+		to_chat(user, span_notice("Начинаю откручивать ребра жесткости..."))
+		if(tool.use_tool(src, user, 60, volume=100))
+			if(state != GIRDER_PLAST)
+				return
+			to_chat(user, span_notice("Откручиваю ребра жесткости."))
+			state = GIRDER_PLAST_STRUTS
+		return TRUE
+
+	else if(state == GIRDER_PLAST_STRUTS)
+		to_chat(user, span_notice("Начинаю прикручивать ребра жесткости..."))
+		if(tool.use_tool(src, user, 60, volume=100))
+			if(state != GIRDER_PLAST_STRUTS)
+				return
+			to_chat(user, span_notice("Прикручиваю ребра жесткости."))
+			state = GIRDER_PLAST
+		return TRUE
+
 // Wirecutter behavior for girders
 /obj/structure/girder/wirecutter_act(mob/user, obj/item/tool)
 	. = ..()
@@ -342,6 +411,15 @@
 		if(tool.use_tool(src, user, 40, volume=100))
 			to_chat(user, span_notice("Перекусываю ребра жесткости."))
 			new /obj/item/stack/sheet/plasteel(get_turf(src))
+			var/obj/structure/girder/G = new (loc)
+			transfer_fingerprints_to(G)
+			qdel(src)
+		return TRUE
+	if(state == GIRDER_PLAST_STRUTS)
+		to_chat(user, span_notice("Начинаю демонтировать ребра жесткости..."))
+		if(tool.use_tool(src, user, 60, volume=100))
+			to_chat(user, span_notice("Перекусываю ребра жесткости."))
+			new /obj/item/stack/sheet/mineral/plastitanium(get_turf(src))
 			var/obj/structure/girder/G = new (loc)
 			transfer_fingerprints_to(G)
 			qdel(src)
@@ -404,6 +482,14 @@
 	girderpasschance = 0
 	max_integrity = 350
 
+/obj/structure/girder/plastitanium
+	name = "пластитановая балка"
+	icon_state = "plastitanium"
+	state = GIRDER_PLAST
+	girderpasschance = 0
+	max_integrity = 900
+
+
 /obj/structure/girder/tram
 	name = "трамвайная балка"
 	state = GIRDER_TRAM
@@ -412,7 +498,7 @@
 
 /obj/structure/girder/cult
 	name = "руническая балка"
-	desc = "Каркас сделан из странного и леденяще-холодного металла. Поверхность полностью монолитна и на ней незаметно никаких болтов."
+	desc = "Каркас сделан из странного, леденяще-холодного металла. Поверхность полностью монолитна и на ней незаметно никаких болтов."
 	icon = 'icons/obj/cult.dmi'
 	icon_state= "cultgirder"
 	can_displace = FALSE

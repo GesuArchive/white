@@ -85,6 +85,10 @@
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
+"bH" = (
+/obj/effect/spawner/random/trash/garbage,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "bW" = (
 /obj/machinery/camera/autoname{
 	dir = 4
@@ -149,6 +153,11 @@
 /obj/structure/cable,
 /turf/open/floor/carpet,
 /area/command/meeting_room)
+"cV" = (
+/obj/effect/spawner/random/trash/mess,
+/obj/effect/spawner/random/trash/garbage,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "cY" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -185,6 +194,10 @@
 	},
 /turf/open/floor/plasteel/grimy,
 /area/command/heads_quarters/captain)
+"ee" = (
+/obj/effect/turf_decal/tile/neutral,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central/low_level_eva)
 "eD" = (
 /obj/effect/landmark/stationroom/maintenance/rdm3x5,
 /turf/open/floor/plating,
@@ -423,6 +436,9 @@
 /obj/structure/closet/emcloset/anchored,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
+"iU" = (
+/turf/closed/wall/r_wall,
+/area/hallway/primary/central/low_level_eva)
 "jF" = (
 /obj/item/radio/intercom{
 	pixel_y = -26
@@ -541,6 +557,10 @@
 	},
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
+"ly" = (
+/obj/effect/spawner/random/structure/crate,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "lE" = (
 /obj/machinery/light,
 /turf/open/floor/plating,
@@ -843,6 +863,10 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/low_level_centre)
+"rX" = (
+/obj/effect/spawner/random/trash/mess,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "rY" = (
 /obj/structure/disposalpipe/trunk/multiz{
 	dir = 4
@@ -1356,6 +1380,11 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/command)
+"Ck" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/hallway/primary/central/low_level_eva)
 "Cw" = (
 /turf/closed/wall/r_wall,
 /area/ai_monitored/turret_protected/ai_upload)
@@ -1369,6 +1398,10 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command)
+"Dr" = (
+/obj/structure/cable,
+/turf/open/floor/plasteel,
+/area/hallway/primary/central/low_level_eva)
 "Dz" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -1581,6 +1614,11 @@
 /obj/tacmap/directional/south,
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
+"Hj" = (
+/obj/structure/table,
+/obj/effect/spawner/random/maintenance,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "HB" = (
 /turf/closed/wall,
 /area/command/heads_quarters/captain)
@@ -1682,6 +1720,9 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command)
+"Jh" = (
+/turf/closed/wall,
+/area/maintenance/bottom_station_maints)
 "Ji" = (
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/monofloor/dark,
@@ -1705,6 +1746,14 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/turret_protected/ai_upload)
+"Kq" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	dir = 4;
+	req_access_txt = "12"
+	},
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "KB" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1751,6 +1800,10 @@
 	dir = 8
 	},
 /area/hallway/primary/central/low_level_centre)
+"LJ" = (
+/obj/effect/spawner/random/trash/food_packaging,
+/turf/open/floor/plating,
+/area/maintenance/bottom_station_maints)
 "LK" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -1791,6 +1844,12 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/ai_monitored/turret_protected/ai_upload)
+"MH" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central/low_level_eva)
 "ML" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2771,8 +2830,8 @@ ab
 ab
 ab
 ab
-ab
-ab
+MH
+Ck
 YS
 Ca
 kT
@@ -2809,8 +2868,8 @@ ab
 ab
 ab
 ab
-ab
-ab
+Dr
+Ck
 Zl
 Ca
 mZ
@@ -2847,8 +2906,8 @@ ab
 ab
 ab
 ab
-ab
-ab
+ee
+Ck
 YS
 Ca
 kT
@@ -2886,7 +2945,7 @@ ab
 ab
 ab
 ab
-ab
+iU
 YS
 YS
 Bk
@@ -3103,8 +3162,8 @@ Zl
 Zl
 Zl
 Zl
-Zl
-Zl
+aU
+aU
 ab
 "}
 (20,1,1) = {"
@@ -3141,8 +3200,8 @@ YS
 Zl
 YS
 YS
-YS
-YS
+aU
+uV
 ab
 "}
 (21,1,1) = {"
@@ -3180,7 +3239,7 @@ Pa
 Pa
 Pa
 aU
-aU
+uV
 ab
 "}
 (22,1,1) = {"
@@ -3218,7 +3277,7 @@ GM
 GM
 dt
 RP
-go
+uV
 ab
 "}
 (23,1,1) = {"
@@ -3290,7 +3349,7 @@ YS
 YS
 Pa
 Xo
-uV
+bH
 uV
 uV
 uV
@@ -3330,8 +3389,8 @@ aU
 aU
 aU
 aU
+go
 iP
-uV
 uV
 ab
 "}
@@ -3369,7 +3428,7 @@ YS
 YS
 aU
 aU
-uV
+gV
 uV
 ab
 "}
@@ -3407,7 +3466,7 @@ YS
 YS
 YS
 aU
-uV
+ly
 uV
 ab
 "}
@@ -3445,7 +3504,7 @@ YS
 YS
 YS
 aU
-uV
+bH
 uV
 ab
 "}
@@ -3483,7 +3542,7 @@ YS
 YS
 YS
 aU
-uV
+bH
 uV
 ab
 "}
@@ -3515,14 +3574,14 @@ MD
 Nt
 Cw
 YS
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+YS
+aU
+aU
+Pa
+Pa
+aU
+aU
+Kq
 ab
 "}
 (31,1,1) = {"
@@ -3553,14 +3612,14 @@ Tf
 Cw
 Cw
 YS
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aU
+aU
+Hj
+bH
+bH
+gV
+bH
+uV
 ab
 "}
 (32,1,1) = {"
@@ -3591,14 +3650,14 @@ Cw
 Cw
 jH
 Zl
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aU
+Hj
+LJ
+uV
+uV
+gV
+uV
+uV
 ab
 "}
 (33,1,1) = {"
@@ -3629,14 +3688,14 @@ YS
 YS
 YS
 YS
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+Pa
+uV
+uV
+uV
+uV
+uV
+uV
+uV
 ab
 "}
 (34,1,1) = {"
@@ -3667,14 +3726,14 @@ Ws
 YS
 YS
 YS
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+Pa
+rX
+uV
+bH
+uV
+gV
+gV
+gV
 ab
 "}
 (35,1,1) = {"
@@ -3705,14 +3764,14 @@ Ws
 YS
 YS
 YS
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+Pa
+LJ
+uV
+uV
+uV
+gV
+bH
+bH
 ab
 "}
 (36,1,1) = {"
@@ -3743,14 +3802,14 @@ Ws
 YS
 YS
 YS
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aU
+Hj
+cV
+gV
+uV
+gV
+bH
+ly
 ab
 "}
 (37,1,1) = {"
@@ -3781,13 +3840,13 @@ Ws
 Ws
 Ws
 Ws
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aU
+Jh
+Jh
+Jh
+Kq
+Jh
+Jh
+Jh
 ab
 "}

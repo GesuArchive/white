@@ -5,7 +5,9 @@
 //girder construction states
 #define GIRDER_NORMAL 0
 #define GIRDER_REINF_STRUTS 1
+#define GIRDER_PLAST_STRUTS 1.5
 #define GIRDER_REINF 2
+#define GIRDER_PLAST 2.5
 #define GIRDER_DISPLACED 3
 #define GIRDER_DISASSEMBLED 4
 #define GIRDER_TRAM 5

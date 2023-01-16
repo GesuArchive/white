@@ -38,6 +38,16 @@
 /obj/item/defibrillator/get_cell()
 	return cell
 
+//	Осмотр дефиба
+/obj/item/defibrillator/examine(mob/user)
+	. = ..()
+	var/obj/item/stock_parts/cell/C = get_cell()
+	. += "<hr><span class='notice'>Дисплей:</span>"
+	if(C)
+		. += "</br><span class='notice'>- Уроверь батареи <b>[C.percent()]%</b>.</span>"
+	else
+		. += "<hr><span class='notice'>- Батарея отсутствует!</span>"
+
 /obj/item/defibrillator/Initialize(mapload) //starts without a cell for rnd
 	. = ..()
 	paddles = new paddle_type(src)
@@ -326,7 +336,29 @@
 /obj/item/defibrillator/compact/fieldmed/loaded/attackby(obj/item/W, mob/user, params)
 	if(W == paddles)
 		toggle_paddles()
-		return
+	else if(istype(W, /obj/item/stock_parts/cell))
+		var/obj/item/stock_parts/cell/C = W
+		if(cell)
+			to_chat(user, span_warning("[capitalize(src.name)] уже имеет батарейку!"))
+		else
+			if(C.maxcharge < paddles.revivecost)
+				to_chat(user, span_notice("[capitalize(src.name)] требует батарейку большей ёмкости."))
+				return
+			if(!user.transferItemToLoc(W, src))
+				return
+			cell = W
+			to_chat(user, span_notice("Устанавливаю батарейку в [src]."))
+			update_power()
+
+	else if(W.tool_behaviour == TOOL_SCREWDRIVER)
+		if(cell)
+			cell.update_icon()
+			cell.forceMove(get_turf(src))
+			cell = null
+			to_chat(user, span_notice("Вытаскиваю батарейку из [src]."))
+			update_power()
+	else
+		return ..()
 //paddles
 
 /obj/item/shockpaddles
@@ -724,7 +756,7 @@
 	base_icon_state = "syndiepaddles"
 
 /obj/item/shockpaddles/syndicate/nanotrasen
-	name = "электроды элитного дефибриллятора NanoTrasen"
+	name = "электроды элитного дефибриллятора НаноТрейзен"
 	desc = "Военный образец. Мощные конденсаторы позволяют пробивать легкую одежду, а так же использовать его в бою для разоружения или агрессивного электрошока."
 	icon_state = "ntpaddles0"
 	inhand_icon_state = "ntpaddles0"

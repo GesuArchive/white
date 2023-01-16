@@ -564,6 +564,44 @@
 	color = LIGHT_COLOR_PINK
 
 /obj/item/flashlight/glowstick/on
+	name = "зеленая светящаяся палочка"
+	color = LIGHT_COLOR_BLUE
+	on = TRUE
+	fuel = 10000
+
+/obj/item/flashlight/glowstick/red/on
+	name = "красная светящаяся палочка"
+	color = COLOR_SOFT_RED
+	on = TRUE
+	fuel = 10000
+
+/obj/item/flashlight/glowstick/blue/on
+	name = "синяя светящаяся палочка"
+	color = LIGHT_COLOR_BLUE
+	on = TRUE
+	fuel = 10000
+
+/obj/item/flashlight/glowstick/cyan/on
+	name = "голубая светящаяся палочка"
+	color = LIGHT_COLOR_CYAN
+	on = TRUE
+	fuel = 10000
+
+/obj/item/flashlight/glowstick/orange/on
+	name = "оранжевая светящаяся палочка"
+	color = LIGHT_COLOR_ORANGE
+	on = TRUE
+	fuel = 10000
+
+/obj/item/flashlight/glowstick/yellow/on
+	name = "жёлтая светящаяся палочка"
+	color = LIGHT_COLOR_YELLOW
+	on = TRUE
+	fuel = 10000
+
+/obj/item/flashlight/glowstick/pink/on
+	name = "розовая светящаяся палочка"
+	color = LIGHT_COLOR_PINK
 	on = TRUE
 	fuel = 10000
 
@@ -574,15 +612,6 @@
 
 /obj/effect/spawner/lootdrop/glowstick/Initialize(mapload)
 	loot = typesof(/obj/item/flashlight/glowstick)
-	. = ..()
-
-/obj/effect/spawner/lootdrop/glowstick/on
-	name = "случайная горящая светящаяся палочка"
-	icon = 'icons/obj/lighting.dmi'
-	icon_state = "random_glowstick"
-
-/obj/effect/spawner/lootdrop/glowstick/on/Initialize(mapload)
-	loot = typesof(/obj/item/flashlight/glowstick/on)
 	. = ..()
 
 /obj/item/flashlight/spotlight //invisible lighting source

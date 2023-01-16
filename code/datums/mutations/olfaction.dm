@@ -6,7 +6,7 @@
 	text_gain_indication = span_notice("Запахи стали определяться намного четче...")
 	text_lose_indication = span_notice("Я больше не чувствую всей палитры запахов.")
 	power_path = /datum/action/cooldown/spell/olfaction
-	instability = 30
+	instability = 10
 	synchronizer_coeff = 1
 
 /datum/mutation/human/olfaction/modify()
@@ -46,7 +46,7 @@
 	// Can we sniff? is there miasma in the air?
 	var/datum/gas_mixture/air = cast_on.loc.return_air()
 
-	if(air.get_moles(GAS_MIASMA) > 1)
+	if(air.get_moles(GAS_MIASMA) > 2)
 		cast_on.adjust_disgust(sensitivity * 45)
 		to_chat(cast_on, span_warning("УЖАСНАЯ ВОНЬ! Слишком отвратительный запах для моего чувствительного носа! Надо убраться отсюда подальше!"))
 		return
@@ -115,7 +115,7 @@
 		return
 
 	if(current_target == caster)
-		to_chat(caster, span_warning("YЧую след ведущий прямо к... ну да прямо ко мне..."))
+		to_chat(caster, span_warning("Чую след ведущий прямо к... ну да прямо ко мне..."))
 		return
 
 	if(caster.z < current_target.z)

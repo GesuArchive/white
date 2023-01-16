@@ -24,8 +24,8 @@
 	to_modify.self_throw_range += 1 // the breath throws the user back more
 
 /datum/action/cooldown/spell/cone/staggered/fire_breath
-	name = "Fire Breath"
-	desc = "You breathe a cone of fire directly in front of you."
+	name = "Огненное дыхание"
+	desc = "Сила дарованная Великим Ящером!"
 	button_icon_state = "fireball0"
 	sound = 'sound/magic/demon_dies.ogg' //horrifying lizard noises
 

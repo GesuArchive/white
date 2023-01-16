@@ -12,7 +12,7 @@
 		/obj/effect/decal/cleanable/vomit/old = 4,
 		/obj/effect/decal/cleanable/blood/gibs/old = 1,
 		/obj/effect/decal/cleanable/greenglow/filled = 1,
-		/obj/effect/spawner/lootdrop/glowstick/on = 4,
+		/obj/effect/spawner/random/decoration/glowstick/on = 4,
 		/obj/effect/spawner/lootdrop/maintenance = 3,
 		/mob/living/simple_animal/hostile/netherworld/blankbody = 2,
 		/mob/living/simple_animal/hostile/netherworld/migo = 2,

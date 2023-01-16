@@ -12,7 +12,7 @@
 		/obj/effect/decal/cleanable/vomit/old = 4,
 		/obj/effect/decal/cleanable/blood/gibs/old = 6,
 		/obj/effect/decal/cleanable/greenglow/filled = 3,
-		/obj/effect/spawner/lootdrop/glowstick/on = 1,
+		/obj/effect/spawner/random/decoration/glowstick/on = 1,
 		/obj/effect/spawner/lootdrop/maintenance = 3,
 		/obj/item/ammo_casing/c9mm = 4,
 		/obj/item/gun/ballistic/automatic/pistol/no_mag = 1,

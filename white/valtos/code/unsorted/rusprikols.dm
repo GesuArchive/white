@@ -29,7 +29,7 @@
 	icon_state = "buran-broken"
 
 /obj/machinery/porta_turret/armory
-	name = "armory defense turret"
+	name = "оборонительная турель"
 	desc = "An energy blaster auto-turret with an internal fusion core. Not dangerous in the slightest."
 	installation = null
 	stun_projectile = /obj/projectile/energy/electrode

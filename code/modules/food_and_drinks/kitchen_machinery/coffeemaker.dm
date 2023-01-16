@@ -400,6 +400,7 @@
 	icon = 'icons/obj/food/containers.dmi'
 	icon_state = "coffee_cartrack4"
 	base_icon_state = "coffee_cartrack"
+	spawn_count = 4
 	spawn_type = /obj/item/coffee_cartridge
 
 /obj/item/storage/fancy/coffee_cart_rack/Initialize()

@@ -85,7 +85,7 @@
 	loot = list()
 
 /obj/effect/spawner/random/decoration/glowstick
-	name = "random colored glowstick"
+	name = "случайная светящаяся палочка"
 	icon_state = "glowstick"
 	loot = list(
 		/obj/item/flashlight/glowstick,
@@ -95,6 +95,19 @@
 		/obj/item/flashlight/glowstick/orange,
 		/obj/item/flashlight/glowstick/yellow,
 		/obj/item/flashlight/glowstick/pink,
+	)
+
+/obj/effect/spawner/random/decoration/glowstick/on
+	name = "случайная горящая светящаяся палочка"
+	icon_state = "glowstick"
+	loot = list(
+		/obj/item/flashlight/glowstick/on,
+		/obj/item/flashlight/glowstick/red/on,
+		/obj/item/flashlight/glowstick/blue/on,
+		/obj/item/flashlight/glowstick/cyan/on,
+		/obj/item/flashlight/glowstick/orange/on,
+		/obj/item/flashlight/glowstick/yellow/on,
+		/obj/item/flashlight/glowstick/pink/on,
 	)
 
 /obj/effect/spawner/random/decoration/paint

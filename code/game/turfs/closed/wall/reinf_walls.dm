@@ -15,6 +15,7 @@
 	rad_insulation = RAD_HEAVY_INSULATION
 	///Dismantled state, related to deconstruction.
 	var/d_state = INTACT
+	var/d_time = 40
 
 
 /turf/closed/wall/r_wall/deconstruction_hints(mob/user)
@@ -67,7 +68,7 @@
 		if(SUPPORT_LINES)
 			if(W.tool_behaviour == TOOL_SCREWDRIVER)
 				to_chat(user, span_notice("Начинаю откручивать поддерживающие линии..."))
-				if(W.use_tool(src, user, 40, volume=100))
+				if(W.use_tool(src, user, d_time, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != SUPPORT_LINES)
 						return TRUE
 					d_state = COVER
@@ -87,7 +88,7 @@
 				if(!W.tool_start_check(user, amount=0))
 					return
 				to_chat(user, span_notice("Начинаю разваривать металлическое покрытие..."))
-				if(W.use_tool(src, user, 60, volume=100))
+				if(W.use_tool(src, user, d_time * 1.5, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != COVER)
 						return TRUE
 					d_state = CUT_COVER
@@ -97,7 +98,7 @@
 
 			if(W.tool_behaviour == TOOL_SCREWDRIVER)
 				to_chat(user, span_notice("Начинаю прикручивать поддерживающие линии обратно..."))
-				if(W.use_tool(src, user, 40, volume=100))
+				if(W.use_tool(src, user, d_time, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != COVER)
 						return TRUE
 					d_state = SUPPORT_LINES
@@ -108,7 +109,7 @@
 		if(CUT_COVER)
 			if(W.tool_behaviour == TOOL_CROWBAR)
 				to_chat(user, span_notice("Начинаю выдавливать покрытие..."))
-				if(W.use_tool(src, user, 100, volume=100))
+				if(W.use_tool(src, user, d_time * 2.5, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != CUT_COVER)
 						return TRUE
 					d_state = ANCHOR_BOLTS
@@ -120,7 +121,7 @@
 				if(!W.tool_start_check(user, amount=0))
 					return
 				to_chat(user, span_notice("Начинаю приваривать покрытие обратно на место..."))
-				if(W.use_tool(src, user, 60, volume=100))
+				if(W.use_tool(src, user, d_time * 1.5, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != CUT_COVER)
 						return TRUE
 					d_state = COVER
@@ -131,7 +132,7 @@
 		if(ANCHOR_BOLTS)
 			if(W.tool_behaviour == TOOL_WRENCH)
 				to_chat(user, span_notice("Начинаю откручивать болты удерживающие каркас..."))
-				if(W.use_tool(src, user, 40, volume=100))
+				if(W.use_tool(src, user, d_time, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != ANCHOR_BOLTS)
 						return TRUE
 					d_state = SUPPORT_RODS
@@ -141,7 +142,7 @@
 
 			if(W.tool_behaviour == TOOL_CROWBAR)
 				to_chat(user, span_notice("Начинаю ставить покрытие обратно на место..."))
-				if(W.use_tool(src, user, 20, volume=100))
+				if(W.use_tool(src, user, d_time * 0.5, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != ANCHOR_BOLTS)
 						return TRUE
 					d_state = CUT_COVER
@@ -154,7 +155,7 @@
 				if(!W.tool_start_check(user, amount=0))
 					return
 				to_chat(user, span_notice("Начинаю разрезать поддерживающий каркас..."))
-				if(W.use_tool(src, user, 100, volume=100))
+				if(W.use_tool(src, user, d_time * 2.5, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != SUPPORT_RODS)
 						return TRUE
 					d_state = SHEATH
@@ -165,7 +166,7 @@
 			if(W.tool_behaviour == TOOL_WRENCH)
 				to_chat(user, span_notice("Начинаю затягивать болты поддерживающие каркас..."))
 				W.play_tool_sound(src, 100)
-				if(W.use_tool(src, user, 40))
+				if(W.use_tool(src, user, d_time))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != SUPPORT_RODS)
 						return TRUE
 					d_state = ANCHOR_BOLTS
@@ -176,7 +177,7 @@
 		if(SHEATH)
 			if(W.tool_behaviour == TOOL_CROWBAR)
 				to_chat(user, span_notice("Начинаю выдавливать каркас..."))
-				if(W.use_tool(src, user, 100, volume=100))
+				if(W.use_tool(src, user, d_time * 2.5, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != SHEATH)
 						return TRUE
 					to_chat(user, span_notice("Выдавливаю каркас."))
@@ -187,7 +188,7 @@
 				if(!W.tool_start_check(user, amount=0))
 					return
 				to_chat(user, span_notice("Начинаю сваривать поддерживающий каркас обратно..."))
-				if(W.use_tool(src, user, 100, volume=100))
+				if(W.use_tool(src, user, d_time * 2.5, volume=100))
 					if(!istype(src, /turf/closed/wall/r_wall) || d_state != SHEATH)
 						return TRUE
 					d_state = SUPPORT_RODS
@@ -233,27 +234,35 @@
 		new /obj/effect/temp_visual/glowing_rune(src)
 	ChangeTurf(/turf/closed/wall/r_wall/rust)
 
+// Пластитановая стена - стыкуемая + сглаживающаяся
 /turf/closed/wall/r_wall/syndicate
-	name = "обшивка"
-	desc = "Бронированный корпус зловещего корабля."
+	name = "пластитановая стена"
+	desc = "Зловещая стена со пластитановым покрытием."
 	icon = DEFAULT_PLASTITANUM_ICON
 	icon_state = "plastitanium_wall-0"
 	base_icon_state = "plastitanium_wall"
 	explosion_block = 20
 	sheet_type = /obj/item/stack/sheet/mineral/plastitanium
+	girder_type = /obj/structure/girder/plastitanium
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_DIAGONAL_CORNERS
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_SYNDICATE_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_SYNDICATE_WALLS, SMOOTH_GROUP_PLASTITANIUM_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_SHUTTLE_PARTS)
+	d_time = 60
 
 /turf/closed/wall/r_wall/syndicate/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
 	return FALSE
 
+/turf/closed/wall/r_wall/syndicate/rust_heretic_act()
+	return // plastitanium does not rust
+
+// Пластитановая стена - не сглаживающаяся
 /turf/closed/wall/r_wall/syndicate/nodiagonal
 	icon = DEFAULT_PLASTITANUM_ICON
 	icon_state = "map-shuttle_nd"
 	base_icon_state = "plastitanium_wall"
 	smoothing_flags = SMOOTH_BITMASK
 
+// Пластитановая стена - не стыкуемая
 /turf/closed/wall/r_wall/syndicate/nosmooth
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "wall"

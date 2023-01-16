@@ -238,7 +238,7 @@ Medical HUD! Basic mode needs suit sensors on.
 	var/psychosis_max
 	var/obj/item/organ/brain/B = getorganslot(ORGAN_SLOT_BRAIN)
 
-	if(mind?.has_antag_datum(/datum/antagonist/brainwashed))
+	if(mind?.has_antag_datum(/datum/antagonist/brainwashed) || mind?.has_antag_datum(/datum/antagonist/abductee))
 		psychosis = 15
 		return psychosis
 
@@ -250,8 +250,10 @@ Medical HUD! Basic mode needs suit sensors on.
 
 		if(istype(trauma, /datum/brain_trauma/special/obsessed))
 			psychosis = 14
+			return psychosis
 		else if(istype(trauma, /datum/brain_trauma/severe/pacifism))
 			psychosis = 13
+			return psychosis
 		else
 			switch(trauma.resilience)
 				if(TRAUMA_RESILIENCE_BASIC)
@@ -286,11 +288,11 @@ Medical HUD! Basic mode needs suit sensors on.
 			if(4)
 				holder.icon_state = "hud_psih_4"
 			if(13)
-				holder.icon_state = "hud_psih_13"
+				holder.icon_state = "peace"
 			if(14)
-				holder.icon_state = "hud_psih_14"
+				holder.icon_state = "yandere"
 			if(15)
-				holder.icon_state = "hud_psih_15"
+				holder.icon_state = "brainwashed"
 			if(null)
 				holder.icon_state = "hud_psih_no"
 

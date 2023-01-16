@@ -152,6 +152,34 @@
 		dismantle(user, TRUE, tool)
 
 /*
+ * Фальшивая пластитановая стена
+ */
+
+/obj/structure/falsewall/plastitanium
+	name = "пластитановая стена"
+	desc = "Зловещая стена с пластитановым покрытием."
+	icon = DEFAULT_PLASTITANUM_ICON
+	icon_state = "plastitanium_wall-0"
+	base_icon_state = "plastitanium_wall"
+	mineral = /obj/item/stack/sheet/mineral/plastitanium
+	walltype = /turf/closed/wall/r_wall/syndicate
+	smoothing_flags = SMOOTH_BITMASK
+//	smoothing_groups = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_PLASTITANIUM_WALLS)
+//	canSmoothWith = list(SMOOTH_GROUP_PLASTITANIUM_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_SHUTTLE_PARTS)
+	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_SYNDICATE_WALLS)
+	canSmoothWith = list(SMOOTH_GROUP_SYNDICATE_WALLS, SMOOTH_GROUP_PLASTITANIUM_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_SHUTTLE_PARTS)
+
+
+/obj/structure/falsewall/plastitanium/examine_status(mob/user)
+	to_chat(user, span_notice("Внешняя <b>решетка</b> цела."))
+	return null
+
+/obj/structure/falsewall/plastitanium/attackby(obj/item/tool, mob/user)
+	..()
+	if(tool.tool_behaviour == TOOL_WIRECUTTER)
+		dismantle(user, TRUE, tool)
+
+/*
  * Фальшивая клепаная стена
  */
 
@@ -365,18 +393,6 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_TITANIUM_WALLS)
 	canSmoothWith = list(SMOOTH_GROUP_TITANIUM_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_SHUTTLE_PARTS)
-
-/obj/structure/falsewall/plastitanium
-	name = "пластитановая стена"
-	desc = "Зловещая стена с пластитановым покрытием."
-	icon = DEFAULT_PLASTITANUM_ICON
-	icon_state = "plastitanium_wall-0"
-	base_icon_state = "plastitanium_wall"
-	mineral = /obj/item/stack/sheet/mineral/plastitanium
-	walltype = /turf/closed/wall/mineral/plastitanium
-	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_PLASTITANIUM_WALLS)
-	canSmoothWith = list(SMOOTH_GROUP_PLASTITANIUM_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_SHUTTLE_PARTS)
 
 /obj/structure/falsewall/bronze
 	name = "латунная стена"

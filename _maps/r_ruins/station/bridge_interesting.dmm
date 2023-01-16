@@ -2384,13 +2384,10 @@
 /turf/open/floor/plasteel/freezer,
 /area/command/heads_quarters/captain)
 "jQ" = (
-/obj/structure/sink{
-	dir = 8;
-	pixel_x = 11
-	},
 /obj/structure/mirror{
 	pixel_x = 28
 	},
+/obj/structure/sink/directional/west,
 /turf/open/floor/plasteel/freezer,
 /area/command/heads_quarters/captain)
 "jS" = (
@@ -2494,12 +2491,10 @@
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central/south)
 "kB" = (
-/obj/machinery/shower{
-	dir = 1
-	},
 /obj/item/soap/deluxe,
 /obj/item/bikehorn/rubberducky,
 /obj/structure/curtain,
+/obj/machinery/shower/directional/north,
 /turf/open/floor/plasteel/freezer,
 /area/command/heads_quarters/captain)
 "kF" = (
@@ -4903,6 +4898,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/north)
+"RJ" = (
+/turf/closed/wall/r_wall,
+/area/hallway/primary/central/west)
 "RL" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -5179,7 +5177,7 @@ pQ
 pQ
 pQ
 pU
-ab
+RJ
 "}
 (4,1,1) = {"
 ab

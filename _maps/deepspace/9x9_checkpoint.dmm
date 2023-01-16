@@ -230,7 +230,7 @@
 	},
 /area/ruin/unpowered)
 "S" = (
-/obj/effect/spawner/lootdrop/glowstick/on,
+/obj/effect/spawner/random/decoration/glowstick/on,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "T" = (

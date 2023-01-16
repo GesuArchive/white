@@ -134,7 +134,7 @@
 /area/ruin/unpowered)
 "z" = (
 /obj/structure/table_frame,
-/obj/effect/spawner/lootdrop/glowstick/on,
+/obj/effect/spawner/random/decoration/glowstick/on,
 /obj/effect/decal/cleanable/plastic,
 /obj/effect/decal/cleanable/shreds,
 /obj/effect/decal/cleanable/glass,
@@ -186,7 +186,7 @@
 /turf/open/floor/plasteel/cafeteria,
 /area/ruin/unpowered)
 "K" = (
-/obj/effect/spawner/lootdrop/glowstick/on,
+/obj/effect/spawner/random/decoration/glowstick/on,
 /turf/open/floor/plasteel/cafeteria,
 /area/ruin/unpowered)
 "L" = (

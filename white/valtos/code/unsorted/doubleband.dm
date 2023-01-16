@@ -48,7 +48,7 @@
 	desc = "Мы хорошие ребята, жаль патронов маловато..."
 	icon = 'white/valtos/icons/clothing/belts.dmi'
 	worn_icon = 'white/valtos/icons/clothing/mob/belt.dmi'
-	icon_state = "bandolier_double"	//сделать спрайт
+	icon_state = "bandolier_triple"
 	worn_icon_state = "bandolier_double"
 	multibelt = BANDOLIER_TRIPLE
 

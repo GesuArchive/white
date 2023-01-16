@@ -382,6 +382,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Коридоры: Центральные"
 	icon_state = "hallC"
 
+/area/hallway/primary/central/upload
+	name = "Мостик: Турели"
+	icon_state = "hallC"
+
 /area/hallway/primary/central/north
 	name = "Коридоры: Центр, Север"
 	icon_state = "hallC1"
