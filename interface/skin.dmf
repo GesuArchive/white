@@ -93,32 +93,34 @@ window "mapwindow"
 		is-pane = true
 	elem "hud"
 		type = MAP
-		pos = 608,0
-		size = 32x512
-		anchor1 = 95,0
+		pos = 0,0
+		size = 0x0
+		anchor1 = 0,0
 		anchor2 = 100,100
 		font-size = 7
 		text-color = none
 		letterbox = false
 		saved-params = "zoom;letterbox;zoom-mode"
+		is-visible=false
 		style = ".center { text-align: center; } .maptext { font-family: 'Small Fonts'; font-size: 7px; -dm-text-outline: 1px black; color: white; line-height: 1.1; } .katanafont { font-family: 'Retroville NC'; } .ibmfont { font-family: 'PxPlus IBM VGA9'; } .command_headset { font-weight: bold;\tfont-size: 8px; } .small { font-size: 6px; } .big { font-size: 8px; } .reallybig { font-size: 8px; } .extremelybig { font-size: 8px; } .greentext { color: #00FF00; font-size: 7px; } .redtext { color: #FF0000; font-size: 7px; } .clown { color: #FF69Bf; font-size: 7px;  font-weight: bold; } .his_grace { color: #15D512; } .hypnophrase { color: #0d0d0d; font-weight: bold; } .yell { font-weight: bold; } .italics { font-size: 6px; }"
 	elem "bottom"
 		type = MAP
-		pos = 0,480
-		size = 608x32
-		anchor1 = 0,100
+		pos = 0,0
+		size = 0x0
+		anchor1 = 0,0
 		anchor2 = 100,95
 		font-size = 7
 		text-color = none
 		letterbox = false
 		saved-params = "zoom;letterbox;zoom-mode"
+		is-visible=false
 		style = ".center { text-align: center; } .maptext { font-family: 'Small Fonts'; font-size: 7px; -dm-text-outline: 1px black; color: white; line-height: 1.1; } .katanafont { font-family: 'Retroville NC'; } .ibmfont { font-family: 'PxPlus IBM VGA9'; } .command_headset { font-weight: bold;\tfont-size: 8px; } .small { font-size: 6px; } .big { font-size: 8px; } .reallybig { font-size: 8px; } .extremelybig { font-size: 8px; } .greentext { color: #00FF00; font-size: 7px; } .redtext { color: #FF0000; font-size: 7px; } .clown { color: #FF69Bf; font-size: 7px;  font-weight: bold; } .his_grace { color: #15D512; } .hypnophrase { color: #0d0d0d; font-weight: bold; } .yell { font-weight: bold; } .italics { font-size: 6px; }"
 	elem "map"
 		type = MAP
 		pos = 0,0
-		size = 608x480
+		size = 640x512
 		anchor1 = 0,0
-		anchor2 = 95,95
+		anchor2 = 100,100
 		font-family = "Arial"
 		font-size = 7
 		text-color = none
