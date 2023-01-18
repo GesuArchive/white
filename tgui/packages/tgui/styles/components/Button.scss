@@ -23,7 +23,7 @@ $bg-map: colors.$bg-map !default;
   $text-color: if($luminance > 0.2, rgba(0, 0, 0, 1), rgba(255, 255, 255, 1));
 
   transition: color 50ms, background-color 50ms, border-color 50ms;
-  background-color: lighten(base.$color-bg, 25%);
+  background-color: lighten(base.$color-bg, 10%);
   border-top: 1px solid rgba(44, 44, 44, 0.8);
   border-left: 1px solid rgba(33, 33, 33, 0.8);
   border-right: 1px solid rgba(33, 33, 33, 0.8);

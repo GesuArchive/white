@@ -22,6 +22,7 @@ export const Vent = (props, context) => {
   return (
     <Section
       level={2}
+      noborder
       title={capitalize(decodeHtmlEntities(long_name))}
       buttons={
         <Button
@@ -143,6 +144,7 @@ export const Scrubber = (props, context) => {
   return (
     <Section
       level={2}
+      noborder
       title={capitalize(decodeHtmlEntities(long_name))}
       buttons={
         <Button
