@@ -40,10 +40,10 @@
 				log_admin("The admin [key] has been allowed to bypass the whitelist")
 				if (message)
 					message_admins(span_adminnotice("The admin [key] has been allowed to bypass the whitelist"))
-					addclientmessage(ckey,span_adminnotice("You have been allowed to bypass the whitelist"))
-			else
+					addclientmessage(ckey, span_adminnotice("Доступ разрешён."))
+			else if (text2num(find_join_date(ckey)) >= 2022)
 				log_access("Failed Login: [key] - Not on whitelist")
-				return list("reason"="whitelist", "desc" = "\nReason: You are not on the white list for this server")
+				return list("reason" = "whitelist", "desc" = "Тебя не приглашали.")
 
 	//Guest Checking
 	if(!real_bans_only && !C && is_guest_key(key))

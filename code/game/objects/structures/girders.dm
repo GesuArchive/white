@@ -16,9 +16,9 @@
 	. = ..()
 	. += "<hr>"
 	switch(state)
-		if(GIRDER_REINF || GIRDER_PLAST)
+		if(GIRDER_REINF, GIRDER_PLAST)
 			. += span_notice("Ребра жесткости <b>закреплены</b> винтами на своем месте.")
-		if(GIRDER_REINF_STRUTS || GIRDER_PLAST_STRUTS)
+		if(GIRDER_REINF_STRUTS, GIRDER_PLAST_STRUTS)
 			. += span_notice("Ребра жесткости <i>откручены</i> и могут быть <b>перекушены</b> для демонтажа.")
 		if(GIRDER_NORMAL)
 			if(can_displace)
