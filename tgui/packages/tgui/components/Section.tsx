@@ -17,6 +17,7 @@ type SectionProps = BoxProps & {
   fitted?: boolean;
   scrollable?: boolean;
   scrollableHorizontal?: boolean;
+  noborder?: boolean;
   /** @deprecated This property no longer works, please remove it. */
   level?: boolean;
   /** @deprecated Please use `scrollable` property */
@@ -32,11 +33,13 @@ export class Section extends Component<SectionProps> {
   scrollable: boolean;
   onScroll?: (this: GlobalEventHandlers, ev: Event) => any;
   scrollableHorizontal: boolean;
+  noborder: boolean;
 
   constructor(props) {
     super(props);
     this.scrollableRef = props.scrollableRef || createRef();
     this.scrollable = props.scrollable;
+    this.noborder = props.noborder;
     this.onScroll = props.onScroll;
     this.scrollableHorizontal = props.scrollableHorizontal;
   }
@@ -67,6 +70,7 @@ export class Section extends Component<SectionProps> {
       scrollableHorizontal,
       children,
       onScroll,
+      noborder,
       ...rest
     } = this.props;
     const hasTitle = canRender(title) || canRender(buttons);
@@ -79,6 +83,7 @@ export class Section extends Component<SectionProps> {
           fitted && 'Section--fitted',
           scrollable && 'Section--scrollable',
           scrollableHorizontal && 'Section--scrollableHorizontal',
+          noborder && 'Section__noborder',
           className,
           computeBoxClassName(rest),
         ])}

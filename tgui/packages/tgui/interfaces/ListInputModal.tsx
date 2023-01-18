@@ -179,7 +179,7 @@ const ListDisplay = (props, context) => {
     props;
 
   return (
-    <Section fill scrollable tabIndex={0}>
+    <Section fill noborder scrollable tabIndex={0}>
       {filteredItems.map((item, index) => {
         return (
           <Button
