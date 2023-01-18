@@ -588,12 +588,12 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		related_accounts_cid += "[query_get_related_cid.item[1]], "
 	qdel(query_get_related_cid)
 
-	if(CONFIG_GET(flag/panic_bunker) && CONFIG_GET(number/panic_bunker_cap) < GLOB.player_list.len && !holder && !GLOB.deadmins[ckey])
+	if(CONFIG_GET(flag/panic_bunker) && !holder && !GLOB.deadmins[ckey] && CONFIG_GET(flag/usewhitelist) && !check_whitelist(ckey))
 		var/living_recs = CONFIG_GET(number/panic_bunker_living)
 		//Relies on pref existing, but this proc is only called after that occurs, so we're fine.
 		var/minutes = get_exp_living(pure_numeric = TRUE)
 		if(minutes <= living_recs)
-			var/reject_message = "PBv2: [key] перенаправлен по причине: [minutes]/[living_recs]."
+			var/reject_message = "PBv3: [key] отклонён по причине: [minutes]/[living_recs]."
 			log_access(reject_message)
 			message_admins(span_adminnotice("[reject_message]"))
 			var/message = CONFIG_GET(string/panic_bunker_message)
@@ -605,6 +605,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 				to_chat(src, span_notice("Отправляем вас в [panic_name ? panic_name : panic_addr]."))
 				winset(src, null, "command=.options")
 				src << link("[panic_addr]?redirect=1")
+			src << link("https://discord.station13.ru")
 			qdel(src)
 			return
 

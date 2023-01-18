@@ -32,7 +32,7 @@
 	if(GLOB.admin_datums[ckey] || GLOB.deadmins[ckey])
 		admin = TRUE
 
-
+/*
 	//Whitelist
 	if(!real_bans_only && !C && CONFIG_GET(flag/usewhitelist))
 		if(!check_whitelist(ckey))
@@ -44,6 +44,7 @@
 			else if (text2num(find_join_date(ckey)) >= 2022)
 				log_access("Failed Login: [key] - Not on whitelist")
 				return list("reason" = "whitelist", "desc" = "Тебя не приглашали.")
+*/
 
 	//Guest Checking
 	if(!real_bans_only && !C && is_guest_key(key))
