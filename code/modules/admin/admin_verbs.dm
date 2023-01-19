@@ -239,6 +239,7 @@ GLOBAL_LIST_INIT(admin_verbs_secured, list(
 	/client/proc/reestablish_db_connection, /*reattempt a connection to the database*/
 	/datum/admins/proc/kill_system32,
 	/client/proc/debug_winset,
+	/client/proc/reload_whitelist,
 	))
 GLOBAL_PROTECT(admin_verbs_secured)
 GLOBAL_LIST_INIT(admin_verbs_poll, list(/client/proc/poll_panel))

@@ -20,4 +20,13 @@ GLOBAL_PROTECT(whitelist)
 		return FALSE
 	. = (ckey in GLOB.whitelist)
 
+/client/proc/reload_whitelist()
+	set category = "Адм"
+	set name = "Whitelist Reload"
+
+	load_whitelist()
+
+	message_admins("[key_name_admin(usr)] перегружает вайтлист.")
+
+
 #undef WHITELISTFILE
