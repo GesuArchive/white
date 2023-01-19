@@ -117,9 +117,6 @@
 
 /datum/world_topic/status/Run(list/input)
 	. = list()
-	var/wl = 1
-	if(GLOB.whitelist)
-		wl = GLOB.whitelist.len
 	.["version"] = GLOB.game_version
 	.["mode"] = GLOB.master_mode
 	.["respawn"] = config ? !CONFIG_GET(flag/norespawn) : FALSE
@@ -128,7 +125,7 @@
 	.["ai"] = CONFIG_GET(flag/allow_ai)
 	.["host"] = world.host ? world.host : null
 	.["round_id"] = GLOB.round_id
-	.["players"] = wl + GLOB.clients.len
+	.["players"] = GLOB.clients.len
 	.["hub"] = GLOB.hub_visibility
 	var/game_status
 	switch(SSticker.current_state)
@@ -214,9 +211,6 @@
 			msg += "\t[C.holder.fakekey]\n"
 		else
 			msg += "\t[C.key]\n"
-	for(var/cc in GLOB.whitelist)
-		n++
-		msg += "\t[cc]\n"
 	msg += "Всего: [n]"
 	return msg
 

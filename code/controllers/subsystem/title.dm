@@ -111,8 +111,6 @@ SUBSYSTEM_DEF(title)
 				caa[role_thing] += "[player.key]"
 		else
 			cum += "[player.key]"
-	for(var/line in GLOB.whitelist)
-		cum += "[line]"
 	if(SSticker.current_state <= GAME_STATE_PREGAME)
 		for(var/line in sort_list(caa))
 			tcc += "<tr><td class='role'>[line]</td><td>[english_list(caa[line])]</td></tr>"
