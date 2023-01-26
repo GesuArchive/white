@@ -3,6 +3,9 @@
 #define MAPTEXT_REALLYBIG(text) {"<span class='maptext reallybig'>[##text]</span>"}
 #define MAPTEXT_REALLYBIG_COLOR(text, color) {"<span class='maptext reallybig' style='color:[##color]'>[##text]</span>"}
 
+/// Prepares a text to be used for maptext, using a font that can handle larger text better.
+#define MAPTEXT_VCR_OSD_MONO(text) {"<span style='font-family: \"VCR OSD Mono\"'>[##text]</span>"}
+
 /// Macro from Lummox used to get height from a MeasureText proc.
 /// resolves the MeasureText() return value once, then resolves the height, then sets return_var to that.
 #define WXH_TO_HEIGHT(measurement, return_var) \

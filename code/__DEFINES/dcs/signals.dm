@@ -1387,6 +1387,16 @@
 // from /client/proc/handle_popup_close() : (window_id)
 #define COMSIG_POPUP_CLEARED "popup_cleared"
 
+/// Called after one or more verbs are added: (list of verbs added)
+#define COMSIG_CLIENT_VERB_ADDED "client_verb_added"
+
+/// Called after one or more verbs are added: (list of verbs added)
+#define COMSIG_CLIENT_VERB_REMOVED "client_verb_removed"
+
+/// Called after a client logs into a mob: (mob)
+#define COMSIG_CLIENT_MOB_LOGIN "client_mob_changed"
+
+
 //spatial grid signals
 
 ///Called from base of /datum/controller/subsystem/spatial_grid/proc/enter_cell: (/atom/movable)
@@ -1484,3 +1494,7 @@
 #define COMSIG_HUMAN_EQUIPPING_ITEM "mob_equipping_item"
 	/// cancels the equip.
 	#define COMPONENT_BLOCK_EQUIP (1<<0)
+
+/// Global signal called after the station changes its name.
+/// (new_name, old_name)
+#define COMSIG_GLOB_STATION_NAME_CHANGED "!station_name_changed"

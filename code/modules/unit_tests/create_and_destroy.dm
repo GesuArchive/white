@@ -91,6 +91,8 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	ignore += typesof(/obj/machinery/computer/holodeck)
 	//runtimes if not paired with a landmark
 	ignore += typesof(/obj/structure/industrial_lift)
+	// Always ought to have an associated escape menu. Any references it could possibly hold would need one regardless.
+	ignore += subtypesof(/atom/movable/screen/escape_menu)
 
 	var/list/cached_contents = spawn_at.contents.Copy()
 	var/baseturf_count = length(spawn_at.baseturfs)

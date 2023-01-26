@@ -25,7 +25,7 @@ SUBSYSTEM_DEF(input)
 	"Any+UP" = "\"KeyUp \[\[*\]\]\"",
 	"Back" = "\".winset \\\"input.text=\\\"\\\"\\\"\"",
 	"Tab" = "\".winset \\\"input.focus=true?map.focus=true:input.focus=true\\\"\"",
-	"Escape" = "Reset-Held-Keys",
+	"Escape" = "Open-Escape-Menu",
 	)
 
 // Badmins just wanna have fun ♪

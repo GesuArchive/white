@@ -1281,18 +1281,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if((shown_bars & NEOHUD_RIGHT))
 		winset(src, "mapwindow.hud","pos=[map_width],0;size=[tile_width]x[screen_height + ((shown_bars & NEOHUD_BOTTOM) ? 0 : -map_height)];anchor1=[mapAnchor_x],100;is-visible=true")
 
-/client/proc/debug_winset()
-	set name = "Winset Debug"
-	set category = "Дбг"
-
-	if(!holder ||!check_rights(R_SECURED))
-		return
-
-	var/winsel = tgui_input_text(src, "WINDOW", "?")
-	var/parsel = tgui_input_text(src, "PARAMS", "?")
-
-	winset(src, winsel, parsel)
-
 /client/proc/show_area_description(duration, custom_text)
 	set waitfor = FALSE
 
@@ -1324,3 +1312,13 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		sleep(5)
 		T.maptext = ""
 		T.aaaam_tooooooooping = FALSE
+
+/// Clears the client's screen, aside from ones that opt out
+/client/proc/clear_screen()
+	for (var/object in screen)
+		if (istype(object, /atom/movable/screen))
+			var/atom/movable/screen/screen_object = object
+			if (!screen_object.clear_with_screen)
+				continue
+
+		screen -= object
