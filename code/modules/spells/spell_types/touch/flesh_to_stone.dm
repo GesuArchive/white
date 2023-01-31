@@ -1,6 +1,6 @@
 /datum/action/cooldown/spell/touch/flesh_to_stone
-	name = "Flesh to Stone"
-	desc = "This spell charges your hand with the power to turn victims into inert statues for a long period of time."
+	name = "От плоти к камню"
+	desc = "Это заклинание изменяет вашу руку, наделяя ее способностью превращать живых существ в статуи на длительный период времени."
 	button_icon_state = "statue"
 	sound = 'sound/magic/fleshtostone.ogg'
 
@@ -18,8 +18,8 @@
 
 	var/mob/living/living_victim = victim
 	if(living_victim.can_block_magic(antimagic_flags))
-		to_chat(caster, span_warning("The spell can't seem to affect [victim]!"))
-		to_chat(victim, span_warning("You feel your flesh turn to stone for a moment, then revert back!"))
+		to_chat(caster, span_warning("Заклинание, похоже, не может повлиять на [victim]!"))
+		to_chat(victim, span_warning("Чувствую, как моя плоть на мгновение превращается в камень, а затем возвращается обратно!"))
 		return TRUE
 
 	living_victim.Stun(4 SECONDS)
@@ -27,8 +27,8 @@
 	return TRUE
 
 /obj/item/melee/touch_attack/flesh_to_stone
-	name = "\improper petrifying touch"
-	desc = "That's the bottom line, because flesh to stone said so!"
+	name = "прикосновение окаменения"
+	desc = "Вот в чем суть, плоть станет камнем!"
 	icon_state = "fleshtostone"
 	inhand_icon_state = "fleshtostone"
 

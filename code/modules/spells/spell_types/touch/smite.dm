@@ -1,7 +1,7 @@
 /datum/action/cooldown/spell/touch/smite
-	name = "Smite"
-	desc = "This spell charges your hand with an unholy energy \
-		that can be used to cause a touched victim to violently explode."
+	name = "Кара"
+	desc = "Заклинание заряжает вашу руку нечестивой энергией. \
+		Если вы дотронетесь ею до жертвы, то её тело взорвется в кровавом месиве.."
 	button_icon_state = "gib"
 	sound = 'sound/magic/disintegrate.ogg'
 
@@ -27,8 +27,8 @@
 	var/mob/living/living_victim = victim
 	if(living_victim.can_block_magic(antimagic_flags))
 		caster.visible_message(
-			span_warning("The feedback blows [caster]'s arm off!"),
-			span_userdanger("The spell bounces from [living_victim]'s skin back into your arm!"),
+			span_warning("Обратная связь отрывает руку [caster]!"),
+			span_userdanger("Заклинание отскакивает от кожи [living_victim] обратно в мою руку!"),
 		)
 		caster.flash_act()
 		var/obj/item/bodypart/to_dismember = caster.get_holding_bodypart_of_item(hand)
@@ -39,7 +39,7 @@
 		var/mob/living/carbon/human/human_victim = victim
 		var/obj/item/clothing/suit/worn_suit = human_victim.wear_suit
 		if(istype(worn_suit, /obj/item/clothing/suit/hooded/bloated_human))
-			human_victim.visible_message(span_danger("[victim]'s [worn_suit] explodes off of them into a puddle of gore!"))
+			human_victim.visible_message(span_danger("[victim] [worn_suit] взрывается, превращаясь в лужу запекшейся крови!"))
 			human_victim.dropItemToGround(worn_suit)
 			qdel(worn_suit)
 			new /obj/effect/gibspawner(get_turf(victim))
@@ -49,7 +49,7 @@
 	return TRUE
 
 /obj/item/melee/touch_attack/smite
-	name = "\improper smiting touch"
-	desc = "This hand of mine glows with an awesome power!"
+	name = "карающее прикосновение"
+	desc = "Моя рука светится невероятной силой!"
 	icon_state = "disintegrate"
 	inhand_icon_state = "disintegrate"

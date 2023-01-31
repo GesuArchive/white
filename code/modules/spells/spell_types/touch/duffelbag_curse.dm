@@ -1,7 +1,7 @@
 
 /datum/action/cooldown/spell/touch/duffelbag
-	name = "Bestow Cursed Duffel Bag"
-	desc = "A spell that summons a duffel bag demon on the target, slowing them down and slowly eating them."
+	name = "Проклятый мешок"
+	desc = "Заклинание, которое вызывает демона вещевого мешка на цель, который замедляет их и медленно съедает."
 	button_icon_state = "duffelbag_curse"
 	sound = 'sound/magic/mm_hit.ogg'
 
@@ -20,17 +20,17 @@
 
 	var/mob/living/carbon/duffel_victim = victim
 	var/static/list/elaborate_backstory = list(
-		"spacewar origin story",
-		"military background",
-		"corporate connections",
-		"life in the colonies",
-		"anti-government activities",
-		"upbringing on the space farm",
-		"fond memories with your buddy Keith",
+		"теориях о происхождении космических войн",
+		"военных подвигах",
+		"корпоративных связях",
+		"воспоминаниях о жизни в колонии",
+		"антипровительственных митингах",
+		"воспоминаниях о воспитании на космической ферме",
+		"приятных воспоминания с моим приятелем Валерой",
 	)
 	if(duffel_victim.can_block_magic(antimagic_flags))
-		to_chat(caster, span_warning("The spell can't seem to affect [duffel_victim]!"))
-		to_chat(duffel_victim, span_warning("You really don't feel like talking about your [pick(elaborate_backstory)] with complete strangers today."))
+		to_chat(caster, span_warning("Заклинание, похоже, не повлияло на [duffel_victim]!"))
+		to_chat(duffel_victim, span_warning("Мне действительно не хочется сегодня говорить о своих [pick(elaborate_backstory)] с совершенно незнакомыми людьми."))
 		return TRUE
 
 	// To get it started, stun and knockdown the person being hit
@@ -41,15 +41,15 @@
 
 	// If someone's already cursed, don't try to give them another
 	if(HAS_TRAIT(duffel_victim, TRAIT_DUFFEL_CURSE_PROOF))
-		to_chat(caster, span_warning("The burden of [duffel_victim]'s duffel bag becomes too much, shoving them to the floor!"))
-		to_chat(duffel_victim, span_warning("The weight of this bag becomes overburdening!"))
+		to_chat(caster, span_warning("Бремя вещевого мешка [duffel_victim] становится слишком тяжелым, и он падает на пол!"))
+		to_chat(duffel_victim, span_warning("Вес этого мешка становится непосильным!"))
 		return TRUE
 
 	// However if they're uncursed, they're fresh for getting a cursed bag
 	var/obj/item/storage/backpack/duffelbag/cursed/conjured_duffel = new get_turf(victim)
 	duffel_victim.visible_message(
-		span_danger("A growling duffel bag appears on [duffel_victim]!"),
-		span_danger("You feel something attaching itself to you, and a strong desire to discuss your [pick(elaborate_backstory)] at length!"),
+		span_danger("Рычащий вещевой мешок появляется на [duffel_victim]!"),
+		span_danger("Я чувствую, что что-то привязывается ко мне, и появляется сильное желание обсудить мысли о моих [pick(elaborate_backstory)] в конце концов!"),
 	)
 
 	// This duffelbag is now cuuuurrrsseed! Equip it on them
@@ -81,7 +81,7 @@
 	return TRUE
 
 /obj/item/melee/touch_attack/duffelbag
-	name = "\improper burdening touch"
-	desc = "Where is the bar from here?"
+	name = "обременяющее прикосновение"
+	desc = "Сегодня отличный день чтобы скинуть все свои проблемы на чужую спину..."
 	icon_state = "duffelcurse"
 	inhand_icon_state = "duffelcurse"
