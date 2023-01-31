@@ -53,6 +53,8 @@
 	desc = "The word 'утбябтрднвллк' is scribbled on it in crayon. You'd better don't try to disassemble this."
 	icon = 'white/hule/icons/obj/weapons.dmi'
 	icon_state = "npgrenade"
+	icon_preview = 'white/hule/icons/obj/weapons.dmi'
+	icon_state_preview = "npgrenade_ass"
 	stage = 3
 
 /obj/item/grenade/chem_grenade/npgrenade/Initialize(mapload)

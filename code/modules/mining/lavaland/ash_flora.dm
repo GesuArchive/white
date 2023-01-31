@@ -326,7 +326,7 @@
 	result = /obj/item/reagent_containers/glass/bowl/mushroom_bowl
 	reqs = list(/obj/item/food/grown/ash_flora/shavings = 5)
 	time = 30
-	category = CAT_PRIMAL
+	category = CAT_CONTAINERS
 /obj/item/reagent_containers/glass/bowl/mushroom_bowl
 	name = "Миска из грибов"
 	desc = "Миска, сделанная из грибов. Не еда, хотя в какой-то момент она могла в ней быть."

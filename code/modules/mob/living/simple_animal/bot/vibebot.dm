@@ -3,6 +3,8 @@
 	desc = "Маленький робот. Он просто отдыхает, делая свое дело."
 	icon = 'icons/mob/aibots.dmi'
 	icon_state = "vibebot"
+	icon_preview = 'icons/mob/aibots.dmi'
+	icon_state_preview = "vibebot1"
 	density = FALSE
 	anchored = FALSE
 	health = 25

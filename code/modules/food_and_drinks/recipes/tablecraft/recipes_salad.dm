@@ -11,7 +11,7 @@
 		/obj/item/food/grown/apple = 1
 	)
 	result = /obj/item/food/salad/herbsalad
-	subcategory = CAT_SALAD
+	category = CAT_SALAD
 
 /datum/crafting_recipe/food/aesirsalad
 	name = "Салат Асов"
@@ -21,7 +21,7 @@
 		/obj/item/food/grown/apple/gold = 1
 	)
 	result = /obj/item/food/salad/aesirsalad
-	subcategory = CAT_SALAD
+	category = CAT_SALAD
 
 /datum/crafting_recipe/food/validsalad
 	name = "Валидный салат"
@@ -32,7 +32,7 @@
 		/obj/item/food/meatball = 1
 	)
 	result = /obj/item/food/salad/validsalad
-	subcategory = CAT_SALAD
+	category = CAT_SALAD
 
 /datum/crafting_recipe/food/monkeysdelight
 	name = "Обезьяний восторг"
@@ -45,7 +45,7 @@
 		/obj/item/food/grown/banana = 1
 	)
 	result = /obj/item/food/soup/monkeysdelight
-	subcategory = CAT_SALAD
+	category = CAT_SALAD
 
 
 /datum/crafting_recipe/food/fruitsalad
@@ -59,7 +59,7 @@
 
 	)
 	result = /obj/item/food/salad/fruit
-	subcategory = CAT_SALAD
+	category = CAT_SALAD
 
 /datum/crafting_recipe/food/junglesalad
 	name = "Салат \"Джунгли\""
@@ -72,7 +72,7 @@
 
 	)
 	result = /obj/item/food/salad/jungle
-	subcategory = CAT_SALAD
+	category = CAT_SALAD
 
 /datum/crafting_recipe/food/citrusdelight
 	name = "Цитрусовый восторг"
@@ -84,7 +84,7 @@
 
 	)
 	result = /obj/item/food/salad/citrusdelight
-	subcategory = CAT_SALAD
+	category = CAT_SALAD
 
 /datum/crafting_recipe/food/edensalad
 	name = "Салат Эдема"
@@ -96,7 +96,7 @@
 		/obj/item/food/grown/peace = 1
 	)
 	result = /obj/item/food/salad/edensalad
-	subcategory = CAT_SALAD
+	category = CAT_SALAD
 
 /datum/crafting_recipe/food/melonfruitbowl
 	name ="Фруктовая арбузная миска"
@@ -109,7 +109,7 @@
 		/obj/item/food/grown/ambrosia = 1
 	)
 	result = /obj/item/food/salad/melonfruitbowl
-	subcategory = CAT_SALAD
+	category = CAT_SALAD
 
 /datum/crafting_recipe/food/gumbo
 	name = "Черноглазое гамбо"
@@ -120,5 +120,5 @@
 		/obj/item/food/meat/cutlet = 1
 	)
 	result = /obj/item/food/salad/gumbo
-	subcategory = CAT_SALAD
+	category = CAT_SALAD
 

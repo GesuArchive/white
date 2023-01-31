@@ -9,10 +9,10 @@
  * Glass sheets
  */
 GLOBAL_LIST_INIT(glass_recipes, list ( \
-	new/datum/stack_recipe("направленное окно", /obj/structure/window/unanchored, time = 0, on_floor = TRUE, window_checks = TRUE), \
-	new/datum/stack_recipe("полноценное окно", /obj/structure/window/fulltile/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE), \
-	new/datum/stack_recipe("осколок стекла", /obj/item/shard, time = 0, on_floor = TRUE), \
-	new/datum/stack_recipe("стеклянная плитка", /obj/item/stack/tile/glass, 1, 4, 20)
+	new/datum/stack_recipe("направленное окно", /obj/structure/window/unanchored, time = 0, on_floor = TRUE, window_checks = TRUE, category = CAT_WINDOWS), \
+	new/datum/stack_recipe("полноценное окно", /obj/structure/window/fulltile/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE, category = CAT_WINDOWS), \
+	new/datum/stack_recipe("осколок стекла", /obj/item/shard, time = 0, on_floor = TRUE, category = CAT_MISC), \
+	new/datum/stack_recipe("стеклянная плитка", /obj/item/stack/tile/glass, 1, 4, 20, category = CAT_TILES)
 ))
 
 /obj/item/stack/sheet/glass
@@ -78,9 +78,9 @@ GLOBAL_LIST_INIT(glass_recipes, list ( \
 	return ..()
 
 GLOBAL_LIST_INIT(pglass_recipes, list ( \
-	new/datum/stack_recipe("направленное окно", /obj/structure/window/plasma/unanchored, time = 0, on_floor = TRUE, window_checks = TRUE), \
-	new/datum/stack_recipe("полноценное окно", /obj/structure/window/plasma/fulltile/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE), \
-	new/datum/stack_recipe("осколок плазмастекла", /obj/item/shard/plasma, time = 0, on_floor = TRUE) \
+	new/datum/stack_recipe("направленное окно", /obj/structure/window/plasma/unanchored, time = 0, on_floor = TRUE, window_checks = TRUE, category = CAT_WINDOWS), \
+	new/datum/stack_recipe("полноценное окно", /obj/structure/window/plasma/fulltile/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE, category = CAT_WINDOWS), \
+	new/datum/stack_recipe("осколок плазмастекла", /obj/item/shard/plasma, time = 0, on_floor = TRUE, category = CAT_MISC) \
 ))
 
 /obj/item/stack/sheet/plasmaglass
@@ -128,12 +128,12 @@ GLOBAL_LIST_INIT(pglass_recipes, list ( \
  * Reinforced glass sheets
  */
 GLOBAL_LIST_INIT(reinforced_glass_recipes, list ( \
-	new/datum/stack_recipe("рама стеклодвери", /obj/structure/windoor_assembly, 5, time = 0, on_floor = TRUE, window_checks = TRUE), \
+	new/datum/stack_recipe("рама стеклодвери", /obj/structure/windoor_assembly, 5, time = 0, on_floor = TRUE, window_checks = TRUE, category = CAT_DOORS), \
 	null, \
-	new/datum/stack_recipe("направленное армированное окно", /obj/structure/window/reinforced/unanchored, time = 0, on_floor = TRUE, window_checks = TRUE), \
-	new/datum/stack_recipe("полноценное армированное окно", /obj/structure/window/reinforced/fulltile/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE), \
-	new/datum/stack_recipe("осколок стекла", /obj/item/shard, time = 0, on_floor = TRUE), \
-	new/datum/stack_recipe("армированная стеклянная плитка", /obj/item/stack/tile/rglass, 1, 4, 20)
+	new/datum/stack_recipe("направленное армированное окно", /obj/structure/window/reinforced/unanchored, time = 0, on_floor = TRUE, window_checks = TRUE, category = CAT_WINDOWS), \
+	new/datum/stack_recipe("полноценное армированное окно", /obj/structure/window/reinforced/fulltile/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE, category = CAT_WINDOWS), \
+	new/datum/stack_recipe("осколок стекла", /obj/item/shard, time = 0, on_floor = TRUE, category = CAT_MISC), \
+	new/datum/stack_recipe("армированная стеклянная плитка", /obj/item/stack/tile/rglass, 1, 4, 20, category = CAT_TILES)
 ))
 
 
@@ -183,9 +183,9 @@ GLOBAL_LIST_INIT(reinforced_glass_recipes, list ( \
 	. += GLOB.reinforced_glass_recipes
 
 GLOBAL_LIST_INIT(prglass_recipes, list ( \
-	new/datum/stack_recipe("направленное армированное окно", /obj/structure/window/plasma/reinforced/unanchored, time = 0, on_floor = TRUE, window_checks = TRUE), \
-	new/datum/stack_recipe("полноценное армированное окно", /obj/structure/window/plasma/reinforced/fulltile/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE), \
-	new/datum/stack_recipe("осколок плазмастекла", /obj/item/shard/plasma, time = 0, on_floor = TRUE) \
+	new/datum/stack_recipe("направленное армированное окно", /obj/structure/window/plasma/reinforced/unanchored, time = 0, on_floor = TRUE, window_checks = TRUE, category = CAT_WINDOWS), \
+	new/datum/stack_recipe("полноценное армированное окно", /obj/structure/window/plasma/reinforced/fulltile/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE, category = CAT_WINDOWS), \
+	new/datum/stack_recipe("осколок плазмастекла", /obj/item/shard/plasma, time = 0, on_floor = TRUE, category = CAT_MISC) \
 ))
 
 /obj/item/stack/sheet/plasmarglass
@@ -208,8 +208,8 @@ GLOBAL_LIST_INIT(prglass_recipes, list ( \
 	. += GLOB.prglass_recipes
 
 GLOBAL_LIST_INIT(titaniumglass_recipes, list(
-	new/datum/stack_recipe("окно шаттла", /obj/structure/window/shuttle/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE), \
-	new/datum/stack_recipe("осколок стекла", /obj/item/shard, time = 0, on_floor = TRUE) \
+	new/datum/stack_recipe("окно шаттла", /obj/structure/window/shuttle/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE, category = CAT_WINDOWS), \
+	new/datum/stack_recipe("осколок стекла", /obj/item/shard, time = 0, on_floor = TRUE, category = CAT_MISC) \
 	))
 
 /obj/item/stack/sheet/titaniumglass
@@ -229,8 +229,8 @@ GLOBAL_LIST_INIT(titaniumglass_recipes, list(
 	. += GLOB.titaniumglass_recipes
 
 GLOBAL_LIST_INIT(plastitaniumglass_recipes, list(
-	new/datum/stack_recipe("пластитановое окно", /obj/structure/window/plasma/reinforced/plastitanium/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE), \
-	new/datum/stack_recipe("осколок плазмастекла", /obj/item/shard/plasma, time = 0, on_floor = TRUE) \
+	new/datum/stack_recipe("пластитановое окно", /obj/structure/window/plasma/reinforced/plastitanium/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE, category = CAT_WINDOWS), \
+	new/datum/stack_recipe("осколок плазмастекла", /obj/item/shard/plasma, time = 0, on_floor = TRUE, category = CAT_MISC) \
 	))
 
 /obj/item/stack/sheet/plastitaniumglass

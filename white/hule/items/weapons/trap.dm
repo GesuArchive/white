@@ -68,8 +68,7 @@
 	reqs = list(/obj/item/stack/cable_coil = 3,
 				/obj/item/grenade = 1)
 	parts = list(/obj/item/grenade = 1)
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
+	category = CAT_STRUCTURE
 
 /datum/crafting_recipe/tripwire/on_craft_completion(mob/user, atom/result)
 	. = ..()

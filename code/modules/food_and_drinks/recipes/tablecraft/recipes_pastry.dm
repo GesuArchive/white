@@ -11,7 +11,7 @@
 		/obj/item/food/pastrybase = 1
 	)
 	result = /obj/item/food/donut/plain
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 
 /datum/crafting_recipe/food/donut/chaos
@@ -281,7 +281,7 @@
 		/obj/item/food/pastrybase = 2
 	)
 	result = /obj/item/food/waffles
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 
 /datum/crafting_recipe/food/soylenviridians
@@ -291,7 +291,7 @@
 		/obj/item/food/grown/soybeans = 1
 	)
 	result = /obj/item/food/soylenviridians
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/soylentgreen
 	name = "Зеленый сойлент"
@@ -300,7 +300,7 @@
 		/obj/item/food/meat/slab/human = 2
 	)
 	result = /obj/item/food/soylentgreen
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 
 /datum/crafting_recipe/food/rofflewaffles
@@ -310,7 +310,7 @@
 		/obj/item/food/pastrybase = 2
 	)
 	result = /obj/item/food/rofflewaffles
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 ////////////////////////////////////////////////DONKPOCCKETS////////////////////////////////////////////////
 
@@ -322,7 +322,7 @@
 		/obj/item/food/meatball = 1
 	)
 	result = /obj/item/food/donkpocket
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/dankpocket
 	time = 15
@@ -332,7 +332,7 @@
 		/obj/item/food/grown/cannabis = 1
 	)
 	result = /obj/item/food/dankpocket
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/donkpocket/spicy
 	time = 15
@@ -343,7 +343,7 @@
 		/obj/item/food/grown/chili
 	)
 	result = /obj/item/food/donkpocket/spicy
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/donkpocket/teriyaki
 	time = 15
@@ -354,7 +354,7 @@
 		/datum/reagent/consumable/soysauce = 3
 	)
 	result = /obj/item/food/donkpocket/teriyaki
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/donkpocket/pizza
 	time = 15
@@ -365,7 +365,7 @@
 		/obj/item/food/grown/tomato = 1
 	)
 	result = /obj/item/food/donkpocket/pizza
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/donkpocket/honk
 	time = 15
@@ -376,7 +376,7 @@
 		/datum/reagent/consumable/sugar = 3
 	)
 	result = /obj/item/food/donkpocket/honk
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/donkpocket/berry
 	time = 15
@@ -386,7 +386,7 @@
 		/obj/item/food/grown/berries = 1
 	)
 	result = /obj/item/food/donkpocket/berry
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/donkpocket/gondola
 	time = 15
@@ -397,7 +397,7 @@
 		/datum/reagent/tranquility = 5
 	)
 	result = /obj/item/food/donkpocket/gondola
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 ////////////////////////////////////////////////MUFFINS////////////////////////////////////////////////
 
@@ -409,7 +409,7 @@
 		/obj/item/food/pastrybase = 1
 	)
 	result = /obj/item/food/muffin
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/berrymuffin
 	name = "Ягодный маффин"
@@ -419,7 +419,7 @@
 		/obj/item/food/grown/berries = 1
 	)
 	result = /obj/item/food/muffin/berry
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/booberrymuffin
 	name = "Маффин из мрачных ягод"
@@ -430,7 +430,7 @@
 		/obj/item/ectoplasm = 1
 	)
 	result = /obj/item/food/muffin/booberry
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/chawanmushi
 	name = "Тяван-муси"
@@ -441,7 +441,7 @@
 		/obj/item/food/grown/mushroom/chanterelle = 1
 	)
 	result = /obj/item/food/chawanmushi
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/moffin
 	name = "Моффин"
@@ -451,7 +451,7 @@
 		/obj/item/stack/sheet/cloth = 1,
 	)
 	result = /obj/item/food/muffin/moffin
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 ////////////////////////////////////////////OTHER////////////////////////////////////////////
 
@@ -463,7 +463,7 @@
 		/obj/item/food/sausage = 1
 	)
 	result = /obj/item/food/hotdog
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/meatbun
 	name = "Булочка с мясом"
@@ -474,7 +474,7 @@
 		/obj/item/food/grown/cabbage = 1
 	)
 	result = /obj/item/food/meatbun
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/khachapuri
 	name = "Хачапури"
@@ -484,7 +484,7 @@
 		/obj/item/food/bread/plain = 1
 	)
 	result = /obj/item/food/khachapuri
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/sugarcookie
 	time = 15
@@ -494,7 +494,7 @@
 		/obj/item/food/pastrybase = 1
 	)
 	result = /obj/item/food/cookie/sugar
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/fortunecookie
 	time = 15
@@ -507,7 +507,7 @@
 		/obj/item/paper = 1
 	)
 	result = /obj/item/food/fortunecookie
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/poppypretzel
 	time = 15
@@ -517,7 +517,7 @@
 		/obj/item/food/pastrybase = 1
 	)
 	result = /obj/item/food/poppypretzel
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/plumphelmetbiscuit
 	time = 15
@@ -527,7 +527,7 @@
 		/obj/item/food/grown/mushroom/plumphelmet = 1
 	)
 	result = /obj/item/food/plumphelmetbiscuit
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/cracker
 	time = 15
@@ -537,7 +537,7 @@
 		/obj/item/food/pastrybase = 1,
 	)
 	result = /obj/item/food/cracker
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/chococornet
 	name = "Шоколадный рожок"
@@ -547,7 +547,7 @@
 		/obj/item/food/chocolatebar = 1
 	)
 	result = /obj/item/food/chococornet
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/oatmealcookie
 	name = "Овсяное печенье"
@@ -556,7 +556,7 @@
 		/obj/item/food/grown/oat = 1
 	)
 	result = /obj/item/food/cookie/oatmeal
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/raisincookie
 	name = "Печенье с изюмом"
@@ -566,7 +566,7 @@
 		/obj/item/food/grown/oat = 1
 	)
 	result = /obj/item/food/cookie/raisin
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/cherrycupcake
 	name = "Вишневый кекс"
@@ -575,7 +575,7 @@
 		/obj/item/food/grown/cherries = 1
 	)
 	result = /obj/item/food/cherrycupcake
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/bluecherrycupcake
 	name = "Синевишневый кекс"
@@ -584,7 +584,7 @@
 		/obj/item/food/grown/bluecherries = 1
 	)
 	result = /obj/item/food/cherrycupcake/blue
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/honeybun
 	name = "Медовая булочка"
@@ -593,7 +593,7 @@
 		/datum/reagent/consumable/honey = 5
 	)
 	result = /obj/item/food/honeybun
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY
 
 /datum/crafting_recipe/food/cannoli
 	name = "Канноли"
@@ -603,4 +603,4 @@
 		/datum/reagent/consumable/sugar = 3
 	)
 	result = /obj/item/food/cannoli
-	subcategory = CAT_PASTRY
+	category = CAT_PASTRY

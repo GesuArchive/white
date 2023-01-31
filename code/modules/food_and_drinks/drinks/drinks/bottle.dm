@@ -535,6 +535,8 @@
 	name = "molotov cocktail"
 	desc = "A throwing weapon used to ignite things, typically filled with an accelerant. Recommended highly by rioters and revolutionaries. Light and toss."
 	icon_state = "vodkabottle"
+	icon_preview = 'icons/obj/previews.dmi'
+	icon_state_preview = "molotov"
 	list_reagents = list()
 	var/list/accelerants = list(	/datum/reagent/consumable/ethanol, /datum/reagent/fuel, /datum/reagent/clf3, /datum/reagent/phlogiston,
 							/datum/reagent/napalm, /datum/reagent/hellwater, /datum/reagent/toxin/plasma, /datum/reagent/toxin/spore_burning)
@@ -649,6 +651,6 @@
 /obj/item/reagent_containers/food/drinks/colocup/lean
 	name = "lean"
 	desc = "A cup of that purple drank, the stuff that makes you go WHEEZY BABY."
-	icon_state = "lean"
+	icon_state = "colocup" //спрайта нет, затычка
 	list_reagents = list(/datum/reagent/consumable/lean = 50)
 	random_sprite = FALSE

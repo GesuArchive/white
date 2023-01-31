@@ -24,10 +24,10 @@ Mineral Sheets
  */
 
 GLOBAL_LIST_INIT(sandstone_recipes, list ( \
-	new/datum/stack_recipe("Куча грязи", /obj/machinery/hydroponics/soil, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("Дверь из Песчаника", /obj/structure/mineral_door/sandstone, 10, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("Статуя Ассистента", /obj/structure/statue/sandstone/assistant, 5, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("Breakdown into sand", /obj/item/stack/ore/glass, 1, one_per_turf = FALSE, on_floor = TRUE) \
+	new/datum/stack_recipe("Куча грязи", /obj/machinery/hydroponics/soil, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE, category = CAT_TOOLS), \
+	new/datum/stack_recipe("Дверь из Песчаника", /obj/structure/mineral_door/sandstone, 10, one_per_turf = TRUE, on_floor = TRUE, category = CAT_DOORS), \
+	new/datum/stack_recipe("Статуя Ассистента", /obj/structure/statue/sandstone/assistant, 5, one_per_turf = TRUE, on_floor = TRUE, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("Breakdown into sand", /obj/item/stack/ore/glass, 1, one_per_turf = FALSE, on_floor = TRUE, category = CAT_MISC) \
 	))
 
 /obj/item/stack/sheet/mineral/sandstone
@@ -64,8 +64,8 @@ GLOBAL_LIST_INIT(sandstone_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/mineral/sandbags
 
 GLOBAL_LIST_INIT(sandbag_recipes, list ( \
-	new/datum/stack_recipe("мешки с песком", /obj/structure/barricade/sandbags, 1, time = 25, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("направленные мешки", /obj/structure/deployable_barricade/sandbags, 1, time = 25, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("мешки с песком", /obj/structure/barricade/sandbags, 1, time = 25, one_per_turf = 1, on_floor = 1, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("направленные мешки", /obj/structure/deployable_barricade/sandbags, 1, time = 25, one_per_turf = 1, on_floor = 1, category = CAT_STRUCTURE), \
 	))
 
 /obj/item/stack/sheet/mineral/sandbags/get_main_recipes()
@@ -109,11 +109,11 @@ GLOBAL_LIST_INIT(sandbag_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/diamond
 
 GLOBAL_LIST_INIT(diamond_recipes, list ( \
-	new/datum/stack_recipe("Алмазная дверь", /obj/structure/mineral_door/transparent/diamond, 10, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Алмазная плитка", /obj/item/stack/tile/mineral/diamond, 1, 4, 20),  \
-	new/datum/stack_recipe("Статуя Капитана", /obj/structure/statue/diamond/captain, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя с Голограммой ИИ", /obj/structure/statue/diamond/ai1, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя Ядра ИИ", /obj/structure/statue/diamond/ai2, 5, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("Алмазная дверь", /obj/structure/mineral_door/transparent/diamond, 10, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+	new/datum/stack_recipe("Алмазная плитка", /obj/item/stack/tile/mineral/diamond, 1, 4, 20, category = CAT_TILES),  \
+	new/datum/stack_recipe("Статуя Капитана", /obj/structure/statue/diamond/captain, 5, one_per_turf = 1, on_floor = 1, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("Статуя с Голограммой ИИ", /obj/structure/statue/diamond/ai1, 5, one_per_turf = 1, on_floor = 1, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("Статуя Ядра ИИ", /obj/structure/statue/diamond/ai2, 5, one_per_turf = 1, on_floor = 1, category = CAT_ENTERTAINMENT), \
 	))
 
 /obj/item/stack/sheet/mineral/diamond/get_main_recipes()
@@ -137,10 +137,10 @@ GLOBAL_LIST_INIT(diamond_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/uranium
 
 GLOBAL_LIST_INIT(uranium_recipes, list ( \
-	new/datum/stack_recipe("Урановая дверь", /obj/structure/mineral_door/uranium, 10, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Урановая плитка", /obj/item/stack/tile/mineral/uranium, 1, 4, 20), \
-	new/datum/stack_recipe("Статуя Ядерной Бомбы", /obj/structure/statue/uranium/nuke, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя Инженера", /obj/structure/statue/uranium/eng, 5, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("Урановая дверь", /obj/structure/mineral_door/uranium, 10, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+	new/datum/stack_recipe("Урановая плитка", /obj/item/stack/tile/mineral/uranium, 1, 4, 20, category = CAT_TILES), \
+	new/datum/stack_recipe("Статуя Ядерной Бомбы", /obj/structure/statue/uranium/nuke, 5, one_per_turf = 1, on_floor = 1, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("Статуя Инженера", /obj/structure/statue/uranium/eng, 5, one_per_turf = 1, on_floor = 1, category = CAT_ENTERTAINMENT), \
 	))
 
 /obj/item/stack/sheet/mineral/uranium/get_main_recipes()
@@ -173,9 +173,9 @@ GLOBAL_LIST_INIT(uranium_recipes, list ( \
 	return TOXLOSS//dont you kids know that stuff is toxic?
 
 GLOBAL_LIST_INIT(plasma_recipes, list ( \
-	new/datum/stack_recipe("Плазменная дверь", /obj/structure/mineral_door/transparent/plasma, 10, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Плазменная плитка", /obj/item/stack/tile/mineral/plasma, 1, 4, 20), \
-	new/datum/stack_recipe("Статуя Ученого", /obj/structure/statue/plasma/scientist, 5, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("Плазменная дверь", /obj/structure/mineral_door/transparent/plasma, 10, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+	new/datum/stack_recipe("Плазменная плитка", /obj/item/stack/tile/mineral/plasma, 1, 4, 20, category = CAT_TILES), \
+	new/datum/stack_recipe("Статуя Ученого", /obj/structure/statue/plasma/scientist, 5, one_per_turf = 1, on_floor = 1, category = CAT_ENTERTAINMENT), \
 	))
 
 /obj/item/stack/sheet/mineral/plasma/get_main_recipes()
@@ -218,15 +218,15 @@ GLOBAL_LIST_INIT(plasma_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/gold
 
 GLOBAL_LIST_INIT(gold_recipes, list ( \
-	new/datum/stack_recipe("Золотая дверь", /obj/structure/mineral_door/gold, 10, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("Золотая дверь", /obj/structure/mineral_door/gold, 10, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
 	new/datum/stack_recipe("Золотая плитка", /obj/item/stack/tile/mineral/gold, 1, 4, 20), \
-	new/datum/stack_recipe("Пустая табличка", /obj/item/plaque, 1), \
-	new/datum/stack_recipe("Статуя Главы Службы Безопасности", /obj/structure/statue/gold/hos, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя Главы Персонала", /obj/structure/statue/gold/hop, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя Главного Инженера", /obj/structure/statue/gold/ce, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя Руководителя Исследований", /obj/structure/statue/gold/rd, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Обычная Корона", /obj/item/clothing/head/crown, 5), \
-	new/datum/stack_recipe("Статуя Главного Врача", /obj/structure/statue/gold/cmo, 5, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("Пустая табличка", /obj/item/plaque, 1, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("Статуя Главы Службы Безопасности", /obj/structure/statue/gold/hos, 5, one_per_turf = 1, on_floor = 1, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("Статуя Главы Персонала", /obj/structure/statue/gold/hop, 5, one_per_turf = 1, on_floor = 1, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("Статуя Главного Инженера", /obj/structure/statue/gold/ce, 5, one_per_turf = 1, on_floor = 1, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("Статуя Руководителя Исследований", /obj/structure/statue/gold/rd, 5, one_per_turf = 1, on_floor = 1, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("Обычная Корона", /obj/item/clothing/head/crown, 5, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("Статуя Главного Врача", /obj/structure/statue/gold/cmo, 5, one_per_turf = 1, on_floor = 1, category = CAT_ENTERTAINMENT), \
 	))
 
 /obj/item/stack/sheet/mineral/gold/get_main_recipes()
@@ -251,13 +251,13 @@ GLOBAL_LIST_INIT(gold_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/silver
 
 GLOBAL_LIST_INIT(silver_recipes, list ( \
-	new/datum/stack_recipe("Серебряная дверь", /obj/structure/mineral_door/silver, 10, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Серебряная плитка", /obj/item/stack/tile/mineral/silver, 1, 4, 20), \
-	new/datum/stack_recipe("Статуя Доктора", /obj/structure/statue/silver/md, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя Уборщика", /obj/structure/statue/silver/janitor, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя Офицера Безопасности", /obj/structure/statue/silver/sec, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя Охранного Киборга ", /obj/structure/statue/silver/secborg, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("Статуя Медицинского Киборга", /obj/structure/statue/silver/medborg, 5, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("Серебряная дверь", /obj/structure/mineral_door/silver, 10, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+	new/datum/stack_recipe("Серебряная плитка", /obj/item/stack/tile/mineral/silver, 1, 4, 20, category = CAT_TILES), \
+	new/datum/stack_recipe("Статуя Доктора", /obj/structure/statue/silver/md, 5, one_per_turf = 1, on_floor = 1, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("Статуя Уборщика", /obj/structure/statue/silver/janitor, 5, one_per_turf = 1, on_floor = 1, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("Статуя Офицера Безопасности", /obj/structure/statue/silver/sec, 5, one_per_turf = 1, on_floor = 1, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("Статуя Охранного Киборга ", /obj/structure/statue/silver/secborg, 5, one_per_turf = 1, on_floor = 1, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("Статуя Медицинского Киборга", /obj/structure/statue/silver/medborg, 5, one_per_turf = 1, on_floor = 1, category = CAT_ENTERTAINMENT), \
 	))
 
 /obj/item/stack/sheet/mineral/silver/get_main_recipes()
@@ -282,8 +282,8 @@ GLOBAL_LIST_INIT(silver_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/bananium
 
 GLOBAL_LIST_INIT(bananium_recipes, list ( \
-	new/datum/stack_recipe("Бананиевая плитка", /obj/item/stack/tile/mineral/bananium, 1, 4, 20), \
-	new/datum/stack_recipe("Статуя Клоуна", /obj/structure/statue/bananium/clown, 5, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("Бананиевая плитка", /obj/item/stack/tile/mineral/bananium, 1, 4, 20, category = CAT_TILES), \
+	new/datum/stack_recipe("Статуя Клоуна", /obj/structure/statue/bananium/clown, 5, one_per_turf = 1, on_floor = 1, category = CAT_ENTERTAINMENT), \
 	))
 
 /obj/item/stack/sheet/mineral/bananium/get_main_recipes()
@@ -314,8 +314,8 @@ GLOBAL_LIST_INIT(bananium_recipes, list ( \
 	walltype = /turf/closed/wall/mineral/titanium
 
 GLOBAL_LIST_INIT(titanium_recipes, list ( \
-	new/datum/stack_recipe("Титановая плитка", /obj/item/stack/tile/mineral/titanium, 1, 4, 20), \
-	new/datum/stack_recipe("Сиденье для шаттла", /obj/structure/chair/comfy/shuttle, 2, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("Титановая плитка", /obj/item/stack/tile/mineral/titanium, 1, 4, 20, category = CAT_TILES), \
+	new/datum/stack_recipe("Сиденье для шаттла", /obj/structure/chair/comfy/shuttle, 2, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
 	))
 
 /obj/item/stack/sheet/mineral/titanium/get_main_recipes()
@@ -374,11 +374,11 @@ GLOBAL_LIST_INIT(plastitanium_recipes, list ( \
 	material_type = /datum/material/snow
 
 GLOBAL_LIST_INIT(snow_recipes, list ( \
-	new/datum/stack_recipe("стена из снега", /turf/closed/wall/mineral/snow, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("снеговик", /obj/structure/statue/snow/snowman, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("баррикада", /obj/structure/deployable_barricade/snow, 5, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("снежок", /obj/item/toy/snowball, 1), \
-	new/datum/stack_recipe("снежный пол", /obj/item/stack/tile/mineral/snow, 1, 4, 20), \
+	new/datum/stack_recipe("стена из снега", /turf/closed/wall/mineral/snow, 5, one_per_turf = 1, on_floor = 1, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("снеговик", /obj/structure/statue/snow/snowman, 5, one_per_turf = 1, on_floor = 1, category = CAT_ENTERTAINMENT), \
+	new/datum/stack_recipe("баррикада", /obj/structure/deployable_barricade/snow, 5, one_per_turf = 1, on_floor = 1, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("снежок", /obj/item/toy/snowball, 1, category = CAT_MISC), \
+	new/datum/stack_recipe("снежный пол", /obj/item/stack/tile/mineral/snow, 1, 4, 20, category = CAT_TILES), \
 	))
 
 /obj/item/stack/sheet/mineral/snow/get_main_recipes()
@@ -393,7 +393,7 @@ GLOBAL_LIST_INIT(snow_recipes, list ( \
 
 
 GLOBAL_LIST_INIT(adamantine_recipes, list(
-	new /datum/stack_recipe("незаконченная оболочка голема-слуги", /obj/item/golem_shell/servant, req_amount=25, res_amount=1),
+	new /datum/stack_recipe("незаконченная оболочка голема-слуги", /obj/item/golem_shell/servant, req_amount=25, res_amount=1, category = CAT_MISC),
 	))
 
 /obj/item/stack/sheet/mineral/adamantine
@@ -452,12 +452,12 @@ GLOBAL_LIST_INIT(adamantine_recipes, list(
 	walltype = /turf/closed/wall/mineral/abductor
 
 GLOBAL_LIST_INIT(abductor_recipes, list ( \
-	new/datum/stack_recipe("инопланетная постель", /obj/structure/bed/abductor, 2, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("инопланетный шкафчик", /obj/structure/closet/abductor, 2, time = 15, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("инопланетная рама стола", /obj/structure/table_frame/abductor, 1, time = 15, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("сборка инопланетного шлюза", /obj/structure/door_assembly/door_assembly_abductor, 4, time = 20, one_per_turf = 1, on_floor = 1), \
+	new/datum/stack_recipe("инопланетная постель", /obj/structure/bed/abductor, 2, one_per_turf = 1, on_floor = 1, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("инопланетный шкафчик", /obj/structure/closet/abductor, 2, time = 15, one_per_turf = 1, on_floor = 1, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("инопланетная рама стола", /obj/structure/table_frame/abductor, 1, time = 15, one_per_turf = 1, on_floor = 1, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("сборка инопланетного шлюза", /obj/structure/door_assembly/door_assembly_abductor, 4, time = 20, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
 	null, \
-	new/datum/stack_recipe("инопланетный пол", /obj/item/stack/tile/mineral/abductor, 1, 4, 20), \
+	new/datum/stack_recipe("инопланетный пол", /obj/item/stack/tile/mineral/abductor, 1, 4, 20, category = CAT_TILES), \
 	))
 
 /obj/item/stack/sheet/mineral/abductor/get_main_recipes()
@@ -499,10 +499,10 @@ GLOBAL_LIST_INIT(abductor_recipes, list ( \
 
 //Metal Hydrogen
 GLOBAL_LIST_INIT(metalhydrogen_recipes, list(
-	new /datum/stack_recipe("незаконченная оболочка голема-слуги", /obj/item/golem_shell/servant, req_amount=20, res_amount=1),
-	new /datum/stack_recipe("древняя броня", /obj/item/clothing/suit/armor/elder_atmosian, req_amount = 8, res_amount = 1),
-	new /datum/stack_recipe("древний шлем", /obj/item/clothing/head/helmet/elder_atmosian, req_amount = 5, res_amount = 1),
-	new /datum/stack_recipe("топор из металлического водорода", /obj/item/fireaxe/metal_h2_axe, req_amount = 15, res_amount = 1),
+	new /datum/stack_recipe("незаконченная оболочка голема-слуги", /obj/item/golem_shell/servant, req_amount=20, res_amount=1, category = CAT_TILES),
+	new /datum/stack_recipe("древняя броня", /obj/item/clothing/suit/armor/elder_atmosian, req_amount = 8, res_amount = 1, category = CAT_MISC),
+	new /datum/stack_recipe("древний шлем", /obj/item/clothing/head/helmet/elder_atmosian, req_amount = 5, res_amount = 1, category = CAT_MISC),
+	new /datum/stack_recipe("топор из металлического водорода", /obj/item/fireaxe/metal_h2_axe, req_amount = 15, res_amount = 1, category = CAT_WEAPON_MELEE),
 	))
 
 /obj/item/stack/sheet/mineral/metal_hydrogen

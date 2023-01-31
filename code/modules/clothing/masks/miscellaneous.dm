@@ -209,6 +209,8 @@
 /obj/item/clothing/mask/bandana/white
 	name = "белая бандана"
 	desc = "Неплохая белая бандана с нанотехнологичной подкладкой."
+	icon_preview = 'icons/obj/clothing/masks.dmi'
+	icon_state_preview = "bandana_cloth"
 	greyscale_colors = "#DCDCDC"
 	flags_1 = NONE
 
@@ -217,6 +219,8 @@
 	desc =  "Бандана из дюраткани, вы хотели бы чтобы она предоставляла хоть какую-то защиту, но она слишком тонкая..."
 	greyscale_colors = "#5c6d80"
 	flags_1 = NONE
+	icon_preview = 'icons/obj/previews.dmi'
+	icon_state_preview = "bandana_durathread"
 
 /obj/item/clothing/mask/mummy
 	name = "маска мумии"

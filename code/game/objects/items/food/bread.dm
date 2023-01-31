@@ -13,6 +13,7 @@
 
 /obj/item/food/breadslice
 	icon = 'icons/obj/food/burgerbread.dmi'
+	icon_state = "breadslice"
 	foodtypes = GRAIN
 	food_flags = FOOD_FINGER_FOOD
 	eat_time = 0.5 SECONDS

@@ -7,6 +7,8 @@
 	name = "белая шапочка"
 	desc = "Стильная шапочка. Идеальный зимний аксессуар для тех, кто ценит моду, и для тех, кто просто не может справиться с холодным ветерком на голове."
 	icon_state = "beanie"
+	icon_preview = 'icons/obj/previews.dmi'
+	icon_state_preview = "beanie_cloth"
 	custom_price = PAYCHECK_ASSISTANT * 1.2
 	greyscale_colors = "#EEEEEE#EEEEEE"
 	greyscale_config = /datum/greyscale_config/beanie
@@ -71,6 +73,8 @@
 	name = "дюратканевая шапочка"
 	desc = "Шапочка из дюраткани, эластичные волокна которой обеспечивают определенную защиту владельца."
 	greyscale_colors = "#8291A1#8291A1"
+	icon_preview = 'icons/obj/previews.dmi'
+	icon_state_preview = "beanie_durathread"
 	armor = list(MELEE = 15, BULLET = 5, LASER = 15, ENERGY = 25, BOMB = 10, BIO = 0, RAD = 0, FIRE = 30, ACID = 5)
 
 /obj/item/clothing/head/waldo

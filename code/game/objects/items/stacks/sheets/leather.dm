@@ -14,7 +14,7 @@
 	merge_type = /obj/item/stack/sheet/animalhide/human
 
 GLOBAL_LIST_INIT(human_recipes, list( \
-	new/datum/stack_recipe("раздутый человеческий костюм", /obj/item/clothing/suit/hooded/bloated_human, 5), \
+	new/datum/stack_recipe("раздутый человеческий костюм", /obj/item/clothing/suit/hooded/bloated_human, 5, category = CAT_CLOTHING), \
 	))
 
 /obj/item/stack/sheet/animalhide/human/get_main_recipes()
@@ -37,8 +37,8 @@ GLOBAL_LIST_INIT(human_recipes, list( \
 	merge_type = /obj/item/stack/sheet/animalhide/corgi
 
 GLOBAL_LIST_INIT(gondola_recipes, list ( \
-	new/datum/stack_recipe("маска гондолы", /obj/item/clothing/mask/gondola, 1), \
-	new/datum/stack_recipe("костюм гондолы", /obj/item/clothing/under/costume/gondola, 2), \
+	new/datum/stack_recipe("маска гондолы", /obj/item/clothing/mask/gondola, 1, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("костюм гондолы", /obj/item/clothing/under/costume/gondola, 2, category = CAT_CLOTHING), \
 	))
 
 /obj/item/stack/sheet/animalhide/gondola
@@ -54,7 +54,7 @@ GLOBAL_LIST_INIT(gondola_recipes, list ( \
 	. += GLOB.gondola_recipes
 
 GLOBAL_LIST_INIT(corgi_recipes, list ( \
-	new/datum/stack_recipe("костюм корги", /obj/item/clothing/suit/hooded/ian_costume, 3), \
+	new/datum/stack_recipe("костюм корги", /obj/item/clothing/suit/hooded/ian_costume, 3, category = CAT_CLOTHING), \
 	))
 
 /obj/item/stack/sheet/animalhide/corgi/get_main_recipes()
@@ -78,8 +78,8 @@ GLOBAL_LIST_INIT(corgi_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/animalhide/monkey
 
 GLOBAL_LIST_INIT(monkey_recipes, list ( \
-	new/datum/stack_recipe("маска обезьяны", /obj/item/clothing/mask/gas/monkeymask, 1), \
-	new/datum/stack_recipe("костюм обезьяны", /obj/item/clothing/suit/monkeysuit, 2), \
+	new/datum/stack_recipe("маска обезьяны", /obj/item/clothing/mask/gas/monkeymask, 1, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("костюм обезьяны", /obj/item/clothing/suit/monkeysuit, 2, category = CAT_CLOTHING), \
 	))
 
 /obj/item/stack/sheet/animalhide/monkey/get_main_recipes()
@@ -103,8 +103,8 @@ GLOBAL_LIST_INIT(monkey_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/animalhide/xeno
 
 GLOBAL_LIST_INIT(xeno_recipes, list ( \
-	new/datum/stack_recipe("голова ксеноса", /obj/item/clothing/head/xenos, 1), \
-	new/datum/stack_recipe("костюм ксеноса", /obj/item/clothing/suit/xenos, 2), \
+	new/datum/stack_recipe("голова ксеноса", /obj/item/clothing/head/xenos, 1, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("костюм ксеноса", /obj/item/clothing/suit/xenos, 2, category = CAT_CLOTHING), \
 	))
 
 /obj/item/stack/sheet/animalhide/xeno/get_main_recipes()
@@ -173,16 +173,16 @@ GLOBAL_LIST_INIT(xeno_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/leather
 
 GLOBAL_LIST_INIT(leather_recipes, list ( \
-	new/datum/stack_recipe("бумажник", /obj/item/storage/wallet, 1), \
-	new/datum/stack_recipe("намордник", /obj/item/clothing/mask/muzzle, 2), \
-	new/datum/stack_recipe("ботанические перчатки", /obj/item/clothing/gloves/botanic_leather, 3), \
-	new/datum/stack_recipe("пояс с инструментами", /obj/item/storage/belt/utility, 4), \
-	new/datum/stack_recipe("кожаная сумка", /obj/item/storage/backpack/satchel/leather, 5), \
-	new/datum/stack_recipe("бандольер", /obj/item/storage/belt/bandolier, 5), \
-	new/datum/stack_recipe("кожаный пиджак", /obj/item/clothing/suit/jacket/leather, 7), \
-	new/datum/stack_recipe("кожаные ботинки", /obj/item/clothing/shoes/laceup, 2), \
-	new/datum/stack_recipe("кожаное пальто", /obj/item/clothing/suit/jacket/leather/overcoat, 10), \
-	new/datum/stack_recipe("седло", /obj/item/saddle, 5), \
+	new/datum/stack_recipe("бумажник", /obj/item/storage/wallet, 1, category = CAT_CONTAINERS), \
+	new/datum/stack_recipe("намордник", /obj/item/clothing/mask/muzzle, 2, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("ботанические перчатки", /obj/item/clothing/gloves/botanic_leather, 3, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("пояс с инструментами", /obj/item/storage/belt/utility, 4, category = CAT_CONTAINERS), \
+	new/datum/stack_recipe("кожаная сумка", /obj/item/storage/backpack/satchel/leather, 5, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("бандольер", /obj/item/storage/belt/bandolier, 5, category = CAT_CONTAINERS), \
+	new/datum/stack_recipe("кожаный пиджак", /obj/item/clothing/suit/jacket/leather, 7, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("кожаные ботинки", /obj/item/clothing/shoes/laceup, 2, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("кожаное пальто", /obj/item/clothing/suit/jacket/leather/overcoat, 10, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("седло", /obj/item/saddle, 5, category = CAT_EQUIPMENT), \
 ))
 
 /obj/item/stack/sheet/leather/get_main_recipes()
@@ -207,7 +207,7 @@ GLOBAL_LIST_INIT(leather_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/sinew/wolf
 
 GLOBAL_LIST_INIT(sinew_recipes, list ( \
-	new/datum/stack_recipe("сухожильные наручники", /obj/item/restraints/handcuffs/cable/sinew, 1), \
+	new/datum/stack_recipe("сухожильные наручники", /obj/item/restraints/handcuffs/cable/sinew, 1, category = CAT_EQUIPMENT), \
 ))
 
 /obj/item/stack/sheet/sinew/get_main_recipes()

@@ -347,6 +347,7 @@
 	desc = "Удерживающее устройство, предназначенное для метания в цель. При соединении с указанной целью он обхватит их ноги, затрудняя их быстрое перемещение."
 	icon_state = "bola"
 	inhand_icon_state = "bola"
+	icon_state_preview = "bola_preview"
 	lefthand_file = 'icons/mob/inhands/weapons/thrown_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/thrown_righthand.dmi'
 	breakouttime = 4 SECONDS
@@ -412,6 +413,7 @@
 	desc = "Эй, если тебя что-то обнимает за ноги, то с таким же успехом это может быть этот маленький парень."
 	icon_state = "gonbola"
 	inhand_icon_state = "bola_r"
+	icon_state_preview = "gonbola_preview"
 	slowdown = 0
 	var/datum/status_effect/gonbola_pacify/effectReference
 

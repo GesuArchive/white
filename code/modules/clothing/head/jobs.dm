@@ -364,6 +364,8 @@
 	name = "дюратканевый берет"
 	desc =  "Берет из дюраткани, эластичные волокна которого обеспечивают некоторую защиту головы владельца."
 	icon_state = "beret_badge"
+	icon_preview = 'icons/obj/previews.dmi'
+	icon_state_preview = "beret_durathread"
 	greyscale_config = /datum/greyscale_config/beret_badge
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
 	greyscale_colors = "#C5D4F3#ECF1F8"

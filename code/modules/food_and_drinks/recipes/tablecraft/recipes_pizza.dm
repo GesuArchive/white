@@ -11,7 +11,7 @@
 		/obj/item/food/grown/tomato = 1
 	)
 	result = /obj/item/food/pizza/margherita/raw
-	subcategory = CAT_PIZZA
+	category = CAT_PIZZA
 
 /datum/crafting_recipe/food/meatpizza
 	name = "Мясная пицца"
@@ -22,7 +22,7 @@
 		/obj/item/food/grown/tomato = 1
 	)
 	result = /obj/item/food/pizza/meat/raw
-	subcategory = CAT_PIZZA
+	category = CAT_PIZZA
 
 /datum/crafting_recipe/food/arnold
 	name = "Пицца Арнольд"
@@ -34,7 +34,7 @@
 		/obj/item/food/grown/tomato = 1
 	)
 	result = /obj/item/food/pizza/arnold/raw
-	subcategory = CAT_PIZZA
+	category = CAT_PIZZA
 
 /datum/crafting_recipe/food/mushroompizza
 	name = "Грибная пицца"
@@ -43,7 +43,7 @@
 		/obj/item/food/grown/mushroom = 5
 	)
 	result = /obj/item/food/pizza/mushroom/raw
-	subcategory = CAT_PIZZA
+	category = CAT_PIZZA
 
 /datum/crafting_recipe/food/vegetablepizza
 	name = "Овощная пицца"
@@ -55,7 +55,7 @@
 		/obj/item/food/grown/tomato = 1
 	)
 	result = /obj/item/food/pizza/vegetable/raw
-	subcategory = CAT_PIZZA
+	category = CAT_PIZZA
 
 /datum/crafting_recipe/food/donkpocketpizza
 	name = "Пицца \"Донк-покет\""
@@ -66,7 +66,7 @@
 		/obj/item/food/grown/tomato = 1
 	)
 	result = /obj/item/food/pizza/donkpocket/raw
-	subcategory = CAT_PIZZA
+	category = CAT_PIZZA
 
 /datum/crafting_recipe/food/dankpizza
 	name = "Шняжная пицца"
@@ -77,7 +77,7 @@
 		/obj/item/food/grown/tomato = 1
 	)
 	result = /obj/item/food/pizza/dank/raw
-	subcategory = CAT_PIZZA
+	category = CAT_PIZZA
 
 /datum/crafting_recipe/food/sassysagepizza
 	name = "Колбасная пицца"
@@ -88,7 +88,7 @@
 		/obj/item/food/grown/tomato = 1
 	)
 	result = /obj/item/food/pizza/sassysage/raw
-	subcategory = CAT_PIZZA
+	category = CAT_PIZZA
 
 /datum/crafting_recipe/food/pineapplepizza
 	name = "Гавайская пицца"
@@ -100,7 +100,7 @@
 		/obj/item/food/grown/tomato = 1
 	)
 	result = /obj/item/food/pizza/pineapple/raw
-	subcategory = CAT_PIZZA
+	category = CAT_PIZZA
 
 /datum/crafting_recipe/food/antspizza
 	name = "Пицца для муравьиной вечеринки"
@@ -111,4 +111,4 @@
 		/datum/reagent/ants = 20
 	)
 	result = /obj/item/food/pizza/ants
-	subcategory = CAT_PIZZA
+	category = CAT_PIZZA

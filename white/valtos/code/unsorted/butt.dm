@@ -242,7 +242,7 @@
 		/obj/item/organ/butt = 1
 	)
 	result = /obj/item/food/kebab/butt
-	subcategory = CAT_MEAT
+	category = CAT_MEAT
 
 /obj/item/food/kebab/butt
 	name = "butt-kebab"
@@ -263,7 +263,7 @@
 	)
 
 	result = /obj/item/food/burger/assburger
-	subcategory = CAT_BURGER
+	category = CAT_BURGER
 
 /obj/item/food/burger/assburger
 	name = "assburger"
@@ -282,7 +282,7 @@
 		/obj/item/food/pie/plain = 1,
 		/obj/item/organ/butt = 1)
 	result = /obj/item/food/pie/asspie
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /obj/item/food/pie/asspie
 	name = "asspie"

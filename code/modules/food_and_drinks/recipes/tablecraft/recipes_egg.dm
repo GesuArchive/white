@@ -11,7 +11,7 @@
 		/obj/item/food/egg = 1
 	)
 	result = /obj/item/food/friedegg
-	subcategory = CAT_EGG
+	category = CAT_EGG
 
 /datum/crafting_recipe/food/omelette
 	name = "Омлет с сыром"
@@ -20,7 +20,7 @@
 		/obj/item/food/cheesewedge = 2
 	)
 	result = /obj/item/food/omelette
-	subcategory = CAT_EGG
+	category = CAT_EGG
 
 /datum/crafting_recipe/food/chocolateegg
 	name = "Шоколадное яйцо"
@@ -29,7 +29,7 @@
 		/obj/item/food/chocolatebar = 1
 	)
 	result = /obj/item/food/chocolateegg
-	subcategory = CAT_EGG
+	category = CAT_EGG
 
 /datum/crafting_recipe/food/eggsbenedict
 	name = "Яйца Бенедикт"
@@ -39,7 +39,7 @@
 		/obj/item/food/breadslice/plain = 1,
 	)
 	result = /obj/item/food/benedict
-	subcategory = CAT_EGG
+	category = CAT_EGG
 
 /datum/crafting_recipe/food/eggbowl
 	name = "Яичная миска"
@@ -50,4 +50,4 @@
 		/obj/item/food/grown/corn = 1
 	)
 	result = /obj/item/food/salad/eggbowl
-	subcategory = CAT_EGG
+	category = CAT_EGG

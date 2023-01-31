@@ -516,6 +516,8 @@
 	name = "куриный наггетс"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/nutriment/vitamin = 1)
 	tastes = list("\"цыплёнок\"" = 1)
+	icon_preview = 'icons/obj/food/food.dmi'
+	icon_state_preview = "nugget_lump"
 	foodtypes = MEAT
 	food_flags = FOOD_FINGER_FOOD
 	w_class = WEIGHT_CLASS_TINY

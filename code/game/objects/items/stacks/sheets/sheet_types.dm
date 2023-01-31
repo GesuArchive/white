@@ -15,117 +15,117 @@
  * Iron
  */
 GLOBAL_LIST_INIT(metal_recipes, list ( \
-	new/datum/stack_recipe("Табурет", /obj/structure/chair/stool, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("барный стул", /obj/structure/chair/stool/bar, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("кровать", /obj/structure/bed, 2, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("двухспальная кровать", /obj/structure/bed/double, 4, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("Табурет", /obj/structure/chair/stool, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("барный стул", /obj/structure/chair/stool/bar, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("кровать", /obj/structure/bed, 2, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("двухспальная кровать", /obj/structure/bed/double, 4, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
 	null, \
 	new/datum/stack_recipe_list("офисные кресла", list( \
-		new/datum/stack_recipe("темное офисное кресло", /obj/structure/chair/office, 5, one_per_turf = TRUE, on_floor = TRUE), \
-		new/datum/stack_recipe("светлое офисное кресло", /obj/structure/chair/office/light, 5, one_per_turf = TRUE, on_floor = TRUE), \
+		new/datum/stack_recipe("темное офисное кресло", /obj/structure/chair/office, 5, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+		new/datum/stack_recipe("светлое офисное кресло", /obj/structure/chair/office/light, 5, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
 		)), \
 	new/datum/stack_recipe_list("удобные стулья", list( \
-		new/datum/stack_recipe("бежевый удобный стул", /obj/structure/chair/comfy/beige, 2, one_per_turf = TRUE, on_floor = TRUE), \
-		new/datum/stack_recipe("чёрный удобный стул", /obj/structure/chair/comfy/black, 2, one_per_turf = TRUE, on_floor = TRUE), \
-		new/datum/stack_recipe("коричневый удобный стул", /obj/structure/chair/comfy/brown, 2, one_per_turf = TRUE, on_floor = TRUE), \
-		new/datum/stack_recipe("лаймовый удобный стул", /obj/structure/chair/comfy/lime, 2, one_per_turf = TRUE, on_floor = TRUE), \
-		new/datum/stack_recipe("бирюзовый удобный стул", /obj/structure/chair/comfy/teal, 2, one_per_turf = TRUE, on_floor = TRUE), \
+		new/datum/stack_recipe("бежевый удобный стул", /obj/structure/chair/comfy/beige, 2, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+		new/datum/stack_recipe("чёрный удобный стул", /obj/structure/chair/comfy/black, 2, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+		new/datum/stack_recipe("коричневый удобный стул", /obj/structure/chair/comfy/brown, 2, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+		new/datum/stack_recipe("лаймовый удобный стул", /obj/structure/chair/comfy/lime, 2, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+		new/datum/stack_recipe("бирюзовый удобный стул", /obj/structure/chair/comfy/teal, 2, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
 		)), \
 	new/datum/stack_recipe_list("диваны", list(
-		new /datum/stack_recipe("диван (центральный)", /obj/structure/chair/sofa, 1, one_per_turf = TRUE, on_floor = TRUE),
-		new /datum/stack_recipe("диван (левый)", /obj/structure/chair/sofa/left, 1, one_per_turf = TRUE, on_floor = TRUE),
-		new /datum/stack_recipe("диван (правый)", /obj/structure/chair/sofa/right, 1, one_per_turf = TRUE, on_floor = TRUE),
-		new /datum/stack_recipe("диван (угловой)", /obj/structure/chair/sofa/corner, 1, one_per_turf = TRUE, on_floor = TRUE)
+		new /datum/stack_recipe("диван (центральный)", /obj/structure/chair/sofa, 1, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE),
+		new /datum/stack_recipe("диван (левый)", /obj/structure/chair/sofa/left, 1, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE),
+		new /datum/stack_recipe("диван (правый)", /obj/structure/chair/sofa/right, 1, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE),
+		new /datum/stack_recipe("диван (угловой)", /obj/structure/chair/sofa/corner, 1, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE)
 		)), \
 	new/datum/stack_recipe_list("корпоративные диваны", list( \
-		new /datum/stack_recipe("диван (центральный)", /obj/structure/chair/sofa/corp, one_per_turf = TRUE, on_floor = TRUE), \
-		new /datum/stack_recipe("диван (левый)", /obj/structure/chair/sofa/corp/left, one_per_turf = TRUE, on_floor = TRUE), \
-		new /datum/stack_recipe("диван (правый)", /obj/structure/chair/sofa/corp/right, one_per_turf = TRUE, on_floor = TRUE), \
-		new /datum/stack_recipe("диван (угловой)", /obj/structure/chair/sofa/corp/corner, one_per_turf = TRUE, on_floor = TRUE), \
+		new /datum/stack_recipe("диван (центральный)", /obj/structure/chair/sofa/corp, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+		new /datum/stack_recipe("диван (левый)", /obj/structure/chair/sofa/corp/left, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+		new /datum/stack_recipe("диван (правый)", /obj/structure/chair/sofa/corp/right, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+		new /datum/stack_recipe("диван (угловой)", /obj/structure/chair/sofa/corp/corner, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
 		)), \
 	new /datum/stack_recipe_list("скамейки", list( \
-		new /datum/stack_recipe("скамейка (центр)", /obj/structure/chair/sofa/bench, one_per_turf = TRUE, on_floor = TRUE), \
-		new /datum/stack_recipe("скамейка (левая)", /obj/structure/chair/sofa/bench/left, one_per_turf = TRUE, on_floor = TRUE), \
-		new /datum/stack_recipe("скамейка (правая)", /obj/structure/chair/sofa/bench/right, one_per_turf = TRUE, on_floor = TRUE), \
-		new /datum/stack_recipe("скамейка (угол)", /obj/structure/chair/sofa/bench/corner, one_per_turf = TRUE, on_floor = TRUE), \
+		new /datum/stack_recipe("скамейка (центр)", /obj/structure/chair/sofa/bench, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+		new /datum/stack_recipe("скамейка (левая)", /obj/structure/chair/sofa/bench/left, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+		new /datum/stack_recipe("скамейка (правая)", /obj/structure/chair/sofa/bench/right, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+		new /datum/stack_recipe("скамейка (угол)", /obj/structure/chair/sofa/bench/corner, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
 		)), \
 	new /datum/stack_recipe_list("шахматные фигуры", list( \
-		new /datum/stack_recipe("Белый Pawn", /obj/structure/chess/whitepawn, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-		new /datum/stack_recipe("Белый Rook", /obj/structure/chess/whiterook, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-		new /datum/stack_recipe("Белый Knight", /obj/structure/chess/whiteknight, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-		new /datum/stack_recipe("Белый Bishop", /obj/structure/chess/whitebishop, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-		new /datum/stack_recipe("Белый Queen", /obj/structure/chess/whitequeen, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-		new /datum/stack_recipe("Белый King", /obj/structure/chess/whiteking, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-		new /datum/stack_recipe("Чёрный Pawn", /obj/structure/chess/blackpawn, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-		new /datum/stack_recipe("Чёрный Rook", /obj/structure/chess/blackrook, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-		new /datum/stack_recipe("Чёрный Knight", /obj/structure/chess/blackknight, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-		new /datum/stack_recipe("Чёрный Bishop", /obj/structure/chess/blackbishop, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-		new /datum/stack_recipe("Чёрный Queen", /obj/structure/chess/blackqueen, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-		new /datum/stack_recipe("Чёрный King", /obj/structure/chess/blackking, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+		new /datum/stack_recipe("Белый Pawn", /obj/structure/chess/whitepawn, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE, category = CAT_ENTERTAINMENT), \
+		new /datum/stack_recipe("Белый Rook", /obj/structure/chess/whiterook, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE, category = CAT_ENTERTAINMENT), \
+		new /datum/stack_recipe("Белый Knight", /obj/structure/chess/whiteknight, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE, category = CAT_ENTERTAINMENT), \
+		new /datum/stack_recipe("Белый Bishop", /obj/structure/chess/whitebishop, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE, category = CAT_ENTERTAINMENT), \
+		new /datum/stack_recipe("Белый Queen", /obj/structure/chess/whitequeen, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE, category = CAT_ENTERTAINMENT), \
+		new /datum/stack_recipe("Белый King", /obj/structure/chess/whiteking, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE, category = CAT_ENTERTAINMENT), \
+		new /datum/stack_recipe("Чёрный Pawn", /obj/structure/chess/blackpawn, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE, category = CAT_ENTERTAINMENT), \
+		new /datum/stack_recipe("Чёрный Rook", /obj/structure/chess/blackrook, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE, category = CAT_ENTERTAINMENT), \
+		new /datum/stack_recipe("Чёрный Knight", /obj/structure/chess/blackknight, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE, category = CAT_ENTERTAINMENT), \
+		new /datum/stack_recipe("Чёрный Bishop", /obj/structure/chess/blackbishop, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE, category = CAT_ENTERTAINMENT), \
+		new /datum/stack_recipe("Чёрный Queen", /obj/structure/chess/blackqueen, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE, category = CAT_ENTERTAINMENT), \
+		new /datum/stack_recipe("Чёрный King", /obj/structure/chess/blackking, 2, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE, category = CAT_ENTERTAINMENT), \
 	)),
 	null, \
-	new/datum/stack_recipe("части стойки", /obj/item/rack_parts), \
-	new/datum/stack_recipe("шкаф", /obj/structure/closet, 2, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("части стойки", /obj/item/rack_parts, category = CAT_MISC), \
+	new/datum/stack_recipe("шкаф", /obj/structure/closet, 2, time = 15, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
 	null, \
-	new/datum/stack_recipe("Ступеньки", /obj/structure/stairs/unanchored, 5, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("Ступеньки", /obj/structure/stairs/unanchored, 5, time = 10, one_per_turf = TRUE, on_floor = TRUE, category = CAT_STRUCTURE), \
 	null, \
-	new/datum/stack_recipe("каркас канистры", /obj/structure/canister_frame/machine/frame_tier_0, 5, time = 8, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("каркас канистры", /obj/structure/canister_frame/machine/frame_tier_0, 5, time = 8, one_per_turf = TRUE, on_floor = TRUE, category = CAT_CONTAINERS), \
 	null, \
-	new/datum/stack_recipe("плитка для пола", /obj/item/stack/tile/plasteel, 1, 4, 20), \
-	new/datum/stack_recipe("желез. стержень", /obj/item/stack/rods, 1, 2, 60), \
+	new/datum/stack_recipe("плитка для пола", /obj/item/stack/tile/plasteel, 1, 4, 20, category = CAT_TILES), \
+	new/datum/stack_recipe("желез. стержень", /obj/item/stack/rods, 1, 2, 60, category = CAT_MISC), \
 	null, \
-	new/datum/stack_recipe("каркас стены", /obj/structure/girder, 2, time = 40, one_per_turf = TRUE, on_floor = TRUE, trait_booster = TRAIT_QUICK_BUILD, trait_modifier = 0.75), \
+	new/datum/stack_recipe("каркас стены", /obj/structure/girder, 2, time = 40, one_per_turf = TRUE, on_floor = TRUE, trait_booster = TRAIT_QUICK_BUILD, trait_modifier = 0.75, category = CAT_STRUCTURE), \
 	null, \
-	new/datum/stack_recipe("компьютерный каркас", /obj/structure/frame/computer, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("модульная консоль", /obj/machinery/modular_computer/console, 10, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("каркас машины", /obj/structure/frame/machine, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("компьютерный каркас", /obj/structure/frame/computer, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("модульная консоль", /obj/machinery/modular_computer/console, 10, time = 25, one_per_turf = TRUE, on_floor = TRUE, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("каркас машины", /obj/structure/frame/machine, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE, category = CAT_STRUCTURE), \
 	null, \
 	new /datum/stack_recipe_list("каркас шлюза", list( \
-		new /datum/stack_recipe("каркас стандартного шлюза", /obj/structure/door_assembly, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("каркас публичного шлюза", /obj/structure/door_assembly/door_assembly_public, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("каркас командного шлюза", /obj/structure/door_assembly/door_assembly_com, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("каркас шлюза службы безопасности", /obj/structure/door_assembly/door_assembly_sec, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("каркас инженерного шлюза", /obj/structure/door_assembly/door_assembly_eng, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("каркас шахтерского шлюза", /obj/structure/door_assembly/door_assembly_min, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("каркас атмосферного шлюза", /obj/structure/door_assembly/door_assembly_atmo, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("каркас шлюза отдела исследований", /obj/structure/door_assembly/door_assembly_research, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("каркас морозильного шлюза ", /obj/structure/door_assembly/door_assembly_fre, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("каркас шлюза научного отдела", /obj/structure/door_assembly/door_assembly_science, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("каркас медицинского шлюза", /obj/structure/door_assembly/door_assembly_med, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("каркас шлюза вирусологии", /obj/structure/door_assembly/door_assembly_viro, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("каркас технического шлюза", /obj/structure/door_assembly/door_assembly_mai, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("каркас внешнего шлюза", /obj/structure/door_assembly/door_assembly_ext, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("каркас внешнего технического шлюза", /obj/structure/door_assembly/door_assembly_extmai, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("каркас герметичного люка", /obj/structure/door_assembly/door_assembly_hatch, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new /datum/stack_recipe("каркас технического люка", /obj/structure/door_assembly/door_assembly_mhatch, 4, time = 50, one_per_turf = 1, on_floor = 1), \
+		new /datum/stack_recipe("каркас стандартного шлюза", /obj/structure/door_assembly, 4, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+		new /datum/stack_recipe("каркас публичного шлюза", /obj/structure/door_assembly/door_assembly_public, 4, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+		new /datum/stack_recipe("каркас командного шлюза", /obj/structure/door_assembly/door_assembly_com, 4, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+		new /datum/stack_recipe("каркас шлюза службы безопасности", /obj/structure/door_assembly/door_assembly_sec, 4, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+		new /datum/stack_recipe("каркас инженерного шлюза", /obj/structure/door_assembly/door_assembly_eng, 4, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+		new /datum/stack_recipe("каркас шахтерского шлюза", /obj/structure/door_assembly/door_assembly_min, 4, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+		new /datum/stack_recipe("каркас атмосферного шлюза", /obj/structure/door_assembly/door_assembly_atmo, 4, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+		new /datum/stack_recipe("каркас шлюза отдела исследований", /obj/structure/door_assembly/door_assembly_research, 4, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+		new /datum/stack_recipe("каркас морозильного шлюза ", /obj/structure/door_assembly/door_assembly_fre, 4, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+		new /datum/stack_recipe("каркас шлюза научного отдела", /obj/structure/door_assembly/door_assembly_science, 4, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+		new /datum/stack_recipe("каркас медицинского шлюза", /obj/structure/door_assembly/door_assembly_med, 4, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+		new /datum/stack_recipe("каркас шлюза вирусологии", /obj/structure/door_assembly/door_assembly_viro, 4, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+		new /datum/stack_recipe("каркас технического шлюза", /obj/structure/door_assembly/door_assembly_mai, 4, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+		new /datum/stack_recipe("каркас внешнего шлюза", /obj/structure/door_assembly/door_assembly_ext, 4, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+		new /datum/stack_recipe("каркас внешнего технического шлюза", /obj/structure/door_assembly/door_assembly_extmai, 4, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+		new /datum/stack_recipe("каркас герметичного люка", /obj/structure/door_assembly/door_assembly_hatch, 4, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+		new /datum/stack_recipe("каркас технического люка", /obj/structure/door_assembly/door_assembly_mhatch, 4, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
 	)), \
 	null, \
-	new/datum/stack_recipe("каркас пожарного шлюза", /obj/structure/firelock_frame, 3, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("каркас турели", /obj/machinery/porta_turret_construct, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("крюк для разделывания", /obj/structure/kitchenspike_frame, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("каркас отражателя", /obj/structure/reflector, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("каркас пожарного шлюза", /obj/structure/firelock_frame, 3, time = 50, one_per_turf = TRUE, on_floor = TRUE, category = CAT_DOORS), \
+	new/datum/stack_recipe("каркас турели", /obj/machinery/porta_turret_construct, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("крюк для разделывания", /obj/structure/kitchenspike_frame, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("каркас отражателя", /obj/structure/reflector, 5, time = 25, one_per_turf = TRUE, on_floor = TRUE, category = CAT_STRUCTURE), \
 	null, \
 	new/datum/stack_recipe("корпус гранаты", /obj/item/grenade/chem_grenade), \
-	new/datum/stack_recipe("каркас для лампы дневного света", /obj/item/wallframe/light_fixture, 2), \
-	new/datum/stack_recipe("каркас для маленькой лампочки", /obj/item/wallframe/light_fixture/small, 1), \
-	new/datum/stack_recipe("каркас для прожектора", /obj/structure/floodlight_frame, 5, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("каркас для лампы дневного света", /obj/item/wallframe/light_fixture, 2, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("каркас для маленькой лампочки", /obj/item/wallframe/light_fixture/small, 1, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("каркас для прожектора", /obj/structure/floodlight_frame, 5, one_per_turf = TRUE, on_floor = TRUE, category = CAT_STRUCTURE), \
 	null, \
-	new/datum/stack_recipe("рама АПЦ", /obj/item/wallframe/apc, 2), \
-	new/datum/stack_recipe("рама контроллера воздуха", /obj/item/wallframe/airalarm, 2), \
-	new/datum/stack_recipe("рама пожарной тревоги", /obj/item/wallframe/firealarm, 2), \
-	new/datum/stack_recipe("рама для кнопки", /obj/item/wallframe/button, 1), \
-	new/datum/stack_recipe("рама настенной вспышки", /obj/item/wallframe/flasher, 1), \
-	new/datum/stack_recipe("каркас стробоскопа", /obj/machinery/flasher_assembly, 2, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("рама АПЦ", /obj/item/wallframe/apc, 2, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("рама контроллера воздуха", /obj/item/wallframe/airalarm, 2, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("рама пожарной тревоги", /obj/item/wallframe/firealarm, 2, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("рама для кнопки", /obj/item/wallframe/button, 1, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("рама настенной вспышки", /obj/item/wallframe/flasher, 1, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("каркас стробоскопа", /obj/machinery/flasher_assembly, 2, one_per_turf = TRUE, on_floor = TRUE, category = CAT_STRUCTURE), \
 	new/datum/stack_recipe("шкафчик для огнетушителя", /obj/item/wallframe/extinguisher_cabinet, 2), \
 	null, \
-	new/datum/stack_recipe("железная дверь", /obj/structure/mineral_door/iron, 20, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("картотека", /obj/structure/filingcabinet, 2, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("звонок", /obj/structure/desk_bell, 2, time = 3 SECONDS), \
-	new/datum/stack_recipe("ящик для голосования", /obj/structure/votebox, 15, time = 50), \
-	new/datum/stack_recipe("пестик", /obj/item/pestle, 1, time = 50), \
-	new/datum/stack_recipe("каркас гигиенобота", /obj/item/bot_assembly/hygienebot, 2, time = 5 SECONDS), \
-	new/datum/stack_recipe("каркас душа", /obj/structure/showerframe, 2, time= 2 SECONDS), \
-	new/datum/stack_recipe("баррикада", /obj/structure/deployable_barricade/metal, 5, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new/datum/stack_recipe("железная дверь", /obj/structure/mineral_door/iron, 20, one_per_turf = TRUE, on_floor = TRUE, category = CAT_DOORS), \
+	new/datum/stack_recipe("картотека", /obj/structure/filingcabinet, 2, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("звонок", /obj/structure/desk_bell, 2, time = 3 SECONDS, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("ящик для голосования", /obj/structure/votebox, 15, time = 50, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("пестик", /obj/item/pestle, 1, time = 50, category = CAT_TOOLS), \
+	new/datum/stack_recipe("каркас гигиенобота", /obj/item/bot_assembly/hygienebot, 2, time = 5 SECONDS, category = CAT_ROBOT), \
+	new/datum/stack_recipe("каркас душа", /obj/structure/showerframe, 2, time= 2 SECONDS, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("баррикада", /obj/structure/deployable_barricade/metal, 5, time = 1 SECONDS, one_per_turf = TRUE, on_floor = TRUE, category = CAT_STRUCTURE), \
 ))
 
 /obj/item/stack/sheet/iron
@@ -191,15 +191,15 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
  * Plasteel
  */
 GLOBAL_LIST_INIT(plasteel_recipes, list ( \
-	new/datum/stack_recipe("ядро ИИ", /obj/structure/ai_core, 4, time = 50, one_per_turf = TRUE), \
-	new/datum/stack_recipe("сборка бомбы", /obj/machinery/syndicatebomb/empty, 10, time = 50), \
-	new/datum/stack_recipe("баррикада", /obj/structure/deployable_barricade/plasteel, 5, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("покрытие дока", /obj/item/stack/tile/dock, 1, 4, 20), \
-	new/datum/stack_recipe("покрытие драйдока", /obj/item/stack/tile/drydock, 2, 4, 20), \
+	new/datum/stack_recipe("ядро ИИ", /obj/structure/ai_core, 4, time = 50, one_per_turf = TRUE, category = CAT_ROBOT), \
+	new/datum/stack_recipe("сборка бомбы", /obj/machinery/syndicatebomb/empty, 10, time = 50, category = CAT_MISC), \
+	new/datum/stack_recipe("баррикада", /obj/structure/deployable_barricade/plasteel, 5, time = 10, one_per_turf = TRUE, on_floor = TRUE, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("покрытие дока", /obj/item/stack/tile/dock, 1, 4, 20, category = CAT_TILES), \
+	new/datum/stack_recipe("покрытие драйдока", /obj/item/stack/tile/drydock, 2, 4, 20, category = CAT_TILES), \
 	null, \
 	new /datum/stack_recipe_list("Бронешлюзы", list( \
-		new/datum/stack_recipe("Каркас укрепленного шлюза", /obj/structure/door_assembly/door_assembly_highsecurity, 4, time = 50, one_per_turf = 1, on_floor = 1), \
-		new/datum/stack_recipe("Каркас двери хранилища", /obj/structure/door_assembly/door_assembly_vault, 6, time = 50, one_per_turf = 1, on_floor = 1), \
+		new/datum/stack_recipe("Каркас укрепленного шлюза", /obj/structure/door_assembly/door_assembly_highsecurity, 4, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
+		new/datum/stack_recipe("Каркас двери хранилища", /obj/structure/door_assembly/door_assembly_vault, 6, time = 50, one_per_turf = 1, on_floor = 1, category = CAT_DOORS), \
 	)),
 	null, \
 	new /datum/stack_recipe_list("Бронешторы", list( \
@@ -264,43 +264,43 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
  * Wood
  */
 GLOBAL_LIST_INIT(wood_recipes, list ( \
-	new/datum/stack_recipe("деревянные сандалии", /obj/item/clothing/shoes/sandal, 1), \
-	new/datum/stack_recipe("деревянный пол", /obj/item/stack/tile/wood, 1, 4, 20), \
-	new/datum/stack_recipe("деревянный корпус стола", /obj/structure/table_frame/wood, 2, time = 10), \
-	new/datum/stack_recipe("приклад винтовки", /obj/item/weaponcrafting/stock, 10, time = 40), \
-	new/datum/stack_recipe("скалка", /obj/item/kitchen/rollingpin, 2, time = 30), \
-	new/datum/stack_recipe("деревянный стул", /obj/structure/chair/wood/, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("крылатый стул", /obj/structure/chair/wood/wings, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("деревянная застава", /obj/structure/barricade/wooden, 5, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("баррикада", /obj/structure/deployable_barricade/wooden, 5, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("деревянная дверь", /obj/structure/mineral_door/wood, 10, time = 20, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("гроб", /obj/structure/closet/crate/coffin, 5, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("книжный шкаф", /obj/structure/bookcase, 4, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("сушилка", /obj/machinery/smartfridge/drying_rack, 10, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("деревянная бочка", /obj/structure/fermenting_barrel, 8, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("собачья кровать", /obj/structure/bed/dogbed, 10, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("комод", /obj/structure/dresser, 10, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("рамка для фотографии", /obj/item/wallframe/picture, 1, time = 10),\
-	new/datum/stack_recipe("рамка для рисунка", /obj/item/wallframe/painting, 1, time = 10),\
-	new/datum/stack_recipe("стенд шасси", /obj/structure/displaycase_chassis, 5, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("деревянный щит", /obj/item/shield/riot/buckler, 20, time = 40), \
-	new/datum/stack_recipe("пчельник", /obj/structure/beebox, 40, time = 50),\
-	new/datum/stack_recipe("маска Тики", /obj/item/clothing/mask/gas/tiki_mask, 2), \
-	new/datum/stack_recipe("рамка для меда", /obj/item/honey_frame, 5, time = 10),\
-	new/datum/stack_recipe("деревянное ведро", /obj/item/reagent_containers/glass/bucket/wooden, 3, time = 10),\
-	new/datum/stack_recipe("грабли", /obj/item/cultivator/rake, 5, time = 10),\
-	new/datum/stack_recipe("ящик для руды", /obj/structure/ore_box, 4, time = 50, one_per_turf = TRUE, on_floor = TRUE),\
-	new/datum/stack_recipe("деревянный ящик", /obj/structure/closet/crate/wooden, 6, time = 50, one_per_turf = TRUE, on_floor = TRUE),\
-	new/datum/stack_recipe("бейсбольная бита", /obj/item/melee/baseball_bat, 5, time = 15),\
-	new/datum/stack_recipe("ткацкий станок", /obj/structure/loom, 10, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("ступка", /obj/item/reagent_containers/glass/mortar, 3), \
-	new/datum/stack_recipe("головешка", /obj/item/match/firebrand, 2, time = 100), \
-	new/datum/stack_recipe("зубок", /obj/item/stack/teeth/human/wood, 1, time = 5),\
+	new/datum/stack_recipe("деревянные сандалии", /obj/item/clothing/shoes/sandal, 1, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("деревянный пол", /obj/item/stack/tile/wood, 1, 4, 20, category = CAT_TILES), \
+	new/datum/stack_recipe("деревянный корпус стола", /obj/structure/table_frame/wood, 2, time = 10, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("приклад винтовки", /obj/item/weaponcrafting/stock, 10, time = 40, category = CAT_MISC), \
+	new/datum/stack_recipe("скалка", /obj/item/kitchen/rollingpin, 2, time = 30, category = CAT_TOOLS), \
+	new/datum/stack_recipe("деревянный стул", /obj/structure/chair/wood/, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("крылатый стул", /obj/structure/chair/wood/wings, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("деревянная застава", /obj/structure/barricade/wooden, 5, time = 50, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("баррикада", /obj/structure/deployable_barricade/wooden, 5, time = 50, one_per_turf = TRUE, on_floor = TRUE, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("деревянная дверь", /obj/structure/mineral_door/wood, 10, time = 20, one_per_turf = TRUE, on_floor = TRUE, category = CAT_DOORS), \
+	new/datum/stack_recipe("гроб", /obj/structure/closet/crate/coffin, 5, time = 15, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("книжный шкаф", /obj/structure/bookcase, 4, time = 15, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("сушилка", /obj/machinery/smartfridge/drying_rack, 10, time = 15, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("деревянная бочка", /obj/structure/fermenting_barrel, 8, time = 50, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("собачья кровать", /obj/structure/bed/dogbed, 10, time = 10, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("комод", /obj/structure/dresser, 10, time = 15, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("рамка для фотографии", /obj/item/wallframe/picture, 1, time = 10, category = CAT_ENTERTAINMENT),\
+	new/datum/stack_recipe("рамка для рисунка", /obj/item/wallframe/painting, 1, time = 10, category = CAT_ENTERTAINMENT),\
+	new/datum/stack_recipe("стенд шасси", /obj/structure/displaycase_chassis, 5, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("деревянный щит", /obj/item/shield/riot/buckler, 20, time = 40, category = CAT_WEAPON_MELEE), \
+	new/datum/stack_recipe("пчельник", /obj/structure/beebox, 40, time = 50, category = CAT_FURNITURE),\
+	new/datum/stack_recipe("маска Тики", /obj/item/clothing/mask/gas/tiki_mask, 2, category = CAT_CLOTHING), \
+	new/datum/stack_recipe("рамка для меда", /obj/item/honey_frame, 5, time = 10, category = CAT_FURNITURE),\
+	new/datum/stack_recipe("деревянное ведро", /obj/item/reagent_containers/glass/bucket/wooden, 3, time = 10, category = CAT_CONTAINERS),\
+	new/datum/stack_recipe("грабли", /obj/item/cultivator/rake, 5, time = 10, category = CAT_TOOLS),\
+	new/datum/stack_recipe("ящик для руды", /obj/structure/ore_box, 4, time = 50, one_per_turf = TRUE, on_floor = TRUE, category = CAT_TOOLS),\
+	new/datum/stack_recipe("деревянный ящик", /obj/structure/closet/crate/wooden, 6, time = 50, one_per_turf = TRUE, on_floor = TRUE, category = CAT_TOOLS),\
+	new/datum/stack_recipe("бейсбольная бита", /obj/item/melee/baseball_bat, 5, time = 15, category = CAT_FURNITURE),\
+	new/datum/stack_recipe("ткацкий станок", /obj/structure/loom, 10, time = 15, one_per_turf = TRUE, on_floor = TRUE, category = CAT_TOOLS), \
+	new/datum/stack_recipe("ступка", /obj/item/reagent_containers/glass/mortar, 3, category = CAT_TOOLS), \
+	new/datum/stack_recipe("головешка", /obj/item/match/firebrand, 2, time = 100, category = CAT_TOOLS), \
+	new/datum/stack_recipe("зубок", /obj/item/stack/teeth/human/wood, 1, time = 5, category = CAT_TOOLS),\
 	null, \
 	new/datum/stack_recipe_list("церковные скамьи", list(
-		new /datum/stack_recipe("скамья (центральная)", /obj/structure/chair/pew, 3, one_per_turf = TRUE, on_floor = TRUE),
-		new /datum/stack_recipe("скамья (левая)", /obj/structure/chair/pew/left, 3, one_per_turf = TRUE, on_floor = TRUE),
-		new /datum/stack_recipe("скамья (правая)", /obj/structure/chair/pew/right, 3, one_per_turf = TRUE, on_floor = TRUE)
+		new /datum/stack_recipe("скамья (центральная)", /obj/structure/chair/pew, 3, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE),
+		new /datum/stack_recipe("скамья (левая)", /obj/structure/chair/pew/left, 3, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE),
+		new /datum/stack_recipe("скамья (правая)", /obj/structure/chair/pew/right, 3, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE)
 		)),
 	null, \
 	))
@@ -335,18 +335,18 @@ GLOBAL_LIST_INIT(wood_recipes, list ( \
  */
 
 GLOBAL_LIST_INIT(bamboo_recipes, list ( \
-	new/datum/stack_recipe("ловушка волчья яма ", /obj/structure/punji_sticks, 5, time = 30, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("бамбуковое копьё", /obj/item/spear/bamboospear, 25, time = 90), \
-	new/datum/stack_recipe("духовая трубка", /obj/item/gun/syringe/blowgun, 10, time = 70), \
-	new/datum/stack_recipe("примитивный шприц", /obj/item/reagent_containers/syringe/crude, 5, time = 10), \
+	new/datum/stack_recipe("ловушка волчья яма ", /obj/structure/punji_sticks, 5, time = 30, one_per_turf = TRUE, on_floor = TRUE, category = CAT_MISC), \
+	new/datum/stack_recipe("бамбуковое копьё", /obj/item/spear/bamboospear, 25, time = 90, category = CAT_WEAPON_MELEE), \
+	new/datum/stack_recipe("духовая трубка", /obj/item/gun/syringe/blowgun, 10, time = 70, category = CAT_WEAPON_RANGED), \
+	new/datum/stack_recipe("примитивный шприц", /obj/item/reagent_containers/syringe/crude, 5, time = 10, category = CAT_CHEMISTRY), \
 	null, \
-	new/datum/stack_recipe("бамбуковый стул", /obj/structure/chair/stool/bamboo, 2, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("бамбуковый пол", /obj/item/stack/tile/bamboo, 1, 4, 20), \
+	new/datum/stack_recipe("бамбуковый стул", /obj/structure/chair/stool/bamboo, 2, time = 10, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("бамбуковый пол", /obj/item/stack/tile/bamboo, 1, 4, 20, category = CAT_TILES), \
 	null, \
 	new/datum/stack_recipe_list("бамбуковая скамья", list(
-		new /datum/stack_recipe("бамбуковая скамья (центр)", /obj/structure/chair/sofa/bamboo, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE),
-		new /datum/stack_recipe("бамбуковая скамья (левая)", /obj/structure/chair/sofa/bamboo/left, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE),
-		new /datum/stack_recipe("бамбуковая скамья (правая)", /obj/structure/chair/sofa/bamboo/right, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE)
+		new /datum/stack_recipe("бамбуковая скамья (центр)", /obj/structure/chair/sofa/bamboo, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE),
+		new /datum/stack_recipe("бамбуковая скамья (левая)", /obj/structure/chair/sofa/bamboo/left, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE),
+		new /datum/stack_recipe("бамбуковая скамья (правая)", /obj/structure/chair/sofa/bamboo/right, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE, category = CAT_FURNITURE)
 		)),	\
 	))
 
@@ -704,14 +704,14 @@ GLOBAL_LIST_INIT(bronze_recipes, list ( \
 	material_type = /datum/material/bone
 
 GLOBAL_LIST_INIT(plastic_recipes, list(
-	new /datum/stack_recipe("пластиковый пол", /obj/item/stack/tile/plastic, 1, 4, 20), \
-	new /datum/stack_recipe("складной пластиковый стул", /obj/structure/chair/plastic, 2), \
-	new /datum/stack_recipe("пластиковые заслонки", /obj/structure/plasticflaps, 5, one_per_turf = TRUE, on_floor = TRUE, time = 40), \
-	new /datum/stack_recipe("бутылка для воды", /obj/item/reagent_containers/food/drinks/waterbottle/empty), \
-	new /datum/stack_recipe("большая бутылка для воды", /obj/item/reagent_containers/food/drinks/waterbottle/large/empty, 3), \
+	new /datum/stack_recipe("пластиковый пол", /obj/item/stack/tile/plastic, 1, 4, 20, category = CAT_FURNITURE), \
+	new /datum/stack_recipe("складной пластиковый стул", /obj/structure/chair/plastic, 2, category = CAT_FURNITURE), \
+	new /datum/stack_recipe("пластиковые заслонки", /obj/structure/plasticflaps, 5, one_per_turf = TRUE, on_floor = TRUE, time = 40, category = CAT_STRUCTURE), \
+	new /datum/stack_recipe("бутылка для воды", /obj/item/reagent_containers/food/drinks/waterbottle/empty, category = CAT_CONTAINERS), \
+	new /datum/stack_recipe("большая бутылка для воды", /obj/item/reagent_containers/food/drinks/waterbottle/large/empty, 3, category = CAT_CONTAINERS), \
 	new /datum/stack_recipe("пластиковый стакан", /obj/item/reagent_containers/food/drinks/colocup, 1), \
 	new /datum/stack_recipe("знак мокрый пол", /obj/item/clothing/suit/caution, 2), \
-	new /datum/stack_recipe("пустой настенный знак", /obj/item/sign, 1), \
+	new /datum/stack_recipe("пустой настенный знак", /obj/item/sign, 1, category = CAT_ENTERTAINMENT), \
 	new /datum/stack_recipe("конус", /obj/item/clothing/head/cone, 2)))
 
 /obj/item/stack/sheet/plastic

@@ -10,7 +10,7 @@
 		/obj/item/food/grown/tomato = 2
 	)
 	result = /obj/item/food/spaghetti/pastatomato
-	subcategory = CAT_SPAGHETTI
+	category = CAT_SPAGHETTI
 
 /datum/crafting_recipe/food/copypasta
 	name = "Копипаста"
@@ -18,7 +18,7 @@
 		/obj/item/food/spaghetti/pastatomato = 2
 	)
 	result = /obj/item/food/spaghetti/copypasta
-	subcategory = CAT_SPAGHETTI
+	category = CAT_SPAGHETTI
 
 /datum/crafting_recipe/food/spaghettimeatball
 	name = "Спагетти с фрикадельками"
@@ -27,7 +27,7 @@
 		/obj/item/food/meatball = 2
 	)
 	result = /obj/item/food/spaghetti/meatballspaghetti
-	subcategory = CAT_SPAGHETTI
+	category = CAT_SPAGHETTI
 
 /datum/crafting_recipe/food/spesslaw
 	name = "Фрикадельки со спагетти"
@@ -36,7 +36,7 @@
 		/obj/item/food/meatball = 4
 	)
 	result = /obj/item/food/spaghetti/spesslaw
-	subcategory = CAT_SPAGHETTI
+	category = CAT_SPAGHETTI
 
 /datum/crafting_recipe/food/beefnoodle
 	name = "Лапша с говядиной"
@@ -47,7 +47,7 @@
 		/obj/item/food/grown/cabbage = 1
 	)
 	result = /obj/item/food/spaghetti/beefnoodle
-	subcategory = CAT_SPAGHETTI
+	category = CAT_SPAGHETTI
 
 /datum/crafting_recipe/food/chowmein
 	name = "Чау-мейн"
@@ -58,7 +58,7 @@
 		/obj/item/food/grown/carrot = 1
 	)
 	result = /obj/item/food/spaghetti/chowmein
-	subcategory = CAT_SPAGHETTI
+	category = CAT_SPAGHETTI
 
 /datum/crafting_recipe/food/butternoodles
 	name = "Лапша с маслом"
@@ -67,7 +67,7 @@
 		/obj/item/food/butter = 1
 	)
 	result = /obj/item/food/spaghetti/butternoodles
-	subcategory = CAT_SPAGHETTI
+	category = CAT_SPAGHETTI
 
 /datum/crafting_recipe/food/mac_n_cheese
 	name = "Макароны с сыром"
@@ -79,7 +79,7 @@
 		/datum/reagent/consumable/blackpepper = 2
 	)
 	result = /obj/item/food/spaghetti/mac_n_cheese
-	subcategory = CAT_SPAGHETTI
+	category = CAT_SPAGHETTI
 
 /datum/crafting_recipe/food/lasagna
 	name = "Лазанья"
@@ -90,4 +90,4 @@
 		/obj/item/food/spaghetti = 1
 	)
 	result = /obj/item/food/spaghetti/lasagna
-	subcategory = CAT_SPAGHETTI
+	category = CAT_SPAGHETTI

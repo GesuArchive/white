@@ -75,6 +75,10 @@
 #define FLOODLIGHT_NEEDS_LIGHTS 1
 #define FLOODLIGHT_NEEDS_SECURING 2
 
+// Stationary gas tanks
+#define TANK_FRAME 0
+#define TANK_PLATING_UNSECURED 1
+
 //other construction-related things
 
 //windows affected by Nar'Sie turn this color.
@@ -91,35 +95,47 @@
 #define MAXCOIL 30
 
 //tablecrafting defines
-#define CAT_NONE	""
-#define CAT_WEAPONRY	"Вооружение"
-#define CAT_WEAPON		"Оружие"
-#define CAT_ARMOR		"Броня"
-#define CAT_AMMO		"Боеприпасы"
-#define CAT_ROBOT		"Роботы"
-#define CAT_MISC		"Прочее"
-#define CAT_PRIMAL 		"Примитивное"
-#define CAT_CLOTHING	"Одежда"
-#define CAT_EYEWEAR     "Очки"
-#define CAT_FOOD		"Еда"
-#define CAT_BREAD		"Хлеб"
-#define CAT_BURGER		"Бургеры"
-#define CAT_CAKE		"Торты"
-#define CAT_EGG			"Яйца"
-#define CAT_MEAT		"Мясо"
-#define CAT_MISCFOOD	"Прочая еда"
-#define CAT_PASTRY		"Выпечка"
-#define CAT_PIE			"Пироги"
-#define CAT_PIZZA		"Пиццы"
-#define CAT_SALAD		"Салаты"
-#define CAT_SANDWICH	"Бутерброды"
-#define CAT_SOUP		"Супы"
-#define CAT_SPAGHETTI	"Спагетти"
-#define CAT_ICE			"Мороженное"
-#define CAT_STRUCTURE	"Сооружения"
-#define CAT_DRINK 		"Напитки"
-#define CAT_CHEMISTRY 	"Химия"
-#define CAT_MOTH 		"Еда молей"
+#define CAT_NONE
+#define CAT_FOOD "Еда"
+#define CAT_BREAD "Хлеб"
+#define CAT_BURGER "Бургеры"
+#define CAT_CAKE "Торты"
+#define CAT_EGG "Еда на основе яйцаEgg-Based Food"
+#define CAT_LIZARD "Еда ящеров"
+#define CAT_MEAT "Мясо"
+#define CAT_SEAFOOD "Морепродукты"
+#define CAT_MISCFOOD "Остальная еда"
+#define CAT_MEXICAN "Мексиканская еда"
+#define CAT_MOTH "Еда молей"
+#define CAT_PASTRY "Выпечка"
+#define CAT_PIE "Пироги"
+#define CAT_PIZZA "Пицца"
+#define CAT_SALAD "Салаты"
+#define CAT_SANDWICH "Бутерброды"
+#define CAT_SOUP "Супы"
+#define CAT_SPAGHETTI "Спагетти"
+#define CAT_ICE "Мороженное"
+#define CAT_DRINK "Напитки"
+
+//crafting defines
+#define CAT_WEAPON_RANGED "Оружие дальнего боя"
+#define CAT_WEAPON_MELEE "Оружие ближнего боя"
+#define CAT_WEAPON_AMMO "Боеприпасы"
+#define CAT_ROBOT "Робототехника"
+#define CAT_MISC "Остальное"
+#define CAT_CLOTHING "Одежда"
+#define CAT_CHEMISTRY "Химия"
+#define CAT_ATMOSPHERIC "Атмосфера"
+#define CAT_STRUCTURE "Структуры"
+#define CAT_TILES "Плитки"
+#define CAT_WINDOWS "Окна"
+#define CAT_DOORS "Двери"
+#define CAT_FURNITURE "Мебель"
+#define CAT_EQUIPMENT "Снаряжения"
+#define CAT_CONTAINERS "Контейнеры"
+#define CAT_ENTERTAINMENT "Развлечение" //незабыть исправить
+#define CAT_TOOLS "Инструменты"
+#define CAT_CULT "Кровавый культ"
 
 // these aren't even used as bitflags so who even knows why they are treated like them
 #define RCD_FLOORWALL (1<<0)
@@ -131,7 +147,7 @@
 #define RCD_FURNISHING (1<<6)
 
 #define RCD_UPGRADE_FRAMES (1<<0)
-#define RCD_UPGRADE_SIMPLE_CIRCUITS	(1<<1)
+#define RCD_UPGRADE_SIMPLE_CIRCUITS (1<<1)
 #define RCD_UPGRADE_SILO_LINK (1<<2)
 #define RCD_UPGRADE_FURNISHING (1<<3)
 

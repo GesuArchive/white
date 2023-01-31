@@ -82,7 +82,7 @@
 	result = /obj/structure/fermenting_barrel
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 8)
 	time = 50
-	category = CAT_PRIMAL
+	category = CAT_STRUCTURE
 
 //lil gunpowder barrel fer pirates since it's a nice reagent holder
 

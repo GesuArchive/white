@@ -11,7 +11,7 @@
 				/obj/item/food/pastrybase = 2
 	)
 	result = /obj/item/food/baguette
-	subcategory = CAT_BREAD
+	category = CAT_BREAD
 
 /datum/crafting_recipe/food/slimetoast
 	name = "Слаймовый тост"
@@ -20,7 +20,7 @@
 		/obj/item/food/breadslice/plain = 1
 	)
 	result = /obj/item/food/bread/jelliedtoast/slime
-	subcategory = CAT_BREAD
+	category = CAT_BREAD
 
 /datum/crafting_recipe/food/jelliedyoast
 	name = "Желейный тост"
@@ -29,7 +29,7 @@
 		/obj/item/food/breadslice/plain = 1
 	)
 	result = /obj/item/food/bread/jelliedtoast/cherry
-	subcategory = CAT_BREAD
+	category = CAT_BREAD
 
 /datum/crafting_recipe/food/butteredtoast
 	name = "Тост с маслом"
@@ -38,7 +38,7 @@
 		/obj/item/food/butter = 1
 	)
 	result = /obj/item/food/bread/butteredtoast
-	subcategory = CAT_BREAD
+	category = CAT_BREAD
 
 /datum/crafting_recipe/food/twobread
 	name = "Два хлеба"
@@ -47,7 +47,7 @@
 		/obj/item/food/breadslice/plain = 2
 	)
 	result = /obj/item/food/bread/twobread
-	subcategory = CAT_BREAD
+	category = CAT_BREAD
 
 /datum/crafting_recipe/food/meatbread
 	name = "Мясной рулет"
@@ -57,7 +57,7 @@
 		/obj/item/food/cheesewedge = 3
 	)
 	result = /obj/item/food/bread/meat
-	subcategory = CAT_BREAD
+	category = CAT_BREAD
 
 /datum/crafting_recipe/food/xenomeatbread
 	name = "Хлеб с мясом чужого"
@@ -67,7 +67,7 @@
 		/obj/item/food/cheesewedge = 3
 	)
 	result = /obj/item/food/bread/xenomeat
-	subcategory = CAT_BREAD
+	category = CAT_BREAD
 
 /datum/crafting_recipe/food/spidermeatbread
 	name = "Хлеб с паучьим мясом"
@@ -77,7 +77,7 @@
 		/obj/item/food/cheesewedge = 3
 	)
 	result = /obj/item/food/bread/spidermeat
-	subcategory = CAT_BREAD
+	category = CAT_BREAD
 
 /datum/crafting_recipe/food/banananutbread
 	name = "Банановый хлеб"
@@ -88,7 +88,7 @@
 		/obj/item/food/grown/banana = 1
 	)
 	result = /obj/item/food/bread/banana
-	subcategory = CAT_BREAD
+	category = CAT_BREAD
 
 /datum/crafting_recipe/food/tofubread
 	name = "Хлеб тофу"
@@ -98,7 +98,7 @@
 		/obj/item/food/cheesewedge = 3
 	)
 	result = /obj/item/food/bread/tofu
-	subcategory = CAT_BREAD
+	category = CAT_BREAD
 
 /datum/crafting_recipe/food/creamcheesebread
 	name = "Хлеб со сливочным сыром"
@@ -108,7 +108,7 @@
 		/obj/item/food/cheesewedge = 2
 	)
 	result = /obj/item/food/bread/creamcheese
-	subcategory = CAT_BREAD
+	category = CAT_BREAD
 
 /datum/crafting_recipe/food/mimanabread
 	name = "Мимановский хлеб"
@@ -119,7 +119,7 @@
 		/obj/item/food/grown/banana/mime = 1
 	)
 	result = /obj/item/food/bread/mimana
-	subcategory = CAT_BREAD
+	category = CAT_BREAD
 
 /datum/crafting_recipe/food/garlicbread
 	name = "Чесночный хлеб"
@@ -129,7 +129,7 @@
 				/obj/item/food/butter = 1
 	)
 	result = /obj/item/food/garlicbread
-	subcategory = CAT_BREAD
+	category = CAT_BREAD
 
 /datum/crafting_recipe/food/butterbiscuit
 	name = "Бисквит с маслом"
@@ -138,7 +138,7 @@
 		/obj/item/food/butter = 1
 	)
 	result = /obj/item/food/butterbiscuit
-	subcategory = CAT_BREAD
+	category = CAT_BREAD
 
 /datum/crafting_recipe/food/butterdog
 	name = "Масло-дог"
@@ -147,7 +147,7 @@
 		/obj/item/food/butter = 3,
 		)
 	result = /obj/item/food/butterdog
-	subcategory = CAT_BREAD
+	category = CAT_BREAD
 
 /datum/crafting_recipe/food/moldybread // why would you make this?
 	name = "Заплесневелый хлеб"
@@ -156,7 +156,7 @@
 		/obj/item/food/grown/mushroom/amanita = 1
 		)
 	result = /obj/item/food/breadslice/moldy
-	subcategory = CAT_BREAD
+	category = CAT_BREAD
 
 /datum/crafting_recipe/food/breadcat
 	name = "Хлебокот"
@@ -169,4 +169,4 @@
 		/datum/reagent/medicine/strange_reagent = 5
 	)
 	result = /mob/living/simple_animal/pet/cat/breadcat
-	subcategory = CAT_BREAD
+	category = CAT_BREAD

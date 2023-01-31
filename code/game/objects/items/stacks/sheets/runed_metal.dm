@@ -10,6 +10,7 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list( \
 		on_floor = TRUE, \
 		desc = span_cultbold("Лечит (и регенерирует кровь) находящихся поблизости кровавых культистов и конструктов, но также превращает полы поблизости в гравированные."), \
 		required_noun = "листов рунического металла", \
+		category = CAT_CULT
 	), \
 	new /datum/stack_recipe/radial( \
 		title = "алтарь", \
@@ -20,6 +21,7 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list( \
 		on_floor = TRUE, \
 		desc = span_cultbold("Можно создать жуткие точильные камни, оболочки конструктов и фляги с несвятой водой."), \
 		required_noun = "листов рунического металла", \
+		category = CAT_CULT
 	), \
 	new /datum/stack_recipe/radial( \
 		title = "архивы", \
@@ -30,6 +32,7 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list( \
 		on_floor = TRUE, \
 		desc = span_cultbold("Можно создать глазные повязки фанатиков, сферы проклятия шаттлов, и оборудование идущего по завесе."), \
 		required_noun = "листов рунического металла", \
+		category = CAT_CULT
 	), \
 	new /datum/stack_recipe/radial( \
 		title = "демоническая кузня", \
@@ -40,6 +43,7 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list( \
 		on_floor = TRUE, \
 		desc = span_cultbold("Можно создать защищенные робы, робы флагелянтов и зеркальные щиты."), \
 		required_noun = "листов рунического металла", \
+		category = CAT_CULT
 	), \
 	new /datum/stack_recipe/radial( \
 		title = "руническая дверь", \
@@ -49,6 +53,7 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list( \
 		on_floor = TRUE, \
 		desc = span_cultbold("Не слишком прочная дверь, оглушает коснувшихся не культистов."), \
 		required_noun = "листов рунического металла", \
+		category = CAT_CULT
 	), \
 	new /datum/stack_recipe/radial( \
 		title = "руническая балка", \
@@ -58,6 +63,7 @@ GLOBAL_LIST_INIT(runed_metal_recipes, list( \
 		on_floor = TRUE, \
 		desc = span_cultbold("Не рекомендованное использование рунного металла."), \
 		required_noun = "листов рунического металла", \
+		category = CAT_CULT
 	), \
 ))
 

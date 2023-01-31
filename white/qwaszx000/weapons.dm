@@ -61,13 +61,12 @@ Arrow&bow
 			to_chat(user, span_warning("[capitalize(src.name)] cannot hold more syringes!"))
 	return FALSE
 
-/datum/crafting_recipe/bow_h
+/*/datum/crafting_recipe/bow_h Лук не имеет вообще спрайта, без спрайта крафт меню съежает
 	name = "Лук"
 	result = /obj/item/gun/syringe/bow
 	reqs = list(/obj/item/stack/cable_coil = 5,/obj/item/stack/sheet/mineral/wood = 10)
 	time = 100
-	category= CAT_WEAPONRY
-	subcategory = CAT_WEAPON
+	category= CAT_WEAPON_RANGED
 
 /datum/crafting_recipe/arrow_h
 	name = "Стрела"
@@ -75,9 +74,8 @@ Arrow&bow
 	reqs = list(/obj/item/stack/rods = 1)
 	tool_behaviors = list(TOOL_WIRECUTTER)
 	time = 25
-	category= CAT_WEAPONRY
-	subcategory = CAT_WEAPON
-
+	category= CAT_WEAPON_AMMO
+*/
 //M41A
 
 /obj/item/gun/ballistic/automatic/M41A

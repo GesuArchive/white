@@ -152,8 +152,7 @@
 	result = /obj/item/stake
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 3)
 	time = 8 SECONDS
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
+	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/woodenducky
 	name = "Деревянная уточка"
@@ -164,8 +163,7 @@
 		/obj/item/bikehorn/rubberducky = 1,
 	)
 	time = 6 SECONDS
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
+	category = CAT_WEAPON_MELEE
 	always_available = FALSE
 
 /datum/crafting_recipe/hardened_stake
@@ -174,8 +172,7 @@
 	tool_behaviors = list(TOOL_WELDER)
 	reqs = list(/obj/item/stack/rods = 1)
 	time = 6 SECONDS
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
+	category = CAT_WEAPON_MELEE
 	always_available = FALSE
 
 /datum/crafting_recipe/silver_stake
@@ -187,6 +184,5 @@
 		/obj/item/stake/hardened = 1,
 	)
 	time = 8 SECONDS
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
+	category = CAT_WEAPON_MELEE
 	always_available = FALSE

@@ -1,5 +1,7 @@
 /obj/item/clothing/shoes/sneakers
 	dying_key = DYE_REGISTRY_SNEAKERS
+	icon_preview = 'icons/obj/clothing/shoes.dmi'
+	icon_state_preview = "sneakers_front"
 	icon_state = "sneakers"
 	greyscale_colors = "#545454#ffffff"
 	greyscale_config = /datum/greyscale_config/sneakers
@@ -46,6 +48,8 @@
 /obj/item/clothing/shoes/sneakers/white
 	name = "белые ботинки"
 	greyscale_colors = "#ffffff#ffffff"
+	icon_preview = 'icons/obj/previews.dmi'
+	icon_state_preview = "shoes_cloth"
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 0, ACID = 0)
 
 /obj/item/clothing/shoes/sneakers/rainbow
@@ -58,6 +62,8 @@
 
 /obj/item/clothing/shoes/sneakers/orange
 	name = "тюремные ботинки"
+	icon_preview = 'icons/obj/previews.dmi'
+	icon_state_preview = "prisonshoes"
 	greyscale_colors = "#eb7016#ffffff"
 	greyscale_config = /datum/greyscale_config/sneakers_orange
 	greyscale_config_worn = /datum/greyscale_config/sneakers_orange_worn

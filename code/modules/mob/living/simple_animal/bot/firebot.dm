@@ -9,6 +9,8 @@
 	desc = "Маленький бот для тушения пожаров. Он выглядит довольно встревоженным."
 	icon = 'icons/mob/aibots.dmi'
 	icon_state = "firebot"
+	icon_preview = 'icons/mob/aibots.dmi'
+	icon_state_preview = "firebot1"
 	density = FALSE
 	anchored = FALSE
 	health = 25

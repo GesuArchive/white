@@ -22,15 +22,15 @@ SUBSYSTEM_DEF(materials)
 	var/list/list/material_combos
 	///List of stackcrafting recipes for materials using base recipes
 	var/list/base_stack_recipes = list(
-		new /datum/stack_recipe("Стул", /obj/structure/chair/greyscale, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE),
-		new /datum/stack_recipe("Туалет", /obj/structure/toilet/greyscale, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE),
-		new /datum/stack_recipe("Каркас умывальника", /obj/structure/sinkframe, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE),
-		new /datum/stack_recipe("Декоративная плитка", /obj/item/stack/tile/material, 1, 4, 20, applies_mats = TRUE),
-		new /datum/stack_recipe("Декоративный шлюз", /obj/structure/door_assembly/door_assembly_material, 4, time = 50, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE),
+		new /datum/stack_recipe("Стул", /obj/structure/chair/greyscale, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE, category = CAT_FURNITURE),
+		new /datum/stack_recipe("Туалет", /obj/structure/toilet/greyscale, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE, category = CAT_FURNITURE),
+		new /datum/stack_recipe("Каркас умывальника", /obj/structure/sinkframe, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE, category = CAT_FURNITURE),
+		new /datum/stack_recipe("Декоративная плитка", /obj/item/stack/tile/material, 1, 4, 20, applies_mats = TRUE, category = CAT_TILES),
+		new /datum/stack_recipe("Декоративный шлюз", /obj/structure/door_assembly/door_assembly_material, 4, time = 50, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE, category = CAT_DOORS),
 	)
 	///List of stackcrafting recipes for materials using rigid recipes
 	var/list/rigid_stack_recipes = list(
-		new /datum/stack_recipe("Художественный блок", /obj/structure/carving_block, 5, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE),
+		new /datum/stack_recipe("Художественный блок", /obj/structure/carving_block, 5, one_per_turf = TRUE, on_floor = TRUE, applies_mats = TRUE, category = CAT_STRUCTURE),
 	)
 
 ///Ran on initialize, populated the materials and materials_by_category dictionaries with their appropiate vars (See these variables for more info)

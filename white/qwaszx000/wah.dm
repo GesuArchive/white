@@ -9,7 +9,7 @@
 		/datum/reagent/consumable/blackpepper = 10
 	)
 	result = /obj/item/food/soup/imperium
-	subcategory = CAT_SOUP
+	category = CAT_SOUP
 
 /obj/item/food/soup/imperium
 	name = "Имперский суп"

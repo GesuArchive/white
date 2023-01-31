@@ -113,6 +113,8 @@ GLOBAL_LIST_INIT(enname2reagent, build_enname2reagent())
 	var/sound/special_sound = null
 	///hydration factor to restore thirst
 	var/hydration_factor = 0
+	///The default reagent container for the reagent
+	var/obj/item/reagent_containers/default_container = /obj/item/reagent_containers/glass/bottle
 
 
 /datum/reagent/New()

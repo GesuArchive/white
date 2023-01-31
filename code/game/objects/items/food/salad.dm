@@ -14,7 +14,7 @@
 /obj/item/food/salad/melonfruitbowl
 	name = "фруктовая арбузная миска"
 	desc = "Для тех, кто любит съедобные миски."
-	icon_state = "melonfruitbowl"
+	icon_state = "spring_salad"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/vitamin = 4)
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("арбуз" = 1)

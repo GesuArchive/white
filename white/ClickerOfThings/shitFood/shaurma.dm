@@ -17,4 +17,4 @@
 		/obj/item/food/flatdough = 3,
 	)
 	result = /obj/item/food/shaurma
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD

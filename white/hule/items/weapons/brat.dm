@@ -32,8 +32,7 @@
 				/obj/item/match = 3,
 				/obj/item/stack/sheet/iron = 1)
 	tool_behaviors = list(TOOL_WIRECUTTER)
-	category = CAT_WEAPONRY
-	subcategory = CAT_AMMO
+	category = CAT_WEAPON_AMMO
 
 /datum/crafting_recipe/glassslug
 	name = "Самодельный ружейный патрон с битым стеклом"
@@ -46,5 +45,5 @@
 				/obj/item/match = 3,
 				/obj/item/stack/sheet/iron = 1)
 	tool_behaviors = list(TOOL_WIRECUTTER)
-	category = CAT_WEAPONRY
-	subcategory = CAT_AMMO
+	category = CAT_WEAPON_AMMO
+

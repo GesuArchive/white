@@ -1,10 +1,10 @@
-/datum/crafting_recipe/durathread_vest
+/datum/crafting_recipe/durathread_vest //На счет отдельной категории брони ещё вопрос стоит...
 	name = "Дюратканевый бронежилет"
 	result = /obj/item/clothing/suit/armor/vest/durathread
 	reqs = list(/obj/item/stack/sheet/durathread = 5,
 				/obj/item/stack/sheet/leather = 4)
 	time = 50
-	category = CAT_ARMOR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/durathread_helmet
 	name = "Дюратканевый шлем"
@@ -12,7 +12,7 @@
 	reqs = list(/obj/item/stack/sheet/durathread = 4,
 				/obj/item/stack/sheet/leather = 5)
 	time = 40
-	category = CAT_ARMOR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/durathread_jumpsuit
 	name = "Дюратканевый комбинезон"
@@ -58,7 +58,7 @@
 	reqs = list(/obj/item/clothing/glasses/hud/security = 1,
 				  /obj/item/clothing/glasses/sunglasses = 1,
 				  /obj/item/stack/cable_coil = 5)
-	category = CAT_EYEWEAR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/hudsunsecremoval
 	name = "Разборка тактических очков офицера"
@@ -66,7 +66,7 @@
 	time = 20
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	reqs = list(/obj/item/clothing/glasses/hud/security/sunglasses = 1)
-	category = CAT_EYEWEAR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/hudsunmed
 	name = "Тактические медицинские очки"
@@ -76,7 +76,7 @@
 	reqs = list(/obj/item/clothing/glasses/hud/health = 1,
 				  /obj/item/clothing/glasses/sunglasses = 1,
 				  /obj/item/stack/cable_coil = 5)
-	category = CAT_EYEWEAR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/hudsunmedremoval
 	name = "Разборка тактических медицинских очков"
@@ -84,7 +84,7 @@
 	time = 20
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	reqs = list(/obj/item/clothing/glasses/hud/health/sunglasses = 1)
-	category = CAT_EYEWEAR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/hudsundiag
 	name = "Тактические диагностические очки"
@@ -94,7 +94,7 @@
 	reqs = list(/obj/item/clothing/glasses/hud/diagnostic = 1,
 				  /obj/item/clothing/glasses/sunglasses = 1,
 				  /obj/item/stack/cable_coil = 5)
-	category = CAT_EYEWEAR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/hudsundiagremoval
 	name = "Разборка тактических диагностических очков"
@@ -102,7 +102,7 @@
 	time = 20
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	reqs = list(/obj/item/clothing/glasses/hud/diagnostic/sunglasses = 1)
-	category = CAT_EYEWEAR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/scienceglasses
 	name = "Тактические научные очки"
@@ -112,7 +112,7 @@
 	reqs = list(/obj/item/clothing/glasses/science = 1,
 				  /obj/item/clothing/glasses/sunglasses = 1,
 				  /obj/item/stack/cable_coil = 5)
-	category = CAT_EYEWEAR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/scienceglassesremoval
 	name = "Разборка тактических научных очков"
@@ -120,7 +120,7 @@
 	time = 20
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	reqs = list(/obj/item/clothing/glasses/sunglasses/chemical = 1)
-	category = CAT_EYEWEAR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/hudpresmed
 	name = "Медицинские очки по рецепту"
@@ -130,7 +130,7 @@
 	reqs = list(/obj/item/clothing/glasses/hud/health = 1,
 				  /obj/item/clothing/glasses/regular/ = 1,
 				  /obj/item/stack/cable_coil = 5)
-	category = CAT_EYEWEAR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/hudpressec
 	name = "Офицерские очки по рецепту"
@@ -140,7 +140,7 @@
 	reqs = list(/obj/item/clothing/glasses/hud/security = 1,
 				  /obj/item/clothing/glasses/regular/ = 1,
 				  /obj/item/stack/cable_coil = 5)
-	category = CAT_EYEWEAR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/hudpressci
 	name = "Научные очки по рецепту"
@@ -150,7 +150,7 @@
 	reqs = list(/obj/item/clothing/glasses/science = 1,
 				  /obj/item/clothing/glasses/regular/ = 1,
 				  /obj/item/stack/cable_coil = 5)
-	category = CAT_EYEWEAR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/hudpresmeson
 	name = "Мезонные очки по рецепту"
@@ -160,7 +160,7 @@
 	reqs = list(/obj/item/clothing/glasses/meson = 1,
 				  /obj/item/clothing/glasses/regular/ = 1,
 				  /obj/item/stack/cable_coil = 5)
-	category = CAT_EYEWEAR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/hudpresdiag
 	name = "Диагностические очки по рецепту"
@@ -170,7 +170,7 @@
 	reqs = list(/obj/item/clothing/glasses/hud/diagnostic = 1,
 				  /obj/item/clothing/glasses/regular/ = 1,
 				  /obj/item/stack/cable_coil = 5)
-	category = CAT_EYEWEAR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/ghostsheet
 	name = "Саван неприкаянного"

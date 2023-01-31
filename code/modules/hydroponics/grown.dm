@@ -14,6 +14,7 @@
 	icon = 'icons/obj/hydroponics/harvest.dmi'
 	name = "Свежая продукция" // поэтому в рецепте не говорят 'закусон'
 	//worn_icon = 'icons/mob/clothing/head/hydroponics.dmi'
+	icon_state = "walkingmushroom" //затычка, надо поглядеть почему ему корневой объект таак нужен
 	max_volume = 100
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = FLAMMABLE

@@ -1,6 +1,8 @@
 /obj/item/tank
 	name = "tank"
 	icon = 'white/valtos/icons/tank.dmi'
+	icon_preview = 'white/valtos/icons/tank.dmi'
+	icon_state_preview = "generic"
 	lefthand_file = 'icons/mob/inhands/equipment/tanks_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tanks_righthand.dmi'
 	flags_1 = CONDUCT_1

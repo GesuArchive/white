@@ -8,7 +8,7 @@ GLOBAL_LIST_INIT(all_food, list())
 	resistance_flags = FLAMMABLE
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/food/food.dmi'
-	icon_state = null
+	icon_state = "salo" //затычка
 	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
 	obj_flags = UNIQUE_RENAME

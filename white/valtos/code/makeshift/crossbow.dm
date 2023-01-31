@@ -152,8 +152,7 @@
 	tool_paths = list(/obj/item/weldingtool,
 		         /obj/item/screwdriver)
 	time = 150
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
+	category = CAT_WEAPON_RANGED
 
 /obj/projectile/rod
 	name = "металлический стержень"

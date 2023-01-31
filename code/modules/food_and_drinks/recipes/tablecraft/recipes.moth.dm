@@ -5,7 +5,7 @@
 		/obj/item/food/grown/herbs = 4
 	)
 	result = /obj/item/food/herby_cheese
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/mothic_salad
 	name = "Салат для молей"
@@ -15,7 +15,7 @@
 		/obj/item/food/grown/tomato = 1
 	)
 	result = /obj/item/food/mothic_salad
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/toasted_seeds
 	name = "Поджаренные семена"
@@ -26,7 +26,7 @@
 		/datum/reagent/consumable/quality_oil = 2
 	)
 	result = /obj/item/food/toasted_seeds
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/engine_fodder
 	name = "Закуска для инженеров"
@@ -38,7 +38,7 @@
 		/obj/item/food/chips = 1
 	)
 	result = /obj/item/food/engine_fodder
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/squeaking_stir_fry
 	name = "Skeklitmischtpoppl (Стир фрай)"
@@ -51,7 +51,7 @@
 		/obj/item/food/onion_slice = 1
 	)
 	result = /obj/item/food/squeaking_stir_fry
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/sweet_chili_cabbage_wrap
 	name = "Капустный ролл с чили"
@@ -63,7 +63,7 @@
 		/datum/reagent/consumable/honey = 5
 	)
 	result = /obj/item/food/sweet_chili_cabbage_wrap
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/loaded_curds
 	name = "Ozlsettitæloskekllön ede pommes (Творожный сыр во фритюре)"
@@ -75,7 +75,7 @@
 		/obj/item/food/fries = 1
 	)
 	result = /obj/item/food/loaded_curds
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/baked_cheese_platter
 	name = "Мольское фондю"
@@ -84,7 +84,7 @@
 		/obj/item/food/griddle_toast = 3
 	)
 	result = /obj/item/food/baked_cheese_platter
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/raw_green_lasagne
 	name = "Сырая зеленая лазанья аль Форно"
@@ -95,7 +95,7 @@
 		/obj/item/food/firm_cheese = 1
 	)
 	result = /obj/item/food/raw_green_lasagne
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/raw_baked_rice
 	name = "Сырой плов по Мольски"
@@ -107,7 +107,7 @@
 		/obj/item/food/grown/herbs = 1
 	)
 	result = /obj/item/food/raw_baked_rice
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/buttered_baked_corn
 	name = "Запеченная кукуруза с маслом"
@@ -116,7 +116,7 @@
 		/obj/item/food/butter = 1
 	)
 	result = /obj/item/food/buttered_baked_corn
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/fiesta_corn_skillet
 	name = "Кукурузная фиеста на сковороде"
@@ -129,7 +129,7 @@
 		/obj/item/food/cheesewedge = 1
 	)
 	result = /obj/item/food/fiesta_corn_skillet
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/ratatouille
 	name = "Рататуй"
@@ -140,7 +140,7 @@
 		/obj/item/food/roasted_bell_pepper = 1
 	)
 	result = /obj/item/food/raw_ratatouille
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/mozzarella_sticks
 	name = "Палочки из моцареллы во фритюре"
@@ -150,7 +150,7 @@
 		/obj/item/food/tomato_sauce = 1
 	)
 	result = /obj/item/food/mozzarella_sticks
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/raw_stuffed_peppers
 	name = "Voltölpapriken (Фаршированные перцы)"
@@ -160,7 +160,7 @@
 		/obj/item/food/onion_slice = 2
 	)
 	result = /obj/item/food/raw_stuffed_peppers
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/fueljacks_lunch
 	name = "Обед заправщика"
@@ -172,7 +172,7 @@
 		/obj/item/food/firm_cheese_slice = 1
 	)
 	result = /obj/item/food/fueljacks_lunch
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/mac_balls
 	name = "Macheronirölen (Макаронные шарики с сыром)"
@@ -182,7 +182,7 @@
 		/datum/reagent/consumable/cornmeal_batter = 5
 	)
 	result = /obj/item/food/mac_balls
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/moth_cotton_soup
 	name = "Flöfrölenmæsch (Суп с клёцками из хлопка )"
@@ -196,7 +196,7 @@
 		/obj/item/reagent_containers/glass/bowl = 1
 	)
 	result = /obj/item/food/soup/moth_cotton_soup
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/moth_cheese_soup
 	name = "Ælosterrmæsch (Сырный суп)"
@@ -209,7 +209,7 @@
 		/obj/item/reagent_containers/glass/bowl = 1
 	)
 	result = /obj/item/food/soup/moth_cheese_soup
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/moth_seed_soup
 	name = "Misklmæsch (Суп с семянами)"
@@ -222,7 +222,7 @@
 		/obj/item/reagent_containers/glass/bowl = 1
 	)
 	result = /obj/item/food/soup/moth_seed_soup
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/moth_bean_stew
 	name = "Prickeldröndolhaskl (Острая тушеная фасоль)"
@@ -237,7 +237,7 @@
 		/obj/item/reagent_containers/glass/bowl = 1
 	)
 	result = /obj/item/food/soup/moth_bean_stew
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/moth_oat_stew
 	name = "Häfmisklhaskl (Овсяное рагу)"
@@ -250,7 +250,7 @@
 		/obj/item/reagent_containers/glass/bowl = 1
 	)
 	result = /obj/item/food/soup/moth_oat_stew
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/moth_fire_soup
 	name = "Tömpröttkrakklmæsch (Изжоговый суп)"
@@ -262,7 +262,7 @@
 		/obj/item/reagent_containers/glass/bowl = 1
 	)
 	result = /obj/item/food/soup/moth_fire_soup
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/rice_porridge
 	name = "Рисовая каша"
@@ -272,7 +272,7 @@
 		/datum/reagent/consumable/salt = 2
 	)
 	result = /obj/item/food/soup/rice_porridge
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/hua_mulan_congee
 	name = "Отвар Хуа Мулань"
@@ -282,7 +282,7 @@
 		/obj/item/food/friedegg = 2
 	)
 	result = /obj/item/food/soup/hua_mulan_congee
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/toechtauese_rice_porridge
 	name = "Острая рисовая каша"
@@ -292,7 +292,7 @@
 		/datum/reagent/consumable/toechtauese_syrup = 5
 	)
 	result = /obj/item/food/soup/toechtauese_rice_porridge
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/cornmeal_porridge
 	name = "Кукурузная каша"
@@ -302,7 +302,7 @@
 		/obj/item/reagent_containers/glass/bowl = 1
 	)
 	result = /obj/item/food/soup/cornmeal_porridge
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/cheesy_porridge
 	name = "Сырная каша"
@@ -314,7 +314,7 @@
 		/obj/item/food/butter = 1
 	)
 	result = /obj/item/food/soup/cheesy_porridge
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/fried_eggplant_polenta
 	name = "Жареные баклажаны с полентой"
@@ -326,7 +326,7 @@
 		/obj/item/food/mozzarella = 1
 	)
 	result = /obj/item/food/soup/fried_eggplant_polenta
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/caprese_salad
 	name = "Салат Капрезе"
@@ -338,7 +338,7 @@
 		/datum/reagent/consumable/vinegar = 2
 	)
 	result = /obj/item/food/caprese_salad
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/fleet_salad
 	name = "Lörtonknusksolt (Салат \"Флит\")"
@@ -351,7 +351,7 @@
 		/datum/reagent/consumable/vinegar = 2
 	)
 	result = /obj/item/food/salad/fleet_salad
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/cotton_salad
 	name = "Flöfrölenknusksolt (Салат из хлопка)"
@@ -363,7 +363,7 @@
 		/datum/reagent/consumable/vinegar = 2
 	)
 	result = /obj/item/food/salad/fleet_salad
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/moth_kachumbari
 	name = "Качумбари (Кенийский салат)"
@@ -376,7 +376,7 @@
 		/datum/reagent/consumable/limejuice = 2
 	)
 	result = /obj/item/food/salad/moth_kachumbari
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/raw_mothic_margherita
 	name = "Пицца Маргарита для молей"
@@ -388,7 +388,7 @@
 		/obj/item/food/grown/herbs = 1
 	)
 	result = /obj/item/food/raw_mothic_margherita
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/raw_mothic_firecracker
 	name = "Огненная пицца для молей"
@@ -400,7 +400,7 @@
 		/obj/item/food/grown/ghost_chili = 1
 	)
 	result = /obj/item/food/raw_mothic_firecracker
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/raw_mothic_five_cheese
 	name = "Пицца \"4+1 сыра\" для молей"
@@ -414,7 +414,7 @@
 		/obj/item/food/cheese_curds = 1
 	)
 	result = /obj/item/food/raw_mothic_five_cheese
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/raw_mothic_white_pie
 	name = "Пицца \"Бьянко\" для молей"
@@ -427,7 +427,7 @@
 		/obj/item/food/grown/herbs = 1
 	)
 	result = /obj/item/food/raw_mothic_white_pie
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/raw_mothic_pesto
 	name = "Пицца с соусом песто для молей"
@@ -438,7 +438,7 @@
 		/obj/item/food/mozzarella = 1
 	)
 	result = /obj/item/food/raw_mothic_pesto
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/raw_mothic_garlic
 	name = "Чесночная пицца для молей"
@@ -449,7 +449,7 @@
 		/obj/item/food/grown/herbs = 1
 	)
 	result = /obj/item/food/raw_mothic_garlic
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/moth_cheese_cakes
 	name = "Ælorölen (Шарики из чизкейка)"
@@ -461,7 +461,7 @@
 		/datum/reagent/consumable/honey = 5
 	)
 	result = /obj/item/food/moth_cheese_cakes
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/mothmallow
 	name = "Зефирки для молей" //Mothmallows = marshmallows + moth. Если нужна игра слов, то нужно думать
@@ -472,7 +472,7 @@
 		/datum/reagent/consumable/ethanol/rum = 5
 	)
 	result = /obj/item/food/cake/mothmallow
-	subcategory = CAT_MOTH
+	category = CAT_MOTH
 
 /datum/crafting_recipe/food/red_porridge
 	name = "Eltsløsk ül a priktæolk (Свекольная каша с йогуртом)"
@@ -483,4 +483,4 @@
 		/datum/reagent/consumable/sugar = 5
 	)
 	result = /obj/item/food/soup/red_porridge
-	subcategory = CAT_MOTH
+	category = CAT_MOTH

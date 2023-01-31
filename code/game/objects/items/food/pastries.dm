@@ -373,6 +373,8 @@
 	desc = "Сладкое и мягкое пирожное."
 	tastes = list("muffin" = 3, "dust" = 1, "lint" = 1)
 	foodtypes = CLOTH | GRAIN | SUGAR | BREAKFAST
+	icon_preview = 'icons/obj/food/food.dmi'
+	icon_state_preview = "muffin"
 
 /obj/item/food/muffin/moffin/Initialize(mapload)
 	. = ..()

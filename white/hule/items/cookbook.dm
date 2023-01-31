@@ -62,8 +62,6 @@
 
 /datum/crafting_recipe/cookbook
 	always_available = FALSE
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/cookbook/mshotgun
 	name = "Самодельный дробовик"
@@ -74,6 +72,7 @@
 				/obj/item/stack/rods = 5)
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH)
 	time = 150
+	category = CAT_WEAPON_RANGED
 
 /datum/crafting_recipe/cookbook/mshotgunmag
 	name = "Самодельный магазин для дробовика"
@@ -82,7 +81,7 @@
 				/obj/item/stack/rods = 4)
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WRENCH)
 	time = 75
-	subcategory = CAT_AMMO
+	category = CAT_WEAPON_AMMO
 
 /datum/crafting_recipe/cookbook/npgrenade
 	name = "Нервно-паралитическая газовая граната"
@@ -93,6 +92,7 @@
 				/obj/item/grenade/smokebomb = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH)
 	time = 100
+	category = CAT_CHEMISTRY
 
 /datum/crafting_recipe/cookbook/grenadeprimer
 	name = "Капсюль для гранаты"
@@ -102,6 +102,7 @@
 				/obj/item/stack/cable_coil = 20)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	time = 100
+	category = CAT_MISC
 
 /datum/crafting_recipe/cookbook/poleaxe
 	name = "Топор Ебанумба"
@@ -112,6 +113,7 @@
 				/obj/item/stack/cable_coil = 10)
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER, TOOL_WRENCH)
 	time = 100
+	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/cookbook/plastid
 	name = "Пластид из гексогена"
@@ -121,4 +123,4 @@
 				/obj/item/stack/cable_coil = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	time = 40
-
+	category = CAT_CHEMISTRY

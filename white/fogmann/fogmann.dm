@@ -373,7 +373,7 @@
 	reqs = list(/obj/item/stack/sheet/plasteel = 2,
 				/obj/item/stack/sheet/animalhide/goliath_hide = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
-	category = CAT_PRIMAL
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/ranger
 	name = "Плащ рейнджера НКР"
@@ -382,7 +382,7 @@
 	reqs = list(/obj/item/stack/sheet/plasteel = 3,
 				/obj/item/stack/sheet/animalhide/goliath_hide = 3)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
-	category = CAT_PRIMAL
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/frog
 	name = "????"

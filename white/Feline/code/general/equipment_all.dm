@@ -359,7 +359,7 @@
 		/obj/item/stack/cable_coil = 15
 	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
-	category = CAT_ARMOR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/armor_bulletproof
 	name = "Пуленепробиваемый бронежилет"
@@ -373,7 +373,7 @@
 		/obj/item/stack/cable_coil = 15
 	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
-	category = CAT_ARMOR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/armor_laserproof
 	name = "Зеркальный бронежилет"
@@ -381,7 +381,7 @@
 	time = 30 SECONDS
 	reqs = list(/obj/item/stack/sheet/armor_plate/plasteel = 1, /obj/item/stack/sheet/armor_plate/ceramic = 1, /obj/item/stack/sheet/armor_plate/ablative = 2, /obj/item/stack/sheet/durathread = 10, /obj/item/stack/cable_coil = 15)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
-	category = CAT_ARMOR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/armor_riot
 	name = "Броня антибунт"
@@ -395,7 +395,7 @@
 		/obj/item/stack/cable_coil = 15
 	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
-	category = CAT_ARMOR
+	category = CAT_CLOTHING
 
 /obj/item/clothing/suit/armor/vest/fieldmedic
 	name = "бронекуртка полевого медика"
@@ -609,7 +609,7 @@
 		/obj/item/stack/cable_coil = 15
 	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
-	category = CAT_ARMOR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/lab_armor_med
 	name = "Лабораторный бронежилет врача"
@@ -624,7 +624,7 @@
 		/obj/item/stack/cable_coil = 15
 	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
-	category = CAT_ARMOR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/lab_armor_chemist
 	name = "Лабораторный бронежилет химика"
@@ -639,7 +639,7 @@
 		/obj/item/stack/cable_coil = 15
 	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
-	category = CAT_ARMOR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/lab_armor_virologist
 	name = "Лабораторный бронежилет вирусолога"
@@ -654,7 +654,7 @@
 		/obj/item/stack/cable_coil = 15
 	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
-	category = CAT_ARMOR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/lab_armor_cmo
 	name = "Лабораторный бронежилет главврача"
@@ -669,7 +669,7 @@
 		/obj/item/stack/cable_coil = 15
 	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
-	category = CAT_ARMOR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/lab_armor_science
 	name = "Лабораторный бронежилет ученого"
@@ -684,7 +684,7 @@
 		/obj/item/stack/cable_coil = 15
 	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
-	category = CAT_ARMOR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/lab_armor_roboticist
 	name = "Лабораторный бронежилет робототехника"
@@ -699,7 +699,7 @@
 		/obj/item/stack/cable_coil = 15
 	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
-	category = CAT_ARMOR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/lab_armor_genetics
 	name = "Лабораторный бронежилет генетика"
@@ -714,7 +714,7 @@
 		/obj/item/stack/cable_coil = 15
 	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
-	category = CAT_ARMOR
+	category = CAT_CLOTHING
 
 // 	Бронепластины
 
@@ -727,7 +727,7 @@
 		/obj/item/stack/sheet/mineral/titanium = 1
 	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER)
-	category = CAT_ARMOR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/ceramic_armor_plate
 	name = "Керамическая бронепластина"
@@ -738,7 +738,7 @@
 		/obj/item/stack/sheet/iron = 10
 	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER)
-	category = CAT_ARMOR
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/ablative_armor_plate
 	name = "Зеркальная бронепластина"
@@ -748,7 +748,7 @@
 		/obj/item/stack/sheet/mineral/plastitanium = 10
 	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_SCREWDRIVER)
-	category = CAT_ARMOR
+	category = CAT_CLOTHING
 
 /obj/item/stack/sheet/armor_plate
 	icon = 'white/Feline/icons/armor_plate.dmi'
@@ -802,7 +802,7 @@
 		/obj/item/stack/cable_coil = 20
 	)
 	tool_behaviors = list(TOOL_WELDER, TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
-	category = CAT_ARMOR
+	category = CAT_CLOTHING
 
 /obj/item/full_armor_upgrade
 	name = "комплект защиты рук и ног"

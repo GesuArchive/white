@@ -11,7 +11,7 @@
 		/obj/item/food/grown/banana = 1
 	)
 	result = /obj/item/food/pie/cream
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/meatpie
 	name = "Мясной пирог"
@@ -22,7 +22,7 @@
 		/obj/item/food/meat/steak/plain = 1
 	)
 	result = /obj/item/food/pie/meatpie
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/tofupie
 	name = "Пирог с тофу"
@@ -31,7 +31,7 @@
 		/obj/item/food/tofu = 1
 	)
 	result = /obj/item/food/pie/tofupie
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/xenopie
 	name = "Ксено пирог"
@@ -40,7 +40,7 @@
 		/obj/item/food/meat/cutlet/xeno = 1
 	)
 	result = /obj/item/food/pie/xemeatpie
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/cherrypie
 	name = "Вишневый пирог"
@@ -49,7 +49,7 @@
 		/obj/item/food/grown/cherries = 1
 	)
 	result = /obj/item/food/pie/cherrypie
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/berryclafoutis
 	name = "Ягодный клафути"
@@ -58,7 +58,7 @@
 		/obj/item/food/grown/berries = 1
 	)
 	result = /obj/item/food/pie/berryclafoutis
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/bearypie
 	name = "Медвежий пирог"
@@ -68,7 +68,7 @@
 		/obj/item/food/meat/steak/bear = 1
 	)
 	result = /obj/item/food/pie/bearypie
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/amanitapie
 	name = "Пирог с мухоморами"
@@ -77,7 +77,7 @@
 		/obj/item/food/grown/mushroom/amanita = 1
 	)
 	result = /obj/item/food/pie/amanita_pie
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/plumppie
 	name = "Пирог с толстошлемником"
@@ -86,7 +86,7 @@
 		/obj/item/food/grown/mushroom/plumphelmet = 1
 	)
 	result = /obj/item/food/pie/plump_pie
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/applepie
 	name = "Яблочный пирог"
@@ -95,7 +95,7 @@
 		/obj/item/food/grown/apple = 1
 	)
 	result = /obj/item/food/pie/applepie
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/pumpkinpie
 	name = "Тыквенный пирог"
@@ -106,7 +106,7 @@
 		/obj/item/food/grown/pumpkin = 1
 	)
 	result = /obj/item/food/pie/pumpkinpie
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/goldenappletart
 	name = "Торт со стружкой из золотого яблока"
@@ -117,7 +117,7 @@
 		/obj/item/food/grown/apple/gold = 1
 	)
 	result = /obj/item/food/pie/appletart
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/grapetart
 	name = "Виноградный торт"
@@ -128,7 +128,7 @@
 		/obj/item/food/grown/grapes = 3
 	)
 	result = /obj/item/food/pie/grapetart
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/mimetart
 	name = "Мимовый торт"
@@ -140,7 +140,7 @@
 		/datum/reagent/consumable/nothing = 5
 	)
 	result = /obj/item/food/pie/mimetart
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/berrytart
 	name = "Ягодный торт"
@@ -152,7 +152,7 @@
 		/obj/item/food/grown/berries = 3
 	)
 	result = /obj/item/food/pie/berrytart
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/cocolavatart
 	name = "Шоколадный лавовый торт"
@@ -165,7 +165,7 @@
 		/obj/item/slime_extract = 1
 	)
 	result = /obj/item/food/pie/cocolavatart
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/blumpkinpie
 	name = "Синетыквенный пирог"
@@ -176,7 +176,7 @@
 		/obj/item/food/grown/blumpkin = 1
 	)
 	result = /obj/item/food/pie/blumpkinpie
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/dulcedebatata
 	name = "Дульсе де батата"
@@ -186,7 +186,7 @@
 		/obj/item/food/grown/potato/sweet = 2
 	)
 	result = /obj/item/food/pie/dulcedebatata
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/frostypie
 	name = "Ледяной пирог"
@@ -195,7 +195,7 @@
 		/obj/item/food/grown/bluecherries = 1
 	)
 	result = /obj/item/food/pie/frostypie
-	subcategory = CAT_PIE
+	category = CAT_PIE
 
 /datum/crafting_recipe/food/baklava
 	name = "Пахлава"
@@ -205,4 +205,4 @@
 		/obj/item/seeds/wheat/oat = 4
 	)
 	result = /obj/item/food/pie/baklava
-	subcategory = CAT_PIE
+	category = CAT_PIE

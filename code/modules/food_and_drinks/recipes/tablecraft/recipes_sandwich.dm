@@ -14,7 +14,7 @@
 		/obj/item/food/cheesewedge = 1
 	)
 	result = /obj/item/food/sandwich
-	subcategory = CAT_SANDWICH
+	category = CAT_SANDWICH
 
 /datum/crafting_recipe/food/cheese_sandwich
 	name = "Сырный сэндвич"
@@ -23,7 +23,7 @@
 		/obj/item/food/cheesewedge = 2
 	)
 	result = /obj/item/food/cheese_sandwich
-	subcategory = CAT_SANDWICH
+	category = CAT_SANDWICH
 
 /datum/crafting_recipe/food/slimesandwich
 	name = "Желейный сэндвич (слаймовый)"
@@ -32,7 +32,7 @@
 		/obj/item/food/breadslice/plain = 2,
 	)
 	result = /obj/item/food/jellysandwich/slime
-	subcategory = CAT_SANDWICH
+	category = CAT_SANDWICH
 
 /datum/crafting_recipe/food/cherrysandwich
 	name = "Желейный сэндвич"
@@ -41,7 +41,7 @@
 		/obj/item/food/breadslice/plain = 2,
 	)
 	result = /obj/item/food/jellysandwich/cherry
-	subcategory = CAT_SANDWICH
+	category = CAT_SANDWICH
 
 /datum/crafting_recipe/food/notasandwich
 	name = "Не-сэндвич"
@@ -50,7 +50,7 @@
 		/obj/item/clothing/mask/fakemoustache = 1
 	)
 	result = /obj/item/food/notasandwich
-	subcategory = CAT_SANDWICH
+	category = CAT_SANDWICH
 
 
 

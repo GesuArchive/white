@@ -1,6 +1,7 @@
 ///spaghetti prototype used by all subtypes
 /obj/item/food/spaghetti
 	icon = 'icons/obj/food/pizzaspaghetti.dmi'
+	icon_state = "spaghetti"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 1)
 	microwaved_type = /obj/item/food/spaghetti/boiledspaghetti
 	tastes = list("паста" = 1)

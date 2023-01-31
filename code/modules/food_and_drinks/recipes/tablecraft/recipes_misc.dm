@@ -10,7 +10,7 @@
 		/obj/item/food/grown/apple = 1
 	)
 	result = /obj/item/food/candiedapple
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/spiderlollipop
 	name = "Паучий леденец"
@@ -20,7 +20,7 @@
 		/obj/item/food/spiderling = 1
 	)
 	result = /obj/item/food/chewable/spiderlollipop
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/chococoin
 	name = "Шоколадная монетка"
@@ -29,7 +29,7 @@
 		/obj/item/food/chocolatebar = 1,
 	)
 	result = /obj/item/food/chococoin
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/fudgedice
 	name = "Помадные кубики"
@@ -38,7 +38,7 @@
 		/obj/item/food/chocolatebar = 1,
 	)
 	result = /obj/item/food/fudgedice
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/chocoorange
 	name = "Шоколадный апельсин"
@@ -47,7 +47,7 @@
 		/obj/item/food/chocolatebar = 1,
 	)
 	result = /obj/item/food/chocoorange
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/loadedbakedpotato
 	name = "Печеный картофель с начинкой"
@@ -57,7 +57,7 @@
 		/obj/item/food/cheesewedge = 1
 	)
 	result = /obj/item/food/loadedbakedpotato
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/cheesyfries
 	name = "Сырное фри"
@@ -66,7 +66,7 @@
 		/obj/item/food/cheesewedge = 1
 	)
 	result = /obj/item/food/cheesyfries
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/wrap
 	name = "Яичная обертка"
@@ -75,7 +75,7 @@
 		/obj/item/food/grown/cabbage = 1,
 	)
 	result = /obj/item/food/eggwrap
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/beans
 	name = "Баночка фасоли"
@@ -84,7 +84,7 @@
 		/obj/item/food/grown/soybeans = 2
 	)
 	result = /obj/item/food/canned/beans
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/eggplantparm
 	name ="Баклажанная пармиджана"
@@ -93,7 +93,7 @@
 		/obj/item/food/grown/eggplant = 1
 	)
 	result = /obj/item/food/eggplantparm
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 
 ////////////////////////////////////////////////БУРРИТО////////////////////////////////////////////////
@@ -105,7 +105,7 @@
 		/obj/item/food/grown/soybeans = 2
 	)
 	result = /obj/item/food/burrito
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/cheesyburrito
 	name ="Сырное буррито"
@@ -115,7 +115,7 @@
 		/obj/item/food/grown/soybeans = 1
 	)
 	result = /obj/item/food/cheesyburrito
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/carneburrito
 	name ="Буррито Карне Асада"
@@ -125,7 +125,7 @@
 		/obj/item/food/grown/soybeans = 1
 	)
 	result = /obj/item/food/carneburrito
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/fuegoburrito
 	name ="Огненно-плазменный буррито"
@@ -135,7 +135,7 @@
 		/obj/item/food/grown/soybeans = 1
 	)
 	result = /obj/item/food/fuegoburrito
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/nachos
 	name ="Начос"
@@ -144,7 +144,7 @@
 		/obj/item/food/tortilla = 1
 	)
 	result = /obj/item/food/nachos
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/cheesynachos
 	name ="Сырные начос"
@@ -154,7 +154,7 @@
 		/obj/item/food/tortilla = 1
 	)
 	result = /obj/item/food/cheesynachos
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/cubannachos
 	name ="Кубинские начос"
@@ -164,7 +164,7 @@
 		/obj/item/food/tortilla = 1
 	)
 	result = /obj/item/food/cubannachos
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/melonkeg
 	name ="Бочонок из дыни"
@@ -175,7 +175,7 @@
 	)
 	parts = list(/obj/item/reagent_containers/food/drinks/bottle/vodka = 1)
 	result = /obj/item/food/melonkeg
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/honeybar
 	name = "Медово-ореховый батончик"
@@ -184,7 +184,7 @@
 		/datum/reagent/consumable/honey = 5
 	)
 	result = /obj/item/food/honeybar
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 
 /datum/crafting_recipe/food/stuffedlegion
@@ -197,7 +197,7 @@
 		/datum/reagent/consumable/capsaicin = 2
 	)
 	result = /obj/item/food/stuffedlegion
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/powercrepe
 	name = "Боевой блин"
@@ -210,7 +210,7 @@
 		/obj/item/melee/sabre = 1
 	)
 	result = /obj/item/food/powercrepe
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/taco
 	name ="Классическое тако"
@@ -221,7 +221,7 @@
 		/obj/item/food/grown/cabbage = 1,
 	)
 	result = /obj/item/food/taco
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/tacoplain
 	name ="Тако"
@@ -231,7 +231,7 @@
 		/obj/item/food/meat/cutlet = 1,
 	)
 	result = /obj/item/food/taco/plain
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/branrequests
 	name = "Сухой завтрак с отрубями"
@@ -240,7 +240,7 @@
 		/obj/item/food/no_raisin = 1,
 	)
 	result = /obj/item/food/branrequests
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/ricepudding
 	name = "Рисовый пудинг"
@@ -250,7 +250,7 @@
 		/obj/item/food/salad/boiledrice = 1
 	)
 	result = /obj/item/food/salad/ricepudding
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/risotto
 	name = "Ризотто"
@@ -261,7 +261,7 @@
 		/obj/item/food/grown/mushroom/chanterelle = 1
 	)
 	result = /obj/item/food/salad/risotto
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/butterbear //ITS ALIVEEEEEE!
 	name = "Живое масло"
@@ -274,7 +274,7 @@
 		/datum/reagent/teslium = 1 //To shock the whole thing into life
 	)
 	result = /mob/living/simple_animal/hostile/bear/butter
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/crab_rangoon
 	name = "Крабовый рангун"
@@ -285,7 +285,7 @@
 		/obj/item/food/meat/rawcrab = 1
 	)
 	result = /obj/item/food/crab_rangoon
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/royalcheese
 	name = "Королевский сыр"
@@ -296,7 +296,7 @@
 		/datum/reagent/toxin/mutagen = 5
 	)
 	result = /obj/item/food/royalcheese
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/ant_candy
 	name = "Муравьиная конфета"
@@ -306,7 +306,7 @@
 		/datum/reagent/ants = 10
 	)
 	result = /obj/item/food/ant_candy
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/pesto
 	name = "Песто"
@@ -319,7 +319,7 @@
 		/obj/item/food/canned/pine_nuts = 1
 	)
 	result = /obj/item/food/pesto
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/tomato_sauce
 	name = "Томатный соус"
@@ -330,7 +330,7 @@
 		/datum/reagent/consumable/quality_oil = 5
 	)
 	result = /obj/item/food/tomato_sauce
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/bechamel_sauce
 	name = "Соус Бешамель"
@@ -340,4 +340,4 @@
 		/obj/item/food/butter = 1
 	)
 	result = /obj/item/food/bechamel_sauce
-	subcategory = CAT_MISCFOOD
+	category = CAT_MISCFOOD

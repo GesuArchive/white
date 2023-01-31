@@ -677,6 +677,8 @@
 	name = "soda can"
 	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
+	icon_preview = 'icons/obj/drinks.dmi'
+	icon_state_preview = "cola"
 	reagent_flags = NONE
 	spillable = FALSE
 	isGlass = FALSE

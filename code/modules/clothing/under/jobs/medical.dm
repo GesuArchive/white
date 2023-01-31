@@ -1,6 +1,8 @@
 /obj/item/clothing/under/rank/medical
 	icon = 'icons/obj/clothing/under/medical.dmi'
 	worn_icon = 'icons/mob/clothing/under/medical.dmi'
+	icon_preview = 'icons/obj/clothing/under/medical.dmi'
+	icon_state_preview = "medical"
 
 /obj/item/clothing/under/rank/medical/chief_medical_officer
 	desc = "Комбинезон, который носят те, у кого есть опыт, чтобы быть \"Главным Врачом\". Он обеспечивает незначительную биологическую защиту."
