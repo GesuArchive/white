@@ -25,8 +25,9 @@
 	rpg_title = "Freelancer"
 	rpg_title_ru = "Путешественник"
 
-	// пока так
-	whitelisted = list("nikitauou", "aldodonkar", "trora", "valtosss", "roundead")
+/datum/job/freelancer/New()
+	. = ..()
+	whitelisted = GLOB.donators_list["boosty"]
 
 /datum/outfit/job/freelancer
 	name = JOB_FREELANCER

@@ -746,7 +746,7 @@
 	set name = "❗ Переродиться"
 	set category = "OOC"
 
-	var/pd = text2num(GLOB.phoenix_donations?[client?.ckey])
+	var/pd = text2num(GLOB.donators_list["phoenix"]?[client?.ckey])
 
 	if(pd <= 0 && (CONFIG_GET(flag/norespawn) && (!check_rights_for(usr.client, R_ADMIN) || tgui_alert(usr, "Хуй сосал?", "Respawn", list("Да", "Нет")) != "Да")))
 		return
@@ -760,8 +760,8 @@
 		return
 
 	if(pd)
-		GLOB.phoenix_donations[client.ckey]--
-		to_chat(usr, span_boldnotice("Использован Феникс! Осталось [GLOB.phoenix_donations[client.ckey]] зарядов."))
+		GLOB.donators_list["phoenix"][client.ckey]--
+		to_chat(usr, span_boldnotice("Использован Феникс! Осталось [GLOB.donators_list["phoenix"][client.ckey]] зарядов."))
 
 	log_game("[key_name(usr)] used abandon mob.")
 

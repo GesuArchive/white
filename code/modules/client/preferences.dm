@@ -1438,8 +1438,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 					var/list/custom_races = list()
 
-					if(user.ckey in GLOB.custom_race_donations)
-						custom_races += GLOB.custom_race_donations[user.ckey]
+					if(user.ckey in GLOB.donators_list["race"])
+						custom_races += GLOB.donators_list["race"][user.ckey]
 
 					var/result = tgui_input_list(user, "Select a species", "Species Selection", GLOB.roundstart_races + custom_races)
 
@@ -1479,7 +1479,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("tail_human")
 					var/new_tail
 					new_tail = tgui_input_list(user, "Choose your character's tail:", "Character Preference", GLOB.tails_list_human)
-					if((!user.client.holder && !(user.client.ckey in GLOB.custom_tails_donations)) && (new_tail == "Fox" || new_tail == "Oni"))
+					if((!user.client.holder && !(user.client.ckey in GLOB.donators_list["tails"])) && (new_tail == "Fox" || new_tail == "Oni"))
 						to_chat(user, span_danger("Pedos not allowed? <big>ВАШЕ ДЕЙСТВИЕ БУДЕТ ЗАПИСАНО</big>."))
 						message_admins("[ADMIN_LOOKUPFLW(user)] попытался выбрать фуррятину в виде хвоста.")
 						return
