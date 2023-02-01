@@ -320,3 +320,7 @@
 
 /datum/mood_event/russian_roulette_win/add_effects(loaded_rounds)
 	mood_change = 2 ** loaded_rounds
+
+/datum/mood_event/christ
+	description = "<span class='nicegreen'>Я не буду бояться ужаса в ночи...</span>\n"
+	mood_change = 5

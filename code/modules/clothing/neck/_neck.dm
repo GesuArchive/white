@@ -409,3 +409,23 @@
 /obj/item/clothing/neck/beads/Initialize(mapload)
 	. = ..()
 	color = color = pick("#ff0077","#d400ff","#2600ff","#00ccff","#00ff2a","#e5ff00","#ffae00","#ff0000", "#ffffff")
+
+/obj/item/clothing/neck/christ
+	name = "Крестик"
+	desc = "Он наполняет тебя надеждой, что бог защитит тебя на этой непредсказуемой станции"
+	icon = 'white/IvanDog11/clothing/neck.dmi'
+	worn_icon = 'white/IvanDog11/clothing/mob/neck.dmi'
+	icon_state = "christ"
+	resistance_flags = FIRE_PROOF
+
+/obj/item/clothing/neck/christ/equipped(mob/user, slot)
+	. = ..()
+	if(slot == ITEM_SLOT_NECK)
+		if(user.mind)
+			SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "christ", /datum/mood_event/christ)
+
+/obj/item/clothing/neck/christ/dropped(mob/user)
+	. = ..()
+	if(user.mind)
+		SEND_SIGNAL(user, COMSIG_CLEAR_MOOD_EVENT, "christ")
+
