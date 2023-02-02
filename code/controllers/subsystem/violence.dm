@@ -216,7 +216,7 @@ SUBSYSTEM_DEF(violence)
 				H.dust()
 				continue
 
-			if(isandroid(H) || isIPC(H) || playmode == VIOLENCE_PLAYMODE_TAG)
+			if(isandroid(H) || is_ipc(H) || playmode == VIOLENCE_PLAYMODE_TAG)
 				H.death()
 				continue
 

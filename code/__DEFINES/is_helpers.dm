@@ -269,7 +269,8 @@ GLOBAL_LIST_INIT(book_types, typecacheof(list(
 #define is_shadow(M) (istype(M, /mob/living) && M.mind?.has_antag_datum(/datum/antagonist/shadowling))
 #define is_shadow_or_thrall(M) (is_thrall(M) || is_shadow(M))
 
-#define isIPC(A) (is_species(A, /datum/species/ipc))
+#define is_ipc(A) (is_species(A, /datum/species/ipc))
+#define is_military_ipc(A) (is_species(A, /datum/species/ipc/military))
 #define isandroid(A) (is_species(A, /datum/species/android))
 
 #define isspacepod(A) (istype(A, /obj/spacepod))

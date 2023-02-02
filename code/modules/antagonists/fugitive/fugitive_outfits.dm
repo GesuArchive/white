@@ -166,7 +166,7 @@
 /datum/outfit/bountysynth/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)
 		return
-	var/datum/species/synth/synthetic_appearance = new()
+	var/datum/species/ipc/synthetic_appearance = new()
 	H.set_species(synthetic_appearance)
 	synthetic_appearance.assume_disguise(synthetic_appearance, H)
 	H.update_hair()

@@ -342,12 +342,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Основное</div><div class='csetup_nodes'>"
 
-			dat += SETUP_START_NODE("Тело")
-			dat += SETUP_GET_LINK("species", "input", "task", pref_species.name)
-			dat += SETUP_GET_LINK("all", "random", "task", "Случайное")
-			dat += SETUP_GET_LINK("toggle_random", RANDOM_BODY, "random_type", randomise[RANDOM_BODY] ? "🎲" : "🔒")
-			dat += SETUP_CLOSE_NODE
-
 			dat += SETUP_NODE_RANDOM("Случайное тело, если антаг", RANDOM_BODY_ANTAG)
 
 			dat += SETUP_START_NODE("Ксенотип")

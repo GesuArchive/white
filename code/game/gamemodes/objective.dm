@@ -160,7 +160,7 @@ GLOBAL_VAR_INIT(is_cargo_sabotaged, FALSE)
 		if(!changeling)
 			continue
 		var/datum/mind/T = possible_target
-		if(!istype(T) || isIPC(T.current))
+		if(!istype(T) || is_ipc(T.current))
 			return FALSE
 	return TRUE
 

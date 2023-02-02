@@ -1174,11 +1174,11 @@
 /mob/living/carbon/human/species/snail
 	race = /datum/species/snail
 
-/mob/living/carbon/human/species/synth
-	race = /datum/species/synth
+/mob/living/carbon/human/species/ipc
+	race = /datum/species/ipc
 
-/mob/living/carbon/human/species/synth/military
-	race = /datum/species/synth/military
+/mob/living/carbon/human/species/ipc/military
+	race = /datum/species/ipc/military
 
 /mob/living/carbon/human/species/vampire
 	race = /datum/species/vampire
