@@ -481,7 +481,8 @@ GLOBAL_LIST_INIT(alko_list, list("zarri", "maxsc", "nfogmann", "unitazik", "sran
 	if(fully_created)
 		INVOKE_ASYNC(src, .verb/fit_viewport)
 	else //Delayed to avoid wingets from Login calls.
-		addtimer(CALLBACK(src, .verb/fit_viewport, 1 SECONDS))
+		spawn(1 SECONDS) // this is because timer SS is not ticking during init, ПИДОРАС
+			INVOKE_ASYNC(src, .verb/fit_viewport)
 
 /client/verb/policy()
 	set name = "📘 Показать политику"
