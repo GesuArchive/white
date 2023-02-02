@@ -68,7 +68,6 @@
 
 /datum/species/ipc/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	..()
-	assume_disguise(old_species, H)
 	RegisterSignal(H, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 	H.set_safe_hunger_level()
 
