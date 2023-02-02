@@ -100,7 +100,7 @@
 #define CAT_BREAD "Хлеб"
 #define CAT_BURGER "Бургеры"
 #define CAT_CAKE "Торты"
-#define CAT_EGG "Еда на основе яйцаEgg-Based Food"
+#define CAT_EGG "Еда на основе яйц"
 #define CAT_LIZARD "Еда ящеров"
 #define CAT_MEAT "Мясо"
 #define CAT_SEAFOOD "Морепродукты"
@@ -133,7 +133,7 @@
 #define CAT_FURNITURE "Мебель"
 #define CAT_EQUIPMENT "Снаряжения"
 #define CAT_CONTAINERS "Контейнеры"
-#define CAT_ENTERTAINMENT "Развлечение" //незабыть исправить
+#define CAT_ENTERTAINMENT "Развлечение"
 #define CAT_TOOLS "Инструменты"
 #define CAT_CULT "Кровавый культ"
 
@@ -166,3 +166,7 @@
 
 /// How much less resources the RCD uses when reconstructing
 #define RCD_MEMORY_COST_BUFF 8
+///If the machine is used/deleted in the crafting process. При компиле сбивается порядок и деф объявляется позже чем используется, так что осталю это сдесь
+#define CRAFTING_MACHINERY_CONSUME 1
+///If the machine is only "used" i.e. it checks to see if it's nearby and allows crafting, but doesn't delete it
+#define CRAFTING_MACHINERY_USE 0

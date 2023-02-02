@@ -63,7 +63,8 @@
 	tool_behaviors = list(TOOL_WELDER)
 	time = 50
 	category = CAT_WEAPON_MELEE
-	/datum/crafting_recipe/spear
+
+/datum/crafting_recipe/spear
 	name = "Копьё"
 	result = /obj/item/spear
 	reqs = list(/obj/item/restraints/handcuffs/cable = 1,
@@ -98,7 +99,7 @@
 /datum/crafting_recipe/elder_atmosian_fireaxe
 	name = "Топор древнего атмосферного техника"
 	result = /obj/item/fireaxe/elder_atmosian_fireaxe
-	time = 6 SECONDS
+	time = 60
 	reqs = list(/obj/item/fireaxe/metal_h2_axe = 1,
 				/obj/item/stack/sheet/mineral/zaukerite = 10,
 				)

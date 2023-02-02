@@ -105,7 +105,7 @@ THE BIGGEST ONE: A shellball, but much bigger. Ye won't be seein' much of these 
 /obj/structure/cannon/trash
 	name = "trash cannon"
 	desc = "Okay, sure, you could call it a toolbox welded to an opened oxygen tank cabled to a skateboard, but it's a TRASH CANNON to us."
-	icon_state = "garbagegun"
+	icon_state = "falconet_patina" //а иконки то нет!
 	anchored = FALSE
 	can_be_unanchored = FALSE
 	var/fires_before_deconstruction = 5

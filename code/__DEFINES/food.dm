@@ -88,25 +88,25 @@
 
 #define DEFAULT_MAX_ICE_CREAM_SCOOPS 3
 
-/// IC meaning (more or less) for food flags
+/// IC meaning (more or less) for food flags.
 #define FOOD_FLAGS_IC list( \
-	"Meat", \
-	"Vegetables", \
-	"Raw food", \
-	"Junk food", \
-	"Grain", \
-	"Fruits", \
-	"Dairy products", \
-	"Fried food", \
-	"Alcohol", \
-	"Sugary food", \
-	"Gross food", \
-	"Toxic food", \
-	"Pineapples", \
-	"Breakfast food", \
-	"Clothing", \
-	"Nuts", \
-	"Seafood", \
-	"Oranges", \
-	"Bugs", \
+	"Мясо", \
+	"Овощи", \
+	"Сырое", \
+	"Вредное", \
+	"Зерновое", \
+	"Фрукты", \
+	"Молочное", \
+	"Жаренное", \
+	"Алкоголь", \
+	"Сладкая", \
+	"Жирная", \
+	"Токсичная", \
+	"Ананасы", \
+	"Завтрак", \
+	"Одежда", \
+	"Орехи", \
+	"Морепродукты", \
+	"Цитрусы", \
+	"Жуки", \
 )

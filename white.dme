@@ -813,6 +813,8 @@
 #include "code\datums\components\crafting\crafting.dm"
 #include "code\datums\components\crafting\furniture.dm"
 #include "code\datums\components\crafting\guncrafting.dm"
+#include "code\datums\components\crafting\melee_weapon.dm"
+#include "code\datums\components\crafting\ranged_weapon.dm"
 #include "code\datums\components\crafting\recipes.dm"
 #include "code\datums\components\crafting\robot.dm"
 #include "code\datums\components\crafting\structure.dm"

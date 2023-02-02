@@ -113,7 +113,7 @@
 				)
 	category = CAT_CHEMISTRY
 
-/* /datum/crafting_recipe/improvised_chem_heater
+/datum/crafting_recipe/improvised_chem_heater
 	name = "Самодельный нагреватель химикатов"
 	result = /obj/machinery/space_heater/improvised_chem_heater
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_MULTITOOL, TOOL_WIRECUTTER)
@@ -127,7 +127,7 @@
 				)
 	machinery = list(/obj/machinery/space_heater = CRAFTING_MACHINERY_CONSUME)
 	category = CAT_CHEMISTRY
-*/
+
 /datum/crafting_recipe/improvised_chem_heater/on_craft_completion(mob/user, atom/result)
 	var/obj/item/stock_parts/cell/cell = locate(/obj/item/stock_parts/cell) in range(1)
 	if(!cell)

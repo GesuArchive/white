@@ -3,7 +3,7 @@
 	result = /obj/item/restraints/legcuffs/bola
 	reqs = list(/obj/item/restraints/handcuffs/cable = 1,
 				/obj/item/stack/sheet/iron = 6)
-	time = 20//15 faster than crafting them by hand!
+	time = 20 //15 faster than crafting them by hand!
 	category= CAT_WEAPON_RANGED
 
 /datum/crafting_recipe/gonbola

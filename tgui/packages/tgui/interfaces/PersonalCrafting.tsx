@@ -8,7 +8,7 @@ import { Window } from '../layouts';
 import { Food } from './PreferencesMenu/data';
 
 const TYPE_ICONS = {
-  'Can Make': 'utensils',
+  'Можно создать': 'utensils',
   [Food.Alcohol]: 'wine-glass',
   [Food.Breakfast]: 'sun',
   [Food.Bugs]: 'bug',
@@ -32,53 +32,53 @@ const TYPE_ICONS = {
 } as const;
 
 const CATEGORY_ICONS_CRAFTING = {
-  'Can Make': 'hammer',
-  'Weapons Melee': 'hand-fist',
-  'Weapons Ranged': 'gun',
-  'Weapon Ammo': 'box',
-  'Robotics': 'robot',
-  'Misc': 'shapes',
+  'Можно создать': 'hammer',
+  'Оружие дальнего боя': 'hand-fist',
+  'Оружие ближнего боя': 'gun',
+  'Боеприпасы': 'box',
+  'Робототехника': 'robot',
+  'Остальное': 'shapes',
   'Tribal': 'campground',
-  'Clothing': 'shirt',
-  'Drinks': 'wine-bottle',
-  'Chemistry': 'microscope',
-  'Atmospherics': 'fan',
-  'Structures': 'cube',
-  'Tiles': 'border-all',
-  'Windows': 'person-through-window',
-  'Doors': 'door-open',
-  'Furniture': 'chair',
-  'Equipment': 'calculator',
-  'Containers': 'briefcase',
-  'Tools': 'screwdriver-wrench',
-  'Entertainment': 'masks-theater',
-  'Blood Cult': 'users',
+  'Одежда': 'shirt',
+  'Напитки': 'wine-bottle',
+  'Химия': 'microscope',
+  'Атмосфера': 'fan',
+  'Структуры': 'cube',
+  'Плитки': 'border-all',
+  'Окна': 'person-through-window',
+  'Двери': 'door-open',
+  'Мебель': 'chair',
+  'Снаряжения': 'calculator',
+  'Контейнеры': 'briefcase',
+  'Инструменты': 'screwdriver-wrench',
+  'Развлечение': 'masks-theater',
+  'Кровавый культ': 'users',
 } as const;
 
 const CATEGORY_ICONS_COOKING = {
-  'Can Make': 'utensils',
-  'Breads': 'bread-slice',
-  'Burgers': 'burger',
-  'Cakes': 'cake-candles',
-  'Egg-Based Food': 'egg',
-  'Frozen': 'ice-cream',
-  'Lizard Food': 'dragon',
-  'Meats': 'bacon',
-  'Mexican Food': 'pepper-hot',
-  'Misc. Food': 'shapes',
-  'Mothic Food': 'shirt',
-  'Pastries': 'cookie',
-  'Pies': 'chart-pie',
-  'Pizzas': 'pizza-slice',
-  'Salads': 'leaf',
-  'Sandwiches': 'hotdog',
-  'Seafood': 'fish',
-  'Soups': 'mug-hot',
-  'Spaghettis': 'wheat-awn',
+  'Можно создать': 'utensils',
+  'Хлеб': 'bread-slice',
+  'Бургеры': 'burger',
+  'Торты': 'cake-candles',
+  'Еда на основе яйц': 'egg',
+  'Мороженное': 'ice-cream',
+  'Еда ящеров': 'dragon',
+  'Мясо': 'bacon',
+  'Мексиканская еда': 'pepper-hot',
+  'Остальная еда': 'shapes',
+  'Еда молей': 'shirt',
+  'Выпечка': 'cookie',
+  'Пироги': 'chart-pie',
+  'Пицца': 'pizza-slice',
+  'Салаты': 'leaf',
+  'Бутерброды': 'hotdog',
+  'Морепродукты': 'fish',
+  'Супы': 'mug-hot',
+  'Спагетти': 'wheat-awn',
 } as const;
 
 enum MODE {
-  crafting,
+  Изготовление,
   cooking,
 }
 
@@ -159,9 +159,9 @@ export const PersonalCrafting = (props, context) => {
   const DEFAULT_CAT_COOKING = Object.keys(CATEGORY_ICONS_COOKING)[1];
   const [activeCategory, setCategory] = useLocalState<string>(
     context,
-    'category',
+    'Категории',
     Object.keys(craftability).length
-      ? 'Can Make'
+      ? 'Можно создать'
       : mode === MODE.cooking
         ? DEFAULT_CAT_COOKING
         : DEFAULT_CAT_CRAFTING
@@ -169,7 +169,7 @@ export const PersonalCrafting = (props, context) => {
   const [activeType, setFoodType] = useLocalState(
     context,
     'foodtype',
-    Object.keys(craftability).length ? 'Can Make' : data.foodtypes[0]
+    Object.keys(craftability).length ? 'Можно создать' : data.foodtypes[0]
   );
   const material_occurences = flow([
     sortBy<Material>((material) => -material.occurences),
@@ -191,14 +191,14 @@ export const PersonalCrafting = (props, context) => {
           // Is foodtype mode and the active type matches
           (tabMode === TABS.foodtype &&
             mode === MODE.cooking &&
-            ((activeType === 'Can Make' && Boolean(craftability[recipe.ref])) ||
+            ((activeType === 'Можно создать' && Boolean(craftability[recipe.ref])) ||
               recipe.foodtypes?.includes(activeType))) ||
           // Is material mode and the active material or catalysts match
           (tabMode === TABS.material &&
             Object.keys(recipe.reqs).includes(activeMaterial)) ||
           // Is category mode and the active categroy matches
           (tabMode === TABS.category &&
-            ((activeCategory === 'Can Make' &&
+            ((activeCategory === 'Можно создать' &&
               Boolean(craftability[recipe.ref])) ||
               recipe.category === activeCategory)))
     ),
@@ -210,7 +210,7 @@ export const PersonalCrafting = (props, context) => {
   if (searchText.length > 0) {
     recipes = recipes.filter(searchName);
   }
-  const canMake = ['Can Make'];
+  const canMake = ['Можно создать'];
   const categories = canMake
     .concat(data.categories.sort())
     .filter((i) => (i === 'Weaponry' ? true : i));
@@ -238,9 +238,9 @@ export const PersonalCrafting = (props, context) => {
                   <Input
                     autoFocus
                     placeholder={
-                      'Search in ' +
+                      'Искать среди ' +
                       data.recipes.length +
-                      (mode === MODE.cooking ? ' recipes...' : ' designs...')
+                      (mode === MODE.cooking ? ' рецептов...' : ' рецептов...')
                     }
                     value={searchText}
                     onInput={(e, value) => {
@@ -262,11 +262,11 @@ export const PersonalCrafting = (props, context) => {
                         setPages(1);
                         setCategory(
                           Object.keys(craftability).length
-                            ? 'Can Make'
+                            ? 'Можно создать'
                             : data.categories[0]
                         );
                       }}>
-                      Category
+                      Категории
                     </Tabs.Tab>
                     {mode === MODE.cooking && (
                       <Tabs.Tab
@@ -279,11 +279,11 @@ export const PersonalCrafting = (props, context) => {
                           setPages(1);
                           setFoodType(
                             Object.keys(craftability).length
-                              ? 'Can Make'
+                              ? 'Можно создать'
                               : data.foodtypes[0]
                           );
                         }}>
-                        Type
+                        Тип
                       </Tabs.Tab>
                     )}
                     <Tabs.Tab
@@ -296,7 +296,7 @@ export const PersonalCrafting = (props, context) => {
                         setPages(1);
                         setMaterial(material_occurences[0].atom_id);
                       }}>
-                      {mode === MODE.cooking ? 'Ingredient' : 'Material'}
+                      {mode === MODE.cooking ? 'Ингредиенты' : 'Материалы'}
                     </Tabs.Tab>
                   </Tabs>
                 </Stack.Item>
@@ -388,7 +388,7 @@ export const PersonalCrafting = (props, context) => {
                                 }>
                                 {category}
                               </Stack.Item>
-                              {category === 'Can Make' && (
+                              {category === 'Можно создать' && (
                                 <Stack.Item>
                                   {Object.keys(craftability).length}
                                 </Stack.Item>
@@ -403,7 +403,7 @@ export const PersonalCrafting = (props, context) => {
                   <Divider />
                   <Button.Checkbox
                     fluid
-                    content="Can make only"
+                    content="Можно создать"
                     checked={display_craftable_only}
                     onClick={() => {
                       act('toggle_recipes');
@@ -411,7 +411,7 @@ export const PersonalCrafting = (props, context) => {
                   />
                   <Button.Checkbox
                     fluid
-                    content="Compact list"
+                    content="Компактно"
                     checked={display_compact}
                     onClick={() => act('toggle_compact')}
                   />
@@ -422,16 +422,16 @@ export const PersonalCrafting = (props, context) => {
                       <Button.Checkbox
                         fluid
                         lineHeight={2}
-                        content="Craft"
-                        checked={mode === MODE.crafting}
+                        content="Создать"
+                        checked={mode === MODE.Изготовление}
                         icon="hammer"
                         style={{
                           'border':
                             '2px solid ' +
-                            (mode === MODE.crafting ? '#20b142' : '#333'),
+                            (mode === MODE.Изготовление ? '#20b142' : '#333'),
                         }}
                         onClick={() => {
-                          if (mode === MODE.crafting) {
+                          if (mode === MODE.Изготовление) {
                             return;
                           }
                           setTabMode(TABS.category);
@@ -444,7 +444,7 @@ export const PersonalCrafting = (props, context) => {
                       <Button.Checkbox
                         fluid
                         lineHeight={2}
-                        content="Cook"
+                        content="Готовка"
                         checked={mode === MODE.cooking}
                         icon="utensils"
                         style={{
@@ -569,7 +569,7 @@ const FoodtypeContent = (props) => {
     iconColor = '';
 
   // We use iconName in the return to see if this went through.
-  if (type !== 'Can Make' && diet) {
+  if (type !== 'Можно создать' && diet) {
     if (diet.liked_food.includes(type)) {
       iconName = 'face-laugh-beam';
       iconColor = 'good';
@@ -591,7 +591,7 @@ const FoodtypeContent = (props) => {
         {type.toLowerCase()}
       </Stack.Item>
       <Stack.Item>
-        {type === 'Can Make'
+        {type === 'Можно создать'
           ? craftableCount
           : iconName && <Icon name={iconName} color={iconColor} />}
       </Stack.Item>
@@ -671,7 +671,7 @@ const RecipeContentCompact = ({ item, craftable, busy, mode }, context) => {
                 <Box>
                   {!!item.tool_behaviors && (
                     <Tooltip
-                      content={'Tools: ' + item.tool_behaviors.join(', ')}>
+                      content={'Инструменты: ' + item.tool_behaviors.join(', ')}>
                       <Icon p={1} name="screwdriver-wrench" />
                     </Tooltip>
                   )}
@@ -679,7 +679,7 @@ const RecipeContentCompact = ({ item, craftable, busy, mode }, context) => {
                     my={0.3}
                     lineHeight={2.5}
                     align="center"
-                    content="Make"
+                    content="Создать"
                     disabled={!craftable || busy}
                     icon={
                       busy
@@ -749,7 +749,7 @@ const RecipeContent = ({ item, craftable, busy, mode, diet }, context) => {
                   <Box>
                     <GroupTitle
                       title={
-                        mode === MODE.cooking ? 'Ingredients' : 'Materials'
+                        mode === MODE.cooking ? 'Ингредиенты' : 'Материалы'
                       }
                     />
                     {Object.keys(item.reqs).map((atom_id) => (
@@ -763,7 +763,7 @@ const RecipeContent = ({ item, craftable, busy, mode, diet }, context) => {
                 )}
                 {item.chem_catalysts && (
                   <Box>
-                    <GroupTitle title="Catalysts" />
+                    <GroupTitle title="Катализатор" />
                     {Object.keys(item.chem_catalysts).map((atom_id) => (
                       <AtomContent
                         key={atom_id}
@@ -775,7 +775,7 @@ const RecipeContent = ({ item, craftable, busy, mode, diet }, context) => {
                 )}
                 {(item.tool_paths || item.tool_behaviors) && (
                   <Box>
-                    <GroupTitle title="Tools" />
+                    <GroupTitle title="Инструменты" />
                     {item.tool_paths &&
                       item.tool_paths.map((tool) => (
                         <AtomContent key={tool} atom_id={tool} amount={1} />
@@ -788,7 +788,7 @@ const RecipeContent = ({ item, craftable, busy, mode, diet }, context) => {
                 )}
                 {item.machinery && (
                   <Box>
-                    <GroupTitle title="Machinery" />
+                    <GroupTitle title="Машинерия" />
                     {item.machinery.map((atom_id) => (
                       <AtomContent key={atom_id} atom_id={atom_id} amount={1} />
                     ))}
@@ -796,7 +796,7 @@ const RecipeContent = ({ item, craftable, busy, mode, diet }, context) => {
                 )}
                 {item.structures && (
                   <Box>
-                    <GroupTitle title="Structures" />
+                    <GroupTitle title="Структуры" />
                     {item.structures.map((atom_id) => (
                       <AtomContent key={atom_id} atom_id={atom_id} amount={1} />
                     ))}
@@ -805,7 +805,7 @@ const RecipeContent = ({ item, craftable, busy, mode, diet }, context) => {
               </Box>
               {!!item.steps?.length && (
                 <Box>
-                  <GroupTitle title="Steps" />
+                  <GroupTitle title="Шаги" />
                   <ul style={{ 'padding-left': '20px' }}>
                     {item.steps.map((step) => (
                       <li key={step}>{step}</li>
@@ -820,7 +820,7 @@ const RecipeContent = ({ item, craftable, busy, mode, diet }, context) => {
                   width="104px"
                   lineHeight={2.5}
                   align="center"
-                  content="Make"
+                  content="Создать"
                   disabled={!craftable || busy}
                   icon={
                     busy

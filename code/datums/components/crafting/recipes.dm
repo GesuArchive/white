@@ -1,8 +1,3 @@
-///If the machine is used/deleted in the crafting process
-#define CRAFTING_MACHINERY_CONSUME 1
-///If the machine is only "used" i.e. it checks to see if it's nearby and allows crafting, but doesn't delete it
-#define CRAFTING_MACHINERY_USE 0
-
 /datum/crafting_recipe
 	var/name //in-game display name
 	var/list/reqs = list() //type paths of items consumed associated with how many are needed
@@ -69,19 +64,6 @@
 		result.dir = user.dir
 		result.update_icon()
 	return
-
-/*
-/datum/crafting_recipe/skeleton_key Я не знаю что с этим делать :(
-	name = "Skeleton Key"
-	time = 30
-	reqs = list(/obj/item/stack/sheet/bone = 5)
-	result = /obj/item/skeleton_key
-	always_available = FALSE
-	category = CAT_PRIMAL
-*/
-
-#undef CRAFTING_MACHINERY_CONSUME
-#undef CRAFTING_MACHINERY_USE
 
 /**************************************************************
 Все рецепты были раскиданы по своим категориям, пользуйтесь ими.
