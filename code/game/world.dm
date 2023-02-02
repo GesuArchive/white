@@ -332,20 +332,16 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 ``:ooo+////////////+s.:/::::::::::::::::::::::::::::::::::::hhsshdyssyyyhdhyssssssyyys///sysdmmNmmmmshmNNNdhhmdNNdNNdsoh
 */
 
-GLOBAL_VAR_INIT(status_for_mentally_ill_amoeba_users, TRUE)
-GLOBAL_VAR_INIT(custom_status_text, "- Go away.</b>")
-
 /world/proc/update_status()
 
 	var/s = ""
 
-	if(GLOB.status_for_mentally_ill_amoeba_users)
-		s = "SS13.SU\] <b>[prob(1) ? "Чёpнaя Peaльнocть" : "Бeлaя Мeчтa"]:</b> <a href=\"https://discord.station13.ru\">DISCORD</a>\n" // length 87
+	s = "SS13.SU\] <big><b><a href=\"https://discord.station13.ru\">[prob(5) ? "Чёpнaя Peaльнocть" : "Бeлaя Мeчтa"]</a>:</b> Итерация #[global.config.current_version_string]</big>\n"
 
-		s += GLOB.custom_status_text // 168 max
+	s += "<img src='https://assets.station13.ru/l/nwd.png'>\n"
 
-		status = s
-		return
+	status = s
+	return
 
 	s = "SS13.SU\] <big><b>FDev: White Dream: RU</b></big> <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n"
 
