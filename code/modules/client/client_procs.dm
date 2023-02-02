@@ -606,7 +606,8 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 				winset(src, null, "command=.options")
 				src << link("[panic_addr]?redirect=1")
 			src << link("https://discord.station13.ru")
-			qdel(src)
+			sleep(5)
+			winset(src, null, "command=.quit")
 			return
 
 	var/admin_rank = "Player"
