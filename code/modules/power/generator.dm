@@ -5,7 +5,7 @@
 	icon_state = "teg-unassembled"
 	density = TRUE
 	use_power = NO_POWER_USE
-	integrity_failure = 0.75
+	integrity_failure = 0.25
 
 	var/obj/machinery/atmospherics/components/binary/circulator/cold_circ
 	var/obj/machinery/atmospherics/components/binary/circulator/hot_circ
@@ -115,6 +115,7 @@
 			playsound(get_turf(src), 'white/valtos/sounds/explo.ogg', 80)
 			spawn(1 SECONDS)
 				empulse(get_turf(src), rand(1, 4), rand(4, 8))
+				take_damage(rand(0, 25)) // це пизда
 	..()
 
 /obj/machinery/power/generator/proc/get_menu(include_link = TRUE)
