@@ -100,22 +100,25 @@
 /obj/machinery/power/generator/process()
 	//Setting this number higher just makes the change in power output slower, it doesnt actualy reduce power output cause **math**
 	var/power_output = round(lastgen / 10)
-	add_avail(power_output)
-	lastgenlev = power_output
-	lastgen -= power_output
-	switch(lastgenlev)
+
+	switch(power_output)
 		if(1000000 to 3000000)
-			if(prob(50))
-				tesla_zap(src, 3, lastgenlev * 0.1)
+			tesla_zap(src, 5, power_output)
+			power_output = -(power_output * 0.1)
 		if(3000001 to 5000000)
-			if(prob(75))
-				tesla_zap(src, 7, lastgenlev * 1)
+			tesla_zap(src, 9, power_output * 0.75)
+			power_output = -(power_output * 0.25)
 		if(5000001 to INFINITY)
 			GLOB.is_engine_sabotaged = TRUE
 			playsound(get_turf(src), 'white/valtos/sounds/explo.ogg', 80)
-			spawn(1 SECONDS)
-				empulse(get_turf(src), rand(1, 4), rand(4, 8))
+			spawn(rand(1, 10))
+				empulse(get_turf(src), rand(1, 8), rand(8, 16))
 				take_damage(rand(0, 25)) // це пизда
+			power_output = 0
+
+	add_avail(power_output)
+	lastgenlev = power_output
+	lastgen -= power_output
 	..()
 
 /obj/machinery/power/generator/proc/get_menu(include_link = TRUE)
