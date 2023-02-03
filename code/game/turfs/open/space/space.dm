@@ -23,15 +23,6 @@
 
 	force_no_gravity = TRUE
 
-/turf/open/space/basic/Initialize(mapload) // fast enough
-	icon_state = SPACE_ICON_STATE(x, y, z)
-	if(!space_gas)
-		space_gas = new
-	air = space_gas
-	update_air_ref(0)
-	flags_1 |= INITIALIZED_1
-	return INITIALIZE_HINT_NORMAL
-
 /**
  * Space Initialize
  *
