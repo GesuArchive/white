@@ -341,31 +341,6 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 	s += "<img src='https://assets.station13.ru/l/nwd.png'>\n"
 
 	status = s
-	return
-
-	s = "SS13.SU\] <big><b>FDev: White Dream: RU</b></big> <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n"
-
-	switch(rand(1, 6))
-		if(1)
-			s += "<img src='https://assets.station13.ru/l/w7.png'>\n"
-			s += "\[<big>CLASSIC STATION</big>"
-		if(2)
-			s += "<img src='https://assets.station13.ru/l/w6.png'>\n"
-			s += "\[<big>ANIME HENTAI</big>"
-		if(3)
-			s += "<img src='https://assets.station13.ru/l/w5.png'>\n"
-			s += "\[<big>GRIMDARK EDITION</big>"
-		if(4)
-			s += "<img src='https://assets.station13.ru/l/w4.png'>\n"
-			s += "\[<big>CYBERPUNK EDITION</big>"
-		if(5)
-			s += "<img src='https://assets.station13.ru/l/w8.png'>\n"
-			s += "\[<big>REMOVE KEBAB</big>"
-		if(6)
-			s += "<img src='https://assets.station13.ru/l/w9.png'>\n"
-			s += "\[<big>PROBABLY NOT HARAM</big>"
-
-	status = s
 
 /world/proc/update_hub_visibility(new_visibility)
 	if(new_visibility == GLOB.hub_visibility)
