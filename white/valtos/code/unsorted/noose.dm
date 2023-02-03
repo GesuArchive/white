@@ -13,7 +13,7 @@
 		if(has_buckled_mobs())
 			for(var/m in buckled_mobs)
 				var/mob/living/buckled_mob = m
-				if(buckled_mob.mob_has_gravity())
+				if(buckled_mob.has_gravity())
 					buckled_mob.visible_message(span_danger("[buckled_mob] падает на пол!") ,\
 						span_userdanger("Падаю на пол!"))
 					buckled_mob.adjustBruteLoss(10)
@@ -122,7 +122,7 @@
 		else
 			animate(src, pixel_x = 3, time = 45, easing = ELASTIC_EASING)
 			animate(m, pixel_x = 3, time = 45, easing = ELASTIC_EASING)
-		if(buckled_mob.mob_has_gravity())
+		if(buckled_mob.has_gravity())
 			if(!buckled_mob.get_bodypart(BODY_ZONE_HEAD))
 				unbuckle_all_mobs(TRUE)
 				STOP_PROCESSING(SSobj, src)

@@ -26,7 +26,7 @@
 		var/sound/alert_sound = sound('sound/effects/alert.ogg')
 		A.has_gravity = STANDARD_GRAVITY
 		for(var/mob/M in A)
-			M.update_gravity(M.mob_has_gravity())
+			M.update_gravity(M.has_gravity())
 			if(M.client)
 				shake_camera(M, 15, 1)
 				M.playsound_local(src.loc, null, 100, 1, 0.5, sound_to_use = alert_sound)

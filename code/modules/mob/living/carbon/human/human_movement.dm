@@ -34,12 +34,6 @@
 			return 0
 	return ..()
 
-/mob/living/carbon/human/mob_has_gravity()
-	. = ..()
-	if(!.)
-		if(mob_negates_gravity())
-			. = 1
-
 /mob/living/carbon/human/mob_negates_gravity()
 	return dna.species.negates_gravity(src) || ..()
 

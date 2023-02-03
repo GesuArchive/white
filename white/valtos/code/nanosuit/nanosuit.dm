@@ -781,7 +781,7 @@
 	if(.)
 		if(istype(wear_suit, /obj/item/clothing/suit/space/hardsuit/nano))
 			var/obj/item/clothing/suit/space/hardsuit/nano/NS = wear_suit
-			if(mob_has_gravity() && !stat)
+			if(has_gravity() && !stat)
 				return NS.onmove()
 
 /datum/martial_art/nanosuit
