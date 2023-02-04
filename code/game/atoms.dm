@@ -167,6 +167,9 @@
 	/// the datum handler for our contents - see create_storage() for creation method
 	var/datum/storage/atom_storage
 
+	//TTS component just in case we use one
+	var/datum/component/tts/tts_comp
+
 /**
  * Called when an atom is created in byond (built in engine proc)
  *

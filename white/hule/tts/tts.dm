@@ -5,6 +5,69 @@
 GLOBAL_VAR_INIT(tts, FALSE)
 GLOBAL_VAR_INIT(tts_speaker, "default")
 
+GLOBAL_LIST_INIT(gtts_voices, list(
+	"Авто" = "auto",
+	"Afrikaans" = "af",
+	"Arabic" = "ar",
+	"Bulgarian" = "bg",
+	"Bengali" = "bn",
+	"Bosnian" = "bs",
+	"Catalan" = "ca",
+	"Czech" = "cs",
+	"Danish" = "da",
+	"German" = "de",
+	"Greek" = "el",
+	"English" = "en",
+	"Spanish" = "es",
+	"Estonian" = "et",
+	"Finnish" = "fi",
+	"French" = "fr",
+	"Gujarati" = "gu",
+	"Hindi" = "hi",
+	"Croatian" = "hr",
+	"Hungarian" = "hu",
+	"Indonesian" = "id",
+	"Icelandic" = "is",
+	"Italian" = "it",
+	"Hebrew" = "iw",
+	"Japanese" = "ja",
+	"Javanese" = "jw",
+	"Khmer" = "km",
+	"Kannada" = "kn",
+	"Korean" = "ko",
+	"Latin" = "la",
+	"Latvian" = "lv",
+	"Malayalam" = "ml",
+	"Marathi" = "mr",
+	"Malay" = "ms",
+	"Myanmar (Burmese)" = "my",
+	"Nepali" = "ne",
+	"Dutch" = "nl",
+	"Norwegian" = "no",
+	"Polish" = "pl",
+	"Portuguese" = "pt",
+	"Romanian" = "ro",
+	"Russian" = "ru",
+	"Sinhala" = "si",
+	"Slovak" = "sk",
+	"Albanian" = "sq",
+	"Serbian" = "sr",
+	"Sundanese" = "su",
+	"Swedish" = "sv",
+	"Swahili" = "sw",
+	"Tamil" = "ta",
+	"Telugu" = "te",
+	"Thai" = "th",
+	"Filipino" = "tl",
+	"Turkish" = "tr",
+	"Ukrainian" = "uk",
+	"Urdu" = "ur",
+	"Vietnamese" = "vi",
+	"Chinese (Simplified)" = "zh-CN",
+	"Chinese (Mandarin/Taiwan)" = "zh-TW",
+	"Chinese (Mandarin)" = "zh"
+))
+
 PROCESSING_SUBSYSTEM_DEF(tts)
 	name = "Text To Speech"
 	priority = 15
@@ -28,10 +91,9 @@ PROCESSING_SUBSYSTEM_DEF(tts)
 
 	spawn(-1)
 		tts_args(namae, msg, lang)
-		var/datum/component/tts/TTS = GetComponent(/datum/component/tts)
 		spawn(2)
 			if(fexists("[TTS_PATH]/lines/[namae].wav"))
-				playsound(src, "[TTS_PATH]/lines/[namae].wav", 100, channel = TTS.assigned_channel, vary = TRUE, frequency = freq)
+				playsound(src, "[TTS_PATH]/lines/[namae].wav", 100, channel = tts_comp?.assigned_channel, vary = TRUE, frequency = freq)
 
 ////////////////////////////////////////
 

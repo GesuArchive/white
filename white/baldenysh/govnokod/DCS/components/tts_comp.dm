@@ -9,9 +9,13 @@
 	var/assigned_channel
 	var/frequency = 1
 
-/datum/component/tts/Initialize(mapload)
+/datum/component/tts/Initialize(mapload, forced_voice = null)
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
+
+
+	if(forced_voice && forced_voice != "auto")
+		tts_speaker = forced_voice
 
 	owner = parent
 	assigned_channel = open_sound_channel_for_tts()

@@ -12,7 +12,7 @@
 	if(!mapload)  //I don't want no gas leaks on my space ruin you hear?
 		RegisterSignal(src, COMSIG_LIVING_DEATH, PROC_REF(attach_rot))
 
-	AddComponent(/datum/component/tts)
+	tts_comp = AddComponent(/datum/component/tts, client?.prefs?.forced_voice)
 
 /mob/living/carbon/Destroy()
 	//This must be done first, so the mob ghosts correctly before DNA etc is nulled
