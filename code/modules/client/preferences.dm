@@ -330,6 +330,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += SETUP_NODE_INPUT("Возраст", "age", age)
 
+			dat += SETUP_NODE_INPUT("Голос", "tts_voice", forced_voice)
+
 			if(randomise[RANDOM_BODY] || randomise[RANDOM_BODY_ANTAG]) //doesn't work unless random body
 				dat += SETUP_NODE_RANDOM("Всегда случайный возраст", RANDOM_AGE)
 				dat += SETUP_NODE_RANDOM("Когда антагонист", RANDOM_AGE_ANTAG)
@@ -371,8 +373,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += SETUP_GET_LINK("persistent_scars", null, null, persistent_scars ? "Включено" : "Отключено")
 				dat += SETUP_GET_LINK("clear_scars", null, null, "Очистить")
 				dat += SETUP_CLOSE_NODE
-
-			dat += SETUP_NODE_INPUT("Голос", "tts_voice", forced_voice)
 
 			var/use_skintones = pref_species.use_skintones
 			if(use_skintones)
@@ -771,7 +771,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	stuff.send(user)
 
 	winshow(user, "preferences_window", TRUE)
-	var/datum/browser/popup = new(user, "preferences_browser_new", null, 1300, 800)
+	var/datum/browser/popup = new(user, "preferences_browser_new", null, 1350, 900)
 	popup.set_content(dat.Join())
 	popup.open(FALSE)
 	onclose(user, "preferences_window", src)
@@ -1554,6 +1554,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/new_voice = tgui_input_list(user, "Выбери голос:", "Настройки персонажа", GLOB.gtts_voices)
 					if(new_voice)
 						forced_voice = GLOB.gtts_voices[new_voice]
+						user?.tts_comp?.tts_speaker = forced_voice
 
 				if("s_tone")
 					var/new_s_tone = tgui_input_list(user, "Choose your character's skin-tone:", "Настройки персонажа", GLOB.skin_tones)

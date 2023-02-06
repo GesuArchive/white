@@ -1,5 +1,5 @@
 /datum/component/tts
-	var/mob/owner
+	var/atom/owner
 
 	var/creation = 0 //create tts on hear
 	var/tts_speaker
@@ -13,13 +13,16 @@
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
 
-
-	if(forced_voice && forced_voice != "auto")
-		tts_speaker = forced_voice
-
 	owner = parent
 	assigned_channel = open_sound_channel_for_tts()
 	. = ..()
+
+	if(ismob(owner))
+		var/mob/M = owner
+		var/forced_voice = M?.client?.prefs?.forced_voice
+
+		if(forced_voice && forced_voice != "auto")
+			tts_speaker = forced_voice
 
 /datum/component/tts/RegisterWithParent()
 	RegisterSignal(owner, COMSIG_MOB_SAY, PROC_REF(handle_speech))
