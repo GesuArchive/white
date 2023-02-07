@@ -2,7 +2,7 @@
 	set name = "Who"
 	set category = "OOC"
 
-	var/msg = "<b>Онлайн:</b>\n"
+	var/msg = "<table><thead><tr><th class='rhead'>cKey</th><th>Дата регистрации</th><th>Пинг</th><th>?</th></tr></thead><tbody>"
 
 	var/living = 0
 	var/dead = 0
@@ -22,40 +22,44 @@
 				if(C.ckey in GLOB.anonists_deb)
 					continue
 
-				var/entry = "\t"
+				var/entry = "<tr><td>"
 
 				if (check_donations(C.ckey))
-					entry += "<b>\[$\]</b> "
+					entry += "$ "
 
 				entry += "[C.key]"
 				if(C.holder && C.holder.fakekey)
-					entry += " <i>(как [C.holder.fakekey])</i>"
+					entry += " <i>([C.holder.fakekey])</i>"
+				entry += "</td>"
+				entry += "<td>[C.account_join_date]</td>"
+				entry += "<td>[round(C.avgping, 1)]</td>"
+				entry += "<td>"
 
 				if(!C.mob)
-					entry += " - <font color='red'><i>HAS NO MOB</i></font>"
+					entry += "<i>НЕТ МОБА</i></td></tr>"
 					Lines += entry
 					continue
 
 				if (isnewplayer(C.mob))
-					entry += " - <font color='darkgray'><b>Лобби</b></font>"
+					entry += "<font color='darkgray'><b>Лобби</b></font>"
 					lobby++
 				else
-					entry += " - [C.mob.real_name]"
+					entry += "[C.mob.real_name]"
 					switch(C.mob.stat)
 						if(UNCONSCIOUS)
-							entry += " - <font color='darkgray'><b>Без сознания</b></font>"
+							entry += "<font color='darkgray'><b>Без сознания</b></font>"
 							living++
 						if(DEAD)
 							if(isobserver(C.mob))
 								var/mob/dead/observer/O = C.mob
 								if(O.started_as_observer)
-									entry += " - <font color='gray'>Наблюдает</font>"
+									entry += "<font color='gray'>Наблюдает</font>"
 									observers++
 								else
-									entry += " - <font color='black'><b>МЁРТВ</b></font>"
+									entry += "<font color='black'><b>МЁРТВ</b></font>"
 									dead++
 							else
-								entry += " - <font color='black'><b>МЁРТВ</b></font>"
+								entry += "<font color='black'><b>МЁРТВ</b></font>"
 								dead++
 						else
 							living++
@@ -77,19 +81,23 @@
 					entry += " - <b>AFK: [C.inactivity2text()]</b>"
 
 				entry += " [ADMIN_QUE(C.mob)]"
-				entry += " ([round(C.avgping, 1)]мс)"
+				entry += "</td></tr>"
 				Lines += entry
 
 		else//If they don't have +ADMIN, only show hidden admins
 			for(var/client/C in GLOB.clients)
 				if(C.ckey in GLOB.anonists_deb)
 					continue
-
-				var/entry = "\t[C.key]"
+				var/entry = "<tr><td>"
+				entry += "[C.key]"
 				if(C.holder && C.holder.fakekey)
-					entry += " <i>(as [C.holder.fakekey])</i>"
+					entry += " <i>([C.holder.fakekey])</i>"
+				entry += "</td>"
 
-				entry += " - ([round(C.avgping, 1)]мс)"
+				entry += "<td>[C.account_join_date]</td>"
+				entry += "<td>[round(C.avgping, 1)]</td>"
+
+				entry += "<td>X</td></tr>"
 				Lines += entry
 	else
 		for(var/client/C in GLOB.clients)
@@ -97,73 +105,28 @@
 				continue
 
 			if(C.holder && C.holder.fakekey)
-				Lines += "\t[C.holder.fakekey] - ([round(C.avgping, 1)]мс)"
+				Lines += "<tr><td>[C.holder.fakekey]</td><td>[C.account_join_date]</td><td>[round(C.avgping, 1)]</td><td>X</td></tr>"
 			else if (C.holder)
-				Lines += "\t<b>[C.key]</b> - ([round(C.avgping, 1)]мс)"
+				Lines += "<tr><td class='admin'>[C.key]</td><td>[C.account_join_date]</td><td>[round(C.avgping, 1)]</td><td>[C.holder.rank]</td></tr>"
+			else if (C.mentor_datum)
+				Lines += "<tr><td class='mentor'>[C.key]</td><td>[C.account_join_date]</td><td>[round(C.avgping, 1)]</td><td>Знаток</td></tr>"
 			else
-				Lines += "\t[C.key] - ([round(C.avgping, 1)]мс)"
+				Lines += "<tr><td>[C.key]</td><td>[C.account_join_date]</td><td>[round(C.avgping, 1)]</td><td>X</td></tr>"
 
 	for(var/line in sort_list(Lines))
-		msg += "[line]\n"
+		msg += "[line]"
+
+	msg += "</tbody></table>"
 
 	if(check_rights(R_ADMIN, 0))
-		msg += "<b><font color='green'>L: [living]</font> | D: [dead] | <font color='gray'>O: [observers]</font> | <font color='#006400'>LOBBY: [lobby]</font> | <font color='#8100aa'>AA: [living_antags]</font> | <font color='#9b0000'>DA: [dead_antags]</font></b>\n"
+		msg += "<b><font color='green'>Живые: [living]</font> | Мёртвые: [dead]\n<font color='gray'>Призраки: [observers]</font> | <font color='#006400'>Лобби: [lobby]</font>\n<font color='#8100aa'>Антаги: [living_antags]</font> | <font color='#9b0000'>Мёртвые антаги: [dead_antags]</font></b>\n"
 
-	msg += "<b>Всего игроков: [length(Lines)]</b>"
-	to_chat(src, msg)
+	msg += "<b>Всего нас [length(Lines)].</b>"
 
-/client/verb/adminwho()
-	set category = "Адм"
-	set name = "Администраторы"
-
-	var/msg = "<b>Педали:</b>\n"
-	if(holder)
-		for(var/client/C in GLOB.admins)
-			msg += "\t[C] - [C.holder.rank]"
-
-			if(C.holder.fakekey)
-				msg += " <i>(как [C.holder.fakekey])</i>"
-
-			if(isobserver(C.mob))
-				msg += " - Следит"
-			else if(isnewplayer(C.mob))
-				msg += " - Лобби"
-			else
-				msg += " - <b>Играет с педалями</b>"
-
-			if(C.is_afk())
-				msg += " (AFK)"
-			msg += "\n"
-	else
-		for(var/client/C in GLOB.admins)
-			if(C.is_afk())
-				continue //Don't show afk admins to adminwho
-			if(!C.holder.fakekey)
-				msg += "\t[C] - [C.holder.rank]\n"
-		msg += span_info("Ахелпы также отправляются в Discord, если нет педалей онлайн.\n")
-
-	msg += "<b>Знатоки:</b>\n"
-	for(var/X in GLOB.mentors)
-		var/client/C = X
-		if(!C)
-			GLOB.mentors -= C
-			continue
-		if(C in GLOB.admins) // мы уже это вывели
-			continue
-		var/suffix = ""
-		if(holder)
-			if(isobserver(C.mob))
-				suffix += " - Следит"
-			else if(istype(C.mob,/mob/dead/new_player))
-				suffix += " - Лобби"
-			else
-				suffix += " - <b>Играет</b>"
-
-			if(C.is_afk())
-				suffix += " (AFK)"
-		msg += "\t[C][suffix]\n"
-
-	to_chat(src, msg)
+	var/datum/browser/popup = new(src, "adv_who", null, 300, 700)
+	popup.add_stylesheet("adv_whocss", 'html/adv_who.css')
+	popup.set_content(msg)
+	popup.open()
 
 /client/proc/inactivity2text()
 	var/seconds = inactivity/10
