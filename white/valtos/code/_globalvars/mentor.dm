@@ -14,6 +14,7 @@ GLOBAL_PROTECT(mentor_href_token)
 GLOBAL_LIST_INIT(mentor_verbs, list(
 	/client/proc/cmd_mentor_say,
 	/client/proc/cmd_mentor_dementor,
-	/client/proc/toggle_auto_dementor
+	/client/proc/toggle_auto_dementor,
+	/client/proc/invite_friend
 	))
 GLOBAL_PROTECT(mentor_verbs)
