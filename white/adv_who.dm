@@ -97,7 +97,7 @@
 				entry += "<td>[splittext(C.account_join_date, " ")[1]]</td>"
 				entry += "<td>[round(C.avgping, 1)]</td>"
 
-				entry += "<td>X</td></tr>"
+				entry += "<td>[C.holder.rank]</td></tr>"
 				Lines += entry
 	else
 		for(var/client/C in GLOB.clients)
@@ -125,7 +125,7 @@
 
 	msg += "</br><b>Всего нас [length(Lines)] космонавтов.</b>"
 
-	var/datum/browser/popup = new(src, "adv_who", null, holder ? 600 : 300, 700)
+	var/datum/browser/popup = new(src, "adv_who", null, holder ? 600 : 450, 700)
 	popup.add_stylesheet("adv_whocss", 'html/adv_who.css')
 	popup.set_content(msg)
 	popup.open()
