@@ -31,7 +31,7 @@
 				if(C.holder && C.holder.fakekey)
 					entry += " <i>([C.holder.fakekey])</i>"
 				entry += "</td>"
-				entry += "<td>[C.account_join_date]</td>"
+				entry += "<td>[splittext(C.account_join_date, " ")[1]]</td>"
 				entry += "<td>[round(C.avgping, 1)]</td>"
 				entry += "<td>"
 
@@ -69,18 +69,18 @@
 						age = "<font color='#ff0000'><b>[age]</b></font>"
 					else if(age < 10)
 						age = "<font color='#ff8c00'><b>[age]</b></font>"
-					entry += " - [age]"
+					entry += "</br>[age]"
 				if(is_special_character(C.mob))
-					entry += " - <b><font color='red'>Антагонист</font></b>"
+					entry += "</br><b><font color='red'>Антагонист</font></b>"
 					if(!C.mob.mind.current || C.mob.mind.current?.stat == DEAD)
 						dead_antags++
 					else
 						living_antags++
 
 				if(C.is_afk())
-					entry += " - <b>AFK: [C.inactivity2text()]</b>"
+					entry += "</br><b>AFK: [C.inactivity2text()]</b>"
 
-				entry += " [ADMIN_QUE(C.mob)]"
+				entry += "</br>[ADMIN_QUE(C.mob)]"
 				entry += "</td></tr>"
 				Lines += entry
 
@@ -104,14 +104,16 @@
 			if(C.ckey in GLOB.anonists_deb)
 				continue
 
+			var/ajd = splittext(C.account_join_date, " ")[1]
+
 			if(C.holder && C.holder.fakekey)
-				Lines += "<tr><td>[C.holder.fakekey]</td><td>[C.account_join_date]</td><td>[round(C.avgping, 1)]</td><td>X</td></tr>"
+				Lines += "<tr><td>[C.holder.fakekey]</td><td>[ajd]</td><td>[round(C.avgping, 1)]</td><td>X</td></tr>"
 			else if (C.holder)
-				Lines += "<tr><td class='admin'>[C.key]</td><td>[C.account_join_date]</td><td>[round(C.avgping, 1)]</td><td>[C.holder.rank]</td></tr>"
+				Lines += "<tr><td class='admin'>[C.key]</td><td>[ajd]</td><td>[round(C.avgping, 1)]</td><td>[C.holder.rank]</td></tr>"
 			else if (C.mentor_datum)
-				Lines += "<tr><td class='mentor'>[C.key]</td><td>[C.account_join_date]</td><td>[round(C.avgping, 1)]</td><td>Знаток</td></tr>"
+				Lines += "<tr><td class='mentor'>[C.key]</td><td>[ajd]</td><td>[round(C.avgping, 1)]</td><td>Знаток</td></tr>"
 			else
-				Lines += "<tr><td>[C.key]</td><td>[C.account_join_date]</td><td>[round(C.avgping, 1)]</td><td>X</td></tr>"
+				Lines += "<tr><td>[C.key]</td><td>[ajd]</td><td>[round(C.avgping, 1)]</td><td>X</td></tr>"
 
 	for(var/line in sort_list(Lines))
 		msg += "[line]"
@@ -119,11 +121,11 @@
 	msg += "</tbody></table>"
 
 	if(check_rights(R_ADMIN, 0))
-		msg += "<b><font color='green'>Живые: [living]</font> | Мёртвые: [dead]\n<font color='gray'>Призраки: [observers]</font> | <font color='#006400'>Лобби: [lobby]</font>\n<font color='#8100aa'>Антаги: [living_antags]</font> | <font color='#9b0000'>Мёртвые антаги: [dead_antags]</font></b>\n"
+		msg += "<b><font color='green'>Живые: [living]</font> | Мёртвые: [dead]</br><font color='gray'>Призраки: [observers]</font> | <font color='#006400'>Лобби: [lobby]</font></br><font color='#8100aa'>Антаги: [living_antags]</font> | <font color='#9b0000'>Мёртвые антаги: [dead_antags]</font></b></br>"
 
 	msg += "<b>Всего нас [length(Lines)].</b>"
 
-	var/datum/browser/popup = new(src, "adv_who", null, 300, 700)
+	var/datum/browser/popup = new(src, "adv_who", null, 600, 700)
 	popup.add_stylesheet("adv_whocss", 'html/adv_who.css')
 	popup.set_content(msg)
 	popup.open()
