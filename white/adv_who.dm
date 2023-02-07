@@ -2,7 +2,7 @@
 	set name = "Who"
 	set category = "OOC"
 
-	var/msg = "<table><thead><tr><th class='rhead'>cKey</th><th class='rreg'>Дата регистрации</th><th class='rping>Пинг</th><th>?</th></tr></thead><tbody>"
+	var/msg = "<table><thead><tr><th class='rhead'>cKey</th><th class='rreg'>Дата регистрации</th><th class='rping'>Пинг</th><th>?</th></tr></thead><tbody>"
 
 	var/living = 0
 	var/dead = 0
