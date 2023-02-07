@@ -2,7 +2,7 @@
 	set name = "Who"
 	set category = "OOC"
 
-	var/msg = "<table><thead><tr><th class='rhead'>cKey</th><th>Дата регистрации</th><th>Пинг</th><th>?</th></tr></thead><tbody>"
+	var/msg = "<table><thead><tr><th class='rhead'>cKey</th><th class='rreg'>Дата регистрации</th><th class='rping>Пинг</th><th>?</th></tr></thead><tbody>"
 
 	var/living = 0
 	var/dead = 0
@@ -69,18 +69,18 @@
 						age = "<font color='#ff0000'><b>[age]</b></font>"
 					else if(age < 10)
 						age = "<font color='#ff8c00'><b>[age]</b></font>"
-					entry += "</br>[age]"
+					entry += " - [age]"
 				if(is_special_character(C.mob))
-					entry += "</br><b><font color='red'>Антагонист</font></b>"
+					entry += " - <b><font color='red'>Антагонист</font></b>"
 					if(!C.mob.mind.current || C.mob.mind.current?.stat == DEAD)
 						dead_antags++
 					else
 						living_antags++
 
 				if(C.is_afk())
-					entry += "</br><b>AFK: [C.inactivity2text()]</b>"
+					entry += " - <b>AFK: [C.inactivity2text()]</b>"
 
-				entry += "</br>[ADMIN_QUE(C.mob)]"
+				entry += " - [ADMIN_QUE_NB(C.mob)]"
 				entry += "</td></tr>"
 				Lines += entry
 
@@ -94,7 +94,7 @@
 					entry += " <i>([C.holder.fakekey])</i>"
 				entry += "</td>"
 
-				entry += "<td>[C.account_join_date]</td>"
+				entry += "<td>[splittext(C.account_join_date, " ")[1]]</td>"
 				entry += "<td>[round(C.avgping, 1)]</td>"
 
 				entry += "<td>X</td></tr>"
@@ -121,11 +121,11 @@
 	msg += "</tbody></table>"
 
 	if(check_rights(R_ADMIN, 0))
-		msg += "<b><font color='green'>Живые: [living]</font> | Мёртвые: [dead]</br><font color='gray'>Призраки: [observers]</font> | <font color='#006400'>Лобби: [lobby]</font></br><font color='#8100aa'>Антаги: [living_antags]</font> | <font color='#9b0000'>Мёртвые антаги: [dead_antags]</font></b></br>"
+		msg += "<b><font color='green'>Живые: [living]</font></br>Мёртвые: [dead]</br><font color='gray'>Призраки: [observers]</font></br><font color='#006400'>Лобби: [lobby]</font></br><font color='#8100aa'>Антаги: [living_antags]</font></br><font color='#9b0000'>Мёртвые антаги: [dead_antags]</font></b></br>"
 
-	msg += "<b>Всего нас [length(Lines)].</b>"
+	msg += "</br><b>Всего нас [length(Lines)] космонавтов.</b>"
 
-	var/datum/browser/popup = new(src, "adv_who", null, 600, 700)
+	var/datum/browser/popup = new(src, "adv_who", null, holder ? 600 : 300, 700)
 	popup.add_stylesheet("adv_whocss", 'html/adv_who.css')
 	popup.set_content(msg)
 	popup.open()
