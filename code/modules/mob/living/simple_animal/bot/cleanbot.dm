@@ -6,7 +6,7 @@
 	name = "Клинбот"
 	desc = "Маленький робот-уборщик, он выглядит таким воодушевлённым!"
 	icon = 'icons/mob/aibots.dmi'
-	icon_state = "cleanbot0"
+	icon_state = "cleanbot"
 	density = FALSE
 	anchored = FALSE
 	health = 25
