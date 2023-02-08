@@ -47,19 +47,19 @@
 					entry += "[C.mob.real_name]"
 					switch(C.mob.stat)
 						if(UNCONSCIOUS)
-							entry += "<font color='darkgray'><b>Без сознания</b></font>"
+							entry += " - <font color='darkgray'><b>Без сознания</b></font>"
 							living++
 						if(DEAD)
 							if(isobserver(C.mob))
 								var/mob/dead/observer/O = C.mob
 								if(O.started_as_observer)
-									entry += "<font color='gray'>Наблюдает</font>"
+									entry += " - <font color='gray'>Наблюдает</font>"
 									observers++
 								else
-									entry += "<font color='black'><b>МЁРТВ</b></font>"
+									entry += " - <font color='white'><b>МЁРТВ</b></font>"
 									dead++
 							else
-								entry += "<font color='black'><b>МЁРТВ</b></font>"
+								entry += " - <font color='white'><b>МЁРТВ</b></font>"
 								dead++
 						else
 							living++
