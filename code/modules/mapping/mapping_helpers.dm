@@ -144,12 +144,12 @@
 			if(16 to 23)
 				airlock.welded = TRUE
 			if(24 to 30)
-				airlock.panel_open = TRUE
+				airlock.set_panel_open(TRUE)
 	if(airlock.cutAiWire)
 		airlock.wires.cut(WIRE_AI)
 	if(airlock.name == initial(airlock.name))
 		airlock.name = get_area_name(airlock, TRUE)
-	update_appearance()
+	airlock.update_appearance()
 	qdel(src)
 
 /obj/effect/mapping_helpers/airlock/proc/payload(obj/machinery/door/airlock/payload)

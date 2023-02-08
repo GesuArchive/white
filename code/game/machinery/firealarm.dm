@@ -257,7 +257,7 @@
 
 	if(tool.tool_behaviour == TOOL_SCREWDRIVER && buildstage == 2)
 		tool.play_tool_sound(src)
-		panel_open = !panel_open
+		toggle_panel_open()
 		to_chat(user, span_notice("Провода теперь [panel_open ? "видно" : "скрыты"]."))
 		update_appearance()
 		return

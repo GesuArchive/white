@@ -92,7 +92,7 @@ GLOBAL_VAR_INIT(disposals_are_hungry, FALSE)
 	add_fingerprint(user)
 	if(!pressure_charging && !full_pressure && !flush)
 		if(I.tool_behaviour == TOOL_SCREWDRIVER)
-			panel_open = !panel_open
+			toggle_panel_open()
 			I.play_tool_sound(src)
 			to_chat(user, span_notice("[panel_open ? "Откручиваю":"Закручиваю"] винтики питания."))
 			return
@@ -567,7 +567,7 @@ GLOBAL_LIST_EMPTY(disposal_bins)
 	add_fingerprint(user)
 	if(!pressure_charging && !full_pressure && !flush)
 		if(I.tool_behaviour == TOOL_SCREWDRIVER)
-			panel_open = !panel_open
+			toggle_panel_open()
 			I.play_tool_sound(src)
 			to_chat(user, span_notice("[panel_open ? "Откручиваю":"Закручиваю"] винтики питания."))
 			return

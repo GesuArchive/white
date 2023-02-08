@@ -456,7 +456,7 @@
 				return
 			else if(W.tool_behaviour == TOOL_SCREWDRIVER)  // Opening that up.
 				W.play_tool_sound(src)
-				panel_open = !panel_open
+				toggle_panel_open()
 				to_chat(user, span_notice("The wires have been [panel_open ? "exposed" : "unexposed"]."))
 				update_icon()
 				return

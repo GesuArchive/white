@@ -70,7 +70,7 @@
 		if(obj_flags & EMAGGED)
 			balloon_alert(user, "интерфейс повреждён!")
 			return
-		panel_open = !panel_open
+		toggle_panel_open()
 		balloon_alert(user, "провода [panel_open ? "видны" : "не видны"]")
 		update_appearance()
 		return

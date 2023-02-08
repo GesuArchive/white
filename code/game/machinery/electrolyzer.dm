@@ -139,7 +139,7 @@
 
 		return
 	if(I.tool_behaviour == TOOL_SCREWDRIVER)
-		panel_open = !panel_open
+		toggle_panel_open()
 		user.visible_message(span_notice("[capitalize(user)] [panel_open ? "открывает" : "закрывает"] техническую панель <b>[src.name]</b>.") , span_notice("[panel_open ? "Открываю" : "Закрываю"] техническую панель <b>[src.name]</b>."))
 		update_icon()
 		return

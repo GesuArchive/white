@@ -229,7 +229,7 @@
 		to_chat(user, span_warning("Сначала нужно отключить генератор!"))
 		return TRUE
 
-	panel_open = !panel_open
+	toggle_panel_open()
 	I.play_tool_sound(src)
 	to_chat(user, span_notice("[panel_open?"Открываю":"Закрываю"] панель [src]."))
 	update_icon_nopipes()

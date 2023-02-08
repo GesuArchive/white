@@ -221,7 +221,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/camera/xray, 0)
 /obj/machinery/camera/screwdriver_act(mob/living/user, obj/item/I)
 	if(..())
 		return TRUE
-	panel_open = !panel_open
+	toggle_panel_open()
 	to_chat(user, span_notice("[panel_open ? "Откручиваю" : "Закручиваю"] техническую панель."))
 	I.play_tool_sound(src)
 	update_icon()

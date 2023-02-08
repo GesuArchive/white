@@ -249,7 +249,7 @@
 				to_chat(user, span_warning("You need to open the door to access the maintenance panel!"))
 				return
 			I.play_tool_sound(src)
-			panel_open = !panel_open
+			toggle_panel_open()
 			to_chat(user, span_notice("You [panel_open ? "open":"close"] the maintenance panel of the [name]."))
 			return
 
@@ -568,7 +568,7 @@
 	if(!(flags_1&NODECONSTRUCT_1))
 		if(I.tool_behaviour == TOOL_SCREWDRIVER)
 			I.play_tool_sound(src)
-			panel_open = !panel_open
+			toggle_panel_open()
 			to_chat(user, span_notice("You [panel_open ? "open":"close"] the maintenance panel of the [name]."))
 			return
 

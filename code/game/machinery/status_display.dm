@@ -100,13 +100,17 @@ GLOBAL_VAR_INIT(display_font_color, pick("#09f", "#f90", "#5f5", "#fff", "#f55",
 	line1 = uppertext(line1)
 	line2 = uppertext(line2)
 
+	var/message_changed = FALSE
 	if(line1 != message1)
 		message1 = line1
+		message_changed = TRUE
 
 	if(line2 != message2)
 		message2 = line2
+		message_changed = TRUE
 
-	update_appearance()
+	if(message_changed)
+		update_appearance()
 
 /**
  * Remove both message objs and null the fields.

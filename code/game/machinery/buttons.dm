@@ -23,7 +23,7 @@
 		setDir(ndir)
 		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
 		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
-		panel_open = TRUE
+		set_panel_open(TRUE)
 		update_icon()
 
 	if(!built && !device && device_type)

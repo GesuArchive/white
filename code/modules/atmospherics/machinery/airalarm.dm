@@ -657,7 +657,7 @@
 				return
 			else if(W.tool_behaviour == TOOL_SCREWDRIVER)  // Opening that Air Alarm up.
 				W.play_tool_sound(src)
-				panel_open = !panel_open
+				toggle_panel_open()
 				to_chat(user, span_notice("Провода теперь [panel_open ? "открыты" : "закрыты"]."))
 				update_appearance()
 				return

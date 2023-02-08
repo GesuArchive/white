@@ -188,7 +188,7 @@
 /obj/machinery/shieldgen/attackby(obj/item/W, mob/user, params)
 	if(W.tool_behaviour == TOOL_SCREWDRIVER)
 		W.play_tool_sound(src, 100)
-		panel_open = !panel_open
+		toggle_panel_open()
 		if(panel_open)
 			to_chat(user, span_notice("You open the panel and expose the wiring."))
 		else

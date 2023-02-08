@@ -57,7 +57,7 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 /obj/machinery/announcement_system/attackby(obj/item/P, mob/user, params)
 	if(P.tool_behaviour == TOOL_SCREWDRIVER)
 		P.play_tool_sound(src)
-		panel_open = !panel_open
+		toggle_panel_open()
 		to_chat(user, span_notice("You [panel_open ? "open" : "close"] the maintenance hatch of [src]."))
 		update_icon()
 	else if(default_deconstruction_crowbar(P))

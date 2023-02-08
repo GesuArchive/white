@@ -149,8 +149,12 @@ GLOBAL_LIST_EMPTY(telecomms_list)
 		else
 			icon_state = "[initial(icon_state)]_off"
 
-/obj/machinery/telecomms/proc/update_power()
+/obj/machinery/telecomms/on_set_panel_open(old_value)
+	update_appearance()
+	return ..()
 
+/obj/machinery/telecomms/proc/update_power()
+	var/old_on = on
 	if(toggled)
 		if(machine_stat & (BROKEN|NOPOWER|EMPED)) // if powered, on. if not powered, off. if too damaged, off
 			on = FALSE
@@ -161,12 +165,11 @@ GLOBAL_LIST_EMPTY(telecomms_list)
 	else
 		on = FALSE
 		soundloop.stop()
+	if(old_on != on)
+		update_appearance()
 
 /obj/machinery/telecomms/process(delta_time)
 	update_power()
-
-	// Update the icon
-	update_icon()
 
 	if(traffic > 0)
 		traffic -= netspeed * delta_time

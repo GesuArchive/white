@@ -888,7 +888,7 @@
 		if(panel_open && detonated)
 			to_chat(user, span_warning("[capitalize(src.name)] не имеет панели, собственно!"))
 			return
-		panel_open = !panel_open
+		toggle_panel_open()
 		to_chat(user, span_notice("[panel_open ? "Открываю":"Закрываю"] техническую панель шлюза."))
 		C.play_tool_sound(src)
 		update_appearance()
@@ -1312,8 +1312,7 @@
 /obj/machinery/door/airlock/proc/on_break()
 	SIGNAL_HANDLER
 
-	if(!panel_open)
-		panel_open = TRUE
+	set_panel_open(TRUE)
 	wires.cut_all()
 
 /obj/machinery/door/airlock/proc/set_electrified(seconds, mob/user)

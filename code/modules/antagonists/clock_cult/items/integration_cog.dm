@@ -18,7 +18,7 @@
 		to_chat(user, span_notice("Начинаю разрезать [A]."))
 		if(do_after(user, 50, target=A))
 			to_chat(user, span_brass("Разрезаю [A] используя [src]."))
-			A.panel_open = TRUE
+			A.set_panel_open(TRUE)
 			A.update_icon()
 			return
 		return

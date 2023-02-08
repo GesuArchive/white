@@ -137,8 +137,11 @@
 	/// Do we want to hook into on_enter_area and on_exit_area?
 	/// Disables some optimizations
 	var/always_area_sensitive = FALSE
-	// For storing and overriding ui id
+	/// For storing and overriding ui id
 	var/tgui_id // ID of TGUI interface
+	/// What was our power state the last time we updated its appearance?
+	/// TRUE for on, FALSE for off, -1 for never checked
+	var/appearance_power_state = -1
 
 /obj/machinery/Initialize(mapload)
 	if(!armor)
@@ -506,6 +509,21 @@
 /obj/machinery/proc/on_set_is_operational(old_value)
 	return
 
+///Called when we want to change the value of the `panel_open` variable. Boolean.
+/obj/machinery/proc/set_panel_open(new_value)
+	if(panel_open == new_value)
+		return
+	var/old_value = panel_open
+	panel_open = new_value
+	on_set_panel_open(old_value)
+
+///Called when the value of `panel_open` changes, so we can react to it.
+/obj/machinery/proc/on_set_panel_open(old_value)
+	return
+
+/// Toggles the panel_open var. Defined for convienience
+/obj/machinery/proc/toggle_panel_open()
+	set_panel_open(!panel_open)
 
 /obj/machinery/can_interact(mob/user)
 	if((machine_stat & (NOPOWER|BROKEN)) && !(interaction_flags_machine & INTERACT_MACHINE_OFFLINE)) // Check if the machine is broken, and if we can still interact with it if so
@@ -771,19 +789,22 @@
 		deconstruct(FALSE)
 	return ..()
 
-/obj/machinery/proc/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/I)
-	if(!(flags_1 & NODECONSTRUCT_1) && I.tool_behaviour == TOOL_SCREWDRIVER)
-		I.play_tool_sound(src, 50)
-		if(!panel_open)
-			panel_open = TRUE
-			icon_state = icon_state_open
-			to_chat(user, span_notice("You open the maintenance hatch of [src]."))
-		else
-			panel_open = FALSE
-			icon_state = icon_state_closed
-			to_chat(user, span_notice("You close the maintenance hatch of [src]."))
-		return TRUE
-	return FALSE
+
+/obj/machinery/proc/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	if((flags_1 & NODECONSTRUCT_1) || screwdriver.tool_behaviour != TOOL_SCREWDRIVER)
+		return FALSE
+
+	screwdriver.play_tool_sound(src, 50)
+	set_panel_open(TRUE)
+	toggle_panel_open()
+	if(panel_open)
+		icon_state = icon_state_open
+		to_chat(user, span_notice("You open the maintenance hatch of [src]."))
+	else
+		panel_open = FALSE
+		icon_state = icon_state_closed
+		to_chat(user, span_notice("You close the maintenance hatch of [src]."))
+	return TRUE
 
 /obj/machinery/proc/default_change_direction_wrench(mob/user, obj/item/I)
 	if(panel_open && I.tool_behaviour == TOOL_WRENCH)

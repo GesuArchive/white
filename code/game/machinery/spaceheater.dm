@@ -72,6 +72,10 @@
 	if(panel_open)
 		. += "sheater-open"
 
+/obj/machinery/space_heater/on_set_panel_open()
+	update_appearance()
+	return ..()
+
 /obj/machinery/space_heater/process(delta_time)
 	if(!on || !is_operational)
 		if (on) // If it's broken, turn it off too
@@ -165,7 +169,7 @@
 			to_chat(user, span_warning("Техническая панель должна быть открыта для вставки батарейки!"))
 			return
 	else if(I.tool_behaviour == TOOL_SCREWDRIVER)
-		panel_open = !panel_open
+		toggle_panel_open()
 		user.visible_message(span_notice("[capitalize(user)] [panel_open ? "открывает" : "закрывает"] техническую панель <b>[src.name]</b>.") , span_notice("[panel_open ? "Открываю" : "Закрываю"] техническую панель <b>[src.name]</b>."))
 		update_icon()
 	else if(default_deconstruction_crowbar(I))
