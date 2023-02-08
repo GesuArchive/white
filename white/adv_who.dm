@@ -97,7 +97,7 @@
 				entry += "<td>[splittext(C.account_join_date, " ")[1]]</td>"
 				entry += "<td>[round(C.avgping, 1)]</td>"
 
-				entry += "<td>[C.holder.rank]</td></tr>"
+				entry += "<td>[C.holder ? C.holder.rank : "Космонавт"]</td></tr>"
 				Lines += entry
 	else
 		for(var/client/C in GLOB.clients)
@@ -107,13 +107,13 @@
 			var/ajd = splittext(C.account_join_date, " ")[1]
 
 			if(C.holder && C.holder.fakekey)
-				Lines += "<tr><td>[C.holder.fakekey]</td><td>[ajd]</td><td>[round(C.avgping, 1)]</td><td>X</td></tr>"
+				Lines += "<tr><td>[C.holder.fakekey]</td><td>[ajd]</td><td>[round(C.avgping, 1)]</td><td>Космонавт</td></tr>"
 			else if (C.holder)
 				Lines += "<tr><td class='admin'>[C.key]</td><td>[ajd]</td><td>[round(C.avgping, 1)]</td><td>[C.holder.rank]</td></tr>"
 			else if (C.mentor_datum)
 				Lines += "<tr><td class='mentor'>[C.key]</td><td>[ajd]</td><td>[round(C.avgping, 1)]</td><td>Знаток</td></tr>"
 			else
-				Lines += "<tr><td>[C.key]</td><td>[ajd]</td><td>[round(C.avgping, 1)]</td><td>X</td></tr>"
+				Lines += "<tr><td>[C.key]</td><td>[ajd]</td><td>[round(C.avgping, 1)]</td><td>Космонавт</td></tr>"
 
 	for(var/line in sort_list(Lines))
 		msg += "[line]"
