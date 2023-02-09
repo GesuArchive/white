@@ -69,7 +69,7 @@
 /datum/species/ipc/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	..()
 	RegisterSignal(H, COMSIG_MOB_SAY, PROC_REF(handle_speech))
-	for(var/X in C.bodyparts)
+	for(var/X in H.bodyparts)
 		var/obj/item/bodypart/O = X
 		O.change_bodypart_status(BODYPART_ROBOTIC, FALSE, TRUE)
 	H.set_safe_hunger_level()
@@ -77,7 +77,7 @@
 /datum/species/ipc/on_species_loss(mob/living/carbon/human/H)
 	. = ..()
 	UnregisterSignal(H, COMSIG_MOB_SAY)
-	for(var/X in C.bodyparts)
+	for(var/X in H.bodyparts)
 		var/obj/item/bodypart/O = X
 		O.change_bodypart_status(BODYPART_ORGANIC, FALSE, TRUE)
 
