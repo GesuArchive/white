@@ -795,22 +795,21 @@
 		return FALSE
 
 	screwdriver.play_tool_sound(src, 50)
-	set_panel_open(TRUE)
 	toggle_panel_open()
 	if(panel_open)
 		icon_state = icon_state_open
-		to_chat(user, span_notice("You open the maintenance hatch of [src]."))
+		to_chat(user, span_notice("Открываю техническую панель <b>[src]</b>."))
 	else
 		panel_open = FALSE
 		icon_state = icon_state_closed
-		to_chat(user, span_notice("You close the maintenance hatch of [src]."))
+		to_chat(user, span_notice("Закрываю техническую панель <b>[src]</b>."))
 	return TRUE
 
 /obj/machinery/proc/default_change_direction_wrench(mob/user, obj/item/I)
 	if(panel_open && I.tool_behaviour == TOOL_WRENCH)
 		I.play_tool_sound(src, 50)
 		setDir(turn(dir,-90))
-		to_chat(user, span_notice("You rotate [src]."))
+		to_chat(user, span_notice("Поворачиваю <b>[src]</b>."))
 		return TRUE
 	return FALSE
 
