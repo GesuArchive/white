@@ -17,15 +17,14 @@
 	assigned_channel = open_sound_channel_for_tts()
 	. = ..()
 
+/datum/component/tts/RegisterWithParent()
+	RegisterSignal(owner, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 	if(ismob(owner))
 		var/mob/M = owner
 		var/forced_voice = M?.client?.prefs?.forced_voice
 
 		if(forced_voice && forced_voice != "auto")
 			tts_speaker = forced_voice
-
-/datum/component/tts/RegisterWithParent()
-	RegisterSignal(owner, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 
 /datum/component/tts/UnregisterFromParent()
 	UnregisterSignal(owner, COMSIG_MOB_SAY)
