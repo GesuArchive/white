@@ -31,7 +31,7 @@
 				if(C.holder && C.holder.fakekey)
 					entry += " <i>([C.holder.fakekey])</i>"
 				entry += "</td>"
-				entry += "<td>[splittext(C.account_join_date, " ")[1]]</td>"
+				entry += "<td>[splittext(C.account_join_date, " ")?[1]]</td>"
 				entry += "<td>[round(C.avgping, 1)]</td>"
 				entry += "<td>"
 
@@ -94,7 +94,7 @@
 					entry += " <i>([C.holder.fakekey])</i>"
 				entry += "</td>"
 
-				entry += "<td>[splittext(C.account_join_date, " ")[1]]</td>"
+				entry += "<td>[splittext(C.account_join_date, " ")?[1]]</td>"
 				entry += "<td>[round(C.avgping, 1)]</td>"
 
 				entry += "<td>[C.holder ? C.holder.rank : "Космонавт"]</td></tr>"
@@ -104,7 +104,7 @@
 			if(C.ckey in GLOB.anonists_deb)
 				continue
 
-			var/ajd = splittext(C.account_join_date, " ")[1]
+			var/ajd = splittext(C.account_join_date, " ")?[1]
 
 			if(C.holder && C.holder.fakekey)
 				Lines += "<tr><td>[C.holder.fakekey]</td><td>[ajd]</td><td>[round(C.avgping, 1)]</td><td>Космонавт</td></tr>"

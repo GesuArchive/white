@@ -66,5 +66,5 @@ SUBSYSTEM_DEF(icon_smooth)
 	thing.smoothing_flags &= ~SMOOTH_QUEUED
 	smooth_queue -= thing
 	if(blueprint_queue)
-		blueprint_queue -= thing
+		LAZYREMOVE(blueprint_queue, thing)
 	deferred -= thing

@@ -570,7 +570,7 @@ GLOBAL_LIST_EMPTY(created_baseturf_lists)
 /turf/proc/add_blueprints_preround(atom/movable/AM)
 	if(!SSticker.HasRoundStarted())
 		if(AM.layer == WIRE_LAYER)	//wires connect to adjacent positions after its parent init, meaning we need to wait (in this case, until smoothing) to take its image
-			SSicon_smooth.blueprint_queue += AM
+			LAZYADD(SSicon_smooth.blueprint_queue, AM)
 		else
 			add_blueprints(AM)
 
