@@ -1,16 +1,16 @@
 /* smoothing_flags */
 /// Smoothing system in where adjacencies are calculated and used to build an image by mounting each corner at runtime.
-#define SMOOTH_CORNERS	(1<<0)
+#define SMOOTH_CORNERS (1<<0)
 /// Smoothing system in where adjacencies are calculated and used to select a pre-baked icon_state, encoded by bitmasking.
-#define SMOOTH_BITMASK		(1<<1)
+#define SMOOTH_BITMASK (1<<1)
 /// Atom has diagonal corners, with underlays under them.
-#define SMOOTH_DIAGONAL_CORNERS	(1<<2)
+#define SMOOTH_DIAGONAL_CORNERS (1<<2)
 /// Atom will smooth with the borders of the map.
-#define SMOOTH_BORDER	(1<<3)
+#define SMOOTH_BORDER (1<<3)
 /// Atom is currently queued to smooth.
-#define SMOOTH_QUEUED	(1<<4)
+#define SMOOTH_QUEUED (1<<4)
 /// Smooths with objects, and will thus need to scan turfs for contents.
-#define SMOOTH_OBJ		(1<<5)
+#define SMOOTH_OBJ (1<<5)
 
 DEFINE_BITFIELD(smoothing_flags, list(
 	"SMOOTH_CORNERS" = SMOOTH_CORNERS,
@@ -20,69 +20,6 @@ DEFINE_BITFIELD(smoothing_flags, list(
 	"SMOOTH_QUEUED" = SMOOTH_QUEUED,
 	"SMOOTH_OBJ" = SMOOTH_OBJ,
 ))
-
-//Redefinitions of the diagonal directions so they can be stored in one var without conflicts
-#define NORTH_JUNCTION NORTH //(1<<0)
-#define SOUTH_JUNCTION SOUTH //(1<<1)
-#define EAST_JUNCTION EAST  //(1<<2)
-#define WEST_JUNCTION WEST  //(1<<3)
-#define NORTHEAST_JUNCTION (1<<4)
-#define SOUTHEAST_JUNCTION (1<<5)
-#define SOUTHWEST_JUNCTION (1<<6)
-#define NORTHWEST_JUNCTION (1<<7)
-
-DEFINE_BITFIELD(smoothing_junction, list(
-	"NORTH_JUNCTION" = NORTH_JUNCTION,
-	"SOUTH_JUNCTION" = SOUTH_JUNCTION,
-	"EAST_JUNCTION" = EAST_JUNCTION,
-	"WEST_JUNCTION" = WEST_JUNCTION,
-	"NORTHEAST_JUNCTION" = NORTHEAST_JUNCTION,
-	"SOUTHEAST_JUNCTION" = SOUTHEAST_JUNCTION,
-	"SOUTHWEST_JUNCTION" = SOUTHWEST_JUNCTION,
-	"NORTHWEST_JUNCTION" = NORTHWEST_JUNCTION,
-))
-
-#define ALL_JUNCTION_DIRECTIONS list(\
-	NORTH_JUNCTION,\
-	SOUTH_JUNCTION,\
-	EAST_JUNCTION,\
-	WEST_JUNCTION,\
-	NORTHEAST_JUNCTION,\
-	SOUTHEAST_JUNCTION,\
-	SOUTHWEST_JUNCTION,\
-	NORTHWEST_JUNCTION\
-	)
-
-#define NO_ADJ_FOUND 0
-#define ADJ_FOUND 1
-#define NULLTURF_BORDER 2
-
-/*
-	Возможно какой-то переключатель тут будет, но пока бьёнд накладно перегружать таким говном.
-	Путь до кастомных иконок: white/valtos/icons/special
-*/
-
-#define DEFAULT_FLOORS_ICON				'icons/turf/floors.dmi'
-#define DEFAULT_PLASTITANUM_ICON		'icons/turf/walls/plastitanium_wall.dmi'
-#define DEFAULT_WALL_ICON				'icons/turf/walls/baywall.dmi'
-#define DEFAULT_RWALL_ICON				'icons/turf/walls/rbaywall.dmi'
-#define DEFAULT_RIVWALL_ICON			'icons/turf/walls/rell_wall.dmi'	// Проклепанная стена дереликтов (разбираема)
-#define DEFAULT_RIVETED_ICON			'icons/turf/walls/riveted.dmi'	// Проклепанная стена ЦК (неразрушаема)
-#define DEFAULT_RWINDOW_ICON			'white/valtos/icons/window_rglass.dmi'
-
-#define ONYX_FLOORS_ICON				'white/valtos/icons/special/onyx/floors.dmi'
-#define ONYX_WALL_ICON					'white/valtos/icons/special/onyx/wall.dmi'
-#define ONYX_RWALL_ICON					'white/valtos/icons/special/onyx/reinforced_wall.dmi'
-
-#define LFWB_FLOORS_ICON				'white/valtos/icons/special/lfwb/floors.dmi'
-#define LFWB_PLASTITANUM_ICON			'white/valtos/icons/special/lfwb/plastitanium_wall.dmi'
-#define LFWB_WALL_ICON					'white/valtos/icons/special/lfwb/wall.dmi'
-#define LFWB_RWALL_ICON					'white/valtos/icons/special/lfwb/reinforced_wall.dmi'
-#define LFWB_RIVETED_ICON				'white/valtos/icons/special/lfwb/riveted.dmi'
-#define LFWB_RWINDOW_ICON				'white/valtos/icons/special/lfwb/window_rglass.dmi'
-
-#define DEFAULT_UNDERLAY_ICON DEFAULT_FLOORS_ICON
-#define DEFAULT_UNDERLAY_ICON_STATE "plating"
 
 /*smoothing macros*/
 

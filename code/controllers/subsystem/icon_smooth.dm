@@ -32,22 +32,19 @@ SUBSYSTEM_DEF(icon_smooth)
 			can_fire = FALSE
 
 /datum/controller/subsystem/icon_smooth/Initialize()
-	smooth_zlevel(1, TRUE)
-	smooth_zlevel(2, TRUE)
-
 	var/list/queue = smooth_queue
 	smooth_queue = list()
 
 	while(length(queue))
 		var/atom/smoothing_atom = queue[length(queue)]
 		queue.len--
-		if(QDELETED(smoothing_atom) || !(smoothing_atom.smoothing_flags & SMOOTH_QUEUED) || smoothing_atom.z <= 2)
+		if(QDELETED(smoothing_atom) || !(smoothing_atom.smoothing_flags & SMOOTH_QUEUED) || !smoothing_atom.z)
 			continue
 		smoothing_atom.smooth_icon()
 		CHECK_TICK
 
 	queue = blueprint_queue
-	blueprint_queue = list()
+	blueprint_queue = null
 
 	for(var/atom/movable/movable_item as anything in queue)
 		if(!isturf(movable_item.loc))
@@ -56,7 +53,6 @@ SUBSYSTEM_DEF(icon_smooth)
 		item_loc.add_blueprints(movable_item)
 
 	return SS_INIT_SUCCESS
-
 
 /datum/controller/subsystem/icon_smooth/proc/add_to_queue(atom/thing)
 	if(thing.smoothing_flags & SMOOTH_QUEUED)
