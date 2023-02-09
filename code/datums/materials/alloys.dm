@@ -85,6 +85,7 @@
 	desc = "Силикат, наполненный плазмой. Он намного более прочный и термостойкий, чем любой из входящих в него материалов."
 	color = "#ff80f4"
 	alpha = 150
+	starlight_color = COLOR_STRONG_MAGENTA
 	init_flags = MATERIAL_INIT_MAPLOAD
 	integrity_modifier = 0.5
 	armor_modifiers = list(MELEE = 0.8, BULLET = 0.8, LASER = 1.2, ENERGY = 1.2, BOMB = 0.3, BIO = 1.2, RAD = 1, FIRE = 2, ACID = 2)
@@ -104,6 +105,7 @@
 	desc = "Специализированный силикатно-титановый сплав, который обычно используется в окнах челнока."
 	color = "#cfbee0"
 	alpha = 150
+	starlight_color = COLOR_COMMAND_BLUE
 	init_flags = MATERIAL_INIT_MAPLOAD
 	armor_modifiers = list(MELEE = 1.2, BULLET = 1.2, LASER = 0.8, ENERGY = 0.8, BOMB = 0.5, BIO = 1.2, RAD = 1, FIRE = 0.8, ACID = 2)
 	sheet_type = /obj/item/stack/sheet/titaniumglass
@@ -122,6 +124,7 @@
 	desc = "Специализированный силикатно-пластитановый сплав."
 	color = "#5d3369"
 	alpha = 150
+	starlight_color = COLOR_CENTCOM_BLUE
 	init_flags = MATERIAL_INIT_MAPLOAD
 	integrity_modifier = 1.1
 	armor_modifiers = list(MELEE = 1.2, BULLET = 1.2, LASER = 1.2, ENERGY = 1.2, BOMB = 0.5, BIO = 1.2, RAD = 1, FIRE = 2, ACID = 2)

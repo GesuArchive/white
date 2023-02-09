@@ -15,13 +15,15 @@
 #define GRAVITY_PULSE_PLANE -12
 #define GRAVITY_PULSE_RENDER_TARGET "*GRAVPULSE_RENDER_TARGET"
 
-#define RENDER_PLANE_TRANSPARENT -9 //Transparent plane that shows openspace underneath the floor
+#define RENDER_PLANE_TRANSPARENT -11 //Transparent plane that shows openspace underneath the floor
 
-#define FLOOR_PLANE -8
+#define FLOOR_PLANE -10
 
-#define GAME_PLANE -7
-#define GAME_PLANE_FOV_HIDDEN -6
-#define GAME_PLANE_UPPER -5
+#define WALL_PLANE -9
+#define GAME_PLANE -8
+#define GAME_PLANE_FOV_HIDDEN -7
+#define GAME_PLANE_UPPER -6
+#define WALL_PLANE_UPPER -5
 #define GAME_PLANE_UPPER_FOV_HIDDEN -4
 
 #define SEETHROUGH_PLANE -3
@@ -29,7 +31,7 @@
 
 #define RENDER_PLANE_GAME_WORLD -1
 
-#define BLACKNESS_PLANE 0 //To keep from conflicts with SEE_BLACKNESS internals
+#define DEFAULT_PLANE 0 //Marks out the default plane, even if we don't use it
 
 #define AREA_PLANE 2
 #define MASSIVE_OBJ_PLANE 3
@@ -44,13 +46,24 @@
 #define O_LIGHTING_VISUAL_PLANE 11
 #define O_LIGHTING_VISUAL_RENDER_TARGET "O_LIGHT_VISUAL_PLANE"
 
+#define EMISSIVE_PLANE 13
 /// This plane masks out lighting to create an "emissive" effect, ie for glowing lights in otherwise dark areas.
-#define EMISSIVE_PLANE 14
+#define EMISSIVE_RENDER_PLATE 14
+#define EMISSIVE_RENDER_TARGET "*EMISSIVE_PLANE"
+// Ensures all the render targets that point at the emissive plate layer correctly
+#define EMISSIVE_Z_BELOW_LAYER 1
+#define EMISSIVE_FLOOR_LAYER 2
+#define EMISSIVE_SPACE_LAYER 3
+#define EMISSIVE_WALL_LAYER 4
 
-#define RENDER_PLANE_LIGHTING 15
+/// Masks the emissive plane
+#define EMISSIVE_MASK_PLANE 15
+#define EMISSIVE_MASK_RENDER_TARGET "*EMISSIVE_MASK_PLANE"
+
+#define RENDER_PLANE_LIGHTING 16
 
 ///Things that should render ignoring lighting
-#define ABOVE_LIGHTING_PLANE 16
+#define ABOVE_LIGHTING_PLANE 17
 
 ///---------------- MISC -----------------------
 
@@ -105,16 +118,20 @@
 // PLANE_SPACE layer(s)
 #define SPACE_LAYER 1.8
 
-//#define TURF_LAYER 2 //For easy recordkeeping; this is a byond define. Most floors (FLOOR_PLANE) and walls (GAME_PLANE) use this.
+//#define TURF_LAYER 2 //For easy recordkeeping; this is a byond define. Most floors (FLOOR_PLANE) and walls (WALL_PLANE) use this.
 
-// GAME_PLANE layers
+// FLOOR_PLANE layers
 #define CULT_OVERLAY_LAYER 2.01
 #define MID_TURF_LAYER 2.02
 #define HIGH_TURF_LAYER 2.03
 #define TURF_PLATING_DECAL_LAYER 2.031
 #define TURF_DECAL_LAYER 2.039 //Makes turf decals appear in DM how they will look inworld.
 #define ABOVE_OPEN_TURF_LAYER 2.04
+
+//WALL_PLANE layers
 #define CLOSED_TURF_LAYER 2.05
+
+// GAME_PLANE layers
 #define BULLET_HOLE_LAYER 2.06
 #define ABOVE_NORMAL_TURF_LAYER 2.08
 #define LATTICE_LAYER 2.2
@@ -174,11 +191,12 @@
 // GAME_PLANE_UPPER layers
 #define ABOVE_MOB_LAYER 4.1
 #define WALL_OBJ_LAYER 4.25
+// WALL_PLANE_UPPER layers
 #define EDGED_TURF_LAYER 4.3
 #define ON_EDGED_TURF_LAYER 4.35
-#define SPACEVINE_LAYER 4.4
 
 // GAME_PLANE_UPPER_FOV_HIDDEN layers
+#define SPACEVINE_LAYER 4.4
 #define LARGE_MOB_LAYER 4.5
 #define SPACEVINE_MOB_LAYER 4.6
 
@@ -186,6 +204,7 @@
 #define ABOVE_ALL_MOB_LAYER 4.7
 
 // ABOVE_GAME_PLANE layers
+#define NAVIGATION_EYE_LAYER 4.9
 //#define FLY_LAYER 5 //For easy recordkeeping; this is a byond define
 #define GASFIRE_LAYER 5.05
 #define RIPPLE_LAYER 5.1
@@ -196,16 +215,23 @@
 
 //---------- LIGHTING -------------
 
-#define LIGHTING_PRIMARY_LAYER 15	//The layer for the main lights of the station
-#define LIGHTING_PRIMARY_DIMMER_LAYER 15.1	//The layer that dims the main lights of the station
-#define LIGHTING_SECONDARY_LAYER 16	//The colourful, usually small lights that go on top
+// LIGHTING_PLANE layers
+// The layer of turf underlays starts at 0.01 and goes up by 0.01
+// Based off the z level. No I do not remember why, should check that
+/// Typically overlays, that "hide" portions of the turf underlay layer
+/// I'm allotting 100 z levels before this breaks. That'll never happen
+/// --Lemon
+#define LIGHTING_MASK_LAYER 10
+/// Misc things that draw on the turf lighting plane
+/// Space, solar beams, etc
+#define LIGHTING_PRIMARY_LAYER 15
+/// Stuff that needs to draw above everything else on this plane
+#define LIGHTING_ABOVE_ALL 20
 
 //---------- EMISSIVES -------------
 //Layering order of these is not particularly meaningful.
 //Important part is the seperation of the planes for control via plane_master
 
-/// The render target used by the emissive layer.
-#define EMISSIVE_RENDER_TARGET "*EMISSIVE_PLANE"
 /// The layer you should use if you _really_ don't want an emissive overlay to be blocked.
 #define EMISSIVE_LAYER_UNBLOCKABLE 9999
 

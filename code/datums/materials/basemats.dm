@@ -19,6 +19,7 @@
 	desc = "Стекло созданное плавлением песка."
 	color = "#88cdf1"
 	alpha = 150
+	starlight_color = COLOR_STARLIGHT
 	categories = list(MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE, MAT_CATEGORY_ITEM_MATERIAL=TRUE)
 	integrity_modifier = 0.1
 	sheet_type = /obj/item/stack/sheet/glass
@@ -77,6 +78,7 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	categories = list(MAT_CATEGORY_ORE = TRUE, MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE, MAT_CATEGORY_ITEM_MATERIAL=TRUE)
 	sheet_type = /obj/item/stack/sheet/mineral/diamond
 	alpha = 132
+	starlight_color = COLOR_BLUE_LIGHT
 	value_per_unit = 0.25
 	beauty_modifier = 0.3
 	armor_modifiers = list(MELEE = 1.3, BULLET = 1.3, LASER = 0.6, ENERGY = 1, BOMB = 1.2, BIO = 1, RAD = 1, FIRE = 1, ACID = 1)
@@ -146,6 +148,7 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	desc = "Кристаллы со свойствами блюспейса."
 	color = "#55bbff"
 	alpha = 200
+	starlight_color = COLOR_BLUE
 	categories = list(MAT_CATEGORY_ORE = TRUE)
 	beauty_modifier = 0.5
 	sheet_type = /obj/item/stack/sheet/bluespace_crystal
@@ -326,6 +329,7 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	desc = "Странный вид льда, теплый на ощупь."
 	color = "#88cdf1"
 	alpha = 150
+	starlight_color = COLOR_BLUE_LIGHT
 	categories = list(MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_ITEM_MATERIAL=TRUE)
 	sheet_type = /obj/item/stack/sheet/hot_ice
 	value_per_unit = 0.2
@@ -350,6 +354,7 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	desc = "Твердый металлический водород. Некоторые говорят, что это должно быть невозможно."
 	color = "#f2d5d7"
 	alpha = 150
+	starlight_color = COLOR_MODERATE_BLUE
 	categories = list(MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_ITEM_MATERIAL=TRUE)
 	sheet_type = /obj/item/stack/sheet/mineral/metal_hydrogen
 	value_per_unit = 0.35

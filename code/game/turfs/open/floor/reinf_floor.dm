@@ -198,13 +198,13 @@
 	desc = "Странно пахнет воздухом над этим зловещим полом."
 	icon_state = "plating"
 	floor_tile = null
-	var/obj/effect/cult_turf/overlay/floor/bloodcult/realappearance
+	var/obj/effect/cult_turf/realappearance
 
 
 /turf/open/floor/engine/cult/Initialize(mapload)
 	. = ..()
 	new /obj/effect/temp_visual/cult/turf/floor(src)
-	realappearance = new /obj/effect/cult_turf/overlay/floor/bloodcult(src)
+	realappearance = new /obj/effect/cult_turf(src)
 	realappearance.linked = src
 
 /turf/open/floor/engine/cult/Destroy()

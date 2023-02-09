@@ -3,7 +3,7 @@
 INITIALIZE_IMMEDIATE(/mob/dead)
 
 /mob/dead
-	sight = SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF | SEE_BLACKNESS
+	sight = SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF
 	move_resist = INFINITY
 	throwforce = 0
 
@@ -13,7 +13,8 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 	if(flags_1 & INITIALIZED_1)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
-	SET_PLANE_IMPLICIT(src, plane)
+	// Initial is non standard here, but ghosts move before they get here so it's needed. this is a cold path too so it's ok
+	SET_PLANE_IMPLICIT(src, initial(plane))
 	tag = "mob_[next_mob_id++]"
 	add_to_mob_list()
 
@@ -27,14 +28,6 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 
 /mob/dead/canUseStorage()
 	return FALSE
-
-/mob/dead/abstract_move(atom/destination)
-	var/turf/old_turf = get_turf(src)
-	var/turf/new_turf = get_turf(destination)
-	if (old_turf?.z != new_turf?.z)
-		var/same_z_layer = (GET_TURF_PLANE_OFFSET(old_turf) == GET_TURF_PLANE_OFFSET(new_turf))
-		on_changed_z_level(old_turf, new_turf, same_z_layer)
-	return ..()
 
 /mob/dead/proc/server_hop()
 	set category = "OOC"

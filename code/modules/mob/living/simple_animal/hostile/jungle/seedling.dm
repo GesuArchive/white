@@ -60,6 +60,8 @@
 	name = "beam of solar energy"
 	icon_state = "solar_beam"
 	icon = 'icons/effects/beam.dmi'
+	plane = LIGHTING_PLANE
+	layer = LIGHTING_PRIMARY_LAYER
 	duration = 5
 	randomdir = FALSE
 

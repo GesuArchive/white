@@ -47,7 +47,8 @@ GLOBAL_LIST_EMPTY(created_baseturf_lists)
 	var/dynamic_lumcount = 0
 
 	///Bool, whether this turf will always be illuminated no matter what area it is in
-	var/always_lit = FALSE
+	///Makes it look blue, be warned
+	var/space_lit = FALSE
 
 	var/tmp/lighting_corners_initialised = FALSE
 

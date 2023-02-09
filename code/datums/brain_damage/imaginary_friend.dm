@@ -62,7 +62,7 @@
 	desc = "Прекрасный, но ненастоящий друг."
 	see_in_dark = 0
 	lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
-	sight = SEE_BLACKNESS
+	sight = NONE
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	see_invisible = SEE_INVISIBLE_LIVING
 	invisibility = INVISIBILITY_OBSERVER

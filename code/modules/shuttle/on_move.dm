@@ -42,7 +42,7 @@ All ShuttleMove procs go here
 				log_attack("[key_name(M)] was shuttle gibbed by [shuttle_name].")
 				M.gib()
 		else //non-living mobs shouldn't be affected by shuttles, which is why this is an else
-			if((istype(thing, /obj/singularity) || istype(thing, /obj/energy_ball)))
+			if(istype(thing, /obj/effect/abstract) || istype(thing, /obj/singularity) || istype(thing, /obj/energy_ball))
 				continue
 			if(!thing.anchored)
 				step(thing, shuttle_dir)
@@ -152,10 +152,6 @@ All ShuttleMove procs go here
 
 // Called on atoms after everything has been moved
 /atom/movable/proc/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
-	var/turf/newT = get_turf(src)
-	if (newT.z != oldT.z)
-		var/same_z_layer = (GET_TURF_PLANE_OFFSET(oldT) == GET_TURF_PLANE_OFFSET(newT))
-		on_changed_z_level(oldT, newT, same_z_layer)
 
 	if(light)
 		update_light()

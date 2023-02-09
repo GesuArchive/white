@@ -252,9 +252,13 @@
 	var/emergency_mode = FALSE	// if true, the light is in emergency mode
 	var/no_emergency = FALSE	// if true, this light cannot ever have an emergency mode
 	var/bulb_emergency_brightness_mul = 0.25	// multiplier for this light's base brightness in emergency power mode
-	var/bulb_emergency_colour = "#FF3232"	// determines the colour of the light while it's in emergency mode
+	var/bulb_emergency_colour = COLOR_VIVID_RED	// determines the colour of the light while it's in emergency mode
 	var/bulb_emergency_pow_mul = 0.75	// the multiplier for determining the light's power in emergency mode
 	var/bulb_emergency_pow_min = 0.5	// the minimum value for the light's power in emergency mode
+	///The Light range to use when working in fire alarm status
+	var/fire_brightness = 4
+	///The Light colour to use when working in fire alarm status
+	var/fire_colour = COLOR_FIRE_LIGHT_RED
 
 /obj/machinery/light/broken
 	status = LIGHT_BROKEN
@@ -310,6 +314,7 @@
 	icon_state = "bulb"
 	base_state = "bulb"
 	fitting = "bulb"
+	fire_brightness = 2
 	brightness = 3
 	nightshift_brightness = 3
 	bulb_colour = "#FFD6AA"
@@ -448,7 +453,8 @@
 			CO = color
 		var/area/A = get_area(src)
 		if (A?.fire)
-			CO = bulb_emergency_colour
+			CO = fire_colour
+			BR = fire_brightness
 		else if (nightshift_enabled)
 			BR = nightshift_brightness
 			PO = nightshift_light_power

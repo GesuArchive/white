@@ -61,6 +61,7 @@ MMMMMMMMMMMNNNMMMMMMMMMMMMMMMyoo+so/..-/++osssyyyyyyyyyyyyyyyyssysyyysssyyysyysy
 	hub_password = "kMZy3U5jJHSiBQjr"
 	name = "White Dream" // 白い夢
 	fps = 20
+	map_format = SIDE_MAP
 #ifdef FIND_REF_NO_CHECK_TICK
 	loop_checks = FALSE
 #endif

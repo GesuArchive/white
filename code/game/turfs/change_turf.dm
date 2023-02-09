@@ -85,7 +85,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	var/old_directional_opacity = directional_opacity
 	var/old_dynamic_lumcount = dynamic_lumcount
 	var/old_rcd_memory = rcd_memory
-	var/old_always_lit = always_lit
+	var/old_space_lit = space_lit
 
 	var/old_exl = explosion_level
 	var/old_exi = explosion_id
@@ -136,11 +136,12 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 	dynamic_lumcount = old_dynamic_lumcount
 
-	if(W.always_lit)
+	var/area/our_area = W.loc
+	if(W.space_lit && !our_area.area_has_base_lighting)
 		// We are guarenteed to have these overlays because of how generation works
 		var/mutable_appearance/overlay = GLOB.fullbright_overlays[GET_TURF_PLANE_OFFSET(src) + 1]
 		W.add_overlay(overlay)
-	else if (old_always_lit)
+	else if (old_space_lit && !our_area.area_has_base_lighting)
 		var/mutable_appearance/overlay = GLOB.fullbright_overlays[GET_TURF_PLANE_OFFSET(src) + 1]
 		W.cut_overlay(overlay)
 
@@ -158,9 +159,8 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 	// We will only run this logic if the tile is not on the prime z layer, since we use area overlays to cover that
 	if(SSmapping.z_level_to_plane_offset[z])
-		var/area/thisarea = get_area(W)
-		if(thisarea.lighting_effects)
-			W.add_overlay(thisarea.lighting_effects[SSmapping.z_level_to_plane_offset[z] + 1])
+		if(our_area.lighting_effects)
+			W.add_overlay(our_area.lighting_effects[SSmapping.z_level_to_plane_offset[z] + 1])
 
 	QUEUE_SMOOTH_NEIGHBORS(src)
 	QUEUE_SMOOTH(src)

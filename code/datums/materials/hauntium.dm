@@ -4,6 +4,7 @@
 	desc = "пугающий!"
 	color = list(460/255, 464/255, 460/255, 0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0)
 	alpha = 100
+	starlight_color = COLOR_ALMOST_BLACK
 	categories = list(MAT_CATEGORY_ITEM_MATERIAL=TRUE)
 	sheet_type = /obj/item/stack/sheet/hauntium
 	value_per_unit = 0.05

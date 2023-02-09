@@ -21,6 +21,7 @@
 #define COLOR_MOSTLY_PURE_RED "#FF3300"
 #define COLOR_DARK_RED "#A50824"
 #define COLOR_RED_LIGHT "#FF3333"
+#define COLOR_FIRE_LIGHT_RED "#B61C1C"
 #define COLOR_MAROON "#800000"
 #define COLOR_VIVID_RED "#FF3232"
 #define COLOR_LIGHT_GRAYISH_RED "#E4C7C5"
@@ -47,7 +48,9 @@
 #define COLOR_TEAL "#008080"
 #define COLOR_BLUE "#0000FF"
 #define COLOR_STRONG_BLUE "#1919c8"
+#define COLOR_CENTCOM_BLUE "#134975"
 #define COLOR_BRIGHT_BLUE "#2CB2E8"
+#define COLOR_COMMAND_BLUE "#1B67A5"
 #define COLOR_MODERATE_BLUE "#555CC2"
 #define COLOR_AMETHYST "#822BFF"
 #define COLOR_BLUE_LIGHT "#33CCFF"
@@ -131,6 +134,9 @@
 
 ///Colors for eigenstates
 #define COLOR_PERIWINKLEE "#9999FF"
+
+/// Starlight!
+#define COLOR_STARLIGHT "#8589fa"
 /**
  * Some defines to generalise colours used in lighting.
  *

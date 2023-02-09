@@ -21,7 +21,7 @@ the new instance inside the host to be updated to the template's stats.
 	movement_type = FLYING
 	layer = BELOW_MOB_LAYER
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
-	sight = SEE_SELF|SEE_THRU|SEE_BLACKNESS
+	sight = SEE_SELF|SEE_THRU
 	initial_language_holder = /datum/language_holder/universal
 
 	var/freemove = TRUE
