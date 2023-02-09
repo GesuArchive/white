@@ -525,7 +525,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	hair_grad_color = sanitize_hexcolor(hair_grad_color, 3, 0)
 	hair_grad_style = sanitize_inlist(hair_grad_style, GLOB.hair_gradients_list, initial(hair_grad_style))
 	facial_grad_color = sanitize_hexcolor(facial_grad_color, 3, 0)
-	forced_voice = sanitize_inlist(forced_voice, GLOB.gtts_voices)
 	facial_grad_style = sanitize_inlist(facial_grad_style, GLOB.hair_gradients_list, initial(facial_grad_style))
 	skin_tone		= sanitize_inlist(skin_tone, GLOB.skin_tones)
 	backpack			= sanitize_inlist(backpack, GLOB.backpacklist, initial(backpack))
