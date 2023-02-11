@@ -32,11 +32,11 @@
 	var/initialized = FALSE
 
 	/// Set to 0 to prevent fire() calls, mostly for admin use or subsystems that may be resumed later
-	///		use the [SS_NO_FIRE] flag instead for systems that never fire to keep it from even being added to list that is checked every tick
+	/// use the [SS_NO_FIRE] flag instead for systems that never fire to keep it from even being added to list that is checked every tick
 	var/can_fire = TRUE
 
 	///Bitmap of what game states can this subsystem fire at. See [RUNLEVELS_DEFAULT] for more details.
-	var/runlevels = RUNLEVELS_DEFAULT	//points of the game at which the SS can fire
+	var/runlevels = RUNLEVELS_DEFAULT //points of the game at which the SS can fire
 
 	/*
 	 * The following variables are managed by the MC and should not be modified directly.
@@ -57,8 +57,17 @@
 	/// Running average of the amount of tick usage (in percents of a game tick) the subsystem has spent past its allocated time without pausing
 	var/tick_overrun = 0
 
+	/// How much of a tick (in percents of a tick) were we allocated last fire.
+	var/tick_allocation_last = 0
+
+	/// How much of a tick (in percents of a tick) do we get allocated by the mc on avg.
+	var/tick_allocation_avg = 0
+
 	/// Tracks the current execution state of the subsystem. Used to handle subsystems that sleep in fire so the mc doesn't run them again while they are sleeping
 	var/state = SS_IDLE
+
+	/// Tracks how many times a subsystem has ever slept in fire().
+	var/slept_count = 0
 
 	/// Tracks how many fires the subsystem has consecutively paused on in the current run
 	var/paused_ticks = 0
@@ -102,24 +111,31 @@
 /datum/controller/subsystem/proc/PreInit()
 	return
 
-//This is used so the mc knows when the subsystem sleeps. do not override.
+///This is used so the mc knows when the subsystem sleeps. do not override.
 /datum/controller/subsystem/proc/ignite(resumed = FALSE)
 	SHOULD_NOT_OVERRIDE(TRUE)
 	set waitfor = FALSE
+	. = SS_IDLE
+
+	tick_allocation_last = Master.current_ticklimit-(TICK_USAGE)
+	tick_allocation_avg = MC_AVERAGE(tick_allocation_avg, tick_allocation_last)
+
 	. = SS_SLEEPING
 	fire(resumed)
 	. = state
 	if (state == SS_SLEEPING)
+		slept_count++
 		state = SS_IDLE
 	if (state == SS_PAUSING)
+		slept_count++
 		var/QT = queued_time
 		enqueue()
 		state = SS_PAUSED
 		queued_time = QT
 
-//previously, this would have been named 'process()' but that name is used everywhere for different things!
-//fire() seems more suitable. This is the procedure that gets called every 'wait' deciseconds.
-//Sleeping in here prevents future fires until returned.
+///previously, this would have been named 'process()' but that name is used everywhere for different things!
+///fire() seems more suitable. This is the procedure that gets called every 'wait' deciseconds.
+///Sleeping in here prevents future fires until returned.
 /datum/controller/subsystem/proc/fire(resumed = FALSE)
 	flags |= SS_NO_FIRE
 	CRASH("Subsystem [src]([type]) does not fire() but did not set the SS_NO_FIRE flag. Please add the SS_NO_FIRE flag to any subsystem that doesn't fire so it doesn't get added to the processing list and waste cpu.")
@@ -155,9 +171,10 @@
 	else
 		next_fire = queued_time + wait + (world.tick_lag * (tick_overrun/100))
 
-//Queue it to run.
-//	(we loop thru a linked list until we get to the end or find the right point)
-//	(this lets us sort our run order correctly without having to re-sort the entire already sorted list)
+
+///Queue it to run.
+/// (we loop thru a linked list until we get to the end or find the right point)
+/// (this lets us sort our run order correctly without having to re-sort the entire already sorted list)
 /datum/controller/subsystem/proc/enqueue()
 	var/SS_priority = priority
 	var/SS_flags = flags

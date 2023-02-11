@@ -3,6 +3,7 @@ SUBSYSTEM_DEF(vote)
 	wait = 10
 
 	flags = SS_KEEP_TIMING|SS_NO_INIT
+	init_order = INIT_ORDER_VOTE
 
 	runlevels = RUNLEVEL_LOBBY | RUNLEVELS_DEFAULT
 
