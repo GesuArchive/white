@@ -128,7 +128,7 @@
 	var/datum/browser/popup = new(src, "adv_who", null, holder ? 600 : 450, 700)
 	popup.add_stylesheet("adv_whocss", 'html/adv_who.css')
 	popup.set_content(msg)
-	popup.open()
+	popup.open(FALSE)
 
 /client/proc/inactivity2text()
 	var/seconds = inactivity/10
