@@ -197,21 +197,24 @@
 				return TRUE
 	return FALSE
 
-/turf/closed/wall/r_wall/update_icon()
+/turf/closed/wall/r_wall/update_icon(updates=ALL)
 	. = ..()
 	if(d_state != INTACT)
 		smoothing_flags = NONE
-	else
-		smoothing_flags = SMOOTH_BITMASK
-		QUEUE_SMOOTH_NEIGHBORS(src)
-		QUEUE_SMOOTH(src)
+		return
+	if (!(updates & UPDATE_SMOOTHING))
+		return
+	smoothing_flags = SMOOTH_BITMASK
+	QUEUE_SMOOTH_NEIGHBORS(src)
+	QUEUE_SMOOTH(src)
 
+// We don't react to smoothing changing here because this else exists only to "revert" intact changes
 /turf/closed/wall/r_wall/update_icon_state()
-	. = ..()
 	if(d_state != INTACT)
 		icon_state = "r_wall-[d_state]"
 	else
 		icon_state = "[base_icon_state]-[smoothing_junction]"
+	return ..()
 
 /turf/closed/wall/r_wall/wall_singularity_pull(current_size)
 	if(current_size >= STAGE_FIVE)

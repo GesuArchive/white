@@ -255,7 +255,7 @@
 	turf_mask.color = list(255,255,255,0, 255,255,255,0, 255,255,255,0, 0,0,0,0, 0,0,0,255)
 	underlay_appearance.overlays += turf_mask
 
-/atom/movable/update_overlays()
+/atom/movable/update_overlays(updates=ALL)
 	. = ..()
 	var/emissive_block = update_emissive_block()
 	if(emissive_block)

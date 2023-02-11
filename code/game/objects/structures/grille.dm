@@ -57,6 +57,14 @@
 		if(holes & mask)
 			filters += filter(type="alpha", icon = icon('icons/obj/smooth_structures/grille.dmi', "broken_[i]"), flags = MASK_INVERSE)
 
+/obj/structure/grille/update_appearance(updates)
+	if(QDELETED(src) || broken)
+		return
+
+	. = ..()
+	if((updates & UPDATE_SMOOTHING) && (smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK)))
+		QUEUE_SMOOTH(src)
+
 /obj/structure/grille/examine(mob/user)
 	. = ..()
 	. += "<hr>"
@@ -168,8 +176,6 @@
 			set_anchored(!anchored)
 			user.visible_message(span_notice("[user] [anchored ? "прикручивает" : "откручивает"] [src.name].") , \
 				span_notice("[anchored ? "прикручиваю [src.name] к полу" : "откручиваю [src.name] от пола"]."))
-			if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
-				QUEUE_SMOOTH(src)
 			return
 	else if(istype(W, /obj/item/stack/rods) && broken)
 		var/obj/item/stack/rods/R = W

@@ -401,7 +401,7 @@
 	if(. && receive_ricochet_damage_coeff)
 		take_damage(P.damage * receive_ricochet_damage_coeff, P.damage_type, P.flag, 0, turn(P.dir, 180), P.armour_penetration) // pass along receive_ricochet_damage_coeff damage to the structure for the ricochet
 
-/obj/update_overlays()
+/obj/update_overlays(updates=ALL)
 	. = ..()
 	if(resistance_flags & ON_FIRE)
 		. += custom_fire_overlay ? custom_fire_overlay : GLOB.fire_overlay

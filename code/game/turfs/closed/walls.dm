@@ -79,6 +79,7 @@
 
 	var/turf/new_floor = ScrapeAway()
 	new_floor.air_update_turf()
+	QUEUE_SMOOTH_NEIGHBORS(src)
 
 /turf/closed/wall/proc/break_wall()
 	new sheet_type(src, sheet_amount)
