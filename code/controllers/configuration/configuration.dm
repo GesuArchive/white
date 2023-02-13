@@ -21,6 +21,7 @@
 	var/motd
 	var/policy
 	var/current_version_string
+	var/current_version_less
 
 	/// If the configuration is loaded
 	var/loaded = FALSE
@@ -423,6 +424,7 @@ Example config:
 	if(info_file?.len)
 		var/version_text = "[info_file[3][1]].[info_file[3][2]][info_file[3][3]][info_file[3][4]].[info_file[3][5]]"
 		current_version_string = "-- #<b>Версия</b>:> [version_text] (<a href='https://github.com/frosty-dev/white/commit/[info_file[1]]'>[uppertext(info_file[2])]</a>) --"
+		current_version_less = version_text
 
 /datum/controller/configuration/proc/load_assblast()
 	var/list/templist = world.file2list("[global.config.directory]/assblasted_people.txt")

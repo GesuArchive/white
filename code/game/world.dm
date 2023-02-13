@@ -336,9 +336,7 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 
 	var/s = ""
 
-	s = "SS13.SU\] <big><b><a href=\"https://discord.station13.ru\">[prob(5) ? "Чёpнaя Peaльнocть" : "Бeлaя Мeчтa"]</a>:</b> Итерация #[global.config.current_version_string]</big>\n"
-
-	s += "<img src='https://assets.station13.ru/l/nwd.png'>\n"
+	s = "<big><b>[ddlc_text("Белая Мечта")]:</b> #[global.config.current_version_less]</big>"
 
 	status = s
 
