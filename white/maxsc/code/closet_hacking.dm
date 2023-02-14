@@ -11,7 +11,7 @@
 
 /obj/item/closet_hacker/update_overlays()
 	. = ..()
-	. += mutable_appearance(icon, "[icon_state]_yellow", src)
+	. += mutable_appearance(icon, "[icon_state]_yellow", layer, src)
 	. += emissive_appearance(icon, "[icon_state]_yellow", src, alpha = src.alpha)
 
 /datum/crafting_recipe/closet_hacker
