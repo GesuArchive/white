@@ -605,7 +605,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 				to_chat(src, span_notice("Отправляем вас в [panic_name ? panic_name : panic_addr]."))
 				winset(src, null, "command=.options")
 				src << link("[panic_addr]?redirect=1")
-			src << link("https://discord.station13.ru")
+			src << link("https://station13.ru")
 			sleep(5)
 			winset(src, null, "command=.quit")
 			return
