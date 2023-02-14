@@ -233,7 +233,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 		var/mob/living/carbon/archimedes = clong
 		if((HAS_TRAIT(archimedes, TRAIT_ROD_SUPLEX) || (archimedes.mind && HAS_TRAIT(archimedes.mind, TRAIT_ROD_SUPLEX))))
 			if(archimedes.throw_mode)
-				INVOKE_ASYNC(src, PROC_REF(attack_hand), clong)
+				INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, attack_hand), clong)
 				return
 		penetrate(clong)
 		return ..()
