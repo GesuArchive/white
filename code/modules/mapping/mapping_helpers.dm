@@ -605,6 +605,23 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 	floor.burn_tile()
 	qdel(src)
 
+/obj/effect/mapping_helpers/plating_floor
+	name = "plating floor"
+	icon = 'icons/turf/damaged.dmi'
+	icon_state = "plating_visible1"
+	late = TRUE
+	layer = ABOVE_NORMAL_TURF_LAYER
+
+/obj/effect/mapping_helpers/plating_floor/Initialize(mapload)
+	.=..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/mapping_helpers/plating_floor/LateInitialize()
+	var/turf/open/floor/floor = get_turf(src)
+	floor.plating_fucked = TRUE
+	floor.update_appearance()
+	qdel(src)
+
 /obj/effect/mapping_helpers/turf_rotation
 	name = "ротация турфов"
 	icon_state = "turf_rotation"
