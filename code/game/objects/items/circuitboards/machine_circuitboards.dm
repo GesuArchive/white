@@ -480,7 +480,8 @@
 		/obj/machinery/smartfridge/organ = "organs",
 		/obj/machinery/smartfridge/chemistry = "chems",
 		/obj/machinery/smartfridge/chemistry/virology = "viruses",
-		/obj/machinery/smartfridge/disks = "disks")
+		/obj/machinery/smartfridge/disks = "disks",
+		/obj/machinery/smartfridge/ai_laws =  "ai_laws")
 	needs_anchored = FALSE
 	var/is_special_type = FALSE
 

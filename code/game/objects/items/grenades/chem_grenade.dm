@@ -361,6 +361,21 @@
 	beakers += B1
 	beakers += B2
 
+/obj/item/grenade/chem_grenade/resin_foam/small
+	name = "противопожарная граната"
+	desc = "Используется для оперативного тушения пожаров."
+
+/obj/item/grenade/chem_grenade/resin_foam/small/Initialize(mapload)
+	. = ..()
+	var/obj/item/reagent_containers/glass/beaker/large/B1 = new(src)
+	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
+
+	B1.reagents.add_reagent(/datum/reagent/aluminium, 45)
+	B2.reagents.add_reagent(/datum/reagent/resin_foaming_agent, 15)
+	B2.reagents.add_reagent(/datum/reagent/toxin/acid/fluacid, 15)
+
+	beakers += B1
+	beakers += B2
 
 /obj/item/grenade/chem_grenade/smart_metal_foam
 	name = "граната с адаптивной металлопеной"
@@ -598,7 +613,7 @@
 	B1.reagents.add_reagent(/datum/reagent/water, 50)
 	B1.reagents.add_reagent(/datum/reagent/toxin/mutetoxin, 50)
 	B1.reagents.add_reagent(/datum/reagent/toxin/spore, 75)
-	B1.reagents.add_reagent(/datum/reagent/toxin/itching_powder, 50)
+	B1.reagents.add_reagent(/datum/reagent/toxin/staminatoxin, 50)
 	B2.reagents.add_reagent(/datum/reagent/fluorosurfactant, 150)
 	B2.reagents.add_reagent(/datum/reagent/toxin/mutagen, 150)
 	beakers += B1

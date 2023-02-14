@@ -1395,6 +1395,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Снабжение: Шахтёрский офис"
 	icon_state = "mining"
 
+/area/cargo/miningoffice/meteor
+	name = "Улавливатель метеоритов"
+	icon_state = "mining_meteor"
+
 /area/cargo/meeting_room
 	name = "Снабжение: Комната встреч"
 	icon_state = "mining"

@@ -53,6 +53,8 @@
 	var/list/allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 	)
 	/// List of skins with their appropriate clothing flags.
 	var/list/skins = list(
@@ -125,6 +127,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/construction/rcd,
 		/obj/item/storage/bag/construction,
 	)
@@ -174,6 +178,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/analyzer,
 		/obj/item/t_scanner,
 		/obj/item/pipe_dispenser,
@@ -227,6 +233,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/analyzer,
 		/obj/item/t_scanner,
 		/obj/item/pipe_dispenser,
@@ -293,6 +301,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/resonator,
 		/obj/item/mining_scanner,
 		/obj/item/t_scanner/adv_mining_scanner,
@@ -379,6 +389,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/mail,
 		/obj/item/delivery/small,
 		/obj/item/paper,
@@ -425,6 +437,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/healthanalyzer,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/glass/beaker,
@@ -512,6 +526,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/healthanalyzer,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/glass/beaker,
@@ -578,6 +594,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/analyzer,
 		/obj/item/dnainjector,
 		/obj/item/biopsy_tool,
@@ -630,6 +648,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/ammo_box,
 		/obj/item/ammo_casing,
 		/obj/item/reagent_containers/spray/pepper,
@@ -684,6 +704,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/ammo_box,
 		/obj/item/ammo_casing,
 		/obj/item/reagent_containers/spray/pepper,
@@ -743,6 +765,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/ammo_box,
 		/obj/item/ammo_casing,
 		/obj/item/restraints/handcuffs,
@@ -794,6 +818,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/bikehorn,
 		/obj/item/food/grown/banana,
 		/obj/item/grown/bananapeel,
@@ -851,6 +877,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/ammo_box,
 		/obj/item/ammo_casing,
 		/obj/item/restraints/handcuffs,
@@ -935,6 +963,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/ammo_box,
 		/obj/item/ammo_casing,
 		/obj/item/restraints/handcuffs,
@@ -996,6 +1026,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/teleportation_scroll,
 		/obj/item/vibro_weapon,
 		/obj/item/gun/magic,
@@ -1049,6 +1081,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/gun,
 		/obj/item/ammo_box,
 		/obj/item/ammo_casing,
@@ -1107,6 +1141,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/analyzer,
 		/obj/item/t_scanner,
 		/obj/item/pipe_dispenser,
@@ -1144,10 +1180,10 @@
 	ru_name = "ЕРТ"
 	desc = "Высокоскоростной спасательный скафандр от Нанотрэйзен, предназначенный для аварийно-спасательных отрядов."
 	extended_desc = "Обтекаемый скафандр от Нанотрэйзен, эти гладкие черные скафандры может носить только \
-			элита аварийно-спасательных отрядов. Совмещает в себе тонкий и изящный дизайн костюма, \
-			олицетворяющий прочность керамо-аблазивных бронепластин и эргономичный корпус. \
-			Носитель будет надежно защищен от холодной пустоты космоса, не потеряв при этом высокую мобильность. \
-		    Привнесите спасение, надежду и единственно верное корпоративное мнение."
+		элита аварийно-спасательных отрядов. Совмещает в себе тонкий и изящный дизайн костюма, \
+		олицетворяющий прочность керамо-аблазивных бронепластин и эргономичный корпус. \
+		Носитель будет надежно защищен от холодной пустоты космоса, не потеряв при этом высокую мобильность. \
+		Привнесите спасение, надежду и единственно верное корпоративное мнение."
 	default_skin = "responsory"
 	armor = list(MELEE = 50, BULLET = 40, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 100, ACID = 90, WOUND = 10)
 	atom_flags = PREVENT_CONTENTS_EXPLOSION_1
@@ -1159,6 +1195,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/ammo_box,
 		/obj/item/ammo_casing,
 		/obj/item/restraints/handcuffs,
@@ -1236,6 +1274,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/ammo_box,
 		/obj/item/ammo_casing,
 		/obj/item/restraints/handcuffs,
@@ -1292,6 +1332,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/ammo_box,
 		/obj/item/ammo_casing,
 		/obj/item/restraints/handcuffs,
@@ -1344,6 +1386,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/restraints/handcuffs,
 	)
 	skins = list(
@@ -1393,6 +1437,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/gun,
 	)
 	skins = list(
@@ -1445,6 +1491,8 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
+		/obj/item/watertank,
+		/obj/item/tactical_recharger,
 		/obj/item/gun,
 	)
 	skins = list(

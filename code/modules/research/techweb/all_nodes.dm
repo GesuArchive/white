@@ -65,6 +65,7 @@
 		"c9mm",
 		"c10mm",
 		"c45",
+		"a50ae",
 		"sec_38",
 		"c38_bouncy",
 		"foam_dart",
@@ -99,6 +100,8 @@
 		"custom_vendor_refill",
 		"price_tagger",
 		"flamethrower",
+		"holosignrestaurant",
+		"holosignbar",
 	)
 
 /datum/techweb_node/basic_medical
@@ -152,6 +155,7 @@
 		"rollerbed",
 		"iv_drip_tele",
 		"breathing_bag",
+		"hypno_watch",
 	)
 
 /datum/techweb_node/mmi
@@ -574,6 +578,7 @@
 		"bounty_pad",
 		"bounty_pad_control",
 		"price_controller",
+		"bounty",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
@@ -1237,10 +1242,11 @@
 		"safeguard_module",
 		"onehuman_module",
 		"protectstation_module",
+		"trust_nt_module",
 		"quarantine_module",
 		"oxygen_module",
 		"freeform_module",
-	"reset_module",
+		"reset_module",
 		"purge_module",
 		"remove_module",
 		"freeformcore_module",
@@ -1249,7 +1255,7 @@
 		"tyrant_module",
 		"overlord_module",
 		"corporate_module",
-	"default_module",
+		"default_module",
 		"borg_ai_control",
 		"mecha_tracking_ai_control",
 		"aiupload",
@@ -1531,6 +1537,7 @@
 	)
 	design_ids = list(
 		"cybernetic_ears",
+		"ci-basic_eyes",
 		"cybernetic_heart_tier2",
 		"cybernetic_liver_tier2",
 		"cybernetic_lungs_tier2",
@@ -1539,6 +1546,7 @@
 		"robot_good_arm_right",
 		"robot_good_leg_left",
 		"robot_good_leg_right",
+		"robot_head",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000)
 
@@ -1559,24 +1567,37 @@
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1500)
 
-/datum/techweb_node/cyber_implants
-	id = "cyber_implants"
-	display_name = "Кибернетические импланты"
+/datum/techweb_node/basic_cyber_implants
+	id = "basic_cyber_implants"
+	display_name = "Базовые кибернетические импланты"
 	description = "Начало пути симбиоза человека и машины."
 	prereq_ids = list(
-		"adv_biotech",
+		"biotech",
 		"datatheory",
 	)
 	design_ids = list(
 		"ci-nutriment",
 		"ci-breather",
+		"ci-biomonitor",
+	)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000)
+
+/datum/techweb_node/cyber_implants
+	id = "cyber_implants"
+	display_name = "Кибернетические импланты"
+	description = "То, что невозможно починить, можно заменить."
+	prereq_ids = list(
+		"adv_biotech",
+		"basic_cyber_implants",
+	)
+	design_ids = list(
 		"ci-gloweyes",
 		"ci-welding",
 		"ci-medhud",
 		"ci-sechud",
 		"ci-diaghud",
 	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1500)
 
 /datum/techweb_node/adv_cyber_implants
 	id = "adv_cyber_implants"
@@ -1592,7 +1613,6 @@
 		"ci-surgery",
 		"ci-reviver",
 		"ci-nutrimentplus",
-		"ci-biomonitor",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
@@ -2977,8 +2997,8 @@
 
 /datum/techweb_node/fishing
 	id = "fishing"
-	display_name = "Fishing Technology"
-	description = "Cutting edge fishing advancements."
+	display_name = "Технологии рыбалки"
+	description = "Исконное ремесло в глубоком космосе."
 	prereq_ids = list(
 		"base",
 	)

@@ -86,6 +86,14 @@
 	)
 	icon_state = "bridge_template"
 
+/obj/effect/landmark/stationroom/bridge_garden/random
+	template_names = list(
+		"Tropic Garden" = 3,
+		"Snow Garden" = 3,
+		"Lava Garden" = 3,
+		"Meteor Garden" = 3,
+		)
+	icon_state = "bridge_garden"
 
 /obj/effect/landmark/stationroom/brig/default
 	template_names = list("Default Brig" = 1)

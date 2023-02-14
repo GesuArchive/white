@@ -58,12 +58,12 @@
 	// Should not happen. Holding brain is destroyed and the chip hasn't had its state set appropriately.
 	if(QDELETED(holding_brain))
 		stack_trace("Skillchip's owner is null or qdeleted brain.")
-		return "Skillchip cannot detect viable brain."
+		return "Мозг не обнаружен."
 
 	// Also should not happen. We're somehow activating skillchips in a bodyless brain.
 	if(QDELETED(holding_brain.owner))
 		stack_trace("Skillchip's brain has no owner, owner is null or owner qdeleted.")
-		return "Skillchip cannot detect viable body."
+		return "Тело не обнаружено."
 
 	// We have a holding brain, the holding brain has an owner. If we're forcing this, do it hard and fast.
 	if(force)
@@ -72,7 +72,7 @@
 
 	// Is the chip still experiencing a cooldown period?
 	if(!COOLDOWN_FINISHED(src, chip_cooldown))
-		return "Skillchip is still recharging for [COOLDOWN_TIMELEFT(src, chip_cooldown) * 0.1]s"
+		return "Скилчип все еще на перезарядке: [COOLDOWN_TIMELEFT(src, chip_cooldown) * 0.1]"
 
 	// So, we have a brain and that brain has a body. Let's start checking for incompatibility.
 	var/activate_msg = has_activate_incompatibility(holding_brain)
@@ -94,18 +94,18 @@
  */
 /obj/item/skillchip/proc/try_deactivate_skillchip(silent = FALSE, force = FALSE)
 	if(!active)
-		return "Skillchip is not active."
+		return "Скилчип не активен."
 
 	// Should not happen. Holding brain is destroyed and the chip hasn't had its state set appropriately.
 	if(QDELETED(holding_brain))
 		stack_trace("Skillchip's owner is null or qdeleted brain.")
-		return "Skillchip cannot detect viable brain."
+		return "Мозг не обнаружен."
 
 	// Also should not happen. We're somehow deactivating skillchips in a bodyless brain.
 	if(QDELETED(holding_brain.owner))
 		active = FALSE
 		stack_trace("Skillchip's brain has no owner, owner is null or owner qdeleted.")
-		return "Skillchip cannot detect viable body."
+		return "Тело не обнаружено."
 
 	// We have a holding brain, the holding brain has an owner. If we're forcing this, do it hard and fast.
 	if(force)
@@ -114,7 +114,7 @@
 
 	// Is the chip still experiencing a cooldown period?
 	if(!COOLDOWN_FINISHED(src, chip_cooldown))
-		return "Skillchip is still recharging for [COOLDOWN_TIMELEFT(src, chip_cooldown) * 0.1]s"
+		return "Скилчип все еще на перезарядке: [COOLDOWN_TIMELEFT(src, chip_cooldown) * 0.1]s"
 
 	// We're good to go. Deactive this chip.
 	on_deactivate(holding_brain.owner, silent)
@@ -193,13 +193,13 @@
  */
 /obj/item/skillchip/proc/has_activate_incompatibility(obj/item/organ/brain/brain)
 	if(QDELETED(brain))
-		return "No brain detected."
+		return "Мозг не обнаружен."
 
 	// Check if there's enough complexity usage left to activate the skillchip.
 	var/max_complexity = brain.get_max_skillchip_complexity()
 	var/new_complexity = brain.get_used_skillchip_complexity() + get_complexity()
 	if(new_complexity > max_complexity)
-		return "Skillchip is too complex to activate: [new_complexity] total out of [max_complexity] max complexity."
+		return "Скилчип слишком сложен для активации: занято [new_complexity] из [max_complexity] единиц операционной памяти."
 
 	return FALSE
 
@@ -217,11 +217,11 @@
 /obj/item/skillchip/proc/has_skillchip_incompatibility(obj/item/skillchip/skillchip)
 	// Only allow multiple copies of a type if SKILLCHIP_ALLOWS_MULTIPLE flag is set
 	if(!(skillchip_flags & SKILLCHIP_ALLOWS_MULTIPLE) && (skillchip.type == type))
-		return "Duplicate chip detected: [skillchip.name]"
+		return "Обнаружен скилчип-дубликат: [skillchip.name]"
 
 	// Prevent implanting multiple chips of the same category.
 	if((skillchip_flags & SKILLCHIP_RESTRICTED_CATEGORIES) && (skillchip.chip_category in incompatibility_list))
-		return "Incompatible with implanted [skillchip.chip_category] chip [skillchip.name]."
+		return "Обнаружена несовместимость семейства [skillchip.chip_category] скилчипа [skillchip.name]."
 
 	return FALSE
 
@@ -238,12 +238,12 @@
 /obj/item/skillchip/proc/has_mob_incompatibility(mob/living/carbon/target)
 	// No carbon/carbon of incorrect type
 	if(!istype(target))
-		return "Incompatible lifeform detected."
+		return "Несовместимая форма жизни."
 
 	// No brain
 	var/obj/item/organ/brain/brain = target.getorganslot(ORGAN_SLOT_BRAIN)
 	if(QDELETED(brain))
-		return "No brain detected."
+		return "Мозг не обнаружен."
 
 	// Check brain incompatibility. This also performs skillchip-to-skillchip incompatibility checks.
 	var/brain_message = has_brain_incompatibility(brain)
@@ -263,7 +263,7 @@
 /obj/item/skillchip/proc/has_brain_incompatibility(obj/item/organ/brain/brain)
 	if(!istype(brain))
 		stack_trace("Attempted to check incompatibility with invalid brain object [brain].")
-		return "Incompatible brain."
+		return "Несовместимый мозг."
 
 	var/chip_message
 
@@ -272,7 +272,7 @@
 	var/used_slots = brain.get_used_skillchip_slots()
 
 	if(used_slots + slot_use > max_slots)
-		return "Not enough free slots. You have [max_slots - used_slots] free and need [slot_use]."
+		return "Все слоты скилчипов заняты. Наданный момент [max_slots - used_slots] слотов свободно и требуется еще [slot_use]."
 
 	// Check if this chip is incompatible with any other chips in the brain.
 	for(var/skillchip in brain.skillchips)

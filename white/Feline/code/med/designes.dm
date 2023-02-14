@@ -134,6 +134,18 @@
 	sub_category = list("Продвинутые протезы")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
+/datum/design/robot_head
+	name = "Протез головы"
+	desc = "Стандартная укрепленная черепная коробка, с подключаемой к позвоночнику нейронным сокетом и сенсорными стыковочными узлами."
+	id = "robot_head"
+	build_path = /obj/item/bodypart/head/robot
+	build_type = MECHFAB
+	construction_time = 80
+	materials = list(/datum/material/iron=5000)
+	category = list("Кибернетика")
+	sub_category = list("Продвинутые протезы")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
 /datum/design/body_bag
 	name = "Мешок для трупов"
 	desc = "Полиэтиленовый пакет, предназначенный для хранения и транспортировки трупов."
@@ -289,6 +301,17 @@
 	category = list("Медицинское снаряжение", "Снаряжение СБ")
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
+
+/datum/design/hypno_watch
+	name = "карманные часы"
+	desc = "Красивая реплика старинных механических часов на цепочке. Корпус выполнен из золота и ярко блестит при свете ламп. В этом блеске есть что-то гипнотически завораживающее..."
+	id = "hypno_watch"
+	build_path = /obj/item/hypno_watch
+	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/iron = 1000, /datum/material/glass = 1000, /datum/material/gold = 2000)
+	category = list("Прочее")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/solnce
 	name = "МК-Солнце"

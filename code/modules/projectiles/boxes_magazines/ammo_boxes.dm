@@ -63,13 +63,20 @@
 	desc = "Обычные патроны калибра 10мм. Используется в пистолетах."
 	icon_state = "10mmbox"
 	ammo_type = /obj/item/ammo_casing/c10mm
-	max_ammo = 20
+	max_ammo = 30
 
 /obj/item/ammo_box/c45
 	name = "упаковка патронов .45 калибра"
 	desc = "Обычные патроны калибра .45мм. Используется в пистолетах и пистолет-пулеметах."
 	icon_state = "45box"
 	ammo_type = /obj/item/ammo_casing/c45
+	max_ammo = 30
+
+/obj/item/ammo_box/a50ae
+	name = "патрон .50AE калибра"
+	desc = "Обычные патроны калибра 50AE. Используется в пистолете Пустынный Орел."
+	icon_state = "50aebox"
+	ammo_type = /obj/item/ammo_casing/a50ae
 	max_ammo = 20
 
 /obj/item/ammo_box/a40mm

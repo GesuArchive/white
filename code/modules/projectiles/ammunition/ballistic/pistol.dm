@@ -49,6 +49,6 @@
 
 /obj/item/ammo_casing/a50ae
 	name = "патрон .50AE калибра"
-	desc = "Обычный патрон калибра 10мм. Используется в пистолете Пустынный Орел."
+	desc = "Обычный патрон калибра 50AE. Используется в пистолете Пустынный Орел."
 	caliber = ".50"
 	projectile_type = /obj/projectile/bullet/a50ae

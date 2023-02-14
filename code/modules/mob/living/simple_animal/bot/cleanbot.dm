@@ -22,7 +22,7 @@
 	path_image_color = "#993299"
 
 	var/blood = 1
-	var/trash = 0
+	var/trash = 1
 	var/pests = 0
 	var/drawn = 0
 
@@ -301,7 +301,9 @@
 		/obj/effect/decal/cleanable/greenglow,
 		/obj/effect/decal/cleanable/dirt,
 		/obj/effect/decal/cleanable/insectguts,
-		/obj/effect/decal/remains
+		/obj/effect/decal/remains,
+		/obj/effect/decal/cleanable/ants,
+		/obj/effect/decal/cleanable/garbage
 		)
 
 	if(blood)
@@ -319,6 +321,7 @@
 	if(trash)
 		target_types += /obj/item/trash
 		target_types += /obj/item/food/deadmouse
+		target_types += /obj/item/shard
 
 	target_types = typecacheof(target_types)
 

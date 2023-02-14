@@ -65,4 +65,34 @@
 	response_help_simple = "гладит"
 	turns_per_move = 10
 	pet_bonus = TRUE
-	pet_bonus_emote = "chitters proudly!"
+	pet_bonus_emote = "радостно стрекочет!"
+
+/mob/living/simple_animal/hostile/retaliate/bat/magmawing
+	name = "магмовый страж"
+	desc = "Будучи выпущенными очень близко к лаве, некоторые стражи приспосабливаются к экстремальной жаре и используют лаву как оружие..."
+	icon = 'icons/mob/lavaland/watcher.dmi'
+	icon_state = "watcher_magmawing"
+	icon_living = "watcher_magmawing"
+	icon_dead = "watcher_magmawing_dead"
+	maxHealth = 300 //Compensate for the lack of slowdown on projectiles with a bit of extra health
+	health = 300
+	melee_damage_lower = 15
+	melee_damage_upper = 20
+	light_system = MOVABLE_LIGHT
+	light_range = 3
+	light_power = 2.5
+	light_color = LIGHT_COLOR_LAVA
+	projectiletype = /obj/projectile/temp/basilisk/magmawing
+
+/mob/living/simple_animal/hostile/retaliate/bat/icewing
+	name = "ледяной страж"
+	desc = "Очень редко некоторые стражи предпочитают обитать вдали от источников тепла. В отсутствие тепла они становятся ледяными и хрупкими, но стреляют гораздо более сильными морозными ударами."
+	icon = 'icons/mob/lavaland/watcher.dmi'
+	icon_state = "watcher_icewing"
+	icon_living = "watcher_icewing"
+	icon_dead = "watcher_icewing_dead"
+	maxHealth = 200
+	health = 200
+	melee_damage_lower = 20
+	melee_damage_upper = 25
+	projectiletype = /obj/projectile/temp/basilisk/icewing

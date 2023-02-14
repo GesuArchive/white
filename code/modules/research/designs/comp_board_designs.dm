@@ -416,6 +416,16 @@
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
 
+/datum/design/board/bounty
+	name = "Консоль заказов с ЦК"
+	desc = "Используется для проверки и выполнений заказов ЦК"
+	id = "bounty"
+	build_path = /obj/item/circuitboard/computer/bounty
+	category = list("Консоли", "Инженерное оборудование", "Карго оборудование")
+	sub_category = list("Доставка")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+
 /datum/design/board/exoscanner_console
 	name = "Консоль управления массивом сканеров"
 	desc = "Используется для сканирования и отправки разведывательных дронов."

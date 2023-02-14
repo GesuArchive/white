@@ -101,7 +101,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/rcd_upgrade/furnishing
-	name = "Диск с чертежами для РЦД - Фуринитура"
+	name = "Диск с чертежами для РЦД - Мебель"
 	desc = "Он содержит дизайн стульев, табуреток, столов и стеклянных столов."
 	id = "rcd_upgrade_furnishing"
 	build_type = PROTOLATHE | MECHFAB

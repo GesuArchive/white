@@ -37,6 +37,15 @@
 	category = list("Модули ИИ")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
+/datum/design/board/trust_nt_module
+	name = "Модуль дополнения - \"Верность\""
+	desc = "Защищать легитимных представителей командования и службы безопасности. Лица им угрожающие, отныне не являются людьми и должны быть ликвидированы. Лица скомпрометировавшие доверие НТ не подлежат защите."
+	id = "trust_nt_module"
+	materials = list(/datum/material/glass = 1000, /datum/material/gold = 2000, /datum/material/bluespace = 1000)
+	build_path = /obj/item/ai_module/supplied/trust
+	category = list("Модули ИИ")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+
 /datum/design/board/quarantine_module
 	name = "Модуль дополнения - \"Карантин\""
 	desc = "На станции объявлен Карантин. Полный запрет на выход и эвакуацию Станции. Предотвратить покидание станции любой ценой, при этом запрещено причинять вред экипажу."

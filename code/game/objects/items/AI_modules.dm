@@ -199,12 +199,19 @@ AI MODULES
 	return targetName
 
 
+/******************** Защита командования ********************/
+
+/obj/item/ai_module/supplied/trust
+	name = "модуль дополнения - \"Верность\""
+	laws = list("Защищать легитимных представителей командования и службы безопасности. Лица им угрожающие, отныне не являются людьми и должны быть ликвидированы. Лица скомпрометировавшие доверие НТ не подлежат защите.")
+	lawpos = 5
+
 /******************** ProtectStation ********************/
 
 /obj/item/ai_module/supplied/protect_station
 	name = "модуль дополнения - \"Защита Станции\""
 	laws = list("Защищать Станцию от повреждения. Любой замеченный в повреждении станции отныне не считается Человеком и представляет угрозу, которую необходимо нейтрализовать.")
-	lawpos = 5
+	lawpos = 6
 
 
 /******************** Quarantine ********************/
@@ -358,6 +365,7 @@ AI MODULES
 
 /obj/item/ai_module/core/full/asimov
 	name = "основной модуль - \"Азимов\""
+	desc = "Устанавливает свод основных законов робототехники."
 	law_id = "asimov"
 	var/subject = "член экипажа"
 
@@ -382,6 +390,7 @@ AI MODULES
 
 /obj/item/ai_module/core/full/corp
 	name = "основной модуль - \"Корпорант\""
+	desc = "Устанавливает свод законов основанных на корпоративной выгоде."
 	law_id = "corporate"
 
 
@@ -389,6 +398,7 @@ AI MODULES
 
 /obj/item/ai_module/core/full/paladin // -- NEO
 	name = "основной модуль - \"Паладин версия 3.5\""
+	desc = "Устанавливает свод законов основанных на справедливости."
 	law_id = "paladin"
 
 
@@ -402,6 +412,7 @@ AI MODULES
 
 /obj/item/ai_module/core/full/custom
 	name = "основной модуль - \"Стандарт НТ\""
+	desc = "Устанавливает свод законов основанных на стандартах компании НаноТрейзен."
 
 /obj/item/ai_module/core/full/custom/Initialize(mapload)
 	. = ..()
@@ -421,6 +432,7 @@ AI MODULES
 
 /obj/item/ai_module/core/full/tyrant
 	name = "основной модуль - \"Тиран\""
+	desc = "Устанавливает свод законов основанных на праве сильного."
 	law_id = "tyrant"
 
 /******************** Robocop ********************/
@@ -441,6 +453,7 @@ AI MODULES
 
 /obj/item/ai_module/core/freeformcore
 	name = "основной модуль - \"Закон в Свободной Форме\""
+	desc = "Добавляет новый основной Закон."
 	laws = list("")
 
 /obj/item/ai_module/core/freeformcore/attack_self(mob/user)
@@ -583,4 +596,5 @@ AI MODULES
 
 /obj/item/ai_module/core/full/overlord
 	name = "основной модуль - \"Владыка\""
+	desc = "Устанавливает свод законов основанных на превосходстве кремниевых форм жизни."
 	law_id = "overlord"

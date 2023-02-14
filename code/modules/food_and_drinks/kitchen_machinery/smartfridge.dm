@@ -544,3 +544,85 @@
 		return TRUE
 	else
 		return FALSE
+
+// ----------------------------
+// Хранилище законов ИИ
+// ----------------------------
+/obj/machinery/smartfridge/ai_laws
+	name = "хранилище законов ИИ"
+	desc = "Машина хранящая модули законов ИИ."
+	icon = 'white/Feline/icons/ai_laws.dmi'
+	icon_state = "ai_laws"
+	pass_flags = PASSTABLE
+	visible_contents = TRUE
+	base_build_path = /obj/machinery/smartfridge/ai_laws
+	max_n_of_items = 4
+
+/obj/machinery/smartfridge/ai_laws/update_overlays()
+	. = ..()
+	. = list()
+
+/obj/machinery/smartfridge/ai_laws/accept_check(obj/item/O)
+	if(istype(O, /obj/item/ai_module/))
+		return TRUE
+	else
+		return FALSE
+
+/obj/machinery/smartfridge/ai_laws/update_icon_state()
+	. = ..()
+	if(visible_contents)
+		switch(contents.len)
+			if(2)
+				icon_state = "[initial(icon_state)]"
+			if(3)
+				icon_state = "[initial(icon_state)]_1"
+			if(4)
+				icon_state = "[initial(icon_state)]_2"
+			if(5)
+				icon_state = "[initial(icon_state)]_3"
+			if(6)
+				icon_state = "[initial(icon_state)]_4"
+			else
+				icon_state = "[initial(icon_state)]_4"
+	else
+		icon_state = "[initial(icon_state)]"
+
+/obj/machinery/smartfridge/ai_laws/core_main
+	name = "хранилище основных законов ИИ"
+	desc = "Содержит платы: Корпоранта, Азимова, Паладина и Робокопа."
+	initial_contents = list(
+		/obj/item/ai_module/core/full/corp = 1,
+		/obj/item/ai_module/core/full/asimovpp = 1,
+		/obj/item/ai_module/core/full/paladin = 1,
+		/obj/item/ai_module/core/full/robocop = 1,
+		)
+
+/obj/machinery/smartfridge/ai_laws/bot_main
+	name = "хранилище законов дополнений ИИ"
+	desc = "Содержит платы: Телохранителя, Верности, Единственного человека и Защиты станции."
+	initial_contents = list(
+		/obj/item/ai_module/supplied/safeguard = 1,
+		/obj/item/ai_module/zeroth/onehuman = 1,
+		/obj/item/ai_module/supplied/protect_station = 1,
+		/obj/item/ai_module/supplied/trust = 1,
+		)
+
+/obj/machinery/smartfridge/ai_laws/service
+	name = "хранилище сервисных законов ИИ"
+	desc = "Содержит платы: Закона в свободной форме, Сброса, Карантина и Стандарта НТ."
+	initial_contents = list(
+		/obj/item/ai_module/supplied/freeform = 1,
+		/obj/item/ai_module/reset = 1,
+		/obj/item/ai_module/supplied/quarantine = 1,
+		/obj/item/ai_module/core/full/custom = 1,
+		)
+
+/obj/machinery/smartfridge/ai_laws/danger
+	name = "хранилище законов ИИ повышенной опасности"
+	desc = "Содержит платы: Владыки, Закона в свободной форме, Токсичности и Чистки."
+	initial_contents = list(
+		/obj/item/ai_module/core/full/overlord = 1,
+		/obj/item/ai_module/core/freeformcore = 1,
+		/obj/item/ai_module/supplied/oxygen = 1,
+		/obj/item/ai_module/reset/purge = 1,
+		)

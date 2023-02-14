@@ -8,7 +8,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 */
 
 /datum/round_event_control/immovable_rod
-	name = "Immovable Rod"
+	name = "недвижимый стержень"
 	typepath = /datum/round_event/immovable_rod
 	min_players = 15
 	max_occurrences = 5
@@ -19,14 +19,14 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	if(!check_rights(R_FUN))
 		return
 
-	var/aimed = tgui_alert(usr,"Aimed at current location?", "Sniperod", list("Yes", "No"))
-	if(aimed == "Yes")
+	var/aimed = tgui_alert(usr,"Целимся прямо сюда?", "Цельсь", list("Да", "Нет"))
+	if(aimed == "Да")
 		special_target = get_turf(usr)
-	var/looper = tgui_alert(usr,"Would you like this rod to force-loop across space z-levels?", "Loopy McLoopface", list("Yes", "No"))
-	if(looper == "Yes")
+	var/looper = tgui_alert(usr,"Зацикливаем по Z уровню?", "Готовьсь", list("Да", "Нет"))
+	if(looper == "Да")
 		force_looping = TRUE
-	message_admins("[key_name_admin(usr)] has aimed an immovable rod [force_looping ? "(forced looping)" : ""] at [AREACOORD(special_target)].")
-	log_admin("[key_name_admin(usr)] has aimed an immovable rod [force_looping ? "(forced looping)" : ""] at [AREACOORD(special_target)].")
+	message_admins("[key_name_admin(usr)] запустил недвижимый стержень [force_looping ? "(цикличный)" : ""] в [AREACOORD(special_target)].")
+	log_admin("[key_name_admin(usr)] запустил недвижимый стержень [force_looping ? "(цикличный)" : ""] в [AREACOORD(special_target)].")
 
 /datum/round_event/immovable_rod
 	announceWhen = 5
@@ -44,8 +44,8 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	announce_to_ghosts(rod)
 
 /obj/effect/immovablerod
-	name = "immovable rod"
-	desc = "What the fuck is that?"
+	name = "недвижимый стержень"
+	desc = "Что это блять было?!"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "immrod"
 	throwforce = 100
@@ -102,13 +102,13 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 		return
 
 	if(!num_mobs_hit)
-		. += span_notice("So far, this rod has not hit any mobs.")
+		. += span_notice("Пока ни в кого не попал...")
 		return
 
-	. += "\t<span class='notice'>So far, this rod has hit: \n\
-		\t\t[num_mobs_hit] mobs total, \n\
-		\t\t[num_sentient_mobs_hit] of which were sentient, and \n\
-		\t\t[num_sentient_people_hit] of which were sentient people</span>"
+	. += "\t<span class='notice'>На данный момент стержень пронзил: \n\
+		\t\t[num_mobs_hit] мобов всего, \n\
+		\t\t[num_sentient_mobs_hit] из них были управляемыми, \n\
+		\t\t[num_sentient_people_hit] из них были людьми.</span>"
 
 /obj/effect/immovablerod/Topic(href, href_list)
 	if(href_list["orbit"])
@@ -145,14 +145,14 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 			var/direction = z_diff > 0 ? UP : DOWN
 			var/turf/target_z_turf = get_step_multiz(src, direction)
 
-			visible_message(span_danger("[src] phases out of reality."))
+			visible_message(span_danger("[src] исчезает из реальности!"))
 
 			if(!do_teleport(src, target_z_turf))
 				// We failed to teleport. Might as well admit defeat.
 				qdel(src)
 				return
 
-			visible_message(span_danger("[src] phases into reality."))
+			visible_message(span_danger("[src] появляется из ниоткуда!"))
 			SSmove_manager.home_onto(src, special_target)
 
 		if(loc == target_turf)
@@ -200,7 +200,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 /obj/effect/immovablerod/Bump(atom/clong)
 	if(prob(10))
 		playsound(src, 'sound/effects/bang.ogg', 50, TRUE)
-		audible_message(span_danger("You hear a CLANG!"))
+		audible_message(span_danger("БАМ!"))
 
 	if(special_target && clong == special_target)
 		complete_trajectory()
@@ -208,7 +208,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	// If rod meets rod, they collapse into a singularity. Yes, this means that if two wizard rods collide,
 	// they ALSO collapse into a singulo.
 	if(istype(clong, /obj/effect/immovablerod))
-		visible_message(span_danger("[src] collides with [clong]! This cannot end well."))
+		visible_message(span_danger("[src] сталкивается с [clong]! Это не может закончиться хорошо..."))
 		var/datum/effect_system/fluid_spread/smoke/smoke = new
 		smoke.set_up(2, holder = src, location = get_turf(src))
 		smoke.start()
@@ -230,6 +230,10 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 
 	// If we Bump into a living thing, living thing goes splat.
 	if(isliving(clong))
+		var/mob/living/carbon/archimedes = clong
+		if((HAS_TRAIT(archimedes, TRAIT_ROD_SUPLEX) || (archimedes.mind && HAS_TRAIT(archimedes.mind, TRAIT_ROD_SUPLEX))))
+			if(archimedes.throw_mode)
+				return attack_hand()
 		penetrate(clong)
 		return ..()
 
@@ -241,7 +245,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	CRASH("[src] Bump()ed into non-atom thing [clong] ([clong.type])")
 
 /obj/effect/immovablerod/proc/penetrate(mob/living/smeared_mob)
-	smeared_mob.visible_message(span_danger("[smeared_mob] is penetrated by an immovable rod!") , span_userdanger("The rod penetrates you!") , span_danger("You hear a CLANG!"))
+	smeared_mob.visible_message(span_danger("[smeared_mob] пронзен недвижимым стержнем!") , span_userdanger("Недвижимый стержень пронзает меня!") , span_danger("БАМ!"))
 
 	if(smeared_mob.stat != DEAD)
 		num_mobs_hit++
@@ -251,7 +255,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 				num_sentient_people_hit++
 			if(dnd_style_level_up)
 				transform = transform.Scale(1.005, 1.005)
-				name = "[initial(name)] of sentient slaying +[num_sentient_mobs_hit]"
+				name = "[initial(name)] древней мощи +[num_sentient_mobs_hit]"
 
 	if(iscarbon(smeared_mob))
 		var/mob/living/carbon/smeared_carbon = smeared_mob
@@ -287,8 +291,8 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 /obj/effect/immovablerod/proc/suplex_rod(mob/living/strongman)
 	strongman.client?.give_award(/datum/award/achievement/misc/feat_of_strength, strongman)
 	strongman.visible_message(
-		span_boldwarning("[strongman] suplexes [src] into the ground!"),
-		span_warning("You suplex [src] into the ground!")
+		span_boldwarning("[strongman] заземляет [src] прямо в пол!"),
+		span_warning("Перехватываю [src] и перенаправляю его в пол!")
 		)
 	new /obj/structure/festivus/anchored(drop_location())
 	new /obj/effect/anomaly/flux(drop_location())

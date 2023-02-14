@@ -86,13 +86,13 @@
 	..()
 	if (usr.stat != CONSCIOUS || HAS_TRAIT(usr, TRAIT_HANDS_BLOCKED) || (get_dist(src, usr) > 1))
 		return
-	if (href_list["type"])
-		if (href_list["type"] == "E")
-			if (!l_set && (length(code) == 5) && (!l_setshort) && (code != "ERROR"))
+	if (href_list["type"])	// Ввод
+		if (href_list["type"] == "E")	// Перехват Е
+			if (!l_set && (length(code) == 5) && (!l_setshort) && (code != "ERROR"))	// Задание нового кода если его не было
 				l_code = code
 				l_set = TRUE
-			else if ((code == l_code) && l_set)
-				atom_storage.locked = TRUE
+			else if ((code == l_code) && l_set)	//
+				atom_storage.locked = FALSE
 				cut_overlays()
 				add_overlay(icon_opened)
 				code = null
@@ -100,7 +100,7 @@
 				code = "ERROR"
 		else
 			if ((href_list["type"] == "R") && (!l_setshort))
-				atom_storage.locked = FALSE
+				atom_storage.locked = TRUE
 				cut_overlays()
 				code = null
 				atom_storage.hide_contents(usr)
@@ -214,10 +214,8 @@
  * get access to it.
  */
 /obj/item/storage/secure/safe/caps_spare
-	name = "captain's spare ID safe"
-	desc = "In case of emergency, do not break glass. All Captains and Acting Captains are provided with codes to access this safe. \
-It is made out of the same material as the station's Black Box and is designed to resist all conventional weaponry. \
-There appears to be a small amount of surface corrosion. It doesn't look like it could withstand much of an explosion."
+	name = "сейф с запасной ID-картой Капитана"
+	desc = "Хранит в себе запасную ID-карту самого верховного лорда. Коды доступа автоматически сообщаются ИО Капитана при прибытии на станцию. Не смотря на расхваливаемую прочность, на корпусе заметны легкие следы ржавчины."
 	can_hack_open = FALSE
 	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 70, BIO = 100, RAD = 100, FIRE = 80, ACID = 70)
 	max_integrity = 300

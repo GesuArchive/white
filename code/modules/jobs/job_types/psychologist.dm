@@ -53,7 +53,7 @@
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
 	id_trim = /datum/id_trim/job/psychologist
-
+/*
 /datum/outfit/job/psychologist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
 
@@ -67,3 +67,4 @@
 	if(H.mind)
 		var/datum/action/cooldown/spell/pointed/psychotherapy/therapy = new(H.mind)
 		therapy.Grant(H)
+*/

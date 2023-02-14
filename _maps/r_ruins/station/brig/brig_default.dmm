@@ -1747,13 +1747,8 @@
 /area/ai_monitored/security/armory)
 "gf" = (
 /obj/structure/table,
-/obj/item/door_seal{
-	pixel_x = -2;
-	pixel_y = 4
-	},
-/obj/item/door_seal{
-	pixel_x = 2;
-	layer = 3.01
+/obj/item/door_seal/sb{
+	pixel_y = 3
 	},
 /turf/open/floor/plasteel/dark,
 /area/security/main/mechanic)
@@ -5682,6 +5677,9 @@
 "Zk" = (
 /obj/structure/table/wood,
 /obj/machinery/fax,
+/obj/item/paper/monitorkey{
+	pixel_y = -13
+	},
 /turf/open/floor/plasteel/dark,
 /area/command/heads_quarters/hos)
 "Zn" = (

@@ -1098,13 +1098,24 @@
 	category = list("hacked", "Безопасность", "Боеприпасы")
 	sub_category = list("Пистолеты, ПП, Револьверы")
 
+/datum/design/c9mm
+	name = "Упаковка 9мм патронов"
+	desc = "Обычные патроны калибра 9мм. Используется в пистолетах и пистолет-пулеметах."
+	id = "c9mm"
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/iron = 30000)
+	build_path = /obj/item/ammo_box/c9mm
+	category = list("hacked", "Безопасность", "Боеприпасы")
+	sub_category = list("Пистолеты, ПП, Револьверы")
+
 /datum/design/c10mm
 	name = "Упаковка 10мм патронов"
 	desc = "Обычные патроны калибра 10мм. Используется в пистолетах."
 	id = "c10mm"
 	build_type = AUTOLATHE | MECHFAB
 	construction_time = 40
-	materials = list(/datum/material/iron = 30000)
+	materials = list(/datum/material/iron = 35000)
 	build_path = /obj/item/ammo_box/c10mm
 	category = list("hacked", "Безопасность", "Боеприпасы")
 	sub_category = list("Пистолеты, ПП, Револьверы")
@@ -1115,20 +1126,20 @@
 	id = "c45"
 	build_type = AUTOLATHE | MECHFAB
 	construction_time = 40
-	materials = list(/datum/material/iron = 30000)
+	materials = list(/datum/material/iron = 35000)
 	build_path = /obj/item/ammo_box/c45
 	category = list("hacked", "Безопасность", "Боеприпасы")
 	sub_category = list("Пистолеты, ПП, Револьверы")
 
-/datum/design/c9mm
-	name = "Упаковка 9мм патронов"
-	desc = "Обычные патроны калибра 9мм. Используется в пистолетах и пистолет-пулеметах."
-	id = "c9mm"
-	build_type = AUTOLATHE | MECHFAB
+/datum/design/a50ae
+	name = "Упаковка патронов калибра .50AE"
+	desc = "Обычные патроны калибра 50AE. Используется в пистолете Пустынный Орел."
+	id = "a50ae"
+	build_type = MECHFAB
 	construction_time = 40
-	materials = list(/datum/material/iron = 30000)
-	build_path = /obj/item/ammo_box/c9mm
-	category = list("hacked", "Безопасность", "Боеприпасы")
+	materials = list(/datum/material/iron = 40000)
+	build_path = /obj/item/ammo_box/a50ae
+	category = list("Боеприпасы")
 	sub_category = list("Пистолеты, ПП, Револьверы")
 
 /datum/design/cleaver
@@ -1484,27 +1495,6 @@
 	category = list("initial","Разное","Строительство")
 	sub_category = list("Контролеры")
 
-
-/datum/design/holosign/restaurant
-	name = "Голопроектор ресторана"
-	desc = "Голопроектор указывающий посадочные места для посетителей ресторана."
-	id = "holosignrestaurant"
-	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
-	build_path = /obj/item/holosign_creator/robot_seat/restaurant
-	category = list("Снаряжение")
-	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
-
-/datum/design/holosign/bar
-	name = "Голопроектор бара"
-	desc = "Голопроектор указывающий посадочные места для посетителей бара."
-	id = "holosignbar"
-	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
-	build_path = /obj/item/holosign_creator/robot_seat/bar
-	category = list("Снаряжение")
-	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
-
 /datum/design/floor_painter
 	name = "Маркировщик пола"
 	desc = "Используется для покраски полов. Круто?"
@@ -1546,6 +1536,7 @@
 	desc = "Ловись рыбка большая и маленькая."
 	id = "fishing_rod"
 	build_type = AUTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 200, /datum/material/glass = 200)
 	build_path = /obj/item/fishing_rod
 	category = list("initial", "Разное", "Инструменты", "Прочее")

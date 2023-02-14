@@ -674,14 +674,7 @@
 
 /obj/structure/closet/secure_closet/security/field_med/PopulateContents()
 	..()
-	new /obj/item/clothing/under/rank/medical/brigphys(src)
-	new /obj/item/clothing/under/rank/medical/brigphys/skirt(src)
-	new /obj/item/clothing/suit/armor/vest/fieldmedic(src)
-	new /obj/item/clothing/head/helmet/field_med(src)
-	new /obj/item/clothing/head/helmet/field_med/beret(src)
-	new /obj/item/clothing/head/helmet/field_med/cap(src)
-	new /obj/item/radio/headset/headset_medsec(src)
-	new /obj/item/radio/headset/headset_medsec/alt(src)
+	new /obj/item/storage/bag/garment/field_med(src)
 	new /obj/item/detective_scanner(src)
 	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/storage/box/trackimp(src)
@@ -691,6 +684,19 @@
 	new /obj/item/optable(src)
 	new /obj/item/modular_computer/laptop/preset/medical(src)
 
+/obj/item/storage/bag/garment/field_med
+	name = "сумка для одежды полевого медика"
+
+/obj/item/storage/bag/garment/field_med/PopulateContents()
+	new /obj/item/clothing/under/rank/medical/brigphys(src)
+	new /obj/item/clothing/under/rank/medical/brigphys/skirt(src)
+	new /obj/item/clothing/suit/armor/vest/fieldmedic(src)
+	new /obj/item/clothing/head/helmet/field_med(src)
+	new /obj/item/clothing/head/helmet/field_med/beret(src)
+	new /obj/item/clothing/head/helmet/field_med/cap(src)
+	new /obj/item/radio/headset/headset_medsec(src)
+	new /obj/item/radio/headset/headset_medsec/alt(src)
+	new /obj/item/clothing/shoes/jackboots/sec(src)
 
 /obj/item/iv_drip_item
 	name = "капельница"

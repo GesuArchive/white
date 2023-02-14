@@ -37,6 +37,7 @@
 		/obj/item/melee/skateboard/hoverboard = 1,
 		/obj/item/skillchip/job/medic/advanced = 2,
 		/obj/item/skillchip/job/engineer = 2,
+		/obj/item/skillchip/job/roboticist = 2,
 		/obj/item/storage/box/tail_pin = 1,
 		)
 	refill_canister = /obj/item/vending_refill/games

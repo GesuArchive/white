@@ -1820,6 +1820,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/monofloor,
 /area/command/heads_quarters/hop)
 "fn" = (
@@ -4636,7 +4637,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/trapdoor_placer,
 /turf/open/floor/plasteel/monofloor,
 /area/hallway/primary/central/west)
 "Zo" = (

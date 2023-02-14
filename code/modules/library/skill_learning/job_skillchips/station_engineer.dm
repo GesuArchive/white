@@ -2,6 +2,8 @@
 	name = "инженерный скилчип C1-RCU-1T"
 	desc = "Одобрено Поли."
 	auto_traits = list(TRAIT_KNOW_ENGI_WIRES)
+	chip_category = "engi"
+	incompatibility_list = list("engi")
 	skill_name = "Знание инженерных схем"
 	skill_description = "Распознает маркировку проводов дверных шлюзов, АПЦ и других машин."
 	skill_icon = "sitemap"

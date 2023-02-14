@@ -4617,6 +4617,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/mob/living/simple_animal/bot/cleanbot/medbay,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/medical/medbay/zone2)
 "GN" = (

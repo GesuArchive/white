@@ -326,5 +326,6 @@ That prevents a few funky behaviors.
 		to_chat(user, span_alert("There is no AI loaded on this terminal."))
 
 /obj/item/circuitboard/aicore
-	name = "плата ядра ИИ" //Well, duh, but best to be consistent
-	var/battery = 200 //backup battery for when the AI loses power. Copied to/from AI mobs when carding, and placed here to avoid recharge via deconning the core
+	name = "плата ядра ИИ"
+	desc = "Плата помещаемая в корпус будущего ИИ в процессе строительства."
+	var/battery = 500 //backup battery for when the AI loses power. Copied to/from AI mobs when carding, and placed here to avoid recharge via deconning the core

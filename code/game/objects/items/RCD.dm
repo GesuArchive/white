@@ -1214,7 +1214,7 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 	upgrade = RCD_UPGRADE_SILO_LINK
 
 /obj/item/rcd_upgrade/furnishing
-	name = "Диск с чертежами для РЦД - Фуринитура"
+	name = "Диск с чертежами для РЦД - Мебель"
 	desc = "Он содержит чертежи стульев, табуреток, столов и стеклянных столов."
 	upgrade = RCD_UPGRADE_FURNISHING
 

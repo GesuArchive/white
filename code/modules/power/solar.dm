@@ -36,6 +36,7 @@
 
 	var/power_multi = 1
 	var/solar_panel_state = "solar_panel_t1"
+	var/shard_type = /obj/item/shard
 
 /obj/machinery/power/solar/t2_armored
 	name = "укрепленная солнечная панель"
@@ -50,6 +51,7 @@
 	max_integrity = 450
 	power_multi = 4
 	solar_panel_state = "solar_panel_t3"
+	shard_type = /obj/item/shard/plasma
 
 /obj/machinery/power/solar/t4_plastitaniumglass
 	name = "солнечная пластитановая панель"
@@ -57,6 +59,7 @@
 	max_integrity = 600
 	power_multi = 8
 	solar_panel_state = "solar_panel_t4"
+	shard_type = /obj/item/shard/plasma
 
 /obj/machinery/power/solar/Initialize(mapload, obj/item/solar_assembly/S)
 	. = ..()
@@ -159,8 +162,8 @@
 				S.give_glass(machine_stat & BROKEN)
 		else
 			playsound(src, "shatter", 70, TRUE)
-			new /obj/item/shard(src.loc)
-			new /obj/item/shard(src.loc)
+			new shard_type(src.loc)
+			new shard_type(src.loc)
 	qdel(src)
 
 /obj/machinery/power/solar/update_overlays()

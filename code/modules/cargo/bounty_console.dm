@@ -1,7 +1,7 @@
 #define PRINTER_TIMEOUT 10
 
 /obj/machinery/computer/bounty
-	name = "Консоль заказов"
+	name = "Консоль заказов с ЦК"
 	desc = "Используется для проверки и выполнений заказов ЦК"
 	icon_screen = "bounty"
 	circuit = /obj/item/circuitboard/computer/bounty

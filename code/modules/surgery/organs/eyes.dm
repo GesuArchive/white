@@ -272,6 +272,22 @@
 	M.cure_blind("flashlight_eyes")
 	..()
 
+//  ЧБ глаза
+/obj/item/organ/eyes/robotic/basic
+	name = "базовые кибернетические глаза"
+	desc = "Примитивный прототип протеза глаз способный видеть мир лишь в черно-белых оттенках, однако люди полностью лишенные зрения будут рады и такому."
+	eye_color_left ="000000"
+	eye_color_right ="000000"
+	flash_protect = FLASH_PROTECTION_SENSITIVE
+
+/obj/item/organ/eyes/robotic/basic/Insert(mob/living/carbon/M, special = FALSE, drop_if_replaced = FALSE)
+	..()
+	M.add_client_colour(/datum/client_colour/monochrome)
+
+/obj/item/organ/eyes/robotic/basic/Remove(mob/living/carbon/M, special = 0)
+	..()
+	M.remove_client_colour(/datum/client_colour/monochrome)
+
 // Welding shield implant
 /obj/item/organ/eyes/robotic/shield
 	name = "кибернетические глаза"

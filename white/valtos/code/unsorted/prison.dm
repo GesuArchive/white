@@ -105,6 +105,30 @@
 	initial_gas_mix = "o2=22;n2=82;TEMP=225.15"
 	slowdown = 3
 
+/turf/open/floor/plating/asteroid/dirty/fake_lava_v1
+	name = "искусственная лава"
+	desc = "Пол это лава!"
+	icon = 'icons/turf/floors/lava.dmi'
+	icon_state = "lava-255"
+	base_icon_state = "lava"
+	postdig_icon_change = FALSE
+	turf_type = /turf/open/floor/plating/asteroid/dirty
+	floor_variance = 0
+	initial_gas_mix = "o2=22;n2=82;TEMP=225.15"
+	slowdown = 3
+
+/turf/open/floor/plating/asteroid/dirty/fake_lava_v2
+	name = "искусственная лава"
+	desc = "Пол это лава!"
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "lava"
+	base_icon_state = "lava"
+	postdig_icon_change = FALSE
+	turf_type = /turf/open/floor/plating/asteroid/dirty
+	floor_variance = 0
+	initial_gas_mix = "o2=22;n2=82;TEMP=225.15"
+	slowdown = 3
+
 /turf/open/floor/trot
 	name = "тротуар"
 	desc = "В самый раз для пробежек."

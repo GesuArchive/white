@@ -806,7 +806,6 @@
 
 //Blood-Drunk Miner: Cleaving Saw
 
-
 /obj/item/melee/cleaving_saw
 	name = "cleaving saw"
 	desc = "This saw, effective at drawing the blood of beasts, transforms into a long cleaver that makes use of centrifugal force."

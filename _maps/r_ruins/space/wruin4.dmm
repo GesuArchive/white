@@ -17,8 +17,8 @@
 /area/ruin/space/has_grav/terrorship)
 "af" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/random/exotic/antag_gear_strong,
 /obj/effect/turf_decal/bot,
+/obj/effect/spawner/random/contraband/armory,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "ah" = (
@@ -31,7 +31,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/spawner/random/exotic/snow_gear,
+/obj/item/gun/ballistic/automatic/c20r/unrestricted,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "aj" = (
@@ -76,6 +76,13 @@
 /area/ruin/space/has_grav/terrorship)
 "au" = (
 /obj/effect/spawner/random/vending/colavend,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
+"av" = (
+/obj/structure/closet/crate,
+/obj/effect/spawner/random/exotic/antag_gear_weak,
+/obj/effect/turf_decal/bot,
+/obj/item/ammo_box/magazine/smgm45,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "aw" = (
@@ -163,16 +170,9 @@
 /obj/item/storage/toolbox/ammo/wt550{
 	pixel_y = 2
 	},
-/obj/item/storage/toolbox/ammo/wt550{
-	pixel_y = -4;
-	layer = 3.01
-	},
 /obj/item/gun/ballistic/automatic/wt550{
 	pixel_y = 4;
 	layer = 3.02
-	},
-/obj/item/gun/ballistic/automatic/wt550{
-	layer = 3.03
 	},
 /obj/structure/rack{
 	color = "#999999"
@@ -183,9 +183,6 @@
 /obj/item/gun/energy/laser{
 	pixel_x = -3;
 	pixel_y = 3
-	},
-/obj/item/gun/energy/laser{
-	layer = 3.01
 	},
 /obj/item/gun/energy/laser{
 	pixel_x = 3;
@@ -504,11 +501,11 @@
 /area/ruin/space/has_grav/terrorship)
 "bD" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/random/exotic/antag_gear_weak,
 /obj/effect/turf_decal/bot,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/spawner/random/exotic/tool,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "bE" = (
@@ -700,9 +697,9 @@
 /area/ruin/space/has_grav/terrorship)
 "cs" = (
 /obj/structure/closet/crate,
-/obj/effect/spawner/random/exotic/antag_gear_weak,
 /obj/effect/turf_decal/bot,
 /obj/machinery/light,
+/obj/effect/spawner/random/exotic/languagebook,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "cu" = (
@@ -874,8 +871,8 @@
 /turf/open/floor/engine/airless,
 /area/ruin/space/has_grav/terrorship)
 "dh" = (
-/obj/item/mecha_ammo/clusterbang,
 /obj/structure/table,
+/obj/item/storage/toolbox/ammo/wt550,
 /turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "di" = (
@@ -997,8 +994,8 @@
 /area/ruin/space/has_grav/terrorship)
 "dW" = (
 /obj/structure/fluff/big_chain,
-/obj/item/mecha_ammo/incendiary,
 /obj/structure/table,
+/obj/item/storage/toolbox/ammo/wt550,
 /turf/open/floor/resin,
 /area/ruin/space/has_grav/terrorship)
 "eg" = (
@@ -1038,6 +1035,17 @@
 "em" = (
 /obj/structure/shuttle/engine/huge,
 /turf/closed/indestructible/syndicate,
+/area/ruin/space/has_grav/terrorship)
+"eH" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/table,
+/obj/item/gun/ballistic/automatic/wt550{
+	pixel_y = 4;
+	layer = 3.02
+	},
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
 /area/ruin/space/has_grav/terrorship)
 "eW" = (
 /mob/living/simple_animal/hostile/syndicate/civilian,
@@ -1225,9 +1233,23 @@
 /mob/living/simple_animal/hostile/syndicate/melee/sword/space,
 /turf/template_noop,
 /area/template_noop)
+"go" = (
+/obj/structure/closet/crate,
+/obj/effect/turf_decal/bot,
+/obj/effect/spawner/lootdrop/genetics_filler,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
 "hb" = (
 /obj/item/wirecutters,
 /turf/open/floor/engine,
+/area/ruin/space/has_grav/terrorship)
+"hd" = (
+/obj/structure/closet/crate,
+/obj/effect/turf_decal/bot,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/spawner/random/entertainment/money_large,
+/obj/effect/spawner/random/entertainment/money_large,
+/turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "hY" = (
 /mob/living/simple_animal/hostile/syndicate/ranged/shotgun,
@@ -1259,8 +1281,20 @@
 /obj/item/stack/cable_coil,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
+"jS" = (
+/obj/structure/closet/crate,
+/obj/effect/turf_decal/bot,
+/obj/effect/spawner/random/exotic/antag_gear,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
 "jY" = (
 /obj/effect/spawner/random/vending/snackvend,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
+"ka" = (
+/obj/structure/closet/crate,
+/obj/effect/turf_decal/bot,
+/obj/effect/spawner/lootdrop/donkpockets,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "kc" = (
@@ -1469,6 +1503,12 @@
 /obj/effect/turf_decal/bot_red,
 /turf/open/floor/engine/airless,
 /area/ruin/space/has_grav/terrorship)
+"zG" = (
+/obj/structure/closet/crate,
+/obj/effect/turf_decal/bot,
+/obj/effect/spawner/lootdrop/pins,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
 "zL" = (
 /obj/effect/turf_decal/bot,
 /turf/open/floor/engine,
@@ -1496,6 +1536,12 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plasteel/cafeteria,
 /area/ruin/space/has_grav/terrorship)
+"Bx" = (
+/obj/structure/closet/crate,
+/obj/effect/turf_decal/bot,
+/obj/effect/spawner/lootdrop/genetics_good,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
 "BB" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark{
 	dir = 10;
@@ -1506,12 +1552,25 @@
 	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
+"CA" = (
+/obj/structure/closet/crate,
+/obj/effect/turf_decal/bot,
+/obj/effect/spawner/lootdrop/ruinloot/medical,
+/obj/item/ammo_box/magazine/smgm45,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
 "CP" = (
 /obj/structure/chair/stool/bar,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
+"CQ" = (
+/obj/structure/table,
+/turf/open/floor/partyhard/steel{
+	icon_state = "mm-2"
+	},
 /area/ruin/space/has_grav/terrorship)
 "CW" = (
 /obj/effect/turf_decal/stripes/corner{
@@ -1640,6 +1699,12 @@
 /obj/machinery/vending/engineering,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
+"IT" = (
+/obj/structure/closet/crate,
+/obj/effect/turf_decal/bot,
+/obj/effect/spawner/random/clothing/syndie,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
 "Jc" = (
 /obj/structure/table/reinforced,
 /obj/item/full_armor_upgrade{
@@ -1676,7 +1741,7 @@
 /area/ruin/space/has_grav/terrorship)
 "KD" = (
 /obj/structure/table/reinforced,
-/obj/item/melee/baton/loaded/german,
+/obj/item/melee/baton/loaded,
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/terrorship)
 "Lp" = (
@@ -1687,6 +1752,12 @@
 /area/ruin/space/has_grav/terrorship)
 "LV" = (
 /mob/living/simple_animal/hostile/syndicate/ranged/smg,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
+"Mk" = (
+/obj/structure/closet/crate,
+/obj/effect/turf_decal/bot,
+/obj/effect/spawner/lootdrop/ruinloot/science,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "Mo" = (
@@ -1705,6 +1776,12 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/terrorship)
+"Ns" = (
+/obj/structure/closet/crate,
+/obj/effect/turf_decal/bot,
+/obj/effect/spawner/lootdrop/ruinloot/important,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
 "NR" = (
 /obj/item/wrench,
 /turf/open/floor/engine,
@@ -1720,11 +1797,24 @@
 /obj/machinery/modular_computer/console/preset/id,
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/terrorship)
+"PD" = (
+/obj/structure/closet/crate,
+/obj/effect/turf_decal/bot,
+/obj/effect/spawner/random/exotic/technology,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
 "PO" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/effect/spawner/random/vending/snackvend,
+/turf/open/floor/plasteel/dark,
+/area/ruin/space/has_grav/terrorship)
+"PY" = (
+/obj/structure/closet/crate,
+/obj/effect/turf_decal/bot,
+/obj/effect/spawner/random/clothing/syndie,
+/obj/item/ammo_box/magazine/smgm45,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "Qz" = (
@@ -1846,6 +1936,12 @@
 /obj/item/kitchen/knife/butcher,
 /obj/item/sharpener,
 /turf/open/floor/plasteel/cafeteria,
+/area/ruin/space/has_grav/terrorship)
+"YN" = (
+/obj/structure/closet/crate,
+/obj/effect/turf_decal/bot,
+/obj/effect/spawner/random/exotic/tool,
+/turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/terrorship)
 "Zk" = (
 /obj/item/restraints/handcuffs/cable,
@@ -2958,7 +3054,7 @@ ad
 ad
 bN
 bR
-ay
+eH
 fB
 fB
 cv
@@ -3024,7 +3120,7 @@ ad
 ad
 bN
 bR
-cb
+CQ
 ay
 fB
 cr
@@ -3090,7 +3186,7 @@ ad
 ad
 bN
 bR
-cb
+CQ
 cb
 ay
 fB
@@ -3348,7 +3444,7 @@ fJ
 fJ
 fJ
 ac
-aN
+PY
 ad
 ad
 ad
@@ -3415,7 +3511,7 @@ fJ
 fJ
 fJ
 ac
-aN
+IT
 ad
 ad
 al
@@ -3429,7 +3525,7 @@ eZ
 ap
 ad
 ad
-aN
+YN
 ac
 az
 bC
@@ -3482,7 +3578,7 @@ fJ
 fJ
 fJ
 ac
-aB
+hd
 ad
 ad
 an
@@ -3549,7 +3645,7 @@ fJ
 fJ
 fJ
 ac
-Gz
+PD
 ad
 ad
 an
@@ -3563,7 +3659,7 @@ fG
 as
 ad
 ad
-aG
+PD
 ac
 cJ
 bC
@@ -3616,7 +3712,7 @@ fJ
 fJ
 fJ
 ac
-aN
+PD
 ad
 ad
 an
@@ -3630,7 +3726,7 @@ fG
 as
 ad
 ad
-aN
+go
 ac
 cK
 bC
@@ -3764,7 +3860,7 @@ fG
 as
 ad
 ad
-aG
+jS
 ac
 cL
 aF
@@ -3898,7 +3994,7 @@ ah
 as
 ad
 ad
-aB
+av
 ac
 bA
 cT
@@ -3965,7 +4061,7 @@ ab
 aY
 ad
 ad
-aG
+Bx
 ac
 bA
 bn
@@ -4032,7 +4128,7 @@ ad
 ad
 ad
 ad
-aG
+zG
 ac
 Pv
 eW
@@ -4155,16 +4251,16 @@ fJ
 ac
 ac
 aG
+go
+Bx
 aG
-aB
-aG
-aB
+go
 bD
-aN
-aG
-aB
-aG
-aG
+ka
+Ns
+CA
+Mk
+Mk
 ac
 cA
 cE

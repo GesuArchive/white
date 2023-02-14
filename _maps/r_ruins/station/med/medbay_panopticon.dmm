@@ -388,7 +388,6 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/tile/blue,
 /obj/structure/bodycontainer/morgue{
 	dir = 2
 	},
@@ -543,12 +542,6 @@
 /turf/closed/wall/r_wall,
 /area/medical/chemistry)
 "dS" = (
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
 /obj/structure/cable,
 /obj/effect/landmark/start/paramedic,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -689,7 +682,13 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/plasteel/white,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/side,
 /area/medical/medbay/aft)
 "fb" = (
 /obj/structure/cable,
@@ -1481,7 +1480,13 @@
 /area/medical/virology)
 "ll" = (
 /obj/structure/cable,
-/turf/open/floor/plasteel/white,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark/side,
 /area/medical/medbay/aft)
 "lm" = (
 /obj/machinery/disposal/bin,
@@ -3638,7 +3643,12 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/plasteel/white,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/side{
+	dir = 5
+	},
 /area/medical/medbay/aft)
 "AY" = (
 /turf/closed/wall/r_wall,
@@ -4129,6 +4139,7 @@
 	dir = 9
 	},
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/mob/living/simple_animal/bot/cleanbot/medbay,
 /turf/open/floor/plasteel,
 /area/medical/medbay)
 "Et" = (

@@ -48,6 +48,7 @@
 	user.visible_message(span_notice("[user] нажимает кнопку [src], слышен короткий механический писк.") , span_notice("Чувствую резкий укол когда [src] втыкается в твое тело."))
 	playsound(get_turf(user), 'sound/weapons/circsawhit.ogg', 50, TRUE)
 	storedorgan = null
+	contents = null
 	name = initial(name)
 	if(uses != INFINITE)
 		uses--
@@ -160,6 +161,7 @@
 	// Clear the stored skillchip, it's technically not in this machine anymore.
 	var/obj/item/skillchip/implanted_chip = stored_skillchip
 	stored_skillchip = null
+	contents = null
 
 	user.visible_message(span_notice("[user] нажимает кнопку на [src], и слышится короткий механический звук.") , span_notice("Чувствую резкий укол, когда [src] втыкается в твой мозг."))
 	playsound(get_turf(user), 'sound/weapons/circsawhit.ogg', 50, TRUE)

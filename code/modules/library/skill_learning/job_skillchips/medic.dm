@@ -2,6 +2,8 @@
 	name = "медицинский скилчип MED-101-PARA"
 	desc = "Сертифицированно кошачьей лапой."
 	auto_traits = list(TRAIT_KNOW_MED_SURGERY_T1)
+	chip_category = "med"
+	incompatibility_list = list("med")
 	skill_name = "Базовые хирургические операции"
 	skill_description = "Загружает в разум пользователя базовый пакет знаний и моторных рефлексов для проведения простейших хирургических операций."
 	skill_icon = "book-medical"

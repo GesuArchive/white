@@ -244,9 +244,6 @@
 /obj/machinery/camera/autoname{
 	dir = 5
 	},
-/obj/item/door_seal/sb{
-	pixel_y = 3
-	},
 /obj/effect/turf_decal/tile/hex/red{
 	dir = 8
 	},
@@ -1971,16 +1968,15 @@
 /turf/open/floor/engine,
 /area/ai_monitored/security/armory)
 "gf" = (
-/obj/item/door_seal{
-	pixel_x = -3;
-	pixel_y = 7
-	},
-/obj/item/door_seal{
-	pixel_x = 2;
-	pixel_y = 3;
-	layer = 3.01
-	},
 /obj/structure/table/reinforced,
+/obj/item/door_seal/sb{
+	pixel_y = 3;
+	pixel_x = -3
+	},
+/obj/item/door_seal/sb{
+	pixel_y = -1;
+	pixel_x = 3
+	},
 /turf/open/floor/engine,
 /area/security/main/mechanic)
 "gg" = (
@@ -6438,6 +6434,9 @@
 "Zk" = (
 /obj/machinery/fax,
 /obj/structure/table/wood/fancy/black,
+/obj/item/paper/monitorkey{
+	pixel_y = -13
+	},
 /turf/open/floor/engine,
 /area/command/heads_quarters/hos)
 "Zn" = (

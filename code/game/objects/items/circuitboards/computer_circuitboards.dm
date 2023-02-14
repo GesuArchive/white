@@ -642,7 +642,8 @@
 	build_path = /obj/machinery/computer/department_orders/medical
 
 /obj/item/circuitboard/computer/bounty
-	name = "Консоль заказов"
+	name = "Консоль заказов с ЦК"
+	desc = "Используется для проверки и выполнений заказов ЦК"
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/bounty
 

@@ -1,7 +1,7 @@
 #define SAFETY_COOLDOWN 100
 
 /obj/machinery/recycler
-	name = "Мусоропереработчик"
+	name = "мусоропереработчик"
 	desc = "Большая дробильная машина, используемая для неэффективной переработки мелких предметов. Сбоку есть индикаторы."
 	icon = 'icons/obj/recycling.dmi'
 	icon_state = "grinder-o0"

@@ -797,10 +797,10 @@
 /////////////////////////////////////////
 
 /datum/design/holosign/restaurant
-	name = "Голопроектор свободного места ресторана"
-	desc = "Используйте это, чтобы пометить места для гостей ресторана!"
+	name = "Голопроектор ресторана"
+	desc = "Голопроектор указывающий посадочные места для посетителей ресторана."
 	id = "holosignrestaurant"
-	build_type = PROTOLATHE | MECHFAB
+	build_type = PROTOLATHE | MECHFAB | AUTOLATHE
 	construction_time = 40
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
 	build_path = /obj/item/holosign_creator/robot_seat/restaurant
@@ -808,10 +808,10 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/holosign/bar
-	name = "Голопроектор свободных мест бара"
-	desc = "A holographic projector that creates seating designation for bars."
+	name = "Голопроектор бара"
+	desc = "Голопроектор указывающий посадочные места для посетителей бара."
 	id = "holosignbar"
-	build_type = PROTOLATHE | MECHFAB
+	build_type = PROTOLATHE | MECHFAB | AUTOLATHE
 	construction_time = 40
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
 	build_path = /obj/item/holosign_creator/robot_seat/bar

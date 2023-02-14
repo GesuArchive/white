@@ -10,7 +10,6 @@
 /area/command/corporate_showroom)
 "ax" = (
 /obj/machinery/light,
-/obj/structure/fluff/hedge,
 /obj/structure/sign/poster/official/random{
 	pixel_y = -32;
 	pixel_x = -32
@@ -148,13 +147,6 @@
 	dir = 9
 	},
 /area/command/corporate_showroom)
-"cx" = (
-/obj/effect/turf_decal/siding/thinplating_new/corner{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
 "cz" = (
 /obj/structure/stairs/south{
 	dir = 1
@@ -324,31 +316,9 @@
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/low_level_centre)
-"eu" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 5
-	},
-/obj/structure/flora/grass/jungle{
-	pixel_y = -8;
-	pixel_x = -5
-	},
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
 "ex" = (
 /obj/structure/chair/sofa/bench/left,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/hallway/primary/central/low_level_centre)
-"eD" = (
-/obj/structure/fluff/hedge,
-/turf/open/floor/plasteel/dark/corner{
-	dir = 8
-	},
 /area/hallway/primary/central/low_level_centre)
 "eH" = (
 /obj/structure/table/wood,
@@ -367,15 +337,6 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/hallway/primary/central/low_level_centre)
-"eK" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 4
-	},
-/turf/open/floor/plating/beach/sand,
 /area/hallway/primary/central/low_level_centre)
 "eL" = (
 /obj/structure/cable,
@@ -534,23 +495,6 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/corporate_showroom)
-"gF" = (
-/obj/effect/turf_decal/siding/thinplating_new/corner{
-	dir = 1
-	},
-/obj/structure/flora/rock/pile{
-	pixel_y = -9;
-	pixel_x = -8
-	},
-/turf/open/floor/plating/beach/sand,
-/area/hallway/primary/central/low_level_centre)
-"gG" = (
-/obj/structure/flora/junglebush{
-	pixel_y = -9;
-	pixel_x = 13
-	},
-/turf/open/floor/plating/beach/sand,
-/area/hallway/primary/central/low_level_centre)
 "gL" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -711,9 +655,6 @@
 	},
 /area/command/corporate_showroom)
 "ie" = (
-/obj/item/kirbyplants{
-	icon_state = "plant-21"
-	},
 /obj/structure/sign/directions/supply{
 	dir = 8;
 	pixel_x = -32;
@@ -829,22 +770,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engineering/gravity_generator)
-"ji" = (
-/obj/machinery/light/floor,
-/obj/machinery/light/floor/directional/east,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 6
-	},
-/obj/structure/flora/rock/pile{
-	pixel_y = 12;
-	pixel_x = -10
-	},
-/turf/open/floor/plating/beach/sand,
-/area/hallway/primary/central/low_level_centre)
 "jk" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -901,7 +826,6 @@
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/low_level_centre)
 "jW" = (
-/obj/structure/fluff/hedge,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -979,12 +903,6 @@
 	dir = 4
 	},
 /area/hallway/primary/central/low_level_centre)
-"kw" = (
-/obj/structure/fluff/hedge,
-/turf/open/floor/plasteel/dark/corner{
-	dir = 1
-	},
-/area/hallway/primary/central/low_level_centre)
 "kz" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk{
@@ -1042,7 +960,6 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/low_level_centre)
 "lL" = (
-/obj/structure/fluff/hedge,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -1095,19 +1012,6 @@
 /obj/effect/turf_decal/trimline/white,
 /turf/open/floor/plasteel/dark,
 /area/command/corporate_showroom)
-"mc" = (
-/obj/structure/flora/tree/jungle,
-/obj/effect/landmark/observer_start,
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
-"md" = (
-/obj/structure/flora/grass/jungle{
-	pixel_y = 17;
-	pixel_x = 10
-	},
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
 "mm" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -1156,20 +1060,11 @@
 /turf/closed/wall/r_wall,
 /area/command/teleporter)
 "mT" = (
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/machinery/light{
+	pixel_y = 0
 	},
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 1
-	},
-/obj/structure/flora/rock/jungle{
-	pixel_y = -16;
-	pixel_x = 5
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
-/turf/open/floor/plating/beach/sand,
+/obj/effect/landmark/stationroom/bridge_garden/random,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/low_level_centre)
 "mW" = (
 /turf/open/floor/plasteel/dark/corner{
@@ -1256,24 +1151,6 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark/side,
-/area/hallway/primary/central/low_level_centre)
-"nH" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 10
-	},
-/obj/structure/flora/rock{
-	pixel_x = 4;
-	pixel_y = 22
-	},
-/obj/structure/flora/ausbushes/sunnybush{
-	pixel_y = 6;
-	pixel_x = 9
-	},
-/turf/open/floor/grass,
 /area/hallway/primary/central/low_level_centre)
 "nI" = (
 /obj/machinery/light/small{
@@ -1371,8 +1248,7 @@
 	},
 /obj/structure/table/wood,
 /obj/item/toy/plush/carpplushie{
-	color = "red";
-	name = "\improper Nanotrasen wildlife department space carp plushie"
+	color = "red"
 	},
 /obj/item/toy/plush/carpplushie{
 	pixel_y = 8;
@@ -1543,9 +1419,6 @@
 /obj/structure/cable,
 /turf/open/floor/wood/parquet,
 /area/command/heads_quarters/hop)
-"qm" = (
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
 "qp" = (
 /obj/machinery/light{
 	dir = 4
@@ -1587,12 +1460,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/command/corporate_showroom)
-"qU" = (
-/mob/living/simple_animal/crab{
-	name = "Eddie"
-	},
-/turf/open/floor/plating/beach/sand,
-/area/hallway/primary/central/low_level_centre)
 "rh" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -1707,7 +1574,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/fluff/hedge,
 /obj/structure/sign/poster/official/random{
 	pixel_x = 32;
 	pixel_y = 32
@@ -1736,11 +1602,6 @@
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/dark/corner,
-/area/hallway/primary/central/low_level_centre)
-"tf" = (
-/obj/structure/flora/junglebush/large,
-/obj/structure/flora/rock/pile/largejungle,
-/turf/open/floor/grass,
 /area/hallway/primary/central/low_level_centre)
 "tw" = (
 /obj/structure/stairs/south{
@@ -1934,10 +1795,6 @@
 	},
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
-"vc" = (
-/obj/structure/flora/rock/jungle,
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
 "vk" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
@@ -2002,12 +1859,6 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark/side{
-	dir = 4
-	},
-/area/hallway/primary/central/low_level_centre)
-"vI" = (
-/obj/structure/fluff/hedge,
-/turf/open/floor/plasteel/dark/corner{
 	dir = 4
 	},
 /area/hallway/primary/central/low_level_centre)
@@ -2261,13 +2112,6 @@
 	dir = 4
 	},
 /area/command/corporate_showroom)
-"yU" = (
-/obj/structure/flora/junglebush/b{
-	pixel_x = 15
-	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
 "yY" = (
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge";
@@ -2289,7 +2133,6 @@
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/low_level_centre)
 "zb" = (
-/obj/structure/fluff/hedge,
 /obj/machinery/light{
 	pixel_y = 0
 	},
@@ -2304,12 +2147,14 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command)
 "zf" = (
-/obj/structure/fluff/hedge,
-/obj/machinery/light{
-	dir = 1
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
 	},
-/turf/open/floor/plasteel/monofloor/dark,
-/area/hallway/primary/central/low_level_centre)
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/hallway/primary/central/low_level_eva)
 "zm" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -2378,24 +2223,6 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/service/cafeteria)
-"zT" = (
-/obj/machinery/light/floor/directional/north,
-/obj/machinery/light/floor/directional/west,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 9
-	},
-/obj/item/toy/seashell{
-	pixel_y = -7;
-	pixel_x = 12
-	},
-/turf/open/floor/plating/beach/sand,
-/area/hallway/primary/central/low_level_centre)
 "zW" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -2539,47 +2366,6 @@
 "Ck" = (
 /turf/closed/wall/r_wall,
 /area/command/meeting_room/council)
-"Cl" = (
-/obj/effect/turf_decal/siding/thinplating_new/corner{
-	dir = 4
-	},
-/obj/structure/flora/ausbushes/pointybush{
-	pixel_y = -6;
-	pixel_x = 8
-	},
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
-"Cr" = (
-/obj/effect/turf_decal/siding/thinplating_new/corner{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes/fullgrass{
-	pixel_y = 19;
-	pixel_x = 13
-	},
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
-"Cs" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 1
-	},
-/obj/structure/flora/grass/jungle{
-	pixel_y = -21;
-	pixel_x = 28
-	},
-/mob/living/simple_animal/crab{
-	name = "Eddie"
-	},
-/turf/open/floor/plating/beach/sand,
-/area/hallway/primary/central/low_level_centre)
-"Cv" = (
-/obj/structure/fluff/hedge,
-/turf/open/floor/plasteel/dark,
-/area/hallway/primary/central/low_level_centre)
 "Cy" = (
 /obj/structure/stairs/south,
 /obj/structure/railing/left{
@@ -2715,24 +2501,6 @@
 	dir = 6
 	},
 /area/command)
-"DJ" = (
-/obj/machinery/light/floor/directional/north,
-/obj/machinery/light/floor/directional/east,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 5
-	},
-/obj/structure/flora/ausbushes/brflowers{
-	pixel_y = -11;
-	pixel_x = -17
-	},
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
 "DR" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -2757,11 +2525,6 @@
 	dir = 8
 	},
 /area/command/corporate_showroom)
-"Eg" = (
-/obj/structure/window/reinforced,
-/obj/effect/turf_decal/siding/thinplating_new,
-/turf/open/floor/plating/beach/sand,
-/area/hallway/primary/central/low_level_centre)
 "Ek" = (
 /obj/structure/stairs/south{
 	dir = 1
@@ -2909,23 +2672,6 @@
 	},
 /turf/open/floor/plasteel/dark/corner,
 /area/command/corporate_showroom)
-"Ft" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 5
-	},
-/obj/structure/flora/rock/pile{
-	pixel_y = -10;
-	pixel_x = -5
-	},
-/obj/structure/flora/ausbushes/leafybush,
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
 "Fv" = (
 /obj/machinery/airalarm/directional/south,
 /obj/structure/chair/sofa/left{
@@ -2969,18 +2715,6 @@
 "Gc" = (
 /obj/structure/chair/sofa/bench/right,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/hallway/primary/central/low_level_centre)
-"Gg" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/low_level_centre)
 "Gk" = (
 /obj/effect/turf_decal/tile/blue{
@@ -3097,16 +2831,6 @@
 	},
 /turf/open/floor/carpet,
 /area/hallway/primary/central/low_level_centre)
-"GW" = (
-/obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/turf/open/floor/plasteel/dark,
-/area/hallway/primary/central/low_level_centre)
 "GX" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
@@ -3132,12 +2856,6 @@
 /obj/machinery/vending/coffee,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/service/cafeteria)
-"HD" = (
-/obj/effect/turf_decal/siding/thinplating_new/corner{
-	dir = 1
-	},
-/turf/open/floor/plating/beach/sand,
-/area/hallway/primary/central/low_level_centre)
 "HF" = (
 /obj/effect/spawner/random/trash/garbage,
 /turf/open/floor/plating,
@@ -3161,10 +2879,6 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
-/area/hallway/primary/central/low_level_centre)
-"HS" = (
-/obj/effect/turf_decal/siding/thinplating_new/corner,
-/turf/open/floor/plating/beach/sand,
 /area/hallway/primary/central/low_level_centre)
 "HV" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -3197,13 +2911,6 @@
 	dir = 10
 	},
 /area/hallway/primary/central/low_level_centre)
-"Ix" = (
-/obj/effect/turf_decal/siding/thinplating_new/corner{
-	dir = 4
-	},
-/obj/structure/flora/rock/jungle,
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
 "IF" = (
 /obj/structure/disposalpipe/segment{
 	dir = 9
@@ -3215,10 +2922,6 @@
 /area/command/corporate_showroom)
 "IX" = (
 /turf/open/floor/plasteel/monofloor/dark,
-/area/hallway/primary/central/low_level_centre)
-"IY" = (
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/open/floor/grass,
 /area/hallway/primary/central/low_level_centre)
 "Jb" = (
 /obj/structure/sign/directions/evac{
@@ -3371,16 +3074,6 @@
 "JW" = (
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
-"JZ" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 6
-	},
-/turf/open/floor/plating/beach/sand,
-/area/hallway/primary/central/low_level_centre)
 "Kd" = (
 /obj/structure/sign/poster/contraband/random,
 /turf/closed/wall/r_wall,
@@ -3433,10 +3126,6 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/corporate_showroom)
-"Lc" = (
-/obj/structure/flora/grass/brown,
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
 "Ld" = (
 /obj/structure/chair/sofa/bench/right{
 	dir = 8
@@ -3444,18 +3133,6 @@
 /turf/open/floor/plasteel/dark/side{
 	dir = 5
 	},
-/area/hallway/primary/central/low_level_centre)
-"Lf" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 9
-	},
-/turf/open/floor/plating/beach/sand,
 /area/hallway/primary/central/low_level_centre)
 "Lg" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -3488,9 +3165,6 @@
 "LC" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
-	},
-/obj/item/kirbyplants{
-	icon_state = "plant-21"
 	},
 /obj/machinery/camera/autoname{
 	dir = 4;
@@ -3566,16 +3240,6 @@
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/carpet,
 /area/command/heads_quarters/hop)
-"Ma" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 4
-	},
-/obj/structure/flora/ausbushes/reedbush,
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
 "Mg" = (
 /obj/structure/stairs/south,
 /obj/structure/railing/right{
@@ -3715,12 +3379,6 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/service/cafeteria)
-"Nz" = (
-/obj/structure/window/reinforced,
-/obj/effect/turf_decal/siding/thinplating_new,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/plating/beach/sand,
-/area/hallway/primary/central/low_level_centre)
 "NC" = (
 /obj/structure/table/wood,
 /obj/machinery/power/apc/auto_name/directional/north,
@@ -3735,14 +3393,6 @@
 /obj/structure/cable,
 /obj/machinery/camera/autoname,
 /turf/open/floor/plasteel/monofloor/dark,
-/area/hallway/primary/central/low_level_centre)
-"ND" = (
-/obj/structure/flora/ausbushes/ywflowers,
-/obj/structure/flora/ausbushes/palebush{
-	pixel_y = -8;
-	pixel_x = 6
-	},
-/turf/open/floor/grass,
 /area/hallway/primary/central/low_level_centre)
 "NF" = (
 /obj/effect/turf_decal/bot_white/left,
@@ -3858,19 +3508,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/service/cafeteria)
-"OP" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 8
-	},
-/obj/structure/flora/ausbushes/ywflowers{
-	pixel_y = -9;
-	pixel_x = 7
-	},
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
 "OY" = (
 /turf/open/floor/plasteel/dark/side{
 	dir = 4
@@ -3975,14 +3612,6 @@
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/low_level_eva)
-"PP" = (
-/obj/structure/fluff/hedge,
-/turf/open/floor/plasteel/monofloor/dark,
-/area/hallway/primary/central/low_level_centre)
-"PQ" = (
-/obj/structure/fluff/hedge,
-/turf/open/floor/plasteel/dark/corner,
-/area/hallway/primary/central/low_level_centre)
 "PT" = (
 /obj/machinery/airalarm/directional/north,
 /obj/effect/turf_decal/siding/green/corner{
@@ -3990,17 +3619,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/command)
-"PV" = (
-/obj/structure/flora/junglebush/b{
-	pixel_y = 6;
-	pixel_x = 7
-	},
-/obj/structure/flora/rock/jungle{
-	pixel_y = -16;
-	pixel_x = -5
-	},
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
 "Qa" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -4112,15 +3730,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engineering/gravity_generator)
-"Ri" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 1
-	},
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
 "Rk" = (
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/low_level_centre)
@@ -4190,20 +3799,6 @@
 	},
 /turf/open/floor/carpet,
 /area/command/heads_quarters/captain)
-"Sj" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 10
-	},
-/obj/structure/flora/junglebush/c{
-	pixel_y = 10;
-	pixel_x = 5
-	},
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
 "Sm" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -4365,7 +3960,6 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/low_level_centre)
 "TJ" = (
-/obj/structure/fluff/hedge,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -4406,7 +4000,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/fluff/hedge,
 /obj/machinery/camera/autoname{
 	view_range = 12
 	},
@@ -4415,17 +4008,6 @@
 	pixel_x = -32
 	},
 /turf/open/floor/plasteel/monofloor/dark,
-/area/hallway/primary/central/low_level_centre)
-"Ue" = (
-/obj/structure/flora/grass/jungle{
-	pixel_y = 1;
-	pixel_x = 5
-	},
-/obj/structure/flora/ausbushes/reedbush{
-	pixel_y = -5;
-	pixel_x = -6
-	},
-/turf/open/floor/grass,
 /area/hallway/primary/central/low_level_centre)
 "Uj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -4454,9 +4036,6 @@
 /area/command/heads_quarters/captain)
 "Uq" = (
 /obj/effect/turf_decal/tile/blue,
-/obj/item/kirbyplants{
-	icon_state = "plant-21"
-	},
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/low_level_centre)
 "Ur" = (
@@ -4510,7 +4089,7 @@
 	id = "bridge blast";
 	name = "bridge blast door"
 	},
-/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/command)
 "UL" = (
@@ -4596,12 +4175,6 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark/side,
-/area/hallway/primary/central/low_level_centre)
-"Vo" = (
-/obj/structure/window/reinforced,
-/obj/effect/turf_decal/siding/thinplating_new,
-/obj/structure/flora/tree/jungle/small,
-/turf/open/floor/grass,
 /area/hallway/primary/central/low_level_centre)
 "Vv" = (
 /turf/closed/wall/r_wall,
@@ -4698,18 +4271,6 @@
 /obj/effect/turf_decal/trimline/white/warning,
 /turf/open/floor/plasteel/dark/side,
 /area/command/corporate_showroom)
-"Wd" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 9
-	},
-/turf/open/floor/plating/beach/sand,
-/area/hallway/primary/central/low_level_centre)
 "Wf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -4726,12 +4287,10 @@
 	},
 /area/hallway/primary/central/low_level_centre)
 "Wj" = (
-/obj/structure/flora/tree/palm,
-/obj/effect/overlay/coconut{
-	pixel_x = -16
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/structure/flora/ausbushes/brflowers,
-/turf/open/floor/grass,
+/turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/low_level_centre)
 "Wo" = (
 /obj/effect/turf_decal/siding/wood/corner{
@@ -4783,7 +4342,6 @@
 /area/command/corporate_showroom)
 "WZ" = (
 /obj/machinery/light,
-/obj/structure/fluff/hedge,
 /obj/machinery/camera/autoname{
 	dir = 1;
 	view_range = 12
@@ -4882,25 +4440,6 @@
 /obj/machinery/navbeacon/wayfinding,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/heads_quarters/hop)
-"XS" = (
-/obj/item/kirbyplants{
-	icon_state = "plant-21"
-	},
-/turf/open/floor/plasteel/dark,
-/area/hallway/primary/central/low_level_centre)
-"Yb" = (
-/obj/machinery/light/floor,
-/obj/machinery/light/floor/directional/west,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 10
-	},
-/obj/structure/flora/ausbushes/sparsegrass,
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
 "Yf" = (
 /obj/structure/chair/comfy/black{
 	dir = 8
@@ -4930,15 +4469,6 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/maintenance/bottom_station_maints)
-"YH" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/thinplating_new{
-	dir = 8
-	},
-/turf/open/floor/plating/beach/sand,
-/area/hallway/primary/central/low_level_centre)
 "YL" = (
 /obj/machinery/light{
 	dir = 4
@@ -4952,14 +4482,6 @@
 /turf/open/floor/plasteel/dark/side{
 	dir = 4
 	},
-/area/hallway/primary/central/low_level_centre)
-"YV" = (
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/effect/overlay/palmtree_l{
-	pixel_x = 12;
-	pixel_y = -2
-	},
-/turf/open/floor/grass,
 /area/hallway/primary/central/low_level_centre)
 "YZ" = (
 /obj/machinery/holopad,
@@ -5051,10 +4573,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
-"Zw" = (
-/obj/structure/flora/ausbushes/grassybush,
-/turf/open/floor/grass,
-/area/hallway/primary/central/low_level_centre)
 "ZA" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced{
@@ -5494,13 +5012,13 @@ VY
 VY
 VY
 VY
-HV
+zf
 HV
 HV
 wy
 Os
 aZ
-zf
+Wj
 df
 gN
 zb
@@ -5514,10 +5032,10 @@ BX
 UJ
 ZW
 ZW
-zf
+Wj
 tw
 RG
-zb
+mT
 UL
 KA
 Dj
@@ -5538,24 +5056,24 @@ xd
 gl
 IF
 av
-PP
+IX
 uO
 wm
-XS
-Cv
+cL
+cL
 TJ
-PP
+IX
 Uq
 uq
 Sh
 LC
-PP
+IX
 TJ
-Cv
+cL
 ie
 uO
 uI
-PP
+IX
 we
 pt
 Dj
@@ -5652,24 +5170,24 @@ uH
 Ju
 EX
 av
-PP
+IX
 uO
 Gz
 cL
 lg
-Gg
-ww
-kw
-Wd
-nH
-eD
-Zg
-GW
+VY
+VY
+VY
+VY
+VY
+VY
+VY
+VY
 fo
 cL
 KK
 uI
-Cv
+cL
 we
 ix
 Dj
@@ -5690,24 +5208,24 @@ nD
 Ju
 qL
 aZ
-PP
+IX
 uO
 Gz
 cL
 cL
-ww
-zT
-YH
-gF
-Cr
-OP
-Yb
-Zg
+VY
+VY
+VY
+VY
+VY
+VY
+VY
+VY
 cL
 cL
 KK
 uI
-PP
+IX
 UL
 Bu
 Sq
@@ -5733,14 +5251,14 @@ uO
 Gz
 ES
 cL
-kw
-Cs
-gG
-Wj
-qm
-qm
-Vo
-eD
+VY
+VY
+VY
+VY
+VY
+VY
+VY
+VY
 cL
 rt
 KK
@@ -5771,14 +5289,14 @@ Ur
 EZ
 vW
 Ur
-Lf
-HD
-qm
-Zw
-yU
-IY
-cx
-Sj
+VY
+VY
+VY
+VY
+VY
+VY
+VY
+VY
 Vf
 vW
 SO
@@ -5809,14 +5327,14 @@ ya
 CV
 wJ
 hF
-mT
-qm
-qm
-qm
-mc
-md
-Ue
-Nz
+VY
+VY
+VY
+VY
+VY
+VY
+VY
+VY
 Vm
 tE
 Ty
@@ -5847,14 +5365,14 @@ kv
 oi
 Nh
 kv
-eu
-Ix
-qm
-ND
-Lc
-PV
-HS
-JZ
+VY
+VY
+VY
+VY
+VY
+VY
+VY
+VY
 XB
 Nh
 oi
@@ -5885,14 +5403,14 @@ uO
 oi
 ll
 cL
-vI
-Ri
-tf
-vc
-YV
-qU
-Eg
-PQ
+VY
+VY
+VY
+VY
+VY
+VY
+VY
+VY
 cL
 UP
 oi
@@ -5918,24 +5436,24 @@ tV
 Kq
 Ph
 UL
-PP
+IX
 uO
 oi
 Zg
 IX
-UD
-DJ
-Ma
-Cl
-HS
-eK
-ji
-qB
+VY
+VY
+VY
+VY
+VY
+VY
+VY
+VY
 IX
 ww
 oi
 uI
-PP
+IX
 Ao
 Hh
 yz
@@ -5956,24 +5474,24 @@ Ez
 Wf
 qB
 we
-PP
+IX
 UD
 oi
 Rk
 Zg
-IX
-UD
-vI
-Ft
-JZ
-PQ
-qB
-IX
+VY
+VY
+VY
+VY
+VY
+VY
+VY
+VY
 ww
 Rk
 oi
 qB
-Cv
+cL
 OM
 GS
 zH
@@ -6070,7 +5588,7 @@ ma
 Qa
 Zg
 we
-Cv
+cL
 cL
 bx
 dE
@@ -6087,7 +5605,7 @@ aA
 dE
 LF
 cL
-PP
+IX
 OM
 Ji
 SH
@@ -6108,7 +5626,7 @@ Jc
 eP
 UU
 UL
-PP
+IX
 uK
 bd
 lL
@@ -6125,7 +5643,7 @@ xT
 lL
 uK
 bd
-PP
+IX
 Ao
 zS
 rn

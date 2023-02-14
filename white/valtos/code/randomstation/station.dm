@@ -5,6 +5,7 @@
 
 /datum/map_template/ruin/station/brig
 	id = "default_brig"
+	prefix = "_maps/r_ruins/station/brig/"
 	suffix = "brig_default.dmm"
 	name = "Default Brig"
 
@@ -20,6 +21,7 @@
 
 /datum/map_template/ruin/station/bar
 	id = "default_bar"
+	prefix = "_maps/r_ruins/station/bar/"
 	suffix = "bar_default.dmm"
 	name = "Default Bar"
 
@@ -40,6 +42,7 @@
 
 /datum/map_template/ruin/station/bridge
 	id = "default_Bridge"
+	prefix = "_maps/r_ruins/station/bridge/"
 	suffix = "bridge_default.dmm"
 	name = "Default Bridge"
 	always_spawn_with = list(/datum/map_template/ruin/station/bridge/bottom = PLACE_BELOW)
@@ -76,8 +79,32 @@
 	suffix = "bridge_hall_bottom.dmm"
 	name = "Hall Bridge Bottom"
 
+////	////	Сад Холла бокса		////	////
+
+/datum/map_template/ruin/station/bridge_garden
+	id = "bridge_garden_tropic"
+	prefix = "_maps/r_ruins/station/bridge_garden/"
+	suffix = "bridge_hall_garden_1.dmm"
+	name = "Tropic Garden"
+
+/datum/map_template/ruin/station/bridge_garden/snow
+	id = "bridge_garden_snow"
+	suffix = "bridge_hall_garden_2.dmm"
+	name = "Snow Garden"
+
+/datum/map_template/ruin/station/bridge_garden/lava
+	id = "bridge_garden_lava"
+	suffix = "bridge_hall_garden_3.dmm"
+	name = "Lava Garden"
+
+/datum/map_template/ruin/station/bridge_garden/meteor
+	id = "bridge_garden_meteor"
+	suffix = "bridge_hall_garden_4.dmm"
+	name = "Meteor Garden"
+
 /datum/map_template/ruin/station/engine
 	id = "engine_sm"
+	prefix = "_maps/r_ruins/station/engine_box/"
 	suffix = "engine_supermatter.dmm"
 	name = "Supermatter Engine"
 	always_spawn_with = list(/datum/map_template/ruin/station/engine/bottom = PLACE_BELOW)
@@ -128,6 +155,7 @@
 
 /datum/map_template/ruin/station/maint_sw
 	id = "default_maint_sw"
+	prefix = "_maps/r_ruins/station/maint/"
 	suffix = "maint_sw_default.dmm"
 	name = "Default Maint SW"
 
@@ -143,6 +171,7 @@
 
 /datum/map_template/ruin/station/med
 	id = "default_med"
+	prefix = "_maps/r_ruins/station/med/"
 	suffix = "medbay_default.dmm"
 	name = "Default Medbay"
 
@@ -168,6 +197,9 @@
 	name = "Panopticon Medbay"
 
 ////	////	МЕТА	////	////
+
+/datum/map_template/ruin/station/meta/engine
+	prefix = "_maps/r_ruins/station/engine_meta/"
 
 /datum/map_template/ruin/station/meta/engine/tesla
 	id = "meta_engine_tesla"

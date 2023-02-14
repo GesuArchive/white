@@ -22,37 +22,13 @@
 			"total_positions": -1,
 			"spawn_positions": -1
 		},
-		"officer": {
-			"total_positions": 2,
-			"spawn_positions": 2
-		},
-		"hos": {
-			"total_positions": 0,
-			"spawn_positions": 0
-		},
-		"hop": {
-			"total_positions": 0,
-			"spawn_positions": 0
-		},
-		"chief_engineer": {
-			"total_positions": 0,
-			"spawn_positions": 0
-		},
-		"rd": {
-			"total_positions": 0,
-			"spawn_positions": 0
-		},
-		"cmo": {
-			"total_positions": 0,
-			"spawn_positions": 0
-		},
 		"atmos": {
-			"total_positions": 0,
-			"spawn_positions": 0
+			"total_positions": -1,
+			"spawn_positions": -1
 		},
 		"scientist": {
-			"total_positions": 0,
-			"spawn_positions": 0
+			"total_positions": 5,
+			"spawn_positions": 5
 		},
 		"roboticist": {
 			"total_positions": 0,
@@ -63,8 +39,8 @@
 			"spawn_positions": 0
 		},
 		"doctor": {
-			"total_positions": 0,
-			"spawn_positions": 0
+			"total_positions": 5,
+			"spawn_positions": 5
 		},
 		"virologist": {
 			"total_positions": 0,
@@ -75,16 +51,16 @@
 			"spawn_positions": 0
 		},
 		"qm": {
-			"total_positions": 0,
-			"spawn_positions": 0
+			"total_positions": 1,
+			"spawn_positions": 1
 		},
 		"cargo_tech": {
 			"total_positions": 0,
 			"spawn_positions": 0
 		},
 		"mining": {
-			"total_positions": 0,
-			"spawn_positions": 0
+			"total_positions": 3,
+			"spawn_positions": 3
 		},
 		"bartender": {
 			"total_positions": 0,
@@ -115,12 +91,12 @@
 			"spawn_positions": 0
 		},
 		"clown": {
-			"total_positions": 0,
-			"spawn_positions": 0
+			"total_positions": 1,
+			"spawn_positions": 1
 		},
 		"mime": {
-			"total_positions": 0,
-			"spawn_positions": 0
+			"total_positions": 1,
+			"spawn_positions": 1
 		},
 		"assistant": {
 			"total_positions": 0,
@@ -135,12 +111,12 @@
 			"spawn_positions": 0
 		},
 		"ai": {
-			"total_positions": 0,
-			"spawn_positions": 0
+			"total_positions": 1,
+			"spawn_positions": 1
 		},
 		"cyborg": {
-			"total_positions": 0,
-			"spawn_positions": 0
+			"total_positions": 1,
+			"spawn_positions": 1
 		},
 		"veteran": {
 			"total_positions": 0,
@@ -163,8 +139,8 @@
 			"spawn_positions": 0
 		},
 		"quartermaster": {
-			"total_positions": 0,
-			"spawn_positions": 0
+			"total_positions": 1,
+			"spawn_positions": 1
 		},
 		"cargo_technician": {
 			"total_positions": 0,
@@ -179,8 +155,8 @@
 			"spawn_positions": 0
 		},
 		"security_officer": {
-			"total_positions": 0,
-			"spawn_positions": 0
+			"total_positions": 1,
+			"spawn_positions": 1
 		},
 		"russian_officer": {
 			"total_positions": 0,

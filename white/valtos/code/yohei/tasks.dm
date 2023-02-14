@@ -64,6 +64,7 @@
 	target = find_target()
 	desc = "Захватить [target.real_name] и доставить живьём в логово."
 	prize = max(rand(prize - 10, prize + 20), 1)
+	to_chat(target, span_userdanger("Беги..."))
 
 /datum/yohei_task/capture/check_task(autocheck)
 	if(target && target.stat != DEAD && !autocheck) // you WILL press the screen to confirm it
@@ -95,7 +96,7 @@
 		target.lastattackermob = null // we just don't care what happens with him after teleportation. also avoids false mood debuffs
 		new /obj/effect/pod_landingzone(find_safe_turf(zlevels = SSmapping.levels_by_trait(ZTRAIT_STATION)), return_pod)
 		if(prob(99))
-			if(prob(10))
+			if(prob(66))	// Они надоели добровольно сдаваться Йохеям ради роли
 				/* target.gib() */
 				/* gibbing is not gud, lets try something different */
 				var/resistance = pick(
@@ -111,8 +112,16 @@
 
 				var/mob/living/carbon/human/targetH = target
 				targetH?.gain_trauma_type(trauma_type, resistance)
+				if(target.mind.has_antag_datum())
+					target?.mind?.remove_all_antag_datums()
+					to_chat(target, span_userdanger("Совершенно не помню как я здесь оказался... У меня болит голова и, кажется, <b>я потерял цель</b> в жизни..."))
 				return YOHEI_MISSION_COMPLETED
-			target?.mind?.make_Traitor()
+			if(target.mind.has_antag_datum())
+				target?.mind?.remove_all_antag_datums()
+				to_chat(target, span_userdanger("Совершенно не помню как я здесь оказался... У меня болит голова и, кажется, <b>я потерял цель</b> в жизни..."))
+			else
+				target?.mind?.make_Traitor()
+				to_chat(target, span_userdanger("Совершенно не помню как я здесь оказался... У меня болит голова и, кажется, <b>я обрел новую цель</b> в жизни..."))
 			return YOHEI_MISSION_COMPLETED
 		else
 			target?.mind?.make_Wizard() // SEE MY ORB!

@@ -61,11 +61,12 @@
 /obj/machinery/restaurant_portal/restaurant
 	linked_venue = /datum/venue/restaurant
 /obj/item/holosign_creator/robot_seat/restaurant
-	name = "голопроектор свободного места"
+	name = "голопроектор ресторана"
+	desc = "Голопроектор указывающий посадочные места для посетителей ресторана."
 	holosign_type = /obj/structure/holosign/robot_seat/restaurant
 
 /obj/structure/holosign/robot_seat/restaurant
-	name = "свободное посадочное место"
+	name = "свободное место ресторана"
 	linked_venue = /datum/venue/restaurant
 
 
@@ -142,9 +143,10 @@
 	linked_venue = /datum/venue/bar
 
 /obj/item/holosign_creator/robot_seat/bar
-	name = "Голопроектор свободных мест бара"
+	name = "голопроектор бара"
+	desc = "Голопроектор указывающий посадочные места для посетителей бара."
 	holosign_type = /obj/structure/holosign/robot_seat/bar
 
 /obj/structure/holosign/robot_seat/bar
-	name = "Свободное место"
+	name = "свободное место бара"
 	linked_venue = /datum/venue/bar

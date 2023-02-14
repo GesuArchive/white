@@ -487,6 +487,18 @@
 	sub_category = list("Сенсорика")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
+/datum/design/cyberimp_basic_eyes
+	name = "Базовые кибернетические глаза"
+	desc = "Примитивный прототип протеза глаз способный видеть мир лишь в черно-белых оттенках, однако люди полностью лишенные зрения будут рады и такому."
+	id = "ci-basic_eyes"
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 60
+	materials = list(/datum/material/iron = 600, /datum/material/glass = 600, /datum/material/silver = 600)
+	build_path = /obj/item/organ/eyes/robotic/basic
+	category = list("Кибернетика", "Медицинские разработки")
+	sub_category = list("Сенсорика")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
 /datum/design/cyberimp_antidrop
 	name = "Имплант крепкого хвата"
 	desc = "Этот кибернетический мозговой имплант заставит мышцы ваших рук сократиться, предотвращая падение предметов. Подергайте ухом, чтобы переключиться."

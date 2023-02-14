@@ -289,6 +289,18 @@
 			return
 		COOLDOWN_START(src, resin_cooldown, 10 SECONDS)
 		R.remove_any(100)
+
+		var/obj/item/grenade/chem_grenade/resin_foam/small/resin = new (get_turf(src))
+		log_game("[key_name(user)] запустил пенную гранату [AREACOORD(user)].")
+		playsound(user.loc, 'white/Feline/sounds/Grenade_Shot.ogg', 100, TRUE)
+		resin.forceMove(user.loc)
+		resin.throw_at(target, 30, 2, user)
+		resin.active = 1
+		resin.icon_state = initial(resin.icon_state) + "_active"
+		addtimer(CALLBACK(resin, /obj/item/grenade.proc/detonate), 5)
+		return
+
+/*
 		var/obj/effect/resin_container/resin = new (get_turf(src))
 		log_game("[key_name(user)] запустил пенную гранату [AREACOORD(user)].")
 		playsound(src,'sound/items/syringeproj.ogg',40,TRUE)
@@ -297,6 +309,7 @@
 		RegisterSignal(loop, COMSIG_MOVELOOP_POSTPROCESS, PROC_REF(resin_stop_check))
 		RegisterSignal(loop, COMSIG_PARENT_QDELETING, PROC_REF(resin_landed))
 		return
+*/
 
 	if(nozzle_mode == RESIN_FOAM)
 		if(!Adj|| !isturf(target))
