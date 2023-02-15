@@ -24,6 +24,11 @@
 
 	force_no_gravity = TRUE
 
+/turf/open/space/basic/New() //Do not convert to Initialize
+	SHOULD_CALL_PARENT(FALSE)
+	//This is used to optimize the map loader
+	return
+
 /**
  * Space Initialize
  *
@@ -49,7 +54,7 @@
 
 	// We make the assumption that the space plane will never be blacklisted, as an optimization
 	if(SSmapping.max_plane_offset)
-		plane = PLANE_SPACE - (PLANE_RANGE * SSmapping.z_level_to_plane_offset?[z])
+		plane = PLANE_SPACE - (PLANE_RANGE * SSmapping.z_level_to_plane_offset?[z]) // 2 *
 
 	var/area/our_area = loc
 	if(!our_area.area_has_base_lighting && space_lit) //Only provide your own lighting if the area doesn't for you
