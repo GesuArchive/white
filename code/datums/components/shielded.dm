@@ -118,7 +118,7 @@
 		wearer.update_appearance(UPDATE_ICON)
 		wearer = null
 
-/datum/component/shielded/proc/set_wearer(mob/user)
+/datum/component/shielded/proc/set_wearer(datum/source, mob/user)
 	wearer = user
 	RegisterSignal(wearer, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(on_update_overlays))
 	RegisterSignal(wearer, COMSIG_PARENT_QDELETING, PROC_REF(lost_wearer))

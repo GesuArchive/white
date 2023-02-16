@@ -242,7 +242,7 @@
 	. += getpipeimage(icon, "[base_icon_state]-pipe", dir, COLOR_VIBRANT_LIME, piping_layer)
 	. += getpipeimage(icon, "[base_icon_state]-pipe", turn(dir, 180), COLOR_RED, piping_layer)
 	if(!istype(inserted_tank))
-		. += mutable_appearance(icon, "[base_icon_state]-doors",)
+		. += mutable_appearance(icon, "[base_icon_state]-doors")
 	if(panel_open)
 		. += mutable_appearance(icon, "[base_icon_state]-maintenance")
 	else

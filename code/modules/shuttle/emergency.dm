@@ -327,14 +327,21 @@
 			else
 				set_coefficient = 0.5
 	var/call_time = SSshuttle.emergencyCallTime * set_coefficient * engine_coeff
+	var/we_called = FALSE
 	switch(mode)
 		// The shuttle can not normally be called while "recalling", so
 		// if this proc is called, it's via admin fiat
 		if(SHUTTLE_RECALL, SHUTTLE_IDLE, SHUTTLE_CALL)
 			mode = SHUTTLE_CALL
 			setTimer(call_time)
+			we_called = TRUE
 		else
-			return
+			we_called = FALSE
+
+	if(!we_called && SSshuttle.emergencyNoRecall)
+		// call it anyway
+		mode = SHUTTLE_CALL
+		setTimer(call_time)
 
 	SSshuttle.emergencyCallAmount++
 

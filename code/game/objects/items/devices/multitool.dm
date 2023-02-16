@@ -45,7 +45,7 @@
 
 /obj/item/multitool/update_overlays()
 	. = ..()
-	. += mutable_appearance(icon, "[icon_state]_[selected_io ? "red" : "green"]", src)
+	. += mutable_appearance(icon, "[icon_state]_[selected_io ? "red" : "green"]", layer, src)
 	. += emissive_appearance(icon, "[icon_state]_[selected_io ? "red" : "green"]", src, alpha = src.alpha)
 
 // Syndicate device disguised as a multitool; it will turn red when an AI camera is nearby.

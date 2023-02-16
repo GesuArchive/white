@@ -25,6 +25,7 @@
 	var/damaged_dmi = 'icons/turf/damaged.dmi'
 	var/broken = FALSE
 	var/burnt = FALSE
+	var/plating_fucked = FALSE
 	var/floor_tile = null //tile that this floor drops
 	var/list/broken_states
 	var/list/burnt_states
@@ -46,7 +47,9 @@
 		broken = TRUE
 	if(!burnt && burnt_states && (icon_state in burnt_states))
 		burnt = TRUE
-	if(mapload && prob(23))
+	if(mapload && prob(47))
+		if(prob(0.5))
+			plating_fucked = TRUE
 		MakeDirty()
 	if(is_station_level(z))
 		GLOB.station_turfs += src
@@ -136,7 +139,9 @@
 
 /turf/open/floor/update_overlays()
 	. = ..()
-	if(broken)
+	if(plating_fucked)
+		. += mutable_appearance(damaged_dmi, "plating_visible[rand(1, 4)]")
+	else if(broken)
 		. += mutable_appearance(damaged_dmi, pick(broken_states))
 	else if(burnt)
 		if(LAZYLEN(burnt_states))

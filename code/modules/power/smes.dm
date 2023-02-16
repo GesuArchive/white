@@ -214,22 +214,22 @@
 		return
 
 	if(outputting)
-		. += mutable_appearance(icon, "smes-op1", src)
+		. += mutable_appearance(icon, "smes-op1", layer, src)
 		. += emissive_appearance(icon, "smes-op1", src, alpha = src.alpha)
 	else
-		. += mutable_appearance(icon, "smes-op0", src)
+		. += mutable_appearance(icon, "smes-op0", layer, src)
 		. += emissive_appearance(icon, "smes-op0", src, alpha = src.alpha)
 
 	if(inputting)
-		. += mutable_appearance(icon, "smes-oc1", src)
+		. += mutable_appearance(icon, "smes-oc1", layer, src)
 		. += emissive_appearance(icon, "smes-oc1", src, alpha = src.alpha)
 	else if(input_attempt)
-		. += mutable_appearance(icon, "smes-oc0", src)
+		. += mutable_appearance(icon, "smes-oc0", layer, src)
 		. += emissive_appearance(icon, "smes-oc0", src, alpha = src.alpha)
 
 	var/clevel = chargedisplay()
 	if(clevel>0)
-		. += mutable_appearance(icon, "smes-og[clevel]", src)
+		. += mutable_appearance(icon, "smes-og[clevel]", layer, src)
 		. += emissive_appearance(icon, "smes-og[clevel]", src, alpha = src.alpha)
 
 
