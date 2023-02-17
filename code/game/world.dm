@@ -333,7 +333,7 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 */
 
 /world/proc/update_status()
-	status = "<big><b>Furry Dream 18+:</b> High Erotic Roleplay server with TTS and more!</big>"
+	status = "<big>\[SS220\] \[RU\] PARADISE HRP+ Furry LGBTQWERTY+ support, tolerance, ERP allowed/necessarily.</big>"
 
 /world/proc/update_hub_visibility(new_visibility)
 	if(new_visibility == GLOB.hub_visibility)
