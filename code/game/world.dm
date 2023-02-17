@@ -333,12 +333,7 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 */
 
 /world/proc/update_status()
-
-	var/s = ""
-
-	s = "<big><b>[ddlc_text("Белая Мечта")]:</b> #[global.config.current_version_less]</big>"
-
-	status = s
+	status = "<big><b>Furry Dream 18+:</b> High Erotic Roleplay server with TTS and more!</big>"
 
 /world/proc/update_hub_visibility(new_visibility)
 	if(new_visibility == GLOB.hub_visibility)
