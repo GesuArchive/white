@@ -333,7 +333,7 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 */
 
 /world/proc/update_status()
-	status = "<big>\[SS220\] \[RU\] PARADISE HRP+ Furry LGBTQWERTY+ support, tolerance, ERP allowed/necessarily.</big>"
+	status = "<b>\[OFFICIAL\] \[JP\] DeadSpace 13</b> HRP+ Furry LGBTQWERTY+ support, tolerance, ERP allowed/necessarily."
 
 /world/proc/update_hub_visibility(new_visibility)
 	if(new_visibility == GLOB.hub_visibility)
