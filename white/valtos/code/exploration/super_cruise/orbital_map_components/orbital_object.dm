@@ -21,8 +21,6 @@
 	var/maintain_orbit = FALSE
 	//The object in which we are trying to maintain a stable orbit around.
 	var/datum/orbital_object/target_orbital_body
-	//Are we invisible on the map?
-	var/stealth = FALSE
 	//Multiplier for velocity
 	var/velocity_multiplier = 1
 	//Do we ignore gravity?
@@ -60,9 +58,6 @@
 	//Add to this when you want THIS objects collision proc to be called.
 	var/collision_flags = NONE
 
-	//The ID used for comms
-	var/comms_id
-
 	//The color of the locator
 	var/locator_colour
 
@@ -73,8 +68,6 @@
 		src.position = position
 	else
 		src.position = new /datum/orbital_vector(0, 0)
-	//Do not let this be updated
-	src.position.protected = TRUE
 	if(velocity)
 		src.velocity = velocity
 	var/static/created_amount = 0
@@ -114,18 +107,11 @@
 	return
 
 //Process orbital objects, calculate gravity
-/datum/orbital_object/process()
+/datum/orbital_object/process(delta_time)
 	//Dont process updates for static objects.
 	if(static_object)
 		return PROCESS_KILL
 
-	//NOTE TO SELF: This does nothing because world.time is in ticks not realtime.
-	var/delta_time = 0
-	if(last_update_tick)
-		//Don't go too crazy.
-		delta_time = clamp(world.time - last_update_tick, 10, 50) * 0.1
-	else
-		delta_time = 1
 	last_update_tick = world.time
 
 	var/datum/orbital_map/parent_map = SSorbits.orbital_maps[orbital_map_index]
@@ -360,3 +346,6 @@
 
 /datum/orbital_object/proc/get_locator_name()
 	return name
+
+/datum/orbital_object/proc/is_stealth()
+	return FALSE

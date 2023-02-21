@@ -105,7 +105,6 @@
 "q" = (
 /obj/machinery/door/airlock/titanium,
 /obj/docking_port/mobile{
-	faction_type = /datum/faction/nanotrasen/central_command;
 	dir = 8;
 	dwidth = 2;
 	height = 12;

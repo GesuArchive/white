@@ -623,12 +623,6 @@
 		recall_docking_port_id = "pod_lavaland[idnum]"
 		valid_docks = list("pod_lavaland[idnum]")
 
-/obj/machinery/computer/shuttle_flight/pod/launch_shuttle()
-	var/datum/orbital_object/shuttle/launched_shuttle = ..()
-	if(launched_shuttle && (obj_flags & EMAGGED))
-		launched_shuttle.force_crash = TRUE
-	return launched_shuttle
-
 /obj/docking_port/stationary/random
 	name = "эвакуационный челнок"
 	id = "pod"

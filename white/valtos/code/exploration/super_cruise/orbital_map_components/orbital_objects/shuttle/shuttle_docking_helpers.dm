@@ -169,7 +169,7 @@
 				shuttle_dock.setTimer(INFINITY)
 				SEND_SIGNAL(src, COMSIG_ORBITAL_BODY_MESSAGE,
 					"Ожидайте...")
-				begin_dethrottle(target_z, crashing)
+				begin_dethrottle(target_z)
 				return TRUE
 			if(1)
 				SEND_SIGNAL(src, COMSIG_ORBITAL_BODY_MESSAGE,
@@ -182,33 +182,14 @@
 		"Критическая ошибка: Нет возможности приземлиться.")
 	CRASH("Failed to dock at a random location.")
 
-/datum/orbital_object/shuttle/proc/begin_dethrottle(target_z, crashing = FALSE)
-	//Determine if we are crashing or not
-	is_crashing = crashing || force_crash
-	crash_time = world.time
+/datum/orbital_object/shuttle/proc/begin_dethrottle(target_z)
 	is_docking = TRUE
-	if(is_crashing)
-		INVOKE_ASYNC(src, PROC_REF(do_warning))
-		force_crash = FALSE
 	var/datum/space_level/space_level = SSmapping.get_level(target_z)
-	timer_id = addtimer(CALLBACK(src, PROC_REF(unfreeze_shuttle)), 3 MINUTES, TIMER_STOPPABLE)
-	RegisterSignal(space_level, COMSIG_SPACE_LEVEL_GENERATED, PROC_REF(unfreeze_shuttle))
+	timer_id = addtimer(CALLBACK(src, .proc/unfreeze_shuttle), 3 MINUTES, TIMER_STOPPABLE)
+	RegisterSignal(space_level, COMSIG_SPACE_LEVEL_GENERATED, .proc/unfreeze_shuttle)
 	//Check if its already generated afterwards due to asynchronous behaviours
 	if(!space_level.generating)
 		unfreeze_shuttle(space_level)
-
-// Oh fuck
-/datum/orbital_object/shuttle/proc/do_warning()
-	SEND_SIGNAL(src, COMSIG_ORBITAL_BODY_MESSAGE, "Угроза столкновения. Покиньте корабль.")
-	var/obj/docking_port/mobile/mobile_port = SSshuttle.getShuttle(shuttle_port_id)
-	if(!mobile_port)
-		return
-	//Make all the lights go red
-	for (var/area/shuttle_area in mobile_port.shuttle_areas)
-		for(var/obj/machinery/light/light in shuttle_area)
-			light.update(FALSE, TRUE)
-		for(var/obj/machinery/computer/shuttle_flight/shuttle_computer in shuttle_area)
-			shuttle_computer.emergency_alarm?.start()
 
 /datum/orbital_object/shuttle/proc/unfreeze_shuttle(datum/source)
 	var/obj/docking_port/mobile/shuttle_dock = SSshuttle.getShuttle(shuttle_port_id)
@@ -229,10 +210,5 @@
 	if(timer_id)
 		deltimer(timer_id)
 		timer_id = null
-	if(is_crashing)
-		//You have at least 30 seconds to abandon ship
-		shuttle_dock.setTimer(max(20, crash_time + 30 SECONDS - world.time))
-	else
-		shuttle_dock.setTimer(20)
-	shuttle_dock.crash_landing = is_crashing
+	shuttle_dock.setTimer(20)
 	qdel(src)

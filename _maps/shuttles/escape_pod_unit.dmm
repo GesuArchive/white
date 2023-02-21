@@ -11,7 +11,6 @@
 	name = "Shuttle Airlock"
 	},
 /obj/docking_port/mobile/pod{
-	faction_type = /datum/faction/station;
 	height = 6;
 	id = "podunit";
 	name = "Cпасательная капсула (юнит)";

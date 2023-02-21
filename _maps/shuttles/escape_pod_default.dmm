@@ -25,7 +25,6 @@
 	name = "Escape Pod Airlock"
 	},
 /obj/docking_port/mobile/pod{
-	faction_type = /datum/faction/station;
 	name = "Cпасательная капсула";
 	port_direction = 2
 	},

@@ -28,7 +28,8 @@
 /obj/docking_port/mobile/assault_pod{
 	name = "steel rain";
 	port_direction = 4;
-	preferred_direction = 4
+	preferred_direction = 4;
+	shuttle_object_type = /datum/orbital_object/shuttle/stealth/steel_rain
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,

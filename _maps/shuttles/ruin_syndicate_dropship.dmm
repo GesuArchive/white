@@ -62,7 +62,6 @@
 	req_access_txt = "150"
 	},
 /obj/docking_port/mobile{
-	faction_type = /datum/faction/syndicate/gorlex;
 	dir = 2;
 	dwidth = 6;
 	height = 7;

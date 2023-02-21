@@ -1391,7 +1391,6 @@
 	name = "Infiltrator Starboard Hatch"
 	},
 /obj/docking_port/mobile{
-	faction_type = /datum/faction/syndicate/gorlex;
 	dheight = 1;
 	dir = 8;
 	dwidth = 12;

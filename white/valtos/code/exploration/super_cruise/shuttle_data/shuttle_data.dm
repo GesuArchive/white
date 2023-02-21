@@ -1,6 +1,7 @@
-//Do not less this comment exist during merge. If its still here review it.
-//If its in active code then the reviewers failed, I failed and you failed for not removing it sooner.
-#define DEBUG_SYNC_CHECK
+//Perform debug checks to see if the data matches with the turfs.
+//Expensive, so disable unless you find an issue with shuttles going out of
+//sync.
+//#define DEBUG_SYNC_CHECK
 
 /datum/shuttle_data
 	/// The name of the shuttle
@@ -9,14 +10,14 @@
 	var/port_id
 	///The AI Pilot flying this shuttle
 	var/datum/shuttle_ai_pilot/ai_pilot = null
-	/// List of attached shield generators
-	var/list/obj/machinery/power/shuttle_shield_generator/registered_shield_generators = list()
 	/// List of engine heaters
 	var/list/obj/machinery/shuttle/engine/registered_engines = list()
 	/// Stored shield power
 	var/shield_health = 0
 	/// Calculate fuel consumption rate
 	var/fuel_consumption
+	/// Is this shuttle stealthed?
+	var/stealth = FALSE
 	/// The thrust of the shuttle
 	/// Updates when engines run out of fuel, are dismantled or created
 	var/thrust
@@ -33,8 +34,6 @@
 	var/current_ship_integrity
 	///The amount of integrity currently remaining before the ship explodes
 	var/integrity_remaining
-	///The count of integrity failure checks
-	var/integrity_failure_checks = 0
 	///Is the shuttle doomed to explode?
 	var/reactor_critical = FALSE
 	///How much damage can the ship sustain before exploding?
@@ -59,26 +58,19 @@
 	///Communications manager
 	var/datum/orbital_comms_manager/comms
 
-/datum/shuttle_data/New(port_id, faction_type = /datum/faction/independant)
+/datum/shuttle_data/New(port_id)
 	. = ..()
 	//Setup the port ID
 	src.port_id = port_id
-	//Set the faction
-	faction = new faction_type()
 	//Get the docking port
 	var/obj/docking_port/mobile/attached_port = SSshuttle.getShuttle(port_id)
 	shuttle_name = attached_port.name
-	spawn(5 SECONDS) // фикс года
-		calculate_initial_stats()
-	//Create the communications manager for that shuttle
-	comms = new /datum/orbital_comms_manager(port_id, shuttle_name)
-	SSorbits.register_communication_manager(comms)
+	calculate_initial_stats()
 
 /datum/shuttle_data/Destroy(force, ...)
 	unregister_turfs()
 	. = ..()
 	log_shuttle("Shuttle data [shuttle_name] ([port_id]) was deleted.")
-	QDEL_NULL(comms)
 
 /// Private
 /// Calculates the initial stats of the shuttle
@@ -94,9 +86,6 @@
 		//Handle shuttle engines
 		for(var/obj/machinery/shuttle/engine/shuttle_engine in shuttle_area)
 			register_thruster(shuttle_engine)
-		//Handle shuttle shields
-		for(var/obj/machinery/power/shuttle_shield_generator/shield_generator in shuttle_area)
-			register_shield_generator(shield_generator)
 		//Handle shuttle weapons
 		for(var/obj/machinery/shuttle_weapon/shuttle_weapon in shuttle_area)
 			register_weapon_system(shuttle_weapon)
@@ -188,34 +177,34 @@
 	integrity_remaining = current_ship_integrity - (max_ship_integrity * critical_proportion)
 	log_shuttle("Shuttle [shuttle_name] ([port_id]) now has [current_ship_integrity]/[max_ship_integrity] integrity ([integrity_remaining] until destruction.)")
 	//Calculate destruction
-	if(integrity_remaining > 0)
-		integrity_failure_checks = 0
-		return
-	if(integrity_failure_checks < 1)
-		integrity_failure_checks++
-		return
-	var/obj/docking_port/mobile/M = SSshuttle.getShuttle(port_id)
-	message_admins("Shuttle [shuttle_name] ([port_id]) has been destroyed at [ADMIN_FLW(M)]")
-	log_shuttle_attack("Shuttle [shuttle_name] ([port_id]) has been destroyed at [COORD(M)]")
-	//You are dead
-	reactor_critical = TRUE
-	current_ship_integrity = 0
-	integrity_remaining = 0
-	unregister_turfs()
-	//Unregister all turfs
-	for(var/area/A in M.shuttle_areas)
-		for(var/obj/machinery/light/L in A)
-			L.emergency_mode = TRUE
-			L.update()
-	//Play an alarm to anyone / any observers on the shuttle
-	for(var/client/C as() in GLOB.clients)
-		var/mob/client_mob = C.mob
-		var/area/shuttle/A = get_area(client_mob)
-		if(istype(A) && A.mobile_port == M)
-			SEND_SOUND(C, 'sound/machines/alarm.ogg')
+	if(integrity_remaining <= 0)
+		var/obj/docking_port/mobile/M = SSshuttle.getShuttle(port_id)
+		message_admins("Shuttle [shuttle_name] ([port_id]) has been destroyed at [ADMIN_FLW(M)]")
+		log_shuttle_attack("Shuttle [shuttle_name] ([port_id]) has been destroyed at [COORD(M)]")
+		//You are dead
+		reactor_critical = TRUE
+		current_ship_integrity = 0
+		integrity_remaining = 0
+		unregister_turfs()
+		//Strand the shuttle
+		var/datum/orbital_object/shuttle/located_shuttle = SSorbits.assoc_shuttles[port_id]
+		if (located_shuttle)
+			spawn(-1) // Асинхронный мультитрединг процессинг девелопмент
+				located_shuttle.strand_shuttle()
+		//Unregister all turfs
+		for(var/area/A in M.shuttle_areas)
+			for(var/obj/machinery/light/L in A)
+				L.emergency_mode = TRUE
+				L.update()
+		//Play an alarm to anyone / any observers on the shuttle
+		for(var/client/C as() in GLOB.clients)
+			var/mob/client_mob = C.mob
+			var/area/shuttle/A = get_area(client_mob)
+			if(istype(A) && A.mobile_port == M)
+				SEND_SOUND(C, 'sound/machines/alarm.ogg')
 			to_chat(C, "<span class='danger'>Кажется реактор сейчас рванёт...</span>")
-	//Cause the big boom
-	addtimer(CALLBACK(src, PROC_REF(destroy_ship), M), 140)
+		//Cause the big boom
+		addtimer(CALLBACK(src, .proc/destroy_ship, M), 140)
 
 /datum/shuttle_data/proc/destroy_ship(obj/docking_port/mobile/M)
 	set waitfor = FALSE
@@ -293,54 +282,17 @@
 // Weapon Systems
 //====================
 
-/// Registers a shield generator
+/// Registers a weapon system
 /datum/shuttle_data/proc/register_weapon_system(obj/machinery/shuttle_weapon/weapon)
 	if(weapon in shuttle_weapons)
 		return
 	shuttle_weapons += weapon
-	RegisterSignal(weapon, COMSIG_PARENT_QDELETING, PROC_REF(on_weapon_qdel))
+	RegisterSignal(weapon, COMSIG_PARENT_QDELETING, .proc/on_weapon_qdel)
 
-/// Called when a shield generator is deleted
+/// Called when a weapon is deleted
 /datum/shuttle_data/proc/on_weapon_qdel(obj/machinery/shuttle_weapon/weapon, force)
 	shuttle_weapons -= weapon
 	UnregisterSignal(weapon, COMSIG_PARENT_QDELETING)
-
-//====================
-// Shield Damage
-//====================
-
-/// Registers a shield generator
-/datum/shuttle_data/proc/register_shield_generator(obj/machinery/power/shuttle_shield_generator/shield_generator)
-	if(shield_generator in registered_shield_generators)
-		return
-	shield_health += shield_generator.shield_health
-	registered_shield_generators += shield_generator
-	RegisterSignal(shield_generator, COMSIG_PARENT_QDELETING, PROC_REF(on_shield_qdel))
-	RegisterSignal(shield_generator, COMSIG_SHUTTLE_SHIELD_HEALTH_CHANGE, PROC_REF(shield_health_change))
-
-/// Called when a shield generator is deleted
-/datum/shuttle_data/proc/on_shield_qdel(obj/machinery/power/shuttle_shield_generator/shield_generator, force)
-	registered_shield_generators -= shield_generator
-	UnregisterSignal(shield_generator, COMSIG_PARENT_QDELETING)
-	UnregisterSignal(shield_generator, COMSIG_SHUTTLE_SHIELD_HEALTH_CHANGE)
-
-/// Deal damage to the shields
-/datum/shuttle_data/proc/deal_damage(damage_amount)
-	//Deal damage to the shields
-	var/damage_left = damage_amount
-	for(var/obj/machinery/power/shuttle_shield_generator/generator as() in registered_shield_generators)
-		var/dealt_damage = min(damage_left, generator.shield_health)
-		damage_left -= dealt_damage
-		generator.give_shield(-dealt_damage)
-		if(!damage_left)
-			return
-
-/datum/shuttle_data/proc/is_protected()
-	return shield_health
-
-/datum/shuttle_data/proc/shield_health_change(datum/source, old_health, new_health)
-	var/delta_health = new_health - old_health
-	shield_health += delta_health
 
 //====================
 // Fuel Consumption / Flight Processing
@@ -354,8 +306,8 @@
 	return thrust
 
 //Consume fuel, check engine status
-/datum/shuttle_data/proc/process_flight(thrust_amount = 0)
-	var/fuel_usage = thrust_amount * ORBITAL_UPDATE_RATE_SECONDS * 0.01
+/datum/shuttle_data/proc/process_flight(thrust_amount = 0, delta_time)
+	var/fuel_usage = thrust_amount * ORBITAL_UPDATE_RATE_SECONDS * 0.01 * delta_time
 	for(var/obj/machinery/shuttle/engine/shuttle_engine as() in registered_engines)
 		if(!shuttle_engine.thruster_active)
 			continue
@@ -446,4 +398,3 @@
 	if(shuttle_object)
 		SEND_SIGNAL(shuttle_object, COMSIG_ORBITAL_BODY_MESSAGE, "Автопилот отключен.")
 	return TRUE
-

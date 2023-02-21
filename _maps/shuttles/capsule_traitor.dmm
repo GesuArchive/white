@@ -158,7 +158,6 @@
 /obj/docking_port/mobile{
 	dir = 8;
 	dwidth = 4;
-	faction_type = /datum/faction/independant;
 	height = 6;
 	shuttle_object_type = /datum/orbital_object/shuttle/custom_shuttle;
 	width = 10

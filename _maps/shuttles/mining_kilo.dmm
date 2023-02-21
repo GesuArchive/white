@@ -341,7 +341,6 @@
 	dir = 1
 	},
 /obj/docking_port/mobile{
-	faction_type = /datum/faction/station;
 	dwidth = 3;
 	height = 10;
 	id = "mining";

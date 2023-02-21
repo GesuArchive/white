@@ -90,7 +90,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/docking_port/mobile{
-	faction_type = /datum/faction/syndicate/gorlex;
 	callTime = 50;
 	dir = 4;
 	dwidth = 4;

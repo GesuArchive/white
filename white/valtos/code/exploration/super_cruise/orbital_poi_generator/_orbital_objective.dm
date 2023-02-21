@@ -1,20 +1,13 @@
-#define REWARD_MONEY "MONEY"
-
 /datum/orbital_objective
-	//Static variables
-	var/static/objective_num = 0
-
-	//Type dependant
 	var/name = "Null Objective"
-	var/min_payout = 0
-	var/max_payout = 0
-	var/weight = 0
-
-	//Instance dependent
+	var/datum/orbital_object/z_linked/beacon/ruin/linked_beacon
 	var/payout = 0
 	var/completed = FALSE
+	var/min_payout = 0
+	var/max_payout = 0
 	var/id = 0
 	var/station_name
+	var/static/objective_num = 0
 
 /datum/orbital_objective/New()
 	. = ..()
@@ -22,6 +15,9 @@
 	station_name = new_station_name()
 
 /datum/orbital_objective/proc/on_assign(obj/machinery/computer/objective/objective_computer)
+	return
+
+/datum/orbital_objective/proc/generate_objective_stuff(turf/chosen_turf)
 	return
 
 /datum/orbital_objective/proc/check_failed()
@@ -37,7 +33,9 @@
 	payout = rand(min_payout, max_payout)
 
 /datum/orbital_objective/proc/generate_attached_beacon()
-	return
+	linked_beacon = new
+	linked_beacon.name = "(ЗАДАНИЕ) [linked_beacon.name]"
+	linked_beacon.linked_objective = src
 
 /datum/orbital_objective/proc/remove_objective()
 	QDEL_NULL(SSorbits.current_objective)
@@ -46,6 +44,8 @@
 	if (SSorbits.current_objective == src)
 		SSorbits.current_objective = null
 	if(completed)
+		//Delete
+		QDEL_NULL(SSorbits.current_objective)
 		return
 	completed = TRUE
 	//Handle payout
@@ -68,5 +68,5 @@
 			A.bank_card_talk("Было получено [goyam] кредитов за содействие выполнению поручений NanoTrasen.")
 			A.adjust_money(goyam)
 	GLOB.exploration_points += payout / 2
-	//Objective completed
-	SSorbits.completed_objectives += src
+	//Delete
+	QDEL_NULL(SSorbits.current_objective)

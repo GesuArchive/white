@@ -36,5 +36,5 @@
 	SSshuttle.shuttle_purchased = SHUTTLEPURCHASE_FORCED
 	SSshuttle.unload_preview()
 	SSshuttle.existing_shuttle = SSshuttle.emergency
-	SSshuttle.action_load(new_shuttle, replace = TRUE)
+	SSshuttle.action_load(new_shuttle)
 	log_shuttle("Shuttle Catastrophe set a new shuttle, [new_shuttle.name].")

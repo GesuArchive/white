@@ -70,7 +70,6 @@
 	name = "Shuttle Airlock"
 	},
 /obj/docking_port/mobile/pod{
-	faction_type = /datum/faction/station;
 	dwidth = 2;
 	height = 6;
 	name = "Cпасательная капсула (большая)";

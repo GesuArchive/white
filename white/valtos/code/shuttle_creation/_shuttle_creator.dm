@@ -272,6 +272,10 @@ GLOBAL_LIST_EMPTY(custom_shuttle_machines)		//Machines that require updating (He
 	//Select shuttle fly direction.
 	select_preferred_direction(user)
 
+	//Recalculate shuttle health
+	var/datum/shuttle_data/shuttle_data = SSorbits.get_shuttle_data(linkedShuttleId)
+	shuttle_data.recalculate_integrity()
+
 	//Redraw highlights
 	reset_saved_area(FALSE)
 	GLOB.custom_shuttle_count ++

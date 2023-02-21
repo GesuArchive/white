@@ -1,4 +1,4 @@
-/datum/orbital_objective/ruin/vip_recovery
+/datum/orbital_objective/vip_recovery
 	name = "VIP эвакуация"
 	var/generated = FALSE
 	var/mob/mob_to_recover
@@ -6,7 +6,7 @@
 	min_payout = 10 * CARGO_CRATE_VALUE
 	max_payout = 50 * CARGO_CRATE_VALUE
 
-/datum/orbital_objective/ruin/vip_recovery/get_text()
+/datum/orbital_objective/vip_recovery/get_text()
 	return "Телекоммуникационный  массив уловил сигнал бедствия, исходящий со станции [station_name]. Повторно выйти на связь не удалось. \
 		Если на станции еще остались выжившие, эвакуируйте их на нашу станцию. Согласно трудовому договору они будут рассматриваться как \
 		беженцы и имеют право на трудоустройство и продолжение несения службы на нашей станции. В случае гибели выживших, доставьте электронный\
@@ -14,7 +14,7 @@
 
 //If nobody takes up the ghost role, then we dont care if they died.
 //I know, its a bit sad.
-/datum/orbital_objective/ruin/vip_recovery/check_failed()
+/datum/orbital_objective/vip_recovery/check_failed()
 	if(generated)
 		//Deleted
 		if(QDELETED(mob_to_recover))
@@ -27,7 +27,7 @@
 			complete_objective()
 	return FALSE
 
-/datum/orbital_objective/ruin/vip_recovery/generate_objective_stuff(turf/chosen_turf)
+/datum/orbital_objective/vip_recovery/generate_objective_stuff(turf/chosen_turf)
 	var/mob/living/carbon/human/created_human = new(chosen_turf)
 	//Maybe polling ghosts would be better than the shintience code
 	created_human.ice_cream_mob = TRUE
@@ -307,3 +307,19 @@
 	back = /obj/item/storage/backpack/science
 	backpack_contents = list(/obj/item/reagent_containers/pill/saver/vip = 1)
 
+//=====================
+// Greytide (VIP And Assassination)
+//=====================
+
+/datum/outfit/vip_target/greytide
+	name = "Greytide (VIP Target)"
+
+	suit = /obj/item/clothing/suit/armor/vest
+	shoes = /obj/item/clothing/shoes/laceup
+	gloves = /obj/item/clothing/gloves/color/yellow
+	ears = /obj/item/radio/headset
+	glasses = /obj/item/clothing/glasses/sunglasses
+	belt = /obj/item/storage/belt/utility/full/engi
+	id = /obj/item/card/id
+	head = /obj/item/clothing/head/helmet
+	l_hand = /obj/item/melee/baton/loaded

@@ -11,7 +11,6 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/docking_port/mobile{
-	faction_type = /datum/faction/independant;
 	dir = 2;
 	dwidth = 8;
 	height = 16;

@@ -206,7 +206,6 @@
 /area/shuttle/exploration)
 "t" = (
 /obj/docking_port/mobile{
-	faction_type = /datum/faction/station;
 	dir = 4;
 	dwidth = 5;
 	height = 7;

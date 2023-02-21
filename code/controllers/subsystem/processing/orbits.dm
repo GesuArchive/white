@@ -20,13 +20,11 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 
 	var/datum/orbital_objective/current_objective
 
-	var/list/datum/orbital_objective/completed_objectives = list()
-
 	var/list/datum/ruin_event/ruin_events = list()
 
 	var/list/runnable_events
 
-	var/event_probability = 30
+	var/event_probability = 60
 
 	//key = port_id
 	//value = orbital shuttle object
@@ -50,8 +48,8 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 	//The station
 	var/datum/orbital_object/station_instance
 
-	//A list of all active map hazards
-	var/list/datum/orbital_object/hazard/active_hazards = list()
+	//Ruin level count
+	var/ruin_levels = 0
 
 	//Assoc shuttle data
 	//Key: port_id
@@ -61,33 +59,13 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 	//List of distress beacons by Z-Level
 	var/list/assoc_distress_beacons = list()
 
-	//Ruin level count
-	var/ruin_levels = 0
-
 	//shuttle weapons
 	var/list/shuttle_weapons = list()
-
-	//=====Communications=====
-	var/list/communication_managers = list()
-
-	//=====Factions=====
-	// factions[datum] = new datum
-	var/list/factions
-
-	//List of hostage spawn points
-	var/list/obj/effect/hostage_spawns = list()
-
-	//Binary list of rewards
-	var/list/rewards = list()
 
 /datum/controller/subsystem/processing/orbits/Initialize(start_timeofday)
 	setup_event_list()
 	//Create the main orbital map.
 	orbital_maps[PRIMARY_ORBITAL_MAP] = new /datum/orbital_map()
-	//Create factions (These ones are static, although each ship has its own)
-	factions = list()
-	for(var/faction_datum in subtypesof(/datum/faction))
-		factions[faction_datum] = new faction_datum
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/processing/orbits/Recover()
@@ -116,6 +94,17 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 		STOP_PROCESSING(SSorbits, thing)
 		START_PROCESSING(src, thing)
 
+/datum/controller/subsystem/processing/orbits/proc/setup_event_list()
+	runnable_events = list()
+	for(var/ruin_event in subtypesof(/datum/ruin_event))
+		var/datum/ruin_event/instanced = new ruin_event()
+		runnable_events[instanced] = instanced.probability
+
+/datum/controller/subsystem/processing/orbits/proc/get_event()
+	if(!event_probability)
+		return null
+	return pick_weight(runnable_events)
+
 /datum/controller/subsystem/processing/orbits/proc/post_load_init()
 	for(var/map_key in orbital_maps)
 		var/datum/orbital_map/orbital_map = orbital_maps[map_key]
@@ -139,12 +128,7 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 		for(var/datum/tgui/tgui as() in open_orbital_maps)
 			tgui?.send_update()
 	//Check creating objectives / missions.
-	if(next_objective_time < world.time)
-		if(length(possible_objectives) >= 6)
-			//Take and delete the first objective
-			var/first = possible_objectives[1]
-			possible_objectives.Remove(first)
-			qdel(first)
+	if(next_objective_time < world.time && length(possible_objectives) < 6)
 		create_objective()
 		next_objective_time = world.time + rand(30 SECONDS, 5 MINUTES)
 	//Check space ruin count
@@ -155,8 +139,6 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 		if(current_objective.check_failed())
 			priority_announce("Central Command priority objective failed.", "Central Command Report", SSstation.announcer.get_rand_report_sound())
 			QDEL_NULL(current_objective)
-	//Process hazards
-	process_hazards()
 	//Process events
 	for(var/datum/ruin_event/ruin_event as() in ruin_events)
 		if(!ruin_event.update())
@@ -168,62 +150,20 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 			return
 		//Update UIs
 		for(var/datum/tgui/tgui as() in open_orbital_maps)
-			tgui?.send_update()
-
-//====================================
-// Events
-//====================================
-
-/datum/controller/subsystem/processing/orbits/proc/setup_event_list()
-	runnable_events = list()
-	for(var/ruin_event in subtypesof(/datum/ruin_event))
-		var/datum/ruin_event/instanced = new ruin_event()
-		runnable_events[instanced] = instanced.probability
-
-/datum/controller/subsystem/processing/orbits/proc/get_event()
-	if(!event_probability)
-		return null
-	return pick_weight(runnable_events)
-
-//====================================
-// Hazards
-//====================================
-
-/datum/controller/subsystem/processing/orbits/proc/process_hazards()
-	var/hazard_removal_chance = length(active_hazards) * 0.2
-	var/hazard_spawn_chance = 2 / (length(active_hazards) + 1)
-	if(length(active_hazards) && prob(hazard_removal_chance))
-		var/picked = pick(active_hazards)
-		qdel(picked)
-	if(prob(hazard_spawn_chance))
-		create_hazard()
-
-/datum/controller/subsystem/processing/orbits/proc/create_hazard()
-	var/selected_type = pick_weight(list(
-		/datum/orbital_object/hazard/ion_storm = 3,
-		/datum/orbital_object/hazard/gravity_storm = 3,
-		/datum/orbital_object/hazard/vortex = 1
-	))
-	var/datum/orbital_object/created = new selected_type()
-	var/datum/orbital_map/main = orbital_maps[PRIMARY_ORBITAL_MAP]
-	var/hazard_distance = rand(2000, 7000)
-	var/maximum_radius = hazard_distance / 3
-	created.radius = maximum_radius
-	created.set_orbitting_around_body(main.center, hazard_distance, TRUE)
-	created.velocity.Set(0, 0)
+			tgui.send_update()
 
 //====================================
 // Objectives
 //====================================
 
 /datum/controller/subsystem/processing/orbits/proc/create_objective()
-	var/static/list/valid_objectives
-	if(!islist(valid_objectives))
-		valid_objectives = list()
-		for(var/datum/orbital_objective/objective as() in subtypesof(/datum/orbital_objective))
-			if(!initial(objective.weight))
-				continue
-			valid_objectives[objective] = initial(objective.weight)
+	var/static/list/valid_objectives = list(
+		/datum/orbital_objective/recover_blackbox = 3,
+		/datum/orbital_objective/nuclear_bomb = 1,
+		/datum/orbital_objective/assassination = 1,
+		/datum/orbital_objective/artifact = 2,
+		/datum/orbital_objective/vip_recovery = 1
+	)
 	var/chosen = pick_weight(valid_objectives)
 	if(!chosen)
 		return
@@ -235,9 +175,12 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 /datum/controller/subsystem/processing/orbits/proc/assign_objective(objective_computer, datum/orbital_objective/objective)
 	if(!possible_objectives.Find(objective))
 		return "Задание недоступно."
+
 	if(current_objective)
 		return "Задание уже выбрано и должно быть выполнено."
+
 	objective.on_assign(objective_computer)
+	objective.generate_attached_beacon()
 	objective.announce()
 	current_objective = objective
 	possible_objectives.Remove(objective)
@@ -291,10 +234,7 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 		if(!object)
 			continue
 		//we can't see it, unless we are stealth too
-		if(attached_orbital_object)
-			if(object != attached_orbital_object && (object.stealth && !attached_orbital_object.stealth))
-				continue
-		else if(!see_stealthed && object.stealth)
+		if(!see_stealthed && object.is_stealth())
 			continue
 		//Check visibility
 		var/distress = object.is_distress()
@@ -321,6 +261,7 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 			"render_mode" = object.render_mode,
 			"priority" = object.priority,
 			"distress" = distress,
+			"vel_mult" = object.velocity_multiplier,
 		))
 	return data
 
@@ -338,153 +279,11 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 	RETURN_TYPE(/datum/shuttle_data)
 	return assoc_shuttle_data[port_id]
 
-/datum/controller/subsystem/processing/orbits/proc/register_shuttle(port_id, ship_faction)
-	var/datum/shuttle_data/new_shuttle = new(port_id, ship_faction)
+/datum/controller/subsystem/processing/orbits/proc/register_shuttle(port_id)
+	var/datum/shuttle_data/new_shuttle = new(port_id)
 	assoc_shuttle_data[port_id] = new_shuttle
 
 /datum/controller/subsystem/processing/orbits/proc/remove_shuttle(port_id)
 	var/datum/shuttle_data/shuttle = get_shuttle_data(port_id)
 	assoc_shuttle_data -= port_id
 	qdel(shuttle)
-
-//====================================
-// Factions
-//====================================
-
-/datum/controller/subsystem/processing/orbits/proc/get_faction(faction_datum)
-	return factions[faction_datum]
-
-/datum/controller/subsystem/processing/orbits/proc/after_ship_attacked(datum/shuttle_data/attacker, datum/shuttle_data/victim)
-	var/datum/faction/attacker_faction = attacker.faction
-	var/datum/faction/victim_faction = victim.faction
-	//If the victime doesn't consider the attacker to be hostile, then the attacker ship will be marked as hostile to the victim's faction
-	if(check_faction_alignment(victim_faction, attacker_faction) != FACTION_STATUS_HOSTILE)
-		attacker.rogue_factions |= victim_faction.type
-		log_shuttle("[attacker.shuttle_name] ([attacker_faction.name]) fired upon neutral/friendly ship [victim.shuttle_name] ([victim_faction.name]), and was declared hostile to that faction")
-	//If the victim is an NPC, trigger them to become hostile
-	if (istype(victim.ai_pilot, /datum/shuttle_ai_pilot/npc))
-		//Kill...
-		var/datum/shuttle_ai_pilot/npc/npc_ship = victim.ai_pilot
-		npc_ship.hostile = TRUE
-
-//====================================
-// Ship Spawning
-//====================================
-
-/datum/controller/subsystem/processing/orbits/proc/spawn_ship(datum/map_template/shuttle/supercruise/selected_ship, ship_faction, ship_ai)
-	var/datum/turf_reservation/preview_reservation = SSmapping.RequestBlockReservation(selected_ship.width, selected_ship.height, SSmapping.transit.z_value, /datum/turf_reservation/transit)
-	if(!preview_reservation)
-		CRASH("failed to reserve an area for shuttle template loading")
-	var/turf/BL = TURF_FROM_COORDS_LIST(preview_reservation.bottom_left_coords)
-
-	//Setup the docking port
-	var/obj/docking_port/mobile/M = selected_ship.place_port(BL, FALSE, TRUE, rand(-6000, 6000), rand(-6000, 6000))
-
-	//Give the ship some AI
-	var/datum/shuttle_data/located_shuttle = SSorbits.get_shuttle_data(M.id)
-	located_shuttle.faction = ship_faction
-	located_shuttle.set_pilot(ship_ai)
-
-	return M
-
-//====================================
-// Reward Items
-//====================================
-
-///Picks an item that approximately matches the said value.
-///Random variance will allow for some randomness, so it won't always return the same items.
-/datum/controller/subsystem/processing/orbits/proc/get_reward_item(approximate_value, random_variance = 1000)
-	//Collect the 5 closest
-	var/list/located_items = list()
-	for(var/item in rewards)
-		var/amount = rewards[item] + rand(-random_variance, random_variance)
-		//Directly insert
-		if(length(located_items) < 5)
-			located_items[item] = amount
-			continue
-		var/diff = abs(approximate_value - amount)
-		//Check if its closer than any of the located items
-		for(var/existing_item in located_items)
-			var/existing_amount = located_items[existing_item] + rand(-random_variance, random_variance)
-			var/existing_diff = abs(approximate_value - existing_amount)
-			if(diff < existing_diff)
-				located_items -= existing_item
-				located_items[item] = amount
-				break
-	return pick(located_items)
-
-//====================================
-// Communications
-//====================================
-
-/// Register a communication manager
-/datum/controller/subsystem/processing/orbits/proc/register_communication_manager(datum/orbital_comms_manager/comms)
-	communication_managers[comms.messenger_id] = comms
-
-//====================================
-// Captured Crew
-//====================================
-
-///Creates a hostage ship with the killed mobs as hostages
-///Will chase after crewed ships in the sector
-/datum/controller/subsystem/processing/orbits/proc/create_hostage_ship(list/hostages, iteration = 0)
-
-	var/to_respawn = hostages.Copy()
-	//Locate any existing spawns
-	if(!length(hostage_spawns))
-		//Spawn a hostage shuttle
-		var/datum/map_template/shuttle/supercruise/shuttle_template = SSmapping.shuttle_templates["encounter_syndicate_prisoner_transport"]
-		var/obj/docking_port/mobile/created_ship = spawn_ship(shuttle_template, new /datum/faction/pirates(), new /datum/shuttle_ai_pilot/npc/hostile())
-		//Tell admins
-		message_admins("As a result of unrecovered bodies in space, [length(hostages)] mobs were taken hostage aboard a pirate ship at [ADMIN_COORDJMP(created_ship)].")
-		log_shuttle("A hostage ship was created with [length(hostages)] mobs taken hostage.")
-		//Grant sentience to the ship's crew
-		for(var/area/A in created_ship.shuttle_areas)
-			for(var/mob/living/simple_animal/ship_mob in A)
-				ship_mob.ice_cream_mob = TRUE
-				ADD_TRAIT(ship_mob, TRAIT_CLIENT_LEAVED, "ice_cream")
-				LAZYADD(GLOB.mob_spawners[ship_mob.real_name], ship_mob)
-				notify_ghosts("Свободное тело в действии!", source = ship_mob, action = NOTIFY_ORBIT, flashwindow = FALSE, ignore_key = POLL_IGNORE_SPLITPERSONALITY, notify_suiciders = FALSE)
-				ship_mob.AddElement(/datum/element/point_of_interest)
-				ship_mob.mind_initialize()
-	//Oof
-	if(!length(hostage_spawns))
-		return
-	//Spawn the hostages
-	while(length(to_respawn) && length(hostage_spawns))
-		var/mob/living/L = pick_n_take(to_respawn)
-		var/obj/effect/picked_spawn = pick(hostage_spawns)
-		//Move the mob
-		L.forceMove(picked_spawn.loc)
-		L.log_message("was taken hostage on board a pirate ship.", LOG_ATTACK)
-		if(L.mind)
-			ADD_TRAIT(L.mind, MIND_TRAIT_OBJECTIVE_DEAD, HOSTAGE_REVIVED_TRAIT)
-		log_game("[key_name(L)] was taken hostage on a pirate ship.")
-		log_shuttle("[key_name(L)] was taken hostage on a pirate ship.")
-		//Transfer all of their items to a nearby simple mob's location
-		var/area/A = get_area(picked_spawn)
-		var/obj/effect/hostage_loot_point/item_point = locate() in A
-		if(item_point)
-			for(var/obj/item/I in L)
-				if(L.dropItemToGround(I, TRUE))
-					I.forceMove(item_point.loc)
-		//Equip prisoner outfit
-		var/datum/outfit/hostage/hostage_outfit = new()
-		hostage_outfit.equip(L)
-		//Delete the spawn
-		qdel(picked_spawn)
-		//Cannot be revived in this state
-		if (HAS_TRAIT(L, TRAIT_BADDNA))
-			continue
-		//Revive the mob
-		L.revive(TRUE)
-		//Grab the ghost
-		L.grab_ghost()
-		//Message
-		to_chat(L, "<span class='userdanger'>You have been captured and taken hostage!</span>")
-		var/list/picked = splittext(pick(strings(EXPLORATION_FLAVOUR, "hostage")), "\n")
-		for(var/message in picked)
-			to_chat(L, "<span class='danger'>[message]</span>")
-	//If we still have hostages left
-	if(length(to_respawn) && iteration < 4)
-		create_hostage_ship(to_respawn, iteration + 1)

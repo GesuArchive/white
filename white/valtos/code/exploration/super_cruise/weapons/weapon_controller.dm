@@ -53,6 +53,17 @@
 	selected_weapon_system = null
 	return ..()
 
+/obj/machinery/computer/weapons/attackby(obj/item/I, mob/living/user, params)
+	if (istype(I, /obj/item/shuttle_creator))
+		var/obj/item/shuttle_creator/creator = I
+		if (creator.linkedShuttleId)
+			shuttle_id = creator.linkedShuttleId
+			to_chat(user, "<span class='notice'>You link [src] to the shuttle.</span>")
+		else
+			to_chat(user, "<span class='warning'>[I] is not attached to a shuttle.</span>")
+		return
+	. = ..()
+
 
 /obj/machinery/computer/weapons/ui_interact(mob/user, datum/tgui/ui = null)
 	if(..())
@@ -128,16 +139,15 @@
 		var/obj/target_port = SSshuttle.getShuttle(ship_id)
 		if(!target_port || our_shuttle_object.position.DistanceTo(shuttle_object.position) > our_ship.detection_range)
 			continue
-		var/datum/faction/their_faction = ship.faction
+		// Cannot see stealth ships
+		if (ship.stealth)
+			continue
 		var/list/other_ship = list(
 			id = ship_id,
 			name = ship.shuttle_name,
-			faction = their_faction,
 			health = ship.integrity_remaining,
 			maxHealth = ship.max_ship_integrity * ship.critical_proportion,
 			critical = ship.reactor_critical,
-			//If they consider us hostile (AI works on if we consider them hostile policy, but that is confusing for players to be shot at by 'friendly' ships).
-			hostile = check_faction_alignment(ship.faction, our_ship.faction) == FACTION_STATUS_HOSTILE || (their_faction.type in our_ship.rogue_factions),
 		)
 		data["ships"] += list(other_ship)
 	return data
@@ -154,7 +164,7 @@
 		var/datum/orbital_object/shuttle/our_shuttle_object = SSorbits.assoc_shuttles[shuttle_id]
 		var/datum/orbital_object/shuttle/shuttle_object = SSorbits.assoc_shuttles[selected_ship_id]
 		var/datum/shuttle_data/our_ship = SSorbits.get_shuttle_data(shuttle_id)
-		if(!our_ship || !shuttle_object || !our_shuttle_object || !our_shuttle_object.position.DistanceTo(shuttle_object.position) > our_ship.detection_range)
+		if(!our_ship || !shuttle_object || !our_shuttle_object || our_shuttle_object.position.DistanceTo(shuttle_object.position) > our_ship.detection_range)
 			show_camera_static()
 			selected_ship_id = null
 
@@ -215,6 +225,10 @@
 								clamp(top+extra_range, 1, world.maxy) - clamp(bottom-extra_range, 1, world.maxy) + 1)
 			return TRUE
 		if("set_weapon_target")
+			var/datum/shuttle_data/ship_data = SSorbits.get_shuttle_data(shuttle_id)
+			if (ship_data.stealth)
+				to_chat(usr, "<span class='warning'>Your ship's cloaking field is jamming the weapons!</span>")
+				return
 			//Select the weapon system
 			//This seems highly exploitable
 			var/id = params["id"]
@@ -275,13 +289,6 @@
 	//Fire
 	INVOKE_ASYNC(weapon, /obj/machinery/shuttle_weapon.proc/fire)
 	to_chat(usr, "<span class='notice'>Weapon target selected successfully.</span>")
-	//Handle declaring ships rogue
-	var/datum/shuttle_data/our_ship = SSorbits.get_shuttle_data(shuttle_id)
-	var/datum/shuttle_data/their_ship = SSorbits.get_shuttle_data(selected_ship_id)
-	if(our_ship && their_ship)
-		SSorbits.after_ship_attacked(our_ship, their_ship)
-	else
-		log_shuttle("after_ship_attacked unable to call: [our_ship ? "our ship was valid" : "our ship was null"] ([shuttle_id]) and/but [their_ship ? "their ship was valid" : "their ship was null"] ([selected_ship_id])")
 
 /obj/machinery/computer/weapons/proc/get_attached_ship()
 	var/area/shuttle/shuttle_area = get_area(src)

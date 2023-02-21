@@ -1560,15 +1560,6 @@
 	req_components = list(/obj/item/stock_parts/micro_laser = 2,
 		/obj/item/stock_parts/matter_bin = 1)
 
-/obj/item/circuitboard/machine/shuttle/shield
-	name = "shuttle shield generator (Machine Board)"
-	icon_state = "science"
-	build_path = /obj/machinery/power/shuttle_shield_generator
-	req_components = list(
-		/obj/item/stock_parts/capacitor = 2,
-		/obj/item/stock_parts/micro_laser = 1
-	)
-
 /obj/item/circuitboard/machine/plasma_refiner
 	name = "plasma refinery (Machine Board)"
 	build_path = /obj/machinery/atmospherics/components/unary/plasma_refiner

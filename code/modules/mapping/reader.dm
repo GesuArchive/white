@@ -2,7 +2,6 @@
 ///////////////////////////////////////////////////////////////
 //SS13 Optimized Map loader
 //////////////////////////////////////////////////////////////
-#define SPACE_KEY "space"
 // We support two different map formats
 // It is kinda possible to process them together, but if we split them up
 // I can make optimization decisions more easily
@@ -240,6 +239,17 @@
 	parsed_bounds = src.bounds
 	src.key_len = key_len
 	src.line_len = line_len
+
+/datum/parsed_map/proc/copy()
+	var/datum/parsed_map/copy = new()
+	copy.original_path = original_path
+	copy.key_len = key_len
+	copy.grid_models = grid_models
+	copy.gridSets = gridSets
+	copy.modelCache = modelCache
+	copy.parsed_bounds = parsed_bounds
+	copy.turf_blacklist = list()
+	return copy
 
 /// Load the parsed map into the world. See [/proc/load_map] for arguments.
 /datum/parsed_map/proc/load(x_offset, y_offset, z_offset, cropMap, no_changeturf, x_lower, x_upper, y_lower, y_upper, placeOnTop, whitelist = FALSE, new_z)

@@ -865,7 +865,6 @@
 	dir = 1
 	},
 /obj/docking_port/mobile/pirate{
-	faction_type = /datum/faction/pirates;
 	dwidth = 11;
 	height = 16;
 	launch_status = 0;

@@ -209,9 +209,8 @@
 			if (bank_account.account_balance < shuttle.credit_cost)
 				return
 			SSshuttle.shuttle_purchased = SHUTTLEPURCHASE_PURCHASED
-			SSshuttle.unload_preview()
 			SSshuttle.existing_shuttle = SSshuttle.emergency
-			SSshuttle.action_load(shuttle, replace = TRUE)
+			SSshuttle.action_load(shuttle)
 			bank_account.adjust_money(-shuttle.credit_cost)
 			minor_announce("[usr.real_name] покупает [shuttle.name] за [shuttle.credit_cost] кредит[get_num_string(shuttle.credit_cost)].[shuttle.extra_desc ? " [shuttle.extra_desc]" : ""]" , "Покупка шаттла")
 			message_admins("[ADMIN_LOOKUPFLW(usr)] purchased [shuttle.name].")

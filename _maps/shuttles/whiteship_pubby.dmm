@@ -79,7 +79,6 @@
 	name = "Shuttle Airlock"
 	},
 /obj/docking_port/mobile{
-	faction_type = /datum/faction/independant;
 	dir = 8;
 	dwidth = 4;
 	height = 9;

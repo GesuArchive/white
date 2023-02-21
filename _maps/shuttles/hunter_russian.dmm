@@ -190,7 +190,6 @@
 	width = 17
 	},
 /obj/docking_port/mobile{
-	faction_type = /datum/faction/independant;
 	dheight = 3;
 	dwidth = 3;
 	height = 13;

@@ -102,11 +102,6 @@
 
 	// remove any stragglers just in case, and clear the list
 	remove_ripples()
-	//Explosions!
-	//Crashing this ship with NO SURVIVORS (For real this time)
-	if(crash_landing && !istype(new_dock, /obj/docking_port/stationary/transit))
-		explode()
-		log_shuttle("Shuttle [name] ([id]) crash landed at [new_dock.name] [COORD(new_dock)], causing an explosion.")
 	log_shuttle_movement("Shuttle [name] ([id]) moved to [new_dock.name] [COORD(new_dock)].")
 
 	if (delete_on_land)

@@ -19,8 +19,6 @@
 	//Crashing
 	var/is_crashing = FALSE
 	var/force_crash = FALSE
-	/// World time since crashing started
-	var/crash_time
 
 	//Once we start docking, we can't release
 	var/is_docking = FALSE
@@ -51,9 +49,6 @@
 	//The timer to stop docking
 	var/timer_id
 
-	//Is the collision alert warning active
-	var/collision_alert = FALSE
-
 	//Is the shuttle breaking?
 	var/breaking = FALSE
 
@@ -72,10 +67,6 @@
 		//Start processing the AI pilot (Combat mode)
 		if(shuttle_data.ai_pilot)
 			START_PROCESSING(SSorbits, shuttle_data.ai_pilot)
-	//Stop collision alert sound
-	if (collision_alert)
-		SEND_SIGNAL(src, COMSIG_SHUTTLE_TOGGLE_COLLISION_ALERT, FALSE)
-		collision_alert = FALSE
 	port = null
 	can_dock_with = null
 	docking_target = null
@@ -88,11 +79,6 @@
 
 /datum/orbital_object/shuttle/is_distress()
 	return SSorbits.assoc_distress_beacons["[port?.virtual_z]"]
-
-/datum/orbital_object/shuttle/stealth
-	stealth = TRUE
-
-/datum/orbital_object/shuttle/stealth/infiltrator
 
 /datum/orbital_object/shuttle/stealth/steel_rain
 	//We never miss our mark
@@ -107,7 +93,7 @@
 		port.jumpToNullSpace()
 	qdel(src)
 
-/datum/orbital_object/shuttle/process()
+/datum/orbital_object/shuttle/process(delta_time)
 	if(check_stuck())
 		return
 
@@ -127,18 +113,18 @@
 		//Disable autopilot and thrust while docking to prevent fuel usage.
 		thrust = 0
 		angle = 0
+		//Redisable collisions so if we undock, we aren't flung by gravity
+		collision_ignored = TRUE
 		return
 	else
 		//If our docking target was deleted, null it to prevent docking interface etc.
 		docking_target = null
-
 	//I hate that I have to do this, but people keep flying them away.
 	if(position.GetX() > 20000 || position.GetX() < -20000 || position.GetY() > 20000 || position.GetY() < -20000)
 		SEND_SIGNAL(src, COMSIG_ORBITAL_BODY_MESSAGE, "Местная блюспейс аномалия обнаружена, шаттл будет перемещён в новую локацию.")
 		MOVE_ORBITAL_BODY(src, rand(-2000, 2000), rand(-2000, 2000))
 		velocity.Set(0, 0)
 		thrust = 0
-
 	//Handle breaking
 	if(breaking)
 		//Reduce velocity
@@ -157,15 +143,13 @@
 		return
 	//Process shuttle fuel consumption
 	if(shuttle_data && !cheating_autopilot)
-		shuttle_data.process_flight(thrust)
+		shuttle_data.process_flight(thrust, delta_time)
 		if(shuttle_data.is_stranded())
 			if(world.time > immunity_time)
 				strand_shuttle()
 			return
 	//AUTOPILOT
 	handle_autopilot()
-	//Check for collisions
-	check_collisions()
 	//Do thrust
 	var/thrust_amount = thrust * shuttle_data.get_thrust_force() / 100
 	var/thrust_x = cos(angle) * thrust_amount
@@ -176,15 +160,12 @@
 	. = ..()
 
 /datum/orbital_object/shuttle/proc/strand_shuttle()
-	PRIVATE_PROC(TRUE)
 	SEND_SIGNAL(src, COMSIG_ORBITAL_BODY_MESSAGE, "Шаттл больше не может поддерживать состояние круиза, проверьте двигатели и наличие топлива.")
-	var/explosive_landing = FALSE
 	if(!docking_target)
 		//Dock with the current location
 		if(can_dock_with)
 			commence_docking(can_dock_with, TRUE, FALSE, TRUE)
 			message_admins("Shuttle [shuttle_port_id] is dropping to a random location at [can_dock_with.name] due to running out of fuel/incorrect engine configuration. (EXPLOSION INCOMMING!!)")
-			explosive_landing = TRUE
 		//Create a new orbital waypoint to drop at
 		else
 			var/datum/orbital_object/z_linked/beacon/ruin/stranded_shuttle/shuttle_location = new(new /datum/orbital_vector(position.GetX(), position.GetY()))
@@ -192,7 +173,7 @@
 			commence_docking(shuttle_location, TRUE, FALSE, TRUE)
 	//No more custom docking
 	docking_frozen = TRUE
-	if(!random_drop(docking_target.linked_z_level[1].z_value, explosive_landing))
+	if(!random_drop(docking_target.linked_z_level[1].z_value))
 		SEND_SIGNAL(src, COMSIG_ORBITAL_BODY_MESSAGE,
 			"Шаттл не может приземлиться.")
 		message_admins("Shuttle [shuttle_port_id] failed to drop at a random location as a result of running out of fuel/incorrect engine configuration.")
@@ -254,8 +235,7 @@
 			else
 				angle = 180 + angle
 
-	//FULL SPEED
-	thrust = 100
+	thrust = clamp((desired_vel_x - velocity.GetX()) / (ORBITAL_UPDATE_RATE_SECONDS * cos(angle) * (shuttle_data.get_thrust_force() / 100)), 0, 100)
 
 	//Fuck all that, we cheat anyway
 	if(cheating_autopilot)
@@ -269,15 +249,14 @@
 	name = dock.name
 	shuttle_port_id = dock.id
 	port = dock
-	stealth = dock.hidden
 	SSorbits.assoc_shuttles[shuttle_port_id] = src
 	shuttle_data = SSorbits.get_shuttle_data(dock.id)
-	RegisterSignal(shuttle_data, COMSIG_PARENT_QDELETING, PROC_REF(handle_shuttle_data_deletion))
+	if (dock.hidden)
+		shuttle_data.stealth = TRUE
+	RegisterSignal(shuttle_data, COMSIG_PARENT_QDELETING, .proc/handle_shuttle_data_deletion)
 	//Stop processin the AI pilot (Flight mode)
 	if(shuttle_data.ai_pilot)
 		STOP_PROCESSING(SSorbits, shuttle_data.ai_pilot)
-	//Append the faction to the name
-	name = "\[[shuttle_data.faction.faction_tag]\] [name]"
 
 /datum/orbital_object/shuttle/proc/handle_shuttle_data_deletion(datum/source, force)
 	UnregisterSignal(shuttle_data, COMSIG_PARENT_QDELETING)
@@ -289,7 +268,7 @@
 	if(docking_target || can_dock_with)
 		SEND_SIGNAL(src, COMSIG_ORBITAL_BODY_MESSAGE, "Невозможно использовать перехватчик во время стыковки.")
 		return FALSE
-	if(stealth)
+	if(is_stealth())
 		SEND_SIGNAL(src, COMSIG_ORBITAL_BODY_MESSAGE, "Невозможно использовать перехватчик на стелс-шаттлах.")
 		return FALSE
 	var/list/interdicted_shuttles = list()
@@ -298,7 +277,7 @@
 		//Do this last
 		if(other_shuttle == src)
 			continue
-		if(other_shuttle?.position?.DistanceTo(position) <= shuttle_data.interdiction_range && !other_shuttle.stealth)
+		if(other_shuttle?.position?.DistanceTo(position) <= shuttle_data.interdiction_range && !other_shuttle.is_stealth())
 			interdicted_shuttles += other_shuttle
 	if(!length(interdicted_shuttles))
 		SEND_SIGNAL(src, COMSIG_ORBITAL_BODY_MESSAGE, "Нет целей для перехвата.")
@@ -323,3 +302,8 @@
 
 /datum/orbital_object/shuttle/get_locator_name()
 	return "Шаттл (#[unique_id])"
+
+/datum/orbital_object/shuttle/is_stealth()
+	if (!shuttle_data)
+		return FALSE
+	return shuttle_data.stealth

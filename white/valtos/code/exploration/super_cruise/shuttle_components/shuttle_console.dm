@@ -4,11 +4,9 @@
 	icon_screen = "shuttle"
 	icon_keyboard = "tech_key"
 	light_color = LIGHT_COLOR_CYAN
-	req_access = list( )
+	req_access = list()
 	var/shuttleId
 
-	//Interdiction range
-	var/interdiction_range = 150
 	//Time it takes to recharge after interdiction
 	var/interdiction_time = 3 MINUTES
 
@@ -30,7 +28,6 @@
 	var/orbital_map_index = PRIMARY_ORBITAL_MAP
 
 	//Our orbital body.
-	var/referencedOrbitalObjectVarName = "shuttleObject"
 	var/datum/orbital_object/shuttle/shuttleObject
 
 	var/list/banned_types = list(
@@ -39,13 +36,6 @@
 		/obj/item/organ/body_egg,
 		/obj/item/organ/zombie_infection
 	)
-
-	//Looping sound
-	var/datum/looping_sound/shuttle_crash/emergency_alarm
-	var/datum/looping_sound/shuttle_collision_alarm/collision_warning
-
-	//Internal variable to indicate if the warning system is active or not
-	var/collision_warning_system_active = FALSE
 
 	var/registered = FALSE
 
@@ -58,21 +48,15 @@
 	else
 		var/static/i = 0
 		shuttlePortId = "unlinked_shuttle_console_[i++]"
-	RegisterSignal(SSorbits, COMSIG_ORBITAL_BODY_CREATED, PROC_REF(register_shuttle_object))
-	//Setup the looping sound
-	emergency_alarm = new(src,  FALSE)
-	collision_warning = new(src,  FALSE)
+	RegisterSignal(SSorbits, COMSIG_ORBITAL_BODY_CREATED, .proc/register_shuttle_object)
 
 /obj/machinery/computer/shuttle_flight/proc/set_shuttle_id(new_id, stack_depth = 0)
-	if (stack_depth > 30) // fucking
-		CRASH("Failed to set shuttle ID after 30 attempts, shuttle does still not exist. Old ID: [shuttleId]; New ID: [new_id]; Registered: [registered]; ")
+	if (stack_depth > 5)
+		CRASH("Failed to set shuttle ID after 5 attempts, shuttle does still not exist. Shuttle ID: [new_id]")
 	//Unregister if we need
 	if (registered)
 		if (shuttleObject)
 			unregister_shuttle_object(null, FALSE)
-		var/datum/shuttle_data/old_shuttle = SSorbits.get_shuttle_data(shuttleId)
-		if (old_shuttle)
-			UnregisterSignal(old_shuttle.comms, COMSIG_COMMUNICATION_RECEIEVED)
 		registered = FALSE
 	//Set the shuttle ID
 	shuttleId = new_id
@@ -83,15 +67,12 @@
 	var/datum/shuttle_data/new_shuttle = SSorbits.get_shuttle_data(shuttleId)
 	if (new_shuttle)
 		register_shuttle_object(null, SSorbits.assoc_shuttles[shuttleId])
-		RegisterSignal(new_shuttle.comms, COMSIG_COMMUNICATION_RECEIEVED, PROC_REF(message_recieved))
 		registered = TRUE
 	else
-		addtimer(CALLBACK(src, PROC_REF(set_shuttle_id), new_id, stack_depth + 1), 5 SECONDS)
+		addtimer(CALLBACK(src, .proc/set_shuttle_id, new_id, stack_depth + 1), 5 SECONDS)
 
 /obj/machinery/computer/shuttle_flight/Destroy()
 	. = ..()
-	QDEL_NULL(emergency_alarm)
-	QDEL_NULL(collision_warning)
 	SSorbits.open_orbital_maps -= SStgui.get_all_open_uis(src)
 	unregister_shuttle_object(shuttleObject, FALSE)
 	UnregisterSignal(SSorbits, COMSIG_ORBITAL_BODY_CREATED)
@@ -119,27 +100,14 @@
 		return
 	if(shuttleObject)
 		return
-	emergency_alarm?.stop()
 	shuttleObject = body
-	RegisterSignal(shuttleObject, COMSIG_PARENT_QDELETING, PROC_REF(unregister_shuttle_object))
-	RegisterSignal(shuttleObject, COMSIG_ORBITAL_BODY_MESSAGE, PROC_REF(on_shuttle_messaged))
-	RegisterSignal(shuttleObject, COMSIG_SHUTTLE_TOGGLE_COLLISION_ALERT, PROC_REF(set_collision_warning_system))
+	RegisterSignal(shuttleObject, COMSIG_PARENT_QDELETING, .proc/unregister_shuttle_object)
 
 /obj/machinery/computer/shuttle_flight/proc/unregister_shuttle_object(datum/source, force)
 	UnregisterSignal(shuttleObject, COMSIG_PARENT_QDELETING)
-	UnregisterSignal(shuttleObject, COMSIG_ORBITAL_BODY_MESSAGE)
-	UnregisterSignal(shuttleObject, COMSIG_SHUTTLE_TOGGLE_COLLISION_ALERT)
 	shuttleObject = null
 	if(current_user)
 		remove_eye_control(current_user)
-
-/obj/machinery/computer/shuttle_flight/proc/set_collision_warning_system(datum/source, new_status)
-	if(new_status)
-		if(!collision_warning_system_active)
-			collision_warning?.start()
-	else if(collision_warning_system_active)
-		collision_warning?.stop()
-	collision_warning_system_active = new_status
 
 /obj/machinery/computer/shuttle_flight/proc/on_shuttle_messaged(datum/source, message)
 	say(message)
@@ -177,15 +145,6 @@
 		data["valid_dock"] += list(list(
 			"id" = dock,
 		))
-	//Can message
-	data["can_message"] = TRUE
-	data["communication_targets"] = list()
-	for (var/key in SSorbits.communication_managers)
-		var/datum/orbital_comms_manager/comms_manager = SSorbits.communication_managers[key]
-		data["communication_targets"] += list(list(
-			name = comms_manager.messenger_name,
-			id = comms_manager.messenger_id,
-			))
 	//Get the shuttle data
 	var/datum/shuttle_data/shuttle_data = SSorbits.get_shuttle_data(shuttleId)
 	//If we are a recall console.
@@ -212,16 +171,10 @@
 	var/list/data = SSorbits.get_orbital_map_base_data(
 		SSorbits.orbital_maps[orbital_map_index],
 		user_ref,
-		FALSE,
+		shuttle_data?.stealth,
 		map_reference_object,
 		shuttle_data
 	)
-
-	if(!shuttle_data)
-		return data
-
-	//Shuttle communications
-	data += shuttle_data.comms.get_ui_data()
 
 	data["shuttleName"] = map_reference_object?.name
 
@@ -247,21 +200,23 @@
 	//Interdicted shuttles
 	data["interdictedShuttles"] = list()
 	if(SSorbits.interdicted_shuttles[shuttleId] > world.time)
-		var/obj/docking_port/our_port = SSshuttle.getShuttle(shuttleId)
 		data["interdictionTime"] = SSorbits.interdicted_shuttles[shuttleId] - world.time
-		for(var/interdicted_id in SSorbits.interdicted_shuttles)
-			var/timer = SSorbits.interdicted_shuttles[interdicted_id]
-			if(timer < world.time)
+	else
+		data["interdictionTime"] = 0
+	// Display local shuttles
+	var/obj/docking_port/mobile/our_port = SSshuttle.getShuttle(shuttleId)
+	if (our_port.mode == SHUTTLE_IDLE)
+		for(var/shuttle_id in SSorbits.assoc_shuttle_data)
+			var/datum/shuttle_data/target_data = SSorbits.assoc_shuttle_data[shuttle_id]
+			var/obj/docking_port/mobile/port = SSshuttle.getShuttle(shuttle_id)
+			if (target_data.stealth)
 				continue
-			var/obj/docking_port/port = SSshuttle.getShuttle(interdicted_id)
-			if(port && port.z == our_port.z)
+			if(port && port.mode == SHUTTLE_IDLE && port.z == our_port.z)
 				data["interdictedShuttles"] += list(list(
 					"shuttleName" = port.name,
 					"x" = port.x - our_port.x,
 					"y" = port.y - our_port.y,
 				))
-	else
-		data["interdictionTime"] = 0
 
 	data["canLaunch"] = TRUE
 	if(QDELETED(shuttleObject))
@@ -289,7 +244,7 @@
 			"id" = "undock"
 		))
 		//Stealth shuttles bypass shuttle jamming.
-		if(shuttleObject.docking_target.can_dock_anywhere && (!GLOB.shuttle_docking_jammed || shuttleObject.stealth || !istype(shuttleObject.docking_target, /datum/orbital_object/z_linked/station)))
+		if(shuttleObject.docking_target.can_dock_anywhere && (!GLOB.shuttle_docking_jammed || shuttle_data.stealth || !istype(shuttleObject.docking_target, /datum/orbital_object/z_linked/station)))
 			data["validDockingPorts"] += list(list(
 				"name" = "Выбрать место стыковки",
 				"id" = "custom_location"
@@ -361,38 +316,6 @@
 		return
 
 	switch(action)
-		if("send_message")
-			//Get the shuttle data
-			var/datum/shuttle_data/shuttle_data = SSorbits.get_shuttle_data(shuttleId)
-			if (!shuttle_data)
-				return
-			//sanitize
-			var/datum/orbital_comms_manager/target = SSorbits.communication_managers[params["id"]]
-			if(!target)
-				return
-			//Get the message we wish to send
-			var/message = stripped_input(usr, "Что же мы отправим?", "Связь")
-			if (!message)
-				return
-			message_admins("[ADMIN_LOOKUPFLW(usr)] sent a shuttle communication to [target.messenger_id] reading '[message]'.")
-			log_shuttle("[key_name(usr)] sent a shuttle communication to [target.messenger_id] reading '[message]'.")
-			shuttle_data.comms.send_message_to(target.messenger_id, message)
-		if("send_emergency_message")
-			//Get the shuttle data
-			var/datum/shuttle_data/shuttle_data = SSorbits.get_shuttle_data(shuttleId)
-			if (!shuttle_data)
-				return
-			//sanitize
-			var/datum/orbital_comms_manager/target = SSorbits.communication_managers[params["id"]]
-			if(!target)
-				return
-			//Get the message we wish to send
-			var/message = stripped_input(usr, "Что же мы отправим? Использование данного канала не по назначению может привести к последствиям.", "Связь")
-			if (!message)
-				return
-			message_admins("[ADMIN_LOOKUPFLW(usr)] sent an emergency communication to [target.messenger_id] reading 'message'.")
-			log_shuttle("[key_name(usr)] sent an emergency communication to [target.messenger_id] reading '[message]'.")
-			shuttle_data.comms.send_emergency_message_to(target.messenger_id, message)
 		if("toggleBreaking")
 			if(QDELETED(shuttleObject))
 				say("Шаттл не в полёте.")
@@ -470,7 +393,7 @@
 					if(!mobile_port)
 						say("Не обнаружен шаттл.")
 						return
-					if(GLOB.shuttle_docking_jammed && !shuttleObject.stealth && istype(shuttleObject.docking_target, /datum/orbital_object/z_linked/station))
+					if(GLOB.shuttle_docking_jammed && !shuttleObject.is_stealth() && istype(shuttleObject.docking_target, /datum/orbital_object/z_linked/station))
 						say("Компьютер заблокирован.")
 						return
 					if(current_user)
@@ -553,10 +476,3 @@
 	if(istype(circuit_board) && circuit_board.hacked)
 		return TRUE
 	return ..()
-
-/obj/machinery/computer/shuttle_flight/proc/message_recieved(datum/source, sender, message, emergency)
-	if (emergency)
-		playsound(src, 'sound/machines/warning-buzzer.ogg', 50, 1)
-		say("Экстренная передача от [sender]. Сообщение гласит, '[message]'.")
-	else
-		say("Передача от [sender]. Сообщение гласит, '[message]'.")

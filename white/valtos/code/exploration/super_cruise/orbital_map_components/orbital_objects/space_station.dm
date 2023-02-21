@@ -14,9 +14,6 @@
 	//Set the station instance
 	SSorbits.station_instance = src
 
-	//Create the comms manager
-	SSorbits.register_communication_manager(new /datum/orbital_comms_manager/station("station", "Space Station 13"))
-
 #ifdef LOWMEMORYMODE
 	var/datum/orbital_map/linked_map = SSorbits.orbital_maps[orbital_map_index]
 	linked_map.center = src

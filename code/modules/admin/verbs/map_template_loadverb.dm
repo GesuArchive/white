@@ -29,11 +29,7 @@
 		SET_PLANE(item, ABOVE_LIGHTING_PLANE, place_on)
 		preview += item
 	images += preview
-	/*
-	if(alert(src,"Confirm location.","Template Confirm","Yes","No") == "Yes")
-		if(template.load(T, centered = TRUE))
-			var/affected = template.get_affected_turfs(T, centered=TRUE)
-	*/
+
 	if(tgui_alert(usr,"Confirm location.","Template Confirm",list("Yes","No")) == "Yes")
 		if(template.load(T, centered = center))
 			var/affected = template.get_affected_turfs(T, centered = center)

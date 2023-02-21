@@ -2,9 +2,10 @@
 
 // Made by powerfulbacon
 
-import { Box, Button, Section, Table, DraggableClickableControl, Dropdown, Divider, NoticeBox, ProgressBar, Flex, OrbitalMapComponent, OrbitalMapSvg, Stack, Tabs } from '../components';
+import { Box, Button, Section, Table, DraggableClickableControl, Dropdown, Divider, NoticeBox, ProgressBar, Flex, OrbitalMapComponent, OrbitalMapSvg } from '../components';
 import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
+import { Component } from 'inferno';
 
 export const OrbitalMap = (props, context) => {
   const { act, data } = useBackend(context);
@@ -68,7 +69,7 @@ export const OrbitalMap = (props, context) => {
   return (
     <Window
       width={1136}
-      height={770} >
+      height={770}>
       <Window.Content fitted>
         <Flex height="100%">
           <Flex.Item class="OrbitalMap__radar" grow id="radar">
@@ -196,216 +197,106 @@ export const OrbitalMap = (props, context) => {
   );
 };
 
-export const DisplayWindow = (props, context) => {
-  const { data } = useBackend(context);
+class DisplayWindow extends Component {
 
-  const {
-    communication_targets = {},
-  } = data;
-
-  const {
-    xOffset,
-    yOffset,
-    zoomScale,
-    setZoomScale,
-    setXOffset,
-    setYOffset,
-    interdictionTime,
-    isTracking,
-    setTrackedBody,
-    ourObject,
-  } = props;
-
-  const [
-    isInterdicted,
-    setIsInterdicted,
-  ] = useLocalState(context, 'isInterdicted', false);
-
-  const [
-    selectedMap,
-    setSelectedMap,
-  ] = useLocalState(context, 'selectedMap', 'map');
-
-  if (isInterdicted === false && interdictionTime > 0) {
-    setIsInterdicted(true);
-    setSelectedMap('interdiction');
-  } else if (interdictionTime <= 0 && isInterdicted === true) {
-    setIsInterdicted(false);
+  constructor(props)
+  {
+    super(props);
+    this.isInterdicted = false;
+    this.selectedMap = 'map';
   }
 
-  if (selectedMap === 'communication' && Object.keys(communication_targets).length === 0) {
-    setSelectedMap('map');
-    return;
+  render() {
+    const {
+      xOffset,
+      yOffset,
+      zoomScale,
+      setZoomScale,
+      setXOffset,
+      setYOffset,
+      interdictionTime,
+      isTracking,
+      setTrackedBody,
+      ourObject,
+    } = this.props;
+
+    if (this.isInterdicted === false && interdictionTime > 0) {
+      this.isInterdicted = true;
+      this.selectedMap = 'interdiction';
+    } else if (interdictionTime <= 0 && this.isInterdicted === true) {
+      this.isInterdicted = false;
+    }
+
+    return (
+      <>
+        {this.selectedMap === 'interdiction' ? (
+          <InterdictionDisplay
+            xOffset={xOffset}
+            yOffset={yOffset}
+            zoomScale={zoomScale}
+            setZoomScale={setZoomScale}
+            setXOffset={setXOffset}
+            setYOffset={setYOffset} />
+        ) : (
+          <OrbitalMapDisplay
+            dynamicXOffset={xOffset}
+            dynamicYOffset={yOffset}
+            isTracking={isTracking}
+            zoomScale={zoomScale}
+            setZoomScale={setZoomScale}
+            setTrackedBody={setTrackedBody}
+            ourObject={ourObject} />
+        )}
+        {this.selectedMap !== 'communication' && (
+          <>
+            <Button
+              position="absolute"
+              icon="search-plus"
+              right="20px"
+              top="15px"
+              fontSize="18px"
+              color="grey"
+              onClick={() => setZoomScale(zoomScale * 2)} />
+            <Button
+              position="absolute"
+              icon="search-minus"
+              right="20px"
+              top="47px"
+              fontSize="18px"
+              color="grey"
+              onClick={() => setZoomScale(zoomScale / 2)} />
+          </>
+        )}
+        <Button
+          position="absolute"
+          icon="map"
+          right="5px"
+          bottom="83px"
+          fontSize="18px"
+          color="grey"
+          onClick={() => {
+            this.selectedMap = 'map';
+          }}
+          selected={this.selectedMap === 'map'}
+          content="Орбитальная карта" />
+        <Button
+          position="absolute"
+          icon="route"
+          right="5px"
+          bottom="49px"
+          fontSize="18px"
+          color="grey"
+          onClick={() => {
+            this.selectedMap = 'interdiction';
+          }}
+          selected={this.selectedMap === 'interdiction'}
+          content="Местная карта" />
+      </>
+    );
   }
+}
 
-  return (
-    <>
-      {selectedMap === 'interdiction' ? (
-        <InterdictionDisplay
-          xOffset={xOffset}
-          yOffset={yOffset}
-          zoomScale={zoomScale}
-          setZoomScale={setZoomScale}
-          setXOffset={setXOffset}
-          setYOffset={setYOffset} />
-      ) : selectedMap === 'communication' ? (
-        <OrbitalMapComms />
-      ) : (
-        <OrbitalMapDisplay
-          dynamicXOffset={xOffset}
-          dynamicYOffset={yOffset}
-          isTracking={isTracking}
-          zoomScale={zoomScale}
-          setZoomScale={setZoomScale}
-          setTrackedBody={setTrackedBody}
-          ourObject={ourObject} />
-      )}
-      {selectedMap !== 'communication' && (
-        <>
-          <Button
-            position="absolute"
-            icon="search-plus"
-            right="20px"
-            top="15px"
-            fontSize="18px"
-            color="grey"
-            onClick={() => setZoomScale(zoomScale * 2)} />
-          <Button
-            position="absolute"
-            icon="search-minus"
-            right="20px"
-            top="47px"
-            fontSize="18px"
-            color="grey"
-            onClick={() => setZoomScale(zoomScale / 2)} />
-        </>
-      )}
-      <Button
-        position="absolute"
-        icon="map"
-        right="5px"
-        bottom="83px"
-        fontSize="18px"
-        color="grey"
-        onClick={() => setSelectedMap('map')}
-        selected={selectedMap === 'map'}
-        content="Орбитальная карта" />
-      <Button
-        position="absolute"
-        icon="route"
-        right="5px"
-        bottom="49px"
-        fontSize="18px"
-        color="grey"
-        onClick={() => setSelectedMap('interdiction')}
-        selected={selectedMap === 'interdiction'}
-        content="Местная карта" />
-      {Object.keys(communication_targets).length > 0 && <Button
-        position="absolute"
-        icon="satellite-dish"
-        right="5px"
-        bottom="15px"
-        fontSize="18px"
-        color="grey"
-        onClick={() => setSelectedMap('communication')}
-        selected={selectedMap === 'communication'}
-        content="Связь" />}
-    </>
-  );
-};
-
-export const OrbitalMapComms = (props, context) => {
-  const { act, data } = useBackend(context);
-
-  const {
-    communication_targets = {},
-    messages = [],
-  } = data;
-
-  const [
-    communicationTarget,
-    setCommunicationTarget,
-  ] = useLocalState(context, 'communicationTarget', communication_targets[0].id);
-
-  const message_category = messages[communicationTarget];
-
-  return (
-    <Stack
-      height="100%">
-      <Stack.Item
-        overflowY="auto">
-        <Section
-          height="100%"
-          title="Связь">
-          <Tabs vertical>
-            {communication_targets.map(element => (
-              <Tabs.Tab
-                key={element.id}
-                selected={communicationTarget===element.id}
-                onClick={() => setCommunicationTarget(element.id)}>
-                {element.name}
-              </Tabs.Tab>
-            ))}
-          </Tabs>
-        </Section>
-      </Stack.Item>
-      <Stack.Divider />
-      <Stack.Item width="100%">
-        <Section width="100%" height="100%" title="Окно связи" overflowY="scroll">
-          <Button
-            inline
-            flex={1}
-            icon="comments-o"
-            onClick={() => act('send_message', {
-              id: communicationTarget,
-            })} >
-            Отправить сообщение
-          </Button>
-          <Button
-            inline
-            flex={1}
-            icon="exclamation-triangle"
-            onClick={() => act('send_emergency_message', {
-              id: communicationTarget,
-            })} >
-            Отправить экстренное сообщение
-          </Button>
-          <Divider />
-          <Table>
-            {message_category && message_category.map(message =>
-              message.sourced_locally ? (
-                <Table.Row>
-                  <Table.Cell bold color="red">
-                    <b>Я</b>
-                  </Table.Cell>
-                  <Table.Cell width="100%">
-                    {message.message}
-                    <Divider />
-                  </Table.Cell>
-                  <Table.Cell> </Table.Cell>
-                </Table.Row>
-              ) : (
-                <Table.Row>
-                  <Table.Cell> </Table.Cell>
-                  <Table.Cell width="100%">
-                    {message.message}
-                    <Divider />
-                  </Table.Cell>
-                  <Table.Cell bold color="blue">
-                    {communicationTarget}
-                  </Table.Cell>
-                </Table.Row>
-              )
-            )}
-          </Table>
-        </Section>
-      </Stack.Item>
-      <Stack.Divider />
-    </Stack>
-  );
-};
-
-export const InterdictionDisplay = (props, context) => {
+const InterdictionDisplay = (props, context) => {
 
   const boxTargetStyle = {
     "fill-opacity": 0,
@@ -563,7 +454,7 @@ export const InterdictionDisplay = (props, context) => {
 
 };
 
-export const OrbitalMapDisplay = (props, context) => {
+const OrbitalMapDisplay = (props, context) => {
 
   const {
     zoomScale,
@@ -701,7 +592,7 @@ export const OrbitalMapDisplay = (props, context) => {
 
 };
 
-export const RecallControl = (props, context) => {
+const RecallControl = (props, context) => {
   const { act, data } = useBackend(context);
   const { request_shuttle_message } = data;
   return (
@@ -722,7 +613,7 @@ export const RecallControl = (props, context) => {
   );
 };
 
-export const ShuttleControls = (props, context) => {
+const ShuttleControls = (props, context) => {
   const { act, data } = useBackend(context);
   const {
     map_objects = [],
@@ -828,7 +719,7 @@ export const ShuttleControls = (props, context) => {
   );
 };
 
-export const ShuttleMap = (props, context) => {
+const ShuttleMap = (props, context) => {
   const lineStyle = {
     stroke: '#BBBBBB',
     strokeWidth: '2',

@@ -192,5 +192,3 @@
 	new /obj/singularity(T)
 	if(!orbital_body)
 		return
-	//Holy fuck
-	new /datum/orbital_object/hazard/black_hole(new /datum/orbital_vector(orbital_body.position.GetX(), orbital_body.position.GetY()))

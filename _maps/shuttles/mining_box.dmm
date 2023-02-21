@@ -38,7 +38,6 @@
 	name = "Mining Shuttle Airlock"
 	},
 /obj/docking_port/mobile{
-	faction_type = /datum/faction/station;
 	dir = 8;
 	dwidth = 3;
 	height = 5;

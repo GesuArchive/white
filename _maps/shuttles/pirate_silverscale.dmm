@@ -154,7 +154,6 @@
 	width = 26
 	},
 /obj/docking_port/mobile/pirate{
-	faction_type = /datum/faction/pirates;
 	dir = 4;
 	dwidth = 13;
 	height = 3;

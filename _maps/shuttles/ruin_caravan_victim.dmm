@@ -1025,7 +1025,6 @@
 	id_tag = "caravantrade1_bolt"
 	},
 /obj/docking_port/mobile{
-	faction_type = /datum/faction/independant;
 	callTime = 250;
 	dir = 2;
 	dwidth = 5;
