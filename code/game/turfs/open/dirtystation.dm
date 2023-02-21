@@ -10,7 +10,7 @@
 /turf/open/floor/proc/MakeDirty()
 	// We start with a 1/3 chance of having this proc called by Initialize()
 
-	if(!(turf_flags & CAN_BE_DIRTY_1))
+	if(!(flags_1 & CAN_BE_DIRTY_1))
 		return
 
 	if(locate(/obj/structure/grille) in contents)
