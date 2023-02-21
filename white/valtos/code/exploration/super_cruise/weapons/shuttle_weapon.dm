@@ -76,33 +76,33 @@
 	switch(newdir)
 		if(NORTH)
 			if(side == WEAPON_SIDE_LEFT)
-				pixel_x = 25
-				pixel_y = 0
-				transform = initial(transform)
-			else if (side == WEAPON_SIDE_RIGHT)
 				pixel_x = -25
 				pixel_y = 0
 				var/matrix/M = matrix()
 				M.Scale(-1, 1)
 				transform = M
+			else if (side == WEAPON_SIDE_RIGHT)
+				pixel_x = 25
+				pixel_y = 0
+				transform = initial(transform)
 			else
 				pixel_x = 0
 				pixel_y = 0
 				transform = initial(transform)
 		if(SOUTH)
 			if(side == WEAPON_SIDE_LEFT)
-				pixel_x = -25
+				pixel_x = 25
 				pixel_y = -40
 				var/matrix/M = matrix()
 				M.Turn(180)
 				M.Scale(-1, 1)
 				transform = M
 			else if (side == WEAPON_SIDE_RIGHT)
-				pixel_x = 25
+				pixel_x = -25
 				pixel_y = -40
 				var/matrix/M = matrix()
 				M.Turn(180)
-				M.Scale(-1, 1)
+				M.Scale(-1, -1)
 				transform = M
 			else
 				pixel_x = 0
@@ -111,15 +111,15 @@
 				M.Turn(180)
 				transform = M
 		if(EAST)
-			if(side == WEAPON_SIDE_LEFT)
+			if(side == WEAPON_SIDE_LEFT) // +
 				pixel_x = 20
 				pixel_y = 5
 				var/matrix/M = matrix()
 				M.Turn(-90)
-				M.Scale(1, -1)
+				M.Scale(-1, 1)
 				transform = M
-			else if (side == WEAPON_SIDE_RIGHT)
-				pixel_x = -20
+			else if (side == WEAPON_SIDE_RIGHT) // +
+				pixel_x = 20
 				pixel_y = -44
 				var/matrix/M = matrix()
 				M.Turn(-90)
@@ -133,18 +133,17 @@
 				transform = M
 		if(WEST)
 			if(side == WEAPON_SIDE_LEFT)
-				pixel_x = 0
-				pixel_y = 5
-				var/matrix/M = matrix()
-				M.Turn(90)
-				M.Scale(-1, -1)
-				transform = M
-			else if (side == WEAPON_SIDE_RIGHT)
-				pixel_x = 0
+				pixel_x = -22
 				pixel_y = -44
 				var/matrix/M = matrix()
-				M.Turn(90)
-				M.Scale(-1, 1)
+				M.Turn(-90)
+				M.Scale(1, -1)
+				transform = M
+			else if (side == WEAPON_SIDE_RIGHT)
+				pixel_x = -22
+				pixel_y = 5
+				var/matrix/M = matrix()
+				M.Turn(-90)
 				transform = M
 			else
 				pixel_x = 20

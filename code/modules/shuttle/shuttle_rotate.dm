@@ -115,3 +115,7 @@ If ever any of these procs are useful for non-shuttles, rename it to proc/rotate
 	. = ..()
 	if(wall_turret_direction && (params & ROTATE_DIR))
 		wall_turret_direction = turn(wall_turret_direction,rotation)
+
+/obj/machinery/shuttle_weapon/shuttleRotate(rotation, params)
+	params = ROTATE_DIR
+	return ..()
