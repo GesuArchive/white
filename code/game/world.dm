@@ -333,7 +333,7 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 */
 
 /world/proc/update_status()
-	status = "<b>\[146% OFFICIAL\] \[EU\] Skyrat SS13</b> ^HRP^ Extra-Furry LGBTQWERTYABCVG+ support, premium tolerance, ERP forced."
+	status = "#####################\]\n\[##VHITE#DREAM#[config.current_version_less]##\]\n\[#####################"
 
 /world/proc/update_hub_visibility(new_visibility)
 	if(new_visibility == GLOB.hub_visibility)
