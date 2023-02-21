@@ -48,9 +48,9 @@
 	if(!burnt && burnt_states && (icon_state in burnt_states))
 		burnt = TRUE
 	if(mapload && prob(47))
-		if(prob(1))
+		if(prob(5))
 			plating_fucked = TRUE
-		else if(prob(3) && (icon_state in list("floor", "monofloor", "plating")))
+		else if(prob(7) && (icon_state in list("floor", "monofloor", "plating")))
 			dir = pick(GLOB.alldirs)
 		MakeDirty()
 	if(is_station_level(z))
