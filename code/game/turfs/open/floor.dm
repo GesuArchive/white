@@ -48,8 +48,10 @@
 	if(!burnt && burnt_states && (icon_state in burnt_states))
 		burnt = TRUE
 	if(mapload && prob(47))
-		if(prob(0.5))
+		if(prob(1))
 			plating_fucked = TRUE
+		else if(prob(3) && (icon_state in list("floor", "monofloor", "plating")))
+			dir = pick(GLOB.alldirs)
 		MakeDirty()
 	if(is_station_level(z))
 		GLOB.station_turfs += src
