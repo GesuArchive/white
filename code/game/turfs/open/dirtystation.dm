@@ -21,6 +21,11 @@
 	if(A && !(A.flags_1 & CAN_BE_DIRTY_1))
 		return
 
+	if(prob(5))
+		plating_fucked = TRUE
+	else if(prob(33))
+		floor_dents = TRUE
+
 	var/static/list/high_dirt_areas = typecacheof(list(
 		/area/science/test_area,
 		/area/mine/production,

@@ -48,10 +48,6 @@
 	if(!burnt && burnt_states && (icon_state in burnt_states))
 		burnt = TRUE
 	if(mapload && prob(47))
-		if(prob(5))
-			plating_fucked = TRUE
-		else if(prob(33))
-			floor_dents = TRUE
 		MakeDirty()
 	if(is_station_level(z))
 		GLOB.station_turfs += src
@@ -144,7 +140,7 @@
 	if(plating_fucked)
 		. += mutable_appearance(damaged_dmi, "plating_visible[rand(1, 4)]")
 	else if(floor_dents)
-		if(icon_state in list("monofloor", "monowhite", "monodarkfull"))
+		if(icon_state in list("monofloor", "monowhite", "monodarkfull", "dock", "drydock", "engine"))
 			. += image(damaged_dmi, icon_state = "mono_dents", dir = pick(GLOB.alldirs))
 		else
 			. += image(damaged_dmi, icon_state = "floor_dents[rand(1, 4)]", dir = pick(GLOB.alldirs))
