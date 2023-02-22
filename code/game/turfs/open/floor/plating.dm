@@ -27,7 +27,7 @@
 
 /turf/open/floor/plating/Initialize(mapload)
 	. = ..()
-	if(mapload && icon_state = "plating")
+	if(mapload && icon_state == "plating")
 		dir = pick(GLOB.alldirs)
 
 /turf/open/floor/plating/setup_broken_states()
