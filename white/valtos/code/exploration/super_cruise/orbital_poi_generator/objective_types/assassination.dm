@@ -85,6 +85,11 @@
 // Operative
 //=====================
 
+/datum/outfit/vip_target
+	name = "Ass"
+
+	uniform = /obj/item/clothing/under/color/grey
+
 /datum/outfit/vip_target/vip_operative
 	name = "Operative (VIP Target)"
 
