@@ -143,7 +143,7 @@
 		if(icon_state in list("monofloor", "monowhite", "monodarkfull", "dock", "drydock", "engine"))
 			. += image(damaged_dmi, icon_state = "mono_dents", dir = pick(GLOB.alldirs))
 		else
-			. += image(damaged_dmi, icon_state = "floor_dents[rand(1, 4)]", dir = pick(GLOB.alldirs))
+			. += image(damaged_dmi, icon_state = "floor_dents[prob(5) ? rand(3, 4) : rand(1, 2)]", dir = pick(GLOB.alldirs))
 	else if(broken)
 		. += mutable_appearance(damaged_dmi, pick(broken_states))
 	else if(burnt)

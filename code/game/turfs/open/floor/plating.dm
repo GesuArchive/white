@@ -25,6 +25,11 @@
 	/// See [/obj/item/stack/tile/proc/place_tile].
 	var/allow_replacement = TRUE
 
+/turf/open/floor/plating/Initialize(mapload)
+	. = ..()
+	if(mapload && icon_state = "plating")
+		dir = pick(GLOB.alldirs)
+
 /turf/open/floor/plating/setup_broken_states()
 	return list("damaged1", "damaged2", "damaged4")
 

@@ -21,9 +21,9 @@
 	if(A && !(A.flags_1 & CAN_BE_DIRTY_1))
 		return
 
-	if(prob(5))
+	if(prob(3))
 		plating_fucked = TRUE
-	else if(prob(33))
+	else if(prob(30))
 		floor_dents = TRUE
 
 	var/static/list/high_dirt_areas = typecacheof(list(
