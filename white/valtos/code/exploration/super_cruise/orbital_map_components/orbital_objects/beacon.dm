@@ -45,7 +45,7 @@
 	var/datum/space_level/assigned_space_level = SSzclear.get_free_z_level()
 	linked_z_level = list(assigned_space_level)
 	SSorbits.assoc_z_levels["[assigned_space_level.z_value]"] = src
-	generate_asteroids(world.maxx / 2, world.maxy / 2, assigned_space_level.z_value, quick_generation ? 40 : 120, rand(-0.5, 0), rand(40, 70))
+	generate_asteroids(world.maxx / 2, world.maxy / 2, assigned_space_level.z_value, quick_generation ? 80 : 120, rand(-0.5, 0), rand(40, 70))
 
 /datum/orbital_object/z_linked/beacon/ruin/asteroid/post_map_setup()
 	//Orbit around the systems central gravitional body
@@ -98,7 +98,7 @@
 	var/datum/space_level/assigned_space_level = SSzclear.get_free_z_level()
 	linked_z_level = list(assigned_space_level)
 	SSorbits.assoc_z_levels["[assigned_space_level.z_value]"] = src
-	generate_space_ruin(world.maxx / 2, world.maxy / 2, assigned_space_level.z_value, quick_generation ? 15 : 25, quick_generation ? 15 : 25, linked_objective, null, ruin_event)
+	generate_space_ruin(world.maxx / 2, world.maxy / 2, assigned_space_level.z_value, quick_generation ? 70 : 90, quick_generation ? 70 : 90, linked_objective, null, ruin_event)
 
 /datum/orbital_object/z_linked/beacon/ruin/post_map_setup()
 	//Orbit around the systems sun
@@ -117,7 +117,7 @@
 	var/datum/space_level/assigned_space_level = SSzclear.get_free_z_level()
 	linked_z_level = list(assigned_space_level)
 	SSorbits.assoc_z_levels["[assigned_space_level.z_value]"] = src
-	generate_asteroids(world.maxx / 2, world.maxy / 2, assigned_space_level.z_value, quick_generation ? 20 : 40, -0.4, 40)
+	generate_asteroids(world.maxx / 2, world.maxy / 2, assigned_space_level.z_value, quick_generation ? 100 : 120, -0.4, 40)
 
 /datum/orbital_object/z_linked/beacon/ruin/stranded_shuttle/post_map_setup()
 	return

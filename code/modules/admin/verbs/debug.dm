@@ -773,7 +773,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	var/ruin_size = input(src, "Ruin size (NxN) (Between 10 and 200)", "Ruin Size", 0) as num
 	if(ruin_size < 10 || ruin_size >= 200)
 		return
-	var/response = tgui_alert(usr, "This will place the ruin at your current location.", "Spawn Ruin", "Spawn Ruin", "Cancel")
+	var/response = tgui_alert(usr, "This will place the ruin at your current location.", "Spawn Ruin", list("Spawn Ruin", "Cancel"))
 	if (response == "Cancel")
 		return
 	var/border_size = (world.maxx - ruin_size) / 2
