@@ -34123,7 +34123,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/obj/machinery/computer/shuttle_flight/ferry/request/trader,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
 "bKT" = (

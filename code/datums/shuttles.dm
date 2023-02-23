@@ -182,6 +182,7 @@
 
 /datum/map_template/shuttle/mining_common
 	port_id = "mining_common"
+	suffix = "meta"
 	can_be_bought = FALSE
 
 /datum/map_template/shuttle/arrival

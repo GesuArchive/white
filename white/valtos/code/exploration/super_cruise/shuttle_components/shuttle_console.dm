@@ -52,7 +52,8 @@
 
 /obj/machinery/computer/shuttle_flight/proc/set_shuttle_id(new_id, stack_depth = 0)
 	if (stack_depth > 5)
-		CRASH("Failed to set shuttle ID after 5 attempts, shuttle does still not exist. Shuttle ID: [new_id]")
+		log_runtime("Failed to set shuttle ID after 5 attempts, shuttle does still not exist. Shuttle ID: [new_id]")
+		return // lmao i don't care
 	//Unregister if we need
 	if (registered)
 		if (shuttleObject)

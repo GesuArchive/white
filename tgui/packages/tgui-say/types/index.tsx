@@ -9,7 +9,7 @@ export type Modal = {
 };
 
 type Events = {
-  onArrowKeys: (direction: number) => void;
+  onArrowKeys: (direction: number, value: string) => void;
   onBackspaceDelete: () => void;
   onClick: () => void;
   onEscape: () => void;
@@ -32,6 +32,7 @@ type Fields = {
   lightMode: boolean;
   maxLength: number;
   radioPrefix: string;
+  tempHistory: string;
   value: string;
 };
 
@@ -43,9 +44,18 @@ export type State = {
 };
 
 type Timers = {
-  channelDebounce: ({ mode: boolean }) => void;
-  forceDebounce: ({ channel: number, entry: string }) => void;
+  channelDebounce: (ModeDebounce) => void;
+  forceDebounce: (ForceDebounce) => void;
   typingThrottle: () => void;
+};
+
+type ModeDebounce = {
+  mode: boolean;
+};
+
+type ForceDebounce = {
+  channel: number;
+  entry: string;
 };
 
 export type DragzoneProps = {
