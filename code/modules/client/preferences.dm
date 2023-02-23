@@ -878,7 +878,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if(LAZYLEN(job.whitelisted) && !(user.ckey in job.whitelisted))
 				HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><font color='#fda2fa'> \[ DONATE \] </font></td></tr>"
 				continue
-			if(job.allow_new_players && !check_whitelist(user.ckey))
+			if(!job.allow_new_players && !check_whitelist(user.ckey))
 				HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><font color='#fda2fa'> \[ WHITELIST \] </font></td></tr>"
 				continue
 			if(!job.player_old_enough(user.client))
