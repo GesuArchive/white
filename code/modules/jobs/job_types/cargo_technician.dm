@@ -29,6 +29,8 @@
 	rpg_title = "Merchantman"
 	rpg_title_ru = "Купец"
 
+	allow_new_players = TRUE
+
 /datum/outfit/job/cargo_tech
 	name = JOB_CARGO_TECHNICIAN
 	jobtype = /datum/job/cargo_technician

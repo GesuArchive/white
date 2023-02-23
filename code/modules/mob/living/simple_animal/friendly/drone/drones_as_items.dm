@@ -33,6 +33,10 @@
 
 //ATTACK GHOST IGNORING PARENT RETURN VALUE
 /obj/effect/mob_spawn/drone/attack_ghost(mob/user)
+	if(!check_whitelist(user?.ckey))
+		to_chat(user, span_danger("Тебя нет в вайтлисте."))
+		return
+
 	if(CONFIG_GET(flag/use_age_restriction_for_jobs))
 		if(!isnum(user.client.player_age)) //apparently what happens when there's no DB connected. just don't let anybody be a drone without admin intervention
 			return

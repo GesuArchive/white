@@ -28,6 +28,8 @@
 	rpg_title = "Tavernkeeper"
 	rpg_title_ru = "Тавернщик"
 
+	allow_new_players = TRUE
+
 /datum/outfit/job/bartender
 	name = JOB_BARTENDER
 	jobtype = /datum/job/bartender

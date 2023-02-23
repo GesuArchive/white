@@ -22,6 +22,8 @@
 	rpg_title = "Defeated Miniboss"
 	rpg_title_ru = "Побежденный минибосс"
 
+	allow_new_players = TRUE
+
 /datum/job/prisoner/override_latejoin_spawn(mob/living/carbon/human/H)
 	for(var/_sloc in GLOB.start_landmarks_list)
 		var/obj/effect/landmark/start/sloc = _sloc

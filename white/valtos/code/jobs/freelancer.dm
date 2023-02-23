@@ -25,6 +25,8 @@
 	rpg_title = "Freelancer"
 	rpg_title_ru = "Путешественник"
 
+	allow_new_players = TRUE
+
 /datum/job/freelancer/New()
 	. = ..()
 	whitelisted = GLOB.donators_list["boosty"]

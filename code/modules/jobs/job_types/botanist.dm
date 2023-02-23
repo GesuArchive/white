@@ -30,6 +30,8 @@
 	rpg_title = "Gardener"
 	rpg_title_ru = "Садовник"
 
+	allow_new_players = TRUE
+
 /datum/outfit/job/botanist
 	name = JOB_BOTANIST
 	jobtype = /datum/job/botanist

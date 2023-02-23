@@ -31,6 +31,8 @@
 	rpg_title = "Jester"
 	rpg_title_ru = "Плут"
 
+	allow_new_players = TRUE
+
 /datum/job/clown/after_spawn(mob/living/carbon/human/H, mob/M)
 	. = ..()
 	H.apply_pref_name("clown", M.client)

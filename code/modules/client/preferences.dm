@@ -644,29 +644,36 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Спецроли</div><div class='csetup_nodes'>"
 
-			if(user?.client?.get_metabalance() < 50)
-				dat += "<font color='#ff3333'><b>Отрицательная карма. Получение роли маловероятно.</b></font>"
+			var/display_roles = TRUE
 
-			if(is_banned_from(user.ckey, ROLE_SYNDICATE))
+			if(!check_whitelist(user?.ckey))
+				dat += "<font color='#aaaaaa'><b>Специальные роли доступны только игрокам из вайтлиста.</b></font>"
+				display_roles = FALSE
+			else if(user?.client?.get_metabalance() < 50)
+				dat += "<font color='#ff3333'><b>Отрицательная карма. Получение роли невозможно.</b></font>"
+				display_roles = FALSE
+			else if(is_banned_from(user.ckey, ROLE_SYNDICATE))
 				dat += "<font color='#fda2fa'><b>Тебе нельзя быть антагами.</b></font>"
 				src.be_special = list()
+				display_roles = FALSE
 
-			for (var/i in GLOB.special_roles)
-				if(is_banned_from(user.ckey, i))
-					dat += SETUP_NODE_SWITCH(capitalize(i), "suck", "БАНЕЦ")
-				else
-					var/days_remaining = null
-					if(ispath(GLOB.special_roles[i]) && CONFIG_GET(flag/use_age_restriction_for_jobs)) //If it's a game mode antag, check if the player meets the minimum age
-						var/mode_path = GLOB.special_roles[i]
-						var/datum/game_mode/temp_mode = new mode_path
-						days_remaining = temp_mode.get_remaining_days(user.client)
-
-					if(days_remaining)
-						dat += SETUP_NODE_SWITCH(capitalize(i), "suck", "Через [days_remaining] дней")
+			if(display_roles)
+				for (var/i in GLOB.special_roles)
+					if(is_banned_from(user.ckey, i))
+						dat += SETUP_NODE_SWITCH(capitalize(i), "suck", "БАН")
 					else
-						dat += SETUP_START_NODE(capitalize(i))
-						dat += SETUP_GET_LINK("be_special", i, "be_special_type", (i in be_special) ? "Да" : "Нет")
-						dat += SETUP_CLOSE_NODE
+						var/days_remaining = null
+						if(ispath(GLOB.special_roles[i]) && CONFIG_GET(flag/use_age_restriction_for_jobs)) //If it's a game mode antag, check if the player meets the minimum age
+							var/mode_path = GLOB.special_roles[i]
+							var/datum/game_mode/temp_mode = new mode_path
+							days_remaining = temp_mode.get_remaining_days(user.client)
+
+						if(days_remaining)
+							dat += SETUP_NODE_SWITCH(capitalize(i), "suck", "Через [days_remaining] дней")
+						else
+							dat += SETUP_START_NODE(capitalize(i))
+							dat += SETUP_GET_LINK("be_special", i, "be_special_type", (i in be_special) ? "Да" : "Нет")
+							dat += SETUP_CLOSE_NODE
 			dat += SETUP_NODE_SWITCH("Посреди раунда", "allow_midround_antag", (toggles & MIDROUND_ANTAG) ? "Да" : "Нет")
 			dat += "</div></div></div>"
 		if(3) //OOC Preferences
@@ -866,10 +873,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><font color='#fda2fa'> \[ [get_exp_format(required_playtime_remaining)] как [job.get_exp_req_type()] \] </font></td></tr>"
 				continue
 			if(job.metalocked && !(job.type in jobs_buyed))
-				HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><font color='#fda2fa'> \[ $$$ \] </font></td></tr>"
+				HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><font color='#fda2fa'> \[ META \] </font></td></tr>"
 				continue
 			if(LAZYLEN(job.whitelisted) && !(user.ckey in job.whitelisted))
-				HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><font color='#fda2fa'> \[ SUB \] </font></td></tr>"
+				HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><font color='#fda2fa'> \[ DONATE \] </font></td></tr>"
+				continue
+			if(job.allow_new_players && !check_whitelist(user.ckey))
+				HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><font color='#fda2fa'> \[ WHITELIST \] </font></td></tr>"
 				continue
 			if(!job.player_old_enough(user.client))
 				var/available_in_days = job.available_in_days(user.client)

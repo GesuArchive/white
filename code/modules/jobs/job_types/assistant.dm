@@ -29,6 +29,8 @@ Assistant
 	rpg_title = "Lout"
 	rpg_title_ru = "Деревенщина"
 
+	allow_new_players = TRUE
+
 /datum/outfit/job/assistant
 	name = JOB_ASSISTANT
 	jobtype = /datum/job/assistant
