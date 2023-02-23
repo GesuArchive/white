@@ -183,6 +183,8 @@
 			return "Тебе нельзя быть [jobtitle]."
 		if(JOB_UNAVAILABLE_UNBUYED)
 			return "Роль [jobtitle] сначала нужно купить."
+		if(JOB_UNAVAILABLE_WHITELIST)
+			return "Для доступа к роли нужна запись в вайтлисте."
 		if(JOB_UNAVAILABLE_PLAYTIME)
 			return "Ты не наиграл достаточно времени для [jobtitle]."
 		if(JOB_UNAVAILABLE_ACCOUNTAGE)
@@ -220,6 +222,8 @@
 		return JOB_UNAVAILABLE_UNBUYED
 	if(LAZYLEN(job.whitelisted) && !(ckey in job.whitelisted))
 		return JOB_UNAVAILABLE_UNBUYED
+	if(!job.allow_new_players && !check_whitelist(ckey))
+		return JOB_UNAVAILABLE_WHITELIST
 	if(SSviolence.active)
 		var/datum/violence_player/VP = SSviolence.players?[ckey]
 		if(VP?.role_name != rank)
