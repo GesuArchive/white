@@ -121,14 +121,15 @@
 
 	. = DRAIN_RD_HACK_FAILED
 
-	to_chat(ninja, span_notice("Взлом <b>[src.name]</b>..."))
-	AI_notify_hack()
+	to_chat(ninja, span_notice("Взламываю <b>[src.name]</b>..."))
+	if(do_after(ninja, 1 SECONDS, target = src))
+		to_chat(ninja, span_notice("Начинаю копирование файлов..."))
+		AI_notify_hack()
 
 	if(stored_research)
-		to_chat(ninja, span_notice("Копирование файлов..."))
-		if(do_after(ninja, 3 SECONDS, target = src))
+		if(do_after(ninja, 10 SECONDS, target = src))
 			stored_research.copy_research_to(hacking_module.stored_research)
-	to_chat(ninja, span_notice("Данные проанализированы. Процесс завершен."))
+	to_chat(ninja, span_notice("Данные проанализированы. Взлом завершен."))
 
 //SECURITY CONSOLE//
 /obj/machinery/computer/secure_data/ninjadrain_act(mob/living/carbon/human/ninja, obj/item/mod/module/hacker/hacking_module)
@@ -142,8 +143,10 @@
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 /obj/machinery/computer/secure_data/proc/ninjadrain_charge(mob/living/carbon/human/ninja, obj/item/mod/module/hacker/hacking_module)
+	to_chat(ninja, span_notice("Взламываю <b>[src.name]</b>..."))
 	if(!do_after(ninja, 20 SECONDS, src, extra_checks = CALLBACK(src, PROC_REF(can_hack), ninja)))
 		return
+	to_chat(ninja, span_notice("Взлом <b>[src.name]</b> завершен."))
 	for(var/datum/data/record/rec in sortRecord(GLOB.data_core.general, sortBy, order))
 		for(var/datum/data/record/security_record in GLOB.data_core.security)
 			security_record.fields["criminal"] = "*Arrest*"
@@ -170,8 +173,13 @@
 /obj/machinery/computer/communications/ninjadrain_act(mob/living/carbon/human/ninja, obj/item/mod/module/hacker/hacking_module)
 	if(!ninja || !hacking_module)
 		return NONE
-	if(hacking_module.communication_console_hack_success)
-		return NONE
+
+	to_chat(ninja, span_notice("Взламываю <b>[src.name]</b>..."))
+	AI_notify_hack()
+	if(do_after(ninja, 20 SECONDS, target = src))
+		hacking_module.communication_console_hack_success = TRUE
+		to_chat(ninja, span_notice("Взлом <b>[src.name]</b> завершен."))
+
 	INVOKE_ASYNC(src, PROC_REF(ninjadrain_charge), ninja, hacking_module)
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 

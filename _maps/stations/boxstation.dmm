@@ -12577,7 +12577,6 @@
 /area/hallway/secondary/entry/south)
 "dfS" = (
 /obj/structure/chair/comfy/brown{
-	buildstackamount = 0;
 	color = "#c45c57"
 	},
 /obj/effect/turf_decal/tile/neutral{
@@ -31985,7 +31984,6 @@
 	dir = 8
 	},
 /obj/structure/chair/comfy/brown{
-	buildstackamount = 0;
 	color = "#c45c57";
 	dir = 8
 	},
@@ -32485,7 +32483,6 @@
 	dir = 1
 	},
 /obj/structure/chair/comfy/brown{
-	buildstackamount = 0;
 	color = "#c45c57";
 	dir = 8
 	},
@@ -48225,7 +48222,6 @@
 	dir = 8
 	},
 /obj/structure/chair/comfy/brown{
-	buildstackamount = 0;
 	color = "#c45c57";
 	dir = 8
 	},
@@ -51002,7 +50998,6 @@
 /area/maintenance/aft)
 "oHp" = (
 /obj/structure/chair/comfy/brown{
-	buildstackamount = 0;
 	color = "#c45c57";
 	dir = 8
 	},
@@ -67180,7 +67175,6 @@
 	dir = 6
 	},
 /obj/structure/chair/comfy/brown{
-	buildstackamount = 0;
 	color = "#c45c57";
 	dir = 8
 	},
@@ -71573,7 +71567,6 @@
 	dir = 8
 	},
 /obj/structure/chair/comfy/brown{
-	buildstackamount = 0;
 	color = "#c45c57";
 	dir = 1
 	},
@@ -71864,7 +71857,6 @@
 	dir = 1
 	},
 /obj/structure/chair/comfy/brown{
-	buildstackamount = 0;
 	color = "#c45c57";
 	dir = 8
 	},
@@ -77548,7 +77540,6 @@
 	dir = 8
 	},
 /obj/structure/chair/comfy/brown{
-	buildstackamount = 0;
 	color = "#c45c57"
 	},
 /obj/machinery/light/small{
@@ -79538,7 +79529,6 @@
 	pixel_y = -24
 	},
 /obj/structure/chair/comfy/brown{
-	buildstackamount = 0;
 	color = "#c45c57";
 	dir = 1
 	},

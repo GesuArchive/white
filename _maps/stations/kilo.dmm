@@ -27090,7 +27090,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/sign/warning/securearea,
 /turf/closed/wall,
-/area/maintenance/starboard/fore)
+/area/engineering/storage/backup)
 "dhL" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
@@ -33778,7 +33778,7 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/plasteel/dark,
-/area/space)
+/area/engineering/storage/backup)
 "fKK" = (
 /obj/machinery/conveyor{
 	id = "garbage"
@@ -34417,7 +34417,7 @@
 /obj/structure/cable,
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
-/area/space)
+/area/engineering/storage/backup)
 "gdS" = (
 /obj/structure/table/wood,
 /turf/open/floor/carpet/green,
@@ -35913,7 +35913,7 @@
 	network = list("ss13","engine")
 	},
 /turf/open/floor/plasteel/dark,
-/area/space)
+/area/engineering/storage/backup)
 "gJJ" = (
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -41806,7 +41806,7 @@
 /obj/machinery/light/small/directional/east,
 /obj/machinery/status_display/ai/directional/north,
 /turf/open/floor/plasteel/dark,
-/area/space)
+/area/engineering/storage/backup)
 "iUr" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -46882,6 +46882,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/engineering/main)
+"kQf" = (
+/turf/closed/wall,
+/area/engineering/storage/backup)
 "kQp" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -50689,6 +50692,10 @@
 /obj/structure/cable,
 /turf/open/floor/carpet/green,
 /area/service/library)
+"mpm" = (
+/obj/structure/sign/poster/contraband/random,
+/turf/closed/wall/rust,
+/area/engineering/storage/backup)
 "mpx" = (
 /turf/closed/wall,
 /area/engineering/main)
@@ -66363,6 +66370,9 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/security/main)
+"sfY" = (
+/turf/closed/wall/rust,
+/area/engineering/storage/backup)
 "sgc" = (
 /obj/machinery/vending/cart{
 	req_access_txt = "57"
@@ -67432,7 +67442,7 @@
 	},
 /obj/machinery/airalarm/directional/east,
 /turf/open/floor/plasteel/dark,
-/area/space)
+/area/engineering/storage/backup)
 "sDs" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
@@ -72173,7 +72183,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
-/area/space)
+/area/engineering/storage/backup)
 "uzC" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -77721,7 +77731,7 @@
 /obj/machinery/status_display/ai/directional/north,
 /obj/machinery/light_switch/directional/west,
 /turf/open/floor/plasteel/dark,
-/area/space)
+/area/engineering/storage/backup)
 "wNZ" = (
 /obj/machinery/computer/communications{
 	dir = 4
@@ -115868,10 +115878,10 @@ aiw
 cJR
 cIU
 baH
-baH
-aXW
-aXW
-baH
+kQf
+sfY
+sfY
+kQf
 cJK
 fQX
 auC
@@ -116125,7 +116135,7 @@ ctx
 ipQ
 cIV
 aeO
-baH
+kQf
 wNV
 fKE
 dhG
@@ -116382,7 +116392,7 @@ ahH
 aid
 cIV
 baH
-aXW
+sfY
 gJp
 gds
 uzl
@@ -116639,10 +116649,10 @@ ahJ
 iFr
 cIV
 cIK
-baH
+kQf
 iUi
 sDb
-cJm
+mpm
 vWz
 aqw
 smG
@@ -116896,10 +116906,10 @@ ahK
 baH
 aXW
 awf
-baH
-cJm
-baH
-baH
+kQf
+mpm
+kQf
+kQf
 uab
 baH
 auu
