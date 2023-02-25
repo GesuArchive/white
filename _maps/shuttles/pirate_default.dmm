@@ -573,7 +573,7 @@
 	dir = 1
 	},
 /obj/machinery/power/smes/engineering{
-	charge = 1e+006
+	charge = 5e+006
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -836,7 +836,7 @@
 	},
 /obj/item/storage/box/lights/bulbs,
 /obj/item/stack/sheet/mineral/plasma{
-	amount = 10
+	amount = 25
 	},
 /obj/item/multitool,
 /obj/effect/turf_decal/stripes/line{

@@ -384,8 +384,8 @@
 	custom_premium_price = PAYCHECK_ASSISTANT
 
 /obj/item/stock_parts/cell/emproof
-	name = "\improper EMP-proof cell"
-	desc = "An EMP-proof cell."
+	name = "ЭМИ-устойчивая батарейка"
+	desc = "Усовершенстованный перезаряжаемый электрохимический элемент питания, оснащён защитой от ЭМИ."
 	maxcharge = 500
 	rating = 3
 

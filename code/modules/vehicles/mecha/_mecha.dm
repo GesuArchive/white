@@ -513,9 +513,9 @@
 				else //just delete the cabin gas, we're in space or some shit
 					qdel(removed)
 
-	for(var/mob/living/occupant as anything in occupants)
-		if(!enclosed && occupant?.incapacitated()) //no sides mean it's easy to just sorta fall out if you're incapacitated.
-			visible_message(span_warning("[occupant] выскакивает из кабины!"))
+	for(var/mob/living/occupant as anything in occupants) //впрочем, это можно поменять если тебя всегда будет выкидывать
+		if(occupant?.incapacitated()) //no sides mean it's easy to just sorta fall out if you're incapacitated.
+			to_chat(occupant, span_warning("Пилот бессознания, автоматическое извлечение."))
 			mob_exit(occupant) //bye bye
 			continue
 		if(cell)

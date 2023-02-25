@@ -109,9 +109,10 @@
 /turf/open/floor/wood/airless,
 /area/shuttle/pirate/flying_dutchman)
 "aw" = (
-/obj/machinery/computer/monitor/secret{
+/obj/machinery/power/solar_control{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/carpet/royalblack/airless,
 /area/shuttle/pirate/flying_dutchman)
 "aB" = (

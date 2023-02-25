@@ -34,6 +34,7 @@
 		/obj/item/toy/crayon,
 		/obj/item/lipstick,
 		/obj/item/flashlight/pen,
+		/obj/item/flashlight/pen/paramedic,
 		/obj/item/clothing/mask/cigarette,
 	)
 
@@ -88,7 +89,7 @@
 	. = ..()
 
 	if(is_type_in_list(W, contained_item))
-		if(W.w_class >= WEIGHT_CLASS_SMALL) // Anything equal to or larger than small won't work
+		if(W.w_class >= WEIGHT_CLASS_NORMAL) // Anything equal to or larger than small won't work
 			user.balloon_alert(user, "too big!")
 			return
 		if(inserted_item)

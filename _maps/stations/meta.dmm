@@ -12385,11 +12385,11 @@
 /obj/effect/turf_decal/bot{
 	dir = 1
 	},
-/obj/item/stock_parts/cell/emproof{
+/obj/item/stock_parts/cell/emproof/empty{
 	pixel_x = -6;
 	pixel_y = 2
 	},
-/obj/item/stock_parts/cell/emproof{
+/obj/item/stock_parts/cell/emproof/empty{
 	pixel_x = 4;
 	pixel_y = 6
 	},
@@ -12417,7 +12417,7 @@
 /obj/effect/turf_decal/bot{
 	dir = 1
 	},
-/obj/item/stock_parts/cell/emproof{
+/obj/item/stock_parts/cell/emproof/empty{
 	pixel_x = -4;
 	pixel_y = 6
 	},

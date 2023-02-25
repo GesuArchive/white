@@ -48788,8 +48788,8 @@
 /obj/item/clothing/gloves/color/yellow,
 /obj/item/storage/box/lights/mixed,
 /obj/item/stack/cable_coil,
-/obj/item/stock_parts/cell/emproof,
-/obj/item/stock_parts/cell/emproof,
+/obj/item/stock_parts/cell/emproof/empty,
+/obj/item/stock_parts/cell/emproof/empty,
 /obj/machinery/camera/emp_proof{
 	c_tag = "Engineering - SMES Misc";
 	dir = 10;

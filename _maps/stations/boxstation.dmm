@@ -49106,12 +49106,12 @@
 	},
 /obj/structure/cable,
 /obj/structure/table,
-/obj/item/stock_parts/cell/emproof{
+/obj/item/stock_parts/cell/emproof/empty{
 	pixel_x = 6;
 	pixel_y = -2
 	},
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/emproof,
+/obj/item/stock_parts/cell/emproof/empty,
 /turf/open/floor/plasteel/dark,
 /area/engineering/engine_smes)
 "ofo" = (

@@ -646,6 +646,7 @@
 			M.movement_type = GROUND
 	else if(passengers.len < max_passengers)
 		passengers += M
+		addverbspass(M)
 	else
 		return FALSE
 	M.stop_pulling()
@@ -666,6 +667,7 @@
 		desired_angle = null // since there's no pilot there's no one aiming it.
 	else if(M in passengers)
 		passengers -= M
+		removeverbspass(M)
 	else
 		return FALSE
 	if(M.loc == src)
@@ -702,3 +704,9 @@
 	remove_verb(user, /obj/spacepod/verb/exit_pod)
 	if((locate(/obj/item/spacepod_equipment/teleport) in equipment))
 		remove_verb(user, /obj/spacepod/verb/wayback_me)
+
+/obj/spacepod/proc/addverbspass(mob/user) //сказали фича, но фича плохая
+	add_verb(user, /obj/spacepod/verb/exit_pod)
+
+/obj/spacepod/proc/removeverbspass(mob/user)
+	remove_verb(user, /obj/spacepod/verb/exit_pod)
