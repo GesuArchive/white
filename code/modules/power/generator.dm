@@ -104,10 +104,10 @@
 	switch(power_output)
 		if(1000000 to 3000000)
 			tesla_zap(src, 5, power_output)
-			power_output = -(power_output * 0.1)
+			//power_output = -(power_output * 0.1)
 		if(3000001 to 5000000)
 			tesla_zap(src, 9, power_output * 0.75)
-			power_output = -(power_output * 0.25)
+			//power_output = -(power_output * 0.25)
 		if(5000001 to INFINITY)
 			GLOB.is_engine_sabotaged = TRUE
 			playsound(get_turf(src), 'white/valtos/sounds/explo.ogg', 80)
