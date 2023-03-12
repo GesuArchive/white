@@ -1,6 +1,6 @@
  //needs gtts python module
 
-#define TTS_PATH "/home/ubuntu/tenebrae/prod/server_white/white/hule/tts"
+#define TTS_PATH "/home/ubuntu/byond/prod/server_white/white/hule/tts"
 
 GLOBAL_VAR_INIT(tts, FALSE)
 GLOBAL_VAR_INIT(tts_speaker, "default")
