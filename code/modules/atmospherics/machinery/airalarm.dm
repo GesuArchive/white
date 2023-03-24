@@ -92,8 +92,6 @@
 	///Represents a signel source of atmos alarms, complains to all the listeners if one of our thresholds is violated
 	var/datum/alarm_handler/alarm_manager
 
-	var/static/list/atmos_connections = list(COMSIG_TURF_EXPOSE = PROC_REF(check_air_dangerlevel))
-
 	var/list/TLV = list( // Breathable air.
 		"pressure" = new/datum/tlv(HAZARD_LOW_PRESSURE, WARNING_LOW_PRESSURE, WARNING_HIGH_PRESSURE, HAZARD_HIGH_PRESSURE), // kPa. Values are hazard_min, warning_min, warning_max, hazard_max
 		"temperature" = new/datum/tlv(BODYTEMP_COLD_WARNING_1, BODYTEMP_COLD_WARNING_1+10, BODYTEMP_HEAT_WARNING_1-27, BODYTEMP_HEAT_WARNING_1),
@@ -149,7 +147,6 @@
 /obj/machinery/airalarm/Initialize(mapload)
 	. = ..()
 	set_frequency(frequency)
-	AddElement(/datum/element/connect_loc, atmos_connections)
 	AddComponent(/datum/component/usb_port, list(
 		/obj/item/circuit_component/air_alarm,
 	))
@@ -352,9 +349,6 @@
 				else
 					tlv.vars[name] = round(value, 0.01)
 				investigate_log(" treshold value for [env]:[name] was set to [value] by [key_name(usr)]",INVESTIGATE_ATMOS)
-				var/turf/our_turf = get_turf(src)
-				var/datum/gas_mixture/environment = our_turf.return_air()
-				check_air_dangerlevel(our_turf, environment, environment.return_temperature())
 				. = TRUE
 		if("mode")
 			mode = text2num(params["mode"])
@@ -571,16 +565,20 @@
 	. += emissive_appearance(icon, state, src, alpha = src.alpha)
 
 /**
- * main proc for throwing a shitfit if the air isnt right.
- * goes into warning mode if gas parameters are beyond the tlv warning bounds, goes into hazard mode if gas parameters are beyond tlv hazard bounds
- *
+ * fuck you
  */
-/obj/machinery/airalarm/proc/check_air_dangerlevel(turf/location, datum/gas_mixture/environment, exposed_temperature)
-	SIGNAL_HANDLER
+/obj/machinery/airalarm/process()
 	if((machine_stat & (NOPOWER|BROKEN)) || shorted)
 		return
 
+	var/turf/location = get_turf(src)
+	if(!location)
+		return
+
 	var/datum/tlv/current_tlv
+
+	var/datum/gas_mixture/environment = location.return_air()
+
 	//cache for sanic speed (lists are references anyways)
 	var/list/cached_tlv = TLV
 
@@ -591,7 +589,7 @@
 	var/pressure_dangerlevel = current_tlv.get_danger_level(environment_pressure)
 
 	current_tlv = cached_tlv["temperature"]
-	var/temperature_dangerlevel = current_tlv.get_danger_level(exposed_temperature)
+	var/temperature_dangerlevel = current_tlv.get_danger_level(environment.return_temperature())
 
 	var/gas_dangerlevel = 0
 	for(var/gas_id in environment.get_gases())

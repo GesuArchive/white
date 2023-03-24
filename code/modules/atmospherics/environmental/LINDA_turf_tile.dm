@@ -132,7 +132,6 @@
 		to_be_destroyed = TRUE
 
 /turf/open/temperature_expose(datum/gas_mixture/air, exposed_temperature)
-	. = ..()
 	SEND_SIGNAL(src, COMSIG_TURF_EXPOSE, air, exposed_temperature)
 	check_atmos_process(src, air, exposed_temperature) //Manually do this to avoid needing to use elements, don't want 200 second atom init times
 

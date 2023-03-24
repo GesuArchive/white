@@ -196,7 +196,7 @@
 		return FIRELOCK_ALARM_TYPE_HOT
 	if(environment.return_temperature() <= BODYTEMP_COLD_DAMAGE_LIMIT)
 		return FIRELOCK_ALARM_TYPE_COLD
-	return
+	return null // фикс/10
 
 /obj/machinery/door/firedoor/proc/process_results(turf/location, datum/gas_mixture/environment, exposed_temperature)
 	SIGNAL_HANDLER
@@ -242,6 +242,7 @@
 	var/datum/merger/merge_group = GetMergeGroup(merger_id, merger_typecache)
 	for(var/obj/machinery/door/firedoor/buddylock as anything in merge_group?.members)
 		buddylock.activate(code)
+
 /**
  * Begins deactivation process of us and our neighbors.
  *
@@ -275,7 +276,7 @@
 	active = TRUE
 	alarm_type = code
 	add_as_source()
-	update_icon() //Sets the door lights even if the door doesn't move.
+	update_appearance(UPDATE_ICON) //Sets the door lights even if the door doesn't move.
 	correct_state()
 
 /// Adds this fire door as a source of trouble to all of its areas
