@@ -474,7 +474,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if (prefs.fullscreen)
 		ToggleFullscreen()
 
-	if(prefs?.lastchangelog != GLOB.changelog_hash)
+	if(GLOB.changelog_hash && prefs?.lastchangelog != GLOB.changelog_hash)
 		to_chat(src, span_info("Тут всякие обновления были, прочитай список изменений обязательно."))
 		mob.view_changelog()
 
