@@ -772,7 +772,8 @@
 
 /mob/living/carbon/proc/crippling_shock(body_zone = BODY_ZONE_CHEST, amount = 8 SECONDS)
 	//Try not to stack too much
-	if((world.time - last_crippling_shock) <= 1 SECONDS)
+	if((world.time - last_crippling_shock) <= 10 SECONDS)
+		to_chat(src, span_danger("Стиснув зубы, сопротивляюсь боли"))
 		return
 
 	var/modifier = 0
