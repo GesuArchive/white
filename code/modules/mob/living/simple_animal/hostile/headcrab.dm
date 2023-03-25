@@ -88,6 +88,8 @@
 
 		changeling_datum.regain_powers()
 
+		origin.set_current(spawned_monkey)
+
 	owner.gib()
 
 #undef EGG_INCUBATION_TIME
