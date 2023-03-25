@@ -301,6 +301,13 @@
 	bullet_sizzle = TRUE
 	bullet_bounce_sound = null
 
+/turf/closed/indestructible/rock/snow/no_init
+	name = "горный массив"
+
+/turf/closed/indestructible/rock/snow/no_init/New() // we will save 99999999999s of init time
+	SHOULD_CALL_PARENT(FALSE)
+	return
+
 /turf/closed/indestructible/rock/snow/ice
 	name = "ледяной камень"
 	desc = "Чрезвычайно плотно заполненные ледяные и скальные покровы, выкованные за годы сильного холода."

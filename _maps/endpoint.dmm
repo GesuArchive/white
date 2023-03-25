@@ -6,7 +6,7 @@
 /area/abductor_ship)
 "ab" = (
 /obj/effect/landmark/ctf,
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/space)
 "ac" = (
 /obj/structure/cable,
@@ -298,10 +298,10 @@
 /area/centcom/brief)
 "aU" = (
 /obj/effect/baseturf_helper/asteroid/snow,
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/syndicate_mothership)
 "aV" = (
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/syndicate_mothership)
 "aW" = (
 /obj/structure/chair/stool/directional/west,
@@ -623,7 +623,7 @@
 /area/syndicate_mothership/expansion_bombthreat)
 "bK" = (
 /obj/effect/landmark/violence,
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/space)
 "bL" = (
 /obj/effect/turf_decal/tile/neutral,
@@ -1273,7 +1273,7 @@
 /area/tdome/arena_source)
 "dI" = (
 /obj/effect/landmark/mafia_game_area,
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/space)
 "dJ" = (
 /obj/machinery/vending/clothing,
@@ -1302,7 +1302,7 @@
 /area/tdome/tdomeobserve)
 "dN" = (
 /obj/structure/shuttle/engine/propulsion,
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/wizard_station)
 "dO" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark/end,
@@ -2788,7 +2788,7 @@
 /area/centcom/holding)
 "hY" = (
 /obj/structure/sign/flag,
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/syndicate_mothership)
 "hZ" = (
 /obj/structure/weightmachine/weightlifter,
@@ -2860,7 +2860,7 @@
 "in" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/heat_exchanging/junction,
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/space/nearstation)
 "io" = (
 /obj/effect/turf_decal/tile/yellow/half,
@@ -4323,7 +4323,7 @@
 "md" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/heat_exchanging/manifold,
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/space/nearstation)
 "me" = (
 /turf/open/floor/plasteel/tg/smooth_half{
@@ -5662,7 +5662,7 @@
 	set_cap = 1;
 	set_luminosity = 4
 	},
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/syndicate_mothership)
 "pX" = (
 /obj/machinery/light{
@@ -6175,7 +6175,7 @@
 /area/centcom/supplypod/pod_storage)
 "ro" = (
 /obj/effect/duel_spawnpoint,
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/duel/two)
 "rp" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -7011,7 +7011,7 @@
 	dir = 8
 	},
 /obj/structure/lattice,
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/space/nearstation)
 "tG" = (
 /obj/effect/turf_decal/tile/neutral,
@@ -7797,7 +7797,7 @@
 /area/syndicate_mothership)
 "vL" = (
 /obj/structure/lattice/catwalk,
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/space/nearstation)
 "vM" = (
 /obj/machinery/light/directional/east,
@@ -8471,7 +8471,7 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 9
 	},
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/space/nearstation)
 "xw" = (
 /obj/structure/rack,
@@ -9572,7 +9572,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/syndicate_mothership/expansion_bioterrorism)
 "Ab" = (
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/centcom/outdoors)
 "Ac" = (
 /obj/structure/table/wood,
@@ -9822,7 +9822,7 @@
 /area/syndicate_mothership/expansion_chemicalwarfare)
 "AX" = (
 /obj/effect/duel_controller,
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/duel/two)
 "AZ" = (
 /obj/structure/chair/sofa/corp{
@@ -15396,7 +15396,7 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 5
 	},
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/space/nearstation)
 "PM" = (
 /obj/structure/table,
@@ -15786,7 +15786,7 @@
 "QJ" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/space/nearstation)
 "QK" = (
 /obj/machinery/door/airlock/external{
@@ -15854,7 +15854,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/centcom/control)
 "QV" = (
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/duel/two)
 "QW" = (
 /obj/structure/flora/ausbushes/rospilovo/grassybush,
@@ -19061,7 +19061,7 @@
 /turf/open/floor/engine/cult,
 /area/wizard_station)
 "ZW" = (
-/turf/closed/indestructible/rock/snow,
+/turf/closed/indestructible/rock/snow/no_init,
 /area/space)
 "ZX" = (
 /obj/item/kirbyplants{
