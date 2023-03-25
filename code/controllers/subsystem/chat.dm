@@ -33,9 +33,6 @@ SUBSYSTEM_DEF(chat)
 
 /datum/controller/subsystem/chat/proc/queue(target, message, type)
 
-	if(!(message["type"] in list(MESSAGE_TYPE_ADMINPM, MESSAGE_TYPE_ADMINCHAT, MESSAGE_TYPE_ADMINLOG)))
-		SSdemo.write_chat(target, message)
-
 	if(islist(target))
 		for(var/_target in target)
 			var/client/client = CLIENT_FROM_VAR(_target)

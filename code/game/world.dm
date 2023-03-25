@@ -144,15 +144,12 @@ GLOBAL_VAR(restart_counter)
 	GLOB.world_paper_log = "[GLOB.log_directory]/paper.log"
 	GLOB.tgui_log = "[GLOB.log_directory]/tgui.log"
 
-	GLOB.demo_log = "[GLOB.log_directory]/demo.txt"
-
 	GLOB.world_shuttle_log = "[GLOB.log_directory]/shuttle.log"
 	GLOB.world_silicon_log = "[GLOB.log_directory]/silicon.log"
 	GLOB.world_mechcomp_log = "[GLOB.log_directory]/mechcomp.log"
 	GLOB.world_exrp_log = "[GLOB.log_directory]/exrp.log"
 	GLOB.world_uplink_log = "[GLOB.log_directory]/uplink.log"
 	GLOB.world_tool_log = "[GLOB.log_directory]/tools.log"
-	GLOB.demo_log = "[GLOB.log_directory]/demo.log"
 	GLOB.world_suspicious_login_log = "[GLOB.log_directory]/suspicious_logins.log"
 
 	GLOB.lua_log = "[GLOB.log_directory]/lua.log"

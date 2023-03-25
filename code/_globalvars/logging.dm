@@ -66,9 +66,6 @@ GLOBAL_PROTECT(world_exrp_log)
 GLOBAL_VAR(perf_log)
 GLOBAL_PROTECT(perf_log)
 
-GLOBAL_VAR(demo_log)
-GLOBAL_PROTECT(demo_log)
-
 GLOBAL_VAR(lua_log)
 GLOBAL_PROTECT(lua_log)
 
