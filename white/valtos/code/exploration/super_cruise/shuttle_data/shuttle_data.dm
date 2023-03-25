@@ -202,7 +202,7 @@
 			var/area/shuttle/A = get_area(client_mob)
 			if(istype(A) && A.mobile_port == M)
 				SEND_SOUND(C, 'sound/machines/alarm.ogg')
-			to_chat(C, "<span class='danger'>Кажется реактор сейчас рванёт...</span>")
+				to_chat(C, "<span class='danger'>Кажется реактор сейчас рванёт...</span>")
 		//Cause the big boom
 		addtimer(CALLBACK(src, .proc/destroy_ship, M), 140)
 
