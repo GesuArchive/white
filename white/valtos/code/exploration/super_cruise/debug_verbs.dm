@@ -63,11 +63,11 @@ GLOBAL_PROTECT(supercruise_debug_verbs)
 		if(shuttle.reactor_critical)
 			to_chat(src, "[shuttle.port_id]: <font color='red'><b>Reactor Critical!</b></font>")
 		else if(debug_integrity != shuttle.current_ship_integrity)
-			to_chat(src, "[shuttle.port_id]: <font color='red'><b>!! [shuttle.current_ship_integrity]/[shuttle.max_ship_integrity] (Explodes at [shuttle.max_ship_integrity * shuttle.critical_proportion]) {DEBUG INTEGRITY: [debug_integrity]} !!</b></font>")
+			to_chat(src, "[shuttle.port_id]: <font color='red'><b>!! [shuttle.current_ship_integrity]/[shuttle.max_ship_integrity] (Explodes at [shuttle.max_ship_integrity]) {DEBUG INTEGRITY: [debug_integrity]} !!</b></font>")
 		else if(shuttle.current_ship_integrity < shuttle.max_ship_integrity)
-			to_chat(src, "[shuttle.port_id]: <font color='yellow'><b>[shuttle.current_ship_integrity]/[shuttle.max_ship_integrity] (Explodes at [shuttle.max_ship_integrity * shuttle.critical_proportion]) {DEBUG INTEGRITY: [debug_integrity]}</b></font>")
+			to_chat(src, "[shuttle.port_id]: <font color='yellow'><b>[shuttle.current_ship_integrity]/[shuttle.max_ship_integrity] (Explodes at [shuttle.max_ship_integrity]) {DEBUG INTEGRITY: [debug_integrity]}</b></font>")
 		else
-			to_chat(src, "[shuttle.port_id]: <font color='green'><b>[shuttle.current_ship_integrity]/[shuttle.max_ship_integrity] (Explodes at [shuttle.max_ship_integrity * shuttle.critical_proportion]) {DEBUG INTEGRITY: [debug_integrity]}</b></font>")
+			to_chat(src, "[shuttle.port_id]: <font color='green'><b>[shuttle.current_ship_integrity]/[shuttle.max_ship_integrity] (Explodes at [shuttle.max_ship_integrity]) {DEBUG INTEGRITY: [debug_integrity]}</b></font>")
 
 /client/proc/highlight_registered_turfs()
 	set category = "Exploration Debug"

@@ -145,8 +145,8 @@
 		var/list/other_ship = list(
 			id = ship_id,
 			name = ship.shuttle_name,
-			health = ship.integrity_remaining,
-			maxHealth = ship.max_ship_integrity * ship.critical_proportion,
+			health = ship.current_ship_integrity,
+			maxHealth = ship.max_ship_integrity,
 			critical = ship.reactor_critical,
 		)
 		data["ships"] += list(other_ship)

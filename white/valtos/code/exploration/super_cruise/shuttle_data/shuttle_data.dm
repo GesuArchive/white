@@ -32,12 +32,8 @@
 	var/max_ship_integrity
 	///The current ship integrity value. If this gets too low, then the ship will explode.
 	var/current_ship_integrity
-	///The amount of integrity currently remaining before the ship explodes
-	var/integrity_remaining
 	///Is the shuttle doomed to explode?
 	var/reactor_critical = FALSE
-	///How much damage can the ship sustain before exploding?
-	var/critical_proportion = SHIP_INTEGRITY_FACTOR_PLAYER
 	///The faction of this shuttle
 	var/datum/faction/faction
 	///Fired upon these factions despite being allied with them. Any ships in that faction will fire upon this ship.
@@ -156,7 +152,6 @@
 	//Finished calculating
 	log_shuttle("Recalculated shuttle health for [shuttle_name] ([port_id]). Shuttle now has an integrity rating of [max_ship_integrity]")
 	//Integrity remaining will always be max health, as this is our reference point
-	integrity_remaining = max_ship_integrity
 	current_ship_integrity = max_ship_integrity
 	update_integrity()
 
@@ -171,20 +166,17 @@
 /datum/shuttle_data/proc/update_integrity()
 	if(reactor_critical)
 		current_ship_integrity = 0
-		integrity_remaining = 0
 		return
 	max_ship_integrity = max(current_ship_integrity, max_ship_integrity)
-	integrity_remaining = current_ship_integrity - (max_ship_integrity * critical_proportion)
-	log_shuttle("Shuttle [shuttle_name] ([port_id]) now has [current_ship_integrity]/[max_ship_integrity] integrity ([integrity_remaining] until destruction.)")
+	log_shuttle("Shuttle [shuttle_name] ([port_id]) now has [current_ship_integrity]/[max_ship_integrity] integrity ([current_ship_integrity] until destruction.)")
 	//Calculate destruction
-	if(integrity_remaining <= 0)
+	if(current_ship_integrity <= 0)
 		var/obj/docking_port/mobile/M = SSshuttle.getShuttle(port_id)
 		message_admins("Shuttle [shuttle_name] ([port_id]) has been destroyed at [ADMIN_FLW(M)]")
 		log_shuttle_attack("Shuttle [shuttle_name] ([port_id]) has been destroyed at [COORD(M)]")
 		//You are dead
 		reactor_critical = TRUE
 		current_ship_integrity = 0
-		integrity_remaining = 0
 		unregister_turfs()
 		//Strand the shuttle
 		var/datum/orbital_object/shuttle/located_shuttle = SSorbits.assoc_shuttles[port_id]
@@ -204,7 +196,8 @@
 				SEND_SOUND(C, 'sound/machines/alarm.ogg')
 				to_chat(C, "<span class='danger'>Кажется реактор сейчас рванёт...</span>")
 		//Cause the big boom
-		addtimer(CALLBACK(src, .proc/destroy_ship, M), 140)
+		//this shit is broken
+		//addtimer(CALLBACK(src, .proc/destroy_ship, M), 140)
 
 /datum/shuttle_data/proc/destroy_ship(obj/docking_port/mobile/M)
 	set waitfor = FALSE
