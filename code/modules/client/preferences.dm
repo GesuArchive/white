@@ -778,7 +778,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	stuff.send(user)
 
 	winshow(user, "preferences_window", TRUE)
-	var/datum/browser/popup = new(user, "preferences_browser_new", null, 1350, 900)
+	var/datum/browser/popup = new(user, "preferences_browser_new", null, 1400, 900)
 	popup.set_content(dat.Join())
 	popup.open(FALSE)
 	onclose(user, "preferences_window", src)
