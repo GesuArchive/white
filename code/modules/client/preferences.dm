@@ -184,9 +184,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		custom_names[custom_name_id] = get_default_name(custom_name_id)
 
 	if(retro_hud)
-		UI_style = GLOB.available_ui_styles[1]
+		UI_style = "Midnight"
 	else
-		UI_style = GLOB.available_ui_styles["Neoscreen"]
+		UI_style = "Neoscreen"
 
 	if(istype(C))
 		if(!is_guest_key(C.key))
