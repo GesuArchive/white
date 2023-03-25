@@ -5,7 +5,7 @@
 // You do not need to raise this if you are adding new values that have sane defaults.
 // Only raise this value when changing the meaning/format/name/layout of an existing value
 // where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX 60
+#define SAVEFILE_VERSION_MAX 61
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -78,9 +78,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		toggles = TOGGLES_DEFAULT
 		w_toggles = W_TOGGLES_DEFAULT
 
-	if (current_version < 60)
-		if(!retro_hud)
+	if (current_version < 61)
+		if(!istext(UI_style))
 			UI_style = "Neoscreen"
+			retro_hud = FALSE
 			parent?.mob?.hud_used?.update_ui_style(ui_style2icon(UI_style))
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
