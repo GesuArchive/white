@@ -196,7 +196,7 @@
 		return FIRELOCK_ALARM_TYPE_HOT
 	if(environment.return_temperature() <= BODYTEMP_COLD_DAMAGE_LIMIT)
 		return FIRELOCK_ALARM_TYPE_COLD
-	return null // фикс/10
+	return
 
 /obj/machinery/door/firedoor/proc/process_results(turf/location, datum/gas_mixture/environment, exposed_temperature)
 	SIGNAL_HANDLER
@@ -313,8 +313,7 @@
 /obj/machinery/door/firedoor/proc/crack_open(delay)
 	active = FALSE
 	ignore_alarms = TRUE
-	if(!length(issue_turfs)) // Generic alarms get out
-		alarm_type = null
+	alarm_type = null
 	remove_as_source()
 	update_icon() //Sets the door lights even if the door doesn't move.
 	correct_state()
