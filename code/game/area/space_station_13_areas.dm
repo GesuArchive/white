@@ -1220,7 +1220,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/security/prison/Entered(atom/movable/arrived, area/old_area)
 	. = ..()
 
-	if(!isliving(arrived))
+	if(!ishuman(arrived))
 		return
 
 	if(istype(old_area, /area/security/prison))
