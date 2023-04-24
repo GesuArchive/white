@@ -316,7 +316,7 @@
 		var/datum/antagonist/rev/R = M.has_antag_datum(/datum/antagonist/rev)
 		R.objectives |= objectives
 
-	addtimer(CALLBACK(src,.proc/update_objectives),HEAD_UPDATE_PERIOD,TIMER_UNIQUE)
+	addtimer(CALLBACK(src,PROC_REF(update_objectives)),HEAD_UPDATE_PERIOD,TIMER_UNIQUE)
 
 /datum/team/revolution/proc/head_revolutionaries()
 	. = list()
@@ -348,7 +348,7 @@
 				var/datum/antagonist/rev/rev = new_leader.has_antag_datum(/datum/antagonist/rev)
 				rev.promote()
 
-	addtimer(CALLBACK(src,.proc/update_heads),HEAD_UPDATE_PERIOD,TIMER_UNIQUE)
+	addtimer(CALLBACK(src,PROC_REF(update_heads)),HEAD_UPDATE_PERIOD,TIMER_UNIQUE)
 
 /datum/team/revolution/proc/save_members()
 	ex_headrevs = get_antag_minds(/datum/antagonist/rev/head, TRUE)

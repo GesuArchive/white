@@ -280,7 +280,7 @@
 	if(weapon in shuttle_weapons)
 		return
 	shuttle_weapons += weapon
-	RegisterSignal(weapon, COMSIG_PARENT_QDELETING, .proc/on_weapon_qdel)
+	RegisterSignal(weapon, COMSIG_PARENT_QDELETING, PROC_REF(on_weapon_qdel))
 
 /// Called when a weapon is deleted
 /datum/shuttle_data/proc/on_weapon_qdel(obj/machinery/shuttle_weapon/weapon, force)

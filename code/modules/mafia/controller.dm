@@ -161,10 +161,10 @@
 		if(turn == 1)
 			send_message(span_notice("<b>The selected map is [current_map.name]!</b></br>[current_map.description]"))
 			send_message("<b>Day [turn] started! There is no voting on the first day. Say hello to everybody!</b>")
-			next_phase_timer = addtimer(CALLBACK(src,.proc/check_trial, FALSE),first_day_phase_period,TIMER_STOPPABLE) //no voting period = no votes = instant night
+			next_phase_timer = addtimer(CALLBACK(src,PROC_REF(check_trial), FALSE),first_day_phase_period,TIMER_STOPPABLE) //no voting period = no votes = instant night
 		else
 			send_message("<b>Day [turn] started! Voting will start in 1 minute.</b>")
-			next_phase_timer = addtimer(CALLBACK(src,.proc/start_voting_phase),day_phase_period,TIMER_STOPPABLE)
+			next_phase_timer = addtimer(CALLBACK(src,PROC_REF(start_voting_phase)),day_phase_period,TIMER_STOPPABLE)
 
 	SStgui.update_uis(src)
 
@@ -355,7 +355,7 @@
 	for(var/datum/mafia_role/R in all_roles)
 		R.reveal_role(src)
 	phase = MAFIA_PHASE_VICTORY_LAP
-	next_phase_timer = addtimer(CALLBACK(src,.proc/end_game),victory_lap_period,TIMER_STOPPABLE)
+	next_phase_timer = addtimer(CALLBACK(src,PROC_REF(end_game)),victory_lap_period,TIMER_STOPPABLE)
 
 /**
  * Cleans up the game, resetting variables back to the beginning and removing the map with the generator.
@@ -503,7 +503,7 @@
 			tally[votes[vote_type][votee]] = 1
 		else
 			tally[votes[vote_type][votee]] += 1
-	sortTim(tally,/proc/cmp_numeric_dsc,associative=TRUE)
+	sortTim(tally,GLOBAL_PROC_REF(cmp_numeric_dsc),associative=TRUE)
 	return length(tally) ? tally[1] : null
 
 /**

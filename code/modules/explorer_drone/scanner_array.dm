@@ -43,7 +43,7 @@ GLOBAL_LIST_INIT(scan_conditions,init_scan_conditions())
 		if(EXOSCAN_DEEP)
 			scan_power = GLOB.exoscanner_controller.get_scan_power(target)
 			scan_time = (BASE_DEEP_SCAN_TIME*target.distance)/scan_power
-	scan_timer = addtimer(CALLBACK(src,.proc/resolve_scan),scan_time,TIMER_STOPPABLE)
+	scan_timer = addtimer(CALLBACK(src,PROC_REF(resolve_scan)),scan_time,TIMER_STOPPABLE)
 
 /// Short description for in progress scan
 /datum/exoscan/proc/ui_description()

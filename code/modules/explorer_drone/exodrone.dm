@@ -110,7 +110,7 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 		distance_to_travel = max(abs(target_site.distance - location.distance),1)
 	travel_target = target_site
 	travel_time = travel_cost_coeff*distance_to_travel
-	travel_timer_id = addtimer(CALLBACK(src,.proc/finish_travel),travel_time,TIMER_STOPPABLE)
+	travel_timer_id = addtimer(CALLBACK(src,PROC_REF(finish_travel)),travel_time,TIMER_STOPPABLE)
 
 /// Travel cleanup
 /obj/item/exodrone/proc/finish_travel()

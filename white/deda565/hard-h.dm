@@ -268,7 +268,7 @@
 	var/obj/item/holopuck/newpuck = new /obj/item/holopuck(get_turf(user))
 
 	charged = FALSE
-	addtimer(CALLBACK(src,.proc/reset_puck, user), recharge_time)
+	addtimer(CALLBACK(src,PROC_REF(reset_puck), user), recharge_time)
 
 	if(!user.put_in_hands(newpuck))
 		to_chat(user, "<span class='warning'>Шайба на полу!</span>")

@@ -7,7 +7,7 @@
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
 	timerid = addtimer(CALLBACK(src, PROC_REF(clean_reputation)), 30 MINUTES, TIMER_STOPPABLE)
-	move_tracker = new(parent, CALLBACK(src,.proc/check_area))
+	move_tracker = new(parent, CALLBACK(src,PROC_REF(check_area)))
 
 /datum/component/imprisoned/proc/check_area()
 	var/atom/movable/AM = parent

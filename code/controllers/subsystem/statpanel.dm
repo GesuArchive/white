@@ -101,9 +101,9 @@ SUBSYSTEM_DEF(statpanels)
 		return
 
 	target.stat_panel.send_message("update_stat", list(
-		global_data = global_data,
-		ping_str = "Пинг: [round(target.lastping, 1)]мс (Средний: [round(target.avgping, 1)]мс)",
-		other_str = target.mob?.get_status_tab_items(),
+		"global_data" = global_data,
+		"ping_str" = "Пинг: [round(target.lastping, 1)]мс (Средний: [round(target.avgping, 1)]мс)",
+		"other_str" = target.mob?.get_status_tab_items(),
 	))
 
 /datum/controller/subsystem/statpanels/proc/set_MC_tab(client/target)
@@ -111,7 +111,7 @@ SUBSYSTEM_DEF(statpanels)
 	var/coord_entry = COORD(eye_turf)
 	if(!mc_data)
 		generate_mc_data()
-	target.stat_panel.send_message("update_mc", list(mc_data = mc_data, coord_entry = coord_entry))
+	target.stat_panel.send_message("update_mc", list(mc_data = mc_data, "coord_entry" = coord_entry))
 
 /datum/controller/subsystem/statpanels/proc/set_tickets_tab(client/target)
 	var/list/ahelp_tickets = GLOB.ahelp_tickets.stat_entry()
