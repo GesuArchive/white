@@ -1397,7 +1397,7 @@
 	id = "head_rape"
 	status_type = STATUS_EFFECT_REFRESH
 	processing_speed = STATUS_EFFECT_NORMAL_PROCESS
-	tick_interval = 4 SECONDS
+	tick_interval = 8 SECONDS
 	/// Alpha of the first composite layer
 	var/starting_alpha = 64
 	/// How many total layers we get, each new layer halving the previous layer's alpha
