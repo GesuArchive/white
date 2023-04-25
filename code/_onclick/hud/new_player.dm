@@ -102,8 +102,10 @@
 	flicker_bg.icon = icon
 	flick("fuck", flicker_bg)
 
-	spawn(8)
+	spawn(13)
+		flicker_bg.alpha = 0
 		flicker_bg.icon = SStitle.icon
+		animate(flicker_bg, alpha = 255, time = 10, easing = EASE_IN)
 
 /atom/movable/screen/lobby/neobg/Destroy()
 	. = ..()
