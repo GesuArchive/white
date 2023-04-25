@@ -330,7 +330,7 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 */
 
 /world/proc/update_status()
-	status = "#####################\]\n\[##VHITE#DREAM#[config.current_version_less]##\]\n\[#####################"
+	status = "<b>White Dream</b>: #[config.current_version_less]\n\t<i><u>Party is over.</u></i>"
 
 /world/proc/update_hub_visibility(new_visibility)
 	if(new_visibility == GLOB.hub_visibility)
