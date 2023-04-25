@@ -100,12 +100,15 @@
 	SIGNAL_HANDLER
 
 	flicker_bg.icon = icon
+	flicker_bg.alpha = 255
 	flick("fuck", flicker_bg)
 
 	spawn(13)
 		flicker_bg.alpha = 0
 		flicker_bg.icon = SStitle.icon
 		animate(flicker_bg, alpha = 255, time = 10, easing = EASE_IN)
+		animate(alpha = 200, time = 100)
+		animate(alpha = 0, time = 50)
 
 /atom/movable/screen/lobby/neobg/Destroy()
 	. = ..()
