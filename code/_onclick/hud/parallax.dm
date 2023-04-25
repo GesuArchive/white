@@ -14,10 +14,7 @@
 
 	C.parallax_layers_cached = list()
 
-	if(HAS_TRAIT(viewmob, TRAIT_HACKER) || GLOB.forced_parallax_type == 100)
-		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/cyberspess(null, screenmob)
-		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/mazespace(null, screenmob)
-	else if(HAS_TRAIT(viewmob, TRAIT_DREAMER) || GLOB.forced_parallax_type == 101)
+	if(HAS_TRAIT(viewmob, TRAIT_DREAMER) || GLOB.forced_parallax_type == 101)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/shizospace(null, screenmob)
 	else if(GLOB.forced_parallax_type == 3)
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/ice_surface(null, screenmob)
@@ -28,11 +25,8 @@
 		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/ice_surface(null, screenmob)
 	else
 		C.parallax_layers_cached += new SSparallax.random_space(null, screenmob)
-		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_2(null, screenmob)
-		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/planet(null, screenmob)
-		if(SSparallax.random_layer)
-			C.parallax_layers_cached += new SSparallax.random_layer(null, screenmob)
-		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/layer_3(null, screenmob)
+		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/void_clouds_1(null, screenmob)
+		C.parallax_layers_cached += new /atom/movable/screen/parallax_layer/void_clouds_2(null, screenmob)
 
 	C.parallax_layers = C.parallax_layers_cached.Copy()
 
@@ -327,111 +321,22 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_layer)
 	cut_overlays()
 	add_overlay(new_overlays)
 
-/atom/movable/screen/parallax_layer/layer_1
-	icon_state = "layer1"
-	speed = 1
-	layer = 1
-	color = "#999999"
-
-/atom/movable/screen/parallax_layer/layer_1_2
-	icon_state = "layer1_2"
-	speed = 1
-	layer = 1
-	color = "#999999"
-
-/atom/movable/screen/parallax_layer/layer_1_3
-	icon_state = "layer1_3"
-	speed = 1
-	layer = 1
-	color = "#999999"
-
-/atom/movable/screen/parallax_layer/layer_1_4
-	icon_state = "layer1_4"
-	speed = 1
-	layer = 1
-	color = "#999999"
-
-/atom/movable/screen/parallax_layer/layer_1_5
-	icon_state = "layer1_5"
-	speed = 1
-	layer = 1
-	color = "#999999"
-
-/atom/movable/screen/parallax_layer/layer_2
-	icon_state = "layer2"
-	speed = 1.2
-	layer = 2
-
-/atom/movable/screen/parallax_layer/layer_3
-	icon_state = "layer3"
+/atom/movable/screen/parallax_layer/void
+	icon_state = "void"
 	speed = 1.4
-	layer = 3
+	layer = 1
 
-/atom/movable/screen/parallax_layer/random
-	blend_mode = BLEND_OVERLAY
-	speed = 3
-	layer = 5
-
-/atom/movable/screen/parallax_layer/random/space_gas
-	icon_state = "space_gas"
-	blend_mode = 3
-
-/atom/movable/screen/parallax_layer/random/space_gas/Initialize(mapload, mob/owner)
-	. = ..()
-	src.add_atom_colour(SSparallax.random_parallax_color, ADMIN_COLOUR_PRIORITY)
-
-GLOBAL_VAR_INIT(asteroids_randomed_number, rand(1, 5))
-
-/atom/movable/screen/parallax_layer/random/asteroids
-	icon_state = "asteroids_1"
+/atom/movable/screen/parallax_layer/void_clouds_1
+	icon_state = "void_clouds_1"
+	speed = 2.4
+	layer = 2
 	blend_mode = BLEND_ADD
-	layer = 4
 
-/atom/movable/screen/parallax_layer/random/asteroids/Initialize(mapload, mob/owner)
-	icon_state = "asteroids_[GLOB.asteroids_randomed_number]"
-	. = ..()
-
-/atom/movable/screen/parallax_layer/planet
-	icon_state = "planet_ozon"
-	blend_mode = BLEND_OVERLAY
-	absolute = TRUE //Status of seperation
-	speed = 2.5
-	layer = 4
-
-/atom/movable/screen/parallax_layer/planet/Initialize(mapload, mob/owner)
-	. = ..()
-	if(!owner?.client)
-		return
-	var/static/list/connections = list(
-		COMSIG_MOVABLE_Z_CHANGED = PROC_REF(on_z_change),
-		COMSIG_MOB_LOGOUT = PROC_REF(on_mob_logout),
-	)
-	AddComponent(/datum/component/connect_mob_behalf, owner.client, connections)
-	on_z_change(owner)
-
-/atom/movable/screen/parallax_layer/planet/proc/on_mob_logout(mob/source)
-	SIGNAL_HANDLER
-	var/client/boss = source.canon_client
-	if(boss?.mob)
-		on_z_change(boss.mob)
-
-/atom/movable/screen/parallax_layer/planet/proc/on_z_change(mob/source)
-	SIGNAL_HANDLER
-	var/client/boss = source.client
-	var/turf/posobj = get_turf(boss?.eye)
-	if(!posobj)
-		return
-	invisibility = is_station_level(posobj.z) ? 0 : INVISIBILITY_ABSTRACT
-
-/atom/movable/screen/parallax_layer/planet/update_o()
-	return //Shit won't move
-
-/atom/movable/screen/parallax_layer/nebula
-	icon_state = "nebula"
-	speed = 2.5
-	layer = 4
-	blend_mode = 3
-	color = "#ffff00"
+/atom/movable/screen/parallax_layer/void_clouds_2
+	icon_state = "void_clouds_2"
+	speed = 3.4
+	layer = 3
+	blend_mode = BLEND_ADD
 
 /atom/movable/screen/parallax_layer/ice_surface
 	icon_state = "ice_surface"
@@ -449,18 +354,7 @@ GLOBAL_VAR_INIT(asteroids_randomed_number, rand(1, 5))
 	layer = 4
 	blend_mode = 3
 
-/atom/movable/screen/parallax_layer/cyberspess
-	icon_state = "cyberspess"
-	speed = 4
-	layer = 1
-
 /atom/movable/screen/parallax_layer/shizospace
 	icon_state = "shizospace"
 	speed = 0
 	layer = 1
-
-/atom/movable/screen/parallax_layer/mazespace
-	icon_state = "mazespace"
-	blend_mode = 4
-	speed = 16
-	layer = 2

@@ -3,7 +3,7 @@
 	id_arg_index = 2
 
 /datum/element/glitch/Attach(datum/target, amount = 4, speed_min = 1, speed_max = 2, count = 1)
-	if(!isatom(target) || HAS_TRAIT(src, TRAIT_HACKER))
+	if(!isatom(target))
 		return ELEMENT_INCOMPATIBLE
 	var/atom/master = target
 	master.add_filter("glitch_shadow_1", 2, drop_shadow_filter(rand(-1, 1), color = "#ff0000"))

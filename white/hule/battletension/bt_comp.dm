@@ -65,7 +65,7 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 			AR.area_tension--
 			if(AR.area_tension > 30)
 				AR.area_tension = 30
-	else if((HAS_TRAIT(owner, TRAIT_HACKER) || SSbtension.forced_tension) && tension <= 20)
+	else if((SSbtension.forced_tension) && tension <= 20)
 		tension += 3
 
 	if(tension <= 0 && bm)
@@ -227,11 +227,6 @@ PROCESSING_SUBSYSTEM_DEF(btension)
 								'cfg/battle_music/touhou/owenwasher.ogg')
 	var/list/bm_mortal = list(  'cfg/battle_music/mortal/unstoppable.ogg')
 	var/list/bm_nazist = list(  'cfg/battle_music/nazist/German Military Marches - Lore, Lore, Lore.ogg')
-	var/list/bm_hacker = list(  'cfg/battle_music/hacker/Lena Raine - Electroheist.ogg',
-								'cfg/battle_music/hacker/Remi Gallego - Payload.ogg')
-
-	if((HAS_TRAIT(owner, TRAIT_HACKER)))
-		return bm_hacker
 
 	for(var/genre in genres)
 		switch (genre)

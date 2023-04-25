@@ -57,25 +57,6 @@
 
 	backpack_contents = list(/obj/item/quikdeploy/cade/plasteel = 5, /obj/item/armament_points_card/yohei = 1)
 
-/datum/outfit/yohei/breaker/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-
-	H.add_client_colour(/datum/client_colour/hacker)
-	H.hud_list[HACKER_HUD].icon = null
-
-	ADD_TRAIT(H, TRAIT_HACKER, JOB_TRAIT)
-
-	spawn(5 SECONDS)
-		to_chat(H, span_revenbignotice("Давно не виделись, а?"))
-		if(H?.hud_used)
-			H.hud_used.update_parallax_pref(H)
-
-		to_chat(H, span_notice("Вспоминаю как создавать сверхкрепкую броню..."))
-
-		H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/head)
-		H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/suit)
-		H.mind.teach_crafting_recipe(/datum/crafting_recipe/hacker/gloves)
-
 /datum/outfit/yohei/prospector
 	name = "Йохей: Разведчик"
 

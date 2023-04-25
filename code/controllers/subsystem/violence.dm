@@ -101,7 +101,7 @@ SUBSYSTEM_DEF(violence)
 	var/icon/great_title_icon = icon(pick('white/valtos/icons/violence/violence1.jpg', 'white/valtos/icons/violence/violence2.jpg', 'white/valtos/icons/violence/violence3.jpg'))
 	SStitle.autorotate = FALSE
 	SStitle.icon = great_title_icon
-	SStitle.splash_turf.icon = great_title_icon
+	SStitle.icon = great_title_icon
 	// выключаем ротацию картинок в лобби
 	SStitle.autorotate = FALSE
 	message_admins(span_nezbere("VM: SStitle Success!"))

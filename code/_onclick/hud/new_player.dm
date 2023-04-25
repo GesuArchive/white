@@ -50,6 +50,77 @@
 	generated_maptext += MAPTEXT_REALLYBIG_COLOR("Режим: <b>[SSticker.hide_mode ? "СЕКРЕТ" : "[capitalize(GLOB.master_mode)]"]</b>", "#ff4444")
 	maptext = generated_maptext
 
+/atom/movable/screen/lobby/neobg
+	screen_loc = "BOTTOM,LEFT"
+	icon = 'icons/effects/bg.dmi'
+	icon_state = "back"
+	layer = LOBBY_BACKGROUND_LAYER
+	var/atom/movable/screen/eye_icon_bg
+	var/atom/movable/screen/pupil_icon_bg
+	var/atom/movable/screen/front_icon_bg
+	var/atom/movable/screen/flicker_bg
+
+/atom/movable/screen/lobby/neobg/New(loc, ...)
+	. = ..()
+	eye_icon_bg = new()
+	eye_icon_bg.plane = SPLASHSCREEN_PLANE
+	eye_icon_bg.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	eye_icon_bg.icon = icon
+	eye_icon_bg.icon_state = "eye"
+
+	pupil_icon_bg = new()
+	pupil_icon_bg.plane = SPLASHSCREEN_PLANE
+	pupil_icon_bg.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	pupil_icon_bg.icon = icon
+	pupil_icon_bg.icon_state = "pupil"
+
+	front_icon_bg = new()
+	front_icon_bg.plane = SPLASHSCREEN_PLANE
+	front_icon_bg.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	front_icon_bg.icon = icon
+	front_icon_bg.icon_state = "front"
+
+	flicker_bg = new()
+	flicker_bg.blend_mode = BLEND_MULTIPLY
+	flicker_bg.plane = SPLASHSCREEN_PLANE
+	flicker_bg.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	flicker_bg.icon = icon
+	flicker_bg.icon_state = null
+
+	vis_contents += eye_icon_bg
+	vis_contents += pupil_icon_bg
+	vis_contents += front_icon_bg
+	vis_contents += flicker_bg
+
+/atom/movable/screen/lobby/neobg/Initialize(mapload)
+	. = ..()
+	RegisterSignal(SStitle, COMSIG_TITLE_UPDATE_BACKGROUND, PROC_REF(flex_with_background))
+
+/atom/movable/screen/lobby/neobg/proc/flex_with_background()
+	SIGNAL_HANDLER
+
+	flicker_bg.icon = icon
+	flick("fuck", flicker_bg)
+
+	spawn(8)
+		flicker_bg.icon = SStitle.icon
+
+/atom/movable/screen/lobby/neobg/Destroy()
+	. = ..()
+	QDEL_NULL(eye_icon_bg)
+	QDEL_NULL(pupil_icon_bg)
+	QDEL_NULL(front_icon_bg)
+	QDEL_NULL(flicker_bg)
+
+/atom/movable/screen/lobby/neobg/MouseMove(location, control, params)
+	. = ..()
+	var/list/PL = params2list(params)
+	var/icon_x = text2num(PL["icon-x"])
+	var/icon_y = text2num(PL["icon-y"])
+
+	animate(eye_icon_bg, 1, FALSE, SINE_EASING, ANIMATION_PARALLEL, pixel_x = (icon_x * 0.03) - 9, pixel_y = (icon_y * 0.03) - 7)
+	animate(pupil_icon_bg, 1, FALSE, SINE_EASING, ANIMATION_PARALLEL, pixel_x = (icon_x * 0.06) - 18, pixel_y = (icon_y * 0.06) - 14)
+
 /atom/movable/screen/lobby/button
 	///Is the button currently enabled?
 	var/enabled = TRUE

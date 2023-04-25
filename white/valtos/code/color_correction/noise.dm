@@ -8,10 +8,6 @@
 	blend_mode = 4
 	alpha = 255
 
-/mob/dead/new_player/Initialize(mapload)
-	. = ..()
-	overlay_fullscreen("noise", /atom/movable/screen/fullscreen/noisescreen)
-
 /atom/movable/screen/fullscreen/noisescreen/warfare
 	icon = 'white/valtos/icons/is12/effects.dmi'
 	icon_state = "wwi"

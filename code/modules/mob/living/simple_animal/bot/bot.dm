@@ -98,7 +98,7 @@
 	COOLDOWN_DECLARE(next_salute_check)
 	var/salute_delay = 60 SECONDS
 
-	hud_possible = list(DIAG_STAT_HUD, DIAG_BOT_HUD, DIAG_HUD, DIAG_PATH_HUD = HUD_LIST_LIST, HACKER_HUD) //Diagnostic HUD views
+	hud_possible = list(DIAG_STAT_HUD, DIAG_BOT_HUD, DIAG_HUD, DIAG_PATH_HUD = HUD_LIST_LIST) //Diagnostic HUD views
 
 	discovery_points = 0
 

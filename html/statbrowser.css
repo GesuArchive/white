@@ -1,5 +1,10 @@
+@font-face {
+    font-family: "zkr";
+    src: url("./zkr.ttf") format("truetype");
+}
+
 body {
-	font-family: Tahoma, Verdana, Geneva, sans-serif;
+	font-family: zkr, Tahoma, Verdana, Geneva, sans-serif;
 	font-size: 14px !important;
 	margin: 0 !important;
 	padding: 0 !important;

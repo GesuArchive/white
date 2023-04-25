@@ -8,7 +8,7 @@
 @use '../functions.scss' as *;
 
 $text-color: base.$color-fg !default;
-$background-color: #0a0a0a !default;
+$background-color: #1a1a1a !default;
 $border-color: colors.$primary !default;
 $border-radius: base.$border-radius !default;
 
@@ -16,8 +16,7 @@ $border-radius: base.$border-radius !default;
   position: relative;
   display: inline-block;
   width: base.em(120px);
-  border: base.em(1px) solid $border-color;
-  border: base.em(1px) solid rgba($border-color, 0.75);
+  border: none;
   border-radius: $border-radius;
   color: $text-color;
   background-color: $background-color;

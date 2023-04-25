@@ -400,6 +400,7 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 // "Retroville NC"
 var/list/extra_resources = list(\
 	'html/ibmvga9.ttf', \
-	'html/rvnc.ttf',
+	'html/rvnc.ttf', \
+	'html/zkr.ttf',
 )
 

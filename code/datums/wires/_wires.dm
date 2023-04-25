@@ -263,7 +263,7 @@
 		return TRUE
 
 	// Same for anyone with an abductor multitool.
-	if(user.is_holding_item_of_type(/obj/item/multitool/abductor) || HAS_TRAIT(user, TRAIT_HACKER))
+	if(user.is_holding_item_of_type(/obj/item/multitool/abductor))
 		return TRUE
 
 	// Station blueprints do that too, but only if the wires are not randomized.

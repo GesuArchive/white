@@ -143,10 +143,6 @@
 	maptext_x = 4
 	maptext_y = 8
 
-/turf/closed/indestructible/splashscreen/New()
-	SStitle.splash_turf = src
-	..()
-
 /turf/closed/indestructible/splashscreen/vv_edit_var(var_name, var_value)
 	. = ..()
 	if(.)

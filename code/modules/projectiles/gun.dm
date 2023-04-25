@@ -66,7 +66,7 @@
 	var/ammo_y_offset = 0
 
 	var/pb_knockback = 0
-	hud_possible = list(HACKER_HUD)
+	hud_possible = list()
 	var/extra_damage = 0				//Number to add to individual bullets.
 	var/extra_penetration = 0			//Number to add to armor penetration of individual bullets.
 	var/extra_minhitchance = 0			//Number you add to minimal hit chance

@@ -17,6 +17,7 @@
   width: base.em(100px);
   line-height: base.em(17px);
   user-select: none;
+  background-color: #1a1a1a;
 }
 
 .Dropdown__arrow-button {
@@ -35,8 +36,7 @@
   overflow-y: scroll;
   border-radius: 0 0 base.em(2px) base.em(2px);
   color: #fff;
-  background-color: #000;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: #1a1a1a;
 }
 
 .Dropdown__menu-noscroll {
@@ -47,8 +47,7 @@
   max-height: base.em(200px);
   border-radius: 0 0 base.em(2px) base.em(2px);
   color: #fff;
-  background-color: #000;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: #1a1a1a;
 }
 
 .Dropdown__menuentry {

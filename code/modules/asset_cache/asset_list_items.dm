@@ -143,6 +143,8 @@
 	assets = list(
 		"tgfont.eot" = file("tgui/packages/tgfont/static/tgfont.eot"),
 		"tgfont.woff2" = file("tgui/packages/tgfont/static/tgfont.woff2"),
+		"zkr.eot" = file("tgui/packages/tgfont/static/zkr.eot"),
+		"zkr.woff" = file("tgui/packages/tgfont/static/zkr.woff"),
 	)
 	parents = list(
 		"tgfont.css" = file("tgui/packages/tgfont/static/tgfont.css"),

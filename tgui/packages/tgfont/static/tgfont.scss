@@ -4,6 +4,12 @@
 url("./tgfont.eot?45c3c7acc69dd413375d77898d24e41e#iefix") format("embedded-opentype");
 }
 
+@font-face {
+  font-family: "zkr";
+  src: url("./zkr.woff?800672122fbcb6da979694a43b7c3325") format("woff"),
+  url("./zkr.eot?800672122fbcb6da979694a43b7c3325#iefix") format("embedded-opentype");
+}
+
 i[class^="tg-"]:before, i[class*=" tg-"]:before {
   font-family: tgfont !important;
   font-style: normal;

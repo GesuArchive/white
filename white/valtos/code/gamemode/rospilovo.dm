@@ -850,9 +850,6 @@
 				continue
 			if(!L.client)
 				continue
-			if(L?.hud_used)
-				ADD_TRAIT(L, TRAIT_HACKER, "rospilovo")
-				L.hud_used.update_parallax_pref(L)
 			SEND_SOUND(L, sound('white/valtos/sounds/wrongdoorreally.ogg'))
 			spawn(900)
 				if(!L?.client)

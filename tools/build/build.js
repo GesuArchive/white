@@ -169,12 +169,16 @@ export const TgFontTarget = new Juke.Target({
     'tgui/packages/tgfont/dist/tgfont.css',
     'tgui/packages/tgfont/dist/tgfont.eot',
     'tgui/packages/tgfont/dist/tgfont.woff2',
+    'tgui/packages/tgfont/dist/zkr.eot',
+    'tgui/packages/tgfont/dist/zkr.woff',
   ],
   executes: async () => {
     await yarn('tgfont:build');
     fs.copyFileSync('tgui/packages/tgfont/dist/tgfont.css', 'tgui/packages/tgfont/static/tgfont.css');
     fs.copyFileSync('tgui/packages/tgfont/dist/tgfont.eot', 'tgui/packages/tgfont/static/tgfont.eot');
     fs.copyFileSync('tgui/packages/tgfont/dist/tgfont.woff2', 'tgui/packages/tgfont/static/tgfont.woff2');
+    fs.copyFileSync('tgui/packages/tgfont/dist/zkr.eot', 'tgui/packages/tgfont/static/zkr.eot');
+    fs.copyFileSync('tgui/packages/tgfont/dist/zkr.woff', 'tgui/packages/tgfont/static/zkr.woff');
   }
 });
 

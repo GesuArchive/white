@@ -496,9 +496,6 @@
 		else if(bodytemperature < BODYTEMP_COLD_DAMAGE_LIMIT)
 			to_chat(M, span_warning("Чувствую холод при объятиях с <b>[M]</b>."))
 
-		if(HAS_TRAIT(M, TRAIT_HACKER))
-			RemoveElement(/datum/element/glitch)
-
 		if(HAS_TRAIT(M, TRAIT_FRIENDLY))
 			var/datum/component/mood/hugger_mood = M.GetComponent(/datum/component/mood)
 			if (hugger_mood.sanity >= SANITY_GREAT)

@@ -8,7 +8,6 @@ SUBSYSTEM_DEF(title)
 	var/file_path
 	var/icon/icon
 	var/icon/previous_icon
-	var/turf/closed/indestructible/splashscreen/splash_turf
 	var/autorotate = TRUE
 	var/cached_title
 
@@ -48,8 +47,7 @@ SUBSYSTEM_DEF(title)
 
 	icon = new(fcopy_rsc(file_path))
 
-	if(splash_turf)
-		splash_turf.icon = icon
+	SEND_SIGNAL(src, COMSIG_TITLE_UPDATE_BACKGROUND)
 
 /datum/controller/subsystem/title/fire(resumed = FALSE)
 	if(!autorotate)
@@ -64,9 +62,8 @@ SUBSYSTEM_DEF(title)
 	if(.)
 		switch(var_name)
 			if(NAMEOF(src, icon))
-				if(splash_turf)
-					splash_turf.icon = icon
-					autorotate = FALSE
+				SEND_SIGNAL(src, COMSIG_TITLE_UPDATE_BACKGROUND)
+				autorotate = FALSE
 
 /datum/controller/subsystem/title/Shutdown()
 	if(file_path)
@@ -81,7 +78,6 @@ SUBSYSTEM_DEF(title)
 
 /datum/controller/subsystem/title/Recover()
 	icon = SStitle.icon
-	splash_turf = SStitle.splash_turf
 	file_path = SStitle.file_path
 	previous_icon = SStitle.previous_icon
 

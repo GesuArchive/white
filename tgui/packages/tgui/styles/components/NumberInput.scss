@@ -16,9 +16,7 @@ $border-radius: Input.$border-radius !default;
 .NumberInput {
   position: relative;
   display: inline-block;
-  border: base.em(1px) solid $border-color;
-  border: base.em(1px) solid rgba($border-color, 0.75);
-  border-radius: $border-radius;
+  border: none;
   color: $border-color;
   background-color: $background-color;
   padding: 0.1em base.em(4px);

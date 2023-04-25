@@ -801,7 +801,7 @@
 	user.visible_message(span_warning("<b>[user]</b> дёргает рубильник! ПРЕДСТАВЛЕНИЕ НАЧИНАЕТСЯ!"))
 	is_turned = TRUE
 	icon_state = "switch-on"
-	SStitle.splash_turf.invisibility = 101
+	//SStitle.splash_turf.invisibility = 101
 	playsound(src.loc, 'white/valtos/sounds/leveron.ogg', 50, TRUE)
 	spawn(180 SECONDS)
 		icon_state = "switch-off"
@@ -809,7 +809,7 @@
 		playsound(src.loc, 'white/valtos/sounds/leveroff.ogg', 90, TRUE)
 		var/turf/T = get_turf(src)
 		T.visible_message(span_notice("<b>[capitalize(src)]</b> возвращается на место!"))
-		SStitle.splash_turf.invisibility = 26
+		//SStitle.splash_turf.invisibility = 26
 
 //stolen from CTF code
 /obj/effect/mob_spawn/human/donate/artist/process(delta_time)

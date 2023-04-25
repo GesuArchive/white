@@ -1507,6 +1507,8 @@
 
 #define COMSIG_TITLE_UPDATE_INFO "comsig_title_update_info"
 
+#define COMSIG_TITLE_UPDATE_BACKGROUND "comsig_title_update_background"
+
 #define COMSIG_GREYSCALE_CONFIG_REFRESHED "greyscale_config_refreshed"
 
 // Point of interest signals
