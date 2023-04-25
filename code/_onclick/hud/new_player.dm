@@ -81,7 +81,7 @@
 	front_icon_bg.icon_state = "front"
 
 	flicker_bg = new()
-	flicker_bg.blend_mode = BLEND_MULTIPLY
+	flicker_bg.blend_mode = BLEND_ADD
 	flicker_bg.plane = SPLASHSCREEN_PLANE
 	flicker_bg.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	flicker_bg.icon = icon
