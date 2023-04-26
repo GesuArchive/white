@@ -194,6 +194,8 @@
 
 	var/ghost_text = "<b>[src]</b> " + text //Sin I know
 
+	text = span_emote(pointization(text))
+
 	for(var/mob/M in GLOB.dead_mob_list)
 		if(!M.client || isnewplayer(M))
 			continue

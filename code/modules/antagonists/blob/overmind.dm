@@ -268,7 +268,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	src.log_talk(message, LOG_SAY)
 
 	var/message_a = say_quote(capitalize(message))
-	var/rendered = span_big("<font color=\"#EE4000\"><b>\[Телепатия\] [name](<font color=\"[blobstrain.color]\">[blobstrain.name]</font>)</b> [message_a]</font>")
+	var/rendered = span_big("<font color=\"#EE4000\"><b>\[Телепатия\] [capitalize(name)](<font color=\"[blobstrain.color]\">[blobstrain.name]</font>)</b> [message_a]</font>")
 
 	for(var/mob/M in GLOB.mob_list)
 		if(isovermind(M) || istype(M, /mob/living/simple_animal/hostile/blob))

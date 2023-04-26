@@ -90,8 +90,8 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/blob/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
-	var/spanned_message = say_quote(message)
-	var/rendered = "<font color=\"#EE4000\"><b>\[Телепатия\] [real_name]</b> [spanned_message]</font>"
+	var/spanned_message = say_quote(capitalize(message))
+	var/rendered = "<font color=\"#EE4000\"><b>\[Телепатия\] [capitalize(real_name)]</b> [spanned_message]</font>"
 	for(var/M in GLOB.mob_list)
 		if(isovermind(M) || istype(M, /mob/living/simple_animal/hostile/blob))
 			to_chat(M, rendered)

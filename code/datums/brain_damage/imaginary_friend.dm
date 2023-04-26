@@ -166,8 +166,8 @@
 
 	src.log_talk(message, LOG_SAY, tag="воображаемый друг")
 
-	var/rendered = "<span class='game say'><span class='name'>[name]</span> <span class='message'>[say_quote(message)]</span></span>"
-	var/dead_rendered = "<span class='game say'><span class='name'>[name] (Воображаемый друг [owner])</span> <span class='message'>[say_quote(message)]</span></span>"
+	var/rendered = "<span class='game say'><span class='name'>[capitalize(name)]</span> <span class='message'>[say_quote(capitalize(message))]</span></span>"
+	var/dead_rendered = "<span class='game say'><span class='name'>[capitalize(name)] (Воображаемый друг [owner])</span> <span class='message'>[say_quote(capitalize(message))]</span></span>"
 
 	to_chat(owner, "[rendered]")
 	to_chat(src, "[rendered]")

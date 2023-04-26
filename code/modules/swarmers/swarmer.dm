@@ -402,7 +402,7 @@
  * * msg - The message the swarmer is sending, gotten from ContactSwarmers()
  */
 /mob/living/simple_animal/hostile/swarmer/proc/swarmer_chat(msg)
-	var/rendered = "<B>Общение роя - [src]</b> [say_quote(msg)]"
+	var/rendered = "<B>Общение роя - [capitalize(src)]</b> [say_quote(capitalize(msg))]"
 	for(var/i in GLOB.mob_list)
 		var/mob/listener = i
 		if(isswarmer(listener))

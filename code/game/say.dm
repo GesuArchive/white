@@ -87,7 +87,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	if(istype(D) && D.display_icon(src))
 		languageicon = "[D.get_icon()] "
 
-	return "[spanpart1][spanpart2][freqpart][languageicon][compose_track_href(speaker, namepart)][namepart][compose_job(speaker, message_language, raw_message, radio_freq)][endspanpart][messagepart]"
+	return "[spanpart1][spanpart2][freqpart][languageicon][compose_track_href(speaker, namepart)][capitalize(namepart)][compose_job(speaker, message_language, raw_message, radio_freq)][endspanpart][messagepart]"
 
 /atom/movable/proc/compose_track_href(atom/movable/speaker, message_langs, raw_message, radio_freq)
 	return ""
@@ -120,7 +120,9 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	if(usr && usr?.client?.prefs?.disabled_autocap)
 		spanned = attach_spans(input, spans)
 
-	return "<i>[say_mod(input, message_mods)]</i>, \"[spanned]\""
+	var/random_mod = "<i>[span_emote(pick(77;"[say_mod(input, message_mods)],", 25;" — ", 25;"молвит,", 25;"сообщает,"))]</i>"
+
+	return "[random_mod] \"[spanned]\""
 
 /// Transforms the speech emphasis mods from [/atom/movable/proc/say_emphasis] into the appropriate HTML tags. Includes escaping.
 #define ENCODE_HTML_EMPHASIS(input, char, html, varname) \
