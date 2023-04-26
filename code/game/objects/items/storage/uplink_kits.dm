@@ -469,3 +469,16 @@
 	for(var/i in implants)
 		group.register(i)
 	desc += " The implants are registered to the \"[group.name]\" group."
+
+/obj/item/storage/box/syndie_kit/stickers
+	name = "стикеры"
+
+/obj/item/storage/box/syndie_kit/stickers/Initialize(mapload)
+	. = ..()
+	atom_storage.max_slots = 8
+
+/obj/item/storage/box/syndie_kit/stickers/PopulateContents()
+	var/list/types = subtypesof(/obj/item/sticker/syndicate)
+	for(var/i in 1 to atom_storage.max_slots)
+		var/type = pick(types)
+		new type(src)

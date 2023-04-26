@@ -2480,6 +2480,18 @@
 		cardpacktype = pick(subtypesof(/obj/item/cardpack))
 		new cardpacktype(C)
 
+/datum/supply_pack/costumes_toys/stickers
+	name = "Стикеры"
+	desc = "Полный ящик стикеров."
+	cost = CARGO_CRATE_VALUE * 3
+	contains = list()
+
+/datum/supply_pack/costumes_toys/stickers/fill(obj/structure/closet/crate/crate)
+	for(var/i in 1 to rand(1,2))
+		new /obj/item/storage/box/stickers(crate)
+	if(prob(30)) // a pair of googly eyes because funny
+		new /obj/item/storage/box/stickers/googly(crate)
+
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Miscellaneous ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////

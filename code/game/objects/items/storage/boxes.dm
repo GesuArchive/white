@@ -1416,3 +1416,29 @@
 		/obj/item/slimecross/stabilized/rainbow=1,\
 		)
 	generate_items_inside(items_inside,src)
+
+/obj/item/storage/box/stickers
+	name = "коробка стикеров"
+	desc = "Полная коробка случайных стикеров. Не давать клоуну."
+
+/obj/item/storage/box/stickers/proc/generate_non_contraband_stickers_list()
+	. = list()
+	for(var/obj/item/sticker/sticker_type as anything in subtypesof(/obj/item/sticker))
+		if(!initial(sticker_type.contraband))
+			. += sticker_type
+	return .
+/obj/item/storage/box/stickers/PopulateContents()
+	var/static/list/non_contraband
+	if(!non_contraband)
+		non_contraband = generate_non_contraband_stickers_list()
+	for(var/i in 1 to rand(4,8))
+		var/type = pick(non_contraband)
+		new type(src)
+
+/obj/item/storage/box/stickers/googly
+	name = "коробка глазиков"
+	desc = "Время сделать что-то живым!"
+
+/obj/item/storage/box/stickers/googly/PopulateContents()
+	for(var/i in 1 to 6)
+		new /obj/item/sticker/googly(src)
