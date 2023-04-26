@@ -1270,7 +1270,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	var/view_width = getviewsize(view)[1]
 	var/view_height = getviewsize(view)[2]
 
-	var/full_width = view_width + ((shown_bars & NEOHUD_RIGHT) ? 1 : 0)
+	var/full_width = view_width + ((shown_bars == (NEOHUD_RIGHT|NEOHUD_BOTTOM)) ? 1 : 2)
 	var/full_height = view_height + ((shown_bars & NEOHUD_BOTTOM) ? 1 : 0)
 
 	var/screen_width = text2num(screen_size[1])
@@ -1291,7 +1291,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		winset(src, "mapwindow.bottom","pos=0,[map_height];size=[map_width]x[tile_height];anchor1=0,100;is-visible=true")
 
 	if((shown_bars & NEOHUD_RIGHT))
-		winset(src, "mapwindow.hud","pos=[map_width],0;size=[tile_width]x[screen_size[2]];anchor1=[mapAnchor_x],100;is-visible=true")
+		winset(src, "mapwindow.hud","pos=[map_width],0;size=[tile_width]x[screen_height + ((shown_bars & NEOHUD_BOTTOM) ? 0 : -map_height)];anchor1=[mapAnchor_x],100;is-visible=true")
 
 /client/proc/debug_winset()
 	set name = "Winset Debug"
