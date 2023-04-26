@@ -118,7 +118,10 @@
 	QDEL_NULL(flicker_bg)
 
 /atom/movable/screen/lobby/neobg/MouseMove(location, control, params)
-	. = ..()
+
+	if(!isnewplayer(usr))
+		return
+
 	var/list/PL = params2list(params)
 	var/icon_x = text2num(PL["icon-x"])
 	var/icon_y = text2num(PL["icon-y"])
