@@ -40,7 +40,7 @@
 	},
 /obj/structure/table/wood,
 /obj/item/instrument/accordion,
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "ah" = (
 /obj/effect/turf_decal/tile/yellow/half{
@@ -317,7 +317,7 @@
 /obj/effect/turf_decal/weather/side/corner{
 	dir = 1
 	},
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "aZ" = (
 /obj/effect/turf_decal/tile/yellow/half,
@@ -711,7 +711,7 @@
 /area/centcom/control)
 "ca" = (
 /obj/effect/turf_decal/weather/side,
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "cc" = (
 /obj/structure/table/reinforced,
@@ -1700,15 +1700,11 @@
 	},
 /area/centcom/outdoors)
 "eY" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
 /obj/effect/turf_decal/box/corners{
 	dir = 4
 	},
 /turf/open/floor/plasteel/tg/small,
-/area/start)
+/area/centcom/circus)
 "eZ" = (
 /obj/structure/window/reinforced/survival_pod{
 	name = "Tinted Window";
@@ -2821,7 +2817,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 10
 	},
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "if" = (
 /obj/structure/fans/tiny/invisible,
@@ -3690,7 +3686,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/weather/side,
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "kD" = (
 /obj/effect/turf_decal/stripes/line{
@@ -3710,7 +3706,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/weather/side,
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "kH" = (
 /obj/structure/cable,
@@ -3734,7 +3730,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 9
 	},
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "kL" = (
 /obj/effect/turf_decal/tile/bar,
@@ -3843,7 +3839,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 8
 	},
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "kX" = (
 /obj/structure/cable,
@@ -3862,7 +3858,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/syndicate_mothership)
 "lc" = (
-/turf/open/floor/plasteel/tg/dark/small,
+/turf/open/floor/plasteel/catwalk_floor,
 /area/centcom/circus)
 "le" = (
 /obj/structure/flora/tree/pine,
@@ -4060,7 +4056,7 @@
 	pixel_x = -8;
 	pixel_y = 4
 	},
-/turf/open/floor/plasteel/tg/dark/small,
+/turf/open/floor/plasteel/catwalk_floor,
 /area/centcom/circus)
 "lB" = (
 /obj/structure/railing{
@@ -4233,7 +4229,7 @@
 	dir = 8;
 	resistance_flags = 64
 	},
-/turf/open/floor/plasteel/tg/dark/small,
+/turf/open/floor/plasteel/catwalk_floor,
 /area/centcom/circus)
 "lT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
@@ -4279,7 +4275,7 @@
 	dir = 8;
 	resistance_flags = 64
 	},
-/turf/open/floor/plasteel/tg/dark/small,
+/turf/open/floor/plasteel/catwalk_floor,
 /area/centcom/circus)
 "lX" = (
 /obj/machinery/light/cold/directional/north,
@@ -4302,7 +4298,7 @@
 /obj/item/integrated_circuit_printer/upgraded/prog{
 	pixel_y = 7
 	},
-/turf/open/floor/plasteel/tg/dark/small,
+/turf/open/floor/plasteel/catwalk_floor,
 /area/centcom/circus)
 "mb" = (
 /obj/effect/turf_decal/tile/red,
@@ -4618,7 +4614,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 4
 	},
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "nc" = (
 /obj/effect/turf_decal/tile/yellow/half,
@@ -4690,7 +4686,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 4
 	},
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "nj" = (
 /obj/effect/turf_decal/tile/bar,
@@ -4782,11 +4778,7 @@
 /turf/open/floor/plasteel/dark,
 /area/tdome/tdomeobserve)
 "ny" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
-/turf/open/floor/plasteel/tg/small,
+/turf/closed/indestructible/black,
 /area/start)
 "nz" = (
 /turf/closed/indestructible/fakedoor{
@@ -4805,9 +4797,8 @@
 	resistance_flags = 227;
 	view_range = 8
 	},
-/obj/effect/landmark/start/new_player,
 /turf/open/floor/plasteel/tg/small,
-/area/start)
+/area/centcom/circus)
 "nE" = (
 /turf/open/floor/grass,
 /area/centcom/holding)
@@ -4869,7 +4860,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 10
 	},
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "nP" = (
 /obj/structure/cable,
@@ -5164,9 +5155,9 @@
 /turf/open/floor/grass,
 /area/tdome/tdomeadmin)
 "oz" = (
-/obj/machinery/artist_showcase_toggler,
-/turf/closed/indestructible/syndicate,
-/area/centcom/circus)
+/obj/effect/landmark/start/new_player,
+/turf/open/floor/plating,
+/area/start)
 "oA" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -5458,7 +5449,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 4
 	},
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "pu" = (
 /obj/effect/turf_decal/stripes/line{
@@ -5539,7 +5530,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 4
 	},
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "pG" = (
 /turf/open/floor/wood/tile,
@@ -5555,7 +5546,7 @@
 /turf/open/floor/plasteel,
 /area/tdome/arena)
 "pI" = (
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "pK" = (
 /obj/effect/turf_decal/tile/blue,
@@ -5733,7 +5724,7 @@
 /area/wizard_station)
 "qi" = (
 /obj/structure/cable,
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "qj" = (
 /obj/structure/chair/wood/wings{
@@ -5742,15 +5733,11 @@
 /turf/open/floor/wood,
 /area/wizard_station)
 "qk" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
 /obj/effect/turf_decal/box/corners{
 	dir = 8
 	},
 /turf/open/floor/plasteel/tg/small,
-/area/start)
+/area/centcom/circus)
 "ql" = (
 /obj/structure/chair/wood/wings{
 	dir = 4
@@ -6175,7 +6162,7 @@
 /area/centcom/supplypod/pod_storage)
 "ro" = (
 /obj/effect/duel_spawnpoint,
-/turf/closed/indestructible/rock/snow/no_init,
+/turf/open/space/basic,
 /area/duel/two)
 "rp" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark{
@@ -6526,7 +6513,7 @@
 "sh" = (
 /obj/structure/closet/boxinggloves,
 /obj/effect/turf_decal/weather/side,
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "si" = (
 /obj/machinery/air_sensor{
@@ -6540,7 +6527,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 8
 	},
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "sl" = (
 /obj/effect/turf_decal/tile/red,
@@ -6953,16 +6940,11 @@
 /turf/open/floor/plasteel/dark,
 /area/tdome/tdomeobserve)
 "ts" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
 /obj/effect/turf_decal/box/corners{
 	dir = 1
 	},
-/obj/effect/baseturf_helper/dune,
 /turf/open/floor/plasteel/tg/small,
-/area/start)
+/area/centcom/circus)
 "tt" = (
 /obj/structure/window/reinforced{
 	color = "#008000";
@@ -6997,7 +6979,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 1
 	},
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "tB" = (
 /obj/effect/turf_decal/tile/neutral,
@@ -8826,7 +8808,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/weather/side,
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "yp" = (
 /obj/effect/turf_decal/stripes/line{
@@ -9288,6 +9270,7 @@
 /turf/open/floor/plasteel/tg/dark/textured_large,
 /area/syndicate_mothership)
 "zt" = (
+/obj/effect/baseturf_helper/asteroid/snow,
 /turf/open/floor/dz/green,
 /area/centcom/that_zone)
 "zu" = (
@@ -9519,7 +9502,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 5
 	},
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "zS" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -9822,7 +9805,7 @@
 /area/syndicate_mothership/expansion_chemicalwarfare)
 "AX" = (
 /obj/effect/duel_controller,
-/turf/closed/indestructible/rock/snow/no_init,
+/turf/open/space/basic,
 /area/duel/two)
 "AZ" = (
 /obj/structure/chair/sofa/corp{
@@ -9960,7 +9943,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 6
 	},
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "Br" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -10394,7 +10377,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 6
 	},
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "CJ" = (
 /obj/effect/turf_decal/siding/thinplating{
@@ -11757,7 +11740,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/weather/side,
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "GD" = (
 /obj/structure/table/reinforced,
@@ -12414,7 +12397,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 4
 	},
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "IF" = (
 /obj/machinery/shower{
@@ -15359,7 +15342,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 8
 	},
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "PF" = (
 /obj/effect/spawner/structure/window/reinforced/indestructable,
@@ -15377,7 +15360,7 @@
 /area/centcom/holding)
 "PJ" = (
 /obj/effect/turf_decal/weather/side/corner,
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "PK" = (
 /obj/effect/turf_decal/siding/wood{
@@ -15854,7 +15837,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/centcom/control)
 "QV" = (
-/turf/closed/indestructible/rock/snow/no_init,
+/turf/open/space/basic,
 /area/duel/two)
 "QW" = (
 /obj/structure/flora/ausbushes/rospilovo/grassybush,
@@ -16643,7 +16626,7 @@
 /obj/effect/turf_decal/weather/side{
 	dir = 9
 	},
-/turf/open/floor/plasteel/tg/dark/textured,
+/turf/open/floor/plasteel/dark,
 /area/centcom/circus)
 "Tc" = (
 /obj/structure/rack,
@@ -18533,13 +18516,9 @@
 /turf/open/floor/plasteel,
 /area/centcom/control)
 "YG" = (
-/obj/effect/light_emitter{
-	set_cap = 1;
-	set_luminosity = 4
-	},
 /obj/effect/turf_decal/box/corners,
 /turf/open/floor/plasteel/tg/small,
-/area/start)
+/area/centcom/circus)
 "YH" = (
 /obj/item/stack/sheet/mineral/plasma{
 	pixel_y = 15
@@ -18705,9 +18684,9 @@
 /turf/open/floor/carpet,
 /area/syndicate_mothership)
 "Zf" = (
-/obj/effect/baseturf_helper/dune,
-/turf/closed/indestructible/splashscreen,
-/area/start)
+/obj/effect/baseturf_helper/asteroid/snow,
+/turf/open/floor/dz/green,
+/area/centcom/control)
 "Zg" = (
 /obj/structure/table/wood,
 /obj/item/clipboard,
@@ -30581,7 +30560,7 @@ AS
 Bp
 AA
 mx
-mx
+Zf
 mx
 AS
 Bp
@@ -42864,9 +42843,9 @@ ZW
 ZW
 ZW
 ZW
-ZW
-ZW
-ZW
+ny
+ny
+ny
 ZW
 ZW
 ZW
@@ -43121,9 +43100,9 @@ ZW
 ZW
 ZW
 ZW
-ZW
-ZW
-ZW
+ny
+oz
+ny
 ZW
 ZW
 ZW
@@ -43378,9 +43357,9 @@ ZW
 ZW
 ZW
 ZW
-ZW
-ZW
-ZW
+ny
+ny
+ny
 ZW
 ZW
 ZW
@@ -76907,8 +76886,8 @@ LP
 jT
 lN
 jT
-ZW
-ZW
+jT
+jT
 ZW
 ZW
 "}
@@ -77163,9 +77142,9 @@ nP
 qw
 jT
 lN
+lN
+lN
 jT
-ZW
-ZW
 ZW
 ZW
 "}
@@ -77421,8 +77400,8 @@ jT
 jT
 mA
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -77676,10 +77655,10 @@ pF
 pt
 nb
 zR
-Zf
+ky
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -77935,8 +77914,8 @@ pI
 tA
 qJ
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -78192,8 +78171,8 @@ pI
 tA
 qN
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -78449,8 +78428,8 @@ pI
 tA
 qI
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -78706,8 +78685,8 @@ pI
 tA
 lP
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -78963,8 +78942,8 @@ PD
 SZ
 qQ
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -79220,8 +79199,8 @@ oD
 oi
 qS
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -79477,8 +79456,8 @@ zd
 IO
 qU
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -79725,7 +79704,7 @@ Tq
 zd
 zd
 ts
-ny
+zd
 qk
 zd
 zd
@@ -79734,8 +79713,8 @@ zd
 IO
 ri
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -79981,9 +79960,9 @@ zd
 Tq
 zd
 zd
-ny
+zd
 nC
-ny
+zd
 zd
 zd
 Tq
@@ -79991,8 +79970,8 @@ zd
 IO
 rl
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -80239,7 +80218,7 @@ Tq
 zd
 zd
 eY
-ny
+zd
 YG
 zd
 zd
@@ -80248,8 +80227,8 @@ zd
 IO
 rt
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -80505,8 +80484,8 @@ zd
 IO
 qt
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -80762,8 +80741,8 @@ mR
 pi
 rv
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -81019,8 +80998,8 @@ nb
 zR
 kr
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -81276,8 +81255,8 @@ pI
 tA
 rw
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -81533,8 +81512,8 @@ pI
 tA
 rz
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -81790,8 +81769,8 @@ pI
 tA
 rB
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -82047,8 +82026,8 @@ pI
 tA
 rE
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -82287,7 +82266,7 @@ cs
 hS
 eu
 eu
-oz
+jT
 lA
 lS
 lW
@@ -82304,8 +82283,8 @@ PD
 SZ
 rG
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -82561,8 +82540,8 @@ jT
 OX
 jT
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -82818,8 +82797,8 @@ pZ
 ky
 qx
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -83075,8 +83054,8 @@ pZ
 ks
 qx
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -83332,8 +83311,8 @@ pZ
 ky
 qx
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -83586,11 +83565,11 @@ pK
 vw
 jT
 jT
-ki
+OX
 jT
 jT
-ZW
-ZW
+lN
+jT
 ZW
 ZW
 "}
@@ -83838,16 +83817,16 @@ ZW
 jT
 jT
 jT
+nS
 jT
 jT
 jT
 jT
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
+lN
+lN
+lN
+lN
+jT
 ZW
 ZW
 "}
@@ -84094,17 +84073,17 @@ ZW
 ZW
 ZW
 ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
+jT
+lN
+lN
+lN
+lN
+lN
+lN
+lN
+jT
+jT
+jT
 ZW
 ZW
 "}
@@ -84351,15 +84330,15 @@ ZW
 ZW
 ZW
 ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
-ZW
+jT
+jT
+jT
+jT
+jT
+jT
+ki
+jT
+jT
 ZW
 ZW
 ZW
