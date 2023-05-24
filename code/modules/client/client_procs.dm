@@ -320,7 +320,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		if (!length(GLOB.stickybanadminexemptions))
 			restore_stickybans()
 
-	if(byond_version >= 515 && !connecting_admin) // deny 515 clients
+	if(byond_version >= 516 && !connecting_admin) // deny 516 clients
 		log_access("Failed Login: [key] - Bugged BYOND version")
 		to_chat(src, span_danger("Используйте <a href=\"https://www.byond.com/download/build/514/514.1589_byond.exe\">стабильную</a> версию BYOND."))
 		qdel(src)
