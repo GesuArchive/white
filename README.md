@@ -44,7 +44,7 @@
 [<img src="https://i.imgur.com/dUdgAL5.png" alt="Forum" width="150" align="left">](https://forum.station13.ru)
 **Наш форум. Скопление живых трупов и заблудших душ.**<br> Лучшее место для свободных дискуссий на любые темы.
 -->
-[<img src="https://i.imgur.com/lOHdByt.png" alt="Discord" width="150" align="left">](https://discord.gg/2WAsvv5B5v)
+[<img src="https://i.imgur.com/lOHdByt.png" alt="Discord" width="150" align="left">](https://discord.station13.ru/)
 **Наш Discord-сервер.**<br>Общение космонавтов. Основная конференция посвящённая White Dream SS13.
 
 [<img src="https://i.imgur.com/eQF6BOl.png" alt="CR34T1V3" width="150" align="left">](https://discord.gg/fRsn7RxdQp)
