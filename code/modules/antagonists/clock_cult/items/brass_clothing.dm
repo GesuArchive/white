@@ -141,7 +141,7 @@
 	. = ..()
 	if(wearer && is_servant_of_ratvar(wearer))
 		to_chat(user, span_nezbere("Моим глазам становится лучше."))
-		addtimer(CALLBACK(wearer, /mob/living.proc/adjustOrganLoss, ORGAN_SLOT_EYES, -applied_eye_damage), 600)
+		addtimer(CALLBACK(wearer, TYPE_PROC_REF(/mob/living, adjustOrganLoss), ORGAN_SLOT_EYES, -applied_eye_damage), 600)
 		wearer = null
 		applied_eye_damage = 0
 		STOP_PROCESSING(SSobj, src)

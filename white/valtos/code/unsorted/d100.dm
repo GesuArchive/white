@@ -67,7 +67,7 @@
 				if (limb.body_part == HEAD || limb.body_part == CHEST)
 					continue
 				addtimer(CALLBACK(limb, TYPE_PROC_REF(/obj/item/bodypart, dismember)), timer)
-				addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(playsound), user, 'sound/effects/cartoon_pop.ogg', 70), timer)
+				addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), user, 'sound/effects/cartoon_pop.ogg', 70), timer)
 				addtimer(CALLBACK(user, TYPE_PROC_REF(/mob/living, spin), 4, 1), timer - 0.4 SECONDS)
 				timer += 5
 			user.unequip_everything()
@@ -88,7 +88,7 @@
 				if(i % 2)
 					user.gain_trauma(/datum/brain_trauma/magic/stalker, TRAUMA_RESILIENCE_ABSOLUTE)
 		if(4)
-			INVOKE_ASYNC(user, /atom/movable.proc/say, "Мяу!")
+			INVOKE_ASYNC(user, TYPE_PROC_REF(/atom/movable, say), "Мяу!")
 			user.set_species(/datum/species/human/felinid)
 			user.fully_replace_character_name(user.real_name, "Мяукалка")
 			user.fucking_anime_girl_noises_oh_nya = TRUE
@@ -146,7 +146,7 @@
 					if (limb.body_part == HEAD || limb.body_part == CHEST)
 						continue
 					addtimer(CALLBACK(limb, TYPE_PROC_REF(/obj/item/bodypart, dismember)), timer)
-					addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(playsound), user, 'sound/effects/cartoon_pop.ogg', 70), timer)
+					addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), user, 'sound/effects/cartoon_pop.ogg', 70), timer)
 					addtimer(CALLBACK(user, TYPE_PROC_REF(/mob/living, spin), 4, 1), timer - 0.4 SECONDS)
 					timer += 5
 				ADD_TRAIT(user, TRAIT_EMOTEMUTE, "d100")
@@ -555,7 +555,7 @@
 				var/obj/item/stack/telecrystal/TC = new(get_turf(user))
 				TC.amount = ROUND_UP(multiplier / 5)
 				user.equip_or_collect(TC)
-			SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, PROC_REF(minor_announce), "Капитан [user.real_name] на палубе!"))
+			SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(minor_announce), "Капитан [user.real_name] на палубе!"))
 		if(91)
 			for(var/type in subtypesof(/obj/item/antag_spawner/nuke_ops/borg_tele))
 				new type(get_turf(user))

@@ -174,7 +174,7 @@ GLOBAL_VAR(clockcult_eminence)
 		msg = sanitize(msg)
 	if(sender)
 		if(say)
-			INVOKE_ASYNC(sender, /atom/movable.proc/say, "#[text2ratvar(msg)]")
+			INVOKE_ASYNC(sender, TYPE_PROC_REF(/atom/movable, say), "#[text2ratvar(msg)]")
 		msg = sender.treat_message(msg)
 		var/datum/antagonist/servant_of_ratvar/SoR = is_servant_of_ratvar(sender)
 		var/prefix = "Механический брат"

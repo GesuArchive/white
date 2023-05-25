@@ -78,7 +78,7 @@
 		var/suicided = FALSE
 		if(lastattackermob == src)
 			suicided = TRUE
-			INVOKE_ASYNC(GLOBAL_PROC, PROC_REF(inc_metabalance), src, METACOIN_PROB_SUICIDE_REWARD, TRUE, "Это было очень глупо.")
+			INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(inc_metabalance), src, METACOIN_PROB_SUICIDE_REWARD, TRUE, "Это было очень глупо.")
 		deadchat_broadcast(" [suicided ? "совершает суицид" : "погибает"] в локации <b>[get_area_name(T)]</b>.", "<b>[mind.name]</b>", follow_target = src, turf_target = T, message_type=DEADCHAT_DEATHRATTLE)
 		if(SSlag_switch.measures[DISABLE_DEAD_KEYLOOP] && !client?.holder)
 			to_chat(src, span_deadsay(span_big("Свободный обзор ограничен.\nОрбитируйте, Телепортируйтесь, и Прыгайте вместо этого.")))

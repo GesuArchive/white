@@ -154,7 +154,7 @@ component_cell_out_of_charge/component_cell_removed proc using loc where necessa
 		to_chat(user, span_notice("You remove [inserted_cell] from [equipment]!"))
 		playsound(equipment, 'sound/weapons/magout.ogg', 40, TRUE)
 		inserted_cell.forceMove(get_turf(equipment))
-		INVOKE_ASYNC(user, /mob/living.proc/put_in_hands, inserted_cell)
+		INVOKE_ASYNC(user, TYPE_PROC_REF(/mob/living, put_in_hands), inserted_cell)
 		inserted_cell = null
 		if(on_cell_removed)
 			on_cell_removed.Invoke()

@@ -155,9 +155,9 @@
 				return
 			M.visible_message(span_warning("[user] отрывает крохотный листик от жезла и помещает в рот [M], тело начинает биться в конвульсиях!"))
 			M.do_jitter_animation(10)
-			addtimer(CALLBACK(M, /mob/living/carbon.proc/do_jitter_animation, 10), 40)
-			addtimer(CALLBACK(M, /mob/living/carbon.proc/do_jitter_animation, 10), 80)
-			addtimer(CALLBACK(M, /mob/living.proc/revive, FALSE, FALSE, 10), 79)
+			addtimer(CALLBACK(M, TYPE_PROC_REF(/mob/living/carbon, do_jitter_animation), 10), 40)
+			addtimer(CALLBACK(M, TYPE_PROC_REF(/mob/living/carbon, do_jitter_animation), 10), 80)
+			addtimer(CALLBACK(M, TYPE_PROC_REF(/mob/living, revive), FALSE, FALSE, 10), 79)
 			..()
 		else
 			if(last_used_peace + 100 < world.time)

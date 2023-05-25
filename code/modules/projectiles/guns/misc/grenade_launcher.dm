@@ -81,7 +81,7 @@
 			else
 				detonation_delay = 15
 
-	addtimer(CALLBACK(F, /obj/item/grenade.proc/detonate), detonation_delay)
+	addtimer(CALLBACK(F, TYPE_PROC_REF(/obj/item/grenade, detonate)), detonation_delay)
 
 	semicd = TRUE
 	addtimer(CALLBACK(src, PROC_REF(reset_semicd)), fire_delay)

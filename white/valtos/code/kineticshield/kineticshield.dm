@@ -46,7 +46,7 @@
 	SIGNAL_HANDLER
 	if(!ison || our_powercell?.charge < 200 || target == user)
 		return
-	INVOKE_ASYNC(gun_fired, /obj/item/gun.proc/process_fire, user, user, TRUE, params, zone_override)
+	INVOKE_ASYNC(gun_fired, TYPE_PROC_REF(/obj/item/gun, process_fire), user, user, TRUE, params, zone_override)
 	return COMSIG_GUN_FIRED_CANCEL
 
 /obj/item/kinetic_shield/attack_hand(mob/user)

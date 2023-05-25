@@ -284,7 +284,7 @@
 /obj/item/grown/novaflower/Initialize(mapload, obj/item/seeds/new_seed)
 	. = ..()
 	force = round((5 + seed.potency / 5), 1)
-	AddElement(/datum/element/plant_backfire, /obj/item/grown/novaflower.proc/singe_holder)
+	AddElement(/datum/element/plant_backfire, TYPE_PROC_REF(/obj/item/grown/novaflower, singe_holder))
 
 /obj/item/grown/novaflower/attack(mob/living/carbon/M, mob/user)
 	if(!..())
@@ -352,7 +352,7 @@
 
 /obj/item/food/grown/rose/Initialize(mapload, obj/item/seeds/new_seed)
 	. = ..()
-	AddElement(/datum/element/plant_backfire, /obj/item/food/grown/rose.proc/prick_holder, list(TRAIT_PIERCEIMMUNE))
+	AddElement(/datum/element/plant_backfire, TYPE_PROC_REF(/obj/item/food/grown/rose, prick_holder), list(TRAIT_PIERCEIMMUNE))
 
 /obj/item/food/grown/rose/proc/prick_holder(mob/living/carbon/user)
 	if(!seed.get_gene(/datum/plant_gene/trait/sticky) && prob(66))

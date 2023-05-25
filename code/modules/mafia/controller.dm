@@ -389,9 +389,9 @@
 		if(D.id != "mafia") //so as to not trigger shutters on station, lol
 			continue
 		if(close)
-			INVOKE_ASYNC(D, /obj/machinery/door/poddoor.proc/close)
+			INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door/poddoor, close))
 		else
-			INVOKE_ASYNC(D, /obj/machinery/door/poddoor.proc/open)
+			INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door/poddoor, open))
 
 /**
  * The actual start of night for players. Mostly info is given at the start of the night as the end of the night is when votes and actions are submitted and tried.
@@ -544,7 +544,7 @@
 		var/mob/living/carbon/human/H = new(get_turf(role.assigned_landmark))
 		H.equipOutfit(player_outfit)
 		H.status_flags |= GODMODE
-		RegisterSignal(H,COMSIG_ATOM_UPDATE_OVERLAYS,.proc/display_votes)
+		RegisterSignal(H,COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(display_votes))
 		var/datum/action/innate/mafia_panel/mafia_panel = new(null,src)
 		mafia_panel.Grant(H)
 		var/client/player_client = GLOB.directory[role.player_key]

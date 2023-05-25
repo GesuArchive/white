@@ -116,7 +116,7 @@
 	var/explosives_trigged = 0
 	for(var/obj/item/grenade/exploration/exploration in linked_explosives)
 		if(get_dist(exploration.target, user) <= range)
-			addtimer(CALLBACK(exploration, /obj/item/grenade/exploration.proc/detonate), 10)
+			addtimer(CALLBACK(exploration, TYPE_PROC_REF(/obj/item/grenade/exploration, detonate)), 10)
 			explosives_trigged ++
 	to_chat(user, span_notice("[explosives_trigged] зарядов было активировано."))
 

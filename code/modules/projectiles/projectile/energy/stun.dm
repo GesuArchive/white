@@ -37,7 +37,7 @@
 			C.say(pick(";ААААААРГХ!", ";УАААААААААХ!", ";ГРРРРРРРРРРРРРРХ!", "НЫЫЫЫЫЫЫЫЫЫАААХ!", ";РЫЫЫЫЫЫЫЫЫЫЫЫЫРХ!" ), forced = "hulk")
 		else if((C.status_flags & CANKNOCKDOWN) && !HAS_TRAIT(C, TRAIT_STUNIMMUNE))
 			C.emote("agony")
-			addtimer(CALLBACK(C, /mob/living/carbon.proc/do_jitter_animation, jitter), 5)
+			addtimer(CALLBACK(C, TYPE_PROC_REF(/mob/living/carbon, do_jitter_animation), jitter), 5)
 
 
 /obj/projectile/energy/electrode/on_range() //to ensure the bolt sparks when it reaches the end of its range if it didn't hit a target yet

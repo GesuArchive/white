@@ -224,7 +224,7 @@
 			return
 
 		var/display_rows = max(CEILING(length(R.module.get_inactive_modules()) / 8, 1),1)
-		R.robot_modules_background.screen_loc = "CENTER-4:16,BOTTOM+1:7 to CENTER+3:16,BOTTOM+[display_rows]:7"
+		R.robot_modules_background.screen_loc = "CENTER-4:16,SOUTH+1:7 to CENTER+3:16,SOUTH+[display_rows]:7"
 		screenmob.client.screen += R.robot_modules_background
 
 		var/x = -4	//Start at CENTER-4,SOUTH+1
@@ -234,9 +234,9 @@
 			//Module is not currently active
 			screenmob.client.screen += A
 			if(x < 0)
-				A.screen_loc = "CENTER[x]:16,BOTTOM+[y]:7"
+				A.screen_loc = "CENTER[x]:16,SOUTH+[y]:7"
 			else
-				A.screen_loc = "CENTER+[x]:16,BOTTOM+[y]:7"
+				A.screen_loc = "CENTER+[x]:16,SOUTH+[y]:7"
 			SET_PLANE_IMPLICIT(A, ABOVE_HUD_PLANE)
 
 			x++

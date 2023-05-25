@@ -289,7 +289,7 @@
 	I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 	if(L)
 		L.Hear(message, src, L.get_random_understood_language(), message)
-		INVOKE_ASYNC(GLOBAL_PROC, /.proc/flick_overlay, I, list(L.client), 30)
+		INVOKE_ASYNC(GLOBAL_PROC, TYPE_PROC_REF(/, flick_overlay), I, list(L.client), 30)
 	sleep(10)
 	animate(src, transform = matrix()*0.75, time = 5)
 	QDEL_IN(src, 30)
@@ -574,7 +574,7 @@
 /atom/movable/screen/fullscreen/labeb
 	icon = 'white/valtos/icons/ruzone_went_up.dmi'
 	plane = SPLASHSCREEN_PLANE
-	screen_loc = "CENTER-7,BOTTOM"
+	screen_loc = "CENTER-7,SOUTH"
 	icon_state = ""
 
 /obj/item/reagent_containers/pill/labebium

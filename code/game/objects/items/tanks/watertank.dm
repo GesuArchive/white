@@ -297,7 +297,7 @@
 		resin.throw_at(target, 30, 2, user)
 		resin.active = 1
 		resin.icon_state = initial(resin.icon_state) + "_active"
-		addtimer(CALLBACK(resin, /obj/item/grenade.proc/detonate), 5)
+		addtimer(CALLBACK(resin, TYPE_PROC_REF(/obj/item/grenade, detonate)), 5)
 		return
 
 /*

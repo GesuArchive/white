@@ -34,62 +34,62 @@
 	Therefore, the top right corner (except during admin shenanigans) is at "15,15"
 */
 
-/proc/ui_hand_position(i, retro = TRUE) //values based on old hand ui positions (CENTER:-/+16,BOTTOM:5)
+/proc/ui_hand_position(i, retro = TRUE) //values based on old hand ui positions (CENTER:-/+16,SOUTH:5)
 	var/x_off = -(!(i % 2))
 	var/y_off = round((i-1) / 2)
 	if(!retro)
 		if(i > 2)
-			return "CENTER+[x_off + 1],BOTTOM+[y_off - 1]"
-		return "bottom:LEFT+[x_off + 10],BOTTOM"
-	return "CENTER+[x_off]:16,BOTTOM+[y_off]:5"
+			return "CENTER+[x_off + 1],SOUTH+[y_off - 1]"
+		return "bottom:LEFT+[x_off + 10],SOUTH"
+	return "CENTER+[x_off]:16,SOUTH+[y_off]:5"
 
 /proc/ui_equip_position(mob/M, retro = TRUE)
 	var/y_off = round((M.held_items.len-1) / 2) //values based on old equip ui position (CENTER: +/-16,BOTTOM+1:5)
-	return "CENTER:-[retro ? 16 : 0],BOTTOM+[y_off + retro]:[retro ? 5 : 0]"
+	return "CENTER:-[retro ? 16 : 0],SOUTH+[y_off + retro]:[retro ? 5 : 0]"
 
 /proc/ui_swaphand_position(mob/M, which = 1, retro = TRUE) //values based on old swaphand ui positions (CENTER: +/-16,BOTTOM+1:5)
 	var/x_off = which == 1 ? -1 : 0
 	var/y_off = round((M.held_items.len-1) / 2)
-	return "CENTER+[x_off]:[retro ? 16 : 32],BOTTOM+[y_off + retro]:[retro ? 5 : 0]"
+	return "CENTER+[x_off]:[retro ? 16 : 32],SOUTH+[y_off + retro]:[retro ? 5 : 0]"
 
 //Lower left, persistent menu
-#define UI_INVENTORY "LEFT+3,BOTTOM"
+#define UI_INVENTORY "LEFT+3,SOUTH"
 
 //Middle left indicators
 #define UI_LINGCHEMDISPLAY  "LEFT,CENTER-1:15"
 #define UI_LINGSTINGDISPLAY "LEFT:6,CENTER-3:11"
 
 //Lower center, persistent menu
-#define UI_SSTORE1  "bottom:LEFT+7,BOTTOM"
-#define UI_ID 		"bottom:LEFT+13,BOTTOM"
-#define UI_BELT 	"bottom:LEFT+6,BOTTOM"
-#define UI_BACK 	"bottom:LEFT+8,BOTTOM"
-#define UI_STORAGE1 "bottom:LEFT+11,BOTTOM"
-#define UI_STORAGE2 "bottom:LEFT+12,BOTTOM"
+#define UI_SSTORE1  "bottom:LEFT+7,SOUTH"
+#define UI_ID 		"bottom:LEFT+13,SOUTH"
+#define UI_BELT 	"bottom:LEFT+6,SOUTH"
+#define UI_BACK 	"bottom:LEFT+8,SOUTH"
+#define UI_STORAGE1 "bottom:LEFT+11,SOUTH"
+#define UI_STORAGE2 "bottom:LEFT+12,SOUTH"
 #define UI_COMBO 	"hud:LEFT,TOP-11:22" //combo meter for martial arts
 
 //Pop-up inventory
-#define UI_SHOES 	 "bottom:LEFT,BOTTOM"
-#define UI_ICLOTHING "bottom:LEFT+1,BOTTOM"
-#define UI_OCLOTHING "bottom:LEFT+2,BOTTOM"
-#define UI_GLOVES 	 "bottom:LEFT+3,BOTTOM"
-#define UI_GLASSES 	 "LEFT+1,BOTTOM"
-#define UI_MASK 	 "bottom:LEFT+4,BOTTOM"
-#define UI_EARS 	 "LEFT+2,BOTTOM"
-#define UI_NECK 	 "LEFT,BOTTOM"
-#define UI_HEAD 	 "bottom:LEFT+5,BOTTOM"
+#define UI_SHOES 	 "bottom:LEFT,SOUTH"
+#define UI_ICLOTHING "bottom:LEFT+1,SOUTH"
+#define UI_OCLOTHING "bottom:LEFT+2,SOUTH"
+#define UI_GLOVES 	 "bottom:LEFT+3,SOUTH"
+#define UI_GLASSES 	 "LEFT+1,SOUTH"
+#define UI_MASK 	 "bottom:LEFT+4,SOUTH"
+#define UI_EARS 	 "LEFT+2,SOUTH"
+#define UI_NECK 	 "LEFT,SOUTH"
+#define UI_HEAD 	 "bottom:LEFT+5,SOUTH"
 
 //Lower right, persistent menu
 #define UI_ABOVE_MOVEMENT "RIGHT-2:26,BOTTOM+1:7"
-#define UI_PULL 		 "bottom:RIGHT-1,BOTTOM"
-#define UI_REST 		 "bottom:RIGHT-2,BOTTOM"
-#define UI_RESIST 		 "bottom:RIGHT-1,BOTTOM:16"
-#define UI_THROW 		 "bottom:RIGHT,BOTTOM:16"
-#define UI_DROP 		 "bottom:RIGHT,BOTTOM"
-#define UI_MOVI 		 "bottom:RIGHT-2,BOTTOM:16"
-#define UI_ACTI 		 "hud:LEFT,BOTTOM"
+#define UI_PULL 		 "bottom:RIGHT-1,SOUTH"
+#define UI_REST 		 "bottom:RIGHT-2,SOUTH"
+#define UI_RESIST 		 "bottom:RIGHT-1,SOUTH:16"
+#define UI_THROW 		 "bottom:RIGHT,SOUTH:16"
+#define UI_DROP 		 "bottom:RIGHT,SOUTH"
+#define UI_MOVI 		 "bottom:RIGHT-2,SOUTH:16"
+#define UI_ACTI 		 "hud:LEFT,SOUTH"
 #define UI_ZONESEL 		 "hud:LEFT,TOP"
-#define UI_ACTI_ALT 	 "RIGHT-1:28,BOTTOM:5"	//alternative intent switcher for when the interface is hidden (F12)
+#define UI_ACTI_ALT 	 "RIGHT-1:28,SOUTH:5"	//alternative intent switcher for when the interface is hidden (F12)
 
 #define UI_PULL_ALIEN 	 "hud:LEFT,BOTTOM+1:16"
 #define UI_REST_ALIEN    "hud:LEFT,BOTTOM+2"
@@ -110,11 +110,11 @@
 #define UI_HEALTH 		 "hud:LEFT,TOP-8"
 #define UI_MOOD 		 "hud:LEFT,TOP-7"
 #define UI_SPACESUIT 	 "hud:LEFT,TOP-11"
-#define UI_FIXEYE 		 "bottom:RIGHT-3,BOTTOM"
+#define UI_FIXEYE 		 "bottom:RIGHT-3,SOUTH"
 #define UI_RELATIVE_TEMP "hud:LEFT,BOTTOM+2"
 
 //Generic living
-#define UI_LIVING_PULL 		 "hud:LEFT,BOTTOM"
+#define UI_LIVING_PULL 		 "hud:LEFT,SOUTH"
 #define UI_LIVING_HEALTHDOLL "hud:LEFT,TOP-10"
 
 //Drones
@@ -127,14 +127,14 @@
 #define UI_BORG_HEALTH 			"hud:LEFT:-3,TOP-8"
 #define UI_BORG_PULL 			"hud:LEFT,TOP-12"
 #define UI_BORG_RADIO 			"hud:LEFT,BOTTOM+1"
-#define UI_BORG_INTENTS 		"hud:LEFT,BOTTOM"
+#define UI_BORG_INTENTS 		"hud:LEFT,SOUTH"
 #define UI_BORG_LAMP 			"hud:LEFT,TOP-7"
 #define UI_BORG_TABLET 			"hud:LEFT,BOTTOM+2"
-#define UI_INV1 				"CENTER-2:16,BOTTOM:5"
-#define UI_INV2 				"CENTER-1:16,BOTTOM:5"
-#define UI_INV3 				"CENTER:16,BOTTOM:5"
-#define UI_BORG_MODULE 			"CENTER+1:16,BOTTOM:5"
-#define UI_BORG_STORE 			"CENTER+2:16,BOTTOM:5"
+#define UI_INV1 				"CENTER-2:16,SOUTH:5"
+#define UI_INV2 				"CENTER-1:16,SOUTH:5"
+#define UI_INV3 				"CENTER:16,SOUTH:5"
+#define UI_BORG_MODULE 			"CENTER+1:16,SOUTH:5"
+#define UI_BORG_STORE 			"CENTER+2:16,SOUTH:5"
 #define UI_BORG_CAMERA 			"hud:LEFT,BOTTOM+6"
 #define UI_BORG_ALERTS 			"hud:LEFT,BOTTOM+5"
 #define UI_BORG_LANGUAGE_MENU 	"hud:LEFT:16,BOTTOM+4:16"
@@ -166,8 +166,8 @@
 #define UI_AI_VIEW_IMAGES 	 "hud:LEFT,BOTTOM+3"
 #define UI_AI_SENSOR 		 "hud:LEFT,BOTTOM+2"
 #define UI_AI_MULTICAM 		 "hud:LEFT,BOTTOM+1"
-#define UI_AI_ADD_MULTICAM 	 "hud:LEFT,BOTTOM"
-#define UI_AI_LANGUAGE_MENU  "RIGHT:10,BOTTOM:4"
+#define UI_AI_ADD_MULTICAM 	 "hud:LEFT,SOUTH"
+#define UI_AI_LANGUAGE_MENU  "RIGHT:10,SOUTH:4"
 
 // pAI
 #define UI_PAI_SOFTWARE 	 "hud:LEFT,TOP"
@@ -183,12 +183,12 @@
 #define UI_PAI_INTERNAL_GPS  "hud:LEFT,BOTTOM+3"
 #define UI_PAI_TAKE_PICTURE  "hud:LEFT,BOTTOM+2"
 #define UI_PAI_VIEW_IMAGES 	 "hud:LEFT,BOTTOM+1"
-#define UI_PAI_RADIO 		 "hud:LEFT,BOTTOM"
+#define UI_PAI_RADIO 		 "hud:LEFT,SOUTH"
 #define UI_PAI_LANGUAGE_MENU "hud:LEFT:16,TOP-11"
 #define UI_PAI_NAVIGATE_MENU "hud:LEFT:16,TOP-12:16"
 
 //Ghosts
-#define UI_GHOST_JUMPTOMOB 		"hud:LEFT,BOTTOM"
+#define UI_GHOST_JUMPTOMOB 		"hud:LEFT,SOUTH"
 #define UI_GHOST_ORBIT 			"hud:LEFT,BOTTOM+1"
 #define UI_GHOST_REENTER_CORPSE "hud:LEFT,BOTTOM+2"
 #define UI_GHOST_TELEPORT 		"hud:LEFT,BOTTOM+3"
@@ -198,19 +198,19 @@
 #define UI_GHOST_MINIGAMES 		"hud:LEFT,BOTTOM+6"
 
 //1:1 HUD layout stuff
-#define UI_BOXCRAFT 			"bottom:RIGHT-3,BOTTOM:16"
-#define UI_BOXAREA 				"bottom:RIGHT-3:16,BOTTOM:16"
-#define UI_BOXLANG 				"bottom:RIGHT-4:16,BOTTOM:16"
+#define UI_BOXCRAFT 			"bottom:RIGHT-3,SOUTH:16"
+#define UI_BOXAREA 				"bottom:RIGHT-3:16,SOUTH:16"
+#define UI_BOXLANG 				"bottom:RIGHT-4:16,SOUTH:16"
 #define UI_MULTIZ_UP 			"hud:LEFT,BOTTOM+4:16"
-#define UI_MULTIZ_UP_HUMAN 		"bottom:RIGHT-4,BOTTOM:16"
+#define UI_MULTIZ_UP_HUMAN 		"bottom:RIGHT-4,SOUTH:16"
 #define UI_MULTIZ_UP_OBSERVER 	"hud:LEFT,BOTTOM+4"
 #define UI_MULTIZ_UP_AI 		"RIGHT:10,BOTTOM+1:12"
 #define UI_MULTIZ_DOWN 			"hud:LEFT,BOTTOM+4"
-#define UI_MULTIZ_DOWN_HUMAN 	"bottom:RIGHT-4,BOTTOM"
+#define UI_MULTIZ_DOWN_HUMAN 	"bottom:RIGHT-4,SOUTH"
 #define UI_MULTIZ_DOWN_OBSERVER "hud:LEFT:16,BOTTOM+4"
-#define UI_MULTIZ_DOWN_AI 		"RIGHT:10,BOTTOM:24"
+#define UI_MULTIZ_DOWN_AI 		"RIGHT:10,SOUTH:24"
 #define UI_EMOTES 				"hud:LEFT:16,BOTTOM+4"
-#define UI_EMOTES_HUMAN 		"bottom:RIGHT-4:16,BOTTOM"
+#define UI_EMOTES_HUMAN 		"bottom:RIGHT-4:16,SOUTH"
 #define UI_SKILLS 				"hud:LEFT,BOTTOM+3"
 
 //Blob
@@ -224,10 +224,10 @@
 #define UI_BLOB_RESOURCES 	 "hud:LEFT,TOP-7"
 #define UI_BLOB_READAPT 	 "hud:LEFT,TOP-8"
 #define UI_BLOB_RELOCATE 	 "hud:LEFT,TOP-9"
-#define UI_BLOB_JUMP_TO_NODE "hud:LEFT,BOTTOM"
+#define UI_BLOB_JUMP_TO_NODE "hud:LEFT,SOUTH"
 
 //Blobbernauts
-#define UI_BLOBBERNAUT_OVERMIND_HEALTH "hud:LEFT,BOTTOM"
+#define UI_BLOBBERNAUT_OVERMIND_HEALTH "hud:LEFT,SOUTH"
 
 //Families
 #define UI_WANTED_LVL "TOP,11"

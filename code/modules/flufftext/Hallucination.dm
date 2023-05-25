@@ -1367,7 +1367,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			return
 		to_chat(target, span_userdanger("Падаю в пропасть!"))
 		target.Paralyze(40)
-		addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(to_chat), target, span_notice("Но тут удивительно не глубоко.")), 15)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), target, span_notice("Но тут удивительно не глубоко.")), 15)
 		QDEL_IN(src, 30)
 
 /obj/effect/hallucination/danger/anomaly
@@ -1422,7 +1422,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			fakemob = target //ever been so lonely you had to haunt yourself?
 		if(fakemob)
 			delay = rand(20, 50)
-			addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(to_chat), target, "<span class='deadsay'><b>Призрак [fakemob.name]</b> говорит, \"[pick("рест ин писс","пидорасы блять","ебать у тебя имя [target.first_name()]","красава","че, опять?","допрыгался",\
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), target, "<span class='deadsay'><b>Призрак [fakemob.name]</b> говорит, \"[pick("рест ин писс","пидорасы блять","ебать у тебя имя [target.first_name()]","красава","че, опять?","допрыгался",\
 				"я[prob(50)?" блять":""] ненавижу этих [pick("культистов", "триторов", "ревенантов", "пидорасов","людей","опухоидов","педалей","натуралов")]")]\"</span>"), delay)
 
 	addtimer(CALLBACK(src, PROC_REF(cleanup)), delay + rand(70, 90))

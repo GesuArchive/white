@@ -92,7 +92,7 @@
 
 /datum/action/boss/spinning_bronze/proc/tackle_that_mfer()
 	playsound(boss, 'sound/weapons/sonic_jackhammer.ogg', 50, TRUE)
-	boss.throw_at(chosen_target, 7, 1.1, src, FALSE, FALSE, CALLBACK(GLOBAL_PROC, PROC_REF(playsound), boss, 'sound/effects/meteorimpact.ogg', 50, TRUE, 2), INFINITY)
+	boss.throw_at(chosen_target, 7, 1.1, src, FALSE, FALSE, CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), boss, 'sound/effects/meteorimpact.ogg', 50, TRUE, 2), INFINITY)
 	sleep(4 SECONDS)
 	boss.mid_ability = FALSE
 

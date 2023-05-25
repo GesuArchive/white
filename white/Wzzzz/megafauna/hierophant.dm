@@ -634,7 +634,7 @@
 		if(H.beacon == src)
 			to_chat(user, span_notice("You start removing your hierophant beacon..."))
 			H.timer = world.time + 51
-			INVOKE_ASYNC(H, /obj/item/hierophant_club.proc/prepare_icon_update)
+			INVOKE_ASYNC(H, TYPE_PROC_REF(/obj/item/hierophant_club, prepare_icon_update))
 			if(do_after(user, 50, target = src))
 				playsound(src,'sound/magic/blind.ogg', 200, 1, -4)
 				new /obj/effect/temp_visual/hierophant/telegraph/teleport(get_turf(src), user)
@@ -644,7 +644,7 @@
 				qdel(src)
 			else
 				H.timer = world.time
-				INVOKE_ASYNC(H, /obj/item/hierophant_club.proc/prepare_icon_update)
+				INVOKE_ASYNC(H, TYPE_PROC_REF(/obj/item/hierophant_club, prepare_icon_update))
 		else
 			to_chat(user, span_hierophant_warning("You touch the beacon with the club, but nothing happens."))
 	else

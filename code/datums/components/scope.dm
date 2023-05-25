@@ -58,7 +58,7 @@
 
 	if(!tracker?.given_turf || target == get_target(tracker.given_turf))
 		return NONE
-	INVOKE_ASYNC(source, /obj/item/gun.proc/fire_gun, get_target(tracker.given_turf), user)
+	INVOKE_ASYNC(source, TYPE_PROC_REF(/obj/item/gun, fire_gun), get_target(tracker.given_turf), user)
 	return COMPONENT_CANCEL_GUN_FIRE
 
 /datum/component/scope/proc/on_examine(datum/source, mob/user, list/examine_list)
@@ -114,8 +114,8 @@
 	tracker.range_modifier = range_modifier
 	tracker.marksman = user
 	tracker.view_list = getviewsize(user.client.view)
-	tracker.RegisterSignal(user, COMSIG_MOVABLE_MOVED, /atom/movable/screen/fullscreen/scope.proc/on_move)
-	tracker.RegisterSignal(user, COMSIG_VIEWDATA_UPDATE, /atom/movable/screen/fullscreen/scope.proc/on_viewdata_update)
+	tracker.RegisterSignal(user, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/atom/movable/screen/fullscreen/scope, on_move))
+	tracker.RegisterSignal(user, COMSIG_VIEWDATA_UPDATE, TYPE_PROC_REF(/atom/movable/screen/fullscreen/scope, on_viewdata_update))
 	tracker.calculate_params()
 	RegisterSignal(user, COMSIG_MOB_SWAP_HANDS, PROC_REF(stop_zooming))
 	START_PROCESSING(SSprojectiles, src)

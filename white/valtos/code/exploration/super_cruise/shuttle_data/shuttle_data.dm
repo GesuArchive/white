@@ -197,7 +197,7 @@
 				to_chat(C, "<span class='danger'>Кажется реактор сейчас рванёт...</span>")
 		//Cause the big boom
 		//this shit is broken
-		//addtimer(CALLBACK(src, .proc/destroy_ship, M), 140)
+		//addtimer(CALLBACK(src, PROC_REF(destroy_ship), M), 140)
 
 /datum/shuttle_data/proc/destroy_ship(obj/docking_port/mobile/M)
 	set waitfor = FALSE

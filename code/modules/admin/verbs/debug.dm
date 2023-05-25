@@ -47,7 +47,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	if(ishuman(M))
 		log_admin("[key_name(src)] has robotized [M.key].")
 		var/mob/living/carbon/human/H = M
-		INVOKE_ASYNC(H, /mob/living/carbon/human.proc/Robotize)
+		INVOKE_ASYNC(H, TYPE_PROC_REF(/mob/living/carbon/human, Robotize))
 
 	else
 		tgui_alert(usr,"Invalid mob")

@@ -110,7 +110,7 @@
 	LE.firer = source
 	LE.def_zone = ran_zone(source.zone_selected)
 	LE.preparePixelProjectile(target, source, modifiers)
-	INVOKE_ASYNC(LE, /obj/projectile.proc/fire)
+	INVOKE_ASYNC(LE, TYPE_PROC_REF(/obj/projectile, fire))
 	playsound(source, 'sound/weapons/taser2.ogg', 75, TRUE)
 	source.adjust_nutrition(-1)
 	source.hydration = source.hydration - 1

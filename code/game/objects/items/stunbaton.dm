@@ -339,7 +339,7 @@
 			baton_effect(hit_atom)
 		var/mob/thrown_by = thrownby?.resolve()
 		if(thrown_by && !caught)
-			addtimer(CALLBACK(src, /atom/movable.proc/throw_at, thrown_by, throw_range+2, throw_speed, null, TRUE), 1)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom/movable, throw_at), thrown_by, throw_range+2, throw_speed, null, TRUE), 1)
 	else
 		return ..()
 

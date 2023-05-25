@@ -32,7 +32,7 @@
 	if(!istype(user.gloves, /obj/item/clothing/gloves/color/yellow))
 		user.Paralyze(100)
 		playsound(user.loc, 'sound/weapons/taserhit.ogg', 50, TRUE)
-		addtimer(CALLBACK(user, /mob/living/carbon.proc/do_jitter_animation, 20), 5)
+		addtimer(CALLBACK(user, TYPE_PROC_REF(/mob/living/carbon, do_jitter_animation), 20), 5)
 		visible_message(span_warning("<b>[user.name]</b> ловит разряд тока от стансферы!") , \
 						span_userdanger("Ай!!!"))
 

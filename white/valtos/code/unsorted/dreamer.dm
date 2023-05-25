@@ -162,7 +162,7 @@ GLOBAL_LIST_INIT(dreamer_current_recipe, get_random_organ_list(5))
 		fuckfloorlist += turf_img
 
 		if(our_dreamer?.client)
-			addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(remove_image_from_client), turf_img, our_dreamer.client), ttd * 2, TIMER_STOPPABLE)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_image_from_client), turf_img, our_dreamer.client), ttd * 2, TIMER_STOPPABLE)
 
 	our_dreamer.setStaminaLoss(0)
 	our_dreamer.setOxyLoss(0)

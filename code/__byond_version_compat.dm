@@ -27,7 +27,7 @@
 #define LIBCALL call_ext
 #endif
 
-// So we want to have compile time guarantees these procs exist on local type, unfortunately 515 killed the .proc/procname syntax so we have to use nameof()
+// So we want to have compile time guarantees these procs exist on local type, unfortunately 515 killed the PROC_REF(procname) syntax so we have to use nameof()
 #if DM_VERSION < 515
 /// Call by name proc reference, checks if the proc exists on this type or as a global proc
 #define PROC_REF(X) (.proc/##X)

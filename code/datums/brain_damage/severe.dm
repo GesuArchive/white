@@ -185,7 +185,7 @@
 				to_chat(owner, span_warning("Мне плохо..."))
 			else
 				to_chat(owner, span_warning("Мне правда плохо от одиночества!"))
-			addtimer(CALLBACK(owner, /mob/living/carbon.proc/vomit, high_stress), 50) //blood vomit if high stress
+			addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob/living/carbon, vomit), high_stress), 50) //blood vomit if high stress
 		if(2)
 			if(!high_stress)
 				to_chat(owner, span_warning("Не могу перестать шататься..."))

@@ -633,7 +633,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool/bar, 0)
 			if (prob(1))
 				L_occupant.gain_trauma_type(BRAIN_TRAUMA_SPECIAL)
 			L_occupant.emote("agony")
-			addtimer(CALLBACK(L_occupant, /mob/living/carbon.proc/do_jitter_animation, 20), 5)
+			addtimer(CALLBACK(L_occupant, TYPE_PROC_REF(/mob/living/carbon, do_jitter_animation), 20), 5)
 			charge += 1
 			use_power(active_power_usage)
 			sleep(30)

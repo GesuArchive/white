@@ -35,7 +35,7 @@ GLOBAL_LIST_INIT(medicine_reagents, build_medicine_reagents())
 /datum/chemical_reaction/randomized
 
 	//Increase default leniency because these are already hard enough
-	optimal_ph_min = 1 
+	optimal_ph_min = 1
 	optimal_ph_max = 13
 	temp_exponent_factor = 0
 	ph_exponent_factor = 1
@@ -92,16 +92,16 @@ GLOBAL_LIST_INIT(medicine_reagents, build_medicine_reagents())
 	if(randomize_req_temperature)
 		is_cold_recipe = pick(TRUE,FALSE)
 		if(is_cold_recipe)
-			required_temp = rand(min_temp+50, max_temp) 
-			optimal_temp = rand(min_temp+25, required_temp-10) 
+			required_temp = rand(min_temp+50, max_temp)
+			optimal_temp = rand(min_temp+25, required_temp-10)
 			overheat_temp = rand(min_temp, optimal_temp-10)
 			if(overheat_temp >= 200) //Otherwise it can disappear when you're mixing and I don't want this to happen here
 				overheat_temp = 200
 			if(exo_or_endothermic)
 				thermic_constant = (rand(-200, 200))
 		else
-			required_temp = rand(min_temp, max_temp-50) 
-			optimal_temp = rand(required_temp+10, max_temp-25) 
+			required_temp = rand(min_temp, max_temp-50)
+			optimal_temp = rand(required_temp+10, max_temp-25)
 			overheat_temp = rand(optimal_temp, max_temp+50)
 			if(overheat_temp <= 400)
 				overheat_temp = 400
@@ -272,7 +272,7 @@ GLOBAL_LIST_INIT(medicine_reagents, build_medicine_reagents())
 	if(SSpersistence.initialized)
 		UpdateInfo()
 	else
-		SSticker.OnRoundstart(CALLBACK(src,.proc/UpdateInfo))
+		SSticker.OnRoundstart(CALLBACK(src, PROC_REF(UpdateInfo)))
 
 /obj/item/paper/secretrecipe/proc/UpdateInfo()
 	var/datum/chemical_reaction/recipe = get_chemical_reaction(recipe_id)

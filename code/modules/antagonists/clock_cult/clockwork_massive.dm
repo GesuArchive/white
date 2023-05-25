@@ -102,7 +102,7 @@ GLOBAL_LIST_INIT(clockwork_portals, list())
 	for(var/datum/mind/M in GLOB.servants_of_ratvar)
 		SEND_SOUND(M.current, s)
 		to_chat(M, span_big_brass("Ковчег активирован, скоро нас заберут!"))
-	addtimer(CALLBACK(GLOBAL_PROC, PROC_REF(hierophant_message), "Призывайте \"Механическое вооружение\", используя механизм, чтобы получить мощную броню и оружие.", "Незбере", "nezbere", FALSE, FALSE), 10)
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(hierophant_message), "Призывайте \"Механическое вооружение\", используя механизм, чтобы получить мощную броню и оружие.", "Незбере", "nezbere", FALSE, FALSE), 10)
 	addtimer(CALLBACK(src, PROC_REF(announce_gateway)), 300)
 	addtimer(CALLBACK(src, PROC_REF(recall_sound)), 270)
 

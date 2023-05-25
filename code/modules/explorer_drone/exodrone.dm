@@ -234,10 +234,10 @@ GLOBAL_LIST_EMPTY(exodrone_launchers)
 
 /obj/item/exodrone/proc/start_adventure(datum/adventure/adventure)
 	current_adventure = adventure
-	RegisterSignal(current_adventure,COMSIG_ADVENTURE_FINISHED,.proc/resolve_adventure)
-	RegisterSignal(current_adventure,COMSIG_ADVENTURE_QUALITY_INIT,.proc/add_tool_qualities)
-	RegisterSignal(current_adventure,COMSIG_ADVENTURE_DELAY_START,.proc/adventure_delay_start)
-	RegisterSignal(current_adventure,COMSIG_ADVENTURE_DELAY_END,.proc/adventure_delay_end)
+	RegisterSignal(current_adventure,COMSIG_ADVENTURE_FINISHED, PROC_REF(resolve_adventure))
+	RegisterSignal(current_adventure,COMSIG_ADVENTURE_QUALITY_INIT, PROC_REF(add_tool_qualities))
+	RegisterSignal(current_adventure,COMSIG_ADVENTURE_DELAY_START, PROC_REF(adventure_delay_start))
+	RegisterSignal(current_adventure,COMSIG_ADVENTURE_DELAY_END, PROC_REF(adventure_delay_end))
 	set_status(EXODRONE_ADVENTURE)
 	current_adventure.start_adventure()
 

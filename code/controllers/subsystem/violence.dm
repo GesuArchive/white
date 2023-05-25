@@ -315,7 +315,7 @@ SUBSYSTEM_DEF(violence)
 		var/image/I = image('icons/mob/talk.dmi', H, "default2", FLY_LAYER)
 		SET_PLANE(I, ABOVE_GAME_PLANE, H)
 		I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
-		INVOKE_ASYNC(GLOBAL_PROC, /.proc/flick_overlay, I, speech_bubble_recipients, 30)
+		INVOKE_ASYNC(GLOBAL_PROC, TYPE_PROC_REF(/, flick_overlay), I, speech_bubble_recipients, 30)
 
 /datum/controller/subsystem/violence/proc/someone_has_died(datum/source, mob/living/dead, gibbed)
 	SIGNAL_HANDLER
@@ -455,7 +455,7 @@ SUBSYSTEM_DEF(violence)
 	// исправляем свет
 	main_area.update_base_lighting()
 	for(var/obj/machinery/door/poddoor/D in main_area)
-		INVOKE_ASYNC(D, /obj/machinery/door/poddoor.proc/close)
+		INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door/poddoor, close))
 
 // новый раунд, отправляет всех в лобби и очищает арену
 /datum/controller/subsystem/violence/proc/new_round()
@@ -523,4 +523,4 @@ SUBSYSTEM_DEF(violence)
 			last_blues = LAZYLEN(blue_team)
 			play_sound_to_everyone('white/valtos/sounds/gong.ogg')
 			for(var/obj/machinery/door/poddoor/D in main_area)
-				INVOKE_ASYNC(D, /obj/machinery/door/poddoor.proc/open)
+				INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door/poddoor, open))

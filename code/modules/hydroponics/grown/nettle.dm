@@ -52,7 +52,7 @@
 /obj/item/food/grown/nettle/Initialize(mapload, obj/item/seeds/new_seed)
 	. = ..()
 	force = round((5 + seed.potency / 5), 1)
-	AddElement(/datum/element/plant_backfire, /obj/item/food/grown/nettle.proc/burn_holder, list(TRAIT_PIERCEIMMUNE))
+	AddElement(/datum/element/plant_backfire, TYPE_PROC_REF(/obj/item/food/grown/nettle, burn_holder), list(TRAIT_PIERCEIMMUNE))
 
 /obj/item/food/grown/nettle/suicide_act(mob/user)
 	user.visible_message(span_suicide("[user] ест [src]! Кажется, [user.p_theyre()] пытается покончить с собой!"))

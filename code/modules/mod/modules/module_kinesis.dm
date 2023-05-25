@@ -73,8 +73,8 @@
 	kinesis_catcher = mod.wearer.overlay_fullscreen("kinesis", /atom/movable/screen/fullscreen/kinesis, 0)
 	kinesis_catcher.kinesis_user = mod.wearer
 	kinesis_catcher.view_list = getviewsize(mod.wearer.client.view)
-	kinesis_catcher.RegisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED, /atom/movable/screen/fullscreen/kinesis.proc/on_move)
-	kinesis_catcher.RegisterSignal(mod.wearer, COMSIG_VIEWDATA_UPDATE, /atom/movable/screen/fullscreen/kinesis.proc/on_viewdata_update)
+	kinesis_catcher.RegisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/atom/movable/screen/fullscreen/kinesis, on_move))
+	kinesis_catcher.RegisterSignal(mod.wearer, COMSIG_VIEWDATA_UPDATE, TYPE_PROC_REF(/atom/movable/screen/fullscreen/kinesis, on_viewdata_update))
 	kinesis_catcher.calculate_params()
 	soundloop.start()
 	START_PROCESSING(SSfastprocess, src)

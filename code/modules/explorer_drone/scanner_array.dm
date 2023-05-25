@@ -199,7 +199,7 @@ GLOBAL_LIST_INIT(scan_conditions,init_scan_conditions())
 
 /obj/machinery/exoscanner/Initialize(mapload)
 	. = ..()
-	RegisterSignal(GLOB.exoscanner_controller,list(COMSIG_EXOSCAN_STARTED,COMSIG_EXOSCAN_FINISHED),.proc/scan_change)
+	RegisterSignal(GLOB.exoscanner_controller,list(COMSIG_EXOSCAN_STARTED,COMSIG_EXOSCAN_FINISHED), PROC_REF(scan_change))
 	update_readiness()
 
 /obj/machinery/exoscanner/proc/scan_change()
@@ -264,7 +264,7 @@ GLOBAL_LIST_INIT(scan_conditions,init_scan_conditions())
 	if(length(GLOB.exoscanner_controller.tracked_dishes) <= 0 || (target && GLOB.exoscanner_controller.get_scan_power(target) <= 0))
 		return
 	current_scan = new(scan_type,target)
-	RegisterSignal(current_scan,COMSIG_PARENT_QDELETING,.proc/cleanup_current_scan)
+	RegisterSignal(current_scan,COMSIG_PARENT_QDELETING, PROC_REF(cleanup_current_scan))
 	SEND_SIGNAL(src,COMSIG_EXOSCAN_STARTED,current_scan)
 	return current_scan
 

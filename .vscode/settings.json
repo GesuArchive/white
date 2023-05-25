@@ -29,5 +29,5 @@
 		"editor.rulers": [80]
 	},
 	"Lua.diagnostics.enable": false,
-	"dreammaker.debugServerDll": "debug_server.dll"
+	"dreammaker.debugServerDll": "debug_server.dll.disabled"
 }
