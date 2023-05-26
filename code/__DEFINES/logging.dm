@@ -57,4 +57,24 @@
 #define INDIVIDUAL_SHOW_ALL_LOG	(LOG_ATTACK | LOG_SAY | LOG_WHISPER | LOG_EMOTE | LOG_DSAY | LOG_PDA | LOG_CHAT | LOG_COMMENT | LOG_TELECOMMS | LOG_OOC | LOG_ADMIN | LOG_OWNERSHIP | LOG_GAME | LOG_LOOC | LOG_ADMIN_PRIVATE | LOG_ASAY | LOG_MECHA | LOG_VIRUS | LOG_CLONING | LOG_SHUTTLE | LOG_ECON | LOG_VICTIM | LOG_SPEECH_INDICATORS)
 
 #define LOGSRC_CLIENT "Client"
+#define LOGSRC_CKEY "Ckey"
 #define LOGSRC_MOB "Mob"
+
+// Log header keys
+#define LOG_HEADER_CATEGORY "category"
+#define LOG_HEADER_INIT_TIMESTAMP "timestamp"
+#define LOG_HEADER_ROUND_ID "round_id"
+
+// Log data keys
+#define LOG_ENTRY_MESSAGE "message"
+#define LOG_ENTRY_TIMESTAMP "timestamp"
+#define LOG_ENTRY_DATA "data"
+
+// Log json keys
+#define LOG_JSON_CATEGORY "category"
+#define LOG_JSON_ENTRIES "entries"
+#define LOG_JSON_LOGGING_START "log_start"
+
+// Log categories
+#define LOG_CATEGORY_NOT_FOUND "invalid_category"
+#define LOG_CATEGORY_TARGET_ZONE_SWITCH "target_zone_switch"

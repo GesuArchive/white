@@ -3,6 +3,75 @@
 GLOBAL_VAR(restart_counter)
 
 /**
+ * WORLD INITIALIZATION
+ * THIS IS THE INIT ORDER:
+ *
+ * BYOND =>
+ * - (secret init native) =>
+ *   - world.Genesis() =>
+ *     - world.init_byond_tracy()
+ *     - (Start native profiling)
+ *     - world.init_debugger()
+ *     - Master =>
+ *       - config *unloaded
+ *       - (all subsystems) PreInit()
+ *       - GLOB =>
+ *         - make_datum_reference_lists()
+ *   - (/static variable inits, reverse declaration order)
+ * - (all pre-mapped atoms) /atom/New()
+ * - world.New() =>
+ *   - config.Load()
+ *   - world.ConfigLoaded() =>
+ *     - SSdbcore.InitializeRound()
+ *     - world.SetupLogs()
+ *     - load_admins()
+ *     - ...
+ *   - Master.Initialize() =>
+ *     - (all subsystems) Initialize()
+ *     - Master.StartProcessing() =>
+ *       - Master.Loop() =>
+ *         - Failsafe
+ *   - world.RunUnattendedFunctions()
+ *
+ * Now listen up because I want to make something clear:
+ * If something is not in this list it should almost definitely be handled by a subsystem Initialize()ing
+ * If whatever it is that needs doing doesn't fit in a subsystem you probably aren't trying hard enough tbhfam
+ *
+ * GOT IT MEMORIZED?
+ * - Dominion/Cyberboss
+ */
+
+/**
+ * THIS !!!SINGLE!!! PROC IS WHERE ANY FORM OF INIITIALIZATION THAT CAN'T BE PERFORMED IN MASTER/NEW() IS DONE
+ * NOWHERE THE FUCK ELSE
+ * I DON'T CARE HOW MANY LAYERS OF DEBUG/PROFILE/TRACE WE HAVE, YOU JUST HAVE TO DEAL WITH THIS PROC EXISTING
+ * I'M NOT EVEN GOING TO TELL YOU WHERE IT'S CALLED FROM BECAUSE I'M DECLARING THAT FORBIDDEN KNOWLEDGE
+ * SO HELP ME GOD IF I FIND ABSTRACTION LAYERS OVER THIS!
+ */
+/world/proc/Genesis(tracy_initialized = FALSE)
+	RETURN_TYPE(/datum/controller/master)
+
+#ifdef USE_BYOND_TRACY
+#warn USE_BYOND_TRACY is enabled
+	if(!tracy_initialized)
+		init_byond_tracy()
+		Genesis(tracy_initialized = TRUE)
+		return
+#endif
+
+	Profile(PROFILE_RESTART)
+	Profile(PROFILE_RESTART, type = "sendmaps")
+
+	// Write everything to this log file until we get to SetupLogs() later
+	_initialize_log_files("data/logs/config_error.[GUID()].log")
+
+	// Init the debugger first so we can debug Master
+	init_debugger()
+
+	// THAT'S IT, WE'RE DONE, THE. FUCKING. END.
+	Master = new
+
+/**
  * World creation
  *
  * Here is where a round itself is actually begun and setup.
@@ -37,45 +106,53 @@ GLOBAL_VAR(restart_counter)
 
 	log_world("World loaded at [time_stamp()]!")
 
-	make_datum_references_lists()	//initialises global lists for referencing frequently used datums (so that we only ever do it once)
+	// From a really fucking old commit (91d7150)
+	// I wanted to move it but I think this needs to be after /world/New is called but before any sleeps?
+	// - Dominion/Cyberboss
+	GLOB.timezoneOffset = text2num(time2text(0,"hh")) * 36000
 
-	GLOB.config_error_log = GLOB.world_manifest_log = GLOB.world_pda_log = GLOB.world_job_debug_log = GLOB.sql_error_log = GLOB.world_href_log = GLOB.world_runtime_log = GLOB.world_attack_log = GLOB.world_game_log = GLOB.world_econ_log = GLOB.world_shuttle_log = "data/logs/config_error.[GUID()].log" //temporary file used to record errors with loading config, moved to log directory once logging is set bl
-
-	GLOB.revdata = new
+	// First possible sleep()
 
 	config.Load(params[OVERRIDE_CONFIG_DIRECTORY_PARAMETER])
 
-	load_admins()
-
-	//SetupLogs depends on the RoundID, so lets check
-	//DB schema and set RoundID if we can
-	SSdbcore.CheckSchemaVersion()
-	SSdbcore.SetRoundID()
-	SetupLogs()
-	load_poll_data()
-
-	populate_gear_list()
-
-#ifndef USE_CUSTOM_ERROR_HANDLER
-	world.log = file("[GLOB.log_directory]/dd.log")
-#endif
-
-	LoadVerbs(/datum/verbs/menu)
-
-	load_whitelist()
-
-	load_whitelist_exrp()
-
-	GLOB.timezoneOffset = text2num(time2text(0,"hh")) * 36000
-
-	if(fexists(RESTART_COUNTER_PATH))
-		GLOB.restart_counter = text2num(trim(file2text(RESTART_COUNTER_PATH)))
-		fdel(RESTART_COUNTER_PATH)
+	ConfigLoaded()
 
 	if(NO_INIT_PARAMETER in params)
 		return
 
 	Master.Initialize(10, FALSE, TRUE)
+
+	RunUnattendedFunctions()
+
+/// Runs after config is loaded but before Master is initialized
+/world/proc/ConfigLoaded()
+	// Everything in here is prioritized in a very specific way.
+	// If you need to add to it, ask yourself hard if what your adding is in the right spot
+	// (i.e. basically nothing should be added before load_admins() in here)
+
+	// Try to set round ID
+	SSdbcore.InitializeRound()
+
+	SetupLogs()
+
+	populate_gear_list()
+
+	load_admins()
+
+	load_poll_data()
+
+	load_whitelist()
+
+	load_whitelist_exrp()
+
+	LoadVerbs(/datum/verbs/menu)
+
+	if(fexists(RESTART_COUNTER_PATH))
+		GLOB.restart_counter = text2num(trim(file2text(RESTART_COUNTER_PATH)))
+		fdel(RESTART_COUNTER_PATH)
+
+/// Runs after the call to Master.Initialize, but before the delay kicks in. Used to turn the world execution into some single function then exit
+/world/proc/RunUnattendedFunctions()
 
 	#ifdef UNIT_TESTS
 	HandleTestRun()
@@ -121,58 +198,7 @@ GLOBAL_VAR(restart_counter)
 		GLOB.picture_logging_prefix = "O_[override_dir]_"
 		GLOB.picture_log_directory = "data/picture_logs/[override_dir]"
 
-	GLOB.dynamic_log = "[GLOB.log_directory]/dynamic.log"
-	GLOB.world_game_log = "[GLOB.log_directory]/game.log"
-	GLOB.world_mecha_log = "[GLOB.log_directory]/mecha.log"
-	GLOB.world_mob_tag_log = "[GLOB.log_directory]/mob_tags.log"
-	GLOB.world_virus_log = "[GLOB.log_directory]/virus.log"
-	GLOB.world_cloning_log = "[GLOB.log_directory]/cloning.log"
-	GLOB.world_asset_log = "[GLOB.log_directory]/asset.log"
-	GLOB.world_attack_log = "[GLOB.log_directory]/attack.log"
-	GLOB.world_econ_log = "[GLOB.log_directory]/econ.log"
-	GLOB.world_pda_log = "[GLOB.log_directory]/pda.log"
-	GLOB.world_telecomms_log = "[GLOB.log_directory]/telecomms.log"
-	GLOB.world_speech_indicators_log = "[GLOB.log_directory]/speech_indicators.log"
-	GLOB.world_manifest_log = "[GLOB.log_directory]/manifest.log"
-	GLOB.world_href_log = "[GLOB.log_directory]/hrefs.log"
-	GLOB.sql_error_log = "[GLOB.log_directory]/sql.log"
-	GLOB.world_qdel_log = "[GLOB.log_directory]/qdel.log"
-	GLOB.world_map_error_log = "[GLOB.log_directory]/map_errors.log"
-	GLOB.world_runtime_log = "[GLOB.log_directory]/runtime.log"
-	GLOB.query_debug_log = "[GLOB.log_directory]/query_debug.log"
-	GLOB.world_job_debug_log = "[GLOB.log_directory]/job_debug.log"
-	GLOB.world_paper_log = "[GLOB.log_directory]/paper.log"
-	GLOB.tgui_log = "[GLOB.log_directory]/tgui.log"
-
-	GLOB.world_shuttle_log = "[GLOB.log_directory]/shuttle.log"
-	GLOB.world_silicon_log = "[GLOB.log_directory]/silicon.log"
-	GLOB.world_mechcomp_log = "[GLOB.log_directory]/mechcomp.log"
-	GLOB.world_exrp_log = "[GLOB.log_directory]/exrp.log"
-	GLOB.world_uplink_log = "[GLOB.log_directory]/uplink.log"
-	GLOB.world_tool_log = "[GLOB.log_directory]/tools.log"
-	GLOB.world_suspicious_login_log = "[GLOB.log_directory]/suspicious_logins.log"
-
-	GLOB.lua_log = "[GLOB.log_directory]/lua.log"
-
-#ifdef UNIT_TESTS
-	GLOB.test_log = "[GLOB.log_directory]/tests.log"
-	start_log(GLOB.test_log)
-#endif
-	start_log(GLOB.world_game_log)
-	start_log(GLOB.world_attack_log)
-	start_log(GLOB.world_econ_log)
-	start_log(GLOB.world_pda_log)
-	start_log(GLOB.world_telecomms_log)
-	start_log(GLOB.world_manifest_log)
-	start_log(GLOB.world_href_log)
-	start_log(GLOB.world_qdel_log)
-	start_log(GLOB.world_runtime_log)
-	start_log(GLOB.world_job_debug_log)
-	start_log(GLOB.world_uplink_log)
-	start_log(GLOB.tgui_log)
-	start_log(GLOB.world_shuttle_log)
-	start_log(GLOB.world_mechcomp_log)
-	start_log(GLOB.world_exrp_log)
+	GLOB.logger.init_logging()
 
 	GLOB.changelog_hash = md5(file2text("data/changelog.json")) //for telling if the changelog has changed recently
 	if(fexists(GLOB.config_error_log))
@@ -181,6 +207,10 @@ GLOBAL_VAR(restart_counter)
 
 	if(GLOB.round_id)
 		log_game("Round ID: [GLOB.round_id]")
+
+#ifndef USE_CUSTOM_ERROR_HANDLER
+	world.log = file("[GLOB.log_directory]/dd.log")
+#endif
 
 /world/Topic(T, addr, master, key)
 	var/static/list/topic_handlers = TopicHandlers()
@@ -404,3 +434,26 @@ var/list/extra_resources = list(\
 	'html/zkr.ttf',
 )
 
+
+/world/proc/init_byond_tracy()
+	var/library
+	switch (system_type)
+		if (MS_WINDOWS)
+			library = "prof.dll"
+		if (UNIX)
+			library = "libprof.so"
+		else
+			CRASH("Unsupported platform: [system_type]")
+	var/init_result = LIBCALL(library, "init")("block")
+	if (init_result != "0")
+		CRASH("Error initializing byond-tracy: [init_result]")
+
+/world/proc/init_debugger()
+	var/dll = GetConfig("env", "AUXTOOLS_DEBUG_DLL")
+	if (dll)
+		LIBCALL(dll, "auxtools_init")()
+		enable_debugging()
+
+/world/Profile(command, type, format)
+	if((command & PROFILE_STOP) || !global.config?.loaded)
+		. = ..()

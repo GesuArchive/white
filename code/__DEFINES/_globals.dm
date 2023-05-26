@@ -21,10 +21,10 @@
 #endif
 
 /// Standard BYOND global, do not use
-#define GLOBAL_REAL_VAR(X) var/global/##X
+#define GLOBAL_REAL_VAR(X) var/global/##X;
 
 /// Standard typed BYOND global, do not use
-#define GLOBAL_REAL(X, Typepath) var/global##Typepath/##X
+#define GLOBAL_REAL(X, Typepath) var/global##Typepath/##X;
 
 /// Defines a global var on the controller, do not use
 #define GLOBAL_RAW(X) /datum/controller/global_vars/var/global##X

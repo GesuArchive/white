@@ -54,9 +54,9 @@
 		//Generic Buttons anyone can use.
 		if("admin_log")
 			var/dat = "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'><B>Admin Log<HR></B>"
-			for(var/l in GLOB.admin_log)
+			for(var/l in GLOB.admin_activities)
 				dat += "<li>[l]</li>"
-			if(!GLOB.admin_log.len)
+			if(!GLOB.admin_activities.len)
 				dat += "No-one has done anything this round!"
 			holder << browse(dat, "window=admin_log")
 		if("mentor_log")
