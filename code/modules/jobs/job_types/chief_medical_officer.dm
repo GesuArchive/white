@@ -42,6 +42,8 @@
 	rpg_title = "High Cleric"
 	rpg_title_ru = "Высший Клерик"
 
+	allow_new_players = FALSE
+
 /datum/job/chief_medical_officer/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	..()
 	if(announce_captaincy)

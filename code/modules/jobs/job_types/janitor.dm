@@ -27,8 +27,6 @@
 	rpg_title = "Groundskeeper"
 	rpg_title_ru = "Хранитель земель"
 
-	allow_new_players = TRUE
-
 /datum/outfit/job/janitor
 	name = JOB_JANITOR
 	jobtype = /datum/job/janitor

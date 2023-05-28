@@ -25,8 +25,6 @@
 	rpg_title = "Magistrate"
 	rpg_title_ru = "Магистрат"
 
-	allow_new_players = TRUE
-
 /datum/outfit/job/lawyer
 	name = JOB_LAWYER
 	jobtype = /datum/job/lawyer

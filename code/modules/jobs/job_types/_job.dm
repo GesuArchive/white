@@ -91,7 +91,7 @@
 
 	var/list/whitelisted = list()
 
-	var/allow_new_players = FALSE
+	var/allow_new_players = TRUE
 
 /datum/job/New()
 	. = ..()

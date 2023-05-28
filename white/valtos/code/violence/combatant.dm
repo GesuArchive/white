@@ -57,8 +57,6 @@
 	outfit = /datum/outfit/job/combantant
 	antag_rep = 0
 
-	allow_new_players = TRUE
-
 /datum/job/combantant/red
 	title = JOB_COMBATANT_RED
 	faction = "Violence"

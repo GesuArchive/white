@@ -36,6 +36,8 @@
 	rpg_title = "Archmagister"
 	rpg_title_ru = "Архимагистр"
 
+	allow_new_players = FALSE
+
 /datum/job/research_director/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	..()
 	if(announce_captaincy)

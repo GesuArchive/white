@@ -35,6 +35,8 @@
 	rpg_title = "Star Duke"
 	rpg_title_ru = "Звездный герцог"
 
+	allow_new_players = FALSE
+
 /datum/job/captain/announce(mob/living/carbon/human/H, announce_captaincy = TRUE)
 	..()
 	if(announce_captaincy)

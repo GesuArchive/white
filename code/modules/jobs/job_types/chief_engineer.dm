@@ -44,6 +44,8 @@
 	rpg_title = "Head Crystallomancer"
 	rpg_title_ru = "Старший Кристалломант"
 
+	allow_new_players = FALSE
+
 /datum/job/chief_engineer/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	..()
 	if(announce_captaincy)

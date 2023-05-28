@@ -19,8 +19,6 @@
 
 	metalocked = TRUE
 
-	allow_new_players = TRUE
-
 /datum/job/bomj/override_latejoin_spawn(mob/living/carbon/human/H)
 	H.forceMove(pick(GLOB.disposal_bins))
 	return TRUE

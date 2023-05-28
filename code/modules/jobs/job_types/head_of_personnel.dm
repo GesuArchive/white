@@ -37,6 +37,8 @@
 	rpg_title = "Guild Questgiver"
 	rpg_title_ru = "Квестодатель гильдии"
 
+	allow_new_players = FALSE
+
 /datum/job/head_of_personnel/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	..()
 	if(announce_captaincy)

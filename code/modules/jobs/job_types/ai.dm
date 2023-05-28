@@ -19,6 +19,8 @@
 		/datum/job_department/silicon,
 	)
 
+	allow_new_players = FALSE
+
 /datum/job/ai/equip(mob/living/carbon/human/H, visualsOnly, announce, latejoin, datum/outfit/outfit_override, client/preference_source = null)
 	if(visualsOnly)
 		CRASH("dynamic preview is unsupported")

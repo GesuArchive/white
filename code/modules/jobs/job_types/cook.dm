@@ -36,8 +36,6 @@
 		/obj/item/kitchen/knife/butcher = 2
 	)
 
-	allow_new_players = TRUE
-
 /datum/outfit/job/cook
 	name = JOB_COOK
 	jobtype = /datum/job/cook

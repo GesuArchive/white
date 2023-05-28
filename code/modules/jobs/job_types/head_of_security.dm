@@ -33,6 +33,8 @@
 	rpg_title = "Guard Leader"
 	rpg_title_ru = "Начальник стражи"
 
+	allow_new_players = FALSE
+
 /datum/job/head_of_security/announce(mob/living/carbon/human/H, announce_captaincy = FALSE)
 	..()
 	if(announce_captaincy)
