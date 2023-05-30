@@ -5,8 +5,6 @@
 /area/violence)
 "bR" = (
 /obj/structure/barricade/sandbags,
-/obj/structure/barricade/sandbags,
-/obj/structure/barricade/sandbags,
 /turf/open/floor/pod/dark,
 /area/violence)
 "bX" = (
@@ -68,7 +66,6 @@
 /turf/open/floor/pod/dark,
 /area/violence)
 "DB" = (
-/obj/structure/barricade/sandbags,
 /obj/structure/barricade/sandbags,
 /turf/open/floor/pod/dark,
 /area/violence)
