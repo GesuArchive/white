@@ -1,0 +1,137 @@
+"ac" = (/obj/effect/gibspawner/human,/obj/structure/headpike,/turf/open/floor/plasteel/tg/freezer,/area/violence)
+"aZ" = (/turf/closed/wall/rospilovo/beton,/area/violence)
+"bl" = (/obj/effect/turf_decal/box/red/corners{dir = 1},/turf/open/floor/rospilovo,/area/violence)
+"bM" = (/obj/effect/gibspawner/human,/turf/open/floor/plasteel/tg/freezer,/area/violence)
+"bW" = (/obj/structure/table/reinforced,/obj/item/food/strawberryicecreamsandwich,/turf/open/floor/plasteel/tg/freezer,/area/violence)
+"dG" = (/turf/open/floor/grass/gensgrass/dirty,/area/violence)
+"dP" = (/obj/structure/chair/wood,/turf/open/floor/wood/parquet,/area/violence)
+"dT" = (/obj/structure/window/reinforced/spawner,/turf/open/floor/wood/parquet,/area/violence)
+"iP" = (/obj/effect/turf_decal/tile/bar/half{dir = 8; color = "#ffffff"},/turf/open/floor/rospilovo,/area/violence)
+"iT" = (/obj/structure/window/reinforced/spawner{dir = 8},/turf/open/floor/wood/parquet,/area/violence)
+"jT" = (/obj/structure/closet/secure_closet/freezer/money,/turf/open/floor/wood/parquet,/area/violence)
+"jU" = (/obj/structure/window/reinforced/spawner{dir = 4},/turf/open/floor/wood/parquet,/area/violence)
+"lW" = (/obj/effect/turf_decal/tile/bar/half{dir = 1; color = "#ffffff"},/turf/closed/indestructible/black,/area/violence)
+"ma" = (/obj/structure/flora/tree/jungle/small,/turf/open/floor/grass,/area/violence)
+"mF" = (/obj/machinery/door/airlock/freezer,/obj/effect/mapping_helpers/airlock/access/all,/turf/open/floor/plasteel/tg/freezer,/area/violence)
+"nQ" = (/obj/item/target,/turf/open/floor/wood/parquet,/area/violence)
+"oP" = (/obj/structure/table/greyscale,/obj/machinery/reagentgrinder,/obj/machinery/reagentgrinder,/turf/open/floor/wood/parquet,/area/violence)
+"qU" = (/obj/structure/table/reinforced,/turf/open/floor/wood/parquet,/area/violence)
+"rr" = (/obj/structure/flora/tree/jungle,/turf/open/floor/grass,/area/violence)
+"rO" = (/obj/effect/mapping_helpers/airlock/access/all,/turf/open/floor/wood/parquet,/area/violence)
+"sy" = (/obj/structure/grille,/obj/effect/spawner/structure/window,/turf/open/floor/wood/parquet,/area/violence)
+"sD" = (/obj/effect/landmark/bomb_plant_location,/obj/effect/turf_decal/box/red,/turf/open/floor/rospilovo,/area/violence)
+"sY" = (/obj/effect/landmark/start/combatant/blue,/turf/open/floor/plasteel/tg/freezer,/area/violence)
+"tH" = (/turf/open/floor/plasteel/tg/freezer,/area/violence)
+"tZ" = (/obj/effect/turf_decal/tile/bar/half{dir = 4; color = "#ffffff"},/turf/open/floor/rospilovo,/area/violence)
+"uq" = (/turf/open/floor/beton,/area/violence)
+"wf" = (/obj/effect/gibspawner/human,/obj/item/bodypart/head,/turf/open/floor/plasteel/tg/freezer,/area/violence)
+"xs" = (/turf/closed/indestructible/black,/area/violence)
+"xF" = (/obj/structure/table/greyscale,/obj/machinery/reagentgrinder,/turf/open/floor/wood/parquet,/area/violence)
+"xW" = (/turf/open/floor/grass,/area/violence)
+"yC" = (/obj/machinery/light/streetlight,/turf/open/floor/beton,/area/violence)
+"yG" = (/turf/open/floor/rospilovo,/area/violence)
+"zH" = (/obj/structure/grille,/obj/effect/spawner/structure/window,/obj/machinery/door/poddoor/multi_tile/three_tile_ver,/turf/open/floor/wood/parquet,/area/violence)
+"AW" = (/obj/structure/table/greyscale,/obj/item/reagent_containers/food/condiment/enzyme,/turf/open/floor/wood/parquet,/area/violence)
+"Bd" = (/obj/machinery/door/window/brigdoor/eastright,/obj/effect/mapping_helpers/airlock/access/all,/turf/open/floor/wood/parquet,/area/violence)
+"Ch" = (/obj/structure/flora/tree/jungle,/turf/open/floor/grass/rospilovo,/area/violence)
+"Cz" = (/obj/structure/window/reinforced/spawner{dir = 1},/obj/structure/window/reinforced/spawner,/turf/open/floor/wood/parquet,/area/violence)
+"ES" = (/obj/machinery/light/streetlight,/turf/closed/indestructible/black,/area/violence)
+"Fl" = (/obj/effect/turf_decal/box,/turf/open/floor/beton,/area/violence)
+"Fo" = (/obj/structure/closet/secure_closet/freezer/meat,/turf/open/floor/wood/parquet,/area/violence)
+"Gc" = (/turf/closed/indestructible/alien{name = "Стена Симуляции"; invisibility = 1},/area/violence)
+"GC" = (/obj/structure/barricade/wooden,/turf/open/floor/wood/parquet,/area/violence)
+"Hv" = (/obj/effect/turf_decal/tile/bar/half{dir = 1; color = "#ffffff"},/turf/open/floor/rospilovo,/area/violence)
+"HH" = (/obj/effect/turf_decal/tile/bar/half{dir = 4; color = "#ffffff"},/turf/closed/indestructible/black,/area/violence)
+"HN" = (/turf/open/floor/grass/rospilovo,/area/violence)
+"JV" = (/obj/effect/landmark/start/combatant/red,/turf/open/floor/plasteel/tg/freezer,/area/violence)
+"Ke" = (/turf/closed/wall/rospilovo/bricks,/area/violence)
+"Kq" = (/obj/structure/table/reinforced,/turf/open/floor/plasteel/tg/freezer,/area/violence)
+"Kz" = (/obj/structure/grille,/obj/effect/spawner/structure/window,/obj/machinery/door/poddoor/multi_tile/three_tile_hor,/turf/open/floor/wood/parquet,/area/violence)
+"KH" = (/obj/structure/flora/tree/jungle,/turf/closed/indestructible/black,/area/violence)
+"KS" = (/obj/structure/closet/secure_closet/freezer/kitchen,/turf/open/floor/wood/parquet,/area/violence)
+"KZ" = (/obj/structure/table/wood,/obj/effect/spawner/random/contraband/armory,/turf/open/floor/wood/parquet,/area/violence)
+"Ls" = (/obj/effect/turf_decal/tile/bar/half{color = "#ffffff"},/turf/open/floor/rospilovo,/area/violence)
+"Lu" = (/obj/structure/table/wood,/turf/open/floor/wood/parquet,/area/violence)
+"Mx" = (/obj/machinery/door/airlock/glass_large,/obj/machinery/door/poddoor/multi_tile/two_tile_hor,/obj/effect/mapping_helpers/airlock/access/all,/turf/open/floor/wood/parquet,/area/violence)
+"MC" = (/obj/structure/table/greyscale,/obj/item/kitchen/knife,/turf/open/floor/wood/parquet,/area/violence)
+"NI" = (/obj/machinery/door/airlock/public/glass,/obj/effect/mapping_helpers/airlock/access/all,/turf/open/floor/wood/parquet,/area/violence)
+"Ok" = (/obj/structure/closet/secure_closet/freezer/fridge,/turf/open/floor/wood/parquet,/area/violence)
+"OS" = (/obj/structure/table/reinforced,/obj/item/food/icecreamsandwich,/turf/open/floor/plasteel/tg/freezer,/area/violence)
+"PU" = (/obj/structure/flora/tree/jungle/small,/turf/open/floor/rospilovo,/area/violence)
+"Qw" = (/obj/structure/table/greyscale,/obj/machinery/oven,/obj/item/plate/oven_tray,/turf/open/floor/wood/parquet,/area/violence)
+"RO" = (/obj/structure/window/reinforced/spawner,/obj/structure/window/reinforced/spawner{dir = 1},/turf/open/floor/wood/parquet,/area/violence)
+"Sy" = (/obj/structure/chair/wood{dir = 4},/turf/open/floor/wood/parquet,/area/violence)
+"SN" = (/obj/effect/turf_decal/box/red/corners{dir = 8},/turf/open/floor/rospilovo,/area/violence)
+"Uz" = (/obj/structure/chair/wood{dir = 1},/turf/open/floor/wood/parquet,/area/violence)
+"Vk" = (/obj/machinery/icecream_vat,/turf/open/floor/plasteel/tg/freezer,/area/violence)
+"Vl" = (/turf/open/floor/wood/parquet,/area/violence)
+"VI" = (/obj/structure/window/reinforced/spawner{dir = 1},/turf/open/floor/wood/parquet,/area/violence)
+"VU" = (/obj/effect/landmark/observer_start,/turf/open/floor/rospilovo,/area/violence)
+"We" = (/obj/effect/turf_decal/box/red/corners{dir = 4},/turf/open/floor/rospilovo,/area/violence)
+"Xy" = (/obj/machinery/door/window/brigdoor/security/cell/westright,/obj/effect/mapping_helpers/airlock/access/all,/turf/open/floor/wood/parquet,/area/violence)
+"YU" = (/obj/structure/table/greyscale,/obj/machinery/microwave,/turf/open/floor/wood/parquet,/area/violence)
+"Zg" = (/obj/structure/chair/wood{dir = 8},/turf/open/floor/wood/parquet,/area/violence)
+"ZF" = (/obj/effect/turf_decal/box/red/corners,/turf/open/floor/rospilovo,/area/violence)
+
+(1,1,1) = {"
+xsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsKHxsxsxsHHxsxsxsxsKHxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxs
+xsHNHNHNHNHNHNHNHNHNChHNHNHNHNHNChHNHNHNuququqxWyGyGyGyGyGyGyGyGxWuququqHNHNHNHNChHNHNHNHNHNHNHNHNHNHNChHNHNHNxs
+xsHNdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGuququqyCyGyGyGtZyGyGyGyGyCuququqdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGHNxs
+xsHNdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGuququqxWyGyGyGtZyGyGyGyGxWuququqdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGHNxs
+xsHNdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGuququqrryGyGyGyGyGyGyGyGrruququqdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGHNxs
+xsHNdGdGdGHNHNChHNHNHNHNChHNHNHNHNHNHNHNuququqxWyGyGyGtZyGyGyGyGxWuququqHNHNHNHNHNHNHNChHNHNHNHNHNHNHNdGdGdGHNxs
+xsChdGdGdGHNHNHNHNHNHNHNHNHNHNHNHNChHNHNuququqyCyGyGyGtZyGyGyGyGyCuququqHNChHNHNHNHNHNHNHNHNHNHNHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZaZaZaZaZaZaZaZaZaZaZaZGcGcGcGcGcGcGcGcGcGcGcGcGcGcGcGcaZaZaZaZaZaZaZaZaZaZaZaZHNChHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZVlVldPdPdPdPdPVlVlVlaZuququqrryGyGyGtZyGyGyGyGrruququqaZjTVlVlVlVlKeKqbWKqOSaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZVlSyLuLuLuKZLuZgVlVlaZuququqxWyGyGyGtZyGyGyGyGxWuququqaZVlQwVlQwVlKebWJVJVtHaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNChaZVlSyLuKZLuLuLuZgVlVlaZuququqyCyGyGyGyGyGyGyGyGyCuququqaZVlYUVlYUVlKeOSJVJVVkaZHNHNHNdGdGdGChxs
+xsHNdGdGdGHNHNHNaZVlVlUzUzUzUzUzVlVlVlaZuququqxWyGyGyGtZyGyGyGyGxWuququqaZVlAWVlAWVlKebWJVJVtHaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZVlVlVlVlVlVlVldPdPVlaZuququqrryGyGyGtZyGyGyGyGrruququqaZVlxFVlxFVlKeKqJVJVtHaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZKeKeNIKeKeKeSyLuLuZgaZuququqxWyGyGyGyGyGyGyGyGxWuququqaZVlMCVlMCVlKebWJVJVtHaZChHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZVlVlVlVlVlKeSyLuKZZgaZuququqyCyGyGyGtZyGyGyGyGyCuququqaZVlVlVlVlVlKeKeKetHtHaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZVIVICziTVlKeVlUzUzVlaZuququqxWyGyGyGtZyGyGyGyGxWuququqaZKSFoOkVlVlVlVlmFtHtHaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZnQVlqUVlVlKeKeKeKeKeaZuququqrryGyGyGyGyGyGyGyGrruququqaZKeKeKeKeKeKeVlKetHtHaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGChHNHNaZVlVlVIiTVlKeVlGCVlVlaZuququqxWyGyGyGtZyGyGyGyGxWuququqsydPVldPVlVlXyVlKetHtHaZHNHNHNdGdGdGChxs
+xsHNdGdGdGHNHNHNaZVlVldTiTVlKeVlLuVlVlaZuququqyCyGyGyGtZyGyGyGyGyCuququqsyLuVlLuVlVlLuVlKebMbMaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZnQVlqUVlVlKeVlLuVlVlNIuququqxWyGyGyGyGyGyGyGyGxWuququqzHUzVlUzVlVlLuVlKebMbMaZHNHNHNdGdGdGHNxs
+xsChdGdGdGHNHNHNaZVlVlVIiTVlVlVlLuVlVlNIuququqrryGyGyGtZyGyGyGyGrruququqaZVlVlVlVlVlLuVlKewfacaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZaZaZaZaZaZaZaZaZNINIaZuququqxWyGyGyGtZyGyGyGyGxWuququqaZaZMxrOaZKzsysyaZaZaZaZHNHNChdGdGdGHNxs
+xsuququququququqGcuquququququququququququququqFliPiPiPiPiPiPiPiPFluquququququququququququququqGcuququququququqxs
+xsuququququququqGcuquququququququququququququqFliPiPiPiPiPiPiPiPFluquququququququququququququqGcuququququququqxs
+xsuququququququqGcuquququququququququququququqFliPiPiPiPiPiPiPiPFluquququququququququququququqGcuququququququqxs
+ESxWrrxWyCxWrrxWGcxWrrxWyCxWrrxWyCxWrrxWFlFlFlmayGyGyGyGyGyGyGyGmaFlFlFlxWrrxWyCxWrrxWyCxWrrxWGcxWrrxWyCxWrrxWES
+xsyGyGyGyGyGyGyGGcyGyGyGyGyGyGyGyGyGyGyGLsLsLsyGyGyGyGtZyGyGyGyGyGHvHvHvyGyGyGyGyGyGyGyGyGyGyGGcyGyGyGyGyGyGyGxs
+xsyGyGyGyGyGyGyGGcyGyGyGyGyGyGyGyGyGyGyGLsLsLsyGyGyGyGtZyGyGyGyGyGHvHvHvyGyGyGyGyGyGyGyGyGyGyGGcyGyGyGyGyGyGyGxs
+xsyGyGyGyGyGyGyGGcyGyGyGyGyGyGyGyGyGyGyGLsLsLsyGyGyGyGyGyGyGyGyGyGHvHvHvyGyGyGyGyGyGyGyGyGyGyGGcyGyGyGyGyGyGyGxs
+xsyGyGyGyGyGyGyGGcyGyGyGyGyGyGyGyGyGyGyGLsLsLsyGyGyGyGZFyGSNyGyGyGHvHvHvyGyGyGyGyGyGyGyGyGyGyGGcyGyGyGyGyGyGyGxs
+lWHvyGHvHvyGHvHvGcHvHvyGHvHvyGHvHvyGHvHvLsLsLsyGHvHvyGVUsDyGHvHvyGHvHvHvHvHvyGHvHvyGHvHvyGHvHvGcHvHvyGHvHvyGHvlW
+xsyGyGyGyGyGyGyGGcyGyGyGPUyGyGyGyGyGyGyGLsLsLsyGyGyGyGWeyGblyGyGyGHvHvHvyGyGyGyGyGyGyGyGyGyGyGGcyGyGyGyGyGyGyGxs
+xsyGyGyGyGyGyGyGGcyGyGyGyGyGyGyGyGyGyGyGLsLsLsyGyGyGyGtZyGyGyGyGyGHvHvHvyGyGyGyGyGyGyGyGyGyGyGGcyGyGyGyGyGyGyGxs
+xsyGyGyGyGyGyGyGGcyGyGyGyGyGyGyGyGyGyGyGLsLsLsyGyGyGyGtZyGyGyGyGyGHvHvHvyGyGyGyGyGyGyGyGyGyGyGGcyGyGyGyGyGyGyGxs
+ESxWrrxWyCxWrrxWGcxWrrxWyCxWrrxWyCxWrrxWFlFlFlmayGyGyGyGyGyGyGyGmaFlFlFlxWrrxWyCxWrrxWyCxWrrxWGcxWrrxWyCxWrrxWES
+xsuququququququqGcuquququququququququququququqFltZtZtZtZtZtZtZtZFluquququququququququququququqGcuququququququqxs
+xsuququququququqGcuquququququququququququququqFltZtZtZtZtZtZtZtZFluquququququququququququququqGcuququququququqxs
+xsuququququququqGcuquququququququququququququqFltZtZtZtZtZtZtZtZFluquququququququququququququqGcuququququququqxs
+xsHNdGdGdGHNHNHNaZaZaZaZKzsysyaZMxrOaZaZuququqxWyGyGyGtZyGyGyGyGxWuququqaZNINIaZaZaZaZaZaZaZaZaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZacwfKeVlLuVlVlVlVlVlaZuququqrryGyGyGtZyGyGyGyGrruququqNIVlVlLuVlVlVljUdTVlVlaZHNHNHNdGdGdGHNxs
+xsChdGdGdGHNChHNaZbMbMKeVlLuVlVldPVldPsyuququqxWyGyGyGyGyGyGyGyGxWuququqNIVlVlLuVlKeVlVlqUVlnQaZChHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZbMbMKeVlLuVlVlLuVlLusyuququqyCyGyGyGtZyGyGyGyGyCuququqaZVlVlLuVlKeVljUVIVlVlaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZtHtHKeVlBdVlVlUzVlUzzHuququqxWyGyGyGtZyGyGyGyGxWuququqaZVlVlGCVlKeVljUdTVlVlaZHNHNHNdGdGdGChxs
+xsHNdGdGdGHNHNHNaZtHtHKeVlKeKeKeKeKeKeaZuququqrryGyGyGyGyGyGyGyGrruququqaZKeKeKeKeKeVlVlqUVlnQaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNChaZtHtHmFVlVlVlVlOkFoKSaZuququqxWyGyGyGtZyGyGyGyGxWuququqaZVldPdPVlKeVljUROdTdTaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZtHtHKeKeKeVlVlVlVlVlaZuququqyCyGyGyGtZyGyGyGyGyCuququqaZSyKZLuZgKeVlVlVlVlVlaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZtHsYsYOSKeVlxFVloPVlaZuququqxWyGyGyGyGyGyGyGyGxWuququqaZSyLuLuZgKeKeKeNIKeKeaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZtHsYsYOSKeVlMCVlMCVlaZuququqrryGyGyGtZyGyGyGyGrruququqaZVlUzUzVlVlVlVlVlVlVlaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZtHsYsYKqKeVlAWVlAWVlaZuququqxWyGyGyGtZyGyGyGyGxWuququqaZVlVlVldPdPdPdPdPVlVlaZHNHNChdGdGdGHNxs
+xsHNdGdGdGHNChHNaZVksYsYbWKeVlYUVlYUVlaZuququqyCyGyGyGyGyGyGyGyGyCuququqaZVlVlSyLuLuLuKZLuZgVlaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZtHsYsYOSKeVlQwVlQwVlaZuququqxWyGyGyGtZyGyGyGyGxWuququqaZVlVlSyLuKZLuLuLuZgVlaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZbWOSKqbWKeVlVlVlVljTaZuququqrryGyGyGtZyGyGyGyGrruququqaZVlVlVlUzUzUzUzUzVlVlaZHNHNHNdGdGdGHNxs
+xsHNdGdGdGHNHNHNaZaZaZaZaZaZaZaZaZaZaZaZGcGcGcGcGcGcGcGcGcGcGcGcGcGcGcGcaZaZaZaZaZaZaZaZaZaZaZaZHNHNHNdGdGdGHNxs
+xsChdGdGdGHNChHNHNHNHNHNHNHNHNHNHNChHNHNuququqyCyGyGyGtZyGyGyGyGyCuququqHNHNChHNHNHNHNHNHNHNHNHNHNChHNdGdGdGChxs
+xsHNdGdGdGHNHNHNHNHNHNChHNHNHNHNHNHNHNHNuququqxWyGyGyGtZyGyGyGyGxWuququqHNHNHNHNHNHNHNHNHNChHNHNHNHNHNdGdGdGHNxs
+xsHNdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGuququqrryGyGyGyGyGyGyGyGrruququqdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGHNxs
+xsHNdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGuququqxWyGyGyGtZyGyGyGyGxWuququqdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGHNxs
+xsHNdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGuququqyCyGyGyGtZyGyGyGyGyCuququqdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGdGHNxs
+xsHNHNHNHNHNHNHNChHNHNHNHNHNHNHNHNHNHNHNuququqxWyGyGyGyGyGyGyGyGxWuququqHNHNHNChHNHNHNHNHNHNHNHNHNChHNHNHNHNHNxs
+xsxsxsxsxsxsxsxsxsxsxsxsxsxsxsKHxsxsxsxsxsxsxsKHxsxsxsHHxsxsxsxsKHxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxsxs
+"}

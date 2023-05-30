@@ -127,3 +127,39 @@
 	min_players = 16
 	max_players = 32
 	theme = VIOLENCE_THEME_CYBER
+
+/datum/map_template/violence/forestbor
+	name = "Лесной бор"
+	description = "Довольно просторная заруба в тематике леса, имеются баррикады."
+	mappath = "_maps/violence/violence14.dmm"
+	weight = 5
+	min_players = 16
+	max_players = 32
+	theme = VIOLENCE_THEME_STD
+
+/datum/map_template/violence/iwannaplayagame
+	name = "I wanna play a game"
+	description = "Ну типо карта. Там чёт есть. Даже есть укрытия. И дофига мешающего дерьма. Потому что тот, кто играет в вайленс, должен страдать."
+	mappath = "_maps/violence/violence15.dmm"
+	weight = 5
+	min_players = 32
+	max_players = 64
+	theme = VIOLENCE_THEME_STD
+
+/datum/map_template/violence/battleforsaratov
+	name = "Битва в Саратове"
+	description = "В центре карты находится многоквартирный дом, всего 8 комнат + \"Приватный\" Туалет. По углам есть грядки с семенами пшеницы, лужей воды и пустой бутылкой. Каждая комната обустроена под отдельного человека — Наркоман, Агент Синдиката, Виабушник, Людоед, Коммунист, Учëный, Программист и Культист. По карте расставлены мешки с песком и в некоторых комнатах находится рандомное оружие. Это мой первый опыт создания карт. Вдохновлялся Хотлайном, и квартирами в Халф Лайф 2."
+	mappath = "_maps/violence/violence16.dmm"
+	weight = 5
+	min_players = 32
+	max_players = 64
+	theme = VIOLENCE_THEME_HOTLINE
+
+/datum/map_template/violence/bottlewar
+	name = "Устранение Конкуренции"
+	description = "2 пекарни пытаются устранить конкурентов."
+	mappath = "_maps/violence/violence17.dmm"
+	weight = 5
+	min_players = 32
+	max_players = 64
+	theme = VIOLENCE_THEME_STD
