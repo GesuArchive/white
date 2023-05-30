@@ -13,6 +13,8 @@ SUBSYSTEM_DEF(violence)
 	var/current_round = 0
 	// лимит времени раунда
 	var/time_limit = 3 MINUTES
+	// лимит кончился
+	var/time_is_run_out = FALSE
 	// огонь по своим
 	var/friendlyfire = FALSE
 
@@ -61,7 +63,7 @@ SUBSYSTEM_DEF(violence)
 	var/losestreak_blues = 0
 
 	// выплата в каждом раунде и за убийство
-	var/payout = 50
+	var/payout = 75
 
 	// чёрных список предметов для сохранения
 	var/list/blacklisted_types = list(
@@ -180,9 +182,9 @@ SUBSYSTEM_DEF(violence)
 	// 2x урон всегда
 	CONFIG_SET(number/damage_multiplier, 2)
 	message_admins(span_nezbere("VM: 2x damage enabled!"))
-	// выбираем рандом, если не зафоршен режим
+	// выбираем рандом по весу, если не зафоршен режим
 	if(!playmode)
-		playmode = pick(list(VIOLENCE_PLAYMODE_TEAMFIGHT, VIOLENCE_PLAYMODE_BOMBDEF, VIOLENCE_PLAYMODE_TAG))
+		playmode = pick_weight(list(VIOLENCE_PLAYMODE_TEAMFIGHT = 80, VIOLENCE_PLAYMODE_BOMBDEF = 10, VIOLENCE_PLAYMODE_TAG = 10))
 	to_chat(world, leader_brass("Был выбран режим [playmode]!"))
 	// выключаем рандомные ивенты наверняка
 	CONFIG_SET(flag/allow_random_events, FALSE)
@@ -247,7 +249,13 @@ SUBSYSTEM_DEF(violence)
 		if(bomb_active)
 			return
 
-	if(time_limit <= 0)
+	// принуждаем торопиться
+	if(!time_is_run_out && time_limit <= 0)
+		to_chat(world, leader_brass("ВРЕМЯ НА ИСХОДЕ!"))
+		play_sound_to_everyone('white/valtos/sounds/notime.ogg')
+		time_is_run_out = TRUE
+
+	if(time_is_run_out)
 		if(bomb_planted && LAZYLEN(blue_team))
 			return
 
@@ -262,6 +270,11 @@ SUBSYSTEM_DEF(violence)
 		if(LAZYLEN(red_team) > LAZYLEN(blue_team))
 			end_round("КРАСНЫХ")
 			return
+
+		if(LAZYLEN(red_team) == LAZYLEN(blue_team))
+			for(var/mob/living/carbon/human/H in main_area)
+				// добиваем шутников
+				H.apply_damage(1, BRUTE, wound_bonus = 100, forced = TRUE, sharpness = pick(NONE, SHARP_EDGED, SHARP_POINTY))
 
 	if(LAZYLEN(red_team) == 0 && LAZYLEN(blue_team))
 		end_round("СИНИХ")
@@ -385,9 +398,13 @@ SUBSYSTEM_DEF(violence)
 	to_chat(world, leader_brass("Красные: [LAZYLEN(red_team)] | Синие: [LAZYLEN(blue_team)]"))
 
 /datum/controller/subsystem/violence/proc/update_timer()
-	time_limit -= 1 SECONDS
-	time_limit = max(0, time_limit)
-	var/formatted_time = time2text(time_limit, "mm:ss")
+	var/formatted_time = "XX:XX"
+	if(time_is_run_out)
+		formatted_time = pick("УБЕЙ!", "БЕГИ!", "ДАВИ!", "ААААА", "?????", "ДАВАЙ", "ЖМИ!", "НУ ЖЕ", "УМРИ!")
+	else
+		time_limit -= 1 SECONDS
+		time_limit = max(0, time_limit)
+		formatted_time = time2text(time_limit, "mm:ss")
 	for(var/mob/M in GLOB.player_list)
 		M?.hud_used?.timelimit?.update_info(formatted_time)
 
@@ -399,6 +416,7 @@ SUBSYSTEM_DEF(violence)
 	bomb_active = FALSE
 	bomb_planted = FALSE
 	time_limit = 3 MINUTES
+	time_is_run_out = FALSE
 	SSjob.SetJobPositions(/datum/job/combantant/red, 0, 0, TRUE)
 	SSjob.SetJobPositions(/datum/job/combantant/blue, 0, 0, TRUE)
 	switch(winner)

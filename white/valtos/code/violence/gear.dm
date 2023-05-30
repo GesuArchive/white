@@ -47,13 +47,13 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/melee/extinguisher
 	name = "Огнетушитель"
-	cost = 5
+	cost = 25
 	items = list(/obj/item/extinguisher)
 	allowed_themes = list(VIOLENCE_THEME_STD, VIOLENCE_THEME_WARFARE, VIOLENCE_THEME_HOTLINE)
 
 /datum/violence_gear/melee/rocket
 	name = "Перчатки ракеты"
-	cost = 50
+	cost = 65
 	items = list(/obj/item/clothing/gloves/tackler/rocket)
 	allowed_themes = list(VIOLENCE_THEME_STD, VIOLENCE_THEME_WARFARE, VIOLENCE_THEME_HOTLINE)
 
@@ -92,7 +92,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/pistol/handmade
 	name = "Самодельный"
-	cost = 100
+	cost = 200
 	items = list(
 		/obj/item/gun/ballistic/automatic/pistol/fallout/m9mm/handmade,
 		/obj/item/ammo_box/magazine/fallout/m9mm
@@ -101,7 +101,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/pistol/pistol45
 	name = "Пистолет"
-	cost = 175
+	cost = 250
 	items = list(
 		/obj/item/gun/ballistic/automatic/pistol/fallout/pistol45,
 		/obj/item/ammo_box/magazine/fallout/m45
@@ -110,7 +110,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/pistol/mateba
 	name = "Матеба"
-	cost = 225
+	cost = 500
 	items = list(
 		/obj/item/gun/ballistic/revolver/mateba,
 		/obj/item/ammo_box/a357
@@ -119,7 +119,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/pistol/deagle
 	name = "Пустынный орёл"
-	cost = 300
+	cost = 750
 	items = list(
 		/obj/item/gun/ballistic/automatic/pistol/deagle,
 		/obj/item/ammo_box/magazine/m50
@@ -128,7 +128,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/pistol/golden_eagle
 	name = "FTU PDH-6G"
-	cost = 600
+	cost = 1000
 	items = list(
 		/obj/item/gun/ballistic/automatic/pistol/golden_eagle,
 		/obj/item/ammo_box/magazine/mm12/saphe
@@ -140,7 +140,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle/HK416
 	name = "HK416"
-	cost = 300
+	cost = 450
 	items = list(
 		/obj/item/gun/ballistic/automatic/HK416,
 		/obj/item/ammo_box/magazine/HK416
@@ -149,7 +149,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle/c20r
 	name = "C-20r SMG"
-	cost = 350
+	cost = 475
 	items = list(
 		/obj/item/gun/ballistic/automatic/c20r/unrestricted,
 		/obj/item/ammo_box/magazine/smgm45
@@ -158,7 +158,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle/mp5
 	name = "MP5"
-	cost = 400
+	cost = 550
 	items = list(
 		/obj/item/gun/ballistic/automatic/mp5,
 		/obj/item/ammo_box/magazine/mp5
@@ -167,7 +167,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle/assaultrifle
 	name = "Штурмовая винтовка"
-	cost = 450
+	cost = 600
 	items = list(
 		/obj/item/gun/ballistic/automatic/fallout/assaultrifle,
 		/obj/item/ammo_box/magazine/fallout/r20
@@ -176,7 +176,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle/M41A
 	name = "M41A"
-	cost = 550
+	cost = 625
 	items = list(
 		/obj/item/gun/ballistic/automatic/M41A,
 		/obj/item/ammo_box/magazine/m41a
@@ -185,7 +185,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle/z8
 	name = "Z8"
-	cost = 650
+	cost = 800
 	items = list(
 		/obj/item/gun/ballistic/automatic/m90/unrestricted/z8,
 		/obj/item/ammo_box/magazine/a556carbine
@@ -194,7 +194,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle/r37
 	name = "Xan-Jing R37"
-	cost = 1450
+	cost = 1750
 	items = list(
 		/obj/item/gun/ballistic/automatic/pitbull/r37,
 		/obj/item/ammo_box/magazine/r37
@@ -203,7 +203,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/rifle/r40
 	name = "Xan-Jing R40"
-	cost = 1550
+	cost = 2500
 	items = list(
 		/obj/item/gun/ballistic/automatic/pitbull/r40,
 		/obj/item/ammo_box/magazine/r40
@@ -215,7 +215,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/shotgun/lethal
 	name = "Помповый дробовик"
-	cost = 150
+	cost = 250
 	items = list(
 		/obj/item/gun/ballistic/shotgun/lethal,
 		/obj/item/storage/box/lethalshot
@@ -224,7 +224,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/shotgun/lever
 	name = "Дезинтегратор"
-	cost = 175
+	cost = 300
 	items = list(
 		/obj/item/gun/ballistic/shotgun/fallout/lever,
 		/obj/item/storage/box/lethalshot
@@ -233,7 +233,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/shotgun/bulldog
 	name = "Bulldog"
-	cost = 250
+	cost = 325
 	items = list(
 		/obj/item/gun/ballistic/shotgun/bulldog/unrestricted,
 		/obj/item/ammo_box/magazine/m12g,
@@ -299,7 +299,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/armor/bulletproof
 	name = "Пуленепробиваемый"
-	cost = 350
+	cost = 450
 	items = list(
 		/obj/item/clothing/suit/armor/bulletproof/hecu,
 		/obj/item/clothing/mask/gas/heavy/gp7vm,
@@ -310,7 +310,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/armor/pcv
 	name = "PCV MARK II"
-	cost = 450
+	cost = 650
 	items = list(
 		/obj/item/clothing/suit/space/hev_suit/pcv,
 		/obj/item/clothing/gloves/combat,
@@ -322,7 +322,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/armor/deathsquad
 	name = "Дедушка"
-	cost = 600
+	cost = 900
 	items = list(
 		/obj/item/clothing/suit/space/hardsuit/deathsquad,
 		/obj/item/clothing/gloves/combat,
@@ -336,19 +336,19 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/shield/buckler
 	name = "Деревянный щит"
-	cost = 100
+	cost = 200
 	items = list(/obj/item/shield/riot/buckler)
 	allowed_themes = list(VIOLENCE_THEME_STD, VIOLENCE_THEME_WARFARE)
 
 /datum/violence_gear/shield/riot
 	name = "Крепкий щит"
-	cost = 150
+	cost = 300
 	items = list(/obj/item/shield/riot)
 	allowed_themes = list(VIOLENCE_THEME_STD, VIOLENCE_THEME_WARFARE)
 
 /datum/violence_gear/shield/kevlar
 	name = "Кевларовый щит"
-	cost = 300
+	cost = 600
 	items = list(/obj/item/shield/riot/kevlar)
 	allowed_themes = list(VIOLENCE_THEME_STD, VIOLENCE_THEME_WARFARE)
 
@@ -363,13 +363,13 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/misc/sunglasses
 	name = "Солнцезащитные"
-	cost = 35
+	cost = 30
 	items = list(/obj/item/clothing/glasses/sunglasses)
 	allowed_themes = list(VIOLENCE_THEME_STD, VIOLENCE_THEME_WARFARE, VIOLENCE_THEME_HOTLINE, VIOLENCE_THEME_KATANA, VIOLENCE_THEME_PORTAL)
 
 /datum/violence_gear/misc/wirecutters
 	name = "Кусачки"
-	cost = 40
+	cost = 35
 	items = list(/obj/item/wirecutters)
 
 /datum/violence_gear/misc/teargas
@@ -386,7 +386,7 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/misc/thermal
 	name = "Термалы"
-	cost = 1000
+	cost = 1250
 	items = list(/obj/item/clothing/glasses/hud/toggle/thermal)
 	allowed_themes = list(VIOLENCE_THEME_STD, VIOLENCE_THEME_WARFARE, VIOLENCE_THEME_HOTLINE, VIOLENCE_THEME_KATANA)
 
@@ -395,79 +395,79 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/ammo/m9mm
 	name = "П. Обойма 9mm"
-	cost = 50
+	cost = 25
 	items = list(/obj/item/ammo_box/magazine/fallout/m9mm)
 	allowed_themes = list(VIOLENCE_THEME_STD, VIOLENCE_THEME_WARFARE, VIOLENCE_THEME_HOTLINE)
 
 /datum/violence_gear/ammo/m45
 	name = "П. Обойма .45"
-	cost = 60
+	cost = 30
 	items = list(/obj/item/ammo_box/magazine/fallout/m45)
 	allowed_themes = list(VIOLENCE_THEME_STD, VIOLENCE_THEME_WARFARE, VIOLENCE_THEME_HOTLINE)
 
 /datum/violence_gear/ammo/a357
 	name = "П. Зарядник .357"
-	cost = 80
+	cost = 40
 	items = list(/obj/item/ammo_box/a357)
 	allowed_themes = list(VIOLENCE_THEME_STD, VIOLENCE_THEME_WARFARE, VIOLENCE_THEME_HOTLINE)
 
 /datum/violence_gear/ammo/m50
 	name = "П. Обойма .50ae"
-	cost = 100
+	cost = 50
 	items = list(/obj/item/ammo_box/magazine/m50)
 	allowed_themes = list(VIOLENCE_THEME_STD, VIOLENCE_THEME_WARFARE, VIOLENCE_THEME_HOTLINE)
 
 /datum/violence_gear/ammo/saphe
 	name = "П. Обойма 12.7x35mm"
-	cost = 600
+	cost = 300
 	items = list(/obj/item/ammo_box/magazine/mm12/saphe)
 	allowed_themes = list(VIOLENCE_THEME_KATANA)
 
 /datum/violence_gear/ammo/HK416
 	name = "А. Магазин HK416"
-	cost = 150
+	cost = 75
 	items = list(/obj/item/ammo_box/magazine/HK416)
 	allowed_themes = list(VIOLENCE_THEME_STD, VIOLENCE_THEME_WARFARE, VIOLENCE_THEME_HOTLINE)
 
 /datum/violence_gear/ammo/smgm45
 	name = "А. Магазин .45"
-	cost = 175
+	cost = 90
 	items = list(/obj/item/ammo_box/magazine/smgm45)
 	allowed_themes = list(VIOLENCE_THEME_STD, VIOLENCE_THEME_WARFARE, VIOLENCE_THEME_HOTLINE)
 
 /datum/violence_gear/ammo/MP5
 	name = "А. Магазин MP5"
-	cost = 200
+	cost = 100
 	items = list(/obj/item/ammo_box/magazine/mp5)
 	allowed_themes = list(VIOLENCE_THEME_STD, VIOLENCE_THEME_WARFARE, VIOLENCE_THEME_HOTLINE)
 
 /datum/violence_gear/ammo/r20
 	name = "А. Магазин 5.56mm"
-	cost = 225
+	cost = 125
 	items = list(/obj/item/ammo_box/magazine/fallout/r20)
 	allowed_themes = list(VIOLENCE_THEME_STD, VIOLENCE_THEME_WARFARE, VIOLENCE_THEME_HOTLINE)
 
 /datum/violence_gear/ammo/m41a
 	name = "А. Магазин 4.6x30mm"
-	cost = 275
+	cost = 175
 	items = list(/obj/item/ammo_box/magazine/m41a)
 	allowed_themes = list(VIOLENCE_THEME_STD, VIOLENCE_THEME_WARFARE, VIOLENCE_THEME_HOTLINE)
 
 /datum/violence_gear/ammo/a556carbine
 	name = "А. Магазин 6.8mm"
-	cost = 325
+	cost = 150
 	items = list(/obj/item/ammo_box/magazine/a556carbine)
 	allowed_themes = list(VIOLENCE_THEME_STD, VIOLENCE_THEME_WARFARE, VIOLENCE_THEME_HOTLINE)
 
 /datum/violence_gear/ammo/r37
 	name = "А. Магазин 6.5mm"
-	cost = 630
+	cost = 315
 	items = list(/obj/item/ammo_box/magazine/r37)
 	allowed_themes = list(VIOLENCE_THEME_KATANA)
 
 /datum/violence_gear/ammo/r40
 	name = "А. Магазин 7.2mm"
-	cost = 700
+	cost = 350
 	items = list(/obj/item/ammo_box/magazine/r40)
 	allowed_themes = list(VIOLENCE_THEME_KATANA)
 
@@ -476,48 +476,42 @@ GLOBAL_LIST_EMPTY(violence_gear_datums)
 
 /datum/violence_gear/random/food
 	name = "ЕДА"
-	cost = 25
+	cost = 5
 	random_type = /obj/item/food
 	allowed_themes = list(VIOLENCE_THEME_CYBER)
 
 /datum/violence_gear/random/clothing
 	name = "ОДЕЖДА"
-	cost = 50
+	cost = 10
 	random_type = /obj/item/clothing
 	allowed_themes = list(VIOLENCE_THEME_CYBER)
 
 /datum/violence_gear/random/book
 	name = "КНИГА"
-	cost = 75
+	cost = 20
 	random_type = /obj/item/book
 	allowed_themes = list(VIOLENCE_THEME_CYBER)
 
 /datum/violence_gear/random/reagent_containers
 	name = "РЕАГЕНТ"
-	cost = 100
+	cost = 40
 	random_type = /obj/item/reagent_containers
 	allowed_themes = list(VIOLENCE_THEME_CYBER)
 
 /datum/violence_gear/random/shield
 	name = "ЩИТ"
-	cost = 150
+	cost = 80
 	random_type = /obj/item/shield
 	allowed_themes = list(VIOLENCE_THEME_CYBER)
 
 /datum/violence_gear/random/melee
 	name = "БЛИЖНИЙ БОЙ"
-	cost = 200
+	cost = 160
 	random_type = /obj/item/melee
 	allowed_themes = list(VIOLENCE_THEME_CYBER)
 
 /datum/violence_gear/random/gun
 	name = "ДАЛЬНИЙ БОЙ"
-	cost = 400
+	cost = 320
 	random_type = /obj/item/gun
-	allowed_themes = list(VIOLENCE_THEME_CYBER)
-
-/datum/violence_gear/random/mod
-	name = "MOD"
-	cost = 600
-	random_type = /obj/item/mod/control/pre_equipped
 	allowed_themes = list(VIOLENCE_THEME_CYBER)

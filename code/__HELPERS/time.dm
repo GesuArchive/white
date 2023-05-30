@@ -119,3 +119,6 @@ GLOBAL_VAR_INIT(rollovercheck_last_timeofday, 0)
 	else if (time < 1 HOURS)
 		time += 12 HOURS // e.g. 12.23 AM
 	return "[time2text(time, format)] [am_pm]"
+
+/proc/is_weekend()
+	return time2text(world.timeofday, "Day") in list("Saturday", "Sunday")

@@ -227,6 +227,10 @@ SUBSYSTEM_DEF(ticker)
 	to_chat(world, span_green(" -- [prob(5) ? "*#!&$^@$ Запускаем симуляцию в режиме полного реализма... $@!^(&*" : "Запускаем симуляцию..."] -- "))
 	var/init_start = world.timeofday
 		//Create and announce mode
+
+	if(is_weekend() || (prob(25) && GLOB.player_list.len < 16))
+		GLOB.master_mode = "violence"
+
 	var/list/datum/game_mode/runnable_modes
 	if(GLOB.master_mode == "random" || GLOB.master_mode == "secret")
 		runnable_modes = config.get_runnable_modes()
