@@ -102,7 +102,6 @@ SUBSYSTEM_DEF(time_track)
 	try
 		send_maps_data = json_decode(sendmaps_json)
 	catch
-		text2file(sendmaps_json,"bad_sendmaps.json")
 		can_fire = FALSE
 		return
 	var/send_maps_sort = send_maps_data.Copy() //Doing it like this guarentees us a properly sorted list
