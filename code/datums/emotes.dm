@@ -192,7 +192,7 @@
 
 	log_message(text, LOG_EMOTE)
 
-	var/ghost_text = "<b>[src]</b> " + text //Sin I know
+	var/ghost_text = "<b>[capitalize(src)]</b> " + text //Sin I know
 
 	text = span_emote(pointization(text))
 
