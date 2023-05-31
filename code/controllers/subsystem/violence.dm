@@ -151,6 +151,8 @@ SUBSYSTEM_DEF(violence)
 	SSorbits.flags |= SS_NO_FIRE
 	SSweather.flags |= SS_NO_FIRE
 	SSeconomy.flags |= SS_NO_FIRE
+	// чёрный ящик будет пуст
+	SSblackbox.Seal()
 	message_admins(span_nezbere("VM: Some SS disabled!"))
 	// отключаем все станционные джобки и создаём специальные
 	GLOB.position_categories = list(

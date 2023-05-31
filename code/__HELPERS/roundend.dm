@@ -277,8 +277,9 @@
 			C.give_award(/datum/award/achievement/misc/speed_round, C.mob)
 		HandleRandomHardcoreScore(C)
 
-	var/popcount = gather_roundend_feedback()
-	display_report(popcount)
+	if(!SSviolence.active)
+		var/popcount = gather_roundend_feedback()
+		display_report(popcount)
 
 	CHECK_TICK
 
