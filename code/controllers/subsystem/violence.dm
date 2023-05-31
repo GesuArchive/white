@@ -254,7 +254,7 @@ SUBSYSTEM_DEF(violence)
 	// принуждаем торопиться
 	if(!time_is_run_out && time_limit <= 0)
 		to_chat(world, leader_brass("ВРЕМЯ НА ИСХОДЕ!"))
-		play_sound_to_everyone('white/valtos/sounds/notime.ogg')
+		play_sound_to_everyone('sound/effects/violence/notime.ogg')
 		time_is_run_out = TRUE
 
 	if(time_is_run_out)
@@ -312,14 +312,14 @@ SUBSYSTEM_DEF(violence)
 	var/sound/S
 	if(H?.mind?.has_antag_datum(/datum/antagonist/combatant/red))
 		if(is_heavy)
-			S = "white/valtos/sounds/ts/bear/h/[rand(1, 45)].ogg"
+			S = "sound/voice/violence/bear/h/[rand(1, 45)].ogg"
 		else
-			S = "white/valtos/sounds/ts/bear/[rand(1, 52)].ogg"
+			S = "sound/voice/violence/bear/[rand(1, 52)].ogg"
 	else if(H?.mind?.has_antag_datum(/datum/antagonist/combatant/blue))
 		if(is_heavy)
-			S = "white/valtos/sounds/ts/usec/h/[rand(1, 38)].ogg"
+			S = "sound/voice/violence/usec/h/[rand(1, 38)].ogg"
 		else
-			S = "white/valtos/sounds/ts/usec/[rand(1, 31)].ogg"
+			S = "sound/voice/violence/usec/[rand(1, 31)].ogg"
 	if(S)
 		H.visible_message("<b>[H]</b> выкрикивает что-то!", pick("Щас мы им!", "Засранец!", "Ну-ну, сволочь!"))
 		playsound(get_turf(H), S, 100)
@@ -341,7 +341,7 @@ SUBSYSTEM_DEF(violence)
 	if(!vp_dead)
 		return
 
-	play_sound_to_everyone(pick(list('white/valtos/sounds/fame1.ogg', 'white/valtos/sounds/fame2.ogg', 'white/valtos/sounds/fame3.ogg', 'white/valtos/sounds/fame4.ogg', 'white/valtos/sounds/fame5.ogg')), rand(25, 50))
+	play_sound_to_everyone(pick(list('sound/effects/violence/fame1.ogg', 'sound/effects/violence/fame2.ogg', 'sound/effects/violence/fame3.ogg', 'sound/effects/violence/fame4.ogg', 'sound/effects/violence/fame5.ogg')), rand(25, 50))
 
 	vp_dead.deaths++
 
@@ -432,7 +432,7 @@ SUBSYSTEM_DEF(violence)
 			losestreak_reds++
 	spawn(3 SECONDS)
 		sortTim(players, GLOBAL_PROC_REF(cmp_violence_players), TRUE)
-		play_sound_to_everyone('white/valtos/sounds/gong.ogg')
+		play_sound_to_everyone('sound/effects/violence/gong.ogg')
 		var/list/stats_reds = list()
 		var/list/stats_blues = list()
 		var/list/stats = list()
@@ -459,7 +459,7 @@ SUBSYSTEM_DEF(violence)
 		if(playmode != VIOLENCE_PLAYMODE_TAG)
 			to_chat(world, leader_brass("ПОБЕДА [winner]! <b class='red'>[wins_reds]</b>/<b class='blue'>[wins_blues]</b>"))
 			to_chat(world, leader_brass("Выдано [payout * current_round]₽ победителям и [(payout * current_round) + (winner != "КРАСНЫХ" ? losestreak_reds * payout : losestreak_blues * payout)]₽ проигравшим!"))
-	play_sound_to_everyone('white/valtos/sounds/crowd_win.ogg')
+	play_sound_to_everyone('sound/effects/violence/crowd_win.ogg')
 	message_admins(span_nezbere("VM: Trying to start a new round!"))
 	spawn(10 SECONDS)
 		new_round()
@@ -525,7 +525,7 @@ SUBSYSTEM_DEF(violence)
 		message_admins(span_nezbere("VM: Resetted statistics and enabling spawn!"))
 		// оповещаем игроков
 		to_chat(world, leader_brass("РАУНД [current_round]!"))
-		play_sound_to_everyone('white/valtos/sounds/horn.ogg')
+		play_sound_to_everyone('sound/effects/violence/horn.ogg')
 		// открываем шаттерсы через время
 		spawn(30 SECONDS)
 			// активируем раунд
@@ -541,6 +541,6 @@ SUBSYSTEM_DEF(violence)
 			to_chat(world, leader_brass("В БОЙ!"))
 			last_reds = LAZYLEN(red_team)
 			last_blues = LAZYLEN(blue_team)
-			play_sound_to_everyone('white/valtos/sounds/gong.ogg')
+			play_sound_to_everyone('sound/effects/violence/gong.ogg')
 			for(var/obj/machinery/door/poddoor/D in main_area)
 				INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door/poddoor, open))

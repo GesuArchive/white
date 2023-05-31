@@ -6,7 +6,7 @@
 /area/ruin/powered/clownplanet
 	name = "Планета Клоунов"
 	icon_state = "dk_yellow"
-	ambientsounds = list('sound/ambience/clown.ogg')
+	ambientsounds = list('sound/music/clown.ogg')
 
 /area/ruin/unpowered/gaia
 	name = "Клочок Эдэма"

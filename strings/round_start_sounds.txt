@@ -1,1 +1,1 @@
-sound/ambience/badday.ogg
+sound/music/lobby.ogg

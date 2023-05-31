@@ -36,97 +36,97 @@
 		if(VIOLENCE_THEME_STD)
 			switch(SSviolence.current_round)
 				if(1 to 2)
-					S = 'white/valtos/sounds/battle_small.ogg'
+					S = 'sound/music/violence/battle_small.ogg'
 				if(3 to 5)
-					S = 'white/valtos/sounds/battle_mid.ogg'
+					S = 'sound/music/violence/battle_mid.ogg'
 				if(6 to 8)
-					S = 'white/valtos/sounds/battle_hi.ogg'
+					S = 'sound/music/violence/battle_hi.ogg'
 				if(9 to 10)
-					S = 'white/valtos/sounds/battle_fuck.ogg'
+					S = 'sound/music/violence/battle_fuck.ogg'
 		if(VIOLENCE_THEME_HOTLINE)
 			switch(SSviolence.current_round)
 				if(1)
-					S = 'white/valtos/sounds/hotline1.ogg'
+					S = 'sound/music/violence/hotline1.ogg'
 				if(2)
-					S = 'white/valtos/sounds/hotline2.ogg'
+					S = 'sound/music/violence/hotline2.ogg'
 				if(3)
-					S = 'white/valtos/sounds/hotline3.ogg'
+					S = 'sound/music/violence/hotline3.ogg'
 				if(4)
-					S = 'white/valtos/sounds/hotline4.ogg'
+					S = 'sound/music/violence/hotline4.ogg'
 				if(5)
-					S = 'white/valtos/sounds/hotline5.ogg'
+					S = 'sound/music/violence/hotline5.ogg'
 				if(6)
-					S = 'white/valtos/sounds/hotline6.ogg'
+					S = 'sound/music/violence/hotline6.ogg'
 				if(7)
-					S = 'white/valtos/sounds/hotline7.ogg'
+					S = 'sound/music/violence/hotline7.ogg'
 				if(8)
-					S = 'white/valtos/sounds/hotline8.ogg'
+					S = 'sound/music/violence/hotline8.ogg'
 				if(9)
-					S = 'white/valtos/sounds/hotline9.ogg'
+					S = 'sound/music/violence/hotline9.ogg'
 				if(10)
-					S = 'white/valtos/sounds/hotline10.ogg'
+					S = 'sound/music/violence/hotline10.ogg'
 		if(VIOLENCE_THEME_KATANA)
 			switch(SSviolence.current_round)
 				if(1)
-					S = 'white/valtos/sounds/kat1.ogg'
+					S = 'sound/music/violence/kat1.ogg'
 				if(2)
-					S = 'white/valtos/sounds/kat2.ogg'
+					S = 'sound/music/violence/kat2.ogg'
 				if(3)
-					S = 'white/valtos/sounds/kat3.ogg'
+					S = 'sound/music/violence/kat3.ogg'
 				if(4)
-					S = 'white/valtos/sounds/kat4.ogg'
+					S = 'sound/music/violence/kat4.ogg'
 				if(5)
-					S = 'white/valtos/sounds/kat5.ogg'
+					S = 'sound/music/violence/kat5.ogg'
 				if(6)
-					S = 'white/valtos/sounds/kat6.ogg'
+					S = 'sound/music/violence/kat6.ogg'
 				if(7)
-					S = 'white/valtos/sounds/kat7.ogg'
+					S = 'sound/music/violence/kat7.ogg'
 				if(8)
-					S = 'white/valtos/sounds/kat8.ogg'
+					S = 'sound/music/violence/kat8.ogg'
 				if(9)
-					S = 'white/valtos/sounds/kat9.ogg'
+					S = 'sound/music/violence/kat9.ogg'
 				if(10)
-					S = 'white/valtos/sounds/kat10.ogg'
+					S = 'sound/music/violence/kat10.ogg'
 		if(VIOLENCE_THEME_CYBER)
 			switch(SSviolence.current_round)
 				if(1 to 2)
-					S = 'white/valtos/sounds/cyberjockey.ogg'
+					S = 'sound/music/violence/cyberjockey.ogg'
 				if(3 to 4)
-					S = 'white/valtos/sounds/hn1.ogg'
+					S = 'sound/music/violence/hn1.ogg'
 				if(5 to 6)
-					S = 'white/valtos/sounds/hn2.ogg'
+					S = 'sound/music/violence/hn2.ogg'
 				if(7 to 8)
-					S = 'white/valtos/sounds/hn3.ogg'
+					S = 'sound/music/violence/hn3.ogg'
 				if(9 to 10)
-					S = 'white/valtos/sounds/hn4.ogg'
+					S = 'sound/music/violence/hn4.ogg'
 		if(VIOLENCE_THEME_WARFARE)
 			switch(SSviolence.current_round)
 				if(1 to 2)
-					S = 'white/valtos/sounds/tar1.ogg'
+					S = 'sound/music/violence/tar1.ogg'
 				if(3 to 4)
-					S = 'white/valtos/sounds/tar2.ogg'
+					S = 'sound/music/violence/tar2.ogg'
 				if(5 to 6)
-					S = 'white/valtos/sounds/tar3.ogg'
+					S = 'sound/music/violence/tar3.ogg'
 				if(7 to 8)
-					S = 'white/valtos/sounds/tar4.ogg'
+					S = 'sound/music/violence/tar4.ogg'
 				if(9 to 10)
-					S = 'white/valtos/sounds/tar5.ogg'
+					S = 'sound/music/violence/tar5.ogg'
 		if(VIOLENCE_THEME_PORTAL)
 			switch(SSviolence.current_round)
 				if(1)
-					S = 'white/valtos/sounds/por1.ogg'
+					S = 'sound/music/violence/por1.ogg'
 				if(2)
-					S = 'white/valtos/sounds/por2.ogg'
+					S = 'sound/music/violence/por2.ogg'
 				if(3)
-					S = 'white/valtos/sounds/por3.ogg'
+					S = 'sound/music/violence/por3.ogg'
 				if(4 to 5)
-					S = 'white/valtos/sounds/por4.ogg'
+					S = 'sound/music/violence/por4.ogg'
 				if(6 to 7)
-					S = 'white/valtos/sounds/por5.ogg'
+					S = 'sound/music/violence/por5.ogg'
 				if(8 to 9)
-					S = 'white/valtos/sounds/por6.ogg'
+					S = 'sound/music/violence/por6.ogg'
 				if(10)
-					S = 'white/valtos/sounds/por7.ogg'
+					S = 'sound/music/violence/por7.ogg'
 
 	if(S)
 		SEND_SOUND(L, sound(S, repeat = 1, wait = 0, volume = 10, channel = CHANNEL_VIOLENCE_MODE))

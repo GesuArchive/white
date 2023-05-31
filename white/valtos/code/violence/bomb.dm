@@ -33,12 +33,12 @@
 
 	to_chat(user, span_notice("Начинаю устанавливать [src]. Таймер установлен на [det_time]..."))
 
-	playsound(get_turf(user), 'white/valtos/sounds/c4_click.ogg', 100)
+	playsound(get_turf(user), 'sound/effects/violence/c4_click.ogg', 100)
 
 	for(var/s in 1 to 6)
 		if(!do_after(user, rand(5, 8), target = get_turf(user)))
 			return
-		playsound(get_turf(user), 'white/valtos/sounds/c4_click.ogg', 100)
+		playsound(get_turf(user), 'sound/effects/violence/c4_click.ogg', 100)
 
 	if(!user.temporarilyRemoveItemFromInventory(src))
 		return
@@ -62,7 +62,7 @@
 	SSviolence.bomb_planted = TRUE
 
 	spawn(4 SECONDS)
-		play_sound_to_everyone('white/valtos/sounds/bcountdown.ogg', 100, CHANNEL_NASHEED)
+		play_sound_to_everyone('sound/effects/violence/bcountdown.ogg', 100, CHANNEL_NASHEED)
 
 	addtimer(CALLBACK(src, PROC_REF(detonate)), det_time SECONDS)
 
@@ -72,7 +72,7 @@
 	var/datum/antagonist/combatant/comb = user.mind.has_antag_datum(/datum/antagonist/combatant/blue)
 	if(!comb)
 		return
-	playsound(get_turf(user), 'white/valtos/sounds/c4_disarm.ogg', 100)
+	playsound(get_turf(user), 'sound/effects/violence/c4_disarm.ogg', 100)
 	if(do_after(user, 10 SECONDS, target = src))
 		to_chat(world, leader_brass("Бомба обезврежена [user]!"))
 		SSviolence.bomb_active = FALSE
@@ -94,7 +94,7 @@
 	if(I.tool_behaviour == TOOL_WIRECUTTER)
 		defuse_time = 5 SECONDS
 
-	playsound(get_turf(user), 'white/valtos/sounds/c4_disarm.ogg', 100)
+	playsound(get_turf(user), 'sound/effects/violence/c4_disarm.ogg', 100)
 
 	if(do_after(user, defuse_time, target = src))
 		to_chat(world, leader_brass("Бомба обезврежена [user]!"))
