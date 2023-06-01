@@ -75,7 +75,7 @@
 		qdel(SPL)
 
 /datum/component/soundplayer/proc/set_sound(newsound)
-	if(istext(newsound))
+	if(istext(newsound) || isfile(newsound))
 		current_player_sound = sound(newsound)
 	else
 		current_player_sound = newsound
