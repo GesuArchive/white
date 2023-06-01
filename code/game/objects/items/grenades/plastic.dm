@@ -82,7 +82,7 @@
 /obj/item/grenade/c4/afterattack(atom/movable/bomb_target, mob/user, flag, notify_ghosts = TRUE)
 	. = ..()
 	aim_dir = get_dir(user,bomb_target)
-	if(!flag)
+	if(!flag || user?.a_intent != INTENT_HARM)
 		return
 
 	to_chat(user, span_notice("You start planting [src]. The timer is set to [det_time]..."))
