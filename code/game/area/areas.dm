@@ -13,6 +13,11 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	invisibility = INVISIBILITY_LIGHTING
 
+	// ЗДЕСЬ ЗОНА, БРАТАН
+	var/description = null
+	// список тех, кто прочитал смешное
+	var/list/visitors_that_know_some_shit = list()
+
 	/// List of all turfs currently inside this area. Acts as a filtered bersion of area.contents
 	/// For faster lookup (area.contents is actually a filtered loop over world)
 	/// Semi fragile, but it prevents stupid so I think it's worth it
@@ -451,12 +456,22 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!L.ckey)
 		return
 
+	show_area_description(L)
+
 	//Ship ambience just loops if turned on.
 	if(L.client?.prefs.toggles & SOUND_SHIP_AMBIENCE)
 		SEND_SOUND(L, sound('sound/ambience/shipambience.ogg', repeat = 1, wait = 0, volume = 5, channel = CHANNEL_BUZZ))
 
 	if(L?.client && (L.client.prefs.toggles & SOUND_AMBIENCE))
 		play_ambience(L.client)
+
+/area/proc/show_area_description(mob/living/L)
+	if(isnull(description))
+		return
+
+	if(!(L.client in visitors_that_know_some_shit))
+		visitors_that_know_some_shit += L.client
+		L.client.show_area_description(30, description)
 
 /area/proc/play_ambience(client/C)
 

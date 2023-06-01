@@ -412,6 +412,10 @@
 	if(owner)
 		add_emote_panel(owner)
 
+	typer = new /atom/movable/screen/typer()
+	typer.hud = src
+	infodisplay += typer
+
 	update_locked_slots()
 
 /datum/hud/human/update_locked_slots()

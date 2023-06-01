@@ -581,6 +581,10 @@ SUBSYSTEM_DEF(job)
 	if(ambition_text)
 		to_chat(M, span_info(ambition_text))
 
+	// на всякий случай, если вдруг решит обосраться
+	spawn(-1)
+		living_mob?.client?.show_area_description(30)
+
 	return living_mob
 
 /datum/controller/subsystem/job/proc/handle_auto_deadmin_roles(client/C, rank)

@@ -1304,3 +1304,35 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	var/parsel = tgui_input_text(src, "PARAMS", "?")
 
 	winset(src, winsel, parsel)
+
+/client/proc/show_area_description(duration, custom_text)
+	set waitfor = FALSE
+
+	var/location_name = station_name()
+
+	var/style = "font-family: 'Fixedsys'; -dm-text-outline: 1 black; font-size: 11px;"
+	var/area/A = get_area(mob)
+	var/text = "[time2text(world.realtime, "DD/MM")]/[CURRENT_STATION_YEAR], [station_time_timestamp("hh:mm")]\n[location_name], [A.name][custom_text ? "\n[custom_text]" : ""]"
+	text = uppertext(text)
+
+	var/atom/movable/screen/typer/T = mob.hud_used.typer
+	if(!T || T.aaaam_tooooooooping)
+		return
+
+	T.aaaam_tooooooooping = TRUE
+
+	animate(T, alpha = 255, time = 10)
+	for(var/i = 1 to length_char(text) + 1)
+		T.maptext = "<span style=\"[style]\">[copytext_char(text, 1, i)] </span>"
+		if(prob(75))
+			SEND_SOUND(src, 'sound/effects/desctype.ogg')
+		sleep(1)
+
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/fade_area_description, src, T), duration)
+
+/proc/fade_area_description(client/C, atom/movable/screen/typer/T)
+	if(T)
+		animate(T, alpha = 0, time = 5)
+		sleep(5)
+		T.maptext = ""
+		T.aaaam_tooooooooping = FALSE

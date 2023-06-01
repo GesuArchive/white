@@ -525,16 +525,19 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/command/bridge
 	name = "Мостик"
 	icon_state = "bridge"
+	description = "Отсюда главы командуют. Ну или делают вид, что командуют."
 
 /area/command/meeting_room
 	name = "Мостик: Комната встреч"
 	icon_state = "meeting"
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
+	description = "Место сбора всех глав. Здесь определённо что-то произойдёт."
 
 /area/command/meeting_room/council
 	name = "Мостик: Зал совета"
 	icon_state = "meeting"
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
+	description = "Здесь проходят заседания совета глав, где решается судьба станции."
 
 /area/command/corporate_showroom
 	name = "Мостик: Выставочный зал"
@@ -561,6 +564,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/command/heads_quarters/cmo
 	name = "Каюты: Главный врач"
 	icon_state = "cmo_office"
+	description = "Странный запах."
 
 /area/command/heads_quarters/hop
 	name = "Каюты: Кадровик"
@@ -701,6 +705,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/commons/cryopods
 	name = "Криоподы"
 	icon_state = "cryo"
+	description = "Здесь находятся спящие космонавты."
 
 /area/service/cafeteria
 	name = "Зона отдыха: Кафетерий"
@@ -723,6 +728,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	mood_message = span_nicegreen("Обожаю отдохнуть в баре!\n")
 	airlock_wires = /datum/wires/airlock/service
 	sound_environment = SOUND_AREA_WOODFLOOR
+	description = "Можно и отдохнуть."
 
 /area/service/bar/Initialize(mapload)
 	. = ..()
@@ -732,6 +738,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Зона отдыха: Атриум"
 	icon_state = "bar"
 	sound_environment = SOUND_AREA_WOODFLOOR
+	description = "А здесь можно расслабиться."
 
 /area/service/electronic_marketing_den
 	name = "Зона отдыха: Кабинет электронного маркетинга"
@@ -1125,6 +1132,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	ambience_index = AMBIENCE_SPOOKY
 	ambientsounds = SPOOKY
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	description = "Лучше здесь не просыпаться."
 
 /area/medical/chemistry
 	name = "Медбей: Химия"
@@ -1231,6 +1239,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/security/prison/toilet //radproof
 	name = "Тюрьма: Туалет"
 	icon_state = "sec_prison_safe"
+	description = "Лучше здесь не умирать. А ещё тут неплохая защита от радиации."
 
 /area/security/prison/safe //radproof
 	name = "Тюрьма: Камеры"
@@ -1286,6 +1295,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Охрана: Детектив"
 	icon_state = "detective"
 	ambientsounds = list('sound/ambience/ambidet1.ogg','sound/ambience/ambidet2.ogg')
+	description = "Место, где разгадываются загадки."
 
 /area/security/detectives_office/private_investigators_office
 	name = "Кабинет частного детектива"
@@ -1495,6 +1505,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Наука: Заброшенная лаборатория"
 	icon_state = "abandoned_sci"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	description = "Что здесь произошло?"
 
 /area/science/nanite
 	name = "Наука: Наниты"

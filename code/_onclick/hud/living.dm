@@ -23,3 +23,7 @@
 	healthdoll.screen_loc = retro_hud ? UI_LIVING_HEALTHDOLL_RETRO : UI_LIVING_HEALTHDOLL
 	healthdoll.hud = src
 	infodisplay += healthdoll
+
+	typer = new /atom/movable/screen/typer()
+	typer.hud = src
+	infodisplay += typer

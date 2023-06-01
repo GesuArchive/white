@@ -132,18 +132,22 @@
 
 /area/lavaland/surface/outdoors
 	name = "Лаваленд: Пустоши"
+	description = "Время охоты!"
 	outdoors = TRUE
 
 /area/lavaland/surface/outdoors/unexplored //monsters and ruins spawn here
+	description = null
 	icon_state = "unexplored"
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | NO_ALERTS
 
 /area/lavaland/surface/outdoors/unexplored/danger //megafauna will also spawn here
+	description = "Здесь опасно..."
 	icon_state = "danger"
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED | NO_ALERTS
 	map_generator = /datum/map_generator/cave_generator/lavaland
 
 /area/lavaland/surface/outdoors/explored
+	description = "Руды в этом районе мало, но она точно здесь есть."
 	name = "Лаваленд: Каторга"
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | NO_ALERTS
 

@@ -102,6 +102,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/atom/movable/screen/spacesuit
 	var/atom/movable/screen/station_height/station_height
 	var/atom/movable/screen/station_height_bg/station_height_bg
+	var/atom/movable/screen/typer/typer
 
 	var/atom/movable/screen/human/equip/equip_hud
 
