@@ -404,27 +404,22 @@
 		secondsMainPowerLost = 0
 	update_appearance()
 
-/obj/machinery/door/airlock/proc/handlePowerRestoreLoop()
+/obj/machinery/door/airlock/proc/handlePowerRestore()
 	var/cont = TRUE
-	if(QDELETED(src))
-		return
-	cont = FALSE
-	if(secondsMainPowerLost>0)
-		if(!wires.is_cut(WIRE_POWER1) && !wires.is_cut(WIRE_POWER2))
-			secondsMainPowerLost -= 1
-		cont = TRUE
-	if(secondsBackupPowerLost>0)
-		if(!wires.is_cut(WIRE_BACKUP1) && !wires.is_cut(WIRE_BACKUP2))
-			secondsBackupPowerLost -= 1
-		cont = TRUE
-	if (!cont)
-		restorePower()
-	else
-		addtimer(CALLBACK(src, PROC_REF(restorePower)), 1 SECONDS)
-
-/obj/machinery/door/airlock/proc/restorePower()
+	while (cont)
+		sleep(1 SECONDS)
+		if(QDELETED(src))
+			return
+		cont = FALSE
+		if(secondsMainPowerLost>0)
+			if(!wires.is_cut(WIRE_POWER1) && !wires.is_cut(WIRE_POWER2))
+				secondsMainPowerLost -= 1
+			cont = TRUE
+		if(secondsBackupPowerLost>0)
+			if(!wires.is_cut(WIRE_BACKUP1) && !wires.is_cut(WIRE_BACKUP2))
+				secondsBackupPowerLost -= 1
+			cont = TRUE
 	spawnPowerRestoreRunning = FALSE
-	updateDialog()
 	update_appearance()
 
 /obj/machinery/door/airlock/proc/loseMainPower()
@@ -434,7 +429,7 @@
 			secondsBackupPowerLost = 10
 	if(!spawnPowerRestoreRunning)
 		spawnPowerRestoreRunning = TRUE
-		handlePowerRestoreLoop()
+	INVOKE_ASYNC(src, PROC_REF(handlePowerRestore))
 	update_appearance()
 
 /obj/machinery/door/airlock/proc/loseBackupPower()
@@ -442,7 +437,7 @@
 		secondsBackupPowerLost = 60
 	if(!spawnPowerRestoreRunning)
 		spawnPowerRestoreRunning = TRUE
-		handlePowerRestoreLoop()
+	INVOKE_ASYNC(src, PROC_REF(handlePowerRestore))
 	update_appearance()
 
 /obj/machinery/door/airlock/proc/regainBackupPower()
