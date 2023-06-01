@@ -515,30 +515,29 @@
 					output += "<li>Сообщник: [M.name]</li>"
 				output += "</ul>"
 
-	// Кнопки для амбиций и их отображение
-	output += "<HR><B>Амбиции:</B><UL>"
-	if(LAZYLEN(ambition_objectives))
-
-		var/amb_count = 1
-		for(var/datum/ambition_objective/objective in ambition_objectives)
-			output += "<LI><B>Амбиция #[amb_count]</B>: [objective.description]</LI>"
-			output += "<a href='?src=[REF(src)];amb_delete=[REF(objective)]'>Удалить</a> " // Удалить амбицию
-			output += "<a href='?src=[REF(src)];amb_completed=[REF(objective)]'>" // Определить завершенность амбиции
-			output += "<font color=[objective.completed ? "green" : "red"]>[objective.completed ? "Передумать" : "Выполнить"]</font>"
-			output += "</a>"
-			output += "<br>"
-			amb_count++
-
-	output += "<a href='?src=[REF(src)];amb_add=1'>Добавить амбицию</a><br><br>"
-	output += "</UL>"
-
 	if(window)
+		// Кнопки для амбиций и их отображение
+		output += "<HR><B>Амбиции:</B><UL>"
+		if(LAZYLEN(ambition_objectives))
+
+			var/amb_count = 1
+			for(var/datum/ambition_objective/objective in ambition_objectives)
+				output += "<LI><B>Амбиция #[amb_count]</B>: [objective.description]</LI>"
+				output += "<a href='?src=[REF(src)];amb_delete=[REF(objective)]'>Удалить</a> " // Удалить амбицию
+				output += "<a href='?src=[REF(src)];amb_completed=[REF(objective)]'>" // Определить завершенность амбиции
+				output += "<font color=[objective.completed ? "green" : "red"]>[objective.completed ? "Передумать" : "Выполнить"]</font>"
+				output += "</a>"
+				output += "<br>"
+				amb_count++
+
+		output += "<a href='?src=[REF(src)];amb_add=1'>Добавить амбицию</a><br><br></UL>"
+
 		output += "</body></html>"
 		var/datum/browser/popup = new(recipient, "memory", "Воспоминания [current.real_name]", 350, 350)
 		popup.set_content(output)
 		popup.open()
 	else if(all_objectives.len || memory)
-		to_chat(recipient, "<i>[output]</i>")
+		to_chat(recipient, "<br><i>[output]</i><br>")
 
 /datum/mind/Topic(href, href_list)
 	//проверяем на амбиции, после чего прерываем выполнение, иначе он залезет в админский антаг-панель

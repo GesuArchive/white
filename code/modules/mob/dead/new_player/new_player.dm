@@ -322,6 +322,8 @@
 
 	log_manifest(character.mind.key, character.mind, character, latejoin = TRUE)
 
+	humanc?.client?.show_area_description(30)
+
 /mob/dead/new_player/proc/AddEmploymentContract(mob/living/carbon/human/employee)
 	//TODO:  figure out a way to exclude wizards/nukeops/demons from this.
 	for(var/C in GLOB.employmentCabinets)
