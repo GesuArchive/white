@@ -435,3 +435,5 @@
 	min_val = 15
 	max_val = 50 // Byond (the) limits
 
+/datum/config_entry/flag/violence_enabled
+	config_entry_value = FALSE

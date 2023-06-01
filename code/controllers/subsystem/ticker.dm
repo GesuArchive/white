@@ -228,7 +228,7 @@ SUBSYSTEM_DEF(ticker)
 	var/init_start = world.timeofday
 		//Create and announce mode
 
-	if(is_weekend() || (prob(25) && GLOB.player_list.len < 16))
+	if(CONFIG_GET(flag/violence_enabled) && (is_weekend() || (prob(25) && GLOB.player_list.len < 16)))
 		GLOB.master_mode = "violence"
 
 	var/list/datum/game_mode/runnable_modes
