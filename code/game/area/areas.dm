@@ -471,7 +471,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 
 	if(!(L.client in visitors_that_know_some_shit))
 		visitors_that_know_some_shit += L.client
-		L.client.show_area_description(30, description)
+		L.client.show_area_description(50, description)
 
 /area/proc/play_ambience(client/C)
 
