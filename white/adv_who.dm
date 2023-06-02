@@ -94,7 +94,7 @@
 					entry += " <i>([C.holder.fakekey])</i>"
 				entry += "</td>"
 
-				entry += "<td>[splittext(C.account_join_date, " ")?[1]]</td>"
+				entry += "<td>[C.account_join_date ? splittext(C.account_join_date, " ")?[1] : "NaN"]</td>"
 				entry += "<td>[round(C.avgping, 1)]</td>"
 
 				entry += "<td>[C.holder ? C.holder.rank : "Космонавт"]</td></tr>"
