@@ -1,6 +1,6 @@
 #define CREDIT_ROLL_SPEED 125
 #define CREDIT_SPAWN_SPEED 10
-#define CREDIT_ANIMATE_HEIGHT (14 * world.icon_size)
+#define CREDIT_ANIMATE_HEIGHT (15 * world.icon_size)
 #define CREDIT_EASE_DURATION 22
 #define CREDITS_PATH "[global.config.directory]/contributors.dmi"
 
@@ -14,7 +14,7 @@
 	add_verb(src, /client/proc/ClearCredits)
 	var/static/list/credit_order_for_this_round
 	if(isnull(credit_order_for_this_round))
-		credit_order_for_this_round = list("Спасибо за игру!") + (shuffle(icon_states(credits_icon)) - "White Dream: Legacy 2023")
+		credit_order_for_this_round = list("Спасибо за игру!") + shuffle(icon_states(credits_icon)) + list("White Dream: Legacy 2023")
 	for(var/I in credit_order_for_this_round)
 		if(!credits)
 			return
@@ -34,7 +34,7 @@
 /atom/movable/screen/credit
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 0
-	screen_loc = "12,1"
+	screen_loc = "3,1"
 	layer = LOBBY_BACKGROUND_LAYER
 	var/client/parent
 	var/matrix/target
