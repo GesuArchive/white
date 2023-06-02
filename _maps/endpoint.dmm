@@ -1435,6 +1435,18 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/tdome/tdomeobserve)
+"eg" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/centcom/control)
 "eh" = (
 /obj/effect/turf_decal/tile/green,
 /turf/open/floor/plasteel,
@@ -5623,6 +5635,18 @@
 	},
 /turf/open/floor/plasteel/monofloor,
 /area/tdome/tdomeadmin)
+"pv" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/centcom/control)
 "pw" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -6594,6 +6618,18 @@
 	},
 /turf/open/floor/plasteel/tg/textured_large,
 /area/syndicate_mothership)
+"rW" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/arrows/white{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/centcom/control)
 "rX" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -13674,6 +13710,18 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/centcom/control)
+"KR" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/arrows/white{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/centcom/control)
 "KS" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/siding/red/corner{
@@ -14567,6 +14615,16 @@
 	},
 /turf/open/floor/mineral/titanium/tiled/yellow,
 /area/syndicate_mothership/expansion_bombthreat)
+"MQ" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/structure/railing,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/centcom/control)
 "MR" = (
 /obj/structure/cable,
 /turf/open/floor/plasteel/tg/smooth,
@@ -15749,8 +15807,9 @@
 /area/centcom/circus)
 "PE" = (
 /obj/effect/turf_decal/stripes/line{
-	dir = 4
+	dir = 6
 	},
+/obj/structure/railing,
 /obj/docking_port/stationary{
 	dir = 4;
 	dwidth = 25;
@@ -16651,6 +16710,16 @@
 /obj/structure/sink/kitchen/directional/south,
 /turf/open/floor/plasteel/tg,
 /area/syndicate_mothership/elite_squad)
+"RW" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/structure/railing,
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/centcom/control)
 "RX" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -18376,9 +18445,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/obj/structure/railing{
-	dir = 1
-	},
 /obj/effect/turf_decal/arrows/white{
 	dir = 8
 	},
@@ -19359,9 +19425,6 @@
 "Zz" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
-	},
-/obj/structure/railing{
-	dir = 1
 	},
 /obj/effect/turf_decal/arrows/white{
 	dir = 4
@@ -36982,9 +37045,9 @@ mP
 tv
 Tb
 pw
-mP
-tv
-Tb
+SP
+ZK
+Oh
 pw
 mP
 tv
@@ -37239,9 +37302,9 @@ Ih
 Ih
 Ih
 Ih
-sj
-sj
-sj
+Ye
+Gi
+wB
 Ih
 Ih
 Ih
@@ -37484,10 +37547,10 @@ Ih
 sj
 Ih
 Ih
-Ih
-sj
-Ih
-Ih
+mO
+Gn
+Ir
+uS
 WO
 ma
 mu
@@ -37496,9 +37559,9 @@ Ih
 Ih
 Ih
 Ih
-sj
-sj
-sj
+rW
+ma
+mu
 Ih
 Ih
 Ih
@@ -37741,11 +37804,11 @@ sj
 sj
 sj
 sj
-sj
-sj
-sj
-sj
 NL
+Dc
+UE
+Gi
+eA
 xh
 Fb
 sj
@@ -37753,9 +37816,9 @@ sj
 sj
 sj
 sj
-sj
-sj
-sj
+NL
+xh
+Fb
 Ih
 Ih
 Ih
@@ -37998,21 +38061,21 @@ Ih
 sj
 Ih
 Ih
-Ih
-sj
-Ih
-Ih
-js
+LE
+tv
+Tb
+pw
+SP
+ZK
 PE
-BA
 Ih
 Ih
 Ih
 Ih
 Ih
-sj
-sj
-sj
+eg
+tv
+MQ
 Ih
 Ih
 Ih
@@ -40568,11 +40631,11 @@ Ih
 sj
 Ih
 Ih
-Ih
-sj
-Ih
-Ih
-nJ
+mO
+Gn
+Ir
+uS
+xd
 uJ
 df
 Ih
@@ -40580,9 +40643,9 @@ Ih
 Ih
 Ih
 Ih
-sj
-sj
-sj
+pv
+Gn
+RW
 Ih
 Ih
 Ih
@@ -40825,11 +40888,11 @@ sj
 sj
 sj
 sj
-sj
-sj
-sj
-sj
 NL
+Dc
+UE
+Gi
+eA
 xh
 Fb
 sj
@@ -40837,9 +40900,9 @@ sj
 sj
 sj
 sj
-sj
-sj
-sj
+NL
+xh
+Fb
 Ih
 Ih
 Ih
@@ -41082,10 +41145,10 @@ Ih
 sj
 Ih
 Ih
-Ih
-sj
-Ih
-Ih
+LE
+tv
+Tb
+pw
 Zz
 Ji
 Pm
@@ -41094,9 +41157,9 @@ Ih
 Ih
 Ih
 Ih
-sj
-sj
-sj
+KR
+Ji
+Pm
 Ih
 Ih
 Ih
@@ -41351,9 +41414,9 @@ Ih
 Ih
 Ih
 Ih
-sj
-sj
-sj
+Ye
+Gi
+wB
 Ih
 Ih
 Ih
@@ -41608,9 +41671,9 @@ FF
 Gn
 Ir
 uS
-FF
-Gn
-Ir
+xd
+uJ
+jm
 uS
 FF
 Gn

@@ -1,4 +1,4 @@
-/obj/effect/bump_teleporter/Bumped(atom/movable/movable_atom)
+/obj/effect/bump_teleporter/black_mesa/Bumped(atom/movable/movable_atom)
 	var/list/compatable_teleporters = list()
 	for(var/obj/effect/bump_teleporter/teleporter in AllTeleporters)
 		if(teleporter.id == src.id_target)

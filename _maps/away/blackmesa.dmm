@@ -1089,7 +1089,7 @@
 /turf/open/floor/plasteel/dark,
 /area/awaymission/black_mesa/entrance_lobby)
 "aps" = (
-/obj/effect/bump_teleporter{
+/obj/effect/bump_teleporter/black_mesa{
 	id = "adminup";
 	id_target = "admindown"
 	},
@@ -2635,7 +2635,7 @@
 /turf/open/floor/plasteel,
 /area/awaymission/black_mesa/cryo_storage)
 "aJP" = (
-/obj/effect/bump_teleporter{
+/obj/effect/bump_teleporter/black_mesa{
 	id = "factory_lower_start";
 	id_target = "factory_lower_end"
 	},
@@ -3064,7 +3064,7 @@
 /turf/open/floor/plasteel,
 /area/awaymission/black_mesa/security_outpost)
 "aPj" = (
-/obj/effect/bump_teleporter{
+/obj/effect/bump_teleporter/black_mesa{
 	id = "factory_upper_start";
 	id_target = "factory_upper_end"
 	},
@@ -3091,7 +3091,7 @@
 /turf/open/floor/plating/ironsand/black_mesa,
 /area/awaymission/black_mesa)
 "aPG" = (
-/obj/effect/bump_teleporter{
+/obj/effect/bump_teleporter/black_mesa{
 	id = "factory_upper_end";
 	id_target = "factory_upper_start"
 	},
@@ -3564,7 +3564,7 @@
 /turf/open/floor/plasteel/dark,
 /area/awaymission/black_mesa/entrance_lobby)
 "aWt" = (
-/obj/effect/bump_teleporter{
+/obj/effect/bump_teleporter/black_mesa{
 	id = "factory_lower_end";
 	id_target = "factory_lower_start"
 	},
@@ -3823,7 +3823,7 @@
 /turf/open/water/beach/xen,
 /area/awaymission/black_mesa/xen/freeman_hallway)
 "aYV" = (
-/obj/effect/bump_teleporter{
+/obj/effect/bump_teleporter/black_mesa{
 	id = "admindown";
 	id_target = "adminup"
 	},
@@ -4276,11 +4276,11 @@
 /turf/open/floor/plasteel,
 /area/awaymission/black_mesa/black_ops_button)
 "bZa" = (
-/obj/effect/bump_teleporter{
+/obj/effect/bump_teleporter/black_mesa{
 	id = "lambdaup";
 	id_target = "lambdadown"
 	},
-/obj/effect/bump_teleporter{
+/obj/effect/bump_teleporter/black_mesa{
 	id = "lambdaup";
 	id_target = "lambdadown"
 	},
@@ -5532,7 +5532,7 @@
 /turf/open/floor/plasteel,
 /area/awaymission/black_mesa/genetics_elevator)
 "eQj" = (
-/obj/effect/bump_teleporter{
+/obj/effect/bump_teleporter/black_mesa{
 	id = "amsup";
 	id_target = "amsdown"
 	},
@@ -6168,7 +6168,7 @@
 /turf/open/floor/plasteel/monofloor,
 /area/awaymission/black_mesa/black_ops_entrance)
 "gxC" = (
-/obj/effect/bump_teleporter{
+/obj/effect/bump_teleporter/black_mesa{
 	id = "teleporterdown";
 	id_target = "teleporterup"
 	},
@@ -6309,7 +6309,7 @@
 /area/awaymission/black_mesa/deep_sci_chem)
 "gSH" = (
 /obj/structure/lattice/catwalk,
-/obj/effect/bump_teleporter{
+/obj/effect/bump_teleporter/black_mesa{
 	density = 0;
 	id = "lambda_destination"
 	},
@@ -10884,7 +10884,7 @@
 /turf/open/floor/circuit,
 /area/awaymission/black_mesa/black_ops_hallway_two)
 "rFF" = (
-/obj/effect/bump_teleporter{
+/obj/effect/bump_teleporter/black_mesa{
 	id = "lambdadown";
 	id_target = "lambdaup"
 	},
@@ -11978,7 +11978,7 @@
 /turf/open/floor/plating/xen,
 /area/awaymission/black_mesa/xen/freeman_puzzle)
 "ukc" = (
-/obj/effect/bump_teleporter{
+/obj/effect/bump_teleporter/black_mesa{
 	id = "amsdown";
 	id_target = "amsup"
 	},
@@ -12315,7 +12315,7 @@
 /turf/open/floor/plating,
 /area/awaymission/black_mesa/hecu_zone_tunnel)
 "uYl" = (
-/obj/effect/bump_teleporter{
+/obj/effect/bump_teleporter/black_mesa{
 	id = "lambdaup";
 	id_target = "lambdadown"
 	},
@@ -13239,7 +13239,7 @@
 /turf/open/floor/plasteel,
 /area/awaymission/black_mesa/black_ops_armory)
 "xbw" = (
-/obj/effect/bump_teleporter{
+/obj/effect/bump_teleporter/black_mesa{
 	id = "teleporterup";
 	id_target = "teleporterdown"
 	},
