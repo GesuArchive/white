@@ -323,6 +323,14 @@
 		qdel(moodlet)
 	update_mood()
 
+/datum/component/mood/proc/remove_all_moods() //Removes all moods
+	for(var/i in mood_events)
+		var/datum/mood_event/moodlet = mood_events[i]
+		if(!moodlet)
+			continue
+		mood_events -= moodlet.category
+		qdel(moodlet)
+	update_mood()
 
 /datum/component/mood/proc/modify_hud(datum/source)
 	SIGNAL_HANDLER

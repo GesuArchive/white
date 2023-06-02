@@ -324,3 +324,7 @@
 /datum/mood_event/christ
 	description = "<span class='nicegreen'>Я не буду бояться ужаса в ночи...</span>\n"
 	mood_change = 5
+
+/datum/mood_event/android_base_mood
+	description = "<span class='nicegreen robot'>+++++++ВСЁ НОРМАЛЬНО+++++++</span>\n"
+	mood_change = 50

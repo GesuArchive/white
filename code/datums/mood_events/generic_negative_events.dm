@@ -423,3 +423,7 @@
 	description = "<span class='warning'>I gambled my life and lost! I guess this is the end...</span>\n"
 	mood_change = -20
 	timeout = 10 MINUTES
+
+/datum/mood_event/android_emp_mood
+	description = "<span class='warning robot'>+++++++ВСЁ НЕ НОРМАЛЬНО+++++++</span>\n"
+	mood_change = -100

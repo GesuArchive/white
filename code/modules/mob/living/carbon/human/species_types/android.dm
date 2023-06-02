@@ -44,6 +44,18 @@
 	// Androids don't eat, hunger or metabolise foods. Let's do some cleanup.
 	C.set_safe_hunger_level()
 
+	remap_mood(C)
+
+	RegisterSignal(C, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp_act))
+
+/datum/species/android/proc/remap_mood(mob/living/carbon/C)
+	set waitfor = FALSE
+
+	var/datum/component/mood/mood = C.GetComponent(/datum/component/mood)
+	mood.remove_temp_moods()
+
+	SEND_SIGNAL(C, COMSIG_ADD_MOOD_EVENT, "android_base_mood", /datum/mood_event/android_base_mood)
+
 /datum/species/android/on_species_loss(mob/living/carbon/C)
 	. = ..()
 	for(var/X in C.bodyparts)
@@ -51,3 +63,18 @@
 		O.change_bodypart_status(BODYPART_ORGANIC,FALSE, TRUE)
 		O.brute_reduction = initial(O.brute_reduction)
 		O.burn_reduction = initial(O.burn_reduction)
+
+	SEND_SIGNAL(C, COMSIG_CLEAR_MOOD_EVENT, "android_base_mood")
+	UnregisterSignal(C, COMSIG_ATOM_EMP_ACT)
+
+/datum/species/android/proc/on_emp_act(mob/living/carbon/human/H, severity)
+	SIGNAL_HANDLER
+
+	var/fucky_wucky = ""
+	for(var/i in 1 to 30)
+		fucky_wucky += "[random_emoji()]"
+
+	to_chat(H, span_notice(readable_corrupted_text(fucky_wucky)))
+	SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "android_base_mood", /datum/mood_event/android_emp_mood)
+
+	addtimer(CALLBACK(src, PROC_REF(remap_mood), H), 3 MINUTES)
