@@ -178,8 +178,36 @@
 	UNTIL(SSticker.login_music) //wait for SSticker init to set the login music
 
 	if(prefs && (prefs.toggles & SOUND_LOBBY) && prefs.iconsent)
+		var/track_name = replacetext(pop(splittext(SSticker.login_music, "/")), ".ogg", "")
 		spawn(10)
-			to_chat(src, "\n<center><b>Сейчас играет: <i>[replacetext(pop(splittext(SSticker.login_music, "/")), ".ogg", "")]</i></b></center>\n")
+
+/**
+ *                  ?
+             ____"_                   |   |
+            /"  _)))                  |\_/|______,
+           /===( _\                  /::| Q  ____)
+          ("___|   >   ,_           /:::|   /    ,_
+             o  _=    / _///       /::::|_ /    / _///
+       _______| |____/ |         _|:::::| |:___/ |
+      |  __)  \_/ /____|        | '----'\_/  /___|
+     _| / \    ) )             _| /  \   :  /
+ _\\\__/   \    /          _\\\__/    \    /
+           /   (                      /===(
+          / \   \                    /     \
+         /   \   \                  /       \
+         |    \   \                 |        \
+         |     \   \                |         \
+         |      \   \               |,_________\
+         |       \   \               /  )  / )
+         |,_______\___\             /  /  (  |
+           | /   \ |                | /    \ |
+           |/     \|                |/      \|
+           S__     S__              S__      S__
+          /___\   /___\   b'ger    /___\    /___\
+ */
+
+			if(track_name != "lobby")
+				to_chat(src, "\n<center><b>Сейчас играет: <i>[track_name]</i></b></center>\n")
 		SEND_SOUND(src, sound(SSticker.login_music, repeat = TRUE, wait = 0, volume = vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
 
 /proc/get_rand_frequency()
