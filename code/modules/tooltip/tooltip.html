@@ -215,7 +215,7 @@
 				var posX = Math.round(((left - 1) * realIconSizeX) + leftOffset + tooltip.padding); //-1 to position at the left of the target tile
 				var posY = Math.round(((tilesShownY - top + 1) * realIconSizeY) + topOffset + tooltip.padding); //+1 to position at the bottom of the target tile
 
-				//alert(mapWidth+' | '+mapHeight+' | '+tilesShown+' | '+realIconSize+' | '+leftOffset+' | '+topOffset+' | '+left+' | '+top+' | '+posX+' | '+posY); //DEBUG
+				//alert(mapWidth+' | '+mapHeight+' | '+leftOffset+' | '+topOffset+' | '+left+' | '+top+' | '+posX+' | '+posY); //DEBUG
 
 				$('body').attr('class', tooltip.theme);
 
@@ -234,6 +234,13 @@
 
 				var docWidth	= Math.floor($wrap.outerWidth() * pixelRatio),
 					docHeight	= Math.floor($wrap.outerHeight() * pixelRatio);
+
+				if(isNaN(posX)) {
+					posX = mapWidth - docWidth;
+					if(top == 1) {
+						posX = docWidth;
+					}
+				}
 
 				if (posY + docHeight > map.size.y) { //Is the bottom edge below the window? Snap it up if so
 					posY = (posY - docHeight) - realIconSizeY - tooltip.padding;
