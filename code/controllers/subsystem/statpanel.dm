@@ -24,7 +24,6 @@ SUBSYSTEM_DEF(statpanels)
 	if (!resumed)
 		num_fires++
 		var/datum/map_config/cached = SSmapping.next_map_config
-		var/round_time = world.time - SSticker.round_start_time
 		global_data = list(
 			"Карта: [SSmapping.config?.map_name || "Загрузка..."]",
 			cached ? "Следующая: [cached.map_name]" : null,
