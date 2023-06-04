@@ -58,3 +58,14 @@
 
 // Goonchat styles
 @include meta.load-css('./goon/chat-dark.scss');
+
+.MusicPlayer {
+  background-image: url('../assets/spectro.gif');
+  background-size: contain;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0.2;
+}

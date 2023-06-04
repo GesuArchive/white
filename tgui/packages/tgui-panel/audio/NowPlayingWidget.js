@@ -6,7 +6,7 @@
 
 import { toFixed } from 'common/math';
 import { useDispatch, useSelector } from 'common/redux';
-import { Button, Flex, Knob } from 'tgui/components';
+import { Button, Flex, Knob, Box } from 'tgui/components';
 import { useSettings } from '../settings';
 import { selectAudio } from './selectors';
 
@@ -19,9 +19,7 @@ export const NowPlayingWidget = (props, context) => {
     <Flex align="center">
       {(audio.playing && (
         <>
-          <Flex.Item shrink={0} mx={0.5} color="label">
-            Сейчас играет:
-          </Flex.Item>
+          <Box class="MusicPlayer" />
           <Flex.Item
             mx={0.5}
             grow={1}
