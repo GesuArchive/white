@@ -139,32 +139,32 @@ export class OrbitalMapSvg extends Component {
               height={100 * lockedZoomScale}
               fill="rgba(252, 166, 53, 0.05)" />
           </pattern>
-          <pattern id="grid" width={100 * lockedZoomScale}
-            height={100 * lockedZoomScale}
+          <pattern id="grid" width={400 * lockedZoomScale}
+            height={400 * lockedZoomScale}
             patternUnits="userSpaceOnUse"
             x={scaledXOffset}
             y={scaledYOffset}>
-            <rect width={100 * lockedZoomScale}
-              height={100 * lockedZoomScale}
+            <rect width={400 * lockedZoomScale}
+              height={400 * lockedZoomScale}
               fill="url(#smallgrid)" />
             <path
-              fill="none" stroke="#4665DE" stroke-width="1"
-              d={"M " + (100 * lockedZoomScale)+ " 0 L 0 0 0 " + (100 * lockedZoomScale)} />
+              fill="none" stroke="rgba(0, 255, 255, 0.15)" stroke-width="1"
+              d={"M " + (400 * lockedZoomScale)+ " 0 L 0 0 0 " + (400 * lockedZoomScale)} />
           </pattern>
           <pattern id="smallgrid"
-            width={50 * lockedZoomScale}
-            height={50 * lockedZoomScale}
+            width={200 * lockedZoomScale}
+            height={200 * lockedZoomScale}
             patternUnits="userSpaceOnUse">
             <rect
-              width={50 * lockedZoomScale}
-              height={50 * lockedZoomScale}
-              fill="#2B2E3B" />
+              width={200 * lockedZoomScale}
+              height={200 * lockedZoomScale}
+              fill="rgba(0, 255, 255, 0.03)" />
             <path
               fill="none"
-              stroke="#4665DE"
+              stroke="rgba(0, 255, 255, 0.15)"
               stroke-width="0.5"
-              d={"M " + (50 * lockedZoomScale) + " 0 L 0 0 0 "
-              + (50 * lockedZoomScale)} />
+              d={"M " + (200 * lockedZoomScale) + " 0 L 0 0 0 "
+              + (200 * lockedZoomScale)} />
           </pattern>
         </defs>
         <rect x="-50%" y="-50%" width="100%" height="100%"
@@ -225,6 +225,7 @@ export class OrbitalMapSvg extends Component {
         viewBox="-250 -250 500 500"
         position="absolute"
         overflowY="hidden" >
+        {this.getGridBackground()}
         {Object.values(renderableObjectTypes).map(render_object => (
           render_object.generateComponentImage(
             xOffset,
