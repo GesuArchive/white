@@ -130,7 +130,7 @@
 /turf/open/floor/plating,
 /area/shuttle/pod_shuttle)
 "D" = (
-/obj/machinery/computer/locator,
+/obj/machinery/computer/crew/syndie,
 /turf/open/floor/mineral/plastitanium/red,
 /area/shuttle/pod_shuttle)
 "K" = (

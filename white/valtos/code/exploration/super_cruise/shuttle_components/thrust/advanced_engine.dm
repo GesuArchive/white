@@ -14,7 +14,7 @@
 /obj/machinery/shuttle/engine/advanced/large
 	name = "large advanced shuttle thruster"
 	desc = "A very large bluespace engine used to propel very large ships."
-	thrust = 1000
+	thrust = 2000
 	opacity = 1
 	icon = 'icons/obj/2x2.dmi'
 	icon_state = "large_engine"

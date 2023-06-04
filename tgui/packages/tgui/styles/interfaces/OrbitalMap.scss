@@ -7,10 +7,17 @@
   width: calc(100% - 400px);
   overflow-x: hidden;
   overflow-y: hidden;
+  background-image: url('../assets/bg-orbital.png');
 }
 
-.OrbitalMap__crutch *:not(.Dropdown *) {
+.OrbitalMap__crutch * {
   overflow: hidden;
+  .Dropdown {
+    overflow: visible;
+  }
+  .NoticeBox {
+    overflow: visible;
+  }
 }
 
 .OrbitalMap__panel {

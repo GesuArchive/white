@@ -30,9 +30,9 @@
 /obj/structure/table,
 /obj/item/storage/backpack/duffelbag/med/surgery,
 /obj/item/stack/solid_electricity{
+	amount = 30;
 	pixel_x = -9;
-	pixel_y = 11;
-	amount = 30
+	pixel_y = 11
 	},
 /turf/open/floor/plasteel/dark,
 /area/shuttle/freelancer/med)
@@ -454,9 +454,6 @@
 	locked = 0
 	},
 /obj/machinery/light/directional/south,
-/obj/machinery/computer/locator{
-	dir = 1
-	},
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/freelancer/cabine)
@@ -967,12 +964,12 @@
 /obj/structure/window/shuttle,
 /obj/structure/grille,
 /obj/docking_port/mobile/freelancer{
-	dwidth = 10;
-	width = 20;
-	height = 10;
 	dir = 4;
+	dwidth = 10;
+	height = 10;
 	port_direction = 8;
-	preferred_direction = 2
+	preferred_direction = 2;
+	width = 20
 	},
 /turf/open/floor/plating,
 /area/shuttle/freelancer/passengers)

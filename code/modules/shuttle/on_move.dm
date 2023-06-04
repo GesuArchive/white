@@ -413,7 +413,7 @@ All ShuttleMove procs go here
 	if(!towed_shuttles[src] && !moving_dock.can_move_docking_ports)
 		return FALSE
 	. = ..()
-	current_z = moving_dock.virtual_z
+	current_z = moving_dock.z
 
 /obj/docking_port/stationary/onShuttleMove(turf/newT, turf/oldT, list/movement_force, move_dir, obj/docking_port/stationary/old_dock, obj/docking_port/mobile/moving_dock, list/obj/docking_port/mobile/towed_shuttles)
 	if(old_dock == src) //Never take our old port

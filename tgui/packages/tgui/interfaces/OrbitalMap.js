@@ -72,7 +72,7 @@ export const OrbitalMap = (props, context) => {
       height={770}>
       <Window.Content fitted>
         <Flex height="100%">
-          <Flex.Item class="OrbitalMap__radar" grow id="radar">
+          <Flex.Item class="OrbitalMap__crutch OrbitalMap__radar" grow id="radar">
             <DisplayWindow
               xOffset={dynamicXOffset}
               yOffset={dynamicYOffset}
@@ -481,7 +481,6 @@ const OrbitalMapDisplay = (props, context) => {
     validDockingPorts = [],
     isDocking = false,
     interdiction_range = 150,
-    detection_range = 0,
     shuttleTargetX = 0,
     shuttleTargetY = 0,
     update_index = 0,
@@ -514,25 +513,21 @@ const OrbitalMapDisplay = (props, context) => {
           width="300px"
           textAlign="center"
           fontSize="14px">
-          <>
-            <NoticeBox mt={1}>
-              СТЫКОВОЧНЫЙ ПРОТОКОЛ АКТИВЕН, ПОЛЁТ ОСТАНОВЛЕН - ВЫБЕРИТЕ МЕСТО
-              СТЫКОВКИ.
-            </NoticeBox>
-            <Dropdown
-              mt={1}
-              selected="Выбрать место стыковки"
-              width="100%"
-              options={validDockingPorts.map(
-                map_object => (
-                  <option key={map_object.id}>
-                    {map_object.name}
-                  </option>
-                ))}
-              onSelected={value => act("gotoPort", {
-                port: value.key,
-              })} />
-          </>
+          <NoticeBox mt={1}>
+            СТЫКОВОЧНЫЙ ПРОТОКОЛ АКТИВЕН, ПОЛЁТ ОСТАНОВЛЕН - ВЫБЕРИТЕ МЕСТО
+            СТЫКОВКИ.
+          </NoticeBox>
+          {validDockingPorts.map(
+            map_object => (
+              <Button
+                fluid
+                key={map_object.id}
+                onClick={() => act("gotoPort", {
+                  port: map_object.id,
+                })}>
+                {map_object.name}
+              </Button>
+          ))}
         </NoticeBox>
       )}
       <OrbitalMapComponent
@@ -574,7 +569,6 @@ const OrbitalMapDisplay = (props, context) => {
             lockedZoomScale={lockedZoomScale}
             map_objects={map_objects}
             interdiction_range={interdiction_range}
-            detection_range={detection_range}
             shuttleTargetX={shuttleTargetX}
             shuttleTargetY={shuttleTargetY}
             dragStartEvent={e => control.handleDragStart(e)}

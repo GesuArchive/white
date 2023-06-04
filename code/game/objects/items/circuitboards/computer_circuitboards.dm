@@ -647,11 +647,6 @@
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/bounty
 
-/obj/item/circuitboard/computer/navigation
-	name = "triangulation computer (Computer Board)"
-	icon_state = "science"
-	build_path = /obj/machinery/computer/locator
-
 /obj/item/circuitboard/computer/shuttle/weapons
 	name = "shuttle weapons control (Computer Board)"
 	icon_state = "security"

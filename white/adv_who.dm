@@ -31,7 +31,7 @@
 				if(C.holder && C.holder.fakekey)
 					entry += " <i>([C.holder.fakekey])</i>"
 				entry += "</td>"
-				entry += "<td>[splittext(C.account_join_date, " ")?[1]]</td>"
+				entry += "<td>[C.account_join_date ? splittext(C.account_join_date, " ")?[1] : "NaN"]</td>"
 				entry += "<td>[round(C.avgping, 1)]</td>"
 				entry += "<td>"
 
@@ -104,7 +104,7 @@
 			if(C.ckey in GLOB.anonists_deb)
 				continue
 
-			var/ajd = splittext(C.account_join_date, " ")?[1]
+			var/ajd = C.account_join_date ? splittext(C.account_join_date, " ")?[1] : "NaN"
 
 			if(C.holder && C.holder.fakekey)
 				Lines += "<tr><td>[C.holder.fakekey]</td><td>[ajd]</td><td>[round(C.avgping, 1)]</td><td>Космонавт</td></tr>"

@@ -100,9 +100,6 @@
 		orbitting_bodies.Cut()
 	. = ..()
 
-/datum/orbital_object/proc/is_distress()
-	return FALSE
-
 /datum/orbital_object/proc/explode()
 	return
 

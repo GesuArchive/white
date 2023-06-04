@@ -4828,7 +4828,6 @@
 #include "white\valtos\code\exploration\super_cruise\orbital_poi_generator\ruin_generator\ruin_events\asteriod_station.dm"
 #include "white\valtos\code\exploration\super_cruise\shuttle_ai_pilot\shuttle_ai_pilot.dm"
 #include "white\valtos\code\exploration\super_cruise\shuttle_ai_pilot\shuttle_autopilot.dm"
-#include "white\valtos\code\exploration\super_cruise\shuttle_components\beacon_locator.dm"
 #include "white\valtos\code\exploration\super_cruise\shuttle_components\plasma_refiner.dm"
 #include "white\valtos\code\exploration\super_cruise\shuttle_components\portable_orbital_map.dm"
 #include "white\valtos\code\exploration\super_cruise\shuttle_components\shuttle_console.dm"

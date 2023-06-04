@@ -27,12 +27,6 @@
 	if(inherit_name)
 		name = level.name
 
-/datum/orbital_object/z_linked/is_distress()
-	for(var/datum/space_level/level as() in linked_z_level)
-		if(SSorbits.assoc_distress_beacons["[level.z_value]"])
-			return TRUE
-	return FALSE
-
 /datum/orbital_object/z_linked/explode()
 	message_admins("ORBITAL BODY [name] WAS DESTROYED.")
 	log_game("Orbital body [name] was destroyed.")

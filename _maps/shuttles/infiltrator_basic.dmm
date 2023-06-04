@@ -35,8 +35,8 @@
 /turf/open/floor/plasteel/dark,
 /area/shuttle/syndicate/bridge)
 "ah" = (
-/obj/machinery/computer/locator,
 /obj/effect/turf_decal/bot_white,
+/obj/machinery/computer/crew/syndie,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/syndicate/bridge)
 "ai" = (

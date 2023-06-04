@@ -14,12 +14,6 @@
 /datum/shuttle_ai_pilot/autopilot/handle_ai_flight_action(datum/orbital_object/shuttle/shuttle)
 	if(!activated)
 		return
-	//Delete if our target goes out of range
-	if (shuttleTarget.position.DistanceTo(shuttle.position) > max(shuttle_data.detection_range, shuttleTarget.signal_range))
-		SEND_SIGNAL(shuttle, COMSIG_ORBITAL_BODY_MESSAGE, "Автопилот отключён, цель вышла из зоны радара.")
-		set_target(null)
-		qdel(src)
-		return
 	//Drive to the target location
 	if(!shuttle.shuttleTargetPos)
 		shuttle.shuttleTargetPos = new(shuttleTarget.position.GetX(), shuttleTarget.position.GetY())

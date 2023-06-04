@@ -137,7 +137,7 @@
 			continue
 		//Ignore ships that are too far away
 		var/obj/target_port = SSshuttle.getShuttle(ship_id)
-		if(!target_port || our_shuttle_object.position.DistanceTo(shuttle_object.position) > our_ship.detection_range)
+		if(!target_port)
 			continue
 		// Cannot see stealth ships
 		if (ship.stealth)
@@ -164,7 +164,7 @@
 		var/datum/orbital_object/shuttle/our_shuttle_object = SSorbits.assoc_shuttles[shuttle_id]
 		var/datum/orbital_object/shuttle/shuttle_object = SSorbits.assoc_shuttles[selected_ship_id]
 		var/datum/shuttle_data/our_ship = SSorbits.get_shuttle_data(shuttle_id)
-		if(!our_ship || !shuttle_object || !our_shuttle_object || our_shuttle_object.position.DistanceTo(shuttle_object.position) > our_ship.detection_range)
+		if(!our_ship || !shuttle_object || !our_shuttle_object)
 			show_camera_static()
 			selected_ship_id = null
 
@@ -195,7 +195,7 @@
 			var/datum/orbital_object/shuttle/our_shuttle_object = SSorbits.assoc_shuttles[shuttle_id]
 			var/datum/orbital_object/shuttle/shuttle_object = SSorbits.assoc_shuttles[s_id]
 			var/datum/shuttle_data/our_ship = SSorbits.get_shuttle_data(shuttle_id)
-			if(!our_ship || !shuttle_object || !our_shuttle_object || !our_shuttle_object.position.DistanceTo(shuttle_object.position) > our_ship.detection_range)
+			if(!our_ship || !shuttle_object || !our_shuttle_object)
 				show_camera_static()
 				return TRUE
 

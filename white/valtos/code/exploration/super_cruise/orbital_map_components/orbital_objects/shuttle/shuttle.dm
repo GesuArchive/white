@@ -77,9 +77,6 @@
 	. = ..()
 	SSorbits.assoc_shuttles.Remove(shuttle_port_id)
 
-/datum/orbital_object/shuttle/is_distress()
-	return SSorbits.assoc_distress_beacons["[port?.virtual_z]"]
-
 /datum/orbital_object/shuttle/stealth/steel_rain
 	//We never miss our mark
 	cheating_autopilot = TRUE

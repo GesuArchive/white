@@ -456,15 +456,3 @@
 	category = list("Консоли", "Спейсподы и шаттлостроение")
 	sub_category = list("шаттлостроение")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
-
-
-/datum/design/board/shuttle/navigation
-	name = "Computer Design (Navigation Computer)"
-	desc = "A circuit board for building a navigation computer, which allows you to locate objects outside of sensor range."
-	id = "shuttle_navigation"
-	build_path = /obj/item/circuitboard/computer/navigation
-	build_type = IMPRINTER | MECHFAB
-	construction_time = 40
-	category = list("Консоли", "Спейсподы и шаттлостроение")
-	sub_category = list("шаттлостроение")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING

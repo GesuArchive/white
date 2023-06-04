@@ -56,9 +56,6 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 	//Value: The shuttle data
 	var/list/assoc_shuttle_data = list()
 
-	//List of distress beacons by Z-Level
-	var/list/assoc_distress_beacons = list()
-
 	//shuttle weapons
 	var/list/shuttle_weapons = list()
 
@@ -126,7 +123,9 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 			return
 		//Update UIs
 		for(var/datum/tgui/tgui as() in open_orbital_maps)
-			tgui?.send_update()
+			if(!tgui)
+				continue
+			tgui.send_update()
 	//Check creating objectives / missions.
 	if(next_objective_time < world.time && length(possible_objectives) < 6)
 		create_objective()
@@ -150,6 +149,8 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 			return
 		//Update UIs
 		for(var/datum/tgui/tgui as() in open_orbital_maps)
+			if(!tgui)
+				continue
 			tgui.send_update()
 
 //====================================
@@ -226,8 +227,6 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 	var/data = list()
 	data["update_index"] = SSorbits.times_fired
 	data["map_objects"] = list()
-	//Locate shuttle data if we have one
-	data["detection_range"] = attached_data?.detection_range
 	//Fetch the active single instances
 	//Get the objects
 	for(var/datum/orbital_object/object as() in showing_map.get_all_bodies())
@@ -236,19 +235,6 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 		//we can't see it, unless we are stealth too
 		if(!see_stealthed && object.is_stealth())
 			continue
-		//Check visibility
-		var/distress = object.is_distress()
-		if(attached_orbital_object && !distress)
-			var/max_vis_distance = max(attached_data?.detection_range, object.signal_range)
-			//Quick Distance Check
-			if(attached_orbital_object.position.GetX() > object.position.GetX() + max_vis_distance\
-				|| attached_orbital_object.position.GetX() < object.position.GetX() - max_vis_distance\
-				|| attached_orbital_object.position.GetY() > object.position.GetY() + max_vis_distance\
-				|| attached_orbital_object.position.GetY() < object.position.GetY() - max_vis_distance)
-				continue
-			//Refined Distance Check
-			if(attached_orbital_object.position.DistanceTo(object.position) > max_vis_distance)
-				continue
 		//Transmit map data about non single-instanced objects.
 		data["map_objects"] += list(list(
 			"id" = object.unique_id,
@@ -260,7 +246,6 @@ PROCESSING_SUBSYSTEM_DEF(orbits)
 			"radius" = object.radius,
 			"render_mode" = object.render_mode,
 			"priority" = object.priority,
-			"distress" = distress,
 			"vel_mult" = object.velocity_multiplier,
 		))
 	return data

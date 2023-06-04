@@ -93,10 +93,10 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/syndicate/bridge)
 "am" = (
-/obj/machinery/computer/locator{
+/obj/effect/turf_decal/bot,
+/obj/machinery/computer/crew/syndie{
 	dir = 4
 	},
-/obj/effect/turf_decal/bot,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/syndicate/bridge)
 "an" = (

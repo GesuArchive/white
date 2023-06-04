@@ -356,8 +356,6 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 
 	var/velocity_multiplier = 1.5
 
-	//The designated virtual Z-Value of this shuttle
-	var/virtual_z
 	//The virtual Z-value this shuttle is at
 	var/current_z
 
