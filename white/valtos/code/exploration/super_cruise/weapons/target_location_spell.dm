@@ -10,8 +10,8 @@
 */
 
 /datum/action/cooldown/spell/pointed/set_weapon_target
-	name = "Set target"
-	desc = "Set the weapon's target"
+	name = "Выбрать цель"
+	desc = "Выбрать цель?"
 	panel = ""
 	ranged_mousepointer = 'icons/effects/mouse_pointers/cult_target.dmi'
 	spell_requirements = NONE
@@ -22,23 +22,20 @@
 
 /datum/action/cooldown/spell/pointed/set_weapon_target/InterceptClickOn(mob/living/caller, params, atom/target)
 	if(!linked_console)
-		to_chat(caller, "<span class='warning'>No linked console.</span>")
-		unset_click_ability(caller)
-		return FALSE
-	if(..())
+		to_chat(caller, "<span class='warning'>Не вижу консоль.</span>")
 		unset_click_ability(caller)
 		return FALSE
 	if(!linked_console.can_interact(caller))
-		to_chat(caller, "<span class='warning'>You are too far away!</span>")
+		to_chat(caller, "<span class='warning'>Слишком далеко!</span>")
 		unset_click_ability(caller)
 		return FALSE
 	var/turf/T = get_turf(target)
 	if(!T)
 		unset_click_ability(caller)
 		return FALSE
-	to_chat(caller, "<span class='notice'>Weapon targetted.</span>")
+	to_chat(caller, "<span class='notice'>Цель выбрана.</span>")
 	if(prob(2))
-		caller.say("FIRE!!!!", forced = "Shuttle weapon firing")
+		caller.say("ОГОНЬ!!!!", forced = "Shuttle weapon firing")
 	var/obj/machinery/shuttle_weapon/weapon = linked_console.selected_weapon_system.resolve()
 	caller.log_message("fired [weapon ? "[weapon] " : ""] at [AREACOORD(T)]", LOG_ATTACK, color="purple")
 	log_shuttle_attack("fired [weapon ? "[weapon] " : ""] at [AREACOORD(T)]")
