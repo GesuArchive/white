@@ -59,32 +59,43 @@
 	//Get the docking port
 	var/obj/docking_port/mobile/attached_port = SSshuttle.getShuttle(port_id)
 	shuttle_name = attached_port.name
-	calculate_initial_stats()
+	recalculate_stats()
 
 /datum/shuttle_data/Destroy(force, ...)
 	unregister_turfs()
 	. = ..()
 	log_shuttle("Shuttle data [shuttle_name] ([port_id]) was deleted.")
 
-/// Private
 /// Calculates the initial stats of the shuttle
-/datum/shuttle_data/proc/calculate_initial_stats()
-	PRIVATE_PROC(TRUE)
+/datum/shuttle_data/proc/recalculate_stats()
 	var/obj/docking_port/mobile/mobile_port = SSshuttle.getShuttle(port_id)
 	mass = 5
 	for(var/area/shuttle_area as() in mobile_port.shuttle_areas)
 		//Check turfs
-		for(var/turf/T in shuttle_area)
-			if(!isspaceturf(T))
-				mass ++
+		recalculate_mass(shuttle_area)
 		//Handle shuttle engines
-		for(var/obj/machinery/shuttle/engine/shuttle_engine in shuttle_area)
-			register_thruster(shuttle_engine)
+		recheck_thrusters(shuttle_area)
 		//Handle shuttle weapons
-		for(var/obj/machinery/shuttle_weapon/shuttle_weapon in shuttle_area)
-			register_weapon_system(shuttle_weapon)
+		recheck_weapons(shuttle_area)
 	//Calculate integrity
 	recalculate_integrity()
+
+/datum/shuttle_data/proc/recalculate_mass(area/shuttle_area)
+	for(var/turf/T in shuttle_area)
+		if(!isspaceturf(T))
+			mass ++
+
+/datum/shuttle_data/proc/recheck_thrusters(area/shuttle_area)
+	for(var/obj/machinery/shuttle/engine/shuttle_engine in shuttle_area)
+		if(shuttle_engine in registered_engines)
+			continue
+		register_thruster(shuttle_engine)
+
+/datum/shuttle_data/proc/recheck_weapons(area/shuttle_area)
+	for(var/obj/machinery/shuttle_weapon/shuttle_weapon in shuttle_area)
+		if(shuttle_weapon in shuttle_weapons)
+			continue
+		register_weapon_system(shuttle_weapon)
 
 //====================
 // Integrity / Damage

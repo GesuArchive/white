@@ -371,7 +371,9 @@ GLOBAL_LIST_INIT(shuttle_turf_blacklist, typecacheof(list(
 
 /obj/docking_port/mobile/proc/register()
 	SSshuttle.mobile |= src
-	SSorbits.register_shuttle(id)
+	// мб пофиксит кал
+	spawn(5 SECONDS)
+		SSorbits.register_shuttle(id)
 
 /obj/docking_port/mobile/Destroy(force)
 	if(force)

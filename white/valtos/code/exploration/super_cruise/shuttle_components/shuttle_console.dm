@@ -422,6 +422,7 @@
 		return
 	if(!shuttle_data.check_can_launch())
 		say("Недостаточная сила двигателей для запуска.")
+		shuttle_data.recalculate_stats()
 		return
 	if(SSorbits.interdicted_shuttles.Find(shuttleId))
 		if(world.time < SSorbits.interdicted_shuttles[shuttleId])
