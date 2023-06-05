@@ -402,6 +402,7 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced,
+/obj/machinery/smartfridge/disks,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/powered/seedvault)
 "bb" = (
@@ -481,6 +482,7 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced,
+/obj/machinery/plantgenes,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/powered/seedvault)
 "bj" = (
