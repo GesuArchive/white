@@ -152,6 +152,24 @@
 	message = replacetextEx(message, "Ы", "и")
 	return message
 
+/proc/owoish(message)
+	message = replacetextEx(message, "r", "w")
+	message = replacetextEx(message, "l", "w")
+	message = replacetextEx(message, "R", "W")
+	message = replacetextEx(message, "L", "W")
+
+	message = replacetextEx(message, "р", "в")
+	message = replacetextEx(message, "л", "в")
+	message = replacetextEx(message, "Р", "В")
+	message = replacetextEx(message, "Л", "В")
+
+	message = replacetext_char(message, "you", "wu")
+	message = replacetext_char(message, "ты", "ти")
+
+	if(prob(10))
+		message = replacetext_char(message, "!", pick(list(" (`ω´)", " ;;w;;", " owo", " UwU", " >w<", " ^w^")))
+	return message
+
 /datum/quirk/asiat
 	name = "Азиат"
 	desc = "Долгое время работы в рисовых полях и жара палящего сверху солнца даровала вам этот прекрасный акцент."

@@ -400,6 +400,9 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 	if(HAS_TRAIT(src, TRAIT_ASIAT))
 		message = asiatish(message)
 
+	if(isfelinid(src))
+		message = owoish(message)
+
 	if(derpspeech)
 		message = derpspeech(message, stuttering)
 
