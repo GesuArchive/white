@@ -7,6 +7,7 @@
 	attack_sound = 'sound/weapons/bite.ogg'
 	miss_sound = 'sound/weapons/bite.ogg'
 	mutant_organs = list(/obj/item/organ/tail/monkey)
+	mutantbrain = /obj/item/organ/brain/primate
 	mutant_bodyparts = list("tail_monkey" = "Monkey")
 	skinned_type = /obj/item/stack/sheet/animalhide/monkey
 	meat = /obj/item/food/meat/slab/monkey
@@ -124,3 +125,59 @@
 	if(SSevents.holidays && SSevents.holidays[MONKEYDAY])
 		return TRUE
 	return ..()
+
+/obj/item/organ/brain/primate //Ook Ook
+	name = "мозг примата"
+	desc = "Этот мозг небольшой, но имеет увеличенные затылочные доли для обнаружения бананов."
+	actions_types = list(/datum/action/item_action/organ_action/toggle_trip)
+	/// Will this monkey stumble if they are crossed by a simple mob or a carbon in combat mode? Toggable by monkeys with clients, and is messed automatically set to true by monkey AI.
+	var/tripping = TRUE
+
+/datum/action/item_action/organ_action/toggle_trip
+	name = "Переключить опрокидывание"
+	button_icon = 'icons/mob/actions/actions_changeling.dmi'
+	button_icon_state = "lesser_form"
+	background_icon_state = "bg_default_on"
+	button_overlay_state = "bg_default_border"
+
+/datum/action/item_action/organ_action/toggle_trip/Trigger(trigger_flags)
+	. = ..()
+	if(!.)
+		return
+
+	var/obj/item/organ/brain/primate/monkey_brain = target
+	if(monkey_brain.tripping)
+		monkey_brain.tripping = FALSE
+		background_icon_state = "bg_default"
+		to_chat(monkey_brain.owner, span_notice("Теперь я не споткнусь при столкновении с людьми, находящимися в боевом режиме."))
+	else
+		monkey_brain.tripping = TRUE
+		background_icon_state = "bg_default_on"
+		to_chat(monkey_brain.owner, span_notice("Теперь я буду спотыкаться при столкновении с людьми, находящимися в боевом режиме."))
+	UpdateButtons()
+
+/obj/item/organ/brain/primate/Insert(mob/living/carbon/primate, special, no_id_transfer)
+	. = ..()
+	ADD_TRAIT(primate, TRAIT_PRIMITIVE, ORGAN_TRAIT)
+	RegisterSignal(primate, COMSIG_MOVABLE_CROSS, PROC_REF(on_crossed), TRUE)
+
+/obj/item/organ/brain/primate/Remove(mob/living/carbon/primate, special = 0, no_id_transfer = FALSE)
+	. = ..()
+	REMOVE_TRAIT(primate, TRAIT_PRIMITIVE, ORGAN_TRAIT)
+	UnregisterSignal(primate, COMSIG_MOVABLE_CROSS)
+
+/obj/item/organ/brain/primate/proc/on_crossed(datum/source, atom/movable/crossed)
+	SIGNAL_HANDLER
+	if(!tripping)
+		return
+	if(IS_DEAD_OR_INCAP(owner) || !isliving(crossed))
+		return
+	var/mob/living/in_the_way_mob = crossed
+	if(iscarbon(in_the_way_mob) && in_the_way_mob.a_intent != INTENT_HARM)
+		return
+	if(in_the_way_mob.pass_flags & PASSTABLE)
+		return
+	in_the_way_mob.knockOver(owner)
+
+/obj/item/organ/brain/primate/get_attacking_limb(mob/living/carbon/human/target)
+	return owner.get_bodypart(BODY_ZONE_HEAD)

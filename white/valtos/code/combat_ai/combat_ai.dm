@@ -1,14 +1,13 @@
 /datum/ai_controller/combat_ai
-	blackboard = list(BB_COMBAT_AI_ANGRY_GAY = TRUE,\
-					  BB_COMBAT_AI_ENEMIES = list(),\
-					  BB_COMBAT_AI_CURRENT_TARGET = null,\
-					  BB_COMBAT_AI_WEAPON_TARGET = null,\
-					  BB_COMBAT_AI_WEAPON_BL = list(),\
-					  BB_COMBAT_AI_WOUNDED = FALSE,\
-					  BB_COMBAT_AI_STUPIDITY = 0,\
-					  BB_COMBAT_AI_SUICIDE_BOMBER = FALSE)
-	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	blackboard = list(
+		BB_COMBAT_AI_ANGRY_GAY = TRUE,
+		BB_COMBAT_AI_ENEMIES = list(),
+		BB_COMBAT_AI_CURRENT_TARGET = null,
+		BB_COMBAT_AI_WEAPON_TARGET = null,
+		BB_COMBAT_AI_WEAPON_BL = list(),
+		BB_COMBAT_AI_WOUNDED = FALSE,
+		BB_COMBAT_AI_STUPIDITY = 0,
+		BB_COMBAT_AI_SUICIDE_BOMBER = FALSE
 	)
 	var/debug_mode = 1
 
@@ -24,7 +23,6 @@
 	RegisterSignal(new_pawn, COMSIG_LIVING_TRY_SYRINGE, PROC_REF(on_try_syringe))
 	RegisterSignal(new_pawn, COMSIG_ATOM_HULK_ATTACK, PROC_REF(on_attack_hulk))
 	RegisterSignal(new_pawn, COMSIG_CARBON_CUFF_ATTEMPTED, PROC_REF(on_attempt_cuff))
-	AddComponent(/datum/component/connect_loc_behalf, pawn, loc_connections)
 	new_pawn.maptext_width = 256
 	new_pawn.maptext_height = 256
 	return ..() //Run parent at end
@@ -166,14 +164,6 @@
 		if(I.throwforce < living_pawn.health && ishuman(I.thrownby))
 			var/mob/living/carbon/human/H = I.thrownby
 			retaliate(H)
-
-/datum/ai_controller/combat_ai/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
-	SIGNAL_HANDLER
-	var/mob/living/living_pawn = pawn
-	if(!IS_DEAD_OR_INCAP(living_pawn) && ismob(arrived))
-		var/mob/living/in_the_way_mob = arrived
-		in_the_way_mob.knockOver(living_pawn)
-		return
 
 /datum/ai_controller/combat_ai/proc/on_startpulling(datum/source, atom/movable/puller, state, force)
 	SIGNAL_HANDLER
