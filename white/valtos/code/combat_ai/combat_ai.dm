@@ -324,6 +324,8 @@
 			break
 		for(var/obj/O in T)
 			if(O.density)
+				if(istype(O, /obj/structure/deployable_barricade) || istype(O, /obj/structure/barricade) || istype(O, /obj/structure/grille))
+					continue
 				able_to_hit = FALSE
 				break
 
