@@ -188,7 +188,7 @@
 	req_access_txt = "28"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "kitchenhydro";
 	name = "Service Shutter"
@@ -881,7 +881,7 @@
 	name = "Bar Storage";
 	req_access_txt = "25"
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/door/firedoor,
 /turf/open/floor/wood,
 /area/service/bar)

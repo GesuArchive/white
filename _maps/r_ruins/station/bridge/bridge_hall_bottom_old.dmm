@@ -467,7 +467,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/heads_quarters/hop)
 "hO" = (
@@ -1272,7 +1272,7 @@
 	req_access_txt = "17"
 	},
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
@@ -1280,7 +1280,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/teleporter)
 "uX" = (
@@ -1764,7 +1764,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/engineering/gravity_generator)
 "Dh" = (
@@ -2293,7 +2293,7 @@
 	name = "bridge blast door"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge";
 	req_access_txt = "19"
@@ -2891,7 +2891,7 @@
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/meeting_room)
 "Wo" = (

@@ -118,7 +118,7 @@
 	req_access_txt = "25"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /turf/open/floor/wood,
 /area/service/bar)
 "gc" = (
@@ -1056,7 +1056,7 @@
 	req_access_txt = "28"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /turf/open/floor/plasteel,
 /area/service/kitchen)
 "Lh" = (

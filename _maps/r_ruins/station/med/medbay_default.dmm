@@ -6685,7 +6685,7 @@
 /turf/open/floor/plasteel,
 /area/medical/medbay/lobby)
 "VR" = (
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/door/airlock/hatch{
 	name = "Morgue";
 	req_access = null;

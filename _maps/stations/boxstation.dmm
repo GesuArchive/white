@@ -453,7 +453,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
@@ -1835,7 +1835,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/landmark/event_spawn,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/service/janitor)
@@ -2695,7 +2695,7 @@
 	name = "Atmospherics";
 	req_access_txt = "24"
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/engineering/atmos)
@@ -4513,7 +4513,7 @@
 	req_access_txt = "12"
 	},
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel,
@@ -6017,7 +6017,7 @@
 	security_level = 1
 	},
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
@@ -8744,7 +8744,7 @@
 /turf/open/floor/engine,
 /area/commons/spacepod_docks)
 "caj" = (
-/obj/machinery/navbeacon/wayfinding/disposals,
+/obj/effect/landmark/navigate_destination/disposals,
 /turf/open/floor/plating,
 /area/maintenance/disposal)
 "cat" = (
@@ -9552,7 +9552,7 @@
 /turf/open/floor/plasteel/monofloor,
 /area/maintenance/solars/starboard/aft)
 "cmO" = (
-/obj/machinery/navbeacon/wayfinding/tools,
+/obj/effect/landmark/navigate_destination/tools,
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel/monofloor,
 /area/commons/storage/primary)
@@ -11572,7 +11572,7 @@
 /turf/open/floor/plasteel/freezer,
 /area/commons/toilet)
 "cPK" = (
-/obj/machinery/navbeacon/wayfinding/lawyer,
+/obj/effect/landmark/navigate_destination/lawyer,
 /turf/open/floor/wood,
 /area/lawoffice)
 "cPM" = (
@@ -13854,7 +13854,7 @@
 	name = "Chapel Office";
 	req_access_txt = "22"
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/grimy,
 /area/service/chapel/office)
@@ -14201,7 +14201,7 @@
 /turf/open/floor/grass,
 /area/hallway/secondary/exit)
 "dIU" = (
-/obj/machinery/navbeacon/wayfinding/cargo,
+/obj/effect/landmark/navigate_destination/cargo,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 1
@@ -14952,7 +14952,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding/janitor,
+/obj/effect/landmark/navigate_destination/janitor,
 /obj/effect/landmark/start/janitor,
 /turf/open/floor/plasteel/monofloor,
 /area/service/janitor)
@@ -15207,7 +15207,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
@@ -20103,7 +20103,7 @@
 	name = "Hydroponics";
 	req_access_txt = "35"
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/siding/thinplating/corner{
@@ -21778,7 +21778,7 @@
 	},
 /area/science/research)
 "fRo" = (
-/obj/machinery/navbeacon/wayfinding/det,
+/obj/effect/landmark/navigate_destination/det,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 6
 	},
@@ -26368,7 +26368,7 @@
 	name = "Telecommunications";
 	req_access_txt = "61"
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
@@ -26548,7 +26548,7 @@
 	req_access_txt = "28"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/cafeteria,
 /area/service/kitchen)
@@ -26708,7 +26708,7 @@
 /turf/open/floor/wood,
 /area/service/library/upper)
 "hrb" = (
-/obj/machinery/navbeacon/wayfinding/atmos,
+/obj/effect/landmark/navigate_destination/atmos,
 /turf/open/floor/plasteel/monofloor,
 /area/engineering/atmos)
 "hrf" = (
@@ -27213,7 +27213,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/primary/port/vault)
 "hyh" = (
-/obj/machinery/navbeacon/wayfinding/vault,
+/obj/effect/landmark/navigate_destination/vault,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 10
 	},
@@ -27990,7 +27990,7 @@
 /area/maintenance/starboard/aft)
 "hJf" = (
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding/engineering,
+/obj/effect/landmark/navigate_destination/engineering,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/monofloor,
@@ -29730,7 +29730,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 5
 	},
-/obj/machinery/navbeacon/wayfinding/research,
+/obj/effect/landmark/navigate_destination/research,
 /turf/open/floor/plasteel/monofloor/white,
 /area/science/research)
 "ilH" = (
@@ -30295,7 +30295,7 @@
 /turf/open/floor/plating,
 /area/maintenance/fore/secondary)
 "iuN" = (
-/obj/machinery/navbeacon/wayfinding/sec,
+/obj/effect/landmark/navigate_destination/sec,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 9
 	},
@@ -31595,7 +31595,7 @@
 	name = "Cargo Office";
 	req_access_txt = "50"
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
@@ -32903,7 +32903,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
-/obj/machinery/navbeacon/wayfinding{
+/obj/effect/landmark/navigate_destination{
 	location = "Arrival Shuttle"
 	},
 /obj/machinery/door/airlock/external/glass{
@@ -41578,7 +41578,7 @@
 /turf/open/floor/plasteel/monofloor/dark,
 /area/service/chapel/main)
 "lTw" = (
-/obj/machinery/navbeacon/wayfinding/tcomms,
+/obj/effect/landmark/navigate_destination/tcomms,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
@@ -43933,7 +43933,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/navbeacon/wayfinding/gateway,
+/obj/effect/landmark/navigate_destination/gateway,
 /turf/open/floor/plasteel/dark,
 /area/command/gateway)
 "mEk" = (
@@ -46692,7 +46692,7 @@
 	req_access_txt = "10"
 	},
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
@@ -46847,7 +46847,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
 	},
-/obj/machinery/navbeacon/wayfinding/dockarrival,
+/obj/effect/landmark/navigate_destination/dockarrival,
 /obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/hallway/secondary/entry)
@@ -49744,7 +49744,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/hallway/secondary/entry/public)
@@ -51004,7 +51004,7 @@
 /turf/open/floor/carpet,
 /area/service/library/upper)
 "oHq" = (
-/obj/machinery/navbeacon/wayfinding/court,
+/obj/effect/landmark/navigate_destination/court,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/security/courtroom)
@@ -56599,7 +56599,7 @@
 /area/commons/spacepod_docks)
 "qnr" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/monofloor,
 /area/commons/locker)
@@ -61074,7 +61074,7 @@
 	name = "Detective's Office";
 	req_access_txt = "4"
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
@@ -63426,7 +63426,7 @@
 /area/maintenance/bottom_station_maints/south)
 "ssr" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/navbeacon/wayfinding/library,
+/obj/effect/landmark/navigate_destination/library,
 /turf/open/floor/carpet,
 /area/service/library/upper)
 "ssB" = (
@@ -74328,7 +74328,7 @@
 	req_access_txt = "25"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 1
 	},
@@ -75937,7 +75937,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
-/obj/machinery/navbeacon/wayfinding/dorms,
+/obj/effect/landmark/navigate_destination/dorms,
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel/monofloor,
 /area/commons/dorms)
@@ -77478,7 +77478,7 @@
 	name = "Research Division Access";
 	req_access_txt = "47"
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor/heavy,
@@ -78825,7 +78825,7 @@
 /turf/open/floor/engine,
 /area/engineering/atmospherics_engine)
 "wXt" = (
-/obj/machinery/navbeacon/wayfinding/eva,
+/obj/effect/landmark/navigate_destination/eva,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
@@ -79081,7 +79081,7 @@
 /area/maintenance/department/electrical)
 "xbl" = (
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding/techstorage,
+/obj/effect/landmark/navigate_destination/techstorage,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 9
 	},
@@ -79480,7 +79480,7 @@
 /turf/open/floor/plasteel/dark/telecomms,
 /area/tcommsat/server)
 "xhl" = (
-/obj/machinery/navbeacon/wayfinding/dockaux,
+/obj/effect/landmark/navigate_destination/dockaux,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -79582,7 +79582,7 @@
 	name = "Private Study";
 	req_access_txt = "37"
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /turf/open/floor/engine/cult,
 /area/service/library/upper)
 "xij" = (
@@ -80994,7 +80994,7 @@
 	name = "Primary Tool Storage"
 	},
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
@@ -81132,7 +81132,7 @@
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/port/to_arrival)
 "xFx" = (
-/obj/machinery/navbeacon/wayfinding/minisat_access_ai,
+/obj/effect/landmark/navigate_destination/minisat_access_ai,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 1
@@ -81679,7 +81679,7 @@
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
 "xNq" = (
-/obj/machinery/navbeacon/wayfinding/chapel,
+/obj/effect/landmark/navigate_destination/chapel,
 /turf/open/floor/carpet,
 /area/service/chapel/main)
 "xNs" = (
@@ -82120,7 +82120,7 @@
 /area/service/theater)
 "xUD" = (
 /obj/item/beacon,
-/obj/machinery/navbeacon/wayfinding/dockesc,
+/obj/effect/landmark/navigate_destination/dockesc,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},

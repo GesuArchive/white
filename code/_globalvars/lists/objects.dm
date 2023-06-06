@@ -11,7 +11,7 @@ GLOBAL_LIST_EMPTY(navbeacons)					    //list of all bot nagivation beacons, used
 GLOBAL_LIST_EMPTY(teleportbeacons)			        //list of all tracking beacons used by teleporters
 GLOBAL_LIST_EMPTY(deliverybeacons)			        //list of all MULEbot delivery beacons.
 GLOBAL_LIST_EMPTY(deliverybeacontags)			    //list of all tags associated with delivery beacons.
-GLOBAL_LIST_EMPTY(wayfindingbeacons)			    //list of all navigation beacons used by wayfinding pinpointers
+GLOBAL_LIST_EMPTY(navigate_destinations) 			//list of all destinations used by the navigate verb
 GLOBAL_LIST_EMPTY(nuke_list)
 GLOBAL_LIST_EMPTY(alarmdisplay)				        //list of all machines or programs that can display station alerts
 GLOBAL_LIST_EMPTY_TYPED(singularities, /datum/component/singularity) //list of all singularities on the station
@@ -37,6 +37,7 @@ GLOBAL_LIST_EMPTY(zombie_infection_list) // A list of all zombie_infection organ
 GLOBAL_LIST_EMPTY(meteor_list) // List of all meteors.
 GLOBAL_LIST_EMPTY(active_jammers)  // List of active radio jammers
 GLOBAL_LIST_EMPTY(ladders)
+GLOBAL_LIST_EMPTY(stairs)
 GLOBAL_LIST_EMPTY(trophy_cases)
 GLOBAL_LIST_EMPTY(experiment_handlers)
 GLOBAL_LIST_EMPTY(janitor_devices)

@@ -530,3 +530,153 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 /// In landmarks.dm and not unit_test.dm so it is always active in the mapping tools.
 /obj/effect/landmark/unit_test_top_right
 	name = "unit test zone top right"
+
+//Landmark that creates destinations for the navigate verb to path to
+/obj/effect/landmark/navigate_destination
+	name = "навигация"
+	icon_state = "navigate"
+	layer = OBJ_LAYER
+	var/location
+
+/obj/effect/landmark/navigate_destination/Initialize(mapload)
+	. = ..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/landmark/navigate_destination/LateInitialize()
+	. = ..()
+	if(!location)
+		var/obj/machinery/door/airlock/A = locate(/obj/machinery/door/airlock) in loc
+		location = A ? format_text(A.name) : get_area_name(src, format_text = TRUE)
+
+	GLOB.navigate_destinations[loc] = location
+
+	qdel(src)
+
+//Command
+/obj/effect/landmark/navigate_destination/bridge
+	location = "Мостик"
+
+/obj/effect/landmark/navigate_destination/hop
+	location = "Офис Кадровика"
+
+/obj/effect/landmark/navigate_destination/vault
+	location = "Хранилище"
+
+/obj/effect/landmark/navigate_destination/teleporter
+	location = "Телепортер"
+
+/obj/effect/landmark/navigate_destination/gateway
+	location = "Врата"
+
+/obj/effect/landmark/navigate_destination/eva
+	location = "Хранилище ЕВА"
+
+/obj/effect/landmark/navigate_destination/aiupload
+	location = "Аплоад ИИ"
+
+/obj/effect/landmark/navigate_destination/minisat_access_ai
+	location = "Спутник ИИ"
+
+/obj/effect/landmark/navigate_destination/minisat_access_tcomms
+	location = "Телекомы спутника ИИ"
+
+/obj/effect/landmark/navigate_destination/minisat_access_tcomms_ai
+	location = "Вход в телекомы спутника ИИ"
+
+/obj/effect/landmark/navigate_destination/tcomms
+	location = "Телекомы"
+
+//Departments
+/obj/effect/landmark/navigate_destination/sec
+	location = "Охрана"
+
+/obj/effect/landmark/navigate_destination/det
+	location = "Офис детектива"
+
+/obj/effect/landmark/navigate_destination/research
+	location = "Наука"
+
+/obj/effect/landmark/navigate_destination/engineering
+	location = "Инженерный"
+
+/obj/effect/landmark/navigate_destination/techstorage
+	location = "Склад"
+
+/obj/effect/landmark/navigate_destination/atmos
+	location = "Атмосферный"
+
+/obj/effect/landmark/navigate_destination/med
+	location = "Медбей"
+
+/obj/effect/landmark/navigate_destination/chemfactory
+	location = "Химический завод"
+
+/obj/effect/landmark/navigate_destination/cargo
+	location = "Снабжение"
+
+//Common areas
+/obj/effect/landmark/navigate_destination/bar
+	location = "Бар"
+
+/obj/effect/landmark/navigate_destination/dorms
+	location = "Дормы"
+
+/obj/effect/landmark/navigate_destination/court
+	location = "Суд"
+
+/obj/effect/landmark/navigate_destination/tools
+	location = "Хранилище инструментов"
+
+/obj/effect/landmark/navigate_destination/library
+	location = "Библиотека"
+
+/obj/effect/landmark/navigate_destination/chapel
+	location = "Церковь"
+
+/obj/effect/landmark/navigate_destination/minisat_access_chapel_library
+	location = "Церковь и библиотека"
+
+//Service
+/obj/effect/landmark/navigate_destination/kitchen
+	location = "Кухня"
+
+/obj/effect/landmark/navigate_destination/hydro
+	location = "Гидропоника"
+
+/obj/effect/landmark/navigate_destination/janitor
+	location = "Клозет уборщика"
+
+/obj/effect/landmark/navigate_destination/lawyer
+	location = "Офис адвоката"
+
+//Shuttle docks
+/obj/effect/landmark/navigate_destination/dockarrival
+	location = "Прибытие"
+
+/obj/effect/landmark/navigate_destination/dockesc
+	location = "Эвакуационный док"
+
+/obj/effect/landmark/navigate_destination/dockescpod
+	location = "Спасательная капсула"
+
+/obj/effect/landmark/navigate_destination/dockescpod1
+	location = "Спасательная капсула 1"
+
+/obj/effect/landmark/navigate_destination/dockescpod2
+	location = "Спасательная капсула 2"
+
+/obj/effect/landmark/navigate_destination/dockescpod3
+	location = "Спасательная капсула 3"
+
+/obj/effect/landmark/navigate_destination/dockescpod4
+	location = "Спасательная капсула 4"
+
+/obj/effect/landmark/navigate_destination/dockaux
+	location = "Док"
+
+//Maint
+/obj/effect/landmark/navigate_destination/incinerator
+	location = "Сжигатель"
+
+/obj/effect/landmark/navigate_destination/disposals
+	location = "Мусорка"

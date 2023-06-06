@@ -6,7 +6,7 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "navbeacon0-f"
 	name = "навигатор"
-	desc = "Радиомаяк, используемый как для навигации, так и для определения маршрута."
+	desc = "Радиомаяк, используемый для навигации роботов."
 	layer = LOW_OBJ_LAYER
 	max_integrity = 500
 	armor = list(MELEE = 70, BULLET = 70, LASER = 70, ENERGY = 70, BOMB = 0, BIO = 0, RAD = 0, FIRE = 80, ACID = 80)
@@ -17,21 +17,11 @@
 	var/location = ""	// location response text
 	var/list/codes		// assoc. list of transponder codes
 	var/codes_txt = ""	// codes as set on map: "tag1;tag2" or "tag1=value;tag2=value"
-	var/wayfinding = FALSE
 
 	req_one_access = list(ACCESS_ENGINE, ACCESS_ROBOTICS)
 
 /obj/machinery/navbeacon/Initialize(mapload)
 	. = ..()
-
-	if(wayfinding)
-		if(!location)
-			var/obj/machinery/door/airlock/A = locate(/obj/machinery/door/airlock) in loc
-			if(A)
-				location = A.name
-			else
-				location = get_area(src)
-		codes_txt += "wayfinding=[location]"
 
 	set_codes()
 
@@ -73,7 +63,6 @@
 		GLOB.navbeacons["[z]"] -= src //Remove from beacon list, if in one.
 	GLOB.deliverybeacons -= src
 	GLOB.deliverybeacontags -= location
-	GLOB.wayfindingbeacons -= src
 
 /obj/machinery/navbeacon/proc/glob_lists_register(init=FALSE)
 	if(!init)
@@ -85,8 +74,6 @@
 	if(codes["delivery"])
 		GLOB.deliverybeacons += src
 		GLOB.deliverybeacontags += location
-	if(codes["wayfinding"])
-		GLOB.wayfindingbeacons += src
 
 // update the icon_state
 /obj/machinery/navbeacon/update_icon_state()
@@ -225,137 +212,3 @@
 			glob_lists_register()
 
 			updateDialog()
-
-/obj/machinery/navbeacon/wayfinding
-	wayfinding = TRUE
-
-/* Defining these here instead of relying on map edits because it makes it easier to place them */
-
-//Command
-/obj/machinery/navbeacon/wayfinding/bridge
-	location = "Мостик"
-
-/obj/machinery/navbeacon/wayfinding/hop
-	location = "Офис Кадровика"
-
-/obj/machinery/navbeacon/wayfinding/vault
-	location = "Хранилище"
-
-/obj/machinery/navbeacon/wayfinding/teleporter
-	location = "Телепортер"
-
-/obj/machinery/navbeacon/wayfinding/gateway
-	location = "Врата"
-
-/obj/machinery/navbeacon/wayfinding/eva
-	location = "Хранилище ЕВА"
-
-/obj/machinery/navbeacon/wayfinding/aiupload
-	location = "Аплоад ИИ"
-
-/obj/machinery/navbeacon/wayfinding/minisat_access_ai
-	location = "Спутник ИИ"
-
-/obj/machinery/navbeacon/wayfinding/minisat_access_tcomms
-	location = "Телекомы спутника ИИ"
-
-/obj/machinery/navbeacon/wayfinding/minisat_access_tcomms_ai
-	location = "Вход в телекомы спутника ИИ"
-
-/obj/machinery/navbeacon/wayfinding/tcomms
-	location = "Телекомы"
-
-//Departments
-/obj/machinery/navbeacon/wayfinding/sec
-	location = "Охрана"
-
-/obj/machinery/navbeacon/wayfinding/det
-	location = "Офис детектива"
-
-/obj/machinery/navbeacon/wayfinding/research
-	location = "Наука"
-
-/obj/machinery/navbeacon/wayfinding/engineering
-	location = "Инженерный"
-
-/obj/machinery/navbeacon/wayfinding/techstorage
-	location = "Склад"
-
-/obj/machinery/navbeacon/wayfinding/atmos
-	location = "Атмосферный"
-
-/obj/machinery/navbeacon/wayfinding/med
-	location = "Медбей"
-
-/obj/machinery/navbeacon/wayfinding/chemfactory
-	location = "Химический завод"
-
-/obj/machinery/navbeacon/wayfinding/cargo
-	location = "Снабжение"
-
-//Common areas
-/obj/machinery/navbeacon/wayfinding/bar
-	location = "Бар"
-
-/obj/machinery/navbeacon/wayfinding/dorms
-	location = "Дормы"
-
-/obj/machinery/navbeacon/wayfinding/court
-	location = "Суд"
-
-/obj/machinery/navbeacon/wayfinding/tools
-	location = "Хранилище инструментов"
-
-/obj/machinery/navbeacon/wayfinding/library
-	location = "Библиотека"
-
-/obj/machinery/navbeacon/wayfinding/chapel
-	location = "Церковь"
-
-/obj/machinery/navbeacon/wayfinding/minisat_access_chapel_library
-	location = "Церковь и библиотека"
-
-//Service
-/obj/machinery/navbeacon/wayfinding/kitchen
-	location = "Кухня"
-
-/obj/machinery/navbeacon/wayfinding/hydro
-	location = "Гидропоника"
-
-/obj/machinery/navbeacon/wayfinding/janitor
-	location = "Клозет уборщика"
-
-/obj/machinery/navbeacon/wayfinding/lawyer
-	location = "Офис адвоката"
-
-//Shuttle docks
-/obj/machinery/navbeacon/wayfinding/dockarrival
-	location = "Прибытие"
-
-/obj/machinery/navbeacon/wayfinding/dockesc
-	location = "Эвакуационный док"
-
-/obj/machinery/navbeacon/wayfinding/dockescpod
-	location = "Спасательная капсула"
-
-/obj/machinery/navbeacon/wayfinding/dockescpod1
-	location = "Спасательная капсула 1"
-
-/obj/machinery/navbeacon/wayfinding/dockescpod2
-	location = "Спасательная капсула 2"
-
-/obj/machinery/navbeacon/wayfinding/dockescpod3
-	location = "Спасательная капсула 3"
-
-/obj/machinery/navbeacon/wayfinding/dockescpod4
-	location = "Спасательная капсула 4"
-
-/obj/machinery/navbeacon/wayfinding/dockaux
-	location = "Док"
-
-//Maint
-/obj/machinery/navbeacon/wayfinding/incinerator
-	location = "Сжигатель"
-
-/obj/machinery/navbeacon/wayfinding/disposals
-	location = "Мусорка"

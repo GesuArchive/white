@@ -3381,7 +3381,7 @@
 /area/ai_monitored/turret_protected/ai_upload)
 "Ih" = (
 /obj/effect/landmark/event_spawn,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/landmark/blobstart,
 /turf/open/floor/glass/reinforced,
 /area/ai_monitored/turret_protected/ai_upload)

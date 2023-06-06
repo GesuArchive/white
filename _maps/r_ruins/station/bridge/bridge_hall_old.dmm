@@ -988,7 +988,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command)
@@ -1176,7 +1176,7 @@
 /area/command/meeting_room)
 "pG" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/teleporter)
 "pM" = (
@@ -3389,7 +3389,7 @@
 /obj/structure/chair/comfy/black{
 	dir = 4
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/wood,
 /area/command/meeting_room)
@@ -3407,7 +3407,7 @@
 /area/hallway/primary/central/south)
 "Sr" = (
 /obj/item/beacon,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/landmark/blobstart,
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)
@@ -3650,7 +3650,7 @@
 "Yh" = (
 /obj/structure/table/wood,
 /obj/item/storage/fancy/donut_box,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /turf/open/floor/carpet,
 /area/command/heads_quarters/captain)
 "Ym" = (

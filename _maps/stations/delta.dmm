@@ -14214,7 +14214,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -23400,7 +23400,7 @@
 	req_access_txt = "47"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -39486,7 +39486,7 @@
 	name = "External Docking Port";
 	safety_mode = 1
 	},
-/obj/machinery/navbeacon/wayfinding{
+/obj/effect/landmark/navigate_destination{
 	location = "Escape"
 	},
 /obj/effect/turf_decal/stripes/line{
@@ -40060,7 +40060,7 @@
 	name = "Cargo Office";
 	req_one_access_txt = "31;48"
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -46510,7 +46510,7 @@
 	name = "External Docking Port";
 	safety_mode = 1
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -46529,7 +46529,7 @@
 	name = "Hydroponics";
 	req_access_txt = "35"
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -47522,7 +47522,7 @@
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -48557,7 +48557,7 @@
 	name = "Bar Backroom";
 	req_access_txt = "25"
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -58106,7 +58106,7 @@
 	req_access_txt = "26"
 	},
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -65504,7 +65504,7 @@
 	req_access_txt = "23"
 	},
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -69951,7 +69951,7 @@
 	name = "Dormitories"
 	},
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -74130,7 +74130,7 @@
 	name = "Auxiliary Tool Storage";
 	req_access_txt = "12"
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plasteel,
@@ -74912,7 +74912,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -82622,7 +82622,7 @@
 	req_access_txt = "57"
 	},
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood,
@@ -86741,7 +86741,7 @@
 	name = "Curator's Study";
 	req_access_txt = "37"
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -89716,7 +89716,7 @@
 /obj/machinery/door/airlock/engineering/glass{
 	name = "Primary Tool Storage"
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -91027,7 +91027,7 @@
 	pixel_y = 32
 	},
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -91711,7 +91711,7 @@
 	req_access_txt = "4"
 	},
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
@@ -93421,7 +93421,7 @@
 	req_access_txt = "18"
 	},
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -93905,7 +93905,7 @@
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -99523,7 +99523,7 @@
 	req_access_txt = "27"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -104649,7 +104649,7 @@
 	req_access_txt = "19"
 	},
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -104763,7 +104763,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
@@ -105313,7 +105313,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
@@ -110566,7 +110566,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},

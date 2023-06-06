@@ -3237,7 +3237,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
 /area/security/brig)

@@ -361,7 +361,7 @@
 	name = "bridge blast door"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge";
 	req_access_txt = "19"
@@ -1801,7 +1801,7 @@
 	name = "bridge blast door"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge";
 	req_access_txt = "19"
@@ -2416,7 +2416,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/heads_quarters/hop)
@@ -2462,7 +2462,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/engineering/gravity_generator)
 "Dj" = (
@@ -4437,7 +4437,7 @@
 	name = "Head of Personnel";
 	req_access_txt = "57"
 	},
-/obj/machinery/navbeacon/wayfinding,
+/obj/effect/landmark/navigate_destination,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command/heads_quarters/hop)
 "Yf" = (
