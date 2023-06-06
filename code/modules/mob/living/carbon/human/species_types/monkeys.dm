@@ -179,5 +179,3 @@
 		return
 	in_the_way_mob.knockOver(owner)
 
-/obj/item/organ/brain/primate/get_attacking_limb(mob/living/carbon/human/target)
-	return owner.get_bodypart(BODY_ZONE_HEAD)
