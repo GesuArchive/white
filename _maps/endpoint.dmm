@@ -745,7 +745,7 @@
 "cg" = (
 /obj/effect/bump_teleporter{
 	id = "ck_top_l2";
-	id_tag = "ck_bot_l2"
+	id_target = "ck_bot_l2"
 	},
 /turf/open/floor/plasteel/stairs/medium{
 	dir = 8
@@ -5492,7 +5492,7 @@
 "oY" = (
 /obj/effect/bump_teleporter{
 	id = "ck_bot_r1";
-	id_tag = "ck_top_r1"
+	id_target = "ck_top_r1"
 	},
 /turf/open/floor/plasteel/stairs/right{
 	dir = 4
@@ -6954,7 +6954,7 @@
 "sQ" = (
 /obj/effect/bump_teleporter{
 	id = "ck_bot_l3";
-	id_tag = "ck_top_l3"
+	id_target = "ck_top_l3"
 	},
 /turf/open/floor/plasteel/stairs/right{
 	dir = 8
@@ -8819,7 +8819,7 @@
 "xQ" = (
 /obj/effect/bump_teleporter{
 	id = "ck_top_r1";
-	id_tag = "ck_bot_r1"
+	id_target = "ck_bot_r1"
 	},
 /turf/open/floor/plasteel/stairs/right{
 	dir = 4
@@ -9902,7 +9902,7 @@
 "AD" = (
 /obj/effect/bump_teleporter{
 	id = "ck_top_r3";
-	id_tag = "ck_bot_r3"
+	id_target = "ck_bot_r3"
 	},
 /turf/open/floor/plasteel/stairs/left{
 	dir = 4
@@ -12278,7 +12278,7 @@
 "Hr" = (
 /obj/effect/bump_teleporter{
 	id = "ck_top_r2";
-	id_tag = "ck_bot_r2"
+	id_target = "ck_bot_r2"
 	},
 /turf/open/floor/plasteel/stairs/medium{
 	dir = 4
@@ -12365,7 +12365,7 @@
 "HD" = (
 /obj/effect/bump_teleporter{
 	id = "ck_top_l1";
-	id_tag = "ck_bot_l1"
+	id_target = "ck_bot_l1"
 	},
 /turf/open/floor/plasteel/stairs/left{
 	dir = 8
@@ -13903,7 +13903,7 @@
 "Lk" = (
 /obj/effect/bump_teleporter{
 	id = "ck_bot_l2";
-	id_tag = "ck_top_l2"
+	id_target = "ck_top_l2"
 	},
 /turf/open/floor/plasteel/stairs/medium{
 	dir = 8
@@ -15239,7 +15239,7 @@
 "Oz" = (
 /obj/effect/bump_teleporter{
 	id = "ck_top_l3";
-	id_tag = "ck_bot_l3"
+	id_target = "ck_bot_l3"
 	},
 /turf/open/floor/plasteel/stairs/right{
 	dir = 8
@@ -17076,7 +17076,7 @@
 "SS" = (
 /obj/effect/bump_teleporter{
 	id = "ck_bot_r3";
-	id_tag = "ck_top_r3"
+	id_target = "ck_top_r3"
 	},
 /turf/open/floor/plasteel/stairs/left{
 	dir = 4
@@ -17634,7 +17634,7 @@
 "UA" = (
 /obj/effect/bump_teleporter{
 	id = "ck_bot_l1";
-	id_tag = "ck_top_l1"
+	id_target = "ck_top_l1"
 	},
 /turf/open/floor/plasteel/stairs/left{
 	dir = 8
@@ -18331,7 +18331,7 @@
 "Wy" = (
 /obj/effect/bump_teleporter{
 	id = "ck_bot_r2";
-	id_tag = "ck_top_r2"
+	id_target = "ck_top_r2"
 	},
 /turf/open/floor/plasteel/stairs/medium{
 	dir = 4

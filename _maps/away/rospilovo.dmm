@@ -1209,7 +1209,7 @@
 /area/awaymission/rospilovo)
 "lW" = (
 /obj/effect/bump_teleporter{
-	id_tag = "fuck5"
+	id_target = "fuck5"
 	},
 /turf/open/floor/dz/corruption,
 /area/awaymission/rospilovo)
@@ -1284,7 +1284,7 @@
 /area/awaymission/rospilovo)
 "tZ" = (
 /obj/effect/bump_teleporter{
-	id_tag = "fuck2"
+	id_target = "fuck2"
 	},
 /turf/open/floor/dz/corruption,
 /area/awaymission/rospilovo)
@@ -1499,7 +1499,7 @@
 /area/awaymission/rospilovo)
 "Eg" = (
 /obj/effect/bump_teleporter{
-	id_tag = "fuck4"
+	id_target = "fuck4"
 	},
 /turf/open/floor/dz/normal,
 /area/awaymission/rospilovo)
@@ -1522,7 +1522,7 @@
 /area/awaymission/rospilovo)
 "Fk" = (
 /obj/effect/bump_teleporter{
-	id_tag = "fuck3"
+	id_target = "fuck3"
 	},
 /turf/open/floor/rospilovo/cyber{
 	icon_state = "bfloor-2"
@@ -1762,8 +1762,7 @@
 /area/awaymission/rospilovo)
 "QD" = (
 /obj/effect/bump_teleporter{
-	id_tag = "fuck1";
-	id_target = null
+	id_target = "fuck1"
 	},
 /turf/open/floor/dz/normal,
 /area/awaymission/rospilovo)
