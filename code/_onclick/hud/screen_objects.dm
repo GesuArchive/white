@@ -85,7 +85,6 @@
 	var/mob/living/navigator = usr
 	navigator.navigate()
 
-	var/mob/navigator = usr
 	if(!navigator?.hud_used?.retro_hud)
 		flick("[icon_state]_pressed", src)
 		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))

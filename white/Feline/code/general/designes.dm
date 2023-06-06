@@ -14,7 +14,6 @@
 	description = "Интересно, можно ли каким-либо образом ускорить производство нанитов, возможно у меня получится найти наглядные примеры в жизни?"
 	required_points = 30
 	required_atoms =  list(
-		/obj/item/pinpointer/wayfinding = 10,
 		/obj/machinery/mecha_part_fabricator = 3,
 		/obj/machinery/computer/cargo = 4,
 		/obj/machinery/computer/bank_machine = 15,
