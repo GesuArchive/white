@@ -158,7 +158,7 @@
 	if(!. && istype(mover, /obj/projectile))
 		return prob(30)
 
-/obj/structure/grille/CanAStarPass(obj/item/card/id/ID, to_dir, atom/movable/caller)
+/obj/structure/grille/CanAStarPass(obj/item/card/id/ID, to_dir, atom/movable/caller, no_id)
 	. = !density
 	if(istype(caller))
 		. = . || (caller.pass_flags & PASSGRILLE)
