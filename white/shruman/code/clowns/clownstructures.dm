@@ -56,7 +56,7 @@
 	desc = "Толстый слой кожи и мяса, покрывающий пол."
 	anchored = TRUE
 	density = FALSE
-	layer = TURF_LAYER
+	layer = MID_TURF_LAYER
 	plane = FLOOR_PLANE
 	icon = 'icons/obj/smooth_structures/alien/weeds1.dmi'
 	icon_state = "weeds1-0"
@@ -220,7 +220,7 @@
 	spawn_text = "вылезает из"
 	faction = list("clown")
 	cost = 100
-	layer = TURF_LAYER
+	layer = MID_TURF_LAYER
 	density = FALSE
 
 /obj/structure/spawner/clown/clownbuilder
