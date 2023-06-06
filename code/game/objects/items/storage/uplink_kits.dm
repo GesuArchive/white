@@ -482,3 +482,10 @@
 	for(var/i in 1 to atom_storage.max_slots)
 		var/type = pick(types)
 		new type(src)
+
+/obj/item/storage/box/syndie_kit/aimbot
+	name = "комплект импланта боевого ассистента"
+
+/obj/item/storage/box/syndie_kit/aimbot/PopulateContents()
+	new /obj/item/implantcase/aimbot(src)
+	new /obj/item/implanter(src)

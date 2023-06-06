@@ -92,7 +92,7 @@
 		)
 	l_pocket = /obj/item/ammo_box/magazine/m9mm_aps
 	r_pocket = /obj/item/ammo_box/magazine/m9mm_aps
-	implants = list(/obj/item/implant/sound_implant, /obj/item/implant/mindshield)
+	implants = list(/obj/item/implant/sound_implant, /obj/item/implant/mindshield, /obj/item/implant/aimbot)
 
 	id_trim = /datum/id_trim/centcom/omon/lieutenant
 

@@ -1814,6 +1814,12 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	surplus = 0
 	purchasable_from = UPLINK_NUKE_OPS
 
+/datum/uplink_item/support/aimbot
+	name = "Коробка с имплантом боевого ассистента"
+	desc = "Когда уж очень хочется попасть в цель."
+	item = /obj/item/storage/box/syndie_kit/aimbot
+	cost = 10
+	purchasable_from = UPLINK_CLOWN_OPS | UPLINK_NUKE_OPS
 
 //Race-specific items
 /datum/uplink_item/race_restricted

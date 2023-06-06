@@ -1442,3 +1442,14 @@
 /obj/item/storage/box/stickers/googly/PopulateContents()
 	for(var/i in 1 to 6)
 		new /obj/item/sticker/googly(src)
+
+/obj/item/storage/box/aimbot
+	name = "комплект импланта боевого ассистента"
+	desc = "Самоописуемо."
+	illustration = "implant"
+
+/obj/item/storage/box/aimbot/PopulateContents()
+	var/static/items_inside = list(
+		/obj/item/implantcase/aimbot = 1,
+		/obj/item/implanter = 1)
+	generate_items_inside(items_inside,src)

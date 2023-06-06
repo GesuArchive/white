@@ -52,3 +52,8 @@
 	item_type = /obj/item/reagent_containers/food/drinks/bottle/whiskey
 	max_purchase = 2
 	cost = 1
+
+/datum/armament_entry/yohei/misc/aimbot
+	item_type = /obj/item/storage/box/aimbot
+	max_purchase = 1
+	cost = 10

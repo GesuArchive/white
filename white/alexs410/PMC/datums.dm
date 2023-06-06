@@ -15,7 +15,7 @@
 
 	backpack_contents = list(	/obj/item/storage/mre/protein = 1
 	)
-	implants = list(/obj/item/implant/sound_implant, /obj/item/implant/mindshield)
+	implants = list(/obj/item/implant/sound_implant, /obj/item/implant/mindshield, /obj/item/implant/aimbot)
 
 /datum/outfit/pmc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)

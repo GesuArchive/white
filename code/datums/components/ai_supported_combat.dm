@@ -11,7 +11,7 @@
 	var/image/cursor
 
 /datum/component/ai_supported_combat/Initialize()
-	if(!ishuman(parent))
+	if(!ismob(parent))
 		return COMPONENT_INCOMPATIBLE
 
 	src.owner = parent
@@ -35,7 +35,7 @@
 
 /datum/component/ai_supported_combat/proc/set_cursor(enable)
 	if(enable)
-		cursor = image('icons/effects/effects.dmi', owner, "medi_holo_no_anim", RIPPLE_LAYER)
+		cursor = image('icons/effects/effects.dmi', owner, "aim_cursor", RIPPLE_LAYER)
 		if(owner.client)
 			owner.client.images += cursor
 	else

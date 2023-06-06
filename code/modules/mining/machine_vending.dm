@@ -170,6 +170,7 @@
 		new /datum/data/vendor_equipment("Роскошная капсула-убежище",						/obj/item/survivalcapsule/luxury,									3000),
 		new /datum/data/vendor_equipment("Супер протокинетический ускоритель",				/obj/item/gun/energy/kinetic_accelerator/super_kinetic_accelerator,	4000),
 		new /datum/data/vendor_equipment("Элитная капсула-бар класса люкс",					/obj/item/survivalcapsule/luxuryelite,								10000),
+		new /datum/data/vendor_equipment("Имплант боевого ассистента",						/obj/item/storage/box/aimbot,										20000),
 		new /datum/data/vendor_equipment("Шахтерский дрон",									/mob/living/simple_animal/hostile/mining_drone,						800),
 		new /datum/data/vendor_equipment("Дрон: Улучшение ближнего боя",					/obj/item/mine_bot_upgrade,											400),
 		new /datum/data/vendor_equipment("Дрон: Улучшение здоровья",						/obj/item/mine_bot_upgrade/health,									400),

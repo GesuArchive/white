@@ -1,6 +1,6 @@
 /datum/outfit/centcom
 	name = "ЦК"
-	implants = list(/obj/item/implant/sound_implant)
+	implants = list(/obj/item/implant/sound_implant, /obj/item/implant/aimbot)
 
 /datum/outfit/centcom/ert
 	name = "ERT Common"
