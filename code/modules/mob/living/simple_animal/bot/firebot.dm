@@ -208,10 +208,10 @@
 		var/scan_range = (stationary_mode ? 1 : DEFAULT_SCAN_RANGE)
 
 		if(extinguish_people)
-			target_fire = scan(/mob/living, old_target_fire, scan_range) // Scan for burning humans first
+			target_fire = scan(list(/mob/living), old_target_fire, scan_range) // Scan for burning humans first
 
 		if(target_fire == null && extinguish_fires)
-			target_fire = scan(/turf/open, old_target_fire, scan_range) // Scan for burning turfs second
+			target_fire = scan(list(/turf/open), old_target_fire, scan_range) // Scan for burning turfs second
 
 		old_target_fire = target_fire
 

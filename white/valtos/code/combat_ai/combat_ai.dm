@@ -9,7 +9,7 @@
 		BB_COMBAT_AI_STUPIDITY = 0,
 		BB_COMBAT_AI_SUICIDE_BOMBER = FALSE
 	)
-	var/debug_mode = 1
+	movement_delay = 0.5 SECONDS
 
 /datum/ai_controller/combat_ai/TryPossessPawn(atom/new_pawn)
 	if(!ishuman(new_pawn))
@@ -23,14 +23,11 @@
 	RegisterSignal(new_pawn, COMSIG_LIVING_TRY_SYRINGE, PROC_REF(on_try_syringe))
 	RegisterSignal(new_pawn, COMSIG_ATOM_HULK_ATTACK, PROC_REF(on_attack_hulk))
 	RegisterSignal(new_pawn, COMSIG_CARBON_CUFF_ATTEMPTED, PROC_REF(on_attempt_cuff))
-	new_pawn.maptext_width = 256
-	new_pawn.maptext_height = 256
 	return ..() //Run parent at end
 
 /datum/ai_controller/combat_ai/UnpossessPawn(destroy)
 	UnregisterSignal(pawn, list(COMSIG_PARENT_ATTACKBY, COMSIG_ATOM_ATTACK_HAND, COMSIG_ATOM_ATTACK_PAW, COMSIG_ATOM_BULLET_ACT, COMSIG_ATOM_HITBY, COMSIG_LIVING_START_PULL,\
 	COMSIG_LIVING_TRY_SYRINGE, COMSIG_ATOM_HULK_ATTACK, COMSIG_CARBON_CUFF_ATTEMPTED))
-	qdel(GetComponent(/datum/component/connect_loc_behalf))
 	return ..() //Run parent at end
 
 /datum/ai_controller/combat_ai/able_to_run()
@@ -53,12 +50,6 @@
 	if(HAS_TRAIT(pawn, TRAIT_PACIFISM))
 		return
 
-	if(debug_mode == 1)
-		var/rt = ""
-		for(var/i in blackboard)
-			rt += "[i] = [blackboard]"
-		living_pawn.maptext = MAPTEXT(rt)
-
 	if(length(enemies) || blackboard[BB_COMBAT_AI_ANGRY_GAY])
 
 		var/mob/living/selected_enemy
@@ -71,7 +62,7 @@
 			break
 		if(selected_enemy)
 			if(!selected_enemy.stat)
-				if(living_pawn.health < 30)
+				if(living_pawn.health < 15)
 					blackboard[BB_COMBAT_AI_CURRENT_TARGET] = selected_enemy
 					current_behaviors += GET_AI_BEHAVIOR(/datum/ai_behavior/combat_ai_flee)
 					return
@@ -325,6 +316,23 @@
 	if(living_pawn.next_move > world.time)
 		return
 
+	var/able_to_hit = TRUE
+
+	for(var/turf/T in get_line(living_pawn, target))
+		if(isclosedturf(T))
+			able_to_hit = FALSE
+			break
+		for(var/obj/O in T)
+			if(O.density)
+				able_to_hit = FALSE
+				break
+
+	if(!able_to_hit)
+		controller.current_movement_target = target
+		return
+
+	controller.current_movement_target = null
+
 	living_pawn.changeNext_move(CLICK_CD_RAPID)
 
 	var/obj/item/gun/ballistic/weapon = locate(/obj/item/gun/ballistic) in living_pawn.held_items
@@ -337,6 +345,8 @@
 			weapon.attack_self(living_pawn)
 			if(!weapon.magazine)
 				try_to_reload(controller, weapon)
+			else if (istype(weapon, /obj/item/gun/ballistic/shotgun) && !length(weapon.magazine.ammo_count(FALSE)))
+				try_to_reload(controller, weapon, weapon.magazine)
 			return
 		controller.blackboard[BB_COMBAT_AI_STUPIDITY] = 0
 		weapon.process_fire(target, living_pawn)
@@ -346,26 +356,44 @@
 
 	return
 
-/datum/ai_behavior/combat_ai_try_kill/proc/try_to_reload(datum/ai_controller/controller, var/obj/item/gun/ballistic/weapon)
+/datum/ai_behavior/combat_ai_try_kill/proc/try_to_reload(datum/ai_controller/controller, obj/item/gun/ballistic/weapon, obj/item/ammo_box/magazine/internal_mag)
 	var/mob/living/carbon/living_pawn = controller.pawn
 
-	var/obj/item/ammo_box/magazine/mag = locate(weapon.mag_type) in living_pawn?.back?.contents
+	var/obj/item/reload_thing = locate(weapon.mag_type) in living_pawn?.back?.contents
 
-	if(!mag)
-		living_pawn.say("Магазины закончились. Перехожу в рукопашную!")
-		return
+	if(internal_mag && !reload_thing)
+		reload_thing = locate(internal_mag.ammo_type) in living_pawn?.back?.contents
+		if(!reload_thing)
+			for(var/obj/item/I in living_pawn?.back)
+				if(locate(internal_mag.ammo_type) in I)
+					reload_thing = I
+					break
 
-	if(!mag.ammo_count(FALSE))
-		living_pawn.say("Магазин пустой.")
+	if(!reload_thing)
+		living_pawn.say("Боеприпасы закончились. Перехожу в рукопашную!")
 		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(LEFT_HANDS), force = TRUE)
+		living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(RIGHT_HANDS), force = TRUE)
+		finish_action(controller, TRUE)
 		return
 
-	living_pawn.put_in_l_hand(mag)
+	if(istype(reload_thing, /obj/item/ammo_box))
+		var/obj/item/ammo_box/mag = reload_thing
+		if(!mag.ammo_count(FALSE))
+			living_pawn.say("Магазин пустой.")
+			living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(LEFT_HANDS), force = TRUE)
+			return
+
+	living_pawn.put_in_l_hand(reload_thing)
 	living_pawn.say("Перезаряжаюсь!")
 	living_pawn.swap_hand(LEFT_HANDS)
-	weapon.attackby(mag, living_pawn)
+	if(internal_mag && !internal_mag.multiload)
+		for(var/i in 1 to internal_mag.max_ammo)
+			weapon.attackby(reload_thing, living_pawn)
+	else
+		weapon.attackby(reload_thing, living_pawn)
 	living_pawn.dropItemToGround(living_pawn.get_item_for_held_index(LEFT_HANDS), force = TRUE)
 	living_pawn.swap_hand(RIGHT_HANDS)
+	weapon.attack_self(living_pawn)
 	return
 
 /mob/living/carbon/human/combat_ai
@@ -373,7 +401,7 @@
 
 /mob/living/carbon/human/combat_ai/Initialize(mapload)
 	. = ..()
-	setMaxHealth(25)
+	setMaxHealth(50)
 
 /mob/living/carbon/human/combat_ai/sniper/Initialize(mapload)
 	. = ..()
@@ -400,13 +428,13 @@
 
 	r_hand = /obj/item/gun/ballistic/automatic/fallout/marksman/service/police22
 	ears = /obj/item/radio/headset/headset_sec/alt
-	uniform = /obj/item/clothing/under/rank/omon/green
+	uniform = /obj/item/clothing/under/rank/security/officer/hecu
 	gloves = /obj/item/clothing/gloves/color/black
-	head = /obj/item/clothing/head/helmet/sec
-	suit = /obj/item/clothing/suit/armor/vest/alt
+	head = /obj/item/clothing/head/helmet/alt/hecu
+	suit = /obj/item/clothing/suit/armor/vest/hecu
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id/away/old/sec
-	back = /obj/item/storage/backpack
+	back = /obj/item/storage/backpack/ert/odst/hecu
 	backpack_contents = list(/obj/item/ammo_box/magazine/fallout/r22=6)
 
 /datum/outfit/combat_ai/sniper
@@ -418,13 +446,13 @@
 /datum/outfit/combat_ai/smg
 	name = "Combat AI: SMG"
 
-	r_hand = /obj/item/gun/ballistic/automatic/fallout/smg22
-	backpack_contents = list(/obj/item/ammo_box/magazine/fallout/smgm22=6)
+	r_hand = /obj/item/gun/ballistic/automatic/mp5
+	backpack_contents = list(/obj/item/ammo_box/magazine/mp5=6)
 
 /datum/outfit/combat_ai/pistol
 	name = "Combat AI: Pistol"
 
-	r_hand = /obj/item/gun/ballistic/automatic/pistol/fallout/m10mm/military
+	r_hand = /obj/item/gun/ballistic/automatic/pistol/tanner
 	backpack_contents = list(/obj/item/ammo_box/magazine/fallout/m10mm=6)
 
 /datum/outfit/combat_ai/magnum

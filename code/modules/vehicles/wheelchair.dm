@@ -54,7 +54,8 @@
 /obj/vehicle/ridden/wheelchair/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
 	cut_overlays()
-	playsound(src, 'sound/effects/roll.ogg', 75, TRUE)
+	if(!forced && !check_move_loop_flags(MOVEMENT_LOOP_DRAGGING))
+		playsound(src, 'sound/effects/roll.ogg', 75, TRUE)
 	if(has_buckled_mobs())
 		handle_rotation_overlayed()
 

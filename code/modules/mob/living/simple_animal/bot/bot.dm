@@ -68,7 +68,6 @@
 	var/new_destination		// pending new destination (waiting for beacon response)
 	var/destination			// destination description tag
 	var/next_destination	// the next destination in the patrol route
-	var/shuffle = FALSE		// If we should shuffle our adjacency checking
 
 	var/blockcount = 0		//number of times retried a blocked path
 	var/awaiting_beacon	= 0	// count of pticks awaiting a beacon response
@@ -452,6 +451,7 @@
 
 //Generalized behavior code, override where needed!
 
+GLOBAL_LIST_EMPTY(scan_typecaches)
 /*
 scan() will search for a given type (such as turfs, human mobs, or objects) in the bot's view range, and return a single result.
 Arguments: The object type to be searched (such as "/mob/living/carbon/human"), the old scan result to be ignored, if one exists,
@@ -462,31 +462,47 @@ Example usage: patient = scan(/mob/living/carbon/human, oldpatient, 1)
 The proc would return a human next to the bot to be set to the patient var.
 Pass the desired type path itself, declaring a temporary var beforehand is not required.
 */
-/mob/living/simple_animal/bot/proc/scan(scan_type, old_target, scan_range = DEFAULT_SCAN_RANGE)
-	var/turf/T = get_turf(src)
-	if(!T)
+/mob/living/simple_animal/bot/proc/scan(list/scan_types, old_target, scan_range = DEFAULT_SCAN_RANGE)
+	var/key = scan_types.Join(",")
+	var/list/scan_cache = GLOB.scan_typecaches[key]
+	if(!scan_cache)
+		scan_cache = typecacheof(scan_types)
+		GLOB.scan_typecaches[key] = scan_cache
+	if(!get_turf(src))
 		return
-	var/list/adjacent = T.GetAtmosAdjacentTurfs(1)
-	if(shuffle)	//If we were on the same tile as another bot, let's randomize our choices so we dont both go the same way
-		adjacent = shuffle(adjacent)
-		shuffle = FALSE
-	for(var/scan in adjacent)//Let's see if there's something right next to us first!
-		if(check_bot(scan))	//Is there another bot there? Then let's just skip it
+	// Nicer behavior, ensures we don't conflict with other bots quite so often
+	var/list/adjacent = list()
+	for(var/turf/to_walk in view(1, src))
+		adjacent += to_walk
+
+	adjacent = shuffle(adjacent)
+
+	var/list/turfs_to_walk = list()
+	for(var/turf/victim in view(scan_range, src))
+		turfs_to_walk += victim
+
+	turfs_to_walk = turfs_to_walk - adjacent
+	// Now we prepend adjacent since we want to run those first
+	turfs_to_walk = adjacent + turfs_to_walk
+
+	for(var/turf/scanned as anything in turfs_to_walk)
+		// Check bot is inlined here to save cpu time
+		//Is there another bot there? Then let's just skip it so we dont all atack on top of eachother.
+		var/bot_found = FALSE
+		for(var/mob/living/simple_animal/bot/buddy in scanned.contents)
+			if(istype(buddy, type) && (buddy != src))
+				bot_found = TRUE
+				break
+		if(bot_found)
 			continue
-		if(isturf(scan_type))	//If we're lookeing for a turf we can just run the checks directly!
-			var/final_result = checkscan(scan,scan_type,old_target)
-			if(final_result)
-				return final_result
-		else
-			var/turf/turfy = scan
-			for(var/deepscan in turfy.contents)//Check the contents since adjacent is turfs
-				var/final_result = checkscan(deepscan,scan_type,old_target)
-				if(final_result)
-					return final_result
-	for (var/scan in shuffle(view(scan_range, src))-adjacent) //Search for something in range!
-		var/final_result = checkscan(scan,scan_type,old_target)
-		if(final_result)
-			return final_result
+		for(var/atom/thing as anything in scanned)
+			if(!scan_cache[thing.type]) //Check that the thing we found is the type we want!
+				continue //If not, keep searching!
+			if(thing == old_target || (REF(thing) in ignore_list)) //Filter for blacklisted elements, usually unreachable or previously processed oness
+				continue
+			var/scan_result = process_scan(thing) //Some bots may require additional processing when a result is selected.
+			if(!isnull(scan_result))
+				return scan_result
 
 /mob/living/simple_animal/bot/proc/checkscan(scan, scan_type, old_target)
 	if(!istype(scan, scan_type)) //Check that the thing we found is the type we want!
@@ -790,10 +806,11 @@ Pass a positive integer as an argument to override a bot's default speed.
 
 /mob/living/simple_animal/bot/proc/calc_summon_path(turf/avoid)
 	check_bot_access()
-	INVOKE_ASYNC(src, PROC_REF(do_calc_summon_path), avoid)
+	var/datum/callback/path_complete = CALLBACK(src, PROC_REF(on_summon_path_finish))
+	SSpathfinder.pathfind(src, summon_target, max_distance=150, id=access_card, exclude=avoid, on_finish = path_complete)
 
-/mob/living/simple_animal/bot/proc/do_calc_summon_path(turf/avoid)
-	set_path(get_path_to(src, summon_target, 150, id=access_card, exclude=avoid))
+/mob/living/simple_animal/bot/proc/on_summon_path_finish(list/path)
+	set_path(path)
 	if(!length(path)) //Cannot reach target. Give up and announce the issue.
 		speak("Команда призыва провалена, цель недоступна.",radio_channel)
 		bot_reset()
@@ -1036,6 +1053,12 @@ Pass a positive integer as an argument to override a bot's default speed.
 	var/list/path_images = active_hud_list[DIAG_PATH_HUD]
 	QDEL_LIST(path_images)
 	if(newpath)
+		var/mutable_appearance/path_image = new /mutable_appearance()
+		path_image.icon = path_image_icon
+		path_image.icon_state = path_image_icon_state
+		path_image.layer = BOT_PATH_LAYER
+		path_image.appearance_flags = RESET_COLOR|RESET_TRANSFORM
+		path_image.color = path_image_color
 		for(var/i in 1 to newpath.len)
 			var/turf/T = newpath[i]
 			if(T == loc) //don't bother putting an image if it's where we already exist.
@@ -1059,16 +1082,10 @@ Pass a positive integer as an argument to override a bot's default speed.
 							else
 								ntransform.Scale(1, -1)
 							prevI.transform = ntransform
-			var/mutable_appearance/MA = new /mutable_appearance()
-			MA.icon = path_image_icon
-			MA.icon_state = path_image_icon_state
-			MA.layer = ABOVE_OPEN_TURF_LAYER
-			SET_PLANE(MA, GAME_PLANE, T)
-			MA.appearance_flags = RESET_COLOR|RESET_TRANSFORM
-			MA.color = path_image_color
-			MA.dir = direction
+			SET_PLANE(path_image, GAME_PLANE, T)
+			path_image.dir = direction
 			var/image/I = image(loc = T)
-			I.appearance = MA
+			I.appearance = path_image
 			path[T] = I
 			path_images += I
 

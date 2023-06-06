@@ -356,7 +356,7 @@
 				speak(message)
 				playsound(src, messagevoice[message], 50)
 		var/scan_range = (stationary_mode ? 1 : DEFAULT_SCAN_RANGE) //If in stationary mode, scan range is limited to adjacent patients.
-		patient = scan(/mob/living/carbon/human, oldpatient, scan_range)
+		patient = scan(list(/mob/living/carbon/human), oldpatient, scan_range)
 		oldpatient = patient
 
 	if(patient && (get_dist(src,patient) <= 1) && !tending) //Patient is next to us, begin treatment!

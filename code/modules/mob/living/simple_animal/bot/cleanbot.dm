@@ -233,22 +233,22 @@
 			target = null
 
 	if(!target && emagged == 2) // When emagged, target humans who slipped on the water and melt their faces off
-		target = scan(/mob/living/carbon)
+		target = scan(list(/mob/living/carbon))
 
 	if(!target && pests) //Search for pests to exterminate first.
-		target = scan(/mob/living/simple_animal)
+		target = scan(list(/mob/living/simple_animal))
 
 	if(!target) //Search for decals then.
-		target = scan(/obj/effect/decal/cleanable)
+		target = scan(list(/obj/effect/decal/cleanable))
 
 	if(!target) //Checks for remains
-		target = scan(/obj/effect/decal/remains)
+		target = scan(list(/obj/effect/decal/remains))
 
 	if(!target && trash) //Then for trash.
-		target = scan(/obj/item/trash)
+		target = scan(list(/obj/item/trash))
 
 	if(!target && trash) //Search for dead mices.
-		target = scan(/obj/item/food/deadmouse)
+		target = scan(list(/obj/item/food/deadmouse))
 
 	if(!target && auto_patrol) //Search for cleanables it can see.
 		if(mode == BOT_IDLE || mode == BOT_START_PATROL)
@@ -270,8 +270,6 @@
 					target = null
 					mode = BOT_IDLE
 					return
-			else
-				shuffle = TRUE	//Shuffle the list the next time we scan so we dont both go the same way.
 			path = list()
 
 		if(!path || path.len == 0) //No path, need a new one

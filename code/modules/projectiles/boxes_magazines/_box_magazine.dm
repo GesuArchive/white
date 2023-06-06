@@ -172,7 +172,7 @@
 		set_custom_materials(temp_materials)
 
 ///Count of number of bullets in the magazine
-/obj/item/ammo_box/magazine/proc/ammo_count(countempties = TRUE)
+/obj/item/ammo_box/proc/ammo_count(countempties = TRUE)
 	var/boolets = 0
 	for(var/obj/item/ammo_casing/bullet in stored_ammo)
 		if(bullet && (bullet.loaded_projectile || countempties))

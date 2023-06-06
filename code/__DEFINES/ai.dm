@@ -14,6 +14,9 @@
 //Generic BB keys
 #define BB_CURRENT_MIN_MOVE_DISTANCE "min_move_distance"
 
+///Path we should use next time we use the JPS movement datum
+#define BB_PATH_TO_USE "BB_path_to_use"
+
 ///For JPS pathing, the maximum length of a path we'll try to generate. Should be modularized depending on what we're doing later on
 #define AI_MAX_PATH_LENGTH 30 // 30 is possibly overkill since by default we lose interest after 14 tiles of distance, but this gives wiggle room for weaving around obstacles
 

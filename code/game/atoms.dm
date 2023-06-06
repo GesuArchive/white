@@ -168,6 +168,8 @@
 	var/datum/storage/atom_storage
 	//TTS component just in case we use one
 	var/datum/component/tts/tts_comp
+	/// How this atom should react to having its astar blocking checked
+	var/can_astar_pass = CANASTARPASS_DENSITY
 
 /**
  * Called when an atom is created in byond (built in engine proc)
@@ -2088,7 +2090,7 @@
  * * to_dir- What direction we're trying to move in, relevant for things like directional windows that only block movement in certain directions
  * * caller- The movable we're checking pass flags for, if we're making any such checks
  **/
-/atom/proc/CanAStarPass(obj/item/card/id/ID, to_dir, atom/movable/caller)
+/atom/proc/CanAStarPass(obj/item/card/id/ID, to_dir, atom/movable/caller, no_id)
 	if(caller && (caller.pass_flags & pass_flags_self))
 		return TRUE
 	. = !density

@@ -693,7 +693,7 @@ GLOBAL_LIST_EMPTY(created_baseturf_lists)
  * * simulated_only: Do we only worry about turfs with simulated atmos, most notably things that aren't space?
  * * check_density: WE CAN PASS OBJECTS, aren't we?
 */
-/turf/proc/reachableAdjacentTurfs(caller, ID, simulated_only, bypass_density = FALSE)
+/turf/proc/reachableAdjacentTurfs(atom/movable/caller, ID, simulated_only, bypass_density = FALSE)
 	var/static/space_type_cache = typecacheof(/turf/open/space)
 	var/static/openspace_type_cache = typecacheof(/turf/open/openspace)
 	. = list()

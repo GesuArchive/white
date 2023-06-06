@@ -1552,3 +1552,12 @@
 */
 /atom/movable/proc/keybind_face_direction(direction)
 	setDir(direction)
+
+/**
+ * Returns a bitfield containing flags both present in `flags` arg and the `processing_move_loop_flags` move_packet variable.
+ * Has no use outside of procs called within the movement proc chain.
+ */
+/atom/movable/proc/check_move_loop_flags(flags)
+	if(!move_packet)
+		return NONE
+	return flags & move_packet.processing_move_loop_flags

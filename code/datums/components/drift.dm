@@ -19,7 +19,7 @@
 		return COMPONENT_INCOMPATIBLE
 	. = ..()
 
-	var/flags = NONE
+	var/flags = MOVEMENT_LOOP_DRAGGING
 	if(instant)
 		flags |= MOVEMENT_LOOP_START_FAST
 	var/atom/movable/movable_parent = parent
@@ -107,9 +107,9 @@
 	old_dir = movable_parent.dir
 	delayed = FALSE
 
-/datum/component/drift/proc/after_move(datum/source, succeeded, visual_delay)
+/datum/component/drift/proc/after_move(datum/source, result, visual_delay)
 	SIGNAL_HANDLER
-	if(!succeeded)
+	if(!result == MOVELOOP_FAILURE)
 		qdel(src)
 		return
 
