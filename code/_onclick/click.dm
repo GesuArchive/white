@@ -103,6 +103,12 @@
 			CtrlClickOn(A)
 		return
 
+	process_ClickOn(A, params)
+
+/mob/proc/process_ClickOn(atom/A, params)
+
+	var/list/modifiers = params2list(params)
+
 	if(incapacitated(IGNORE_RESTRAINTS|IGNORE_STASIS))
 		return
 
