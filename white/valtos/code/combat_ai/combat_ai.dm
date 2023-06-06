@@ -453,7 +453,7 @@
 	name = "Combat AI: Pistol"
 
 	r_hand = /obj/item/gun/ballistic/automatic/pistol/tanner
-	backpack_contents = list(/obj/item/ammo_box/magazine/fallout/m10mm=6)
+	backpack_contents = list(/obj/item/ammo_box/magazine/m10mm=6)
 
 /datum/outfit/combat_ai/magnum
 	name = "Combat AI: Magnum"

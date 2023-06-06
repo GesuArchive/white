@@ -872,6 +872,7 @@
 	mood_bonus = -25
 	base_lighting_alpha = 255
 	base_lighting_color = COLOR_WHITE
+	luminosity = 1
 	mood_message = span_red("Тут не очень приятно!\n")
 
 /area/awaymission/rospilovo/deathtrap
