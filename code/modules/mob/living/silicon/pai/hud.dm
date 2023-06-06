@@ -215,6 +215,12 @@
 	using.screen_loc = retro_hud ? UI_PAI_LANGUAGE_MENU_RETRO : UI_PAI_LANGUAGE_MENU
 	static_inventory += using
 
+// Navigation
+	using = new /atom/movable/screen/navigate
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_PAI_NAVIGATE_MENU_RETRO : UI_PAI_NAVIGATE_MENU
+	static_inventory += using
+
 // Host Monitor
 	using = new /atom/movable/screen/pai/host_monitor()
 	using.screen_loc = retro_hud ? UI_PAI_HOST_MONITOR_RETRO : UI_PAI_HOST_MONITOR

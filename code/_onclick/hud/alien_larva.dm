@@ -28,6 +28,12 @@
 	pull_icon.hud = src
 	hotkeybuttons += pull_icon
 
+	using = new /atom/movable/screen/navigate
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_ALIEN_NAVIGATE_RETRO : UI_ALIEN_NAVIGATE
+	using.hud = src
+	static_inventory += using
+
 	using = new/atom/movable/screen/language_menu
 	using.icon = retro_hud ? ui_style : using.icon
 	using.screen_loc = retro_hud ? UI_ALIEN_LANGUAGE_MENU_RETRO : UI_ALIEN_LANGUAGE_MENU

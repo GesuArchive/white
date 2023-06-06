@@ -11632,7 +11632,6 @@
 /turf/closed/wall/r_wall,
 /area/science/research)
 "Gr" = (
-/obj/machinery/pinpointer_dispenser,
 /turf/closed/wall,
 /area/service/janitor)
 "Gt" = (

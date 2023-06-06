@@ -108,6 +108,11 @@
 	using.screen_loc = retro_hud ? UI_SKILLS_RETRO : UI_SKILLS
 	static_inventory += using
 
+	using = new /atom/movable/screen/navigate
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_NAVIGATE_RETRO : UI_NAVIGATE
+	static_inventory += using
+
 	using = new /atom/movable/screen/area_creator
 	using.icon = retro_hud ? ui_style : using.icon
 	using.screen_loc = retro_hud ? UI_BOXAREA_RETRO : UI_BOXAREA

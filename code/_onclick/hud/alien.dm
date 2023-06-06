@@ -69,6 +69,12 @@
 	using.hud = src
 	static_inventory += using
 
+	using = new /atom/movable/screen/navigate
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_ALIEN_NAVIGATE_RETRO : UI_ALIEN_NAVIGATE
+	using.hud = src
+	static_inventory += using
+
 	using = new /atom/movable/screen/drop()
 	using.icon = retro_hud ? ui_style : using.icon
 	using.screen_loc = retro_hud ? UI_DROP_RETRO : UI_DROP_ALIEN

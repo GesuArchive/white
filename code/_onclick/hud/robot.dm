@@ -82,6 +82,12 @@
 	using.screen_loc = retro_hud ? UI_BORG_LANGUAGE_MENU_RETRO : UI_BORG_LANGUAGE_MENU
 	static_inventory += using
 
+// Navigation
+	using = new /atom/movable/screen/navigate
+	using.icon = retro_hud ? ui_style : using.icon
+	using.screen_loc = retro_hud ? UI_BORG_NAVIGATION_RETRO : UI_BORG_NAVIGATION
+	static_inventory += using
+
 //Radio
 	using = new /atom/movable/screen/robot/radio()
 	using.screen_loc = retro_hud ? UI_BORG_RADIO_RETRO : UI_BORG_RADIO

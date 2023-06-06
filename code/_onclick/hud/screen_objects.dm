@@ -74,6 +74,22 @@
 		M.swap_hand()
 	return 1
 
+/atom/movable/screen/navigate
+	name = "навигация"
+	icon = 'icons/hud/neoscreen.dmi'
+	icon_state = "navigate"
+
+/atom/movable/screen/navigate/Click()
+	if(!isliving(usr))
+		return TRUE
+	var/mob/living/navigator = usr
+	navigator.navigate()
+
+	var/mob/navigator = usr
+	if(!navigator?.hud_used?.retro_hud)
+		flick("[icon_state]_pressed", src)
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
+
 /atom/movable/screen/skills
 	name = "навыки"
 	icon = 'icons/hud/neoscreen.dmi'

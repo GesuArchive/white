@@ -104328,7 +104328,6 @@
 /area/service/library/abandoned)
 "vVy" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/pinpointer_dispenser,
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
 "vVz" = (

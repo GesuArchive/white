@@ -183,40 +183,6 @@
 	if(H)
 		H.cure_trauma_type(/datum/brain_trauma/mild/phobia, TRAUMA_RESILIENCE_ABSOLUTE)
 
-/datum/quirk/needswayfinder
-	name = "Проблемы с навигацией"
-	desc = "Не зная, как выглядят те или иные станции, предпочитаете брать с собой путеводитель-указатель."
-	value = 0
-	medical_record_text = "Пациент демонстрирует тягу к заблужению."
-
-	var/obj/item/pinpointer/wayfinding/wayfinder
-	var/where
-
-/datum/quirk/needswayfinder/on_spawn()
-	if(!GLOB.wayfindingbeacons.len)
-		return
-	var/mob/living/carbon/human/H = quirk_holder
-
-	wayfinder = new /obj/item/pinpointer/wayfinding
-	wayfinder.owner = H.real_name
-	wayfinder.roundstart = TRUE
-
-	var/list/slots = list(
-		"in your left pocket" = ITEM_SLOT_LPOCKET,
-		"in your right pocket" = ITEM_SLOT_RPOCKET,
-		"in your backpack" = ITEM_SLOT_BACKPACK
-	)
-	where = H.equip_in_one_of_slots(wayfinder, slots, FALSE) || "at your feet"
-
-/datum/quirk/needswayfinder/post_add()
-	if(!GLOB.wayfindingbeacons.len)
-		return
-	if(where == "in your backpack")
-		var/mob/living/carbon/human/H = quirk_holder
-		H.back.atom_storage.show_contents(H)
-
-	to_chat(quirk_holder, span_notice("У вас с собой указатель [where], который поможет мне найти путь в какой-либо отсек. Нажми в руке, чтобы активировать."))
-
 /datum/quirk/bald
 	name = "Лысый"
 	desc = "У меня нет волос и я чувствую себя некомфортно от этого! Необходимо носить с собой парик или носить то, что закрывает голову."

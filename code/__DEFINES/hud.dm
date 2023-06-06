@@ -138,6 +138,7 @@
 #define UI_BORG_CAMERA 			"hud:LEFT,BOTTOM+6"
 #define UI_BORG_ALERTS 			"hud:LEFT,BOTTOM+5"
 #define UI_BORG_LANGUAGE_MENU 	"hud:LEFT:16,BOTTOM+4:16"
+#define UI_BORG_NAVIGATION 		"hud:LEFT,BOTTOM+3"
 
 //Aliens
 #define UI_ALIEN_HEALTH 		"hud:LEFT,BOTTOM+7"
@@ -145,6 +146,7 @@
 #define UI_ALIEN_QUEEN_FINDER 	"hud:LEFT,TOP-7"
 #define UI_ALIEN_STORAGE_R 		"hud:LEFT,TOP-10"
 #define UI_ALIEN_LANGUAGE_MENU 	"hud:LEFT:16,BOTTOM+3:16"
+#define UI_ALIEN_NAVIGATE 		"hud:LEFT,TOP-6"
 
 //Constructs
 #define UI_CONSTRUCT_PULL 	"RIGHT,CENTER-2:15"
@@ -177,6 +179,7 @@
 #define UI_PAI_LIGHT 		 "hud:LEFT,TOP-4"
 #define UI_PAI_NEWSCASTER 	 "hud:LEFT,TOP-5"
 #define UI_PAI_HOST_MONITOR  "hud:LEFT,TOP-6"
+#define UI_PAI_NAVIGATE_MENU "hud:LEFT,TOP-7"
 #define UI_PAI_CREW_MANIFEST "hud:LEFT,BOTTOM+7"
 #define UI_PAI_STATE_LAWS 	 "hud:LEFT,BOTTOM+6"
 #define UI_PAI_MOD_INT 		 "hud:LEFT,BOTTOM+5"
@@ -185,7 +188,6 @@
 #define UI_PAI_VIEW_IMAGES 	 "hud:LEFT,BOTTOM+1"
 #define UI_PAI_RADIO 		 "hud:LEFT,SOUTH"
 #define UI_PAI_LANGUAGE_MENU "hud:LEFT:16,TOP-11"
-#define UI_PAI_NAVIGATE_MENU "hud:LEFT:16,TOP-12:16"
 
 //Ghosts
 #define UI_GHOST_JUMPTOMOB 		"hud:LEFT,SOUTH"
@@ -212,6 +214,7 @@
 #define UI_EMOTES 				"hud:LEFT:16,BOTTOM+4"
 #define UI_EMOTES_HUMAN 		"bottom:RIGHT-4:16,SOUTH"
 #define UI_SKILLS 				"hud:LEFT,BOTTOM+3"
+#define UI_NAVIGATE 			"hud:LEFT,BOTTOM+2"
 
 //Blob
 #define UI_BLOB_HELP 		 "hud:LEFT,TOP"
