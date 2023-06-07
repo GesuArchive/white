@@ -3,7 +3,8 @@
 	desc = "Выпускайте из пальцев до трех имитированных пуль, которые наносят урон целям и заглушают их крики. \
 			Нельзя использовать, если ваши руки заняты."
 	background_icon_state = "bg_mime"
-	icon_icon = 'icons/mob/actions/actions_mime.dmi'
+	overlay_icon_state = "bg_mime_border"
+	button_icon = 'icons/mob/actions/actions_mime.dmi'
 	button_icon_state = "finger_guns0"
 	panel = "Mime"
 	sound = null
@@ -19,7 +20,6 @@
 	antimagic_flags = NONE
 	spell_max_level = 1
 
-	base_icon_state = "finger_guns"
 	active_msg = "Представляю что мои пальцы это пистолеты!"
 	deactive_msg = "Расслабляю свои пальцы. Пока что."
 	cast_range = 20

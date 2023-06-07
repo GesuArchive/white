@@ -12,7 +12,6 @@
 	invocation_type = INVOCATION_SHOUT
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
 
-	base_icon_state = "fireball"
 	active_msg = "Готовлюсь к произнесению заклинания огненного шара!"
 	deactive_msg = "Пламя моего огненного шара затухает... На время..."
 	cast_range = 8

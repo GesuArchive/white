@@ -14,10 +14,9 @@
 	power_flags = BP_AM_TOGGLE|BP_AM_STATIC_COOLDOWN
 	bloodcost = 10
 	button_icon = 'icons/mob/actions/actions_tzimisce_bloodsucker.dmi'
-	icon_icon = 'icons/mob/actions/actions_tzimisce_bloodsucker.dmi'
+	background_icon = 'icons/mob/actions/actions_tzimisce_bloodsucker.dmi'
 	background_icon_state = "tzimisce_power_off"
-	background_icon_state_on = "tzimisce_power_on"
-	background_icon_state_off = "tzimisce_power_off"
+	background_icon_state = "tzimisce_power"
 	purchase_flags = TZIMISCE_CAN_BUY
 	power_flags = BP_AM_TOGGLE|BP_AM_STATIC_COOLDOWN
 	check_flags = BP_AM_COSTLESS_UNCONSCIOUS

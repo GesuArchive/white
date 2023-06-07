@@ -125,8 +125,9 @@
 /datum/action/innate/mrat_costume
 	name = "Изменить представление"
 	desc = "Превращаемся?."
-	icon_icon = 'icons/mob/actions/actions_minor_antag.dmi'
+	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	background_icon_state = "bg_revenant"
+	overlay_icon_state = "bg_revenant_border"
 	button_icon_state = "ninja_phase"
 
 /datum/action/innate/mrat_costume/Activate()
@@ -136,8 +137,9 @@
 /datum/action/innate/mrat_leave
 	name = "Покинуть"
 	desc = "Покинуть тело и вернуться обратно."
-	icon_icon = 'icons/mob/actions/actions_minor_antag.dmi'
+	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	background_icon_state = "bg_revenant"
+	overlay_icon_state = "bg_revenant_border"
 	button_icon_state = "beam_up"
 
 /datum/action/innate/mrat_leave/Activate()

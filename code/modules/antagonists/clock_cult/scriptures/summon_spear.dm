@@ -1,7 +1,7 @@
 /datum/action/cooldown/spell/summonspear
 	name = "Призвать Оружие"
 	desc = "Призывает оружие через время и пространство."
-	icon_icon = 'icons/mob/actions/actions_clockcult.dmi'
+	button_icon = 'icons/mob/actions/actions_clockcult.dmi'
 	button_icon_state = "ratvarian_spear"
 	background_icon_state = "bg_clock"
 	school = SCHOOL_TRANSMUTATION

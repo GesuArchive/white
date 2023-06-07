@@ -2,10 +2,11 @@
 /datum/action/item_action/cult_dagger
 	name = "Создать кровавую руну"
 	desc = "Используйте ритуальный кинжал, чтобы создать мощную кровавую руну"
-	icon_icon = 'icons/mob/actions/actions_cult.dmi'
+	button_icon = 'icons/mob/actions/actions_cult.dmi'
 	button_icon_state = "draw"
 	buttontooltipstyle = "cult"
 	background_icon_state = "bg_demon"
+	overlay_icon_state = "bg_demon_border"
 	default_button_position = "6:157,4:-2"
 
 /datum/action/item_action/cult_dagger/Grant(mob/grant_to)

@@ -104,7 +104,7 @@
 	name = "Переключить ИИ"
 	desc = "Включает или выключает ассистирование при наведении."
 	button_icon_state = "funk"
-	icon_icon = 'icons/mob/actions/actions_minor_antag.dmi'
+	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	background_icon_state = "bg_tech_blue"
 
 /datum/action/innate/toggle_aimbot/IsAvailable()

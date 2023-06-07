@@ -85,9 +85,8 @@
 	name = "Shadow Armor"
 	desc = "Empowered to the abyss, fortitude will now grant you a shadow armor, making your grip harder to escape and reduce projectile damage while in darkness."
 	button_icon = 'icons/mob/actions/actions_lasombra_bloodsucker.dmi'
-	background_icon_state_on = "lasombra_power_on"
-	background_icon_state_off = "lasombra_power_off"
-	icon_icon = 'icons/mob/actions/actions_lasombra_bloodsucker.dmi'
+	background_icon_state = "lasombra_power"
+	background_icon = 'icons/mob/actions/actions_lasombra_bloodsucker.dmi'
 	button_icon_state = "power_armor"
 	additional_text = "Additionally gives you extra damage while fortitude'd and agro grab while in darkness."
 	purchase_flags = LASOMBRA_CAN_BUY

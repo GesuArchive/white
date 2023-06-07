@@ -58,10 +58,9 @@ SUBSYSTEM_DEF(augury)
 			O.ManualFollow(biggest_doom)
 
 /datum/action/innate/augury
-	name = "Auto Follow Debris"
-	icon_icon = 'icons/obj/meteor.dmi'
+	name = "Следить за мусором"
+	button_icon = 'icons/obj/meteor.dmi'
 	button_icon_state = "flaming"
-	background_icon_state = ACTION_BUTTON_DEFAULT_BACKGROUND
 
 /datum/action/innate/augury/Destroy()
 	if(owner)
@@ -72,17 +71,8 @@ SUBSYSTEM_DEF(augury)
 	SSaugury.watchers += owner
 	to_chat(owner, span_notice("Автоматическое отслеживание космического мусора включено."))
 	active = TRUE
-	UpdateButtons()
 
 /datum/action/innate/augury/Deactivate()
 	SSaugury.watchers -= owner
 	to_chat(owner, span_notice("Автоматическое отслеживание космического мусора отключено."))
 	active = FALSE
-	UpdateButtons()
-
-/datum/action/innate/augury/UpdateButton(atom/movable/screen/movable/action_button/button, status_only = FALSE, force)
-	..()
-	if(active)
-		button.icon_state = "template_active"
-	else
-		button.icon_state = "template"

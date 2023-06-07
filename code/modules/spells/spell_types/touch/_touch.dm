@@ -23,12 +23,8 @@
 	remove_hand(remove_from)
 	return ..()
 
-/datum/action/cooldown/spell/touch/UpdateButton(atom/movable/screen/movable/action_button/button, status_only = FALSE, force = FALSE)
-	. = ..()
-	if(!button)
-		return
-	if(attached_hand)
-		button.color = COLOR_GREEN
+/datum/action/cooldown/spell/touch/is_action_active(atom/movable/screen/movable/action_button/current_button)
+	return !!attached_hand
 
 /datum/action/cooldown/spell/touch/set_statpanel_format()
 	. = ..()
@@ -94,6 +90,7 @@
 		reset_spell_cooldown()
 	else
 		StartCooldown()
+		build_all_button_icons()
 
 // Touch spells don't go on cooldown OR give off an invocation until the hand is used itself.
 /datum/action/cooldown/spell/touch/before_cast(atom/cast_on)

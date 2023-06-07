@@ -3,7 +3,7 @@
 	name = "Клятва Пламени"
 	desc = "На одну минуту вас оружит кольцо из огня, наносящее урон окружающим."
 	background_icon_state = "bg_ecult"
-	icon_icon = 'icons/mob/actions/actions_ecult.dmi'
+	button_icon = 'icons/mob/actions/actions_ecult.dmi'
 	button_icon_state = "fire_ring"
 
 	school = SCHOOL_FORBIDDEN
@@ -62,7 +62,7 @@
 	name = "Каскад Огня"
 	desc = "Раскаляет воздух вокруг вас."
 	background_icon_state = "bg_ecult"
-	icon_icon = 'icons/mob/actions/actions_ecult.dmi'
+	button_icon = 'icons/mob/actions/actions_ecult.dmi'
 	button_icon_state = "fire_ring"
 	sound = 'sound/items/welder.ogg'
 
@@ -100,7 +100,7 @@
 	name = "Nightwatcher's Rite"
 	desc = "A powerful spell that releases five streams of eldritch fire towards the target."
 	background_icon_state = "bg_ecult"
-	icon_icon = 'icons/mob/actions/actions_ecult.dmi'
+	button_icon = 'icons/mob/actions/actions_ecult.dmi'
 	button_icon_state = "flames"
 	ranged_mousepointer = 'icons/effects/mouse_pointers/throw_target.dmi'
 

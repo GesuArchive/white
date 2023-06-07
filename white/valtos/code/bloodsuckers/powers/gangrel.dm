@@ -1,9 +1,7 @@
 /datum/action/bloodsucker/gangrel
 	button_icon = 'icons/mob/actions/actions_gangrel_bloodsucker.dmi'
-	icon_icon = 'icons/mob/actions/actions_gangrel_bloodsucker.dmi'
-	background_icon_state = "gangrel_power_off"
-	background_icon_state_on = "gangrel_power_on"
-	background_icon_state_off = "gangrel_power_off"
+	background_icon_state = "gangrel_power"
+	background_icon = 'icons/mob/actions/actions_gangrel_bloodsucker.dmi'
 	purchase_flags = GANGREL_CAN_BUY
 	power_flags = BP_AM_TOGGLE|BP_AM_STATIC_COOLDOWN
 	check_flags = BP_AM_COSTLESS_UNCONSCIOUS
@@ -109,10 +107,9 @@
 	name = "Flying Haste"
 	desc = "Propulse yourself into a position of advantage."
 	button_icon = 'icons/mob/actions/actions_gangrel_bloodsucker.dmi'
-	icon_icon = 'icons/mob/actions/actions_gangrel_bloodsucker.dmi'
+	background_icon = 'icons/mob/actions/actions_gangrel_bloodsucker.dmi'
 	button_icon_state = "power_baste"
-	background_icon_state_on = "bat_power_on"
-	background_icon_state_off = "bat_power_off"
+	background_icon_state = "bat_power"
 	power_explanation = "<b>Flying Haste</b>:\n\
 		Makes you dash into the air, creating a smoke cloud at the end.\n\
 		Helpful in situations where you either need to run away or engage in a crowd of people, works over tables.\n\
@@ -137,10 +134,9 @@
 	name = "Blood Bolt"
 	desc = "Shoot a blood bolt to damage your foes."
 	button_icon = 'icons/mob/actions/actions_gangrel_bloodsucker.dmi'
-	icon_icon = 'icons/mob/actions/actions_gangrel_bloodsucker.dmi'
+	background_icon = 'icons/mob/actions/actions_gangrel_bloodsucker.dmi'
 	button_icon_state = "power_bolt"
-	background_icon_state_on = "bat_power_on"
-	background_icon_state_off = "bat_power_off"
+	background_icon_state = "bat_power"
 	power_explanation = "<b>Blood Bolt</b>:\n\
 		Shoots a blood bolt that does moderate damage to your foes.\n\
 		Helpful in situations where you get outranged or just extra damage.\n\
@@ -192,8 +188,7 @@
 	name = "Wing Slam"
 	desc = "Slams all foes next to you."
 	button_icon_state = "power_wingslam"
-	background_icon_state_on = "bat_power_on"
-	background_icon_state_off = "bat_power_off"
+	background_icon_state = "bat_power"
 	power_explanation = "<b>Wing Slam</b>:\n\
 		Knocksback and immobilizes people adjacent to you.\n\
 		Has a low recharge time and may be helpful in meelee situations!\n\
@@ -239,10 +234,9 @@
 	name = "Feast"
 	desc = "DEVOUR THE WEAKLINGS, CAUSE THEM HARM. FEED. ME."
 	button_icon = 'icons/mob/actions/actions_gangrel_bloodsucker.dmi'
-	icon_icon = 'icons/mob/actions/actions_gangrel_bloodsucker.dmi'
+	background_icon = 'icons/mob/actions/actions_gangrel_bloodsucker.dmi'
 	button_icon_state = "power_feast"
-	background_icon_state_on = "wolf_power_on"
-	background_icon_state_off = "wolf_power_off"
+	background_icon_state = "wolf_power"
 	power_explanation = "<b>Feast</b>:\n\
 		Feasting on a dead person will give you a satiation point and gib them.\n\
 		Satiation points are essential for overcoming frenzy, after gathering 3 you'll turn back to normal.\n\
@@ -280,8 +274,7 @@
 	name = "Wolftitude"
 	desc = "Withstand egregious physical wounds and walk away from attacks that would stun, pierce, and dismember lesser beings."
 	button_icon_state = "power_wort"
-	background_icon_state_on = "wolf_power_on"
-	background_icon_state_off = "wolf_power_off"
+	background_icon_state = "wolf_power"
 	power_explanation = "<b>Fortitude</b>:\n\
 		Activating Wolftitude will provide more attack damage, and more overall health.\n\
 		It will give you a minor health buff while it stands, but slow you down severely.\n\
@@ -318,10 +311,9 @@
 	name = "Pounce"
 	desc = "GRAPPLE THEM TO THE GROUND AND BITE THEIR ORGANS OUT."
 	button_icon = 'icons/mob/actions/actions_gangrel_bloodsucker.dmi'
-	icon_icon = 'icons/mob/actions/actions_gangrel_bloodsucker.dmi'
+	background_icon = 'icons/mob/actions/actions_gangrel_bloodsucker.dmi'
 	button_icon_state = "power_pounce"
-	background_icon_state_on = "wolf_power_on"
-	background_icon_state_off = "wolf_power_off"
+	background_icon_state = "wolf_power"
 	power_explanation = "<b>Pounce</b>:\n\
 		Click any player to instantly dash at them, knocking them down and paralyzing them for a short while.\n\
 		Additionally if they are dead you'll consume their corpse to gain satiation and get closer to leaving frenzy.\n\
@@ -390,8 +382,7 @@
 	name = "Howl"
 	desc = "BREATHE IN AND BREATH OUT AS MUCH AS POSSIBLE. KNOCKDOWNS AND CONFUSES NEARBY WEAKLINGS."
 	button_icon_state = "power_howl"
-	background_icon_state_on = "wolf_power_on"
-	background_icon_state_off = "wolf_power_off"
+	background_icon_state = "wolf_power"
 	power_explanation = "<b>Howl</b>:\n\
 		Activating Howl will start up a 2 and a half second charge up.\n\
 		After the charge up you'll knockdown anyone adjacent to you.\n\
@@ -429,8 +420,7 @@
 	name = "Rabidism"
 	desc = "UNLEASHES YOUR POTENTIAL OF AREA DAMAGE, BUT HURTS YOURSELF IN THE PROCESS, DEALS MORE DAMAGE TO STRUCTURES."
 	button_icon_state = "power_rabid"
-	background_icon_state_on = "wolf_power_on"
-	background_icon_state_off = "wolf_power_off"
+	background_icon_state = "wolf_power"
 	power_explanation = "<b>Rabidism</b>:\n\
 		Rabidism will deal reduced damage to everyone in range including you.\n\
 		During Rabidism's ten second rage you'll deal alot more damage to structures.\n\
@@ -471,9 +461,8 @@
 	desc = "Tear in specific areas of a mortal's body and inflict great pain on them."
 	button_icon_state = "power_tear"
 	button_icon = 'icons/mob/actions/actions_gangrel_bloodsucker.dmi'
-	icon_icon = 'icons/mob/actions/actions_gangrel_bloodsucker.dmi'
-	background_icon_state_on = "gangrel_power_on"
-	background_icon_state_off = "gangrel_power_off"
+	background_icon = 'icons/mob/actions/actions_gangrel_bloodsucker.dmi'
+	background_icon_state = "gangrel_power"
 	power_explanation = "<b>Tear</b>:\n\
 		Tear will make your first attack start up a bleeding process.\n\
 		Bleeding process will only work if the target stands still.\n\

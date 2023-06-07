@@ -193,9 +193,7 @@
 	if(src && choice && !user.incapacitated() && in_range(user,src))
 		icon_state = options[choice]
 		user.update_inv_wear_mask()
-		for(var/X in actions)
-			var/datum/action/A = X
-			A.UpdateButtons()
+		update_item_action_buttons()
 		to_chat(user, span_notice("Маска клоуна превратилась в [choice], слава Хонкоматери!"))
 		return TRUE
 
@@ -250,9 +248,7 @@
 	if(src && choice && !user.incapacitated() && in_range(user,src))
 		icon_state = options[choice]
 		user.update_inv_wear_mask()
-		for(var/X in actions)
-			var/datum/action/A = X
-			A.UpdateButtons()
+		update_item_action_buttons()
 		to_chat(user, span_notice("Маска Мима теперь превратилась в [choice]!"))
 		return TRUE
 
@@ -340,9 +336,7 @@
 	if(src && choice && !M.stat && in_range(M,src))
 		icon_state = options[choice]
 		user.update_inv_wear_mask()
-		for(var/X in actions)
-			var/datum/action/A = X
-			A.UpdateButtons()
+		update_item_action_buttons()
 		to_chat(M, span_notice("Маска Тики теперь выглядит как маска [choice]!"))
 		return 1
 

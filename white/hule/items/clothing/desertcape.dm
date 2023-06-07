@@ -73,7 +73,7 @@
 
 /datum/action/item_action/dash
 	name = "Dash!"
-	icon_icon = 'icons/mob/actions/actions_flightsuit.dmi'
+	button_icon = 'icons/mob/actions/actions_flightsuit.dmi'
 	button_icon_state = "flightpack_boost"
 
 

@@ -104,7 +104,7 @@
 			camera.remove_target_ui()
 			camera.forceMove(user)
 			user.reset_perspective(camera)
-		teleport_now.UpdateButtons()
+		teleport_now.build_all_button_icons()
 
 /obj/item/clothing/suit/space/chronos/proc/chronowalk(atom/location)
 	var/mob/living/carbon/human/user = src.loc
@@ -118,7 +118,7 @@
 		if(camera)
 			camera.remove_target_ui()
 
-		teleport_now.UpdateButtons()
+		teleport_now.build_all_button_icons()
 
 		var/list/nonsafe_slots = list(ITEM_SLOT_BELT, ITEM_SLOT_BACK)
 		var/list/exposed = list()
@@ -327,7 +327,7 @@
 
 /datum/action/innate/chrono_teleport
 	name = "Teleport Now"
-	icon_icon = 'icons/mob/actions/actions_minor_antag.dmi'
+	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	button_icon_state = "chrono_phase"
 	check_flags = AB_CHECK_CONSCIOUS //|AB_CHECK_INSIDE
 	var/obj/item/clothing/suit/space/chronos/chronosuit = null

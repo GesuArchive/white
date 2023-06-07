@@ -61,9 +61,7 @@
 			to_chat(usr, "Вы активировали оптическую матрицу [src].")
 			user.add_client_colour(nvg.colour_matrix)
 			user.see_override_nva = 4
-	for(var/X in actions)
-		var/datum/action/A = X
-		A.UpdateButtons()
+	update_item_action_buttons()
 
 /obj/item/clothing/dropped(mob/user)
 	..()

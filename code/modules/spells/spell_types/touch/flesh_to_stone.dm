@@ -36,7 +36,7 @@
 	name = "Мидас"
 	desc = "Это заклинание на время превращает руку в руку Мидаса, которая способна превращать живых существ в золото."
 	hand_path = /obj/item/melee/touch_attack/flesh_to_stone/midas
-	icon_icon = 'white/valtos/icons/actions.dmi'
+	button_icon = 'white/valtos/icons/actions.dmi'
 	button_icon_state = "midas"
 	sound = 'white/valtos/sounds/midas.ogg'
 

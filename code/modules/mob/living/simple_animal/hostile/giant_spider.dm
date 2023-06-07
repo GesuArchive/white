@@ -317,8 +317,9 @@
 	not_hivemind_talk.Grant(src)
 
 /datum/action/innate/spider
-	icon_icon = 'icons/mob/actions/actions_animal.dmi'
+	button_icon = 'icons/mob/actions/actions_animal.dmi'
 	background_icon_state = "bg_alien"
+	overlay_icon_state = "bg_alien_border"
 
 /datum/action/innate/spider/lay_web
 	name = "Сплести паутину"
@@ -377,7 +378,8 @@
 	name = "Опутать"
 	desc = "Позволяет оплести жертву паутиной и тем самым подготовить ее в качестве пищи для паучат гвардейцев."
 	background_icon_state = "bg_alien"
-	icon_icon = 'icons/mob/actions/actions_animal.dmi'
+	overlay_icon_state = "bg_alien_border"
+	button_icon = 'icons/mob/actions/actions_animal.dmi'
 	button_icon_state = "wrap_0"
 	check_flags = AB_CHECK_CONSCIOUS
 	click_to_activate = TRUE
@@ -402,7 +404,7 @@
 
 	to_chat(on_who, span_notice("Подготавливаю паутиновые железы. <B>Left-click your target to start wrapping!</B>"))
 	button_icon_state = "wrap_0"
-	UpdateButtons()
+	build_all_button_icons()
 
 /datum/action/cooldown/wrap/unset_click_ability(mob/on_who, refund_cooldown = TRUE)
 	. = ..()
@@ -412,7 +414,7 @@
 	if(refund_cooldown)
 		to_chat(on_who, span_notice("Скрываю паутиновые железы."))
 	button_icon_state = "wrap_1"
-	UpdateButtons()
+	build_all_button_icons()
 
 /datum/action/cooldown/wrap/Activate(atom/to_wrap)
 	if(!owner.Adjacent(to_wrap))
@@ -456,7 +458,7 @@
 				var/datum/action/innate/spider/lay_eggs/enriched/egg_power = locate() in owner.actions
 				if(egg_power)
 					egg_power.charges++
-					egg_power.UpdateButtons()
+					egg_power.build_all_button_icons()
 					owner.visible_message(
 						span_danger("[owner] втыкает хоботок в [living_wrapped] и высасывает всякое из него."),
 						span_notice("Сосу вкусняху из [living_wrapped], теперь можно произвести более сильное потомство."),
@@ -515,7 +517,7 @@
 			var/obj/effect/mob_spawn/spider/new_eggs = new egg_type(get_turf(spider))
 			new_eggs.directive = spider.directive
 			new_eggs.faction = spider.faction
-			UpdateButtons(TRUE)
+			build_all_button_icons(UPDATE_BUTTON_STATUS)
 
 	spider.stop_automated_movement = FALSE
 

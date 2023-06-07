@@ -146,7 +146,7 @@
 	desc = "Вызывает MOD-Скафандр, куда угодно, в любое время."
 	check_flags = AB_CHECK_CONSCIOUS
 	background_icon_state = "bg_tech_blue"
-	icon_icon = 'icons/mob/actions/actions_mod.dmi'
+	button_icon = 'icons/mob/actions/actions_mod.dmi'
 	button_icon_state = "recall"
 	/// The cooldown for the recall.
 	COOLDOWN_DECLARE(recall_cooldown)

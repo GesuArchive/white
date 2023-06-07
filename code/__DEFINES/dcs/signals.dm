@@ -1656,3 +1656,6 @@
 #define COMSIG_MODULAR_COMPUTER_FILE_DELETING "comsig_modular_computer_file_deleting"
 /// From /obj/item/modular_computer/proc/store_file: ()
 #define COMSIG_MODULAR_COMPUTER_FILE_DELETED "comsig_modular_computer_file_adding"
+
+/// from mob/get_status_tab_items(): (list/items)
+#define COMSIG_MOB_GET_STATUS_TAB_ITEMS "mob_get_status_tab_items"

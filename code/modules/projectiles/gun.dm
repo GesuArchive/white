@@ -509,7 +509,7 @@
 
 /obj/item/gun/proc/update_gunlight()
 	update_appearance()
-	update_action_buttons()
+	update_item_action_buttons()
 
 /obj/item/gun/update_overlays()
 	. = ..()

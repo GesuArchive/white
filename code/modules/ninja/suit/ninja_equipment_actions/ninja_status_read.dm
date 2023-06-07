@@ -3,7 +3,7 @@
 	name = "Считывание статуса"
 	desc = "Даёт подробную информацию о вашем текущем статусе."
 	button_icon_state = "health"
-	icon_icon = 'icons/obj/device.dmi'
+	button_icon = 'icons/obj/device.dmi'
 
 /**
  * Proc called to put a status readout to the ninja in chat.

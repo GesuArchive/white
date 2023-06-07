@@ -46,7 +46,7 @@
 /datum/action/innate/blobpop
 	name = "Чпоньк"
 	desc = "Высвободить массу"
-	icon_icon = 'icons/mob/blob.dmi'
+	button_icon = 'icons/mob/blob.dmi'
 	button_icon_state = "blob"
 
 /datum/action/innate/blobpop/Activate()

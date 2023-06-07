@@ -61,6 +61,10 @@
 #define BLOCKS_SPEECH (1<<15)
 /// Usable as casting clothes by wizards (only matters for suits and headwear)
 #define CASTING_CLOTHES (1<<16)
+///Moths can't eat the clothing that has this flag.
+#define INEDIBLE_CLOTHING (1<<17)
+/// Headgear/helmet allows internals
+#define HEADINTERNALS (1<<18)
 
 /// Flags for the organ_flags var on /obj/item/organ
 

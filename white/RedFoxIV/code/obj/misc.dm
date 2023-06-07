@@ -21,7 +21,7 @@
 
 /datum/action/cooldown/bonjour
 	name = "Напугать жертву до усрачки."
-	icon_icon = 'icons/mob/actions/actions_items.dmi'
+	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "legsweep"
 	cooldown_time = 3 SECONDS
 	var/sound_length = 5.5 SECONDS

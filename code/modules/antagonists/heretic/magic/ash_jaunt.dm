@@ -2,7 +2,7 @@
 	name = "Пепельная тропа"
 	desc = "На короткий промежуток времени этот навык позволяет проходить вам сквозь стены и другие препятствия."
 	background_icon_state = "bg_ecult"
-	icon_icon = 'icons/mob/actions/actions_ecult.dmi'
+	button_icon = 'icons/mob/actions/actions_ecult.dmi'
 	button_icon_state = "ash_shift"
 	sound = null
 

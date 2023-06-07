@@ -1,7 +1,7 @@
 //Bunkers up wherever standing, charging up an AoE attack to blast anyone who stays too close. Causes hallucations and brain damage to those affected.
 /datum/action/boss/brain_blast
 	name = "Sevtug's Wrath"
-	icon_icon = 'icons/mob/actions/actions_minor_antag.dmi'
+	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	button_icon_state = "mimic_summon"
 	usage_probability = 15
 	boss_cost = 25
@@ -62,7 +62,7 @@
 //Violently spin and move towards a random target. Walking into them causes severe damage and throws you back. Cannot be melee attacked during this, but also moves a bit slower
 /datum/action/boss/spinning_bronze
 	name = "Nzcrentr's Retribution"
-	icon_icon = 'icons/mob/actions/actions_minor_antag.dmi'
+	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	button_icon_state = "mimic_summon"
 	usage_probability = 15
 	boss_cost = 25
@@ -99,7 +99,7 @@
 //Summon 8 marauders from the nearby marauder spawn landmarks. Boss puts up a shield that lasts until all marauders are killed.
 /datum/action/boss/marauder_swarm
 	name = "Inath-Neq's Undying Legion"
-	icon_icon = 'icons/mob/actions/actions_minor_antag.dmi'
+	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	button_icon_state = "mimic_summon"
 	usage_probability = 15
 	boss_cost = 25

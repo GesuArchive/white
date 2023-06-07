@@ -12,7 +12,6 @@
 	invocation_type = INVOCATION_SHOUT
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
 
-	base_icon_state = "lightning"
 	active_msg = "Заряжаю свои руки энергией с помощью силы молнии!"
 	deactive_msg = "Успокаиваю магическую силу в моих руках..."
 	projectile_type = /obj/projectile/magic/aoe/lightning

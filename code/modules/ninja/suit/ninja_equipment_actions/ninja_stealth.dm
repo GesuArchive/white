@@ -2,7 +2,7 @@
 	name = "Переключение скрытности"
 	desc = "Включает и выключает скрытый режим."
 	button_icon_state = "ninja_cloak"
-	icon_icon = 'icons/mob/actions/actions_minor_antag.dmi'
+	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 
 /**
  * Proc called to toggle ninja stealth.

@@ -46,7 +46,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	name = "Действие ИИ"
 	desc = "Вы не совсем понимаете что именно эта штука делает, кроме бип-буп, буп-бип."
 	background_icon_state = "bg_tech_blue"
-	icon_icon = 'icons/mob/actions/actions_AI.dmi'
+	button_icon = 'icons/mob/actions/actions_AI.dmi'
 	/// The owner AI, so we don't have to typecast every time
 	var/mob/living/silicon/ai/owner_AI
 	/// If we have multiple uses of the same power
@@ -399,7 +399,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 
 	if(uses)
 		desc = "[initial(desc)] It has [uses] use\s remaining."
-		UpdateButtons()
+		build_all_button_icons()
 
 	clicked_machine.audible_message(span_userdanger("Слышу громкий электрический треск, исходящий от [target]!"))
 	addtimer(CALLBACK(src, PROC_REF(animate_machine), caller, clicked_machine), 5 SECONDS) //kabeep!
@@ -486,7 +486,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	adjust_uses(-1)
 	if(uses)
 		desc = "[initial(desc)] It has [uses] use\s remaining."
-		UpdateButtons()
+		build_all_button_icons()
 
 	clicked_machine.audible_message(span_userdanger("Слышу громкий электрический треск, исходящий от [clicked_machine]!"))
 	addtimer(CALLBACK(src, PROC_REF(detonate_machine), caller, clicked_machine), 5 SECONDS) //kaboom!
@@ -524,7 +524,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	adjust_uses(-1)
 	if(src && uses) //Not sure if not having src here would cause a runtime, so it's here to be safe
 		desc = "[initial(desc)] доступно [uses] зарядов."
-		UpdateButtons()
+		build_all_button_icons()
 
 /// Robotic Factory: Places a large machine that converts humans that go through it into cyborgs. Unlocking this ability removes shunting.
 /datum/ai_module/utility/place_cyborg_transformer
@@ -717,7 +717,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	adjust_uses(0, TRUE) //Checks the uses remaining
 	if(src && uses) //Not sure if not having src here would cause a runtime, so it's here to be safe
 		desc = "[initial(desc)] It has [uses] use\s remaining."
-		UpdateButtons()
+		build_all_button_icons()
 
 /// Upgrade Camera Network: EMP-proofs all cameras, in addition to giving them X-ray vision.
 /datum/ai_module/upgrade/upgrade_cameras

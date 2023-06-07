@@ -2,7 +2,7 @@
 	name = "Toggle interaction"
 	desc = "Переключение между обычным взаимодействием и режимом слива."
 	button_icon_state = "s-ninjan"
-	icon_icon = 'icons/obj/clothing/gloves.dmi'
+	button_icon = 'icons/obj/clothing/gloves.dmi'
 
 /**
  * Proc called to toggle the ninja glove's special abilities.

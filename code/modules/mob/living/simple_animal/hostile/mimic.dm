@@ -396,6 +396,7 @@ GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/ca
 
 /datum/action/innate/mimic
 	background_icon_state = "bg_default"
+	overlay_icon_state = "bg_default_border"
 
 /datum/action/innate/mimic/lock
 	name = "Lock/Unlock"

@@ -2,7 +2,7 @@
 	name = "Смена формы"
 	desc = "Смените свою хрупкую оболочку, став его десницей, становясь единым с императором."
 	background_icon_state = "bg_ecult"
-	icon_icon = 'icons/mob/actions/actions_ecult.dmi'
+	button_icon = 'icons/mob/actions/actions_ecult.dmi'
 	button_icon_state = "worm_ascend"
 
 	school = SCHOOL_FORBIDDEN
@@ -54,7 +54,7 @@
 	name = "Сжатие"
 	desc = "Позволяет сжать все сегменты вашего тела в одну единственную клетку."
 	background_icon_state = "bg_ecult"
-	icon_icon = 'icons/mob/actions/actions_ecult.dmi'
+	button_icon = 'icons/mob/actions/actions_ecult.dmi'
 	button_icon_state = "worm_contract"
 
 	school = SCHOOL_FORBIDDEN

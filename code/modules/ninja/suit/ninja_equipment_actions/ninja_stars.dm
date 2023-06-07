@@ -2,7 +2,7 @@
 	name = "Создать метательной звезды (1E)"
 	desc = "Если возможно, создаёт в руке метательную звезду."
 	button_icon_state = "throwingstar"
-	icon_icon = 'icons/obj/items_and_weapons.dmi'
+	button_icon = 'icons/obj/items_and_weapons.dmi'
 
 /**
  * Proc called to create a ninja star in the ninja's hands.

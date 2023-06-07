@@ -37,7 +37,7 @@
 	owner.click_intercept = src
 
 	ActivatePower()
-	UpdateButtons()
+	build_all_button_icons()
 	// Create & Link Targeting Proc
 	if(prefire_message != "")
 		to_chat(owner, span_announce("[prefire_message]"))
@@ -48,7 +48,7 @@
 		UnregisterSignal(owner, COMSIG_LIVING_BIOLOGICAL_LIFE)
 	active = FALSE
 	owner.click_intercept = null
-	UpdateButtons()
+	build_all_button_icons()
 //	..() // we don't want to pay cost here
 
 /// Check if target is VALID (wall, turf, or character?)

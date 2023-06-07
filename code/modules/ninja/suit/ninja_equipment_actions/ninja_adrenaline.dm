@@ -6,7 +6,7 @@
 	name = "Инъекция адреналина"
 	desc = "Введите секретное химическое вещество, которое нейтрализует все эффекты, затрудняющие движение."
 	button_icon_state = "repulse"
-	icon_icon = 'icons/mob/actions/actions_spells.dmi'
+	button_icon = 'icons/mob/actions/actions_spells.dmi'
 
 /**
  * Proc called to activate space ninja's adrenaline.

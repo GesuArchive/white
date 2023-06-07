@@ -1,6 +1,6 @@
 /datum/action/item_action/mod
 	background_icon_state = "bg_tech_blue"
-	icon_icon = 'icons/mob/actions/actions_mod.dmi'
+	button_icon = 'icons/mob/actions/actions_mod.dmi'
 	check_flags = AB_CHECK_CONSCIOUS
 	/// Whether this action is intended for the AI. Stuff breaks a lot if this is done differently.
 	var/ai_action = FALSE
@@ -72,7 +72,8 @@
 		button_icon_state = "activate-ready"
 		if(!ai_action)
 			background_icon_state = "bg_tech"
-		UpdateButtons()
+			overlay_icon_state = "bg_tech_border"
+		build_all_button_icons()
 		addtimer(CALLBACK(src, PROC_REF(reset_ready)), 3 SECONDS)
 		return
 	var/obj/item/mod/control/mod = target
@@ -85,7 +86,7 @@
 	button_icon_state = initial(button_icon_state)
 	if(!ai_action)
 		background_icon_state = initial(background_icon_state)
-	UpdateButtons()
+	build_all_button_icons()
 
 /datum/action/item_action/mod/activate/ai
 	ai_action = TRUE
@@ -136,7 +137,7 @@
 	module = linked_module
 	name = "Активировать [capitalize(linked_module.name)]"
 	desc = "Быстро активировать [linked_module]."
-	icon_icon = linked_module.icon
+	button_icon = linked_module.icon
 	button_icon_state = linked_module.icon_state
 	RegisterSignal(linked_module, COMSIG_MODULE_ACTIVATED, PROC_REF(on_module_activate))
 	RegisterSignal(linked_module, COMSIG_MODULE_DEACTIVATED, PROC_REF(on_module_deactivate))
@@ -162,8 +163,8 @@
 		return
 	module.on_select()
 
-/datum/action/item_action/mod/pinned_module/ApplyIcon(atom/movable/screen/movable/action_button/current_button, force)
-	. = ..(current_button, force = TRUE)
+/datum/action/item_action/mod/pinned_module/apply_button_overlay(atom/movable/screen/movable/action_button/current_button, force)
+	. = ..()
 	if(override)
 		return
 	var/obj/item/mod/control/mod = target
@@ -180,14 +181,14 @@
 /datum/action/item_action/mod/pinned_module/proc/on_module_activate(datum/source)
 	SIGNAL_HANDLER
 
-	UpdateButtons()
+	build_all_button_icons()
 
 /datum/action/item_action/mod/pinned_module/proc/on_module_deactivate(datum/source)
 	SIGNAL_HANDLER
 
-	UpdateButtons()
+	build_all_button_icons()
 
 /datum/action/item_action/mod/pinned_module/proc/on_module_use(datum/source)
 	SIGNAL_HANDLER
 
-	UpdateButtons()
+	build_all_button_icons()

@@ -75,7 +75,7 @@ GLOBAL_LIST_INIT(clockwork_slabs, list())
 	//Grant quickbound spells
 	for(var/datum/action/innate/clockcult/quick_bind/script in quick_bound_scriptures)
 		script.Grant(user)
-	user.update_action_buttons()
+	user.update_mob_action_buttons()
 
 /obj/item/clockwork/clockwork_slab/update_icon()
 	. = ..()

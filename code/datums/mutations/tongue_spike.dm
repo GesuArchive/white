@@ -12,7 +12,7 @@
 /datum/action/cooldown/spell/tongue_spike
 	name = "Выстрел шипом"
 	desc = "Выстреливает языковым шипом строго <b>в направлении вашего взгляда</b>. Спустя некоторое время шип можно вырастить заново."
-	icon_icon = 'icons/mob/actions/actions_genetic.dmi'
+	button_icon = 'icons/mob/actions/actions_genetic.dmi'
 	button_icon_state = "spike"
 
 	cooldown_time = 10 SECONDS
@@ -173,7 +173,7 @@
 	name = "Передача химикатов"
 	desc = "Перемещает все реагенты из вашей крови в тело жертвы."
 	background_icon_state = "bg_spell"
-	icon_icon = 'icons/mob/actions/actions_genetic.dmi'
+	button_icon = 'icons/mob/actions/actions_genetic.dmi'
 	button_icon_state = "spikechemswap"
 	check_flags = AB_CHECK_CONSCIOUS
 

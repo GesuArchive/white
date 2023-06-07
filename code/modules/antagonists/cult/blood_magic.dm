@@ -251,7 +251,7 @@
 	charges--
 	desc = base_desc
 	desc += "<br><b><u>Осталось [charges] [charges > 1 ? "использования" : "использование"]</u></b>."
-	UpdateButtons()
+	build_all_button_icons()
 	if(charges <= 0)
 		to_chat(caller, span_cult("Узор истощен!"))
 		qdel(src)
@@ -309,7 +309,7 @@
 		qdel(src)
 	desc = base_desc
 	desc += "<br><b><u>Осталось [charges] [charges > 1 ? "использования" : "использование"]</u></b>."
-	UpdateButtons()
+	build_all_button_icons()
 
 /datum/action/innate/cult/blood_spell/manipulation
 	name = "Узор сердца крови"
@@ -358,7 +358,7 @@
 			source.charges = uses
 			source.desc = source.base_desc
 			source.desc += "<br><b><u>Осталось [uses] [uses > 1 ? "использования" : "использование"]</u></b>."
-			source.UpdateButtons()
+			source.build_all_button_icons()
 	return ..()
 
 /obj/item/melee/blood_magic/attack_self(mob/living/user)
@@ -385,7 +385,7 @@
 	else if(source)
 		source.desc = source.base_desc
 		source.desc += "<br><b><u>Осталось [uses] [uses > 1 ? "использования" : "использование"]</u></b>."
-		source.UpdateButtons()
+		source.build_all_button_icons()
 
 //Stun
 /obj/item/melee/blood_magic/stun

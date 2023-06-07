@@ -74,7 +74,7 @@
 
 /datum/action/innate/cellular_emporium
 	name = "Сотовый Эмпориум"
-	icon_icon = 'icons/obj/drinks.dmi'
+	button_icon = 'icons/obj/drinks.dmi'
 	button_icon_state = "changelingsting"
 	background_icon_state = "bg_changeling"
 	/// The cell emporium we open.

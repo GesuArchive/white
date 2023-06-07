@@ -334,6 +334,7 @@ SUBSYSTEM_DEF(vote)
 /datum/action/vote
 	name = "Голосуй!"
 	button_icon_state = "vote"
+	show_to_observers = FALSE
 
 /datum/action/vote/Trigger(trigger_flags)
 	if(owner)

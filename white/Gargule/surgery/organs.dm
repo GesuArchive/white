@@ -115,9 +115,7 @@
 	if(inside)
 		on = !on
 		update_brightness(user)
-		for(var/X in actions)
-			var/datum/action/A = X
-			A.UpdateButtons()
+		update_item_action_buttons()
 		if(on)
 			owner.show_message("Your skin emmits light!")
 		else

@@ -1,7 +1,7 @@
 //Summons a set of ocular warden turrets placed at landmarks in the arena. If there are any turrets still active, more will not spawn.
 /datum/action/boss/turret_summon
 	name = "Raise Ocular Warden"
-	icon_icon = 'icons/mob/actions/actions_minor_antag.dmi'
+	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	button_icon_state = "mimic_summon"
 	usage_probability = 15
 	boss_cost = 25
@@ -68,7 +68,7 @@
 //Activates a series of steam traps placed around the arena. Stepping onto these while active throws the victim back a few tiles and causes burn damage.
 /datum/action/boss/steam_traps
 	name = "Activate Steam Traps"
-	icon_icon = 'icons/mob/actions/actions_minor_antag.dmi'
+	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	button_icon_state = "mimic_summon"
 	usage_probability = 20
 	boss_cost = 25
@@ -141,7 +141,7 @@
 //summon a small swarm of cogscarabs that attack in a group, weak but helps redirect player attacks elsewhere.
 /datum/action/boss/cogscarab_swarm
 	name = "Summon Cogscarab Swarm"
-	icon_icon = 'icons/mob/actions/actions_minor_antag.dmi'
+	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	button_icon_state = "mimic_summon"
 	usage_probability = 15
 	boss_cost = 40

@@ -86,14 +86,6 @@
 	. += ""
 	. += "Взаимодействие: [capitalize(ru_intent(a_intent))]"
 	. += "Режим перемещения: [m_intent == MOVE_INTENT_RUN ? "Бег" : "Шаг"]"
-	if (internal)
-		if (!internal.air_contents)
-			qdel(internal)
-		else
-			. += ""
-			. += "Источник: [internal.name]"
-			. += "Давление: [internal.air_contents.return_pressure()]"
-			. += "Подача: [internal.distribute_pressure]"
 	if(istype(wear_suit, /obj/item/clothing/suit/space))
 		var/obj/item/clothing/suit/space/S = wear_suit
 		. += "Терморегулятор: [S.thermal_on ? "ВКЛ" : "ВЫКЛ"]"

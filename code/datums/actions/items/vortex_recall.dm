@@ -1,7 +1,7 @@
 /datum/action/item_action/vortex_recall
 	name = "Вихревой отзыв"
 	desc = "В любое время вызовите себя и всех, кто находится поблизости, на настроенный маяк иерофанта.<br>Если маяк все еще прикреплен, отсоедините его."
-	icon_icon = 'icons/mob/actions/actions_items.dmi'
+	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "vortex_recall"
 
 /datum/action/item_action/vortex_recall/IsAvailable()

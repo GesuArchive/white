@@ -2,7 +2,7 @@
 	name = "Энергетическая сеть (40E)"
 	desc = "Захватывает упавшего противника энергетической сетью."
 	button_icon_state = "energynet"
-	icon_icon = 'icons/effects/effects.dmi'
+	button_icon = 'icons/effects/effects.dmi'
 
 /**
  * Proc called to ensnare a person in a energy net.

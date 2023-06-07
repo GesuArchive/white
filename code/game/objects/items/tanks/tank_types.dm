@@ -8,6 +8,17 @@
  *		Generic
  */
 
+/// Allows carbon to toggle internals via AltClick of the equipped tank.
+/obj/item/tank/internals/AltClick(mob/user)
+	..()
+	if((loc == user))
+		toggle_internals(user)
+
+/obj/item/tank/internals/examine(mob/user)
+	. = ..()
+	. += "<hr>"
+	. += span_notice("Alt-клик для переключения подачи.")
+
 /*
  * Oxygen
  */

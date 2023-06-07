@@ -522,7 +522,7 @@
 	name = "Поглотить свет"
 	desc = "Поглощает свет из ближайших лампочек."
 	background_icon_state = "bg_changeling"
-	icon_icon = 'icons/mob/actions/actions_animal.dmi'
+	button_icon = 'icons/mob/actions/actions_animal.dmi'
 	button_icon_state = "regurgitate"
 
 	cooldown_time = 15 SECONDS
@@ -578,14 +578,14 @@
 /datum/action/innate/glutton/plantSkin
 	name = "Вырастить кожу(25)"
 	desc = "Выращивает на полу рассадник кожи."
-	icon_icon = 'icons/mob/actions/actions_clown.dmi'
+	button_icon = 'icons/mob/actions/actions_clown.dmi'
 	button_icon_state = "alien_plant"
 	background_icon_state = "bg_changeling"
 
 /datum/action/innate/fleshclown/plantSkin
 	name = "Вырастить кожу(25)"
 	desc = "Выращивает на полу рассадник кожи."
-	icon_icon = 'icons/mob/actions/actions_clown.dmi'
+	button_icon = 'icons/mob/actions/actions_clown.dmi'
 	button_icon_state = "alien_plant"
 	background_icon_state = "bg_changeling"
 
@@ -670,7 +670,7 @@
 		"Клоуны-пауки (300)" = /obj/structure/spawner/clown/clownspider,
 		"Элитные клоуны (400)" = /obj/structure/spawner/clown/clownbig)
 
-	icon_icon = 'icons/mob/actions/actions_clown.dmi'
+	button_icon = 'icons/mob/actions/actions_clown.dmi'
 	button_icon_state = "alien_resin"
 	background_icon_state = "bg_changeling"
 
@@ -682,7 +682,7 @@
 		"Преобразователь атмосферы (120)" = /obj/structure/fleshbuilding/clownatmos,
 		"Клоунская стена (50)" = /turf/closed/wall/clown)
 
-	icon_icon = 'icons/mob/actions/actions_clown.dmi'
+	button_icon = 'icons/mob/actions/actions_clown.dmi'
 	button_icon_state = "alien_resin"
 	background_icon_state = "bg_changeling"
 

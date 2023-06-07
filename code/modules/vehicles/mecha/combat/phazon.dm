@@ -43,7 +43,7 @@
 	chassis.damtype = new_damtype
 	button_icon_state = "mech_damtype_[new_damtype]"
 	playsound(chassis, 'sound/mecha/mechmove01.ogg', 50, TRUE)
-	UpdateButtons()
+	build_all_button_icons()
 
 /datum/action/vehicle/sealed/mecha/mech_toggle_phasing
 	name = "Переключить фазирование"
@@ -55,4 +55,4 @@
 	chassis.phasing = chassis.phasing ? "" : "фазирование"
 	button_icon_state = "mech_phasing_[chassis.phasing ? "on" : "off"]"
 	to_chat(owner, "[icon2html(chassis, owner)]<font color=\"[chassis.phasing?"#00f\">Включаем":"#f00\">Выключаем"] фазирование.</font>")
-	UpdateButtons()
+	build_all_button_icons()

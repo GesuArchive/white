@@ -4,7 +4,7 @@
 	desc = "У глупых гоев."
 	button_icon_state = "ultimate"
 	sound = 'white/valtos/sounds/fcast.ogg'
-	icon_icon = 'white/valtos/icons/actions.dmi'
+	button_icon = 'white/valtos/icons/actions.dmi'
 
 	school = SCHOOL_TRANSMUTATION
 

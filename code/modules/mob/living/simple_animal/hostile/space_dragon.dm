@@ -448,7 +448,8 @@
 
 /datum/action/innate/space_dragon
 	background_icon_state = "bg_default"
-	icon_icon = 'icons/mob/actions/actions_space_dragon.dmi'
+	overlay_icon_state = "bg_default_border"
+	button_icon = 'icons/mob/actions/actions_space_dragon.dmi'
 
 /datum/action/innate/space_dragon/gust_attack
 	name = "Gust Attack"

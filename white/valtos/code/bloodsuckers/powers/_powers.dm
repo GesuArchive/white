@@ -4,10 +4,8 @@
 	//This is the FILE for the background icon
 	button_icon = 'icons/mob/actions/actions_bloodsucker.dmi'
 	//This is the ICON_STATE for the background icon
-	background_icon_state = "vamp_power_off"
-	var/background_icon_state_on = "vamp_power_on"
-	var/background_icon_state_off = "vamp_power_off"
-	icon_icon = 'icons/mob/actions/actions_bloodsucker.dmi'
+	background_icon_state = "bg_vamp"
+	background_icon = 'icons/mob/actions/actions_bloodsucker.dmi'
 	button_icon_state = "power_feed"
 	buttontooltipstyle = "cult"
 
@@ -160,10 +158,6 @@
 /datum/action/bloodsucker/proc/CheckCanDeactivate()
 	return TRUE
 
-/datum/action/bloodsucker/UpdateButtons(force = FALSE)
-	background_icon_state = active ? background_icon_state_on : background_icon_state_off
-	. = ..()
-
 /datum/action/bloodsucker/proc/PayCost()
 	// Bloodsuckers in a Frenzy don't have enough Blood to pay it, so just don't.
 	if(bloodsuckerdatum_power?.frenzied)
@@ -177,7 +171,7 @@
 	if(power_flags & BP_AM_TOGGLE)
 		RegisterSignal(owner, COMSIG_LIVING_BIOLOGICAL_LIFE, PROC_REF(UsePower))
 	owner.log_message("used [src][bloodcost != 0 ? " at the cost of [bloodcost]" : ""].", LOG_ATTACK, color="red")
-	UpdateButtons()
+	build_all_button_icons()
 
 /datum/action/bloodsucker/proc/DeactivatePower()
 	if(power_flags & BP_AM_TOGGLE)
@@ -186,7 +180,7 @@
 		RemoveAfterUse()
 		return
 	active = FALSE
-	UpdateButtons()
+	build_all_button_icons()
 	StartCooldown()
 
 ///Used by powers that are continuously active (That have BP_AM_TOGGLE flag)

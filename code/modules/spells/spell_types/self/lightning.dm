@@ -3,6 +3,7 @@
 	desc = "Charge up a tesla arc and release it at random nearby targets! \
 		You can move freely while it charges. The arc jumps between targets and can knock them down."
 	button_icon_state = "lightning"
+	active_overlay_icon_state = "bg_spell_border_active_yellow"
 
 	cooldown_time = 30 SECONDS
 	cooldown_reduction_per_rank = 6.75 SECONDS

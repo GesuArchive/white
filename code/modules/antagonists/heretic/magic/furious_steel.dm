@@ -4,7 +4,7 @@
 		Эти лезвия защищают от атак дальнего боя и ломаются при блокировании. \
 		Кроме того, вы можете нажать на своего противника, чтобы выстрелить в нее лезвием, нанося урон и вызывая кровотечение."
 	background_icon_state = "bg_ecult"
-	icon_icon = 'icons/mob/actions/actions_ecult.dmi'
+	button_icon = 'icons/mob/actions/actions_ecult.dmi'
 	button_icon_state = "furious_steel0"
 	sound = 'sound/weapons/guillotine.ogg'
 

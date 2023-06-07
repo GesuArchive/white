@@ -7,7 +7,7 @@
 	name = "Феромонные рецепторы"
 	desc = "Мы настраиваем наши чувства, чтобы отслеживать других генокрадов по запаху. Чем ближе они, тем легче их найти."
 	helptext = "Мы узнаем общее направление ближайших генокрадов, причем более близкие ароматы будут сильнее. Наша регенерация химикатов замедляется, пока оно активно."
-	icon_icon = 'icons/mob/actions/actions_spells.dmi'
+	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "nose"
 	chemical_cost = 0 //Reduces regain rate while active.
 	dna_cost = 2

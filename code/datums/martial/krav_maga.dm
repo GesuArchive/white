@@ -7,7 +7,7 @@
 
 /datum/action/neck_chop
 	name = "Удар по шее — повреждает шею, на некоторое время лишая жертву возможности говорить."
-	icon_icon = 'icons/mob/actions/actions_items.dmi'
+	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "neckchop"
 
 /datum/action/neck_chop/Trigger(trigger_flags)
@@ -23,7 +23,7 @@
 
 /datum/action/leg_sweep
 	name = "Взмах ногой — сбивает жертву с ног на короткое время."
-	icon_icon = 'icons/mob/actions/actions_items.dmi'
+	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "legsweep"
 
 /datum/action/leg_sweep/Trigger(trigger_flags)
@@ -39,7 +39,7 @@
 
 /datum/action/lung_punch//referred to internally as 'quick choke'
 	name = "Удар в легкие — наносит сильный удар чуть выше живота жертвы, сдавливая легкие. Пострадавший на короткое время не сможет дышать."
-	icon_icon = 'icons/mob/actions/actions_items.dmi'
+	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "lungpunch"
 
 /datum/action/lung_punch/Trigger(trigger_flags)

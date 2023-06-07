@@ -52,9 +52,7 @@
 
 	playsound(user, 'sound/weapons/empty.ogg', 100, TRUE)
 	update_icon()
-	for(var/X in actions)
-		var/datum/action/A = X
-		A.UpdateButtons()
+	update_item_action_buttons()
 
 /obj/item/gun/ballistic/automatic/proto
 	name = "пистолет-пулемет Saber"

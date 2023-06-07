@@ -43,8 +43,10 @@
 	name = "Spell"
 	desc = "A wizard spell."
 	background_icon_state = "bg_spell"
-	icon_icon = 'icons/mob/actions/actions_spells.dmi'
+	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "spell_default"
+	overlay_icon_state = "bg_spell_border"
+	active_overlay_icon_state = "bg_spell_border_active_red"
 	check_flags = AB_CHECK_CONSCIOUS
 	panel = "МАГИЯ"
 	melee_cooldown_time = 0 SECONDS
@@ -96,10 +98,10 @@
 
 	// Register some signals so our button's icon stays up to date
 	if(spell_requirements & SPELL_REQUIRES_OFF_CENTCOM)
-		RegisterSignal(owner, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(update_icon_on_signal))
+		RegisterSignal(owner, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(update_status_on_signal))
 	if(spell_requirements & (SPELL_REQUIRES_NO_ANTIMAGIC|SPELL_REQUIRES_WIZARD_GARB))
-		RegisterSignal(owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(update_icon_on_signal))
-	RegisterSignal(owner, list(COMSIG_MOB_ENTER_JAUNT, COMSIG_MOB_AFTER_EXIT_JAUNT), PROC_REF(update_icon_on_signal))
+		RegisterSignal(owner, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(update_status_on_signal))
+	RegisterSignal(owner, list(COMSIG_MOB_ENTER_JAUNT, COMSIG_MOB_AFTER_EXIT_JAUNT), PROC_REF(update_status_on_signal))
 	owner.client?.stat_panel.send_message("check_spells")
 
 /datum/action/cooldown/spell/Remove(mob/living/remove_from)
@@ -244,7 +246,7 @@
 	// And then proceed with the aftermath of the cast
 	// Final effects that happen after all the casting is done can go here
 	after_cast(cast_on)
-	UpdateButtons()
+	build_all_button_icons()
 
 	return TRUE
 
@@ -369,7 +371,7 @@
 /datum/action/cooldown/spell/proc/reset_spell_cooldown()
 	SEND_SIGNAL(src, COMSIG_SPELL_CAST_RESET)
 	next_use_time -= cooldown_time // Basically, ensures that the ability can be used now
-	UpdateButtons()
+	build_all_button_icons()
 
 /**
  * Levels the spell up a single level, reducing the cooldown.
@@ -386,7 +388,7 @@
 
 	spell_level++
 	cooldown_time = max(cooldown_time - cooldown_reduction_per_rank, 0)
-	update_spell_name()
+	build_all_button_icons(UPDATE_BUTTON_NAME)
 	return TRUE
 
 /**
@@ -402,25 +404,25 @@
 
 	spell_level--
 	cooldown_time = min(cooldown_time + cooldown_reduction_per_rank, initial(cooldown_time))
-	update_spell_name()
+	build_all_button_icons(UPDATE_BUTTON_NAME)
 	return TRUE
 
-/**
- * Updates the spell's name based on its level.
- */
-/datum/action/cooldown/spell/proc/update_spell_name()
-	var/spell_title = ""
+/datum/action/cooldown/spell/update_button_name(atom/movable/screen/movable/action_button/button, force)
+	name = "[get_spell_title()][initial(name)]"
+	return ..()
+
+/// Gets the title of the spell based on its level.
+/datum/action/cooldown/spell/proc/get_spell_title()
 	switch(spell_level)
 		if(2)
-			spell_title = "Эффективный "
+			return "Эффективный "
 		if(3)
-			spell_title = "Учащенный "
+			return "Учащенный "
 		if(4)
-			spell_title = "Свободный "
+			return "Свободный "
 		if(5)
-			spell_title = "Моментальный "
+			return "Моментальный "
 		if(6)
-			spell_title = "Смехотворный "
+			return "Смехотворный "
 
-	name = "[spell_title][initial(name)]"
-	UpdateButtons()
+	return ""

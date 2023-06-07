@@ -62,7 +62,7 @@ Slimecrossing Armor
 
 /datum/action/item_action/change_prism_colour
 	name = "Отрегулировать Призматическую Линзу"
-	icon_icon = 'icons/obj/slimecrossing.dmi'
+	button_icon = 'icons/obj/slimecrossing.dmi'
 	button_icon_state = "prismcolor"
 
 /datum/action/item_action/change_prism_colour/Trigger(trigger_flags)
@@ -76,7 +76,7 @@ Slimecrossing Armor
 
 /datum/action/item_action/place_light_prism
 	name = "Изготовить Световую Призму"
-	icon_icon = 'icons/obj/slimecrossing.dmi'
+	button_icon = 'icons/obj/slimecrossing.dmi'
 	button_icon_state = "lightprism"
 
 /datum/action/item_action/place_light_prism/Trigger(trigger_flags)

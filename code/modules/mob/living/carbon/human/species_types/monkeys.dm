@@ -138,7 +138,7 @@
 	button_icon = 'icons/mob/actions/actions_changeling.dmi'
 	button_icon_state = "lesser_form"
 	background_icon_state = "bg_default_on"
-	button_overlay_state = "bg_default_border"
+	overlay_icon_state = "bg_default_border"
 
 /datum/action/item_action/organ_action/toggle_trip/Trigger(trigger_flags)
 	. = ..()
@@ -149,12 +149,13 @@
 	if(monkey_brain.tripping)
 		monkey_brain.tripping = FALSE
 		background_icon_state = "bg_default"
+		overlay_icon_state = "bg_default_border"
 		to_chat(monkey_brain.owner, span_notice("Теперь я не споткнусь при столкновении с людьми, находящимися в боевом режиме."))
 	else
 		monkey_brain.tripping = TRUE
 		background_icon_state = "bg_default_on"
 		to_chat(monkey_brain.owner, span_notice("Теперь я буду спотыкаться при столкновении с людьми, находящимися в боевом режиме."))
-	UpdateButtons()
+	build_all_button_icons()
 
 /obj/item/organ/brain/primate/Insert(mob/living/carbon/primate, special, no_id_transfer)
 	. = ..()

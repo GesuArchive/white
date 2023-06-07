@@ -21,7 +21,7 @@
 /datum/action/cooldown/spell/lay_genetic_web
 	name = "Создание паутины"
 	desc = "Хорошее средство для самозащиты, замедляет потенциальных недоброжелателей, но не препятствует вашему движению."
-	icon_icon = 'icons/mob/actions/actions_genetic.dmi'
+	button_icon = 'icons/mob/actions/actions_genetic.dmi'
 	button_icon_state = "lay_web"
 
 	cooldown_time = 4 SECONDS //the same time to lay a web

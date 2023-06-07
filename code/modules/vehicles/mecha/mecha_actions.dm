@@ -8,7 +8,7 @@
 
 
 /datum/action/vehicle/sealed/mecha
-	icon_icon = 'icons/mob/actions/actions_mecha.dmi'
+	button_icon = 'icons/mob/actions/actions_mecha.dmi'
 	var/obj/vehicle/sealed/mecha/chassis
 
 /datum/action/vehicle/sealed/mecha/Destroy()
@@ -37,7 +37,7 @@
 	button_icon_state = "mech_internals_[chassis.use_internal_tank ? "on" : "off"]"
 	to_chat(chassis.occupants, "[icon2html(chassis, owner)]<span class='notice'>Теперь берём воздух из [chassis.use_internal_tank?"внутреннего бака":"окружения"].</span>")
 	chassis.log_message("Now taking air from [chassis.use_internal_tank?"internal airtank":"environment"].", LOG_MECHA)
-	UpdateButtons()
+	build_all_button_icons()
 
 /datum/action/vehicle/sealed/mecha/mech_toggle_lights
 	name = "Переключить свет"
@@ -57,7 +57,7 @@
 	chassis.set_light_on(chassis.mecha_flags & LIGHTS_ON)
 	to_chat(owner, "[icon2html(chassis, owner)]<span class='notice'>[(chassis.mecha_flags & LIGHTS_ON)?"Включаем":"Выключаем"] свет.</span>")
 	chassis.log_message("Toggled lights [(chassis.mecha_flags & LIGHTS_ON)?"on":"off"].", LOG_MECHA)
-	UpdateButtons()
+	build_all_button_icons()
 
 /datum/action/vehicle/sealed/mecha/mech_view_stats
 	name = "Состояние"
@@ -101,7 +101,7 @@
 
 	for(var/occupant in occupants)
 		var/datum/action/action = LAZYACCESSASSOC(occupant_actions, occupant, /datum/action/vehicle/sealed/mecha/strafe)
-		action?.UpdateButtons()
+		action?.build_all_button_icons()
 
 //////////////////////////////////////// Specific Ability Actions  ///////////////////////////////////////////////
 //Need to be granted by the mech type, Not default abilities.

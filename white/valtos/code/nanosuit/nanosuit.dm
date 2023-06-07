@@ -1,7 +1,7 @@
 /datum/action/item_action/dusting_implant
 	check_flags =  NONE
 	name = "Activate Dusting Implant"
-	icon_icon = 'icons/effects/blood.dmi'
+	button_icon = 'icons/effects/blood.dmi'
 	button_icon_state = "remains"
 
 //Crytek Nanosuit made by YoYoBatty
@@ -31,7 +31,7 @@
 /datum/action/item_action/nanojump
 	name = "Activate Strength Jump"
 	desc = "Activates the Nanosuit's super jumping ability to allows the user to cross 2 wide gaps."
-	icon_icon = 'icons/mob/actions/actions_items.dmi'
+	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "jetboot"
 
 /obj/item/clothing/shoes/combat/coldres/nanojump
@@ -180,9 +180,7 @@
 		darkness_view = 2
 		lighting_alpha = null
 	H.update_sight()
-	for(var/X in actions)
-		var/datum/action/A = X
-		A.UpdateButtons()
+	update_item_action_buttons()
 
 /obj/item/clothing/glasses/nano_goggles/emp_act(severity)
 	..()
@@ -487,11 +485,9 @@
 				REMOVE_TRAIT(Wearer, TRAIT_LIGHT_STEP, NANO_SPEED)
 				jetpack.full_speed = FALSE
 
-	for(var/X in actions)
-		var/datum/action/A = X
-		A.UpdateButtons()
+	update_item_action_buttons()
 	Wearer.update_inv_wear_suit()
-	Wearer.update_action_buttons_icon()
+	Wearer.update_mob_action_buttons()
 	update_icon()
 
 
@@ -566,32 +562,32 @@
 
 /datum/action/item_action/nanosuit
 	check_flags = AB_CHECK_CONSCIOUS
-	icon_icon = 'icons/hud/actions.dmi'
+	button_icon = 'icons/hud/actions.dmi'
 	background_icon_state = "bg_tech_blue"
 
 /datum/action/item_action/nanosuit/goggletoggle
 	name = "Night Vision"
-	icon_icon = 'white/valtos/icons/nanosuit/actions_nanosuit.dmi'
+	button_icon = 'white/valtos/icons/nanosuit/actions_nanosuit.dmi'
 	button_icon_state = "toggle_goggle"
 
 /datum/action/item_action/nanosuit/armor
 	name = "Armor Mode"
-	icon_icon = 'white/valtos/icons/nanosuit/actions_nanosuit.dmi'
+	button_icon = 'white/valtos/icons/nanosuit/actions_nanosuit.dmi'
 	button_icon_state = "armor_mode"
 
 /datum/action/item_action/nanosuit/cloak
 	name = "Cloak Mode"
-	icon_icon = 'white/valtos/icons/nanosuit/actions_nanosuit.dmi'
+	button_icon = 'white/valtos/icons/nanosuit/actions_nanosuit.dmi'
 	button_icon_state = "cloak_mode"
 
 /datum/action/item_action/nanosuit/speed
 	name = "Speed Mode"
-	icon_icon = 'white/valtos/icons/nanosuit/actions_nanosuit.dmi'
+	button_icon = 'white/valtos/icons/nanosuit/actions_nanosuit.dmi'
 	button_icon_state = "speed_mode"
 
 /datum/action/item_action/nanosuit/strength
 	name = "Strength Mode"
-	icon_icon = 'white/valtos/icons/nanosuit/actions_nanosuit.dmi'
+	button_icon = 'white/valtos/icons/nanosuit/actions_nanosuit.dmi'
 	button_icon_state = "strength_mode"
 
 
@@ -662,9 +658,9 @@
 
 /datum/action/item_action/nanosuit/zoom
 	name = "Helmet Zoom"
-	icon_icon = 'icons/hud/actions.dmi'
+	button_icon = 'icons/hud/actions.dmi'
 	background_icon_state = "bg_tech_blue"
-	icon_icon = 'icons/mob/actions/actions_items.dmi'
+	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "sniper_zoom"
 
 /datum/action/item_action/nanosuit/zoom/Trigger(trigger_flags)

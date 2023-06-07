@@ -3,7 +3,7 @@
 	desc = "Навык, позволяющий вам высасывать жизненные силы из окружающих вас горящих жертв, \
 		лечение пропорционально количеству горящих. Те же, кто был в критическом состоянии, мгновенно умрут, отдавая вам остатки своей жизненной силы"
 	background_icon_state = "bg_ecult"
-	icon_icon = 'icons/mob/actions/actions_ecult.dmi'
+	button_icon = 'icons/mob/actions/actions_ecult.dmi'
 	button_icon_state = "smoke"
 
 	school = SCHOOL_FORBIDDEN

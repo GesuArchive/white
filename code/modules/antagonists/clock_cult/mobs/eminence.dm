@@ -137,7 +137,7 @@
 
 /datum/action/cooldown/spell/eminence
 	invocation_type = INVOCATION_NONE
-	icon_icon = 'icons/mob/actions/actions_clockcult.dmi'
+	button_icon = 'icons/mob/actions/actions_clockcult.dmi'
 	button_icon_state = "ratvarian_spear"
 	background_icon_state = "bg_clock"
 	spell_requirements = NONE
