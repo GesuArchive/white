@@ -212,6 +212,9 @@
 		wearer.update_inv_wear_mask()
 		wearer.update_inv_glasses()
 		wearer.update_hair()
+		// Close internal air tank if MOD helmet is unsealed and was the only breathing apparatus.
+		if (!seal && wearer?.invalid_internals())
+			wearer.cutoff_internals()
 
 /// Finishes the suit's activation, starts processing
 /obj/item/mod/control/proc/finish_activation(on)

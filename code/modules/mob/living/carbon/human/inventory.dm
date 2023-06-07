@@ -1,4 +1,6 @@
 /mob/living/carbon/human/can_equip(obj/item/I, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
+	if(SEND_SIGNAL(src, COMSIG_HUMAN_EQUIPPING_ITEM, I, slot) == COMPONENT_BLOCK_EQUIP)
+		return FALSE
 	if(!dna || !istype(dna))
 		return
 		//stack_trace("Блядь! Хуман без днк! Хуман:[src], координаты: [COORD(src)], предмет:[I]")
@@ -337,8 +339,9 @@
 /mob/living/carbon/human/wear_mask_update(obj/item/I, toggle_off = 1)
 	if((I.flags_inv & (HIDEHAIR|HIDEFACIALHAIR)) || (initial(I.flags_inv) & (HIDEHAIR|HIDEFACIALHAIR)))
 		update_hair()
-	if(toggle_off && internal && !getorganslot(ORGAN_SLOT_BREATHING_TUBE))
-		internal = null
+	// Close internal air tank if mask was the only breathing apparatus.
+	if(invalid_internals())
+		cutoff_internals()
 	if(I.flags_inv & HIDEEYES)
 		update_inv_glasses()
 	sec_hud_set_security_status()
@@ -351,6 +354,9 @@
 		var/obj/item/clothing/C = I
 		if(istype(C) && C.dynamic_hair_suffix)
 			update_hair()
+	// Close internal air tank if helmet was the only breathing apparatus.
+	if (invalid_internals())
+		cutoff_internals()
 	if(I.flags_inv & HIDEEYES || forced)
 		update_inv_glasses()
 	if(I.flags_inv & HIDEEARS || forced)
