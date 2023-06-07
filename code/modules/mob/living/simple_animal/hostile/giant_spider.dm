@@ -327,7 +327,7 @@
 	check_flags = AB_CHECK_CONSCIOUS
 	button_icon_state = "lay_web"
 
-/datum/action/innate/spider/lay_web/IsAvailable()
+/datum/action/innate/spider/lay_web/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -387,7 +387,7 @@
 	/// The time it takes to wrap something.
 	var/wrap_time = 5 SECONDS
 
-/datum/action/cooldown/wrap/IsAvailable()
+/datum/action/cooldown/wrap/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -485,7 +485,7 @@
 	///The type of egg we create
 	var/egg_type = /obj/effect/mob_spawn/spider
 
-/datum/action/innate/spider/lay_eggs/IsAvailable()
+/datum/action/innate/spider/lay_eggs/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -529,7 +529,7 @@
 	/// How many charges we have to make eggs
 	var/charges = 0
 
-/datum/action/innate/spider/lay_eggs/enriched/IsAvailable()
+/datum/action/innate/spider/lay_eggs/enriched/IsAvailable(feedback = FALSE)
 	return ..() && (charges > 0)
 
 /datum/action/innate/spider/set_directive
@@ -538,7 +538,7 @@
 	check_flags = AB_CHECK_CONSCIOUS
 	button_icon_state = "directive"
 
-/datum/action/innate/spider/set_directive/IsAvailable()
+/datum/action/innate/spider/set_directive/IsAvailable(feedback = FALSE)
 	return ..() && istype(owner, /mob/living/simple_animal/hostile/giant_spider)
 
 /datum/action/innate/spider/set_directive/Activate()
@@ -558,7 +558,7 @@
 	check_flags = AB_CHECK_CONSCIOUS
 	button_icon_state = "command"
 
-/datum/action/innate/spider/comm/IsAvailable()
+/datum/action/innate/spider/comm/IsAvailable(feedback = FALSE)
 	return ..() && istype(owner, /mob/living/simple_animal/hostile/giant_spider/midwife)
 
 /datum/action/innate/spider/comm/Trigger(trigger_flags)

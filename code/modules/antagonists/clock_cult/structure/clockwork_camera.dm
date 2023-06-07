@@ -10,7 +10,7 @@
 	button_icon_state = "warp_down"
 	var/warping = FALSE
 
-/datum/action/innate/clockcult/warp/IsAvailable()
+/datum/action/innate/clockcult/warp/IsAvailable(feedback = FALSE)
 	if(!is_servant_of_ratvar(owner) || owner.incapacitated())
 		return FALSE
 	return ..()

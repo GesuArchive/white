@@ -501,7 +501,7 @@
 	var/cooldown = 150
 	var/last_teleport = 0
 
-/datum/action/innate/unstable_teleport/IsAvailable()
+/datum/action/innate/unstable_teleport/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return

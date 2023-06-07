@@ -241,7 +241,7 @@
 	phasein = /obj/effect/temp_visual/dir_setting/cult/phase
 	phaseout = /obj/effect/temp_visual/dir_setting/cult/phase/out
 
-/datum/action/innate/dash/cult/IsAvailable()
+/datum/action/innate/dash/cult/IsAvailable(feedback = FALSE)
 	if(IS_CULTIST(owner) && current_charges)
 		return TRUE
 	else
@@ -264,7 +264,7 @@
 	sword = bastard
 	holder = user
 
-/datum/action/innate/cult/spin2win/IsAvailable()
+/datum/action/innate/cult/spin2win/IsAvailable(feedback = FALSE)
 	if(iscultist(holder) && cooldown <= world.time)
 		return TRUE
 	else

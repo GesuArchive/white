@@ -268,7 +268,7 @@
 		activation_slab.invoking_scripture = null
 	..(M)
 
-/datum/action/innate/clockcult/quick_bind/IsAvailable()
+/datum/action/innate/clockcult/quick_bind/IsAvailable(feedback = FALSE)
 	if(!is_servant_of_ratvar(owner) || owner.incapacitated())
 		return FALSE
 	return ..()
@@ -289,7 +289,7 @@
 	button_icon_state = "hierophant"
 	desc = "Передать сообщение союзникам через сети Иерофанта."
 
-/datum/action/innate/clockcult/transmit/IsAvailable()
+/datum/action/innate/clockcult/transmit/IsAvailable(feedback = FALSE)
 	if(!is_servant_of_ratvar(owner))
 		Remove(owner)
 		return FALSE

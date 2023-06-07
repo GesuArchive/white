@@ -6,7 +6,7 @@
 /datum/action
 	/// The name of the action
 	var/name = "Generic Action"
-	/// The description of what the action does
+	/// The description of what the action does, shown in button tooltips
 	var/desc
 	/// The target the action is attached to. If the target datum is deleted, the action is as well.
 	/// Set in New() via the proc link_to(). PLEASE set a target if you're making an action
@@ -27,17 +27,21 @@
 	/// If TRUE, this action button will be shown to observers / other mobs who view from this action's owner's eyes.
 	/// Used in [/mob/proc/show_other_mob_action_buttons]
 	var/show_to_observers = TRUE
+
 	/// The style the button's tooltips appear to be
 	var/buttontooltipstyle = ""
+
 	/// This is the file for the BACKGROUND underlay icon of the button
 	var/background_icon = 'icons/mob/actions/backgrounds.dmi'
 	/// This is the icon state state for the BACKGROUND underlay icon of the button
 	/// (If set to ACTION_BUTTON_DEFAULT_BACKGROUND, uses the hud's default background)
 	var/background_icon_state = ACTION_BUTTON_DEFAULT_BACKGROUND
+
 	/// This is the file for the icon that appears on the button
 	var/button_icon = 'icons/hud/actions.dmi'
 	/// This is the icon state for the icon that appears on the button
 	var/button_icon_state = "default"
+
 	/// This is the file for any FOREGROUND overlay icons on the button (such as borders)
 	var/overlay_icon = 'icons/mob/actions/backgrounds.dmi'
 	/// This is the icon state for any FOREGROUND overlay icons on the button (such as borders)
@@ -90,13 +94,15 @@
 	// Register some signals based on our check_flags
 	// so that our button icon updates when relevant
 	if(check_flags & AB_CHECK_CONSCIOUS)
-		RegisterSignal(owner, COMSIG_MOB_STATCHANGE, PROC_REF(on_target_icon_update))
+		RegisterSignal(owner, COMSIG_MOB_STATCHANGE, PROC_REF(update_status_on_signal))
+	if(check_flags & AB_CHECK_INCAPACITATED)
+		RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_INCAPACITATED), PROC_REF(update_status_on_signal))
 	if(check_flags & AB_CHECK_IMMOBILE)
-		RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_IMMOBILIZED), PROC_REF(on_target_icon_update))
+		RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_IMMOBILIZED), PROC_REF(update_status_on_signal))
 	if(check_flags & AB_CHECK_HANDS_BLOCKED)
-		RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_HANDS_BLOCKED), PROC_REF(on_target_icon_update))
+		RegisterSignal(owner, SIGNAL_ADDTRAIT(TRAIT_HANDS_BLOCKED), PROC_REF(update_status_on_signal))
 	if(check_flags & AB_CHECK_LYING)
-		RegisterSignal(owner, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(on_target_icon_update))
+		RegisterSignal(owner, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(update_status_on_signal))
 
 	if(owner_has_control)
 		GiveAction(grant_to)
@@ -123,6 +129,7 @@
 			COMSIG_MOB_STATCHANGE,
 			SIGNAL_ADDTRAIT(TRAIT_HANDS_BLOCKED),
 			SIGNAL_ADDTRAIT(TRAIT_IMMOBILIZED),
+			SIGNAL_ADDTRAIT(TRAIT_INCAPACITATED),
 		))
 
 		if(target == owner)
@@ -132,25 +139,40 @@
 /// Actually triggers the effects of the action.
 /// Called when the on-screen button is clicked, for example.
 /datum/action/proc/Trigger(trigger_flags)
-	if(!IsAvailable())
+	if(!IsAvailable(feedback = TRUE))
 		return FALSE
 	if(SEND_SIGNAL(src, COMSIG_ACTION_TRIGGER, src) & COMPONENT_ACTION_BLOCK_TRIGGER)
 		return FALSE
 	return TRUE
 
-/// Whether our action is currently available to use or not
-/datum/action/proc/IsAvailable()
+/**
+ * Whether our action is currently available to use or not
+ * * feedback - If true this is being called to check if we have any messages to show to the owner
+ */
+/datum/action/proc/IsAvailable(feedback = FALSE)
 	if(!owner)
 		return FALSE
 	if((check_flags & AB_CHECK_HANDS_BLOCKED) && HAS_TRAIT(owner, TRAIT_HANDS_BLOCKED))
+		if (feedback)
+			owner.balloon_alert(owner, "руки заблокированы")
 		return FALSE
 	if((check_flags & AB_CHECK_IMMOBILE) && HAS_TRAIT(owner, TRAIT_IMMOBILIZED))
+		if (feedback)
+			owner.balloon_alert(owner, "не могу двигаться!")
+		return FALSE
+	if((check_flags & AB_CHECK_INCAPACITATED) && HAS_TRAIT(owner, TRAIT_INCAPACITATED))
+		if (feedback)
+			owner.balloon_alert(owner, "не могу!")
 		return FALSE
 	if((check_flags & AB_CHECK_LYING) && isliving(owner))
-		var/mob/living/action_user = owner
-		if(action_user.body_position == LYING_DOWN)
+		var/mob/living/action_owner = owner
+		if(action_owner.body_position == LYING_DOWN)
+			if (feedback)
+				owner.balloon_alert(owner, "надо стоять!")
 			return FALSE
 	if((check_flags & AB_CHECK_CONSCIOUS) && owner.stat != CONSCIOUS)
+		if (feedback)
+			owner.balloon_alert(owner, "без сознания!")
 		return FALSE
 	return TRUE
 
@@ -326,7 +348,7 @@
 		if(action == src) // This could be us, which is dumb
 			continue
 		var/atom/movable/screen/movable/action_button/button = action.viewers[owner.hud_used]
-		if(action.name == name && button?.id)
+		if(action.name == name && button.id)
 			bitfield |= button.id
 
 	bitfield = ~bitfield // Flip our possible ids, so we can check if we've found a unique one

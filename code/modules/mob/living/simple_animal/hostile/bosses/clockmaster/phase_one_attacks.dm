@@ -9,7 +9,7 @@
 	say_when_triggered = "Arise once more, watchful guardians! Yrg Uvf Tenpvbhf Yvtug thvqr lbhe nvz gehr!"
 	var/id = "clockmasterocularwarden"
 
-/datum/action/boss/turret_summon/IsAvailable()
+/datum/action/boss/turret_summon/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -78,7 +78,7 @@
 	var/list/nearby_vents = list()
 	var/id = "clockmastersteamvent"
 
-/datum/action/boss/steam_traps/IsAvailable()
+/datum/action/boss/steam_traps/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -151,7 +151,7 @@
 	var/max_cogscarabs = 8
 	var/cogscarabs_to_summon = 4
 
-/datum/action/boss/cogscarab_swarm/IsAvailable()
+/datum/action/boss/cogscarab_swarm/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return FALSE

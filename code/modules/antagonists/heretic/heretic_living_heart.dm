@@ -92,7 +92,7 @@
 
 	return ..()
 
-/datum/action/item_action/organ_action/track_target/IsAvailable()
+/datum/action/item_action/organ_action/track_target/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return

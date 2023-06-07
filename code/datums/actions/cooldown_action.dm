@@ -127,7 +127,7 @@
 		ability.Remove(removed_from)
 	return ..()
 
-/datum/action/cooldown/IsAvailable()
+/datum/action/cooldown/IsAvailable(feedback = FALSE)
 	return ..() && (next_use_time <= world.time)
 
 /// Initializes any sequence actions

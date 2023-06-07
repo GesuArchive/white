@@ -66,7 +66,7 @@
 	STOP_PROCESSING(SSfastprocess, src)
 	return ..()
 
-/datum/action/bloodsucker/IsAvailable()
+/datum/action/bloodsucker/IsAvailable(feedback = FALSE)
 	return TRUE
 
 /datum/action/bloodsucker/Grant(mob/user)

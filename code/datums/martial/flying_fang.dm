@@ -171,7 +171,7 @@
 /datum/action/innate/lizard_leap/process()
 	build_all_button_icons() //keep the button updated
 
-/datum/action/innate/lizard_leap/IsAvailable()
+/datum/action/innate/lizard_leap/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(linked_martial.leaping || !linked_martial.can_use(owner))
 		return FALSE

@@ -17,7 +17,7 @@ Doesn't work on other aliens/AI.*/
 	/// How much plasma this action uses.
 	var/plasma_cost = 0
 
-/datum/action/cooldown/alien/IsAvailable()
+/datum/action/cooldown/alien/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -60,7 +60,7 @@ Doesn't work on other aliens/AI.*/
 	/// The type of structure the action makes on use
 	var/obj/structure/made_structure_type
 
-/datum/action/cooldown/alien/make_structure/IsAvailable()
+/datum/action/cooldown/alien/make_structure/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -242,7 +242,7 @@ Doesn't work on other aliens/AI.*/
 	button_icon_state = "alien_neurotoxin_0"
 	plasma_cost = 50
 
-/datum/action/cooldown/alien/acid/neurotoxin/IsAvailable()
+/datum/action/cooldown/alien/acid/neurotoxin/IsAvailable(feedback = FALSE)
 	return ..() && isturf(owner.loc)
 
 /datum/action/cooldown/alien/acid/neurotoxin/set_click_ability(mob/on_who)

@@ -160,7 +160,7 @@
 
 
 ///Mob needs to have enough nutrition
-/datum/action/cooldown/metabolicboost/IsAvailable()
+/datum/action/cooldown/metabolicboost/IsAvailable(feedback = FALSE)
 	. = ..()
 	var/mob/living/simple_animal/hostile/ooze/ooze = owner
 	if(!.)
@@ -453,7 +453,7 @@
 	ooze.adjust_ooze_nutrition(-30)
 
 ///Mob needs to have enough nutrition
-/datum/action/cooldown/gel_cocoon/IsAvailable()
+/datum/action/cooldown/gel_cocoon/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return

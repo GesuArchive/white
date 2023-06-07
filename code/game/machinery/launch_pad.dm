@@ -236,7 +236,7 @@
 	briefcase = null
 	return ..()
 
-/obj/machinery/launchpad/briefcase/isAvailable()
+/obj/machinery/launchpad/briefcase/IsAvailable(feedback = FALSE)
 	if(closed)
 		return FALSE
 	return TRUE

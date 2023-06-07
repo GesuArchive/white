@@ -21,7 +21,7 @@
 	dashing_item = null
 	return ..()
 
-/datum/action/innate/dash/IsAvailable()
+/datum/action/innate/dash/IsAvailable(feedback = FALSE)
 	if(current_charges > 0)
 		return TRUE
 	else

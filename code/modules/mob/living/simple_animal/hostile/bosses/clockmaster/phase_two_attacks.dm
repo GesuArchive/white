@@ -9,7 +9,7 @@
 	say_when_triggered = "Let Sevtug consume you, feel his presence wipe your heretical conscious clear!"
 	var/aoe_radius = 3
 
-/datum/action/boss/brain_blast/IsAvailable()
+/datum/action/boss/brain_blast/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -70,7 +70,7 @@
 	say_when_triggered = "Nzcrentr's power surges through me and it demands release!"
 	var/mob/living/chosen_target = null
 
-/datum/action/boss/spinning_bronze/IsAvailable()
+/datum/action/boss/spinning_bronze/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -108,7 +108,7 @@
 	var/active_marauders = 0
 	var/id = "clockmastermarauder"
 
-/datum/action/boss/marauder_swarm/IsAvailable()
+/datum/action/boss/marauder_swarm/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return FALSE

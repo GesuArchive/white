@@ -336,7 +336,7 @@
 	chronosuit = null
 	return ..()
 
-/datum/action/innate/chrono_teleport/IsAvailable()
+/datum/action/innate/chrono_teleport/IsAvailable(feedback = FALSE)
 	return (chronosuit && chronosuit.activated && chronosuit.camera && !chronosuit.teleporting)
 
 /datum/action/innate/chrono_teleport/Activate()

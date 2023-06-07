@@ -116,7 +116,7 @@
 
 	return ..()
 
-/datum/action/cooldown/spell/IsAvailable()
+/datum/action/cooldown/spell/IsAvailable(feedback = FALSE)
 	return ..() && can_cast_spell(feedback = FALSE)
 
 /datum/action/cooldown/spell/Trigger(trigger_flags, atom/target)

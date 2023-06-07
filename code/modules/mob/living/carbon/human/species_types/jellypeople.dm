@@ -86,7 +86,7 @@
 	background_icon_state = "bg_alien"
 	overlay_icon_state = "bg_alien_border"
 
-/datum/action/innate/regenerate_limbs/IsAvailable()
+/datum/action/innate/regenerate_limbs/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return
@@ -197,7 +197,7 @@
 	background_icon_state = "bg_alien"
 	overlay_icon_state = "bg_alien_border"
 
-/datum/action/innate/split_body/IsAvailable()
+/datum/action/innate/split_body/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return
@@ -683,7 +683,7 @@
 		stack_trace("[name] ([type]) was instantiated on a non-mind_linker target, this doesn't work.")
 		qdel(src)
 
-/datum/action/innate/link_minds/IsAvailable()
+/datum/action/innate/link_minds/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return
