@@ -26,11 +26,20 @@
 	. = ..()
 	icon_state = "grass[rand(1, 5)]"
 	if (prob(70))
-		var/obj/structure/flora/ausbushes/rospilovo/F = pick(subtypesof(/obj/structure/flora/ausbushes/rospilovo))
-		new F(get_turf(src))
-		if (prob(70))
-			var/obj/structure/flora/ausbushes/rospilovo/D = pick(subtypesof(/obj/structure/flora/ausbushes/rospilovo))
-			new D(get_turf(src))
+		var/obj/O = pick(subtypesof(/obj/structure/flora/ausbushes/rospilovo))
+		new O(src)
+	else if (prob(70))
+		var/obj/O = pick(subtypesof(/obj/structure/flora/ausbushes/rospilovo))
+		new O(src)
+	else if (prob(30))
+		new /obj/structure/rospilovo/tree(src)
+	else if (prob(1))
+		if(prob(33))
+			new /obj/structure/rospilovo/pen(src)
+		else if (prob(33))
+			new /obj/structure/rospilovo/yashik(src)
+		else if (prob(33))
+			new /obj/structure/rospilovo/shina(src)
 
 /turf/open/floor/rospilovo
 	name = "асфальт"

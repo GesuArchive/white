@@ -89,3 +89,13 @@
 /obj/effect/random_mob_placer/vortigaunt
 	icon_state = "spawn_vortigaunt"
 	possible_mobs = list(/mob/living/simple_animal/hostile/blackmesa/xen/vortigaunt)
+
+/obj/effect/random_mob_placer/combat_ai
+	icon_state = "mobspawner"
+	possible_mobs = list(
+		/mob/living/carbon/human/combat_ai/pistol,
+		/mob/living/carbon/human/combat_ai/magnum,
+		/mob/living/carbon/human/combat_ai/shotgun,
+		/mob/living/carbon/human/combat_ai/sniper,
+		/mob/living/carbon/human/combat_ai/smg
+	)
