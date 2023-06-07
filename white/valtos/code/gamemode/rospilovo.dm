@@ -881,6 +881,7 @@
 	mood_bonus = -25
 	base_lighting_alpha = 255
 	base_lighting_color = COLOR_WHITE
+	static_lighting = FALSE
 	luminosity = 1
 	mood_message = span_red("Тут не очень приятно!\n")
 
