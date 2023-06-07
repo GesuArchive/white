@@ -308,7 +308,7 @@ SUBSYSTEM_DEF(garbage)
 
 	if (time > 0.1 SECONDS)
 		postpone(time)
-	var/threshold = 0.5
+	var/threshold = 5
 	if (threshold && (time > threshold SECONDS))
 		if (!(I.qdel_flags & QDEL_ITEM_ADMINS_WARNED))
 			log_game("Error: [type]([refID]) took longer than [threshold] seconds to delete (took [round(time/10, 0.1)] seconds to delete)")
