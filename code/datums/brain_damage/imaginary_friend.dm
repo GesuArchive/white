@@ -182,7 +182,7 @@
 		addtimer(CALLBACK(src, PROC_REF(clear_saypopup), bubble), 3.5 SECONDS)
 
 		if(owner?.client?.prefs.chat_on_map)
-			owner.create_chat_message(owner, raw_message = message)
+			owner.create_chat_message(src, raw_message = message)
 
 		if(client?.prefs.chat_on_map)
 			create_chat_message(src, raw_message = message)
