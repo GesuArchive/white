@@ -50,6 +50,10 @@
 	if(HAS_TRAIT(pawn, TRAIT_PACIFISM))
 		return
 
+	if(living_pawn.stat != CONSCIOUS)
+		living_pawn.SetSleeping(60 SECONDS)
+		return
+
 	if(length(enemies) || blackboard[BB_COMBAT_AI_ANGRY_GAY])
 
 		var/mob/living/selected_enemy
