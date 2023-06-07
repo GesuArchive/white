@@ -119,7 +119,7 @@
 
 /obj/item/mod/module/jetpack/get_configuration()
 	. = ..()
-	.["stabilizers"] = add_ui_configuration("Стабилизатор", "Состояние", stabilizers)
+	.["stabilizers"] = add_ui_configuration("Стабилизатор", "bool", stabilizers)
 
 /obj/item/mod/module/jetpack/configure_edit(key, value)
 	switch(key)
@@ -204,8 +204,7 @@
 
 ///Flashlight - Gives the suit a customizable flashlight.
 /obj/item/mod/module/flashlight
-	name = "MOD flashlight module"
-	ru_name = "модуль фонарика"
+	name = "модуль фонарика"
 	desc = "Простая пара настраиваемых фонариков, установленных на левой и правой сторонах шлема, \
 		полезно для обеспечения света в различных мощностях и цветах. \
 		Некоторые выживальщики предпочитают зеленый цвет для своего освещения, по неизвестным причинам."
@@ -258,8 +257,8 @@
 
 /obj/item/mod/module/flashlight/get_configuration()
 	. = ..()
-	.["light_color"] = add_ui_configuration("Цвет освещения", "Цвет", light_color)
-	.["light_range"] = add_ui_configuration("Мощность освещения", "Число", light_range)
+	.["light_color"] = add_ui_configuration("Цвет освещения", "color", light_color)
+	.["light_range"] = add_ui_configuration("Мощность освещения", "number", light_range)
 
 /obj/item/mod/module/flashlight/configure_edit(key, value)
 	switch(key)
@@ -348,13 +347,13 @@
 	/// The temperature we are regulating to.
 	var/temperature_setting = BODYTEMP_NORMAL
 	/// Minimum temperature we can set.
-	var/min_temp = 293.15
+	var/min_temp = T20C
 	/// Maximum temperature we can set.
 	var/max_temp = 318.15
 
 /obj/item/mod/module/thermal_regulator/get_configuration()
 	. = ..()
-	.["temperature_setting"] = add_ui_configuration("Температура", "Число", temperature_setting - T0C)
+	.["temperature_setting"] = add_ui_configuration("Температура", "number", temperature_setting - T0C)
 
 /obj/item/mod/module/thermal_regulator/configure_edit(key, value)
 	switch(key)

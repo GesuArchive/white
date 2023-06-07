@@ -48,7 +48,7 @@
 
 /obj/item/mod/module/health_analyzer/get_configuration()
 	. = ..()
-	.["mode"] = add_ui_configuration("Режим сканирования", "Список", mode, modes)
+	.["mode"] = add_ui_configuration("Режим сканирования", "list", mode, modes)
 
 /obj/item/mod/module/health_analyzer/configure_edit(key, value)
 	switch(key)
@@ -135,7 +135,7 @@
 	if(!.)
 		return
 	var/mob/living/carbon/human/wearer_human = mod.wearer
-	if(istype(target, /obj/item/organ))
+	if(isorgan(target))
 		if(!wearer_human.Adjacent(target))
 			return
 		var/atom/movable/organ = target

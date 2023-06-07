@@ -135,6 +135,9 @@
 		ai_action = TRUE
 	..()
 	module = linked_module
+	if(linked_module.allow_flags & MODULE_ALLOW_INCAPACITATED)
+		// clears check hands and check conscious
+		check_flags = NONE
 	name = "Активировать [capitalize(linked_module.name)]"
 	desc = "Быстро активировать [linked_module]."
 	button_icon = linked_module.icon

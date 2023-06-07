@@ -161,6 +161,7 @@
 	icon_state = "recall"
 	removable = FALSE
 	module_type = MODULE_USABLE
+	allow_flags = MODULE_ALLOW_INCAPACITATED
 	use_power_cost = DEFAULT_CHARGE_DRAIN * 2
 	incompatible_modules = list(/obj/item/mod/module/weapon_recall)
 	cooldown_time = 0.5 SECONDS
@@ -255,6 +256,9 @@
 /obj/item/mod/module/dna_lock/reinforced/on_mod_activation(datum/source, mob/user)
 	. = ..()
 	if(. != MOD_CANCEL_ACTIVATE || !isliving(user))
+		return
+	if(mod.ai == user)
+		to_chat(mod.ai, span_danger("<B>ФАаТальнАя ОшИбка</B>: 381200-*#00КОД <B>СИНИЙ</B>\nОбНАРуЖЕно ВМЕшАТеЛЬстВО ИИ\nДЕЙСтВиЕ ИГноРИрУеТСЯ"))
 		return
 	var/mob/living/living_user = user
 	to_chat(living_user, span_danger("<B>ФАаТальнАя ОшИбка</B>: 382200-*#00КОД <B>КРАСНЫЙ</B>\nНЕАВТОРИЗОВАННОЕ ИСПОЛЬЗОВАНИЕ ОБНАРУЖЕНО\nИСПОЛНЯЮ СУБ-П40ТОК0Л 13...\nУниЧТОЖАЮ ПО-ПОЛЬЗОВАТЕЛЯ..."))
@@ -369,6 +373,7 @@
 	icon_state = "adrenaline_boost"
 	removable = FALSE
 	module_type = MODULE_USABLE
+	allow_flags = MODULE_ALLOW_INCAPACITATED
 	incompatible_modules = list(/obj/item/mod/module/adrenaline_boost)
 	cooldown_time = 12 SECONDS
 	/// What reagent we need to refill?

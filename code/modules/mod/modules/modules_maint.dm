@@ -132,7 +132,7 @@
 /obj/item/mod/module/visor/rave/get_configuration()
 	. = ..()
 	if(length(songs))
-		.["selection"] = add_ui_configuration("Песня", "Список", selection.song_name, clean_songs())
+		.["selection"] = add_ui_configuration("Песня", "list", selection.song_name, clean_songs())
 
 /obj/item/mod/module/visor/rave/configure_edit(key, value)
 	switch(key)
@@ -229,7 +229,7 @@
 	if(prob(min(num_sheets_dispensed * 2, 30)))
 		if(crisp_paper in mod.wearer.held_items)
 			mod.wearer.dropItemToGround(crisp_paper, force = TRUE)
-		crisp_paper.balloon_alert(mod.wearer, "ЗАГРУЗИТЕ БУМАЖНУЮ КАСЕТУ!") // инглишный вариант является мемом старым но мы тут русские
+		crisp_paper.balloon_alert(mod.wearer, UNLINT("ЗАГРУЗИТЕ БУМАЖНУЮ КАСЕТУ!")) // инглишный вариант является мемом старым но мы тут русские
 		crisp_paper.visible_message(span_warning("[crisp_paper] загорается, слишком свежий!"))
 		crisp_paper.fire_act(1000, 100)
 
@@ -310,7 +310,7 @@
 /obj/item/mod/module/atrocinator/proc/check_upstairs()
 	SIGNAL_HANDLER
 
-	if(you_fucked_up || mod.wearer.has_gravity() != NEGATIVE_GRAVITY)
+	if(you_fucked_up || mod.wearer.has_gravity() > NEGATIVE_GRAVITY)
 		return
 	var/turf/open/current_turf = get_turf(mod.wearer)
 	var/turf/open/openspace/turf_above = get_step_multiz(mod.wearer, UP)
@@ -322,7 +322,7 @@
 		playsound(current_turf, 'sound/items/modsuit/atrocinator_step.ogg', 50)
 	step_count++
 
-#define FLY_TIME 5 SECONDS
+#define FLY_TIME (5 SECONDS)
 
 /obj/item/mod/module/atrocinator/proc/fly_away()
 	you_fucked_up = TRUE

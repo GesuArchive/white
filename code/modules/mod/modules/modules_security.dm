@@ -103,7 +103,7 @@
 	complexity = 2
 	incompatible_modules = list(/obj/item/mod/module/holster)
 	cooldown_time = 0.5 SECONDS
-	allowed_inactive = TRUE
+	allow_flags = MODULE_ALLOW_INACTIVE
 	/// Gun we have holstered.
 	var/obj/item/gun/holstered
 
@@ -339,10 +339,10 @@
 	Его громкий звук довольно трудно не заметить помещении, в отличии от полевых условиях, для которых он был предназначен."
 	icon_state = "active_sonar"
 	module_type = MODULE_USABLE
-	use_power_cost = DEFAULT_CHARGE_DRAIN * 5
+	use_power_cost = DEFAULT_CHARGE_DRAIN * 4
 	complexity = 3
 	incompatible_modules = list(/obj/item/mod/module/active_sonar)
-	cooldown_time = 25 SECONDS
+	cooldown_time = 15 SECONDS
 
 /obj/item/mod/module/active_sonar/on_use()
 	. = ..()
