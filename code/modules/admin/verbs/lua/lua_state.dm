@@ -151,7 +151,7 @@ GLOBAL_PROTECT(lua_usr)
 	__lua_kill_task(internal_id, task_info)
 
 /datum/lua_state/proc/update_editors()
-	var/list/editor_list = LAZYACCESS(SSlua.editors, "\ref[src]")
+	var/list/editor_list = LAZYACCESS(SSlua.editors, text_ref(src))
 	if(editor_list)
 		for(var/datum/lua_editor/editor as anything in editor_list)
 			SStgui.update_uis(editor)

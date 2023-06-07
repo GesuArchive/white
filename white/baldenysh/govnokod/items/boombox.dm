@@ -358,7 +358,7 @@
 				disk.name = "диск ([N])"
 				disk.forceMove(get_turf(src))
 				disk.uploader_ckey = retard.ckey
-				message_admins("[ADMIN_LOOKUPFLW(user)] uploaded <A HREF='?_src_=holder;listensound=\ref[S]'>sound</A> named as [N]. <A HREF='?_src_=holder;wipedata=\ref[disk]'>Wipe</A> data.")
+				message_admins("[ADMIN_LOOKUPFLW(user)] uploaded <A HREF='?_src_=holder;listensound=[text_ref(S)]'>sound</A> named as [N]. <A HREF='?_src_=holder;wipedata=[text_ref(disk)]'>Wipe</A> data.")
 				coin--
 
 		icon_state = "off"

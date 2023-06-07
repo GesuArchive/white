@@ -256,7 +256,7 @@
 
 /obj/effect/spawner/lootdrop/maintenance/Initialize(mapload)
 	loot = GLOB.maintenance_loot
-	. = ..()
+	return ..()
 
 /obj/effect/spawner/lootdrop/maintenance/two
 	name = "2 x maintenance loot spawner"

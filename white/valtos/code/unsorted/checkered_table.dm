@@ -250,23 +250,23 @@ THAT STUPID GAME KIT
 			dat += "<td>"
 			dat += "<td style='background-color:[tilecolor]' width=32 height=32>"
 			if (piece != "BB")
-				dat += "<a href='?src=\ref[src];s_board=[x] [y]'><img src='[SSassets.transport.get_asset_url("board_[piece].png")]' width=32 height=32 border=0>"
+				dat += "<a href='?src=[text_ref(src)];s_board=[x] [y]'><img src='[SSassets.transport.get_asset_url("board_[piece].png")]' width=32 height=32 border=0>"
 			else
-				dat += "<a href='?src=\ref[src];s_board=[x] [y]'><img src='[SSassets.transport.get_asset_url("board_none.png")]' width=32 height=32 border=0>"
+				dat += "<a href='?src=[text_ref(src)];s_board=[x] [y]'><img src='[SSassets.transport.get_asset_url("board_none.png")]' width=32 height=32 border=0>"
 			dat += "</td>"
 
 		dat += "</tr>"
 
 	dat += "</table><HR><B>Шашки:</B><BR>"
 	for (var/piece in list("CB", "CR"))
-		dat += "<a href='?src=\ref[src];s_piece=[piece]'><img src='[SSassets.transport.get_asset_url("board_[piece].png")]' width=32 height=32 border=0></a>"
+		dat += "<a href='?src=[text_ref(src)];s_piece=[piece]'><img src='[SSassets.transport.get_asset_url("board_[piece].png")]' width=32 height=32 border=0></a>"
 
 	dat += "<HR><B>Фигуры:</B><BR>"
 	for (var/piece in list("WP", "WK", "WQ", "WI", "WN", "WR"))
-		dat += "<a href='?src=\ref[src];s_piece=[piece]'><img src='[SSassets.transport.get_asset_url("board_[piece].png")]' width=32 height=32 border=0></a>"
+		dat += "<a href='?src=[text_ref(src)];s_piece=[piece]'><img src='[SSassets.transport.get_asset_url("board_[piece].png")]' width=32 height=32 border=0></a>"
 	dat += "<br>"
 	for (var/piece in list("BP", "BK", "BQ", "BI", "BN", "BR"))
-		dat += "<a href='?src=\ref[src];s_piece=[piece]'><img src='[SSassets.transport.get_asset_url("board_[piece].png")]' width=32 height=32 border=0></a>"
+		dat += "<a href='?src=[text_ref(src)];s_piece=[piece]'><img src='[SSassets.transport.get_asset_url("board_[piece].png")]' width=32 height=32 border=0></a>"
 	src.data = dat
 
 /obj/item/game_kit/MouseDrop(atom/over_object)

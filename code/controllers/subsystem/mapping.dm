@@ -1,7 +1,7 @@
 SUBSYSTEM_DEF(mapping)
 	name = "Mapping"
 	init_order = INIT_ORDER_MAPPING
-	flags = SS_NO_FIRE
+	runlevels = ALL
 
 	var/list/nuke_tiles = list()
 	var/list/nuke_threats = list()
@@ -194,7 +194,8 @@ SUBSYSTEM_DEF(mapping)
 		var/packetlen = length(packet)
 		while(packetlen)
 			if(MC_TICK_CHECK)
-				lists_to_reserve.Cut(1, index)
+				if(index)
+					lists_to_reserve.Cut(1, index)
 				return
 			var/turf/T = packet[packetlen]
 			T.empty(RESERVED_TURF_TYPE, RESERVED_TURF_TYPE, null, TRUE)
@@ -712,15 +713,12 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 	reservation_ready["[z]"] = TRUE
 	clearing_reserved_turfs = FALSE
 
-/datum/controller/subsystem/mapping/proc/reserve_turfs(list/turfs)
-	for(var/i in turfs)
-		var/turf/T = i
-		T.empty(RESERVED_TURF_TYPE, RESERVED_TURF_TYPE, null, TRUE)
-		LAZYINITLIST(unused_turfs["[T.z]"])
-		unused_turfs["[T.z]"] |= T
-		T.turf_flags |= UNUSED_RESERVATION_TURF
-		GLOB.areas_by_type[world.area].contents += T
-		CHECK_TICK
+/// Schedules a group of turfs to be handed back to the reservation system's control
+/// If await is true, will sleep until the turfs are finished work
+/datum/controller/subsystem/mapping/proc/reserve_turfs(list/turfs, await = FALSE)
+	lists_to_reserve += list(turfs)
+	if(await)
+		UNTIL(!length(turfs))
 
 //DO NOT CALL THIS PROC DIRECTLY, CALL wipe_reservations().
 /datum/controller/subsystem/mapping/proc/do_wipe_turf_reservations()
@@ -738,7 +736,7 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 	clearing |= used_turfs		//used turfs is an associative list, BUT, reserve_turfs() can still handle it. If the code above works properly, this won't even be needed as the turfs would be freed already.
 	unused_turfs.Cut()
 	used_turfs.Cut()
-	reserve_turfs(clearing)
+	reserve_turfs(clearing, await = TRUE)
 
 ///Initialize all biomes, assoc as type || instance
 /datum/controller/subsystem/mapping/proc/initialize_biomes()

@@ -16,7 +16,6 @@ again.
 		// новый год 2022
 		//if(prob(10))
 		//	new /obj/structure/snowflakes(get_turf(src))
-	return INITIALIZE_HINT_QDEL
 
 
 //normal windows

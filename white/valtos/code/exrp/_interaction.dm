@@ -92,7 +92,7 @@
 	return TRUE
 
 /datum/interaction/proc/get_action_link_for(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	return "<a href='?src=\ref[src];action=1;action_user=\ref[user];action_target=\ref[target]'>[description]</a><br>"
+	return "<a href='?src=[text_ref(src)];action=1;action_user=[text_ref(user)];action_target=[text_ref(target)]'>[description]</a><br>"
 
 /datum/interaction/Topic(href, href_list)
 	if(..())
