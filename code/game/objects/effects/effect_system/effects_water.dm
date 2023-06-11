@@ -47,9 +47,9 @@
 	RegisterSignal(loop, COMSIG_PARENT_QDELETING, PROC_REF(movement_stopped))
 	return loop
 
-/obj/effect/particle_effect/water/extinguisher/proc/post_forcemove(datum/move_loop/source, result)
+/obj/effect/particle_effect/water/extinguisher/proc/post_forcemove(datum/move_loop/source, success)
 	SIGNAL_HANDLER
-	if(!result == MOVELOOP_FAILURE)
+	if(!success)
 		end_life(source)
 
 /obj/effect/particle_effect/water/extinguisher/proc/movement_stopped(datum/move_loop/source)

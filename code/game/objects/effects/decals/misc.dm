@@ -34,7 +34,7 @@
 /obj/effect/decal/chempuff/proc/check_move(datum/move_loop/source, result)
 	if(QDELETED(src)) //Reasons PLEASE WORK I SWEAR TO GOD
 		return
-	if(!result == MOVELOOP_FAILURE) //If we hit something
+	if(result == MOVELOOP_FAILURE) //If we hit something
 		end_life(source)
 		return
 
