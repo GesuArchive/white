@@ -49,13 +49,16 @@
 	. = ..()
 	if(!latejoin && SSmapping.spawn_type_shuttle(/datum/map_template/shuttle/freelancer/medium))
 		H.forceMove(get_spawnpoint())
+		GLOB.freelancer_shuttles++
 
 /datum/job/freelancer/proc/get_spawnpoint()
 	for(var/_sloc in GLOB.start_landmarks_list)
 		var/obj/effect/landmark/start/sloc = _sloc
 		if(sloc.name != JOB_FREELANCER)
 			continue
-		return get_turf(sloc)
+		var/turf/T = get_turf(sloc)
+		qdel(sloc)
+		return T
 	return null
 
 /datum/outfit/job/freelancer/pre_equip(mob/living/carbon/human/H, visualsOnly)
@@ -81,6 +84,8 @@
 /obj/item/circuitboard/computer/freelancer
 	build_path = /obj/machinery/computer/shuttle_flight/freelancer
 
+GLOBAL_VAR_INIT(freelancer_shuttles, 0)
+
 /obj/machinery/computer/shuttle_flight/freelancer
 	name = "Консоль Управления Фрегатом"
 	desc = "Используется для управления данным быстрым и мобильным кораблём."
@@ -89,8 +94,11 @@
 	light_color = COLOR_SOFT_RED
 	req_access = list()
 	circuit = /obj/item/circuitboard/computer/freelancer
-	shuttleId = "freelancer_small"
-	possible_destinations = "freelancer_small_custom"
+
+/obj/machinery/computer/shuttle_flight/freelancer/Initialize(mapload, obj/item/circuitboard/C)
+	shuttleId = "freelancer_small[GLOB.freelancer_shuttles]"
+	possible_destinations = "freelancer_small[GLOB.freelancer_shuttles]_custom"
+	. = ..()
 
 /obj/machinery/computer/shuttle_flight/freelancer/LateInitialize()
 	. = ..()
@@ -126,3 +134,7 @@
 	callTime = 5
 	port_direction = 2
 	preferred_direction = 1
+
+/obj/docking_port/mobile/freelancer/Initialize(mapload)
+	id = "freelancer_small[GLOB.freelancer_shuttles]"
+	. = ..()
