@@ -40,7 +40,7 @@
 	caller.log_message("fired [weapon ? "[weapon] " : ""] at [AREACOORD(T)]", LOG_ATTACK, color="purple")
 	log_shuttle_attack("fired [weapon ? "[weapon] " : ""] at [AREACOORD(T)]")
 	linked_console.on_target_location(T)
-	unset_click_ability(caller)
+	unset_click_ability(caller, FALSE)
 	return TRUE
 
 /datum/action/cooldown/spell/pointed/set_weapon_target/unset_click_ability(mob/on_who, refund_cooldown = TRUE)

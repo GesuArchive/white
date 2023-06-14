@@ -60,6 +60,9 @@
 	var/obj/docking_port/mobile/attached_port = SSshuttle.getShuttle(port_id)
 	shuttle_name = attached_port.name
 	recalculate_stats()
+	// in case it loads
+	spawn(10 SECONDS)
+		recalculate_stats()
 
 /datum/shuttle_data/Destroy(force, ...)
 	unregister_turfs()
