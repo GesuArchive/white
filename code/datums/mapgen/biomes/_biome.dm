@@ -83,7 +83,7 @@
 	flora_density = 3
 
 /datum/biome/mountain
-	turf_type = /turf/closed/mineral/snowmountain/cavern/safe
+	turf_type = /turf/closed/mineral/random/vietnam
 
 /datum/biome/snows
 	turf_type = /turf/open/floor/grass/snow/safe

@@ -7,6 +7,7 @@
 	map_generator = /datum/map_generator/jungle_generator
 	ambientsounds = AWAY_MISSION
 	enabled_area_tension = FALSE
+
 /area/awaymission/vietnam/dark
 	name = "Тёмное джунглевое место"
 	icon_state = "unexplored"
