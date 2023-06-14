@@ -13770,7 +13770,7 @@
 /turf/closed/wall/r_wall,
 /area/engineering/atmos)
 "bvQ" = (
-/obj/machinery/rnd/production/techfab/department/service,
+/obj/machinery/mecha_part_fabricator/service,
 /obj/effect/turf_decal/stripes/box,
 /turf/open/floor/plasteel/showroomfloor,
 /area/maintenance/central)
@@ -16498,10 +16498,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/maintenance/central)
-"bPe" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/hallway/secondary/exit/departure_lounge)
 "bPf" = (
 /obj/structure/sink/kitchen{
 	desc = "A sink used for washing one's hands and face. It looks rusty and home-made";
@@ -51673,10 +51669,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel,
 /area/cargo/storage)
-"mGu" = (
-/obj/machinery/atmospherics/miner/carbon_dioxide,
-/turf/open/floor/engine/co2,
-/area/engineering/atmos)
 "mGw" = (
 /obj/item/kirbyplants{
 	icon_state = "plant-14"
@@ -56476,10 +56468,6 @@
 /obj/structure/barricade/wooden/crude,
 /turf/open/floor/plating/rust,
 /area/security/prison)
-"oCa" = (
-/obj/machinery/atmospherics/miner/toxins,
-/turf/open/floor/engine/plasma,
-/area/engineering/atmos)
 "oCh" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/blue{
@@ -58050,6 +58038,7 @@
 /obj/machinery/light/directional/north,
 /obj/structure/cable/layer3,
 /obj/effect/mapping_helpers/burnt_floor,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/ai_monitored/storage/satellite)
 "pim" = (
@@ -64396,9 +64385,9 @@
 /turf/open/floor/plasteel/dark,
 /area/science/research)
 "rwk" = (
-/obj/machinery/atmospherics/miner/n2o,
-/turf/open/floor/engine/n2o,
-/area/engineering/atmos)
+/obj/structure/cable,
+/turf/closed/wall/r_wall,
+/area/ai_monitored/storage/satellite)
 "rwo" = (
 /obj/machinery/atmospherics/pipe/smart/simple/dark/visible{
 	dir = 4
@@ -71418,6 +71407,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plasteel/dark,
 /area/maintenance/disposal/incinerator)
 "uhy" = (
@@ -110576,7 +110566,7 @@ uRP
 acT
 kPg
 ieC
-mGu
+tOS
 pen
 idD
 acK
@@ -111604,7 +111594,7 @@ oKk
 vfO
 kPg
 hoG
-oCa
+tyQ
 tSH
 idD
 acK
@@ -112007,7 +111997,7 @@ asZ
 aAg
 asZ
 rZN
-ihg
+rwk
 xYa
 mAj
 mPo
@@ -112376,7 +112366,7 @@ gkx
 lRG
 qbM
 jQf
-rwk
+nQl
 idD
 acm
 aaa
@@ -121076,15 +121066,15 @@ bEg
 tWy
 tYN
 bOC
-bPe
+xIs
 jNN
-bPe
+xIs
 bOc
 hQO
 hQO
 cIm
 bXx
-bPe
+xIs
 bOc
 bRF
 bOc
@@ -121597,7 +121587,7 @@ bOc
 oPo
 ccw
 uKm
-bPe
+xIs
 tLS
 bXg
 bXs
@@ -122112,7 +122102,7 @@ hQO
 hQO
 cIm
 bRF
-bPe
+xIs
 bOc
 tNa
 kyx
@@ -123135,7 +123125,7 @@ bEg
 bEg
 bEg
 bOc
-bPe
+xIs
 bRF
 cfo
 cmD
@@ -123389,11 +123379,11 @@ aaa
 aaa
 aaa
 acm
-bPe
+xIs
 pcL
 bUx
 bvo
-bPe
+xIs
 bVp
 cmD
 cmr
@@ -123402,9 +123392,9 @@ crl
 bRt
 kje
 bWM
-bPe
+xIs
 bZC
-bPe
+xIs
 bOc
 aeu
 aeu
@@ -123903,11 +123893,11 @@ aaa
 aaa
 aaa
 acK
-bPe
+xIs
 bfF
 bVZ
 bRs
-bPe
+xIs
 bVp
 jEr
 cmr
@@ -124417,11 +124407,11 @@ aaa
 aaa
 aaa
 acK
-bPe
+xIs
 bfI
 bSA
 sxI
-bPe
+xIs
 mSI
 bWn
 bjT
@@ -124429,7 +124419,7 @@ bRs
 bjT
 bXG
 diR
-bPe
+xIs
 qwd
 bpN
 bTU
@@ -124675,21 +124665,21 @@ aaa
 aaa
 acm
 bOc
-bPe
-bPe
+xIs
+xIs
 nzj
 bTx
 vgP
-bPe
-bPe
+xIs
+xIs
 bTE
-bPe
-bPe
+xIs
+xIs
 fGU
 bRF
 vgP
-bPe
-bPe
+xIs
+xIs
 bOc
 aeu
 aeu
@@ -124933,19 +124923,19 @@ aaa
 acm
 acm
 acm
-bPe
+xIs
 cOz
-bPe
+xIs
 wHi
-bPe
+xIs
 acm
 acm
 acm
-bPe
+xIs
 cOz
-bPe
+xIs
 kVS
-bPe
+xIs
 acm
 aeu
 aeu
@@ -125190,19 +125180,19 @@ aaa
 qJs
 aaa
 qJs
-bPe
+xIs
 bSM
 bTl
 bXe
-bPe
+xIs
 qJs
 aaa
 qJs
-bPe
+xIs
 bXe
 bTl
 bXe
-bPe
+xIs
 qJs
 acm
 acm

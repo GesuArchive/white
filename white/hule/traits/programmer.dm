@@ -2,7 +2,7 @@
 	name = "Advanced ICP"
 	icon_state = "adv_icp"
 	w_class = WEIGHT_CLASS_NORMAL
-
+/*
 /datum/quirk/programmer
 	name = "Программист"
 	desc = "Прибытие на станцию в носках программиста будет давать вам специальный принтер интегральных схем."
@@ -24,3 +24,4 @@
 	else
 		var/obj/item/integrated_circuit_printer/IC = new(get_turf(H))
 		H.put_in_hands(IC)
+*/

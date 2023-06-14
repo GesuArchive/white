@@ -4142,15 +4142,6 @@
 "Qm" = (
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/south)
-"Qn" = (
-/obj/structure/lattice/catwalk,
-/obj/effect/turf_decal/box,
-/obj/machinery/porta_turret/armory{
-	mode = 0;
-	has_cover = 1
-	},
-/turf/open/openspace,
-/area/hallway/primary/central/upload)
 "Qs" = (
 /turf/open/floor/carpet/royalblack,
 /area/hallway/primary/central/north)
@@ -4459,17 +4450,9 @@
 "TD" = (
 /obj/structure/lattice/catwalk,
 /obj/effect/turf_decal/box,
-/obj/machinery/porta_turret/armory{
-	mode = 0;
-	has_cover = 1
-	},
-/obj/machinery/porta_turret/armory{
-	mode = 0;
-	has_cover = 1
-	},
-/obj/machinery/porta_turret/armory{
-	mode = 0;
-	has_cover = 1
+/obj/machinery/porta_turret/armory/low_power{
+	has_cover = 1;
+	mode = 0
 	},
 /turf/open/openspace,
 /area/hallway/primary/central/upload)
@@ -5425,7 +5408,7 @@ sL
 sL
 xU
 sL
-Qn
+TD
 yM
 OB
 yq
@@ -5729,14 +5712,14 @@ sL
 sL
 yM
 sL
-Qn
+TD
 yM
 OB
 hO
 hO
 OB
 yM
-Qn
+TD
 sL
 yM
 sL

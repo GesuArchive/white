@@ -157,7 +157,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 400)
 	build_path = /obj/item/storage/bag/plants/portaseeder
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Снаряжение сервиса")
+	sub_category = list("Ботаника")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/air_horn
@@ -168,7 +169,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 4000, /datum/material/bananium = 1000)
 	build_path = /obj/item/bikehorn/airhorn
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Снаряжение сервиса")
+	sub_category = list("Розыгрыши")
 
 
 /datum/design/mesons
@@ -264,7 +266,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron=200, /datum/material/glass = 100)
 	build_path = /obj/item/disk/plantgene
-	category = list("Электроника")
+	category = list("Электроника", "Снаряжение сервиса")
+	sub_category = list("Ботаника")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/roastingstick
@@ -275,7 +278,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron=1000, /datum/material/glass = 500, /datum/material/bluespace = 250)
 	build_path = /obj/item/melee/roastingstick
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/locator
@@ -356,7 +360,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron=200, /datum/material/glass = 100)
 	build_path = /obj/item/card/id/advanced
-	category = list("Электроника", "Прочее")
+	category = list("Электроника", "Прочее", "Снаряжение СБ", "Снаряжение сервиса")
+	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/eng_gloves
@@ -391,7 +396,8 @@
 	construction_time = 40
 	materials = list(/datum/material/plastic = 1000)
 	build_path = /obj/item/bikehorn/rubberducky/plasticducky
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Снаряжение сервиса")
+	sub_category = list("Прочее")
 
 /datum/design/pneumatic_seal
 	name = "Пневматический замок"
@@ -417,7 +423,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 2500, /datum/material/glass = 200)
 	build_path = /obj/item/mop/advanced
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Рабочие инструменты     ")
+	sub_category = list("Инвентарь уборщика")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/normtrash
@@ -428,7 +435,7 @@
 	construction_time = 40
 	materials = list(/datum/material/plastic = 2000)
 	build_path = /obj/item/storage/bag/trash
-	category = list("Снаряжение","Рабочие инструменты","Рабочие инструменты   ", "Рабочие инструменты    ")
+	category = list("Снаряжение","Рабочие инструменты","Рабочие инструменты   ", "Рабочие инструменты    ", "Рабочие инструменты     ")
 	sub_category = list("Инвентарь уборщика")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
@@ -440,7 +447,8 @@
 	construction_time = 40
 	materials = list(/datum/material/gold = 1500, /datum/material/uranium = 250, /datum/material/plasma = 1500)
 	build_path = /obj/item/storage/bag/trash/bluespace
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Рабочие инструменты     ")
+	sub_category = list("Инвентарь уборщика")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/light_replacer
@@ -451,19 +459,20 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 1500, /datum/material/silver = 150, /datum/material/glass = 3000)
 	build_path = /obj/item/lightreplacer
-	category = list("Снаряжение", "Рабочие инструменты ", "Рабочие инструменты  ", "Рабочие инструменты   ")
+	category = list("Снаряжение", "Рабочие инструменты ", "Рабочие инструменты  ", "Рабочие инструменты   ", "Рабочие инструменты     ")
 	sub_category = list("Монтажные комплексы")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_ENGINEERING
 
 /datum/design/buffer
-	name = "Модернизация полоукладчика"
+	name = "Модернизация полоремонтника"
 	desc = "Модернизация для ремонта пола на ДжениКаре."
 	id = "buffer"
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 3000, /datum/material/glass = 200)
 	build_path = /obj/item/janiupgrade
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Снаряжение сервиса")
+	sub_category = list("Уборка")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/paint_remover
@@ -475,7 +484,8 @@
 	materials = list(/datum/material/iron = 1000)
 	reagents_list = list(/datum/reagent/acetone = 60)
 	build_path = /obj/item/paint/paint_remover
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Снаряжение сервиса")
+	sub_category = list("Уборка")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/spraybottle
@@ -486,7 +496,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 3000, /datum/material/glass = 200)
 	build_path = /obj/item/reagent_containers/spray
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Снаряжение сервиса")
+	sub_category = list("Уборка")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/beartrap
@@ -501,6 +512,11 @@
 	sub_category = list("Задержание и сдерживание")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
+/datum/design/beartrap/serv
+	id = "beartraps"
+	category = list("Снаряжение", "Снаряжение сервиса")
+	sub_category = list("Уборка")
+
 /////////////////////////////////////////
 /////////////Holobarriers////////////////
 /////////////////////////////////////////
@@ -513,7 +529,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
 	build_path = /obj/item/holosign_creator
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Снаряжение сервиса")
+	sub_category = list("Уборка")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/holobarrier_jani
@@ -524,7 +541,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000, /datum/material/silver = 1000)
 	build_path = /obj/item/holosign_creator/janibarrier
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Снаряжение сервиса")
+	sub_category = list("Уборка")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 
@@ -720,7 +738,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 100)
 	build_path = /obj/item/gas_filter
-	category = list("Equipment", "Инженерное снаряжение")
+	category = list("Equipment", "Инженерное снаряжение", "Снаряжение сервиса")
 	sub_category = list("Экипировка")
 
 /datum/design/plasmaman_gas_filter
@@ -731,7 +749,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 100)
 	build_path = /obj/item/gas_filter/plasmaman
-	category = list("Equipment", "Инженерное снаряжение")
+	category = list("Equipment", "Инженерное снаряжение", "Снаряжение сервиса")
 	sub_category = list("Экипировка")
 
 /////////////////////////////////////////
@@ -746,7 +764,8 @@
 	construction_time = 40
 	materials = list(/datum/material/plastic = 3000)
 	build_path = /obj/item/stack/sticky_tape/super
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Снаряжение сервиса")
+	sub_category = list("Розыгрыши")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/pointy_tape
@@ -757,7 +776,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 1500, /datum/material/plastic = 1000)
 	build_path = /obj/item/stack/sticky_tape/pointy
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Снаряжение сервиса")
+	sub_category = list("Розыгрыши")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 
@@ -804,7 +824,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
 	build_path = /obj/item/holosign_creator/robot_seat/restaurant
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/holosign/bar
@@ -815,7 +836,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
 	build_path = /obj/item/holosign_creator/robot_seat/bar
-	category = list("Снаряжение")
+	category = list("Снаряжение", "Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/oven_tray
@@ -826,7 +848,8 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 500)
 	build_path = /obj/item/plate/oven_tray
-	category = list("initial","Снаряжение")
+	category = list("initial","Снаряжение", "Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /////////////////////////////////////////
@@ -849,32 +872,29 @@
 /datum/design/coffeepot
 	name = "Кофейник"
 	id = "coffeepot"
-	build_type = PROTOLATHE | AWAY_LATHE
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	materials = list(/datum/material/glass = 500, /datum/material/plastic = 500)
 	build_path = /obj/item/reagent_containers/glass/coffeepot
-	category = list(
-		"Прочее"
-	)
+	category = list("Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/coffeepot_bluespace
 	name = "Блюспейс кофейник"
 	id = "bluespace_coffeepot"
-	build_type = PROTOLATHE | AWAY_LATHE
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	materials = list(/datum/material/iron = 1000, /datum/material/plastic = 500, /datum/material/bluespace = 500)
 	build_path = /obj/item/reagent_containers/glass/coffeepot/bluespace
-	category = list(
-		"Прочее"
-	)
+	category = list("Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/coffee_cartridge
 	name = "Пустой картридж для кофеварки"
 	id = "coffee_cartridge"
-	build_type = PROTOLATHE | AWAY_LATHE
+	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	materials = list(/datum/material/plastic = 1000)
 	build_path = /obj/item/blank_coffee_cartridge
-	category = list(
-		"Прочее"
-	)
+	category = list("Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 	departmental_flags = DEPARTMENT_BITFLAG_SERVICE

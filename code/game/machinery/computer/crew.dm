@@ -145,6 +145,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_PSYCHOLOGIST = 71,
 		JOB_FREELANCER = 75,
 		// ANYTHING ELSE = UNKNOWN_JOB_ID, Unknowns/custom jobs will appear after civilians, and before assistants
+		JOB_INTERN = 997,
 		JOB_BOMJ = 998,
 		JOB_ASSISTANT = 999,
 

@@ -9,7 +9,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 200)
 	build_path = /obj/item/reagent_containers/glass/bucket
-	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты   ", "Рабочие инструменты    ")
+	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты   ", "Рабочие инструменты    ", "Рабочие инструменты     ")
 	sub_category = list("Инвентарь уборщика")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
@@ -20,7 +20,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 1000)
 	build_path = /obj/item/mop
-	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты   ", "Рабочие инструменты    ")
+	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты   ", "Рабочие инструменты    ", "Рабочие инструменты     ")
 	sub_category = list("Инвентарь уборщика")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
@@ -31,7 +31,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 2000)
 	build_path = /obj/item/pushbroom
-	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты   ", "Рабочие инструменты    ")
+	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты   ", "Рабочие инструменты    ", "Рабочие инструменты     ")
 	sub_category = list("Инвентарь уборщика")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
@@ -42,7 +42,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 50)
 	build_path = /obj/item/crowbar
-	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты ","Рабочие инструменты  ","Рабочие инструменты   ", "Рабочие инструменты    ")
+	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты ","Рабочие инструменты  ","Рабочие инструменты   ", "Рабочие инструменты    ", "Рабочие инструменты     ")
 	sub_category = list("Базовые инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -53,7 +53,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 50, /datum/material/glass = 20)
 	build_path = /obj/item/flashlight
-	category = list("initial","Инструменты","Инженерное снаряжение","Карго снаряжение")
+	category = list("initial","Инструменты", "Медицинское снаряжение", "Инженерное снаряжение", "Научное снаряжение", "Карго снаряжение", "Снаряжение сервиса")
 	sub_category = list("Прочее")
 
 /datum/design/extinguisher
@@ -63,7 +63,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 90)
 	build_path = /obj/item/extinguisher
-	category = list("initial","Инструменты","Инженерное снаряжение","Карго снаряжение", "Снаряжение СБ")
+	category = list("initial","Инструменты","Инженерное снаряжение","Карго снаряжение", "Снаряжение СБ", "Снаряжение сервиса")
 	sub_category = list("Огнетушители и газовые баллоны")
 
 /datum/design/pocketfireextinguisher
@@ -73,7 +73,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 50, /datum/material/glass = 40)
 	build_path = /obj/item/extinguisher/mini
-	category = list("initial","Инструменты","Инженерное снаряжение","Карго снаряжение", "Снаряжение СБ")
+	category = list("initial","Инструменты","Инженерное снаряжение","Карго снаряжение", "Снаряжение СБ", "Снаряжение сервиса")
 	sub_category = list("Огнетушители и газовые баллоны")
 
 /datum/design/multitool
@@ -83,7 +83,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 50, /datum/material/glass = 20)
 	build_path = /obj/item/multitool
-	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты ","Рабочие инструменты  ","Рабочие инструменты   ", "Рабочие инструменты    ")
+	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты ","Рабочие инструменты  ","Рабочие инструменты   ", "Рабочие инструменты    ", "Рабочие инструменты     ")
 	sub_category = list("Базовые инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -116,7 +116,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 70, /datum/material/glass = 20)
 	build_path = /obj/item/weldingtool
-	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты ","Рабочие инструменты  ","Рабочие инструменты   ", "Рабочие инструменты    ")
+	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты ","Рабочие инструменты  ","Рабочие инструменты   ", "Рабочие инструменты    ", "Рабочие инструменты     ")
 	sub_category = list("Базовые инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -135,7 +135,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 75)
 	build_path = /obj/item/screwdriver
-	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты ","Рабочие инструменты  ","Рабочие инструменты   ", "Рабочие инструменты    ")
+	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты ","Рабочие инструменты  ","Рабочие инструменты   ", "Рабочие инструменты    ", "Рабочие инструменты     ")
 	sub_category = list("Базовые инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -146,7 +146,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 80)
 	build_path = /obj/item/wirecutters
-	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты ","Рабочие инструменты  ","Рабочие инструменты   ", "Рабочие инструменты    ")
+	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты ","Рабочие инструменты  ","Рабочие инструменты   ", "Рабочие инструменты    ", "Рабочие инструменты     ")
 	sub_category = list("Базовые инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -157,7 +157,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 150)
 	build_path = /obj/item/wrench
-	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты ","Рабочие инструменты  ","Рабочие инструменты   ", "Рабочие инструменты    ")
+	category = list("initial","Инструменты","Рабочие инструменты","Рабочие инструменты ","Рабочие инструменты  ","Рабочие инструменты   ", "Рабочие инструменты    ", "Рабочие инструменты     ")
 	sub_category = list("Базовые инструменты")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -201,6 +201,13 @@
 	build_path = /obj/item/storage/toolbox
 	category = list("initial","Инструменты")
 
+/datum/design/toolbox/mechfab
+	id = "tool_box_mechfab"
+	build_type = MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/iron = 500)
+	category = list("Прочее")
+
 /datum/design/apc_board
 	name = "Контролер энергощитка АПЦ"
 	id = "power control"
@@ -208,7 +215,7 @@
 	construction_time = 20
 	materials = list(/datum/material/iron = 100, /datum/material/glass = 100)
 	build_path = /obj/item/electronics/apc
-	category = list("initial", "Электроника","Строительство")
+	category = list("initial", "Электроника","Строительство", "Медицинское оборудование", "Научное оборудование", "Карго оборудование", "Оборудование СБ", "Оборудование сервиса")
 	sub_category = list("Контролеры")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -219,7 +226,7 @@
 	construction_time = 20
 	materials = list(/datum/material/iron = 50, /datum/material/glass = 50)
 	build_path = /obj/item/electronics/airlock
-	category = list("initial", "Электроника","Строительство")
+	category = list("initial", "Электроника","Строительство", "Медицинское оборудование", "Научное оборудование", "Карго оборудование", "Оборудование СБ", "Оборудование сервиса")
 	sub_category = list("Контролеры")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -230,7 +237,7 @@
 	construction_time = 20
 	materials = list(/datum/material/iron = 50, /datum/material/glass = 50)
 	build_path = /obj/item/electronics/firelock
-	category = list("initial", "Электроника","Строительство")
+	category = list("initial", "Электроника","Строительство", "Медицинское оборудование", "Научное оборудование", "Карго оборудование", "Оборудование СБ", "Оборудование сервиса")
 	sub_category = list("Контролеры")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -241,7 +248,7 @@
 	construction_time = 20
 	materials = list(/datum/material/iron = 50, /datum/material/glass = 50)
 	build_path = /obj/item/electronics/airalarm
-	category = list("initial", "Электроника","Строительство")
+	category = list("initial", "Электроника","Строительство", "Медицинское оборудование", "Научное оборудование", "Карго оборудование", "Оборудование СБ", "Оборудование сервиса")
 	sub_category = list("Контролеры")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -252,7 +259,7 @@
 	construction_time = 20
 	materials = list(/datum/material/iron = 50, /datum/material/glass = 50)
 	build_path = /obj/item/electronics/firealarm
-	category = list("initial", "Электроника","Строительство")
+	category = list("initial", "Электроника","Строительство", "Медицинское оборудование", "Научное оборудование", "Карго оборудование", "Оборудование СБ", "Оборудование сервиса")
 	sub_category = list("Контролеры")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -263,33 +270,39 @@
 	construction_time = 20
 	materials = list(/datum/material/iron = 50, /datum/material/glass = 50)
 	build_path = /obj/item/assembly/trapdoor
-	category = list("initial", "Электроника", "Строительство")
+	category = list("initial", "Электроника", "Строительство", "Медицинское оборудование", "Научное оборудование", "Карго оборудование", "Оборудование СБ", "Оборудование сервиса")
 	sub_category = list("Контролеры")
 	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/camera
 	name = "Фотокамера"
 	id = "camera"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 50, /datum/material/glass = 100)
 	build_path = /obj/item/camera
-	category = list("initial", "Разное")
+	category = list("initial", "Разное", "Снаряжение сервиса")
+	sub_category = list("Экипировка")
 
 /datum/design/camera_film
 	name = "Фотопленка"
 	id = "camera_film"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 20
 	materials = list(/datum/material/iron = 10, /datum/material/glass = 10)
 	build_path = /obj/item/camera_film
-	category = list("initial", "Разное")
+	category = list("initial", "Разное", "Снаряжение сервиса")
+	sub_category = list("Экипировка")
 
 /datum/design/earmuffs
 	name = "Защитные наушники"
 	id = "earmuffs"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
 	build_path = /obj/item/clothing/ears/earmuffs
-	category = list("initial", "Разное")
+	category = list("initial", "Разное","Инженерное снаряжение", "Снаряжение сервиса")
+	sub_category = list("Экипировка")
 
 /datum/design/pipe_painter
 	name = "Маркировщик труб"
@@ -298,7 +311,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 2000)
 	build_path = /obj/item/pipe_painter
-	category = list("initial","Инструменты","Рабочие инструменты","Инженерное снаряжение")
+	category = list("initial","Инструменты","Рабочие инструменты","Инженерное снаряжение", "Снаряжение сервиса")
 	sub_category = list("Маркировщики")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
 
@@ -309,7 +322,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 50, /datum/material/glass = 50)
 	build_path = /obj/item/airlock_painter
-	category = list("initial","Инструменты","Рабочие инструменты","Инженерное снаряжение")
+	category = list("initial","Инструменты","Рабочие инструменты","Инженерное снаряжение", "Снаряжение сервиса")
 	sub_category = list("Маркировщики")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SERVICE
 
@@ -320,7 +333,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 50, /datum/material/glass = 50)
 	build_path = /obj/item/airlock_painter/decal
-	category = list("initial","Инструменты","Рабочие инструменты","Инженерное снаряжение")
+	category = list("initial","Инструменты","Рабочие инструменты","Инженерное снаряжение", "Снаряжение сервиса")
 	sub_category = list("Маркировщики")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SERVICE
 
@@ -331,7 +344,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 50, /datum/material/glass = 50)
 	build_path = /obj/item/airlock_painter/decal/tile
-	category = list("initial","Инструменты","Рабочие инструменты", "Инженерное снаряжение")
+	category = list("initial","Инструменты","Рабочие инструменты", "Инженерное снаряжение", "Снаряжение сервиса")
 	sub_category = list("Маркировщики")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SERVICE
 
@@ -342,7 +355,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 500)
 	build_path = /obj/item/tank/internals/emergency_oxygen/empty
-	category = list("initial","Разное","Снаряжение","Инженерное снаряжение")
+	category = list("initial","Разное","Снаряжение","Инженерное снаряжение", "Снаряжение сервиса")
 	sub_category = list("Огнетушители и газовые баллоны")
 
 /datum/design/emergency_oxygen_engi
@@ -352,7 +365,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 750)
 	build_path = /obj/item/tank/internals/emergency_oxygen/engi/empty
-	category = list("hacked","Разное","Снаряжение","Инженерное снаряжение","Карго снаряжение", "Снаряжение СБ")
+	category = list("hacked","Разное","Снаряжение","Инженерное снаряжение","Карго снаряжение", "Снаряжение СБ", "Снаряжение сервиса")
 	sub_category = list("Огнетушители и газовые баллоны")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
 
@@ -363,7 +376,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 800)
 	build_path = /obj/item/tank/internals/plasmaman/belt/empty
-	category = list("hacked","Разное","Снаряжение","Инженерное снаряжение","Карго снаряжение", "Снаряжение СБ")
+	category = list("hacked","Разное","Снаряжение","Инженерное снаряжение","Карго снаряжение", "Снаряжение СБ", "Снаряжение сервиса")
 	sub_category = list("Огнетушители и газовые баллоны")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
 
@@ -374,7 +387,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 1000)
 	build_path = /obj/item/tank/internals/generic
-	category = list("initial","Разное","Снаряжение","Инженерное снаряжение","Карго снаряжение")
+	category = list("initial","Разное","Снаряжение","Инженерное снаряжение","Карго снаряжение", "Снаряжение сервиса")
 	sub_category = list("Огнетушители и газовые баллоны")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
 
@@ -437,164 +450,208 @@
 /datum/design/kitchen_knife
 	name = "Кухонный нож"
 	id = "kitchen_knife"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 20
 	materials = list(/datum/material/iron = 12000)
 	build_path = /obj/item/kitchen/knife
-	category = list("initial","Кухня")
+	category = list("initial","Кухня", "Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 
 /datum/design/plastic_knife
 	name = "Пластиковый нож"
 	id = "plastic_knife"
-	build_type = AUTOLATHE | PROTOLATHE
+	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
+	construction_time = 20
 	materials = list(/datum/material/plastic = 100)
 	build_path = /obj/item/kitchen/knife/plastic
-	category = list("initial", "Рабочие инструменты","Кухня")
+	category = list("initial", "Рабочие инструменты","Кухня", "Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/fork
 	name = "Вилка"
 	id = "fork"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 20
 	materials = list(/datum/material/iron = 80)
 	build_path = /obj/item/kitchen/fork
-	category = list("initial","Кухня")
+	category = list("initial","Кухня", "Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 
 /datum/design/plastic_fork
 	name = "Пластиковая вилка"
 	id = "plastic_fork"
-	build_type = AUTOLATHE | PROTOLATHE
+	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
+	construction_time = 20
 	materials = list(/datum/material/plastic = 80)
 	build_path = /obj/item/kitchen/fork/plastic
-	category = list("initial", "Рабочие инструменты", "Кухня")
+	category = list("initial", "Рабочие инструменты", "Кухня", "Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/spoon
 	name = "Ложка"
 	id = "spoon"
-	build_type = AUTOLATHE | PROTOLATHE
+	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
+	construction_time = 20
 	materials = list(/datum/material/iron = 120)
 	build_path = /obj/item/kitchen/spoon
-	category = list("initial", "Рабочие инструменты", "Кухня")
+	category = list("initial", "Рабочие инструменты", "Кухня", "Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/plastic_spoon
 	name = "Пластиковая ложка"
 	id = "plastic_spoon"
-	build_type = AUTOLATHE | PROTOLATHE
+	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
+	construction_time = 20
 	materials = list(/datum/material/plastic = 120)
 	build_path = /obj/item/kitchen/spoon/plastic
-	category = list("initial", "Рабочие инструменты", "Кухня")
+	category = list("initial", "Рабочие инструменты", "Кухня", "Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/tray
 	name = "Поднос"
 	id = "servingtray"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 3000)
 	build_path = /obj/item/storage/bag/tray
-	category = list("initial","Кухня")
+	category = list("initial","Кухня", "Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 
 /datum/design/cafeteria_tray
 	name = "Поднос кафетерия"
 	id = "foodtray"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 3000)
 	build_path = /obj/item/storage/bag/tray/cafeteria
-	category = list("initial","Кухня")
+	category = list("initial","Кухня", "Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 
 /datum/design/bowl
 	name = "Чаша"
 	id = "bowl"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/glass = 500)
 	build_path = /obj/item/reagent_containers/glass/bowl
-	category = list("initial","Кухня")
+	category = list("initial","Кухня", "Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 
 /datum/design/drinking_glass
 	name = "Стакан"
 	id = "drinking_glass"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/glass = 500)
 	build_path = /obj/item/reagent_containers/food/drinks/drinkingglass
-	category = list("initial","Кухня")
+	category = list("initial","Кухня", "Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 
 /datum/design/shot_glass
 	name = "Шот"
 	id = "shot_glass"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/glass = 100)
 	build_path = /obj/item/reagent_containers/food/drinks/drinkingglass/shotglass
-	category = list("initial","Кухня")
+	category = list("initial","Кухня", "Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 
 /datum/design/shaker
 	name = "Шейкер"
 	id = "shaker"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 1500)
 	build_path = /obj/item/reagent_containers/food/drinks/shaker
-	category = list("initial","Кухня")
+	category = list("initial","Кухня", "Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 
 /datum/design/cultivator
 	name = "Тяпка"
 	id = "cultivator"
-	build_type = AUTOLATHE | PROTOLATHE
+	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron=50)
 	build_path = /obj/item/cultivator
-	category = list("initial","Разное", "Рабочие инструменты")
+	category = list("initial","Разное", "Рабочие инструменты", "Снаряжение сервиса")
+	sub_category = list("Ботаника")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/plant_analyzer
 	name = "Анализатор растений"
 	id = "plant_analyzer"
-	build_type = AUTOLATHE | PROTOLATHE
+	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 30, /datum/material/glass = 20)
 	build_path = /obj/item/plant_analyzer
-	category = list("initial","Разное", "Рабочие инструменты")
+	category = list("initial","Разное", "Рабочие инструменты", "Снаряжение сервиса")
+	sub_category = list("Ботаника")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/shovel
 	name = "Лопата"
 	id = "shovel"
-	build_type = AUTOLATHE | PROTOLATHE
+	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 50)
 	build_path = /obj/item/shovel
-	category = list("initial","Разное", "Рабочие инструменты")
+	category = list("initial","Разное", "Рабочие инструменты", "Снаряжение сервиса")
+	sub_category = list("Ботаника")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
+
+/datum/design/shovel/cargo
+	id = "shovel_cargo"
+	build_type = MECHFAB
+	category = list("Шахтёрское оборудование", "Карго снаряжение")
+	sub_category = list("Горнопромышленное снаряжение")
 
 /datum/design/spade
 	name = "Лопаточка"
 	id = "spade"
-	build_type = AUTOLATHE | PROTOLATHE
+	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 50)
 	build_path = /obj/item/shovel/spade
-	category = list("initial","Разное", "Рабочие инструменты")
+	category = list("initial","Разное", "Рабочие инструменты", "Снаряжение сервиса")
+	sub_category = list("Ботаника")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/hatchet
 	name = "Топорик"
 	id = "hatchet"
-	build_type = AUTOLATHE | PROTOLATHE
+	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 15000)
 	build_path = /obj/item/hatchet
-	category = list("initial","Разное", "Рабочие инструменты")
+	category = list("initial","Разное", "Рабочие инструменты", "Снаряжение сервиса")
+	sub_category = list("Ботаника")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/secateurs
 	name = "Секатор"
 	id = "secateurs"
-	build_type = AUTOLATHE | PROTOLATHE
+	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 4000)
 	build_path = /obj/item/secateurs
-	category = list("initial","Разное", "Рабочие инструменты")
+	category = list("initial","Разное", "Рабочие инструменты", "Снаряжение сервиса")
+	sub_category = list("Ботаника")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/foilhat
 	name = "Шапочка из фольги"
 	id = "tinfoil_hat"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 5500)
 	build_path = /obj/item/clothing/head/foilhat
-	category = list("hacked", "Разное")
+	category = list("hacked", "Разное", "Снаряжение сервиса")
+	sub_category = list("Розыгрыши")
 
 /datum/design/blood_filter
 	name = "Фильтр крови"
@@ -712,7 +769,7 @@
 	construction_time = 30
 	materials = list(/datum/material/glass = 500)
 	build_path = /obj/item/reagent_containers/glass/beaker
-	category = list("initial", "Медицина", "Медицинские разработки", "Фармацевтика", "Научное снаряжение")
+	category = list("initial", "Медицина", "Медицинские разработки", "Фармацевтика", "Научное снаряжение", "Снаряжение сервиса")
 	sub_category = list("Химическая посуда")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SERVICE
 
@@ -724,7 +781,7 @@
 	construction_time = 40
 	materials = list(/datum/material/glass = 2500)
 	build_path = /obj/item/reagent_containers/glass/beaker/large
-	category = list("initial", "Медицина", "Медицинские разработки", "Фармацевтика", "Научное снаряжение")
+	category = list("initial", "Медицина", "Медицинские разработки", "Фармацевтика", "Научное снаряжение", "Снаряжение сервиса")
 	sub_category = list("Химическая посуда")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SERVICE
 
@@ -822,7 +879,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 75)
 	build_path = /obj/item/radio/headset
-	category = list("initial", "Телекомы", "Инженерное снаряжение", "Снаряжение СБ")
+	category = list("initial", "Телекомы", "Инженерное снаряжение", "Снаряжение СБ", "Снаряжение сервиса")
 	sub_category = list("Связь и навигация")
 
 /datum/design/bounced_radio
@@ -832,7 +889,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 75, /datum/material/glass = 25)
 	build_path = /obj/item/radio/off
-	category = list("initial", "Телекомы", "Инженерное снаряжение", "Снаряжение СБ")
+	category = list("initial", "Телекомы", "Инженерное снаряжение", "Снаряжение СБ", "Снаряжение сервиса")
 	sub_category = list("Связь и навигация")
 
 /datum/design/intercom_frame
@@ -842,7 +899,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 75, /datum/material/glass = 25)
 	build_path = /obj/item/wallframe/intercom
-	category = list("initial", "Телекомы", "Строительство")
+	category = list("initial", "Телекомы", "Строительство", "Оборудование сервиса")
 	sub_category = list("Настенные конструкции")
 
 /datum/design/infrared_emitter
@@ -852,7 +909,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 1000, /datum/material/glass = 500)
 	build_path = /obj/item/assembly/infra
-	category = list("initial", "Разное", "Инженерное снаряжение","Научное снаряжение", "Снаряжение СБ")
+	category = list("initial", "Разное", "Инженерное снаряжение", "Научное снаряжение", "Снаряжение СБ")
 	sub_category = list("Датчики и Сигнальные устройства")
 
 /datum/design/health_sensor
@@ -863,7 +920,7 @@
 	construction_time = 20
 	materials = list(/datum/material/iron = 800, /datum/material/glass = 200)
 	build_path = /obj/item/assembly/health
-	category = list("initial", "Медицина", "Медицинское снаряжение","Научное снаряжение", "Снаряжение СБ")
+	category = list("initial", "Медицина", "Медицинское снаряжение", "Научное снаряжение", "Снаряжение СБ")
 	sub_category = list("Датчики и Сигнальные устройства")
 
 /datum/design/timer
@@ -873,7 +930,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 50)
 	build_path = /obj/item/assembly/timer
-	category = list("initial", "Разное", "Инженерное снаряжение","Научное снаряжение", "Снаряжение СБ")
+	category = list("initial", "Разное", "Инженерное снаряжение", "Научное снаряжение", "Снаряжение СБ", "Снаряжение сервиса")
 	sub_category = list("Датчики и Сигнальные устройства")
 
 /datum/design/voice_analyser
@@ -883,7 +940,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 500, /datum/material/glass = 50)
 	build_path = /obj/item/assembly/voice
-	category = list("initial", "Разное", "Инженерное снаряжение","Научное снаряжение", "Снаряжение СБ")
+	category = list("initial", "Разное", "Инженерное снаряжение", "Научное снаряжение", "Снаряжение СБ")
 	sub_category = list("Датчики и Сигнальные устройства")
 
 /datum/design/light_tube
@@ -893,7 +950,7 @@
 	construction_time = 40
 	materials = list(/datum/material/glass = 100)
 	build_path = /obj/item/light/tube
-	category = list("initial", "Конструкции", "Строительство" ,"Карго оборудование" ,"Оборудование СБ")
+	category = list("initial", "Конструкции", "Строительство", "Карго оборудование" ,"Оборудование СБ", "Оборудование сервиса")
 	sub_category = list("Освещение и наблюдение")
 
 /datum/design/light_bulb
@@ -903,7 +960,7 @@
 	construction_time = 40
 	materials = list(/datum/material/glass = 100)
 	build_path = /obj/item/light/bulb
-	category = list("initial", "Конструкции", "Строительство" ,"Карго оборудование" ,"Оборудование СБ")
+	category = list("initial", "Конструкции", "Строительство", "Карго оборудование" ,"Оборудование СБ", "Оборудование сервиса")
 	sub_category = list("Освещение и наблюдение")
 
 /datum/design/camera_assembly
@@ -913,7 +970,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 400, /datum/material/glass = 250)
 	build_path = /obj/item/wallframe/camera
-	category = list("initial", "Конструкции", "Строительство" ,"Карго оборудование" ,"Оборудование СБ")
+	category = list("initial", "Конструкции", "Строительство" ,"Карго оборудование" ,"Оборудование СБ", "Оборудование сервиса")
 	sub_category = list("Освещение и наблюдение")
 
 /datum/design/newscaster_frame
@@ -923,7 +980,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 14000, /datum/material/glass = 8000)
 	build_path = /obj/item/wallframe/newscaster
-	category = list("initial", "Конструкции", "Строительство")
+	category = list("initial", "Конструкции", "Строительство", "Оборудование сервиса")
 	sub_category = list("Настенные конструкции")
 
 /datum/design/syringe
@@ -972,13 +1029,13 @@
 /datum/design/foam_dart
 	name = "Упаковка пенных дротиков"
 	desc = "Детям от восьми лет и старше."
-	id = "foam_dart"
+	id = "foam_darts"
 	build_type = AUTOLATHE | MECHFAB
 	construction_time = 20
 	materials = list(/datum/material/iron = 500)
 	build_path = /obj/item/ammo_box/foambox
-	category = list("initial", "Разное", "Боеприпасы")
-	sub_category = list("Прочее")
+	category = list("initial", "Разное", "Снаряжение сервиса")
+	sub_category = list("Розыгрыши")
 
 //hacked autolathe recipes
 /datum/design/flamethrower
@@ -1065,24 +1122,13 @@
 	build_path = /obj/item/ammo_casing/shotgun/incendiary
 	category = list("hacked", "Безопасность")
 
-/datum/design/riot_dart
-	name = "Резиновый пенчик"
-	desc = "Чья это была умная идея использовать игрушки для контроля толпы? Для детей от восемнадцати и старше."
-	id = "riot_dart"
-	build_type = AUTOLATHE | MECHFAB
-	construction_time = 10
-	materials = list(/datum/material/iron = 1000) //Discount for making individually - no box = less iron!
-	build_path = /obj/item/ammo_casing/caseless/foam_dart/riot
-	category = list("hacked", "Безопасность", "Боеприпасы")
-	sub_category = list("Прочее")
-
 /datum/design/riot_darts
-	name = "Упаковка пенных дротиков антибунт"
+	name = "Упаковка резиновый пенчиков"
 	desc = "Повышенного останавливающего возздействия. Детям от восьми лет и старше."
 	id = "riot_darts"
 	build_type = AUTOLATHE | MECHFAB
-	construction_time = 40
-	materials = list(/datum/material/iron = 50000) //Comes with 40 darts
+	construction_time = 20
+	materials = list(/datum/material/iron = 20000) //Comes with 40 darts
 	build_path = /obj/item/ammo_box/foambox/riot
 	category = list("hacked", "Безопасность", "Боеприпасы")
 	sub_category = list("Прочее")
@@ -1145,10 +1191,12 @@
 /datum/design/cleaver
 	name = "Тесак мясника"
 	id = "cleaver"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 18000)
 	build_path = /obj/item/kitchen/knife/butcher
-	category = list("hacked", "Кухня")
+	category = list("hacked", "Кухня", "Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 
 /datum/design/spraycan
 	name = "Баллончик с краской"
@@ -1157,7 +1205,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 100, /datum/material/glass = 100)
 	build_path = /obj/item/toy/crayon/spraycan
-	category = list("initial","Инструменты","Рабочие инструменты", "Инженерное снаряжение" ,"Карго снаряжение")
+	category = list("initial","Инструменты","Рабочие инструменты", "Инженерное снаряжение" ,"Карго снаряжение", "Снаряжение сервиса")
 	sub_category = list("Маркировщики")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
@@ -1178,7 +1226,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 700, /datum/material/glass = 200)
 	build_path = /obj/item/sales_tagger
-	category = list("initial", "Электроника", "Инженерное снаряжение","Карго снаряжение")
+	category = list("initial", "Электроника", "Инженерное снаряжение","Карго снаряжение", "Снаряжение сервиса")
 	sub_category = list("Маркировщики")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SERVICE
 
@@ -1190,7 +1238,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 150, /datum/material/glass = 125)
 	build_path = /obj/item/hand_labeler
-	category = list("initial", "Электроника", "Фармацевтика","Карго снаряжение")
+	category = list("initial", "Электроника", "Фармацевтика", "Карго снаряжение", "Снаряжение сервиса")
 	sub_category = list("Маркировщики")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -1201,7 +1249,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 150, /datum/material/glass = 150)
 	build_path = /obj/item/geiger_counter
-	category = list("initial", "Инструменты","Рабочие инструменты ")
+	category = list("initial", "Инструменты","Рабочие инструменты ", "Рабочие инструменты    ", "Рабочие инструменты  ")
 	sub_category = list("Прочее")
 
 /datum/design/turret_control_frame
@@ -1272,10 +1320,12 @@
 /datum/design/pet_carrier
 	name = "Переноска для животных"
 	id = "pet_carrier"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 7500, /datum/material/glass = 100)
 	build_path = /obj/item/pet_carrier
-	category = list("initial", "Разное")
+	category = list("initial", "Разное", "Снаряжение сервиса")
+	sub_category = list("Прочее")
 
 /datum/design/miniature_power_cell
 	name = "Батарея аварийного питания"
@@ -1300,10 +1350,12 @@
 /datum/design/holodisk
 	name = "Голодиск"
 	id = "holodisk"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 100, /datum/material/glass = 100)
 	build_path = /obj/item/disk/holodisk
-	category = list("initial", "Разное")
+	category = list("initial", "Разное", "Снаряжение сервиса")
+	sub_category = list("Прочее")
 
 /datum/design/circuit
 	name = "Синяя электронная плитка"
@@ -1339,7 +1391,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 1500, /datum/material/glass = 500)
 	build_path = /obj/item/price_tagger
-	category = list("initial", "Разное" ,"Карго снаряжение")
+	category = list("initial", "Разное" ,"Карго снаряжение", "Снаряжение сервиса")
 	sub_category = list("Маркировщики")
 
 /datum/design/custom_vendor_refill
@@ -1349,7 +1401,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/glass = 2000)
 	build_path = /obj/item/vending_refill/custom
-	category = list("initial", "Разное" ,"Карго снаряжение")
+	category = list("initial", "Разное" ,"Карго снаряжение", "Снаряжение сервиса")
 	sub_category = list("Прочее")
 
 /datum/design/ducts
@@ -1368,58 +1420,72 @@
 /datum/design/toygun
 	name = "Игрушечный пистолет"
 	id = "toygun"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 100, /datum/material/glass = 50)
 	build_path = /obj/item/toy/gun
-	category = list("hacked", "Разное")
+	category = list("hacked", "Разное", "Снаряжение сервиса")
+	sub_category = list("Розыгрыши")
 
 /datum/design/capbox
 	name = "Коробка с пистонами"
 	id = "capbox"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 20, /datum/material/glass = 5)
 	build_path = /obj/item/toy/ammo/gun
-	category = list("hacked", "Разное")
+	category = list("hacked", "Разное", "Снаряжение сервиса")
+	sub_category = list("Розыгрыши")
 
 /datum/design/toy_balloon
 	name = "Воздушный шарик"
 	id = "toy_balloon"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/plastic = 1200)
 	build_path = /obj/item/toy/balloon
-	category = list("hacked", "Разное")
+	category = list("hacked", "Разное", "Снаряжение сервиса")
+	sub_category = list("Розыгрыши")
 
 /datum/design/toy_armblade
 	name = "Пенопластовая рука-лезвие"
 	id = "toy_armblade"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/plastic = 2000)
 	build_path = /obj/item/toy/foamblade
-	category = list("hacked", "Разное")
+	category = list("hacked", "Разное", "Снаряжение сервиса")
+	sub_category = list("Розыгрыши")
 
 /datum/design/plastic_tree
 	name = "Пластиковое дерево"
 	id = "plastic_trees"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/plastic = 8000)
 	build_path = /obj/item/kirbyplants/fullysynthetic
-	category = list("initial", "Разное")
+	category = list("initial", "Разное", "Снаряжение сервиса")
+	sub_category = list("Розыгрыши")
 
 /datum/design/beads
 	name = "Пластиковые бусы"
 	id = "plastic_necklace"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/plastic = 500)
 	build_path = /obj/item/clothing/neck/beads
-	category = list("initial", "Разное")
+	category = list("initial", "Разное", "Снаряжение сервиса")
+	sub_category = list("Розыгрыши")
 
 /datum/design/plastic_ring
 	name = "Упаковка для содовой"
 	id = "ring_holder"
-	build_type = AUTOLATHE
+	build_type = AUTOLATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/plastic = 1200)
 	build_path = /obj/item/storage/cans
-	category = list("initial", "Кухня")
+	category = list("initial", "Кухня", "Снаряжение сервиса")
+	sub_category = list("Кухня и Бар")
 
 /datum/design/plastic_box
 	name = "Пластиковая коробка"
@@ -1428,7 +1494,7 @@
 	construction_time = 40
 	materials = list(/datum/material/plastic = 1000)
 	build_path = /obj/item/storage/box/plastic
-	category = list("initial", "Разное" ,"Карго снаряжение")
+	category = list("initial", "Разное" ,"Карго снаряжение", "Снаряжение сервиса")
 	sub_category = list("Прочее")
 
 /datum/design/sticky_tape
@@ -1440,6 +1506,12 @@
 	build_path = /obj/item/stack/sticky_tape
 	category = list("initial", "Разное" ,"Карго снаряжение")
 	sub_category = list("Прочее")
+
+/datum/design/sticky_tape/serv
+	id = "sticky_tape_serv"
+	build_type = MECHFAB
+	category = list("Снаряжение сервиса")
+	sub_category = list("Розыгрыши")
 
 /datum/design/sticky_tape/surgical
 	name = "Хирургическая лента"
@@ -1492,7 +1564,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 100, /datum/material/glass = 50)
 	build_path = /obj/item/assembly/control
-	category = list("initial","Разное","Строительство")
+	category = list("initial","Разное","Строительство", "Медицинское оборудование", "Научное оборудование", "Карго оборудование", "Оборудование СБ", "Оборудование сервиса")
 	sub_category = list("Контролеры")
 
 /datum/design/floor_painter
@@ -1503,33 +1575,33 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 300, /datum/material/glass = 100)
 	build_path = /obj/item/floor_painter
-	category = list("initial","Инструменты","Рабочие инструменты", "Инженерное снаряжение","Карго снаряжение")
+	category = list("initial","Инструменты","Рабочие инструменты", "Инженерное снаряжение", "Карго снаряжение", "Снаряжение сервиса")
 	sub_category = list("Маркировщики")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/cannon_ball
-	name = "пушечное ядро"
+	name = "Пушечное ядро"
 	id = "cannon_ball"
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 6000)
 	build_path = /obj/item/stack/cannonball
-	category = list("hacked","Разное")
+	category = list("hacked","Аммуниция")
 
 /datum/design/cannon_ball_exp
-	name = "разрывное пушечное ядро"
+	name = "Разрывное пушечное ядро"
 	id = "cannon_ball_exp"
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 6000, /datum/material/plasma = 2000)
 	build_path = /obj/item/stack/cannonball/shellball
-	category = list("hacked","Разное")
+	category = list("hacked","Аммуниция")
 
 /datum/design/cannon_ball_big
-	name = "противотанковое пушечное ядро"
+	name = "Противотанковое пушечное ядро"
 	id = "cannon_ball_big"
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 12000, /datum/material/plasma = 6000)
 	build_path = /obj/item/stack/cannonball/the_big_one
-	category = list("hacked","Разное")
+	category = list("hacked","Аммуниция")
 
 /datum/design/fishing_rod_basic
 	name = "Удочка"

@@ -5,8 +5,8 @@
  */
 
 /obj/machinery/computer/weapons
-	name = "weapons control console"
-	desc = "a computer for controlling the weapon systems of your shuttle."
+	name = "Консоль управления вооружением шаттла"
+	desc = "Консоль позволяющая управлять вооружением шаттла."
 	icon_screen = "cameras"
 	icon_keyboard = "security_key"
 	circuit = /obj/item/circuitboard/computer/shuttle/weapons
@@ -73,7 +73,7 @@
 	var/datum/shuttle_data/our_ship = SSorbits.get_shuttle_data(shuttle_id)
 	//Must actually be on a ship
 	if(!our_ship)
-		to_chat(user, "<span class='warning'>Weapon control console not linked to a shuttle.</span>")
+		to_chat(user, "<span class='warning'>Консоль управления оружием, не привязана к шаттлу.</span>")
 		return
 	// Update UI
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -234,7 +234,7 @@
 			var/id = params["id"]
 			var/found_weapon = SSorbits.shuttle_weapons["[id]"]
 			if(!found_weapon)
-				to_chat(usr, "<span class='warning'>Failed to locate weapon system.</span>")
+				to_chat(usr, "<span class='warning'>Не удалось обнаружить системы вооружения.</span>")
 				return
 			selected_weapon_system = WEAKREF(found_weapon)
 			//Grant spell for selection (Intercepts next click)
@@ -246,7 +246,7 @@
 			spell.Grant(user)
 			spell.linked_console = src
 			spell.set_click_ability(user)
-			to_chat(usr, "<span class='notice'>Weapon targetting enabled, select target location.</span>")
+			to_chat(usr, "<span class='notice'>Наведение на цель оружия включено, выберите местоположение цели.</span>")
 			return TRUE
 
 /obj/machinery/computer/weapons/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
@@ -288,7 +288,7 @@
 	weapon.target_turf = T
 	//Fire
 	INVOKE_ASYNC(weapon, TYPE_PROC_REF(/obj/machinery/shuttle_weapon, fire))
-	to_chat(usr, "<span class='notice'>Weapon target selected successfully.</span>")
+	to_chat(usr, "<span class='notice'>Цель орудия успешно выбрана.</span>")
 
 /obj/machinery/computer/weapons/proc/get_attached_ship()
 	var/area/shuttle/shuttle_area = get_area(src)

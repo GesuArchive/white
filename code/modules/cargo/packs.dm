@@ -2855,10 +2855,12 @@
 
 /datum/supply_pack/vending/wardrobes/engineering
 	name = "Engineering Wardrobe Supply Crate"
-	desc = "This crate contains refills for the EngiDrobe and AtmosDrobe."
+	desc = "This crate contains refills for the YouTool, MechComp, EngiDrobe and AtmosDrobe."
 	cost = BUY_CRATE_VALUE * 3
 	contains = list(/obj/item/vending_refill/wardrobe/engi_wardrobe,
-					/obj/item/vending_refill/wardrobe/atmos_wardrobe)
+					/obj/item/vending_refill/wardrobe/atmos_wardrobe,
+					/obj/item/vending_refill/tool,
+					/obj/item/vending_refill/mechcomp)
 	crate_name = "engineering department wardrobe supply crate"
 
 /datum/supply_pack/vending/wardrobes/general

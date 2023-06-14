@@ -1,4 +1,30 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"as" = (
+/obj/structure/flora/rock{
+	pixel_x = -13;
+	pixel_y = 3;
+	layer = 2.91
+	},
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_y = 15;
+	pixel_x = 6
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"aA" = (
+/obj/structure/flora/biolumi/mine,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"aO" = (
+/obj/structure/flora/ausbushes/pointybush{
+	layer = 2.91
+	},
+/obj/structure/flora/ausbushes/reedbush{
+	pixel_x = 4;
+	pixel_y = 16
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
 "aT" = (
 /obj/effect/turf_decal/siding/thinplating_new/corner{
 	dir = 1
@@ -6,14 +32,9 @@
 /turf/open/floor/fakespace,
 /area/hallway/primary/central/low_level_centre)
 "bl" = (
-/obj/effect/turf_decal/siding/thinplating_new/corner{
-	dir = 1
-	},
-/mob/living/simple_animal/hostile/carp{
-	dir = 8
-	},
-/turf/open/floor/fakespace,
-/area/hallway/primary/central/low_level_centre)
+/obj/structure/flora/grass/jungle,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
 "cx" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -25,26 +46,83 @@
 /turf/open/floor/plasteel/dark,
 /area/hallway/primary/central/low_level_centre)
 "cI" = (
-/obj/structure/glowshroom/single,
-/turf/open/floor/plating/asteroid,
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt"
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
 /area/hallway/primary/central/low_level_centre)
+"da" = (
+/obj/structure/lattice/catwalk,
+/obj/effect/spawner/random/decoration/meteor{
+	pixel_y = 6
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
 "dP" = (
 /turf/open/floor/plasteel/dark/side{
 	dir = 9
 	},
 /area/hallway/primary/central/low_level_centre)
 "ea" = (
-/obj/structure/flora/rock/pile{
-	icon_state = "basalt2";
-	pixel_y = 5
-	},
-/turf/open/floor/plating/asteroid,
+/obj/structure/flora/rock,
+/turf/open/floor/plating/asteroid/normal_pressure,
 /area/hallway/primary/central/low_level_centre)
+"eb" = (
+/mob/living/simple_animal/hostile/carp/cayenne/ekaterina/belka,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"eq" = (
+/obj/structure/flora/junglebush/b,
+/obj/structure/flora/biolumi/flower{
+	pixel_y = 7;
+	pixel_x = -1;
+	layer = 2.91
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"fc" = (
+/obj/structure/flora/ausbushes/sunnybush{
+	pixel_y = 3;
+	pixel_x = 9
+	},
+/obj/structure/flora/rock/pile{
+	pixel_x = -13
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
 "fk" = (
 /turf/template_noop,
 /area/template_noop)
+"fr" = (
+/obj/item/kirbyplants/photosynthetic{
+	pixel_x = 2
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 9
+	},
+/turf/template_noop,
+/area/template_noop)
+"fs" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"ga" = (
+/obj/structure/flora/biolumi/mine{
+	layer = 2.91
+	},
+/obj/structure/flora/grass/jungle,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
 "io" = (
-/obj/item/kirbyplants/photosynthetic,
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 9
+	},
+/obj/item/kirbyplants/photosynthetic{
+	pixel_x = 2
+	},
 /turf/template_noop,
 /area/template_noop)
 "jD" = (
@@ -58,11 +136,16 @@
 /turf/open/floor/fakespace,
 /area/hallway/primary/central/low_level_centre)
 "nA" = (
-/obj/structure/fluff/hedge,
 /turf/open/floor/plasteel/dark/corner,
 /area/hallway/primary/central/low_level_centre)
+"nX" = (
+/obj/structure/flora/rock/pile{
+	pixel_x = -2
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
 "of" = (
-/turf/open/floor/plating/asteroid,
+/turf/open/floor/plating/asteroid/normal_pressure,
 /area/hallway/primary/central/low_level_centre)
 "oO" = (
 /obj/effect/turf_decal/siding/thinplating_new/corner{
@@ -70,11 +153,19 @@
 	},
 /turf/open/floor/fakespace,
 /area/hallway/primary/central/low_level_centre)
+"pk" = (
+/obj/structure/flora/junglebush/c,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
 "ql" = (
 /obj/structure/window/reinforced,
 /obj/effect/turf_decal/siding/thinplating_new,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/structure/lattice/catwalk,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"rF" = (
+/mob/living/simple_animal/hostile/carp/cayenne/ekaterina/strelka,
 /turf/open/floor/fakespace,
 /area/hallway/primary/central/low_level_centre)
 "sB" = (
@@ -104,6 +195,50 @@
 /obj/structure/lattice/catwalk,
 /turf/open/floor/fakespace,
 /area/hallway/primary/central/low_level_centre)
+"uF" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
+"vi" = (
+/obj/structure/flora/bush{
+	pixel_y = 4
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"xx" = (
+/obj/effect/turf_decal/siding/thinplating_new/corner{
+	dir = 8
+	},
+/mob/living/simple_animal/hostile/carp/cayenne/ekaterina,
+/turf/open/floor/fakespace,
+/area/hallway/primary/central/low_level_centre)
+"xO" = (
+/obj/structure/flora/biolumi/flower{
+	pixel_y = 6;
+	pixel_x = -3;
+	layer = 2.91
+	},
+/obj/structure/flora/junglebush/c{
+	pixel_y = -1
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"yu" = (
+/obj/effect/turf_decal/siding/thinplating/dark,
+/turf/template_noop,
+/area/template_noop)
+"yR" = (
+/obj/structure/flora/ausbushes/stalkybush,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"zk" = (
+/obj/structure/flora/ausbushes/fernybush{
+	pixel_y = 9
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
 "Aw" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -120,10 +255,21 @@
 "AB" = (
 /turf/open/floor/fakespace,
 /area/hallway/primary/central/low_level_centre)
+"AO" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
 "Bx" = (
-/obj/effect/turf_decal/siding/thinplating_new/corner,
-/turf/open/floor/plating/asteroid,
-/area/hallway/primary/central/low_level_centre)
+/obj/structure/flora/biolumi/flower{
+	pixel_y = 7;
+	pixel_x = -1;
+	layer = 2.91
+	},
+/obj/structure/flora/junglebush,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
 "Cd" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -149,7 +295,6 @@
 /turf/open/floor/fakespace,
 /area/hallway/primary/central/low_level_centre)
 "CA" = (
-/obj/structure/fluff/hedge,
 /turf/open/floor/plasteel/dark/corner{
 	dir = 4
 	},
@@ -158,10 +303,7 @@
 /obj/effect/turf_decal/siding/thinplating_new/corner{
 	dir = 4
 	},
-/obj/structure/flora/rock/pile{
-	icon_state = "basalt"
-	},
-/turf/open/floor/plating/asteroid,
+/turf/open/floor/fakespace,
 /area/hallway/primary/central/low_level_centre)
 "DQ" = (
 /obj/structure/window/reinforced{
@@ -172,6 +314,23 @@
 	},
 /turf/open/floor/fakespace,
 /area/hallway/primary/central/low_level_centre)
+"ES" = (
+/obj/effect/spawner/random/decoration/meteor{
+	pixel_y = 6
+	},
+/obj/structure/lattice/catwalk,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"EX" = (
+/obj/effect/turf_decal/siding/thinplating/dark/corner{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"FB" = (
+/obj/structure/flora/junglebush/b,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
 "Hm" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -184,7 +343,6 @@
 /turf/open/floor/fakespace,
 /area/hallway/primary/central/low_level_centre)
 "HQ" = (
-/obj/structure/fluff/hedge,
 /turf/open/floor/plasteel/dark/corner{
 	dir = 8
 	},
@@ -203,8 +361,15 @@
 /obj/structure/marker_beacon/burgundy,
 /turf/open/floor/fakespace,
 /area/hallway/primary/central/low_level_centre)
+"IS" = (
+/obj/structure/flora/rock/pile{
+	pixel_y = -4;
+	pixel_x = -2
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
 "Kg" = (
-/turf/closed/mineral/random/labormineral,
+/turf/closed/mineral/random/high_chance,
 /area/hallway/primary/central/low_level_centre)
 "Kp" = (
 /obj/structure/window/reinforced{
@@ -215,15 +380,50 @@
 	},
 /turf/open/floor/fakespace,
 /area/hallway/primary/central/low_level_centre)
-"LW" = (
-/obj/effect/turf_decal/siding/thinplating_new/corner{
+"LA" = (
+/obj/effect/turf_decal/siding/thinplating/dark/corner{
 	dir = 4
 	},
-/turf/open/floor/plating/asteroid,
-/area/hallway/primary/central/low_level_centre)
+/turf/template_noop,
+/area/template_noop)
+"LW" = (
+/obj/structure/flora/junglebush,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"Nj" = (
+/obj/item/kirbyplants/photosynthetic{
+	pixel_y = 6;
+	pixel_x = 2
+	},
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 10
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
 "Ny" = (
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/low_level_centre)
+"Ov" = (
+/obj/structure/water_source/puddle{
+	pixel_x = 14;
+	pixel_y = 2
+	},
+/obj/structure/flora/ausbushes/genericbush{
+	pixel_y = 11;
+	pixel_x = -4
+	},
+/obj/structure/flora/ausbushes/sunnybush{
+	pixel_x = 6
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"OF" = (
+/obj/effect/turf_decal/siding/thinplating/dark/corner,
+/turf/template_noop,
+/area/template_noop)
 "PL" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
@@ -251,7 +451,7 @@
 /area/hallway/primary/central/low_level_centre)
 "QR" = (
 /obj/structure/flora/rock/pile,
-/turf/open/floor/plating/asteroid,
+/turf/open/floor/plating/asteroid/normal_pressure,
 /area/hallway/primary/central/low_level_centre)
 "QU" = (
 /obj/machinery/light/floor/directional/north,
@@ -288,8 +488,34 @@
 /turf/open/floor/fakespace,
 /area/hallway/primary/central/low_level_centre)
 "Tp" = (
-/obj/structure/fluff/hedge,
-/turf/template_noop,
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt";
+	pixel_y = 5;
+	pixel_x = 8
+	},
+/obj/structure/flora/ausbushes/rospilovo{
+	pixel_y = 13;
+	pixel_x = -5
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"Ty" = (
+/obj/effect/spawner/random/decoration/meteor,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"TS" = (
+/obj/structure/flora/rock/jungle,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"TY" = (
+/obj/structure/flora/ausbushes/fernybush{
+	layer = 2.91
+	},
+/obj/structure/flora/ausbushes{
+	pixel_y = 14;
+	pixel_x = -5
+	},
+/turf/open/floor/plating/asteroid/normal_pressure,
 /area/template_noop)
 "Vh" = (
 /obj/machinery/light/floor/directional/north,
@@ -316,9 +542,18 @@
 	},
 /turf/open/floor/fakespace,
 /area/hallway/primary/central/low_level_centre)
+"Wk" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 10
+	},
+/obj/item/kirbyplants/photosynthetic{
+	pixel_y = 6;
+	pixel_x = 2
+	},
+/turf/template_noop,
+/area/template_noop)
 "Wt" = (
 /obj/effect/turf_decal/siding/thinplating_new/corner,
-/mob/living/simple_animal/hostile/carp,
 /turf/open/floor/fakespace,
 /area/hallway/primary/central/low_level_centre)
 "Ww" = (
@@ -327,20 +562,30 @@
 	},
 /area/hallway/primary/central/low_level_centre)
 "YS" = (
-/obj/structure/fluff/hedge,
 /turf/open/floor/plasteel/dark/corner{
 	dir = 1
 	},
 /area/hallway/primary/central/low_level_centre)
+"Zl" = (
+/obj/structure/flora/biolumi/lamp{
+	pixel_y = 6;
+	layer = 2.91
+	},
+/obj/structure/flora/junglebush,
+/turf/open/floor/plating/asteroid/normal_pressure,
+/area/template_noop)
+"ZL" = (
+/obj/effect/turf_decal/siding/thinplating/dark/corner{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
 
 (1,1,1) = {"
-Tp
-fk
-fk
-Tp
-fk
-fk
-fk
+vi
+AO
+yu
+IS
 fk
 fk
 fk
@@ -348,52 +593,57 @@ fk
 fk
 fk
 fk
-Tp
 fk
 fk
+fk
+nX
+AO
+yu
 Tp
 "}
 (2,1,1) = {"
-Tp
-fk
-fk
+fc
+AO
+ZL
+Wk
+LW
+Ty
+xO
+fr
+EX
+ZL
+Nj
+eq
+Ty
+TS
 io
-Tp
-Tp
-Tp
-io
-fk
-fk
-io
-Tp
-Tp
-Tp
-io
-fk
-fk
-Tp
+EX
+yu
+yR
 "}
 (3,1,1) = {"
+uF
+EX
+fk
+ZL
+uF
+uF
+uF
+EX
 fk
 fk
+ZL
+uF
+uF
+uF
+EX
 fk
-fk
-fk
-fk
-fk
-fk
-fk
-fk
-fk
-fk
-fk
-fk
-fk
-fk
-fk
-fk
+ZL
+uF
 "}
 (4,1,1) = {"
+fs
+LA
 fk
 fk
 fk
@@ -408,14 +658,12 @@ fk
 fk
 fk
 fk
-fk
-fk
-fk
-fk
+OF
+fs
 "}
 (5,1,1) = {"
-Tp
-fk
+pk
+AO
 fk
 fk
 fk
@@ -430,68 +678,68 @@ cx
 fk
 fk
 fk
-fk
-Tp
+yu
+TY
 "}
 (6,1,1) = {"
-Tp
-fk
+Ty
+AO
 fk
 fk
 fk
 dP
 Vh
 Kp
-bl
-oO
+aT
+xx
 Kp
 sB
 jD
 fk
 fk
 fk
-fk
-Tp
+yu
+Ty
 "}
 (7,1,1) = {"
-Tp
-fk
+Zl
+AO
 fk
 fk
 fk
 YS
 VI
 AB
-of
-cI
+QR
+AB
 AB
 kY
 HQ
 fk
 fk
 fk
-fk
-Tp
+yu
+aA
 "}
 (8,1,1) = {"
-fk
-fk
+uF
+EX
 fk
 fk
 fk
 Cd
 aT
-QR
+AB
 Kg
 ea
-of
+AB
 oO
 Hm
 fk
 fk
 fk
-fk
-fk
+ZL
+uF
 "}
 (9,1,1) = {"
 fk
@@ -500,11 +748,11 @@ fk
 fk
 fk
 QD
+rF
 of
-cI
 Kg
 Kg
-cI
+of
 AB
 ql
 fk
@@ -514,14 +762,14 @@ fk
 fk
 "}
 (10,1,1) = {"
-fk
-fk
+fs
+LA
 fk
 fk
 fk
 up
-LW
-Kg
+CW
+QR
 Kg
 Kg
 QR
@@ -530,32 +778,32 @@ Cs
 fk
 fk
 fk
-fk
-fk
+OF
+fs
 "}
 (11,1,1) = {"
-Tp
-fk
+ga
+AO
 fk
 fk
 fk
 CA
 VI
-QR
-Kg
+AB
 cI
 of
+eb
 kY
 nA
 fk
 fk
 fk
-fk
-Tp
+yu
+Bx
 "}
 (12,1,1) = {"
-Tp
-fk
+Ty
+AO
 fk
 fk
 fk
@@ -563,19 +811,19 @@ Rw
 QU
 DQ
 CW
-Bx
+Wt
 DQ
 IP
 Ww
 fk
 fk
 fk
-fk
-Tp
+yu
+Ty
 "}
 (13,1,1) = {"
-Tp
-fk
+FB
+AO
 fk
 fk
 fk
@@ -590,10 +838,12 @@ Ny
 fk
 fk
 fk
-fk
-Tp
+yu
+bl
 "}
 (14,1,1) = {"
+uF
+EX
 fk
 fk
 fk
@@ -608,12 +858,12 @@ fk
 fk
 fk
 fk
-fk
-fk
-fk
-fk
+ZL
+uF
 "}
 (15,1,1) = {"
+fs
+LA
 fk
 fk
 fk
@@ -628,13 +878,12 @@ fk
 fk
 fk
 fk
-fk
-fk
-fk
-fk
+OF
+fs
 "}
 (16,1,1) = {"
-Tp
+Ov
+AO
 fk
 fk
 fk
@@ -649,27 +898,26 @@ fk
 fk
 fk
 fk
-fk
-fk
-Tp
+yu
+zk
 "}
 (17,1,1) = {"
-Tp
+aO
+AO
 fk
-fk
-Tp
-fk
-fk
-fk
-Tp
-fk
-fk
-Tp
+da
 fk
 fk
 fk
-Tp
+da
 fk
 fk
-Tp
+da
+fk
+fk
+fk
+ES
+fk
+yu
+as
 "}

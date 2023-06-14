@@ -158,6 +158,11 @@
 	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
+/datum/design/body_bag/serv
+	id = "body_bag_serv"
+	category = list("Рабочие инструменты     ")
+	sub_category = list("Инвентарь уборщика")
+
 /datum/design/rollerbed
 	name = "Каталка"
 	desc = "Сборная кровать для транспортировки людей."
@@ -303,7 +308,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/hypno_watch
-	name = "карманные часы"
+	name = "Карманные часы"
 	desc = "Красивая реплика старинных механических часов на цепочке. Корпус выполнен из золота и ярко блестит при свете ламп. В этом блеске есть что-то гипнотически завораживающее..."
 	id = "hypno_watch"
 	build_path = /obj/item/hypno_watch

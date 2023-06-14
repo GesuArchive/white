@@ -46,7 +46,7 @@
 	construction_time = 20
 	materials = list(/datum/material/glass = 5000, /datum/material/plastic = 3000, /datum/material/diamond = 1000, /datum/material/bluespace = 1000)
 	build_path = /obj/item/reagent_containers/glass/beaker/bluespace
-	category = list("Медицинские разработки", "Фармацевтика", "Научное снаряжение")
+	category = list("Медицинские разработки", "Фармацевтика", "Научное снаряжение", "Снаряжение сервиса")
 	sub_category = list("Химическая посуда")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
 
@@ -58,7 +58,7 @@
 	construction_time = 20
 	materials = list(/datum/material/iron = 3000)
 	build_path = /obj/item/reagent_containers/glass/beaker/noreact
-	category = list("Медицинские разработки", "Фармацевтика", "Научное снаряжение")
+	category = list("Медицинские разработки", "Фармацевтика", "Научное снаряжение", "Снаряжение сервиса")
 	sub_category = list("Химическая посуда")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
@@ -71,7 +71,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 	materials = list(/datum/material/glass = 2500, /datum/material/plastic = 3000)
 	build_path = /obj/item/reagent_containers/glass/beaker/plastic
-	category = list("Медицинские разработки", "Фармацевтика", "Научное снаряжение")
+	category = list("Медицинские разработки", "Фармацевтика", "Научное снаряжение", "Снаряжение сервиса")
 	sub_category = list("Химическая посуда")
 
 /datum/design/meta_beaker
@@ -83,7 +83,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 	materials = list(/datum/material/glass = 2500, /datum/material/plastic = 3000, /datum/material/gold = 1000, /datum/material/titanium = 1000)
 	build_path = /obj/item/reagent_containers/glass/beaker/meta
-	category = list("Медицинские разработки", "Фармацевтика", "Научное снаряжение")
+	category = list("Медицинские разработки", "Фармацевтика", "Научное снаряжение", "Снаряжение сервиса")
 	sub_category = list("Химическая посуда")
 
 /datum/design/ph_meter
@@ -146,6 +146,11 @@
 	category = list("Медицинские разработки", "Медицинское снаряжение", "Научное снаряжение", "Снаряжение СБ")
 	sub_category = list("Прочее")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/bluespacebodybag/serv
+	id = "bluespacebodybag_serv"
+	category = list("Рабочие инструменты     ")
+	sub_category = list("Инвентарь уборщика")
 
 /datum/design/plasmarefiller
 	name = "Картридж огнетушителя плазмена"
@@ -217,7 +222,6 @@
 	category = list("Медицинские разработки", "Медицинское оборудование")
 	sub_category = list("Реанимация и хирургия")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
-
 
 /datum/design/defibrillator_compact
 	name = "Компактный дефибриллятор"

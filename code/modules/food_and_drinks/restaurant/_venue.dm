@@ -141,7 +141,7 @@
 		return ..()
 
 	if(!(linked_venue.req_access in used_id.GetAccess()))
-		to_chat(user, span_warning("This card lacks the access to change this venues status."))
+		to_chat(user, span_warning("У этой карты нет доступа для изменения статуса этого заведения."))
 		return
 
 	linked_venue.toggle_open()
@@ -154,7 +154,7 @@
 	var/obj/item/card/id/used_id = I
 
 	if(!(linked_venue.req_access in used_id.GetAccess()))
-		to_chat(user, span_warning("This card lacks the access to change this venues status."))
+		to_chat(user, span_warning("У этой карты нет доступа для изменения статуса этого заведения."))
 		return
 
 	var/list/radial_items = list()
@@ -175,10 +175,10 @@
 	turned_on_portal = WEAKREF(user)
 
 	if(!(chosen_venue.req_access in used_id.GetAccess()))
-		to_chat(user, span_warning("This card lacks the access to change this venues status."))
+		to_chat(user, span_warning("У этой карты нет доступа для изменения статуса этого заведения."))
 		return
 
-	to_chat(user, span_notice("You change the portal's linked venue."))
+	to_chat(user, span_notice("Изменяю привязку портала."))
 
 	if(linked_venue && linked_venue.restaurant_portal) //We're already linked, unlink us.
 		if(linked_venue.open)
@@ -191,7 +191,7 @@
 
 
 /obj/item/holosign_creator/robot_seat
-	name = "seating indicator placer"
+	name = "голопроектор посадочных мест"
 	icon_state = "signmaker_service"
 	creation_time = 1 SECONDS
 	holosign_type = /obj/structure/holosign/robot_seat
@@ -202,7 +202,7 @@
 	return
 /obj/structure/holosign/robot_seat
 	density = FALSE
-	desc = "Used to indicate a place to sit for a robot tourist. I better be careful."
+	desc = "Указывает посадочное место для роботов-гурманов."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "eating_zone"
 	layer = BELOW_MOB_LAYER

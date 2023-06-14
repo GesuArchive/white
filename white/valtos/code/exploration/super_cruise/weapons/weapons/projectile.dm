@@ -1,7 +1,8 @@
 //Chain Cannon
 
 /obj/machinery/shuttle_weapon/point_defense
-	name = "Hades MKI Chaincannon"
+	name = "Автопушка МК-I \"Муха\""
+	desc = "Система вооружения баллистического типа, установленная на шаттле. Урон 15, перезарядка 80, погрешность 2, кол-во выстрелов 8. Поворот осуществляется гаечным ключом."
 	icon_state = "chaincannon_on"
 	base_icon_state = "chaincannon"
 	projectile_type = /obj/projectile/bullet/shuttle/ballistic/point_defense
@@ -12,11 +13,13 @@
 	strength_rating = 5
 
 /obj/item/wallframe/shuttle_weapon/point_defense
-	name = "Hadess MKI Chaincannon Mount"
+	name = "Автопушка МК-I \"Муха\""
+	desc = "Система вооружения баллистического типа, установленная на шаттле. Урон 15, перезарядка 80, погрешность 2, кол-во выстрелов 8. Поворот осуществляется гаечным ключом."
 	result_path = /obj/machinery/shuttle_weapon/point_defense
 
 /obj/machinery/shuttle_weapon/point_defense/upgraded
-	name = "Hades MKII Chaincannon"
+	name = "Автопушка МК-II \"Стрекоза\""
+	desc = "Система вооружения баллистического типа, установленная на шаттле. Урон 15, перезарядка 140, погрешность 3, кол-во выстрелов 14. Поворот осуществляется гаечным ключом."
 	icon_state = "chaincannon_mk2_on"
 	base_icon_state = "chaincannon_mk2"
 	cooldown = 140
@@ -25,13 +28,15 @@
 	strength_rating = 15
 
 /obj/item/wallframe/shuttle_weapon/point_defense/upgraded
-	name = "Hadess MKII Chaincannon Mount"
+	name = "Автопушка МК-II \"Стрекоза\""
+	desc = "Система вооружения баллистического типа, установленная на шаттле. Урон 15, перезарядка 140, погрешность 3, кол-во выстрелов 14. Поворот осуществляется гаечным ключом."
 	result_path = /obj/machinery/shuttle_weapon/point_defense/upgraded
 
 //Scatter shot
 
 /obj/machinery/shuttle_weapon/scatter
-	name = "Ares Scattershot"
+	name = "Зенитное орудие МК-I \"Дождь\""
+	desc = "Система вооружения баллистического типа, установленная на шаттле. Урон 15, перезарядка 90, погрешность 4, кол-во выстрелов 8. Поворот осуществляется гаечным ключом."
 	icon_state = "scatter_on"
 	base_icon_state = "scatter"
 	projectile_type = /obj/projectile/bullet/shuttle/ballistic/point_defense
@@ -43,13 +48,15 @@
 	strength_rating = 10
 
 /obj/item/wallframe/shuttle_weapon/scatter
-	name = "Ares Scattershot Mount"
+	name = "Зенитное орудие МК-I \"Дождь\""
+	desc = "Система вооружения баллистического типа, установленная на шаттле. Урон 15, перезарядка 90, погрешность 4, кол-во выстрелов 8. Поворот осуществляется гаечным ключом."
 	result_path = /obj/machinery/shuttle_weapon/scatter
 
 //Railgun
 
 /obj/machinery/shuttle_weapon/railgun
-	name = "Zeus MKI Railgun"
+	name = "Рельсотрон МК-I \"Швея\""
+	desc = "Система вооружения баллистического типа, установленная на шаттле. Бронепробитие, Урон 50, перезарядка 160, погрешность 1, кол-во выстрелов 1. Поворот осуществляется гаечным ключом."
 	icon = 'icons/obj/supercruise/supercruise_weapons_long.dmi'
 	icon_state = "railgun_on"
 	base_icon_state = "railgun"
@@ -61,15 +68,13 @@
 	miss_chance = 60
 
 /obj/item/wallframe/shuttle_weapon/railgun
-	name = "Zeus MKI Railgun"
-	result_path = /obj/machinery/shuttle_weapon/railgun
-
-/obj/item/wallframe/shuttle_weapon/railgun
-	name = "Zeus MKI Railgun Mount"
+	name = "Рельсотрон МК-I \"Швея\""
+	desc = "Система вооружения баллистического типа, установленная на шаттле. Бронепробитие, Урон 50, перезарядка 160, погрешность 1, кол-во выстрелов 1. Поворот осуществляется гаечным ключом."
 	result_path = /obj/machinery/shuttle_weapon/railgun
 
 /obj/machinery/shuttle_weapon/railgun/anti_crew
-	name = "Zeus MKII Anti-Personnel Railgun"
+	name = "Рельсотрон МК-II \"Чернобыль\""
+	desc = "Система вооружения баллистического типа, установленная на шаттле. Бронепробитие, Оглушение, Заражение, Урон 80, перезарядка 180, погрешность 2, кол-во выстрелов 1. Поворот осуществляется гаечным ключом."
 	icon_state = "railgun_mk2_on"
 	base_icon_state = "railgun_mk2"
 	projectile_type = /obj/projectile/bullet/shuttle/ballistic/guass/uranium
@@ -80,5 +85,6 @@
 	miss_chance = 80
 
 /obj/item/wallframe/shuttle_weapon/railgun/anti_crew
-	name = "Zeus MKII Anti-Personnel Railgun Mount"
+	name = "Рельсотрон МК-II \"Чернобыль\""
+	desc = "Система вооружения баллистического типа, установленная на шаттле. Бронепробитие, Оглушение, Заражение, Урон 80, перезарядка 180, погрешность 2, кол-во выстрелов 1. Поворот осуществляется гаечным ключом."
 	result_path = /obj/machinery/shuttle_weapon/railgun/anti_crew

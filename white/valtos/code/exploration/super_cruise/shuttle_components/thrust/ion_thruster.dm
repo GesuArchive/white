@@ -1,14 +1,14 @@
 
 /obj/machinery/shuttle/engine/ion
-	name = "ion thruster"
-	desc = "A thruster that expells ions in order to generate thrust. Weak, but easy to maintain."
+	name = "ионный двигатель"
+	desc = "Двигатель, который выбрасывает ионы для создания тяги. Слабый, но простой в обслуживании."
 	icon_state = "ion_thruster"
 	icon_state_open = "ion_thruster_open"
 	icon_state_off = "ion_thruster_off"
 
 	idle_power_usage = 0
 	circuit = /obj/item/circuitboard/machine/shuttle/engine/ion
-	thrust = 60
+	thrust = 150
 	fuel_use = 0
 	cooldown = 45
 	var/usage_rate = 15
@@ -79,8 +79,8 @@
 //=============================
 
 /obj/machinery/power/engine_capacitor_bank
-	name = "thruster capacitor bank"
-	desc = "A capacitor bank that stores power for high-energy ion thrusters."
+	name = "конденсаторная батарея двигателя"
+	desc = "Конденсаторная батарея, которая накапливает энергию для высокоэнергетических ионных двигателей."
 	icon_state = "heater_ion"
 	icon = 'icons/turf/shuttle.dmi'
 	density = TRUE
@@ -115,7 +115,7 @@
 
 /obj/machinery/power/engine_capacitor_bank/examine(mob/user)
 	. = ..()
-	. += "The capacitor bank reads [stored_power]W of power stored.<br>"
+	. += "Батарея конденсаторов считывает [stored_power]Вт накопленной мощности.<br>"
 
 /obj/machinery/power/engine_capacitor_bank/process(delta_time)
 	take_power(delta_time)
@@ -175,8 +175,8 @@
 	stored_power = rand(0, stored_power)
 
 /obj/machinery/power/engine_capacitor_bank/escape_pod
-	name = "emergency thruster capacitor bank"
-	desc = "A single-use, non-rechargable, high-capacitor capacitor bank used for getting shuttles away from a location fast."
+	name = "конденсаторная батарея аварийного двигателя"
+	desc = "Одноразовая, неперезаряжаемая батарея конденсаторов с высокой емкостью, используемая для быстрой доставки шаттлов с места на место."
 	//Starts with maximum power
 	stored_power = 600
 	//Cannot be recharged
@@ -196,8 +196,8 @@
 //=============================
 
 /obj/machinery/shuttle/engine/ion/burst
-	name = "burst ion thruster"
-	desc = "A varient of the ion thruster that uses significantly more power for a burst of thrust."
+	name = "реактивный ионный двигатель"
+	desc = "Вариант ионного двигателя, который использует значительно большую мощность для увеличения тяги."
 
 	circuit = /obj/item/circuitboard/machine/shuttle/engine/ion
 	//Must faster

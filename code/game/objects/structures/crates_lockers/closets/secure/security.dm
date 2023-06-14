@@ -44,7 +44,7 @@
 	new /obj/item/clothing/neck/petcollar(src)
 	new /obj/item/pet_carrier(src)
 	new /obj/item/door_remote/civilian(src)
-	new /obj/item/circuitboard/machine/techfab/department/service(src)
+	new /obj/item/circuitboard/machine/mechfab/service(src)
 	new /obj/item/storage/photo_album/hop(src)
 	new /obj/item/storage/lockbox/medal/hop(src)
 
@@ -68,7 +68,6 @@
 	new /obj/item/storage/box/flashbangs(src)
 	new /obj/item/shield/riot/tele(src)
 	new /obj/item/storage/belt/security/full(src)
-	new /obj/item/circuitboard/machine/techfab/department/security(src)
 	new /obj/item/circuitboard/machine/mechfab/sb(src)
 	new /obj/item/storage/photo_album/hos(src)
 	new /obj/item/inspector(src)

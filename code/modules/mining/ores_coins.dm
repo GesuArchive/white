@@ -8,12 +8,12 @@
 /**********************Mineral ores**************************/
 
 /obj/item/stack/ore
-	name = "rock"
+	name = "камень"
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "ore"
 	inhand_icon_state = "ore"
 	full_w_class = WEIGHT_CLASS_BULKY
-	singular_name = "ore chunk"
+	singular_name = "кусок камня"
 	var/points = 0 //How many points this ore gets you from the ore redemption machine
 	var/refined_type = null //What this ore defaults to being refined into
 	var/mine_experience = 5 //How much experience do you get for mining this ore?
@@ -67,10 +67,10 @@
 			qdel(src)
 
 /obj/item/stack/ore/uranium
-	name = "uranium ore"
+	name = "урановая руда"
 	icon_state = "Uranium ore"
 	inhand_icon_state = "Uranium ore"
-	singular_name = "uranium ore chunk"
+	singular_name = "кусок урановой руды"
 	points = 30
 	material_flags = MATERIAL_NO_EFFECTS
 	mats_per_unit = list(/datum/material/uranium=MINERAL_MATERIAL_AMOUNT)
@@ -81,10 +81,10 @@
 	merge_type = /obj/item/stack/ore/uranium
 
 /obj/item/stack/ore/iron
-	name = "iron ore"
+	name = "железная руда"
 	icon_state = "Iron ore"
 	inhand_icon_state = "Iron ore"
-	singular_name = "iron ore chunk"
+	singular_name = "кусок железной руды"
 	points = 1
 	mats_per_unit = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
 	refined_type = /obj/item/stack/sheet/iron
@@ -94,11 +94,11 @@
 	merge_type = /obj/item/stack/ore/iron
 
 /obj/item/stack/ore/coal
-	name = "coal ore"
+	name = "ископаемый уголь"
 	icon = 'white/valtos/icons/prison/prison.dmi'
 	icon_state = "coal"
 	inhand_icon_state = "Iron ore"
-	singular_name = "coal ore chunk"
+	singular_name = "кусок ископаемого угля"
 	points = 1
 	refined_type = /obj/item/stack/sheet/mineral/coal
 	mine_experience = 1
@@ -113,10 +113,10 @@
 	qdel(src)
 
 /obj/item/stack/ore/glass
-	name = "sand pile"
+	name = "песчаник"
 	icon_state = "Glass ore"
 	inhand_icon_state = "Glass ore"
-	singular_name = "sand pile"
+	singular_name = "россыпь песчаника"
 	points = 1
 	mats_per_unit = list(/datum/material/glass=MINERAL_MATERIAL_AMOUNT)
 	refined_type = /obj/item/stack/sheet/glass
@@ -125,7 +125,7 @@
 	merge_type = /obj/item/stack/ore/glass
 
 GLOBAL_LIST_INIT(sand_recipes, list(\
-		new /datum/stack_recipe("песчаник", /obj/item/stack/sheet/mineral/sandstone, 1, 1, 50),\
+		new /datum/stack_recipe("спресованный песчаник", /obj/item/stack/sheet/mineral/sandstone, 1, 1, 50),\
 		new /datum/stack_recipe("декоративная вулканическая плитка", /obj/item/stack/tile/basalt, 2, 1, 50)\
 ))
 
@@ -138,12 +138,12 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 		return
 	var/mob/living/carbon/human/C = hit_atom
 	if(C.is_eyes_covered())
-		C.visible_message(span_danger("[C] eye protection blocks the sand!") , span_warning("Your eye protection blocks the sand!"))
+		C.visible_message(span_danger("Песок беспомощно стекает с защитного визора жертвы!") , span_warning("Защита глаз блокирует кинутый в меня песок!"))
 		return
 	C.adjust_blurriness(6)
 	C.adjustStaminaLoss(15)//the pain from your eyes burning does stamina damage
 	C.add_confusion(5)
-	to_chat(C, span_userdanger("<b>[capitalize(src)]</b> gets into your eyes! The pain, it burns!"))
+	to_chat(C, span_userdanger("<b>Песок</b> попал прямо в глаза! Я ничего не вижу!"))
 	qdel(src)
 
 /obj/item/stack/ore/glass/ex_act(severity, target)
@@ -152,18 +152,18 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	qdel(src)
 
 /obj/item/stack/ore/glass/basalt
-	name = "volcanic ash"
+	name = "вулканический пепел"
 	icon_state = "volcanic_sand"
 	inhand_icon_state = "volcanic_sand"
-	singular_name = "volcanic ash pile"
+	singular_name = "горсть вулканического пепла"
 	mine_experience = 0
 	merge_type = /obj/item/stack/ore/glass/basalt
 
 /obj/item/stack/ore/plasma
-	name = "plasma ore"
+	name = "плазменная руда"
 	icon_state = "Plasma ore"
 	inhand_icon_state = "Plasma ore"
-	singular_name = "plasma ore chunk"
+	singular_name = "кусок плазменной руды"
 	points = 15
 	mats_per_unit = list(/datum/material/plasma=MINERAL_MATERIAL_AMOUNT)
 	refined_type = /obj/item/stack/sheet/mineral/plasma
@@ -173,14 +173,14 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	merge_type = /obj/item/stack/ore/plasma
 
 /obj/item/stack/ore/plasma/welder_act(mob/living/user, obj/item/I)
-	to_chat(user, span_warning("You can't hit a high enough temperature to smelt [src] properly!"))
+	to_chat(user, span_warning("Для расплава плазмы требуется более высокая температура!"))
 	return TRUE
 
 /obj/item/stack/ore/silver
-	name = "silver ore"
+	name = "серебряная руда"
 	icon_state = "Silver ore"
 	inhand_icon_state = "Silver ore"
-	singular_name = "silver ore chunk"
+	singular_name = "кусок серебряной руды"
 	points = 16
 	mine_experience = 3
 	mats_per_unit = list(/datum/material/silver=MINERAL_MATERIAL_AMOUNT)
@@ -190,10 +190,10 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	merge_type = /obj/item/stack/ore/silver
 
 /obj/item/stack/ore/gold
-	name = "gold ore"
+	name = "золотая руда"
 	icon_state = "Gold ore"
 	inhand_icon_state = "Gold ore"
-	singular_name = "gold ore chunk"
+	singular_name = "кусок золотой руды"
 	points = 18
 	mine_experience = 5
 	mats_per_unit = list(/datum/material/gold=MINERAL_MATERIAL_AMOUNT)
@@ -203,10 +203,10 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	merge_type = /obj/item/stack/ore/gold
 
 /obj/item/stack/ore/diamond
-	name = "diamond ore"
+	name = "алмазная руда"
 	icon_state = "Diamond ore"
 	inhand_icon_state = "Diamond ore"
-	singular_name = "diamond ore chunk"
+	singular_name = "кусок алмазной руды"
 	points = 50
 	mats_per_unit = list(/datum/material/diamond=MINERAL_MATERIAL_AMOUNT)
 	refined_type = /obj/item/stack/sheet/mineral/diamond
@@ -215,10 +215,10 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	merge_type = /obj/item/stack/ore/diamond
 
 /obj/item/stack/ore/bananium
-	name = "bananium ore"
+	name = "банановая руда"
 	icon_state = "Bananium ore"
 	inhand_icon_state = "Bananium ore"
-	singular_name = "bananium ore chunk"
+	singular_name = "кусок банановой руды"
 	points = 60
 	mats_per_unit = list(/datum/material/bananium=MINERAL_MATERIAL_AMOUNT)
 	refined_type = /obj/item/stack/sheet/mineral/bananium
@@ -227,10 +227,10 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	merge_type = /obj/item/stack/ore/bananium
 
 /obj/item/stack/ore/titanium
-	name = "titanium ore"
+	name = "титановая руда"
 	icon_state = "Titanium ore"
 	inhand_icon_state = "Titanium ore"
-	singular_name = "titanium ore chunk"
+	singular_name = "кусок титановой руды"
 	points = 50
 	mats_per_unit = list(/datum/material/titanium=MINERAL_MATERIAL_AMOUNT)
 	refined_type = /obj/item/stack/sheet/mineral/titanium
@@ -240,16 +240,16 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	merge_type = /obj/item/stack/ore/titanium
 
 /obj/item/stack/ore/slag
-	name = "slag"
-	desc = "Completely useless."
+	name = "шлак"
+	desc = "Совершенно бесполезен"
 	icon_state = "slag"
 	inhand_icon_state = "slag"
 	singular_name = "slag chunk"
 	merge_type = /obj/item/stack/ore/slag
 
 /obj/item/gibtonite
-	name = "gibtonite ore"
-	desc = "Extremely explosive if struck with mining equipment, Gibtonite is often used by miners to speed up their work by using it as a mining charge. This material is illegal to possess by unauthorized personnel under space law."
+	name = "гибтонитовая руда"
+	desc = "Чрезвычайно взрывоопасный при ударе горнорудным оборудованием, гибтонит часто используется шахтерами для ускорения своей работы, используя его в качестве шахтного заряда. Владение этим материалом неуполномоченным персоналом незаконно в соответствии с космическим законодательством."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "Gibtonite ore"
 	inhand_icon_state = "Gibtonite ore"
@@ -375,13 +375,14 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	force = 1
 	throwforce = 2
 	w_class = WEIGHT_CLASS_TINY
-	custom_materials = list(/datum/material/iron = 400)
+	custom_materials = list(/datum/material/iron = 1000)
 	material_flags = MATERIAL_ADD_PREFIX | MATERIAL_COLOR | MATERIAL_AFFECT_STATISTICS
 	var/string_attached
 	var/list/sideslist = list("heads","tails")
 	var/cooldown = 0
 	var/value
 	var/coinflip
+	var/ru_coinflip
 	var/random_position = TRUE
 	item_flags = NO_MAT_REDEMPTION //You know, it's kind of a problem that money is worth more extrinsicly than intrinsically in this universe.
 
@@ -424,21 +425,21 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 
 /obj/item/coin/examine(mob/user)
 	. = ..()
-	. += "<hr><span class='info'>It's worth [value] credit\s.</span>"
+	. += "<hr><span class='info'>Она стоит [value] кредитов.</span>"
 
 /obj/item/coin/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/CC = W
 		if(string_attached)
-			to_chat(user, span_warning("There already is a string attached to this coin!"))
+			to_chat(user, span_warning("К этой монете уже привязана веревочка!"))
 			return
 
 		if (CC.use(1))
 			add_overlay("coin_string_overlay")
 			string_attached = 1
-			to_chat(user, span_notice("You attach a string to the coin."))
+			to_chat(user, span_notice("Привязываю ниточку к монетке."))
 		else
-			to_chat(user, span_warning("You need one length of cable to attach a string to the coin!"))
+			to_chat(user, span_warning("Вам понадобится один отрезок кабеля, чтобы прикрепить нитку к монете!"))
 			return
 	else
 		..()
@@ -451,13 +452,13 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	new /obj/item/stack/cable_coil(drop_location(), 1)
 	overlays = list()
 	string_attached = null
-	to_chat(user, span_notice("You detach the string from the coin."))
+	to_chat(user, span_notice("Отвязываю ниточку от монетки"))
 	return TRUE
 
 /obj/item/coin/attack_self(mob/user)
 	if(cooldown < world.time)
 		if(string_attached) //does the coin have a wire attached
-			to_chat(user, span_warning("The coin won't flip very well with something attached!")  )
+			to_chat(user, span_warning("Монета не очень хорошо переворачивается, если к ней что-то прикреплено!")  )
 			return FALSE//do not flip the coin
 		cooldown = world.time + 15
 		flick("coin_[coinflip]_flip", src)
@@ -467,66 +468,92 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 		var/oldloc = loc
 		sleep(15)
 		if(loc == oldloc && user && !user.incapacitated())
-			user.visible_message(span_notice("[user] flips [src]. It lands on [coinflip].") , \
-				span_notice("You flip [src]. It lands on [coinflip].") , \
-				span_hear("You hear the clattering of loose change."))
+			if(coinflip == "heads")
+				ru_coinflip = "орла"
+			else
+				ru_coinflip = "решку"
+			user.visible_message(span_notice("[user] подбрасывает монету. Она приземляется на [ru_coinflip].") , \
+				span_notice("Подбрасываю монету. Она приземляется на [ru_coinflip].") , \
+				span_hear("Слышу звон монеты."))
 	return TRUE//did the coin flip? useful for suicide_act
-
-/obj/item/coin/gold
-	custom_materials = list(/datum/material/gold = 400)
-
-/obj/item/coin/silver
-	custom_materials = list(/datum/material/silver = 400)
-
-/obj/item/coin/diamond
-	custom_materials = list(/datum/material/diamond = 400)
-
-/obj/item/coin/plasma
-	custom_materials = list(/datum/material/plasma = 400)
-
-/obj/item/coin/uranium
-	custom_materials = list(/datum/material/uranium = 400)
-
-/obj/item/coin/titanium
-	custom_materials = list(/datum/material/titanium = 400)
-
-/obj/item/coin/bananium
-	custom_materials = list(/datum/material/bananium = 400)
-
-/obj/item/coin/adamantine
-	custom_materials = list(/datum/material/adamantine = 400)
-
-/obj/item/coin/mythril
-	custom_materials = list(/datum/material/mythril = 400)
-
-/obj/item/coin/plastic
-	custom_materials = list(/datum/material/plastic = 400)
-
-/obj/item/coin/runite
-	custom_materials = list(/datum/material/runite = 400)
-
-/obj/item/coin/twoheaded
-	desc = "Hey, this coin's the same on both sides!"
-	sideslist = list("heads")
-
-/obj/item/coin/antagtoken
-	name = "antag token"
-	desc = "A novelty coin that helps the heart know what hard evidence cannot prove."
-	icon_state = "coin_valid"
-	custom_materials = list(/datum/material/plastic = 400)
-	sideslist = list("valid", "salad")
-	material_flags = NONE
 
 /obj/item/coin/iron
 
+/obj/item/coin/gold
+	custom_materials = list(/datum/material/gold = 1000)
+
+/obj/item/coin/silver
+	custom_materials = list(/datum/material/silver = 1000)
+
+/obj/item/coin/diamond
+	custom_materials = list(/datum/material/diamond = 1000)
+
+/obj/item/coin/plasma
+	custom_materials = list(/datum/material/plasma = 1000)
+
+/obj/item/coin/uranium
+	custom_materials = list(/datum/material/uranium = 1000)
+
+/obj/item/coin/titanium
+	custom_materials = list(/datum/material/titanium = 1000)
+
+/obj/item/coin/bananium
+	custom_materials = list(/datum/material/bananium = 1000)
+
+/obj/item/coin/adamantine
+	custom_materials = list(/datum/material/adamantine = 1000)
+
+/obj/item/coin/mythril
+	custom_materials = list(/datum/material/mythril = 1000)
+
+/obj/item/coin/plastic
+	custom_materials = list(/datum/material/plastic = 1000)
+
+/obj/item/coin/runite
+	custom_materials = list(/datum/material/runite = 1000)
+
+/obj/item/coin/twoheaded
+	desc = "Эй, эта монета одинакова с обеих сторон!"
+	sideslist = list("heads")
+
+/obj/item/coin/antagtoken
+	name = "валидная монета"
+	desc = "Блестящая монета которая примет на себя бремя принятия решения."
+	icon_state = "coin_valid"
+	custom_materials = list(/datum/material/plastic = 1000)
+	sideslist = list("valid", "salad")
+	material_flags = NONE
+
+/obj/item/coin/antagtoken/attack_self(mob/user)
+	if(cooldown < world.time)
+		if(string_attached) //does the coin have a wire attached
+			to_chat(user, span_warning("Монета не очень хорошо переворачивается, если к ней что-то прикреплено!")  )
+			return FALSE//do not flip the coin
+		cooldown = world.time + 15
+		flick("coin_[coinflip]_flip", src)
+		coinflip = pick(sideslist)
+		icon_state = "coin_[coinflip]"
+		playsound(user.loc, 'sound/items/coinflip.ogg', 50, TRUE)
+		var/oldloc = loc
+		sleep(15)
+		if(loc == oldloc && user && !user.incapacitated())
+			if(coinflip == "valid")
+				ru_coinflip = "валид"
+			else
+				ru_coinflip = "гринтекст"
+			user.visible_message(span_notice("[user] подбрасывает монету. Она приземляется на [ru_coinflip].") , \
+				span_notice("Подбрасываю монету. Она приземляется на [ru_coinflip].") , \
+				span_hear("Слышу звон монеты."))
+	return TRUE//did the coin flip? useful for suicide_act
+
 /obj/item/coin/gold/debug
-	custom_materials = list(/datum/material/gold = 400)
-	desc = "If you got this somehow, be aware that it will dust you. Almost certainly."
+	custom_materials = list(/datum/material/gold = 1000)
+	desc = "Если вы каким-то образом получили это, имейте в виду, что это сотрет вас в порошок. Почти наверняка."
 
 /obj/item/coin/gold/debug/attack_self(mob/user)
 	if(cooldown < world.time)
 		if(string_attached) //does the coin have a wire attached
-			to_chat(user, span_warning("The coin won't flip very well with something attached!")  )
+			to_chat(user, span_warning("Монета не очень хорошо переворачивается, если к ней что-то прикреплено!")  )
 			return FALSE//do not flip the coin
 		cooldown = world.time + 15
 		flick("coin_[coinflip]_flip", src)
@@ -536,11 +563,15 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 		var/oldloc = loc
 		sleep(15)
 		if(loc == oldloc && user && !user.incapacitated())
-			user.visible_message(span_notice("[user] flips [src]. It lands on [coinflip].") , \
-				span_notice("You flip [src]. It lands on [coinflip].") , \
-				span_hear("You hear the clattering of loose change."))
+			if(coinflip == "heads")
+				ru_coinflip = "орла"
+			else
+				ru_coinflip = "решку"
+			user.visible_message(span_notice("[user] подбрасывает монету. Она приземляется на [ru_coinflip].") , \
+				span_notice("Подбрасываю монету. Она приземляется на [ru_coinflip].") , \
+				span_hear("Слышу звон монеты."))
 		SSeconomy.fire()
-		to_chat(user,span_bounty("[SSeconomy.inflation_value()] is the inflation value."))
+		to_chat(user,span_bounty("[SSeconomy.inflation_value()] является значением инфляции."))
 	return TRUE//did the coin flip? useful for suicide_act
 
 #undef ORESTACK_OVERLAYS_MAX

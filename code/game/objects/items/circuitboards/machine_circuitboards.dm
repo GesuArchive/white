@@ -662,8 +662,8 @@
 	)
 
 /obj/item/circuitboard/machine/fax
-	name = "Факс"
-	desc = "Fucks."
+	name = "факс"
+	desc = "Блюспейс технологии применённые во имя бюрократии."
 	greyscale_colors = CIRCUIT_COLOR_GENERIC
 	build_path = /obj/machinery/fax
 	req_components = list(
@@ -686,6 +686,19 @@
 		/obj/item/stack/sheet/glass = 1,
 		/obj/item/stock_parts/cell = 1)
 	def_components = list(/obj/item/stock_parts/cell = /obj/item/stock_parts/cell/high)
+	needs_anchored = FALSE
+
+/obj/item/circuitboard/machine/chem_mass_spec
+	name = "плата хим-раздатчика"
+	desc = "Создает и выдает химикаты."
+	greyscale_colors = CIRCUIT_COLOR_MEDICAL
+	build_path = /obj/machinery/chem_mass_spec
+	req_components = list(
+		/obj/item/reagent_containers/glass/beaker = 2,
+		/obj/item/stock_parts/matter_bin = 2,
+		/obj/item/stock_parts/capacitor = 1,
+		/obj/item/stock_parts/manipulator = 1,
+		/obj/item/stack/sheet/glass = 1)
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/chem_dispenser/fullupgrade
@@ -1511,7 +1524,8 @@
 		/obj/item/stock_parts/scanning_module = 4)
 
 /obj/item/circuitboard/machine/tank_compressor
-	name = "Tank Compressor"
+	name = "компрессор"
+	desc = "Сверхмощный экранированный воздушный компрессор, предназначенный для создания давления в резервуарах выше безопасного предела."
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/atmospherics/components/binary/tank_compressor
 	req_components = list(
@@ -1521,6 +1535,7 @@
 
 /obj/item/circuitboard/machine/coffeemaker
 	name = "кофеварка"
+	desc = "Кофеварка Modello 3, которая варит кофе и поддерживает его идеальную температуру 176 градусов по Фаренгейту. Изготовлена компанией Piccionaia Home Appliances."
 	greyscale_colors = CIRCUIT_COLOR_SERVICE
 	build_path = /obj/machinery/coffeemaker
 	req_components = list(
@@ -1531,7 +1546,7 @@
 		/obj/item/stock_parts/micro_laser = 1,
 	)
 
-/obj/item/circuitboard/machine/shuttle/engine
+/obj/item/circuitboard/machine/shuttle/engine	// не используется
 	name = "thruster (Machine Board)"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/shuttle/engine
@@ -1555,13 +1570,14 @@
 
 /obj/item/circuitboard/machine/shuttle/heater
 	name = "предзажигатель двигателя"
-	desc = "Направляет энергию в сжатые частицы для приведения в действие присоединенного двигателя."
+	desc = "Направляет энергию в сжатые частицы для приведения в действие присоединенного двигателя. Хотя двигатель можно разогнать, залив его тритием, это приведет к аннулированию гарантии."
 	build_path = /obj/machinery/atmospherics/components/unary/shuttle/engine_heater
 	req_components = list(/obj/item/stock_parts/micro_laser = 2,
 		/obj/item/stock_parts/matter_bin = 1)
 
 /obj/item/circuitboard/machine/plasma_refiner
-	name = "plasma refinery (Machine Board)"
+	name = "плазменный сублиматор"
+	desc = "Сублиматор, который перерабатывает плазменные листы в плазменный газ."
 	build_path = /obj/machinery/atmospherics/components/unary/plasma_refiner
 	req_components = list(
 		/obj/item/stock_parts/micro_laser = 2,
@@ -1570,18 +1586,21 @@
 	)
 
 /obj/item/circuitboard/machine/shuttle/engine/ion
-	name = "ion thruster (Machine Board)"
+	name = "ионный двигатель"
+	desc = "Двигатель, который выбрасывает ионы для создания тяги. Слабый, но простой в обслуживании."
 	build_path = /obj/machinery/shuttle/engine/ion
 	req_components = list(/obj/item/stock_parts/capacitor = 2,
 		/obj/item/stack/cable_coil = 5,
 		/obj/item/stock_parts/micro_laser = 1)
 
 /obj/item/circuitboard/machine/shuttle/engine/ion/burst
-	name = "ion burst thruster (Machine Board)"
+	name = "реактивный ионный двигатель"
+	desc = "Вариант ионного двигателя, который использует значительно большую мощность для увеличения тяги."
 	build_path = /obj/machinery/shuttle/engine/ion/burst
 
 /obj/item/circuitboard/machine/shuttle/capacitor_bank
-	name = "ion thruster capacitor bank (Machine Board)"
+	name = "конденсаторная батарея двигателя"
+	desc = "Конденсаторная батарея, которая накапливает энергию для высокоэнергетических ионных двигателей."
 	build_path = /obj/machinery/power/engine_capacitor_bank
 	req_components = list(
 		/obj/item/stock_parts/capacitor = 3,

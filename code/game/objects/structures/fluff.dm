@@ -81,6 +81,85 @@
 	layer = EDGED_TURF_LAYER
 	plane = GAME_PLANE_UPPER
 
+/obj/structure/fluff/meteor
+	name = "метеорит"
+	desc = "Этот огромный кусок камня с вкраплениями руды даже можно посчитать красивым, особенно когда он не летит в тебя на огромной скорости."
+	icon = 'icons/obj/meteor.dmi'
+	icon_state = "pod"
+	density = TRUE
+	deconstructible = FALSE
+	layer = EDGED_TURF_LAYER
+	plane = GAME_PLANE_UPPER
+	var/meteor_icon_state = "large"
+	var/list/meteordrop = list(/obj/item/stack/ore/iron)
+	var/mutable_appearance/meteor_overlay
+
+/obj/structure/fluff/meteor/Initialize(mapload)
+	. = ..()
+	meteor_overlay = mutable_appearance(icon, meteor_icon_state)
+	var/matrix/M = matrix()
+	M.Translate(0, 5)
+	meteor_overlay.transform = M
+	add_overlay(meteor_overlay)
+
+/obj/structure/fluff/meteor/attackby(obj/item/I, mob/user, params)
+	if(I.tool_behaviour == TOOL_MINING)
+		var/thing_to_spawn = pick(meteordrop)
+		new thing_to_spawn(get_turf(src))
+		cut_overlay(meteor_overlay)
+		density = FALSE
+		name = "подставка метеорита"
+	else
+		. = ..()
+
+/obj/structure/fluff/meteor/Destroy()
+	if(prob(50))
+		var/thing_to_spawn = pick(meteordrop)
+		new thing_to_spawn(get_turf(src))
+	. = ..()
+
+/obj/structure/fluff/meteor/silver
+	meteor_icon_state = "silver"
+	meteordrop = list(/obj/item/stack/ore/silver)
+
+/obj/structure/fluff/meteor/gold
+	meteor_icon_state = "gold"
+	meteordrop = list(/obj/item/stack/ore/gold)
+
+/obj/structure/fluff/meteor/titanium
+	meteor_icon_state = "titanium"
+	meteordrop = list(/obj/item/stack/ore/titanium)
+
+/obj/structure/fluff/meteor/diamond
+	meteor_icon_state = "diamond"
+	meteordrop = list(/obj/item/stack/ore/diamond)
+
+/obj/structure/fluff/meteor/bsc
+	meteor_icon_state = "bsc"
+	meteordrop = list(/obj/item/stack/ore/bluespace_crystal)
+
+/obj/structure/fluff/meteor/plasma
+	meteor_icon_state = "flaming"
+	meteordrop = list(/obj/item/stack/ore/plasma)
+
+/obj/structure/fluff/meteor/uranium
+	meteor_icon_state = "glowing"
+	meteordrop = list(/obj/item/stack/ore/uranium)
+
+/obj/effect/spawner/random/decoration/meteor
+	name = "случайный метеор"
+	icon_state = "statue"
+	loot = list(
+		/obj/structure/fluff/meteor,
+		/obj/structure/fluff/meteor/silver,
+		/obj/structure/fluff/meteor/gold,
+		/obj/structure/fluff/meteor/titanium,
+		/obj/structure/fluff/meteor/diamond,
+		/obj/structure/fluff/meteor/bsc,
+		/obj/structure/fluff/meteor/plasma,
+		/obj/structure/fluff/meteor/uranium,
+	)
+
 /obj/structure/fluff/bus
 	name = "автобус"
 	desc = "ИДИ В ШКОЛУ. ПОЧИТАЙ КНИГУ."

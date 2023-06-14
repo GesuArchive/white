@@ -35,7 +35,7 @@
 
 /obj/item/melee/synthetic_arm_blade
 	name = "синтетическая рука-лезвие"
-	desc = "A grotesque blade that on closer inspection seems to be made out of synthetic flesh, it still feels like it would hurt very badly as a weapon."
+	desc = "Гротескный клинок, который при ближайшем рассмотрении кажется сделанным из синтетической плоти, все равно кажется, что в качестве оружия он причинял бы очень сильную боль."
 	icon = 'icons/obj/changeling_items.dmi'
 	icon_state = "arm_blade"
 	inhand_icon_state = "arm_blade"
@@ -139,8 +139,8 @@
 	REMOVE_TRAIT(src, TRAIT_NODROP, SABRE_SUICIDE_TRAIT)
 
 /obj/item/melee/beesword
-	name = "The Stinger"
-	desc = "Taken from a giant bee and folded over one thousand times in pure honey. Can sting through anything."
+	name = "\"Жало\""
+	desc = "Взятый у гигантской пчелы и сложенный более чем в тысячу раз в чистом меду. Может ужалить насквозь что угодно."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "beesword"
 	inhand_icon_state = "stinger"
@@ -154,8 +154,8 @@
 	throwforce = 10
 	block_chance = 20
 	armour_penetration = 65
-	attack_verb_continuous = list("slashes", "stings", "prickles", "pokes")
-	attack_verb_simple = list("slash", "sting", "prickle", "poke")
+	attack_verb_continuous = list("режет", "колет", "тычет", "прокалывает")
+	attack_verb_simple = list("режет", "колет", "тычет", "прокалывает")
 	hitsound = 'sound/weapons/rapierhit.ogg'
 	block_sounds = list('sound/weapons/sword_p1.ogg', 'sound/weapons/sword_p2.ogg', 'sound/weapons/sword_p3.ogg')
 

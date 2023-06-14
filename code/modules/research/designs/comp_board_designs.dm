@@ -11,14 +11,20 @@
 	desc = "Не поддерживает Пинбол."
 	id = "arcade_battle"
 	build_path = /obj/item/circuitboard/computer/arcade/battle
-	category = list("Консоли")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	category = list("Консоли", "Оборудование сервиса")
+	sub_category = list("Игровые автоматы")
 
 /datum/design/board/orion_trail
 	name = "Пояс Ориона"
 	desc = "Узнайте, как наши предки попали на Орион, и получайте удовольствие в процессе!"
 	id = "arcade_orion"
 	build_path = /obj/item/circuitboard/computer/arcade/orion_trail
-	category = list("Консоли")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	category = list("Консоли", "Оборудование сервиса")
+	sub_category = list("Игровые автоматы")
 
 /datum/design/board/seccamera
 	name = "Консоль камер видеонаблюдения"
@@ -186,7 +192,10 @@
 	desc = "Для самых смелых."
 	id = "slotmachine"
 	build_path = /obj/item/circuitboard/computer/slot_machine
-	category = list("Консоли")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	category = list("Консоли", "Оборудование сервиса")
+	sub_category = list("Игровые автоматы")
 
 
 /datum/design/board/powermonitor
@@ -348,7 +357,10 @@
 	desc = "Выписанные книги ДОЛЖНЫ быть возвращены вовремя."
 	id = "libraryconsole"
 	build_path = /obj/item/circuitboard/computer/libraryconsole
-	category = list("Консоли")
+	build_type = IMPRINTER | MECHFAB
+	construction_time = 40
+	category = list("Консоли", "Оборудование сервиса")
+	sub_category = list("Прочее")
 
 
 /datum/design/board/apc_control
@@ -421,7 +433,7 @@
 	desc = "Используется для проверки и выполнений заказов ЦК"
 	id = "bounty"
 	build_path = /obj/item/circuitboard/computer/bounty
-	category = list("Консоли", "Инженерное оборудование", "Карго оборудование")
+	category = list("Консоли", "Инженерное оборудование", "Карго оборудование", "Оборудование сервиса")
 	sub_category = list("Доставка")
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
@@ -454,5 +466,5 @@
 	build_type = IMPRINTER | MECHFAB
 	construction_time = 40
 	category = list("Консоли", "Спейсподы и шаттлостроение")
-	sub_category = list("шаттлостроение")
+	sub_category = list("Шаттлостроение")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING

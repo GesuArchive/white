@@ -30,13 +30,13 @@
 
 /obj/machinery/porta_turret/armory
 	name = "оборонительная турель"
-	desc = "An energy blaster auto-turret with an internal fusion core. Not dangerous in the slightest."
+	desc = "Автоматическая энерготурель с внутренним термоядерным ядром. Ни в малейшей степени не опасно."
 	installation = null
 	stun_projectile = /obj/projectile/energy/electrode
 	stun_projectile_sound = 'sound/weapons/taser.ogg'
 	lethal_projectile = /obj/projectile/beam/laser/penetrator
 	lethal_projectile_sound = 'sound/weapons/lasercannonfire.ogg'
-	max_integrity = 200
+	max_integrity = 300
 	mode = TURRET_LETHAL
 	uses_stored = FALSE
 	always_up = TRUE
@@ -65,6 +65,9 @@
 	if(. && istype(get_area(perp), def_area))
 		return 10
 	return 0
+
+/obj/machinery/porta_turret/armory/low_power
+	lethal_projectile = /obj/projectile/beam/laser
 
 /obj/projectile/beam/laser/penetrator
 	damage = 40

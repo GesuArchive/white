@@ -84,7 +84,7 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 /obj/item/storage/part_replacer/bluespace/tier1
 
 /obj/item/storage/part_replacer/bluespace/tier1/PopulateContents()
-	for(var/i in 1 to 10)
+	for(var/i in 1 to 20)
 		new /obj/item/stock_parts/capacitor(src)
 		new /obj/item/stock_parts/scanning_module(src)
 		new /obj/item/stock_parts/manipulator(src)
@@ -95,7 +95,7 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 /obj/item/storage/part_replacer/bluespace/tier2
 
 /obj/item/storage/part_replacer/bluespace/tier2/PopulateContents()
-	for(var/i in 1 to 10)
+	for(var/i in 1 to 20)
 		new /obj/item/stock_parts/capacitor/adv(src)
 		new /obj/item/stock_parts/scanning_module/adv(src)
 		new /obj/item/stock_parts/manipulator/nano(src)
@@ -106,7 +106,7 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 /obj/item/storage/part_replacer/bluespace/tier3
 
 /obj/item/storage/part_replacer/bluespace/tier3/PopulateContents()
-	for(var/i in 1 to 10)
+	for(var/i in 1 to 20)
 		new /obj/item/stock_parts/capacitor/super(src)
 		new /obj/item/stock_parts/scanning_module/phasic(src)
 		new /obj/item/stock_parts/manipulator/pico(src)
@@ -117,7 +117,7 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 /obj/item/storage/part_replacer/bluespace/tier4
 
 /obj/item/storage/part_replacer/bluespace/tier4/PopulateContents()
-	for(var/i in 1 to 10)
+	for(var/i in 1 to 20)
 		new /obj/item/stock_parts/capacitor/quadratic(src)
 		new /obj/item/stock_parts/scanning_module/triphasic(src)
 		new /obj/item/stock_parts/manipulator/femto(src)

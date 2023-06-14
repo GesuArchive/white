@@ -114,7 +114,7 @@
 
 /datum/award/achievement/misc/ascension
 	name = "Восхождение"
-	desc = "Убей их. Ибо Господь знает, кто его."
+	desc = "Убивай всех подряд! А Господь на том свете разбереться кто свой, а кто чужой."
 	database_id = MEDAL_ASCENSION
 	icon = "ascension"
 

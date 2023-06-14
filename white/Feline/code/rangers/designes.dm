@@ -6,7 +6,7 @@
 	build_type = MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000, /datum/material/titanium = 1000)
-	category = list("Снаряжение", "Инженерное снаряжение", "Карго снаряжение", "Снаряжение СБ")
+	category = list("Снаряжение", "Инженерное снаряжение", "Карго снаряжение", "Снаряжение СБ", "Снаряжение сервиса")
 	sub_category = list("Огнетушители и газовые баллоны")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_CARGO
 
@@ -18,7 +18,7 @@
 	build_type = MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron = 5000)
-	category = list("Снаряжение", "Инженерное снаряжение", "Карго снаряжение", "Снаряжение СБ")
+	category = list("Снаряжение", "Инженерное снаряжение", "Карго снаряжение", "Снаряжение СБ", "Снаряжение сервиса")
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_CARGO
 

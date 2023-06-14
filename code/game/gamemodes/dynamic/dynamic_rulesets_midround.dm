@@ -213,6 +213,7 @@
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
 		JOB_RANGER,
+		JOB_INTERN,
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -273,6 +274,7 @@
 		JOB_WARDEN,
 		JOB_FIELD_MEDIC,
 		JOB_SPECIALIST,
+		JOB_INTERN,
 	)
 	exclusive_roles = list(JOB_AI)
 	required_enemies = list(4,4,4,4,4,4,2,2,2,0)
@@ -334,6 +336,7 @@
 		JOB_FIELD_MEDIC,
 		JOB_SPECIALIST,
 		JOB_CHAPLAIN,
+		JOB_INTERN,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -377,6 +380,7 @@
 		JOB_FIELD_MEDIC,
 		JOB_SPECIALIST,
 		JOB_ASSISTANT,
+		JOB_INTERN,
 	)
 	required_enemies = list(3,3,3,3,3,2,1,1,0,0)
 	required_candidates = 5
@@ -437,6 +441,7 @@
 		JOB_FIELD_MEDIC,
 		JOB_SPECIALIST,
 		JOB_RESEARCH_DIRECTOR,
+		JOB_INTERN,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -468,6 +473,7 @@
 		JOB_WARDEN,
 		JOB_RESEARCH_DIRECTOR,
 		JOB_RANGER,
+		JOB_INTERN,
 
 	)
 	restricted_roles = list(
@@ -483,6 +489,7 @@
 		JOB_FIELD_MEDIC,
 		JOB_SPECIALIST,
 		JOB_RESEARCH_DIRECTOR,
+		JOB_INTERN,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -530,6 +537,7 @@
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
 		JOB_SPECIALIST,
+		JOB_INTERN,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -587,6 +595,7 @@
 		JOB_FIELD_MEDIC,
 		JOB_SPECIALIST,
 		JOB_ASSISTANT,
+		JOB_INTERN,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -641,6 +650,7 @@
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
 		JOB_SPECIALIST,
+		JOB_INTERN,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -693,7 +703,8 @@
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
 		JOB_SPECIALIST,
-		JOB_ASSISTANT
+		JOB_ASSISTANT,
+		JOB_INTERN,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 2
@@ -740,6 +751,7 @@
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
 		JOB_SPECIALIST,
+		JOB_INTERN,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -787,6 +799,7 @@
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
 		JOB_SPECIALIST,
+		JOB_INTERN,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 0
@@ -813,6 +826,7 @@
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
 		JOB_SPECIALIST,
+		JOB_INTERN,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -887,6 +901,7 @@
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
 		JOB_SPECIALIST,
+		JOB_INTERN,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 0
@@ -922,6 +937,7 @@
 		JOB_SECURITY_OFFICER,
 		JOB_FIELD_MEDIC,
 		JOB_SPECIALIST,
+		JOB_INTERN,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -968,6 +984,7 @@
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
 		JOB_RANGER,
+		JOB_INTERN,
 	)
 	restricted_roles = list(
 		JOB_AI,

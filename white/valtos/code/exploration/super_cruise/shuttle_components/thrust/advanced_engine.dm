@@ -1,6 +1,6 @@
 /obj/machinery/shuttle/engine/advanced
-	name = "advanced shuttle thruster"
-	desc = "An advanced shuttle thruster with extremely low emissions, but extremely high efficiency."
+	name = "продвинутый двигатель шаттла"
+	desc = "Усовершенствованный двигатель шаттла с чрезвычайно низким уровнем выбросов, но чрезвычайно высокой эффективностью."
 	icon_state = "propulsion"
 	icon_state_off = "propulsion"
 	icon_state_closed = "propulsion"
@@ -12,8 +12,8 @@
 
 
 /obj/machinery/shuttle/engine/advanced/large
-	name = "large advanced shuttle thruster"
-	desc = "A very large bluespace engine used to propel very large ships."
+	name = "огромный двигатель шаттла"
+	desc = "Очень большой блюспейс двигатель, используемый для приведения в движение очень больших кораблей."
 	thrust = 2000
 	opacity = 1
 	icon = 'icons/obj/2x2.dmi'

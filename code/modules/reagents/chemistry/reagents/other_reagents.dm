@@ -1855,7 +1855,7 @@
 /datum/reagent/plantnutriment/eznutriment
 	name = "E-Z-Nutrient"
 	enname = "E-Z-Nutrient"
-	description = "Contains electrolytes. It's what plants crave."
+	description = "Содержит электролиты. Это то, чего жаждут растения."
 	color = "#376400" // RBG: 50, 100, 0
 	tox_prob = 5
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -1869,8 +1869,8 @@
 
 /datum/reagent/plantnutriment/left4zednutriment
 	name = "Left 4 Zed"
-	enname = "Robust Harvest"
-	description = "Unstable nutriment that makes plants mutate more often than usual."
+	enname = "Left 4 Zed"
+	description = "Нестабильные удобрения, из-за которой растения мутируют чаще, чем обычно."
 	color = "#1A1E4D" // RBG: 26, 30, 77
 	tox_prob = 13
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -1884,7 +1884,7 @@
 /datum/reagent/plantnutriment/robustharvestnutriment
 	name = "Надежный Урожай"
 	enname = "Robust Harvest"
-	description = "Very potent nutriment that slows plants from mutating."
+	description = "Очень мощное удобрение, которое замедляет мутацию растений."
 	color = "#9D9D00" // RBG: 157, 157, 0
 	tox_prob = 8
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -1897,9 +1897,9 @@
 		myseed.adjust_yield(round(chems.get_reagent_amount(src.type) * 0.2))
 
 /datum/reagent/plantnutriment/endurogrow
-	name = "Эндуро-рост" //я трахать столб дом твой
+	name = "Эндуро-рост"
 	enname = "Enduro Grow"
-	description = "A specialized nutriment, which decreases product quantity and potency, but strengthens the plants endurance."
+	description = "Специализированная подкормка, которая уменьшает количество продукта и их потенциал, но повышает выносливость растений."
 	color = "#a06fa7" // RBG: 160, 111, 167
 	tox_prob = 8
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
@@ -1914,7 +1914,7 @@
 /datum/reagent/plantnutriment/liquidearthquake
 	name = "Жидкая Встряска"
 	enname = "Liquid Earthquake"
-	description = "A specialized nutriment, which increases the plant's production speed, as well as it's susceptibility to weeds."
+	description = "Специализированная подкормка, которая увеличивает скорость роста растения, но также ухудшает его восприимчивость к сорнякам."
 	color = "#912e00" // RBG: 145, 46, 0
 	tox_prob = 13
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED

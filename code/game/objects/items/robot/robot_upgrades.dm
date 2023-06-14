@@ -544,7 +544,7 @@
 			to_chat(user, span_warning("Данный киборг уже является оболочкой ИИ!"))
 			return FALSE
 		if(R.key) //You cannot replace a player unless the key is completely removed.
-			to_chat(user, span_warning("Зарегестрирован интелект класса [R.braintype]. Отмена операции."))
+			to_chat(user, span_warning("Зарегестрирован интеллект класса [R.braintype]. Отмена операции."))
 			return FALSE
 
 		R.make_shell(src)

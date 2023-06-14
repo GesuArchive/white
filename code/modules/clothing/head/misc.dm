@@ -361,7 +361,7 @@
 	icon_state = "jester2"
 
 /obj/item/clothing/head/rice_hat
-	name = "рисовая шапка"
+	name = "рисовая шляпа"
 	desc = "Добро пожаловать на рисовые поля, ублюдок."
 	icon_state = "rice_hat"
 

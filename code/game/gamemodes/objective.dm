@@ -131,7 +131,7 @@ GLOBAL_VAR_INIT(is_cargo_sabotaged, FALSE)
 	for(var/datum/mind/possible_target in get_crewmember_minds())
 		if(is_valid_target(possible_target) && !(possible_target in owners) && ishuman(possible_target.current) && (possible_target.current.stat != DEAD) && is_unique_objective(possible_target,dupe_search_range))
 			if (!(possible_target in blacklist))
-				if (!(possible_target?.assigned_role in list(JOB_RANGER)))
+				if (!(possible_target?.assigned_role in list(JOB_RANGER, JOB_INTERN)))
 					possible_targets += possible_target
 	if(try_target_late_joiners)
 		var/list/all_possible_targets = possible_targets.Copy()

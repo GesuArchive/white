@@ -189,6 +189,8 @@
 			return "Ты не наиграл достаточно времени для [jobtitle]."
 		if(JOB_UNAVAILABLE_ACCOUNTAGE)
 			return "Твой аккаунт слишком молодой для [jobtitle]."
+//		if(JOB_UNAVAILABLE_ACCOUNT_OLD)
+//			return "Твой аккаунт слишком стар для [jobtitle]."
 		if(JOB_UNAVAILABLE_SLOTFULL)
 			return "[jobtitle] уже достаточно на станции."
 		if(JOB_UNAVAILABLE_LOCKED)
@@ -214,6 +216,8 @@
 		return JOB_UNAVAILABLE_GENERIC
 	if(!job.player_old_enough(client))
 		return JOB_UNAVAILABLE_ACCOUNTAGE
+//	if(!job.not_available_in_days(client))
+//		return JOB_UNAVAILABLE_ACCOUNT_OLD
 	if(job.required_playtime_remaining(client))
 		return JOB_UNAVAILABLE_PLAYTIME
 	if(latejoin && !job.special_check_latejoin(client))
@@ -222,8 +226,8 @@
 		return JOB_UNAVAILABLE_UNBUYED
 	if(LAZYLEN(job.whitelisted) && !(ckey in job.whitelisted))
 		return JOB_UNAVAILABLE_UNBUYED
-	if(!job.allow_new_players && !check_whitelist(ckey))
-		return JOB_UNAVAILABLE_WHITELIST
+//	if(!job.allow_new_players && !check_whitelist(ckey))
+//		return JOB_UNAVAILABLE_WHITELIST
 	if(SSviolence.active)
 		var/datum/violence_player/VP = SSviolence.players?[ckey]
 		if(VP?.role_name != rank)

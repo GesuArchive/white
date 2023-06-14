@@ -91,7 +91,6 @@
 	new /obj/item/clothing/neck/petcollar(src)
 	new /obj/item/pet_carrier(src)
 	new /obj/item/wallframe/defib_mount(src)
-	new /obj/item/circuitboard/machine/techfab/department/medical(src)
 	new /obj/item/circuitboard/machine/mechfab/med(src)
 	new /obj/item/storage/photo_album/cmo(src)
 	new /obj/item/storage/box/skillchips/medic(src)

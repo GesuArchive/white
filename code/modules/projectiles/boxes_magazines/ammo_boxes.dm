@@ -103,7 +103,7 @@
 	max_ammo = 14
 
 /obj/item/ammo_box/foambox
-	name = "упаковка пенных дротиков"
+	name = "упаковка пенчиков"
 	desc = "Детям от восьми лет и старше."
 	icon = 'icons/obj/guns/toy.dmi'
 	icon_state = "foambox"
@@ -112,7 +112,7 @@
 	custom_materials = list(/datum/material/iron = 500)
 
 /obj/item/ammo_box/foambox/riot
-	name = "упаковка пенных дротиков антибунт"
+	name = "упаковка резиновых пенчиков"
 	desc = "Повышенного останавливающего возздействия. Детям от восьми лет и старше."
 	icon_state = "foambox_riot"
 	ammo_type = /obj/item/ammo_casing/caseless/foam_dart/riot

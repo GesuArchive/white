@@ -111,6 +111,7 @@
 	new /obj/item/storage/belt/utility/full/engi(src)
 	new /obj/item/gun/energy/plasmacutter/adv/rangers(src)
 	new /obj/item/inducer(src)
+	new /obj/item/storage/part_replacer/bluespace/tier2(src)
 	new /obj/item/stock_parts/cell/hyper(src)
 	new /obj/item/clothing/glasses/meson(src)
 	new /obj/item/clothing/gloves/color/chief_engineer(src)

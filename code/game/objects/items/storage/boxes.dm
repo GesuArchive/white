@@ -128,6 +128,7 @@
 	var/internal_type = /obj/item/tank/internals/emergency_oxygen
 	var/medipen_type = /obj/item/reagent_containers/hypospray/medipen
 	var/bottle_type = /obj/item/reagent_containers/food/drinks/waterbottle/large
+	var/emergency_shield_type = /obj/item/emergency_shield
 
 /obj/item/storage/box/survival/PopulateContents()
 	new mask_type(src)
@@ -138,7 +139,7 @@
 		new internal_type(src)
 	else
 		new /obj/item/tank/internals/plasmaman/belt(src)
-	new /obj/item/emergency_shield(src)
+	new emergency_shield_type(src)
 	new bottle_type(src)
 
 /obj/item/storage/box/survival/radio/PopulateContents()
@@ -188,6 +189,18 @@
 // Medical survival box
 /obj/item/storage/box/survival/medical
 	mask_type = /obj/item/clothing/mask/breath/medical
+
+// Intern survival box
+/obj/item/storage/box/survival/intern
+	internal_type = /obj/item/tank/internals/emergency_oxygen/engi
+	emergency_shield_type = /obj/item/emergency_shield/adv
+
+/obj/item/storage/box/survival/intern/PopulateContents()
+	..()
+	var/burg = pick(subtypesof(/obj/item/food/burger))
+	new burg(src)
+	new /obj/item/stack/medical/suture(src)
+	new /obj/item/stack/medical/mesh(src)
 
 /obj/item/storage/box/gloves
 	name = "коробка латексных перчаток"

@@ -112,9 +112,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/zone2)
-"jz" = (
-/turf/open/floor/plating,
-/area/template_noop)
 "jI" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
@@ -1133,9 +1130,9 @@ tI
 tI
 tI
 tI
-jz
-jz
-jz
+tI
+tI
+tI
 tI
 tI
 Cb
@@ -1175,9 +1172,9 @@ tI
 tI
 tI
 tI
-jz
-jz
-jz
+tI
+tI
+tI
 tI
 tI
 Cb
@@ -1217,9 +1214,9 @@ tI
 tI
 tI
 tI
-jz
-jz
-jz
+tI
+tI
+tI
 tI
 tI
 Cb

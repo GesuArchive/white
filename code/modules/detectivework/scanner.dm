@@ -161,7 +161,7 @@
 			holder = src.loc
 
 		if(!found_something)
-			add_log("<I># Судебно-медецинских следов не обнаружено #</I>", 0) // Don't display this to the holder user
+			add_log("<I># Судебно-медицинских следов не обнаружено #</I>", 0) // Don't display this to the holder user
 			if(holder)
 				to_chat(holder, span_warning("Не в состоянии обнаружить какие-либо отпечатки, материалы, волокна, или кровь на [target_name]!"))
 		else

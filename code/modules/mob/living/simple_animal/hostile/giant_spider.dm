@@ -691,3 +691,25 @@
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 #undef INTERACTION_SPIDER_KEY
+
+/mob/living/simple_animal/hostile/giant_spider/sgt_araneus
+	name = "Сержант Арахниус"
+	real_name = "Сержант Арахниус"
+	desc = "Свирепый компаньон главы службы безопасности, этот паук был тщательно обучен специалистами НаноТрейзен. От его пристальных глаз-бусинок по спине пробегают мурашки."
+	emote_hear = list("стрекочет")
+	faction = list("neutral")
+	harm_intent_damage = 3
+	icon_dead = "guard_dead"
+	icon_gib = "guard_dead"
+	icon_living = "guard"
+	icon_state = "guard"
+	health = 300
+	maxHealth = 300
+	melee_damage_lower = 15
+	melee_damage_upper = 20
+	movement_type = GROUND
+	response_help_continuous = "гладит"
+	response_help_simple = "гладит"
+	turns_per_move = 10
+	pet_bonus = TRUE
+	pet_bonus_emote = "радостно стрекочет!"

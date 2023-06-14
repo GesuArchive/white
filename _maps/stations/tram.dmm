@@ -8831,7 +8831,7 @@
 /turf/open/floor/carpet,
 /area/cargo/miningdock)
 "dfP" = (
-/obj/machinery/rnd/production/techfab/department/service,
+/obj/machinery/mecha_part_fabricator/service,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/service)

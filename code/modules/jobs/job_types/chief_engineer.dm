@@ -62,7 +62,7 @@
 	uniform = /obj/item/clothing/under/rank/engineering/chief_engineer
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	head = /obj/item/clothing/head/hardhat/white
-	gloves = /obj/item/clothing/gloves/color/black
+	gloves = /obj/item/clothing/gloves/color/chief_engineer
 	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/card/id/departmental_budget/eng=1)
 
 	backpack = /obj/item/storage/backpack/industrial
@@ -84,6 +84,6 @@
 	shoes = /obj/item/clothing/shoes/magboots/advance
 	suit_store = /obj/item/tank/internals/oxygen
 	glasses = /obj/item/clothing/glasses/meson/engine
-	gloves = /obj/item/clothing/gloves/color/yellow
+	gloves = /obj/item/clothing/gloves/color/chief_engineer
 	head = null
 	internals_slot = ITEM_SLOT_SUITSTORE

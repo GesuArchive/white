@@ -312,7 +312,8 @@
 	construction_time = 30
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 500, /datum/material/uranium = 2000)
 	build_path = /obj/item/gun/energy/floragun
-	category = list("Вооружение")
+	category = list("Вооружение", "Снаряжение сервиса")
+	sub_category = list("Ботаника")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/small_grenade
@@ -468,8 +469,8 @@
 //=======================================
 
 /datum/design/board/weapons
-	name = "Shuttle Weapons Control Computer"
-	desc = "A computer board that allows for the control of weapons on a linked shuttle."
+	name = "Консоль управления вооружением шаттла"
+	desc = "Консоль позволяющая управлять вооружением шаттла."
 	id = "computer_weapons"
 	build_type = IMPRINTER
 	materials = list(/datum/material/glass = 1000, /datum/material/iron = 300)
@@ -478,8 +479,8 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/shuttle_weapon
-	name = "Laser Cannon Mount"
-	desc = "A wall mounted laser cannon, designed for use on shuttles."
+	name = "Лазерная установка МК-I \"Блик\""
+	desc = "Система вооружения лазерного типа, установленная на шаттле. Урон 40, перезарядка 60, погрешность 1, кол-во выстрелов 1. Поворот осуществляется гаечным ключом."
 	id = "shuttle_laser"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/iron = 25000, /datum/material/glass = 10000)
@@ -488,78 +489,78 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/shuttle_weapon/laser_triple
-	name = "Burst Laser MKI Mount"
-	desc=  "A wall mounted burst laser, designed for use on shuttles."
+	name = "Лазерная установка МК-II \"Засвет\""
+	desc = "Система вооружения лазерного типа, установленная на шаттле. Урон 40, перезарядка 80, погрешность 1, кол-во выстрелов 3. Поворот осуществляется гаечным ключом."
 	id = "shuttle_laser_burst"
 	materials = list(/datum/material/iron = 35000, /datum/material/glass = 10000, /datum/material/gold = 5000)
 	build_path = /obj/item/wallframe/shuttle_weapon/laser/triple
 
 /datum/design/shuttle_weapon/laser_triple_mark2
-	name = "Burst Laser MKII Mount"
-	desc=  "An upgraded version of the wall mounted burst laser, designed for use on shuttles."
+	name = "Импульсный лазер МК-III \"Зарница\""
+	desc = "Система вооружения лазерного типа, установленная на шаттле. Урон 40, перезарядка 160, погрешность 2, кол-во выстрелов 5. Поворот осуществляется гаечным ключом."
 	id = "shuttle_laser_burst_two"
 	materials = list(/datum/material/iron = 40000, /datum/material/glass = 15000, /datum/material/gold = 10000, /datum/material/titanium = 5000)
 	build_path = /obj/item/wallframe/shuttle_weapon/laser/triple/mark2
 
 /datum/design/shuttle_weapon/missile
-	name = "Centaur I Mount"
-	desc=  "A wall mounted missile launcher, designed for use on shuttles."
+	name = "Ракетная установка РС-1 \"Артемида\""
+	desc = "Система вооружения ракетного типа, установленная на шаттле. Радиус взрыва 1-2, перезарядка 180, погрешность 1, кол-во выстрелов 1. Поворот осуществляется гаечным ключом."
 	id = "shuttle_missile"
 	materials = list(/datum/material/iron = 30000, /datum/material/gold = 5000)
 	build_path = /obj/item/wallframe/shuttle_weapon/missile
 
 /datum/design/shuttle_weapon/tri_missile
-	name = "Centaur II Mount"
-	desc=  "Wall mounted pods containing tri-firing missiles, designed for use on shuttles."
+	name = "Ракетная установка РСЗ-1М \"Рой\""
+	desc = "Система вооружения ракетного типа, установленная на шаттле. Радиус взрыва 1-2, перезарядка 250, погрешность 3, кол-во выстрелов 3. Поворот осуществляется гаечным ключом."
 	id = "shuttle_tri_missile"
 	materials = list(/datum/material/iron = 50000, /datum/material/gold = 15000, /datum/material/diamond = 1000)
 	build_path = /obj/item/wallframe/shuttle_weapon/missile/tri
 
 /datum/design/shuttle_weapon/breach_missile
-	name = "Breaching Missile Mount"
-	desc=  "A wall mounted breaching missile launcher, designed for use on shuttles."
+	name = "Ракетная установка РБ-3 \"Пробой\""
+	desc = "Система вооружения ракетного типа, установленная на шаттле. Радиус взрыва 2-4, перезарядка 220, погрешность 2, кол-во выстрелов 1. Поворот осуществляется гаечным ключом."
 	id = "shuttle_breach_missile"
 	materials = list(/datum/material/iron = 40000, /datum/material/gold = 10000, /datum/material/titanium = 5000)
 	build_path = /obj/item/wallframe/shuttle_weapon/missile/breach
 
 /datum/design/shuttle_weapon/fire_missile
-	name = "Inferno Missile Mount"
-	desc=  "A wall mounted incendiary missile launcher, designed for use on shuttles."
+	name = "Ракетная установка РЗ-2 \"Прометей\""
+	desc = "Система вооружения ракетного типа, установленная на шаттле. Радиус взрыва 0-2, перезарядка 200, погрешность 3, кол-во выстрелов 1. Поворот осуществляется гаечным ключом."
 	id = "shuttle_fire_missile"
 	materials = list(/datum/material/iron = 40000, /datum/material/gold = 10000, /datum/material/uranium = 5000)
 	build_path = /obj/item/wallframe/shuttle_weapon/missile/fire
 
 /datum/design/shuttle_weapon/point_defense_one
-	name = "Hades MKI Chaincannon Mount"
-	desc=  "A wall mounted automatic chain channon with limited capability to destroy hull, but extremely powerful at taking down crews and machinery. Designed for use on shuttles."
+	name = "Автопушка МК-I \"Муха\""
+	desc = "Система вооружения баллистического типа, установленная на шаттле. Урон 15, перезарядка 80, погрешность 2, кол-во выстрелов 8. Поворот осуществляется гаечным ключом."
 	id = "shuttle_point_defense"
 	materials = list(/datum/material/iron = 30000, /datum/material/glass = 10000)
 	build_path = /obj/item/wallframe/shuttle_weapon/point_defense
 
 /datum/design/shuttle_weapon/point_defense_two
-	name = "Hades MKII Chaincannon Mount"
-	desc=  "An upgraded version of the MKI Hades. While less accurate and slower to reload, it has a larger volley size. Designed for use on shuttles."
+	name = "Автопушка МК-II \"Стрекоза\""
+	desc = "Система вооружения баллистического типа, установленная на шаттле. Урон 15, перезарядка 140, погрешность 3, кол-во выстрелов 14. Поворот осуществляется гаечным ключом."
 	id = "shuttle_point_defense_upgraded"
 	materials = list(/datum/material/iron = 50000, /datum/material/glass = 15000, /datum/material/gold = 5000)
 	build_path = /obj/item/wallframe/shuttle_weapon/point_defense/upgraded
 
 /datum/design/shuttle_weapon/scatter_shot
-	name = "Ares Scattershot Mount"
-	desc=  "A powerful flak cannon that fires 8 projectiles at once. Designed for use on shuttles."
+	name = "Зенитное орудие МК-I \"Дождь\""
+	desc = "Система вооружения баллистического типа, установленная на шаттле. Урон 15, перезарядка 90, погрешность 4, кол-во выстрелов 8. Поворот осуществляется гаечным ключом."
 	id = "shuttle_scatter_shot"
 	materials = list(/datum/material/iron = 80000, /datum/material/glass = 5000)
 	build_path = /obj/item/wallframe/shuttle_weapon/scatter
 
 /datum/design/shuttle_weapon/railgun
-	name = "Zeus MKI Railgun Mount"
-	desc=  "A kinetic weapon designed for long ranged precision shots. Designed for use on shuttles."
+	name = "Рельсотрон МК-I \"Швея\""
+	desc = "Система вооружения баллистического типа, установленная на шаттле. Бронепробитие, Урон 50, перезарядка 160, погрешность 1, кол-во выстрелов 1. Поворот осуществляется гаечным ключом."
 	id = "shuttle_railgun"
-	materials = list(/datum/material/iron = 60000, /datum/material/glass = 20000, /datum/material/plasma = 10000, /datum/material/diamond = 5000)
+	materials = list(/datum/material/iron = 60000, /datum/material/glass = 20000, /datum/material/plasma = 10000, /datum/material/gold = 5000)
 	build_path = /obj/item/wallframe/shuttle_weapon/railgun
 
 /datum/design/shuttle_weapon/railgun_crew
-	name = "Zeus MKII Anti-Personnel Railgun Mount"
-	desc=  "A kinetic weapon that fired uranium coated magnetic rounds. Designed for long ranged precision shots. Designed for use on shuttles."
+	name = "Рельсотрон МК-II \"Чернобыль\""
+	desc = "Система вооружения баллистического типа, установленная на шаттле. Бронепробитие, Оглушение, Заражение, Урон 80, перезарядка 180, погрешность 2, кол-во выстрелов 1. Поворот осуществляется гаечным ключом."
 	id = "shuttle_railgun_crew"
-	materials = list(/datum/material/iron = 60000, /datum/material/glass = 20000, /datum/material/plasma = 10000, /datum/material/diamond = 5000, /datum/material/uranium = 5000)
+	materials = list(/datum/material/iron = 60000, /datum/material/glass = 20000, /datum/material/plasma = 10000, /datum/material/gold = 5000, /datum/material/uranium = 5000)
 	build_path = /obj/item/wallframe/shuttle_weapon/railgun/anti_crew

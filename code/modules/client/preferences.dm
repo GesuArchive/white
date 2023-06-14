@@ -876,13 +876,17 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if(LAZYLEN(job.whitelisted) && !(user.ckey in job.whitelisted))
 				HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><font color='#fda2fa'> \[ DONATE \] </font></td></tr>"
 				continue
-			if(!job.allow_new_players && !check_whitelist(user.ckey))
-				HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><font color='#fda2fa'> \[ WHITELIST \] </font></td></tr>"
-				continue
-			if(!job.player_old_enough(user.client))
-				var/available_in_days = job.available_in_days(user.client)
-				HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><font color='#fda2fa'> \[ЧЕРЕЗ [(available_in_days)] ДНЕЙ\]</font></td></tr>"
-				continue
+//			if(!job.allow_new_players && !check_whitelist(user.ckey))
+//				HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><font color='#fda2fa'> \[ WHITELIST \] </font></td></tr>"
+//				continue
+			if(!job.inverted_player_age)
+				if(!job.player_old_enough(user.client))
+					var/available_in_days = job.available_in_days(user.client)
+					HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><font color='#fda2fa'> \[ЧЕРЕЗ [(available_in_days)] ДНЕЙ\]</font></td></tr>"
+					continue
+//			if(!job.not_available_in_days(user.client))
+//				HTML += "<font color='#fda2fa'>[ru_rank]</font></td><td><font color='#fda2fa'> \[БОЛЕЕ НЕДОСТУПЕН\]</font></td></tr>"
+//				continue
 			if((job_preferences[SSjob.overflow_role] == JP_LOW) && (rank != SSjob.overflow_role) && !is_banned_from(user.ckey, SSjob.overflow_role))
 				HTML += "<font color='#ff9955'>[ru_rank]</font></td><td></td></tr>"
 				continue

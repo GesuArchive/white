@@ -40,6 +40,8 @@
 
 	//If you have the use_age_restriction_for_jobs config option enabled and the database set up, this option will add a requirement for players to be at least minimal_player_age days old. (meaning they first signed in at least that many days before.)
 	var/minimal_player_age = 0
+//	var/maximum_player_age = -1
+	var/inverted_player_age = FALSE
 
 	var/outfit = null
 
@@ -315,18 +317,46 @@
 		return TRUE	//Available in 0 days = available right now = player is old enough to play.
 	return FALSE
 
-
 /datum/job/proc/available_in_days(client/C)
 	if(!C)
 		return 0
 	if(!CONFIG_GET(flag/use_age_restriction_for_jobs))
 		return 0
-	if(!SSdbcore.Connect())
-		return 0 //Without a database connection we can't get a player's age so we'll assume they're old enough for all jobs
+//	if(!SSdbcore.Connect())
+//		return 0 //Without a database connection we can't get a player's age so we'll assume they're old enough for all jobs
 	if(!isnum(minimal_player_age))
 		return 0
 
-	return max(0, minimal_player_age - C.player_age)
+	if(inverted_player_age)
+		return min(0, minimal_player_age - C.player_age)
+	else
+		return max(0, minimal_player_age - C.player_age)
+
+/*
+/datum/job/proc/player_to_old(client/C)
+//	if(not_available_in_days(C) == -1)	// По умолчанию без ограничений
+//	if(not_available_in_days(C))	// По умолчанию без ограничений
+//		return FALSE
+	return not_available_in_days(C)
+
+/datum/job/proc/not_available_in_days(client/C)
+	if(!C)
+		return TRUE
+	if(!CONFIG_GET(flag/use_age_restriction_for_jobs))
+		return TRUE
+	if(!SSdbcore.Connect())
+		return TRUE //Without a database connection we can't get a player's age so we'll assume they're old enough for all jobs
+	if(!isnum(maximum_player_age))
+		return TRUE
+
+	if(maximum_player_age == -1)
+		return TRUE
+
+	if((maximum_player_age - C.player_age) < 0)	// Слишком стар
+		return FALSE
+
+//	return min(0, C.player_age - maximum_player_age)
+*/
 
 /datum/job/proc/config_check()
 	return TRUE

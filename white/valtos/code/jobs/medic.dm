@@ -4,6 +4,7 @@
 	spawn_positions = 1
 	exp_requirements = 600
 	exp_type = EXP_TYPE_CREW
+	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 
 	outfit = /datum/outfit/job/field_medic
 

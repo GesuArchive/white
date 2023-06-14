@@ -1,10 +1,10 @@
 /obj/machinery/atmospherics/components/unary/outlet_injector
 	icon_state = "inje_map-3"
 
-	name = "инжектор газа"
-	desc = "К нему прикручены вентиль и помпа."
+	name = "инжектор"
+	desc = "Вентиляционное отверстие совмещенное с объемным насосом. Позволяет нагнетать газ в помещение вне зависимости от внешнего давления."
 
-	use_power = IDLE_POWER_USE
+	use_power = NO_POWER_USE
 	can_unwrench = TRUE
 	shift_underlay_only = FALSE
 	hide = TRUE

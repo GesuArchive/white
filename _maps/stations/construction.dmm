@@ -426,7 +426,7 @@
 /turf/open/space/basic,
 /area/mine/unexplored)
 "cc" = (
-/obj/machinery/rnd/production/techfab/department/service,
+/obj/machinery/mecha_part_fabricator/service,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/construction/storage_wing)
 "cd" = (

@@ -66,7 +66,6 @@
 /turf/open/floor/plating/asteroid/basalt,
 /area/hallway/primary/central/low_level_centre)
 "if" = (
-/obj/structure/stone_tile/surrounding/cracked,
 /mob/living/simple_animal/hostile/retaliate/bat/icewing,
 /turf/open/floor/plating/asteroid/basalt,
 /area/hallway/primary/central/low_level_centre)
@@ -91,8 +90,7 @@
 "kY" = (
 /obj/structure/window/reinforced,
 /obj/effect/turf_decal/siding/thinplating_new,
-/obj/structure/stone_tile/block/cracked,
-/turf/open/lava/smooth/lava_land_surface,
+/turf/open/floor/fakepit,
 /area/hallway/primary/central/low_level_centre)
 "nA" = (
 /obj/structure/statue/bone/rib{
@@ -334,10 +332,7 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 4
 	},
-/obj/structure/stone_tile/block/cracked{
-	dir = 4
-	},
-/turf/open/lava/smooth/lava_land_surface,
+/turf/open/floor/fakepit,
 /area/hallway/primary/central/low_level_centre)
 "DX" = (
 /obj/structure/window/reinforced{
@@ -346,10 +341,7 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 1
 	},
-/obj/structure/stone_tile/block/cracked{
-	dir = 1
-	},
-/turf/open/lava/smooth/lava_land_surface,
+/turf/open/floor/fakepit,
 /area/hallway/primary/central/low_level_centre)
 "Eh" = (
 /obj/structure/railing{
@@ -395,8 +387,7 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 6
 	},
-/obj/structure/stone_tile/cracked,
-/turf/open/lava/smooth/lava_land_surface,
+/turf/open/floor/fakepit,
 /area/hallway/primary/central/low_level_centre)
 "Kd" = (
 /obj/structure/stone_tile/surrounding/cracked{
@@ -425,10 +416,7 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 8
 	},
-/obj/structure/stone_tile/block/cracked{
-	dir = 8
-	},
-/turf/open/lava/smooth/lava_land_surface,
+/turf/open/floor/fakepit,
 /area/hallway/primary/central/low_level_centre)
 "LW" = (
 /obj/effect/turf_decal/weather/dirt{
@@ -449,7 +437,6 @@
 /turf/open/floor/plating/asteroid/dirty/fake_lava_v2,
 /area/template_noop)
 "Nu" = (
-/obj/structure/stone_tile/slab/cracked,
 /mob/living/simple_animal/hostile/retaliate/bat/magmawing,
 /turf/open/floor/plating/asteroid/basalt,
 /area/hallway/primary/central/low_level_centre)
@@ -586,10 +573,7 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 9
 	},
-/obj/structure/stone_tile/cracked{
-	dir = 4
-	},
-/turf/open/lava/smooth/lava_land_surface,
+/turf/open/floor/fakepit,
 /area/hallway/primary/central/low_level_centre)
 "VI" = (
 /obj/structure/window/reinforced{

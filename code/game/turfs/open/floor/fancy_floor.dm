@@ -446,6 +446,8 @@
 	MakeSlippery(TURF_WET_PERMAFROST, INFINITY, 0, INFINITY, TRUE)
 
 /turf/open/floor/fakespace
+	name = "голопол"
+	desc = "Голопол транслирующий изображение космоса. Производитель гарантирует стабильное образование астрофобии без постоянных рисков разгерметизации."
 	icon = 'icons/turf/space.dmi'
 	icon_state = "0"
 	floor_tile = /obj/item/stack/tile/fakespace

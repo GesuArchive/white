@@ -5,19 +5,62 @@ GLOBAL_VAR_INIT(meteor_wave_delay, 625) //minimum wait between waves in tenths o
 //set to at least 100 unless you want evarr ruining every round
 
 //Meteors probability of spawning during a given wave
-GLOBAL_LIST_INIT(meteors_normal, list(/obj/effect/meteor/dust=3, /obj/effect/meteor/medium=8, /obj/effect/meteor/big=3, \
-						  /obj/effect/meteor/flaming=1, /obj/effect/meteor/irradiated=3)) //for normal meteor event
 
-GLOBAL_LIST_INIT(meteors_threatening, list(/obj/effect/meteor/medium=4, /obj/effect/meteor/big=8, \
-						  /obj/effect/meteor/flaming=3, /obj/effect/meteor/irradiated=3)) //for threatening meteor event
+//	Легкий - Пыль
+GLOBAL_LIST_INIT(meteorsC, list(/obj/effect/meteor/dust))
 
-GLOBAL_LIST_INIT(meteors_catastrophic, list(/obj/effect/meteor/medium=5, /obj/effect/meteor/big=75, \
-						  /obj/effect/meteor/flaming=10, /obj/effect/meteor/irradiated=10, /obj/effect/meteor/tunguska = 1)) //for catastrophic meteor event
+//	Стандарт
+GLOBAL_LIST_INIT(meteors_normal, list(
+	/obj/effect/meteor/dust=3,
+	/obj/effect/meteor/medium=8,
+	/obj/effect/meteor/big=3,
+	/obj/effect/meteor/silver=4,
+	/obj/effect/meteor/gold=4,
+	/obj/effect/meteor/titanium=3,
+	/obj/effect/meteor/diamond=1,
+	/obj/effect/meteor/flaming=1,
+	/obj/effect/meteor/bsc=1,
+	/obj/effect/meteor/irradiated=3
+	))
 
-GLOBAL_LIST_INIT(meteorsB, list(/obj/effect/meteor/meaty=5, /obj/effect/meteor/meaty/xeno=1)) //for meaty ore event
+//	Сильный
+GLOBAL_LIST_INIT(meteors_threatening, list(
+	/obj/effect/meteor/medium=4,
+	/obj/effect/meteor/big=8,
+	/obj/effect/meteor/silver=6,
+	/obj/effect/meteor/gold=6,
+	/obj/effect/meteor/titanium=7,
+	/obj/effect/meteor/diamond=3,
+	/obj/effect/meteor/flaming=3,
+	/obj/effect/meteor/bsc=3,
+	/obj/effect/meteor/irradiated=3
+	))
 
-GLOBAL_LIST_INIT(meteorsC, list(/obj/effect/meteor/dust)) //for space dust event
+//	Ужасный
+GLOBAL_LIST_INIT(meteors_catastrophic, list(
+	/obj/effect/meteor/medium=5,
+	/obj/effect/meteor/big=75,
+	/obj/effect/meteor/silver=30,
+	/obj/effect/meteor/gold=30,
+	/obj/effect/meteor/titanium=40,
+	/obj/effect/meteor/diamond=10,
+	/obj/effect/meteor/flaming=10,
+	/obj/effect/meteor/bsc=10,
+	/obj/effect/meteor/irradiated=10,
+	/obj/effect/meteor/tunguska = 1
+	))
 
+//	Мясной
+GLOBAL_LIST_INIT(meteorsB, list(
+	/obj/effect/meteor/meaty=5,
+	/obj/effect/meteor/meaty/xeno=1
+	))
+
+//	Тыквенный
+GLOBAL_LIST_INIT(meteorsSPOOKY, list(/obj/effect/meteor/pumpkin))
+
+//	Блюспейс
+GLOBAL_LIST_INIT(meteors_bluespace, list(/obj/effect/meteor/bsc))
 
 ///////////////////////////////
 //Meteor spawning global procs
@@ -83,8 +126,8 @@ GLOBAL_LIST_INIT(meteorsC, list(/obj/effect/meteor/dust)) //for space dust event
 //////////////////////
 
 /obj/effect/meteor
-	name = "\proper the concept of meteor"
-	desc = "You should probably run instead of gawking at this."
+	name = "метеорит"
+	desc = "Самый обычный кусок камня."
 	icon = 'icons/obj/meteor.dmi'
 	icon_state = "small"
 	density = TRUE
@@ -170,7 +213,7 @@ GLOBAL_LIST_INIT(meteorsC, list(/obj/effect/meteor/dust)) //for space dust event
 /obj/effect/meteor/proc/ram_turf(turf/T)
 	//first yell at mobs about them dying horribly
 	for(var/mob/living/thing in T)
-		thing.visible_message(span_warning("[src] slams into [thing]."), span_userdanger("[src] slams into you!."))
+		thing.visible_message(span_warning("[src] врезается в [thing]."), span_userdanger("[src] врезается в меня!."))
 
 	//then, ram the turf
 	switch(hitpwr)
@@ -228,7 +271,7 @@ GLOBAL_LIST_INIT(meteorsC, list(/obj/effect/meteor/dust)) //for space dust event
 
 //Dust
 /obj/effect/meteor/dust
-	name = "space dust"
+	name = "космическая пыль"
 	icon_state = "dust"
 	pass_flags = PASSTABLE | PASSGRILLE
 	hits = 1
@@ -239,7 +282,7 @@ GLOBAL_LIST_INIT(meteorsC, list(/obj/effect/meteor/dust)) //for space dust event
 
 //Medium-sized
 /obj/effect/meteor/medium
-	name = "метеор"
+	name = "метеорит"
 	dropamt = 3
 	threat = 5
 
@@ -249,7 +292,7 @@ GLOBAL_LIST_INIT(meteorsC, list(/obj/effect/meteor/dust)) //for space dust event
 
 //Large-sized
 /obj/effect/meteor/big
-	name = "big meteor"
+	name = "большой метеорит"
 	icon_state = "large"
 	hits = 6
 	heavy = TRUE
@@ -260,9 +303,76 @@ GLOBAL_LIST_INIT(meteorsC, list(/obj/effect/meteor/dust)) //for space dust event
 	..()
 	explosion(src, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 3, flash_range = 4, adminlog = FALSE)
 
-//Flaming meteor
+//Серебряный метеор
+/obj/effect/meteor/silver
+	name = "блестящий метеорит"
+	icon_state = "silver"
+	heavy = TRUE
+	meteordrop = list(/obj/item/stack/ore/silver)
+	threat = 15
+
+/obj/effect/meteor/silver/meteor_effect()
+	..()
+	explosion(src, devastation_range = 0, heavy_impact_range = 0, light_impact_range = 4, flash_range = 8, adminlog = FALSE)
+
+//Золотой метеор
+/obj/effect/meteor/gold
+	name = "золотой метеорит"
+	icon_state = "gold"
+	heavy = TRUE
+	meteordrop = list(/obj/item/stack/ore/gold)
+	threat = 15
+
+/obj/effect/meteor/gold/meteor_effect()
+	..()
+	explosion(src, devastation_range = 0, heavy_impact_range = 0, light_impact_range = 3, flash_range = 6, adminlog = FALSE)
+
+//Титановый метеор
+/obj/effect/meteor/titanium
+	name = "матовый метеорит"
+	icon_state = "titanium"
+	heavy = TRUE
+	meteordrop = list(/obj/item/stack/ore/titanium)
+	threat = 15
+
+/obj/effect/meteor/titanium/meteor_effect()
+	..()
+	explosion(src, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 3, flash_range = 4, adminlog = FALSE)
+
+//Алмазный метеор
+/obj/effect/meteor/diamond
+	name = "переливающийся метеорит"
+	icon_state = "diamond"
+	heavy = TRUE
+	meteordrop = list(/obj/item/stack/ore/diamond)
+	threat = 15
+
+/obj/effect/meteor/diamond/meteor_effect()
+	..()
+	explosion(src, devastation_range = 1, heavy_impact_range = 3, light_impact_range = 4, flash_range = 5, adminlog = FALSE)
+
+//Блюспейс метеор
+/obj/effect/meteor/bsc
+	name = "пульсирующий метеорит"
+	icon_state = "bsc"
+	heavy = FALSE
+	meteordrop = list(/obj/item/stack/ore/bluespace_crystal)
+	threat = 15
+/*
+/obj/effect/meteor/bsc/ram_turf(turf/T)
+	..()
+	new /obj/effect/particle_effect/sparks(loc)
+	playsound(loc, "zap", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+//	do_teleport(T, get_turf(T), 8, asoundin = 'sound/effects/phasein.ogg', channel = TELEPORT_CHANNEL_BLUESPACE)
+*/
+
+/obj/effect/meteor/bsc/meteor_effect()
+	..()
+	explosion(src, devastation_range = 0, heavy_impact_range = 0, light_impact_range = 0, flash_range = 3, adminlog = FALSE)
+
+//Плазменный метеор
 /obj/effect/meteor/flaming
-	name = "flaming meteor"
+	name = "пылающий метеорит"
 	icon_state = "flaming"
 	hits = 5
 	heavy = TRUE
@@ -276,12 +386,11 @@ GLOBAL_LIST_INIT(meteorsC, list(/obj/effect/meteor/dust)) //for space dust event
 
 //Radiation meteor
 /obj/effect/meteor/irradiated
-	name = "glowing meteor"
+	name = "светящийся метеорит"
 	icon_state = "glowing"
 	heavy = TRUE
 	meteordrop = list(/obj/item/stack/ore/uranium)
 	threat = 15
-
 
 /obj/effect/meteor/irradiated/meteor_effect()
 	..()
@@ -291,9 +400,9 @@ GLOBAL_LIST_INIT(meteorsC, list(/obj/effect/meteor/dust)) //for space dust event
 
 //Meaty Ore
 /obj/effect/meteor/meaty
-	name = "meaty ore"
+	name = "мясной метеорит"
 	icon_state = "meateor"
-	desc = "Just... don't think too hard about where this thing came from."
+	desc = "Лучше не думать откуда он взялся и из чего состоит..."
 	hits = 2
 	heavy = TRUE
 	meteorsound = 'sound/effects/blobattack.ogg'
@@ -342,9 +451,9 @@ GLOBAL_LIST_INIT(meteorsC, list(/obj/effect/meteor/dust)) //for space dust event
 
 //Station buster Tunguska
 /obj/effect/meteor/tunguska
-	name = "tunguska meteor"
+	name = "тунгуска"
 	icon_state = "flaming"
-	desc = "Your life briefly passes before your eyes the moment you lay them on this monstrosity."
+	desc = "Жизнь мелькает перед глазами в момент, когда вы видите это чудовище."
 	hits = 30
 	hitpwr = 1
 	heavy = TRUE
@@ -370,11 +479,9 @@ GLOBAL_LIST_INIT(meteorsC, list(/obj/effect/meteor/dust)) //for space dust event
 //Spookoween meteors
 /////////////////////////
 
-GLOBAL_LIST_INIT(meteorsSPOOKY, list(/obj/effect/meteor/pumpkin))
-
 /obj/effect/meteor/pumpkin
-	name = "PUMPKING"
-	desc = "THE PUMPKING'S COMING!"
+	name = "ТЫКВА"
+	desc = "Сладость или гадость?!"
 	icon = 'icons/obj/meteor_spooky.dmi'
 	icon_state = "pumpkin"
 	hits = 10

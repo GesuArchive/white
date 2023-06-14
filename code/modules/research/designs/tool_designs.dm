@@ -144,7 +144,7 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 20000, /datum/material/glass = 10000, /datum/material/plastic = 8000, /datum/material/gold = 2000)
 	build_path = /obj/item/construction/rld
-	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ", "Рабочие инструменты   ")
+	category = list("Рабочие инструменты", "Рабочие инструменты ", "Рабочие инструменты  ", "Рабочие инструменты   ", "Рабочие инструменты     ")
 	sub_category = list("Монтажные комплексы")
 	departmental_flags =  DEPARTMENTAL_FLAG_SERVICE | DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
 
@@ -156,7 +156,8 @@
 	build_type = PROTOLATHE | MECHFAB
 	construction_time = 40
 	materials = list(/datum/material/iron=4000, /datum/material/uranium=1500, /datum/material/silver=500)
-	category = list("Рабочие инструменты")
+	category = list("Рабочие инструменты", "Снаряжение сервиса")
+	sub_category = list("Ботаника")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/crystal_stabilizer
@@ -368,5 +369,17 @@
 	construction_time = 40
 	materials = list(/datum/material/iron = 8000, /datum/material/titanium = 5000, /datum/material/bluespace = 5000)
 	category = list("Спейсподы и шаттлостроение")
-	sub_category = list("шаттлостроение")
+	sub_category = list("Шаттлостроение")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
+
+/datum/design/navmap
+	name = "Голо-навигационная карта"
+	desc = "Голографическая карта-планшет, показывающая информацию об окружающем вас пространстве."
+	id = "orbital_map"
+	build_path = /obj/item/navigation_map
+	build_type = PROTOLATHE | MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/iron = 1000, /datum/material/glass = 500, /datum/material/plastic = 1000)
+	category = list("Карго снаряжение")
+	sub_category = list("Экипировка")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO

@@ -43,8 +43,8 @@
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /mob/living/simple_animal/hostile/retaliate/bat/sgt_araneus //Despite being a bat for... reasons, this is now a spider, and is one of the HoS' pets.
-	name = "Sergeant Araneus"
-	real_name = "Sergeant Araneus"
+	name = "Сержант Арахниус"
+	real_name = "Сержант Арахниус"
 	desc = "A fierce companion of the Head of Security, this spider has been carefully trained by Nanotrasen specialists. Its beady, staring eyes send shivers down your spine."
 	emote_hear = list("chitters")
 	faction = list("spiders")
@@ -74,6 +74,7 @@
 	icon_state = "watcher_magmawing"
 	icon_living = "watcher_magmawing"
 	icon_dead = "watcher_magmawing_dead"
+	faction = list("neutral")
 	maxHealth = 300 //Compensate for the lack of slowdown on projectiles with a bit of extra health
 	health = 300
 	melee_damage_lower = 15
@@ -91,6 +92,7 @@
 	icon_state = "watcher_icewing"
 	icon_living = "watcher_icewing"
 	icon_dead = "watcher_icewing_dead"
+	faction = list("neutral")
 	maxHealth = 200
 	health = 200
 	melee_damage_lower = 20

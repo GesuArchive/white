@@ -613,7 +613,7 @@
 		wires.interact(user)
 		return
 	if(!state_open)
-		if(default_deconstruction_screwdriver(user, "[base_icon_state]", "close", I))
+		if(default_deconstruction_screwdriver(user, "[base_icon_state]", "classic", I))
 			return
 	if(default_pry_open(I))
 		dump_inventory_contents()

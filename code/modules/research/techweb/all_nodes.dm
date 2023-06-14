@@ -68,8 +68,7 @@
 		"a50ae",
 		"sec_38",
 		"c38_bouncy",
-		"foam_dart",
-		"riot_dart",
+		"foam_darts",
 		"riot_darts",
 		"electropack",
 		"handcuffs",
@@ -96,12 +95,15 @@
 		"oven_tray",
 		"small_grenade",
 		"sticky_tape",
+		"sticky_tape_serv",
 		"plastic_box",
 		"custom_vendor_refill",
 		"price_tagger",
 		"flamethrower",
 		"holosignrestaurant",
 		"holosignbar",
+		"coffeemaker",
+		"tinfoil_hat",
 	)
 
 /datum/techweb_node/basic_medical
@@ -148,6 +150,7 @@
 		"teeth_box_32",
 		"gloves_latex",
 		"body_bag",
+		"body_bag_serv",
 		"fluid_ducts",
 		"optable_folding",
 		"pillbottle",
@@ -265,6 +268,7 @@
 		"cultivator",
 		"plant_analyzer",
 		"shovel",
+		"shovel_cargo",
 		"spade",
 		"floor_painter",
 		"hatchet",
@@ -304,6 +308,36 @@
 		"tablet",
 		"recorder",
 		"tape",
+		"earmuffs",
+		"coffee_cartridge",
+		"bluespace_coffeepot",
+		"coffeepot",
+		"camera_film",
+		"camera",
+		"kitchen_knife",
+		"plastic_knife",
+		"fork",
+		"plastic_fork",
+		"spoon",
+		"plastic_spoon",
+		"servingtray",
+		"foodtray",
+		"bowl",
+		"drinking_glass",
+		"shot_glass",
+		"shaker",
+		"ring_holder",
+		"plastic_necklace",
+		"plastic_trees",
+		"toy_armblade",
+		"toy_balloon",
+		"toygun",
+		"capbox",
+		"holodisk",
+		"pet_carrier",
+		"cleaver",
+		"tool_box",
+		"tool_box_mechfab",
 	)
 
 /datum/techweb_node/basic_circuitry
@@ -397,6 +431,7 @@
 		"chem_heater",
 		"chem_master",
 		"chem_dispenser",
+		"chem_mass_spec",
 		"pandemic",
 		"defibrillator",
 		"defibmount",
@@ -479,10 +514,13 @@
 		"gibber",
 		"deepfryer",
 		"monkey_recycler",
+		"monkey_recycler_serv",
 		"processor",
+		"processor_serv",
 		"gibber",
 		"microwave",
 		"reagentgrinder",
+		"reagentgrinder_serv",
 		"dish_drive",
 		"fat_sucker",
 		"oven",
@@ -645,6 +683,7 @@
 		"cell_charger",
 		"stack_console",
 		"stack_machine",
+		"meteor_catcher",
 		"oxygen_tank",
 		"plasma_tank",
 		"emergency_oxygen",
@@ -817,6 +856,7 @@
 		"femto_mani_x10",
 		"bluespace_matter_bin_x10",
 		"bluespacebodybag",
+		"bluespacebodybag_serv",
 		"quantum_keycard",
 		"wormholeprojector",
 		"swapper",
@@ -956,100 +996,79 @@
 /////////////////////////shuttle tech/////////////////////////
 /datum/techweb_node/basic_shuttle_tech
 	id = "basic_shuttle"
-	display_name = "Basic Shuttle Research"
-	description = "Research the technology required to create and use basic shuttles."
-	prereq_ids = list("bluespace_travel", "adv_engi")
-	design_ids = list("shuttle_creator", "orbital_map", "shuttle_navigation", "engine_plasma", "engine_ion", "engine_ion_burst", "engine_heater", "engine_capacitors", "shuttle_control", "shuttle_navigation", "wingpack")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
+	starting_node = TRUE
+	display_name = "Базовое шаттлостроение"
+	description = "Руководство для самых маленьких или как собрать свой шаттл для чайников."
+	design_ids = list(
+		"shuttle_creator",
+		"engine_plasma",
+		"engine_ion",
+		"engine_heater",
+		"engine_capacitors",
+		"shuttle_control",
+//		"wingpack",		что это?
+	)
 
-/datum/techweb_node/nullspacebreaching
-	id = "nullspacebreaching"
-	display_name = "Nullspace Breaching"
-	description = "Research into voidspace tunnelling, allowing us to significantly reduce flight times."
-	prereq_ids = list("basic_shuttle", "alientech")
-	design_ids = list("engine_void")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 12500)
-
-/datum/techweb_node/plasma_refiner
-	id = "plasmarefiner"
-	display_name = "Plasma Refining"
-	description = "Development of a machine capable of safely and efficently converting plasma from a solid state to a gaseous state."
+/datum/techweb_node/adv_shuttle_tech
+	id = "adv_shuttle_tech"
+	display_name = "Продвинутое шаттлостроение"
+	description = "Новые двигательные, орудийные и навигационные инструменты."
 	prereq_ids = list("basic_shuttle")
-	design_ids = list("plasma_refiner")
+	design_ids = list(
+		"engine_ion_burst",
+		"plasma_refiner",
+		"orbital_map",
+	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 	hidden = TRUE
 
+/datum/techweb_node/nullspacebreaching
+	id = "nullspacebreaching"
+	display_name = "Пробой гиперизмерения"
+	description = "Исследование туннелирования в пустом пространстве, позволяющее значительно сократить время полета."
+	prereq_ids = list("adv_shuttle_tech", "alientech")
+	design_ids = list("engine_void")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
+
 /datum/techweb_node/shuttle_weapons_basic
 	id = "shuttle_weapons"
-	display_name = "Shuttle Mounted Weaponry"
-	description = "Research into mounting weapons onto the side of moving things."
-	prereq_ids = list("weaponry")
-	design_ids = list("shuttle_laser", "computer_weapons")
+	display_name = "Базовые орудийные системы шаттлов"
+	description = "Открывает возможности установки оружия на борт шаттлов."
+	prereq_ids = list("basic_shuttle")
+	design_ids = list(
+		"computer_weapons",
+		"shuttle_laser",
+		"shuttle_missile",
+		"shuttle_fire_missile",
+		"shuttle_point_defense",
+	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000)
 
-/datum/techweb_node/shuttle_weapons_lasers
-	id = "shuttle_lasers"
-	display_name = "Shuttle Laser Weaponry"
-	description = "Research into mounting high-powered lasers onto the side of moving things."
-	prereq_ids = list("shuttle_weapons", "emp_adv")
-	design_ids = list("shuttle_laser_burst")
+/datum/techweb_node/adv_shuttle_weapons
+	id = "adv_shuttle_weapons"
+	display_name = "Продвинутые орудийные системы шаттлов"
+	description = "Правда всегда на стороне у того, у кого есть большие пушки."
+	prereq_ids = list("shuttle_weapons")
+	design_ids = list(
+		"shuttle_laser_burst",
+		"shuttle_tri_missile",
+		"shuttle_railgun",
+		"shuttle_scatter_shot"
+		)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2000)
 
-/datum/techweb_node/shuttle_lasers_better
-	id = "shuttle_lasers_better"
-	display_name = "Advanced Shuttle Laser Weaponry"
-	description = "Research into mounting super-high-powered lasers onto the side of moving things."
-	prereq_ids = list("shuttle_lasers", "emp_super")
-	design_ids = list("shuttle_laser_burst_two")
+/datum/techweb_node/super_shuttle_weapons
+	id = "super_shuttle_weapons"
+	display_name = "Экспериментальные орудийные системы шаттлов"
+	description = "Линкор повстанцев должен пасть."
+	prereq_ids = list("adv_shuttle_weapons")
+	design_ids = list(
+		"shuttle_laser_burst_two",
+		"shuttle_breach_missile",
+		"shuttle_railgun_crew",
+		"shuttle_point_defense_upgraded"
+		)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
-
-/datum/techweb_node/shuttle_missiles
-	id = "shuttle_missiles"
-	display_name = "Mounted Missile Launchers"
-	description = "Research into mounting missiles onto the side of moving things."
-	prereq_ids = list("shuttle_weapons", "adv_weaponry")
-	design_ids = list("shuttle_missile")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
-
-/datum/techweb_node/shuttle_tri_missiles
-	id = "shuttle_tri_missiles"
-	display_name = "Mounted Swarm Missile Technology"
-	description = "Research into mounting tri-shot missile launchers onto the side of moving things."
-	prereq_ids = list("shuttle_missiles")
-	design_ids = list("shuttle_tri_missile")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
-
-/datum/techweb_node/shuttle_specialized_missiles
-	id = "specialized_missiles"
-	display_name = "Specialized Missile Technology"
-	description = "Research into mounting specialized missile launchers onto the side of moving things."
-	prereq_ids = list("shuttle_missiles")
-	design_ids = list("shuttle_breach_missile", "shuttle_fire_missile")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 3000)
-
-/datum/techweb_node/shuttle_ballistics
-	id = "shuttle_ballistics"
-	display_name = "Shuttle Mounted Ballistics"
-	description = "Research into simple, yet effective ballistic weapons for shuttles."
-	prereq_ids = list("shuttle_weapons")
-	design_ids = list("shuttle_point_defense", "shuttle_scatter_shot")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
-
-/datum/techweb_node/shuttle_better_ballistics
-	id = "shuttle_ballistics_better"
-	display_name = "Upgraded Shuttle Mounted Ballistics"
-	description = "Research into slightly less simple, yet even more effective ballistic weapons for shuttles."
-	prereq_ids = list("shuttle_ballistics", "adv_weaponry")
-	design_ids = list("shuttle_point_defense_upgraded")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
-
-/datum/techweb_node/shuttle_magnetics
-	id = "shuttle_magnetics"
-	display_name = "Shuttle Mounted Railguns"
-	description = "Combines the power of electromagnetism with the destructive power of iron, creating shuttle-mounted weapons capable of tearing through ships."
-	prereq_ids = list("shuttle_ballistics_better", "emp_super")
-	design_ids = list("shuttle_railgun", "shuttle_railgun_crew")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 10000)
 
 /////////////////////////integrated circuits tech/////////////////////////
 
@@ -1708,6 +1727,7 @@
 		"light_replacer",
 		"spraybottle",
 		"beartrap",
+		"beartraps",
 		"paint_remover",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 4000)
@@ -2962,23 +2982,6 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 500000)
 	required_experiments = list(/datum/experiment/explosion/medium)
 	discount_experiments = list(/datum/experiment/explosion/calibration = 200000)
-
-/////////////////////////shuttle tech/////////////////////////
-/datum/techweb_node/basic_shuttle_tech
-	id = "basic_shuttle"
-	display_name = "Базовое шаттлостроение"
-	description = "Руководство для самых маленьких или как собрать свой шаттл для чайников."
-	prereq_ids = list(
-		"bluespace_travel",
-		"adv_engi",
-	)
-	design_ids = list(
-		"shuttle_creator",
-		"engine_plasma",
-		"engine_heater",
-		"shuttle_control",
-	)
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 10000)
 
 ////////////////////// Deepcore ///////////////////////
 

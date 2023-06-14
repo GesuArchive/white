@@ -1,6 +1,6 @@
 /obj/machinery/chem_dispenser/botany
-	name = "Botany Chem Dispenser"
-	desc = "Creates and dispenses botany chemicals."
+	name = "ботанический хим-раздатчик"
+	desc = "Создает и выдает ботанические химикаты."
 
 	icon = 'white/jhnazar/icons/obj/chemical.dmi'
 	icon_state = "botany_dispenser"
@@ -16,13 +16,19 @@
 		/datum/reagent/diethylamine,
 		/datum/reagent/saltpetre,
 		/datum/reagent/medicine/c2/multiver,
-		/datum/reagent/toxin/mutagen
+		/datum/reagent/toxin/mutagen,
+		/datum/reagent/toxin/plantbgone,
+		/datum/reagent/toxin/pestkiller,
 		)
 	upgrade_reagents = list(
 		/datum/reagent/medicine/cryoxadone,
 		/datum/reagent/plantnutriment/eznutriment,
 		/datum/reagent/plantnutriment/left4zednutriment,
-		/datum/reagent/plantnutriment/robustharvestnutriment
+		/datum/reagent/plantnutriment/robustharvestnutriment,
+		/datum/reagent/plantnutriment/endurogrow,
+		/datum/reagent/plantnutriment/liquidearthquake,
+		/datum/reagent/toxin/plantbgone/weedkiller,
+		/datum/reagent/toxin/pestkiller/organic
 		)
 	emagged_reagents = list(
 		/datum/reagent/medicine/strange_reagent

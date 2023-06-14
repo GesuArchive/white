@@ -18,7 +18,6 @@
 	new /obj/item/storage/lockbox/medal/sci(src)
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/door_remote/research_director(src)
-	new /obj/item/circuitboard/machine/techfab/department/science(src)
 	new /obj/item/circuitboard/machine/mechfab/sci(src)
 	new /obj/item/storage/photo_album/rd(src)
 	new /obj/item/storage/box/skillchips/science(src)

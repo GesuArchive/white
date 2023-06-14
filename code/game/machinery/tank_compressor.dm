@@ -3,8 +3,8 @@
 #define SIGNIFICANT_AMOUNT_OF_MOLES 10
 
 /obj/machinery/atmospherics/components/binary/tank_compressor
-	name = "Tank Compressor"
-	desc = "Heavy duty shielded air compressor designed to pressurize tanks above the safe limit."
+	name = "компрессор"
+	desc = "Сверхмощный экранированный воздушный компрессор, предназначенный для создания давления в резервуарах выше безопасного предела."
 	circuit = /obj/item/circuitboard/machine/tank_compressor
 	icon = 'icons/obj/machines/research.dmi'
 	base_icon_state = "tank_compressor"
@@ -34,8 +34,8 @@
 
 /obj/machinery/atmospherics/components/binary/tank_compressor/examine()
 	. = ..()
-	. += "This one is rated for up to [TANK_COMPRESSOR_PRESSURE_LIMIT] kPa."
-	. += "Can be opened with a screwdriver and rotated with a wrench. The green port is the input, the red one is the output."
+	. += "Рассчитан на давление до [TANK_COMPRESSOR_PRESSURE_LIMIT] кПа."
+	. += "Может открываться отверткой и поворачиваться гаечным ключом. Зеленый порт - это вход, красный - выход."
 
 /// Stores the record of the gas data for a significant enough tank leak
 /datum/data/compressor_record
@@ -53,10 +53,10 @@
 		var/obj/item/tank/tank_item = item
 		if(inserted_tank)
 			if(!eject_tank(user))
-				balloon_alert(user, span_warning("[inserted_tank] is stuck inside."))
+				balloon_alert(user, span_warning("Внутри находится [inserted_tank]. Он застрял."))
 				return ..()
 		if(!user.transferItemToLoc(tank_item, src))
-			balloon_alert(user, span_warning("[tank_item] is stuck to your hand."))
+			balloon_alert(user, span_warning("[tank_item] прилип к моей руке!"))
 			return ..()
 		inserted_tank = tank_item
 		last_recorded_pressure = 0
@@ -69,7 +69,7 @@
 		if(user.transferItemToLoc(attacking_disk, src))
 			inserted_disk = attacking_disk
 		else
-			balloon_alert(user, span_warning("[attacking_disk] is stuck to your hand."))
+			balloon_alert(user, span_warning("[attacking_disk] прилип к моей руке!"))
 		return
 	return ..()
 
@@ -151,7 +151,7 @@
 /// Use this to absorb explosions.
 /obj/machinery/atmospherics/components/binary/tank_compressor/proc/explosion_handle(atom/source, list/arguments)
 	SIGNAL_HANDLER
-	say("Internal explosion detected and absorbed.")
+	say("Обнаружен и поглощен внутренний взрыв.")
 	SSexplosions.shake_the_room(get_turf(src), 1, 8, 0.5, 0.25, FALSE)
 	return COMSIG_CANCEL_EXPLOSION
 
@@ -165,15 +165,15 @@
 	if(leaked_gas_buffer.total_moles() > SIGNIFICANT_AMOUNT_OF_MOLES)
 		record_data()
 	else
-		say("Buffer data discarded. Required moles for storage: [SIGNIFICANT_AMOUNT_OF_MOLES] moles.")
+		say("Данные буфера забракованы. Необходимые моли для хранения: [SIGNIFICANT_AMOUNT_OF_MOLES] молей.")
 	var/datum/gas_mixture/removed = leaked_gas_buffer.remove_ratio(1)
 	airs[1].merge(removed)
-	say("Gas stored in buffer flushed to output port. Compressor ready to start the next experiment.")
+	say("Газ, хранящийся в буфере, сбрасывается в выходной порт. Компрессор готов к началу следующего эксперимента.")
 
 /// This proc should be called whenever we want to store our buffer data.
 /obj/machinery/atmospherics/components/binary/tank_compressor/proc/record_data()
 	var/datum/data/compressor_record/new_record = new()
-	new_record.name = "Log Recording #[record_number]"
+	new_record.name = "Запись #[record_number]"
 	new_record.experiment_source = inserted_tank.name
 	new_record.timestamp = station_time_timestamp()
 	for(var/gas_id in leaked_gas_buffer.get_gases())
@@ -181,7 +181,7 @@
 
 	compressor_record += new_record
 	record_number += 1
-	say("Buffer data stored.")
+	say("Данные буфера сохранены.")
 
 /// Ejecting a tank. Also called on insertion to clear previous tanks.
 /obj/machinery/atmospherics/components/binary/tank_compressor/proc/eject_tank(mob/user)

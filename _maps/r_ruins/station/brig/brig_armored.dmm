@@ -1064,12 +1064,7 @@
 /obj/structure/bed/dogbed/lia{
 	name = "кровать Сержанта Арни"
 	},
-/mob/living/simple_animal/hostile/retaliate/bat/sgt_araneus{
-	health = 300;
-	name = "Сержант Арни";
-	real_name = "Сержант Арни";
-	maxHealth = 300
-	},
+/mob/living/simple_animal/hostile/giant_spider/sgt_araneus,
 /turf/open/floor/carpet/royalblack,
 /area/command/heads_quarters/hos)
 "dU" = (

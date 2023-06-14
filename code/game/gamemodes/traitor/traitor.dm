@@ -9,7 +9,7 @@
 	antag_flag = ROLE_TRAITOR
 	false_report_weight = 20 //Reports of traitors are pretty common.
 	restricted_jobs = list(JOB_CYBORG)//They are part of the AI if he is traitor so are they, they use to get double chances
-	protected_jobs = list(JOB_PRISONER, JOB_RUSSIAN_OFFICER, JOB_TRADER, JOB_HACKER,JOB_VETERAN, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_HEAD_OF_SECURITY, JOB_CAPTAIN, JOB_FIELD_MEDIC, JOB_SPECIALIST, JOB_RANGER, JOB_SHAFT_MINER, JOB_HUNTER, JOB_FREELANCER)
+	protected_jobs = list(JOB_PRISONER, JOB_RUSSIAN_OFFICER, JOB_TRADER, JOB_HACKER,JOB_VETERAN, JOB_SECURITY_OFFICER, JOB_WARDEN, JOB_DETECTIVE, JOB_HEAD_OF_SECURITY, JOB_CAPTAIN, JOB_FIELD_MEDIC, JOB_SPECIALIST, JOB_RANGER, JOB_SHAFT_MINER, JOB_HUNTER, JOB_FREELANCER, JOB_INTERN)
 	required_players = 0
 	required_enemies = 1
 	recommended_enemies = 4

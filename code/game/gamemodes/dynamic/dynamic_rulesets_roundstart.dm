@@ -19,6 +19,7 @@
 		JOB_PRISONER,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_INTERN,
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -111,6 +112,7 @@
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
 		JOB_RANGER,
+		JOB_INTERN,
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -163,6 +165,7 @@
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
 		JOB_RANGER,
+		JOB_INTERN,
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -609,6 +612,7 @@
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
 		JOB_RANGER,
+		JOB_INTERN,
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -688,6 +692,7 @@
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
 		JOB_RANGER,
+		JOB_INTERN,
 	)
 	restricted_roles = list(
 		JOB_AI,

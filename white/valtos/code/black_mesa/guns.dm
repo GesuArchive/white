@@ -61,7 +61,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/ammo_box/magazine/mp5
-	name = "магазин пистолета-пулемёта"
+	name = "магазин пистолета-пулемёта MP5"
 	desc = "Магазин с 9-миллиметровыми патронами; сам магазин предназначен для MP5."
 	icon = 'white/valtos/icons/black_mesa/gunsgalore_items.dmi'
 	icon_state = "mp5"

@@ -1,7 +1,8 @@
 //Centaur I
 
 /obj/machinery/shuttle_weapon/missile
-	name = "Centaur I Missile Launcher"
+	name = "Ракетная установка РС-1 \"Артемида\""
+	desc = "Система вооружения ракетного типа, установленная на шаттле. Радиус взрыва 1-2, перезарядка 180, погрешность 1, кол-во выстрелов 1. Поворот осуществляется гаечным ключом."
 	icon_state = "missile_on"
 	base_icon_state = "missile"
 	projectile_type = /obj/projectile/bullet/shuttle/missile/mini
@@ -10,13 +11,15 @@
 	strength_rating = 50
 
 /obj/item/wallframe/shuttle_weapon/missile
-	name = "Centaur I Mount"
+	name = "Ракетная установка РС-1 \"Артемида\""
+	desc = "Система вооружения ракетного типа, установленная на шаттле. Радиус взрыва 1-2, перезарядка 180, погрешность 1, кол-во выстрелов 1. Поворот осуществляется гаечным ключом."
 	result_path = /obj/machinery/shuttle_weapon/missile
 
 //Centaur II
 
 /obj/machinery/shuttle_weapon/missile/tri
-	name = "Centaur II Missile Tubes"
+	name = "Ракетная установка РСЗ-1М \"Рой\""
+	desc = "Система вооружения ракетного типа, установленная на шаттле. Радиус взрыва 1-2, перезарядка 250, погрешность 3, кол-во выстрелов 3. Поворот осуществляется гаечным ключом."
 	icon_state = "missile_mk2_on"
 	base_icon_state = "missile_mk2"
 	projectile_type = /obj/projectile/bullet/shuttle/missile/mini
@@ -26,13 +29,15 @@
 	strength_rating = 95
 
 /obj/item/wallframe/shuttle_weapon/missile/tri
-	name = "Centaur II Mount"
+	name = "Ракетная установка РСЗ-1М \"Рой\""
+	desc = "Система вооружения ракетного типа, установленная на шаттле. Радиус взрыва 1-2, перезарядка 250, погрешность 3, кол-во выстрелов 3. Поворот осуществляется гаечным ключом."
 	result_path = /obj/machinery/shuttle_weapon/missile/tri
 
 //Minotaur
 
 /obj/machinery/shuttle_weapon/missile/breach
-	name = "Minotaur Breaching Missile Launcher"
+	name = "Ракетная установка РБ-3 \"Пробой\""
+	desc = "Система вооружения ракетного типа, установленная на шаттле. Радиус взрыва 2-4, перезарядка 220, погрешность 2, кол-во выстрелов 1. Поворот осуществляется гаечным ключом."
 	icon_state = "missile_breach_on"
 	base_icon_state = "missile_breach"
 	projectile_type = /obj/projectile/bullet/shuttle/missile/breach
@@ -41,13 +46,15 @@
 	strength_rating = 70
 
 /obj/item/wallframe/shuttle_weapon/missile/breach
-	name = "Minotaur Mount"
+	name = "Ракетная установка РБ-3 \"Пробой\""
+	desc = "Система вооружения ракетного типа, установленная на шаттле. Радиус взрыва 2-4, перезарядка 220, погрешность 2, кол-во выстрелов 1. Поворот осуществляется гаечным ключом."
 	result_path = /obj/machinery/shuttle_weapon/missile/breach
 
 //Prometheus
 
 /obj/machinery/shuttle_weapon/missile/fire
-	name = "Prometheus Incediary Missile Launcher"
+	name = "Ракетная установка РЗ-2 \"Прометей\""
+	desc = "Система вооружения ракетного типа, установленная на шаттле. Радиус взрыва 0-2, перезарядка 200, погрешность 3, кол-во выстрелов 1. Поворот осуществляется гаечным ключом."
 	icon_state = "missile_fire_on"
 	base_icon_state = "missile_fire"
 	projectile_type = /obj/projectile/bullet/shuttle/missile/fire
@@ -56,7 +63,8 @@
 	strength_rating = 30
 
 /obj/item/wallframe/shuttle_weapon/missile/fire
-	name = "Prometheus Mount"
+	name = "Ракетная установка РЗ-2 \"Прометей\""
+	desc = "Система вооружения ракетного типа, установленная на шаттле. Радиус взрыва 0-2, перезарядка 200, погрешность 3, кол-во выстрелов 1. Поворот осуществляется гаечным ключом."
 	result_path = /obj/machinery/shuttle_weapon/missile/fire
 
 //Devourer

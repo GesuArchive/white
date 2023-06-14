@@ -92,6 +92,11 @@
 	if(CONFIG_GET(flag/assistants_have_maint_access))
 		access |= list(ACCESS_MAINT_TUNNELS)
 
+/datum/id_trim/job/assistant/intern
+	assignment = JOB_INTERN
+	trim_state = "trim_intern"
+	config_job = "intern"
+
 /datum/id_trim/job/atmospheric_technician
 	assignment = JOB_ATMOSPHERIC_TECHNICIAN
 	trim_state = "trim_atmospherictechnician"

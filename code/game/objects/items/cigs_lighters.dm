@@ -816,8 +816,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //ROLLING//
 ///////////
 /obj/item/rollingpaper
-	name = "rolling paper"
-	desc = "A thin piece of paper used to make fine smokeables."
+	name = "папиросная бумага"
+	desc = "Тонкий лист бумаги, используемый для приготовления сигаретных изделий."
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "cig_paper"
 	w_class = WEIGHT_CLASS_TINY
@@ -835,10 +835,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			qdel(target)
 			qdel(src)
 			user.put_in_active_hand(R)
-			to_chat(user, span_notice("You roll the [target.name] into a rolling paper."))
-			R.desc = "Dried [target.name] rolled up in a thin piece of paper."
+			to_chat(user, span_notice("Закручиваю [target.name] в папиросную бумагу."))
+			R.desc = "Высушенная [target.name] закрученная в папиросную бумагу."
 		else
-			to_chat(user, span_warning("You need to dry this first!"))
+			to_chat(user, span_warning("Перед закруткой материал сначала надо высушить!"))
 
 ///////////////
 //VAPE NATION//

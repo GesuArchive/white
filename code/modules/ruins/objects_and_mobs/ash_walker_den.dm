@@ -55,7 +55,7 @@
 				visible_message(span_notice("Зазубренные тентакли жадно разрывают [H] на кусочки, но не находят ничего интересного."))
 				return
 
-			if(H.mind?.has_antag_datum(/datum/antagonist/ashwalker) && (H.key || H.get_ghost(FALSE, TRUE))) //special interactions for dead lava lizards with ghosts attached
+			if(H.mind?.has_antag_datum(/datum/antagonist/ashwalker) && (H.key || H.get_ghost(FALSE, TRUE)) && H.client) //special interactions for dead lava lizards with ghosts attached
 				visible_message(span_warning("Зазубренные тентакли аккуратно притягивают [H] к [src], поглощая тело и создавая его заново."))
 				var/datum/mind/deadmind
 				if(H.key)

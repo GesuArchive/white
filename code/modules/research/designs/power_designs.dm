@@ -14,7 +14,8 @@
 
 /datum/design/basic_cell/stock_parts
 	id = "basic_cell2"
-	category = list("Медицинское оборудование", "Оборудование СБ")
+	build_type = MECHFAB
+	category = list("Медицинское оборудование", "Оборудование СБ", "Оборудование сервиса")
 	sub_category = list("Базовые компоненты")
 
 /datum/design/high_cell

@@ -234,7 +234,7 @@ datum/dynamic_ruleset/midround/from_ghosts/schoolshooters
 	antag_flag = "schoolshooter"
 	antag_flag_override = ROLE_TRAITOR
 	antag_datum = /datum/antagonist/schoolshooter
-	enemy_roles = list(JOB_RUSSIAN_OFFICER, JOB_HACKER,JOB_VETERAN, JOB_SECURITY_OFFICER, JOB_DETECTIVE,JOB_HEAD_OF_SECURITY, JOB_CAPTAIN, JOB_FIELD_MEDIC, JOB_SPECIALIST)
+	enemy_roles = list(JOB_RUSSIAN_OFFICER, JOB_HACKER,JOB_VETERAN, JOB_SECURITY_OFFICER, JOB_DETECTIVE,JOB_HEAD_OF_SECURITY, JOB_CAPTAIN, JOB_FIELD_MEDIC, JOB_SPECIALIST, JOB_INTERN)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 2
 	requirements = list(101,101,101,80,60,50,30,20,10,10)

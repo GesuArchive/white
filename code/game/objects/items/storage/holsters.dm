@@ -1,7 +1,7 @@
 
 /obj/item/storage/belt/holster
-	name = "shoulder holster"
-	desc = "A rather plain but still cool looking holster that can hold a handgun."
+	name = "пистолетная кобура"
+	desc = "Довольно простая, но все равно классно выглядящая кобура, в которую можно поместить пистолет."
 	icon_state = "holster"
 	inhand_icon_state = "holster"
 	worn_icon_state = "holster"
@@ -19,7 +19,7 @@
 
 /obj/item/storage/belt/holster/Initialize()
 	. = ..()
-	atom_storage.max_slots = 1
+	atom_storage.max_slots = 2
 	atom_storage.max_total_storage = 16
 	atom_storage.set_holdable(list(
 		/obj/item/gun/ballistic/automatic/pistol,
@@ -83,8 +83,8 @@
 
 
 /obj/item/storage/belt/holster/detective
-	name = "detective's holster"
-	desc = "A holster able to carry handguns and some ammo. WARNING: Badasses only."
+	name = "пистолетная кобура"
+	desc = "Качественная кобура, в которую можно поместить пистолет и пару скорозарядников."
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/storage/belt/holster/detective/Initialize()
@@ -115,8 +115,8 @@
 	generate_items_inside(items_inside,src)
 
 /obj/item/storage/belt/holster/detective/full/ert
-	name = "marine's holster"
-	desc = "Wearing this makes you feel badass, but you suspect it's just a repainted detective's holster from the NT surplus."
+	name = "кобура СОБРа"
+	desc = "Надев это, вы чувствуете себя крутым, но подозреваете, что это всего лишь перекрашенная кобура детектива со складов NT."
 	icon_state = "syndicate_holster"
 	inhand_icon_state = "syndicate_holster"
 	worn_icon_state = "syndicate_holster"
@@ -129,8 +129,8 @@
 	),src)
 
 /obj/item/storage/belt/holster/chameleon
-	name = "syndicate holster"
-	desc = "A hip holster that uses chameleon technology to disguise itself, it can hold handguns and their ammo."
+	name = "кобура синдиката"
+	desc = "Набедренная кобура, использующая технологию \"хамелеон\" для маскировки, в ней могут храниться пистолеты и патроны к ним."
 	icon_state = "syndicate_holster"
 	inhand_icon_state = "syndicate_holster"
 	worn_icon_state = "syndicate_holster"
@@ -160,7 +160,7 @@
 
 /obj/item/storage/belt/holster/chameleon/Initialize()
 	. = ..()
-	atom_storage.max_slots = 2
+	atom_storage.max_slots = 3
 	atom_storage.max_total_storage = WEIGHT_CLASS_NORMAL
 	atom_storage.set_holdable(list(
 		/obj/item/gun/ballistic/automatic/pistol,
@@ -180,8 +180,8 @@
 		))
 
 /obj/item/storage/belt/holster/nukie
-	name = "operative holster"
-	desc = "A deep shoulder holster capable of holding almost any form of firearm and its ammo."
+	name = "оперативная кобура"
+	desc = "Наплечная кобура, способная вместить практически любой вид огнестрельного оружия и патроны к нему."
 	icon_state = "syndicate_holster"
 	inhand_icon_state = "syndicate_holster"
 	worn_icon_state = "syndicate_holster"
@@ -189,7 +189,7 @@
 
 /obj/item/storage/belt/holster/nukie/Initialize()
 	. = ..()
-	atom_storage.max_slots = 2
+	atom_storage.max_slots = 3
 	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
 	atom_storage.set_holdable(list(
 		/obj/item/gun, // ALL guns.

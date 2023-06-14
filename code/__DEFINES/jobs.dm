@@ -7,6 +7,7 @@
 #define JOB_UNAVAILABLE_UNBUYED 6
 #define JOB_UNAVAILABLE_LOCKED 7
 #define JOB_UNAVAILABLE_WHITELIST 8
+//#define JOB_UNAVAILABLE_ACCOUNT_OLD 9
 
 #define DEFAULT_RELIGION "Christianity"
 #define DEFAULT_DEITY "Space Jesus"
@@ -110,6 +111,7 @@
 
 //No department
 #define JOB_ASSISTANT "Assistant"
+#define JOB_INTERN "Intern"
 #define JOB_PRISONER "Prisoner"
 #define JOB_BOMJ "Bomj"
 #define JOB_COMBATANT_RED "Combantant: Red"

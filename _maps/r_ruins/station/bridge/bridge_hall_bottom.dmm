@@ -2797,12 +2797,6 @@
 	pixel_y = 8;
 	pixel_x = 6
 	},
-/obj/item/food/grown/coffee{
-	pixel_x = -10;
-	pixel_y = 4;
-	dry_grind = 0;
-	grind_results = list(/datum/reagent/toxin/coffeepowder=30)
-	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/service/cafeteria)
 "GS" = (
@@ -3038,14 +3032,15 @@
 /obj/machinery/airalarm{
 	pixel_y = 23
 	},
-/obj/effect/spawner/random/food_or_drink/snack{
-	pixel_x = 6;
-	pixel_y = 4
-	},
 /obj/item/reagent_containers/food/drinks/coffee{
 	pixel_y = 7;
 	pixel_x = -11
 	},
+/obj/item/food/chips{
+	pixel_x = 7;
+	pixel_y = 6
+	},
+/obj/item/food/donut/caramel,
 /turf/open/floor/plasteel/monofloor/dark,
 /area/hallway/primary/central/low_level_centre)
 "JO" = (
@@ -3163,9 +3158,6 @@
 /turf/closed/wall/r_wall,
 /area/command/corporate_showroom)
 "LC" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
 /obj/machinery/camera/autoname{
 	dir = 4;
 	view_range = 12
@@ -4034,10 +4026,6 @@
 	},
 /turf/open/floor/carpet,
 /area/command/heads_quarters/captain)
-"Uq" = (
-/obj/effect/turf_decal/tile/blue,
-/turf/open/floor/plasteel/dark,
-/area/hallway/primary/central/low_level_centre)
 "Ur" = (
 /turf/open/floor/plasteel/dark/corner{
 	dir = 1
@@ -5063,7 +5051,7 @@ cL
 cL
 TJ
 IX
-Uq
+cL
 uq
 Sh
 LC

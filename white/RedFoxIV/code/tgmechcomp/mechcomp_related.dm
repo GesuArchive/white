@@ -22,11 +22,8 @@
 	//So, yeah, this is fucking cringe
 	//at least i got to make "cool" sprites
 
-
-
-
 /obj/machinery/vending/mechcomp
-	name = "MechComp vending machine"
+	name = "торговый автомат MechComp"
 	desc = "Sells mechcomp components. Not much else to say about it."
 	icon = 'white/RedFoxIV/icons/mechcomp/connection.dmi'
 	icon_state = "vending"
@@ -58,6 +55,7 @@
 	default_price = PAYCHECK_ASSISTANT
 	extra_price = PAYCHECK_COMMAND * 1.5
 	payment_department = ACCOUNT_ENG
+	refill_canister = /obj/item/vending_refill/mechcomp
 
-
-
+/obj/item/vending_refill/mechcomp
+	machine_name = "MechComp"

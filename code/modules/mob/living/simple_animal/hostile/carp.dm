@@ -228,9 +228,9 @@
 		heal_overall_damage(2 * delta_time)
 
 /mob/living/simple_animal/hostile/carp/lia
-	name = "Lia"
-	real_name = "Lia"
-	desc = "A failed experiment of Nanotrasen to create weaponised carp technology. This less than intimidating carp now serves as the Head of Security's pet."
+	name = "Лия"
+	real_name = "Лия"
+	desc = "Неудачный эксперимент НаноТрейзен по созданию взвода боевых карпов. На текущий момент служит домашним любимцем начальника службы безопасности."
 	gender = FEMALE
 	speak_emote = list("пищит")
 	ai_controller = null
@@ -247,12 +247,12 @@
 	tame_chance = 0
 	bonus_tame_chance = 0
 	pet_bonus = TRUE
-	pet_bonus_emote = "bloops happily!"
+	pet_bonus_emote = "счастливо блупает!"
 
 /mob/living/simple_animal/hostile/carp/cayenne
-	name = "Cayenne"
-	real_name = "Cayenne"
-	desc = "A failed Syndicate experiment in weaponized space carp technology, it now serves as a lovable mascot."
+	name = "Кайен"
+	real_name = "Кайен"
+	desc = "Неудачный эксперимент Синдиката по созданию взвода боевых карпов. На текущий момент служит вспомогательным агентом психологической поддержки."
 	gender = FEMALE
 	speak_emote = list("пищит")
 	ai_controller = null
@@ -263,7 +263,7 @@
 	tame_chance = 0
 	bonus_tame_chance = 0
 	pet_bonus = TRUE
-	pet_bonus_emote = "bloops happily!"
+	pet_bonus_emote = "счастливо блупает!"
 	/// Keeping track of the nuke disk for the functionality of storing it.
 	var/obj/item/disk/nuclear/disky
 	/// Location of the file storing disk overlays
@@ -273,9 +273,60 @@
 
 /mob/living/simple_animal/hostile/carp/cayenne/Initialize(mapload)
 	. = ..()
-	colored_disk_mouth = mutable_appearance(SSgreyscale.GetColoredIconByType(/datum/greyscale_config/carp/disk_mouth, greyscale_colors))
+	if(random_color)
+		colored_disk_mouth = mutable_appearance(SSgreyscale.GetColoredIconByType(/datum/greyscale_config/carp/disk_mouth, greyscale_colors))
 	ADD_TRAIT(src, TRAIT_DISK_VERIFIER, INNATE_TRAIT) //carp can verify disky
 	ADD_TRAIT(src, TRAIT_ADVANCEDTOOLUSER, INNATE_TRAIT) //carp SMART
+
+/mob/living/simple_animal/hostile/carp/cayenne/ekaterina
+	name = "Екатерина"
+	real_name = "Екатерина"
+	desc = "Екатерина настоящая королева среди карпов, её всегда выделяли ласковый взгляд и скромная улыбка из 380 зубов."
+	faction = list("neutral")
+	health = 300
+	maxHealth = 300
+	ai_controller = /datum/ai_controller/hostile_friend
+	icon_dead = "magicarp_dead"
+	icon_gib = "magicarp_gib"
+	icon_living = "magicarp"
+	icon_state = "magicarp"
+	tame_chance = 20
+	bonus_tame_chance = 15
+	random_color = FALSE
+
+/mob/living/simple_animal/hostile/carp/cayenne/ekaterina/Initialize(mapload)
+	. = ..()
+	colored_disk_mouth = mutable_appearance(disk_overlay_file, "disk_mouth_red")
+
+/mob/living/simple_animal/hostile/carp/cayenne/ekaterina/belka
+	name = "Белка"
+	real_name = "Белка"
+	desc = "Всегда радуется при виде упитанных ассистентов."
+	health = 250
+	maxHealth = 250
+	icon_state = "base"
+	icon_living = "base"
+	icon_dead = "base_dead"
+	icon_gib = "carp_gib"
+
+/mob/living/simple_animal/hostile/carp/cayenne/Initialize(mapload)
+	. = ..()
+	colored_disk_mouth = mutable_appearance(disk_overlay_file, "disk_mouth")
+
+/mob/living/simple_animal/hostile/carp/cayenne/ekaterina/strelka
+	name = "Стрелка"
+	real_name = "Стрелка"
+	desc = "Предпочитает исключительно гастрономическую любовь."
+	health = 250
+	maxHealth = 250
+	icon_state = "carp"
+	icon_living = "carp"
+	icon_dead = "carp_dead"
+	icon_gib = "carp_gib"
+
+/mob/living/simple_animal/hostile/carp/cayenne/Initialize(mapload)
+	. = ..()
+	colored_disk_mouth = mutable_appearance(disk_overlay_file, "disk_mouth_blue")
 
 /mob/living/simple_animal/hostile/carp/cayenne/death(gibbed)
 	if(disky)
@@ -290,7 +341,7 @@
 /mob/living/simple_animal/hostile/carp/cayenne/examine(mob/user)
 	. = ..()
 	if(disky)
-		. += span_notice("Wait... is that [disky] in [p_their()] mouth?")
+		. += span_notice("Погодите... это что? [disky] у [p_their()] во рту?")
 
 /mob/living/simple_animal/hostile/carp/cayenne/AttackingTarget(atom/attacked_target)
 	if(istype(attacked_target, /obj/item/disk/nuclear))
@@ -299,14 +350,14 @@
 			return
 		potential_disky.forceMove(src)
 		disky = potential_disky
-		to_chat(src, span_nicegreen("YES!! You manage to pick up [disky]. (Click anywhere to place it back down.)"))
+		to_chat(src, span_nicegreen("ДА!! У меня получилось подобрать [disky]. Ну если что, я смогу его где-нибудь положить."))
 		update_icon()
 		if(!disky.fake)
 			client.give_award(/datum/award/achievement/misc/cayenne_disk, src)
 		return
 	if(disky)
 		if(isopenturf(attacked_target))
-			to_chat(src, span_notice("You place [disky] on [attacked_target]"))
+			to_chat(src, span_notice("Аккуратно выкладываю [disky] на [attacked_target]"))
 			disky.forceMove(attacked_target.drop_location())
 			disky = null
 			update_icon()

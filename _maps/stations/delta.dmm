@@ -37606,7 +37606,7 @@
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
 "ehG" = (
-/obj/machinery/rnd/production/techfab/department/service,
+/obj/machinery/mecha_part_fabricator/service,
 /obj/effect/turf_decal/stripes/box,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
@@ -106219,6 +106219,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/item/ammo_box/magazine/m50,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/command/nuke_storage)
 "wuK" = (

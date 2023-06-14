@@ -31,4 +31,3 @@
 
 /obj/item/vending_refill/tool
 	machine_name = "YouTool"
-	icon_state = "refill_engineering"

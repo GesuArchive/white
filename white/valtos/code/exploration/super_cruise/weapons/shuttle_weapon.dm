@@ -4,7 +4,7 @@
 
 /obj/machinery/shuttle_weapon
 	name = "Mounted Emplacement"
-	desc = "A weapon system mounted onto a shuttle system. Use a wrench to rotate."
+	desc = "Система вооружения, установленная на шаттле. Поворот осуществляется гаечным ключом."
 	icon = 'icons/obj/supercruise/supercruise_weapons_long.dmi'
 	icon_state = "railgun_off"
 	base_icon_state = "railgun"

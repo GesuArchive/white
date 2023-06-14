@@ -154,6 +154,13 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/plating/beach/sand,
 /area/hallway/primary/central/low_level_centre)
+"rZ" = (
+/obj/item/kirbyplants{
+	icon_state = "plant-21"
+	},
+/obj/effect/turf_decal/tile/blue,
+/turf/template_noop,
+/area/template_noop)
 "sn" = (
 /obj/structure/flora/grass/brown,
 /turf/open/floor/grass,
@@ -206,6 +213,15 @@
 /obj/structure/flora/ausbushes/reedbush,
 /turf/open/floor/grass,
 /area/hallway/primary/central/low_level_centre)
+"xD" = (
+/obj/item/kirbyplants{
+	icon_state = "plant-21"
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
 "Aw" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -566,10 +582,10 @@ io
 Tp
 Tp
 Tp
-io
+rZ
 fk
 fk
-io
+xD
 Tp
 Tp
 Tp

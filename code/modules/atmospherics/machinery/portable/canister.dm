@@ -318,6 +318,8 @@
 	mode = CANISTER_TIER_1
 
 /obj/machinery/portable_atmospherics/canister/tier_2
+	name = "продвинутая канистра"
+	desc = "Вмещает в себя до 3 тысяч моль. Выдерживает давление до 5 миллионов Па и температуру до 500 тысяч градусов."
 	heat_limit = 500000
 	pressure_limit = 5e6
 	volume = 3000
@@ -327,6 +329,8 @@
 	mode = CANISTER_TIER_2
 
 /obj/machinery/portable_atmospherics/canister/tier_3
+	name = "экспериментальная канистра"
+	desc = "Вмещает в себя до 5 тысяч моль. Ограничений по давлению и максимальной температуре нет."
 	heat_limit = 1e12
 	pressure_limit = 1e14
 	volume = 5000
@@ -334,6 +338,14 @@
 	can_max_release_pressure = (ONE_ATMOSPHERE * 30)
 	can_min_release_pressure = (ONE_ATMOSPHERE / 50)
 	mode = CANISTER_TIER_3
+
+/obj/machinery/portable_atmospherics/canister/tier_2/toxins
+	name = "топливная плазменная канистра"
+	desc = "Содержит 3 тысячи моль плазмы."
+	gas_type = GAS_PLASMA
+	filled = 1
+	greyscale_config = /datum/greyscale_config/canister/hazard
+	greyscale_colors = "#f62800#000000"
 
 /obj/machinery/portable_atmospherics/canister/Initialize(mapload, datum/gas_mixture/existing_mixture)
 	. = ..()

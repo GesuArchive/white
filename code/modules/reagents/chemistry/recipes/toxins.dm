@@ -147,15 +147,15 @@
 	required_temp = 100
 	optimal_temp = 450
 	overheat_temp = 900
-	optimal_ph_min = 4
-	optimal_ph_max = 8.5
+	optimal_ph_min = 3
+	optimal_ph_max = 9
 	determin_ph_range = 2
 	temp_exponent_factor = 1
 	ph_exponent_factor = 0.2
 	thermic_constant = 500
 	H_ion_release = 2.5
 	rate_up_lim = 10
-	purity_min = 0.7
+	purity_min = 0.5
 	reaction_flags = REACTION_PH_VOL_CONSTANT
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_DAMAGING | REACTION_TAG_OTHER
 

@@ -611,7 +611,7 @@ export const Secrets = (props, context) => {
   const [tabIndex, setTabIndex] = useLocalState(context, 'tab-index', 2);
   const TabComponent = TAB2NAME[tabIndex - 1].component();
   return (
-    <Window title="Секретов Панель" width={530} height={500}>
+    <Window title="Панель управления" width={530} height={500}>
       <Window.Content>
         <Flex direction="column" height="100%">
           <Flex.Item mb={1}>

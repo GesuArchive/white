@@ -1240,7 +1240,8 @@ GLOBAL_LIST_INIT(assblasts, list(ASSBLAST_CUMJAR = "Puts people in a cum jar on 
 								ASSBLAST_WIZARD = "What do you do when you can't aim properly? You spin, spray and pray.",\
 								ASSBLAST_BAD_CONNECTION = "I selled my wife for internet connection for play \"spac station 13\" and i want to become the robustest player",\
 								ASSBLAST_LIFEWEB = "Why does Rendi Sendi not give me access to LifeWeb, am I oldfeg from 201x???",
-								ASSBLAST_PACIFIST = "HOW TO KILL THOSE RETARDS F1 I CANT CLICK!!"))
+								ASSBLAST_PACIFIST = "HOW TO KILL THOSE RETARDS F1 I CANT CLICK!!",
+								ASSBLAST_INTEGRAL = "I've lost my programming stockings..."))
 
 GLOBAL_LIST_EMPTY(assblasted_people)
 

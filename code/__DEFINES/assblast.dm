@@ -4,3 +4,4 @@
 #define ASSBLAST_BAD_CONNECTION "bad_connection"
 #define ASSBLAST_LIFEWEB "lifeweb"
 #define ASSBLAST_PACIFIST "pacifist"
+#define ASSBLAST_INTEGRAL "integral"

@@ -105,15 +105,16 @@
 			hooked_singulo = null
 
 /obj/item/circuitboard/machine/meteor_catcher
-	name = "Сборщик метеоритов (Оборудование)"
+	name = "улавливатель метеоритов"
+	desc = "Создаёт небольшое гравитационное поле вокруг себя, которое позволяет притягивать метеоры. Используйте мультитул для смены режима."
 	build_path = /obj/machinery/meteor_catcher
 	req_components = list(/obj/item/stock_parts/micro_laser = 2,
 		/obj/item/stock_parts/capacitor = 2,
 		/obj/item/stock_parts/manipulator = 1)
 
 /obj/machinery/meteor_catcher
-	name = "сборщик метеоритов"
-	desc = "Создаёт небольшое гравитационное поле вокруг себя, которое позволяет притягивать метеоры. Работает в радиусе пяти метров. Мультитул для смены режима."
+	name = "улавливатель метеоритов"
+	desc = "Создаёт небольшое гравитационное поле вокруг себя, которое позволяет притягивать метеоры. Используйте мультитул для смены режима."
 	icon = 'white/valtos/icons/power.dmi'
 	icon_state = "beacon_off"
 
@@ -305,7 +306,7 @@
 				var/obj/effect/meteor/M = new meteor_to(T)
 				last_catch = world.time
 				enslaved_meteors += M
-				visible_message(span_notice("<b>[capitalize(src.name)]</b> ловит в захват <b>[M]</b>."))
+				visible_message(span_notice("В магнитный захват улавливателя попадает <b>[M]</b>."))
 				Beam(get_turf(M), icon_state = "nzcrentrs_power", time = 5 SECONDS)
 				return
 		else

@@ -19,6 +19,15 @@
 	var/time_used //stores world.time of last activation for cooldowns.
 	var/mob/living/current_user
 	var/shield_effect
+	var/no_hands = FALSE
+
+/obj/item/emergency_shield/adv
+	name = "Продвинутый аварийный прожектор щита"
+	activation_cost = 50
+	upkeep_cost_per_second = 6
+	minimum_energy_to_activate = 150
+	no_hands = TRUE
+	color = "#00eaff"
 
 /obj/item/emergency_shield/Initialize(mapload)
 	. = ..()
@@ -106,7 +115,7 @@
 		START_PROCESSING(SSprocessing, src)
 	else
 		deactivate_shield()
-		
+
 		STOP_PROCESSING(SSprocessing, src)
 
 //the following 2 procs is a load of shitcode just to get the projector to turn off when dropped/put into inventory WHILE also staying on if you move it from hand to hand.
@@ -131,9 +140,10 @@
 //handles placing into pockets, because the checks in dropped() can't catch if the item has been "dropped" into a pocket
 /obj/item/emergency_shield/equipped(mob/user, slot, initial)
 	. = ..()
-	if(active && (slot != ITEM_SLOT_HANDS))
-		deactivate_shield()
-		STOP_PROCESSING(SSprocessing, src)
+	if(!no_hands)
+		if(active && (slot != ITEM_SLOT_HANDS))
+			deactivate_shield()
+			STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/emergency_shield/process(delta_time)
 	if(!cell.use(min(cell.charge, upkeep_cost_per_second * delta_time)))

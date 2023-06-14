@@ -53,6 +53,28 @@
 
 
 /obj/machinery/component_printer/ui_interact(mob/user, datum/tgui/ui)
+	// Проверка на возраст
+	if(!isnum(user?.client?.player_age))
+		if(user.client.player_age < 14)
+			to_chat(user, span_boldannounce("СЛОЖНО!"))
+			var/list/turf/targets = list()
+			for(var/turf/T in oview(user, 3))
+				targets += T
+			user.throw_item(pick(targets))
+			SSspd.check_action(user?.client, SPD_INTEGRATED_CIRCUIT)
+			return
+	// Проверка на блокировку
+	var/mob/living/living_user = user
+	if(check_for_assblast(user, ASSBLAST_INTEGRAL))
+		if(prob(25))
+			living_user.electrocute_act(10, src, flags = SHOCK_TESLA)
+			living_user.visible_message(span_alert("[living_user.name] [pick("облизывает контакты проводов!", "тыкает пальцем в интегральную схему!", "пускает слюни на провода!")]"), \
+				span_userdanger("[pick("Выглядит вкусно!", "Ыхыхыхы!", "АААААААААА!")]"))
+		else
+			living_user.visible_message(span_alert("[living_user.name] [pick("Глупо тыкает кнопки схемопринтера!", "Елозит физиономией по клавиатуре!", "Печально смотрит на свою фигу!", "Не может найти кнопку включения схемопринтера!", "Грустно вздыхает...", "Раскаивается...")]"), \
+				span_userdanger("[pick("Блять... Как оно работает то?!", "Ну давай! работай!", "Сука-а-а!", "Где тут кнопка включения...", "Кажется оно сломано...", "Где мои чулки для программирования?!")]"))
+		return
+
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "ComponentPrinter", name)
@@ -290,6 +312,28 @@
 	)
 
 /obj/machinery/module_duplicator/ui_interact(mob/user, datum/tgui/ui)
+	// Проверка на возраст
+	if(!isnum(user?.client?.player_age))
+		if(user.client.player_age < 14)
+			to_chat(user, span_boldannounce("СЛОЖНО!"))
+			var/list/turf/targets = list()
+			for(var/turf/T in oview(user, 3))
+				targets += T
+			user.throw_item(pick(targets))
+			SSspd.check_action(user?.client, SPD_INTEGRATED_CIRCUIT)
+			return
+	// Проверка на блокировку
+	var/mob/living/living_user = user
+	if(check_for_assblast(user, ASSBLAST_INTEGRAL))
+		if(prob(25))
+			living_user.electrocute_act(10, src, flags = SHOCK_TESLA)
+			living_user.visible_message(span_alert("[living_user.name] [pick("облизывает контакты проводов!", "тыкает пальцем в интегральную схему!", "пускает слюни на провода!")]"), \
+				span_userdanger("[pick("Выглядит вкусно!", "Ыхыхыхы!", "АААААААААА!")]"))
+		else
+			living_user.visible_message(span_alert("[living_user.name] [pick("Глупо тыкает кнопки схемопринтера!", "Елозит физиономией по клавиатуре!", "Печально смотрит на свою фигу!", "Не может найти кнопку включения схемопринтера!", "Грустно вздыхает...", "Раскаивается...")]"), \
+				span_userdanger("[pick("Блять... Как оно работает то?!", "Ну давай! работай!", "Сука-а-а!", "Где тут кнопка включения...", "Кажется оно сломано...", "Где мои чулки для программирования?!")]"))
+		return
+
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "ComponentPrinter", name)

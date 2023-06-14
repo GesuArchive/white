@@ -648,7 +648,8 @@
 	build_path = /obj/machinery/computer/bounty
 
 /obj/item/circuitboard/computer/shuttle/weapons
-	name = "shuttle weapons control (Computer Board)"
+	name = "Консоль управления вооружением шаттла"
+	desc = "Консоль позволяющая управлять вооружением шаттла."
 	icon_state = "security"
 	build_path = /obj/machinery/computer/weapons
 
