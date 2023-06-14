@@ -985,6 +985,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 		if(ismob(client.eye) && (client.eye != src))
 			var/mob/target = client.eye
 			observetarget = null
+			hide_other_mob_action_buttons(src)
 			if(target.observers)
 				target.observers -= src
 				UNSETEMPTY(target.observers)
@@ -1025,7 +1026,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 		return
 
 	//Istype so we filter out points of interest that are not mobs
-	if(client && mob_eye && istype(mob_eye))
+	if(client && mob_eye && istype(mob_eye) && src != mob_eye)
 		client.set_eye(mob_eye)
 		if(mob_eye.hud_used)
 			client.screen = list()
