@@ -74,6 +74,7 @@
 	//Must actually be on a ship
 	if(!our_ship)
 		to_chat(user, "<span class='warning'>Консоль управления оружием, не привязана к шаттлу.</span>")
+		get_attached_ship()
 		return
 	// Update UI
 	ui = SStgui.try_update_ui(user, src, ui)
