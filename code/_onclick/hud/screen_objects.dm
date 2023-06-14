@@ -154,7 +154,7 @@
 	/// Icon when empty. For now used only by humans.
 	var/icon_empty
 	/// Icon when contains an item. For now used only by humans.
-	var/icon_full
+	var/icon_full = "occupied"
 	/// The overlay when hovering over with an item in your hand
 	var/image/object_overlay
 	plane = HUD_PLANE
