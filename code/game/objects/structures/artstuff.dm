@@ -457,9 +457,10 @@
 	desc = current_canvas ? desc_with_canvas : initial(desc)
 	return ..()
 
-/obj/structure/sign/painting/update_icon_state()
-	icon_state = "[base_icon_state]-[current_canvas?.generated_icon ? "overlay" : "empty"]"
-	return ..()
+/obj/structure/sign/painting/update_icon_state(updates=ALL)
+	. = ..()
+	// Stops the frame icon_state from poking out behind the paintings. we have proper frame overlays in artstuff.dmi.
+	icon = current_canvas?.generated_icon ? null : initial(icon)
 
 /obj/structure/sign/painting/update_overlays()
 	. = ..()
