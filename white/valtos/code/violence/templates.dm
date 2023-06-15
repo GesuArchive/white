@@ -10,6 +10,10 @@
 	var/max_players = 0
 	// тема карты, должна быть существующая, иначе всё сломается
 	var/theme = VIOLENCE_THEME_STD
+	// цвет света на карте
+	var/map_color = COLOR_LIGHT_GRAYISH_RED
+	// альфа света на карте
+	var/map_alpha = 255
 
 /datum/map_template/violence/default
 	name = "Карак"
@@ -55,6 +59,8 @@
 	min_players = 0
 	max_players = 16
 	theme = VIOLENCE_THEME_STD
+	map_color = "#050509"
+	map_alpha = 50
 
 /datum/map_template/violence/cyberspess
 	name = "Киберпространство"
@@ -73,6 +79,8 @@
 	min_players = 16
 	max_players = 64
 	theme = VIOLENCE_THEME_WARFARE
+	map_color = "#f2ac99"
+	map_alpha = 255
 
 /datum/map_template/violence/koridorovo
 	name = "Коридоры"
@@ -109,6 +117,8 @@
 	min_players = 16
 	max_players = 64
 	theme = VIOLENCE_THEME_STD
+	map_color = "#f1e5af"
+	map_alpha = 200
 
 /datum/map_template/violence/portalovo
 	name = "Портальная авантюра"
@@ -139,12 +149,14 @@
 
 /datum/map_template/violence/iwannaplayagame
 	name = "I wanna play a game"
-	description = "Ну типо карта. Там чёт есть. Даже есть укрытия. И дофига мешающего дерьма. Потому что тот, кто играет в вайленс, должен страдать."
+	description = "Пещеры."
 	mappath = "_maps/violence/violence15.dmm"
 	weight = 5
 	min_players = 32
 	max_players = 64
 	theme = VIOLENCE_THEME_STD
+	map_color = "#050509"
+	map_alpha = 5
 
 /datum/map_template/violence/battleforsaratov
 	name = "Битва в Саратове"

@@ -160,10 +160,6 @@
 /obj/effect/mapping_helpers/airlock/access/all,
 /turf/open/floor/wood/parquet,
 /area/violence)
-"Ch" = (
-/obj/structure/flora/tree/jungle,
-/turf/open/floor/grass/rospilovo,
-/area/violence)
 "Cz" = (
 /obj/structure/window/reinforced/spawner{
 	dir = 1
@@ -182,12 +178,6 @@
 "Fo" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /turf/open/floor/wood/parquet,
-/area/violence)
-"Gc" = (
-/turf/closed/indestructible/alien{
-	invisibility = 1;
-	name = "Стена Симуляции"
-	},
 /area/violence)
 "GC" = (
 /obj/structure/barricade/wooden,
@@ -423,7 +413,6 @@ HN
 HN
 HN
 HN
-Ch
 HN
 HN
 HN
@@ -437,7 +426,8 @@ HN
 HN
 HN
 HN
-Ch
+HN
+HN
 HN
 uq
 uq
@@ -457,7 +447,6 @@ uq
 uq
 HN
 HN
-Ch
 HN
 HN
 HN
@@ -470,7 +459,8 @@ HN
 HN
 HN
 HN
-Ch
+HN
+HN
 HN
 HN
 HN
@@ -682,7 +672,7 @@ HN
 HN
 HN
 HN
-Ch
+HN
 HN
 HN
 HN
@@ -767,7 +757,6 @@ uq
 uq
 HN
 HN
-Ch
 HN
 HN
 HN
@@ -776,11 +765,12 @@ HN
 HN
 HN
 HN
-Ch
 HN
 HN
 HN
-Ch
+HN
+HN
+HN
 HN
 dG
 dG
@@ -794,12 +784,12 @@ HN
 dG
 dG
 dG
-Ch
 HN
 HN
 HN
 HN
-Ch
+HN
+HN
 HN
 HN
 HN
@@ -833,7 +823,7 @@ HN
 HN
 HN
 HN
-Ch
+HN
 HN
 HN
 HN
@@ -873,22 +863,22 @@ aZ
 aZ
 aZ
 aZ
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
+uq
+uq
+uq
+xW
+yG
+yG
+yG
+yG
+yG
+yG
+yG
+yG
+xW
+uq
+uq
+uq
 aZ
 aZ
 aZ
@@ -909,7 +899,7 @@ HN
 dG
 dG
 dG
-Ch
+HN
 xs
 "}
 (10,1,1) = {"
@@ -976,7 +966,7 @@ xs
 "}
 (11,1,1) = {"
 xs
-Ch
+HN
 dG
 dG
 dG
@@ -1091,7 +1081,7 @@ sY
 Kq
 aZ
 HN
-Ch
+HN
 dG
 dG
 dG
@@ -1104,7 +1094,7 @@ HN
 dG
 dG
 dG
-Ch
+HN
 HN
 aZ
 dP
@@ -1344,11 +1334,11 @@ dG
 dG
 dG
 HN
-KH
+xs
 "}
 (17,1,1) = {"
 xs
-Ch
+HN
 dG
 dG
 dG
@@ -1415,7 +1405,7 @@ dG
 dG
 dG
 HN
-Ch
+HN
 aZ
 Vl
 Vl
@@ -1462,7 +1452,7 @@ YU
 Qw
 Vl
 aZ
-Ch
+HN
 HN
 dG
 dG
@@ -1602,7 +1592,7 @@ uq
 uq
 uq
 uq
-Gc
+uq
 uq
 uq
 uq
@@ -1647,7 +1637,7 @@ uq
 uq
 uq
 uq
-Gc
+uq
 uq
 uq
 uq
@@ -1664,7 +1654,7 @@ uq
 uq
 uq
 uq
-Gc
+uq
 uq
 uq
 uq
@@ -1709,7 +1699,7 @@ uq
 uq
 uq
 uq
-Gc
+uq
 uq
 uq
 uq
@@ -1726,7 +1716,7 @@ uq
 uq
 uq
 uq
-Gc
+uq
 uq
 uq
 uq
@@ -1771,7 +1761,7 @@ uq
 uq
 uq
 uq
-Gc
+uq
 uq
 uq
 uq
@@ -1788,7 +1778,7 @@ xW
 rr
 xW
 yC
-Gc
+yC
 rr
 xW
 yC
@@ -1833,7 +1823,7 @@ xW
 yC
 xW
 rr
-Gc
+yC
 yC
 xW
 rr
@@ -1850,7 +1840,7 @@ yG
 yG
 yG
 yG
-Gc
+yG
 yG
 yG
 yG
@@ -1895,7 +1885,7 @@ yG
 yG
 yG
 yG
-Gc
+yG
 yG
 yG
 yG
@@ -1912,7 +1902,7 @@ yG
 yG
 yG
 yG
-Gc
+yG
 yG
 yG
 yG
@@ -1957,7 +1947,7 @@ yG
 yG
 yG
 yG
-Gc
+yG
 yG
 yG
 yG
@@ -1974,7 +1964,7 @@ yG
 yG
 yG
 yG
-Gc
+yG
 yG
 yG
 yG
@@ -2019,7 +2009,7 @@ yG
 yG
 yG
 yG
-Gc
+yG
 yG
 yG
 yG
@@ -2036,7 +2026,7 @@ tZ
 yG
 tZ
 tZ
-Gc
+yG
 tZ
 tZ
 yG
@@ -2081,7 +2071,7 @@ tZ
 yG
 tZ
 tZ
-Gc
+yG
 tZ
 tZ
 yG
@@ -2098,7 +2088,7 @@ yG
 yG
 yG
 yG
-Gc
+yG
 yG
 yG
 yG
@@ -2143,7 +2133,7 @@ yG
 yG
 yG
 yG
-Gc
+yG
 yG
 yG
 yG
@@ -2160,7 +2150,7 @@ yG
 yG
 yG
 yG
-Gc
+yG
 yG
 yG
 yG
@@ -2205,7 +2195,7 @@ yG
 yG
 yG
 yG
-Gc
+yG
 yG
 yG
 yG
@@ -2222,7 +2212,7 @@ yG
 yG
 yG
 yG
-Gc
+yG
 yG
 yG
 yG
@@ -2267,7 +2257,7 @@ yG
 yG
 yG
 yG
-Gc
+yG
 yG
 yG
 yG
@@ -2284,7 +2274,7 @@ yG
 yG
 yG
 yG
-Gc
+yG
 yG
 yG
 yG
@@ -2329,7 +2319,7 @@ yG
 yG
 yG
 yG
-Gc
+yG
 yG
 yG
 yG
@@ -2346,7 +2336,7 @@ xW
 rr
 xW
 yC
-Gc
+yC
 rr
 xW
 yC
@@ -2391,7 +2381,7 @@ xW
 yC
 xW
 rr
-Gc
+yC
 yC
 xW
 rr
@@ -2408,7 +2398,7 @@ uq
 uq
 uq
 uq
-Gc
+uq
 uq
 uq
 uq
@@ -2453,7 +2443,7 @@ uq
 uq
 uq
 uq
-Gc
+uq
 uq
 uq
 uq
@@ -2470,7 +2460,7 @@ uq
 uq
 uq
 uq
-Gc
+uq
 uq
 uq
 uq
@@ -2515,7 +2505,7 @@ uq
 uq
 uq
 uq
-Gc
+uq
 uq
 uq
 uq
@@ -2532,7 +2522,7 @@ uq
 uq
 uq
 uq
-Gc
+uq
 uq
 uq
 uq
@@ -2577,7 +2567,7 @@ uq
 uq
 uq
 uq
-Gc
+uq
 uq
 uq
 uq
@@ -2655,7 +2645,7 @@ dG
 dG
 dG
 HN
-Ch
+HN
 aZ
 jT
 Vl
@@ -2764,7 +2754,7 @@ Vl
 Vl
 Vl
 aZ
-Ch
+HN
 HN
 dG
 dG
@@ -2831,12 +2821,12 @@ HN
 dG
 dG
 dG
-Ch
+HN
 xs
 "}
 (41,1,1) = {"
 xs
-Ch
+HN
 dG
 dG
 dG
@@ -3026,7 +3016,7 @@ HN
 dG
 dG
 dG
-Ch
+HN
 HN
 aZ
 Kq
@@ -3199,7 +3189,7 @@ Zg
 Vl
 aZ
 HN
-Ch
+HN
 dG
 dG
 dG
@@ -3291,22 +3281,22 @@ aZ
 aZ
 aZ
 aZ
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
-Gc
+uq
+uq
+uq
+xW
+yG
+yG
+yG
+yG
+yG
+yG
+yG
+yG
+xW
+uq
+uq
+uq
 aZ
 aZ
 aZ
@@ -3344,7 +3334,7 @@ HN
 HN
 HN
 HN
-Ch
+HN
 HN
 HN
 HN
@@ -3371,7 +3361,7 @@ uq
 uq
 HN
 HN
-Ch
+HN
 HN
 HN
 HN
@@ -3400,7 +3390,7 @@ dG
 dG
 HN
 HN
-Ch
+HN
 HN
 HN
 HN
@@ -3446,12 +3436,12 @@ HN
 HN
 HN
 HN
-Ch
+HN
 HN
 dG
 dG
 dG
-Ch
+HN
 xs
 "}
 (51,1,1) = {"
@@ -3476,7 +3466,7 @@ HN
 HN
 HN
 HN
-Ch
+HN
 uq
 uq
 uq
@@ -3503,7 +3493,7 @@ HN
 HN
 HN
 HN
-Ch
+HN
 HN
 HN
 HN
@@ -3518,7 +3508,7 @@ xs
 "}
 (52,1,1) = {"
 xs
-Ch
+HN
 dG
 dG
 dG
@@ -3713,14 +3703,14 @@ HN
 HN
 HN
 HN
-Ch
 HN
 HN
 HN
 HN
 HN
 HN
-Ch
+HN
+HN
 HN
 HN
 HN
@@ -3745,7 +3735,6 @@ HN
 HN
 HN
 HN
-Ch
 HN
 HN
 HN
@@ -3756,7 +3745,8 @@ HN
 HN
 HN
 HN
-Ch
+HN
+HN
 HN
 HN
 HN

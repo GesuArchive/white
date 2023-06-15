@@ -26,6 +26,8 @@ GLOBAL_VAR(violence_landmark)
 	else
 		current_map = pick_weight(maplist)
 
+	SSviolence.default_color = current_map.map_color
+	SSviolence.default_alpha = current_map.map_alpha
 	SSviolence.theme = current_map.theme
 
 	// меняем тему в лобби на задорную и устанавливаем флаг если потребуется

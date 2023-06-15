@@ -65,6 +65,12 @@ SUBSYSTEM_DEF(violence)
 	// выплата в каждом раунде и за убийство
 	var/payout = 75
 
+	// текущий цвет на арене
+	var/default_color
+
+	// текущая альфа цвета на арене
+	var/default_alpha
+
 	// чёрных список предметов для сохранения
 	var/list/blacklisted_types = list(
 		/obj/item/clothing/shoes/jackboots,
@@ -144,6 +150,9 @@ SUBSYSTEM_DEF(violence)
 	// выбираем зону (если её нет, то высрет рантайм)
 	main_area = GLOB.areas_by_type[/area/violence]
 	message_admins(span_nezbere("VM: Main area selected!"))
+	// настраиваем свет в основной зоне
+	adjust_arena_light(default_color, default_alpha)
+	message_admins(span_nezbere("VM: Area lighting adjusted!"))
 	// отключаем лишние подсистемы
 	SSair.flags |= SS_NO_FIRE
 	SSevents.flags |= SS_NO_FIRE
@@ -296,6 +305,7 @@ SUBSYSTEM_DEF(violence)
 					if(prob(95) || !istype(T, /turf/open))
 						continue
 					T.ChangeTurf(pick(subtypesof(/turf/open)))
+					adjust_arena_light(pick(COLOR_YELLOW, COLOR_LIME, COLOR_RED, COLOR_BLUE_LIGHT, COLOR_CYAN, COLOR_MAGENTA), rand(1, 255))
 		if(VIOLENCE_THEME_CYBER)
 			for(var/turf/open/T as() in main_area)
 				if(prob(99.5) || !istype(T, /turf/open))
@@ -544,3 +554,6 @@ SUBSYSTEM_DEF(violence)
 			play_sound_to_everyone('sound/effects/violence/gong.ogg')
 			for(var/obj/machinery/door/poddoor/D in main_area)
 				INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door/poddoor, open))
+
+/datum/controller/subsystem/violence/proc/adjust_arena_light(new_color, new_alpha)
+	main_area?.set_base_lighting(new_color, new_alpha)
