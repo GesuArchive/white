@@ -54,12 +54,12 @@
 
 ///Adds beaker 1
 /obj/machinery/chem_mass_spec/attackby(obj/item/item, mob/user, params)
-	if(default_unfasten_wrench(user, I))
+	if(default_unfasten_wrench(user, item))
 		return
-	if(default_deconstruction_screwdriver(user, icon_state, icon_state, I))
+	if(default_deconstruction_screwdriver(user, icon_state, icon_state, item))
 		update_icon()
 		return
-	if(default_deconstruction_crowbar(I))
+	if(default_deconstruction_crowbar(item))
 		return
 	if(processing_reagents)
 		to_chat(user, "<span class='notice'>[src] в процессе работы!")
